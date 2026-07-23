@@ -1,13 +1,13 @@
 /*
- * XREFs of HalRequestIpiSpecifyVector @ 0x14027B3E0
+ * XREFs of HalRequestIpiSpecifyVector @ 0x140269380
  * Callers:
- *     KiIntRedirectQueueRequestOnProcessor @ 0x14027AC68 (KiIntRedirectQueueRequestOnProcessor.c)
- *     HalRequestIpi @ 0x14027AEA0 (HalRequestIpi.c)
- *     KiIpiSendRequest @ 0x14027AED0 (KiIpiSendRequest.c)
- *     HalRequestClockInterrupt @ 0x140292B90 (HalRequestClockInterrupt.c)
- *     HalpInterruptResetAllProcessors @ 0x1404D2BEC (HalpInterruptResetAllProcessors.c)
+ *     HalRequestClockInterrupt @ 0x140210B00 (HalRequestClockInterrupt.c)
+ *     KiIntRedirectQueueRequestOnProcessor @ 0x140268C08 (KiIntRedirectQueueRequestOnProcessor.c)
+ *     HalRequestIpi @ 0x140268E40 (HalRequestIpi.c)
+ *     KiIpiSendRequest @ 0x140268E70 (KiIpiSendRequest.c)
+ *     HalpInterruptResetAllProcessors @ 0x1404D2E2C (HalpInterruptResetAllProcessors.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140220210 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x1402C4B10 (HalpInterruptSendIpi.c)
  */
 
 __int64 __fastcall HalRequestIpiSpecifyVector(int a1, _WORD *a2, unsigned int a3)

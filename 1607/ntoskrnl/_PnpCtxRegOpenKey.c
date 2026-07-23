@@ -1,7 +1,7 @@
 /*
- * XREFs of _PnpCtxRegOpenKey @ 0x1404FCD1C
+ * XREFs of _PnpCtxRegOpenKey @ 0x1404DFCAC
  * Callers:
- *     DrvDbGetConfigurationSubKeyCallback @ 0x14023B340 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x14023B224 (DrvDbGetConfigurationSubKeyCallback.c)
  *     PipProcessPendingOsExtensionResources @ 0x1407BB858 (PipProcessPendingOsExtensionResources.c)
  *     PipProcessPendingServices @ 0x1407BB8DC (PipProcessPendingServices.c)
  *     PipMigratePnpState @ 0x1407BBCE0 (PipMigratePnpState.c)

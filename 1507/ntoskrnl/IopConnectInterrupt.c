@@ -54,7 +54,7 @@ __int64 __fastcall IopConnectInterrupt(
   int v26; // ebx
   PSLIST_ENTRY Interrupt; // rax
   _DWORD *v28; // r12
-  struct _SLIST_ENTRY **v29; // r14
+  _SLIST_ENTRY **v29; // r14
   __int64 v30; // [rsp+70h] [rbp-98h]
   char v31; // [rsp+89h] [rbp-7Fh]
   int v32; // [rsp+8Ch] [rbp-7Ch]
@@ -142,7 +142,7 @@ __int64 __fastcall IopConnectInterrupt(
             {
               v26 = 0;
             }
-            Interrupt = KeAllocateInterrupt((union _SLIST_HEADER *)KiProcessorBlock[v26]);
+            Interrupt = KeAllocateInterrupt((_SLIST_HEADER *)KiProcessorBlock[v26]);
             v28 = Interrupt;
             if ( !Interrupt )
             {
@@ -221,7 +221,7 @@ __int64 __fastcall IopConnectInterrupt(
 LABEL_38:
         if ( (char)v13 > 0 )
         {
-          v29 = (struct _SLIST_ENTRY **)(v15 + 456);
+          v29 = (_SLIST_ENTRY **)(v15 + 456);
           do
           {
             if ( *v29 )

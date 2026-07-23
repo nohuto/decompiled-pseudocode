@@ -1,12 +1,12 @@
 /*
- * XREFs of Amd64InitializeUncoreStatusEnhanced @ 0x14056BDF8
+ * XREFs of Amd64InitializeUncoreStatusEnhanced @ 0x140569288
  * Callers:
- *     Amd64InitializeCacheStatusEnhanced @ 0x14056B484 (Amd64InitializeCacheStatusEnhanced.c)
- *     Amd64InitializeDataFabricStatusEnhanced @ 0x14056B8BC (Amd64InitializeDataFabricStatusEnhanced.c)
+ *     Amd64InitializeCacheStatusEnhanced @ 0x140568914 (Amd64InitializeCacheStatusEnhanced.c)
+ *     Amd64InitializeDataFabricStatusEnhanced @ 0x140568D4C (Amd64InitializeDataFabricStatusEnhanced.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     Amd64FindUncoreById @ 0x14056B188 (Amd64FindUncoreById.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     Amd64FindUncoreById @ 0x140568618 (Amd64FindUncoreById.c)
  */
 
 __int64 __fastcall Amd64InitializeUncoreStatusEnhanced(int a1, __int64 **a2, int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIsPfnOriginalPteLost @ 0x140408658
+ * XREFs of MiIsPfnOriginalPteLost @ 0x140401748
  * Callers:
- *     MiWriteCompletePfn @ 0x1404077B0 (MiWriteCompletePfn.c)
- *     MiStoreWriteModifiedPagePostIssue @ 0x140408014 (MiStoreWriteModifiedPagePostIssue.c)
- *     MiWritePageFileHash @ 0x140470698 (MiWritePageFileHash.c)
+ *     MiWriteCompletePfn @ 0x1404008A0 (MiWriteCompletePfn.c)
+ *     MiStoreWriteModifiedPagePostIssue @ 0x140401104 (MiStoreWriteModifiedPagePostIssue.c)
+ *     MiWritePageFileHash @ 0x140469E18 (MiWritePageFileHash.c)
  * Callees:
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
  */
 
 __int64 __fastcall MiIsPfnOriginalPteLost(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipOpenGuidObject @ 0x140A0E274
+ * XREFs of WmipOpenGuidObject @ 0x140A0D764
  * Callers:
- *     WmipOpenBlock @ 0x140A0E050 (WmipOpenBlock.c)
+ *     WmipOpenBlock @ 0x140A0D540 (WmipOpenBlock.c)
  * Callees:
- *     WmipUuidFromString @ 0x140A0FB98 (WmipUuidFromString.c)
- *     WmipCreateGuidObject @ 0x140A10030 (WmipCreateGuidObject.c)
+ *     WmipUuidFromString @ 0x140A0ED88 (WmipUuidFromString.c)
+ *     WmipCreateGuidObject @ 0x140A0F220 (WmipCreateGuidObject.c)
  */
 
 __int64 __fastcall WmipOpenGuidObject(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)

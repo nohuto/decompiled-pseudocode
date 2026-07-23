@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnCheckActionsNeeded @ 0x14096FED8
+ * XREFs of PfSnCheckActionsNeeded @ 0x1409D21C0
  * Callers:
- *     PfSnBeginScenario @ 0x14096F3B8 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x1409D16A0 (PfSnBeginScenario.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     MmQueryMemoryListInformation @ 0x1403485A8 (MmQueryMemoryListInformation.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     MmGetDefaultPagePriority @ 0x1404B6960 (MmGetDefaultPagePriority.c)
- *     PfResourceExclusiveAcquire @ 0x1404D7018 (PfResourceExclusiveAcquire.c)
- *     MmQueryTransitionPagesMadeColdCount @ 0x1404ED6CC (MmQueryTransitionPagesMadeColdCount.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140970220 (PfSnPrefetchCacheEntryGet.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     MmQueryMemoryListInformation @ 0x14034A628 (MmQueryMemoryListInformation.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     MmGetDefaultPagePriority @ 0x1404AFDB0 (MmGetDefaultPagePriority.c)
+ *     PfResourceExclusiveAcquire @ 0x1404D07E8 (PfResourceExclusiveAcquire.c)
+ *     MmQueryTransitionPagesMadeColdCount @ 0x1404E6CAC (MmQueryTransitionPagesMadeColdCount.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1409D2508 (PfSnPrefetchCacheEntryGet.c)
  */
 
 __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a3, int *a4, int *a5)
@@ -70,7 +70,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
   v8 = 3;
   v9 = 23;
   v10 = 3;
-  if ( (stru_140E66B30.AbCompletedIoQoSBoostCount & 8) != 0 )
+  if ( (stru_140E66D40.AbCompletedIoQoSBoostCount & 8) != 0 )
   {
     v9 = 22;
     v8 = 22;
@@ -88,7 +88,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
     }
     else
     {
-      if ( (stru_140E66FF0.WaitBlockFill5[32] & 0x10) != 0 && !a2 )
+      if ( (stru_140E67200.WaitBlockFill5[32] & 0x10) != 0 && !a2 )
       {
         v10 = 1;
         v9 = 14;
@@ -147,8 +147,8 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
       }
       v32 = v29 >> 6;
       v33 = MmQueryTransitionPagesMadeColdCount(&v42);
-      PfResourceExclusiveAcquire((struct _ERESOURCE *)&stru_140E66FF0.Teb);
-      v34 = PfSnPrefetchCacheEntryGet(&stru_140E66FF0.WaitStatus, v46, v45, &v41);
+      PfResourceExclusiveAcquire((struct _ERESOURCE *)&stru_140E67200.Teb);
+      v34 = PfSnPrefetchCacheEntryGet(&stru_140E67200.WaitStatus, v46, v45, &v41);
       v35 = (_DWORD *)v34;
       if ( v34 )
       {
@@ -172,7 +172,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
           if ( v10 >= 2 )
           {
             v9 = 4;
-            if ( (stru_140E66B30.AbCompletedIoQoSBoostCount & 2) == 0 )
+            if ( (stru_140E66D40.AbCompletedIoQoSBoostCount & 2) == 0 )
             {
               if ( v37 >= 0x1B7740 )
               {
@@ -203,7 +203,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
       {
         v9 = 3;
       }
-      ExReleaseResourceLite((PERESOURCE)&stru_140E66FF0.Teb);
+      ExReleaseResourceLite((PERESOURCE)&stru_140E67200.Teb);
       KeLeaveCriticalRegion();
     }
   }

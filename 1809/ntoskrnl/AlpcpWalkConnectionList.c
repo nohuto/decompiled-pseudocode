@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpWalkConnectionList @ 0x1406C3550
+ * XREFs of AlpcpWalkConnectionList @ 0x1406C47F0
  * Callers:
- *     AlpcpDisconnectPort @ 0x1406196F0 (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x14061A6F0 (AlpcpDisconnectPort.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall AlpcpWalkConnectionList(__int64 a1)

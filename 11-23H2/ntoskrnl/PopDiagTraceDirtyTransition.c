@@ -4,11 +4,11 @@
  *     PopCheckShutdownMarker @ 0x140B6E32C (PopCheckShutdownMarker.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SshSessionManagerTraceDirtyTransition @ 0x1408000B8 (SshSessionManagerTraceDirtyTransition.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SshSessionManagerTraceDirtyTransition @ 0x140800388 (SshSessionManagerTraceDirtyTransition.c)
  *     PopDiagInterruptTimeToSystemTime @ 0x140A88B40 (PopDiagInterruptTimeToSystemTime.c)
  *     PopPotsLogDirtyPowerTransition @ 0x140B35D5C (PopPotsLogDirtyPowerTransition.c)
  */
@@ -635,7 +635,7 @@ char PopDiagTraceDirtyTransition()
           v106 = 0x1000000LL;
           v262 = &v106;
           v263 = 8LL;
-          return tlgWriteTransfer_EtwWriteTransfer(v5, (unsigned __int8 *)&word_14002FA96, 0LL, 0LL, 0x50u, &v107);
+          return tlgWriteTransfer_EtwWriteTransfer(v5, (unsigned __int8 *)&byte_14002FF7F, 0LL, 0LL, 0x50u, &v107);
         }
       }
     }

@@ -3,8 +3,8 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     KeInitializeQueue @ 0x14007DE44 (KeInitializeQueue.c)
- *     PopFxCreateEmergencyWorkerThread @ 0x14057AF44 (PopFxCreateEmergencyWorkerThread.c)
+ *     KeInitializeQueue @ 0x14007DEC4 (KeInitializeQueue.c)
+ *     PopFxCreateEmergencyWorkerThread @ 0x14057B3F0 (PopFxCreateEmergencyWorkerThread.c)
  */
 
 __int64 PoFxInitPowerManagement()
@@ -19,20 +19,20 @@ __int64 PoFxInitPowerManagement()
 
   PopFxResidentDpc.TargetInfoAsUlong = 275;
   *(_QWORD *)&PopFxResidentTimer.Header.Lock = 9LL;
-  qword_140304578 = (__int64)&PopFxDeviceList;
+  qword_1403045B8 = (__int64)&PopFxDeviceList;
   PopFxDeviceList = (ULONG_PTR)&PopFxDeviceList;
-  qword_140304568 = (__int64)&PopFxAcpiDeviceList;
+  qword_1403045A8 = (__int64)&PopFxAcpiDeviceList;
   PopFxAcpiDeviceList = (__int64)&PopFxAcpiDeviceList;
-  qword_140304598 = (__int64)&PopFxPluginList;
+  qword_1403045D8 = (__int64)&PopFxPluginList;
   PopFxPluginList = (ULONG_PTR)&PopFxPluginList;
   PopFxDeviceRegisterHead = (__int64)&PopFxPluginList;
-  qword_140304630 = (__int64)PopFxResidentTimeoutRoutine;
+  qword_140304670 = (__int64)PopFxResidentTimeoutRoutine;
   PopFxResidentDpc.DeferredRoutine = (PKDEFERRED_ROUTINE)PopFxResidentTimeoutDpcRoutine;
   PopFxResidentTimer.Header.WaitListHead.Blink = &PopFxResidentTimer.Header.WaitListHead;
   PopFxResidentTimer.Header.WaitListHead.Flink = &PopFxResidentTimer.Header.WaitListHead;
   PopFxDeviceListLock = 0LL;
   PopFxPluginLock = 0LL;
-  qword_140304638 = 0LL;
+  qword_140304678 = 0LL;
   PopFxActiveIdleThreshold *= 10000;
   PopFxResidentWorkItem = 0LL;
   PopFxResidentDpc.DeferredContext = 0LL;
@@ -46,10 +46,10 @@ __int64 PoFxInitPowerManagement()
   if ( PopSleepStudyDisabled )
     PopFxDeviceAccountingLevel = 0;
   v0 = 4LL;
-  qword_140304698 = (__int64)&SocSubsystemsList;
-  v1 = (__int64 (__fastcall **)(__int64))&unk_1403046D0;
+  qword_1403046D8 = (__int64)&SocSubsystemsList;
+  v1 = (__int64 (__fastcall **)(__int64))&unk_140304710;
   SocSubsystemsList = (__int64)&SocSubsystemsList;
-  v2 = (char *)&unk_140304821;
+  v2 = (char *)&unk_140304861;
   do
   {
     v1[3] = 0LL;
@@ -81,9 +81,9 @@ __int64 PoFxInitPowerManagement()
   KeInitializeQueue(&PopFxSystemWorkQueue, 1u);
   PopFxCreateEmergencyWorkerThread(&PopFxSystemWorkQueue);
   *(_QWORD *)&PopPepIdleTimer.Header.Lock = 9LL;
-  qword_140302F08 = (__int64)&PopPepDeviceList;
+  qword_140302F68 = (__int64)&PopPepDeviceList;
   PopPepDeviceList = (__int64)&PopPepDeviceList;
-  qword_140302FF0 = (__int64)PopPepIdleTimeoutRoutine;
+  qword_140303050 = (__int64)PopPepIdleTimeoutRoutine;
   PopPepIdleDpc.DeferredRoutine = (PKDEFERRED_ROUTINE)PopPepIdleTimeoutDpcRoutine;
   PopPepIdleTimer.Header.WaitListHead.Blink = &PopPepIdleTimer.Header.WaitListHead;
   PopPepIdleTimer.Header.WaitListHead.Flink = &PopPepIdleTimer.Header.WaitListHead;
@@ -92,7 +92,7 @@ __int64 PoFxInitPowerManagement()
   qword_140301688 = 0LL;
   qword_140301690 = 0LL;
   PopPepDeviceListLock = 0LL;
-  qword_140302FF8 = 0LL;
+  qword_140303058 = 0LL;
   PopPepIdleWorkItem = 0LL;
   PopPepIdleDpc.TargetInfoAsUlong = 275;
   PopPepIdleDpc.DeferredContext = 0LL;

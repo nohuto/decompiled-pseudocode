@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenMutant @ 0x140463E74
+ * XREFs of NtOpenMutant @ 0x140462D44
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
  */
 
 NTSTATUS __stdcall NtOpenMutant(PHANDLE MutantHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)

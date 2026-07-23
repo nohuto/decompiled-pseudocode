@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhBucketGetSubsegment @ 0x14010E440
+ * XREFs of RtlpHpLfhBucketGetSubsegment @ 0x14010E4C0
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BADE0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,12 +10,12 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x14010E720 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14010E7A0 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, int a2)
@@ -119,7 +119,7 @@ LABEL_33:
     {
       v18->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v18->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v10->LockEntries[v17], v13);
+        KiAbEntryRemoveFromTree(&v10->LockEntries[v17].TreeNode, v13);
       v23 = 0;
       v23 = v18->BoostBitmap.AllFields & 0x1FFFF;
       v18->BoostBitmap.AllFields &= 0xFFFE0000;

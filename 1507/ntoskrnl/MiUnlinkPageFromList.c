@@ -555,7 +555,7 @@ LABEL_119:
     {
       LOBYTE(v72) = 1;
       v73 = (__int64)(BugCheckParameter2 + 0x58000000000LL) / 48;
-      v74 = (volatile signed __int32 *)(*(_QWORD *)(qword_14034F160 + 8) + 4 * (v73 >> 5));
+      v74 = (volatile signed __int32 *)qword_14034F160->Buffer + (v73 >> 5);
       v75 = v73 & 0x1F;
       if ( (v73 & 0x1F) + 1 > 0x20 )
       {

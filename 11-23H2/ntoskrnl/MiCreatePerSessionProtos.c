@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCreatePerSessionProtos @ 0x1407B5D00
+ * XREFs of MiCreatePerSessionProtos @ 0x1407B5FE0
  * Callers:
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
- *     MiCloneImageVad @ 0x14066317C (MiCloneImageVad.c)
+ *     MiCloneImageVad @ 0x1406636CC (MiCloneImageVad.c)
  *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
  *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiFinishCreateSection @ 0x140722D30 (MiFinishCreateSection.c)
- *     MiInitializeImageExtents @ 0x140A33E8C (MiInitializeImageExtents.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiFinishCreateSection @ 0x140722F30 (MiFinishCreateSection.c)
+ *     MiInitializeImageExtents @ 0x140A3413C (MiInitializeImageExtents.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiLocateSessionProtosInSubsection @ 0x14033EAA0 (MiLocateSessionProtosInSubsection.c)
- *     MiUpdatePerSessionProto @ 0x14033EB08 (MiUpdatePerSessionProto.c)
- *     MiDereferenceSubsectionProtos @ 0x1407B5C98 (MiDereferenceSubsectionProtos.c)
- *     MiAllocatePerSessionProtos @ 0x1407B5E60 (MiAllocatePerSessionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1407B6074 (MiFreeSubsectionProtos.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiLocateSessionProtosInSubsection @ 0x14033ED30 (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x14033ED98 (MiUpdatePerSessionProto.c)
+ *     MiDereferenceSubsectionProtos @ 0x1407B5F78 (MiDereferenceSubsectionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1407B6140 (MiAllocatePerSessionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1407B6354 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiCreatePerSessionProtos(_QWORD *a1, unsigned int a2)

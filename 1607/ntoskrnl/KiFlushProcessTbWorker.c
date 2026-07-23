@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushProcessTbWorker @ 0x1401DBBB0
+ * XREFs of KiFlushProcessTbWorker @ 0x1401DB9DC
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 unsigned __int64 KiFlushProcessTbWorker()

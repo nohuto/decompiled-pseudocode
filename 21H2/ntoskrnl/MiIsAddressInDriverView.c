@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsAddressInDriverView @ 0x14053A828
+ * XREFs of MiIsAddressInDriverView @ 0x14053AA68
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x1402B8690 (MiCompleteProtoPteFault.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x14031C754 (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x14031C888 (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1403274A4 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x1403275D8 (MmLockLoadedModuleListShared.c)
  */
 
 __int64 __fastcall MiIsAddressInDriverView(unsigned __int64 a1)

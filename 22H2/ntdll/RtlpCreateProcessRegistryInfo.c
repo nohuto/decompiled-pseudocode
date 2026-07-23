@@ -24,13 +24,11 @@
  *     RtlpInitMuiCriticalSection @ 0x1800709A8 (RtlpInitMuiCriticalSection.c)
  */
 
-__int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpCreateProcessRegistryInfo(_QWORD *a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rbx
+  PVOID v1; // rax
+  PVOID v2; // rbx
   int RegistryInfo; // edi
-  __int64 v6; // rdx
-  __int64 v7; // r8
 
   v1 = g_RegInfo;
   v2 = 0LL;
@@ -38,10 +36,10 @@ __int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
   if ( !g_RegInfo )
   {
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     if ( !g_RegInfo )
       RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect, v6, v7);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     v1 = g_RegInfo;
   }
   if ( a1 )

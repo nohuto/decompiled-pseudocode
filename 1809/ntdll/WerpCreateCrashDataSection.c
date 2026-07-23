@@ -4,19 +4,28 @@
  *     RtlReportExceptionEx @ 0x1800DDDE0 (RtlReportExceptionEx.c)
  *     RtlReportExceptionHelper @ 0x1800DE2B0 (RtlReportExceptionHelper.c)
  * Callees:
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     ZwMapViewOfSection @ 0x1800A07E0 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1800A0820 (NtUnmapViewOfSection.c)
- *     NtCreateSection @ 0x1800A0C20 (NtCreateSection.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x1800A0800 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x1800A0840 (NtUnmapViewOfSection.c)
+ *     NtCreateSection @ 0x1800A0C40 (NtCreateSection.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall WerpCreateCrashDataSection(_QWORD *a1, _QWORD *a2)
+__int64 __fastcall WerpCreateCrashDataSection(HANDLE *a1, PVOID *a2)
 {
-  int Section; // ebx
-  _OWORD v6[3]; // [rsp+50h] [rbp-30h] BYREF
+  NTSTATUS v4; // ebx
+  HANDLE v5; // rcx
+  PVOID v6; // rdx
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  PVOID BaseAddress; // [rsp+B0h] [rbp+30h] BYREF
+  HANDLE SectionHandle; // [rsp+B8h] [rbp+38h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+C0h] [rbp+40h] BYREF
+  ULONG_PTR ViewSize; // [rsp+C8h] [rbp+48h] BYREF
 
-  memset(v6, 0, sizeof(v6));
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   if ( a1 )
     *a1 = 0LL;
   if ( a2 )
@@ -25,23 +34,49 @@ __int64 __fastcall WerpCreateCrashDataSection(_QWORD *a1, _QWORD *a2)
   {
     if ( a2 )
     {
-      LODWORD(v6[0]) = 48;
-      *((_QWORD *)&v6[0] + 1) = 0LL;
-      v6[2] = 0LL;
-      DWORD2(v6[1]) = 2;
-      *(_QWORD *)&v6[1] = 0LL;
-      Section = NtCreateSection();
-      if ( Section >= 0 )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      ObjectAttributes.Attributes = 2;
+      ObjectAttributes.ObjectName = 0LL;
+      MaximumSize.QuadPart = 1640LL;
+      v4 = NtCreateSection(&SectionHandle, 0xF0007u, &ObjectAttributes, &MaximumSize, 4u, 0x8000000u, 0LL);
+      if ( v4 < 0
+        || (v4 = ZwMapViewOfSection(
+                   SectionHandle,
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   &BaseAddress,
+                   0LL,
+                   0LL,
+                   0LL,
+                   &ViewSize,
+                   ViewShare,
+                   0,
+                   4u),
+            v4 < 0) )
       {
-        Section = ZwMapViewOfSection();
-        if ( Section >= 0 )
-        {
-          memset(0LL, 0, 0xF0uLL);
-          *a1 = 0LL;
-          Section = 0;
-          *a2 = 0LL;
-        }
+        v5 = SectionHandle;
+        v6 = BaseAddress;
       }
+      else
+      {
+        memset(BaseAddress, 0, 0xF0uLL);
+        v5 = 0LL;
+        *a1 = SectionHandle;
+        v6 = 0LL;
+        v4 = 0;
+        *a2 = BaseAddress;
+        SectionHandle = 0LL;
+        BaseAddress = 0LL;
+      }
+      if ( v6 )
+      {
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v6);
+        v5 = SectionHandle;
+        BaseAddress = 0LL;
+      }
+      if ( v5 )
+        NtClose(v5);
     }
     else
     {
@@ -52,5 +87,5 @@ __int64 __fastcall WerpCreateCrashDataSection(_QWORD *a1, _QWORD *a2)
   {
     return (unsigned int)-1073741585;
   }
-  return (unsigned int)Section;
+  return (unsigned int)v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroDispatchRegisterWpsUpdates @ 0x1407D6050
+ * XREFs of PpmHeteroDispatchRegisterWpsUpdates @ 0x1407D9200
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmHeteroDispatchRegisterWpsUpdates(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PpmHeteroDispatchRegisterWpsUpdates(__int64 a1, __int64 a2)
     if ( v4 )
     {
       *(_QWORD *)(a1 + 8) = PpmHeteroDispatchHgsInterrupt;
-      if ( PopSleepstudySessionLock.ThreadLock )
+      if ( PpmHeteroRegisterWpsUpdates )
         return (unsigned int)guard_dispatch_icall_no_overrides(a1, a2);
       else
         return (unsigned int)-1073741661;

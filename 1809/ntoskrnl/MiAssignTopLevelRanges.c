@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAssignTopLevelRanges @ 0x1409D2A80
+ * XREFs of MiAssignTopLevelRanges @ 0x1409D3A80
  * Callers:
- *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x1409D33A8 (MiInitializeSystemVa.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiAssignSystemVa @ 0x1409D2CE0 (MiAssignSystemVa.c)
- *     MiAddSubRegionEntropy @ 0x1409D2DC0 (MiAddSubRegionEntropy.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiAssignSystemVa @ 0x1409D3CE0 (MiAssignSystemVa.c)
+ *     MiAddSubRegionEntropy @ 0x1409D3DC0 (MiAddSubRegionEntropy.c)
  */
 
 __int64 MiAssignTopLevelRanges()

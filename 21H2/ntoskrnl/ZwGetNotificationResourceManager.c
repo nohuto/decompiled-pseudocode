@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetNotificationResourceManager @ 0x1403FC300
+ * XREFs of ZwGetNotificationResourceManager @ 0x1403FC4E0
  * Callers:
  *     <none>
  * Callees:
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwGetNotificationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, TransactionNotification);
+  return KiServiceInternal(ResourceManagerHandle);
 }

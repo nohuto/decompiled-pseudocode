@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmSetPlatformIdleDurationHint @ 0x140585C20
+ * XREFs of PpmSetPlatformIdleDurationHint @ 0x140586110
  * Callers:
- *     PoIdle @ 0x1402C4B60 (PoIdle.c)
+ *     PoIdle @ 0x1402C4DF0 (PoIdle.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
  */

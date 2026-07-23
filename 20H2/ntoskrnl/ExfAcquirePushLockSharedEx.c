@@ -135,7 +135,7 @@ signed __int64 __fastcall ExfAcquirePushLockSharedEx(unsigned __int64 *a1, __int
       KeWaitForSingleObject(Object, WrPushLock, 0, 0, 0LL);
 LABEL_25:
     if ( a2 )
-      a2 = KeAbPreAcquire(a3, a2, 0LL);
+      a2 = KeAbPreAcquire(a3, a2, 0);
   }
   v8 = (v6 | 1) + 16;
   if ( v7 )

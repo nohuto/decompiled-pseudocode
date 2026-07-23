@@ -1,10 +1,10 @@
 /*
- * XREFs of IopGetNetworkOpenInformation @ 0x140948030
+ * XREFs of IopGetNetworkOpenInformation @ 0x140948230
  * Callers:
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopQueryXxxInformation @ 0x14075D28C (IopQueryXxxInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopQueryXxxInformation @ 0x14075D47C (IopQueryXxxInformation.c)
  */
 
 __int64 __fastcall IopGetNetworkOpenInformation(struct _FILE_OBJECT *Object, __int64 a2)

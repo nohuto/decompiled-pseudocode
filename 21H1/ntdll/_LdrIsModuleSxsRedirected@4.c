@@ -7,17 +7,17 @@
  *     _LdrpDereferenceModule@4 @ 0x4B2CD3B1 (_LdrpDereferenceModule@4.c)
  */
 
-bool __stdcall LdrIsModuleSxsRedirected(unsigned int a1)
+BOOLEAN __cdecl LdrIsModuleSxsRedirected(PVOID DllHandle)
 {
-  char v1; // bl
+  BOOLEAN v1; // bl
   int v2; // ebx
-  int v4; // [esp+4h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+4h] [ebp-4h] BYREF
 
   v1 = 0;
-  if ( LdrpFindLoadedDllByHandle(a1, &v4, 0) >= 0 )
+  if ( LdrpFindLoadedDllByHandle((_RTL_BALANCED_NODE *)DllHandle, (volatile signed __int32 **)&BaseAddress, 0) >= 0 )
   {
-    v2 = *(_DWORD *)(v4 + 52);
-    LdrpDereferenceModule(v4);
+    v2 = *((_DWORD *)BaseAddress + 13);
+    LdrpDereferenceModule((char *)BaseAddress);
     return (v2 & 0x10000000) != 0;
   }
   return v1;

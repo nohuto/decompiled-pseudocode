@@ -1,9 +1,9 @@
 /*
- * XREFs of MmDeterminePoolType @ 0x140641A34
+ * XREFs of MmDeterminePoolType @ 0x140641F84
  * Callers:
- *     VfPtAddStackInfoIfNotExist @ 0x140ADE5D0 (VfPtAddStackInfoIfNotExist.c)
- *     VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140AE0230 (VfMiscMmBuildMdlForNonPagedPool_Entry.c)
- *     ExFreePoolSanityChecks @ 0x140AE7E2C (ExFreePoolSanityChecks.c)
+ *     VfPtAddStackInfoIfNotExist @ 0x140ADE5C0 (VfPtAddStackInfoIfNotExist.c)
+ *     VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140AE0220 (VfMiscMmBuildMdlForNonPagedPool_Entry.c)
+ *     ExFreePoolSanityChecks @ 0x140AE7E1C (ExFreePoolSanityChecks.c)
  * Callees:
  *     MiDeterminePoolType @ 0x1402123C0 (MiDeterminePoolType.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlGetProcessorIndexFromVpIndex @ 0x140549640
+ * XREFs of HvlGetProcessorIndexFromVpIndex @ 0x140549D00
  * Callers:
  *     <none>
  * Callees:

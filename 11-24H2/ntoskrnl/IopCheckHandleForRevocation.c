@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckHandleForRevocation @ 0x1405972F0
+ * XREFs of IopCheckHandleForRevocation @ 0x140594270
  * Callers:
  *     <none>
  * Callees:
- *     IopCancelIrpsInFileObjectList @ 0x140418C10 (IopCancelIrpsInFileObjectList.c)
- *     IopSetFileObjectExtensionFlag @ 0x140434650 (IopSetFileObjectExtensionFlag.c)
- *     ExUnlockHandleTableEntry @ 0x14093D890 (ExUnlockHandleTableEntry.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x14094A628 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelIrpsInFileObjectList @ 0x1404089C0 (IopCancelIrpsInFileObjectList.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1404278D0 (IopSetFileObjectExtensionFlag.c)
+ *     ExUnlockHandleTableEntry @ 0x140891F80 (ExUnlockHandleTableEntry.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1408EEB98 (IopCancelIrpsInThreadListForCurrentProcess.c)
  */
 
 char __fastcall IopCheckHandleForRevocation(__int64 a1, __int64 *a2, __int64 a3, _QWORD *a4)
@@ -22,7 +22,7 @@ char __fastcall IopCheckHandleForRevocation(__int64 a1, __int64 *a2, __int64 a3,
     {
       v7 = a4[1];
       IopSetFileObjectExtensionFlag(v6, 4u);
-      IopCancelIrpsInFileObjectList(v6, v7, 0, 0, 0, 0);
+      IopCancelIrpsInFileObjectList(v6, v7, 0LL, 0LL, 0, 0);
       IopCancelIrpsInThreadListForCurrentProcess(v6, 0LL);
     }
   }

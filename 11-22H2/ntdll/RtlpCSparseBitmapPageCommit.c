@@ -16,13 +16,13 @@ __int64 __fastcall RtlpCSparseBitmapPageCommit(__int64 a1, unsigned __int64 a2, 
   unsigned __int64 v7; // rsi
   __int64 v9; // rdx
   __int64 v10; // r8
-  int v11; // edi
+  NTSTATUS v11; // edi
   __int64 v13; // rdx
   __int64 v14; // r8
-  __int64 v15; // [rsp+28h] [rbp-48h]
-  unsigned __int64 v16; // [rsp+50h] [rbp-20h] BYREF
+  int v15; // [rsp+28h] [rbp-48h]
+  PVOID BaseAddress; // [rsp+50h] [rbp-20h] BYREF
   __int128 v17; // [rsp+58h] [rbp-18h]
-  __int64 v18; // [rsp+B0h] [rbp+40h] BYREF
+  ULONG_PTR RegionSize; // [rsp+B0h] [rbp+40h] BYREF
   unsigned __int64 v19; // [rsp+B8h] [rbp+48h] BYREF
 
   v19 = a2;
@@ -30,9 +30,9 @@ __int64 __fastcall RtlpCSparseBitmapPageCommit(__int64 a1, unsigned __int64 a2, 
   v7 = a2;
   if ( !_bittest64((const signed __int64 *)(a1 + 56), a2 >> 15) )
   {
-    v18 = 4096LL;
-    v16 = *(_QWORD *)a1 + (v5 << 12);
-    v11 = RtlpHpEnvAllocVA((__int64)&v16, (__int64)&v18, 0LL, 1073745920, 4, v15, *(unsigned __int8 *)(a1 + 50), 0LL);
+    RegionSize = 4096LL;
+    BaseAddress = (PVOID)(*(_QWORD *)a1 + (v5 << 12));
+    v11 = RtlpHpEnvAllocVA(&BaseAddress, &RegionSize, 0LL, 1073745920, 4u, v15, *(unsigned __int8 *)(a1 + 50), 0LL);
     if ( v11 < 0 )
       return (unsigned int)v11;
     _interlockedbittestandset64((volatile signed __int32 *)(a1 + 56), v5);
@@ -50,9 +50,9 @@ __int64 __fastcall RtlpCSparseBitmapPageCommit(__int64 a1, unsigned __int64 a2, 
   }
   if ( !_bittest64(*(const signed __int64 **)a1, v7) )
   {
-    v18 = 4096LL;
-    v16 = *(_QWORD *)(a1 + 8) + (v7 << 12);
-    v11 = RtlpHpEnvAllocVA((__int64)&v16, (__int64)&v18, 0LL, 1073745920, 4, v15, *(unsigned __int8 *)(a1 + 50), 0LL);
+    RegionSize = 4096LL;
+    BaseAddress = (PVOID)(*(_QWORD *)(a1 + 8) + (v7 << 12));
+    v11 = RtlpHpEnvAllocVA(&BaseAddress, &RegionSize, 0LL, 1073745920, 4u, v15, *(unsigned __int8 *)(a1 + 50), 0LL);
     if ( v11 < 0 )
     {
       RtlpCSparseBitmapUnlock(a3, v13, v14);

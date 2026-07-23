@@ -1,11 +1,11 @@
 /*
- * XREFs of MmVerifierTrimMemory @ 0x1409C5C04
+ * XREFs of MmVerifierTrimMemory @ 0x1409C6C04
  * Callers:
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x140350450 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x1403FE5D0 (KeGetCurrentStackPointer.c)
- *     MiTrimAllSystemPagableMemory @ 0x14053C040 (MiTrimAllSystemPagableMemory.c)
+ *     RtlpGetStackLimits @ 0x14035B1A0 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x1403FE7B0 (KeGetCurrentStackPointer.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14053C280 (MiTrimAllSystemPagableMemory.c)
  */
 
 char *MmVerifierTrimMemory()
@@ -28,26 +28,26 @@ char *MmVerifierTrimMemory()
       result = &KeGetCurrentStackPointer()[-v3];
       if ( (unsigned __int64)result > 0x1A30 )
       {
-        ++dword_140C2A880;
+        ++dword_140C2A8C0;
         v2 = ViTrimSpaces;
         LOBYTE(v0) = ViTrimSpaces < 0;
         if ( (ViTrimSpaces & 1) != 0 )
         {
           result = (char *)MiTrimAllSystemPagableMemory(0, v0);
           if ( (_DWORD)result == 1 )
-            ++dword_140C2A884;
+            ++dword_140C2A8C4;
         }
         if ( (v2 & 2) != 0 )
         {
           result = (char *)MiTrimAllSystemPagableMemory(1, v0);
           if ( (_DWORD)result == 1 )
-            ++dword_140C2A89C;
+            ++dword_140C2A8DC;
         }
         if ( (v2 & 4) != 0 )
         {
           result = (char *)MiTrimAllSystemPagableMemory(2, v0);
           if ( (_DWORD)result == 1 )
-            ++dword_140C2A8D4;
+            ++dword_140C2A914;
         }
       }
     }

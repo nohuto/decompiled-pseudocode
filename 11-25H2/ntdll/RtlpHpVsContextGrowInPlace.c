@@ -22,7 +22,7 @@ __int64 __fastcall RtlpHpVsContextGrowInPlace(__int64 a1, _WORD *a2, __int64 a3,
   __int64 v14; // rdi
   unsigned int v15; // r10d
   unsigned int v16; // edx
-  __int64 v17; // r12
+  _RTL_SRWLOCK *v17; // r12
   unsigned __int64 v18; // r9
   unsigned __int64 v19; // rax
   int v20; // eax
@@ -32,13 +32,13 @@ __int64 __fastcall RtlpHpVsContextGrowInPlace(__int64 a1, _WORD *a2, __int64 a3,
   int v25; // r9d
   int v26; // r8d
   int v27; // ecx
-  __int128 v28; // [rsp+30h] [rbp-48h] BYREF
+  PRTL_SRWLOCK SRWLock[2]; // [rsp+30h] [rbp-48h] BYREF
   __int64 v29; // [rsp+40h] [rbp-38h]
   unsigned int v30; // [rsp+80h] [rbp+8h]
 
   v5 = (unsigned int *)(a3 - 16);
   v6 = *(_BYTE *)(a1 + 4);
-  v28 = 0LL;
+  *(_OWORD *)SRWLock = 0LL;
   v29 = 0LL;
   if ( (v6 & 1) != 0 )
     return 0LL;
@@ -83,11 +83,11 @@ LABEL_26:
       RtlpHpVsChunkSetUnusedBytes(a3);
     return a3;
   }
-  v17 = a1 + ((unsigned __int64)(unsigned __int16)a2[17] << 6);
+  v17 = (_RTL_SRWLOCK *)(a1 + ((unsigned __int64)(unsigned __int16)a2[17] << 6));
   if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
   {
-    *((_QWORD *)&v28 + 1) = v17 + 8;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v17 + 8));
+    SRWLock[1] = v17 + 1;
+    RtlAcquireSRWLockExclusive(v17 + 1);
     v9 = RtlpHpHeapGlobals;
     v15 = v30;
   }
@@ -97,7 +97,7 @@ LABEL_26:
     v19 = v18 ^ v9 ^ *(_QWORD *)v18;
     if ( (v19 & 0xFF000000000000LL) == 0 && WORD1(v19) >= v15 )
     {
-      v20 = RtlpHpVsChunkSplit(a1, v17, (unsigned __int64)a2, v18, v15, (__int64)&v28);
+      v20 = RtlpHpVsChunkSplit(a1, (__int64)v17, (unsigned __int64)a2, v18, v15, (__int64)SRWLock);
       if ( v20 )
       {
         *((_WORD *)v5 + 1) = WORD1(RtlpHpHeapGlobals) ^ WORD1(v5) ^ (((v20 << 16) + (v11 & 0xFFFF0000)) >> 16);
@@ -115,12 +115,12 @@ LABEL_26:
           v5[2] &= ~0x100u;
         }
         if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
-          RtlReleaseSRWLockExclusive(*((volatile signed __int64 **)&v28 + 1));
+          RtlReleaseSRWLockExclusive(SRWLock[1]);
         return a3;
       }
     }
   }
   if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
-    RtlReleaseSRWLockExclusive(*((volatile signed __int64 **)&v28 + 1));
+    RtlReleaseSRWLockExclusive(SRWLock[1]);
   return v14;
 }

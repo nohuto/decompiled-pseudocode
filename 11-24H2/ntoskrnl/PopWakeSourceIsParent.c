@@ -1,9 +1,9 @@
 /*
- * XREFs of PopWakeSourceIsParent @ 0x140751A00
+ * XREFs of PopWakeSourceIsParent @ 0x14074FD20
  * Callers:
- *     PopProcessWakeSourceWork @ 0x140B6CA78 (PopProcessWakeSourceWork.c)
+ *     PopProcessWakeSourceWork @ 0x140B6E318 (PopProcessWakeSourceWork.c)
  * Callees:
- *     wcsncmp @ 0x1404FFFD0 (wcsncmp.c)
+ *     wcsncmp @ 0x1404FD890 (wcsncmp.c)
  */
 
 char __fastcall PopWakeSourceIsParent(const wchar_t **a1, __int64 a2)

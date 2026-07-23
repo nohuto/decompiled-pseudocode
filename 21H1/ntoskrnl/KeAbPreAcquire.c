@@ -143,7 +143,7 @@
  *     KeBugCheckEx @ 0x1403F5E40 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall KeAbPreAcquire(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
+__int64 __fastcall KeAbPreAcquire(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)
 {
   __int64 v3; // rdi
   struct _KTHREAD *CurrentThread; // rbx
@@ -167,7 +167,7 @@ __int64 __fastcall KeAbPreAcquire(ULONG_PTR BugCheckParameter2, __int64 a2, __in
     {
       *(_BYTE *)(a2 + 32) |= 2u;
       if ( *(__int64 *)(a2 + 32) < 0 )
-        KiAbEntryRemoveFromTree(a2, a2, a3);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a2);
       v15 = *(_DWORD *)(v3 + 88) & 0xFFFE0000;
       *(_BYTE *)(v3 + 25) &= ~1u;
       *(_DWORD *)(v3 + 88) = v15;

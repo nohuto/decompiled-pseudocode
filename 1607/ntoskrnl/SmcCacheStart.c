@@ -1,13 +1,13 @@
 /*
- * XREFs of SmcCacheStart @ 0x14069A250
+ * XREFs of SmcCacheStart @ 0x14069A334
  * Callers:
- *     SmcProcessCreateRequest @ 0x140697464 (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x140697548 (SmcProcessCreateRequest.c)
  * Callees:
- *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x14000562C (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     SmKmStoreFileCreate @ 0x140698AE8 (SmKmStoreFileCreate.c)
- *     SmKmStoreFileOpenVolume @ 0x140699764 (SmKmStoreFileOpenVolume.c)
- *     SmKmVolumeQueryUniqueId @ 0x140699ADC (SmKmVolumeQueryUniqueId.c)
+ *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x1400057A0 (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     SmKmStoreFileCreate @ 0x140698BCC (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileOpenVolume @ 0x140699848 (SmKmStoreFileOpenVolume.c)
+ *     SmKmVolumeQueryUniqueId @ 0x140699BC0 (SmKmVolumeQueryUniqueId.c)
  */
 
 __int64 __fastcall SmcCacheStart(__int64 a1, __int64 *a2, __int64 a3)

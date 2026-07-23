@@ -11,131 +11,115 @@
  *     RtlApplicationVerifierStop @ 0x1800D63D0 (RtlApplicationVerifierStop.c)
  */
 
-struct _PEB *__fastcall sub_18007D27C(__int64 a1, __int64 *a2)
+void __fastcall sub_18007D27C(HANDLE ThreadHandle, __int64 *a2)
 {
-  struct _PEB *result; // rax
-  char *v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
   HANDLE UniqueThread; // r12
   _UNKNOWN **i; // r14
-  _UNKNOWN **v9; // rsi
-  __int64 v10; // r15
-  __int64 *v11; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rbx
-  __int64 v14; // [rsp+30h] [rbp-118h]
-  __int64 v15; // [rsp+40h] [rbp-108h]
-  int *v16; // [rsp+80h] [rbp-C8h] BYREF
-  int v17; // [rsp+88h] [rbp-C0h]
-  int v18; // [rsp+8Ch] [rbp-BCh]
-  _QWORD v19[11]; // [rsp+90h] [rbp-B8h] BYREF
-  _BYTE v20[24]; // [rsp+E8h] [rbp-60h] BYREF
-  void *v21; // [rsp+100h] [rbp-48h]
-  int v23; // [rsp+160h] [rbp+18h] BYREF
-  HANDLE v24; // [rsp+168h] [rbp+20h]
+  _UNKNOWN **v5; // rsi
+  __int64 v6; // r15
+  __int64 *v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // [rsp+30h] [rbp-118h]
+  __int64 v11; // [rsp+40h] [rbp-108h]
+  int *ThreadInformation; // [rsp+80h] [rbp-C8h] BYREF
+  int v13; // [rsp+88h] [rbp-C0h]
+  int v14; // [rsp+8Ch] [rbp-BCh]
+  _BYTE v15[88]; // [rsp+90h] [rbp-B8h] BYREF
+  _BYTE v16[24]; // [rsp+E8h] [rbp-60h] BYREF
+  void *v17; // [rsp+100h] [rbp-48h]
+  int v19; // [rsp+160h] [rbp+18h] BYREF
+  HANDLE v20; // [rsp+168h] [rbp+20h]
 
-  memset(&v19[5], 0, 0x30uLL);
-  result = (struct _PEB *)memset(v19, 0, 0x28uLL);
-  v23 = 0;
-  if ( byte_18015D42A )
+  memset(v15, 0, sizeof(v15));
+  v19 = 0;
+  if ( byte_18015D42A && !byte_18015D740 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    if ( !byte_18015D740 )
+    if ( ThreadHandle == (HANDLE)-2LL )
     {
-      result = NtCurrentPeb();
-      if ( !result->Ldr->ShutdownInProgress )
-      {
-        if ( a1 == -2 )
-        {
-          result = (struct _PEB *)NtCurrentTeb();
-          if ( !HIDWORD(result->ApiSetMap) )
-            return result;
-          UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-        }
-        else
-        {
-          v16 = &v23;
-          v18 = 4;
-          v17 = 108;
-          result = (struct _PEB *)ZwQueryInformationThread(a1, 26LL, &v16, 16LL, 0LL);
-          if ( (int)result < 0 )
-            return result;
-          if ( !v23 )
-            return result;
-          result = (struct _PEB *)ZwQueryInformationThread(a1, 0LL, v20, 48LL, 0LL);
-          if ( (int)result < 0 )
-            return result;
-          UniqueThread = v21;
-        }
-        v24 = UniqueThread;
-        RtlAcquireSRWLockShared(&qword_18015D258, v4, v5, v6);
-        for ( i = (_UNKNOWN **)off_180156628; i != &off_180156628; i = (_UNKNOWN **)*i )
-        {
-          v9 = i - 2;
-          v10 = (__int64)*(i - 1);
-          v11 = a2;
-          if ( a2 )
-          {
-            while ( 1 )
-            {
-              v12 = *v11;
-              if ( !*v11 )
-                break;
-              if ( v10 == v12 )
-              {
-                if ( v12 )
-                  goto LABEL_23;
-                break;
-              }
-              ++v11;
-            }
-          }
-          *(_OWORD *)v19 = *(_OWORD *)v10;
-          *(_OWORD *)&v19[2] = *(_OWORD *)(v10 + 16);
-          v19[4] = *(_QWORD *)(v10 + 32);
-          if ( (_UNKNOWN **)v19[0] == v9 )
-          {
-            if ( (HANDLE)v19[2] == UniqueThread )
-            {
-              v15 = sub_180029E80(*((_WORD *)v9 + 1), *((_WORD *)v9 + 22));
-              RtlApplicationVerifierStop(
-                512,
-                (unsigned int)"Thread is in a state in which it cannot own a critical section",
-                (_DWORD)UniqueThread,
-                (unsigned int)"Thread identifier",
-                v10,
-                (__int64)"Critical section address",
-                (__int64)(i - 2),
-                (__int64)"Critical section debug info address",
-                v15,
-                (__int64)"Initialization stack trace. Use dps to dump it if non-NULL.");
-            }
-          }
-          else
-          {
-            *(_OWORD *)&v19[5] = *(_OWORD *)v19[0];
-            *(_OWORD *)&v19[7] = *(_OWORD *)(v19[0] + 16LL);
-            *(_OWORD *)&v19[9] = *(_OWORD *)(v19[0] + 32LL);
-            v13 = sub_180029E80(WORD1(v19[5]), WORD2(v19[10]));
-            v14 = sub_180029E80(*((_WORD *)i - 7), *((_WORD *)i + 14));
-            RtlApplicationVerifierStop(
-              515,
-              (unsigned int)"double initialized or corrupted critical section",
-              v10,
-              (unsigned int)"Critical section address.",
-              (__int64)(i - 2),
-              (__int64)"Address of the debug info found in the active list.",
-              v14,
-              (__int64)"First initialization stack trace. Use dps to dump it if non-NULL.",
-              v13,
-              (__int64)"Second initialization stack trace. Use dps to dump it if non-NULL.");
-          }
-LABEL_23:
-          ;
-        }
-        return (struct _PEB *)RtlReleaseSRWLockShared(&qword_18015D258);
-      }
+      if ( !NtCurrentTeb()->CountOfOwnedCriticalSections )
+        return;
+      UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
     }
+    else
+    {
+      ThreadInformation = &v19;
+      v14 = 4;
+      v13 = 108;
+      if ( ZwQueryInformationThread(ThreadHandle, ThreadTebInformation, &ThreadInformation, 0x10u, 0LL) < 0
+        || !v19
+        || ZwQueryInformationThread(ThreadHandle, ThreadBasicInformation, v16, 0x30u, 0LL) < 0 )
+      {
+        return;
+      }
+      UniqueThread = v17;
+    }
+    v20 = UniqueThread;
+    RtlAcquireSRWLockShared(&stru_18015D258);
+    for ( i = (_UNKNOWN **)off_180156628; i != &off_180156628; i = (_UNKNOWN **)*i )
+    {
+      v5 = i - 2;
+      v6 = (__int64)*(i - 1);
+      v7 = a2;
+      if ( a2 )
+      {
+        while ( 1 )
+        {
+          v8 = *v7;
+          if ( !*v7 )
+            break;
+          if ( v6 == v8 )
+          {
+            if ( v8 )
+              goto LABEL_23;
+            break;
+          }
+          ++v7;
+        }
+      }
+      *(_OWORD *)v15 = *(_OWORD *)v6;
+      *(_OWORD *)&v15[16] = *(_OWORD *)(v6 + 16);
+      *(_QWORD *)&v15[32] = *(_QWORD *)(v6 + 32);
+      if ( *(_UNKNOWN ***)v15 == v5 )
+      {
+        if ( *(HANDLE *)&v15[16] == UniqueThread )
+        {
+          v11 = sub_180029E80(*((_WORD *)v5 + 1), *((_WORD *)v5 + 22));
+          RtlApplicationVerifierStop(
+            512,
+            (unsigned int)"Thread is in a state in which it cannot own a critical section",
+            (_DWORD)UniqueThread,
+            (unsigned int)"Thread identifier",
+            v6,
+            (__int64)"Critical section address",
+            (__int64)(i - 2),
+            (__int64)"Critical section debug info address",
+            v11,
+            (__int64)"Initialization stack trace. Use dps to dump it if non-NULL.");
+        }
+      }
+      else
+      {
+        *(_OWORD *)&v15[40] = **(_OWORD **)v15;
+        *(_OWORD *)&v15[56] = *(_OWORD *)(*(_QWORD *)v15 + 16LL);
+        *(_OWORD *)&v15[72] = *(_OWORD *)(*(_QWORD *)v15 + 32LL);
+        v9 = sub_180029E80(*(unsigned __int16 *)&v15[42], *(unsigned __int16 *)&v15[84]);
+        v10 = sub_180029E80(*((_WORD *)i - 7), *((_WORD *)i + 14));
+        RtlApplicationVerifierStop(
+          515,
+          (unsigned int)"double initialized or corrupted critical section",
+          v6,
+          (unsigned int)"Critical section address.",
+          (__int64)(i - 2),
+          (__int64)"Address of the debug info found in the active list.",
+          v10,
+          (__int64)"First initialization stack trace. Use dps to dump it if non-NULL.",
+          v9,
+          (__int64)"Second initialization stack trace. Use dps to dump it if non-NULL.");
+      }
+LABEL_23:
+      ;
+    }
+    RtlReleaseSRWLockShared(&stru_18015D258);
   }
-  return result;
 }

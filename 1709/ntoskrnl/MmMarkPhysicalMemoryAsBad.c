@@ -191,7 +191,7 @@ LABEL_40:
   PsDereferencePartition(*(_QWORD *)(v12 + 168));
 LABEL_44:
   if ( v27 == 1 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   *(_QWORD *)a2 = (v3 + v4 - v5) << 12;
   if ( v4 == 1 )
     return v7;

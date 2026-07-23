@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepDeleteAllSecurityAttributes @ 0x140696C04
+ * XREFs of AuthzBasepDeleteAllSecurityAttributes @ 0x140697CD4
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140357454 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403B8BCC (AuthzBasepSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x140356D20 (AuthzBasepDeleteAllSecurityAttributeValues.c)
- *     AuthzBasepAddSecurityAttributeToLists @ 0x14043A1B0 (AuthzBasepAddSecurityAttributeToLists.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x1403B9460 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepAddSecurityAttributeToLists @ 0x14042CBD0 (AuthzBasepAddSecurityAttributeToLists.c)
  */
 
 __int64 __fastcall AuthzBasepDeleteAllSecurityAttributes(__int64 a1)

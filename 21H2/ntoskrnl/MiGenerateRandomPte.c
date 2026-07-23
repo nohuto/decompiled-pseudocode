@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGenerateRandomPte @ 0x14035A1EC
+ * XREFs of MiGenerateRandomPte @ 0x14029EF88
  * Callers:
- *     MiAgeWorkingSet @ 0x140208B40 (MiAgeWorkingSet.c)
- *     MiTrimWorkingSet @ 0x140359EE4 (MiTrimWorkingSet.c)
- *     MiSimpleAging @ 0x14036C428 (MiSimpleAging.c)
+ *     MiTrimWorkingSet @ 0x14029EC80 (MiTrimWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x1402AD440 (MiAgeWorkingSet.c)
+ *     MiSimpleAging @ 0x14036C5D8 (MiSimpleAging.c)
  * Callees:
- *     MiInitializeWalkBounds @ 0x140209110 (MiInitializeWalkBounds.c)
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     MiInitializeWalkBounds @ 0x1402ADA10 (MiInitializeWalkBounds.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
  */
 
 unsigned __int64 __fastcall MiGenerateRandomPte(__int64 a1)
@@ -19,8 +19,8 @@ unsigned __int64 __fastcall MiGenerateRandomPte(__int64 a1)
   _QWORD v8[5]; // [rsp+20h] [rbp-28h] BYREF
 
   MiInitializeWalkBounds(a1, v8);
-  v1 = (unsigned int)ExGenRandom(1);
-  v2 = (unsigned int)ExGenRandom(1);
+  v1 = (unsigned int)ExGenRandom(1LL);
+  v2 = (unsigned int)ExGenRandom(1LL);
   v3 = v8[1] - v8[0] + 1LL;
   v4 = v1 | (v2 << 32);
   if ( _BitScanReverse64((unsigned __int64 *)&v6, v3) )

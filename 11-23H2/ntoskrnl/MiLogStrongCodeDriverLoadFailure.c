@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x140A3049C
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x140A3074C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
- *     MiResolveImageImports @ 0x1407BCA40 (MiResolveImageImports.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x1407D43E4 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
+ *     MiResolveImageImports @ 0x1407BCD10 (MiResolveImageImports.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x1407D46B4 (MiProcessKernelCfgImageLoadConfig.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
@@ -69,7 +69,7 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
         v29 = &v15;
         v30 = 8;
         v19 = 2;
-        tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&word_1400385C2, v4, 1u, v11, v12, 8u, &v16);
+        tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&word_1400386AA, v4, 1u, v11, v12, 8u, &v16);
       }
     }
   }

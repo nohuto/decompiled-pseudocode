@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventHgsNormalizedTable @ 0x1404C6EBC
+ * XREFs of PpmEventHgsNormalizedTable @ 0x1404C031C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PpmEventHgsNormalizedTable()
@@ -51,7 +51,7 @@ void PpmEventHgsNormalizedTable()
     if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_WPS_ORDER_VALUE_TABLE_RUNDOWN) )
     {
       v14 = MaximumProcessorCount * v12;
-      Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, 11 * MaximumProcessorCount * v12, 0x654D5050u);
       if ( Pool2 )
       {
         UserData.Reserved = 0;

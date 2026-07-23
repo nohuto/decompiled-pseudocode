@@ -26,13 +26,13 @@ __int64 __fastcall SepAppendAceToTokenDefaultDacl(__int64 a1, __int64 a2)
   ULONG v8; // r15d
   ACL *PoolWithTag; // rax
   ULONG v10; // ebx
-  ULONG AclRevision; // [rsp+30h] [rbp-58h] BYREF
+  ULONG AclInformation; // [rsp+30h] [rbp-58h] BYREF
   PVOID Ace; // [rsp+38h] [rbp-50h] BYREF
   __int64 v14; // [rsp+40h] [rbp-48h] BYREF
   int v15; // [rsp+48h] [rbp-40h]
 
   v2 = *(ACL **)(a1 + 184);
-  AclRevision = 0;
+  AclInformation = 0;
   v3 = 0LL;
   Ace = 0LL;
   v14 = 0LL;
@@ -48,10 +48,10 @@ LABEL_12:
   if ( RtlFindAceBySid((__int64)v2, (_WORD *)a2, 0LL) )
     return 0;
   AclSize = v2->AclSize;
-  Acl = RtlQueryInformationAcl(v2, &AclRevision, 4LL, 1LL);
+  Acl = RtlQueryInformationAcl(v2, &AclInformation, 4u, AclRevisionInformation);
   if ( Acl >= 0 )
   {
-    Acl = RtlQueryInformationAcl(v2, &v14, 12LL, 2LL);
+    Acl = RtlQueryInformationAcl(v2, &v14, 0xCu, AclSizeInformation);
     if ( Acl >= 0 )
     {
       v8 = (AclSize + 4 * *(unsigned __int8 *)(a2 + 1) + 19) & 0xFFFFFFFC;
@@ -59,8 +59,8 @@ LABEL_12:
       v3 = PoolWithTag;
       if ( !PoolWithTag )
         return (unsigned int)-1073741670;
-      v10 = AclRevision;
-      Acl = RtlCreateAcl(PoolWithTag, v8, AclRevision);
+      v10 = AclInformation;
+      Acl = RtlCreateAcl(PoolWithTag, v8, AclInformation);
       if ( Acl >= 0 )
       {
         Acl = RtlGetAce(v2, 0, &Ace);

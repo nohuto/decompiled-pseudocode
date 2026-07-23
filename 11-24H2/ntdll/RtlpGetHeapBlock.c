@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGetHeapBlock @ 0x1800405D0
+ * XREFs of RtlpGetHeapBlock @ 0x180020F00
  * Callers:
- *     RtlpScanHeapAllocBlocks @ 0x180040294 (RtlpScanHeapAllocBlocks.c)
- *     RtlpScanProcessVirtualMemory @ 0x180040460 (RtlpScanProcessVirtualMemory.c)
+ *     RtlpScanHeapAllocBlocks @ 0x180020BC4 (RtlpScanHeapAllocBlocks.c)
+ *     RtlpScanProcessVirtualMemory @ 0x180020D90 (RtlpScanProcessVirtualMemory.c)
  * Callees:
- *     RtlpGetBlockInfo @ 0x180040680 (RtlpGetBlockInfo.c)
+ *     RtlpGetBlockInfo @ 0x180020FB0 (RtlpGetBlockInfo.c)
  */
 
 __int64 __fastcall RtlpGetHeapBlock(__int64 a1)

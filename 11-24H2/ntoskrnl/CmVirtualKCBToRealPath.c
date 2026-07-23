@@ -1,18 +1,18 @@
 /*
- * XREFs of CmVirtualKCBToRealPath @ 0x140A5F3C0
+ * XREFs of CmVirtualKCBToRealPath @ 0x140A57538
  * Callers:
- *     CmpDoQueryKeyName @ 0x14041EA20 (CmpDoQueryKeyName.c)
- *     CmpReportAuditVirtualizationEvent @ 0x1407DD868 (CmpReportAuditVirtualizationEvent.c)
- *     CmpVEExecuteOpenLogic @ 0x1408745A0 (CmpVEExecuteOpenLogic.c)
- *     CmQueryKey @ 0x140877890 (CmQueryKey.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14090CE40 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A5F1F8 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpDoQueryKeyName @ 0x140414760 (CmpDoQueryKeyName.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x1407DDDB8 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpVEExecuteOpenLogic @ 0x1408788D0 (CmpVEExecuteOpenLogic.c)
+ *     CmQueryKey @ 0x14087BBC0 (CmQueryKey.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1408E4560 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A57370 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmVirtualKCBToRealPath(__int64 a1, UNICODE_STRING *a2, __int64 a3, __int64 a4)
@@ -42,7 +42,7 @@ __int64 __fastcall CmVirtualKCBToRealPath(__int64 a1, UNICODE_STRING *a2, __int6
       }
     }
     v10 = v6->Length + 2 * (9 - v8);
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v6->Length + 2 * (9 - v8), 0x624E4D43u);
     a2->Buffer = (wchar_t *)Pool2;
     if ( Pool2 )
     {

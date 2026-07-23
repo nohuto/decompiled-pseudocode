@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlRegisterPowerPlane @ 0x14050E2BC
+ * XREFs of PopPlRegisterPowerPlane @ 0x140507D2C
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     PopPepIterateDeviceList @ 0x140611714 (PopPepIterateDeviceList.c)
- *     PopPlTraceLogPowerPlane @ 0x140612B9C (PopPlTraceLogPowerPlane.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopPlInitPowerPlane @ 0x1407E2F20 (PopPlInitPowerPlane.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     PopPepIterateDeviceList @ 0x140614554 (PopPepIterateDeviceList.c)
+ *     PopPlTraceLogPowerPlane @ 0x1406159DC (PopPlTraceLogPowerPlane.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopPlInitPowerPlane @ 0x1407E7FB0 (PopPlInitPowerPlane.c)
  */
 
 __int64 __fastcall PopPlRegisterPowerPlane(__int64 a1, __int64 a2, __int64 a3)
@@ -66,7 +66,7 @@ __int64 __fastcall PopPlRegisterPowerPlane(__int64 a1, __int64 a2, __int64 a3)
   {
     inited = -1073741811;
   }
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
     v12 = 1;
     v20 = 4LL;
@@ -74,7 +74,7 @@ __int64 __fastcall PopPlRegisterPowerPlane(__int64 a1, __int64 a2, __int64 a3)
     v18 = 2LL;
     v19 = &v13;
     LODWORD(v13) = inited;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140E07598, (unsigned __int8 *)&byte_1400501A8, a3, 1u, v10, v11, 4u, &v16);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140E07560, (unsigned __int8 *)&dword_140051134, a3, 1u, v10, v11, 4u, &v16);
   }
   return (unsigned int)inited;
 }

@@ -1,40 +1,54 @@
 /*
- * XREFs of RtlpGetPersistedRegistryLocation @ 0x140411B48
+ * XREFs of RtlpGetPersistedRegistryLocation @ 0x140411D88
  * Callers:
- *     RtlpEtcGetDwordFromPersistedState @ 0x140411928 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x140411B68 (RtlpEtcGetDwordFromPersistedState.c)
  * Callees:
- *     RtlGetPersistedStateLocation @ 0x1406C53D0 (RtlGetPersistedStateLocation.c)
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
+ *     RtlGetPersistedStateLocation @ 0x1406C5400 (RtlGetPersistedStateLocation.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
  *     ExFreePool @ 0x140AAECC0 (ExFreePool.c)
  */
 
-__int64 __fastcall RtlpGetPersistedRegistryLocation(PCWSTR SourceString, __int64 a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall RtlpGetPersistedRegistryLocation(PCWSTR SourceID, PCWSTR DefaultPath, WCHAR **a3, _DWORD *a4)
 {
-  int PersistedStateLocation; // eax
-  int v8; // ebx
-  int v9; // ebx
-  void *StringRoutine; // rdi
-  unsigned int v12[4]; // [rsp+40h] [rbp-28h] BYREF
+  NTSTATUS PersistedStateLocation; // eax
+  NTSTATUS v9; // ebx
+  ULONG BufferLengthIn; // ebx
+  WCHAR *TargetPath; // rdi
+  ULONG BufferLengthOut[4]; // [rsp+40h] [rbp-28h] BYREF
 
-  v12[0] = 0;
-  PersistedStateLocation = RtlGetPersistedStateLocation(SourceString, 0LL, 0, (__int64)v12);
-  v8 = PersistedStateLocation;
+  BufferLengthOut[0] = 0;
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             SourceID,
+                             L"TargetNtPath",
+                             DefaultPath,
+                             LocationTypeRegistry,
+                             0LL,
+                             0,
+                             BufferLengthOut);
+  v9 = PersistedStateLocation;
   if ( PersistedStateLocation == -2147483643 )
   {
-    v9 = v12[0];
-    StringRoutine = (void *)ExpAllocateStringRoutine(v12[0]);
-    if ( StringRoutine )
+    BufferLengthIn = BufferLengthOut[0];
+    TargetPath = (WCHAR *)ExpAllocateStringRoutine(BufferLengthOut[0]);
+    if ( TargetPath )
     {
-      v8 = RtlGetPersistedStateLocation(SourceString, StringRoutine, v9, (__int64)v12);
-      if ( v8 < 0 )
+      v9 = RtlGetPersistedStateLocation(
+             SourceID,
+             L"TargetNtPath",
+             DefaultPath,
+             LocationTypeRegistry,
+             TargetPath,
+             BufferLengthIn,
+             BufferLengthOut);
+      if ( v9 < 0 )
       {
-        ExFreePool(StringRoutine);
+        ExFreePool(TargetPath);
       }
       else
       {
-        *a3 = StringRoutine;
+        *a3 = TargetPath;
         if ( a4 )
-          *a4 = (v12[0] >> 1) - 1;
+          *a4 = (BufferLengthOut[0] >> 1) - 1;
       }
     }
     else
@@ -46,5 +60,5 @@ __int64 __fastcall RtlpGetPersistedRegistryLocation(PCWSTR SourceString, __int64
   {
     return (unsigned int)-1073741823;
   }
-  return (unsigned int)v8;
+  return (unsigned int)v9;
 }

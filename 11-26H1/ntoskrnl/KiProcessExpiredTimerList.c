@@ -1,18 +1,18 @@
 /*
- * XREFs of KiProcessExpiredTimerList @ 0x1403ABBEC
+ * XREFs of KiProcessExpiredTimerList @ 0x1403B58FC
  * Callers:
- *     KiExpireTimerTable @ 0x1403AB740 (KiExpireTimerTable.c)
+ *     KiExpireTimerTable @ 0x1403B5450 (KiExpireTimerTable.c)
  * Callees:
- *     KiProcessThreadWaitList @ 0x14023BDB0 (KiProcessThreadWaitList.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     KiObjTrkTimerUntrack @ 0x1403AB700 (KiObjTrkTimerUntrack.c)
- *     KiTimerWaitTest @ 0x1403ACF4C (KiTimerWaitTest.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiProcessThreadWaitList @ 0x14023D710 (KiProcessThreadWaitList.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     KiObjTrkTimerUntrack @ 0x1403B5410 (KiObjTrkTimerUntrack.c)
+ *     KiTimerWaitTest @ 0x1403B6C5C (KiTimerWaitTest.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiProcessExpiredTimerList(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -73,7 +73,7 @@ __int64 __fastcall KiProcessExpiredTimerList(__int64 a1, __int64 a2, __int64 a3,
       if ( v7 )
       {
         *(_QWORD *)&v29 = *(_QWORD *)(v11 + 24);
-        v21 = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(v11 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(v11 + 48), KiWaitNever));
+        v21 = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(v11 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(v11 + 48), KiWaitNever));
         if ( v21 )
           *(_QWORD *)&v30 = *(_QWORD *)(v21 + 24);
         else

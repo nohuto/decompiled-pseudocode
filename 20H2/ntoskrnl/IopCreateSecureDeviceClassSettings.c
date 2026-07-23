@@ -17,7 +17,7 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall IopCreateSecureDeviceClassSettings(PGUID Guid, __int64 a2, _BYTE *a3)
 {
   WCHAR *v6; // rdi
   int SecureDeviceClassState; // ebx
@@ -39,7 +39,7 @@ __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 
 
   *(_QWORD *)&String2.Length = 7471216LL;
   v23 = 0;
-  String2.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class";
+  String2.Buffer = (wchar_t *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class";
   Handle = 0LL;
   SourceString[0] = 0LL;
   KeyHandle = 0LL;
@@ -48,7 +48,7 @@ __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 
   v6 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  SecureDeviceClassState = RtlStringFromGUIDEx(a1, (__int64)&DestinationString, 1);
+  SecureDeviceClassState = RtlStringFromGUIDEx(Guid, &DestinationString, 1u);
   if ( SecureDeviceClassState >= 0 )
   {
     *(_QWORD *)&ObjectAttributes.Length = 48LL;

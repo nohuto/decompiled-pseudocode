@@ -1,21 +1,21 @@
 /*
- * XREFs of BgpRasPrintGlyph @ 0x14017A1D4
+ * XREFs of BgpRasPrintGlyph @ 0x14017A2D4
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
- *     BgpTxtDisplayString @ 0x1409545A0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x14017A014 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x1409555A0 (BgpTxtDisplayString.c)
  * Callees:
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
- *     BgpFmRoundUp @ 0x14016F7C0 (BgpFmRoundUp.c)
- *     RaspAntiAlias @ 0x14017A520 (RaspAntiAlias.c)
- *     RaspGetCacheEntry @ 0x14017A908 (RaspGetCacheEntry.c)
- *     RaspRasterize @ 0x14017A998 (RaspRasterize.c)
- *     RaspFreeMemory @ 0x14017AB5C (RaspFreeMemory.c)
- *     RaspRectangleCreate @ 0x14017B4BC (RaspRectangleCreate.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RaspAddCacheEntry @ 0x1409515CC (RaspAddCacheEntry.c)
- *     RaspDestroyCachedBitmap @ 0x140951630 (RaspDestroyCachedBitmap.c)
- *     BgpGxCopyRectangle @ 0x140954458 (BgpGxCopyRectangle.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     BgpFwAllocateMemory @ 0x14016F5D8 (BgpFwAllocateMemory.c)
+ *     BgpFmRoundUp @ 0x14016F8C0 (BgpFmRoundUp.c)
+ *     RaspAntiAlias @ 0x14017A620 (RaspAntiAlias.c)
+ *     RaspGetCacheEntry @ 0x14017AA08 (RaspGetCacheEntry.c)
+ *     RaspRasterize @ 0x14017AA98 (RaspRasterize.c)
+ *     RaspFreeMemory @ 0x14017AC5C (RaspFreeMemory.c)
+ *     RaspRectangleCreate @ 0x14017B5BC (RaspRectangleCreate.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RaspAddCacheEntry @ 0x1409525CC (RaspAddCacheEntry.c)
+ *     RaspDestroyCachedBitmap @ 0x140952630 (RaspDestroyCachedBitmap.c)
+ *     BgpGxCopyRectangle @ 0x140955458 (BgpGxCopyRectangle.c)
  */
 
 __int64 __fastcall BgpRasPrintGlyph(
@@ -216,8 +216,8 @@ LABEL_27:
         goto LABEL_33;
       goto LABEL_28;
     }
-    LOBYTE(v14) = (dword_140405AD0 & 4) != 0;
-    if ( (dword_140405AD0 & 4) == 0 && !*v9 )
+    LOBYTE(v14) = (dword_140406AD0 & 4) != 0;
+    if ( (dword_140406AD0 & 4) == 0 && !*v9 )
     {
       v13 = 0;
       if ( ((unsigned __int8)((_BYTE)v49 + 1) & *(_BYTE *)(v47 + 20)) == 0 )

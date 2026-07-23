@@ -1,15 +1,15 @@
 /*
- * XREFs of SmpSystemStoreCreate @ 0x14057B5C0
+ * XREFs of SmpSystemStoreCreate @ 0x14057BA6C
  * Callers:
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     SmProcessConfigRequest @ 0x14057B4BC (SmProcessConfigRequest.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     SmProcessConfigRequest @ 0x14057B968 (SmProcessConfigRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SmpDirtyStoreCreate @ 0x1403E3610 (SmpDirtyStoreCreate.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     SmpDirtyStoreCreate @ 0x1403E4C3C (SmpDirtyStoreCreate.c)
  */
 
 __int64 SmpSystemStoreCreate()
@@ -34,7 +34,7 @@ __int64 SmpSystemStoreCreate()
   {
     v4 = SmpDirtyStoreCreate(
            (__int64)&SmGlobals,
-           (unsigned int)(*(_QWORD *)(*(_QWORD *)qword_140326FF8 + 6288LL) >> 8) >> 1,
+           (unsigned int)(*(_QWORD *)(*(_QWORD *)qword_140327038 + 6288LL) >> 8) >> 1,
            0,
            &v6);
     if ( v4 >= 0 )

@@ -1,25 +1,27 @@
 /*
- * XREFs of PiUEventBroadcastHardwareProfilesChangedEvent @ 0x14062E460
+ * XREFs of PiUEventBroadcastHardwareProfilesChangedEvent @ 0x14062E514
  * Callers:
- *     PiUEventBroadcastEventWorker @ 0x140528030 (PiUEventBroadcastEventWorker.c)
+ *     PiUEventBroadcastEventWorker @ 0x140528570 (PiUEventBroadcastEventWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
  */
 
-LONG_PTR __fastcall PiUEventBroadcastHardwareProfilesChangedEvent(unsigned int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall PiUEventBroadcastHardwareProfilesChangedEvent(unsigned int a1, const void *a2, __int64 a3)
 {
-  LONG_PTR result; // rax
+  NTSTATUS result; // eax
   void *SessionById; // rdi
+  unsigned int ExplicitScope; // [rsp+50h] [rbp+8h] BYREF
 
+  ExplicitScope = a1;
   if ( a1 == -1 )
-    return ZwUpdateWnfStateData((__int64)&WNF_PNPA_HARDWAREPROFILES_CHANGED, a2, 16LL);
-  SessionById = (void *)MmGetSessionById(a1, a2, a3);
-  result = 0LL;
+    return ZwUpdateWnfStateData(&WNF_PNPA_HARDWAREPROFILES_CHANGED, a2, 0x10u, 0LL, 0LL, 0, 0);
+  SessionById = (void *)MmGetSessionById(a1, (__int64)a2, a3);
+  result = 0;
   if ( SessionById )
   {
-    ZwUpdateWnfStateData((__int64)&WNF_PNPA_HARDWAREPROFILES_CHANGED_SESSION, a2, 16LL);
+    ZwUpdateWnfStateData(&WNF_PNPA_HARDWAREPROFILES_CHANGED_SESSION, a2, 0x10u, 0LL, &ExplicitScope, 0, 0);
     return ObfDereferenceObject(SessionById);
   }
   return result;

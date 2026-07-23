@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWakePushLock @ 0x1400915F0
+ * XREFs of ExpWakePushLock @ 0x140091530
  * Callers:
  *     ExpOptimizePushLockList @ 0x1400059E4 (ExpOptimizePushLockList.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLockExclusive @ 0x140091570 (ExfReleasePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExfReleasePushLockSharedEx @ 0x14010758C (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockExclusive @ 0x1400914B0 (ExfReleasePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExfReleasePushLockSharedEx @ 0x14010760C (ExfReleasePushLockSharedEx.c)
  * Callees:
  *     KiAbApplyWakeupBoost @ 0x1400240DC (KiAbApplyWakeupBoost.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)

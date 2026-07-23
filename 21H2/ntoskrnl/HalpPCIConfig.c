@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpPCIConfig @ 0x1402B1B20
+ * XREFs of HalpPCIConfig @ 0x14022FCD0
  * Callers:
- *     HaliPciInterfaceReadConfig @ 0x1402B1AB0 (HaliPciInterfaceReadConfig.c)
- *     HaliPciInterfaceWriteConfig @ 0x14037D210 (HaliPciInterfaceWriteConfig.c)
- *     HalpWritePCIConfig @ 0x14039E7DC (HalpWritePCIConfig.c)
- *     HalpReadPCIConfig @ 0x14039EAF4 (HalpReadPCIConfig.c)
- *     HalpPciHandleSecureAccess @ 0x1404D271C (HalpPciHandleSecureAccess.c)
- *     HaliHandlePCIConfigSpaceAccess @ 0x1404D6980 (HaliHandlePCIConfigSpaceAccess.c)
- *     HalpKdWritePCIConfig @ 0x1404DF310 (HalpKdWritePCIConfig.c)
+ *     HaliPciInterfaceReadConfig @ 0x14022FC60 (HaliPciInterfaceReadConfig.c)
+ *     HaliPciInterfaceWriteConfig @ 0x14037CD60 (HaliPciInterfaceWriteConfig.c)
+ *     HalpWritePCIConfig @ 0x14039E92C (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x14039EC44 (HalpReadPCIConfig.c)
+ *     HalpPciHandleSecureAccess @ 0x1404D295C (HalpPciHandleSecureAccess.c)
+ *     HaliHandlePCIConfigSpaceAccess @ 0x1404D6BC0 (HaliHandlePCIConfigSpaceAccess.c)
+ *     HalpKdWritePCIConfig @ 0x1404DF550 (HalpKdWritePCIConfig.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpPciAccessMmConfigSpace @ 0x1402B1C70 (HalpPciAccessMmConfigSpace.c)
- *     HalpPCIAcquireConfigSpaceLock @ 0x1402B1DF4 (HalpPCIAcquireConfigSpaceLock.c)
- *     HalpPciAccessIoConfigSpace @ 0x1403BC398 (HalpPciAccessIoConfigSpace.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpPciAccessMmConfigSpace @ 0x14022FE20 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPCIAcquireConfigSpaceLock @ 0x14022FFA4 (HalpPCIAcquireConfigSpaceLock.c)
+ *     HalpPciAccessIoConfigSpace @ 0x1403BC508 (HalpPciAccessIoConfigSpace.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpPCIConfig(
@@ -75,10 +75,10 @@ __int64 __fastcall HalpPCIConfig(
   if ( !v12 )
   {
 LABEL_3:
-    if ( qword_140C4A248 )
+    if ( qword_140C4A288 )
     {
       LOBYTE(a1) = a7 == 1;
-      result = qword_140C4A248(
+      result = qword_140C4A288(
                  a1,
                  v10,
                  (unsigned int)v9,

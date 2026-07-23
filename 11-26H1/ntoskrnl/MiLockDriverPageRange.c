@@ -1,28 +1,28 @@
 /*
- * XREFs of MiLockDriverPageRange @ 0x1406E57E8
+ * XREFs of MiLockDriverPageRange @ 0x1406EA498
  * Callers:
- *     MiLockPatchIatForDV @ 0x1406FAF50 (MiLockPatchIatForDV.c)
- *     MmWriteSystemImageTracepoint @ 0x1406FCF64 (MmWriteSystemImageTracepoint.c)
- *     MiLockAndMapEntireDriver @ 0x14086D784 (MiLockAndMapEntireDriver.c)
- *     MiLockHotPatchPages @ 0x140871638 (MiLockHotPatchPages.c)
- *     MiLockHotPatchUndoPages @ 0x1408716DC (MiLockHotPatchUndoPages.c)
- *     MmReapplyBootPatchImports @ 0x140CFBA34 (MmReapplyBootPatchImports.c)
+ *     MiLockPatchIatForDV @ 0x1406FFC20 (MiLockPatchIatForDV.c)
+ *     MmWriteSystemImageTracepoint @ 0x140701C34 (MmWriteSystemImageTracepoint.c)
+ *     MiLockAndMapEntireDriver @ 0x140873B54 (MiLockAndMapEntireDriver.c)
+ *     MiLockHotPatchPages @ 0x140877998 (MiLockHotPatchPages.c)
+ *     MiLockHotPatchUndoPages @ 0x140877A3C (MiLockHotPatchUndoPages.c)
+ *     MmReapplyBootPatchImports @ 0x140D01DB4 (MmReapplyBootPatchImports.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReferenceDriverPage @ 0x140295E24 (MiReferenceDriverPage.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiMakeDriverPagesPrivate @ 0x14038A9E0 (MiMakeDriverPagesPrivate.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReferenceDriverPage @ 0x140295384 (MiReferenceDriverPage.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiMakeDriverPagesPrivate @ 0x14038C790 (MiMakeDriverPagesPrivate.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiLockDriverPageRange(__int64 a1, unsigned int a2, unsigned int a3, char a4, __int64 a5)
@@ -84,11 +84,11 @@ __int64 __fastcall MiLockDriverPageRange(__int64 a1, unsigned int a2, unsigned i
   v37 = (a5 + 48) & -(__int64)(a5 != 0);
   for ( i = 0; !i; i = 1 )
   {
-    Reserved = (__int64)stru_140E2D150.SchedulerApc.Reserved;
-    if ( stru_140E2D150.SchedulerApc.Reserved[0] == v8 )
+    Reserved = (__int64)stru_140E2D2D0.SchedulerApc.Reserved;
+    if ( stru_140E2D2D0.SchedulerApc.Reserved[0] == v8 )
     {
-      v13 = &stru_140E2D150.SchedulerApc.Reserved[1];
-      v33 = &stru_140E2D150.SchedulerApc.Reserved[1];
+      v13 = &stru_140E2D2D0.SchedulerApc.Reserved[1];
+      v33 = &stru_140E2D2D0.SchedulerApc.Reserved[1];
       break;
     }
   }
@@ -202,7 +202,7 @@ LABEL_60:
             v29 = MiCaptureDirtyBitToPfn(48 * v19 - 0x220000000000LL);
             if ( v29 )
             {
-              v30 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v20 + 40) >> 43) & 0x3FFLL));
+              v30 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v20 + 40) >> 43) & 0x3FFLL));
               v36 = v30;
               goto LABEL_55;
             }
@@ -211,7 +211,7 @@ LABEL_60:
 LABEL_55:
           _InterlockedAnd64((volatile signed __int64 *)(v20 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           if ( v29 )
-            MiReleasePageFileInfo(v30, v29, 1);
+            MiReleasePageFileInfo(v30, v29, 1LL);
           v5 = v45;
           *(_BYTE *)(((unsigned __int64)v45 >> 3) + *(_QWORD *)(a1 + 40)) |= 1 << (v45 & 7);
         }

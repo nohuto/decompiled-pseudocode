@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpFreePlaceholderList @ 0x14046420C
+ * XREFs of EtwpFreePlaceholderList @ 0x14045A93C
  * Callers:
- *     EtwpFreeCompression @ 0x140463FA8 (EtwpFreeCompression.c)
- *     EtwpInitializeCompression @ 0x1404B6884 (EtwpInitializeCompression.c)
+ *     EtwpFreeCompression @ 0x14045A6DC (EtwpFreeCompression.c)
+ *     EtwpInitializeCompression @ 0x1404B1064 (EtwpInitializeCompression.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreePlaceholderList(__int64 a1)

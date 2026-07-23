@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpBuildRemovalRelationList @ 0x1409128B0
+ * XREFs of PnpBuildRemovalRelationList @ 0x1409B4990
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IopSortRelationListForRemove @ 0x14090F5A8 (IopSortRelationListForRemove.c)
- *     IopAllocateRelationList @ 0x140911808 (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x140913A50 (IopFreeRelationList.c)
- *     PnpProcessRelation @ 0x140913D04 (PnpProcessRelation.c)
+ *     IopSortRelationListForRemove @ 0x1409B16D8 (IopSortRelationListForRemove.c)
+ *     IopAllocateRelationList @ 0x1409B38E8 (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x1409B5B30 (IopFreeRelationList.c)
+ *     PnpProcessRelation @ 0x1409B6374 (PnpProcessRelation.c)
  */
 
 __int64 __fastcall PnpBuildRemovalRelationList(__int64 a1, unsigned int a2, int a3, _QWORD *a4)

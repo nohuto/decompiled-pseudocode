@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpCenturyDpcRoutine @ 0x14034A450
+ * XREFs of ExpCenturyDpcRoutine @ 0x1403C16E0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     _local_unwind @ 0x1404FDE70 (_local_unwind.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     KiCustomAccessRoutine9 @ 0x1406B57E0 (KiCustomAccessRoutine9.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     _local_unwind @ 0x1404FB730 (_local_unwind.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     KiCustomAccessRoutine9 @ 0x1406B6780 (KiCustomAccessRoutine9.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall ExpCenturyDpcRoutine(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -36,7 +36,7 @@ void __fastcall ExpCenturyDpcRoutine(__int64 a1, __int64 a2, __int64 a3, unsigne
     *(_QWORD *)(a1 + 48) ^= a3;
     KiCustomAccessRoutine9(a2);
   }
-  v9 = *((_QWORD *)PsGetServerSiloGlobals(a2) + 153);
+  v9 = *(_QWORD *)(PsGetServerSiloGlobals(a2) + 1224);
   if ( _InterlockedIncrement((volatile signed __int32 *)(v9 + 928)) == 1 )
   {
     if ( a2 )

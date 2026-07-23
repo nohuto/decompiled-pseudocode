@@ -10,10 +10,13 @@
  *     NtWaitForAlertByThreadId @ 0x180166E70 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlSleepConditionVariableCS(
+        PRTL_CONDITION_VARIABLE ConditionVariable,
+        PRTL_CRITICAL_SECTION CriticalSection,
+        PLARGE_INTEGER Timeout)
 {
-  unsigned int v3; // esi
-  signed __int64 v7; // rdi
+  NTSTATUS v3; // esi
+  unsigned __int64 Value; // rdi
   unsigned __int64 v8; // rbx
   _QWORD *v9; // rax
   signed __int64 v10; // rax
@@ -24,7 +27,7 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
   signed __int64 v15; // rax
   unsigned __int64 v16; // r9
   unsigned __int64 v17; // r8
-  unsigned int v18; // ebx
+  NTSTATUS v18; // ebx
   unsigned __int64 v21; // rcx
   unsigned __int64 v22; // rax
   int i; // ecx
@@ -35,29 +38,29 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
 
   v3 = 0;
   v25 = 0;
-  _m_prefetchw(a1);
-  v7 = *a1;
+  _m_prefetchw(ConditionVariable);
+  Value = ConditionVariable->Value;
   v24[2] = 0LL;
   v26 = 2;
   v27 = 0LL;
   v24[3] = NtCurrentTeb()->ClientId.UniqueThread;
   while ( 1 )
   {
-    v8 = (unsigned __int64)v24 | v7 & 0xF;
+    v8 = (unsigned __int64)v24 | Value & 0xF;
     v9 = v24;
-    v24[0] = v7 & 0xFFFFFFFFFFFFFFF0uLL;
-    if ( (v7 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+    v24[0] = Value & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( (Value & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
       v9 = 0LL;
     v24[1] = v9;
-    if ( (v7 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+    if ( (Value & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
       v8 |= 8uLL;
-    v10 = _InterlockedCompareExchange64(a1, v8, v7);
-    if ( v7 == v10 )
+    v10 = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, v8, Value);
+    if ( Value == v10 )
       break;
-    v7 = v10;
+    Value = v10;
   }
-  RtlLeaveCriticalSection(a2);
-  if ( (((unsigned __int8)v7 ^ (unsigned __int8)v8) & 8) != 0 )
+  RtlLeaveCriticalSection(CriticalSection);
+  if ( (((unsigned __int8)Value ^ (unsigned __int8)v8) & 8) != 0 )
   {
     v11 = v8;
     while ( 1 )
@@ -75,14 +78,14 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
         while ( !v13[1] );
       }
       *(_QWORD *)(v12 + 8) = v13[1];
-      v15 = _InterlockedCompareExchange64(a1, v12, v8);
+      v15 = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, v12, v8);
       v11 = v15;
       if ( v8 == v15 )
         break;
       v8 = v15;
       if ( (v15 & 7) != 0 )
       {
-        RtlpWakeConditionVariable(a1, v15, 0LL);
+        RtlpWakeConditionVariable(ConditionVariable, v15, 0LL);
         break;
       }
     }
@@ -121,11 +124,11 @@ LABEL_20:
       goto LABEL_21;
     goto LABEL_30;
   }
-  v18 = NtWaitForAlertByThreadId(a2, a3);
+  v18 = NtWaitForAlertByThreadId(CriticalSection, Timeout);
   if ( v18 != 258 )
     goto LABEL_20;
 LABEL_30:
-  if ( (unsigned __int8)RtlpWakeSingle(a1, v24) )
+  if ( (unsigned __int8)RtlpWakeSingle(ConditionVariable, v24) )
   {
     if ( v18 != 258 )
       v18 = 0;
@@ -134,10 +137,10 @@ LABEL_30:
   else
   {
     do
-      NtWaitForAlertByThreadId(a2, 0LL);
+      NtWaitForAlertByThreadId(CriticalSection, 0LL);
     while ( (v26 & 4) == 0 );
   }
 LABEL_21:
-  RtlEnterCriticalSection(a2);
+  RtlEnterCriticalSection(CriticalSection);
   return v3;
 }

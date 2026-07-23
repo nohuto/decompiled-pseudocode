@@ -13,31 +13,31 @@
  *     RtlIsValidProcessTrustLabelSid @ 0x1403616D0 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-__int64 __fastcall SepLocateTokenTrustLevel(_QWORD *a1, __int64 a2)
+_DWORD *__fastcall SepLocateTokenTrustLevel(_QWORD *a1)
 {
-  __int64 v2; // r8
-  __int64 v4; // r10
-  __int64 v5; // r11
+  __int64 v1; // r8
+  _DWORD *v3; // r10
+  __int64 v4; // r11
 
-  v2 = a1[2];
+  v1 = a1[2];
   if ( !*a1 )
-    return *(_QWORD *)(v2 + 1104);
-  v4 = *(_QWORD *)(*a1 + 1104LL);
-  if ( *(_QWORD *)(v2 + 1104) && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(*(_QWORD *)(v2 + 1104), a2, v2) )
-    return v5;
-  if ( !v4 )
-    return v4;
-  if ( (unsigned __int8)RtlIsValidProcessTrustLabelSid(v4, a2, v2) )
+    return *(_DWORD **)(v1 + 1104);
+  v3 = *(_DWORD **)(*a1 + 1104LL);
+  if ( *(_QWORD *)(v1 + 1104) && !RtlIsValidProcessTrustLabelSid(*(PSID *)(v1 + 1104)) )
+    return (_DWORD *)v4;
+  if ( !v3 )
+    return v3;
+  if ( RtlIsValidProcessTrustLabelSid(v3) )
   {
-    if ( v5 )
+    if ( v4 )
     {
-      if ( *(_DWORD *)(v5 + 8) >= *(_DWORD *)(v4 + 8) && *(_DWORD *)(v5 + 12) >= *(_DWORD *)(v4 + 12) )
-        return v4;
+      if ( *(_DWORD *)(v4 + 8) >= v3[2] && *(_DWORD *)(v4 + 12) >= v3[3] )
+        return v3;
     }
-    else if ( !*(_DWORD *)(v4 + 8) )
+    else if ( !v3[2] )
     {
-      return v4;
+      return v3;
     }
   }
-  return v5;
+  return (_DWORD *)v4;
 }

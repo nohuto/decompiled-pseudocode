@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceObject @ 0x1408B7D18
+ * XREFs of EtwTraceObject @ 0x1408B8FD8
  * Callers:
- *     ObpDeregisterObject @ 0x140862BC0 (ObpDeregisterObject.c)
- *     ObpRegisterObject @ 0x14086360C (ObpRegisterObject.c)
+ *     ObpDeregisterObject @ 0x140863E20 (ObpDeregisterObject.c)
+ *     ObpRegisterObject @ 0x14086486C (ObpRegisterObject.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x1401B7408 (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x140311C58 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x1401B7570 (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x140311E48 (EtwpTraceKernelEventWithFilter.c)
  */
 
 void __fastcall EtwTraceObject(unsigned __int16 a1, __int64 a2)
@@ -43,7 +43,7 @@ void __fastcall EtwTraceObject(unsigned __int16 a1, __int64 a2)
         if ( (*(_DWORD *)(v10 + 16) & 0x80u) != 0 )
         {
           v11 = 0;
-          v12 = (_WORD *)(0x140000000LL + 20 * v9 + 4235232);
+          v12 = (_WORD *)(0x140000000LL + 20 * v9 + 4239488);
           if ( *v12 )
           {
             while ( 1 )

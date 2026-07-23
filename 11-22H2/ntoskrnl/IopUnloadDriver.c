@@ -36,7 +36,7 @@
 
 __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
 {
-  __int16 v4; // r14
+  unsigned __int16 MinorImageVersion; // r14
   KPROCESSOR_MODE PreviousMode; // dl
   int DriverNameFromKeyNode; // edi
   _QWORD *v7; // rbx
@@ -71,7 +71,7 @@ __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   v18 = 0LL;
   v29 = 0;
-  LOBYTE(v4) = 0;
+  LOBYTE(MinorImageVersion) = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode || a2 )
   {
@@ -111,7 +111,7 @@ __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
           if ( DriverNameFromKeyNode >= 0 )
           {
             v7 = Object;
-            v4 = *(_WORD *)(RtlImageNtHeader(*((_QWORD *)Object + 3)) + 70);
+            MinorImageVersion = RtlImageNtHeader(*((PVOID *)Object + 3))->OptionalHeader.MinorImageVersion;
             if ( v7[13] && v7[5] )
             {
               if ( a2 || (unsigned int)PnpIsLegacyDriver((__int64)v7) )
@@ -161,7 +161,12 @@ __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
       }
     }
 LABEL_17:
-    PnpDiagnosticTraceDriverFullInfo(&KMPnPEvt_DriverUnload_Stop, &a1->Length, DriverNameFromKeyNode, &Destination, v4);
+    PnpDiagnosticTraceDriverFullInfo(
+      &KMPnPEvt_DriverUnload_Stop,
+      &a1->Length,
+      DriverNameFromKeyNode,
+      &Destination,
+      MinorImageVersion);
     if ( Destination.Buffer )
       ExFreePoolWithTag(Destination.Buffer, 0);
     return (unsigned int)DriverNameFromKeyNode;

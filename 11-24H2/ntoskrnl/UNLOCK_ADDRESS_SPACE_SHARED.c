@@ -1,32 +1,30 @@
 /*
- * XREFs of UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404044B8
+ * XREFs of UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403C6458
  * Callers:
- *     MmOutSwapVirtualAddresses @ 0x140404108 (MmOutSwapVirtualAddresses.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140404528 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MmOutSwapWorkingSet @ 0x140404630 (MmOutSwapWorkingSet.c)
- *     MiHotPatchProcess @ 0x1407F2D08 (MiHotPatchProcess.c)
- *     MmCheckForSafeExecution @ 0x1407F634C (MmCheckForSafeExecution.c)
- *     MiAllocateUserPhysicalPages @ 0x1407F84C8 (MiAllocateUserPhysicalPages.c)
- *     MiUnlockVadRange @ 0x1408E8A30 (MiUnlockVadRange.c)
- *     MmIsFileMapped @ 0x1408EF744 (MmIsFileMapped.c)
- *     MiMapAllImageScpPages @ 0x1408F9404 (MiMapAllImageScpPages.c)
- *     MiCommitInitialVadMetadataBits @ 0x1408F9980 (MiCommitInitialVadMetadataBits.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140967B50 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiFreeLargePageView @ 0x1409B0830 (MiFreeLargePageView.c)
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
- *     MiCreateLargePageVad @ 0x140A82E50 (MiCreateLargePageVad.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403C64C8 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x1403C6F10 (MmOutSwapWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1403C752C (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiHotPatchProcess @ 0x1407F32D8 (MiHotPatchProcess.c)
+ *     MmCheckForSafeExecution @ 0x1407F6AC0 (MmCheckForSafeExecution.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407F8C38 (MiAllocateUserPhysicalPages.c)
+ *     MmIsFileMapped @ 0x140860F44 (MmIsFileMapped.c)
+ *     MiUnlockVadRange @ 0x1408D9210 (MiUnlockVadRange.c)
+ *     MiMapAllImageScpPages @ 0x14091BCE0 (MiMapAllImageScpPages.c)
+ *     MiCommitInitialVadMetadataBits @ 0x14091C25C (MiCommitInitialVadMetadataBits.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1409505E0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiFreeLargePageView @ 0x14099A530 (MiFreeLargePageView.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
+ *     MiCreateLargePageVad @ 0x140A7D970 (MiCreateLargePageVad.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 _QWORD *__fastcall UNLOCK_ADDRESS_SPACE_SHARED(__int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // rdi
   _QWORD *result; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
 
   v2 = a2 + 600;
   *(_DWORD *)(a1 + 1448) &= ~2u;
@@ -37,7 +35,7 @@ _QWORD *__fastcall UNLOCK_ADDRESS_SPACE_SHARED(__int64 a1, __int64 a2)
   {
     result = (_QWORD *)(a1 + 152);
     if ( (_QWORD *)*result != result )
-      return (_QWORD *)KiCheckForKernelApcDelivery(v6, v5);
+      return (_QWORD *)KiCheckForKernelApcDelivery();
   }
   return result;
 }

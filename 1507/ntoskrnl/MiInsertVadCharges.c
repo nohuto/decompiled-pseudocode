@@ -51,7 +51,7 @@ __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2, unsigned
   unsigned int v25; // r9d
   __int16 *ProcessPartition; // rbx
   __int64 v27; // r9
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
 
   v5 = 0LL;
   v6 = 0LL;

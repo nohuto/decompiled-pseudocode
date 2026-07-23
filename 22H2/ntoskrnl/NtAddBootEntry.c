@@ -6,10 +6,10 @@
  *     ExpSetBootEntry @ 0x140951150 (ExpSetBootEntry.c)
  */
 
-__int64 __fastcall NtAddBootEntry(const void *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtAddBootEntry(PBOOT_ENTRY BootEntry, PULONG Id)
 {
   if ( dword_140C197B0 == 2 )
-    return ExpSetBootEntry(1, a1, a2);
+    return ExpSetBootEntry(1, BootEntry, (unsigned __int64)Id);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

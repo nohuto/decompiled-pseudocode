@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteSlabAllocator @ 0x1406874F0
+ * XREFs of MiDeleteSlabAllocator @ 0x140688620
  * Callers:
  *     <none>
  * Callees:
- *     MiFreeSlabEntries @ 0x1402D3B04 (MiFreeSlabEntries.c)
- *     MiAsyncSlabReplenish @ 0x1404141C0 (MiAsyncSlabReplenish.c)
+ *     MiAsyncSlabReplenish @ 0x14026F604 (MiAsyncSlabReplenish.c)
+ *     MiFreeSlabEntries @ 0x140354D7C (MiFreeSlabEntries.c)
  */
 
 __int64 __fastcall MiDeleteSlabAllocator(__int64 a1, __int64 a2)

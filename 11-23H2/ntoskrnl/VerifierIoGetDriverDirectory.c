@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoGetDriverDirectory @ 0x140ACF050
+ * XREFs of VerifierIoGetDriverDirectory @ 0x140ACF040
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoGetDriverDirectory()

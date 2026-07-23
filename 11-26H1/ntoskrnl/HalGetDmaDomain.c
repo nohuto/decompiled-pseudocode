@@ -1,5 +1,5 @@
 /*
- * XREFs of HalGetDmaDomain @ 0x140589F50
+ * XREFs of HalGetDmaDomain @ 0x14058C680
  * Callers:
  *     <none>
  * Callees:

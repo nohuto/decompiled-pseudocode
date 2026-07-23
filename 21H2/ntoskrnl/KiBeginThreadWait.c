@@ -1,16 +1,16 @@
 /*
- * XREFs of KiBeginThreadWait @ 0x140242630
+ * XREFs of KiBeginThreadWait @ 0x1402E6E80
  * Callers:
- *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
- *     KeWaitForAlertByThreadId @ 0x140257330 (KeWaitForAlertByThreadId.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KiWaitForAllObjects @ 0x14029A090 (KiWaitForAllObjects.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     KiWaitForAllObjects @ 0x14022A600 (KiWaitForAllObjects.c)
+ *     KeWaitForAlertByThreadId @ 0x1402788A0 (KeWaitForAlertByThreadId.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     KeRemovePriQueue @ 0x1402E6A20 (KeRemovePriQueue.c)
  * Callees:
- *     KiDeliverApc @ 0x14024A750 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiCheckForThreadDispatch @ 0x1402783B4 (KiCheckForThreadDispatch.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiCheckForThreadDispatch @ 0x140266354 (KiCheckForThreadDispatch.c)
+ *     KiDeliverApc @ 0x1402EEFA0 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -142,7 +142,7 @@ LABEL_17:
     v24 = 257;
 LABEL_18:
     KiReleaseThreadLockSafe(a1);
-    KiCheckForThreadDispatch(KeGetCurrentPrcb(), v4);
+    KiCheckForThreadDispatch((__int64)KeGetCurrentPrcb(), v4);
     return v24;
   }
 LABEL_9:

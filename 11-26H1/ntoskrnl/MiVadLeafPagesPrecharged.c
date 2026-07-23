@@ -1,8 +1,8 @@
 /*
- * XREFs of MiVadLeafPagesPrecharged @ 0x140477424
+ * XREFs of MiVadLeafPagesPrecharged @ 0x140470BA4
  * Callers:
- *     MiCommitPageTablesForVad @ 0x1409C6018 (MiCommitPageTablesForVad.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
+ *     MiCommitPageTablesForVad @ 0x140996FF8 (MiCommitPageTablesForVad.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
  * Callees:
  *     <none>
  */

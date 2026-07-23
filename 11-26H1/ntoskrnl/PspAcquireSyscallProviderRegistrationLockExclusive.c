@@ -1,12 +1,12 @@
 /*
- * XREFs of PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1406145AC
+ * XREFs of PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1406173EC
  * Callers:
- *     PspDestroySyscallProvider @ 0x1407ED6D8 (PspDestroySyscallProvider.c)
- *     PspInsertSyscallProvider @ 0x1407ED8CC (PspInsertSyscallProvider.c)
+ *     PspDestroySyscallProvider @ 0x1407F3238 (PspDestroySyscallProvider.c)
+ *     PspInsertSyscallProvider @ 0x1407F342C (PspInsertSyscallProvider.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
  */
 
 void __fastcall PspAcquireSyscallProviderRegistrationLockExclusive(

@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpCleanupNamespace @ 0x140612E20
+ * XREFs of VrpCleanupNamespace @ 0x140612ED4
  * Callers:
- *     VrpJobContextDelete @ 0x140612E84 (VrpJobContextDelete.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14061418C (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpJobContextDelete @ 0x140612F38 (VrpJobContextDelete.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140614240 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VrpDestroyNamespaceNodeList @ 0x140614C00 (VrpDestroyNamespaceNodeList.c)
- *     VrpUnloadDifferencingHive @ 0x140617878 (VrpUnloadDifferencingHive.c)
+ *     VrpDestroyNamespaceNodeList @ 0x140614CB4 (VrpDestroyNamespaceNodeList.c)
+ *     VrpUnloadDifferencingHive @ 0x14061792C (VrpUnloadDifferencingHive.c)
  */
 
 void __fastcall VrpCleanupNamespace(__int64 a1)

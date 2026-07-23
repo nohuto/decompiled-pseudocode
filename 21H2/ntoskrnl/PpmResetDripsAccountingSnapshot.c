@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmResetDripsAccountingSnapshot @ 0x1405675D8
+ * XREFs of PpmResetDripsAccountingSnapshot @ 0x140567818
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     <none>
  */
@@ -13,11 +13,11 @@ __int64 PpmResetDripsAccountingSnapshot()
   __int64 *v2; // rdx
   _QWORD *v3; // rcx
 
-  result = (unsigned int)dword_140C50080;
-  if ( PpmPlatformStates && dword_140C50080 != -1 )
+  result = (unsigned int)dword_140C500C0;
+  if ( PpmPlatformStates && dword_140C500C0 != -1 )
   {
     v1 = 26LL;
-    v2 = (__int64 *)(1008LL * (unsigned int)dword_140C50080 + 200 + *(_QWORD *)(PpmPlatformStates + 48));
+    v2 = (__int64 *)(1008LL * (unsigned int)dword_140C500C0 + 200 + *(_QWORD *)(PpmPlatformStates + 48));
     v3 = &PpmDripsAccountingSnapshot;
     do
     {

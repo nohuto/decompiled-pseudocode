@@ -1,11 +1,11 @@
 /*
- * XREFs of MmStoreLogConsumedPoison @ 0x1404BB760
+ * XREFs of MmStoreLogConsumedPoison @ 0x1404B6670
  * Callers:
- *     SmLogConsumedPoison @ 0x1404BB73C (SmLogConsumedPoison.c)
+ *     SmLogConsumedPoison @ 0x1404B664C (SmLogConsumedPoison.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MmStoreLogConsumedPoison(__int64 a1, __int64 a2, __int64 a3)
@@ -38,15 +38,15 @@ void __fastcall MmStoreLogConsumedPoison(__int64 a1, __int64 a2, __int64 a3)
   int v28; // [rsp+B8h] [rbp+3Fh]
   int v29; // [rsp+BCh] [rbp+43h]
 
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     if ( a3 )
     {
-      if ( **(_DWORD **)&qword_140E37518 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000002LL) )
+      if ( **(_DWORD **)&qword_140E37658 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000002LL) )
       {
         v29 = 0;
         v18 = &v15;
-        v8 = (unsigned __int8 *)&word_140057FC2;
+        v8 = (unsigned __int8 *)&word_140058D62;
         v15 = v9;
         v21 = &v13;
         v7 = 8;
@@ -59,14 +59,14 @@ void __fastcall MmStoreLogConsumedPoison(__int64 a1, __int64 a2, __int64 a3)
         goto LABEL_9;
       }
     }
-    else if ( **(_DWORD **)&qword_140E37518 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000002LL) )
+    else if ( **(_DWORD **)&qword_140E37658 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000002LL) )
     {
       v14 = v6;
       v18 = &v14;
       v7 = (_DWORD)v3 + 8;
       v15 = 0x1000000LL;
       v21 = &v13;
-      v8 = (unsigned __int8 *)byte_14005802B;
+      v8 = (unsigned __int8 *)byte_140058D01;
       v24 = &v15;
       v12 = 5;
 LABEL_9:

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetBatteryDischargingState @ 0x140A3BFA8
+ * XREFs of PopSetBatteryDischargingState @ 0x140A31788
  * Callers:
- *     PopBatteryCheckCompositeCapacity @ 0x140A3BDF4 (PopBatteryCheckCompositeCapacity.c)
+ *     PopBatteryCheckCompositeCapacity @ 0x140A315D4 (PopBatteryCheckCompositeCapacity.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
 char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
@@ -34,7 +34,7 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
   unsigned int v22; // r8d
   unsigned int v23; // eax
   unsigned __int64 v24; // rax
-  int v26; // [rsp+48h] [rbp-C0h] BYREF
+  int Buffer; // [rsp+48h] [rbp-C0h] BYREF
   int v27; // [rsp+4Ch] [rbp-BCh] BYREF
   int v28; // [rsp+50h] [rbp-B8h] BYREF
   unsigned int v29; // [rsp+54h] [rbp-B4h] BYREF
@@ -75,22 +75,22 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
   _UNKNOWN *retaddr; // [rsp+1D0h] [rbp+C8h] BYREF
 
   v2 = &retaddr;
-  if ( byte_140F0B020 != a2 )
+  if ( byte_140F0BE60 != a2 )
   {
-    byte_140F0B020 = a2;
-    v26 = a2;
-    LOBYTE(v2) = ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v26);
-    if ( (unsigned int)dword_140E076F0 > 5 )
+    byte_140F0BE60 = a2;
+    Buffer = a2;
+    LOBYTE(v2) = ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &Buffer, 4u, 0LL, 0LL, 0, 0);
+    if ( (unsigned int)dword_140E07680 > 5 )
     {
-      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
       if ( (_BYTE)v2 )
       {
         v37 = &v27;
         v4 = "AC Power";
-        v28 = dword_140F0AE54;
+        v28 = dword_140F0BC94;
         v39 = &v28;
         v5 = (*a1 & 1) == 0;
-        v27 = (unsigned __int8)byte_140F0B020;
+        v27 = (unsigned __int8)byte_140F0BE60;
         if ( v5 )
           v4 = "DC Power";
         v38 = 4LL;
@@ -125,25 +125,25 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
           v18 = v17;
         tlgCreate1Sz_char((__int64)v48, v18);
         v20 = "Platform BCL Enabled";
-        if ( (byte_140F0B0D8 & 1) == 0 )
+        if ( (byte_140F0BF18 & 1) == 0 )
           v20 = v19;
         tlgCreate1Sz_char((__int64)v49, v20);
         v22 = a1[1];
-        if ( HIDWORD(qword_140F0AEB4) )
-          v23 = ((HIDWORD(qword_140F0AEB4) >> 1) + 100 * v22) / HIDWORD(qword_140F0AEB4);
+        if ( HIDWORD(qword_140F0BCF4) )
+          v23 = ((HIDWORD(qword_140F0BCF4) >> 1) + 100 * v22) / HIDWORD(qword_140F0BCF4);
         else
           v23 = 0;
         v29 = v23;
         v50 = &v29;
         v51 = 4LL;
-        if ( HIDWORD(qword_140F0AEB4) )
-          v24 = 100000 * (unsigned __int64)v22 / HIDWORD(qword_140F0AEB4);
+        if ( HIDWORD(qword_140F0BCF4) )
+          v24 = 100000 * (unsigned __int64)v22 / HIDWORD(qword_140F0BCF4);
         else
           LODWORD(v24) = 0;
         v30 = v24;
         v31 = v22;
         v52 = &v30;
-        v32 = HIDWORD(qword_140F0AEB4);
+        v32 = HIDWORD(qword_140F0BCF4);
         v54 = (int *)&v31;
         v53 = 4LL;
         v56 = &v32;
@@ -159,8 +159,8 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
         v35 = v21;
         v63 = 4LL;
         LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140E076F0,
-                       (unsigned __int8 *)byte_14004C370,
+                       (__int64)&dword_140E07680,
+                       (unsigned __int8 *)&dword_14004BFAC,
                        0LL,
                        0LL,
                        0x14u,

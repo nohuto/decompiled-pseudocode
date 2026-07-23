@@ -1,12 +1,12 @@
 /*
- * XREFs of PspNotificationPacketCallback @ 0x14051BC8C
+ * XREFs of PspNotificationPacketCallback @ 0x1404FF07C
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     IoSetIoCompletionEx @ 0x14007E5C4 (IoSetIoCompletionEx.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoSetIoCompletionEx @ 0x14007E644 (IoSetIoCompletionEx.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
  */
 
 void __fastcall PspNotificationPacketCallback(__int64 a1, __int64 a2)

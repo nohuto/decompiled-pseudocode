@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCompressBufferXpressLzStandard @ 0x180077BE4
+ * XREFs of RtlCompressBufferXpressLzStandard @ 0x180077BD4
  * Callers:
  *     RtlCompressBufferXpressLz @ 0x180002EF0 (RtlCompressBufferXpressLz.c)
  * Callees:

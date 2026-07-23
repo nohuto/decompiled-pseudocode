@@ -3,7 +3,7 @@
  * Callers:
  *     KdpTrap @ 0x140AB037C (KdpTrap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     KdExitDebugger @ 0x140AB0008 (KdExitDebugger.c)
  *     KdEnterDebugger @ 0x140AB0144 (KdEnterDebugger.c)
  *     KdpQuickMoveMemory @ 0x140AB1918 (KdpQuickMoveMemory.c)

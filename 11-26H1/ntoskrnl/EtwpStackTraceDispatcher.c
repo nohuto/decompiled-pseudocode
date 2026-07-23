@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpStackTraceDispatcher @ 0x14020A3A0
+ * XREFs of EtwpStackTraceDispatcher @ 0x14020A480
  * Callers:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14041297C (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140412F7C (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x140406FB0 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1404075AC (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpTraceStackWalk @ 0x14020A5C0 (EtwpTraceStackWalk.c)
- *     EtwpQueueApc @ 0x14020AA10 (EtwpQueueApc.c)
- *     MmCanThreadFault @ 0x140262E50 (MmCanThreadFault.c)
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
+ *     EtwpTraceStackWalk @ 0x14020A6A0 (EtwpTraceStackWalk.c)
+ *     EtwpQueueApc @ 0x14020AAF0 (EtwpQueueApc.c)
+ *     MmCanThreadFault @ 0x1402623C0 (MmCanThreadFault.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
  */
 
 void __fastcall EtwpStackTraceDispatcher(__int64 a1, unsigned int *a2, _KTHREAD *a3, unsigned int a4)

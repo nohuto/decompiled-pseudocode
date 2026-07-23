@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxCloseMachine @ 0x1406D6EA4
+ * XREFs of _PnpCtxCloseMachine @ 0x1406D6FDC
  * Callers:
  *     PipMigratePnpState @ 0x1407BBCE0 (PipMigratePnpState.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExDeleteResourceLite @ 0x1400885B0 (ExDeleteResourceLite.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExDeleteResourceLite @ 0x14010C7A0 (ExDeleteResourceLite.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     _SysCtxCloseMachine @ 0x1406DF8EC (_SysCtxCloseMachine.c)
+ *     _SysCtxCloseMachine @ 0x1406DFA24 (_SysCtxCloseMachine.c)
  */
 
 __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)

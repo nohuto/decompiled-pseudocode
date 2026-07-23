@@ -30,7 +30,7 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
   unsigned int v13; // [rsp+30h] [rbp-218h] BYREF
   _QWORD v14[2]; // [rsp+38h] [rbp-210h] BYREF
   _BYTE v15[56]; // [rsp+48h] [rbp-200h] BYREF
-  unsigned int v16[104]; // [rsp+80h] [rbp-1C8h] BYREF
+  unsigned int PackageSize[104]; // [rsp+80h] [rbp-1C8h] BYREF
 
   v4 = 0;
   if ( !EtwpIsProcessZombie((__int64)Process) )
@@ -61,13 +61,13 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
       {
         v13 = 0;
         v10 = PsReferencePrimaryToken(Process);
-        EtwpQueryTokenPackageInfo((__int64)v10, (__int64)v16, &v13);
+        EtwpQueryTokenPackageInfo(v10, (WCHAR *)PackageSize, &v13);
         if ( a2[8] )
           EtwpQueryProcessOtherInfo((__int64)Process, (__int64)v14);
         else
           v14[0] = 0LL;
         ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], (unsigned __int64)v10);
-        EtwpPsProvTraceProcess(Process, v13, v16, (__int64)v14, 771);
+        EtwpPsProvTraceProcess(Process, v13, PackageSize, (__int64)v14, 771);
       }
       if ( v4 )
       {

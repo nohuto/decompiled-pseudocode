@@ -1,26 +1,26 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x14092430C
+ * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x14092644C
  * Callers:
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140822214 (DrvDbGetDriverPackageMappedPropertyKeys.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140923320 (DrvDbGetDriverPackageSignerScore.c)
- *     DrvDbDispatchDriverPackage @ 0x1409240F0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14092430C (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140822954 (DrvDbGetDriverPackageMappedPropertyKeys.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140925458 (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbDispatchDriverPackage @ 0x140926230 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14092644C (DrvDbGetDriverPackageMappedProperty.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140923320 (DrvDbGetDriverPackageSignerScore.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x1409239B4 (DrvDbGetObjectDatabaseNodeName.c)
- *     DrvDbGetRegValueMappedProperty @ 0x140923A70 (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14092430C (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x1409254A4 (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140925458 (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x140925AF4 (DrvDbGetObjectDatabaseNodeName.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x140925BB0 (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14092644C (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x1409275E4 (DrvDbOpenDriverPackageRegKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedProperty(
@@ -163,7 +163,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedProperty(
           if ( v15 < 0 )
             goto LABEL_246;
         }
-        Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x412uLL, 0x42444450u);
         v82 = Pool2;
         v25 = Pool2;
         if ( Pool2 )
@@ -302,7 +302,7 @@ LABEL_227:
       }
 LABEL_199:
       v63 = 0;
-      for ( j = &off_14000C570; ; j += 5 )
+      for ( j = &off_14000C880; ; j += 5 )
       {
         v65 = (__int64 *)*j;
         if ( LODWORD((**j)[2]) == v12 && *v65 == *(_QWORD *)a4 && v65[1] == *(_QWORD *)(a4 + 8) )
@@ -311,7 +311,7 @@ LABEL_199:
           return (unsigned int)-1073741802;
       }
       v67 = 5LL * v63;
-      a5 = &off_14000C570 + 5 * v63;
+      a5 = &off_14000C880 + 5 * v63;
       if ( !a5 )
         return (unsigned int)-1073741802;
       if ( !v10 )
@@ -325,7 +325,7 @@ LABEL_199:
       if ( *((_DWORD *)a5 + 8) )
       {
         LODWORD(a5) = 48;
-        v25 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        v25 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x30uLL, 0x42444450u);
         if ( v25 )
         {
           v70 = v77;

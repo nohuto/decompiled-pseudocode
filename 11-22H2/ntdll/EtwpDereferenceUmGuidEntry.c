@@ -12,24 +12,24 @@
  *     EtwpAcquireGuidEntryExclusive @ 0x180061CE0 (EtwpAcquireGuidEntryExclusive.c)
  */
 
-__int64 __fastcall EtwpDereferenceUmGuidEntry(unsigned __int64 a1)
+LOGICAL __fastcall EtwpDereferenceUmGuidEntry(PRTL_BALANCED_NODE Node)
 {
-  __int64 result; // rax
-  __int64 v3; // r8
+  LOGICAL result; // eax
+  _RTL_BALANCED_NODE *v3; // r8
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 52), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)&Node[2].Left + 1, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    EtwpAcquireGuidEntryExclusive(a1);
+    EtwpAcquireGuidEntryExclusive((__int64)Node);
     RtlAcquireSRWLockExclusive(&EtwpProvLock);
-    RtlRbRemoveNode((__int64)&EtwpGuidEntryTable, a1);
+    RtlRbRemoveNode(&EtwpGuidEntryTable, Node);
     RtlReleaseSRWLockExclusive(&EtwpProvLock);
-    *(_DWORD *)(a1 + 48) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
-    v3 = *(_QWORD *)(a1 + 168);
+    LODWORD(Node[2].Children[0]) = 0;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)&Node[1].16);
+    v3 = Node[7].Children[0];
     if ( v3 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Node);
   }
   return result;
 }

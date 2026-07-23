@@ -53,13 +53,13 @@ __int64 __fastcall SC_GPT::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
   int v38; // edi
   __int64 v39; // rbx
   __int64 v40; // rax
-  unsigned int v41; // r8d
+  ULONG v41; // r8d
   __int64 v42; // rbx
   int v44; // [rsp+20h] [rbp-68h]
   int v45; // [rsp+24h] [rbp-64h]
   unsigned __int64 v46; // [rsp+28h] [rbp-60h]
   unsigned __int64 v47; // [rsp+30h] [rbp-58h]
-  char *v48; // [rsp+40h] [rbp-48h]
+  char *Buffer; // [rsp+40h] [rbp-48h]
   int v49; // [rsp+90h] [rbp+8h]
   __int64 v50; // [rsp+90h] [rbp+8h]
   unsigned int v52; // [rsp+A8h] [rbp+20h]
@@ -145,7 +145,7 @@ LABEL_18:
     v49 = 0;
     v24 = 1 << *((_DWORD *)*this + 58);
     v25 = &v22[v20 - v24];
-    v48 = &v22[v24];
+    Buffer = &v22[v24];
     if ( *((_DWORD *)a2 + 1) )
     {
       v26 = (__int64)&v22[v24 + 32];
@@ -217,7 +217,7 @@ LABEL_47:
     *(_OWORD *)(v22 + 56) = v35;
     *((_DWORD *)v22 + 21) = v44;
     v50 = v10;
-    *((_DWORD *)v22 + 22) = RtlComputeCrc32(0, v48, v10 << *((_DWORD *)*this + 58));
+    *((_DWORD *)v22 + 22) = RtlComputeCrc32(0, Buffer, v10 << *((_DWORD *)*this + 58));
     *((_DWORD *)v22 + 4) = RtlComputeCrc32(0, v22, 0x5Cu);
     v36 = v22;
     v37 = 1LL;
@@ -235,7 +235,7 @@ LABEL_61:
         return (unsigned int)Header;
       }
       v37 = *((_QWORD *)v22 + 9);
-      v36 = v48;
+      v36 = Buffer;
       v38 = v10 + 1;
     }
     Header = SC_DISK::WriteSectors(*this, v10, v37, v36);
@@ -259,7 +259,7 @@ LABEL_61:
       *((_QWORD *)v25 + 9) = v42;
       *((_QWORD *)v25 + 4) = v40;
       *((_DWORD *)v25 + 4) = RtlComputeCrc32(0, v25, v41);
-      Header = SC_DISK::WriteSectors(*this, v38, v42, v48);
+      Header = SC_DISK::WriteSectors(*this, v38, v42, Buffer);
       if ( Header >= 0 )
       {
 LABEL_59:

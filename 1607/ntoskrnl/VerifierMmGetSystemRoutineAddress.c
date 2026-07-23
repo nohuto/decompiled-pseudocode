@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfThunkAdjustExportAddressIfHooked @ 0x14070F310 (VfThunkAdjustExportAddressIfHooked.c)
+ *     VfThunkAdjustExportAddressIfHooked @ 0x14070F340 (VfThunkAdjustExportAddressIfHooked.c)
  */
 
 __int64 __fastcall VerifierMmGetSystemRoutineAddress(__int64 a1)

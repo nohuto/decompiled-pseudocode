@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInvertRangeListEx @ 0x1408147B0
+ * XREFs of RtlInvertRangeListEx @ 0x140814A80
  * Callers:
- *     RtlInvertRangeList @ 0x1408145C0 (RtlInvertRangeList.c)
- *     ArbInitializeRangeList @ 0x140936130 (ArbInitializeRangeList.c)
+ *     RtlInvertRangeList @ 0x140814890 (RtlInvertRangeList.c)
+ *     ArbInitializeRangeList @ 0x140936330 (ArbInitializeRangeList.c)
  * Callees:
- *     RtlAddRange @ 0x1408148F0 (RtlAddRange.c)
+ *     RtlAddRange @ 0x140814BC0 (RtlAddRange.c)
  */
 
 __int64 __fastcall RtlInvertRangeListEx(int a1, __int64 a2, char a3, __int64 a4, __int64 a5)

@@ -1,23 +1,23 @@
 /*
- * XREFs of IopCompleteIoRingEntry @ 0x1403C5F20
+ * XREFs of IopCompleteIoRingEntry @ 0x1403B4AE0
  * Callers:
- *     IopIoRingCompleteIrp @ 0x1403C5DA0 (IopIoRingCompleteIrp.c)
- *     IopIoRingDispatchComplete @ 0x1406F7B84 (IopIoRingDispatchComplete.c)
- *     IopIoRingDispatchCancel @ 0x14071659C (IopIoRingDispatchCancel.c)
- *     IopIoRingDispatchFlush @ 0x14071665C (IopIoRingDispatchFlush.c)
- *     IopIoRingDispatchReadScatter @ 0x14071673C (IopIoRingDispatchReadScatter.c)
- *     IopIoRingDispatchRegisterBuffers @ 0x140716848 (IopIoRingDispatchRegisterBuffers.c)
- *     IopIoRingDispatchRegisterFiles @ 0x140716C08 (IopIoRingDispatchRegisterFiles.c)
- *     IopIoRingDispatchWrite @ 0x140716E78 (IopIoRingDispatchWrite.c)
- *     IopIoRingDispatchWriteGather @ 0x140717020 (IopIoRingDispatchWriteGather.c)
- *     IopIoRingDispatchRead @ 0x140A94B48 (IopIoRingDispatchRead.c)
+ *     IopIoRingCompleteIrp @ 0x1403B4960 (IopIoRingCompleteIrp.c)
+ *     IopIoRingDispatchComplete @ 0x1406F5B84 (IopIoRingDispatchComplete.c)
+ *     IopIoRingDispatchCancel @ 0x14071412C (IopIoRingDispatchCancel.c)
+ *     IopIoRingDispatchFlush @ 0x1407141EC (IopIoRingDispatchFlush.c)
+ *     IopIoRingDispatchReadScatter @ 0x1407142CC (IopIoRingDispatchReadScatter.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x1407143D8 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterFiles @ 0x140714798 (IopIoRingDispatchRegisterFiles.c)
+ *     IopIoRingDispatchWrite @ 0x140714A08 (IopIoRingDispatchWrite.c)
+ *     IopIoRingDispatchWriteGather @ 0x140714BB0 (IopIoRingDispatchWriteGather.c)
+ *     IopIoRingDispatchRead @ 0x140A912F8 (IopIoRingDispatchRead.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 int __fastcall IopCompleteIoRingEntry(__int64 a1, __int64 a2, _OWORD *a3, KPRIORITY a4)

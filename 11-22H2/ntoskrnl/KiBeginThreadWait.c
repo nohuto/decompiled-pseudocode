@@ -46,10 +46,10 @@ __int64 __fastcall KiBeginThreadWait(__int64 a1, char a2, char a3, char a4)
     if ( !*(_BYTE *)(a1 + 193) || *(_WORD *)(a1 + 486) || v4 )
       break;
     *(_QWORD *)(a1 + 64) = 0LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -63,7 +63,7 @@ __int64 __fastcall KiBeginThreadWait(__int64 a1, char a2, char a3, char a4)
     KiDeliverApc(0LL, 0LL, 0LL);
     v15 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
     {
       v16 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v15 == 2 )

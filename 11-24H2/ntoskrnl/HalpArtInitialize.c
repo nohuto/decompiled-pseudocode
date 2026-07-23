@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpArtInitialize @ 0x1404A54E0
+ * XREFs of HalpArtInitialize @ 0x1404A0270
  * Callers:
  *     <none>
  * Callees:
- *     HalpArtAvailable @ 0x1404A5570 (HalpArtAvailable.c)
- *     HalUpdateTimerCapabilities @ 0x14055FFB0 (HalUpdateTimerCapabilities.c)
+ *     HalpArtAvailable @ 0x1404A0300 (HalpArtAvailable.c)
+ *     HalUpdateTimerCapabilities @ 0x14055DBE0 (HalUpdateTimerCapabilities.c)
  */
 
 __int64 __fastcall HalpArtInitialize(_DWORD *a1)

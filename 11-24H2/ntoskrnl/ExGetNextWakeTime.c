@@ -1,15 +1,15 @@
 /*
- * XREFs of ExGetNextWakeTime @ 0x140B6DF68
+ * XREFs of ExGetNextWakeTime @ 0x140B6FA08
  * Callers:
- *     PopIsWakeTimerImmanent @ 0x140755058 (PopIsWakeTimerImmanent.c)
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopIsWakeTimerImmanent @ 0x140753378 (PopIsWakeTimerImmanent.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     KeQueryTimerDueTime @ 0x14048E920 (KeQueryTimerDueTime.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     KeQueryTimerDueTime @ 0x140488D50 (KeQueryTimerDueTime.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall ExGetNextWakeTime(
@@ -31,7 +31,7 @@ bool __fastcall ExGetNextWakeTime(
   KIRQL v16; // dl
   __int64 TimerDueTime; // rax
   unsigned __int64 *Pool2; // rax
-  unsigned __int64 v20; // [rsp+20h] [rbp-68h] BYREF
+  ULONG_PTR v20; // [rsp+20h] [rbp-68h] BYREF
   __int64 v21; // [rsp+28h] [rbp-60h]
   KIRQL NewIrql; // [rsp+98h] [rbp+10h]
 
@@ -88,7 +88,7 @@ LABEL_12:
   if ( v6 )
   {
     PoStoreDiagnosticContext(v6, 0LL, &v20);
-    Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL);
+    Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL, v20, 0x53577254u);
     v7 = Pool2;
     if ( Pool2 )
     {

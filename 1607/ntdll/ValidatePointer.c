@@ -1,9 +1,9 @@
 /*
- * XREFs of ValidatePointer @ 0x18000C2A4
+ * XREFs of ValidatePointer @ 0x18000C294
  * Callers:
- *     GetResourceDirectoryEntry @ 0x18000BFD0 (GetResourceDirectoryEntry.c)
- *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C014 (WerEscalationReadImageVersionInfoForModuleBase.c)
- *     FindDirectoryEntry @ 0x18000C2E0 (FindDirectoryEntry.c)
+ *     GetResourceDirectoryEntry @ 0x18000BFC0 (GetResourceDirectoryEntry.c)
+ *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C004 (WerEscalationReadImageVersionInfoForModuleBase.c)
+ *     FindDirectoryEntry @ 0x18000C2D0 (FindDirectoryEntry.c)
  * Callees:
  *     <none>
  */

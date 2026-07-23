@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDiagTraceCoolingExtension @ 0x140A38BFC
+ * XREFs of PopDiagTraceCoolingExtension @ 0x140A2DCBC
  * Callers:
- *     PopAssociateThermalRequest @ 0x14074C028 (PopAssociateThermalRequest.c)
- *     PopCoolingExtensionPnpNotification @ 0x14074C210 (PopCoolingExtensionPnpNotification.c)
- *     PopDisableCoolingExtension @ 0x14074C2E8 (PopDisableCoolingExtension.c)
- *     PopRundownThermalRequests @ 0x140A38850 (PopRundownThermalRequests.c)
- *     PopDeactiveThermalRequest @ 0x140AB88D4 (PopDeactiveThermalRequest.c)
+ *     PopAssociateThermalRequest @ 0x14074A358 (PopAssociateThermalRequest.c)
+ *     PopCoolingExtensionPnpNotification @ 0x14074A540 (PopCoolingExtensionPnpNotification.c)
+ *     PopDisableCoolingExtension @ 0x14074A618 (PopDisableCoolingExtension.c)
+ *     PopRundownThermalRequests @ 0x140A2D910 (PopRundownThermalRequests.c)
+ *     PopDeactiveThermalRequest @ 0x140AB2D98 (PopDeactiveThermalRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCoolingExtension(__int64 a1, const EVENT_DESCRIPTOR *a2)

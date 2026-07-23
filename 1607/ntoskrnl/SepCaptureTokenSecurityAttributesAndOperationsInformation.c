@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047C310
+ * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047B1E0
  * Callers:
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
  * Callees:
- *     SepCaptureTokenSecurityOperations @ 0x14008064C (SepCaptureTokenSecurityOperations.c)
+ *     SepCaptureTokenSecurityOperations @ 0x1400806CC (SepCaptureTokenSecurityOperations.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x14047C21C (SepFreeCapturedTokenSecurityAttributesInformation.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x14047C454 (SepCaptureTokenSecurityAttributesInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x14047B0EC (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x14047B324 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall SepCaptureTokenSecurityAttributesAndOperationsInformation(__int64 *a1, char a2, __int64 **a3)

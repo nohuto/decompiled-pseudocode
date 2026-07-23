@@ -3,7 +3,7 @@
  * Callers:
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HalpAcpiSetupPmRegisterLegacy @ 0x140B658EC (HalpAcpiSetupPmRegisterLegacy.c)
  *     HalpAcpiSetupPmRegister @ 0x140B65948 (HalpAcpiSetupPmRegister.c)
  */

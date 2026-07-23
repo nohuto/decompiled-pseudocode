@@ -1,15 +1,15 @@
 /*
- * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x140820AC4
+ * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x140826CD4
  * Callers:
- *     WdipSemLogInflightLimitExceededInformation @ 0x140820978 (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x140826B88 (WdipSemLogInflightLimitExceededInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     WdipSemFastAllocate @ 0x140ADB300 (WdipSemFastAllocate.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     WdipSemFastAllocate @ 0x140AD7DB0 (WdipSemFastAllocate.c)
  */
 
 __int64 __fastcall WdipSemUpdateFrequentScenarioTable(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -20,18 +20,18 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(__int64 a1, __int64 a2, __
   void *v8; // rdx
   signed __int8 v9; // cf
   AutoBoost *v10; // rdi
-  unsigned __int64 v11; // rax
+  __int64 v11; // rax
   signed __int64 v12; // rdx
   __int64 v13; // rtt
 
   CurrentThread = KeGetCurrentThread();
   v6 = 0;
   --CurrentThread->KernelApcDisable;
-  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F066E8, 0LL, 0LL, a4);
-  v9 = _interlockedbittestandset64(&stru_140F066E8.Header.Lock, 0LL);
+  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F049E8, 0LL, 0LL, a4);
+  v9 = _interlockedbittestandset64(&stru_140F049E8.Header.Lock, 0LL);
   v10 = v7;
   if ( v9 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F066E8, v7, (__int64)&stru_140F066E8);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F049E8, v7, (__int64)&stru_140F049E8);
   if ( v10 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -41,14 +41,14 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(__int64 a1, __int64 a2, __
   }
   if ( a1 )
   {
-    if ( (unsigned int)dword_140F066E0 < 0x80 )
+    if ( (unsigned int)dword_140F049E0 < 0x80 )
     {
       v11 = WdipSemFastAllocate(5LL, 24LL);
       if ( v11 )
       {
         *(_OWORD *)v11 = *(_OWORD *)a1;
         *(_QWORD *)(v11 + 16) = *(_QWORD *)(a1 + 16);
-        *(&stru_140F060A8.AffinityVersion + (unsigned int)dword_140F066E0++) = v11;
+        *(_QWORD *)&stru_140F042A0.PriorityFloorCounts[8 * dword_140F049E0++ + 8] = v11;
       }
       else
       {
@@ -64,20 +64,20 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(__int64 a1, __int64 a2, __
   {
     v6 = -1073741811;
   }
-  _m_prefetchw(&stru_140F066E8);
-  v12 = *(_QWORD *)&stru_140F066E8.Header.Lock - 16LL;
-  if ( (*(_QWORD *)&stru_140F066E8.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw(&stru_140F049E8);
+  v12 = *(_QWORD *)&stru_140F049E8.Header.Lock - 16LL;
+  if ( (*(_QWORD *)&stru_140F049E8.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v12 = 0LL;
-  if ( (stru_140F066E8.Header.Type & 2) != 0
-    || (v13 = *(_QWORD *)&stru_140F066E8.Header.Lock,
+  if ( (stru_140F049E8.Header.Type & 2) != 0
+    || (v13 = *(_QWORD *)&stru_140F049E8.Header.Lock,
         v13 != _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)&stru_140F066E8,
+                 (volatile signed __int64 *)&stru_140F049E8,
                  v12,
-                 *(signed __int64 *)&stru_140F066E8.Header.Lock)) )
+                 *(signed __int64 *)&stru_140F049E8.Header.Lock)) )
   {
-    ExfReleasePushLock(&stru_140F066E8);
+    ExfReleasePushLock(&stru_140F049E8);
   }
-  KeAbPostRelease((unsigned __int64)&stru_140F066E8);
+  KeAbPostRelease((unsigned __int64)&stru_140F049E8);
   KeLeaveCriticalRegion();
   return v6;
 }

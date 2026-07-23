@@ -1,11 +1,11 @@
 /*
- * XREFs of AslRegistryOpenSubKey @ 0x140808F50
+ * XREFs of AslRegistryOpenSubKey @ 0x140809690
  * Callers:
- *     AslpProcessMatchRegNode @ 0x14080B678 (AslpProcessMatchRegNode.c)
+ *     AslpProcessMatchRegNode @ 0x14080BDB8 (AslpProcessMatchRegNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 NTSTATUS __fastcall AslRegistryOpenSubKey(PHANDLE KeyHandle, void *a2, const WCHAR *a3)

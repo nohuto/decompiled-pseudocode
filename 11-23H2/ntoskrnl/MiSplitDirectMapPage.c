@@ -1,32 +1,32 @@
 /*
- * XREFs of MiSplitDirectMapPage @ 0x14063F264
+ * XREFs of MiSplitDirectMapPage @ 0x14063F7B4
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
  * Callees:
  *     MiCopyPfnEntryEx @ 0x140219D60 (MiCopyPfnEntryEx.c)
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiFinalizePageAttribute @ 0x1402E15E4 (MiFinalizePageAttribute.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiUpdateTransitionPteFrame @ 0x140330BBC (MiUpdateTransitionPteFrame.c)
- *     MiDereferenceControlAreaPfnList @ 0x140339B70 (MiDereferenceControlAreaPfnList.c)
- *     MiColdPageSizeSupported @ 0x140347930 (MiColdPageSizeSupported.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
- *     MiAddPageToHeatRanges @ 0x140653CF4 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DBDB0 (MiRemoveLockedPageCharge.c)
+ *     MiFinalizePageAttribute @ 0x1402E1874 (MiFinalizePageAttribute.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiUpdateTransitionPteFrame @ 0x140330E4C (MiUpdateTransitionPteFrame.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140339E00 (MiDereferenceControlAreaPfnList.c)
+ *     MiColdPageSizeSupported @ 0x140347BC0 (MiColdPageSizeSupported.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
+ *     MiAddPageToHeatRanges @ 0x140654244 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiSplitDirectMapPage(unsigned __int16 *a1, __int64 a2, ULONG_PTR a3, __int64 a4)
@@ -94,11 +94,16 @@ __int64 __fastcall MiSplitDirectMapPage(unsigned __int16 *a1, __int64 a2, ULONG_
   if ( (v11 & 0x40) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_20;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v10 > 0xFu || CurrentIrql < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
+      || CurrentIrql > 0xFu
+      || (unsigned __int8)v10 > 0xFu
+      || CurrentIrql < 2u )
+    {
       goto LABEL_20;
+    }
     CurrentPrcb = KeGetCurrentPrcb();
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
     v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
@@ -116,10 +121,10 @@ LABEL_20:
   if ( (v11 & 0x10) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_20;
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || v18 > 0xFu || (unsigned __int8)v10 > 0xFu || v18 < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v18 > 0xFu || (unsigned __int8)v10 > 0xFu || v18 < 2u )
       goto LABEL_20;
     CurrentPrcb = KeGetCurrentPrcb();
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -218,10 +223,10 @@ LABEL_35:
     MiInsertPageInFreeOrZeroedList(v36, 2);
   }
   _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v38 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v38 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v38 >= 2u )
     {
       v39 = KeGetCurrentPrcb();
       v40 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

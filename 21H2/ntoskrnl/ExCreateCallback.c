@@ -1,29 +1,29 @@
 /*
- * XREFs of ExCreateCallback @ 0x1406BD240
+ * XREFs of ExCreateCallback @ 0x14061C450
  * Callers:
- *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
- *     HaliInitPowerManagement @ 0x1407AE1A0 (HaliInitPowerManagement.c)
- *     KeRegisterProcessorChangeCallback @ 0x1407C8800 (KeRegisterProcessorChangeCallback.c)
- *     HalpMiscInitializeKsr @ 0x1407C8C28 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x1407D3940 (IoRegisterBootDriverCallback.c)
- *     ExInitLicenseCallback @ 0x1407D4EA8 (ExInitLicenseCallback.c)
- *     KiFilterFiberContext @ 0x140A1BBA0 (KiFilterFiberContext.c)
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
- *     PiCslInitialize @ 0x140A53224 (PiCslInitialize.c)
- *     ExpInitializeCallbacks @ 0x140A6E368 (ExpInitializeCallbacks.c)
- *     PopUmpoInitializeChannel @ 0x140A6FE7C (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140A70AB0 (PopUmpoInitializeMonitorChannel.c)
- *     IopInitializeSessionNotifications @ 0x140A733CC (IopInitializeSessionNotifications.c)
- *     PopSetupKsrCallbacks @ 0x140A73FF0 (PopSetupKsrCallbacks.c)
- *     PiKsrNotifyInitialize @ 0x140A91350 (PiKsrNotifyInitialize.c)
+ *     HvlPhase2Initialize @ 0x1403CF228 (HvlPhase2Initialize.c)
+ *     HaliInitPowerManagement @ 0x1407AE3A0 (HaliInitPowerManagement.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407C8B20 (KeRegisterProcessorChangeCallback.c)
+ *     HalpMiscInitializeKsr @ 0x1407C8F48 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x1407D3AB0 (IoRegisterBootDriverCallback.c)
+ *     ExInitLicenseCallback @ 0x1407D5018 (ExInitLicenseCallback.c)
+ *     KiFilterFiberContext @ 0x140A1CBA0 (KiFilterFiberContext.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
+ *     PiCslInitialize @ 0x140A54224 (PiCslInitialize.c)
+ *     ExpInitializeCallbacks @ 0x140A6F368 (ExpInitializeCallbacks.c)
+ *     PopUmpoInitializeChannel @ 0x140A70E7C (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140A71AB0 (PopUmpoInitializeMonitorChannel.c)
+ *     IopInitializeSessionNotifications @ 0x140A743CC (IopInitializeSessionNotifications.c)
+ *     PopSetupKsrCallbacks @ 0x140A74FF0 (PopSetupKsrCallbacks.c)
+ *     PiKsrNotifyInitialize @ 0x140A92350 (PiKsrNotifyInitialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExpUnlockCallbackListExclusive @ 0x1403A666C (ExpUnlockCallbackListExclusive.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1403A67BC (ExpUnlockCallbackListExclusive.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ObOpenObjectByName @ 0x14064AA70 (ObOpenObjectByName.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall ExCreateCallback(
@@ -56,7 +56,7 @@ NTSTATUS __stdcall ExCreateCallback(
   v18 = v10;
   if ( v17.m128i_i64[0] )
   {
-    v11 = ObOpenObjectByName((__int64)&v16, (__int64)ExCallbackObjectType, 0, 0LL, 0, 0LL, (__int64)&Handle);
+    v11 = ObOpenObjectByName((unsigned int)&v16, (_DWORD)ExCallbackObjectType, 0, 0, 0, 0LL, (__int64)&Handle);
     v9 = Handle;
     v12 = v11;
   }
@@ -78,12 +78,12 @@ NTSTATUS __stdcall ExCreateCallback(
     MEMORY[8] = 0LL;
     --CurrentThread->SpecialApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&ExpCallbackListLock, 0LL);
-    if ( *(__int64 **)qword_140C19428 != &ExpCallbackListHead )
+    if ( *(__int64 **)qword_140C19448 != &ExpCallbackListHead )
       __fastfail(3u);
-    MEMORY[0x30] = qword_140C19428;
+    MEMORY[0x30] = qword_140C19448;
     MEMORY[0x28] = &ExpCallbackListHead;
-    *(_QWORD *)qword_140C19428 = 40LL;
-    qword_140C19428 = 40LL;
+    *(_QWORD *)qword_140C19448 = 40LL;
+    qword_140C19448 = 40LL;
     ExpUnlockCallbackListExclusive((__int64)CurrentThread);
     inserted = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&Handle);
     v9 = Handle;

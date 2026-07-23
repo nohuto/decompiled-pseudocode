@@ -21,12 +21,12 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
   int v11; // ebp
   NTSTATUS ClientSecurity; // edi
   __int64 v14; // r11
-  char v15; // [rsp+90h] [rbp+8h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+90h] [rbp+8h] BYREF
 
   ClientToken = SubjectContext->ClientToken;
   v5 = 0LL;
   v6 = 0;
-  v15 = 0;
+  DominatesTrust = 0;
   if ( !ClientToken )
     ClientToken = SubjectContext->PrimaryToken;
   ObfReferenceObject(ClientToken);
@@ -34,10 +34,10 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
   {
     v11 = 2;
     RtlSidDominatesForTrust(
-      *((_QWORD *)SubjectContext->PrimaryToken + 138),
-      *((_QWORD *)SubjectContext->ClientToken + 138),
-      &v15);
-    if ( !v15 )
+      *((PSID *)SubjectContext->PrimaryToken + 138),
+      *((PSID *)SubjectContext->ClientToken + 138),
+      &DominatesTrust);
+    if ( !DominatesTrust )
     {
       v6 = 1;
       v5 = v14;

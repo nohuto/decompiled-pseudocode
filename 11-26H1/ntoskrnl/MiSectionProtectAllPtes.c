@@ -1,26 +1,26 @@
 /*
- * XREFs of MiSectionProtectAllPtes @ 0x140303F00
+ * XREFs of MiSectionProtectAllPtes @ 0x1402E5F80
  * Callers:
- *     MiSetProtectionOnSection @ 0x140304DE0 (MiSetProtectionOnSection.c)
+ *     MiSetProtectionOnSection @ 0x1402E6E60 (MiSetProtectionOnSection.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSectionProtectPageFilePte @ 0x1402CF8E8 (MiSectionProtectPageFilePte.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiSectionProtectValidPte @ 0x140304460 (MiSectionProtectValidPte.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiSectionProtectProtoPte @ 0x14033CDD0 (MiSectionProtectProtoPte.c)
- *     MiSectionProtectTransitionPte @ 0x14033EF60 (MiSectionProtectTransitionPte.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiMakeProtoLeafValid @ 0x1404BFB08 (MiMakeProtoLeafValid.c)
+ *     MiSectionProtectPageFilePte @ 0x1402B16A8 (MiSectionProtectPageFilePte.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiSectionProtectValidPte @ 0x1402E64E0 (MiSectionProtectValidPte.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiSectionProtectProtoPte @ 0x14033EE50 (MiSectionProtectProtoPte.c)
+ *     MiSectionProtectTransitionPte @ 0x140340FE0 (MiSectionProtectTransitionPte.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiMakeProtoLeafValid @ 0x1404B9358 (MiMakeProtoLeafValid.c)
  */
 
 void __fastcall MiSectionProtectAllPtes(__int64 a1)
@@ -92,7 +92,7 @@ void __fastcall MiSectionProtectAllPtes(__int64 a1)
         }
         v11 = *(_DWORD *)(v1 + 184) & 0xF;
         if ( (v11 == 5 || v11 <= 4u)
-          && ((*(_DWORD *)(v1 + 184) & 0xF) != 1 ? (v12 = (__int64 *)(v1 + 192)) : (v12 = &qword_140E37800),
+          && ((*(_DWORD *)(v1 + 184) & 0xF) != 1 ? (v12 = (__int64 *)(v1 + 192)) : (v12 = &qword_140E37980),
               (v13 = *v12, (MmInternal = (unsigned int *)KeGetCurrentPrcb()->MmInternal) == 0LL)
             ? (v15 = 0LL)
             : (v15 = MmInternal[81]),
@@ -208,7 +208,7 @@ LABEL_9:
     {
       if ( (*(_DWORD *)(v1 + 184) & 0xF) != 0 && v3 >= 0xFFFFF6FB7DBED000uLL && v3 <= 0xFFFFF6FB7DBEDFFFuLL )
         _InterlockedAnd(
-          (volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4
+          (volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4
                                                                        * ((unsigned __int64)(2
                                                                                            * (unsigned int)((__int64)(v3 + 0x90482413000LL) >> 3)) >> 5)
                                                                        + 4],

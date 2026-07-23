@@ -2,13 +2,13 @@
  * XREFs of CmpUnlockCallbackList @ 0x14068F274
  * Callers:
  *     CmSetCallbackObjectContext @ 0x14068F0A0 (CmSetCallbackObjectContext.c)
- *     CmpInsertCallbackInListByAltitude @ 0x140850E2C (CmpInsertCallbackInListByAltitude.c)
- *     CmpEnumerateCallback @ 0x140885580 (CmpEnumerateCallback.c)
- *     CmUnRegisterCallback @ 0x140A0F1C0 (CmUnRegisterCallback.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14085112C (CmpInsertCallbackInListByAltitude.c)
+ *     CmpEnumerateCallback @ 0x1408857C0 (CmpEnumerateCallback.c)
+ *     CmUnRegisterCallback @ 0x140A0F470 (CmUnRegisterCallback.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
  */
 
 void CmpUnlockCallbackList()

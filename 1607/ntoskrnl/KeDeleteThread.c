@@ -1,12 +1,12 @@
 /*
- * XREFs of KeDeleteThread @ 0x1400CBAD0
+ * XREFs of KeDeleteThread @ 0x1400C9970
  * Callers:
- *     PspReaper @ 0x1400CB26C (PspReaper.c)
+ *     PspReaper @ 0x1400C910C (PspReaper.c)
  * Callees:
- *     KiWaitForContextSwap @ 0x1400CBAA8 (KiWaitForContextSwap.c)
- *     KiDecrementProcessStackCount @ 0x1400CEB20 (KiDecrementProcessStackCount.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiWaitForContextSwap @ 0x1400C9948 (KiWaitForContextSwap.c)
+ *     KiDecrementProcessStackCount @ 0x1400CC9C0 (KiDecrementProcessStackCount.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall KeDeleteThread(_QWORD *a1)
@@ -21,7 +21,7 @@ void __fastcall KeDeleteThread(_QWORD *a1)
   v2 = a1 + 179;
   if ( a1[179] != 1LL )
   {
-    v3 = KeAcquireSpinLockRaiseToDpc(&qword_14030E4D8);
+    v3 = KeAcquireSpinLockRaiseToDpc(&qword_14030E518);
     if ( *v2 != 1LL && a1[180] )
     {
       v4 = *v2;
@@ -31,6 +31,6 @@ void __fastcall KeDeleteThread(_QWORD *a1)
       *v5 = v4;
       *(_QWORD *)(v4 + 8) = v5;
     }
-    KeReleaseSpinLock(&qword_14030E4D8, v3);
+    KeReleaseSpinLock(&qword_14030E518, v3);
   }
 }

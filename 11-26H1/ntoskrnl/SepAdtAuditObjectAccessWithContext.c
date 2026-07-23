@@ -1,21 +1,21 @@
 /*
- * XREFs of SepAdtAuditObjectAccessWithContext @ 0x14092FDE0
+ * XREFs of SepAdtAuditObjectAccessWithContext @ 0x14090B910
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1409F7550 (NtOpenObjectAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409F8930 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409F9204 (SepAdtCloseObjectAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409FA180 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED80 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x140A60090 (NtOpenObjectAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140A61470 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x140A9EE24 (SepAdtCloseObjectAuditAlarm.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     SepAuditingEnabledForSubcategory @ 0x1404703B0 (SepAuditingEnabledForSubcategory.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SepIsRemovableStorageDevice @ 0x1409FA064 (SepIsRemovableStorageDevice.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     SepAuditingEnabledForSubcategory @ 0x140469B30 (SepAuditingEnabledForSubcategory.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     SepIsRemovableStorageDevice @ 0x140AFA9F0 (SepIsRemovableStorageDevice.c)
  */
 
 char __fastcall SepAdtAuditObjectAccessWithContext(
@@ -56,12 +56,12 @@ char __fastcall SepAdtAuditObjectAccessWithContext(
   if ( !a4 )
     v10 = a3 != 0 ? 3 : 0;
   *(_OWORD *)&v33.PrimaryToken = 0LL;
-  if ( !LODWORD(SepRmCapTableLock.ThreadLock) )
+  if ( !*(_DWORD *)&SepRmCapTableLock.ApcStateFill[8] )
     return 0;
-  if ( (v10 & SepRmCapTableLock.ThreadLock) == 0 )
+  if ( (v10 & *(_DWORD *)&SepRmCapTableLock.ApcStateFill[8]) == 0 )
   {
     v12 = 0;
-    if ( !SepRmCapTableLock.ThreadFlags2 )
+    if ( !*((_DWORD *)&SepRmCapTableLock.SwapListEntry + 2) )
       return 0;
     if ( SubjectContext )
     {

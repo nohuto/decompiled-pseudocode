@@ -1,18 +1,18 @@
 /*
- * XREFs of ViPtLogPoolTraceWrapper @ 0x140B82100
+ * XREFs of ViPtLogPoolTraceWrapper @ 0x140B84104
  * Callers:
- *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
- *     VerifierExAllocatePool @ 0x140B91070 (VerifierExAllocatePool.c)
- *     VerifierExAllocatePool2 @ 0x140B91190 (VerifierExAllocatePool2.c)
- *     VerifierExAllocatePoolWithTag @ 0x140B915C0 (VerifierExAllocatePoolWithTag.c)
- *     VerifierExAllocatePoolWithTagPriority @ 0x140B916E0 (VerifierExAllocatePoolWithTagPriority.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
- *     VfPtFreePoolNotification @ 0x140BA96EC (VfPtFreePoolNotification.c)
+ *     VfPtMiscPoolNotification @ 0x1403FA750 (VfPtMiscPoolNotification.c)
+ *     VerifierExAllocatePool @ 0x140B93070 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePool2 @ 0x140B93190 (VerifierExAllocatePool2.c)
+ *     VerifierExAllocatePoolWithTag @ 0x140B935C0 (VerifierExAllocatePoolWithTag.c)
+ *     VerifierExAllocatePoolWithTagPriority @ 0x140B936E0 (VerifierExAllocatePoolWithTagPriority.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
+ *     VfPtFreePoolNotification @ 0x140BAB6EC (VfPtFreePoolNotification.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ViPtProcessApt @ 0x140B8CAC8 (ViPtProcessApt.c)
- *     ViPtCaptureStackTrace @ 0x140BA7324 (ViPtCaptureStackTrace.c)
- *     ViPtLogPoolTrace @ 0x140BA7474 (ViPtLogPoolTrace.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ViPtProcessApt @ 0x140B8EAC8 (ViPtProcessApt.c)
+ *     ViPtCaptureStackTrace @ 0x140BA9324 (ViPtCaptureStackTrace.c)
+ *     ViPtLogPoolTrace @ 0x140BA9474 (ViPtLogPoolTrace.c)
  */
 
 struct _KTHREAD *__fastcall ViPtLogPoolTraceWrapper(__int64 a1, int a2, __int64 a3, char a4)

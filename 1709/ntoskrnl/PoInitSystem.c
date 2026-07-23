@@ -116,47 +116,44 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
   __int64 v8; // rcx
   int v9; // ebx
   unsigned __int8 v10; // di
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
   _QWORD *PoolWithTag; // rax
-  _QWORD *v15; // rbx
-  __int64 v16; // rcx
-  __int64 v17; // r11
-  __int64 v18; // rbx
-  __int64 v19; // r10
-  unsigned __int64 v20; // rax
+  _QWORD *v12; // rbx
+  __int64 v13; // rcx
+  __int64 v14; // r11
+  __int64 v15; // rbx
+  __int64 v16; // r10
+  unsigned __int64 v17; // rax
   _QWORD *i; // rcx
-  __int64 v22; // rax
+  __int64 v19; // rax
   unsigned __int64 NextProcess; // rax
-  ULONG_PTR v24; // rbx
-  unsigned __int8 v25; // zf
-  char v26; // bl
-  int v27; // eax
-  int v28; // [rsp+58h] [rbp-B0h] BYREF
-  int v29; // [rsp+5Ch] [rbp-ACh] BYREF
-  __int64 v30; // [rsp+60h] [rbp-A8h] BYREF
+  ULONG_PTR v21; // rbx
+  unsigned __int8 v22; // zf
+  char v23; // bl
+  int v24; // eax
+  int v25; // [rsp+58h] [rbp-B0h] BYREF
+  int v26; // [rsp+5Ch] [rbp-ACh] BYREF
+  __int64 Buffer; // [rsp+60h] [rbp-A8h] BYREF
   HANDLE FileHandle; // [rsp+68h] [rbp-A0h] BYREF
-  wchar_t *Buffer; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v33; // [rsp+78h] [rbp-90h]
+  wchar_t *v29; // [rsp+70h] [rbp-98h] BYREF
+  __int64 v30; // [rsp+78h] [rbp-90h]
   LARGE_INTEGER PerformanceFrequency; // [rsp+80h] [rbp-88h] BYREF
   PCALLBACK_OBJECT CallbackObject; // [rsp+88h] [rbp-80h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v37; // [rsp+A0h] [rbp-68h] BYREF
-  _BYTE v38[8]; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v34; // [rsp+A0h] [rbp-68h] BYREF
+  _BYTE v35[8]; // [rsp+A8h] [rbp-60h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
-  UNICODE_STRING v40; // [rsp+C0h] [rbp-48h] BYREF
+  UNICODE_STRING v37; // [rsp+C0h] [rbp-48h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D0h] [rbp-38h] BYREF
-  OBJECT_ATTRIBUTES v42; // [rsp+100h] [rbp-8h] BYREF
-  _QWORD v43[16]; // [rsp+138h] [rbp+30h] BYREF
-  _BYTE v44[20]; // [rsp+1B8h] [rbp+B0h] BYREF
-  int v45; // [rsp+1CCh] [rbp+C4h]
+  OBJECT_ATTRIBUTES v39; // [rsp+100h] [rbp-8h] BYREF
+  _QWORD v40[16]; // [rsp+138h] [rbp+30h] BYREF
+  _BYTE v41[20]; // [rsp+1B8h] [rbp+B0h] BYREF
+  int v42; // [rsp+1CCh] [rbp+C4h]
   _DWORD InputBuffer[4]; // [rsp+1D0h] [rbp+C8h] BYREF
-  __int64 v47; // [rsp+1E0h] [rbp+D8h] BYREF
-  __int64 v48; // [rsp+1E8h] [rbp+E0h]
-  int v49; // [rsp+1F0h] [rbp+E8h]
+  __int64 DataBuffer; // [rsp+1E0h] [rbp+D8h] BYREF
+  __int64 v45; // [rsp+1E8h] [rbp+E0h]
+  int v46; // [rsp+1F0h] [rbp+E8h]
   __int64 OutputBuffer; // [rsp+1F8h] [rbp+F0h] BYREF
-  int v51; // [rsp+200h] [rbp+F8h]
+  int v48; // [rsp+200h] [rbp+F8h]
 
   PopOsInitPhase = a1;
   if ( !a1 )
@@ -407,60 +404,60 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
     {
       PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3B8uLL, 0x54456F50u);
       PopEtGlobals = (__int64)PoolWithTag;
-      v15 = PoolWithTag;
+      v12 = PoolWithTag;
       if ( !PoolWithTag )
       {
         v4 = -1073741670;
         return v4 >= 0;
       }
       memset(PoolWithTag, 0, 0x3B8uLL);
-      v15[3] = 0LL;
-      v15[2] = 0LL;
-      v15[1] = v15;
-      *v15 = v15;
-      v15[6] = 0LL;
-      v15[5] = 0LL;
-      v15[11] = PopEtInternerAllocate;
-      v15[12] = PopEtInternerFree;
-      v15[13] = PopEtInternerLock;
-      v15[14] = PopEtInternerUnlock;
-      v15[15] = PopEtInternerEntryInitialize;
-      RtlInternTableInitialize(v15 + 7, (__int64)(v15 + 11));
-      PoEnergyContextInitialize(v15 + 16);
-      *((_QWORD *)PsIdleProcess + 232) = v16;
-      PopEtInitializeBuiltinAppId((__int64)(v15 + 96), (__int64)L"Default");
-      PopEtInitializeBuiltinAppId((__int64)(v15 + 106), (__int64)L"Overflow");
-      PopEtInitializeBuiltinAppId((__int64)(v15 + 86), (__int64)L"IsrDpc");
-      v18 = (__int64)(v15 + 76);
-      *(_QWORD *)(*(_QWORD *)(v17 + 1856) + 448LL) = v19;
-      PopEtInitializeBuiltinAppId(v18, (__int64)L"System");
-      v20 = PsInitialSystemProcess[2].ActiveProcessors.Bitmap[15];
-      if ( v20 )
-        *(_QWORD *)(v20 + 448) = v18;
-      for ( i = 0LL; ; i = (_QWORD *)v24 )
+      v12[3] = 0LL;
+      v12[2] = 0LL;
+      v12[1] = v12;
+      *v12 = v12;
+      v12[6] = 0LL;
+      v12[5] = 0LL;
+      v12[11] = PopEtInternerAllocate;
+      v12[12] = PopEtInternerFree;
+      v12[13] = PopEtInternerLock;
+      v12[14] = PopEtInternerUnlock;
+      v12[15] = PopEtInternerEntryInitialize;
+      RtlInternTableInitialize(v12 + 7, (__int64)(v12 + 11));
+      PoEnergyContextInitialize(v12 + 16);
+      *((_QWORD *)PsIdleProcess + 232) = v13;
+      PopEtInitializeBuiltinAppId((__int64)(v12 + 96), (__int64)L"Default");
+      PopEtInitializeBuiltinAppId((__int64)(v12 + 106), (__int64)L"Overflow");
+      PopEtInitializeBuiltinAppId((__int64)(v12 + 86), (__int64)L"IsrDpc");
+      v15 = (__int64)(v12 + 76);
+      *(_QWORD *)(*(_QWORD *)(v14 + 1856) + 448LL) = v16;
+      PopEtInitializeBuiltinAppId(v15, (__int64)L"System");
+      v17 = PsInitialSystemProcess[2].ActiveProcessors.Bitmap[15];
+      if ( v17 )
+        *(_QWORD *)(v17 + 448) = v15;
+      for ( i = 0LL; ; i = (_QWORD *)v21 )
       {
         NextProcess = PsGetNextProcess(i);
-        v24 = NextProcess;
+        v21 = NextProcess;
         if ( !NextProcess )
           break;
-        v22 = *(_QWORD *)(NextProcess + 1856);
-        if ( v22 && !*(_QWORD *)(v22 + 448) )
+        v19 = *(_QWORD *)(NextProcess + 1856);
+        if ( v19 && !*(_QWORD *)(v19 + 448) )
         {
-          *(_QWORD *)(v22 + 448) = PopEtGlobals + 768;
-          PoEnergyContextStart(v24);
+          *(_QWORD *)(v19 + 448) = PopEtGlobals + 768;
+          PoEnergyContextStart(v21);
         }
       }
       RtlInitUnicodeString(&DestinationString, L"EnergyTracker");
-      memset(v43, 0, 0x78uLL);
-      BYTE2(v43[0]) |= 4u;
-      v43[8] = PopEtEnergyTrackerClose;
-      LOWORD(v43[0]) = 120;
-      v43[9] = PopEtEnergyTrackerDelete;
-      HIDWORD(v43[4]) = 1;
-      LODWORD(v43[5]) = 640;
-      LODWORD(v43[1]) = 402;
-      HIDWORD(v43[3]) = 2031617;
-      v4 = ObCreateObjectType(&DestinationString, (__int64)v43, 0LL, PopEtGlobals + 32);
+      memset(v40, 0, 0x78uLL);
+      BYTE2(v40[0]) |= 4u;
+      v40[8] = PopEtEnergyTrackerClose;
+      LOWORD(v40[0]) = 120;
+      v40[9] = PopEtEnergyTrackerDelete;
+      HIDWORD(v40[4]) = 1;
+      LODWORD(v40[5]) = 640;
+      LODWORD(v40[1]) = 402;
+      HIDWORD(v40[3]) = 2031617;
+      v4 = ObCreateObjectType(&DestinationString, (__int64)v40, 0LL, PopEtGlobals + 32);
       if ( v4 >= 0 )
         v4 = 0;
       if ( v4 < 0 )
@@ -500,10 +497,10 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
     PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
     if ( PopPlatformAoAc )
     {
-      Buffer = IoArcBootDeviceName.Buffer;
+      v29 = IoArcBootDeviceName.Buffer;
       FileHandle = 0LL;
       ObjectAttributes.ObjectName = &IoArcBootDeviceName;
-      v33 = 0x100000000LL;
+      v30 = 0x100000000LL;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 576;
@@ -514,7 +511,7 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
         IoStatusBlock.Information = 0LL;
         *(_QWORD *)&InputBuffer[1] = 0LL;
         OutputBuffer = 0LL;
-        v51 = 0;
+        v48 = 0;
         InputBuffer[0] = 7;
         if ( ZwDeviceIoControlFile(
                FileHandle,
@@ -528,18 +525,18 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
                &OutputBuffer,
                0xCu) >= 0 )
         {
-          if ( (_BYTE)v51 )
+          if ( (_BYTE)v48 )
             PopBsdSkipLogging = 1;
           else
-            BYTE5(v33) = 1;
+            BYTE5(v30) = 1;
         }
       }
-      PopPdcCsDeviceNotification((__int64)&Buffer);
+      PopPdcCsDeviceNotification((__int64)&v29);
       if ( FileHandle )
         ZwClose(FileHandle);
       PopAcquirePolicyLock();
-      PopNetIsDisconnectStandbyActive(&v29);
-      byte_140366317 = (unsigned int)(v29 - 3) > 1;
+      PopNetIsDisconnectStandbyActive(&v26);
+      byte_140366317 = (unsigned int)(v26 - 3) > 1;
       PopReleasePolicyLock();
     }
     PopUpdateBackgroundCoolingStatus(0);
@@ -547,7 +544,7 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
   }
   if ( a1 != 3 )
     goto LABEL_5;
-  v4 = EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 1u, &v37);
+  v4 = EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 1u, &v34);
   if ( v4 >= 0 )
   {
     v4 = PopDiagInitialize();
@@ -562,9 +559,9 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
         if ( PopSkipTickPolicy == 1 )
         {
           v10 = 0;
-          if ( (int)HalGetInterruptTargetInformation(2LL, 0LL, v44) >= 0 )
+          if ( (int)HalGetInterruptTargetInformation(2LL, 0LL, v41) >= 0 )
           {
-            PopApicMode = v45;
+            PopApicMode = v42;
             if ( PopCheckSkipTick() )
             {
               PoSkipTickMode = 0;
@@ -579,24 +576,24 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
         }
       }
       PoSkipTickMode = v9;
-      v25 = v9 == 2;
+      v22 = v9 == 2;
       if ( v9 != 2 )
       {
         if ( !v10 )
           goto LABEL_34;
-        v25 = v9 == 2;
+        v22 = v9 == 2;
       }
-      PopDiagTraceSkipTick(v25, v10);
+      PopDiagTraceSkipTick(v22, v10);
 LABEL_34:
       PpmInitIllegalThrottleLogging();
       PopCheckShutdownMarker(a2);
-      if ( (int)RtlGetSystemBootStatus(13, (__int64)&v47, 20) >= 0 && HIDWORD(v48) )
+      if ( RtlGetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL) >= 0 && HIDWORD(v45) )
       {
         PopTraceBootError();
-        v47 = 0LL;
-        v48 = 0LL;
-        v49 = 0;
-        RtlSetSystemBootStatus(13, (__int64)&v47, 20, 0LL);
+        DataBuffer = 0LL;
+        v45 = 0LL;
+        v46 = 0;
+        RtlSetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
       }
       if ( (unsigned __int8)off_140353610[0]()
         || (unsigned int)(PoOffCrashConfigTable - 1) <= 1 && DWORD1(PoOffCrashConfigTable) )
@@ -644,9 +641,9 @@ LABEL_34:
           0LL);
       }
       PopInitilizeAcDcSettings();
-      LODWORD(v30) = 1;
+      LODWORD(Buffer) = 1;
       PopUpdateConsoleDisplayState(1);
-      ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v30, 4LL);
+      ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
       PopNetInitialize(3);
       PopReleasePolicyLock();
       *(_QWORD *)&PopIdleScanTimer.Header.Lock = 8LL;
@@ -672,24 +669,24 @@ LABEL_34:
       PopSetupHighPerfPowerRequest();
       PpmEnableWmiInterface();
       PopAcquirePolicyLock();
-      PopCoalescingInitialize(v12, v11, v13);
+      PopCoalescingInitialize();
       PopReleasePolicyLock();
       if ( PopPlatformAoAc )
       {
-        v26 = PopDripsWatchdogAction;
+        v23 = PopDripsWatchdogAction;
         if ( (unsigned int)(PopPlatformAoAcOverride - 1) <= 0xFFFFFFFD )
         {
           if ( (PopDripsWatchdogAction & 0x10) != 0 )
-            v26 = PopDripsWatchdogAction | 2;
+            v23 = PopDripsWatchdogAction | 2;
           else
-            v26 = PopDripsWatchdogAction & 0xFD;
+            v23 = PopDripsWatchdogAction & 0xFD;
         }
         ExInitializeResourceLite(&stru_14038DC88);
-        v27 = PopDripsCallbackInterval;
+        v24 = PopDripsCallbackInterval;
         if ( PopDripsCallbackInterval >= (unsigned int)PopDripsWatchdogTimeout || !PopDripsCallbackInterval )
-          v27 = PopDripsWatchdogTimeout;
-        byte_14038DC14 = v26;
-        PopDripsWatchdog = v27;
+          v24 = PopDripsWatchdogTimeout;
+        byte_14038DC14 = v23;
+        PopDripsWatchdog = v24;
         PopInitializeTimer(
           (__int64)&unk_14038DCF0,
           (__int64)PopDripsWatchdogTimerCallbackRoutine,
@@ -706,21 +703,21 @@ LABEL_34:
       TtmInit();
       if ( PopPlatformAoAc )
       {
-        v28 = 1;
-        EmClientQueryRuleState(EM_RULE_IGNORE_INCORRECT_LID_NOTIFICATIONS, &v28);
-        if ( v28 == 2 )
+        v25 = 1;
+        EmClientQueryRuleState(EM_RULE_IGNORE_INCORRECT_LID_NOTIFICATIONS, &v25);
+        if ( v25 == 2 )
           PopErrataReportingIncorrectLidState = 1;
       }
       PopBatteryQueueWork(1u);
-      if ( (int)KsrGetFirmwareInformation(v38) >= 0 )
+      if ( (int)KsrGetFirmwareInformation(v35) >= 0 )
       {
-        RtlInitUnicodeString(&v40, L"\\Callback\\SoftRestart");
-        v42.Length = 48;
-        v42.ObjectName = &v40;
-        v42.RootDirectory = 0LL;
-        v42.Attributes = 80;
-        *(_OWORD *)&v42.SecurityDescriptor = 0LL;
-        if ( ExCreateCallback(&CallbackObject, &v42, 0, 1u) >= 0 )
+        RtlInitUnicodeString(&v37, L"\\Callback\\SoftRestart");
+        v39.Length = 48;
+        v39.ObjectName = &v37;
+        v39.RootDirectory = 0LL;
+        v39.Attributes = 80;
+        *(_OWORD *)&v39.SecurityDescriptor = 0LL;
+        if ( ExCreateCallback(&CallbackObject, &v39, 0, 1u) >= 0 )
           ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)PopKsrCallback, 0LL);
       }
 LABEL_5:

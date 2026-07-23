@@ -99,7 +99,7 @@ __int64 __fastcall CmpGetSymbolicLinkTarget(
   int NameInListWithStatus; // edi
   __int64 v56; // r9
   wchar_t *Buffer; // rbx
-  struct _SLIST_ENTRY *v58; // rdx
+  _SLIST_ENTRY *v58; // rdx
   __int16 v60; // ax
   __int64 KcbAtLayerHeight; // rax
   __int64 v62; // rdi
@@ -733,7 +733,7 @@ LABEL_63:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v58);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v58);
     }
   }
   return (unsigned int)NameInListWithStatus;

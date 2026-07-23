@@ -1,16 +1,16 @@
 /*
- * XREFs of KiRcuReportQuiescentState @ 0x1404D99B8
+ * XREFs of KiRcuReportQuiescentState @ 0x1404D3098
  * Callers:
- *     KiCheckWaitNext @ 0x1402200D0 (KiCheckWaitNext.c)
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiRcuCheckQuiescentForIdle @ 0x1405F0068 (KiRcuCheckQuiescentForIdle.c)
+ *     KiCheckWaitNext @ 0x140221A60 (KiCheckWaitNext.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiRcuCheckQuiescentForIdle @ 0x1405F29D8 (KiRcuCheckQuiescentForIdle.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D9AC0 (KiSrcuCompareGraceSequence.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404D31A0 (KiSrcuCompareGraceSequence.c)
  */
 
 __int64 __fastcall KiRcuReportQuiescentState(unsigned __int64 *a1, signed __int64 a2, int a3)
@@ -49,16 +49,19 @@ __int64 __fastcall KiRcuReportQuiescentState(unsigned __int64 *a1, signed __int6
     {
       if ( !v7 )
       {
-        _m_prefetchw(&dword_140F24FA4);
-        v15 = dword_140F24FA4;
+        _m_prefetchw((const void *)&KiDpcCorralLock.SharedComputeUnitsUsed);
+        v15 = *(_DWORD *)&KiDpcCorralLock.SharedComputeUnitsUsed;
         do
         {
           v21 = v15;
-          v15 = _InterlockedCompareExchange(&dword_140F24FA4, v15 | 1, v15);
+          v15 = _InterlockedCompareExchange(
+                  (volatile signed __int32 *)&KiDpcCorralLock.SharedComputeUnitsUsed,
+                  v15 | 1,
+                  v15);
         }
         while ( v21 != v15 );
         if ( (v15 & 1) == 0 )
-          KiInsertQueueDpc((ULONG_PTR)&dword_140F24F40, 0LL, 0LL, 0LL, 0);
+          KiInsertQueueDpc((ULONG_PTR)&KiDpcCorralLock.WaitBlock[3], 0LL, 0LL, 0LL, 0);
       }
       return 0LL;
     }
@@ -116,9 +119,9 @@ LABEL_8:
     v7 = 0;
     v8 = a3;
   }
-  while ( (int)KiSrcuCompareGraceSequence(a2, qword_140F24F20) > 0 )
+  while ( (int)KiSrcuCompareGraceSequence(a2, *(_QWORD *)&KiDpcCorralLock.WaitBlockFill11[112]) > 0 )
   {
-    if ( v16 == _InterlockedCompareExchange64(&qword_140F24F20, a2, v16) )
+    if ( v16 == _InterlockedCompareExchange64((volatile signed __int64 *)&KiDpcCorralLock.WaitBlockFill11[112], a2, v16) )
       return v3;
   }
   return 0;

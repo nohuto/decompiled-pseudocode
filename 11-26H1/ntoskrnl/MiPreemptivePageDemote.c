@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPreemptivePageDemote @ 0x140434608
+ * XREFs of MiPreemptivePageDemote @ 0x14042B6E8
  * Callers:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
  * Callees:
- *     MiDemoteLocalLargePage @ 0x1402844A0 (MiDemoteLocalLargePage.c)
- *     MiObtainedPageIsGood @ 0x14043467C (MiObtainedPageIsGood.c)
+ *     MiDemoteLocalLargePage @ 0x140283A10 (MiDemoteLocalLargePage.c)
+ *     MiObtainedPageIsGood @ 0x14042B75C (MiObtainedPageIsGood.c)
  */
 
 __int64 __fastcall MiPreemptivePageDemote(__int64 a1, int a2, int a3, int a4)

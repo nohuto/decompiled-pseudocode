@@ -8,24 +8,32 @@
  *     ObInsertObjectEx @ 0x1408A05E0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateKeyedEvent(__int64 *a1, __int64 a2, int a3, int a4)
+NTSTATUS __cdecl NtCreateKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
-  __int64 *v4; // rbx
-  __int64 result; // rax
+  PHANDLE v4; // rbx
+  NTSTATUS result; // eax
   __int64 v6; // rax
   __int64 v7; // rdx
   __int64 v8[5]; // [rsp+60h] [rbp-28h] BYREF
 
-  v4 = a1;
+  v4 = KeyedEventHandle;
   v8[0] = 0LL;
-  LOBYTE(a1) = KeGetCurrentThread()->PreviousMode;
-  if ( (_BYTE)a1 && ((unsigned __int8)v4 & 7) != 0 )
+  LOBYTE(KeyedEventHandle) = KeGetCurrentThread()->PreviousMode;
+  if ( (_BYTE)KeyedEventHandle && ((unsigned __int8)v4 & 7) != 0 )
     ExRaiseDatatypeMisalignment();
   *v4 = 0LL;
-  if ( a4 )
-    return 3221225714LL;
-  result = ObCreateObjectEx((_DWORD)a1, (_DWORD)ExpKeyedEventObjectType, a3, (unsigned __int8)a1);
-  if ( (int)result >= 0 )
+  if ( Flags )
+    return -1073741582;
+  result = ObCreateObjectEx(
+             (_DWORD)KeyedEventHandle,
+             (_DWORD)ExpKeyedEventObjectType,
+             (_DWORD)ObjectAttributes,
+             (unsigned __int8)KeyedEventHandle);
+  if ( result >= 0 )
   {
     v6 = 8LL;
     v7 = 64LL;
@@ -39,11 +47,8 @@ __int64 __fastcall NtCreateKeyedEvent(__int64 *a1, __int64 a2, int a3, int a4)
     }
     while ( v7 );
     result = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)v8);
-    if ( (int)result >= 0 )
-    {
-      *v4 = v8[0];
-      return (unsigned int)result;
-    }
+    if ( result >= 0 )
+      *v4 = (HANDLE)v8[0];
   }
   return result;
 }

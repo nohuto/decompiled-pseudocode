@@ -9,12 +9,12 @@
  *     NtWaitForAlertByThreadId @ 0x1800A7BE0 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlpWaitOnAddressWithTimeout(__int64 a1, _QWORD *a2, __int64 a3, unsigned int a4)
+__int64 __fastcall RtlpWaitOnAddressWithTimeout(__int64 a1, PVOID *a2, LARGE_INTEGER *a3, unsigned int a4)
 {
   unsigned int v4; // esi
   volatile signed __int32 *v5; // rdi
   int i; // ecx
-  unsigned int v10; // ebx
+  unsigned __int32 v10; // ebx
   unsigned __int64 v12; // r8
   unsigned __int64 v13; // r9
   unsigned __int64 v14; // rcx
@@ -24,7 +24,7 @@ __int64 __fastcall RtlpWaitOnAddressWithTimeout(__int64 a1, _QWORD *a2, __int64 
   v5 = (volatile signed __int32 *)(a2 + 5);
   if ( MEMORY[0x7FFE036A] > 1u )
   {
-    if ( a2 != (_QWORD *)-40LL && MEMORY[0x7FFE0297] )
+    if ( a2 != (PVOID *)-40LL && MEMORY[0x7FFE0297] )
     {
       v12 = __rdtsc();
       v13 = v12 + a4;

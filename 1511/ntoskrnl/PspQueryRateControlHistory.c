@@ -34,10 +34,10 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
   ULONG v20; // ecx
   _QWORD *v21; // r8
   __int64 v22; // rcx
-  ULONG NumberToClear; // [rsp+20h] [rbp-50h] BYREF
+  ULONG TargetBit; // [rsp+20h] [rbp-50h] BYREF
   unsigned int v24; // [rsp+24h] [rbp-4Ch] BYREF
   __int64 v25; // [rsp+28h] [rbp-48h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-40h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-40h] BYREF
   __int64 v27; // [rsp+40h] [rbp-30h] BYREF
   int v28; // [rsp+48h] [rbp-28h]
   __int64 v29; // [rsp+50h] [rbp-20h]
@@ -53,13 +53,13 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
     {
       if ( v9 == 1 )
       {
-        result = IoQueryFlowHistory(v10 + 1232, (__int64)&v25, (__int64)&v24, (__int64)&NumberToClear);
+        result = IoQueryFlowHistory(v10 + 1232, (__int64)&v25, (__int64)&v24, (__int64)&TargetBit);
         if ( (int)result < 0 )
           return result;
       }
       else
       {
-        KeQuerySchedulingGroupHistory(v11 + 128, &v25, &v24, &NumberToClear);
+        KeQuerySchedulingGroupHistory(v11 + 128, &v25, &v24, &TargetBit);
       }
       v12 = v24;
     }
@@ -72,7 +72,7 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
         return result;
       v12 = v30;
       v25 = v29;
-      NumberToClear = v31;
+      TargetBit = v31;
       v24 = v30;
     }
     v13 = a2 - 2;
@@ -102,14 +102,14 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
     v19 = *(void **)(v11 + 24);
     if ( v19 )
     {
-      if ( NumberToClear >= 8 * v18 )
+      if ( TargetBit >= 8 * v18 )
       {
         memset(v19, 0, v18);
       }
-      else if ( NumberToClear )
+      else if ( TargetBit )
       {
-        RtlCopyBitMap((unsigned int *)(v11 + 8), v11 + 8, NumberToClear);
-        RtlClearBits((PRTL_BITMAP)(v11 + 8), 0, NumberToClear);
+        RtlCopyBitMap((PRTL_BITMAP)(v11 + 8), (PRTL_BITMAP)(v11 + 8), TargetBit);
+        RtlClearBits((PRTL_BITMAP)(v11 + 8), 0, TargetBit);
       }
     }
     else
@@ -124,14 +124,14 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
       *(_QWORD *)(v11 + 16) = v22;
       *(_QWORD *)(v11 + 32) = v18;
     }
-    v20 = NumberToClear;
+    v20 = TargetBit;
     BitMapHeader.SizeOfBitMap = v17;
-    if ( NumberToClear > 0x40 )
+    if ( TargetBit > 0x40 )
       v20 = 64;
-    NumberToClear = v20;
+    TargetBit = v20;
     v21 = *(_QWORD **)(v11 + 24);
     *v21 &= ~((1LL << v20) - 1);
-    *v21 |= v25 & ((1LL << NumberToClear) - 1);
+    *v21 |= v25 & ((1LL << TargetBit) - 1);
     BitMapHeader.Buffer = *(unsigned int **)(v11 + 24);
     result = 100 * RtlNumberOfSetBits(&BitMapHeader) / v17;
     if ( (unsigned int)result >= 0x3C )

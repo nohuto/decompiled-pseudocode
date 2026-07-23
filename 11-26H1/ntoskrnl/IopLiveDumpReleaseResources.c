@@ -1,19 +1,19 @@
 /*
- * XREFs of IopLiveDumpReleaseResources @ 0x1405D164C
+ * XREFs of IopLiveDumpReleaseResources @ 0x1405D3E34
  * Callers:
- *     IoCaptureLiveDump @ 0x14051255C (IoCaptureLiveDump.c)
- *     IoDiscardDeferredLiveDumpData @ 0x1405CC088 (IoDiscardDeferredLiveDumpData.c)
- *     IoWriteDeferredLiveDumpData @ 0x1405CC298 (IoWriteDeferredLiveDumpData.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1405CC998 (IopLiveDumpAllocAndInitResources.c)
+ *     IoCaptureLiveDump @ 0x14050BFCC (IoCaptureLiveDump.c)
+ *     IoDiscardDeferredLiveDumpData @ 0x1405CE89C (IoDiscardDeferredLiveDumpData.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1405CEAAC (IoWriteDeferredLiveDumpData.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1405CF1A8 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MmFreeIndependentPages @ 0x140308D40 (MmFreeIndependentPages.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x1404E4914 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpFreeMappingResources @ 0x1405CF604 (IopLiveDumpFreeMappingResources.c)
- *     IopLiveDumpFreeProcessFilters @ 0x1405CF6AC (IopLiveDumpFreeProcessFilters.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MmFreeIndependentPages @ 0x1402EADC0 (MmFreeIndependentPages.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x1404DDEB4 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpFreeMappingResources @ 0x1405D1E14 (IopLiveDumpFreeMappingResources.c)
+ *     IopLiveDumpFreeProcessFilters @ 0x1405D1EBC (IopLiveDumpFreeProcessFilters.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpReleaseResources(__int64 a1)

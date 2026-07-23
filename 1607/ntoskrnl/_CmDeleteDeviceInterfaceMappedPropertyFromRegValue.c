@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x1406DC718
+ * XREFs of _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x1406DC850
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x140576A48 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x140576F88 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _PnpCtxRegDeleteValue @ 0x1404F0DB4 (_PnpCtxRegDeleteValue.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1404F8AF8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _PnpCtxRegDeleteValue @ 0x1404D2EA8 (_PnpCtxRegDeleteValue.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1404DBA84 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall CmDeleteDeviceInterfaceMappedPropertyFromRegValue(__int64 *a1, __int64 a2, void *a3, __int64 a4)
@@ -37,7 +37,7 @@ __int64 __fastcall CmDeleteDeviceInterfaceMappedPropertyFromRegValue(__int64 *a1
   if ( v4 < 2 )
     return (unsigned int)-1073741264;
   v10 = 0;
-  v11 = &off_1406E9A80;
+  v11 = &off_1406E9BB0;
   do
   {
     v12 = *v11;

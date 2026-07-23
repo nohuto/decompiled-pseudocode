@@ -1,25 +1,25 @@
 /*
- * XREFs of PopScanIdleList @ 0x140280878
+ * XREFs of PopScanIdleList @ 0x14026EAB8
  * Callers:
- *     PopPolicySystemIdle @ 0x140679AA0 (PopPolicySystemIdle.c)
- *     PopIdleDetection @ 0x1408E4250 (PopIdleDetection.c)
+ *     PopPolicySystemIdle @ 0x14066D1E0 (PopPolicySystemIdle.c)
+ *     PopIdleDetection @ 0x1408E43B0 (PopIdleDetection.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     PopGetPowerSettingValue @ 0x140281EC4 (PopGetPowerSettingValue.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopRequestPowerIrp @ 0x14036DD20 (PopRequestPowerIrp.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopDiagTraceEventNoPayload @ 0x14024B6D4 (PopDiagTraceEventNoPayload.c)
+ *     PopGetPowerSettingValue @ 0x140270104 (PopGetPowerSettingValue.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopRequestPowerIrp @ 0x14036DED0 (PopRequestPowerIrp.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCoalescingCheck @ 0x14056EB5C (PopCoalescingCheck.c)
- *     PopDiagTraceDiskIdleCheck @ 0x140571730 (PopDiagTraceDiskIdleCheck.c)
- *     PopDiagTraceIoCoalescingDiskIdle @ 0x140572D7C (PopDiagTraceIoCoalescingDiskIdle.c)
- *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
- *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
+ *     PopCoalescingCheck @ 0x14056ED9C (PopCoalescingCheck.c)
+ *     PopDiagTraceDiskIdleCheck @ 0x140571970 (PopDiagTraceDiskIdleCheck.c)
+ *     PopDiagTraceIoCoalescingDiskIdle @ 0x140572FBC (PopDiagTraceIoCoalescingDiskIdle.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14066D5A8 (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValue @ 0x14066E018 (PopSetPowerSettingValue.c)
  */
 
 __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
@@ -101,7 +101,7 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
   char *v77; // [rsp+140h] [rbp+40h]
   __int64 v78; // [rsp+148h] [rbp+48h]
 
-  v48 = dword_140C23EA8;
+  v48 = dword_140C23348;
   v3 = a2;
   v56 = a2;
   v4 = a1;
@@ -114,11 +114,11 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
   v50 = PopCurrentCoalescingSpindownTimeout;
   v45 = v2;
   v46 = 0;
-  v51 = dword_140C23EA4;
+  v51 = dword_140C23344;
   v6 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
   v7 = v6;
   v43 = v6;
-  if ( byte_140C505B4 )
+  if ( byte_140C505F4 )
   {
     KxReleaseSpinLock(&PopDopeGlobalLock);
     if ( KiIrqlFlags )
@@ -208,7 +208,7 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
           if ( (int)PopRequestPowerIrp(v15[3], 0LL, 0, 0LL) >= 0 )
           {
             v25 = *((_DWORD *)v15 + 13);
-            ++dword_140C505B0;
+            ++dword_140C505F0;
             *((_DWORD *)v15 + 14) = v25;
             *((_DWORD *)v15 + 3) = 0;
           }
@@ -324,7 +324,7 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
     }
     if ( !v5 || (_BYTE)v2 )
     {
-      if ( !v37 && !dword_140C23E8C )
+      if ( !v37 && !dword_140C2332C )
       {
         PopGetPowerSettingValue(&GUID_IDLE_BACKGROUND_TASK, v32, 3LL, &Src);
         ++Src;
@@ -332,7 +332,7 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
         v32 = (PopIdleScanInterval + 59) % (unsigned int)PopIdleScanInterval;
         PopIdleBackgroundIgnoreCount = (PopIdleScanInterval + 59) / (unsigned int)PopIdleScanInterval;
       }
-      if ( !PopBackgroundTaskIgnoreCount && !dword_140C23E8C && PopSIdle >= 50 && PopBackgroundTaskAllowed )
+      if ( !PopBackgroundTaskIgnoreCount && !dword_140C2332C && PopSIdle >= 50 && PopBackgroundTaskAllowed )
       {
         PopGetPowerSettingValue(&GUID_BACKGROUND_TASK_NOTIFICATION, v32, 0LL, &Src);
         ++Src;

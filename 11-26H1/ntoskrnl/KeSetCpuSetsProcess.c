@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSetCpuSetsProcess @ 0x14052D934
+ * XREFs of KeSetCpuSetsProcess @ 0x14052FE54
  * Callers:
- *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F4024 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F69E4 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     KiAcquireProcessLockExclusive @ 0x140203690 (KiAcquireProcessLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiValidateCpuSetMasks @ 0x140462E9C (KiValidateCpuSetMasks.c)
- *     KiGetProcessCpuSetMaskPointer @ 0x1404FA3E0 (KiGetProcessCpuSetMaskPointer.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x140525C7C (KiUpdateThreadCpuSetAffinitiesProcess.c)
- *     KiWriteCpuSetMasks @ 0x14052D4E8 (KiWriteCpuSetMasks.c)
+ *     KiAcquireProcessLockExclusive @ 0x140203770 (KiAcquireProcessLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiValidateCpuSetMasks @ 0x14045BE5C (KiValidateCpuSetMasks.c)
+ *     KiGetProcessCpuSetMaskPointer @ 0x1404F39F0 (KiGetProcessCpuSetMaskPointer.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x1405282EC (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KiWriteCpuSetMasks @ 0x14052FA08 (KiWriteCpuSetMasks.c)
  */
 
 __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, __int64 a3, char a4, char a5)

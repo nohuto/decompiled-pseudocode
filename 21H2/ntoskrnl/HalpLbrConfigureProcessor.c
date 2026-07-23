@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpLbrConfigureProcessor @ 0x1404DD340
+ * XREFs of HalpLbrConfigureProcessor @ 0x1404DD580
  * Callers:
  *     <none>
  * Callees:

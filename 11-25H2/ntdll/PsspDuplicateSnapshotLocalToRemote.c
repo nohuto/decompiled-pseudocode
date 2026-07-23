@@ -12,7 +12,7 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, __int64 a2, _QWORD *a3, int a4)
+__int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, void *a2, PVOID *a3, int a4)
 {
   unsigned __int64 v7; // r12
   unsigned int v8; // r15d
@@ -26,7 +26,7 @@ __int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, __int64 a2, _Q
   __int128 v16; // xmm1
   __int128 v17; // xmm0
   __int128 v18; // xmm1
-  __int64 v19; // rdx
+  void *v19; // rdx
   __int128 v20; // xmm1
   __int128 v21; // xmm0
   __int128 v22; // xmm1
@@ -34,33 +34,33 @@ __int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, __int64 a2, _Q
   __int128 v24; // xmm1
   __int128 v25; // xmm0
   __int64 v26; // rax
-  __int64 v27; // rdx
-  __int64 v28; // rdx
-  __int64 v29; // rdx
-  __int64 v30; // rdx
-  __int64 v31; // rdx
-  __int64 v32; // rdx
-  int v33; // ebx
-  __int64 v35; // r8
-  __int64 v36; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v37; // [rsp+48h] [rbp-B8h] BYREF
+  void *v27; // rdx
+  void *v28; // rdx
+  void *v29; // rdx
+  void *v30; // rdx
+  void *v31; // rdx
+  void *v32; // rdx
+  NTSTATUS v33; // ebx
+  void *v35; // r8
+  PVOID BaseAddress; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp-B8h] BYREF
   int v38; // [rsp+50h] [rbp-B0h]
-  _BYTE v39[4]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE Buffer[4]; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v40; // [rsp+64h] [rbp-9Ch]
-  __int64 v41; // [rsp+180h] [rbp+80h]
-  _QWORD v42[3]; // [rsp+3C8h] [rbp+2C8h] BYREF
-  __int64 v43; // [rsp+3E0h] [rbp+2E0h] BYREF
-  __int64 v44; // [rsp+3E8h] [rbp+2E8h]
-  _QWORD v45[3]; // [rsp+3F8h] [rbp+2F8h] BYREF
-  _QWORD v46[4]; // [rsp+410h] [rbp+310h] BYREF
-  _QWORD v47[4]; // [rsp+430h] [rbp+330h] BYREF
-  _QWORD v48[15]; // [rsp+450h] [rbp+350h] BYREF
-  _QWORD v49[3]; // [rsp+4C8h] [rbp+3C8h] BYREF
+  char *v41; // [rsp+180h] [rbp+80h]
+  HANDLE v42; // [rsp+3C8h] [rbp+2C8h] BYREF
+  HANDLE v43; // [rsp+3E0h] [rbp+2E0h] BYREF
+  PVOID v44; // [rsp+3E8h] [rbp+2E8h]
+  HANDLE v45; // [rsp+3F8h] [rbp+2F8h] BYREF
+  HANDLE v46; // [rsp+410h] [rbp+310h] BYREF
+  HANDLE v47; // [rsp+430h] [rbp+330h] BYREF
+  HANDLE SourceHandle; // [rsp+450h] [rbp+350h] BYREF
+  HANDLE TargetHandle; // [rsp+4C8h] [rbp+3C8h] BYREF
 
   v38 = a4;
-  v36 = 0LL;
-  v37 = 0LL;
-  memset_thunk_772440563353939046(v39, 0, 0x478uLL);
+  BaseAddress = 0LL;
+  RegionSize = 0LL;
+  memset_thunk_772440563353939046(Buffer, 0, 0x478uLL);
   v7 = (unsigned __int64)*(unsigned int *)(a1 + 888) << 6;
   if ( v7 > 0xFFFFFFFF )
   {
@@ -77,7 +77,7 @@ __int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, __int64 a2, _Q
     {
       v9 = 8LL;
       v10 = (_OWORD *)a1;
-      v11 = v39;
+      v11 = Buffer;
       do
       {
         v12 = v10[1];
@@ -100,7 +100,7 @@ __int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, __int64 a2, _Q
         --v9;
       }
       while ( v9 );
-      v19 = *(_QWORD *)(a1 + 872);
+      v19 = *(void **)(a1 + 872);
       v20 = v10[1];
       *(_OWORD *)v11 = *v10;
       v21 = v10[2];
@@ -116,51 +116,53 @@ __int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, __int64 a2, _Q
       *((_OWORD *)v11 + 5) = v24;
       *((_OWORD *)v11 + 6) = v25;
       *((_QWORD *)v11 + 14) = v26;
-      v42[0] = 0LL;
+      v42 = 0LL;
       v43 = 0LL;
-      v45[0] = 0LL;
-      v46[0] = 0LL;
-      v47[0] = 0LL;
-      v48[0] = 0LL;
-      v49[0] = 0LL;
-      if ( !v19 || (v33 = ZwDuplicateObject(-1LL, v19, a2, v42, 0, 0, 2), v33 >= 0) )
+      v45 = 0LL;
+      v46 = 0LL;
+      v47 = 0LL;
+      SourceHandle = 0LL;
+      TargetHandle = 0LL;
+      if ( !v19 || (v33 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v19, a2, &v42, 0, 0, 2u), v33 >= 0) )
       {
-        v27 = *(_QWORD *)(a1 + 896);
-        if ( !v27 || (v33 = ZwDuplicateObject(-1LL, v27, a2, &v43, 0, 0, 2), v33 >= 0) )
+        v27 = *(void **)(a1 + 896);
+        if ( !v27 || (v33 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v27, a2, &v43, 0, 0, 2u), v33 >= 0) )
         {
-          v28 = *(_QWORD *)(a1 + 920);
-          if ( !v28 || (v33 = ZwDuplicateObject(-1LL, v28, a2, v45, 0, 0, 2), v33 >= 0) )
+          v28 = *(void **)(a1 + 920);
+          if ( !v28 || (v33 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v28, a2, &v45, 0, 0, 2u), v33 >= 0) )
           {
-            v29 = *(_QWORD *)(a1 + 944);
-            if ( !v29 || (v33 = ZwDuplicateObject(-1LL, v29, a2, v46, 0, 0, 2), v33 >= 0) )
+            v29 = *(void **)(a1 + 944);
+            if ( !v29 || (v33 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v29, a2, &v46, 0, 0, 2u), v33 >= 0) )
             {
-              v30 = *(_QWORD *)(a1 + 976);
-              if ( !v30 || (v33 = ZwDuplicateObject(-1LL, v30, a2, v47, 0, 0, 2), v33 >= 0) )
+              v30 = *(void **)(a1 + 976);
+              if ( !v30 || (v33 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v30, a2, &v47, 0, 0, 2u), v33 >= 0) )
               {
-                v31 = *(_QWORD *)(a1 + 1008);
-                if ( !v31 || (v33 = ZwDuplicateObject(-1LL, v31, a2, v48, 0, 0, 2), v33 >= 0) )
+                v31 = *(void **)(a1 + 1008);
+                if ( !v31
+                  || (v33 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v31, a2, &SourceHandle, 0, 0, 2u), v33 >= 0) )
                 {
-                  v32 = *(_QWORD *)(a1 + 1128);
-                  if ( !v32 || (v33 = ZwDuplicateObject(-1LL, v32, a2, v49, 0, 0, 2), v33 >= 0) )
+                  v32 = *(void **)(a1 + 1128);
+                  if ( !v32
+                    || (v33 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v32, a2, &TargetHandle, 0, 0, 2u), v33 >= 0) )
                   {
-                    v36 = 0LL;
-                    v37 = v8;
-                    v33 = ZwAllocateVirtualMemory(a2, &v36, 0LL, &v37, 4096, 4);
+                    BaseAddress = 0LL;
+                    RegionSize = v8;
+                    v33 = ZwAllocateVirtualMemory(a2, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
                     if ( v33 >= 0 )
                     {
                       v40 = v40 & 0xFFFFFFF8 | 1;
                       if ( *(_QWORD *)(a1 + 904) )
-                        v44 = v36 + 1144;
+                        v44 = (char *)BaseAddress + 1144;
                       if ( *(_WORD *)(a1 + 280) )
-                        v41 = v36 + 296;
-                      v33 = NtWriteVirtualMemory(a2, v36, v39, v8, 0LL);
+                        v41 = (char *)BaseAddress + 296;
+                      v33 = NtWriteVirtualMemory(a2, BaseAddress, Buffer, v8, 0LL);
                       if ( v33 >= 0 )
                       {
-                        v35 = *(_QWORD *)(a1 + 904);
+                        v35 = *(void **)(a1 + 904);
                         if ( !v35 || (v33 = NtWriteVirtualMemory(a2, v44, v35, (unsigned int)v7, 0LL), v33 >= 0) )
                         {
                           v33 = 0;
-                          *a3 = v36;
+                          *a3 = BaseAddress;
                           goto LABEL_32;
                         }
                       }
@@ -172,27 +174,27 @@ __int64 __fastcall PsspDuplicateSnapshotLocalToRemote(__int64 a1, __int64 a2, _Q
           }
         }
       }
-      if ( v36 )
+      if ( BaseAddress )
       {
-        v37 = v8;
-        ZwFreeVirtualMemory(-1LL, &v36, &v37, 0x8000LL);
+        RegionSize = v8;
+        ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
       }
     }
   }
-  if ( v48[0] )
-    ZwDuplicateObject(a2, v48[0], 0LL, 0LL, 0, 0, 1);
-  if ( v47[0] )
-    ZwDuplicateObject(a2, v47[0], 0LL, 0LL, 0, 0, 1);
-  if ( v45[0] )
-    ZwDuplicateObject(a2, v45[0], 0LL, 0LL, 0, 0, 1);
-  if ( v46[0] )
-    ZwDuplicateObject(a2, v46[0], 0LL, 0LL, 0, 0, 1);
+  if ( SourceHandle )
+    ZwDuplicateObject(a2, SourceHandle, 0LL, 0LL, 0, 0, 1u);
+  if ( v47 )
+    ZwDuplicateObject(a2, v47, 0LL, 0LL, 0, 0, 1u);
+  if ( v45 )
+    ZwDuplicateObject(a2, v45, 0LL, 0LL, 0, 0, 1u);
+  if ( v46 )
+    ZwDuplicateObject(a2, v46, 0LL, 0LL, 0, 0, 1u);
   if ( v43 )
-    ZwDuplicateObject(a2, v43, 0LL, 0LL, 0, 0, 1);
-  if ( v42[0] )
-    ZwDuplicateObject(a2, v42[0], 0LL, 0LL, 0, 0, 1);
-  if ( v49[0] )
-    ZwDuplicateObject(a2, v49[0], 0LL, 0LL, 0, 0, 1);
+    ZwDuplicateObject(a2, v43, 0LL, 0LL, 0, 0, 1u);
+  if ( v42 )
+    ZwDuplicateObject(a2, v42, 0LL, 0LL, 0, 0, 1u);
+  if ( TargetHandle )
+    ZwDuplicateObject(a2, TargetHandle, 0LL, 0LL, 0, 0, 1u);
 LABEL_32:
   if ( (v38 & 1) != 0 )
     PssNtFreeSnapshot(a1);

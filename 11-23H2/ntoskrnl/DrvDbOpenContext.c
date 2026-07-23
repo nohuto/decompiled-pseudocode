@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbOpenContext @ 0x140812A40
+ * XREFs of DrvDbOpenContext @ 0x140812D10
  * Callers:
- *     PiDrvDbInit @ 0x1408113C4 (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x140811694 (PiDrvDbInit.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
- *     DrvDbRegisterObjects @ 0x140812B74 (DrvDbRegisterObjects.c)
- *     DrvDbCreateDatabaseNode @ 0x1408132C0 (DrvDbCreateDatabaseNode.c)
- *     DrvDbLoadDatabaseNode @ 0x140877120 (DrvDbLoadDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A6D950 (DrvDbDestroyDatabaseNode.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
+ *     DrvDbRegisterObjects @ 0x140812E44 (DrvDbRegisterObjects.c)
+ *     DrvDbCreateDatabaseNode @ 0x140813590 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x140877360 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6DC00 (DrvDbDestroyDatabaseNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

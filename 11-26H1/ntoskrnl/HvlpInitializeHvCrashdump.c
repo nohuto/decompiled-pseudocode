@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpInitializeHvCrashdump @ 0x1405C0B08
+ * XREFs of HvlpInitializeHvCrashdump @ 0x1405C3378
  * Callers:
- *     HvlPhase1Initialize @ 0x1405B89CC (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1405BB23C (HvlPhase1Initialize.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024D7A0 (KeRegisterBugCheckReasonCallback.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     MmFreeIndependentPages @ 0x140308D40 (MmFreeIndependentPages.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline @ 0x1405BFD34 (Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmAllocateMappingAddress @ 0x140AF1F30 (MmAllocateMappingAddress.c)
- *     MmAllocateIndependentPages @ 0x140B3D7A0 (MmAllocateIndependentPages.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14024F100 (KeRegisterBugCheckReasonCallback.c)
+ *     MmFreeIndependentPages @ 0x1402EADC0 (MmFreeIndependentPages.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline @ 0x1405C25A4 (Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmAllocateMappingAddress @ 0x140AF4800 (MmAllocateMappingAddress.c)
+ *     MmAllocateIndependentPages @ 0x140B3F870 (MmAllocateIndependentPages.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
@@ -33,56 +33,56 @@ __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
   v1 = *(_DWORD *)(a1 + 4);
   v2 = -1073741823;
   v3 = *(struct _LIST_ENTRY **)(a1 + 16);
-  *(_DWORD *)&VslpReservedTransferLock.WaitBlockFill11[136] = *(_DWORD *)a1;
-  VslpReservedTransferLock.WaitBlock[2].Object = *(PVOID *)(a1 + 8);
-  *(_DWORD *)&VslpReservedTransferLock.WaitBlockFill11[112] = v1;
-  VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Blink = v3;
+  LODWORD(VslpReservedTransferLock.LastXStateSaveDebugInfo) = *(_DWORD *)a1;
+  VslpReservedTransferLock.Spare18 = *(_QWORD *)(a1 + 8);
+  *(_DWORD *)&VslpReservedTransferLock.WaitBlockFill11[160] = v1;
+  VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Blink = v3;
   if ( !v1
-    || (VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink = (struct _LIST_ENTRY *)MmMapIoSpaceEx(
+    || (VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink = (struct _LIST_ENTRY *)MmMapIoSpaceEx(
                                                                                             (__int64)v3,
                                                                                             (unsigned int)(v1 << 12),
                                                                                             2u)) != 0LL )
   {
     IndependentPages = (struct _LIST_ENTRY *)MmAllocateIndependentPages(4096LL, 0xFFFFFFFFLL);
-    VslpReservedTransferLock.ApcState.ApcListHead[1].Blink = IndependentPages;
+    VslpReservedTransferLock.WaitListEntry.Blink = IndependentPages;
     if ( IndependentPages )
       memset_0(IndependentPages, 0, 0x1000uLL);
     if ( (unsigned int)Feature_OfflineDumpRedaction__private_IsEnabledDeviceUsageNoInline() )
     {
-      VslpReservedTransferLock.ApcStateFill[37] = 1;
-      if ( *(_DWORD *)&VslpReservedTransferLock.WaitBlockFill11[136] )
+      BYTE6(VslpReservedTransferLock.Queue) = 1;
+      if ( LODWORD(VslpReservedTransferLock.LastXStateSaveDebugInfo) )
       {
         v5 = MmMapIoSpaceEx(
-               (__int64)VslpReservedTransferLock.WaitBlock[2].Object,
-               (unsigned int)(*(_DWORD *)&VslpReservedTransferLock.WaitBlockFill11[136] << 12),
+               (__int64)VslpReservedTransferLock.WaitBlock[3].Object,
+               (unsigned int)(LODWORD(VslpReservedTransferLock.LastXStateSaveDebugInfo) << 12),
                2u);
-        VslpReservedTransferLock.WaitBlock[2].Thread = (struct _KTHREAD *)v5;
+        VslpReservedTransferLock.WaitBlock[3].Thread = (struct _KTHREAD *)v5;
         if ( !v5 )
           goto LABEL_26;
-        LODWORD(VslpReservedTransferLock.WaitStatus) = *(_DWORD *)(v5 + 812);
+        LODWORD(VslpReservedTransferLock.RelativeTimerBias) = *(_DWORD *)(v5 + 812);
         Pool2 = (void *)ExAllocatePool2(0x40uLL);
-        *(_QWORD *)&VslpReservedTransferLock.ApcStateFill[40] = Pool2;
+        VslpReservedTransferLock.Teb = Pool2;
         if ( !Pool2 )
           goto LABEL_26;
-        memset_0(Pool2, 0, LODWORD(VslpReservedTransferLock.WaitStatus));
+        memset_0(Pool2, 0, LODWORD(VslpReservedTransferLock.RelativeTimerBias));
       }
     }
     else
     {
-      VslpReservedTransferLock.ApcStateFill[37] = 0;
+      BYTE6(VslpReservedTransferLock.Queue) = 0;
     }
     if ( !VslVsmEnabled )
     {
-      BYTE4(VslpReservedTransferLock.Timer.Header.WaitListHead.Flink) = 0;
+      LOBYTE(VslpReservedTransferLock.Timer.Period) = 0;
       if ( !KeRegisterBugCheckReasonCallback(
-              (PKBUGCHECK_REASON_CALLBACK_RECORD)(&VslpReservedTransferLock.SwapListEntry + 1),
+              (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.Timer.Header.WaitListHead.Blink,
               (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlBugCheckCallbackRoutine,
               KbCallbackSecondaryDumpData,
               (PUCHAR)"HypervisorCrashdumpArea") )
         goto LABEL_26;
-      LOBYTE(VslpReservedTransferLock.Timer.Period) = 0;
+      VslpReservedTransferLock.WaitBlockFill5[44] = 0;
       if ( !KeRegisterBugCheckReasonCallback(
-              (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.Timer.Header.WaitListHead.Blink,
+              (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.320,
               (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddPagesCallbackRoutine,
               KbCallbackAddPages,
               (PUCHAR)"HypervisorCrashdumpArea2") )
@@ -100,33 +100,31 @@ __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
         KeReleaseSpinLock(&KiNmiCallbackListLock, v9);
         Blink = v8[1].Blink;
       }
-      VslpReservedTransferLock.WaitListEntry.Flink = Blink;
-      VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink = (struct _LIST_ENTRY *)MmAllocateMappingAddress(
-                                                                                          0x1000uLL,
-                                                                                          0x204C5648u);
-      if ( !VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink )
+      VslpReservedTransferLock.Timer.Header.WaitListHead.Flink = Blink;
+      *(_QWORD *)&VslpReservedTransferLock.ThreadFlags2 = MmAllocateMappingAddress(0x1000uLL, 0x204C5648u);
+      if ( !*(_QWORD *)&VslpReservedTransferLock.ThreadFlags2 )
         goto LABEL_26;
       if ( !VslVsmEnabled )
         return 0;
     }
-    VslpReservedTransferLock.WaitBlockFill5[44] = 0;
+    VslpReservedTransferLock.WaitBlockFill6[92] = 0;
     if ( KeRegisterBugCheckReasonCallback(
-           (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.320,
+           (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.WaitBlockFill11[48],
            (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlSkBugCheckCallbackRoutine,
            KbCallbackSecondaryDumpData,
            (PUCHAR)"SecureKernelCrashdumpArea") )
     {
       if ( (HvlpFlags & 2) == 0
-        || (LOBYTE(VslpReservedTransferLock.Timer.Period) = 0,
+        || (VslpReservedTransferLock.WaitBlockFill5[44] = 0,
             KeRegisterBugCheckReasonCallback(
-              (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.Timer.Header.WaitListHead.Blink,
+              (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.320,
               (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddSecureHvPagesCallbackRoutine,
               KbCallbackAddPages,
               (PUCHAR)"HypervisorCrashdumpArea2")) )
       {
-        VslpReservedTransferLock.WaitBlockFill6[92] = 0;
+        VslpReservedTransferLock.WaitBlockFill7[140] = 0;
         if ( KeRegisterBugCheckReasonCallback(
-               (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.WaitBlockFill11[48],
+               (PKBUGCHECK_REASON_CALLBACK_RECORD)&VslpReservedTransferLock.WaitBlockFill11[96],
                (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddSecureSkPagesCallbackRoutine,
                KbCallbackAddPages,
                (PUCHAR)"SecureKernelCrashdumpArea2") )
@@ -144,17 +142,17 @@ __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
             KeReleaseSpinLock(&KiNmiCallbackListLock, v12);
             v10 = v11[1].Blink;
           }
-          VslpReservedTransferLock.WaitListEntry.Flink = v10;
+          VslpReservedTransferLock.Timer.Header.WaitListHead.Flink = v10;
           return 0;
         }
       }
     }
   }
 LABEL_26:
-  if ( VslpReservedTransferLock.ApcState.ApcListHead[1].Blink )
+  if ( VslpReservedTransferLock.WaitListEntry.Blink )
   {
-    MmFreeIndependentPages((unsigned __int64)VslpReservedTransferLock.ApcState.ApcListHead[1].Blink, 0x1000uLL);
-    VslpReservedTransferLock.ApcState.ApcListHead[1].Blink = 0LL;
+    MmFreeIndependentPages((unsigned __int64)VslpReservedTransferLock.WaitListEntry.Blink, 0x1000uLL);
+    VslpReservedTransferLock.WaitListEntry.Blink = 0LL;
   }
   return v2;
 }

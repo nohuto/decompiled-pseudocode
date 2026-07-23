@@ -1,13 +1,13 @@
 /*
- * XREFs of ViDeadlockSearchThread @ 0x1409DFDD8
+ * XREFs of ViDeadlockSearchThread @ 0x1409E0DD8
  * Callers:
- *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
- *     VfDeadlockAfterCallDriver @ 0x1409DDCB4 (VfDeadlockAfterCallDriver.c)
- *     VfDeadlockBeforeCallDriver @ 0x1409DDD24 (VfDeadlockBeforeCallDriver.c)
- *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
- *     ViIsThreadInsidePagingCodePaths @ 0x1409DFF48 (ViIsThreadInsidePagingCodePaths.c)
+ *     VfDeadlockAcquireResource @ 0x1409DE5C8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAfterCallDriver @ 0x1409DECB4 (VfDeadlockAfterCallDriver.c)
+ *     VfDeadlockBeforeCallDriver @ 0x1409DED24 (VfDeadlockBeforeCallDriver.c)
+ *     VfDeadlockReleaseResource @ 0x1409DF338 (VfDeadlockReleaseResource.c)
+ *     ViIsThreadInsidePagingCodePaths @ 0x1409E0F48 (ViIsThreadInsidePagingCodePaths.c)
  * Callees:
- *     VfUtilAddressRangeFit @ 0x1409C62FC (VfUtilAddressRangeFit.c)
+ *     VfUtilAddressRangeFit @ 0x1409C72FC (VfUtilAddressRangeFit.c)
  */
 
 _QWORD *__fastcall ViDeadlockSearchThread(unsigned __int64 a1)

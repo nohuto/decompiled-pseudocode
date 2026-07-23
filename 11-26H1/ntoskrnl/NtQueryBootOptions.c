@@ -1,36 +1,36 @@
 /*
- * XREFs of NtQueryBootOptions @ 0x140906480
+ * XREFs of NtQueryBootOptions @ 0x140A2E7B0
  * Callers:
- *     DifNtQueryBootOptionsWrapper @ 0x1406814F0 (DifNtQueryBootOptionsWrapper.c)
+ *     DifNtQueryBootOptionsWrapper @ 0x1406850D0 (DifNtQueryBootOptionsWrapper.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     IoGetEnvironmentVariableEx @ 0x140908318 (IoGetEnvironmentVariableEx.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     IoGetEnvironmentVariableEx @ 0x140A30478 (IoGetEnvironmentVariableEx.c)
  */
 
-__int64 __fastcall NtQueryBootOptions(void *a1, unsigned int *a2)
+NTSTATUS __cdecl NtQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  unsigned int v5; // ebx
+  ULONG v5; // ebx
   int ULongFromUser; // eax
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int EnvironmentVariable; // eax
-  unsigned int v10; // ebx
-  unsigned int v11; // eax
-  unsigned int v12; // eax
+  NTSTATUS EnvironmentVariable; // eax
+  NTSTATUS v10; // ebx
+  NTSTATUS v11; // eax
+  NTSTATUS v12; // eax
   unsigned int v13; // [rsp+34h] [rbp-54h] BYREF
   __int64 v14; // [rsp+38h] [rbp-50h] BYREF
   int v15; // [rsp+40h] [rbp-48h] BYREF
-  unsigned int v16; // [rsp+44h] [rbp-44h]
+  ULONG v16; // [rsp+44h] [rbp-44h]
   __int128 Src; // [rsp+50h] [rbp-38h] BYREF
   __int64 v18; // [rsp+60h] [rbp-28h]
 
@@ -39,30 +39,30 @@ __int64 __fastcall NtQueryBootOptions(void *a1, unsigned int *a2)
   v14 = 0LL;
   v15 = 0;
   v13 = 0;
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] != 2 || PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) != 2 || PsIsCurrentThreadInServerSilo() )
+    return -1073741822;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
-    RtlWriteULongToUser(a2, ULongFromUser);
-    v5 = a1 != 0LL ? RtlReadULongFromUser(a2) : 0;
+    ULongFromUser = RtlReadULongFromUser(BootOptionsLength);
+    RtlWriteULongToUser(BootOptionsLength, ULongFromUser);
+    v5 = BootOptions != 0LL ? RtlReadULongFromUser(BootOptionsLength) : 0;
     v16 = v5;
     if ( v5 )
-      ProbeForWrite(a1, v5, 4u);
+      ProbeForWrite(BootOptions, v5, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v5 = a1 != 0LL ? *a2 : 0;
+    v5 = BootOptions != 0LL ? *BootOptionsLength : 0;
     v16 = v5;
   }
   if ( v5 >= 0x16 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
+    ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
     v13 = 4;
     EnvironmentVariable = IoGetEnvironmentVariableEx(
                             (unsigned int)L"Timeout",
@@ -134,9 +134,9 @@ LABEL_17:
       goto LABEL_17;
     }
 LABEL_20:
-    ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
+    ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
     KeLeaveCriticalRegion();
-    if ( !v10 && a1 )
+    if ( !v10 && BootOptions )
     {
       *(_QWORD *)&Src = 0x1600000001LL;
       *((_QWORD *)&Src + 1) = v14;
@@ -147,16 +147,16 @@ LABEL_20:
   }
   v10 = -1073741789;
 LABEL_21:
-  if ( !v10 && a1 )
+  if ( !v10 && BootOptions )
   {
     if ( PreviousMode )
-      RtlCopyToUser(a1, &Src, 0x16uLL);
+      RtlCopyToUser(BootOptions, &Src, 0x16uLL);
     else
-      RtlCopyVolatileMemory(a1, &Src, 0x16uLL);
+      RtlCopyVolatileMemory(BootOptions, &Src, 0x16uLL);
   }
   if ( PreviousMode )
-    RtlWriteULongToUser(a2, 22);
+    RtlWriteULongToUser(BootOptionsLength, 22);
   else
-    *a2 = 22;
+    *BootOptionsLength = 22;
   return v10;
 }

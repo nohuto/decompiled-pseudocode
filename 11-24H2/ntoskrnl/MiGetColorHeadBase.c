@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetColorHeadBase @ 0x140424080
+ * XREFs of MiGetColorHeadBase @ 0x140417F30
  * Callers:
- *     MiFreeListPageContentsChanged @ 0x140269BA8 (MiFreeListPageContentsChanged.c)
- *     MiGetPerfectColorHeadPage @ 0x1402F59B0 (MiGetPerfectColorHeadPage.c)
- *     MiWalkAllFreeZeroLists @ 0x1404B1468 (MiWalkAllFreeZeroLists.c)
+ *     MiFreeListPageContentsChanged @ 0x14021F138 (MiFreeListPageContentsChanged.c)
+ *     MiGetPerfectColorHeadPage @ 0x14033D740 (MiGetPerfectColorHeadPage.c)
+ *     MiWalkAllFreeZeroLists @ 0x1404ABCF8 (MiWalkAllFreeZeroLists.c)
  * Callees:
  *     <none>
  */

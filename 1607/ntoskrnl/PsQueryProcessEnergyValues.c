@@ -1,14 +1,14 @@
 /*
- * XREFs of PsQueryProcessEnergyValues @ 0x1405160D0
+ * XREFs of PsQueryProcessEnergyValues @ 0x1404F94C0
  * Callers:
- *     ExpGetProcessInformation @ 0x1404513E0 (ExpGetProcessInformation.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x140469B4C (PspQueryProcessAccountingInformationCallback.c)
- *     PspFoldProcessAccountingIntoJob @ 0x14046A07C (PspFoldProcessAccountingIntoJob.c)
+ *     ExpGetProcessInformation @ 0x1404502B0 (ExpGetProcessInformation.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x140468A1C (PspQueryProcessAccountingInformationCallback.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x140468F4C (PspFoldProcessAccountingIntoJob.c)
  * Callees:
- *     PspUnlockProcessThreadListShared @ 0x140095C98 (PspUnlockProcessThreadListShared.c)
- *     PspLockProcessThreadListShared @ 0x140095CDC (PspLockProcessThreadListShared.c)
- *     PoEnergyEstimationEnabled @ 0x1400F2054 (PoEnergyEstimationEnabled.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PspUnlockProcessThreadListShared @ 0x140095498 (PspUnlockProcessThreadListShared.c)
+ *     PspLockProcessThreadListShared @ 0x1400954DC (PspLockProcessThreadListShared.c)
+ *     PoEnergyEstimationEnabled @ 0x1400EFEA4 (PoEnergyEstimationEnabled.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void *__fastcall PsQueryProcessEnergyValues(_QWORD *a1, __int64 a2)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiMakeProtectionMask @ 0x14002BD00
+ * XREFs of MiMakeProtectionMask @ 0x14002B880
  * Callers:
- *     MiCommitExistingVad @ 0x14002AC20 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MmAllocateContiguousNodeMemory @ 0x14009AEA0 (MmAllocateContiguousNodeMemory.c)
- *     MmMapIoSpaceEx @ 0x14009B870 (MmMapIoSpaceEx.c)
- *     MmSetPageProtection @ 0x1400B23C0 (MmSetPageProtection.c)
- *     MiProtectPool @ 0x1400EA400 (MiProtectPool.c)
- *     MmProtectMdlSystemAddress @ 0x1401E44E4 (MmProtectMdlSystemAddress.c)
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiMapViewOfSection @ 0x140433010 (MiMapViewOfSection.c)
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
- *     NtProtectVirtualMemory @ 0x140433B80 (NtProtectVirtualMemory.c)
- *     NtMapViewOfSection @ 0x140436740 (NtMapViewOfSection.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
+ *     MiCommitExistingVad @ 0x14002A7A0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14009A6A0 (MmAllocateContiguousNodeMemory.c)
+ *     MmMapIoSpaceEx @ 0x14009B070 (MmMapIoSpaceEx.c)
+ *     MmSetPageProtection @ 0x1400B0300 (MmSetPageProtection.c)
+ *     MiProtectPool @ 0x1400E8270 (MiProtectPool.c)
+ *     MmProtectMdlSystemAddress @ 0x1401E4310 (MmProtectMdlSystemAddress.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiMapViewOfSection @ 0x140431EE0 (MiMapViewOfSection.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x140432A50 (NtProtectVirtualMemory.c)
+ *     NtMapViewOfSection @ 0x140435610 (NtMapViewOfSection.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
  * Callees:
  *     <none>
  */

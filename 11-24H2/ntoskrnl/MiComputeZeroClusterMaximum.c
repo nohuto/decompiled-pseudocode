@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeZeroClusterMaximum @ 0x1404448BC
+ * XREFs of MiComputeZeroClusterMaximum @ 0x14043CB7C
  * Callers:
- *     MiExpandSharedZeroCluster @ 0x1402E548C (MiExpandSharedZeroCluster.c)
- *     MiResolvePrivateZeroFault @ 0x1402FE070 (MiResolvePrivateZeroFault.c)
- *     MiGetClusterPage @ 0x1404D2DE4 (MiGetClusterPage.c)
+ *     MiResolvePrivateZeroFault @ 0x1403087F0 (MiResolvePrivateZeroFault.c)
+ *     MiExpandSharedZeroCluster @ 0x14034162C (MiExpandSharedZeroCluster.c)
+ *     MiGetClusterPage @ 0x1404CBFA4 (MiGetClusterPage.c)
  * Callees:
  *     <none>
  */
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, __int64 a2, 
     if ( v7 > v9 + 1 )
       v7 = v9 + 1;
   }
-  v10 = (_QWORD *)*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a2 + 174));
+  v10 = (_QWORD *)*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a2 + 174));
   v11 = *(_QWORD *)(v10[2200] + 312LL);
   if ( v11 > 0x4E20 && (v11 & 0xFFFFFFFFFFFFFFFEuLL) > 0x4E20 )
     v12 = v11 >> 1;
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, __int64 a2, 
     v16 = v10[2] + 14944LL;
     while ( v15 < (unsigned __int16)KeNumberNodes )
     {
-      v17 = dword_140E2DBCC;
+      v17 = dword_140E2DD0C;
       v18 = 0LL;
       v19 = (_QWORD *)v16;
       while ( v18 <= 1 )
@@ -66,7 +66,7 @@ unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, __int64 a2, 
           v13 += *(unsigned __int16 *)(*v19 + 16LL * i);
           if ( v13 >= v14 )
             goto LABEL_15;
-          v17 = dword_140E2DBCC;
+          v17 = dword_140E2DD0C;
         }
         ++v18;
         ++v19;

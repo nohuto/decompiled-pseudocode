@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpMatchUILanguage @ 0x180112DD4
+ * XREFs of RtlpMatchUILanguage @ 0x180112884
  * Callers:
- *     RtlLocaleNameToLcid @ 0x1800045B0 (RtlLocaleNameToLcid.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     LdrpLangFallbackListAppendNode @ 0x180004E90 (LdrpLangFallbackListAppendNode.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800052F0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlLocaleNameToLcid @ 0x18004FCE0 (RtlLocaleNameToLcid.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     LdrpLangFallbackListAppendNode @ 0x1800505C0 (LdrpLangFallbackListAppendNode.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180050A20 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlCompareUnicodeStrings @ 0x180083D00 (RtlCompareUnicodeStrings.c)
- *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180112ED0 (RtlpGetUserOrMachineUILanguage4NLS.c)
- *     __report_rangecheckfailure @ 0x180126B60 (__report_rangecheckfailure.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlCompareUnicodeStrings @ 0x18007B0A0 (RtlCompareUnicodeStrings.c)
+ *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180112980 (RtlpGetUserOrMachineUILanguage4NLS.c)
+ *     __report_rangecheckfailure @ 0x1801268D0 (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 bool __fastcall RtlpMatchUILanguage(PCWSTR SourceString)
 {
   unsigned __int64 v2; // rax
-  UNICODE_STRING v4; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING v4; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   WCHAR SourceStringa[88]; // [rsp+50h] [rbp-B0h] BYREF
 
   *(_QWORD *)&v4.Length = 85LL;
@@ -31,10 +31,10 @@ bool __fastcall RtlpMatchUILanguage(PCWSTR SourceString)
   SourceStringa[v2] = 0;
   RtlInitUnicodeString(&DestinationString, SourceString);
   RtlInitUnicodeString(&v4, SourceStringa);
-  return (unsigned int)RtlCompareUnicodeStrings(
-                         DestinationString.Buffer,
-                         (unsigned __int64)DestinationString.Length >> 1,
-                         (_BYTE *)v4.Buffer,
-                         (unsigned __int64)v4.Length >> 1,
-                         1) == 0;
+  return RtlCompareUnicodeStrings(
+           DestinationString.Buffer,
+           (unsigned __int64)DestinationString.Length >> 1,
+           v4.Buffer,
+           (unsigned __int64)v4.Length >> 1,
+           1u) == 0;
 }

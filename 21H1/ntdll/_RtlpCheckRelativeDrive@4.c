@@ -15,47 +15,46 @@
 NTSTATUS __thiscall RtlpCheckRelativeDrive(void *this)
 {
   NTSTATUS v3; // esi
-  int v4; // [esp+10h] [ebp-268h] BYREF
-  char *v5; // [esp+14h] [ebp-264h]
-  unsigned int v6; // [esp+18h] [ebp-260h] BYREF
+  _UNICODE_STRING Value; // [esp+10h] [ebp-268h] BYREF
+  ULONG OldMode; // [esp+18h] [ebp-260h] BYREF
   HANDLE FileHandle; // [esp+1Ch] [ebp-25Ch] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+20h] [ebp-258h] BYREF
-  UNICODE_STRING DestinationString; // [esp+38h] [ebp-240h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+40h] [ebp-238h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+20h] [ebp-258h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+38h] [ebp-240h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+40h] [ebp-238h] BYREF
   WCHAR SourceString[2]; // [esp+48h] [ebp-230h] BYREF
-  wchar_t v12[2]; // [esp+4Ch] [ebp-22Ch] BYREF
-  _DWORD v13[2]; // [esp+50h] [ebp-228h] BYREF
-  char v14; // [esp+58h] [ebp-220h] BYREF
+  wchar_t v11[2]; // [esp+4Ch] [ebp-22Ch] BYREF
+  _DWORD v12[2]; // [esp+50h] [ebp-228h] BYREF
+  char v13; // [esp+58h] [ebp-220h] BYREF
 
   SourceString[0] = 61;
-  SourceString[1] = (unsigned __int16)this;
-  wcscpy(v12, L":");
+  SourceString[1] = (__int16)this;
+  wcscpy(v11, L":");
   RtlInitUnicodeString(&DestinationString, SourceString);
-  v13[0] = *(_DWORD *)L"\\??\\";
-  v13[1] = *(_DWORD *)L"?\\";
-  v5 = &v14;
-  v4 = 34078720;
-  if ( RtlQueryEnvironmentVariable_U(0, &DestinationString.Length, (int)&v4) < 0 )
+  v12[0] = *(_DWORD *)L"\\??\\";
+  v12[1] = *(_DWORD *)L"?\\";
+  Value.Buffer = (wchar_t *)&v13;
+  *(_DWORD *)&Value.Length = 34078720;
+  if ( RtlQueryEnvironmentVariable_U(0, &DestinationString, &Value) < 0 )
   {
-    *(_WORD *)v5 = (_WORD)this;
-    *((_WORD *)v5 + 1) = 58;
-    *((_WORD *)v5 + 2) = 92;
-    *((_WORD *)v5 + 3) = 0;
-    LOWORD(v4) = 6;
+    *Value.Buffer = (unsigned __int16)this;
+    Value.Buffer[1] = 58;
+    Value.Buffer[2] = 92;
+    Value.Buffer[3] = 0;
+    Value.Length = 6;
     return RtlpResetDriveEnvironment(this);
   }
-  LOWORD(v4) = v4 + 8;
-  HIWORD(v4) = 544;
-  v5 = (char *)v13;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v4;
+  Value.Length += 8;
+  Value.MaximumLength = 544;
+  Value.Buffer = (wchar_t *)v12;
+  ObjectAttributes.ObjectName = &Value;
   ObjectAttributes.Length = 24;
   ObjectAttributes.RootDirectory = 0;
   ObjectAttributes.Attributes = 64;
   ObjectAttributes.SecurityDescriptor = 0;
   ObjectAttributes.SecurityQualityOfService = 0;
-  RtlSetThreadErrorMode(0x10u, &v6);
+  RtlSetThreadErrorMode(0x10u, &OldMode);
   v3 = NtOpenFile(&FileHandle, 0x100000u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
-  RtlSetThreadErrorMode(v6, 0);
+  RtlSetThreadErrorMode(OldMode, 0);
   if ( v3 < 0 )
     return RtlpResetDriveEnvironment(this);
   return NtClose(FileHandle);

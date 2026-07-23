@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceExecutePowerAction @ 0x140A9B7B8
+ * XREFs of PopDiagTraceExecutePowerAction @ 0x140A96D28
  * Callers:
- *     PopExecutePowerAction @ 0x140753574 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x140751894 (PopExecutePowerAction.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     PsGetProcessImageFileName @ 0x14044CCB0 (PsGetProcessImageFileName.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     PsGetProcessImageFileName @ 0x140443BB0 (PsGetProcessImageFileName.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char PopDiagTraceExecutePowerAction(
@@ -158,14 +158,14 @@ char PopDiagTraceExecutePowerAction(
       LOBYTE(ProcessImageFileName) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_EXECUTE_POWER_ACTION, 0LL, 0xEu, &UserData);
     }
   }
-  if ( dword_140E076F0 )
+  if ( dword_140E07680 )
   {
-    if ( (qword_140E07700 & 0x800000000000LL) != 0 )
+    if ( (qword_140E07690 & 0x800000000000LL) != 0 )
     {
       LOBYTE(ProcessImageFileName) = 0;
-      if ( (qword_140E07708 & 0x800000000000LL) == qword_140E07708 && (unsigned int)dword_140E076F0 > 5 )
+      if ( (qword_140E07698 & 0x800000000000LL) == qword_140E07698 && (unsigned int)dword_140E07680 > 5 )
       {
-        LOBYTE(ProcessImageFileName) = tlgKeywordOn((__int64)&dword_140E076F0, 0x800000000000LL);
+        LOBYTE(ProcessImageFileName) = tlgKeywordOn((__int64)&dword_140E07680, 0x800000000000LL);
         if ( (_BYTE)ProcessImageFileName )
         {
           v18 = v90;
@@ -212,8 +212,8 @@ char PopDiagTraceExecutePowerAction(
           v88 = &v31;
           v89 = 8LL;
           LOBYTE(ProcessImageFileName) = tlgWriteTransfer_EtwWriteTransfer(
-                                           (__int64)&dword_140E076F0,
-                                           (unsigned __int8 *)byte_140048C60,
+                                           (__int64)&dword_140E07680,
+                                           (unsigned __int8 *)&dword_140049C24,
                                            0LL,
                                            0LL,
                                            0x11u,

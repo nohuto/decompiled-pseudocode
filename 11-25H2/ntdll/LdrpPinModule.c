@@ -19,7 +19,7 @@ __int64 __fastcall LdrpPinModule(__int64 a1)
   __int64 v3; // rcx
 
   v2 = 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v3 = *(_QWORD *)(a1 + 152);
   if ( *(_DWORD *)(v3 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v3 - 56LL) & 0x20) == 0 )
   {

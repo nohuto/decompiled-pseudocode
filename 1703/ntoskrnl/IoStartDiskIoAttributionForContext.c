@@ -10,11 +10,11 @@
  *     IopDiskIoAttributionTreeCompare @ 0x1400AE054 (IopDiskIoAttributionTreeCompare.c)
  */
 
-__int64 __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
+__int64 __fastcall IoStartDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // al
-  bool v3; // bl
-  unsigned __int64 v4; // rdi
+  BOOLEAN v3; // bl
+  __int64 Root; // rdi
   int v5; // esi
   KIRQL v6; // r15
   __int64 result; // rax
@@ -22,28 +22,28 @@ __int64 __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
   v3 = 0;
-  v4 = IopDiskIoAttributionTree;
-  v5 = BYTE8(IopDiskIoAttributionTree) & 1;
+  Root = (__int64)IopDiskIoAttributionTree.Root;
+  v5 = *(_BYTE *)&IopDiskIoAttributionTree.0 & 1;
   v6 = v2;
-  if ( (_QWORD)IopDiskIoAttributionTree )
+  if ( IopDiskIoAttributionTree.Root )
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)(a1 + 24), v4) < 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)&Node[1], Root) < 0 )
       {
-        v8 = *(_QWORD *)v4;
+        v8 = *(_QWORD *)Root;
         if ( v5 )
         {
           if ( !v8 )
             break;
-          v8 ^= v4;
+          v8 ^= Root;
         }
         if ( !v8 )
           break;
       }
       else
       {
-        v8 = *(_QWORD *)(v4 + 8);
+        v8 = *(_QWORD *)(Root + 8);
         if ( v5 )
         {
           if ( !v8 )
@@ -52,15 +52,15 @@ LABEL_6:
             v3 = 1;
             break;
           }
-          v8 ^= v4;
+          v8 ^= Root;
         }
         if ( !v8 )
           goto LABEL_6;
       }
-      v4 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx((__int64)&IopDiskIoAttributionTree, v4, v3, a1);
+  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, (PRTL_BALANCED_NODE)Root, v3, Node);
   ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
   result = v6;
   __writecr8(v6);

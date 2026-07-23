@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     BvgaUpdateProgressBar @ 0x1401C43A8 (BvgaUpdateProgressBar.c)
+ *     BvgaUpdateProgressBar @ 0x1401C428C (BvgaUpdateProgressBar.c)
  */
 
 void BvgaIndicateProgress()

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEmModuleAddressMatchCallback @ 0x1402E51F0
+ * XREFs of PopEmModuleAddressMatchCallback @ 0x1402E53E0
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitString @ 0x140002070 (RtlInitString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PopEmModuleAddressMatchCallback(__int64 *a1, int a2, PCSZ *a3, int a4, int a5, int a6)
@@ -15,7 +15,7 @@ __int64 __fastcall PopEmModuleAddressMatchCallback(__int64 *a1, int a2, PCSZ *a3
   __int64 v7; // rax
   const UNICODE_STRING *v8; // rdi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
 
   v6 = 1;
   *(_QWORD *)&DestinationString.Length = 0LL;

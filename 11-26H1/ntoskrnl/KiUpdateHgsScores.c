@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateHgsScores @ 0x1403EEE40
+ * XREFs of KiUpdateHgsScores @ 0x140453970
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x1403ED9F4 (KeConfigureHeteroProcessors.c)
+ *     KeConfigureHeteroProcessors @ 0x140452524 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     KiComputeHgsScore @ 0x1403EF0C4 (KiComputeHgsScore.c)
+ *     KiComputeHgsScore @ 0x140453BF4 (KiComputeHgsScore.c)
  */
 
 __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2)
@@ -54,7 +54,7 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2)
   v42 = KiHeteroConfig;
   v3 = 0;
   v4 = 0;
-  for ( i = 0; i < *(_DWORD *)(v2 + 24); word_140FBE44C[v26] = v24 )
+  for ( i = 0; i < *(_DWORD *)(v2 + 24); word_140FBF44C[v26] = v24 )
   {
     v6 = 0;
     v7 = 0;
@@ -111,10 +111,10 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2)
     }
     LOBYTE(a2) = v6;
     LOBYTE(a1) = v7;
-    byte_140FBE42C[i] = v6;
-    byte_140FBE42C[i + 8] = v8;
+    byte_140FBF42C[i] = v6;
+    byte_140FBF42C[i + 8] = v8;
     v18 = KiComputeHgsScore(a1, a2);
-    word_140FBE43C[v23] = v18;
+    word_140FBF43C[v23] = v18;
     if ( v18 > v3 )
     {
       v3 = v18;
@@ -125,7 +125,7 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2)
     v24 = KiComputeHgsScore(v20, v19);
     i = v25 + 1;
   }
-  byte_140FBE45C = v4;
+  byte_140FBF45C = v4;
   v27 = 0;
   for ( result = (unsigned int)KeNumberProcessors_0; v27 < (unsigned int)KeNumberProcessors_0; ++v27 )
   {
@@ -142,7 +142,7 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2)
       else
         v33 = 0;
       LOBYTE(v31) = v32;
-      LOBYTE(a2) = byte_140FBE42C[v29];
+      LOBYTE(a2) = byte_140FBF42C[v29];
       v34 = KiComputeHgsScore(v31, a2);
       LOBYTE(v36) = v35;
       *(_WORD *)(j + 2 * v37 + 34492) = v34;

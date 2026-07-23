@@ -1,21 +1,21 @@
 /*
- * XREFs of SeIsTokenAssignableToProcess @ 0x140476504
+ * XREFs of SeIsTokenAssignableToProcess @ 0x1404753D4
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspAssignPrimaryToken @ 0x14067EFDC (PspAssignPrimaryToken.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspAssignPrimaryToken @ 0x14067F0C0 (PspAssignPrimaryToken.c)
  * Callees:
- *     SepCopyTokenIntegrity @ 0x14000E110 (SepCopyTokenIntegrity.c)
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlSidDominates @ 0x1400760C0 (RtlSidDominates.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     SepIsChildTokenByPointer @ 0x14047666C (SepIsChildTokenByPointer.c)
- *     SepIsSiblingTokenByPointer @ 0x1404766F4 (SepIsSiblingTokenByPointer.c)
+ *     SepCopyTokenIntegrity @ 0x14000DC90 (SepCopyTokenIntegrity.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlSidDominates @ 0x140076140 (RtlSidDominates.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     SepIsChildTokenByPointer @ 0x14047553C (SepIsChildTokenByPointer.c)
+ *     SepIsSiblingTokenByPointer @ 0x1404755C4 (SepIsSiblingTokenByPointer.c)
  */
 
-__int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
+NTSTATUS __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
 {
   char v2; // di
   PERESOURCE *v5; // rbx
@@ -29,22 +29,22 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   __int64 v13; // rdx
   __int64 v14; // r8
   __int64 v15; // r9
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v17; // bl
-  char *Buf2; // [rsp+20h] [rbp-20h]
-  char *Buf1; // [rsp+30h] [rbp-10h]
+  PSID Sid2; // [rsp+20h] [rbp-20h]
+  PSID Sid1; // [rsp+30h] [rbp-10h]
   char v20; // [rsp+78h] [rbp+38h] BYREF
-  bool v21; // [rsp+80h] [rbp+40h] BYREF
+  BOOLEAN Dominates; // [rsp+80h] [rbp+40h] BYREF
   char v22; // [rsp+88h] [rbp+48h] BYREF
 
   v2 = 0;
   *a2 = 0;
   v20 = 0;
   v22 = 0;
-  v21 = 0;
+  Dominates = 0;
   v5 = (PERESOURCE *)PsReferencePrimaryToken(KeGetCurrentThread()->ApcState.Process);
   if ( !v5 )
-    return 3221225473LL;
+    return -1073741823;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(v5[6], 1u);
@@ -63,17 +63,17 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v13, v14, v15);
   if ( v11 == 2 && v12 < 2 )
-    return 3221225637LL;
-  result = RtlSidDominates(Buf1, Buf2, &v21);
-  if ( (int)result >= 0 )
+    return -1073741659;
+  result = RtlSidDominates(Sid1, Sid2, &Dominates);
+  if ( result >= 0 )
   {
-    if ( v21 )
+    if ( Dominates )
     {
       result = SepIsChildTokenByPointer(a1, &v20);
       v17 = v20;
       if ( !v20 )
       {
-        if ( (int)result < 0 )
+        if ( result < 0 )
           return result;
         result = SepIsSiblingTokenByPointer(a1, &v22);
       }
@@ -82,7 +82,7 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
     {
       v17 = v20;
     }
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       if ( v17 || v22 )
         v2 = 1;

@@ -1,14 +1,14 @@
 /*
- * XREFs of BCryptCloseAlgorithmProvider @ 0x140181D40
+ * XREFs of BCryptCloseAlgorithmProvider @ 0x140181E80
  * Callers:
- *     SecureDump_Init @ 0x140180D40 (SecureDump_Init.c)
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286438 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SmCrEncCleanup @ 0x1406A3720 (SmCrEncCleanup.c)
- *     RtlGenerateClass5Guid @ 0x14073BE90 (RtlGenerateClass5Guid.c)
+ *     SecureDump_Init @ 0x140180E80 (SecureDump_Init.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286628 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SmCrEncCleanup @ 0x1406A49C0 (SmCrEncCleanup.c)
+ *     RtlGenerateClass5Guid @ 0x14073D080 (RtlGenerateClass5Guid.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptCloseAlgorithmProvider(BCRYPT_ALG_HANDLE hAlgorithm, ULONG dwFlags)

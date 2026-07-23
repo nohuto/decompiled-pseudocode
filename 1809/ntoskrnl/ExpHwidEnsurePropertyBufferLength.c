@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpHwidEnsurePropertyBufferLength @ 0x140586CA0
+ * XREFs of ExpHwidEnsurePropertyBufferLength @ 0x140587CA0
  * Callers:
- *     ExpHwidGetDevicePropertyData @ 0x140586784 (ExpHwidGetDevicePropertyData.c)
+ *     ExpHwidGetDevicePropertyData @ 0x140587784 (ExpHwidGetDevicePropertyData.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpHwidEnsurePropertyBufferLength(__int64 a1, unsigned int a2)

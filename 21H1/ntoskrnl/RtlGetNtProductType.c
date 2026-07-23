@@ -13,9 +13,9 @@
  *     RtlpGetNtProductTypeFromRegistry @ 0x14076605C (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int64 ThreadServerSilo; // rax
   _QWORD *v5; // rax
 
@@ -27,18 +27,18 @@ char __fastcall RtlGetNtProductType(_DWORD *a1)
     else
       v5 = &PspHostSiloGlobals;
     v2 = 1;
-    *a1 = *(_DWORD *)(v5[139] + 16LL);
+    *NtProductType = *(PNT_PRODUCT_TYPE)(v5[139] + 16LL);
   }
   else
   {
     v2 = 1;
     if ( MEMORY[0xFFFFF78000000268] )
     {
-      *a1 = MEMORY[0xFFFFF78000000264];
+      *NtProductType = MEMORY[0xFFFFF78000000264];
     }
-    else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(a1) < 0 )
+    else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(NtProductType) < 0 )
     {
-      *a1 = 1;
+      *NtProductType = NtProductWinNt;
       return 0;
     }
   }

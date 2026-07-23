@@ -1,58 +1,58 @@
 /*
- * XREFs of CmpCreateChild @ 0x14091788C
+ * XREFs of CmpCreateChild @ 0x14090B2FC
  * Callers:
- *     CmpDoBuildVirtualStack @ 0x1407DB5E4 (CmpDoBuildVirtualStack.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpDoBuildVirtualStack @ 0x1407DBB34 (CmpDoBuildVirtualStack.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14041FBC0 (CmpFindSecurityCellCacheIndex.c)
- *     CmpTransEnlistUowInCmTrans @ 0x14048052C (CmpTransEnlistUowInCmTrans.c)
- *     CmpTransEnlistUowInKcb @ 0x140484100 (CmpTransEnlistUowInKcb.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpRecordParseFailure @ 0x140845C40 (CmpRecordParseFailure.c)
- *     CmpReportNotifyForKcbStack @ 0x14086877C (CmpReportNotifyForKcbStack.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140869130 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x14086A638 (CmpUpdateKeyNodeAccessBits.c)
- *     CmpSnapshotTxOwnerArray @ 0x14086C0D0 (CmpSnapshotTxOwnerArray.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpRundownUnitOfWork @ 0x14087B024 (CmpRundownUnitOfWork.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14087C024 (CmpRebuildKcbCacheFromNode.c)
- *     CmpCleanUpSubKeyInfo @ 0x14087C170 (CmpCleanUpSubKeyInfo.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     CmpAddSubKeyEx @ 0x14087F1E4 (CmpAddSubKeyEx.c)
- *     CmpMarkKeyDirty @ 0x14087FB34 (CmpMarkKeyDirty.c)
- *     CmLockHiveSecurityExclusive @ 0x1408803CC (CmLockHiveSecurityExclusive.c)
- *     CmpFreeKeyByCell @ 0x140880420 (CmpFreeKeyByCell.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x14088067C (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpNameSize @ 0x140881BCC (CmpNameSize.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     HvAllocateCell @ 0x1408822D8 (HvAllocateCell.c)
- *     CmpCopyName @ 0x140883248 (CmpCopyName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpIsSystemEntity @ 0x14090D660 (CmpIsSystemEntity.c)
- *     CmpGetKcbAtLayerHeight @ 0x140918910 (CmpGetKcbAtLayerHeight.c)
- *     SeAssignSecurity @ 0x140918AC0 (SeAssignSecurity.c)
- *     CmpLogUnsupportedOperation @ 0x14097AB10 (CmpLogUnsupportedOperation.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x14097ACC8 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpIsKeyStackDeleted @ 0x140988420 (CmpIsKeyStackDeleted.c)
- *     CmListGetPrevElement @ 0x1409D5470 (CmListGetPrevElement.c)
- *     CmAddLogForAction @ 0x140A05328 (CmAddLogForAction.c)
- *     SeDeassignSecurity @ 0x140A265C0 (SeDeassignSecurity.c)
- *     CmpUndoDeleteKeyForTrans @ 0x140A2E074 (CmpUndoDeleteKeyForTrans.c)
- *     CmpLockIXLockIntent @ 0x140A2E5B4 (CmpLockIXLockIntent.c)
- *     CmpAllocateUnitOfWork @ 0x140A2E660 (CmpAllocateUnitOfWork.c)
- *     CmpLockIXLockExclusive @ 0x140A2E6B8 (CmpLockIXLockExclusive.c)
- *     CmpFreeSecurityDescriptor @ 0x140A3E7F0 (CmpFreeSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmLockHiveSecurityShared @ 0x140BB996C (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140BB99C8 (CmUnlockHiveSecurity.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140415340 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x14047B08C (CmpTransEnlistUowInCmTrans.c)
+ *     CmpTransEnlistUowInKcb @ 0x14047F6A0 (CmpTransEnlistUowInKcb.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpRecordParseFailure @ 0x140841F00 (CmpRecordParseFailure.c)
+ *     CmpReportNotifyForKcbStack @ 0x14086CA6C (CmpReportNotifyForKcbStack.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x14086D420 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x14086E968 (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpSnapshotTxOwnerArray @ 0x140870400 (CmpSnapshotTxOwnerArray.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpRundownUnitOfWork @ 0x14087EED4 (CmpRundownUnitOfWork.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14087FED4 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCleanUpSubKeyInfo @ 0x140880020 (CmpCleanUpSubKeyInfo.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     CmpAddSubKeyEx @ 0x140883094 (CmpAddSubKeyEx.c)
+ *     CmpMarkKeyDirty @ 0x1408839E4 (CmpMarkKeyDirty.c)
+ *     CmLockHiveSecurityExclusive @ 0x14088427C (CmLockHiveSecurityExclusive.c)
+ *     CmpFreeKeyByCell @ 0x1408842D0 (CmpFreeKeyByCell.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14088452C (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpNameSize @ 0x140885A7C (CmpNameSize.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     HvAllocateCell @ 0x140886188 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x1408870F8 (CmpCopyName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpIsSystemEntity @ 0x1408E4D80 (CmpIsSystemEntity.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14090C380 (CmpGetKcbAtLayerHeight.c)
+ *     SeAssignSecurity @ 0x14090C530 (SeAssignSecurity.c)
+ *     CmpLogUnsupportedOperation @ 0x140963320 (CmpLogUnsupportedOperation.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1409634D8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpIsKeyStackDeleted @ 0x140970C00 (CmpIsKeyStackDeleted.c)
+ *     CmListGetPrevElement @ 0x1409C52A0 (CmListGetPrevElement.c)
+ *     CmAddLogForAction @ 0x140A01858 (CmAddLogForAction.c)
+ *     SeDeassignSecurity @ 0x140A1B040 (SeDeassignSecurity.c)
+ *     CmpUndoDeleteKeyForTrans @ 0x140A22AB4 (CmpUndoDeleteKeyForTrans.c)
+ *     CmpLockIXLockIntent @ 0x140A22FF4 (CmpLockIXLockIntent.c)
+ *     CmpAllocateUnitOfWork @ 0x140A230A0 (CmpAllocateUnitOfWork.c)
+ *     CmpLockIXLockExclusive @ 0x140A230F8 (CmpLockIXLockExclusive.c)
+ *     CmpFreeSecurityDescriptor @ 0x140A34100 (CmpFreeSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmLockHiveSecurityShared @ 0x140BBB96C (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140BBB9C8 (CmUnlockHiveSecurity.c)
  */
 
 __int64 CmpCreateChild(__int64 a1, ...)
@@ -423,7 +423,7 @@ LABEL_18:
       v83 = 1;
       SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(
                                  v9,
-                                 *(_DWORD *)(v8 + 40),
+                                 *(unsigned int *)(v8 + 40),
                                  (__int64)v2,
                                  *(_DWORD *)(v8 + 40) >> 31,
                                  NewDescriptor,
@@ -489,7 +489,10 @@ LABEL_18:
           v47 = 267648;
           goto LABEL_95;
         }
-        v79 = CmpSnapshotTxOwnerArray(KcbAtLayerHeight + 248, (unsigned int *)(v1 + 120), (void ***)(v1 + 128));
+        v79 = CmpSnapshotTxOwnerArray(
+                (unsigned int *)(KcbAtLayerHeight + 248),
+                (_DWORD *)(v1 + 120),
+                (void ***)(v1 + 128));
         v22 = v79;
         if ( v79 < 0 )
         {
@@ -508,7 +511,10 @@ LABEL_18:
           v47 = 268160;
           goto LABEL_95;
         }
-        v80 = CmpSnapshotTxOwnerArray(KcbAtLayerHeight + 248, (unsigned int *)(v1 + 120), (void ***)(v1 + 128));
+        v80 = CmpSnapshotTxOwnerArray(
+                (unsigned int *)(KcbAtLayerHeight + 248),
+                (_DWORD *)(v1 + 120),
+                (void ***)(v1 + 128));
         v22 = v80;
         if ( v80 < 0 )
         {
@@ -527,7 +533,7 @@ LABEL_18:
           v47 = 268672;
           goto LABEL_95;
         }
-        v82 = CmpSnapshotTxOwnerArray(v8 + 248, (unsigned int *)(v1 + 120), (void ***)(v1 + 128));
+        v82 = CmpSnapshotTxOwnerArray((unsigned int *)(v8 + 248), (_DWORD *)(v1 + 120), (void ***)(v1 + 128));
         v22 = v82;
         if ( v82 < 0 )
         {
@@ -742,7 +748,7 @@ LABEL_133:
           v47 = 269184;
           goto LABEL_95;
         }
-        v81 = CmpSnapshotTxOwnerArray(v8 + 264, (unsigned int *)(v1 + 120), (void ***)(v1 + 128));
+        v81 = CmpSnapshotTxOwnerArray((unsigned int *)(v8 + 264), (_DWORD *)(v1 + 120), (void ***)(v1 + 128));
         v22 = v81;
         if ( v81 < 0 )
         {

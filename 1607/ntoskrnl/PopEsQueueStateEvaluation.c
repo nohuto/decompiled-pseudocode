@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEsQueueStateEvaluation @ 0x14054410C
+ * XREFs of PopEsQueueStateEvaluation @ 0x14054464C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140543EB0 (PopBatteryApplyCompositeState.c)
- *     PopEsPowerSettingPolicyCallback @ 0x140580F78 (PopEsPowerSettingPolicyCallback.c)
- *     PopEsWnfSubscriptionBgActivityPolicyCallback @ 0x1406738AC (PopEsWnfSubscriptionBgActivityPolicyCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x1405443F0 (PopBatteryApplyCompositeState.c)
+ *     PopEsPowerSettingPolicyCallback @ 0x140581424 (PopEsPowerSettingPolicyCallback.c)
+ *     PopEsWnfSubscriptionBgActivityPolicyCallback @ 0x140673990 (PopEsWnfSubscriptionBgActivityPolicyCallback.c)
  * Callees:
  *     <none>
  */

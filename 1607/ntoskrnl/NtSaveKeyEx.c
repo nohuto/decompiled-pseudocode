@@ -1,25 +1,25 @@
 /*
- * XREFs of NtSaveKeyEx @ 0x1405FAA3C
+ * XREFs of NtSaveKeyEx @ 0x1405FAAF0
  * Callers:
  *     <none>
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSaveKeyEx @ 0x14015CA80 (ZwSaveKeyEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmObReferenceObjectByHandle @ 0x14040370C (CmObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     CmPostCallbackNotification @ 0x140439490 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     CmConvertHandleToKernelHandle @ 0x14049C210 (CmConvertHandleToKernelHandle.c)
- *     CmCheckNoTxContext @ 0x14049C5C8 (CmCheckNoTxContext.c)
- *     CmDumpKey @ 0x14060C0B8 (CmDumpKey.c)
- *     CmSaveKey @ 0x14060CC1C (CmSaveKey.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140623544 (IoConvertFileHandleToKernelHandle.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSaveKeyEx @ 0x14015CFF0 (ZwSaveKeyEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmObReferenceObjectByHandle @ 0x1404025CC (CmObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     CmPostCallbackNotification @ 0x140438360 (CmPostCallbackNotification.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     CmConvertHandleToKernelHandle @ 0x1404A43A8 (CmConvertHandleToKernelHandle.c)
+ *     CmCheckNoTxContext @ 0x1404A4760 (CmCheckNoTxContext.c)
+ *     CmDumpKey @ 0x14060C16C (CmDumpKey.c)
+ *     CmSaveKey @ 0x14060CCD0 (CmSaveKey.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x1406235F8 (IoConvertFileHandleToKernelHandle.c)
  */
 
 NTSTATUS __stdcall NtSaveKeyEx(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)

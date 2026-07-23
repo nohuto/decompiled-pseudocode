@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSizeOfKProcessExtension @ 0x1404AD628
+ * XREFs of KeSizeOfKProcessExtension @ 0x1404A7D08
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

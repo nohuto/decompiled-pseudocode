@@ -1,18 +1,18 @@
 /*
- * XREFs of MiGetUltraMdlContext @ 0x1404E15F8
+ * XREFs of MiGetUltraMdlContext @ 0x1404DACD8
  * Callers:
- *     MmMapMdl @ 0x1404E1360 (MmMapMdl.c)
+ *     MmMapMdl @ 0x1404DAA40 (MmMapMdl.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiCreateUltraThreadContextHelper @ 0x1402F2710 (MiCreateUltraThreadContextHelper.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiDeleteUltraMapContext @ 0x1404655E0 (MiDeleteUltraMapContext.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402D4790 (MiCreateUltraThreadContextHelper.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiDeleteUltraMapContext @ 0x14045E5A0 (MiDeleteUltraMapContext.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY MiGetUltraMdlContext()
@@ -36,7 +36,7 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   SchedulerSubNode = CurrentPrcb->SchedulerSubNode;
   v2 = CurrentPrcb->NodeRelativeTopologyIndex[0];
   v3 = SchedulerSubNode->Affinity.Reserved[0];
-  v4 = qword_140E34BF0 + ((unsigned __int64)SchedulerSubNode->Affinity.Reserved[0] << 9);
+  v4 = qword_140E34D70 + ((unsigned __int64)SchedulerSubNode->Affinity.Reserved[0] << 9);
   for ( i = 0; i < 8; ++i )
   {
     v2 &= 7u;
@@ -45,7 +45,7 @@ PSLIST_ENTRY MiGetUltraMdlContext()
       return result;
     LOBYTE(v2) = v2 + 1;
   }
-  if ( (unsigned int)dword_140E34BE8 >= 0x80 )
+  if ( (unsigned int)dword_140E34D68 >= 0x80 )
     return 0LL;
   PoolMm = (void *)ExAllocatePoolMm(
                      64LL,
@@ -68,20 +68,20 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   if ( CurrentIrql == 2 )
   {
     v11 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34BA8);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34D28);
   }
   else
   {
-    v11 = ExAcquireSpinLockExclusive(&dword_140E34BA8);
+    v11 = ExAcquireSpinLockExclusive(&dword_140E34D28);
   }
-  if ( (unsigned int)dword_140E34BE8 >= 0x80 )
+  if ( (unsigned int)dword_140E34D68 >= 0x80 )
     v10 = 1;
   else
-    ++dword_140E34BE8;
+    ++dword_140E34D68;
   if ( v11 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34BA8);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34D28);
   else
-    ExReleaseSpinLockExclusive(&dword_140E34BA8, v11);
+    ExReleaseSpinLockExclusive(&dword_140E34D28, v11);
   if ( v10 )
   {
     MiDeleteUltraMapContext((__int64)PoolMm + 8, 3uLL);

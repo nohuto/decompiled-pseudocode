@@ -1,14 +1,14 @@
 /*
  * XREFs of ZwRequestPort @ 0x14041E780
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x1402037E8 (SepRmDispatchDataToLsa.c)
+ *     sub_1402037E8 @ 0x1402037E8 (sub_1402037E8.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRequestPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRequestPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(PortHandle, RequestMessage);
 }

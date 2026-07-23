@@ -1,13 +1,13 @@
 /*
- * XREFs of XmLoadSegment @ 0x140532FD0
+ * XREFs of XmLoadSegment @ 0x140533520
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmGetOffsetAddress @ 0x1403A50DC (XmGetOffsetAddress.c)
- *     XmEvaluateAddressSpecifier @ 0x1403B922C (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x1403B94C0 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B9568 (XmSetDestinationValue.c)
- *     longjmp @ 0x1403D7EE0 (longjmp.c)
+ *     XmGetOffsetAddress @ 0x1403A52BC (XmGetOffsetAddress.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B940C (XmEvaluateAddressSpecifier.c)
+ *     XmSetSourceValue @ 0x1403B96A0 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403B9748 (XmSetDestinationValue.c)
+ *     longjmp @ 0x1403D80C0 (longjmp.c)
  */
 
 __int64 __fastcall XmLoadSegment(__int64 a1)

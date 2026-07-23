@@ -1,253 +1,245 @@
 /*
- * XREFs of MiInvalidatePageFileBitmapsCache @ 0x14026ABE0
+ * XREFs of MiInvalidatePageFileBitmapsCache @ 0x140258B80
  * Callers:
- *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
- *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
- *     MiAttemptPageFileReductionApc @ 0x140542AD0 (MiAttemptPageFileReductionApc.c)
+ *     MiGatherPagefilePages @ 0x140256844 (MiGatherPagefilePages.c)
+ *     MiFindFreePageFileSpace @ 0x1402586B4 (MiFindFreePageFileSpace.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542D10 (MiAttemptPageFileReductionApc.c)
  * Callees:
- *     MiBitmapsCachedEntryLengthChanged @ 0x140268308 (MiBitmapsCachedEntryLengthChanged.c)
- *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x1402562A8 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlRbInsertNodeEx @ 0x14034B1D0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
  */
 
-void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
+void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, __int64 a4)
 {
-  char v5; // bl
-  __int64 v6; // r9
-  __int64 v8; // r8
+  BOOLEAN v5; // bl
+  int v8; // r8d
   int v9; // ecx
   unsigned __int64 *v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rsi
-  _QWORD *v14; // rax
-  __int64 v15; // rcx
-  __int64 v16; // rdi
-  int v17; // r8d
-  unsigned int v18; // ecx
-  __int64 v19; // rax
-  int v20; // eax
-  int v21; // ecx
-  int v22; // ecx
-  unsigned int v23; // edx
-  unsigned int v24; // ecx
-  _QWORD *v25; // r9
-  __int64 *v26; // r14
-  __int64 v27; // r8
-  __int64 v28; // r8
-  __int64 v29; // rcx
-  unsigned __int64 v30; // rdx
-  unsigned __int64 v31; // rax
-  __int64 v32; // rcx
-  __int64 v33; // rdx
-  __int64 v34; // r8
-  __int64 v35; // rax
-  unsigned int v36; // eax
+  __int64 v11; // rsi
+  _QWORD *v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rdi
+  int v15; // r8d
+  unsigned int v16; // ecx
+  __int64 v17; // rax
+  int v18; // eax
+  int v19; // ecx
+  int v20; // ecx
+  unsigned int v21; // edx
+  unsigned int v22; // ecx
+  _QWORD *v23; // r9
+  __int64 *v24; // r14
+  __int64 v25; // r8
+  _RTL_RB_TREE *v26; // rcx
+  unsigned __int64 v27; // rdx
+  BOOLEAN v28; // r8
+  unsigned __int64 v29; // rax
+  _RTL_RB_TREE *v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // rax
+  unsigned int v33; // eax
 
   v5 = 0;
-  v6 = a3;
   if ( a4 )
   {
 LABEL_2:
-    v8 = *(unsigned int *)(a4 + 48);
-    if ( (_DWORD)v8 == a2 || (v20 = a2 + v6, v21 = v8 + *(_DWORD *)(a4 + 52), a2 + (_DWORD)v6 == v21) )
+    v8 = *(_DWORD *)(a4 + 48);
+    if ( v8 == a2 || (v18 = a2 + a3, v19 = v8 + *(_DWORD *)(a4 + 52), a2 + a3 == v19) )
     {
-      v9 = *(_DWORD *)(a4 + 52) - v6;
+      v9 = *(_DWORD *)(a4 + 52) - a3;
       *(_DWORD *)(a4 + 52) = v9;
-      if ( (_DWORD)v8 == a2 )
-        *(_DWORD *)(a4 + 48) = v8 + v6;
+      if ( v8 == a2 )
+        *(_DWORD *)(a4 + 48) = v8 + a3;
       v10 = (unsigned __int64 *)a4;
       if ( !v9 )
       {
-        RtlRbRemoveNode(a1 + 144, a4, v8, v6);
-        RtlRbRemoveNode(a1 + 160, a4 + 24, v11, v12);
-        v13 = a1 + 176;
-        v14 = *(_QWORD **)(v13 + 8);
-        if ( *v14 == v13 )
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)a4);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(a4 + 24));
+        v11 = a1 + 176;
+        v12 = *(_QWORD **)(v11 + 8);
+        if ( *v12 == v11 )
         {
-          *(_QWORD *)a4 = v13;
-          *(_QWORD *)(a4 + 8) = v14;
-          *v14 = a4;
-          *(_QWORD *)(v13 + 8) = a4;
+          *(_QWORD *)a4 = v11;
+          *(_QWORD *)(a4 + 8) = v12;
+          *v12 = a4;
+          *(_QWORD *)(v11 + 8) = a4;
           return;
         }
-        goto LABEL_73;
+        goto LABEL_72;
       }
     }
     else
     {
-      v22 = v21 - a2;
-      v23 = a2 - v8;
-      v24 = v22 - v6;
-      v25 = (_QWORD *)(a1 + 176);
-      v26 = *(__int64 **)(a1 + 176);
-      if ( v26 != (__int64 *)(a1 + 176) )
+      v20 = v19 - a2;
+      v21 = a2 - v8;
+      v22 = v20 - a3;
+      v23 = (_QWORD *)(a1 + 176);
+      v24 = *(__int64 **)(a1 + 176);
+      if ( v24 != (__int64 *)(a1 + 176) )
       {
-        if ( (_QWORD *)v26[1] == v25 )
+        if ( (_QWORD *)v24[1] == v23 )
         {
-          v27 = *v26;
-          if ( *(__int64 **)(*v26 + 8) == v26 )
+          v25 = *v24;
+          if ( *(__int64 **)(*v24 + 8) == v24 )
           {
-            *v25 = v27;
-            *(_QWORD *)(v27 + 8) = v25;
-            *((_DWORD *)v26 + 13) = v24;
-            *((_DWORD *)v26 + 12) = v20;
-            *(_DWORD *)(a4 + 52) = v23;
-            MiBitmapsCachedEntryLengthChanged(a1, (unsigned __int64 *)a4, 0LL);
-            v29 = a1 + 144;
-            v30 = *(_QWORD *)(a1 + 144);
+            *v23 = v25;
+            *(_QWORD *)(v25 + 8) = v23;
+            *((_DWORD *)v24 + 13) = v22;
+            *((_DWORD *)v24 + 12) = v18;
+            *(_DWORD *)(a4 + 52) = v21;
+            MiBitmapsCachedEntryLengthChanged(a1, (unsigned __int64 *)a4, 0);
+            v26 = (_RTL_RB_TREE *)(a1 + 144);
+            v27 = *(_QWORD *)(a1 + 144);
             if ( (*(_BYTE *)(a1 + 152) & 1) != 0 )
             {
-              if ( v30 )
-                v30 ^= v29;
+              if ( v27 )
+                v27 ^= (unsigned __int64)v26;
               else
-                v30 = 0LL;
+                v27 = 0LL;
             }
-            LOBYTE(v28) = 0;
-            if ( v30 )
+            v28 = 0;
+            if ( v27 )
             {
-              v28 = *((unsigned int *)v26 + 13);
               while ( 1 )
               {
-                if ( (unsigned __int64)v26[6] < *(_QWORD *)(v30 + 48) )
+                if ( (unsigned __int64)v24[6] < *(_QWORD *)(v27 + 48) )
                 {
-                  v31 = *(_QWORD *)v30;
+                  v29 = *(_QWORD *)v27;
                   if ( (*(_BYTE *)(a1 + 152) & 1) != 0 )
                   {
-                    if ( !v31 )
-                      goto LABEL_62;
-                    v31 ^= v30;
-                  }
-                  if ( !v31 )
-                  {
-LABEL_62:
-                    LOBYTE(v28) = 0;
-                    break;
-                  }
-                }
-                else
-                {
-                  v31 = *(_QWORD *)(v30 + 8);
-                  if ( (*(_BYTE *)(a1 + 152) & 1) != 0 )
-                  {
-                    if ( !v31 )
+                    if ( !v29 )
                       goto LABEL_61;
-                    v31 ^= v30;
+                    v29 ^= v27;
                   }
-                  if ( !v31 )
+                  if ( !v29 )
                   {
 LABEL_61:
-                    LOBYTE(v28) = 1;
+                    v28 = 0;
                     break;
                   }
                 }
-                v30 = v31;
+                else
+                {
+                  v29 = *(_QWORD *)(v27 + 8);
+                  if ( (*(_BYTE *)(a1 + 152) & 1) != 0 )
+                  {
+                    if ( !v29 )
+                      goto LABEL_60;
+                    v29 ^= v27;
+                  }
+                  if ( !v29 )
+                  {
+LABEL_60:
+                    v28 = 1;
+                    break;
+                  }
+                }
+                v27 = v29;
               }
             }
-            RtlRbInsertNodeEx(v29, v30, v28, v26);
-            v32 = a1 + 160;
-            v33 = *(_QWORD *)(a1 + 160);
+            RtlRbInsertNodeEx(v26, (PRTL_BALANCED_NODE)v27, v28, (PRTL_BALANCED_NODE)v24);
+            v30 = (_RTL_RB_TREE *)(a1 + 160);
+            v31 = *(_QWORD *)(a1 + 160);
             if ( (*(_BYTE *)(a1 + 168) & 1) != 0 )
             {
-              if ( v33 )
-                v33 ^= v32;
+              if ( v31 )
+                v31 ^= (unsigned __int64)v30;
               else
-                v33 = 0LL;
+                v31 = 0LL;
             }
-            v34 = *(_BYTE *)(a1 + 168) & 1;
-            if ( v33 )
+            if ( v31 )
             {
               while ( 1 )
               {
-                if ( *((_DWORD *)v26 + 12) < *(_DWORD *)(v33 + 24) )
+                if ( *((_DWORD *)v24 + 12) < *(_DWORD *)(v31 + 24) )
                 {
-                  v35 = *(_QWORD *)v33;
+                  v32 = *(_QWORD *)v31;
                   if ( (*(_BYTE *)(a1 + 168) & 1) != 0 )
                   {
-                    if ( !v35 )
+                    if ( !v32 )
                       break;
-                    v35 ^= v33;
+                    v32 ^= v31;
                   }
-                  if ( !v35 )
+                  if ( !v32 )
                     break;
                 }
                 else
                 {
-                  v35 = *(_QWORD *)(v33 + 8);
+                  v32 = *(_QWORD *)(v31 + 8);
                   if ( (*(_BYTE *)(a1 + 168) & 1) != 0 )
                   {
-                    if ( !v35 )
-                      goto LABEL_57;
-                    v35 ^= v33;
+                    if ( !v32 )
+                      goto LABEL_56;
+                    v32 ^= v31;
                   }
-                  if ( !v35 )
+                  if ( !v32 )
                   {
-LABEL_57:
+LABEL_56:
                     v5 = 1;
                     break;
                   }
                 }
-                v33 = v35;
+                v31 = v32;
               }
             }
-            LOBYTE(v34) = v5;
-            RtlRbInsertNodeEx(v32, v33, v34, v26 + 3);
+            RtlRbInsertNodeEx(v30, (PRTL_BALANCED_NODE)v31, v5, (PRTL_BALANCED_NODE)v24 + 1);
             return;
           }
         }
-LABEL_73:
+LABEL_72:
         __fastfail(3u);
       }
-      if ( v23 <= v24 )
+      if ( v21 <= v22 )
       {
-        *(_DWORD *)(a4 + 48) = v20;
-        *(_DWORD *)(a4 + 52) = v24;
-        v36 = *(_DWORD *)(a1 + 140);
-        if ( v36 <= v23 )
-          v36 = v23;
+        *(_DWORD *)(a4 + 48) = v18;
+        *(_DWORD *)(a4 + 52) = v22;
+        v33 = *(_DWORD *)(a1 + 140);
+        if ( v33 <= v21 )
+          v33 = v21;
       }
       else
       {
-        *(_DWORD *)(a4 + 52) = v23;
-        v36 = *(_DWORD *)(a1 + 140);
-        if ( v36 <= v24 )
-          v36 = v24;
+        *(_DWORD *)(a4 + 52) = v21;
+        v33 = *(_DWORD *)(a1 + 140);
+        if ( v33 <= v22 )
+          v33 = v22;
       }
-      *(_DWORD *)(a1 + 140) = v36;
+      *(_DWORD *)(a1 + 140) = v33;
       v10 = (unsigned __int64 *)a4;
     }
-    MiBitmapsCachedEntryLengthChanged(a1, v10, 0LL);
+    MiBitmapsCachedEntryLengthChanged(a1, v10, 0);
     return;
   }
-  v15 = a1 + 160;
-  v16 = *(_QWORD *)v15;
-  if ( (*(_BYTE *)(v15 + 8) & 1) != 0 )
+  v13 = a1 + 160;
+  v14 = *(_QWORD *)v13;
+  if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
   {
-    if ( v16 )
-      v16 ^= v15;
+    if ( v14 )
+      v14 ^= v13;
     else
-      v16 = 0LL;
+      v14 = 0LL;
   }
-  v17 = *(_BYTE *)(v15 + 8) & 1;
-  while ( v16 )
+  v15 = *(_BYTE *)(v13 + 8) & 1;
+  while ( v14 )
   {
-    v18 = *(_DWORD *)(v16 + 24);
-    if ( a2 + (unsigned int)v6 > v18 )
+    v16 = *(_DWORD *)(v14 + 24);
+    if ( a2 + a3 > v16 )
     {
-      if ( a2 < *(_DWORD *)(v16 + 28) + v18 )
+      if ( a2 < *(_DWORD *)(v14 + 28) + v16 )
       {
-        a4 = v16 - 24;
+        a4 = v14 - 24;
         goto LABEL_2;
       }
-      v19 = *(_QWORD *)(v16 + 8);
+      v17 = *(_QWORD *)(v14 + 8);
     }
     else
     {
-      v19 = *(_QWORD *)v16;
+      v17 = *(_QWORD *)v14;
     }
-    if ( v17 && v19 )
-      v16 ^= v19;
+    if ( v15 && v17 )
+      v14 ^= v17;
     else
-      v16 = v19;
+      v14 = v17;
   }
 }

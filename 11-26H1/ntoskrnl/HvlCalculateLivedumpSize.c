@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlCalculateLivedumpSize @ 0x1405C01C0
+ * XREFs of HvlCalculateLivedumpSize @ 0x1405C2A30
  * Callers:
- *     IopLiveDumpEstimateMemoryPages @ 0x1405CF098 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1405D18A8 (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     VslLiveDumpQuerySecondaryDataSize @ 0x1405C3618 (VslLiveDumpQuerySecondaryDataSize.c)
+ *     VslLiveDumpQuerySecondaryDataSize @ 0x1405C5E88 (VslLiveDumpQuerySecondaryDataSize.c)
  */
 
 __int64 __fastcall HvlCalculateLivedumpSize(__int64 a1, unsigned __int64 *a2, _QWORD *a3, _QWORD *a4)
@@ -14,7 +14,7 @@ __int64 __fastcall HvlCalculateLivedumpSize(__int64 a1, unsigned __int64 *a2, _Q
   unsigned __int64 v10; // rcx
 
   v6 = -1073741637;
-  if ( (HvlpRootFlags & 2) != 0 && VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink && HvlpHypervisorStatsPage )
+  if ( (HvlpRootFlags & 2) != 0 && VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink && HvlpHypervisorStatsPage )
   {
     v7 = *(_QWORD *)(HvlpHypervisorStatsPage + 24);
     if ( (a1 & 2) == 0 )
@@ -42,7 +42,7 @@ __int64 __fastcall HvlCalculateLivedumpSize(__int64 a1, unsigned __int64 *a2, _Q
   }
   else
   {
-    *a4 = (unsigned __int64)*(unsigned int *)&VslpReservedTransferLock.WaitBlockFill11[112] << 12;
+    *a4 = (unsigned __int64)*(unsigned int *)&VslpReservedTransferLock.WaitBlockFill11[160] << 12;
     *a3 = 0LL;
   }
   return v6;

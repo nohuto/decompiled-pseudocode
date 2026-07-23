@@ -1,7 +1,7 @@
 /*
- * XREFs of HalCvmDmaEnabled @ 0x140501ADC
+ * XREFs of HalCvmDmaEnabled @ 0x1404FB2CC
  * Callers:
- *     PiDmaGuardProcessPreAddDevice @ 0x140915648 (PiDmaGuardProcessPreAddDevice.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x1409700B4 (PiDmaGuardProcessPreAddDevice.c)
  * Callees:
  *     <none>
  */

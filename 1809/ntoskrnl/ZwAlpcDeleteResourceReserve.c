@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcDeleteResourceReserve @ 0x1401B9170
+ * XREFs of ZwAlpcDeleteResourceReserve @ 0x1401B92D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDeleteResourceReserve(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcDeleteResourceReserve(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ResourceId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

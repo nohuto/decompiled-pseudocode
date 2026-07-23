@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlushAllPages @ 0x1404C8494
+ * XREFs of MiFlushAllPages @ 0x1402653D4
  * Callers:
- *     MmFlushAllPagesEx @ 0x14067A394 (MmFlushAllPagesEx.c)
- *     MmPerformMemoryListCommand @ 0x140B6DB74 (MmPerformMemoryListCommand.c)
+ *     MmFlushAllPagesEx @ 0x14067B574 (MmFlushAllPagesEx.c)
+ *     MmPerformMemoryListCommand @ 0x140B6F414 (MmPerformMemoryListCommand.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     MiFlushAllPagesWorker @ 0x1402CF240 (MiFlushAllPagesWorker.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140404528 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiFlushAllPagesWorker @ 0x140263A34 (MiFlushAllPagesWorker.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1403C752C (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFlushAllPages(__int64 a1, char a2, unsigned int a3)
@@ -30,8 +30,8 @@ __int64 __fastcall MiFlushAllPages(__int64 a1, char a2, unsigned int a3)
     {
       v8 = *(struct _KPROCESS **)(a1 + 1696);
       KeStackAttachProcess(v8, &ApcState);
-      MiEmptyWorkingSetPrivatePagesByVa((__int64)&v8[2].ReadyListHead.Blink, 0);
-      KiUnstackDetachProcess((__int64)&ApcState, 0);
+      MiEmptyWorkingSetPrivatePagesByVa(&v8[2].ReadyListHead.Blink, 0LL);
+      KiUnstackDetachProcess(&ApcState, 0LL);
       return MiFlushAllPagesWorker(a1, v5, v6, 0LL);
     }
   }

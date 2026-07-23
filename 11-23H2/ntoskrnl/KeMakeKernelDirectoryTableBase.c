@@ -1,11 +1,11 @@
 /*
- * XREFs of KeMakeKernelDirectoryTableBase @ 0x140291A20
+ * XREFs of KeMakeKernelDirectoryTableBase @ 0x140291CB0
  * Callers:
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
- *     KiInSwapProcesses @ 0x14034D08C (KiInSwapProcesses.c)
- *     MmStealTopLevelPage @ 0x1403D740C (MmStealTopLevelPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
- *     MmCreateProcessAddressSpace @ 0x140705E50 (MmCreateProcessAddressSpace.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
+ *     KiInSwapProcesses @ 0x14034D22C (KiInSwapProcesses.c)
+ *     MmStealTopLevelPage @ 0x1403D75EC (MmStealTopLevelPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
+ *     MmCreateProcessAddressSpace @ 0x140706060 (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsPartialPlaceholder @ 0x140897B60
+ * XREFs of RtlIsPartialPlaceholder @ 0x140898DC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlIsPartialPlaceholder(int a1)
+BOOLEAN __cdecl RtlIsPartialPlaceholder(ULONG FileAttributes, ULONG ReparseTag)
 {
-  return (a1 & 0x440000) != 0;
+  return (FileAttributes & 0x440000) != 0;
 }

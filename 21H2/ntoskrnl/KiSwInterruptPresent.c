@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSwInterruptPresent @ 0x140A423F0
+ * XREFs of KiSwInterruptPresent @ 0x140A433F0
  * Callers:
- *     KiVerifyXcpt15 @ 0x140A1B320 (KiVerifyXcpt15.c)
- *     KeFreeInitializationCode @ 0x140A1BB5C (KeFreeInitializationCode.c)
- *     KiFilterFiberContext @ 0x140A1BBA0 (KiFilterFiberContext.c)
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
- *     ExpLicenseWatchInitWorker @ 0x140A42344 (ExpLicenseWatchInitWorker.c)
- *     KeInitAmd64SpecificState @ 0x140A5F0D4 (KeInitAmd64SpecificState.c)
+ *     KiVerifyXcpt15 @ 0x140A1C320 (KiVerifyXcpt15.c)
+ *     KeFreeInitializationCode @ 0x140A1CB5C (KeFreeInitializationCode.c)
+ *     KiFilterFiberContext @ 0x140A1CBA0 (KiFilterFiberContext.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
+ *     ExpLicenseWatchInitWorker @ 0x140A43344 (ExpLicenseWatchInitWorker.c)
+ *     KeInitAmd64SpecificState @ 0x140A600D4 (KeInitAmd64SpecificState.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x140277468 (HvlQueryVsmConnection.c)
+ *     HvlQueryVsmConnection @ 0x140265408 (HvlQueryVsmConnection.c)
  */
 
 __int64 KiSwInterruptPresent()

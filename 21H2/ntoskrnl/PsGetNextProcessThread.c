@@ -1,26 +1,26 @@
 /*
- * XREFs of PsGetNextProcessThread @ 0x14070A2F0
+ * XREFs of PsGetNextProcessThread @ 0x1407216D0
  * Callers:
- *     NtGetNextThread @ 0x1405DAE20 (NtGetNextThread.c)
- *     PspBoostJobIoPriorityCallback @ 0x1406ABCA0 (PspBoostJobIoPriorityCallback.c)
- *     PsResumeProcess @ 0x1406BF460 (PsResumeProcess.c)
- *     PspTerminateAllThreads @ 0x1406D9E50 (PspTerminateAllThreads.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x14070A1F4 (IopCancelIrpsInThreadListForCurrentProcess.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     ExSwapinWorkerThreads @ 0x140777354 (ExSwapinWorkerThreads.c)
- *     PsEnumProcessThreads @ 0x140797BC8 (PsEnumProcessThreads.c)
- *     DbgkpPostFakeThreadMessages @ 0x140884E94 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpSetProcessDebugObject @ 0x140885810 (DbgkpSetProcessDebugObject.c)
- *     PspWaitForUsermodeExit @ 0x14090B2EC (PspWaitForUsermodeExit.c)
- *     PsSuspendProcess @ 0x14090C820 (PsSuspendProcess.c)
+ *     PspBoostJobIoPriorityCallback @ 0x14060A390 (PspBoostJobIoPriorityCallback.c)
+ *     PsResumeProcess @ 0x14061E370 (PsResumeProcess.c)
+ *     PspTerminateAllThreads @ 0x1406B1130 (PspTerminateAllThreads.c)
+ *     NtGetNextThread @ 0x1406CA5A0 (NtGetNextThread.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1407215D4 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     ExSwapinWorkerThreads @ 0x140777514 (ExSwapinWorkerThreads.c)
+ *     PsEnumProcessThreads @ 0x140797DC8 (PsEnumProcessThreads.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140884FF4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpSetProcessDebugObject @ 0x140885970 (DbgkpSetProcessDebugObject.c)
+ *     PspWaitForUsermodeExit @ 0x14090B44C (PspWaitForUsermodeExit.c)
+ *     PsSuspendProcess @ 0x14090C980 (PsSuspendProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 _QWORD *__fastcall PsGetNextProcessThread(__int64 a1, _QWORD *a2)
@@ -32,6 +32,9 @@ _QWORD *__fastcall PsGetNextProcessThread(__int64 a1, _QWORD *a2)
   int v7; // r14d
   signed __int64 *v8; // rbp
   _QWORD *v9; // rsi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
 
   CurrentThread = KeGetCurrentThread();
   v3 = (_QWORD **)(a1 + 1504);
@@ -62,7 +65,7 @@ LABEL_6:
   if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v8);
   KeAbPostRelease((ULONG_PTR)v8);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v10, v11, v12);
   if ( a2 )
     ObfDereferenceObjectWithTag(a2, 0x6E457350u);
   if ( v7 )

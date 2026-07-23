@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpDetermineResultingLoggingState @ 0x140984078
+ * XREFs of HvpDetermineResultingLoggingState @ 0x14096C888
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140983108 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x14096B918 (HvAnalyzeLogFiles.c)
  * Callees:
  *     <none>
  */

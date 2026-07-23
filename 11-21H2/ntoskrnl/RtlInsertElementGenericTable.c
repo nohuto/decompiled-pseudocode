@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     RtlInsertElementGenericTableFull @ 0x14021EAA0 (RtlInsertElementGenericTableFull.c)
- *     FindNodeOrParent @ 0x14021EEF0 (FindNodeOrParent.c)
+ *     sub_14021EEF0 @ 0x14021EEF0 (sub_14021EEF0.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTable(
@@ -17,6 +17,6 @@ PVOID __stdcall RtlInsertElementGenericTable(
   PVOID NodeOrParent[3]; // [rsp+30h] [rbp-18h] BYREF
 
   NodeOrParent[0] = 0LL;
-  SearchResult = (unsigned int)FindNodeOrParent(Table, Buffer, NodeOrParent);
+  SearchResult = (unsigned int)sub_14021EEF0(Table, Buffer, NodeOrParent);
   return RtlInsertElementGenericTableFull(Table, Buffer, BufferSize, NewElement, NodeOrParent[0], SearchResult);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnPowerBoostDpc @ 0x140600360
+ * XREFs of PfSnPowerBoostDpc @ 0x140602E10
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall PfSnPowerBoostDpc(

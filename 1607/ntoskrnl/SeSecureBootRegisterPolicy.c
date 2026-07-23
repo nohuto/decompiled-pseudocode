@@ -3,8 +3,8 @@
  * Callers:
  *     SeCodeIntegrityInitializePolicy @ 0x1407B9BC4 (SeCodeIntegrityInitializePolicy.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     SepSecureBootSetRegistryKey @ 0x1407B9D80 (SepSecureBootSetRegistryKey.c)
@@ -39,11 +39,11 @@ __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULON
   }
   v6 = 0LL;
   g_SecureBootPolicyBlobHeader = *(_OWORD *)BugCheckParameter2;
-  qword_140329810 = *(_QWORD *)(BugCheckParameter2 + 16);
+  qword_140329848 = *(_QWORD *)(BugCheckParameter2 + 16);
   if ( *(_DWORD *)(BugCheckParameter2 + 12) )
     v6 = (_WORD *)(BugCheckParameter2 + *(unsigned int *)(BugCheckParameter2 + 8));
   SepSecureBootSetRegistryKey(v6);
-  if ( (dword_140329804 & 8) != 0 )
+  if ( (dword_14032983C & 8) != 0 )
     SepSecureBootCheckForUpdates();
   if ( !v6 )
     return 0;
@@ -59,7 +59,7 @@ LABEL_23:
     goto LABEL_27;
   }
   memmove(PoolWithTag, v6, *(unsigned int *)(BugCheckParameter2 + 12));
-  qword_140341C00 = v10;
+  qword_140341C48 = v10;
   if ( v6[18] || v6[19] )
   {
     qword_1403581C8 = (__int64)v10 + v10[13] + 60;
@@ -93,10 +93,10 @@ LABEL_26:
       if ( v7 >= 0 )
         return (unsigned int)v7;
 LABEL_27:
-      if ( qword_140341C00 )
+      if ( qword_140341C48 )
       {
-        ExFreePoolWithTag(qword_140341C00, 0);
-        qword_140341C00 = 0LL;
+        ExFreePoolWithTag(qword_140341C48, 0);
+        qword_140341C48 = 0LL;
       }
       KeBugCheckEx(0x145u, v7, BugCheckParameter2, v2, 0LL);
     }

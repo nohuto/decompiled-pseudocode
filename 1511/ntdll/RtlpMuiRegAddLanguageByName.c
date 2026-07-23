@@ -13,7 +13,7 @@
  *     _RtlpMuiRegInitPartialLanguage @ 0x1800ED3B0 (_RtlpMuiRegInitPartialLanguage.c)
  */
 
-__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, __int64 a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
+__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, void *a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
 {
   __int64 result; // rax
   char v10; // cl

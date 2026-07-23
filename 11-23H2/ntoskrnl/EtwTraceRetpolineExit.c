@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceRetpolineExit @ 0x1405FD440
+ * XREFs of EtwTraceRetpolineExit @ 0x1405FD9B0
  * Callers:
  *     __guard_retpoline_exit_indirect_rax @ 0x140AF93A0 (__guard_retpoline_exit_indirect_rax.c)
  *     __guard_retpoline_import_r10_log_event @ 0x140AF9500 (__guard_retpoline_import_r10_log_event.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceRetpolineExit(__int64 a1)

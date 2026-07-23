@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlQueryHvCppcPerfSupport @ 0x1405BF540
+ * XREFs of HvlQueryHvCppcPerfSupport @ 0x1405C1DB0
  * Callers:
  *     <none>
  * Callees:

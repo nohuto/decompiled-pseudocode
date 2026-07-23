@@ -28,36 +28,44 @@
  *     _RtlReportCriticalFailure@12 @ 0x4B3669C7 (_RtlReportCriticalFailure@12.c)
  */
 
-int __stdcall RtlRunOnceExecuteOnce(int a1, int (__stdcall *a2)(int, int, int), int a3, int *a4)
+NTSTATUS __cdecl RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
 {
-  int v4; // eax
-  int v5; // esi
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // esi
   int v7; // eax
-  int v8; // eax
+  PVOID v8; // eax
 
-  v4 = RtlRunOnceBeginInitialize(a1, 0, a4);
+  v4 = RtlRunOnceBeginInitialize(RunOnce, 0, Context);
   v5 = v4;
   if ( v4 < 0 )
     goto LABEL_15;
   if ( v4 != 259 )
     return v5;
-  if ( a2 == RtlpTestHookInitialize )
-    v7 = RtlpTestHookInitialize(a1, a3, (int)a4);
+  if ( InitFn == RtlpTestHookInitialize )
+    v7 = RtlpTestHookInitialize(RunOnce, Parameter, Context);
   else
-    v7 = ((int (__thiscall *)(int (__stdcall *)(int, int, int), int, int, int *))a2)(a2, a1, a3, a4);
+    v7 = ((int (__thiscall *)(PRTL_RUN_ONCE_INIT_FN, PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(
+           InitFn,
+           RunOnce,
+           Parameter,
+           Context);
   if ( !v7 )
   {
     v5 = -1073741823;
-    if ( (int)RtlRunOnceComplete(a1, 4, 0) >= 0 )
+    if ( RtlRunOnceComplete(RunOnce, 4u, 0) >= 0 )
       return v5;
 LABEL_15:
     RtlReportCriticalFailure(1);
   }
-  if ( a4 )
-    v8 = *a4;
+  if ( Context )
+    v8 = *Context;
   else
     v8 = 0;
-  if ( (int)RtlRunOnceComplete(a1, 0, v8) < 0 )
+  if ( RtlRunOnceComplete(RunOnce, 0, v8) < 0 )
     goto LABEL_15;
   return 0;
 }

@@ -17,18 +17,18 @@
  *     ProbeForWrite @ 0x14059C6A0 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQueryWnfStateNameInformation(
-        __int64 *a1,
-        unsigned int a2,
-        _DWORD *a3,
-        int *a4,
-        unsigned int Length)
+NTSTATUS __cdecl NtQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   int v10; // eax
   char v11; // r8
-  unsigned __int64 v12; // rbx
+  __int64 v12; // rbx
   int v13; // edi
   int v14; // r12d
   ACCESS_MASK v15; // r15d
@@ -36,7 +36,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   struct _KTHREAD *v17; // rax
   PEPROCESS Process; // rdx
   void *v19; // rcx
-  unsigned int v21; // [rsp+30h] [rbp-98h]
+  NTSTATUS v21; // [rsp+30h] [rbp-98h]
   int v22; // [rsp+38h] [rbp-90h]
   int v23; // [rsp+3Ch] [rbp-8Ch]
   __int64 v24; // [rsp+40h] [rbp-88h] BYREF
@@ -56,50 +56,50 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   v22 = 0;
   v30[0] = 0LL;
   v30[1] = 0LL;
-  v10 = ExpCaptureWnfStateName(a1, &v26, PreviousMode);
+  v10 = ExpCaptureWnfStateName((__int64 *)StateName, &v26, PreviousMode);
   v21 = v10;
   if ( v10 >= 0 )
   {
     v12 = v26;
     v25 = (v26 >> 4) & 3;
     v22 = (v26 >> 6) & 0xF;
-    v10 = ExpWnfCaptureScopeInstanceId(v22, a3, v11, (__int64 *)Sid, (__int64)v30);
+    v10 = ExpWnfCaptureScopeInstanceId(v22, ExplicitScope, v11, (__int64 *)Sid, (__int64)v30);
     v21 = v10;
     if ( v10 >= 0 )
     {
-      if ( a2 > 2 )
+      if ( (unsigned int)NameInfoClass > WnfInfoIsQuiescent )
       {
         v10 = -1073741821;
         v21 = -1073741821;
         goto LABEL_37;
       }
-      if ( Length < 4 )
+      if ( InfoBufferSize < 4 )
       {
         v10 = -1073741811;
         v21 = -1073741811;
         goto LABEL_37;
       }
       if ( PreviousMode )
-        ProbeForWrite(a4, Length, 4u);
+        ProbeForWrite(InfoBuffer, InfoBufferSize, 4u);
       v13 = 1;
-      if ( a2 )
+      if ( NameInfoClass )
       {
         v23 = 0;
       }
       else
       {
         v23 = 1;
-        if ( a3 )
+        if ( ExplicitScope )
         {
           v10 = -1073741811;
           v21 = -1073741811;
           goto LABEL_37;
         }
       }
-      if ( PreviousMode && a2 )
+      if ( PreviousMode && NameInfoClass )
       {
         v14 = 0;
-        if ( a3 )
+        if ( ExplicitScope )
         {
           v10 = ExpWnfCheckCrossScopeAccess(v12);
           v21 = v10;
@@ -112,7 +112,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
         v14 = 1;
       }
       v15 = 0;
-      if ( !v14 && a2 - 1 <= 1 )
+      if ( !v14 && (unsigned int)(NameInfoClass - 1) <= 1 )
         v15 = 2;
       v16 = 0LL;
       if ( PreviousMode )
@@ -140,9 +140,9 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
           if ( v14 )
           {
 LABEL_29:
-            if ( a2 )
+            if ( NameInfoClass )
             {
-              if ( a2 == 1 )
+              if ( NameInfoClass == WnfInfoSubscribersPresent )
               {
                 if ( v24 && *(_DWORD *)(v24 + 160) )
                   goto LABEL_36;
@@ -154,7 +154,7 @@ LABEL_29:
               v13 = 0;
             }
 LABEL_36:
-            *a4 = v13;
+            *(_DWORD *)InfoBuffer = v13;
             v10 = 0;
             v21 = 0;
             goto LABEL_37;
@@ -180,9 +180,9 @@ LABEL_36:
     }
   }
 LABEL_37:
-  if ( v10 == -1073741772 && !a2 )
+  if ( v10 == -1073741772 && NameInfoClass == WnfInfoStateNameExist )
   {
-    *a4 = 0;
+    *(_DWORD *)InfoBuffer = 0;
     v21 = 0;
   }
   if ( v24 )

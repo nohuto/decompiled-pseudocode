@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpApplyEventIdPayloadFilter @ 0x140229868
+ * XREFs of EtwpApplyEventIdPayloadFilter @ 0x140229694
  * Callers:
- *     EtwpEventWriteFull @ 0x140073CE0 (EtwpEventWriteFull.c)
- *     EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x1406A8A54 (EtwpApplyEventIdPayloadFilterOnUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140073860 (EtwpEventWriteFull.c)
+ *     EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x1406A8B8C (EtwpApplyEventIdPayloadFilterOnUserEvent.c)
  * Callees:
- *     EtwpPerfectHashFunctionSearch @ 0x140229FF8 (EtwpPerfectHashFunctionSearch.c)
- *     EtwpApplyPayloadFilterInternal @ 0x14022B614 (EtwpApplyPayloadFilterInternal.c)
+ *     EtwpPerfectHashFunctionSearch @ 0x140229E24 (EtwpPerfectHashFunctionSearch.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x14022B440 (EtwpApplyPayloadFilterInternal.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

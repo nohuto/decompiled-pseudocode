@@ -1,17 +1,17 @@
 /*
- * XREFs of IommupHvInitializeLibrary @ 0x140A8D764
+ * XREFs of IommupHvInitializeLibrary @ 0x140A8E764
  * Callers:
- *     IommuInitializeLibrary @ 0x1403AC728 (IommuInitializeLibrary.c)
+ *     IommuInitializeLibrary @ 0x1403AD4B8 (IommuInitializeLibrary.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
- *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140216B60 (MmAllocateContiguousNodeMemory.c)
+ *     MmFreeContiguousMemory @ 0x140217BE0 (MmFreeContiguousMemory.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A27FC (HalpInterruptSetIdtEntry.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 IommupHvInitializeLibrary()
@@ -38,9 +38,9 @@ __int64 IommupHvInitializeLibrary()
   v16 = 0LL;
   v17 = 0LL;
   v0 = 0;
-  if ( !qword_140C4A258 )
+  if ( !qword_140C4A298 )
     return 3221225659LL;
-  qword_140C4A258(&v16);
+  qword_140C4A298(&v16);
   if ( (v16 & 1) == 0 )
     return 3221225659LL;
   v1 = DWORD2(v16);
@@ -67,7 +67,7 @@ __int64 IommupHvInitializeLibrary()
         break;
       *v8 = ContiguousNodeMemory + 4096;
       PhysicalAddress = MmGetPhysicalAddress(ContiguousNodeMemory);
-      v0 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))qword_140C4A2A8)(
+      v0 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))qword_140C4A2E8)(
              v7,
              102LL,
              (PHYSICAL_ADDRESS)PhysicalAddress.QuadPart,
@@ -84,7 +84,7 @@ __int64 IommupHvInitializeLibrary()
     v0 = -1073741670;
 LABEL_20:
     for ( i = 0; i < v15; ++i )
-      ((void (__fastcall *)(_QWORD))qword_140C4A2B0)(i);
+      ((void (__fastcall *)(_QWORD))qword_140C4A2F0)(i);
     v14 = (PVOID *)(v4 + 8);
     do
     {

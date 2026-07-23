@@ -14,7 +14,11 @@
  *     ObReferenceObjectByHandle @ 0x1406118C0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtWaitForKeyedEvent(HANDLE Handle, unsigned __int64 a2, BOOLEAN a3, LARGE_INTEGER *a4)
+NTSTATUS __cdecl NtWaitForKeyedEvent(
+        HANDLE KeyedEventHandle,
+        PVOID KeyValue,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   char v5; // r14
   NTSTATUS result; // eax
@@ -39,34 +43,34 @@ NTSTATUS __fastcall NtWaitForKeyedEvent(HANDLE Handle, unsigned __int64 a2, BOOL
   struct _LIST_ENTRY *Blink; // rax
   KPROCESSOR_MODE WaitMode; // [rsp+30h] [rbp-78h]
   NTSTATUS v27; // [rsp+34h] [rbp-74h]
-  LARGE_INTEGER v28; // [rsp+38h] [rbp-70h] BYREF
+  LONGLONG QuadPart; // [rsp+38h] [rbp-70h] BYREF
   PVOID Object; // [rsp+40h] [rbp-68h] BYREF
   void *InitialStack; // [rsp+48h] [rbp-60h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-58h]
   _KPROCESS *Process; // [rsp+60h] [rbp-48h]
-  LARGE_INTEGER *Timeout; // [rsp+C8h] [rbp+20h]
+  LARGE_INTEGER *Timeouta; // [rsp+C8h] [rbp+20h]
 
-  Timeout = a4;
+  Timeouta = Timeout;
   v27 = 0;
-  v28.QuadPart = 0LL;
+  QuadPart = 0LL;
   InitialStack = 0LL;
   v5 = 1;
-  if ( (a2 & 1) != 0 )
+  if ( ((unsigned __int8)KeyValue & 1) != 0 )
     return -1073741585;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   WaitMode = PreviousMode;
-  if ( a4 )
+  if ( Timeout )
   {
-    if ( PreviousMode && ((unsigned __int64)&a4[1] > 0x7FFFFFFF0000LL || &a4[1] < a4) )
+    if ( PreviousMode && ((unsigned __int64)&Timeout[1] > 0x7FFFFFFF0000LL || &Timeout[1] < Timeout) )
       MEMORY[0x7FFFFFFF0000] = 0;
-    v28 = *a4;
-    Timeout = &v28;
+    QuadPart = Timeout->QuadPart;
+    Timeouta = (LARGE_INTEGER *)&QuadPart;
   }
-  if ( Handle )
+  if ( KeyedEventHandle )
   {
     Object = 0LL;
-    result = ObReferenceObjectByHandle(Handle, 1u, ExpKeyedEventObjectType, PreviousMode, &Object, 0LL);
+    result = ObReferenceObjectByHandle(KeyedEventHandle, 1u, ExpKeyedEventObjectType, PreviousMode, &Object, 0LL);
     v27 = result;
     v9 = (char *)Object;
     DmaAdapter = (PADAPTER_OBJECT)Object;
@@ -80,10 +84,10 @@ NTSTATUS __fastcall NtWaitForKeyedEvent(HANDLE Handle, unsigned __int64 a2, BOOL
   }
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x20u;
   Process = CurrentThread->ApcState.Process;
-  v10 = (unsigned __int64 *)&v9[24 * ((a2 >> 5) & 0x3F)];
+  v10 = (unsigned __int64 *)&v9[24 * (((unsigned __int64)KeyValue >> 5) & 0x3F)];
   v11 = (struct _LIST_ENTRY *)(v10 + 1);
   --CurrentThread->KernelApcDisable;
-  v12 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0LL);
+  v12 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
   v13 = v12;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
     ExfAcquirePushLockExclusiveEx(v10, v12, (ULONG_PTR)v10);
@@ -94,7 +98,7 @@ NTSTATUS __fastcall NtWaitForKeyedEvent(HANDLE Handle, unsigned __int64 a2, BOOL
   {
 LABEL_22:
     InitialStack = CurrentThread[1].InitialStack;
-    CurrentThread[1].InitialStack = (void *)a2;
+    CurrentThread[1].InitialStack = KeyValue;
     p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
     v18 = (struct _LIST_ENTRY *)v10[2];
     if ( v18->Flink != v11 )
@@ -113,7 +117,7 @@ LABEL_22:
       v16 = Flink[2].Flink;
       if ( ((unsigned __int8)v16 & 1) == 0 )
         goto LABEL_22;
-      if ( v16 == (struct _LIST_ENTRY *)(a2 | 1) && p_Blink[68] == (struct _LIST_ENTRY *)Process )
+      if ( v16 == (struct _LIST_ENTRY *)((unsigned __int64)KeyValue | 1) && p_Blink[68] == (struct _LIST_ENTRY *)Process )
         break;
       Flink = Flink->Flink;
       if ( Flink == v11 )
@@ -138,11 +142,11 @@ LABEL_22:
     goto LABEL_45;
   }
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  v27 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, a3, Timeout);
+  v27 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, Alertable, Timeouta);
   if ( v27 )
   {
     --CurrentThread->KernelApcDisable;
-    v19 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0LL);
+    v19 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
     v20 = v19;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
       ExfAcquirePushLockExclusiveEx(v10, v19, (ULONG_PTR)v10);
@@ -176,7 +180,7 @@ LABEL_40:
   CurrentThread[1].InitialStack = InitialStack;
 LABEL_45:
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~0x20u;
-  if ( Handle )
+  if ( KeyedEventHandle )
     HalPutDmaAdapter(DmaAdapter);
   return v27;
 }

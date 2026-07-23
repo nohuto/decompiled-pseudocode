@@ -1,28 +1,28 @@
 /*
- * XREFs of MiAddPhysicalMemory @ 0x14086501C
+ * XREFs of MiAddPhysicalMemory @ 0x14086B3FC
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x140865468 (MiAddPhysicalMemoryChunks.c)
- *     MiCreateFileOnlyPfns @ 0x14086D164 (MiCreateFileOnlyPfns.c)
+ *     MiAddPhysicalMemoryChunks @ 0x14086B848 (MiAddPhysicalMemoryChunks.c)
+ *     MiCreateFileOnlyPfns @ 0x140873544 (MiCreateFileOnlyPfns.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiLockDynamicMemoryShared @ 0x1404CB6E0 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1404D0330 (MiUnlockDynamicMemoryShared.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KeConfigureDynamicMemory @ 0x1405EBDBC (KeConfigureDynamicMemory.c)
- *     MiLogAddPhysicalMemory @ 0x1406E978C (MiLogAddPhysicalMemory.c)
- *     MiMemoryRangeAlreadyExists @ 0x1406E9920 (MiMemoryRangeAlreadyExists.c)
- *     MiReturnAddMemoryResources @ 0x1406EA170 (MiReturnAddMemoryResources.c)
- *     MiIsExtentDangling @ 0x1406FA730 (MiIsExtentDangling.c)
- *     MiReapFileOnlyPfns @ 0x1406FABB0 (MiReapFileOnlyPfns.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiAcquireAddMemoryLocks @ 0x140864F14 (MiAcquireAddMemoryLocks.c)
- *     MiAcquireAddMemoryResources @ 0x140864F54 (MiAcquireAddMemoryResources.c)
- *     MiCompleteMemoryAddition @ 0x140865B8C (MiCompleteMemoryAddition.c)
- *     MiMapNewPfns @ 0x140866674 (MiMapNewPfns.c)
- *     MiReleaseAddMemoryLocks @ 0x140866D0C (MiReleaseAddMemoryLocks.c)
- *     MiUnmapPfns @ 0x1408670AC (MiUnmapPfns.c)
- *     MiValidateAddPhysicalMemoryParameters @ 0x1408671A0 (MiValidateAddPhysicalMemoryParameters.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiLockDynamicMemoryShared @ 0x1404C5110 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1404C9D60 (MiUnlockDynamicMemoryShared.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KeConfigureDynamicMemory @ 0x1405EE72C (KeConfigureDynamicMemory.c)
+ *     MiLogAddPhysicalMemory @ 0x1406EE42C (MiLogAddPhysicalMemory.c)
+ *     MiMemoryRangeAlreadyExists @ 0x1406EE5C0 (MiMemoryRangeAlreadyExists.c)
+ *     MiReturnAddMemoryResources @ 0x1406EEE10 (MiReturnAddMemoryResources.c)
+ *     MiIsExtentDangling @ 0x1406FF400 (MiIsExtentDangling.c)
+ *     MiReapFileOnlyPfns @ 0x1406FF880 (MiReapFileOnlyPfns.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAcquireAddMemoryLocks @ 0x14086B2F4 (MiAcquireAddMemoryLocks.c)
+ *     MiAcquireAddMemoryResources @ 0x14086B334 (MiAcquireAddMemoryResources.c)
+ *     MiCompleteMemoryAddition @ 0x14086BF6C (MiCompleteMemoryAddition.c)
+ *     MiMapNewPfns @ 0x14086CA54 (MiMapNewPfns.c)
+ *     MiReleaseAddMemoryLocks @ 0x14086D0EC (MiReleaseAddMemoryLocks.c)
+ *     MiUnmapPfns @ 0x14086D48C (MiUnmapPfns.c)
+ *     MiValidateAddPhysicalMemoryParameters @ 0x14086D580 (MiValidateAddPhysicalMemoryParameters.c)
  */
 
 __int64 __fastcall MiAddPhysicalMemory(unsigned __int16 *a1, __int64 a2, _QWORD *a3, int a4, __int64 a5)
@@ -83,7 +83,7 @@ __int64 __fastcall MiAddPhysicalMemory(unsigned __int16 *a1, __int64 a2, _QWORD 
   if ( (v38 & 2) == 0 )
   {
     MiAcquireAddMemoryLocks((__int64)v34, v16, v38, v17);
-    if ( LOBYTE(stru_140E2D150.ThreadLock) )
+    if ( LOBYTE(stru_140E2D2D0.ThreadLock) )
     {
       IsExtentDangling = MiIsExtentDangling(BugCheckParameter2, v37, v38);
       if ( IsExtentDangling >= BugCheckParameter2 && IsExtentDangling < v36 )
@@ -91,9 +91,9 @@ __int64 __fastcall MiAddPhysicalMemory(unsigned __int16 *a1, __int64 a2, _QWORD 
     }
     if ( (v38 & 0x40000) == 0 )
     {
-      if ( qword_140E2D720 == qword_140E3D3D0 )
+      if ( qword_140E2D8A0 == qword_140E3D550 )
         goto LABEL_11;
-      if ( v37 > qword_140E2D720 - qword_140E3D3D0 )
+      if ( v37 > qword_140E2D8A0 - qword_140E3D550 )
       {
         if ( (v38 & 0x100000) != 0 )
         {
@@ -104,7 +104,7 @@ __int64 __fastcall MiAddPhysicalMemory(unsigned __int16 *a1, __int64 a2, _QWORD 
           v24 = -262144LL;
         else
           v24 = (-(__int64)((v38 & 0x800) != 0) & 0xFFFFFFFFFFFFFE01uLL) - 1;
-        v25 = (qword_140E2D720 - qword_140E3D3D0) & v24;
+        v25 = (qword_140E2D8A0 - qword_140E3D550) & v24;
         v37 = v25;
         if ( !v25 )
           goto LABEL_11;
@@ -165,7 +165,7 @@ LABEL_16:
       MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
       goto LABEL_18;
     }
-    LOBYTE(stru_140E2D150.ThreadLock) = 1;
+    LOBYTE(stru_140E2D2D0.ThreadLock) = 1;
     MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
     v33[0] = MiMapNewPfns(v34);
     v21 = v33[0];
@@ -181,13 +181,13 @@ LABEL_16:
     if ( v22 < 0 )
     {
       if ( v22 == -1073741637 )
-        BYTE2(stru_140E2D150.ThreadLock) = 1;
+        BYTE2(stru_140E2D2D0.ThreadLock) = 1;
       goto LABEL_46;
     }
     v39[9] |= 1u;
     goto LABEL_16;
   }
-  BYTE2(stru_140E2D150.ThreadLock) = 1;
+  BYTE2(stru_140E2D2D0.ThreadLock) = 1;
 LABEL_11:
   v21 = -1073741637;
 LABEL_45:
@@ -206,9 +206,9 @@ LABEL_46:
     }
   }
   MiReturnAddMemoryResources((__int64)v34);
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 256LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 256LL) )
   {
     MiLogAddPhysicalMemory(v38, a1, a2, (__int64)a3, v38, (__int64)v33);
   }

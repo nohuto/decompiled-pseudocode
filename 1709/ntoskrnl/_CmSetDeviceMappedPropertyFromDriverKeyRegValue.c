@@ -33,7 +33,7 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
   __int64 v20; // [rsp+20h] [rbp-60h]
   __int64 v21; // [rsp+28h] [rbp-58h]
   HANDLE Handle; // [rsp+40h] [rbp-40h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-38h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-38h] BYREF
   wchar_t pszDest[12]; // [rsp+58h] [rbp-28h] BYREF
 
   Handle = 0LL;

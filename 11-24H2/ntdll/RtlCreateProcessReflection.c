@@ -1,240 +1,263 @@
 /*
- * XREFs of RtlCreateProcessReflection @ 0x180132F10
+ * XREFs of RtlCreateProcessReflection @ 0x180131140
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateUserThreadEx @ 0x18008C310 (RtlpCreateUserThreadEx.c)
- *     RtlpProcessReflectionStartup @ 0x1801334B0 (RtlpProcessReflectionStartup.c)
- *     NtWaitForSingleObject @ 0x180161D10 (NtWaitForSingleObject.c)
- *     ZwSetEvent @ 0x180161E50 (ZwSetEvent.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
- *     NtQueryInformationProcess @ 0x180161FB0 (NtQueryInformationProcess.c)
- *     ZwFreeVirtualMemory @ 0x180162050 (ZwFreeVirtualMemory.c)
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
- *     ZwDuplicateObject @ 0x180162410 (ZwDuplicateObject.c)
- *     ZwCreateEvent @ 0x180162590 (ZwCreateEvent.c)
- *     NtCreateSection @ 0x1801625D0 (NtCreateSection.c)
- *     ZwQuerySystemTime @ 0x1801627D0 (ZwQuerySystemTime.c)
- *     NtWaitForMultipleObjects @ 0x1801627E0 (NtWaitForMultipleObjects.c)
+ *     RtlpCreateUserThreadEx @ 0x1800A7DD0 (RtlpCreateUserThreadEx.c)
+ *     RtlpProcessReflectionStartup @ 0x1801316E0 (RtlpProcessReflectionStartup.c)
+ *     NtWaitForSingleObject @ 0x1801600D0 (NtWaitForSingleObject.c)
+ *     ZwSetEvent @ 0x180160210 (ZwSetEvent.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
+ *     NtQueryInformationProcess @ 0x180160370 (NtQueryInformationProcess.c)
+ *     ZwFreeVirtualMemory @ 0x180160410 (ZwFreeVirtualMemory.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
+ *     ZwDuplicateObject @ 0x1801607D0 (ZwDuplicateObject.c)
+ *     ZwCreateEvent @ 0x180160950 (ZwCreateEvent.c)
+ *     NtCreateSection @ 0x180160990 (NtCreateSection.c)
+ *     ZwQuerySystemTime @ 0x180160B90 (ZwQuerySystemTime.c)
+ *     NtWaitForMultipleObjects @ 0x180160BA0 (NtWaitForMultipleObjects.c)
  */
 
-__int64 __fastcall RtlCreateProcessReflection(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl RtlCreateProcessReflection(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID StartRoutine,
+        PVOID StartContext,
+        HANDLE EventHandle,
+        PRTLP_PROCESS_REFLECTION_REFLECTION_INFORMATION ReflectionInformation)
 {
   int v11; // ebx
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // rax
-  __int64 v15; // rax
-  __int64 v16; // rcx
+  _QWORD *v12; // rcx
+  ULONG_PTR v13; // rax
+  PVOID v14; // rax
+  _OWORD *v15; // rax
+  _OWORD *v16; // rcx
   HANDLE v17; // rcx
-  int v18; // eax
-  int ReturnLength; // [rsp+28h] [rbp-99h]
-  int ReturnLengtha; // [rsp+28h] [rbp-99h]
-  __int64 v21; // [rsp+38h] [rbp-89h]
-  __int64 v22; // [rsp+38h] [rbp-89h]
-  __int64 v23; // [rsp+38h] [rbp-89h]
-  __int64 v24; // [rsp+38h] [rbp-89h]
-  __int64 v25; // [rsp+68h] [rbp-59h] BYREF
-  __int64 v26; // [rsp+70h] [rbp-51h] BYREF
-  __int64 v27; // [rsp+78h] [rbp-49h] BYREF
-  HANDLE v28; // [rsp+80h] [rbp-41h] BYREF
-  ULONG ProcessInformationLength[2]; // [rsp+88h] [rbp-39h] BYREF
-  PVOID ProcessInformation; // [rsp+90h] [rbp-31h] BYREF
-  __int64 v31; // [rsp+98h] [rbp-29h] BYREF
-  HANDLE v32; // [rsp+A0h] [rbp-21h] BYREF
-  HANDLE v33; // [rsp+A8h] [rbp-19h] BYREF
+  NTSTATUS v18; // eax
+  int FileHandle; // [rsp+38h] [rbp-89h]
+  PVOID v20; // [rsp+68h] [rbp-59h] BYREF
+  PVOID v21; // [rsp+70h] [rbp-51h] BYREF
+  ULONG_PTR CommitSize; // [rsp+78h] [rbp-49h] BYREF
+  HANDLE v23; // [rsp+80h] [rbp-41h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp-39h] BYREF
+  PVOID BaseAddress; // [rsp+90h] [rbp-31h] BYREF
+  PVOID v26; // [rsp+98h] [rbp-29h] BYREF
+  HANDLE SectionHandle; // [rsp+A0h] [rbp-21h] BYREF
+  HANDLE SourceHandle; // [rsp+A8h] [rbp-19h] BYREF
   HANDLE Handle; // [rsp+B0h] [rbp-11h] BYREF
-  __int64 v35; // [rsp+B8h] [rbp-9h] BYREF
-  __int64 v36; // [rsp+C0h] [rbp-1h] BYREF
-  __int64 v37; // [rsp+C8h] [rbp+7h] BYREF
-  __int64 v38; // [rsp+D0h] [rbp+Fh] BYREF
-  _QWORD v39[2]; // [rsp+D8h] [rbp+17h] BYREF
+  ULONG_PTR ViewSize; // [rsp+B8h] [rbp-9h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+C0h] [rbp-1h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+C8h] [rbp+7h] BYREF
+  LARGE_INTEGER v33; // [rsp+D0h] [rbp+Fh] BYREF
+  HANDLE Handles[2]; // [rsp+D8h] [rbp+17h] BYREF
 
-  *(_QWORD *)ProcessInformationLength = 4096LL;
+  RegionSize = 4096LL;
   Handle = 0LL;
+  v21 = 0LL;
+  BaseAddress = 0LL;
+  v20 = 0LL;
+  CommitSize = 0LL;
+  SectionHandle = 0LL;
+  MaximumSize.QuadPart = 0LL;
+  ViewSize = 0LL;
   v26 = 0LL;
-  ProcessInformation = 0LL;
-  v25 = 0LL;
-  v27 = 0LL;
-  v32 = 0LL;
-  v36 = 0LL;
-  v35 = 0LL;
-  v31 = 0LL;
-  v37 = 0LL;
-  v38 = 0LL;
-  v33 = 0LL;
-  v28 = 0LL;
-  ZwQuerySystemTime(&v37);
-  if ( (a2 & 0xFFFFFFE1) != 0 )
-    return 3221225712LL;
-  if ( (a2 & 8) != 0 && a3 )
-    return 3221225715LL;
-  if ( a6 )
+  SystemTime.QuadPart = 0LL;
+  v33.QuadPart = 0LL;
+  SourceHandle = 0LL;
+  v23 = 0LL;
+  ZwQuerySystemTime(&SystemTime);
+  if ( (Flags & 0xFFFFFFE1) != 0 )
+    return -1073741584;
+  if ( (Flags & 8) != 0 && StartRoutine )
+    return -1073741581;
+  if ( ReflectionInformation )
   {
-    *(_OWORD *)a6 = 0LL;
-    *(_OWORD *)(a6 + 16) = 0LL;
+    *(_OWORD *)&ReflectionInformation->ReflectionProcessHandle = 0LL;
+    ReflectionInformation->ReflectionClientId = 0LL;
   }
-  v11 = ZwAllocateVirtualMemory(-1LL, &ProcessInformation, 0LL, ProcessInformationLength, 12288, 4);
+  v11 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x3000u, 4u);
   if ( v11 < 0 )
   {
-    ProcessInformation = 0LL;
+    BaseAddress = 0LL;
     goto LABEL_41;
   }
   NtQueryInformationProcess(
     (HANDLE)0xFFFFFFFFFFFFFFFFLL,
     ProcessImageFileName,
-    ProcessInformation,
-    ProcessInformationLength[0],
-    ProcessInformationLength);
-  *(_QWORD *)ProcessInformationLength = 4096LL;
-  ZwFreeVirtualMemory(-1LL, &ProcessInformation, ProcessInformationLength, 0x8000LL);
-  v27 = 88LL;
-  v11 = ZwAllocateVirtualMemory(-1LL, &v25, 0LL, &v27, 12288, 4);
+    BaseAddress,
+    RegionSize,
+    (PULONG)&RegionSize);
+  RegionSize = 4096LL;
+  ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+  CommitSize = 88LL;
+  v11 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v20, 0LL, &CommitSize, 0x3000u, 4u);
   if ( v11 < 0 )
   {
-    v25 = 0LL;
+    v20 = 0LL;
     goto LABEL_41;
   }
-  v12 = v25;
-  v13 = v27;
-  *(_QWORD *)(v25 + 24) = a4;
-  *(_QWORD *)(v12 + 16) = a3;
-  *(_QWORD *)v12 = v13;
-  *(_DWORD *)(v12 + 8) = a2;
-  *(_QWORD *)(v12 + 48) = a5;
-  if ( a1 == -1 )
+  v12 = v20;
+  v13 = CommitSize;
+  *((_QWORD *)v20 + 3) = StartContext;
+  v12[2] = StartRoutine;
+  *v12 = v13;
+  *((_DWORD *)v12 + 2) = Flags;
+  v12[6] = EventHandle;
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
-    *(_DWORD *)(v12 + 8) = a2 | 0x10;
-    v11 = RtlpProcessReflectionStartup(v25);
-    if ( v11 >= 0 && a6 )
+    *((_DWORD *)v12 + 2) = Flags | 0x10;
+    v11 = RtlpProcessReflectionStartup((PSIZE_T)v20);
+    if ( v11 >= 0 && ReflectionInformation )
     {
-      *(_QWORD *)a6 = *(_QWORD *)(v25 + 56);
-      *(_QWORD *)(a6 + 8) = *(_QWORD *)(v25 + 64);
-      *(_QWORD *)(a6 + 16) = *(_QWORD *)(v25 + 72);
-      v14 = v25;
+      ReflectionInformation->ReflectionProcessHandle = (HANDLE)*((_QWORD *)v20 + 7);
+      ReflectionInformation->ReflectionThreadHandle = (HANDLE)*((_QWORD *)v20 + 8);
+      ReflectionInformation->ReflectionClientId.UniqueProcess = (void *)*((_QWORD *)v20 + 9);
+      v14 = v20;
 LABEL_40:
-      *(_QWORD *)(a6 + 24) = *(_QWORD *)(v14 + 80);
+      ReflectionInformation->ReflectionClientId.UniqueThread = (void *)*((_QWORD *)v14 + 10);
       goto LABEL_41;
     }
     goto LABEL_41;
   }
-  v36 = v27;
-  v11 = NtCreateSection(&v32, 6LL, 0LL, &v36);
+  MaximumSize.QuadPart = CommitSize;
+  v11 = NtCreateSection(&SectionHandle, 6u, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
   if ( v11 < 0 )
     goto LABEL_41;
-  v35 = v27;
-  v11 = ZwMapViewOfSection(v32, a1, &v31, 0LL, v27, 0LL, &v35, 2, 0, 4);
+  ViewSize = CommitSize;
+  v11 = ZwMapViewOfSection(SectionHandle, ProcessHandle, &v26, 0LL, CommitSize, 0LL, &ViewSize, ViewUnmap, 0, 4u);
   if ( v11 >= 0 )
   {
-    v11 = ZwMapViewOfSection(v32, -1LL, &v26, 0LL, v27, 0LL, &v35, 2, 0, 4);
+    v11 = ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &v21,
+            0LL,
+            CommitSize,
+            0LL,
+            &ViewSize,
+            ViewUnmap,
+            0,
+            4u);
     if ( v11 < 0 )
     {
-      v26 = 0LL;
+      v21 = 0LL;
       goto LABEL_41;
     }
-    if ( !a6 )
-      goto LABEL_30;
-    LOBYTE(ReturnLength) = 0;
-    v11 = ZwCreateEvent(&v33, 2031619LL, 0LL, 0LL, ReturnLength);
-    if ( v11 >= 0 )
+    if ( !ReflectionInformation
+      || (v11 = ZwCreateEvent(&SourceHandle, 0x1F0003u, 0LL, NotificationEvent, 0), v11 >= 0)
+      && (v11 = ZwCreateEvent(&v23, 0x1F0003u, 0LL, NotificationEvent, 0), v11 >= 0)
+      && (v11 = ZwDuplicateObject(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  SourceHandle,
+                  ProcessHandle,
+                  (PHANDLE)v20 + 4,
+                  0x1F0003u,
+                  0,
+                  2u),
+          v11 >= 0)
+      && (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v23, ProcessHandle, (PHANDLE)v20 + 5, 0x1F0003u, 0, 2u),
+          v11 >= 0)
+      && (!EventHandle
+       || (v11 = ZwDuplicateObject(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   EventHandle,
+                   ProcessHandle,
+                   (PHANDLE)v20 + 6,
+                   0x1F0003u,
+                   0,
+                   2u),
+           v11 >= 0)) )
     {
-      LOBYTE(ReturnLengtha) = 0;
-      v11 = ZwCreateEvent(&v28, 2031619LL, 0LL, 0LL, ReturnLengtha);
+      v15 = v20;
+      v16 = v21;
+      *(_OWORD *)v21 = *(_OWORD *)v20;
+      v16[1] = v15[1];
+      v16[2] = v15[2];
+      v16[3] = v15[3];
+      v16[4] = v15[4];
+      *((_QWORD *)v16 + 10) = *((_QWORD *)v15 + 10);
+      v11 = RtlpCreateUserThreadEx(
+              ProcessHandle,
+              0LL,
+              2,
+              0,
+              0LL,
+              0LL,
+              FileHandle,
+              (PUSER_THREAD_START_ROUTINE)RtlpProcessReflectionStartup,
+              v26,
+              &Handle,
+              0LL);
       if ( v11 >= 0 )
       {
-        LODWORD(v21) = 2;
-        v11 = ZwDuplicateObject(-1LL, v33, a1, v25 + 32, 2031619, 0, v21);
-        if ( v11 >= 0 )
+        if ( ReflectionInformation )
         {
-          LODWORD(v22) = 2;
-          v11 = ZwDuplicateObject(-1LL, v28, a1, v25 + 40, 2031619, 0, v22);
-          if ( v11 >= 0 )
+          Handles[0] = Handle;
+          Handles[1] = SourceHandle;
+          if ( NtWaitForMultipleObjects(2u, Handles, WaitAny, 0, 0LL) == 1 )
           {
-            if ( !a5 || (LODWORD(v21) = 2, v11 = ZwDuplicateObject(-1LL, a5, a1, v25 + 48, 2031619, 0, v21), v11 >= 0) )
+            if ( *((_QWORD *)v21 + 7) )
             {
-LABEL_30:
-              v15 = v25;
-              v16 = v26;
-              *(_OWORD *)v26 = *(_OWORD *)v25;
-              *(_OWORD *)(v16 + 16) = *(_OWORD *)(v15 + 16);
-              *(_OWORD *)(v16 + 32) = *(_OWORD *)(v15 + 32);
-              *(_OWORD *)(v16 + 48) = *(_OWORD *)(v15 + 48);
-              *(_OWORD *)(v16 + 64) = *(_OWORD *)(v15 + 64);
-              *(_QWORD *)(v16 + 80) = *(_QWORD *)(v15 + 80);
-              v11 = RtlpCreateUserThreadEx(
-                      a1,
-                      0LL,
-                      2,
-                      0,
-                      0LL,
-                      0LL,
-                      v21,
-                      (__int64)RtlpProcessReflectionStartup,
-                      v31,
-                      &Handle,
-                      0LL);
-              if ( v11 >= 0 )
+              if ( ZwDuplicateObject(
+                     ProcessHandle,
+                     *((HANDLE *)v21 + 7),
+                     (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                     &ReflectionInformation->ReflectionProcessHandle,
+                     0x1FFFFFu,
+                     0,
+                     2u) >= 0 )
               {
-                if ( a6 )
+                v18 = ZwDuplicateObject(
+                        ProcessHandle,
+                        *((HANDLE *)v21 + 8),
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        &ReflectionInformation->ReflectionThreadHandle,
+                        0x1FFFFFu,
+                        0,
+                        2u);
+                v17 = v23;
+                if ( v18 >= 0 )
                 {
-                  v39[0] = Handle;
-                  v39[1] = v33;
-                  if ( (unsigned int)NtWaitForMultipleObjects(2LL, v39, 1LL, 0LL, 0LL) == 1 )
-                  {
-                    if ( *(_QWORD *)(v26 + 56) )
-                    {
-                      LODWORD(v23) = 2;
-                      if ( (int)ZwDuplicateObject(a1, *(_QWORD *)(v26 + 56), -1LL, a6, 0x1FFFFF, 0, v23) >= 0 )
-                      {
-                        LODWORD(v24) = 2;
-                        v18 = ZwDuplicateObject(a1, *(_QWORD *)(v26 + 64), -1LL, a6 + 8, 0x1FFFFF, 0, v24);
-                        v17 = v28;
-                        if ( v18 >= 0 )
-                        {
-                          v11 = ZwSetEvent(v28, 0LL);
-                          *(_QWORD *)(a6 + 16) = *(_QWORD *)(v26 + 72);
-                          v14 = v26;
-                          goto LABEL_40;
-                        }
-                      }
-                      else
-                      {
-                        v17 = v28;
-                      }
-                      v11 = ZwSetEvent(v17, 0LL);
-                      goto LABEL_41;
-                    }
-                    NtWaitForSingleObject(Handle, 0, 0LL);
-                  }
-                  v11 = -1073741823;
+                  v11 = ZwSetEvent(v23, 0LL);
+                  ReflectionInformation->ReflectionClientId.UniqueProcess = (void *)*((_QWORD *)v21 + 9);
+                  v14 = v21;
+                  goto LABEL_40;
                 }
               }
+              else
+              {
+                v17 = v23;
+              }
+              v11 = ZwSetEvent(v17, 0LL);
+              goto LABEL_41;
             }
+            NtWaitForSingleObject(Handle, 0, 0LL);
           }
+          v11 = -1073741823;
         }
       }
     }
 LABEL_41:
-    if ( v31 )
-      NtUnmapViewOfSection(a1);
+    if ( v26 )
+      NtUnmapViewOfSection(ProcessHandle, v26);
     goto LABEL_43;
   }
-  v31 = 0LL;
+  v26 = 0LL;
 LABEL_43:
-  if ( v26 )
-    NtUnmapViewOfSection(-1LL);
-  if ( v32 )
-    NtClose(v32);
-  if ( v25 )
-    ZwFreeVirtualMemory(-1LL, &v25, &v27, 0x8000LL);
-  if ( v33 )
-    NtClose(v33);
-  if ( v28 )
-    NtClose(v28);
+  if ( v21 )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v21);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
+  if ( v20 )
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v20, &CommitSize, 0x8000u);
+  if ( SourceHandle )
+    NtClose(SourceHandle);
+  if ( v23 )
+    NtClose(v23);
   if ( Handle )
     NtClose(Handle);
-  ZwQuerySystemTime(&v38);
-  return (unsigned int)v11;
+  ZwQuerySystemTime(&v33);
+  return v11;
 }

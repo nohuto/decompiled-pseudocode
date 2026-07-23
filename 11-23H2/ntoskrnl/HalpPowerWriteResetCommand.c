@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpPowerWriteResetCommand @ 0x140506ABC
+ * XREFs of HalpPowerWriteResetCommand @ 0x14050700C
  * Callers:
- *     HalpInterruptResetAllProcessors @ 0x140504D9C (HalpInterruptResetAllProcessors.c)
- *     HalpInterruptResetThisProcessor @ 0x140504E40 (HalpInterruptResetThisProcessor.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
+ *     HalpInterruptResetAllProcessors @ 0x1405052EC (HalpInterruptResetAllProcessors.c)
+ *     HalpInterruptResetThisProcessor @ 0x140505390 (HalpInterruptResetThisProcessor.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     HalpAcpiPmRegisterWrite @ 0x140362C90 (HalpAcpiPmRegisterWrite.c)
- *     HalpMap @ 0x14037E228 (HalpMap.c)
- *     VslTerminateSecureServices @ 0x14040FCD8 (VslTerminateSecureServices.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpMiscIsLegacyPcType @ 0x14050B28C (HalpMiscIsLegacyPcType.c)
- *     HalEfiResetSystem @ 0x14050D190 (HalEfiResetSystem.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     HalpAcpiPmRegisterWrite @ 0x140362E30 (HalpAcpiPmRegisterWrite.c)
+ *     HalpMap @ 0x14037E3C8 (HalpMap.c)
+ *     VslTerminateSecureServices @ 0x14040FEB8 (VslTerminateSecureServices.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpMiscIsLegacyPcType @ 0x14050B7DC (HalpMiscIsLegacyPcType.c)
+ *     HalEfiResetSystem @ 0x14050D6E0 (HalEfiResetSystem.c)
  */
 
 void __fastcall __noreturn HalpPowerWriteResetCommand(int a1, volatile signed __int32 *a2)

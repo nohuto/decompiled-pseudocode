@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroIntelProcessorInit @ 0x140BFE118
+ * XREFs of PpmHeteroIntelProcessorInit @ 0x140C04168
  * Callers:
- *     PpmHeteroHgsProcessorInit @ 0x14060B45C (PpmHeteroHgsProcessorInit.c)
+ *     PpmHeteroHgsProcessorInit @ 0x14060E1CC (PpmHeteroHgsProcessorInit.c)
  * Callees:
  *     <none>
  */

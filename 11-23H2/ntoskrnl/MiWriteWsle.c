@@ -1,11 +1,11 @@
 /*
  * XREFs of MiWriteWsle @ 0x140216174
  * Callers:
- *     MiSetPagingOfDriver @ 0x140290D84 (MiSetPagingOfDriver.c)
- *     MiRemoveWsleList @ 0x1402A7DD0 (MiRemoveWsleList.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
- *     MiUnmapRetpolineStubs @ 0x140641214 (MiUnmapRetpolineStubs.c)
- *     MiClearDriverHotPatchPtes @ 0x140641DEC (MiClearDriverHotPatchPtes.c)
+ *     MiSetPagingOfDriver @ 0x140291014 (MiSetPagingOfDriver.c)
+ *     MiRemoveWsleList @ 0x1402A8060 (MiRemoveWsleList.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
+ *     MiUnmapRetpolineStubs @ 0x140641764 (MiUnmapRetpolineStubs.c)
+ *     MiClearDriverHotPatchPtes @ 0x14064233C (MiClearDriverHotPatchPtes.c)
  *     MmFreeLoaderBlock @ 0x140B5B894 (MmFreeLoaderBlock.c)
  *     MiCreatePteWsle @ 0x140B5BF10 (MiCreatePteWsle.c)
  * Callees:

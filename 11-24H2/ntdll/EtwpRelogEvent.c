@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRelogEvent @ 0x18003D220
+ * XREFs of EtwpRelogEvent @ 0x18001D4A0
  * Callers:
- *     EtwpTraceUmEvent @ 0x18003CEA0 (EtwpTraceUmEvent.c)
+ *     EtwpTraceUmEvent @ 0x18001D120 (EtwpTraceUmEvent.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     EtwpSwitchBuffer @ 0x18003D730 (EtwpSwitchBuffer.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     EtwpSwitchBuffer @ 0x18001D9B0 (EtwpSwitchBuffer.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
@@ -24,8 +24,8 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   unsigned __int32 v15; // ecx
   void *v16; // rcx
   bool v18; // zf
-  void *v19; // rax
-  void *Heap; // rax
+  PVOID v19; // rax
+  PVOID Heap; // rax
   unsigned int v21; // [rsp+68h] [rbp+10h]
 
   v4 = 0;
@@ -47,7 +47,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   {
     if ( v8 != 82 || v6 || *(_QWORD *)(a1 + 520) || (unsigned int)v7 < 8 || *(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
       goto LABEL_7;
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 520) = Heap;
     if ( Heap )
     {
@@ -59,7 +59,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   }
   if ( !*(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
   {
-    v19 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    v19 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 504) = v19;
     if ( v19 )
     {

@@ -1,24 +1,24 @@
 /*
- * XREFs of DifExInitializeResourceLiteWrapper @ 0x140652410
+ * XREFs of DifExInitializeResourceLiteWrapper @ 0x140655FF0
  * Callers:
  *     <none>
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall DifExInitializeResourceLiteWrapper(struct _SINGLE_LIST_ENTRY *a1)
+__int64 __fastcall DifExInitializeResourceLiteWrapper(_KSWAPPABLE_PAGE *a1)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -26,8 +26,8 @@ __int64 __fastcall DifExInitializeResourceLiteWrapper(struct _SINGLE_LIST_ENTRY 
   int v5; // ecx
   BOOLEAN v6; // si
   __int128 *i; // rdi
-  struct _SINGLE_LIST_ENTRY *v8; // rax
-  KSPIN_LOCK *p_Policy; // rdi
+  unsigned __int64 v8; // rax
+  KSPIN_LOCK *v9; // rdi
   unsigned __int16 *v10; // rax
   __int64 *v11; // rbp
   int RecordedStackTraceIndex; // eax
@@ -72,31 +72,31 @@ __int64 __fastcall DifExInitializeResourceLiteWrapper(struct _SINGLE_LIST_ENTRY 
     ExpTraceLogBadResourceAddress((unsigned __int64)a1, retaddr);
   memset_0(a1, 0, 0x68uLL);
   v8 = 0LL;
-  a1[1].Next = a1;
-  a1->Next = a1;
-  a1[4].Next = 0LL;
-  a1[5].Next = 0LL;
-  a1[12].Next = 0LL;
+  a1->TransitionLock = (unsigned __int64)a1;
+  a1->RegionStart = a1;
+  *(_QWORD *)&a1->Mdl.Size = 0LL;
+  a1->Mdl.Process = 0LL;
+  a1[1].LockCount.Value = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup
-      && (v10 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1),
+    v9 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags
+      && (v10 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1),
           (v11 = (__int64 *)v10) != 0LL) )
     {
-      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v10);
+      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v9, v10);
       v13 = RecordedStackTraceIndex;
       if ( !RecordedStackTraceIndex )
-        RtlStdReleaseStackTrace((__int64)p_Policy, v11);
+        RtlStdReleaseStackTrace((__int64)v9, v11);
     }
     else
     {
       v13 = 0;
     }
-    v8 = (struct _SINGLE_LIST_ENTRY *)v13;
+    v8 = v13;
   }
-  a1[11].Next = v8;
-  HIDWORD(a1[10].Next) = -1;
+  a1[1].TransitionLock = v8;
+  HIDWORD(a1[1].RegionStart) = -1;
   ExpAddResourceToSystemResourceList(a1);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0 )

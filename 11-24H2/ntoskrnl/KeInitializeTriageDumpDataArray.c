@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeTriageDumpDataArray @ 0x1404AF8B0
+ * XREFs of KeInitializeTriageDumpDataArray @ 0x1404AA2A0
  * Callers:
- *     PopWatchdogDumpControlRoutine @ 0x1405E11B0 (PopWatchdogDumpControlRoutine.c)
- *     IopInitializeTriageDumpData @ 0x140711420 (IopInitializeTriageDumpData.c)
- *     PopWatchdogInit @ 0x140C32E78 (PopWatchdogInit.c)
+ *     PopWatchdogDumpControlRoutine @ 0x1405DE7D0 (PopWatchdogDumpControlRoutine.c)
+ *     IopInitializeTriageDumpData @ 0x14070EFB0 (IopInitializeTriageDumpData.c)
+ *     PopWatchdogInit @ 0x140C34FB8 (PopWatchdogInit.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of IoGetDumpStackTransferSizes @ 0x140591B0C
+ * XREFs of IoGetDumpStackTransferSizes @ 0x14058EB2C
  * Callers:
- *     PopHiberInitializeResources @ 0x1407524BC (PopHiberInitializeResources.c)
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopHiberInitializeResources @ 0x1407507DC (PopHiberInitializeResources.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall IoGetDumpStackTransferSizes(_DWORD *a1, _DWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall IoGetDumpStackTransferSizes(_DWORD *a1, _DWORD *a2)
 {
   __int64 result; // rax
 
   if ( CrashdmpImageEntry )
   {
-    result = qword_140E65F20;
-    if ( qword_140E65F20 )
-      return guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+    result = qword_140E66060;
+    if ( qword_140E66060 )
+      return guard_dispatch_icall_no_overrides(a1, a2);
   }
   if ( a1 )
     *a1 = 4096;

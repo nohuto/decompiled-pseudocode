@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall DbgSetDebugFilterState(int a1, int a2, int a3)
+NTSTATUS __cdecl DbgSetDebugFilterState(ULONG ComponentId, ULONG Level, BOOLEAN State)
 {
-  return NtSetDebugFilterState(a1, a2, a3);
+  return NtSetDebugFilterState(ComponentId, Level, State);
 }

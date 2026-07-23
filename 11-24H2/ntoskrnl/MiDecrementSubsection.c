@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDecrementSubsection @ 0x140371D7C
+ * XREFs of MiDecrementSubsection @ 0x14025A644
  * Callers:
- *     MiTrimSharedPage @ 0x140370B4C (MiTrimSharedPage.c)
- *     MiLocateSharedPageViews @ 0x1406790E0 (MiLocateSharedPageViews.c)
- *     MiPurgeBadFileOnlyPages @ 0x14067B98C (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x14025A33C (MiTrimSharedPage.c)
+ *     MiLocateSharedPageViews @ 0x14067A2C0 (MiLocateSharedPageViews.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14067CB6C (MiPurgeBadFileOnlyPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiInsertUnusedSubsection @ 0x140371BB0 (MiInsertUnusedSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x140371EA0 (MiDecrementSubsectionViewCount.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiInsertUnusedSubsection @ 0x140259F70 (MiInsertUnusedSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x14025A760 (MiDecrementSubsectionViewCount.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
@@ -64,6 +64,6 @@ void __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
   if ( v7 )
   {
     LOBYTE(v3) = *(_QWORD *)(v10 + 64) != 0LL;
-    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E2FF88 + (*(_WORD *)(v10 + 60) & 0x3FF)), v3, v7);
+    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E300C8 + (*(_WORD *)(v10 + 60) & 0x3FF)), v3, v7);
   }
 }

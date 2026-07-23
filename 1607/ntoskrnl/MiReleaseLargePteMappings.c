@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseLargePteMappings @ 0x140125F84
+ * XREFs of MiReleaseLargePteMappings @ 0x1401264F4
  * Callers:
- *     MiEmptyPteBins @ 0x140017B18 (MiEmptyPteBins.c)
- *     MiInsertCachedPte @ 0x1400525F0 (MiInsertCachedPte.c)
+ *     MiEmptyPteBins @ 0x140017698 (MiEmptyPteBins.c)
+ *     MiInsertCachedPte @ 0x140052170 (MiInsertCachedPte.c)
  * Callees:
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUnmapLargePages @ 0x1401F5944 (MiUnmapLargePages.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUnmapLargePages @ 0x1401F5770 (MiUnmapLargePages.c)
  */
 
 __int64 __fastcall MiReleaseLargePteMappings(__int64 a1, _DWORD *a2, BOOL a3)

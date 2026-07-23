@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetSlabAllocator @ 0x1402E824C
+ * XREFs of MiGetSlabAllocator @ 0x14029959C
  * Callers:
- *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     MiCheckSlabPage @ 0x14037CFD0 (MiCheckSlabPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
- *     MiCreateKernelHalSlabRange @ 0x140A4F6A0 (MiCreateKernelHalSlabRange.c)
- *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140A564C0 (MiCreateSlabAllocationsFromLoaderBlock.c)
- *     MmUpdateSlabRangeProtection @ 0x140A929A8 (MmUpdateSlabRangeProtection.c)
+ *     MiGetSlabPage @ 0x14029938C (MiGetSlabPage.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     MiCheckSlabPage @ 0x14037CB20 (MiCheckSlabPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
+ *     MiCreateKernelHalSlabRange @ 0x140A506A0 (MiCreateKernelHalSlabRange.c)
+ *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140A574C0 (MiCreateSlabAllocationsFromLoaderBlock.c)
+ *     MmUpdateSlabRangeProtection @ 0x140A939A8 (MmUpdateSlabRangeProtection.c)
  * Callees:
  *     <none>
  */

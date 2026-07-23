@@ -16,38 +16,42 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSetSaclSecurityDescriptor(__int64 a1, char a2, __int64 a3, char a4)
+NTSTATUS __cdecl RtlSetSaclSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        BOOLEAN SaclPresent,
+        PACL Sacl,
+        BOOLEAN SaclDefaulted)
 {
   __int16 v5; // cx
   __int16 v6; // cx
   __int16 v8; // cx
-  __int64 v9; // rax
+  PACL v9; // rax
   __int16 v10; // cx
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
-  v5 = *(_WORD *)(a1 + 2);
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  v5 = *((_WORD *)SecurityDescriptor + 1);
   if ( v5 >= 0 )
   {
-    if ( a2 )
+    if ( SaclPresent )
     {
       v8 = v5 | 0x10;
       v9 = 0LL;
-      if ( a3 )
-        v9 = a3;
-      *(_QWORD *)(a1 + 24) = v9;
+      if ( Sacl )
+        v9 = Sacl;
+      *((_QWORD *)SecurityDescriptor + 3) = v9;
       v10 = v8 & 0xFFDF;
-      *(_WORD *)(a1 + 2) = v10;
-      if ( !a4 )
-        return 0LL;
+      *((_WORD *)SecurityDescriptor + 1) = v10;
+      if ( !SaclDefaulted )
+        return 0;
       v6 = v10 | 0x20;
     }
     else
     {
       v6 = v5 & 0xFFEF;
     }
-    *(_WORD *)(a1 + 2) = v6;
-    return 0LL;
+    *((_WORD *)SecurityDescriptor + 1) = v6;
+    return 0;
   }
-  return 3221225593LL;
+  return -1073741703;
 }

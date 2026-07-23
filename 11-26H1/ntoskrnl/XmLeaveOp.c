@@ -1,9 +1,9 @@
 /*
- * XREFs of XmLeaveOp @ 0x1405ADA00
+ * XREFs of XmLeaveOp @ 0x1405B0210
  * Callers:
  *     <none>
  * Callees:
- *     XmPopStack @ 0x1404A79D8 (XmPopStack.c)
+ *     XmPopStack @ 0x1404A1068 (XmPopStack.c)
  */
 
 __int64 __fastcall XmLeaveOp(__int64 a1)

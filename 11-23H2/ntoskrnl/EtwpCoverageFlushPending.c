@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCoverageFlushPending @ 0x1407E8894
+ * XREFs of EtwpCoverageFlushPending @ 0x1407E8B64
  * Callers:
- *     EtwpCoverageRecord @ 0x1407DD580 (EtwpCoverageRecord.c)
- *     EtwpCoverageFlushWorkItemCallback @ 0x1407E87C0 (EtwpCoverageFlushWorkItemCallback.c)
- *     EtwpCoverageReset @ 0x1409E845C (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1409E8640 (EtwpCoverageResetCP.c)
- *     EtwpFlushCoverage @ 0x1409E899C (EtwpFlushCoverage.c)
+ *     EtwpCoverageRecord @ 0x1407DD850 (EtwpCoverageRecord.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x1407E8A90 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpCoverageReset @ 0x1409E86EC (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1409E88D0 (EtwpCoverageResetCP.c)
+ *     EtwpFlushCoverage @ 0x1409E8C2C (EtwpFlushCoverage.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 int *__fastcall EtwpCoverageFlushPending(int **a1)
@@ -58,9 +58,9 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
     v3 = a1[5];
     v4 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
     v13 = *((_WORD *)a1 + 32);
-    if ( (unsigned int)dword_140C04358 > 5 )
+    if ( (unsigned int)dword_140C04320 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C04358, 0x400000000000LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL) )
       {
         v5 = *a1;
         v6 = **a1;
@@ -92,7 +92,7 @@ int *__fastcall EtwpCoverageFlushPending(int **a1)
         v35 = v11;
         v32 = 2;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04358,
+          (__int64)&dword_140C04320,
           (unsigned __int8 *)&word_140035636,
           0LL,
           0LL,

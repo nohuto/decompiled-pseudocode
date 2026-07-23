@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipEventNotification @ 0x140A0D110
+ * XREFs of WmipEventNotification @ 0x140A0CB60
  * Callers:
  *     <none>
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x1403B7080 (WmipUnreferenceRegEntry.c)
- *     ExInterlockedRemoveHeadList @ 0x14045D770 (ExInterlockedRemoveHeadList.c)
- *     WmipProcessEvent @ 0x140A0D184 (WmipProcessEvent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WmipUnreferenceRegEntry @ 0x1403C0F80 (WmipUnreferenceRegEntry.c)
+ *     ExInterlockedRemoveHeadList @ 0x140457310 (ExInterlockedRemoveHeadList.c)
+ *     WmipProcessEvent @ 0x140A0CBD4 (WmipProcessEvent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 WmipEventNotification()
@@ -18,7 +18,7 @@ __int64 WmipEventNotification()
 
   do
   {
-    v0 = ExInterlockedRemoveHeadList(&WmipNPEvent, (PKSPIN_LOCK)&EtwpSecurityLock.QueuedScb);
+    v0 = ExInterlockedRemoveHeadList(&WmipNPEvent, &WmipNPNotificationSpinlock);
     Blink = v0[1].Blink;
     LODWORD(Blink->Blink) = Blink[2].Blink;
     LODWORD(Blink[2].Blink) = 0;
@@ -28,7 +28,7 @@ __int64 WmipEventNotification()
     if ( Flink )
       WmipUnreferenceRegEntry(Flink);
     ExFreePoolWithTag(v0, 0);
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)&EtwpSecurityLock.880, 0xFFFFFFFF);
+    result = (unsigned int)_InterlockedExchangeAdd(&WmipEventWorkItems, 0xFFFFFFFF);
   }
   while ( (_DWORD)result != 1 );
   return result;

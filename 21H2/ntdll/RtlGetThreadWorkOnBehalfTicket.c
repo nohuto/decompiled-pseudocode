@@ -4,15 +4,15 @@
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     ZwQueryInformationThread @ 0x18009DAE0 (ZwQueryInformationThread.c)
+ *     ZwQueryInformationThread @ 0x18009DAA0 (ZwQueryInformationThread.c)
  */
 
 __int64 __fastcall RtlGetThreadWorkOnBehalfTicket(_QWORD *a1, int a2)
 {
   char v2; // bl
-  int v4; // ecx
+  NTSTATUS v4; // ecx
   __int64 v6; // rax
-  __int64 v7; // [rsp+30h] [rbp-28h] BYREF
+  __int64 ThreadInformation; // [rsp+30h] [rbp-28h] BYREF
   char v8; // [rsp+38h] [rbp-20h]
 
   v2 = a2;
@@ -22,11 +22,16 @@ __int64 __fastcall RtlGetThreadWorkOnBehalfTicket(_QWORD *a1, int a2)
   }
   else if ( (a2 & 2) != 0 )
   {
-    v4 = ZwQueryInformationThread(-2LL, 44LL, &v7, 16LL, 0LL);
+    v4 = ZwQueryInformationThread(
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           ThreadWorkOnBehalfTicket,
+           &ThreadInformation,
+           0x10u,
+           0LL);
     if ( v4 >= 0 )
     {
       if ( (v2 & 4) != 0 || (v8 & 1) == 0 )
-        v6 = v7;
+        v6 = ThreadInformation;
       else
         v6 = 0LL;
       *a1 = v6;

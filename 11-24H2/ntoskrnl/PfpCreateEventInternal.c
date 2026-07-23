@@ -1,20 +1,20 @@
 /*
- * XREFs of PfpCreateEventInternal @ 0x1407487E0
+ * XREFs of PfpCreateEventInternal @ 0x140746AD0
  * Callers:
- *     PfpScenCtxStart @ 0x140746334 (PfpScenCtxStart.c)
- *     PfTStart @ 0x140746B0C (PfTStart.c)
- *     PfpCreateEvent @ 0x1407487C0 (PfpCreateEvent.c)
+ *     PfpScenCtxStart @ 0x140744624 (PfpScenCtxStart.c)
+ *     PfTStart @ 0x140744DFC (PfTStart.c)
+ *     PfpCreateEvent @ 0x140746AB0 (PfpCreateEvent.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpCreateEventInternal(UNICODE_STRING *a1, EVENT_TYPE a2, ULONG a3, PVOID *a4)
@@ -39,7 +39,7 @@ __int64 __fastcall PfpCreateEventInternal(UNICODE_STRING *a1, EVENT_TYPE a2, ULO
   {
     v9 = RtlLengthSid(SeAliasAdminsSid);
     v10 = RtlLengthSid(SeLocalSystemSid) + 32 + v9;
-    Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+    Pool2 = (ACL *)ExAllocatePool2(0x100uLL, v10, 0x6C636144u);
     v12 = Pool2;
     if ( Pool2 )
     {

@@ -10,7 +10,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
+__int64 __fastcall PpmClearSimulatedIdle(_PROCESSOR_NUMBER *a1)
 {
   ULONG ProcessorIndexFromNumber; // eax
   char v3; // cl
@@ -25,8 +25,8 @@ __int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
   _DWORD *v12; // r9
   int v13; // edx
   bool v14; // zf
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
@@ -42,7 +42,7 @@ __int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
   CurrentPrcb = KeGetCurrentPrcb();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;
@@ -64,10 +64,10 @@ __int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
   {
     v9 = -1073741637;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       v11 = KeGetCurrentPrcb();
       v12 = v11->SchedulerAssist;

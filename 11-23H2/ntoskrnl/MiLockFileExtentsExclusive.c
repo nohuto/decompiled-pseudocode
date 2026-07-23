@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockFileExtentsExclusive @ 0x140A34140
+ * XREFs of MiLockFileExtentsExclusive @ 0x140A343F0
  * Callers:
- *     MiInsertCopyExtents @ 0x14063DE1C (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x14063E3CC (MiMergeCopyExtents.c)
- *     MiDeleteFileExtentList @ 0x140A33E10 (MiDeleteFileExtentList.c)
+ *     MiInsertCopyExtents @ 0x14063E36C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14063E91C (MiMergeCopyExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A340C0 (MiDeleteFileExtentList.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 MiLockFileExtentsExclusive()

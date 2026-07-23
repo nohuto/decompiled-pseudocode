@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierNtQueryInformationFile @ 0x140643C00
+ * XREFs of VerifierNtQueryInformationFile @ 0x1406477E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierNtQueryInformationFile(__int64 a1, __int64 a2)

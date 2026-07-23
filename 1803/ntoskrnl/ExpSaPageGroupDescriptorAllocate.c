@@ -214,7 +214,7 @@ LABEL_41:
     }
     v36->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v36->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v35], v33);
+      KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v35].TreeNode, v33);
     v41 = 0;
     v41 = v36->BoostBitmap.AllFields & 0x1FFFF;
     v36->BoostBitmap.AllFields &= 0xFFFE0000;

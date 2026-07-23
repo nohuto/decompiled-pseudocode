@@ -7,45 +7,49 @@
  *     ExRaiseDatatypeMisalignment @ 0x140767450 (ExRaiseDatatypeMisalignment.c)
  */
 
-int __fastcall NtQuerySystemInformationEx(
-        signed int a1,
-        unsigned __int64 a2,
-        unsigned int a3,
-        volatile void *a4,
-        unsigned int a5,
-        unsigned int *a6)
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  int v8; // ecx
+  __int32 v8; // ecx
   __int64 v9; // rdx
-  unsigned __int64 v10; // rcx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  int v17; // ecx
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
+  char *v10; // rcx
+  __int32 v12; // ecx
+  __int32 v13; // ecx
+  __int32 v14; // ecx
+  __int32 v15; // ecx
+  __int32 v16; // ecx
+  __int32 v17; // ecx
+  __int32 v18; // ecx
+  __int32 v19; // ecx
+  __int32 v20; // ecx
 
-  if ( !a2 || !a3 )
+  if ( !InputBuffer || !InputBufferLength )
     return -1073741811;
-  if ( a1 <= 121 )
+  if ( SystemInformationClass <= SystemNodeDistanceInformation )
   {
-    if ( a1 != 121 )
+    if ( SystemInformationClass != SystemNodeDistanceInformation )
     {
-      if ( a1 <= 73 )
+      if ( SystemInformationClass <= SystemLogicalProcessorInformation )
       {
-        if ( a1 != 73 && a1 != 8 && a1 != 23 && a1 != 42 && a1 != 61 )
+        if ( SystemInformationClass != SystemLogicalProcessorInformation
+          && SystemInformationClass != SystemProcessorPerformanceInformation
+          && SystemInformationClass != SystemInterruptInformation
+          && SystemInformationClass != SystemProcessorIdleInformation
+          && SystemInformationClass != SystemProcessorPowerInformation )
         {
-          if ( a1 != 72 )
+          if ( SystemInformationClass != SystemWatchdogTimerInformation )
             return -1073741821;
           goto LABEL_19;
         }
       }
       else
       {
-        v12 = a1 - 83;
+        v12 = SystemInformationClass - 83;
         if ( v12 )
         {
           v13 = v12 - 17;
@@ -62,11 +66,11 @@ int __fastcall NtQuerySystemInformationEx(
     }
     goto LABEL_25;
   }
-  if ( a1 <= 180 )
+  if ( SystemInformationClass <= SystemInterruptSteeringInformation )
   {
-    if ( a1 == 180 )
+    if ( SystemInformationClass == SystemInterruptSteeringInformation )
       goto LABEL_19;
-    v17 = a1 - 141;
+    v17 = SystemInformationClass - 141;
     if ( v17 )
     {
       v18 = v17 - 19;
@@ -89,7 +93,7 @@ LABEL_25:
     v9 = 1LL;
     goto LABEL_7;
   }
-  v8 = a1 - 181;
+  v8 = SystemInformationClass - 181;
   if ( v8 )
   {
     v15 = v8 - 28;
@@ -112,11 +116,17 @@ LABEL_6:
 LABEL_7:
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (v9 & a2) != 0 )
+    if ( (v9 & (unsigned __int64)InputBuffer) != 0 )
       ExRaiseDatatypeMisalignment();
-    v10 = a2 + a3;
-    if ( v10 > 0x7FFFFFFF0000LL || v10 < a2 )
+    v10 = (char *)InputBuffer + InputBufferLength;
+    if ( (unsigned __int64)v10 > 0x7FFFFFFF0000LL || v10 < InputBuffer )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  return ExpQuerySystemInformation(a1, a2, a3, a4, a5, a6);
+  return ExpQuerySystemInformation(
+           SystemInformationClass,
+           (__int64)InputBuffer,
+           InputBufferLength,
+           SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

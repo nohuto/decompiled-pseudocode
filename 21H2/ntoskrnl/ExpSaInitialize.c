@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSaInitialize @ 0x1403CA32C
+ * XREFs of ExpSaInitialize @ 0x1403CA4CC
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3DEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
- *     ExpSaAllocatorInitialize @ 0x1403CA4B0 (ExpSaAllocatorInitialize.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402696D0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140346ED0 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExpSaAllocatorInitialize @ 0x1403CA650 (ExpSaAllocatorInitialize.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char ExpSaInitialize()

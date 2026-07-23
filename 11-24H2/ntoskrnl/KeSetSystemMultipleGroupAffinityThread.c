@@ -1,18 +1,18 @@
 /*
- * XREFs of KeSetSystemMultipleGroupAffinityThread @ 0x1404C6BDC
+ * XREFs of KeSetSystemMultipleGroupAffinityThread @ 0x1404C003C
  * Callers:
- *     PsSetSystemMultipleGroupAffinityThread @ 0x1405E5760 (PsSetSystemMultipleGroupAffinityThread.c)
- *     MiCombineAllPhysicalMemory @ 0x1409F24E8 (MiCombineAllPhysicalMemory.c)
+ *     PsSetSystemMultipleGroupAffinityThread @ 0x1405E2DB0 (PsSetSystemMultipleGroupAffinityThread.c)
+ *     MiCombineAllPhysicalMemory @ 0x1409E6848 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiSetSystemAffinityThread @ 0x1403398F4 (KiSetSystemAffinityThread.c)
- *     KeFirstGroupAffinityEx @ 0x14045A8C0 (KeFirstGroupAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405C0050 (KiCpuPartitionCheckAffinitization.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiSetSystemAffinityThread @ 0x140318DD4 (KiSetSystemAffinityThread.c)
+ *     KeFirstGroupAffinityEx @ 0x14044FD10 (KeFirstGroupAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405BD680 (KiCpuPartitionCheckAffinitization.c)
  */
 
 __int64 __fastcall KeSetSystemMultipleGroupAffinityThread(__int64 a1, unsigned __int16 a2, __int64 a3)
@@ -157,7 +157,7 @@ LABEL_35:
       CurrentThread->SystemAffinityTokenListHead.Next = (struct _SINGLE_LIST_ENTRY *)a3;
     }
     KiSetSystemAffinityThread(CurrentPrcb, *(char **)(a3 + 24), 0LL, 0x800u, (struct _SINGLE_LIST_ENTRY *)&v25);
-    if ( (WORD2(xmmword_140FC5B10) & 0x200) != 0 )
+    if ( (WORD2(xmmword_140FC6B50) & 0x200) != 0 )
     {
       LOBYTE(v22) = 1;
       KiCpuPartitionCheckAffinitization(CurrentThread, CurrentThread->Affinity, v22, 0LL);

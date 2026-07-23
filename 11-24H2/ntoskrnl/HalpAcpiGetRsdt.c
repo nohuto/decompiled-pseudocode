@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpAcpiGetRsdt @ 0x1404789A4
+ * XREFs of HalpAcpiGetRsdt @ 0x14046014C
  * Callers:
- *     HalpAcpiGetTableFromBios @ 0x1404787D0 (HalpAcpiGetTableFromBios.c)
+ *     HalpAcpiGetTableFromBios @ 0x14045FC60 (HalpAcpiGetTableFromBios.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     HalpAcpiCheckAndMapTable @ 0x140264C3C (HalpAcpiCheckAndMapTable.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpAcpiGetCachedTable @ 0x140478664 (HalpAcpiGetCachedTable.c)
- *     HalpUnmapVirtualAddress @ 0x140478B90 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     HalpFlushTLB @ 0x1404F50C4 (HalpFlushTLB.c)
- *     HalpAcpiCopyBiosTable @ 0x14053D1B0 (HalpAcpiCopyBiosTable.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpAcpiGetCachedTable @ 0x14045FAF4 (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiCheckAndMapTable @ 0x14045FE34 (HalpAcpiCheckAndMapTable.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     HalpUnmapVirtualAddress @ 0x1404605A0 (HalpUnmapVirtualAddress.c)
+ *     HalpFlushTLB @ 0x1404F29C4 (HalpFlushTLB.c)
+ *     HalpAcpiCopyBiosTable @ 0x14053AAB0 (HalpAcpiCopyBiosTable.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _QWORD *__fastcall HalpAcpiGetRsdt(__int64 a1)
@@ -55,7 +55,7 @@ _QWORD *__fastcall HalpAcpiGetRsdt(__int64 a1)
     {
       v5 = (int *)(a1
                  ? HalpMap(*(CachedTable - 1), ((*(CachedTable - 1) & 0xFFFuLL) + 4131) >> 12, 1, 0, 4, 0LL)
-                 : MmMapIoSpaceEx(v4, 36LL, 0x204u));
+                 : MmMapIoSpaceEx(v4, 36LL, 516LL));
       v6 = (unsigned __int64)v5;
       if ( v5 )
       {

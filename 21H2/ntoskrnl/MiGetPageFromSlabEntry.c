@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetPageFromSlabEntry @ 0x140379F74
+ * XREFs of MiGetPageFromSlabEntry @ 0x140379AC4
  * Callers:
- *     MiGetPageFromSlabAllocator @ 0x1402E80D0 (MiGetPageFromSlabAllocator.c)
+ *     MiGetPageFromSlabAllocator @ 0x140299420 (MiGetPageFromSlabAllocator.c)
  * Callees:
- *     RtlInterlockedSetClearRun @ 0x140268460 (RtlInterlockedSetClearRun.c)
+ *     RtlInterlockedSetClearRun @ 0x140256400 (RtlInterlockedSetClearRun.c)
  */
 
 __int64 __fastcall MiGetPageFromSlabEntry(__int64 a1, __int64 a2)

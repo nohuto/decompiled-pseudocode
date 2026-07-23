@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepMatchInitBiosInfo @ 0x140CCD5F0
+ * XREFs of KsepMatchInitBiosInfo @ 0x140CD3750
  * Callers:
- *     KsepMatchInitMachineInfo @ 0x140CCD8F8 (KsepMatchInitMachineInfo.c)
+ *     KsepMatchInitMachineInfo @ 0x140CD3A58 (KsepMatchInitMachineInfo.c)
  * Callees:
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     wcstoul @ 0x1405389D0 (wcstoul.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KsepRegistryQueryMULTISZ @ 0x1407BF25C (KsepRegistryQueryMULTISZ.c)
- *     KsepRegistryQuerySZ @ 0x1407BF28C (KsepRegistryQuerySZ.c)
- *     KsepRegistryCloseKey @ 0x1409E42F0 (KsepRegistryCloseKey.c)
- *     KsepRegistryOpenKey @ 0x1409E5254 (KsepRegistryOpenKey.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     wcstoul @ 0x14053AE50 (wcstoul.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KsepRegistryQueryMULTISZ @ 0x1407C22BC (KsepRegistryQueryMULTISZ.c)
+ *     KsepRegistryQuerySZ @ 0x1407C22EC (KsepRegistryQuerySZ.c)
+ *     KsepRegistryOpenKey @ 0x1409D7988 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x1409D8784 (KsepRegistryCloseKey.c)
  */
 
 __int64 KsepMatchInitBiosInfo()
@@ -30,47 +30,47 @@ __int64 KsepMatchInitBiosInfo()
 
   v8 = 0LL;
   KeyHandle = 0LL;
-  xmmword_140E621B8 = 0LL;
-  qword_140E621E8 = 0LL;
+  xmmword_140E62348 = 0LL;
+  qword_140E62378 = 0LL;
   v0 = -1;
-  xmmword_140E621C8 = 0LL;
-  xmmword_140E621D8 = 0LL;
-  MULTISZ = KsepRegistryOpenKey((__int64)L"\\Registry\\Machine\\Hardware\\Description\\System", 0LL, &KeyHandle);
+  xmmword_140E62358 = 0LL;
+  xmmword_140E62368 = 0LL;
+  MULTISZ = KsepRegistryOpenKey(L"\\Registry\\Machine\\Hardware\\Description\\System", 0LL, &KeyHandle);
   if ( MULTISZ >= 0 )
   {
     MULTISZ = KsepRegistryQuerySZ(KeyHandle, L"SystemBiosDate", 1, v9, 0x16uLL, &v8);
     if ( MULTISZ >= 0 )
     {
       Str[4] = 0;
-      *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-      + (((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                             1u)
-        + 1) & 0x3F)) = 655814LL;
-      if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+      *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                        * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                               &KsepHistoryMessagesIndex,
+                                                                               1u)
+                                                          + 1) & 0x3F)] = 655814LL;
+      if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
         KsepDebugPrint(0LL, (int)"KSE: BiosDate name [%ws] .\n", v9);
       KsepLogInfo(0LL, (__int64)"KSE: BiosDate name [%ws] .\n", v9);
-      MULTISZ = KsepRegistryQueryMULTISZ(KeyHandle, L"SystemBiosVersion", (__int64)&unk_140E61D60, 520LL, (__int64)&v8);
-      word_140E61F66 = 0;
+      MULTISZ = KsepRegistryQueryMULTISZ(KeyHandle, L"SystemBiosVersion", (__int64)&unk_140E61EF0, 520LL, (__int64)&v8);
+      word_140E620F6 = 0;
       for ( i = 0; i < 0x104; ++i )
       {
         v3 = 2LL * i;
-        if ( *(_WORD *)((char *)&unk_140E61D60 + v3) == 32 )
+        if ( *(_WORD *)((char *)&unk_140E61EF0 + v3) == 32 )
         {
           if ( v3 >= 0x208 )
             _report_rangecheckfailure();
-          *(_WORD *)((char *)&unk_140E61D60 + v3) = 0;
+          *(_WORD *)((char *)&unk_140E61EF0 + v3) = 0;
           break;
         }
       }
-      *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-      + (((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                             1u)
-        + 1) & 0x3F)) = 655838LL;
-      if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
-        KsepDebugPrint(0LL, (int)"KSE: BiosVendor name [%ws] .\n", &unk_140E61D60);
-      KsepLogInfo(0LL, (__int64)"KSE: BiosVendor name [%ws] .\n", &unk_140E61D60);
+      *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                        * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                               &KsepHistoryMessagesIndex,
+                                                                               1u)
+                                                          + 1) & 0x3F)] = 655838LL;
+      if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
+        KsepDebugPrint(0LL, (int)"KSE: BiosVendor name [%ws] .\n", &unk_140E61EF0);
+      KsepLogInfo(0LL, (__int64)"KSE: BiosVendor name [%ws] .\n", &unk_140E61EF0);
       v9[2] = 0;
       v10[2] = 0;
       v4 = wcstoul(Str, 0LL, 16);
@@ -82,13 +82,13 @@ __int64 KsepMatchInitBiosInfo()
     KsepRegistryCloseKey(KeyHandle);
   if ( MULTISZ < 0 )
   {
-    *(_QWORD *)&xmmword_140E621B8 = 0LL;
-    DWORD2(xmmword_140E621D8) = -1;
+    *(_QWORD *)&xmmword_140E62348 = 0LL;
+    DWORD2(xmmword_140E62368) = -1;
   }
   else
   {
-    *(_QWORD *)&xmmword_140E621B8 = &unk_140E61D60;
-    DWORD2(xmmword_140E621D8) = v0;
+    *(_QWORD *)&xmmword_140E62348 = &unk_140E61EF0;
+    DWORD2(xmmword_140E62368) = v0;
   }
   return (unsigned int)MULTISZ;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlEqualComputerName @ 0x180140560
+ * XREFs of RtlEqualComputerName @ 0x180140460
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-bool __fastcall RtlEqualComputerName(__int64 a1, __int64 a2, __int64 a3)
+BOOLEAN __cdecl RtlEqualComputerName(PUNICODE_STRING String1, PUNICODE_STRING String2)
 {
-  return RtlEqualDomainName(a1, a2, a3);
+  return RtlEqualDomainName(String1, String2);
 }

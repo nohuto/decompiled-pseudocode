@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrqlLogCRStackTrace @ 0x140B9D6F8
+ * XREFs of ViIrqlLogCRStackTrace @ 0x140B9F6F8
  * Callers:
- *     ViIrqlKeEnterCriticalRegion_Exit @ 0x140B9D680 (ViIrqlKeEnterCriticalRegion_Exit.c)
- *     ViIrqlKeLeaveCriticalRegion_Entry @ 0x140B9D6A0 (ViIrqlKeLeaveCriticalRegion_Entry.c)
+ *     ViIrqlKeEnterCriticalRegion_Exit @ 0x140B9F680 (ViIrqlKeEnterCriticalRegion_Exit.c)
+ *     ViIrqlKeLeaveCriticalRegion_Entry @ 0x140B9F6A0 (ViIrqlKeLeaveCriticalRegion_Entry.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
  */
 
 void ViIrqlLogCRStackTrace()

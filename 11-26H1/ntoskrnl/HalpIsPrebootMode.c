@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpIsPrebootMode @ 0x140584F08
+ * XREFs of HalpIsPrebootMode @ 0x140587428
  * Callers:
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
- *     HalpIommuInitSystem @ 0x140BEB6E0 (HalpIommuInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
+ *     HalpIommuInitSystem @ 0x140BF16E0 (HalpIommuInitSystem.c)
  * Callees:
  *     <none>
  */

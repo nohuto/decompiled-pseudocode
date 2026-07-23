@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwInitializeProcessor @ 0x140824894
+ * XREFs of EtwInitializeProcessor @ 0x14082AAD4
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     EtwpStackDeleteProcessor @ 0x1406C6A00 (EtwpStackDeleteProcessor.c)
- *     EtwpStackInitializeProcessor @ 0x1406C6A48 (EtwpStackInitializeProcessor.c)
- *     EtwpCCSwapDeleteProcessor @ 0x1406C8DA4 (EtwpCCSwapDeleteProcessor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpStackDeleteProcessor @ 0x1406CA700 (EtwpStackDeleteProcessor.c)
+ *     EtwpStackInitializeProcessor @ 0x1406CA748 (EtwpStackInitializeProcessor.c)
+ *     EtwpCCSwapDeleteProcessor @ 0x1406CCD84 (EtwpCCSwapDeleteProcessor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwInitializeProcessor(__int64 a1)
 {
   __int64 Pool2; // rax
-  union _SLIST_HEADER *v4; // rdi
+  _SLIST_HEADER *v4; // rdi
   int v5; // ebx
   __int64 *v6; // rsi
   unsigned __int64 i; // rbx
@@ -30,7 +30,7 @@ __int64 __fastcall EtwInitializeProcessor(__int64 a1)
   if ( !EtwpHostSiloState )
     return 0LL;
   Pool2 = ExAllocatePool2(0x40uLL);
-  v4 = (union _SLIST_HEADER *)Pool2;
+  v4 = (_SLIST_HEADER *)Pool2;
   if ( Pool2 )
   {
     v6 = (__int64 *)(Pool2 + 408);

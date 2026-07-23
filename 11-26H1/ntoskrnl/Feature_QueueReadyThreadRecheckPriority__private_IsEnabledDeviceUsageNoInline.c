@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_QueueReadyThreadRecheckPriority__private_IsEnabledDeviceUsageNoInline @ 0x1405269D4
+ * XREFs of Feature_QueueReadyThreadRecheckPriority__private_IsEnabledDeviceUsageNoInline @ 0x140529044
  * Callers:
- *     KiInitializeVelocity @ 0x140CCA1CC (KiInitializeVelocity.c)
+ *     KiInitializeVelocity @ 0x140CD02B4 (KiInitializeVelocity.c)
  * Callees:
- *     Feature_QueueReadyThreadRecheckPriority__private_IsEnabledFallback @ 0x140526A10 (Feature_QueueReadyThreadRecheckPriority__private_IsEnabledFallback.c)
+ *     Feature_QueueReadyThreadRecheckPriority__private_IsEnabledFallback @ 0x140529080 (Feature_QueueReadyThreadRecheckPriority__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_QueueReadyThreadRecheckPriority__private_IsEnabledDeviceUsageNoInline()

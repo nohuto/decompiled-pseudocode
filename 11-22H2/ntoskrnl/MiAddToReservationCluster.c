@@ -87,10 +87,13 @@ __int64 __fastcall MiAddToReservationCluster(
         if ( _bittest64(*(const signed __int64 **)(a2 + 8), v18) )
         {
           _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v12 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
@@ -133,10 +136,10 @@ LABEL_65:
               }
 LABEL_25:
               _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v19 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v19 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v19 >= 2u )
                 {
                   v20 = KeGetCurrentPrcb();
                   v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
@@ -164,10 +167,10 @@ LABEL_40:
         }
         v30 = MiReferencePageForModifiedWrite(48 * v9 - 0x220000000000LL, 0);
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v31 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v31 >= 2u )
           {
             v32 = KeGetCurrentPrcb();
             v33 = v32->SchedulerAssist;
@@ -205,10 +208,10 @@ LABEL_40:
       else
       {
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v13 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
           {
             v14 = KeGetCurrentPrcb();
             v15 = v14->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPluginDevicePower @ 0x1400C20DC
+ * XREFs of PopPluginDevicePower @ 0x1400BFF6C
  * Callers:
- *     PopFxCompleteDevicePowerRequired @ 0x1400C1204 (PopFxCompleteDevicePowerRequired.c)
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x1400BF094 (PopFxCompleteDevicePowerRequired.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
  * Callees:
- *     PopPepProcessEvent @ 0x1400C2248 (PopPepProcessEvent.c)
- *     PopPepUpdateConstraints @ 0x14012C374 (PopPepUpdateConstraints.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopPepProcessEvent @ 0x1400C00D8 (PopPepProcessEvent.c)
+ *     PopPepUpdateConstraints @ 0x14012C8E4 (PopPepUpdateConstraints.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginDevicePower(__int64 a1, char a2, __int64 a3)

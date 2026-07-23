@@ -10,40 +10,42 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall LdrUpdatePackageSearchPath(const unsigned __int16 *Src)
+NTSTATUS __cdecl LdrUpdatePackageSearchPath(PWSTR SearchPathA)
 {
-  int v1; // esi
+  NTSTATUS v1; // esi
   unsigned int v2; // kr00_4
-  size_t v3; // edi
-  wchar_t *StringRoutine; // eax
+  unsigned int v3; // edi
+  _OBJECT_BOUNDARY_DESCRIPTOR *StringRoutine; // eax
   wchar_t *v5; // ebx
-  wchar_t *v7; // [esp+Ch] [ebp-4h]
-  wchar_t *Buffer; // [esp+Ch] [ebp-4h]
+  size_t v7; // [esp-4h] [ebp-14h]
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [esp+Ch] [ebp-4h]
+  _OBJECT_BOUNDARY_DESCRIPTOR *BoundaryDescriptora; // [esp+Ch] [ebp-4h]
 
-  if ( !Src )
+  if ( !SearchPathA )
     return -1073741811;
   v1 = 0;
-  v2 = wcslen(Src);
+  v2 = wcslen((const unsigned __int16 *)SearchPathA);
   v3 = 2 * v2;
   if ( !(2 * v2) )
     return -1073741811;
   if ( v3 >= 0xFFFE )
     return -1073741562;
-  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v3 + 2);
-  v7 = StringRoutine;
+  StringRoutine = (_OBJECT_BOUNDARY_DESCRIPTOR *)NtdllpAllocateStringRoutine(v3 + 2);
+  BoundaryDescriptor = StringRoutine;
   if ( !StringRoutine )
     return -1073741801;
-  memcpy(StringRoutine, Src, v3);
-  v5 = v7;
-  v7[v3 >> 1] = 0;
+  LODWORD(v7) = 2 * v2;
+  memcpy(StringRoutine, SearchPathA, v7);
+  v5 = (wchar_t *)BoundaryDescriptor;
+  *((_WORD *)&BoundaryDescriptor->Version + (v3 >> 1)) = 0;
   RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
-  Buffer = LdrpAppPackagesPath.Buffer;
+  BoundaryDescriptora = (_OBJECT_BOUNDARY_DESCRIPTOR *)LdrpAppPackagesPath.Buffer;
   LdrpAppPackagesPath.Length = 2 * v2;
   ++LdrpAppPackagesPathVersion;
   LdrpAppPackagesPath.Buffer = v5;
   LdrpAppPackagesPath.MaximumLength = v3 + 2;
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
-  if ( Buffer != LdrpOriginalAppPackagesPath.Buffer )
-    RtlDeleteBoundaryDescriptor((int)Buffer);
+  if ( BoundaryDescriptora != (_OBJECT_BOUNDARY_DESCRIPTOR *)LdrpOriginalAppPackagesPath.Buffer )
+    RtlDeleteBoundaryDescriptor(BoundaryDescriptora);
   return v1;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpViewMapMigrateCOWData @ 0x1407DEE3C
+ * XREFs of HvpViewMapMigrateCOWData @ 0x1407DF38C
  * Callers:
- *     HvpViewMapPromoteRangeToMapping @ 0x1409826CC (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x14096AEDC (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x14046A844 (CmSiProtectViewOfSection.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     HvpAllExceptionsFatalFilter @ 0x1407DEDD4 (HvpAllExceptionsFatalFilter.c)
- *     HvpViewMapMakeViewRangeReadOnly @ 0x14097FD44 (HvpViewMapMakeViewRangeReadOnly.c)
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14097FE30 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     CmSiProtectViewOfSection @ 0x1404631DC (CmSiProtectViewOfSection.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     HvpAllExceptionsFatalFilter @ 0x1407DF324 (HvpAllExceptionsFatalFilter.c)
+ *     HvpViewMapMakeViewRangeReadOnly @ 0x140968554 (HvpViewMapMakeViewRangeReadOnly.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x140968640 (HvpViewMapMakeViewRangeCOWByCaller.c)
  */
 
-__int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall HvpViewMapMigrateCOWData(ULONG_PTR a1, _QWORD *a2, _QWORD *a3)
 {
   _QWORD *v5; // r12
   __int64 v6; // rbx
@@ -25,8 +25,8 @@ __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
   _QWORD *v15; // r12
   __int64 v16; // rcx
   unsigned __int8 *v17; // [rsp+50h] [rbp-48h]
-  __int64 v19; // [rsp+A0h] [rbp+8h]
-  int v20; // [rsp+B8h] [rbp+20h] BYREF
+  ULONG_PTR v19; // [rsp+A0h] [rbp+8h]
+  __int64 v20; // [rsp+B8h] [rbp+20h] BYREF
 
   v19 = a1;
   v5 = a2;
@@ -70,10 +70,10 @@ __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
       }
       else
       {
-        v20 = 0;
+        LODWORD(v20) = 0;
         v15 = a2 + 3;
         v13 = v10 - v6;
-        CmSiProtectViewOfSection(a1, *(__int64 **)(a1 + 24), a2[7] + v6 - a2[3], v10 - v6, 8u, (__int64)&v20);
+        CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), (void *)(a2[7] + v6 - a2[3]), v10 - v6, 8u, (ULONG *)&v20);
         v16 = v6;
         if ( v6 >= v10 )
         {

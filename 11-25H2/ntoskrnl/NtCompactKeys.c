@@ -21,19 +21,19 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtCompactKeys(unsigned int a1, const void *a2)
+NTSTATUS __cdecl NtCompactKeys(ULONG Count, HANDLE KeyArray[])
 {
   struct _PRIVILEGE_SET *TransientPoolWithQuota; // r14
-  unsigned int v5; // r15d
+  ULONG v5; // r15d
   char v6; // r13
   __int64 v7; // rcx
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   char v9; // al
-  unsigned int v10; // ebx
+  ULONG v10; // ebx
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // r9
-  unsigned int i; // esi
+  ULONG i; // esi
   __int64 v15; // r13
   __int64 v16; // rdx
   __int64 v17; // rax
@@ -62,24 +62,24 @@ LABEL_4:
     v9 = 0;
     goto LABEL_38;
   }
-  if ( !a1 )
+  if ( !Count )
   {
     v8 = 0;
     goto LABEL_4;
   }
-  if ( a1 >= 0x1FFFFFFF )
+  if ( Count >= 0x1FFFFFFF )
   {
     v8 = -1073741811;
     goto LABEL_4;
   }
-  v10 = 8 * a1;
+  v10 = 8 * Count;
   TransientPoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuota();
   if ( TransientPoolWithQuota )
   {
-    if ( PreviousMode == 1 && v10 && ((unsigned __int8)a2 & 3) != 0 )
+    if ( PreviousMode == 1 && v10 && ((unsigned __int8)KeyArray & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    memmove(TransientPoolWithQuota, a2, v10);
-    while ( v5 < a1 )
+    memmove(TransientPoolWithQuota, KeyArray, v10);
+    while ( v5 < Count )
     {
       LOBYTE(v13) = PreviousMode;
       v8 = CmObReferenceObjectByHandle(
@@ -103,7 +103,7 @@ LABEL_4:
     {
       CmpLockRegistryExclusive();
       v24 = 0LL;
-      for ( i = 0; i < a1; ++i )
+      for ( i = 0; i < Count; ++i )
       {
         v15 = *((_QWORD *)&TransientPoolWithQuota->PrivilegeCount + i);
         v8 = CmpPerformKeyBodyDeletionCheck(v15, 0LL);
@@ -172,5 +172,5 @@ LABEL_38:
     CmSiFreeMemory(TransientPoolWithQuota);
   }
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v25);
-  return (unsigned int)v8;
+  return v8;
 }

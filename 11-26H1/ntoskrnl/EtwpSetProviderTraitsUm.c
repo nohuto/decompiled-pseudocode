@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpSetProviderTraitsUm @ 0x14093D410
+ * XREFs of EtwpSetProviderTraitsUm @ 0x140918FB0
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     EtwpEventWriteRegistrationStatus @ 0x140825610 (EtwpEventWriteRegistrationStatus.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     EtwpSetProviderTraitsCommon @ 0x14093D5E4 (EtwpSetProviderTraitsCommon.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x14082B850 (EtwpEventWriteRegistrationStatus.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140919184 (EtwpSetProviderTraitsCommon.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
@@ -20,11 +20,11 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   NTSTATUS v7; // ebx
   __int16 v8; // ax
   __int64 Pool2; // rax
-  __int64 v10; // rbx
+  _RTL_BALANCED_NODE *v10; // rbx
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // r8
-  __int64 v15; // [rsp+20h] [rbp-48h]
+  PRTL_BALANCED_NODE Node; // [rsp+20h] [rbp-48h]
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
   v6 = 0LL;
@@ -48,7 +48,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
       {
         ProbeForRead(*(volatile void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16), 1u);
         Pool2 = ExAllocatePool2(0x100uLL);
-        v10 = Pool2;
+        v10 = (_RTL_BALANCED_NODE *)Pool2;
         if ( Pool2 )
         {
           RtlCopyFromUser((void *)(Pool2 + 28), *(void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
@@ -59,8 +59,8 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
                  (int)v6,
                  v10,
                  *(unsigned __int16 *)(a1 + 16),
-                 &unk_140F03540,
-                 (__int64)&EtwpSecurityLock.SchedulerApc.NormalContext);
+                 (PKGUARDED_MUTEX)&stru_140F03830.MutantListHead.Blink,
+                 (PRTL_RB_TREE)&stru_140F03830.PriorityFloorCounts[24]);
         }
         else
         {
@@ -81,10 +81,11 @@ LABEL_17:
 LABEL_11:
   if ( v6 )
   {
-    if ( v7 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SET_TRAITS_FAILED) )
+    if ( v7
+      && EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_SET_TRAITS_FAILED) )
     {
-      LODWORD(v15) = v7;
-      EtwpEventWriteRegistrationStatus(v13, v12, v14, (__int64)v6, v15);
+      LODWORD(Node) = v7;
+      EtwpEventWriteRegistrationStatus(v13, v12, v14, (__int64)v6, (__int64)Node);
     }
     ObfDereferenceObject(v6);
   }

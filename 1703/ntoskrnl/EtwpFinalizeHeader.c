@@ -24,25 +24,22 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
 {
   _QWORD *v3; // r14
   unsigned int Length; // esi
-  PVOID Buffer; // rdi
+  LARGE_INTEGER *Buffer; // rdi
   NTSTATUS v9; // ebp
   _QWORD *v10; // rbp
-  unsigned int v11; // eax
+  unsigned int HighPart; // eax
   NTSTATUS v12; // eax
   NTSTATUS result; // eax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  bool v17; // zf
-  int v18; // eax
+  bool v14; // zf
+  int v15; // eax
   unsigned __int64 MaximumFileSize; // rax
-  unsigned __int64 v20; // rdx
+  unsigned __int64 v17; // rdx
   LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-78h] BYREF
   unsigned __int64 FileInformation; // [rsp+58h] [rbp-70h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-68h] BYREF
-  struct _IO_STATUS_BLOCK v24; // [rsp+70h] [rbp-58h] BYREF
+  struct _IO_STATUS_BLOCK v21; // [rsp+70h] [rbp-58h] BYREF
   char FsInformation[20]; // [rsp+80h] [rbp-48h] BYREF
-  int v26; // [rsp+94h] [rbp-34h]
+  int v23; // [rsp+94h] [rbp-34h]
 
   v3 = (_QWORD *)(a1 + 112);
   if ( (_QWORD *)*v3 == v3 && *(_QWORD *)(a1 + 856) == a1 + 856 )
@@ -50,13 +47,13 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
     result = ZwQueryVolumeInformationFile(a2, &IoStatusBlock, FsInformation, 0x18u, FileFsSizeInformation);
     if ( result < 0 )
       return result;
-    Length = (v26 + 383) & ~(v26 - 1);
+    Length = (v23 + 383) & ~(v23 - 1);
   }
   else
   {
     Length = *(_DWORD *)(a1 + 4);
   }
-  Buffer = ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
+  Buffer = (LARGE_INTEGER *)ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
   if ( !Buffer )
     return -1073741801;
   ByteOffset.QuadPart = 0LL;
@@ -65,26 +62,26 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
   {
     if ( !a3 )
     {
-      *((_DWORD *)Buffer + 35) = *(_DWORD *)(a1 + 248);
-      *((_DWORD *)Buffer + 29) = EtwpQueryUsedProcessorCount(a1);
-      *((_DWORD *)Buffer + 38) += *(_DWORD *)(a1 + 240);
-      KeQuerySystemTimePrecise((__int64 *)Buffer + 15, v14, v15, v16);
-      v17 = (unsigned __int8)EtwpIsWow64Logger(a1) == 0;
-      v18 = *(_DWORD *)(a1 + 252);
-      if ( v17 )
-        *((_DWORD *)Buffer + 95) += v18;
+      Buffer[17].HighPart = *(_DWORD *)(a1 + 248);
+      Buffer[14].HighPart = EtwpQueryUsedProcessorCount(a1);
+      Buffer[19].LowPart += *(_DWORD *)(a1 + 240);
+      KeQuerySystemTimePrecise(Buffer + 15);
+      v14 = (unsigned __int8)EtwpIsWow64Logger(a1) == 0;
+      v15 = *(_DWORD *)(a1 + 252);
+      if ( v14 )
+        Buffer[47].HighPart += v15;
       else
-        *((_DWORD *)Buffer + 93) += v18;
+        Buffer[46].HighPart += v15;
     }
     v10 = (_QWORD *)(a1 + 856);
     if ( (_QWORD *)*v10 != v10 || (_QWORD *)*v3 != v3 )
     {
-      v11 = *((_DWORD *)Buffer + 1);
-      if ( v11 < Length && v11 >= 0x178 )
+      HighPart = Buffer->HighPart;
+      if ( HighPart < Length && HighPart >= 0x178 )
       {
-        *((_DWORD *)Buffer + 12) = v11;
+        Buffer[6].LowPart = HighPart;
         if ( (_QWORD *)*v3 != v3 )
-          EtwpAddDebugInfoEvents(a1, (__int64)Buffer, Length, (__int64 *)Buffer + 11, 3);
+          EtwpAddDebugInfoEvents(a1, (__int64)Buffer, Length, (__int64 *)&Buffer[11], 3);
         if ( (_QWORD *)*v10 != v10 )
           EtwpAddBinaryInfoEvents(a1, Buffer, Length);
       }
@@ -94,10 +91,10 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
     if ( !a3 && v12 >= 0 && (*(_DWORD *)(a1 + 12) & 0x20) != 0 )
     {
       MaximumFileSize = EtwpQueryMaximumFileSize(a1);
-      if ( v20 < MaximumFileSize )
+      if ( v17 < MaximumFileSize )
       {
-        FileInformation = v20;
-        v9 = ZwSetInformationFile(a2, &v24, &FileInformation, 8u, FileEndOfFileInformation);
+        FileInformation = v17;
+        v9 = ZwSetInformationFile(a2, &v21, &FileInformation, 8u, FileEndOfFileInformation);
       }
     }
   }

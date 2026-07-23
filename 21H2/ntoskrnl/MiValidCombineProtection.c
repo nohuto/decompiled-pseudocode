@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidCombineProtection @ 0x140367DE0
+ * XREFs of MiValidCombineProtection @ 0x140367F90
  * Callers:
- *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140726FD0 (MiProcessCrcList.c)
  * Callees:
  *     <none>
  */

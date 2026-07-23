@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCheckForResource @ 0x140344B48
+ * XREFs of ExpCheckForResource @ 0x140346BC8
  * Callers:
- *     ExpFreePoolChecks @ 0x140344A90 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x140346B10 (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     VfCheckForResource @ 0x140C461BC (VfCheckForResource.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     VfCheckForResource @ 0x140C4C1CC (VfCheckForResource.c)
  */
 
 __int64 __fastcall ExpCheckForResource(struct _KTHREAD *a1, ULONG_PTR a2)
@@ -20,8 +20,8 @@ __int64 __fastcall ExpCheckForResource(struct _KTHREAD *a1, ULONG_PTR a2)
     && (ExResourceCheckFlags & 1) != 0 )
   {
     v5 = ExAcquireSpinLockShared(&ExpResourceSpinLock);
-    for ( i = *(struct _KTHREAD **)&ExSaPageGroupDescriptorArrayLock.Spare36;
-          i != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.Spare36;
+    for ( i = *(struct _KTHREAD **)&ExSaPageGroupDescriptorArrayLock.ResourceIndex;
+          i != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.ResourceIndex;
           i = *(struct _KTHREAD **)&i->Header.Lock )
     {
       if ( i >= a1 && i < (struct _KTHREAD *)((char *)a1 + a2) )

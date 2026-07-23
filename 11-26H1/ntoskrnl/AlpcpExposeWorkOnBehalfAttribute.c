@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpExposeWorkOnBehalfAttribute @ 0x1409739AC
+ * XREFs of AlpcpExposeWorkOnBehalfAttribute @ 0x1409BA23C
  * Callers:
- *     AlpcpExposeAttributes @ 0x140972B20 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x1409B93B0 (AlpcpExposeAttributes.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
  */
 
 void __fastcall AlpcpExposeWorkOnBehalfAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4, char a5)

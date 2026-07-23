@@ -7,27 +7,27 @@
  *     RtlpInterlockedFlushSList @ 0x1406A8640 (RtlpInterlockedFlushSList.c)
  */
 
-PSLIST_ENTRY ExpPlProcessNotifications()
+int ExpPlProcessNotifications()
 {
-  PSLIST_ENTRY result; // rax
+  PSLIST_ENTRY v0; // rax
   _QWORD *p_Next; // rbx
-  _QWORD *v2; // rdx
-  int v3; // [rsp+58h] [rbp+10h] BYREF
+  const WNF_STATE_NAME *v2; // rdx
+  unsigned int Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   dword_140E28DF0 = 0;
-  result = RtlpInterlockedFlushSList(&stru_140E28DE0);
-  p_Next = &result->Next;
-  if ( result )
+  v0 = RtlpInterlockedFlushSList(&stru_140E28DE0);
+  p_Next = &v0->Next;
+  if ( v0 )
   {
     do
     {
-      v2 = p_Next;
+      v2 = (const WNF_STATE_NAME *)p_Next;
       p_Next = (_QWORD *)*p_Next;
-      *((_DWORD *)v2 + 4) = 0;
-      v3 = *((_DWORD *)v2 - 18);
-      result = (PSLIST_ENTRY)ZwUpdateWnfStateData(v2 - 2, &v3, 4LL, 0LL, 0LL, 0, 0);
+      v2[2].Data[0] = 0;
+      Buffer = v2[-9].Data[0];
+      LODWORD(v0) = ZwUpdateWnfStateData(v2 - 2, &Buffer, 4u, 0LL, 0LL, 0, 0);
     }
     while ( p_Next );
   }
-  return result;
+  return (int)v0;
 }

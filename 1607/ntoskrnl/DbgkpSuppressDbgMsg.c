@@ -1,8 +1,8 @@
 /*
- * XREFs of DbgkpSuppressDbgMsg @ 0x14061AD5C
+ * XREFs of DbgkpSuppressDbgMsg @ 0x14061AE10
  * Callers:
- *     DbgkMapViewOfSection @ 0x1404CAD90 (DbgkMapViewOfSection.c)
- *     DbgkUnMapViewOfSection @ 0x1404D138C (DbgkUnMapViewOfSection.c)
+ *     DbgkMapViewOfSection @ 0x1404B07BC (DbgkMapViewOfSection.c)
+ *     DbgkUnMapViewOfSection @ 0x1404B4E2C (DbgkUnMapViewOfSection.c)
  * Callees:
  *     <none>
  */

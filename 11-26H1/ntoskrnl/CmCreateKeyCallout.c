@@ -1,10 +1,10 @@
 /*
- * XREFs of CmCreateKeyCallout @ 0x1409748A0
+ * XREFs of CmCreateKeyCallout @ 0x1409368B0
  * Callers:
- *     NtCreateKeyTransacted @ 0x140974390 (NtCreateKeyTransacted.c)
- *     NtCreateKey @ 0x140A82AB0 (NtCreateKey.c)
+ *     NtCreateKeyTransacted @ 0x1409363A0 (NtCreateKeyTransacted.c)
+ *     NtCreateKey @ 0x140A88920 (NtCreateKey.c)
  * Callees:
- *     CmCreateKey @ 0x1409748F0 (CmCreateKey.c)
+ *     CmCreateKey @ 0x140936900 (CmCreateKey.c)
  */
 
 void __fastcall CmCreateKeyCallout(_QWORD *Parameter)

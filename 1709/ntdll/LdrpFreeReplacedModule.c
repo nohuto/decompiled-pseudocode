@@ -10,10 +10,10 @@
  *     LdrpFreeLoadContext @ 0x18006D59C (LdrpFreeLoadContext.c)
  */
 
-__int64 __fastcall LdrpFreeReplacedModule(__int64 a1)
+int __fastcall LdrpFreeReplacedModule(PVOID *BaseAddress)
 {
-  LdrpFreeLoadContext(*(_QWORD *)(a1 + 176));
-  *(_DWORD *)(a1 + 104) &= ~0x20u;
-  *(_DWORD *)(a1 + 276) = 1;
-  return LdrpDereferenceModule(a1);
+  LdrpFreeLoadContext(BaseAddress[22]);
+  *((_DWORD *)BaseAddress + 26) &= ~0x20u;
+  *((_DWORD *)BaseAddress + 69) = 1;
+  return LdrpDereferenceModule((char *)BaseAddress);
 }

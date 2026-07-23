@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetPreviousStandbyPageSecondaryNoLockAsserts @ 0x1402CB340
+ * XREFs of MiSetPreviousStandbyPageSecondaryNoLockAsserts @ 0x1402AD100
  * Callers:
- *     MiExclusiveInsertPfnChainInList @ 0x1402CC408 (MiExclusiveInsertPfnChainInList.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1402AE1C8 (MiExclusiveInsertPfnChainInList.c)
  * Callees:
  *     <none>
  */

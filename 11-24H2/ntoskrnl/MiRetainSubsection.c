@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRetainSubsection @ 0x14036F5D4
+ * XREFs of MiRetainSubsection @ 0x1402723E4
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
- *     MiFaultGetFileExtents @ 0x14036F4C8 (MiFaultGetFileExtents.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
+ *     MiFaultGetFileExtents @ 0x140426C40 (MiFaultGetFileExtents.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIncrementSubsectionViewCount @ 0x1402624F0 (MiIncrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402743B0 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiRetainSubsection(__int64 *BugCheckParameter2)
@@ -19,6 +19,6 @@ void __fastcall MiRetainSubsection(__int64 *BugCheckParameter2)
   ++*(_QWORD *)(v1 + 40);
   v3 = *(_DWORD *)(v1 + 56);
   if ( (v3 & 0x20) == 0 && *(_QWORD *)(v1 + 64) && (v3 & 0x400) == 0 )
-    MiIncrementSubsectionViewCount(BugCheckParameter2, 4);
+    MiIncrementSubsectionViewCount((ULONG_PTR)BugCheckParameter2);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 72));
 }

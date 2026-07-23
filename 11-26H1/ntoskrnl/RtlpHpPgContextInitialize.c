@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpPgContextInitialize @ 0x14063A7C8
+ * XREFs of RtlpHpPgContextInitialize @ 0x14063D7D8
  * Callers:
- *     RtlpHpHeapCreate @ 0x140638298 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14063B29C (RtlpHpHeapCreate.c)
  * Callees:
  *     <none>
  */

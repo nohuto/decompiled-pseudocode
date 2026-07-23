@@ -1,16 +1,16 @@
 /*
- * XREFs of HsaInitializeInterruptRemapping @ 0x140A990C8
+ * XREFs of HsaInitializeInterruptRemapping @ 0x140A98F38
  * Callers:
- *     HsaInitializeIommu @ 0x140A99260 (HsaInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x140A990D0 (HsaInitializeIommu.c)
  * Callees:
- *     RtlInitializeBitMap @ 0x14034EDA0 (RtlInitializeBitMap.c)
- *     HalpGetIrtEntryCount @ 0x14036F1BC (HalpGetIrtEntryCount.c)
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
- *     ExtEnvInitializeSpinLock @ 0x1403B47DC (ExtEnvInitializeSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExtEnvClearBits @ 0x14051F4C0 (ExtEnvClearBits.c)
+ *     RtlInitializeBitMap @ 0x14034EF40 (RtlInitializeBitMap.c)
+ *     HalpGetIrtEntryCount @ 0x14036F35C (HalpGetIrtEntryCount.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
+ *     ExtEnvInitializeSpinLock @ 0x1403B49BC (ExtEnvInitializeSpinLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExtEnvClearBits @ 0x14051FA10 (ExtEnvClearBits.c)
  */
 
 __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
   LARGE_INTEGER v4; // rax
   PVOID v5; // rax
   __int64 v6; // rcx
-  RTL_BITMAP *v7; // rcx
+  _RTL_BITMAP *v7; // rcx
   __int64 v8; // rcx
   __int64 v9; // rax
   PULONG BitMapBuffer; // [rsp+30h] [rbp+8h] BYREF

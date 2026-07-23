@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLargeAllocGetMetadata @ 0x1403547F8
+ * XREFs of RtlpHpLargeAllocGetMetadata @ 0x1403565A0
  * Callers:
- *     RtlpHpLargeFree @ 0x1403546B4 (RtlpHpLargeFree.c)
- *     RtlpHpExtrasSetPresent @ 0x140637FB0 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpLargeFree @ 0x14035645C (RtlpHpLargeFree.c)
+ *     RtlpHpExtrasSetPresent @ 0x14063AFB4 (RtlpHpExtrasSetPresent.c)
  * Callees:
  *     <none>
  */

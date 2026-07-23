@@ -1,17 +1,17 @@
 /*
- * XREFs of HvpAdjustBitmap @ 0x1405A5024
+ * XREFs of HvpAdjustBitmap @ 0x1405A6024
  * Callers:
- *     HvpAdjustHiveFreeDisplay @ 0x1405A4FA8 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1405A5FA8 (HvpAdjustHiveFreeDisplay.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall HvpAdjustBitmap(__int64 a1, unsigned int a2, unsigned int *a3)
 {
-  struct _RTL_BITMAP *v3; // r14
+  _RTL_BITMAP *v3; // r14
   unsigned int v4; // ebx
   unsigned int v7; // esi
   unsigned int v8; // edi
@@ -20,7 +20,7 @@ __int64 __fastcall HvpAdjustBitmap(__int64 a1, unsigned int a2, unsigned int *a3
   unsigned int *v11; // rbp
   unsigned int *Buffer; // r15
 
-  v3 = (struct _RTL_BITMAP *)(a3 + 2);
+  v3 = (_RTL_BITMAP *)(a3 + 2);
   v4 = a2 >> 12;
   v7 = 256;
   if ( (a2 >> 12) + 7 < 8 )

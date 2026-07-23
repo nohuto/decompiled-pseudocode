@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDiagnosticCompletionRoutine @ 0x14036D730
+ * XREFs of PnpDiagnosticCompletionRoutine @ 0x14036D8E0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     IoFindDeviceThatFailedIrp @ 0x14037ADF4 (IoFindDeviceThatFailedIrp.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     IoFindDeviceThatFailedIrp @ 0x14037A944 (IoFindDeviceThatFailedIrp.c)
  */
 
 __int64 __fastcall PnpDiagnosticCompletionRoutine(__int64 a1, IRP *a2, __int64 a3)

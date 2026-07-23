@@ -22,7 +22,7 @@ void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
   __int64 v4; // r8
   __int64 v5; // r9
   ULONG_PTR v6; // rsi
-  unsigned __int64 v7; // rax
+  __int64 v7; // rax
   ULONG_PTR v8; // rbx
   struct _KTHREAD *CurrentThread; // rax
   struct _KEVENT v10[2]; // [rsp+30h] [rbp-38h] BYREF
@@ -37,14 +37,14 @@ void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
   KeAbPostRelease(a1 + 24);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v3, v4, v5);
   v6 = a1 + 40;
-  v7 = KeAbPreAcquire(v6, 0LL, 0LL);
+  v7 = KeAbPreAcquire(v6, 0LL, 0);
   v8 = v7;
   if ( v7 )
     KeAbPreWait(v7);
   KeWaitForSingleObject(&v10[1], Executive, 0, 0, 0LL);
   if ( v8 )
   {
-    KeAbPreAcquire(v6, v8, 0LL);
+    KeAbPreAcquire(v6, v8, 0);
     KeAbPostReleaseEx(v6, v8);
   }
   CurrentThread = KeGetCurrentThread();

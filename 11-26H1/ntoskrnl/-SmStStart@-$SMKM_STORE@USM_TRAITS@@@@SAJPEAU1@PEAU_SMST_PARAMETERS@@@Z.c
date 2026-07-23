@@ -1,19 +1,19 @@
 /*
- * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403F49B8
+ * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403EE368
  * Callers:
- *     SmProcessCreateRequest @ 0x140967230 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140ADC4D4 (SmProcessCreateRequest.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x140394610 (SmAcquireReleaseCharges.c)
- *     SmFpPreAllocate @ 0x1403EFFC0 (SmFpPreAllocate.c)
- *     SmFpCleanup @ 0x1403F02E0 (SmFpCleanup.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403F3DE0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     SmKmStoreHelperStart @ 0x1403F48A0 (SmKmStoreHelperStart.c)
- *     SmKmStoreHelperInitialize @ 0x1403F4958 (SmKmStoreHelperInitialize.c)
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1403F5378 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     SmGetIdealProcessorFromNumaNode @ 0x1403F54BC (SmGetIdealProcessorFromNumaNode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     SmAcquireReleaseCharges @ 0x140396390 (SmAcquireReleaseCharges.c)
+ *     SmFpPreAllocate @ 0x1403E9990 (SmFpPreAllocate.c)
+ *     SmFpCleanup @ 0x1403E9CB0 (SmFpCleanup.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403ED790 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmKmStoreHelperStart @ 0x1403EE250 (SmKmStoreHelperStart.c)
+ *     SmKmStoreHelperInitialize @ 0x1403EE308 (SmKmStoreHelperInitialize.c)
+ *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1403EED28 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
+ *     SmGetIdealProcessorFromNumaNode @ 0x1403EEE6C (SmGetIdealProcessorFromNumaNode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, __int64 *a2)
@@ -141,7 +141,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, __int64 *a2)
       if ( (*(_BYTE *)(a1 + 2469) & 8) != 0 )
         *(_QWORD *)(a1 + 2784) = *(_QWORD *)(a1 + 3200) + 2408LL;
       *(_QWORD *)(a1 + 2936) = *(_QWORD *)(a1 + 3200) + 2432LL;
-      Pool3 = (void *)ExAllocatePool3(64LL, 80LL, 1817341299LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+      Pool3 = (void *)ExAllocatePool3(64LL, 80LL, 1817341299LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
       *(_QWORD *)(a1 + 2656) = Pool3;
       if ( !Pool3 )
         return (unsigned int)-1073741670;
@@ -153,7 +153,7 @@ LABEL_30:
       v20 = v2[3];
       *(_DWORD *)(a1 + 2644) = v20;
       v21 = 8 * v20;
-      v22 = (void *)ExAllocatePool3(64LL, v21, 1733455219LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+      v22 = (void *)ExAllocatePool3(64LL, v21, 1733455219LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
       if ( v22 )
       {
         *(_QWORD *)(a1 + 2648) = v22;

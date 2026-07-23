@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetVirtualDiskNestingLevel @ 0x1402CBBB0
+ * XREFs of FsRtlGetVirtualDiskNestingLevel @ 0x14024A300
  * Callers:
  *     <none>
  * Callees:
- *     IopBuildDeviceIoControlRequest @ 0x14022B990 (IopBuildDeviceIoControlRequest.c)
- *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x14039ABF0 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402D0240 (IopBuildDeviceIoControlRequest.c)
+ *     IoSetThreadHardErrorMode @ 0x1402F4B10 (IoSetThreadHardErrorMode.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x14039AD40 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall FsRtlGetVirtualDiskNestingLevel(
@@ -22,72 +22,86 @@ NTSTATUS __stdcall FsRtlGetVirtualDiskNestingLevel(
   __int64 v9; // rcx
   BOOLEAN v10; // r12
   IRP *v11; // rax
-  int Status; // ebx
+  int v12; // ebx
   ULONG v14; // edx
-  struct _KEVENT Object; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v16; // [rsp+68h] [rbp-11h] BYREF
-  struct _IO_STATUS_BLOCK v17; // [rsp+70h] [rbp-9h] BYREF
-  __int128 v18; // [rsp+80h] [rbp+7h] BYREF
-  ULONG v19; // [rsp+90h] [rbp+17h]
-  __int64 retaddr; // [rsp+D8h] [rbp+5Fh]
+  __int16 Object; // [rsp+50h] [rbp-29h] BYREF
+  char v16; // [rsp+52h] [rbp-27h]
+  char v17; // [rsp+53h] [rbp-26h]
+  int v18; // [rsp+54h] [rbp-25h]
+  _QWORD v19[2]; // [rsp+58h] [rbp-21h] BYREF
+  __int64 v20; // [rsp+68h] [rbp-11h] BYREF
+  __int128 v21; // [rsp+70h] [rbp-9h] BYREF
+  __int128 v22; // [rsp+80h] [rbp+7h] BYREF
+  ULONG v23; // [rsp+90h] [rbp+17h]
+  void *retaddr; // [rsp+D8h] [rbp+5Fh]
 
   DeviceType = DeviceObject->DeviceType;
-  Object.Header.Reserved1 = 0;
+  v17 = 0;
   MaximumVirtualDiskNestingLevel = 0;
   v8 = 1;
-  v17 = 0LL;
+  v21 = 0LL;
   if ( (unsigned int)DeviceType > 0x24 )
     return -1073741808;
   v9 = 0x100000018CLL;
   if ( !_bittest64(&v9, DeviceType) )
     return -1073741808;
-  LOWORD(Object.Header.Lock) = 0;
-  Object.Header.WaitListHead.Blink = &Object.Header.WaitListHead;
-  Object.Header.Size = 6;
-  Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
-  Object.Header.SignalState = 0;
+  Object = 0;
+  v19[1] = v19;
+  v16 = 6;
+  v19[0] = v19;
+  v18 = 0;
   v10 = IoSetThreadHardErrorMode(0);
-  v16 = 1LL;
-  v19 = 0;
-  v18 = 0LL;
-  v11 = IopBuildDeviceIoControlRequest(2953616, (__int64)DeviceObject, &v16, 8u, &v18, 0x14u, 0, &Object, &v17, retaddr);
+  v20 = 1LL;
+  v23 = 0;
+  v22 = 0LL;
+  v11 = (IRP *)((__int64 (__fastcall *)(__int64, PDEVICE_OBJECT, __int64 *, __int64, __int128 *, int, _BYTE, __int16 *, __int128 *, void *))IopBuildDeviceIoControlRequest)(
+                 2953616LL,
+                 DeviceObject,
+                 &v20,
+                 8LL,
+                 &v22,
+                 20,
+                 0,
+                 &Object,
+                 &v21,
+                 retaddr);
   if ( v11 )
   {
-    Status = IofCallDriver(DeviceObject, v11);
-    if ( Status == 259 )
+    v12 = IofCallDriver(DeviceObject, v11);
+    if ( v12 == 259 )
     {
       KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
-      Status = v17.Status;
+      v12 = v21;
     }
-    if ( Status >= 0 && v17.Information >= 0x14 && (_DWORD)v18 == 1 )
+    if ( v12 >= 0 && *((_QWORD *)&v21 + 1) >= 0x14uLL && (_DWORD)v22 == 1 )
     {
-      if ( v19 > FsRtlQueryMaximumVirtualDiskNestingLevel() )
+      if ( v23 > FsRtlQueryMaximumVirtualDiskNestingLevel() )
       {
         MaximumVirtualDiskNestingLevel = FsRtlQueryMaximumVirtualDiskNestingLevel();
       }
-      else if ( v19 )
+      else if ( v23 )
       {
-        MaximumVirtualDiskNestingLevel = v19;
+        MaximumVirtualDiskNestingLevel = v23;
       }
-      if ( BYTE4(v18) )
+      if ( BYTE4(v22) )
         v8 = 0;
       v14 = v8;
       v8 |= 2u;
-      if ( (BYTE12(v18) & 2) == 0 )
+      if ( (BYTE12(v22) & 2) == 0 )
         v8 = v14;
     }
-    else if ( Status != -1073741670 )
+    else if ( v12 != -1073741670 )
     {
-      Status = 0;
+      v12 = 0;
     }
   }
   else
   {
-    Status = -1073741670;
+    v12 = -1073741670;
   }
   *NestingLevel = MaximumVirtualDiskNestingLevel;
   if ( NestingFlags )
     *NestingFlags = v8;
   IoSetThreadHardErrorMode(v10);
-  return Status;
+  return v12;
 }

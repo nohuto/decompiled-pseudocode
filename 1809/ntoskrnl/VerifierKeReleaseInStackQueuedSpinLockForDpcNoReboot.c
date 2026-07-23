@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeReleaseInStackQueuedSpinLockForDpcNoReboot @ 0x140939F90
+ * XREFs of VerifierKeReleaseInStackQueuedSpinLockForDpcNoReboot @ 0x14093AF90
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeReleaseInStackQueuedSpinLockForDpcCommon @ 0x140939F30 (VerifierKeReleaseInStackQueuedSpinLockForDpcCommon.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockForDpcCommon @ 0x14093AF30 (VerifierKeReleaseInStackQueuedSpinLockForDpcCommon.c)
  */
 
 __int64 __fastcall VerifierKeReleaseInStackQueuedSpinLockForDpcNoReboot(ULONG_PTR a1)

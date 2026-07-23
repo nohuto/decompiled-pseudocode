@@ -12,49 +12,51 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpGetDefaultTrustSubjectContext(int a1, int *a2)
+NTSTATUS __fastcall RtlpGetDefaultTrustSubjectContext(HANDLE TokenHandle, _DWORD *a2)
 {
-  unsigned __int8 **v3; // ebx
-  int v4; // edi
-  int v5; // ecx
+  PSID *v3; // ebx
+  NTSTATUS v4; // edi
+  ULONG v5; // ecx
   _DWORD *Heap; // eax
-  int v7; // esi
-  void *ProcessHeap; // [esp+10h] [ebp-A8h]
-  int v11; // [esp+14h] [ebp-A4h] BYREF
-  int v12; // [esp+18h] [ebp-A0h] BYREF
-  char v13; // [esp+1Fh] [ebp-99h] BYREF
-  _DWORD v14[18]; // [esp+20h] [ebp-98h] BYREF
-  _DWORD v15[19]; // [esp+68h] [ebp-50h] BYREF
+  void *v7; // esi
+  SIZE_T v9; // [esp-4h] [ebp-BCh]
+  PVOID HeapHandle; // [esp+10h] [ebp-A8h]
+  ULONG TokenInformationLength; // [esp+14h] [ebp-A4h] BYREF
+  ULONG ReturnLength; // [esp+18h] [ebp-A0h] BYREF
+  BOOLEAN DominatesTrust; // [esp+1Fh] [ebp-99h] BYREF
+  PSID Sid2[18]; // [esp+20h] [ebp-98h] BYREF
+  PSID TokenInformation[19]; // [esp+68h] [ebp-50h] BYREF
 
-  v12 = 72;
-  v3 = (unsigned __int8 **)v15;
-  v11 = 72;
-  ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  v13 = 0;
-  v4 = ZwQueryInformationToken(-4, 41, v15, 72, &v12);
+  ReturnLength = 72;
+  v3 = TokenInformation;
+  TokenInformationLength = 72;
+  HeapHandle = NtCurrentPeb()->ProcessHeap;
+  DominatesTrust = 0;
+  v4 = ZwQueryInformationToken((HANDLE)0xFFFFFFFC, 0x29u, TokenInformation, 0x48u, &ReturnLength);
   if ( v4 < 0 )
     return v4;
-  if ( !a1 )
+  if ( !TokenHandle )
     goto LABEL_14;
-  v4 = ZwQueryInformationToken(a1, 41, v14, v11, &v11);
+  v4 = ZwQueryInformationToken(TokenHandle, 0x29u, Sid2, TokenInformationLength, &TokenInformationLength);
   if ( v4 < 0 )
     return v4;
-  v4 = RtlSidDominatesForTrust(v15[0], v14[0], &v13);
+  v4 = RtlSidDominatesForTrust(TokenInformation[0], Sid2[0], &DominatesTrust);
   if ( v4 < 0 )
     return v4;
-  if ( v13 )
+  if ( DominatesTrust )
   {
-    v5 = v11;
-    v3 = (unsigned __int8 **)v14;
-    v12 = v11;
+    v5 = TokenInformationLength;
+    v3 = Sid2;
+    ReturnLength = TokenInformationLength;
   }
   else
   {
 LABEL_14:
-    v5 = v12;
+    v5 = ReturnLength;
   }
-  Heap = (_DWORD *)RtlAllocateHeap((int)ProcessHeap, NtdllBaseTag + 1310720, v5);
-  v7 = (int)Heap;
+  LODWORD(v9) = v5;
+  Heap = RtlAllocateHeap(HeapHandle, NtdllBaseTag + 1310720, v9);
+  v7 = Heap;
   if ( !Heap )
     return -1073741801;
   if ( !*v3 )
@@ -66,11 +68,11 @@ LABEL_10:
     goto LABEL_11;
   }
   *Heap = Heap + 1;
-  v4 = RtlCopySid(v12 - 4, Heap + 1, *v3);
+  v4 = RtlCopySid(ReturnLength - 4, Heap + 1, *v3);
   if ( v4 >= 0 )
     goto LABEL_10;
 LABEL_11:
   if ( v7 )
-    RtlFreeHeap((int)ProcessHeap, 0, v7);
+    RtlFreeHeap(HeapHandle, 0, v7);
   return v4;
 }

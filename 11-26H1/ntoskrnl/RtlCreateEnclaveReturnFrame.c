@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCreateEnclaveReturnFrame @ 0x1406247DC
+ * XREFs of RtlCreateEnclaveReturnFrame @ 0x14062782C
  * Callers:
- *     PsCallEnclave @ 0x1407FE1F0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x140803C20 (PsCallEnclave.c)
  * Callees:
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
  */
 
 __int64 __fastcall RtlCreateEnclaveReturnFrame(

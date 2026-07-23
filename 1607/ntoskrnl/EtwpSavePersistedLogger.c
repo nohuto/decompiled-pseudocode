@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpSavePersistedLogger @ 0x1406AA264
+ * XREFs of EtwpSavePersistedLogger @ 0x1406AA39C
  * Callers:
- *     EtwpSavePersistedLoggersWorker @ 0x1406AA60C (EtwpSavePersistedLoggersWorker.c)
+ *     EtwpSavePersistedLoggersWorker @ 0x1406AA744 (EtwpSavePersistedLoggersWorker.c)
  * Callees:
  *     KsrFreePersistedMemoryBlock_0 @ 0x1400012A8 (KsrFreePersistedMemoryBlock_0.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x140159D80 (ZwWriteFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14015A160 (ZwSetInformationFile.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1401E4034 (MmMapLockedPagesWithReservedMapping.c)
- *     MmUnmapReservedMapping @ 0x1401E4198 (MmUnmapReservedMapping.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x14015A2F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x14015A6D0 (ZwSetInformationFile.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1401E3E60 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x1401E3FC4 (MmUnmapReservedMapping.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     EtwpDelayCreate @ 0x140494AAC (EtwpDelayCreate.c)
- *     MmFreeMappingAddress @ 0x14052C224 (MmFreeMappingAddress.c)
- *     MmAllocateMappingAddress @ 0x14052C2FC (MmAllocateMappingAddress.c)
- *     EtwpQueryPersistedMemory @ 0x1406AA194 (EtwpQueryPersistedMemory.c)
- *     EtwpTraceSavePersistedLoggerStop @ 0x1406AA934 (EtwpTraceSavePersistedLoggerStop.c)
+ *     EtwpDelayCreate @ 0x14049553C (EtwpDelayCreate.c)
+ *     MmFreeMappingAddress @ 0x14052C764 (MmFreeMappingAddress.c)
+ *     MmAllocateMappingAddress @ 0x14052C83C (MmAllocateMappingAddress.c)
+ *     EtwpQueryPersistedMemory @ 0x1406AA2CC (EtwpQueryPersistedMemory.c)
+ *     EtwpTraceSavePersistedLoggerStop @ 0x1406AAA6C (EtwpTraceSavePersistedLoggerStop.c)
  */
 
 __int64 __fastcall EtwpSavePersistedLogger(_DWORD *a1, __int64 a2)

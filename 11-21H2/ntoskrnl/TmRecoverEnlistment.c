@@ -9,5 +9,5 @@
 // attributes: thunk
 NTSTATUS __stdcall TmRecoverEnlistment(PKENLISTMENT Enlistment, PVOID EnlistmentKey)
 {
-  return __imp_TmRecoverEnlistment(Enlistment, EnlistmentKey);
+  return TmRecoverEnlistment_0(Enlistment, EnlistmentKey);
 }

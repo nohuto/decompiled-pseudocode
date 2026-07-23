@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxActivateDevicesForSx @ 0x140142D40
+ * XREFs of PopFxActivateDevicesForSx @ 0x140142E40
  * Callers:
- *     PopFxPrepareDevicesForShutdown @ 0x1402D8D74 (PopFxPrepareDevicesForShutdown.c)
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
+ *     PopFxPrepareDevicesForShutdown @ 0x1402D8F64 (PopFxPrepareDevicesForShutdown.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PopFxActivateDevice @ 0x14015A0A8 (PopFxActivateDevice.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopFxActivateDevice @ 0x14015A1A8 (PopFxActivateDevice.c)
  */
 
 _QWORD *__fastcall PopFxActivateDevicesForSx(unsigned int a1)

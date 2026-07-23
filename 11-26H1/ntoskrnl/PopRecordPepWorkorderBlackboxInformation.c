@@ -1,13 +1,13 @@
 /*
- * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x140613160
+ * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x14061601C
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1407E39E0 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1407E8D2C (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PopRecordPepWorkorderBlackboxInformation()
@@ -33,17 +33,17 @@ void PopRecordPepWorkorderBlackboxInformation()
   v0 = 0;
   v1 = 0LL;
   v15 = 0LL;
-  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12420.PriorityFloorCounts[24]);
-  v3 = *(struct _KTHREAD **)&stru_140F12420.ThreadFlags2;
+  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1);
+  v3 = *(struct _KTHREAD **)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80];
   v4 = v2;
-  if ( *(struct _KTHREAD **)&stru_140F12420.ThreadFlags2 == (struct _KTHREAD *)&stru_140F12420.512 )
+  if ( *(struct _KTHREAD **)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80] == (struct _KTHREAD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80] )
     goto LABEL_13;
   do
   {
     v3 = *(struct _KTHREAD **)&v3->Header.Lock;
     v5 = v0++;
   }
-  while ( v3 != (struct _KTHREAD *)&stru_140F12420.512 );
+  while ( v3 != (struct _KTHREAD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80] );
   if ( !v0 )
   {
 LABEL_13:
@@ -60,7 +60,9 @@ LABEL_13:
       v8 = Pool2 + 4;
       Pool2[1] = v6;
       Pool2[2] = v0;
-      for ( i = *(struct _KTHREAD **)&stru_140F12420.ThreadFlags2; i != (struct _KTHREAD *)&stru_140F12420.512; v8 += 12 )
+      for ( i = *(struct _KTHREAD **)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80];
+            i != (struct _KTHREAD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80];
+            v8 += 12 )
       {
         v10 = MEMORY[0xFFFFF78000000008] - (unsigned __int64)i->ApcState.ApcListHead[0].Blink;
         *((_QWORD *)v8 + 1) = i;
@@ -86,7 +88,7 @@ LABEL_13:
       }
     }
   }
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F12420.PriorityFloorCounts[24], v4);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1, v4);
   if ( v6 )
   {
     DWORD2(v15) = 7;

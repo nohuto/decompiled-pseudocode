@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdatePmcEvents @ 0x1409E4ED0
+ * XREFs of EtwpUpdatePmcEvents @ 0x1409E5160
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1E84 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409E2114 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpAllocatePmcData @ 0x1409E3248 (EtwpAllocatePmcData.c)
+ *     EtwpAllocatePmcData @ 0x1409E34D8 (EtwpAllocatePmcData.c)
  */
 
 __int64 __fastcall EtwpUpdatePmcEvents(__int64 a1, __int64 a2, unsigned int a3)

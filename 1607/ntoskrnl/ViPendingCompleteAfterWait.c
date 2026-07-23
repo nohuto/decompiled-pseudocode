@@ -1,16 +1,16 @@
 /*
- * XREFs of ViPendingCompleteAfterWait @ 0x14070D284
+ * XREFs of ViPendingCompleteAfterWait @ 0x14070D2B4
  * Callers:
- *     ViPendingCompleteAtDPC @ 0x14070D3A8 (ViPendingCompleteAtDPC.c)
- *     ViPendingWorkerThread @ 0x14070D5C8 (ViPendingWorkerThread.c)
+ *     ViPendingCompleteAtDPC @ 0x14070D3D8 (ViPendingCompleteAtDPC.c)
+ *     ViPendingWorkerThread @ 0x14070D5F8 (ViPendingWorkerThread.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x140223C80 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x140223CC0 (ViIrpDatabaseReleaseLockExclusive.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140702C1C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x140223AAC (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x140223AEC (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140702C4C (VfUtilAddressRangeRemoveCheckEmpty.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x140716B8C (VfIrpDatabaseEntryReleaseLock.c)
  */
 

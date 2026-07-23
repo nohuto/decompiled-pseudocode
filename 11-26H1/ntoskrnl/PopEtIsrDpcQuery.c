@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtIsrDpcQuery @ 0x140AB040C
+ * XREFs of PopEtIsrDpcQuery @ 0x140AAE05C
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407DC800 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407E0A20 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
@@ -25,7 +25,7 @@ void *__fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
   v2 = *(_OWORD **)(a1 + 1640);
   memset_0(v15, 0, sizeof(v15));
   result = memset_0(a2, 0, 0x1B8uLL);
-  v5 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 4);
+  v5 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 4);
   LOWORD(v6) = 0;
   while ( 1 )
   {
@@ -35,8 +35,7 @@ void *__fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
       v8 = 4LL;
       v5 &= ~(1LL << v7);
       v9 = v15;
-      v10 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                             + 64 * (unsigned __int16)v6
+      v10 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v6].Flink
                              + (unsigned __int8)v7)]
           - (_QWORD)v15;
       do
@@ -69,9 +68,9 @@ void *__fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
       while ( v13 );
     }
     v6 = (unsigned __int16)(v6 + 1);
-    if ( (unsigned int)v6 >= *(unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags )
+    if ( (unsigned int)v6 >= *(unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags )
       break;
-    v5 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 8 * v6 + 4);
+    v5 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 8 * v6 + 4);
   }
   *v2 = *a2;
   v2[1] = a2[1];

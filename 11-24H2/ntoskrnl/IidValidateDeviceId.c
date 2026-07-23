@@ -1,7 +1,7 @@
 /*
- * XREFs of IidValidateDeviceId @ 0x140817144
+ * XREFs of IidValidateDeviceId @ 0x140817884
  * Callers:
- *     PipIommuRetrieveDeviceId @ 0x1407360B8 (PipIommuRetrieveDeviceId.c)
+ *     PipIommuRetrieveDeviceId @ 0x140733FE8 (PipIommuRetrieveDeviceId.c)
  * Callees:
  *     <none>
  */

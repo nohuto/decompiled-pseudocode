@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUShortAdd @ 0x140008818
+ * XREFs of RtlUShortAdd @ 0x14000838C
  * Callers:
- *     VrpBuildKeyPath @ 0x140617AE4 (VrpBuildKeyPath.c)
- *     RtlpCreateServerAcl @ 0x140684304 (RtlpCreateServerAcl.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x1406DF998 (_SysCtxRegOpenCurrentUserKey.c)
+ *     VrpBuildKeyPath @ 0x140617B98 (VrpBuildKeyPath.c)
+ *     RtlpCreateServerAcl @ 0x1406843E8 (RtlpCreateServerAcl.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x1406DFAD0 (_SysCtxRegOpenCurrentUserKey.c)
  * Callees:
  *     <none>
  */

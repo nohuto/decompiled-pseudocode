@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpInvalidateOutstandingFaults @ 0x14022441C
+ * XREFs of VmpInvalidateOutstandingFaults @ 0x140224248
  * Callers:
- *     VmpFlushTbVaRange @ 0x1402240C0 (VmpFlushTbVaRange.c)
+ *     VmpFlushTbVaRange @ 0x140223EEC (VmpFlushTbVaRange.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 __int64 __fastcall VmpInvalidateOutstandingFaults(__int64 a1, unsigned __int64 a2, __int64 a3)

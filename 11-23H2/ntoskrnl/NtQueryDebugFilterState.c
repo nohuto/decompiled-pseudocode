@@ -1,24 +1,29 @@
 /*
- * XREFs of NtQueryDebugFilterState @ 0x14032A910
+ * XREFs of NtQueryDebugFilterState @ 0x14032ABA0
  * Callers:
- *     vDbgPrintExWithPrefixInternal @ 0x14032A7B0 (vDbgPrintExWithPrefixInternal.c)
- *     DbgQueryDebugFilterState @ 0x1405A77C0 (DbgQueryDebugFilterState.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x14032AA40 (vDbgPrintExWithPrefixInternal.c)
+ *     DbgQueryDebugFilterState @ 0x1405A7D30 (DbgQueryDebugFilterState.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall NtQueryDebugFilterState(unsigned int a1, unsigned int a2)
+NTSTATUS __cdecl NtQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
-  unsigned int v2; // r8d
+  ULONG v2; // r8d
   __int64 v3; // r9
+  __int64 v4; // rax
 
   v2 = 3;
-  if ( a1 < 0x9C )
-    v2 = a2;
+  if ( ComponentId < 0x9C )
+    v2 = Level;
   v3 = 101LL;
-  if ( a1 < 0x9C )
-    v3 = a1;
+  if ( ComponentId < 0x9C )
+    v3 = ComponentId;
   if ( v2 <= 0x1F )
     v2 = 1 << v2;
-  return (v2 & Kd_WIN2000_Mask) != 0 || (v2 & *(_DWORD *)*(&KdComponentTable + v3)) != 0;
+  if ( (v2 & Kd_WIN2000_Mask) != 0 )
+    LODWORD(v4) = 1;
+  else
+    return (v2 & *(_DWORD *)*(&KdComponentTable + v3)) != 0;
+  return v4;
 }

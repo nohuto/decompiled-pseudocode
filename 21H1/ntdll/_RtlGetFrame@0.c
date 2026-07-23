@@ -6,7 +6,7 @@
  *     <none>
  */
 
-_TEB_ACTIVE_FRAME *__stdcall RtlGetFrame()
+PTEB_ACTIVE_FRAME RtlGetFrame(void)
 {
   return NtCurrentTeb()->ActiveFrame;
 }

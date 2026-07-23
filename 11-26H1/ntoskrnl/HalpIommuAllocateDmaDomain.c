@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpIommuAllocateDmaDomain @ 0x14058D094
+ * XREFs of HalpIommuAllocateDmaDomain @ 0x14058F814
  * Callers:
- *     HalpIommuInitializeDmar @ 0x14058DC28 (HalpIommuInitializeDmar.c)
- *     IommuDomainCreate @ 0x140786F90 (IommuDomainCreate.c)
- *     IommuDomainCreateEx @ 0x140786FC0 (IommuDomainCreateEx.c)
+ *     HalpIommuInitializeDmar @ 0x1405903A8 (HalpIommuInitializeDmar.c)
+ *     IommuDomainCreate @ 0x140789AC0 (IommuDomainCreate.c)
+ *     IommuDomainCreateEx @ 0x140789AF0 (IommuDomainCreateEx.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x14047B04C (HalpIommuDomainUnmapLogicalRange.c)
- *     HalpIommuDomainMapLogicalRange @ 0x14047BE1C (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuDomainGetSupportedPageTableDepths @ 0x14058D818 (HalpIommuDomainGetSupportedPageTableDepths.c)
- *     HalpIommuFreeDmaDomain @ 0x14058D8E8 (HalpIommuFreeDmaDomain.c)
- *     HalpIommuGetPageTableType @ 0x14058DA18 (HalpIommuGetPageTableType.c)
- *     HalpIommuCreateDmarPageTable @ 0x1405A089C (HalpIommuCreateDmarPageTable.c)
- *     HalpBuddyAllocatorCreateAllocator @ 0x1405AB99C (HalpBuddyAllocatorCreateAllocator.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404749BC (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x14047578C (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainGetSupportedPageTableDepths @ 0x14058FF98 (HalpIommuDomainGetSupportedPageTableDepths.c)
+ *     HalpIommuFreeDmaDomain @ 0x140590068 (HalpIommuFreeDmaDomain.c)
+ *     HalpIommuGetPageTableType @ 0x140590198 (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x1405A30AC (HalpIommuCreateDmarPageTable.c)
+ *     HalpBuddyAllocatorCreateAllocator @ 0x1405AE1AC (HalpBuddyAllocatorCreateAllocator.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpIommuAllocateDmaDomain(__int64 a1, __int64 a2, _DWORD *a3, __int64 *a4, ULONG_PTR *a5)

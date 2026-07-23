@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpCheckFixedWakeSources @ 0x140C0D340
+ * XREFs of HalpCheckFixedWakeSources @ 0x140C13550
  * Callers:
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpAcpiPmRegisterAvailable @ 0x14046B360 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x14046B750 (HalpAcpiPmRegisterRead.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x140464AE0 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x140464ED0 (HalpAcpiPmRegisterRead.c)
  */
 
 __int64 HalpCheckFixedWakeSources()
 {
   int v0; // edi
-  unsigned __int8 UserAffinity; // bp
+  unsigned __int8 Flink; // bp
   int v2; // ebx
   __int16 v3; // si
   __int64 result; // rax
   __int16 v5; // [rsp+50h] [rbp+8h] BYREF
 
-  v0 = *(_DWORD *)&HalpDeviceBlockUnblockPushLock.SchedulerApcFill5[8];
-  UserAffinity = (unsigned __int8)HalpDeviceBlockUnblockPushLock.UserAffinity;
+  v0 = *(_DWORD *)&HalpDeviceBlockUnblockPushLock.SavedApcStateFill[24];
+  Flink = (unsigned __int8)HalpDeviceBlockUnblockPushLock.QueueListEntry.Flink;
   v5 = 0;
   v2 = 0;
   v3 = 0;
@@ -44,12 +44,12 @@ __int64 HalpCheckFixedWakeSources()
   if ( (v0 & 0x40) == 0 && (v3 & 0x400) != 0 )
   {
     v2 |= 4u;
-    if ( HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[16] )
+    if ( BYTE1(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) )
     {
-      if ( (v0 & 0x80u) == 0 || UserAffinity >= 4u && (v0 & 0x10000) == 0 )
+      if ( (v0 & 0x80u) == 0 || Flink >= 4u && (v0 & 0x10000) == 0 )
         v2 &= ~4u;
     }
   }
-  LODWORD(stru_140F11D08.Timer.TimerListEntry.Blink) |= v2;
+  PopFixedWakeSourceMask |= v2;
   return result;
 }

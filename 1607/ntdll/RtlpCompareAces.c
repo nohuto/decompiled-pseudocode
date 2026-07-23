@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCompareAces @ 0x1800DFDD8
+ * XREFs of RtlpCompareAces @ 0x1800DFE98
  * Callers:
- *     RtlpConvertAclToAutoInherit @ 0x1800DFF70 (RtlpConvertAclToAutoInherit.c)
+ *     RtlpConvertAclToAutoInherit @ 0x1800E0030 (RtlpConvertAclToAutoInherit.c)
  * Callees:
- *     RtlpCompareKnownObjectAces @ 0x18008EA20 (RtlpCompareKnownObjectAces.c)
- *     RtlpCompareKnownAces @ 0x1800DFE20 (RtlpCompareKnownAces.c)
+ *     RtlpCompareKnownObjectAces @ 0x18008EA10 (RtlpCompareKnownObjectAces.c)
+ *     RtlpCompareKnownAces @ 0x1800DFEE0 (RtlpCompareKnownAces.c)
  */
 
-char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   char v4; // r10
 

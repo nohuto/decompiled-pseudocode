@@ -1,12 +1,12 @@
 /*
- * XREFs of ViKeInjectStatusAlerted @ 0x140AC0618
+ * XREFs of ViKeInjectStatusAlerted @ 0x140AC0608
  * Callers:
- *     VerifierKeWaitForSingleObject @ 0x140AC0540 (VerifierKeWaitForSingleObject.c)
- *     VerifierKeDelayExecutionThread @ 0x140AD5490 (VerifierKeDelayExecutionThread.c)
- *     VerifierKeWaitForMultipleObjects @ 0x140AD5960 (VerifierKeWaitForMultipleObjects.c)
+ *     VerifierKeWaitForSingleObject @ 0x140AC0530 (VerifierKeWaitForSingleObject.c)
+ *     VerifierKeDelayExecutionThread @ 0x140AD5480 (VerifierKeDelayExecutionThread.c)
+ *     VerifierKeWaitForMultipleObjects @ 0x140AD5950 (VerifierKeWaitForMultipleObjects.c)
  * Callees:
- *     VfUtilIsLocalSystem @ 0x140AC2754 (VfUtilIsLocalSystem.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
+ *     VfUtilIsLocalSystem @ 0x140AC2744 (VfUtilIsLocalSystem.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall ViKeInjectStatusAlerted(char a1)

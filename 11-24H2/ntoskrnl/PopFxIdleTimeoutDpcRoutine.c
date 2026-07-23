@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxIdleTimeoutDpcRoutine @ 0x140375CF0
+ * XREFs of PopFxIdleTimeoutDpcRoutine @ 0x140481CE0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxDeliverDevicePowerRequired @ 0x140376700 (PopFxDeliverDevicePowerRequired.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     PopDiagTraceFxDevicePowerRequirement @ 0x140377C48 (PopDiagTraceFxDevicePowerRequirement.c)
- *     PopFxAddLogEntry @ 0x1403782D8 (PopFxAddLogEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x1402E6324 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxAddLogEntry @ 0x1402E69B4 (PopFxAddLogEntry.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x140481DAC (PopFxDeliverDevicePowerRequired.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopFxIdleTimeoutDpcRoutine(__int64 a1, ULONG_PTR a2)
@@ -19,8 +19,6 @@ void __fastcall PopFxIdleTimeoutDpcRoutine(__int64 a1, ULONG_PTR a2)
   signed __int32 v5; // eax
   signed __int32 v6; // ett
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
 
   v2 = (KSPIN_LOCK *)(a2 + 400);
   v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 400));
@@ -37,11 +35,11 @@ void __fastcall PopFxIdleTimeoutDpcRoutine(__int64 a1, ULONG_PTR a2)
     _InterlockedAnd((volatile signed __int32 *)(a2 + 32), 0xFFFFFFFB);
     if ( *(_DWORD *)(a2 + 40) != 2 )
       PopFxBugCheck(0x613uLL, a2, 0LL, 0LL);
-    PopDiagTraceFxDevicePowerRequirement(*(_QWORD *)(a2 + 48), 0LL, 0LL);
-    guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 192), v7, v8, v9);
+    PopDiagTraceFxDevicePowerRequirement(*(_QWORD *)(a2 + 48), 0, 0);
+    guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 192), v7);
     _InterlockedOr((volatile signed __int32 *)(a2 + 32), 0x40u);
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 40), 0xFFFFFFFF) != 1 )
-      PopFxAddLogEntry(*(_QWORD *)(a2 + 48), 0LL, 17LL);
+      PopFxAddLogEntry(*(_QWORD *)(a2 + 48), 0, 17, 0LL);
   }
   else
   {

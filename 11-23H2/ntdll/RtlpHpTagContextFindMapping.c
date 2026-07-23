@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpTagContextAllocateTag @ 0x180065AB4 (RtlpHpTagContextAllocateTag.c)
  *     RtlpHpTagQueryTags @ 0x18008BC00 (RtlpHpTagQueryTags.c)
- *     RtlpHpTagContextGetTag @ 0x1800A04E4 (RtlpHpTagContextGetTag.c)
+ *     RtlpHpTagContextGetTag @ 0x1800A04A4 (RtlpHpTagContextGetTag.c)
  * Callees:
  *     RtlpHpTagMappingComparison @ 0x180079400 (RtlpHpTagMappingComparison.c)
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of HsaAllocateRemappingTableEntry @ 0x14052ECB0
+ * XREFs of HsaAllocateRemappingTableEntry @ 0x14052F200
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F280 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreeMemory @ 0x14051F5AC (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x14051F5EC (ExtEnvFreePhysicalMemory.c)
- *     HsaGetDeviceAperture @ 0x140530010 (HsaGetDeviceAperture.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053144C (HsaUpdateRemappingTableInDeviceTableEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14051F7D0 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreeMemory @ 0x14051FAFC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14051FB3C (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x140530560 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053199C (HsaUpdateRemappingTableInDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaAllocateRemappingTableEntry(
@@ -99,10 +99,10 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
         }
         v19 = (unsigned __int8)byte_140C5FC18;
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5FC10);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)CurrentIrql <= 0xFu
             && (unsigned __int8)v19 <= 0xFu
             && (unsigned __int8)CurrentIrql >= 2u )
@@ -114,7 +114,7 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
             v24 = (v23 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v23;
             if ( v24 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(v19);
@@ -178,10 +178,10 @@ LABEL_28:
             v33 = (unsigned __int8)byte_140C5FC18;
             KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5FC10);
             v25 = (unsigned int)KiIrqlFlags;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v34 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
               {
                 v35 = KeGetCurrentPrcb();
                 v25 = (unsigned int)(v33 + 1);
@@ -190,7 +190,7 @@ LABEL_28:
                 v24 = (v37 & v36[5]) == 0;
                 v36[5] &= v37;
                 if ( v24 )
-                  KiRemoveSystemWorkPriorityKick(v35);
+                  KiRemoveSystemWorkPriorityKick((__int64)v35);
                 v26 = v42[1];
               }
             }

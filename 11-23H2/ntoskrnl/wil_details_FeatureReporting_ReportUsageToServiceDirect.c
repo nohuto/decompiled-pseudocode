@@ -1,14 +1,14 @@
 /*
- * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x14022FCF0
+ * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x14022FDE0
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     wil_atomic_uint32_compare_exchange_relaxed @ 0x1405080AC (wil_atomic_uint32_compare_exchange_relaxed.c)
- *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x1405080C8 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
- *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x1405081C0 (wil_details_FeatureReporting_IncrementUsageInCache.c)
- *     CmFcManagerNotifyFeatureUsage @ 0x140617134 (CmFcManagerNotifyFeatureUsage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     wil_atomic_uint32_compare_exchange_relaxed @ 0x1405085FC (wil_atomic_uint32_compare_exchange_relaxed.c)
+ *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x140508618 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
+ *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x140508710 (wil_details_FeatureReporting_IncrementUsageInCache.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x140617684 (CmFcManagerNotifyFeatureUsage.c)
  */
 
 __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(

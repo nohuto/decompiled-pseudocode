@@ -19,12 +19,12 @@
 
 BOOLEAN __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  bool v2; // bl
+  BOOLEAN v2; // bl
   unsigned __int8 CurrentIrql; // di
-  unsigned __int64 v4; // rdx
+  _RTL_BALANCED_NODE *Root; // rdx
   BOOLEAN result; // al
   const char *v6; // rcx
-  unsigned __int64 v7; // rax
+  _RTL_BALANCED_NODE *v7; // rax
   int v8; // [rsp+30h] [rbp-48h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-40h] BYREF
   int v10; // [rsp+40h] [rbp-38h]
@@ -89,30 +89,26 @@ BOOLEAN __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
   off_140321A38();
   off_140321A50();
   KiSetPendingTick(1);
-  v4 = KiClockIntervalRequests;
+  Root = KiClockIntervalRequests.Root;
   KeTimeIncrement = v10;
   KiLastRequestedTimeIncrement = KeMaximumIncrement;
   dword_14033917C = KeMaximumIncrement;
-  if ( !KiClockIntervalRequests )
+  if ( !KiClockIntervalRequests.Root )
     goto LABEL_4;
-  while ( KeMaximumIncrement < *(_DWORD *)(v4 + 28) )
+  while ( KeMaximumIncrement < HIDWORD(Root[1].Left) )
   {
-    v7 = *(_QWORD *)v4;
-    if ( !*(_QWORD *)v4 )
+    v7 = Root->Children[0];
+    if ( !Root->Children[0] )
       goto LABEL_4;
 LABEL_35:
-    v4 = v7;
+    Root = v7;
   }
-  v7 = *(_QWORD *)(v4 + 8);
+  v7 = Root->Children[1];
   if ( v7 )
     goto LABEL_35;
   v2 = 1;
 LABEL_4:
-  RtlRbInsertNodeEx(
-    (unsigned __int64 *)&KiClockIntervalRequests,
-    v4,
-    v2,
-    (unsigned __int64)&KiDefaultClockIntervalRequest);
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, Root, v2, &KiDefaultClockIntervalRequest);
   byte_140339178 = 1;
   __writecr8(CurrentIrql);
   dword_140339110 = KeTimeIncrement;

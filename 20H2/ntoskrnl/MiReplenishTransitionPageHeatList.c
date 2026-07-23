@@ -11,11 +11,11 @@
 
 void MiReplenishTransitionPageHeatList()
 {
-  struct _SLIST_ENTRY *Pool; // rax
+  _SLIST_ENTRY *Pool; // rax
 
   while ( LOWORD(stru_140C4E890.Alignment) < 0x40u )
   {
-    Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x90uLL, 0x6C486D4Du);
+    Pool = (_SLIST_ENTRY *)MiAllocatePool(64, 0x90uLL, 0x6C486D4Du);
     if ( !Pool )
     {
       _InterlockedExchange(&dword_140C4E8A0, 32);

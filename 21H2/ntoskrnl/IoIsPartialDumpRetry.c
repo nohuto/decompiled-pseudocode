@@ -1,8 +1,8 @@
 /*
- * XREFs of IoIsPartialDumpRetry @ 0x1405026C8
+ * XREFs of IoIsPartialDumpRetry @ 0x140502648
  * Callers:
- *     HvlAddSecurePagesCallbackRoutine @ 0x1404F88D0 (HvlAddSecurePagesCallbackRoutine.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140517B98 (KeValidateBugCheckCallbackRecord.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x1404F8850 (HvlAddSecurePagesCallbackRoutine.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517DD8 (KeValidateBugCheckCallbackRecord.c)
  * Callees:
  *     <none>
  */

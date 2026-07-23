@@ -1,5 +1,5 @@
 /*
- * XREFs of SepRmProcessCreationCommandLineAuditSettingsWrkr @ 0x14063BCC0
+ * XREFs of SepRmProcessCreationCommandLineAuditSettingsWrkr @ 0x14063F7C0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ char __fastcall SepRmProcessCreationCommandLineAuditSettingsWrkr(__int64 a1, __i
 
   *(_DWORD *)(a2 + 40) = 0;
   result = *(_BYTE *)(a1 + 44);
-  LOBYTE(SepRmCapTableLock.Header.WaitListHead.Flink) = result;
-  HIDWORD(SepRmCapTableLock.Header.WaitListHead.Flink) = 1;
+  SepRmAuditProcessCommandLine = result;
+  SepRmAuditingEnabled = 1;
   return result;
 }

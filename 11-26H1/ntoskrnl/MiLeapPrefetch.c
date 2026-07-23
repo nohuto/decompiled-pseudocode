@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLeapPrefetch @ 0x1403144C4
+ * XREFs of MiLeapPrefetch @ 0x1403164F4
  * Callers:
- *     MiPrefetchJumpVad @ 0x140314358 (MiPrefetchJumpVad.c)
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
+ *     MiPrefetchJumpVad @ 0x140316388 (MiPrefetchJumpVad.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
  * Callees:
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
  */
 
 __int64 __fastcall MiLeapPrefetch(_QWORD *a1, unsigned __int64 a2)

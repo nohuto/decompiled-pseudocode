@@ -1,25 +1,25 @@
 /*
- * XREFs of MmMapIoSpace @ 0x14047E7E0
+ * XREFs of MmMapIoSpace @ 0x1404796E0
  * Callers:
- *     DifMmMapIoSpaceWrapper @ 0x140633BD0 (DifMmMapIoSpaceWrapper.c)
+ *     DifMmMapIoSpaceWrapper @ 0x140632190 (DifMmMapIoSpaceWrapper.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
  */
 
 PVOID __stdcall MmMapIoSpace(PHYSICAL_ADDRESS PhysicalAddress, SIZE_T NumberOfBytes, MEMORY_CACHING_TYPE CacheType)
 {
   int v3; // eax
-  unsigned int v4; // r8d
+  __int64 v4; // r8
 
   v3 = (unsigned __int8)CacheType;
   if ( (unsigned __int8)CacheType >= (unsigned int)MmMaximumCacheType )
     return 0LL;
-  v4 = 64;
+  v4 = 64LL;
   if ( v3 != 1 )
   {
-    v4 = 576;
+    v4 = 576LL;
     if ( v3 == 2 )
-      v4 = 1028;
+      v4 = 1028LL;
   }
   return (PVOID)MmMapIoSpaceEx(PhysicalAddress.QuadPart, NumberOfBytes, v4);
 }

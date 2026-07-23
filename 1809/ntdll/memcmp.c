@@ -1,22 +1,22 @@
 /*
- * XREFs of memcmp @ 0x180093CB0
+ * XREFs of memcmp @ 0x180093CC0
  * Callers:
  *     RtlpIsDuplicateAce @ 0x1800447A0 (RtlpIsDuplicateAce.c)
  *     RtlpOwnerAcesPresent @ 0x180048658 (RtlpOwnerAcesPresent.c)
  *     RtlpCheckDynamicTimeZoneInformation @ 0x180053010 (RtlpCheckDynamicTimeZoneInformation.c)
  *     RtlEqualSid @ 0x18006E5A0 (RtlEqualSid.c)
- *     EtwpRegistrationCompare @ 0x1800753E0 (EtwpRegistrationCompare.c)
- *     LdrpFindLoadedDllByMappingLockHeld @ 0x180076FE4 (LdrpFindLoadedDllByMappingLockHeld.c)
- *     RtlpCompareProtectedPolicyEntry @ 0x18007BE90 (RtlpCompareProtectedPolicyEntry.c)
- *     RtlSidHashLookup @ 0x18007C100 (RtlSidHashLookup.c)
- *     EtwpGuidEntryCompare @ 0x180086E50 (EtwpGuidEntryCompare.c)
- *     EtwpGenerateFileName @ 0x1800888C4 (EtwpGenerateFileName.c)
+ *     EtwpRegistrationCompare @ 0x1800753F0 (EtwpRegistrationCompare.c)
+ *     LdrpFindLoadedDllByMappingLockHeld @ 0x180076FF4 (LdrpFindLoadedDllByMappingLockHeld.c)
+ *     RtlpCompareProtectedPolicyEntry @ 0x18007BEA0 (RtlpCompareProtectedPolicyEntry.c)
+ *     RtlSidHashLookup @ 0x18007C110 (RtlSidHashLookup.c)
+ *     EtwpGuidEntryCompare @ 0x180086E60 (EtwpGuidEntryCompare.c)
+ *     EtwpGenerateFileName @ 0x1800888D4 (EtwpGenerateFileName.c)
  *     RtlReplaceSidInSd @ 0x1800E79E0 (RtlReplaceSidInSd.c)
  *     RtlpIsAttributeAceInSacl @ 0x1800EB0B4 (RtlpIsAttributeAceInSacl.c)
  *     RtlFindUnicodeSubstring @ 0x1800EBB40 (RtlFindUnicodeSubstring.c)
  *     RtlpIsNameInExpressionPrivate @ 0x1800FB70C (RtlpIsNameInExpressionPrivate.c)
- *     RtlpStackDbEntryIsEqual @ 0x1801162DC (RtlpStackDbEntryIsEqual.c)
- *     RtlpStackDbSegmentComparitor @ 0x1801163E8 (RtlpStackDbSegmentComparitor.c)
+ *     RtlpStackDbEntryIsEqual @ 0x180116278 (RtlpStackDbEntryIsEqual.c)
+ *     RtlpStackDbSegmentComparitor @ 0x180116384 (RtlpStackDbSegmentComparitor.c)
  * Callees:
  *     <none>
  */

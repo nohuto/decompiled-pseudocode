@@ -1,24 +1,24 @@
 /*
- * XREFs of KeQueryCurrentStackInformationEx @ 0x140263F70
+ * XREFs of KeQueryCurrentStackInformationEx @ 0x1402634E0
  * Callers:
- *     EtwpTraceStackWalk @ 0x14020A5C0 (EtwpTraceStackWalk.c)
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402639D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     RtlpGetStackLimits @ 0x140263CC0 (RtlpGetStackLimits.c)
- *     EtwpTraceLastBranchRecord @ 0x140263D10 (EtwpTraceLastBranchRecord.c)
- *     KeQueryCurrentStackInformation @ 0x140263F20 (KeQueryCurrentStackInformation.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140264300 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     RtlUnwindEx @ 0x1402E8510 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x1403D5F30 (RtlDispatchException.c)
- *     RtlpGetStackLimitsEx @ 0x1403D6560 (RtlpGetStackLimitsEx.c)
- *     RtlpIsFrameInBoundsEx @ 0x14041A810 (RtlpIsFrameInBoundsEx.c)
- *     KeCheckStackAndTargetAddress @ 0x140477190 (KeCheckStackAndTargetAddress.c)
- *     KasanWrapperRtlRestoreContext @ 0x14047DE40 (KasanWrapperRtlRestoreContext.c)
- *     PnprGetStackLimits @ 0x140522A84 (PnprGetStackLimits.c)
- *     KasanHibernationGetStackLow @ 0x1405DD630 (KasanHibernationGetStackLow.c)
- *     WheaIsAltContextAllocPossible @ 0x1406D5DB0 (WheaIsAltContextAllocPossible.c)
+ *     EtwpTraceStackWalk @ 0x14020A6A0 (EtwpTraceStackWalk.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140262F40 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     RtlpGetStackLimits @ 0x140263230 (RtlpGetStackLimits.c)
+ *     EtwpTraceLastBranchRecord @ 0x140263280 (EtwpTraceLastBranchRecord.c)
+ *     KeQueryCurrentStackInformation @ 0x140263490 (KeQueryCurrentStackInformation.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140263870 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     RtlUnwindEx @ 0x1402CA550 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x1403D8F00 (RtlDispatchException.c)
+ *     RtlpGetStackLimitsEx @ 0x1403D9530 (RtlpGetStackLimitsEx.c)
+ *     RtlpIsFrameInBoundsEx @ 0x140412060 (RtlpIsFrameInBoundsEx.c)
+ *     KeCheckStackAndTargetAddress @ 0x140470910 (KeCheckStackAndTargetAddress.c)
+ *     KasanWrapperRtlRestoreContext @ 0x1404777B0 (KasanWrapperRtlRestoreContext.c)
+ *     PnprGetStackLimits @ 0x1405250F0 (PnprGetStackLimits.c)
+ *     KasanHibernationGetStackLow @ 0x1405DFFA0 (KasanHibernationGetStackLow.c)
+ *     WheaIsAltContextAllocPossible @ 0x1406D9E90 (WheaIsAltContextAllocPossible.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     KiRspInIstStack @ 0x1403A6E58 (KiRspInIstStack.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     KiRspInIstStack @ 0x1403A8BB8 (KiRspInIstStack.c)
  */
 
 char __fastcall KeQueryCurrentStackInformationEx(unsigned __int64 a1, _DWORD *a2, char **a3, unsigned __int64 *a4)
@@ -135,7 +135,7 @@ LABEL_7:
       *a3 = StackLimit;
       if ( v11 <= a1 && a1 < *a4 )
         return 1;
-      if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 )
+      if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 )
       {
         *a2 = 0;
         *a4 = -1LL;

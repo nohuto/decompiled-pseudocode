@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x14046C716
+ * XREFs of MiGetPageForWriteCluster @ 0x14046CB16
  * Callers:
- *     MiBuildReservationCluster @ 0x1406382E4 (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x140638834 (MiBuildReservationCluster.c)
  * Callees:
- *     MiReferencePageForModifiedWrite @ 0x140349DE8 (MiReferencePageForModifiedWrite.c)
- *     MiCheckPteForWriteCluster @ 0x14046C612 (MiCheckPteForWriteCluster.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePageForModifiedWrite @ 0x140349F80 (MiReferencePageForModifiedWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCheckPteForWriteCluster @ 0x14046CA12 (MiCheckPteForWriteCluster.c)
  */
 
 unsigned __int64 __fastcall MiGetPageForWriteCluster(
@@ -37,7 +37,9 @@ unsigned __int64 __fastcall MiGetPageForWriteCluster(
   {
     *a5 = MiReferencePageForModifiedWrite(v9, 0);
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v13 = v18[0];
       if ( v18[0] <= 0xFu && CurrentIrql >= 2u )
@@ -49,7 +51,7 @@ unsigned __int64 __fastcall MiGetPageForWriteCluster(
         v17 = (v16 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v16;
         if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     else

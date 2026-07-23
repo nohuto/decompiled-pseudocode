@@ -435,62 +435,62 @@ NTSTATUS __stdcall NtSetInformationProcess(
     goto LABEL_45;
   switch ( ProcessInformationClass )
   {
-    case 5:
+    case ProcessBasePriority:
       goto LABEL_39;
-    case 17:
+    case ProcessEnableAlignmentFaultFixup:
       v10 = 1;
       goto LABEL_40;
-    case 25:
+    case ProcessForegroundInformation:
       v10 = 1;
       goto LABEL_40;
-    case 18:
+    case ProcessPriorityClass:
       v10 = 1;
       goto LABEL_40;
-    case 21:
+    case ProcessAffinityMask:
       v10 = 8;
       goto LABEL_40;
-    case 33:
-    case 39:
+    case ProcessIoPriority:
+    case ProcessPagePriority:
       goto LABEL_39;
-    case 35:
+    case ProcessTlsInformation:
       v10 = 8;
       goto LABEL_40;
-    case 8:
+    case ProcessExceptionPort:
       v10 = 8;
       goto LABEL_40;
-    case 40:
+    case ProcessInstrumentationCallback:
       v10 = 8;
       goto LABEL_40;
-    case 41:
+    case ProcessThreadStackAllocation:
       v10 = 8;
       goto LABEL_40;
-    case 45:
-    case 46:
+    case ProcessAffinityUpdateMode:
+    case ProcessMemoryAllocationMode:
       goto LABEL_39;
-    case 49:
+    case ProcessConsoleHostProcess:
       v10 = 8;
       goto LABEL_40;
-    case 53:
+    case ProcessDynamicFunctionTableInformation:
       v10 = 8;
       goto LABEL_40;
-    case 56:
+    case ProcessRevokeFileHandles:
       v10 = 8;
       goto LABEL_40;
-    case 62:
+    case ProcessMemoryExhaustion:
       v10 = 8;
       goto LABEL_40;
-    case 65:
+    case ProcessCommitReleaseInformation:
       v10 = 8;
       goto LABEL_40;
-    case 70:
+    case ProcessInPrivate:
       v10 = 1;
       goto LABEL_40;
-    case 74:
+    case ProcessHighGraphicsPriorityInformation:
       v10 = 1;
       goto LABEL_40;
   }
-  if ( ProcessInformationClass == (ProcessWx86Information|0x40)
-    || (v10 = 1, ProcessInformationClass != (ProcessWow64Information|0x40)) )
+  if ( ProcessInformationClass == ProcessManageWritesToExecutableMemory
+    || (v10 = 1, ProcessInformationClass != ProcessDebugAuthInformation) )
   {
 LABEL_39:
     v10 = 4;
@@ -1697,7 +1697,7 @@ LABEL_240:
         return -1073741820;
       memmove(v315, ProcessInformation, ProcessInformationLength);
       v222 = (unsigned int)v4 >> 3;
-      if ( ProcessInformationClass == (ProcessVmCounters|0x40) )
+      if ( ProcessInformationClass == ProcessAllowedCpuSetsInformation )
       {
         result = ExCpuSetResourceManagerAccessCheck(v9);
         if ( result < 0 )

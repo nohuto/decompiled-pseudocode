@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhOwnerCleanup @ 0x18005278C
+ * XREFs of RtlpHpLfhOwnerCleanup @ 0x18005277C
  * Callers:
- *     RtlpHpLfhContextCleanup @ 0x1800526EC (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpLfhContextCleanup @ 0x1800526DC (RtlpHpLfhContextCleanup.c)
  * Callees:
- *     RtlpHpLfhSubsegmentFree @ 0x1800528C4 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x1800528B4 (RtlpHpLfhSubsegmentFree.c)
  */
 
 __int64 __fastcall RtlpHpLfhOwnerCleanup(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmHeteroRegisterWpsUpdatesSim @ 0x140765C30
+ * XREFs of PpmHeteroRegisterWpsUpdatesSim @ 0x140765600
  * Callers:
  *     <none>
  * Callees:

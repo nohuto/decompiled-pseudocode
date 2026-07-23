@@ -9,38 +9,38 @@
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiOutSwapWorkingSetPte @ 0x14003DD60 (MiOutSwapWorkingSetPte.c)
- *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140080940 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
- *     MiBuildReservationCluster @ 0x1401500BC (MiBuildReservationCluster.c)
- *     MiReturnBadPagesToBadList @ 0x1402A6FAC (MiReturnBadPagesToBadList.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
- *     MiMarkFileOnlyPfnBad @ 0x1402B6388 (MiMarkFileOnlyPfnBad.c)
- *     MiFreeModifiedReservations @ 0x1402B8168 (MiFreeModifiedReservations.c)
- *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
- *     MiMakePageBad @ 0x1402CF128 (MiMakePageBad.c)
- *     MiTransferPartitionPageRun @ 0x1402D26F8 (MiTransferPartitionPageRun.c)
+ *     MiGatherMappedPages @ 0x14007E6A0 (MiGatherMappedPages.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140080930 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiReservePageFileSpaceForPage @ 0x1400817F0 (MiReservePageFileSpaceForPage.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiRelinkStandbyPage @ 0x1400F0AB8 (MiRelinkStandbyPage.c)
+ *     MiBuildReservationCluster @ 0x1401501BC (MiBuildReservationCluster.c)
+ *     MiReturnBadPagesToBadList @ 0x1402A719C (MiReturnBadPagesToBadList.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7600 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiMarkFileOnlyPfnBad @ 0x1402B6578 (MiMarkFileOnlyPfnBad.c)
+ *     MiFreeModifiedReservations @ 0x1402B8358 (MiFreeModifiedReservations.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA308 (MiHandleForkTransitionPte.c)
+ *     MiMakePageBad @ 0x1402CF318 (MiMakePageBad.c)
+ *     MiTransferPartitionPageRun @ 0x1402D28E8 (MiTransferPartitionPageRun.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiInsertDecayClusterTimer @ 0x14011C590 (MiInsertDecayClusterTimer.c)
- *     MiWakeModifiedPageWriter @ 0x1401532D8 (MiWakeModifiedPageWriter.c)
- *     MiUpdateAvailableEvents @ 0x14017F824 (MiUpdateAvailableEvents.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiWakeFileOnlyReaper @ 0x1402B726C (MiWakeFileOnlyReaper.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     MiRestoreTransitionPte @ 0x140081000 (MiRestoreTransitionPte.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiInsertDecayClusterTimer @ 0x14011C600 (MiInsertDecayClusterTimer.c)
+ *     MiWakeModifiedPageWriter @ 0x1401533D8 (MiWakeModifiedPageWriter.c)
+ *     MiUpdateAvailableEvents @ 0x14017F964 (MiUpdateAvailableEvents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiWakeFileOnlyReaper @ 0x1402B745C (MiWakeFileOnlyReaper.c)
  */
 
 void __fastcall MiInsertPageInList(ULONG_PTR BugCheckParameter2, __int16 a2)
@@ -116,8 +116,8 @@ void __fastcall MiInsertPageInList(ULONG_PTR BugCheckParameter2, __int16 a2)
   v61 = 0LL;
   v5 = a2;
   v6 = (v2 & 0x10000000000000LL) != 0;
-  v7 = *(_QWORD *)(qword_14043A748 + 8 * ((v2 >> 40) & 0x3FF));
-  if ( (a2 & 8) != 0 && (v2 & 0x10000000000000LL) != 0 && byte_14043A07C )
+  v7 = *(_QWORD *)(qword_14043B808 + 8 * ((v2 >> 40) & 0x3FF));
+  if ( (a2 & 8) != 0 && (v2 & 0x10000000000000LL) != 0 && byte_14043B13C )
   {
     v5 = a2 & 0xFFF3 | 4;
     *(_BYTE *)(BugCheckParameter2 + 34) &= ~0x10u;
@@ -126,7 +126,7 @@ void __fastcall MiInsertPageInList(ULONG_PTR BugCheckParameter2, __int16 a2)
   {
     v8 = (__int64 *)(v7 + 2304);
     if ( (v2 & 0x10000000000000LL) != 0 && (*(_BYTE *)(BugCheckParameter2 + 35) & 0x40) != 0 )
-      v8 = &qword_140438D00;
+      v8 = &qword_140439DC0;
   }
   else if ( (v5 & 8) != 0 )
   {
@@ -170,7 +170,7 @@ void __fastcall MiInsertPageInList(ULONG_PTR BugCheckParameter2, __int16 a2)
     else
       v12 = v11 & 7;
     v8 = (__int64 *)(v7 + 2368 + 40 * v12);
-    if ( (v11 & 8) != 0 || byte_14043DBDE != (_BYTE)v4 && _bittest64((const signed __int64 *)qword_14043E218, v10 >> 9) )
+    if ( (v11 & 8) != 0 || byte_14043EC9E != (_BYTE)v4 && _bittest64((const signed __int64 *)qword_14043F2D8, v10 >> 9) )
       goto LABEL_19;
     v13 = 4288LL;
     if ( (*(_QWORD *)(BugCheckParameter2 + 40) & 0x200000000000000LL) == 0 )
@@ -333,7 +333,7 @@ LABEL_63:
           {
             v53 = *v52;
             v54 = 0LL;
-            if ( dword_14043A08C )
+            if ( dword_14043B14C )
               break;
 LABEL_128:
             ++v4;
@@ -355,7 +355,7 @@ LABEL_128:
               break;
             v54 = (unsigned int)(v54 + 1);
             v53 += 8;
-            if ( (unsigned int)v54 >= dword_14043A08C )
+            if ( (unsigned int)v54 >= dword_14043B14C )
               goto LABEL_128;
           }
         }
@@ -397,8 +397,8 @@ LABEL_24:
     goto LABEL_25;
   }
   v44 = *(_QWORD *)(BugCheckParameter2 + 16);
-  if ( qword_14043A0C0 && (v44 & 0x10) == 0 )
-    v44 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v44 & 0x10) == 0 )
+    v44 &= ~qword_14043B180;
   v45 = v44 >> 16;
   v46 = 4992LL;
   if ( (*(_QWORD *)(BugCheckParameter2 + 40) & 0x200000000000000LL) != 0 )
@@ -420,7 +420,7 @@ LABEL_24:
   }
 LABEL_25:
   if ( (*(_BYTE *)(BugCheckParameter2 + 35) & 8) != 0
-    || byte_14043DBDE && _bittest64((const signed __int64 *)qword_14043E218, v10 >> 9) && v9 == 2 )
+    || byte_14043EC9E && _bittest64((const signed __int64 *)qword_14043F2D8, v10 >> 9) && v9 == 2 )
   {
     if ( !MiIsPfnFromSlabAllocation(BugCheckParameter2) )
       MiInsertDecayClusterTimer(BugCheckParameter2);
@@ -435,7 +435,7 @@ LABEL_25:
   else
     *(_QWORD *)(48 * v19 - 0x58000000000LL) ^= (*(_QWORD *)(48 * v19 - 0x58000000000LL) ^ v10) & 0xFFFFFFFFFLL;
   v20 = *(_BYTE *)(BugCheckParameter2 + 34);
-  if ( v8 == &qword_140438D00 )
+  if ( v8 == &qword_140439DC0 )
   {
     *(_BYTE *)(BugCheckParameter2 + 34) = v20 & 0xF8 | 2;
     *(_BYTE *)(BugCheckParameter2 + 35) |= 0x10u;
@@ -454,9 +454,9 @@ LABEL_25:
   if ( v21 == 2 )
   {
     v23 = *(_BYTE *)(BugCheckParameter2 + 35);
-    if ( (v23 & 8) == 0 && (!byte_14043DBDE || !_bittest64((const signed __int64 *)qword_14043E218, v10 >> 9)) )
+    if ( (v23 & 8) == 0 && (!byte_14043EC9E || !_bittest64((const signed __int64 *)qword_14043F2D8, v10 >> 9)) )
     {
-      v24 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(qword_14043A748
+      v24 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(qword_14043B808
                                              + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL))
                                  + 16LL)
                      + 1984LL * (*(_QWORD *)(BugCheckParameter2 + 40) >> 58)

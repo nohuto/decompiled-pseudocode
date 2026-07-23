@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x140410E10
+ * XREFs of KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x14041101C
  * Callers:
- *     KiAddThreadToReadyQueue @ 0x1402348E0 (KiAddThreadToReadyQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x140238940 (KiAddThreadToPrcbQueue.c)
+ *     KiAddThreadToReadyQueue @ 0x1402349B0 (KiAddThreadToReadyQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x140238A10 (KiAddThreadToPrcbQueue.c)
  * Callees:
- *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x140372898 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
+ *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x140372A38 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
  */
 
 __int64 __fastcall KiUpdateLocalReadyQueueStatisticsOnInsertion(__int64 a1, __int64 a2)

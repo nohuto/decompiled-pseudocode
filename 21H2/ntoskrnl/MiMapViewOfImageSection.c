@@ -1,57 +1,57 @@
 /*
- * XREFs of MiMapViewOfImageSection @ 0x14061CEB0
+ * XREFs of MiMapViewOfImageSection @ 0x140686B20
  * Callers:
- *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
- *     MiMapImageInSystemProcess @ 0x1408C47A4 (MiMapImageInSystemProcess.c)
+ *     MiMapViewOfSection @ 0x140702E10 (MiMapViewOfSection.c)
+ *     MiMapImageInSystemProcess @ 0x1408C4904 (MiMapImageInSystemProcess.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     MiControlAreaRequiresCharge @ 0x14025ACBC (MiControlAreaRequiresCharge.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14025AE28 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiIsProcessCfgEnabled @ 0x14025B020 (MiIsProcessCfgEnabled.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     MiInsertVadEvent @ 0x14025B9BC (MiInsertVadEvent.c)
- *     MiSoftFaultMappedView @ 0x14028D5A0 (MiSoftFaultMappedView.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MiDereferenceControlArea @ 0x1402D38B8 (MiDereferenceControlArea.c)
- *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
- *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
- *     MiReferenceActiveSubsection @ 0x140315D00 (MiReferenceActiveSubsection.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140315FB0 (MiCheckPurgeAndUpMapCount.c)
- *     MiGetWsAndInsertVad @ 0x140316080 (MiGetWsAndInsertVad.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A924 (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiUpdatePrivateDemandZeroView @ 0x14052D398 (MiUpdatePrivateDemandZeroView.c)
- *     MiRemoveVadEvent @ 0x14053A794 (MiRemoveVadEvent.c)
- *     MiMapUserLargePages @ 0x14055E730 (MiMapUserLargePages.c)
- *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
- *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
- *     MiCommitVadCfgBits @ 0x14061BCBC (MiCommitVadCfgBits.c)
- *     MiAllowImageMap @ 0x14061D9F0 (MiAllowImageMap.c)
- *     MiIsVaRangeAvailable @ 0x14061DBD8 (MiIsVaRangeAvailable.c)
- *     MiUnmapVad @ 0x14061E420 (MiUnmapVad.c)
- *     MiSecureVad @ 0x14061F6B0 (MiSecureVad.c)
- *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
- *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
- *     MiArbitraryCodeBlocked @ 0x140629364 (MiArbitraryCodeBlocked.c)
- *     MiAllocateFixupVad @ 0x1406AA5F4 (MiAllocateFixupVad.c)
- *     MiDereferencePerSessionProtos @ 0x1406BC7FC (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406BC914 (MiCreatePerSessionProtos.c)
- *     MiRemoveSharedCommitNode @ 0x1406EB4E0 (MiRemoveSharedCommitNode.c)
- *     MiInsertSharedCommitNode @ 0x1406EB750 (MiInsertSharedCommitNode.c)
- *     MiReferenceFileObjectForMap @ 0x1406ECC40 (MiReferenceFileObjectForMap.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x1406ECF60 (MiAdvanceVadHint.c)
- *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
- *     MiLoadUserSymbols @ 0x1407D0E0C (MiLoadUserSymbols.c)
- *     MiLogMapFileEvent @ 0x1408C4748 (MiLogMapFileEvent.c)
- *     MiCreateLargePageVad @ 0x1408D9F64 (MiCreateLargePageVad.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiSoftFaultMappedView @ 0x14020A740 (MiSoftFaultMappedView.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MiDereferenceControlArea @ 0x140251BB8 (MiDereferenceControlArea.c)
+ *     MiControlAreaRequiresCharge @ 0x14027C22C (MiControlAreaRequiresCharge.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14027C398 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiIsProcessCfgEnabled @ 0x14027C590 (MiIsProcessCfgEnabled.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     MiInsertVadEvent @ 0x14027CF2C (MiInsertVadEvent.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     MiLocateVadEvent @ 0x140309104 (MiLocateVadEvent.c)
+ *     MiUnlockVad @ 0x14031F3A8 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031FFDC (LOCK_ADDRESS_SPACE.c)
+ *     MiReferenceActiveSubsection @ 0x140320A50 (MiReferenceActiveSubsection.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140320D00 (MiCheckPurgeAndUpMapCount.c)
+ *     MiGetWsAndInsertVad @ 0x140320DD0 (MiGetWsAndInsertVad.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052AB64 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x14052D5D8 (MiUpdatePrivateDemandZeroView.c)
+ *     MiRemoveVadEvent @ 0x14053A9D4 (MiRemoveVadEvent.c)
+ *     MiMapUserLargePages @ 0x14055E970 (MiMapUserLargePages.c)
+ *     MiAllocateFixupVad @ 0x140608CE8 (MiAllocateFixupVad.c)
+ *     MiDereferencePerSessionProtos @ 0x14061B9CC (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14061BAE4 (MiCreatePerSessionProtos.c)
+ *     PsCallImageNotifyRoutines @ 0x140684E90 (PsCallImageNotifyRoutines.c)
+ *     MiCommitVadCfgBits @ 0x14068592C (MiCommitVadCfgBits.c)
+ *     MiAllowImageMap @ 0x140687660 (MiAllowImageMap.c)
+ *     MiIsVaRangeAvailable @ 0x140687848 (MiIsVaRangeAvailable.c)
+ *     MiUnmapVad @ 0x140688090 (MiUnmapVad.c)
+ *     MiSecureVad @ 0x140689320 (MiSecureVad.c)
+ *     MmUnsecureVirtualMemory @ 0x1406893D0 (MmUnsecureVirtualMemory.c)
+ *     MiAddSecureEntry @ 0x140689430 (MiAddSecureEntry.c)
+ *     MiArbitraryCodeBlocked @ 0x1406907CC (MiArbitraryCodeBlocked.c)
+ *     MiSelectUserAddress @ 0x1406EA100 (MiSelectUserAddress.c)
+ *     MiRemoveSharedCommitNode @ 0x1407028C0 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140702B30 (MiInsertSharedCommitNode.c)
+ *     MiReferenceFileObjectForMap @ 0x140704020 (MiReferenceFileObjectForMap.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x140704340 (MiAdvanceVadHint.c)
+ *     MiReleaseVadEventBlocks @ 0x140704770 (MiReleaseVadEventBlocks.c)
+ *     MiLoadUserSymbols @ 0x1407D0F7C (MiLoadUserSymbols.c)
+ *     MiLogMapFileEvent @ 0x1408C48A8 (MiLogMapFileEvent.c)
+ *     MiCreateLargePageVad @ 0x1408DA0C4 (MiCreateLargePageVad.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMapViewOfImageSection(
@@ -117,7 +117,7 @@ __int64 __fastcall MiMapViewOfImageSection(
   __int64 v59; // rdi
   __int64 v60; // rdx
   __int64 v61; // rsi
-  __int64 FixupVad; // r13
+  _OWORD *FixupVad; // r13
   unsigned __int64 v63; // r12
   __int64 v64; // r13
   __int64 v65; // r13
@@ -137,7 +137,7 @@ __int64 __fastcall MiMapViewOfImageSection(
   struct _DMA_ADAPTER *v79; // rcx
   unsigned int v80; // eax
   struct _DMA_ADAPTER *v81; // rcx
-  unsigned __int64 v82; // r8
+  __int64 v82; // r8
   __int64 VadEvent; // rax
   unsigned __int64 v84; // r8
   char v85; // r9
@@ -162,7 +162,7 @@ __int64 __fastcall MiMapViewOfImageSection(
   __int128 v104; // [rsp+B0h] [rbp-50h]
   __int128 v105; // [rsp+C0h] [rbp-40h]
   __int64 v106; // [rsp+D0h] [rbp-30h]
-  _QWORD v107[11]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v107[11]; // [rsp+E0h] [rbp-20h] BYREF
   unsigned __int64 v109; // [rsp+188h] [rbp+88h]
   unsigned int v110; // [rsp+188h] [rbp+88h]
 
@@ -178,9 +178,9 @@ __int64 __fastcall MiMapViewOfImageSection(
   v105 = 0LL;
   v13 = *(_QWORD *)(v10 + 56);
   v102 = v13;
-  if ( dword_140C4CC90
-    && dword_140C4CC94 == *(_DWORD *)(v13 + 60)
-    && dword_140C4CC98 == *(_DWORD *)(*(_QWORD *)(v10 + 56) + 68LL) )
+  if ( dword_140C4CCD0
+    && dword_140C4CCD4 == *(_DWORD *)(v13 + 60)
+    && dword_140C4CCD8 == *(_DWORD *)(*(_QWORD *)(v10 + 56) + 68LL) )
   {
     __debugbreak();
   }
@@ -433,7 +433,7 @@ LABEL_41:
               if ( FixupVad )
               {
                 ExFreePoolWithTag((PVOID)v23, 0);
-                v23 = FixupVad;
+                v23 = (__int64)FixupVad;
                 v45 = 1073741878;
                 v110 = 1073741878;
               }
@@ -457,7 +457,7 @@ LABEL_41:
       if ( (*(_DWORD *)(a1 + 56) & 0x4000000) != 0 )
       {
         SessionId = MmGetSessionIdEx(v11);
-        PerSessionProtos = MiCreatePerSessionProtos(a1, SessionId);
+        PerSessionProtos = MiCreatePerSessionProtos((__int64 *)a1, SessionId);
         if ( PerSessionProtos < 0 )
           goto LABEL_158;
         v46 = a1;
@@ -565,7 +565,7 @@ LABEL_96:
                     PerSessionProtos = MiSecureVad(v23, v96, *(_QWORD *)(a2 + 24), v89, 0, (__int64)&v101);
                     if ( PerSessionProtos < 0 )
                       goto LABEL_241;
-                    **(_QWORD **)(a2 + 80) = v101 ^ qword_140C4DE50 ^ v11;
+                    **(_QWORD **)(a2 + 80) = v101 ^ qword_140C4DE90 ^ v11;
                     v59 = 0LL;
                   }
                   else
@@ -586,7 +586,7 @@ LABEL_96:
                       HalPutDmaAdapter((PADAPTER_OBJECT)v50);
                     }
                     if ( v59 )
-                      MmUnsecureVirtualMemory((HANDLE)(v59 ^ qword_140C4DE50 ^ v11));
+                      MmUnsecureVirtualMemory((HANDLE)(v59 ^ qword_140C4DE90 ^ v11));
                     goto LABEL_96;
                   }
                   PerSessionProtos = -1073741670;
@@ -672,7 +672,7 @@ LABEL_193:
       if ( (v19 & 0x80u) != 0 )
       {
         v80 = MmGetSessionIdEx(v11);
-        MiDereferencePerSessionProtos(v9, v80);
+        MiDereferencePerSessionProtos((__int64 *)v9, v80);
       }
       if ( (v19 & 0x100) != 0 )
         MiReturnCrossPartitionControlAreaCharges(v9);
@@ -725,8 +725,8 @@ LABEL_193:
                            v64,
                            (*(_DWORD *)(v23 + 48) >> 7) & 0x1F,
                            0,
-                           &v99,
-                           &v96);
+                           (__int64)&v99,
+                           (__int64)&v96);
       if ( PerSessionProtos >= 0 )
       {
         v21 = v109;
@@ -736,7 +736,7 @@ LABEL_114:
         {
           if ( v21 - *(_QWORD *)(a2 + 24) >= 0x10000 )
             v100 = (unsigned int)ExGenRandom(1) % ((v21 - *(_QWORD *)(a2 + 24)) >> 16);
-          VadEvent = MiLocateVadEvent(v23, 16LL);
+          VadEvent = MiLocateVadEvent(v23);
           *(_QWORD *)(VadEvent + 16) = v84 >> 12;
           *(_BYTE *)(VadEvent + 8) = v85;
         }
@@ -763,8 +763,8 @@ LABEL_114:
                            v91,
                            (*(_DWORD *)(v23 + 48) >> 7) & 0x1F,
                            0,
-                           &v99,
-                           &v96);
+                           (__int64)&v99,
+                           (__int64)&v96);
     }
     if ( PerSessionProtos < 0 )
       goto LABEL_158;

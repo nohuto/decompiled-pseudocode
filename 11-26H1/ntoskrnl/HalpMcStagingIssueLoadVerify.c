@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcStagingIssueLoadVerify @ 0x140593B74
+ * XREFs of HalpMcStagingIssueLoadVerify @ 0x1405962F4
  * Callers:
- *     HalpMcStagePayload @ 0x1405938EC (HalpMcStagePayload.c)
+ *     HalpMcStagePayload @ 0x14059606C (HalpMcStagePayload.c)
  * Callees:
- *     HalpMcStagingWriteData @ 0x140593CBC (HalpMcStagingWriteData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpMcStagingWriteData @ 0x14059643C (HalpMcStagingWriteData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpMcStagingIssueLoadVerify(__int64 a1, _DWORD *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall HalpMcStagingIssueLoadVerify(__int64 a1, _DWORD *a2)
   {
     while ( *(int *)(a1 + 4) >= 0 )
     {
-      if ( (++v2 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+      if ( (++v2 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
         _mm_pause();
       else
         guard_dispatch_icall_no_overrides(v2, a2);

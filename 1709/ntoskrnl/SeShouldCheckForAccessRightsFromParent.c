@@ -11,13 +11,13 @@
 
 bool __fastcall SeShouldCheckForAccessRightsFromParent(__int64 a1, __int64 a2, __int64 a3)
 {
-  char v4; // si
+  BOOLEAN v4; // si
   char v6; // di
   __int64 TrustLabelAce; // rax
   _DWORD *v8; // r8
-  __int64 v10; // r14
-  __int64 TokenTrustLevel; // rax
-  char v12; // [rsp+60h] [rbp+18h] BYREF
+  void *v10; // r14
+  void *TokenTrustLevel; // rax
+  BOOLEAN DominatesTrust; // [rsp+60h] [rbp+18h] BYREF
   __int64 v13; // [rsp+68h] [rbp+20h] BYREF
 
   v4 = 1;
@@ -26,13 +26,13 @@ bool __fastcall SeShouldCheckForAccessRightsFromParent(__int64 a1, __int64 a2, _
   TrustLabelAce = SeGetTrustLabelAce(a2);
   if ( TrustLabelAce )
   {
-    v10 = TrustLabelAce + 8;
+    v10 = (void *)(TrustLabelAce + 8);
     if ( TrustLabelAce != -8 )
     {
-      v12 = 0;
-      TokenTrustLevel = SepLocateTokenTrustLevel((__int64 *)(a3 + 32));
-      RtlSidDominatesForTrust(TokenTrustLevel, v10, &v12);
-      v4 = v12;
+      DominatesTrust = 0;
+      TokenTrustLevel = (void *)SepLocateTokenTrustLevel((__int64 *)(a3 + 32));
+      RtlSidDominatesForTrust(TokenTrustLevel, v10, &DominatesTrust);
+      v4 = DominatesTrust;
     }
   }
   v8 = *(_DWORD **)(a3 + 32);

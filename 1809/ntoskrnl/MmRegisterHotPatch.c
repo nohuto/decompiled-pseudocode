@@ -1,15 +1,15 @@
 /*
- * XREFs of MmRegisterHotPatch @ 0x1409F71D0
+ * XREFs of MmRegisterHotPatch @ 0x1409F81D0
  * Callers:
- *     IopLoadBootHotPatches @ 0x1409DF290 (IopLoadBootHotPatches.c)
+ *     IopLoadBootHotPatches @ 0x1409E0290 (IopLoadBootHotPatches.c)
  * Callees:
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     VslDetermineHotPatchType @ 0x140818500 (VslDetermineHotPatchType.c)
- *     MiAllocateHotPatchRecord @ 0x140853FFC (MiAllocateHotPatchRecord.c)
- *     MiApplyHotPatchToDriver @ 0x140854324 (MiApplyHotPatchToDriver.c)
- *     MiInsertHotPatchRecord @ 0x140855890 (MiInsertHotPatchRecord.c)
- *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     VslDetermineHotPatchType @ 0x140819700 (VslDetermineHotPatchType.c)
+ *     MiAllocateHotPatchRecord @ 0x14085525C (MiAllocateHotPatchRecord.c)
+ *     MiApplyHotPatchToDriver @ 0x140855584 (MiApplyHotPatchToDriver.c)
+ *     MiInsertHotPatchRecord @ 0x140856AF0 (MiInsertHotPatchRecord.c)
+ *     MiLoadHotPatch @ 0x140856C38 (MiLoadHotPatch.c)
  */
 
 NTSTATUS __fastcall MmRegisterHotPatch(const void **a1, int a2, unsigned int a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of PspCompleteServerSiloShutdownDeferred @ 0x14067E3A8
+ * XREFs of PspCompleteServerSiloShutdownDeferred @ 0x14067E48C
  * Callers:
  *     <none>
  * Callees:
- *     PsDetachSiloFromCurrentThread @ 0x140009D20 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140009D40 (PsAttachSiloToCurrentThread.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     SepDeReferenceLogonSessionDirect @ 0x140080760 (SepDeReferenceLogonSessionDirect.c)
- *     PspSendJobNotification @ 0x1400AC040 (PspSendJobNotification.c)
- *     PsGetServerSiloState @ 0x1400B0120 (PsGetServerSiloState.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
- *     EtwShutdown @ 0x1405314F0 (EtwShutdown.c)
- *     PspTerminateSiloSubsystemProcesses @ 0x14067EEF4 (PspTerminateSiloSubsystemProcesses.c)
- *     PspNotifyServerSiloTermination @ 0x1406812DC (PspNotifyServerSiloTermination.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140693740 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1400098A0 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x1400098C0 (PsAttachSiloToCurrentThread.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x1400807E0 (SepDeReferenceLogonSessionDirect.c)
+ *     PspSendJobNotification @ 0x1400AA5A8 (PspSendJobNotification.c)
+ *     PsGetServerSiloState @ 0x1400AE2D8 (PsGetServerSiloState.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
+ *     EtwShutdown @ 0x140531A30 (EtwShutdown.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x14067EFD8 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspNotifyServerSiloTermination @ 0x1406813C0 (PspNotifyServerSiloTermination.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140693824 (SepDeleteUnreferencedLogonSessionsInSilo.c)
  */
 
 LONG_PTR __fastcall PspCompleteServerSiloShutdownDeferred(__int64 a1)

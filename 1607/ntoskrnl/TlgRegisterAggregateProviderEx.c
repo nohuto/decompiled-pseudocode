@@ -1,18 +1,18 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x1401495F4
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x140149B64
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ComputeFlushPeriod @ 0x14014971C (ComputeFlushPeriod.c)
- *     CreateTlgAggregateSession @ 0x1401497C0 (CreateTlgAggregateSession.c)
- *     CancelTimerCallbacksAndDeleteTimer @ 0x14023CD64 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ComputeFlushPeriod @ 0x140149C8C (ComputeFlushPeriod.c)
+ *     CreateTlgAggregateSession @ 0x140149D30 (CreateTlgAggregateSession.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x14023CC48 (CancelTimerCallbacksAndDeleteTimer.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     TraceLoggingRegisterEx @ 0x140546994 (TraceLoggingRegisterEx.c)
+ *     TraceLoggingRegisterEx @ 0x140546ED4 (TraceLoggingRegisterEx.c)
  */
 
 TLG_STATUS __fastcall TlgRegisterAggregateProviderEx(
@@ -51,20 +51,20 @@ TLG_STATUS __fastcall TlgRegisterAggregateProviderEx(
   }
   else
   {
-    v9 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140329CD0, 0LL, 0);
-    v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140329CD0, 0LL);
+    v9 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140329D10, 0LL, 0);
+    v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140329D10, 0LL);
     v11 = v9;
     if ( v10 )
-      ExfAcquirePushLockExclusiveEx(&qword_140329CD0, v9, (ULONG_PTR)&qword_140329CD0);
+      ExfAcquirePushLockExclusiveEx(&qword_140329D10, v9, (ULONG_PTR)&qword_140329D10);
     if ( v11 )
       v11[26] |= 1u;
-    v12 = qword_1403418B0;
-    if ( !qword_1403418B0 )
+    v12 = qword_1403418F0;
+    if ( !qword_1403418F0 )
     {
       TraceLoggingRegisterEx(&stru_1402F3DD0, TlgAggregateInternalProviderCallback, 0LL);
-      v12 = qword_1403418B0;
+      v12 = qword_1403418F0;
     }
-    v13 = &qword_1403418B0;
+    v13 = &qword_1403418F0;
     if ( v12 )
     {
       while ( 1 )
@@ -82,9 +82,9 @@ TLG_STATUS __fastcall TlgRegisterAggregateProviderEx(
 LABEL_12:
       *v13 = (__int64)v7;
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140329CD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140329CD0);
-    KeAbPostRelease((ULONG_PTR)&qword_140329CD0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140329D10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140329D10);
+    KeAbPostRelease((ULONG_PTR)&qword_140329D10);
     return 0;
   }
 }

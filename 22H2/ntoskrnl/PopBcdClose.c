@@ -7,7 +7,7 @@
  *     BcdCloseStore @ 0x140782314 (BcdCloseStore.c)
  */
 
-__int64 __fastcall PopBcdClose(__int64 a1)
+NTSTATUS __fastcall PopBcdClose(void *a1)
 {
   return BcdCloseStore(a1);
 }

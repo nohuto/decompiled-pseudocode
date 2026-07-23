@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIsFunctionalityAvailable @ 0x14077D0B0
+ * XREFs of RtlIsFunctionalityAvailable @ 0x14077CFE0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
  */
 
 unsigned __int8 __fastcall RtlIsFunctionalityAvailable(unsigned int a1)

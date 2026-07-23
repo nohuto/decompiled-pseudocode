@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtInitializeNlsFiles()
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 261LL;
+  result = 261;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,18 +1,18 @@
 /*
- * XREFs of VmpProcessInvalidateList @ 0x140518B00
+ * XREFs of VmpProcessInvalidateList @ 0x140512570
  * Callers:
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
- *     VmpInsertInvalidateListRange @ 0x140251FD8 (VmpInsertInvalidateListRange.c)
- *     VmpFlushTbVaRange @ 0x14025248C (VmpFlushTbVaRange.c)
- *     VmpInvalidateSlatBatched @ 0x1406C1430 (VmpInvalidateSlatBatched.c)
- *     VmpUnpinMemoryRangeHelper @ 0x1406C286C (VmpUnpinMemoryRangeHelper.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
+ *     VmpInsertInvalidateListRange @ 0x140253938 (VmpInsertInvalidateListRange.c)
+ *     VmpFlushTbVaRange @ 0x140253DEC (VmpFlushTbVaRange.c)
+ *     VmpInvalidateSlatBatched @ 0x1406C5010 (VmpInvalidateSlatBatched.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x1406C644C (VmpUnpinMemoryRangeHelper.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     HvlMapSparseGpaPages @ 0x14048ED40 (HvlMapSparseGpaPages.c)
- *     VmpConvertInvalidateFlagsToMapFlags @ 0x1406C0DDC (VmpConvertInvalidateFlagsToMapFlags.c)
- *     VmpInvalidateSingleGpaRange @ 0x1406C13D4 (VmpInvalidateSingleGpaRange.c)
- *     VmpLogTbFlushSlatInvalidate @ 0x1406C330C (VmpLogTbFlushSlatInvalidate.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     HvlMapSparseGpaPages @ 0x140488880 (HvlMapSparseGpaPages.c)
+ *     VmpConvertInvalidateFlagsToMapFlags @ 0x1406C49BC (VmpConvertInvalidateFlagsToMapFlags.c)
+ *     VmpInvalidateSingleGpaRange @ 0x1406C4FB4 (VmpInvalidateSingleGpaRange.c)
+ *     VmpLogTbFlushSlatInvalidate @ 0x1406C6EEC (VmpLogTbFlushSlatInvalidate.c)
  */
 
 char __fastcall VmpProcessInvalidateList(__int64 a1, __int64 a2)
@@ -39,9 +39,9 @@ char __fastcall VmpProcessInvalidateList(__int64 a1, __int64 a2)
   unsigned __int64 QpcTimeStamp; // [rsp+78h] [rbp+10h] BYREF
 
   v2 = a1;
-  if ( stru_140F066E8.QuantumTarget
-    && *(_DWORD *)stru_140F066E8.QuantumTarget
-    && tlgKeywordOn(stru_140F066E8.QuantumTarget, 2LL) )
+  if ( stru_140F06A28.InitialStack
+    && *(_DWORD *)stru_140F06A28.InitialStack
+    && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 2LL) )
   {
     v4 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
   }
@@ -50,7 +50,7 @@ char __fastcall VmpProcessInvalidateList(__int64 a1, __int64 a2)
     v4 = 0LL;
   }
   v5 = *(_WORD *)(a2 + 6) & 2;
-  if ( _bittest64(*(const signed __int64 **)(stru_140F066E8.ThreadLock + 8), 1u) )
+  if ( _bittest64(*((const signed __int64 **)stru_140F06A28.StackBase + 1), 1u) )
     v5 |= 4u;
   if ( (*(_DWORD *)(a2 + 4) & 1) != 0 )
   {
@@ -110,9 +110,9 @@ char __fastcall VmpProcessInvalidateList(__int64 a1, __int64 a2)
   if ( v4 )
   {
     KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
-    if ( stru_140F066E8.QuantumTarget )
+    if ( stru_140F06A28.InitialStack )
     {
-      if ( *(_DWORD *)stru_140F066E8.QuantumTarget && tlgKeywordOn(stru_140F066E8.QuantumTarget, 2LL) )
+      if ( *(_DWORD *)stru_140F06A28.InitialStack && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 2LL) )
         VmpLogTbFlushSlatInvalidate(
           v11,
           *(_QWORD *)(a2 + 8),

@@ -119,9 +119,9 @@ __int64 __fastcall ObInsertObjectEx(
   PVOID *v41; // [rsp+48h] [rbp-B8h]
   PVOID *v42; // [rsp+48h] [rbp-B8h]
   char v43; // [rsp+60h] [rbp-A0h]
-  unsigned int v45; // [rsp+68h] [rbp-98h] BYREF
+  int v45; // [rsp+68h] [rbp-98h] BYREF
   int v46; // [rsp+6Ch] [rbp-94h]
-  __int64 v47; // [rsp+70h] [rbp-90h] BYREF
+  ULONG Index[2]; // [rsp+70h] [rbp-90h] BYREF
   PVOID P; // [rsp+78h] [rbp-88h]
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+80h] [rbp-80h] BYREF
   char *v50; // [rsp+88h] [rbp-78h]
@@ -210,11 +210,12 @@ LABEL_23:
     if ( !v50 && ((v14->TypeInfo.ObjectTypeFlags & 8) != 0 || *(char **)(v9 + 32) != v50) )
     {
       v25 = AccessState->SecurityDescriptor;
+      Index[1] = 0;
       v45 = 0;
       SecurityDescriptor = 0LL;
       P = 0LL;
-      v47 = 8LL;
-      v26 = SeComputeAutoInheritByObjectTypeEx((__int64)v14, (__int64)v25, 0LL, &v45, &v47);
+      Index[0] = 8;
+      v26 = SeComputeAutoInheritByObjectTypeEx((__int64)v14, (__int64)v25, 0LL, &v45, Index);
       if ( v26 < 0 )
       {
 LABEL_32:
@@ -235,8 +236,8 @@ LABEL_32:
               (int)&SecurityDescriptor,
               0LL,
               v14 == ObpDirectoryObjectType,
-              (16 * (a5 & 1)) | v45,
-              &v47,
+              (16 * (a5 & 1)) | (unsigned int)v45,
+              Index,
               (__int64)&AccessState->SubjectSecurityContext,
               (__int64)&v14->TypeInfo.GenericMapping);
       if ( v26 < 0 )

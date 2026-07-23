@@ -1,43 +1,43 @@
 /*
- * XREFs of SLUpdateLicenseDataInternal @ 0x140839788
+ * XREFs of SLUpdateLicenseDataInternal @ 0x14083F9C8
  * Callers:
- *     sub_140A7DC40 @ 0x140A7DC40 (sub_140A7DC40.c)
- *     ExUpdateLicenseData @ 0x140B415E0 (ExUpdateLicenseData.c)
+ *     sub_140A83AB0 @ 0x140A83AB0 (sub_140A83AB0.c)
+ *     ExUpdateLicenseData @ 0x140B435F0 (ExUpdateLicenseData.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsIsHostSilo @ 0x14046E630 (PsIsHostSilo.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     ExpGetLicenseTamperState @ 0x1406CD17C (ExpGetLicenseTamperState.c)
- *     ExpLicUpdateChecksum @ 0x1406CD2D0 (ExpLicUpdateChecksum.c)
- *     ExpSetLicenseTamperState @ 0x1406CD4F4 (ExpSetLicenseTamperState.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ntoskrnl_24 @ 0x1408382D0 (ntoskrnl_24.c)
- *     sub_140838A90 @ 0x140838A90 (sub_140838A90.c)
- *     sub_140838F7C @ 0x140838F7C (sub_140838F7C.c)
- *     sub_1408390BC @ 0x1408390BC (sub_1408390BC.c)
- *     SLSendPolicyChangeNotifications @ 0x140839760 (SLSendPolicyChangeNotifications.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     MmMapViewInSessionSpace @ 0x1409B7230 (MmMapViewInSessionSpace.c)
- *     ntoskrnl_20 @ 0x140A7E0D0 (ntoskrnl_20.c)
- *     ExpReducedLicenseData @ 0x140B45E80 (ExpReducedLicenseData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsIsHostSilo @ 0x140467DB0 (PsIsHostSilo.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     ExpGetLicenseTamperState @ 0x1406D11AC (ExpGetLicenseTamperState.c)
+ *     ExpLicUpdateChecksum @ 0x1406D1300 (ExpLicUpdateChecksum.c)
+ *     ExpSetLicenseTamperState @ 0x1406D1524 (ExpSetLicenseTamperState.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ntoskrnl_24 @ 0x14083E510 (ntoskrnl_24.c)
+ *     sub_14083ECD0 @ 0x14083ECD0 (sub_14083ECD0.c)
+ *     sub_14083F1BC @ 0x14083F1BC (sub_14083F1BC.c)
+ *     sub_14083F2FC @ 0x14083F2FC (sub_14083F2FC.c)
+ *     SLSendPolicyChangeNotifications @ 0x14083F9A0 (SLSendPolicyChangeNotifications.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     MmMapViewInSessionSpace @ 0x140988210 (MmMapViewInSessionSpace.c)
+ *     ntoskrnl_20 @ 0x140A83F40 (ntoskrnl_20.c)
+ *     ExpReducedLicenseData @ 0x140B47EB0 (ExpReducedLicenseData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SLUpdateLicenseDataInternal(__int64 a1, unsigned int a2, unsigned int *a3)
@@ -330,7 +330,7 @@ LABEL_36:
             v10 = -1073741761;
             goto LABEL_78;
           }
-          v10 = sub_140838F7C((__int64)v29, 1, 0LL, 0, (unsigned int *)&NumOfElements);
+          v10 = sub_14083F1BC((__int64)v29, 1, 0LL, 0, (unsigned int *)&NumOfElements);
           if ( v10 == -1073741789 )
           {
             v31 = KeGetCurrentThread();
@@ -365,10 +365,10 @@ LABEL_36:
               v10 = -1073741801;
               goto LABEL_78;
             }
-            v10 = sub_140838F7C((__int64)v29, 0, Pool2, v35, 0LL);
+            v10 = sub_14083F1BC((__int64)v29, 0, Pool2, v35, 0LL);
             v42 = 0;
             if ( v10 >= 0 )
-              qsort(Base, v35, 0x10uLL, (int (__cdecl *)(const void *, const void *))sub_140838A90);
+              qsort(Base, v35, 0x10uLL, (int (__cdecl *)(const void *, const void *))sub_14083ECD0);
           }
           else
           {
@@ -406,7 +406,7 @@ LABEL_108:
             while ( v47 < (unsigned int)NumOfElements && v42 < *(_DWORD *)(a1 + 46824) )
             {
               v48 = (char *)Base + 16 * v47;
-              v49 = sub_140838A90(v48, (_QWORD *)(a1 + 16LL * v42 + 24));
+              v49 = sub_14083ECD0(v48, (_QWORD *)(a1 + 16LL * v42 + 24));
               v50 = v48[1];
               v51 = *(_QWORD *)(a1 + 16 * (v42 + 2LL));
               if ( v49 >= 0 )
@@ -549,7 +549,7 @@ LABEL_153:
           v68 = v88;
           if ( !v88 )
           {
-            v10 = sub_1408390BC(a1, v66, v67, v4);
+            v10 = sub_14083F2FC(a1, v66, v67, v4);
             if ( v10 < 0 )
               goto LABEL_78;
             v68 = v88;

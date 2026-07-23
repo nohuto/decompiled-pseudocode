@@ -23,7 +23,7 @@ __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
   ++dword_140C4177C;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v4) = 4;
@@ -33,10 +33,10 @@ __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
   }
   KiEpfDrainCompletionQueue();
   KiEpfStart(a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v5 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v7 = CurrentPrcb->SchedulerAssist;

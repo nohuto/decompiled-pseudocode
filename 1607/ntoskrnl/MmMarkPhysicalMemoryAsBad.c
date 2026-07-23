@@ -1,20 +1,20 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsBad @ 0x1401E2344
+ * XREFs of MmMarkPhysicalMemoryAsBad @ 0x1401E2170
  * Callers:
- *     MiScrubNodeLargePageList @ 0x1401FBCA8 (MiScrubNodeLargePageList.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1406BA850 (WheapAttemptPhysicalPageOffline.c)
+ *     MiScrubNodeLargePageList @ 0x1401FBAD4 (MiScrubNodeLargePageList.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1406BA988 (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiFreeContiguousPages @ 0x14011191C (MiFreeContiguousPages.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     MiAcquireNonPagedResources @ 0x1401E1B24 (MiAcquireNonPagedResources.c)
- *     MiReferencePagePartition @ 0x1401E8400 (MiReferencePagePartition.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x140111E80 (MiFreeContiguousPages.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     MiAcquireNonPagedResources @ 0x1401E1950 (MiAcquireNonPagedResources.c)
+ *     MiReferencePagePartition @ 0x1401E822C (MiReferencePagePartition.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsBad(_QWORD *a1, _QWORD *a2)
@@ -149,7 +149,7 @@ LABEL_36:
     {
       if ( (*(_QWORD *)(v9 + 8) | 0x8000000000000000uLL) != 0xFFFFFFFFFFFFFFFCuLL || (*(_BYTE *)(v9 + 34) & 7) != 5 )
       {
-        byte_140327144 = 1;
+        byte_140327184 = 1;
         v6 = 259;
         v18 = 1;
       }
@@ -180,7 +180,7 @@ LABEL_41:
   v8 = v20;
 LABEL_42:
   if ( v18 == 1 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   *a2 = (v3 + v4 - v8) << 12;
   if ( v4 == 1 )
     return v6;

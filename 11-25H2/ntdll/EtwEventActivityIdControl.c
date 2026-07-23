@@ -8,30 +8,32 @@
  *     NtTraceControl @ 0x180166CD0 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *a2)
+ULONG __cdecl EtwEventActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
   ULONG v2; // ebx
   NTSTATUS v3; // eax
-  ULONG v4; // eax
-  __int64 result; // rax
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  _GUID ActivityId; // xmm1
+  LONG v4; // eax
+  ULONG result; // eax
+  ULONG v6; // ecx
+  ULONG v7; // ecx
+  ULONG v8; // ecx
+  _GUID v9; // xmm1
+  ULONG ReturnLength; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
-  if ( a2 )
+  ReturnLength = 0;
+  if ( ActivityId )
   {
-    if ( a1 == 2 )
+    if ( ControlCode == 2 )
     {
-      NtCurrentTeb()->ActivityId = *a2;
+      NtCurrentTeb()->ActivityId = *ActivityId;
       return v2;
     }
-    v6 = a1 - 1;
+    v6 = ControlCode - 1;
     if ( !v6 )
     {
-      result = 0LL;
-      *a2 = NtCurrentTeb()->ActivityId;
+      result = 0;
+      *ActivityId = NtCurrentTeb()->ActivityId;
       return result;
     }
     v7 = v6 - 2;
@@ -40,10 +42,10 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *a2)
       v8 = v7 - 1;
       if ( !v8 )
       {
-        ActivityId = NtCurrentTeb()->ActivityId;
-        NtCurrentTeb()->ActivityId = *a2;
-        result = 0LL;
-        *a2 = ActivityId;
+        v9 = NtCurrentTeb()->ActivityId;
+        NtCurrentTeb()->ActivityId = *ActivityId;
+        result = 0;
+        *ActivityId = v9;
         return result;
       }
       if ( v8 != 1 )
@@ -51,9 +53,10 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *a2)
         v3 = -1073741811;
         goto LABEL_7;
       }
-      *a2 = NtCurrentTeb()->ActivityId;
+      *ActivityId = NtCurrentTeb()->ActivityId;
+      ActivityId = &NtCurrentTeb()->ActivityId;
     }
-    v3 = NtTraceControl(12LL, 0LL, 0LL);
+    v3 = NtTraceControl(EtwActivityIdCreate, 0LL, 0, ActivityId, 0x10u, &ReturnLength);
     if ( !v3 )
       return v2;
 LABEL_7:
@@ -63,5 +66,5 @@ LABEL_7:
       RtlSetLastWin32Error(v4);
     return v2;
   }
-  return 87LL;
+  return 87;
 }

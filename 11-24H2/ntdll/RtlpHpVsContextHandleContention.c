@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsContextHandleContention @ 0x18011C474
+ * XREFs of RtlpHpVsContextHandleContention @ 0x18011A6A4
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x1800ED0DC (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x1800E80AC (RtlpHpVsContextAllocate.c)
  * Callees:
- *     RtlpHpGetCurrentProcessorNumber @ 0x18004EBB4 (RtlpHpGetCurrentProcessorNumber.c)
- *     RtlpHpVsContextGetSlotInfo @ 0x18011C5C0 (RtlpHpVsContextGetSlotInfo.c)
- *     RtlpHpAffinityMgrUpdateProcess @ 0x18011C63C (RtlpHpAffinityMgrUpdateProcess.c)
- *     RtlpHpAffinityMgrUpdateComplete @ 0x18011C7B8 (RtlpHpAffinityMgrUpdateComplete.c)
- *     RtlpHpVsSlotCreate @ 0x18011CD30 (RtlpHpVsSlotCreate.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpHpGetCurrentProcessorNumber @ 0x180064794 (RtlpHpGetCurrentProcessorNumber.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x18011A7F0 (RtlpHpVsContextGetSlotInfo.c)
+ *     RtlpHpAffinityMgrUpdateProcess @ 0x18011A86C (RtlpHpAffinityMgrUpdateProcess.c)
+ *     RtlpHpAffinityMgrUpdateComplete @ 0x18011A9E8 (RtlpHpAffinityMgrUpdateComplete.c)
+ *     RtlpHpVsSlotCreate @ 0x18011AF60 (RtlpHpVsSlotCreate.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpVsContextHandleContention(volatile signed __int8 *a1, unsigned int a2)

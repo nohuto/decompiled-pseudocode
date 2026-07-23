@@ -20,7 +20,7 @@
 
 ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
 {
-  unsigned __int64 v1; // rdx
+  signed __int64 v1; // rdx
   __int64 i; // rbx
   __int64 v3; // rbp
   unsigned __int64 v4; // r15
@@ -49,7 +49,7 @@ ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
   __int64 v28; // r8
   __int64 v29; // rcx
   unsigned __int64 v30; // r8
-  unsigned __int64 v31; // rdx
+  signed __int64 v31; // rdx
   __int64 v32; // rcx
   _BYTE *v33; // r8
   __int64 v34; // r9
@@ -72,8 +72,8 @@ ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
   __int64 v51; // rcx
   unsigned __int64 v52; // r8
   signed __int32 v53[8]; // [rsp+0h] [rbp-98h] BYREF
-  unsigned __int64 v54; // [rsp+20h] [rbp-78h] BYREF
-  unsigned __int64 v55; // [rsp+28h] [rbp-70h] BYREF
+  signed __int64 v54; // [rsp+20h] [rbp-78h] BYREF
+  signed __int64 v55; // [rsp+28h] [rbp-70h] BYREF
   __int64 v56; // [rsp+30h] [rbp-68h]
   __int64 v57; // [rsp+38h] [rbp-60h]
   __int64 v58; // [rsp+40h] [rbp-58h]

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpDisableDeviceInterfaces @ 0x140A10ED8
+ * XREFs of PnpDisableDeviceInterfaces @ 0x1409BF2E8
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404926CC (PnpRemoveLockedDeviceNode.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140A109EC (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14048D53C (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1409BEDFC (PnpSurpriseRemoveLockedDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IoSetDeviceInterfaceState @ 0x1408B40B0 (IoSetDeviceInterfaceState.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IoSetDeviceInterfaceState @ 0x1408B19A0 (IoSetDeviceInterfaceState.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpDisableDeviceInterfaces(unsigned __int16 *a1)
@@ -31,7 +31,7 @@ __int64 __fastcall PnpDisableDeviceInterfaces(unsigned __int16 *a1)
   const WCHAR *v12; // rdi
   _WORD *v14; // rax
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-38h] BYREF
-  int v16; // [rsp+98h] [rbp+10h] BYREF
+  unsigned int v16; // [rsp+98h] [rbp+10h] BYREF
 
   v16 = 0;
   DestinationString = 0LL;
@@ -63,7 +63,7 @@ LABEL_29:
     {
       goto LABEL_28;
     }
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v7 + 2, 0x75737050u);
     v9 = Pool2;
     if ( Pool2 )
     {
@@ -80,7 +80,7 @@ LABEL_28:
     v3 = (void *)*((_QWORD *)a1 + 1);
     goto LABEL_12;
   }
-  v14 = (_WORD *)ExAllocatePool2(0x100uLL);
+  v14 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
   if ( !v14 )
   {
 LABEL_25:
@@ -101,7 +101,7 @@ LABEL_12:
       goto LABEL_20;
     if ( v4 )
       ExFreePoolWithTag(v4, 0);
-    v4 = (WCHAR *)ExAllocatePool2(0x100uLL);
+    v4 = (WCHAR *)ExAllocatePool2(0x100uLL, 2LL * v16, 0x20207050u);
     if ( !v4 )
       goto LABEL_25;
     MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(

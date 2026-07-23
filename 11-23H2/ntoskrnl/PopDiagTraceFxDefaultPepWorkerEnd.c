@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x140314DE8
+ * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x140315078
  * Callers:
- *     PopPepWork @ 0x140311E5C (PopPepWork.c)
+ *     PopPepWork @ 0x1403120EC (PopPepWork.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, int a4, int a5)
@@ -55,7 +55,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
       if ( (_BYTE)v5 )
       {
         v34 = &v24;
-        v13 = byte_14002EF51;
+        v13 = &byte_14002F187;
         UserDataCount = 3;
         goto LABEL_12;
       }
@@ -74,7 +74,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
         {
           v25 = 0x1000000LL;
           v34 = &v24;
-          v13 = (char *)&byte_14002EF03;
+          v13 = (char *)&byte_14002F580;
           v37 = 8LL;
           v36 = &v25;
           UserDataCount = v12;

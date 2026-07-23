@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpIsSystemEntity @ 0x140656AF0
+ * XREFs of CmpIsSystemEntity @ 0x14064B910
  * Callers:
- *     SkipVirtualAccessCheck @ 0x14027EF88 (SkipVirtualAccessCheck.c)
- *     KCBNeedsVirtualImage @ 0x1402BBFDC (KCBNeedsVirtualImage.c)
- *     CmDoVirtualTest @ 0x1402D1684 (CmDoVirtualTest.c)
- *     KCBNeedsVirtualImage_0 @ 0x1404EC970 (KCBNeedsVirtualImage_0.c)
- *     CmpVEPerformOpenAccessCheck @ 0x1405D94F8 (CmpVEPerformOpenAccessCheck.c)
- *     CmpVEExecuteOpenLogic @ 0x140654F90 (CmpVEExecuteOpenLogic.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406556B0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     KCBNeedsVirtualImage @ 0x14023A1EC (KCBNeedsVirtualImage.c)
+ *     CmDoVirtualTest @ 0x14024FB14 (CmDoVirtualTest.c)
+ *     SkipVirtualAccessCheck @ 0x14026CF28 (SkipVirtualAccessCheck.c)
+ *     KCBNeedsVirtualImage_0 @ 0x1404ECBB0 (KCBNeedsVirtualImage_0.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1405EA280 (CmpVEPerformOpenAccessCheck.c)
+ *     CmpVEExecuteOpenLogic @ 0x140649DB0 (CmpVEExecuteOpenLogic.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14064A4D0 (CmKeyBodyRemapToVirtualForEnum.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
+ *     PsGetCurrentThreadProcess @ 0x14023C620 (PsGetCurrentThreadProcess.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
  */
 
 bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext, int *a3)

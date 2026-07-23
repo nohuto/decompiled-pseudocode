@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindContiguousPagesValidate @ 0x14028F2CC
+ * XREFs of MiFindContiguousPagesValidate @ 0x14028E82C
  * Callers:
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFindContiguousPagesValidate(__int64 *a1)

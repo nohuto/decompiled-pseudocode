@@ -27,7 +27,7 @@ char __fastcall SepTokenIsOwner(__int64 a1, __int64 a2, __int64 a3, char a4)
     else
       v7 = 0LL;
   }
-  result = SepSidInTokenSidHash(a1 + 232, 0LL, v7, 0, 0, 0, a4);
+  result = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a1 + 232), 0LL, v7, 0, 0, 0, a4);
   if ( result )
   {
     if ( *(_DWORD *)(a1 + 128) )

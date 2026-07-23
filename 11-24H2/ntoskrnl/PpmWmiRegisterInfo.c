@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmWmiRegisterInfo @ 0x14075C284
+ * XREFs of PpmWmiRegisterInfo @ 0x14075B2B4
  * Callers:
- *     PpmWmiDispatch @ 0x1409CE810 (PpmWmiDispatch.c)
+ *     PpmWmiDispatch @ 0x1409B37E0 (PpmWmiDispatch.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 NTSTATUS __fastcall PpmWmiRegisterInfo(int a1, __int64 a2, unsigned int a3, _DWORD *a4, int *a5)
@@ -22,7 +22,7 @@ NTSTATUS __fastcall PpmWmiRegisterInfo(int a1, __int64 a2, unsigned int a3, _DWO
   {
     memset_0(a4, 0, 0x14CuLL);
     v10 = 8LL;
-    v11 = &dword_14000B1EC;
+    v11 = &dword_14000B3FC;
     a4[4] = 8;
     v12 = a4 + 11;
     do

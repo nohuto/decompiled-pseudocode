@@ -1,9 +1,9 @@
 /*
- * XREFs of SeQueryTrustedPlatformModuleInformation @ 0x14053217C
+ * XREFs of SeQueryTrustedPlatformModuleInformation @ 0x14053461C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ExSystemExceptionFilter @ 0x140836A60 (ExSystemExceptionFilter.c)
+ *     ExSystemExceptionFilter @ 0x14083CCA0 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall SeQueryTrustedPlatformModuleInformation(int *a1, unsigned int a2, _DWORD *a3)
@@ -20,7 +20,7 @@ __int64 __fastcall SeQueryTrustedPlatformModuleInformation(int *a1, unsigned int
   {
     *a1 = 0;
     v4 = 0;
-    if ( RtlpBootStatHandleLock.WaitBlockFill7[131] )
+    if ( BYTE2(RtlpBootStatHandleLock.Queue) )
     {
       v4 = 1;
       *a1 = 1;

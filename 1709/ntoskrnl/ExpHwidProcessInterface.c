@@ -62,7 +62,7 @@ __int64 __fastcall ExpHwidProcessInterface(
       {
         if ( ExpHwidGetDevicePropertyDataFixed(
                0LL,
-               (int)&DestinationString,
+               (__int64)&DestinationString,
                &DEVPKEY_DeviceInterface_Enabled,
                17,
                1u,

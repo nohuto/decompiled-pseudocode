@@ -1,11 +1,11 @@
 /*
- * XREFs of KasaniSendTelemetryDriver @ 0x1405DDA90
+ * XREFs of KasaniSendTelemetryDriver @ 0x1405E0400
  * Callers:
- *     KasanDriverLoadImageInternal @ 0x140523630 (KasanDriverLoadImageInternal.c)
- *     KasanInitSystem @ 0x140CC7D20 (KasanInitSystem.c)
+ *     KasanDriverLoadImageInternal @ 0x140525CA0 (KasanDriverLoadImageInternal.c)
+ *     KasanInitSystem @ 0x140CCDE10 (KasanInitSystem.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall KasaniSendTelemetryDriver(__int64 a1)
@@ -14,7 +14,7 @@ NTSTATUS __fastcall KasaniSendTelemetryDriver(__int64 a1)
   __int64 v2; // [rsp+48h] [rbp-80h] BYREF
   EVENT_DESCRIPTOR v3; // [rsp+50h] [rbp-78h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-68h] BYREF
-  __int64 *v5; // [rsp+70h] [rbp-58h]
+  __int16 *v5; // [rsp+70h] [rbp-58h]
   int v6; // [rsp+78h] [rbp-50h]
   int v7; // [rsp+7Ch] [rbp-4Ch]
   __int64 *v8; // [rsp+80h] [rbp-48h]
@@ -43,7 +43,7 @@ NTSTATUS __fastcall KasaniSendTelemetryDriver(__int64 a1)
       v2 = 0x2000000LL;
       UserData.Size = *(unsigned __int16 *)off_140E06F18;
       UserData.Reserved = 2;
-      v5 = qword_140048730;
+      v5 = &word_140048D5E;
       v6 = 43;
       v7 = 1;
       return EtwWriteEx(qword_140E06F30, &v3, 0LL, 0, 0LL, 0LL, 5u, &UserData);

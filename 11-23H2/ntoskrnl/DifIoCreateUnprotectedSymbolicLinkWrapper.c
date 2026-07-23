@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoCreateUnprotectedSymbolicLinkWrapper @ 0x1405DEAC0
+ * XREFs of DifIoCreateUnprotectedSymbolicLinkWrapper @ 0x1405DF030
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoCreateUnprotectedSymbolicLink @ 0x1409472A0 (IoCreateUnprotectedSymbolicLink.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoCreateUnprotectedSymbolicLink @ 0x1409474A0 (IoCreateUnprotectedSymbolicLink.c)
  */
 
 NTSTATUS __fastcall DifIoCreateUnprotectedSymbolicLinkWrapper(

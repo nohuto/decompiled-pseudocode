@@ -1,32 +1,32 @@
 /*
- * XREFs of ExpUnblockPushLock @ 0x1402C793C
+ * XREFs of ExpUnblockPushLock @ 0x1402BC2BC
  * Callers:
- *     CmpTryToRundownHive @ 0x1402C6840 (CmpTryToRundownHive.c)
- *     ExBlockOnAddressPushLock @ 0x1402C6C40 (ExBlockOnAddressPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x1402C6D50 (ExTimedWaitForUnblockPushLock.c)
- *     MiUnlockImageSection @ 0x1402C7130 (MiUnlockImageSection.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     PspHandleTableWalker @ 0x1402C7840 (PspHandleTableWalker.c)
- *     ExUnblockOnAddressPushLockEx @ 0x1402C78A0 (ExUnblockOnAddressPushLockEx.c)
- *     ExUnblockPushLockEx @ 0x1402C78F0 (ExUnblockPushLockEx.c)
- *     CmpDecrementAppHiveUnloadCount @ 0x1402C8200 (CmpDecrementAppHiveUnloadCount.c)
- *     CmpWaitForLateUnloadWorker @ 0x1402C8600 (CmpWaitForLateUnloadWorker.c)
- *     RtlReleaseSwapReference @ 0x1403A500C (RtlReleaseSwapReference.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x14045CD70 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x14045D1A8 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     RtlReleaseSwapReference @ 0x14021E4BC (RtlReleaseSwapReference.c)
+ *     CmpWaitForLateUnloadWorker @ 0x1402B98A0 (CmpWaitForLateUnloadWorker.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x1402BA854 (CmpDecrementAppHiveUnloadCount.c)
+ *     CmpTryToRundownHive @ 0x1402BB3C0 (CmpTryToRundownHive.c)
+ *     ExBlockOnAddressPushLock @ 0x1402BB7C0 (ExBlockOnAddressPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x1402BB8D0 (ExTimedWaitForUnblockPushLock.c)
+ *     MiUnlockImageSection @ 0x1402BBCB0 (MiUnlockImageSection.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     PspHandleTableWalker @ 0x1402BC1C0 (PspHandleTableWalker.c)
+ *     ExUnblockOnAddressPushLockEx @ 0x1402BC220 (ExUnblockOnAddressPushLockEx.c)
+ *     ExUnblockPushLockEx @ 0x1402BC270 (ExUnblockPushLockEx.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140451E3C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x140452274 (RtlpCSparseBitmapWaitOnAddress.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExTimedWaitForUnblockPushLock @ 0x1402C6D50 (ExTimedWaitForUnblockPushLock.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x1402BB8D0 (ExTimedWaitForUnblockPushLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-NTSTATUS __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)
+LONG __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)
 {
   char v3; // bp
   __int64 v4; // rbx
-  NTSTATUS result; // eax
+  LONG result; // eax
   char v6; // r12
   void *v7; // rsi
   __int64 v8; // r15

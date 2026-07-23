@@ -1,19 +1,19 @@
 /*
- * XREFs of NtReleaseWorkerFactoryWorker @ 0x180161F10
+ * XREFs of NtReleaseWorkerFactoryWorker @ 0x180161E10
  * Callers:
- *     TppPrepareDirectParams @ 0x1800406D0 (TppPrepareDirectParams.c)
- *     TppWorkPost @ 0x180041770 (TppWorkPost.c)
- *     TppWorkCallbackPrologRelease @ 0x180053AB0 (TppWorkCallbackPrologRelease.c)
- *     TpPostTask @ 0x180066A90 (TpPostTask.c)
+ *     TppPrepareDirectParams @ 0x18002AC40 (TppPrepareDirectParams.c)
+ *     TppWorkPost @ 0x18002BCE0 (TppWorkPost.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003E030 (TppWorkCallbackPrologRelease.c)
+ *     TpPostTask @ 0x180086EE0 (TpPostTask.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtReleaseWorkerFactoryWorker()
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 383LL;
+  result = 383;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

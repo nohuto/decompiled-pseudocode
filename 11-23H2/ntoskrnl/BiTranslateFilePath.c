@@ -1,36 +1,40 @@
 /*
- * XREFs of BiTranslateFilePath @ 0x140805FD8
+ * XREFs of BiTranslateFilePath @ 0x1408062A8
  * Callers:
- *     BiGetDeviceFromEfiPath @ 0x140805E54 (BiGetDeviceFromEfiPath.c)
- *     BiCreateBootEntry @ 0x140A5DA2C (BiCreateBootEntry.c)
- *     BiCreateMergedBootEntry @ 0x140A5DFCC (BiCreateMergedBootEntry.c)
+ *     BiGetDeviceFromEfiPath @ 0x140806124 (BiGetDeviceFromEfiPath.c)
+ *     BiCreateBootEntry @ 0x140A5DCDC (BiCreateBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x140A5E27C (BiCreateMergedBootEntry.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x14041E7E0 (ZwTranslateFilePath.c)
- *     BiAcquirePrivilege @ 0x1408060A8 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x140806134 (BiReleasePrivilege.c)
+ *     ZwTranslateFilePath @ 0x14041EB70 (ZwTranslateFilePath.c)
+ *     BiAcquirePrivilege @ 0x140806378 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x140806404 (BiReleasePrivilege.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, _FILE_PATH **a3)
 {
-  void *Pool2; // rdi
-  int v7; // ebx
-  int v8; // eax
-  _QWORD v10[5]; // [rsp+20h] [rbp-28h] BYREF
+  _FILE_PATH *v5; // rdi
+  NTSTATUS v7; // ebx
+  NTSTATUS v8; // eax
+  _FILE_PATH *Pool2; // rax
+  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
+  ULONG OutputFilePathLength; // [rsp+68h] [rbp+20h] BYREF
 
-  v10[0] = 0LL;
-  Pool2 = 0LL;
-  v7 = BiAcquirePrivilege(22LL, v10);
+  v11[0] = 0LL;
+  v5 = 0LL;
+  v7 = BiAcquirePrivilege(22LL, v11);
   if ( v7 >= 0 )
   {
-    v8 = ZwTranslateFilePath(a1, a2);
+    OutputFilePathLength = 0;
+    v8 = ZwTranslateFilePath(InputFilePath, OutputType, 0LL, &OutputFilePathLength);
     v7 = v8;
     if ( v8 == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(258LL, 0LL, 1262764866LL);
+      Pool2 = (_FILE_PATH *)ExAllocatePool2(258LL, OutputFilePathLength, 1262764866LL);
+      v5 = Pool2;
       if ( Pool2 )
-        v7 = ZwTranslateFilePath(a1, a2);
+        v7 = ZwTranslateFilePath(InputFilePath, OutputType, Pool2, &OutputFilePathLength);
       else
         v7 = -1073741670;
     }
@@ -38,14 +42,14 @@ __int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
     {
       v7 = -1073741811;
     }
-    BiReleasePrivilege(v10);
+    BiReleasePrivilege(v11);
     if ( v7 >= 0 )
     {
-      *a3 = Pool2;
+      *a3 = v5;
     }
-    else if ( Pool2 )
+    else if ( v5 )
     {
-      ExFreePoolWithTag(Pool2, 0x4B444342u);
+      ExFreePoolWithTag(v5, 0x4B444342u);
     }
   }
   return (unsigned int)v7;

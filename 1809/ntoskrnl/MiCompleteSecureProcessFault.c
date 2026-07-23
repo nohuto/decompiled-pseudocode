@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCompleteSecureProcessFault @ 0x1402BBC04
+ * XREFs of MiCompleteSecureProcessFault @ 0x1402BBDF4
  * Callers:
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
- *     MiValidVirtualizationFault @ 0x1402BC760 (MiValidVirtualizationFault.c)
+ *     MiValidVirtualizationFault @ 0x1402BC950 (MiValidVirtualizationFault.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiTradeActivePage @ 0x14012DF24 (MiTradeActivePage.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiAbortCombineScan @ 0x140082658 (MiAbortCombineScan.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiTradeActivePage @ 0x14012DFF4 (MiTradeActivePage.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
  */
 
 __int64 __fastcall MiCompleteSecureProcessFault(ULONG_PTR *a1, __int64 *a2, _QWORD *a3)
@@ -42,7 +42,7 @@ __int64 __fastcall MiCompleteSecureProcessFault(ULONG_PTR *a1, __int64 *a2, _QWO
         KeYieldProcessorEx(&v17, (__int64)a2, (__int64)a3);
       while ( *(__int64 *)(v3 + 24) < 0 );
     }
-    v7 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v3 + 40) >> 40) & 0x3FFLL));
+    v7 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v3 + 40) >> 40) & 0x3FFLL));
     v8 = *(_QWORD *)(v3 + 8) | 0x8000000000000000uLL;
     v9 = (__int64)(v8 << 25) >> 16;
     if ( (v7->Header.SignalState & 8) != 0 && !MiIsPfnFromSlabAllocation(v3) && v9 < 0xFFFF800000000000uLL )

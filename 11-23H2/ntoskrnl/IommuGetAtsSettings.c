@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuGetAtsSettings @ 0x1403A8590
+ * XREFs of IommuGetAtsSettings @ 0x1403A8770
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     IommupHvGetDeviceAtsCapability @ 0x140524CEC (IommupHvGetDeviceAtsCapability.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IommupHvGetDeviceAtsCapability @ 0x14052523C (IommupHvGetDeviceAtsCapability.c)
  */
 
 __int64 __fastcall IommuGetAtsSettings(__int64 a1, _BYTE *a2)
@@ -56,10 +56,13 @@ LABEL_8:
     *a2 ^= (*a2 ^ (2 * *(_BYTE *)(v7 + 40))) & 2;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuAtsDeviceLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

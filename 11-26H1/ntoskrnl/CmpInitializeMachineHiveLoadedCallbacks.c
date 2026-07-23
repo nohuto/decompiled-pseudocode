@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x140850EEC
+ * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x1408571FC
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
  */
 
 void CmpInitializeMachineHiveLoadedCallbacks()

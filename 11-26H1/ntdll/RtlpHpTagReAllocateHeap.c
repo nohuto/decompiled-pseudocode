@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpTagReAllocateHeap @ 0x1800B13D0
+ * XREFs of RtlpHpTagReAllocateHeap @ 0x180080F40
  * Callers:
- *     RtlReAllocateHeapFull @ 0x180140350 (RtlReAllocateHeapFull.c)
+ *     RtlReAllocateHeapFull @ 0x180140250 (RtlReAllocateHeapFull.c)
  * Callees:
- *     RtlpHpVsChunkSize @ 0x1800190EC (RtlpHpVsChunkSize.c)
- *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800191C0 (RtlpHpLfhSubsegmentSizeBlock.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpReAllocateHeapInternal @ 0x18001AED0 (RtlpReAllocateHeapInternal.c)
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpLargeAllocSize @ 0x1800B1940 (RtlpHpLargeAllocSize.c)
- *     RtlpHpPgGetUserSize @ 0x1800B1C98 (RtlpHpPgGetUserSize.c)
+ *     RtlpHpVsChunkSize @ 0x1800041CC (RtlpHpVsChunkSize.c)
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800042A0 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpReAllocateHeapInternal @ 0x180005FB0 (RtlpReAllocateHeapInternal.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpLargeAllocSize @ 0x1800814B0 (RtlpHpLargeAllocSize.c)
+ *     RtlpHpPgGetUserSize @ 0x180081808 (RtlpHpPgGetUserSize.c)
  */
 
 __int64 __fastcall RtlpHpTagReAllocateHeap(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned int a4)
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpHpTagReAllocateHeap(__int64 a1, unsigned __int64 a2, unsi
   v4 = 0;
   v9 = 0LL;
   if ( *(_DWORD *)(a1 + 16) != -571548178
-    || a1 == qword_1801CB148[2 * (unsigned int)dword_18017C068[BYTE1(RtlpHpEnvHandle)]] )
+    || a1 == qword_1801CA198[2 * (unsigned int)dword_18017B028[BYTE1(RtlpHpEnvHandle)]] )
   {
     goto LABEL_19;
   }
@@ -52,7 +52,7 @@ __int64 __fastcall RtlpHpTagReAllocateHeap(__int64 a1, unsigned __int64 a2, unsi
   }
   else
   {
-    v27 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((a2 - qword_1801C78B8) >> 20));
+    v27 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801C6908) >> 20));
     if ( !v27 || (v11 = v27 - 1, v11 == 2) )
     {
       UserSize = RtlpHpLargeAllocSize(a1, a2, &v28);
@@ -120,7 +120,7 @@ LABEL_19:
   v25 = result;
   if ( result && v4 && a3 != v9 )
   {
-    v26 = *(_QWORD *)(qword_1801CCBF8 + 8LL * v4 - 8);
+    v26 = *(_QWORD *)(qword_1801CBC38 + 8LL * v4 - 8);
     RtlAcquireSRWLockShared(&RtlpHpTagContext);
     _InterlockedAdd64((volatile signed __int64 *)(v26 + 32), a3 - v9);
     RtlReleaseSRWLockShared(&RtlpHpTagContext);

@@ -1,20 +1,20 @@
 /*
- * XREFs of KiMcheckAlternateReturn @ 0x140580390
+ * XREFs of KiMcheckAlternateReturn @ 0x140580880
  * Callers:
- *     KxMcheckAlternateReturn @ 0x140430FC0 (KxMcheckAlternateReturn.c)
+ *     KxMcheckAlternateReturn @ 0x1404313C0 (KxMcheckAlternateReturn.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     WheaGetErrPacketFromErrRecord @ 0x1405194E0 (WheaGetErrPacketFromErrRecord.c)
- *     KiAltContextWorkQueueAddItem @ 0x140580214 (KiAltContextWorkQueueAddItem.c)
- *     WheaRecoveryBugCheck @ 0x1406105C0 (WheaRecoveryBugCheck.c)
- *     WheapGetErrorSource @ 0x140610E98 (WheapGetErrorSource.c)
- *     WheaGetCurrentProcessName @ 0x140611C40 (WheaGetCurrentProcessName.c)
- *     WheaProcessWaitingETWEvents @ 0x140613100 (WheaProcessWaitingETWEvents.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A07D80 (WheaAttemptPhysicalPageOffline.c)
- *     WheaTerminateProcess @ 0x140A08020 (WheaTerminateProcess.c)
- *     WheaExecuteRowFailureCheck @ 0x140A0891C (WheaExecuteRowFailureCheck.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x140519A30 (WheaGetErrPacketFromErrRecord.c)
+ *     KiAltContextWorkQueueAddItem @ 0x140580704 (KiAltContextWorkQueueAddItem.c)
+ *     WheaRecoveryBugCheck @ 0x140610B10 (WheaRecoveryBugCheck.c)
+ *     WheapGetErrorSource @ 0x1406113E8 (WheapGetErrorSource.c)
+ *     WheaGetCurrentProcessName @ 0x140612190 (WheaGetCurrentProcessName.c)
+ *     WheaProcessWaitingETWEvents @ 0x140613650 (WheaProcessWaitingETWEvents.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A08030 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaTerminateProcess @ 0x140A082D0 (WheaTerminateProcess.c)
+ *     WheaExecuteRowFailureCheck @ 0x140A08BCC (WheaExecuteRowFailureCheck.c)
  */
 
 LONG __fastcall KiMcheckAlternateReturn(int *a1)

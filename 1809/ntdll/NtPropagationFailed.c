@@ -1,16 +1,16 @@
 /*
- * XREFs of NtPropagationFailed @ 0x1800A2970
+ * XREFs of NtPropagationFailed @ 0x1800A2990
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtPropagationFailed()
+NTSTATUS __cdecl NtPropagationFailed(HANDLE ResourceManagerHandle, ULONG RequestCookie, NTSTATUS PropStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 309LL;
+  result = 309;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

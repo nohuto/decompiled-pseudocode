@@ -1,7 +1,7 @@
 /*
- * XREFs of AslpFileGetChecksum @ 0x140A57CF0
+ * XREFs of AslpFileGetChecksum @ 0x140A57FA0
  * Callers:
- *     AslpFileGetChecksumAttributes @ 0x140A57DDC (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetChecksumAttributes @ 0x140A5808C (AslpFileGetChecksumAttributes.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspNotifyServerSiloTermination @ 0x14090B8E4
+ * XREFs of PspNotifyServerSiloTermination @ 0x14090BA44
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x140905F60 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x1409060C0 (PspCompleteServerSiloShutdownDeferred.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PspGetServerSiloStatePointer @ 0x140580FA8 (PspGetServerSiloStatePointer.c)
- *     PspGetNextMonitor @ 0x14090B6A8 (PspGetNextMonitor.c)
- *     PspInvokeTerminateCallback @ 0x14090B6D0 (PspInvokeTerminateCallback.c)
- *     EtwTraceJobServerSiloStateChange @ 0x14093601C (EtwTraceJobServerSiloStateChange.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     PspGetServerSiloStatePointer @ 0x1405811E8 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextMonitor @ 0x14090B808 (PspGetNextMonitor.c)
+ *     PspInvokeTerminateCallback @ 0x14090B830 (PspInvokeTerminateCallback.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1409361EC (EtwTraceJobServerSiloStateChange.c)
  */
 
 _QWORD *__fastcall PspNotifyServerSiloTermination(__int64 a1)
@@ -20,6 +20,9 @@ _QWORD *__fastcall PspNotifyServerSiloTermination(__int64 a1)
   _DWORD *v4; // rsi
   __int64 *i; // rax
   __int64 **v6; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
 
   ServerSiloStatePointer = PspGetServerSiloStatePointer(a1);
   CurrentThread = KeGetCurrentThread();
@@ -41,5 +44,5 @@ _QWORD *__fastcall PspNotifyServerSiloTermination(__int64 a1)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspSiloMonitorLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PspSiloMonitorLock);
   KeAbPostRelease((ULONG_PTR)&PspSiloMonitorLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
 }

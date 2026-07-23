@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCanFileBeTruncatedInternal @ 0x1400732DC
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x140072E5C
  * Callers:
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MmCanFileBeTruncated @ 0x1400736F4 (MmCanFileBeTruncated.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x140073274 (MmCanFileBeTruncated.c)
  * Callees:
- *     MiEndingOffset @ 0x1400235F0 (MiEndingOffset.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MmFlushImageSection @ 0x1400A8F60 (MmFlushImageSection.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiFindLastSubsection @ 0x1400FD130 (MiFindLastSubsection.c)
+ *     MiEndingOffset @ 0x140023170 (MiEndingOffset.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MmFlushImageSection @ 0x1400A74E0 (MmFlushImageSection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiFindLastSubsection @ 0x1400FAEB0 (MiFindLastSubsection.c)
  */
 
 char *__fastcall MiCanFileBeTruncatedInternal(
@@ -35,28 +35,28 @@ char *__fastcall MiCanFileBeTruncatedInternal(
     *a5 = 17;
     if ( v9 )
     {
-      v10 = ExAcquireSpinLockExclusive(&dword_140326540);
+      v10 = ExAcquireSpinLockExclusive(&dword_140326580);
       v11 = v10;
       if ( !SectionObjectPointer->ImageSectionObject )
         goto LABEL_3;
-      ExReleaseSpinLockExclusive(&dword_140326540, v10);
+      ExReleaseSpinLockExclusive(&dword_140326580, v10);
     }
     if ( !MmFlushImageSection(SectionObjectPointer, MmFlushForWrite) )
       return 0LL;
-    v11 = ExAcquireSpinLockExclusive(&dword_140326540);
+    v11 = ExAcquireSpinLockExclusive(&dword_140326580);
 LABEL_3:
     DataSectionObject = (char *)SectionObjectPointer->DataSectionObject;
     if ( !SectionObjectPointer->DataSectionObject )
     {
-      ExReleaseSpinLockExclusive(&dword_140326540, v11);
+      ExReleaseSpinLockExclusive(&dword_140326580, v11);
       *a5 = 0;
       return 0LL;
     }
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 72) )
       break;
-    ExReleaseSpinLockExclusive(&dword_140326540, v11);
+    ExReleaseSpinLockExclusive(&dword_140326580, v11);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
   if ( !(DataSectionObject[56] & 1 | ((*((_DWORD *)DataSectionObject + 14) & 2) != 0))
     && (*((_QWORD *)DataSectionObject + 14) <= 1uLL || (*((_DWORD *)DataSectionObject + 14) & 8) != 0 || a4) )
   {

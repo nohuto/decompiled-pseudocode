@@ -1,13 +1,13 @@
 /*
- * XREFs of CcSetValidData @ 0x140372324
+ * XREFs of CcSetValidData @ 0x14025ABE4
  * Callers:
- *     CcWriteBehindPostProcess @ 0x1402A883C (CcWriteBehindPostProcess.c)
+ *     CcWriteBehindPostProcess @ 0x14027A62C (CcWriteBehindPostProcess.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoAllocateIrp @ 0x1403724A0 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140AC25B4 (CcSetTelemetryPeriodicTimer.c)
+ *     IoAllocateIrp @ 0x14025AD60 (IoAllocateIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140ABD89C (CcSetTelemetryPeriodicTimer.c)
  */
 
 __int64 __fastcall CcSetValidData(PFILE_OBJECT FileObject, __int64 *a2)
@@ -26,10 +26,10 @@ __int64 __fastcall CcSetValidData(PFILE_OBJECT FileObject, __int64 *a2)
   _QWORD v15[3]; // [rsp+48h] [rbp-18h] BYREF
   __int64 v16; // [rsp+78h] [rbp+18h] BYREF
 
-  ++qword_140F8E538;
+  ++qword_140F8E718;
   v13 = 0;
   v10 = 0LL;
-  if ( !dword_140F8E624 && !byte_140F8E501 && CcTelemetryGlobalData && !dword_140F8E620 )
+  if ( !dword_140F8E804 && !byte_140F8E6E1 && CcTelemetryGlobalData && !dword_140F8E800 )
     CcSetTelemetryPeriodicTimer(DueTime);
   v4 = *a2;
   Object = 0;

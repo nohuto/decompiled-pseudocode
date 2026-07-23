@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpVerifySetSecurityDescriptorLogRecord @ 0x140A1F418
+ * XREFs of CmpVerifySetSecurityDescriptorLogRecord @ 0x140A1F6C8
  * Callers:
- *     CmpVerifyLogRecord @ 0x140A1F284 (CmpVerifyLogRecord.c)
+ *     CmpVerifyLogRecord @ 0x140A1F534 (CmpVerifyLogRecord.c)
  * Callees:
- *     RtlValidRelativeSecurityDescriptor @ 0x14070DB20 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14070DD30 (RtlValidRelativeSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmpVerifySetSecurityDescriptorLogRecord(__int64 a1)

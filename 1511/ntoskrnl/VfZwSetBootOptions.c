@@ -7,7 +7,7 @@
  *     ViZwShouldCheck @ 0x1406D4C58 (ViZwShouldCheck.c)
  */
 
-NTSTATUS __fastcall VfZwSetBootOptions(struct _BOOT_OPTIONS *a1, ULONG FieldsToChange)
+NTSTATUS __fastcall VfZwSetBootOptions(_BOOT_OPTIONS *a1, ULONG FieldsToChange)
 {
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 

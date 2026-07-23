@@ -1,20 +1,20 @@
 /*
- * XREFs of PiCMReturnBasicResultData @ 0x14079A108
+ * XREFs of PiCMReturnBasicResultData @ 0x14079A2F8
  * Callers:
- *     PiCMValidateDeviceInstance @ 0x140799EB8 (PiCMValidateDeviceInstance.c)
- *     PiCMSetObjectProperty @ 0x14079BE44 (PiCMSetObjectProperty.c)
- *     PiCMCreateObject @ 0x140968B90 (PiCMCreateObject.c)
- *     PiCMDeleteClassKey @ 0x140968D2C (PiCMDeleteClassKey.c)
- *     PiCMDeleteDevice @ 0x140968E48 (PiCMDeleteDevice.c)
- *     PiCMDeleteDeviceInterfaceKey @ 0x1409691A0 (PiCMDeleteDeviceInterfaceKey.c)
- *     PiCMDeleteDeviceKey @ 0x140969290 (PiCMDeleteDeviceKey.c)
- *     PiCMDeleteObject @ 0x1409694DC (PiCMDeleteObject.c)
- *     PiCMDeviceAction @ 0x14096968C (PiCMDeviceAction.c)
- *     PiCMSetDeviceProblem @ 0x14096A918 (PiCMSetDeviceProblem.c)
- *     PiCMSetRegistryProperty @ 0x14096AB14 (PiCMSetRegistryProperty.c)
- *     PiCMUnregisterDeviceInterface @ 0x14096ACD0 (PiCMUnregisterDeviceInterface.c)
+ *     PiCMValidateDeviceInstance @ 0x14079A0A8 (PiCMValidateDeviceInstance.c)
+ *     PiCMSetObjectProperty @ 0x14079C034 (PiCMSetObjectProperty.c)
+ *     PiCMCreateObject @ 0x140968D90 (PiCMCreateObject.c)
+ *     PiCMDeleteClassKey @ 0x140968F2C (PiCMDeleteClassKey.c)
+ *     PiCMDeleteDevice @ 0x140969048 (PiCMDeleteDevice.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x1409693A0 (PiCMDeleteDeviceInterfaceKey.c)
+ *     PiCMDeleteDeviceKey @ 0x140969490 (PiCMDeleteDeviceKey.c)
+ *     PiCMDeleteObject @ 0x1409696DC (PiCMDeleteObject.c)
+ *     PiCMDeviceAction @ 0x14096988C (PiCMDeviceAction.c)
+ *     PiCMSetDeviceProblem @ 0x14096AB18 (PiCMSetDeviceProblem.c)
+ *     PiCMSetRegistryProperty @ 0x14096AD14 (PiCMSetRegistryProperty.c)
+ *     PiCMUnregisterDeviceInterface @ 0x14096AED0 (PiCMUnregisterDeviceInterface.c)
  * Callees:
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PiCMReturnBasicResultData(int a1, int a2, _QWORD *a3, unsigned int a4, _DWORD *a5)

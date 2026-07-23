@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosInitializeBiosEx @ 0x140580CB8
+ * XREFs of x86BiosInitializeBiosEx @ 0x1405831D8
  * Callers:
- *     HalInitializeBios @ 0x1405784A0 (HalInitializeBios.c)
+ *     HalInitializeBios @ 0x14057A9D0 (HalInitializeBios.c)
  * Callees:
- *     x86BiosInitializeBiosShadowed @ 0x140580D3C (x86BiosInitializeBiosShadowed.c)
+ *     x86BiosInitializeBiosShadowed @ 0x14058325C (x86BiosInitializeBiosShadowed.c)
  */
 
 char __fastcall x86BiosInitializeBiosEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

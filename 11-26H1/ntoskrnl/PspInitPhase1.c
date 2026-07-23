@@ -1,13 +1,13 @@
 /*
- * XREFs of PspInitPhase1 @ 0x140CD812C
+ * XREFs of PspInitPhase1 @ 0x140CDE4AC
  * Callers:
- *     PsInitSystem @ 0x140C7FD24 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140C85D24 (PsInitSystem.c)
  * Callees:
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     ExRegisterHost @ 0x140840A68 (ExRegisterHost.c)
- *     ObInsertObject @ 0x14092AFB0 (ObInsertObject.c)
- *     PspCreateSecureSystemProcess @ 0x140CD803C (PspCreateSecureSystemProcess.c)
- *     PspInitializeCpuPartitionsPhase1 @ 0x140CD8A70 (PspInitializeCpuPartitionsPhase1.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     ExRegisterHost @ 0x140846CA8 (ExRegisterHost.c)
+ *     ObInsertObject @ 0x140906AE0 (ObInsertObject.c)
+ *     PspCreateSecureSystemProcess @ 0x140CDE3BC (PspCreateSecureSystemProcess.c)
+ *     PspInitializeCpuPartitionsPhase1 @ 0x140CDEDF0 (PspInitializeCpuPartitionsPhase1.c)
  */
 
 bool PspInitPhase1()
@@ -37,9 +37,9 @@ bool PspInitPhase1()
   v9 = 1;
   v10 = 0LL;
   *(_QWORD *)&v13[1] = 0LL;
-  if ( (int)ExRegisterHost(&PsAltSystemCallRegistrationLock.Header.WaitListHead.Blink, v0, (unsigned __int16 *)&v11) < 0 )
+  if ( (int)ExRegisterHost(&PsAltSystemCallRegistrationLock.TrapFrame, v0, (unsigned __int16 *)&v11) < 0 )
   {
-    PsAltSystemCallRegistrationLock.Header.WaitListHead.Blink = 0LL;
+    PsAltSystemCallRegistrationLock.TrapFrame = 0LL;
     return 0;
   }
   v11 = 65541LL;

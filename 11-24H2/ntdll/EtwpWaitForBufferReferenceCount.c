@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpWaitForBufferReferenceCount @ 0x18008E43C
+ * XREFs of EtwpWaitForBufferReferenceCount @ 0x1800A9EFC
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x18008E264 (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x18015C218 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x1800A9D24 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x18015A5D8 (EtwpBufferingModeFlush.c)
  * Callees:
- *     ZwDelayExecution @ 0x180162310 (ZwDelayExecution.c)
+ *     ZwDelayExecution @ 0x1801606D0 (ZwDelayExecution.c)
  */
 
 __int64 __fastcall EtwpWaitForBufferReferenceCount(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+30h] [rbp+8h] BYREF
 
   result = *(unsigned int *)(a1 + 12);
-  v3 = -2500000LL;
+  DelayInterval.QuadPart = -2500000LL;
   while ( (_DWORD)result )
   {
-    ZwDelayExecution(0LL, &v3);
+    ZwDelayExecution(0, &DelayInterval);
     result = *(unsigned int *)(a1 + 12);
   }
   return result;

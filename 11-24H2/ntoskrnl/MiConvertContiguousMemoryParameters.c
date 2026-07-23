@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertContiguousMemoryParameters @ 0x140411748
+ * XREFs of MiConvertContiguousMemoryParameters @ 0x140395988
  * Callers:
- *     MmAllocateContiguousMemoryEx @ 0x140411210 (MmAllocateContiguousMemoryEx.c)
- *     MmAllocateContiguousNodeMemory @ 0x140411690 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403958D0 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousMemoryEx @ 0x1403966A0 (MmAllocateContiguousMemoryEx.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
  */
 
 __int64 __fastcall MiConvertContiguousMemoryParameters(
@@ -43,7 +43,7 @@ __int64 __fastcall MiConvertContiguousMemoryParameters(
   {
     return 3221225485LL;
   }
-  v12 = qword_140E2DBE0;
+  v12 = qword_140E2DD20;
   v13 = v8 >> 12;
   *(_QWORD *)(v10 + 16) = v9 >> 12;
   *(_QWORD *)(v10 + 8) = v13;

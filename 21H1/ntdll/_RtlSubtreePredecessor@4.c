@@ -7,14 +7,14 @@
  *     <none>
  */
 
-int __stdcall RtlSubtreePredecessor(int a1)
+PRTL_SPLAY_LINKS __cdecl RtlSubtreePredecessor(PRTL_SPLAY_LINKS Links)
 {
-  int result; // eax
+  PRTL_SPLAY_LINKS result; // eax
 
-  result = *(_DWORD *)(a1 + 4);
+  result = Links->LeftChild;
   if ( !result )
     return 0;
-  while ( *(_DWORD *)(result + 8) )
-    result = *(_DWORD *)(result + 8);
+  while ( result->RightChild )
+    result = result->RightChild;
   return result;
 }

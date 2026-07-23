@@ -1,9 +1,9 @@
 /*
- * XREFs of _ui64tow @ 0x180127FF0
+ * XREFs of _ui64tow @ 0x180127D60
  * Callers:
  *     <none>
  * Callees:
- *     x64tow @ 0x180128030 (x64tow.c)
+ *     x64tow @ 0x180127DA0 (x64tow.c)
  */
 
 wchar_t *__cdecl ui64tow(unsigned __int64 Value, wchar_t *Buffer, int Radix)

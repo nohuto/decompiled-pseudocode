@@ -1,13 +1,13 @@
 /*
- * XREFs of SecureDump_Init @ 0x1403C9F50
+ * XREFs of SecureDump_Init @ 0x1403CA0F0
  * Callers:
- *     IopInitCrashDumpDuringSysInit @ 0x140A6CE38 (IopInitCrashDumpDuringSysInit.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140A6DE38 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     BCryptCloseAlgorithmProvider @ 0x1403B81E4 (BCryptCloseAlgorithmProvider.c)
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14050A4D4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x14050AA84 (SecureDump_SymmetricEncryptionSetup.c)
- *     BCryptDestroyKey @ 0x140595A50 (BCryptDestroyKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     BCryptCloseAlgorithmProvider @ 0x1403B8354 (BCryptCloseAlgorithmProvider.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14050A714 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14050ACC4 (SecureDump_SymmetricEncryptionSetup.c)
+ *     BCryptDestroyKey @ 0x140595C80 (BCryptDestroyKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SecureDump_Init(__int64 a1, int a2)
@@ -17,14 +17,14 @@ __int64 __fastcall SecureDump_Init(__int64 a1, int a2)
   v2 = 0;
   if ( SecureDmpEncryptionContext == 1 )
   {
-    if ( !DWORD1(xmmword_140C4C858) )
+    if ( !DWORD1(xmmword_140C4C898) )
     {
-      byte_140C4C854 = 0;
+      byte_140C4C894 = 0;
 LABEL_4:
       SecureDmpEncryptionContext = 2;
       goto LABEL_5;
     }
-    byte_140C4C854 = 1;
+    byte_140C4C894 = 1;
     v2 = SecureDump_SymmetricEncryptionSetup();
     if ( v2 >= 0 )
     {
@@ -32,7 +32,7 @@ LABEL_4:
       if ( v2 >= 0 )
       {
         a2 = (*(&dwFlags + 1) + pcbResult + 8279) & 0xFFFFF000;
-        dword_140C4C8A0 = a2;
+        dword_140C4C8E0 = a2;
         goto LABEL_4;
       }
     }
@@ -50,7 +50,7 @@ LABEL_5:
     default:
       if ( v2 < 0 )
       {
-        byte_140C4C854 = 0;
+        byte_140C4C894 = 0;
         if ( hAlgorithm )
         {
           BCryptCloseAlgorithmProvider(hAlgorithm, a2);
@@ -61,20 +61,20 @@ LABEL_5:
           BCryptDestroyKey(hObject);
           hObject = 0LL;
         }
-        if ( qword_140C4C878 )
+        if ( qword_140C4C8B8 )
         {
-          ExFreePoolWithTag(qword_140C4C878, 0);
-          qword_140C4C878 = 0LL;
+          ExFreePoolWithTag(qword_140C4C8B8, 0);
+          qword_140C4C8B8 = 0LL;
         }
         if ( *((_QWORD *)&dwFlags + 1) )
         {
           ExFreePoolWithTag(*((PVOID *)&dwFlags + 1), 0);
           *((_QWORD *)&dwFlags + 1) = 0LL;
         }
-        if ( *((_QWORD *)&xmmword_140C4C858 + 1) )
+        if ( *((_QWORD *)&xmmword_140C4C898 + 1) )
         {
-          ExFreePoolWithTag(*((PVOID *)&xmmword_140C4C858 + 1), 0);
-          *((_QWORD *)&xmmword_140C4C858 + 1) = 0LL;
+          ExFreePoolWithTag(*((PVOID *)&xmmword_140C4C898 + 1), 0);
+          *((_QWORD *)&xmmword_140C4C898 + 1) = 0LL;
         }
         SecureDmpEncryptionContext = 3;
       }

@@ -1,19 +1,19 @@
 /*
- * XREFs of KeSetPagePrivilege @ 0x14028DC20
+ * XREFs of KeSetPagePrivilege @ 0x14028DE10
  * Callers:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiDeletePerSessionProtos @ 0x140136FA4 (MiDeletePerSessionProtos.c)
- *     MiLockHotPatchPageRange @ 0x1402B96B4 (MiLockHotPatchPageRange.c)
- *     MiDbgWriteCheck @ 0x1402BB384 (MiDbgWriteCheck.c)
- *     MiInitializeSystemImagePage @ 0x1409B8190 (MiInitializeSystemImagePage.c)
- *     ExpRevokeBootLoaderPagePrivileges @ 0x1409F32CC (ExpRevokeBootLoaderPagePrivileges.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiDeletePerSessionProtos @ 0x1401370A4 (MiDeletePerSessionProtos.c)
+ *     MiLockHotPatchPageRange @ 0x1402B98A4 (MiLockHotPatchPageRange.c)
+ *     MiDbgWriteCheck @ 0x1402BB574 (MiDbgWriteCheck.c)
+ *     MiInitializeSystemImagePage @ 0x1409B9190 (MiInitializeSystemImagePage.c)
+ *     ExpRevokeBootLoaderPagePrivileges @ 0x1409F42CC (ExpRevokeBootLoaderPagePrivileges.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     VslMakeProtectedPageWritable @ 0x14027B870 (VslMakeProtectedPageWritable.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     VslMakeProtectedPageWritable @ 0x14027BA60 (VslMakeProtectedPageWritable.c)
  */
 
 int __fastcall KeSetPagePrivilege(__int64 a1, __int128 *a2, __int16 a3)

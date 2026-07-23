@@ -1,23 +1,29 @@
 /*
- * XREFs of NtChangeProcessState @ 0x1407F1690
+ * XREFs of NtChangeProcessState @ 0x1407F71F0
  * Callers:
- *     DifNtChangeProcessStateWrapper @ 0x14066E8F0 (DifNtChangeProcessStateWrapper.c)
+ *     DifNtChangeProcessStateWrapper @ 0x1406724D0 (DifNtChangeProcessStateWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsThawMultiProcess @ 0x14051967C (PsThawMultiProcess.c)
- *     PsFreezeProcess @ 0x14077B540 (PsFreezeProcess.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsThawMultiProcess @ 0x1405130EC (PsThawMultiProcess.c)
+ *     PsFreezeProcess @ 0x14077E180 (PsFreezeProcess.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtChangeProcessState(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3, __int64 a4, int a5, int a6)
+NTSTATUS __cdecl NtChangeProcessState(
+        HANDLE ProcessStateChangeHandle,
+        HANDLE ProcessHandle,
+        PROCESS_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
-  unsigned int v8; // edi
+  NTSTATUS v8; // edi
   int v9; // eax
   unsigned __int64 *v10; // rsi
   int v11; // eax
@@ -34,18 +40,18 @@ __int64 __fastcall NtChangeProcessState(ULONG_PTR a1, ULONG_PTR a2, unsigned int
 
   Object = 0LL;
   v21 = 0LL;
-  if ( a3 >= 2 )
-    return (unsigned int)-1073741821;
-  if ( a5 )
-    return (unsigned int)-1073741820;
-  if ( a4 || a6 )
-    return (unsigned int)-1073741811;
-  v9 = ObpReferenceObjectByHandleWithTag(a1, 0x63507350u, (__int64)&v21, 0LL, 0LL);
+  if ( (unsigned int)StateChangeType >= ProcessStateChangeMax )
+    return -1073741821;
+  if ( (_DWORD)ExtendedInformationLength )
+    return -1073741820;
+  if ( ExtendedInformation || (_DWORD)Reserved )
+    return -1073741811;
+  v9 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessStateChangeHandle, 0x63507350u, (__int64)&v21, 0LL, 0LL);
   v10 = (unsigned __int64 *)v21;
   v8 = v9;
   if ( v9 >= 0 )
   {
-    v11 = ObpReferenceObjectByHandleWithTag(a2, 0x63507350u, (__int64)&Object, 0LL, 0LL);
+    v11 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessHandle, 0x63507350u, (__int64)&Object, 0LL, 0LL);
     v13 = Object;
     v8 = v11;
     if ( v11 < 0 )
@@ -71,9 +77,9 @@ LABEL_32:
       else
         *((_BYTE *)v18 + 10) = 1;
     }
-    if ( a3 )
+    if ( StateChangeType )
     {
-      if ( a3 == 1 )
+      if ( StateChangeType == ProcessStateChangeResume )
       {
         if ( !*((_DWORD *)v10 + 4) )
         {

@@ -1,17 +1,17 @@
 /*
- * XREFs of BiHandleFirmwareDefaultEntry @ 0x1408153F4
+ * XREFs of BiHandleFirmwareDefaultEntry @ 0x140815B34
  * Callers:
- *     BiExportEfiBootManager @ 0x140AB305C (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140AADFCC (BiExportEfiBootManager.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BiTranslateObjectIdentifier @ 0x140815734 (BiTranslateObjectIdentifier.c)
- *     BiDeleteElement @ 0x1409BF8D0 (BiDeleteElement.c)
- *     BiGetElement @ 0x1409BFBB8 (BiGetElement.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BiTranslateObjectIdentifier @ 0x140815E74 (BiTranslateObjectIdentifier.c)
+ *     BiDeleteElement @ 0x1409A5F20 (BiDeleteElement.c)
+ *     BiGetElement @ 0x1409A6208 (BiGetElement.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, __int64 a2, PVOID *a3, unsigned int *a4)
+__int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3, unsigned int *a4)
 {
   int Element; // eax
   unsigned int v9; // ebx
@@ -22,32 +22,31 @@ __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, __int64 a2, PVOID *a
   _DWORD *v14; // rax
   _DWORD *Pool2; // rax
   _DWORD *v16; // r14
-  int v18; // [rsp+20h] [rbp-28h] BYREF
-  int v19; // [rsp+24h] [rbp-24h] BYREF
-  PVOID P[4]; // [rsp+28h] [rbp-20h] BYREF
+  _DWORD v18[2]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID P; // [rsp+28h] [rbp-20h]
 
-  v18 = 0;
-  v19 = 0;
-  P[0] = 0LL;
-  Element = BiGetElement(a2, 587202563LL, P, &v19);
+  v18[0] = 0;
+  v18[1] = 0;
+  P = 0LL;
+  Element = BiGetElement(a2, 0x23000003u);
   v9 = Element;
   if ( Element == -1073741275 )
     goto LABEL_20;
   if ( Element < 0 )
     goto LABEL_21;
   BiDeleteElement(a2, 587202563LL);
-  if ( (int)BiTranslateObjectIdentifier(a1, P[0], &v18) < 0 )
+  if ( (int)BiTranslateObjectIdentifier(a1, P, v18) < 0 )
     goto LABEL_20;
   v10 = *a4;
   v11 = 0LL;
   v12 = (char *)*a3;
-  v13 = v18;
+  v13 = v18[0];
   if ( !*a4 )
     goto LABEL_10;
   v14 = *a3;
   do
   {
-    if ( *v14 == v18 )
+    if ( *v14 == v18[0] )
       break;
     v11 = (unsigned int)(v11 + 1);
     ++v14;
@@ -58,7 +57,7 @@ __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, __int64 a2, PVOID *a
   if ( (_DWORD)v11 == v10 )
 LABEL_10:
     ++v10;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL, 4LL * v10, 0x4B444342u);
   v16 = Pool2;
   if ( !Pool2 )
   {
@@ -77,7 +76,7 @@ LABEL_10:
 LABEL_20:
   v9 = 0;
 LABEL_21:
-  if ( P[0] )
-    ExFreePoolWithTag(P[0], 0x4B444342u);
+  if ( P )
+    ExFreePoolWithTag(P, 0x4B444342u);
   return v9;
 }

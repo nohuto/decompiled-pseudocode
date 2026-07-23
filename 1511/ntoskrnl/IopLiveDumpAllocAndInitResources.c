@@ -125,7 +125,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
   *(_QWORD *)(v16 + 48) = v17;
   *(_QWORD *)(a1 + 368) = v17;
   *(_QWORD *)(a1 + 376) = v16 + 56;
-  RtlClearAllBitsEx(a1 + 368);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 368));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 384), *(_QWORD *)(a1 + 392));
   v18 = ExAllocatePoolWithTag(NonPagedPoolNx, (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
   *(_QWORD *)(a1 + 456) = v18;
@@ -135,7 +135,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
     goto LABEL_2;
   *(_QWORD *)(a1 + 424) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 432) = v19;
-  RtlClearAllBitsEx(a1 + 424);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 424));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 456), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
   HypervisorEncryptionDomain = HvlGetHypervisorEncryptionDomain();
   if ( (unsigned int)EncryptedDataDomains < HypervisorEncryptionDomain )
@@ -161,7 +161,7 @@ LABEL_4:
     goto LABEL_2;
   *(_QWORD *)(a1 + 464) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 472) = v23;
-  RtlClearAllBitsEx(a1 + 464);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 464));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 480), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
   for ( i = *(_QWORD *)(a1 + 56); i; i = *(_QWORD *)(i + 32) )
     IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(i + 16), *(unsigned int *)(i + 24));

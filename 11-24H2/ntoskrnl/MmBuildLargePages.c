@@ -1,12 +1,12 @@
 /*
- * XREFs of MmBuildLargePages @ 0x1409F7FAC
+ * XREFs of MmBuildLargePages @ 0x1409F091C
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x1409F7BB4 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x1409F0524 (VmpAccessFaultBatchResolve.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     MiRebuildLargePage @ 0x1403D2BAC (MiRebuildLargePage.c)
- *     MiPartitionObjectToPartition @ 0x14041217C (MiPartitionObjectToPartition.c)
- *     MiGetLargestPageIndex @ 0x140494B50 (MiGetLargestPageIndex.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1403945BC (MiPartitionObjectToPartition.c)
+ *     MiRebuildLargePage @ 0x1403F7120 (MiRebuildLargePage.c)
+ *     MiGetLargestPageIndex @ 0x14048F5E0 (MiGetLargestPageIndex.c)
  */
 
 unsigned __int64 __fastcall MmBuildLargePages(__int64 a1, unsigned int a2)
@@ -45,7 +45,7 @@ LABEL_6:
     v7 = MiPartitionObjectToPartition((ULONG **)0xFFFFFFFFFFFFFFFFLL, 0, &v10);
     v8 = v7;
     if ( v7 )
-      v2 = MiRebuildLargePage((__int64)v7, a2, v5, 0x200uLL, 1) >> 9;
+      v2 = MiRebuildLargePage((unsigned __int64)v7, a2, v5, 0x200uLL, 1) >> 9;
     if ( v10 )
       PsDereferencePartition(*((_QWORD *)v8 + 23));
   }

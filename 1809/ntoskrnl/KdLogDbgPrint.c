@@ -1,12 +1,12 @@
 /*
- * XREFs of KdLogDbgPrint @ 0x140917F20
+ * XREFs of KdLogDbgPrint @ 0x140918F20
  * Callers:
- *     KdpPrint @ 0x140918224 (KdpPrint.c)
- *     KdpPrompt @ 0x140918398 (KdpPrompt.c)
+ *     KdpPrint @ 0x140919224 (KdpPrint.c)
+ *     KdpPrompt @ 0x140919398 (KdpPrompt.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KdpCopyMemoryChunks @ 0x1409199A8 (KdpCopyMemoryChunks.c)
  */
 
 struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
@@ -28,7 +28,7 @@ struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
   __int64 v16; // [rsp+58h] [rbp+10h] BYREF
 
   result = KeGetCurrentPrcb();
-  if ( (struct _KPRCB *)qword_1404DCA38 == result )
+  if ( (struct _KPRCB *)qword_1404DDB38 == result )
   {
     _InterlockedIncrement(&KdPrintSkippedCount);
     return result;

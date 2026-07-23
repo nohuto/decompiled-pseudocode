@@ -7,29 +7,27 @@
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  *     TppBarrierAdjust @ 0x18004CF8C (TppBarrierAdjust.c)
- *     TppAdjustRunningThreadGoalWithLock @ 0x180111FB0 (TppAdjustRunningThreadGoalWithLock.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180111F70 (TppAdjustRunningThreadGoalWithLock.c)
  */
 
-__int64 __fastcall TpStartAsyncIoOperation(__int64 a1)
+void __cdecl TpStartAsyncIoOperation(PTP_IO Io)
 {
-  __int64 result; // rax
-  __int64 v3; // rdi
+  __int64 v2; // rdi
+  int v3; // eax
 
-  result = TppIopValidateIo(a1, 0LL, 1LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo(Io, 0LL, 1LL) )
   {
-    TppBarrierAdjust(a1 + 56, 1LL);
-    _InterlockedAdd((volatile signed __int32 *)(a1 + 280), 1u);
-    _InterlockedAdd((volatile signed __int32 *)a1, 1u);
-    v3 = *(_QWORD *)(a1 + 144);
-    if ( !v3 || (result = *(unsigned int *)(v3 + 440), !(_DWORD)result) )
-      result = MEMORY[0x7FFE03C0];
-    if ( *(_DWORD *)(v3 + 424) != (_DWORD)result )
+    TppBarrierAdjust((char *)Io + 56, 1LL);
+    _InterlockedAdd((volatile signed __int32 *)Io + 70, 1u);
+    _InterlockedAdd((volatile signed __int32 *)Io, 1u);
+    v2 = *((_QWORD *)Io + 18);
+    if ( !v2 || (v3 = *(_DWORD *)(v2 + 440)) == 0 )
+      v3 = MEMORY[0x7FFE03C0];
+    if ( *(_DWORD *)(v2 + 424) != v3 )
     {
-      RtlAcquireSRWLockExclusive(v3 + 72);
-      TppAdjustRunningThreadGoalWithLock(v3);
-      return RtlReleaseSRWLockExclusive(v3 + 72);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v2 + 72));
+      TppAdjustRunningThreadGoalWithLock(v2);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v2 + 72));
     }
   }
-  return result;
 }

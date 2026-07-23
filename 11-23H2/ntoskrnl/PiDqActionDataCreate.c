@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDqActionDataCreate @ 0x1407F9854
+ * XREFs of PiDqActionDataCreate @ 0x1407F9B24
  * Callers:
- *     PiDqQuerySerializeActionQueue @ 0x1407F94D0 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQuerySerializeActionQueue @ 0x1407F97A0 (PiDqQuerySerializeActionQueue.c)
  * Callees:
- *     PiDqGetPnpObjectType @ 0x1406CA38C (PiDqGetPnpObjectType.c)
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
- *     PiDqActionDataFree @ 0x1407F9B14 (PiDqActionDataFree.c)
- *     PiDqActionDataGetRequestedProperties @ 0x1407F9B68 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140839A28 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetChangedProperties @ 0x14083A1A8 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095BE90 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqGetPnpObjectType @ 0x1406CA3BC (PiDqGetPnpObjectType.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
+ *     PiDqActionDataFree @ 0x1407F9DE4 (PiDqActionDataFree.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x1407F9E38 (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140839D28 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetChangedProperties @ 0x14083A4A8 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095C090 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

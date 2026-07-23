@@ -1,14 +1,14 @@
 /*
- * XREFs of KiNpxNotAvailableFault @ 0x1406B8200
+ * XREFs of KiNpxNotAvailableFault @ 0x1406B9100
  * Callers:
- *     KiNpxNotAvailableFaultShadow @ 0x140BBB4C0 (KiNpxNotAvailableFaultShadow.c)
+ *     KiNpxNotAvailableFaultShadow @ 0x140BBD4C0 (KiNpxNotAvailableFaultShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x14041B1F0 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KiNpxNotAvailableFault @ 0x1406B8200 (KiNpxNotAvailableFault.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x1406BED00 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406BF740 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14040ED30 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KiNpxNotAvailableFault @ 0x1406B9100 (KiNpxNotAvailableFault.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x1406BFC00 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406C0640 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiNpxNotAvailableFault()
@@ -64,7 +64,7 @@ void __noreturn KiNpxNotAvailableFault()
       v6 = KeGetPcr()->Prcb.PrcbPad12a[1];
     }
     if ( (v6 & 2) != 0 )
-      JUMPOUT(0x1406B8469LL);
+      JUMPOUT(0x1406B9369LL);
     if ( v6 < 0 )
     {
       _mm_lfence();

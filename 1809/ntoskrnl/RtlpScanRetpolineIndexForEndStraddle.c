@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpScanRetpolineIndexForEndStraddle @ 0x1402F7DC8
+ * XREFs of RtlpScanRetpolineIndexForEndStraddle @ 0x1402F7FB8
  * Callers:
- *     RtlCreateRetpolineRelocationInformation @ 0x1402F6DC8 (RtlCreateRetpolineRelocationInformation.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x1402F6FB8 (RtlCreateRetpolineRelocationInformation.c)
  * Callees:
- *     RtlSizeOfRetpolineIndirectFixup @ 0x1402F7430 (RtlSizeOfRetpolineIndirectFixup.c)
+ *     RtlSizeOfRetpolineIndirectFixup @ 0x1402F7620 (RtlSizeOfRetpolineIndirectFixup.c)
  */
 
 void __fastcall RtlpScanRetpolineIndexForEndStraddle(unsigned __int16 *a1, _BYTE *a2, char **a3)

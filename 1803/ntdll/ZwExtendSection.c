@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwExtendSection()
+NTSTATUS __cdecl ZwExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewSectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 219LL;
+  result = 219;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

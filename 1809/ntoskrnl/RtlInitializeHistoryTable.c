@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitializeHistoryTable @ 0x1409D88D4
+ * XREFs of RtlInitializeHistoryTable @ 0x1409D98D4
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x14009DC20 (RtlLookupFunctionEntry.c)
- *     RtlpFunctionAddressTableEntry @ 0x1409D89BC (RtlpFunctionAddressTableEntry.c)
+ *     RtlLookupFunctionEntry @ 0x14009DB60 (RtlLookupFunctionEntry.c)
+ *     RtlpFunctionAddressTableEntry @ 0x1409D99BC (RtlpFunctionAddressTableEntry.c)
  */
 
 PRUNTIME_FUNCTION RtlInitializeHistoryTable()
@@ -26,17 +26,17 @@ PRUNTIME_FUNCTION RtlInitializeHistoryTable()
     if ( !v1 )
       break;
     if ( v1 == RtlRaiseStatus )
-      byte_140559905 = i;
+      byte_14055A905 = i;
     v2 = RtlLookupFunctionEntry((DWORD64)v1, &ImageBase, 0LL);
     v3 = 2LL * i;
     v4 = ImageBase + v2->BeginAddress;
     v5 = ImageBase + v2->EndAddress;
     *(_QWORD *)&RtlpUnwindHistoryTable[2 * v3 + 6] = ImageBase;
     *(_QWORD *)&RtlpUnwindHistoryTable[2 * v3 + 8] = v2;
-    if ( v4 < qword_140559908 )
-      qword_140559908 = v4;
-    if ( v5 > qword_140559910 )
-      qword_140559910 = v5;
+    if ( v4 < qword_14055A908 )
+      qword_14055A908 = v4;
+    if ( v5 > qword_14055A910 )
+      qword_14055A910 = v5;
   }
   RtlpUnwindHistoryTable[0] = i;
   v6 = 3LL;

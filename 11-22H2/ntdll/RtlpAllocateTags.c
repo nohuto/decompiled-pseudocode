@@ -15,10 +15,13 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   __int16 v6; // r15
   _QWORD *v7; // r14
   __int64 v8; // rdi
-  __int64 v9; // rdx
+  _WORD *v9; // rdx
   __int16 v10; // r8
   __int16 v11; // ax
-  __int64 v13; // [rsp+80h] [rbp+18h]
+  int v12; // ecx
+  ULONG_PTR v14[7]; // [rsp+30h] [rbp-38h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp+18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp+20h] BYREF
 
   v2 = RtlpGlobalTagHeap;
   v4 = a1;
@@ -41,7 +44,8 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   v7 = (_QWORD *)(v4 + 232);
   if ( !*(_QWORD *)(v4 + 232) )
   {
-    if ( (int)ZwAllocateVirtualMemory() < 0 )
+    RegionSize = 147384LL;
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(v4 + 232), 0LL, &RegionSize, 0x2000u, 4u) < 0 )
       return 0LL;
     *(_DWORD *)(v4 + 224) = 134152192;
     ++a2;
@@ -49,29 +53,31 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   v8 = *(unsigned __int16 *)(v4 + 224);
   if ( a2 > *(unsigned __int16 *)(v4 + 226) - (unsigned int)v8 )
     return 0LL;
-  v9 = *v7 + 72 * v8;
-  v13 = v9;
+  v9 = (_WORD *)(*v7 + 72 * v8);
+  BaseAddress = v9;
   if ( (unsigned int)v8 < (unsigned int)v8 + a2 )
   {
-    v10 = v9;
+    v10 = (__int16)v9;
     do
     {
       if ( ((v10 + 72) & 0xFFFu) <= 0x48uLL )
       {
-        if ( (int)ZwAllocateVirtualMemory() < 0 )
+        v14[0] = 4096LL;
+        if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, v14, 0x1000u, 4u) < 0 )
           return 0LL;
-        v9 = v13;
+        v9 = BaseAddress;
       }
       v11 = v8;
       LODWORD(v8) = v8 + 1;
-      *(_WORD *)(v9 + 16) = v5 | v11;
-      *(_WORD *)(v13 + 18) = v6;
-      v9 = v13 + 72;
-      v13 = v9;
-      v10 = v9;
+      v9[8] = v5 | v11;
+      *((_WORD *)BaseAddress + 9) = v6;
+      v12 = *(unsigned __int16 *)(v4 + 224);
+      v9 = (char *)BaseAddress + 72;
+      BaseAddress = v9;
+      v10 = (__int16)v9;
     }
-    while ( (unsigned int)v8 < a2 + *(unsigned __int16 *)(v4 + 224) );
-    LOWORD(v8) = *(_WORD *)(v4 + 224);
+    while ( (unsigned int)v8 < a2 + v12 );
+    LOWORD(v8) = v12;
   }
   *(_WORD *)(v4 + 224) = a2 + v8;
   return *v7 + 72LL * (unsigned __int16)v8;

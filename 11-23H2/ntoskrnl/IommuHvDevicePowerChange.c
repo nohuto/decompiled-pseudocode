@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuHvDevicePowerChange @ 0x140524170
+ * XREFs of IommuHvDevicePowerChange @ 0x1405246C0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommuHvDevicePowerChange(__int64 a1, _QWORD *a2, unsigned __int8 a3)

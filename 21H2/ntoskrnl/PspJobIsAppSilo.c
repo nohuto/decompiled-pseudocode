@@ -1,9 +1,9 @@
 /*
- * XREFs of PspJobIsAppSilo @ 0x140580FDC
+ * XREFs of PspJobIsAppSilo @ 0x14058121C
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
- *     PsIsServerSilo @ 0x140362250 (PsIsServerSilo.c)
+ *     PsIsServerSilo @ 0x1402F70B0 (PsIsServerSilo.c)
  */
 
 bool __fastcall PspJobIsAppSilo(__int64 a1)

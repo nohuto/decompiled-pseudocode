@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmStoreGet @ 0x140245714
+ * XREFs of SmKmStoreGet @ 0x14020DEF4
  * Callers:
- *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x14024555C (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@E@Z @ 0x140379F54 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
- *     SmpKeyedStoreCreate @ 0x140A42B64 (SmpKeyedStoreCreate.c)
- *     SmStoreCompressionStop @ 0x140A4CBCC (SmStoreCompressionStop.c)
- *     SmSwapStore @ 0x140A4CF64 (SmSwapStore.c)
- *     SmProcessDeleteNotification @ 0x140A51570 (SmProcessDeleteNotification.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x140A5FA44 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmProcessSystemStoreTrimRequest @ 0x140A5FC18 (SmProcessSystemStoreTrimRequest.c)
+ *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x14020DD3C (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@E@Z @ 0x1402E6EC4 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     SmpKeyedStoreCreate @ 0x140A383F4 (SmpKeyedStoreCreate.c)
+ *     SmStoreCompressionStop @ 0x140A4375C (SmStoreCompressionStop.c)
+ *     SmSwapStore @ 0x140A43AF4 (SmSwapStore.c)
+ *     SmProcessDeleteNotification @ 0x140A4863C (SmProcessDeleteNotification.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x140A57F94 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x140A58168 (SmProcessSystemStoreTrimRequest.c)
  * Callees:
  *     <none>
  */

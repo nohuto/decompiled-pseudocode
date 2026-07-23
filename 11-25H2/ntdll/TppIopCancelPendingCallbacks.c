@@ -16,8 +16,8 @@ void __fastcall TppIopCancelPendingCallbacks(__int64 a1)
   v2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
   if ( v2 )
   {
-    TppBarrierAdjust((volatile signed __int64 *)(a1 + 56), -v2, 0);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    TppBarrierAdjust((_RTL_SRWLOCK *)(a1 + 56), -v2, 0);
+    if ( RtlGetCurrentServiceSessionId() )
       v3 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v3 = 2147353478LL;

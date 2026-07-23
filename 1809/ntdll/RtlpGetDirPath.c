@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpComputePath @ 0x180056598 (RtlpComputePath.c)
  * Callees:
- *     wcschr @ 0x180095A40 (wcschr.c)
- *     wcsrchr @ 0x180095C80 (wcsrchr.c)
+ *     wcschr @ 0x180095A50 (wcschr.c)
+ *     wcsrchr @ 0x180095C90 (wcsrchr.c)
  */
 
 const wchar_t *__fastcall RtlpGetDirPath(wchar_t *Str, _QWORD *a2)

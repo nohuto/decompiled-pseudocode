@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlWideCharArrayCopyStringWorker @ 0x1800E27A0
+ * XREFs of RtlWideCharArrayCopyStringWorker @ 0x1800DDD70
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x18005BA20 (RtlGetFullPathName_Ustr.c)
+ *     RtlGetFullPathName_Ustr @ 0x180071600 (RtlGetFullPathName_Ustr.c)
  * Callees:
  *     <none>
  */

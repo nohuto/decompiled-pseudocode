@@ -28,7 +28,7 @@ unsigned __int64 __fastcall SmPartitionCleanup(__int64 a1)
   v1 = *(_DWORD *)(a1 + 2272);
   if ( v1 != -1 )
     SmKmStoreDereference(a1, v1);
-  SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((union _SLIST_HEADER *)a1);
+  SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((_SLIST_HEADER *)a1);
   SmpKeyedStoreCtxCleanup(a1 + 2232);
   v3 = (struct _PRIVILEGE_SET **)(a1 + 2808);
   while ( 1 )

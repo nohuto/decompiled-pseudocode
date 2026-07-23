@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLoadManufacturingModeNode @ 0x140A8ECCC
+ * XREFs of CmpLoadManufacturingModeNode @ 0x140A8FCCC
  * Callers:
- *     CmpLoadManufacturingProfileNode @ 0x140A8EDBC (CmpLoadManufacturingProfileNode.c)
+ *     CmpLoadManufacturingProfileNode @ 0x140A8FDBC (CmpLoadManufacturingProfileNode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x1407AC8D4 (CmpFindSubKeyByName.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x1407ACAD4 (CmpFindSubKeyByName.c)
  */
 
 bool __fastcall CmpLoadManufacturingModeNode(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)

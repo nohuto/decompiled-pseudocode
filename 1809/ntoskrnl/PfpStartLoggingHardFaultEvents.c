@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpStartLoggingHardFaultEvents @ 0x14056690C
+ * XREFs of PfpStartLoggingHardFaultEvents @ 0x14056790C
  * Callers:
- *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140568F10 (PfPowerActionNotify.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PfpStartLoggingHardFaultEvents()
@@ -26,10 +26,10 @@ __int64 PfpStartLoggingHardFaultEvents()
   if ( PoolWithTag )
   {
     PoolWithTag[40] = 0;
-    v3 = KeAcquireSpinLockRaiseToDpc(&qword_14043C108);
-    *(_DWORD *)(v2 + 164) = ++dword_14043C114;
-    _InterlockedOr(&dword_1404D7554, 1u);
-    KxReleaseSpinLock(&qword_14043C108);
+    v3 = KeAcquireSpinLockRaiseToDpc(&qword_14043D1C8);
+    *(_DWORD *)(v2 + 164) = ++dword_14043D1D4;
+    _InterlockedOr(&dword_1404D8614, 1u);
+    KxReleaseSpinLock(&qword_14043D1C8);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();

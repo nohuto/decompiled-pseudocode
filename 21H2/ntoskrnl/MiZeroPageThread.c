@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroPageThread @ 0x1403CABA0
+ * XREFs of MiZeroPageThread @ 0x1403CAD40
  * Callers:
  *     <none>
  * Callees:
- *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
- *     MiInitializeColorTable @ 0x1403B0D1C (MiInitializeColorTable.c)
- *     MiZeroBootLargePages @ 0x1403CABF4 (MiZeroBootLargePages.c)
- *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
- *     MiGetPagesToZero @ 0x14054FD4C (MiGetPagesToZero.c)
- *     MiSetZeroPageThreadPriority @ 0x14054FEB4 (MiSetZeroPageThreadPriority.c)
- *     MiWaitForFreePagesToZero @ 0x14054FF8C (MiWaitForFreePagesToZero.c)
+ *     MiZeroPage @ 0x1402D7B60 (MiZeroPage.c)
+ *     MiInitializeColorTable @ 0x1403B0E8C (MiInitializeColorTable.c)
+ *     MiZeroBootLargePages @ 0x1403CAD94 (MiZeroBootLargePages.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FE54 (MiDeleteZeroThreadContext.c)
+ *     MiGetPagesToZero @ 0x14054FF8C (MiGetPagesToZero.c)
+ *     MiSetZeroPageThreadPriority @ 0x1405500F4 (MiSetZeroPageThreadPriority.c)
+ *     MiWaitForFreePagesToZero @ 0x1405501CC (MiWaitForFreePagesToZero.c)
  */
 
 __int64 __fastcall MiZeroPageThread(ULONG_PTR *a1)

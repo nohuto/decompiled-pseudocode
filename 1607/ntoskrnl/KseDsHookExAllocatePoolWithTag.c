@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsHookExAllocatePoolWithTag @ 0x1401DD394
+ * XREFs of KseDsHookExAllocatePoolWithTag @ 0x1401DD1C0
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventPoolAllocate @ 0x1401DDE84 (KsepDsEventPoolAllocate.c)
+ *     KsepDsEventPoolAllocate @ 0x1401DDCB0 (KsepDsEventPoolAllocate.c)
  */
 
 __int64 __fastcall KseDsHookExAllocatePoolWithTag(int a1, int a2, char a3)

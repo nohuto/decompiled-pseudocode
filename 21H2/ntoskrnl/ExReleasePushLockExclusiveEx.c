@@ -1,15 +1,15 @@
 /*
- * XREFs of ExReleasePushLockExclusiveEx @ 0x14034A720
+ * XREFs of ExReleasePushLockExclusiveEx @ 0x140355470
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExReleasePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -25,7 +25,6 @@ char __fastcall ExReleasePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, ULONG
   __int64 v11; // rdi
   unsigned int v12; // ecx
   __int64 v13; // rdx
-  __int64 v14; // rcx
 
   v2 = BugCheckParameter1;
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
@@ -73,7 +72,7 @@ LABEL_24:
     {
       *(_BYTE *)(v11 + 32) |= 2u;
       if ( *(__int64 *)(v11 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v11);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
       v12 = *(_DWORD *)(v11 + 88) & 0xFFFE0000;
       *(_BYTE *)(v11 + 25) &= ~1u;
       *(_DWORD *)(v11 + 88) = v12;
@@ -88,7 +87,7 @@ LABEL_24:
     result = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
     v9 = CurrentThread->SpecialApcDisable++ == -1;
     if ( v9 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      return KiCheckForKernelApcDelivery(v14);
+      return KiCheckForKernelApcDelivery();
   }
   return result;
 }

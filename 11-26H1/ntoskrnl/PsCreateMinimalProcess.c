@@ -1,37 +1,37 @@
 /*
- * XREFs of PsCreateMinimalProcess @ 0x1407FC198
+ * XREFs of PsCreateMinimalProcess @ 0x140801BC8
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14063CDAC (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     PspCreatePicoProcess @ 0x1407FC8C0 (PspCreatePicoProcess.c)
- *     PspCreatePartitionSystemProcess @ 0x1407FDEB8 (PspCreatePartitionSystemProcess.c)
- *     CmpInitializeRegistryProcess @ 0x140857024 (CmpInitializeRegistryProcess.c)
- *     PspCreateProcess @ 0x140ADC7C0 (PspCreateProcess.c)
- *     VmCreateMemoryProcess @ 0x140B4F050 (VmCreateMemoryProcess.c)
- *     PspCreateSecureSystemProcess @ 0x140CD803C (PspCreateSecureSystemProcess.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14064098C (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     PspCreatePicoProcess @ 0x1408022F0 (PspCreatePicoProcess.c)
+ *     PspCreatePartitionSystemProcess @ 0x1408038E8 (PspCreatePartitionSystemProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x14085D3B4 (CmpInitializeRegistryProcess.c)
+ *     PspCreateProcess @ 0x140AD9D10 (PspCreateProcess.c)
+ *     VmCreateMemoryProcess @ 0x140B518E0 (VmCreateMemoryProcess.c)
+ *     PspCreateSecureSystemProcess @ 0x140CDE3BC (PspCreateSecureSystemProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     KeKvaShadowingActive @ 0x1404E6308 (KeKvaShadowingActive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspDeleteCpuAndMemoryPartitionContext @ 0x14077C3F8 (PspDeleteCpuAndMemoryPartitionContext.c)
- *     PsTerminateMinimalProcess @ 0x1407FA5A8 (PsTerminateMinimalProcess.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
- *     PsTerminateProcess @ 0x14095690C (PsTerminateProcess.c)
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PspInsertProcess @ 0x140983A9C (PspInsertProcess.c)
- *     PspDeleteCreateProcessContext @ 0x140A00524 (PspDeleteCreateProcessContext.c)
- *     PspBuildCreateProcessContext @ 0x140A00BC4 (PspBuildCreateProcessContext.c)
- *     PspCreateObjectHandle @ 0x140A0406C (PspCreateObjectHandle.c)
- *     PspGetCpuAndMemoryPartitionContext @ 0x140AAE864 (PspGetCpuAndMemoryPartitionContext.c)
- *     PsAssignProcessToJobObject @ 0x140AC5CC0 (PsAssignProcessToJobObject.c)
- *     MmSynchronizeAddressPolicy @ 0x140B256A0 (MmSynchronizeAddressPolicy.c)
- *     PspSetMinimalProcessName @ 0x140B69854 (PspSetMinimalProcessName.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     KeKvaShadowingActive @ 0x1404DF8A8 (KeKvaShadowingActive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspDeleteCpuAndMemoryPartitionContext @ 0x14077EEEC (PspDeleteCpuAndMemoryPartitionContext.c)
+ *     PsTerminateMinimalProcess @ 0x1407FFFD8 (PsTerminateMinimalProcess.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     PspInsertProcess @ 0x140945AAC (PspInsertProcess.c)
+ *     PsTerminateProcess @ 0x14094A334 (PsTerminateProcess.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
+ *     PspBuildCreateProcessContext @ 0x140A79424 (PspBuildCreateProcessContext.c)
+ *     PspDeleteCreateProcessContext @ 0x140A79FBC (PspDeleteCreateProcessContext.c)
+ *     PspCreateObjectHandle @ 0x140A7BDE4 (PspCreateObjectHandle.c)
+ *     PspGetCpuAndMemoryPartitionContext @ 0x140AAC4C4 (PspGetCpuAndMemoryPartitionContext.c)
+ *     PsAssignProcessToJobObject @ 0x140AC7930 (PsAssignProcessToJobObject.c)
+ *     MmSynchronizeAddressPolicy @ 0x140B27900 (MmSynchronizeAddressPolicy.c)
+ *     PspSetMinimalProcessName @ 0x140B6C7E4 (PspSetMinimalProcessName.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  */
 
 __int64 __fastcall PsCreateMinimalProcess(
@@ -80,7 +80,7 @@ __int64 __fastcall PsCreateMinimalProcess(
   __int128 v44; // [rsp+380h] [rbp+280h]
   __int64 v45; // [rsp+390h] [rbp+290h]
   _OWORD v46[3]; // [rsp+398h] [rbp+298h] BYREF
-  _BYTE v47[512]; // [rsp+3D0h] [rbp+2D0h] BYREF
+  _BYTE v47[544]; // [rsp+3D0h] [rbp+2D0h] BYREF
 
   v34 = a10;
   v37 = a12;
@@ -99,7 +99,7 @@ __int64 __fastcall PsCreateMinimalProcess(
   Object = 0LL;
   v14 = 0;
   v15 = 0LL;
-  memset_0(v47, 0, 0x1F8uLL);
+  memset_0(v47, 0, 0x218uLL);
   if ( a5 )
     v14 = 1;
   else

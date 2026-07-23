@@ -1,42 +1,42 @@
 /*
- * XREFs of MiDeletePartialVad @ 0x140095DC0
+ * XREFs of MiDeletePartialVad @ 0x1400955C0
  * Callers:
- *     MiFreeVadRange @ 0x1400272B4 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x140026E34 (MiFreeVadRange.c)
  * Callees:
- *     MiManageSubsectionView @ 0x140013D20 (MiManageSubsectionView.c)
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     MiReturnFullProcessCharges @ 0x1400275E0 (MiReturnFullProcessCharges.c)
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     PsReturnProcessPagedPoolQuota @ 0x140027B7C (PsReturnProcessPagedPoolQuota.c)
- *     MiFinishVadDeletion @ 0x1400295E0 (MiFinishVadDeletion.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiInsertVad @ 0x140042950 (MiInsertVad.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiCountSharedPages @ 0x140092C50 (MiCountSharedPages.c)
- *     MiCaptureDeleteHierarchy @ 0x1400961C0 (MiCaptureDeleteHierarchy.c)
- *     MiAdvanceVadView @ 0x1400962A8 (MiAdvanceVadView.c)
- *     MiComputePageCommitment @ 0x140096300 (MiComputePageCommitment.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     MiUpControlAreaRefs @ 0x14010C9E8 (MiUpControlAreaRefs.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiManageSubsectionView @ 0x1400138A0 (MiManageSubsectionView.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     MiReturnFullProcessCharges @ 0x140027160 (MiReturnFullProcessCharges.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400276FC (PsReturnProcessPagedPoolQuota.c)
+ *     MiFinishVadDeletion @ 0x140029160 (MiFinishVadDeletion.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiInsertVad @ 0x1400424D0 (MiInsertVad.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiCountSharedPages @ 0x140092450 (MiCountSharedPages.c)
+ *     MiCaptureDeleteHierarchy @ 0x1400959C0 (MiCaptureDeleteHierarchy.c)
+ *     MiAdvanceVadView @ 0x140095AA8 (MiAdvanceVadView.c)
+ *     MiComputePageCommitment @ 0x140095B00 (MiComputePageCommitment.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     MiUpControlAreaRefs @ 0x14010A768 (MiUpControlAreaRefs.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInsertSharedCommitNode @ 0x14042E680 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x14042EA70 (MiRemoveSharedCommitNode.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiCreateRotateView @ 0x1404EF458 (MiCreateRotateView.c)
- *     MiUnlockNestedVad @ 0x140527FB0 (MiUnlockNestedVad.c)
- *     MiLockNestedVad @ 0x140527FE0 (MiLockNestedVad.c)
- *     MiFreeRotateView @ 0x140659C34 (MiFreeRotateView.c)
+ *     MiInsertSharedCommitNode @ 0x14042D550 (MiInsertSharedCommitNode.c)
+ *     MiRemoveSharedCommitNode @ 0x14042D940 (MiRemoveSharedCommitNode.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiCreateRotateView @ 0x1404D151C (MiCreateRotateView.c)
+ *     MiUnlockNestedVad @ 0x14050B010 (MiUnlockNestedVad.c)
+ *     MiLockNestedVad @ 0x14050B040 (MiLockNestedVad.c)
+ *     MiFreeRotateView @ 0x140659D18 (MiFreeRotateView.c)
  */
 
 __int64 __fastcall MiDeletePartialVad(_DWORD *P, unsigned __int64 a2, unsigned __int64 a3, int a4)
@@ -101,7 +101,7 @@ __int64 __fastcall MiDeletePartialVad(_DWORD *P, unsigned __int64 a2, unsigned _
   KIRQL v63; // al
   unsigned __int64 v64; // r12
   unsigned __int64 v65; // rax
-  struct _SLIST_ENTRY *v66; // rcx
+  _SLIST_ENTRY *v66; // rcx
   __int64 *v67; // rcx
   __int64 *v68; // r14
   __int64 v69; // rsi
@@ -200,7 +200,7 @@ __int64 __fastcall MiDeletePartialVad(_DWORD *P, unsigned __int64 a2, unsigned _
           if ( v76 == 64 )
           {
             if ( (*(_DWORD *)(v7 + 48) & 0x100000) != 0 )
-              ++*(_QWORD *)(qword_140327F90 + 276840648);
+              ++*(_QWORD *)(qword_140327FD0 + 276840648);
           }
           else
           {
@@ -211,7 +211,7 @@ __int64 __fastcall MiDeletePartialVad(_DWORD *P, unsigned __int64 a2, unsigned _
             }
             else if ( (*(_DWORD *)(v7 + 48) & 0x100000) != 0 )
             {
-              ++*(_QWORD *)(qword_140327F90 + 276840656);
+              ++*(_QWORD *)(qword_140327FD0 + 276840656);
             }
             MiUpControlAreaRefs(v7);
           }
@@ -390,7 +390,7 @@ LABEL_13:
   MiDeleteVirtualAddresses(a2, a3, v78, v19, (__int64)&v85);
   if ( v24 )
   {
-    v66 = (struct _SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
+    v66 = (_SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
     if ( v66 )
     {
       MiEmptyPageAccessLog(v66);

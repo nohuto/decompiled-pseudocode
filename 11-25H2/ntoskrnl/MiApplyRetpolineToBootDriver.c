@@ -16,27 +16,27 @@
 
 __int64 __fastcall MiApplyRetpolineToBootDriver(ULONG_PTR BugCheckParameter2)
 {
-  unsigned __int64 v1; // rdi
-  __int64 v3; // rt1
+  PVOID v1; // rdi
+  PVOID v3; // rt1
   int v4; // eax
   unsigned int v6; // [rsp+28h] [rbp-C0h]
-  __int64 v7; // [rsp+50h] [rbp-98h] BYREF
-  _BYTE v8[8]; // [rsp+60h] [rbp-88h] BYREF
-  unsigned __int64 v9; // [rsp+68h] [rbp-80h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp-98h] BYREF
+  char v8[8]; // [rsp+60h] [rbp-88h] BYREF
+  PVOID v9; // [rsp+68h] [rbp-80h]
   char v10; // [rsp+70h] [rbp-78h]
 
-  v1 = *(_QWORD *)(BugCheckParameter2 + 48);
-  v7 = 0LL;
-  RtlImageNtHeaderEx(1, v1, 0LL, &v7);
+  v1 = *(PVOID *)(BugCheckParameter2 + 48);
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, v1, 0LL, &OutHeaders);
   if ( !_bittest16((const signed __int16 *)(BugCheckParameter2 + 110), 9u) )
     MiLogRetpolineImageLoadEvents(BugCheckParameter2);
   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
   {
-    v3 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+    v3 = *(PVOID *)&KeNumberProcessorsGroup0[9];
     if ( v1 != v3
       && v1 != PsHalImageBase
-      && (*(_BYTE *)(v7 + 22) & 1) == 0
-      && *(_DWORD *)(v7 + 132) > 5u
+      && (OutHeaders->FileHeader.Characteristics & 1) == 0
+      && OutHeaders->OptionalHeader.NumberOfRvaAndSizes > 5
       && !_bittest16((const signed __int16 *)(BugCheckParameter2 + 110), 9u) )
     {
       if ( (MiFlags & 0x8000) != 0 )
@@ -49,13 +49,12 @@ __int64 __fastcall MiApplyRetpolineToBootDriver(ULONG_PTR BugCheckParameter2)
       else
       {
         v4 = RtlPerformRetpolineRelocationsOnImageEx(
-               v1,
-               v1,
+               (char *)v1,
+               (__int64)v1,
                *(_DWORD *)(BugCheckParameter2 + 64),
-               *(_DWORD *)(BugCheckParameter2 + 48)
-             + *(_DWORD *)(BugCheckParameter2 + 64)
-             + dword_140E37270
-             + dword_140E3726C,
+               *(_QWORD *)(BugCheckParameter2 + 48)
+             + *(unsigned int *)(BugCheckParameter2 + 64)
+             + (unsigned __int64)(unsigned int)(dword_140E37270 + dword_140E3726C),
                (__int64)Base + 4,
                v6,
                0LL,

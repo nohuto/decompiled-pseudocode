@@ -1,24 +1,24 @@
 /*
- * XREFs of ExAcquireFastResourceShared @ 0x14038F380
+ * XREFs of ExAcquireFastResourceShared @ 0x14038F4D0
  * Callers:
- *     SeSecurityAttributePresent @ 0x14024EAC0 (SeSecurityAttributePresent.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140292930 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x14034DBA0 (ExEnterCriticalRegionAndAcquireResourceShared.c)
- *     SepMandatoryIntegrityCheck @ 0x14034E820 (SepMandatoryIntegrityCheck.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402108A0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     SeSecurityAttributePresent @ 0x1402F3310 (SeSecurityAttributePresent.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x1403588F0 (ExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     SepMandatoryIntegrityCheck @ 0x140359570 (SepMandatoryIntegrityCheck.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     ExpPrepareToWaitForResourceShared @ 0x1402D0DCC (ExpPrepareToWaitForResourceShared.c)
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     ExpWaitForResource @ 0x1403423D0 (ExpWaitForResource.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     ExpTryAcquireResourceShared @ 0x14038F68C (ExpTryAcquireResourceShared.c)
- *     ExpFindFastOwnerEntryForThread @ 0x14038F6C0 (ExpFindFastOwnerEntryForThread.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x14038FA3C (ExpAddFastOwnerEntryToThreadList.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     ExpPrepareToWaitForResourceShared @ 0x14024F25C (ExpPrepareToWaitForResourceShared.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     ExpWaitForResource @ 0x14034D120 (ExpWaitForResource.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     ExpTryAcquireResourceShared @ 0x14038F7DC (ExpTryAcquireResourceShared.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x14038F810 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x14038FB8C (ExpAddFastOwnerEntryToThreadList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
@@ -33,7 +33,7 @@ char __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_
   unsigned __int8 v13; // r14
   __int64 FastOwnerEntryForThread; // rax
   unsigned __int8 v15; // r11
-  __int64 v16; // rax
+  PRTL_BALANCED_NODE v16; // rax
   char v17; // r15
   _QWORD *v18; // r8
   _QWORD *v19; // rdx
@@ -130,9 +130,9 @@ LABEL_20:
     }
   }
   v16 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
-  v6 = v16;
+  v6 = (ULONG_PTR)v16;
   if ( v16 )
-    *(_BYTE *)(a2 + 16) = (2 * ((v16 - *(_QWORD *)(v16 - 16LL * *(unsigned __int8 *)(v16 + 24) + 800)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * (((char *)v16 - (char *)v16[33].Children[-2 * LOBYTE(v16[1].Children[0]) + 1]) / 96)) | 1;
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
@@ -210,7 +210,7 @@ LABEL_36:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v39, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v6 )
-    KeAbPreAcquire(BugCheckParameter2, v6, 0);
+    KeAbPreAcquire(BugCheckParameter2, (PRTL_BALANCED_NODE)v6, 0);
   v17 = 1;
 LABEL_22:
   if ( v6 )

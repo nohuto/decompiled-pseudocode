@@ -25,14 +25,14 @@ ULONG __fastcall sub_1800051E4(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
   bool v4; // cf
   __int64 v7; // r15
   unsigned int v8; // r12d
-  __int64 v9; // r8
+  int v9; // r8d
   unsigned __int64 v10; // rcx
   int v11; // eax
   ULONG result; // eax
-  unsigned int NumberOfProcessors; // r8d
+  ULONG NumberOfProcessors; // r8d
   __int64 v14; // r14
   __int64 v15; // rdi
-  NTSTATUS SystemInformation; // eax
+  int v16; // eax
   __int64 v17; // r9
   NTSTATUS v18; // eax
   __int64 v19; // rdx
@@ -45,13 +45,13 @@ ULONG __fastcall sub_1800051E4(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
   unsigned int v26; // edx
   NTSTATUS v27; // eax
   ULONG v28; // eax
-  __int64 v29; // rcx
+  void *v29; // rcx
   char v30[8]; // [rsp+30h] [rbp-59h] BYREF
-  __int64 v31; // [rsp+38h] [rbp-51h] BYREF
+  char *v31; // [rsp+38h] [rbp-51h] BYREF
   int v32; // [rsp+40h] [rbp-49h] BYREF
   __int64 v33; // [rsp+48h] [rbp-41h] BYREF
   _DWORD *v34; // [rsp+50h] [rbp-39h]
-  char v35[8]; // [rsp+60h] [rbp-29h] BYREF
+  char SystemInformation[8]; // [rsp+60h] [rbp-29h] BYREF
   int v36; // [rsp+68h] [rbp-21h]
 
   v34 = a3;
@@ -61,7 +61,7 @@ ULONG __fastcall sub_1800051E4(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
   v8 = 0;
   if ( v4 )
     return 87;
-  v9 = *(unsigned int *)(a4 + 64);
+  v9 = *(_DWORD *)(a4 + 64);
   *(_QWORD *)(a4 + 152) = a4 + 176;
   *(_QWORD *)(a4 + 136) = *(unsigned __int16 *)(a4 + 146) + a4 + 176;
   if ( (v9 & 0x40B) != 0 )
@@ -75,7 +75,7 @@ ULONG __fastcall sub_1800051E4(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
   }
   else
   {
-    v9 = (unsigned int)v9 | 1;
+    v9 |= 1u;
     *(_DWORD *)(a4 + 64) = v9;
   }
   if ( (v9 & 0x2000000) != 0 )
@@ -97,9 +97,9 @@ ULONG __fastcall sub_1800051E4(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
   {
     return 87;
   }
-  if ( !(unsigned int)sub_180004B90(a4 + 144, &v31, v9) )
+  if ( !(unsigned int)sub_180004B90((PUNICODE_STRING)(a4 + 144), &v31) )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16LL * *(unsigned int *)(v31 + 20) + 8));
+    _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16LL * *((unsigned int *)v31 + 5) + 8));
     return 183;
   }
   result = sub_180004C58(a4, (unsigned int *)&v32);
@@ -122,15 +122,15 @@ ULONG __fastcall sub_1800051E4(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
     }
     v14 = (unsigned int)v32;
     v31 = sub_180004D3C(a4, v32, NumberOfProcessors, v7, v8);
-    v15 = v31;
+    v15 = (__int64)v31;
     if ( !v31 )
     {
       _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16 * v14 + 8));
       return 8;
     }
-    SystemInformation = ZwQuerySystemInformation(0LL, v35, 64LL);
-    if ( SystemInformation < 0 )
-      return RtlNtStatusToDosError(SystemInformation);
+    v16 = ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+    if ( v16 < 0 )
+      return RtlNtStatusToDosError(v16);
     *(_DWORD *)(v15 + 208) = ~(v36 - 1) & (*(_DWORD *)(v15 + 208) + v36 - 1);
     if ( (*(_DWORD *)(v15 + 324) & 0x4000000) != 0 )
     {
@@ -171,7 +171,7 @@ ULONG __fastcall sub_1800051E4(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
     }
     v22 = 2 * v14;
     _InterlockedIncrement((volatile signed __int32 *)(qword_18015A420 + 8 * v22 + 8));
-    v23 = v31;
+    v23 = (__int64)v31;
     if ( (*(_DWORD *)(v15 + 324) & 0x400) == 0 )
     {
       EtwThread = EtwpCreateEtwThread(sub_1800730D0, v31);
@@ -194,16 +194,16 @@ LABEL_28:
       *v25 = *(_DWORD *)a4;
       return LastErrorValue;
     }
-    v15 = v31;
+    v15 = (__int64)v31;
 LABEL_61:
-    v29 = *(_QWORD *)(a4 + 88);
+    v29 = *(void **)(a4 + 88);
     if ( v29 )
     {
       ZwClose(v29);
       *(_QWORD *)(a4 + 88) = 0LL;
       *(_QWORD *)(v15 + 144) = 0LL;
     }
-    sub_180003970(v15);
+    sub_180003970((unsigned int *)v15);
     return LastErrorValue;
   }
   return result;

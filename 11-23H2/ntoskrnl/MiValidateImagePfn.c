@@ -1,22 +1,22 @@
 /*
- * XREFs of MiValidateImagePfn @ 0x1406B0FF8
+ * XREFs of MiValidateImagePfn @ 0x1406B1028
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiValidateInPage @ 0x1402DC710 (MiValidateInPage.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiReleaseFaultPte @ 0x140634000 (MiReleaseFaultPte.c)
- *     MiReserveFaultPte @ 0x140634184 (MiReserveFaultPte.c)
- *     SeValidateImageData @ 0x1406B1210 (SeValidateImageData.c)
- *     MiRevertRelocatedImagePfn @ 0x1406B1250 (MiRevertRelocatedImagePfn.c)
- *     MiGetSectionStrongImageReference @ 0x140A43794 (MiGetSectionStrongImageReference.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiReleaseFaultPte @ 0x140634550 (MiReleaseFaultPte.c)
+ *     MiReserveFaultPte @ 0x1406346D4 (MiReserveFaultPte.c)
+ *     SeValidateImageData @ 0x1406B1240 (SeValidateImageData.c)
+ *     MiRevertRelocatedImagePfn @ 0x1406B1280 (MiRevertRelocatedImagePfn.c)
+ *     MiGetSectionStrongImageReference @ 0x140A43A44 (MiGetSectionStrongImageReference.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

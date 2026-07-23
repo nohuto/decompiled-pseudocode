@@ -11,17 +11,17 @@
  *     sub_18010D634 @ 0x18010D634 (sub_18010D634.c)
  */
 
-unsigned __int64 __fastcall sub_18005DB48(int a1, __int64 a2, int a3, int a4, int a5, unsigned int *a6)
+void *__fastcall sub_18005DB48(int a1, __int64 a2, int a3, int a4, ULONG CacheIndexOut, int *a6)
 {
-  unsigned int *v7; // r14
+  int *v7; // r14
   int v8; // edx
   int v9; // ebx
   __int64 v10; // rax
-  __int64 v11; // rdi
-  __int64 v13; // rax
-  unsigned __int64 v14; // rbp
-  unsigned int v15; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v16; // [rsp+60h] [rbp+18h] BYREF
+  void *v11; // rdi
+  _QWORD *v13; // rax
+  void *v14; // rbp
+  int v15; // [rsp+58h] [rbp+10h] BYREF
+  int v16; // [rsp+60h] [rbp+18h] BYREF
 
   v16 = 0;
   v15 = 0;
@@ -30,17 +30,17 @@ unsigned __int64 __fastcall sub_18005DB48(int a1, __int64 a2, int a3, int a4, in
   if ( !a4 )
     v8 = a3 != 0 ? 18 : 16;
   v9 = v8 | 8;
-  if ( !a5 )
+  if ( !CacheIndexOut )
     v9 = v8;
   if ( a6 )
     v15 = *a6;
-  v10 = sub_18005DC24(v9, a1, (unsigned int)&v16, (unsigned int)&v15, (__int64)&a5);
-  v11 = v10;
+  v10 = sub_18005DC24(v9, a1, (int)&v16, (int)&v15, &CacheIndexOut);
+  v11 = (void *)v10;
   if ( v7 )
     *v7 = v15 & 0xFFE8FFFF;
   if ( !v10 )
     return 0LL;
-  if ( a1 >= 0 && a5 != a1 )
+  if ( a1 >= 0 && CacheIndexOut != a1 )
   {
 LABEL_18:
     sub_18010D634(v11);
@@ -52,10 +52,10 @@ LABEL_18:
   {
     if ( (v15 & 0x1C0000) == 0 )
     {
-      if ( !(unsigned int)sub_180109A80(v13, v16) )
+      if ( !(unsigned int)sub_180109A80(v13, (unsigned int)v16) )
       {
         sub_18005DC24(v9 | 0x120000, a1, 0, 0, 0LL);
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v14);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
         goto LABEL_18;
       }
       sub_18005DC24(v9 | 0x60000, a1, 0, 0, 0LL);

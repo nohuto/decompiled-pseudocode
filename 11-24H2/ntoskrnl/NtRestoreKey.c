@@ -1,42 +1,43 @@
 /*
- * XREFs of NtRestoreKey @ 0x1407D0CE0
+ * XREFs of NtRestoreKey @ 0x1407D11D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmPostCallbackNotificationEx @ 0x140847C20 (CmPostCallbackNotificationEx.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     CmCheckNoTxContext @ 0x14092D620 (CmCheckNoTxContext.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A6E1F0 (IoConvertFileHandleToKernelHandle.c)
- *     CmObReferenceObjectByHandle @ 0x140BB9350 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmPostCallbackNotificationEx @ 0x140843EE0 (CmPostCallbackNotificationEx.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     CmCheckNoTxContext @ 0x14092F760 (CmCheckNoTxContext.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A676F0 (IoConvertFileHandleToKernelHandle.c)
+ *     CmObReferenceObjectByHandle @ 0x140BBB350 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtRestoreKey(int a1, void *a2, unsigned int a3)
+NTSTATUS __cdecl NtRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)
 {
+  int v3; // esi
   char v6; // r12
   struct _KTHREAD *CurrentThread; // rcx
   KPROCESSOR_MODE PreviousMode; // r14
   __int64 v9; // rdx
   __int64 v10; // r8
   __int64 v11; // r9
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   __int64 v13; // rcx
   __int64 v14; // rdx
   int v15; // r8d
   int v16; // r9d
-  void *v17; // rdi
+  HANDLE v17; // rdi
   int v18; // eax
   _QWORD *v19; // rsi
   struct _KTHREAD *v20; // rax
@@ -54,6 +55,7 @@ __int64 __fastcall NtRestoreKey(int a1, void *a2, unsigned int a3)
 
   Object = 0LL;
   Handle = 0LL;
+  v3 = (int)KeyHandle;
   v28 = 0LL;
   v26[1] = v26;
   v6 = 0;
@@ -84,22 +86,22 @@ LABEL_28:
     {
       LOBYTE(v14) = 1;
       v17 = 0LL;
-      v12 = IoConvertFileHandleToKernelHandle(a2, v14, 1LL);
+      v12 = IoConvertFileHandleToKernelHandle(FileHandle, v14, 1LL);
       if ( v12 < 0 )
       {
 LABEL_25:
-        if ( v17 && v17 != a2 )
+        if ( v17 && v17 != FileHandle )
           ZwClose(v17);
         goto LABEL_28;
       }
     }
     else
     {
-      v17 = a2;
-      Handle = a2;
+      v17 = FileHandle;
+      Handle = FileHandle;
     }
     LOBYTE(v16) = PreviousMode;
-    v18 = CmObReferenceObjectByHandle(a1, 0, v15, v16, (__int64)&Object, 0LL);
+    v18 = CmObReferenceObjectByHandle(v3, 0, v15, v16, (__int64)&Object, 0LL);
     v19 = Object;
     v12 = v18;
     if ( v18 < 0 )
@@ -124,7 +126,7 @@ LABEL_23:
       *(_QWORD *)&v29 = v19;
       *((_QWORD *)&v29 + 1) = Handle;
       LOBYTE(v21) = 1;
-      LODWORD(v30) = a3;
+      LODWORD(v30) = Flags;
       v22 = CmpCallCallBacksEx(41, (unsigned int)&v29, 0, v21, 42, 0LL, (__int64)v26);
       if ( v22 < 0 )
       {
@@ -138,7 +140,7 @@ LABEL_22:
       v6 = 1;
     }
     CmpAttachToRegistryProcess(&ApcState);
-    v12 = CmRestoreKey(v19, (ULONG_PTR)Handle, a3, PreviousMode);
+    v12 = CmRestoreKey(v19, (ULONG_PTR)Handle, Flags, PreviousMode);
     CmpDetachFromRegistryProcess(&ApcState);
     if ( v6 )
       v12 = CmPostCallbackNotificationEx(42, (_DWORD)v19, v12, (unsigned int)&v29, 0LL, (__int64)v26);
@@ -147,5 +149,5 @@ LABEL_22:
   v12 = -1073741431;
 LABEL_29:
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v27);
-  return (unsigned int)v12;
+  return v12;
 }

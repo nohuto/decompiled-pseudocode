@@ -1,26 +1,26 @@
 /*
- * XREFs of PsOpenProcess @ 0x14065A730
+ * XREFs of PsOpenProcess @ 0x14064F550
  * Callers:
- *     NtAlpcOpenSenderProcess @ 0x1405DFFA0 (NtAlpcOpenSenderProcess.c)
- *     NtOpenProcess @ 0x1407100A0 (NtOpenProcess.c)
+ *     NtOpenProcess @ 0x1406BE6F0 (NtOpenProcess.c)
+ *     NtAlpcOpenSenderProcess @ 0x1406CF700 (NtAlpcOpenSenderProcess.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x14027C800 (SepCreateAccessStateFromSubjectContext.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeDeleteAccessState @ 0x1405DC900 (SeDeleteAccessState.c)
- *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
- *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
- *     PsLookupProcessThreadByCid @ 0x14069F110 (PsLookupProcessThreadByCid.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14026A7A0 (SepCreateAccessStateFromSubjectContext.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SePrivilegeCheck @ 0x140649D60 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
+ *     PsLookupProcessByProcessId @ 0x14068F4F0 (PsLookupProcessByProcessId.c)
+ *     PsLookupProcessThreadByCid @ 0x14068F940 (PsLookupProcessThreadByCid.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14069382C (SePrivilegedServiceAuditAlarm.c)
+ *     SeDeleteAccessState @ 0x1406CC080 (SeDeleteAccessState.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsOpenProcess(
@@ -194,7 +194,7 @@ LABEL_38:
     v22 = SePrivilegeCheck(&RequiredPrivileges, &SubjectSecurityContext, v20);
     v23 = v22;
     if ( v20 )
-      SePrivilegedServiceAuditAlarm(0, (__int64 *)&SubjectSecurityContext, (__int64)&RequiredPrivileges, v22);
+      SePrivilegedServiceAuditAlarm(0LL, &SubjectSecurityContext, &RequiredPrivileges, v22);
     SeReleaseSubjectContext(&SubjectSecurityContext);
     if ( v23 )
     {
@@ -218,7 +218,7 @@ LABEL_38:
     if ( (HandleAttributes & 0x400) == 0 || v24 != -1073741790 || v17 )
       goto LABEL_45;
     v17 = 1;
-    SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
+    SeDeleteAccessState(&PassedAccessState);
     v25 = (GENERIC_MAPPING *)((char *)PsProcessType + 76);
     memset(&SubjectContext, 0, sizeof(SubjectContext));
     SeCaptureSubjectContextEx(KeGetCurrentThread(), KeGetCurrentThread()->ApcState.Process, &SubjectContext);
@@ -246,13 +246,7 @@ LABEL_38:
     v45 = 0x1000000LL;
     v68 = &v45;
     v69 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C01AB0,
-      (unsigned __int8 *)&dword_14002C1B4,
-      0LL,
-      0LL,
-      8u,
-      &v57);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C01AB0, (unsigned __int8 *)word_14002C312, 0LL, 0LL, 8u, &v57);
   }
   *v46 = Handle;
   v26 = v30;
@@ -268,7 +262,7 @@ LABEL_46:
   v56 = 4LL;
   EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_OPENPROCESS, 0LL, 3u, &UserData);
   if ( v10 )
-    SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
+    SeDeleteAccessState(&PassedAccessState);
   if ( Process )
     HalPutDmaAdapter((PADAPTER_OBJECT)Process);
   return (unsigned int)v16;

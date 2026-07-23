@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlRegisterPowerPlane @ 0x14057EA24
+ * XREFs of PopPlRegisterPowerPlane @ 0x14057EC64
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopPepIterateDeviceList @ 0x1405753B0 (PopPepIterateDeviceList.c)
- *     PopPlTraceLogPowerPlane @ 0x14057EBD4 (PopPlTraceLogPowerPlane.c)
- *     PopPlInitPowerPlane @ 0x1408F98F4 (PopPlInitPowerPlane.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopPepIterateDeviceList @ 0x1405755F0 (PopPepIterateDeviceList.c)
+ *     PopPlTraceLogPowerPlane @ 0x14057EE14 (PopPlTraceLogPowerPlane.c)
+ *     PopPlInitPowerPlane @ 0x1408F9A54 (PopPlInitPowerPlane.c)
  */
 
 __int64 __fastcall PopPlRegisterPowerPlane(__int64 a1, __int64 a2, __int64 a3)
@@ -90,7 +90,7 @@ __int64 __fastcall PopPlRegisterPowerPlane(__int64 a1, __int64 a2, __int64 a3)
     v12 = 1;
     v17 = 2;
     LODWORD(v13) = inited;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A701, a3, 1u, v10, v11, 4u, &v15);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A7C1, a3, 1u, v10, v11, 4u, &v15);
   }
   return (unsigned int)inited;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmSetSessionObjectIoEvent @ 0x140546E44
+ * XREFs of MmSetSessionObjectIoEvent @ 0x140547384
  * Callers:
- *     IopSessionChangeWorker @ 0x1401314A4 (IopSessionChangeWorker.c)
+ *     IopSessionChangeWorker @ 0x140131A14 (IopSessionChangeWorker.c)
  * Callees:
  *     <none>
  */

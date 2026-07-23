@@ -1,20 +1,20 @@
 /*
- * XREFs of SepAdtStagingEvent @ 0x1409CCEEC
+ * XREFs of SepAdtStagingEvent @ 0x1409CD0EC
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0530 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1407DC888 (SeAuditHandleCreation.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0560 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     SeAuditHandleCreation @ 0x1407DCB58 (SeAuditHandleCreation.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x14020BB00 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402BEB54 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x14039B780 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1405B8CB8 (SepCheckAndCopySelfRelativeSD.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742774 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     ObpIsKernelHandle @ 0x1402BEDE4 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x14039B960 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x1405B9228 (SepCheckAndCopySelfRelativeSD.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140742964 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

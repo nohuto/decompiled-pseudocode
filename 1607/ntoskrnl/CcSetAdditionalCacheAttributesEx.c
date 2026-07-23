@@ -1,11 +1,11 @@
 /*
- * XREFs of CcSetAdditionalCacheAttributesEx @ 0x14009A3D4
+ * XREFs of CcSetAdditionalCacheAttributesEx @ 0x140099BD4
  * Callers:
  *     <none>
  * Callees:
- *     CcSetAdditionalCacheAttributes @ 0x14009A498 (CcSetAdditionalCacheAttributes.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     CcSetAdditionalCacheAttributes @ 0x140099C98 (CcSetAdditionalCacheAttributes.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall CcSetAdditionalCacheAttributesEx(struct _FILE_OBJECT *a1, char a2)

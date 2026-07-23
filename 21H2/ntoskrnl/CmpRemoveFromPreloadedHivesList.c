@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRemoveFromPreloadedHivesList @ 0x14071D034
+ * XREFs of CmpRemoveFromPreloadedHivesList @ 0x1405E0768
  * Callers:
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
  * Callees:
  *     <none>
  */

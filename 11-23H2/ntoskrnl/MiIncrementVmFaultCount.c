@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIncrementVmFaultCount @ 0x14061C218
+ * XREFs of MiIncrementVmFaultCount @ 0x14061C768
  * Callers:
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
  * Callees:
  *     <none>
  */

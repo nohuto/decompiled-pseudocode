@@ -1,11 +1,11 @@
 /*
- * XREFs of SessionIsInteractive @ 0x14033117C
+ * XREFs of SessionIsInteractive @ 0x1402B9CEC
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     NtSetThreadExecutionState @ 0x140AC6F10 (NtSetThreadExecutionState.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     NtSetThreadExecutionState @ 0x140AC4920 (NtSetThreadExecutionState.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsGetSiloBySessionId @ 0x1409BA9A4 (PsGetSiloBySessionId.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsGetSiloBySessionId @ 0x1409A0FF4 (PsGetSiloBySessionId.c)
  */
 
 char __fastcall SessionIsInteractive(__int64 a1)

@@ -1,39 +1,39 @@
 /*
- * XREFs of KeStallExecutionProcessor @ 0x14022A880
+ * XREFs of KeStallExecutionProcessor @ 0x1402CF130
  * Callers:
- *     HalpInterruptWaitForProcessorStartUp @ 0x1403A150C (HalpInterruptWaitForProcessorStartUp.c)
- *     HalpApicStartProcessor @ 0x1403A6880 (HalpApicStartProcessor.c)
- *     HalpTimerWaitForPhase0Interrupt @ 0x1403A8560 (HalpTimerWaitForPhase0Interrupt.c)
- *     HalpTimerMeasureFrequencies @ 0x1403A98D8 (HalpTimerMeasureFrequencies.c)
- *     HalpInterruptResetThisProcessor @ 0x1404BC480 (HalpInterruptResetThisProcessor.c)
- *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
- *     HalpTimerTestHypervisorTimer @ 0x1404C1B2C (HalpTimerTestHypervisorTimer.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x1404C35C0 (HalpTimerMeasureProcessorsWorker.c)
- *     HalpNmiReboot @ 0x1404D2C88 (HalpNmiReboot.c)
- *     HalpSfiTimerArm @ 0x1404D5770 (HalpSfiTimerArm.c)
- *     HalpSfiTimerInitialize @ 0x1404D5870 (HalpSfiTimerInitialize.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D737C (HalpUsbLegacyStopOhciInterrupt.c)
- *     HalpUsbLegacyStopUhciInterrupt @ 0x1404D74A8 (HalpUsbLegacyStopUhciInterrupt.c)
- *     IvtUpdateGlobalCommand @ 0x1404E1050 (IvtUpdateGlobalCommand.c)
- *     HsaGetPageFault @ 0x1404E37E0 (HsaGetPageFault.c)
- *     HvlPrepareForRootCrashdump @ 0x1404F5F5C (HvlPrepareForRootCrashdump.c)
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
- *     KeFreezeExecution @ 0x14051D6F0 (KeFreezeExecution.c)
- *     ExpWaitForBootDevices @ 0x1405B33A0 (ExpWaitForBootDevices.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5540 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1405C5704 (BgpFwDisplayBugCheckScreen.c)
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
- *     HdlspBugCheckProcessing @ 0x1409EED54 (HdlspBugCheckProcessing.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x1403A165C (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpApicStartProcessor @ 0x1403A69D0 (HalpApicStartProcessor.c)
+ *     HalpTimerWaitForPhase0Interrupt @ 0x1403A92F0 (HalpTimerWaitForPhase0Interrupt.c)
+ *     HalpTimerMeasureFrequencies @ 0x1403AA668 (HalpTimerMeasureFrequencies.c)
+ *     HalpInterruptResetThisProcessor @ 0x1404BC6C0 (HalpInterruptResetThisProcessor.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE54C (HalpPowerWriteResetCommand.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1D6C (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x1404C3800 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpNmiReboot @ 0x1404D2EC8 (HalpNmiReboot.c)
+ *     HalpSfiTimerArm @ 0x1404D59B0 (HalpSfiTimerArm.c)
+ *     HalpSfiTimerInitialize @ 0x1404D5AB0 (HalpSfiTimerInitialize.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D75BC (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x1404D76E8 (HalpUsbLegacyStopUhciInterrupt.c)
+ *     IvtUpdateGlobalCommand @ 0x1404E1290 (IvtUpdateGlobalCommand.c)
+ *     HsaGetPageFault @ 0x1404E3A20 (HsaGetPageFault.c)
+ *     HvlPrepareForRootCrashdump @ 0x1404F5EDC (HvlPrepareForRootCrashdump.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
+ *     KeFreezeExecution @ 0x14051D930 (KeFreezeExecution.c)
+ *     ExpWaitForBootDevices @ 0x1405B35D0 (ExpWaitForBootDevices.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5770 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5934 (BgpFwDisplayBugCheckScreen.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
+ *     HdlspBugCheckProcessing @ 0x1409EFD54 (HdlspBugCheckProcessing.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KiCheckStall @ 0x14051DD20 (KiCheckStall.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalpProcessorFence @ 0x1403F9EA0 (HalpProcessorFence.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KiCheckStall @ 0x14051DF60 (KiCheckStall.c)
  */
 
 void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
@@ -43,71 +43,72 @@ void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
   int v4; // eax
   __int64 v5; // rax
   __int64 v6; // r15
-  __int64 v7; // r14
-  unsigned __int64 v8; // rdi
-  unsigned int v9; // ebx
-  unsigned __int64 v10; // rbp
+  __int64 v7; // r8
+  __int64 v8; // r14
+  unsigned __int64 v9; // rdi
+  unsigned int v10; // ebx
+  unsigned __int128 v11; // rax
+  unsigned __int64 v12; // rbp
   unsigned __int64 Mask; // r12
-  __int64 v12; // rax
-  unsigned __int64 v13; // rax
-  ULONG_PTR v14; // rdi
+  __int64 v14; // rax
+  ULONG_PTR v15; // rdi
   __int64 InternalData; // rax
-  __int64 v16; // rsi
-  __int64 v17; // rbx
-  __int64 v18; // rax
-  unsigned __int64 v19; // r9
-  signed __int64 v20; // rax
-  int v21; // r8d
-  __int64 v22; // rdx
-  bool v23; // zf
-  __int64 v24; // r8
-  unsigned __int64 v25; // r8
-  signed __int64 v26; // rcx
-  unsigned int v27; // edx
-  signed __int32 v28[8]; // [rsp+0h] [rbp-78h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
-  int v31; // [rsp+70h] [rbp-8h]
+  __int64 v17; // rsi
+  __int64 v18; // rbx
+  __int64 v19; // rax
+  unsigned __int64 v20; // r9
+  signed __int64 v21; // rax
+  int v22; // r8d
+  __int64 v23; // rdx
+  bool v24; // zf
+  __int64 v25; // r8
+  unsigned __int64 v26; // r8
+  signed __int64 v27; // rcx
+  unsigned int v28; // edx
+  signed __int32 v29[8]; // [rsp+0h] [rbp-78h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  int v32; // [rsp+70h] [rbp-8h]
 
   if ( HalpTimerProcessorsFrozen )
   {
-    v14 = HalpAlwaysOnCounter;
+    v15 = HalpAlwaysOnCounter;
     if ( HalpAlwaysOnCounter )
     {
       if ( *(_DWORD *)(HalpAlwaysOnCounter + 220) == 64 )
       {
         InternalData = HalpTimerGetInternalData(HalpAlwaysOnCounter);
-        (*(void (__fastcall **)(__int64))(v14 + 112))(InternalData);
+        (*(void (__fastcall **)(__int64))(v15 + 112))(InternalData);
       }
       else
       {
         do
         {
-          v16 = *(_QWORD *)(v14 + 208);
+          v17 = *(_QWORD *)(v15 + 208);
           do
           {
-            v17 = *(_QWORD *)(v14 + 200);
-            v18 = HalpTimerGetInternalData(v14);
-            v19 = (*(__int64 (__fastcall **)(__int64))(v14 + 112))(v18);
-            _InterlockedOr(v28, 0);
-            v20 = *(_QWORD *)(v14 + 200);
+            v18 = *(_QWORD *)(v15 + 200);
+            v19 = HalpTimerGetInternalData(v15);
+            v20 = (*(__int64 (__fastcall **)(__int64))(v15 + 112))(v19);
+            _InterlockedOr(v29, 0);
+            v21 = *(_QWORD *)(v15 + 200);
           }
-          while ( v17 != v20 );
+          while ( v18 != v21 );
         }
-        while ( v16 != *(_QWORD *)(v14 + 208) );
-        v21 = *(_DWORD *)(v14 + 220);
-        if ( ((v17 ^ v19) & (1LL << ((unsigned __int8)v21 - 1))) != 0 )
+        while ( v17 != *(_QWORD *)(v15 + 208) );
+        v22 = *(_DWORD *)(v15 + 220);
+        if ( ((v18 ^ v20) & (1LL << ((unsigned __int8)v22 - 1))) != 0 )
         {
-          v22 = 1LL << v21;
-          v23 = v21 == 64;
-          v24 = -1LL;
-          if ( !v23 )
-            v24 = v22 - 1;
-          v25 = v17 & v24;
-          v26 = v19 | v17 ^ v25;
-          if ( v19 < v25 )
-            v26 += v22;
-          _InterlockedCompareExchange64((volatile signed __int64 *)(v14 + 200), v26, v20);
+          v23 = 1LL << v22;
+          v24 = v22 == 64;
+          v25 = -1LL;
+          if ( !v24 )
+            v25 = v23 - 1;
+          v26 = v18 & v25;
+          v27 = v20 | v18 ^ v26;
+          if ( v20 < v26 )
+            v27 += v23;
+          _InterlockedCompareExchange64((volatile signed __int64 *)(v15 + 200), v27, v21);
         }
       }
     }
@@ -121,41 +122,43 @@ void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
   if ( (v4 & 1) != 0
     && KeQueryActiveProcessorCountEx(0xFFFFu) >= 2
     && KeGetCurrentIrql() < 2u
-    && (v31 & 0x200) != 0
+    && (v32 & 0x200) != 0
     && (*(_DWORD *)(v2 + 184) & 0x20) == 0 )
   {
     v3 = 1;
-    v27 = KiProcessorIndexToNumberMappingTable[KeGetPcr()->Prcb.Number];
+    v28 = KiProcessorIndexToNumberMappingTable[KeGetPcr()->Prcb.Number];
     Affinity.Reserved[1] = 0;
     Affinity.Reserved[2] = 0;
-    *(_DWORD *)&Affinity.Group = (unsigned __int16)(v27 >> 6);
-    Affinity.Mask = 1LL << (v27 & 0x3F);
+    *(_DWORD *)&Affinity.Group = (unsigned __int16)(v28 >> 6);
+    Affinity.Mask = 1LL << (v28 & 0x3F);
     KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
   }
   v5 = HalpTimerGetInternalData(v2);
   v6 = (*(__int64 (__fastcall **)(__int64))(v2 + 112))(v5);
   HalpProcessorFence();
-  v7 = 0LL;
+  v8 = 0LL;
   Affinity.Mask = 1LL << *(_DWORD *)(v2 + 220);
-  v8 = v6;
-  v9 = 0;
-  v10 = (*(_QWORD *)(v2 + 192) * (unsigned __int64)(10 * MicroSeconds) + 9999999) / 0x989680 + 1;
+  v9 = v6;
+  v10 = 0;
+  v11 = (*(_QWORD *)(v2 + 192) * (unsigned __int64)(10 * MicroSeconds) + 9999999)
+      * (unsigned __int128)0xD6BF94D5E57A42BDuLL;
+  v12 = (*(_QWORD *)(v2 + 192) * (unsigned __int64)(10 * MicroSeconds) + 9999999) / 0x989680 + 1;
   if ( (*(_QWORD *)(v2 + 192) * (unsigned __int64)(10 * MicroSeconds) + 9999999) / 0x989680 != -1LL )
   {
     Mask = Affinity.Mask;
     do
     {
-      if ( (++v9 & dword_140C4A17C) == 0 && qword_140C4A180 )
-        qword_140C4A180(v9);
+      if ( (++v10 & dword_140C4A1BC) == 0 && qword_140C4A1C0 )
+        qword_140C4A1C0(v10, *((_QWORD *)&v11 + 1), v7);
       else
         _mm_pause();
-      v12 = HalpTimerGetInternalData(v2);
-      v13 = (*(__int64 (__fastcall **)(__int64))(v2 + 112))(v12);
-      if ( v13 < v8 )
-        v7 += Mask;
-      v8 = v13;
+      v14 = HalpTimerGetInternalData(v2);
+      *(_QWORD *)&v11 = (*(__int64 (__fastcall **)(__int64))(v2 + 112))(v14);
+      if ( (unsigned __int64)v11 < v9 )
+        v8 += Mask;
+      v9 = v11;
     }
-    while ( v13 + v7 - v6 < v10 );
+    while ( (__int64)v11 + v8 - v6 < v12 );
   }
   if ( v3 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);

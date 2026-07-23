@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildGuidString @ 0x14096CE80
+ * XREFs of AdtpBuildGuidString @ 0x14096D060
  * Callers:
- *     AdtpBuildObjectTypeStrings @ 0x14096E768 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpBuildObjectTypeStrings @ 0x14096E948 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     StringCchPrintfW @ 0x1402CA7B8 (StringCchPrintfW.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     StringCchPrintfW @ 0x1402490A8 (StringCchPrintfW.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildGuidString(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmPerfApplyDomainState @ 0x1403B2CE0
+ * XREFs of PpmPerfApplyDomainState @ 0x1403A14F0
  * Callers:
- *     PpmPerfApplyDomainStates @ 0x1403B2C20 (PpmPerfApplyDomainStates.c)
+ *     PpmPerfApplyDomainStates @ 0x1403A1430 (PpmPerfApplyDomainStates.c)
  * Callees:
- *     PpmEventDomainPerfStateChange @ 0x140205420 (PpmEventDomainPerfStateChange.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
- *     PpmGetPerfPolicyClass @ 0x14042AA7C (PpmGetPerfPolicyClass.c)
- *     PpmPerfApplyCapsAndFloors @ 0x140463DEC (PpmPerfApplyCapsAndFloors.c)
- *     PpmEventQosClassPerfSelection @ 0x140494BCC (PpmEventQosClassPerfSelection.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmEventDomainPerfStateChange @ 0x14032CA00 (PpmEventDomainPerfStateChange.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
+ *     PpmGetPerfPolicyClass @ 0x1403A2FAC (PpmGetPerfPolicyClass.c)
+ *     PpmPerfApplyCapsAndFloors @ 0x1403A3174 (PpmPerfApplyCapsAndFloors.c)
+ *     PpmEventQosClassPerfSelection @ 0x1403A32A4 (PpmEventQosClassPerfSelection.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PpmPerfApplyDomainState(__int64 a1)
@@ -96,7 +96,7 @@ char __fastcall PpmPerfApplyDomainState(__int64 a1)
   v70 = 0LL;
   v71 = 0LL;
   v56 = 0;
-  v66 = &PpmCurrentProfile[0][61 * dword_140F0BA4C + 5];
+  v66 = &PpmCurrentProfile[0][61 * dword_140F0B38C + 5];
   v72 = 0LL;
   PerfPolicyClass = PpmGetPerfPolicyClass(v3);
   v6 = *(_DWORD *)(a1 + 452);
@@ -381,7 +381,7 @@ LABEL_70:
     if ( v55 && v44 >= *((_DWORD *)v66 + v57 + 30) )
       v44 = *((_DWORD *)v66 + v57 + 30);
     v45 = *(_BYTE *)(v25 + a1 + 556);
-    v46 = guard_dispatch_icall_no_overrides(v69, v40, v36, v27);
+    v46 = guard_dispatch_icall_no_overrides(v69, v40);
     *((_QWORD *)&v71 + 1) = __PAIR64__(v27, v36);
     if ( v43 > v46 )
       v43 = v46;

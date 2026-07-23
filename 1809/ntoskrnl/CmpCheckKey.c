@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCheckKey @ 0x1405DA210
+ * XREFs of CmpCheckKey @ 0x1405DB210
  * Callers:
- *     CmpCheckRegistry2 @ 0x1405D8EF0 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x1405D9EF0 (CmpCheckRegistry2.c)
  * Callees:
  *     CmpHKeyNameLen @ 0x140017934 (CmpHKeyNameLen.c)
- *     CmpKeySecurityIncrementReferenceCount @ 0x1401B34C4 (CmpKeySecurityIncrementReferenceCount.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     CmpCheckLeaf @ 0x1405D8BC0 (CmpCheckLeaf.c)
- *     CmpCheckValueList @ 0x1405D9450 (CmpCheckValueList.c)
- *     HvIsCellAllocated @ 0x1405DBB00 (HvIsCellAllocated.c)
- *     CmpIncrementCachedSecurityRefcount @ 0x1405DBC90 (CmpIncrementCachedSecurityRefcount.c)
- *     CmpGetIndexElementSize @ 0x1405DBEB0 (CmpGetIndexElementSize.c)
- *     HvMarkCellDirty @ 0x140800FB4 (HvMarkCellDirty.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x1401B3604 (CmpKeySecurityIncrementReferenceCount.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     CmpCheckLeaf @ 0x1405D9BC0 (CmpCheckLeaf.c)
+ *     CmpCheckValueList @ 0x1405DA450 (CmpCheckValueList.c)
+ *     HvIsCellAllocated @ 0x1405DCB00 (HvIsCellAllocated.c)
+ *     CmpIncrementCachedSecurityRefcount @ 0x1405DCC90 (CmpIncrementCachedSecurityRefcount.c)
+ *     CmpGetIndexElementSize @ 0x1405DCEB0 (CmpGetIndexElementSize.c)
+ *     HvMarkCellDirty @ 0x1408021B4 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCheckKey(

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetSystemRegionTypes @ 0x140C55174
+ * XREFs of MiSetSystemRegionTypes @ 0x140C57304
  * Callers:
- *     MiInitializeSystemVa @ 0x140C67230 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140C693AC (MiInitializeSystemVa.c)
  * Callees:
- *     MiConvertAssignedRegionToVaType @ 0x140C54B50 (MiConvertAssignedRegionToVaType.c)
+ *     MiConvertAssignedRegionToVaType @ 0x140C56CE0 (MiConvertAssignedRegionToVaType.c)
  */
 
 unsigned __int64 MiSetSystemRegionTypes()
@@ -17,7 +17,7 @@ unsigned __int64 MiSetSystemRegionTypes()
   unsigned __int64 result; // rax
 
   v0 = 0;
-  v1 = qword_140E38AB0;
+  v1 = qword_140E38BF0;
   v2 = (unsigned __int64)&MiState;
   do
   {

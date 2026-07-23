@@ -8,16 +8,16 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x1401118E8 (MiInsertRecursiveTbFlushEntries.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiFillPhysicalPages @ 0x14012AF80 (MiFillPhysicalPages.c)
- *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x140111958 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiFillPhysicalPages @ 0x14012B050 (MiFillPhysicalPages.c)
+ *     MiTransformValidPteInPlace @ 0x14016A80C (MiTransformValidPteInPlace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, __int64 *a3, _QWORD *a4, __int64 a5)
@@ -54,7 +54,7 @@ __int64 __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, __in
     v8 = 1;
   }
   else if ( v14 <= 0x7FFFFFFEFFFFLL
-         || v14 <= qword_14043A530 && v14 >= qword_14043BAC0
+         || v14 <= qword_14043B5F0 && v14 >= qword_14043CB80
          || v14 >= 0xFFFFF68000000000uLL && v14 <= 0xFFFFF6FFFFFFFFFFuLL )
   {
     v8 = 4;
@@ -79,7 +79,7 @@ __int64 __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, __in
     LockHandle.LockQueue.Next,
     LockHandle.LockQueue.Lock);
   if ( a2 == 3 )
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   if ( (MI_READ_PTE_LOCK_FREE(a3) & 1) == 0 )
   {
     result = MiPteInShadowRange(a3, 0LL, v18);
@@ -89,7 +89,7 @@ __int64 __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, __in
     if ( (_DWORD)result )
     {
       v20 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v22 = (ValidPte & 1) == 0;
         goto LABEL_40;

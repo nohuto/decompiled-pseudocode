@@ -11,7 +11,7 @@ __int64 __fastcall MiZeroMoveToProcessor(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   *(_QWORD *)(a2 + 16) = 0LL;
@@ -28,7 +28,7 @@ __int64 __fastcall MiZeroMoveToProcessor(__int64 a1, __int64 a2)
     }
     else
     {
-      Affinity = *(struct _GROUP_AFFINITY *)(a1 + 48);
+      Affinity = *(_GROUP_AFFINITY *)(a1 + 48);
       result = MiSetIdealProcessorThread(&Affinity);
       *(_DWORD *)(a2 + 8) = result;
     }

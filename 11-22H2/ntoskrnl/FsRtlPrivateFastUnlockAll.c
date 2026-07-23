@@ -34,16 +34,16 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   __int64 v8; // rsi
   KIRQL v9; // al
   __int64 v10; // r8
-  RTL_SPLAY_LINKS *v11; // r15
+  _RTL_SPLAY_LINKS *v11; // r15
   KIRQL v12; // bp
   _RTL_SPLAY_LINKS *i; // rax
   PRTL_SPLAY_LINKS v14; // rax
-  RTL_SPLAY_LINKS *v15; // rcx
+  _RTL_SPLAY_LINKS *v15; // rcx
   _RTL_SPLAY_LINKS *Parent; // r14
   _RTL_SPLAY_LINKS *v17; // rbx
   PRTL_SPLAY_LINKS v18; // r13
-  RTL_SPLAY_LINKS *v19; // r10
-  RTL_SPLAY_LINKS *v20; // rdx
+  _RTL_SPLAY_LINKS *v19; // r10
+  _RTL_SPLAY_LINKS *v20; // rdx
   PRTL_SPLAY_LINKS v21; // rbx
   void *v22; // rdi
   void **v23; // r15
@@ -82,11 +82,11 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   int v57; // eax
   int v58; // [rsp+30h] [rbp-88h] BYREF
   __int64 v59; // [rsp+38h] [rbp-80h]
-  RTL_SPLAY_LINKS *v60; // [rsp+40h] [rbp-78h]
+  _RTL_SPLAY_LINKS *v60; // [rsp+40h] [rbp-78h]
   _RTL_SPLAY_LINKS *v61; // [rsp+48h] [rbp-70h] BYREF
   _RTL_SPLAY_LINKS *v62; // [rsp+50h] [rbp-68h] BYREF
   PVOID Entry; // [rsp+58h] [rbp-60h]
-  RTL_SPLAY_LINKS *v64; // [rsp+60h] [rbp-58h]
+  _RTL_SPLAY_LINKS *v64; // [rsp+60h] [rbp-58h]
   char v65; // [rsp+C0h] [rbp+8h]
 
   v6 = *(_QWORD *)(a1 + 24);
@@ -99,7 +99,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   v8 = v6 + 24;
   a2[5].Parent = 0LL;
   v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 24));
-  v11 = *(RTL_SPLAY_LINKS **)(v6 + 32);
+  v11 = *(_RTL_SPLAY_LINKS **)(v6 + 32);
   v12 = v9;
   if ( v11 )
   {
@@ -177,10 +177,10 @@ LABEL_15:
       if ( v65 )
       {
         KxReleaseSpinLock((volatile signed __int64 *)v8);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -236,10 +236,10 @@ LABEL_18:
           if ( *(_QWORD *)(v6 + 16) )
           {
             KxReleaseSpinLock((volatile signed __int64 *)v8);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v41 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && v12 <= 0xFu && v41 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && v12 <= 0xFu && v41 >= 2u )
               {
                 v42 = KeGetCurrentPrcb();
                 v43 = v42->SchedulerAssist;
@@ -294,10 +294,10 @@ LABEL_18:
           if ( v22 == *(void **)(v8 + 32) )
             *(_QWORD *)(v8 + 32) = v23;
           KxReleaseSpinLock((volatile signed __int64 *)v8);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v50 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && v12 <= 0xFu && v50 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && v12 <= 0xFu && v50 >= 2u )
             {
               v51 = KeGetCurrentPrcb();
               v52 = v51->SchedulerAssist;
@@ -333,10 +333,10 @@ LABEL_102:
     FsRtlPrivateCheckWaitingLocks(v59, v8, v10);
     FsRtlPrivateResetLowestLockOffset(v59);
     KxReleaseSpinLock((volatile signed __int64 *)v8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v54 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v54 <= 0xFu && v12 <= 0xFu && v54 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v54 <= 0xFu && v12 <= 0xFu && v54 >= 2u )
       {
         v55 = KeGetCurrentPrcb();
         v56 = v55->SchedulerAssist;
@@ -352,10 +352,10 @@ LABEL_102:
   else
   {
     KxReleaseSpinLock((volatile signed __int64 *)(v6 + 24));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v12 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v12 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;

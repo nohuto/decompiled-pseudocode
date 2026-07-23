@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetThreadWorkloadClassCount @ 0x1404F78B4
+ * XREFs of KeGetThreadWorkloadClassCount @ 0x1404F5194
  * Callers:
- *     KiAllocateHeteroConfigBuffer @ 0x140B5599C (KiAllocateHeteroConfigBuffer.c)
- *     KiInitializeThreadCycleTable @ 0x140B566D0 (KiInitializeThreadCycleTable.c)
+ *     KiAllocateHeteroConfigBuffer @ 0x140B579EC (KiAllocateHeteroConfigBuffer.c)
+ *     KiInitializeThreadCycleTable @ 0x140B58720 (KiInitializeThreadCycleTable.c)
  * Callees:
  *     <none>
  */

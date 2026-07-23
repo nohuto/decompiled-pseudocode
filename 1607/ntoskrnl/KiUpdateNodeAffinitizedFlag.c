@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateNodeAffinitizedFlag @ 0x1400F2EA8
+ * XREFs of KiUpdateNodeAffinitizedFlag @ 0x1400F0CF8
  * Callers:
- *     KiSetAffinityThread @ 0x1400CA9BC (KiSetAffinityThread.c)
- *     KiSetSystemAffinityThread @ 0x1400CCBB4 (KiSetSystemAffinityThread.c)
- *     KiComputeThreadAffinity @ 0x1400F2060 (KiComputeThreadAffinity.c)
- *     KeStartThread @ 0x1400F2A6C (KeStartThread.c)
+ *     KiSetAffinityThread @ 0x1400C885C (KiSetAffinityThread.c)
+ *     KiSetSystemAffinityThread @ 0x1400CAA54 (KiSetSystemAffinityThread.c)
+ *     KiComputeThreadAffinity @ 0x1400EFEB0 (KiComputeThreadAffinity.c)
+ *     KeStartThread @ 0x1400F08BC (KeStartThread.c)
  * Callees:
  *     <none>
  */

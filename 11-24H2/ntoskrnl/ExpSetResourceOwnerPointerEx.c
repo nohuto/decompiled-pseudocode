@@ -1,55 +1,55 @@
 /*
- * XREFs of ExpSetResourceOwnerPointerEx @ 0x1402CEC30
+ * XREFs of ExpSetResourceOwnerPointerEx @ 0x1403FE770
  * Callers:
- *     ExSetResourceOwnerPointerEx @ 0x1402CEBF0 (ExSetResourceOwnerPointerEx.c)
- *     ExSetResourceOwnerPointer @ 0x1402CF1E0 (ExSetResourceOwnerPointer.c)
+ *     ExSetResourceOwnerPointer @ 0x1403FE6F0 (ExSetResourceOwnerPointer.c)
+ *     ExSetResourceOwnerPointerEx @ 0x1403FE730 (ExSetResourceOwnerPointerEx.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14024DD90 (PsBoostThreadIoEx.c)
- *     PsBoostThreadIoQoS @ 0x14024E3A0 (PsBoostThreadIoQoS.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x1402CEBD0 (ExpResourceEnforcesOwnershipTransfer.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PerfLogExecutiveResourceSetOwnerPointer @ 0x1406502D0 (PerfLogExecutiveResourceSetOwnerPointer.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     PsBoostThreadIoEx @ 0x14027E3A0 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x14027E9B0 (PsBoostThreadIoQoS.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x1403FECB0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PerfLogExecutiveResourceSetOwnerPointer @ 0x14064E910 (PerfLogExecutiveResourceSetOwnerPointer.c)
  */
 
-void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter4, __int64 a3)
+void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter4, char a3)
 {
-  char v3; // r15
   bool v6; // r14
   ULONG_PTR CurrentThread; // rbp
   volatile __int64 *v8; // rdi
   unsigned int v9; // r13d
   unsigned __int8 CurrentIrql; // si
-  __int64 v11; // rax
-  __int64 v12; // rsi
+  _QWORD *v11; // rdx
+  __int64 v12; // rax
   __int64 v13; // rsi
-  unsigned __int64 v14; // rdx
-  unsigned __int64 v15; // rcx
-  unsigned int v16; // ecx
-  __int64 v17; // rax
-  __int64 v18; // rdi
-  unsigned __int64 v19; // rdx
-  __int64 v20; // rdi
-  unsigned __int64 v21; // rcx
-  __int64 v22; // rax
-  int v23; // r15d
-  unsigned int v24; // eax
-  int v25; // eax
-  int v26; // eax
+  __int64 v14; // rsi
+  unsigned __int64 v15; // rdx
+  unsigned __int64 v16; // rcx
+  unsigned int v17; // ecx
+  __int64 v18; // rax
+  __int64 v19; // rdi
+  unsigned __int64 v20; // rdx
+  __int64 v21; // rdi
+  unsigned __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // r8
+  __int64 v25; // r8
+  int v26; // r15d
   unsigned int v27; // eax
-  int v28; // ecx
-  __int64 v29; // r8
-  int v30; // eax
-  int v31; // eax
+  int v28; // eax
+  int v29; // eax
+  unsigned int v30; // eax
+  int v31; // ecx
   int v32; // eax
   int v33; // eax
+  int v34; // eax
+  int v35; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
 
-  v3 = a3;
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
   v6 = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
   CurrentThread = (ULONG_PTR)KeGetCurrentThread();
@@ -64,21 +64,22 @@ void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG
   LockHandle.OldIrql = CurrentIrql;
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    if ( _InterlockedExchange64(v8, (__int64)&LockHandle) )
-      KxWaitForLockOwnerShip(&LockHandle);
+    v11 = (_QWORD *)_InterlockedExchange64(v8, (__int64)&LockHandle);
+    if ( v11 )
+      KxWaitForLockOwnerShip((__int64)&LockHandle, v11);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented(&LockHandle, v8);
+    KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, v8);
   }
   if ( *(char *)(BugCheckParameter1 + 26) < 0 )
   {
-    if ( ExpResourceEnforcesOwnershipTransfer(BugCheckParameter1)
+    if ( (unsigned __int8)ExpResourceEnforcesOwnershipTransfer(BugCheckParameter1)
       && *(_QWORD *)(BugCheckParameter1 + 48) != CurrentThread )
     {
       KeBugCheckEx(0xE3u, BugCheckParameter1, CurrentThread, *(_QWORD *)(BugCheckParameter1 + 16), 5uLL);
     }
-    if ( (v3 & 1) != 0 )
+    if ( (a3 & 1) != 0 )
     {
       if ( (BugCheckParameter4 & 0xFFFFFFFFFFFFFFFCuLL) != CurrentThread )
         KeBugCheckEx(
@@ -92,16 +93,16 @@ void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG
     }
     else
     {
-      v31 = *(_DWORD *)(BugCheckParameter1 + 56);
-      if ( (v31 & 1) != 0 )
+      v33 = *(_DWORD *)(BugCheckParameter1 + 56);
+      if ( (v33 & 1) != 0 )
       {
-        PsBoostThreadIoEx(*(_QWORD *)(BugCheckParameter1 + 48), 1, 0LL, 0LL);
+        PsBoostThreadIoEx(*(_QWORD *)(BugCheckParameter1 + 48), 1, 0, 0LL);
         *(_DWORD *)(BugCheckParameter1 + 56) &= ~1u;
-        v31 = *(_DWORD *)(BugCheckParameter1 + 56);
+        v33 = *(_DWORD *)(BugCheckParameter1 + 56);
       }
-      if ( (v31 & 4) != 0 )
+      if ( (v33 & 4) != 0 )
       {
-        PsBoostThreadIoQoS(*(_QWORD *)(BugCheckParameter1 + 48), 1, v29);
+        PsBoostThreadIoQoS(*(_QWORD *)(BugCheckParameter1 + 48), 1);
         *(_DWORD *)(BugCheckParameter1 + 56) &= ~4u;
       }
     }
@@ -111,69 +112,69 @@ void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG
   }
   else
   {
-    v11 = *(_QWORD *)(BugCheckParameter1 + 48);
-    v12 = BugCheckParameter1 + 48;
-    if ( v11 != BugCheckParameter4 )
+    v12 = *(_QWORD *)(BugCheckParameter1 + 48);
+    v13 = BugCheckParameter1 + 48;
+    if ( v12 != BugCheckParameter4 )
     {
-      v13 = *(_QWORD *)(BugCheckParameter1 + 16);
-      v14 = v11 != 0;
-      v15 = *(unsigned int *)(BugCheckParameter1 + 64) + (unsigned __int64)*(unsigned int *)(BugCheckParameter1 + 72);
-      if ( v13 && (a3 = v13 + 16LL * *(unsigned int *)(v13 + 8), v12 = v13 + 16, v14 < v15) )
+      v14 = *(_QWORD *)(BugCheckParameter1 + 16);
+      v15 = v12 != 0;
+      v16 = *(unsigned int *)(BugCheckParameter1 + 64) + (unsigned __int64)*(unsigned int *)(BugCheckParameter1 + 72);
+      if ( v14 && (v24 = v14 + 16LL * *(unsigned int *)(v14 + 8), v13 = v14 + 16, v15 < v16) )
       {
-        while ( *(_QWORD *)v12 != BugCheckParameter4 )
+        while ( *(_QWORD *)v13 != BugCheckParameter4 )
         {
-          if ( !*(_QWORD *)v12 || (++v14, v14 != v15) )
+          if ( !*(_QWORD *)v13 || (++v15, v15 != v16) )
           {
-            v12 += 16LL;
-            if ( v12 != a3 )
+            v13 += 16LL;
+            if ( v13 != v24 )
               continue;
           }
           goto LABEL_9;
         }
-        KeGetCurrentThread()->ResourceIndex = (__int64)(unsigned int)(v12 - *(_DWORD *)(BugCheckParameter1 + 16)) >> 4;
+        KeGetCurrentThread()->ResourceIndex = (__int64)(unsigned int)(v13 - *(_DWORD *)(BugCheckParameter1 + 16)) >> 4;
       }
       else
       {
 LABEL_9:
-        v12 = 0LL;
+        v13 = 0LL;
       }
     }
     if ( (CurrentThread & 3) != 0 )
-      v16 = 0;
+      v17 = 0;
     else
-      v16 = *(unsigned __int8 *)(CurrentThread + 1120);
-    v17 = *(_QWORD *)(BugCheckParameter1 + 48);
-    v18 = BugCheckParameter1 + 48;
-    if ( v17 != CurrentThread )
+      v17 = *(unsigned __int8 *)(CurrentThread + 1120);
+    v18 = *(_QWORD *)(BugCheckParameter1 + 48);
+    v19 = BugCheckParameter1 + 48;
+    if ( v18 != CurrentThread )
     {
-      v19 = v17 != 0;
-      if ( !v16
-        || (v22 = *(_QWORD *)(BugCheckParameter1 + 16)) == 0
-        || v16 >= *(_DWORD *)(v22 + 8)
-        || (v18 = v22 + 16LL * v16, *(_QWORD *)v18 != CurrentThread) )
+      v20 = v18 != 0;
+      if ( !v17
+        || (v23 = *(_QWORD *)(BugCheckParameter1 + 16)) == 0
+        || v17 >= *(_DWORD *)(v23 + 8)
+        || (v19 = v23 + 16LL * v17, *(_QWORD *)v19 != CurrentThread) )
       {
-        v20 = *(_QWORD *)(BugCheckParameter1 + 16);
-        v21 = *(unsigned int *)(BugCheckParameter1 + 64) + (unsigned __int64)*(unsigned int *)(BugCheckParameter1 + 72);
-        if ( !v20 || (a3 = v20 + 16LL * *(unsigned int *)(v20 + 8), v18 = v20 + 16, v19 >= v21) )
+        v21 = *(_QWORD *)(BugCheckParameter1 + 16);
+        v22 = *(unsigned int *)(BugCheckParameter1 + 64) + (unsigned __int64)*(unsigned int *)(BugCheckParameter1 + 72);
+        if ( !v21 || (v25 = v21 + 16LL * *(unsigned int *)(v21 + 8), v19 = v21 + 16, v20 >= v22) )
 LABEL_15:
           KeBugCheckEx(0xE3u, BugCheckParameter1, CurrentThread, *(_QWORD *)(BugCheckParameter1 + 16), 4uLL);
-        while ( *(_QWORD *)v18 != CurrentThread )
+        while ( *(_QWORD *)v19 != CurrentThread )
         {
-          if ( !*(_QWORD *)v18 || (++v19, v19 != v21) )
+          if ( !*(_QWORD *)v19 || (++v20, v20 != v22) )
           {
-            v18 += 16LL;
-            if ( v18 != a3 )
+            v19 += 16LL;
+            if ( v19 != v25 )
               continue;
           }
           goto LABEL_15;
         }
-        KeGetCurrentThread()->ResourceIndex = (__int64)(unsigned int)(v18 - *(_DWORD *)(BugCheckParameter1 + 16)) >> 4;
+        KeGetCurrentThread()->ResourceIndex = (__int64)(unsigned int)(v19 - *(_DWORD *)(BugCheckParameter1 + 16)) >> 4;
       }
     }
-    v23 = v3 & 1;
-    if ( v12 )
+    v26 = a3 & 1;
+    if ( v13 )
     {
-      if ( v23 )
+      if ( v26 )
       {
         if ( (BugCheckParameter4 & 0xFFFFFFFFFFFFFFFCuLL) != CurrentThread )
           KeBugCheckEx(
@@ -182,58 +183,58 @@ LABEL_15:
             *(_QWORD *)(BugCheckParameter1 + 16),
             CurrentThread,
             BugCheckParameter4);
-        v26 = *(_DWORD *)(v18 + 8);
-        if ( (v26 & 1) != 0 )
+        v29 = *(_DWORD *)(v19 + 8);
+        if ( (v29 & 1) != 0 )
         {
-          v32 = *(_DWORD *)(v12 + 8);
-          if ( (v32 & 1) != 0 )
-            PsBoostThreadIoEx(*(_QWORD *)v18, 1, 0LL, 0LL);
+          v34 = *(_DWORD *)(v13 + 8);
+          if ( (v34 & 1) != 0 )
+            PsBoostThreadIoEx(*(_QWORD *)v19, 1, 0, 0LL);
           else
-            *(_DWORD *)(v12 + 8) = v32 | 1;
-          *(_DWORD *)(v18 + 8) &= ~1u;
-          v26 = *(_DWORD *)(v18 + 8);
+            *(_DWORD *)(v13 + 8) = v34 | 1;
+          *(_DWORD *)(v19 + 8) &= ~1u;
+          v29 = *(_DWORD *)(v19 + 8);
         }
-        if ( (v26 & 4) != 0 )
+        if ( (v29 & 4) != 0 )
         {
-          v33 = *(_DWORD *)(v12 + 8);
-          if ( (v33 & 4) != 0 )
-            PsBoostThreadIoQoS(*(_QWORD *)v18, 1, a3);
+          v35 = *(_DWORD *)(v13 + 8);
+          if ( (v35 & 4) != 0 )
+            PsBoostThreadIoQoS(*(_QWORD *)v19, 1);
           else
-            *(_DWORD *)(v12 + 8) = v33 | 4;
-          *(_DWORD *)(v18 + 8) &= ~4u;
+            *(_DWORD *)(v13 + 8) = v35 | 4;
+          *(_DWORD *)(v19 + 8) &= ~4u;
         }
-        if ( (*(_DWORD *)(v12 + 8) & 2) == 0 )
+        if ( (*(_DWORD *)(v13 + 8) & 2) == 0 )
         {
-          ObfReferenceObjectWithTag(*(PVOID *)v18, 0x746C6644u);
-          *(_DWORD *)(v12 + 8) |= 2u;
+          ObfReferenceObjectWithTag(*(PVOID *)v19, 0x746C6644u);
+          *(_DWORD *)(v13 + 8) |= 2u;
         }
       }
       else
       {
-        v30 = *(_DWORD *)(v18 + 8);
-        if ( (v30 & 1) != 0 )
+        v32 = *(_DWORD *)(v19 + 8);
+        if ( (v32 & 1) != 0 )
         {
-          PsBoostThreadIoEx(*(_QWORD *)v18, 1, 0LL, 0LL);
-          *(_DWORD *)(v18 + 8) &= ~1u;
-          v30 = *(_DWORD *)(v18 + 8);
+          PsBoostThreadIoEx(*(_QWORD *)v19, 1, 0, 0LL);
+          *(_DWORD *)(v19 + 8) &= ~1u;
+          v32 = *(_DWORD *)(v19 + 8);
         }
-        if ( (v30 & 4) != 0 )
+        if ( (v32 & 4) != 0 )
         {
-          PsBoostThreadIoQoS(*(_QWORD *)v18, 1, a3);
-          *(_DWORD *)(v18 + 8) &= ~4u;
+          PsBoostThreadIoQoS(*(_QWORD *)v19, 1);
+          *(_DWORD *)(v19 + 8) &= ~4u;
         }
       }
-      v27 = *(_DWORD *)(v18 + 8) + (*(_DWORD *)(v12 + 8) & 0xFFFFFFF8);
-      v28 = v27 ^ ((unsigned __int8)v27 ^ (unsigned __int8)*(_DWORD *)(v12 + 8)) & 7;
-      v24 = 37084;
-      *(_DWORD *)(v12 + 8) = v28;
-      *(_DWORD *)(v18 + 8) &= 7u;
-      *(_QWORD *)v18 = 0LL;
+      v30 = *(_DWORD *)(v19 + 8) + (*(_DWORD *)(v13 + 8) & 0xFFFFFFF8);
+      v31 = v30 ^ ((unsigned __int8)v30 ^ (unsigned __int8)*(_DWORD *)(v13 + 8)) & 7;
+      v27 = 37084;
+      *(_DWORD *)(v13 + 8) = v31;
+      *(_DWORD *)(v19 + 8) &= 7u;
+      *(_QWORD *)v19 = 0LL;
       --*(_DWORD *)(BugCheckParameter1 + 64);
     }
     else
     {
-      if ( v23 )
+      if ( v26 )
       {
         if ( (BugCheckParameter4 & 0xFFFFFFFFFFFFFFFCuLL) != CurrentThread )
           KeBugCheckEx(
@@ -243,27 +244,27 @@ LABEL_15:
             CurrentThread,
             BugCheckParameter4);
         ObfReferenceObjectWithTag((PVOID)(BugCheckParameter4 & 0xFFFFFFFFFFFFFFFCuLL), 0x746C6644u);
-        *(_DWORD *)(v18 + 8) |= 2u;
+        *(_DWORD *)(v19 + 8) |= 2u;
       }
       else
       {
-        v25 = *(_DWORD *)(v18 + 8);
-        if ( (v25 & 1) != 0 )
+        v28 = *(_DWORD *)(v19 + 8);
+        if ( (v28 & 1) != 0 )
         {
-          PsBoostThreadIoEx(*(_QWORD *)v18, 1, 0LL, 0LL);
-          *(_DWORD *)(v18 + 8) &= ~1u;
-          v25 = *(_DWORD *)(v18 + 8);
+          PsBoostThreadIoEx(*(_QWORD *)v19, 1, 0, 0LL);
+          *(_DWORD *)(v19 + 8) &= ~1u;
+          v28 = *(_DWORD *)(v19 + 8);
         }
-        if ( (v25 & 4) != 0 )
+        if ( (v28 & 4) != 0 )
         {
-          _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)v18 + 1508LL));
-          *(_DWORD *)(v18 + 8) &= ~4u;
+          _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)v19 + 1508LL));
+          *(_DWORD *)(v19 + 8) &= ~4u;
         }
       }
-      *(_QWORD *)v18 = BugCheckParameter4;
-      v24 = 37080;
+      *(_QWORD *)v19 = BugCheckParameter4;
+      v27 = 37080;
     }
-    __incgsdword(v24);
+    __incgsdword(v27);
     if ( v6 )
     {
       v9 = 65856;

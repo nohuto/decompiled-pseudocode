@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateCpuPartition @ 0x180160430
+ * XREFs of ZwCreateCpuPartition @ 0x180160330
  * Callers:
  *     <none>
  * Callees:

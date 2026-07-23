@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvIsStage1DmarCompatible @ 0x14059E728
+ * XREFs of IommupHvIsStage1DmarCompatible @ 0x1405A0F08
  * Callers:
- *     HalpDmaGetDefaultRemappingDomainPolicy @ 0x140578DC0 (HalpDmaGetDefaultRemappingDomainPolicy.c)
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
+ *     HalpDmaGetDefaultRemappingDomainPolicy @ 0x14057B2F0 (HalpDmaGetDefaultRemappingDomainPolicy.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 bool __fastcall IommupHvIsStage1DmarCompatible(_DWORD *a1, char a2)

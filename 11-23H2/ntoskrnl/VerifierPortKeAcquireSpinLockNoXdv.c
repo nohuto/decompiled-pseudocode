@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x140AD5A30
+ * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x140AD5A20
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfMiscCheckKernelAddress @ 0x1405D2498 (VfMiscCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x140ACBC0C (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DD8 (ViKeIrqlLogAndTrimMemory.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D2A08 (VfMiscCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x140ACBBFC (ViTargetIncrementCounter.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DC8 (ViKeIrqlLogAndTrimMemory.c)
  */
 
 KIRQL __fastcall VerifierPortKeAcquireSpinLockNoXdv(ULONG_PTR SpinLock, KIRQL *a2, __int64 a3)

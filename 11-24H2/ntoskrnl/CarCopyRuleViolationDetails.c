@@ -1,12 +1,12 @@
 /*
- * XREFs of CarCopyRuleViolationDetails @ 0x140616580
+ * XREFs of CarCopyRuleViolationDetails @ 0x140614B40
  * Callers:
- *     CarReportDifPluginRuleViolation @ 0x140617240 (CarReportDifPluginRuleViolation.c)
+ *     CarReportDifPluginRuleViolation @ 0x140615800 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlStringCchCopyA @ 0x140458158 (RtlStringCchCopyA.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyA @ 0x14044D468 (RtlStringCchCopyA.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CarCopyRuleViolationDetails(__int64 a1, __int64 a2)
@@ -42,7 +42,7 @@ __int64 __fastcall CarCopyRuleViolationDetails(__int64 a1, __int64 a2)
         ++v9;
       while ( *(_WORD *)(v8 + 2 * v9) );
       v10 = v9 + 1;
-      Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, 2 * v10, 0x4E726143u);
       v6 = Pool2;
       if ( !Pool2 )
       {
@@ -70,7 +70,7 @@ LABEL_16:
       do
         ++v7;
       while ( *(_BYTE *)(v12 + v7) );
-      v13 = (char *)ExAllocatePool2(0x40uLL);
+      v13 = (char *)ExAllocatePool2(0x40uLL, v7 + 1, 0x4E726143u);
       v5 = v13;
       if ( !v13 )
       {

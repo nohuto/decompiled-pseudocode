@@ -13,7 +13,7 @@ void __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
   __int64 *v1; // rsi
   __int64 *i; // rdi
   unsigned __int64 v3; // rbx
-  __int64 v4; // r11
+  PVOID v4; // r11
   unsigned __int64 v5; // rdx
   unsigned __int64 v6; // rbp
   __int64 v7; // rcx

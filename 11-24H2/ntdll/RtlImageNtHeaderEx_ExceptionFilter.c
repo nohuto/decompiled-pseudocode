@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlImageNtHeaderEx_ExceptionFilter @ 0x180146864
+ * XREFs of RtlImageNtHeaderEx_ExceptionFilter @ 0x180144C14
  * Callers:
- *     RtlImageNtHeaderEx @ 0x1800590F0 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x18006ECD0 (RtlImageNtHeaderEx.c)
  * Callees:
  *     <none>
  */

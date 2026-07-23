@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpGetCacheCoherency @ 0x140780DA0
+ * XREFs of HalpGetCacheCoherency @ 0x1407838A0
  * Callers:
- *     HalGetAdapterV3 @ 0x140783334 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140783920 (HalGetAdapterV2.c)
+ *     HalGetAdapterV3 @ 0x140785E68 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140786454 (HalGetAdapterV2.c)
  * Callees:
- *     KeSystemFullyCacheCoherent @ 0x1405F1010 (KeSystemFullyCacheCoherent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IoQueryInterface @ 0x140AA8B20 (IoQueryInterface.c)
+ *     KeSystemFullyCacheCoherent @ 0x1405F3980 (KeSystemFullyCacheCoherent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoQueryInterface @ 0x1409DC050 (IoQueryInterface.c)
  */
 
 char __fastcall HalpGetCacheCoherency(__int64 a1, __int64 a2, _BYTE *a3)

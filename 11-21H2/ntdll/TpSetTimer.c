@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall TpSetTimer(__int64 a1, __int64 a2, int a3, int a4)
+void __cdecl TpSetTimer(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  return TpSetTimerEx(a1, a2, a3, a4);
+  TpSetTimerEx(Timer, DueTime, Period, WindowLength);
 }

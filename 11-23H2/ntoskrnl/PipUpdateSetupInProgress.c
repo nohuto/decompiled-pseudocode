@@ -1,7 +1,7 @@
 /*
- * XREFs of PipUpdateSetupInProgress @ 0x1408626E8
+ * XREFs of PipUpdateSetupInProgress @ 0x140862928
  * Callers:
- *     PipUpdateSetupInProgressNotify @ 0x1409520C8 (PipUpdateSetupInProgressNotify.c)
+ *     PipUpdateSetupInProgressNotify @ 0x1409522C8 (PipUpdateSetupInProgressNotify.c)
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)

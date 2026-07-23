@@ -1,24 +1,35 @@
 /*
  * XREFs of RtlQueryPackageIdentity @ 0x140204280
  * Callers:
- *     PopEtGetProcessSidAndPackageIdentity @ 0x1406745EC (PopEtGetProcessSidAndPackageIdentity.c)
- *     EtwpQueryTokenPackageInfo @ 0x14070B934 (EtwpQueryTokenPackageInfo.c)
- *     ExpGetProcessInformation @ 0x1407B6CA0 (ExpGetProcessInformation.c)
- *     PfSnCheckModernApp @ 0x1407DCA0C (PfSnCheckModernApp.c)
- *     EtwpApplyPackageIdFilter @ 0x1409F4DA0 (EtwpApplyPackageIdFilter.c)
+ *     sub_1406745EC @ 0x1406745EC (sub_1406745EC.c)
+ *     sub_14070B934 @ 0x14070B934 (sub_14070B934.c)
+ *     sub_1407B6CA0 @ 0x1407B6CA0 (sub_1407B6CA0.c)
+ *     sub_1407DCA0C @ 0x1407DCA0C (sub_1407DCA0C.c)
+ *     sub_1409F4DA0 @ 0x1409F4DA0 (sub_1409F4DA0.c)
  * Callees:
- *     RtlQueryPackageIdentityEx @ 0x1402042D0 (RtlQueryPackageIdentityEx.c)
+ *     sub_1402042D0 @ 0x1402042D0 (sub_1402042D0.c)
  */
 
-__int64 __fastcall RtlQueryPackageIdentity(int a1, int a2, int a3, int a4, __int64 a5, _BYTE *a6)
+NTSTATUS __cdecl RtlQueryPackageIdentity(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PBOOLEAN Packaged)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = RtlQueryPackageIdentityEx(a1, a2, a3, a4, a5);
-  if ( (int)result >= 0 )
+  result = sub_1402042D0(
+             (_DWORD)TokenHandle,
+             (_DWORD)PackageFullName,
+             (_DWORD)PackageSize,
+             (_DWORD)AppId,
+             (__int64)AppIdSize);
+  if ( result >= 0 )
   {
-    if ( a6 )
-      *a6 = 0;
+    if ( Packaged )
+      *Packaged = 0;
   }
   return result;
 }

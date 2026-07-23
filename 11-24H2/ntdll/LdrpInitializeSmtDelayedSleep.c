@@ -1,29 +1,29 @@
 /*
- * XREFs of LdrpInitializeSmtDelayedSleep @ 0x1800F70A8
+ * XREFs of LdrpInitializeSmtDelayedSleep @ 0x1800F1640
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrpInitializeSmtDelayedSleepQueryRegistry @ 0x1800F7164 (LdrpInitializeSmtDelayedSleepQueryRegistry.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
+ *     LdrpInitializeSmtDelayedSleepQueryRegistry @ 0x1800F16FC (LdrpInitializeSmtDelayedSleepQueryRegistry.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
  */
 
-NTSTATUS LdrpInitializeSmtDelayedSleep()
+int LdrpInitializeSmtDelayedSleep()
 {
-  NTSTATUS result; // eax
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  int result; // eax
+  HANDLE KeyHandle; // [rsp+30h] [rbp+8h] BYREF
 
-  Handle = 0LL;
-  result = NtOpenKey(&Handle, 1LL, &unk_180173E00);
+  KeyHandle = 0LL;
+  result = NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_180172E00);
   if ( result >= 0 )
   {
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L"68", &SmtDelayedConfiguration);
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L"46", &dword_1801D3EC4);
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L"\"$", &dword_1801D3EC8);
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, &unk_180173E50, &dword_1801D3ECC);
-    result = LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L" \"", &dword_1801D3ED0);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L"68", &SmtDelayedConfiguration);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L"46", &dword_1801D2EC4);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L"\"$", &dword_1801D2EC8);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, &unk_180172E50, &dword_1801D2ECC);
+    result = LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L" \"", &dword_1801D2ED0);
   }
-  if ( Handle )
-    return NtClose(Handle);
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

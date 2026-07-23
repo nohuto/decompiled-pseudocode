@@ -1,7 +1,7 @@
 /*
- * XREFs of KiMoveApcState @ 0x140433500
+ * XREFs of KiMoveApcState @ 0x1404285D0
  * Callers:
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
  * Callees:
  *     <none>
  */

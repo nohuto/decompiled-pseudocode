@@ -3,12 +3,12 @@
  * Callers:
  *     SepInitializationPhase0 @ 0x1407A24C4 (SepInitializationPhase0.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x140136740 (RtlDeriveCapabilitySidsFromName.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140136CB0 (RtlDeriveCapabilitySidsFromName.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlLengthRequiredSid @ 0x1404792F0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
- *     SepInitializeSharedSidMap @ 0x14054CF48 (SepInitializeSharedSidMap.c)
+ *     RtlLengthRequiredSid @ 0x1404781C0 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
+ *     SepInitializeSharedSidMap @ 0x14054D488 (SepInitializeSharedSidMap.c)
  *     SepInitSystemDacls @ 0x140791230 (SepInitSystemDacls.c)
  */
 
@@ -39,7 +39,7 @@ bool SepVariableInitialization()
   _DWORD *v22; // rcx
   _DWORD *v23; // rax
   PSID v24; // r8
-  char *v25; // rdx
+  PSID v25; // rdx
   __int64 v26; // rcx
   char *v27; // rax
   _DWORD *v29; // [rsp+20h] [rbp-E0h]
@@ -75,9 +75,9 @@ bool SepVariableInitialization()
   PSID v59; // [rsp+108h] [rbp+8h]
   PSID v60; // [rsp+110h] [rbp+10h]
   PSID v61; // [rsp+118h] [rbp+18h]
-  PSID v62; // [rsp+120h] [rbp+20h]
-  PSID v63; // [rsp+128h] [rbp+28h]
-  UNICODE_STRING SourceString; // [rsp+130h] [rbp+30h] BYREF
+  PSID CapabilitySid; // [rsp+120h] [rbp+20h]
+  PSID CapabilityGroupSid; // [rsp+128h] [rbp+28h]
+  UNICODE_STRING UnicodeString; // [rsp+130h] [rbp+30h] BYREF
   UNICODE_STRING v65; // [rsp+140h] [rbp+40h] BYREF
   ULONG Size; // [rsp+1A0h] [rbp+A0h]
   ULONG NumberOfBytes; // [rsp+1A8h] [rbp+A8h]
@@ -89,7 +89,7 @@ bool SepVariableInitialization()
 
   *(_DWORD *)&v65.Length = 2752552;
   v65.Buffer = L"sessionImpersonation";
-  SourceString.Buffer = L"constrainedImpersonation";
+  UnicodeString.Buffer = L"constrainedImpersonation";
   LODWORD(IdentifierAuthority) = 0;
   WORD2(IdentifierAuthority) = 0;
   LODWORD(v37) = 0;
@@ -106,7 +106,7 @@ bool SepVariableInitialization()
   WORD2(v35) = 3840;
   LODWORD(v34) = 0;
   WORD2(v34) = 4864;
-  *(_DWORD *)&SourceString.Length = 3276848;
+  *(_DWORD *)&UnicodeString.Length = 3276848;
   v0 = *(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 116LL);
   if ( (v0 & 0x40) == 0 && MEMORY[0xFFFFF78000000264] == 1 && MEMORY[0xFFFFF780000002E8] <= 0x51400u )
   {
@@ -197,7 +197,7 @@ bool SepVariableInitialization()
   SeAliasBackupOpsSid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)17, NumberOfBytes, 0x69536553u);
   SeUntrustedMandatorySid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)528, v1, 0x69536553u);
   *(_QWORD *)&SeLowMandatorySid = ExAllocatePoolWithTag((POOL_TYPE)528, v1, 0x69536553u);
-  *(_QWORD *)&SeMediumMandatorySid = ExAllocatePoolWithTag((POOL_TYPE)528, v1, 0x69536553u);
+  SeMediumMandatorySid = ExAllocatePoolWithTag((POOL_TYPE)528, v1, 0x69536553u);
   SeHighMandatorySid = ExAllocatePoolWithTag((POOL_TYPE)528, v1, 0x69536553u);
   SeSystemMandatorySid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)528, v1, 0x69536553u);
   SePackagePrefixSid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)528, v1, 0x69536553u);
@@ -288,8 +288,8 @@ bool SepVariableInitialization()
   v54 = *(PSID *)&SeLowMandatorySid;
   if ( !*(_QWORD *)&SeLowMandatorySid )
     return 0;
-  v55 = *(PSID *)&SeMediumMandatorySid;
-  if ( !*(_QWORD *)&SeMediumMandatorySid )
+  v55 = SeMediumMandatorySid;
+  if ( !SeMediumMandatorySid )
     return 0;
   v56 = SeHighMandatorySid;
   if ( !SeHighMandatorySid )
@@ -333,10 +333,10 @@ bool SepVariableInitialization()
   v16 = SeDefaultAccountAliasSid;
   if ( !SeDefaultAccountAliasSid )
     return 0;
-  v62 = (PSID)SeConstrainedImpersonationCapabilitySid;
+  CapabilitySid = (PSID)SeConstrainedImpersonationCapabilitySid;
   if ( !SeConstrainedImpersonationCapabilitySid )
     return 0;
-  v63 = (PSID)SeConstrainedImpersonationCapabilityGroupSid;
+  CapabilityGroupSid = (PSID)SeConstrainedImpersonationCapabilityGroupSid;
   if ( !SeConstrainedImpersonationCapabilityGroupSid )
     return 0;
   if ( !v9 )
@@ -446,14 +446,14 @@ bool SepVariableInitialization()
   v15[6] = 1853292631;
   v15[7] = -2023488832;
   RtlInitializeSid(v16, (PSID_IDENTIFIER_AUTHORITY)&v31, 2u);
-  v24 = v62;
-  v25 = (char *)v63;
+  v24 = CapabilitySid;
+  v25 = CapabilityGroupSid;
   v16[2] = 32;
   v16[3] = 581;
-  if ( RtlDeriveCapabilitySidsFromName(&SourceString, v25, v24) < 0
+  if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, v25, v24) < 0
     || RtlDeriveCapabilitySidsFromName(
          &v65,
-         (char *)SeSessionImpersonationCapabilityGroupSid,
+         SeSessionImpersonationCapabilityGroupSid,
          SeSessionImpersonationCapabilitySid) < 0 )
   {
     return 0;
@@ -540,7 +540,7 @@ bool SepVariableInitialization()
   SeCreateSymbolicLinkPrivilege = 35LL;
   SeDelegateSessionUserImpersonatePrivilege = 36LL;
   qword_140748410 = *(_QWORD *)&SeLowMandatorySid;
-  qword_140748418 = *(_QWORD *)&SeMediumMandatorySid;
+  qword_140748418 = (__int64)SeMediumMandatorySid;
   qword_140748420 = (__int64)SeHighMandatorySid;
   qword_140748428 = SeSystemMandatorySid;
   qword_140748438 = (__int64)SeAllAppPackagesSid;
@@ -572,7 +572,7 @@ bool SepVariableInitialization()
   qword_1407483F8 = 35LL;
   v26 = 5LL;
   SeExports = (PSE_EXPORTS)&SepExports;
-  v27 = (char *)&unk_140306B38;
+  v27 = (char *)&unk_140306B78;
   qword_1407482D8 = 23LL;
   qword_1407482E0 = 24LL;
   qword_140748398 = 25LL;

@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpMapHiveImageFromFile @ 0x140983694
+ * XREFs of HvpMapHiveImageFromFile @ 0x14096BEA4
  * Callers:
- *     HvLoadHive @ 0x14098133C (HvLoadHive.c)
+ *     HvLoadHive @ 0x140969B4C (HvLoadHive.c)
  * Callees:
- *     HvpMapHiveImage @ 0x1407DFB00 (HvpMapHiveImage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HvpMapHiveImage @ 0x1407E0050 (HvpMapHiveImage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall HvpMapHiveImageFromFile(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall HvpMapHiveImageFromFile(__int64 BugCheckParameter2, __int64 a2, __int64 a3, unsigned int a4)
 {
-  int v4; // eax
+  unsigned int v4; // eax
   __int64 v6; // rdx
   __int64 v7; // r8
   __int64 v8; // r9
@@ -38,12 +38,13 @@ __int64 __fastcall HvpMapHiveImageFromFile(ULONG_PTR BugCheckParameter2, __int64
   v17 = v4;
   while ( 1 )
   {
-    P = (PVOID)ExAllocatePool2(0x100uLL);
+    P = (PVOID)ExAllocatePool2(0x100uLL, v4, 0x6F494D43u);
     v9 = P;
     if ( P )
       break;
-    v17 = ((v17 >> 1) + 4095) & 0xFFFFF000;
-    if ( v17 < 0x10000 )
+    v4 = ((v17 >> 1) + 4095) & 0xFFFFF000;
+    v17 = v4;
+    if ( v4 < 0x10000 )
     {
       v10 = -1073741801;
       goto LABEL_8;

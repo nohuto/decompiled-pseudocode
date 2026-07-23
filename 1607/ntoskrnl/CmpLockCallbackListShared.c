@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLockCallbackListShared @ 0x14054C4E8
+ * XREFs of CmpLockCallbackListShared @ 0x14054CA28
  * Callers:
- *     CmpEnumerateCallback @ 0x14054C468 (CmpEnumerateCallback.c)
- *     CmSetCallbackObjectContext @ 0x1405FAFAC (CmSetCallbackObjectContext.c)
+ *     CmpEnumerateCallback @ 0x14054C9A8 (CmpEnumerateCallback.c)
+ *     CmSetCallbackObjectContext @ 0x1405FB060 (CmSetCallbackObjectContext.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 CmpLockCallbackListShared()

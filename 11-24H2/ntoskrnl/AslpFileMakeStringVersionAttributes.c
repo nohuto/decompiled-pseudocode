@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileMakeStringVersionAttributes @ 0x14080F48C
+ * XREFs of AslpFileMakeStringVersionAttributes @ 0x14080FBCC
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x14080E498 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x14080EBD8 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     AslpFileVerBlockGetValueOffset @ 0x1404AAB8C (AslpFileVerBlockGetValueOffset.c)
- *     AslpFileQueryVersionString @ 0x14080FADC (AslpFileQueryVersionString.c)
- *     AslpFileVerQueryBlock @ 0x14095B7DC (AslpFileVerQueryBlock.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     AslStringXmlSanitize @ 0x140AB33D8 (AslStringXmlSanitize.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1404A4D8C (AslpFileVerBlockGetValueOffset.c)
+ *     AslpFileQueryVersionString @ 0x14081021C (AslpFileQueryVersionString.c)
+ *     AslpFileVerQueryBlock @ 0x14094329C (AslpFileVerQueryBlock.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     AslStringXmlSanitize @ 0x140AAE348 (AslStringXmlSanitize.c)
  */
 
 __int64 __fastcall AslpFileMakeStringVersionAttributes(__int64 a1, __int64 a2)
@@ -67,14 +67,14 @@ LABEL_15:
     v16 = (unsigned __int64)v10 >> 2;
     while ( v15 < 0x80 )
     {
-      v17 = *(int *)&byte_14000BCE0[v15];
+      v17 = *(int *)&byte_14000C010[v15];
       VersionString = AslpFileQueryVersionString(
                         (int)v23,
                         (int)v24,
                         v2,
                         (int)v9,
                         v16,
-                        *(NTSTRSAFE_PCWSTR *)&byte_14000BCE0[v15 + 8]);
+                        *(NTSTRSAFE_PCWSTR *)&byte_14000C010[v15 + 8]);
       v6 = VersionString;
       if ( VersionString < 0 )
       {

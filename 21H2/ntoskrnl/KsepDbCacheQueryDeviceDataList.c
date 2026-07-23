@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepDbCacheQueryDeviceDataList @ 0x1408BF74C
+ * XREFs of KsepDbCacheQueryDeviceDataList @ 0x1408BF8AC
  * Callers:
- *     KseQueryDeviceDataList @ 0x1408BF3E0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceDataList @ 0x1408BF540 (KseQueryDeviceDataList.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall KsepDbCacheQueryDeviceDataList(__int64 a1, char *a2, unsigned int a3, _DWORD *a4)

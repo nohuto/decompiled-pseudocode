@@ -1,15 +1,15 @@
 /*
- * XREFs of ViPtLogStackTrace @ 0x140ADF08C
+ * XREFs of ViPtLogStackTrace @ 0x140ADF07C
  * Callers:
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
- *     VfPtFreePoolNotification @ 0x140ADE76C (VfPtFreePoolNotification.c)
- *     VerifierMmCreateMdl @ 0x140AE2D60 (VerifierMmCreateMdl.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
+ *     VfPtFreePoolNotification @ 0x140ADE75C (VfPtFreePoolNotification.c)
+ *     VerifierMmCreateMdl @ 0x140AE2D50 (VerifierMmCreateMdl.c)
  * Callees:
- *     RtlEnoughStackSpaceForStackCapture @ 0x140227800 (RtlEnoughStackSpaceForStackCapture.c)
- *     KeExpandKernelStackAndCalloutEx @ 0x14022E6A0 (KeExpandKernelStackAndCalloutEx.c)
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ViPtLogStackCallout @ 0x140ADEF30 (ViPtLogStackCallout.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140227910 (RtlEnoughStackSpaceForStackCapture.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x14022E7B0 (KeExpandKernelStackAndCalloutEx.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ViPtLogStackCallout @ 0x140ADEF20 (ViPtLogStackCallout.c)
  */
 
 void __fastcall ViPtLogStackTrace(__int64 a1, int a2, __int64 a3, char a4)

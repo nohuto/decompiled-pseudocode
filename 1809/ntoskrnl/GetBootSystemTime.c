@@ -1,13 +1,13 @@
 /*
- * XREFs of GetBootSystemTime @ 0x1409D1C24
+ * XREFs of GetBootSystemTime @ 0x1409D2C24
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpTimeFieldsToTime @ 0x1401270E0 (RtlpTimeFieldsToTime.c)
- *     RtlpTimeToTimeFields @ 0x14015DA34 (RtlpTimeToTimeFields.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpTimeFieldsToTime @ 0x1401271B0 (RtlpTimeFieldsToTime.c)
+ *     RtlpTimeToTimeFields @ 0x14015DB34 (RtlpTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
@@ -30,7 +30,7 @@ char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
   v3 = *(_QWORD *)(a1 + 2560);
   if ( (*(_BYTE *)(a1 + 2584) & 1) == 0 && !ExpRealTimeIsUniversal )
     v3 += *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 132) + 440LL);
-  v6 = ((__int64 (__fastcall *)(unsigned __int64 *))off_1403FE530)(&v17) - *(_QWORD *)(a1 + 2568);
+  v6 = ((__int64 (__fastcall *)(unsigned __int64 *))off_1403FF530)(&v17) - *(_QWORD *)(a1 + 2568);
   v7 = 10000000 * v6;
   if ( is_mul_ok(v6, 0x989680uLL) )
   {
@@ -60,7 +60,7 @@ char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
     RtlpTimeToTimeFields(&v16, &v18, v5);
     LOBYTE(CurrentServerSiloGlobals) = HalSetRealTimeClock(&v18);
   }
-  else if ( (qword_140409D98 & 4) == 0 )
+  else if ( (qword_14040ADF8 & 4) == 0 )
   {
     LOBYTE(CurrentServerSiloGlobals) = HalQueryRealTimeClock(&v18);
     if ( (_BYTE)CurrentServerSiloGlobals )

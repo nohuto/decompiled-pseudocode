@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcpiPopulateTableCache @ 0x140A6597C
+ * XREFs of HalpAcpiPopulateTableCache @ 0x140A6697C
  * Callers:
- *     HalpAcpiInitSystem @ 0x1409A03F0 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x1409A1320 (HalpAcpiInitSystem.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
  */
 
 __int64 __fastcall HalpAcpiPopulateTableCache(__int64 a1)

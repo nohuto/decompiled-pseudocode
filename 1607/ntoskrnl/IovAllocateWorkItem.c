@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
  */
 
 __int64 __fastcall IovAllocateWorkItem(__int64 a1, __int64 a2)

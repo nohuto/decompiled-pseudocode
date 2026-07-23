@@ -79,7 +79,7 @@ _QWORD *ExInitLicenseData()
   memset(v27, 0, 32);
   v27[4] = 10800LL;
   v28 = 1;
-  if ( (_DWORD)InitSafeBootMode || InitIsWinPEMode )
+  if ( InitSafeBootMode || InitIsWinPEMode )
     v28 = 0;
   ExpSetKernelDataProtection((__int64)v0, (__int64)v27, -1, 1);
   v5 = _InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL);

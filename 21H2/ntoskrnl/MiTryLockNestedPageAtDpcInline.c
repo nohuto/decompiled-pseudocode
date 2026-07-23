@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTryLockNestedPageAtDpcInline @ 0x140303960
+ * XREFs of MiTryLockNestedPageAtDpcInline @ 0x14030E6B0
  * Callers:
- *     MiDeleteClusterPage @ 0x14032B830 (MiDeleteClusterPage.c)
+ *     MiDeleteClusterPage @ 0x140336580 (MiDeleteClusterPage.c)
  * Callees:
  *     <none>
  */

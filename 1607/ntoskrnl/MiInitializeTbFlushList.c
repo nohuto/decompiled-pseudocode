@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeTbFlushList @ 0x1400B5A30
+ * XREFs of MiInitializeTbFlushList @ 0x1400B3858
  * Callers:
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
- *     MiReleaseDriverPtes @ 0x140544938 (MiReleaseDriverPtes.c)
- *     MmDeleteShadowMapping @ 0x14065BE04 (MmDeleteShadowMapping.c)
- *     MiProtectAweRegion @ 0x14065C4E0 (MiProtectAweRegion.c)
- *     MiRemoveUserPhysicalPagesVad @ 0x14065C694 (MiRemoveUserPhysicalPagesVad.c)
- *     NtMapUserPhysicalPages @ 0x14065D72C (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x14065DBA8 (NtMapUserPhysicalPagesScatter.c)
- *     MiDeleteEnclavePages @ 0x14065F308 (MiDeleteEnclavePages.c)
- *     MiProtectEnclavePages @ 0x14065F614 (MiProtectEnclavePages.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
+ *     MiReleaseDriverPtes @ 0x140544E78 (MiReleaseDriverPtes.c)
+ *     MmDeleteShadowMapping @ 0x14065BEE8 (MmDeleteShadowMapping.c)
+ *     MiProtectAweRegion @ 0x14065C5C4 (MiProtectAweRegion.c)
+ *     MiRemoveUserPhysicalPagesVad @ 0x14065C778 (MiRemoveUserPhysicalPagesVad.c)
+ *     NtMapUserPhysicalPages @ 0x14065D810 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14065DC8C (NtMapUserPhysicalPagesScatter.c)
+ *     MiDeleteEnclavePages @ 0x14065F3EC (MiDeleteEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14065F6F8 (MiProtectEnclavePages.c)
  * Callees:
  *     <none>
  */

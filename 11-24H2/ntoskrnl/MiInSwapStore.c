@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInSwapStore @ 0x140A4CDC4
+ * XREFs of MiInSwapStore @ 0x140A43954
  * Callers:
- *     MmInSwapWorkingSet @ 0x140404E48 (MmInSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1403C6A50 (MmInSwapWorkingSet.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     MiInSwapStoreContextDereference @ 0x140A4CFE8 (MiInSwapStoreContextDereference.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     MiInSwapStoreContextDereference @ 0x140A43B78 (MiInSwapStoreContextDereference.c)
  */
 
 __int64 __fastcall MiInSwapStore(PVOID Object)

@@ -26,7 +26,7 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
   int v5; // ebx
   __int64 Pool2; // rax
   _QWORD *v7; // rdi
-  int Event; // edi
+  NTSTATUS v8; // edi
   NTSTATUS DeviceInterfaces; // eax
   unsigned int v10; // edi
   __int64 v11; // r15
@@ -61,29 +61,24 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
   PVOID *p_P; // [rsp+48h] [rbp-91h]
   PZZWSTR SymbolicLinkList; // [rsp+50h] [rbp-89h] BYREF
   unsigned int v43; // [rsp+58h] [rbp-81h]
-  HANDLE Handle; // [rsp+60h] [rbp-79h] BYREF
+  HANDLE EventHandle; // [rsp+60h] [rbp-79h] BYREF
   __int64 v45; // [rsp+68h] [rbp-71h] BYREF
   __int128 v46; // [rsp+70h] [rbp-69h] BYREF
   __m256i v47; // [rsp+80h] [rbp-59h] BYREF
   __m256i v48; // [rsp+A0h] [rbp-39h] BYREF
-  _DWORD v49[2]; // [rsp+C0h] [rbp-19h] BYREF
-  __int64 v50; // [rsp+C8h] [rbp-11h]
-  __int64 v51; // [rsp+D0h] [rbp-9h]
-  int v52; // [rsp+D8h] [rbp-1h]
-  int v53; // [rsp+DCh] [rbp+3h]
-  __int128 v54; // [rsp+E0h] [rbp+7h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C0h] [rbp-19h] BYREF
   int cbDest; // [rsp+140h] [rbp+67h]
   size_t cbDesta; // [rsp+140h] [rbp+67h]
   __int64 i; // [rsp+150h] [rbp+77h]
-  int v59; // [rsp+158h] [rbp+7Fh] BYREF
+  int v54; // [rsp+158h] [rbp+7Fh] BYREF
 
   v2 = *a1;
   p_P = &P;
-  v49[1] = 0;
-  v53 = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   P = &P;
   v45 = 0LL;
-  v59 = 0;
+  v54 = 0;
   cbDest = 0;
   v46 = 0LL;
   v4 = 0LL;
@@ -93,7 +88,7 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
   v48.m256i_i64[3] = 0x200000000LL;
   memset(&v47, 0, 24);
   v47.m256i_i64[3] = 0x200000000LL;
-  Handle = 0LL;
+  EventHandle = 0LL;
   PfSnLogOpenVolumesForPrefetch(v2, 1);
   if ( v2 && *(_DWORD *)(v2 + 112) < 0x4000u )
   {
@@ -119,17 +114,17 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
         }
         while ( (unsigned int)v4 < *(_DWORD *)(v2 + 112) );
       }
-      v49[0] = 48;
-      v50 = 0LL;
-      v52 = 512;
-      v51 = 0LL;
-      v54 = 0LL;
-      Event = NtCreateEvent((unsigned __int64)&Handle, 2031619LL, (__int64)v49, NotificationEvent, 0);
-      if ( Event >= 0 )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 512;
+      ObjectAttributes.ObjectName = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v8 = NtCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
+      if ( v8 >= 0 )
       {
         DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_VOLUME, 0LL, 0, &SymbolicLinkList);
         v4 = SymbolicLinkList;
-        Event = DeviceInterfaces;
+        v8 = DeviceInterfaces;
         if ( DeviceInterfaces < 0 )
           goto LABEL_35;
         v10 = 0;
@@ -148,14 +143,14 @@ __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
           if ( IsVolumeMounted < 0 )
             v14 = 0;
           cbDest = v14;
-          if ( v14 && (int)PfSnQueryVolumeInfo(a1[1], v4, &v48, &v45, &v59) >= 0 )
+          if ( v14 && (int)PfSnQueryVolumeInfo(a1[1], v4, &v48, &v45, &v54) >= 0 )
           {
             v15 = (_OWORD *)ExAllocatePool2(0x100uLL);
             v16 = v15;
             if ( !v15 )
               goto LABEL_48;
             memset_0(v15, 0, 0x48uLL);
-            v17 = v59;
+            v17 = v54;
             v18 = *(_OWORD *)&v48.m256i_u64[2];
             v19 = v45;
             v16[1] = *(_OWORD *)v48.m256i_i8;
@@ -183,7 +178,7 @@ LABEL_26:
         if ( !v21 )
         {
 LABEL_48:
-          Event = -1073741670;
+          v8 = -1073741670;
           goto LABEL_34;
         }
         v22 = 0;
@@ -257,7 +252,7 @@ LABEL_25:
             *(_QWORD *)v24 = a1 + 5;
             *(_QWORD *)(v24 + 8) = v39;
             *v39 = v24;
-            v28 = Handle;
+            v28 = EventHandle;
             a1[6] = v24;
             v29 = PfSnVolumeCheckSeekPenalty((HANDLE *)(v24 + 32), v28);
             *(_DWORD *)(v24 + 108) ^= (v29 ^ (unsigned __int8)*(_DWORD *)(v24 + 108)) & 1;
@@ -265,14 +260,14 @@ LABEL_25:
             {
               v5 |= 1u;
             }
-            else if ( (v5 & 3) == 0 && !(unsigned int)PfSnVolumeCheckIsSdBus((HANDLE *)(v24 + 32), Handle) )
+            else if ( (v5 & 3) == 0 && !(unsigned int)PfSnVolumeCheckIsSdBus((HANDLE *)(v24 + 32), EventHandle) )
             {
               v5 |= 2u;
             }
           }
           v23 = i;
         }
-        Event = 0;
+        v8 = 0;
         *a2 = v5;
         ExFreePoolWithTag(v21, 0);
       }
@@ -281,12 +276,12 @@ LABEL_34:
     }
     else
     {
-      Event = -1073741670;
+      v8 = -1073741670;
     }
   }
   else
   {
-    Event = -1073741811;
+    v8 = -1073741811;
   }
 LABEL_35:
   if ( (v48.m256i_i64[3] & 0x400000000LL) != 0 )
@@ -309,8 +304,8 @@ LABEL_35:
   }
   if ( v4 )
     ExFreePoolWithTag(v4, 0);
-  if ( Handle )
-    NtClose(Handle);
+  if ( EventHandle )
+    NtClose(EventHandle);
   PfSnLogOpenVolumesForPrefetch(v2, 0);
-  return (unsigned int)Event;
+  return (unsigned int)v8;
 }

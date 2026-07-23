@@ -1,20 +1,20 @@
 /*
- * XREFs of HalSetRealTimeClock @ 0x140425310
+ * XREFs of HalSetRealTimeClock @ 0x1404191C0
  * Callers:
- *     ExpRefreshSystemTime @ 0x1407B6864 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1407B6BF0 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140B6CD90 (ExpSetSystemTime.c)
- *     GetBootSystemTime @ 0x140C0AA8C (GetBootSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x1407B6CB4 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1407B7040 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140B6E630 (ExpSetSystemTime.c)
+ *     GetBootSystemTime @ 0x140C0CA8C (GetBootSystemTime.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     HalpWriteCmosTime @ 0x140425598 (HalpWriteCmosTime.c)
- *     RtlpTimeToTimeFields @ 0x140426110 (RtlpTimeToTimeFields.c)
- *     RtlpTimeFieldsToTime @ 0x1404266C8 (RtlpTimeFieldsToTime.c)
- *     HalEfiSetTime @ 0x14054C754 (HalEfiSetTime.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpSetAcpiRealTimeClock @ 0x1406FC25C (HalpSetAcpiRealTimeClock.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x140A812AC (HalpUtcTimeToAcpiRealTime.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     HalpWriteCmosTime @ 0x140419448 (HalpWriteCmosTime.c)
+ *     RtlpTimeToTimeFields @ 0x140419FC0 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeFieldsToTime @ 0x14041A578 (RtlpTimeFieldsToTime.c)
+ *     HalEfiSetTime @ 0x14054A014 (HalEfiSetTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpSetAcpiRealTimeClock @ 0x1406F9E9C (HalpSetAcpiRealTimeClock.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140A7BD0C (HalpUtcTimeToAcpiRealTime.c)
  */
 
 char __fastcall HalSetRealTimeClock(__int64 a1)
@@ -79,11 +79,11 @@ char __fastcall HalSetRealTimeClock(__int64 a1)
       {
         PerformanceCounter = KeQueryPerformanceCounter(0LL);
         v4 = 1;
-        dword_140FC1400 = PerformanceCounter.HighPart;
-        qword_140FC13F8 = PerformanceCounter.QuadPart;
-        dword_140FC13F4 = SystemTime.HighPart;
-        qword_140FC13EC = (__int64)QuadPart;
-        dword_140FC13E8 = PerformanceCounter.HighPart;
+        dword_140FC1660 = PerformanceCounter.HighPart;
+        qword_140FC1658 = PerformanceCounter.QuadPart;
+        dword_140FC1654 = SystemTime.HighPart;
+        qword_140FC164C = (__int64)QuadPart;
+        dword_140FC1648 = PerformanceCounter.HighPart;
         VrtcTime = PerformanceCounter.QuadPart;
         HalpVrtcTimeStale = 0;
       }

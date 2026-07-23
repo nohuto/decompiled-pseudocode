@@ -8,44 +8,43 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-volatile signed __int32 *__stdcall RtlReleaseResource(int a1)
+void __cdecl RtlReleaseResource(PRTL_RESOURCE Resource)
 {
-  int v1; // ecx
-  volatile signed __int32 *result; // eax
-  __int32 v3; // eax
-  int v4; // eax
-  _BYTE v5[4]; // [esp+8h] [ebp-4h] BYREF
+  LONG NumberOfActive; // ecx
+  LONG *p_NumberOfActive; // eax
+  int v3; // eax
+  LONG v4; // eax
+  int v5; // eax
+  LONG PreviousCount; // [esp+8h] [ebp-4h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 40);
-  result = (volatile signed __int32 *)(a1 + 40);
-  if ( v1 >= 0 )
+  NumberOfActive = Resource->NumberOfActive;
+  p_NumberOfActive = &Resource->NumberOfActive;
+  if ( NumberOfActive >= 0 )
   {
-    if ( _InterlockedDecrement(result) )
-      return result;
+    if ( _InterlockedDecrement(p_NumberOfActive) )
+      return;
     goto LABEL_3;
   }
-  if ( v1 == -1 )
-    *(_DWORD *)(a1 + 44) = 0;
-  if ( !_InterlockedIncrement(result) )
+  if ( NumberOfActive == -1 )
+    Resource->ExclusiveOwnerThread = 0;
+  if ( !_InterlockedIncrement(p_NumberOfActive) )
   {
-    if ( *(_DWORD *)(a1 + 28) )
+    if ( Resource->NumberOfWaitingShared )
     {
-      v3 = _InterlockedExchange((volatile __int32 *)(a1 + 28), 0);
-      if ( v3 )
+      v4 = _InterlockedExchange((volatile __int32 *)&Resource->NumberOfWaitingShared, 0);
+      if ( v4 )
       {
-        v4 = NtReleaseSemaphore(*(_DWORD *)(a1 + 24), v3, v5);
-        if ( v4 < 0 )
-          RtlRaiseStatus(v4);
+        v5 = NtReleaseSemaphore(Resource->SharedSemaphore, v4, &PreviousCount);
+        if ( v5 < 0 )
+          RtlRaiseStatus(v5);
       }
     }
 LABEL_3:
-    result = (volatile signed __int32 *)RtlpNonNegativeDecrement(a1 + 36);
-    if ( result )
+    if ( RtlpNonNegativeDecrement(&Resource->NumberOfWaitingExclusive) )
     {
-      result = (volatile signed __int32 *)NtReleaseSemaphore(*(_DWORD *)(a1 + 32), 1, v5);
-      if ( (int)result < 0 )
-        RtlRaiseStatus(result);
+      v3 = NtReleaseSemaphore(Resource->ExclusiveSemaphore, 1, &PreviousCount);
+      if ( v3 < 0 )
+        RtlRaiseStatus(v3);
     }
   }
-  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsIoRateControlReference @ 0x1400B6178
+ * XREFs of PsIoRateControlReference @ 0x1400B3FA0
  * Callers:
- *     IoGetIoRateControl @ 0x1400B5FD8 (IoGetIoRateControl.c)
+ *     IoGetIoRateControl @ 0x1400B3E00 (IoGetIoRateControl.c)
  * Callees:
- *     PspIoRateEntryIoControlReference @ 0x1400B61FC (PspIoRateEntryIoControlReference.c)
- *     PspJobIoRateVolumeEntryReference @ 0x14020FA1C (PspJobIoRateVolumeEntryReference.c)
+ *     PspIoRateEntryIoControlReference @ 0x1400B4024 (PspIoRateEntryIoControlReference.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x14020F848 (PspJobIoRateVolumeEntryReference.c)
  */
 
 __int64 __fastcall PsIoRateControlReference(__int64 a1, __int64 a2, __int64 *a3, __int64 *a4, _QWORD *a5)

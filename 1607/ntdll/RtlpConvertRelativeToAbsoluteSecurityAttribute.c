@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800E1E70
+ * XREFs of RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800E1F30
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbLengthW @ 0x18007054C (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x18007053C (RtlStringCbLengthW.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */

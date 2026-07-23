@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMapSinglePage @ 0x14036A87C
+ * XREFs of MiMapSinglePage @ 0x14036C61C
  * Callers:
- *     MiCombineWithStandbyExisting @ 0x140307CC4 (MiCombineWithStandbyExisting.c)
- *     MiCombineWithExisting @ 0x140308244 (MiCombineWithExisting.c)
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
- *     MiInitializeForkMaps @ 0x140961828 (MiInitializeForkMaps.c)
- *     MiUpdateForkMaps @ 0x140AF443C (MiUpdateForkMaps.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140CFA144 (MmInitializeImageViewExtensionCfg.c)
+ *     MiCombineWithStandbyExisting @ 0x1402E9D44 (MiCombineWithStandbyExisting.c)
+ *     MiCombineWithExisting @ 0x1402EA2C4 (MiCombineWithExisting.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
+ *     MiInitializeForkMaps @ 0x140A0751C (MiInitializeForkMaps.c)
+ *     MiUpdateForkMaps @ 0x140AF6AB0 (MiUpdateForkMaps.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140D004C4 (MmInitializeImageViewExtensionCfg.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
  */
 
 unsigned __int64 __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -37,7 +37,7 @@ unsigned __int64 __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, __i
     }
     goto LABEL_4;
   }
-  result = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, a3, a4);
+  result = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, a3, a4);
   v8 = (_QWORD *)result;
   if ( result )
   {

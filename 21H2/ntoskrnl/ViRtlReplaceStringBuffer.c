@@ -1,23 +1,23 @@
 /*
- * XREFs of ViRtlReplaceStringBuffer @ 0x1409E5D3C
+ * XREFs of ViRtlReplaceStringBuffer @ 0x1409E6D3C
  * Callers:
- *     VerifierRtlAnsiStringToUnicodeString @ 0x1409E5770 (VerifierRtlAnsiStringToUnicodeString.c)
- *     VerifierRtlCreateUnicodeString @ 0x1409E57E0 (VerifierRtlCreateUnicodeString.c)
- *     VerifierRtlDowncaseUnicodeString @ 0x1409E5860 (VerifierRtlDowncaseUnicodeString.c)
- *     VerifierRtlDuplicateUnicodeString @ 0x1409E58B0 (VerifierRtlDuplicateUnicodeString.c)
- *     VerifierRtlOemStringToCountedUnicodeString @ 0x1409E5990 (VerifierRtlOemStringToCountedUnicodeString.c)
- *     VerifierRtlOemStringToUnicodeString @ 0x1409E59E0 (VerifierRtlOemStringToUnicodeString.c)
- *     VerifierRtlUnicodeStringToAnsiString @ 0x1409E5A80 (VerifierRtlUnicodeStringToAnsiString.c)
- *     VerifierRtlUnicodeStringToCountedOemString @ 0x1409E5AD0 (VerifierRtlUnicodeStringToCountedOemString.c)
- *     VerifierRtlUnicodeStringToOemString @ 0x1409E5B20 (VerifierRtlUnicodeStringToOemString.c)
- *     VerifierRtlUpcaseUnicodeString @ 0x1409E5BC0 (VerifierRtlUpcaseUnicodeString.c)
- *     VerifierRtlUpcaseUnicodeStringToAnsiString @ 0x1409E5C10 (VerifierRtlUpcaseUnicodeStringToAnsiString.c)
- *     VerifierRtlUpcaseUnicodeStringToCountedOemString @ 0x1409E5C60 (VerifierRtlUpcaseUnicodeStringToCountedOemString.c)
- *     VerifierRtlUpcaseUnicodeStringToOemString @ 0x1409E5CB0 (VerifierRtlUpcaseUnicodeStringToOemString.c)
+ *     VerifierRtlAnsiStringToUnicodeString @ 0x1409E6770 (VerifierRtlAnsiStringToUnicodeString.c)
+ *     VerifierRtlCreateUnicodeString @ 0x1409E67E0 (VerifierRtlCreateUnicodeString.c)
+ *     VerifierRtlDowncaseUnicodeString @ 0x1409E6860 (VerifierRtlDowncaseUnicodeString.c)
+ *     VerifierRtlDuplicateUnicodeString @ 0x1409E68B0 (VerifierRtlDuplicateUnicodeString.c)
+ *     VerifierRtlOemStringToCountedUnicodeString @ 0x1409E6990 (VerifierRtlOemStringToCountedUnicodeString.c)
+ *     VerifierRtlOemStringToUnicodeString @ 0x1409E69E0 (VerifierRtlOemStringToUnicodeString.c)
+ *     VerifierRtlUnicodeStringToAnsiString @ 0x1409E6A80 (VerifierRtlUnicodeStringToAnsiString.c)
+ *     VerifierRtlUnicodeStringToCountedOemString @ 0x1409E6AD0 (VerifierRtlUnicodeStringToCountedOemString.c)
+ *     VerifierRtlUnicodeStringToOemString @ 0x1409E6B20 (VerifierRtlUnicodeStringToOemString.c)
+ *     VerifierRtlUpcaseUnicodeString @ 0x1409E6BC0 (VerifierRtlUpcaseUnicodeString.c)
+ *     VerifierRtlUpcaseUnicodeStringToAnsiString @ 0x1409E6C10 (VerifierRtlUpcaseUnicodeStringToAnsiString.c)
+ *     VerifierRtlUpcaseUnicodeStringToCountedOemString @ 0x1409E6C60 (VerifierRtlUpcaseUnicodeStringToCountedOemString.c)
+ *     VerifierRtlUpcaseUnicodeStringToOemString @ 0x1409E6CB0 (VerifierRtlUpcaseUnicodeStringToOemString.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
  */
 
 void __fastcall ViRtlReplaceStringBuffer(__int64 a1, _DWORD *a2, __int64 a3)

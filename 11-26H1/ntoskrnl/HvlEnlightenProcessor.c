@@ -1,19 +1,19 @@
 /*
- * XREFs of HvlEnlightenProcessor @ 0x140530860
+ * XREFs of HvlEnlightenProcessor @ 0x140532D60
  * Callers:
- *     HvlpInitializeBootProcessor @ 0x1405BA2EC (HvlpInitializeBootProcessor.c)
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
- *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     HvlpInitializeBootProcessor @ 0x1405BCB5C (HvlpInitializeBootProcessor.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
+ *     PopHandleNextState @ 0x140C08EA0 (PopHandleNextState.c)
  * Callees:
- *     HvlSharedIsr @ 0x1403E61A0 (HvlSharedIsr.c)
- *     HvlpGetLpcbByLpIndex @ 0x1403E6258 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x1403E62C0 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlpSetRegister64 @ 0x140493EC0 (HvlpSetRegister64.c)
- *     HvlpGetRegister64 @ 0x1404D0D20 (HvlpGetRegister64.c)
- *     HvlpSetupSchedulerAssist @ 0x1405BB26C (HvlpSetupSchedulerAssist.c)
- *     HvlpMapApicBackingPage @ 0x1405BFC2C (HvlpMapApicBackingPage.c)
- *     HvlpMapGhcb @ 0x1405BFCAC (HvlpMapGhcb.c)
- *     HvlpDiscoverTopologyLocal @ 0x140791BD0 (HvlpDiscoverTopologyLocal.c)
+ *     HvlSharedIsr @ 0x1402F3080 (HvlSharedIsr.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1402F3138 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1402F31A0 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpSetRegister64 @ 0x14048DA10 (HvlpSetRegister64.c)
+ *     HvlpGetRegister64 @ 0x1404CA750 (HvlpGetRegister64.c)
+ *     HvlpSetupSchedulerAssist @ 0x1405BDADC (HvlpSetupSchedulerAssist.c)
+ *     HvlpMapApicBackingPage @ 0x1405C249C (HvlpMapApicBackingPage.c)
+ *     HvlpMapGhcb @ 0x1405C251C (HvlpMapGhcb.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140794700 (HvlpDiscoverTopologyLocal.c)
  */
 
 void __fastcall HvlEnlightenProcessor(char a1)
@@ -29,7 +29,7 @@ void __fastcall HvlEnlightenProcessor(char a1)
   unsigned int LpIndexFromProcessorIndex; // eax
   unsigned __int64 v10; // rbx
   unsigned __int64 v11; // [rsp+48h] [rbp+10h] BYREF
-  unsigned __int64 v12; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+50h] [rbp+18h] BYREF
 
   v11 = 0LL;
   v12 = 0LL;

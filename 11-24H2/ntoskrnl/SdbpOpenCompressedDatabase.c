@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbpOpenCompressedDatabase @ 0x140807094
+ * XREFs of SdbpOpenCompressedDatabase @ 0x1408077D4
  * Callers:
- *     SdbOpenDatabaseEx @ 0x140800F84 (SdbOpenDatabaseEx.c)
+ *     SdbOpenDatabaseEx @ 0x1408016C4 (SdbOpenDatabaseEx.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     SdbpOpenDatabaseInMemory @ 0x14095BC48 (SdbpOpenDatabaseInMemory.c)
- *     SdbCloseDatabaseRead @ 0x14095BDD8 (SdbCloseDatabaseRead.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     SdbpReadMappedData @ 0x140960150 (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140943708 (SdbpOpenDatabaseInMemory.c)
+ *     SdbCloseDatabaseRead @ 0x140943898 (SdbCloseDatabaseRead.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     SdbpReadMappedData @ 0x140947C10 (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpOpenCompressedDatabase(__int64 *a1, __int64 a2, unsigned int a3)
@@ -73,11 +73,7 @@ LABEL_13:
     v10 = 211;
     goto LABEL_13;
   }
-  if ( !(unsigned int)guard_dispatch_icall_no_overrides(
-                        v13,
-                        &v19,
-                        *(_QWORD *)(v3 + 8) + 20LL,
-                        (unsigned int)(*(_DWORD *)(v3 + 20) - 20)) )
+  if ( !(unsigned int)guard_dispatch_icall_no_overrides(v13, &v19) )
   {
     v14 = "Expand callback failed to expand SDB";
     v15 = 221;

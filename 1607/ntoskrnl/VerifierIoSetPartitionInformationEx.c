@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoSetPartitionInformationEx @ 0x14070C8CC
+ * XREFs of VerifierIoSetPartitionInformationEx @ 0x14070C8FC
  * Callers:
  *     <none>
  * Callees:

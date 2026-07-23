@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpPushRefDerefInfo @ 0x140667F70
+ * XREFs of ObpPushRefDerefInfo @ 0x140668054
  * Callers:
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
- *     ObpPushStackInfoQueue @ 0x140668140 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
+ *     ObpPushStackInfoQueue @ 0x140668224 (ObpPushStackInfoQueue.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ObpGetObjectRefInfo @ 0x140667A88 (ObpGetObjectRefInfo.c)
- *     ObpGetTraceIndex @ 0x140667BA0 (ObpGetTraceIndex.c)
- *     ObpRefillWorkItemFreeList @ 0x1406681BC (ObpRefillWorkItemFreeList.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ObpGetObjectRefInfo @ 0x140667B6C (ObpGetObjectRefInfo.c)
+ *     ObpGetTraceIndex @ 0x140667C84 (ObpGetTraceIndex.c)
+ *     ObpRefillWorkItemFreeList @ 0x1406682A0 (ObpRefillWorkItemFreeList.c)
  */
 
 __int64 __fastcall ObpPushRefDerefInfo(

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuInitializeDmar @ 0x140553FDC
+ * XREFs of HalpIommuInitializeDmar @ 0x14055191C
  * Callers:
- *     HalpIommuInitSystem @ 0x140B4D550 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x140B4F5A0 (HalpIommuInitSystem.c)
  * Callees:
- *     HalpIommuGetHardwareDomain @ 0x1404CE03C (HalpIommuGetHardwareDomain.c)
- *     HalpIommuAllocateDmaDomain @ 0x1405534C4 (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C7308 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuAllocateDmaDomain @ 0x140550E04 (HalpIommuAllocateDmaDomain.c)
  */
 
 __int64 HalpIommuInitializeDmar()

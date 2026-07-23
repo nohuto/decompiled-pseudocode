@@ -20,9 +20,9 @@ void __fastcall TpAdjustBindingCount(int a1, unsigned int a2)
   int v2; // esi
   int v3; // eax
   int v4; // eax
-  int v5; // [esp+0h] [ebp-4h] BYREF
+  int WorkerFactoryInformation; // [esp+0h] [ebp-4h] BYREF
 
-  v5 = a1;
+  WorkerFactoryInformation = a1;
   if ( a2 )
   {
     v2 = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 264), a2);
@@ -39,7 +39,7 @@ void __fastcall TpAdjustBindingCount(int a1, unsigned int a2)
         return;
       v4 = -1;
     }
-    v5 = v4;
-    ZwSetInformationWorkerFactory(*(_DWORD *)(a1 + 36), 3, &v5, 4);
+    WorkerFactoryInformation = v4;
+    ZwSetInformationWorkerFactory(*(HANDLE *)(a1 + 36), WorkerFactoryBindingCount, &WorkerFactoryInformation, 4u);
   }
 }

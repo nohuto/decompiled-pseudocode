@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMlDsaVectorPower2Round @ 0x1405746E0
+ * XREFs of SymCryptMlDsaVectorPower2Round @ 0x140573944
  * Callers:
- *     SymCryptMlDsakeyComputeT @ 0x1405747F8 (SymCryptMlDsakeyComputeT.c)
+ *     SymCryptMlDsakeyComputeT @ 0x140573A5C (SymCryptMlDsakeyComputeT.c)
  * Callees:
- *     SymCryptMlDsaPolyElementPower2Round @ 0x1405735B0 (SymCryptMlDsaPolyElementPower2Round.c)
+ *     SymCryptMlDsaPolyElementPower2Round @ 0x1405727BC (SymCryptMlDsaPolyElementPower2Round.c)
  */
 
 __int64 __fastcall SymCryptMlDsaVectorPower2Round(_BYTE *a1, __int64 a2, __int64 a3)

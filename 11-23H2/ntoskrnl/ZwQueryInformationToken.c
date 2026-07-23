@@ -1,17 +1,16 @@
 /*
- * XREFs of ZwQueryInformationToken @ 0x14041B180
+ * XREFs of ZwQueryInformationToken @ 0x14041B510
  * Callers:
- *     RtlCheckTokenCapability @ 0x140370630 (RtlCheckTokenCapability.c)
- *     DifZwQueryInformationTokenWrapper @ 0x1405F4BF0 (DifZwQueryInformationTokenWrapper.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FA40 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     RtlFormatCurrentUserKeyPath @ 0x1407FAAD0 (RtlFormatCurrentUserKeyPath.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC7E4 (ExpFirmwareAccessAppContainerCheck.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A3BC (_SysCtxRegOpenCurrentUserKey.c)
+ *     RtlCheckTokenCapability @ 0x1403707D0 (RtlCheckTokenCapability.c)
+ *     DifZwQueryInformationTokenWrapper @ 0x1405F5160 (DifZwQueryInformationTokenWrapper.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FF90 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x1407FADA0 (RtlFormatCurrentUserKeyPath.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1409FCA74 (ExpFirmwareAccessAppContainerCheck.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A66C (_SysCtxRegOpenCurrentUserKey.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationToken(
         HANDLE TokenHandle,
         TOKEN_INFORMATION_CLASS TokenInformationClass,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwQueryInformationToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, *(_QWORD *)&TokenInformationClass);
+  return KiServiceInternal(TokenHandle);
 }

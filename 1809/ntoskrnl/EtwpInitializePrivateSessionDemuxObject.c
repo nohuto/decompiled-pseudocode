@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializePrivateSessionDemuxObject @ 0x14074118C
+ * XREFs of EtwpInitializePrivateSessionDemuxObject @ 0x14074237C
  * Callers:
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectTypeEx @ 0x140729BCC (ObCreateObjectTypeEx.c)
  */
 
 __int64 EtwpInitializePrivateSessionDemuxObject()

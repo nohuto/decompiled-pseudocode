@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscObfDereferenceObject_Entry @ 0x140B9DF20
+ * XREFs of VfMiscObfDereferenceObject_Entry @ 0x140B9FF20
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404B2134 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1404AC9C4 (VfMiscCheckKernelAddress.c)
  */
 
 unsigned __int64 __fastcall VfMiscObfDereferenceObject_Entry(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpQueryKeyDataFromCache @ 0x1406D4FB0
+ * XREFs of CmpQueryKeyDataFromCache @ 0x1406D4FE0
  * Callers:
- *     CmpQueryKeyData @ 0x1406D6254 (CmpQueryKeyData.c)
+ *     CmpQueryKeyData @ 0x1406D6284 (CmpQueryKeyData.c)
  * Callees:
- *     CmGetKeyLastWriteTime @ 0x1406D51B4 (CmGetKeyLastWriteTime.c)
- *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1406D522C (CmGetVisibleMaxValueNameLenAndDataLen.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406D52B8 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmGetVisibleSubkeyCount @ 0x1407106E8 (CmGetVisibleSubkeyCount.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmGetKeyLastWriteTime @ 0x1406D51E4 (CmGetKeyLastWriteTime.c)
+ *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1406D525C (CmGetVisibleMaxValueNameLenAndDataLen.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406D52E8 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmGetVisibleSubkeyCount @ 0x1407108F8 (CmGetVisibleSubkeyCount.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromCache(__int64 a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, __int64 a6)

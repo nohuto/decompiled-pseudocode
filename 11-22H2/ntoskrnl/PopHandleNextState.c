@@ -148,7 +148,7 @@ void __fastcall PopHandleNextState(__int64 a1, __int64 a2, __int64 a3)
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(0xFuLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 15 )
@@ -239,10 +239,10 @@ LABEL_44:
           _enable();
         }
         v33 = *(unsigned __int8 *)(a2 + 7);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
           {
             v35 = KeGetCurrentPrcb();
             v36 = v35->SchedulerAssist;

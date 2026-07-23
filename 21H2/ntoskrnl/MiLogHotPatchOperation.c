@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogHotPatchOperation @ 0x1408CB758
+ * XREFs of MiLogHotPatchOperation @ 0x1408CB8B8
  * Callers:
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     MiFillLogProcessInfo @ 0x14035A1C4 (MiFillLogProcessInfo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     MiFillLogProcessInfo @ 0x14029EF60 (MiFillLogProcessInfo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchOperation(__int64 a1, int a2, int a3, int a4, int *a5, unsigned __int16 *a6, int a7)
@@ -78,16 +78,16 @@ char __fastcall MiLogHotPatchOperation(__int64 a1, int a2, int a3, int a4, int *
 
   v7 = &retaddr;
   v31 = 0LL;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
     LOBYTE(v7) = MiFillLogProcessInfo(
                    (__int64)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6],
                    &v32,
                    &v31);
-    v12 = *(_QWORD *)&qword_140C4EEE0;
-    if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
+    v12 = *(_QWORD *)&qword_140C4EF20;
+    if ( **(_DWORD **)&qword_140C4EF20 > 5u )
     {
-      LOBYTE(v7) = tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000020LL);
+      LOBYTE(v7) = tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 0x400000000020LL);
       if ( (_BYTE)v7 )
       {
         ProcessId = (unsigned int)PsGetProcessId(v13);
@@ -144,7 +144,7 @@ char __fastcall MiLogHotPatchOperation(__int64 a1, int a2, int a3, int a4, int *
         v69 = &v30;
         v34 = 2164260864LL;
         v71 = &v34;
-        LOBYTE(v7) = tlgWriteEx_EtwWriteEx(v12, (unsigned __int8 *)&byte_14002661B, v15, 1u, v17, v18, 0x15u, &v35);
+        LOBYTE(v7) = tlgWriteEx_EtwWriteEx(v12, (unsigned __int8 *)&dword_14002614C, v15, 1u, v17, v18, 0x15u, &v35);
       }
     }
   }

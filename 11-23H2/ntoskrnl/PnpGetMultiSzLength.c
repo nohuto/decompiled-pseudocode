@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpGetMultiSzLength @ 0x140819758
+ * XREFs of PnpGetMultiSzLength @ 0x140819A28
  * Callers:
- *     PiSwStartCreate @ 0x1408194A8 (PiSwStartCreate.c)
- *     PnpAllocateMultiSZ @ 0x14081968C (PnpAllocateMultiSZ.c)
- *     PnpCompareMultiSz @ 0x14096C5C0 (PnpCompareMultiSz.c)
+ *     PiSwStartCreate @ 0x140819778 (PiSwStartCreate.c)
+ *     PnpAllocateMultiSZ @ 0x14081995C (PnpAllocateMultiSZ.c)
+ *     PnpCompareMultiSz @ 0x14096C7C0 (PnpCompareMultiSz.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
  */
 
 __int64 __fastcall PnpGetMultiSzLength(__int64 a1, __int64 a2, _QWORD *a3)

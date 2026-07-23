@@ -11,12 +11,12 @@
 __int64 EtwpGetMaxLogger()
 {
   __int64 result; // rax
-  int v1; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   result = (unsigned int)EtwpMaxLoggers;
   if ( !EtwpMaxLoggers )
   {
-    if ( (unsigned int)NtTraceControl(42LL, 0LL, 0LL, &EtwpMaxLoggers, 4, &v1) || v1 != 4 )
+    if ( NtTraceControl(EtwMaxLoggers, 0LL, 0, &EtwpMaxLoggers, 4u, &ReturnLength) || ReturnLength != 4 )
     {
       result = 80LL;
       EtwpMaxLoggers = 80;

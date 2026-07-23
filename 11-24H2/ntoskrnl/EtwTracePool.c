@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTracePool @ 0x1403AA0C8
+ * XREFs of EtwTracePool @ 0x1403971E8
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1402C2E9C (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x1402C347C (ExInsertPoolTag.c)
- *     ExpInsertPoolTracker @ 0x1402C4BA8 (ExpInsertPoolTracker.c)
- *     ExpFreeHeapSpecialPool @ 0x1403A8B6C (ExpFreeHeapSpecialPool.c)
- *     ExRemovePoolTag @ 0x1403A9924 (ExRemovePoolTag.c)
- *     ExPoolCleanupExpansionTable @ 0x1406541CC (ExPoolCleanupExpansionTable.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExInsertPoolTag @ 0x14021B9D0 (ExInsertPoolTag.c)
+ *     ExpInsertPoolTracker @ 0x14021BE10 (ExpInsertPoolTracker.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140396AFC (ExAllocateContiguousHeapPool.c)
+ *     ExRemovePoolTag @ 0x1403985B4 (ExRemovePoolTag.c)
+ *     ExpFreeHeapSpecialPool @ 0x140398994 (ExpFreeHeapSpecialPool.c)
+ *     ExPoolCleanupExpansionTable @ 0x1406528C4 (ExPoolCleanupExpansionTable.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     EtwpCheckPoolTagFilters @ 0x14064C6D8 (EtwpCheckPoolTagFilters.c)
- *     MmIsNonPagedPoolNx @ 0x14067CD9C (MmIsNonPagedPoolNx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     EtwpCheckPoolTagFilters @ 0x14064ACE8 (EtwpCheckPoolTagFilters.c)
+ *     MmIsNonPagedPoolNx @ 0x14067DF7C (MmIsNonPagedPoolNx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall EtwTracePool(__int16 a1, __int16 a2, unsigned int a3, __int64 a4, unsigned __int64 a5)

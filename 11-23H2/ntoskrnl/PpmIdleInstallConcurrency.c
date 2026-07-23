@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleInstallConcurrency @ 0x1403B34E0
+ * XREFs of PpmIdleInstallConcurrency @ 0x1403B36C0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PpmIdleUpdateConcurrency @ 0x14033E960 (PpmIdleUpdateConcurrency.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PpmIdleUpdateConcurrency @ 0x14033EBF0 (PpmIdleUpdateConcurrency.c)
  */
 
 __int64 __fastcall PpmIdleInstallConcurrency(__int64 a1, KSPIN_LOCK *a2, KSPIN_LOCK *a3)

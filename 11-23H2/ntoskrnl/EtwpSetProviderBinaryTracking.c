@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpSetProviderBinaryTracking @ 0x1409F53EC
+ * XREFs of EtwpSetProviderBinaryTracking @ 0x1409F567C
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpGetNextGuidEntry @ 0x1406BF0E0 (EtwpGetNextGuidEntry.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1409F55E4 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpGetNextGuidEntry @ 0x1406BF110 (EtwpGetNextGuidEntry.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x1409F5874 (EtwpTrackGuidEntryRegistrations.c)
  */
 
 __int64 __fastcall EtwpSetProviderBinaryTracking(__int64 a1, unsigned int a2, char a3)

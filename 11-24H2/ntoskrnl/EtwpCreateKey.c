@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreateKey @ 0x1406504D4
+ * XREFs of EtwpCreateKey @ 0x14064EAB4
  * Callers:
- *     EtwpCreateKeyTreeForPath @ 0x14065057C (EtwpCreateKeyTreeForPath.c)
+ *     EtwpCreateKeyTreeForPath @ 0x14064EB5C (EtwpCreateKeyTreeForPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
  */
 
 __int64 __fastcall EtwpCreateKey(PCWSTR SourceString)

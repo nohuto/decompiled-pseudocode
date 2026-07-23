@@ -8,18 +8,18 @@
  *     ObpReferenceObjectByHandleWithTag @ 0x1405A4770 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtUnmapViewOfSectionEx(ULONG_PTR a1, unsigned __int64 a2, int a3)
+NTSTATUS __cdecl NtUnmapViewOfSectionEx(HANDLE ProcessHandle, PVOID BaseAddress, ULONG Flags)
 {
-  __int64 result; // rax
-  unsigned int v4; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v4; // ebx
   PVOID Object; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( (a3 & 0xFFFFFFFC) != 0 )
-    return 3221225713LL;
-  if ( KeGetCurrentThread()->PreviousMode == 1 && a2 > 0x7FFFFFFEFFFFLL )
-    return 3221225497LL;
-  result = ObpReferenceObjectByHandleWithTag(a1, 0x77566D4Du, (__int64)&Object, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  if ( (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741583;
+  if ( KeGetCurrentThread()->PreviousMode == 1 && (unsigned __int64)BaseAddress > 0x7FFFFFFEFFFFLL )
+    return -1073741799;
+  result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessHandle, 0x77566D4Du, (__int64)&Object, 0LL, 0LL);
+  if ( result >= 0 )
   {
     v4 = MiUnmapViewOfSection((ULONG_PTR)Object);
     ObfDereferenceObjectWithTag(Object, 0x77566D4Du);

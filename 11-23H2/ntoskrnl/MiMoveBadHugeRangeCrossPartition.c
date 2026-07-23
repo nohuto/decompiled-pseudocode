@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMoveBadHugeRangeCrossPartition @ 0x1406220B8
+ * XREFs of MiMoveBadHugeRangeCrossPartition @ 0x140622608
  * Callers:
- *     MiReleasePartitionHugeIoSpace @ 0x1406224D0 (MiReleasePartitionHugeIoSpace.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x140622A20 (MiReleasePartitionHugeIoSpace.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiUnlinkHugeRange @ 0x140622ABC (MiUnlinkHugeRange.c)
- *     MiUpdateHugePageCounts @ 0x140622D48 (MiUpdateHugePageCounts.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiUnlinkHugeRange @ 0x14062300C (MiUnlinkHugeRange.c)
+ *     MiUpdateHugePageCounts @ 0x140623298 (MiUpdateHugePageCounts.c)
  */
 
 __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, __int64 a2, __int64 a3)
@@ -83,10 +83,10 @@ __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, __int64 a2, __in
   v18 = (((__int64)v7 - qword_140C67DF0) >> 3) & 0x3FFFFF;
   result = (unsigned int)~(1 << (v18 & 0x1F));
   _InterlockedAnd((volatile signed __int32 *)(qword_140C67DF8 + 4 * ((unsigned __int64)(unsigned int)v18 >> 5)), result);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v14 <= 0xFu
       && (unsigned __int8)result >= 2u )

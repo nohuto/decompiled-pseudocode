@@ -1,16 +1,16 @@
 /*
- * XREFs of PoUnregisterCoalescingCallback @ 0x1407CF1F0
+ * XREFs of PoUnregisterCoalescingCallback @ 0x1407D2290
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PoUnregisterCoalescingCallback(_QWORD *a1, signed __int64 a2)
@@ -35,13 +35,13 @@ void __fastcall PoUnregisterCoalescingCallback(_QWORD *a1, signed __int64 a2)
     ExDereferenceCallBackBlock(v3, v5);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v6);
     ExWaitForRundownProtectionRelease(v5);
-    PopAcquireRwLockExclusive(&stru_140F11D08.AffinityVersion, v7, v8, v9);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoalRegistrationListLock, v7, v8, v9);
     v10 = a1[6];
     if ( *(_QWORD **)(v10 + 8) != a1 + 6 || (v11 = (_QWORD *)a1[7], (_QWORD *)*v11 != a1 + 6) )
       __fastfail(3u);
     *v11 = v10;
     *(_QWORD *)(v10 + 8) = v11;
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F11D08.AffinityVersion);
+    PopReleaseRwLock((struct _KTHREAD *)&PopCoalRegistrationListLock);
     ExFreePoolWithTag(v5, 0);
   }
   else

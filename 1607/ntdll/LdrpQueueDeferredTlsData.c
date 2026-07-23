@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpQueueDeferredTlsData @ 0x180085A40
+ * XREFs of LdrpQueueDeferredTlsData @ 0x180085A30
  * Callers:
- *     LdrpHandleTlsData @ 0x18002DED4 (LdrpHandleTlsData.c)
+ *     LdrpHandleTlsData @ 0x18002DEC4 (LdrpHandleTlsData.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall LdrpQueueDeferredTlsData(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall LdrpQueueDeferredTlsData(__int64 a1, unsigned __int64 a2)
 {
-  volatile signed __int64 v4; // rdi
-  volatile signed __int64 *v5; // rsi
+  _RTL_SRWLOCK *v2; // rdi
+  _RTL_SRWLOCK *v3; // rsi
 
-  v4 = a1 - 16;
+  v2 = (_RTL_SRWLOCK *)(a1 - 16);
   *(_QWORD *)(a1 - 16) = a2;
-  v5 = (volatile signed __int64 *)((char *)&LdrpDelayedTlsReclaimTable + 16 * (((unsigned __int64)a2 >> 2) & 0xF));
-  RtlAcquireSRWLockExclusive((unsigned __int64)(v5 + 1), a2, a3, a4);
-  *(_QWORD *)(v4 + 8) = *v5;
-  *v5 = v4;
-  return RtlReleaseSRWLockExclusive(v5 + 1);
+  v3 = (_RTL_SRWLOCK *)((char *)&LdrpDelayedTlsReclaimTable + 16 * ((a2 >> 2) & 0xF));
+  RtlAcquireSRWLockExclusive(v3 + 1);
+  v2[1].0 = v3->0;
+  v3->Value = (unsigned __int64)v2;
+  RtlReleaseSRWLockExclusive(v3 + 1);
 }

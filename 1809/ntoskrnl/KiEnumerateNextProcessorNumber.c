@@ -1,7 +1,7 @@
 /*
- * XREFs of KiEnumerateNextProcessorNumber @ 0x140063C5C
+ * XREFs of KiEnumerateNextProcessorNumber @ 0x140063C4C
  * Callers:
- *     KeGenericProcessorCallback @ 0x1400D8690 (KeGenericProcessorCallback.c)
+ *     KeGenericProcessorCallback @ 0x1400D8710 (KeGenericProcessorCallback.c)
  * Callees:
  *     <none>
  */

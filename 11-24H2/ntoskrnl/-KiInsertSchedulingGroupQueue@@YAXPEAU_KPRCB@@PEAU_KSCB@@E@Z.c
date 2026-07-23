@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14030E824
+ * XREFs of ?KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1402D8870
  * Callers:
- *     KiTransitionSchedulingGroupGeneration @ 0x14030CC70 (KiTransitionSchedulingGroupGeneration.c)
- *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14030D204 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x14030E7C4 (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
+ *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x1402D8810 (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
+ *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1402D9DF0 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1402DBCD0 (KiTransitionSchedulingGroupGeneration.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
  */
 
 void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2, char a3)
@@ -13,14 +13,14 @@ void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
   _KSCB *Parent; // r10
   _RTL_RB_TREE *p_ChildScbQueue; // r10
   unsigned __int64 Root; // rdx
-  bool v8; // r8
+  BOOLEAN v8; // r8
   unsigned int Rank; // r11d
   int v10; // eax
   unsigned int ReadySummary; // eax
   unsigned int v12; // r8d
   int v13; // r9d
   int v14; // eax
-  unsigned __int64 v15; // rax
+  _RTL_BALANCED_NODE *v15; // rax
 
   Parent = a2->Parent;
   a2->PrcbLockFlags |= 1u;
@@ -52,12 +52,12 @@ void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
       if ( !Rank && a2->GenerationCycles <= *(_QWORD *)(Root - 88) )
       {
 LABEL_24:
-        v15 = *(_QWORD *)Root;
+        v15 = *(_RTL_BALANCED_NODE **)Root;
         if ( (*(_BYTE *)&p_ChildScbQueue->0 & 1) != 0 )
         {
           if ( !v15 )
             goto LABEL_28;
-          v15 ^= Root;
+          v15 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v15);
         }
         if ( !v15 )
         {
@@ -68,12 +68,12 @@ LABEL_28:
         goto LABEL_21;
       }
 LABEL_17:
-      v15 = *(_QWORD *)(Root + 8);
+      v15 = *(_RTL_BALANCED_NODE **)(Root + 8);
       if ( (*(_BYTE *)&p_ChildScbQueue->0 & 1) != 0 )
       {
         if ( !v15 )
           goto LABEL_29;
-        v15 ^= Root;
+        v15 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v15);
       }
       if ( !v15 )
       {
@@ -82,7 +82,7 @@ LABEL_29:
         goto LABEL_30;
       }
 LABEL_21:
-      Root = v15;
+      Root = (unsigned __int64)v15;
     }
     v12 = *(unsigned __int16 *)(Root + 32);
     _BitScanReverse((unsigned int *)&v13, ReadySummary);
@@ -96,7 +96,7 @@ LABEL_16:
     goto LABEL_17;
   }
 LABEL_30:
-  RtlRbInsertNodeEx((__int64 *)p_ChildScbQueue, Root, v8, (unsigned __int64)&a2->QueueNode);
+  RtlRbInsertNodeEx(p_ChildScbQueue, (PRTL_BALANCED_NODE)Root, v8, &a2->QueueNode);
   if ( a3 )
     a2->InsertTime = MEMORY[0xFFFFF78000000008];
 }

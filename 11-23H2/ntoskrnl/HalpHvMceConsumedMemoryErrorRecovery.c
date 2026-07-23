@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpHvMceConsumedMemoryErrorRecovery @ 0x14050B730
+ * XREFs of HalpHvMceConsumedMemoryErrorRecovery @ 0x14050BC80
  * Callers:
- *     HalpMceRecoveryMemoryErrorAmd @ 0x140519030 (HalpMceRecoveryMemoryErrorAmd.c)
- *     HalpMceRecoveryMemoryErrorIntel @ 0x14051914C (HalpMceRecoveryMemoryErrorIntel.c)
+ *     HalpMceRecoveryMemoryErrorAmd @ 0x140519580 (HalpMceRecoveryMemoryErrorAmd.c)
+ *     HalpMceRecoveryMemoryErrorIntel @ 0x14051969C (HalpMceRecoveryMemoryErrorIntel.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalpHvGetMachineCheckContext @ 0x14050BED4 (HalpHvGetMachineCheckContext.c)
- *     HalpMemoryErrorDeferredRecovery @ 0x140519914 (HalpMemoryErrorDeferredRecovery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalpHvGetMachineCheckContext @ 0x14050C424 (HalpHvGetMachineCheckContext.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x140519E64 (HalpMemoryErrorDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpHvMceConsumedMemoryErrorRecovery(__int64 a1, int a2, __int16 a3, char a4, char a5)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PipLookupGroupName @ 0x140C21358
+ * XREFs of PipLookupGroupName @ 0x140C23398
  * Callers:
- *     IopInitializeBootDrivers @ 0x140C1E4C4 (IopInitializeBootDrivers.c)
- *     IopInitializeSystemDrivers @ 0x140C629DC (IopInitializeSystemDrivers.c)
- *     PipCheckDependencies @ 0x140C67CF0 (PipCheckDependencies.c)
+ *     IopInitializeBootDrivers @ 0x140C20504 (IopInitializeBootDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140C64B58 (IopInitializeSystemDrivers.c)
+ *     PipCheckDependencies @ 0x140C69E6C (PipCheckDependencies.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     PipCreateEntry @ 0x140C20608 (PipCreateEntry.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     PipCreateEntry @ 0x140C22648 (PipCreateEntry.c)
  */
 
-ULONG_PTR __fastcall PipLookupGroupName(const void **String1, int a2)
+__int64 __fastcall PipLookupGroupName(const void **String1, int a2)
 {
   __int64 v2; // rbx
-  ULONG_PTR result; // rax
+  __int64 result; // rax
   unsigned __int16 v6; // cx
-  ULONG_PTR *v7; // r14
+  _QWORD *v7; // r14
   __int64 i; // rbp
 
   v2 = IopGroupListHead;
@@ -37,7 +37,7 @@ ULONG_PTR __fastcall PipLookupGroupName(const void **String1, int a2)
       }
       if ( v6 <= *(_WORD *)(v2 + 32) )
         break;
-      v7 = (ULONG_PTR *)(v2 + 8);
+      v7 = (_QWORD *)(v2 + 8);
       v2 = *(_QWORD *)(v2 + 8);
       if ( !v2 )
       {

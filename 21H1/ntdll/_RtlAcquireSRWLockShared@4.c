@@ -59,130 +59,126 @@
  *     _ZwWaitForAlertByThreadId@8 @ 0x4B2F4680 (_ZwWaitForAlertByThreadId@8.c)
  */
 
-signed __int32 __stdcall RtlAcquireSRWLockShared(volatile signed __int32 *a1)
+void __cdecl RtlAcquireSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  volatile signed __int32 *v1; // edi
-  signed __int32 result; // eax
-  unsigned __int32 v3; // ecx
-  int v4; // esi
-  signed __int32 v5; // edx
-  signed __int32 v6; // ecx
-  char *v7; // edx
-  signed __int32 v8; // esi
-  int v9; // edi
-  unsigned int v10; // esi
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // kr08_8
-  unsigned int v14; // ecx
-  unsigned __int64 v15; // rax
-  bool v16; // [esp+17h] [ebp-39h]
-  unsigned __int64 v17; // [esp+1Ch] [ebp-34h]
+  PRTL_SRWLOCK v1; // edi
+  unsigned __int32 v2; // ecx
+  int v3; // esi
+  signed __int32 v4; // edx
+  signed __int32 v5; // ecx
+  char *v6; // edx
+  signed __int32 Value; // esi
+  int v8; // edi
+  unsigned int v9; // esi
+  unsigned __int64 v11; // rax
+  unsigned __int64 v12; // kr08_8
+  unsigned int v13; // ecx
+  unsigned __int64 v14; // rax
+  bool v15; // [esp+17h] [ebp-39h]
+  unsigned __int64 v16; // [esp+1Ch] [ebp-34h]
+  signed __int32 v17; // [esp+24h] [ebp-2Ch]
   signed __int32 v18; // [esp+24h] [ebp-2Ch]
-  signed __int32 v19; // [esp+24h] [ebp-2Ch]
-  int v20; // [esp+28h] [ebp-28h] BYREF
-  unsigned int v21; // [esp+2Ch] [ebp-24h]
-  unsigned int v22; // [esp+30h] [ebp-20h] BYREF
-  unsigned int *v23; // [esp+34h] [ebp-1Ch]
-  int v24; // [esp+38h] [ebp-18h]
+  int v19; // [esp+28h] [ebp-28h] BYREF
+  unsigned int v20; // [esp+2Ch] [ebp-24h]
+  unsigned int v21; // [esp+30h] [ebp-20h] BYREF
+  unsigned int *v22; // [esp+34h] [ebp-1Ch]
+  int v23; // [esp+38h] [ebp-18h]
   void *UniqueThread; // [esp+3Ch] [ebp-14h]
-  int v26; // [esp+40h] [ebp-10h]
-  signed __int32 v27[3]; // [esp+44h] [ebp-Ch] BYREF
+  int v25; // [esp+40h] [ebp-10h]
+  signed __int32 v26[3]; // [esp+44h] [ebp-Ch] BYREF
 
-  v1 = a1;
-  v20 = 0;
-  result = _InterlockedCompareExchange(a1, 17, 0);
-  v3 = result;
-  v18 = result;
-  if ( result )
+  v1 = SRWLock;
+  v19 = 0;
+  v2 = _InterlockedCompareExchange((volatile signed __int32 *)SRWLock, 17, 0);
+  v17 = v2;
+  if ( v2 )
   {
     while ( 1 )
     {
-      v4 = (v3 >> 1) & 1;
-      if ( (v3 & 1) == 0 || !v4 && (v3 & 0xFFFFFFF0) != 0 )
+      v3 = (v2 >> 1) & 1;
+      if ( (v2 & 1) == 0 || !v3 && (v2 & 0xFFFFFFF0) != 0 )
         break;
       if ( (unsigned __int8)RtlpWaitCouldDeadlock() )
       {
-        ZwTerminateProcess(-1, -1073741749);
-        v6 = v18;
+        ZwTerminateProcess((HANDLE)0xFFFFFFFF, -1073741749);
+        v5 = v17;
       }
-      v16 = 0;
+      v15 = 0;
       UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-      v27[0] = 2;
-      v24 = 0;
-      if ( v4 )
+      v26[0] = 2;
+      v23 = 0;
+      if ( v3 )
       {
-        v23 = 0;
-        v26 = -1;
-        v22 = v6 & 0xFFFFFFF0;
-        v7 = (char *)((unsigned int)&v22 | v6 & 8 | 7);
-        v16 = (v6 & 4) == 0;
+        v22 = 0;
+        v25 = -1;
+        v21 = v5 & 0xFFFFFFF0;
+        v6 = (char *)((unsigned int)&v21 | v5 & 8 | 7);
+        v15 = (v5 & 4) == 0;
       }
       else
       {
-        v26 = -2;
-        v23 = &v22;
-        v7 = (char *)&v22 + 3;
+        v25 = -2;
+        v22 = &v21;
+        v6 = (char *)&v21 + 3;
       }
-      v8 = _InterlockedCompareExchange(v1, (signed __int32)v7, v6);
-      v19 = v8;
-      if ( v8 != v6 )
+      Value = _InterlockedCompareExchange((volatile signed __int32 *)v1, (signed __int32)v6, v5);
+      v18 = Value;
+      if ( Value != v5 )
         goto LABEL_15;
-      if ( v16 )
-        RtlpOptimizeSRWLockList(v7);
+      if ( v15 )
+        RtlpOptimizeSRWLockList(v6);
       if ( MEMORY[0x7FFE036A] > 1u )
       {
         if ( MEMORY[0x7FFE0297] )
         {
-          v12 = __rdtsc();
-          v17 = v12 + (unsigned int)SRWLockSpinCycleCount;
-          v13 = v12;
+          v11 = __rdtsc();
+          v16 = v11 + (unsigned int)SRWLockSpinCycleCount;
+          v12 = v11;
           while ( 1 )
           {
             __asm { monitorx eax, ecx, edx }
-            if ( (v27[0] & 2) == 0 )
+            if ( (v26[0] & 2) == 0 )
               break;
-            v14 = HIDWORD(v13);
-            v21 = v13;
-            v15 = __rdtsc();
-            v13 = v15;
-            if ( v15 <= __PAIR64__(v14, v21) || v15 >= v17 )
+            v13 = HIDWORD(v12);
+            v20 = v12;
+            v14 = __rdtsc();
+            v12 = v14;
+            if ( v14 <= __PAIR64__(v13, v20) || v14 >= v16 )
               break;
             __asm { mwaitx  eax, ecx, ebx }
           }
         }
         else
         {
-          v9 = 0;
-          v10 = SRWLockSpinCycleCount / (unsigned int)MEMORY[0x7FFE02D6];
-          while ( !(unsigned __int8)RtlpIsWaitBlockSpinSatisfied(&v22, 0) && v9 != v10 )
+          v8 = 0;
+          v9 = SRWLockSpinCycleCount / (unsigned int)MEMORY[0x7FFE02D6];
+          while ( !(unsigned __int8)RtlpIsWaitBlockSpinSatisfied(&v21, 0) && v8 != v9 )
           {
             _mm_pause();
-            ++v9;
+            ++v8;
           }
-          v8 = v19;
-          v1 = a1;
+          Value = v18;
+          v1 = SRWLock;
         }
       }
-      if ( _interlockedbittestandreset(v27, 1u) )
+      if ( _interlockedbittestandreset(v26, 1u) )
       {
         do
           ZwWaitForAlertByThreadId(v1, 0);
-        while ( (v27[0] & 4) == 0 );
+        while ( (v26[0] & 4) == 0 );
       }
 LABEL_16:
-      v3 = v8;
-      v18 = v8;
+      v2 = Value;
+      v17 = Value;
     }
-    v5 = v3 | 1;
-    if ( !v4 )
-      v5 += 16;
-    result = _InterlockedCompareExchange(v1, v5, v3);
-    if ( result == v3 )
-      return result;
+    v4 = v2 | 1;
+    if ( !v3 )
+      v4 += 16;
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)v1, v4, v2) == v2 )
+      return;
 LABEL_15:
-    RtlBackoff(&v20);
-    v8 = *v1;
+    RtlBackoff(&v19);
+    Value = v1->Value;
     goto LABEL_16;
   }
-  return result;
 }

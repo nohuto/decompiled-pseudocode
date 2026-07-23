@@ -1,21 +1,21 @@
 /*
- * XREFs of PopReadRegKeyValue @ 0x1404AC224
+ * XREFs of PopReadRegKeyValue @ 0x1404A667C
  * Callers:
- *     PopReadUlongPowerKey @ 0x1405CD3CC (PopReadUlongPowerKey.c)
- *     PopQueryRestrictedStandbyTimeoutSeconds @ 0x140749684 (PopQueryRestrictedStandbyTimeoutSeconds.c)
- *     PopDiagTracePerfTrackData @ 0x140A5BC04 (PopDiagTracePerfTrackData.c)
- *     PopEsOverrideSetByGroupPolicy @ 0x140AC94EC (PopEsOverrideSetByGroupPolicy.c)
- *     PopCheckShutdownMarker @ 0x140C2D6B4 (PopCheckShutdownMarker.c)
- *     PopBatteryInitPhaseTwo @ 0x140C31D4C (PopBatteryInitPhaseTwo.c)
+ *     PopReadUlongPowerKey @ 0x1405CAB3C (PopReadUlongPowerKey.c)
+ *     PopQueryRestrictedStandbyTimeoutSeconds @ 0x1407479B4 (PopQueryRestrictedStandbyTimeoutSeconds.c)
+ *     PopDiagTracePerfTrackData @ 0x140A537D4 (PopDiagTracePerfTrackData.c)
+ *     PopEsOverrideSetByGroupPolicy @ 0x140AC740C (PopEsOverrideSetByGroupPolicy.c)
+ *     PopCheckShutdownMarker @ 0x140C2F7D4 (PopCheckShutdownMarker.c)
+ *     PopBatteryReadOscBits @ 0x140C33F90 (PopBatteryReadOscBits.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcslen @ 0x1404FFED0 (wcslen.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcslen @ 0x1404FD790 (wcslen.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadRegKeyValue(wchar_t *a1, const WCHAR *a2, size_t a3, int a4, void *a5)
@@ -55,7 +55,7 @@ __int64 __fastcall PopReadRegKeyValue(wchar_t *a1, const WCHAR *a2, size_t a3, i
     v10 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
     if ( v10 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, ResultLength, 0x50455654u);
       if ( !Pool2 )
       {
         v10 = -1073741801;

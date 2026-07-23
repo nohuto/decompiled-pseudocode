@@ -1,38 +1,38 @@
 /*
- * XREFs of MiCreateImageFileMap @ 0x1405229BC
+ * XREFs of MiCreateImageFileMap @ 0x140505A1C
  * Callers:
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     MiPageRead @ 0x14002390C (MiPageRead.c)
- *     CcZeroEndOfLastPage @ 0x140024850 (CcZeroEndOfLastPage.c)
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoFreeMdl @ 0x140072230 (IoFreeMdl.c)
- *     ObFastReplaceObject @ 0x1400CCF54 (ObFastReplaceObject.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiCreateMdl @ 0x1400FCB40 (MiCreateMdl.c)
- *     PsIsCurrentThreadPrefetching @ 0x1400FD4A0 (PsIsCurrentThreadPrefetching.c)
- *     MiCopyHeaderIfResident @ 0x1400FD5B8 (MiCopyHeaderIfResident.c)
- *     MiFlushDataSection @ 0x1400FD7B0 (MiFlushDataSection.c)
- *     MiInitializeImageProtos @ 0x1400FD83C (MiInitializeImageProtos.c)
- *     MiGetPageForHeader @ 0x1400FDB48 (MiGetPageForHeader.c)
- *     MiReturnPfnReferenceCount @ 0x1400FDD40 (MiReturnPfnReferenceCount.c)
- *     IoIsDeviceEjectable @ 0x1400FDD7C (IoIsDeviceEjectable.c)
- *     MiLegacyImageArchitecture @ 0x1400FDD94 (MiLegacyImageArchitecture.c)
- *     MiInitializeImageHeaderPage @ 0x1400FDDB4 (MiInitializeImageHeaderPage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     MiPageRead @ 0x14002348C (MiPageRead.c)
+ *     CcZeroEndOfLastPage @ 0x1400243D0 (CcZeroEndOfLastPage.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoFreeMdl @ 0x140071DB0 (IoFreeMdl.c)
+ *     ObFastReplaceObject @ 0x1400CADF4 (ObFastReplaceObject.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiCreateMdl @ 0x1400FA8C0 (MiCreateMdl.c)
+ *     PsIsCurrentThreadPrefetching @ 0x1400FB220 (PsIsCurrentThreadPrefetching.c)
+ *     MiCopyHeaderIfResident @ 0x1400FB338 (MiCopyHeaderIfResident.c)
+ *     MiFlushDataSection @ 0x1400FB530 (MiFlushDataSection.c)
+ *     MiInitializeImageProtos @ 0x1400FB5BC (MiInitializeImageProtos.c)
+ *     MiGetPageForHeader @ 0x1400FB8C8 (MiGetPageForHeader.c)
+ *     MiReturnPfnReferenceCount @ 0x1400FBAC0 (MiReturnPfnReferenceCount.c)
+ *     IoIsDeviceEjectable @ 0x1400FBAFC (IoIsDeviceEjectable.c)
+ *     MiLegacyImageArchitecture @ 0x1400FBB14 (MiLegacyImageArchitecture.c)
+ *     MiInitializeImageHeaderPage @ 0x1400FBB34 (MiInitializeImageHeaderPage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlGetFileSize @ 0x14042C454 (FsRtlGetFileSize.c)
- *     MiBuildImageControlArea @ 0x140523584 (MiBuildImageControlArea.c)
- *     MiVerifyImageHeader @ 0x140523FE0 (MiVerifyImageHeader.c)
- *     MiLogCreateImageFileMapFailure @ 0x140659144 (MiLogCreateImageFileMapFailure.c)
- *     MiCopyDirectMapHeader @ 0x14065A8E0 (MiCopyDirectMapHeader.c)
- *     MiInitializeImageExtents @ 0x14065ABC4 (MiInitializeImageExtents.c)
+ *     FsRtlGetFileSize @ 0x14042B324 (FsRtlGetFileSize.c)
+ *     MiBuildImageControlArea @ 0x1405065E4 (MiBuildImageControlArea.c)
+ *     MiVerifyImageHeader @ 0x140507040 (MiVerifyImageHeader.c)
+ *     MiLogCreateImageFileMapFailure @ 0x140659228 (MiLogCreateImageFileMapFailure.c)
+ *     MiCopyDirectMapHeader @ 0x14065A9C4 (MiCopyDirectMapHeader.c)
+ *     MiInitializeImageExtents @ 0x14065ACA8 (MiInitializeImageExtents.c)
  */
 
 NTSTATUS __fastcall MiCreateImageFileMap(
@@ -158,7 +158,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
   result = FsRtlGetFileSize(FileObject, &FileSize);
   if ( result < 0 )
   {
-    dword_140326780 = 1;
+    dword_1403267C0 = 1;
     if ( result == -1073741638 )
       return -1073741792;
     return result;
@@ -191,7 +191,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
     a4 |= 0x40000u;
   if ( (a4 & 0x40080) != 0 && PsIsCurrentThreadPrefetching() )
   {
-    dword_140326780 = 64;
+    dword_1403267C0 = 64;
     LowPart = -1073740749;
 LABEL_15:
     v17 = 0LL;
@@ -256,7 +256,7 @@ LABEL_38:
     StartVa = v76;
     if ( !v76 )
     {
-      dword_140326780 = 37;
+      dword_1403267C0 = 37;
       LowPart = -1073741670;
 LABEL_41:
       v15 = v75;
@@ -276,7 +276,7 @@ LABEL_41:
   }
   if ( LowPart < 0 )
   {
-    dword_140326780 = 2;
+    dword_1403267C0 = 2;
     goto LABEL_48;
   }
   v28 = v83;
@@ -286,7 +286,7 @@ LABEL_41:
     if ( (unsigned __int64)v79 < 0x40 )
     {
       LowPart = -1073741521;
-      dword_140326780 = 38;
+      dword_1403267C0 = 38;
       goto LABEL_41;
     }
     memset((char *)v76 + (_QWORD)v79, 0, (v83 << 12) - (_QWORD)v79);
@@ -308,7 +308,7 @@ LABEL_57:
   if ( (int)v29 + 264 < (unsigned int)v29 )
   {
     LowPart = -1073741520;
-    dword_140326780 = 6;
+    dword_1403267C0 = 6;
     goto LABEL_41;
   }
   v30 = v29;
@@ -316,7 +316,7 @@ LABEL_57:
   if ( v31 > v22.QuadPart )
   {
     LowPart = -1073741520;
-    dword_140326780 = 5;
+    dword_1403267C0 = 5;
     goto LABEL_41;
   }
   if ( v31 <= v28 << 12 )
@@ -324,7 +324,7 @@ LABEL_57:
     if ( v31 > v21 )
     {
       LowPart = -1073741520;
-      dword_140326780 = 39;
+      dword_1403267C0 = 39;
       goto LABEL_41;
     }
     v36 = (char *)StartVa + v30;
@@ -347,7 +347,7 @@ LABEL_57:
     }
     if ( LowPart < 0 )
     {
-      dword_140326780 = 8;
+      dword_1403267C0 = 8;
 LABEL_48:
       if ( LowPart != -1073741740 )
       {
@@ -359,7 +359,7 @@ LABEL_48:
     if ( v79 != (PLARGE_INTEGER)0x2000 && (unsigned __int64)v79 < (unsigned __int64)(v30 & 0xFFF) + 264 )
     {
       LowPart = -1073741520;
-      dword_140326780 = 24;
+      dword_1403267C0 = 24;
       goto LABEL_41;
     }
     v34 = v30 & 0xFFF;
@@ -373,14 +373,14 @@ LABEL_81:
     LowPart = MiVerifyImageHeader(v82, v36, StartVa, v35);
     if ( LowPart )
     {
-      dword_140326780 = 9;
+      dword_1403267C0 = 9;
       goto LABEL_41;
     }
     v37 = v82;
     if ( v82[6] >= v82[4] )
     {
       LowPart = -1073741701;
-      dword_140326780 = 16;
+      dword_1403267C0 = 16;
       goto LABEL_41;
     }
     v38 = v81;
@@ -391,7 +391,7 @@ LABEL_81:
     if ( !(((v37[4] & 0xFFF) != 0) + (v37[4] >> 12)) )
     {
       LowPart = -1073741701;
-      dword_140326780 = 10;
+      dword_1403267C0 = 10;
       goto LABEL_41;
     }
     v91 = *((_DWORD *)v36 + 5);
@@ -399,13 +399,13 @@ LABEL_81:
     if ( (v91 & 7) != 0 )
     {
       LowPart = -1073741701;
-      dword_140326780 = 14;
+      dword_1403267C0 = 14;
       goto LABEL_41;
     }
     if ( (unsigned __int16)*v37 )
     {
       LowPart = -1073741701;
-      dword_140326780 = 15;
+      dword_1403267C0 = 15;
       goto LABEL_41;
     }
     v40 = MiLegacyImageArchitecture(v90);
@@ -423,13 +423,13 @@ LABEL_81:
       {
 LABEL_96:
         LowPart = -1073741701;
-        dword_140326780 = 23;
+        dword_1403267C0 = 23;
         goto LABEL_41;
       }
       if ( (v37[15] & 0x140) != 0x140 )
       {
         LowPart = -1073741701;
-        dword_140326780 = 44;
+        dword_1403267C0 = 44;
         goto LABEL_41;
       }
     }
@@ -437,7 +437,7 @@ LABEL_96:
     if ( v41 + v46 + 40 * WORD1(v90) <= v41 )
     {
       LowPart = -1073741701;
-      dword_140326780 = 52;
+      dword_1403267C0 = 52;
       goto LABEL_41;
     }
     v47 = v46 + v41;
@@ -451,7 +451,7 @@ LABEL_96:
     if ( (unsigned int)v49 > v42 )
     {
       LowPart = -1073741701;
-      dword_140326780 = 48;
+      dword_1403267C0 = 48;
       goto LABEL_41;
     }
     if ( v51 > v21 )
@@ -460,14 +460,14 @@ LABEL_96:
       if ( v54 - 1 > 0xFFFFFFFE || (v55 = (v54 + 4095) & 0xFFFFFFFFFFFFF000uLL, v54 > v55) )
       {
         LowPart = -1073741701;
-        dword_140326780 = 53;
+        dword_1403267C0 = 53;
         goto LABEL_41;
       }
       v110 = MiCreateMdl(v55);
       v56 = (int)v110;
       if ( !v110 )
       {
-        dword_140326780 = 18;
+        dword_1403267C0 = 18;
         goto LABEL_67;
       }
       v57 = v48 & 0xFFFFF000;
@@ -484,7 +484,7 @@ LABEL_96:
       }
       if ( LowPart < 0 )
       {
-        dword_140326780 = 19;
+        dword_1403267C0 = 19;
         if ( LowPart == -1073741740 )
           goto LABEL_41;
         v17 = 0LL;
@@ -497,7 +497,7 @@ LABEL_50:
       if ( (unsigned __int64)v79 < v54 )
       {
         LowPart = -1073741701;
-        dword_140326780 = 40;
+        dword_1403267C0 = 40;
         goto LABEL_41;
       }
       v45 = v81;
@@ -515,7 +515,7 @@ LABEL_50:
         LowPart = -1073741701;
         MiLogCreateImageFileMapFailure(v51, v52);
 LABEL_122:
-        dword_140326780 = 22;
+        dword_1403267C0 = 22;
         goto LABEL_41;
       }
       if ( !v45 )
@@ -563,13 +563,13 @@ LABEL_122:
       {
         if ( !(unsigned int)MiChargeCommit((__int64)MiSystemPartition, v65, 0) )
         {
-          dword_140326780 = 35;
+          dword_1403267C0 = 35;
           LowPart = -1073741523;
           goto LABEL_147;
         }
-        _InterlockedExchangeAdd64(&qword_140327918, v65);
+        _InterlockedExchangeAdd64(&qword_140327958, v65);
       }
-      _InterlockedAdd64(&qword_140323BC8, 1uLL);
+      _InterlockedAdd64(&qword_140323C08, 1uLL);
       v12 = (__int64)v85;
       v66 = v82;
       v67 = v85[14];
@@ -611,7 +611,7 @@ LABEL_122:
         ObFastReplaceObject((volatile __int64 *)(v12 + 64), 0LL);
         if ( v73 < 0 )
         {
-          dword_140326780 = 11;
+          dword_1403267C0 = 11;
           *(_DWORD *)(v12 + 56) &= ~0x40000000u;
         }
       }
@@ -625,7 +625,7 @@ LABEL_147:
     v17 = v74;
     goto LABEL_69;
   }
-  dword_140326780 = 7;
+  dword_1403267C0 = 7;
 LABEL_67:
   LowPart = -1073741670;
 LABEL_68:

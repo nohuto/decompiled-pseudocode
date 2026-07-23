@@ -1,9 +1,9 @@
 /*
- * XREFs of PipDmgInitPhaseZero @ 0x1409C8558
+ * XREFs of PipDmgInitPhaseZero @ 0x1409C9558
  * Callers:
- *     PiDmaGuardInitialize @ 0x140181CE8 (PiDmaGuardInitialize.c)
+ *     PiDmaGuardInitialize @ 0x140181E28 (PiDmaGuardInitialize.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 PipDmgInitPhaseZero()
@@ -15,7 +15,7 @@ __int64 PipDmgInitPhaseZero()
   int v5; // [rsp+48h] [rbp+10h] BYREF
 
   v4 = 0;
-  v0 = ((__int64 (__fastcall *)(__int64, __int64, char *, int *))off_140400458[0])(47LL, 1LL, &v4, &v5);
+  v0 = ((__int64 (__fastcall *)(__int64, __int64, char *, int *))off_140401458[0])(47LL, 1LL, &v4, &v5);
   v1 = 0;
   if ( v0 < 0 || (v2 = v4, v5 != 1) )
     v2 = 0;

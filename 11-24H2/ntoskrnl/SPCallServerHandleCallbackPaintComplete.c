@@ -1,10 +1,10 @@
 /*
- * XREFs of SPCallServerHandleCallbackPaintComplete @ 0x140A895A4
+ * XREFs of SPCallServerHandleCallbackPaintComplete @ 0x140A859A4
  * Callers:
- *     sub_140973C40 @ 0x140973C40 (sub_140973C40.c)
+ *     sub_14095C450 @ 0x14095C450 (sub_14095C450.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SPCallServerHandleCallbackPaintComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -119,7 +119,7 @@ LABEL_20:
       {
         *(_DWORD *)(a4 + 4) = 20;
         v14 = 0;
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, 0x14uLL, 0x20534C53u);
         if ( Pool2 )
         {
           v21 = (char **)(a4 + 8);

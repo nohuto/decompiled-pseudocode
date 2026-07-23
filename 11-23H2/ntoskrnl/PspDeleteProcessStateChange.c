@@ -1,11 +1,11 @@
 /*
- * XREFs of PspDeleteProcessStateChange @ 0x1409B10C0
+ * XREFs of PspDeleteProcessStateChange @ 0x1409B12C0
  * Callers:
  *     <none>
  * Callees:
  *     PsThawMultiProcess @ 0x1402044E4 (PsThawMultiProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
  */
 
 LONG_PTR __fastcall PspDeleteProcessStateChange(__int64 a1)

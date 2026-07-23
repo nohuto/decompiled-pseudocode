@@ -2,25 +2,25 @@
  * XREFs of MiProbeAndLockPages @ 0x140040CF0
  * Callers:
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
- *     IopProbeAndLockPages @ 0x1400E106C (IopProbeAndLockPages.c)
- *     CcPrepareMdlWrite @ 0x1400E1A40 (CcPrepareMdlWrite.c)
- *     MmProbeAndLockPagesPrivate @ 0x14010CD94 (MmProbeAndLockPagesPrivate.c)
- *     CcLockSystemCacheBuffer @ 0x140269B24 (CcLockSystemCacheBuffer.c)
- *     VslpLockMdlForTransfer @ 0x14027C488 (VslpLockMdlForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
- *     VslFinalizeSecureImageHash @ 0x14027CA10 (VslFinalizeSecureImageHash.c)
- *     VslValidateDynamicCodePages @ 0x14027CF90 (VslValidateDynamicCodePages.c)
- *     IopProbeAndLockPages_0 @ 0x14027F2E0 (IopProbeAndLockPages_0.c)
- *     IopProbeAndLockPages_1 @ 0x140285A38 (IopProbeAndLockPages_1.c)
- *     KiOpPatchCode @ 0x14029C5E8 (KiOpPatchCode.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1402B9994 (MiPrepareImagePagesForHotPatch.c)
- *     MiGetWorkingSetInfo @ 0x1402BECC4 (MiGetWorkingSetInfo.c)
- *     PspIumAllocatePartitionState @ 0x1402EB508 (PspIumAllocatePartitionState.c)
- *     SmPrepareForFatalPageError @ 0x1403092DC (SmPrepareForFatalPageError.c)
- *     VmProbeAndLockPages @ 0x14030B980 (VmProbeAndLockPages.c)
- *     MiLockRetpolineStubs @ 0x1409F7180 (MiLockRetpolineStubs.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
+ *     CcZeroDataInCache @ 0x1400E0844 (CcZeroDataInCache.c)
+ *     IopProbeAndLockPages @ 0x1400E10EC (IopProbeAndLockPages.c)
+ *     CcPrepareMdlWrite @ 0x1400E1AC0 (CcPrepareMdlWrite.c)
+ *     MmProbeAndLockPagesPrivate @ 0x14010CE14 (MmProbeAndLockPagesPrivate.c)
+ *     CcLockSystemCacheBuffer @ 0x140269D14 (CcLockSystemCacheBuffer.c)
+ *     VslpLockMdlForTransfer @ 0x14027C678 (VslpLockMdlForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x14027C704 (VslpLockPagesForTransfer.c)
+ *     VslFinalizeSecureImageHash @ 0x14027CC00 (VslFinalizeSecureImageHash.c)
+ *     VslValidateDynamicCodePages @ 0x14027D180 (VslValidateDynamicCodePages.c)
+ *     IopProbeAndLockPages_0 @ 0x14027F4D0 (IopProbeAndLockPages_0.c)
+ *     IopProbeAndLockPages_1 @ 0x140285C28 (IopProbeAndLockPages_1.c)
+ *     KiOpPatchCode @ 0x14029C7D8 (KiOpPatchCode.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1402B9B84 (MiPrepareImagePagesForHotPatch.c)
+ *     MiGetWorkingSetInfo @ 0x1402BEEB4 (MiGetWorkingSetInfo.c)
+ *     PspIumAllocatePartitionState @ 0x1402EB6F8 (PspIumAllocatePartitionState.c)
+ *     SmPrepareForFatalPageError @ 0x1403094CC (SmPrepareForFatalPageError.c)
+ *     VmProbeAndLockPages @ 0x14030BB70 (VmProbeAndLockPages.c)
+ *     MiLockRetpolineStubs @ 0x1409F8180 (MiLockRetpolineStubs.c)
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MiProbeAndLockPrepare @ 0x140040790 (MiProbeAndLockPrepare.c)
@@ -28,22 +28,22 @@
  *     MiLockPageLeafPageTable @ 0x140041DD0 (MiLockPageLeafPageTable.c)
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiFaultInProbeAddress @ 0x1400936FC (MiFaultInProbeAddress.c)
- *     MiLockProbePacketWorkingSet @ 0x14009380C (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x140093854 (MiUnlockProbePacketWorkingSet.c)
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiProbePacketContended @ 0x14009659C (MiProbePacketContended.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7468 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiAddMdlTracker @ 0x1402A7FDC (MiAddMdlTracker.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
- *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiFaultInProbeAddress @ 0x14009363C (MiFaultInProbeAddress.c)
+ *     MiLockProbePacketWorkingSet @ 0x14009374C (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x140093794 (MiUnlockProbePacketWorkingSet.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
+ *     MiProbePacketContended @ 0x1400964DC (MiProbePacketContended.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B75C8 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiAddMdlTracker @ 0x1402A81CC (MiAddMdlTracker.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1403106FC (EtwTraceShouldYieldProcessor.c)
+ *     MiReturnFullProcessCommitment @ 0x1405F3998 (MiReturnFullProcessCommitment.c)
  */
 
 void __fastcall MiProbeAndLockPages(__int64 a1, char a2, int a3)
@@ -255,7 +255,7 @@ LABEL_73:
   v21 = v94;
   if ( v86 && (unsigned int)MiPageTableLockIsContended(v94, v86) )
     goto LABEL_8;
-  v22 = (*(_BYTE *)(v21 + 184) & 7) == 2 ? &dword_14043B700 : (LONG *)(v21 + 192);
+  v22 = (*(_BYTE *)(v21 + 184) & 7) == 2 ? &dword_14043C7C0 : (LONG *)(v21 + 192);
   if ( (*v22 & 0x40000000) != 0 )
     goto LABEL_8;
   CurrentPrcb = KeGetCurrentPrcb();
@@ -435,15 +435,15 @@ LABEL_64:
             v50 = 48 * ((v43 >> 12) & 0xFFFFFFFFFLL);
             if ( (*(_QWORD *)(v50 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0 )
               break;
-            v51 = (_QWORD *)qword_14043A188;
+            v51 = (_QWORD *)qword_14043B248;
             v52 = v50 - 0x58000000000LL;
-            if ( qword_14043A188 )
+            if ( qword_14043B248 )
             {
               if ( ((*(_QWORD *)(v52 + 40) >> 54) & 7) == 1 )
               {
                 v53 = (__int64)((unsigned __int128)(v50 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
                 v54 = (v53 >> 63) + v53;
-                if ( qword_14043A188 )
+                if ( qword_14043B248 )
                 {
                   do
                   {
@@ -504,7 +504,7 @@ LABEL_159:
       i = (unsigned int)v31;
       if ( v31 < 0 )
       {
-        ++dword_14043A81C;
+        ++dword_14043B8DC;
         break;
       }
     }
@@ -611,7 +611,7 @@ LABEL_74:
   if ( v7 < 0 )
   {
     MmUnlockPages(v74);
-    ++dword_14043A840;
+    ++dword_14043B900;
   }
   v75 = P;
   if ( P )

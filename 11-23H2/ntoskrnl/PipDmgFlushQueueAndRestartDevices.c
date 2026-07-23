@@ -1,14 +1,14 @@
 /*
- * XREFs of PipDmgFlushQueueAndRestartDevices @ 0x14096B35C
+ * XREFs of PipDmgFlushQueueAndRestartDevices @ 0x14096B55C
  * Callers:
- *     PipDmgConsoleUnlockCallback @ 0x14096B240 (PipDmgConsoleUnlockCallback.c)
- *     PipDmgReevaluateQueue @ 0x14096B43C (PipDmgReevaluateQueue.c)
+ *     PipDmgConsoleUnlockCallback @ 0x14096B440 (PipDmgConsoleUnlockCallback.c)
+ *     PipDmgReevaluateQueue @ 0x14096B63C (PipDmgReevaluateQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PipDmgRequestRestartOnBlockedDevice @ 0x14096B478 (PipDmgRequestRestartOnBlockedDevice.c)
- *     PipDmgRequestUpdateConsoleLockState @ 0x14096B750 (PipDmgRequestUpdateConsoleLockState.c)
- *     PiDmaGuardQueueFlush @ 0x140971F28 (PiDmaGuardQueueFlush.c)
- *     PipDgqFreeEntry @ 0x140972038 (PipDgqFreeEntry.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x14096B678 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     PipDmgRequestUpdateConsoleLockState @ 0x14096B950 (PipDmgRequestUpdateConsoleLockState.c)
+ *     PiDmaGuardQueueFlush @ 0x140972128 (PiDmaGuardQueueFlush.c)
+ *     PipDgqFreeEntry @ 0x140972238 (PipDgqFreeEntry.c)
  */
 
 PVOID *PipDmgFlushQueueAndRestartDevices()

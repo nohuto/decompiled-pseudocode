@@ -1,10 +1,10 @@
 /*
- * XREFs of IoInitializeIrpPriv @ 0x140473960
+ * XREFs of IoInitializeIrpPriv @ 0x14046D0E0
  * Callers:
- *     IoInitializeIrpEx @ 0x140473900 (IoInitializeIrpEx.c)
+ *     IoInitializeIrpEx @ 0x14046D080 (IoInitializeIrpEx.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IovInitializeIrp @ 0x140C47EFC (IovInitializeIrp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IovInitializeIrp @ 0x140C4DF0C (IovInitializeIrp.c)
  */
 
 char *__fastcall IoInitializeIrpPriv(char *a1, __int64 a2, __int64 a3)

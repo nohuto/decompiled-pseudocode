@@ -8,22 +8,23 @@
  *     PspTerminateThreadByPointer @ 0x14076DE90 (PspTerminateThreadByPointer.c)
  */
 
-__int64 __fastcall NtTerminateThread(ULONG_PTR a1, unsigned int a2, __int64 a3)
+NTSTATUS __cdecl NtTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
-  unsigned int v3; // ebx
+  __int64 v2; // r8
+  NTSTATUS v3; // ebx
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PVOID Object; // [rsp+50h] [rbp+8h] BYREF
 
   Object = 0LL;
   v3 = 0;
   CurrentThread = KeGetCurrentThread();
-  if ( a1 )
+  if ( ThreadHandle )
   {
-    if ( a1 == -2LL )
+    if ( ThreadHandle == (HANDLE)-2LL )
       goto LABEL_3;
     result = ObpReferenceObjectByHandleWithTag(
-               a1,
+               (ULONG_PTR)ThreadHandle,
                1,
                (__int64)PsThreadType,
                CurrentThread->PreviousMode,
@@ -32,18 +33,18 @@ __int64 __fastcall NtTerminateThread(ULONG_PTR a1, unsigned int a2, __int64 a3)
                0LL,
                0LL);
     v3 = result;
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       if ( Object != CurrentThread )
       {
-        v3 = PspTerminateThreadByPointer(Object, a2, 0LL);
+        v3 = PspTerminateThreadByPointer(Object, (unsigned int)ExitStatus, 0LL);
         ObfDereferenceObjectWithTag(Object, 0x65547350u);
         return v3;
       }
       ObfDereferenceObjectWithTag(Object, 0x65547350u);
 LABEL_3:
-      LOBYTE(a3) = 1;
-      PspTerminateThreadByPointer(CurrentThread, a2, a3);
+      LOBYTE(v2) = 1;
+      PspTerminateThreadByPointer(CurrentThread, (unsigned int)ExitStatus, v2);
       return v3;
     }
   }
@@ -51,7 +52,7 @@ LABEL_3:
   {
     if ( LODWORD(CurrentThread->ApcState.Process[1].ActiveProcessors.StaticBitmap[8]) != 1 )
       goto LABEL_3;
-    return 3221225691LL;
+    return -1073741605;
   }
   return result;
 }

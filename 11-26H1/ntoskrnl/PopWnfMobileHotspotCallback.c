@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWnfMobileHotspotCallback @ 0x140603EA0
+ * XREFs of PopWnfMobileHotspotCallback @ 0x1406069A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1407C95DC (PopPowerRequestNotifyMobileHotspotChanged.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1407CC67C (PopPowerRequestNotifyMobileHotspotChanged.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfMobileHotspotCallback(__int64 a1, __int64 a2, __int64 a3, int a4)

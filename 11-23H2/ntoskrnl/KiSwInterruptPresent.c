@@ -9,7 +9,7 @@
  *     ExpLicenseWatchInitWorker @ 0x140B6791C (ExpLicenseWatchInitWorker.c)
  *     KeInitAmd64SpecificState @ 0x140B72968 (KeInitAmd64SpecificState.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x140340388 (HvlQueryVsmConnection.c)
+ *     HvlQueryVsmConnection @ 0x140340618 (HvlQueryVsmConnection.c)
  */
 
 __int64 KiSwInterruptPresent()

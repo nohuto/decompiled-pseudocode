@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCompactDebuggerPatchTable @ 0x14067DF60
+ * XREFs of MiCompactDebuggerPatchTable @ 0x14067F160
  * Callers:
- *     MiDeleteDebuggerPatches @ 0x1404ADAF4 (MiDeleteDebuggerPatches.c)
- *     MiApplyDebuggerPatches @ 0x1404F6A1C (MiApplyDebuggerPatches.c)
- *     MmDbgMarkPfnModifiedWorker @ 0x14067FD28 (MmDbgMarkPfnModifiedWorker.c)
+ *     MiDeleteDebuggerPatches @ 0x1404A8408 (MiDeleteDebuggerPatches.c)
+ *     MiApplyDebuggerPatches @ 0x1404F4300 (MiApplyDebuggerPatches.c)
+ *     MmDbgMarkPfnModifiedWorker @ 0x140680F28 (MmDbgMarkPfnModifiedWorker.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall MiCompactDebuggerPatchTable(int a1)
@@ -34,22 +34,22 @@ __int64 __fastcall MiCompactDebuggerPatchTable(int a1)
   unsigned int v20; // eax
   signed __int32 v21[8]; // [rsp+0h] [rbp-48h] BYREF
 
-  result = (unsigned int)dword_140E31AEC;
-  if ( dword_140E31AE8 == dword_140E31AEC )
+  result = (unsigned int)dword_140E31C2C;
+  if ( dword_140E31C28 == dword_140E31C2C )
     return result;
   if ( a1 )
     v3 = 17;
   else
-    v3 = ExAcquireSpinLockExclusive(&dword_140E35AF0);
-  v4 = dword_140E31AEC;
+    v3 = ExAcquireSpinLockExclusive(&dword_140E35C30);
+  v4 = dword_140E31C2C;
 LABEL_6:
-  result = (unsigned int)dword_140E31AE8;
-  if ( v4 != dword_140E31AE8 )
+  result = (unsigned int)dword_140E31C28;
+  if ( v4 != dword_140E31C28 )
   {
     *(&MiState + 6 * v4 + 3628) |= 1u;
     _InterlockedOr(v21, 0);
     v5 = *((_QWORD *)&MiState + 3 * v4 + 1813);
-    v6 = dword_140E35AF8;
+    v6 = dword_140E35C38;
     v7 = *(&MiState + 6 * v4 + 3628) >> 2;
     for ( i = 0LL; ; v6 = ((unsigned int)i + v6) >> 1 )
     {
@@ -59,20 +59,20 @@ LABEL_6:
         {
           if ( *(&MiState + 6 * v4 + 3629) != *(&MiState + 6 * v4 + 3630) )
           {
-            if ( dword_140E35AF4 == 512 )
+            if ( dword_140E35C34 == 512 )
               KeBugCheckEx(0x1Au, 0x2320AuLL, 0LL, 0LL, 0LL);
-            v18 = &MiState + 4 * dword_140E35AF4 + 2 * (unsigned int)dword_140E35AF4 + 5164;
-            dword_140E35AF4 = v18[2] >> 2;
+            v18 = &MiState + 4 * dword_140E35C34 + 2 * (unsigned int)dword_140E35C34 + 5164;
+            dword_140E35C34 = v18[2] >> 2;
             *(_OWORD *)v18 = *(_OWORD *)(&MiState + 6 * v4 + 3626);
             *((_QWORD *)v18 + 2) = *((_QWORD *)&MiState + 3 * v4 + 1815);
             v18[2] &= ~1u;
-            if ( (unsigned int)i < dword_140E35AF8 )
+            if ( (unsigned int)i < dword_140E35C38 )
               memmove(
                 &MiState + 2 * (unsigned int)(i + 1) + 8236,
                 &MiState + 2 * (unsigned int)i + 8236,
-                8LL * (unsigned int)(dword_140E35AF8 - i));
+                8LL * (unsigned int)(dword_140E35C38 - i));
             *((_QWORD *)&MiState + i + 4118) = v18;
-            ++dword_140E35AF8;
+            ++dword_140E35C38;
           }
 LABEL_25:
           *((_QWORD *)&MiState + 3 * v4 + 1813) = 0LL;
@@ -81,7 +81,7 @@ LABEL_25:
           v4 = 0;
           if ( v20 != 255 )
             v4 = v19;
-          dword_140E31AEC = v4;
+          dword_140E31C2C = v4;
           goto LABEL_6;
         }
         v9 = ((unsigned int)i + v6) >> 1;
@@ -104,14 +104,14 @@ LABEL_12:
           v15 = *(_QWORD *)v14;
           if ( *(_DWORD *)(*(_QWORD *)v14 + 12LL) == v12 )
           {
-            v16 = dword_140E35AF8 - 1;
-            dword_140E35AF8 = v16;
+            v16 = dword_140E35C38 - 1;
+            dword_140E35C38 = v16;
             if ( v13 < v16 )
               memmove(v14, &MiState + 2 * v13 + 8238, 8LL * (v16 - v13));
             v17 = *(_DWORD *)(v15 + 8) | 1;
             *(_DWORD *)(v15 + 8) = v17;
-            *(_DWORD *)(v15 + 8) = (4 * dword_140E35AF4) | v17 & 3;
-            dword_140E35AF4 = (v15 - (__int64)&unk_140E31AF0) / 24;
+            *(_DWORD *)(v15 + 8) = (4 * dword_140E35C34) | v17 & 3;
+            dword_140E35C34 = (v15 - (__int64)&unk_140E31C30) / 24;
           }
           else
           {
@@ -123,6 +123,6 @@ LABEL_12:
     }
   }
   if ( !a1 )
-    return MiReleaseSpinLockExclusive(&dword_140E35AF0, v3);
+    return MiReleaseSpinLockExclusive(&dword_140E35C30, v3);
   return result;
 }

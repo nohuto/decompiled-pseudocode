@@ -1,12 +1,12 @@
 /*
- * XREFs of MiClearFilePointer @ 0x140417268
+ * XREFs of MiClearFilePointer @ 0x140270398
  * Callers:
- *     MiCheckControlArea @ 0x14020EFD0 (MiCheckControlArea.c)
- *     MiCheckForControlAreaDeletion @ 0x140210220 (MiCheckForControlAreaDeletion.c)
- *     MiDestroySection @ 0x140417200 (MiDestroySection.c)
+ *     MiDestroySection @ 0x140270330 (MiDestroySection.c)
+ *     MiCheckControlArea @ 0x140338330 (MiCheckControlArea.c)
+ *     MiCheckForControlAreaDeletion @ 0x140339580 (MiCheckForControlAreaDeletion.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiClearFilePointer(__int64 a1)
@@ -20,12 +20,12 @@ void __fastcall MiClearFilePointer(__int64 a1)
   {
     *(_DWORD *)(a1 + 56) = v1 | 0x80000;
     v2 = *(_QWORD *)(a1 + 64);
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2CC00);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2CD40);
     v3 = *(_QWORD **)((v2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x28);
     if ( (v1 & 0x20) != 0 )
       v3[2] = 0LL;
     else
       *v3 = 0LL;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CC00);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CD40);
   }
 }

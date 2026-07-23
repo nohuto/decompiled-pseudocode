@@ -1,11 +1,11 @@
 /*
- * XREFs of AslRegistryGetUInt32_UStr @ 0x140A54500
+ * XREFs of AslRegistryGetUInt32_UStr @ 0x140A547B0
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140A52770 (SdbResolveDatabaseEx.c)
- *     AslRegistryGetUInt32 @ 0x140A54480 (AslRegistryGetUInt32.c)
+ *     SdbResolveDatabaseEx @ 0x140A52A20 (SdbResolveDatabaseEx.c)
+ *     AslRegistryGetUInt32 @ 0x140A54730 (AslRegistryGetUInt32.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */
 

@@ -61,10 +61,13 @@ LABEL_14:
   {
 LABEL_6:
     KxReleaseSpinLock((volatile signed __int64 *)(AdapterInformationInternal + 104));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -93,10 +96,10 @@ LABEL_6:
   *v19 = v18;
   *(_QWORD *)(v18 + 8) = v19;
   KxReleaseSpinLock((volatile signed __int64 *)(AdapterInformationInternal + 104));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v20 = v22->SchedulerAssist;

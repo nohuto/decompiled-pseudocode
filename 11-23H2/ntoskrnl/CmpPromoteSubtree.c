@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpPromoteSubtree @ 0x140A26BB0
+ * XREFs of CmpPromoteSubtree @ 0x140A26E60
  * Callers:
- *     CmSaveKey @ 0x140A0B990 (CmSaveKey.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
+ *     CmSaveKey @ 0x140A0BC40 (CmSaveKey.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CmpInitializeKeyNodeStack @ 0x1407D1C5C (CmpInitializeKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1D10 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20398 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpSubtreeEnumeratorCleanup @ 0x140A20620 (CmpSubtreeEnumeratorCleanup.c)
- *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140A206A0 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A20838 (CmpSubtreeEnumeratorStartForKcbStack.c)
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A20874 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
- *     CmpKeyEnumStackNotifyPromotion @ 0x140A24124 (CmpKeyEnumStackNotifyPromotion.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A25DD4 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140A26218 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A268F0 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A26A8C (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407D1F2C (CmpInitializeKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1FE0 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140A20648 (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x140A208D0 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140A20950 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A20AE8 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A20B24 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpKeyEnumStackNotifyPromotion @ 0x140A243D4 (CmpKeyEnumStackNotifyPromotion.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A26084 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140A264C8 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A26BA0 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A26D3C (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
  */
 
 __int64 __fastcall CmpPromoteSubtree(__int64 a1, __int16 *a2)

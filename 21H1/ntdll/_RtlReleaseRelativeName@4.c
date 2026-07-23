@@ -7,21 +7,18 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __stdcall RtlReleaseRelativeName(int a1)
+void __cdecl RtlReleaseRelativeName(PRTL_RELATIVE_NAME_U RelativeName)
 {
-  int v1; // esi
-  int result; // eax
+  PRTLP_CURDIR_REF CurDirRef; // esi
 
-  v1 = *(_DWORD *)(a1 + 12);
-  if ( v1 )
+  CurDirRef = RelativeName->CurDirRef;
+  if ( CurDirRef )
   {
-    result = _InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF);
-    if ( !result )
+    if ( !_InterlockedExchangeAdd(&CurDirRef->ReferenceCount, 0xFFFFFFFF) )
     {
-      NtClose(*(HANDLE *)(v1 + 4));
-      result = RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v1);
+      NtClose(CurDirRef->DirectoryHandle);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, CurDirRef);
     }
-    *(_DWORD *)(a1 + 12) = 0;
+    RelativeName->CurDirRef = 0;
   }
-  return result;
 }

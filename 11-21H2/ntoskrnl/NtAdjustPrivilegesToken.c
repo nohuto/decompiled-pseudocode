@@ -1,17 +1,17 @@
 /*
  * XREFs of NtAdjustPrivilegesToken @ 0x14079DC50
  * Callers:
- *     RtlpSysVolTakeOwnership @ 0x1409BB4D8 (RtlpSysVolTakeOwnership.c)
+ *     sub_1409BB4D8 @ 0x1409BB4D8 (sub_1409BB4D8.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1406651C8 (SeReleaseLuidAndAttributesArray.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_1406651C8 @ 0x1406651C8 (sub_1406651C8.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
  *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     SepAdjustPrivileges @ 0x14079E024 (SepAdjustPrivileges.c)
- *     SeCaptureLuidAndAttributesArray @ 0x14079E674 (SeCaptureLuidAndAttributesArray.c)
+ *     sub_14079E024 @ 0x14079E024 (sub_14079E024.c)
+ *     sub_14079E674 @ 0x14079E674 (sub_14079E674.c)
  *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
  */
 
@@ -23,7 +23,7 @@ NTSTATUS __stdcall NtAdjustPrivilegesToken(
         PTOKEN_PRIVILEGES PreviousState,
         PULONG ReturnLength)
 {
-  char PreviousMode; // r14
+  char v10; // r14
   __int64 v11; // rsi
   char *v12; // rcx
   PTOKEN_PRIVILEGES v13; // rbx
@@ -59,9 +59,9 @@ NTSTATUS __stdcall NtAdjustPrivilegesToken(
   v36 = 0;
   if ( !DisableAllPrivileges && !NewState )
     return -1073741811;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v28 = PreviousMode;
-  if ( PreviousMode )
+  v10 = *((_BYTE *)KeGetCurrentThread() + 562);
+  v28 = v10;
+  if ( v10 )
   {
     if ( DisableAllPrivileges )
     {
@@ -92,7 +92,7 @@ NTSTATUS __stdcall NtAdjustPrivilegesToken(
 LABEL_16:
     if ( !DisableAllPrivileges )
     {
-      result = SeCaptureLuidAndAttributesArray(
+      result = sub_14079E674(
                  NewState->Privileges,
                  (int)Object,
                  (int)HandleInformation,
@@ -113,54 +113,39 @@ LABEL_16:
   }
 LABEL_18:
   v30 = 0LL;
-  v15 = ObReferenceObjectByHandle(
-          TokenHandle,
-          v13 != 0LL ? 40 : 32,
-          (POBJECT_TYPE)SeTokenObjectType,
-          PreviousMode,
-          &v30,
-          0LL);
+  v15 = ObReferenceObjectByHandle(TokenHandle, v13 != 0LL ? 40 : 32, (POBJECT_TYPE)SeTokenObjectType, v10, &v30, 0LL);
   if ( v15 < 0 )
   {
     if ( v33 )
-      SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
+      sub_1406651C8((void *)v33, v10);
     return v15;
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
+    --*((_WORD *)CurrentThread + 242);
     v17 = (PERESOURCE *)v30;
     ExAcquireResourceExclusiveLite(*((PERESOURCE *)v30 + 6), 1u);
     _InterlockedOr(v24, 0);
     v18 = v33;
     LOBYTE(v19) = DisableAllPrivileges;
     v20 = v30;
-    SepAdjustPrivileges(
-      (_DWORD)v30,
-      0,
-      v19,
-      PrivilegeCount,
-      v33,
-      (__int64)v13,
-      (__int64)&v31,
-      (__int64)&v32,
-      (__int64)&v36);
+    sub_14079E024((_DWORD)v30, 0, v19, PrivilegeCount, v33, (__int64)v13, (__int64)&v31, (__int64)&v32, (__int64)&v36);
     if ( v13 && (*ReturnLength = v31, v31 > BufferLength) )
     {
       _InterlockedOr(v24, 0);
       ExReleaseResourceLite(v17[6]);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      sub_1402F9540((__int64)KeGetCurrentThread());
       ObfDereferenceObject(v30);
       if ( v33 )
-        SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
+        sub_1406651C8((void *)v33, v10);
       return -1073741789;
     }
     else
     {
       LOBYTE(v22) = DisableAllPrivileges;
       LOBYTE(v21) = 1;
-      v34 = SepAdjustPrivileges(
+      v34 = sub_14079E024(
               (_DWORD)v20,
               v21,
               v22,
@@ -181,13 +166,13 @@ LABEL_18:
         }
       }
       if ( v36 )
-        v20[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+        v20[7] = _InterlockedIncrement64(&qword_140C0DA70);
       _InterlockedOr(v24, 0);
       ExReleaseResourceLite(v17[6]);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      sub_1402F9540((__int64)KeGetCurrentThread());
       ObfDereferenceObject(v30);
       if ( v33 )
-        SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
+        sub_1406651C8((void *)v33, v10);
       return v34;
     }
   }

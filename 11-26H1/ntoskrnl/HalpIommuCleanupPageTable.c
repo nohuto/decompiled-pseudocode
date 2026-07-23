@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuCleanupPageTable @ 0x1405A0728
+ * XREFs of HalpIommuCleanupPageTable @ 0x1405A2F38
  * Callers:
- *     HalpIommuFreeDmaDomain @ 0x14058D8E8 (HalpIommuFreeDmaDomain.c)
+ *     HalpIommuFreeDmaDomain @ 0x140590068 (HalpIommuFreeDmaDomain.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall HalpIommuCleanupPageTable(__int64 a1)

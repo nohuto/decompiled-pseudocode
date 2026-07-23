@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsChunkComputeCost @ 0x1400BD5D0
+ * XREFs of RtlpHpVsChunkComputeCost @ 0x1400BD510
  * Callers:
- *     RtlpHpVsFreeChunkRemove @ 0x1400BD320 (RtlpHpVsFreeChunkRemove.c)
- *     RtlpHpVsFreeChunkInsert @ 0x1400BD480 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsChunkDecommit @ 0x1400BE800 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x1400BD260 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1400BD3C0 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkDecommit @ 0x1400BE740 (RtlpHpVsChunkDecommit.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDestroyProcessParameters @ 0x180085270
+ * XREFs of RtlDestroyProcessParameters @ 0x180085260
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlDestroyProcessParameters(unsigned __int64 a1)
+NTSTATUS __cdecl RtlDestroyProcessParameters(PRTL_USER_PROCESS_PARAMETERS ProcessParameters)
 {
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
-  return 0LL;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ProcessParameters);
+  return 0;
 }

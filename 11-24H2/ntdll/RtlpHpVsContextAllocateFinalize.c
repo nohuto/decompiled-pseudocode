@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsContextAllocateFinalize @ 0x18011BB74
+ * XREFs of RtlpHpVsContextAllocateFinalize @ 0x180119DA4
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x1800ED0DC (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x1800E80AC (RtlpHpVsContextAllocate.c)
  * Callees:
- *     RtlpHpVsChunkSetUnusedBytes @ 0x1800DFC00 (RtlpHpVsChunkSetUnusedBytes.c)
- *     RtlHeapZero @ 0x180167000 (RtlHeapZero.c)
+ *     RtlpHpVsChunkSetUnusedBytes @ 0x1800DAD70 (RtlpHpVsChunkSetUnusedBytes.c)
+ *     RtlHeapZero @ 0x1801653C0 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpVsContextAllocateFinalize(__int64 a1, __int64 a2, unsigned int a3, char a4)

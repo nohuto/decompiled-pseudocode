@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRecordPowerButton @ 0x14066A52C
+ * XREFs of PopRecordPowerButton @ 0x14066A610
  * Callers:
- *     PdcPoRecordButton @ 0x14066FBA8 (PdcPoRecordButton.c)
+ *     PdcPoRecordButton @ 0x14066FC8C (PdcPoRecordButton.c)
  * Callees:
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     RtlGetSetBootStatusData @ 0x140543314 (RtlGetSetBootStatusData.c)
- *     RtlLockBootStatusData @ 0x1405478FC (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x140547DAC (RtlUnlockBootStatusData.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     RtlGetSetBootStatusData @ 0x140543854 (RtlGetSetBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140547E3C (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x1405482EC (RtlUnlockBootStatusData.c)
  */
 
 void PopRecordPowerButton()

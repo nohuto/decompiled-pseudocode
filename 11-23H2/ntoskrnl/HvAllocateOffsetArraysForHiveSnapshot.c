@@ -1,8 +1,8 @@
 /*
- * XREFs of HvAllocateOffsetArraysForHiveSnapshot @ 0x140A259C8
+ * XREFs of HvAllocateOffsetArraysForHiveSnapshot @ 0x140A25C78
  * Callers:
- *     CmDumpKeyToFile @ 0x140A0AAA4 (CmDumpKeyToFile.c)
- *     CmpFlushBackupHive @ 0x140A1A8E8 (CmpFlushBackupHive.c)
+ *     CmDumpKeyToFile @ 0x140A0AD54 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x140A1AB98 (CmpFlushBackupHive.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

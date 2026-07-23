@@ -2,14 +2,14 @@
  * XREFs of MiPruneCachedStackList @ 0x14021EB00
  * Callers:
  *     MiAdjustCachedStackList @ 0x14021E9F0 (MiAdjustCachedStackList.c)
- *     MiEmptyKernelStackCache @ 0x140644790 (MiEmptyKernelStackCache.c)
+ *     MiEmptyKernelStackCache @ 0x140644CE0 (MiEmptyKernelStackCache.c)
  * Callees:
  *     MiDeleteCachedKernelStack @ 0x14021EB64 (MiDeleteCachedKernelStack.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     MiDeleteCachedKernelShadowStack @ 0x140644354 (MiDeleteCachedKernelShadowStack.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x1406448A4 (MiDeleteCachedKernelShadowStack.c)
  */
 
-__int64 __fastcall MiPruneCachedStackList(__int64 a1, union _SLIST_HEADER *a2, unsigned int a3, int a4)
+__int64 __fastcall MiPruneCachedStackList(__int64 a1, _SLIST_HEADER *a2, unsigned int a3, int a4)
 {
   __int64 result; // rax
   PSLIST_ENTRY v9; // rax

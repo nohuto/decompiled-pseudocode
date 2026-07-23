@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegTryToAppendLanguageName @ 0x180076AF4
+ * XREFs of RtlpMuiRegTryToAppendLanguageName @ 0x180076AE4
  * Callers:
- *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147BC (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
+ *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147AC (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
  *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x1800F4A68 (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlpLangNameInMultiSzString_Size @ 0x18003E708 (RtlpLangNameInMultiSzString_Size.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlpInitAndCallLcidToCultureName @ 0x180076C6C (RtlpInitAndCallLcidToCultureName.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlpLangNameInMultiSzString_Size @ 0x18003E6F8 (RtlpLangNameInMultiSzString_Size.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlpInitAndCallLcidToCultureName @ 0x180076C5C (RtlpInitAndCallLcidToCultureName.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -21,16 +21,16 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
 {
   unsigned int v5; // ebx
   __int64 v10; // rbp
-  unsigned __int64 Heap; // r12
+  PVOID Heap; // r12
   __int16 v12; // ax
   unsigned int v13; // edi
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = 0;
   if ( !a2 || !a1 || !a3 )
     return 3221225485LL;
   v10 = *a3;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( Heap )
   {
     v12 = *(_WORD *)(a2 + 6);
@@ -61,7 +61,7 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
 LABEL_12:
         *a3 = v13;
 LABEL_13:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         return v5;
       }
     }

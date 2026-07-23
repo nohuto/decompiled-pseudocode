@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall NtContinue(__int64 a1, unsigned __int8 a2)
+NTSTATUS __cdecl NtContinue(PCONTEXT ContextRecord, BOOLEAN TestAlert)
 {
-  return NtContinueEx(a1, a2);
+  return NtContinueEx(ContextRecord, (PVOID)TestAlert);
 }

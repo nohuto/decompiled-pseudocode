@@ -1,23 +1,23 @@
 /*
- * XREFs of DrvDbOpenObjectRegKey @ 0x140876BB8
+ * XREFs of DrvDbOpenObjectRegKey @ 0x140876DF8
  * Callers:
- *     DrvDbCreateDatabaseNode @ 0x1408132C0 (DrvDbCreateDatabaseNode.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140865FF0 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866384 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x140875FD8 (DrvDbOpenDriverInfFileRegKey.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408764E8 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x14087692C (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x140876974 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140A6B6EC (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x140A6C274 (DrvDbGetObjectDatabaseNodeName.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140A6C968 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbOpenDriverFileRegKey @ 0x140A6C9B0 (DrvDbOpenDriverFileRegKey.c)
+ *     DrvDbCreateDatabaseNode @ 0x140813590 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140866230 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408665C4 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x140876218 (DrvDbOpenDriverInfFileRegKey.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140876728 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x140876B6C (DrvDbOpenDriverPackageRegKey.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x140876BB4 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140A6B99C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x140A6C524 (DrvDbGetObjectDatabaseNodeName.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140A6CC18 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbOpenDriverFileRegKey @ 0x140A6CC60 (DrvDbOpenDriverFileRegKey.c)
  * Callees:
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegCreateTree @ 0x140797964 (_PnpCtxRegCreateTree.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140876DBC (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140876E58 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbGetObjectDatabaseNode @ 0x140877010 (DrvDbGetObjectDatabaseNode.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegCreateTree @ 0x140797B54 (_PnpCtxRegCreateTree.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140876FFC (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140877098 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x140877250 (DrvDbGetObjectDatabaseNode.c)
  */
 
 __int64 DrvDbOpenObjectRegKey(__int64 *a1, __int64 *a2, unsigned int a3, ...)

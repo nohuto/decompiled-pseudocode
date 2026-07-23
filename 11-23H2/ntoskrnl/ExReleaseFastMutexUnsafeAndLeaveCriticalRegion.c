@@ -1,10 +1,10 @@
 /*
- * XREFs of ExReleaseFastMutexUnsafeAndLeaveCriticalRegion @ 0x1403025C0
+ * XREFs of ExReleaseFastMutexUnsafeAndLeaveCriticalRegion @ 0x140302850
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
  */
 
 _QWORD *__fastcall ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(struct _FAST_MUTEX *a1)

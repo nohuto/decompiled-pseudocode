@@ -1,30 +1,32 @@
 /*
- * XREFs of PiUEventBroadcastPortsChangedEvent @ 0x140959B3C
+ * XREFs of PiUEventBroadcastPortsChangedEvent @ 0x140959D3C
  * Callers:
- *     PiUEventBroadcastEventWorker @ 0x1407AA0B0 (PiUEventBroadcastEventWorker.c)
+ *     PiUEventBroadcastEventWorker @ 0x1407AA2A0 (PiUEventBroadcastEventWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x1402C1E30 (MmGetSessionById.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MmGetSessionById @ 0x1402C20C0 (MmGetSessionById.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
  */
 
 int __fastcall PiUEventBroadcastPortsChangedEvent(unsigned int a1, __int128 *a2, __int64 a3)
 {
   __int64 SessionById; // rax
   void *v5; // rbx
+  unsigned int ExplicitScope; // [rsp+48h] [rbp+7h] BYREF
   unsigned int v8; // [rsp+50h] [rbp+Fh] BYREF
   int v9; // [rsp+54h] [rbp+13h] BYREF
   HANDLE Handle; // [rsp+58h] [rbp+17h] BYREF
-  __int128 v11; // [rsp+60h] [rbp+1Fh] BYREF
+  __int128 Buffer; // [rsp+60h] [rbp+1Fh] BYREF
   _OWORD v12[2]; // [rsp+70h] [rbp+2Fh] BYREF
 
   Handle = 0LL;
   v9 = 0;
-  v11 = 0LL;
+  ExplicitScope = a1;
+  Buffer = 0LL;
   memset(v12, 0, sizeof(v12));
   LODWORD(SessionById) = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, a3, 17, 0, 131097, 0, (__int64)&Handle, 0LL);
   if ( (int)SessionById >= 0 )
@@ -33,18 +35,18 @@ int __fastcall PiUEventBroadcastPortsChangedEvent(unsigned int a1, __int128 *a2,
     LODWORD(SessionById) = RegRtlQueryValue(Handle, L"PortName", &v9, v12, &v8);
     if ( (int)SessionById >= 0 )
     {
-      v11 = *a2;
-      if ( a1 == -1 )
+      Buffer = *a2;
+      if ( ExplicitScope == -1 )
       {
-        LODWORD(SessionById) = ZwUpdateWnfStateData((__int64)&WNF_PNPA_PORTS_CHANGED, (__int64)&v11);
+        LODWORD(SessionById) = ZwUpdateWnfStateData(&WNF_PNPA_PORTS_CHANGED, &Buffer, 0x30u, 0LL, 0LL, 0, 0);
       }
       else
       {
-        SessionById = MmGetSessionById(a1);
+        SessionById = MmGetSessionById(ExplicitScope);
         v5 = (void *)SessionById;
         if ( SessionById )
         {
-          ZwUpdateWnfStateData((__int64)&WNF_PNPA_PORTS_CHANGED_SESSION, (__int64)&v11);
+          ZwUpdateWnfStateData(&WNF_PNPA_PORTS_CHANGED_SESSION, &Buffer, 0x30u, 0LL, &ExplicitScope, 0, 0);
           LODWORD(SessionById) = ObfDereferenceObject(v5);
         }
       }

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140611640
+ * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x1406116F4
  * Callers:
- *     CmpStartCLFSLog @ 0x1404DAE78 (CmpStartCLFSLog.c)
- *     CmpAddRemoveRMLogContainer @ 0x140605258 (CmpAddRemoveRMLogContainer.c)
+ *     CmpStartCLFSLog @ 0x1404BE47C (CmpStartCLFSLog.c)
+ *     CmpAddRemoveRMLogContainer @ 0x14060530C (CmpAddRemoveRMLogContainer.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     sprintf_s @ 0x140152AEC (sprintf_s.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1401530AC (sprintf_s.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     PsDisableImpersonation @ 0x140413A60 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x140413BB0 (PsRestoreImpersonation.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     PsDisableImpersonation @ 0x140412920 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x140412A70 (PsRestoreImpersonation.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
@@ -35,8 +35,8 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
   NTSTATUS v16; // eax
   UNICODE_STRING Destination; // [rsp+20h] [rbp-91h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-81h] BYREF
-  STRING SourceString; // [rsp+40h] [rbp-71h] BYREF
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+50h] [rbp-61h] BYREF
+  _STRING SourceString; // [rsp+40h] [rbp-71h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+50h] [rbp-61h] BYREF
   char v21[48]; // [rsp+60h] [rbp-51h] BYREF
   char DstBuf[16]; // [rsp+90h] [rbp-21h] BYREF
 

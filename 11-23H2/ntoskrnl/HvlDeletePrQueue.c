@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlDeletePrQueue @ 0x140542C70
+ * XREFs of HvlDeletePrQueue @ 0x140543330
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x14045F516 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x14045F916 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDeletePrQueue(int a1)

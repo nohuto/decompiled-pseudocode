@@ -1,5 +1,5 @@
 /*
- * XREFs of WdHwpWritePortUChar @ 0x1405A5070
+ * XREFs of WdHwpWritePortUChar @ 0x1405A7880
  * Callers:
  *     <none>
  * Callees:

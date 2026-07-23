@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlConvertLuidToUlonglong(__int64 a1)
+ULONGLONG __cdecl RtlConvertLuidToUlonglong(LUID Luid)
 {
-  return *(_QWORD *)a1;
+  return **(_QWORD **)&Luid;
 }

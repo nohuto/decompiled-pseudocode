@@ -1,13 +1,13 @@
 /*
- * XREFs of TlgRegisterAggregateProvider @ 0x14077B9B0
+ * XREFs of TlgRegisterAggregateProvider @ 0x14077E5F0
  * Callers:
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
- *     CmFcInitSystem3 @ 0x140D0A8C4 (CmFcInitSystem3.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
+ *     CmFcInitSystem3 @ 0x140D10B94 (CmFcInitSystem3.c)
  * Callees:
- *     TlgRegisterAggregateProviderEx @ 0x140B6E47C (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140B7192C (TlgRegisterAggregateProviderEx.c)
  */
 
 __int64 __fastcall TlgRegisterAggregateProvider(__int64 a1)

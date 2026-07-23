@@ -31,13 +31,17 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-int __fastcall BcdSetElementDataWithFlags(void *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+NTSTATUS __cdecl BcdSetElementDataWithFlags(
+        HANDLE BcdObjectHandle,
+        ULONG BcdElement,
+        BCD_FLAGS BcdFlags,
+        PVOID Buffer,
+        ULONG BufferSize)
 {
-  unsigned int v6; // esi
   void *v8; // rdi
-  int result; // eax
+  NTSTATUS result; // eax
   int v10; // eax
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   int v12; // eax
   int v13; // eax
   PVOID v14; // r15
@@ -47,32 +51,31 @@ int __fastcall BcdSetElementDataWithFlags(void *a1, __int64 a2, __int64 a3, __in
   char IsOfflineHandle; // [rsp+31h] [rbp-40h]
   int v19; // [rsp+34h] [rbp-3Dh] BYREF
   void *v20; // [rsp+38h] [rbp-39h] BYREF
-  int v21; // [rsp+40h] [rbp-31h] BYREF
+  ULONG v21; // [rsp+40h] [rbp-31h] BYREF
   void *v22; // [rsp+48h] [rbp-29h] BYREF
   PVOID P; // [rsp+50h] [rbp-21h] BYREF
   wchar_t DstBuf[24]; // [rsp+58h] [rbp-19h] BYREF
 
-  v21 = a2;
+  v21 = BcdElement;
   v19 = 0;
-  v6 = a2;
-  if ( !a4 && a5 )
+  if ( !Buffer && BufferSize )
     return -1073741811;
   v20 = 0LL;
   v8 = 0LL;
   v17 = 0;
   v22 = 0LL;
   P = 0LL;
-  if ( !a5 )
+  if ( !BufferSize )
   {
-    BiDeleteElement(a1, a2);
+    BiDeleteElement(BcdObjectHandle, BcdElement);
     return 0;
   }
-  IsOfflineHandle = BiIsOfflineHandle((char)a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdObjectHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    BiLogMessage(2LL, L"Setting element %08x", v6);
-    v10 = BiOpenKey((__int64)a1, L"Elements", 0x2001Du, &v20);
+    BiLogMessage(2LL, L"Setting element %08x", BcdElement);
+    v10 = BiOpenKey((__int64)BcdObjectHandle, L"Elements", 0x2001Du, &v20);
     v11 = v10;
     if ( v10 < 0 )
     {
@@ -80,7 +83,7 @@ int __fastcall BcdSetElementDataWithFlags(void *a1, __int64 a2, __int64 a3, __in
     }
     else
     {
-      if ( ultow_s(v6, DstBuf, 0x16uLL, 16) )
+      if ( ultow_s(BcdElement, DstBuf, 0x16uLL, 16) )
       {
         v11 = -1073741823;
 LABEL_16:
@@ -88,8 +91,8 @@ LABEL_16:
           BiCloseKey(v20);
         if ( v11 >= 0 )
         {
-          if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(a1, &v21) )
-            BiSetFirmwareModifiedFromObject(a1);
+          if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(BcdObjectHandle, &v21) )
+            BiSetFirmwareModifiedFromObject(BcdObjectHandle);
         }
         BiReleaseBcdSyncMutant(IsOfflineHandle);
         return v11;
@@ -104,7 +107,7 @@ LABEL_16:
       else
       {
         v16 = &v19;
-        v13 = BiConvertElementToRegistryData(v6, a4, a5);
+        v13 = BiConvertElementToRegistryData(BcdElement, Buffer, BufferSize);
         v8 = v22;
         v11 = v13;
         v14 = P;
@@ -114,7 +117,7 @@ LABEL_16:
         }
         else
         {
-          BiConvertElementFormatToValueType(HIBYTE(v6) & 0xF);
+          BiConvertElementFormatToValueType(HIBYTE(BcdElement) & 0xF);
           LODWORD(v16) = v19;
           v15 = BiSetRegistryValue(v8, L"Element", 0LL);
           v11 = v15;

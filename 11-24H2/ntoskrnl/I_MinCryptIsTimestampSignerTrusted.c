@@ -1,9 +1,9 @@
 /*
- * XREFs of I_MinCryptIsTimestampSignerTrusted @ 0x1408259F4
+ * XREFs of I_MinCryptIsTimestampSignerTrusted @ 0x1408261C4
  * Callers:
- *     MincryptIsTimestampBeforeRevocation @ 0x140825D58 (MincryptIsTimestampBeforeRevocation.c)
+ *     MincryptIsTimestampBeforeRevocation @ 0x140826528 (MincryptIsTimestampBeforeRevocation.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 char __fastcall I_MinCryptIsTimestampSignerTrusted(unsigned int a1, __int64 a2)
@@ -23,11 +23,11 @@ char __fastcall I_MinCryptIsTimestampSignerTrusted(unsigned int a1, __int64 a2)
 
   if ( !a1 )
     return 0;
-  if ( !qword_140FD7098 )
+  if ( !qword_140FD8098 )
     return 0;
-  if ( !*(_DWORD *)(qword_140FD7098 + 160) )
+  if ( !*(_DWORD *)(qword_140FD8098 + 160) )
     return 0;
-  v3 = *(_QWORD *)(qword_140FD7098 + 168);
+  v3 = *(_QWORD *)(qword_140FD8098 + 168);
   v4 = 0;
   v5 = *(_DWORD *)(a2 + 48);
   v6 = (unsigned int *)(v3 + a1);

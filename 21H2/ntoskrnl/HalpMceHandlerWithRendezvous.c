@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMceHandlerWithRendezvous @ 0x1404BAF18
+ * XREFs of HalpMceHandlerWithRendezvous @ 0x1404BB158
  * Callers:
- *     HalpHandleMachineCheck @ 0x1404BA1EC (HalpHandleMachineCheck.c)
+ *     HalpHandleMachineCheck @ 0x1404BA42C (HalpHandleMachineCheck.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     HalpMcaReportError @ 0x1404BAA90 (HalpMcaReportError.c)
- *     HalpMceBarrierWait @ 0x1404BABE8 (HalpMceBarrierWait.c)
- *     HalpMceHandler @ 0x1404BACB0 (HalpMceHandler.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpMcaReportError @ 0x1404BACD0 (HalpMcaReportError.c)
+ *     HalpMceBarrierWait @ 0x1404BAE28 (HalpMceBarrierWait.c)
+ *     HalpMceHandler @ 0x1404BAEF0 (HalpMceHandler.c)
  */
 
 __int64 __fastcall HalpMceHandlerWithRendezvous(__int64 a1)

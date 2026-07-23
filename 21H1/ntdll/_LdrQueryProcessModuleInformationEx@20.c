@@ -81,7 +81,7 @@ int __fastcall LdrQueryProcessModuleInformationEx(
     if ( v11 )
       *v11 = v8;
     if ( (a2 & 2) != 0 )
-      ((void (__thiscall *)(int (__stdcall *)()))LdrQueryModuleInfoLocalLoaderLock)(LdrQueryModuleInfoLocalLoaderLock);
+      ((void (__thiscall *)(NTSTATUS (__stdcall *)()))LdrQueryModuleInfoLocalLoaderLock)(LdrQueryModuleInfoLocalLoaderLock);
     ms_exc.registration.TryLevel = 0;
     v21 = 0;
     i = ((int (__thiscall *)(int (__stdcall *)(int, _DWORD *, _DWORD *), _DWORD *, int *, _DWORD *))LdrQueryInLoadOrderModuleList)(
@@ -154,7 +154,7 @@ LABEL_30:
     LOBYTE(a2) = v25;
     if ( (v25 & 2) != 0 )
     {
-      ((void (__thiscall *)(int (__thiscall *)(void *), int))LdrQueryModuleInfoLocalLoaderUnlock)(
+      ((void (__thiscall *)(NTSTATUS (__thiscall *)(void *), int))LdrQueryModuleInfoLocalLoaderUnlock)(
         LdrQueryModuleInfoLocalLoaderUnlock,
         1261629193);
       LOBYTE(a2) = v25;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqQueryGetNextIoctlInfo @ 0x1409F9D80
+ * XREFs of PiDqQueryGetNextIoctlInfo @ 0x1409F26F0
  * Callers:
- *     PiDqQueryCompletePendedIrp @ 0x1408D3D18 (PiDqQueryCompletePendedIrp.c)
- *     PiDqIrpQueryGetResult @ 0x1409F93D8 (PiDqIrpQueryGetResult.c)
- *     PiDqIrpQueryCreate @ 0x1409F9A10 (PiDqIrpQueryCreate.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1408D1708 (PiDqQueryCompletePendedIrp.c)
+ *     PiDqIrpQueryGetResult @ 0x1409F1D48 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x1409F2380 (PiDqIrpQueryCreate.c)
  * Callees:
  *     <none>
  */

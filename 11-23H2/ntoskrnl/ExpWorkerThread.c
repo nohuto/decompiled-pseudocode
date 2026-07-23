@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpWorkerThread @ 0x1402BEB90
+ * XREFs of ExpWorkerThread @ 0x1402BEE20
  * Callers:
  *     <none>
  * Callees:
  *     KeSetUserAffinityThread @ 0x1402028C4 (KeSetUserAffinityThread.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     KeSetKernelStackSwapEnable @ 0x1402A8CB0 (KeSetKernelStackSwapEnable.c)
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KxReenterRetpolinedCode @ 0x140573DB4 (KxReenterRetpolinedCode.c)
- *     EtwTraceThreadWorkItem @ 0x1405FD6F0 (EtwTraceThreadWorkItem.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     KeSetKernelStackSwapEnable @ 0x1402A8F40 (KeSetKernelStackSwapEnable.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
+ *     PsGetPagePriorityThread @ 0x1402E17B0 (PsGetPagePriorityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KxReenterRetpolinedCode @ 0x1405742F4 (KxReenterRetpolinedCode.c)
+ *     EtwTraceThreadWorkItem @ 0x1405FDC60 (EtwTraceThreadWorkItem.c)
  */
 
 BOOLEAN __fastcall ExpWorkerThread(__int64 a1)
@@ -68,7 +68,7 @@ BOOLEAN __fastcall ExpWorkerThread(__int64 a1)
   struct _KTHREAD *v45; // [rsp+68h] [rbp-98h]
   __int64 v46; // [rsp+70h] [rbp-90h]
   __int128 v47; // [rsp+78h] [rbp-88h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-78h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-78h] BYREF
   _QWORD v49[34]; // [rsp+A0h] [rbp-60h] BYREF
 
   v1 = a1;

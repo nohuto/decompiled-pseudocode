@@ -1,11 +1,11 @@
 /*
- * XREFs of PsIumEnableOnDemandDebugWithResponse @ 0x1409B6268
+ * XREFs of PsIumEnableOnDemandDebugWithResponse @ 0x1409B6468
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     VslEnableOnDemandDebugWithResponse @ 0x14094220C (VslEnableOnDemandDebugWithResponse.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     VslEnableOnDemandDebugWithResponse @ 0x14094240C (VslEnableOnDemandDebugWithResponse.c)
  */
 
 __int64 __fastcall PsIumEnableOnDemandDebugWithResponse(ULONG_PTR a1, const void *a2, unsigned int a3)

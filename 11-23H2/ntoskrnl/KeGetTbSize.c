@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitializeTbFlushing @ 0x140B5C038 (MiInitializeTbFlushing.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     KiGetTbLeafInfo @ 0x140B96188 (KiGetTbLeafInfo.c)
  */
 

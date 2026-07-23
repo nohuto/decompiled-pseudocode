@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpLogSystemEventUnsafe @ 0x14007394C
+ * XREFs of EtwpLogSystemEventUnsafe @ 0x1400734CC
  * Callers:
- *     EtwpTraceThreadRundown @ 0x140073744 (EtwpTraceThreadRundown.c)
- *     NtTraceEvent @ 0x1400D5560 (NtTraceEvent.c)
- *     EtwpLogRegistryEvent @ 0x1406A24B0 (EtwpLogRegistryEvent.c)
- *     EtwpSetMark @ 0x1406A2924 (EtwpSetMark.c)
+ *     EtwpTraceThreadRundown @ 0x1400732C4 (EtwpTraceThreadRundown.c)
+ *     NtTraceEvent @ 0x1400D3400 (NtTraceEvent.c)
+ *     EtwpLogRegistryEvent @ 0x1406A25E8 (EtwpLogRegistryEvent.c)
+ *     EtwpSetMark @ 0x1406A2A5C (EtwpSetMark.c)
  * Callees:
- *     EtwpCloseLogger @ 0x140073C30 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x140073C68 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x1400749B0 (EtwpReleaseTraceBuffer.c)
- *     EtwpCopyEventData @ 0x140074B20 (EtwpCopyEventData.c)
- *     EtwpUpdateEventsLostCount @ 0x1400AA15C (EtwpUpdateEventsLostCount.c)
- *     EtwpReserveTraceBuffer @ 0x1400D68F0 (EtwpReserveTraceBuffer.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwpSendTraceEvent @ 0x140227E34 (EtwpSendTraceEvent.c)
- *     EtwpStackTraceDispatcher @ 0x1402293E4 (EtwpStackTraceDispatcher.c)
+ *     EtwpCloseLogger @ 0x1400737B0 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x1400737E8 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x140074B60 (EtwpReleaseTraceBuffer.c)
+ *     EtwpCopyEventData @ 0x140074BA0 (EtwpCopyEventData.c)
+ *     EtwpUpdateEventsLostCount @ 0x1400A86DC (EtwpUpdateEventsLostCount.c)
+ *     EtwpReserveTraceBuffer @ 0x1400D4790 (EtwpReserveTraceBuffer.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     EtwpSendTraceEvent @ 0x140227C60 (EtwpSendTraceEvent.c)
+ *     EtwpStackTraceDispatcher @ 0x140229210 (EtwpStackTraceDispatcher.c)
  */
 
 __int64 __fastcall EtwpLogSystemEventUnsafe(

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInsertQueueEx @ 0x14031AAB0
+ * XREFs of KeInsertQueueEx @ 0x14031AD40
  * Callers:
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IoSetIoCompletionEx3 @ 0x14031AA10 (IoSetIoCompletionEx3.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IoSetIoCompletionEx3 @ 0x14031ACA0 (IoSetIoCompletionEx3.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 __int64 __fastcall KeInsertQueueEx(__int64 a1, _QWORD *a2, unsigned int a3, char a4)
@@ -41,7 +41,7 @@ __int64 __fastcall KeInsertQueueEx(__int64 a1, _QWORD *a2, unsigned int a3, char
   CurrentIrql = KeGetCurrentIrql();
   v22 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -100,6 +100,6 @@ LABEL_15:
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   if ( v7 )
     v4 = 3;
-  KiExitDispatcher((__int64)CurrentPrcb, v4, (struct _PROCESSOR_NUMBER)1, v23, v22);
+  KiExitDispatcher((__int64)CurrentPrcb, v4, (_PROCESSOR_NUMBER)1, v23, v22);
   return v24;
 }

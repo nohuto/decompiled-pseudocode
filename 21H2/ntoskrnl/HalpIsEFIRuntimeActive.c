@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIsEFIRuntimeActive @ 0x1403CC420
+ * XREFs of HalpIsEFIRuntimeActive @ 0x1403CC590
  * Callers:
  *     <none>
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
  */
 
 char __fastcall HalpIsEFIRuntimeActive(__int64 a1)

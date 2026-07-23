@@ -1,14 +1,14 @@
 /*
- * XREFs of RawInitialize @ 0x140C36730
+ * XREFs of RawInitialize @ 0x140C38870
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoDeleteDevice @ 0x1403F1B00 (IoDeleteDevice.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     IoRegisterFileSystem @ 0x1407142F0 (IoRegisterFileSystem.c)
- *     IoRegisterShutdownNotification @ 0x140714780 (IoRegisterShutdownNotification.c)
- *     IoCreateDevice @ 0x1409A3530 (IoCreateDevice.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IoDeleteDevice @ 0x1403E5820 (IoDeleteDevice.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     IoRegisterFileSystem @ 0x140711E80 (IoRegisterFileSystem.c)
+ *     IoRegisterShutdownNotification @ 0x140712310 (IoRegisterShutdownNotification.c)
+ *     IoCreateDevice @ 0x1408ABEC0 (IoCreateDevice.c)
  */
 
 NTSTATUS __fastcall RawInitialize(PDRIVER_OBJECT DriverObject)
@@ -70,9 +70,9 @@ LABEL_5:
     RawGlobalLock.Owner = 0LL;
     RawGlobalLock.Contention = 0;
     RawGlobalLock.Event.Header.SignalState = 0;
-    qword_140F04F08 = (__int64)&RawMountedQueue;
+    qword_140F051E8 = (__int64)&RawMountedQueue;
     RawMountedQueue = (__int64)&RawMountedQueue;
-    qword_140F04F18 = (__int64)&RawDismountedQueue;
+    qword_140F05198 = (__int64)&RawDismountedQueue;
     RawDismountedQueue = (__int64)&RawDismountedQueue;
     RawGlobalLock.Event.Header.WaitListHead.Blink = &RawGlobalLock.Event.Header.WaitListHead;
     RawGlobalLock.Event.Header.WaitListHead.Flink = &RawGlobalLock.Event.Header.WaitListHead;

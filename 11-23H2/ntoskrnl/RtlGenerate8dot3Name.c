@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGenerate8dot3Name @ 0x1407B92E0
+ * XREFs of RtlGenerate8dot3Name @ 0x1407B95C0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlpIsUtf8Process @ 0x1406DA530 (RtlpIsUtf8Process.c)
- *     GetNextWchar @ 0x1407B9680 (GetNextWchar.c)
- *     RtlComputeLfnChecksum @ 0x1407B975C (RtlComputeLfnChecksum.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlpIsUtf8Process @ 0x1406DA560 (RtlpIsUtf8Process.c)
+ *     GetNextWchar @ 0x1407B9960 (GetNextWchar.c)
+ *     RtlComputeLfnChecksum @ 0x1407B9A3C (RtlComputeLfnChecksum.c)
  */
 
 NTSTATUS __stdcall RtlGenerate8dot3Name(
@@ -154,7 +154,7 @@ LABEL_22:
       }
       while ( (unsigned int)v9 < 4 );
       Context->NameLength += 4;
-      Context->ChecksumInserted = 1;
+      Context->CheckSumInserted = 1;
     }
     if ( v13 == -1 )
     {
@@ -194,7 +194,7 @@ LABEL_42:
   }
   v24 = Context->LastIndexValue + 1;
   Context->LastIndexValue = v24;
-  if ( v24 > 4 && !Context->ChecksumInserted )
+  if ( v24 > 4 && !Context->CheckSumInserted )
   {
     v37 = RtlComputeLfnChecksum(Name);
     Context->Checksum = v37;
@@ -218,7 +218,7 @@ LABEL_42:
     Context->LastIndexValue = 1;
     Context->NameLength = 6 - v38;
     v24 = 1;
-    Context->ChecksumInserted = 1;
+    Context->CheckSumInserted = 1;
   }
   v25 = 1;
   v26 = 1;

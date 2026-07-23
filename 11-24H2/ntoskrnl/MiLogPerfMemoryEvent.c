@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogPerfMemoryEvent @ 0x140457228
+ * XREFs of MiLogPerfMemoryEvent @ 0x14044CA68
  * Callers:
- *     MiLogSectionObjectEvent @ 0x1407EC298 (MiLogSectionObjectEvent.c)
- *     MiLogVirtualRotateEvent @ 0x1407EDA74 (MiLogVirtualRotateEvent.c)
- *     MiLogMapFileEvent @ 0x1408E2B54 (MiLogMapFileEvent.c)
- *     MiLogMemResetInfo @ 0x140A68EA8 (MiLogMemResetInfo.c)
+ *     MiLogSectionObjectEvent @ 0x1407EC868 (MiLogSectionObjectEvent.c)
+ *     MiLogVirtualRotateEvent @ 0x1407EE044 (MiLogVirtualRotateEvent.c)
+ *     MiLogMapFileEvent @ 0x140919704 (MiLogMapFileEvent.c)
+ *     MiLogMemResetInfo @ 0x140A62258 (MiLogMemResetInfo.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogPerfMemoryEvent(__int16 a1, unsigned int a2, __int64 a3, int a4, int a5)

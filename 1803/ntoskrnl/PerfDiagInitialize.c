@@ -13,7 +13,7 @@ int PerfDiagInitialize()
 {
   int result; // eax
   ULONGLONG RegHandle; // [rsp+30h] [rbp-20h] BYREF
-  GUID ActivityId; // [rsp+38h] [rbp-18h] BYREF
+  GUID OutputBuffer; // [rsp+38h] [rbp-18h] BYREF
 
   qword_1403A2640 = 0LL;
   dword_1403A2648 = 0;
@@ -40,11 +40,11 @@ int PerfDiagInitialize()
   result = EtwRegister(&MS_Kernel_BootDiagnostics_Provider, 0LL, 0LL, &RegHandle);
   if ( result >= 0 )
   {
-    ActivityId.Data1 = 1729382729;
-    *(_DWORD *)&ActivityId.Data2 = 1213813042;
-    *(_DWORD *)ActivityId.Data4 = 933705344;
-    *(_DWORD *)&ActivityId.Data4[4] = -668649292;
-    EtwWriteStartScenario((PVOID *)RegHandle, &KMBootEvt_SystemBoot_Start, &ActivityId, 0, 0LL);
+    OutputBuffer.Data1 = 1729382729;
+    *(_DWORD *)&OutputBuffer.Data2 = 1213813042;
+    *(_DWORD *)OutputBuffer.Data4 = 933705344;
+    *(_DWORD *)&OutputBuffer.Data4[4] = -668649292;
+    EtwWriteStartScenario((PVOID *)RegHandle, &KMBootEvt_SystemBoot_Start, &OutputBuffer, 0, 0LL);
     return EtwUnregister(RegHandle);
   }
   return result;

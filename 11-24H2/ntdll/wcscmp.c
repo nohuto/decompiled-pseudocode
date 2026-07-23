@@ -1,7 +1,7 @@
 /*
- * XREFs of wcscmp @ 0x180127720
+ * XREFs of wcscmp @ 0x180125950
  * Callers:
- *     LdrpFusionManifestCodePages @ 0x1800AC848 (LdrpFusionManifestCodePages.c)
+ *     LdrpFusionManifestCodePages @ 0x180009898 (LdrpFusionManifestCodePages.c)
  * Callees:
  *     <none>
  */

@@ -15,7 +15,7 @@ PMDL __fastcall PopGenerateUnHibernatedMdl(__int64 a1, __int64 a2)
   PMDL v6; // rbx
   ULONG *v7; // rdi
   ULONG v8; // r8d
-  struct _RTL_BITMAP *v9; // rbp
+  _RTL_BITMAP *v9; // rbp
   __int64 v10; // rsi
   unsigned __int64 v11; // rax
 
@@ -30,7 +30,7 @@ PMDL __fastcall PopGenerateUnHibernatedMdl(__int64 a1, __int64 a2)
     v8 = (ScratchMdl->ByteCount >> 12) + v5;
     if ( v8 )
     {
-      v9 = (struct _RTL_BITMAP *)(a1 + 32);
+      v9 = (_RTL_BITMAP *)(a1 + 32);
       v10 = v8;
       do
       {

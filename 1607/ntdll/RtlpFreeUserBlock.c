@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFreeUserBlock @ 0x180045F48
+ * XREFs of RtlpFreeUserBlock @ 0x180045F38
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x1800240C0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x180046F90 (RtlpHpFreeWithExceptionProtection.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlpLowFragHeapFlushCaches @ 0x18004EAD8 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800240B0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x180046F80 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x18004EAC8 (RtlpLowFragHeapFlushCaches.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpFreeUserBlockToHeap @ 0x18004F41C (RtlpFreeUserBlockToHeap.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpFreeUserBlockToHeap @ 0x18004F40C (RtlpFreeUserBlockToHeap.c)
  *     RtlpInterlockedPopEntrySList @ 0x1800A9D30 (RtlpInterlockedPopEntrySList.c)
  *     RtlpInterlockedPushEntrySList @ 0x1800A9D70 (RtlpInterlockedPushEntrySList.c)
  *     RtlpLogHeapSubSegmentAllocCached @ 0x1800F95AC (RtlpLogHeapSubSegmentAllocCached.c)
@@ -37,8 +37,8 @@ PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
   v6 = (volatile signed __int32 *)(a1 + 48 * (*((unsigned __int8 *)a2 + 16) - 7 + 2LL));
   if ( *(_WORD *)(v4 + 384) && (*(_BYTE *)(v4 + 112) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(v4 + 352));
-    RtlLeaveCriticalSection(*(_QWORD *)(v4 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(v4 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v4 + 352));
   }
   v7 = *(unsigned __int16 *)v6;
   if ( v7 > *((_DWORD *)v6 + 5) && v7 > *((_DWORD *)v6 + 4) >> *((_DWORD *)v6 + 6) )
@@ -47,7 +47,7 @@ PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
     if ( v11 > 0xF0000 )
       v11 = 983040LL;
     v12 = v11 + *((unsigned __int16 *)a2 + 9);
-    result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), a2);
+    result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), a2);
     if ( MEMORY[0x7FFE0380] )
     {
       result = (PSLIST_ENTRY)NtCurrentPeb();
@@ -70,7 +70,7 @@ PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
           v14 = 983040LL;
         v15 = v14 + WORD1(result[1].Next);
         _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v15);
-        result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), result);
+        result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), result);
         if ( MEMORY[0x7FFE0380] )
         {
           result = (PSLIST_ENTRY)NtCurrentPeb();

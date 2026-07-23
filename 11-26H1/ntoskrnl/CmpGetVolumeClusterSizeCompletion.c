@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpGetVolumeClusterSizeCompletion @ 0x140AF6E90
+ * XREFs of CmpGetVolumeClusterSizeCompletion @ 0x140AF9530
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 __int64 __fastcall CmpGetVolumeClusterSizeCompletion(__int64 a1, __int64 a2, struct _KEVENT *a3)

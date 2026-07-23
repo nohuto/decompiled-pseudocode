@@ -18,7 +18,7 @@ __int64 ObpInitStackAndObjectTables()
   __int64 v1; // rax
   _WORD *v2; // rcx
   int v3; // ebx
-  struct _SLIST_ENTRY *v4; // rax
+  _SLIST_ENTRY *v4; // rax
   PSLIST_ENTRY v6; // rbx
   PSLIST_ENTRY v7; // rcx
   void *v8; // rcx
@@ -50,7 +50,7 @@ LABEL_14:
       ObpWorkItemFreeList = 0LL;
       while ( 1 )
       {
-        v4 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
+        v4 = (_SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
         if ( !v4 )
           break;
         RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, v4);

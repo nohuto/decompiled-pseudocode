@@ -1,27 +1,27 @@
 /*
- * XREFs of MiLockPagableImageSection @ 0x140014884
+ * XREFs of MiLockPagableImageSection @ 0x140014404
  * Callers:
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     MmUnlockPagableImageSection @ 0x1400AC6FC (MmUnlockPagableImageSection.c)
- *     IopLiveDumpUnLockPages @ 0x1401CB49C (IopLiveDumpUnLockPages.c)
- *     MmLockPagableDataSection @ 0x1404830A8 (MmLockPagableDataSection.c)
- *     MmLockPagableSectionByHandle @ 0x1404DC9CC (MmLockPagableSectionByHandle.c)
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
- *     IopLiveDumpLockPages @ 0x1406272D4 (IopLiveDumpLockPages.c)
- *     PnprLockPagesForReplace @ 0x140644D00 (PnprLockPagesForReplace.c)
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     MmUnlockPagableImageSection @ 0x1400AAC64 (MmUnlockPagableImageSection.c)
+ *     IopLiveDumpUnLockPages @ 0x1401CB380 (IopLiveDumpUnLockPages.c)
+ *     MmLockPagableDataSection @ 0x140481DFC (MmLockPagableDataSection.c)
+ *     MmLockPagableSectionByHandle @ 0x1404BFFD0 (MmLockPagableSectionByHandle.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
+ *     IopLiveDumpLockPages @ 0x140627388 (IopLiveDumpLockPages.c)
+ *     PnprLockPagesForReplace @ 0x140644DE4 (PnprLockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KiInitializeMTRR @ 0x14079232C (KiInitializeMTRR.c)
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  *     MiLockPagableSections @ 0x1407A41E0 (MiLockPagableSections.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MmUnlockLoadedModuleListShared @ 0x140014A04 (MmUnlockLoadedModuleListShared.c)
- *     MiLookupDataTableEntry @ 0x140014A30 (MiLookupDataTableEntry.c)
- *     MmLockLoadedModuleListShared @ 0x14001F5A0 (MmLockLoadedModuleListShared.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUnlockImageSection @ 0x140083B04 (MiUnlockImageSection.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiLockImageSection @ 0x140499ABC (MiLockImageSection.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140014584 (MmUnlockLoadedModuleListShared.c)
+ *     MiLookupDataTableEntry @ 0x1400145B0 (MiLookupDataTableEntry.c)
+ *     MmLockLoadedModuleListShared @ 0x14001F120 (MmLockLoadedModuleListShared.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiUnlockImageSection @ 0x140081C64 (MiUnlockImageSection.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiLockImageSection @ 0x1404AEF68 (MiLockImageSection.c)
  */
 
 void __fastcall MiLockPagableImageSection(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -45,7 +45,7 @@ void __fastcall MiLockPagableImageSection(ULONG_PTR BugCheckParameter2, ULONG_PT
   {
     v2 = (unsigned int)BugCheckParameter3;
     if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS()
-      && (BugCheckParameter2 < qword_140326910 || BugCheckParameter2 >= qword_140326910 + 0x8000000000LL) )
+      && (BugCheckParameter2 < qword_140326950 || BugCheckParameter2 >= qword_140326950 + 0x8000000000LL) )
     {
       MmLockLoadedModuleListShared(&v16);
       v5 = MiLookupDataTableEntry(BugCheckParameter2, 1LL);

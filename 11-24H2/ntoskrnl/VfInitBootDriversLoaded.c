@@ -1,25 +1,25 @@
 /*
- * XREFs of VfInitBootDriversLoaded @ 0x140C3B240
+ * XREFs of VfInitBootDriversLoaded @ 0x140C3D398
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140C5B318 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140C5D4A8 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlSetAllBits @ 0x1402E5D90 (RtlSetAllBits.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     CarInit @ 0x1406169EC (CarInit.c)
- *     DifRegisterKernelPlugins @ 0x140618A30 (DifRegisterKernelPlugins.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     NtSetDebugFilterState @ 0x14082AB30 (NtSetDebugFilterState.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     VfInitVerifierComponents @ 0x140B83AD0 (VfInitVerifierComponents.c)
- *     ViLogAndLoadXdv @ 0x140B83B40 (ViLogAndLoadXdv.c)
- *     VfAvlInitializeTreeEx @ 0x140B83CD8 (VfAvlInitializeTreeEx.c)
- *     VfObjectContextInit @ 0x140B84844 (VfObjectContextInit.c)
- *     VfThunkGetNumberOfWdmThunk @ 0x140B972AC (VfThunkGetNumberOfWdmThunk.c)
- *     VfDriverLoadImage @ 0x140BA7DF4 (VfDriverLoadImage.c)
- *     ViThunkFindAllExportAddresses @ 0x140C3BB2C (ViThunkFindAllExportAddresses.c)
- *     VfSuspectDriversParseRegistryString @ 0x140C3BD54 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x140C3BF00 (VfXdvExcludeParseRegistryString.c)
+ *     RtlSetAllBits @ 0x140347620 (RtlSetAllBits.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     CarInit @ 0x140614FAC (CarInit.c)
+ *     DifRegisterKernelPlugins @ 0x140616FF0 (DifRegisterKernelPlugins.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     NtSetDebugFilterState @ 0x14082B360 (NtSetDebugFilterState.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     VfInitVerifierComponents @ 0x140B85AD0 (VfInitVerifierComponents.c)
+ *     ViLogAndLoadXdv @ 0x140B85B40 (ViLogAndLoadXdv.c)
+ *     VfAvlInitializeTreeEx @ 0x140B85CD8 (VfAvlInitializeTreeEx.c)
+ *     VfObjectContextInit @ 0x140B86844 (VfObjectContextInit.c)
+ *     VfThunkGetNumberOfWdmThunk @ 0x140B992AC (VfThunkGetNumberOfWdmThunk.c)
+ *     VfDriverLoadImage @ 0x140BA9DF4 (VfDriverLoadImage.c)
+ *     ViThunkFindAllExportAddresses @ 0x140C3DC84 (ViThunkFindAllExportAddresses.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140C3DEAC (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x140C3E058 (VfXdvExcludeParseRegistryString.c)
  */
 
 void VfInitBootDriversLoaded()
@@ -41,7 +41,7 @@ void VfInitBootDriversLoaded()
   if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
     CarInit();
   VfBugcheckTmpDataLock = 0LL;
-  qword_140F03958 = (__int64)&DifAPIThunkContextHead;
+  qword_140F03C38 = (__int64)&DifAPIThunkContextHead;
   DifAPIThunkContextHead = (__int64)&DifAPIThunkContextHead;
   DifpPoolTagsSize = (unsigned int)DifpPoolTagsSizeBytes >> 2;
   VfRegularThunksBitMapHeader.Buffer = (unsigned int *)&VfRegularThunksBitMap;
@@ -65,13 +65,17 @@ void VfInitBootDriversLoaded()
   _InterlockedExchange(&ViAvlInitialized, 1);
   if ( !VfSafeMode )
   {
-    if ( (int)VfAvlInitializeTreeEx(&ViTargetDriversAvl, 0LL, 72, (RTL_AVL_FREE_ROUTINE *)ViTargetDelayFreeAvlNode) < 0 )
+    if ( (int)VfAvlInitializeTreeEx(
+                &ViTargetDriversAvl,
+                0LL,
+                72,
+                (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViTargetDelayFreeAvlNode) < 0 )
     {
       _InterlockedExchange(&ViTargetAllocationFailures, 1);
     }
     else
     {
-      dword_140F045C0 = 0;
+      dword_140F047A0 = 0;
       _InterlockedExchange(&ViTargetInitialized, 1);
     }
   }
@@ -82,7 +86,7 @@ void VfInitBootDriversLoaded()
   ViThunkFindAllExportAddresses(&VfDifThunks, v2, &VfDifThunksBitMapHeader);
   if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
   {
-    NtSetDebugFilterState(0x5Du, 0, 1);
+    NtSetDebugFilterState(0x5Du, 0, 1u);
     if ( (_DWORD)MmVerifyDriverBufferLength )
       VfSuspectDriversParseRegistryString();
     if ( VfXdvSuppressDriversBufferLength )

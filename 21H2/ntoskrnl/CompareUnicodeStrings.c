@@ -1,10 +1,10 @@
 /*
- * XREFs of CompareUnicodeStrings @ 0x1406939E8
+ * XREFs of CompareUnicodeStrings @ 0x1405F2F48
  * Callers:
- *     RtlInsertUnicodePrefix @ 0x140693770 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x1406938D0 (RtlFindUnicodePrefix.c)
+ *     RtlInsertUnicodePrefix @ 0x1405F2CD0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x1405F2E30 (RtlFindUnicodePrefix.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CompareUnicodeStrings(unsigned __int16 *a1, unsigned __int16 *a2, unsigned int a3)

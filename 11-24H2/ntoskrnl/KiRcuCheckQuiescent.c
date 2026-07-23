@@ -1,161 +1,169 @@
 /*
- * XREFs of KiRcuCheckQuiescent @ 0x140206480
+ * XREFs of KiRcuCheckQuiescent @ 0x14032DA60
  * Callers:
- *     KiWaitForAllObjects @ 0x140205C00 (KiWaitForAllObjects.c)
- *     KiDispatchInterrupt @ 0x1402936B0 (KiDispatchInterrupt.c)
- *     KeRcuReadUnlock @ 0x1402CE230 (KeRcuReadUnlock.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404B2F48 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     KiDispatchInterrupt @ 0x1402A32B0 (KiDispatchInterrupt.c)
+ *     KiWaitForAllObjects @ 0x14032D1E0 (KiWaitForAllObjects.c)
+ *     KeRcuReadUnlock @ 0x14040C230 (KeRcuReadUnlock.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404AD758 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiRcuReportQuiescentState @ 0x14033D364 (KiRcuReportQuiescentState.c)
- *     KiRcuFlushCompleted @ 0x14033D510 (KiRcuFlushCompleted.c)
- *     KiSrcuFlushCompleted @ 0x1405C0EA4 (KiSrcuFlushCompleted.c)
- *     KiSrcuReportQuiescent @ 0x1405C17F8 (KiSrcuReportQuiescent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiRcuReportQuiescentState @ 0x14031C844 (KiRcuReportQuiescentState.c)
+ *     KiRcuFlushCompleted @ 0x14031C9F0 (KiRcuFlushCompleted.c)
+ *     KiSrcuFlushCompleted @ 0x1405BE474 (KiSrcuFlushCompleted.c)
+ *     KiSrcuReportQuiescent @ 0x1405BEDC8 (KiSrcuReportQuiescent.c)
  */
 
 void __fastcall KiRcuCheckQuiescent(__int64 a1)
 {
-  _QWORD *v2; // rcx
-  char v3; // al
-  signed __int32 *v4; // r8
-  signed __int32 v5; // eax
-  signed __int32 v6; // ett
-  char v7; // al
-  __int64 *v8; // rdi
-  char v9; // r8
+  signed __int64 v2; // rdx
+  unsigned __int64 *v3; // rcx
+  __int64 v4; // rdx
+  bool v5; // al
+  struct _KPRCB *v6; // rcx
+  signed __int32 *v7; // r8
+  signed __int32 v8; // eax
+  signed __int32 v9; // ett
+  bool v10; // al
+  __int64 *v11; // rdi
+  bool v12; // r8
+  struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
-  signed __int32 v11; // eax
-  signed __int32 v12; // ett
-  __int64 *v13; // rax
-  __int64 *v14; // rcx
-  __int64 **v15; // rax
-  __int64 v16; // rax
-  signed __int32 *v17; // r8
-  signed __int32 v18; // eax
-  signed __int32 v19; // ett
-  char v20; // r8
-  __int64 v21; // rcx
+  signed __int32 v15; // eax
+  signed __int32 v16; // ett
+  __int64 *v17; // rax
+  __int64 *v18; // rcx
+  __int64 **v19; // rax
+  __int64 v20; // rax
+  struct _KPRCB *v21; // rcx
   signed __int32 *v22; // r8
-  signed __int32 v23; // ett
-  __int64 **v24; // rax
-  signed __int32 v25[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v23; // eax
+  signed __int32 v24; // ett
+  bool v25; // r8
+  __int64 v26; // rcx
+  signed __int32 *v27; // r8
+  signed __int32 v28; // ett
+  __int64 **v29; // rax
+  signed __int32 v30[10]; // [rsp+0h] [rbp-28h] BYREF
 
   if ( *(_BYTE *)(a1 + 32) > 1u )
     return;
   if ( *(_QWORD *)(a1 + 14584) )
   {
-    v7 = KeDisableInterrupts();
-    v8 = *(__int64 **)(a1 + 14584);
-    v9 = v7;
-    if ( !v8 )
+    v10 = KeDisableInterrupts();
+    v11 = *(__int64 **)(a1 + 14584);
+    v12 = v10;
+    if ( !v11 )
     {
-      if ( !v7 )
+      if ( !v10 )
         goto LABEL_3;
-      SchedulerAssist = (signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
       if ( !SchedulerAssist )
         goto LABEL_27;
       _m_prefetchw(SchedulerAssist);
-      v11 = *SchedulerAssist;
+      v15 = *SchedulerAssist;
       do
       {
-        v12 = v11;
-        v11 = _InterlockedCompareExchange(SchedulerAssist, v11 & 0xFFDFFFFF, v11);
+        v16 = v15;
+        v15 = _InterlockedCompareExchange(SchedulerAssist, v15 & 0xFFDFFFFF, v15);
       }
-      while ( v12 != v11 );
+      while ( v16 != v15 );
       goto LABEL_25;
     }
-    v13 = (__int64 *)*v8;
-    if ( *(v8 - 1) )
+    v17 = (__int64 *)*v11;
+    if ( *(v11 - 1) )
     {
-      if ( v8 != v13 )
-        *(_QWORD *)(a1 + 14584) = v13;
+      if ( v11 != v17 )
+        *(_QWORD *)(a1 + 14584) = v17;
     }
     else
     {
-      if ( v13 == v8 )
+      if ( v17 == v11 )
       {
         *(_QWORD *)(a1 + 14584) = 0LL;
       }
       else
       {
-        *(_QWORD *)(a1 + 14584) = v13;
-        v14 = (__int64 *)*v8;
-        v15 = (__int64 **)v8[1];
-        if ( *(__int64 **)(*v8 + 8) != v8 || *v15 != v8 )
+        *(_QWORD *)(a1 + 14584) = v17;
+        v18 = (__int64 *)*v11;
+        v19 = (__int64 **)v11[1];
+        if ( *(__int64 **)(*v11 + 8) != v11 || *v19 != v11 )
           goto LABEL_56;
-        *v15 = v14;
-        v14[1] = (__int64)v15;
+        *v19 = v18;
+        v18[1] = (__int64)v19;
       }
-      v16 = v8[6];
-      *v8 = 0LL;
-      v8[2] = *(_QWORD *)(v16 + 56);
+      v20 = v11[6];
+      *v11 = 0LL;
+      v11[2] = *(_QWORD *)(v20 + 56);
     }
-    if ( v9 )
+    if ( v12 )
     {
-      v17 = (signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-      if ( v17 )
+      v21 = KeGetCurrentPrcb();
+      v22 = (signed __int32 *)v21->SchedulerAssist;
+      if ( v22 )
       {
-        _m_prefetchw(v17);
-        v18 = *v17;
+        _m_prefetchw(v22);
+        v23 = *v22;
         do
         {
-          v19 = v18;
-          v18 = _InterlockedCompareExchange(v17, v18 & 0xFFDFFFFF, v18);
+          v24 = v23;
+          v23 = _InterlockedCompareExchange(v22, v23 & 0xFFDFFFFF, v23);
         }
-        while ( v19 != v18 );
-        if ( (v18 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick();
+        while ( v24 != v23 );
+        if ( (v23 & 0x200000) != 0 )
+          KiRemoveSystemWorkPriorityKick((__int64)v21);
       }
       _enable();
     }
-    if ( v8[2] == v8[3] )
+    if ( v11[2] == v11[3] )
       goto LABEL_3;
-    if ( (*(_QWORD *)v8[5] & *(_QWORD *)(v8[4] + 40)) == 0LL )
+    if ( (*(_QWORD *)v11[5] & *(_QWORD *)(v11[4] + 40)) == 0LL )
     {
-      if ( (unsigned int)KiSrcuReportQuiescent(v8 - 1, v8[2]) )
-        KiSrcuFlushCompleted(v8[6]);
+      if ( (unsigned int)KiSrcuReportQuiescent(v11 - 1, v11[2]) )
+        KiSrcuFlushCompleted(v11[6]);
       goto LABEL_3;
     }
-    v20 = KeDisableInterrupts();
-    if ( *v8 )
+    v25 = KeDisableInterrupts();
+    if ( *v11 )
       goto LABEL_49;
-    v21 = *(_QWORD *)(a1 + 14584);
-    if ( !v21 )
+    v26 = *(_QWORD *)(a1 + 14584);
+    if ( !v26 )
     {
-      v8[1] = (__int64)v8;
-      *v8 = (__int64)v8;
-      *(_QWORD *)(a1 + 14584) = v8;
+      v11[1] = (__int64)v11;
+      *v11 = (__int64)v11;
+      *(_QWORD *)(a1 + 14584) = v11;
 LABEL_49:
-      if ( !v20 )
+      if ( !v25 )
         goto LABEL_3;
-      v22 = (signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-      if ( !v22 )
+      CurrentPrcb = KeGetCurrentPrcb();
+      v27 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
+      if ( !v27 )
       {
 LABEL_27:
         _enable();
         goto LABEL_3;
       }
-      _m_prefetchw(v22);
-      v11 = *v22;
+      _m_prefetchw(v27);
+      v15 = *v27;
       do
       {
-        v23 = v11;
-        v11 = _InterlockedCompareExchange(v22, v11 & 0xFFDFFFFF, v11);
+        v28 = v15;
+        v15 = _InterlockedCompareExchange(v27, v15 & 0xFFDFFFFF, v15);
       }
-      while ( v23 != v11 );
+      while ( v28 != v15 );
 LABEL_25:
-      if ( (v11 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick();
+      if ( (v15 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       goto LABEL_27;
     }
-    v24 = *(__int64 ***)(v21 + 8);
-    if ( *v24 == (__int64 *)v21 )
+    v29 = *(__int64 ***)(v26 + 8);
+    if ( *v29 == (__int64 *)v26 )
     {
-      *v8 = v21;
-      v8[1] = (__int64)v24;
-      *v24 = v8;
-      *(_QWORD *)(v21 + 8) = v8;
+      *v11 = v26;
+      v11[1] = (__int64)v29;
+      *v29 = v11;
+      *(_QWORD *)(v26 + 8) = v11;
       goto LABEL_49;
     }
 LABEL_56:
@@ -164,39 +172,41 @@ LABEL_56:
 LABEL_3:
   if ( *(_BYTE *)(a1 + 14565) && !*(_DWORD *)(a1 + 14560) )
   {
-    v3 = KeDisableInterrupts();
+    v5 = KeDisableInterrupts();
     if ( *(_BYTE *)(a1 + 14565) && !*(_DWORD *)(a1 + 14560) )
     {
       *(_BYTE *)(a1 + 14565) = 0;
-      _InterlockedOr(v25, 0);
-      *(_QWORD *)(a1 + 14568) = qword_140F20C48;
+      _InterlockedOr(v30, 0);
+      *(_QWORD *)(a1 + 14568) = qword_140F205C8;
     }
-    if ( v3 )
+    if ( v5 )
     {
-      v4 = (signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-      if ( v4 )
+      v6 = KeGetCurrentPrcb();
+      v7 = (signed __int32 *)v6->SchedulerAssist;
+      if ( v7 )
       {
-        _m_prefetchw(v4);
-        v5 = *v4;
+        _m_prefetchw(v7);
+        v8 = *v7;
         do
         {
-          v6 = v5;
-          v5 = _InterlockedCompareExchange(v4, v5 & 0xFFDFFFFF, v5);
+          v9 = v8;
+          v8 = _InterlockedCompareExchange(v7, v8 & 0xFFDFFFFF, v8);
         }
-        while ( v6 != v5 );
-        if ( (v5 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick();
+        while ( v9 != v8 );
+        if ( (v8 & 0x200000) != 0 )
+          KiRemoveSystemWorkPriorityKick((__int64)v6);
       }
       _enable();
     }
   }
-  if ( *(_QWORD *)(a1 + 14568) != *(_QWORD *)(a1 + 14576) )
+  v2 = *(_QWORD *)(a1 + 14568);
+  if ( v2 != *(_QWORD *)(a1 + 14576) )
   {
-    v2 = (_QWORD *)((char *)&KiRcuData + 32 * *(unsigned int *)(a1 + 36));
-    if ( (*(_QWORD *)(v2[1] + 56LL) & *v2) == 0LL )
+    v3 = (unsigned __int64 *)((char *)&KiRcuData + 32 * *(unsigned int *)(a1 + 36));
+    if ( (*(_QWORD *)(v3[1] + 56) & *v3) == 0 )
     {
-      if ( (unsigned int)KiRcuReportQuiescentState() )
-        KiRcuFlushCompleted(*(unsigned __int8 *)(a1 + 14566));
+      if ( (unsigned int)KiRcuReportQuiescentState(v3, v2) )
+        KiRcuFlushCompleted(*(unsigned __int8 *)(a1 + 14566), v4);
     }
   }
 }

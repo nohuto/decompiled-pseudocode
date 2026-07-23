@@ -16,7 +16,8 @@ int __thiscall RtlpMuiRegDupLanguageList(int this)
   int v3; // ebx
   int LanguageList; // eax
   int v5; // edi
-  size_t Size; // [esp+14h] [ebp-4h]
+  size_t v6; // [esp-4h] [ebp-1Ch]
+  int Size; // [esp+14h] [ebp-4h]
 
   if ( !this )
     return 0;
@@ -29,7 +30,8 @@ int __thiscall RtlpMuiRegDupLanguageList(int this)
     return 0;
   if ( v3 )
   {
-    memcpy(*(void **)(LanguageList + 16), *(const void **)(this + 16), Size);
+    LODWORD(v6) = Size;
+    memcpy(*(void **)(LanguageList + 16), *(const void **)(this + 16), v6);
     *(_WORD *)(v5 + 4) = v3;
   }
   *(_BYTE *)(v5 + 8) = *(_BYTE *)(this + 8);

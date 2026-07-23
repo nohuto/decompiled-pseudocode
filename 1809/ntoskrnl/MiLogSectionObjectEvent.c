@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogSectionObjectEvent @ 0x14084E868
+ * XREFs of MiLogSectionObjectEvent @ 0x14084FAC8
  * Callers:
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
- *     MiSectionDelete @ 0x1405F0440 (MiSectionDelete.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
+ *     MiSectionDelete @ 0x1405F1440 (MiSectionDelete.c)
  * Callees:
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiLogPerfMemoryEvent @ 0x1402A7D8C (MiLogPerfMemoryEvent.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiLogPerfMemoryEvent @ 0x1402A7F7C (MiLogPerfMemoryEvent.c)
  */
 
 void __fastcall MiLogSectionObjectEvent(__int64 a1)

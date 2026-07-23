@@ -1,12 +1,12 @@
 /*
- * XREFs of PiEventQueryRemoveNotifyKernel @ 0x14064D1E8
+ * XREFs of PiEventQueryRemoveNotifyKernel @ 0x14064D2CC
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     PnpNotifyTargetDeviceChange @ 0x1403F0314 (PnpNotifyTargetDeviceChange.c)
- *     PiEventRemovalCanceledNotifyKernel @ 0x14064D2E8 (PiEventRemovalCanceledNotifyKernel.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14048A58C (PnpNotifyTargetDeviceChange.c)
+ *     PiEventRemovalCanceledNotifyKernel @ 0x14064D3CC (PiEventRemovalCanceledNotifyKernel.c)
  */
 
 __int64 __fastcall PiEventQueryRemoveNotifyKernel(

@@ -9,19 +9,15 @@
 
 NTSTATUS TpInitializePackage()
 {
-  int TagHeap; // eax
+  ULONG TagHeap; // eax
   NTSTATUS result; // eax
   _DWORD SystemInformation[262]; // [rsp+20h] [rbp-418h] BYREF
   ULONG ReturnLength; // [rsp+440h] [rbp+8h] BYREF
 
-  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap);
+  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, (PWSTR)L"Threadpool!", (PWSTR)L"Cleanup Group");
   ReturnLength = 0;
   TppHeapTag = TagHeap;
-  result = NtQuerySystemInformation(
-             SystemRegistryQuotaInformation|SystemPerformanceInformation|0x10,
-             SystemInformation,
-             0x408u,
-             &ReturnLength);
+  result = NtQuerySystemInformation(SystemNumaProcessorMap, SystemInformation, 0x408u, &ReturnLength);
   if ( result >= 0 )
   {
     if ( ReturnLength < 4 )

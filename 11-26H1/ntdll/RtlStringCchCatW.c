@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCchCatW @ 0x180141E6C
+ * XREFs of RtlStringCchCatW @ 0x180141D6C
  * Callers:
- *     RtlpOpenAndMapCustomCultureFile @ 0x180113900 (RtlpOpenAndMapCustomCultureFile.c)
- *     RtlpSetPreferredUILanguages @ 0x1801431B0 (RtlpSetPreferredUILanguages.c)
+ *     RtlpOpenAndMapCustomCultureFile @ 0x180113198 (RtlpOpenAndMapCustomCultureFile.c)
+ *     RtlpSetPreferredUILanguages @ 0x1801430B0 (RtlpSetPreferredUILanguages.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x1800C4230 (RtlStringCopyWorkerW.c)
- *     RtlStringLengthWorkerW_1 @ 0x180141ED8 (RtlStringLengthWorkerW_1.c)
+ *     RtlStringCopyWorkerW @ 0x1800C19F0 (RtlStringCopyWorkerW.c)
+ *     RtlStringLengthWorkerW_1 @ 0x180141DD8 (RtlStringLengthWorkerW_1.c)
  */
 
 __int64 __fastcall RtlStringCchCatW(__int64 a1, __int64 a2, __int64 a3)

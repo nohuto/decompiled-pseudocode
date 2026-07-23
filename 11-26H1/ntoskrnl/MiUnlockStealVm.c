@@ -1,28 +1,28 @@
 /*
- * XREFs of MiUnlockStealVm @ 0x140294D10
+ * XREFs of MiUnlockStealVm @ 0x140294270
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
- *     MiInitializePageTradePacket @ 0x140293510 (MiInitializePageTradePacket.c)
- *     MiLockStealSystemVm @ 0x140455630 (MiLockStealSystemVm.c)
- *     MiLockStealUserVm @ 0x14045EF90 (MiLockStealUserVm.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
+ *     MiInitializePageTradePacket @ 0x140292A70 (MiInitializePageTradePacket.c)
+ *     MiLockStealSystemVm @ 0x14044D760 (MiLockStealSystemVm.c)
+ *     MiLockStealUserVm @ 0x140458690 (MiLockStealUserVm.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiDetachProcess @ 0x140246EA0 (KiDetachProcess.c)
- *     KiSetAddressPolicy @ 0x140247450 (KiSetAddressPolicy.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1402C79B0 (HvlSwitchVirtualAddressSpace.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     MiUnlockSystemVa @ 0x1402E5200 (MiUnlockSystemVa.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     KiMoveApcState @ 0x140433500 (KiMoveApcState.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiDetachProcess @ 0x140248800 (KiDetachProcess.c)
+ *     KiSetAddressPolicy @ 0x140248DB0 (KiSetAddressPolicy.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockSystemVa @ 0x1402C7240 (MiUnlockSystemVa.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x140312650 (HvlSwitchVirtualAddressSpace.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     KiMoveApcState @ 0x1404285D0 (KiMoveApcState.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
  */
 
 unsigned __int8 __fastcall MiUnlockStealVm(__int64 a1)
@@ -36,8 +36,8 @@ unsigned __int8 __fastcall MiUnlockStealVm(__int64 a1)
   _KPROCESS *Process; // r12
   unsigned __int8 CurrentIrql; // si
   unsigned int v10; // ebx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v11; // rbx
-  $B3FD53340A977CC9CDA66D808670C106 *v12; // rdx
+  $241382875694CED3D471BC5892DE3337 *v11; // rbx
+  $A4FCC2D77D2C8DA06473821DBD6C3FF5 *v12; // rdx
   struct _LIST_ENTRY *Flink; // rcx
   struct _LIST_ENTRY *Blink; // rax
   struct _KTHREAD *v15; // r8
@@ -124,7 +124,7 @@ unsigned __int8 __fastcall MiUnlockStealVm(__int64 a1)
           }
           if ( !CurrentThread->ApcStateIndex
             || (CurrentThread->ApcState.InProgressFlags & 1) != 0
-            || (v11 = &CurrentThread->152, ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v11->ApcState.ApcListHead[0].Flink != v11)
+            || (v11 = &CurrentThread->152, ($241382875694CED3D471BC5892DE3337 *)v11->ApcState.ApcListHead[0].Flink != v11)
             || (unsigned __int8 *)CurrentThread->ApcState.ApcListHead[1].Flink != &CurrentThread->ApcStateFill[16] )
           {
             KeBugCheck(6u);
@@ -136,7 +136,7 @@ unsigned __int8 __fastcall MiUnlockStealVm(__int64 a1)
           CurrentThread->ApcState.KernelApcPending = CurrentThread->SavedApcState.KernelApcPending;
           CurrentThread->ApcState.UserApcPendingAll = CurrentThread->SavedApcState.UserApcPendingAll;
           Flink = CurrentThread->SavedApcState.ApcListHead[0].Flink;
-          if ( ($B3FD53340A977CC9CDA66D808670C106 *)v12->SavedApcState.ApcListHead[0].Flink == v12 )
+          if ( ($A4FCC2D77D2C8DA06473821DBD6C3FF5 *)v12->SavedApcState.ApcListHead[0].Flink == v12 )
           {
             CurrentThread->ApcState.ApcListHead[0].Blink = CurrentThread->ApcState.ApcListHead;
             v11->ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)v11;
@@ -206,7 +206,7 @@ unsigned __int8 __fastcall MiUnlockStealVm(__int64 a1)
           if ( KiIrqlFlags )
             KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
           __writecr8(CurrentIrql);
-          if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v11->ApcState.ApcListHead[0].Flink != v11 )
+          if ( ($241382875694CED3D471BC5892DE3337 *)v11->ApcState.ApcListHead[0].Flink != v11 )
           {
             CurrentThread->ApcState.KernelApcPending = 1;
             v36 = 0LL;
@@ -229,7 +229,7 @@ unsigned __int8 __fastcall MiUnlockStealVm(__int64 a1)
     }
     v29 = *(_QWORD *)(a1 + 56);
     v30 = *(_QWORD *)(v29 + 16);
-    v31 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v29 + 174));
+    v31 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v29 + 174));
     result = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v31 + 21384));
     v32 = result;
     --*(_DWORD *)(v30 + 56);
@@ -238,15 +238,10 @@ unsigned __int8 __fastcall MiUnlockStealVm(__int64 a1)
       result = KeSignalGate(v33, 1LL);
     if ( (_BYTE)v32 != 17 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-        || (result = stru_140F11D08.WaitStatus, LODWORD(stru_140F11D08.WaitStatus)) )
-      {
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (result = PopHibernateInProgress, PopHibernateInProgress) )
         *(_DWORD *)(v31 + 21384) = 0;
-      }
       else
-      {
         result = ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v31 + 21384), retaddr);
-      }
       if ( KiIrqlFlags )
         result = KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v32);
       __writecr8(v32);

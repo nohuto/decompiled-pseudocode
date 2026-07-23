@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmHeteroCheckWpsTableUpdatedSim @ 0x1405DD420
+ * XREFs of PpmHeteroCheckWpsTableUpdatedSim @ 0x1405DA2A0
  * Callers:
  *     <none>
  * Callees:

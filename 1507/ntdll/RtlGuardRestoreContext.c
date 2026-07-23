@@ -12,7 +12,7 @@ void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RE
   if ( !ExceptionRecord )
   {
 LABEL_2:
-    if ( qword_1801572F0 && !RtlGuardIsValidStackPointer((void *)ContextRecord->Rsp) )
+    if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] && !RtlGuardIsValidStackPointer((void *)ContextRecord->Rsp) )
       __fastfail(0xDu);
     goto LABEL_3;
   }
@@ -20,14 +20,17 @@ LABEL_2:
   {
     if ( ExceptionRecord->ExceptionCode == -2147483607 && ExceptionRecord->NumberParameters )
     {
-      if ( !qword_1801572F0 )
+      if ( !LdrSystemDllInitBlock.Wow64SharedInformation[9] )
         goto LABEL_3;
       LdrpValidateUserCallTarget(ExceptionRecord->ExceptionInformation[0]);
     }
     goto LABEL_2;
   }
-  if ( qword_1801572F0 && !RtlGuardIsValidStackPointer(*(void **)(ExceptionRecord->ExceptionInformation[0] + 16)) )
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9]
+    && !RtlGuardIsValidStackPointer(*(void **)(ExceptionRecord->ExceptionInformation[0] + 16)) )
+  {
     __fastfail(0xDu);
+  }
 LABEL_3:
   RtlRestoreContext(ContextRecord, ExceptionRecord);
 }

@@ -57,7 +57,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   char v42; // [rsp+21h] [rbp-60h]
   unsigned int v43; // [rsp+24h] [rbp-5Dh]
   int v44; // [rsp+28h] [rbp-59h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+2Ch] [rbp-55h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+2Ch] [rbp-55h] BYREF
   unsigned int v46; // [rsp+30h] [rbp-51h]
   int v47; // [rsp+34h] [rbp-4Dh]
   PKSPIN_LOCK SpinLock; // [rsp+38h] [rbp-49h]
@@ -65,9 +65,9 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   __int128 *v50; // [rsp+48h] [rbp-39h]
   __int64 CurrentIrql; // [rsp+50h] [rbp-31h]
   int *v52; // [rsp+58h] [rbp-29h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+60h] [rbp-21h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+60h] [rbp-21h] BYREF
   __int128 v54; // [rsp+70h] [rbp-11h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-1h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-1h] BYREF
 
   v46 = a2;
   v43 = a1;

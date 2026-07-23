@@ -1,10 +1,10 @@
 /*
- * XREFs of ExQueueWorkItemExFromIo @ 0x14022E85C
+ * XREFs of ExQueueWorkItemExFromIo @ 0x14022E688
  * Callers:
- *     IoQueueWorkItemToNode @ 0x1401C9A78 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItemToNode @ 0x1401C9918 (IoQueueWorkItemToNode.c)
  * Callees:
- *     ExpValidateWorkItem @ 0x14005FEAC (ExpValidateWorkItem.c)
- *     ExpTypeToPriority @ 0x1400D11BC (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x14005FA2C (ExpValidateWorkItem.c)
+ *     ExpTypeToPriority @ 0x1400CF05C (ExpTypeToPriority.c)
  */
 
 __int64 __fastcall ExQueueWorkItemExFromIo(_QWORD *a1, unsigned int a2, unsigned int a3)

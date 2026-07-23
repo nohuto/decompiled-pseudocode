@@ -1,26 +1,26 @@
 /*
- * XREFs of HaliAcpiSleep @ 0x140527F40
+ * XREFs of HaliAcpiSleep @ 0x140528490
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterWrite @ 0x140362C90 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterRead @ 0x1403A1D30 (HalpAcpiPmRegisterRead.c)
- *     VslTerminateSecureServices @ 0x14040FCD8 (VslTerminateSecureServices.c)
- *     HalpSaveProcessorState @ 0x14041AA70 (HalpSaveProcessorState.c)
- *     HalpFlushAndWait @ 0x14041AAC0 (HalpFlushAndWait.c)
- *     HalpSetupRealModeResume @ 0x14041AAF0 (HalpSetupRealModeResume.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalSetEnvironmentVariableEx @ 0x140504A60 (HalSetEnvironmentVariableEx.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     HalpHvEnterSleepState @ 0x14050BEAC (HalpHvEnterSleepState.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051C384 (HalpCheckWakeupTimeAndAdjust.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpAcpiPostSleep @ 0x140A96600 (HalpAcpiPostSleep.c)
- *     HalpAcpiPreSleep @ 0x140A968A0 (HalpAcpiPreSleep.c)
- *     HalpCheckLowMemoryPreSleep @ 0x140A96D48 (HalpCheckLowMemoryPreSleep.c)
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
- *     HalpReenableAcpi @ 0x140A9715C (HalpReenableAcpi.c)
- *     KeWriteProtectPAT @ 0x140A9FC30 (KeWriteProtectPAT.c)
+ *     HalpAcpiPmRegisterWrite @ 0x140362E30 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterRead @ 0x1403A1F10 (HalpAcpiPmRegisterRead.c)
+ *     VslTerminateSecureServices @ 0x14040FEB8 (VslTerminateSecureServices.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpSaveProcessorState @ 0x14041AE00 (HalpSaveProcessorState.c)
+ *     HalpFlushAndWait @ 0x14041AE50 (HalpFlushAndWait.c)
+ *     HalpSetupRealModeResume @ 0x14041AE80 (HalpSetupRealModeResume.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalSetEnvironmentVariableEx @ 0x140504FB0 (HalSetEnvironmentVariableEx.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     HalpHvEnterSleepState @ 0x14050C3FC (HalpHvEnterSleepState.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x14051C8D4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     HalpAcpiPostSleep @ 0x140A96470 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPreSleep @ 0x140A96710 (HalpAcpiPreSleep.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x140A96BB8 (HalpCheckLowMemoryPreSleep.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
+ *     HalpReenableAcpi @ 0x140A96FCC (HalpReenableAcpi.c)
+ *     KeWriteProtectPAT @ 0x140A9FAA0 (KeWriteProtectPAT.c)
  */
 
 __int64 __fastcall HaliAcpiSleep(
@@ -289,10 +289,10 @@ LABEL_103:
   }
   HalpPostSleepMP(a4);
   v27 = CurrentIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       SchedulerAssist = v29->SchedulerAssist;
@@ -300,7 +300,7 @@ LABEL_103:
       v32 = (v31 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v31;
       if ( v32 )
-        KiRemoveSystemWorkPriorityKick(v29);
+        KiRemoveSystemWorkPriorityKick((__int64)v29);
     }
   }
   __writecr8(v27);

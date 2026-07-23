@@ -1,10 +1,10 @@
 /*
- * XREFs of PopResetCBTriggers @ 0x1407D9D18
+ * XREFs of PopResetCBTriggers @ 0x1407DDCB8
  * Callers:
- *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
- *     PopApplyPolicy @ 0x140944018 (PopApplyPolicy.c)
+ *     PopBatteryWorker @ 0x1407DB910 (PopBatteryWorker.c)
+ *     PopApplyPolicy @ 0x1409BF988 (PopApplyPolicy.c)
  * Callees:
- *     PopDiagTraceBatteryTriggerFlags @ 0x14094756C (PopDiagTraceBatteryTriggerFlags.c)
+ *     PopDiagTraceBatteryTriggerFlags @ 0x1409C2EDC (PopDiagTraceBatteryTriggerFlags.c)
  */
 
 __int64 __fastcall PopResetCBTriggers(unsigned __int8 a1)
@@ -22,8 +22,8 @@ __int64 __fastcall PopResetCBTriggers(unsigned __int8 a1)
   do
   {
     v4 = 32LL * (unsigned int)result;
-    *(&qword_140F0FE60 + 8 * v3 + 89) = v2 & *(ULONG *)((char *)&qword_140F0FE60 + v4 + 356);
-    PopDiagTraceBatteryTriggerFlags(&v5, (char *)&qword_140F0FE60 + v4 + 352);
+    *(&PopCB + 8 * v3 + 89) = v2 & *(ULONG *)((char *)&PopCB + v4 + 356);
+    PopDiagTraceBatteryTriggerFlags(&v5, (char *)&PopCB + v4 + 352);
     result = (unsigned int)(v5 + 1);
     v5 = result;
     v3 = result;

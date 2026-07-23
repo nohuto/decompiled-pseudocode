@@ -13,41 +13,38 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiReduceCommitLimits(_QWORD *a1, __int64 a2, __int64 a3)
+void __fastcall MiReduceCommitLimits(_QWORD *a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v10; // zf
-  struct _KLOCK_QUEUE_HANDLE v11; // [rsp+20h] [rbp-28h] BYREF
+  int v10; // eax
+  bool v11; // zf
+  struct _KLOCK_QUEUE_HANDLE v12; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v11, 0, sizeof(v11));
-  KeAcquireInStackQueuedSpinLock(a1 + 2053, &v11);
+  memset(&v12, 0, sizeof(v12));
+  KeAcquireInStackQueuedSpinLock(a1 + 2053, &v12);
   if ( a3 )
     a1[2049] -= a3;
   if ( a2 )
     a1[2227] -= a2;
   MiComputeCommitThresholds(a1);
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v11);
-  OldIrql = v11.OldIrql;
-  if ( KiIrqlFlags )
+  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
+  OldIrql = v12.OldIrql;
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v11.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v11.OldIrql + 1));
-      v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v10 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v10 = ~(unsigned __int16)(-1LL << (v12.OldIrql + 1));
+      v11 = (v10 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v10;
+      if ( v11 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);
-  return result;
 }

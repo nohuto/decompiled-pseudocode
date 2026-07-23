@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCreateArcNames @ 0x1409D6694
+ * XREFs of IopCreateArcNames @ 0x1409D7694
  * Callers:
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
- *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     IopCreateArcNamesDisk @ 0x1409D67C0 (IopCreateArcNamesDisk.c)
- *     IopCreateArcNamesCd @ 0x1409D6910 (IopCreateArcNamesCd.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD8DC (IopVerifierExAllocatePool_0.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x14018E100 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     IopCreateArcNamesDisk @ 0x1409D77C0 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x1409D7910 (IopCreateArcNamesCd.c)
  */
 
 __int64 __fastcall IopCreateArcNames(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall IopCreateArcNames(__int64 a1)
   __int64 v2; // rbx
   PVOID Pool_0; // rax
   __int64 result; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-A8h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-A8h] BYREF
   char pszDest[128]; // [rsp+30h] [rbp-98h] BYREF
 
   RtlStringCchPrintfA(pszDest, 0x80uLL, "\\ArcName\\%s", *(const char **)(a1 + 192));

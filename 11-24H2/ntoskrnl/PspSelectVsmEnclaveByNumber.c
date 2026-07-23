@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSelectVsmEnclaveByNumber @ 0x140A0B3AC
+ * XREFs of PspSelectVsmEnclaveByNumber @ 0x140A0A5EC
  * Callers:
- *     PsCallEnclave @ 0x140AD1D10 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x140AD0080 (PsCallEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *a3)
@@ -15,7 +15,7 @@ __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v4; // rbx
   __int64 v8; // rdi
-  _QWORD *v9; // rbp
+  char *v9; // rbp
   __int64 v10; // r11
   int v11; // r10d
   __int64 v12; // rsi
@@ -27,11 +27,11 @@ __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *
   v4 = (signed __int64 *)(a1 + 1624);
   --CurrentThread->KernelApcDisable;
   v8 = 0LL;
-  v9 = KeAbPreAcquire(a1 + 1624, 0LL);
+  v9 = (char *)KeAbPreAcquire(a1 + 1624, 0LL);
   if ( _InterlockedCompareExchange64(v4, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v4, 0, v9, (__int64)v4);
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
+    v9[10] = 1;
   v10 = *(_QWORD *)(a1 + 1608);
   if ( v10 )
   {

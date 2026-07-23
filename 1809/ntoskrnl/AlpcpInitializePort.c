@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpInitializePort @ 0x140614CD0
+ * XREFs of AlpcpInitializePort @ 0x140615CD0
  * Callers:
- *     AlpcpCreateClientPort @ 0x14061506C (AlpcpCreateClientPort.c)
- *     AlpcpAcceptConnectPort @ 0x140619CD8 (AlpcpAcceptConnectPort.c)
- *     AlpcpCreateConnectionPort @ 0x1406B66A8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateClientPort @ 0x14061606C (AlpcpCreateClientPort.c)
+ *     AlpcpAcceptConnectPort @ 0x14061ACD8 (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateConnectionPort @ 0x1406B7948 (AlpcpCreateConnectionPort.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KeInitializeSemaphore @ 0x14008A3E0 (KeInitializeSemaphore.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     KeInitializeSemaphore @ 0x14008A3D0 (KeInitializeSemaphore.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall AlpcpInitializePort(__int64 a1, char a2, char a3)
@@ -57,13 +57,13 @@ __int64 __fastcall AlpcpInitializePort(__int64 a1, char a2, char a3)
   }
   *(_DWORD *)(a1 + 416) = v4 | 1;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&AlpcpPortListLock, 0LL);
-  v5 = (__int64 *)qword_14041AA58;
-  if ( *(__int64 **)qword_14041AA58 != &AlpcpPortList )
+  v5 = (__int64 *)qword_14041BB38;
+  if ( *(__int64 **)qword_14041BB38 != &AlpcpPortList )
     __fastfail(3u);
-  *(_QWORD *)(a1 + 8) = qword_14041AA58;
+  *(_QWORD *)(a1 + 8) = qword_14041BB38;
   *(_QWORD *)a1 = &AlpcpPortList;
   *v5 = a1;
-  qword_14041AA58 = a1;
+  qword_14041BB38 = a1;
   v6 = _InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpPortListLock, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v6 & 2) != 0 && (v6 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpPortListLock);

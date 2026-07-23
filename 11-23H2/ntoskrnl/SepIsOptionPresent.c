@@ -1,9 +1,9 @@
 /*
- * XREFs of SepIsOptionPresent @ 0x140822DA8
+ * XREFs of SepIsOptionPresent @ 0x1408230A8
  * Callers:
- *     SepInitializeCodeIntegrity @ 0x140822CE8 (SepInitializeCodeIntegrity.c)
+ *     SepInitializeCodeIntegrity @ 0x140822FE8 (SepInitializeCodeIntegrity.c)
  * Callees:
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  */
 
 __int64 __fastcall SepIsOptionPresent(const char *a1)

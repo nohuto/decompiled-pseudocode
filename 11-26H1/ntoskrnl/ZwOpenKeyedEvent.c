@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwOpenKeyedEvent @ 0x1407259D0
+ * XREFs of ZwOpenKeyedEvent @ 0x14072A5A0
  * Callers:
- *     DifZwOpenKeyedEventWrapper @ 0x1406AC4A0 (DifZwOpenKeyedEventWrapper.c)
+ *     DifZwOpenKeyedEventWrapper @ 0x1406B0080 (DifZwOpenKeyedEventWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenKeyedEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(KeyedEventHandle);
 }

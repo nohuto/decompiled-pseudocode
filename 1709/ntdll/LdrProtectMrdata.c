@@ -28,33 +28,33 @@
  *     RtlAcquireSRWLockExclusive @ 0x180046170 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrProtectMrdata(int a1)
+void __fastcall LdrProtectMrdata(int a1)
 {
-  int v2; // edi
+  int ScpCfgCheckFunction; // edi
 
   RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-  v2 = LdrpMrdataUnprotected;
+  ScpCfgCheckFunction = LdrSystemDllInitBlock.ScpCfgCheckFunction;
   if ( a1 )
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction) )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    --LdrpMrdataUnprotected;
-    if ( v2 == 1 )
+    --LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction);
+    if ( ScpCfgCheckFunction == 1 )
       LdrpChangeMrdataProtection(2LL);
   }
   else
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction) )
       LdrpChangeMrdataProtection(4LL);
-    if ( v2 == -1 )
+    if ( ScpCfgCheckFunction == -1 )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    LdrpMrdataUnprotected = v2 + 1;
+    LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction) = ScpCfgCheckFunction + 1;
   }
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

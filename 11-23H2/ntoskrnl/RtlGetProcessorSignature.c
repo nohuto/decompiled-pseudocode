@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetProcessorSignature @ 0x1403A7AC8
+ * XREFs of RtlGetProcessorSignature @ 0x1403A7CA8
  * Callers:
- *     RtlInitFunctionOverrideCapabilities @ 0x1403A7858 (RtlInitFunctionOverrideCapabilities.c)
+ *     RtlInitFunctionOverrideCapabilities @ 0x1403A7A38 (RtlInitFunctionOverrideCapabilities.c)
  * Callees:
- *     RtlGetCpuVendor @ 0x1403A7B64 (RtlGetCpuVendor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlGetCpuVendor @ 0x1403A7D44 (RtlGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall RtlGetProcessorSignature(_BYTE *a1, _BYTE *a2, _WORD *a3, _BYTE *a4, _BYTE *a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpReadStringRef @ 0x1409E8460
+ * XREFs of SdbpReadStringRef @ 0x1409D4E70
  * Callers:
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
  * Callees:
- *     SdbpReadTagData @ 0x1409E8130 (SdbpReadTagData.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x1409D4B40 (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpReadStringRef(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

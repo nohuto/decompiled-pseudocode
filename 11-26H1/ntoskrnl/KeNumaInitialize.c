@@ -1,9 +1,9 @@
 /*
- * XREFs of KeNumaInitialize @ 0x140CC89C4
+ * XREFs of KeNumaInitialize @ 0x140CCEAB4
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 KeNumaInitialize()

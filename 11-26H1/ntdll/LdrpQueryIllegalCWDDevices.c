@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpQueryIllegalCWDDevices @ 0x1800D2DD0
+ * XREFs of LdrpQueryIllegalCWDDevices @ 0x1800D11EC
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x180118558 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x180118308 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlQueryImageFileKeyOption @ 0x1800D3070 (RtlQueryImageFileKeyOption.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800D1480 (RtlQueryImageFileKeyOption.c)
  */
 
-void __fastcall LdrpQueryIllegalCWDDevices(__int64 a1)
+void __fastcall LdrpQueryIllegalCWDDevices(void *a1)
 {
   int v1; // ecx
   int v2; // eax
-  int v3; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = 0;
-  if ( !a1
-    || (int)RtlQueryImageFileKeyOption(a1, L"CWDIllegalInDLLSearch", 4LL, &v3, 4, 0LL) < 0
-    || (v1 = v3, (unsigned int)(v3 + 1) > 3) )
+  if ( a1 && (int)RtlQueryImageFileKeyOption(a1, (wchar_t *)L"CWDIllegalInDLLSearch", 4, 0LL) >= 0 )
+  {
+    v1 = 0;
+  }
+  else
   {
     v1 = (MEMORY[0x7FFE02D5] >> 4) & 3;
     if ( v1 == 3 )

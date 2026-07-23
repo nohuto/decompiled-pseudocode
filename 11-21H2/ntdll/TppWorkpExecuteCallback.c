@@ -10,87 +10,87 @@
  *     RtlpTpETWCallbackStop @ 0x1801246BC (RtlpTpETWCallbackStop.c)
  */
 
-struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+struct _PEB *__fastcall TppWorkpExecuteCallback(_QWORD *Instance, __int64 a2)
 {
-  _QWORD *v4; // rbx
-  int v5; // ebp
-  __int64 v7; // rdi
+  _QWORD *v2; // rbx
+  int v3; // ebp
+  __int64 v5; // rdi
   _DWORD *SharedData; // r8
-  __int64 v9; // rcx
+  __int64 v7; // rcx
   struct _PEB *result; // rax
-  _DWORD *v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r10
-  __int64 v15; // rdx
+  _DWORD *v9; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r10
+  __int64 v13; // rdx
   _DWORD *ThreadPoolData; // rcx
-  int v17; // eax
-  unsigned int v18; // eax
-  __int64 v19; // r9
-  _QWORD *v20; // rsi
-  _DWORD *v21; // rcx
+  int v15; // eax
+  unsigned int v16; // eax
+  __int64 v17; // r9
+  _QWORD *v18; // rsi
+  _DWORD *v19; // rcx
 
-  v4 = (_QWORD *)(a2 - 200);
-  v5 = a2;
-  v7 = 2147353478LL;
+  v2 = (_QWORD *)(a2 - 200);
+  v3 = a2;
+  v5 = 2147353478LL;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v9 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v7 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
-    v9 = 2147353478LL;
-  if ( *(_BYTE *)v9 )
-    TppETWCallbackDequeue(v4[18], a2, v4[10], v4[11], v4[13]);
-  result = (struct _PEB *)TppWorkCallbackPrologRelease(a1, (__int64)v4, 0, a4);
+    v7 = 2147353478LL;
+  if ( *(_BYTE *)v7 )
+    TppETWCallbackDequeue(v2[18], a2, v2[10], v2[11], v2[13]);
+  result = (struct _PEB *)TppWorkCallbackPrologRelease(Instance, (__int64)v2, 0);
   if ( (_DWORD)result )
   {
-    v11 = NtCurrentPeb()->SharedData;
-    if ( v11 && *v11 )
-      v12 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v9 = NtCurrentPeb()->SharedData;
+    if ( v9 && *v9 )
+      v10 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v12 = 2147353478LL;
-    if ( *(_BYTE *)v12 )
-      RtlpTpETWCallbackStart(v4[18], v5, v4[10], v4[11], v4[13]);
-    v13 = v4[13];
-    v14 = v4[11];
-    v15 = v4[10];
+      v10 = 2147353478LL;
+    if ( *(_BYTE *)v10 )
+      RtlpTpETWCallbackStart(v2[18], v3, v2[10], v2[11], v2[13]);
+    v11 = v2[13];
+    v12 = v2[11];
+    v13 = v2[10];
     ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
     if ( ThreadPoolData )
     {
-      v17 = ThreadPoolData[3];
+      v15 = ThreadPoolData[3];
       ++*((_QWORD *)ThreadPoolData + 2);
-      v18 = ((_BYTE)v17 - 1) & 1;
-      ThreadPoolData[3] = v18;
-      v19 = 8LL * v18;
-      v20 = &ThreadPoolData[v19 + 8];
-      *(_QWORD *)&ThreadPoolData[v19 + 10] = v14;
-      *v20 = v15;
-      *(_QWORD *)&ThreadPoolData[v19 + 12] = v13;
-      *(_QWORD *)&ThreadPoolData[v19 + 14] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
-      v15 = v4[10];
+      v16 = ((_BYTE)v15 - 1) & 1;
+      ThreadPoolData[3] = v16;
+      v17 = 8LL * v16;
+      v18 = &ThreadPoolData[v17 + 8];
+      *(_QWORD *)&ThreadPoolData[v17 + 10] = v12;
+      *v18 = v13;
+      *(_QWORD *)&ThreadPoolData[v17 + 12] = v11;
+      *(_QWORD *)&ThreadPoolData[v17 + 14] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
+      v13 = v2[10];
     }
     else
     {
-      v20 = 0LL;
+      v18 = 0LL;
     }
-    *(_QWORD *)(a1 + 88) = v15;
-    *(_QWORD *)(a1 + 96) = v4[11];
-    ((void (__fastcall *)(__int64, _QWORD, _QWORD *))v4[10])(a1, v4[11], v4);
+    Instance[11] = v13;
+    Instance[12] = v2[11];
+    ((void (__fastcall *)(_QWORD *, _QWORD, _QWORD *))v2[10])(Instance, v2[11], v2);
     result = NtCurrentPeb();
-    v21 = result->SharedData;
-    if ( v21 && *v21 )
+    v19 = result->SharedData;
+    if ( v19 && *v19 )
     {
       result = NtCurrentPeb();
-      v7 = (__int64)result->SharedData + 556;
+      v5 = (__int64)result->SharedData + 556;
     }
-    if ( *(_BYTE *)v7 )
-      result = (struct _PEB *)RtlpTpETWCallbackStop(v4[18], v5, v4[10], v4[11], v4[13]);
-    if ( v20 )
+    if ( *(_BYTE *)v5 )
+      result = (struct _PEB *)RtlpTpETWCallbackStop(v2[18], v3, v2[10], v2[11], v2[13]);
+    if ( v18 )
     {
       result = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
-      if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v20[3] )
+      if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v18[3] )
       {
-        result = (struct _PEB *)((char *)result - v20[3]);
-        v20[3] = result;
+        result = (struct _PEB *)((char *)result - v18[3]);
+        v18[3] = result;
       }
     }
   }

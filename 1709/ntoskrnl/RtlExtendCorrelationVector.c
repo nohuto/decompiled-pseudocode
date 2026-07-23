@@ -7,27 +7,26 @@
  *     RtlpGetCorrelationVectorBufferLength @ 0x140724050 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
-__int64 __fastcall RtlExtendCorrelationVector(__int64 a1, __int64 a2)
+DWORD __cdecl RtlExtendCorrelationVector(PCORRELATION_VECTOR CorrelationVector)
 {
+  __int64 v1; // rdx
   int CorrelationVectorEndPosition; // eax
   __int64 v4; // rdx
   int CorrelationVectorBufferLength; // eax
   __int64 v6; // r8
-  unsigned int v7; // r11d
+  DWORD v7; // r11d
 
-  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition(a1, a2);
+  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition((__int64)CorrelationVector, v1);
   if ( CorrelationVectorEndPosition < 0 )
-    return (unsigned int)-2147483643;
-  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(a1, v4, CorrelationVectorEndPosition);
+    return -2147483643;
+  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(
+                                    CorrelationVector,
+                                    v4,
+                                    CorrelationVectorEndPosition);
   if ( (int)v6 >= CorrelationVectorBufferLength - 3 )
-  {
-    return (unsigned int)-2147483643;
-  }
-  else
-  {
-    *(_BYTE *)(v6 + a1 + 1) = 46;
-    *(_BYTE *)((int)v6 + 1 + a1 + 1) = 48;
-    *(_BYTE *)((int)v6 + 2 + a1 + 1) = v7;
-  }
+    return -2147483643;
+  CorrelationVector->Vector[v6] = 46;
+  CorrelationVector->Vector[(int)v6 + 1] = 48;
+  CorrelationVector->Vector[(int)v6 + 2] = v7;
   return v7;
 }

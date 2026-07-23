@@ -1,29 +1,29 @@
 /*
- * XREFs of KeFlushTb @ 0x140230120
+ * XREFs of KeFlushTb @ 0x1402D4970
  * Callers:
- *     MiAgeWorkingSetTail @ 0x14022E460 (MiAgeWorkingSetTail.c)
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     MiInsertCachedPte @ 0x140245C00 (MiInsertCachedPte.c)
- *     MiAttachSession @ 0x1402B02F0 (MiAttachSession.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14030438C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiDeleteVaTail @ 0x14033AB30 (MiDeleteVaTail.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiGetWsAndMakePageTablesNx @ 0x1403CCBD0 (MiGetWsAndMakePageTablesNx.c)
- *     MiSwitchToPfns @ 0x140A43AD8 (MiSwitchToPfns.c)
- *     MiInitializeTbFlush @ 0x140A55380 (MiInitializeTbFlush.c)
+ *     MiAttachSession @ 0x14022E650 (MiAttachSession.c)
+ *     MiAgeWorkingSetTail @ 0x1402D2CB0 (MiAgeWorkingSetTail.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
+ *     MiInsertCachedPte @ 0x1402EA450 (MiInsertCachedPte.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14030F0DC (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiDeleteVaTail @ 0x140345880 (MiDeleteVaTail.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403CCD40 (MiGetWsAndMakePageTablesNx.c)
+ *     MiSwitchToPfns @ 0x140A44AD8 (MiSwitchToPfns.c)
+ *     MiInitializeTbFlush @ 0x140A56380 (MiInitializeTbFlush.c)
  * Callees:
- *     KxFlushEntireTb @ 0x14022F980 (KxFlushEntireTb.c)
- *     KiPreprocessFlushTb @ 0x1402316E0 (KiPreprocessFlushTb.c)
- *     KeFlushProcessWriteBuffers @ 0x14027AD04 (KeFlushProcessWriteBuffers.c)
- *     KxFlushNonGlobalTb @ 0x1402B2094 (KxFlushNonGlobalTb.c)
- *     KiFlushAddressSpaceTb @ 0x1403901AC (KiFlushAddressSpaceTb.c)
- *     KiPrepareFlushParameters @ 0x140390D2C (KiPrepareFlushParameters.c)
- *     KiFlushAffinity @ 0x140390D64 (KiFlushAffinity.c)
- *     KiFlushCurrentTbOnly @ 0x14039747C (KiFlushCurrentTbOnly.c)
+ *     KxFlushNonGlobalTb @ 0x140230244 (KxFlushNonGlobalTb.c)
+ *     KeFlushProcessWriteBuffers @ 0x140268CA4 (KeFlushProcessWriteBuffers.c)
+ *     KxFlushEntireTb @ 0x1402D41D0 (KxFlushEntireTb.c)
+ *     KiPreprocessFlushTb @ 0x1402D5F30 (KiPreprocessFlushTb.c)
+ *     KiFlushAddressSpaceTb @ 0x1403902FC (KiFlushAddressSpaceTb.c)
+ *     KiPrepareFlushParameters @ 0x140390E7C (KiPrepareFlushParameters.c)
+ *     KiFlushAffinity @ 0x140390EB4 (KiFlushAffinity.c)
+ *     KiFlushCurrentTbOnly @ 0x1403975CC (KiFlushCurrentTbOnly.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     VslFlushSecureAddressSpace @ 0x1404FC488 (VslFlushSecureAddressSpace.c)
- *     VmFlushTb @ 0x1405A274C (VmFlushTb.c)
- *     ExFlushTb @ 0x1405B7218 (ExFlushTb.c)
+ *     VslFlushSecureAddressSpace @ 0x1404FC408 (VslFlushSecureAddressSpace.c)
+ *     VmFlushTb @ 0x1405A297C (VmFlushTb.c)
+ *     ExFlushTb @ 0x1405B7448 (ExFlushTb.c)
  */
 
 __int64 __fastcall KeFlushTb(unsigned int a1, unsigned int a2)
@@ -33,7 +33,7 @@ __int64 __fastcall KeFlushTb(unsigned int a1, unsigned int a2)
   unsigned int v6; // edx
   char v7; // bp
   __int64 result; // rax
-  __int64 v9; // rcx
+  __int64 v9; // rdx
   __int64 v10; // rax
   unsigned __int8 v11; // r10
   unsigned __int8 v12; // bp
@@ -74,8 +74,8 @@ __int64 __fastcall KeFlushTb(unsigned int a1, unsigned int a2)
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         v12 = v26;
-        v9 = (unsigned int)v26 + 1;
-        v16 = ~(unsigned __int16)(-1LL << (v26 + 1));
+        v9 = -1LL << (v26 + 1);
+        v16 = ~(unsigned __int16)v9;
         v17 = (v16 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v16;
         if ( v17 )
@@ -112,22 +112,18 @@ LABEL_23:
     {
       goto LABEL_23;
     }
-    result = KxFlushEntireTb(a2);
+    result = KxFlushEntireTb(a2, v9);
     v2 = 1;
   }
 LABEL_8:
   if ( v5 == 1 )
   {
     result = (__int64)KeGetCurrentThread();
-    v9 = *(_QWORD *)(result + 184);
-    if ( *(_QWORD *)(v9 + 992) )
+    if ( *(_QWORD *)(*(_QWORD *)(result + 184) + 992LL) )
       result = VslFlushSecureAddressSpace();
   }
   if ( !v2 && v5 == 4 )
-  {
-    LOBYTE(v9) = 1;
-    result = KeFlushProcessWriteBuffers(v9);
-  }
+    result = KeFlushProcessWriteBuffers(1);
   if ( VmTbFlushEnabled )
     result = VmFlushTb(0LL, 0LL, v5);
   if ( ExTbFlushActive )

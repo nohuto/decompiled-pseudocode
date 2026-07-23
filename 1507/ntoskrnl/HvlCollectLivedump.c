@@ -13,7 +13,7 @@
 __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   char v5; // r12
-  union _SLIST_HEADER *v6; // rsi
+  _SLIST_HEADER *v6; // rsi
   unsigned __int8 v7; // bp
   _QWORD *p_Next; // rbx
   struct _KPRCB *CurrentPrcb; // rdi
@@ -22,7 +22,7 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
   __int64 *v12; // rdi
   PHYSICAL_ADDRESS PhysicalAddress; // r15
   PSLIST_ENTRY v14; // rax
-  struct _SLIST_ENTRY *v15; // r13
+  _SLIST_ENTRY *v15; // r13
   __int16 v16; // ax
   int v17; // edi
   __int64 v18; // rax
@@ -35,10 +35,10 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
   char v26; // [rsp+20h] [rbp-108h]
   PSLIST_ENTRY ListEntry; // [rsp+28h] [rbp-100h]
   _SLIST_ENTRY *QuadPart; // [rsp+30h] [rbp-F8h]
-  union _SLIST_HEADER *v29; // [rsp+40h] [rbp-E8h]
-  struct _SLIST_ENTRY *v30; // [rsp+48h] [rbp-E0h]
-  struct _KPRCB *v31; // [rsp+60h] [rbp-C8h]
-  struct _SLIST_ENTRY *v32; // [rsp+68h] [rbp-C0h]
+  _SLIST_HEADER *v29; // [rsp+40h] [rbp-E8h]
+  _SLIST_ENTRY *v30; // [rsp+48h] [rbp-E0h]
+  _SLIST_HEADER *v31; // [rsp+60h] [rbp-C8h]
+  _SLIST_ENTRY *v32; // [rsp+68h] [rbp-C0h]
   _BYTE v35[7]; // [rsp+88h] [rbp-A0h] BYREF
   _BYTE v36[17]; // [rsp+97h] [rbp-91h] BYREF
   _BYTE v37[7]; // [rsp+A8h] [rbp-80h] BYREF
@@ -60,7 +60,7 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
       v7 = (unsigned __int8)CurrentPrcb;
       Next = (PHYSICAL_ADDRESS)v10[1].Next;
       v26 = 1;
-      v31 = CurrentPrcb;
+      v31 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -90,7 +90,7 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
   }
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    v6 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    v6 = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v14 = RtlpInterlockedPopEntrySList(v6 + 1535);
     v12 = (__int64 *)v14;
     if ( v14 )
@@ -143,7 +143,7 @@ LABEL_23:
   if ( (v26 & 1) != 0 )
   {
     ListEntry[1].Next = QuadPart;
-    RtlpInterlockedPushEntrySList(&v31->HypercallPageList, ListEntry);
+    RtlpInterlockedPushEntrySList(v31 + 1535, ListEntry);
   }
   else if ( (v26 & 2) != 0 )
   {

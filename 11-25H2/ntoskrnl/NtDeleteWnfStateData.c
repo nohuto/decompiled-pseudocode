@@ -6,7 +6,7 @@
  *     ExpNtDeleteWnfStateData @ 0x1407AFFD8 (ExpNtDeleteWnfStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateData(void *a1, __int64 a2)
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
-  return ExpNtDeleteWnfStateData(a1, a2, 1);
+  return ExpNtDeleteWnfStateData((void *)StateName, (__int64)ExplicitScope, 1);
 }

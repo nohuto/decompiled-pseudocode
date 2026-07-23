@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapContiguousMemoryLarge @ 0x1403A6D44
+ * XREFs of MiMapContiguousMemoryLarge @ 0x14026BE10
  * Callers:
- *     MiMapContiguousMemory @ 0x1402E9A9C (MiMapContiguousMemory.c)
+ *     MiMapContiguousMemory @ 0x14034B0DC (MiMapContiguousMemory.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiProtectionToCacheAttribute @ 0x1402EF870 (MiProtectionToCacheAttribute.c)
- *     MiGetPageTablesForLargeMap @ 0x1403A6BE4 (MiGetPageTablesForLargeMap.c)
- *     MiAssignInitialPageAttribute @ 0x1403A6FA4 (MiAssignInitialPageAttribute.c)
- *     MiMapWithLargePages @ 0x1403A7068 (MiMapWithLargePages.c)
- *     MiDereferenceIoPages @ 0x1403CE8E0 (MiDereferenceIoPages.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiProtectionToCacheAttribute @ 0x140253A30 (MiProtectionToCacheAttribute.c)
+ *     MiMapWithLargePages @ 0x14026BB00 (MiMapWithLargePages.c)
+ *     MiAssignInitialPageAttribute @ 0x14026C070 (MiAssignInitialPageAttribute.c)
+ *     MiGetPageTablesForLargeMap @ 0x14026C224 (MiGetPageTablesForLargeMap.c)
+ *     MiDereferenceIoPages @ 0x14038E760 (MiDereferenceIoPages.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
@@ -22,18 +22,18 @@ unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
 {
   unsigned __int64 v7; // r13
   char v8; // r10
-  unsigned __int64 *BugCheckParameter4; // r11
+  volatile LONG **BugCheckParameter4; // r11
   unsigned int v10; // r9d
   _QWORD *v11; // r12
   __int64 v12; // rbx
   int v13; // ebp
-  unsigned __int64 *v14; // r15
+  volatile LONG **v14; // r15
   __int64 v15; // rdx
   __int64 v16; // r14
   unsigned int v17; // edx
   int v18; // r14d
   int v19; // eax
-  unsigned int v20; // r15d
+  char v20; // r15
   unsigned __int64 PageTablesForLargeMap; // rax
   unsigned int v23; // [rsp+A0h] [rbp+8h] BYREF
   unsigned int v24; // [rsp+B0h] [rbp+18h]
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
   v23 = MiProtectionToCacheAttribute(a3);
   v10 = v23;
   v11 = (_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL);
-  if ( a1 > qword_140E2DBE0 )
+  if ( a1 > qword_140E2DD20 )
     LODWORD(v12) = (_DWORD)BugCheckParameter4;
   else
     v12 = (*v11 >> 54) & 1LL;
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
   v16 = v15;
   while ( (unsigned __int64)v14 < a2 )
   {
-    if ( (unsigned __int64)v14 + a1 <= qword_140E2DBE0 && ((*v11 >> 54) & 1) != 0 )
+    if ( (unsigned __int64)v14 + a1 <= qword_140E2DD20 && ((*v11 >> 54) & 1) != 0 )
     {
       if ( (v8 & 2) != 0 && ((*(_BYTE *)(v16 + 34) & 7) != 5 || !_bittest64((const signed __int64 *)(v16 + 40), 0x35u)) )
         KeBugCheckEx(0x1Au, 0x1246uLL, (ULONG_PTR)v14 + a1, 0LL, (ULONG_PTR)BugCheckParameter4);
@@ -78,11 +78,11 @@ unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
     {
       return v7;
     }
-    v14 = (unsigned __int64 *)((char *)v14 + 1);
+    v14 = (volatile LONG **)((char *)v14 + 1);
     v11 += 6;
     v16 += 48LL;
   }
-  if ( v14 == (unsigned __int64 *)a2 )
+  if ( v14 == (volatile LONG **)a2 )
   {
     if ( (_DWORD)v12 )
     {
@@ -91,7 +91,7 @@ unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
     else
     {
       v23 = (unsigned int)BugCheckParameter4;
-      if ( (int)MiReferenceIoPages(1u, a1, a2, v10, &v23, BugCheckParameter4) < 0 )
+      if ( (int)MiReferenceIoPages(1u, a1, a2, v10, (volatile LONG *)&v23, BugCheckParameter4) < 0 )
         return v7;
       v17 = v23;
       if ( ((v23 - 1) & v23) != 0 )
@@ -106,11 +106,11 @@ unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
     }
     v19 = MiPageToNode(a1);
     v20 = v24;
-    PageTablesForLargeMap = MiGetPageTablesForLargeMap(a2, (v24 & 0x18) != 0 ? 6 : 8, 1, v19 + 1);
+    PageTablesForLargeMap = MiGetPageTablesForLargeMap(a2, (v24 & 0x18) != 0 ? 6 : 8, 1LL, (unsigned int)(v19 + 1));
     v7 = PageTablesForLargeMap;
     if ( PageTablesForLargeMap )
     {
-      MiMapWithLargePages((unsigned int)&unk_140E38100, PageTablesForLargeMap, a1, a2, 1, v20, v13);
+      MiMapWithLargePages((__int64)&unk_140E38240, PageTablesForLargeMap, a1, a2, 1u, v20, v13);
       if ( v18 )
         *a5 |= 1u;
       return v7;

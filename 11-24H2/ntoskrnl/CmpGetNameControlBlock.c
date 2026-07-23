@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpGetNameControlBlock @ 0x140871120
+ * XREFs of CmpGetNameControlBlock @ 0x140875450
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     CmpHashUnicodeComponent @ 0x1408733F0 (CmpHashUnicodeComponent.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     CmpHashUnicodeComponent @ 0x140877720 (CmpHashUnicodeComponent.c)
  */
 
 _DWORD *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2)
@@ -25,8 +25,8 @@ _DWORD *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2
   WCHAR v10; // dx
   unsigned int v11; // r13d
   unsigned __int64 *v12; // rdi
-  _QWORD *v13; // rax
-  _QWORD *v14; // r15
+  char *v13; // rax
+  char *v14; // r15
   unsigned int v15; // r12d
   __int64 i; // rdi
   _DWORD *v17; // r13
@@ -38,20 +38,20 @@ _DWORD *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2
   WCHAR v23; // ax
   int v24; // eax
   char *v25; // rdx
-  __int64 *v26; // rbx
+  signed __int64 *v26; // rbx
   signed __int64 v27; // rax
   signed __int64 v28; // rdx
-  __int64 v29; // rtt
+  signed __int64 v29; // rtt
   WCHAR *v31; // r8
   unsigned __int16 *v32; // r9
   unsigned __int16 v33; // dx
   __int16 k; // r15
   __int16 v35; // ax
   WCHAR v36; // cx
-  __int64 *v37; // rbx
+  signed __int64 *v37; // rbx
   signed __int64 v38; // rax
   signed __int64 v39; // rdx
-  __int64 v40; // rtt
+  signed __int64 v40; // rtt
   WCHAR v41; // ax
   __int64 v42; // rdi
   __int64 v43; // r15
@@ -111,12 +111,12 @@ _DWORD *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2
   v12 = (unsigned __int64 *)((char *)CmpNameCacheTable
                            + 16
                            * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)v11 >> 9)) & 0x7FF));
-  v13 = KeAbPreAcquire((__int64)v12, 0LL);
+  v13 = (char *)KeAbPreAcquire((__int64)v12, 0LL);
   v14 = v13;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v12, (__int64)v13, (__int64)v12);
+    ExfAcquirePushLockExclusiveEx(v12, v13, (__int64)v12);
   if ( v14 )
-    *((_BYTE *)v14 + 10) = 1;
+    v14[10] = 1;
   v15 = ((unsigned __int16)v11 ^ (unsigned __int16)(v11 >> 9)) & 0x7FF;
   for ( i = *((_QWORD *)CmpNameCacheTable + 2 * (((unsigned __int16)v11 ^ (unsigned __int16)(v11 >> 9)) & 0x7FF) + 1);
         i;
@@ -162,9 +162,9 @@ LABEL_45:
         else
           *v17 = (*v17 + 2) ^ ((unsigned __int8)(*v17 + 2) ^ (unsigned __int8)*v17) & 1;
 LABEL_26:
-        v26 = (__int64 *)((char *)CmpNameCacheTable
-                        + 16
-                        * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF));
+        v26 = (signed __int64 *)((char *)CmpNameCacheTable
+                               + 16
+                               * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF));
         _m_prefetchw(v26);
         v27 = *v26;
         v28 = *v26 - 16;
@@ -216,7 +216,7 @@ LABEL_26:
 LABEL_18:
     ;
   }
-  Pool = (_DWORD *)CmpAllocatePool(0x100uLL);
+  Pool = (_DWORD *)CmpAllocatePool(0x100uLL, (unsigned int)v6 + 26, 0x624E4D43u);
   v17 = Pool;
   if ( Pool )
   {
@@ -280,9 +280,9 @@ LABEL_18:
     *((_QWORD *)v25 + 1) = v17 + 2;
     goto LABEL_26;
   }
-  v37 = (__int64 *)((char *)CmpNameCacheTable
-                  + 16
-                  * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF));
+  v37 = (signed __int64 *)((char *)CmpNameCacheTable
+                         + 16
+                         * (((unsigned __int16)(-30045 * (v3 ^ (v3 >> 9))) ^ (unsigned __int16)((unsigned __int64)(101027 * (v3 ^ (v3 >> 9))) >> 9)) & 0x7FF));
   _m_prefetchw(v37);
   v38 = *v37;
   v39 = *v37 - 16;

@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlMdlReadDev @ 0x14070A280
+ * XREFs of FsRtlMdlReadDev @ 0x140707E40
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     IoGetTopLevelIrp @ 0x14041CFD0 (IoGetTopLevelIrp.c)
- *     IoSetTopLevelIrp @ 0x140424450 (IoSetTopLevelIrp.c)
- *     FsRtlIsNtstatusExpected @ 0x140456400 (FsRtlIsNtstatusExpected.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CcMdlRead @ 0x140AC3350 (CcMdlRead.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     IoGetTopLevelIrp @ 0x1404118C0 (IoGetTopLevelIrp.c)
+ *     IoSetTopLevelIrp @ 0x140418300 (IoSetTopLevelIrp.c)
+ *     FsRtlIsNtstatusExpected @ 0x14044B3D0 (FsRtlIsNtstatusExpected.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CcMdlRead @ 0x140ABE630 (CcMdlRead.c)
  */
 
 BOOLEAN __stdcall FsRtlMdlReadDev(
@@ -27,9 +27,8 @@ BOOLEAN __stdcall FsRtlMdlReadDev(
   char *FsContext; // r12
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v14; // rdi
-  __int64 v15; // r9
-  char v16; // al
-  LONGLONG v17; // rax
+  char v15; // al
+  LONGLONG v16; // rax
 
   v7 = Length;
   if ( !IoGetTopLevelIrp() )
@@ -49,17 +48,15 @@ BOOLEAN __stdcall FsRtlMdlReadDev(
     ExAcquireResourceSharedLite(*((PERESOURCE *)FsContext + 1), 1u);
     if ( FileObject->PrivateCacheMap )
     {
-      v16 = FsContext[5];
-      if ( v16 )
+      v15 = FsContext[5];
+      if ( v15 )
       {
-        if ( v16 != 2
-          || (LOBYTE(v15) = 1,
-              (unsigned __int8)guard_dispatch_icall_no_overrides(FileObject, FileOffset, (unsigned int)v7, v15)) )
+        if ( v15 != 2 || (unsigned __int8)guard_dispatch_icall_no_overrides(FileObject, FileOffset) )
         {
-          v17 = *((_QWORD *)FsContext + 4);
-          if ( v11 > v17 )
+          v16 = *((_QWORD *)FsContext + 4);
+          if ( v11 > v16 )
           {
-            if ( FileOffset->QuadPart >= v17 )
+            if ( FileOffset->QuadPart >= v16 )
             {
               IoStatus->Status = -1073741807;
               IoStatus->Information = 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x1402CB0F4
+ * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x1402499E4
  * Callers:
- *     RtlpHpSegMgrCommitInitiate @ 0x140309268 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x140313FB8 (RtlpHpSegMgrCommitInitiate.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
  */
 
 _BOOL8 __fastcall RtlpHpSegMgrApplyLargePagePolicy(__int64 a1)
@@ -25,5 +25,5 @@ _BOOL8 __fastcall RtlpHpSegMgrApplyLargePagePolicy(__int64 a1)
     return 0LL;
   if ( v1 == 3 )
     return 1LL;
-  return ExGenRandom(1) & 1;
+  return ExGenRandom(1LL) & 1;
 }

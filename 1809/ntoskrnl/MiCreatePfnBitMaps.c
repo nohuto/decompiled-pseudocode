@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreatePfnBitMaps @ 0x14072A8C0
+ * XREFs of MiCreatePfnBitMaps @ 0x14072BAB0
  * Callers:
- *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MmCreatePartition @ 0x140190AB0 (MmCreatePartition.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
- *     MiSplitPfnBitMaps @ 0x14072AA20 (MiSplitPfnBitMaps.c)
- *     MiDeletePfnBitMaps @ 0x14085F510 (MiDeletePfnBitMaps.c)
+ *     MiInitializeDynamicBitmap @ 0x1407169C0 (MiInitializeDynamicBitmap.c)
+ *     MiSplitPfnBitMaps @ 0x14072BC10 (MiSplitPfnBitMaps.c)
+ *     MiDeletePfnBitMaps @ 0x140860770 (MiDeletePfnBitMaps.c)
  */
 
 __int64 __fastcall MiCreatePfnBitMaps(__int64 a1, _DWORD *a2)
@@ -44,13 +44,13 @@ __int64 __fastcall MiCreatePfnBitMaps(__int64 a1, _DWORD *a2)
     }
     v8 = 0x1000000000LL / v6 + (0x1000000000LL % v6 != 0);
     v9 = (((unsigned __int64)(v8 + 7) >> 3) + 4095) >> 12;
-    v10 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v9);
+    v10 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v9);
     v11 = v10;
     if ( !v10 )
       goto LABEL_17;
     if ( !(unsigned int)MiInitializeDynamicBitmap(v7, (__int64)(v10 << 25) >> 16, v8, 4) )
     {
-      MiReleasePtes((__int64)&qword_14043AFA0, v11, v9);
+      MiReleasePtes((__int64)&qword_14043C060, v11, v9);
 LABEL_17:
       MiDeletePfnBitMaps(a1);
       return 0LL;

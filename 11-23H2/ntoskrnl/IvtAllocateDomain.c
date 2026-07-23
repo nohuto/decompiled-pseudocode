@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtAllocateDomain @ 0x1403B47B0
+ * XREFs of IvtAllocateDomain @ 0x1403B4990
  * Callers:
  *     <none>
  * Callees:
- *     ExtEnvInitializeSpinLock @ 0x1403B47DC (ExtEnvInitializeSpinLock.c)
+ *     ExtEnvInitializeSpinLock @ 0x1403B49BC (ExtEnvInitializeSpinLock.c)
  */
 
 __int64 __fastcall IvtAllocateDomain(__int64 a1, __int64 a2)

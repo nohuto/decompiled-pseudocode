@@ -1,11 +1,11 @@
 /*
- * XREFs of SubstringMatch @ 0x140AA9A5C
+ * XREFs of SubstringMatch @ 0x140AA4E68
  * Callers:
- *     PropertyEval @ 0x1409A8E30 (PropertyEval.c)
- *     StringListElementSubstringMatch @ 0x140B6CBE0 (StringListElementSubstringMatch.c)
+ *     PropertyEval @ 0x140969840 (PropertyEval.c)
+ *     StringListElementSubstringMatch @ 0x140B6FFB0 (StringListElementSubstringMatch.c)
  * Callees:
- *     wcsstr @ 0x140538480 (wcsstr.c)
- *     _wcsistr @ 0x140AA9AC4 (_wcsistr.c)
+ *     wcsstr @ 0x14053A900 (wcsstr.c)
+ *     _wcsistr @ 0x140AA4ED0 (_wcsistr.c)
  */
 
 __int64 __fastcall SubstringMatch(const wchar_t *a1, const wchar_t *a2, int a3, int a4)

@@ -3,11 +3,11 @@
  * Callers:
  *     FsRtlCheckLockForWriteAccess @ 0x14021D1E0 (FsRtlCheckLockForWriteAccess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14021DC48 (FsRtlCheckNoExclusiveConflict.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
+ *     sub_14021DC48 @ 0x14021DC48 (sub_14021DC48.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlCheckNoSharedConflict @ 0x1403750E4 (FsRtlCheckNoSharedConflict.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_1403750E4 @ 0x1403750E4 (sub_1403750E4.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
@@ -33,12 +33,12 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
   BOOLEAN v19; // si
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r8
+  __int64 v22; // r8
   int v23; // eax
   bool v24; // zf
   unsigned __int8 v25; // al
   struct _KPRCB *v26; // r10
-  _DWORD *v27; // r8
+  __int64 v27; // r8
   int v28; // eax
   _QWORD v29[9]; // [rsp+30h] [rbp-48h] BYREF
   unsigned __int64 v30; // [rsp+80h] [rbp+8h] BYREF
@@ -74,21 +74,21 @@ BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
           && *(_BYTE *)(v16 + 16) )
         {
 LABEL_6:
-          KxReleaseSpinLock(LockInformation + 3);
-          if ( KiIrqlFlags )
+          KeReleaseSpinLockFromDpcLevel(LockInformation + 3);
+          if ( dword_140D06B08 )
           {
-            if ( (KiIrqlFlags & 1) != 0 )
+            if ( (dword_140D06B08 & 1) != 0 )
             {
               CurrentIrql = KeGetCurrentIrql();
               if ( CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
-                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                v22 = *((_QWORD *)CurrentPrcb + 4375);
                 v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-                v24 = (v23 & SchedulerAssist[5]) == 0;
-                SchedulerAssist[5] &= v23;
+                v24 = (v23 & *(_DWORD *)(v22 + 20)) == 0;
+                *(_DWORD *)(v22 + 20) &= v23;
                 if ( v24 )
-                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                  sub_140418E4C(CurrentPrcb);
               }
             }
           }
@@ -101,30 +101,24 @@ LABEL_7:
       {
         v18 = v31;
       }
-      v19 = FsRtlCheckNoSharedConflict(LockInformation + 3, v29, &v30);
+      v19 = sub_1403750E4(LockInformation + 3, v29, &v30);
       if ( v19 == 1 )
-        v19 = FsRtlCheckNoExclusiveConflict(
-                (_DWORD)v9,
-                (unsigned int)v29,
-                (unsigned int)&v30,
-                v18,
-                (__int64)v14,
-                (__int64)v15);
-      KxReleaseSpinLock(v9);
-      if ( KiIrqlFlags )
+        v19 = sub_14021DC48((_DWORD)v9, (unsigned int)v29, (unsigned int)&v30, v18, (__int64)v14, (__int64)v15);
+      KeReleaseSpinLockFromDpcLevel(v9);
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( (dword_140D06B08 & 1) != 0 )
         {
           v25 = KeGetCurrentIrql();
           if ( v25 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v25 >= 2u )
           {
             v26 = KeGetCurrentPrcb();
-            v27 = v26->SchedulerAssist;
+            v27 = *((_QWORD *)v26 + 4375);
             v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-            v24 = (v28 & v27[5]) == 0;
-            v27[5] &= v28;
+            v24 = (v28 & *(_DWORD *)(v27 + 20)) == 0;
+            *(_DWORD *)(v27 + 20) &= v28;
             if ( v24 )
-              KiRemoveSystemWorkPriorityKick(v26);
+              sub_140418E4C(v26);
           }
         }
       }

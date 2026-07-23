@@ -22,16 +22,14 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   __int16 v10; // r14
   __int64 v11; // rax
   __int64 v12; // rdx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // rax
-  __int64 v16; // rcx
+  __int64 v13; // rax
+  ACL *v14; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
-  __int64 v20; // rdx
+  __int64 v18; // rdx
   NTSTATUS AccessStatus; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-20h]
+  __int64 v20; // [rsp+58h] [rbp-20h]
   ACCESS_MASK GrantedAccess; // [rsp+90h] [rbp+18h] BYREF
 
   GrantedAccess = 0;
@@ -68,36 +66,36 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   {
     if ( (~(_BYTE)v10 & 0x10) != 0 )
     {
-      v16 = 0LL;
+      v14 = 0LL;
     }
     else if ( v10 >= 0 )
     {
-      v16 = *(_QWORD *)(a4 + 24);
+      v14 = *(ACL **)(a4 + 24);
     }
     else
     {
-      v15 = *(unsigned int *)(a4 + 12);
-      v16 = (_DWORD)v15 ? a4 + v15 : 0LL;
+      v13 = *(unsigned int *)(a4 + 12);
+      v14 = (_DWORD)v13 ? (ACL *)(a4 + v13) : 0LL;
     }
-    v22 = 0LL;
+    v20 = 0LL;
     if ( !SepRmEnforceCap )
       return 0LL;
-    if ( !v16 )
+    if ( !v14 )
       return 0LL;
-    ScopedPolicySid = (void *)SepGetScopedPolicySid(v16, v13, v14);
+    ScopedPolicySid = (void *)SepGetScopedPolicySid(v14);
     if ( !ScopedPolicySid )
       return 0LL;
     Cap = SepRmReferenceFindCap(ScopedPolicySid);
-    v20 = v22;
+    v18 = v20;
     if ( Cap < 0 )
-      v20 = SepRmDefaultCap;
-    if ( (*(_DWORD *)(v20 + 56) & 1) == 0 )
+      v18 = SepRmDefaultCap;
+    if ( (*(_DWORD *)(v18 + 56) & 1) == 0 )
       return 0LL;
   }
   ClientToken = SubjectSecurityContext->ClientToken;
   if ( !SubjectSecurityContext->ClientToken )
     ClientToken = SubjectSecurityContext->PrimaryToken;
-  if ( !(unsigned __int8)SepTokenIsOwner((__int64)ClientToken, a4) )
+  if ( !(unsigned __int8)SepTokenIsOwner((__int64)ClientToken) )
     return 0LL;
   if ( (a3 & 0x40000) != 0
     && !SeAccessCheck(

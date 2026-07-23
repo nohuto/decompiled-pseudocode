@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileLargeMapDelete @ 0x1406C9BD4
+ * XREFs of AslpFileLargeMapDelete @ 0x1406C9D0C
  * Callers:
- *     AslpFileLargeAssignViewAndDelete @ 0x1406C9444 (AslpFileLargeAssignViewAndDelete.c)
- *     AslpFileLargeEnsureLargeFileMapping @ 0x1406C94E0 (AslpFileLargeEnsureLargeFileMapping.c)
- *     AslpFileLargeMapCreate @ 0x1406C9970 (AslpFileLargeMapCreate.c)
+ *     AslpFileLargeAssignViewAndDelete @ 0x1406C957C (AslpFileLargeAssignViewAndDelete.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x1406C9618 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslpFileLargeMapCreate @ 0x1406C9AA8 (AslpFileLargeMapCreate.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslpFilePartialViewFree @ 0x1406C9C28 (AslpFilePartialViewFree.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslpFilePartialViewFree @ 0x1406C9D60 (AslpFilePartialViewFree.c)
  */
 
 void __fastcall AslpFileLargeMapDelete(_QWORD **a1)

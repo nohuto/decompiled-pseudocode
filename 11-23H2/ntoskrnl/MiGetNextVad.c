@@ -1,15 +1,15 @@
 /*
  * XREFs of MiGetNextVad @ 0x1402150EC
  * Callers:
- *     MiUnlockVadRange @ 0x1406AFF64 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x1406B0034 (MiLockVadRange.c)
- *     MiUpdateVadBits @ 0x1406B2E28 (MiUpdateVadBits.c)
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
- *     MmCleanProcessAddressSpace @ 0x14071FA58 (MmCleanProcessAddressSpace.c)
- *     MiReturnPageTablePageCommitment @ 0x140764990 (MiReturnPageTablePageCommitment.c)
- *     MiCommitInitialVadMetadataBits @ 0x1407A3E5C (MiCommitInitialVadMetadataBits.c)
- *     MiCoalescePlaceholderAllocations @ 0x140A32038 (MiCoalescePlaceholderAllocations.c)
- *     MiHotPatchProcess @ 0x140A374C4 (MiHotPatchProcess.c)
+ *     MiUnlockVadRange @ 0x1406AFF94 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1406B0064 (MiLockVadRange.c)
+ *     MiUpdateVadBits @ 0x1406B2E58 (MiUpdateVadBits.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x14071FC58 (MmCleanProcessAddressSpace.c)
+ *     MiReturnPageTablePageCommitment @ 0x140764B80 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitInitialVadMetadataBits @ 0x1407A404C (MiCommitInitialVadMetadataBits.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A322E8 (MiCoalescePlaceholderAllocations.c)
+ *     MiHotPatchProcess @ 0x140A37774 (MiHotPatchProcess.c)
  * Callees:
  *     <none>
  */

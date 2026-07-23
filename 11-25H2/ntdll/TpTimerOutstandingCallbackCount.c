@@ -12,7 +12,7 @@
 __int64 __fastcall TpTimerOutstandingCallbackCount(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // eax
-  volatile signed __int64 *v5; // rdi
+  _RTL_SRWLOCK *v5; // rdi
   unsigned int v6; // ebx
   _PEB_LDR_DATA *Ldr; // rcx
 
@@ -30,8 +30,8 @@ __int64 __fastcall TpTimerOutstandingCallbackCount(__int64 a1, __int64 a2, __int
   }
   else
   {
-    v5 = (volatile signed __int64 *)(a1 + 240);
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
+    v5 = (_RTL_SRWLOCK *)(a1 + 240);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     v6 = *(_DWORD *)(a1 + 56);
     RtlReleaseSRWLockExclusive(v5);
     return v6;

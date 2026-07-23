@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckMatchingRegistryEntry @ 0x140A4F91C
+ * XREFs of SdbpCheckMatchingRegistryEntry @ 0x140A4FBCC
  * Callers:
- *     SdbpCheckMatchingRegistry @ 0x140A4F7F0 (SdbpCheckMatchingRegistry.c)
+ *     SdbpCheckMatchingRegistry @ 0x140A4FAA0 (SdbpCheckMatchingRegistry.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpCheckMatchingRegistryValue @ 0x140A4FAFC (SdbpCheckMatchingRegistryValue.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140A4FDAC (SdbpCheckMatchingRegistryValue.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingRegistryEntry(
@@ -28,13 +28,13 @@ __int64 __fastcall SdbpCheckMatchingRegistryEntry(
   HANDLE KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v15; // [rsp+98h] [rbp-68h] BYREF
+  __int64 SystemInformation; // [rsp+98h] [rbp-68h] BYREF
   int v16; // [rsp+A0h] [rbp-60h]
   wchar_t pszDest[264]; // [rsp+B0h] [rbp-50h] BYREF
 
   pszDest[0] = 0;
   KeyHandle = 0LL;
-  v15 = 0LL;
+  SystemInformation = 0LL;
   *a9 = 0;
   v16 = 0;
   v10 = 0;
@@ -53,12 +53,12 @@ __int64 __fastcall SdbpCheckMatchingRegistryEntry(
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     goto LABEL_9;
-  if ( (int)ZwQuerySystemInformation(1LL, (__int64)&v15) < 0 )
+  if ( ZwQuerySystemInformation(SystemProcessorInformation, &SystemInformation, 0xCu, 0LL) < 0 )
   {
     AslLogCallPrintf(1LL);
     goto LABEL_10;
   }
-  if ( (_WORD)v15 == 9 && ZwOpenKey(&KeyHandle, 0x20219u, &ObjectAttributes) >= 0 )
+  if ( (_WORD)SystemInformation == 9 && ZwOpenKey(&KeyHandle, 0x20219u, &ObjectAttributes) >= 0 )
 LABEL_9:
     v10 = SdbpCheckMatchingRegistryValue(KeyHandle, a2, a5, a6, Buf1, Size, (__int64)a9);
   else

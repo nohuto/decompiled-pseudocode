@@ -1,19 +1,19 @@
 /*
- * XREFs of MiProbeAndLockPacket @ 0x140236260
+ * XREFs of MiProbeAndLockPacket @ 0x140236330
  * Callers:
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmLockPhysicalPagesByVa @ 0x140A2D6F4 (MmLockPhysicalPagesByVa.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x140A2D9A4 (MmLockPhysicalPagesByVa.c)
  * Callees:
- *     MiProbeLockFrame @ 0x140236500 (MiProbeLockFrame.c)
- *     MiLockPageLeafPageTable @ 0x140236940 (MiLockPageLeafPageTable.c)
- *     MiProbeLeafPteAccess @ 0x140236C50 (MiProbeLeafPteAccess.c)
- *     MiSetProbePagesAhead @ 0x140236FD0 (MiSetProbePagesAhead.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiProbePacketContended @ 0x1402E6584 (MiProbePacketContended.c)
- *     MiFaultInProbeAddress @ 0x14034B8CC (MiFaultInProbeAddress.c)
- *     MiLockProbePacketWorkingSet @ 0x14034B9F4 (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14034BA3C (MiUnlockProbePacketWorkingSet.c)
+ *     MiProbeLockFrame @ 0x1402365D0 (MiProbeLockFrame.c)
+ *     MiLockPageLeafPageTable @ 0x140236A10 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafPteAccess @ 0x140236D20 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x1402370A0 (MiSetProbePagesAhead.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiProbePacketContended @ 0x1402E6814 (MiProbePacketContended.c)
+ *     MiFaultInProbeAddress @ 0x14034BA6C (MiFaultInProbeAddress.c)
+ *     MiLockProbePacketWorkingSet @ 0x14034BB94 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x14034BBDC (MiUnlockProbePacketWorkingSet.c)
  */
 
 __int64 __fastcall MiProbeAndLockPacket(__int64 a1)

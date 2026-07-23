@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReturnPartitionPagesToParent @ 0x1407098B8
+ * XREFs of MiReturnPartitionPagesToParent @ 0x14070E56C
  * Callers:
- *     MiFreePartitionPhysicalPages @ 0x1408691D8 (MiFreePartitionPhysicalPages.c)
+ *     MiFreePartitionPhysicalPages @ 0x14086F5B8 (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiDrainZeroLookasides @ 0x14045E180 (MiDrainZeroLookasides.c)
- *     MiLockDynamicMemoryExclusive @ 0x1405278F0 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14052A718 (MiUnlockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryNestedParentExclusive @ 0x1406E970C (MiLockDynamicMemoryNestedParentExclusive.c)
- *     MiUnlockDynamicMemoryNestedParentExclusive @ 0x1406EA248 (MiUnlockDynamicMemoryNestedParentExclusive.c)
- *     MiReleasePartitionHugeIoSpace @ 0x1406ED674 (MiReleasePartitionHugeIoSpace.c)
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
- *     MiDeletePartitionPageNode @ 0x140708AD4 (MiDeletePartitionPageNode.c)
- *     MiMergePageNodes @ 0x1407090F4 (MiMergePageNodes.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiMakePartitionMemoryBlock @ 0x14087C5D4 (MiMakePartitionMemoryBlock.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiDrainZeroLookasides @ 0x140457D20 (MiDrainZeroLookasides.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140529F60 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14052CC38 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryNestedParentExclusive @ 0x1406EE3AC (MiLockDynamicMemoryNestedParentExclusive.c)
+ *     MiUnlockDynamicMemoryNestedParentExclusive @ 0x1406EEEE8 (MiUnlockDynamicMemoryNestedParentExclusive.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x1406F2314 (MiReleasePartitionHugeIoSpace.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
+ *     MiDeletePartitionPageNode @ 0x14070D788 (MiDeletePartitionPageNode.c)
+ *     MiMergePageNodes @ 0x14070DDA8 (MiMergePageNodes.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408829D4 (MiMakePartitionMemoryBlock.c)
  */
 
 void __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
@@ -70,7 +70,7 @@ void __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
         v13 = v10;
       }
     }
-    MiActOnPartitionNodePages((__int64)v12, 6u, 0, (__int64)v15);
+    MiActOnPartitionNodePages((__int64)v12, 6u, 0, v15);
     RtlAvlRemoveNode((unsigned __int64 *)(BugCheckParameter2 + 24), (__int64)v12);
     if ( v3 == &MiSystemPartition || (unsigned int)MiMergePageNodes((__int64)v3, (__int64)v12, 0LL, 0LL) )
       MiDeletePartitionPageNode(v12);

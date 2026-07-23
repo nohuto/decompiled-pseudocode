@@ -1,10 +1,10 @@
 /*
- * XREFs of WmiQueryTraceInformation @ 0x140B69710
+ * XREFs of WmiQueryTraceInformation @ 0x140B6C6A0
  * Callers:
  *     <none>
  * Callees:
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     WmipQueryTraceInformation @ 0x140829064 (WmipQueryTraceInformation.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     WmipQueryTraceInformation @ 0x14082F2A4 (WmipQueryTraceInformation.c)
  */
 
 NTSTATUS __stdcall WmiQueryTraceInformation(

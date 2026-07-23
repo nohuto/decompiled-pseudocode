@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlReleasePebLock @ 0x18007BE70
+ * XREFs of RtlReleasePebLock @ 0x18007BE80
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlReleasePebLock()
+NTSTATUS RtlReleasePebLock(void)
 {
-  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

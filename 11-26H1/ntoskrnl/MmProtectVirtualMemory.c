@@ -1,29 +1,29 @@
 /*
- * XREFs of MmProtectVirtualMemory @ 0x14095E5D8
+ * XREFs of MmProtectVirtualMemory @ 0x140A03E98
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     KiTpWriteUmMemory @ 0x1405FC898 (KiTpWriteUmMemory.c)
- *     NtProtectVirtualMemory @ 0x14095E180 (NtProtectVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     KiTpWriteUmMemory @ 0x1405FF2E8 (KiTpWriteUmMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x140A03A40 (NtProtectVirtualMemory.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiSetProtectionOnSection @ 0x140304DE0 (MiSetProtectionOnSection.c)
- *     MiAllowProtectionChange @ 0x140306C24 (MiAllowProtectionChange.c)
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiVadMapsLargeImage @ 0x1403BC004 (MiVadMapsLargeImage.c)
- *     MiGetVadPageSize @ 0x14044F880 (MiGetVadPageSize.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiProtectEnclavePages @ 0x140519CE0 (MiProtectEnclavePages.c)
- *     MiProtectAweRegion @ 0x140701F34 (MiProtectAweRegion.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
- *     MiIsRangeFullyCommitted @ 0x14095DDE4 (MiIsRangeFullyCommitted.c)
- *     MiCommitVadMetadataBits @ 0x1409C6E14 (MiCommitVadMetadataBits.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiSetProtectionOnSection @ 0x1402E6E60 (MiSetProtectionOnSection.c)
+ *     MiAllowProtectionChange @ 0x1402E8CA4 (MiAllowProtectionChange.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiVadMapsLargeImage @ 0x1403C5E74 (MiVadMapsLargeImage.c)
+ *     MiGetVadPageSize @ 0x1404479B0 (MiGetVadPageSize.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiProtectEnclavePages @ 0x140513750 (MiProtectEnclavePages.c)
+ *     MiProtectAweRegion @ 0x140706C04 (MiProtectAweRegion.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MiCommitVadMetadataBits @ 0x140997DF4 (MiCommitVadMetadataBits.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
+ *     MiIsRangeFullyCommitted @ 0x140A036A4 (MiIsRangeFullyCommitted.c)
  */
 
 __int64 __fastcall MmProtectVirtualMemory(
@@ -40,7 +40,7 @@ __int64 __fastcall MmProtectVirtualMemory(
   unsigned int v9; // edi
   int ProtectionMask; // r13d
   unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // r12
+  __int64 v12; // r12
   volatile signed __int32 *v13; // rbx
   ULONG_PTR v14; // rax
   ULONG_PTR v15; // r15
@@ -76,7 +76,7 @@ __int64 __fastcall MmProtectVirtualMemory(
   __int64 v45; // [rsp+A0h] [rbp-78h]
   _QWORD *Teb; // [rsp+A8h] [rbp-70h]
   unsigned __int64 v47; // [rsp+B0h] [rbp-68h]
-  _QWORD v48[2]; // [rsp+B8h] [rbp-60h] BYREF
+  __int64 v48[2]; // [rsp+B8h] [rbp-60h] BYREF
   __int64 ULong64FromUser; // [rsp+C8h] [rbp-50h]
   unsigned __int64 v50; // [rsp+D0h] [rbp-48h]
   unsigned __int64 v51; // [rsp+D8h] [rbp-40h]
@@ -191,10 +191,11 @@ LABEL_6:
         if ( (int)result < 0 )
           goto LABEL_37;
         v56[0] = 1;
+        LOBYTE(v29) = v37;
       }
       v48[0] = v12;
       v48[1] = v11;
-      result = MiCommitVadMetadataBits(v15, v48);
+      result = MiCommitVadMetadataBits(v15, v48, v29);
       v33 = result;
       if ( (int)result < 0 )
         goto LABEL_37;

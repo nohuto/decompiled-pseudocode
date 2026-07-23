@@ -1,14 +1,14 @@
 /*
- * XREFs of RaspGetUnscaledGlyphData @ 0x14069B1FC
+ * XREFs of RaspGetUnscaledGlyphData @ 0x14069C27C
  * Callers:
- *     RaspRasterize @ 0x14069BE1C (RaspRasterize.c)
+ *     RaspRasterize @ 0x14069CE9C (RaspRasterize.c)
  * Callees:
- *     RaspFreeMemory @ 0x140467304 (RaspFreeMemory.c)
- *     RaspConvertDeltas @ 0x14069ACFC (RaspConvertDeltas.c)
- *     RaspLoadBearings @ 0x14069B820 (RaspLoadBearings.c)
- *     RaspLoadGlyphData @ 0x14069BB90 (RaspLoadGlyphData.c)
- *     RaspMapCharacterCodeToGlyphIndex @ 0x14069BC74 (RaspMapCharacterCodeToGlyphIndex.c)
- *     RaspMapGlyphIndexToLocation @ 0x14069BD2C (RaspMapGlyphIndexToLocation.c)
+ *     RaspFreeMemory @ 0x14045EC60 (RaspFreeMemory.c)
+ *     RaspConvertDeltas @ 0x14069BD7C (RaspConvertDeltas.c)
+ *     RaspLoadBearings @ 0x14069C8A0 (RaspLoadBearings.c)
+ *     RaspLoadGlyphData @ 0x14069CC10 (RaspLoadGlyphData.c)
+ *     RaspMapCharacterCodeToGlyphIndex @ 0x14069CCF4 (RaspMapCharacterCodeToGlyphIndex.c)
+ *     RaspMapGlyphIndexToLocation @ 0x14069CDAC (RaspMapGlyphIndexToLocation.c)
  */
 
 __int64 __fastcall RaspGetUnscaledGlyphData(__int64 a1, __int64 a2, __int64 *a3, __int64 a4, _QWORD *a5)

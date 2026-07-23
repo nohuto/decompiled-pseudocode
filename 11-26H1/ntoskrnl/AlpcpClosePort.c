@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpClosePort @ 0x1408EA550
+ * XREFs of AlpcpClosePort @ 0x1408F0B10
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     AlpcpDoPortCleanup @ 0x1408EA5C4 (AlpcpDoPortCleanup.c)
- *     AlpcpSendCloseMessage @ 0x1408EAA08 (AlpcpSendCloseMessage.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     AlpcpDoPortCleanup @ 0x1408F0B84 (AlpcpDoPortCleanup.c)
+ *     AlpcpSendCloseMessage @ 0x1408F0FC8 (AlpcpSendCloseMessage.c)
  */
 
 void __fastcall AlpcpClosePort(__int64 a1, __int64 a2, __int64 a3)

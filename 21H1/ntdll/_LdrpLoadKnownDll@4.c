@@ -16,27 +16,27 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-signed int __thiscall LdrpLoadKnownDll(_DWORD *this)
+signed int __thiscall LdrpLoadKnownDll(int this)
 {
-  int v2; // eax
+  NTSTATUS v2; // eax
   int *v3; // ecx
   bool v4; // sf
   int v5; // eax
   signed int KnownDll; // edi
   char v7; // al
-  int v8; // ebx
+  _UNICODE_STRING *v8; // ebx
   int *v9; // edi
   _BYTE v11[8]; // [esp+Ch] [ebp-1Ch] BYREF
-  void *v12; // [esp+14h] [ebp-14h] BYREF
+  PVOID OldFsRedirectionLevel; // [esp+14h] [ebp-14h] BYREF
   HANDLE Handle; // [esp+18h] [ebp-10h] BYREF
   int *v14; // [esp+1Ch] [ebp-Ch] BYREF
-  _BYTE *v15; // [esp+20h] [ebp-8h]
+  PCUNICODE_STRING Source; // [esp+20h] [ebp-8h]
   bool v16; // [esp+27h] [ebp-1h]
 
-  v2 = RtlWow64EnableFsRedirectionEx(0, &v12);
-  v3 = (int *)this[8];
+  v2 = RtlWow64EnableFsRedirectionEx(0, &OldFsRedirectionLevel);
+  v3 = *(int **)(this + 32);
   v4 = v2 < 0;
-  v5 = this[4];
+  v5 = *(_DWORD *)(this + 16);
   KnownDll = -1073741515;
   v16 = !v4;
   v14 = v3;
@@ -44,25 +44,25 @@ signed int __thiscall LdrpLoadKnownDll(_DWORD *this)
   {
     v7 = LdrpCheckKnownDllFullPath(this, v11);
     v3 = v14;
-    v15 = v11;
+    Source = (PCUNICODE_STRING)v11;
   }
   else
   {
-    v15 = this;
+    Source = (PCUNICODE_STRING)this;
     v7 = (v5 & 0x28) == 32;
   }
   if ( v7 )
   {
-    v8 = (int)(v3 + 9);
-    KnownDll = LdrpFindKnownDll(v3 + 9, &Handle);
+    v8 = (_UNICODE_STRING *)(v3 + 9);
+    KnownDll = LdrpFindKnownDll(Source, (PUNICODE_STRING)(v3 + 9), &Handle);
     if ( KnownDll >= 0 )
     {
       v9 = v14;
-      LdrpLogDllState(v14[6], v8, 5285);
+      LdrpLogDllState(v14[6], (int)v8, 5285);
       v14 = 0;
       v9[36] = LdrpHashUnicodeString(v9 + 11);
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-      KnownDll = LdrpFindLoadedDllByNameLockHeld((unsigned __int16 *)v9 + 22, v8, this[4], &v14, v9[36]);
+      KnownDll = LdrpFindLoadedDllByNameLockHeld((unsigned __int16 *)v9 + 22, v8, *(_DWORD *)(this + 16), &v14, v9[36]);
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
       if ( v14 )
       {
@@ -70,13 +70,13 @@ signed int __thiscall LdrpLoadKnownDll(_DWORD *this)
       }
       else
       {
-        LdrpLogDllState(0, v8, 5290);
+        LdrpLogDllState(0, (int)v8, 5290);
         KnownDll = LdrpMapDllWithSectionHandle(this, Handle);
       }
       NtClose(Handle);
     }
   }
   if ( v16 )
-    RtlWow64EnableFsRedirectionEx(v12, &v12);
+    RtlWow64EnableFsRedirectionEx(OldFsRedirectionLevel, &OldFsRedirectionLevel);
   return KnownDll;
 }

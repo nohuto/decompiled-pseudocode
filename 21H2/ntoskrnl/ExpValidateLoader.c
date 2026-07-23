@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpValidateLoader @ 0x140A73C7C
+ * XREFs of ExpValidateLoader @ 0x140A74C7C
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExpValidateLoader(unsigned int *a1)

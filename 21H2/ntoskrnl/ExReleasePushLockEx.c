@@ -1,226 +1,226 @@
 /*
- * XREFs of ExReleasePushLockEx @ 0x14034AE90
+ * XREFs of ExReleasePushLockEx @ 0x140355BE0
  * Callers:
- *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
- *     EtwpUnlockBufferList @ 0x1402662CC (EtwpUnlockBufferList.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     ObpUnlockDirectory @ 0x14027EB0C (ObpUnlockDirectory.c)
- *     FsRtlLookupPerFileObjectContext @ 0x1402913F0 (FsRtlLookupPerFileObjectContext.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x1402A22D0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     FsRtlRemovePerFileObjectContext @ 0x1402A28A0 (FsRtlRemovePerFileObjectContext.c)
- *     FsRtlInsertPerFileObjectContext @ 0x1402A2990 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlInsertPerStreamContext @ 0x1402A72F0 (FsRtlInsertPerStreamContext.c)
- *     FsRtlInsertPerFileContext @ 0x1402BF630 (FsRtlInsertPerFileContext.c)
- *     FsRtlLookupPerFileContext @ 0x1402C4680 (FsRtlLookupPerFileContext.c)
- *     CcCompleteAsyncReadWorker @ 0x1402CC2D0 (CcCompleteAsyncReadWorker.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402F8664 (CcPostWorkQueueAsyncRead.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1402F8868 (CcShouldSpinAsyncReadWorkerThread.c)
- *     CcGetVirtualAddressIfMapped @ 0x14030F444 (CcGetVirtualAddressIfMapped.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x140310D24 (CcReleaseBcbLockAndVacbLock.c)
- *     CcUnmapVacbArray @ 0x140312E70 (CcUnmapVacbArray.c)
- *     CcAllocateInitializeBcb @ 0x14031CD80 (CcAllocateInitializeBcb.c)
- *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
- *     FsRtlLookupPerStreamContextInternal @ 0x140349FA0 (FsRtlLookupPerStreamContextInternal.c)
- *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
- *     IopCleanupNotifications @ 0x14037C458 (IopCleanupNotifications.c)
- *     CcGetNumberOfMappedPages @ 0x140394B70 (CcGetNumberOfMappedPages.c)
- *     ExpUnlockCallbackListExclusive @ 0x1403A666C (ExpUnlockCallbackListExclusive.c)
- *     CcAsyncReadWorker @ 0x1403B7950 (CcAsyncReadWorker.c)
- *     CcAsyncReadWorkerThread @ 0x1404EC5C0 (CcAsyncReadWorkerThread.c)
- *     FsRtlRemovePerFileContext @ 0x1404F1400 (FsRtlRemovePerFileContext.c)
- *     FsRtlRemovePerStreamContext @ 0x1404F1500 (FsRtlRemovePerStreamContext.c)
- *     PnpCancelDeviceActionRequest @ 0x14050E7D8 (PnpCancelDeviceActionRequest.c)
- *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x14056A830 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     FsRtlLookupPerFileObjectContext @ 0x14020F360 (FsRtlLookupPerFileObjectContext.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14021F710 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     FsRtlRemovePerFileObjectContext @ 0x14021FCE0 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x14021FDD0 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlInsertPerStreamContext @ 0x140225430 (FsRtlInsertPerStreamContext.c)
+ *     FsRtlInsertPerFileContext @ 0x14023DA80 (FsRtlInsertPerFileContext.c)
+ *     FsRtlLookupPerFileContext @ 0x140242C00 (FsRtlLookupPerFileContext.c)
+ *     CcCompleteAsyncReadWorker @ 0x14024A930 (CcCompleteAsyncReadWorker.c)
+ *     EtwpUnlockBufferList @ 0x14025426C (EtwpUnlockBufferList.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     ObpUnlockDirectory @ 0x14026CAAC (ObpUnlockDirectory.c)
+ *     NtTraceEvent @ 0x14027E790 (NtTraceEvent.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1403033B4 (CcPostWorkQueueAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x1403035B8 (CcShouldSpinAsyncReadWorkerThread.c)
+ *     CcGetVirtualAddressIfMapped @ 0x14031A194 (CcGetVirtualAddressIfMapped.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14031BA74 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcUnmapVacbArray @ 0x14031DBC0 (CcUnmapVacbArray.c)
+ *     CcAllocateInitializeBcb @ 0x140327AD0 (CcAllocateInitializeBcb.c)
+ *     CcGetVirtualAddress @ 0x14032BC60 (CcGetVirtualAddress.c)
+ *     FsRtlLookupPerStreamContextInternal @ 0x140354CF0 (FsRtlLookupPerStreamContextInternal.c)
+ *     IopCleanupNotifications @ 0x14037BFA8 (IopCleanupNotifications.c)
+ *     PnpDeviceActionWorker @ 0x140381DA0 (PnpDeviceActionWorker.c)
+ *     CcGetNumberOfMappedPages @ 0x140394CC0 (CcGetNumberOfMappedPages.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1403A67BC (ExpUnlockCallbackListExclusive.c)
+ *     CcAsyncReadWorker @ 0x1403B7AC0 (CcAsyncReadWorker.c)
+ *     CcAsyncReadWorkerThread @ 0x1404EC800 (CcAsyncReadWorkerThread.c)
+ *     FsRtlRemovePerFileContext @ 0x1404F1380 (FsRtlRemovePerFileContext.c)
+ *     FsRtlRemovePerStreamContext @ 0x1404F1480 (FsRtlRemovePerStreamContext.c)
+ *     PnpCancelDeviceActionRequest @ 0x14050EA18 (PnpCancelDeviceActionRequest.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x14056AA70 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
  *     CmSetCallbackObjectContext @ 0x1405D5830 (CmSetCallbackObjectContext.c)
  *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
  *     VrpDereferenceDiffHiveEntry @ 0x1405D642C (VrpDereferenceDiffHiveEntry.c)
  *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x1405D6690 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  *     CmpFreeCallbackObjectContexts @ 0x1405D6B4C (CmpFreeCallbackObjectContexts.c)
- *     ObpCallPreOperationCallbacks @ 0x1405E9760 (ObpCallPreOperationCallbacks.c)
- *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
- *     CmpUnlockHashEntry @ 0x1405EC638 (CmpUnlockHashEntry.c)
- *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
- *     CmpUnlockNameHashEntry @ 0x1405EFE60 (CmpUnlockNameHashEntry.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x1405EFEA0 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
- *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
- *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
- *     EtwpDeleteRegistrationObject @ 0x1405FC900 (EtwpDeleteRegistrationObject.c)
- *     ObQueryDeviceMapInformation @ 0x1406250A0 (ObQueryDeviceMapInformation.c)
- *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
- *     ObpReferenceDeviceMap @ 0x1406256F0 (ObpReferenceDeviceMap.c)
- *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
- *     ObpDecrementHandleCount @ 0x14062CA04 (ObpDecrementHandleCount.c)
- *     ObpDeleteNameCheck @ 0x14062CBD0 (ObpDeleteNameCheck.c)
- *     PiDqIrpQueryGetResult @ 0x14062E070 (PiDqIrpQueryGetResult.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
- *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
- *     PiDqQuerySerializeActionQueue @ 0x14062F5EC (PiDqQuerySerializeActionQueue.c)
- *     PiControlGetDeviceInterfaceEnabled @ 0x140635460 (PiControlGetDeviceInterfaceEnabled.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1406357D0 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x140636754 (PiDmObjectGetAggregatedBooleanPropertyData.c)
- *     PiDmObjectGetCachedObjectPropertyData @ 0x140636E84 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14063704C (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmObjectIsEnumerable @ 0x14063772C (PiDmObjectIsEnumerable.c)
- *     EtwpAddRegEntryToGroup @ 0x140643580 (EtwpAddRegEntryToGroup.c)
- *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
- *     ObSetSecurityDescriptorInfo @ 0x14065F2B0 (ObSetSecurityDescriptorInfo.c)
- *     DelistKeyBodyFromKCB @ 0x140667930 (DelistKeyBodyFromKCB.c)
- *     CmpAssignSecurityToKcb @ 0x14066A130 (CmpAssignSecurityToKcb.c)
- *     CmUnlockHiveSecurity @ 0x14066A1E4 (CmUnlockHiveSecurity.c)
- *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
- *     CmpUnlockHashEntryByKcb @ 0x14066C050 (CmpUnlockHashEntryByKcb.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x14066CA24 (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
- *     CmpGetNextHive @ 0x140670E04 (CmpGetNextHive.c)
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
- *     PopUmpoProcessMessage @ 0x14067A514 (PopUmpoProcessMessage.c)
- *     PopReleaseUmpoPushLock @ 0x14067C3B0 (PopReleaseUmpoPushLock.c)
- *     NtQuerySymbolicLinkObject @ 0x140686650 (NtQuerySymbolicLinkObject.c)
- *     CmpGetCallbackObjectContext @ 0x14068AFE4 (CmpGetCallbackObjectContext.c)
- *     ObpMarkDirectoryTreeTemporary @ 0x140691A40 (ObpMarkDirectoryTreeTemporary.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x140691AB8 (ObpMarkDirectoryObjectsTemporary.c)
- *     ObpDeleteSymbolicLinkName @ 0x140691CBC (ObpDeleteSymbolicLinkName.c)
- *     ObSetCurrentProcessDeviceMap @ 0x140692BA8 (ObSetCurrentProcessDeviceMap.c)
- *     EtwpRundownNotifications @ 0x14069322C (EtwpRundownNotifications.c)
- *     FsRtlTeardownPerFileContexts @ 0x140697170 (FsRtlTeardownPerFileContexts.c)
- *     CmpInsertCallbackInListByAltitude @ 0x14069D58C (CmpInsertCallbackInListByAltitude.c)
- *     ObDestroyHandleRevocationBlock @ 0x1406A5884 (ObDestroyHandleRevocationBlock.c)
- *     ObpRemoveNamespaceFromTable @ 0x1406A7F3C (ObpRemoveNamespaceFromTable.c)
- *     EtwpRealtimeUpdateConsumers @ 0x1406AE300 (EtwpRealtimeUpdateConsumers.c)
- *     ObDereferenceDeviceMap @ 0x1406B0914 (ObDereferenceDeviceMap.c)
- *     EtwpFreeGuidEntry @ 0x1406B2ACC (EtwpFreeGuidEntry.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1406B2EC0 (PiDmObjectGetCachedObjectReference.c)
- *     ObCheckActiveHandles @ 0x1406B380C (ObCheckActiveHandles.c)
- *     ExpWatchProductTypeWork @ 0x1406B3870 (ExpWatchProductTypeWork.c)
- *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
- *     WdipTimeoutCheckRoutine @ 0x1406B5FF0 (WdipTimeoutCheckRoutine.c)
- *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1406B60A0 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406B6128 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     CmpGetLastHive @ 0x1406B6A70 (CmpGetLastHive.c)
- *     EtwpRealtimeConnect @ 0x1406B88C8 (EtwpRealtimeConnect.c)
- *     EtwpRealtimeDisconnectConsumer @ 0x1406B8CF8 (EtwpRealtimeDisconnectConsumer.c)
- *     ObpCreateSymbolicLinkName @ 0x1406B8F14 (ObpCreateSymbolicLinkName.c)
- *     ObpSetDeviceMap @ 0x1406BD6D4 (ObpSetDeviceMap.c)
- *     EtwpTrackProviderBinary @ 0x1406BFE18 (EtwpTrackProviderBinary.c)
- *     EtwpStopLoggerInstance @ 0x1406C0144 (EtwpStopLoggerInstance.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406E1144 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
- *     EtwpAddGuidEntry @ 0x1406E3BB0 (EtwpAddGuidEntry.c)
- *     EtwpQueueNotification @ 0x1406E424C (EtwpQueueNotification.c)
- *     EtwpReceiveNotification @ 0x1406E478C (EtwpReceiveNotification.c)
- *     NtOpenPrivateNamespace @ 0x1406E4CB0 (NtOpenPrivateNamespace.c)
- *     NtCreatePrivateNamespace @ 0x1406E4E80 (NtCreatePrivateNamespace.c)
- *     ObpRegisterPrivateNamespace @ 0x1406E55A8 (ObpRegisterPrivateNamespace.c)
- *     ObpFreeObject @ 0x1406F0520 (ObpFreeObject.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
- *     CmpCallCallBacksEx @ 0x1406F3440 (CmpCallCallBacksEx.c)
- *     CmpCallbackFillObjectContext @ 0x1406F39F0 (CmpCallbackFillObjectContext.c)
- *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
- *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
- *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
- *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
- *     CmpOKToFollowLink @ 0x1406FC010 (CmpOKToFollowLink.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     FsRtlTeardownPerStreamContexts @ 0x14071A6B0 (FsRtlTeardownPerStreamContexts.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
- *     CmpUnlockHiveList @ 0x14071D2C4 (CmpUnlockHiveList.c)
- *     UnlockShutdown @ 0x14071D2E4 (UnlockShutdown.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x1407294A0 (CmpCopyMergeOfLayeredKeyNode.c)
- *     EtwpGetTraceGuidInfo @ 0x14072E6C8 (EtwpGetTraceGuidInfo.c)
- *     PiDmListRemoveList @ 0x14073092C (PiDmListRemoveList.c)
- *     PiDmListRemoveObject @ 0x140730A50 (PiDmListRemoveObject.c)
- *     NtMakePermanentObject @ 0x140731B90 (NtMakePermanentObject.c)
- *     PiDmListAddObject @ 0x1407354D4 (PiDmListAddObject.c)
- *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
- *     PiDmObjectReleaseLock @ 0x1407497E8 (PiDmObjectReleaseLock.c)
- *     PiPnpRtlObjectEventWorker @ 0x14074A010 (PiPnpRtlObjectEventWorker.c)
- *     PiDmObjectProcessPropertyChange @ 0x14074A454 (PiDmObjectProcessPropertyChange.c)
- *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
- *     EtwpRegisterProvider @ 0x140762D20 (EtwpRegisterProvider.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqQueryApplyObjectEvent @ 0x1407634C4 (PiDqQueryApplyObjectEvent.c)
- *     ExpGetNextCallback @ 0x14076CED0 (ExpGetNextCallback.c)
- *     PiDmListAddList @ 0x14076E9E4 (PiDmListAddList.c)
- *     CmpUnlockTwoSecurityCaches @ 0x14076FAF8 (CmpUnlockTwoSecurityCaches.c)
- *     ObRevokeHandles @ 0x14077989C (ObRevokeHandles.c)
- *     CmpEnumerateCallback @ 0x14077CDB0 (CmpEnumerateCallback.c)
- *     WdipSemReserveInstanceTableEntry @ 0x1407885D8 (WdipSemReserveInstanceTableEntry.c)
- *     WdipSemDeleteTransitionalInstance @ 0x140788720 (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemDisableScenario @ 0x140789350 (WdipSemDisableScenario.c)
- *     WdipSemMarkInstanceForDeletion @ 0x1407894A0 (WdipSemMarkInstanceForDeletion.c)
- *     WdipSemEnableScenario @ 0x1407895DC (WdipSemEnableScenario.c)
- *     WdipSemActivateInstance @ 0x1407898AC (WdipSemActivateInstance.c)
- *     WdipSemDisableContextProvider @ 0x140789970 (WdipSemDisableContextProvider.c)
- *     WdipSemEnableContextProvider @ 0x140789AC8 (WdipSemEnableContextProvider.c)
- *     CmRegisterMachineHiveLoadedNotification @ 0x14078F2B0 (CmRegisterMachineHiveLoadedNotification.c)
- *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
- *     WdipSemInitialize @ 0x140799008 (WdipSemInitialize.c)
- *     EtwInitializeSiloState @ 0x14079ABF8 (EtwInitializeSiloState.c)
- *     CmpStartSiloKeyLockTracker @ 0x1407A5770 (CmpStartSiloKeyLockTracker.c)
- *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
- *     WdipSemAllocatePool @ 0x1407C008C (WdipSemAllocatePool.c)
- *     CmLockKeyForWrite @ 0x1407C2FF0 (CmLockKeyForWrite.c)
- *     CmpGlobalLockKeyForWrite @ 0x1407C31E0 (CmpGlobalLockKeyForWrite.c)
- *     ObRegisterCallbacks @ 0x1407CA810 (ObRegisterCallbacks.c)
- *     ObpInsertCallbackByAltitude @ 0x1407CA9E4 (ObpInsertCallbackByAltitude.c)
- *     CmpMachineHiveLoadedWorkItem @ 0x1407CB970 (CmpMachineHiveLoadedWorkItem.c)
- *     ObIsDosDeviceLocallyMapped @ 0x1407CE3D0 (ObIsDosDeviceLocallyMapped.c)
- *     EtwpTracingProvEnableCallback @ 0x1407D5700 (EtwpTracingProvEnableCallback.c)
- *     CmUnRegisterCallback @ 0x140869C10 (CmUnRegisterCallback.c)
- *     CmUnregisterMachineHiveLoadedNotification @ 0x14086A0A0 (CmUnregisterMachineHiveLoadedNotification.c)
- *     CmpSyncNextBackupHive @ 0x140871460 (CmpSyncNextBackupHive.c)
- *     CmThawRegistry @ 0x140872330 (CmThawRegistry.c)
- *     CmpGlobalUnlockKeyForWrite @ 0x1408727F4 (CmpGlobalUnlockKeyForWrite.c)
- *     CmpStopSiloKeyLockTracker @ 0x140872918 (CmpStopSiloKeyLockTracker.c)
- *     CmpLazyCommitWorker @ 0x140872B30 (CmpLazyCommitWorker.c)
- *     CmpUnlockHashEntryByIndex @ 0x140875BBC (CmpUnlockHashEntryByIndex.c)
- *     CmDumpKey @ 0x14087BD18 (CmDumpKey.c)
- *     IoRegisterContainerNotification @ 0x140894A40 (IoRegisterContainerNotification.c)
- *     IoUnregisterContainerNotification @ 0x140894C80 (IoUnregisterContainerNotification.c)
- *     PiPnpRtlEnsureObjectCached @ 0x1408A317C (PiPnpRtlEnsureObjectCached.c)
- *     PiDqQueryUnlock @ 0x1408A4B9C (PiDqQueryUnlock.c)
- *     ObpGetShadowDirectory @ 0x1408DC2DC (ObpGetShadowDirectory.c)
- *     ObShutdownSystem @ 0x1408DC490 (ObShutdownSystem.c)
- *     ObHandleRevocationBlockAddObject @ 0x1408DC920 (ObHandleRevocationBlockAddObject.c)
- *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408DC9E0 (ObpHandleRevocationBlockRemoveInsertedObject.c)
- *     ObpSetObjectAuditInfo @ 0x1408DD258 (ObpSetObjectAuditInfo.c)
- *     ObpCreateTypeArray @ 0x1408DDB00 (ObpCreateTypeArray.c)
- *     ObUnRegisterCallbacks @ 0x1408DDC40 (ObUnRegisterCallbacks.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E4684 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PsRegisterAltSystemCallHandler @ 0x14090BAF0 (PsRegisterAltSystemCallHandler.c)
- *     WdipSemUpdate @ 0x14092FB54 (WdipSemUpdate.c)
- *     WdipSemUpdateFrequentScenarioTable @ 0x140930074 (WdipSemUpdateFrequentScenarioTable.c)
- *     EtwpDisallowedGuidAddition @ 0x140933C04 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x140933EEC (EtwpDisallowedGuidRemoval.c)
- *     EtwpGetTraceGroupInfo @ 0x140934754 (EtwpGetTraceGroupInfo.c)
- *     EtwpDeleteSessionDemuxObject @ 0x14093EF50 (EtwpDeleteSessionDemuxObject.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x14093F01C (EtwpDemuxPrivateTraceHandle.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x14093F1B0 (EtwpGetPrivateSessionTraceHandle.c)
- *     EtwpRegisterPrivateSession @ 0x14093F3A8 (EtwpRegisterPrivateSession.c)
- *     SendCaptureStateNotificationsWorker @ 0x14093F940 (SendCaptureStateNotificationsWorker.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1409412CC (EtwpTrackGuidEntryRegistrations.c)
- *     PopReleaseAwaymodeLock @ 0x140990570 (PopReleaseAwaymodeLock.c)
- *     ExShutdownSystem @ 0x1409B2B58 (ExShutdownSystem.c)
- *     PsNotifyCoreDriversInitialized @ 0x140A5EF60 (PsNotifyCoreDriversInitialized.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
+ *     CmpUnlockHiveList @ 0x1405E2A98 (CmpUnlockHiveList.c)
+ *     NtQuerySymbolicLinkObject @ 0x1405E57B0 (NtQuerySymbolicLinkObject.c)
+ *     CmpGetCallbackObjectContext @ 0x1405EAE54 (CmpGetCallbackObjectContext.c)
+ *     ObpMarkDirectoryTreeTemporary @ 0x1405F18B0 (ObpMarkDirectoryTreeTemporary.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1405F1928 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObpDeleteSymbolicLinkName @ 0x1405F1B2C (ObpDeleteSymbolicLinkName.c)
+ *     ObSetCurrentProcessDeviceMap @ 0x1405F222C (ObSetCurrentProcessDeviceMap.c)
+ *     FsRtlTeardownPerFileContexts @ 0x1405F66C0 (FsRtlTeardownPerFileContexts.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x1405FC65C (CmpInsertCallbackInListByAltitude.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1406034B4 (ObDestroyHandleRevocationBlock.c)
+ *     ObpRemoveNamespaceFromTable @ 0x1406059BC (ObpRemoveNamespaceFromTable.c)
+ *     EtwpRealtimeUpdateConsumers @ 0x14060CBA0 (EtwpRealtimeUpdateConsumers.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x140611F80 (PiDmObjectGetCachedObjectReference.c)
+ *     ObCheckActiveHandles @ 0x1406129DC (ObCheckActiveHandles.c)
+ *     ExpWatchProductTypeWork @ 0x140612A40 (ExpWatchProductTypeWork.c)
+ *     EtwpFreeLoggerContext @ 0x1406146D4 (EtwpFreeLoggerContext.c)
+ *     WdipTimeoutCheckRoutine @ 0x1406154B0 (WdipTimeoutCheckRoutine.c)
+ *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x140615560 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406155E8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     EtwpRealtimeConnect @ 0x140617EC8 (EtwpRealtimeConnect.c)
+ *     EtwpRealtimeDisconnectConsumer @ 0x1406182F8 (EtwpRealtimeDisconnectConsumer.c)
+ *     ObpCreateSymbolicLinkName @ 0x140618538 (ObpCreateSymbolicLinkName.c)
+ *     UnlockShutdown @ 0x14061B8D0 (UnlockShutdown.c)
+ *     ObMakeTemporaryObject @ 0x14061C330 (ObMakeTemporaryObject.c)
+ *     ObpSetDeviceMap @ 0x14061C8E4 (ObpSetDeviceMap.c)
+ *     EtwpTrackProviderBinary @ 0x14061ED28 (EtwpTrackProviderBinary.c)
+ *     EtwpStopLoggerInstance @ 0x14061F054 (EtwpStopLoggerInstance.c)
+ *     PiDqIrpQueryGetResult @ 0x1406230F8 (PiDqIrpQueryGetResult.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140623900 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqDispatch @ 0x140623C70 (PiDqDispatch.c)
+ *     PiDqIrpQueryCreate @ 0x14062413C (PiDqIrpQueryCreate.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14062466C (PiDqQuerySerializeActionQueue.c)
+ *     PiControlGetDeviceInterfaceEnabled @ 0x14062A270 (PiControlGetDeviceInterfaceEnabled.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x14062A5E0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x14062B564 (PiDmObjectGetAggregatedBooleanPropertyData.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x14062BC94 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x14062BE5C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectIsEnumerable @ 0x14062C53C (PiDmObjectIsEnumerable.c)
+ *     EtwpAddRegEntryToGroup @ 0x140638390 (EtwpAddRegEntryToGroup.c)
+ *     ObOpenObjectByNameEx @ 0x14064AAF0 (ObOpenObjectByNameEx.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1406540D0 (ObSetSecurityDescriptorInfo.c)
+ *     DelistKeyBodyFromKCB @ 0x14065C750 (DelistKeyBodyFromKCB.c)
+ *     CmpAssignSecurityToKcb @ 0x14065EF50 (CmpAssignSecurityToKcb.c)
+ *     CmUnlockHiveSecurity @ 0x14065F004 (CmUnlockHiveSecurity.c)
+ *     CmpFreeKeyByCell @ 0x1406600A0 (CmpFreeKeyByCell.c)
+ *     CmpUnlockHashEntryByKcb @ 0x140660E70 (CmpUnlockHashEntryByKcb.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x140661844 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     ObpDecrementHandleCount @ 0x140663B94 (ObpDecrementHandleCount.c)
+ *     ObpDeleteNameCheck @ 0x140663D60 (ObpDeleteNameCheck.c)
+ *     CmpGetLastHive @ 0x140664774 (CmpGetLastHive.c)
+ *     CmLoadAppKey @ 0x1406663CC (CmLoadAppKey.c)
+ *     CmpGetNextHive @ 0x1406672E4 (CmpGetNextHive.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406677F0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x140667920 (CmpLockRegistryFreezeAware.c)
+ *     PopUmpoProcessMessage @ 0x14066DC54 (PopUmpoProcessMessage.c)
+ *     PopReleaseUmpoPushLock @ 0x14066FEF4 (PopReleaseUmpoPushLock.c)
+ *     ObDereferenceDeviceMap @ 0x14067BE28 (ObDereferenceDeviceMap.c)
+ *     ObQueryDeviceMapInformation @ 0x14068ED10 (ObQueryDeviceMapInformation.c)
+ *     ObfDereferenceDeviceMap @ 0x14068F1A4 (ObfDereferenceDeviceMap.c)
+ *     ObpReferenceDeviceMap @ 0x14068F360 (ObpReferenceDeviceMap.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1406B8424 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpNotifyGuid @ 0x1406B8AE4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
+ *     EtwpAddGuidEntry @ 0x1406BAE90 (EtwpAddGuidEntry.c)
+ *     EtwpQueueNotification @ 0x1406BB52C (EtwpQueueNotification.c)
+ *     EtwpReceiveNotification @ 0x1406BBA6C (EtwpReceiveNotification.c)
+ *     NtOpenPrivateNamespace @ 0x1406BBF90 (NtOpenPrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1406BC160 (NtCreatePrivateNamespace.c)
+ *     ObpRegisterPrivateNamespace @ 0x1406BC888 (ObpRegisterPrivateNamespace.c)
+ *     EtwpFreeGuidEntry @ 0x1406BCEEC (EtwpFreeGuidEntry.c)
+ *     EtwpRundownNotifications @ 0x1406BCF58 (EtwpRundownNotifications.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x1406CA160 (FsRtlTeardownPerStreamContexts.c)
+ *     ObpCallPreOperationCallbacks @ 0x1406D8EC0 (ObpCallPreOperationCallbacks.c)
+ *     EtwpRegisterUMGuid @ 0x1406DB250 (EtwpRegisterUMGuid.c)
+ *     CmpUnlockHashEntry @ 0x1406DBD98 (CmpUnlockHashEntry.c)
+ *     CmpCreateKeyControlBlock @ 0x1406DEDB0 (CmpCreateKeyControlBlock.c)
+ *     CmpUnlockNameHashEntry @ 0x1406DF5C0 (CmpUnlockNameHashEntry.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x1406DF600 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpUnlockTwoKcbs @ 0x1406E30B0 (CmpUnlockTwoKcbs.c)
+ *     CmEnumerateValueKey @ 0x1406E4650 (CmEnumerateValueKey.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
+ *     CmQueryValueKey @ 0x1406E6E60 (CmQueryValueKey.c)
+ *     EtwpDeleteRegistrationObject @ 0x1406EC060 (EtwpDeleteRegistrationObject.c)
+ *     ObpFreeObject @ 0x140707900 (ObpFreeObject.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x14070A290 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpCallCallBacksEx @ 0x14070A820 (CmpCallCallBacksEx.c)
+ *     CmpCallbackFillObjectContext @ 0x14070ADD0 (CmpCallbackFillObjectContext.c)
+ *     ObpLookupObjectName @ 0x14070B300 (ObpLookupObjectName.c)
+ *     ObCloseHandleTableEntry @ 0x14070CA40 (ObCloseHandleTableEntry.c)
+ *     ObpIncrementHandleCountEx @ 0x14070D340 (ObpIncrementHandleCountEx.c)
+ *     CmpUnlockKcbStack @ 0x140712820 (CmpUnlockKcbStack.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpOKToFollowLink @ 0x1407133F0 (CmpOKToFollowLink.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140729950 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     EtwpGetTraceGuidInfo @ 0x14072E894 (EtwpGetTraceGuidInfo.c)
+ *     PiDmListRemoveList @ 0x140730AF8 (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x140730C1C (PiDmListRemoveObject.c)
+ *     NtMakePermanentObject @ 0x140731D50 (NtMakePermanentObject.c)
+ *     PiDmListAddObject @ 0x140735694 (PiDmListAddObject.c)
+ *     IopRegisterDeviceInterface @ 0x140748630 (IopRegisterDeviceInterface.c)
+ *     PiDmObjectReleaseLock @ 0x1407499A8 (PiDmObjectReleaseLock.c)
+ *     PiPnpRtlObjectEventWorker @ 0x14074A1D0 (PiPnpRtlObjectEventWorker.c)
+ *     PiDmObjectProcessPropertyChange @ 0x14074A614 (PiDmObjectProcessPropertyChange.c)
+ *     EtwUnregister @ 0x140760390 (EtwUnregister.c)
+ *     EtwpRegisterProvider @ 0x140762EE0 (EtwpRegisterProvider.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1407632E0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140763684 (PiDqQueryApplyObjectEvent.c)
+ *     ExpGetNextCallback @ 0x14076D090 (ExpGetNextCallback.c)
+ *     PiDmListAddList @ 0x14076EBA4 (PiDmListAddList.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x14076FCB8 (CmpUnlockTwoSecurityCaches.c)
+ *     ObRevokeHandles @ 0x140779A5C (ObRevokeHandles.c)
+ *     CmpEnumerateCallback @ 0x14077CF70 (CmpEnumerateCallback.c)
+ *     WdipSemReserveInstanceTableEntry @ 0x140788798 (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x1407888E0 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemDisableScenario @ 0x140789510 (WdipSemDisableScenario.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x140789660 (WdipSemMarkInstanceForDeletion.c)
+ *     WdipSemEnableScenario @ 0x14078979C (WdipSemEnableScenario.c)
+ *     WdipSemActivateInstance @ 0x140789A6C (WdipSemActivateInstance.c)
+ *     WdipSemDisableContextProvider @ 0x140789B30 (WdipSemDisableContextProvider.c)
+ *     WdipSemEnableContextProvider @ 0x140789C88 (WdipSemEnableContextProvider.c)
+ *     CmRegisterMachineHiveLoadedNotification @ 0x140790860 (CmRegisterMachineHiveLoadedNotification.c)
+ *     ObCreateObjectTypeEx @ 0x140795AF0 (ObCreateObjectTypeEx.c)
+ *     WdipSemInitialize @ 0x140799208 (WdipSemInitialize.c)
+ *     EtwInitializeSiloState @ 0x14079ADF8 (EtwInitializeSiloState.c)
+ *     CmpStartSiloKeyLockTracker @ 0x1407A5970 (CmpStartSiloKeyLockTracker.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A74B0 (CmpFinishSystemHivesLoad.c)
+ *     WdipSemAllocatePool @ 0x1407C05A8 (WdipSemAllocatePool.c)
+ *     CmLockKeyForWrite @ 0x1407C3510 (CmLockKeyForWrite.c)
+ *     CmpGlobalLockKeyForWrite @ 0x1407C3700 (CmpGlobalLockKeyForWrite.c)
+ *     ObRegisterCallbacks @ 0x1407CAB30 (ObRegisterCallbacks.c)
+ *     ObpInsertCallbackByAltitude @ 0x1407CAD04 (ObpInsertCallbackByAltitude.c)
+ *     CmpMachineHiveLoadedWorkItem @ 0x1407CBAE0 (CmpMachineHiveLoadedWorkItem.c)
+ *     ObIsDosDeviceLocallyMapped @ 0x1407CE540 (ObIsDosDeviceLocallyMapped.c)
+ *     EtwpTracingProvEnableCallback @ 0x1407D5870 (EtwpTracingProvEnableCallback.c)
+ *     CmUnRegisterCallback @ 0x140869D70 (CmUnRegisterCallback.c)
+ *     CmUnregisterMachineHiveLoadedNotification @ 0x14086A200 (CmUnregisterMachineHiveLoadedNotification.c)
+ *     CmpSyncNextBackupHive @ 0x1408715C0 (CmpSyncNextBackupHive.c)
+ *     CmThawRegistry @ 0x140872490 (CmThawRegistry.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x140872954 (CmpGlobalUnlockKeyForWrite.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140872A78 (CmpStopSiloKeyLockTracker.c)
+ *     CmpLazyCommitWorker @ 0x140872C90 (CmpLazyCommitWorker.c)
+ *     CmpUnlockHashEntryByIndex @ 0x140875D1C (CmpUnlockHashEntryByIndex.c)
+ *     CmDumpKey @ 0x14087BE78 (CmDumpKey.c)
+ *     IoRegisterContainerNotification @ 0x140894BA0 (IoRegisterContainerNotification.c)
+ *     IoUnregisterContainerNotification @ 0x140894DE0 (IoUnregisterContainerNotification.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A32DC (PiPnpRtlEnsureObjectCached.c)
+ *     PiDqQueryUnlock @ 0x1408A4CFC (PiDqQueryUnlock.c)
+ *     ObpGetShadowDirectory @ 0x1408DC43C (ObpGetShadowDirectory.c)
+ *     ObShutdownSystem @ 0x1408DC5F0 (ObShutdownSystem.c)
+ *     ObHandleRevocationBlockAddObject @ 0x1408DCA80 (ObHandleRevocationBlockAddObject.c)
+ *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408DCB40 (ObpHandleRevocationBlockRemoveInsertedObject.c)
+ *     ObpSetObjectAuditInfo @ 0x1408DD3B8 (ObpSetObjectAuditInfo.c)
+ *     ObpCreateTypeArray @ 0x1408DDC60 (ObpCreateTypeArray.c)
+ *     ObUnRegisterCallbacks @ 0x1408DDDA0 (ObUnRegisterCallbacks.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E47E4 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PsRegisterAltSystemCallHandler @ 0x14090BC50 (PsRegisterAltSystemCallHandler.c)
+ *     WdipSemUpdate @ 0x14092FCB4 (WdipSemUpdate.c)
+ *     WdipSemUpdateFrequentScenarioTable @ 0x1409301D4 (WdipSemUpdateFrequentScenarioTable.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933DD4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1409340BC (EtwpDisallowedGuidRemoval.c)
+ *     EtwpGetTraceGroupInfo @ 0x140934924 (EtwpGetTraceGroupInfo.c)
+ *     EtwpDeleteSessionDemuxObject @ 0x14093F120 (EtwpDeleteSessionDemuxObject.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x14093F1EC (EtwpDemuxPrivateTraceHandle.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x14093F380 (EtwpGetPrivateSessionTraceHandle.c)
+ *     EtwpRegisterPrivateSession @ 0x14093F578 (EtwpRegisterPrivateSession.c)
+ *     SendCaptureStateNotificationsWorker @ 0x14093FB10 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x14094149C (EtwpTrackGuidEntryRegistrations.c)
+ *     PopReleaseAwaymodeLock @ 0x140991570 (PopReleaseAwaymodeLock.c)
+ *     ExShutdownSystem @ 0x1409B3A88 (ExShutdownSystem.c)
+ *     PsNotifyCoreDriversInitialized @ 0x140A5FF60 (PsNotifyCoreDriversInitialized.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     PsBoostThreadIoQoS @ 0x140287458 (PsBoostThreadIoQoS.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     KiAbThreadUnboostCpuPriority @ 0x140293A50 (KiAbThreadUnboostCpuPriority.c)
- *     KiAbThreadUnboostIoPriority @ 0x1402D0FD0 (KiAbThreadUnboostIoPriority.c)
- *     ExfReleasePushLock @ 0x1402F1440 (ExfReleasePushLock.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostClearFloor @ 0x1405A7460 (EtwTraceAutoBoostClearFloor.c)
+ *     PsBoostThreadIoQoS @ 0x1402045F8 (PsBoostThreadIoQoS.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x1402119C0 (KiAbThreadUnboostCpuPriority.c)
+ *     KiAbThreadUnboostIoPriority @ 0x14024F460 (KiAbThreadUnboostIoPriority.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLock @ 0x1402FC190 (ExfReleasePushLock.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostClearFloor @ 0x1405A7690 (EtwTraceAutoBoostClearFloor.c)
  */
 
 char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -232,16 +232,15 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
   __int64 v7; // rtt
   struct _KTHREAD *CurrentThread; // rdi
   int v9; // ebx
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v11; // r15
   unsigned int v12; // edx
-  _DWORD *v13; // r9
-  bool v14; // zf
-  __int64 v15; // rcx
-  __int64 v16; // rsi
-  unsigned int v17; // eax
-  __int64 v18; // rdx
-  char v20; // [rsp+72h] [rbp+1Ah]
+  bool v13; // zf
+  __int64 v14; // rcx
+  __int64 v15; // rsi
+  unsigned int v16; // eax
+  __int64 v17; // rdx
+  char v19; // [rsp+72h] [rbp+1Ah]
 
   v2 = BugCheckParameter1;
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
@@ -262,64 +261,62 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
   {
     CurrentThread = KeGetCurrentThread();
     v9 = 0;
-    v20 = 0;
-    if ( BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140C4F9C8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+    v19 = 0;
+    if ( BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140C4FA08[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
+      SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --CurrentThread->SpecialApcDisable;
     v11 = ++CurrentThread->AbAllocationRegionCount;
     v12 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
-    v13 = (_DWORD *)(BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL);
-    v14 = !_BitScanReverse((unsigned int *)&v15, v12);
-    if ( v14 )
+    v13 = !_BitScanReverse((unsigned int *)&v14, v12);
+    if ( v13 )
       goto LABEL_27;
     while ( 1 )
     {
-      v16 = (__int64)&CurrentThread->LockEntries[v15];
-      v12 &= ~(1 << v15);
-      if ( (*(_BYTE *)(v16 + 26) & 1) != 0
-        && (*(_DWORD *)(v16 + 32) & 1) == 0
-        && (_DWORD *)(*(_QWORD *)(v16 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v13
-        && *(_DWORD *)(v16 + 40) == (_DWORD)SessionId )
+      v15 = (__int64)&CurrentThread->LockEntries[v14];
+      v12 &= ~(1 << v14);
+      if ( (*(_BYTE *)(v15 + 26) & 1) != 0
+        && (*(_DWORD *)(v15 + 32) & 1) == 0
+        && (*(_QWORD *)(v15 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
+        && *(_DWORD *)(v15 + 40) == SessionId )
       {
-        *(_BYTE *)(v16 + 26) &= ~1u;
-        if ( *(_QWORD *)(v16 + 32) )
+        *(_BYTE *)(v15 + 26) &= ~1u;
+        if ( *(_QWORD *)(v15 + 32) )
           break;
       }
-      v14 = !_BitScanReverse((unsigned int *)&v15, v12);
-      if ( v14 )
+      v13 = !_BitScanReverse((unsigned int *)&v14, v12);
+      if ( v13 )
         goto LABEL_27;
     }
-    if ( !v16 )
+    if ( !v15 )
     {
 LABEL_27:
       LODWORD(v6) = *((_DWORD *)&CurrentThread->0 + 1);
       if ( (v6 & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, (unsigned int)SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, SessionId, 0LL);
     }
     else
     {
-      *(_BYTE *)(v16 + 32) |= 2u;
-      if ( *(__int64 *)(v16 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v16);
-      v9 = *(_DWORD *)(v16 + 88) & 0x1FFFF;
-      v17 = *(_DWORD *)(v16 + 88) & 0xFFFE0000;
-      *(_BYTE *)(v16 + 25) &= ~1u;
-      v20 = BYTE2(v9);
-      *(_DWORD *)(v16 + 88) = v17;
-      *(_QWORD *)(v16 + 32) = 0LL;
-      v18 = (signed __int64)(v16 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      *(_BYTE *)(v15 + 32) |= 2u;
+      if ( *(__int64 *)(v15 + 32) < 0 )
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v15);
+      v9 = *(_DWORD *)(v15 + 88) & 0x1FFFF;
+      v16 = *(_DWORD *)(v15 + 88) & 0xFFFE0000;
+      *(_BYTE *)(v15 + 25) &= ~1u;
+      v19 = BYTE2(v9);
+      *(_DWORD *)(v15 + 88) = v16;
+      *(_QWORD *)(v15 + 32) = 0LL;
+      v17 = (signed __int64)(v15 - (unsigned __int64)CurrentThread->LockEntries) / 96;
       if ( v11 == 1 )
       {
-        LODWORD(v6) = CurrentThread->AbEntrySummary | (1 << v18);
+        LODWORD(v6) = CurrentThread->AbEntrySummary | (1 << v17);
         CurrentThread->AbEntrySummary = v6;
       }
       else
       {
-        v15 = (unsigned int)v18;
-        LOBYTE(v6) = 1 << v18;
-        _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v18);
+        LOBYTE(v6) = 1 << v17;
+        _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v17);
       }
     }
     --CurrentThread->AbAllocationRegionCount;
@@ -327,20 +324,20 @@ LABEL_27:
     {
       if ( (v9 & 0x8000u) != 0 )
         KiAbThreadUnboostIoPriority((__int64)CurrentThread, 0LL);
-      if ( (v20 & 1) != 0 )
+      if ( (v19 & 1) != 0 )
       {
         _InterlockedDecrement(&CurrentThread->AbCompletedIoQoSBoostCount);
-        PsBoostThreadIoQoS((__int64)CurrentThread, 1LL);
+        PsBoostThreadIoQoS((__int64)CurrentThread, 1);
       }
       LOBYTE(v6) = -1;
       if ( (v9 & 0x7FFF) != 0 )
-        LOBYTE(v6) = KiAbThreadUnboostCpuPriority((ULONG_PTR)CurrentThread, v9 & 0x7FFF, SessionId, v13);
+        LOBYTE(v6) = KiAbThreadUnboostCpuPriority((ULONG_PTR)CurrentThread, v9 & 0x7FFF);
       if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
         LOBYTE(v6) = EtwTraceAutoBoostClearFloor(CurrentThread, BugCheckParameter2, v9 & 0x1FFFF);
     }
-    v14 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      LOBYTE(v6) = KiCheckForKernelApcDelivery(v15);
+    v13 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v13 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      LOBYTE(v6) = KiCheckForKernelApcDelivery();
   }
   return v6;
 }

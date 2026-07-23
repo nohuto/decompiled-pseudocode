@@ -4,10 +4,10 @@
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PsSetCreateProcessNotifyRoutine @ 0x140575940 (PsSetCreateProcessNotifyRoutine.c)
- *     VfPendingInitPhase1 @ 0x14070CF24 (VfPendingInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x140710A3C (VfPoolInitPhase1.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140575E80 (PsSetCreateProcessNotifyRoutine.c)
+ *     VfPendingInitPhase1 @ 0x14070CF54 (VfPendingInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x140710A6C (VfPoolInitPhase1.c)
  *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140716810 (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 

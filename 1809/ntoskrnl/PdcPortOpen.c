@@ -1,13 +1,13 @@
 /*
- * XREFs of PdcPortOpen @ 0x140745380
+ * XREFs of PdcPortOpen @ 0x140746570
  * Callers:
- *     PdcTaskClientRegister @ 0x1407452D0 (PdcTaskClientRegister.c)
- *     PdcNotificationClientRegister @ 0x14089A944 (PdcNotificationClientRegister.c)
+ *     PdcTaskClientRegister @ 0x1407464C0 (PdcTaskClientRegister.c)
+ *     PdcNotificationClientRegister @ 0x14089BBA4 (PdcNotificationClientRegister.c)
  * Callees:
- *     ZwPowerInformation @ 0x1401B8D70 (ZwPowerInformation.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PdcpPortReleaseResources @ 0x14089A66C (PdcpPortReleaseResources.c)
+ *     ZwPowerInformation @ 0x1401B8ED0 (ZwPowerInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PdcpPortReleaseResources @ 0x14089B8CC (PdcpPortReleaseResources.c)
  */
 
 __int64 __fastcall PdcPortOpen(
@@ -54,7 +54,7 @@ __int64 __fastcall PdcPortOpen(
   LODWORD(InputBuffer[0]) = 1;
   InputBuffer[1] = v18;
   InputBuffer[2] = v13;
-  v15 = ZwPowerInformation(VerifySystemPolicyDc|0x40, InputBuffer, 0xA8u, 0LL, 0);
+  v15 = ZwPowerInformation(PdcInvocation, InputBuffer, 0xA8u, 0LL, 0);
   if ( v15 < 0 )
   {
 LABEL_9:

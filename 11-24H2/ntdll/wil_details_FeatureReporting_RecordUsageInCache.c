@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_FeatureReporting_RecordUsageInCache @ 0x1800D5CE4
+ * XREFs of wil_details_FeatureReporting_RecordUsageInCache @ 0x1800D1054
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800D5C3C (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800D0FAC (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
  * Callees:
- *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x180114D08 (wil_details_FeatureReporting_IncrementUsageInCache.c)
- *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x180117184 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
+ *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x1801100D8 (wil_details_FeatureReporting_IncrementUsageInCache.c)
+ *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x180112174 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
  */
 
 _DWORD *__fastcall wil_details_FeatureReporting_RecordUsageInCache(

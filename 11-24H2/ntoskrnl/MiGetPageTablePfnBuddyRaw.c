@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetPageTablePfnBuddyRaw @ 0x140227FA0
+ * XREFs of MiGetPageTablePfnBuddyRaw @ 0x1402FB220
  * Callers:
- *     MiGetPagePrivilege @ 0x14021CE30 (MiGetPagePrivilege.c)
- *     MiLockStealUserVm @ 0x140227A3C (MiLockStealUserVm.c)
- *     MiStoreCheckCandidatePage @ 0x140229014 (MiStoreCheckCandidatePage.c)
- *     MiRestoreTransitionPte @ 0x140271094 (MiRestoreTransitionPte.c)
- *     MiSetProbePagesAhead @ 0x140284570 (MiSetProbePagesAhead.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402855E0 (MiLegitimatePageForDriversToMap.c)
- *     MiFillSystemPtes @ 0x140290A30 (MiFillSystemPtes.c)
- *     MiRecheckCombineVm @ 0x1403140D4 (MiRecheckCombineVm.c)
- *     MiCapturePfnVm @ 0x14045B3C4 (MiCapturePfnVm.c)
- *     MiStoreDiscardPoisonedPage @ 0x14068BF88 (MiStoreDiscardPoisonedPage.c)
+ *     MiRestoreTransitionPte @ 0x140226624 (MiRestoreTransitionPte.c)
+ *     MiSetProbePagesAhead @ 0x140239B00 (MiSetProbePagesAhead.c)
+ *     MiGetPagePrivilege @ 0x140249B80 (MiGetPagePrivilege.c)
+ *     MiLockStealUserVm @ 0x14025539C (MiLockStealUserVm.c)
+ *     MiFillSystemPtes @ 0x1402A0630 (MiFillSystemPtes.c)
+ *     MiStoreCheckCandidatePage @ 0x1402FC214 (MiStoreCheckCandidatePage.c)
+ *     MiRecheckCombineVm @ 0x1403F1420 (MiRecheckCombineVm.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14041DB10 (MiLegitimatePageForDriversToMap.c)
+ *     MiCapturePfnVm @ 0x1404507C4 (MiCapturePfnVm.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14068D0B8 (MiStoreDiscardPoisonedPage.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ PEPROCESS __fastcall MiGetPageTablePfnBuddyRaw(__int64 a1)
   if ( !result )
     return 0LL;
   if ( (unsigned __int64)&result[-2411209711LL].CpuPartitionList.Blink > 1 )
-    return (PEPROCESS)(qword_140E38AB8 + 16LL * ((_QWORD)result - 1));
+    return (PEPROCESS)(qword_140E38BF8 + 16LL * ((_QWORD)result - 1));
   if ( result == (PEPROCESS)0x10000000001LL )
   {
     if ( PsInitialSystemProcess )

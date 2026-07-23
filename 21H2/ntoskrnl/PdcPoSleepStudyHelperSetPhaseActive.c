@@ -1,9 +1,9 @@
 /*
- * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x1407D52A0
+ * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x1407D5410
  * Callers:
  *     <none>
  * Callees:
- *     SshpSetCollectionActive @ 0x14057FE3C (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x14058007C (SshpSetCollectionActive.c)
  */
 
 char __fastcall PdcPoSleepStudyHelperSetPhaseActive(int a1, char a2)
@@ -33,31 +33,31 @@ char __fastcall PdcPoSleepStudyHelperSetPhaseActive(int a1, char a2)
           {
             if ( v6 != 3 )
               return result;
-            v7 = (ULONG_PTR *)&unk_140C1E420;
+            v7 = (ULONG_PTR *)&unk_140C1E3E0;
           }
           else
           {
-            v7 = (ULONG_PTR *)&unk_140C1E400;
+            v7 = (ULONG_PTR *)&unk_140C1E3C0;
           }
         }
         else
         {
-          v7 = (ULONG_PTR *)&unk_140C1E3E0;
+          v7 = (ULONG_PTR *)&unk_140C1E3A0;
         }
       }
       else
       {
-        v7 = (ULONG_PTR *)&unk_140C1E3C0;
+        v7 = (ULONG_PTR *)&unk_140C1E380;
       }
     }
     else
     {
-      v7 = (ULONG_PTR *)&unk_140C1E3A0;
+      v7 = (ULONG_PTR *)&unk_140C1E360;
     }
   }
   else
   {
-    v7 = &qword_140C1E380;
+    v7 = &qword_140C1E340;
   }
   return SshpSetCollectionActive((ULONG_PTR)v7, a2);
 }

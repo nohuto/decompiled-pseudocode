@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRewritePteWithLockBit @ 0x140376490
+ * XREFs of MiRewritePteWithLockBit @ 0x140376630
  * Callers:
- *     MiRevertValidPte @ 0x140278A80 (MiRevertValidPte.c)
- *     MiMakePteClean @ 0x140285870 (MiMakePteClean.c)
- *     MiProtectAweRegion @ 0x14064B3A4 (MiProtectAweRegion.c)
- *     MiWriteAweClusterPte @ 0x14064C508 (MiWriteAweClusterPte.c)
- *     MiDeleteLargeUserPde @ 0x140650364 (MiDeleteLargeUserPde.c)
- *     MiScrubLargeMappedPage @ 0x14065E43C (MiScrubLargeMappedPage.c)
- *     MiProtectLargeKernelHalRange @ 0x14081CAB0 (MiProtectLargeKernelHalRange.c)
+ *     MiRevertValidPte @ 0x140278D10 (MiRevertValidPte.c)
+ *     MiMakePteClean @ 0x140285B00 (MiMakePteClean.c)
+ *     MiProtectAweRegion @ 0x14064B8F4 (MiProtectAweRegion.c)
+ *     MiWriteAweClusterPte @ 0x14064CA58 (MiWriteAweClusterPte.c)
+ *     MiDeleteLargeUserPde @ 0x1406508B4 (MiDeleteLargeUserPde.c)
+ *     MiScrubLargeMappedPage @ 0x14065E98C (MiScrubLargeMappedPage.c)
+ *     MiProtectLargeKernelHalRange @ 0x14081CD80 (MiProtectLargeKernelHalRange.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiUnlockNestedPageTableWritePte @ 0x1402E5B30 (MiUnlockNestedPageTableWritePte.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x1402E5DC0 (MiUnlockNestedPageTableWritePte.c)
  */
 
 __int64 __fastcall MiRewritePteWithLockBit(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)

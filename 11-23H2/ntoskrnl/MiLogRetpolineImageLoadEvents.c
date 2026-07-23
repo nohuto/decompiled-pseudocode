@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogRetpolineImageLoadEvents @ 0x1407D4430
+ * XREFs of MiLogRetpolineImageLoadEvents @ 0x1407D4700
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  *     MiApplyBootLoadedDriversFixups @ 0x140B45CC4 (MiApplyBootLoadedDriversFixups.c)
  * Callees:
- *     RtlIsImageFullyRetpolined @ 0x14035FF78 (RtlIsImageFullyRetpolined.c)
- *     MiLogNonRetpolineImageLoadEvent @ 0x140852B70 (MiLogNonRetpolineImageLoadEvent.c)
- *     MiConstructNonRetpolineImageLoadRecord @ 0x140A34208 (MiConstructNonRetpolineImageLoadRecord.c)
+ *     RtlIsImageFullyRetpolined @ 0x140360118 (RtlIsImageFullyRetpolined.c)
+ *     MiLogNonRetpolineImageLoadEvent @ 0x140852E70 (MiLogNonRetpolineImageLoadEvent.c)
+ *     MiConstructNonRetpolineImageLoadRecord @ 0x140A344B8 (MiConstructNonRetpolineImageLoadRecord.c)
  */
 
 _QWORD *__fastcall MiLogRetpolineImageLoadEvents(__int64 a1)
@@ -14,7 +14,7 @@ _QWORD *__fastcall MiLogRetpolineImageLoadEvents(__int64 a1)
   _QWORD *result; // rax
   _QWORD *v3; // rcx
 
-  result = (_QWORD *)RtlIsImageFullyRetpolined(*(_QWORD *)(a1 + 48));
+  result = (_QWORD *)RtlIsImageFullyRetpolined(*(void **)(a1 + 48));
   if ( !(_DWORD)result )
   {
     if ( *(_QWORD *)&qword_140C698E8 )

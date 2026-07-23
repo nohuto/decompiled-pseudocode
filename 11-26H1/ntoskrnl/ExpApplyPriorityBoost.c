@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpApplyPriorityBoost @ 0x14020570C
+ * XREFs of ExpApplyPriorityBoost @ 0x1402057EC
  * Callers:
- *     ExpApplyPrewaitBoost @ 0x140205688 (ExpApplyPrewaitBoost.c)
- *     ExpConvertExclusiveToSharedLite @ 0x140431ADC (ExpConvertExclusiveToSharedLite.c)
- *     ExpApplyRewaitBoost @ 0x1404EB388 (ExpApplyRewaitBoost.c)
+ *     ExpApplyPrewaitBoost @ 0x140205768 (ExpApplyPrewaitBoost.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x14041EB0C (ExpConvertExclusiveToSharedLite.c)
+ *     ExpApplyRewaitBoost @ 0x1404E4968 (ExpApplyRewaitBoost.c)
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140205500 (PsBoostThreadIoQoS.c)
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     PsGetBaseIoPriorityThread @ 0x14026D230 (PsGetBaseIoPriorityThread.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
- *     PsBoostThreadOutstandingIoQoS @ 0x1402F0600 (PsBoostThreadOutstandingIoQoS.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     KeSetPriorityBoost @ 0x14037B5A0 (KeSetPriorityBoost.c)
+ *     PsBoostThreadIoQoS @ 0x1402055E0 (PsBoostThreadIoQoS.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     PsGetBaseIoPriorityThread @ 0x14026C7A0 (PsGetBaseIoPriorityThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsBoostThreadOutstandingIoQoS @ 0x1402D2680 (PsBoostThreadOutstandingIoQoS.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     KeSetPriorityBoost @ 0x14037D350 (KeSetPriorityBoost.c)
  */
 
 void __fastcall ExpApplyPriorityBoost(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

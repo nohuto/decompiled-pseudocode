@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllowImageMap @ 0x1408694B4
+ * XREFs of MiAllowImageMap @ 0x14086D7E4
  * Callers:
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     SeGetTrustLabelAce @ 0x1403613D0 (SeGetTrustLabelAce.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
- *     MiGetControlAreaLoadConfig @ 0x140464454 (MiGetControlAreaLoadConfig.c)
- *     PsBlockNonCetBinaries @ 0x140773EE0 (PsBlockNonCetBinaries.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1407AC0C4 (EtwTimLogProhibitLowILImageMap.c)
- *     ObpGetObjectSecurity @ 0x140853850 (ObpGetObjectSecurity.c)
- *     ObReleaseObjectSecurityEx @ 0x140867FD0 (ObReleaseObjectSecurityEx.c)
- *     SeQueryMandatoryLabel @ 0x1408696DC (SeQueryMandatoryLabel.c)
- *     MiReferenceFileObjectForMap @ 0x1408E1590 (MiReferenceFileObjectForMap.c)
- *     EtwpTimLogMitigationForProcess @ 0x140A6DB4C (EtwpTimLogMitigationForProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     SeGetTrustLabelAce @ 0x1403F9950 (SeGetTrustLabelAce.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
+ *     MiGetControlAreaLoadConfig @ 0x14045AB84 (MiGetControlAreaLoadConfig.c)
+ *     PsBlockNonCetBinaries @ 0x140774100 (PsBlockNonCetBinaries.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1407AC594 (EtwTimLogProhibitLowILImageMap.c)
+ *     ObpGetObjectSecurity @ 0x14084FB10 (ObpGetObjectSecurity.c)
+ *     ObReleaseObjectSecurityEx @ 0x14086C2C0 (ObReleaseObjectSecurityEx.c)
+ *     SeQueryMandatoryLabel @ 0x14086DA0C (SeQueryMandatoryLabel.c)
+ *     MiReferenceFileObjectForMap @ 0x140918140 (MiReferenceFileObjectForMap.c)
+ *     EtwpTimLogMitigationForProcess @ 0x140A63DF0 (EtwpTimLogMitigationForProcess.c)
  */
 
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -84,7 +84,7 @@ LABEL_7:
       return (unsigned int)ObjectSecurity;
     v23 = 0;
     v17 = MiReferenceControlAreaFile(a3);
-    ObjectSecurity = ObpGetObjectSecurity((ULONG_PTR *)v17, (PVOID *)&v22, &v23, 0);
+    ObjectSecurity = ObpGetObjectSecurity((ULONG_PTR *)v17, (void **)&v22, &v23, 0);
     if ( ObjectSecurity < 0 )
     {
       ObjectSecurity = -1073741790;

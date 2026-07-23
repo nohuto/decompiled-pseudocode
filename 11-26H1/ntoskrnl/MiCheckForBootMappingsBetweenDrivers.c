@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckForBootMappingsBetweenDrivers @ 0x140CF43A0
+ * XREFs of MiCheckForBootMappingsBetweenDrivers @ 0x140CFA720
  * Callers:
- *     MiInitializeDriverPtes @ 0x140CF46C4 (MiInitializeDriverPtes.c)
+ *     MiInitializeDriverPtes @ 0x140CFAA44 (MiInitializeDriverPtes.c)
  * Callees:
- *     RtlFindClearBits @ 0x140358780 (RtlFindClearBits.c)
+ *     RtlFindClearBits @ 0x14035A520 (RtlFindClearBits.c)
  */
 
 int __fastcall MiCheckForBootMappingsBetweenDrivers(__int64 a1)
 {
   ULONG v1; // ebx
-  RTL_BITMAP *v2; // rsi
+  _RTL_BITMAP *v2; // rsi
   __int64 v4; // rax
   int v5; // r9d
   ULONG v6; // ebp
@@ -27,7 +27,7 @@ int __fastcall MiCheckForBootMappingsBetweenDrivers(__int64 a1)
   unsigned int j; // ecx
 
   v1 = 0;
-  v2 = (RTL_BITMAP *)(a1 + 16);
+  v2 = (_RTL_BITMAP *)(a1 + 16);
   while ( 2 )
   {
     LODWORD(v4) = RtlFindClearBits(v2, 1u, v1);

@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpCreateConnectionPort @ 0x1407CC318
+ * XREFs of AlpcpCreateConnectionPort @ 0x1407CC5E8
  * Callers:
- *     NtCreateWaitablePort @ 0x1407CC230 (NtCreateWaitablePort.c)
- *     NtCreatePort @ 0x1407CC280 (NtCreatePort.c)
- *     NtAlpcCreatePort @ 0x1407CC2D0 (NtAlpcCreatePort.c)
+ *     NtCreateWaitablePort @ 0x1407CC500 (NtCreateWaitablePort.c)
+ *     NtCreatePort @ 0x1407CC550 (NtCreatePort.c)
+ *     NtAlpcCreatePort @ 0x1407CC5A0 (NtAlpcCreatePort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     AlpcpSetOwnerProcessPort @ 0x14071646C (AlpcpSetOwnerProcessPort.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x1407164C4 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpInitializePort @ 0x140716728 (AlpcpInitializePort.c)
- *     AlpcInitializeHandleTable @ 0x140717BA0 (AlpcInitializeHandleTable.c)
- *     AlpcpCreatePort @ 0x140717BF4 (AlpcpCreatePort.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     AlpcpAllocateBlob @ 0x140739C40 (AlpcpAllocateBlob.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     AlpcpSetOwnerProcessPort @ 0x14071666C (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x1407166C4 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpInitializePort @ 0x140716928 (AlpcpInitializePort.c)
+ *     AlpcInitializeHandleTable @ 0x140717DA0 (AlpcInitializeHandleTable.c)
+ *     AlpcpCreatePort @ 0x140717DF4 (AlpcpCreatePort.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     AlpcpAllocateBlob @ 0x140739E30 (AlpcpAllocateBlob.c)
  */
 
 __int64 __fastcall AlpcpCreateConnectionPort(

@@ -29,19 +29,19 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
   __int64 v4; // rdi
   __int64 *v5; // rbx
   int Dll; // ecx
-  __int64 v8; // rcx
-  int v9; // ebx
+  _QWORD *v8; // rcx
+  NTSTATUS v9; // ebx
   char v10; // al
   char v11; // al
-  __int64 i; // rax
+  __int64 *i; // rax
   __int64 v13; // [rsp+30h] [rbp-89h]
-  __int64 v14; // [rsp+40h] [rbp-79h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-71h] BYREF
-  __int64 v16[15]; // [rsp+60h] [rbp-59h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-79h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-71h] BYREF
+  PWSTR Path[15]; // [rsp+60h] [rbp-59h] BYREF
   char v17; // [rsp+DCh] [rbp+23h]
 
   v2 = 1;
-  LdrpInitializeDllPath(0LL, 16385LL, v16);
+  LdrpInitializeDllPath(0LL, 16385LL, (__int64 *)Path);
   g_ShimsLoading = 1;
   v3 = (void (__fastcall *)(_QWORD))(MEMORY[0x7FFE0330] ^ __ROR8__(
                                                             g_pfnSE_ShimDllLoaded,
@@ -49,7 +49,7 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
   while ( *SourceString )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    Dll = LdrpLoadDll((__int64)&DestinationString, (int)v16, 1, (__int64)&v14);
+    Dll = LdrpLoadDll((__int64)&DestinationString, (__int64)Path, 1, (__int64)&BaseAddress);
     if ( Dll < 0 )
     {
       v10 = LdrpDebugFlags;
@@ -72,12 +72,12 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
     }
     else
     {
-      *(_DWORD *)(v14 + 104) |= 0x100u;
-      LdrpPinModule(v14);
-      v8 = v14;
-      if ( *(_DWORD *)(*(_QWORD *)(v14 + 152) + 56LL) == 7 )
+      *((_DWORD *)BaseAddress + 26) |= 0x100u;
+      LdrpPinModule((__int64)BaseAddress);
+      v8 = BaseAddress;
+      if ( *(_DWORD *)(*((_QWORD *)BaseAddress + 19) + 56LL) == 7 )
       {
-        v9 = LdrpInitializeNode(*(_QWORD *)(v14 + 152));
+        v9 = LdrpInitializeNode(*((_QWORD *)BaseAddress + 19));
         if ( v9 < 0 )
         {
           v11 = LdrpDebugFlags;
@@ -98,27 +98,27 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
             __debugbreak();
           v2 = 0;
           LdrpInitializationFailure((unsigned int)v9);
-          ZwTerminateProcess(-1LL, (unsigned int)v9);
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v9);
           break;
         }
-        v8 = v14;
+        v8 = BaseAddress;
       }
-      v3(*(_QWORD *)(v8 + 48));
-      LdrpDereferenceModule(v14);
+      v3(v8[6]);
+      LdrpDereferenceModule((char *)BaseAddress);
     }
     SourceString += (unsigned __int64)DestinationString.MaximumLength >> 1;
   }
   if ( v17 )
-    RtlReleasePath(v16[0]);
+    RtlReleasePath(Path[0]);
   ((void (*)(void))(__ROR8__(g_pfnSE_InstallBeforeInit, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))();
   v4 = MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
-    for ( i = qword_1801653D0; (__int64 *)i != &qword_1801653D0; i = *(_QWORD *)i )
+    for ( i = (__int64 *)qword_1801653D0; i != &qword_1801653D0; i = (__int64 *)*i )
     {
-      v14 = i;
-      *(_BYTE *)(i + 105) &= ~8u;
+      BaseAddress = i;
+      *((_BYTE *)i + 105) &= ~8u;
     }
   }
   v5 = (__int64 *)qword_1801653D0;
@@ -130,12 +130,12 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
 LABEL_10:
     if ( v5 == &qword_1801653D0 )
       break;
-    v14 = (__int64)v5;
+    BaseAddress = v5;
     LdrpSendShimEngineInitialNotifications(v5[19], v4);
   }
   g_ShimsLoading = 0;
   g_ShimsEnabled = 1;
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   LdrpInitializeShimDllDependencies();
   return v2;
 }

@@ -25,14 +25,15 @@ int __fastcall RtlIntegerToUnicode(unsigned int a1, unsigned int a2, int a3, cha
   unsigned int v17; // ecx
   char *v18; // edi
   int i; // ecx
-  int v20; // [esp+14h] [ebp-6Ch]
-  int v21; // [esp+18h] [ebp-68h]
-  char *v22; // [esp+1Ch] [ebp-64h]
-  _BYTE v23[2]; // [esp+62h] [ebp-1Eh] BYREF
+  size_t v20; // [esp-4h] [ebp-84h]
+  int v21; // [esp+14h] [ebp-6Ch]
+  int v22; // [esp+18h] [ebp-68h]
+  char *v23; // [esp+1Ch] [ebp-64h]
+  _BYTE v24[2]; // [esp+62h] [ebp-1Eh] BYREF
   CPPEH_RECORD ms_exc; // [esp+68h] [ebp-18h]
 
   v4 = a2;
-  v22 = a4;
+  v23 = a4;
   if ( a2 != 10 )
   {
     switch ( a2 )
@@ -58,9 +59,9 @@ LABEL_19:
   v6 = 0;
   v7 = 0;
 LABEL_3:
-  v20 = v7;
-  v21 = v6;
-  v8 = v23;
+  v21 = v7;
+  v22 = v6;
+  v8 = v24;
   do
   {
     if ( v6 )
@@ -83,11 +84,11 @@ LABEL_3:
       a1 = v9;
     }
     *--v8 = RtlpIntegerWChars[v10];
-    v6 = v21;
-    v7 = v20;
+    v6 = v22;
+    v7 = v21;
   }
   while ( a1 );
-  v11 = (v23 - (_BYTE *)v8) >> 1;
+  v11 = (v24 - (_BYTE *)v8) >> 1;
   v12 = a3;
   if ( a3 >= 0 || (v12 = -a3, -a3 <= v11) )
   {
@@ -105,16 +106,17 @@ LABEL_3:
       *(_WORD *)v18 = 48;
       v18 += 2;
     }
-    v12 = (v23 - (_BYTE *)v8) >> 1;
+    v12 = (v24 - (_BYTE *)v8) >> 1;
     v13 = &a4[2 * v15];
-    v22 = v13;
+    v23 = v13;
   }
   if ( v11 > v12 )
     return -2147483643;
   ms_exc.registration.TryLevel = 0;
-  memcpy(v13, v8, 2 * v11);
+  LODWORD(v20) = 2 * v11;
+  memcpy(v13, v8, v20);
   if ( v11 < v12 )
-    *(_WORD *)&v22[2 * v11] = 0;
+    *(_WORD *)&v23[2 * v11] = 0;
   ms_exc.registration.TryLevel = -2;
   return 0;
 }

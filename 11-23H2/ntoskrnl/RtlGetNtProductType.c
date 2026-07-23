@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlGetNtProductType @ 0x1402F7F40
+ * XREFs of RtlGetNtProductType @ 0x1402F81D0
  * Callers:
- *     IoFillDumpHeader @ 0x14054FBC8 (IoFillDumpHeader.c)
- *     KeCapturePersistentThreadState @ 0x1405542C0 (KeCapturePersistentThreadState.c)
- *     MmWriteTriageInformation @ 0x1406308CC (MmWriteTriageInformation.c)
- *     RtlGetVersion @ 0x140758D00 (RtlGetVersion.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B49C (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     RtlRestoreBootStatusDefaults @ 0x1409BDAA0 (RtlRestoreBootStatusDefaults.c)
+ *     IoFillDumpHeader @ 0x140550288 (IoFillDumpHeader.c)
+ *     KeCapturePersistentThreadState @ 0x140554980 (KeCapturePersistentThreadState.c)
+ *     MmWriteTriageInformation @ 0x140630E1C (MmWriteTriageInformation.c)
+ *     RtlGetVersion @ 0x140758EF0 (RtlGetVersion.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B68C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     RtlRestoreBootStatusDefaults @ 0x1409BDCA0 (RtlRestoreBootStatusDefaults.c)
  *     AstInitialize @ 0x140B74BD4 (AstInitialize.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x14087F244 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x14087F484 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int64 CurrentServerSilo; // rax
   _QWORD *v5; // rax
 
@@ -28,15 +28,15 @@ char __fastcall RtlGetNtProductType(_DWORD *a1)
       v5 = *(_QWORD **)(CurrentServerSilo + 1488);
     else
       v5 = &PspHostSiloGlobals;
-    *a1 = *(_DWORD *)(v5[165] + 16LL);
+    *NtProductType = *(PNT_PRODUCT_TYPE)(v5[165] + 16LL);
   }
   else if ( MEMORY[0xFFFFF78000000268] )
   {
-    *a1 = MEMORY[0xFFFFF78000000264];
+    *NtProductType = MEMORY[0xFFFFF78000000264];
   }
-  else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(a1) < 0 )
+  else if ( KeGetCurrentIrql() > 1u || (int)RtlpGetNtProductTypeFromRegistry(NtProductType) < 0 )
   {
-    *a1 = 1;
+    *NtProductType = NtProductWinNt;
     return v2;
   }
   return 1;

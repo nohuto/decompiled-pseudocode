@@ -11,19 +11,19 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpLogHeapContractEvent(
+NTSTATUS __fastcall RtlpLogHeapContractEvent(
         __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
         char a5,
         __int64 a6,
-        __int64 a7)
+        HANDLE TraceHandle)
 {
   __int64 v8; // r8
   char v9; // r9
   __int64 UCBytes; // rax
-  __int128 v12; // [rsp+20h] [rbp-41h] BYREF
+  __int128 Fields; // [rsp+20h] [rbp-41h] BYREF
   __int64 v13; // [rsp+48h] [rbp-19h]
   __int64 v14; // [rsp+50h] [rbp-11h]
   __int64 v15; // [rsp+58h] [rbp-9h]
@@ -43,6 +43,6 @@ __int64 __fastcall RtlpLogHeapContractEvent(
   v13 = v8;
   UCBytes = GetUCBytes(a1, &v17, &v18);
   v16 = v17 - *(_QWORD *)(a1 + 664) - UCBytes;
-  WORD3(v12) = 4138;
-  return NtTraceEvent(a7, 1027LL, 60LL, &v12);
+  WORD3(Fields) = 4138;
+  return NtTraceEvent(TraceHandle, 0x403u, 0x3Cu, &Fields);
 }

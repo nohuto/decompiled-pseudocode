@@ -1,19 +1,19 @@
 /*
- * XREFs of KeUserModeCallback @ 0x14076E880
+ * XREFs of KeUserModeCallback @ 0x14076EA70
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStackEx @ 0x14026F8D0 (MmDeleteKernelStackEx.c)
- *     MmCreateKernelStack @ 0x1402716A0 (MmCreateKernelStack.c)
- *     KeGetProcessorNodeNumberByIndex @ 0x14030AFBC (KeGetProcessorNodeNumberByIndex.c)
- *     KeExitRetpoline @ 0x14034C0DC (KeExitRetpoline.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiCallUserMode @ 0x140423240 (KiCallUserMode.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MmCreateKernelShadowStack @ 0x14064512C (MmCreateKernelShadowStack.c)
- *     MmDeleteKernelShadowStack @ 0x1406455C4 (MmDeleteKernelShadowStack.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     MmDeleteKernelStackEx @ 0x14026FB60 (MmDeleteKernelStackEx.c)
+ *     MmCreateKernelStack @ 0x140271930 (MmCreateKernelStack.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x14030B24C (KeGetProcessorNodeNumberByIndex.c)
+ *     KeExitRetpoline @ 0x14034C27C (KeExitRetpoline.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiCallUserMode @ 0x1404235D0 (KiCallUserMode.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MmCreateKernelShadowStack @ 0x14064567C (MmCreateKernelShadowStack.c)
+ *     MmDeleteKernelShadowStack @ 0x140645B14 (MmDeleteKernelShadowStack.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
 __int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, int a4, __int64 a5)

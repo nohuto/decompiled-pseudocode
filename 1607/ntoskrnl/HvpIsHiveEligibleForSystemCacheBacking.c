@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpIsHiveEligibleForSystemCacheBacking @ 0x14047F16C
+ * XREFs of HvpIsHiveEligibleForSystemCacheBacking @ 0x14047DEC0
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
- *     HvpDropPagedBins @ 0x14054DD48 (HvpDropPagedBins.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
+ *     HvpDropPagedBins @ 0x14054E0E8 (HvpDropPagedBins.c)
  * Callees:
- *     CmpIsHiveOnRemovableDisk @ 0x140604258 (CmpIsHiveOnRemovableDisk.c)
+ *     CmpIsHiveOnRemovableDisk @ 0x14060430C (CmpIsHiveOnRemovableDisk.c)
  */
 
 bool __fastcall HvpIsHiveEligibleForSystemCacheBacking(__int64 a1)

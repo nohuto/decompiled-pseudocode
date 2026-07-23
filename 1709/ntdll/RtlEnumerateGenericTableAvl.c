@@ -6,46 +6,46 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlEnumerateGenericTableAvl(__int64 a1, char a2)
+PVOID __cdecl RtlEnumerateGenericTableAvl(PRTL_AVL_TABLE Table, BOOLEAN Restart)
 {
-  __int64 v2; // r8
-  _QWORD *v4; // rdx
-  _QWORD *v5; // rcx
-  _QWORD *j; // rax
-  _QWORD *k; // rax
-  _QWORD *i; // rax
+  void *v2; // r8
+  _RTL_BALANCED_LINKS *RestartKey; // rdx
+  _RTL_BALANCED_LINKS *RightChild; // rcx
+  _RTL_BALANCED_LINKS *j; // rax
+  _RTL_BALANCED_LINKS *k; // rax
+  _RTL_BALANCED_LINKS *i; // rax
 
   v2 = 0LL;
-  if ( a2 )
-    *(_QWORD *)(a1 + 56) = 0LL;
-  if ( *(_DWORD *)(a1 + 44) )
+  if ( Restart )
+    Table->RestartKey = 0LL;
+  if ( Table->NumberGenericTableElements )
   {
-    v4 = *(_QWORD **)(a1 + 56);
-    if ( !v4 )
+    RestartKey = Table->RestartKey;
+    if ( !RestartKey )
     {
-      v5 = *(_QWORD **)(a1 + 16);
-      for ( i = (_QWORD *)v5[1]; i; i = (_QWORD *)i[1] )
-        v5 = i;
+      RightChild = Table->BalancedRoot.RightChild;
+      for ( i = RightChild->LeftChild; i; i = i->LeftChild )
+        RightChild = i;
 LABEL_10:
-      *(_QWORD *)(a1 + 56) = v5;
-      return v5 + 4;
+      Table->RestartKey = RightChild;
+      return &RightChild[1];
     }
-    v5 = (_QWORD *)v4[2];
-    if ( v5 )
+    RightChild = RestartKey->RightChild;
+    if ( RightChild )
     {
-      for ( j = (_QWORD *)v5[1]; j; j = (_QWORD *)j[1] )
-        v5 = j;
+      for ( j = RightChild->LeftChild; j; j = j->LeftChild )
+        RightChild = j;
     }
     else
     {
-      for ( k = (_QWORD *)*v4; (_QWORD *)k[2] == v4; k = (_QWORD *)*k )
-        v4 = k;
-      v5 = 0LL;
-      if ( *(_QWORD **)(*v4 + 8LL) == v4 )
-        v5 = (_QWORD *)*v4;
+      for ( k = RestartKey->Parent; k->RightChild == RestartKey; k = k->Parent )
+        RestartKey = k;
+      RightChild = 0LL;
+      if ( RestartKey->Parent->LeftChild == RestartKey )
+        RightChild = RestartKey->Parent;
     }
-    if ( v5 )
+    if ( RightChild )
       goto LABEL_10;
   }
-  return (_QWORD *)v2;
+  return v2;
 }

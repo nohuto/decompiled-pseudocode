@@ -1,13 +1,13 @@
 /*
- * XREFs of SepRmAcquireGlobalSaclReadLock @ 0x140462E24
+ * XREFs of SepRmAcquireGlobalSaclReadLock @ 0x140458434
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x140462D6C (SepExamineGlobalSaclEx.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1408508E0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeExamineGlobalSacl @ 0x140889DD8 (SeExamineGlobalSacl.c)
- *     SepRmGlobalSaclFind @ 0x140889F14 (SepRmGlobalSaclFind.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088A310 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepExamineGlobalSaclEx @ 0x14045837C (SepExamineGlobalSaclEx.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14084CBA0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeExamineGlobalSacl @ 0x14088DC88 (SeExamineGlobalSacl.c)
+ *     SepRmGlobalSaclFind @ 0x14088DDC4 (SepRmGlobalSaclFind.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088E1C0 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN SepRmAcquireGlobalSaclReadLock()

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTrimWorkingSetTail @ 0x140464090
+ * XREFs of MiTrimWorkingSetTail @ 0x14045D050
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiTrimWorkingSetTailHelper @ 0x140464188 (MiTrimWorkingSetTailHelper.c)
- *     MiReleasePrcbAgeTrimLists @ 0x14046445C (MiReleasePrcbAgeTrimLists.c)
- *     MiProcessVpabAccessedInfo @ 0x1404644BC (MiProcessVpabAccessedInfo.c)
- *     MiQueryVpabAccessedState @ 0x1404646AC (MiQueryVpabAccessedState.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiTrimWorkingSetTailHelper @ 0x14045D148 (MiTrimWorkingSetTailHelper.c)
+ *     MiReleasePrcbAgeTrimLists @ 0x14045D41C (MiReleasePrcbAgeTrimLists.c)
+ *     MiProcessVpabAccessedInfo @ 0x14045D47C (MiProcessVpabAccessedInfo.c)
+ *     MiQueryVpabAccessedState @ 0x14045D66C (MiQueryVpabAccessedState.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetTail(__int64 a1)

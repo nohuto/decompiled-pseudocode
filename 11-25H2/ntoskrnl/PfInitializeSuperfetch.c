@@ -68,7 +68,7 @@ __int64 PfInitializeSuperfetch()
   qword_140E66CF0 = 0LL;
   PfSnInitializePrefetcher();
   PfpPartitionGlobalContextInitialize(qword_140E66D18);
-  PfKernelGlobals = 0x23C34600uLL / (unsigned int)KeMaximumIncrement;
+  PfKernelGlobals = 0x23C34600uLL / KeMaximumIncrement;
   xmmword_140F0DD48 = 0LL;
   if ( KeyHandle )
     ZwNotifyChangeKey(KeyHandle, 0LL, ApcRoutine, (PVOID)1, &IoStatusBlock, 0x1000000Fu, 0, &unk_140E669E0, 4u, 1u);

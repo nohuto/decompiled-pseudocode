@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlGenerateClass5Guid @ 0x1405501AC
+ * XREFs of RtlGenerateClass5Guid @ 0x1405506EC
  * Callers:
  *     PipCreateComputerId @ 0x14079A240 (PipCreateComputerId.c)
  * Callees:
- *     BCryptCloseAlgorithmProvider @ 0x14013C1B4 (BCryptCloseAlgorithmProvider.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     BCryptCloseAlgorithmProvider @ 0x14013C724 (BCryptCloseAlgorithmProvider.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BCryptHashData @ 0x140550390 (BCryptHashData.c)
- *     BCryptDestroyHash @ 0x1405503FC (BCryptDestroyHash.c)
- *     BCryptFinishHash @ 0x140550440 (BCryptFinishHash.c)
- *     BCryptCreateHash @ 0x14055049C (BCryptCreateHash.c)
- *     BCryptGetProperty @ 0x140550520 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x1405505A0 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptHashData @ 0x1405508D0 (BCryptHashData.c)
+ *     BCryptDestroyHash @ 0x14055093C (BCryptDestroyHash.c)
+ *     BCryptFinishHash @ 0x140550980 (BCryptFinishHash.c)
+ *     BCryptCreateHash @ 0x1405509DC (BCryptCreateHash.c)
+ *     BCryptGetProperty @ 0x140550A60 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x140550AE0 (BCryptOpenAlgorithmProvider.c)
  */
 
 __int64 __fastcall RtlGenerateClass5Guid(__int64 a1, UCHAR *a2, ULONG a3, __int64 a4)

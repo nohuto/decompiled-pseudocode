@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitializeDynamicVa @ 0x140B6F0BC (MiInitializeDynamicVa.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 MiAssignSessionRanges()
@@ -21,7 +21,7 @@ __int64 MiAssignSessionRanges()
   ULONG ClearBitsAndSet; // eax
   __int64 result; // rax
   __int16 v8; // ax
-  RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-59h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-59h] BYREF
   int v10; // [rsp+38h] [rbp-49h]
   _DWORD v11[9]; // [rsp+3Ch] [rbp-45h] BYREF
   __int64 v12; // [rsp+60h] [rbp-21h]

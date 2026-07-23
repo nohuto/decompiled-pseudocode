@@ -46,7 +46,7 @@ __int64 __fastcall sub_18001FB1C(__int64 a1, unsigned int a2, int a3, _DWORD *a4
         if ( v8 )
           break;
         v8 = 1;
-        RtlAcquireSRWLockExclusive(a1 + 24);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
       }
       if ( v14 == -1 )
       {
@@ -66,7 +66,7 @@ LABEL_6:
       *a4 = v11 - v10 + 1;
     }
     if ( v8 )
-      RtlReleaseSRWLockExclusive(a1 + 24);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   }
   return v10;
 }

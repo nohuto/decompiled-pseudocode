@@ -1,12 +1,12 @@
 /*
- * XREFs of KiCopyXStateArea @ 0x1405726E0
+ * XREFs of KiCopyXStateArea @ 0x140572C20
  * Callers:
- *     KeContextFromKframes @ 0x14030E120 (KeContextFromKframes.c)
- *     KxContextToKframes @ 0x14033F840 (KxContextToKframes.c)
- *     PspSetContext @ 0x140724240 (PspSetContext.c)
- *     PspGetContext @ 0x140724614 (PspGetContext.c)
+ *     KeContextFromKframes @ 0x14030E3B0 (KeContextFromKframes.c)
+ *     KxContextToKframes @ 0x14033FAD0 (KxContextToKframes.c)
+ *     PspSetContext @ 0x140724440 (PspSetContext.c)
+ *     PspGetContext @ 0x140724814 (PspGetContext.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void __fastcall KiCopyXStateArea(__int64 a1, __int64 a2, __int64 a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushAllStoreSwapPages @ 0x1403E0BBC
+ * XREFs of MiFlushAllStoreSwapPages @ 0x1403E3DAC
  * Callers:
- *     SmpFlushStorePages @ 0x140B27010 (SmpFlushStorePages.c)
+ *     SmpFlushStorePages @ 0x140B290C0 (SmpFlushStorePages.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiCanFlushMakeProgress @ 0x1403E0D04 (MiCanFlushMakeProgress.c)
- *     MiWakeModifiedPageWriter @ 0x1403E0E48 (MiWakeModifiedPageWriter.c)
- *     MiStoreUpdateMemoryConditions @ 0x1403E0ED8 (MiStoreUpdateMemoryConditions.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiCanFlushMakeProgress @ 0x1403E3EF4 (MiCanFlushMakeProgress.c)
+ *     MiWakeModifiedPageWriter @ 0x1403E4038 (MiWakeModifiedPageWriter.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1403E40C8 (MiStoreUpdateMemoryConditions.c)
  */
 
 __int64 __fastcall MiFlushAllStoreSwapPages(struct _KEVENT *a1, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall MiFlushAllStoreSwapPages(struct _KEVENT *a1, __int64 a2, __in
   __int64 v9; // r14
   __int64 v10; // r8
   __int64 v11; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v13; // rcx
+  $241382875694CED3D471BC5892DE3337 *v13; // rcx
 
   CurrentThread = KeGetCurrentThread();
   if ( a1[54].Header.SignalState == -1 )
@@ -55,7 +55,7 @@ LABEL_8:
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v13 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v13->ApcState.ApcListHead[0].Flink != v13 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v13->ApcState.ApcListHead[0].Flink != v13 )
       KiCheckForKernelApcDelivery((__int64)v13, v11);
   }
   return v8;

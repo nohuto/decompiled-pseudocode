@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAdjustSecureDriverStateForIatCapture @ 0x1404DDD28
+ * XREFs of MiAdjustSecureDriverStateForIatCapture @ 0x1404D7408
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3C35C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3E5DC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
- *     VslExemptSecurePteRange @ 0x1404DE000 (VslExemptSecurePteRange.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
+ *     VslExemptSecurePteRange @ 0x1404D76E0 (VslExemptSecurePteRange.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiAdjustSecureDriverStateForIatCapture(__int64 a1, int a2, __int64 a3)
@@ -43,8 +43,8 @@ void __fastcall MiAdjustSecureDriverStateForIatCapture(__int64 a1, int a2, __int
   v17 = 0LL;
   if ( a2 )
   {
-    *(_QWORD *)&stru_140E2D150.AbWaitEntryCount = v3 + (unsigned int)*v4;
-    stru_140E2D150.MutantListHead.Blink = *(struct _LIST_ENTRY **)(a1 + 48);
+    *(_QWORD *)&stru_140E2D2D0.AbWaitEntryCount = v3 + (unsigned int)*v4;
+    stru_140E2D2D0.MutantListHead.Blink = *(struct _LIST_ENTRY **)(a1 + 48);
   }
   LOBYTE(a3) = a2 != 0;
   VslExemptSecurePteRange(v3, (unsigned int)*v4, a3);
@@ -62,13 +62,13 @@ void __fastcall MiAdjustSecureDriverStateForIatCapture(__int64 a1, int a2, __int
     LOBYTE(v8) = CurrentIrql;
     KiRaiseIrqlProcessIrqlFlags(v8, v6);
   }
-  MiLockWorkingSetSharedAtDpc((__int64)&unk_140E36E00);
+  MiLockWorkingSetSharedAtDpc((__int64)&unk_140E36F80);
   if ( a2 )
   {
     ProcessorFlushList = MiGetProcessorFlushList();
     MiInitializeTbFlushList(
       (__int64)ProcessorFlushList,
-      (__int64)&unk_140E36E00,
+      (__int64)&unk_140E36F80,
       *((_DWORD *)ProcessorFlushList + 3),
       0,
       1);
@@ -85,10 +85,10 @@ void __fastcall MiAdjustSecureDriverStateForIatCapture(__int64 a1, int a2, __int
     {
       if ( ProcessorFlushList )
         MiFlushTbList((__int64)ProcessorFlushList);
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v9);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v9);
 LABEL_31:
       v9 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      MiLockPageTableInternal((signed __int64)&unk_140E36E00, v9, 0);
+      MiLockPageTableInternal((signed __int64)&unk_140E36F80, v9, 0);
     }
     PteShadow = *(_QWORD *)v7;
     if ( v7 >= 0xFFFFF6FB7DBED000uLL && v7 <= 0xFFFFF6FB7DBED7F8uLL )
@@ -118,14 +118,14 @@ LABEL_31:
   if ( ProcessorFlushList )
     MiFlushTbList((__int64)ProcessorFlushList);
   if ( v9 )
-    MiUnlockPageTableInternal((__int64)&unk_140E36E00, v9);
+    MiUnlockPageTableInternal((__int64)&unk_140E36F80, v9);
   if ( ProcessorFlushList )
     MiReleaseProcessorFlushList();
   LOBYTE(v12) = CurrentIrql;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v12);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v12);
   if ( !a2 )
   {
-    *(_OWORD *)&stru_140E2D150.MutantListHead.Blink = 0LL;
+    *(_OWORD *)&stru_140E2D2D0.MutantListHead.Blink = 0LL;
     VslExemptSecurePteRange(0LL, 0LL, 0LL);
   }
 }

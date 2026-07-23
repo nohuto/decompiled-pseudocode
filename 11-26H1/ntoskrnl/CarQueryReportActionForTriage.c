@@ -1,12 +1,12 @@
 /*
- * XREFs of CarQueryReportActionForTriage @ 0x140649EE0
+ * XREFs of CarQueryReportActionForTriage @ 0x14064DAC0
  * Callers:
- *     CarQueryReportAction @ 0x140649EB0 (CarQueryReportAction.c)
- *     CarReportDifPluginRuleViolation @ 0x14064A330 (CarReportDifPluginRuleViolation.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarQueryReportAction @ 0x14064DA90 (CarQueryReportAction.c)
+ *     CarReportDifPluginRuleViolation @ 0x14064DF10 (CarReportDifPluginRuleViolation.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  * Callees:
- *     CarFindRuleOverrideEntryByGlobalRuleId @ 0x140649A94 (CarFindRuleOverrideEntryByGlobalRuleId.c)
- *     CarOverrideReportAction @ 0x140649E88 (CarOverrideReportAction.c)
+ *     CarFindRuleOverrideEntryByGlobalRuleId @ 0x14064D674 (CarFindRuleOverrideEntryByGlobalRuleId.c)
+ *     CarOverrideReportAction @ 0x14064DA68 (CarOverrideReportAction.c)
  */
 
 __int64 __fastcall CarQueryReportActionForTriage(int a1, unsigned int a2, _DWORD *a3)
@@ -24,8 +24,8 @@ __int64 __fastcall CarQueryReportActionForTriage(int a1, unsigned int a2, _DWORD
   {
     if ( CarInitialized )
     {
-      v5 = *(int *)&stru_140F066E8.WaitBlockFill11[24];
-      *(_QWORD *)a3 = qword_140039238[*(int *)&stru_140F066E8.WaitBlockFill11[24]];
+      v5 = *(int *)&stru_140F06A28.WaitBlockFill11[24];
+      *(_QWORD *)a3 = qword_1400397C8[*(int *)&stru_140F06A28.WaitBlockFill11[24]];
       for ( i = (__int64 *)CarConfigurationEntries; ; i = (__int64 *)*i )
       {
         if ( i == &CarConfigurationEntries )
@@ -40,7 +40,7 @@ __int64 __fastcall CarQueryReportActionForTriage(int a1, unsigned int a2, _DWORD
       RuleOverrideEntryByGlobalRuleId = CarFindRuleOverrideEntryByGlobalRuleId((_QWORD **)(v8 + 72), v9);
       if ( RuleOverrideEntryByGlobalRuleId )
         CarOverrideReportAction(v11, (_DWORD *)&RuleOverrideEntryByGlobalRuleId[v5] + 1);
-      if ( *(int *)&stru_140F066E8.WaitBlockFill11[24] < 5 && (stru_140F066E8.WaitBlockFill5[44] & 1) != 0 )
+      if ( *(int *)&stru_140F06A28.WaitBlockFill11[24] < 5 && (CarXdvOptions & 1) != 0 )
         *v11 = 4;
     }
     else

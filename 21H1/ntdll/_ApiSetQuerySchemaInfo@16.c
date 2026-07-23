@@ -15,7 +15,7 @@ int __fastcall ApiSetQuerySchemaInfo(int a1, unsigned __int16 *a2, bool *a3, boo
   _DWORD *v7; // eax
   unsigned int v8; // ecx
   unsigned int v9; // eax
-  int v10; // edi
+  wchar_t *v10; // edi
   unsigned int v11; // eax
   _WORD *v12; // edx
   unsigned int v13; // ecx
@@ -23,7 +23,7 @@ int __fastcall ApiSetQuerySchemaInfo(int a1, unsigned __int16 *a2, bool *a3, boo
   int v15; // edi
   unsigned __int16 *v16; // esi
   int v17; // edx
-  _DWORD *v18; // eax
+  int v18; // eax
   _DWORD *v19; // esi
   unsigned int v20; // ecx
   unsigned int v21; // eax
@@ -31,22 +31,20 @@ int __fastcall ApiSetQuerySchemaInfo(int a1, unsigned __int16 *a2, bool *a3, boo
   unsigned int v23; // edi
   _WORD *v24; // edx
   int v25; // eax
-  _WORD v27[2]; // [esp+Ch] [ebp-20h] BYREF
-  int v28; // [esp+10h] [ebp-1Ch]
-  _WORD v29[2]; // [esp+14h] [ebp-18h] BYREF
-  int v30; // [esp+18h] [ebp-14h]
-  int v31; // [esp+1Ch] [ebp-10h]
-  int v32; // [esp+20h] [ebp-Ch]
-  unsigned int v33; // [esp+24h] [ebp-8h]
-  bool v34; // [esp+2Ah] [ebp-2h]
-  bool v35; // [esp+2Bh] [ebp-1h]
+  _UNICODE_STRING String2; // [esp+Ch] [ebp-20h] BYREF
+  _UNICODE_STRING String1; // [esp+14h] [ebp-18h] BYREF
+  int v29; // [esp+1Ch] [ebp-10h]
+  int v30; // [esp+20h] [ebp-Ch]
+  unsigned int v31; // [esp+24h] [ebp-8h]
+  bool v32; // [esp+2Ah] [ebp-2h]
+  bool v33; // [esp+2Bh] [ebp-1h]
 
   v4 = *a2;
   v5 = 0;
-  v32 = a1;
+  v30 = a1;
   v6 = 0;
-  v35 = 0;
-  v34 = 0;
+  v33 = 0;
+  v32 = 0;
   if ( v4 >= 8 )
   {
     v7 = (_DWORD *)*((_DWORD *)a2 + 1);
@@ -54,26 +52,26 @@ int __fastcall ApiSetQuerySchemaInfo(int a1, unsigned __int16 *a2, bool *a3, boo
     v9 = v7[1] & 0xFFFFFFDF;
     v6 = v8 == 5242945 && v9 == 2949193 || v8 == 5767237 && v9 == 2949204;
   }
-  v10 = *((_DWORD *)a2 + 1);
-  v30 = v10;
+  v10 = (wchar_t *)*((_DWORD *)a2 + 1);
+  String1.Buffer = v10;
   if ( !v6 )
   {
-    v29[0] = 20;
-    v29[1] = 20;
-    v27[0] = 20;
-    v27[1] = 20;
-    v30 = v10;
-    v28 = (int)L"SchemaExt-";
-    if ( !RtlCompareUnicodeString(v29, v27, 1) )
+    String1.Length = 20;
+    String1.MaximumLength = 20;
+    String2.Length = 20;
+    String2.MaximumLength = 20;
+    String1.Buffer = v10;
+    String2.Buffer = L"SchemaExt-";
+    if ( !RtlCompareUnicodeString(&String1, &String2, 1u) )
     {
-      v35 = ApiSetpSearchForApiSet((unsigned __int16)v4 >> 1) != 0;
-      v34 = v35;
+      v33 = ApiSetpSearchForApiSet(v30, (unsigned __int16)v4 >> 1) != 0;
+      v32 = v33;
       goto LABEL_28;
     }
     return -1073741811;
   }
   v11 = v4;
-  v12 = (_WORD *)(v10 + v4);
+  v12 = (wchar_t *)((char *)v10 + v4);
   if ( v4 > 1 )
   {
     do
@@ -83,21 +81,21 @@ int __fastcall ApiSetQuerySchemaInfo(int a1, unsigned __int16 *a2, bool *a3, boo
     }
     while ( *v12 != 45 && v11 > 1 );
   }
-  v31 = (unsigned __int16)v11 >> 1;
-  if ( !(_WORD)v31 )
+  v29 = (unsigned __int16)v11 >> 1;
+  if ( !(_WORD)v29 )
     return -1073741811;
-  v33 = 0;
+  v31 = 0;
   v13 = (v4 - (unsigned __int16)v11) >> 1;
   if ( !v13 )
     return -1073741811;
-  v14 = (_WORD *)(v10 + (unsigned __int16)v11);
+  v14 = (wchar_t *)((char *)v10 + (unsigned __int16)v11);
   if ( *v14 != 45 )
     return -1073741811;
   v15 = v13 - 1;
   v16 = v14 + 1;
   if ( v13 == 1 )
     return -1073741811;
-  v28 = 9;
+  String2.Buffer = (wchar_t *)9;
   if ( (int)(v13 - 1) > 0 )
   {
     do
@@ -107,19 +105,19 @@ int __fastcall ApiSetQuerySchemaInfo(int a1, unsigned __int16 *a2, bool *a3, boo
         return -1073741811;
       ++v16;
       --v15;
-      v33 = v17 + 10 * v33 - 48;
+      v31 = v17 + 10 * v31 - 48;
     }
     while ( v15 > 0 );
   }
-  v18 = (_DWORD *)ApiSetpSearchForApiSet(v31);
-  v19 = v18;
+  v18 = ApiSetpSearchForApiSet(v30, v29);
+  v19 = (_DWORD *)v18;
   if ( v18 )
   {
     v20 = 0;
-    v21 = (unsigned int)(v18[2] - v18[3]) >> 1;
+    v21 = (unsigned int)(*(_DWORD *)(v18 + 8) - *(_DWORD *)(v18 + 12)) >> 1;
     if ( v21 )
     {
-      v22 = (_WORD *)(v32 + v19[3] + v19[1]);
+      v22 = (_WORD *)(v30 + v19[3] + v19[1]);
       if ( *v22 == 45 )
       {
         v23 = v21 - 1;
@@ -129,16 +127,16 @@ int __fastcall ApiSetQuerySchemaInfo(int a1, unsigned __int16 *a2, bool *a3, boo
           if ( (int)(v21 - 1) <= 0 )
           {
 LABEL_25:
-            if ( v33 <= v20 )
+            if ( v31 <= v20 )
             {
-              v35 = 1;
+              v33 = 1;
               if ( v19[5] )
-                v34 = *(_DWORD *)(v19[4] + v32 + 16) != 0;
+                v32 = *(_DWORD *)(v19[4] + v30 + 16) != 0;
             }
           }
           else
           {
-            while ( (unsigned __int16)(*v24 - 48) <= (unsigned __int16)v28 )
+            while ( (unsigned __int16)(*v24 - 48) <= LOWORD(String2.Buffer) )
             {
               v25 = (unsigned __int16)*v24++;
               v20 = v25 + 10 * v20 - 48;
@@ -151,7 +149,7 @@ LABEL_25:
     }
   }
 LABEL_28:
-  *a3 = v35;
-  *a4 = v34;
+  *a3 = v33;
+  *a4 = v32;
   return v5;
 }

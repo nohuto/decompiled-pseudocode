@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuDomainAttachPasidDevice @ 0x140786EE0
+ * XREFs of IommuDomainAttachPasidDevice @ 0x140789A10
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDeviceGetDomainTypes @ 0x140587CE0 (HalpIommuDeviceGetDomainTypes.c)
- *     IommupDomainAttachPasidDevice @ 0x140588004 (IommupDomainAttachPasidDevice.c)
+ *     HalpIommuDeviceGetDomainTypes @ 0x14058A2B8 (HalpIommuDeviceGetDomainTypes.c)
+ *     IommupDomainAttachPasidDevice @ 0x14058A5DC (IommupDomainAttachPasidDevice.c)
  */
 
 __int64 __fastcall IommuDomainAttachPasidDevice(__int64 a1, __int64 a2)

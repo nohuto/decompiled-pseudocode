@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeReadInProgressPfn @ 0x1402FBF30
+ * XREFs of MiInitializeReadInProgressPfn @ 0x140306C80
  * Callers:
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiPrivateFixup @ 0x140209BC8 (MiPrivateFixup.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x14020A670 (MiIsPrototypePteVadLookup.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -88,7 +88,7 @@ char __fastcall MiInitializeReadInProgressPfn(
     {
       LOBYTE(CurrentThread) = 0;
       v13 = 48LL * *(_QWORD *)&p_WaitListHead->Header.Lock - 0x58000000000LL;
-      if ( v13 != qword_140C4ED70 )
+      if ( v13 != qword_140C4EDB0 )
         break;
 LABEL_129:
       v6 += 8LL;
@@ -131,8 +131,8 @@ LABEL_129:
       else
       {
         v22 = v14;
-        if ( qword_140C4DF40 && (v14 & 0x10) == 0 )
-          v22 = v14 & ~qword_140C4DF40;
+        if ( qword_140C4DF80 && (v14 & 0x10) == 0 )
+          v22 = v14 & ~qword_140C4DF80;
         v49 = MI_READ_PTE_LOCK_FREE(v22 >> 16);
         v23 = MI_READ_PTE_LOCK_FREE(&v49);
         v21 = MI_READ_PTE_LOCK_FREE(48 * ((v23 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFF0LL);
@@ -326,12 +326,12 @@ LABEL_30:
         else
         {
           v24 = 32 * (((*(_QWORD *)&v53->Header.Lock & 0xFFFFFFFFFLL) << 7) | v46 & 0x1F | 0x40);
-          if ( qword_140C4DF40 )
+          if ( qword_140C4DF80 )
           {
-            if ( (qword_140C4DF40 & v24) != 0 )
+            if ( (qword_140C4DF80 & v24) != 0 )
               v24 |= 0x10uLL;
             else
-              v24 |= qword_140C4DF40;
+              v24 |= qword_140C4DF80;
           }
           LOBYTE(CurrentThread) = 0;
           v6 = v54;
@@ -342,10 +342,10 @@ LABEL_30:
             {
               if ( (unsigned int)MiPteHasShadow() )
               {
-                if ( !HIBYTE(word_140C4E008) && (v24 & 1) != 0 )
+                if ( !HIBYTE(word_140C4E048) && (v24 & 1) != 0 )
                   v24 |= 0x8000000000000000uLL;
                 *(_QWORD *)v6 = v24;
-                LOBYTE(CurrentThread) = MiWritePteShadow(v6, v24, v20);
+                LOBYTE(CurrentThread) = MiWritePteShadow(v6, v24);
                 goto LABEL_123;
               }
               CurrentThread = (unsigned __int64)KeGetCurrentThread();
@@ -377,8 +377,8 @@ LABEL_123:
         v12 = 0xFFFFF6FB7DBED7F8uLL;
         goto LABEL_129;
       }
-      if ( qword_140C4DF40 && (v14 & 0x10) == 0 )
-        v18 = v14 & ~qword_140C4DF40;
+      if ( qword_140C4DF80 && (v14 & 0x10) == 0 )
+        v18 = v14 & ~qword_140C4DF80;
       v18 = *(_QWORD *)(48 * ((v18 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL + 16);
     }
     v24 = v18;

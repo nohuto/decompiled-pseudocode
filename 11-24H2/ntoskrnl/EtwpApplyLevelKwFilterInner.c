@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpApplyLevelKwFilterInner @ 0x14046A720
+ * XREFs of EtwpApplyLevelKwFilterInner @ 0x1404630B8
  * Callers:
- *     EtwpApplyLevelKwFilter @ 0x1404606A8 (EtwpApplyLevelKwFilter.c)
+ *     EtwpApplyLevelKwFilter @ 0x140455B40 (EtwpApplyLevelKwFilter.c)
  * Callees:
  *     <none>
  */

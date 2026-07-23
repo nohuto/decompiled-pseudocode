@@ -1,101 +1,101 @@
 /*
- * XREFs of PpmExecutePeriodicPerfCheck @ 0x14029D218
+ * XREFs of PpmExecutePeriodicPerfCheck @ 0x1402ABD08
  * Callers:
- *     KiUpdateTime @ 0x14029B7C0 (KiUpdateTime.c)
- *     PpmCheckTimerCallback @ 0x1405D6CA0 (PpmCheckTimerCallback.c)
+ *     KiUpdateTime @ 0x1402AA2B0 (KiUpdateTime.c)
+ *     PpmCheckTimerCallback @ 0x1405D42C0 (PpmCheckTimerCallback.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
  */
 
-void __fastcall PpmExecutePeriodicPerfCheck(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall PpmExecutePeriodicPerfCheck(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  signed __int64 v3; // rsi
-  unsigned __int64 v4; // rbx
-  unsigned __int64 InterruptTimePrecise; // rdi
-  char v6; // r14
-  unsigned __int64 v7; // rdx
-  signed __int64 v8; // r8
-  unsigned __int64 v9; // rcx
+  signed __int64 v4; // rsi
+  unsigned __int64 v5; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rdi
+  char v7; // r14
+  unsigned __int64 v8; // rdx
+  signed __int64 QuadPart; // r8
+  unsigned __int64 v10; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
-  signed __int32 v12; // eax
-  signed __int32 v13; // ett
-  char v14; // [rsp+40h] [rbp+8h] BYREF
+  signed __int32 v13; // eax
+  signed __int32 v14; // ett
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = PpmCheckLastEffectiveExecutionTime;
+  v4 = PpmCheckLastEffectiveExecutionTime;
   if ( PpmCheckLastEffectiveExecutionTime )
   {
     if ( PpmCheckTimerImplementation )
     {
-      v4 = (unsigned int)KeMinimumIncrement;
+      v5 = (unsigned int)KeMinimumIncrement;
       if ( PpmCheckPeriod > (unsigned __int64)(unsigned int)KeMinimumIncrement )
-        v4 = PpmCheckPeriod;
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v14);
+        v5 = PpmCheckPeriod;
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     }
     else
     {
-      v4 = (unsigned int)KeTimeIncrement;
+      v5 = (unsigned int)KeTimeIncrement;
       if ( PpmCheckPeriod > (unsigned __int64)(unsigned int)KeTimeIncrement )
-        v4 = PpmCheckPeriod;
-      InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
+        v5 = PpmCheckPeriod;
+      InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
     }
-    if ( v4 + v3 <= InterruptTimePrecise )
+    if ( v5 + v4 <= InterruptTimePrecise.QuadPart )
     {
-      v6 = KeDisableInterrupts(a1, a2, a3);
+      v7 = KeDisableInterrupts(a1, a2, a3, a4);
       KxAcquireSpinLock(&PpmCheckExecutionLock);
-      if ( PpmCheckLastActualExecutionTime + (v4 >> 1) <= InterruptTimePrecise )
+      if ( PpmCheckLastActualExecutionTime + (v5 >> 1) <= InterruptTimePrecise.QuadPart )
       {
-        LODWORD(v7) = 0;
-        v8 = InterruptTimePrecise;
-        if ( v3 != 1 )
+        LODWORD(v8) = 0;
+        QuadPart = InterruptTimePrecise.QuadPart;
+        if ( v4 != 1 )
         {
-          if ( !PpmCheckTimerImplementation && v3 + v4 + (unsigned int)KeMaximumIncrement > InterruptTimePrecise )
-            v8 = v4 + v3;
-          v9 = v8 - v4 - v3;
+          if ( !PpmCheckTimerImplementation && v4 + v5 + KeMaximumIncrement > InterruptTimePrecise.QuadPart )
+            QuadPart = v5 + v4;
+          v10 = QuadPart - v5 - v4;
           if ( PpmCheckTimerImplementation )
           {
-            if ( PpmCheckLastActualExecutionTime + v4 < InterruptTimePrecise && v9 >= v4 )
+            if ( PpmCheckLastActualExecutionTime + v5 < InterruptTimePrecise.QuadPart && v10 >= v5 )
             {
-              if ( v9 >= 0x989680 )
-                v9 = 10000000LL;
-              v7 = v9 / v4;
+              if ( v10 >= 0x989680 )
+                v10 = 10000000LL;
+              v8 = v10 / v5;
             }
           }
-          else if ( v4 + PpmCheckLastActualExecutionTime + (unsigned int)KeMaximumIncrement < InterruptTimePrecise
-                 && v9 >= v4 )
+          else if ( v5 + PpmCheckLastActualExecutionTime + KeMaximumIncrement < InterruptTimePrecise.QuadPart
+                 && v10 >= v5 )
           {
-            LODWORD(v7) = 64;
-            if ( (unsigned int)((v8 - v4 - v3) / v4) < 0x40 )
-              LODWORD(v7) = (v8 - v4 - v3) / v4;
+            LODWORD(v8) = 64;
+            if ( (unsigned int)((QuadPart - v5 - v4) / v5) < 0x40 )
+              LODWORD(v8) = (QuadPart - v5 - v4) / v5;
           }
         }
-        if ( v3 == _InterlockedCompareExchange64(&PpmCheckLastEffectiveExecutionTime, v8, v3) )
+        if ( v4 == _InterlockedCompareExchange64(&PpmCheckLastEffectiveExecutionTime, QuadPart, v4) )
         {
-          PpmCheckLastActualExecutionTime = InterruptTimePrecise;
-          KeInsertQueueDpc(&PpmCheckStartDpc, (PVOID)(unsigned int)v7, 0LL);
+          PpmCheckLastActualExecutionTime = InterruptTimePrecise.QuadPart;
+          KeInsertQueueDpc(&PpmCheckStartDpc, (PVOID)(unsigned int)v8, 0LL);
         }
       }
       KxReleaseSpinLock((volatile signed __int64 *)&PpmCheckExecutionLock);
-      if ( v6 )
+      if ( v7 )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
         if ( SchedulerAssist )
         {
           _m_prefetchw(SchedulerAssist);
-          v12 = *SchedulerAssist;
+          v13 = *SchedulerAssist;
           do
           {
-            v13 = v12;
-            v12 = _InterlockedCompareExchange(SchedulerAssist, v12 & 0xFFDFFFFF, v12);
+            v14 = v13;
+            v13 = _InterlockedCompareExchange(SchedulerAssist, v13 & 0xFFDFFFFF, v13);
           }
-          while ( v13 != v12 );
-          if ( (v12 & 0x200000) != 0 )
+          while ( v14 != v13 );
+          if ( (v13 & 0x200000) != 0 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
         _enable();

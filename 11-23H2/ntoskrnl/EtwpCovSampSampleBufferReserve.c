@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampSampleBufferReserve @ 0x14046A366
+ * XREFs of EtwpCovSampSampleBufferReserve @ 0x14046A766
  * Callers:
- *     EtwpCovSampCaptureBufferQueue @ 0x140469FEC (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x14046A3EC (EtwpCovSampCaptureBufferQueue.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     EtwpCovSampLookasidePop @ 0x14046A208 (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x14046A6E8 (EtwpCovSampTryAcquireBufferLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x140603C20 (EtwpCovSampSampleBufferDecRef.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampLookasidePop @ 0x14046A608 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x14046AAE8 (EtwpCovSampTryAcquireBufferLock.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x140604170 (EtwpCovSampSampleBufferDecRef.c)
  */
 
 __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, PSLIST_ENTRY *a3)
@@ -55,17 +55,17 @@ __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, PSLIST
       if ( !*(_DWORD *)(v9 + 120) )
       {
         KxReleaseSpinLock((volatile signed __int64 *)v9);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
             v16 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
             SchedulerAssist[5] &= 0xFFFF0001;
             if ( v16 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(0LL);
@@ -84,17 +84,17 @@ LABEL_7:
         if ( _InterlockedIncrement64((volatile signed __int64 *)&v10[3]) <= 1 )
           __fastfail(0xEu);
         KxReleaseSpinLock((volatile signed __int64 *)v9);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v24 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v24 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v24 >= 2u )
           {
             v25 = KeGetCurrentPrcb();
             v26 = v25->SchedulerAssist;
             v16 = (v26[5] & 0xFFFF0001) == 0;
             v26[5] &= 0xFFFF0001;
             if ( v16 )
-              KiRemoveSystemWorkPriorityKick(v25);
+              KiRemoveSystemWorkPriorityKick((__int64)v25);
           }
         }
         __writecr8(0LL);
@@ -106,17 +106,17 @@ LABEL_7:
       }
       *(_QWORD *)(v9 + 8) = 0LL;
       KxReleaseSpinLock((volatile signed __int64 *)v9);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v13 >= 2u )
         {
           v14 = KeGetCurrentPrcb();
           v15 = v14->SchedulerAssist;
           v16 = (v15[5] & 0xFFFF0001) == 0;
           v15[5] &= 0xFFFF0001;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick(v14);
+            KiRemoveSystemWorkPriorityKick((__int64)v14);
         }
       }
       __writecr8(0LL);
@@ -125,17 +125,17 @@ LABEL_7:
     else
     {
       KxReleaseSpinLock((volatile signed __int64 *)v9);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v17 >= 2u )
         {
           v18 = KeGetCurrentPrcb();
           v19 = v18->SchedulerAssist;
           v16 = (v19[5] & 0xFFFF0001) == 0;
           v19[5] &= 0xFFFF0001;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick(v18);
+            KiRemoveSystemWorkPriorityKick((__int64)v18);
         }
       }
       __writecr8(0LL);

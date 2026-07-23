@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCommitEnlistment()
+NTSTATUS __cdecl ZwCommitEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 146LL;
+  result = 146;
   __asm { syscall; Low latency system call }
   return result;
 }

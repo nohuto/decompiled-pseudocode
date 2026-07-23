@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPageHasRelocations @ 0x140661750
+ * XREFs of MiPageHasRelocations @ 0x140661834
  * Callers:
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
  * Callees:
  *     <none>
  */

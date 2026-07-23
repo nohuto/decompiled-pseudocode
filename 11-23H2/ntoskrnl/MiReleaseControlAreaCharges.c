@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseControlAreaCharges @ 0x1402A0E14
+ * XREFs of MiReleaseControlAreaCharges @ 0x1402A10A4
  * Callers:
- *     MiInsertUnusedSegment @ 0x1402A0C98 (MiInsertUnusedSegment.c)
- *     MiSegmentDelete @ 0x1406B0954 (MiSegmentDelete.c)
+ *     MiInsertUnusedSegment @ 0x1402A0F28 (MiInsertUnusedSegment.c)
+ *     MiSegmentDelete @ 0x1406B0984 (MiSegmentDelete.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAweControlArea @ 0x1402A0EA4 (MiAweControlArea.c)
- *     MiIncludeSharedCommit @ 0x1402A0ED0 (MiIncludeSharedCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14066B0C8 (MiComputeCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAweControlArea @ 0x1402A1134 (MiAweControlArea.c)
+ *     MiIncludeSharedCommit @ 0x1402A1160 (MiIncludeSharedCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x14066B618 (MiComputeCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReleaseControlAreaCharges(__int64 a1, __int64 a2)
@@ -66,10 +66,10 @@ LABEL_7:
   if ( v7 != 17 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

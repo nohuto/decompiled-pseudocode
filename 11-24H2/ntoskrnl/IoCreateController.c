@@ -1,13 +1,13 @@
 /*
- * XREFs of IoCreateController @ 0x140713DC0
+ * XREFs of IoCreateController @ 0x140711950
  * Callers:
- *     DifIoCreateControllerWrapper @ 0x140626AE0 (DifIoCreateControllerWrapper.c)
+ *     DifIoCreateControllerWrapper @ 0x1406250A0 (DifIoCreateControllerWrapper.c)
  * Callees:
- *     KeInitializeDeviceQueue @ 0x1404ADD00 (KeInitializeDeviceQueue.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
+ *     KeInitializeDeviceQueue @ 0x1404A8610 (KeInitializeDeviceQueue.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
  */
 
 PCONTROLLER_OBJECT __stdcall IoCreateController(ULONG Size)

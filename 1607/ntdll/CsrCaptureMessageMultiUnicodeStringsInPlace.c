@@ -1,10 +1,10 @@
 /*
- * XREFs of CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x180075A00
+ * XREFs of CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800759F0
  * Callers:
  *     <none>
  * Callees:
- *     CsrCaptureMessageString @ 0x180075B20 (CsrCaptureMessageString.c)
- *     CsrAllocateCaptureBuffer @ 0x180075C20 (CsrAllocateCaptureBuffer.c)
+ *     CsrCaptureMessageString @ 0x180075B10 (CsrCaptureMessageString.c)
+ *     CsrAllocateCaptureBuffer @ 0x180075C10 (CsrAllocateCaptureBuffer.c)
  */
 
 __int64 __fastcall CsrCaptureMessageMultiUnicodeStringsInPlace(__int64 *a1, unsigned int a2, __int64 a3)

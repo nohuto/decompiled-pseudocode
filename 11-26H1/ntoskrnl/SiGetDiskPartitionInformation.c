@@ -1,11 +1,11 @@
 /*
- * XREFs of SiGetDiskPartitionInformation @ 0x140AE14B0
+ * XREFs of SiGetDiskPartitionInformation @ 0x140ADE9A0
  * Callers:
- *     SiValidateSystemPartition @ 0x140AE13CC (SiValidateSystemPartition.c)
+ *     SiValidateSystemPartition @ 0x140ADE8BC (SiValidateSystemPartition.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SiOpenDevice @ 0x140AE154C (SiOpenDevice.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SiOpenDevice @ 0x140ADEA3C (SiOpenDevice.c)
  */
 
 __int64 __fastcall SiGetDiskPartitionInformation(const WCHAR *a1, void *a2)

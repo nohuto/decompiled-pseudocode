@@ -1,5 +1,5 @@
 /*
- * XREFs of TtmpScheduledEvaluationWorker @ 0x14087F2A0
+ * XREFs of TtmpScheduledEvaluationWorker @ 0x140880500
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     TtmiScheduleSessionWorker @ 0x140880220 (TtmiScheduleSessionWorker.c)
+ *     TtmiScheduleSessionWorker @ 0x140881480 (TtmiScheduleSessionWorker.c)
  */
 
 LONG_PTR __fastcall TtmpScheduledEvaluationWorker(volatile __int32 *Object)

@@ -1,5 +1,5 @@
 /*
- * XREFs of READ_REGISTER_USHORT @ 0x14055A7C0
+ * XREFs of READ_REGISTER_USHORT @ 0x1405583F0
  * Callers:
  *     <none>
  * Callees:

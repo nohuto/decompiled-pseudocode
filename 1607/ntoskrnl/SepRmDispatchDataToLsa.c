@@ -1,18 +1,18 @@
 /*
- * XREFs of SepRmDispatchDataToLsa @ 0x1400B1C00
+ * XREFs of SepRmDispatchDataToLsa @ 0x1400AFB40
  * Callers:
- *     SepRmCallLsa @ 0x1400B1930 (SepRmCallLsa.c)
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
+ *     SepRmCallLsa @ 0x1400AF870 (SepRmCallLsa.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwFreeVirtualMemory @ 0x14015A040 (ZwFreeVirtualMemory.c)
- *     ZwRequestWaitReplyPort @ 0x14015A0C0 (ZwRequestWaitReplyPort.c)
- *     ZwRequestPort @ 0x14015C900 (ZwRequestPort.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwFreeVirtualMemory @ 0x14015A5B0 (ZwFreeVirtualMemory.c)
+ *     ZwRequestWaitReplyPort @ 0x14015A630 (ZwRequestWaitReplyPort.c)
+ *     ZwRequestPort @ 0x14015CE70 (ZwRequestPort.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SepAdtCopyToLsaSharedMemory @ 0x140695FB0 (SepAdtCopyToLsaSharedMemory.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x140696094 (SepAdtCopyToLsaSharedMemory.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 __int64 __fastcall SepRmDispatchDataToLsa(__int64 a1)
@@ -30,11 +30,11 @@ __int64 __fastcall SepRmDispatchDataToLsa(__int64 a1)
   HANDLE v13; // rax
   int v14; // eax
   ULONG_PTR RegionSize; // [rsp+30h] [rbp-D8h] BYREF
-  struct _PORT_MESSAGE LpcMessage; // [rsp+38h] [rbp-D0h] BYREF
+  _PORT_MESSAGE LpcMessage; // [rsp+38h] [rbp-D0h] BYREF
   int v17; // [rsp+60h] [rbp-A8h]
   int v18; // [rsp+64h] [rbp-A4h]
   PVOID BaseAddress[58]; // [rsp+68h] [rbp-A0h] BYREF
-  struct _PORT_MESSAGE LpcRequest; // [rsp+238h] [rbp+130h] BYREF
+  _PORT_MESSAGE LpcRequest; // [rsp+238h] [rbp+130h] BYREF
   int v21; // [rsp+260h] [rbp+158h]
   char Src[468]; // [rsp+264h] [rbp+15Ch] BYREF
 

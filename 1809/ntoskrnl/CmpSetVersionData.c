@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpSetVersionData @ 0x140733078
+ * XREFs of CmpSetVersionData @ 0x140734268
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x140733770 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B640 (sprintf_s.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     PsWow64IsMachineSupported @ 0x140682070 (PsWow64IsMachineSupported.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140733580 (CmpHiveRootSecurityDescriptor.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B780 (sprintf_s.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExFreePool @ 0x14034E780 (ExFreePool.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     PsWow64IsMachineSupported @ 0x140683230 (PsWow64IsMachineSupported.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140734770 (CmpHiveRootSecurityDescriptor.c)
  */
 
 void CmpSetVersionData()
@@ -37,7 +37,7 @@ void CmpSetVersionData()
   UNICODE_STRING v12; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-98h] BYREF
-  STRING SourceString; // [rsp+A0h] [rbp-68h] BYREF
+  _STRING SourceString; // [rsp+A0h] [rbp-68h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
   char DstBuf[128]; // [rsp+C8h] [rbp-40h] BYREF
   _BYTE v18[256]; // [rsp+148h] [rbp+40h] BYREF

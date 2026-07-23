@@ -1,9 +1,9 @@
 /*
- * XREFs of MiBetterDriverPageNeeded @ 0x140475F10
+ * XREFs of MiBetterDriverPageNeeded @ 0x140471FB0
  * Callers:
- *     MiLockCode @ 0x14023D6F0 (MiLockCode.c)
+ *     MiLockCode @ 0x140205480 (MiLockCode.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
  */
 
 _BOOL8 __fastcall MiBetterDriverPageNeeded(__int64 a1, __int64 a2)

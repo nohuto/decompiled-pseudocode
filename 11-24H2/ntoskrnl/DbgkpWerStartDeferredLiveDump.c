@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpWerStartDeferredLiveDump @ 0x140708ED0
+ * XREFs of DbgkpWerStartDeferredLiveDump @ 0x140706A90
  * Callers:
- *     DbgkpWerCaptureLiveFullDump @ 0x140A9AEBC (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140A9642C (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     IoSetDeferredLiveDumpFileHandle @ 0x140597B68 (IoSetDeferredLiveDumpFileHandle.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     IoSetDeferredLiveDumpFileHandle @ 0x140594AE4 (IoSetDeferredLiveDumpFileHandle.c)
  */
 
 __int64 __fastcall DbgkpWerStartDeferredLiveDump(__int64 a1)

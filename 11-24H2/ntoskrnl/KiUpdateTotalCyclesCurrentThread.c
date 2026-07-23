@@ -1,24 +1,24 @@
 /*
- * XREFs of KiUpdateTotalCyclesCurrentThread @ 0x14034F060
+ * XREFs of KiUpdateTotalCyclesCurrentThread @ 0x14036D540
  * Callers:
- *     KeRemovePriQueue @ 0x140208340 (KeRemovePriQueue.c)
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1402A0C10 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     PspRevertContainerImpersonation @ 0x1402A2A90 (PspRevertContainerImpersonation.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x1402A7194 (KiRemoveThreadFromSchedulingGroup.c)
- *     KeYieldExecution @ 0x14033C510 (KeYieldExecution.c)
- *     KiCompleteDirectSwitchThread @ 0x1403BF004 (KiCompleteDirectSwitchThread.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14045201C (KeSetPriorityAndQuantumProcess.c)
- *     KeBoostPriorityThread @ 0x1404E7068 (KeBoostPriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1404E7260 (KeSetBasePriorityThread.c)
- *     KiStartDebugAccumulation @ 0x1405C202C (KiStartDebugAccumulation.c)
+ *     PspRevertContainerImpersonation @ 0x1402D21C0 (PspRevertContainerImpersonation.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1402D68C4 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KeYieldExecution @ 0x14031B9F0 (KeYieldExecution.c)
+ *     KeRemovePriQueue @ 0x14032F920 (KeRemovePriQueue.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     KiCompleteDirectSwitchThread @ 0x1403ABAF4 (KiCompleteDirectSwitchThread.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1403B4ED0 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1404470CC (KeSetPriorityAndQuantumProcess.c)
+ *     KeBoostPriorityThread @ 0x1404DD768 (KeBoostPriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1404DDF20 (KeSetBasePriorityThread.c)
+ *     KiStartDebugAccumulation @ 0x1405BF5FC (KiStartDebugAccumulation.c)
  * Callees:
- *     HalRequestSoftwareInterrupt @ 0x14034AB60 (HalRequestSoftwareInterrupt.c)
- *     KiEndCounterAccumulation @ 0x14034C52C (KiEndCounterAccumulation.c)
- *     KiUpdateThreadHgsFeedback @ 0x14034E8CC (KiUpdateThreadHgsFeedback.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     HalRequestSoftwareInterrupt @ 0x140369040 (HalRequestSoftwareInterrupt.c)
+ *     KiEndCounterAccumulation @ 0x14036AA0C (KiEndCounterAccumulation.c)
+ *     KiUpdateThreadHgsFeedback @ 0x14036CDAC (KiUpdateThreadHgsFeedback.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 unsigned __int64 __fastcall KiUpdateTotalCyclesCurrentThread(struct _KPRCB *a1, __int64 a2, unsigned __int64 *a3)

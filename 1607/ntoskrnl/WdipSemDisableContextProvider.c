@@ -1,16 +1,16 @@
 /*
- * XREFs of WdipSemDisableContextProvider @ 0x1404E4DA4
+ * XREFs of WdipSemDisableContextProvider @ 0x1404C7A5C
  * Callers:
- *     WdipSemDisableContextProviders @ 0x1404E4D38 (WdipSemDisableContextProviders.c)
+ *     WdipSemDisableContextProviders @ 0x1404C79F0 (WdipSemDisableContextProviders.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     WdipSemCaptureState @ 0x1400AFF3C (WdipSemCaptureState.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     WdipSemEnableDisableTrace @ 0x1404E4F14 (WdipSemEnableDisableTrace.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     WdipSemCaptureState @ 0x1400AE0F4 (WdipSemCaptureState.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     WdipSemEnableDisableTrace @ 0x1404C7BCC (WdipSemEnableDisableTrace.c)
  */
 
 __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
@@ -33,11 +33,11 @@ __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
   v3 = 0LL;
   v6 = 0;
   --CurrentThread->KernelApcDisable;
-  v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1402FFF28, 0LL, 0);
-  v8 = _interlockedbittestandset64((volatile signed __int32 *)&qword_1402FFF28, 0LL);
+  v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1402FFF08, 0LL, 0);
+  v8 = _interlockedbittestandset64((volatile signed __int32 *)&qword_1402FFF08, 0LL);
   v9 = v7;
   if ( v8 )
-    ExfAcquirePushLockExclusiveEx(&qword_1402FFF28, v7, (ULONG_PTR)&qword_1402FFF28);
+    ExfAcquirePushLockExclusiveEx(&qword_1402FFF08, v7, (ULONG_PTR)&qword_1402FFF08);
   if ( v9 )
     v9[26] |= 1u;
   if ( a1 )
@@ -73,16 +73,16 @@ __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
   {
     v6 = -1073741811;
   }
-  _m_prefetchw(&qword_1402FFF28);
-  if ( (qword_1402FFF28 & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )
-    v3 = qword_1402FFF28 - 16;
-  if ( (qword_1402FFF28 & 2) != 0
-    || (v14 = qword_1402FFF28,
-        v14 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_1402FFF28, v3, qword_1402FFF28)) )
+  _m_prefetchw(&qword_1402FFF08);
+  if ( (qword_1402FFF08 & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )
+    v3 = qword_1402FFF08 - 16;
+  if ( (qword_1402FFF08 & 2) != 0
+    || (v14 = qword_1402FFF08,
+        v14 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_1402FFF08, v3, qword_1402FFF08)) )
   {
-    ExfReleasePushLock(&qword_1402FFF28);
+    ExfReleasePushLock(&qword_1402FFF08);
   }
-  KeAbPostRelease((ULONG_PTR)&qword_1402FFF28);
+  KeAbPostRelease((ULONG_PTR)&qword_1402FFF08);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v15, v16, v17);
   return (unsigned int)v6;
 }

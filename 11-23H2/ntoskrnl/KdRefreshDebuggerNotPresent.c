@@ -1,7 +1,7 @@
 /*
- * XREFs of KdRefreshDebuggerNotPresent @ 0x1403B1ED0
+ * XREFs of KdRefreshDebuggerNotPresent @ 0x1403B20B0
  * Callers:
- *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x140569A44 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
+ *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x14056A104 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
  * Callees:
  *     KdExitDebugger @ 0x140AB0008 (KdExitDebugger.c)
  *     KdEnterDebugger @ 0x140AB0144 (KdEnterDebugger.c)

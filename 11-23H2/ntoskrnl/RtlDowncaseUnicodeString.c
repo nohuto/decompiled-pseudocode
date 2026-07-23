@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDowncaseUnicodeString @ 0x1407BE240
+ * XREFs of RtlDowncaseUnicodeString @ 0x1407BE510
  * Callers:
- *     DifRtlDowncaseUnicodeStringWrapper @ 0x1405EB3D0 (DifRtlDowncaseUnicodeStringWrapper.c)
- *     ExpKdPullRemoteFileForUser @ 0x14084EE40 (ExpKdPullRemoteFileForUser.c)
+ *     DifRtlDowncaseUnicodeStringWrapper @ 0x1405EB940 (DifRtlDowncaseUnicodeStringWrapper.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14084F140 (ExpKdPullRemoteFileForUser.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     AllocateOrValidateUnicodeStringBuffer @ 0x140316CFC (AllocateOrValidateUnicodeStringBuffer.c)
- *     NLS_DOWNCASE @ 0x14034E3C8 (NLS_DOWNCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x140316F8C (AllocateOrValidateUnicodeStringBuffer.c)
+ *     NLS_DOWNCASE @ 0x14034E568 (NLS_DOWNCASE.c)
  *     ExFreePool @ 0x140AAECC0 (ExFreePool.c)
  */
 

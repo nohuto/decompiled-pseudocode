@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateProcessorCount @ 0x140BF3458
+ * XREFs of KiUpdateProcessorCount @ 0x140BF9458
  * Callers:
- *     KiUpdateNumberProcessorsIpi @ 0x140BF5230 (KiUpdateNumberProcessorsIpi.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiUpdateNumberProcessorsIpi @ 0x140BFB230 (KiUpdateNumberProcessorsIpi.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiGetCurrentGroupCount @ 0x1405EFAD4 (KiGetCurrentGroupCount.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiGetCurrentGroupCount @ 0x1405F2444 (KiGetCurrentGroupCount.c)
  */
 
 __int64 __fastcall KiUpdateProcessorCount(__int64 a1, int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall KiUpdateProcessorCount(__int64 a1, int a2)
   KiActiveGroups = KiGetCurrentGroupCount();
   _disable();
   LODWORD(KeNumberProcessors_0) = KeNumberProcessors_0 + 1;
-  KeAddProcessorAffinityEx((unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags, v3);
+  KeAddProcessorAffinityEx((unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags, v3);
   CurrentPrcb = KeGetCurrentPrcb();
   SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
   if ( SchedulerAssist )

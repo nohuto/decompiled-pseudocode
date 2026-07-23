@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlQueryProcessAvailableCpus @ 0x180149060
+ * XREFs of RtlQueryProcessAvailableCpus @ 0x180148F10
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryInformationProcess @ 0x18015F260 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x18015F160 (NtQueryInformationProcess.c)
  */
 
 NTSTATUS __fastcall RtlQueryProcessAvailableCpus(void *a1, __int64 a2, __int64 *a3, _QWORD *a4)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall RtlQueryProcessAvailableCpus(void *a1, __int64 a2, __int64 *
   else
     ProcessInformation = 0LL;
   v9 = a2;
-  result = NtQueryInformationProcess(a1, (PROCESSINFOCLASS)117, &ProcessInformation, 0x20u, 0LL);
+  result = NtQueryInformationProcess(a1, MaxProcessInfoClass|ProcessQuotaLimits, &ProcessInformation, 0x20u, 0LL);
   if ( (int)(result + 0x80000000) < 0 || result == -2147483598 )
   {
     if ( a4 )

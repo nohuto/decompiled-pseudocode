@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitMachineDependent @ 0x140D017C8
+ * XREFs of MiInitMachineDependent @ 0x140D07B68
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 struct _KTHREAD *MiInitMachineDependent()

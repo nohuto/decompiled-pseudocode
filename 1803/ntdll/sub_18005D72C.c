@@ -23,7 +23,7 @@ __int64 __fastcall sub_18005D72C(
   __int64 v14; // xmm0_8
   __int64 v15; // rax
   __int64 v16; // rax
-  union _SLIST_HEADER *v17; // rdi
+  _SLIST_HEADER *v17; // rdi
   __int64 v18; // rbx
   __int64 v19; // r8
   __int64 v20; // r9
@@ -52,7 +52,7 @@ __int64 __fastcall sub_18005D72C(
     *(_QWORD *)(a1 + 40) = a1 ^ qword_18015A440 ^ v16;
   if ( (int)RtlQueryResourcePolicy(0, 0, (__int64)&v23, 4LL) >= 0 && v23 <= 10 )
     a3 = 1;
-  v17 = (union _SLIST_HEADER *)(a1 + 112);
+  v17 = (_SLIST_HEADER *)(a1 + 112);
   v18 = 7LL;
   do
   {

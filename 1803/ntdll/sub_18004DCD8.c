@@ -17,7 +17,7 @@
 __int64 __fastcall sub_18004DCD8(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, volatile signed __int64 *a5, _QWORD *a6)
 {
   volatile signed __int64 *v6; // r12
-  wchar_t *Buffer; // rdi
+  PWCH Buffer; // rdi
   int v8; // ebx
   _QWORD *v10; // r9
   __int64 v11; // rsi
@@ -27,12 +27,12 @@ __int64 __fastcall sub_18004DCD8(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, vol
   volatile signed __int64 v15; // r8
   __int64 v17; // rax
   __int64 v18; // rax
-  __int64 Heap; // rax
-  unsigned __int64 v20; // rdi
+  int *Heap; // rax
+  int *v20; // rdi
   unsigned __int16 v21; // r12
   unsigned __int64 v22; // rax
   unsigned __int64 v23; // rbx
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
   volatile signed __int64 *v25; // [rsp+50h] [rbp-B0h]
   _QWORD *v26; // [rsp+58h] [rbp-A8h]
   void *Src[2]; // [rsp+60h] [rbp-A0h]
@@ -54,9 +54,9 @@ __int64 __fastcall sub_18004DCD8(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, vol
   if ( (_UNKNOWN *)a3 == &unk_180110418 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS: %s() passed the empty activation context\n",
+      "SXS: %s() passed the empty activation context\n",
       "RtlpGetActivationContextDataStorageMapAndRosterHeader");
     return (unsigned int)-1073741811;
   }
@@ -69,19 +69,18 @@ __int64 __fastcall sub_18004DCD8(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, vol
   if ( (a1 & 0xFFFFFFFC) != 0 || !a2 || !a4 || !a5 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS: %s() bad parameters:\n"
-           "SXS:    Flags                : 0x%lx\n"
-           "SXS:    Peb                  : %p\n"
-           "SXS:    ActivationContextData: %p\n"
-           "SXS:    AssemblyStorageMap   : %p\n",
+      "SXS: %s() bad parameters:\n"
+      "SXS:    Flags                : 0x%lx\n"
+      "SXS:    Peb                  : %p\n"
+      "SXS:    ActivationContextData: %p\n"
+      "SXS:    AssemblyStorageMap   : %p\n",
       "RtlpGetActivationContextDataStorageMapAndRosterHeader",
       a1,
       a2,
       a4,
-      a5,
-      *(_QWORD *)&UnicodeString.Length);
+      (const void *)a5);
     v8 = -1073741811;
     goto LABEL_22;
   }
@@ -129,7 +128,7 @@ LABEL_30:
           if ( v22 > 0xFFFE )
             return (unsigned int)-1073741562;
           UnicodeString.MaximumLength = v21 + 14;
-          UnicodeString.Buffer = (wchar_t *)sub_18003B5E0((unsigned __int16)(v21 + 14));
+          UnicodeString.Buffer = (PWCH)sub_18003B5E0((unsigned __int16)(v21 + 14));
           Buffer = UnicodeString.Buffer;
           if ( !UnicodeString.Buffer )
             return (unsigned int)-1073741801;
@@ -170,23 +169,23 @@ LABEL_17:
   }
   else
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v11 + 8) + 16);
+    Heap = (int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v11 + 8) + 16);
     v20 = Heap;
     if ( Heap )
     {
-      v8 = sub_18004DA74(Heap, *(_DWORD *)(v11 + 8), (void *)(Heap + 16));
+      v8 = sub_18004DA74(Heap, *(_DWORD *)(v11 + 8), Heap + 4);
       if ( v8 >= 0 )
       {
-        if ( _InterlockedCompareExchange64(v13, v20, 0LL) )
+        if ( _InterlockedCompareExchange64(v13, (signed __int64)v20, 0LL) )
         {
           sub_180081BF4(v20);
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v20);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v20);
         }
         Buffer = UnicodeString.Buffer;
         v8 = 0;
         goto LABEL_19;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v20);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v20);
     }
     else
     {

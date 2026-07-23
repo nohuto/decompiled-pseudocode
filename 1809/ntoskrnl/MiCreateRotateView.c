@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateRotateView @ 0x1406CA9C4
+ * XREFs of MiCreateRotateView @ 0x1406CBC64
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
  * Callees:
  *     MiGetInPageSupportBlock @ 0x14002C610 (MiGetInPageSupportBlock.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiInsertVadEvent @ 0x140087B30 (MiInsertVadEvent.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140076C00 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiInsertVadEvent @ 0x140087B20 (MiInsertVadEvent.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateRotateView(__int64 a1)

@@ -25,7 +25,7 @@ char __fastcall EtwpTraceStackKey(
         unsigned int a6)
 {
   __int64 v6; // rax
-  union _SLIST_HEADER *v7; // r12
+  _SLIST_HEADER *v7; // r12
   unsigned int v8; // ebx
   char v9; // bp
   unsigned int v10; // r13d
@@ -49,12 +49,12 @@ char __fastcall EtwpTraceStackKey(
   PSLIST_ENTRY *v28; // rax
   __int64 v29; // rbx
   PSLIST_ENTRY v30; // rsi
-  union _SLIST_HEADER *v31; // rbp
+  _SLIST_HEADER *v31; // rbp
   PSLIST_ENTRY v32; // rax
   PSLIST_ENTRY v33; // r15
   unsigned int v34; // r12d
   KIRQL v35; // dl
-  union _SLIST_HEADER *v36; // rsi
+  _SLIST_HEADER *v36; // rsi
   _SLIST_ENTRY *v37; // rbx
   _SLIST_ENTRY **v38; // rax
   KIRQL v39; // dl
@@ -62,11 +62,11 @@ char __fastcall EtwpTraceStackKey(
   int v42; // [rsp+34h] [rbp-A4h]
   PSLIST_HEADER ListHead; // [rsp+38h] [rbp-A0h]
   KIRQL NewIrql[8]; // [rsp+40h] [rbp-98h]
-  struct _SLIST_ENTRY *v45; // [rsp+48h] [rbp-90h]
+  _SLIST_ENTRY *v45; // [rsp+48h] [rbp-90h]
   __int64 v46; // [rsp+50h] [rbp-88h]
   PSLIST_ENTRY v47; // [rsp+58h] [rbp-80h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+60h] [rbp-78h]
-  union _SLIST_HEADER *v49; // [rsp+68h] [rbp-70h]
+  _SLIST_HEADER *v49; // [rsp+68h] [rbp-70h]
   PKSPIN_LOCK SpinLock; // [rsp+70h] [rbp-68h]
   _SLIST_ENTRY *v51; // [rsp+78h] [rbp-60h]
   __int64 v52; // [rsp+80h] [rbp-58h]
@@ -75,7 +75,7 @@ char __fastcall EtwpTraceStackKey(
   v52 = v6;
   if ( v6 )
   {
-    v7 = *(union _SLIST_HEADER **)(v6 + 856);
+    v7 = *(_SLIST_HEADER **)(v6 + 856);
     v49 = v7;
     if ( !v7 )
     {
@@ -266,7 +266,7 @@ LABEL_27:
       *(_QWORD *)(a4 + 16) = &v47;
       *(_DWORD *)(a4 + 24) = 8;
       EtwpLogKernelEvent(a4, a1, 2LL, a3, a2);
-      EtwpDereferenceStackEntry(v47, *(union _SLIST_HEADER **)(v52 + 856));
+      EtwpDereferenceStackEntry(v47, *(_SLIST_HEADER **)(v52 + 856));
       goto LABEL_59;
     }
     SpinLock = (PKSPIN_LOCK)&v19[1];

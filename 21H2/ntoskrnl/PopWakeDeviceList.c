@@ -1,15 +1,15 @@
 /*
- * XREFs of PopWakeDeviceList @ 0x140382FD4
+ * XREFs of PopWakeDeviceList @ 0x140383184
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     PopIsNotifyForDirectedPowerTransition @ 0x14038342C (PopIsNotifyForDirectedPowerTransition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     PopIsNotifyForDirectedPowerTransition @ 0x1403835DC (PopIsNotifyForDirectedPowerTransition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIssueDirectedPowerTransition @ 0x1408F0754 (PopIssueDirectedPowerTransition.c)
- *     PopNotifyDevice @ 0x14099290C (PopNotifyDevice.c)
+ *     PopIssueDirectedPowerTransition @ 0x1408F08B4 (PopIssueDirectedPowerTransition.c)
+ *     PopNotifyDevice @ 0x14099390C (PopNotifyDevice.c)
  */
 
 int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
@@ -78,7 +78,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
     do
     {
       KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23430 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23A50 + 1, &LockHandle);
       v9 = *v2;
       v10 = **v2;
       if ( (__int64 **)(*v2)[1] != v2

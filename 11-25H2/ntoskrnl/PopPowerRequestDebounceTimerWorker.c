@@ -41,7 +41,7 @@ __int64 __fastcall PopPowerRequestDebounceTimerWorker(__int64 a1)
       KeCancelTimer2((__int64)&PopPowerRequestDebounceTimer, 0LL, v1, v2);
       v7[0] = 0LL;
       v7[1] = -1LL;
-      KeSetTimer2((__int64)&PopPowerRequestDebounceTimer, -50000000LL, 0LL, (__int64)v7);
+      KeSetTimer2((__int64)&PopPowerRequestDebounceTimer, (LARGE_INTEGER)-50000000LL, 0LL, (__int64)v7);
       return PopReleaseRwLock(&PopPowerRequestLock);
     }
   }

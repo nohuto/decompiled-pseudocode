@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkUnMapViewOfSection @ 0x1406A89C8
+ * XREFs of DbgkUnMapViewOfSection @ 0x140606948
  * Callers:
- *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
- *     MiFreeEnclaveModules @ 0x1408D2F20 (MiFreeEnclaveModules.c)
+ *     MiUnmapViewOfSection @ 0x140687D60 (MiUnmapViewOfSection.c)
+ *     MiFreeEnclaveModules @ 0x1408D3080 (MiFreeEnclaveModules.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     DbgkpSendApiMessage @ 0x140887154 (DbgkpSendApiMessage.c)
- *     DbgkpSuppressDbgMsg @ 0x140887C48 (DbgkpSuppressDbgMsg.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     DbgkpSendApiMessage @ 0x1408872B4 (DbgkpSendApiMessage.c)
+ *     DbgkpSuppressDbgMsg @ 0x140887DA8 (DbgkpSuppressDbgMsg.c)
  */
 
 __int64 __fastcall DbgkUnMapViewOfSection(_KPROCESS *Object, __int64 a2)

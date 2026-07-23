@@ -1,59 +1,59 @@
 /*
- * XREFs of MiSetPagingOfDriver @ 0x14049CBA8
+ * XREFs of MiSetPagingOfDriver @ 0x140497850
  * Callers:
- *     MmPageEntireDriver @ 0x140A3E710 (MmPageEntireDriver.c)
- *     MiEnablePagingOfDriver @ 0x140C4EA40 (MiEnablePagingOfDriver.c)
+ *     MmPageEntireDriver @ 0x140A34020 (MmPageEntireDriver.c)
+ *     MiEnablePagingOfDriver @ 0x140C50BD0 (MiEnablePagingOfDriver.c)
  * Callees:
- *     MiWriteWsle @ 0x140232940 (MiWriteWsle.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiGetWsleContents @ 0x1402E5390 (MiGetWsleContents.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiTrimSystemImagePages @ 0x1404A7A78 (MiTrimSystemImagePages.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MiWriteWsle @ 0x140203470 (MiWriteWsle.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiGetWsleContents @ 0x140344BE0 (MiGetWsleContents.c)
+ *     MiTrimSystemImagePages @ 0x1404A24CC (MiTrimSystemImagePages.c)
  */
 
-char __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
+char __fastcall MiSetPagingOfDriver(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
-  unsigned __int64 *v4; // r14
-  __int64 v5; // rbx
-  unsigned __int64 *v6; // r15
-  unsigned __int64 v7; // r12
+  unsigned __int64 v5; // r14
+  __int64 v6; // rbx
+  unsigned __int64 v7; // r15
+  unsigned __int64 v8; // r12
   __int64 *ProcessorFlushList; // rdi
-  __int64 v9; // rbp
-  unsigned __int64 v10; // rsi
-  unsigned __int8 v11; // al
-  __int64 v12; // rcx
-  unsigned __int64 v13; // rbx
-  __int64 v14; // rax
-  __int64 v15; // rcx
+  __int64 v10; // rbp
+  unsigned __int64 v11; // rsi
+  unsigned __int8 v12; // al
+  __int64 v13; // rcx
+  __int64 v14; // rbx
+  PVOID v15; // rax
+  __int64 v16; // rcx
   char WsleContents; // r8
-  __int64 v17; // r10
-  unsigned __int64 *v18; // r11
-  int v19; // eax
-  unsigned __int8 v22; // [rsp+88h] [rbp+10h]
+  __int64 v18; // r10
+  unsigned __int64 v19; // r11
+  int v20; // eax
+  unsigned __int8 v23; // [rsp+88h] [rbp+10h]
 
-  v4 = a2;
-  v5 = a1;
-  v6 = 0LL;
-  v7 = (__int64)((_QWORD)a2 << 25) >> 16;
+  v5 = a2;
+  v6 = a1;
+  v7 = 0LL;
+  v8 = a2 << 25 >> 16;
   ProcessorFlushList = 0LL;
-  v9 = 0LL;
   v10 = 0LL;
-  v11 = MiLockWorkingSetShared((__int64)&unk_140E37D40);
-  v22 = v11;
-  if ( (unsigned __int64)v4 <= a3 )
+  v11 = 0LL;
+  v12 = MiLockWorkingSetShared((__int64)&unk_140E37E80, a2, a3, a4);
+  v23 = v12;
+  if ( v5 <= a3 )
   {
     do
     {
-      if ( !v10 || ((unsigned __int16)v4 & 0xFFF) == 0 )
+      if ( !v11 || (v5 & 0xFFF) == 0 )
       {
-        if ( v6 )
+        if ( v7 )
         {
           if ( ProcessorFlushList )
           {
@@ -61,47 +61,47 @@ char __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned _
             MiReleaseProcessorFlushList();
             ProcessorFlushList = 0LL;
           }
-          v9 += MiTrimSystemImagePages(v6, v4 - 1);
-          v6 = 0LL;
+          v10 += MiTrimSystemImagePages(v7, v5 - 8);
+          v7 = 0LL;
         }
-        if ( v10 )
-          MiUnlockPageTableInternal((__int64)&unk_140E37D40, v10);
-        v10 = (((unsigned __int64)v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        MiLockNestedPageTable((__int64)&unk_140E37D40, v10);
+        if ( v11 )
+          MiUnlockPageTableInternal((__int64)&unk_140E37E80, v11);
+        v11 = ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+        MiLockNestedPageTable((__int64)&unk_140E37E80, v11);
       }
-      v12 = ((__int64)v4 - ((*(_QWORD *)(v5 + 48) >> 9) & 0x7FFFFFFFF8LL) + 0x98000000000LL) >> 3;
-      if ( (unsigned int)v12 >= *(_DWORD *)(v5 + 304)
-        || !_bittest64(*(const signed __int64 **)(v5 + 312), (unsigned int)v12) )
+      v13 = (__int64)(v5 - ((*(_QWORD *)(v6 + 48) >> 9) & 0x7FFFFFFFF8LL) + 0x98000000000LL) >> 3;
+      if ( (unsigned int)v13 >= *(_DWORD *)(v6 + 304)
+        || !_bittest64(*(const signed __int64 **)(v6 + 312), (unsigned int)v13) )
       {
-        v13 = *v4;
-        if ( (*v4 & 1) != 0 )
+        v14 = *(_QWORD *)v5;
+        if ( (*(_QWORD *)v5 & 1) != 0 )
         {
-          WsleContents = MiGetWsleContents(0xFFFFFFFFFFLL, v7);
+          WsleContents = MiGetWsleContents(0xFFFFFFFFFFLL, v8);
           if ( (WsleContents & 0xF) == 9 )
           {
-            v19 = *(_DWORD *)(v17 + 32);
-            if ( (_WORD)v19 == 1 || (_WORD)v19 == 2 && (*(_BYTE *)(v17 + 34) & 8) != 0 )
+            v20 = *(_DWORD *)(v18 + 32);
+            if ( (_WORD)v20 == 1 || (_WORD)v20 == 2 && (*(_BYTE *)(v18 + 34) & 8) != 0 )
             {
-              v6 = v4;
-              if ( v18 )
-                v6 = v18;
-              MiWriteWsle(v15, v7, WsleContents & 0xF0 | 0xA);
-              *v4 = v13 & 0xFFFFFFFFFFFFFBFEuLL | 0x400;
+              v7 = v5;
+              if ( v19 )
+                v7 = v19;
+              MiWriteWsle(v16, v8, WsleContents & 0xF0 | 0xA);
+              *(_QWORD *)v5 = v14 & 0xFFFFFFFFFFFFFBFEuLL | 0x400;
               if ( !ProcessorFlushList )
               {
                 ProcessorFlushList = MiGetProcessorFlushList();
                 MiInitializeTbFlushList(
                   (__int64)ProcessorFlushList,
-                  (__int64)&unk_140E37D40,
+                  (__int64)&unk_140E37E80,
                   *((_DWORD *)ProcessorFlushList + 3),
                   0,
                   1);
               }
-              MiInsertTbFlushEntry((__int64)ProcessorFlushList, v7, 1LL, 0);
+              MiInsertTbFlushEntry((__int64)ProcessorFlushList, v8, 1LL, 0);
             }
           }
         }
-        else if ( (v13 & 0x400) != 0 && v6 )
+        else if ( (v14 & 0x400) != 0 && v7 )
         {
           if ( ProcessorFlushList )
           {
@@ -109,36 +109,36 @@ char __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned _
             MiReleaseProcessorFlushList();
             ProcessorFlushList = 0LL;
           }
-          v9 += MiTrimSystemImagePages(v6, v4 - 1);
-          v6 = 0LL;
+          v10 += MiTrimSystemImagePages(v7, v5 - 8);
+          v7 = 0LL;
         }
-        v5 = a1;
+        v6 = a1;
       }
-      ++v4;
-      v7 += 4096LL;
+      v5 += 8LL;
+      v8 += 4096LL;
     }
-    while ( (unsigned __int64)v4 <= a3 );
-    if ( v6 )
+    while ( v5 <= a3 );
+    if ( v7 )
     {
       if ( ProcessorFlushList )
       {
         MiFlushTbList((__int64)ProcessorFlushList);
         MiReleaseProcessorFlushList();
       }
-      v9 += MiTrimSystemImagePages(v6, a3);
+      v10 += MiTrimSystemImagePages(v7, a3);
     }
-    if ( v10 )
-      MiUnlockPageTableInternal((__int64)&unk_140E37D40, v10);
-    v11 = v22;
+    if ( v11 )
+      MiUnlockPageTableInternal((__int64)&unk_140E37E80, v11);
+    v12 = v23;
   }
-  LOBYTE(v14) = MiUnlockWorkingSetShared((__int64)&unk_140E37D40, v11);
-  if ( v9 )
+  LOBYTE(v15) = MiUnlockWorkingSetShared((__int64)&unk_140E37E80, v12);
+  if ( v10 )
   {
-    v14 = *(_QWORD *)(v5 + 48);
-    if ( v14 == PsNtosImageBase || v14 == PsHalImageBase )
-      _InterlockedAdd((_DWORD *)&xmmword_140E2D868 + 2, v9);
+    v15 = *(PVOID *)(v6 + 48);
+    if ( v15 == PsNtosImageBase || v15 == PsHalImageBase )
+      _InterlockedAdd((_DWORD *)&xmmword_140E2D9A8 + 2, v10);
     else
-      _InterlockedAdd((_DWORD *)&xmmword_140E2D868 + 3, v9);
+      _InterlockedAdd((_DWORD *)&xmmword_140E2D9A8 + 3, v10);
   }
-  return v14;
+  return (char)v15;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtInitializeIdentityMappings @ 0x14052D010
+ * XREFs of IvtInitializeIdentityMappings @ 0x14052D560
  * Callers:
  *     IvtInitializeIommu @ 0x140A89E10 (IvtInitializeIommu.c)
  * Callees:
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IvtInitializeLargePagePte @ 0x14052D1EC (IvtInitializeLargePagePte.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IvtInitializeLargePagePte @ 0x14052D73C (IvtInitializeLargePagePte.c)
  */
 
 __int64 __fastcall IvtInitializeIdentityMappings(__int64 a1)

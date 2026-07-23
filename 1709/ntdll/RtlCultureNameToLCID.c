@@ -41,17 +41,17 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // bl
-  const void *v4; // rdx
-  size_t v5; // rdi
+  BOOLEAN v2; // bl
+  wchar_t *Buffer; // rdx
+  size_t Length; // rdi
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
   __int64 v9; // r9
   unsigned __int64 v10; // rdi
-  __int64 v11; // rax
+  _QWORD *v11; // rax
   __int64 v12; // r14
   __int64 v13; // rbp
   __int16 v14; // si
@@ -61,33 +61,33 @@ char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
   unsigned __int16 v18; // r9
   unsigned __int16 v19; // cx
   __int64 v20; // r8
-  char result; // al
+  BOOLEAN result; // al
   __int64 v22; // rax
   wchar_t String2[88]; // [rsp+30h] [rbp-F8h] BYREF
 
   v2 = 0;
-  if ( !a1 )
+  if ( !String )
     return v2;
-  if ( !a2 )
+  if ( !Lcid )
     return v2;
-  if ( !*a1 )
+  if ( !String->Length )
     return v2;
-  v4 = (const void *)*((_QWORD *)a1 + 1);
-  if ( !v4 || (unsigned int)*a1 + 2 > 0x55 )
+  Buffer = String->Buffer;
+  if ( !Buffer || (unsigned int)String->Length + 2 > 0x55 )
     return v2;
-  v5 = *a1;
-  memmove(String2, v4, v5);
-  v10 = v5 >> 1;
+  Length = String->Length;
+  memmove(String2, Buffer, Length);
+  v10 = Length >> 1;
   if ( v10 >= 85 )
     _report_rangecheckfailure(v7, v6, v8, v9);
   v11 = g_RegInfo;
   String2[v10] = 0;
   if ( !v11 )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
-  v12 = *(_QWORD *)(v11 + 24);
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
+  v12 = v11[3];
   if ( !v12 || !*(_QWORD *)(v12 + 16) || !String2[0] )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
-  v13 = *(_QWORD *)(v11 + 32);
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
+  v13 = v11[4];
   v14 = -1;
   if ( v13 && (v15 = 0, *(_WORD *)(v13 + 6)) )
   {
@@ -123,18 +123,18 @@ LABEL_17:
     v14 = v15;
   }
   if ( v14 < 0 )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
   v18 = *(_WORD *)(v12 + 6);
   v19 = 0;
   if ( !v18 )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
   v20 = *(_QWORD *)(v12 + 16);
   while ( *(_WORD *)(28LL * v19 + v20 + 6) != v14 )
   {
     if ( ++v19 >= v18 )
-      return (int)RtlLocaleNameToLcid(String2) >= 0;
+      return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
   }
   result = 1;
-  *a2 = *(unsigned __int16 *)(28LL * v19 + v20 + 4);
+  *Lcid = *(unsigned __int16 *)(28LL * v19 + v20 + 4);
   return result;
 }

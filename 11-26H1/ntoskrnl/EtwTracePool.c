@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTracePool @ 0x1403C0B34
+ * XREFs of EtwTracePool @ 0x1403CAA34
  * Callers:
- *     ExRemovePoolTag @ 0x1403447D0 (ExRemovePoolTag.c)
- *     ExpFreeHeapSpecialPool @ 0x140345B28 (ExpFreeHeapSpecialPool.c)
- *     ExAllocateContiguousHeapPool @ 0x14034AA60 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x14034AD9C (ExInsertPoolTag.c)
- *     ExpInsertPoolTracker @ 0x14034AEA4 (ExpInsertPoolTracker.c)
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
- *     ExAllocateHeapSpecialPool @ 0x14051A678 (ExAllocateHeapSpecialPool.c)
- *     ExPoolCleanupExpansionTable @ 0x140522698 (ExPoolCleanupExpansionTable.c)
+ *     ExRemovePoolTag @ 0x140346850 (ExRemovePoolTag.c)
+ *     ExpFreeHeapSpecialPool @ 0x140347BA8 (ExpFreeHeapSpecialPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x14034CAE0 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x14034CE1C (ExInsertPoolTag.c)
+ *     ExpInsertPoolTracker @ 0x14034CF24 (ExpInsertPoolTracker.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405140E8 (ExAllocateHeapSpecialPool.c)
+ *     ExPoolCleanupExpansionTable @ 0x140524D04 (ExPoolCleanupExpansionTable.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpCheckPoolTagFilters @ 0x1406C3824 (EtwpCheckPoolTagFilters.c)
- *     MmIsNonPagedPoolNx @ 0x1406FBEE8 (MmIsNonPagedPoolNx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpCheckPoolTagFilters @ 0x1406C7464 (EtwpCheckPoolTagFilters.c)
+ *     MmIsNonPagedPoolNx @ 0x140700BB8 (MmIsNonPagedPoolNx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTracePool(unsigned __int16 a1, __int16 a2, unsigned int a3, __int64 a4, unsigned __int64 a5)

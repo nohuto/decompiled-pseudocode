@@ -1,12 +1,12 @@
 /*
- * XREFs of KiExpireTimerTable @ 0x140123CC4
+ * XREFs of KiExpireTimerTable @ 0x140124234
  * Callers:
- *     KiTimerExpiration @ 0x140123B78 (KiTimerExpiration.c)
+ *     KiTimerExpiration @ 0x1401240E8 (KiTimerExpiration.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiProcessExpiredTimerList @ 0x14010CEBC (KiProcessExpiredTimerList.c)
- *     KiRemoveEntryTimer @ 0x140110D34 (KiRemoveEntryTimer.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiProcessExpiredTimerList @ 0x14010D420 (KiProcessExpiredTimerList.c)
+ *     KiRemoveEntryTimer @ 0x140111298 (KiRemoveEntryTimer.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall KiExpireTimerTable(__int64 a1, __int64 a2, int a3, int a4, int a5, unsigned __int64 a6, _DWORD *a7)

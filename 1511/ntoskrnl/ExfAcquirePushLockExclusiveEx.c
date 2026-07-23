@@ -525,7 +525,7 @@ signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __
     {
       *(_BYTE *)(a2 + 32) |= 2u;
       if ( *(__int64 *)(a2 + 32) < 0 )
-        KiAbEntryRemoveFromTree(a2);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a2);
       *(_BYTE *)(a2 + 25) |= 1u;
       *(_BYTE *)(a2 + 32) &= ~2u;
     }

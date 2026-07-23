@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGuardCheckExceptionHandler @ 0x14027BD18
+ * XREFs of RtlGuardCheckExceptionHandler @ 0x1402312A8
  * Callers:
- *     RtlUnwindEx @ 0x14027CD20 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x1402322B0 (RtlUnwindEx.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14027BE44 (VslGetNestedPageProtectionFlags.c)
- *     RtlpxLookupFunctionTable @ 0x14027DCB0 (RtlpxLookupFunctionTable.c)
- *     RtlFailFast2 @ 0x1404FD0F0 (RtlFailFast2.c)
- *     bsearch_s @ 0x1404FE870 (bsearch_s.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x140A659D8 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402313D4 (VslGetNestedPageProtectionFlags.c)
+ *     RtlpxLookupFunctionTable @ 0x140233240 (RtlpxLookupFunctionTable.c)
+ *     RtlFailFast2 @ 0x1404FA9B0 (RtlFailFast2.c)
+ *     bsearch_s @ 0x1404FC130 (bsearch_s.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140A5E1A8 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 a1, char a2)

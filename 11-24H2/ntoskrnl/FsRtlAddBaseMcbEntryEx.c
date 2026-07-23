@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlAddBaseMcbEntryEx @ 0x1403DFD70
+ * XREFs of FsRtlAddBaseMcbEntryEx @ 0x1403BFA60
  * Callers:
- *     FsRtlAddBaseMcbEntry @ 0x1403DFD50 (FsRtlAddBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntry @ 0x1403BFA40 (FsRtlAddBaseMcbEntry.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     FsRtlAddEntry @ 0x1403E0290 (FsRtlAddEntry.c)
- *     ExFreeToPagedLookasideList @ 0x1403E03E0 (ExFreeToPagedLookasideList.c)
- *     FsRtlRemoveLargeEntry @ 0x1403E0550 (FsRtlRemoveLargeEntry.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlAddEntry @ 0x1403BFF80 (FsRtlAddEntry.c)
+ *     ExFreeToPagedLookasideList @ 0x1403C00D0 (ExFreeToPagedLookasideList.c)
+ *     FsRtlRemoveLargeEntry @ 0x1403C0240 (FsRtlRemoveLargeEntry.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)
@@ -227,7 +227,7 @@ LABEL_30:
               {
                 v51 = Mcb->Mapping;
                 if ( Mcb->PoolType == 1 )
-                  ExFreeToPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v51);
+                  ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList, v51);
                 else
                   ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v51);
                 Mcb->Mapping = v22;

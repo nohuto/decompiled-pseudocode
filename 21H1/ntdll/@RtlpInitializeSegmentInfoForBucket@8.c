@@ -12,7 +12,7 @@ int __fastcall RtlpInitializeSegmentInfoForBucket(int a1, int a2)
   _DWORD *v5; // ecx
   _DWORD *v6; // [esp+Ch] [ebp-4h] BYREF
 
-  result = RtlpExtendLowFragHeapSegment(&v6);
+  result = RtlpExtendLowFragHeapSegment(a1, 104, &v6);
   if ( result >= 0 )
   {
     v5 = v6;

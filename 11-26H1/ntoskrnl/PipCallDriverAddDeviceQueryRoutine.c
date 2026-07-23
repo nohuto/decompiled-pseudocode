@@ -1,29 +1,29 @@
 /*
- * XREFs of PipCallDriverAddDeviceQueryRoutine @ 0x140916458
+ * XREFs of PipCallDriverAddDeviceQueryRoutine @ 0x140970EC4
  * Callers:
- *     PnpCallDriverQueryServiceHelper @ 0x1409161E0 (PnpCallDriverQueryServiceHelper.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x140970C4C (PnpCallDriverQueryServiceHelper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x140493C2C (PnpDiagnosticTraceDeviceOperation.c)
- *     PipSetDevNodeState @ 0x1404D2858 (PipSetDevNodeState.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpCheckPossibleBootStartDriver @ 0x1407A52A0 (PnpCheckPossibleBootStartDriver.c)
- *     PipSetDevNodeFlags @ 0x14090DD60 (PipSetDevNodeFlags.c)
- *     IopReferenceDriverObjectByName @ 0x14091695C (IopReferenceDriverObjectByName.c)
- *     PnpIsLegacyDriver @ 0x140916A34 (PnpIsLegacyDriver.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     PnpGetServiceStartType @ 0x140916D50 (PnpGetServiceStartType.c)
- *     PipOpenServiceEnumKeys @ 0x140A12308 (PipOpenServiceEnumKeys.c)
- *     IopGetDriverNameFromKeyNode @ 0x140A129AC (IopGetDriverNameFromKeyNode.c)
- *     IopCallDriverReinitializationRoutines @ 0x140A265E4 (IopCallDriverReinitializationRoutines.c)
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     PpInitGetGroupOrderIndex @ 0x140D0AB0C (PpInitGetGroupOrderIndex.c)
- *     PnpLoadBootFilterDriver @ 0x140D0B274 (PnpLoadBootFilterDriver.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14048D77C (PnpDiagnosticTraceDeviceOperation.c)
+ *     PipSetDevNodeState @ 0x1404CC0D0 (PipSetDevNodeState.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpCheckPossibleBootStartDriver @ 0x1407A7DE0 (PnpCheckPossibleBootStartDriver.c)
+ *     IopReferenceDriverObjectByName @ 0x1409713C8 (IopReferenceDriverObjectByName.c)
+ *     PnpIsLegacyDriver @ 0x1409714A0 (PnpIsLegacyDriver.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     PnpGetServiceStartType @ 0x1409717BC (PnpGetServiceStartType.c)
+ *     PipSetDevNodeFlags @ 0x1409AFE90 (PipSetDevNodeFlags.c)
+ *     PipOpenServiceEnumKeys @ 0x140A114F8 (PipOpenServiceEnumKeys.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140A11B9C (IopGetDriverNameFromKeyNode.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140A39684 (IopCallDriverReinitializationRoutines.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     PpInitGetGroupOrderIndex @ 0x140D10DDC (PpInitGetGroupOrderIndex.c)
+ *     PnpLoadBootFilterDriver @ 0x140D11544 (PnpLoadBootFilterDriver.c)
  */
 
 __int64 __fastcall PipCallDriverAddDeviceQueryRoutine(int a1, const WCHAR *a2, unsigned int a3, __int64 *a4, int a5)
@@ -244,7 +244,7 @@ LABEL_9:
           }
           if ( a5 == 3 )
           {
-            PipSetDevNodeFlags(*a4, 0x1000u);
+            PipSetDevNodeFlags(*a4, 4096LL);
             PipSetDevNodeState(*a4, 778);
             goto LABEL_8;
           }
@@ -311,7 +311,7 @@ LABEL_102:
         if ( DriverNameFromKeyNode == -1073740949 )
         {
           PipSetDevNodeProblem(v30, 48LL, 3221226347LL);
-          PipSetDevNodeFlags(*a4, 0x100000u);
+          PipSetDevNodeFlags(*a4, 0x100000LL);
           goto LABEL_9;
         }
         if ( DriverNameFromKeyNode != -1073740948 )
@@ -328,7 +328,7 @@ LABEL_102:
           v33 = 52LL;
           goto LABEL_102;
         }
-        PipSetDevNodeFlags(v30, 0x100000u);
+        PipSetDevNodeFlags(v30, 0x100000LL);
 LABEL_115:
         DriverNameFromKeyNode = 0;
         goto LABEL_9;

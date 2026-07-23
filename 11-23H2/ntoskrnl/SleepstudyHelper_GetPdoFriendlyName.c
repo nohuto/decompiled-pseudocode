@@ -1,11 +1,11 @@
 /*
- * XREFs of SleepstudyHelper_GetPdoFriendlyName @ 0x140843C80
+ * XREFs of SleepstudyHelper_GetPdoFriendlyName @ 0x140843F80
  * Callers:
  *     <none>
  * Callees:
  *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140843E94 (SshpGenerateDeviceFriendlyName.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140844194 (SshpGenerateDeviceFriendlyName.c)
  */
 
 __int64 __fastcall SleepstudyHelper_GetPdoFriendlyName(struct _DEVICE_OBJECT *a1, UNICODE_STRING *a2)

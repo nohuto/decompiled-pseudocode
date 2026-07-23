@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpFcConfigurationTypeToBufferType @ 0x18016F744
+ * XREFs of RtlpFcConfigurationTypeToBufferType @ 0x18016E744
  * Callers:
- *     RtlQueryFeatureConfigurationBuffer @ 0x180148D10 (RtlQueryFeatureConfigurationBuffer.c)
- *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152FF0 (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
+ *     RtlQueryFeatureConfigurationBuffer @ 0x180148BC0 (RtlQueryFeatureConfigurationBuffer.c)
+ *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152EC0 (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
  * Callees:
  *     <none>
  */

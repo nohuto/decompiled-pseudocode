@@ -28,19 +28,19 @@
  *     RtlDuplicateUnicodeString @ 0x180079E70 (RtlDuplicateUnicodeString.c)
  *     RtlpGetPolicyValueForSystemCapability @ 0x18007A428 (RtlpGetPolicyValueForSystemCapability.c)
  *     RtlDowncaseUnicodeString @ 0x18007C710 (RtlDowncaseUnicodeString.c)
- *     RtlComputePrivatizedDllName_U @ 0x1800D5700 (RtlComputePrivatizedDllName_U.c)
- *     LdrUpdatePackageSearchPath @ 0x1800DEC90 (LdrUpdatePackageSearchPath.c)
- *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800E01C0 (RtlpGetAssemblyStorageMapRootLocation.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1800EB3B0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800EB4E0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800EB5F0 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlpConstructCrossVmObjectPath @ 0x1800F5BDC (RtlpConstructCrossVmObjectPath.c)
- *     RtlUnicodeStringToUTF8String @ 0x180102F60 (RtlUnicodeStringToUTF8String.c)
+ *     RtlComputePrivatizedDllName_U @ 0x1800D56C0 (RtlComputePrivatizedDllName_U.c)
+ *     LdrUpdatePackageSearchPath @ 0x1800DEC50 (LdrUpdatePackageSearchPath.c)
+ *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800E0180 (RtlpGetAssemblyStorageMapRootLocation.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1800EB370 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800EB4A0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800EB5B0 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x1800F5B9C (RtlpConstructCrossVmObjectPath.c)
+ *     RtlUnicodeStringToUTF8String @ 0x180102F20 (RtlUnicodeStringToUTF8String.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtdllpAllocateStringRoutine(__int64 a1)
+PVOID __fastcall NtdllpAllocateStringRoutine(SIZE_T a1)
 {
-  return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

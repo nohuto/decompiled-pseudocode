@@ -136,7 +136,7 @@ void __fastcall KiProcessExpiredTimerList(__int64 a1, int *a2, __int64 a3, unsig
 LABEL_19:
             if ( (v15 & 4) != 0 )
             {
-              *((_QWORD *)&v41 + 1) = RtlGetSystemTimePrecise();
+              *((LARGE_INTEGER *)&v41 + 1) = RtlGetSystemTimePrecise();
               v14 = 0LL;
             }
             else

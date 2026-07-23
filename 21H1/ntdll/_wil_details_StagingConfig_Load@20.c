@@ -10,138 +10,140 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __thiscall wil_details_StagingConfig_Load(_BYTE *this, int a2, int a3, int a4)
+NTSTATUS __thiscall wil_details_StagingConfig_Load(ULONG *this, int a2, void *a3, int a4)
 {
-  _BYTE *v4; // edi
-  int v5; // esi
+  ULONG *v4; // edi
+  _WORD *v5; // esi
   unsigned int v6; // ebx
-  int WnfStateData; // ecx
-  int v8; // eax
-  int Heap; // eax
-  unsigned int v11; // edx
+  NTSTATUS v7; // ecx
+  PVOID v8; // eax
+  PVOID Heap; // eax
+  ULONG v11; // edx
   __int16 v12; // ax
-  int v13; // edx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  int v18; // [esp+10h] [ebp-2Ch] BYREF
-  int v19; // [esp+14h] [ebp-28h]
-  int v20; // [esp+18h] [ebp-24h] BYREF
-  int v21; // [esp+1Ch] [ebp-20h]
-  unsigned int v22; // [esp+20h] [ebp-1Ch] BYREF
-  _DWORD v23[2]; // [esp+24h] [ebp-18h] BYREF
-  _DWORD v24[2]; // [esp+2Ch] [ebp-10h] BYREF
+  PVOID v13; // edx
+  ULONG v14; // ecx
+  char *v15; // ecx
+  _WORD *v16; // ecx
+  size_t v17; // [esp-4h] [ebp-40h]
+  SIZE_T v18; // [esp-4h] [ebp-40h]
+  ULONG v20; // [esp+10h] [ebp-2Ch] BYREF
+  NTSTATUS v21; // [esp+14h] [ebp-28h]
+  PVOID Buffer; // [esp+18h] [ebp-24h] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-20h]
+  ULONG BufferSize; // [esp+20h] [ebp-1Ch] BYREF
+  WNF_STATE_NAME v25; // [esp+24h] [ebp-18h] BYREF
+  WNF_STATE_NAME StateName; // [esp+2Ch] [ebp-10h] BYREF
 
+  LODWORD(v17) = 52;
   v4 = this;
-  v20 = a3;
+  Buffer = a3;
   v5 = 0;
-  memset(this, 0, 0x34u);
-  v24[0] = __WIL_WNF_WIL_MACHINE_FEATURE_STORE;
-  v24[1] = 1099564858;
-  v21 = 0;
+  memset(this, 0, v17);
+  StateName.Data[0] = __WIL_WNF_WIL_MACHINE_FEATURE_STORE;
+  StateName.Data[1] = 1099564858;
+  BaseAddress = 0;
   v6 = a3 != 0 ? 0xC8 : 0;
-  v22 = v6;
-  WnfStateData = NtQueryWnfStateData((int)v24, 0, 0, (int)(v4 + 8), a3, (int)&v22);
-  v19 = WnfStateData;
-  if ( !WnfStateData )
+  BufferSize = v6;
+  v7 = NtQueryWnfStateData(&StateName, 0, 0, v4 + 2, a3, &BufferSize);
+  v21 = v7;
+  if ( !v7 )
   {
-    if ( !v20 )
+    if ( !Buffer )
       goto LABEL_5;
-    v5 = v20;
+    v5 = Buffer;
   }
-  if ( WnfStateData != -1073741789 )
+  if ( v7 != -1073741789 )
   {
-    v8 = v21;
+    v8 = BaseAddress;
 LABEL_19:
-    if ( WnfStateData || !v5 )
+    if ( v7 || !v5 )
     {
       if ( v8 )
       {
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v8);
-        return v19;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+        return v21;
       }
-      return WnfStateData;
+      return v7;
     }
-    v11 = v22;
-    if ( v22 > 4 )
-      v4[12] = *(_BYTE *)v5;
+    v11 = BufferSize;
+    if ( BufferSize > 4 )
+      *((_BYTE *)v4 + 12) = *(_BYTE *)v5;
     if ( v11 >= 0x10
-      && v4[12] == 2
-      && *(_WORD *)(v5 + 2) >= 0x10u
-      && v11 >= *(unsigned __int16 *)(v5 + 2)
-              + 16 * *(unsigned __int16 *)(v5 + 6)
-              + 12 * (unsigned int)*(unsigned __int16 *)(v5 + 4) )
+      && *((_BYTE *)v4 + 12) == 2
+      && v5[1] >= 0x10u
+      && v11 >= (unsigned __int16)v5[1] + 16 * (unsigned __int16)v5[3] + 12 * (unsigned int)(unsigned __int16)v5[2] )
     {
-      v12 = *(_WORD *)(v5 + 4);
+      v12 = v5[2];
       v13 = 0;
-      v20 = 0;
+      Buffer = 0;
       if ( v12 )
       {
-        v23[0] = __WIL_WNF_WIL_MACHINE_FEATURE_STORE_MODIFIED;
-        v23[1] = 1099564858;
-        v18 = 0;
-        NtQueryWnfStateData((int)v23, 0, 0, (int)&v20, 0, (int)&v18);
-        v13 = v20;
+        v25.Data[0] = __WIL_WNF_WIL_MACHINE_FEATURE_STORE_MODIFIED;
+        v25.Data[1] = 1099564858;
+        v20 = 0;
+        NtQueryWnfStateData(&v25, 0, 0, (PWNF_CHANGE_STAMP)&Buffer, 0, &v20);
+        v13 = Buffer;
       }
-      *((_DWORD *)v4 + 5) = v5;
-      *((_DWORD *)v4 + 6) = v5 + 16;
-      *((_DWORD *)v4 + 7) = v5 + 16 + 12 * *(unsigned __int16 *)(v5 + 4);
-      *((_DWORD *)v4 + 8) = v13 != 0;
-      if ( *(_BYTE *)v5 == 2 && *(_BYTE *)(v5 + 1) < 2u )
+      v4[5] = (ULONG)v5;
+      v4[6] = (ULONG)(v5 + 8);
+      v4[7] = (ULONG)&v5[6 * (unsigned __int16)v5[2] + 8];
+      v4[8] = v13 != 0;
+      if ( *(_BYTE *)v5 == 2 && *((_BYTE *)v5 + 1) < 2u )
       {
-        v14 = *(unsigned __int16 *)(v5 + 2) + 16 * *(unsigned __int16 *)(v5 + 6) + 12 * *(unsigned __int16 *)(v5 + 4);
-        *((_DWORD *)v4 + 4) = 1;
+        v14 = (unsigned __int16)v5[1] + 16 * (unsigned __int16)v5[3] + 12 * (unsigned __int16)v5[2];
+        v4[4] = 1;
 LABEL_34:
-        *((_DWORD *)v4 + 10) = v14;
-        v16 = v21;
-        *((_DWORD *)v4 + 9) = v5;
+        v4[10] = v14;
+        v16 = BaseAddress;
+        v4[9] = (ULONG)v5;
         if ( !v16 )
           v6 = 200;
-        *((_DWORD *)v4 + 11) = v6;
-        *((_DWORD *)v4 + 12) = v5 == v16;
+        v4[11] = v6;
+        v4[12] = v5 == v16;
         return 0;
       }
     }
     else
     {
-      v22 = 16;
+      BufferSize = 16;
       *(_DWORD *)v5 = 0;
-      *(_DWORD *)(v5 + 4) = 0;
-      *(_DWORD *)(v5 + 8) = 0;
-      *(_DWORD *)(v5 + 12) = 0;
+      *((_DWORD *)v5 + 1) = 0;
+      *((_DWORD *)v5 + 2) = 0;
+      *((_DWORD *)v5 + 3) = 0;
       v4 = this;
-      *(_WORD *)(v5 + 2) = 16;
-      *(_WORD *)v5 = 514;
-      *((_DWORD *)this + 5) = v5;
-      v15 = v5 + *(unsigned __int16 *)(v5 + 2);
-      *((_DWORD *)this + 6) = v15;
-      *((_DWORD *)this + 7) = v15 + 12 * *(unsigned __int16 *)(v5 + 4);
+      v5[1] = 16;
+      *v5 = 514;
+      this[5] = (ULONG)v5;
+      v15 = (char *)v5 + (unsigned __int16)v5[1];
+      this[6] = (ULONG)v15;
+      this[7] = (ULONG)&v15[12 * (unsigned __int16)v5[2]];
     }
-    v14 = v22;
+    v14 = BufferSize;
     goto LABEL_34;
   }
 LABEL_5:
-  v8 = v21;
+  v8 = BaseAddress;
   while ( 1 )
   {
     if ( v6 < 0xC8 )
       v6 = 200;
-    if ( v6 < v22 )
-      v6 = v22;
+    if ( v6 < BufferSize )
+      v6 = BufferSize;
     if ( v6 < 0x10 )
       v6 = 16;
     if ( v8 )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v8);
-    Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v6);
-    v21 = Heap;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+    LODWORD(v18) = v6;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
+    BaseAddress = Heap;
     if ( !Heap )
       return -1073741670;
-    v22 = v6;
-    WnfStateData = NtQueryWnfStateData((int)v24, 0, 0, (int)(v4 + 8), Heap, (int)&v22);
-    v8 = v21;
-    v19 = WnfStateData;
-    v5 = v21;
-    if ( WnfStateData != -1073741789 )
+    BufferSize = v6;
+    v7 = NtQueryWnfStateData(&StateName, 0, 0, v4 + 2, Heap, &BufferSize);
+    v8 = BaseAddress;
+    v21 = v7;
+    v5 = BaseAddress;
+    if ( v7 != -1073741789 )
       goto LABEL_19;
   }
 }

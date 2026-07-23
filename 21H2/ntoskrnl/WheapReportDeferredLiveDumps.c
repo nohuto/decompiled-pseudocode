@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapReportDeferredLiveDumps @ 0x14095E18C
+ * XREFs of WheapReportDeferredLiveDumps @ 0x14095E36C
  * Callers:
- *     WheaCrashDumpInitializationComplete @ 0x1407D44C4 (WheaCrashDumpInitializationComplete.c)
+ *     WheaCrashDumpInitializationComplete @ 0x1407D4634 (WheaCrashDumpInitializationComplete.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     WheapReportLiveDump @ 0x14095E294 (WheapReportLiveDump.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     WheapReportLiveDump @ 0x14095E474 (WheapReportLiveDump.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 WheapReportDeferredLiveDumps()

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopDisableCrashDump @ 0x14055253C
+ * XREFs of IopDisableCrashDump @ 0x140552BFC
  * Callers:
- *     IoConfigureCrashDump @ 0x14054F964 (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x140550024 (IoConfigureCrashDump.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopDumpTraceCrashDumpDisabled @ 0x14055286C (IopDumpTraceCrashDumpDisabled.c)
- *     IopDumpTraceDisableCrashDumpFailure @ 0x140552A58 (IopDumpTraceDisableCrashDumpFailure.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopDumpTraceCrashDumpDisabled @ 0x140552F2C (IopDumpTraceCrashDumpDisabled.c)
+ *     IopDumpTraceDisableCrashDumpFailure @ 0x140553118 (IopDumpTraceDisableCrashDumpFailure.c)
  */
 
 __int64 IopDisableCrashDump()

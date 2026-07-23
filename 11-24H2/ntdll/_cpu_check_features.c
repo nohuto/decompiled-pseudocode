@@ -1,9 +1,9 @@
 /*
- * XREFs of _cpu_check_features @ 0x180096D54
+ * XREFs of _cpu_check_features @ 0x180109AC0
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlIsProcessorFeaturePresent @ 0x1800975B0 (RtlIsProcessorFeaturePresent.c)
+ *     RtlIsProcessorFeaturePresent @ 0x18002C400 (RtlIsProcessorFeaturePresent.c)
  */
 
 __int64 cpu_check_features()
@@ -18,7 +18,7 @@ __int64 cpu_check_features()
   if ( (_RDX & 0x4000000) == 0 || (_RCX & 0x100000) == 0 || (_RCX & 2) == 0 )
     v0 = 0;
   x86_cpu_enable_simd = v0;
-  result = (unsigned __int8)RtlIsProcessorFeaturePresent(41LL);
+  result = RtlIsProcessorFeaturePresent(0x29u);
   x86_cpu_enable_avx512 = result;
   if ( (_BYTE)result && v0 )
   {

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopIncrementVpbRefCount @ 0x14044AA10
+ * XREFs of IopIncrementVpbRefCount @ 0x140442B40
  * Callers:
- *     IopMountInitializeVpb @ 0x14044A814 (IopMountInitializeVpb.c)
- *     IopCheckVpbMounted @ 0x14044A8C8 (IopCheckVpbMounted.c)
- *     IopReferenceVerifyVpb @ 0x1404FE4D0 (IopReferenceVerifyVpb.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IoCreateStreamFileObjectEx2 @ 0x140A36470 (IoCreateStreamFileObjectEx2.c)
+ *     IopMountInitializeVpb @ 0x140442944 (IopMountInitializeVpb.c)
+ *     IopCheckVpbMounted @ 0x1404429F8 (IopCheckVpbMounted.c)
+ *     IopReferenceVerifyVpb @ 0x1404F7A80 (IopReferenceVerifyVpb.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x14091ABD0 (IoCreateStreamFileObjectEx2.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopIncrementVpbRefCount(ULONG_PTR BugCheckParameter2, char a2)

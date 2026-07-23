@@ -1,26 +1,26 @@
 /*
- * XREFs of AlpcpCreateReserve @ 0x1406A3FB8
+ * XREFs of AlpcpCreateReserve @ 0x1406A5258
  * Callers:
- *     NtAlpcCreateResourceReserve @ 0x1406A3ED0 (NtAlpcCreateResourceReserve.c)
+ *     NtAlpcCreateResourceReserve @ 0x1406A5170 (NtAlpcCreateResourceReserve.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpReleasePagedPoolQuota @ 0x140616D14 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpAllocateMessage @ 0x140616D6C (AlpcpAllocateMessage.c)
- *     AlpcpInsertResourcePort @ 0x140617F98 (AlpcpInsertResourcePort.c)
- *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
- *     AlpcpChargePagedPoolQuota @ 0x140618460 (AlpcpChargePagedPoolQuota.c)
- *     AlpcpAllocateBlob @ 0x14061849C (AlpcpAllocateBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpEndInitialization @ 0x140618DAC (AlpcpEndInitialization.c)
- *     AlpcAddHandleTableEntry @ 0x140618DEC (AlpcAddHandleTableEntry.c)
- *     AlpcpCaptureMessageData @ 0x1406A4208 (AlpcpCaptureMessageData.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x140617D14 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpAllocateMessage @ 0x140617D6C (AlpcpAllocateMessage.c)
+ *     AlpcpInsertResourcePort @ 0x140618F98 (AlpcpInsertResourcePort.c)
+ *     AlpcpReferenceBlob @ 0x140619428 (AlpcpReferenceBlob.c)
+ *     AlpcpChargePagedPoolQuota @ 0x140619460 (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpAllocateBlob @ 0x14061949C (AlpcpAllocateBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpEndInitialization @ 0x140619DAC (AlpcpEndInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x140619DEC (AlpcAddHandleTableEntry.c)
+ *     AlpcpCaptureMessageData @ 0x1406A54A8 (AlpcpCaptureMessageData.c)
  */
 
 __int64 __fastcall AlpcpCreateReserve(signed __int64 *Object, unsigned __int64 a2, _QWORD *a3)

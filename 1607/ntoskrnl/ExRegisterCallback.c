@@ -1,19 +1,19 @@
 /*
- * XREFs of ExRegisterCallback @ 0x14012FD34
+ * XREFs of ExRegisterCallback @ 0x1401302A4
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
- *     KeRegisterProcessorChangeCallback @ 0x140578064 (KeRegisterProcessorChangeCallback.c)
- *     IoRegisterContainerNotification @ 0x14057C124 (IoRegisterContainerNotification.c)
- *     IoRegisterBootDriverCallback @ 0x140580D50 (IoRegisterBootDriverCallback.c)
- *     SeRegisterImageVerificationCallback @ 0x14058106C (SeRegisterImageVerificationCallback.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1405785A4 (KeRegisterProcessorChangeCallback.c)
+ *     IoRegisterContainerNotification @ 0x14057C5D0 (IoRegisterContainerNotification.c)
+ *     IoRegisterBootDriverCallback @ 0x1405811FC (IoRegisterBootDriverCallback.c)
+ *     SeRegisterImageVerificationCallback @ 0x140581518 (SeRegisterImageVerificationCallback.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  *     PopUmpoInitializeChannel @ 0x1407B93C4 (PopUmpoInitializeChannel.c)
  *     PopUmpoInitializeMonitorChannel @ 0x1407BA6CC (PopUmpoInitializeMonitorChannel.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

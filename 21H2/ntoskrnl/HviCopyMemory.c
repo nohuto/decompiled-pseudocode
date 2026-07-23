@@ -1,12 +1,12 @@
 /*
- * XREFs of HviCopyMemory @ 0x1405945DC
+ * XREFs of HviCopyMemory @ 0x14059480C
  * Callers:
- *     CcCopyBytesToUserBuffer @ 0x1403234C0 (CcCopyBytesToUserBuffer.c)
- *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
+ *     CcCopyBytesToUserBuffer @ 0x14032E210 (CcCopyBytesToUserBuffer.c)
+ *     CcMapAndCopyInToCache @ 0x14033C9C0 (CcMapAndCopyInToCache.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     HviEnterKernelAperture @ 0x1405946DC (HviEnterKernelAperture.c)
- *     HviLeaveKernelAperture @ 0x140594738 (HviLeaveKernelAperture.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HviEnterKernelAperture @ 0x14059490C (HviEnterKernelAperture.c)
+ *     HviLeaveKernelAperture @ 0x140594968 (HviLeaveKernelAperture.c)
  */
 
 __int64 __fastcall HviCopyMemory(__int64 a1, __int64 a2, unsigned int a3)

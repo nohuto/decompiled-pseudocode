@@ -1,51 +1,52 @@
 /*
- * XREFs of NtTerminateThread @ 0x1409574F0
+ * XREFs of NtTerminateThread @ 0x14094AF20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PspTerminateThreadByPointer @ 0x1409575E0 (PspTerminateThreadByPointer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspTerminateThreadByPointer @ 0x14094B010 (PspTerminateThreadByPointer.c)
  */
 
-__int64 __fastcall NtTerminateThread(ULONG_PTR a1, unsigned int a2, __int64 a3)
+NTSTATUS __cdecl NtTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
+  __int64 v2; // r8
   struct _KTHREAD *CurrentThread; // rsi
-  unsigned int v4; // ebx
-  __int64 result; // rax
+  NTSTATUS v4; // ebx
+  NTSTATUS result; // eax
   PVOID Object; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
   Object = 0LL;
-  if ( !a1 )
+  if ( !ThreadHandle )
   {
     if ( LODWORD(CurrentThread->ApcState.Process[1].CpuPartitionList.Blink) == 1 )
-      return 3221225691LL;
+      return -1073741605;
     goto LABEL_3;
   }
-  if ( a1 == -2LL )
+  if ( ThreadHandle == (HANDLE)-2LL )
   {
 LABEL_3:
-    LOBYTE(a3) = 1;
-    PspTerminateThreadByPointer(CurrentThread, a2, a3);
+    LOBYTE(v2) = 1;
+    PspTerminateThreadByPointer(CurrentThread, (unsigned int)ExitStatus, v2);
     return v4;
   }
   result = ObpReferenceObjectByHandleWithTag(
-             a1,
-             1LL,
-             PsThreadType,
+             (ULONG_PTR)ThreadHandle,
+             1,
+             (__int64)PsThreadType,
              CurrentThread->PreviousMode,
              0x65547350u,
              &Object,
              0LL,
              0LL);
   v4 = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     if ( Object != CurrentThread )
     {
-      v4 = PspTerminateThreadByPointer(Object, a2, 0LL);
+      v4 = PspTerminateThreadByPointer(Object, (unsigned int)ExitStatus, 0LL);
       ObfDereferenceObjectWithTag(Object, 0x65547350u);
       return v4;
     }

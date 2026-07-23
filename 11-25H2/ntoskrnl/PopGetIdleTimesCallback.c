@@ -245,10 +245,10 @@ LABEL_8:
     }
     v22 = SpareLong0;
     v23 = KernelTime;
-    if ( v21 > (unsigned int)KeMaximumIncrement )
+    if ( v21 > KeMaximumIncrement )
     {
-      v22 = v21 / (unsigned int)KeMaximumIncrement + SpareLong0 - 1;
-      v23 = v21 / (unsigned int)KeMaximumIncrement + KernelTime - 1;
+      v22 = v21 / KeMaximumIncrement + SpareLong0 - 1;
+      v23 = v21 / KeMaximumIncrement + KernelTime - 1;
     }
   }
   else
@@ -262,7 +262,7 @@ LABEL_51:
     if ( IdleAccounting && IdleStates )
       *(_QWORD *)a2 += *(_QWORD *)(a2 + 8) + *(_QWORD *)(a2 + 16) + *(_QWORD *)(a2 + 24);
     else
-      *(_QWORD *)a2 = v22 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      *(_QWORD *)a2 = v22 * (unsigned __int64)KeMaximumIncrement;
   }
   if ( a3 )
   {

@@ -7,7 +7,7 @@
  *     ZwFreeVirtualMemory @ 0x14041AA60 (ZwFreeVirtualMemory.c)
  */
 
-NTSTATUS __fastcall EtwpFreeUserBufferSpace(__int64 a1, ULONG_PTR a2, void *a3)
+void __fastcall EtwpFreeUserBufferSpace(__int64 a1, ULONG_PTR a2, void *a3)
 {
   unsigned __int64 v3; // r9
   ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
@@ -17,10 +17,10 @@ NTSTATUS __fastcall EtwpFreeUserBufferSpace(__int64 a1, ULONG_PTR a2, void *a3)
   RegionSize = a2;
   v3 = *(_QWORD *)(a1 + 112);
   if ( (unsigned __int64)a3 < v3 || (unsigned __int64)a3 >= v3 + *(unsigned int *)(a1 + 120) )
-    return ZwFreeVirtualMemory(*(HANDLE *)(a1 + 16), &BaseAddress, &RegionSize, 0x8000u);
+    ZwFreeVirtualMemory(*(HANDLE *)(a1 + 16), &BaseAddress, &RegionSize, 0x8000u);
   else
-    return RtlInterlockedClearBitRun(
-             a1 + 96,
-             (__int64)((__int64)a3 - v3) / 4096,
-             (((_DWORD)a2 + 4095) & 0xFFFFF000) >> 12);
+    RtlInterlockedClearBitRun(
+      (PRTL_BITMAP)(a1 + 96),
+      (__int64)((__int64)a3 - v3) / 4096,
+      (((_DWORD)a2 + 4095) & 0xFFFFF000) >> 12);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmConfigureRestrictionPolicy @ 0x140259AD4
+ * XREFs of PpmConfigureRestrictionPolicy @ 0x14025B2B4
  * Callers:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ char __fastcall PpmConfigureRestrictionPolicy(__int64 a1)
   unsigned int v1; // eax
   unsigned __int16 v3; // r9
   _BYTE *v4; // r11
-  __int64 v5; // rbx
+  __int64 Next_high; // rbx
   __int64 v6; // rsi
-  __int64 *v7; // rcx
+  char *v7; // rcx
   __int64 v8; // r10
   __int64 v9; // rdi
-  __int64 v10; // rdx
+  __int64 WriteTransferCount; // rdx
   __int16 v11; // ax
   int v12; // edx
   unsigned __int64 v13; // rcx
@@ -27,8 +27,8 @@ char __fastcall PpmConfigureRestrictionPolicy(__int64 a1)
   if ( v1 < 2 )
     return v1;
   v3 = *(_WORD *)(a1 + 8);
-  v4 = &unk_140E0B47C;
-  v5 = dword_140F106CC;
+  v4 = &unk_140E0B59C;
+  Next_high = SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v6 = 7LL;
   v7 = 0LL;
   v8 = 0LL;
@@ -42,52 +42,52 @@ char __fastcall PpmConfigureRestrictionPolicy(__int64 a1)
       case 0:
         goto LABEL_10;
       case 1:
-        v10 = PpmEntryLevelPerfProfile;
+        WriteTransferCount = *(_QWORD *)&PopDirectedDripsDiagLock.ThreadTimerDelay;
         goto LABEL_12;
       case 2:
-        v10 = PpmBackgroundProfile;
+        WriteTransferCount = PopDirectedDripsDiagLock.WriteTransferCount;
 LABEL_12:
-        if ( !v10 )
+        if ( !WriteTransferCount )
           goto LABEL_15;
-        v7 = (__int64 *)(v10 + 712 * v5 + 40);
+        v7 = (char *)(WriteTransferCount + 712 * Next_high + 40);
         goto LABEL_14;
       case 3:
-        if ( !PpmMultimediaQosProfile )
+        if ( !PopDirectedDripsDiagLock.OtherTransferCount )
           goto LABEL_10;
-        v7 = (__int64 *)(712 * v5 + PpmMultimediaQosProfile + 40);
+        v7 = (char *)(712 * Next_high + PopDirectedDripsDiagLock.OtherTransferCount + 40);
 LABEL_14:
-        v8 = *v7;
+        v8 = *(_QWORD *)v7;
         goto LABEL_15;
     }
     if ( (_DWORD)v9 != 4 )
     {
       if ( (_DWORD)v9 == 5 )
       {
-        v10 = PpmEcoQosProfile;
+        WriteTransferCount = (__int64)PopDirectedDripsDiagLock.QueuedScb;
       }
       else
       {
         if ( (_DWORD)v9 != 6 )
           goto LABEL_10;
-        v10 = PpmUtilityQosProfile;
+        WriteTransferCount = PopDirectedDripsDiagLock.ReadTransferCount;
       }
       goto LABEL_12;
     }
 LABEL_10:
-    v7 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
+    v7 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40;
     v8 |= 0x8000000000000uLL;
 LABEL_15:
     if ( v7 && (v8 & 0x8000000000000LL) != 0 )
     {
-      v15 = *((unsigned __int8 *)v7 + 708);
+      v15 = (unsigned __int8)v7[708];
       if ( v3 )
       {
         if ( (_BYTE)v15 && v3 >= v15 )
-          v3 = *((unsigned __int8 *)v7 + 708);
+          v3 = (unsigned __int8)v7[708];
       }
       else
       {
-        v3 = *((unsigned __int8 *)v7 + 708);
+        v3 = (unsigned __int8)v7[708];
       }
     }
     v4 += 8;

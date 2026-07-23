@@ -1,15 +1,15 @@
 /*
- * XREFs of ExAllocatePrivateWorkerPool @ 0x140575508
+ * XREFs of ExAllocatePrivateWorkerPool @ 0x140575A48
  * Callers:
- *     SmFirstTimeInit @ 0x1403E3814 (SmFirstTimeInit.c)
+ *     SmFirstTimeInit @ 0x1403E4E40 (SmFirstTimeInit.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeInitializePriQueue @ 0x140147C34 (KeInitializePriQueue.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeInitializePriQueue @ 0x1401481A4 (KeInitializePriQueue.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpCreateWorkerThread @ 0x1403E4598 (ExpCreateWorkerThread.c)
+ *     ExpCreateWorkerThread @ 0x1403E5BC4 (ExpCreateWorkerThread.c)
  */
 
 __int64 __fastcall ExAllocatePrivateWorkerPool(_QWORD *a1, __int64 a2, int a3)

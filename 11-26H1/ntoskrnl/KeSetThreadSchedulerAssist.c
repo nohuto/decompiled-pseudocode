@@ -1,21 +1,21 @@
 /*
- * XREFs of KeSetThreadSchedulerAssist @ 0x1403BFAB8
+ * XREFs of KeSetThreadSchedulerAssist @ 0x1403C99B8
  * Callers:
- *     VmSetThreadSchedulerAssist @ 0x1403BFAA0 (VmSetThreadSchedulerAssist.c)
+ *     VmSetThreadSchedulerAssist @ 0x1403C99A0 (VmSetThreadSchedulerAssist.c)
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KeCheckAndApplyBamQos @ 0x140330350 (KeCheckAndApplyBamQos.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403322B0 (KiAcquireThreadStateLockForWrite.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x14037EEC0 (KiUpdateThreadQosGroupingSummaries.c)
- *     KiClearPriorityFloor @ 0x140380630 (KiClearPriorityFloor.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403BFE80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
- *     EtwTraceXSchedulerPriorityKickReceive @ 0x1406C53C4 (EtwTraceXSchedulerPriorityKickReceive.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KeCheckAndApplyBamQos @ 0x140332380 (KeCheckAndApplyBamQos.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403342E0 (KiAcquireThreadStateLockForWrite.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x140380C70 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiClearPriorityFloor @ 0x1403823E0 (KiClearPriorityFloor.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403C9D80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     EtwTraceXSchedulerPriorityKickReceive @ 0x1406C9004 (EtwTraceXSchedulerPriorityKickReceive.c)
  */
 
 void __fastcall KeSetThreadSchedulerAssist(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3)
@@ -53,7 +53,7 @@ void __fastcall KeSetThreadSchedulerAssist(ULONG_PTR BugCheckParameter1, __int64
     {
       if ( (_DWORD)a3 == 2 || (_DWORD)a3 == 3 )
       {
-        if ( (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+        if ( (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
           EtwTraceXSchedulerPriorityKickReceive(BugCheckParameter1, (unsigned int)a3);
         KiAcquireThreadLockRaiseToDpc(BugCheckParameter1, &v26);
       }

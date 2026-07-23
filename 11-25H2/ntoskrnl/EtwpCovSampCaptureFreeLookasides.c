@@ -9,22 +9,22 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpCovSampCaptureFreeLookasides(union _SLIST_HEADER *a1)
+void __fastcall EtwpCovSampCaptureFreeLookasides(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rdi
-  union _SLIST_HEADER *i; // rbx
-  union _SLIST_HEADER *v4; // rdi
-  union _SLIST_HEADER *j; // rbx
+  _SLIST_HEADER *v1; // rdi
+  _SLIST_HEADER *i; // rbx
+  _SLIST_HEADER *v4; // rdi
+  _SLIST_HEADER *j; // rbx
   PSLIST_ENTRY v6; // rsi
   _QWORD *p_Next; // rcx
   __int64 v8; // r8
   _QWORD *v9; // rdx
 
   v1 = a1 + 59;
-  for ( i = (union _SLIST_HEADER *)a1[59].Alignment; i != v1; i = (union _SLIST_HEADER *)i->Alignment )
+  for ( i = (_SLIST_HEADER *)a1[59].Alignment; i != v1; i = (_SLIST_HEADER *)i->Alignment )
     EtwpCovSampLookasideFlushFreeListToCleanupList(i - 1);
   v4 = a1 + 60;
-  for ( j = (union _SLIST_HEADER *)a1[60].Alignment; j != v4; j = (union _SLIST_HEADER *)j->Alignment )
+  for ( j = (_SLIST_HEADER *)a1[60].Alignment; j != v4; j = (_SLIST_HEADER *)j->Alignment )
   {
     v6 = RtlpInterlockedFlushSList(j - 1);
     while ( v6 )

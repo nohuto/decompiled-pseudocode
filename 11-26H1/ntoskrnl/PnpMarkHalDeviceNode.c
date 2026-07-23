@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpMarkHalDeviceNode @ 0x140CC3950
+ * XREFs of PnpMarkHalDeviceNode @ 0x140CC9A24
  * Callers:
- *     PipKsrDeferredHardwareInit @ 0x1407B2E04 (PipKsrDeferredHardwareInit.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     PipKsrDeferredHardwareInit @ 0x1407B5E64 (PipKsrDeferredHardwareInit.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     PipSetDevNodeFlags @ 0x14090DD60 (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeFlags @ 0x1409AFE90 (PipSetDevNodeFlags.c)
  */
 
 __int64 __fastcall PnpMarkHalDeviceNode(__int64 a1)

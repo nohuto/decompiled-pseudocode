@@ -15,33 +15,33 @@
 char __stdcall LdrFlushAlternateResourceModules()
 {
   unsigned int i; // esi
-  int v1; // edi
+  char *v1; // edi
   int v2; // eax
-  unsigned int v4; // [esp-4h] [ebp-34h]
+  void *v4; // [esp-4h] [ebp-34h]
 
   RtlAcquireSRWLockExclusive(&MuiCacheSWRLock);
   if ( AlternateResourceModuleCount )
   {
     for ( i = 0; i < AlternateResourceModuleCount; ++i )
     {
-      v1 = AlternateResourceModules + 32 * i;
-      v2 = *(_DWORD *)(v1 + 16);
+      v1 = (char *)AlternateResourceModules + 32 * i;
+      v2 = *((_DWORD *)v1 + 4);
       if ( v2 != -1 && v2 )
       {
-        v4 = v2 & 0xFFFFFFFC;
-        if ( *(_DWORD *)(v1 + 28) == -1073741799 )
-          RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v4);
+        v4 = (void *)(v2 & 0xFFFFFFFC);
+        if ( *((_DWORD *)v1 + 7) == -1073741799 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
         else
-          NtUnmapViewOfSection(-1, v4);
-        *(_DWORD *)(v1 + 16) = 0;
-        if ( *(_DWORD *)(v1 + 20) )
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, v4);
+        *((_DWORD *)v1 + 4) = 0;
+        if ( *((_DWORD *)v1 + 5) )
         {
-          NtClose(*(HANDLE *)(v1 + 20));
-          *(_DWORD *)(v1 + 20) = 0;
+          NtClose(*((HANDLE *)v1 + 5));
+          *((_DWORD *)v1 + 5) = 0;
         }
       }
     }
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
     AlternateResourceModules = 0;
     AlternateResourceModuleCount = 0;
     AltResMemBlockCount = 0;

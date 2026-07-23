@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateIoCompletion @ 0x14015B0C0
+ * XREFs of ZwCreateIoCompletion @ 0x14015B630
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateIoCompletion(
         PHANDLE IoCompletionHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwCreateIoCompletion(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(IoCompletionHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(IoCompletionHandle);
 }

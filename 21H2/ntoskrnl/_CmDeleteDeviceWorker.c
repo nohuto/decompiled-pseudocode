@@ -1,26 +1,26 @@
 /*
- * XREFs of _CmDeleteDeviceWorker @ 0x14072CA88
+ * XREFs of _CmDeleteDeviceWorker @ 0x14072CF38
  * Callers:
- *     _CmDeleteDevice @ 0x14072B89C (_CmDeleteDevice.c)
+ *     _CmDeleteDevice @ 0x14072BD4C (_CmDeleteDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1406B1B50 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _CmDeleteDeviceInterface @ 0x14072B9C4 (_CmDeleteDeviceInterface.c)
- *     _CmRemoveDeviceFromContainer @ 0x14072BAEC (_CmRemoveDeviceFromContainer.c)
- *     _CmDeleteDeviceRegKey @ 0x14072CF6C (_CmDeleteDeviceRegKey.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x14072D9CC (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmRaiseDeleteEvent @ 0x14072DBA0 (_CmRaiseDeleteEvent.c)
- *     _CmSetDeviceMappedProperty @ 0x14073A544 (_CmSetDeviceMappedProperty.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14075A97C (_CmGetDeviceContainerIdFromBase.c)
- *     _CmGetMatchingDeviceList @ 0x140773920 (_CmGetMatchingDeviceList.c)
- *     _CmRemovePanelDevice @ 0x140978A98 (_CmRemovePanelDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140610B90 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _CmDeleteDeviceInterface @ 0x14072BE74 (_CmDeleteDeviceInterface.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14072BF9C (_CmRemoveDeviceFromContainer.c)
+ *     _CmDeleteDeviceRegKey @ 0x14072D41C (_CmDeleteDeviceRegKey.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x14072DE7C (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmRaiseDeleteEvent @ 0x14072E050 (_CmRaiseDeleteEvent.c)
+ *     _CmSetDeviceMappedProperty @ 0x14073A704 (_CmSetDeviceMappedProperty.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14075AB3C (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmGetMatchingDeviceList @ 0x140773AE0 (_CmGetMatchingDeviceList.c)
+ *     _CmRemovePanelDevice @ 0x140978C78 (_CmRemovePanelDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDeviceWorker(__int64 a1, __int64 a2, __int16 a3)
@@ -38,7 +38,7 @@ __int64 __fastcall CmDeleteDeviceWorker(__int64 a1, __int64 a2, __int16 a3)
   PVOID v15; // rsi
   unsigned int v16; // eax
   int MatchingDeviceList; // ebx
-  unsigned int *v18; // r14
+  _OWORD *v18; // r14
   unsigned int v19; // esi
   int v20; // eax
   int v21; // r9d
@@ -252,20 +252,20 @@ LABEL_88:
       while ( j[v32] );
     }
   }
-  v18 = (unsigned int *)v44;
+  v18 = v44;
   v19 = 0;
   v44[0] = _mm_load_si128((const __m128i *)&_xmm);
   v44[1] = _mm_load_si128((const __m128i *)&_xmm);
   while ( 1 )
   {
-    v20 = CmDeleteDeviceRegKey(a1, a2, *v18, 0LL);
+    v20 = CmDeleteDeviceRegKey(a1, a2);
     if ( v20 )
     {
       if ( v20 != -1073741637 && v20 != -1073741772 && v20 != -1073741811 )
         break;
     }
     ++v19;
-    ++v18;
+    v18 = (_OWORD *)((char *)v18 + 4);
     if ( v19 >= 8 )
       goto LABEL_24;
   }
@@ -337,7 +337,7 @@ LABEL_65:
 LABEL_40:
     if ( v9 >= 0 )
     {
-      v9 = CmDeleteDeviceRegKey(a1, a2, 16LL, 0LL);
+      v9 = CmDeleteDeviceRegKey(a1, a2);
       if ( v9 >= 0 )
         CmRaiseDeleteEvent(a1, a2, 1LL);
     }

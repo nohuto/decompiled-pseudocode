@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlAddRange @ 0x140A76A90
+ * XREFs of RtlAddRange @ 0x140A70BB0
  * Callers:
- *     ArbAddAllocation @ 0x140704760 (ArbAddAllocation.c)
- *     ArbAddInaccessibleAllocationRange @ 0x1407047B0 (ArbAddInaccessibleAllocationRange.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x1407049C8 (ArbAddMmConfigRangeAsBootReserved.c)
- *     ArbInitializeRangeList @ 0x140705970 (ArbInitializeRangeList.c)
- *     IopMemInitialize @ 0x140725C18 (IopMemInitialize.c)
- *     IopPortAddAllocation @ 0x140725E20 (IopPortAddAllocation.c)
- *     RtlInvertRangeListEx @ 0x140A76990 (RtlInvertRangeListEx.c)
+ *     ArbAddAllocation @ 0x140702320 (ArbAddAllocation.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x140702370 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x140702588 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     ArbInitializeRangeList @ 0x140703530 (ArbInitializeRangeList.c)
+ *     IopMemInitialize @ 0x1407237A8 (IopMemInitialize.c)
+ *     IopPortAddAllocation @ 0x1407239B0 (IopPortAddAllocation.c)
+ *     RtlInvertRangeListEx @ 0x140A70AB0 (RtlInvertRangeListEx.c)
  * Callees:
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     RtlpAddRange @ 0x1406FC120 (RtlpAddRange.c)
- *     RtlpFreeRangeListEntry @ 0x140A52408 (RtlpFreeRangeListEntry.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     RtlpAddRange @ 0x1406F9D60 (RtlpAddRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140A4A338 (RtlpFreeRangeListEntry.c)
  */
 
 __int64 __fastcall RtlAddRange(

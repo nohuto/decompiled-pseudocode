@@ -59,7 +59,7 @@ NTSTATUS __stdcall NtLockFile(
   int v26; // ecx
   struct _KTHREAD *v27; // rax
   volatile __int32 *v28; // rbx
-  __int64 v29; // rax
+  PRTL_BALANCED_NODE v29; // rax
   NTSTATUS v30; // esi
   char v31; // r15
   __int64 Irp; // rax
@@ -221,7 +221,7 @@ NTSTATUS __stdcall NtLockFile(
         else
         {
           if ( v29 )
-            *(_BYTE *)(v29 + 26) |= 1u;
+            BYTE2(v29[1].Left) |= 1u;
           v15 = (struct _FILE_OBJECT *)Object;
           ObfReferenceObject(Object);
           v30 = 0;

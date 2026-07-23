@@ -1,17 +1,17 @@
 /*
- * XREFs of ExInitializeNPagedLookasideListInternal @ 0x14037A700
+ * XREFs of ExInitializeNPagedLookasideListInternal @ 0x14037A250
  * Callers:
- *     ExInitializeNPagedLookasideList @ 0x14037A6C0 (ExInitializeNPagedLookasideList.c)
- *     RtlInitializeCompression @ 0x1405853E4 (RtlInitializeCompression.c)
- *     CcInitializeCacheManager @ 0x140A3D1B8 (CcInitializeCacheManager.c)
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
- *     WmipInitializeRegistration @ 0x140A6A038 (WmipInitializeRegistration.c)
- *     FsRtlInitializeFileLocks @ 0x140A6BEB4 (FsRtlInitializeFileLocks.c)
- *     PopInitializeIrpWorkers @ 0x140A70C40 (PopInitializeIrpWorkers.c)
+ *     ExInitializeNPagedLookasideList @ 0x14037A210 (ExInitializeNPagedLookasideList.c)
+ *     RtlInitializeCompression @ 0x140585614 (RtlInitializeCompression.c)
+ *     CcInitializeCacheManager @ 0x140A3E1B8 (CcInitializeCacheManager.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
+ *     WmipInitializeRegistration @ 0x140A6B038 (WmipInitializeRegistration.c)
+ *     FsRtlInitializeFileLocks @ 0x140A6CEB4 (FsRtlInitializeFileLocks.c)
+ *     PopInitializeIrpWorkers @ 0x140A71C40 (PopInitializeIrpWorkers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -58,14 +58,14 @@ __int64 __fastcall ExInitializeNPagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v13 = (_QWORD *)qword_140C16A98;
+  v13 = (_QWORD *)qword_140C16B18;
   v14 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_140C16A98 != &ExNPagedLookasideListHead )
+  if ( *(__int64 **)qword_140C16B18 != &ExNPagedLookasideListHead )
     __fastfail(3u);
   *v14 = &ExNPagedLookasideListHead;
   v14[1] = v13;
   *v13 = v14;
-  qword_140C16A98 = (__int64)v14;
+  qword_140C16B18 = (__int64)v14;
   KxReleaseSpinLock(&ExNPagedLookasideLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

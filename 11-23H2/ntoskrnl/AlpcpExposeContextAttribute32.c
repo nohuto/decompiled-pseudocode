@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpExposeContextAttribute32 @ 0x1407CD280
+ * XREFs of AlpcpExposeContextAttribute32 @ 0x1407CD550
  * Callers:
- *     AlpcpExposeAttributes @ 0x14073BDA0 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x14073BF90 (AlpcpExposeAttributes.c)
  * Callees:
  *     <none>
  */

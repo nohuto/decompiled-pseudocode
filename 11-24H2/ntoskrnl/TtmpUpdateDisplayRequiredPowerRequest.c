@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpUpdateDisplayRequiredPowerRequest @ 0x14076B0A4
+ * XREFs of TtmpUpdateDisplayRequiredPowerRequest @ 0x14076B2C4
  * Callers:
- *     TtmNotifySessionDisplayRequiredChange @ 0x140903D68 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x14099D3C4 (TtmNotifySessionDisplayRequiredChange.c)
  * Callees:
- *     TtmpFindPowerRequestEntryById @ 0x14076A664 (TtmpFindPowerRequestEntryById.c)
- *     TtmpSetDisplayRequestEnded @ 0x14076AEC4 (TtmpSetDisplayRequestEnded.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x14076B238 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
- *     TtmiLogSessionDisplayRequiredPowerRequestUpdated @ 0x14076DE10 (TtmiLogSessionDisplayRequiredPowerRequestUpdated.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
+ *     TtmpFindPowerRequestEntryById @ 0x14076A884 (TtmpFindPowerRequestEntryById.c)
+ *     TtmpSetDisplayRequestEnded @ 0x14076B0E4 (TtmpSetDisplayRequestEnded.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x14076B458 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmiLogSessionDisplayRequiredPowerRequestUpdated @ 0x14076E030 (TtmiLogSessionDisplayRequiredPowerRequestUpdated.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpUpdateDisplayRequiredPowerRequest(unsigned int *a1, unsigned int a2, char a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KasanMarkAddressRedZone @ 0x1403E50B0
+ * XREFs of KasanMarkAddressRedZone @ 0x1403D2C50
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KasanMarkAddressRedZone(
@@ -21,7 +21,7 @@ __int64 __fastcall KasanMarkAddressRedZone(
   size_t v10; // rsi
 
   v5 = a2;
-  if ( byte_140FCDC28 )
+  if ( byte_140FCECA8 )
   {
     if ( BugCheckParameter3 < 0xFFFF800000000000uLL )
       KeBugCheckEx(0x1F1u, 2uLL, 1uLL, BugCheckParameter3, 0LL);

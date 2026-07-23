@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptParallelSha256Result1 @ 0x1403EF230
+ * XREFs of SymCryptParallelSha256Result1 @ 0x1403EF3A0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptWipe @ 0x1403EF634 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1403EF7A4 (SymCryptWipe.c)
  */
 
 char __fastcall SymCryptParallelSha256Result1(__int64 a1, unsigned int *a2, __int64 a3, _BYTE *a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiClearContainingMapping @ 0x140091AB4
+ * XREFs of MiClearContainingMapping @ 0x1400919F4
  * Callers:
- *     MiDeleteTopLevelPage @ 0x140091A20 (MiDeleteTopLevelPage.c)
+ *     MiDeleteTopLevelPage @ 0x140091960 (MiDeleteTopLevelPage.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 unsigned __int64 __fastcall MiClearContainingMapping(__int64 a1)

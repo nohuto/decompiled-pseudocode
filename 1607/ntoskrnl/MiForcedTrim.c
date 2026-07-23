@@ -1,15 +1,15 @@
 /*
- * XREFs of MiForcedTrim @ 0x1401E97D0
+ * XREFs of MiForcedTrim @ 0x1401E95FC
  * Callers:
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiDoReplacement @ 0x1401E282C (MiDoReplacement.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiDoReplacement @ 0x1401E2658 (MiDoReplacement.c)
  * Callees:
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetAvailablePagesBelowPriority @ 0x1400C0250 (MiGetAvailablePagesBelowPriority.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiComputeTrimAmount @ 0x1401E951C (MiComputeTrimAmount.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1400BE0E0 (MiGetAvailablePagesBelowPriority.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiComputeTrimAmount @ 0x1401E9348 (MiComputeTrimAmount.c)
  */
 
 __int64 __fastcall MiForcedTrim(ULONG_PTR a1)

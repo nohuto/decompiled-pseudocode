@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmUpdateProcessorPolicy @ 0x14078C8D0
+ * XREFs of PpmUpdateProcessorPolicy @ 0x14078CA90
  * Callers:
- *     PpmPerfReApplyStates @ 0x14077A350 (PpmPerfReApplyStates.c)
- *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
- *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
+ *     PpmPerfReApplyStates @ 0x14077A510 (PpmPerfReApplyStates.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2A8 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407BA470 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAE90 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     KeOrAffinityEx @ 0x14022B850 (KeOrAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     PpmUpdateTargetProcessorPolicy @ 0x1403A4F0C (PpmUpdateTargetProcessorPolicy.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     KeOrAffinityEx @ 0x1402D0100 (KeOrAffinityEx.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x1403A505C (PpmUpdateTargetProcessorPolicy.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
@@ -31,7 +31,7 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
   v14[0] = 0;
   memset(&v15[2], 0, 0xA0uLL);
   LOWORD(started) = PpmAllowedActions & *a1;
-  v5 = &PpmCurrentProfile[342 * dword_140C23E8C];
+  v5 = &PpmCurrentProfile[342 * dword_140C2332C];
   LOWORD(v14[0]) = started;
   if ( !a2 && (v14[0] & 0x400) != 0 )
   {
@@ -50,10 +50,10 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
   if ( LOWORD(v14[0]) )
   {
     v6 = (unsigned int)(10000 * *((_DWORD *)v5 + 15));
-    if ( v6 <= (unsigned int)KeMaximumIncrement )
+    if ( v6 <= KeMaximumIncrement )
       LODWORD(v7) = 0;
     else
-      v7 = (v6 - (unsigned int)KeMaximumIncrement) / 0x2710;
+      v7 = (v6 - KeMaximumIncrement) / 0x2710;
     PpmPerfTimeWindow = v7;
     if ( !PpmPerfControlStartPolicyUpdate || (started = PpmPerfControlStartPolicyUpdate(), started >= 0) )
     {

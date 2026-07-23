@@ -1,9 +1,9 @@
 /*
- * XREFs of InitCounterGroupBspOriginal @ 0x140B4CD8C
+ * XREFs of InitCounterGroupBspOriginal @ 0x140B4EDCC
  * Callers:
- *     DefaultInitializeProfilingOriginal @ 0x140B4CB10 (DefaultInitializeProfilingOriginal.c)
+ *     DefaultInitializeProfilingOriginal @ 0x140B4EB50 (DefaultInitializeProfilingOriginal.c)
  * Callees:
- *     HalpMmAllocateMemory @ 0x140542CB4 (HalpMmAllocateMemory.c)
+ *     HalpMmAllocateMemory @ 0x140540604 (HalpMmAllocateMemory.c)
  */
 
 __int64 __fastcall InitCounterGroupBspOriginal(int a1, int a2)

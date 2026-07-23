@@ -16,7 +16,7 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlNextUnicodePrefix(PUNICODE_PREFIX_TABLE
   _RTL_SPLAY_LINKS *i; // rcx
   _RTL_SPLAY_LINKS *v9; // rax
   _RTL_SPLAY_LINKS *LeftChild; // rcx
-  struct _RTL_SPLAY_LINKS *v11; // rcx
+  _RTL_SPLAY_LINKS *v11; // rcx
 
   if ( Restart || (LastNextEntry = PrefixTable->LastNextEntry) == 0LL )
   {

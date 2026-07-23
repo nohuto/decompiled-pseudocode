@@ -16,7 +16,7 @@
 __int64 __fastcall RtlpCreateWnfNameSubscription(volatile signed __int32 **a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi
-  __int64 v6; // rbp
+  _RTL_SRWLOCK *v6; // rbp
   _QWORD **v7; // rdi
   _QWORD *i; // rdx
   volatile signed __int32 *v9; // r8
@@ -35,8 +35,8 @@ __int64 __fastcall RtlpCreateWnfNameSubscription(volatile signed __int32 **a1, _
   }
   else
   {
-    v6 = qword_180146F28 + 8;
-    RtlAcquireSRWLockShared(qword_180146F28 + 8);
+    v6 = (_RTL_SRWLOCK *)(qword_180146F28 + 8);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_180146F28 + 8));
     v7 = (_QWORD **)(v3 + 16);
     for ( i = *v7; i != v7; i = (_QWORD *)*i )
     {
@@ -50,7 +50,7 @@ __int64 __fastcall RtlpCreateWnfNameSubscription(volatile signed __int32 **a1, _
       }
     }
     RtlReleaseSRWLockShared(v6);
-    Heap = (_QWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 152LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x98uLL);
     v11 = Heap;
     if ( Heap )
     {
@@ -74,7 +74,7 @@ __int64 __fastcall RtlpCreateWnfNameSubscription(volatile signed __int32 **a1, _
           _InterlockedIncrement(v13 + 27);
           *a1 = v13;
           RtlReleaseSRWLockExclusive(v6);
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v11);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
           return 0LL;
         }
       }

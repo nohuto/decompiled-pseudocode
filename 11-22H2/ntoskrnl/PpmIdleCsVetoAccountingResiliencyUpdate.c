@@ -9,53 +9,52 @@
  *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14058506C (PpmIdleCsVetoAccountingUpdateBlock.c)
  */
 
-__int64 __fastcall PpmIdleCsVetoAccountingResiliencyUpdate(char a1)
+void __fastcall PpmIdleCsVetoAccountingResiliencyUpdate(char a1)
 {
-  __int64 result; // rax
-  unsigned __int64 v3; // rbx
-  unsigned int v4; // edi
+  unsigned __int64 v2; // rbx
+  unsigned int v3; // edi
   __int64 i; // rax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v11; // zf
+  int v11; // eax
+  bool v12; // zf
 
-  result = PpmPlatformStates;
   if ( PpmPlatformStates && *(_DWORD *)(PpmPlatformStates + 4) )
   {
-    v3 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-    v4 = 0;
-    for ( i = PpmPlatformStates; v4 < *(_DWORD *)PpmPlatformStates; ++v4 )
+    v2 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
+    v3 = 0;
+    for ( i = PpmPlatformStates; v3 < *(_DWORD *)PpmPlatformStates; ++v3 )
     {
-      v6 = v4;
-      v7 = 448LL * v4;
-      LOBYTE(v6) = 2;
-      v8 = v7 + i + 80;
-      LOBYTE(v7) = a1;
-      PpmIdleCsVetoAccountingUpdateBlock(v8, v6, v7);
+      v5 = v3;
+      v6 = 448LL * v3;
+      LOBYTE(v5) = 2;
+      v7 = v6 + i + 80;
+      LOBYTE(v6) = a1;
+      PpmIdleCsVetoAccountingUpdateBlock(v7, v5, v6);
       i = PpmPlatformStates;
     }
-    result = KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-    if ( KiIrqlFlags )
+    KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+    if ( (_DWORD)KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && (unsigned __int8)v3 <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      CurrentIrql = KeGetCurrentIrql();
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v11 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
-    __writecr8(v3);
+    __writecr8(v2);
   }
-  return result;
 }

@@ -1,11 +1,11 @@
 /*
  * XREFs of sub_1402001A0 @ 0x1402001A0
  * Callers:
- *     sub_140687500 @ 0x140687500 (sub_140687500.c)
+ *     sub_1405E6660 @ 0x1405E6660 (sub_1405E6660.c)
  * Callees:
- *     WarbirdCrypto::CCipherFeistel64::CallRoundFunction @ 0x14029E850 (WarbirdCrypto--CCipherFeistel64--CallRoundFunction.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     WarbirdCrypto::CCipherFeistel64::CallRoundFunction @ 0x14021BDB0 (WarbirdCrypto--CCipherFeistel64--CallRoundFunction.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall sub_1402001A0(__int64 a1, _BYTE *a2, char *a3, unsigned int a4, __int64 a5, unsigned int a6, _BYTE *a7)

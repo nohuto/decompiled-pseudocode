@@ -1,7 +1,7 @@
 /*
- * XREFs of KzLowerIrql @ 0x14033BD50
+ * XREFs of KzLowerIrql @ 0x140346AA0
  * Callers:
- *     KiVirtualizationException @ 0x14040FC00 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x14040FD00 (KiVirtualizationException.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */

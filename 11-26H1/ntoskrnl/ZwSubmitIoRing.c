@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSubmitIoRing @ 0x140726D90
+ * XREFs of ZwSubmitIoRing @ 0x14072B960
  * Callers:
- *     DifZwSubmitIoRingWrapper @ 0x1406BD1A0 (DifZwSubmitIoRingWrapper.c)
+ *     DifZwSubmitIoRingWrapper @ 0x1406C0D80 (DifZwSubmitIoRingWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSubmitIoRing(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSubmitIoRing(HANDLE IoRingHandle, ULONG Flags, ULONG WaitOperations, PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoRingHandle);
 }

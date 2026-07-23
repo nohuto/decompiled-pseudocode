@@ -1,9 +1,9 @@
 /*
- * XREFs of KeClearSystemPriorityThread @ 0x140576C7C
+ * XREFs of KeClearSystemPriorityThread @ 0x14057716C
  * Callers:
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
  * Callees:
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
  */
 
 char __fastcall KeClearSystemPriorityThread(ULONG_PTR a1, int a2)

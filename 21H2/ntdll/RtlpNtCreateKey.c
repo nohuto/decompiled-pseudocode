@@ -1,14 +1,20 @@
 /*
- * XREFs of RtlpNtCreateKey @ 0x180107D90
+ * XREFs of RtlpNtCreateKey @ 0x180107D50
  * Callers:
  *     <none>
  * Callees:
- *     ZwCreateKey @ 0x18009D9E0 (ZwCreateKey.c)
+ *     ZwCreateKey @ 0x18009D9A0 (ZwCreateKey.c)
  */
 
-__int64 __fastcall RtlpNtCreateKey(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall RtlpNtCreateKey(
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        _OBJECT_ATTRIBUTES *a3,
+        __int64 a4,
+        int a5,
+        PULONG Disposition)
 {
   if ( a3 )
-    *(_DWORD *)(a3 + 24) &= 0xFFFFFFCF;
-  return ZwCreateKey();
+    a3->Attributes &= 0xFFFFFFCF;
+  return ZwCreateKey(a1, a2, a3, 0, 0LL, 0, Disposition);
 }

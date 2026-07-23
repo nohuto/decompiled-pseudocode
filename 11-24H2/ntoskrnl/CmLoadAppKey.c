@@ -1,51 +1,51 @@
 /*
- * XREFs of CmLoadAppKey @ 0x14092DB9C
+ * XREFs of CmLoadAppKey @ 0x14092FCDC
  * Callers:
- *     CmLoadDifferencingKey @ 0x14092C750 (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x14092E890 (CmLoadDifferencingKey.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     ExfWaitForRundownProtectionRelease @ 0x1402C6ABC (ExfWaitForRundownProtectionRelease.c)
- *     ExBlockOnAddressPushLock @ 0x1402C6C40 (ExBlockOnAddressPushLock.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     PsGetProcessImageFileName @ 0x14044CCB0 (PsGetProcessImageFileName.c)
- *     CmpLoadKeyCommon @ 0x140464478 (CmpLoadKeyCommon.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x14066812C (CmpCheckHivePrimaryFileReadWriteAccess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpGetNextHive @ 0x14084425C (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1408443C0 (CmpDereferenceHive.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x14087B450 (CmpReferenceKeyControlBlockUnsafe.c)
- *     UNLOCK_HIVE_LOAD @ 0x140909020 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x140909098 (LOCK_HIVE_LOAD.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     CmpIsThisSameFile @ 0x14092E898 (CmpIsThisSameFile.c)
- *     CmpCmdHiveOpen @ 0x14092E91C (CmpCmdHiveOpen.c)
- *     CmpGetLastHive @ 0x14092EBCC (CmpGetLastHive.c)
- *     CmpOpenHiveFile @ 0x14092FE64 (CmpOpenHiveFile.c)
- *     CmpLockRegistryFreezeAware @ 0x14097DFD8 (CmpLockRegistryFreezeAware.c)
- *     CmpUnlockAppHiveLoadList @ 0x140A3C8B8 (CmpUnlockAppHiveLoadList.c)
- *     CmpLockAppHiveLoadList @ 0x140A3D808 (CmpLockAppHiveLoadList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140BB9AD0 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140BB9B10 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpSplitParentKeyName @ 0x140BB9D74 (CmpSplitParentKeyName.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExfWaitForRundownProtectionRelease @ 0x1402BB63C (ExfWaitForRundownProtectionRelease.c)
+ *     ExBlockOnAddressPushLock @ 0x1402BB7C0 (ExBlockOnAddressPushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     PsGetProcessImageFileName @ 0x140443BB0 (PsGetProcessImageFileName.c)
+ *     CmpLoadKeyCommon @ 0x14045ABA8 (CmpLoadKeyCommon.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x140666A1C (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpGetNextHive @ 0x14084051C (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x140840680 (CmpDereferenceHive.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x14087F300 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408E0740 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1408E07B8 (LOCK_HIVE_LOAD.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     CmpIsThisSameFile @ 0x1409309D8 (CmpIsThisSameFile.c)
+ *     CmpCmdHiveOpen @ 0x140930A5C (CmpCmdHiveOpen.c)
+ *     CmpGetLastHive @ 0x140930D0C (CmpGetLastHive.c)
+ *     CmpOpenHiveFile @ 0x140931FA4 (CmpOpenHiveFile.c)
+ *     CmpLockRegistryFreezeAware @ 0x1409667E8 (CmpLockRegistryFreezeAware.c)
+ *     CmpUnlockAppHiveLoadList @ 0x140A32098 (CmpUnlockAppHiveLoadList.c)
+ *     CmpLockAppHiveLoadList @ 0x140A33118 (CmpLockAppHiveLoadList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140BBBAD0 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140BBBB10 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpSplitParentKeyName @ 0x140BBBD74 (CmpSplitParentKeyName.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmLoadAppKey(
@@ -239,7 +239,7 @@ __int64 __fastcall CmLoadAppKey(
     KeyCommon = -1073741811;
     goto LABEL_133;
   }
-  Pool = CmpAllocatePool(0x100uLL);
+  Pool = CmpAllocatePool(0x100uLL, 0x1B0uLL, 0x33394D43u);
   if ( !Pool )
   {
     KeyCommon = -1073741670;
@@ -312,7 +312,7 @@ LABEL_55:
           v37->Count = (unsigned __int64)&v97;
           *(_QWORD *)(v38 + 8) = &v97;
           v39 = v98;
-          ExAcquireRundownProtection(v98 + 7);
+          ExAcquireRundownProtection_0(v98 + 7);
           CmpUnlockAppHiveLoadList();
           KeWaitForSingleObject(&v39[4], Executive, 0, 0, 0LL);
           ExReleaseRundownProtection_0(v39 + 7);
@@ -327,12 +327,12 @@ LABEL_20:
       goto LABEL_55;
     }
   }
-  if ( *(__int64 **)qword_140EF55B8 != &CmpAppHiveLoadList )
+  if ( *(__int64 **)qword_140EF57F8 != &CmpAppHiveLoadList )
     goto LABEL_20;
   v95 = &CmpAppHiveLoadList;
-  v96 = (__int64 **)qword_140EF55B8;
-  *(_QWORD *)qword_140EF55B8 = &v95;
-  qword_140EF55B8 = (__int64)&v95;
+  v96 = (__int64 **)qword_140EF57F8;
+  *(_QWORD *)qword_140EF57F8 = &v95;
+  qword_140EF57F8 = (__int64)&v95;
   CmpUnlockAppHiveLoadList();
   while ( 1 )
   {
@@ -451,9 +451,9 @@ LABEL_101:
     goto LABEL_102;
   }
   CmpSplitParentKeyName(v45 + 230, 0LL, &v113);
-  if ( (unsigned int)dword_140E09EE8 > 5 )
+  if ( (unsigned int)dword_140E09F58 > 5 )
   {
-    if ( (qword_140E09EF8 & 0x400000000008LL) == 0 || (v53 = 1, (qword_140E09F00 & 0x400000000008LL) != qword_140E09F00) )
+    if ( (qword_140E09F68 & 0x400000000008LL) == 0 || (v53 = 1, (qword_140E09F70 & 0x400000000008LL) != qword_140E09F70) )
       v53 = 0;
     if ( v53 )
     {
@@ -470,7 +470,7 @@ LABEL_101:
       v148[1] = 0;
       v110 = 0x1000000LL;
       v150 = 8LL;
-      tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_14005490F, v55, 7u, (__int64)v141);
+      tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)byte_14005573B, v55, 7u, (__int64)v141);
     }
   }
   if ( !v82 )
@@ -545,13 +545,13 @@ LABEL_87:
     goto LABEL_20;
   v98->Count = v97;
   *(_QWORD *)(v58 + 8) = v59;
-  v61 = (_QWORD *)qword_140EF55B8;
-  if ( *(__int64 **)qword_140EF55B8 != &CmpAppHiveLoadList )
+  v61 = (_QWORD *)qword_140EF57F8;
+  if ( *(__int64 **)qword_140EF57F8 != &CmpAppHiveLoadList )
     goto LABEL_20;
   *v60 = &CmpAppHiveLoadList;
   v60[1] = v61;
   *v61 = v60;
-  qword_140EF55B8 = (__int64)v60;
+  qword_140EF57F8 = (__int64)v60;
 LABEL_22:
   CmpUnlockAppHiveLoadList();
   KeSetEvent(&Event, 0, 0);
@@ -573,12 +573,12 @@ LABEL_36:
     v30 = *(unsigned __int16 *)(Pool + 8);
     if ( *(_DWORD *)(Pool + 8) || *(_BYTE *)(Pool + 394) )
     {
-      v31 = dword_140E09EE8;
-      v32 = qword_140E09F00;
-      if ( (unsigned int)dword_140E09EE8 > 5 )
+      v31 = dword_140E09F58;
+      v32 = qword_140E09F70;
+      if ( (unsigned int)dword_140E09F58 > 5 )
       {
-        if ( (qword_140E09EF8 & 0x400000000008LL) == 0
-          || (v34 = 1, (qword_140E09F00 & 0x400000000008LL) != qword_140E09F00) )
+        if ( (qword_140E09F68 & 0x400000000008LL) == 0
+          || (v34 = 1, (qword_140E09F70 & 0x400000000008LL) != qword_140E09F70) )
         {
           v34 = 0;
         }
@@ -617,13 +617,13 @@ LABEL_36:
           v138 = 0;
           v85 = 0x1000000LL;
           v140 = 8LL;
-          tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140054971, Pool + 394, 0xEu, (__int64)v115);
-          v32 = qword_140E09F00;
-          v31 = dword_140E09EE8;
+          tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)&word_1400557F6, Pool + 394, 0xEu, (__int64)v115);
+          v32 = qword_140E09F70;
+          v31 = dword_140E09F58;
         }
         if ( v31 > 5 )
         {
-          if ( (qword_140E09EF8 & 8) == 0 || (v32 & 8) != v32 )
+          if ( (qword_140E09F68 & 8) == 0 || (v32 & 8) != v32 )
             v19 = 0;
           if ( v19 )
           {
@@ -655,8 +655,8 @@ LABEL_36:
             v133 = 2LL;
             v135 = (unsigned int)(8 * v76);
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140E09EE8,
-              (unsigned __int8 *)byte_140054E83,
+              (__int64)&dword_140E09F58,
+              (unsigned __int8 *)byte_140055959,
               0LL,
               0LL,
               0xCu,
@@ -670,7 +670,7 @@ LABEL_38:
       return (unsigned int)KeyCommon;
     }
 LABEL_133:
-    if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000008LL) )
+    if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000008LL) )
     {
       v86 = 1LL;
       v116 = (int *)&v86;
@@ -681,13 +681,13 @@ LABEL_133:
       v119 = 4LL;
       v85 = 0x1000000LL;
       v121 = 8LL;
-      tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&dword_140054AD4, v73, 5u, (__int64)v115);
+      tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)byte_14005579D, v73, 5u, (__int64)v115);
     }
     goto LABEL_38;
   }
-  if ( (unsigned int)dword_140E09EE8 > 5 )
+  if ( (unsigned int)dword_140E09F58 > 5 )
   {
-    if ( (qword_140E09EF8 & 0x400000000008LL) == 0 || (v29 = 1, (qword_140E09F00 & 0x400000000008LL) != qword_140E09F00) )
+    if ( (qword_140E09F68 & 0x400000000008LL) == 0 || (v29 = 1, (qword_140E09F70 & 0x400000000008LL) != qword_140E09F70) )
       v29 = 0;
     if ( v29 )
     {
@@ -703,7 +703,7 @@ LABEL_133:
       v121 = 1LL;
       v85 = 0x1000000LL;
       v123 = 8LL;
-      tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140054E19, v28, 6u, (__int64)v115);
+      tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)byte_140055A95, v28, 6u, (__int64)v115);
     }
   }
 LABEL_39:

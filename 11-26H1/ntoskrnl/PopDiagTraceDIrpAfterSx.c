@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDIrpAfterSx @ 0x140486F6C
+ * XREFs of PopDiagTraceDIrpAfterSx @ 0x14048093C
  * Callers:
- *     PoHandleIrp @ 0x140486AFC (PoHandleIrp.c)
+ *     PoHandleIrp @ 0x1404804CC (PoHandleIrp.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PopDiagGetDriverName @ 0x140486FD8 (PopDiagGetDriverName.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PopDiagGetDriverName @ 0x1404809A8 (PopDiagGetDriverName.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
@@ -28,9 +28,9 @@ char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
   _BYTE v14[128]; // [rsp+A0h] [rbp-60h] BYREF
 
   result = PopDiagGetDriverName(*(_QWORD *)(*(_QWORD *)(a1 + 72LL * *(char *)(a1 + 66) + 200) + 232LL), v14);
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
     if ( result )
     {
       v4 = (const WCHAR *)v14;
@@ -43,7 +43,7 @@ char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
       v9 = 0x1000000LL;
       v12 = &v9;
       v13 = 8LL;
-      return tlgWriteEx_EtwWriteEx((int)&dword_140E07598, (int)&word_14004CBD6, v5, 1, v6, v7, 5u, (__int64)v10);
+      return tlgWriteEx_EtwWriteEx((int)&dword_140E07560, (int)&byte_14004D6AD, v5, 1, v6, v7, 5u, (__int64)v10);
     }
   }
   return result;

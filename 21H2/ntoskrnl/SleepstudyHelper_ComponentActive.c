@@ -1,12 +1,12 @@
 /*
- * XREFs of SleepstudyHelper_ComponentActive @ 0x140580740
+ * XREFs of SleepstudyHelper_ComponentActive @ 0x140580980
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     SleepstudyHelper_ComponentActiveLocked @ 0x1405807F0 (SleepstudyHelper_ComponentActiveLocked.c)
+ *     SleepstudyHelper_ComponentActiveLocked @ 0x140580A30 (SleepstudyHelper_ComponentActiveLocked.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ComponentActive(PKSPIN_LOCK SpinLock)

@@ -7,7 +7,7 @@
  *     _RtlUnhandledExceptionFilter2@8 @ 0x4B3686E0 (_RtlUnhandledExceptionFilter2@8.c)
  */
 
-int __stdcall RtlUnhandledExceptionFilter(int a1)
+LONG __cdecl RtlUnhandledExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  return RtlUnhandledExceptionFilter2(a1, &dword_4B2850A4);
+  return RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&dword_4B2850A4);
 }

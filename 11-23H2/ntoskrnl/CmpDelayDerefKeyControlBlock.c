@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpDelayDerefKeyControlBlock @ 0x1406D86A0
+ * XREFs of CmpDelayDerefKeyControlBlock @ 0x1406D86D0
  * Callers:
  *     CmpRemoveLayerLinkForDiscardedKcb @ 0x14067F518 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F00 (CmpCleanUpKcbCachedSymlink.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D8510 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DAFD0 (CmpFindSubKeyByNumberEx.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140A19608 (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x140A24004 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F30 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406D8540 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406DB000 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x140A198B8 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x140A242B4 (CmpKeyEnumStackFreeResumeContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CmpDoQueueLateUnloadWorker @ 0x140751D34 (CmpDoQueueLateUnloadWorker.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x140751F24 (CmpDoQueueLateUnloadWorker.c)
  */
 
 _QWORD *__fastcall CmpDelayDerefKeyControlBlock(ULONG_PTR BugCheckParameter2, __int64 a2)

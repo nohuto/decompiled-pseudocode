@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRecordRegistryLockExclusiveAcquire @ 0x140261008
+ * XREFs of CmpRecordRegistryLockExclusiveAcquire @ 0x140260570
  * Callers:
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
  * Callees:
- *     CmpGetThreadInfo @ 0x140262B00 (CmpGetThreadInfo.c)
+ *     CmpGetThreadInfo @ 0x140262070 (CmpGetThreadInfo.c)
  */
 
 __int64 CmpRecordRegistryLockExclusiveAcquire()

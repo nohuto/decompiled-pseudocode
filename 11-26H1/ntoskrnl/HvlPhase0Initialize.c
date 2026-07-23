@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlPhase0Initialize @ 0x14079166C
+ * XREFs of HvlPhase0Initialize @ 0x14079419C
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
- *     HvlQueryConnection @ 0x140497A50 (HvlQueryConnection.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     HviIsAnyHypervisorPresent @ 0x1404E63D0 (HviIsAnyHypervisorPresent.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     HvlpInitializeBootProcessor @ 0x1405BA2EC (HvlpInitializeBootProcessor.c)
- *     HvlpSetupBootProcessorEarlyHypercallPages @ 0x1405BB13C (HvlpSetupBootProcessorEarlyHypercallPages.c)
- *     HvlpTryConfigureInterface @ 0x1405C17EC (HvlpTryConfigureInterface.c)
- *     HvlpDetermineEnlightenments @ 0x1405C19D8 (HvlpDetermineEnlightenments.c)
- *     HvlpPhase0Enlightenments @ 0x1405C1F24 (HvlpPhase0Enlightenments.c)
- *     HviGetHypervisorVersion @ 0x1406DC7C0 (HviGetHypervisorVersion.c)
+ *     HvlQueryConnection @ 0x1404915A0 (HvlQueryConnection.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     HvlpInitializeBootProcessor @ 0x1405BCB5C (HvlpInitializeBootProcessor.c)
+ *     HvlpSetupBootProcessorEarlyHypercallPages @ 0x1405BD9AC (HvlpSetupBootProcessorEarlyHypercallPages.c)
+ *     HvlpTryConfigureInterface @ 0x1405C405C (HvlpTryConfigureInterface.c)
+ *     HvlpDetermineEnlightenments @ 0x1405C4248 (HvlpDetermineEnlightenments.c)
+ *     HvlpPhase0Enlightenments @ 0x1405C4794 (HvlpPhase0Enlightenments.c)
+ *     HviGetHypervisorVersion @ 0x1406E0A60 (HviGetHypervisorVersion.c)
  */
 
 __int64 __fastcall HvlPhase0Initialize(__int64 a1)

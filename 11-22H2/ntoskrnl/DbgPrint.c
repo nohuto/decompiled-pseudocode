@@ -49,5 +49,5 @@ ULONG DbgPrint(PCSTR Format, ...)
   va_list va; // [rsp+58h] [rbp+10h] BYREF
 
   va_start(va, Format);
-  return vDbgPrintExWithPrefixInternal((void *)&Src, va, 1);
+  return vDbgPrintExWithPrefixInternal((void *)&Src, 0x65u, 3u, va, 1);
 }

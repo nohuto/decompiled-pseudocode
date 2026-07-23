@@ -59,7 +59,7 @@ int __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)
   struct _PCW_DATA v43; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING Name; // [rsp+78h] [rbp-90h] BYREF
   struct _PCW_DATA v45; // [rsp+88h] [rbp-80h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+98h] [rbp-70h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+98h] [rbp-70h] BYREF
   struct _PCW_DATA v47; // [rsp+A8h] [rbp-60h] BYREF
   struct _PCW_DATA v48; // [rsp+B8h] [rbp-50h] BYREF
   _QWORD v49[26]; // [rsp+C8h] [rbp-40h] BYREF

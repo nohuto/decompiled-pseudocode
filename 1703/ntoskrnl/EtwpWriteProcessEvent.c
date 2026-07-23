@@ -18,14 +18,14 @@ void __fastcall EtwpWriteProcessEvent(
         PEPROCESS Process,
         __int16 a2,
         _QWORD *a3,
-        int *a4,
+        ULONG_PTR *a4,
         __int64 a5,
         _QWORD *TokenInformation)
 {
   char v6; // r15
   char v11; // si
   __int64 v12; // [rsp+60h] [rbp-158h] BYREF
-  STRING AnsiString; // [rsp+68h] [rbp-150h] BYREF
+  _STRING AnsiString; // [rsp+68h] [rbp-150h] BYREF
   _BYTE v14[32]; // [rsp+78h] [rbp-140h] BYREF
   $5BC46E0569261879018906DEC3127961 v15; // [rsp+A0h] [rbp-118h] BYREF
   __int64 v16[18]; // [rsp+D0h] [rbp-E8h] BYREF

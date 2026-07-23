@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMemoryErrorDeferredRecovery @ 0x1404CFF30
+ * XREFs of HalpMemoryErrorDeferredRecovery @ 0x1404D0170
  * Callers:
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1404C22EC (HalpHvMceConsumedMemoryErrorRecovery.c)
- *     HalpGhesMemoryErrorHandler @ 0x1404CFE38 (HalpGhesMemoryErrorHandler.c)
- *     HalpMceRecoveryNotRequiredAmd @ 0x1404D059C (HalpMceRecoveryNotRequiredAmd.c)
- *     HalpMceRecoveryNotRequiredIntel @ 0x1404D0664 (HalpMceRecoveryNotRequiredIntel.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1404C252C (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpGhesMemoryErrorHandler @ 0x1404D0078 (HalpGhesMemoryErrorHandler.c)
+ *     HalpMceRecoveryNotRequiredAmd @ 0x1404D07DC (HalpMceRecoveryNotRequiredAmd.c)
+ *     HalpMceRecoveryNotRequiredIntel @ 0x1404D08A4 (HalpMceRecoveryNotRequiredIntel.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpHvSetMachineCheckRecoveryState @ 0x1404C2C20 (HalpHvSetMachineCheckRecoveryState.c)
- *     WheaRequestDeferredRecovery @ 0x1405BD0B0 (WheaRequestDeferredRecovery.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x1404C2E60 (HalpHvSetMachineCheckRecoveryState.c)
+ *     WheaRequestDeferredRecovery @ 0x1405BD2E0 (WheaRequestDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpMemoryErrorDeferredRecovery(
@@ -49,12 +49,12 @@ LABEL_12:
     }
     if ( a3 )
     {
-      if ( !qword_140C4A200 )
+      if ( !qword_140C4A240 )
       {
         v13 = -1073741823;
         goto LABEL_10;
       }
-      v14 = qword_140C4A200(a3);
+      v14 = qword_140C4A240(a3);
     }
     else
     {

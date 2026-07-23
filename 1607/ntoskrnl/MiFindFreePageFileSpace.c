@@ -1,23 +1,23 @@
 /*
- * XREFs of MiFindFreePageFileSpace @ 0x1400B65FC
+ * XREFs of MiFindFreePageFileSpace @ 0x1400B4424
  * Callers:
- *     MiReservePageFileSpace @ 0x14001E5D0 (MiReservePageFileSpace.c)
- *     MiGetKernelStackSwapSupport @ 0x1400B62C0 (MiGetKernelStackSwapSupport.c)
- *     MiTrimUnusedPageFileRegionsApc @ 0x14010F220 (MiTrimUnusedPageFileRegionsApc.c)
- *     MiFindPageFileWriteCluster @ 0x140125A40 (MiFindPageFileWriteCluster.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x140663480 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiReservePageFileSpace @ 0x14001E150 (MiReservePageFileSpace.c)
+ *     MiGetKernelStackSwapSupport @ 0x1400B40E8 (MiGetKernelStackSwapSupport.c)
+ *     MiTrimUnusedPageFileRegionsApc @ 0x14010F784 (MiTrimUnusedPageFileRegionsApc.c)
+ *     MiFindPageFileWriteCluster @ 0x140125FB0 (MiFindPageFileWriteCluster.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x140663564 (MiReserveWorkingSetSwapSpaceRuns.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     MiPageFileLargestBitmapsRun @ 0x1400B6548 (MiPageFileLargestBitmapsRun.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x1400B6934 (MiInvalidatePageFileBitmapsCache.c)
- *     MiCheckHintedPageFileSpace @ 0x1400B6BF0 (MiCheckHintedPageFileSpace.c)
- *     MiFindFreePageFileSpaceForward @ 0x14010F110 (MiFindFreePageFileSpaceForward.c)
- *     MiSetPageFileAllocationBits @ 0x1401118C8 (MiSetPageFileAllocationBits.c)
- *     MiRescanPagefileBitmaps @ 0x140142BA4 (MiRescanPagefileBitmaps.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiTransferSoftwarePte @ 0x1401F299C (MiTransferSoftwarePte.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1400B4370 (MiPageFileLargestBitmapsRun.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1400B475C (MiInvalidatePageFileBitmapsCache.c)
+ *     MiCheckHintedPageFileSpace @ 0x1400B4A18 (MiCheckHintedPageFileSpace.c)
+ *     MiFindFreePageFileSpaceForward @ 0x14010F674 (MiFindFreePageFileSpaceForward.c)
+ *     MiSetPageFileAllocationBits @ 0x140111E2C (MiSetPageFileAllocationBits.c)
+ *     MiRescanPagefileBitmaps @ 0x140143114 (MiRescanPagefileBitmaps.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiTransferSoftwarePte @ 0x1401F27A4 (MiTransferSoftwarePte.c)
  */
 
 __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, _WORD *a2, unsigned __int64 a3, unsigned int a4)

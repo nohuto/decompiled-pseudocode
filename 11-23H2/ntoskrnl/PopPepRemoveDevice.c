@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPepRemoveDevice @ 0x14059FCF0
+ * XREFs of PopPepRemoveDevice @ 0x1405A01E0
  * Callers:
- *     PopPepUnregisterDevice @ 0x14099D928 (PopPepUnregisterDevice.c)
+ *     PopPepUnregisterDevice @ 0x14099DB28 (PopPepUnregisterDevice.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall PopPepRemoveDevice(__int64 *a1)

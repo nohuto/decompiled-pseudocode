@@ -1,15 +1,15 @@
 /*
  * XREFs of EmClientRuleEvaluate @ 0x1403C8598
  * Callers:
- *     PoRegisterPowerSettingCallback @ 0x1403F2E38 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x1403F1CFC (PoRegisterPowerSettingCallback.c)
  * Callees:
- *     EmpEvaluateTargetRule @ 0x140008D9C (EmpEvaluateTargetRule.c)
- *     EmpSearchTargetRuleList @ 0x1400094B0 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x1400094D0 (EmpSearchRuleDatabase.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     EmpEvaluateTargetRule @ 0x140008910 (EmpEvaluateTargetRule.c)
+ *     EmpSearchTargetRuleList @ 0x140009024 (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x140009044 (EmpSearchRuleDatabase.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     EmpAcquirePagingReference @ 0x1403C86B8 (EmpAcquirePagingReference.c)
  *     EmpReleasePagingReference @ 0x1403C874C (EmpReleasePagingReference.c)
  */

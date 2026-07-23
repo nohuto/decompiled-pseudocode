@@ -1,31 +1,35 @@
 /*
- * XREFs of EtwEventSetInformation @ 0x180076090
+ * XREFs of EtwEventSetInformation @ 0x1800760A0
  * Callers:
- *     TraceLoggingRegisterEx @ 0x180075FFC (TraceLoggingRegisterEx.c)
+ *     TraceLoggingRegisterEx @ 0x18007600C (TraceLoggingRegisterEx.c)
  * Callees:
- *     EtwpSetProviderTraits @ 0x1800760E4 (EtwpSetProviderTraits.c)
+ *     EtwpSetProviderTraits @ 0x1800760F4 (EtwpSetProviderTraits.c)
  */
 
-__int64 __fastcall EtwEventSetInformation(__int64 a1, int a2, __int64 a3, int a4)
+ULONG __cdecl EtwEventSetInformation(
+        REGHANDLE RegHandle,
+        EVENT_INFO_CLASS InformationClass,
+        PVOID EventInformation,
+        ULONG InformationLength)
 {
-  int v4; // edx
+  __int32 v4; // edx
 
-  if ( !a2 )
+  if ( !InformationClass )
   {
-    if ( !a4 )
-      return EtwpTrackProviderBinary();
-    return 87LL;
+    if ( !InformationLength )
+      return EtwpTrackProviderBinary(RegHandle);
+    return 87;
   }
-  v4 = a2 - 2;
+  v4 = InformationClass - 2;
   if ( !v4 )
   {
-    if ( a3 && (unsigned int)(a4 - 3) <= 0xFFFC )
-      return EtwpSetProviderTraits(a1, a3, (unsigned __int16)a4);
-    return 87LL;
+    if ( EventInformation && InformationLength - 3 <= 0xFFFC )
+      return EtwpSetProviderTraits(RegHandle, EventInformation, (unsigned __int16)InformationLength);
+    return 87;
   }
   if ( v4 != 1 )
-    return 50LL;
-  if ( !a3 || a4 != 1 )
-    return 87LL;
-  return EtwpUseDescriptorType(a1, a3);
+    return 50;
+  if ( !EventInformation || InformationLength != 1 )
+    return 87;
+  return EtwpUseDescriptorType(RegHandle, EventInformation);
 }

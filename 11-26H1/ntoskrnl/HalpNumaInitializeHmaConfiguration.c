@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpNumaInitializeHmaConfiguration @ 0x140CB1974
+ * XREFs of HalpNumaInitializeHmaConfiguration @ 0x140CB79B4
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140CB3904 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140CB9944 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpNumaParseHmat @ 0x140CB22A0 (HalpNumaParseHmat.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpNumaParseHmat @ 0x140CB82E0 (HalpNumaParseHmat.c)
  */
 
 __int64 __fastcall HalpNumaInitializeHmaConfiguration(__int64 a1)

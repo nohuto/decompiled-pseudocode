@@ -1,23 +1,23 @@
 /*
- * XREFs of IopLiveDumpTraceEventGeneric @ 0x1405A31E4
+ * XREFs of IopLiveDumpTraceEventGeneric @ 0x1405A0124
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14049A8E4 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpAllocateFromIOSpace @ 0x140598D2C (IopLiveDumpAllocateFromIOSpace.c)
- *     IopLiveDumpBufferDumpData @ 0x140599878 (IopLiveDumpBufferDumpData.c)
- *     IopLiveDumpGetCapturePages @ 0x14059B194 (IopLiveDumpGetCapturePages.c)
- *     IopLiveDumpGetCapturePagesNoLock @ 0x14059B284 (IopLiveDumpGetCapturePagesNoLock.c)
- *     IopLiveDumpMarkLoadedModuleList @ 0x14059BD5C (IopLiveDumpMarkLoadedModuleList.c)
- *     IopLiveDumpTraceChunkCRCMismatchWrite @ 0x1405A30B4 (IopLiveDumpTraceChunkCRCMismatchWrite.c)
- *     IopLiveDumpTraceEstimatedPageCountNotAvailable @ 0x1405A316C (IopLiveDumpTraceEstimatedPageCountNotAvailable.c)
- *     IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405A3320 (IopLiveDumpTraceIoCaptureLiveDumpEntry.c)
- *     IopLiveDumpTraceRunPageCountLoop @ 0x1405A33E4 (IopLiveDumpTraceRunPageCountLoop.c)
- *     IopLiveDumpTraceWriteBuffer @ 0x1405A348C (IopLiveDumpTraceWriteBuffer.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1404952D4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x140595CAC (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpBufferDumpData @ 0x1405967F8 (IopLiveDumpBufferDumpData.c)
+ *     IopLiveDumpGetCapturePages @ 0x140598114 (IopLiveDumpGetCapturePages.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x140598204 (IopLiveDumpGetCapturePagesNoLock.c)
+ *     IopLiveDumpMarkLoadedModuleList @ 0x140598CDC (IopLiveDumpMarkLoadedModuleList.c)
+ *     IopLiveDumpTraceChunkCRCMismatchWrite @ 0x14059FFF4 (IopLiveDumpTraceChunkCRCMismatchWrite.c)
+ *     IopLiveDumpTraceEstimatedPageCountNotAvailable @ 0x1405A00AC (IopLiveDumpTraceEstimatedPageCountNotAvailable.c)
+ *     IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405A0260 (IopLiveDumpTraceIoCaptureLiveDumpEntry.c)
+ *     IopLiveDumpTraceRunPageCountLoop @ 0x1405A0324 (IopLiveDumpTraceRunPageCountLoop.c)
+ *     IopLiveDumpTraceWriteBuffer @ 0x1405A03CC (IopLiveDumpTraceWriteBuffer.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     EventDataDescCreateString @ 0x1405A3010 (EventDataDescCreateString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     EventDataDescCreateString @ 0x14059FF50 (EventDataDescCreateString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall IopLiveDumpTraceEventGeneric(const wchar_t *a1, unsigned int a2, const wchar_t **a3, __int64 *a4)

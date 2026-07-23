@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAllocateProcessShadow @ 0x140ABD950
+ * XREFs of MiAllocateProcessShadow @ 0x140ABFF40
  * Callers:
- *     MmInitializeHandBuiltProcess @ 0x140963A54 (MmInitializeHandBuiltProcess.c)
- *     MmCreateProcessAddressSpace @ 0x140ABD3B0 (MmCreateProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x140ABF810 (MmInitializeHandBuiltProcess.c)
+ *     MmCreateProcessAddressSpace @ 0x140ABF9A0 (MmCreateProcessAddressSpace.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiInitializeSelfmap @ 0x14040D5C8 (MiInitializeSelfmap.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiMarkPfnTradable @ 0x1404D5758 (MiMarkPfnTradable.c)
- *     KeMakeUserDirectoryTableBase @ 0x1404D888C (KeMakeUserDirectoryTableBase.c)
- *     MiAllocateTopLevelPage @ 0x140ABD7B0 (MiAllocateTopLevelPage.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiInitializeSelfmap @ 0x14042A4F4 (MiInitializeSelfmap.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiMarkPfnTradable @ 0x1404CEFC8 (MiMarkPfnTradable.c)
+ *     KeMakeUserDirectoryTableBase @ 0x1404D205C (KeMakeUserDirectoryTableBase.c)
+ *     MiAllocateTopLevelPage @ 0x140ABFDA0 (MiAllocateTopLevelPage.c)
  */
 
 __int64 __fastcall MiAllocateProcessShadow(unsigned __int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall MiAllocateProcessShadow(unsigned __int64 a1)
   ProcessPartition = (ULONG *)MiGetProcessPartition(a1);
   if ( (int)MiAcquireNonPagedResources(ProcessPartition, 1uLL, 0LL, 0LL) >= 0 )
   {
-    v6 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, v4, v5);
+    v6 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, v4, v5);
     if ( v6 )
     {
       TopLevelPage = MiAllocateTopLevelPage(a1);

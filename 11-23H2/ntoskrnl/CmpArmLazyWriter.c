@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpArmLazyWriter @ 0x1402E7294
+ * XREFs of CmpArmLazyWriter @ 0x1402E7524
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
- *     CmpEnableLazyFlush @ 0x1403B4858 (CmpEnableLazyFlush.c)
- *     HvpMarkDirty @ 0x140747110 (HvpMarkDirty.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     HvMarkBaseBlockDirty @ 0x14087482C (HvMarkBaseBlockDirty.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402F65DC (CmpRecheckHiveVolumePolicy.c)
+ *     CmpEnableLazyFlush @ 0x1403B4A38 (CmpEnableLazyFlush.c)
+ *     HvpMarkDirty @ 0x140747300 (HvpMarkDirty.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     HvMarkBaseBlockDirty @ 0x140874A6C (HvMarkBaseBlockDirty.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall CmpArmLazyWriter(__int64 a1, unsigned __int64 *a2, char a3)
@@ -101,10 +101,13 @@ LABEL_25:
   }
 LABEL_11:
   KxReleaseSpinLock((volatile signed __int64 *)&v12[2].DueTime);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v13 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

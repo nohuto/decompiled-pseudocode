@@ -1,5 +1,5 @@
 /*
- * XREFs of VfGetVerifiedDriverCount @ 0x1406406F0
+ * XREFs of VfGetVerifiedDriverCount @ 0x1406442D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 VfGetVerifiedDriverCount()
 {
-  return (unsigned int)dword_140F08DA0;
+  return (unsigned int)dword_140F09120;
 }

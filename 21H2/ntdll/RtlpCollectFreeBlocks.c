@@ -5,7 +5,7 @@
  *     RtlpDeCommitFreeBlock @ 0x18001E2D8 (RtlpDeCommitFreeBlock.c)
  * Callees:
  *     RtlpDecommitBlock @ 0x1800208E8 (RtlpDecommitBlock.c)
- *     RtlpAnalyzeHeapFailure @ 0x180107EA4 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180107E64 (RtlpAnalyzeHeapFailure.c)
  */
 
 __int64 __fastcall RtlpCollectFreeBlocks(__int64 a1)
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpCollectFreeBlocks(__int64 a1)
     }
     else
     {
-      result = RtlpDecommitBlock(a1, i - 16);
+      result = RtlpDecommitBlock(a1);
     }
   }
   return result;

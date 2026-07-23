@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTerminateWsle @ 0x140336DB0
+ * XREFs of MiTerminateWsle @ 0x140341B00
  * Callers:
- *     MiRemoveSystemImagePage @ 0x1402C1688 (MiRemoveSystemImagePage.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiRemoveSystemImagePage @ 0x14023FB28 (MiRemoveSystemImagePage.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
  *     MiDeleteEmptyPageTable @ 0x1403F49E0 (MiDeleteEmptyPageTable.c)
  * Callees:
- *     MiUnlockWsle @ 0x14026FC1C (MiUnlockWsle.c)
- *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
- *     MiCountWslesInPageTable @ 0x140285180 (MiCountWslesInPageTable.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiEvictPageTableLock @ 0x14030C620 (MiEvictPageTableLock.c)
- *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x140336D20 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
- *     MiRemoveWsle @ 0x140338FE0 (MiRemoveWsle.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiCountWslesInPageTable @ 0x140202320 (MiCountWslesInPageTable.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiUnlockWsle @ 0x14025DBBC (MiUnlockWsle.c)
+ *     MiGetWsleContents @ 0x14025ECE0 (MiGetWsleContents.c)
+ *     MiEvictPageTableLock @ 0x140317370 (MiEvictPageTableLock.c)
+ *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x140341A70 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
+ *     MiRemoveWsle @ 0x140343D30 (MiRemoveWsle.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -38,32 +38,31 @@ __int64 __fastcall MiTerminateWsle(__int64 a1, unsigned __int64 a2, char a3, int
   __int64 v22; // rax
   __int64 v23; // r9
   __int64 v24; // rcx
-  __int64 v25; // rdx
-  __int64 v26; // rax
-  unsigned __int64 v27; // rdi
-  unsigned __int64 v28; // rbx
+  __int64 v25; // rax
+  unsigned __int64 v26; // rdi
+  unsigned __int64 v27; // rbx
+  struct _LIST_ENTRY *v28; // rax
   __int64 v29; // rdx
-  struct _LIST_ENTRY *v30; // rax
-  __int64 v31; // rax
+  __int64 v30; // rax
   __int64 Process; // rcx
-  __int64 v33; // rdx
-  __int64 v34; // rax
-  __int64 v35; // rdx
-  unsigned __int64 *v36; // rbx
-  char v37; // cl
-  int v38; // r8d
-  unsigned __int64 v41; // [rsp+40h] [rbp-78h] BYREF
-  int *v42; // [rsp+48h] [rbp-70h]
-  _OWORD v43[2]; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v32; // rdx
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  unsigned __int64 *v35; // rbx
+  char v36; // cl
+  int v37; // r8d
+  unsigned __int64 v40; // [rsp+40h] [rbp-78h] BYREF
+  int *v41; // [rsp+48h] [rbp-70h]
+  _OWORD v42[2]; // [rsp+50h] [rbp-68h] BYREF
 
   v4 = 1;
-  v42 = a4;
+  v41 = a4;
   v6 = 10;
   v7 = 1;
   v8 = 0;
   v9 = (volatile __int64 *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v10 = *v9;
-  v11 = MiPteInShadowRange(v9, a2);
+  v11 = MiPteInShadowRange(v9);
   if ( v11 && (unsigned int)MiPteHasShadow() && (v10 & 1) != 0 && ((v10 & 0x20) == 0 || (v10 & 0x42) == 0) )
   {
     Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
@@ -122,7 +121,7 @@ LABEL_15:
     {
       if ( !(unsigned int)MiEvictPageTableLock(v17, (unsigned __int64)v9, ZeroPte, 0) )
       {
-        *v42 = 0;
+        *v41 = 0;
         return 0LL;
       }
       v8 = 1;
@@ -131,64 +130,64 @@ LABEL_15:
   MiRemoveWsle(v17, a2, 1, WsleContents, v6, v7);
   if ( v4 )
   {
-    v26 = (a2 >> 18) & 0x3FFFFFF8;
-    v27 = (unsigned int)(v26 + 0x40000000);
-    v28 = *(_QWORD *)(v26 - 0x904C0000000LL);
-    if ( (unsigned int)MiPteInShadowRange(v26 - 0x904C0000000LL, v25)
+    v25 = (a2 >> 18) & 0x3FFFFFF8;
+    v26 = (unsigned int)(v25 + 0x40000000);
+    v27 = *(_QWORD *)(v25 - 0x904C0000000LL);
+    if ( (unsigned int)MiPteInShadowRange(v25 - 0x904C0000000LL)
       && (unsigned int)MiPteHasShadow()
-      && (v28 & 1) != 0
-      && ((v28 & 0x20) == 0 || (v28 & 0x42) == 0) )
+      && (v27 & 1) != 0
+      && ((v27 & 0x20) == 0 || (v27 & 0x42) == 0) )
     {
-      v30 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-      if ( v30 )
+      v28 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v28 )
       {
-        v29 = v28 | 0x20;
-        v31 = *((_QWORD *)&v30->Flink + ((v27 >> 3) & 0x1FF));
-        if ( (v31 & 0x20) == 0 )
-          v29 = v28;
-        v28 = v29;
-        if ( (v31 & 0x42) != 0 )
-          v28 = v29 | 0x42;
+        v29 = v27 | 0x20;
+        v30 = *((_QWORD *)&v28->Flink + ((v26 >> 3) & 0x1FF));
+        if ( (v30 & 0x20) == 0 )
+          v29 = v27;
+        v27 = v29;
+        if ( (v30 & 0x42) != 0 )
+          v27 = v29 | 0x42;
       }
     }
-    v41 = v28;
-    if ( (unsigned int)MiPteInShadowRange(&v41, v29)
+    v40 = v27;
+    if ( (unsigned int)MiPteInShadowRange(&v40)
       && (unsigned int)MiPteHasShadow()
-      && (v28 & 1) != 0
-      && ((v28 & 0x20) == 0 || (v28 & 0x42) == 0) )
+      && (v27 & 1) != 0
+      && ((v27 & 0x20) == 0 || (v27 & 0x42) == 0) )
     {
       Process = (__int64)KeGetCurrentThread()->ApcState.Process;
-      v33 = *(_QWORD *)(Process + 1928);
-      if ( v33 )
+      v32 = *(_QWORD *)(Process + 1928);
+      if ( v32 )
       {
-        v34 = *(_QWORD *)(v33 + 8 * (((unsigned __int64)&v41 >> 3) & 0x1FF));
-        v35 = v28 | 0x20;
-        Process = (unsigned __int8)v34;
-        LOBYTE(Process) = v34 & 0x20;
-        if ( (v34 & 0x20) == 0 )
-          v35 = v28;
-        v28 = v35;
-        if ( (v34 & 0x42) != 0 )
-          v28 = v35 | 0x42;
+        v33 = *(_QWORD *)(v32 + 8 * (((unsigned __int64)&v40 >> 3) & 0x1FF));
+        v34 = v27 | 0x20;
+        Process = (unsigned __int8)v33;
+        LOBYTE(Process) = v33 & 0x20;
+        if ( (v33 & 0x20) == 0 )
+          v34 = v27;
+        v27 = v34;
+        if ( (v33 & 0x42) != 0 )
+          v27 = v34 | 0x42;
       }
     }
-    v36 = (unsigned __int64 *)(48 * ((v28 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
-    if ( ((*(_DWORD *)v36 >> 4) & 0x3FF) == 0 )
+    v35 = (unsigned __int64 *)(48 * ((v27 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+    if ( ((*(_DWORD *)v35 >> 4) & 0x3FF) == 0 )
     {
-      MiCountWslesInPageTable(Process, a2, v43);
-      v37 = 8;
+      MiCountWslesInPageTable(Process, a2, v42);
+      v36 = 8;
       while ( 1 )
       {
-        v38 = *((_DWORD *)v43 + (unsigned __int8)--v37);
-        if ( v38 )
+        v37 = *((_DWORD *)v42 + (unsigned __int8)--v36);
+        if ( v37 )
           break;
-        if ( !v37 )
+        if ( !v36 )
           goto LABEL_61;
       }
-      *v36 = *v36 & 0xFFFFFFFFFFFE000FuLL | (16 * (v38 & 0x3FF | ((unsigned __int64)(v37 & 7) << 10)));
+      *v35 = *v35 & 0xFFFFFFFFFFFE000FuLL | (16 * (v37 & 0x3FF | ((unsigned __int64)(v36 & 7) << 10)));
     }
   }
 LABEL_61:
-  *v42 = v8;
+  *v41 = v8;
   return 1LL;
 }

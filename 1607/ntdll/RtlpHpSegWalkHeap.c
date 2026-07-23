@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpSegWalkHeap @ 0x18004DEFC
+ * XREFs of RtlpHpSegWalkHeap @ 0x18004DEEC
  * Callers:
- *     RtlpWalkHeapInternal @ 0x18004D364 (RtlpWalkHeapInternal.c)
+ *     RtlpWalkHeapInternal @ 0x18004D354 (RtlpWalkHeapInternal.c)
  * Callees:
- *     RtlpHpSegDescriptorValidate @ 0x180043604 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpSegReportBusyBlock @ 0x18004E1D8 (RtlpHpSegReportBusyBlock.c)
- *     RtlpHpVsSubsegmentWalk @ 0x18004E298 (RtlpHpVsSubsegmentWalk.c)
- *     RtlpHpLfhSubsegmentWalk @ 0x18004E860 (RtlpHpLfhSubsegmentWalk.c)
- *     RtlpHpSegReportSegment @ 0x180050EE8 (RtlpHpSegReportSegment.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1800435F4 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpSegReportBusyBlock @ 0x18004E1C8 (RtlpHpSegReportBusyBlock.c)
+ *     RtlpHpVsSubsegmentWalk @ 0x18004E288 (RtlpHpVsSubsegmentWalk.c)
+ *     RtlpHpLfhSubsegmentWalk @ 0x18004E850 (RtlpHpLfhSubsegmentWalk.c)
+ *     RtlpHpSegReportSegment @ 0x180050ED8 (RtlpHpSegReportSegment.c)
  *     RtlpHpSegReportPageRange @ 0x1800FA0D4 (RtlpHpSegReportPageRange.c)
  */
 

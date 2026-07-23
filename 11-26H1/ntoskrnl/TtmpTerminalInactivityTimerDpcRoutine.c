@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpTerminalInactivityTimerDpcRoutine @ 0x140614480
+ * XREFs of TtmpTerminalInactivityTimerDpcRoutine @ 0x1406172C0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall TtmpTerminalInactivityTimerDpcRoutine(
@@ -12,8 +12,6 @@ void __fastcall TtmpTerminalInactivityTimerDpcRoutine(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  if ( _InterlockedIncrement((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.SavedApcStateFill[8]) == 1 )
-    ExQueueWorkItem(
-      (PWORK_QUEUE_ITEM)&PsAltSystemCallRegistrationLock.SuspendEvent.Header.WaitListHead,
-      DelayedWorkQueue);
+  if ( _InterlockedIncrement((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.ReadTransferCount) == 1 )
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)&PsAltSystemCallRegistrationLock.SchedulerApcFill5[72], DelayedWorkQueue);
 }

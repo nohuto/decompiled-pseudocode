@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbGetPathCustomSdb @ 0x14088645C
+ * XREFs of SdbGetPathCustomSdb @ 0x14088C85C
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140886554 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x14088C954 (SdbResolveDatabaseEx.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SdbpGetCustomSdbFileName @ 0x1408868B4 (SdbpGetCustomSdbFileName.c)
- *     SdbpGetSystemSdbFilePath @ 0x140886F14 (SdbpGetSystemSdbFilePath.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SdbpGetCustomSdbFileName @ 0x14088CCB4 (SdbpGetCustomSdbFileName.c)
+ *     SdbpGetSystemSdbFilePath @ 0x14088D314 (SdbpGetSystemSdbFilePath.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 _BOOL8 __fastcall SdbGetPathCustomSdb(int a1, __int64 a2, __int64 a3, __int64 a4)

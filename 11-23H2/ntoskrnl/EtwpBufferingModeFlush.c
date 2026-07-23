@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwpBufferingModeFlush @ 0x1408A7A28
+ * XREFs of EtwpBufferingModeFlush @ 0x1408A7C78
  * Callers:
- *     EtwpFlushTrace @ 0x1407F59F8 (EtwpFlushTrace.c)
+ *     EtwpFlushTrace @ 0x1407F5CC8 (EtwpFlushTrace.c)
  * Callees:
- *     EtwpLockUnlockBufferList @ 0x1402278C4 (EtwpLockUnlockBufferList.c)
- *     EtwpPrepareDirtyBuffer @ 0x140227B88 (EtwpPrepareDirtyBuffer.c)
- *     EtwpQueryUsedProcessorCount @ 0x140228124 (EtwpQueryUsedProcessorCount.c)
- *     EtwpGetEnableInfoIndex @ 0x140228648 (EtwpGetEnableInfoIndex.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpBufferingModeCompressionFlush @ 0x1406020F8 (EtwpBufferingModeCompressionFlush.c)
- *     EtwpFlushBufferToLogfile @ 0x1406BB3D0 (EtwpFlushBufferToLogfile.c)
- *     EtwpWaitForBufferReferenceCount @ 0x1406BD91C (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBuffer @ 0x1406BD950 (EtwpFlushBuffer.c)
- *     EtwpPrepareHeader @ 0x1406BDA3C (EtwpPrepareHeader.c)
- *     EtwpFindGuidEntryByGuid @ 0x1406BF820 (EtwpFindGuidEntryByGuid.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     EtwpSendDataBlock @ 0x140780FF0 (EtwpSendDataBlock.c)
- *     EtwpFinalizeHeader @ 0x1407F5E38 (EtwpFinalizeHeader.c)
- *     EtwpCreateLogFile @ 0x1407F66D0 (EtwpCreateLogFile.c)
- *     EtwpFindAndLockBufferForFlushing @ 0x1408A80A4 (EtwpFindAndLockBufferForFlushing.c)
+ *     EtwpLockUnlockBufferList @ 0x1402279D4 (EtwpLockUnlockBufferList.c)
+ *     EtwpPrepareDirtyBuffer @ 0x140227C98 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140228234 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpGetEnableInfoIndex @ 0x140228758 (EtwpGetEnableInfoIndex.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x140602648 (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpFlushBufferToLogfile @ 0x1406BB400 (EtwpFlushBufferToLogfile.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x1406BD94C (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFlushBuffer @ 0x1406BD980 (EtwpFlushBuffer.c)
+ *     EtwpPrepareHeader @ 0x1406BDA6C (EtwpPrepareHeader.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406BF850 (EtwpFindGuidEntryByGuid.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     EtwpSendDataBlock @ 0x1407811E0 (EtwpSendDataBlock.c)
+ *     EtwpFinalizeHeader @ 0x1407F6108 (EtwpFinalizeHeader.c)
+ *     EtwpCreateLogFile @ 0x1407F69A0 (EtwpCreateLogFile.c)
+ *     EtwpFindAndLockBufferForFlushing @ 0x1408A82F4 (EtwpFindAndLockBufferForFlushing.c)
  */
 
 __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)
@@ -106,7 +106,7 @@ __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)
   {
     memset(v60, 0, sizeof(v60));
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    GuidEntryByGuid = EtwpFindGuidEntryByGuid(CurrentServerSiloGlobals[108], qword_140015150, 0);
+    GuidEntryByGuid = EtwpFindGuidEntryByGuid(CurrentServerSiloGlobals[108], qword_140015140, 0);
     v9 = (__int64)GuidEntryByGuid;
     if ( GuidEntryByGuid )
     {

@@ -1,15 +1,15 @@
 /*
- * XREFs of MmAllocateNonChargedSecurePages @ 0x14053430C
+ * XREFs of MmAllocateNonChargedSecurePages @ 0x14053454C
  * Callers:
- *     PspIumReplenishPartitionPages @ 0x140583F78 (PspIumReplenishPartitionPages.c)
+ *     PspIumReplenishPartitionPages @ 0x1405841A8 (PspIumReplenishPartitionPages.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     MiInitializeMdlPfn @ 0x1402E37C4 (MiInitializeMdlPfn.c)
- *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
- *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     MiInitializeMdlPfn @ 0x140294B14 (MiInitializeMdlPfn.c)
+ *     MiPartitionObjectToPartition @ 0x1402972D0 (MiPartitionObjectToPartition.c)
+ *     MiGetSlabPage @ 0x14029938C (MiGetSlabPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

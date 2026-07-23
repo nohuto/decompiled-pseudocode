@@ -8,12 +8,17 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __stdcall LdrFindResourceEx_U(int a1, int a2, int a3, unsigned int a4, int **a5)
+NTSTATUS __cdecl LdrFindResourceEx_U(
+        ULONG Flags,
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
   int v5; // edi
   int v6; // eax
   int v7; // esi
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   int v10; // eax
 
   v5 = 2147353477;
@@ -30,7 +35,7 @@ int __stdcall LdrFindResourceEx_U(int a1, int a2, int a3, unsigned int a4, int *
       v10 = 2147353476;
     LdrpTraceLoadMUIDll(&dword_4B281BE8, *(unsigned __int8 *)v10);
   }
-  v8 = LdrpSearchResourceSection_U(a2, a3, a4, a1, a5);
+  v8 = LdrpSearchResourceSection_U(DllHandle, (int)ResourceInfo, Level, Flags, (int)ResourceDataEntry);
   if ( RtlGetCurrentServiceSessionId() )
     v5 = (int)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v5 & 1) != 0 )

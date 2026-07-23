@@ -7,17 +7,16 @@
  *     memset @ 0x140411300 (memset.c)
  */
 
-__int64 RtlResetRtlTranslations()
+void __cdecl RtlResetRtlTranslations(PNLSTABLEINFO TableInfo)
 {
   USHORT CodePage; // di
   USHORT DBCSCodePage; // si
-  unsigned __int16 *v2; // rcx
-  __int64 v3; // rbp
-  __int16 *v4; // rcx
-  USHORT v5; // di
+  unsigned __int16 *v3; // rcx
+  __int64 v4; // rbp
+  __int16 *v5; // rcx
+  USHORT v6; // di
   PVOID WideCharTable; // rax
-  bool v7; // bl
-  __int64 result; // rax
+  bool v8; // bl
   PUSHORT DBCSOffsets; // rax
   __int64 v10; // rdx
   __int128 v11; // xmm1
@@ -26,7 +25,7 @@ __int64 RtlResetRtlTranslations()
 
   if ( CodePageTable.CodePage == 0xFDE9 || (CodePage = InitTableInfo.CodePage, InitTableInfo.CodePage == 0xFDE9) )
   {
-    v7 = 0;
+    v8 = 0;
     NlsAnsiCodePage = -535;
     LOBYTE(NlsMbCodePageTag) = 0;
     WideCharTable = 0LL;
@@ -43,8 +42,8 @@ __int64 RtlResetRtlTranslations()
   else
   {
     DBCSCodePage = CodePageTable.DBCSCodePage;
-    v2 = NlsLeadByteInfoTable;
-    v3 = 4LL;
+    v3 = NlsLeadByteInfoTable;
+    v4 = 4LL;
     NlsAnsiCodePage = CodePageTable.CodePage;
     if ( CodePageTable.DBCSCodePage )
     {
@@ -52,17 +51,17 @@ __int64 RtlResetRtlTranslations()
       v10 = 4LL;
       do
       {
-        *(_OWORD *)v2 = *(_OWORD *)DBCSOffsets;
-        *((_OWORD *)v2 + 1) = *((_OWORD *)DBCSOffsets + 1);
-        *((_OWORD *)v2 + 2) = *((_OWORD *)DBCSOffsets + 2);
-        *((_OWORD *)v2 + 3) = *((_OWORD *)DBCSOffsets + 3);
-        *((_OWORD *)v2 + 4) = *((_OWORD *)DBCSOffsets + 4);
-        *((_OWORD *)v2 + 5) = *((_OWORD *)DBCSOffsets + 5);
-        *((_OWORD *)v2 + 6) = *((_OWORD *)DBCSOffsets + 6);
-        v2 += 64;
+        *(_OWORD *)v3 = *(_OWORD *)DBCSOffsets;
+        *((_OWORD *)v3 + 1) = *((_OWORD *)DBCSOffsets + 1);
+        *((_OWORD *)v3 + 2) = *((_OWORD *)DBCSOffsets + 2);
+        *((_OWORD *)v3 + 3) = *((_OWORD *)DBCSOffsets + 3);
+        *((_OWORD *)v3 + 4) = *((_OWORD *)DBCSOffsets + 4);
+        *((_OWORD *)v3 + 5) = *((_OWORD *)DBCSOffsets + 5);
+        *((_OWORD *)v3 + 6) = *((_OWORD *)DBCSOffsets + 6);
+        v3 += 64;
         v11 = *((_OWORD *)DBCSOffsets + 7);
         DBCSOffsets += 64;
-        *((_OWORD *)v2 - 1) = v11;
+        *((_OWORD *)v3 - 1) = v11;
         --v10;
       }
       while ( v10 );
@@ -71,11 +70,11 @@ __int64 RtlResetRtlTranslations()
     {
       memset(NlsLeadByteInfoTable, 0, sizeof(NlsLeadByteInfoTable));
     }
-    v4 = NlsOemLeadByteInfoTable;
+    v5 = NlsOemLeadByteInfoTable;
     NlsMbAnsiCodePageTables = (__int64)CodePageTable.DBCSOffsets;
     NlsOemCodePage = CodePage;
     LOBYTE(NlsMbCodePageTag) = DBCSCodePage != 0;
-    v5 = InitTableInfo.DBCSCodePage;
+    v6 = InitTableInfo.DBCSCodePage;
     NlsAnsiToUnicodeData = (__int64)CodePageTable.MultiByteTable;
     NlsUnicodeToAnsiData = (__int64)CodePageTable.WideCharTable;
     NlsUnicodeToMbAnsiData = (__int64)CodePageTable.WideCharTable;
@@ -85,20 +84,20 @@ __int64 RtlResetRtlTranslations()
       v12 = InitTableInfo.DBCSOffsets;
       do
       {
-        *(_OWORD *)v4 = *(_OWORD *)v12;
-        *((_OWORD *)v4 + 1) = *((_OWORD *)v12 + 1);
-        *((_OWORD *)v4 + 2) = *((_OWORD *)v12 + 2);
-        *((_OWORD *)v4 + 3) = *((_OWORD *)v12 + 3);
-        *((_OWORD *)v4 + 4) = *((_OWORD *)v12 + 4);
-        *((_OWORD *)v4 + 5) = *((_OWORD *)v12 + 5);
-        *((_OWORD *)v4 + 6) = *((_OWORD *)v12 + 6);
-        v4 += 64;
+        *(_OWORD *)v5 = *(_OWORD *)v12;
+        *((_OWORD *)v5 + 1) = *((_OWORD *)v12 + 1);
+        *((_OWORD *)v5 + 2) = *((_OWORD *)v12 + 2);
+        *((_OWORD *)v5 + 3) = *((_OWORD *)v12 + 3);
+        *((_OWORD *)v5 + 4) = *((_OWORD *)v12 + 4);
+        *((_OWORD *)v5 + 5) = *((_OWORD *)v12 + 5);
+        *((_OWORD *)v5 + 6) = *((_OWORD *)v12 + 6);
+        v5 += 64;
         v13 = *((_OWORD *)v12 + 7);
         v12 += 64;
-        *((_OWORD *)v4 - 1) = v13;
-        --v3;
+        *((_OWORD *)v5 - 1) = v13;
+        --v4;
       }
-      while ( v3 );
+      while ( v4 );
     }
     else
     {
@@ -108,15 +107,13 @@ __int64 RtlResetRtlTranslations()
     NlsOemToUnicodeData = (__int64)InitTableInfo.MultiByteTable;
     WideCharTable = InitTableInfo.WideCharTable;
     NlsOemCodePageIsUTF8 = 0;
-    v7 = v5 != 0;
+    v8 = v6 != 0;
   }
   NlsUnicodeToOemData = (__int64)WideCharTable;
   NlsUnicodeToMbOemData = (__int64)WideCharTable;
   OemDefaultChar = InitTableInfo.DefaultChar;
   OemTransUniDefaultChar = InitTableInfo.TransDefaultChar;
-  result = *((_QWORD *)&xmmword_140D58930 + 1);
   Nls844UnicodeUpcaseTable = xmmword_140D58930;
-  LOBYTE(NlsMbOemCodePageTag) = v7;
+  LOBYTE(NlsMbOemCodePageTag) = v8;
   Nls844UnicodeLowercaseTable = *((_QWORD *)&xmmword_140D58930 + 1);
-  return result;
 }

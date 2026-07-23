@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSuspendClockTimerSafe @ 0x14056FAD0
+ * XREFs of KeSuspendClockTimerSafe @ 0x140570010
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x140A9C300 (IopLiveDumpProcessCorralStateChange.c)
- *     PnprQuiesceProcessorDpc @ 0x140A9D480 (PnprQuiesceProcessorDpc.c)
- *     PnprQuiesceProcessors @ 0x140A9D904 (PnprQuiesceProcessors.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x140A9C170 (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9D2F0 (PnprQuiesceProcessorDpc.c)
+ *     PnprQuiesceProcessors @ 0x140A9D774 (PnprQuiesceProcessors.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 KeSuspendClockTimerSafe()
@@ -46,7 +46,7 @@ __int64 KeSuspendClockTimerSafe()
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xDuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 13 )
@@ -67,10 +67,10 @@ __int64 KeSuspendClockTimerSafe()
       ++dword_140C41B28;
     if ( v3->ClockOwner )
       v3->ClockOwner = 0;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v5 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
       {
         v6 = KeGetCurrentPrcb();
         v7 = v6->SchedulerAssist;

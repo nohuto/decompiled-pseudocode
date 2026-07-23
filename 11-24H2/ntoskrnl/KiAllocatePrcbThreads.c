@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAllocatePrcbThreads @ 0x1405B5BB8
+ * XREFs of KiAllocatePrcbThreads @ 0x1405B2E80
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     KiAllocateDpcDelegateThread @ 0x1405B5908 (KiAllocateDpcDelegateThread.c)
- *     KiAllocateSmtIsolationThread @ 0x1405C2AE4 (KiAllocateSmtIsolationThread.c)
+ *     KiAllocateDpcDelegateThread @ 0x1405B2BD0 (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateSmtIsolationThread @ 0x1405C00B4 (KiAllocateSmtIsolationThread.c)
  */
 
 __int64 __fastcall KiAllocatePrcbThreads(__int64 a1, __int64 a2, int a3, int a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryActiveProcessorAffinity @ 0x140144374
+ * XREFs of KeQueryActiveProcessorAffinity @ 0x1401448E4
  * Callers:
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x140569DD0 (PpmCheckInitProcessors.c)
- *     PpmInstallPlatformIdleStates @ 0x14066B0C8 (PpmInstallPlatformIdleStates.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
+ *     PpmCheckInitProcessors @ 0x14056A310 (PpmCheckInitProcessors.c)
+ *     PpmInstallPlatformIdleStates @ 0x14066B1AC (PpmInstallPlatformIdleStates.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
  */
 
 __int64 __fastcall KeQueryActiveProcessorAffinity(__int64 a1)

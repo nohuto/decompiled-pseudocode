@@ -1,24 +1,24 @@
 /*
- * XREFs of MmUnmapReservedMapping @ 0x14061E910
+ * XREFs of MmUnmapReservedMapping @ 0x14061EE60
  * Callers:
- *     sub_1403F1A00 @ 0x1403F1A00 (sub_1403F1A00.c)
- *     HalpDmaReleaseBufferMappings @ 0x14045C7D8 (HalpDmaReleaseBufferMappings.c)
- *     SmFpFree @ 0x1404660A8 (SmFpFree.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140510E48 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140511524 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     PnprCopyReservedMapping @ 0x140562BAC (PnprCopyReservedMapping.c)
- *     PnprSwap @ 0x1405634DC (PnprSwap.c)
- *     PspIumFreePhysicalPages @ 0x1405A6050 (PspIumFreePhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1409EDA44 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140A9CCE8 (PnprMapPhysicalPages.c)
+ *     sub_1403F1BE0 @ 0x1403F1BE0 (sub_1403F1BE0.c)
+ *     HalpDmaReleaseBufferMappings @ 0x14045CBD8 (HalpDmaReleaseBufferMappings.c)
+ *     SmFpFree @ 0x1404664A8 (SmFpFree.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x140511398 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140511A74 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     PnprCopyReservedMapping @ 0x14056326C (PnprCopyReservedMapping.c)
+ *     PnprSwap @ 0x140563B9C (PnprSwap.c)
+ *     PspIumFreePhysicalPages @ 0x1405A65C0 (PspIumFreePhysicalPages.c)
+ *     EtwpSavePersistedLogger @ 0x1409EDCD4 (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x140A9CB58 (PnprMapPhysicalPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRetardMdl @ 0x14061C9C0 (MiRetardMdl.c)
- *     MiUnmapMdlCommon @ 0x14061E1D8 (MiUnmapMdlCommon.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiRetardMdl @ 0x14061CF10 (MiRetardMdl.c)
+ *     MiUnmapMdlCommon @ 0x14061E728 (MiUnmapMdlCommon.c)
  */
 
 void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL MemoryDescriptorList)
@@ -70,10 +70,13 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
   if ( !v8 )
     KeBugCheckEx(0xDAu, 0x106uLL, v5, v3, 2uLL);
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C684C0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v10 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

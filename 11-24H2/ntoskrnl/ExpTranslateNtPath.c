@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpTranslateNtPath @ 0x1407BD4F4
+ * XREFs of ExpTranslateNtPath @ 0x1407BD944
  * Callers:
- *     ExpConvertArcName @ 0x1407BB504 (ExpConvertArcName.c)
- *     NtTranslateFilePath @ 0x140964F50 (NtTranslateFilePath.c)
+ *     ExpConvertArcName @ 0x1407BB954 (ExpConvertArcName.c)
+ *     NtTranslateFilePath @ 0x14094D9E0 (NtTranslateFilePath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1406A64F0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpCreateOutputARC @ 0x1407BB90C (ExpCreateOutputARC.c)
- *     ExpCreateOutputSIGNATURE @ 0x1407BBA04 (ExpCreateOutputSIGNATURE.c)
- *     ExpTranslateSymbolicLink @ 0x140A63CA4 (ExpTranslateSymbolicLink.c)
- *     ExpCreateOutputEFI @ 0x140A64A94 (ExpCreateOutputEFI.c)
- *     BcdEnumerateDisks @ 0x140A9A084 (BcdEnumerateDisks.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1406A7490 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpCreateOutputARC @ 0x1407BBD5C (ExpCreateOutputARC.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1407BBE54 (ExpCreateOutputSIGNATURE.c)
+ *     ExpTranslateSymbolicLink @ 0x140A5C5A4 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputEFI @ 0x140A5D394 (ExpCreateOutputEFI.c)
+ *     BcdEnumerateDisks @ 0x140A955F0 (BcdEnumerateDisks.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, _DWORD *a3, unsigned int *a4)
+int __fastcall ExpTranslateNtPath(__int64 a1, int a2, _DWORD *a3, unsigned int *a4)
 {
   int v5; // esi
   const WCHAR *v8; // rbx
@@ -27,7 +27,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, _DWORD *a3, unsigned 
   unsigned __int64 v11; // rdx
   __int64 v12; // rax
   wchar_t *v13; // r14
-  NTSTATUS result; // eax
+  int result; // eax
   wchar_t *Buffer; // rbx
   int OutputARC; // esi
   NTSTATUS v17; // ebx
@@ -36,8 +36,8 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, _DWORD *a3, unsigned 
   _DWORD *v20; // rbx
   NTSTATUS v21; // r15d
   __int64 v22; // rcx
-  int *v23; // rbx
-  int v24; // eax
+  GUID *v23; // rbx
+  unsigned int v24; // eax
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
   __int128 v26; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
@@ -48,7 +48,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, _DWORD *a3, unsigned 
   __int64 v32; // [rsp+D8h] [rbp-28h] BYREF
   __int64 v33; // [rsp+E0h] [rbp-20h] BYREF
   unsigned int v34[6]; // [rsp+E8h] [rbp-18h] BYREF
-  int v35; // [rsp+100h] [rbp+0h] BYREF
+  char v35; // [rsp+100h] [rbp+0h] BYREF
   int v36; // [rsp+1A0h] [rbp+A0h] BYREF
   int v37; // [rsp+1A8h] [rbp+A8h]
 
@@ -91,7 +91,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, _DWORD *a3, unsigned 
       {
         for ( OutputBufferLength = 2352; ; OutputBufferLength *= 2 )
         {
-          Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+          Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, OutputBufferLength, 0x72766E45u);
           v20 = Pool2;
           if ( !Pool2 )
             break;
@@ -129,15 +129,15 @@ LABEL_24:
         ZwClose(FileHandle);
         if ( OutputBuffer[0] == 1 )
         {
-          v23 = &v35;
+          v23 = (GUID *)&v35;
         }
         else
         {
-          v23 = &v36;
+          v23 = (GUID *)&v36;
           v9 = 0;
         }
         if ( v5 != 4 )
-          return ExpCreateOutputSIGNATURE((__int64)a3, a4, (unsigned int *)v23, v34, &v32, &v33, v13, v9);
+          return ExpCreateOutputSIGNATURE((__int64)a3, a4, v23, v34, &v32, &v33, v13, v9);
         if ( v9 )
         {
           v28 = (unsigned __int64)v23;

@@ -108,11 +108,11 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v67; // rdx
   __int64 v68; // r9
   unsigned int v69; // ecx
-  char *v70; // r9
-  __int64 v71; // rdi
+  _SID_AND_ATTRIBUTES *v70; // r9
+  _SID_AND_ATTRIBUTES *v71; // rdi
   __int64 v72; // r14
   struct _KTHREAD *v73; // rax
-  PSID Src; // rdi
+  PSID v74; // rdi
   char v75; // r15
   ULONG TokenAccessInformationBufferSize; // eax
   __int64 v77; // r9
@@ -143,7 +143,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v102; // rdx
   __int64 v103; // r9
   struct _KTHREAD *v104; // rax
-  __int64 v105; // rdx
+  unsigned __int8 *Sid; // rdx
   unsigned int v106; // eax
   NTSTATUS MandatoryPolicyToken; // ebx
   PVOID v108; // rcx
@@ -160,7 +160,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   struct _ERESOURCE *v119; // rcx
   struct _KTHREAD *v120; // rax
   __int64 v121; // rdx
-  unsigned int v122; // r11d
+  ULONG v122; // r11d
   ULONG v123; // r8d
   __int64 v124; // rdx
   __int64 v125; // r9
@@ -183,11 +183,11 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v142; // rdx
   size_t v143; // r8
   const void *v144; // rdx
-  PSID v145; // [rsp+20h] [rbp-188h]
+  PSID SidArea; // [rsp+20h] [rbp-188h]
   __int64 v146; // [rsp+80h] [rbp-128h] BYREF
   PVOID Object; // [rsp+88h] [rbp-120h] BYREF
   PSID DestinationSid; // [rsp+90h] [rbp-118h] BYREF
-  __int64 v149; // [rsp+98h] [rbp-110h] BYREF
+  PSID RemainingSidArea; // [rsp+98h] [rbp-110h] BYREF
   int v150; // [rsp+A0h] [rbp-108h] BYREF
   NTSTATUS SecurityAttributesToken; // [rsp+A4h] [rbp-104h]
   int v152; // [rsp+A8h] [rbp-100h] BYREF
@@ -207,8 +207,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int128 v166; // [rsp+100h] [rbp-A8h]
   __int128 v167; // [rsp+110h] [rbp-98h] BYREF
   char *v168; // [rsp+120h] [rbp-88h]
-  __int64 v169; // [rsp+128h] [rbp-80h]
-  __int128 v170; // [rsp+130h] [rbp-78h] BYREF
+  _SID_AND_ATTRIBUTES *v169; // [rsp+128h] [rbp-80h]
+  _SID_AND_ATTRIBUTES Src; // [rsp+130h] [rbp-78h] BYREF
   _DWORD v171[2]; // [rsp+140h] [rbp-68h] BYREF
   __int64 v172; // [rsp+148h] [rbp-60h]
   __int64 v173; // [rsp+150h] [rbp-58h]
@@ -225,8 +225,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   v161 = 0;
   v169 = 0LL;
   v152 = 0;
-  v170 = 0LL;
-  v149 = 0LL;
+  Src = 0LL;
+  RemainingSidArea = 0LL;
   v177 = 0LL;
   v165 = 0LL;
   v166 = 0LL;
@@ -309,7 +309,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         LODWORD(v8) = 1;
         v164 = 1;
       }
-      v149 = __PAIR64__(HIDWORD(v20), v17);
+      RemainingSidArea = (PSID)__PAIR64__(HIDWORD(v20), v17);
 LABEL_29:
       v25 = (struct _ERESOURCE *)*((_QWORD *)v16 + 6);
       goto LABEL_30;
@@ -348,12 +348,12 @@ LABEL_29:
       *(_DWORD *)TokenInformation = v27[31] - 1;
       RtlCopySidAndAttributesArray(
         v27[31] - 1,
-        *((_QWORD *)v27 + 19) + 16LL,
+        (PSID_AND_ATTRIBUTES)(*((_QWORD *)v27 + 19) + 16LL),
         v29,
-        (__int64)TokenInformation + 8,
+        (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
         (char *)TokenInformation + 16 * v27[31] - 8,
-        &v149,
-        (ULONG *)&v149);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
       goto LABEL_40;
     case TokenPrivileges:
       result = SepReferenceTokenByHandle(
@@ -588,12 +588,12 @@ LABEL_29:
       *(_DWORD *)TokenInformation = v27[32];
       RtlCopySidAndAttributesArray(
         v27[32],
-        *((_QWORD *)v27 + 20),
+        *((PSID_AND_ATTRIBUTES *)v27 + 20),
         v34,
-        (__int64)TokenInformation + 8,
+        (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
         (char *)TokenInformation + 16 * v27[32] + 8,
-        &v149,
-        (ULONG *)&v149);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
       goto LABEL_40;
     case TokenSessionId:
       result = SepReferenceTokenByHandle(
@@ -637,7 +637,7 @@ LABEL_29:
       v152 = SepTokenPrivilegeCount((__int64)v27);
       v57 = 12 * v152;
       v58 = v27[31];
-      v59 = 16 * v58;
+      v59 = v58;
       v60 = 16 * v58;
       if ( v58 )
       {
@@ -652,7 +652,7 @@ LABEL_29:
         while ( v62 );
       }
       v63 = v27[32];
-      v64 = 16 * v63;
+      v64 = v63;
       v65 = 16 * v63;
       v66 = 16 * v63;
       if ( v63 )
@@ -675,13 +675,13 @@ LABEL_29:
       *((_QWORD *)TokenInformation + 6) = *((_QWORD *)v27 + 3);
       *((_DWORD *)TokenInformation + 1) = v60;
       *(_DWORD *)TokenInformation = v27[31];
-      v70 = (char *)TokenInformation + 56;
+      v70 = (_SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
       *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
       *((_DWORD *)TokenInformation + 5) = v65;
       *((_DWORD *)TokenInformation + 4) = v27[32];
       if ( v27[32] )
       {
-        v71 = (__int64)&v70[(v60 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL];
+        v71 = (_SID_AND_ATTRIBUTES *)((char *)v70 + ((v60 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
         *((_QWORD *)TokenInformation + 3) = v71;
       }
       else
@@ -691,25 +691,25 @@ LABEL_29:
       }
       *((_DWORD *)TokenInformation + 9) = v57;
       *((_DWORD *)TokenInformation + 8) = v152;
-      v72 = (__int64)&v70[v65 + v60];
+      v72 = (__int64)v70 + v65 + v60;
       *((_QWORD *)TokenInformation + 5) = v72;
       RtlCopySidAndAttributesArray(
         v27[31],
-        *((_QWORD *)v27 + 19),
-        v60 - v59,
-        (__int64)v70,
+        *((PSID_AND_ATTRIBUTES *)v27 + 19),
+        v60 - v59 * 16,
+        v70,
         &v70[v59],
-        &v149,
-        (ULONG *)&v149);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
       if ( v71 )
         RtlCopySidAndAttributesArray(
           v27[32],
-          *((_QWORD *)v27 + 20),
-          v65 - v64,
+          *((PSID_AND_ATTRIBUTES *)v27 + 20),
+          v65 - v64 * 16,
           v71,
-          (char *)(v71 + v64),
-          &v149,
-          (ULONG *)&v149);
+          &v71[v64],
+          &RemainingSidArea,
+          (PULONG)&RemainingSidArea);
       SepConvertTokenPrivilegesToLuidAndAttributes(v27, v72);
       goto LABEL_40;
     case TokenSandBoxInert:
@@ -896,7 +896,7 @@ LABEL_29:
         {
           if ( IsElevatedRid )
             break;
-          IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)v88 + 19) + 16LL * (unsigned int)v8);
+          IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*((_QWORD *)v88 + 19) + 16LL * (unsigned int)v8));
           LODWORD(v8) = v8 + 1;
         }
         while ( (unsigned int)v8 < v90 );
@@ -944,7 +944,7 @@ LABEL_29:
       --v73->KernelApcDisable;
       v27 = (unsigned int *)Object;
       ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-      Src = DestinationSid;
+      v74 = DestinationSid;
       v75 = v146;
       TokenAccessInformationBufferSize = SepGetTokenAccessInformationBufferSize(
                                            (_DWORD)v27,
@@ -978,7 +978,7 @@ LABEL_29:
         v156,
         v155,
         v75,
-        Src);
+        v74);
       goto LABEL_40;
     case TokenVirtualizationAllowed:
     case TokenVirtualizationEnabled:
@@ -986,8 +986,8 @@ LABEL_29:
     case TokenIsAppContainer:
     case TokenIsRestricted:
     case TokenPrivateNameSpace:
-    case MaxTokenInfoClass:
-    case TokenAppContainerNumber|TokenAuditPolicy:
+    case TokenIsSandboxed:
+    case TokenIsAppSilo:
       result = SepReferenceTokenByHandle(
                  TokenHandle,
                  8u,
@@ -1019,10 +1019,10 @@ LABEL_29:
         case TokenPrivateNameSpace:
           LOWORD(v91) = *((_WORD *)Object + 101);
           break;
-        case MaxTokenInfoClass:
+        case TokenIsSandboxed:
           LODWORD(v8) = SepIsSandboxedToken(Object, PreviousMode);
           goto LABEL_162;
-        case TokenAppContainerNumber|TokenAuditPolicy:
+        case TokenIsAppSilo:
           LODWORD(v8) = (unsigned __int8)SepSidInTokenSidHash(
                                            (_DWORD *)Object + 202,
                                            0LL,
@@ -1056,20 +1056,20 @@ LABEL_93:
       --v104->KernelApcDisable;
       v27 = (unsigned int *)Object;
       ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-      SepCopyTokenIntegrity((__int64)v27, (__int64)&v170);
-      v105 = v170;
-      v106 = 4 * *(unsigned __int8 *)(v170 + 1) + 24;
+      SepCopyTokenIntegrity((__int64)v27, (__int64)&Src);
+      Sid = (unsigned __int8 *)Src.Sid;
+      v106 = 4 * *((unsigned __int8 *)Src.Sid + 1) + 24;
       *v13 = v106;
       if ( v5 < v106 )
         goto LABEL_38;
       RtlCopySidAndAttributesArray(
         1u,
-        (__int64)&v170,
-        4 * *(unsigned __int8 *)(v105 + 1) + 8,
-        (__int64)TokenInformation,
+        &Src,
+        4 * Sid[1] + 8,
+        (PSID_AND_ATTRIBUTES)TokenInformation,
         (char *)TokenInformation + 16,
-        &v149,
-        (ULONG *)&v149);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
       goto LABEL_40;
     case TokenMandatoryPolicy:
       result = SepReferenceTokenByHandle(
@@ -1145,12 +1145,12 @@ LABEL_93:
       *(_DWORD *)TokenInformation = v27[200];
       RtlCopySidAndAttributesArray(
         v27[200],
-        *((_QWORD *)v27 + 99),
+        *((PSID_AND_ATTRIBUTES *)v27 + 99),
         v101,
-        (__int64)TokenInformation + 8,
+        (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
         (char *)TokenInformation + 16 * v27[200] + 8,
-        &v149,
-        (ULONG *)&v149);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
       goto LABEL_40;
     case TokenAppContainerSid:
       v95 = 8;
@@ -1302,12 +1302,12 @@ LABEL_212:
       if ( v122 )
         RtlCopySidAndAttributesArray(
           v122,
-          *(_QWORD *)(*((_QWORD *)v27 + 137) + 8LL),
+          *(PSID_AND_ATTRIBUTES *)(*((_QWORD *)v27 + 137) + 8LL),
           v123,
-          (__int64)TokenInformation + 8,
+          (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
           (char *)TokenInformation + 16 * v122 + 8,
-          &v149,
-          (ULONG *)&v149);
+          &RemainingSidArea,
+          (PULONG)&RemainingSidArea);
       goto LABEL_40;
     case TokenSecurityAttributes:
       result = SepReferenceTokenByHandle(
@@ -1327,8 +1327,8 @@ LABEL_212:
       v128 = (_DWORD *)v127[97];
       if ( v128 )
       {
-        LODWORD(v145) = 0;
-        AuthzBasepQuerySecurityAttributesToken(v128, 0LL, 0LL, 0LL, (size_t)v145, &v150);
+        LODWORD(SidArea) = 0;
+        AuthzBasepQuerySecurityAttributesToken(v128, 0LL, 0LL, 0LL, (size_t)SidArea, &v150);
         v129 = v150;
       }
       else
@@ -1338,13 +1338,13 @@ LABEL_212:
       *v13 = v129;
       if ( v5 < v129 )
         goto LABEL_230;
-      LODWORD(v145) = v5;
+      LODWORD(SidArea) = v5;
       SecurityAttributesToken = AuthzBasepQuerySecurityAttributesToken(
                                   (_DWORD *)v127[97],
                                   0LL,
                                   0LL,
                                   TokenInformation,
-                                  (size_t)v145,
+                                  (size_t)SidArea,
                                   &v150);
       v119 = (struct _ERESOURCE *)v127[6];
       goto LABEL_212;
@@ -1495,12 +1495,12 @@ LABEL_20:
       *(_DWORD *)TokenInformation = 1;
       RtlCopySidAndAttributesArray(
         1u,
-        *((_QWORD *)v27 + 19) + 16LL * v110,
+        (PSID_AND_ATTRIBUTES)(*((_QWORD *)v27 + 19) + 16LL * v110),
         4 * *(unsigned __int8 *)(*(_QWORD *)(*((_QWORD *)v27 + 19) + 16LL * v110) + 1LL) + 8,
-        (__int64)TokenInformation + 8,
+        (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
         (char *)TokenInformation + 24,
-        &v149,
-        (ULONG *)&v149);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
 LABEL_40:
       v25 = (struct _ERESOURCE *)*((_QWORD *)v27 + 6);
 LABEL_30:

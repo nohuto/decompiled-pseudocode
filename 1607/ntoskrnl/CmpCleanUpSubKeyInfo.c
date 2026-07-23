@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCleanUpSubKeyInfo @ 0x1403FDC28
+ * XREFs of CmpCleanUpSubKeyInfo @ 0x1403FCAE8
  * Callers:
- *     CmpRebuildKcbCacheFromNode @ 0x14000AEEC (CmpRebuildKcbCacheFromNode.c)
- *     CmpCreateTombstone @ 0x1401B6260 (CmpCreateTombstone.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmpSearchForOpenSubKeys @ 0x14049ACE4 (CmpSearchForOpenSubKeys.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmMoveKey @ 0x1405FCFA8 (CmMoveKey.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmRestoreKey @ 0x14060C24C (CmRestoreKey.c)
- *     CmpRefreshHive @ 0x14060D810 (CmpRefreshHive.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E464 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14000AA6C (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCreateTombstone @ 0x1401B6144 (CmpCreateTombstone.c)
+ *     CmpSearchForOpenSubKeys @ 0x1403E3C04 (CmpSearchForOpenSubKeys.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmMoveKey @ 0x1405FD05C (CmMoveKey.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14060C300 (CmRestoreKey.c)
+ *     CmpRefreshHive @ 0x14060D8C4 (CmpRefreshHive.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E518 (CmpLightWeightCommitDeleteKeyUoW.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

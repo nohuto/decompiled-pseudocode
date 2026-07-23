@@ -1,19 +1,19 @@
 /*
- * XREFs of IopDropIrp @ 0x1400E099C
+ * XREFs of IopDropIrp @ 0x1400E0A1C
  * Callers:
  *     IoRemoveIoCompletion @ 0x140058990 (IoRemoveIoCompletion.c)
- *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
- *     IopFreeCompletionListPackets @ 0x140662E10 (IopFreeCompletionListPackets.c)
+ *     IopfCompleteRequest @ 0x1400C1030 (IopfCompleteRequest.c)
+ *     IopFreeCompletionListPackets @ 0x140663FD0 (IopFreeCompletionListPackets.c)
  * Callees:
  *     ObpTraceObjectDereferenceIfActive @ 0x14001E38C (ObpTraceObjectDereferenceIfActive.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     IopDequeueIrpFromFileObject @ 0x1400E0A90 (IopDequeueIrpFromFileObject.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
- *     IopInterlockedAdd @ 0x14012F9BC (IopInterlockedAdd.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     IopDequeueIrpFromFileObject @ 0x1400E0B10 (IopDequeueIrpFromFileObject.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     ObpDeferObjectDeletion @ 0x140125EA0 (ObpDeferObjectDeletion.c)
+ *     IopInterlockedAdd @ 0x14012FA8C (IopInterlockedAdd.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR BugCheckParameter2)

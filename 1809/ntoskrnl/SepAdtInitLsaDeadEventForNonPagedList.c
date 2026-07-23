@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtInitLsaDeadEventForNonPagedList @ 0x1402FE30C
+ * XREFs of SepAdtInitLsaDeadEventForNonPagedList @ 0x1402FE4FC
  * Callers:
- *     SepRmCommandServerThread @ 0x1407402A0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x140741490 (SepRmCommandServerThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall SepAdtInitLsaDeadEventForNonPagedList(__int64 a1)
@@ -15,9 +15,9 @@ bool __fastcall SepAdtInitLsaDeadEventForNonPagedList(__int64 a1)
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_140440278, &LockHandle);
-  qword_1404402B8 = a1;
-  v2 = qword_140440200 != (_QWORD)&qword_140440200;
+  KeAcquireInStackQueuedSpinLock(&qword_140441348, &LockHandle);
+  qword_140441388 = a1;
+  v2 = qword_1404412D0 != (_QWORD)&qword_1404412D0;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

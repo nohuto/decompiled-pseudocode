@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAllocateDummyPage @ 0x140A55B98
+ * XREFs of MiAllocateDummyPage @ 0x140A56B98
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
- *     MiInitializeDummyPages @ 0x140A55944 (MiInitializeDummyPages.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
+ *     MiInitializeDummyPages @ 0x140A56944 (MiInitializeDummyPages.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E49B0 (MiSetPfnTbFlushStamp.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 MiAllocateDummyPage()
@@ -32,7 +32,7 @@ __int64 MiAllocateDummyPage()
   MiAcquireNonPagedResources(&MiSystemPartition, 1uLL, 0LL, 1u);
   Page = MiGetPage((__int64)&MiSystemPartition, 0, 520LL);
   if ( Page == -1 )
-    KeBugCheckEx(0x7Du, qword_140C52890, qword_140C52880, BugCheckParameter3, 0x102uLL);
+    KeBugCheckEx(0x7Du, qword_140C528D0, qword_140C528C0, BugCheckParameter3, 0x102uLL);
   v1 = 48 * Page - 0x58000000000LL;
   MiSetPfnTbFlushStamp(v1, 0, 0);
   *(_QWORD *)(v1 + 8) = 0xFFFFF68000000000uLL;

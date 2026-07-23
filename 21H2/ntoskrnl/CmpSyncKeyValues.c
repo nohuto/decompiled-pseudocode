@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSyncKeyValues @ 0x140879E2C
+ * XREFs of CmpSyncKeyValues @ 0x140879F8C
  * Callers:
- *     CmpCopySyncTree2 @ 0x140878590 (CmpCopySyncTree2.c)
- *     CmpMergeKeyValues @ 0x140879480 (CmpMergeKeyValues.c)
+ *     CmpCopySyncTree2 @ 0x1408786F0 (CmpCopySyncTree2.c)
+ *     CmpMergeKeyValues @ 0x1408795E0 (CmpMergeKeyValues.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFreeSecurityDescriptor @ 0x14066C518 (CmpFreeSecurityDescriptor.c)
- *     CmpCopyCell @ 0x1406A4750 (CmpCopyCell.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
- *     CmpUnlockTwoSecurityCaches @ 0x14076FAF8 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x14076FB28 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpAssignSecurityDescriptor @ 0x1408716B0 (CmpAssignSecurityDescriptor.c)
- *     CmpCopyValue @ 0x140878D20 (CmpCopyValue.c)
- *     CmpFreeKeyValues @ 0x1408790A0 (CmpFreeKeyValues.c)
- *     CmpAddValueToList @ 0x14087B3B8 (CmpAddValueToList.c)
- *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1402AB7E0 (CmpFindSecurityCellCacheIndex.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpCopyCell @ 0x1405E2220 (CmpCopyCell.c)
+ *     CmpFreeSecurityDescriptor @ 0x140661338 (CmpFreeSecurityDescriptor.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x14076FCB8 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x14076FCE8 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpAssignSecurityDescriptor @ 0x140871810 (CmpAssignSecurityDescriptor.c)
+ *     CmpCopyValue @ 0x140878E80 (CmpCopyValue.c)
+ *     CmpFreeKeyValues @ 0x140879200 (CmpFreeKeyValues.c)
+ *     CmpAddValueToList @ 0x14087B518 (CmpAddValueToList.c)
+ *     HvMarkCellDirty @ 0x14087BE48 (HvMarkCellDirty.c)
  */
 
 char __fastcall CmpSyncKeyValues(

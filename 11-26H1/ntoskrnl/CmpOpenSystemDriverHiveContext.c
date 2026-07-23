@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpOpenSystemDriverHiveContext @ 0x140D04CDC
+ * XREFs of CmpOpenSystemDriverHiveContext @ 0x140D0AFAC
  * Callers:
- *     CmGetSystemDriverList @ 0x140D04720 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140D0A9F0 (CmGetSystemDriverList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmObReferenceObjectByHandle @ 0x140C58340 (CmObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmObReferenceObjectByHandle @ 0x140C5E340 (CmObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmpOpenSystemDriverHiveContext(PCUNICODE_STRING Source, __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall CmpOpenSystemDriverHiveContext(PCUNICODE_STRING Source, __int
 
   v4 = Source->Length + 4;
   *(&Destination.MaximumLength + 2) = 0;
-  *(_DWORD *)&Destination.MaximumLength = (unsigned __int16)(*(_WORD *)&PspSiloMonitorLock.SavedApcStateFill[32] + v4);
+  *(_DWORD *)&Destination.MaximumLength = (unsigned __int16)(*(_WORD *)&PspSiloMonitorLock.SchedulerApc.Type + v4);
   v5 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   v12 = 0LL;
@@ -39,7 +39,7 @@ __int64 __fastcall CmpOpenSystemDriverHiveContext(PCUNICODE_STRING Source, __int
     appended = -1073741801;
     goto LABEL_11;
   }
-  appended = RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)&PspSiloMonitorLock.SavedApcStateFill[32]);
+  appended = RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)&PspSiloMonitorLock.648);
   if ( appended >= 0 )
   {
     appended = RtlAppendUnicodeToString(&Destination, L"\\");

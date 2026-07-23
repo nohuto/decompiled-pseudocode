@@ -6,16 +6,17 @@
  *     memset @ 0x1800A3EC0 (memset.c)
  */
 
-__int64 __fastcall RtlInitializeGenericTableAvl(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+void __cdecl RtlInitializeGenericTableAvl(
+        PRTL_AVL_TABLE Table,
+        PRTL_AVL_COMPARE_ROUTINE CompareRoutine,
+        PRTL_AVL_ALLOCATE_ROUTINE AllocateRoutine,
+        PRTL_AVL_FREE_ROUTINE FreeRoutine,
+        PVOID TableContext)
 {
-  __int64 result; // rax
-
-  memset(a1, 0, 0x68uLL);
-  result = a5;
-  a1[9] = a2;
-  a1[11] = a4;
-  a1[12] = a5;
-  *a1 = a1;
-  a1[10] = a3;
-  return result;
+  memset(Table, 0, sizeof(_RTL_AVL_TABLE));
+  Table->CompareRoutine = (_RTL_GENERIC_COMPARE_RESULTS (__fastcall *)(_RTL_AVL_TABLE *, void *, void *))CompareRoutine;
+  Table->FreeRoutine = (void (__fastcall *)(_RTL_AVL_TABLE *, void *))FreeRoutine;
+  Table->TableContext = TableContext;
+  Table->BalancedRoot.Parent = &Table->BalancedRoot;
+  Table->AllocateRoutine = (void *(__fastcall *)(_RTL_AVL_TABLE *, unsigned int))AllocateRoutine;
 }

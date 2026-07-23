@@ -30,7 +30,7 @@ _BYTE *__fastcall RtlpLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2, unsigned
     ++v3;
     a1 = &v4[2 * v7 + 4];
     if ( v3 > 0x20 )
-      RtlRaiseStatus(0xC00000FF);
+      RtlRaiseStatus(-1073741569);
   }
   return a1;
 }

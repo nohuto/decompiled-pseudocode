@@ -20,7 +20,7 @@
  */
 
 __int64 __fastcall EtwpTraceStackKey(
-        struct _SLIST_ENTRY *a1,
+        _SLIST_ENTRY *a1,
         unsigned int a2,
         unsigned __int16 a3,
         struct _KTHREAD *a4,
@@ -39,20 +39,20 @@ __int64 __fastcall EtwpTraceStackKey(
   unsigned __int8 CurrentIrql; // bl
   __int64 v16; // rcx
   volatile signed __int32 *v17; // rcx
-  struct _SLIST_ENTRY *v18; // r14
+  _SLIST_ENTRY *v18; // r14
   unsigned int v19; // edx
   __int64 v20; // rcx
-  struct _SLIST_ENTRY *i; // r13
+  _SLIST_ENTRY *i; // r13
   _SLIST_ENTRY *v22; // rax
-  struct _SLIST_ENTRY **v23; // rcx
-  struct _SLIST_ENTRY *v24; // rax
+  _SLIST_ENTRY **v23; // rcx
+  _SLIST_ENTRY *v24; // rax
   SIZE_T v25; // rbx
   SIZE_T v26; // rax
-  struct _SLIST_ENTRY *v27; // rdi
+  _SLIST_ENTRY *v27; // rdi
   PSLIST_ENTRY v28; // rbx
   struct _KTHREAD *v30; // rcx
   PSLIST_ENTRY v31; // rsi
-  union _SLIST_HEADER *v32; // rsi
+  _SLIST_HEADER *v32; // rsi
   unsigned __int64 Alignment; // rax
   unsigned __int16 v34; // r11
   PSLIST_ENTRY v35; // r10
@@ -61,20 +61,20 @@ __int64 __fastcall EtwpTraceStackKey(
   int v38; // r9d
   __int64 v39; // rax
   _QWORD *v40; // rcx
-  struct _SLIST_ENTRY *v41; // rcx
-  struct _SLIST_ENTRY **v42; // rax
+  _SLIST_ENTRY *v41; // rcx
+  _SLIST_ENTRY **v42; // rax
   __int64 v43; // rbp
-  union _SLIST_HEADER *v44; // rax
+  _SLIST_HEADER *v44; // rax
   PSLIST_ENTRY v45; // rbx
   unsigned int v46; // r13d
-  struct _SLIST_ENTRY **v47; // rax
-  struct _SLIST_ENTRY *v48; // rbx
+  _SLIST_ENTRY **v47; // rax
+  _SLIST_ENTRY *v48; // rbx
   KIRQL v51; // [rsp+38h] [rbp-130h]
   int v52; // [rsp+40h] [rbp-128h]
   unsigned int v53; // [rsp+48h] [rbp-120h]
   PSLIST_ENTRY v54; // [rsp+48h] [rbp-120h]
-  union _SLIST_HEADER *v55; // [rsp+50h] [rbp-118h]
-  struct _SLIST_ENTRY *v56; // [rsp+58h] [rbp-110h]
+  _SLIST_HEADER *v55; // [rsp+50h] [rbp-118h]
+  _SLIST_ENTRY *v56; // [rsp+58h] [rbp-110h]
   PSLIST_ENTRY ListEntry; // [rsp+60h] [rbp-108h] BYREF
   PSLIST_ENTRY v58; // [rsp+68h] [rbp-100h] BYREF
   struct _KTHREAD *v59; // [rsp+70h] [rbp-F8h]
@@ -84,7 +84,7 @@ __int64 __fastcall EtwpTraceStackKey(
   v59 = a4;
   v58 = a1;
   ListEntry = 0LL;
-  v55 = (union _SLIST_HEADER *)Next;
+  v55 = (_SLIST_HEADER *)Next;
   if ( Next )
   {
     v7 = 0;
@@ -135,9 +135,9 @@ __int64 __fastcall EtwpTraceStackKey(
       KiAcquireSpinLockInstrumented(v17);
     }
 LABEL_11:
-    v18 = *(struct _SLIST_ENTRY **)v14;
+    v18 = *(_SLIST_ENTRY **)v14;
     v19 = 32;
-    while ( v18 != (struct _SLIST_ENTRY *)v14 )
+    while ( v18 != (_SLIST_ENTRY *)v14 )
     {
       ++v13;
       if ( *((_DWORD *)&v18[1].Next + 3) == v7 && LODWORD(v18[2].Next) == a6 )
@@ -161,10 +161,10 @@ LABEL_11:
         _InterlockedIncrement((volatile signed __int32 *)&v18[1].Next + 2);
         v22 = v18->Next;
         if ( *(&v18->Next->Next + 1) != v18
-          || (v23 = (struct _SLIST_ENTRY **)*((_QWORD *)&v18->Next + 1), *v23 != v18)
+          || (v23 = (_SLIST_ENTRY **)*((_QWORD *)&v18->Next + 1), *v23 != v18)
           || (*v23 = v22,
               *((_QWORD *)&v22->Next + 1) = v23,
-              v24 = *(struct _SLIST_ENTRY **)v14,
+              v24 = *(_SLIST_ENTRY **)v14,
               *(_QWORD *)(*(_QWORD *)v14 + 8LL) != v14) )
         {
 LABEL_21:
@@ -185,15 +185,15 @@ LABEL_15:
     }
     if ( v13 == 4 )
     {
-      v41 = *(struct _SLIST_ENTRY **)(v14 + 8);
+      v41 = *(_SLIST_ENTRY **)(v14 + 8);
       v56 = v41;
       if ( v41->Next != (_SLIST_ENTRY *)v14 )
         goto LABEL_21;
-      v42 = (struct _SLIST_ENTRY **)*((_QWORD *)&v41->Next + 1);
+      v42 = (_SLIST_ENTRY **)*((_QWORD *)&v41->Next + 1);
       if ( *v42 != v41 )
         goto LABEL_21;
       *(_QWORD *)(v14 + 8) = v42;
-      *v42 = (struct _SLIST_ENTRY *)v14;
+      *v42 = (_SLIST_ENTRY *)v14;
     }
     v18 = 0LL;
     v43 = 0LL;
@@ -229,8 +229,8 @@ LABEL_59:
       *((_DWORD *)&v18[1].Next + 3) = v7;
       LODWORD(v18[2].Next) = a6;
       *((_DWORD *)&v18[1].Next + 2) = 2;
-      v47 = *(struct _SLIST_ENTRY ***)(v14 + 8);
-      if ( *v47 != (struct _SLIST_ENTRY *)v14 )
+      v47 = *(_SLIST_ENTRY ***)(v14 + 8);
+      if ( *v47 != (_SLIST_ENTRY *)v14 )
         goto LABEL_21;
       v18->Next = (_SLIST_ENTRY *)v14;
       *((_QWORD *)&v18->Next + 1) = v47;
@@ -250,7 +250,7 @@ LABEL_39:
       v59->Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&ListEntry;
       v30->SListFaultAddress = (void *)8;
       EtwpLogKernelEvent(v30, (__int64)v31[85].Next, (unsigned int)v31->Next, 2u, a3, a2);
-      v32 = (union _SLIST_HEADER *)v31[66].Next;
+      v32 = (_SLIST_HEADER *)v31[66].Next;
       v28 = ListEntry;
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)&ListEntry[1].Next + 2, 0xFFFFFFFF) == 1 )
       {

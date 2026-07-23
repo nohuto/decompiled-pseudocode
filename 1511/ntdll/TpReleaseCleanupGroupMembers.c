@@ -10,174 +10,195 @@
  *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
  */
 
-struct _PEB *__fastcall TpReleaseCleanupGroupMembers(_QWORD *a1, unsigned int a2, __int64 a3)
+void __cdecl TpReleaseCleanupGroupMembers(
+        PTP_CLEANUP_GROUP CleanupGroup,
+        LOGICAL CancelPendingCallbacks,
+        PVOID CleanupParameter)
 {
-  struct _PEB *result; // rax
-  _QWORD *i; // rax
-  volatile signed __int32 *v8; // rdx
-  signed __int32 v9; // eax
-  signed __int32 v10; // ett
-  signed __int32 *v11; // rcx
-  __int64 v12; // rdx
-  signed __int32 **v13; // rax
-  signed __int32 **v14; // rdx
-  _QWORD *v15; // rdx
-  __int64 v16; // r8
-  _QWORD *v17; // rax
-  signed __int32 v18; // r8d
-  bool v19; // zf
-  signed __int32 v20; // eax
-  _QWORD *v21; // rcx
+  _TP_CLEANUP_GROUP *i; // rax
+  volatile signed __int32 *v7; // rdx
+  signed __int32 v8; // eax
+  signed __int32 v9; // ett
+  _TP_CLEANUP_GROUP *v10; // rcx
+  _TP_CLEANUP_GROUP *v11; // rdx
+  _TP_CLEANUP_GROUP **v12; // rax
+  PTP_CLEANUP_GROUP *v13; // rdx
+  _TP_CLEANUP_GROUP *v14; // rdx
+  signed __int32 **v15; // r8
+  _TP_CLEANUP_GROUP **v16; // rax
+  signed __int32 v17; // r8d
+  bool v18; // zf
+  signed __int32 v19; // eax
+  PTP_CLEANUP_GROUP *v20; // rcx
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *v21; // rdx
   _QWORD **v22; // r14
   _QWORD *v23; // rdi
   _QWORD *j; // rax
   volatile signed __int32 *v25; // rdi
   _QWORD *v26; // rdx
   _QWORD *v27; // rcx
-  void (__fastcall *v28)(_QWORD, __int64); // rbx
-  void (__fastcall *v29)(volatile signed __int32 *); // rbx
-  _QWORD *v30; // rbx
-  void (__fastcall *v31)(_QWORD *, _QWORD); // r15
-  void (__fastcall *v32)(_QWORD *); // r15
-  signed __int32 *v33; // [rsp+20h] [rbp-38h]
-  volatile signed __int32 *v34; // [rsp+20h] [rbp-38h]
-  _QWORD *v35; // [rsp+28h] [rbp-30h]
-  _QWORD *v36; // [rsp+28h] [rbp-30h]
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *v28; // rdx
+  _RTL_DYNAMIC_HASH_TABLE *v29; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *v30; // rbx
+  _QWORD *v31; // rbx
+  __int64 v32; // rax
+  void (__fastcall *v33)(_QWORD *, _QWORD); // r15
+  __int64 v34; // rax
+  void (__fastcall *v35)(_QWORD *); // r15
+  signed __int32 *v36; // [rsp+20h] [rbp-38h]
+  volatile signed __int32 *v37; // [rsp+20h] [rbp-38h]
+  _TP_CLEANUP_GROUP *v38; // [rsp+28h] [rbp-30h]
+  _QWORD *v39; // [rsp+28h] [rbp-30h]
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
 
-  if ( !a1 )
-    return (struct _PEB *)TppRaiseInvalidParameter();
-  result = NtCurrentPeb();
-  if ( !result->Ldr->ShutdownInProgress )
+  if ( CleanupGroup )
   {
-    RtlAcquireSRWLockExclusive(a1 + 7);
-    RtlAcquireSRWLockExclusive(a1 + 1);
-    for ( i = (_QWORD *)a1[2]; i != a1 + 2; i = v35 )
+    if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
     {
-      v8 = (volatile signed __int32 *)(i - 5);
-      v33 = (signed __int32 *)(i - 5);
-      v35 = (_QWORD *)*i;
-      _m_prefetchw(i + 15);
-      v9 = *((_DWORD *)i + 30);
-      do
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 7);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 1);
+      for ( i = (_TP_CLEANUP_GROUP *)*((_QWORD *)CleanupGroup + 2);
+            i != (PTP_CLEANUP_GROUP)((char *)CleanupGroup + 16);
+            i = v38 )
       {
-        v10 = v9;
-        v9 = _InterlockedCompareExchange(v8 + 40, v9 | 0x20000, v9);
-      }
-      while ( v10 != v9 );
-      if ( (v9 & 0x30000) != 0 )
-      {
-        v15 = v33 + 10;
-        v16 = *((_QWORD *)v33 + 5);
-        v17 = (_QWORD *)*((_QWORD *)v33 + 6);
-        if ( *(signed __int32 **)(v16 + 8) != v33 + 10 || (_QWORD *)*v17 != v15 )
-          __fastfail(3u);
-        *v17 = v16;
-        *(_QWORD *)(v16 + 8) = v17;
-        _m_prefetchw(v33);
-        v18 = *v33;
+        v7 = (volatile signed __int32 *)((char *)i - 40);
+        v36 = (signed __int32 *)((char *)i - 40);
+        v38 = *(_TP_CLEANUP_GROUP **)i;
+        _m_prefetchw((char *)i + 120);
+        v8 = *((_DWORD *)i + 30);
         do
         {
-          if ( !v18 )
+          v9 = v8;
+          v8 = _InterlockedCompareExchange(v7 + 40, v8 | 0x20000, v8);
+        }
+        while ( v9 != v8 );
+        if ( (v8 & 0x30000) != 0 )
+        {
+          v14 = (_TP_CLEANUP_GROUP *)(v36 + 10);
+          v15 = (signed __int32 **)*((_QWORD *)v36 + 5);
+          v16 = (_TP_CLEANUP_GROUP **)*((_QWORD *)v36 + 6);
+          if ( v15[1] != v36 + 10 || *v16 != v14 )
+            __fastfail(3u);
+          *v16 = (_TP_CLEANUP_GROUP *)v15;
+          v15[1] = (signed __int32 *)v16;
+          _m_prefetchw(v36);
+          v17 = *v36;
+          do
           {
-            *((_QWORD *)v33 + 6) = v33 + 10;
-            *v15 = v15;
-            goto LABEL_12;
+            if ( !v17 )
+            {
+              *((_QWORD *)v36 + 6) = v36 + 10;
+              *(_QWORD *)v14 = v14;
+              goto LABEL_12;
+            }
+            v19 = _InterlockedCompareExchange(v36, v17 + 1, v17);
+            v18 = v17 == v19;
+            v17 = v19;
           }
-          v20 = _InterlockedCompareExchange(v33, v18 + 1, v18);
-          v19 = v18 == v20;
-          v18 = v20;
-        }
-        while ( !v19 );
-        v21 = (_QWORD *)a1[9];
-        *v15 = a1 + 8;
-        *((_QWORD *)v33 + 6) = v21;
-        if ( (_QWORD *)*v21 != a1 + 8 )
-          __fastfail(3u);
-        *v21 = v15;
-        a1[9] = v15;
-      }
-      else
-      {
-        *((_QWORD *)v33 + 22) = retaddr;
-        v11 = v33 + 10;
-        v12 = *((_QWORD *)v33 + 5);
-        v13 = (signed __int32 **)*((_QWORD *)v33 + 6);
-        if ( *(signed __int32 **)(*(_QWORD *)v11 + 8LL) != v11 || *v13 != v11 )
-          __fastfail(3u);
-        *v13 = (signed __int32 *)v12;
-        *(_QWORD *)(v12 + 8) = v13;
-        v14 = (signed __int32 **)a1[9];
-        *(_QWORD *)v11 = a1 + 8;
-        *((_QWORD *)v33 + 6) = v14;
-        if ( *v14 != (signed __int32 *)(a1 + 8) )
-          __fastfail(3u);
-        *v14 = v11;
-        a1[9] = v11;
-      }
-LABEL_12:
-      ;
-    }
-    RtlReleaseSRWLockExclusive(a1 + 1);
-    v22 = (_QWORD **)(a1 + 8);
-    v23 = (_QWORD *)a1[8];
-    while ( v23 != v22 )
-    {
-      v30 = v23 - 5;
-      v23 = (_QWORD *)*v23;
-      v31 = *(void (__fastcall **)(_QWORD *, _QWORD))(v30[1] + 16LL);
-      if ( v31 )
-      {
-        _guard_check_icall_fptr();
-        v31(v30, a2);
-      }
-      if ( a2 )
-      {
-        v32 = *(void (__fastcall **)(_QWORD *))(v30[1] + 24LL);
-        if ( v32 )
-        {
-          _guard_check_icall_fptr();
-          v32(v30);
-        }
-      }
-    }
-    for ( j = *v22; j != v22; j = v36 )
-    {
-      v25 = (volatile signed __int32 *)(j - 5);
-      v34 = (volatile signed __int32 *)(j - 5);
-      v36 = (_QWORD *)*j;
-      v26 = (_QWORD *)*j;
-      v27 = (_QWORD *)j[1];
-      if ( *(_QWORD **)(*j + 8LL) != j || (_QWORD *)*v27 != j )
-        __fastfail(3u);
-      *v27 = v26;
-      v26[1] = v27;
-      j[1] = j;
-      *j = j;
-      TppBarrierAdjust(v25 + 14, 0LL, 1LL);
-      if ( *((_QWORD *)v25 + 3) )
-      {
-        if ( (v25[40] & 0x10000) != 0 )
-        {
-          v25 = v34;
+          while ( !v18 );
+          v20 = (PTP_CLEANUP_GROUP *)*((_QWORD *)CleanupGroup + 9);
+          *(_QWORD *)v14 = (char *)CleanupGroup + 64;
+          *((_QWORD *)v36 + 6) = v20;
+          if ( *v20 != (PTP_CLEANUP_GROUP)((char *)CleanupGroup + 64) )
+            __fastfail(3u);
+          *v20 = v14;
+          *((_QWORD *)CleanupGroup + 9) = v14;
         }
         else
         {
-          v28 = (void (__fastcall *)(_QWORD, __int64))*((_QWORD *)v25 + 3);
-          _guard_check_icall_fptr();
-          v25 = v34;
-          v28(*((_QWORD *)v34 + 11), a3);
+          *((_QWORD *)v36 + 22) = retaddr;
+          v10 = (_TP_CLEANUP_GROUP *)(v36 + 10);
+          v11 = (_TP_CLEANUP_GROUP *)*((_QWORD *)v36 + 5);
+          v12 = (_TP_CLEANUP_GROUP **)*((_QWORD *)v36 + 6);
+          if ( *(_TP_CLEANUP_GROUP **)(*(_QWORD *)v10 + 8LL) != v10 || *v12 != v10 )
+            __fastfail(3u);
+          *v12 = v11;
+          *((_QWORD *)v11 + 1) = v12;
+          v13 = (PTP_CLEANUP_GROUP *)*((_QWORD *)CleanupGroup + 9);
+          *(_QWORD *)v10 = (char *)CleanupGroup + 64;
+          *((_QWORD *)v36 + 6) = v13;
+          if ( *v13 != (PTP_CLEANUP_GROUP)((char *)CleanupGroup + 64) )
+            __fastfail(3u);
+          *v13 = v10;
+          *((_QWORD *)CleanupGroup + 9) = v10;
+        }
+LABEL_12:
+        ;
+      }
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 1);
+      v22 = (_QWORD **)((char *)CleanupGroup + 64);
+      v23 = (_QWORD *)*((_QWORD *)CleanupGroup + 8);
+      while ( v23 != v22 )
+      {
+        v31 = v23 - 5;
+        v23 = (_QWORD *)*v23;
+        v32 = v31[1];
+        v33 = *(void (__fastcall **)(_QWORD *, _QWORD))(v32 + 16);
+        if ( v33 )
+        {
+          ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+            *(PRTL_DYNAMIC_HASH_TABLE *)(v32 + 16),
+            v21);
+          v33(v31, CancelPendingCallbacks);
+        }
+        if ( CancelPendingCallbacks )
+        {
+          v34 = v31[1];
+          v35 = *(void (__fastcall **)(_QWORD *))(v34 + 24);
+          if ( v35 )
+          {
+            ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+              *(PRTL_DYNAMIC_HASH_TABLE *)(v34 + 24),
+              v21);
+            v35(v31);
+          }
         }
       }
-      if ( _InterlockedExchangeAdd(v25, 0xFFFFFFFF) == 1 )
+      for ( j = *v22; j != v22; j = v39 )
       {
-        v29 = (void (__fastcall *)(volatile signed __int32 *))**((_QWORD **)v34 + 1);
-        _guard_check_icall_fptr();
-        v29(v34);
+        v25 = (volatile signed __int32 *)(j - 5);
+        v37 = (volatile signed __int32 *)(j - 5);
+        v39 = (_QWORD *)*j;
+        v26 = (_QWORD *)*j;
+        v27 = (_QWORD *)j[1];
+        if ( *(_QWORD **)(*j + 8LL) != j || (_QWORD *)*v27 != j )
+          __fastfail(3u);
+        *v27 = v26;
+        v26[1] = v27;
+        j[1] = j;
+        *j = j;
+        TppBarrierAdjust(v25 + 14, 0LL, 1LL);
+        if ( *((_QWORD *)v25 + 3) )
+        {
+          if ( (v25[40] & 0x10000) != 0 )
+          {
+            v25 = v37;
+          }
+          else
+          {
+            v29 = (_RTL_DYNAMIC_HASH_TABLE *)*((_QWORD *)v25 + 3);
+            ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+              v29,
+              v28);
+            v25 = v37;
+            ((void (__fastcall *)(_QWORD, PVOID))v29)(*((_QWORD *)v37 + 11), CleanupParameter);
+          }
+        }
+        if ( _InterlockedExchangeAdd(v25, 0xFFFFFFFF) == 1 )
+        {
+          v30 = (_RTL_DYNAMIC_HASH_TABLE *)**((_QWORD **)v37 + 1);
+          ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+            v30,
+            v28);
+          ((void (__fastcall *)(volatile signed __int32 *))v30)(v37);
+        }
       }
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 7);
+      TppBarrierAdjust((char *)CleanupGroup + 32, 0LL, 1LL);
     }
-    RtlReleaseSRWLockExclusive(a1 + 7);
-    return (struct _PEB *)TppBarrierAdjust(a1 + 4, 0LL, 1LL);
   }
-  return result;
+  else
+  {
+    TppRaiseInvalidParameter();
+  }
 }

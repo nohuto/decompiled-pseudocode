@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetNextProcessEx @ 0x1407C0550
+ * XREFs of PsGetNextProcessEx @ 0x1407C0820
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     PspUnlockProcessListShared @ 0x140350CE4 (PspUnlockProcessListShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     PspUnlockProcessListShared @ 0x140350E84 (PspUnlockProcessListShared.c)
  */
 
 unsigned __int64 __fastcall PsGetNextProcessEx(_QWORD *Object)

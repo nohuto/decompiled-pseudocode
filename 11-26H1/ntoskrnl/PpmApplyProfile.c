@@ -1,30 +1,30 @@
 /*
- * XREFs of PpmApplyProfile @ 0x140945C68
+ * XREFs of PpmApplyProfile @ 0x1409C15D8
  * Callers:
- *     PdcPoPpmApplyProfile @ 0x140945C50 (PdcPoPpmApplyProfile.c)
+ *     PdcPoPpmApplyProfile @ 0x1409C15C0 (PdcPoPpmApplyProfile.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140945E50 (PpmCompareAndApplyPolicySettings.c)
- *     PpmEventTraceProfileChange @ 0x140946068 (PpmEventTraceProfileChange.c)
- *     PpmEndProfileAccumulation @ 0x140946114 (PpmEndProfileAccumulation.c)
- *     PpmPostProcessMediaBuffering @ 0x140946160 (PpmPostProcessMediaBuffering.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x1409C17C0 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmEventTraceProfileChange @ 0x1409C19D8 (PpmEventTraceProfileChange.c)
+ *     PpmEndProfileAccumulation @ 0x1409C1A84 (PpmEndProfileAccumulation.c)
+ *     PpmPostProcessMediaBuffering @ 0x1409C1AD0 (PpmPostProcessMediaBuffering.c)
  */
 
-LONG __fastcall PpmApplyProfile(__int64 *a1, __int64 a2, unsigned int a3)
+LONG __fastcall PpmApplyProfile(unsigned int *a1, __int64 a2, unsigned int a3)
 {
-  __int64 v3; // rbp
+  __int64 Next_high; // rbp
   __int64 v5; // rdx
   __int64 v6; // r8
   struct _KLOCK_ENTRIES *v7; // r9
   __int64 v8; // r8
-  __int64 *v9; // rsi
-  __int64 *v10; // rdi
+  unsigned int *v9; // rsi
+  unsigned int *p_ReservedPreviousReadyTimeValue; // rdi
   LONG result; // eax
-  __int64 *v12; // rax
+  unsigned int *v12; // rax
   __int64 v13; // rax
   __int64 v14; // r8
   __int64 v15; // r10
@@ -37,53 +37,53 @@ LONG __fastcall PpmApplyProfile(__int64 *a1, __int64 a2, unsigned int a3)
   __m128i v22; // [rsp+20h] [rbp-48h] BYREF
   __m128 v23; // [rsp+30h] [rbp-38h] BYREF
 
-  v3 = dword_140F106CC;
+  Next_high = SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v22 = 0LL;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, v5, v6, v7);
-  v9 = PpmCurrentProfile;
-  v10 = &qword_140F0B0E0;
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, v5, v6, v7);
+  v9 = (unsigned int *)PpmCurrentProfile;
+  p_ReservedPreviousReadyTimeValue = &PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue;
   if ( a1 )
-    v10 = a1;
-  if ( v10 == (__int64 *)PpmLowPowerProfile )
+    p_ReservedPreviousReadyTimeValue = a1;
+  if ( p_ReservedPreviousReadyTimeValue == (unsigned int *)PopDirectedDripsDiagLock.OtherOperationCount )
   {
-    v12 = v10;
-    v10 = &qword_140F0B0E0;
-    if ( !LOBYTE(stru_140F11D08.UserWaitTime) )
-      v10 = v12;
+    v12 = p_ReservedPreviousReadyTimeValue;
+    p_ReservedPreviousReadyTimeValue = &PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue;
+    if ( !PpmPerfMultimediaQosSupported )
+      p_ReservedPreviousReadyTimeValue = v12;
   }
-  if ( PpmCurrentProfile == v10 )
+  if ( PpmCurrentProfile == (_UNKNOWN *)p_ReservedPreviousReadyTimeValue )
   {
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
-    return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    PopReleaseRwLock(&PpmIdlePolicyLock);
+    return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   }
   else
   {
     v13 = PpmEndProfileAccumulation(PpmCurrentProfile, MEMORY[0xFFFFF78000000008], v8);
-    *((_DWORD *)v10 + 7) |= 2u;
-    *((_DWORD *)v9 + 7) &= ~2u;
-    PpmCurrentProfile = v10;
+    p_ReservedPreviousReadyTimeValue[7] |= 2u;
+    v9[7] &= ~2u;
+    PpmCurrentProfile = p_ReservedPreviousReadyTimeValue;
     v14 = 0LL;
-    v10[183] = v13;
+    *((_QWORD *)p_ReservedPreviousReadyTimeValue + 183) = v13;
     v15 = 3LL;
     do
     {
-      if ( v10 != &qword_140F0B0E0 )
+      if ( p_ReservedPreviousReadyTimeValue != &PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue )
       {
         v16 = 2LL;
         v17 = &v22;
         do
         {
           v17->m128i_i64[0] |= *(unsigned __int64 *)((char *)&v17[2].m128i_u64[1]
-                                                   + (_QWORD)&v10[v14]
-                                                   + 712 * v3
+                                                   + (_QWORD)&p_ReservedPreviousReadyTimeValue[v14]
+                                                   + 712 * Next_high
                                                    - (_QWORD)&v22);
           v17 = (__m128i *)((char *)v17 + 8);
           --v16;
         }
         while ( v16 );
       }
-      if ( v9 != &qword_140F0B0E0 )
+      if ( v9 != &PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue )
       {
         v18 = 2LL;
         v19 = &v22;
@@ -91,28 +91,34 @@ LONG __fastcall PpmApplyProfile(__int64 *a1, __int64 a2, unsigned int a3)
         {
           v19->m128i_i64[0] |= *(unsigned __int64 *)((char *)&v19[2].m128i_u64[1]
                                                    + (_QWORD)&v9[v14]
-                                                   + 712 * v3
+                                                   + 712 * Next_high
                                                    - (_QWORD)&v22);
           v19 = (__m128i *)((char *)v19 + 8);
           --v18;
         }
         while ( v18 );
       }
-      v14 += 2LL;
+      v14 += 4LL;
       --v15;
     }
     while ( v15 );
     v23 = _mm_and_ps(
-            (__m128)_mm_loadu_si128((const __m128i *)&PopSleepstudySessionLock.QuantumTarget),
+            (__m128)_mm_loadu_si128((const __m128i *)&PpmPolicySettingGlobalMask),
             (__m128)_mm_loadu_si128(&v22));
-    PpmCompareAndApplyPolicySettings(&v23, &v9[89 * v3 + 5], &v10[89 * v3 + 5], 0LL, v22.m128i_i64[0], v22.m128i_i64[1]);
-    PpmEventTraceProfileChange(v9, v10);
-    result = PpmLowPowerProfile;
-    if ( PpmLowPowerProfile )
+    PpmCompareAndApplyPolicySettings(
+      &v23,
+      &v9[178 * Next_high + 10],
+      &p_ReservedPreviousReadyTimeValue[178 * Next_high + 10],
+      0LL,
+      v22.m128i_i64[0],
+      v22.m128i_i64[1]);
+    PpmEventTraceProfileChange(v9, p_ReservedPreviousReadyTimeValue);
+    result = PopDirectedDripsDiagLock.OtherOperationCount;
+    if ( PopDirectedDripsDiagLock.OtherOperationCount )
     {
-      if ( v9 == (__int64 *)PpmLowPowerProfile )
+      if ( v9 == (unsigned int *)PopDirectedDripsDiagLock.OtherOperationCount )
       {
-        PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v20, v21);
+        PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v20, v21);
         return PpmPostProcessMediaBuffering();
       }
     }

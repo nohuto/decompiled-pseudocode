@@ -1,5 +1,5 @@
 /*
- * XREFs of strrchr @ 0x1403DB5E0
+ * XREFs of strrchr @ 0x1403DB7C0
  * Callers:
  *     <none>
  * Callees:

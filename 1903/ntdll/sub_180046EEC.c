@@ -8,10 +8,10 @@
  *     sub_180046F54 @ 0x180046F54 (sub_180046F54.c)
  */
 
-__int64 __fastcall sub_180046EEC(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
+_QWORD *__fastcall sub_180046EEC(unsigned __int16 *a1, _QWORD *a2, unsigned __int64 a3, int a4)
 {
   __int64 v5; // rcx
-  __int64 v6; // rdi
+  _QWORD *v6; // rdi
   unsigned __int16 v8; // [rsp+30h] [rbp-18h] BYREF
   __int64 v9; // [rsp+38h] [rbp-10h] BYREF
 

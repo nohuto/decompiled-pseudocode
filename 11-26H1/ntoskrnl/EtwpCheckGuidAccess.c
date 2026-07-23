@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCheckGuidAccess @ 0x1409207F8
+ * XREFs of EtwpCheckGuidAccess @ 0x1408FC30C
  * Callers:
- *     EtwpLogFileNameRundown @ 0x14082F4D4 (EtwpLogFileNameRundown.c)
- *     EtwpCheckNotificationAccess @ 0x1409205D4 (EtwpCheckNotificationAccess.c)
- *     EtwpNotifyGuid @ 0x140938434 (EtwpNotifyGuid.c)
- *     EtwpIsRegEntryAllowed @ 0x14093AFA4 (EtwpIsRegEntryAllowed.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x140A6D8A4 (EtwpCheckGuidAccessAndDoRundown.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     EtwpCheckSystemTraceAccess @ 0x140A6F2BC (EtwpCheckSystemTraceAccess.c)
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLogFileNameRundown @ 0x140835714 (EtwpLogFileNameRundown.c)
+ *     EtwpNotifyGuid @ 0x140913FD4 (EtwpNotifyGuid.c)
+ *     EtwpIsRegEntryAllowed @ 0x140916B44 (EtwpIsRegEntryAllowed.c)
+ *     EtwpCheckNotificationAccess @ 0x14097A0C0 (EtwpCheckNotificationAccess.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x140A99B60 (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140AB2A20 (EtwpCheckSystemTraceAccess.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpGetSecurityDescriptorByGuid @ 0x140920D60 (EtwpGetSecurityDescriptorByGuid.c)
- *     EtwpAccessCheck @ 0x140931F90 (EtwpAccessCheck.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1408FC870 (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpAccessCheck @ 0x14090DB60 (EtwpAccessCheck.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCheckGuidAccess(__int64 a1, ACCESS_MASK a2)

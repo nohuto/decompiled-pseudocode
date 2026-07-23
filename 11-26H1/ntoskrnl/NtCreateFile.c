@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateFile @ 0x1409B3960
+ * XREFs of NtCreateFile @ 0x140984A20
  * Callers:
- *     DifNtCreateFileWrapper @ 0x140670C90 (DifNtCreateFileWrapper.c)
+ *     DifNtCreateFileWrapper @ 0x140674870 (DifNtCreateFileWrapper.c)
  * Callees:
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall NtCreateFile(

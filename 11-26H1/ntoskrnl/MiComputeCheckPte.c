@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeCheckPte @ 0x1403119F8
+ * XREFs of MiComputeCheckPte @ 0x140313A2C
  * Callers:
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
  * Callees:
  *     <none>
  */

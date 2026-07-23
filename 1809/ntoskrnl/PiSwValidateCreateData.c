@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwValidateCreateData @ 0x1406D7370
+ * XREFs of PiSwValidateCreateData @ 0x1406D8610
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1406D6E58 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x1406D80F8 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PnpValidateMultiSz @ 0x14068B498 (PnpValidateMultiSz.c)
- *     SeValidSecurityDescriptor @ 0x14069D750 (SeValidSecurityDescriptor.c)
- *     PiSwIsValidPnpId @ 0x1406D75F8 (PiSwIsValidPnpId.c)
- *     PiSwValidatePropertyArray @ 0x1406D7C10 (PiSwValidatePropertyArray.c)
+ *     PnpValidateMultiSz @ 0x14068C658 (PnpValidateMultiSz.c)
+ *     SeValidSecurityDescriptor @ 0x14069E910 (SeValidSecurityDescriptor.c)
+ *     PiSwIsValidPnpId @ 0x1406D8898 (PiSwIsValidPnpId.c)
+ *     PiSwValidatePropertyArray @ 0x1406D8EB0 (PiSwValidatePropertyArray.c)
  */
 
 __int64 __fastcall PiSwValidateCreateData(__int64 a1)

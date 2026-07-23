@@ -3,14 +3,14 @@
  * Callers:
  *     KeInitAmd64SpecificState @ 0x140B72968 (KeInitAmd64SpecificState.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExNotifyCallback @ 0x14033BF40 (ExNotifyCallback.c)
- *     ExInitializeNPagedLookasideList @ 0x1403C3290 (ExInitializeNPagedLookasideList.c)
- *     KeExpandKernelStackAndCallout @ 0x1403D68E0 (KeExpandKernelStackAndCallout.c)
- *     KdDisableDebugger @ 0x140567510 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x140567740 (KdEnableDebugger.c)
- *     KeKeepData @ 0x14056B5C4 (KeKeepData.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExNotifyCallback @ 0x14033C1D0 (ExNotifyCallback.c)
+ *     ExInitializeNPagedLookasideList @ 0x1403C3470 (ExInitializeNPagedLookasideList.c)
+ *     KeExpandKernelStackAndCallout @ 0x1403D6AC0 (KeExpandKernelStackAndCallout.c)
+ *     KdDisableDebugger @ 0x140567BD0 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140567E00 (KdEnableDebugger.c)
+ *     KeKeepData @ 0x14056BC84 (KeKeepData.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
  *     ExFreePool @ 0x140AAECC0 (ExFreePool.c)
  *     KiSwInterruptPresent @ 0x140B679C0 (KiSwInterruptPresent.c)
  */
@@ -87,7 +87,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0) >= 0 )
       {
-        ExNotifyCallback(CallbackObject, sub_1403E5840, &__27);
+        ExNotifyCallback(CallbackObject, sub_1403E5A20, &__27);
         ObfDereferenceObject(CallbackObject);
         if ( __27 )
           __30 = 1;

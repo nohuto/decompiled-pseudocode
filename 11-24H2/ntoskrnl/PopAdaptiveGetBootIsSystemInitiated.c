@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdaptiveGetBootIsSystemInitiated @ 0x1409BB16C
+ * XREFs of PopAdaptiveGetBootIsSystemInitiated @ 0x1409A17BC
  * Callers:
- *     NtSetThreadExecutionState @ 0x140AC6F10 (NtSetThreadExecutionState.c)
+ *     NtSetThreadExecutionState @ 0x140AC4920 (NtSetThreadExecutionState.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
  */
 
 bool PopAdaptiveGetBootIsSystemInitiated()

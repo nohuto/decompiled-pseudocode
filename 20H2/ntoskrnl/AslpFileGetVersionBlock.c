@@ -44,7 +44,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
   __int128 v29; // [rsp+88h] [rbp-190h]
   __int128 v30; // [rsp+98h] [rbp-180h]
   __int64 v31; // [rsp+A8h] [rbp-170h]
-  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
   size_t Size; // [rsp+238h] [rbp+20h] BYREF
 
   Src = 0LL;
@@ -105,7 +105,15 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
         goto LABEL_43;
       AslLogCallPrintf(3LL);
       v8 = *((_QWORD *)&v29 + 1);
-      v7 = LdrResSearchResource(*((__int64 *)&v29 + 1), v27, 3u, 0, (unsigned int **)&Src, (__int64 *)&Size, 0LL, 0LL);
+      v7 = LdrResSearchResource(
+             *((unsigned __int64 *)&v29 + 1),
+             v27,
+             3u,
+             0,
+             (unsigned int **)&Src,
+             (__int64 *)&Size,
+             0LL,
+             0LL);
       AslLogCallPrintf(2LL);
       if ( v7 < 0 )
         goto LABEL_43;

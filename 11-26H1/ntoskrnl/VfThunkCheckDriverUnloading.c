@@ -1,10 +1,10 @@
 /*
- * XREFs of VfThunkCheckDriverUnloading @ 0x140C46E0C
+ * XREFs of VfThunkCheckDriverUnloading @ 0x140C4CE1C
  * Callers:
- *     VfDriverUnloadImage @ 0x140C46D88 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x140C4CD98 (VfDriverUnloadImage.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViThunkRemoveImportEntry @ 0x140C35CAC (ViThunkRemoveImportEntry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViThunkRemoveImportEntry @ 0x140C3BCBC (ViThunkRemoveImportEntry.c)
  */
 
 void __fastcall VfThunkCheckDriverUnloading(__int64 a1)

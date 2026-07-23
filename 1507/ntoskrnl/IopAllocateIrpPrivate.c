@@ -12,7 +12,7 @@
  *     ExAllocatePoolWithTag @ 0x140288E60 (ExAllocatePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
+_SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
 {
   char v4; // r14
   struct _KPRCB *CurrentPrcb; // rsi
@@ -25,7 +25,7 @@ struct _SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char 
   __int64 v12; // r13
   _GENERAL_LOOKASIDE *P; // rdi
   char v14; // di
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
   char v16; // di
   _SLIST_ENTRY **v17; // rcx
   char v18; // [rsp+80h] [rbp+8h]
@@ -109,9 +109,9 @@ struct _SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char 
   {
 LABEL_29:
     if ( a3 )
-      result = (struct _SLIST_ENTRY *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, v10, 0x20707249u);
+      result = (_SLIST_ENTRY *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, v10, 0x20707249u);
     else
-      result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x20707249u);
+      result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x20707249u);
     v9 = result;
     if ( !result )
       return result;

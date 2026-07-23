@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlRandom @ 0x1406BD150
+ * XREFs of RtlRandom @ 0x14061C280
  * Callers:
- *     CcGetRandomVacbArrayWithReference @ 0x1404EB148 (CcGetRandomVacbArrayWithReference.c)
- *     CcUnmapInactiveViewsInternal @ 0x1404EB544 (CcUnmapInactiveViewsInternal.c)
- *     PspInitPhase2 @ 0x140A4B134 (PspInitPhase2.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x1404EB388 (CcGetRandomVacbArrayWithReference.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB784 (CcUnmapInactiveViewsInternal.c)
+ *     PspInitPhase2 @ 0x140A4C134 (PspInitPhase2.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
  */
 
 ULONG __stdcall RtlRandom(PULONG Seed)

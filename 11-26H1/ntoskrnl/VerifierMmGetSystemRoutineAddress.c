@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmGetSystemRoutineAddress @ 0x140C3F720
+ * XREFs of VerifierMmGetSystemRoutineAddress @ 0x140C45730
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViThunkHookExportAddress @ 0x140C35AD0 (ViThunkHookExportAddress.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViThunkHookExportAddress @ 0x140C3BAE0 (ViThunkHookExportAddress.c)
  */
 
 unsigned __int8 *__fastcall VerifierMmGetSystemRoutineAddress(const UNICODE_STRING *a1, __int64 a2)

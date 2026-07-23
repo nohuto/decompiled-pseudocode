@@ -1,24 +1,24 @@
 /*
- * XREFs of VfTargetDriversRemove @ 0x1403F0E5C
+ * XREFs of VfTargetDriversRemove @ 0x1403E4B7C
  * Callers:
- *     VfDriverUnloadImage @ 0x140B8A5C0 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x140B8C5C0 (VfDriverUnloadImage.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403F1260 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     ViAvlRaiseIrqlSafe @ 0x1403F12C4 (ViAvlRaiseIrqlSafe.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403F1490 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     VfAvlFreeNodeNoLock @ 0x1406106C8 (VfAvlFreeNodeNoLock.c)
- *     ViTargetDriversFreeVerifiedData @ 0x140611344 (ViTargetDriversFreeVerifiedData.c)
- *     DifRemovePerDriverDataForPlugins @ 0x140617AE0 (DifRemovePerDriverDataForPlugins.c)
- *     CarDeleteDriverRuleViolations @ 0x14061937C (CarDeleteDriverRuleViolations.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViTargetRemovingCheckContiguousMemory @ 0x140B8BAB8 (ViTargetRemovingCheckContiguousMemory.c)
- *     ViTargetRemovingCheckEtwWmi @ 0x140B8BB44 (ViTargetRemovingCheckEtwWmi.c)
- *     VfThunkRemoveTargetNotify @ 0x140B972BC (VfThunkRemoveTargetNotify.c)
- *     VfPoolCheckForLeaks @ 0x140B9A350 (VfPoolCheckForLeaks.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403E4F80 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     ViAvlRaiseIrqlSafe @ 0x1403E4FE4 (ViAvlRaiseIrqlSafe.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403E51B0 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     VfAvlFreeNodeNoLock @ 0x14060EC88 (VfAvlFreeNodeNoLock.c)
+ *     ViTargetDriversFreeVerifiedData @ 0x14060F904 (ViTargetDriversFreeVerifiedData.c)
+ *     DifRemovePerDriverDataForPlugins @ 0x1406160A0 (DifRemovePerDriverDataForPlugins.c)
+ *     CarDeleteDriverRuleViolations @ 0x14061793C (CarDeleteDriverRuleViolations.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViTargetRemovingCheckContiguousMemory @ 0x140B8DAB8 (ViTargetRemovingCheckContiguousMemory.c)
+ *     ViTargetRemovingCheckEtwWmi @ 0x140B8DB44 (ViTargetRemovingCheckEtwWmi.c)
+ *     VfThunkRemoveTargetNotify @ 0x140B992BC (VfThunkRemoveTargetNotify.c)
+ *     VfPoolCheckForLeaks @ 0x140B9C350 (VfPoolCheckForLeaks.c)
  */
 
 __int64 __fastcall VfTargetDriversRemove(__int64 a1)
@@ -87,21 +87,21 @@ __int64 __fastcall VfTargetDriversRemove(__int64 a1)
         v19 = *(_QWORD *)(v6 + 64);
         v18[3] = v11;
         if ( v19 )
-          --dword_140F045C0;
+          --dword_140F047A0;
         Buffer = v3;
         v15 = 1LL;
-        if ( dword_140F045B8 == 1 )
+        if ( dword_140F04798 == 1 )
           v12 = 0LL;
         else
-          v12 = (v3 >> 12) % (unsigned int)dword_140F045B8;
+          v12 = (v3 >> 12) % (unsigned int)dword_140F04798;
         ViAvlRaiseIrqlSafe(&v16);
         v13 = 192 * v12;
-        ViAvlAcquireTableLockAtDpcLevelSafe(v13 + qword_140F045B0, &v16);
-        RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v13 + qword_140F045B0), &Buffer);
-        _InterlockedDecrement64(&qword_140F045A8);
-        v4 = *(_QWORD *)(v13 + qword_140F045B0 + 112);
-        *(_QWORD *)(v13 + qword_140F045B0 + 112) = 0LL;
-        ViAvlReleaseTableLockFromDpcLevel(v13 + qword_140F045B0, &v16);
+        ViAvlAcquireTableLockAtDpcLevelSafe(v13 + qword_140F04790, &v16);
+        RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v13 + qword_140F04790), &Buffer);
+        _InterlockedDecrement64(&qword_140F04788);
+        v4 = *(_QWORD *)(v13 + qword_140F04790 + 112);
+        *(_QWORD *)(v13 + qword_140F04790 + 112) = 0LL;
+        ViAvlReleaseTableLockFromDpcLevel(v13 + qword_140F04790, &v16);
       }
       result = VfAvlCleanupLockContext(&v16);
       if ( v4 )

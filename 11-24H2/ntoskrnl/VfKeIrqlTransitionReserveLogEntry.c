@@ -1,13 +1,13 @@
 /*
- * XREFs of VfKeIrqlTransitionReserveLogEntry @ 0x140BA80B8
+ * XREFs of VfKeIrqlTransitionReserveLogEntry @ 0x140BAA0B8
  * Callers:
- *     VerifierKeReleaseQueuedSpinLock @ 0x140B8FF30 (VerifierKeReleaseQueuedSpinLock.c)
- *     VerifierKeLowerIrql @ 0x140B95670 (VerifierKeLowerIrql.c)
- *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140B95760 (VerifierKeReleaseInStackQueuedSpinLock.c)
- *     VerifierKeReleaseSpinLock @ 0x140B95860 (VerifierKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140B95FB0 (VerifierPortKeReleaseSpinLockNoXdv.c)
- *     VerifierExReleaseFastMutex @ 0x140B9BD30 (VerifierExReleaseFastMutex.c)
- *     VfKeIrqlLogRaise @ 0x140BA7FE0 (VfKeIrqlLogRaise.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x140B91F30 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VerifierKeLowerIrql @ 0x140B97670 (VerifierKeLowerIrql.c)
+ *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140B97760 (VerifierKeReleaseInStackQueuedSpinLock.c)
+ *     VerifierKeReleaseSpinLock @ 0x140B97860 (VerifierKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140B97FB0 (VerifierPortKeReleaseSpinLockNoXdv.c)
+ *     VerifierExReleaseFastMutex @ 0x140B9DD30 (VerifierExReleaseFastMutex.c)
+ *     VfKeIrqlLogRaise @ 0x140BA9FE0 (VfKeIrqlLogRaise.c)
  * Callees:
  *     <none>
  */

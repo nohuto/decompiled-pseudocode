@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCloseHandleWithResult @ 0x1407C3270
+ * XREFs of ObCloseHandleWithResult @ 0x1407C62D0
  * Callers:
  *     <none>
  * Callees:
- *     ObpIsKernelHandle @ 0x1404444A0 (ObpIsKernelHandle.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObpCloseHandle @ 0x1408F9C70 (ObpCloseHandle.c)
- *     VfCheckUserHandle @ 0x140C47C38 (VfCheckUserHandle.c)
+ *     ObpIsKernelHandle @ 0x14043CFB0 (ObpIsKernelHandle.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ObpCloseHandle @ 0x140929C00 (ObpCloseHandle.c)
+ *     VfCheckUserHandle @ 0x140C4DC48 (VfCheckUserHandle.c)
  */
 
 __int64 __fastcall ObCloseHandleWithResult(ULONG_PTR BugCheckParameter1, char a2, unsigned int a3, volatile void *a4)

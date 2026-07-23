@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpGetAcpiBiosVersion @ 0x1409C2CAC
+ * XREFs of CmpGetAcpiBiosVersion @ 0x1409C3CAC
  * Callers:
- *     CmpSetSystemBiosInformation @ 0x1409C25D4 (CmpSetSystemBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x1409C35D4 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     sprintf_s @ 0x14019B640 (sprintf_s.c)
+ *     sprintf_s @ 0x14019B780 (sprintf_s.c)
  */
 
 char __fastcall CmpGetAcpiBiosVersion(__int64 a1, char *a2)

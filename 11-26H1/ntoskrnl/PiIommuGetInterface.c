@@ -1,12 +1,12 @@
 /*
- * XREFs of PiIommuGetInterface @ 0x140AA7CF0
+ * XREFs of PiIommuGetInterface @ 0x1409DB224
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PiIommuPutInterface @ 0x1407B4A48 (PiIommuPutInterface.c)
- *     PnpQueryInterface @ 0x140AA8480 (PnpQueryInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PiIommuPutInterface @ 0x1407B7AA8 (PiIommuPutInterface.c)
+ *     PnpQueryInterface @ 0x1409DB9B4 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PiIommuGetInterface(ULONG_PTR BugCheckParameter2, _QWORD *a2)

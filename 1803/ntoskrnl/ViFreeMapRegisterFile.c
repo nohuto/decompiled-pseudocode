@@ -33,7 +33,7 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, __int64 a2)
   unsigned int v11; // r9d
   ULONG_PTR v12; // r8
   __int64 v13; // rdx
-  struct _SLIST_ENTRY *v14; // rcx
+  _SLIST_ENTRY *v14; // rcx
 
   if ( !a2 || *(_DWORD *)a2 != -1393569779 )
     return 0LL;
@@ -76,10 +76,10 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, __int64 a2)
     ++v8;
   }
   IoFreeMdl(*(PMDL *)(a2 + 56));
-  v14 = *(struct _SLIST_ENTRY **)(a2 + 72);
+  v14 = *(_SLIST_ENTRY **)(a2 + 72);
   if ( v14 )
     VfUtilFreePoolCheckIRQL(v14);
   *(_QWORD *)a2 = 0LL;
-  VfUtilFreePoolCheckIRQL((struct _SLIST_ENTRY *)a2);
+  VfUtilFreePoolCheckIRQL((_SLIST_ENTRY *)a2);
   return 1LL;
 }

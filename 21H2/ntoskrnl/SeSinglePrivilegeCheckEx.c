@@ -1,15 +1,15 @@
 /*
- * XREFs of SeSinglePrivilegeCheckEx @ 0x140627698
+ * XREFs of SeSinglePrivilegeCheckEx @ 0x1406937A8
  * Callers:
- *     SepCheckForCriticalAceRemoval @ 0x14027EFAC (SepCheckForCriticalAceRemoval.c)
- *     SepValidLabelSubjectContext @ 0x140607A3C (SepValidLabelSubjectContext.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     SepValidOwnerSubjectContext @ 0x14069CE0C (SepValidOwnerSubjectContext.c)
- *     CmpSetAccessStateForBackupRestore @ 0x14076EEF4 (CmpSetAccessStateForBackupRestore.c)
+ *     SepCheckForCriticalAceRemoval @ 0x14026CF4C (SepCheckForCriticalAceRemoval.c)
+ *     SepValidOwnerSubjectContext @ 0x1405FBEDC (SepValidOwnerSubjectContext.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     SepValidLabelSubjectContext @ 0x1406974CC (SepValidLabelSubjectContext.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14076F0B4 (CmpSetAccessStateForBackupRestore.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
- *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SePrivilegeCheck @ 0x140649D60 (SePrivilegeCheck.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14069382C (SePrivilegedServiceAuditAlarm.c)
  */
 
 BOOLEAN __fastcall SeSinglePrivilegeCheckEx(LUID a1, struct _SECURITY_SUBJECT_CONTEXT *a2, KPROCESSOR_MODE a3)

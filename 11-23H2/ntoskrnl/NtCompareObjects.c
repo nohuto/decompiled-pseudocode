@@ -1,27 +1,27 @@
 /*
- * XREFs of NtCompareObjects @ 0x1407E8190
+ * XREFs of NtCompareObjects @ 0x1407E8460
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtCompareObjects(void *a1, void *a2)
+NTSTATUS __cdecl NtCompareObjects(HANDLE FirstObjectHandle, HANDLE SecondObjectHandle)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   NTSTATUS result; // eax
-  NTSTATUS v5; // ebx
+  signed int v5; // ebx
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
   PVOID v7; // [rsp+58h] [rbp+20h] BYREF
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  result = ObReferenceObjectByHandle(a1, 0, 0LL, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(FirstObjectHandle, 0, 0LL, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v7 = 0LL;
-    v5 = ObReferenceObjectByHandle(a2, 0, 0LL, PreviousMode, &v7, 0LL);
+    v5 = ObReferenceObjectByHandle(SecondObjectHandle, 0, 0LL, PreviousMode, &v7, 0LL);
     if ( v5 >= 0 )
     {
       v5 = v7 != Object ? 0xC00001AC : 0;

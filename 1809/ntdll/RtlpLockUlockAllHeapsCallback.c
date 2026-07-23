@@ -7,7 +7,7 @@
  *     RtlUnlockHeap @ 0x18006D640 (RtlUnlockHeap.c)
  */
 
-__int64 __fastcall RtlpLockUlockAllHeapsCallback(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpLockUlockAllHeapsCallback(void *a1, __int64 a2)
 {
   if ( a2 )
     RtlLockHeap(a1);

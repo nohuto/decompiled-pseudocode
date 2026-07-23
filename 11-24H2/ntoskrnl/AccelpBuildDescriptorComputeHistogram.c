@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelpBuildDescriptorComputeHistogram @ 0x140665CA8
+ * XREFs of AccelpBuildDescriptorComputeHistogram @ 0x140664598
  * Callers:
- *     AccelpComputeHistogram @ 0x140666040 (AccelpComputeHistogram.c)
+ *     AccelpComputeHistogram @ 0x140664930 (AccelpComputeHistogram.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x14040A7AC (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x140402C8C (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall AccelpBuildDescriptorComputeHistogram(__int64 *a1, __int64 a2, int a3, __int64 a4, __int64 a5)

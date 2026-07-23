@@ -12,12 +12,12 @@ char __fastcall ReadTimeStampCounterFromEmulator(_DWORD *a1, char a2)
   _DWORD *v6; // ecx
   _DWORD v7[2]; // [esp+8h] [ebp-14h] BYREF
   _DWORD *v8; // [esp+10h] [ebp-Ch]
-  __int16 v9; // [esp+14h] [ebp-8h] BYREF
-  __int16 v10; // [esp+18h] [ebp-4h] BYREF
+  USHORT ProcessMachine; // [esp+14h] [ebp-8h] BYREF
+  USHORT NativeMachine; // [esp+18h] [ebp-4h] BYREF
 
   v8 = a1;
-  RtlWow64GetProcessMachines(-1, &v9, &v10);
-  if ( v10 != -21916 )
+  RtlWow64GetProcessMachines((HANDLE)0xFFFFFFFF, &ProcessMachine, &NativeMachine);
+  if ( NativeMachine != 0xAA64 )
     return 0;
   v6 = v8;
   __asm { int     81h }

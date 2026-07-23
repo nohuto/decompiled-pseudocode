@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleasePageFileSpace @ 0x1403E4F90
+ * XREFs of MiReleasePageFileSpace @ 0x1403D2B30
  * Callers:
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
- *     MiDecommitHandleTransitionPte @ 0x140286C5C (MiDecommitHandleTransitionPte.c)
- *     MiDecommitHandlePageFileFormatPte @ 0x140289270 (MiDecommitHandlePageFileFormatPte.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1403E4774 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiDeletePerSessionProtos @ 0x140495AB0 (MiDeletePerSessionProtos.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
+ *     MiDecommitHandleTransitionPte @ 0x14029685C (MiDecommitHandleTransitionPte.c)
+ *     MiDecommitHandlePageFileFormatPte @ 0x140298E70 (MiDecommitHandlePageFileFormatPte.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403D2314 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiDeletePerSessionProtos @ 0x140490370 (MiDeletePerSessionProtos.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
  */
 
 __int64 __fastcall MiReleasePageFileSpace(__int64 a1, unsigned __int64 a2, int a3)
@@ -59,6 +59,6 @@ __int64 __fastcall MiReleasePageFileSpace(__int64 a1, unsigned __int64 a2, int a
   }
   if ( !a2 )
     return 0LL;
-  MiReleasePageFileInfo(a1, a2, 1LL);
+  MiReleasePageFileInfo(a1, a2, 1LL, a1);
   return 1LL;
 }

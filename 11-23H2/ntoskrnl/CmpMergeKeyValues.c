@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpMergeKeyValues @ 0x140A222D8
+ * XREFs of CmpMergeKeyValues @ 0x140A22588
  * Callers:
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
- *     CmpCopySyncTree2 @ 0x140A214A8 (CmpCopySyncTree2.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
+ *     CmpCopySyncTree2 @ 0x140A21758 (CmpCopySyncTree2.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     CmpFindNameInListWithStatus @ 0x1406D2774 (CmpFindNameInListWithStatus.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpInitializeValueNameString @ 0x140708464 (CmpInitializeValueNameString.c)
- *     CmpAddValueToListEx @ 0x140709AB4 (CmpAddValueToListEx.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpCopyValue @ 0x1408AB984 (CmpCopyValue.c)
- *     CmpSyncKeyValues @ 0x140A22DD4 (CmpSyncKeyValues.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     CmpFindNameInListWithStatus @ 0x1406D27A4 (CmpFindNameInListWithStatus.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpInitializeValueNameString @ 0x140708674 (CmpInitializeValueNameString.c)
+ *     CmpAddValueToListEx @ 0x140709CC4 (CmpAddValueToListEx.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpCopyValue @ 0x1408ABBD4 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x140A23084 (CmpSyncKeyValues.c)
  */
 
 __int64 CmpMergeKeyValues(ULONG_PTR BugCheckParameter3, int a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, ...)

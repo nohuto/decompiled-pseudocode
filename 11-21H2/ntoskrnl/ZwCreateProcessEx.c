@@ -6,9 +6,19 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCreateProcessEx(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwCreateProcessEx(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ParentProcess,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle,
+        ULONG Reserved)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ProcessHandle, *(_QWORD *)&DesiredAccess);
 }

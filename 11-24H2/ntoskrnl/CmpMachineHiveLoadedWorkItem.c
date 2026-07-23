@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpMachineHiveLoadedWorkItem @ 0x1407D1F60
+ * XREFs of CmpMachineHiveLoadedWorkItem @ 0x1407D2450
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpMachineHiveCallbackFatalFilter @ 0x1407D1F28 (CmpMachineHiveCallbackFatalFilter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpMachineHiveCallbackFatalFilter @ 0x1407D2418 (CmpMachineHiveCallbackFatalFilter.c)
  */
 
-__int64 __fastcall CmpMachineHiveLoadedWorkItem(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CmpMachineHiveLoadedWorkItem(__int64 a1, __int64 a2)
 {
-  _QWORD *v4; // rbx
+  _QWORD *v2; // rbx
   __int64 result; // rax
 
-  v4 = (_QWORD *)(a2 + 96);
+  v2 = (_QWORD *)(a2 + 96);
   *(_QWORD *)(a2 + 96) = KeGetCurrentThread();
-  result = guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 88), a2, a3, a4);
-  *v4 = 0LL;
+  result = guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 88), a2);
+  *v2 = 0LL;
   return result;
 }

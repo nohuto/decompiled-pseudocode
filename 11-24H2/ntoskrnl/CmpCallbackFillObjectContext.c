@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCallbackFillObjectContext @ 0x1408487F0
+ * XREFs of CmpCallbackFillObjectContext @ 0x140844AB0
  * Callers:
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     CmpGetCallbackObjectContext @ 0x1409508E0 (CmpGetCallbackObjectContext.c)
- *     CmpUnlockContextList @ 0x14098B2A0 (CmpUnlockContextList.c)
- *     CmpLockContextListShared @ 0x14099CF50 (CmpLockContextListShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmpGetCallbackObjectContext @ 0x140940B60 (CmpGetCallbackObjectContext.c)
+ *     CmpUnlockContextList @ 0x1409758B0 (CmpUnlockContextList.c)
+ *     CmpLockContextListShared @ 0x1409834D0 (CmpLockContextListShared.c)
  */
 
 void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, _QWORD *a3)
@@ -21,7 +21,7 @@ void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, _QWORD *a3)
   __int64 v8; // rbp
   _QWORD *v9; // r14
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v11; // r15
+  char *v11; // r15
   _QWORD *i; // rax
   __int64 v13; // rcx
   _DWORD *v14; // rax
@@ -34,24 +34,24 @@ void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, _QWORD *a3)
   ULONG_PTR v21; // rtt
   _QWORD *v22; // r14
   struct _KTHREAD *v23; // rax
-  _QWORD *v24; // r15
+  char *v24; // r15
   _QWORD *j; // rax
   __int64 v26; // rcx
   _QWORD *v27; // r14
   struct _KTHREAD *v28; // rax
-  _QWORD *v29; // r15
+  char *v29; // r15
   _QWORD *k; // rax
   __int64 v31; // rcx
   _QWORD *v32; // r14
   struct _KTHREAD *v33; // rax
-  _QWORD *v34; // r15
+  char *v34; // r15
   _QWORD *m; // rax
   __int64 v36; // rcx
   _DWORD *v37; // rax
   __int64 v38; // rbp
   _QWORD *v39; // r14
   struct _KTHREAD *v40; // rax
-  _QWORD *v41; // r15
+  char *v41; // r15
   _QWORD *v42; // rax
   __int64 v43; // rcx
   signed __int64 v44; // rdx
@@ -65,12 +65,12 @@ void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, _QWORD *a3)
   _DWORD *v52; // rax
   _QWORD *v53; // r14
   struct _KTHREAD *v54; // rax
-  _QWORD *v55; // r15
+  char *v55; // r15
   __int64 v56; // rcx
   _DWORD *v57; // rax
   _QWORD *v58; // r14
   struct _KTHREAD *v59; // rax
-  _QWORD *v60; // r15
+  char *v60; // r15
   _QWORD *v61; // rax
   __int64 v62; // rcx
   _DWORD *v63; // rax
@@ -81,7 +81,7 @@ void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, _QWORD *a3)
   __int64 v68; // rcx
   _QWORD *v69; // r14
   struct _KTHREAD *v70; // rax
-  _QWORD *v71; // r15
+  char *v71; // r15
   _QWORD *v72; // rax
   __int64 v73; // rcx
   signed __int64 v74; // rdx
@@ -106,11 +106,11 @@ LABEL_9:
           {
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
-            v11 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+            v11 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
             if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
               ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v11, (__int64)&CmpContextListLock);
             if ( v11 )
-              *((_BYTE *)v11 + 10) = 1;
+              v11[10] = 1;
             for ( i = (_QWORD *)*v9; i != v9; i = (_QWORD *)*i )
             {
               v13 = i[4];
@@ -155,11 +155,11 @@ LABEL_22:
           {
             v23 = KeGetCurrentThread();
             --v23->KernelApcDisable;
-            v24 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+            v24 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
             if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
               ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v24, (__int64)&CmpContextListLock);
             if ( v24 )
-              *((_BYTE *)v24 + 10) = 1;
+              v24[10] = 1;
             for ( j = (_QWORD *)*v22; j != v22; j = (_QWORD *)*j )
             {
               v26 = j[4];
@@ -203,11 +203,11 @@ LABEL_22:
           {
             v28 = KeGetCurrentThread();
             --v28->KernelApcDisable;
-            v29 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+            v29 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
             if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
               ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v29, (__int64)&CmpContextListLock);
             if ( v29 )
-              *((_BYTE *)v29 + 10) = 1;
+              v29[10] = 1;
             for ( k = (_QWORD *)*v27; k != v27; k = (_QWORD *)*k )
             {
               v31 = k[4];
@@ -251,11 +251,11 @@ LABEL_22:
           {
             v33 = KeGetCurrentThread();
             --v33->KernelApcDisable;
-            v34 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+            v34 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
             if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
               ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v34, (__int64)&CmpContextListLock);
             if ( v34 )
-              *((_BYTE *)v34 + 10) = 1;
+              v34[10] = 1;
             for ( m = (_QWORD *)*v32; m != v32; m = (_QWORD *)*m )
             {
               v36 = m[4];
@@ -315,11 +315,11 @@ LABEL_28:
             goto LABEL_27;
           v59 = KeGetCurrentThread();
           --v59->KernelApcDisable;
-          v60 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+          v60 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
             ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v60, (__int64)&CmpContextListLock);
           if ( v60 )
-            *((_BYTE *)v60 + 10) = 1;
+            v60[10] = 1;
           v61 = (_QWORD *)*v58;
           while ( 2 )
           {
@@ -393,11 +393,11 @@ LABEL_28:
             goto LABEL_27;
           v54 = KeGetCurrentThread();
           --v54->KernelApcDisable;
-          v55 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+          v55 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
             ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v55, (__int64)&CmpContextListLock);
           if ( v55 )
-            *((_BYTE *)v55 + 10) = 1;
+            v55[10] = 1;
           m = (_QWORD *)*v53;
           while ( 2 )
           {
@@ -431,11 +431,11 @@ LABEL_28:
             goto LABEL_8;
           v40 = KeGetCurrentThread();
           --v40->KernelApcDisable;
-          v41 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+          v41 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
             ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v41, (__int64)&CmpContextListLock);
           if ( v41 )
-            *((_BYTE *)v41 + 10) = 1;
+            v41[10] = 1;
           v42 = (_QWORD *)*v39;
           while ( 2 )
           {
@@ -512,11 +512,11 @@ LABEL_8:
             goto LABEL_69;
           v70 = KeGetCurrentThread();
           --v70->KernelApcDisable;
-          v71 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+          v71 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
             ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v71, (__int64)&CmpContextListLock);
           if ( v71 )
-            *((_BYTE *)v71 + 10) = 1;
+            v71[10] = 1;
           v72 = (_QWORD *)*v69;
           while ( 2 )
           {

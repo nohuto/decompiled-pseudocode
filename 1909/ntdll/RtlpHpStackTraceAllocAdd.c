@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpStackTraceAllocAdd(__int64 a1, __int64 a2, __int64 a3)
   _QWORD *v6; // rax
   _QWORD *v7; // r15
   unsigned int v8; // r14d
-  volatile signed __int64 *v9; // r13
+  _RTL_SRWLOCK *v9; // r13
   unsigned __int64 v10; // rsi
   unsigned int v11; // eax
   __int64 v12; // rbx
@@ -41,10 +41,10 @@ __int64 __fastcall RtlpHpStackTraceAllocAdd(__int64 a1, __int64 a2, __int64 a3)
   v7 = v6;
   if ( !v6 )
     return 0;
-  v9 = (volatile signed __int64 *)(a1 + 8);
+  v9 = (_RTL_SRWLOCK *)(a1 + 8);
   v6[1] = a2;
   v6[2] = a3;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   v10 = a1 + 16;
   v8 = 1;
   *(_DWORD *)a1 = NtCurrentTeb()->ClientId.UniqueThread;
@@ -106,7 +106,7 @@ __int64 __fastcall RtlpHpStackTraceAllocAdd(__int64 a1, __int64 a2, __int64 a3)
         ++v13;
       }
       while ( v13 < *(_DWORD *)(a1 + 20) >> 5 );
-      v9 = (volatile signed __int64 *)(a1 + 8);
+      v9 = (_RTL_SRWLOCK *)(a1 + 8);
     }
     v21 = *(_QWORD *)(a1 + 24);
     v11 = (32 * v12) | *(_DWORD *)(a1 + 20) & 0x1F;

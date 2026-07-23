@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIsMktmeEnabled @ 0x140AA357C
+ * XREFs of PopIsMktmeEnabled @ 0x140AA33EC
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4980 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140AA47F0 (PopSaveHiberContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
  */
 

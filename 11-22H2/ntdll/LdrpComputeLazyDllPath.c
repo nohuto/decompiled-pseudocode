@@ -24,7 +24,7 @@ __int64 __fastcall LdrpComputeLazyDllPath(__int64 a1)
   if ( !*(_QWORD *)a1 )
   {
     DllPath = LdrpGetDllPath(
-                *(_QWORD *)(a1 + 32),
+                *(PCWSTR *)(a1 + 32),
                 *(_DWORD *)(a1 + 24),
                 &v7,
                 &v8,
@@ -36,9 +36,9 @@ __int64 __fastcall LdrpComputeLazyDllPath(__int64 a1)
     {
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrutil.c",
-        1480LL,
+        1480,
         (__int64)"LdrpComputeLazyDllPath",
-        0LL,
+        0,
         "Lazy DLL search path computation failed with status: 0x%08lx.\n",
         DllPath);
     }
@@ -53,18 +53,18 @@ __int64 __fastcall LdrpComputeLazyDllPath(__int64 a1)
       if ( v5 )
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrutil.c",
-          1497LL,
+          1497,
           (__int64)"LdrpComputeLazyDllPath",
-          2LL,
+          2u,
           "Packaged DLL search path computed. Package Dirs: %ws, DllPath: %ws\n",
           v5,
           v4);
       else
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrutil.c",
-          1491LL,
+          1491,
           (__int64)"LdrpComputeLazyDllPath",
-          2LL,
+          2u,
           "DLL search path computed: %ws\n",
           v4);
     }

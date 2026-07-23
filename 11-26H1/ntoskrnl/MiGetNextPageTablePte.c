@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetNextPageTablePte @ 0x140328700
+ * XREFs of MiGetNextPageTablePte @ 0x14032A730
  * Callers:
- *     MiWalkPageTablesEvaluatePte @ 0x140327B30 (MiWalkPageTablesEvaluatePte.c)
+ *     MiWalkPageTablesEvaluatePte @ 0x140329B60 (MiWalkPageTablesEvaluatePte.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiIsPdeOrAboveAccessible @ 0x1404892CC (MiIsPdeOrAboveAccessible.c)
- *     MiIsLazyStampedPte @ 0x1404893A8 (MiIsLazyStampedPte.c)
- *     MiFlushAllFilesystemPages @ 0x140531F5C (MiFlushAllFilesystemPages.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiIsPdeOrAboveAccessible @ 0x140482E0C (MiIsPdeOrAboveAccessible.c)
+ *     MiIsLazyStampedPte @ 0x140482EE8 (MiIsLazyStampedPte.c)
+ *     MiFlushAllFilesystemPages @ 0x1405343FC (MiFlushAllFilesystemPages.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiGetNextPageTablePte(int *a1, unsigned __int64 *a2, __int64 a3, unsigned int a4)
@@ -222,7 +222,7 @@ LABEL_81:
   }
   v21 = *a1;
   if ( (*a1 & 0x100) != 0
-    && qword_140E36000[0] != (PVOID)qword_140E36018
+    && qword_140E36180[0] != (PVOID)qword_140E36198
     && ((v8 >> 12) & 0xFFFFFFFFFFLL) == *((_QWORD *)&MiState + v4 + 4944) )
   {
     return 1LL;

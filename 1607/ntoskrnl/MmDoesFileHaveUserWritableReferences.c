@@ -1,15 +1,15 @@
 /*
- * XREFs of MmDoesFileHaveUserWritableReferences @ 0x140096CF0
+ * XREFs of MmDoesFileHaveUserWritableReferences @ 0x1400964F0
  * Callers:
  *     <none>
  * Callees:
- *     MiGetControlAreaPartition @ 0x140026D5C (MiGetControlAreaPartition.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x14002EC30 (ExpAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiGetControlAreaPartition @ 0x1400268DC (MiGetControlAreaPartition.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14002E7B0 (ExpAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS SectionPointer)
@@ -28,24 +28,24 @@ ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS Se
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140326540, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140326580, CurrentIrql);
     else
-      ExpAcquireSpinLockExclusive(&dword_140326540, CurrentIrql);
+      ExpAcquireSpinLockExclusive(&dword_140326580, CurrentIrql);
     DataSectionObject = (char *)SectionPointer->DataSectionObject;
     if ( !SectionPointer->DataSectionObject )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
       __writecr8(CurrentIrql);
       return 0;
     }
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 72) )
       break;
-    ExReleaseSpinLockExclusive(&dword_140326540, CurrentIrql);
+    ExReleaseSpinLockExclusive(&dword_140326580, CurrentIrql);
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140326540, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140326580, retaddr);
   else
-    dword_140326540 = 0;
+    dword_140326580 = 0;
   v6 = *((_DWORD *)DataSectionObject + 23);
   if ( !v6 )
   {

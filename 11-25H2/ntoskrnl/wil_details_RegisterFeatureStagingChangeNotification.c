@@ -6,16 +6,16 @@
  *     RtlRegisterFeatureConfigurationChangeNotification @ 0x1404CC0F0 (RtlRegisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 wil_details_RegisterFeatureStagingChangeNotification()
+NTSTATUS wil_details_RegisterFeatureStagingChangeNotification()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   result = RtlRegisterFeatureConfigurationChangeNotification(
-             (__int64)wil_details_ReevaluateOnFeatureConfigurationChange,
+             (PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK)wil_details_ReevaluateOnFeatureConfigurationChange,
              0LL,
              0LL,
-             (__int64)&g_wil_details_featureChangeNotification);
-  if ( (_DWORD)result )
+             &g_wil_details_featureChangeNotification);
+  if ( result )
     g_wil_details_featureChangeNotification = 0LL;
   return result;
 }

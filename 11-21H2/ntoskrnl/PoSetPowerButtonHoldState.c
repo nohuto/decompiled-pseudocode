@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     PopUpdatePowerButtonHoldState @ 0x1405D8DC8 (PopUpdatePowerButtonHoldState.c)
+ *     sub_1405D8DC8 @ 0x1405D8DC8 (sub_1405D8DC8.c)
  */
 
 __int64 PoSetPowerButtonHoldState()
 {
-  return PopUpdatePowerButtonHoldState();
+  return sub_1405D8DC8();
 }

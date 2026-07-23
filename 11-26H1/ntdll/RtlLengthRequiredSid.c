@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlLengthRequiredSid @ 0x1800CE750
+ * XREFs of RtlLengthRequiredSid @ 0x1800CBEC0
  * Callers:
- *     WerpAllocateAndInitializeSid @ 0x1800CE0D8 (WerpAllocateAndInitializeSid.c)
- *     RtlAddSIDToBoundaryDescriptorEx @ 0x1800CE610 (RtlAddSIDToBoundaryDescriptorEx.c)
- *     RtlpValidateSidBuffer @ 0x1800CE854 (RtlpValidateSidBuffer.c)
- *     WerpFreeSid @ 0x180122620 (WerpFreeSid.c)
- *     RtlAllocateAndInitializeSidEx @ 0x18013CBE0 (RtlAllocateAndInitializeSidEx.c)
- *     RtlNormalizeSecurityDescriptor @ 0x18013D120 (RtlNormalizeSecurityDescriptor.c)
+ *     WerpAllocateAndInitializeSid @ 0x1800CB848 (WerpAllocateAndInitializeSid.c)
+ *     RtlAddSIDToBoundaryDescriptorEx @ 0x1800CBD80 (RtlAddSIDToBoundaryDescriptorEx.c)
+ *     RtlpValidateSidBuffer @ 0x1800CBFC4 (RtlpValidateSidBuffer.c)
+ *     WerpFreeSid @ 0x1801223C0 (WerpFreeSid.c)
+ *     RtlAllocateAndInitializeSidEx @ 0x18013CA90 (RtlAllocateAndInitializeSidEx.c)
+ *     RtlNormalizeSecurityDescriptor @ 0x18013CFD0 (RtlNormalizeSecurityDescriptor.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlLengthRequiredSid(unsigned int a1)
+ULONG __cdecl RtlLengthRequiredSid(ULONG SubAuthorityCount)
 {
-  if ( a1 > 0x3FFFFFF7 )
-    return 0xFFFFFFFFLL;
+  if ( SubAuthorityCount > 0x3FFFFFF7 )
+    return -1;
   else
-    return 4 * a1 + 8;
+    return 4 * SubAuthorityCount + 8;
 }

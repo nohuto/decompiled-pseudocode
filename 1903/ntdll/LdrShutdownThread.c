@@ -21,11 +21,15 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __noreturn LdrShutdownThread(void)
 {
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+  __int64 v2; // r8
+  __int64 v3; // r9
   struct _TEB *v4; // rbx
   struct _PEB *v5; // r13
-  void *FlsData; // r14
+  PVOID FlsData; // r14
   char v7; // si
   __int64 v8; // rcx
   __int64 *v9; // r15
@@ -35,25 +39,24 @@ __int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2, __int64 a3, __int64
   __int64 v13; // rcx
   __int64 v14; // r8
   __int64 v15; // r9
-  void **TlsExpansionSlots; // rdi
+  PVOID *TlsExpansionSlots; // rdi
   __int64 v17; // rdx
   __int64 v18; // rcx
   __int64 v19; // r8
   __int64 v20; // r9
-  __int64 result; // rax
   PVOID FiberData; // r8
-  __int64 v23; // [rsp+30h] [rbp-C8h] BYREF
-  int v24; // [rsp+38h] [rbp-C0h]
-  _BYTE v25[56]; // [rsp+40h] [rbp-B8h] BYREF
-  __int64 v26; // [rsp+80h] [rbp-78h] BYREF
-  int v27; // [rsp+88h] [rbp-70h]
-  _BYTE v28[56]; // [rsp+90h] [rbp-68h] BYREF
+  __int64 v22; // [rsp+30h] [rbp-C8h] BYREF
+  int v23; // [rsp+38h] [rbp-C0h]
+  _BYTE v24[56]; // [rsp+40h] [rbp-B8h] BYREF
+  __int64 v25; // [rsp+80h] [rbp-78h] BYREF
+  int v26; // [rsp+88h] [rbp-70h]
+  _BYTE v27[56]; // [rsp+90h] [rbp-68h] BYREF
 
   v4 = NtCurrentTeb();
   v5 = NtCurrentPeb();
   FlsData = v4->FlsData;
   if ( FlsData )
-    sub_18006B424(a1, v4->FlsData, 1LL);
+    sub_18006B424(v1, v4->FlsData, 1LL);
   if ( ((NtCurrentTeb()->SameTebFlags & 8) == 0 || (NtCurrentTeb()->SameTebFlags & 0x20) != 0)
     && (v4->SameTebFlags & 0x2000) == 0 )
   {
@@ -73,7 +76,7 @@ __int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2, __int64 a3, __int64
       v10 = v9 - 4;
       v9 = (__int64 *)v9[1];
       v8 = *((unsigned int *)v10 + 26);
-      if ( v5->ImageBaseAddress != (void *)v10[6] && (v8 & 0x40000) == 0 )
+      if ( v5->ImageBaseAddress != (PVOID)v10[6] && (v8 & 0x40000) == 0 )
       {
         v11 = v10[7];
         if ( v11 )
@@ -81,26 +84,26 @@ __int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2, __int64 a3, __int64
           v8 &= 0x80004u;
           if ( (_DWORD)v8 == 524292 )
           {
-            v23 = 72LL;
-            v24 = 1;
-            memset(v25, 0, sizeof(v25));
-            RtlActivateActivationContextUnsafeFast(&v23, v10[17]);
+            v22 = 72LL;
+            v23 = 1;
+            memset(v24, 0, sizeof(v24));
+            RtlActivateActivationContextUnsafeFast(&v22, v10[17]);
             if ( *((_WORD *)v10 + 55) )
               sub_18002507C(3LL, v10);
             sub_180024FBC(v11, v10[6], 3LL);
-            RtlDeactivateActivationContextUnsafeFast(&v23);
+            RtlDeactivateActivationContextUnsafeFast(&v22);
           }
         }
       }
     }
     if ( *(_WORD *)(qword_180164FC8 + 110) )
     {
-      v26 = 72LL;
-      v27 = 1;
-      memset(v28, 0, sizeof(v28));
-      RtlActivateActivationContextUnsafeFast(&v26, *(_QWORD *)(qword_180164FC8 + 136));
+      v25 = 72LL;
+      v26 = 1;
+      memset(v27, 0, sizeof(v27));
+      RtlActivateActivationContextUnsafeFast(&v25, *(_QWORD *)(qword_180164FC8 + 136));
       sub_18002507C(3LL, qword_180164FC8);
-      RtlDeactivateActivationContextUnsafeFast(&v26);
+      RtlDeactivateActivationContextUnsafeFast(&v25);
     }
     sub_18002D75C(v8, 19LL);
     if ( !v7 )
@@ -110,25 +113,23 @@ __int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2, __int64 a3, __int64
   if ( FlsData )
   {
     v4->FlsData = 0LL;
-    sub_18006B424(a1, FlsData, 2LL);
+    sub_18006B424(v1, FlsData, 2LL);
   }
   TlsExpansionSlots = v4->TlsExpansionSlots;
   if ( TlsExpansionSlots )
   {
     v4->TlsExpansionSlots = 0LL;
-    RtlEnterCriticalSection((__int64)&unk_180164FE0);
-    RtlLeaveCriticalSection(&unk_180164FE0);
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, TlsExpansionSlots);
+    RtlEnterCriticalSection(&stru_180164FE0);
+    RtlLeaveCriticalSection(&stru_180164FE0);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, TlsExpansionSlots);
   }
   if ( (v4->SameTebFlags & 4) != 0 )
   {
     FiberData = v4->NtTib.FiberData;
     v4->NtTib.FiberData = 0LL;
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, FiberData);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, FiberData);
   }
-  RtlFreeThreadActivationContextStack(a1, a2, a3, a4);
-  result = 1024LL;
+  RtlFreeThreadActivationContextStack(v1, v0, v2, v3);
   if ( (v4->SameTebFlags & 0x400) != 0 && dword_1801664E0 == 3 )
-    return TpTrimPools(v18, v17, v19, v20);
-  return result;
+    TpTrimPools(v18, v17, v19, v20);
 }

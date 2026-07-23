@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwSendTraceBuffer @ 0x1405A5F30
+ * XREFs of EtwSendTraceBuffer @ 0x1405A6160
  * Callers:
- *     VslpFlushBufferArray @ 0x1404FDCF0 (VslpFlushBufferArray.c)
+ *     VslpFlushBufferArray @ 0x1404FDC70 (VslpFlushBufferArray.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     EtwpGetLoggerTimeStamp @ 0x14022CAD8 (EtwpGetLoggerTimeStamp.c)
- *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpCloseLogger @ 0x140379F38 (EtwpCloseLogger.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
+ *     EtwpOpenLogger @ 0x14027F6C8 (EtwpOpenLogger.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     EtwpGetLoggerTimeStamp @ 0x1402D1328 (EtwpGetLoggerTimeStamp.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     EtwpCloseLogger @ 0x140379A88 (EtwpCloseLogger.c)
  */
 
 __int64 __fastcall EtwSendTraceBuffer(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)

@@ -1,21 +1,21 @@
 /*
- * XREFs of IopBootLog @ 0x140A785F8
+ * XREFs of IopBootLog @ 0x140A728F8
  * Callers:
- *     IopBootLogDriver @ 0x140595F60 (IopBootLogDriver.c)
- *     PipCallDriverAddDevice @ 0x1409C6228 (PipCallDriverAddDevice.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
+ *     IopBootLogDriver @ 0x140592F90 (IopBootLogDriver.c)
+ *     PipCallDriverAddDevice @ 0x140980ED0 (PipCallDriverAddDevice.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     IopBootLogToFile @ 0x140711A34 (IopBootLogToFile.c)
- *     IopOpenRegistryKey @ 0x140A77340 (IopOpenRegistryKey.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     IopBootLogToFile @ 0x14070F5C4 (IopBootLogToFile.c)
+ *     IopOpenRegistryKey @ 0x140A71460 (IopOpenRegistryKey.c)
  */
 
 void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
@@ -60,7 +60,7 @@ void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
     ++LODWORD(::DestinationString[10].Buffer);
     RtlStringCchPrintfW(pszDest, 0x100uLL, L"%d");
     RtlInitUnicodeString(&v10, pszDest);
-    RtlInitUnicodeString(&ValueName, &word_140AEA890);
+    RtlInitUnicodeString(&ValueName, &word_140AEDAC0);
     if ( BYTE4(::DestinationString[10].Buffer) )
     {
       IopBootLogToFile((PVOID *)&DestinationString);

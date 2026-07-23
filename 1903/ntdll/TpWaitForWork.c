@@ -7,12 +7,8 @@
  *     sub_1800364D8 @ 0x1800364D8 (sub_1800364D8.c)
  */
 
-struct _PEB *__fastcall TpWaitForWork(struct _PEB_LDR_DATA *a1, int a2)
+void __cdecl TpWaitForWork(PTP_WORK Work, LOGICAL CancelPendingCallbacks)
 {
-  struct _PEB *result; // rax
-
-  result = (struct _PEB *)sub_1800364D8(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
-    return sub_180031C98(a1, a2);
-  return result;
+  if ( (unsigned int)sub_1800364D8((PPEB_LDR_DATA)Work, 0LL, 0LL) )
+    sub_180031C98(Work, CancelPendingCallbacks);
 }

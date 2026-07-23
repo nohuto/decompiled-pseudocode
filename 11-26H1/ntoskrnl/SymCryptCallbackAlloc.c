@@ -1,24 +1,23 @@
 /*
- * XREFs of SymCryptCallbackAlloc @ 0x140722890
+ * XREFs of SymCryptCallbackAlloc @ 0x140727460
  * Callers:
- *     SymCryptRsakeyAllocate @ 0x140559884 (SymCryptRsakeyAllocate.c)
- *     SymCryptRsakeySetValueInternal @ 0x14055A418 (SymCryptRsakeySetValueInternal.c)
- *     SymCryptEcurveAllocate @ 0x14055AC74 (SymCryptEcurveAllocate.c)
- *     SymCryptEckeyAllocate @ 0x14055B6A4 (SymCryptEckeyAllocate.c)
- *     SymCryptEckeySetValue @ 0x14055B8D0 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaSignEx @ 0x14055C9F0 (SymCryptEcDsaSignEx.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
- *     SymCryptMlDsakeyAllocate @ 0x14055E1CC (SymCryptMlDsakeyAllocate.c)
- *     SymCryptRsaPkcs1Sign @ 0x14055EB54 (SymCryptRsaPkcs1Sign.c)
- *     SymCryptRsaPkcs1Verify @ 0x14055ECB0 (SymCryptRsaPkcs1Verify.c)
- *     SymCryptMlDsaSelftest @ 0x140563120 (SymCryptMlDsaSelftest.c)
- *     SymCryptRsaSelftest @ 0x1405632FC (SymCryptRsaSelftest.c)
- *     SymCryptRsaSignVerifyPct @ 0x140563510 (SymCryptRsaSignVerifyPct.c)
- *     SymCryptFdefIntAllocate @ 0x140570934 (SymCryptFdefIntAllocate.c)
- *     SymCryptMlDsaTemporariesAllocateAndInitialize @ 0x140573FA0 (SymCryptMlDsaTemporariesAllocateAndInitialize.c)
- *     SymCryptEcDhSecretAgreement @ 0x140574A80 (SymCryptEcDhSecretAgreement.c)
+ *     SymCryptRsakeyAllocate @ 0x14055BD14 (SymCryptRsakeyAllocate.c)
+ *     SymCryptRsakeySetValueInternal @ 0x14055C930 (SymCryptRsakeySetValueInternal.c)
+ *     SymCryptEcurveAllocate @ 0x14055D188 (SymCryptEcurveAllocate.c)
+ *     SymCryptEckeyAllocate @ 0x14055DB88 (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeySetValue @ 0x14055DDB4 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaSignEx @ 0x14055EED8 (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
+ *     SymCryptMlDsakeyAllocate @ 0x1405606F0 (SymCryptMlDsakeyAllocate.c)
+ *     SymCryptRsaPkcs1Sign @ 0x140561078 (SymCryptRsaPkcs1Sign.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1405611D4 (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptMlDsaSelftest @ 0x140565630 (SymCryptMlDsaSelftest.c)
+ *     SymCryptRsaSelftest @ 0x14056580C (SymCryptRsaSelftest.c)
+ *     SymCryptFdefIntAllocate @ 0x14056FB14 (SymCryptFdefIntAllocate.c)
+ *     SymCryptMlDsaTemporariesAllocateAndInitialize @ 0x140573204 (SymCryptMlDsaTemporariesAllocateAndInitialize.c)
+ *     SymCryptEcDhSecretAgreement @ 0x140573CE4 (SymCryptEcDhSecretAgreement.c)
  * Callees:
- *     MincryptAlloc @ 0x1408A4D98 (MincryptAlloc.c)
+ *     MincryptAlloc @ 0x1408AB1A8 (MincryptAlloc.c)
  */
 
 unsigned __int64 __fastcall SymCryptCallbackAlloc(__int64 a1)

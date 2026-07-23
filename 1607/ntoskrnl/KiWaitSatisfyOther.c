@@ -1,10 +1,10 @@
 /*
- * XREFs of KiWaitSatisfyOther @ 0x140098114
+ * XREFs of KiWaitSatisfyOther @ 0x140097914
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     KiWaitForAllObjects @ 0x140097D9C (KiWaitForAllObjects.c)
- *     KeRegisterObjectNotification @ 0x1400EDDA0 (KeRegisterObjectNotification.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x14009759C (KiWaitForAllObjects.c)
+ *     KeRegisterObjectNotification @ 0x1400EBC20 (KeRegisterObjectNotification.c)
  * Callees:
  *     <none>
  */

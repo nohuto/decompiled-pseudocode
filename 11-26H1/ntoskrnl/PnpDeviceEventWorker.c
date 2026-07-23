@@ -1,27 +1,27 @@
 /*
- * XREFs of PnpDeviceEventWorker @ 0x1409DCD90
+ * XREFs of PnpDeviceEventWorker @ 0x140A1A040
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     IoSetActivityIdThread @ 0x140491810 (IoSetActivityIdThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PnpProcessTargetDeviceEvent @ 0x1409119E4 (PnpProcessTargetDeviceEvent.c)
- *     PnpNotifyDeviceClassChange @ 0x1409DC660 (PnpNotifyDeviceClassChange.c)
- *     PnpAllocateAndEnableEventWatchdog @ 0x1409DC800 (PnpAllocateAndEnableEventWatchdog.c)
- *     PnpActivatePdcForDeviceEvent @ 0x1409DCA60 (PnpActivatePdcForDeviceEvent.c)
- *     PnpProcessDeferredRegistrations @ 0x1409DD0E8 (PnpProcessDeferredRegistrations.c)
- *     PnpProcessCustomDeviceEvent @ 0x1409DD260 (PnpProcessCustomDeviceEvent.c)
- *     PiUEventNotifyUserMode @ 0x1409DD808 (PiUEventNotifyUserMode.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x1409DDF60 (PnpDisableAndFreeEventWatchdog.c)
- *     PnpCompleteDeviceEvent @ 0x1409DE1B4 (PnpCompleteDeviceEvent.c)
- *     PnpNotifyHwProfileChange @ 0x140B6A1EC (PnpNotifyHwProfileChange.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     IoSetActivityIdThread @ 0x14048B360 (IoSetActivityIdThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PnpProcessTargetDeviceEvent @ 0x1409B3AC4 (PnpProcessTargetDeviceEvent.c)
+ *     PnpNotifyDeviceClassChange @ 0x140A19910 (PnpNotifyDeviceClassChange.c)
+ *     PnpAllocateAndEnableEventWatchdog @ 0x140A19AB0 (PnpAllocateAndEnableEventWatchdog.c)
+ *     PnpActivatePdcForDeviceEvent @ 0x140A19D10 (PnpActivatePdcForDeviceEvent.c)
+ *     PnpProcessDeferredRegistrations @ 0x140A1A398 (PnpProcessDeferredRegistrations.c)
+ *     PnpProcessCustomDeviceEvent @ 0x140A1A510 (PnpProcessCustomDeviceEvent.c)
+ *     PiUEventNotifyUserMode @ 0x140A1AAC0 (PiUEventNotifyUserMode.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x140A1B08C (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpCompleteDeviceEvent @ 0x140A1B2E0 (PnpCompleteDeviceEvent.c)
+ *     PnpNotifyHwProfileChange @ 0x140B6D3FC (PnpNotifyHwProfileChange.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDeviceEventWorker(PVOID P)
@@ -34,20 +34,19 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
   __int64 v7; // rcx
   __int64 v8; // rax
   int v9; // edi
-  __int64 v10; // rdx
+  int v10; // ecx
   int v11; // ecx
   int v12; // ecx
   int v13; // ecx
-  int v14; // ecx
-  int v15; // eax
+  int v14; // eax
+  int v15; // ecx
   int v16; // ecx
   int v17; // ecx
-  int v18; // ecx
-  __int64 v19; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v18; // [rsp+30h] [rbp-48h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
-  struct _LIST_ENTRY v21; // [rsp+48h] [rbp-30h] BYREF
+  struct _LIST_ENTRY v20; // [rsp+48h] [rbp-30h] BYREF
 
-  v21 = 0LL;
+  v20 = 0LL;
   DestinationString = 0LL;
   *(_QWORD *)&PnpDeviceEventThread = KeGetCurrentThread();
   if ( KeWaitForSingleObject((PVOID)(PnpDeviceEventList + 8), Executive, 0, 0, 0LL) < 0 )
@@ -75,14 +74,14 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
     *(_QWORD *)(v5 + 8) = v5;
     *(_QWORD *)v5 = v5;
     KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v3 + 64));
-    v19 = v5;
-    v7 = NullGuid - *(_QWORD *)(v5 + 88);
-    if ( (_QWORD)NullGuid == *(_QWORD *)(v5 + 88) )
-      v7 = *((_QWORD *)&NullGuid + 1) - *(_QWORD *)(v5 + 96);
+    v18 = v5;
+    v7 = *(_QWORD *)&NullGuid.Data1 - *(_QWORD *)(v5 + 88);
+    if ( *(_QWORD *)&NullGuid.Data1 == *(_QWORD *)(v5 + 88) )
+      v7 = *(_QWORD *)NullGuid.Data4 - *(_QWORD *)(v5 + 96);
     if ( v7 )
     {
-      v21 = *(struct _LIST_ENTRY *)(v5 + 88);
-      IoSetActivityIdThread(&v21);
+      v20 = *(struct _LIST_ENTRY *)(v5 + 88);
+      IoSetActivityIdThread(&v20);
       v2 = 1;
     }
     v8 = *(_QWORD *)(v5 + 160);
@@ -98,35 +97,35 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
     {
       *(_QWORD *)(v5 + 104) = PnpAllocateAndEnableEventWatchdog(v5);
       PnpActivatePdcForDeviceEvent(v5);
-      v11 = *(_DWORD *)(v5 + 136);
-      if ( v11 > 6 )
+      v10 = *(_DWORD *)(v5 + 136);
+      if ( v10 > 6 )
       {
-        v16 = v11 - 7;
-        if ( v16 )
+        v15 = v10 - 7;
+        if ( v15 )
         {
-          v17 = v16 - 1;
-          if ( v17 )
+          v16 = v15 - 1;
+          if ( v16 )
           {
-            v18 = v17 - 1;
-            if ( v18 && (unsigned int)(v18 - 1) > 1 )
+            v17 = v16 - 1;
+            if ( v17 && (unsigned int)(v17 - 1) > 1 )
               goto LABEL_27;
-            v15 = PiUEventNotifyUserMode(v5);
+            v14 = PiUEventNotifyUserMode(v5);
 LABEL_25:
-            v9 = v15;
+            v9 = v14;
           }
         }
       }
       else
       {
-        if ( v11 == 6 )
+        if ( v10 == 6 )
           goto LABEL_26;
-        if ( v11 )
+        if ( v10 )
         {
-          v12 = v11 - 1;
-          if ( v12 )
+          v11 = v10 - 1;
+          if ( v11 )
           {
-            v13 = v12 - 1;
-            if ( !v13 )
+            v12 = v11 - 1;
+            if ( !v12 )
             {
               RtlInitUnicodeString(&DestinationString, (PCWSTR)(v5 + 184));
               PnpNotifyDeviceClassChange((__int128 *)(v5 + 120), (_DWORD *)(v5 + 168), (__int64)&DestinationString);
@@ -137,20 +136,20 @@ LABEL_27:
               PnpCompleteDeviceEvent((PVOID)v5);
               goto LABEL_28;
             }
-            v14 = v13 - 1;
-            if ( v14 )
+            v13 = v12 - 1;
+            if ( v13 )
             {
-              if ( v14 != 1 )
+              if ( v13 != 1 )
                 goto LABEL_27;
               goto LABEL_34;
             }
-            v15 = PnpProcessCustomDeviceEvent(&v19);
+            v14 = PnpProcessCustomDeviceEvent(&v18);
           }
           else
           {
-            v15 = PnpProcessTargetDeviceEvent(&v19, v10);
+            v14 = PnpProcessTargetDeviceEvent(&v18);
           }
-          v5 = v19;
+          v5 = v18;
           goto LABEL_25;
         }
         v9 = PiUEventNotifyUserMode(v5);

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfIrpLogDeleteDeviceLogs @ 0x140ADC780
+ * XREFs of VfIrpLogDeleteDeviceLogs @ 0x140ADC770
  * Callers:
- *     VfIoDeleteDevice @ 0x140AD2244 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x140AD2234 (VfIoDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     ViIrpLogDatabaseFindPointer @ 0x140ADCF88 (ViIrpLogDatabaseFindPointer.c)
+ *     ViIrpLogDatabaseFindPointer @ 0x140ADCF78 (ViIrpLogDatabaseFindPointer.c)
  */
 
 __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
@@ -47,10 +47,10 @@ __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&ViIrpLogDatabaseLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

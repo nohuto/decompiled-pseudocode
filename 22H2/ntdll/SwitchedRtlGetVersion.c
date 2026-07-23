@@ -20,14 +20,14 @@ __int64 __fastcall SwitchedRtlGetVersion(int *a1)
   int v5; // edi
   wchar_t *Buffer; // r8
   int v7; // edi
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  int v10; // [rsp+80h] [rbp+38h] BYREF
-  char v11; // [rsp+88h] [rbp+40h] BYREF
-  int v12; // [rsp+90h] [rbp+48h] BYREF
-  int v13; // [rsp+98h] [rbp+50h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  int Data; // [rsp+80h] [rbp+38h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+88h] [rbp+40h] BYREF
+  ULONG Type; // [rsp+90h] [rbp+48h] BYREF
+  ULONG ResultDataSize; // [rsp+98h] [rbp+50h] BYREF
 
   DestinationString = 0LL;
-  v10 = 0;
+  Data = 0;
   v2 = NtCurrentPeb();
   v3 = 0;
   a1[1] = v2->OSMajorVersion;
@@ -66,10 +66,13 @@ LABEL_8:
     if ( v7 == 292 )
       a1[71] = RtlGetSuiteMask() & 0x1FFFF;
     *((_BYTE *)a1 + 282) = 0;
-    if ( (unsigned __int8)RtlGetNtProductType(&v11) )
-      *((_BYTE *)a1 + 282) = v11;
+    if ( RtlGetNtProductType(&NtProductType) )
+      *((_BYTE *)a1 + 282) = NtProductType;
     RtlInitUnicodeString(&DestinationString, L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
-    if ( (int)ZwQueryLicenseValue(&DestinationString, &v12, &v10, 4LL, &v13) < 0 || v12 != 4 || v13 != 4 || v10 != 1 )
+    if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) < 0
+      || Type != 4
+      || ResultDataSize != 4
+      || Data != 1 )
     {
       *((_WORD *)a1 + 140) &= ~0x10u;
       *((_WORD *)a1 + 140) |= 0x100u;

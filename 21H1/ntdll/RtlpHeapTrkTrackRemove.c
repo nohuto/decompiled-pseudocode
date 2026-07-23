@@ -10,53 +10,51 @@
  *     RtlpHeapTrkHash @ 0x4B364861 (RtlpHeapTrkHash.c)
  */
 
-signed __int32 __fastcall RtlpHeapTrkTrackRemove(int a1, void *a2)
+void __fastcall RtlpHeapTrkTrackRemove(int a1, void *a2)
 {
-  int v2; // edi
+  _DWORD *v2; // edi
   char v3; // bl
   int v4; // esi
   _DWORD **v5; // ecx
   _DWORD *v6; // eax
-  signed __int32 result; // eax
-  void ***v8; // ecx
-  _DWORD *v9; // ecx
-  _DWORD *v10; // edx
+  PVOID **v7; // ecx
+  int v8; // ecx
+  _DWORD *v9; // edx
 
   v2 = 0;
   v3 = 0;
   v4 = RtlpHeapTrkHash(a2);
-  RtlAcquireSRWLockExclusive(*(volatile signed __int32 **)(dword_4B3A6D84 + 4 * (v4 & 0xF)));
+  RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(dword_4B3A6D84 + 4 * (v4 & 0xF)));
   v5 = (_DWORD **)(dword_4B3A6C54 + 8 * v4);
   v6 = *v5;
   if ( *v5 != v5 )
   {
     while ( 1 )
     {
-      v2 = (int)v6;
+      v2 = v6;
       if ( (void *)v6[3] == a2 && v6[2] == a1 )
         break;
       v6 = (_DWORD *)*v6;
       if ( v6 == v5 )
         goto LABEL_5;
     }
-    v9 = (_DWORD *)*v6;
-    if ( *(_DWORD **)(*v6 + 4) != v6 || (v10 = (_DWORD *)v6[1], (_DWORD *)*v10 != v6) )
+    v8 = *v6;
+    if ( *(_DWORD **)(*v6 + 4) != v6 || (v9 = (_DWORD *)v6[1], (_DWORD *)*v9 != v6) )
       __fastfail(3u);
-    *v10 = v9;
+    *v9 = v8;
     v3 = 1;
-    v9[1] = v10;
+    *(_DWORD *)(v8 + 4) = v9;
   }
 LABEL_5:
-  result = RtlReleaseSRWLockExclusive(*(volatile signed __int32 **)(dword_4B3A6D84 + 4 * (v4 & 0xF)));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(dword_4B3A6D84 + 4 * (v4 & 0xF)));
   if ( v3 )
   {
-    v8 = *(void ****)(v2 + 16);
-    if ( v8 )
+    v7 = (PVOID **)v2[4];
+    if ( v7 )
     {
-      RtlpHeapTrkDereferenceStack(v8);
-      *(_DWORD *)(v2 + 16) = 0;
+      RtlpHeapTrkDereferenceStack(v7);
+      v2[4] = 0;
     }
-    return RtlFreeHeap(dword_4B3A6D94, 0, v2);
+    RtlFreeHeap(HeapHandle, 0, v2);
   }
-  return result;
 }

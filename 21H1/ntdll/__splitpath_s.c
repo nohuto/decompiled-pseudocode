@@ -20,16 +20,17 @@ errno_t __cdecl _splitpath_s(
 {
   const char *v9; // edi
   int v10; // ebx
-  char *v11; // edx
+  _BYTE *v11; // edx
   char *v12; // eax
   const char *v13; // esi
   int v14; // eax
   char v15; // al
   const char *v16; // ecx
-  const char *v17; // ebx
+  unsigned int v17; // ebx
   const char *v18; // esi
-  rsize_t v19; // esi
-  rsize_t v20; // esi
+  const char *v19; // esi
+  const char *v20; // esi
+  rsize_t v23; // [esp+0h] [ebp-10h]
   const char *FullPatha; // [esp+18h] [ebp+8h]
 
   v9 = FullPath;
@@ -38,44 +39,44 @@ errno_t __cdecl _splitpath_s(
     goto LABEL_4;
   if ( Drive )
   {
-    if ( !DriveCount )
+    if ( !(_DWORD)DriveCount )
       goto LABEL_4;
   }
-  else if ( DriveCount )
+  else if ( (_DWORD)DriveCount )
   {
 LABEL_4:
-    v11 = Filename;
+    v11 = (_BYTE *)DirCount;
 LABEL_5:
     v10 = 1;
 LABEL_6:
-    v12 = Ext;
+    v12 = Filename;
     goto LABEL_60;
   }
-  if ( Dir )
+  if ( HIDWORD(DriveCount) )
   {
-    if ( !DirCount )
+    if ( !Dir )
       goto LABEL_4;
   }
-  else if ( DirCount )
+  else if ( Dir )
   {
     goto LABEL_4;
   }
-  v11 = Filename;
-  if ( Filename )
+  v11 = (_BYTE *)DirCount;
+  if ( (_DWORD)DirCount )
   {
-    if ( !FilenameCount )
+    if ( !HIDWORD(DirCount) )
       goto LABEL_5;
   }
-  else if ( FilenameCount )
+  else if ( HIDWORD(DirCount) )
   {
     goto LABEL_5;
   }
-  if ( Ext )
+  if ( Filename )
   {
-    if ( !ExtCount )
+    if ( !(_DWORD)FilenameCount )
       goto LABEL_5;
   }
-  else if ( ExtCount )
+  else if ( (_DWORD)FilenameCount )
   {
     goto LABEL_5;
   }
@@ -93,10 +94,10 @@ LABEL_6:
   {
     if ( Drive )
     {
-      if ( DriveCount < 3 )
+      if ( (unsigned int)DriveCount < 3 )
         goto LABEL_6;
-      strncpy_s(Drive, DriveCount, FullPath, 2u);
-      v11 = Filename;
+      strncpy_s(Drive, __PAIR64__((unsigned int)FullPath, DriveCount), (const char *)2, v23);
+      v11 = (_BYTE *)DirCount;
     }
     v9 = v13 + 1;
   }
@@ -118,7 +119,7 @@ LABEL_6:
     }
     else if ( v15 == 46 )
     {
-      v17 = v18;
+      v17 = (unsigned int)v18;
     }
     v15 = *++v18;
   }
@@ -126,11 +127,15 @@ LABEL_6:
   FullPatha = v16;
   if ( v16 )
   {
-    if ( Dir )
+    if ( HIDWORD(DriveCount) )
     {
-      if ( DirCount <= v16 - v9 )
+      if ( (unsigned int)Dir <= v16 - v9 )
         goto LABEL_58;
-      strncpy_s(Dir, DirCount, v9, v16 - v9);
+      strncpy_s(
+        (char *)HIDWORD(DriveCount),
+        __PAIR64__((unsigned int)v9, (unsigned int)Dir),
+        (const char *)(v16 - v9),
+        v23);
       v16 = FullPatha;
     }
     v9 = v16;
@@ -138,56 +143,60 @@ LABEL_6:
   else
   {
 LABEL_42:
-    if ( Dir )
-      *Dir = 0;
+    if ( HIDWORD(DriveCount) )
+      *(_BYTE *)HIDWORD(DriveCount) = 0;
   }
-  if ( !v17 || v17 < v9 )
+  if ( !v17 || v17 < (unsigned int)v9 )
   {
-    v11 = Filename;
-    if ( Filename )
+    v11 = (_BYTE *)DirCount;
+    if ( (_DWORD)DirCount )
     {
-      v20 = v18 - v9;
-      if ( FilenameCount <= v20 )
+      v20 = (const char *)(v18 - v9);
+      if ( HIDWORD(DirCount) <= (unsigned int)v20 )
         goto LABEL_58;
-      strncpy_s(Filename, FilenameCount, v9, v20);
+      strncpy_s((char *)DirCount, __PAIR64__((unsigned int)v9, HIDWORD(DirCount)), v20, v23);
     }
-    if ( Ext )
-      *Ext = 0;
+    if ( Filename )
+      *Filename = 0;
     return 0;
   }
-  v11 = Filename;
-  if ( Filename )
+  v11 = (_BYTE *)DirCount;
+  if ( (_DWORD)DirCount )
   {
-    if ( FilenameCount > v17 - v9 )
+    if ( HIDWORD(DirCount) > v17 - (unsigned int)v9 )
     {
-      strncpy_s(Filename, FilenameCount, v9, v17 - v9);
-      v11 = Filename;
+      strncpy_s(
+        (char *)DirCount,
+        __PAIR64__((unsigned int)v9, HIDWORD(DirCount)),
+        (const char *)(v17 - (_DWORD)v9),
+        v23);
+      v11 = (_BYTE *)DirCount;
       goto LABEL_49;
     }
 LABEL_58:
-    v12 = Ext;
+    v12 = Filename;
     goto LABEL_59;
   }
 LABEL_49:
-  v12 = Ext;
-  if ( !Ext )
+  v12 = Filename;
+  if ( !Filename )
     return 0;
-  v19 = v18 - v17;
-  if ( ExtCount > v19 )
+  v19 = &v18[-v17];
+  if ( (unsigned int)FilenameCount > (unsigned int)v19 )
   {
-    strncpy_s(Ext, ExtCount, v17, v19);
+    strncpy_s(Filename, __PAIR64__(v17, FilenameCount), v19, v23);
     return 0;
   }
 LABEL_59:
   v10 = 0;
 LABEL_60:
-  if ( Drive && DriveCount )
+  if ( Drive && (_DWORD)DriveCount )
     *Drive = 0;
-  if ( Dir && DirCount )
-    *Dir = 0;
-  if ( v11 && FilenameCount )
+  if ( HIDWORD(DriveCount) && Dir )
+    *(_BYTE *)HIDWORD(DriveCount) = 0;
+  if ( v11 && HIDWORD(DirCount) )
     *v11 = 0;
-  if ( v12 && ExtCount )
+  if ( v12 && (_DWORD)FilenameCount )
     *v12 = 0;
   if ( v9 && !v10 )
     return 34;

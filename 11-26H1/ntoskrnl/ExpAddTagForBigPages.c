@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpAddTagForBigPages @ 0x14029B070
+ * XREFs of ExpAddTagForBigPages @ 0x14029A5D0
  * Callers:
- *     ExAllocateContiguousHeapPool @ 0x14034AA60 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x14034AD9C (ExInsertPoolTag.c)
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x14034CAE0 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x14034CE1C (ExInsertPoolTag.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExpResizeBigPageTable @ 0x14029B458 (ExpResizeBigPageTable.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x14029B680 (ExTryConvertSharedSpinLockExclusive.c)
- *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14029B710 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExpResizeBigPageTable @ 0x14029A9B8 (ExpResizeBigPageTable.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x14029ABE0 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14029AC70 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpAddTagForBigPages(
@@ -33,8 +33,8 @@ __int64 __fastcall ExpAddTagForBigPages(
   unsigned __int8 CurrentIrql; // bl
   signed __int32 v12; // eax
   signed __int32 v13; // ett
-  volatile signed __int64 *StackLimit; // rdx
-  unsigned __int64 SListFaultAddress; // r8
+  volatile signed __int64 *v14; // rdx
+  unsigned __int64 v15; // r8
   volatile signed __int64 *v16; // rcx
   char *v17; // r9
   char *v18; // r10
@@ -69,62 +69,60 @@ __int64 __fastcall ExpAddTagForBigPages(
       LOBYTE(a2) = 2;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      _m_prefetchw((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4);
-      v12 = HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) & 0x7FFFFFFF;
+      _m_prefetchw(&ExpLargePoolTableLock);
+      v12 = ExpLargePoolTableLock & 0x7FFFFFFF;
       while ( 1 )
       {
         v13 = v12;
-        v12 = _InterlockedCompareExchange((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v12 + 1, v12);
+        v12 = _InterlockedCompareExchange(&ExpLargePoolTableLock, v12 + 1, v12);
         if ( v13 == v12 )
           break;
         if ( v12 < 0 )
         {
-          ExpWaitForSpinLockSharedAndAcquire((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4, CurrentIrql);
+          ExpWaitForSpinLockSharedAndAcquire(&ExpLargePoolTableLock, CurrentIrql);
           break;
         }
       }
     }
     else
     {
-      ExpAcquireSpinLockSharedAtDpcLevelInstrumented((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4, CurrentIrql);
+      ExpAcquireSpinLockSharedAtDpcLevelInstrumented(&ExpLargePoolTableLock, CurrentIrql);
     }
-    StackLimit = (volatile signed __int64 *)stru_140EFEF90.StackLimit;
-    SListFaultAddress = (unsigned __int64)stru_140EFEF90.SListFaultAddress;
-    if ( stru_140EFEF90.StackLimit )
+    v14 = (volatile signed __int64 *)PoolBigPageTable;
+    v15 = PoolBigPageTableSize;
+    if ( PoolBigPageTable )
     {
-      if ( (void *)ExpPoolBigEntriesInUse != stru_140EFEF90.SListFaultAddress )
+      if ( ExpPoolBigEntriesInUse != PoolBigPageTableSize )
         break;
     }
 LABEL_26:
     v34 = 0;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      if ( _interlockedbittestandset((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, 0x1Fu) )
+      if ( _interlockedbittestandset(&ExpLargePoolTableLock, 0x1Fu) )
         goto LABEL_45;
-      for ( i = HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink);
-            (HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) & 0xBFFFFFFF) != 0x80000001;
-            i = HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) )
+      for ( i = (unsigned int)ExpLargePoolTableLock;
+            (ExpLargePoolTableLock & 0xBFFFFFFF) != 0x80000001;
+            i = (unsigned int)ExpLargePoolTableLock )
       {
         if ( (i & 0x40000000) == 0 )
-          _InterlockedOr((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, 0x40000000u);
+          _InterlockedOr(&ExpLargePoolTableLock, 0x40000000u);
         KeYieldProcessorEx(&v34);
       }
 LABEL_39:
-      v25 = ExpResizeBigPageTable(i, StackLimit, P);
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) = 0;
+      v25 = ExpResizeBigPageTable(i, v14, P);
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        ExpLargePoolTableLock = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(
-          (_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1,
-          retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&ExpLargePoolTableLock, retaddr);
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);
       if ( !v25 )
       {
-        ++ExpBigTableExpansionFailed;
+        ++HIDWORD(stru_140EFF2C0.InitialStack);
         return 0LL;
       }
       v30 = P[0];
@@ -142,19 +140,16 @@ LABEL_39:
     }
     else
     {
-      if ( (unsigned int)ExpTryConvertSharedSpinLockExclusiveInstrumented(
-                           (char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4,
-                           retaddr,
-                           SListFaultAddress) )
+      if ( (unsigned int)ExpTryConvertSharedSpinLockExclusiveInstrumented(&ExpLargePoolTableLock, retaddr, v15) )
         goto LABEL_39;
 LABEL_45:
-      ExReleaseSpinLockShared((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1, CurrentIrql);
+      ExReleaseSpinLockShared(&ExpLargePoolTableLock, CurrentIrql);
     }
   }
-  v16 = (volatile signed __int64 *)((char *)stru_140EFEF90.StackLimit
-                                  + 32 * ((unsigned int)v10 & (LODWORD(stru_140EFEF90.SListFaultAddress) - 1)));
+  v16 = (volatile signed __int64 *)((char *)PoolBigPageTable
+                                  + 32 * ((unsigned int)v10 & ((_DWORD)PoolBigPageTableSize - 1)));
   v17 = (char *)v16;
-  v18 = (char *)stru_140EFEF90.StackLimit + 32 * (__int64)stru_140EFEF90.SListFaultAddress;
+  v18 = (char *)PoolBigPageTable + 32 * PoolBigPageTableSize;
   while ( 1 )
   {
     if ( (*v16 & 1) != 0 )
@@ -166,7 +161,7 @@ LABEL_45:
     v22 = (char *)(v16 + 4);
     ++v9;
     v23 = v16 + 4 < (volatile signed __int64 *)v18;
-    v16 = StackLimit;
+    v16 = v14;
     if ( v23 )
       v16 = (volatile signed __int64 *)v22;
     if ( v16 == (volatile signed __int64 *)v17 )
@@ -178,27 +173,27 @@ LABEL_45:
   *((_QWORD *)v16 + 2) = a3;
   *((_DWORD *)v16 + 3) = (a5 << 20) | v20 & 0xFFFFF;
   if ( (a4 & 1) != 0 )
-    *((_QWORD *)v16 + 3) = (unsigned __int64)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ a1;
+    *((_QWORD *)v16 + 3) = (unsigned __int64)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ a1;
   _InterlockedIncrement(&ExpPoolBigEntriesInUse);
-  if ( v9 < 0x10 || ExpPoolBigEntriesInUse <= (unsigned int)(SListFaultAddress >> 2) )
+  if ( v9 < 0x10 || ExpPoolBigEntriesInUse <= (unsigned int)(v15 >> 2) )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
-      _InterlockedAnd((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, 0xBFFFFFFF);
-      _InterlockedDecrement((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
+      _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
+      _InterlockedDecrement(&ExpLargePoolTableLock);
     }
     else
     {
-      ExpReleaseSpinLockSharedFromDpcLevelInstrumented((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4, retaddr);
+      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&ExpLargePoolTableLock, retaddr);
     }
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
   }
-  else if ( ExTryConvertSharedSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1) == 1 )
+  else if ( ExTryConvertSharedSpinLockExclusive(&ExpLargePoolTableLock) == 1 )
   {
     ExpResizeBigPageTable(v27, v26, P);
-    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1, CurrentIrql);
+    ExReleaseSpinLockExclusive(&ExpLargePoolTableLock, CurrentIrql);
     v28 = P[0];
     if ( P[0] )
     {
@@ -213,7 +208,7 @@ LABEL_45:
   }
   else
   {
-    ExReleaseSpinLockShared((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1, CurrentIrql);
+    ExReleaseSpinLockShared(&ExpLargePoolTableLock, CurrentIrql);
   }
   return 1LL;
 }

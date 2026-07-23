@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlGetNextFileLock @ 0x1404EFA00
+ * XREFs of FsRtlGetNextFileLock @ 0x1404EF980
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlRealSuccessor @ 0x14029FD70 (RtlRealSuccessor.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402ADCBC (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x140359430 (FsRtlFindFirstOverlappingSharedNode.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlRealSuccessor @ 0x14021D2F0 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x14022C01C (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x140364180 (FsRtlFindFirstOverlappingSharedNode.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -18,7 +18,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   PRTL_SPLAY_LINKS LastReturnedLock; // rdi
   char v6; // r14
   PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // rax
-  RTL_SPLAY_LINKS *v8; // rcx
+  _RTL_SPLAY_LINKS *v8; // rcx
   _RTL_SPLAY_LINKS *v9; // r14
   _RTL_SPLAY_LINKS *v10; // r15
   int v11; // r12d
@@ -27,12 +27,12 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int64 v14; // rax
   __int64 j; // rcx
   __int128 v16; // xmm0
-  RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
+  _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
   PRTL_SPLAY_LINKS v18; // rcx
   _RTL_SPLAY_LINKS *Parent; // rbx
   bool v20; // cf
   PRTL_SPLAY_LINKS v21; // rax
-  RTL_SPLAY_LINKS *v22; // rax
+  _RTL_SPLAY_LINKS *v22; // rax
   __int64 i; // rcx
   unsigned __int8 CurrentIrql; // al
   KIRQL v25; // bl
@@ -68,7 +68,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   v41 = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
   if ( Restart )
   {
-    v22 = (RTL_SPLAY_LINKS *)LockInformation[5];
+    v22 = (_RTL_SPLAY_LINKS *)LockInformation[5];
     if ( v22 )
     {
       do
@@ -164,12 +164,12 @@ LABEL_22:
     }
     goto LABEL_23;
   }
-  FirstOverlappingSharedNode = (RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
-                                                    LockInformation[4],
-                                                    (unsigned __int64 *)&v37,
-                                                    (unsigned __int64 *)&v38[24],
-                                                    &Links,
-                                                    &v40);
+  FirstOverlappingSharedNode = (_RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
+                                                     LockInformation[4],
+                                                     (unsigned __int64 *)&v37,
+                                                     (unsigned __int64 *)&v38[24],
+                                                     &Links,
+                                                     &v40);
   if ( FirstOverlappingSharedNode )
   {
     v18 = FirstOverlappingSharedNode;

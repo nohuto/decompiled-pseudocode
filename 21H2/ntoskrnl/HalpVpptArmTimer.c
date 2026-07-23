@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptArmTimer @ 0x1404C08C0
+ * XREFs of HalpVpptArmTimer @ 0x1404C0B00
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpTimerScaleCounter @ 0x140396440 (HalpTimerScaleCounter.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x1404C0E54 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C1094 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
   int v8; // esi
   __int64 *v9; // rcx
   __int64 **v10; // rax
-  unsigned __int64 v11; // r8
+  LARGE_INTEGER v11; // r8
   unsigned __int64 v12; // rax
   int *v13; // rax
   int *i; // rdx
@@ -29,14 +29,14 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
   _DWORD *SchedulerAssist; // r9
   int v20; // eax
   bool v21; // zf
-  LARGE_INTEGER v22; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = a3;
   if ( ((a2 - 1) & 0xFFFFFFFD) != 0 )
     return 3221225659LL;
   if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) == 2 )
     v3 = HalpTimerScaleCounter(a3, *(_QWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 192LL), 10000000LL);
-  byte_140C4A6F8 = HalpAcquireHighLevelLock(&qword_140C4A6F0);
+  byte_140C4A738 = HalpAcquireHighLevelLock(&qword_140C4A730);
   if ( *(int **)&HalpVpptQueue == &HalpVpptQueue )
   {
     v7 = 0LL;
@@ -56,15 +56,15 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
     *v10 = v9;
     v9[1] = (__int64)v10;
   }
-  v22.QuadPart = 0LL;
-  v11 = RtlGetInterruptTimePrecise(&v22) + v3;
+  PerformanceCounter.QuadPart = 0LL;
+  v11.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) + v3;
   v12 = 0LL;
-  a1[4] = v11;
+  a1[4] = v11.QuadPart;
   if ( a2 != 3 )
     v12 = v3;
   a1[5] = v12;
   v13 = &HalpVpptQueue;
-  for ( i = *(int **)&HalpVpptQueue; i != &HalpVpptQueue && v11 >= *((_QWORD *)i + 4); i = *(int **)i )
+  for ( i = *(int **)&HalpVpptQueue; i != &HalpVpptQueue && v11.QuadPart >= *((_QWORD *)i + 4); i = *(int **)i )
     v13 = i;
   v15 = *(_QWORD *)v13;
   if ( *(int **)(*(_QWORD *)v13 + 8LL) != v13 )
@@ -78,8 +78,8 @@ LABEL_19:
     HalpVpptUpdatePhysicalTimer();
   *((_DWORD *)a1 + 5) = 2;
   *((_BYTE *)a1 + 24) = 1;
-  v16 = (unsigned __int8)byte_140C4A6F8;
-  KxReleaseSpinLock(&qword_140C4A6F0);
+  v16 = (unsigned __int8)byte_140C4A738;
+  KxReleaseSpinLock(&qword_140C4A730);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

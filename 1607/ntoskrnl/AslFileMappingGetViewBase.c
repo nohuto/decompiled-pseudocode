@@ -1,8 +1,8 @@
 /*
- * XREFs of AslFileMappingGetViewBase @ 0x1406C5E18
+ * XREFs of AslFileMappingGetViewBase @ 0x1406C5F50
  * Callers:
- *     SdbOpenDatabaseEx @ 0x1406C1624 (SdbOpenDatabaseEx.c)
- *     SdbpCheckMatchingTextEntry @ 0x1406C2AE8 (SdbpCheckMatchingTextEntry.c)
+ *     SdbOpenDatabaseEx @ 0x1406C175C (SdbOpenDatabaseEx.c)
+ *     SdbpCheckMatchingTextEntry @ 0x1406C2C20 (SdbpCheckMatchingTextEntry.c)
  * Callees:
  *     <none>
  */

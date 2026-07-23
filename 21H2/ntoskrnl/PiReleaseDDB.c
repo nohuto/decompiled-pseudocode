@@ -1,11 +1,11 @@
 /*
- * XREFs of PiReleaseDDB @ 0x14077EB38
+ * XREFs of PiReleaseDDB @ 0x14077ECF8
  * Callers:
- *     PiLookupInDDB @ 0x14077E1FC (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x14077E3BC (PiLookupInDDB.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
- *     SdbReleaseDatabase @ 0x140755FC8 (SdbReleaseDatabase.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x1403FAAC0 (ZwUnmapViewOfSection.c)
+ *     SdbReleaseDatabase @ 0x140756188 (SdbReleaseDatabase.c)
  */
 
 __int64 __fastcall PiReleaseDDB(__int64 *a1)

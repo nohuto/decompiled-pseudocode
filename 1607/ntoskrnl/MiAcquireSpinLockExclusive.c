@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAcquireSpinLockExclusive @ 0x1401DE428
+ * XREFs of MiAcquireSpinLockExclusive @ 0x1401DE254
  * Callers:
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
- *     MiProcessDereferenceList @ 0x14012259C (MiProcessDereferenceList.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
+ *     MiProcessDereferenceList @ 0x140122B0C (MiProcessDereferenceList.c)
  * Callees:
  *     <none>
  */

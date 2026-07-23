@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsUmCreateTestDevice @ 0x1408F84E0
+ * XREFs of PopDirectedDripsUmCreateTestDevice @ 0x1408F8640
  * Callers:
- *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1408F85B4 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
+ *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1408F8714 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmCreateTestDevice(int a1, _WORD *a2, _QWORD *a3, unsigned int *a4)

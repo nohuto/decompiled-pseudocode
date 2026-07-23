@@ -1,26 +1,26 @@
 /*
- * XREFs of NtSetTimerResolution @ 0x1406DC720
+ * XREFs of NtSetTimerResolution @ 0x1406B3A00
  * Callers:
  *     <none>
  * Callees:
- *     ExpInsertTimerResolutionEntry @ 0x1402D32AC (ExpInsertTimerResolutionEntry.c)
- *     ExpUpdateTimerResolution @ 0x1402EC99C (ExpUpdateTimerResolution.c)
- *     PoDiagCaptureUsermodeStack @ 0x1406C366C (PoDiagCaptureUsermodeStack.c)
- *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
- *     PoTraceSystemTimerResolution @ 0x1406DC934 (PoTraceSystemTimerResolution.c)
- *     PoDiagFreeUsermodeStack @ 0x140733434 (PoDiagFreeUsermodeStack.c)
+ *     ExpInsertTimerResolutionEntry @ 0x1402515EC (ExpInsertTimerResolutionEntry.c)
+ *     ExpUpdateTimerResolution @ 0x14029DCEC (ExpUpdateTimerResolution.c)
+ *     PoDiagCaptureUsermodeStack @ 0x14062224C (PoDiagCaptureUsermodeStack.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406B2FD0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406B2FF4 (ExAcquireTimeRefreshLock.c)
+ *     PoTraceSystemTimerResolution @ 0x1406B3C14 (PoTraceSystemTimerResolution.c)
+ *     PoDiagFreeUsermodeStack @ 0x1407335F4 (PoDiagFreeUsermodeStack.c)
  */
 
-__int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
+NTSTATUS __cdecl NtSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution, PULONG ActualTime)
 {
   __int64 v6; // r8
   _KPROCESS *Process; // rbx
-  unsigned int v8; // r15d
-  int updated; // r14d
+  NTSTATUS v8; // r15d
+  ULONG updated; // r14d
   signed __int32 DirectoryTableBase_high; // eax
   signed __int32 v11; // ett
-  unsigned int v12; // edx
+  ULONG v12; // edx
   char v13; // cl
   bool v14; // si
   signed __int32 v15; // ett
@@ -34,8 +34,8 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a3;
+    if ( (unsigned __int64)ActualTime < 0x7FFFFFFF0000LL )
+      v6 = (__int64)ActualTime;
     *(_DWORD *)v6 = *(_DWORD *)v6;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -45,7 +45,7 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
   updated = KeTimeIncrement;
   _m_prefetchw((char *)&Process[1].DirectoryTableBase + 4);
   DirectoryTableBase_high = HIDWORD(Process[1].DirectoryTableBase);
-  if ( a2 )
+  if ( SetResolution )
   {
     v14 = 1;
     do
@@ -61,19 +61,19 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
     if ( DirectoryTableBase_high >= 0 )
       ExpInsertTimerResolutionEntry((__int64)Process);
     if ( (v16 & 0x1000) != 0 )
-      v14 = a1 <= LODWORD(Process[1].EndPadding[1]);
+      v14 = DesiredTime <= LODWORD(Process[1].EndPadding[1]);
     else
       ++ExpTimerResolutionCount;
-    if ( !Process[1].EndPadding[0] || a1 < HIDWORD(Process[1].EndPadding[1]) )
+    if ( !Process[1].EndPadding[0] || DesiredTime < HIDWORD(Process[1].EndPadding[1]) )
       v22 = 1;
-    LODWORD(Process[1].EndPadding[1]) = a1;
+    LODWORD(Process[1].EndPadding[1]) = DesiredTime;
     PoTraceSystemTimerResolution(0LL, Process);
     if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x4000000) != 0 )
     {
       updated = KeTimeIncrement;
       goto LABEL_24;
     }
-    v12 = a1;
+    v12 = DesiredTime;
     v13 = v14;
     goto LABEL_22;
   }
@@ -112,7 +112,7 @@ LABEL_24:
       v20 = v19 == 0;
       if ( v19 )
       {
-        if ( a1 >= HIDWORD(Process[1].EndPadding[1]) )
+        if ( DesiredTime >= HIDWORD(Process[1].EndPadding[1]) )
         {
 LABEL_32:
           ExReleaseTimeRefreshLock();
@@ -122,7 +122,7 @@ LABEL_32:
       }
       if ( !v20 )
         v17 = Process[1].EndPadding[0];
-      HIDWORD(Process[1].EndPadding[1]) = a1;
+      HIDWORD(Process[1].EndPadding[1]) = DesiredTime;
       Process[1].EndPadding[0] = (unsigned __int64)v18;
       v18 = 0LL;
       goto LABEL_32;
@@ -133,6 +133,6 @@ LABEL_33:
     PoDiagFreeUsermodeStack(v17);
   if ( v18 )
     PoDiagFreeUsermodeStack(v18);
-  *a3 = updated;
+  *ActualTime = updated;
   return v8;
 }

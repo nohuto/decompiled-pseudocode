@@ -1,20 +1,20 @@
 /*
- * XREFs of KiWaitForAllObjects @ 0x140097D9C
+ * XREFs of KiWaitForAllObjects @ 0x14009759C
  * Callers:
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     KiWaitSatisfyOther @ 0x140098114 (KiWaitSatisfyOther.c)
- *     KiUnlockKobjectArray @ 0x14009813C (KiUnlockKobjectArray.c)
- *     KiWaitSatisfyMutant @ 0x140098170 (KiWaitSatisfyMutant.c)
- *     KiBeginThreadWait @ 0x1400D0980 (KiBeginThreadWait.c)
- *     KiCheckDueTimeExpired @ 0x1400D0AE8 (KiCheckDueTimeExpired.c)
- *     KiCheckWaitNext @ 0x1400D0B40 (KiCheckWaitNext.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiFastExitThreadWait @ 0x1400F2828 (KiFastExitThreadWait.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     KiWaitSatisfyOther @ 0x140097914 (KiWaitSatisfyOther.c)
+ *     KiUnlockKobjectArray @ 0x14009793C (KiUnlockKobjectArray.c)
+ *     KiWaitSatisfyMutant @ 0x140097970 (KiWaitSatisfyMutant.c)
+ *     KiBeginThreadWait @ 0x1400CE820 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x1400CE988 (KiCheckDueTimeExpired.c)
+ *     KiCheckWaitNext @ 0x1400CE9E0 (KiCheckWaitNext.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiFastExitThreadWait @ 0x1400F0678 (KiFastExitThreadWait.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiWaitForAllObjects(

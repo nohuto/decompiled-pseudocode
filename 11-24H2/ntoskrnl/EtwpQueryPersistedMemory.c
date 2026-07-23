@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpQueryPersistedMemory @ 0x1407AFD74
+ * XREFs of EtwpQueryPersistedMemory @ 0x1407B01C4
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueryPersistedMemory(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpQueryPersistedMemory(__int64 a1, __int64 a2, _QWORD *a3, 
   v8 = v7;
   if ( v7 == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x40uLL);
+    Pool2 = (void *)ExAllocatePool2(0x40uLL, 0LL, 0x4B777445u);
     if ( Pool2 )
     {
       v8 = KsrClaimPersistedMemory(EtwpKsrGuid, a2, Pool2, 0LL);

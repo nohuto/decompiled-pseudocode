@@ -1,16 +1,16 @@
 /*
- * XREFs of HalEfiSetTime @ 0x14054C754
+ * XREFs of HalEfiSetTime @ 0x14054A014
  * Callers:
- *     HalSetRealTimeClock @ 0x140425310 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x1404191C0 (HalSetRealTimeClock.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpTimeToTimeFields @ 0x140426110 (RtlpTimeToTimeFields.c)
- *     HalpEfiStartRuntimeCode @ 0x1404443A4 (HalpEfiStartRuntimeCode.c)
- *     HalpConvertEfiToNtStatus @ 0x1404443FC (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14045E854 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiDecrementEfiCall @ 0x140486128 (HalpEfiDecrementEfiCall.c)
- *     HalpCallEfiGetTime @ 0x14054CA34 (HalpCallEfiGetTime.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpTimeToTimeFields @ 0x140419FC0 (RtlpTimeToTimeFields.c)
+ *     HalpEfiStartRuntimeCode @ 0x140439E44 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x140439E9C (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x140453714 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiDecrementEfiCall @ 0x140481718 (HalpEfiDecrementEfiCall.c)
+ *     HalpCallEfiGetTime @ 0x14054A2F4 (HalpCallEfiGetTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalEfiSetTime(__int64 *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleasePrivilegedPtes @ 0x1407E8404
+ * XREFs of MiReleasePrivilegedPtes @ 0x1407E89D4
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140A5E524 (MiGetSystemAddressForImage.c)
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiGetSystemAddressForImage @ 0x140A5536C (MiGetSystemAddressForImage.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  * Callees:
- *     KeReservePrivilegedPages @ 0x1404B4380 (KeReservePrivilegedPages.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReservePrivilegedPages @ 0x1404AEBCC (KeReservePrivilegedPages.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiReleasePrivilegedPtes(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

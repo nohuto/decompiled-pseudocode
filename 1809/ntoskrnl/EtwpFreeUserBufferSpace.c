@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpFreeUserBufferSpace @ 0x1408C36B4
+ * XREFs of EtwpFreeUserBufferSpace @ 0x1408C4974
  * Callers:
- *     EtwpRealtimeInjectEtwBuffer @ 0x1405C19BC (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1405C29BC (EtwpRealtimeInjectEtwBuffer.c)
  * Callees:
- *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
- *     RtlInterlockedClearBitRun @ 0x1402EEDD0 (RtlInterlockedClearBitRun.c)
+ *     ZwFreeVirtualMemory @ 0x1401B86B0 (ZwFreeVirtualMemory.c)
+ *     RtlInterlockedClearBitRun @ 0x1402EEFC0 (RtlInterlockedClearBitRun.c)
  */
 
-NTSTATUS __fastcall EtwpFreeUserBufferSpace(__int64 a1, ULONG_PTR a2, void *a3)
+void __fastcall EtwpFreeUserBufferSpace(__int64 a1, ULONG_PTR a2, void *a3)
 {
   unsigned __int64 v3; // r9
   ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
@@ -17,10 +17,10 @@ NTSTATUS __fastcall EtwpFreeUserBufferSpace(__int64 a1, ULONG_PTR a2, void *a3)
   RegionSize = a2;
   v3 = *(_QWORD *)(a1 + 112);
   if ( (unsigned __int64)a3 < v3 || (unsigned __int64)a3 >= v3 + *(unsigned int *)(a1 + 120) )
-    return ZwFreeVirtualMemory(*(HANDLE *)(a1 + 16), &BaseAddress, &RegionSize, 0x8000u);
+    ZwFreeVirtualMemory(*(HANDLE *)(a1 + 16), &BaseAddress, &RegionSize, 0x8000u);
   else
-    return RtlInterlockedClearBitRun(
-             a1 + 96,
-             (__int64)((__int64)a3 - v3) / 4096,
-             (((_DWORD)a2 + 4095) & 0xFFFFF000) >> 12);
+    RtlInterlockedClearBitRun(
+      (PRTL_BITMAP)(a1 + 96),
+      (__int64)((__int64)a3 - v3) / 4096,
+      (((_DWORD)a2 + 4095) & 0xFFFFF000) >> 12);
 }

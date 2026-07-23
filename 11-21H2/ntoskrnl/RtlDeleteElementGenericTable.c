@@ -4,20 +4,20 @@
  *     <none>
  * Callees:
  *     RtlDelete @ 0x14021EBA0 (RtlDelete.c)
- *     FindNodeOrParent @ 0x14021EEF0 (FindNodeOrParent.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14021EEF0 @ 0x14021EEF0 (sub_14021EEF0.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 BOOLEAN __stdcall RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
   PRTL_SPLAY_LINKS v3; // rdi
+  __int64 v4; // r8
   _RTL_SPLAY_LINKS *Parent; // rdx
   _RTL_SPLAY_LINKS *LeftChild; // rcx
-  PRTL_GENERIC_FREE_ROUTINE FreeRoutine; // rax
   PRTL_SPLAY_LINKS Links; // [rsp+40h] [rbp+18h] BYREF
 
   Links = 0LL;
-  if ( (unsigned int)FindNodeOrParent(Table, Buffer, &Links) != 1 )
+  if ( (unsigned int)sub_14021EEF0(Table, Buffer, &Links) != 1 )
     return 0;
   v3 = Links;
   Table->TableRoot = RtlDelete(Links);
@@ -28,8 +28,7 @@ BOOLEAN __stdcall RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID B
   Parent->LeftChild = LeftChild;
   --Table->NumberGenericTableElements;
   Table->WhichOrderedElement = 0;
-  FreeRoutine = Table->FreeRoutine;
   Table->OrderedPointer = &Table->InsertOrderList;
-  ((void (__fastcall *)(PRTL_GENERIC_TABLE, PRTL_SPLAY_LINKS))FreeRoutine)(Table, v3);
+  sub_14042A5E0(Table, v3, v4);
   return 1;
 }

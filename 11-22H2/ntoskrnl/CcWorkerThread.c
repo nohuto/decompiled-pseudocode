@@ -284,10 +284,13 @@ LABEL_19:
     _InterlockedIncrement(v27);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -411,10 +414,10 @@ LABEL_104:
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v41 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v42 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
     {
       v43 = KeGetCurrentPrcb();
       v44 = v43->SchedulerAssist;
@@ -436,10 +439,10 @@ LABEL_104:
     CcNotifyWriteBehindVolume(v7, 32LL);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v75);
     v46 = v75.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v47 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v75.OldIrql <= 0xFu && v47 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v75.OldIrql <= 0xFu && v47 >= 2u )
       {
         v48 = KeGetCurrentPrcb();
         v49 = v48->SchedulerAssist;

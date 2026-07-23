@@ -1,19 +1,19 @@
 /*
- * XREFs of WmipCreateGuidObject @ 0x14063F798
+ * XREFs of WmipCreateGuidObject @ 0x1406345A8
  * Callers:
- *     WmipOpenGuidObject @ 0x14063F6E0 (WmipOpenGuidObject.c)
+ *     WmipOpenGuidObject @ 0x1406344F0 (WmipOpenGuidObject.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     WmipGetGuidSecurityDescriptor @ 0x14063FB18 (WmipGetGuidSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCreateAccessState @ 0x140661880 (SeCreateAccessState.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     SepDeleteAccessState @ 0x14026A600 (SepDeleteAccessState.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WmipGetGuidSecurityDescriptor @ 0x140634928 (WmipGetGuidSecurityDescriptor.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessState @ 0x1406566A0 (SeCreateAccessState.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipCreateGuidObject(__int128 *a1, unsigned int a2, _OWORD *a3, _QWORD *a4)

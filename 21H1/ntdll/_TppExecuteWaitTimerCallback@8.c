@@ -8,7 +8,7 @@
  *     _TppETWCallbackDequeue@20 @ 0x4B3849B7 (_TppETWCallbackDequeue@20.c)
  */
 
-int __stdcall TppExecuteWaitTimerCallback(_DWORD *a1, int a2)
+int __stdcall TppExecuteWaitTimerCallback(PTP_CALLBACK_INSTANCE Instance, int a2)
 {
   int v2; // eax
 
@@ -18,5 +18,5 @@ int __stdcall TppExecuteWaitTimerCallback(_DWORD *a1, int a2)
     v2 = 2147353478;
   if ( *(_BYTE *)v2 )
     TppETWCallbackDequeue(*(_DWORD *)(a2 - 72), *(_DWORD *)(a2 - 68), *(_DWORD *)(a2 - 60));
-  return TppExecuteWaitCallback(a1, a2 - 120, 258);
+  return TppExecuteWaitCallback(Instance, a2 - 120, 258);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmUnmapViewInSessionSpace @ 0x1406AC590
+ * XREFs of MmUnmapViewInSessionSpace @ 0x14060AC80
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
  */
 
 NTSTATUS __stdcall MmUnmapViewInSessionSpace(PVOID MappedBase)

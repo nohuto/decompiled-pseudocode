@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpIsMachineFrameEntry @ 0x1403404D4
+ * XREFs of RtlpIsMachineFrameEntry @ 0x140340764
  * Callers:
- *     RtlpUnwindPrologue @ 0x1402A5F50 (RtlpUnwindPrologue.c)
+ *     RtlpUnwindPrologue @ 0x1402A61E0 (RtlpUnwindPrologue.c)
  * Callees:
  *     <none>
  */

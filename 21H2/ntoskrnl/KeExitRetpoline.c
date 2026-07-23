@@ -1,53 +1,53 @@
 /*
- * XREFs of KeExitRetpoline @ 0x14035E888
+ * XREFs of KeExitRetpoline @ 0x1402A37B8
  * Callers:
- *     KiDispatchCallout @ 0x14035F4C0 (KiDispatchCallout.c)
- *     KiLockServiceTable @ 0x14039F194 (KiLockServiceTable.c)
- *     KeOptimizeSpecCtrlSettings @ 0x1403C7840 (KeOptimizeSpecCtrlSettings.c)
- *     CcBcbProfiler @ 0x1403DB990 (CcBcbProfiler.c)
- *     sub_1403DCBC0 @ 0x1403DCBC0 (sub_1403DCBC0.c)
- *     KiSwInterruptDispatch @ 0x1403DCC20 (KiSwInterruptDispatch.c)
- *     sub_1403DDB50 @ 0x1403DDB50 (sub_1403DDB50.c)
- *     sub_1403EA1C0 @ 0x1403EA1C0 (sub_1403EA1C0.c)
- *     RtlpComputeEpilogueOffset @ 0x1403EBB64 (RtlpComputeEpilogueOffset.c)
- *     sub_1405BF1D0 @ 0x1405BF1D0 (sub_1405BF1D0.c)
- *     FsRtlTruncateSmallMcb @ 0x1405BF6C0 (FsRtlTruncateSmallMcb.c)
+ *     KiDispatchCallout @ 0x1402A43F0 (KiDispatchCallout.c)
+ *     KiLockServiceTable @ 0x14039F2E4 (KiLockServiceTable.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C79E0 (KeOptimizeSpecCtrlSettings.c)
+ *     CcBcbProfiler @ 0x1403DBB00 (CcBcbProfiler.c)
+ *     sub_1403DCD30 @ 0x1403DCD30 (sub_1403DCD30.c)
+ *     KiSwInterruptDispatch @ 0x1403DCD90 (KiSwInterruptDispatch.c)
+ *     sub_1403DDCC0 @ 0x1403DDCC0 (sub_1403DDCC0.c)
+ *     sub_1403EA330 @ 0x1403EA330 (sub_1403EA330.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403EBCD4 (RtlpComputeEpilogueOffset.c)
+ *     sub_1405BF400 @ 0x1405BF400 (sub_1405BF400.c)
+ *     FsRtlTruncateSmallMcb @ 0x1405BF8F0 (FsRtlTruncateSmallMcb.c)
  *     sub_1405CC010 @ 0x1405CC010 (sub_1405CC010.c)
- *     KeUserModeCallback @ 0x1406F0030 (KeUserModeCallback.c)
+ *     KeUserModeCallback @ 0x140707410 (KeUserModeCallback.c)
  * Callees:
- *     __guard_retpoline_exit @ 0x140A17560 (__guard_retpoline_exit.c)
+ *     __guard_retpoline_exit @ 0x140A18560 (__guard_retpoline_exit.c)
  */
 
 /*
- * Hex-Rays decompilation failed for KeExitRetpoline @ 0x14035E888
- * Reason: Hex-Rays returned no pseudocode for 0x14035E888
+ * Hex-Rays decompilation failed for KeExitRetpoline @ 0x1402A37B8
+ * Reason: Hex-Rays returned no pseudocode for 0x1402A37B8
  * Fallback: raw IDA disassembly follows.
  *
- * 000000014035E888: mov     [rsp+arg_8], rbx
- * 000000014035E88D: pushfq
- * 000000014035E88F: sub     rsp, 20h
- * 000000014035E893: mov     rax, qword ptr cs:KiSpeculationFeatures
- * 000000014035E89A: mov     cl, 1
- * 000000014035E89C: shr     rax, 29h
- * 000000014035E8A0: and     al, cl
- * 000000014035E8A2: jnz     loc_1404994E6
- * 000000014035E8A8: lfence
- * 000000014035E8AB: mov     rbx, [rsp+28h+arg_8]
- * 000000014035E8B0: add     rsp, 20h
- * 000000014035E8B4: pop     rcx
- * 000000014035E8B5: retn
- * 00000001404994E6: mov     ebx, [rsp+28h+var_8]
- * 00000001404994EA: cli
- * 00000001404994EB: mov     rax, gs:20h
- * 00000001404994F4: shr     ebx, 9
- * 00000001404994F7: and     bl, cl
- * 00000001404994F9: or      [rax+6D6h], cl
- * 00000001404994FF: mov     al, [rax+6D6h]
- * 0000000140499505: test    al, 2
- * 0000000140499507: jnz     short loc_14049950E
- * 0000000140499509: call    __guard_retpoline_exit
- * 000000014049950E: test    bl, bl
- * 0000000140499510: jz      loc_14035E8A8
- * 0000000140499516: sti
- * 0000000140499517: jmp     loc_14035E8A8
+ * 00000001402A37B8: mov     [rsp+arg_8], rbx
+ * 00000001402A37BD: pushfq
+ * 00000001402A37BF: sub     rsp, 20h
+ * 00000001402A37C3: mov     rax, qword ptr cs:KiSpeculationFeatures
+ * 00000001402A37CA: mov     cl, 1
+ * 00000001402A37CC: shr     rax, 29h
+ * 00000001402A37D0: and     al, cl
+ * 00000001402A37D2: jnz     loc_140465B70
+ * 00000001402A37D8: lfence
+ * 00000001402A37DB: mov     rbx, [rsp+28h+arg_8]
+ * 00000001402A37E0: add     rsp, 20h
+ * 00000001402A37E4: pop     rcx
+ * 00000001402A37E5: retn
+ * 0000000140465B70: mov     ebx, [rsp+28h+var_8]
+ * 0000000140465B74: cli
+ * 0000000140465B75: mov     rax, gs:20h
+ * 0000000140465B7E: shr     ebx, 9
+ * 0000000140465B81: and     bl, cl
+ * 0000000140465B83: or      [rax+6D6h], cl
+ * 0000000140465B89: mov     al, [rax+6D6h]
+ * 0000000140465B8F: test    al, 2
+ * 0000000140465B91: jnz     short loc_140465B98
+ * 0000000140465B93: call    __guard_retpoline_exit
+ * 0000000140465B98: test    bl, bl
+ * 0000000140465B9A: jz      loc_1402A37D8
+ * 0000000140465BA0: sti
+ * 0000000140465BA1: jmp     loc_1402A37D8
  */

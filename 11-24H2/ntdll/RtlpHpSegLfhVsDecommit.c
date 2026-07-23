@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegLfhVsDecommit @ 0x1800E3D90
+ * XREFs of RtlpHpSegLfhVsDecommit @ 0x1800DF710
  * Callers:
- *     RtlpHpVsSubsegmentCommitPages @ 0x18004F198 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x180064D78 (RtlpHpVsSubsegmentCommitPages.c)
  * Callees:
- *     RtlpHpSegPageRangeCommit @ 0x180056980 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeCommit @ 0x18006C560 (RtlpHpSegPageRangeCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhVsDecommit(__int64 a1, __int64 a2, unsigned int a3)

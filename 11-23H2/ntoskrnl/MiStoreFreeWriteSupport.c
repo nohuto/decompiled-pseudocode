@@ -1,15 +1,15 @@
 /*
- * XREFs of MiStoreFreeWriteSupport @ 0x14065C2A4
+ * XREFs of MiStoreFreeWriteSupport @ 0x14065C7F4
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
- *     MiStoreModifiedWriteComplete @ 0x14065C748 (MiStoreModifiedWriteComplete.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
+ *     MiStoreModifiedWriteComplete @ 0x14065CC98 (MiStoreModifiedWriteComplete.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiStoreFreeWriteSupport(struct _SLIST_ENTRY *P, union _SLIST_HEADER *a2)
+void __fastcall MiStoreFreeWriteSupport(_SLIST_ENTRY *P, _SLIST_HEADER *a2)
 {
   _SLIST_ENTRY *Next; // rcx
 

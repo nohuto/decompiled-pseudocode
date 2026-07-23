@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpWalkConnectionList @ 0x14088C9A4
+ * XREFs of AlpcpWalkConnectionList @ 0x14088F994
  * Callers:
- *     AlpcpDisconnectPort @ 0x14088C638 (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x14088F628 (AlpcpDisconnectPort.c)
  * Callees:
- *     AlpcpUnlockBlobUncachedExclusive @ 0x1408963A0 (AlpcpUnlockBlobUncachedExclusive.c)
- *     AlpcpLockBlobExclusive @ 0x14089666C (AlpcpLockBlobExclusive.c)
+ *     AlpcpUnlockBlobUncachedExclusive @ 0x14089E840 (AlpcpUnlockBlobUncachedExclusive.c)
+ *     AlpcpLockBlobExclusive @ 0x14089EB0C (AlpcpLockBlobExclusive.c)
  */
 
 __int64 __fastcall AlpcpWalkConnectionList(__int64 a1)

@@ -1,34 +1,34 @@
 /*
- * XREFs of PopInvokeSystemStateHandler @ 0x140AA859C
+ * XREFs of PopInvokeSystemStateHandler @ 0x140AA840C
  * Callers:
- *     PopEndMirroring @ 0x140AA2820 (PopEndMirroring.c)
- *     PopTransitionToSleep @ 0x140AA5340 (PopTransitionToSleep.c)
- *     PopShutdownSystem @ 0x140AA8F14 (PopShutdownSystem.c)
+ *     PopEndMirroring @ 0x140AA2690 (PopEndMirroring.c)
+ *     PopTransitionToSleep @ 0x140AA51B0 (PopTransitionToSleep.c)
+ *     PopShutdownSystem @ 0x140AA8D84 (PopShutdownSystem.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     DbgBreakPointWithStatus @ 0x140428E30 (DbgBreakPointWithStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     KeRebaselineInterruptTime @ 0x14056AEAC (KeRebaselineInterruptTime.c)
- *     KeRebaselineSystemTime @ 0x14056AEDC (KeRebaselineSystemTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeResumeDynamicTracing @ 0x14057EC58 (KeResumeDynamicTracing.c)
- *     KeSuspendDynamicTracing @ 0x14057EC68 (KeSuspendDynamicTracing.c)
- *     PopIssueNextState @ 0x140AA8E5C (PopIssueNextState.c)
- *     PopCheckpointSystemSleep @ 0x140AAA4E8 (PopCheckpointSystemSleep.c)
- *     MiConvertHiberPhasePages @ 0x140AAC06C (MiConvertHiberPhasePages.c)
- *     MiUpdateUserMappings @ 0x140AAC764 (MiUpdateUserMappings.c)
- *     MmInvalidateDumpAddresses @ 0x140AACFD0 (MmInvalidateDumpAddresses.c)
- *     VfNotifyOfHibernate @ 0x140AC7248 (VfNotifyOfHibernate.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     DbgBreakPointWithStatus @ 0x1404291C0 (DbgBreakPointWithStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     KeRebaselineInterruptTime @ 0x14056B56C (KeRebaselineInterruptTime.c)
+ *     KeRebaselineSystemTime @ 0x14056B59C (KeRebaselineSystemTime.c)
+ *     KeResumeDynamicTracing @ 0x14057F148 (KeResumeDynamicTracing.c)
+ *     KeSuspendDynamicTracing @ 0x14057F158 (KeSuspendDynamicTracing.c)
+ *     PopIssueNextState @ 0x140AA8CCC (PopIssueNextState.c)
+ *     PopCheckpointSystemSleep @ 0x140AAA358 (PopCheckpointSystemSleep.c)
+ *     MiConvertHiberPhasePages @ 0x140AABEDC (MiConvertHiberPhasePages.c)
+ *     MiUpdateUserMappings @ 0x140AAC5D4 (MiUpdateUserMappings.c)
+ *     MmInvalidateDumpAddresses @ 0x140AACE40 (MmInvalidateDumpAddresses.c)
+ *     VfNotifyOfHibernate @ 0x140AC7238 (VfNotifyOfHibernate.c)
  *     BgLibraryInitialize @ 0x140AEE57C (BgLibraryInitialize.c)
  */
 
@@ -57,7 +57,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   _DWORD *v24; // r8
   int v25; // eax
   LARGE_INTEGER v26; // [rsp+30h] [rbp-D0h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-C8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-C8h] BYREF
   LARGE_INTEGER v28; // [rsp+48h] [rbp-B8h] BYREF
   struct _KDPC Dpc; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD DeferredContext[10]; // [rsp+90h] [rbp-70h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   int v33; // [rsp+ECh] [rbp-14h]
   _QWORD v34[2]; // [rsp+F0h] [rbp-10h] BYREF
   _QWORD v35[2]; // [rsp+100h] [rbp+0h] BYREF
-  struct _SLIST_ENTRY v36[10]; // [rsp+110h] [rbp+10h] BYREF
+  _SLIST_ENTRY v36[10]; // [rsp+110h] [rbp+10h] BYREF
   __int128 v37; // [rsp+1B0h] [rbp+B0h] BYREF
   __int64 v38; // [rsp+1C0h] [rbp+C0h]
 
@@ -130,7 +130,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
     KeSetSystemGroupAffinityThread(&Affinity, 0LL);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -157,7 +157,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   }
   PopIssueNextState(v12, v36, 2LL);
   PopIssueNextState(v12, v36, 3LL);
-  if ( dword_140C3D0E0 == 4 )
+  if ( dword_140C3CDA0 == 4 )
   {
     PerformanceCounter.QuadPart = 0LL;
     v14 = 1000000LL * KeGetCurrentPrcb()->MHz;
@@ -219,7 +219,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
         PopIssueNextState(v12, v36, 9LL);
         PopCheckpointSystemSleep(32LL);
       }
-      MmInvalidateDumpAddresses(qword_140C3CDE8, 19LL);
+      MmInvalidateDumpAddresses(qword_140C3CF88, 19LL);
       v16 = *(_QWORD *)(a2 + 304);
       if ( v16 )
         MmInvalidateDumpAddresses(v16, (unsigned int)(16 * *(_DWORD *)(a2 + 256)));
@@ -245,7 +245,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
       PopFullWake = 0;
       PopPendingUserPresenceDuringSystemSleep = 0;
       PopPendingUserPresenceMonitorOnReason = 0;
-      dword_140C3CD08 = 1;
+      dword_140C3CCA8 = 1;
       if ( PoResumeFromHibernate )
       {
         _InterlockedOr(&PopPendingUserPresenceDuringSystemSleep, 1u);
@@ -266,8 +266,8 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
       }
       *(_BYTE *)a2 = 1;
 LABEL_71:
-      v18 = qword_140C3D9E0 == 0;
-      *v12 = (__int64)&unk_140C3D9D8;
+      v18 = qword_140C3D840 == 0;
+      *v12 = (__int64)&unk_140C3D838;
       v12[3] = 0LL;
       if ( !v18 )
         PopIssueNextState(v12, v36, 6LL);
@@ -290,11 +290,11 @@ LABEL_71:
   PopIssueNextState(v12, v36, 13LL);
   if ( v5 >= 0 )
   {
-    if ( dword_140C3D0E0 != 4 || PoResumeFromHibernate )
+    if ( dword_140C3CDA0 != 4 || PoResumeFromHibernate )
     {
       v19 = 0;
       v26 = KeQueryPerformanceCounter(0LL);
-      qword_140C3D428 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C39450;
+      qword_140C3D3E8 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C393D0;
     }
     else
     {
@@ -312,7 +312,7 @@ LABEL_71:
     if ( v19 )
     {
       v26.QuadPart = v26.QuadPart / (1000 * (unsigned __int64)KeGetCurrentPrcb()->MHz) * (PopQpcFrequency / 0x3E8);
-      qword_140C3D308 = v26.QuadPart - PerformanceCounter.QuadPart;
+      qword_140C3D2C8 = v26.QuadPart - PerformanceCounter.QuadPart;
     }
   }
   PopIssueNextState(v12, v36, 14LL);
@@ -328,15 +328,15 @@ LABEL_71:
   }
   if ( a2 )
   {
-    if ( v5 == 1073742484 && !byte_140C3CE01 && byte_140D17EF8 )
+    if ( v5 == 1073742484 && !byte_140C3CFA1 && byte_140D17EF8 )
       BgLibraryInitialize(qword_140D183D0, 0LL);
   }
   else
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v24 = CurrentPrcb->SchedulerAssist;

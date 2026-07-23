@@ -10,9 +10,9 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_1801063D4(int a1, __int64 a2, __int16 a3, unsigned __int16 a4, __int64 a5)
+ULONG __fastcall sub_1801063D4(REGHANDLE RegHandle, __int64 a2, __int16 a3, unsigned __int16 a4, __int64 a5)
 {
-  int v9; // r8d
+  ULONG v9; // r8d
   __int16 v11; // [rsp+28h] [rbp-61h] BYREF
   _QWORD v12[16]; // [rsp+38h] [rbp-51h] BYREF
   unsigned __int16 v13; // [rsp+100h] [rbp+77h] BYREF
@@ -33,5 +33,5 @@ __int64 __fastcall sub_1801063D4(int a1, __int64 a2, __int16 a3, unsigned __int1
     v12[6] = a5;
     v12[7] = a4;
   }
-  return EtwEventWrite(a1, (int)&unk_1801246D0, v9, (__int64)v12);
+  return EtwEventWrite(RegHandle, &stru_1801246D0, v9, (PEVENT_DATA_DESCRIPTOR)v12);
 }

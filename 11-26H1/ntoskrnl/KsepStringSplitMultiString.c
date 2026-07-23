@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepStringSplitMultiString @ 0x1407BE83C
+ * XREFs of KsepStringSplitMultiString @ 0x1407C189C
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x140A25360 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140A38400 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1404DE51C (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
- *     KsepStringFree @ 0x1409E5588 (KsepStringFree.c)
- *     KsepStringDuplicate @ 0x1409E5E2C (KsepStringDuplicate.c)
+ *     KsepPoolAllocatePaged @ 0x1404D7BFC (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     RtlAssert @ 0x14061CB00 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x1409D73AC (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x1409D7848 (KsepStringFree.c)
  */
 
 __int64 __fastcall KsepStringSplitMultiString(__int64 a1, unsigned __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -53,12 +53,12 @@ __int64 __fastcall KsepStringSplitMultiString(__int64 a1, unsigned __int64 a2, _
     if ( v12 < 2 )
     {
       v14 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                 1u)
            + 1) & 0x3F;
-      *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v14 + 4] = -1073740768;
-      *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v14) = 197551;
-      if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+      *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v14) = -1073740768;
+      *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v14) = 197551;
+      if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       {
         RtlAssert("NullCount >= 2", "minkernel\\ntos\\kshim\\ksemisc.c", 0x3AFu, 0LL);
         v9 = v13;
@@ -104,12 +104,12 @@ __int64 __fastcall KsepStringSplitMultiString(__int64 a1, unsigned __int64 a2, _
       if ( v19 != (_DWORD)v15 )
       {
         v22 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                  (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                  (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                   1u)
              + 1) & 0x3F;
-        *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v22 + 4] = -1073740768;
-        *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v22) = 197591;
-        if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+        *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v22) = -1073740768;
+        *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v22) = 197591;
+        if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
           RtlAssert("Count == StringsVectorSize", "minkernel\\ntos\\kshim\\ksemisc.c", 0x3D7u, 0LL);
       }
       *a3 = Paged;

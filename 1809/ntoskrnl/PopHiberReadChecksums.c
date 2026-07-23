@@ -1,14 +1,14 @@
 /*
- * XREFs of PopHiberReadChecksums @ 0x14057CDB8
+ * XREFs of PopHiberReadChecksums @ 0x14057DDB8
  * Callers:
- *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
+ *     PopRestoreHiberContext @ 0x14056A770 (PopRestoreHiberContext.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
- *     PopGetIoLocation @ 0x14056A930 (PopGetIoLocation.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3514 (PopInternalAddToDumpFile.c)
+ *     PopGetIoLocation @ 0x14056B930 (PopGetIoLocation.c)
  */
 
 void __fastcall PopHiberReadChecksums(ULONG_PTR BugCheckParameter3)
@@ -122,6 +122,6 @@ void __fastcall PopHiberReadChecksums(ULONG_PTR BugCheckParameter3)
     }
     *(_QWORD *)(BugCheckParameter3 + 416) = v6;
     v23 = __rdtsc();
-    qword_140417D10 += (((unsigned __int64)HIDWORD(v23) << 32) | (unsigned int)v23) - v27;
+    qword_140418DB0 += (((unsigned __int64)HIDWORD(v23) << 32) | (unsigned int)v23) - v27;
   }
 }

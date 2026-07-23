@@ -12,7 +12,7 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-__int64 __fastcall sub_18003C6F4(unsigned __int16 *a1, unsigned __int16 *a2, int a3, _BYTE *a4)
+__int64 __fastcall sub_18003C6F4(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3, _BYTE *a4)
 {
   bool v5; // zf
   int v8; // ebx
@@ -35,7 +35,7 @@ __int64 __fastcall sub_18003C6F4(unsigned __int16 *a1, unsigned __int16 *a2, int
   v9 = 0;
   if ( v5 )
   {
-    v10 = sub_18003C89C(a3, (_DWORD)a1, a3, (_DWORD)a2, (__int64)&v21);
+    v10 = sub_18003C89C(a3, a1, a3, a2, &v21);
     v9 = v21;
     v8 = v10;
   }
@@ -92,7 +92,7 @@ LABEL_12:
       if ( (unsigned __int64)j < v14 )
       {
 LABEL_29:
-        v8 = sub_18003CC2C(a2, L"\b\n");
+        v8 = sub_18003CC2C(a2, &Extension);
         goto LABEL_23;
       }
       if ( *j == 46 )

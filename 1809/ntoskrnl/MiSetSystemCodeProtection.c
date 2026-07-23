@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetSystemCodeProtection @ 0x1400862E0
+ * XREFs of MiSetSystemCodeProtection @ 0x1400862D0
  * Callers:
- *     MiSetImageProtection @ 0x1400DA524 (MiSetImageProtection.c)
- *     MiProtectSystemImage @ 0x14072B664 (MiProtectSystemImage.c)
+ *     MiSetImageProtection @ 0x1400DA5A4 (MiSetImageProtection.c)
+ *     MiProtectSystemImage @ 0x14072C854 (MiProtectSystemImage.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -10,24 +10,24 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MI_TIGHTER_PERMISSIONS @ 0x140086748 (MI_TIGHTER_PERMISSIONS.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MI_TIGHTER_PERMISSIONS @ 0x140086738 (MI_TIGHTER_PERMISSIONS.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiSetSystemCodeProtection(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned int a4)
@@ -111,7 +111,7 @@ __int64 __fastcall MiSetSystemCodeProtection(__int64 a1, unsigned __int64 a2, un
   if ( SystemRegionType == 1 )
     SessionVm = (void *)MiGetSessionVm(v12);
   else
-    SessionVm = &unk_14043B190;
+    SessionVm = &unk_14043C250;
   v45 = SessionVm;
   v14 = 2;
   v55 = 20LL;
@@ -213,7 +213,7 @@ LABEL_35:
           if ( (unsigned int)MiPteHasShadow(CurrentThread, Process) )
           {
             v41 = v17;
-            if ( !HIBYTE(word_14043A1AC) && (v17 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v17 & 1) != 0 )
               v41 = v17 | 0x8000000000000000uLL;
             *(_QWORD *)v6 = v41;
             MiWritePteShadow(v6);
@@ -235,12 +235,12 @@ LABEL_30:
     {
       v33 = MI_READ_PTE_LOCK_FREE(v6);
       v34 = v33;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (v33 & 0x10) != 0 )
           v34 = v33 & 0xFFFFFFFFFFFFFFEFuLL;
         else
-          v34 = v33 & ~qword_14043A0C0;
+          v34 = v33 & ~qword_14043B180;
       }
       v35 = 48 * ((v34 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
       v36 = 32LL * (v9 & 0x1F);
@@ -254,7 +254,7 @@ LABEL_30:
         if ( (unsigned int)MiPteHasShadow(v36, Process) )
         {
           v39 = v18;
-          if ( !HIBYTE(word_14043A1AC) && (v18 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v18 & 1) != 0 )
             v39 = v18 | 0x8000000000000000uLL;
           *(_QWORD *)v6 = v39;
           MiWritePteShadow(v6);
@@ -307,7 +307,7 @@ LABEL_29:
     _InterlockedAnd64((volatile signed __int64 *)(v23 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v26 )
       MiReleasePageFileInfo(
-        *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v23 + 40) >> 40) & 0x3FFLL)),
+        *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v23 + 40) >> 40) & 0x3FFLL)),
         v26,
         1);
     goto LABEL_29;

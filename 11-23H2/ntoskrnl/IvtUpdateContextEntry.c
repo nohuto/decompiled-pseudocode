@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtUpdateContextEntry @ 0x14052D984
+ * XREFs of IvtUpdateContextEntry @ 0x14052DED4
  * Callers:
- *     IvtUpdateTranslationStructures @ 0x14052E0DC (IvtUpdateTranslationStructures.c)
+ *     IvtUpdateTranslationStructures @ 0x14052E62C (IvtUpdateTranslationStructures.c)
  * Callees:
- *     IvtGetBlockedDomain @ 0x14052C9B8 (IvtGetBlockedDomain.c)
- *     IvtInvalidateContextEntry @ 0x14052D384 (IvtInvalidateContextEntry.c)
+ *     IvtGetBlockedDomain @ 0x14052CF08 (IvtGetBlockedDomain.c)
+ *     IvtInvalidateContextEntry @ 0x14052D8D4 (IvtInvalidateContextEntry.c)
  */
 
 __int64 __fastcall IvtUpdateContextEntry(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4, int a5)

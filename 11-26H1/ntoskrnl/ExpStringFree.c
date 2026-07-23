@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpStringFree @ 0x140B2C38C
+ * XREFs of ExpStringFree @ 0x140B2E40C
  * Callers:
- *     ExpGetDeviceDataInformation @ 0x140B2C1AC (ExpGetDeviceDataInformation.c)
+ *     ExpGetDeviceDataInformation @ 0x140B2E22C (ExpGetDeviceDataInformation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpStringFree(void *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of SmHpBufferAlloc @ 0x1403881C0
+ * XREFs of SmHpBufferAlloc @ 0x140381B00
  * Callers:
- *     SmHpChunkAlloc @ 0x1403893F0 (SmHpChunkAlloc.c)
+ *     SmHpChunkAlloc @ 0x140382D30 (SmHpChunkAlloc.c)
  * Callees:
- *     SmHpBufferUpdateFullness @ 0x140388300 (SmHpBufferUpdateFullness.c)
- *     SmBinaryArrayGrow @ 0x14049EE10 (SmBinaryArrayGrow.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SmHpBufferUpdateFullness @ 0x140381C40 (SmHpBufferUpdateFullness.c)
+ *     SmBinaryArrayGrow @ 0x140499C40 (SmBinaryArrayGrow.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmHpBufferAlloc(_DWORD *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall SmHpBufferAlloc(_DWORD *a1)
   unsigned __int64 i; // rcx
 
   v2 = 0;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x1000uLL, 0x42436D73u);
   if ( !Pool2 )
     return 0LL;
   v4 = (unsigned int)a1[136];

@@ -3,9 +3,9 @@
  * Callers:
  *     RtlEnumerateGenericTableLikeADirectory @ 0x140006880 (RtlEnumerateGenericTableLikeADirectory.c)
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
- *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x140168D10 (RtlLookupFirstMatchingElementGenericTableAvl.c)
+ *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x140168E10 (RtlLookupFirstMatchingElementGenericTableAvl.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FindNodeOrParent(__int64 a1, __int64 a2, _QWORD *a3)

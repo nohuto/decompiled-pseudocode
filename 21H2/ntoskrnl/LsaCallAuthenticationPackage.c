@@ -1,30 +1,37 @@
 /*
- * XREFs of LsaCallAuthenticationPackage @ 0x14091C420
+ * XREFs of LsaCallAuthenticationPackage @ 0x14091C580
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14021C83C (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14021C858 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall LsaCallAuthenticationPackage(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7)
+NTSTATUS __cdecl LsaCallAuthenticationPackage(
+        HANDLE LsaHandle,
+        ULONG AuthenticationPackage,
+        PVOID ProtocolSubmitBuffer,
+        ULONG SubmitBufferLength,
+        PVOID *ProtocolReturnBuffer,
+        PULONG ReturnBufferLength,
+        PNTSTATUS ProtocolStatus)
 {
-  unsigned int v11; // ebx
-  __int64 (__fastcall **ExtensionTable)(__int64, _QWORD, __int64, _QWORD, __int64, __int64, __int64); // rax
+  NTSTATUS v11; // ebx
+  __int64 (__fastcall **ExtensionTable)(HANDLE, _QWORD, PVOID, _QWORD, PVOID *, PULONG, PNTSTATUS); // rax
 
   v11 = -1073741822;
-  ExtensionTable = (__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, __int64, __int64, __int64))ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
+  ExtensionTable = (__int64 (__fastcall **)(HANDLE, _QWORD, PVOID, _QWORD, PVOID *, PULONG, PNTSTATUS))ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   if ( ExtensionTable )
   {
-    v11 = (*ExtensionTable)(a1, a2, a3, a4, a5, a6, a7);
+    v11 = (*ExtensionTable)(
+            LsaHandle,
+            AuthenticationPackage,
+            ProtocolSubmitBuffer,
+            SubmitBufferLength,
+            ProtocolReturnBuffer,
+            ReturnBufferLength,
+            ProtocolStatus);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
   return v11;

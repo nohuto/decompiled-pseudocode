@@ -1,9 +1,9 @@
 /*
- * XREFs of CmThawRegistry @ 0x1407F5A74
+ * XREFs of CmThawRegistry @ 0x1407F6C74
  * Callers:
- *     NtThawRegistry @ 0x1407EABA0 (NtThawRegistry.c)
- *     CmFreezeRegistry @ 0x1407F5824 (CmFreezeRegistry.c)
- *     CmpFreezeThawWorker @ 0x1407F5C50 (CmpFreezeThawWorker.c)
+ *     NtThawRegistry @ 0x1407EBDA0 (NtThawRegistry.c)
+ *     CmFreezeRegistry @ 0x1407F6A24 (CmFreezeRegistry.c)
+ *     CmpFreezeThawWorker @ 0x1407F6E50 (CmpFreezeThawWorker.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
@@ -11,14 +11,14 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     CmpEnableLazyFlush @ 0x140177F6C (CmpEnableLazyFlush.c)
- *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     CmpEnableLazyFlush @ 0x14017806C (CmpEnableLazyFlush.c)
+ *     CmpGetNextActiveHive @ 0x1405B2474 (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x1405B26C8 (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CC1D4 (HvMarkBaseBlockDirty.c)
  */
 
 __int64 CmThawRegistry()

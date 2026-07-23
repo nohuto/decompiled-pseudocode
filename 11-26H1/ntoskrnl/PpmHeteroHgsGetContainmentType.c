@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroHgsGetContainmentType @ 0x1404FF098
+ * XREFs of PpmHeteroHgsGetContainmentType @ 0x1404F8888
  * Callers:
- *     PpmHeteroHgsUpdateContainmentConfiguration @ 0x14025D3AC (PpmHeteroHgsUpdateContainmentConfiguration.c)
+ *     PpmHeteroHgsUpdateContainmentConfiguration @ 0x14051704C (PpmHeteroHgsUpdateContainmentConfiguration.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 unsigned __int64 __fastcall PpmHeteroHgsGetContainmentType(unsigned __int16 *a1, unsigned int *a2)
 {
   unsigned __int64 result; // rax
-  unsigned int SystemCallNumber; // r8d
+  unsigned int v3; // r8d
   _QWORD *v6; // r10
   __int64 v7; // rbx
   _DWORD *v8; // r9
@@ -23,12 +23,12 @@ unsigned __int64 __fastcall PpmHeteroHgsGetContainmentType(unsigned __int16 *a1,
   _UNKNOWN *retaddr; // [rsp+20h] [rbp+0h] BYREF
 
   result = (unsigned __int64)&retaddr;
-  SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
+  v3 = PpmParkNumNodes;
   *a2 = 3;
-  if ( SystemCallNumber )
+  if ( v3 )
   {
-    v6 = (_QWORD *)(*(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1240LL);
-    v7 = SystemCallNumber;
+    v6 = (_QWORD *)(PpmParkNodes + 1240);
+    v7 = v3;
     do
     {
       v8 = (_DWORD *)*v6;

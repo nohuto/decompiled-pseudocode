@@ -4,7 +4,7 @@
  *     BgpFwLibraryDestroy @ 0x140AEEA88 (BgpFwLibraryDestroy.c)
  *     BgLibraryDisable @ 0x140AEF480 (BgLibraryDisable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  *     LogFwReport @ 0x140AEC0F4 (LogFwReport.c)
  *     BgpTxtDestroyRegion @ 0x140AEC904 (BgpTxtDestroyRegion.c)
  *     AnFwFadeCompletion @ 0x140AECFB8 (AnFwFadeCompletion.c)

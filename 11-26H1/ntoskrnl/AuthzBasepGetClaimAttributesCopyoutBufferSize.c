@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x140A8E0F4
+ * XREFs of AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x140A92DC4
  * Callers:
- *     AuthzBasepQueryClaimAttributesToken @ 0x140A8E03C (AuthzBasepQueryClaimAttributesToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x140A92D0C (AuthzBasepQueryClaimAttributesToken.c)
  * Callees:
- *     AuthzBasepGetClaimAttributeValueCopyoutBufferSize @ 0x140A8E19C (AuthzBasepGetClaimAttributeValueCopyoutBufferSize.c)
+ *     AuthzBasepGetClaimAttributeValueCopyoutBufferSize @ 0x140A92E6C (AuthzBasepGetClaimAttributeValueCopyoutBufferSize.c)
  */
 
 __int64 __fastcall AuthzBasepGetClaimAttributesCopyoutBufferSize(unsigned int *a1, unsigned __int64 *a2)

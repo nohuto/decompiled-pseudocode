@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryDeviceState @ 0x14066EC9C
+ * XREFs of PopBatteryDeviceState @ 0x14066ED80
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockShared @ 0x14000E0B0 (PopAcquireRwLockShared.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x14000DC30 (PopAcquireRwLockShared.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
  */
 
 __int64 __fastcall PopBatteryDeviceState(wchar_t *a1, __int64 a2)
@@ -59,8 +59,8 @@ __int64 __fastcall PopBatteryDeviceState(wchar_t *a1, __int64 a2)
     String2.MaximumLength = v5 - 8;
     PopAcquireRwLockShared(&PopPolicyDeviceLock);
     PopAcquireRwLockShared(PopCB);
-    v9 = qword_140303680;
-    if ( (__int64 *)qword_140303680 == &qword_140303680 )
+    v9 = qword_1403035C0;
+    if ( (__int64 *)qword_1403035C0 == &qword_1403035C0 )
       goto LABEL_19;
     do
     {
@@ -75,7 +75,7 @@ __int64 __fastcall PopBatteryDeviceState(wchar_t *a1, __int64 a2)
       v9 = *(_QWORD *)v9;
       v11 = 0LL;
     }
-    while ( (__int64 *)v9 != &qword_140303680 );
+    while ( (__int64 *)v9 != &qword_1403035C0 );
     if ( !v11 )
     {
 LABEL_19:

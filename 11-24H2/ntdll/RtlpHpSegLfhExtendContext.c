@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpSegLfhExtendContext @ 0x1800A5130
+ * XREFs of RtlpHpSegLfhExtendContext @ 0x1800D6AA0
  * Callers:
- *     RtlpHpLfhContextMetadataAllocate @ 0x1800A4DB4 (RtlpHpLfhContextMetadataAllocate.c)
- *     RtlpHpLfhBucketActivate @ 0x1800A4F80 (RtlpHpLfhBucketActivate.c)
- *     RtlpHpLfhContextStart @ 0x1800A5818 (RtlpHpLfhContextStart.c)
- *     RtlpHpVsContextStart @ 0x18011CC54 (RtlpHpVsContextStart.c)
- *     RtlpHpVsSlotCreate @ 0x18011CD30 (RtlpHpVsSlotCreate.c)
+ *     RtlpHpLfhContextStart @ 0x1800D631C (RtlpHpLfhContextStart.c)
+ *     RtlpHpLfhContextMetadataAllocate @ 0x1800D6728 (RtlpHpLfhContextMetadataAllocate.c)
+ *     RtlpHpLfhBucketActivate @ 0x1800D68F0 (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpVsContextStart @ 0x18011AE84 (RtlpHpVsContextStart.c)
+ *     RtlpHpVsSlotCreate @ 0x18011AF60 (RtlpHpVsSlotCreate.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlpHpSegLfhExtendContext(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpHpSegLfhExtendContext(__int64 a1)
 {
-  return RtlpHpHeapExtendContext(*(__m128i **)(a1 + 56), a2);
+  return RtlpHpHeapExtendContext(*(_QWORD *)(a1 + 56));
 }

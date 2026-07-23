@@ -1,14 +1,14 @@
 /*
- * XREFs of ExTryToConvertFastResourceSharedToExclusive @ 0x14060A280
+ * XREFs of ExTryToConvertFastResourceSharedToExclusive @ 0x14060A7D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     ExTryToConvertFastResourceSharedToExclusive2 @ 0x140414598 (ExTryToConvertFastResourceSharedToExclusive2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpTryUpgradeResource @ 0x14060FFEC (ExpTryUpgradeResource.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExTryToConvertFastResourceSharedToExclusive2 @ 0x14041492C (ExTryToConvertFastResourceSharedToExclusive2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpTryUpgradeResource @ 0x14061053C (ExpTryUpgradeResource.c)
  */
 
 char __fastcall ExTryToConvertFastResourceSharedToExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
@@ -53,7 +53,7 @@ char __fastcall ExTryToConvertFastResourceSharedToExclusive(ULONG_PTR BugCheckPa
     KeBugCheckEx(0x1C6u, 0x13uLL, BugCheckParameter2, 0LL, 0LL);
   v9 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v9 == 2 )
@@ -67,10 +67,10 @@ char __fastcall ExTryToConvertFastResourceSharedToExclusive(ULONG_PTR BugCheckPa
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   if ( v12 )
     *(_BYTE *)(a2 + 17) |= 4u;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v9 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v9 <= 0xFu && v13 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = CurrentPrcb->SchedulerAssist;

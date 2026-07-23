@@ -5,8 +5,8 @@
  * Callees:
  *     RtlpSecMemFreeVirtualMemory @ 0x180009AF4 (RtlpSecMemFreeVirtualMemory.c)
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
- *     RtlpHeapLogRangeRelease @ 0x1801083C4 (RtlpHeapLogRangeRelease.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlpHeapLogRangeRelease @ 0x180108384 (RtlpHeapLogRangeRelease.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
@@ -20,10 +20,8 @@ __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
   __int64 v8; // rdi
   unsigned int v9; // ebx
   __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  __int64 v14; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
   if ( (*(_BYTE *)(a1 + 20) & 1) != 0 )
     return 0LL;
@@ -43,14 +41,14 @@ __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
   }
   v7 = *(_QWORD *)(a1 + 48);
   v8 = *(_QWORD *)(a1 + 40);
-  v14 = 0LL;
-  v15 = v7;
-  v9 = RtlpSecMemFreeVirtualMemory(v4, &v15, &v14, 0x8000LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v11, v10) )
-    v12 = (__int64)NtCurrentPeb()->SharedData + 558;
+  v12 = 0LL;
+  v13 = v7;
+  v9 = RtlpSecMemFreeVirtualMemory(v4, &v13, &v12, 0x8000LL);
+  if ( RtlGetCurrentServiceSessionId() )
+    v10 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
-    v12 = 2147353480LL;
-  if ( *(_BYTE *)v12 )
-    RtlpHeapLogRangeRelease(v8, v15, v14);
+    v10 = 2147353480LL;
+  if ( *(_BYTE *)v10 )
+    RtlpHeapLogRangeRelease(v8, v13, v12);
   return v9;
 }

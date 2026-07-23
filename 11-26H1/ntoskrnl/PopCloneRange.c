@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCloneRange @ 0x140C081E0
+ * XREFs of PopCloneRange @ 0x140C0E3F0
  * Callers:
- *     PopSetRange @ 0x1404AFFB4 (PopSetRange.c)
+ *     PopSetRange @ 0x1404A9650 (PopSetRange.c)
  * Callees:
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall PopCloneRange(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)

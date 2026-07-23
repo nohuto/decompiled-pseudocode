@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaInitializeDomain @ 0x140A65CEC
+ * XREFs of HalpDmaInitializeDomain @ 0x140A66CEC
  * Callers:
- *     HalpDmaInit @ 0x140A659C8 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140A669C8 (HalpDmaInit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
  */
 
 __int64 HalpDmaInitializeDomain()
@@ -14,7 +14,7 @@ __int64 HalpDmaInitializeDomain()
   _QWORD v2[16]; // [rsp+30h] [rbp-29h] BYREF
 
   HalpDmaDomainListLock = 0LL;
-  qword_140C49E38 = (__int64)&HalpDmaDomainList;
+  qword_140C49E78 = (__int64)&HalpDmaDomainList;
   HalpDmaDomainList = (__int64)&HalpDmaDomainList;
   DestinationString = 0LL;
   memset(v2, 0, 0x78uLL);

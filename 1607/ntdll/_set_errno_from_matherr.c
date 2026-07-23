@@ -1,12 +1,12 @@
 /*
- * XREFs of _set_errno_from_matherr @ 0x18009F7C4
+ * XREFs of _set_errno_from_matherr @ 0x18009F7B4
  * Callers:
- *     _call_matherr @ 0x18009E8C8 (_call_matherr.c)
- *     _handle_error @ 0x18009E9F4 (_handle_error.c)
- *     _except1 @ 0x18009F150 (_except1.c)
- *     _umatherr @ 0x18009F7F8 (_umatherr.c)
+ *     _call_matherr @ 0x18009E8B8 (_call_matherr.c)
+ *     _handle_error @ 0x18009E9E4 (_handle_error.c)
+ *     _except1 @ 0x18009F140 (_except1.c)
+ *     _umatherr @ 0x18009F7E8 (_umatherr.c)
  * Callees:
- *     _errno @ 0x1800883D0 (_errno.c)
+ *     _errno @ 0x1800883C0 (_errno.c)
  */
 
 int *__fastcall set_errno_from_matherr(int a1)

@@ -1,45 +1,50 @@
 /*
- * XREFs of NtCreatePrivateNamespace @ 0x140A09670
+ * XREFs of NtCreatePrivateNamespace @ 0x140A05BA0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140A09994 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x140A09D98 (ObpCaptureBoundaryDescriptor.c)
- *     ObpRegisterPrivateNamespace @ 0x140A0A220 (ObpRegisterPrivateNamespace.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140A05EC4 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140A062C8 (ObpCaptureBoundaryDescriptor.c)
+ *     ObpRegisterPrivateNamespace @ 0x140A06750 (ObpRegisterPrivateNamespace.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
+  int v4; // r15d
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v9; // rdi
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   unsigned __int64 v11; // rbx
   int v12; // eax
   _QWORD *v13; // r15
   unsigned __int64 v14; // rbx
   size_t v15; // r8
   __int64 v16; // rcx
-  int v17; // edi
-  int inserted; // esi
+  NTSTATUS v17; // edi
+  NTSTATUS inserted; // esi
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // r14
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v21; // rdi
-  _QWORD *v22; // rax
-  _QWORD *v23; // r13
+  char *v22; // rax
+  char *v23; // r13
   __int64 v24; // rcx
   _QWORD *v25; // rax
   _QWORD *v26; // rax
@@ -52,6 +57,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
   PVOID P; // [rsp+60h] [rbp-28h]
   __int64 v34; // [rsp+68h] [rbp-20h] BYREF
 
+  v4 = (int)ObjectAttributes;
   Object = 0LL;
   v34 = 0LL;
   P = 0LL;
@@ -59,12 +65,12 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
   if ( PreviousMode )
   {
     v30 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v30 = (__int64)a1;
+    if ( (unsigned __int64)NamespaceHandle < 0x7FFFFFFF0000LL )
+      v30 = (__int64)NamespaceHandle;
     *(_QWORD *)v30 = *(_QWORD *)v30;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     v9 = P;
     v10 = ObpVerifyCreatorAccessCheck((char *)P + 48);
@@ -80,7 +86,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
         v12 = ObCreateObjectEx(
                 PreviousMode,
                 ObpDirectoryObjectType,
-                a3,
+                v4,
                 PreviousMode,
                 v31,
                 *((_DWORD *)P + 6) + 392,
@@ -118,17 +124,17 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
             if ( v17 >= 0 )
             {
               PsReferenceSiloContext(v13);
-              inserted = ObInsertObjectEx((struct _FILE_OBJECT *)v13, 0LL, a2, 0, 0, 0LL, (__int64)&v34);
+              inserted = ObInsertObjectEx((struct _FILE_OBJECT *)v13, 0LL, DesiredAccess, 0, 0, 0LL, (__int64)&v34);
               CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
               v21 = (unsigned __int64 *)&CurrentServerSiloGlobals[45];
-              v22 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[45], 0LL);
+              v22 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[45], 0LL);
               v23 = v22;
               if ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentServerSiloGlobals[45], 0LL) )
-                ExfAcquirePushLockExclusiveEx(v21, (__int64)v22, (__int64)v21);
+                ExfAcquirePushLockExclusiveEx(v21, v22, (__int64)v21);
               if ( v23 )
-                *((_BYTE *)v23 + 10) = 1;
+                v23[10] = 1;
               if ( inserted < 0 || (v13[42] & 2) != 0 )
               {
                 v24 = *(_QWORD *)v14;
@@ -159,18 +165,18 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
               KeAbPostRelease((ULONG_PTR)v21);
               KeLeaveCriticalRegion();
               if ( inserted >= 0 )
-                *a1 = v34;
-              return (unsigned int)inserted;
+                *NamespaceHandle = (HANDLE)v34;
+              return inserted;
             }
           }
           ObfDereferenceObject(v13);
-          return (unsigned int)v17;
+          return v17;
         }
         v10 = v12;
       }
     }
     ExFreePoolWithTag(v9, 0x534E624Fu);
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

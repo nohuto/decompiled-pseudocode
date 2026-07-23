@@ -1,14 +1,14 @@
 /*
- * XREFs of PopThermalZoneDpc @ 0x1405D40A0
+ * XREFs of PopThermalZoneDpc @ 0x1405D1860
  * Callers:
  *     <none>
  * Callees:
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
- *     _local_unwind @ 0x1404FDE70 (_local_unwind.c)
- *     RtlpComputeEpilogueOffset @ 0x14051AB4C (RtlpComputeEpilogueOffset.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     KiCustomAccessRoutine3 @ 0x1406B55A0 (KiCustomAccessRoutine3.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
+ *     _local_unwind @ 0x1404FB730 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x14051840C (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     KiCustomAccessRoutine3 @ 0x1406B6540 (KiCustomAccessRoutine3.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 BOOLEAN __fastcall PopThermalZoneDpc(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

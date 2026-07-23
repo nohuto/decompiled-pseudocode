@@ -7,14 +7,14 @@
  *     RtlValidSid @ 0x14046C1EC (RtlValidSid.c)
  */
 
-__int64 __fastcall RtlLengthSidAsUnicodeString(unsigned __int8 *a1, _DWORD *a2)
+NTSTATUS __cdecl RtlLengthSidAsUnicodeString(PSID Sid, PULONG StringLength)
 {
   int v4; // ecx
 
-  if ( RtlValidSid(a1) != 1 )
-    return 3221225592LL;
-  if ( a1[2] || (v4 = 10, a1[3]) )
+  if ( RtlValidSid(Sid) != 1 )
+    return -1073741704;
+  if ( *((_BYTE *)Sid + 2) || (v4 = 10, *((_BYTE *)Sid + 3)) )
     v4 = 14;
-  *a2 = 2 * (v4 + 11 * a1[1]) + 8;
-  return 0LL;
+  *StringLength = 2 * (v4 + 11 * *((unsigned __int8 *)Sid + 1)) + 8;
+  return 0;
 }

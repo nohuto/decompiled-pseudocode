@@ -1,23 +1,23 @@
 /*
- * XREFs of KeRemoveProcessorAffinityEx @ 0x1403CA140
+ * XREFs of KeRemoveProcessorAffinityEx @ 0x1403A4D10
  * Callers:
- *     KiForwardTick @ 0x14029D53C (KiForwardTick.c)
- *     KxFlushEntireTb @ 0x1403B07A4 (KxFlushEntireTb.c)
- *     PpmUnlockProcessors @ 0x1403B66C4 (PpmUnlockProcessors.c)
- *     KiCheckKeepAlive @ 0x1403C9E44 (KiCheckKeepAlive.c)
- *     KeChangeMemoryAttributes @ 0x1403CA178 (KeChangeMemoryAttributes.c)
- *     PpmParkUnblockIdle @ 0x140457DA0 (PpmParkUnblockIdle.c)
- *     KeFreezeExecution @ 0x1404D5B60 (KeFreezeExecution.c)
- *     HalpNmiReboot @ 0x140559C54 (HalpNmiReboot.c)
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
- *     KiSendFreeze @ 0x1405C1F30 (KiSendFreeze.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C5B80 (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     KxFlushSingleTb @ 0x1405C9918 (KxFlushSingleTb.c)
- *     PpmParkComputeUnparkMaskEx @ 0x1405E2544 (PpmParkComputeUnparkMaskEx.c)
- *     PpmParkDistributeUtilityEx @ 0x1405E337C (PpmParkDistributeUtilityEx.c)
- *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1407A7EEC (EtwpGetMicroarchitecturalPmcAffinity.c)
- *     RtlUpdateSwapReference @ 0x140A36190 (RtlUpdateSwapReference.c)
- *     PnprQuiesceProcessors @ 0x140B54B74 (PnprQuiesceProcessors.c)
+ *     KiForwardTick @ 0x1402AC02C (KiForwardTick.c)
+ *     PpmUnlockProcessors @ 0x140371990 (PpmUnlockProcessors.c)
+ *     KxFlushEntireTb @ 0x14039EFB4 (KxFlushEntireTb.c)
+ *     KiCheckKeepAlive @ 0x1403A49E4 (KiCheckKeepAlive.c)
+ *     KeChangeMemoryAttributes @ 0x1403A4D48 (KeChangeMemoryAttributes.c)
+ *     PpmParkUnblockIdle @ 0x14044D0B0 (PpmParkUnblockIdle.c)
+ *     KeFreezeExecution @ 0x1404CEFB0 (KeFreezeExecution.c)
+ *     HalpNmiReboot @ 0x140557884 (HalpNmiReboot.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
+ *     KiSendFreeze @ 0x1405BF500 (KiSendFreeze.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C32B0 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KxFlushSingleTb @ 0x1405C7048 (KxFlushSingleTb.c)
+ *     PpmParkComputeUnparkMaskEx @ 0x1405DFACC (PpmParkComputeUnparkMaskEx.c)
+ *     PpmParkDistributeUtilityEx @ 0x1405E0904 (PpmParkDistributeUtilityEx.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1407A802C (EtwpGetMicroarchitecturalPmcAffinity.c)
+ *     RtlUpdateSwapReference @ 0x140A2B6A0 (RtlUpdateSwapReference.c)
+ *     PnprQuiesceProcessors @ 0x140B56BC4 (PnprQuiesceProcessors.c)
  * Callees:
  *     <none>
  */

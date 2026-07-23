@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtEnumerateSystemEnvironmentValuesEx()
+NTSTATUS __cdecl NtEnumerateSystemEnvironmentValuesEx(ULONG InformationClass, PVOID Buffer, PULONG BufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 209LL;
+  result = 209;
   __asm { syscall; Low latency system call }
   return result;
 }

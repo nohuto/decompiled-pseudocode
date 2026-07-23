@@ -16,52 +16,57 @@
  *     towlower @ 0x1800948B0 (towlower.c)
  */
 
-LONG __fastcall RtlCanonicalizeDomainName(__int64 a1, unsigned __int16 *a2, BOOLEAN a3)
+LONG __fastcall RtlCanonicalizeDomainName(PUNICODE_STRING DestinationString, const UNICODE_STRING *a2, BOOLEAN a3)
 {
   LONG result; // eax
-  unsigned int v7; // edi
-  wint_t *v8; // rbx
+  LONG v7; // edi
+  WCHAR *v8; // rbx
   __int64 v9; // rsi
   USHORT v10; // dx
   USHORT Port[2]; // [rsp+30h] [rbp-D0h] BYREF
-  ULONG AddressStringLength; // [rsp+34h] [rbp-CCh] BYREF
+  LONG DestinationStringLength; // [rsp+34h] [rbp-CCh] BYREF
   ULONG ScopeId; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned int v14; // [rsp+3Ch] [rbp-C4h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-C0h] BYREF
-  PCWSTR AddressString; // [rsp+48h] [rbp-B8h]
-  in6_addr Address; // [rsp+50h] [rbp-B0h] BYREF
-  WCHAR v18[256]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v19[512]; // [rsp+260h] [rbp+160h] BYREF
+  LONG SourceStringLength; // [rsp+3Ch] [rbp-C4h] BYREF
+  _UNICODE_STRING DestinationStringa; // [rsp+40h] [rbp-C0h] BYREF
+  _WORD v16[6]; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG v17; // [rsp+5Ch] [rbp-A4h]
+  WCHAR AddressString[256]; // [rsp+60h] [rbp-A0h] BYREF
+  WCHAR SourceString[256]; // [rsp+260h] [rbp+160h] BYREF
   char v20; // [rsp+460h] [rbp+360h] BYREF
 
-  AddressStringLength = 256;
-  v14 = 256;
-  AddressString = (PCWSTR)&v20;
-  v15 = 33554942LL;
-  RtlCopyUnicodeString(&v15);
-  if ( (_WORD)v15 == WORD1(v15) )
+  DestinationStringLength = 256;
+  SourceStringLength = 256;
+  DestinationStringa.Buffer = (wchar_t *)&v20;
+  *(_QWORD *)&DestinationStringa.Length = 33554942LL;
+  RtlCopyUnicodeString(&DestinationStringa, a2);
+  if ( DestinationStringa.Length == DestinationStringa.MaximumLength )
     return -1073740010;
-  if ( RtlIpv6StringToAddressExW(AddressString, &Address, &ScopeId, Port) >= 0 )
+  if ( RtlIpv6StringToAddressExW(DestinationStringa.Buffer, (struct in6_addr *)v16, &ScopeId, Port) >= 0 )
   {
     v10 = Port[0];
     if ( !Port[0] )
     {
-      if ( Address.u.Word[0]
-        || __PAIR32__(Address.u.Word[1], 0) != Address.u.Word[2]
-        || __PAIR32__(Address.u.Word[3], 0) != Address.u.Word[4]
-        || Address.u.Word[5] != 0xFFFF
-        || ScopeId )
+      if ( v16[0] || v16[1] || v16[2] || v16[3] || v16[4] || v16[5] != 0xFFFF || ScopeId )
       {
-        result = RtlIpv6AddressToStringExW(&Address, ScopeId, 0, v18, &AddressStringLength);
-        goto LABEL_25;
+        result = RtlIpv6AddressToStringExW(
+                   (const struct in6_addr *)v16,
+                   ScopeId,
+                   0,
+                   AddressString,
+                   (PULONG)&DestinationStringLength);
+        goto LABEL_27;
       }
-      ScopeId = *(_DWORD *)&Address.u.Word[6];
-LABEL_24:
-      result = RtlIpv4AddressToStringExW((const struct in_addr *)&ScopeId, v10, v18, &AddressStringLength);
-LABEL_25:
+      ScopeId = v17;
+LABEL_26:
+      result = RtlIpv4AddressToStringExW(
+                 (const struct in_addr *)&ScopeId,
+                 v10,
+                 AddressString,
+                 (PULONG)&DestinationStringLength);
+LABEL_27:
       if ( result >= 0 )
       {
-        if ( (unsigned __int8)RtlCreateUnicodeString(a1, v18) )
+        if ( RtlCreateUnicodeString(DestinationString, AddressString) )
           return 0;
         else
           return -1073741801;
@@ -69,20 +74,26 @@ LABEL_25:
       return result;
     }
   }
-  if ( RtlIpv4StringToAddressExW(AddressString, a3, (struct in_addr *)&ScopeId, Port) >= 0 )
+  if ( RtlIpv4StringToAddressExW(DestinationStringa.Buffer, a3, (struct in_addr *)&ScopeId, Port) >= 0 )
   {
     v10 = Port[0];
     if ( !Port[0] )
-      goto LABEL_24;
+      goto LABEL_26;
   }
-  result = RtlpNameprepAsciiWorker(0, *((_QWORD *)a2 + 1), *a2 >> 1, (unsigned int)v19, (__int64)&v14, 1);
+  result = RtlpNameprepAsciiWorker(
+             0,
+             a2->Buffer,
+             a2->Length >> 1,
+             (unsigned int)SourceString,
+             (__int64)&SourceStringLength,
+             1);
   if ( result >= 0 )
   {
-    v7 = v14;
-    if ( v14 )
+    v7 = SourceStringLength;
+    if ( SourceStringLength )
     {
-      v8 = (wint_t *)v19;
-      v9 = v14;
+      v8 = SourceString;
+      v9 = (unsigned int)SourceStringLength;
       do
       {
         *v8 = towlower(*v8);
@@ -91,15 +102,15 @@ LABEL_25:
       }
       while ( v9 );
     }
-    result = RtlIdnToUnicode(0, (unsigned int)v19, v7, (unsigned int)v18, (__int64)&AddressStringLength);
+    result = RtlIdnToUnicode(0, SourceString, v7, AddressString, &DestinationStringLength);
     if ( result >= 0 )
     {
-      if ( AddressStringLength != 256 )
+      if ( DestinationStringLength != 256 )
       {
-        if ( 2 * (unsigned __int64)AddressStringLength >= 0x200 )
+        if ( 2 * (unsigned __int64)(unsigned int)DestinationStringLength >= 0x200 )
           _report_rangecheckfailure();
-        v18[AddressStringLength] = 0;
-        return (unsigned __int8)RtlCreateUnicodeString(a1, v18) == 0 ? 0xC0000017 : 0;
+        AddressString[DestinationStringLength] = 0;
+        return RtlCreateUnicodeString(DestinationString, AddressString) == 0 ? 0xC0000017 : 0;
       }
       return -1073740010;
     }

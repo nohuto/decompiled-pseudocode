@@ -16,10 +16,10 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiLoadSystemStore(__int64 *a1)
+__int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 {
   void *v2; // rdi
-  int SystemStorePath; // eax
+  NTSTATUS SystemStorePath; // eax
   void *v4; // rbp
   int v5; // ebx
   __int64 v6; // rbx
@@ -27,16 +27,16 @@ __int64 __fastcall BiLoadSystemStore(__int64 *a1)
   _DWORD *Pool2; // rax
   __int64 v9; // rdx
   __int64 v10; // r8
-  __int64 v11; // rsi
+  HANDLE v11; // rsi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   void *Src; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v15; // [rsp+70h] [rbp+18h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+70h] [rbp+18h] BYREF
 
-  v15 = 0LL;
+  BcdStoreHandle = 0LL;
   Src = 0LL;
   DestinationString = 0LL;
   v2 = 0LL;
-  SystemStorePath = BcdGetSystemStorePath(&Src);
+  SystemStorePath = BcdGetSystemStorePath((PWSTR *)&Src);
   v4 = Src;
   v5 = SystemStorePath;
   if ( SystemStorePath >= 0 )
@@ -54,14 +54,14 @@ __int64 __fastcall BiLoadSystemStore(__int64 *a1)
       Pool2[1] = 2 * v7 + 12;
       Pool2[2] = 3;
       memmove(Pool2 + 3, v4, 2LL * v7);
-      v5 = BiAddStoreFromFile((__int64)v2, 0, &v15);
+      v5 = BiAddStoreFromFile((__int64)v2, 0, &BcdStoreHandle);
       if ( v5 >= 0 )
       {
-        v11 = v15;
-        v5 = BiMarkTreatAsSystemStore(v15, 1);
+        v11 = BcdStoreHandle;
+        v5 = BiMarkTreatAsSystemStore((__int64)BcdStoreHandle, 1);
         if ( v5 >= 0 )
         {
-          if ( BiIsSystemStore(v11) )
+          if ( BiIsSystemStore((__int64)v11) )
           {
             *a1 = v11;
           }

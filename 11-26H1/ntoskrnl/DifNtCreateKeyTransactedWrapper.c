@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtCreateKeyTransactedWrapper @ 0x140671650
+ * XREFs of DifNtCreateKeyTransactedWrapper @ 0x140675230
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtCreateKeyTransacted @ 0x140974390 (NtCreateKeyTransacted.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtCreateKeyTransacted @ 0x1409363A0 (NtCreateKeyTransacted.c)
  */
 
 __int64 __fastcall DifNtCreateKeyTransactedWrapper(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        int a4,
-        __int64 a5,
-        int a6,
-        HANDLE Handle,
-        __int64 a8)
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        ULONG a4,
+        UNICODE_STRING *Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        ULONG *Disposition)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -33,12 +33,12 @@ __int64 __fastcall DifNtCreateKeyTransactedWrapper(
   BOOLEAN v19; // di
   __int128 *j; // rbx
   _QWORD v22[3]; // [rsp+48h] [rbp-39h] BYREF
-  int v23; // [rsp+60h] [rbp-21h]
-  __int64 v24; // [rsp+68h] [rbp-19h]
-  int v25; // [rsp+70h] [rbp-11h]
-  __int64 v26; // [rsp+78h] [rbp-9h]
-  int v27; // [rsp+80h] [rbp-1h]
-  __int64 v28; // [rsp+88h] [rbp+7h]
+  ULONG v23; // [rsp+60h] [rbp-21h]
+  UNICODE_STRING *v24; // [rsp+68h] [rbp-19h]
+  ULONG v25; // [rsp+70h] [rbp-11h]
+  OBJECT_ATTRIBUTES *v26; // [rsp+78h] [rbp-9h]
+  ACCESS_MASK v27; // [rsp+80h] [rbp-1h]
+  HANDLE *v28; // [rsp+88h] [rbp+7h]
   unsigned int KeyTransacted; // [rsp+90h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+3Fh]
 
@@ -62,10 +62,10 @@ __int64 __fastcall DifNtCreateKeyTransactedWrapper(
 LABEL_7:
   v16 = 0;
   v28 = a1;
-  v24 = a5;
-  v23 = a6;
-  v22[2] = Handle;
-  v22[1] = a8;
+  v24 = Class;
+  v23 = CreateOptions;
+  v22[2] = TransactionHandle;
+  v22[1] = Disposition;
   v27 = a2;
   v26 = a3;
   v25 = a4;
@@ -81,7 +81,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  KeyTransacted = NtCreateKeyTransacted(a1, a2, a3, a4, a5, a6, Handle, a8);
+  KeyTransacted = NtCreateKeyTransacted(a1, a2, a3, a4, Class, CreateOptions, TransactionHandle, Disposition);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

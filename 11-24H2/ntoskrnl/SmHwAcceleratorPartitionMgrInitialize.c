@@ -1,9 +1,9 @@
 /*
- * XREFs of SmHwAcceleratorPartitionMgrInitialize @ 0x14079CC94
+ * XREFs of SmHwAcceleratorPartitionMgrInitialize @ 0x14079CDA4
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall SmHwAcceleratorPartitionMgrInitialize(void *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalRegisterErrataCallbacks @ 0x140BDE860
+ * XREFs of HalRegisterErrataCallbacks @ 0x140BE0860
  * Callers:
  *     <none>
  * Callees:
- *     EmpProviderRegister @ 0x140AB3EE0 (EmpProviderRegister.c)
+ *     EmpProviderRegister @ 0x140AAEE50 (EmpProviderRegister.c)
  */
 
 __int64 HalRegisterErrataCallbacks()

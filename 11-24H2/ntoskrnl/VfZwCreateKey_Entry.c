@@ -1,12 +1,12 @@
 /*
- * XREFs of VfZwCreateKey_Entry @ 0x140B941D0
+ * XREFs of VfZwCreateKey_Entry @ 0x140B961D0
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckObjectAttributes @ 0x140B94C90 (ViZwCheckObjectAttributes.c)
- *     ViZwCheckUnicodeString @ 0x140B94CE0 (ViZwCheckUnicodeString.c)
- *     ViZwCheckVirtualAddress @ 0x140B94D78 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140B94DC4 (ViZwShouldCheck.c)
+ *     ViZwCheckObjectAttributes @ 0x140B96C90 (ViZwCheckObjectAttributes.c)
+ *     ViZwCheckUnicodeString @ 0x140B96CE0 (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x140B96D78 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140B96DC4 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwCreateKey_Entry(__int64 *a1, __int64 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSiloInitializeIsMultiSessionSku @ 0x1409AD5E0
+ * XREFs of PspSiloInitializeIsMultiSessionSku @ 0x1409AD7E0
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsDetachSiloFromCurrentThread @ 0x14031CC90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     ExIsMultiSessionSku @ 0x140861D54 (ExIsMultiSessionSku.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14031CF20 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     ExIsMultiSessionSku @ 0x140861F94 (ExIsMultiSessionSku.c)
  */
 
 __int64 __fastcall PspSiloInitializeIsMultiSessionSku(struct _LIST_ENTRY *a1)

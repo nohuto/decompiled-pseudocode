@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpInitializeLoadedDifferencingHives @ 0x1408578B4
+ * XREFs of VrpInitializeLoadedDifferencingHives @ 0x140857AF4
  * Callers:
- *     VRegSetup @ 0x1408576F0 (VRegSetup.c)
+ *     VRegSetup @ 0x140857930 (VRegSetup.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

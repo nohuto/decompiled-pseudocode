@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpFreePostBlock @ 0x14086A740
+ * XREFs of CmpFreePostBlock @ 0x14086EA70
  * Callers:
- *     CmpPostApcRunDown @ 0x1407D1FB0 (CmpPostApcRunDown.c)
- *     CmpCloseKeyObject @ 0x140841890 (CmpCloseKeyObject.c)
- *     CmpDeleteKeyObject @ 0x140847360 (CmpDeleteKeyObject.c)
- *     CmpPostNotify @ 0x140868D58 (CmpPostNotify.c)
- *     CmpFreeSubordinatePost @ 0x1408690C4 (CmpFreeSubordinatePost.c)
- *     CmpSignalDeferredPosts @ 0x14086A690 (CmpSignalDeferredPosts.c)
- *     CmNotifyRunDown @ 0x1408A87D0 (CmNotifyRunDown.c)
- *     NtNotifyChangeMultipleKeys @ 0x1408BF750 (NtNotifyChangeMultipleKeys.c)
- *     CmpPostApc @ 0x140A2F0F0 (CmpPostApc.c)
- *     CmpNotifyChangeKey @ 0x140AE4A64 (CmpNotifyChangeKey.c)
+ *     CmpPostApcRunDown @ 0x1407D24A0 (CmpPostApcRunDown.c)
+ *     CmpCloseKeyObject @ 0x14083DB50 (CmpCloseKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x140843620 (CmpDeleteKeyObject.c)
+ *     CmpPostNotify @ 0x14086D048 (CmpPostNotify.c)
+ *     CmpFreeSubordinatePost @ 0x14086D3B4 (CmpFreeSubordinatePost.c)
+ *     CmpSignalDeferredPosts @ 0x14086E9C0 (CmpSignalDeferredPosts.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1408BD110 (NtNotifyChangeMultipleKeys.c)
+ *     CmNotifyRunDown @ 0x1408FEA30 (CmNotifyRunDown.c)
+ *     CmpPostApc @ 0x140A23B30 (CmpPostApc.c)
+ *     CmpNotifyChangeKey @ 0x140AE6344 (CmpNotifyChangeKey.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x1403C5CE0 (ObDereferenceObjectDeferDelete.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1403B48A0 (ObDereferenceObjectDeferDelete.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFreePostBlock(PVOID P)

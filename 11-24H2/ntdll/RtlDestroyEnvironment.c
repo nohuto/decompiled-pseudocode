@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDestroyEnvironment @ 0x180082FF0
+ * XREFs of RtlDestroyEnvironment @ 0x180004E70
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
  */
 
-__int64 __fastcall RtlDestroyEnvironment(__int64 a1)
+NTSTATUS __cdecl RtlDestroyEnvironment(PVOID Environment)
 {
-  RtlpSysVolFree(a1);
-  return 0LL;
+  RtlpSysVolFree(Environment);
+  return 0;
 }

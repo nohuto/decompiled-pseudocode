@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageAvailable @ 0x14008A428
+ * XREFs of MiPageAvailable @ 0x140089B28
  * Callers:
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiGetFreeOrZeroPage @ 0x14003DC80 (MiGetFreeOrZeroPage.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiGetFreeOrZeroPage @ 0x14003D800 (MiGetFreeOrZeroPage.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
  *     <none>
  */

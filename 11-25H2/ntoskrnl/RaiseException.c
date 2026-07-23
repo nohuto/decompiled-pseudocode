@@ -8,36 +8,32 @@
  *     memmove @ 0x1406B4940 (memmove.c)
  */
 
-__int64 __fastcall RaiseException(int a1, char a2, unsigned int a3, const void *a4)
+void __cdecl RaiseException(
+        DWORD dwExceptionCode,
+        DWORD dwExceptionFlags,
+        DWORD nNumberOfArguments,
+        const ULONG_PTR *lpArguments)
 {
-  unsigned int v4; // eax
-  ULONG_PTR v6; // [rsp+20h] [rbp-B8h] BYREF
-  __int64 v7; // [rsp+28h] [rbp-B0h]
-  void *v8; // [rsp+30h] [rbp-A8h]
-  unsigned int v9; // [rsp+38h] [rbp-A0h]
-  _OWORD v10[7]; // [rsp+3Ch] [rbp-9Ch] BYREF
-  __int64 v11; // [rsp+ACh] [rbp-2Ch]
-  int v12; // [rsp+B4h] [rbp-24h]
+  DWORD v4; // eax
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
-  memset(v10, 0, sizeof(v10));
-  v11 = 0LL;
-  v12 = 0;
-  LODWORD(v6) = a1;
-  HIDWORD(v6) = a2 & 1;
-  v7 = 0LL;
-  v8 = &RaiseException;
-  if ( a4 )
+  memset(&ExceptionRecord.NumberParameters + 1, 0, 124);
+  ExceptionRecord.ExceptionCode = dwExceptionCode;
+  ExceptionRecord.ExceptionFlags = dwExceptionFlags & 1;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.ExceptionAddress = RaiseException;
+  if ( lpArguments )
   {
     v4 = 15;
-    if ( a3 <= 0xF )
-      v4 = a3;
-    v9 = v4;
+    if ( nNumberOfArguments <= 0xF )
+      v4 = nNumberOfArguments;
+    ExceptionRecord.NumberParameters = v4;
     if ( v4 )
-      memmove((char *)v10 + 4, a4, 8LL * v4);
+      memmove(ExceptionRecord.ExceptionInformation, lpArguments, 8LL * v4);
   }
   else
   {
-    v9 = 0;
+    ExceptionRecord.NumberParameters = 0;
   }
-  return RtlRaiseException((ULONG_PTR)&v6);
+  RtlRaiseException(&ExceptionRecord);
 }

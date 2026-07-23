@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeOverlappedFlushEntry @ 0x1401EAE48
+ * XREFs of MiFreeOverlappedFlushEntry @ 0x1401EAC74
  * Callers:
- *     MiFlushComplete @ 0x1401EAD40 (MiFlushComplete.c)
+ *     MiFlushComplete @ 0x1401EAB6C (MiFlushComplete.c)
  * Callees:
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

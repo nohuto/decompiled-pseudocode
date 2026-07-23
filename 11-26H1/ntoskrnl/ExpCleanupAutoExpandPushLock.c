@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCleanupAutoExpandPushLock @ 0x14027E2C0
+ * XREFs of ExpCleanupAutoExpandPushLock @ 0x14027D830
  * Callers:
- *     FsRtlFreeAePushLock @ 0x1405B5860 (FsRtlFreeAePushLock.c)
+ *     FsRtlFreeAePushLock @ 0x1405B8070 (FsRtlFreeAePushLock.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExpSaAllocatorFree @ 0x14027E340 (ExpSaAllocatorFree.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExpSaAllocatorFree @ 0x14027D8B0 (ExpSaAllocatorFree.c)
  */
 
 void __fastcall ExpCleanupAutoExpandPushLock(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall ExpCleanupAutoExpandPushLock(__int64 a1)
     v2 = ((v1 & 0xFFFFFFF8) >> 13) & 0x3FFFF;
     _BitScanReverse(&v3, v2);
     CurrentThread = KeGetCurrentThread();
-    v5 = *(struct _KTHREAD **)(*(_QWORD *)(*(_QWORD *)(ExSaPageGroupDescriptorArray + 8LL * (v3 - 2))
+    v5 = *(struct _KTHREAD **)(*(_QWORD *)(*(_QWORD *)(ExSaPageGroupDescriptorArrayLock.QuantumTarget + 8LL * (v3 - 2))
                                          + 8 * (v2 ^ (unsigned int)(1 << v3))
                                          + 8)
                              + 16LL);

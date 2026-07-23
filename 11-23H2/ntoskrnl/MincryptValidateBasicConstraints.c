@@ -1,12 +1,12 @@
 /*
  * XREFs of MincryptValidateBasicConstraints @ 0x1406812AC
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6F858 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6FB08 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     MinAsn1DecodeInteger @ 0x1406813E4 (MinAsn1DecodeInteger.c)
- *     MinAsn1ParseSingleExtensionValue @ 0x140A70748 (MinAsn1ParseSingleExtensionValue.c)
- *     MinAsn1ExtractValues @ 0x140A71804 (MinAsn1ExtractValues.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140A709F8 (MinAsn1ParseSingleExtensionValue.c)
+ *     MinAsn1ExtractValues @ 0x140A71AB4 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall MincryptValidateBasicConstraints(_DWORD *a1, int a2, char a3, _DWORD *a4)
@@ -31,7 +31,7 @@ __int64 __fastcall MincryptValidateBasicConstraints(_DWORD *a1, int a2, char a3,
   v9[0] = 0;
   if ( !*a1 )
     goto LABEL_14;
-  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140A78750, a1, v9, &v11) <= 0 )
+  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140A78A00, a1, v9, &v11) <= 0 )
     goto LABEL_15;
   if ( !v9[0] )
   {

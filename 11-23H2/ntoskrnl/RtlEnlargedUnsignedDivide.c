@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlEnlargedUnsignedDivide @ 0x14056D164
+ * XREFs of RtlEnlargedUnsignedDivide @ 0x14056D824
  * Callers:
- *     KiCalibrateTimeAdjustment @ 0x140A9EF40 (KiCalibrateTimeAdjustment.c)
+ *     KiCalibrateTimeAdjustment @ 0x140A9EDB0 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>
  */

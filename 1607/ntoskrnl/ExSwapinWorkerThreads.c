@@ -1,19 +1,19 @@
 /*
- * XREFs of ExSwapinWorkerThreads @ 0x14052ECF0
+ * XREFs of ExSwapinWorkerThreads @ 0x14052F230
  * Callers:
  *     PopUnlockAfterSleepWorker @ 0x1403C95C8 (PopUnlockAfterSleepWorker.c)
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  *     ExShutdownSystem @ 0x1403DFB38 (ExShutdownSystem.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeSetKernelStackSwapEnable @ 0x14007B5E4 (KeSetKernelStackSwapEnable.c)
- *     KeInsertQueueApc @ 0x1400C9FD0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x1400F0F58 (KeInitializeApc.c)
- *     PsGetNextProcessThread @ 0x140510350 (PsGetNextProcessThread.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeSetKernelStackSwapEnable @ 0x14007B664 (KeSetKernelStackSwapEnable.c)
+ *     KeInsertQueueApc @ 0x1400C7E70 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x1400EEDA8 (KeInitializeApc.c)
+ *     PsGetNextProcessThread @ 0x1404F32E0 (PsGetNextProcessThread.c)
  */
 
 void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)

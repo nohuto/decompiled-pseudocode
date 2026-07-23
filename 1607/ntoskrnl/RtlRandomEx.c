@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlRandomEx @ 0x1404E91F8
+ * XREFs of RtlRandomEx @ 0x1404CB2E8
  * Callers:
- *     CcUnmapInactiveViews @ 0x14014199C (CcUnmapInactiveViews.c)
- *     CcGetRandomVacbArrayWithReference @ 0x1401B2754 (CcGetRandomVacbArrayWithReference.c)
- *     IopInitializeInMemoryDumpData @ 0x1401C75E4 (IopInitializeInMemoryDumpData.c)
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
+ *     CcUnmapInactiveViews @ 0x140141F0C (CcUnmapInactiveViews.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x1401B2638 (CcGetRandomVacbArrayWithReference.c)
+ *     IopInitializeInMemoryDumpData @ 0x1401C7484 (IopInitializeInMemoryDumpData.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
  *     PspInitPhase2 @ 0x1407B5F0C (PspInitPhase2.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
  */
 
 ULONG __stdcall RtlRandomEx(PULONG Seed)

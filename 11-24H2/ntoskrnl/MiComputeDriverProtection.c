@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeDriverProtection @ 0x140A90E20
+ * XREFs of MiComputeDriverProtection @ 0x140A8D51C
  * Callers:
- *     MiProtectLargeKernelHalRange @ 0x1407E7EC0 (MiProtectLargeKernelHalRange.c)
- *     MiProtectSystemImage @ 0x140A90AEC (MiProtectSystemImage.c)
- *     MiGetBootImagePageProtection @ 0x140C5ADC0 (MiGetBootImagePageProtection.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407E8490 (MiProtectLargeKernelHalRange.c)
+ *     MiProtectSystemImage @ 0x140A8D1E8 (MiProtectSystemImage.c)
+ *     MiGetBootImagePageProtection @ 0x140C5CF50 (MiGetBootImagePageProtection.c)
  * Callees:
  *     <none>
  */

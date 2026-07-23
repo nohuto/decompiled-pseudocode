@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmAllocateQueryTable @ 0x1408F5A60
+ * XREFs of PpmAllocateQueryTable @ 0x1408F5BC0
  * Callers:
- *     PpmRegisterSpmSettings @ 0x1408F60F0 (PpmRegisterSpmSettings.c)
+ *     PpmRegisterSpmSettings @ 0x1408F6250 (PpmRegisterSpmSettings.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall PpmAllocateQueryTable(__int64 a1)

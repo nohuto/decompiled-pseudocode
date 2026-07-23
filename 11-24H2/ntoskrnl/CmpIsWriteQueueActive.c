@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpIsWriteQueueActive @ 0x140481A50
+ * XREFs of CmpIsWriteQueueActive @ 0x14047CD10
  * Callers:
- *     NtCompressKey @ 0x1407CF9F0 (NtCompressKey.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1407D7EEC (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     CmpGenerateFlushControlData @ 0x14097E0C0 (CmpGenerateFlushControlData.c)
- *     HvGetHiveLogFileStatus @ 0x14097F0D0 (HvGetHiveLogFileStatus.c)
+ *     NtCompressKey @ 0x1407CFEE0 (NtCompressKey.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x1407D8440 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     CmpGenerateFlushControlData @ 0x1409668D0 (CmpGenerateFlushControlData.c)
+ *     HvGetHiveLogFileStatus @ 0x1409678E0 (HvGetHiveLogFileStatus.c)
  * Callees:
  *     <none>
  */

@@ -33,8 +33,8 @@
 unsigned __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, __int128 *a4)
 {
   unsigned __int64 Slow; // rdi
-  __int64 *v8; // rbx
-  __int64 v9; // rsi
+  _RTL_RUN_ONCE *v8; // rbx
+  __int64 Value; // rsi
   unsigned int v10; // r15d
   __int64 v11; // rax
   __int64 v13; // rcx
@@ -112,7 +112,7 @@ unsigned __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __
   int v95; // [rsp+54h] [rbp-74h]
   __int64 v96; // [rsp+58h] [rbp-70h]
   unsigned __int64 v97; // [rsp+60h] [rbp-68h]
-  __int128 v98; // [rsp+80h] [rbp-48h] BYREF
+  __int128 Parameter; // [rsp+80h] [rbp-48h] BYREF
   __int128 v99; // [rsp+90h] [rbp-38h]
   unsigned __int8 v100; // [rsp+E8h] [rbp+20h]
   signed __int64 v101; // [rsp+E8h] [rbp+20h]
@@ -122,32 +122,25 @@ unsigned __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __
   Slow = 0LL;
   v99 = *a4;
   v97 = v99;
-  v8 = &qword_1801D4208[2 * (unsigned int)dword_1801816F8[BYTE1(v99)]];
+  v8 = (_RTL_RUN_ONCE *)&qword_1801D4208[2 * (unsigned int)dword_1801816F8[BYTE1(v99)]];
   BYTE1(v97) = dword_1801816F8[BYTE1(v99)];
-  v98 = v97;
-  if ( !*v8
-    && (int)RtlRunOnceExecuteOnce(
-              v8 + 1,
-              (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpHpMetadataHeapCreate,
-              (__int64)&v98,
-              0LL) < 0 )
-  {
+  Parameter = v97;
+  if ( !v8->Value && RtlRunOnceExecuteOnce(v8 + 1, (PRTL_RUN_ONCE_INIT_FN)RtlpHpMetadataHeapCreate, &Parameter, 0LL) < 0 )
     return Slow;
-  }
-  v9 = *v8;
+  Value = v8->Value;
   v10 = 3;
   switch ( a3 )
   {
     case 2:
-      v11 = RtlpHpVsContextAllocate((_BYTE *)(v9 + 704), a2, a2, 0);
+      v11 = RtlpHpVsContextAllocate((_BYTE *)(Value + 704), a2, a2, 0);
 LABEL_4:
       Slow = v11;
       break;
     case 0:
-      if ( a1 >= *(unsigned __int16 *)(v9 + 900) )
+      if ( a1 >= *(unsigned __int16 *)(Value + 900) )
         goto LABEL_50;
-      v14 = v9 + 832;
-      v15 = *(unsigned __int16 *)(v9 + 908);
+      v14 = Value + 832;
+      v15 = *(unsigned __int16 *)(Value + 908);
       v16 = (unsigned int)RtlpLfhBucketIndexMap[(unsigned int)(a1 + 15) >> 4] - 1;
       if ( v15 >= 0x40 )
       {
@@ -169,7 +162,7 @@ LABEL_19:
         v20 = *(unsigned __int16 *)(2 * v16 + v19);
         if ( *(_WORD *)(2 * v16 + v19) )
           goto LABEL_20;
-        if ( RtlpHpLfhBucketCheckAndUpdate(v9 + 832, v16) )
+        if ( RtlpHpLfhBucketCheckAndUpdate(Value + 832, v16) )
         {
           v59 = v14 + ((unsigned __int64)v103 << 8) + 1472;
           v20 = *(unsigned __int16 *)(v18 + v59);
@@ -228,7 +221,7 @@ LABEL_20:
             }
             else
             {
-              Slow = RtlpHpLfhSlotAllocateSlow(v9 + 832, v21, a1, 0);
+              Slow = RtlpHpLfhSlotAllocateSlow(Value + 832, v21, a1, 0);
             }
             goto LABEL_44;
           }
@@ -238,7 +231,7 @@ LABEL_20:
           {
             if ( (i & 0xFFF) == 0 )
             {
-              Slow = RtlpHpLfhSlotAllocateSlow(v9 + 832, v21, a1, 0);
+              Slow = RtlpHpLfhSlotAllocateSlow(Value + 832, v21, a1, 0);
               goto LABEL_42;
             }
             v23 = _InterlockedCompareExchange64((volatile signed __int64 *)(v21 + 56), i - 1, i);
@@ -336,14 +329,14 @@ LABEL_27:
             }
           }
           v43 = (unsigned int)((_DWORD)v34 - (v25 + 64));
-          v14 = v9 + 832;
+          v14 = Value + 832;
           v44 = _RDX + 4 * v43;
           v89 = v44;
           *(_BYTE *)((i & 0xFFFFFFFFFFFFF000uLL) + 0x24) = v44 >> 5;
           v45 = HIWORD(v95) + v44 * (unsigned __int16)v95;
           if ( v100 > 1u )
           {
-            if ( (int)RtlpHpLfhSubsegmentCommitBlock(v9 + 832, v93, v45) < 0 )
+            if ( (int)RtlpHpLfhSubsegmentCommitBlock(Value + 832, v93, v45) < 0 )
             {
               v46 = 0LL;
               if ( v89 != -1 )
@@ -423,15 +416,15 @@ LABEL_44:
 LABEL_45:
               if ( a1 <= 0x20000 )
               {
-                HeapBackend = RtlpHpVsContextAllocate((_BYTE *)(v9 + 704), v48, v48, 0);
+                HeapBackend = RtlpHpVsContextAllocate((_BYTE *)(Value + 704), v48, v48, 0);
               }
-              else if ( a1 <= *(unsigned int *)(v9 + 528) )
+              else if ( a1 <= *(unsigned int *)(Value + 528) )
               {
-                HeapBackend = RtlpHpAllocateHeapBackend(v9, a1, a1, 0);
+                HeapBackend = RtlpHpAllocateHeapBackend(Value, a1, a1, 0);
               }
               else
               {
-                HeapBackend = RtlpHpLargeAlloc(v9, a1, a1, 0LL);
+                HeapBackend = RtlpHpLargeAlloc(Value, a1, a1, 0LL);
               }
               Slow = HeapBackend;
               break;
@@ -441,7 +434,7 @@ LABEL_45:
           {
             if ( v44 <= *(unsigned __int16 *)((i & 0xFFFFFFFFFFFFF000uLL) + 0x30) )
               goto LABEL_37;
-            RtlpHpLfhSubsegmentPrefetch(v9 + 832, v93, v45, (unsigned __int16)v95);
+            RtlpHpLfhSubsegmentPrefetch(Value + 832, v93, v45, (unsigned __int16)v95);
           }
           v28 = (unsigned __int16)v95;
 LABEL_37:
@@ -461,16 +454,16 @@ LABEL_50:
         goto LABEL_45;
       }
 LABEL_69:
-      v17 = RtlpHpLfhThreadDataInitializeSet(v9 + 832);
+      v17 = RtlpHpLfhThreadDataInitializeSet(Value + 832);
       goto LABEL_19;
     case 1:
-      v13 = v9 + 320;
-      if ( a1 > *(unsigned int *)(v9 + 336) )
-        v13 = v9 + 512;
+      v13 = Value + 320;
+      if ( a1 > *(unsigned int *)(Value + 336) )
+        v13 = Value + 512;
       v11 = RtlpHpSegAlloc(v13, a1, a1, a2, a2 < a1 ? 0x4000000 : 0);
       goto LABEL_4;
   }
-  if ( *(char *)(v9 + 20) < 0 )
-    RtlpLogHeapAllocateEvent(v9, Slow, a1, v10);
+  if ( *(char *)(Value + 20) < 0 )
+    RtlpLogHeapAllocateEvent(Value, Slow, a1, v10);
   return Slow;
 }

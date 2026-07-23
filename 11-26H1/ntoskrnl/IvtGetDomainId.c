@@ -1,8 +1,8 @@
 /*
- * XREFs of IvtGetDomainId @ 0x1405A6750
+ * XREFs of IvtGetDomainId @ 0x1405A8F60
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x1405A5968 (IvtAttachDeviceDomainInternal.c)
- *     IvtConfigureAts @ 0x1405A5E50 (IvtConfigureAts.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1405A8178 (IvtAttachDeviceDomainInternal.c)
+ *     IvtConfigureAts @ 0x1405A8660 (IvtConfigureAts.c)
  * Callees:
  *     <none>
  */

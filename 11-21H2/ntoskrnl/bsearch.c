@@ -1,17 +1,17 @@
 /*
  * XREFs of bsearch @ 0x1403E1840
  * Callers:
- *     DownLevelLangIDToLanguageName @ 0x140372644 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x1403C68CC (DownLevelLanguageNameToLangID.c)
+ *     sub_140372644 @ 0x140372644 (sub_140372644.c)
+ *     sub_1403C68CC @ 0x1403C68CC (sub_1403C68CC.c)
  *     RtlCompareExchangePropertyStore @ 0x1405E7300 (RtlCompareExchangePropertyStore.c)
  *     RtlQueryPropertyStore @ 0x1405E7780 (RtlQueryPropertyStore.c)
  *     RtlRemovePropertyStore @ 0x1405E79C0 (RtlRemovePropertyStore.c)
- *     DownLevelGetParentLanguageName @ 0x140646E04 (DownLevelGetParentLanguageName.c)
- *     EtwpIsGuidAllowed @ 0x140797B54 (EtwpIsGuidAllowed.c)
+ *     sub_140646E04 @ 0x140646E04 (sub_140646E04.c)
+ *     sub_140797B54 @ 0x140797B54 (sub_140797B54.c)
  *     sub_14082DD70 @ 0x14082DD70 (sub_14082DD70.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _guard_check_icall @ 0x14042A590 (_guard_check_icall.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
+ *     sub_14042A590 @ 0x14042A590 (sub_14042A590.c)
  */
 
 void *__cdecl bsearch(
@@ -34,6 +34,7 @@ void *__cdecl bsearch(
   v8 = (char *)Base;
   if ( (Base || !NumOfElements) && SizeOfElements && PtFuncCompare )
   {
+    sub_14042A590(PtFuncCompare);
     while ( v8 <= v7 )
     {
       v10 = v6 >> 1;
@@ -66,7 +67,7 @@ void *__cdecl bsearch(
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
   }
   return 0LL;
 }

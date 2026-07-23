@@ -72,7 +72,7 @@ NTSTATUS __fastcall Phase1InitializationIoReady(_QWORD *a1, char a2)
     KeBugCheckEx(0x32u, inited, 8uLL, 1uLL, 0LL);
   TmInitSystemPhase2();
   InbvSetProgressBarSubset(0LL, 100LL);
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     InitSafeBoot(a2);
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E074B8, 0LL, 0LL);
   v8 = *((_QWORD *)PspSystemPartition + 3);
@@ -158,7 +158,7 @@ LABEL_47:
   }
   if ( VfClearanceFlag )
     VfClearVerifierSettings();
-  if ( (*(_DWORD *)(a1[30] + 132LL) & 2) == 0 && !(_DWORD)InitSafeBootMode )
+  if ( (*(_DWORD *)(a1[30] + 132LL) & 2) == 0 && !InitSafeBootMode )
     CarReportUnusualShutdown(ViVerifierEnabled == 0);
   ExQueryBootEntropyInformation(0LL);
   if ( !(unsigned __int8)KeInitSystem(4LL) )

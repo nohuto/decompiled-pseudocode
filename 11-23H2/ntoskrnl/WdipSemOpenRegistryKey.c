@@ -1,16 +1,16 @@
 /*
- * XREFs of WdipSemOpenRegistryKey @ 0x1408316F8
+ * XREFs of WdipSemOpenRegistryKey @ 0x1408319F8
  * Callers:
- *     WdipSemLoadGroupPolicy @ 0x14082FABC (WdipSemLoadGroupPolicy.c)
- *     WdipSemLoadConfigInfo @ 0x14082FDEC (WdipSemLoadConfigInfo.c)
- *     WdipSemLoadNextEndEvent @ 0x140830780 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextContextProvider @ 0x140830A84 (WdipSemLoadNextContextProvider.c)
- *     WdipSemLoadScenarioTable @ 0x140830D04 (WdipSemLoadScenarioTable.c)
- *     WdipSemLoadNextScenario @ 0x140831110 (WdipSemLoadNextScenario.c)
- *     WdipSemLoadLocalGroupPolicy @ 0x1409DE088 (WdipSemLoadLocalGroupPolicy.c)
+ *     WdipSemLoadGroupPolicy @ 0x14082FDBC (WdipSemLoadGroupPolicy.c)
+ *     WdipSemLoadConfigInfo @ 0x1408300EC (WdipSemLoadConfigInfo.c)
+ *     WdipSemLoadNextEndEvent @ 0x140830A80 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextContextProvider @ 0x140830D84 (WdipSemLoadNextContextProvider.c)
+ *     WdipSemLoadScenarioTable @ 0x140831004 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadNextScenario @ 0x140831410 (WdipSemLoadNextScenario.c)
+ *     WdipSemLoadLocalGroupPolicy @ 0x1409DE288 (WdipSemLoadLocalGroupPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall WdipSemOpenRegistryKey(PCWSTR SourceString, void *a2, HANDLE *a3)

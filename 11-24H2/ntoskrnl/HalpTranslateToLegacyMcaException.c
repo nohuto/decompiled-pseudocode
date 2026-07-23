@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTranslateToLegacyMcaException @ 0x140540740
+ * XREFs of HalpTranslateToLegacyMcaException @ 0x14053E040
  * Callers:
- *     HalpMcaReportError @ 0x1405400E4 (HalpMcaReportError.c)
+ *     HalpMcaReportError @ 0x14053D9E4 (HalpMcaReportError.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall HalpTranslateToLegacyMcaException(__int64 a1, __int64 a2)

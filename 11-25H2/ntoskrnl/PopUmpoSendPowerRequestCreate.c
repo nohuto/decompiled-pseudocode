@@ -38,7 +38,7 @@ void __fastcall PopUmpoSendPowerRequestCreate(int a1)
             if ( *((_DWORD *)j + 9) == a1 )
             {
               if ( (int)PoStoreDiagnosticContext((__int64)j[12], (unsigned __int64 *)(Pool2 + 16), &v7) >= 0 )
-                PopUmpoSendPowerMessage(v5, v3 + 16, 0, 0LL);
+                PopUmpoSendPowerMessage(v5, v3 + 16, 0);
               break;
             }
           }

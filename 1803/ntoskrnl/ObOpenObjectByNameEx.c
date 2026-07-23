@@ -65,7 +65,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   _QWORD *v20; // r15
   ULONG_PTR v21; // rsi
   _SLIST_ENTRY *Next; // rsi
-  struct _SLIST_ENTRY *v23; // r14
+  _SLIST_ENTRY *v23; // r14
   __int64 v24; // r8
   __int64 v25; // r9
   void *v26; // rcx
@@ -79,7 +79,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   __int64 v34; // r14
   void *v35; // rcx
   _SLIST_ENTRY *v36; // rcx
-  struct _SLIST_ENTRY *v37; // r8
+  _SLIST_ENTRY *v37; // r8
   struct _KPRCB *v38; // rdx
   _GENERAL_LOOKASIDE *v39; // rcx
   struct _KPRCB *v40; // rdx
@@ -402,7 +402,7 @@ LABEL_35:
       SeReleaseSecurityDescriptor(v36, (char)v14[11].Next, 1);
       v14[12].Next = 0LL;
     }
-    v37 = (struct _SLIST_ENTRY *)v60.m128i_i64[1];
+    v37 = (_SLIST_ENTRY *)v60.m128i_i64[1];
     if ( v60.m128i_i64[1] )
     {
       if ( v60.m128i_i16[1] == 248 )
@@ -421,7 +421,7 @@ LABEL_35:
         else
         {
           ++v39->FreeMisses;
-          ((void (__fastcall *)(struct _SLIST_ENTRY *))v39->FreeEx)(v37);
+          ((void (__fastcall *)(_SLIST_ENTRY *))v39->FreeEx)(v37);
         }
       }
       else

@@ -1,20 +1,20 @@
 /*
- * XREFs of PiSwIrpCleanup @ 0x14074CE88
+ * XREFs of PiSwIrpCleanup @ 0x14074D048
  * Callers:
- *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwDispatch @ 0x14074DB50 (PiSwDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DD78 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwCloseDevice @ 0x1407349F0 (PiSwCloseDevice.c)
- *     PiSwCloseDescendants @ 0x140738E64 (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x140738EE4 (PiSwFindSwDevice.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14062D4E0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwCloseDevice @ 0x140734BB0 (PiSwCloseDevice.c)
+ *     PiSwCloseDescendants @ 0x140739024 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x1407390A4 (PiSwFindSwDevice.c)
  */
 
 void __fastcall PiSwIrpCleanup(__int64 a1)
@@ -26,6 +26,9 @@ void __fastcall PiSwIrpCleanup(__int64 a1)
   const wchar_t *v6; // rbp
   struct _DMA_ADAPTER *v7; // rax
   __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   __int64 SwDevice; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
@@ -71,7 +74,7 @@ LABEL_6:
     PiSwCloseDevice((PVOID)a1);
   }
   ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
   if ( v1 )
   {
     v1->IoStatus.Information = 0LL;

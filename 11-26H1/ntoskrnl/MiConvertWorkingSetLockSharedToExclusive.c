@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertWorkingSetLockSharedToExclusive @ 0x140703584
+ * XREFs of MiConvertWorkingSetLockSharedToExclusive @ 0x140708254
  * Callers:
- *     MiInsertLargeVadMapping @ 0x140510234 (MiInsertLargeVadMapping.c)
+ *     MiInsertLargeVadMapping @ 0x140509CA4 (MiInsertLargeVadMapping.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiConvertWorkingSetLockSharedToExclusive(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiConvertWorkingSetLockSharedToExclusive(__int64 a1)
   signed __int32 v16; // ecx
 
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-    v1 = &qword_140E37800;
+    v1 = &qword_140E37980;
   else
     v1 = (__int64 *)(a1 + 192);
   v2 = *v1;

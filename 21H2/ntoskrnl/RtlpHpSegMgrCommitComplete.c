@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpSegMgrCommitComplete @ 0x1402C7BD4
+ * XREFs of RtlpHpSegMgrCommitComplete @ 0x140246428
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrCommit @ 0x140315360 (RtlpHpSegMgrCommit.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int16 __fastcall RtlpHpSegMgrCommitComplete(
@@ -36,7 +36,6 @@ __int16 __fastcall RtlpHpSegMgrCommitComplete(
   __int64 v18; // rcx
   __int64 v19; // rdi
   __int64 v20; // rdx
-  __int64 v21; // rcx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
 
@@ -130,7 +129,7 @@ LABEL_26:
           }
           *(_BYTE *)(v19 + 32) |= 2u;
           if ( *(__int64 *)(v19 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v19);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
           *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v19 + 25) &= ~1u;
           *(_QWORD *)(v19 + 32) = 0LL;
@@ -146,7 +145,7 @@ LABEL_38:
           if ( v17
             && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
-            KiCheckForKernelApcDelivery(v21);
+            KiCheckForKernelApcDelivery();
           }
           LOWORD(v6) = KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
         }

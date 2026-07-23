@@ -1,11 +1,11 @@
 /*
- * XREFs of PopMonitorProcessBrightnessAction @ 0x140673808
+ * XREFs of PopMonitorProcessBrightnessAction @ 0x1406738EC
  * Callers:
- *     PopMonitorProcessLoop @ 0x14057E790 (PopMonitorProcessLoop.c)
+ *     PopMonitorProcessLoop @ 0x14057EC3C (PopMonitorProcessLoop.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x1400FB738 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopSetPowerSettingValueAcDc @ 0x1403F5BE4 (PopSetPowerSettingValueAcDc.c)
+ *     PopUmpoSendPowerMessage @ 0x1400F94C4 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1403F4AA8 (PopSetPowerSettingValueAcDc.c)
  */
 
 _UNKNOWN **__fastcall PopMonitorProcessBrightnessAction(int a1, int a2)

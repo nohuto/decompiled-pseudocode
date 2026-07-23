@@ -1,17 +1,17 @@
 /*
- * XREFs of SepInitProcessAuditSd @ 0x14063AA70
+ * XREFs of SepInitProcessAuditSd @ 0x14063DADC
  * Callers:
- *     SepInitializationPhase1 @ 0x140810284 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140815D14 (SepInitializationPhase1.c)
  * Callees:
- *     RtlAddAuditAccessAce @ 0x140803320 (RtlAddAuditAccessAce.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x1409F49E0 (RtlAddAccessAllowedAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140A8F1C0 (RtlSetSaclSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAddAuditAccessAce @ 0x140808DC0 (RtlAddAuditAccessAce.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1409E0730 (RtlAddAccessAllowedAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140A93E90 (RtlSetSaclSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void SepInitProcessAuditSd()
@@ -22,11 +22,13 @@ void SepInitProcessAuditSd()
   _KPROCESS *v3; // rsi
   NTSTATUS Acl; // eax
   ACL *v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rdx
+  ULONG v6; // edx
+  void *v7; // r9
   ULONG v8; // ebp
   ACL *v9; // rax
   ACL *v10; // rdi
+  BOOLEAN v11; // [rsp+20h] [rbp-28h]
+  BOOLEAN v12; // [rsp+28h] [rbp-20h]
 
   v0 = 0LL;
   if ( PspSiloMonitorLock.Process )
@@ -36,7 +38,7 @@ void SepInitProcessAuditSd()
   }
   if ( LODWORD(ExpPlatformBinaryLock.KernelStack) )
   {
-    v1 = 4 * HIBYTE(RtlpBootStatHandleLock.StateSaveArea->ControlWord) + 24;
+    v1 = 4 * *(unsigned __int8 *)(*(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags + 1LL) + 24;
     Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
     v3 = (_KPROCESS *)Pool2;
     if ( Pool2 )
@@ -45,19 +47,18 @@ void SepInitProcessAuditSd()
       Acl = RtlCreateAcl(Pool2 + 5, v1, 2u);
       if ( Acl < 0 )
         goto LABEL_6;
-      Acl = RtlAddAuditAccessAce(v5, v6, LODWORD(ExpPlatformBinaryLock.KernelStack));
+      Acl = RtlAddAuditAccessAce(v5, v6, (ACCESS_MASK)ExpPlatformBinaryLock.KernelStack, v7, v11, v12);
       if ( Acl < 0 )
         goto LABEL_6;
       Acl = RtlCreateSecurityDescriptor(v3, 1u);
       if ( Acl < 0 )
         goto LABEL_6;
-      LOBYTE(v7) = 1;
-      Acl = RtlSetSaclSecurityDescriptor(v3, v7, v5, 0LL);
+      Acl = RtlSetSaclSecurityDescriptor(v3, 1u, v5, 0);
       if ( Acl < 0 )
         goto LABEL_6;
       PspSiloMonitorLock.Process = v3;
       v8 = 4
-         * (*(unsigned __int8 *)(*(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags + 1LL)
+         * (*(unsigned __int8 *)(*(_QWORD *)((char *)&RtlpBootStatHandleLock.116 + 4) + 1LL)
           + *((unsigned __int8 *)SeLocalServiceSid + 1)
           + *(unsigned __int8 *)(PspSiloMonitorLock.ThreadLock + 1)
           + *(unsigned __int8 *)(*(_QWORD *)&PspSiloMonitorLock.ApcStateFill[40] + 1LL))
@@ -70,7 +71,7 @@ void SepInitProcessAuditSd()
         Acl = RtlCreateAcl(v9 + 5, v8, 2u);
         if ( Acl >= 0 )
         {
-          Acl = RtlAddAccessAllowedAce(v10, 2u, 1u, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags);
+          Acl = RtlAddAccessAllowedAce(v10, 2u, 1u, *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4));
           if ( Acl >= 0 )
           {
             Acl = RtlAddAccessAllowedAce(v10, 2u, 1u, SeLocalServiceSid);

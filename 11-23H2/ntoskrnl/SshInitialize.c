@@ -3,12 +3,12 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     ExUnsubscribeWnfStateChange @ 0x1407E1090 (ExUnsubscribeWnfStateChange.c)
- *     CmSiRWLockInitialize @ 0x14080E150 (CmSiRWLockInitialize.c)
- *     SSHSupportEtwRegister @ 0x1408228FC (SSHSupportEtwRegister.c)
- *     SleepstudyHelperDestroyLibrary @ 0x1409A1E90 (SleepstudyHelperDestroyLibrary.c)
- *     SSHSupportEtwUnregister @ 0x1409A2478 (SSHSupportEtwUnregister.c)
- *     SSHSupportUnregisterPowerSettingCallback @ 0x1409A2494 (SSHSupportUnregisterPowerSettingCallback.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1407E1360 (ExUnsubscribeWnfStateChange.c)
+ *     CmSiRWLockInitialize @ 0x14080E420 (CmSiRWLockInitialize.c)
+ *     SSHSupportEtwRegister @ 0x140822BFC (SSHSupportEtwRegister.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x1409A2090 (SleepstudyHelperDestroyLibrary.c)
+ *     SSHSupportEtwUnregister @ 0x1409A2678 (SSHSupportEtwUnregister.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x1409A2694 (SSHSupportUnregisterPowerSettingCallback.c)
  *     SshpSubscribeCallbacks @ 0x140B55460 (SshpSubscribeCallbacks.c)
  *     SshpAlpcInitialize @ 0x140B66D04 (SshpAlpcInitialize.c)
  *     SshpSessionManagerInitialize @ 0x140B754D4 (SshpSessionManagerInitialize.c)
@@ -17,16 +17,16 @@
 __int64 __fastcall SshInitialize(int a1)
 {
   NTSTATUS v1; // ebx
-  union _RTL_RUN_ONCE *v2; // rax
-  union _RTL_RUN_ONCE *v3; // rax
+  _RTL_RUN_ONCE *v2; // rax
+  _RTL_RUN_ONCE *v3; // rax
   __int64 v4; // rdx
 
   switch ( a1 )
   {
     case 0:
-      CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpLibraryListLock);
-      qword_140C38B78 = (__int64)&SshpLibraryList;
-      v2 = (union _RTL_RUN_ONCE *)&unk_140C38BB0;
+      CmSiRWLockInitialize(&SshpLibraryListLock);
+      qword_140C38B18 = (__int64)&SshpLibraryList;
+      v2 = (_RTL_RUN_ONCE *)&unk_140C38B50;
       SshpLibraryList = (__int64)&SshpLibraryList;
       do
       {

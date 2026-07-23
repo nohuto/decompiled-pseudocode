@@ -1,23 +1,23 @@
 /*
- * XREFs of KiTimerWaitTest @ 0x140247DF0
+ * XREFs of KiTimerWaitTest @ 0x1402EC640
  * Callers:
- *     KiProcessExpiredTimerList @ 0x140247AA0 (KiProcessExpiredTimerList.c)
- *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x14025FF30 (KeSetTimerEx.c)
- *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
- *     KiAdjustTimerDueTimes @ 0x14039E16C (KiAdjustTimerDueTimes.c)
+ *     KiResumeThread @ 0x140267870 (KiResumeThread.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x1402816A0 (KeSetTimerEx.c)
+ *     KiProcessExpiredTimerList @ 0x1402EC2F0 (KiProcessExpiredTimerList.c)
+ *     ExpSetTimerObject @ 0x1402EDC70 (ExpSetTimerObject.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
+ *     KiAdjustTimerDueTimes @ 0x14039E2BC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
- *     PsTimerResolutionActive @ 0x140260174 (PsTimerResolutionActive.c)
- *     KiTryUnwaitThread @ 0x140342820 (KiTryUnwaitThread.c)
- *     KiInsertTimerTable @ 0x140348000 (KiInsertTimerTable.c)
- *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
+ *     PsTimerResolutionActive @ 0x1402818E4 (PsTimerResolutionActive.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KiWakeOtherQueueWaiters @ 0x1402E7B60 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402F0D40 (KiWakeQueueWaiter.c)
+ *     KiTryUnwaitThread @ 0x14034D570 (KiTryUnwaitThread.c)
+ *     KiInsertTimerTable @ 0x140352D50 (KiInsertTimerTable.c)
+ *     KeIsThreadRunning @ 0x140513294 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A79F0 (EtwTraceEnqueueWork.c)
  */
 
 ULONG_PTR __fastcall KiTimerWaitTest(__int64 a1, __int64 a2, unsigned int *a3)
@@ -121,11 +121,8 @@ ULONG_PTR __fastcall KiTimerWaitTest(__int64 a1, __int64 a2, unsigned int *a3)
         v33 = *((_BYTE *)v14 + 16) <= 1u;
         v34 = v14;
         v14 = (__int64 *)*v14;
-        if ( v33 )
-        {
-          if ( (unsigned __int8)PsTimerResolutionActive(*(_QWORD *)(v34[3] + 544), v15, v14) )
-            break;
-        }
+        if ( v33 && PsTimerResolutionActive(*(_QWORD *)(v34[3] + 544)) )
+          break;
         if ( v14 == v15 )
           goto LABEL_9;
       }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockShared @ 0x14033FB60
+ * XREFs of ExAcquireAutoExpandPushLockShared @ 0x14031F040
  * Callers:
- *     MiDeletePagablePteRange @ 0x1403CC1D4 (MiDeletePagablePteRange.c)
- *     MiLockAwePagesShared @ 0x1404AF5B0 (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x1404C2D68 (MiLockAweVadsShared.c)
- *     MiBuildPhysicalPageFreeChain @ 0x140681434 (MiBuildPhysicalPageFreeChain.c)
+ *     MiDeletePagablePteRange @ 0x1402663A4 (MiDeletePagablePteRange.c)
+ *     MiLockAwePagesShared @ 0x1404A9FAC (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x1404BE2A0 (MiLockAweVadsShared.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140682624 (MiBuildPhysicalPageFreeChain.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

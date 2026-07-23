@@ -1,8 +1,8 @@
 /*
- * XREFs of KeQueryNodeActiveProcessorCount @ 0x1404DFF50
+ * XREFs of KeQueryNodeActiveProcessorCount @ 0x1404D9630
  * Callers:
- *     ExpGetNodeSubQueueConcurrencyCount @ 0x1404DFF18 (ExpGetNodeSubQueueConcurrencyCount.c)
- *     ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x140846D5C (-ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
+ *     ExpGetNodeSubQueueConcurrencyCount @ 0x1404D95F8 (ExpGetNodeSubQueueConcurrencyCount.c)
+ *     ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x14084CFBC (-ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpLogger @ 0x1405C1430
+ * XREFs of EtwpLogger @ 0x1405C2430
  * Callers:
  *     <none>
  * Callees:
@@ -10,26 +10,26 @@
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     EtwpRealtimeCreateLogfile @ 0x1405C0F90 (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeUpdateConsumers @ 0x1405C1198 (EtwpRealtimeUpdateConsumers.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x1405C12F0 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpAdjustFreeBuffers @ 0x1405C1E48 (EtwpAdjustFreeBuffers.c)
- *     EtwpFlushActiveBuffers @ 0x1405C2178 (EtwpFlushActiveBuffers.c)
- *     EtwpCreateLogFile @ 0x140699AFC (EtwpCreateLogFile.c)
- *     EtwpFinalizeHeader @ 0x14069A3FC (EtwpFinalizeHeader.c)
- *     EtwpFreeLoggerContext @ 0x1406C08A0 (EtwpFreeLoggerContext.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x1406C0EC4 (EtwpRealtimeDisconnectAllConsumers.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1406C9B94 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpStopLoggerInstance @ 0x1406CB854 (EtwpStopLoggerInstance.c)
- *     PsTerminateSystemThread @ 0x1406CC570 (PsTerminateSystemThread.c)
- *     EtwpRealtimeSaveState @ 0x1406D0004 (EtwpRealtimeSaveState.c)
- *     EtwpEventWriteTemplateSessionEnd @ 0x1406D08D8 (EtwpEventWriteTemplateSessionEnd.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1408BAE30 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateSession @ 0x1408BB068 (EtwpEventWriteTemplateSession.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1405C1F90 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeUpdateConsumers @ 0x1405C2198 (EtwpRealtimeUpdateConsumers.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1405C22F0 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpAdjustFreeBuffers @ 0x1405C2E48 (EtwpAdjustFreeBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x1405C3178 (EtwpFlushActiveBuffers.c)
+ *     EtwpCreateLogFile @ 0x14069ACBC (EtwpCreateLogFile.c)
+ *     EtwpFinalizeHeader @ 0x14069B5BC (EtwpFinalizeHeader.c)
+ *     EtwpFreeLoggerContext @ 0x1406C1B40 (EtwpFreeLoggerContext.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x1406C2164 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x1406CAE34 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpStopLoggerInstance @ 0x1406CCAF4 (EtwpStopLoggerInstance.c)
+ *     PsTerminateSystemThread @ 0x1406CD810 (PsTerminateSystemThread.c)
+ *     EtwpRealtimeSaveState @ 0x1406D12A4 (EtwpRealtimeSaveState.c)
+ *     EtwpEventWriteTemplateSessionEnd @ 0x1406D1B78 (EtwpEventWriteTemplateSessionEnd.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x1408BC0F0 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateSession @ 0x1408BC328 (EtwpEventWriteTemplateSession.c)
  */
 
 NTSTATUS __fastcall EtwpLogger(__int64 a1)

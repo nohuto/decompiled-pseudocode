@@ -32,8 +32,8 @@ __int64 __fastcall sub_18005F1CC(__int64 a1, __int64 a2)
   }
   v7 = *(_WORD *)(a2 + 84) & 0x7FF;
   if ( (*(_DWORD *)(a1 + 324) & 0x1000) != 0 )
-    LODWORD(v7) = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 504) + 8LL * v5) + 2 * v7);
-  v8 = (void *)sub_18005F2B4(a1, v6, v7, 0, (__int64)&v11);
+    v7 = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 504) + 8LL * v5) + 2 * v7);
+  v8 = (void *)sub_18005F2B4(a1, (unsigned int)v6, v7, 0LL, &v11);
   if ( v8 )
   {
     memmove(v8, *(const void **)(a2 + 72), v6);

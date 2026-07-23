@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAbCleanupLockEntriesState @ 0x140444ED4
+ * XREFs of KiAbCleanupLockEntriesState @ 0x14043D07C
  * Callers:
- *     KeCleanupThreadState @ 0x140444DEC (KeCleanupThreadState.c)
+ *     KeCleanupThreadState @ 0x14043CF94 (KeCleanupThreadState.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiAbCleanupLockEntriesState(__int64 a1, ULONG_PTR a2)
@@ -53,7 +53,7 @@ LABEL_12:
     else if ( v9 )
     {
       _disable();
-      KiAbEntryFreeAndEnableInterrupts(a1 + 88LL * v5 + 16, a2, 0LL, 1, 0LL);
+      KiAbEntryFreeAndEnableInterrupts(a1 + 88LL * v5 + 16, a2, 0LL, 1LL, 0LL);
     }
     ++v5;
   }

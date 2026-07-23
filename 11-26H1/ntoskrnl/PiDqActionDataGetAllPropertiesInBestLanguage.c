@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140991870
+ * XREFs of PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1409522D0
  * Callers:
- *     PiDqActionDataCreate @ 0x1409907EC (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x14095124C (PiDqActionDataCreate.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PiDqOpenUserObjectRegKey @ 0x1409920EC (PiDqOpenUserObjectRegKey.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14099C628 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     _PnpOpenObjectRegKey @ 0x14099E110 (_PnpOpenObjectRegKey.c)
- *     PiDqPnPGetObjectPropertyKeys @ 0x140AB4038 (PiDqPnPGetObjectPropertyKeys.c)
- *     PiDqGrowPropertyArray @ 0x140AB49F4 (PiDqGrowPropertyArray.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140952B4C (PiDqOpenUserObjectRegKey.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14095D088 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     _PnpOpenObjectRegKey @ 0x14095EB70 (_PnpOpenObjectRegKey.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x140AB53D8 (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiDqGrowPropertyArray @ 0x140AB5D94 (PiDqGrowPropertyArray.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqActionDataGetAllPropertiesInBestLanguage(

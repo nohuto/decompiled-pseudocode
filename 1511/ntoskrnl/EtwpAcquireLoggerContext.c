@@ -20,11 +20,11 @@ __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, unsigned int **a2)
   unsigned int *v6; // rax
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 24) - SystemTraceControlGuid;
+  v3 = *(_QWORD *)(a1 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
   v4 = -1;
   *a2 = 0LL;
   if ( !v3 )
-    v3 = *(_QWORD *)(a1 + 32) - 0x3969A8086000829ALL;
+    v3 = *(_QWORD *)(a1 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v3 )
     v4 = (unsigned __int16)EtwpSystemLogger[0];
   if ( v4 == (unsigned __int16)EtwpSystemLogger[0] || !*(_WORD *)(a1 + 144) )

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceSetHiberFileFailurePoint @ 0x1407D4968
+ * XREFs of PopDiagTraceSetHiberFileFailurePoint @ 0x1407D7B20
  * Callers:
- *     PopSetHiberFileType @ 0x140777454 (PopSetHiberFileType.c)
- *     PopSetHiberFileSize @ 0x1407D0888 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x14077A2FC (PopSetHiberFileType.c)
+ *     PopSetHiberFileSize @ 0x1407D3928 (PopSetHiberFileSize.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSetHiberFileFailurePoint(int a1, int a2)
@@ -31,24 +31,16 @@ void __fastcall PopDiagTraceSetHiberFileFailurePoint(int a1, int a2)
 
   v17 = a1;
   v3 = 0;
-  if ( byte_140E67628
-    && EtwEventEnabled(
-         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-         &POP_ETW_EVENT_SET_HIBER_FILE_FAILURE) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SET_HIBER_FILE_FAILURE) )
   {
     UserData.Ptr = (ULONGLONG)&v17;
     v3 = a2;
     v8 = &v3;
     *(_QWORD *)&UserData.Size = 4LL;
     v9 = 4LL;
-    EtwWrite(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_SET_HIBER_FILE_FAILURE,
-      0LL,
-      2u,
-      &UserData);
+    EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SET_HIBER_FILE_FAILURE, 0LL, 2u, &UserData);
   }
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v4 = v17;
     v12 = 4LL;
@@ -59,6 +51,6 @@ void __fastcall PopDiagTraceSetHiberFileFailurePoint(int a1, int a2)
     v15 = &v6;
     v6 = 0x1000000LL;
     v16 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)byte_140049D25, 0LL, 0LL, 5u, &v10);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004A325, 0LL, 0LL, 5u, &v10);
   }
 }

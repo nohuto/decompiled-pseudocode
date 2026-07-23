@@ -8,7 +8,7 @@
 
 __int64 __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE a1, __int128 *a2, PVOID *a3)
 {
-  union _RTL_RUN_ONCE v4; // rdx
+  _RTL_RUN_ONCE v4; // rdx
   __int64 result; // rax
   __int128 v6; // [rsp+20h] [rbp-28h] BYREF
   __int128 v7; // [rsp+30h] [rbp-18h]

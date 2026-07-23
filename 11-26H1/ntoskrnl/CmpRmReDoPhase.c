@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpRmReDoPhase @ 0x14085E540
+ * XREFs of CmpRmReDoPhase @ 0x140864830
  * Callers:
- *     CmpStartRMLog @ 0x1408AC340 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x1408B2784 (CmpStartRMLog.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmpDoReadTxRBigLogRecord @ 0x14085E0CC (CmpDoReadTxRBigLogRecord.c)
- *     CmpRealignLogBuffers @ 0x14085E230 (CmpRealignLogBuffers.c)
- *     CmpVerifyLogRecord @ 0x14085E8EC (CmpVerifyLogRecord.c)
- *     CmpDoReDoRecord @ 0x140863828 (CmpDoReDoRecord.c)
- *     CmpTransSearchAddTransFromRm @ 0x140AE0F20 (CmpTransSearchAddTransFromRm.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmpDoReadTxRBigLogRecord @ 0x1408643BC (CmpDoReadTxRBigLogRecord.c)
+ *     CmpRealignLogBuffers @ 0x140864520 (CmpRealignLogBuffers.c)
+ *     CmpVerifyLogRecord @ 0x140864BDC (CmpVerifyLogRecord.c)
+ *     CmpDoReDoRecord @ 0x140869C08 (CmpDoReDoRecord.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140ADE378 (CmpTransSearchAddTransFromRm.c)
  */
 
 int __fastcall CmpRmReDoPhase(__int64 a1, CLFS_LSN a2)

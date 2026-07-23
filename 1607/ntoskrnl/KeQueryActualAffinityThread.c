@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryActualAffinityThread @ 0x1401D2CA0
+ * XREFs of KeQueryActualAffinityThread @ 0x1401D2ACC
  * Callers:
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 unsigned __int64 __fastcall KeQueryActualAffinityThread(__int64 a1, __int64 a2)

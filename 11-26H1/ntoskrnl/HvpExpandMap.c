@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpExpandMap @ 0x140ABA60C
+ * XREFs of HvpExpandMap @ 0x140ABBACC
  * Callers:
- *     HvpPerformLogFileRecovery @ 0x140AEB2A8 (HvpPerformLogFileRecovery.c)
- *     HvpAddBin @ 0x140B7EAA0 (HvpAddBin.c)
+ *     HvpPerformLogFileRecovery @ 0x140AEE1B4 (HvpPerformLogFileRecovery.c)
+ *     HvpAddBin @ 0x140B87980 (HvpAddBin.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpFreeMap @ 0x1408B79C0 (HvpFreeMap.c)
- *     HvpAllocateMap @ 0x140ABAA20 (HvpAllocateMap.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpFreeMap @ 0x1408BDF90 (HvpFreeMap.c)
+ *     HvpAllocateMap @ 0x140ABBEE0 (HvpAllocateMap.c)
  */
 
 __int64 __fastcall HvpExpandMap(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)

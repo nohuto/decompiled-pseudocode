@@ -1,20 +1,20 @@
 /*
- * XREFs of IoMapTransferInternal @ 0x140390384
+ * XREFs of IoMapTransferInternal @ 0x140389CC4
  * Callers:
- *     HalMapTransferEx @ 0x140391AE0 (HalMapTransferEx.c)
+ *     HalMapTransferEx @ 0x14038B410 (HalMapTransferEx.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x14038D160 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x14038D984 (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaNextContiguousPieceV2 @ 0x14038F490 (HalpDmaNextContiguousPieceV2.c)
- *     HalpDmaGetAdapterVersion @ 0x14038FBDC (HalpDmaGetAdapterVersion.c)
- *     HalpDmaNextContiguousPieceV3 @ 0x14038FC4C (HalpDmaNextContiguousPieceV3.c)
- *     HalpDmaSyncMapBuffers @ 0x14038FF20 (HalpDmaSyncMapBuffers.c)
- *     HalpMapTransferV3 @ 0x140493590 (HalpMapTransferV3.c)
- *     HalpDmaZeroMapBuffers @ 0x14054F91C (HalpDmaZeroMapBuffers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140386AA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1403872C4 (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaNextContiguousPieceV2 @ 0x140388DD0 (HalpDmaNextContiguousPieceV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x14038951C (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaNextContiguousPieceV3 @ 0x14038958C (HalpDmaNextContiguousPieceV3.c)
+ *     HalpDmaSyncMapBuffers @ 0x140389860 (HalpDmaSyncMapBuffers.c)
+ *     HalpMapTransferV3 @ 0x14048DEC0 (HalpMapTransferV3.c)
+ *     HalpDmaZeroMapBuffers @ 0x14054D25C (HalpDmaZeroMapBuffers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IoMapTransferInternal(
@@ -49,27 +49,26 @@ __int64 __fastcall IoMapTransferInternal(
   __int64 v32; // rdx
   unsigned __int64 v33; // rdi
   __int64 v34; // r8
-  __int64 v35; // r8
-  size_t v36; // [rsp+20h] [rbp-78h]
-  char v37; // [rsp+28h] [rbp-70h]
-  char v38; // [rsp+30h] [rbp-68h]
-  unsigned __int64 v39; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v40; // [rsp+48h] [rbp-50h]
+  size_t v35; // [rsp+20h] [rbp-78h]
+  char v36; // [rsp+28h] [rbp-70h]
+  char v37; // [rsp+30h] [rbp-68h]
+  unsigned __int64 v38; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v39; // [rsp+48h] [rbp-50h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-48h] BYREF
-  char v42; // [rsp+B0h] [rbp+18h]
+  char v41; // [rsp+B0h] [rbp+18h]
 
   v7 = 0LL;
   if ( a3 )
   {
     if ( (unsigned int)HalpDmaGetAdapterVersion(a1) != 2 )
       return HalpMapTransferV3(a1, a2, v12, v13, (__int64)a5, a6, a7);
-    v39 = 0LL;
+    v38 = 0LL;
     memset(&LockHandle, 0, sizeof(LockHandle));
     if ( *a5 )
     {
-      if ( !a1 || (v42 = 0, *(_BYTE *)(a1 + 441)) )
-        v42 = 1;
-      v40 = a3[7];
+      if ( !a1 || (v41 = 0, *(_BYTE *)(a1 + 441)) )
+        v41 = 1;
+      v39 = a3[7];
       if ( a1 && *(_BYTE *)(a1 + 442) )
       {
         v16 = a6;
@@ -81,7 +80,7 @@ __int64 __fastcall IoMapTransferInternal(
         v19 = a4 & 0xFFF;
         v20 = ContiguousPieceV2;
         v21 = (unsigned int)((a4 - *(_QWORD *)(a2 + 32)) >> 12);
-        v39 = ContiguousPieceV2;
+        v38 = ContiguousPieceV2;
         v22 = v19 + (*(_QWORD *)(a2 + 8 * v21 + 48) << 12);
         if ( *(_QWORD *)(a1 + 144) < ContiguousPieceV2 + v22 - 1 )
         {
@@ -90,21 +89,21 @@ LABEL_12:
           v22 = v19 + *v23;
           if ( a6 )
           {
-            v38 = 0;
-            v37 = a6;
+            v37 = 0;
+            v36 = a6;
           }
           else
           {
             if ( *(_BYTE *)(a1 + 445) )
               goto LABEL_15;
-            v38 = 1;
-            v37 = 0;
+            v37 = 1;
+            v36 = 0;
           }
-          LODWORD(v36) = v20;
-          HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)v23, v36, v37, v38, 0);
+          LODWORD(v35) = v20;
+          HalpDmaSyncMapBuffers(a1, a2, a4, (__int64)v23, v35, v36, v37, 0);
 LABEL_15:
           v18 = a3[7];
-          v24 = (v19 + v39 + 4095) >> 12;
+          v24 = (v19 + v38 + 4095) >> 12;
           if ( (_DWORD)v24 )
           {
             v25 = (unsigned int)v24;
@@ -136,20 +135,19 @@ LABEL_23:
       else
       {
         v16 = a6;
-        HalpDmaMapContiguousTransferV2(a1, a2, a3, v13, a5, a6, &v39);
-        v22 = v39;
+        HalpDmaMapContiguousTransferV2(a1, a2, a3, v13, a5, a6, &v38);
+        v22 = v38;
       }
 LABEL_19:
-      if ( !v42 )
+      if ( !v41 )
       {
         if ( !v16 )
         {
           if ( *(_BYTE *)(a1 + 444) )
-            HalpDmaZeroMapBuffers(v18, v40, a4 & 0xFFF, *a5);
+            HalpDmaZeroMapBuffers(v18, v39, a4 & 0xFFF, *a5);
         }
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 160) + 128LL), &LockHandle);
-        LOBYTE(v35) = v16;
-        guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 432), a2, v35, a4);
+        guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 432), a2);
         KeReleaseInStackQueuedSpinLock(&LockHandle);
       }
       return v22;

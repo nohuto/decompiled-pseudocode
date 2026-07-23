@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlinkPageFromBadList @ 0x1402BFE00
+ * XREFs of MiUnlinkPageFromBadList @ 0x1402BFFF0
  * Callers:
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiRemoveBadPages @ 0x1402A6D6C (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x1402A7088 (MiUnlinkBadPages.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
- *     MiTransferPartitionPageRun @ 0x1402D26F8 (MiTransferPartitionPageRun.c)
+ *     MiRemoveBadPages @ 0x1402A6F5C (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x1402A7278 (MiUnlinkBadPages.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6810 (MiPurgeBadFileOnlyPages.c)
+ *     MiTransferPartitionPageRun @ 0x1402D28E8 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
@@ -38,7 +38,7 @@ unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
   v20 = 0LL;
   v21 = 0LL;
   v4 = (__int64)(a1 + 0xB000000000LL) / 48;
-  v8 = &qword_140438D00;
+  v8 = &qword_140439DC0;
   if ( !MiIsPfnFileOnly((__int64)a1) )
     v8 = (__int64 *)(v5 + 4032);
   v9 = a2 & 0x80;
@@ -59,11 +59,11 @@ unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
     v8[2] = v10;
   else
     *(_QWORD *)(48 * v11 - 0x58000000000LL) = v10 | *(_QWORD *)(48 * v11 - 0x58000000000LL) & 0xFFFFFFF000000000uLL;
-  if ( v8 != &qword_140438D00 && dword_14043A76C == 1 )
+  if ( v8 != &qword_140439DC0 && dword_14043B82C == 1 )
   {
     v12 = v4 & 0x1F;
     LOBYTE(v13) = 1;
-    v14 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v4 >> 5));
+    v14 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v4 >> 5));
     if ( v12 + 1 <= 0x20 )
     {
       v15 = 1 << v12;
@@ -100,7 +100,7 @@ LABEL_22:
     KxReleaseQueuedSpinLock(&v19);
   *a1 = 0LL;
   result = MiSetPfnBlink((__int64)a1, 0LL, 1);
-  if ( v8 != &qword_140438D00 )
+  if ( v8 != &qword_140439DC0 )
     a1[1] = 0LL;
   return result;
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of CmpCompleteUnloadKey @ 0x1408B9ACC
+ * XREFs of CmpCompleteUnloadKey @ 0x1408C009C
  * Callers:
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
- *     CmpLateUnloadHiveWorker @ 0x140AD4630 (CmpLateUnloadHiveWorker.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x140AD1A90 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x14044EE20 (CmpInitializeDelayDerefContext.c)
- *     CmpRemoveHiveFromNamespace @ 0x1404CC980 (CmpRemoveHiveFromNamespace.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     CmpUnJoinClassOfTrust @ 0x1404D3C6C (CmpUnJoinClassOfTrust.c)
- *     CmpDecrementAppHiveUnloadCount @ 0x1404D6BAC (CmpDecrementAppHiveUnloadCount.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     CmpVERemoveHiveFromSIDMappingTable @ 0x1408B7ECC (CmpVERemoveHiveFromSIDMappingTable.c)
- *     CmpVolumeContextDecrementRefCount @ 0x1408B7F90 (CmpVolumeContextDecrementRefCount.c)
- *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1408B8038 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpTraceHiveUnloadStart @ 0x1408B80A4 (CmpTraceHiveUnloadStart.c)
- *     CmpCmdHiveClose @ 0x1408B81BC (CmpCmdHiveClose.c)
- *     HvHiveCleanup @ 0x1408B9010 (HvHiveCleanup.c)
- *     CmpTraceHiveUnloadStop @ 0x1408B9910 (CmpTraceHiveUnloadStop.c)
- *     CmpDestroySecurityCache @ 0x1408B999C (CmpDestroySecurityCache.c)
- *     CmpSignalUnloadEventArrayForHive @ 0x1408B9A4C (CmpSignalUnloadEventArrayForHive.c)
- *     CmpDiscardKcb @ 0x1408B9D6C (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1408BA08C (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x1408BA114 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpCleanUpSubKeyInfo @ 0x1408E08B8 (CmpCleanUpSubKeyInfo.c)
- *     CmpDoFileSetSizeEx @ 0x140AAA978 (CmpDoFileSetSizeEx.c)
- *     HvMarkBaseBlockDirty @ 0x140AE37FC (HvMarkBaseBlockDirty.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140446F50 (CmpInitializeDelayDerefContext.c)
+ *     CmpRemoveHiveFromNamespace @ 0x1404C6120 (CmpRemoveHiveFromNamespace.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     CmpUnJoinClassOfTrust @ 0x1404CD4DC (CmpUnJoinClassOfTrust.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x1404D037C (CmpDecrementAppHiveUnloadCount.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x1408BE49C (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x1408BE560 (CmpVolumeContextDecrementRefCount.c)
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1408BE608 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpTraceHiveUnloadStart @ 0x1408BE674 (CmpTraceHiveUnloadStart.c)
+ *     CmpCmdHiveClose @ 0x1408BE78C (CmpCmdHiveClose.c)
+ *     HvHiveCleanup @ 0x1408BF5E0 (HvHiveCleanup.c)
+ *     CmpTraceHiveUnloadStop @ 0x1408BFEE0 (CmpTraceHiveUnloadStop.c)
+ *     CmpDestroySecurityCache @ 0x1408BFF6C (CmpDestroySecurityCache.c)
+ *     CmpSignalUnloadEventArrayForHive @ 0x1408C001C (CmpSignalUnloadEventArrayForHive.c)
+ *     CmpDiscardKcb @ 0x1408C033C (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1408C065C (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1408C06E4 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1408E6E78 (CmpCleanUpSubKeyInfo.c)
+ *     CmpDoFileSetSizeEx @ 0x140AA7F58 (CmpDoFileSetSizeEx.c)
+ *     HvMarkBaseBlockDirty @ 0x140AE1304 (HvMarkBaseBlockDirty.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 BOOLEAN __fastcall CmpCompleteUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
@@ -78,7 +78,7 @@ BOOLEAN __fastcall CmpCompleteUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
     *(_DWORD *)(v3 + 4776) = 1;
     CmpDecrementAppHiveUnloadCount();
   }
-  CmpFlushNotifiesOnKeyBodyList(a1, 1LL, v22, 0LL);
+  CmpFlushNotifiesOnKeyBodyList(a1, 1LL, v22);
   CmpMarkKeyUnbacked(a1, v22);
   CmpDiscardKcb(a1);
   CmpRemoveLayerLinkForDiscardedKcb(a1);
@@ -92,7 +92,7 @@ BOOLEAN __fastcall CmpCompleteUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
     UNLOCK_HIVE_LOAD();
     *a3 &= ~4u;
   }
-  ZwDeleteValueKey(*(HANDLE *)&WheapPfaLock.Timer.Header.Lock, (PUNICODE_STRING)(v3 + 1864));
+  ZwDeleteValueKey(WheapPfaLock.Timer.Dpc, (PUNICODE_STRING)(v3 + 1864));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   CmpUnJoinClassOfTrust(v3);

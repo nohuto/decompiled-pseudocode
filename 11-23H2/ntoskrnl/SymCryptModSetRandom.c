@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptModSetRandom @ 0x1403F9964
+ * XREFs of SymCryptModSetRandom @ 0x1403F9B44
  * Callers:
- *     SymCryptEcpointGenericSetRandom @ 0x1403FE2D0 (SymCryptEcpointGenericSetRandom.c)
+ *     SymCryptEcpointGenericSetRandom @ 0x1403FE4B0 (SymCryptEcpointGenericSetRandom.c)
  * Callees:
- *     SymCryptFdefModSetRandomGeneric @ 0x140404E4C (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x14040502C (SymCryptFdefModSetRandomGeneric.c)
  */
 
 void __fastcall __noreturn SymCryptModSetRandom(int a1, int a2, int a3, int a4, __int64 a5)

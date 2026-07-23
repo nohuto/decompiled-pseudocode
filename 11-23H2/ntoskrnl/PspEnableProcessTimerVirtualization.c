@@ -1,5 +1,5 @@
 /*
- * XREFs of PspEnableProcessTimerVirtualization @ 0x1407FD8A0
+ * XREFs of PspEnableProcessTimerVirtualization @ 0x1407FDB70
  * Callers:
  *     <none>
  * Callees:

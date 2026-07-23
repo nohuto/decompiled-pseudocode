@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetLengthWithoutLastFullDosOrNtPathElement(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlGetLengthWithoutLastFullDosOrNtPathElement(ULONG Flags, PUNICODE_STRING PathString, PULONG Length)
 {
-  return sub_180071B6C(a1, a2, a2, a3);
+  return sub_180071B6C(Flags, PathString, PathString, Length);
 }

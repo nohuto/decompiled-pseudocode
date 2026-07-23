@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x140923580
+ * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x1409256C0
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x140923380 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1409254C0 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140922BC4 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x1409239B4 (DrvDbGetObjectDatabaseNodeName.c)
- *     DrvDbGetRegValueMappedProperty @ 0x140923A70 (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x140993BAC (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140924CFC (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x140925AF4 (DrvDbGetObjectDatabaseNodeName.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x140925BB0 (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x14097EBEC (DrvDbGetDeviceIdDriverInfMatches.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdMappedProperty(
@@ -93,7 +93,7 @@ LABEL_45:
           v33 = *(&DEVPKEY_DeviceId_DriverInfMatches + 1) - *(_QWORD *)(a4 + 8);
         if ( !v33 )
         {
-          if ( &off_140002070 )
+          if ( &off_140002170 )
           {
             if ( !a3 )
             {
@@ -105,7 +105,7 @@ LABEL_45:
             RegValueMappedProperty = DrvDbGetRegValueMappedProperty(
                                        v33,
                                        (int)v8,
-                                       (int)&off_140002070,
+                                       (int)&off_140002170,
                                        (int)a5,
                                        a6,
                                        a7,

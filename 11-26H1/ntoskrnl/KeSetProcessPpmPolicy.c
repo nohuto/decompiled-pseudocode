@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetProcessPpmPolicy @ 0x140203234
+ * XREFs of KeSetProcessPpmPolicy @ 0x140203314
  * Callers:
- *     PsSetProcessPowerThrottlingState @ 0x14061502C (PsSetProcessPowerThrottlingState.c)
- *     PspRefreshProcessUserPresencePpmPolicyCallback @ 0x140615350 (PspRefreshProcessUserPresencePpmPolicyCallback.c)
- *     PspSetProcessBamPpmPolicy @ 0x1407F0990 (PspSetProcessBamPpmPolicy.c)
+ *     PsSetProcessPowerThrottlingState @ 0x140617EEC (PsSetProcessPowerThrottlingState.c)
+ *     PspRefreshProcessUserPresencePpmPolicyCallback @ 0x140618260 (PspRefreshProcessUserPresencePpmPolicyCallback.c)
+ *     PspSetProcessBamPpmPolicy @ 0x1407F64F0 (PspSetProcessBamPpmPolicy.c)
  * Callees:
- *     KiReleaseProcessLockExclusive @ 0x140203330 (KiReleaseProcessLockExclusive.c)
- *     KiAcquireProcessLockExclusive @ 0x140203690 (KiAcquireProcessLockExclusive.c)
- *     KiUpdateProcessThreadQos @ 0x1402040A4 (KiUpdateProcessThreadQos.c)
+ *     KiReleaseProcessLockExclusive @ 0x140203410 (KiReleaseProcessLockExclusive.c)
+ *     KiAcquireProcessLockExclusive @ 0x140203770 (KiAcquireProcessLockExclusive.c)
+ *     KiUpdateProcessThreadQos @ 0x140204184 (KiUpdateProcessThreadQos.c)
  */
 
 __int64 __fastcall KeSetProcessPpmPolicy(__int64 a1, int a2)

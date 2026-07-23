@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCpuPartitionUpdatePrcbs @ 0x1405C0204
+ * XREFs of KiCpuPartitionUpdatePrcbs @ 0x1405BD834
  * Callers:
- *     KeCpuPartitionMoveCpus @ 0x1405BF6B0 (KeCpuPartitionMoveCpus.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405BCCE0 (KeCpuPartitionMoveCpus.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall KiCpuPartitionUpdatePrcbs(__int64 a1, __int64 a2)

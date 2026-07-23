@@ -4,7 +4,7 @@
  *     RtlCanonicalizeDomainName @ 0x1800464A0 (RtlCanonicalizeDomainName.c)
  * Callees:
  *     RtlIpv4StringToAddressW @ 0x180046CA0 (RtlIpv4StringToAddressW.c)
- *     iswctype @ 0x180093860 (iswctype.c)
+ *     iswctype @ 0x180093870 (iswctype.c)
  */
 
 LONG __stdcall RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, struct in_addr *Address, PUSHORT Port)

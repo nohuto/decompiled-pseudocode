@@ -1,11 +1,11 @@
 /*
- * XREFs of AccelGetStatusFromCompletionRecord @ 0x1402A20AC
+ * XREFs of AccelGetStatusFromCompletionRecord @ 0x1402A15FC
  * Callers:
- *     AccelpSubmitWork @ 0x1402A1EE4 (AccelpSubmitWork.c)
- *     SmHwAcceleratorWaitForRequest @ 0x140640060 (SmHwAcceleratorWaitForRequest.c)
+ *     AccelpSubmitWork @ 0x1402A1434 (AccelpSubmitWork.c)
+ *     SmHwAcceleratorWaitForRequest @ 0x140643C40 (SmHwAcceleratorWaitForRequest.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelGetStatusFromCompletionRecord(__int64 *a1)

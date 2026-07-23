@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLfhFindClearBitAndSet @ 0x18004F320
+ * XREFs of RtlpLfhFindClearBitAndSet @ 0x18004F310
  * Callers:
- *     RtlpLocalInfoAllocFromCache @ 0x18004EFB0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x18004EFA0 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
  *     <none>
  */

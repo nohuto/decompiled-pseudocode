@@ -1,19 +1,19 @@
 /*
- * XREFs of KiIpiSendRequestEx @ 0x1402EB5F0
+ * XREFs of KiIpiSendRequestEx @ 0x1402EB880
  * Callers:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     KxFlushSingleTb @ 0x1402EB340 (KxFlushSingleTb.c)
- *     KxFlushNonGlobalTb @ 0x1402EB4C4 (KxFlushNonGlobalTb.c)
- *     KeInvalidateAllCaches @ 0x14036DB40 (KeInvalidateAllCaches.c)
- *     KxFlushMultipleTb @ 0x140390494 (KxFlushMultipleTb.c)
- *     KxFlushEntireTb @ 0x1403B2AAC (KxFlushEntireTb.c)
- *     KeInvalidateRangeAllCaches @ 0x1404606A0 (KeInvalidateRangeAllCaches.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     KxFlushSingleTb @ 0x1402EB5D0 (KxFlushSingleTb.c)
+ *     KxFlushNonGlobalTb @ 0x1402EB754 (KxFlushNonGlobalTb.c)
+ *     KeInvalidateAllCaches @ 0x14036DCE0 (KeInvalidateAllCaches.c)
+ *     KxFlushMultipleTb @ 0x140390674 (KxFlushMultipleTb.c)
+ *     KxFlushEntireTb @ 0x1403B2C8C (KxFlushEntireTb.c)
+ *     KeInvalidateRangeAllCaches @ 0x140460AA0 (KeInvalidateRangeAllCaches.c)
  * Callees:
- *     KiIpiSendRequest @ 0x140254020 (KiIpiSendRequest.c)
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EDB0 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KiIpiSendRequest @ 0x1402540E0 (KiIpiSendRequest.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EF50 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiIpiSendRequestEx(

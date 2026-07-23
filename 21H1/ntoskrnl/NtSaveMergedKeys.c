@@ -20,13 +20,13 @@
  *     CmSaveMergedKeys @ 0x14087829C (CmSaveMergedKeys.c)
  */
 
-__int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
+NTSTATUS __cdecl NtSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPrecedenceKeyHandle, HANDLE FileHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v7; // rdx
   __int64 v8; // r8
   __int64 v9; // r9
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   KPROCESSOR_MODE PreviousMode; // di
   void *v12; // rdx
   __int64 v13; // r8
@@ -42,15 +42,15 @@ __int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
   __int64 v23; // r9
   PADAPTER_OBJECT DmaAdapter; // [rsp+30h] [rbp-29h] BYREF
   PADAPTER_OBJECT v26; // [rsp+38h] [rbp-21h] BYREF
-  struct _DMA_ADAPTER Handle; // [rsp+40h] [rbp-19h] BYREF
-  HANDLE v28; // [rsp+50h] [rbp-9h] BYREF
+  struct _DMA_ADAPTER FileHandlea; // [rsp+40h] [rbp-19h] BYREF
+  HANDLE HighPrecedenceKeyHandlea; // [rsp+50h] [rbp-9h] BYREF
   _OWORD v29[3]; // [rsp+58h] [rbp-1h] BYREF
 
-  Handle.DmaOperations = 0LL;
-  v28 = 0LL;
+  FileHandlea.DmaOperations = 0LL;
+  HighPrecedenceKeyHandlea = 0LL;
   v26 = 0LL;
   DmaAdapter = 0LL;
-  *(_QWORD *)&Handle.Version = 0LL;
+  *(_QWORD *)&FileHandlea.Version = 0LL;
   memset(v29, 0, sizeof(v29));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -64,28 +64,36 @@ __int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
       {
         if ( PreviousMode )
         {
-          v10 = CmConvertHandleToKernelHandle(a1, v12, PreviousMode, 0, &v28);
+          v10 = CmConvertHandleToKernelHandle(HighPrecedenceKeyHandle, v12, PreviousMode, 0, &HighPrecedenceKeyHandlea);
           if ( v10 >= 0 )
           {
-            v10 = CmConvertHandleToKernelHandle(a2, v14, PreviousMode, 0, (PHANDLE)&Handle.DmaOperations);
+            v10 = CmConvertHandleToKernelHandle(
+                    LowPrecedenceKeyHandle,
+                    v14,
+                    PreviousMode,
+                    0,
+                    (PHANDLE)&FileHandlea.DmaOperations);
             if ( v10 >= 0 )
             {
-              v10 = IoConvertFileHandleToKernelHandle(a3, PreviousMode, 2u, 0, &Handle);
+              v10 = IoConvertFileHandleToKernelHandle(FileHandle, PreviousMode, 2u, 0, &FileHandlea);
               if ( v10 >= 0 )
-                v10 = ZwSaveMergedKeys((__int64)v28, (__int64)Handle.DmaOperations);
+                v10 = ZwSaveMergedKeys(
+                        HighPrecedenceKeyHandlea,
+                        FileHandlea.DmaOperations,
+                        *(HANDLE *)&FileHandlea.Version);
             }
           }
         }
         else
         {
-          v10 = CmObReferenceObjectByHandle(a1, 0, v13, 0, &v26, 0LL);
+          v10 = CmObReferenceObjectByHandle(HighPrecedenceKeyHandle, 0, v13, 0, &v26, 0LL);
           if ( v10 >= 0 )
           {
-            v10 = CmObReferenceObjectByHandle(a2, 0, v15, 0, &DmaAdapter, 0LL);
+            v10 = CmObReferenceObjectByHandle(LowPrecedenceKeyHandle, 0, v15, 0, &DmaAdapter, 0LL);
             if ( v10 >= 0 )
             {
               CmpAttachToRegistryProcess((__int64)v29, v16, v17, v18);
-              v10 = CmSaveMergedKeys(v26, DmaAdapter, a3, 0LL);
+              v10 = CmSaveMergedKeys(v26, DmaAdapter, FileHandle, 0LL);
               KiUnstackDetachProcess((__int64)v29, 0LL, v19, v20);
             }
           }
@@ -102,17 +110,17 @@ __int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
       HalPutDmaAdapter(DmaAdapter);
     if ( v26 )
       HalPutDmaAdapter(v26);
-    if ( *(_QWORD *)&Handle.Version )
-      ZwClose(*(HANDLE *)&Handle.Version);
+    if ( *(_QWORD *)&FileHandlea.Version )
+      ZwClose(*(HANDLE *)&FileHandlea.Version);
   }
   else
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
     v10 = -1073741431;
   }
-  if ( Handle.DmaOperations )
-    ZwClose(Handle.DmaOperations);
-  if ( v28 )
-    ZwClose(v28);
-  return (unsigned int)v10;
+  if ( FileHandlea.DmaOperations )
+    ZwClose(FileHandlea.DmaOperations);
+  if ( HighPrecedenceKeyHandlea )
+    ZwClose(HighPrecedenceKeyHandlea);
+  return v10;
 }

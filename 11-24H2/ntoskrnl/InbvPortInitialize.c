@@ -1,77 +1,62 @@
 /*
- * XREFs of InbvPortInitialize @ 0x1406A141C
+ * XREFs of InbvPortInitialize @ 0x1406A2474
  * Callers:
- *     HdlspEnableTerminal @ 0x140BAD9D4 (HdlspEnableTerminal.c)
+ *     HdlspEnableTerminal @ 0x140BAF9D4 (HdlspEnableTerminal.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall InbvPortInitialize(
-        int a1,
-        unsigned int a2,
-        __int64 a3,
-        _DWORD *a4,
-        char a5,
-        unsigned __int8 a6,
-        char a7,
-        char a8)
+char __fastcall InbvPortInitialize(int a1, unsigned int a2, __int64 a3, _DWORD *a4, char a5, unsigned __int8 a6)
 {
-  unsigned __int8 v8; // r11
-  char v10; // bl
-  __int64 v11; // r8
-  _DWORD *v12; // r13
-  __int64 v14; // rbp
-  __int64 *v15; // r14
-  char v16; // di
-  int v17; // eax
+  unsigned __int8 v6; // r11
+  unsigned int v8; // r8d
+  __int64 v11; // rbp
+  __int64 *v12; // r14
+  char v13; // di
+  int v14; // eax
 
-  v8 = a6;
-  v10 = 1;
-  v11 = 1LL;
-  v12 = a4;
+  v6 = a6;
+  v8 = 1;
   if ( a2 )
-    v11 = a2;
-  if ( (unsigned int)v11 > 4 )
+    v8 = a2;
+  if ( v8 > 4 )
     return 0;
-  v14 = (unsigned int)(v11 - 1);
-  v15 = (__int64 *)((char *)&Ports + 40 * v14);
-  if ( *v15 )
+  v11 = v8 - 1;
+  v12 = (__int64 *)((char *)&Ports + 40 * v11);
+  if ( *v12 )
     return 0;
   if ( a6 )
   {
-    v10 = a8;
-    v16 = a5;
+    v13 = a5;
   }
   else
   {
-    v16 = 0;
+    v13 = 0;
     if ( a3 )
     {
-      v8 = 1;
+      v6 = 1;
       goto LABEL_12;
     }
-    a3 = (unsigned int)v11;
+    a3 = v8;
   }
   if ( !a3 || a6 >= 0x15u )
     return 0;
 LABEL_12:
-  UartHardwareDriver = (__int64)UartHardwareDrivers[v8];
+  UartHardwareDriver = (__int64)UartHardwareDrivers[v6];
   if ( !UartHardwareDriver )
     return 0;
-  if ( v16 )
+  if ( v13 )
   {
-    a3 = MmMapIoSpaceEx(a3, 4096LL, 0x204u);
+    a3 = MmMapIoSpaceEx(a3, 4096LL, 516LL);
     if ( !a3 )
       return 0;
   }
-  *v15 = a3;
-  v17 = 19200;
+  *v12 = a3;
+  v14 = 19200;
   if ( a1 )
-    v17 = a1;
-  LOBYTE(a4) = v10;
-  dword_140EEFC48[10 * v14] = v17;
-  LOBYTE(v11) = v16;
-  *v12 = v14;
-  return guard_dispatch_icall_no_overrides(0LL, (char *)&Ports + 40 * v14, v11, a4);
+    v14 = a1;
+  dword_140EEFE88[10 * v11] = v14;
+  *a4 = v11;
+  return guard_dispatch_icall_no_overrides(0LL, (char *)&Ports + 40 * v11);
 }

@@ -11,7 +11,7 @@
  *     <none>
  */
 
-int __stdcall RtlWow64EnableFsRedirectionEx(void *a1, _DWORD *a2)
+NTSTATUS __cdecl RtlWow64EnableFsRedirectionEx(PVOID Wow64FsEnableRedirection, PVOID *OldFsRedirectionLevel)
 {
   struct _TEB *v2; // eax
   int WowTebOffset; // ecx
@@ -35,13 +35,13 @@ int __stdcall RtlWow64EnableFsRedirectionEx(void *a1, _DWORD *a2)
     v5 = (struct _TEB *)((char *)v5 + v6);
   if ( v5 == (struct _TEB *)v5->NtTib.Self )
   {
-    v5->TlsSlots[8] = a1;
+    v5->TlsSlots[8] = Wow64FsEnableRedirection;
   }
   else
   {
-    v5[1].GdiTebBatch.Buffer[185] = (unsigned int)a1;
+    v5[1].GdiTebBatch.Buffer[185] = (unsigned int)Wow64FsEnableRedirection;
     v5[1].GdiTebBatch.Buffer[186] = 0;
   }
-  *a2 = v8;
+  *OldFsRedirectionLevel = v8;
   return 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClusterVadActive @ 0x140669EA8
+ * XREFs of MiClusterVadActive @ 0x14066A3F8
  * Callers:
- *     MiLockStealUserVm @ 0x1403BDF18 (MiLockStealUserVm.c)
+ *     MiLockStealUserVm @ 0x1403BE0F8 (MiLockStealUserVm.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiClusterVadActive(__int64 a1, __int64 a2, _QWORD *a3)

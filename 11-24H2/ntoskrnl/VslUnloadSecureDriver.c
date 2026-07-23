@@ -1,11 +1,11 @@
 /*
- * XREFs of VslUnloadSecureDriver @ 0x140A3E564
+ * XREFs of VslUnloadSecureDriver @ 0x140A33E74
  * Callers:
- *     MiMarkKernelImageCfgBits @ 0x140A3DD40 (MiMarkKernelImageCfgBits.c)
+ *     MiMarkKernelImageCfgBits @ 0x140A33650 (MiMarkKernelImageCfgBits.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslUnloadSecureDriver(__int64 a1)
@@ -15,5 +15,5 @@ __int64 __fastcall VslUnloadSecureDriver(__int64 a1)
 
   memset_0(v3, 0, 0x68uLL);
   v4 = a1;
-  return VslpEnterIumSecureMode(2u, 218LL, 0, (__int64)v3);
+  return VslpEnterIumSecureMode(2u, 0xDAu, 0, (__int64)v3);
 }

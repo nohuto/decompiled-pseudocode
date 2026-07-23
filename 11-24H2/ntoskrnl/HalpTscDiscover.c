@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscDiscover @ 0x1405610F8
+ * XREFs of HalpTscDiscover @ 0x14055ED28
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1405488E4 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1405461A4 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     HalSocRequestApi @ 0x1404AE160 (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x14056008C (HalpTimerRegister.c)
- *     HalpTscGetAttributes @ 0x140561240 (HalpTscGetAttributes.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     HalSocRequestApi @ 0x1404A8A70 (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x14055DCBC (HalpTimerRegister.c)
+ *     HalpTscGetAttributes @ 0x14055EE70 (HalpTscGetAttributes.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 HalpTscDiscover()
@@ -17,74 +17,72 @@ __int64 HalpTscDiscover()
   __int64 v1; // rcx
   __int64 v2; // rdx
   __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  __int64 (__fastcall *v8)(__int64, __int64); // rax
-  __int128 v10; // [rsp+30h] [rbp-59h] BYREF
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  __int64 (__fastcall *v6)(__int64, __int64); // rax
+  __int128 v8; // [rsp+30h] [rbp-59h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-49h] BYREF
-  _DWORD v12[2]; // [rsp+50h] [rbp-39h] BYREF
-  __int64 (__fastcall *v13)(); // [rsp+58h] [rbp-31h]
-  __int64 (__fastcall *v14)(__int64, __int64); // [rsp+60h] [rbp-29h]
-  int *v15; // [rsp+A8h] [rbp+1Fh]
-  int v16; // [rsp+B0h] [rbp+27h]
-  int v17; // [rsp+B4h] [rbp+2Bh]
-  __int64 v18; // [rsp+B8h] [rbp+2Fh]
-  int v19; // [rsp+C4h] [rbp+3Bh]
-  int v20; // [rsp+D8h] [rbp+4Fh]
-  char v21; // [rsp+F0h] [rbp+67h] BYREF
-  int v22; // [rsp+F8h] [rbp+6Fh] BYREF
+  _DWORD v10[2]; // [rsp+50h] [rbp-39h] BYREF
+  __int64 (__fastcall *v11)(); // [rsp+58h] [rbp-31h]
+  __int64 (__fastcall *v12)(__int64, __int64); // [rsp+60h] [rbp-29h]
+  int *v13; // [rsp+A8h] [rbp+1Fh]
+  int v14; // [rsp+B0h] [rbp+27h]
+  int v15; // [rsp+B4h] [rbp+2Bh]
+  __int64 v16; // [rsp+B8h] [rbp+2Fh]
+  int v17; // [rsp+C4h] [rbp+3Bh]
+  int v18; // [rsp+D8h] [rbp+4Fh]
+  char v19; // [rsp+F0h] [rbp+67h] BYREF
+  int v20; // [rsp+F8h] [rbp+6Fh] BYREF
 
-  v22 = 0;
-  v21 = 0;
-  v10 = 0LL;
+  v20 = 0;
+  v19 = 0;
+  v8 = 0LL;
   DestinationString = 0LL;
-  memset_0(v12, 0, 0x90uLL);
-  v18 = 0LL;
-  v15 = &v22;
-  v12[1] = 144;
+  memset_0(v10, 0, 0x90uLL);
+  v16 = 0LL;
+  v13 = &v20;
+  v10[1] = 144;
   v0 = 7;
-  v12[0] = 1;
-  v17 = 64;
-  v20 = 5;
-  v16 = 4;
-  if ( (int)HalSocRequestApi(v1, 0LL, 6, 16LL, &v10) >= 0 )
+  v10[0] = 1;
+  v15 = 64;
+  v18 = 5;
+  v14 = 4;
+  if ( (int)HalSocRequestApi(v1, 0LL, 6, 16LL, &v8) >= 0 )
   {
-    v6 = guard_dispatch_icall_no_overrides(v3, v2, v4, v5);
-    v7 = 0LL;
-    if ( v6 )
-      v7 = v6;
-    v18 = v7;
+    v4 = guard_dispatch_icall_no_overrides(v3, v2);
+    v5 = 0LL;
+    if ( v4 )
+      v5 = v4;
+    v16 = v5;
   }
-  if ( (int)HalpTscGetAttributes(&HalpTscPerformanceStateInvariant, &HalpTscIdleStateInvariant, &v21) < 0 )
+  if ( (int)HalpTscGetAttributes(&HalpTscPerformanceStateInvariant, &HalpTscIdleStateInvariant, &v19) < 0 )
   {
     v0 = 24583;
 LABEL_11:
-    v19 = v0;
+    v17 = v0;
     goto LABEL_12;
   }
   if ( !HalpTscPerformanceStateInvariant )
     v0 = 8199;
-  v19 = v0;
+  v17 = v0;
   if ( !HalpTscIdleStateInvariant )
   {
     v0 |= 0x4000u;
     goto LABEL_11;
   }
 LABEL_12:
-  v13 = HalpTscInitialize;
-  if ( v21 )
+  v11 = HalpTscInitialize;
+  if ( v19 )
   {
-    v8 = HalpTscQueryCounterOrdered;
-    v19 = v0 | 0x1000000;
+    v6 = HalpTscQueryCounterOrdered;
+    v17 = v0 | 0x1000000;
   }
   else
   {
-    v8 = (__int64 (__fastcall *)(__int64, __int64))HalpTscQueryCounter;
+    v6 = (__int64 (__fastcall *)(__int64, __int64))HalpTscQueryCounter;
   }
-  v14 = v8;
+  v12 = v6;
   RtlInitUnicodeString(&DestinationString, L"VEN_vvvv&DEV_dddd&SUBVEN_ssss&SUBDEV_yyyy&REV_rrrr&INST_iiii&UID_uuuuuuuu");
-  HalpTimerRegister((__int64)v12, &DestinationString);
+  HalpTimerRegister((__int64)v10, &DestinationString);
   return 0LL;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of StringCchCopyNW @ 0x180113C84
+ * XREFs of StringCchCopyNW @ 0x180113C44
  * Callers:
- *     SbpParseFuncName @ 0x180113B30 (SbpParseFuncName.c)
+ *     SbpParseFuncName @ 0x180113AF0 (SbpParseFuncName.c)
  * Callees:
  *     <none>
  */

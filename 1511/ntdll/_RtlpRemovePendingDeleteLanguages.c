@@ -14,8 +14,8 @@
 __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
 {
   unsigned __int64 v2; // rbp
-  int v6; // ebx
-  int v7; // esi
+  ULONG v6; // ebx
+  NTSTATUS v7; // esi
   unsigned __int64 v8; // rdx
   __int16 v9; // ax
   __int64 v10; // rdx
@@ -37,12 +37,18 @@ __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
   *(_QWORD *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30) = 0LL;
   *(_DWORD *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 64;
   *(_OWORD *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = 0LL;
-  if ( (int)NtOpenKey() >= 0 )
+  if ( NtOpenKey((PHANDLE)(v2 + 8), 0x20019u, (POBJECT_ATTRIBUTES)(v2 + 40)) >= 0 )
   {
     v6 = 0;
     do
     {
-      v7 = NtEnumerateKey();
+      v7 = NtEnumerateKey(
+             *(HANDLE *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+             v6,
+             KeyBasicInformation,
+             (PVOID)(v2 + 96),
+             0x200u,
+             (PULONG)(v2 + 16));
       if ( v7 >= 0 )
       {
         v8 = *(unsigned int *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x6C);

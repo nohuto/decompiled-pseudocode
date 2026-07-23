@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwFlushInstructionCache @ 0x1403FC0C0
+ * XREFs of ZwFlushInstructionCache @ 0x1403FC2A0
  * Callers:
  *     WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405D772C (WbDecryptWarbirdEncryptionSegmentBlockV0.c)
- *     sub_140686D40 @ 0x140686D40 (sub_140686D40.c)
- *     sub_140963D48 @ 0x140963D48 (sub_140963D48.c)
+ *     sub_1405E5EA0 @ 0x1405E5EA0 (sub_1405E5EA0.c)
+ *     sub_140963F28 @ 0x140963F28 (sub_140963F28.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFlushInstructionCache(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFlushInstructionCache(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T Length)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

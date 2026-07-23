@@ -1,26 +1,26 @@
 /*
- * XREFs of MiGetLargePage @ 0x14051E3C4
+ * XREFs of MiGetLargePage @ 0x1405209D4
  * Callers:
- *     MiGetLargePagesForChain @ 0x140284A5C (MiGetLargePagesForChain.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
- *     MiPrefetchPreallocatePages @ 0x1406F719C (MiPrefetchPreallocatePages.c)
- *     MiProcessVaContiguityInformation @ 0x14070B810 (MiProcessVaContiguityInformation.c)
- *     MiSoftFaultClusterTradeGetPage @ 0x14071245C (MiSoftFaultClusterTradeGetPage.c)
+ *     MiGetLargePagesForChain @ 0x140283FC4 (MiGetLargePagesForChain.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
+ *     MiPrefetchPreallocatePages @ 0x1406FBE0C (MiPrefetchPreallocatePages.c)
+ *     MiProcessVaContiguityInformation @ 0x1407104C0 (MiProcessVaContiguityInformation.c)
+ *     MiSoftFaultClusterTradeGetPage @ 0x140717154 (MiSoftFaultClusterTradeGetPage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiPerformOnDemandLargePageCoalesce @ 0x1403C8EC4 (MiPerformOnDemandLargePageCoalesce.c)
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     MiConvertBaseLargePage @ 0x14047D5D0 (MiConvertBaseLargePage.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiPerformOnDemandLargePageCoalesce @ 0x1403D2D74 (MiPerformOnDemandLargePageCoalesce.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     MiConvertBaseLargePage @ 0x140476F40 (MiConvertBaseLargePage.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiGetLargePage(
@@ -117,9 +117,9 @@ __int64 __fastcall MiGetLargePage(
   }
   v22 = 48 * Page - 0x220000000000LL;
   v23 = *(_QWORD *)(v22 + 16);
-  if ( qword_140E2D740 && (v23 & 0x10) == 0 )
-    HIDWORD(v23) &= HIDWORD(qword_140E2D748);
-  if ( HIDWORD(v23) != -3 || (v25 = 1, (stru_140E36558.WaitRegister.Flags & 1) == 0) )
+  if ( qword_140E2D8C0 && (v23 & 0x10) == 0 )
+    HIDWORD(v23) &= HIDWORD(qword_140E2D8C8);
+  if ( HIDWORD(v23) != -3 || (v25 = 1, (stru_140E366D8.WaitRegister.Flags & 1) == 0) )
     v25 = 0;
   v26 = v41;
   MiInitializePageHeatList((__int64)v41, 1, 0, 16);

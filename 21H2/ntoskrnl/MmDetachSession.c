@@ -1,34 +1,34 @@
 /*
- * XREFs of MmDetachSession @ 0x140298F40
+ * XREFs of MmDetachSession @ 0x140215920
  * Callers:
- *     MiUnlockStealVm @ 0x14026D310 (MiUnlockStealVm.c)
- *     ExpHpCompactSessionPools @ 0x1402D5848 (ExpHpCompactSessionPools.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
- *     MiEmptyAccessLogs @ 0x1403A3430 (MiEmptyAccessLogs.c)
- *     PopWatchdogWorker @ 0x140578E70 (PopWatchdogWorker.c)
- *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
- *     ExGetSessionPoolTagInformation @ 0x1406832BC (ExGetSessionPoolTagInformation.c)
- *     PspDetachSession @ 0x140683654 (PspDetachSession.c)
- *     ExCallSessionCallBack @ 0x140683678 (ExCallSessionCallBack.c)
- *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
- *     EtwpSendDataBlock @ 0x1406E4054 (EtwpSendDataBlock.c)
- *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
- *     MmPrefetchVirtualMemory @ 0x1407108F8 (MmPrefetchVirtualMemory.c)
- *     MmEnumerateSystemImages @ 0x140797DE0 (MmEnumerateSystemImages.c)
- *     CmFcpChangeSubscriptionWrapper @ 0x14087E3C0 (CmFcpChangeSubscriptionWrapper.c)
- *     MmGetSessionMappedViewInformation @ 0x1408C48D0 (MmGetSessionMappedViewInformation.c)
- *     PopLazySensorActiveInput @ 0x1408F51B4 (PopLazySensorActiveInput.c)
- *     TtmpSessionWorker @ 0x140900030 (TtmpSessionWorker.c)
- *     EtwpPoolRunDown @ 0x14093E300 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x140949F60 (ExGetSessionBigPoolInformation.c)
- *     VfThunkApplyMandatoryThunks @ 0x1409D8B6C (VfThunkApplyMandatoryThunks.c)
- *     VfThunkApplyThunks @ 0x1409D8C54 (VfThunkApplyThunks.c)
+ *     MiUnlockStealVm @ 0x14025B2B0 (MiUnlockStealVm.c)
+ *     ExpHpCompactSessionPools @ 0x140286B94 (ExpHpCompactSessionPools.c)
+ *     MiTrimSharedPageFromViews @ 0x1402FA994 (MiTrimSharedPageFromViews.c)
+ *     MiEmptyAccessLogs @ 0x1403A3580 (MiEmptyAccessLogs.c)
+ *     PopWatchdogWorker @ 0x1405790B0 (PopWatchdogWorker.c)
+ *     ObpProcessRemoveObjectQueue @ 0x1405E2E40 (ObpProcessRemoveObjectQueue.c)
+ *     ExGetSessionPoolTagInformation @ 0x1405E413C (ExGetSessionPoolTagInformation.c)
+ *     PspDetachSession @ 0x1405E44D4 (PspDetachSession.c)
+ *     ExCallSessionCallBack @ 0x1405E44F8 (ExCallSessionCallBack.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1406BB334 (EtwpSendDataBlock.c)
+ *     MmPrefetchVirtualMemory @ 0x1406BEF48 (MmPrefetchVirtualMemory.c)
+ *     PspChangeProcessExecutionState @ 0x1406F5340 (PspChangeProcessExecutionState.c)
+ *     PnpNotifyDriverCallback @ 0x1406FD0AC (PnpNotifyDriverCallback.c)
+ *     MmEnumerateSystemImages @ 0x140797FE0 (MmEnumerateSystemImages.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x14087E520 (CmFcpChangeSubscriptionWrapper.c)
+ *     MmGetSessionMappedViewInformation @ 0x1408C4A30 (MmGetSessionMappedViewInformation.c)
+ *     PopLazySensorActiveInput @ 0x1408F5314 (PopLazySensorActiveInput.c)
+ *     TtmpSessionWorker @ 0x140900190 (TtmpSessionWorker.c)
+ *     EtwpPoolRunDown @ 0x14093E4D0 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x14094A130 (ExGetSessionBigPoolInformation.c)
+ *     VfThunkApplyMandatoryThunks @ 0x1409D9B6C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x1409D9C54 (VfThunkApplyThunks.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -69,7 +69,7 @@ __int64 __fastcall MmDetachSession(__int64 a1, __int64 a2)
     }
   }
   __writecr8(OldIrql);
-  KiUnstackDetachProcess(a2, 0);
+  KiUnstackDetachProcess(a2, 0LL);
   if ( v2 )
     KeSignalGate(v2 + 104, 1LL);
   return 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSharePagePrepare @ 0x140307910
+ * XREFs of MiSharePagePrepare @ 0x1402E9990
  * Callers:
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
  * Callees:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiProcessSuitableForCombining @ 0x1404042DC (MiProcessSuitableForCombining.c)
- *     MiAllocateCombineBlock @ 0x14048F2C0 (MiAllocateCombineBlock.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiProcessSuitableForCombining @ 0x1403FD3DC (MiProcessSuitableForCombining.c)
+ *     MiAllocateCombineBlock @ 0x140488D08 (MiAllocateCombineBlock.c)
  */
 
 __int64 __fastcall MiSharePagePrepare(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

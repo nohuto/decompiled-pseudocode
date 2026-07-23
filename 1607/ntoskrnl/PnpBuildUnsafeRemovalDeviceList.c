@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x1404C5190
+ * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x1404855C4
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopEnumerateRelations @ 0x1404C5848 (IopEnumerateRelations.c)
- *     PnpIsBeingRemovedSafely @ 0x1404C7AF4 (PnpIsBeingRemovedSafely.c)
+ *     PnpIsBeingRemovedSafely @ 0x1404841FC (PnpIsBeingRemovedSafely.c)
+ *     IopEnumerateRelations @ 0x140485C7C (IopEnumerateRelations.c)
  */
 
 void __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, __int64 a2, _QWORD *a3)
@@ -33,7 +33,7 @@ void __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, __int64 a2, _QWORD *
     v13 = 0LL;
     while ( (unsigned __int8)IopEnumerateRelations(v4, (unsigned int)&v13, (unsigned int)&v14, (unsigned int)&v12, 0LL) )
     {
-      if ( (_DWORD)v12 && !(unsigned __int8)PnpIsBeingRemovedSafely(*(_QWORD *)(*(_QWORD *)(v14 + 312) + 40LL)) )
+      if ( (_DWORD)v12 && !PnpIsBeingRemovedSafely(*(_DWORD **)(*(_QWORD *)(v14 + 312) + 40LL), v12) )
       {
         if ( *(_QWORD *)(v6 + 48) )
           v5 += *(unsigned __int16 *)(v6 + 40) + 2;
@@ -59,7 +59,7 @@ void __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, __int64 a2, _QWORD *
           if ( (_DWORD)v12 )
           {
             v10 = *(_QWORD *)(*(_QWORD *)(v14 + 312) + 40LL);
-            if ( !(unsigned __int8)PnpIsBeingRemovedSafely(v10) )
+            if ( !PnpIsBeingRemovedSafely((_DWORD *)v10, v12) )
             {
               v11 = *(const void **)(v10 + 48);
               if ( v11 )

@@ -16,7 +16,7 @@ __int64 __fastcall RawVerifyVolume(__int64 a1, __int64 a2)
   __int64 v4; // rbx
   char v5; // di
   KIRQL v6; // dl
-  KIRQL Irql; // [rsp+30h] [rbp+8h] BYREF
+  UCHAR Irql; // [rsp+30h] [rbp+8h] BYREF
 
   IoAcquireVpbSpinLock(&Irql);
   v4 = *(_QWORD *)(a1 + 8);

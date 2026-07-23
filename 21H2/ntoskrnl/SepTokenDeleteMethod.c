@@ -1,50 +1,49 @@
 /*
- * XREFs of SepTokenDeleteMethod @ 0x1406E7CF0
+ * XREFs of SepTokenDeleteMethod @ 0x1406FF0D0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402F5290 (AuthzBasepFreeSecurityAttributesList.c)
- *     SepDereferenceLuidToIndexEntry @ 0x1402F5384 (SepDereferenceLuidToIndexEntry.c)
- *     SepFreeTokenCapabilities @ 0x1402F5860 (SepFreeTokenCapabilities.c)
- *     SepDeReferenceLogonSession @ 0x1406A5640 (SepDeReferenceLogonSession.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1406E7EBC (SepDereferenceLowBoxNumberEntry.c)
- *     SepDereferenceCachedHandlesEntry @ 0x1406E8000 (SepDereferenceCachedHandlesEntry.c)
- *     SepModifyTokenPolicyCounter @ 0x14091CB90 (SepModifyTokenPolicyCounter.c)
- *     SepDeleteTokenUserAndGroups @ 0x140922FD8 (SepDeleteTokenUserAndGroups.c)
- *     SepRemoveTokenLogonSession @ 0x140923BD0 (SepRemoveTokenLogonSession.c)
- *     SepDeleteClaimAttributes @ 0x140924FE8 (SepDeleteClaimAttributes.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FFFE0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x1403000D4 (SepDereferenceLuidToIndexEntry.c)
+ *     SepFreeTokenCapabilities @ 0x1403005B0 (SepFreeTokenCapabilities.c)
+ *     SepDeReferenceLogonSession @ 0x140603270 (SepDeReferenceLogonSession.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406FF29C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x1406FF3E0 (SepDereferenceCachedHandlesEntry.c)
+ *     SepModifyTokenPolicyCounter @ 0x14091CCF0 (SepModifyTokenPolicyCounter.c)
+ *     SepDeleteTokenUserAndGroups @ 0x140923138 (SepDeleteTokenUserAndGroups.c)
+ *     SepRemoveTokenLogonSession @ 0x140923D30 (SepRemoveTokenLogonSession.c)
+ *     SepDeleteClaimAttributes @ 0x140925148 (SepDeleteClaimAttributes.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepTokenDeleteMethod(__int64 a1)
 {
   void *v2; // rcx
-  __int64 v3; // rdx
-  _QWORD *v4; // rdx
-  signed __int64 v5; // rax
-  signed __int64 v6; // rcx
-  bool v7; // zf
-  signed __int64 v8; // rtt
+  _QWORD *v3; // rdx
+  signed __int64 v4; // rax
+  signed __int64 v5; // rcx
+  bool v6; // zf
+  signed __int64 v7; // rtt
+  struct _DMA_ADAPTER *v8; // rcx
   struct _DMA_ADAPTER *v9; // rcx
-  struct _DMA_ADAPTER *v10; // rcx
-  __int64 v11; // rcx
+  __int64 v10; // rcx
+  void *v11; // rcx
   void *v12; // rcx
-  void *v13; // rcx
-  struct _ERESOURCE *v14; // rcx
-  void *v15; // rcx
-  __int64 v16; // rax
-  __int64 v17; // rdx
-  void *v18; // rcx
-  __int64 v19; // [rsp+30h] [rbp+8h] BYREF
+  struct _ERESOURCE *v13; // rcx
+  void *v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  void *v17; // rcx
+  __int64 v18; // [rsp+30h] [rbp+8h] BYREF
 
   if ( SeTokenLeakTracking )
   {
     SepRemoveTokenLogonSession(a1);
-    v18 = *(void **)(a1 + 1144);
-    if ( v18 )
-      ExFreePoolWithTag(v18, 0);
+    v17 = *(void **)(a1 + 1144);
+    if ( v17 )
+      ExFreePoolWithTag(v17, 0);
   }
   v2 = *(void **)(a1 + 1096);
   if ( v2 )
@@ -57,71 +56,70 @@ void __fastcall SepTokenDeleteMethod(__int64 a1)
     SepDeleteTokenUserAndGroups(a1);
   if ( (*(_DWORD *)(a1 + 200) & 0x20) == 0 )
   {
-    v3 = *(_QWORD *)(a1 + 1080);
-    if ( v3 )
-      SepDereferenceLowBoxNumberEntry(*(unsigned int *)(a1 + 120), v3);
+    if ( *(_QWORD *)(a1 + 1080) )
+      SepDereferenceLowBoxNumberEntry(*(unsigned int *)(a1 + 120));
     if ( *(_QWORD *)(a1 + 1088) )
       SepDereferenceCachedHandlesEntry(*(_QWORD *)(a1 + 216));
     if ( *(_QWORD *)(a1 + 1152) )
       SepDereferenceCachedHandlesEntry(*(_QWORD *)(a1 + 216));
-    v4 = *(_QWORD **)(a1 + 216);
-    _m_prefetchw(v4 + 3);
-    v5 = v4[3];
-    v6 = v5 - 1;
-    v7 = v5 == 1;
-    if ( v5 - 1 <= 0 )
+    v3 = *(_QWORD **)(a1 + 216);
+    _m_prefetchw(v3 + 3);
+    v4 = v3[3];
+    v5 = v4 - 1;
+    v6 = v4 == 1;
+    if ( v4 - 1 <= 0 )
     {
 LABEL_32:
-      if ( !v7 )
+      if ( !v6 )
         __fastfail(0xEu);
-      v16 = v4[1];
-      v17 = v4[20];
-      v19 = v16;
-      SepDeReferenceLogonSession(&v19, v17);
+      v15 = v3[1];
+      v16 = v3[20];
+      v18 = v15;
+      SepDeReferenceLogonSession(&v18, v16);
     }
     else
     {
       while ( 1 )
       {
-        v8 = v5;
-        v5 = _InterlockedCompareExchange64(v4 + 3, v6, v5);
-        if ( v8 == v5 )
+        v7 = v4;
+        v4 = _InterlockedCompareExchange64(v3 + 3, v5, v4);
+        if ( v7 == v4 )
           break;
-        v6 = v5 - 1;
-        v7 = v5 == 1;
-        if ( v5 - 1 <= 0 )
+        v5 = v4 - 1;
+        v6 = v4 == 1;
+        if ( v4 - 1 <= 0 )
           goto LABEL_32;
       }
     }
   }
-  v9 = *(struct _DMA_ADAPTER **)(a1 + 1160);
+  v8 = *(struct _DMA_ADAPTER **)(a1 + 1160);
+  if ( v8 )
+    HalPutDmaAdapter(v8);
+  v9 = *(struct _DMA_ADAPTER **)(a1 + 1112);
   if ( v9 )
     HalPutDmaAdapter(v9);
-  v10 = *(struct _DMA_ADAPTER **)(a1 + 1112);
-  if ( v10 )
-    HalPutDmaAdapter(v10);
   if ( *(_BYTE *)(a1 + 119) == 2 )
     SepModifyTokenPolicyCounter(a1 + 88, 0LL);
-  v11 = *(_QWORD *)(a1 + 1136);
-  if ( v11 )
-    SepDereferenceLuidToIndexEntry(v11);
+  v10 = *(_QWORD *)(a1 + 1136);
+  if ( v10 )
+    SepDereferenceLuidToIndexEntry(v10);
   AuthzBasepFreeSecurityAttributesList(*(_DWORD **)(a1 + 776));
   ExFreePoolWithTag(*(PVOID *)(a1 + 776), 0);
-  v12 = *(void **)(a1 + 176);
-  if ( v12 )
-    ExFreePoolWithTag(v12, 0);
+  v11 = *(void **)(a1 + 176);
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0);
   if ( *(_QWORD *)(a1 + 792) )
     SepFreeTokenCapabilities(a1);
-  v13 = *(void **)(a1 + 784);
+  v12 = *(void **)(a1 + 784);
+  if ( v12 )
+    ExFreePoolWithTag(v12, 0);
+  v13 = *(struct _ERESOURCE **)(a1 + 48);
   if ( v13 )
-    ExFreePoolWithTag(v13, 0);
-  v14 = *(struct _ERESOURCE **)(a1 + 48);
-  if ( v14 )
   {
-    ExDeleteResourceLite(v14);
+    ExDeleteResourceLite(v13);
     ExFreePoolWithTag(*(PVOID *)(a1 + 48), 0);
   }
-  v15 = *(void **)(a1 + 1104);
-  if ( v15 )
-    ExFreePoolWithTag(v15, 0);
+  v14 = *(void **)(a1 + 1104);
+  if ( v14 )
+    ExFreePoolWithTag(v14, 0);
 }

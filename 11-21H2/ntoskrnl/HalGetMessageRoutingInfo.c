@@ -1,12 +1,12 @@
 /*
  * XREFs of HalGetMessageRoutingInfo @ 0x1403AFF80
  * Callers:
- *     IopConnectMessageBasedInterrupt @ 0x140816C88 (IopConnectMessageBasedInterrupt.c)
+ *     sub_140816C88 @ 0x140816C88 (sub_140816C88.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     HalpInterruptAffinityIsSteerable @ 0x1403B0158 (HalpInterruptAffinityIsSteerable.c)
+ *     sub_1403B0158 @ 0x1403B0158 (sub_1403B0158.c)
  *     HalGetProcessorIdByNtNumber @ 0x1403B4DA0 (HalGetProcessorIdByNtNumber.c)
- *     HalpInterruptSetProblemEx @ 0x14051E038 (HalpInterruptSetProblemEx.c)
+ *     sub_14051E038 @ 0x14051E038 (sub_14051E038.c)
  */
 
 __int64 __fastcall HalGetMessageRoutingInfo(int *a1, _DWORD *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall HalGetMessageRoutingInfo(int *a1, _DWORD *a2)
   unsigned __int16 **v5; // rcx
   unsigned __int16 *v6; // rbx
   char v7; // r14
-  int IsSteerable; // r8d
+  int v8; // r8d
   int v9; // r12d
   int v10; // ebx
   int ProcessorIdByNtNumber; // eax
@@ -50,7 +50,7 @@ LABEL_20:
     v14 = 0;
     v15 = 20;
 LABEL_61:
-    HalpInterruptSetProblemEx(0, v15, v14, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", v22);
+    sub_14051E038(0, v15, v14, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", v22);
     return 3221225485LL;
   }
   v5 = (unsigned __int16 **)(a1 + 4);
@@ -60,15 +60,10 @@ LABEL_61:
   {
     v7 = 0;
   }
-  IsSteerable = HalpInterruptAffinityIsSteerable(v5, &v28);
-  if ( IsSteerable < 0 )
+  v8 = sub_1403B0158(v5, &v28);
+  if ( v8 < 0 )
   {
-    HalpInterruptSetProblemEx(
-      0,
-      39,
-      IsSteerable,
-      (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c",
-      1254);
+    sub_14051E038(0, 39, v8, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 1254);
     return v16;
   }
   v9 = a1[8];
@@ -100,7 +95,7 @@ LABEL_60:
         while ( 1 )
         {
           v21 = v29;
-          if ( v29 >= (unsigned int)HalpInterruptProcessorCount )
+          if ( v29 >= (unsigned int)dword_140C54A90 )
             break;
           ProcessorIdByNtNumber = KeEnumerateNextProcessor(&v29, v23);
           if ( ProcessorIdByNtNumber < 0 )
@@ -111,23 +106,18 @@ LABEL_60:
         }
         ProcessorIdByNtNumber = -1073741811;
 LABEL_54:
-        if ( (unsigned int)v21 < (unsigned int)HalpInterruptProcessorCount )
+        if ( (unsigned int)v21 < (unsigned int)dword_140C54A90 )
           goto LABEL_55;
       }
       v22 = 1313;
       goto LABEL_59;
     }
-    HalpInterruptSetProblemEx(
-      0,
-      21,
-      -1073741811,
-      (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c",
-      1288);
+    sub_14051E038(0, 21, -1073741811, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 1288);
     return v16;
   }
   if ( v9 == 2 )
   {
-    if ( !HalpInterruptClusterModeEnabled )
+    if ( !byte_140C4ADB4 )
     {
       v10 = 0;
       ProcessorIdByNtNumber = KeEnumerateNextProcessor(&v29, v23);
@@ -135,17 +125,17 @@ LABEL_54:
       {
         do
         {
-          if ( v29 >= (unsigned int)HalpInterruptProcessorCount )
+          if ( v29 >= (unsigned int)dword_140C54A90 )
           {
             v22 = 1352;
             goto LABEL_59;
           }
-          if ( *(_DWORD *)(HalpInterruptTargets + 24LL * v29) != 5 )
+          if ( *(_DWORD *)(qword_140C54A80 + 24LL * v29) != 5 )
           {
             v22 = 1362;
             goto LABEL_20;
           }
-          v10 |= *(_DWORD *)(HalpInterruptTargets + 24LL * v29 + 8);
+          v10 |= *(_DWORD *)(qword_140C54A80 + 24LL * v29 + 8);
           ProcessorIdByNtNumber = KeEnumerateNextProcessor(&v29, v23);
         }
         while ( ProcessorIdByNtNumber >= 0 );
@@ -163,7 +153,7 @@ LABEL_54:
     v22 = 1478;
     goto LABEL_20;
   }
-  if ( !HalpInterruptClusterModeEnabled )
+  if ( !byte_140C4ADB4 )
   {
     v22 = 1389;
     goto LABEL_20;
@@ -173,31 +163,31 @@ LABEL_54:
   if ( (int)KeEnumerateNextProcessor(&v29, v23) >= 0 )
   {
     v19 = DWORD2(v27);
-    while ( v29 < (unsigned int)HalpInterruptProcessorCount )
+    while ( v29 < (unsigned int)dword_140C54A90 )
     {
-      if ( *(_DWORD *)(HalpInterruptTargets + 24LL * v29) != 6 )
+      if ( *(_DWORD *)(qword_140C54A80 + 24LL * v29) != 6 )
       {
         v22 = 1415;
         goto LABEL_20;
       }
       if ( v18 )
       {
-        if ( v19 != *(_DWORD *)(HalpInterruptTargets + 24LL * v29 + 8) )
+        if ( v19 != *(_DWORD *)(qword_140C54A80 + 24LL * v29 + 8) )
         {
           if ( !v28 )
           {
             v22 = 1460;
             goto LABEL_20;
           }
-          v17 = *(_DWORD *)(HalpInterruptTargets + 24LL * v29 + 12);
-          v19 = *(_DWORD *)(HalpInterruptTargets + 24LL * v29 + 8);
+          v17 = *(_DWORD *)(qword_140C54A80 + 24LL * v29 + 12);
+          v19 = *(_DWORD *)(qword_140C54A80 + 24LL * v29 + 8);
         }
-        v17 |= *(_DWORD *)(HalpInterruptTargets + 24LL * v29 + 12);
+        v17 |= *(_DWORD *)(qword_140C54A80 + 24LL * v29 + 12);
       }
       else
       {
-        v17 = *(_DWORD *)(HalpInterruptTargets + 24LL * v29 + 12);
-        v19 = *(_DWORD *)(HalpInterruptTargets + 24LL * v29 + 8);
+        v17 = *(_DWORD *)(qword_140C54A80 + 24LL * v29 + 12);
+        v19 = *(_DWORD *)(qword_140C54A80 + 24LL * v29 + 8);
         v18 = 1;
       }
       if ( (int)KeEnumerateNextProcessor(&v29, v23) < 0 )

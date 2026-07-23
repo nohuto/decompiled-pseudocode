@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAttemptSectionDelete @ 0x140122170
+ * XREFs of MiAttemptSectionDelete @ 0x140122240
  * Callers:
- *     MmFlushImageSection @ 0x140121F70 (MmFlushImageSection.c)
- *     MiForceSectionClosed @ 0x1401220CC (MiForceSectionClosed.c)
+ *     MmFlushImageSection @ 0x140122040 (MmFlushImageSection.c)
+ *     MiForceSectionClosed @ 0x14012219C (MiForceSectionClosed.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     MiCleanSection @ 0x14016973C (MiCleanSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRemoveUnusedSegment @ 0x14007BB58 (MiRemoveUnusedSegment.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     MiCleanSection @ 0x14016983C (MiCleanSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)

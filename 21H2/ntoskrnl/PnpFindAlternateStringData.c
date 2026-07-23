@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpFindAlternateStringData @ 0x1406B16AC
+ * XREFs of PnpFindAlternateStringData @ 0x14061065C
  * Callers:
- *     PiGetDeviceRegProperty @ 0x1406401E8 (PiGetDeviceRegProperty.c)
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
- *     PiGetDeviceRegistryProperty @ 0x14089E518 (PiGetDeviceRegistryProperty.c)
- *     PiAuditDeviceOperation @ 0x1408B5648 (PiAuditDeviceOperation.c)
+ *     PiGetDeviceRegProperty @ 0x140634FF8 (PiGetDeviceRegProperty.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
+ *     PiGetDeviceRegistryProperty @ 0x14089E678 (PiGetDeviceRegistryProperty.c)
+ *     PiAuditDeviceOperation @ 0x1408B57A8 (PiAuditDeviceOperation.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGenerateSecureCookie @ 0x1408634B0
+ * XREFs of MiGenerateSecureCookie @ 0x1408636F0
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 __int64 MiGenerateSecureCookie()

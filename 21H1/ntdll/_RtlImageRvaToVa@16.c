@@ -6,15 +6,24 @@
  *     _RtlImageRvaToSection@12 @ 0x4B34D2C0 (_RtlImageRvaToSection@12.c)
  */
 
-unsigned int __stdcall RtlImageRvaToVa(int a1, int a2, unsigned int a3, _DWORD *a4)
+PVOID __cdecl RtlImageRvaToVa(
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
+        ULONG Rva,
+        PIMAGE_SECTION_HEADER *LastRvaSection)
 {
-  _DWORD *v4; // ecx
+  PIMAGE_SECTION_HEADER v4; // ecx
 
-  if ( !a4 || (v4 = (_DWORD *)*a4) == 0 || a3 < v4[3] || a3 >= v4[3] + v4[4] )
-    v4 = (_DWORD *)RtlImageRvaToSection(a1, a2, a3);
+  if ( !LastRvaSection
+    || (v4 = *LastRvaSection) == 0
+    || Rva < v4->VirtualAddress
+    || Rva >= v4->VirtualAddress + v4->SizeOfRawData )
+  {
+    v4 = RtlImageRvaToSection(NtHeaders, BaseOfImage, Rva);
+  }
   if ( !v4 )
     return 0;
-  if ( a4 )
-    *a4 = v4;
-  return a3 + a2 + v4[5] - v4[3];
+  if ( LastRvaSection )
+    *LastRvaSection = v4;
+  return (char *)BaseOfImage + v4->PointerToRawData - v4->VirtualAddress + Rva;
 }

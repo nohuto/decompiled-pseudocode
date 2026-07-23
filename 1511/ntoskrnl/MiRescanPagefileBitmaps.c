@@ -11,14 +11,14 @@
 __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)
 {
   __int64 v2; // r8
-  unsigned __int64 v3; // rdi
+  __int64 v3; // rdi
   unsigned int v4; // ebp
   __int64 v5; // rax
   __int64 result; // rax
   unsigned int v7; // [rsp+30h] [rbp-28h] BYREF
   __int64 v8; // [rsp+38h] [rbp-20h]
   unsigned int v9; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v10; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
 
   MiInitializePagefileBitmapsCache(a1);
   v3 = *(_QWORD *)(a1 + 176);

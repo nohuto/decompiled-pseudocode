@@ -18,7 +18,7 @@
  *     MiPrepareDriverPatchState @ 0x140A2B694 (MiPrepareDriverPatchState.c)
  */
 
-__int64 __fastcall MmWriteSystemImageTracepoint(unsigned __int64 a1, char a2, char a3)
+__int64 __fastcall MmWriteSystemImageTracepoint(DWORD64 ControlPc, char a2, char a3)
 {
   char v3; // si
   unsigned __int64 v4; // rdi
@@ -29,18 +29,18 @@ __int64 __fastcall MmWriteSystemImageTracepoint(unsigned __int64 a1, char a2, ch
   char v9; // r14
   char *AnyMultiplexedVm; // rbx
   unsigned int v11; // esi
-  unsigned int v12; // edi
-  unsigned int *v13; // rax
+  unsigned int BeginAddress; // edi
+  PRUNTIME_FUNCTION v13; // rax
   unsigned int v15; // eax
-  __int64 v19; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int64 ImageBase; // [rsp+40h] [rbp-C0h] BYREF
   char *v20; // [rsp+48h] [rbp-B8h]
   __int64 v21[14]; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD v22[14]; // [rsp+C0h] [rbp-40h] BYREF
 
   v3 = a2;
-  v4 = a1;
+  v4 = ControlPc;
   memset(v21, 0, 0x68uLL);
-  v19 = 0LL;
+  ImageBase = 0LL;
   Lock = MmAcquireLoadLock();
   v6 = MiLookupDataTableEntry(v4, 0);
   v7 = v6;
@@ -66,39 +66,39 @@ __int64 __fastcall MmWriteSystemImageTracepoint(unsigned __int64 a1, char a2, ch
     if ( v9 )
     {
       v11 = *((_DWORD *)v7 + 16);
-      v12 = 0;
+      BeginAddress = 0;
     }
     else
     {
       if ( !v3 )
       {
-        v12 = v4 - *((_DWORD *)v7 + 12);
+        BeginAddress = v4 - *((_DWORD *)v7 + 12);
         v11 = 1;
         goto LABEL_19;
       }
-      v13 = RtlLookupFunctionEntry(v4, &v19, 0LL);
+      v13 = RtlLookupFunctionEntry(v4, &ImageBase, 0LL);
       if ( !v13 )
         goto LABEL_13;
-      v12 = *v13;
-      v11 = v13[1] - *v13;
+      BeginAddress = v13->BeginAddress;
+      v11 = v13->EndAddress - v13->BeginAddress;
     }
     if ( !v11 )
       goto LABEL_13;
 LABEL_19:
     v15 = *((_DWORD *)v7 + 16);
-    if ( v12 >= v15 || v15 - v12 < v11 )
+    if ( BeginAddress >= v15 || v15 - BeginAddress < v11 )
     {
 LABEL_13:
       v8 = -1073741811;
       break;
     }
-    v8 = MiLockDriverPageRange(v21, v12 >> 12, (v11 + v12 - 1) >> 12, 2 * v9 + 1, 0LL);
+    v8 = MiLockDriverPageRange(v21, BeginAddress >> 12, (v11 + BeginAddress - 1) >> 12, 2 * v9 + 1, 0LL);
     if ( v8 < 0 )
       break;
     memset(v22, 0, 0x68uLL);
     LOBYTE(v22[3]) = a3;
-    v22[1] = a1;
-    v22[2] = __PAIR64__(v11, v12);
+    v22[1] = ControlPc;
+    v22[2] = __PAIR64__(v11, BeginAddress);
     v8 = VslpEnterIumSecureMode(2u, 84, 0, (__int64)v22);
     if ( v8 != -1073741267 )
       break;
@@ -108,7 +108,7 @@ LABEL_13:
       break;
     }
     MiUnlockDriverPages(v21);
-    v4 = a1;
+    v4 = ControlPc;
     v9 = 1;
     AnyMultiplexedVm = v20;
     v3 = a2;

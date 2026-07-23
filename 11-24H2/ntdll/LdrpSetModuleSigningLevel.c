@@ -1,32 +1,29 @@
 /*
- * XREFs of LdrpSetModuleSigningLevel @ 0x18010AD84
+ * XREFs of LdrpSetModuleSigningLevel @ 0x1801059E8
  * Callers:
- *     LdrpMapDllNtFileName @ 0x180071640 (LdrpMapDllNtFileName.c)
- *     LdrpValidateIntegrityContinuity @ 0x18010AC88 (LdrpValidateIntegrityContinuity.c)
+ *     LdrpMapDllNtFileName @ 0x18008DF20 (LdrpMapDllNtFileName.c)
+ *     LdrpValidateIntegrityContinuity @ 0x1801058EC (LdrpValidateIntegrityContinuity.c)
  * Callees:
- *     NtCompareSigningLevels @ 0x180163080 (NtCompareSigningLevels.c)
- *     NtGetCachedSigningLevel @ 0x180163BA0 (NtGetCachedSigningLevel.c)
- *     ZwSetCachedSigningLevel @ 0x180164F80 (ZwSetCachedSigningLevel.c)
+ *     NtCompareSigningLevels @ 0x180161440 (NtCompareSigningLevels.c)
+ *     NtGetCachedSigningLevel @ 0x180161F60 (NtGetCachedSigningLevel.c)
+ *     ZwSetCachedSigningLevel @ 0x180163340 (ZwSetCachedSigningLevel.c)
  */
 
-__int64 __fastcall LdrpSetModuleSigningLevel(__int64 a1, __int64 a2, __int64 a3, char a4, _BYTE *a5)
+__int64 __fastcall LdrpSetModuleSigningLevel(void *a1, __int64 a2, ULONG *a3, SE_SIGNING_LEVEL a4, _BYTE *a5)
 {
-  _BYTE *v5; // rsi
+  SE_SIGNING_LEVEL *v5; // rsi
   _BYTE *v6; // r14
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  int CachedSigningLevel; // ebx
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  NTSTATUS CachedSigningLevel; // ebx
+  HANDLE SourceFiles; // [rsp+40h] [rbp+8h] BYREF
 
-  v12 = a1;
-  v5 = (_BYTE *)(a2 + 284);
+  SourceFiles = a1;
+  v5 = (SE_SIGNING_LEVEL *)(a2 + 284);
   v6 = a5;
   *a5 = 0;
-  CachedSigningLevel = NtGetCachedSigningLevel(a1, a3, a2 + 284, 0LL, 0LL, 0LL);
-  if ( CachedSigningLevel < 0 || (LOBYTE(v9) = *v5, LOBYTE(v8) = a4, (int)NtCompareSigningLevels(v9, v8) < 0) )
+  CachedSigningLevel = NtGetCachedSigningLevel(a1, a3, (PSE_SIGNING_LEVEL)(a2 + 284), 0LL, 0LL, 0LL);
+  if ( CachedSigningLevel < 0 || NtCompareSigningLevels(*v5, a4) < 0 )
   {
-    LOBYTE(v8) = a4;
-    CachedSigningLevel = ZwSetCachedSigningLevel(2052LL, v8, &v12, 1LL, v12);
+    CachedSigningLevel = ZwSetCachedSigningLevel(0x804u, a4, &SourceFiles, 1u, SourceFiles);
     if ( CachedSigningLevel < 0 )
       *v6 = 1;
     else

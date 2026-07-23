@@ -8,26 +8,26 @@
  *     RtlInitializeSid @ 0x1800487A0 (RtlInitializeSid.c)
  *     A_SHAFinal @ 0x180048940 (A_SHAFinal.c)
  *     A_SHAUpdate @ 0x1800497A0 (A_SHAUpdate.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlCreateServiceSid(unsigned __int16 *a1, _DWORD *a2, unsigned int *a3)
+NTSTATUS __cdecl RtlCreateServiceSid(PUNICODE_STRING ServiceName, PSID ServiceSid, PULONG ServiceSidLength)
 {
-  unsigned int v4; // eax
-  __int64 result; // rax
+  ULONG v4; // eax
+  NTSTATUS result; // eax
   int v6; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-39h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
   _DWORD v8[24]; // [rsp+30h] [rbp-29h] BYREF
   _DWORD v9[6]; // [rsp+90h] [rbp+37h] BYREF
 
-  if ( !a1 || !a3 )
-    return 3221225485LL;
-  v4 = *a3;
-  *a3 = 32;
+  if ( !ServiceName || !ServiceSidLength )
+    return -1073741811;
+  v4 = *ServiceSidLength;
+  *ServiceSidLength = 32;
   if ( v4 < 0x20 )
-    return 3221225507LL;
-  result = RtlUpcaseUnicodeString((__int64)&UnicodeString, a1, 1);
-  if ( (int)result >= 0 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, ServiceName, 1u);
+  if ( result >= 0 )
   {
     v8[21] = 0;
     v8[22] = 0;
@@ -36,18 +36,18 @@ __int64 __fastcall RtlCreateServiceSid(unsigned __int16 *a1, _DWORD *a2, unsigne
     v8[18] = -1732584194;
     v8[19] = 271733878;
     v8[20] = -1009589776;
-    A_SHAUpdate((__int64)v8, (char *)UnicodeString.Buffer, UnicodeString.Length);
+    A_SHAUpdate((__int64)v8, (char *)DestinationString.Buffer, DestinationString.Length);
     A_SHAFinal(v8, (__int64)v9);
-    RtlFreeAnsiString(&UnicodeString);
-    RtlInitializeSid((__int64)a2, (__int64)&RtlpNtAuthority, 6u);
+    RtlFreeAnsiString(&DestinationString);
+    RtlInitializeSid(ServiceSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
     v6 = v9[0];
-    a2[2] = 80;
-    a2[3] = v6;
-    a2[4] = v9[1];
-    a2[5] = v9[2];
-    a2[6] = v9[3];
-    a2[7] = v9[4];
-    return 0LL;
+    *((_DWORD *)ServiceSid + 2) = 80;
+    *((_DWORD *)ServiceSid + 3) = v6;
+    *((_DWORD *)ServiceSid + 4) = v9[1];
+    *((_DWORD *)ServiceSid + 5) = v9[2];
+    *((_DWORD *)ServiceSid + 6) = v9[3];
+    *((_DWORD *)ServiceSid + 7) = v9[4];
+    return 0;
   }
   return result;
 }

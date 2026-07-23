@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbOpenContext @ 0x14089F29C
+ * XREFs of DrvDbOpenContext @ 0x1408A569C
  * Callers:
- *     PiDrvDbInit @ 0x1407B583C (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x1407B889C (PiDrvDbInit.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     _PnpCtxSetObjectContext @ 0x1408961C8 (_PnpCtxSetObjectContext.c)
- *     _PnpCtxSetObjectDispatchCallback @ 0x1408961F4 (_PnpCtxSetObjectDispatchCallback.c)
- *     DrvDbCreateDatabaseNode @ 0x14089F658 (DrvDbCreateDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x14089F990 (DrvDbDestroyDatabaseNode.c)
- *     DrvDbLoadDatabaseNode @ 0x14091DE9C (DrvDbLoadDatabaseNode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     _PnpCtxSetObjectContext @ 0x14089C5C8 (_PnpCtxSetObjectContext.c)
+ *     _PnpCtxSetObjectDispatchCallback @ 0x14089C5F4 (_PnpCtxSetObjectDispatchCallback.c)
+ *     DrvDbCreateDatabaseNode @ 0x1408A5A58 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x1408A5D90 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1409788FC (DrvDbLoadDatabaseNode.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 DrvDbOpenContext()

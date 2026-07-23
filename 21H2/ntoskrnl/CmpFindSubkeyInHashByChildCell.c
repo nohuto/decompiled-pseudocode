@@ -1,31 +1,31 @@
 /*
- * XREFs of CmpFindSubkeyInHashByChildCell @ 0x140766570
+ * XREFs of CmpFindSubkeyInHashByChildCell @ 0x140766730
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406E2D00 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpUnlockHashEntry @ 0x1405EC638 (CmpUnlockHashEntry.c)
- *     CmpLockTwoKcbsShared @ 0x1405F38C0 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
- *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
- *     CmpLockHashEntryShared @ 0x1406BACFC (CmpLockHashEntryShared.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
- *     CmpHashCompressedComponent @ 0x140766704 (CmpHashCompressedComponent.c)
- *     CmpIsKcbLockAllowed @ 0x140766754 (CmpIsKcbLockAllowed.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpReferenceKeyControlBlock @ 0x1405E09D4 (CmpReferenceKeyControlBlock.c)
+ *     CmpLockHashEntryShared @ 0x140619FD0 (CmpLockHashEntryShared.c)
+ *     CmpHashUnicodeComponent @ 0x14065F044 (CmpHashUnicodeComponent.c)
+ *     CmpUnlockHashEntry @ 0x1406DBD98 (CmpUnlockHashEntry.c)
+ *     CmpLockTwoKcbsShared @ 0x1406E3020 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1406E30B0 (CmpUnlockTwoKcbs.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpHashCompressedComponent @ 0x1407668C4 (CmpHashCompressedComponent.c)
+ *     CmpIsKcbLockAllowed @ 0x140766914 (CmpIsKcbLockAllowed.c)
  */
 
 __int64 __fastcall CmpFindSubkeyInHashByChildCell(
-        ULONG_PTR a1,
-        ULONG_PTR a2,
+        unsigned __int64 a1,
+        unsigned __int64 a2,
         __int64 a3,
         unsigned int a4,
         ULONG_PTR *a5)
 {
   int v5; // ebx
   ULONG_PTR *v7; // r13
-  ULONG_PTR v9; // rdi
+  unsigned __int64 v9; // rdi
   __int64 v10; // rax
   __int64 v12; // rax
   __int64 v13; // rdx
@@ -36,7 +36,7 @@ __int64 __fastcall CmpFindSubkeyInHashByChildCell(
   ULONG_PTR v18; // rbx
   ULONG_PTR v19; // rcx
   ULONG_PTR v21; // rcx
-  PVOID *v22; // [rsp+20h] [rbp-20h]
+  _QWORD **v22; // [rsp+20h] [rbp-20h]
   __m128i v23; // [rsp+28h] [rbp-18h] BYREF
   int v24; // [rsp+80h] [rbp+40h] BYREF
   int v25; // [rsp+84h] [rbp+44h]
@@ -70,7 +70,7 @@ __int64 __fastcall CmpFindSubkeyInHashByChildCell(
   v16 = v14 + v15;
   (*(void (__fastcall **)(__int64, int *))(a3 + 16))(a3, &v24);
   CmpUnlockTwoKcbs(v9, a2);
-  v22 = (PVOID *)(v9 + 32);
+  v22 = (_QWORD **)(v9 + 32);
   CmpLockHashEntryShared(*(_QWORD *)(v9 + 32), v16);
   CmpLockTwoKcbsShared(v9, a2);
   v17 = *(_QWORD *)(v26

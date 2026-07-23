@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRemoveFromHiveFileList @ 0x14087344C
+ * XREFs of CmpRemoveFromHiveFileList @ 0x1408735AC
  * Callers:
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
  * Callees:
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
  */
 
 NTSTATUS __fastcall CmpRemoveFromHiveFileList(__int64 a1)

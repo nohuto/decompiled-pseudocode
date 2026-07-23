@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRequestPort @ 0x1800A0550
+ * XREFs of NtRequestPort @ 0x1800A0510
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRequestPort()
+NTSTATUS __cdecl NtRequestPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 377LL;
+  result = 377;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

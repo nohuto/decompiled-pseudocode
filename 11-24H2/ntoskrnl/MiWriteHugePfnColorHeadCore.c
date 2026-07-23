@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWriteHugePfnColorHeadCore @ 0x1404FB6B0
+ * XREFs of MiWriteHugePfnColorHeadCore @ 0x1404F8F70
  * Callers:
- *     MiInitializeHugeIoRanges @ 0x1407EB084 (MiInitializeHugeIoRanges.c)
+ *     MiInitializeHugeIoRanges @ 0x1407EB654 (MiInitializeHugeIoRanges.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDiscardVirtualMemoryTail @ 0x1406EF340
+ * XREFs of MiDiscardVirtualMemoryTail @ 0x1406F3FE0
  * Callers:
  *     <none>
  * Callees:
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiDiscardVirtualMemoryTail(__int64 a1, __int64 a2)

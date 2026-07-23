@@ -1,21 +1,21 @@
 /*
- * XREFs of IopIsAddressRangeValid @ 0x14014B4B0
+ * XREFs of IopIsAddressRangeValid @ 0x14014BA20
  * Callers:
- *     IopAddTriageDumpDataBlock @ 0x14014B400 (IopAddTriageDumpDataBlock.c)
- *     IoFillTriageDumpBuffer @ 0x1401C5868 (IoFillTriageDumpBuffer.c)
- *     IoGetLoadedDriverInfo @ 0x1401C604C (IoGetLoadedDriverInfo.c)
- *     IopWriteDriverList @ 0x1401C7FF8 (IopWriteDriverList.c)
- *     IopAddBugcheckPnpTriageData @ 0x1401CC284 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPowerTriageData @ 0x1401CC388 (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageDevice @ 0x1401CC51C (IopAddBugcheckTriageDevice.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x1401CC624 (IopAddBugcheckTriageDeviceNode.c)
- *     IopAddBugcheckTriageIrp @ 0x1401CC70C (IopAddBugcheckTriageIrp.c)
- *     IopAddBugcheckTriageThread @ 0x1401CC88C (IopAddBugcheckTriageThread.c)
- *     IopAddBugcheckTriageUnicodeString @ 0x1401CC980 (IopAddBugcheckTriageUnicodeString.c)
- *     IopAddBugcheckTriageWorkQueue @ 0x1401CCA14 (IopAddBugcheckTriageWorkQueue.c)
- *     PopInternalSaveStackToDumpFile @ 0x1401FF12C (PopInternalSaveStackToDumpFile.c)
+ *     IopAddTriageDumpDataBlock @ 0x14014B970 (IopAddTriageDumpDataBlock.c)
+ *     IoFillTriageDumpBuffer @ 0x1401C5708 (IoFillTriageDumpBuffer.c)
+ *     IoGetLoadedDriverInfo @ 0x1401C5EEC (IoGetLoadedDriverInfo.c)
+ *     IopWriteDriverList @ 0x1401C7E98 (IopWriteDriverList.c)
+ *     IopAddBugcheckPnpTriageData @ 0x1401CC168 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x1401CC26C (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageDevice @ 0x1401CC400 (IopAddBugcheckTriageDevice.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x1401CC508 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageIrp @ 0x1401CC5F0 (IopAddBugcheckTriageIrp.c)
+ *     IopAddBugcheckTriageThread @ 0x1401CC770 (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckTriageUnicodeString @ 0x1401CC864 (IopAddBugcheckTriageUnicodeString.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x1401CC8F8 (IopAddBugcheckTriageWorkQueue.c)
+ *     PopInternalSaveStackToDumpFile @ 0x1401FEF58 (PopInternalSaveStackToDumpFile.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
  */
 
 char __fastcall IopIsAddressRangeValid(__int64 a1, __int64 a2)

@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryInformationWorkerFactory @ 0x1406A8F70
+ * XREFs of ZwQueryInformationWorkerFactory @ 0x1406A9F10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationWorkerFactory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WorkerFactoryHandle);
 }

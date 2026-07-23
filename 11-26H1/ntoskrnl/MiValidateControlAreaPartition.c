@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateControlAreaPartition @ 0x140497EB4
+ * XREFs of MiValidateControlAreaPartition @ 0x140491A04
  * Callers:
- *     MiReferenceControlArea @ 0x14046FD70 (MiReferenceControlArea.c)
- *     MiReferenceExistingControlArea @ 0x1404A4A50 (MiReferenceExistingControlArea.c)
- *     MiShareExistingControlArea @ 0x140A56A00 (MiShareExistingControlArea.c)
+ *     MiReferenceControlArea @ 0x1404694F0 (MiReferenceControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x14049E0E0 (MiReferenceExistingControlArea.c)
+ *     MiShareExistingControlArea @ 0x140A63F80 (MiShareExistingControlArea.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,13 @@ __int64 __fastcall MiValidateControlAreaPartition(__int64 a1, __int64 a2)
   ULONG **v3; // rax
   int v5; // eax
 
-  v2 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a2 + 60) & 0x3FF));
+  v2 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a2 + 60) & 0x3FF));
   v3 = *(ULONG ***)(a1 + 176);
   if ( !v3 )
   {
     if ( (*(_DWORD *)(a2 + 56) & 0x100) != 0 )
     {
-      if ( v2 == *(ULONG **)(stru_140E2EB88.ThreadLock
+      if ( v2 == *(ULONG **)(stru_140E2ED08.ThreadLock
                            + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink)) )
         return 0LL;
       if ( (*(_DWORD *)a1 & 1) == 0 )

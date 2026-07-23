@@ -25,10 +25,7 @@ int __fastcall SmStoreDelete(int a1, int a2)
   if ( a1 )
   {
     if ( a1 == 1 )
-      LODWORD(v2) = ZwSetSystemInformation(
-                      SystemVerifierFaultsInformation|SystemLocksInformation,
-                      SystemInformation,
-                      0x18uLL);
+      LODWORD(v2) = ZwSetSystemInformation(SystemStoreInformation, SystemInformation, 0x18uLL);
   }
   else
   {

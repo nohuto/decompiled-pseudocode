@@ -39,8 +39,8 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, _QWORD *a2)
   unsigned __int64 NextProcess; // rsi
   __int64 v11; // r8
   __int64 v12; // r9
-  unsigned __int64 v13; // rbx
-  unsigned __int64 **v14; // r14
+  ULONG64 v13; // rbx
+  _RTL_BITMAP_EX **v14; // r14
   __int64 v15; // r8
   __int64 v16; // r9
   __int64 v17; // r8
@@ -54,9 +54,9 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, _QWORD *a2)
   __int64 v25; // rcx
   int v26; // ebx
   _DWORD *v27; // r12
-  unsigned __int64 *v28; // rbp
-  unsigned __int64 SetBits; // rax
-  unsigned __int64 v30; // r14
+  _RTL_BITMAP_EX *v28; // rbp
+  ULONG64 SetBits; // rax
+  ULONG64 v30; // r14
   __int64 v31; // rdi
   __int64 *v32; // rcx
   int v33; // eax
@@ -82,7 +82,7 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, _QWORD *a2)
       {
         if ( *(_DWORD *)(a1 + 4) )
           break;
-        v14 = *(unsigned __int64 ***)(NextProcess + 1032);
+        v14 = *(_RTL_BITMAP_EX ***)(NextProcess + 1032);
         if ( v14 || *(_DWORD *)(NextProcess + 1684) )
         {
           KiStackAttachProcess((_KPROCESS *)NextProcess, 0, (__int64)v41);
@@ -173,7 +173,7 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, _QWORD *a2)
                   }
                   v13 = v30 + 1;
                 }
-                while ( v30 + 1 < *v28 );
+                while ( v30 + 1 < v28->SizeOfBitMap );
                 CurrentThread = v37;
                 v13 = 0LL;
               }

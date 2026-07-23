@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleCheckProcessorStateEligibility @ 0x1405CE664
+ * XREFs of PpmIdleCheckProcessorStateEligibility @ 0x1405CBD84
  * Callers:
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
- *     PpmIdleSelectCoordinatedProcessorDependency @ 0x1405CEBF8 (PpmIdleSelectCoordinatedProcessorDependency.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectCoordinatedProcessorDependency @ 0x1405CC318 (PpmIdleSelectCoordinatedProcessorDependency.c)
  * Callees:
- *     PpmCheckIdleVeto @ 0x1405CDE5C (PpmCheckIdleVeto.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmCheckIdleVeto @ 0x1405CB57C (PpmCheckIdleVeto.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmIdleCheckProcessorStateEligibility(
@@ -18,10 +18,11 @@ __int64 __fastcall PpmIdleCheckProcessorStateEligibility(
 {
   __int64 v6; // r10
   __int64 result; // rax
-  __int64 v10; // r9
+  unsigned int v10; // r9d
   __int64 v11; // r8
   unsigned int v12; // eax
-  __int64 v13; // r11
+  __int64 v13; // r8
+  __int64 v14; // r11
 
   v6 = *(_QWORD *)(a1 + 34880);
   if ( *(_DWORD *)(v6 + 44) == 3 && PpmIdleVetoBias )
@@ -39,13 +40,13 @@ __int64 __fastcall PpmIdleCheckProcessorStateEligibility(
   v12 = PpmCheckIdleVeto(v11 + v6 + 1352);
   if ( v12 )
     return v12 | 0x100000000LL;
-  if ( (unsigned int)(a3 + *(_DWORD *)(v11 + v6 + 1336)) > *(_DWORD *)(v13 + 34936) )
+  if ( (unsigned int)(a3 + *(_DWORD *)(v13 + v6 + 1336)) > *(_DWORD *)(v14 + 34936) )
     return 2147483650LL;
-  if ( *(unsigned int *)(v11 + v6 + 1340) > a4 )
+  if ( *(unsigned int *)(v13 + v6 + 1340) > a4 )
     return 2147483651LL;
 LABEL_19:
   result = *(_QWORD *)(v6 + 632);
   if ( result )
-    return (unsigned int)guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 664), (unsigned int)v10, v11, v10);
+    return (unsigned int)guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 664), v10);
   return result;
 }

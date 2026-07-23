@@ -1,10 +1,10 @@
 /*
- * XREFs of BgkNotifyDisplayOwnershipLost @ 0x14054EE60
+ * XREFs of BgkNotifyDisplayOwnershipLost @ 0x14054F520
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     BgkNotifyDisplayOwnershipChange @ 0x1403ADB80 (BgkNotifyDisplayOwnershipChange.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403ADD60 (BgkNotifyDisplayOwnershipChange.c)
  */
 
 __int64 __fastcall BgkNotifyDisplayOwnershipLost(__int64 a1)

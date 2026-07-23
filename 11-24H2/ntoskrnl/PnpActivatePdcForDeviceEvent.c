@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpActivatePdcForDeviceEvent @ 0x1409EDD5C
+ * XREFs of PnpActivatePdcForDeviceEvent @ 0x1409EB79C
  * Callers:
- *     PnpDeviceEventWorker @ 0x1409EFB60 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x1409ED430 (PnpDeviceEventWorker.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     PiPdcActivate @ 0x1409EDEC0 (PiPdcActivate.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     PiPdcActivate @ 0x1409EB900 (PiPdcActivate.c)
  */
 
 __int64 __fastcall PnpActivatePdcForDeviceEvent(__int64 a1)

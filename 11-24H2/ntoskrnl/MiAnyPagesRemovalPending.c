@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAnyPagesRemovalPending @ 0x140470CA0
+ * XREFs of MiAnyPagesRemovalPending @ 0x14046B54C
  * Callers:
- *     MiConvertSmallPageRangeToLarge @ 0x1402EE2CC (MiConvertSmallPageRangeToLarge.c)
- *     MiUpdateDemotedSubPage @ 0x14042FB30 (MiUpdateDemotedSubPage.c)
- *     MiSetPfnRemovalRequested @ 0x1406745D0 (MiSetPfnRemovalRequested.c)
+ *     MiUpdateDemotedSubPage @ 0x1402EF390 (MiUpdateDemotedSubPage.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x14034F90C (MiConvertSmallPageRangeToLarge.c)
+ *     MiSetPfnRemovalRequested @ 0x1406757A0 (MiSetPfnRemovalRequested.c)
  * Callees:
  *     <none>
  */

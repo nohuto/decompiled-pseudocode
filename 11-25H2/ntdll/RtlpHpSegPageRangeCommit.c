@@ -98,7 +98,7 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(
   __int64 v77; // [rsp+98h] [rbp-68h] BYREF
   __int64 v78; // [rsp+A0h] [rbp-60h] BYREF
   _DWORD *v79; // [rsp+A8h] [rbp-58h]
-  char v80[32]; // [rsp+B0h] [rbp-50h] BYREF
+  _EVENT_DATA_DESCRIPTOR v80; // [rsp+B0h] [rbp-50h] BYREF
   __int64 *v81; // [rsp+D0h] [rbp-30h]
   __int64 v82; // [rsp+D8h] [rbp-28h]
   __int64 *v83; // [rsp+E0h] [rbp-20h]
@@ -267,7 +267,7 @@ LABEL_62:
     if ( (a5 & 2) != 0 )
       v37 = 1073745920;
   }
-  result = RtlpHpSegMgrCommit(a1, v36, v34 + v73, v35, v21, v37, (a5 >> 22) & 2);
+  result = RtlpHpSegMgrCommit(a1, v21, v37, (a5 >> 22) & 2);
   if ( (int)result >= 0 )
   {
     if ( v21 > 0 )
@@ -379,7 +379,13 @@ LABEL_40:
         v86 = 8LL;
         v88 = 8LL;
         v90 = 8LL;
-        tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CE670, byte_1801A43AB, v38, v39, 7, (__int64)v80);
+        tlgWriteTransfer_EtwEventWriteTransfer(
+          (__int64)&dword_1801CE670,
+          (unsigned __int8 *)dword_1801A43AB,
+          v38,
+          v39,
+          7u,
+          &v80);
       }
     }
     *(_WORD *)(v8 + 28) = ~(v21 + ~*(_WORD *)(v8 + 28));

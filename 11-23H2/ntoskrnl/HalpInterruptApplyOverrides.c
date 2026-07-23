@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpInterruptApplyOverrides @ 0x14037CAA8
+ * XREFs of HalpInterruptApplyOverrides @ 0x14037CC48
  * Callers:
- *     HalDisableInterrupt @ 0x14031F8F0 (HalDisableInterrupt.c)
- *     HalpInterruptRemap @ 0x14037C0D8 (HalpInterruptRemap.c)
- *     HalpInterruptSetLineState @ 0x14037C70C (HalpInterruptSetLineState.c)
- *     HalpTimerConfigureInterrupt @ 0x14037CF94 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x1403B6700 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpInterruptConnect @ 0x1405041C0 (HalpInterruptConnect.c)
- *     HalpInterruptSetDestinationInternal @ 0x1405043BC (HalpInterruptSetDestinationInternal.c)
- *     HalpInterruptRestoreClock @ 0x1405052E8 (HalpInterruptRestoreClock.c)
- *     ExtEnvSetVpptTarget @ 0x140508B28 (ExtEnvSetVpptTarget.c)
- *     HalpTimerUnmapInterrupt @ 0x140509920 (HalpTimerUnmapInterrupt.c)
- *     HalpInterruptMaskAcpi @ 0x140A95388 (HalpInterruptMaskAcpi.c)
+ *     HalDisableInterrupt @ 0x14031FB80 (HalDisableInterrupt.c)
+ *     HalpInterruptRemap @ 0x14037C278 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineState @ 0x14037C8AC (HalpInterruptSetLineState.c)
+ *     HalpTimerConfigureInterrupt @ 0x14037D134 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403B68E0 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpInterruptConnect @ 0x140504710 (HalpInterruptConnect.c)
+ *     HalpInterruptSetDestinationInternal @ 0x14050490C (HalpInterruptSetDestinationInternal.c)
+ *     HalpInterruptRestoreClock @ 0x140505838 (HalpInterruptRestoreClock.c)
+ *     ExtEnvSetVpptTarget @ 0x140509078 (ExtEnvSetVpptTarget.c)
+ *     HalpTimerUnmapInterrupt @ 0x140509E70 (HalpTimerUnmapInterrupt.c)
+ *     HalpInterruptMaskAcpi @ 0x140A951F8 (HalpInterruptMaskAcpi.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x14031FF5C (HalpInterruptFindLinesForGsiRange.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x1403201EC (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpInterruptApplyOverrides(_DWORD *a1, _DWORD *a2, _DWORD *a3)
@@ -57,10 +57,10 @@ __int64 __fastcall HalpInterruptApplyOverrides(_DWORD *a1, _DWORD *a2, _DWORD *a
   }
 LABEL_4:
   result = KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptOverridesLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v9 <= 0xFu
       && (unsigned __int8)result >= 2u )

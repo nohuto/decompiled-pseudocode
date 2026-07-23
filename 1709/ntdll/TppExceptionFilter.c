@@ -7,13 +7,13 @@
  *     RtlDecodePointer @ 0x18006CE80 (RtlDecodePointer.c)
  */
 
-__int64 __fastcall TppExceptionFilter(const void **a1)
+LONG __fastcall TppExceptionFilter(_EXCEPTION_POINTERS *a1)
 {
-  __int64 (__fastcall *v2)(const void **); // rax
+  __int64 (__fastcall *v2)(_EXCEPTION_POINTERS *); // rax
 
-  v2 = (__int64 (__fastcall *)(const void **))RtlDecodePointer(RtlpUnhandledExceptionFilter);
+  v2 = (__int64 (__fastcall *)(_EXCEPTION_POINTERS *))RtlDecodePointer(RtlpUnhandledExceptionFilter);
   if ( v2 )
     return v2(a1);
   else
-    return RtlUnhandledExceptionFilter2(a1);
+    return RtlUnhandledExceptionFilter2(a1, (ULONG)&Flags);
 }

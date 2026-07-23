@@ -11,7 +11,7 @@ errno_t __cdecl _i64toa_s(__int64 Value, char *Buffer, size_t BufferCount, int R
   BOOL v4; // eax
 
   v4 = 0;
-  if ( Radix == 10 && SHIDWORD(Value) <= 0 )
+  if ( HIDWORD(BufferCount) == 10 && SHIDWORD(Value) <= 0 )
     v4 = Value < 0;
-  return x64toa_s(Buffer, BufferCount, Value, Radix, v4);
+  return x64toa_s(Buffer, BufferCount, Value, HIDWORD(BufferCount), v4);
 }

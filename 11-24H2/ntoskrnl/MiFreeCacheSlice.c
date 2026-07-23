@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreeCacheSlice @ 0x1406926A8
+ * XREFs of MiFreeCacheSlice @ 0x140693778
  * Callers:
- *     MiFreeLargeProcessPagesToCache @ 0x140692714 (MiFreeLargeProcessPagesToCache.c)
- *     MiFreeProcessLargePageCache @ 0x1406929F4 (MiFreeProcessLargePageCache.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x1406937E4 (MiFreeLargeProcessPagesToCache.c)
+ *     MiFreeProcessLargePageCache @ 0x140693AC4 (MiFreeProcessLargePageCache.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14068CC74 (MiCoalesceActivePagesIntoFree.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14068DDA4 (MiCoalesceActivePagesIntoFree.c)
  */
 
-__int64 __fastcall MiFreeCacheSlice(__int64 a1, __int64 a2)
+__int64 __fastcall MiFreeCacheSlice(unsigned __int64 a1, __int64 a2)
 {
   __int64 result; // rax
 

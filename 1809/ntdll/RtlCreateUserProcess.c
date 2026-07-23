@@ -3,33 +3,38 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlCreateUserProcessEx @ 0x18008D500 (RtlCreateUserProcessEx.c)
+ *     RtlCreateUserProcessEx @ 0x18008D510 (RtlCreateUserProcessEx.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall RtlCreateUserProcess(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        char a7,
-        __int64 a8,
-        __int64 a9,
-        void *a10)
+NTSTATUS __cdecl RtlCreateUserProcess(
+        PUNICODE_STRING NtImagePathName,
+        ULONG AttributesDeprecated,
+        PRTL_USER_PROCESS_PARAMETERS ProcessParameters,
+        PSECURITY_DESCRIPTOR ProcessSecurityDescriptor,
+        PSECURITY_DESCRIPTOR ThreadSecurityDescriptor,
+        HANDLE ParentProcess,
+        BOOLEAN InheritHandles,
+        HANDLE DebugPort,
+        HANDLE TokenHandle,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  __int16 v10; // ebx^2
-  _QWORD v15[8]; // [rsp+30h] [rbp-48h] BYREF
+  USHORT v10; // ebx^2
+  _RTL_USER_PROCESS_EXTENDED_PARAMETERS ProcessExtendedParameters; // [rsp+30h] [rbp-48h] BYREF
 
-  v10 = HIWORD(a2);
-  memset(v15, 0, 0x38uLL);
-  LOWORD(v15[0]) = 1;
-  v15[2] = a5;
-  v15[3] = a6;
-  v15[4] = a8;
-  v15[5] = a9;
-  WORD1(v15[0]) = v10;
-  v15[1] = a4;
-  return RtlCreateUserProcessEx(a1, a3, a7, (__int64)v15, a10);
+  v10 = HIWORD(AttributesDeprecated);
+  memset(&ProcessExtendedParameters, 0, sizeof(ProcessExtendedParameters));
+  ProcessExtendedParameters.Version = 1;
+  ProcessExtendedParameters.ThreadSecurityDescriptor = ThreadSecurityDescriptor;
+  ProcessExtendedParameters.ParentProcess = ParentProcess;
+  ProcessExtendedParameters.DebugPort = DebugPort;
+  ProcessExtendedParameters.TokenHandle = TokenHandle;
+  ProcessExtendedParameters.NodeNumber = v10;
+  ProcessExtendedParameters.ProcessSecurityDescriptor = ProcessSecurityDescriptor;
+  return RtlCreateUserProcessEx(
+           NtImagePathName,
+           ProcessParameters,
+           InheritHandles,
+           &ProcessExtendedParameters,
+           ProcessInformation);
 }

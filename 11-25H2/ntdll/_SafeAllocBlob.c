@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 __fastcall SafeAllocBlob(
+PVOID __fastcall SafeAllocBlob(
         unsigned int a1,
         unsigned int a2,
         unsigned int a3,
@@ -35,7 +35,7 @@ __int64 __fastcall SafeAllocBlob(
   if ( a6 )
     *a6 = v10;
   if ( v10 )
-    return RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v10);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
   else
     return 0LL;
 }

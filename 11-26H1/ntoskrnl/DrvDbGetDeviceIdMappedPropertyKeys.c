@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetDeviceIdMappedPropertyKeys @ 0x14089DDB8
+ * XREFs of DrvDbGetDeviceIdMappedPropertyKeys @ 0x1408A41B8
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x14091B3D0 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x140975E30 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x14089DD40 (DrvDbGetCompositeMappedPropertyKeys.c)
- *     _PnpCtxRegQueryInfoKey @ 0x14091B2F8 (_PnpCtxRegQueryInfoKey.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140B24C04 (DrvDbOpenDeviceIdRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x1408A4140 (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140975D5C (_PnpCtxRegQueryInfoKey.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140B270A4 (DrvDbOpenDeviceIdRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdMappedPropertyKeys(
@@ -42,7 +42,7 @@ __int64 __fastcall DrvDbGetDeviceIdMappedPropertyKeys(
   {
     v11 = a5;
     if ( !v14
-      || (CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(v10, (__int64)off_140E0A430, 3u, a4, a5, v6),
+      || (CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(v10, (__int64)off_140E0A3C0, 3u, a4, a5, v6),
           CompositeMappedPropertyKeys >= 0) )
     {
       if ( v11 < *v6 )

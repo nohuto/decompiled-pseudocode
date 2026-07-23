@@ -15,7 +15,7 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)
     return 4201LL;
   EtwpDisableTraceProviders(*(_DWORD *)(a1 + 20));
   *(_QWORD *)(EtwpLoggerArray + 16LL * *(unsigned int *)(a1 + 20)) = 3LL;
-  RtlWakeAllConditionVariable((volatile signed __int64 *)(a1 + 80));
-  EtwpSendSessionNotification(a1, 2u, *(_DWORD *)(a1 + 40));
+  RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 80));
+  EtwpSendSessionNotification(a1, 2, *(_DWORD *)(a1 + 40));
   return 0LL;
 }

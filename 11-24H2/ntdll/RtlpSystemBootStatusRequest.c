@@ -1,23 +1,32 @@
 /*
- * XREFs of RtlpSystemBootStatusRequest @ 0x18011321C
+ * XREFs of RtlpSystemBootStatusRequest @ 0x18010E468
  * Callers:
- *     RtlGetSystemBootStatusEx @ 0x18011FEA0 (RtlGetSystemBootStatusEx.c)
- *     RtlSetSystemBootStatusEx @ 0x1801203B0 (RtlSetSystemBootStatusEx.c)
+ *     RtlGetSystemBootStatusEx @ 0x18011E0D0 (RtlGetSystemBootStatusEx.c)
+ *     RtlSetSystemBootStatusEx @ 0x18011E5E0 (RtlSetSystemBootStatusEx.c)
  * Callees:
- *     NtPowerInformation @ 0x180162860 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x180160C20 (NtPowerInformation.c)
  */
 
-__int64 __fastcall RtlpSystemBootStatusRequest(int a1, __int64 a2, unsigned int a3, __int64 a4)
+NTSTATUS __fastcall RtlpSystemBootStatusRequest(int a1, __int64 a2, unsigned int a3, void *a4)
 {
-  _DWORD v5[4]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+40h] [rbp-18h]
+  unsigned __int64 OutputBufferLength; // rax
+  _DWORD InputBuffer[4]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-18h]
 
-  if ( a4 && 4 * (unsigned __int64)a3 > 0xFFFFFFFF )
-    return 3221225621LL;
-  v5[1] = 0;
-  v5[3] = 0;
-  v5[2] = a3;
-  v5[0] = a1;
-  v6 = a2;
-  return NtPowerInformation(87LL, v5);
+  if ( a4 )
+  {
+    OutputBufferLength = 4LL * a3;
+    if ( OutputBufferLength > 0xFFFFFFFF )
+      return -1073741675;
+  }
+  else
+  {
+    LODWORD(OutputBufferLength) = 0;
+  }
+  InputBuffer[1] = 0;
+  InputBuffer[3] = 0;
+  InputBuffer[2] = a3;
+  InputBuffer[0] = a1;
+  v7 = a2;
+  return NtPowerInformation(PowerInformationInternal, InputBuffer, 0x18u, a4, OutputBufferLength);
 }

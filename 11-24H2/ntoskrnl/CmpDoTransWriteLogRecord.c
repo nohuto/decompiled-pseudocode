@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoTransWriteLogRecord @ 0x140A05BE0
+ * XREFs of CmpDoTransWriteLogRecord @ 0x140A02110
  * Callers:
- *     CmpTransWriteLog @ 0x140A0592C (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x140A01E5C (CmpTransWriteLog.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpDoTransWriteLogRecord(__int64 a1, char *a2, ULONG a3, ULONG fFlags, PCLFS_LSN plsn)
@@ -36,7 +36,7 @@ NTSTATUS __fastcall CmpDoTransWriteLogRecord(__int64 a1, char *a2, ULONG a3, ULO
   appended = result;
   if ( result == -1073741789 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0xC00uLL, 0x20204D43u);
     if ( Pool2 )
     {
       v10 = *((_DWORD *)v5 + 1);

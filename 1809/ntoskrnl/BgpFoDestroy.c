@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpFoDestroy @ 0x1409510F8
+ * XREFs of BgpFoDestroy @ 0x1409520F8
  * Callers:
- *     BgpFwLibraryDestroy @ 0x140950E4C (BgpFwLibraryDestroy.c)
- *     BgpFwLibraryDisable @ 0x140950F24 (BgpFwLibraryDisable.c)
+ *     BgpFwLibraryDestroy @ 0x140951E4C (BgpFwLibraryDestroy.c)
+ *     BgpFwLibraryDisable @ 0x140951F24 (BgpFwLibraryDisable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
- *     FopFreeFontData @ 0x1409511C0 (FopFreeFontData.c)
+ *     BgpFwFreeMemory @ 0x14016EDEC (BgpFwFreeMemory.c)
+ *     FopFreeFontData @ 0x1409521C0 (FopFreeFontData.c)
  */
 
 void __fastcall BgpFoDestroy(__int64 a1)

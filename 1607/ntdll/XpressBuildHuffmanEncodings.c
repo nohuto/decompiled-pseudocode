@@ -1,8 +1,8 @@
 /*
- * XREFs of XpressBuildHuffmanEncodings @ 0x180061140
+ * XREFs of XpressBuildHuffmanEncodings @ 0x180061130
  * Callers:
- *     RtlCompressBufferXpressHuffStandard @ 0x180060620 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x180094384 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x180060610 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x180094374 (RtlCompressBufferXpressHuffMax.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

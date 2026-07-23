@@ -61,7 +61,7 @@ NTSTATUS __stdcall NtReadFile(
   ULONG Flags; // eax
   struct _KTHREAD *v26; // rax
   PFILE_OBJECT v27; // rbx
-  __int64 v28; // rax
+  PRTL_BALANCED_NODE v28; // rax
   __int64 v29; // r9
   NTSTATUS v30; // esi
   PFAST_IO_READ FastIoRead; // rdi
@@ -224,7 +224,7 @@ LABEL_99:
   else
   {
     if ( v28 )
-      *(_BYTE *)(v28 + 26) |= 1u;
+      BYTE2(v28[1].Left) |= 1u;
     v12 = FileObject;
     ObfReferenceObject(FileObject);
     v30 = 0;

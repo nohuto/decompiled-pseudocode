@@ -1,19 +1,19 @@
 /*
  * XREFs of MiObtainReferencedSecureVad @ 0x1402159D4
  * Callers:
- *     MiCheckLockUnlockByVa @ 0x14061C710 (MiCheckLockUnlockByVa.c)
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
- *     MmAdjustSecuredVirtualMemorySize @ 0x140A31F6C (MmAdjustSecuredVirtualMemorySize.c)
- *     MmStoreAllocateVirtualMemory @ 0x140A45B60 (MmStoreAllocateVirtualMemory.c)
+ *     MiCheckLockUnlockByVa @ 0x14061CC60 (MiCheckLockUnlockByVa.c)
+ *     MmUnsecureVirtualMemory @ 0x1406B0290 (MmUnsecureVirtualMemory.c)
+ *     MmAdjustSecuredVirtualMemorySize @ 0x140A3221C (MmAdjustSecuredVirtualMemorySize.c)
+ *     MmStoreAllocateVirtualMemory @ 0x140A45E10 (MmStoreAllocateVirtualMemory.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiWaitForVadDeletion @ 0x140660C58 (MiWaitForVadDeletion.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiWaitForVadDeletion @ 0x1406611A8 (MiWaitForVadDeletion.c)
  */
 
 __int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, _DWORD *a2)

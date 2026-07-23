@@ -1,12 +1,12 @@
 /*
- * XREFs of PoDeviceReleaseIrp @ 0x140212C90
+ * XREFs of PoDeviceReleaseIrp @ 0x140212D70
  * Callers:
- *     IopfCompleteRequest @ 0x1403FDA10 (IopfCompleteRequest.c)
- *     PoHandleIrp @ 0x140486AFC (PoHandleIrp.c)
+ *     IopfCompleteRequest @ 0x1403FA200 (IopfCompleteRequest.c)
+ *     PoHandleIrp @ 0x1404804CC (PoHandleIrp.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PoDeviceReleaseIrp(__int64 a1, char a2, __int64 a3)
@@ -25,25 +25,15 @@ void __fastcall PoDeviceReleaseIrp(__int64 a1, char a2, __int64 a3)
     v6 = a3;
     v4 = *(_QWORD *)(a1 + 72 * v3 + 200);
     v5 = a1;
-    if ( byte_140E67628 )
+    if ( PopDiagHandleRegistered )
     {
-      if ( EtwEventEnabled(
-             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-             &POP_ETW_EVENT_IRP_DRIVERRELEASE) )
+      if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERRELEASE) )
       {
         UserData.Ptr = (ULONGLONG)&v5;
         *(_QWORD *)&UserData.Size = 8LL;
         v8 = &v6;
         v9 = 8LL;
-        EtwWriteEx(
-          *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-          &POP_ETW_EVENT_IRP_DRIVERRELEASE,
-          0LL,
-          0,
-          0LL,
-          0LL,
-          2u,
-          &UserData);
+        EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERRELEASE, 0LL, 0, 0LL, 0LL, 2u, &UserData);
       }
     }
     *(_QWORD *)(v4 + 40) = 0LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferGet @ 0x1404EF638
+ * XREFs of EtwpCovSampCaptureBufferGet @ 0x1404ECF6C
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x140651D44 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampCaptureUserAddresses @ 0x1409003C4 (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureSample @ 0x140650444 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x140922CA4 (EtwpCovSampCaptureUserAddresses.c)
  * Callees:
- *     EtwpCovSampLookasidePop @ 0x140465630 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampLookasidePop @ 0x14045BD10 (EtwpCovSampLookasidePop.c)
  */
 
 PSLIST_ENTRY __fastcall EtwpCovSampCaptureBufferGet(__int64 a1)

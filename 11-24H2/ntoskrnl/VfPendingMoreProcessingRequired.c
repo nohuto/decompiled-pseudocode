@@ -1,16 +1,16 @@
 /*
- * XREFs of VfPendingMoreProcessingRequired @ 0x140BA7000
+ * XREFs of VfPendingMoreProcessingRequired @ 0x140BA9000
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140BA6B70 (IovpLocalCompletionRoutine.c)
+ *     IovpLocalCompletionRoutine @ 0x140BA8B70 (IovpLocalCompletionRoutine.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1406156C8 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x140615710 (ViIrpDatabaseReleaseLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140B831B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     ViPendingDelayCompletion @ 0x140B91E88 (ViPendingDelayCompletion.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140BA3FE4 (VfIrpDatabaseEntryReleaseLock.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140BA7084 (VfIrpDatabaseEntryFindAndLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x140613C88 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x140613CD0 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140B851B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     ViPendingDelayCompletion @ 0x140B93E88 (ViPendingDelayCompletion.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140BA5FE4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140BA9084 (VfIrpDatabaseEntryFindAndLock.c)
  */
 
 __int64 __fastcall VfPendingMoreProcessingRequired(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -22,8 +22,7 @@ __int64 __fastcall VfPendingMoreProcessingRequired(__int64 a1, __int64 a2, __int
   KIRQL v13; // al
   bool v14; // zf
   unsigned __int64 v15; // rbx
-  __int64 v16; // r9
-  KIRQL v17[24]; // [rsp+30h] [rbp-18h] BYREF
+  KIRQL v16[24]; // [rsp+30h] [rbp-18h] BYREF
 
   v8 = 0;
   v9 = VfIrpDatabaseEntryFindAndLock(a2);
@@ -48,17 +47,17 @@ __int64 __fastcall VfPendingMoreProcessingRequired(__int64 a1, __int64 a2, __int
         v13 = KeAcquireSpinLockRaiseToDpc(v10 + 1);
         v14 = (*((_DWORD *)v10 + 6))-- == 1;
         *((_BYTE *)v10 + 16) = v13;
-        v17[0] = 0;
+        v16[0] = 0;
         if ( v14 )
         {
-          ViIrpDatabaseAcquireLockExclusive(v17);
+          ViIrpDatabaseAcquireLockExclusive(v16);
           v15 = *v10;
-          guard_dispatch_icall_no_overrides(v10, *v10, 1LL, v16);
+          guard_dispatch_icall_no_overrides(v10, *v10);
           *v10 = 0LL;
           VfUtilAddressRangeRemoveCheckEmpty(
             (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v15 >> 12))),
             v15);
-          ViIrpDatabaseReleaseLockExclusive(v17[0]);
+          ViIrpDatabaseReleaseLockExclusive(v16[0]);
         }
         _InterlockedDecrement((volatile signed __int32 *)v10 + 5);
         VfIrpDatabaseEntryReleaseLock(v10);

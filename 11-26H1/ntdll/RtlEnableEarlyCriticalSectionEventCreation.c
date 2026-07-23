@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlEnableEarlyCriticalSectionEventCreation @ 0x18013E020
+ * XREFs of RtlEnableEarlyCriticalSectionEventCreation @ 0x18013DED0
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakePartitionActive @ 0x1402E5DA8
+ * XREFs of MiMakePartitionActive @ 0x1402970F8
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
- *     MiEnablePartitionMappedWrites @ 0x1406D3284 (MiEnablePartitionMappedWrites.c)
- *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
+ *     MmCreateProcessAddressSpace @ 0x1406A77C4 (MmCreateProcessAddressSpace.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406AA564 (MiEnablePartitionMappedWrites.c)
+ *     MiInsertPageFileInList @ 0x1407B74F0 (MiInsertPageFileInList.c)
  * Callees:
- *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiSetSlabAllocatorPolicy @ 0x1403B7458 (MiSetSlabAllocatorPolicy.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiChargeCommit @ 0x1402BF3D0 (MiChargeCommit.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiSetSlabAllocatorPolicy @ 0x1403B75C8 (MiSetSlabAllocatorPolicy.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -26,15 +26,16 @@ __int64 __fastcall MiMakePartitionActive(__int64 a1)
   struct _KPRCB *v11; // r9
   _DWORD *v12; // r8
   int v13; // eax
-  unsigned __int64 v14; // rdi
-  unsigned __int8 v15; // al
-  struct _KPRCB *v16; // r11
-  _DWORD *v17; // r9
-  int v18; // eax
+  __int64 v14; // r8
+  _DWORD *v15; // r9
+  unsigned __int64 v16; // rdi
+  unsigned __int8 v17; // al
+  struct _KPRCB *v18; // r11
+  int v19; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C4E600, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E640, &LockHandle);
   if ( (*(_DWORD *)(a1 + 4) & 0x20) == 0 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -59,31 +60,32 @@ __int64 __fastcall MiMakePartitionActive(__int64 a1)
     __writecr8(OldIrql);
     return 1LL;
   }
-  if ( (unsigned int)MiChargeCommit(a1, 0xA0uLL, 0) )
+  if ( (unsigned int)MiChargeCommit(a1, 160LL, 0LL) )
   {
     *(_DWORD *)(a1 + 4) &= ~0x20u;
     *(_QWORD *)(a1 + 6256) = 160LL;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    v14 = LockHandle.OldIrql;
+    v16 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v15 = KeGetCurrentIrql();
-        if ( v15 <= 0xFu && LockHandle.OldIrql <= 0xFu && v15 >= 2u )
+        v17 = KeGetCurrentIrql();
+        if ( v17 <= 0xFu && LockHandle.OldIrql <= 0xFu && v17 >= 2u )
         {
-          v16 = KeGetCurrentPrcb();
-          v17 = v16->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v8 = (v18 & v17[5]) == 0;
-          v17[5] &= v18;
+          v18 = KeGetCurrentPrcb();
+          v15 = v18->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v8 = (v19 & v15[5]) == 0;
+          v14 = (unsigned int)v19 & v15[5];
+          v15[5] = v14;
           if ( v8 )
-            KiRemoveSystemWorkPriorityKick(v16);
+            KiRemoveSystemWorkPriorityKick(v18);
         }
       }
     }
-    __writecr8(v14);
-    MiReturnCommit(a1, 160LL);
+    __writecr8(v16);
+    MiReturnCommit(a1, 160LL, v14, v15);
     if ( (ULONG_PTR *)a1 != &MiSystemPartition )
       MiSetSlabAllocatorPolicy(a1);
     return 1LL;

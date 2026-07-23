@@ -1,10 +1,10 @@
 /*
- * XREFs of PspCompleteHardDereferenceSiloDeferred @ 0x140AA5740
+ * XREFs of PspCompleteHardDereferenceSiloDeferred @ 0x140AA07B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PspStorageEmptyArrayNonReadonly @ 0x140498A80 (PspStorageEmptyArrayNonReadonly.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PspStorageEmptyArrayNonReadonly @ 0x140493408 (PspStorageEmptyArrayNonReadonly.c)
  */
 
 LONG_PTR __fastcall PspCompleteHardDereferenceSiloDeferred(PVOID Object)

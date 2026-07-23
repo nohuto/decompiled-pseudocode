@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagGetDriverName @ 0x140388F7C
+ * XREFs of PopDiagGetDriverName @ 0x1403890CC
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x14037AB74 (PopDiagTraceIrpFinish.c)
- *     PopDiagTraceIrpFinishTelemetry @ 0x14037AD2C (PopDiagTraceIrpFinishTelemetry.c)
- *     PopDiagTraceDeviceAcquireIrp @ 0x140398828 (PopDiagTraceDeviceAcquireIrp.c)
- *     PopRecordPoIrpBlackboxInformation @ 0x14057F5F8 (PopRecordPoIrpBlackboxInformation.c)
- *     PopDiagTraceDriverVeto @ 0x1409B1FC4 (PopDiagTraceDriverVeto.c)
+ *     PopDiagTraceIrpFinish @ 0x14037A6C4 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x14037A87C (PopDiagTraceIrpFinishTelemetry.c)
+ *     PopDiagTraceDeviceAcquireIrp @ 0x140398978 (PopDiagTraceDeviceAcquireIrp.c)
+ *     PopRecordPoIrpBlackboxInformation @ 0x14057F838 (PopRecordPoIrpBlackboxInformation.c)
+ *     PopDiagTraceDriverVeto @ 0x1409B2EF4 (PopDiagTraceDriverVeto.c)
  * Callees:
- *     RtlStringCbCopyNW @ 0x14027F1B8 (RtlStringCbCopyNW.c)
+ *     RtlStringCbCopyNW @ 0x14026D5E8 (RtlStringCbCopyNW.c)
  */
 
 NTSTATUS __fastcall PopDiagGetDriverName(__int64 a1, wchar_t *a2)

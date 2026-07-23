@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUserApcHandler @ 0x1800A3E90
+ * XREFs of KiUserApcHandler @ 0x1800A3EB0
  * Callers:
  *     <none>
  * Callees:
- *     ZwTestAlert @ 0x1800A39F0 (ZwTestAlert.c)
+ *     ZwTestAlert @ 0x1800A3A10 (ZwTestAlert.c)
  */
 
 __int64 __fastcall KiUserApcHandler(__int64 a1)

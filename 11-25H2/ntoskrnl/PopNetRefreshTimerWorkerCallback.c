@@ -25,7 +25,7 @@ __int64 __fastcall PopNetRefreshTimerWorkerCallback(__int64 a1, __int64 a2)
   __int64 v8; // r8
   __int64 v9; // r9
   __int64 v11; // [rsp+20h] [rbp-28h]
-  char v12; // [rsp+58h] [rbp+10h] BYREF
+  char Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   PopAcquirePolicyLock(a1, a2);
   if ( PopNetInLpePhase && PopNetIsNetworkRefreshEnabled() && _InterlockedExchangeAdd(&PopNetRefreshTimerState, 0) == 2 )
@@ -42,9 +42,8 @@ __int64 __fastcall PopNetRefreshTimerWorkerCallback(__int64 a1, __int64 a2)
     {
       LOBYTE(v2) = 1;
       PopNetSetResiliencyPhaseBias(v2);
-      v11 = 0LL;
-      v12 = 1;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_OPPORTUNISTIC_CS, (__int64)&v12);
+      Buffer = 1;
+      ZwUpdateWnfStateData(&WNF_PO_OPPORTUNISTIC_CS, &Buffer, 1u, 0LL, 0LL, 0, 0);
       PopNetRefreshIntervalActive = 1;
       v3 = 0;
       _InterlockedExchange(&PopNetRefreshTimerState, 1);

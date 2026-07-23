@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCreateHeapEncoding @ 0x18007DB78
+ * XREFs of RtlpCreateHeapEncoding @ 0x18006C39C
  * Callers:
- *     RtlpCreateHeap @ 0x18007C890 (RtlpCreateHeap.c)
+ *     RtlpCreateHeap @ 0x18006B0B0 (RtlpCreateHeap.c)
  * Callees:
  *     <none>
  */
@@ -20,21 +20,21 @@ void __fastcall RtlpCreateHeapEncoding(__int64 a1)
     *(_DWORD *)(a1 + 136) = 0;
     *(_BYTE *)(a1 + 138) = 16;
     *(_DWORD *)(a1 + 124) = *(_DWORD *)(a1 + 136);
-    v2 = qword_1801C6F00;
+    v2 = qword_1801C5F00;
     do
     {
       v3 = v2 ^ (v2 >> 12) ^ ((v2 ^ (v2 >> 12)) << 25) ^ ((v2 ^ (v2 >> 12) ^ ((v2 ^ (v2 >> 12)) << 25)) >> 27);
       v4 = v2;
-      v2 = _InterlockedCompareExchange64(&qword_1801C6F00, v3, v2);
+      v2 = _InterlockedCompareExchange64(&qword_1801C5F00, v3, v2);
     }
     while ( v4 != v2 );
     *(_DWORD *)(a1 + 136) |= 1332534557 * v3;
-    v5 = qword_1801C6F00;
+    v5 = qword_1801C5F00;
     do
     {
       v6 = v5 ^ (v5 >> 12) ^ ((v5 ^ (v5 >> 12)) << 25) ^ ((v5 ^ (v5 >> 12) ^ ((v5 ^ (v5 >> 12)) << 25)) >> 27);
       v7 = v5;
-      v5 = _InterlockedCompareExchange64(&qword_1801C6F00, v6, v5);
+      v5 = _InterlockedCompareExchange64(&qword_1801C5F00, v6, v5);
     }
     while ( v7 != v5 );
     *(_DWORD *)(a1 + 140) = (unsigned __int16)(-8931 * v6);

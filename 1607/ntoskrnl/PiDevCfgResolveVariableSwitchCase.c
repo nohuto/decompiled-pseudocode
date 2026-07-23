@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgResolveVariableSwitchCase @ 0x140640D9C
+ * XREFs of PiDevCfgResolveVariableSwitchCase @ 0x140640E80
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PnpValidateRegistryString @ 0x1401CF660 (PnpValidateRegistryString.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PnpValidateRegistryString @ 0x1401CF3F4 (PnpValidateRegistryString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     PiDevCfgCopyVariableData @ 0x140637250 (PiDevCfgCopyVariableData.c)
- *     PiDevCfgResolveVariable @ 0x14063E354 (PiDevCfgResolveVariable.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PiDevCfgCopyVariableData @ 0x140637304 (PiDevCfgCopyVariableData.c)
+ *     PiDevCfgResolveVariable @ 0x14063E438 (PiDevCfgResolveVariable.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableSwitchCase(__int64 a1, void *a2, __int64 a3)

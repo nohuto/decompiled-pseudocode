@@ -1,27 +1,27 @@
 /*
- * XREFs of AslpFileGetVersionBlock @ 0x1407B3224
+ * XREFs of AslpFileGetVersionBlock @ 0x1407B33C4
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x1407B2958 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x1407B2AF8 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     RtlFileMapFree @ 0x1403714EC (RtlFileMapFree.c)
- *     RtlVerifyVersionInfo @ 0x14037D8C0 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x14037F860 (VerSetConditionMask.c)
- *     RtlFileMapMapView @ 0x1403BD8C4 (RtlFileMapMapView.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     LdrResSearchResource @ 0x14068C140 (LdrResSearchResource.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     AslFileMappingEnsure @ 0x1407B28C8 (AslFileMappingEnsure.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlFileMapFree @ 0x14037103C (RtlFileMapFree.c)
+ *     RtlVerifyVersionInfo @ 0x14037D410 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x14037F3B0 (VerSetConditionMask.c)
+ *     RtlFileMapMapView @ 0x1403BDA34 (RtlFileMapMapView.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     LdrResSearchResource @ 0x1405EBFB0 (LdrResSearchResource.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     AslFileMappingEnsure @ 0x1407B2A68 (AslFileMappingEnsure.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
 {
   __int64 v6; // rcx
   int v7; // ebx
-  ULONGLONG v8; // r13
+  unsigned __int64 v8; // r13
   int v9; // eax
   __int64 v10; // rcx
   unsigned __int64 v11; // r8
@@ -44,7 +44,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
   __int128 v29; // [rsp+88h] [rbp-190h]
   __int128 v30; // [rsp+98h] [rbp-180h]
   __int64 v31; // [rsp+A8h] [rbp-170h]
-  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
   size_t Size; // [rsp+238h] [rbp+20h] BYREF
 
   Src = 0LL;
@@ -97,7 +97,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
         goto LABEL_43;
       AslLogCallPrintf(3LL);
       v8 = *((_QWORD *)&v29 + 1);
-      v7 = LdrResSearchResource(*((ULONGLONG *)&v29 + 1), v27, 3u, 0, &Src, (__int64 *)&Size, 0LL, 0LL);
+      v7 = LdrResSearchResource(*((unsigned __int64 *)&v29 + 1), v27, 3u, 0, &Src, (__int64 *)&Size, 0LL, 0LL);
       AslLogCallPrintf(2LL);
       if ( v7 < 0 )
         goto LABEL_43;

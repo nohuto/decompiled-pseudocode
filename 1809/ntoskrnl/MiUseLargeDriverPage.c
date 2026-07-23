@@ -1,30 +1,30 @@
 /*
- * XREFs of MiUseLargeDriverPage @ 0x140683260
+ * XREFs of MiUseLargeDriverPage @ 0x140684420
  * Callers:
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
- *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
- *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
- *     MiMapWithLargePages @ 0x140183460 (MiMapWithLargePages.c)
- *     MiGetPageTablesForLargeMap @ 0x140183724 (MiGetPageTablesForLargeMap.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x1402B9020 (MiInitPerfMemoryFlags.c)
- *     MiRoundUpToPowerOf2SizeT @ 0x1402CB1F4 (MiRoundUpToPowerOf2SizeT.c)
- *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F7074 (RtlPerformRetpolineRelocationsOnImage.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     MiChargeSystemImageCommitment @ 0x1406831FC (MiChargeSystemImageCommitment.c)
- *     LdrRelocateImageWithBias @ 0x14072A758 (LdrRelocateImageWithBias.c)
- *     MiUnmapLargeDriver @ 0x14085D97C (MiUnmapLargeDriver.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA590 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA5F0 (MiIsRetpolineEnabled.c)
+ *     MiFreeContiguousPages @ 0x1401231C4 (MiFreeContiguousPages.c)
+ *     MiMapWithLargePages @ 0x1401835A0 (MiMapWithLargePages.c)
+ *     MiGetPageTablesForLargeMap @ 0x140183864 (MiGetPageTablesForLargeMap.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9508 (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x1402B9210 (MiInitPerfMemoryFlags.c)
+ *     MiRoundUpToPowerOf2SizeT @ 0x1402CB3E4 (MiRoundUpToPowerOf2SizeT.c)
+ *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F7264 (RtlPerformRetpolineRelocationsOnImage.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     MiChargeSystemImageCommitment @ 0x1406843BC (MiChargeSystemImageCommitment.c)
+ *     LdrRelocateImageWithBias @ 0x14072B948 (LdrRelocateImageWithBias.c)
+ *     MiUnmapLargeDriver @ 0x14085EBDC (MiUnmapLargeDriver.c)
  */
 
 char *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a3, const UNICODE_STRING *a4)
@@ -62,10 +62,10 @@ char *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a
   memset(v35, 0, 0x28uLL);
   if ( (MiFlags & 0x10000) != 0 )
     return 0LL;
-  if ( !byte_140438ECD )
+  if ( !byte_140439F8D )
   {
     v8 = 0;
-    for ( i = qword_140438ED8; (__int64 *)i != &qword_140438ED8; i = *(_QWORD *)i )
+    for ( i = qword_140439F98; (__int64 *)i != &qword_140439F98; i = *(_QWORD *)i )
     {
       if ( RtlEqualUnicodeString(a4, (PCUNICODE_STRING)(i + 16), 1u) )
       {
@@ -90,7 +90,7 @@ char *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a
     v10 = 0LL;
   }
   v32 = v6;
-  v12 = (v6 + (unsigned int)dword_140438E34 + 511LL) & 0xFFFFFFFFFFFFFE00uLL;
+  v12 = (v6 + (unsigned int)dword_140439EF4 + 511LL) & 0xFFFFFFFFFFFFFE00uLL;
   v13 = MiRoundUpToPowerOf2SizeT(v12);
   if ( (int)MiFindContiguousPages(
               (__int64)&MiSystemPartition,
@@ -120,9 +120,9 @@ char *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a
   v16 = v15;
   memmove(PageTablesForLargeMap, a3, (unsigned int)v15);
   v17 = &PageTablesForLargeMap[(unsigned int)v15];
-  memset(v17, 0, (unsigned int)(dword_140438E34 << 12));
+  memset(v17, 0, (unsigned int)(dword_140439EF4 << 12));
   if ( MiIsRetpolineEnabled() )
-    memmove(&PageTablesForLargeMap[v15], qword_140438E50, (unsigned int)(dword_140438E60 << 12));
+    memmove(&PageTablesForLargeMap[v15], qword_140439F10, (unsigned int)(dword_140439F20 << 12));
   v18 = RtlImageNtHeader(PageTablesForLargeMap);
   v21 = v18;
   if ( v18->OptionalHeader.NumberOfRvaAndSizes <= 5
@@ -136,7 +136,7 @@ char *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a
                  (__int64)PageTablesForLargeMap,
                  v16,
                  (__int64)v17,
-                 (__int64)qword_140438E50,
+                 (__int64)qword_140439F10,
                  IsRetpolineEnabled),
          (int)(v25 + 0x80000000) >= 0)
      && v25 != -1073741637) )

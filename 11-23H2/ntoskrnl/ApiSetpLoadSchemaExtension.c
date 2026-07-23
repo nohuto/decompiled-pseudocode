@@ -1,14 +1,14 @@
 /*
- * XREFs of ApiSetpLoadSchemaExtension @ 0x140A09FC0
+ * XREFs of ApiSetpLoadSchemaExtension @ 0x140A0A270
  * Callers:
- *     ApiSetpLoadSchemaExtensions @ 0x140A0A0DC (ApiSetpLoadSchemaExtensions.c)
+ *     ApiSetpLoadSchemaExtensions @ 0x140A0A38C (ApiSetpLoadSchemaExtensions.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ApiSetReleaseSchema @ 0x1406146B0 (ApiSetReleaseSchema.c)
- *     ApiSetComposeSchema @ 0x1406149A4 (ApiSetComposeSchema.c)
- *     ApiSetLoadSchemaEx @ 0x140A09CEC (ApiSetLoadSchemaEx.c)
- *     ApiSetpConstructPathToExtension @ 0x140A09E90 (ApiSetpConstructPathToExtension.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ApiSetReleaseSchema @ 0x140614C00 (ApiSetReleaseSchema.c)
+ *     ApiSetComposeSchema @ 0x140614EF4 (ApiSetComposeSchema.c)
+ *     ApiSetLoadSchemaEx @ 0x140A09F9C (ApiSetLoadSchemaEx.c)
+ *     ApiSetpConstructPathToExtension @ 0x140A0A140 (ApiSetpConstructPathToExtension.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

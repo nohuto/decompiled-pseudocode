@@ -15,7 +15,7 @@
  *     _EtwpFindAndLockBufferForFlushing@12 @ 0x4B381711 (_EtwpFindAndLockBufferForFlushing@12.c)
  */
 
-ULONG __thiscall EtwpBufferingModeFlush(int this)
+ULONG __thiscall EtwpBufferingModeFlush(unsigned int this)
 {
   NTSTATUS v2; // eax
   ULONG v3; // ebx
@@ -33,7 +33,7 @@ ULONG __thiscall EtwpBufferingModeFlush(int this)
   unsigned int v16; // [esp+14h] [ebp-4h]
 
   v15 = *(_DWORD *)(this + 140);
-  v2 = EtwpAddLogHeaderToLogFile(this, 0, 0, 0);
+  v2 = EtwpAddLogHeaderToLogFile(this, 0, 0LL);
   if ( v2 )
   {
     v3 = RtlNtStatusToDosError(v2);
@@ -45,7 +45,7 @@ ULONG __thiscall EtwpBufferingModeFlush(int this)
   {
     v14 = 0;
   }
-  RtlEnterCriticalSection(this + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(this + 72));
   v4 = 0;
   if ( *(_DWORD *)(this + 136) )
   {
@@ -66,7 +66,7 @@ ULONG __thiscall EtwpBufferingModeFlush(int this)
     }
     while ( v4 < *(_DWORD *)(this + 136) );
   }
-  RtlLeaveCriticalSection(this + 72);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(this + 72));
   v8 = *(_DWORD *)(this + 296);
   for ( i = *(_DWORD *)(this + 300); ; i = (__PAIR64__(v16, v8--) - 1) >> 32 )
   {

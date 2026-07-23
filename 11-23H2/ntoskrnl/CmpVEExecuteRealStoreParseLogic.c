@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x140A1A208
+ * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x140A1A4B8
  * Callers:
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     CmpIsKeyDeleted @ 0x1407CB1FC (CmpIsKeyDeleted.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpBlockHiveWrites @ 0x140A137A4 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x140A13974 (CmpUnblockHiveWrites.c)
- *     CmRealKCBToVirtualPath @ 0x140A18608 (CmRealKCBToVirtualPath.c)
- *     CmpFindPathByName @ 0x140A195E0 (CmpFindPathByName.c)
- *     CmpVirtualBranchIsReplicated @ 0x140A1A62C (CmpVirtualBranchIsReplicated.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     CmpIsKeyDeleted @ 0x1407CB4CC (CmpIsKeyDeleted.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpBlockHiveWrites @ 0x140A13A54 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A13C24 (CmpUnblockHiveWrites.c)
+ *     CmRealKCBToVirtualPath @ 0x140A188B8 (CmRealKCBToVirtualPath.c)
+ *     CmpFindPathByName @ 0x140A19890 (CmpFindPathByName.c)
+ *     CmpVirtualBranchIsReplicated @ 0x140A1A8DC (CmpVirtualBranchIsReplicated.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

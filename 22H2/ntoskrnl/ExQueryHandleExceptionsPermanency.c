@@ -27,7 +27,7 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
   unsigned int v12; // r8d
   bool v13; // zf
   __int64 v14; // rcx
-  unsigned __int64 v15; // rdi
+  __int64 v15; // rdi
   __int64 v16; // rdx
   __int64 v17; // rcx
   int v19; // [rsp+78h] [rbp+20h] BYREF
@@ -68,7 +68,7 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
     v13 = !_BitScanReverse((unsigned int *)&v14, v12);
     if ( v13 )
       break;
-    v15 = (unsigned __int64)&v9->LockEntries[v14];
+    v15 = (__int64)&v9->LockEntries[v14];
     v12 &= ~(1 << v14);
     if ( (*(_BYTE *)(v15 + 26) & 1) != 0
       && (*(_DWORD *)(v15 + 32) & 1) == 0
@@ -82,12 +82,12 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
         {
           *(_BYTE *)(v15 + 32) |= 2u;
           if ( *(__int64 *)(v15 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v15);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v15);
           v19 = *(_DWORD *)(v15 + 88) & 0x1FFFF;
           *(_DWORD *)(v15 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v15 + 25) &= ~1u;
           *(_QWORD *)(v15 + 32) = 0LL;
-          v16 = (__int64)(v15 - (unsigned __int64)v9->LockEntries) / 96;
+          v16 = (signed __int64)(v15 - (unsigned __int64)v9->LockEntries) / 96;
           if ( v11 == 1 )
             v9->AbEntrySummary |= 1 << v16;
           else

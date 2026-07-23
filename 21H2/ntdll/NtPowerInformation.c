@@ -1,22 +1,27 @@
 /*
- * XREFs of NtPowerInformation @ 0x18009E210
+ * XREFs of NtPowerInformation @ 0x18009E1D0
  * Callers:
  *     RtlpSystemBootStatusRequest @ 0x180085DE4 (RtlpSystemBootStatusRequest.c)
- *     RtlCheckSystemBootStatusIntegrity @ 0x1800EDE50 (RtlCheckSystemBootStatusIntegrity.c)
- *     RtlRestoreSystemBootStatusDefaults @ 0x1800EE2E0 (RtlRestoreSystemBootStatusDefaults.c)
- *     RtlUnlockBootStatusData @ 0x1800EE340 (RtlUnlockBootStatusData.c)
- *     RtlpRecordBootStatusData @ 0x1800EE674 (RtlpRecordBootStatusData.c)
- *     RtlpCreateExecutionRequiredRequest @ 0x18010B154 (RtlpCreateExecutionRequiredRequest.c)
- *     RtlpDestroyExecutionRequiredRequest @ 0x18010B254 (RtlpDestroyExecutionRequiredRequest.c)
+ *     RtlCheckSystemBootStatusIntegrity @ 0x1800EDE10 (RtlCheckSystemBootStatusIntegrity.c)
+ *     RtlRestoreSystemBootStatusDefaults @ 0x1800EE2A0 (RtlRestoreSystemBootStatusDefaults.c)
+ *     RtlUnlockBootStatusData @ 0x1800EE300 (RtlUnlockBootStatusData.c)
+ *     RtlpRecordBootStatusData @ 0x1800EE634 (RtlpRecordBootStatusData.c)
+ *     RtlpCreateExecutionRequiredRequest @ 0x18010B114 (RtlpCreateExecutionRequiredRequest.c)
+ *     RtlpDestroyExecutionRequiredRequest @ 0x18010B214 (RtlpDestroyExecutionRequiredRequest.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtPowerInformation()
+NTSTATUS __cdecl NtPowerInformation(
+        POWER_INFORMATION_LEVEL InformationLevel,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 95LL;
+  result = 95;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFindPageFileWriteCluster @ 0x1406398F0
+ * XREFs of MiFindPageFileWriteCluster @ 0x140639E40
  * Callers:
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiFindFreePageFileSpace @ 0x1402946D4 (MiFindFreePageFileSpace.c)
- *     RtlFindLongestRunClearCapped @ 0x1405A8020 (RtlFindLongestRunClearCapped.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140638EFC (MiDerefPageFileSpaceBitmaps.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14063B494 (MiRefPageFileSpaceBitmaps.c)
- *     MiSetPageFileAllocationBits @ 0x14063B5B8 (MiSetPageFileAllocationBits.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiFindFreePageFileSpace @ 0x140294964 (MiFindFreePageFileSpace.c)
+ *     RtlFindLongestRunClearCapped @ 0x1405A8590 (RtlFindLongestRunClearCapped.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14063944C (MiDerefPageFileSpaceBitmaps.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14063B9E4 (MiRefPageFileSpaceBitmaps.c)
+ *     MiSetPageFileAllocationBits @ 0x14063BB08 (MiSetPageFileAllocationBits.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

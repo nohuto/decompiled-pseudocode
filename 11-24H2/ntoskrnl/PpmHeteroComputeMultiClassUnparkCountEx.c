@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405E0230
+ * XREFs of PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405DD850
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DFBD4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
+ *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DD1F4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
  * Callees:
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140354CF8 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404ED1C8 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
- *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DEFC0 (PpmEventTraceMultiClassHeteroResponseEx.c)
- *     PpmHeteroComputeCoreParkingUtilitiesEx @ 0x1405E0088 (PpmHeteroComputeCoreParkingUtilitiesEx.c)
- *     PpmHeteroComputeUnparkCountEx @ 0x1405E05AC (PpmHeteroComputeUnparkCountEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402B2A28 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404E49EC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DC0EC (PpmEventTraceMultiClassHeteroResponseEx.c)
+ *     PpmHeteroComputeCoreParkingUtilitiesEx @ 0x1405DD6A8 (PpmHeteroComputeCoreParkingUtilitiesEx.c)
+ *     PpmHeteroComputeUnparkCountEx @ 0x1405DDBCC (PpmHeteroComputeUnparkCountEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall PpmHeteroComputeMultiClassUnparkCountEx(
@@ -68,7 +68,7 @@ char __fastcall PpmHeteroComputeMultiClassUnparkCountEx(
     v10 = 1;
     for ( *(_QWORD *)(a1 + 1192) = 0LL;
           v10 < *(unsigned __int8 *)(a1 + 12);
-          *(_QWORD *)(640 * v11 + *(_QWORD *)(a1 + 1280) + 16) = 0LL )
+          *(_QWORD *)(640 * v11 + *(_QWORD *)(a1 + 1288) + 16) = 0LL )
     {
       v11 = v10++;
     }
@@ -83,7 +83,7 @@ char __fastcall PpmHeteroComputeMultiClassUnparkCountEx(
   {
     do
     {
-      v18 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1280) + 640LL * v17);
+      v18 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1288) + 640LL * v17);
       v15 += v18[4];
       v16 += *v18;
       LOBYTE(v13) = KiOrAffinityEx(&v41, (struct _KAFFINITY_EX *)(v18 + 20), &v41, v41.Size);
@@ -103,7 +103,7 @@ char __fastcall PpmHeteroComputeMultiClassUnparkCountEx(
         v20 = 0;
         *(_DWORD *)&v36[8] = 0;
         *(_QWORD *)v36 = v9 + 1;
-        v21 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1280) + 640LL * v9);
+        v21 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1288) + 640LL * v9);
         v15 -= v21[4];
         v16 -= *v21;
         if ( *(_DWORD *)v36 == (unsigned __int8)v19 )
@@ -158,7 +158,7 @@ char __fastcall PpmHeteroComputeMultiClassUnparkCountEx(
       do
       {
         v28 = *(_QWORD *)(a1 + 1192);
-        v29 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1280) + 640LL * v27);
+        v29 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1288) + 640LL * v27);
         if ( !v28 )
           v28 = 1LL;
         *(_QWORD *)(a1 + 1192) = v28;

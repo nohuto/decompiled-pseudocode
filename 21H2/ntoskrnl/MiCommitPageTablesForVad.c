@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCommitPageTablesForVad @ 0x1405F91A0
+ * XREFs of MiCommitPageTablesForVad @ 0x1406E8900
  * Callers:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiSplitPrivatePage @ 0x14030CFB0 (MiSplitPrivatePage.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiCommitPageTableRangesForVad @ 0x14054528C (MiCommitPageTableRangesForVad.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiSplitPrivatePage @ 0x140317D00 (MiSplitPrivatePage.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiCommitPageTableRangesForVad @ 0x1405454CC (MiCommitPageTableRangesForVad.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
  * Callees:
- *     MiMakeHyperRangeAccessible @ 0x14021B4E0 (MiMakeHyperRangeAccessible.c)
- *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
- *     MiVadLeafPagesPrecharged @ 0x14021B9E0 (MiVadLeafPagesPrecharged.c)
- *     MiVadPageTableChargeLevel @ 0x14021BA20 (MiVadPageTableChargeLevel.c)
- *     MiCreateSystemWsles @ 0x1402C0BD0 (MiCreateSystemWsles.c)
- *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
- *     MiUpdateChargedWsles @ 0x14055C45C (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
+ *     MiCreateSystemWsles @ 0x14023F040 (MiCreateSystemWsles.c)
+ *     MiMakeHyperRangeAccessible @ 0x1402BFDE0 (MiMakeHyperRangeAccessible.c)
+ *     MiVadPureReserve @ 0x1402C0290 (MiVadPureReserve.c)
+ *     MiVadLeafPagesPrecharged @ 0x1402C02E0 (MiVadLeafPagesPrecharged.c)
+ *     MiVadPageTableChargeLevel @ 0x1402C0320 (MiVadPageTableChargeLevel.c)
+ *     RtlAreBitsClearEx @ 0x140353CE0 (RtlAreBitsClearEx.c)
+ *     MiUpdateChargedWsles @ 0x14055C69C (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x1406E8830 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, _DWORD *a4)

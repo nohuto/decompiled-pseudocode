@@ -3,55 +3,55 @@
  * Callers:
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     MiProbeAndLockComplete @ 0x1400936AC (MiProbeAndLockComplete.c)
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     CcCopyBytesToUserBuffer @ 0x1400B1920 (CcCopyBytesToUserBuffer.c)
- *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
- *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
- *     CcMdlWriteComplete2 @ 0x1400E1928 (CcMdlWriteComplete2.c)
- *     CcPrepareMdlWrite @ 0x1400E1A40 (CcPrepareMdlWrite.c)
- *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
- *     CcLockSystemCacheBuffer @ 0x140269B24 (CcLockSystemCacheBuffer.c)
- *     CcMdlWriteAbort @ 0x14026B0C0 (CcMdlWriteAbort.c)
- *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
- *     VslFinalizeSecureImageHash @ 0x14027CA10 (VslFinalizeSecureImageHash.c)
- *     VslValidateDynamicCodePages @ 0x14027CF90 (VslValidateDynamicCodePages.c)
- *     KiOpPatchCode @ 0x14029C5E8 (KiOpPatchCode.c)
- *     MiGetWorkingSetInfo @ 0x1402BECC4 (MiGetWorkingSetInfo.c)
- *     PspIumFreePartitionState @ 0x1402EB864 (PspIumFreePartitionState.c)
- *     SmPrepareForFatalPageError @ 0x1403092DC (SmPrepareForFatalPageError.c)
- *     VmProbeAndLockPages @ 0x14030B980 (VmProbeAndLockPages.c)
- *     VmUnlockPages @ 0x14030BA20 (VmUnlockPages.c)
- *     ExpGetLookasideInformation @ 0x1403190C0 (ExpGetLookasideInformation.c)
- *     WbMakeUserDataPagesKernelWritable @ 0x1405849A0 (WbMakeUserDataPagesKernelWritable.c)
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
- *     CcMdlRead @ 0x140662B90 (CcMdlRead.c)
- *     CcMdlReadComplete2 @ 0x140662E64 (CcMdlReadComplete2.c)
- *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
- *     WbMakeUserExecutablePagesKernelWritable @ 0x14068FEA4 (WbMakeUserExecutablePagesKernelWritable.c)
- *     sub_1406901D0 @ 0x1406901D0 (sub_1406901D0.c)
- *     sub_140691544 @ 0x140691544 (sub_140691544.c)
- *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
- *     AlpcpInitializeCompletionList @ 0x1406D4BE0 (AlpcpInitializeCompletionList.c)
- *     AlpcpFreeCompletionList @ 0x1406D69C0 (AlpcpFreeCompletionList.c)
- *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x1407064E0 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     FsRtlpFreeMdlChain @ 0x1408158C4 (FsRtlpFreeMdlChain.c)
- *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140816C60 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     VslCallEnclave @ 0x140817CFC (VslCallEnclave.c)
- *     VslObtainHotPatchUndoTable @ 0x140818B74 (VslObtainHotPatchUndoTable.c)
- *     IopCleanupFileObjectIosbRange @ 0x1408198B8 (IopCleanupFileObjectIosbRange.c)
- *     IopSetFileObjectIosbRange @ 0x14081B01C (IopSetFileObjectIosbRange.c)
- *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
- *     MiReleaseHotPatchResources @ 0x140857F0C (MiReleaseHotPatchResources.c)
- *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
- *     NtLoadEnclaveData @ 0x14085AFB0 (NtLoadEnclaveData.c)
- *     PspCreateSecureThread @ 0x14088AB4C (PspCreateSecureThread.c)
- *     SmProcessStatsRequest @ 0x1408AB3C0 (SmProcessStatsRequest.c)
- *     ExpProfileDelete @ 0x1408DA0A0 (ExpProfileDelete.c)
- *     NtStartProfile @ 0x1408DA3E0 (NtStartProfile.c)
- *     NtStopProfile @ 0x1408DA640 (NtStopProfile.c)
+ *     MiProbeAndLockComplete @ 0x1400935EC (MiProbeAndLockComplete.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
+ *     CcCopyBytesToUserBuffer @ 0x1400B1860 (CcCopyBytesToUserBuffer.c)
+ *     IopfCompleteRequest @ 0x1400C1030 (IopfCompleteRequest.c)
+ *     CcZeroDataInCache @ 0x1400E0844 (CcZeroDataInCache.c)
+ *     CcMdlWriteComplete2 @ 0x1400E19A8 (CcMdlWriteComplete2.c)
+ *     CcPrepareMdlWrite @ 0x1400E1AC0 (CcPrepareMdlWrite.c)
+ *     ExUnlockUserBuffer @ 0x14011A788 (ExUnlockUserBuffer.c)
+ *     CcLockSystemCacheBuffer @ 0x140269D14 (CcLockSystemCacheBuffer.c)
+ *     CcMdlWriteAbort @ 0x14026B2B0 (CcMdlWriteAbort.c)
+ *     VslpLockPagesForTransfer @ 0x14027C704 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C8E0 (VslpUnlockPagesForTransfer.c)
+ *     VslFinalizeSecureImageHash @ 0x14027CC00 (VslFinalizeSecureImageHash.c)
+ *     VslValidateDynamicCodePages @ 0x14027D180 (VslValidateDynamicCodePages.c)
+ *     KiOpPatchCode @ 0x14029C7D8 (KiOpPatchCode.c)
+ *     MiGetWorkingSetInfo @ 0x1402BEEB4 (MiGetWorkingSetInfo.c)
+ *     PspIumFreePartitionState @ 0x1402EBA54 (PspIumFreePartitionState.c)
+ *     SmPrepareForFatalPageError @ 0x1403094CC (SmPrepareForFatalPageError.c)
+ *     VmProbeAndLockPages @ 0x14030BB70 (VmProbeAndLockPages.c)
+ *     VmUnlockPages @ 0x14030BC10 (VmUnlockPages.c)
+ *     ExpGetLookasideInformation @ 0x1403192B0 (ExpGetLookasideInformation.c)
+ *     WbMakeUserDataPagesKernelWritable @ 0x1405859A0 (WbMakeUserDataPagesKernelWritable.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
+ *     MmCopyVirtualMemory @ 0x1406457B0 (MmCopyVirtualMemory.c)
+ *     CcMdlRead @ 0x140663D50 (CcMdlRead.c)
+ *     CcMdlReadComplete2 @ 0x140664024 (CcMdlReadComplete2.c)
+ *     MmRotatePhysicalView @ 0x14066CAD0 (MmRotatePhysicalView.c)
+ *     WbMakeUserExecutablePagesKernelWritable @ 0x140691064 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     sub_140691390 @ 0x140691390 (sub_140691390.c)
+ *     sub_140692704 @ 0x140692704 (sub_140692704.c)
+ *     MiAllocatePerSessionProtos @ 0x1406CA490 (MiAllocatePerSessionProtos.c)
+ *     AlpcpInitializeCompletionList @ 0x1406D5E80 (AlpcpInitializeCompletionList.c)
+ *     AlpcpFreeCompletionList @ 0x1406D7C60 (AlpcpFreeCompletionList.c)
+ *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140707780 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     FsRtlpFreeMdlChain @ 0x140816AC4 (FsRtlpFreeMdlChain.c)
+ *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140817E60 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     VslCallEnclave @ 0x140818EFC (VslCallEnclave.c)
+ *     VslObtainHotPatchUndoTable @ 0x140819D74 (VslObtainHotPatchUndoTable.c)
+ *     IopCleanupFileObjectIosbRange @ 0x14081AAB8 (IopCleanupFileObjectIosbRange.c)
+ *     IopSetFileObjectIosbRange @ 0x14081C21C (IopSetFileObjectIosbRange.c)
+ *     MiApplyImageHotPatch @ 0x1408558E8 (MiApplyImageHotPatch.c)
+ *     MiReleaseHotPatchResources @ 0x14085916C (MiReleaseHotPatchResources.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085A6EC (MiCopyPagesIntoEnclave.c)
+ *     NtLoadEnclaveData @ 0x14085C210 (NtLoadEnclaveData.c)
+ *     PspCreateSecureThread @ 0x14088BDAC (PspCreateSecureThread.c)
+ *     SmProcessStatsRequest @ 0x1408AC620 (SmProcessStatsRequest.c)
+ *     ExpProfileDelete @ 0x1408DB360 (ExpProfileDelete.c)
+ *     NtStartProfile @ 0x1408DB6A0 (NtStartProfile.c)
+ *     NtStopProfile @ 0x1408DB900 (NtStopProfile.c)
  * Callees:
  *     MiUnlockPageTableCharges @ 0x14001A320 (MiUnlockPageTableCharges.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -59,17 +59,17 @@
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiDereferenceControlAreaProbe @ 0x140094CEC (MiDereferenceControlAreaProbe.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     ExReleaseRundownProtectionCacheAware @ 0x14010C910 (ExReleaseRundownProtectionCacheAware.c)
- *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiFreeMdlTracker @ 0x1402A8268 (MiFreeMdlTracker.c)
- *     MiRetardMdl @ 0x1402A83EC (MiRetardMdl.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiDereferenceControlAreaProbe @ 0x140094C2C (MiDereferenceControlAreaProbe.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x14010C990 (ExReleaseRundownProtectionCacheAware.c)
+ *     MiDereferenceIoPages @ 0x140123704 (MiDereferenceIoPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiFreeMdlTracker @ 0x1402A8458 (MiFreeMdlTracker.c)
+ *     MiRetardMdl @ 0x1402A85DC (MiRetardMdl.c)
  */
 
 void __stdcall MmUnlockPages(PMDL MemoryDescriptorList)
@@ -210,7 +210,7 @@ void __stdcall MmUnlockPages(PMDL MemoryDescriptorList)
       while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 24), 0x3FuLL) );
       v6 = 0;
     }
-    v16 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v12 + 40) >> 40) & 0x3FFLL));
+    v16 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v12 + 40) >> 40) & 0x3FFLL));
     v17 = *(_BYTE *)(v12 + 34);
     v56 = v16;
     if ( (v17 & 0x20) != 0 && (v17 & 8) == 0 && (*(_QWORD *)(v12 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 0 )
@@ -247,8 +247,8 @@ void __stdcall MmUnlockPages(PMDL MemoryDescriptorList)
         v48 = *(_QWORD *)(v12 + 16);
         if ( (v48 & 0x400) != 0 )
         {
-          if ( qword_14043A0C0 && (v48 & 0x10) == 0 )
-            v48 &= ~qword_14043A0C0;
+          if ( qword_14043B180 && (v48 & 0x10) == 0 )
+            v48 &= ~qword_14043B180;
           v14 = *(_QWORD *)(v48 >> 16);
         }
       }
@@ -302,9 +302,9 @@ LABEL_27:
         v25 = 1;
       }
       v26 = (v21 >> 40) & 0x3FF;
-      v27 = *(_QWORD *)(qword_14043A748 + 8 * v26);
+      v27 = *(_QWORD *)(qword_14043B808 + 8 * v26);
       if ( v25 == 1 )
-        MiReturnCommit(*(_QWORD *)(qword_14043A748 + 8 * v26), 1LL);
+        MiReturnCommit(*(_QWORD *)(qword_14043B808 + 8 * v26), 1LL);
       if ( (ULONG_PTR *)v27 == &MiSystemPartition )
       {
         CurrentPrcb = KeGetCurrentPrcb();
@@ -343,7 +343,7 @@ LABEL_114:
             v29 = (int)CachedResidentAvailable - 192 + 1LL;
           }
         }
-        _InterlockedExchangeAdd64(&qword_14043E600, v29);
+        _InterlockedExchangeAdd64(&qword_14043F6C0, v29);
         goto LABEL_41;
       }
       _InterlockedExchangeAdd64((volatile signed __int64 *)(v27 + 7360), 1uLL);
@@ -452,7 +452,7 @@ LABEL_160:
         if ( v42 >= 0x10000 )
           break;
         if ( !v34 )
-          v34 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v32 + 40) >> 40) & 0x3FFLL));
+          v34 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v32 + 40) >> 40) & 0x3FFLL));
         ++v38;
         if ( !v42 && (unsigned int)MiPfnShareCountIsZero(v32) != 3 )
           ++v39;
@@ -497,7 +497,7 @@ LABEL_72:
               v38 += (int)v44 - 192;
             }
           }
-          _InterlockedExchangeAdd64(&qword_14043E600, v38);
+          _InterlockedExchangeAdd64(&qword_14043F6C0, v38);
         }
         else
         {

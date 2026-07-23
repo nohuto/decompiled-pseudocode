@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  */
 
 int __fastcall MiInitializeSystemDefaults(__int64 a1)

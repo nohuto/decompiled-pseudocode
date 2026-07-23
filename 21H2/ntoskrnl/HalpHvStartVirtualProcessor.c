@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHvStartVirtualProcessor @ 0x1404C2C80
+ * XREFs of HalpHvStartVirtualProcessor @ 0x1404C2EC0
  * Callers:
- *     HalpHvStartProcessor @ 0x1404D208C (HalpHvStartProcessor.c)
+ *     HalpHvStartProcessor @ 0x1404D22CC (HalpHvStartProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     HalpIsXboxNanovisorPresent @ 0x1403A2240 (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A2390 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140408680 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvStartVirtualProcessor(unsigned int a1)
@@ -21,8 +21,8 @@ __int64 __fastcall HalpHvStartVirtualProcessor(unsigned int a1)
 
   v1 = (_DWORD *)((unsigned __int64)v7 & 0xFFFFFFFFFFFFF000uLL);
   v2 = a1;
-  if ( qword_140C4A238 )
-    return qword_140C4A238(a1);
+  if ( qword_140C4A278 )
+    return qword_140C4A278(a1);
   *v1 = -1073741823;
   if ( HalpIsXboxNanovisorPresent() )
   {

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpMuiRegGetLanginfoTypeNSpec @ 0x1800891B0
+ * XREFs of RtlpMuiRegGetLanginfoTypeNSpec @ 0x1800891A0
  * Callers:
- *     RtlpCompareConfigNodeWithSpec @ 0x180089044 (RtlpCompareConfigNodeWithSpec.c)
- *     LdrpGetMUILangConfigNode @ 0x1800890E8 (LdrpGetMUILangConfigNode.c)
+ *     RtlpCompareConfigNodeWithSpec @ 0x180089034 (RtlpCompareConfigNodeWithSpec.c)
+ *     LdrpGetMUILangConfigNode @ 0x1800890D8 (LdrpGetMUILangConfigNode.c)
  * Callees:
  *     <none>
  */

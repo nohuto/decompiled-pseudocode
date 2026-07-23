@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmCreateDeviceWorker @ 0x1404E6FA4
+ * XREFs of _CmCreateDeviceWorker @ 0x14050D694
  * Callers:
- *     _CmCreateDevice @ 0x1404E6E44 (_CmCreateDevice.c)
+ *     _CmCreateDevice @ 0x14050D534 (_CmCreateDevice.c)
  * Callees:
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     _CmRaiseCreateEvent @ 0x1406DBEF0 (_CmRaiseCreateEvent.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x1406DC028 (_CmRaiseCreateEvent.c)
  */
 
 __int64 __fastcall CmCreateDeviceWorker(__int64 a1, __int64 a2, int a3, _QWORD *a4, bool *a5, __int16 a6)
@@ -20,7 +20,7 @@ __int64 __fastcall CmCreateDeviceWorker(__int64 a1, __int64 a2, int a3, _QWORD *
   }
   else
   {
-    v9 = CmOpenDeviceRegKey(a1, a2, 16, 0, a3, 1, (__int64)a4, (__int64)v12);
+    v9 = CmOpenDeviceRegKey(a1, a2, 0x10u, 0, a3, 1, (__int64)a4, v12);
     if ( v9 >= 0 )
     {
       v10 = v12[0] == 1;

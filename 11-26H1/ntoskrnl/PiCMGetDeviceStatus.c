@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMGetDeviceStatus @ 0x140A9F724
+ * XREFs of PiCMGetDeviceStatus @ 0x140A9FA54
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     _CmGetDeviceStatus @ 0x14099522C (_CmGetDeviceStatus.c)
- *     PiCMCaptureObjectInputData @ 0x1409994A8 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnStatusResultData @ 0x140A9F858 (PiCMReturnStatusResultData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _CmGetDeviceStatus @ 0x140955C8C (_CmGetDeviceStatus.c)
+ *     PiCMCaptureObjectInputData @ 0x140959F08 (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnStatusResultData @ 0x140A9FB88 (PiCMReturnStatusResultData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetDeviceStatus(void *a1, unsigned int a2, void *a3, unsigned int a4, int a5, __int64 a6)

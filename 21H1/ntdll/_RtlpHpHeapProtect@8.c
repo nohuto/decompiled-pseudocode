@@ -9,39 +9,45 @@
  *     _RtlpHpSegProtect@8 @ 0x4B37D295 (_RtlpHpSegProtect@8.c)
  */
 
-int __fastcall RtlpHpHeapProtect(int a1, int a2)
+NTSTATUS __fastcall RtlpHpHeapProtect(int *BaseAddress, ULONG NewProtect)
 {
-  int v3; // ebx
-  int VirtualMemory; // ecx
-  unsigned int v5; // esi
+  ULONG v3; // ebx
+  NTSTATUS VirtualMemory; // ecx
+  int v5; // esi
   int v7; // eax
   char v8; // bl
   unsigned int i; // eax
-  unsigned int v10; // edx
-  char v11[12]; // [esp+8h] [ebp-2Ch] BYREF
-  int v12; // [esp+14h] [ebp-20h]
-  char v13[4]; // [esp+24h] [ebp-10h] BYREF
-  int v14; // [esp+28h] [ebp-Ch] BYREF
-  int v15; // [esp+2Ch] [ebp-8h] BYREF
-  int v16; // [esp+30h] [ebp-4h]
+  int v10; // edx
+  ULONG_PTR *v11; // [esp+0h] [ebp-34h]
+  _BYTE MemoryInformation[12]; // [esp+8h] [ebp-2Ch] BYREF
+  int v13; // [esp+14h] [ebp-20h]
+  ULONG OldProtect; // [esp+24h] [ebp-10h] BYREF
+  PVOID BaseAddressa; // [esp+28h] [ebp-Ch] BYREF
+  ULONG_PTR RegionSize; // [esp+2Ch] [ebp-8h] BYREF
 
-  v3 = a2;
-  v16 = a2;
-  VirtualMemory = NtQueryVirtualMemory(-1, a1, 0, (int)v11, 28, 0);
+  v3 = NewProtect;
+  HIDWORD(RegionSize) = NewProtect;
+  VirtualMemory = NtQueryVirtualMemory(
+                    (HANDLE)0xFFFFFFFF,
+                    BaseAddress,
+                    MemoryBasicInformation,
+                    MemoryInformation,
+                    0x1CuLL,
+                    v11);
   if ( VirtualMemory >= 0 )
   {
-    v15 = v12;
-    v14 = a1;
-    VirtualMemory = ZwProtectVirtualMemory(-1, (int)&v14, (int)&v15, v3, (int)v13);
+    LODWORD(RegionSize) = v13;
+    BaseAddressa = BaseAddress;
+    VirtualMemory = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddressa, &RegionSize, v3, &OldProtect);
     if ( VirtualMemory >= 0 )
     {
-      VirtualMemory = RtlpHpSegProtect(a1 + 256, v3);
+      VirtualMemory = RtlpHpSegProtect(BaseAddress + 64, v3);
       if ( VirtualMemory >= 0 )
       {
-        VirtualMemory = RtlpHpSegProtect(a1 + 384, v3);
+        VirtualMemory = RtlpHpSegProtect(BaseAddress + 96, v3);
         if ( VirtualMemory >= 0 )
         {
-          v5 = *(_DWORD *)(a1 + 68);
+          v5 = BaseAddress[17];
           if ( !v5 )
             return 0;
           while ( 1 )
@@ -53,13 +59,13 @@ int __fastcall RtlpHpHeapProtect(int a1, int a2)
                 return VirtualMemory;
               if ( !*(_DWORD *)v5 )
                 break;
-              if ( (*(_BYTE *)(a1 + 72) & 1) != 0 )
+              if ( (BaseAddress[18] & 1) != 0 )
                 v5 ^= *(_DWORD *)v5;
               else
                 v5 = *(_DWORD *)v5;
             }
             v7 = *(_DWORD *)(v5 + 4);
-            v8 = *(_BYTE *)(a1 + 72) & 1;
+            v8 = BaseAddress[18] & 1;
             if ( !v7 )
               break;
             if ( v8 )
@@ -67,7 +73,7 @@ int __fastcall RtlpHpHeapProtect(int a1, int a2)
             else
               v5 = *(_DWORD *)(v5 + 4);
 LABEL_16:
-            v3 = v16;
+            v3 = HIDWORD(RegionSize);
           }
           for ( i = v5; ; v5 = i )
           {

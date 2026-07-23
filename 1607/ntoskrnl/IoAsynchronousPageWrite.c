@@ -1,19 +1,19 @@
 /*
- * XREFs of IoAsynchronousPageWrite @ 0x14008DEA4
+ * XREFs of IoAsynchronousPageWrite @ 0x14008D604
  * Callers:
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
- *     MiIssueAsynchronousFlush @ 0x1401EAF10 (MiIssueAsynchronousFlush.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
+ *     MiIssueAsynchronousFlush @ 0x1401EAD3C (MiIssueAsynchronousFlush.c)
  * Callees:
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopQueueThreadIrp @ 0x14002E170 (IopQueueThreadIrp.c)
- *     IopSetDiskIoAttributionExtension @ 0x14008E608 (IopSetDiskIoAttributionExtension.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1400EBF60 (IoSetDiskIoAttributionFromThread.c)
- *     MmIsFileObjectAPagingFile @ 0x14010DA6C (MmIsFileObjectAPagingFile.c)
- *     IopAllocateBackpocketIrp @ 0x1401C443C (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x1401C471C (IopAllocateReserveIrp.c)
- *     StRtlIoStorInfoSetNvCachePriority @ 0x14023CCE4 (StRtlIoStorInfoSetNvCachePriority.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopQueueThreadIrp @ 0x14002DCF0 (IopQueueThreadIrp.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14008DD68 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400E9DD0 (IoSetDiskIoAttributionFromThread.c)
+ *     MmIsFileObjectAPagingFile @ 0x14010DFD0 (MmIsFileObjectAPagingFile.c)
+ *     IopAllocateBackpocketIrp @ 0x1401C4320 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1401C4600 (IopAllocateReserveIrp.c)
+ *     StRtlIoStorInfoSetNvCachePriority @ 0x14023CBC8 (StRtlIoStorInfoSetNvCachePriority.c)
  */
 
 NTSTATUS __fastcall IoAsynchronousPageWrite(

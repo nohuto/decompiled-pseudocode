@@ -21,8 +21,8 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
   _RTL_SPLAY_LINKS *LeftChild; // rax
   int v12; // eax
   _RTL_SPLAY_LINKS *v13; // rax
-  struct _UNICODE_PREFIX_TABLE_ENTRY *NextPrefixTree; // rbx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v15; // rax
+  _UNICODE_PREFIX_TABLE_ENTRY *NextPrefixTree; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v15; // rax
   PUNICODE_PREFIX_TABLE_ENTRY v17; // rbp
 
   v6 = ComputeUnicodeNameLength(Prefix);
@@ -90,7 +90,7 @@ LABEL_13:
     NextPrefixTree = i->NextPrefixTree;
     i->NextPrefixTree = 0LL;
     i->NodeTypeCode = 2050;
-    v15 = (struct _UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(&v10->Links)[-1];
+    v15 = (_UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(&v10->Links)[-1];
     v15->NodeTypeCode = 2049;
     PrefixTable->NextPrefixTree = v15;
     v15->NextPrefixTree = NextPrefixTree;

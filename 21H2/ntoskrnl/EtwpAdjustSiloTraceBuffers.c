@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAdjustSiloTraceBuffers @ 0x140265D30
+ * XREFs of EtwpAdjustSiloTraceBuffers @ 0x140253CD0
  * Callers:
- *     EtwpAdjustTraceBuffers @ 0x1402C28C0 (EtwpAdjustTraceBuffers.c)
+ *     EtwpAdjustTraceBuffers @ 0x140240D60 (EtwpAdjustTraceBuffers.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
- *     EtwpDequeueBuffer @ 0x1402661F4 (EtwpDequeueBuffer.c)
- *     EtwpUnlockBufferList @ 0x1402662CC (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140266318 (EtwpLockBufferList.c)
- *     EtwpFreeTraceBuffer @ 0x1402C7EC4 (EtwpFreeTraceBuffer.c)
- *     EtwpRemoveBufferFromGlobalList @ 0x1403F92FC (EtwpRemoveBufferFromGlobalList.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwpFreeTraceBuffer @ 0x140246724 (EtwpFreeTraceBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140253DF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpDequeueBuffer @ 0x140254194 (EtwpDequeueBuffer.c)
+ *     EtwpUnlockBufferList @ 0x14025426C (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402542B8 (EtwpLockBufferList.c)
+ *     EtwpRemoveBufferFromGlobalList @ 0x1403F947C (EtwpRemoveBufferFromGlobalList.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)
   int UsedProcessorCount; // eax
   __int64 v8; // rax
   __int64 v9; // rcx
-  __int64 v10; // rbp
+  char *v10; // rbp
   char i; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
@@ -43,7 +43,7 @@ void __fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)
         {
           EtwpLockBufferList(v5, &i);
           v8 = EtwpDequeueBuffer(v5, v5 + 64);
-          v10 = v8;
+          v10 = (char *)v8;
           if ( v8 )
             v3 = (void *)EtwpRemoveBufferFromGlobalList(v9, v8);
           EtwpUnlockBufferList(v5, &i);

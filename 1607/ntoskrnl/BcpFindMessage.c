@@ -1,7 +1,7 @@
 /*
  * XREFs of BcpFindMessage @ 0x1407D4224
  * Callers:
- *     BcpGetProgressMessages @ 0x140141250 (BcpGetProgressMessages.c)
+ *     BcpGetProgressMessages @ 0x1401417C0 (BcpGetProgressMessages.c)
  *     BgpBcInitializeCriticalMode @ 0x1407D3ED8 (BgpBcInitializeCriticalMode.c)
  * Callees:
  *     ResFwFindMessage @ 0x140728410 (ResFwFindMessage.c)

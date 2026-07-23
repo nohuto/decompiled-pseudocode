@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlEqualComputerName(int a1, int a2)
+BOOLEAN __cdecl RtlEqualComputerName(PUNICODE_STRING String1, PUNICODE_STRING String2)
 {
-  return RtlEqualDomainName(a1, a2);
+  return RtlEqualDomainName(String1, String2);
 }

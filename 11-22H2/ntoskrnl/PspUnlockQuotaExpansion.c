@@ -29,10 +29,10 @@ __int64 __fastcall PspUnlockQuotaExpansion(_DWORD *a1, unsigned __int8 a2)
   if ( *a1 )
   {
     result = KxReleaseSpinLock(a1 + 4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v3 <= 0xFu
         && (unsigned __int8)result >= 2u )

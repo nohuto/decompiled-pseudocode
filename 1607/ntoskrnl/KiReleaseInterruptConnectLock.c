@@ -1,9 +1,9 @@
 /*
- * XREFs of KiReleaseInterruptConnectLock @ 0x14012D2AC
+ * XREFs of KiReleaseInterruptConnectLock @ 0x14012D81C
  * Callers:
- *     KeMaskInterrupt @ 0x1401240A0 (KeMaskInterrupt.c)
- *     KiDisconnectInterruptCommon @ 0x1401242B8 (KiDisconnectInterruptCommon.c)
- *     KiConnectInterrupt @ 0x14012D0AC (KiConnectInterrupt.c)
+ *     KeMaskInterrupt @ 0x140124610 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x140124828 (KiDisconnectInterruptCommon.c)
+ *     KiConnectInterrupt @ 0x14012D61C (KiConnectInterrupt.c)
  * Callees:
  *     <none>
  */

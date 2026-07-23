@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleEnableIdleDurationExpirationTimeout @ 0x1404E5664
+ * XREFs of PpmIdleEnableIdleDurationExpirationTimeout @ 0x1404DEC04
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */

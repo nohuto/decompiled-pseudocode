@@ -1,14 +1,14 @@
 /*
- * XREFs of IvtLegacyAllocateTranslationStructures @ 0x14056FAA8
+ * XREFs of IvtLegacyAllocateTranslationStructures @ 0x14056CF38
  * Callers:
- *     IvtLegacyAttachDeviceDomainInternal @ 0x14056FB5C (IvtLegacyAttachDeviceDomainInternal.c)
- *     IvtLegacyConfigureAts @ 0x14056FEF0 (IvtLegacyConfigureAts.c)
- *     IvtLegacyProcessDeviceExceptions @ 0x140B5250C (IvtLegacyProcessDeviceExceptions.c)
- *     HalpIvtpLegacyInitializeReservedDomain @ 0x140B534E4 (HalpIvtpLegacyInitializeReservedDomain.c)
+ *     IvtLegacyAttachDeviceDomainInternal @ 0x14056CFEC (IvtLegacyAttachDeviceDomainInternal.c)
+ *     IvtLegacyConfigureAts @ 0x14056D380 (IvtLegacyConfigureAts.c)
+ *     IvtLegacyProcessDeviceExceptions @ 0x140B5455C (IvtLegacyProcessDeviceExceptions.c)
+ *     HalpIvtpLegacyInitializeReservedDomain @ 0x140B55534 (HalpIvtpLegacyInitializeReservedDomain.c)
  * Callees:
- *     IvtAllocateContextTable @ 0x1404D4448 (IvtAllocateContextTable.c)
- *     IvtLegacyAllocateScalableModePasidTables @ 0x14056F7A0 (IvtLegacyAllocateScalableModePasidTables.c)
- *     IvtLegacyGetDomainId @ 0x140570894 (IvtLegacyGetDomainId.c)
+ *     IvtAllocateContextTable @ 0x1404CD658 (IvtAllocateContextTable.c)
+ *     IvtLegacyAllocateScalableModePasidTables @ 0x14056CC30 (IvtLegacyAllocateScalableModePasidTables.c)
+ *     IvtLegacyGetDomainId @ 0x14056DD24 (IvtLegacyGetDomainId.c)
  */
 
 __int64 __fastcall IvtLegacyAllocateTranslationStructures(

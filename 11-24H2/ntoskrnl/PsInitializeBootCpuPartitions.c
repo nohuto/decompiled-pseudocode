@@ -1,30 +1,30 @@
 /*
- * XREFs of PsInitializeBootCpuPartitions @ 0x140C3489C
+ * XREFs of PsInitializeBootCpuPartitions @ 0x140C369DC
  * Callers:
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeOrAffinityEx2 @ 0x1402067F0 (KeOrAffinityEx2.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsCpuPartitionMoveCpus @ 0x14077641C (PsCpuPartitionMoveCpus.c)
- *     PsCreateCpuPartition @ 0x14077643C (PsCreateCpuPartition.c)
- *     RtlUnicodeStringToInteger @ 0x1409933D0 (RtlUnicodeStringToInteger.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PspCopyNodeRelativeMaskToAffinityEx @ 0x140C34CB4 (PspCopyNodeRelativeMaskToAffinityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeOrAffinityEx2 @ 0x14032DDD0 (KeOrAffinityEx2.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsCpuPartitionMoveCpus @ 0x14077663C (PsCpuPartitionMoveCpus.c)
+ *     PsCreateCpuPartition @ 0x14077665C (PsCreateCpuPartition.c)
+ *     RtlUnicodeStringToInteger @ 0x14097E410 (RtlUnicodeStringToInteger.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PspCopyNodeRelativeMaskToAffinityEx @ 0x140C36DF4 (PspCopyNodeRelativeMaskToAffinityEx.c)
  */
 
 __int64 PsInitializeBootCpuPartitions()
 {
-  ULONG_PTR Pool2; // rax
-  ULONG_PTR v1; // rdi
+  __int64 Pool2; // rax
+  __int64 v1; // rdi
   NTSTATUS v2; // ebx
   struct _KAFFINITY_EX *v3; // r13
   _WORD *v4; // rsi
@@ -43,7 +43,7 @@ __int64 PsInitializeBootCpuPartitions()
   _QWORD v18[2]; // [rsp+90h] [rbp-29h] BYREF
   _QWORD v19[2]; // [rsp+A0h] [rbp-19h] BYREF
   _DWORD v20[2]; // [rsp+B0h] [rbp-9h] BYREF
-  ULONG_PTR v21; // [rsp+B8h] [rbp-1h]
+  __int64 v21; // [rsp+B8h] [rbp-1h]
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp+7h] BYREF
   ULONG ResultLength; // [rsp+120h] [rbp+67h] BYREF
   ULONG Value; // [rsp+128h] [rbp+6Fh] BYREF

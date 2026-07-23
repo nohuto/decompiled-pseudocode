@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepDeviceDState @ 0x1403A0220
+ * XREFs of PopPepDeviceDState @ 0x1403A0370
  * Callers:
- *     PopRequestCompletion @ 0x14037A900 (PopRequestCompletion.c)
- *     PoFxReportDevicePoweredOn @ 0x14039FC80 (PoFxReportDevicePoweredOn.c)
- *     PopIrpWorker @ 0x14039FE70 (PopIrpWorker.c)
+ *     PopRequestCompletion @ 0x14037A450 (PopRequestCompletion.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039FDD0 (PoFxReportDevicePoweredOn.c)
+ *     PopIrpWorker @ 0x14039FFC0 (PopIrpWorker.c)
  * Callees:
- *     PopFxUpdateDeviceAccountingEnhanced @ 0x14038CA54 (PopFxUpdateDeviceAccountingEnhanced.c)
- *     PopPlNotifyDeviceDState @ 0x1403A049C (PopPlNotifyDeviceDState.c)
- *     PopPepUpdateConstraints @ 0x1403A056C (PopPepUpdateConstraints.c)
- *     PopFxUpdateComponentAccountingEnhanced @ 0x1403A07E4 (PopFxUpdateComponentAccountingEnhanced.c)
- *     PopPepUpdateIdleStateRefCount @ 0x1403A0864 (PopPepUpdateIdleStateRefCount.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x14056D4B0 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     PopFxUpdateDeviceAccountingEnhanced @ 0x14038CBA4 (PopFxUpdateDeviceAccountingEnhanced.c)
+ *     PopPlNotifyDeviceDState @ 0x1403A05EC (PopPlNotifyDeviceDState.c)
+ *     PopPepUpdateConstraints @ 0x1403A06BC (PopPepUpdateConstraints.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1403A0934 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A09B4 (PopPepUpdateIdleStateRefCount.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x14056D6F0 (PopFxUpdateComponentPerfStateNominalChange.c)
  */
 
 void __fastcall PopPepDeviceDState(__int64 a1, int a2, __int64 a3, __int64 a4)

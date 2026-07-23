@@ -40,13 +40,13 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // di
-  const void *v4; // rdx
-  size_t v5; // rbx
+  BOOLEAN v2; // di
+  PWCH Buffer; // rdx
+  size_t Length; // rbx
   unsigned __int64 v6; // rbx
-  __int64 v7; // rax
+  _QWORD *v7; // rax
   __int64 v8; // rbp
   __int64 v9; // r14
   __int16 v10; // si
@@ -56,32 +56,32 @@ char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
   unsigned __int16 v14; // r9
   unsigned __int16 v15; // cx
   __int64 v16; // r8
-  char result; // al
+  BOOLEAN result; // al
   wchar_t String2[88]; // [rsp+20h] [rbp-F8h] BYREF
 
   v2 = 0;
-  if ( !a1 )
+  if ( !String )
     return v2;
-  if ( !a2 )
+  if ( !Lcid )
     return v2;
-  if ( !*a1 )
+  if ( !String->Length )
     return v2;
-  v4 = (const void *)*((_QWORD *)a1 + 1);
-  if ( !v4 || (unsigned int)*a1 + 2 > 0x55 )
+  Buffer = String->Buffer;
+  if ( !Buffer || (unsigned int)String->Length + 2 > 0x55 )
     return v2;
-  v5 = *a1;
-  memmove(String2, v4, v5);
-  v6 = v5 >> 1;
+  Length = String->Length;
+  memmove(String2, Buffer, Length);
+  v6 = Length >> 1;
   if ( v6 >= 85 )
     _report_rangecheckfailure();
   v7 = qword_18015D000;
   String2[v6] = 0;
   if ( !v7 )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
-  v8 = *(_QWORD *)(v7 + 24);
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
+  v8 = v7[3];
   if ( !v8 || !*(_QWORD *)(v8 + 16) || !String2[0] )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
-  v9 = *(_QWORD *)(v7 + 32);
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
+  v9 = v7[4];
   v10 = -1;
   if ( v9 && (v11 = 0, *(_WORD *)(v9 + 6)) )
   {
@@ -105,18 +105,18 @@ LABEL_17:
   if ( v11 >= 0 )
     v10 = v11;
   if ( v10 < 0 )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
   v14 = *(_WORD *)(v8 + 6);
   v15 = 0;
   if ( !v14 )
-    return (int)RtlLocaleNameToLcid(String2) >= 0;
+    return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
   v16 = *(_QWORD *)(v8 + 16);
   while ( *(_WORD *)(28LL * v15 + v16 + 6) != v10 )
   {
     if ( ++v15 >= v14 )
-      return (int)RtlLocaleNameToLcid(String2) >= 0;
+      return RtlLocaleNameToLcid(String2, Lcid, 3u) >= 0;
   }
   result = 1;
-  *a2 = *(unsigned __int16 *)(28LL * v15 + v16 + 4);
+  *Lcid = *(unsigned __int16 *)(28LL * v15 + v16 + 4);
   return result;
 }

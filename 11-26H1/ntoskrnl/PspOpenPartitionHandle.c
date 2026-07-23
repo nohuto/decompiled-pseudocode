@@ -1,5 +1,5 @@
 /*
- * XREFs of PspOpenPartitionHandle @ 0x1407FE010
+ * XREFs of PspOpenPartitionHandle @ 0x140803A40
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlNumberGenericTableElementsAvl @ 0x1800F9E30
+ * XREFs of RtlNumberGenericTableElementsAvl @ 0x1800F4B90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlNumberGenericTableElementsAvl(__int64 a1)
+ULONG __cdecl RtlNumberGenericTableElementsAvl(PRTL_AVL_TABLE Table)
 {
-  return *(unsigned int *)(a1 + 44);
+  return Table->NumberGenericTableElements;
 }

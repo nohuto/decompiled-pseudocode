@@ -14,7 +14,7 @@
 
 void __fastcall ViDevObjRemove(ULONG_PTR BugCheckParameter2)
 {
-  struct _SLIST_ENTRY *v2; // rbx
+  _SLIST_ENTRY *v2; // rbx
   _DWORD *v3; // rax
   _QWORD v4[3]; // [rsp+30h] [rbp-18h] BYREF
 
@@ -29,7 +29,7 @@ void __fastcall ViDevObjRemove(ULONG_PTR BugCheckParameter2)
     {
       if ( (v3[4] & 1) != 0 && (MmVerifierData & 0x800) != 0 )
         VerifierBugCheckIfAppropriate(0xC4u, 0xDBuLL, BugCheckParameter2, 0LL, 0LL);
-      v2 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViDevObjAvl, (__int64)v4, BugCheckParameter2, 0LL);
+      v2 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViDevObjAvl, (__int64)v4, BugCheckParameter2, 0LL);
     }
     VfAvlCleanupLockContext((__int64)v4);
     if ( v2 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoSetDeviceInterfaceState @ 0x14070C8B4
+ * XREFs of VerifierIoSetDeviceInterfaceState @ 0x14070C8E4
  * Callers:
  *     <none>
  * Callees:

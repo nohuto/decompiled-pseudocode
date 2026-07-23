@@ -1,33 +1,37 @@
 /*
- * XREFs of NtOpenPrivateNamespace @ 0x140ADE430
+ * XREFs of NtOpenPrivateNamespace @ 0x140ADB620
  * Callers:
- *     DifNtOpenPrivateNamespaceWrapper @ 0x14067E340 (DifNtOpenPrivateNamespaceWrapper.c)
+ *     DifNtOpenPrivateNamespaceWrapper @ 0x140681F20 (DifNtOpenPrivateNamespaceWrapper.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObpCaptureBoundaryDescriptor @ 0x1408E87A8 (ObpCaptureBoundaryDescriptor.c)
- *     ObpLookupNamespaceEntry @ 0x1408E8B0C (ObpLookupNamespaceEntry.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x1408EED68 (ObpCaptureBoundaryDescriptor.c)
+ *     ObpLookupNamespaceEntry @ 0x1408EF0CC (ObpLookupNamespaceEntry.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3, _OWORD *a4)
+NTSTATUS __cdecl NtOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
   KPROCESSOR_MODE AccessMode; // r15
   int ULongFromUser; // esi
   ULONG v9; // edi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // r13
   struct _KTHREAD *CurrentThread; // rcx
   struct _KLOCK_ENTRIES *v13; // r9
@@ -44,7 +48,7 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
   signed __int64 v24; // rax
   signed __int64 v25; // rdx
   signed __int64 v26; // rtt
-  unsigned int v27; // ebx
+  NTSTATUS v27; // ebx
   PVOID P; // [rsp+50h] [rbp-48h] BYREF
   int v29; // [rsp+58h] [rbp-40h]
   HANDLE Handle; // [rsp+60h] [rbp-38h] BYREF
@@ -55,23 +59,23 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
   ULongFromUser = 0;
   if ( AccessMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
-    if ( a3 )
+    ULong64FromUser = RtlReadULong64FromUser(NamespaceHandle);
+    RtlWriteULong64ToUser(NamespaceHandle, ULong64FromUser);
+    if ( ObjectAttributes )
     {
-      if ( (a3 & 7) != 0 )
+      if ( ((unsigned __int8)ObjectAttributes & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      ULongFromUser = RtlReadULongFromUser((unsigned int *)(a3 + 24));
+      ULongFromUser = RtlReadULongFromUser(&ObjectAttributes->Attributes);
       v29 = ULongFromUser;
     }
   }
-  else if ( a3 )
+  else if ( ObjectAttributes )
   {
-    ULongFromUser = *(_DWORD *)(a3 + 24);
+    ULongFromUser = ObjectAttributes->Attributes;
   }
   v9 = ULongFromUser & (AccessMode != 0 ? 7666 : 73714);
-  result = ObpCaptureBoundaryDescriptor(a4, (__int64 *)&P);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor, (__int64 *)&P);
+  if ( result >= 0 )
   {
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
     CurrentThread = KeGetCurrentThread();
@@ -105,13 +109,13 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
         ExfReleasePushLock(&CurrentServerSiloGlobals[45].Flink);
       KeAbPostRelease((unsigned __int64)&CurrentServerSiloGlobals[45]);
       KeLeaveCriticalRegion();
-      v27 = ObOpenObjectByPointer(v23, v9, 0LL, a2, ObpDirectoryObjectType, AccessMode, &Handle);
+      v27 = ObOpenObjectByPointer(v23, v9, 0LL, DesiredAccess, ObpDirectoryObjectType, AccessMode, &Handle);
       LODWORD(P) = v27;
       ObfDereferenceObject(v23);
       if ( AccessMode )
-        RtlWriteULong64ToUser(a1, (__int64)Handle);
+        RtlWriteULong64ToUser(NamespaceHandle, (__int64)Handle);
       else
-        *a1 = Handle;
+        *NamespaceHandle = Handle;
       return v27;
     }
     else
@@ -125,7 +129,7 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
         ExfReleasePushLock(&CurrentServerSiloGlobals[45].Flink);
       KeAbPostRelease((unsigned __int64)&CurrentServerSiloGlobals[45]);
       KeLeaveCriticalRegion();
-      return 3221225530LL;
+      return -1073741766;
     }
   }
   return result;

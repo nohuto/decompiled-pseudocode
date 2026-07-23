@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpRedirectDelayloadFailure @ 0x1800C67B0
+ * XREFs of LdrpRedirectDelayloadFailure @ 0x1800C3F70
  * Callers:
- *     LdrpHandleProtectedDelayload @ 0x1800C5420 (LdrpHandleProtectedDelayload.c)
- *     LdrpHandleUnprotectedDelayLoad @ 0x18015C4E0 (LdrpHandleUnprotectedDelayLoad.c)
+ *     LdrpHandleProtectedDelayload @ 0x1800C2BE0 (LdrpHandleProtectedDelayload.c)
+ *     LdrpHandleUnprotectedDelayLoad @ 0x18015C3A0 (LdrpHandleUnprotectedDelayLoad.c)
  * Callees:
- *     RtlNtStatusToDosErrorNoTeb @ 0x180019AA0 (RtlNtStatusToDosErrorNoTeb.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpGetDelayloadAPIInfo @ 0x1800CB9A0 (LdrpGetDelayloadAPIInfo.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180004B80 (RtlNtStatusToDosErrorNoTeb.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpGetDelayloadAPIInfo @ 0x1800C9110 (LdrpGetDelayloadAPIInfo.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall LdrpRedirectDelayloadFailure(
@@ -18,7 +18,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
         __int64 (__fastcall *a4)(__int64, _DWORD *),
         __int64 (__fastcall *a5)(__int64, const char *),
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v11; // r12
   __int64 v12; // rsi
@@ -34,7 +34,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
   int v23; // [rsp+70h] [rbp-21h]
   const char *v24; // [rsp+78h] [rbp-19h]
   __int64 v25; // [rsp+80h] [rbp-11h]
-  int v26; // [rsp+90h] [rbp-1h]
+  ULONG v26; // [rsp+90h] [rbp-1h]
   unsigned int v27; // [rsp+E0h] [rbp+4Fh] BYREF
   const char *v28; // [rsp+E8h] [rbp+57h] BYREF
   __int64 v29; // [rsp+F0h] [rbp+5Fh]
@@ -53,7 +53,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
   if ( v28 )
     v14 = v28;
   LdrpLogInternal(
-    (int)"minkernel\\ldr\\ldrdload.c",
+    "minkernel\\ldr\\ldrdload.c",
     548,
     (__int64)"LdrpRedirectDelayloadFailure",
     0,
@@ -62,7 +62,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
     v14,
     v27,
     a1 + 88,
-    a7);
+    Status);
   if ( !a2 )
   {
     v16 = 0LL;
@@ -83,7 +83,7 @@ LABEL_9:
   v19[0] = 72;
   v22 = v11;
   v25 = v16;
-  v26 = RtlNtStatusToDosErrorNoTeb(a7);
+  v26 = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v13 )
   {
     v23 = 1;

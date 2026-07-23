@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpLogSplitMergeMemoryRange @ 0x1407A0310
+ * XREFs of VmpLogSplitMergeMemoryRange @ 0x1407A0420
  * Callers:
- *     VmSplitMemoryRange @ 0x140A79A90 (VmSplitMemoryRange.c)
- *     VmMergeMemoryRanges @ 0x140A7C100 (VmMergeMemoryRanges.c)
+ *     VmSplitMemoryRange @ 0x140A73D90 (VmSplitMemoryRange.c)
+ *     VmMergeMemoryRanges @ 0x140A76400 (VmMergeMemoryRanges.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall VmpLogSplitMergeMemoryRange(__int64 a1, int a2, __int64 a3, __int64 a4, unsigned int a5)
@@ -50,7 +50,7 @@ char __fastcall VmpLogSplitMergeMemoryRange(__int64 a1, int a2, __int64 a3, __in
         ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
         v26 = v18;
         p_ProcessId = &ProcessId;
-        v10 = (unsigned __int8 *)&byte_140051D17;
+        v10 = (unsigned __int8 *)qword_140052A78;
         v17 = a3;
         v23 = &v17;
         v24 = 8;
@@ -78,7 +78,7 @@ LABEL_8:
       v16 = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
       v26 = &v17;
       p_ProcessId = &v16;
-      v10 = (unsigned __int8 *)&word_1400521B2;
+      v10 = (unsigned __int8 *)&byte_1400525F7;
       v18[0] = a3;
       v23 = v18;
       v24 = 8;

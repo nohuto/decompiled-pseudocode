@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlWow64GetThreadContext @ 0x180138640
+ * XREFs of RtlWow64GetThreadContext @ 0x1801383B0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryInformationThread @ 0x18015F3E0 (ZwQueryInformationThread.c)
+ *     ZwQueryInformationThread @ 0x18015F2E0 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall RtlWow64GetThreadContext(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlWow64GetThreadContext(HANDLE ThreadHandle, PWOW64_CONTEXT ThreadContext)
 {
-  return ZwQueryInformationThread(a1, 29LL, a2, 716LL, 0LL);
+  return ZwQueryInformationThread(ThreadHandle, ThreadWow64Context, ThreadContext, 0x2CCu, 0LL);
 }

@@ -9,7 +9,7 @@
  *     memmove @ 0x1800AB5C0 (memmove.c)
  */
 
-__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, __int64 *a4, _BYTE *a5)
+__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, ACL **a4, _BYTE *a5)
 {
   unsigned __int16 v8; // di
   unsigned __int16 *v9; // rbx
@@ -21,18 +21,18 @@ __int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3,
   __int16 v15; // r8
   unsigned __int16 v16; // ax
   __int64 v17; // rax
-  __int64 Heap; // rax
+  ACL *Heap; // rax
   unsigned int v20; // ebp
-  __int64 v21; // r15
-  char *v22; // rdi
+  ACL *v21; // r15
+  ACL *v22; // rdi
   char v23; // al
-  char *v24; // r13
+  ACL *v24; // r13
   unsigned __int8 *v25; // r14
-  char *v26; // rdi
+  char *p_AceCount; // rdi
   char *v27; // rdi
   int v28; // edx
   __int16 v29; // ax
-  __int64 v30; // [rsp+60h] [rbp+8h]
+  ACL *v30; // [rsp+60h] [rbp+8h]
 
   v8 = 8;
   if ( !a1 )
@@ -71,16 +71,16 @@ LABEL_13:
       v12 += v17;
     }
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v8);
+  Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v8);
   *a4 = Heap;
   if ( !Heap )
     return 3221225626LL;
   *a5 = 1;
-  RtlCreateAcl(Heap, v8, 3);
+  RtlCreateAcl(Heap, v8, 3u);
   v20 = 0;
   v21 = *a4;
   v30 = *a4;
-  v22 = (char *)(*a4 + 8);
+  v22 = *a4 + 1;
   if ( *(_WORD *)(a1 + 4) )
   {
     do
@@ -93,22 +93,22 @@ LABEL_13:
           v25 = (unsigned __int8 *)&v9[2 * *((unsigned __int8 *)v9 + 13) + 10];
         else
           v25 = (unsigned __int8 *)(v9 + 4);
-        *(_QWORD *)v22 = *(_QWORD *)v9;
-        v26 = v22 + 12;
-        memmove(v26, a3, 4 * a3[1] + 8);
-        v27 = &v26[(unsigned __int8)(4 * (a3[1] + 2))];
+        *v22 = *(ACL *)v9;
+        p_AceCount = (char *)&v22[1].AceCount;
+        memmove(p_AceCount, a3, 4 * a3[1] + 8);
+        v27 = &p_AceCount[(unsigned __int8)(4 * (a3[1] + 2))];
         memmove(v27, v25, 4 * v25[1] + 8);
         v28 = v25[1];
-        v22 = &v27[4 * v28 + 8];
+        v22 = (ACL *)&v27[4 * v28 + 8];
         v29 = a3[1] + 7;
-        *v24 = 4;
-        *((_WORD *)v24 + 1) = 4 * (v28 + v29);
-        *((_WORD *)v24 + 4) = 1;
+        v24->AclRevision = 4;
+        v24->AclSize = 4 * (v28 + v29);
+        *(_WORD *)&v24[1].AclRevision = 1;
       }
       else
       {
         memmove(v22, v9, v9[1]);
-        v22 += v9[1];
+        v22 = (ACL *)((char *)v22 + v9[1]);
       }
       ++v20;
       v9 = (unsigned __int16 *)((char *)v9 + v9[1]);
@@ -116,6 +116,6 @@ LABEL_13:
     while ( v20 < *(unsigned __int16 *)(a1 + 4) );
     v21 = v30;
   }
-  *(_WORD *)(v21 + 4) = *(_WORD *)(a1 + 4);
+  v21->AceCount = *(_WORD *)(a1 + 4);
   return 0LL;
 }

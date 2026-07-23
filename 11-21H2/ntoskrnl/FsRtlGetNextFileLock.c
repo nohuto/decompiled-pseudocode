@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     RtlRealSuccessor @ 0x14021D710 (RtlRealSuccessor.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x14021DCF4 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x14021E8B8 (FsRtlFindFirstOverlappingSharedNode.c)
+ *     sub_14021DCF4 @ 0x14021DCF4 (sub_14021DCF4.c)
+ *     sub_14021E8B8 @ 0x14021E8B8 (sub_14021E8B8.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Restart)
@@ -17,8 +17,8 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int128 v4; // xmm0
   PRTL_SPLAY_LINKS LastReturnedLock; // rdi
   char v6; // r14
-  PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // rax
-  RTL_SPLAY_LINKS *v8; // rcx
+  PRTL_SPLAY_LINKS v7; // rax
+  _RTL_SPLAY_LINKS *v8; // rcx
   _RTL_SPLAY_LINKS *v9; // r14
   _RTL_SPLAY_LINKS *v10; // r15
   int v11; // r12d
@@ -27,17 +27,17 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int64 v14; // rax
   __int64 j; // rcx
   __int128 v16; // xmm0
-  RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
+  _RTL_SPLAY_LINKS *v17; // rax
   PRTL_SPLAY_LINKS v18; // rcx
   _RTL_SPLAY_LINKS *Parent; // rbx
   bool v20; // cf
   PRTL_SPLAY_LINKS v21; // rax
-  RTL_SPLAY_LINKS *v22; // rax
+  _RTL_SPLAY_LINKS *v22; // rax
   __int64 i; // rcx
   unsigned __int8 CurrentIrql; // al
   KIRQL v25; // bl
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v27; // r9
   int v28; // eax
   bool v29; // zf
   __int128 v30; // xmm1
@@ -68,7 +68,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   v41 = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
   if ( Restart )
   {
-    v22 = (RTL_SPLAY_LINKS *)LockInformation[5];
+    v22 = (_RTL_SPLAY_LINKS *)LockInformation[5];
     if ( v22 )
     {
       do
@@ -92,39 +92,39 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   }
   if ( (_BYTE)v36 )
   {
-    FirstOverlappingExclusiveNode = (PRTL_SPLAY_LINKS)FsRtlFindFirstOverlappingExclusiveNode(
-                                                        (_QWORD *)LockInformation[5],
-                                                        (unsigned __int64 *)&v37,
-                                                        (unsigned __int64 *)&v38[24],
-                                                        &Links,
-                                                        &v40);
-    if ( FirstOverlappingExclusiveNode )
+    v7 = (PRTL_SPLAY_LINKS)sub_14021DCF4(
+                             (_QWORD *)LockInformation[5],
+                             (unsigned __int64 *)&v37,
+                             (unsigned __int64 *)&v38[24],
+                             &Links,
+                             &v40);
+    if ( v7 )
     {
       v9 = *(_RTL_SPLAY_LINKS **)&v38[16];
       v10 = *(_RTL_SPLAY_LINKS **)&v38[8];
       v11 = *(_DWORD *)&v38[4];
       v12 = (_RTL_SPLAY_LINKS *)*((_QWORD *)&v37 + 1);
       v13 = (_RTL_SPLAY_LINKS *)v37;
-      while ( LastReturnedLock != FirstOverlappingExclusiveNode
-           || v13 != FirstOverlappingExclusiveNode[1].Parent
-           || v12 != FirstOverlappingExclusiveNode[1].LeftChild
-           || v11 != HIDWORD(FirstOverlappingExclusiveNode[1].RightChild)
-           || v10 != FirstOverlappingExclusiveNode[2].Parent
-           || v9 != FirstOverlappingExclusiveNode[2].LeftChild )
+      while ( LastReturnedLock != v7
+           || v13 != v7[1].Parent
+           || v12 != v7[1].LeftChild
+           || v11 != HIDWORD(v7[1].RightChild)
+           || v10 != v7[2].Parent
+           || v9 != v7[2].LeftChild )
       {
-        if ( FirstOverlappingExclusiveNode[1].LeftChild || v12 )
+        if ( v7[1].LeftChild || v12 )
           goto LABEL_22;
-        FirstOverlappingExclusiveNode = RtlRealSuccessor(FirstOverlappingExclusiveNode);
-        if ( !FirstOverlappingExclusiveNode )
+        v7 = RtlRealSuccessor(v7);
+        if ( !v7 )
           goto LABEL_23;
       }
-      v8 = FirstOverlappingExclusiveNode;
+      v8 = v7;
     }
     else
     {
       if ( v40 )
       {
-        FirstOverlappingExclusiveNode = Links;
+        v7 = Links;
         goto LABEL_22;
       }
       v8 = Links;
@@ -151,40 +151,40 @@ LABEL_55:
         goto LABEL_62;
       }
     }
-    FirstOverlappingExclusiveNode = RtlRealSuccessor(v8);
+    v7 = RtlRealSuccessor(v8);
 LABEL_22:
-    if ( FirstOverlappingExclusiveNode )
+    if ( v7 )
     {
-      LastReturnedLock = FirstOverlappingExclusiveNode;
-      v37 = *(_OWORD *)&FirstOverlappingExclusiveNode[1].Parent;
-      v36 = *(_OWORD *)&FirstOverlappingExclusiveNode[1].RightChild;
+      LastReturnedLock = v7;
+      v37 = *(_OWORD *)&v7[1].Parent;
+      v36 = *(_OWORD *)&v7[1].RightChild;
       *(_OWORD *)v38 = v36;
-      v16 = *(_OWORD *)&FirstOverlappingExclusiveNode[2].LeftChild;
+      v16 = *(_OWORD *)&v7[2].LeftChild;
       goto LABEL_55;
     }
     goto LABEL_23;
   }
-  FirstOverlappingSharedNode = (RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
-                                                    LockInformation[4],
-                                                    (unsigned __int64 *)&v37,
-                                                    (unsigned __int64 *)&v38[24],
-                                                    &Links,
-                                                    &v40);
-  if ( FirstOverlappingSharedNode )
+  v17 = (_RTL_SPLAY_LINKS *)sub_14021E8B8(
+                              LockInformation[4],
+                              (unsigned __int64 *)&v37,
+                              (unsigned __int64 *)&v38[24],
+                              &Links,
+                              &v40);
+  if ( v17 )
   {
-    v18 = FirstOverlappingSharedNode;
+    v18 = v17;
   }
   else
   {
-    FirstOverlappingSharedNode = Links;
+    v17 = Links;
     if ( !Links )
       goto LABEL_62;
     v18 = Links;
     if ( !v40 )
     {
-      FirstOverlappingSharedNode = RtlRealSuccessor(Links);
-      v18 = FirstOverlappingSharedNode;
-      if ( !FirstOverlappingSharedNode )
+      v17 = RtlRealSuccessor(Links);
+      v18 = v17;
+      if ( !v17 )
         goto LABEL_62;
     }
   }
@@ -228,14 +228,14 @@ LABEL_51:
     goto LABEL_55;
   }
 LABEL_48:
-  v21 = RtlRealSuccessor(FirstOverlappingSharedNode);
+  v21 = RtlRealSuccessor(v17);
   if ( v21 )
     Parent = v21[-1].Parent;
   if ( Parent )
     goto LABEL_51;
 LABEL_62:
-  KxReleaseSpinLock(SpinLock);
-  if ( !KiIrqlFlags || (KiIrqlFlags & 1) == 0 || (CurrentIrql = KeGetCurrentIrql(), CurrentIrql > 0xFu) )
+  KeReleaseSpinLockFromDpcLevel(SpinLock);
+  if ( !dword_140D06B08 || (dword_140D06B08 & 1) == 0 || (CurrentIrql = KeGetCurrentIrql(), CurrentIrql > 0xFu) )
   {
     v25 = v41;
 LABEL_71:
@@ -246,12 +246,12 @@ LABEL_71:
   if ( v41 > 0xFu || CurrentIrql < 2u )
     goto LABEL_71;
   CurrentPrcb = KeGetCurrentPrcb();
-  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+  v27 = *((_QWORD *)CurrentPrcb + 4375);
   v28 = ~(unsigned __int16)(-1LL << (v41 + 1));
-  v29 = (v28 & SchedulerAssist[5]) == 0;
-  SchedulerAssist[5] &= v28;
+  v29 = (v28 & *(_DWORD *)(v27 + 20)) == 0;
+  *(_DWORD *)(v27 + 20) &= v28;
   if ( v29 )
-    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+    sub_140418E4C((__int64)CurrentPrcb);
   v30 = *(_OWORD *)v38;
 LABEL_72:
   __writecr8(v25);

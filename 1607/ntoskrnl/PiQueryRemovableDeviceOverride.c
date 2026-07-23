@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryRemovableDeviceOverride @ 0x1404D4418
+ * XREFs of PiQueryRemovableDeviceOverride @ 0x14050D9CC
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140489B8C (PnpDeviceObjectToDeviceInstance.c)
- *     PnpGetDeviceLocationStrings @ 0x1404CD7D0 (PnpGetDeviceLocationStrings.c)
- *     PipFindDeviceOverrideEntry @ 0x1404D46C4 (PipFindDeviceOverrideEntry.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     PnpOpenFirstMatchingSubKey @ 0x14062DBB8 (PnpOpenFirstMatchingSubKey.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PipFindDeviceOverrideEntry @ 0x14050DC78 (PipFindDeviceOverrideEntry.c)
+ *     PnpGetDeviceLocationStrings @ 0x14050DE68 (PnpGetDeviceLocationStrings.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x14051230C (PnpDeviceObjectToDeviceInstance.c)
+ *     PnpOpenFirstMatchingSubKey @ 0x14062DC6C (PnpOpenFirstMatchingSubKey.c)
  */
 
 __int64 __fastcall PiQueryRemovableDeviceOverride(__int64 a1, void *a2, void *a3, bool *a4)
@@ -98,7 +98,7 @@ LABEL_41:
     {
       LODWORD(v26[0]) = 2490404;
       v26[1] = L"ChildLocationPaths";
-      DeviceOverrideEntry = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(v10 + 32), (__int64)&Handle, 131097);
+      DeviceOverrideEntry = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(v10 + 32), &Handle, 131097LL);
       if ( DeviceOverrideEntry < 0 )
         return (unsigned int)DeviceOverrideEntry;
       P = (PVOID)0x300000002LL;
@@ -121,9 +121,9 @@ LABEL_41:
           v15 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 48LL);
           v23 = *(_DWORD *)p_P;
           DeviceOverrideEntry = CmGetDeviceRegProp(
-                                  PiPnpRtlCtx,
+                                  *(__int64 *)&PiPnpRtlCtx,
                                   v15,
-                                  (_DWORD)Handle,
+                                  (__int64)Handle,
                                   v23,
                                   (__int64)&v22,
                                   (__int64)v8,
@@ -182,7 +182,7 @@ LABEL_41:
   if ( DeviceOverrideEntry < 0 )
   {
 LABEL_50:
-    DeviceOverrideEntry = PnpGetDeviceLocationStrings(a1, (char **)&P, &v23);
+    DeviceOverrideEntry = PnpGetDeviceLocationStrings(a1, &P, &v23);
     if ( DeviceOverrideEntry < 0
       || (DeviceOverrideEntry = PnpOpenFirstMatchingSubKey((PCWSTR)P, &KeyHandle),
           ExFreePoolWithTag(P, 0),

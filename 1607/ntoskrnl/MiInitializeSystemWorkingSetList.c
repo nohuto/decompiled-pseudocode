@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeSystemWorkingSetList @ 0x1405362FC
+ * XREFs of MiInitializeSystemWorkingSetList @ 0x14053683C
  * Callers:
- *     MiSessionCreate @ 0x140535604 (MiSessionCreate.c)
- *     MiInitializeSystemCache @ 0x140553FFC (MiInitializeSystemCache.c)
+ *     MiSessionCreate @ 0x140535B44 (MiSessionCreate.c)
+ *     MiInitializeSystemCache @ 0x14055453C (MiInitializeSystemCache.c)
  *     MiBuildPagedPool @ 0x14078E258 (MiBuildPagedPool.c)
  *     MiInitializeSystemPtes @ 0x1407A4D44 (MiInitializeSystemPtes.c)
  * Callees:
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiAllowWorkingSetExpansion @ 0x14007BE5C (MiAllowWorkingSetExpansion.c)
- *     MiQuerySystemBase @ 0x1400B5F2C (MiQuerySystemBase.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     MiTranslateWsType @ 0x1400FF280 (MiTranslateWsType.c)
- *     MiMapNewWorkingSetPage @ 0x140102E50 (MiMapNewWorkingSetPage.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     MiInitializeWorkingSetList @ 0x14046DDE8 (MiInitializeWorkingSetList.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiAllowWorkingSetExpansion @ 0x14007BEDC (MiAllowWorkingSetExpansion.c)
+ *     MiQuerySystemBase @ 0x1400B3D54 (MiQuerySystemBase.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     MiTranslateWsType @ 0x1400FD000 (MiTranslateWsType.c)
+ *     MiMapNewWorkingSetPage @ 0x140100BD0 (MiMapNewWorkingSetPage.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     MiInitializeWorkingSetList @ 0x14046CCB8 (MiInitializeWorkingSetList.c)
  */
 
 __int64 __fastcall MiInitializeSystemWorkingSetList(__int64 a1, __int64 a2, int a3, unsigned __int64 a4)
@@ -35,9 +35,9 @@ __int64 __fastcall MiInitializeSystemWorkingSetList(__int64 a1, __int64 a2, int 
   v9 = 0LL;
   if ( a3 == 1 )
   {
-    v9 = qword_1403268F8;
-    v8 = qword_140326900;
-    v10 = (ULONG_PTR *)qword_1403268F8;
+    v9 = qword_140326938;
+    v8 = qword_140326940;
+    v10 = (ULONG_PTR *)qword_140326938;
   }
   else
   {

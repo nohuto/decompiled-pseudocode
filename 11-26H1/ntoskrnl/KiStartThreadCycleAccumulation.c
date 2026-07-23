@@ -1,17 +1,17 @@
 /*
- * XREFs of KiStartThreadCycleAccumulation @ 0x140334EB0
+ * XREFs of KiStartThreadCycleAccumulation @ 0x140336EE0
  * Callers:
- *     KiSearchForNewThread @ 0x14023E3D0 (KiSearchForNewThread.c)
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     KiGroupSchedulingGenerationEnd @ 0x140333210 (KiGroupSchedulingGenerationEnd.c)
- *     KiResumeThreadCycleAccumulation @ 0x140334E5C (KiResumeThreadCycleAccumulation.c)
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
- *     PpmCheckCustomRun @ 0x1404BBD70 (PpmCheckCustomRun.c)
+ *     KiSearchForNewThread @ 0x14023FD30 (KiSearchForNewThread.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140335240 (KiGroupSchedulingGenerationEnd.c)
+ *     KiResumeThreadCycleAccumulation @ 0x140336E8C (KiResumeThreadCycleAccumulation.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
+ *     PpmCheckCustomRun @ 0x1404B5550 (PpmCheckCustomRun.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     HalRequestSoftwareInterrupt @ 0x14021E010 (HalRequestSoftwareInterrupt.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     HalRequestSoftwareInterrupt @ 0x14021F9A0 (HalRequestSoftwareInterrupt.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)
@@ -101,7 +101,7 @@ void __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)
           v40 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v51 = &unk_140FBB448;
+            v51 = &unk_140FBB7E8;
             do
             {
               if ( v13 == *v51 )
@@ -187,7 +187,7 @@ void __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)
           v39 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v47 = &unk_140FBB448;
+            v47 = &unk_140FBB7E8;
             do
             {
               if ( v13 == *v47 )
@@ -281,9 +281,9 @@ void __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)
       v23 = v8;
     }
     *((_QWORD *)&v3 + 1) = (unsigned int)((unsigned __int64)((((v23 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-                                                            * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount)
+                                                            * (unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount)
                          - (unsigned int)((unsigned __int64)((*((unsigned __int64 *)&v3 + 1)
-                                                            * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount);
+                                                            * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount);
     if ( !DWORD2(v3) )
       goto LABEL_21;
     if ( a3 != 0 )
@@ -325,7 +325,7 @@ LABEL_21:
     {
       v28 = 100;
     }
-    v29 = (unsigned __int16 *)(a1 + 35464);
+    v29 = (unsigned __int16 *)(a1 + 35468);
     do
     {
       if ( v28 <= *v29 )

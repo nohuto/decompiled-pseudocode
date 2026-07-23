@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepCancelActivities @ 0x1400C2774
+ * XREFs of PopPepCancelActivities @ 0x1400C0604
  * Callers:
- *     PopPepTriggerActivity @ 0x1400C29F8 (PopPepTriggerActivity.c)
+ *     PopPepTriggerActivity @ 0x1400C0888 (PopPepTriggerActivity.c)
  * Callees:
- *     PopPepCancelActivityRange @ 0x1400C2AB4 (PopPepCancelActivityRange.c)
+ *     PopPepCancelActivityRange @ 0x1400C0944 (PopPepCancelActivityRange.c)
  */
 
 __int64 __fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)
@@ -12,7 +12,7 @@ __int64 __fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)
   __int64 v5; // rbx
   int v6; // edi
 
-  result = *((unsigned int *)&unk_140257694 + 34 * a3);
+  result = *((unsigned int *)&unk_140257674 + 34 * a3);
   if ( (_DWORD)result )
   {
     if ( (_DWORD)result == 1 )

@@ -11,37 +11,43 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall RtlSetFeatureConfigurations(_DWORD *a1, int a2, void *Src, int a4)
+NTSTATUS __cdecl RtlSetFeatureConfigurations(
+        PRTL_FEATURE_CHANGE_STAMP PreviousChangeStamp,
+        RTL_FEATURE_CONFIGURATION_TYPE ConfigurationType,
+        PRTL_FEATURE_CONFIGURATION_UPDATE ConfigurationUpdates,
+        SIZE_T ConfigurationUpdateCount)
 {
-  int v4; // edi
+  NTSTATUS v4; // edi
   _DWORD *Heap; // esi
-  size_t v7; // [esp-4h] [ebp-18h]
-  size_t Size; // [esp+Ch] [ebp-8h] BYREF
-  int v9; // [esp+10h] [ebp-4h] BYREF
+  SIZE_T v7; // [esp-4h] [ebp-18h]
+  size_t v8; // [esp-4h] [ebp-18h]
+  int Size; // [esp+Ch] [ebp-8h] BYREF
+  ULONG Size_4; // [esp+10h] [ebp-4h] BYREF
 
-  v9 = 16;
-  v4 = RtlULongLongToUInt((int *)&Size, 32 * a4, (unsigned __int64)(unsigned int)a4 >> 27);
+  Size_4 = 16;
+  v4 = RtlULongLongToUInt(
+         &Size,
+         32 * ConfigurationUpdateCount,
+         (unsigned __int64)(unsigned int)ConfigurationUpdateCount >> 27);
   if ( v4 >= 0 )
   {
-    v4 = RtlULongPtrAdd(0x10u, Size, &v9);
+    v4 = RtlULongPtrAdd(0x10u, Size, (int *)&Size_4);
     if ( v4 >= 0 )
     {
-      Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v9);
+      LODWORD(v7) = Size_4;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
       if ( Heap )
       {
-        Heap[2] = a2;
-        if ( a1 )
-        {
-          *Heap = *a1;
-          Heap[1] = a1[1];
-        }
-        v7 = Size;
-        Heap[3] = a4;
-        memcpy(Heap + 4, Src, v7);
-        v4 = ZwSetSystemInformation(210, (int)Heap, v9);
+        Heap[2] = ConfigurationType;
+        if ( PreviousChangeStamp )
+          *(_QWORD *)Heap = *PreviousChangeStamp;
+        LODWORD(v8) = Size;
+        Heap[3] = ConfigurationUpdateCount;
+        memcpy(Heap + 4, ConfigurationUpdates, v8);
+        v4 = ZwSetSystemInformation(SystemFeatureConfigurationInformation, Heap, Size_4);
         if ( v4 >= 0 )
           v4 = 0;
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {

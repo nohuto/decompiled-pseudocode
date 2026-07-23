@@ -11,23 +11,22 @@
  *     sub_180109E60 @ 0x180109E60 (sub_180109E60.c)
  */
 
-__int64 (__fastcall *__fastcall sub_180058A44(
+void __fastcall sub_180058A44(
         __int64 a1,
-        volatile signed __int64 *a2,
-        unsigned int a3,
-        unsigned int a4,
-        __int64 (__fastcall *a5)(_QWORD, _QWORD, _QWORD, _QWORD),
+        _RTL_SRWLOCK *a2,
+        ULONG a3,
+        ULONG a4,
+        void (__fastcall *a5)(char *, _QWORD, _QWORD, __int64),
         __int64 a6,
         int a7,
-        _QWORD *a8))(_QWORD, _QWORD, _QWORD, _QWORD)
+        _QWORD *a8)
 {
   int v12; // ecx
   char *v13; // rbx
   int v14; // r14d
-  volatile signed __int64 *v15; // rcx
+  _RTL_BITMAP *v15; // rcx
   int v16; // ecx
-  __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD); // rax
-  unsigned int v18; // eax
+  ULONG v17; // eax
 
   sub_180058AF0(a1, a2);
   v13 = 0LL;
@@ -35,7 +34,7 @@ __int64 (__fastcall *__fastcall sub_180058A44(
     v14 = sub_180109E60(v12, (_DWORD)a2, a3, a4, a7);
   else
     v14 = 0;
-  v15 = a2 + 1;
+  v15 = (_RTL_BITMAP *)&a2[1];
   if ( a7 )
     RtlSetBits(v15, a3, a4);
   else
@@ -43,19 +42,17 @@ __int64 (__fastcall *__fastcall sub_180058A44(
   if ( a8 )
   {
     if ( v14 )
-      v18 = sub_180109E60(v16, (_DWORD)a2, a3, a4, a7);
+      v17 = sub_180109E60(v16, (_DWORD)a2, a3, a4, a7);
     else
-      v18 = a4;
-    *a8 = v18 - v14;
+      v17 = a4;
+    *a8 = v17 - v14;
   }
-  result = a5;
   if ( a5 )
   {
     if ( *(_DWORD *)(a1 + 68) )
       v13 = (char *)a2 + *(unsigned int *)(a1 + 64);
-    result = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))a5(v13, a3, a4, a6);
+    a5(v13, a3, a4, a6);
   }
   if ( (*(_BYTE *)(a1 + 72) & 4) == 0 )
-    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))RtlReleaseSRWLockExclusive(a2);
-  return result;
+    RtlReleaseSRWLockExclusive(a2);
 }

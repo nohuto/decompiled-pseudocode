@@ -1,13 +1,13 @@
 /*
- * XREFs of ExInitializePagedLookasideList @ 0x14067BCB0
+ * XREFs of ExInitializePagedLookasideList @ 0x14067CE70
  * Callers:
- *     FsRtlInitSystem @ 0x1409D7714 (FsRtlInitSystem.c)
- *     FsRtlInitializeFileLocks @ 0x1409D7B60 (FsRtlInitializeFileLocks.c)
- *     FsRtlInitializeTunnels @ 0x1409D7CF4 (FsRtlInitializeTunnels.c)
- *     WmipInitializeAllocs @ 0x1409DE458 (WmipInitializeAllocs.c)
- *     RtlInitializeRangeListPackage @ 0x1409F82F8 (RtlInitializeRangeListPackage.c)
+ *     FsRtlInitSystem @ 0x1409D8714 (FsRtlInitSystem.c)
+ *     FsRtlInitializeFileLocks @ 0x1409D8B60 (FsRtlInitializeFileLocks.c)
+ *     FsRtlInitializeTunnels @ 0x1409D8CF4 (FsRtlInitializeTunnels.c)
+ *     WmipInitializeAllocs @ 0x1409DF458 (WmipInitializeAllocs.c)
+ *     RtlInitializeRangeListPackage @ 0x1409F92F8 (RtlInitializeRangeListPackage.c)
  * Callees:
- *     ExInitializePagedLookasideListInternal @ 0x1400F3910 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializePagedLookasideListInternal @ 0x1400F3990 (ExInitializePagedLookasideListInternal.c)
  */
 
 void __stdcall ExInitializePagedLookasideList(

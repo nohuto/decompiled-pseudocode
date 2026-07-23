@@ -1,18 +1,18 @@
 /*
- * XREFs of IvtAttachDeviceDomainInternal @ 0x1404DF5C8
+ * XREFs of IvtAttachDeviceDomainInternal @ 0x1404DF808
  * Callers:
- *     IvtAttachDeviceDomain @ 0x1404DF5B0 (IvtAttachDeviceDomain.c)
- *     IvtDetachDeviceDomain @ 0x1404DFA30 (IvtDetachDeviceDomain.c)
+ *     IvtAttachDeviceDomain @ 0x1404DF7F0 (IvtAttachDeviceDomain.c)
+ *     IvtDetachDeviceDomain @ 0x1404DFC70 (IvtDetachDeviceDomain.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     IvtAllocateContextTable @ 0x1404DF350 (IvtAllocateContextTable.c)
- *     IvtFlushTbInternal @ 0x1404DFAA4 (IvtFlushTbInternal.c)
- *     IvtGetDomainId @ 0x1404DFF98 (IvtGetDomainId.c)
- *     IvtUpdateContextEntry @ 0x1404E0BBC (IvtUpdateContextEntry.c)
- *     IvtUpdateExtendedContextEntry @ 0x1404E0D70 (IvtUpdateExtendedContextEntry.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IvtAllocateContextTable @ 0x1404DF590 (IvtAllocateContextTable.c)
+ *     IvtFlushTbInternal @ 0x1404DFCE4 (IvtFlushTbInternal.c)
+ *     IvtGetDomainId @ 0x1404E01D8 (IvtGetDomainId.c)
+ *     IvtUpdateContextEntry @ 0x1404E0DFC (IvtUpdateContextEntry.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0FB0 (IvtUpdateExtendedContextEntry.c)
  */
 
 __int64 IvtAttachDeviceDomainInternal(__int64 a1, __int64 a2, _DWORD *a3, ...)

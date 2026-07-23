@@ -13,18 +13,18 @@ __int64 __fastcall MiMemoryLicense(__int64 a1)
   unsigned __int64 v2; // rdi
   unsigned __int64 v3; // rbx
   __int64 result; // rax
-  _QWORD v5[2]; // [rsp+30h] [rbp-10h] BYREF
-  unsigned int v6; // [rsp+68h] [rbp+28h] BYREF
-  int v7; // [rsp+70h] [rbp+30h] BYREF
-  int v8; // [rsp+78h] [rbp+38h] BYREF
+  UNICODE_STRING ValueName; // [rsp+30h] [rbp-10h] BYREF
+  unsigned int Data; // [rsp+68h] [rbp+28h] BYREF
+  ULONG ResultDataSize; // [rsp+70h] [rbp+30h] BYREF
+  ULONG Type; // [rsp+78h] [rbp+38h] BYREF
 
-  v8 = 0;
-  v6 = 0;
-  v5[1] = L"Kernel-WindowsMaxMemAllowedx64";
-  v5[0] = 4063292LL;
-  v7 = 4;
-  if ( (int)NtQueryLicenseValue((unsigned __int64)v5, &v8, &v6, 4u, &v7) >= 0 && v6 )
-    v2 = (unsigned __int64)v6 << 8;
+  Type = 0;
+  Data = 0;
+  ValueName.Buffer = L"Kernel-WindowsMaxMemAllowedx64";
+  *(_QWORD *)&ValueName.Length = 4063292LL;
+  ResultDataSize = 4;
+  if ( NtQueryLicenseValue(&ValueName, &Type, &Data, 4u, &ResultDataSize) >= 0 && Data )
+    v2 = (unsigned __int64)Data << 8;
   else
     v2 = 0x80000LL;
   v3 = ((unsigned __int64)qword_140465B00 >> 12) - 1;

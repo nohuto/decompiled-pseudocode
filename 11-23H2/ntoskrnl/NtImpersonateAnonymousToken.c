@@ -1,24 +1,24 @@
 /*
- * XREFs of NtImpersonateAnonymousToken @ 0x1407F4FB0
+ * XREFs of NtImpersonateAnonymousToken @ 0x1407F5280
  * Callers:
  *     <none>
  * Callees:
- *     SeTokenIsRestricted @ 0x140228830 (SeTokenIsRestricted.c)
- *     ObReferenceObjectByPointer @ 0x14022A980 (ObReferenceObjectByPointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     SepGetAnonymousToken @ 0x1403711F8 (SepGetAnonymousToken.c)
- *     SeTokenIsWriteRestricted @ 0x1403713B0 (SeTokenIsWriteRestricted.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     PsImpersonateClient @ 0x140734A30 (PsImpersonateClient.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SepRegQueryDwordValue @ 0x1407F528C (SepRegQueryDwordValue.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9360 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SeTokenIsRestricted @ 0x140228940 (SeTokenIsRestricted.c)
+ *     ObReferenceObjectByPointer @ 0x14022AA90 (ObReferenceObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     SepGetAnonymousToken @ 0x140371398 (SepGetAnonymousToken.c)
+ *     SeTokenIsWriteRestricted @ 0x140371550 (SeTokenIsWriteRestricted.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     PsImpersonateClient @ 0x140734C20 (PsImpersonateClient.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SepRegQueryDwordValue @ 0x1407F555C (SepRegQueryDwordValue.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9560 (SepCopyAnonymousTokenAndSetSilo.c)
  */
 
 NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)

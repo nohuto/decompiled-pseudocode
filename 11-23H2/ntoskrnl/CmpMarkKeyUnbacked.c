@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpMarkKeyUnbacked @ 0x1407107FC
+ * XREFs of CmpMarkKeyUnbacked @ 0x140710A0C
  * Callers:
  *     CmpRemoveHiveFromNamespace @ 0x140207A94 (CmpRemoveHiveFromNamespace.c)
- *     CmDeleteLayeredKey @ 0x1406168EC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x140616E3C (CmDeleteLayeredKey.c)
  *     CmpInvalidateSubtreeWorker @ 0x140682700 (CmpInvalidateSubtreeWorker.c)
  *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     CmDeleteKey @ 0x14070FFEC (CmDeleteKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x140768F14 (CmpTransMgrFreeVolatileData.c)
- *     CmpRefreshWorkerRoutine @ 0x140A0CE20 (CmpRefreshWorkerRoutine.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpCommitDiscardReplacePost @ 0x140A1F900 (CmpCommitDiscardReplacePost.c)
- *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x140A1FD80 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A28168 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A284D8 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmDeleteKey @ 0x1407101FC (CmDeleteKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x140769104 (CmpTransMgrFreeVolatileData.c)
+ *     CmpRefreshWorkerRoutine @ 0x140A0D0D0 (CmpRefreshWorkerRoutine.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpCommitDiscardReplacePost @ 0x140A1FBB0 (CmpCommitDiscardReplacePost.c)
+ *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x140A20030 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A28418 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28788 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F00 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F30 (CmpCleanUpKcbCachedSymlink.c)
  */
 
 __int64 __fastcall CmpMarkKeyUnbacked(__int64 a1)

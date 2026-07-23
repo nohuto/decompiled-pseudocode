@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptSha384Append @ 0x140525724
+ * XREFs of SymCryptSha384Append @ 0x14052303C
  * Callers:
- *     HashpHashBytes @ 0x1408300C8 (HashpHashBytes.c)
+ *     HashpHashBytes @ 0x1408308F8 (HashpHashBytes.c)
  * Callees:
- *     SymCryptSha512Append @ 0x140525820 (SymCryptSha512Append.c)
+ *     SymCryptSha512Append @ 0x140523138 (SymCryptSha512Append.c)
  */
 
 __int64 SymCryptSha384Append()

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnmapFrameBuffer @ 0x140312AA4
+ * XREFs of MiUnmapFrameBuffer @ 0x140314AD4
  * Callers:
- *     MiDeleteRotateVa @ 0x140312450 (MiDeleteRotateVa.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140312684 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiDeleteRotateVa @ 0x140314480 (MiDeleteRotateVa.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403146B4 (MiReplaceRotateWithDemandZeroNoCopy.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402D0130 (MiSwizzleInvalidPte.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x14049754C (MiCaptureWriteWatchDirtyBit.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiSwizzleInvalidPte @ 0x1402B1EF0 (MiSwizzleInvalidPte.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14049109C (MiCaptureWriteWatchDirtyBit.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiUnmapFrameBuffer(__int64 a1, ULONG_PTR a2, int a3)
@@ -25,7 +25,7 @@ unsigned __int64 __fastcall MiUnmapFrameBuffer(__int64 a1, ULONG_PTR a2, int a3)
   if ( (*(_QWORD *)a2 & 0x42) != 0 && (*(_DWORD *)(a1 + 48) & 0x180000) == 0x180000 && (*(_DWORD *)(a1 + 48) & 1) == 0 )
     MiCaptureWriteWatchDirtyBit(KeGetCurrentThread()->ApcState.Process, (__int64)(a2 << 25) >> 16, a1);
   result = (v3 >> 12) & 0xFFFFFFFFFFLL;
-  if ( result <= qword_140E2D7A0 )
+  if ( result <= qword_140E2D920 )
   {
     v11 = 48 * result;
     result = (*(_QWORD *)(48 * result - 0x21FFFFFFFFD8LL) >> 54) & 1LL;

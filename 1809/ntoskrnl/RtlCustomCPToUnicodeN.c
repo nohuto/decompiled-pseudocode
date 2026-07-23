@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCustomCPToUnicodeN @ 0x140890EB0
+ * XREFs of RtlCustomCPToUnicodeN @ 0x140892110
  * Callers:
  *     <none>
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x1406BD870 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406BEB10 (RtlUTF8ToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlCustomCPToUnicodeN(

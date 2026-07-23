@@ -1,10 +1,10 @@
 /*
- * XREFs of EmonRestartProfiling @ 0x140A971F0
+ * XREFs of EmonRestartProfiling @ 0x140A97060
  * Callers:
  *     <none>
  * Callees:
- *     EmonConfigureCounter @ 0x14051CF68 (EmonConfigureCounter.c)
- *     EmonWriteCounter @ 0x14051E800 (EmonWriteCounter.c)
+ *     EmonConfigureCounter @ 0x14051D4B8 (EmonConfigureCounter.c)
+ *     EmonWriteCounter @ 0x14051ED50 (EmonWriteCounter.c)
  */
 
 __int64 (__fastcall **EmonRestartProfiling())()

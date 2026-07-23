@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpImpersonateMessage @ 0x14050E0D0
+ * XREFs of AlpcpImpersonateMessage @ 0x1404F1060
  * Callers:
- *     NtAlpcImpersonateClientOfPort @ 0x14050DF50 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1404F0EE0 (NtAlpcImpersonateClientOfPort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeCreateClientSecurity @ 0x14040F068 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x14040F250 (SeCreateClientSecurityEx.c)
- *     AlpcpReferenceConnectedPort @ 0x14050C900 (AlpcpReferenceConnectedPort.c)
- *     PsImpersonateClient @ 0x14050F3C0 (PsImpersonateClient.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SeCreateClientSecurity @ 0x14040DF28 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x14040E110 (SeCreateClientSecurityEx.c)
+ *     AlpcpReferenceConnectedPort @ 0x1404EF890 (AlpcpReferenceConnectedPort.c)
+ *     PsImpersonateClient @ 0x1404F2350 (PsImpersonateClient.c)
  */
 
 __int64 __fastcall AlpcpImpersonateMessage(__int64 a1, __int64 a2, int a3)

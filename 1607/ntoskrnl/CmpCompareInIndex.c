@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCompareInIndex @ 0x1405126A0
+ * XREFs of CmpCompareInIndex @ 0x1404F5A90
  * Callers:
- *     CmpAddToLeaf @ 0x1404B0DF0 (CmpAddToLeaf.c)
- *     CmpFindSubKeyInRoot @ 0x140512460 (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x140512A60 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpAddToLeaf @ 0x14049B1D0 (CmpAddToLeaf.c)
+ *     CmpFindSubKeyInRoot @ 0x1404F5850 (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1404F5E50 (CmpFindSubKeyInLeafWithStatus.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
- *     CmpDoCompareKeyName @ 0x140512350 (CmpDoCompareKeyName.c)
- *     CmpCompareCompressedName @ 0x140512960 (CmpCompareCompressedName.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
- *     CmpCompareTwoCompressedNames @ 0x1406069B0 (CmpCompareTwoCompressedNames.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
+ *     CmpDoCompareKeyName @ 0x1404F5740 (CmpDoCompareKeyName.c)
+ *     CmpCompareCompressedName @ 0x1404F5D50 (CmpCompareCompressedName.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
+ *     CmpCompareTwoCompressedNames @ 0x140606A64 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpCompareInIndex(

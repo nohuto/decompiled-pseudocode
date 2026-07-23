@@ -1,7 +1,7 @@
 /*
- * XREFs of KsepValidateShimProviderAndData @ 0x14073F2D0
+ * XREFs of KsepValidateShimProviderAndData @ 0x14073D200
  * Callers:
- *     KseRegisterShimEx @ 0x14073EBF0 (KseRegisterShimEx.c)
+ *     KseRegisterShimEx @ 0x14073CB20 (KseRegisterShimEx.c)
  * Callees:
  *     <none>
  */

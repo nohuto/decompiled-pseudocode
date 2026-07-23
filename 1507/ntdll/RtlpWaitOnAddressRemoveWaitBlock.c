@@ -9,7 +9,7 @@
  *     NtWaitForAlertByThreadId @ 0x180095430 (NtWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(volatile signed __int32 *a1)
+signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1)
 {
   __int64 v2; // rsi
   signed __int64 result; // rax
@@ -26,7 +26,7 @@ signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(volatile signed __int
   signed __int64 v14; // rcx
   signed __int64 v15; // rtt
 
-  v2 = ((unsigned __int32)*a1 >> 5) & 0x7F;
+  v2 = (*(_DWORD *)a1 >> 5) & 0x7F;
   result = RtlpWaitOnAddressHashTable[v2];
   do
   {
@@ -35,7 +35,7 @@ signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(volatile signed __int
       if ( !result )
       {
 LABEL_23:
-        if ( _InterlockedExchange(a1 + 10, 1) != 2 )
+        if ( _InterlockedExchange((volatile __int32 *)(a1 + 40), 1) != 2 )
           return RtlpWaitOnAddressWithTimeout(a1, 0LL, RtlpWaitOnAddressSpinCount);
         return result;
       }
@@ -57,7 +57,7 @@ LABEL_23:
   v9 = *(_QWORD *)((v4 & 0xFFFFFFFFFFFFFFFCuLL) + 24);
   do
   {
-    if ( (volatile signed __int32 *)v6 == a1 )
+    if ( v6 == a1 )
     {
       v13 = *(_QWORD *)(v6 + 16);
       v8 = 1;
@@ -101,8 +101,8 @@ LABEL_23:
     }
   }
   while ( v6 );
-  if ( !v8 && _InterlockedExchange(a1 + 10, 0) != 2 )
-    NtWaitForAlertByThreadId(*(_QWORD *)a1, 0LL);
+  if ( !v8 && _InterlockedExchange((volatile __int32 *)(a1 + 40), 0) != 2 )
+    NtWaitForAlertByThreadId(*(PVOID *)a1, 0LL);
   *(_QWORD *)(v7 + 32) = v9;
   do
   {

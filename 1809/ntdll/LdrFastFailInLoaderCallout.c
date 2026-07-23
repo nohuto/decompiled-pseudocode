@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrFastFailInLoaderCallout @ 0x180087B90
+ * XREFs of LdrFastFailInLoaderCallout @ 0x180087BA0
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ struct _TEB *LdrFastFailInLoaderCallout()
   struct _TEB *result; // rax
 
   result = NtCurrentTeb();
-  if ( (void *)qword_18015F5D8 == result->ClientId.UniqueThread || LdrpProcessInitialized < 2 )
+  if ( LdrpLoaderLock.OwningThread == result->ClientId.UniqueThread || LdrpProcessInitialized < 2 )
     __fastfail(0x17u);
   return result;
 }

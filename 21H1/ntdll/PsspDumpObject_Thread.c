@@ -17,9 +17,10 @@ NTSTATUS __stdcall PsspDumpObject_Thread(
   *ReturnLength = 0;
   if ( a3 < 0x20 )
     return -1073741789;
-  result = NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)0, ThreadInformation, 0x1Cu, ReturnLength);
+  result = NtQueryInformationThread(ThreadHandle, ThreadBasicInformation, ThreadInformation, 0x1Cu, ReturnLength);
   if ( result >= 0
-    && (result = NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)9, ThreadInformation + 28, 4u, 0), result >= 0) )
+    && (result = NtQueryInformationThread(ThreadHandle, ThreadQuerySetWin32StartAddress, ThreadInformation + 28, 4u, 0),
+        result >= 0) )
   {
     *ReturnLength += 4;
   }

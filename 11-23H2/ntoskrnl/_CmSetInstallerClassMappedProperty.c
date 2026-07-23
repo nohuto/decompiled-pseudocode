@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmSetInstallerClassMappedProperty @ 0x140A69924
+ * XREFs of _CmSetInstallerClassMappedProperty @ 0x140A69BD4
  * Callers:
  *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
- *     _CmDeleteInstallerClassWorker @ 0x140A62B20 (_CmDeleteInstallerClassWorker.c)
+ *     _CmDeleteInstallerClassWorker @ 0x140A62DD0 (_CmDeleteInstallerClassWorker.c)
  * Callees:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407972F4 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x140A6772C (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A677A8 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
- *     _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x140A69B34 (_CmSetInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x140A69BB0 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A69D10 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1407974E4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x140A679DC (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A67A58 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x140A69DE4 (_CmSetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x140A69E60 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A69FC0 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedProperty(
@@ -64,7 +64,7 @@ __int64 __fastcall CmSetInstallerClassMappedProperty(
     if ( v11 == -1073741802 )
     {
 LABEL_11:
-      v16 = &off_140A79D80;
+      v16 = &off_140A7A030;
       v17 = 0;
       while ( 1 )
       {
@@ -113,7 +113,7 @@ LABEL_23:
       if ( v22 == -1073741802 )
       {
 LABEL_33:
-        v23 = &off_140A78570;
+        v23 = &off_140A78820;
         v24 = 0;
         while ( 1 )
         {

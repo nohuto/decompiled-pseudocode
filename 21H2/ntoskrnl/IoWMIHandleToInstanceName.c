@@ -1,11 +1,11 @@
 /*
- * XREFs of IoWMIHandleToInstanceName @ 0x14078D130
+ * XREFs of IoWMIHandleToInstanceName @ 0x14078D2F0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoWMIDeviceObjectToInstanceName @ 0x14078D1B0 (IoWMIDeviceObjectToInstanceName.c)
- *     WmipGetFilePDO @ 0x14078D404 (WmipGetFilePDO.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x14078D370 (IoWMIDeviceObjectToInstanceName.c)
+ *     WmipGetFilePDO @ 0x14078D5C4 (WmipGetFilePDO.c)
  */
 
 NTSTATUS __stdcall IoWMIHandleToInstanceName(PVOID DataBlockObject, HANDLE FileHandle, PUNICODE_STRING InstanceName)

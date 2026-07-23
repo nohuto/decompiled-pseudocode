@@ -1,8 +1,8 @@
 /*
- * XREFs of SepIsSandboxedToken @ 0x140451CC8
+ * XREFs of SepIsSandboxedToken @ 0x140446D78
  * Callers:
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */

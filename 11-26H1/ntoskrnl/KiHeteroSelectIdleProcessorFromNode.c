@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHeteroSelectIdleProcessorFromNode @ 0x140234DB0
+ * XREFs of KiHeteroSelectIdleProcessorFromNode @ 0x140236710
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiHeteroSelectIdleProcessorFromSubNode @ 0x140417D10 (KiHeteroSelectIdleProcessorFromSubNode.c)
- *     KiIsQosGroupingClass @ 0x140458260 (KiIsQosGroupingClass.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiHeteroSelectIdleProcessorFromSubNode @ 0x14040C320 (KiHeteroSelectIdleProcessorFromSubNode.c)
+ *     KiIsQosGroupingClass @ 0x14044FAD0 (KiIsQosGroupingClass.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiHeteroSelectIdleProcessorFromNode(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

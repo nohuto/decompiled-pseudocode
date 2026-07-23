@@ -1,7 +1,7 @@
 /*
  * XREFs of FsRtlGetSectorSizeInformation @ 0x1407FA040
  * Callers:
- *     RawQueryVolumeInformation @ 0x14074C12C (RawQueryVolumeInformation.c)
+ *     sub_14074C12C @ 0x14074C12C (sub_14074C12C.c)
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)

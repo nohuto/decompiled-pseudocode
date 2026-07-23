@@ -28,246 +28,246 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TpSetTimerEx(_PEB_LDR_DATA *Ldr, __int64 i, __int64 a3, int a4)
+NTSTATUS __cdecl TpSetTimerEx(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  int v5; // r13d
-  __int64 v6; // rbp
-  _PEB_LDR_DATA *v7; // rbx
-  int ShutdownThreadId; // eax
+  ULONG v5; // r13d
+  PTP_TIMER v7; // rbx
+  volatile int Flags; // eax
   bool v9; // si
-  volatile signed __int32 *p_EntryInProgress; // rdi
+  volatile signed __int32 *p_Lock; // rdi
   char *SchedulerSharedDataSlot; // r8
-  volatile signed __int32 *v12; // r15
-  volatile signed __int32 **v13; // rcx
-  char v14; // al
-  bool v15; // r14
-  unsigned __int8 v16; // r14
-  __int64 (__fastcall *v18)(); // rax
-  volatile signed __int32 *v19; // r13
-  __int64 v20; // rcx
-  _PEB_LDR_DATA *v21; // rcx
-  char *p_ShutdownInProgress; // rax
-  __int64 v23; // rcx
-  char **v24; // r8
-  _PEB_LDR_DATA *v25; // rcx
-  __int64 v26; // r8
-  _QWORD *v27; // r9
-  _PEB_LDR_DATA *v28; // rax
-  _LIST_ENTRY ***v29; // rcx
-  _LIST_ENTRY **p_Blink; // r11
-  _LIST_ENTRY *v31; // rax
-  _LIST_ENTRY *Flink; // rdx
-  _LIST_ENTRY **v33; // rax
-  _LIST_ENTRY *Blink; // rdx
-  _LIST_ENTRY *v35; // r8
-  signed __int64 v36; // rax
-  signed __int64 v37; // rdx
-  _QWORD v38[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v39; // [rsp+80h] [rbp+18h]
+  _RTL_SRWLOCK *v12; // r15
+  __int64 i; // rdx
+  volatile signed __int32 **v14; // rcx
+  unsigned __int8 TimerStatus; // al
+  bool v16; // r14
+  unsigned __int8 v17; // r14
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  _RTL_SRWLOCK *v20; // r13
+  __int64 v21; // rcx
+  _TP_TIMER *Value; // rcx
+  $41104713E0404CE4566A247FD5C6724F *v23; // rax
+  _LIST_ENTRY *Flink; // rcx
+  _LIST_ENTRY *Blink; // r8
+  _LIST_ENTRY *p_Children; // rcx
+  _LIST_ENTRY *v27; // r8
+  _LIST_ENTRY *v28; // r9
+  _TP_TIMER *v29; // rax
+  _LIST_ENTRY **v30; // rcx
+  _TPP_PH_LINKS *p_WindowStartLinks; // r11
+  _LIST_ENTRY *v32; // rax
+  _LIST_ENTRY *v33; // rdx
+  _LIST_ENTRY *v34; // rax
+  _LIST_ENTRY *v35; // rdx
+  _LIST_ENTRY *v36; // r8
+  signed __int64 First; // rax
+  signed __int64 v38; // rdx
+  _QWORD v39[2]; // [rsp+30h] [rbp-38h] BYREF
 
-  v39 = a3;
-  v5 = a3;
-  v6 = i;
-  v7 = Ldr;
-  if ( Ldr )
+  v5 = Period;
+  v7 = Timer;
+  if ( Timer )
   {
-    if ( !BYTE1(Ldr[4].Length) )
+    if ( !Timer->WaitTimer )
     {
-      ShutdownThreadId = (int)Ldr[1].ShutdownThreadId;
-      if ( (ShutdownThreadId & 0x10000) == 0
-        && (ShutdownThreadId & 0x20000) == 0
-        && Ldr->SsHandle == TppTimerpCleanupGroupMemberVFuncs )
+      Flags = Timer->Work.CleanupGroupMember.Flags;
+      if ( (Flags & 0x10000) == 0
+        && (Flags & 0x20000) == 0
+        && (__int64 (__fastcall **)())Timer->Work.CleanupGroupMember.VFuncs == TppTimerpCleanupGroupMemberVFuncs )
       {
-        Ldr = NtCurrentPeb()->Ldr;
-        if ( !Ldr->ShutdownInProgress )
+        Timer = (PTP_TIMER)NtCurrentPeb()->Ldr;
+        if ( !LOBYTE(Timer->Work.CleanupGroupMember.CallbackBarrier.WaitList.First) )
         {
-          v9 = i != 0;
-          p_EntryInProgress = (volatile signed __int32 *)&v7[2].EntryInProgress;
+          v9 = DueTime != 0LL;
+          p_Lock = (volatile signed __int32 *)&v7->Lock;
           SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
-          v12 = (volatile signed __int32 *)&v7[1].InInitializationOrderModuleList.Blink[7];
+          v12 = &v7->Work.CleanupGroupMember.Pool->TimerQueue.Lock;
           if ( SchedulerSharedDataSlot )
           {
             for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
             {
-              v13 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
-              if ( !*v13 )
+              v14 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
+              if ( !*v14 )
               {
-                if ( v13 )
-                  *v13 = p_EntryInProgress;
+                if ( v14 )
+                  *v14 = p_Lock;
                 break;
               }
             }
           }
-          if ( _interlockedbittestandset64(p_EntryInProgress, 0LL) )
-            RtlpAcquireSRWLockExclusiveContended(&v7[2].EntryInProgress);
-          v14 = BYTE2(v7[4].Length);
-          v15 = (v14 & 2) != 0;
-          if ( (v14 & 1) == 0 )
+          if ( _interlockedbittestandset64(p_Lock, 0LL) )
+            RtlpAcquireSRWLockExclusiveContended(&v7->Lock);
+          TimerStatus = v7->TimerStatus;
+          v16 = (TimerStatus & 2) != 0;
+          if ( (TimerStatus & 1) == 0 )
           {
-            v7[3].EntryInProgress = 0LL;
-            if ( !v6 )
-              RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v7[2].EntryInProgress);
-            v16 = 0;
+            v7->DueTime = 0LL;
+            if ( !DueTime )
+              RtlReleaseSRWLockExclusive(&v7->Lock);
+            v17 = 0;
 LABEL_19:
-            if ( v6 && HIBYTE(v7[4].Length) )
+            if ( DueTime && v7->BlockInsert )
             {
-              RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v7[2].EntryInProgress);
+              RtlReleaseSRWLockExclusive(&v7->Lock);
               v9 = 0;
             }
-            if ( v16 )
+            if ( v17 )
             {
               if ( !v9 )
               {
-                if ( _InterlockedExchangeAdd((volatile signed __int32 *)v7, 0xFFFFFFFF) == 1 )
+                if ( _InterlockedExchangeAdd(&v7->Work.CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
                 {
-                  v18 = *(__int64 (__fastcall **)())v7->SsHandle;
-                  if ( v18 == TppSimplepFree )
+                  Free = v7->Work.CleanupGroupMember.VFuncs->Free;
+                  if ( (char *)Free == (char *)TppSimplepFree )
                   {
                     TppCleanupGroupMemberDestroy(v7);
-                    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), v7);
+                    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, v7);
                   }
-                  else if ( (char *)v18 == (char *)TppAlpcpFree )
+                  else if ( (char *)Free == (char *)TppAlpcpFree )
                   {
-                    TppAlpcpFree(v7, i, SchedulerSharedDataSlot);
+                    TppAlpcpFree(v7);
                   }
-                  else if ( (char *)v18 == (char *)TppWorkpFree )
+                  else if ( (char *)Free == (char *)TppWorkpFree )
                   {
-                    TppWorkpFree(v7, i, SchedulerSharedDataSlot);
+                    TppWorkpFree(v7);
                   }
                   else
                   {
-                    ((void (__fastcall *)(_PEB_LDR_DATA *))v18)(v7);
+                    Free(&v7->Work.CleanupGroupMember);
                   }
                 }
-                return v16;
+                return v17;
               }
             }
             else
             {
               if ( !v9 )
-                return v16;
-              if ( (unsigned int)TpIsTimerSet(v7) )
+                return v17;
+              if ( TpIsTimerSet(v7) )
               {
 LABEL_26:
-                RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v7[2].EntryInProgress);
-                return v16;
+                RtlReleaseSRWLockExclusive(&v7->Lock);
+                return v17;
               }
-              _InterlockedIncrement((volatile signed __int32 *)v7);
+              _InterlockedIncrement(&v7->Work.CleanupGroupMember.Refcount.Refcount);
             }
-            TppSetTimer((_DWORD)v7, (_DWORD)v12, v6, v5, a4);
+            TppSetTimer(v7, v12, DueTime, v5, WindowLength);
             goto LABEL_26;
           }
-          v19 = v12 + 2;
-          if ( (v14 & 2) == 0 )
-            v19 = v12 + 32;
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-            v20 = (__int64)NtCurrentPeb()->SharedData + 556;
+          v20 = v12 + 1;
+          if ( (TimerStatus & 2) == 0 )
+            v20 = v12 + 16;
+          if ( RtlGetCurrentServiceSessionId() )
+            v21 = (__int64)NtCurrentPeb()->SharedData + 556;
           else
-            v20 = 2147353478LL;
-          if ( *(_BYTE *)v20 )
-            TppETWTimerCancelled(v19, v7);
+            v21 = 2147353478LL;
+          if ( *(_BYTE *)v21 )
+            TppETWTimerCancelled(v20, v7);
           RtlAcquireSRWLockExclusive(v12);
-          if ( LOBYTE(v7[4].Length) )
+          if ( v7->Inserted )
           {
-            v21 = (_PEB_LDR_DATA *)*((_QWORD *)v19 + 2);
-            p_ShutdownInProgress = (char *)&v7[2].ShutdownInProgress;
-            if ( &v7[2].ShutdownInProgress != (unsigned __int8 *)v21 )
+            Value = (_TP_TIMER *)v20[2].Value;
+            v23 = &v7->248;
+            if ( &v7->248 != ($41104713E0404CE4566A247FD5C6724F *)Value )
             {
-              v23 = *(_QWORD *)p_ShutdownInProgress;
-              if ( *(char **)(*(_QWORD *)p_ShutdownInProgress + 8LL) != p_ShutdownInProgress )
+              Flink = v23->WindowEndLinks.Siblings.Flink;
+              if ( ($41104713E0404CE4566A247FD5C6724F *)v23->WindowEndLinks.Siblings.Flink->Blink != v23 )
                 goto LABEL_50;
-              v24 = (char **)v7[2].ShutdownThreadId;
-              if ( *v24 != p_ShutdownInProgress
-                || (*v24 = (char *)v23,
-                    *(_QWORD *)(v23 + 8) = v24,
-                    v25 = v7 + 3,
-                    v7[2].ShutdownThreadId = &v7[2].ShutdownInProgress,
-                    *(_QWORD *)p_ShutdownInProgress = p_ShutdownInProgress,
-                    v26 = *(_QWORD *)&v7[3].Length,
-                    v27 = (_QWORD *)*((_QWORD *)v19 + 2),
-                    *(_PEB_LDR_DATA **)(v26 + 8) != &v7[3]) )
+              Blink = v7->WindowEndLinks.Siblings.Blink;
+              if ( ($41104713E0404CE4566A247FD5C6724F *)Blink->Flink != v23
+                || (Blink->Flink = Flink,
+                    Flink->Blink = Blink,
+                    p_Children = &v7->WindowEndLinks.Children,
+                    v7->WindowEndLinks.Siblings.Blink = &v7->WindowEndLinks.Siblings,
+                    v23->WindowEndLinks.Siblings.Flink = &v23->WindowEndLinks.Siblings,
+                    v27 = v7->WindowEndLinks.Children.Flink,
+                    v28 = (_LIST_ENTRY *)v20[2].Value,
+                    v27->Blink != &v7->ExpirationLinks + 1) )
               {
 LABEL_50:
                 __fastfail(3u);
               }
-              v27[1] = v25;
-              *v27 = v26;
-              *(_QWORD *)(v26 + 8) = v27;
-              *(_QWORD *)&v25->Length = v27;
-              v21 = (_PEB_LDR_DATA *)((char *)v7 + 248);
-              *((_QWORD *)v19 + 2) = p_ShutdownInProgress;
+              v28->Blink = p_Children;
+              v28->Flink = v27;
+              v27->Blink = v28;
+              p_Children->Flink = v28;
+              Value = (_TP_TIMER *)&v7->248;
+              v20[2].Value = (unsigned __int64)v23;
             }
-            v21->InMemoryOrderModuleList.Flink = 0LL;
-            TppPHExtractMin(v19 + 4);
-            v28 = (_PEB_LDR_DATA *)*((_QWORD *)v19 + 1);
-            v29 = (_LIST_ENTRY ***)(v19 + 2);
-            p_Blink = &v7[3].InLoadOrderModuleList.Blink;
-            if ( &v7[3].InLoadOrderModuleList.Blink != (_LIST_ENTRY **)v28 )
+            Value->Work.CleanupGroupMember.FinalizationCallback = 0LL;
+            TppPHExtractMin(&v20[2]);
+            v29 = (_TP_TIMER *)v20[1].Value;
+            v30 = (_LIST_ENTRY **)&v20[1];
+            p_WindowStartLinks = &v7->WindowStartLinks;
+            if ( &v7->WindowStartLinks != (_TPP_PH_LINKS *)v29 )
             {
-              v31 = *p_Blink;
-              if ( (_LIST_ENTRY **)(*p_Blink)->Blink != p_Blink )
+              v32 = p_WindowStartLinks->Siblings.Flink;
+              if ( (_TPP_PH_LINKS *)p_WindowStartLinks->Siblings.Flink->Blink != p_WindowStartLinks )
                 goto LABEL_50;
-              Flink = v7[3].InMemoryOrderModuleList.Flink;
-              if ( (_LIST_ENTRY **)Flink->Flink != p_Blink )
+              v33 = v7->WindowStartLinks.Siblings.Blink;
+              if ( (_TPP_PH_LINKS *)v33->Flink != p_WindowStartLinks )
                 goto LABEL_50;
-              Flink->Flink = v31;
-              v31->Blink = Flink;
-              v33 = &v7[3].InMemoryOrderModuleList.Blink;
-              v7[3].InMemoryOrderModuleList.Flink = (_LIST_ENTRY *)&v7[3].InLoadOrderModuleList.Blink;
-              *p_Blink = (_LIST_ENTRY *)p_Blink;
-              Blink = v7[3].InMemoryOrderModuleList.Blink;
-              v35 = (_LIST_ENTRY *)*v29;
-              if ( (_LIST_ENTRY **)Blink->Blink != &v7[3].InMemoryOrderModuleList.Blink )
+              v33->Flink = v32;
+              v32->Blink = v33;
+              v34 = &v7->WindowStartLinks.Children;
+              v7->WindowStartLinks.Siblings.Blink = &v7->WindowStartLinks.Siblings;
+              p_WindowStartLinks->Siblings.Flink = &p_WindowStartLinks->Siblings;
+              v35 = v7->WindowStartLinks.Children.Flink;
+              v36 = *v30;
+              if ( v35->Blink != &v7->WindowStartLinks.Children )
                 goto LABEL_50;
-              v35->Blink = (_LIST_ENTRY *)v33;
-              v35->Flink = Blink;
-              Blink->Blink = v35;
-              *v33 = v35;
-              v28 = (_PEB_LDR_DATA *)((char *)v7 + 288);
-              *v29 = p_Blink;
+              v36->Blink = v34;
+              v36->Flink = v35;
+              v35->Blink = v36;
+              v34->Flink = v36;
+              v29 = (_TP_TIMER *)&v7->WindowStartLinks;
+              *v30 = &p_WindowStartLinks->Siblings;
             }
-            v28->InMemoryOrderModuleList.Flink = 0LL;
-            TppPHExtractMin(v29);
-            TppUpdateSubQueueTimer(v19, v15);
-            LOBYTE(v7[4].Length) = 0;
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)v12);
-            HIDWORD(v7[3].ShutdownThreadId) = 0;
-            v7[3].EntryInProgress = 0LL;
-            BYTE2(v7[4].Length) = 0;
-            if ( !v6 )
-              RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v7[2].EntryInProgress);
-            v16 = 1;
+            v29->Work.CleanupGroupMember.FinalizationCallback = 0LL;
+            TppPHExtractMin(v30);
+            TppUpdateSubQueueTimer(v20, v16);
+            v7->Inserted = 0;
+            RtlReleaseSRWLockExclusive(v12);
+            v7->Period = 0;
+            v7->DueTime = 0LL;
+            v7->TimerStatus = 0;
+            if ( !DueTime )
+              RtlReleaseSRWLockExclusive(&v7->Lock);
+            v17 = 1;
           }
           else
           {
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)v12);
-            BYTE2(v7[4].Length) |= 4u;
-            v38[1] = NtCurrentTeb()->ClientId.UniqueThread;
-            _m_prefetchw(&v7[3].ShutdownInProgress);
-            v36 = *(_QWORD *)&v7[3].ShutdownInProgress;
+            RtlReleaseSRWLockExclusive(v12);
+            v7->TimerStatus |= 4u;
+            v39[1] = NtCurrentTeb()->ClientId.UniqueThread;
+            _m_prefetchw(&v7->CancelIte);
+            First = (signed __int64)v7->CancelIte.First;
             do
             {
-              v37 = v36;
-              v38[0] = v36;
-              v36 = _InterlockedCompareExchange64(
-                      (volatile signed __int64 *)&v7[3].ShutdownInProgress,
-                      (signed __int64)v38,
-                      v36);
+              v38 = First;
+              v39[0] = First;
+              First = _InterlockedCompareExchange64(
+                        (volatile signed __int64 *)&v7->CancelIte,
+                        (signed __int64)v39,
+                        First);
             }
-            while ( v36 != v37 );
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v7[2].EntryInProgress);
-            NtWaitForAlertByThreadId(&v7[3].ShutdownInProgress, 0LL);
-            if ( v6 )
-              RtlAcquireSRWLockExclusive((volatile signed __int32 *)&v7[2].EntryInProgress);
-            v16 = 0;
+            while ( First != v38 );
+            RtlReleaseSRWLockExclusive(&v7->Lock);
+            NtWaitForAlertByThreadId(&v7->CancelIte, 0LL);
+            if ( DueTime )
+              RtlAcquireSRWLockExclusive(&v7->Lock);
+            v17 = 0;
           }
-          v5 = v39;
+          v5 = Period;
           goto LABEL_19;
         }
       }
     }
   }
-  if ( i || (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
-    TppRaiseInvalidParameter(Ldr, i, a3);
-  return 0LL;
+  if ( DueTime
+    || (Timer = (PTP_TIMER)NtCurrentPeb()->Ldr, !LOBYTE(Timer->Work.CleanupGroupMember.CallbackBarrier.WaitList.First)) )
+  {
+    TppRaiseInvalidParameter(Timer);
+  }
+  return 0;
 }

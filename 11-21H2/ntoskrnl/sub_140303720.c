@@ -1,0 +1,66 @@
+/*
+ * XREFs of sub_140303720 @ 0x140303720
+ * Callers:
+ *     sub_140256380 @ 0x140256380 (sub_140256380.c)
+ *     sub_140257FB0 @ 0x140257FB0 (sub_140257FB0.c)
+ *     sub_140259DD0 @ 0x140259DD0 (sub_140259DD0.c)
+ *     sub_1402A8980 @ 0x1402A8980 (sub_1402A8980.c)
+ *     sub_1402ABBF0 @ 0x1402ABBF0 (sub_1402ABBF0.c)
+ *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     sub_140302930 @ 0x140302930 (sub_140302930.c)
+ *     sub_140303240 @ 0x140303240 (sub_140303240.c)
+ *     KeStallExecutionProcessor @ 0x140303560 (KeStallExecutionProcessor.c)
+ *     sub_140304060 @ 0x140304060 (sub_140304060.c)
+ *     sub_1403051E0 @ 0x1403051E0 (sub_1403051E0.c)
+ *     sub_140306100 @ 0x140306100 (sub_140306100.c)
+ *     sub_140354420 @ 0x140354420 (sub_140354420.c)
+ *     sub_1403915EC @ 0x1403915EC (sub_1403915EC.c)
+ *     sub_14039190C @ 0x14039190C (sub_14039190C.c)
+ *     sub_140391998 @ 0x140391998 (sub_140391998.c)
+ *     sub_1403919F0 @ 0x1403919F0 (sub_1403919F0.c)
+ *     sub_1403AE810 @ 0x1403AE810 (sub_1403AE810.c)
+ *     sub_1403AEA08 @ 0x1403AEA08 (sub_1403AEA08.c)
+ *     sub_1403B53D4 @ 0x1403B53D4 (sub_1403B53D4.c)
+ *     sub_1403BB340 @ 0x1403BB340 (sub_1403BB340.c)
+ *     sub_1403BB500 @ 0x1403BB500 (sub_1403BB500.c)
+ *     sub_1403BB5A0 @ 0x1403BB5A0 (sub_1403BB5A0.c)
+ *     sub_1403BBAC8 @ 0x1403BBAC8 (sub_1403BBAC8.c)
+ *     sub_1403BBEC4 @ 0x1403BBEC4 (sub_1403BBEC4.c)
+ *     sub_1403BC1C4 @ 0x1403BC1C4 (sub_1403BC1C4.c)
+ *     sub_1403BC2A0 @ 0x1403BC2A0 (sub_1403BC2A0.c)
+ *     sub_1403BC620 @ 0x1403BC620 (sub_1403BC620.c)
+ *     sub_1403BC8C4 @ 0x1403BC8C4 (sub_1403BC8C4.c)
+ *     sub_1403D3380 @ 0x1403D3380 (sub_1403D3380.c)
+ *     sub_1403DDFB0 @ 0x1403DDFB0 (sub_1403DDFB0.c)
+ *     sub_140502E6C @ 0x140502E6C (sub_140502E6C.c)
+ *     sub_140502F20 @ 0x140502F20 (sub_140502F20.c)
+ *     sub_14050BFD0 @ 0x14050BFD0 (sub_14050BFD0.c)
+ *     sub_14050C138 @ 0x14050C138 (sub_14050C138.c)
+ *     sub_14050C5B0 @ 0x14050C5B0 (sub_14050C5B0.c)
+ *     sub_14050C764 @ 0x14050C764 (sub_14050C764.c)
+ *     sub_14050CF10 @ 0x14050CF10 (sub_14050CF10.c)
+ *     sub_14050CF80 @ 0x14050CF80 (sub_14050CF80.c)
+ *     sub_14050D1D0 @ 0x14050D1D0 (sub_14050D1D0.c)
+ *     sub_14050D564 @ 0x14050D564 (sub_14050D564.c)
+ *     sub_14050D650 @ 0x14050D650 (sub_14050D650.c)
+ *     sub_14050D91C @ 0x14050D91C (sub_14050D91C.c)
+ *     sub_14050DDD8 @ 0x14050DDD8 (sub_14050DDD8.c)
+ *     sub_14050DE34 @ 0x14050DE34 (sub_14050DE34.c)
+ *     sub_14050E038 @ 0x14050E038 (sub_14050E038.c)
+ *     sub_14050EA90 @ 0x14050EA90 (sub_14050EA90.c)
+ *     sub_14050EB20 @ 0x14050EB20 (sub_14050EB20.c)
+ *     sub_140521AC0 @ 0x140521AC0 (sub_140521AC0.c)
+ *     sub_140521C60 @ 0x140521C60 (sub_140521C60.c)
+ *     sub_140521CB0 @ 0x140521CB0 (sub_140521CB0.c)
+ *     sub_140521CF0 @ 0x140521CF0 (sub_140521CF0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_140303720(__int64 a1)
+{
+  if ( (*(_DWORD *)(a1 + 224) & 0x10000) != 0 )
+    return *(_QWORD *)(a1 + 72) + (unsigned int)(*(_DWORD *)(a1 + 80) * HIDWORD(KeGetPcr()[1].LockArray));
+  else
+    return *(_QWORD *)(a1 + 72);
+}

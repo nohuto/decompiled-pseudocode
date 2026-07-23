@@ -1,27 +1,27 @@
 /*
- * XREFs of PopPowerRequestCreateCommon @ 0x14032BD78
+ * XREFs of PopPowerRequestCreateCommon @ 0x14032C008
  * Callers:
- *     PopPowerRequestCreateUserModeRequest @ 0x14036DE6C (PopPowerRequestCreateUserModeRequest.c)
- *     PoCreatePowerRequest @ 0x1403C68E0 (PoCreatePowerRequest.c)
- *     PoRegisterSystemState @ 0x14058DCA0 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x1407A8D20 (NtSetThreadExecutionState.c)
+ *     PopPowerRequestCreateUserModeRequest @ 0x14036E00C (PopPowerRequestCreateUserModeRequest.c)
+ *     PoCreatePowerRequest @ 0x1403C6AC0 (PoCreatePowerRequest.c)
+ *     PoRegisterSystemState @ 0x14058E190 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x1407A8F10 (NtSetThreadExecutionState.c)
  *     PopPowerAggregatorInitialize @ 0x140B51C3C (PopPowerAggregatorInitialize.c)
  *     PopInitializeHighPerfPowerRequest @ 0x140B71EFC (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PopUmpoSendPowerRequestOverrideQuery @ 0x14032CE88 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     SessionIsInteractive @ 0x14032D42C (SessionIsInteractive.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCreateObject @ 0x1406B6350 (ObCreateObject.c)
- *     PsQueryProcessAttributes @ 0x14071DE14 (PsQueryProcessAttributes.c)
- *     PopUmpoSendPowerRequestCreate @ 0x1407A65EC (PopUmpoSendPowerRequestCreate.c)
- *     PopReleasePowerRequestPushLock @ 0x1407A6D2C (PopReleasePowerRequestPushLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x1407A6ED4 (PopAcquirePowerRequestPushLock.c)
- *     PopPowerRequestTableInsertEntry @ 0x1407A77A4 (PopPowerRequestTableInsertEntry.c)
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
- *     PopDiagTracePowerRequestCreate @ 0x1407A7900 (PopDiagTracePowerRequestCreate.c)
- *     PopPowerRequestTableDeleteEntry @ 0x140981AFC (PopPowerRequestTableDeleteEntry.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x14032D118 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     SessionIsInteractive @ 0x14032D6BC (SessionIsInteractive.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCreateObject @ 0x1406B6500 (ObCreateObject.c)
+ *     PsQueryProcessAttributes @ 0x14071E014 (PsQueryProcessAttributes.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x1407A67DC (PopUmpoSendPowerRequestCreate.c)
+ *     PopReleasePowerRequestPushLock @ 0x1407A6F1C (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1407A70C4 (PopAcquirePowerRequestPushLock.c)
+ *     PopPowerRequestTableInsertEntry @ 0x1407A7994 (PopPowerRequestTableInsertEntry.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
+ *     PopDiagTracePowerRequestCreate @ 0x1407A7AF0 (PopDiagTracePowerRequestCreate.c)
+ *     PopPowerRequestTableDeleteEntry @ 0x140981CFC (PopPowerRequestTableDeleteEntry.c)
  */
 
 __int64 __fastcall PopPowerRequestCreateCommon(_DWORD *a1, char a2, _QWORD *a3)
@@ -141,14 +141,14 @@ __int64 __fastcall PopPowerRequestCreateCommon(_DWORD *a1, char a2, _QWORD *a3)
     PopPowerRequestStatsCreate(v17);
     LOBYTE(v19) = 1;
     PopAcquirePowerRequestPushLock(v19);
-    v20 = (_QWORD *)qword_140C3F328;
-    if ( *(PVOID **)qword_140C3F328 != &PopPowerRequestObjectList )
+    v20 = (_QWORD *)qword_140C3F348;
+    if ( *(PVOID **)qword_140C3F348 != &PopPowerRequestObjectList )
       __fastfail(3u);
     ++PopPowerRequestObjectCount;
     *(_QWORD *)v17 = &PopPowerRequestObjectList;
     *((_QWORD *)v17 + 1) = v20;
     *v20 = v17;
-    qword_140C3F328 = (__int64)v17;
+    qword_140C3F348 = (__int64)v17;
     *(_QWORD *)inserted = v17;
     if ( !a2 )
       PopUmpoSendPowerRequestOverrideQuery(v17);

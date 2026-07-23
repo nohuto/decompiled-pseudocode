@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpDuplicateSingleHandle @ 0x1407B0458
+ * XREFs of ExpDuplicateSingleHandle @ 0x1407B0648
  * Callers:
- *     ExDupHandleTable @ 0x1407B00DC (ExDupHandleTable.c)
+ *     ExDupHandleTable @ 0x1407B02CC (ExDupHandleTable.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ObInheritObjectHandle @ 0x1407B04FC (ObInheritObjectHandle.c)
- *     ExpGetHandleExtraInfo @ 0x1408AB4CA (ExpGetHandleExtraInfo.c)
- *     ExpSetHandleExtraInfo @ 0x1409F91A0 (ExpSetHandleExtraInfo.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ObInheritObjectHandle @ 0x1407B06EC (ObInheritObjectHandle.c)
+ *     ExpGetHandleExtraInfo @ 0x1408AB71A (ExpGetHandleExtraInfo.c)
+ *     ExpSetHandleExtraInfo @ 0x1409F9430 (ExpSetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ExpDuplicateSingleHandle(

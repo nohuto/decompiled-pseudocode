@@ -9,21 +9,21 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __fastcall TppPoolAddWorker(int a1, _DWORD *a2)
+void __fastcall TppPoolAddWorker(_RTL_SRWLOCK *a1, _RTL_SRWLOCK *a2)
 {
-  _DWORD *v4; // eax
-  _DWORD *v5; // edx
+  _RTL_SRWLOCK *v4; // eax
+  _RTL_SRWLOCK **Value; // edx
 
-  a2[5] = NtCurrentTeb()->ClientId.UniqueThread;
-  a2[6] = a1;
-  RtlAcquireSRWLockExclusive(a1 + 44);
+  a2[5].0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)NtCurrentTeb()->ClientId.UniqueThread;
+  a2[6].Value = (unsigned int)a1;
+  RtlAcquireSRWLockExclusive(a1 + 11);
   v4 = a2 + 2;
-  v5 = *(_DWORD **)(a1 + 60);
-  if ( *v5 != a1 + 56 )
+  Value = (_RTL_SRWLOCK **)a1[15].Value;
+  if ( *Value != &a1[14] )
     __fastfail(3u);
-  *v4 = a1 + 56;
-  a2[3] = v5;
-  *v5 = v4;
-  *(_DWORD *)(a1 + 60) = v4;
-  return RtlReleaseSRWLockExclusive(a1 + 44);
+  v4->Value = (unsigned int)&a1[14];
+  a2[3].Value = (unsigned int)Value;
+  *Value = v4;
+  a1[15].Value = (unsigned int)v4;
+  RtlReleaseSRWLockExclusive(a1 + 11);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrCtxStart @ 0x14039D858
+ * XREFs of RtlpHpVaMgrCtxStart @ 0x14039D9A8
  * Callers:
- *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x14039D8D8 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x14037BC10 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlCSparseBitmapStart @ 0x14039D950 (RtlCSparseBitmapStart.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14037B760 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlCSparseBitmapStart @ 0x14039DAA0 (RtlCSparseBitmapStart.c)
  */
 
 int __fastcall RtlpHpVaMgrCtxStart(__int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeRetpolineImportInfo @ 0x1407CDF54
+ * XREFs of MiFreeRetpolineImportInfo @ 0x1407CE0C4
  * Callers:
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     VslFreeSecureImageIat @ 0x1404FE7E8 (VslFreeSecureImageIat.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     VslFreeSecureImageIat @ 0x1404FE768 (VslFreeSecureImageIat.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
@@ -40,7 +40,7 @@ void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     if ( (MiFlags & 0x10000) != 0 )
       VslFreeSecureImageIat(*(_QWORD *)(*(_QWORD *)(v2 + 96) + 56LL));
-    MiWalkEntireImage(v2, qword_140C4CC70, 16, 0xFFFFFFFF);
+    MiWalkEntireImage(v2, qword_140C4CCB0, 16, 0xFFFFFFFF);
   }
   else
   {

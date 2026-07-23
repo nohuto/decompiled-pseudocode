@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpRmUnDoPhase @ 0x14060597C
+ * XREFs of CmpRmUnDoPhase @ 0x140605A30
  * Callers:
- *     CmpStartRMLog @ 0x1404DAAE0 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x1404BE0E4 (CmpStartRMLog.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenTransaction @ 0x14015C0A0 (ZwOpenTransaction.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenTransaction @ 0x14015C610 (ZwOpenTransaction.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpTransMgrFreeVolatileData @ 0x1403FD614 (CmpTransMgrFreeVolatileData.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
- *     CmpTransMgrCommit @ 0x1404DA7A0 (CmpTransMgrCommit.c)
- *     CmpTransMgrPrepare @ 0x1404DA8E8 (CmpTransMgrPrepare.c)
- *     CmpTransMgrRollback @ 0x1404E9924 (CmpTransMgrRollback.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1403FC4D4 (CmpTransMgrFreeVolatileData.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     CmpTransMgrCommit @ 0x1404BDDA4 (CmpTransMgrCommit.c)
+ *     CmpTransMgrPrepare @ 0x1404BDEEC (CmpTransMgrPrepare.c)
+ *     CmpTransMgrRollback @ 0x1404CBA14 (CmpTransMgrRollback.c)
  */
 
 char *__fastcall CmpRmUnDoPhase(__int64 a1)

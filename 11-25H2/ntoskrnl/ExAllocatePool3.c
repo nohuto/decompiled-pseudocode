@@ -47,7 +47,7 @@ __int64 __fastcall ExAllocatePool3(ULONG_PTR BugCheckParameter3, size_t a2, ULON
   __int64 v11; // r15
   __int64 v12; // r14
   unsigned int v13; // ecx
-  int v14; // ecx
+  NTSTATUS v14; // ecx
   ULONG_PTR PoolWithQuotaTag; // rax
   unsigned int i; // edx
   __int64 *v18; // r10

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpPerfMemInfoWork @ 0x1408A7190
+ * XREFs of EtwpPerfMemInfoWork @ 0x1408A73E0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogMemInfoWs @ 0x1408A6B64 (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x1408A6DB4 (EtwpLogMemInfoWs.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

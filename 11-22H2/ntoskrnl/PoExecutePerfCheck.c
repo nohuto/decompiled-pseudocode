@@ -44,10 +44,10 @@ void PoExecutePerfCheck()
         v5 = v2;
         if ( v0 != 1 )
         {
-          if ( v0 + (unsigned int)KeMaximumIncrement + v1 > v2 )
+          if ( v0 + KeMaximumIncrement + v1 > v2 )
             v5 = v1 + v0;
           v6 = v5 - v1 - v0;
-          if ( v1 + (unsigned int)KeMaximumIncrement + PpmCheckLastActualExecutionTime < v2 && v6 >= v1 )
+          if ( v1 + KeMaximumIncrement + PpmCheckLastActualExecutionTime < v2 && v6 >= v1 )
           {
             v4 = 64;
             if ( (unsigned int)(v6 / v1) < 0x40 )

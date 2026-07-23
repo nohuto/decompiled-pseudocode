@@ -1,18 +1,18 @@
 /*
  * XREFs of MiBuildMappedCluster @ 0x14021C0D0
  * Callers:
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
  * Callees:
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiWriteCompletePfn @ 0x1402F4750 (MiWriteCompletePfn.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402F48D8 (MiReleaseWriteInProgressCharges.c)
- *     MiReferencePageForModifiedWrite @ 0x140349DE8 (MiReferencePageForModifiedWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiWriteCompletePfn @ 0x1402F49E0 (MiWriteCompletePfn.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402F4B68 (MiReleaseWriteInProgressCharges.c)
+ *     MiReferencePageForModifiedWrite @ 0x140349F80 (MiReferencePageForModifiedWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiBuildMappedCluster(_QWORD *a1, __int64 a2, int a3)
@@ -272,10 +272,13 @@ LABEL_20:
             v50 = (unsigned __int8)MiLockPageInline(v49);
             MiWriteCompletePfn(v49);
             _InterlockedAnd64((volatile signed __int64 *)(v49 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v50 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                && CurrentIrql <= 0xFu
+                && (unsigned __int8)v50 <= 0xFu
+                && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -433,10 +436,10 @@ LABEL_75:
           v61 = (unsigned __int8)MiLockPageInline(v60);
           MiWriteCompletePfn(v60);
           _InterlockedAnd64((volatile signed __int64 *)(v60 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v62 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v62 <= 0xFu && (unsigned __int8)v61 <= 0xFu && v62 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v62 <= 0xFu && (unsigned __int8)v61 <= 0xFu && v62 >= 2u )
             {
               v63 = KeGetCurrentPrcb();
               v64 = v63->SchedulerAssist;

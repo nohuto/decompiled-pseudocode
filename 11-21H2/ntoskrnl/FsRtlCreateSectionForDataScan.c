@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcZeroEndOfLastPage @ 0x14028866C (CcZeroEndOfLastPage.c)
+ *     sub_14028866C @ 0x14028866C (sub_14028866C.c)
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
  *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ObInsertObject @ 0x14066BA50 (ObInsertObject.c)
- *     MmGetFileObjectForSection @ 0x14066BA80 (MmGetFileObjectForSection.c)
- *     MmCreateSectionEx @ 0x14066BFB8 (MmCreateSectionEx.c)
- *     FsRtlAcquireToCreateMappedSection @ 0x1406FE210 (FsRtlAcquireToCreateMappedSection.c)
+ *     sub_14066BA80 @ 0x14066BA80 (sub_14066BA80.c)
+ *     sub_14066BFB8 @ 0x14066BFB8 (sub_14066BFB8.c)
+ *     sub_1406FE210 @ 0x1406FE210 (sub_1406FE210.c)
  *     FsRtlReleaseFile @ 0x1406FE310 (FsRtlReleaseFile.c)
  *     FsRtlGetFileSize @ 0x1406FF640 (FsRtlGetFileSize.c)
  */
@@ -34,8 +34,8 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
   int inserted; // edi
   ULONG LowPart; // ebx
   int v17; // r13d
-  int Section; // eax
-  struct _FILE_OBJECT *FileObjectForSection; // rax
+  int v18; // eax
+  struct _FILE_OBJECT *v19; // rax
   struct _FILE_OBJECT *v20; // rbx
   PVOID v21; // rbx
   NTSTATUS result; // eax
@@ -58,15 +58,15 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
     return -1073741577;
   if ( !FileObject->SectionObjectPointer )
     return -1073741792;
-  KeGetCurrentThread()[1].TrapFrame = (_KTRAP_FRAME *)1;
+  *((_QWORD *)KeGetCurrentThread() + 162) = 1LL;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  v14 = FsRtlAcquireToCreateMappedSection(FileObject, SectionPageProtection, 1LL, AllocationAttributes, &v24, &v25);
+  --*((_WORD *)CurrentThread + 242);
+  v14 = sub_1406FE210(FileObject, SectionPageProtection, 1LL, AllocationAttributes, &v24, &v25);
   if ( v14 < 0 )
   {
-    KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+    sub_1402F9540(KeGetCurrentThread());
     result = v14;
-    KeGetCurrentThread()[1].TrapFrame = 0LL;
+    *((_QWORD *)KeGetCurrentThread() + 162) = 0LL;
   }
   else
   {
@@ -79,30 +79,30 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
         v17 = v24;
         while ( 1 )
         {
-          Section = MmCreateSectionEx(
-                      (int)&Object,
-                      (int)ObjectAttributes,
-                      LowPart,
-                      SectionPageProtection,
-                      AllocationAttributes,
-                      0LL,
-                      (__int64)FileObject,
-                      v17,
-                      v23,
-                      0LL,
-                      0);
-          inserted = Section;
-          if ( Section != -1073741740 )
+          v18 = sub_14066BFB8(
+                  (int)&Object,
+                  (int)ObjectAttributes,
+                  LowPart,
+                  SectionPageProtection,
+                  AllocationAttributes,
+                  0LL,
+                  (__int64)FileObject,
+                  v17,
+                  v23,
+                  0LL,
+                  0);
+          inserted = v18;
+          if ( v18 != -1073741740 )
             break;
-          KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&FsRtlHalfSecond);
+          KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&stru_14003AC70);
         }
-        if ( Section >= 0 )
+        if ( v18 >= 0 )
         {
-          FileObjectForSection = (struct _FILE_OBJECT *)MmGetFileObjectForSection(Object);
-          v20 = FileObjectForSection;
-          if ( FileObjectForSection )
+          v19 = (struct _FILE_OBJECT *)sub_14066BA80(Object);
+          v20 = v19;
+          if ( v19 )
           {
-            CcZeroEndOfLastPage(FileObjectForSection);
+            sub_14028866C(v19);
             ObfDereferenceObjectWithTag(v20, 0x746C6644u);
           }
         }
@@ -114,8 +114,8 @@ NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
       }
     }
     FsRtlReleaseFile(FileObject);
-    KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
-    KeGetCurrentThread()[1].TrapFrame = 0LL;
+    sub_1402F9540(KeGetCurrentThread());
+    *((_QWORD *)KeGetCurrentThread() + 162) = 0LL;
     if ( inserted >= 0 )
     {
       v21 = Object;

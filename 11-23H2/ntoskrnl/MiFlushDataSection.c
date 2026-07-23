@@ -4,10 +4,10 @@
  *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
  * Callees:
  *     MiLockSectionControlArea @ 0x1402100C8 (MiLockSectionControlArea.c)
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     CcFlushCachePriv @ 0x14029CD34 (CcFlushCachePriv.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     CcFlushCachePriv @ 0x14029CFC4 (CcFlushCachePriv.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
@@ -36,7 +36,9 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
       *a2 = 1;
     v6 = *(_DWORD *)(result + 88);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(result + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v7 = v15;
       if ( v15 <= 0xFu && CurrentIrql >= 2u )

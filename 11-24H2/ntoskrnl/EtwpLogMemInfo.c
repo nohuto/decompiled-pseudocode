@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpLogMemInfo @ 0x1403D4060
+ * XREFs of EtwpLogMemInfo @ 0x140261FE0
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1403D3DF0 (EtwpLogMemInfoTimerCallback.c)
- *     EtwpLogMemInfoRundown @ 0x1407B0C30 (EtwpLogMemInfoRundown.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x140261D70 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoRundown @ 0x1407B1080 (EtwpLogMemInfoRundown.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     MmQueryMemoryListInformation @ 0x1403D447C (MmQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmQueryMemoryListInformation @ 0x1402623FC (MmQueryMemoryListInformation.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-int __fastcall EtwpLogMemInfo(__int64 a1, __int64 a2)
+__int64 __fastcall EtwpLogMemInfo(__int64 a1, __int64 a2)
 {
   char v5; // [rsp+40h] [rbp-C0h] BYREF
   GUID v6; // [rsp+44h] [rbp-BCh] BYREF
@@ -38,8 +38,8 @@ int __fastcall EtwpLogMemInfo(__int64 a1, __int64 a2)
   v11 = a2;
   v12 = 32;
   if ( a1 )
-    return EtwpLogKernelEvent((__int64)&v8, *(_QWORD *)(a1 + 1360), *(_DWORD *)a1, 2u, 624, 0x501803u);
+    return EtwpLogKernelEvent((unsigned int)&v8, *(_QWORD *)(a1 + 1360), *(_DWORD *)a1, 2, 624, 5249027);
   if ( EtwpHostSiloState != -4812 && (*(_DWORD *)(EtwpHostSiloState + 4816) & 0x80000) != 0 )
     EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-  return EtwTraceKernelEvent((int)&v8, 2, 0x20080000u, 624, 5249027);
+  return EtwTraceKernelEvent((unsigned int)&v8, 2, 537395200, 624, 5249027);
 }

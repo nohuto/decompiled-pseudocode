@@ -1,55 +1,67 @@
 /*
- * XREFs of RtlOemStringToUnicodeString @ 0x1800D40E0
+ * XREFs of RtlOemStringToUnicodeString @ 0x1800CF450
  * Callers:
- *     RtlDnsHostNameToComputerName @ 0x1800D3E90 (RtlDnsHostNameToComputerName.c)
+ *     RtlDnsHostNameToComputerName @ 0x1800CF200 (RtlDnsHostNameToComputerName.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     AllocateOrValidateUnicodeStringBuffer @ 0x18000CEE0 (AllocateOrValidateUnicodeStringBuffer.c)
- *     RtlMultiByteToUnicodeSize @ 0x1800D41D0 (RtlMultiByteToUnicodeSize.c)
- *     RtlOemToUnicodeN @ 0x1800D4290 (RtlOemToUnicodeN.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x1800398E0 (AllocateOrValidateUnicodeStringBuffer.c)
+ *     RtlMultiByteToUnicodeSize @ 0x1800CF540 (RtlMultiByteToUnicodeSize.c)
+ *     RtlOemToUnicodeN @ 0x1800CF600 (RtlOemToUnicodeN.c)
  */
 
-__int64 __fastcall RtlOemStringToUnicodeString(__int64 a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlOemStringToUnicodeString(
+        PUNICODE_STRING DestinationString,
+        POEM_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned int v6; // edx
-  _WORD *v7; // r15
-  __int64 *v8; // rdi
-  __int64 result; // rax
+  ULONG v6; // edx
+  unsigned __int16 *p_MaximumLength; // r15
+  wchar_t **p_Buffer; // rdi
+  NTSTATUS result; // eax
   int v10; // ebx
-  __int16 v11; // dx
-  unsigned int v12; // [rsp+78h] [rbp+10h] BYREF
-  char v13; // [rsp+80h] [rbp+18h]
+  unsigned __int16 v11; // dx
+  ULONG BytesInUnicodeString; // [rsp+78h] [rbp+10h] BYREF
+  BOOLEAN v13; // [rsp+80h] [rbp+18h]
 
-  v13 = a3;
-  v12 = 0;
-  RtlMultiByteToUnicodeSize(&v12, *((_QWORD *)a2 + 1), *a2);
-  v6 = v12 + 2;
-  v12 = v6;
+  v13 = AllocateDestinationString;
+  BytesInUnicodeString = 0;
+  RtlMultiByteToUnicodeSize(&BytesInUnicodeString, SourceString->Buffer, SourceString->Length);
+  v6 = BytesInUnicodeString + 2;
+  BytesInUnicodeString = v6;
   if ( v6 > 0xFFFE )
-    return 3221225712LL;
-  v7 = (_WORD *)(a1 + 2);
-  v8 = (__int64 *)(a1 + 8);
-  result = AllocateOrValidateUnicodeStringBuffer(a3, v6, (__int64 *)(a1 + 8), (_WORD *)(a1 + 2));
-  if ( (int)result >= 0 )
+    return -1073741584;
+  p_MaximumLength = &DestinationString->MaximumLength;
+  p_Buffer = &DestinationString->Buffer;
+  result = AllocateOrValidateUnicodeStringBuffer(
+             AllocateDestinationString,
+             v6,
+             (__int64 *)&DestinationString->Buffer,
+             &DestinationString->MaximumLength);
+  if ( result >= 0 )
   {
-    v10 = RtlOemToUnicodeN(*v8, (unsigned __int16)*v7, (unsigned int)&v12, *((_QWORD *)a2 + 1), *a2);
+    v10 = RtlOemToUnicodeN(
+            *p_Buffer,
+            *p_MaximumLength,
+            &BytesInUnicodeString,
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v10 >= 0 )
     {
-      v11 = v12;
-      *(_WORD *)(*v8 + 2 * ((unsigned __int64)v12 >> 1)) = 0;
-      *(_WORD *)a1 = v11;
+      v11 = BytesInUnicodeString;
+      (*p_Buffer)[(unsigned __int64)BytesInUnicodeString >> 1] = 0;
+      DestinationString->Length = v11;
       v10 = 0;
     }
     if ( v10 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        RtlpSysVolFree(*v8);
-        *v8 = 0LL;
-        *v7 = 0;
+        RtlpSysVolFree(*p_Buffer);
+        *p_Buffer = 0LL;
+        *p_MaximumLength = 0;
       }
     }
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

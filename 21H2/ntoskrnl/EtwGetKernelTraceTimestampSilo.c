@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwGetKernelTraceTimestampSilo @ 0x1402AE19C
+ * XREFs of EtwGetKernelTraceTimestampSilo @ 0x14022C4FC
  * Callers:
- *     PfHardFaultRecord @ 0x1402AE114 (PfHardFaultRecord.c)
+ *     PfHardFaultRecord @ 0x14022C474 (PfHardFaultRecord.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     RtlGetSystemTimePrecise @ 0x140278F20 (RtlGetSystemTimePrecise.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlGetSystemTimePrecise @ 0x140266EC0 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
 {
   int v3; // ebx
   _QWORD *v5; // r8
@@ -18,8 +18,8 @@ __int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned in
   __int64 v10; // r10
   __int64 v11; // rcx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
-  __int64 v14; // [rsp+48h] [rbp+20h] BYREF
+  LARGE_INTEGER result; // rax
+  LARGE_INTEGER v14; // [rsp+48h] [rbp+20h] BYREF
 
   v3 = 0;
   if ( a3 )
@@ -54,12 +54,12 @@ __int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned in
   if ( (v3 & 4) != 0 )
     result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  a1[1].QuadPart = result;
+    result.QuadPart = 0LL;
+  a1[1] = result;
   if ( (v3 & 8) != 0 )
   {
-    result = __rdtsc();
-    a1[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    a1[2] = result;
   }
   else
   {
@@ -67,10 +67,10 @@ __int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned in
   }
   if ( (v3 & 0x10) != 0 )
   {
-    v14 = 0LL;
-    ((void (__fastcall *)(__int64 *))off_140C009E0[0])(&v14);
+    v14.QuadPart = 0LL;
+    ((void (__fastcall *)(LARGE_INTEGER *))off_140C009E0[0])(&v14);
     result = v14;
-    a1[3].QuadPart = v14;
+    a1[3] = v14;
   }
   else
   {

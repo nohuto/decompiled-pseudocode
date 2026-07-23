@@ -11,12 +11,12 @@
  *     _RtlpGetCustomCultureData@16 @ 0x4B3631F6 (_RtlpGetCustomCultureData@16.c)
  */
 
-char __stdcall RtlIsValidLocaleName(unsigned __int16 *SourceString, int a2)
+BOOLEAN __cdecl RtlIsValidLocaleName(PCWSTR LocaleName, ULONG Flags)
 {
   int v2; // esi
   int NameIndex; // eax
 
-  if ( !SourceString || (a2 & 0xFFFFFFFD) != 0 )
+  if ( !LocaleName || (Flags & 0xFFFFFFFD) != 0 )
     return 0;
   v2 = pTblPtrs;
   if ( !pTblPtrs )
@@ -25,13 +25,13 @@ char __stdcall RtlIsValidLocaleName(unsigned __int16 *SourceString, int a2)
       return 0;
     v2 = pTblPtrs;
   }
-  NameIndex = RtlpNlsGetNameIndex(SourceString);
+  NameIndex = RtlpNlsGetNameIndex((unsigned __int16 *)LocaleName);
   if ( NameIndex < 0 )
   {
-    if ( !RtlpIsCustomLocale(SourceString) || (a2 & 2) == 0 && (int)RtlpGetCustomCultureData(0, 0) < 0 )
+    if ( !RtlpIsCustomLocale(LocaleName) || (Flags & 2) == 0 && (int)RtlpGetCustomCultureData(0, 0) < 0 )
       return 0;
   }
-  else if ( (a2 & 2) == 0 )
+  else if ( (Flags & 2) == 0 )
   {
     _mm_lfence();
     if ( (*(_BYTE *)(*(unsigned __int16 *)(v2 + 28) * *(unsigned __int16 *)(*(_DWORD *)(v2 + 16) + 8 * NameIndex + 2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeToCustomCPN @ 0x1408B0480
+ * XREFs of RtlUnicodeToCustomCPN @ 0x1409066E0
  * Callers:
- *     RtlUnicodeToOemN @ 0x1408B1040 (RtlUnicodeToOemN.c)
+ *     RtlUnicodeToOemN @ 0x1409072A0 (RtlUnicodeToOemN.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToCustomCPN(

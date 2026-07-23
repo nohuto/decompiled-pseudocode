@@ -3,10 +3,10 @@
  * Callers:
  *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041ADE0 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwResetEvent @ 0x14041DE00 (ZwResetEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x14041B170 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwResetEvent @ 0x14041E190 (ZwResetEvent.c)
  */
 
 __int64 __fastcall PfSnVolumeCheckSeekPenalty(HANDLE *a1, void *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall PfSnVolumeCheckSeekPenalty(HANDLE *a1, void *a2)
   InputBuffer[0] = 7;
   v4 = 1;
   IoStatusBlock = 0LL;
-  ZwResetEvent((__int64)a2, 0LL);
+  ZwResetEvent(a2, 0LL);
   Status = ZwDeviceIoControlFile(*a1, a2, 0LL, 0LL, &IoStatusBlock, 0x2D1400u, InputBuffer, 0xCu, &OutputBuffer, 0xCu);
   if ( Status == 259 )
   {

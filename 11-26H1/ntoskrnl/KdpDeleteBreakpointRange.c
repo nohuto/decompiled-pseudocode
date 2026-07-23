@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpDeleteBreakpointRange @ 0x140C1756C
+ * XREFs of KdpDeleteBreakpointRange @ 0x140C1D56C
  * Callers:
- *     KdpSetCommonState @ 0x14050A0C4 (KdpSetCommonState.c)
+ *     KdpSetCommonState @ 0x140503B74 (KdpSetCommonState.c)
  * Callees:
- *     KdpDeleteBreakpoint @ 0x140C1676C (KdpDeleteBreakpoint.c)
+ *     KdpDeleteBreakpoint @ 0x140C1C76C (KdpDeleteBreakpoint.c)
  */
 
 char __fastcall KdpDeleteBreakpointRange(unsigned __int64 a1, unsigned __int64 a2)

@@ -22,21 +22,21 @@
 __int64 __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __int64 a3, unsigned int a4)
 {
   char v8; // r12
-  __int64 v9; // rbp
+  PRTL_BALANCED_NODE v9; // rbp
   int v10; // eax
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v14; // r14
-  __int64 v15; // r8
+  unsigned int v15; // r8d
   __int64 v17; // rcx
   int v18; // eax
   __int64 v19; // rcx
   _KLOCK_ENTRY *v20; // rbp
   __int64 v21; // rdx
   __int64 v22; // rcx
-  _BYTE *v23; // rax
-  _BYTE *v24; // rbp
+  PRTL_BALANCED_NODE v23; // rax
+  PRTL_BALANCED_NODE v24; // rbp
   __int64 *v25; // rcx
   __int64 **v26; // rax
   __int64 **v27; // rcx
@@ -45,12 +45,12 @@ __int64 __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2,
   if ( *((_DWORD *)a2 + 10) == 1 )
   {
     v8 = 1;
-    v23 = (_BYTE *)KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+    v23 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
     v24 = v23;
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v23, BugCheckParameter2);
     if ( v24 )
-      v24[26] |= 1u;
+      BYTE2(v24[1].Left) |= 1u;
     *((_DWORD *)a2 + 10) = 0;
     v25 = (__int64 *)*a2;
     v26 = (__int64 **)a2[1];
@@ -69,11 +69,11 @@ __int64 __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2,
   else
   {
     v8 = 0;
-    v9 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+    v9 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)BugCheckParameter2, v9, BugCheckParameter2);
     if ( v9 )
-      *(_BYTE *)(v9 + 26) |= 1u;
+      BYTE2(v9[1].Left) |= 1u;
   }
   if ( (unsigned __int8)ExpSaPageGroupFreeMemory(a2, a3, a4) )
   {
@@ -108,13 +108,13 @@ LABEL_16:
     SessionId = 0xFFFFFFFFLL;
   --CurrentThread->SpecialApcDisable;
   v14 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v15) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v15 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( _BitScanReverse((unsigned int *)&v17, v15) )
   {
     v18 = 1 << v17;
     v19 = v17;
     v20 = &CurrentThread->LockEntries[v19];
-    v15 = ~v18 & (unsigned int)v15;
+    v15 &= ~v18;
     if ( (v20->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v20->LockState.0 & 1) == 0
       && (*(_QWORD *)&v20->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
@@ -127,7 +127,7 @@ LABEL_16:
         {
           v20->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v20->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v19], SessionId, v15);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v19].TreeNode, SessionId);
           v28 = 0;
           v28 = v20->BoostBitmap.AllFields & 0x1FFFF;
           v20->BoostBitmap.AllFields &= 0xFFFE0000;

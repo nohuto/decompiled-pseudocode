@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline @ 0x18011CFE0
+ * XREFs of Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline @ 0x18011B210
  * Callers:
- *     RtlCrc32 @ 0x1800F8A40 (RtlCrc32.c)
+ *     RtlCrc32 @ 0x1800F3610 (RtlCrc32.c)
  * Callees:
  *     <none>
  */

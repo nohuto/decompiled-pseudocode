@@ -1,15 +1,15 @@
 /*
- * XREFs of MmReturnChargesToLockPagedPool @ 0x140A309A0
+ * XREFs of MmReturnChargesToLockPagedPool @ 0x140A30C50
  * Callers:
- *     MiDeleteSubsectionLargePages @ 0x14064EDA8 (MiDeleteSubsectionLargePages.c)
- *     MiCreatePagingFileMap @ 0x140747994 (MiCreatePagingFileMap.c)
- *     PopEnableHiberFile @ 0x1408016DC (PopEnableHiberFile.c)
- *     HalpUnloadMicrocode @ 0x140934DB0 (HalpUnloadMicrocode.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064F2F8 (MiDeleteSubsectionLargePages.c)
+ *     MiCreatePagingFileMap @ 0x140747B84 (MiCreatePagingFileMap.c)
+ *     PopEnableHiberFile @ 0x1408019AC (PopEnableHiberFile.c)
+ *     HalpUnloadMicrocode @ 0x140934FB0 (HalpUnloadMicrocode.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
  */
 
 unsigned __int64 __fastcall MmReturnChargesToLockPagedPool(unsigned __int64 a1, __int64 a2)

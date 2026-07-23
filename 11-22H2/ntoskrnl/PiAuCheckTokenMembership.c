@@ -50,7 +50,7 @@ __int64 __fastcall PiAuCheckTokenMembership(void *Src, BOOLEAN *a2)
     Acl = RtlCreateAcl(v8, v4 - 40, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v8, 2u, 0, 1, (unsigned __int8 *)Src, 0);
+      Acl = RtlpAddKnownAce(v8, 2u, 0, 1, (unsigned __int8 *)Src, 0);
       if ( Acl >= 0 )
       {
         Acl = RtlSetDaclSecurityDescriptor(v6, 1u, v8, 0);

@@ -22,21 +22,21 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtLoadEnclaveData(
-        ULONG_PTR BugCheckParameter1,
-        __int64 a2,
-        void *a3,
-        __int64 a4,
-        int a5,
-        void *Src,
-        size_t Size,
-        unsigned __int64 a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   __int16 v9; // r10
-  ULONG_PTR v10; // r11
-  const void *v11; // r9
-  int v12; // r13d
+  HANDLE v10; // r11
+  PVOID v11; // r9
+  ULONG v12; // r13d
   _BYTE *Pool; // rsi
   __int64 v14; // r14
   char PreviousMode; // r15
@@ -46,20 +46,20 @@ __int64 __fastcall NtLoadEnclaveData(
   int v19; // eax
   int v20; // eax
   __int64 v21; // rbx
-  ULONG_PTR v22; // rbx
+  HANDLE v22; // rbx
   _QWORD *v23; // r15
   volatile signed __int32 *v24; // rbx
   __int64 v26; // rcx
   __int64 v27; // rcx
   void *v28; // rbx
   __int64 v29; // r8
-  unsigned int DataIntoVsmEnclave; // r15d
+  NTSTATUS DataIntoVsmEnclave; // r15d
   __int64 Tag; // [rsp+20h] [rbp-178h]
-  unsigned int v32; // [rsp+60h] [rbp-138h] BYREF
+  NTSTATUS v32; // [rsp+60h] [rbp-138h] BYREF
   char v33; // [rsp+64h] [rbp-134h]
   int v34; // [rsp+68h] [rbp-130h]
-  ULONG_PTR v35; // [rsp+70h] [rbp-128h]
-  unsigned __int64 v36; // [rsp+78h] [rbp-120h]
+  HANDLE v35; // [rsp+70h] [rbp-128h]
+  PSIZE_T v36; // [rsp+78h] [rbp-120h]
   PVOID Object; // [rsp+80h] [rbp-118h] BYREF
   __int64 v38; // [rsp+88h] [rbp-110h] BYREF
   __int64 v39; // [rsp+90h] [rbp-108h]
@@ -69,26 +69,26 @@ __int64 __fastcall NtLoadEnclaveData(
   _BYTE *v43; // [rsp+B0h] [rbp-E8h]
   PVOID Base; // [rsp+B8h] [rbp-E0h]
   __int64 v45; // [rsp+C0h] [rbp-D8h]
-  _DWORD *v46; // [rsp+C8h] [rbp-D0h]
-  void *v47; // [rsp+D0h] [rbp-C8h]
-  ULONG_PTR v48; // [rsp+E8h] [rbp-B0h]
-  unsigned __int64 v49; // [rsp+F0h] [rbp-A8h]
+  PULONG v46; // [rsp+C8h] [rbp-D0h]
+  PVOID v47; // [rsp+D0h] [rbp-C8h]
+  HANDLE v48; // [rsp+E8h] [rbp-B0h]
+  PSIZE_T v49; // [rsp+F0h] [rbp-A8h]
   _OWORD v50[3]; // [rsp+108h] [rbp-90h] BYREF
   _BYTE v51[32]; // [rsp+138h] [rbp-60h] BYREF
 
-  v9 = a4;
-  v41 = a4;
-  Base = a3;
-  v39 = a2;
-  v10 = BugCheckParameter1;
-  v35 = BugCheckParameter1;
-  v36 = a8;
-  v48 = BugCheckParameter1;
-  v11 = Src;
-  v47 = Src;
-  v12 = Size;
-  v49 = a8;
-  v46 = a9;
+  v9 = BufferSize;
+  v41 = BufferSize;
+  Base = Buffer;
+  v39 = (__int64)BaseAddress;
+  v10 = ProcessHandle;
+  v35 = ProcessHandle;
+  v36 = NumberOfBytesWritten;
+  v48 = ProcessHandle;
+  v11 = PageInformation;
+  v47 = PageInformation;
+  v12 = PageInformationLength;
+  v49 = NumberOfBytesWritten;
+  v46 = EnclaveError;
   memset(v50, 0, sizeof(v50));
   v32 = 0;
   v42 = 0LL;
@@ -103,28 +103,28 @@ __int64 __fastcall NtLoadEnclaveData(
   v33 = PreviousMode;
   if ( PreviousMode == 1 )
   {
-    if ( a9 )
+    if ( EnclaveError )
     {
       v26 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a9 < 0x7FFFFFFF0000LL )
-        v26 = (__int64)a9;
+      if ( (unsigned __int64)EnclaveError < 0x7FFFFFFF0000LL )
+        v26 = (__int64)EnclaveError;
       *(_DWORD *)v26 = *(_DWORD *)v26;
     }
-    if ( a8 )
+    if ( NumberOfBytesWritten )
     {
       v27 = 0x7FFFFFFF0000LL;
-      if ( a8 < 0x7FFFFFFF0000LL )
-        v27 = a8;
+      if ( (unsigned __int64)NumberOfBytesWritten < 0x7FFFFFFF0000LL )
+        v27 = (__int64)NumberOfBytesWritten;
       *(_QWORD *)v27 = *(_QWORD *)v27;
     }
   }
-  if ( (_DWORD)Size )
+  if ( PageInformationLength )
   {
-    if ( (unsigned int)Size > 0xFFFF )
+    if ( PageInformationLength > 0xFFFF )
       goto LABEL_40;
-    if ( (unsigned int)Size > 0x20 )
+    if ( PageInformationLength > 0x20 )
     {
-      Pool = (_BYTE *)MiAllocatePool(0x40uLL, (unsigned int)Size, 1230007877);
+      Pool = (_BYTE *)MiAllocatePool(0x40uLL, PageInformationLength, 1230007877);
       v43 = Pool;
       if ( !Pool )
       {
@@ -138,7 +138,7 @@ __int64 __fastcall NtLoadEnclaveData(
       Pool = v51;
       v43 = v51;
     }
-    memmove(Pool, v11, (unsigned int)Size);
+    memmove(Pool, v11, PageInformationLength);
     PreviousMode = v33;
     v9 = v41;
     v10 = v35;
@@ -152,14 +152,14 @@ __int64 __fastcall NtLoadEnclaveData(
     goto LABEL_42;
   CurrentThread = KeGetCurrentThread();
   Process = (__int64)CurrentThread->ApcState.Process;
-  if ( v10 == -1LL )
+  if ( v10 == (HANDLE)-1LL )
   {
     Object = CurrentThread->ApcState.Process;
   }
   else
   {
     v32 = ObpReferenceObjectByHandleWithTag(
-            v10,
+            (ULONG_PTR)v10,
             8,
             (__int64)PsProcessType,
             PreviousMode,
@@ -167,12 +167,12 @@ __int64 __fastcall NtLoadEnclaveData(
             &Object,
             0LL,
             0LL);
-    if ( (v32 & 0x80000000) != 0 )
+    if ( v32 < 0 )
       goto LABEL_41;
   }
   KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)v50);
   v34 = 1;
-  v18 = MiObtainReferencedVadEx(v39, 0, (int *)&v32);
+  v18 = MiObtainReferencedVadEx(v39, 0, &v32);
   v14 = v18;
   if ( !v18
     || ((v19 = *(_DWORD *)(v18 + 48), (v19 & 0x200000) == 0) || (v19 & 0xC000000) != 0x8000000 ? (v20 = 0) : (v20 = 1),
@@ -192,11 +192,11 @@ __int64 __fastcall NtLoadEnclaveData(
                              v14,
                              (int)v11,
                              v39,
-                             Size,
+                             PageInformationLength,
                              (__int64)Pool,
                              Base,
                              v41,
-                             a5,
+                             Protect,
                              (__int64)&v42);
     }
     else
@@ -211,13 +211,13 @@ __int64 __fastcall NtLoadEnclaveData(
     v32 = DataIntoVsmEnclave;
     goto LABEL_41;
   }
-  if ( !(_DWORD)Size )
+  if ( !PageInformationLength )
   {
     v21 = v41;
     if ( v41 )
     {
       KiUnstackDetachProcess((__int64)v50, 0LL);
-      v32 = MiCopyPagesIntoEnclave((ULONG_PTR)Object, (__int64)Base, v21, a5, (__int64)&v42, (__int64)&v38);
+      v32 = MiCopyPagesIntoEnclave((ULONG_PTR)Object, (__int64)Base, v21, Protect, (__int64)&v42, (__int64)&v38);
       goto LABEL_15;
     }
 LABEL_42:
@@ -230,12 +230,12 @@ LABEL_41:
   v12 = v34;
 LABEL_15:
   v22 = v35;
-  v23 = (_QWORD *)v36;
+  v23 = v36;
   if ( v14 )
     MiUnlockAndDereferenceVad((char *)v14);
   if ( v12 )
     KiUnstackDetachProcess((__int64)v50, 0LL);
-  if ( Object && v22 != -1LL )
+  if ( Object && v22 != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
   if ( Pool && Pool != v51 )
     ExFreePoolWithTag(Pool, 0);
@@ -245,7 +245,7 @@ LABEL_15:
     DbgkMapViewOfSection(
       (_KPROCESS *)Object,
       0LL,
-      *(_QWORD *)(v45 + 16),
+      *(void **)(v45 + 16),
       (__int64)v11,
       Tag,
       *(_DWORD *)(v45 + 36),
@@ -254,7 +254,7 @@ LABEL_15:
   }
   if ( v23 )
     *v23 = v42;
-  if ( a9 )
-    *a9 = v38;
+  if ( EnclaveError )
+    *EnclaveError = v38;
   return v32;
 }

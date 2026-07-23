@@ -1,20 +1,20 @@
 /*
- * XREFs of KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A7BC
+ * XREFs of KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057ACAC
  * Callers:
- *     KiBugCheckRecoveryPrepareForCrashDump @ 0x14057AB48 (KiBugCheckRecoveryPrepareForCrashDump.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x14057B878 (KiUpdateBugcheckRecoveryProgress.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x14057B038 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x14057BD68 (KiUpdateBugcheckRecoveryProgress.c)
  * Callees:
  *     KiSendFreeze @ 0x14020D150 (KiSendFreeze.c)
  *     KiSetDebuggerOwner @ 0x14020D3C0 (KiSetDebuggerOwner.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     KeRemoveQueueDpcEx @ 0x14031F0D0 (KeRemoveQueueDpcEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeFrozenProcessorCount @ 0x140576B24 (KeFrozenProcessorCount.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     KeRemoveQueueDpcEx @ 0x14031F360 (KeRemoveQueueDpcEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeFrozenProcessorCount @ 0x140577014 (KeFrozenProcessorCount.c)
  */
 
 __int64 __fastcall KiBugCheckRecoveryFreezeOtherProcessors(unsigned int a1)

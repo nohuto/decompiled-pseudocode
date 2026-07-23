@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStateDurationCapture @ 0x140253584
+ * XREFs of RtlStateDurationCapture @ 0x140274AF8
  * Callers:
- *     PoEnergyContextCleanup @ 0x140613CAC (PoEnergyContextCleanup.c)
+ *     PoEnergyContextCleanup @ 0x14067D90C (PoEnergyContextCleanup.c)
  * Callees:
  *     <none>
  */

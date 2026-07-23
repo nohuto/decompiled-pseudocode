@@ -1,16 +1,16 @@
 /*
- * XREFs of MicrocodeValidate @ 0x140664B20
+ * XREFs of MicrocodeValidate @ 0x140663410
  * Callers:
- *     PrExtControlOperations @ 0x140663EEC (PrExtControlOperations.c)
+ *     PrExtControlOperations @ 0x1406627DC (PrExtControlOperations.c)
  * Callees:
- *     GetCpuManufacturer @ 0x140664FCC (GetCpuManufacturer.c)
+ *     GetCpuManufacturer @ 0x1406638BC (GetCpuManufacturer.c)
  */
 
 __int64 __fastcall MicrocodeValidate(int a1)
 {
   unsigned __int64 v1; // rax
 
-  dword_140EF7848 = a1;
+  dword_140EF7B08 = a1;
   if ( (unsigned __int8)GetCpuManufacturer(2LL) )
   {
     v1 = __readmsr(0x8Bu);
@@ -21,32 +21,32 @@ __int64 __fastcall MicrocodeValidate(int a1)
       return 3221225659LL;
     v1 = __readmsr(0x8Bu) >> 32;
   }
-  if ( HIDWORD(xmmword_140EF7830) )
+  if ( HIDWORD(xmmword_140EF7AF0) )
   {
-    if ( HIDWORD(xmmword_140EF7830) <= (unsigned int)v1 )
+    if ( HIDWORD(xmmword_140EF7AF0) <= (unsigned int)v1 )
     {
-      if ( (_DWORD)xmmword_140EF7830 == (_DWORD)v1 )
+      if ( (_DWORD)xmmword_140EF7AF0 == (_DWORD)v1 )
       {
-        HIDWORD(qword_140EF7840) = 7;
+        HIDWORD(qword_140EF7B00) = 7;
       }
       else
       {
-        if ( HIDWORD(xmmword_140EF7830) == (_DWORD)v1
-          && (HIDWORD(qword_140EF7840) == 4 || HIDWORD(qword_140EF7840) == 10) )
+        if ( HIDWORD(xmmword_140EF7AF0) == (_DWORD)v1
+          && (HIDWORD(qword_140EF7B00) == 4 || HIDWORD(qword_140EF7B00) == 10) )
         {
-          HIDWORD(qword_140EF7840) = 0;
+          HIDWORD(qword_140EF7B00) = 0;
         }
-        *(_QWORD *)((char *)&xmmword_140EF7830 + 4) = *((_QWORD *)&xmmword_140EF7830 + 1);
+        *(_QWORD *)((char *)&xmmword_140EF7AF0 + 4) = *((_QWORD *)&xmmword_140EF7AF0 + 1);
       }
     }
     else
     {
-      HIDWORD(qword_140EF7840) = 3;
+      HIDWORD(qword_140EF7B00) = 3;
     }
   }
   else
   {
-    HIDWORD(qword_140EF7840) = 6;
+    HIDWORD(qword_140EF7B00) = 6;
   }
   return 0LL;
 }

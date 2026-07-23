@@ -10,7 +10,7 @@
  *     TpAllocIoCompletion @ 0x180030F30 (TpAllocIoCompletion.c)
  *     TppAllocAlpcCompletion @ 0x1800313F8 (TppAllocAlpcCompletion.c)
  *     TpAllocJobNotification @ 0x180032300 (TpAllocJobNotification.c)
- *     RtlpTpIoAlloc @ 0x18008BF2C (RtlpTpIoAlloc.c)
+ *     RtlpTpIoAlloc @ 0x18008BF3C (RtlpTpIoAlloc.c)
  * Callees:
  *     TppAdjustRunningThreadGoal @ 0x180110414 (TppAdjustRunningThreadGoal.c)
  */

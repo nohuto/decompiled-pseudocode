@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEqualPrefixSid @ 0x1406307E0
+ * XREFs of RtlEqualPrefixSid @ 0x140631800
  * Callers:
- *     RtlpCopyEffectiveAce @ 0x140630400 (RtlpCopyEffectiveAce.c)
+ *     RtlpCopyEffectiveAce @ 0x140631420 (RtlpCopyEffectiveAce.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN __stdcall RtlEqualPrefixSid(PSID Sid1, PSID Sid2)

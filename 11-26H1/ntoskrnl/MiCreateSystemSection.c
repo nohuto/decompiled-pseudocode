@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateSystemSection @ 0x14038A4C0
+ * XREFs of MiCreateSystemSection @ 0x14038C270
  * Callers:
- *     MiOpenHotPatchFile @ 0x140873028 (MiOpenHotPatchFile.c)
- *     MiCreateSectionForDriver @ 0x140AEBC54 (MiCreateSectionForDriver.c)
+ *     MiOpenHotPatchFile @ 0x140879388 (MiOpenHotPatchFile.c)
+ *     MiCreateSectionForDriver @ 0x140AEEB60 (MiCreateSectionForDriver.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     CcZeroEndOfLastPage @ 0x1402C6408 (CcZeroEndOfLastPage.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
- *     MiCreateSection @ 0x1409BA4D4 (MiCreateSection.c)
- *     PsReferencePrimaryToken @ 0x140A48F30 (PsReferencePrimaryToken.c)
- *     SeCompareSigningLevels @ 0x140A88910 (SeCompareSigningLevels.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     CcZeroEndOfLastPage @ 0x1403110A8 (CcZeroEndOfLastPage.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
+ *     MiCreateSection @ 0x14098B4B4 (MiCreateSection.c)
+ *     PsReferencePrimaryToken @ 0x140A52220 (PsReferencePrimaryToken.c)
+ *     SeCompareSigningLevels @ 0x140A8FB90 (SeCompareSigningLevels.c)
  */
 
 __int64 __fastcall MiCreateSystemSection(

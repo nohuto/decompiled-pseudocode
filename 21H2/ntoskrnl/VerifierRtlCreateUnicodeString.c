@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierRtlCreateUnicodeString @ 0x1409E57E0
+ * XREFs of VerifierRtlCreateUnicodeString @ 0x1409E67E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViRtlReplaceStringBuffer @ 0x1409E5D3C (ViRtlReplaceStringBuffer.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViRtlReplaceStringBuffer @ 0x1409E6D3C (ViRtlReplaceStringBuffer.c)
  */
 
 char __fastcall VerifierRtlCreateUnicodeString(__int64 a1)

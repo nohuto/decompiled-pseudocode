@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaPrmTranslatePhysicalAddress @ 0x14065E590
+ * XREFs of WheaPrmTranslatePhysicalAddress @ 0x14065CD60
  * Callers:
- *     HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x140543108 (HalpAddPrmAddressTranslationToMemoryExtIntelSection.c)
+ *     HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x140540A58 (HalpAddPrmAddressTranslationToMemoryExtIntelSection.c)
  * Callees:
- *     WheapPrmTranslatePhysicalAddressIntel @ 0x14065E858 (WheapPrmTranslatePhysicalAddressIntel.c)
+ *     WheapPrmTranslatePhysicalAddressIntel @ 0x14065D028 (WheapPrmTranslatePhysicalAddressIntel.c)
  */
 
 __int64 WheaPrmTranslatePhysicalAddress()

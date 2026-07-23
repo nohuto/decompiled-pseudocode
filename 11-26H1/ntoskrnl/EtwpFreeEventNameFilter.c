@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpFreeEventNameFilter @ 0x140AA1814
+ * XREFs of EtwpFreeEventNameFilter @ 0x140AA32D8
  * Callers:
- *     EtwpUpdateGuidFilterData @ 0x140937FB0 (EtwpUpdateGuidFilterData.c)
- *     EtwpFreeFilterInfo @ 0x140938D98 (EtwpFreeFilterInfo.c)
- *     EtwpAllocateEventNameFilter @ 0x140AA144C (EtwpAllocateEventNameFilter.c)
+ *     EtwpUpdateGuidFilterData @ 0x140913B50 (EtwpUpdateGuidFilterData.c)
+ *     EtwpFreeFilterInfo @ 0x140914938 (EtwpFreeFilterInfo.c)
+ *     EtwpAllocateEventNameFilter @ 0x140AA2F10 (EtwpAllocateEventNameFilter.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeEventNameFilter(_QWORD *P)

@@ -1,7 +1,7 @@
 /*
  * XREFs of MiInitializeProcessPageTableCommitmentBitMaps @ 0x1402233C0
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

@@ -1,167 +1,158 @@
 /*
- * XREFs of RtlpHpHeapCreate @ 0x1800A6374
+ * XREFs of RtlpHpHeapCreate @ 0x180026120
  * Callers:
- *     RtlpHpMetadataHeapCreate @ 0x1800A5E80 (RtlpHpMetadataHeapCreate.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlpHpMetadataHeapCreate @ 0x180026660 (RtlpHpMetadataHeapCreate.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpHpHeapDestroy @ 0x180090050 (RtlpHpHeapDestroy.c)
- *     RtlpHpRegisterEnvironment @ 0x180090838 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpSegContextReserve @ 0x180090A14 (RtlpHpSegContextReserve.c)
- *     RtlpHpEnvQueryProcessorCount @ 0x1800A4968 (RtlpHpEnvQueryProcessorCount.c)
- *     RtlpHpSegContextInitialize @ 0x1800A570C (RtlpHpSegContextInitialize.c)
- *     RtlpHpLfhContextStart @ 0x1800A5818 (RtlpHpLfhContextStart.c)
- *     RtlpHpLfhContextInitialize @ 0x1800A5888 (RtlpHpLfhContextInitialize.c)
- *     RtlpHpVsContextInitialize @ 0x1800A59FC (RtlpHpVsContextInitialize.c)
- *     RtlpHpHeapAllocate @ 0x1800A5BA4 (RtlpHpHeapAllocate.c)
- *     RtlpHpHeapLoggingStateSync @ 0x1800A5F50 (RtlpHpHeapLoggingStateSync.c)
- *     RtlpHeapLogRangeCreate @ 0x1800A6FE4 (RtlpHeapLogRangeCreate.c)
- *     RtlQueryResourcePolicy @ 0x1800A9730 (RtlQueryResourcePolicy.c)
- *     RtlpLogHeapCreateEvent @ 0x180115370 (RtlpLogHeapCreateEvent.c)
- *     RtlpHpVsContextStart @ 0x18011CC54 (RtlpHpVsContextStart.c)
- *     RtlpHpLfhContextEnable @ 0x18011CDD8 (RtlpHpLfhContextEnable.c)
- *     RtlpGetHeapInterceptorIndex @ 0x18011D844 (RtlpGetHeapInterceptorIndex.c)
- *     RtlpHpHeapSetInterceptor @ 0x180157F5C (RtlpHpHeapSetInterceptor.c)
+ *     RtlpLogHeapCreateEvent @ 0x180023758 (RtlpLogHeapCreateEvent.c)
+ *     RtlpHeapLogRangeCreate @ 0x180026084 (RtlpHeapLogRangeCreate.c)
+ *     RtlpHpHeapLoggingStateSync @ 0x1800265D4 (RtlpHpHeapLoggingStateSync.c)
+ *     RtlpHpHeapDestroy @ 0x1800270BC (RtlpHpHeapDestroy.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpHpRegisterEnvironment @ 0x18009B3C4 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpSegContextReserve @ 0x18009B5A0 (RtlpHpSegContextReserve.c)
+ *     RtlpHpLfhContextStart @ 0x1800D631C (RtlpHpLfhContextStart.c)
+ *     RtlpHpHeapAllocate @ 0x1800EF054 (RtlpHpHeapAllocate.c)
+ *     RtlpHpSegContextInitialize @ 0x1800F1F2C (RtlpHpSegContextInitialize.c)
+ *     RtlpHpEnvQueryProcessorCount @ 0x1800F48EC (RtlpHpEnvQueryProcessorCount.c)
+ *     RtlpHpVsContextInitialize @ 0x180107A64 (RtlpHpVsContextInitialize.c)
+ *     RtlpHpLfhContextInitialize @ 0x180107E48 (RtlpHpLfhContextInitialize.c)
+ *     RtlQueryResourcePolicy @ 0x18010B000 (RtlQueryResourcePolicy.c)
+ *     RtlpHpVsContextStart @ 0x18011AE84 (RtlpHpVsContextStart.c)
+ *     RtlpHpLfhContextEnable @ 0x18011B010 (RtlpHpLfhContextEnable.c)
+ *     RtlpGetHeapInterceptorIndex @ 0x18011BA74 (RtlpGetHeapInterceptorIndex.c)
+ *     RtlpHpHeapSetInterceptor @ 0x18015631C (RtlpHpHeapSetInterceptor.c)
  */
 
-unsigned __int64 __fastcall RtlpHpHeapCreate(unsigned int a1, unsigned __int64 a2, unsigned __int64 a3, __m128i *a4)
+__int64 __fastcall RtlpHpHeapCreate(unsigned int a1, unsigned __int64 a2, __int64 a3, __int128 *a4)
 {
   __int64 v4; // rdi
-  int ProcessorCount; // r14d
-  volatile signed __int64 *v9; // rax
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // rsi
-  __m128i v12; // xmm0
-  char v13; // cl
-  char v14; // bl
-  bool v15; // zf
-  __int64 v16; // rcx
-  signed __int32 v18; // eax
+  unsigned __int32 ProcessorCount; // r14d
+  __int64 v9; // rax
+  __int64 v10; // rsi
+  __int128 v11; // xmm0
+  char v12; // cl
+  char v13; // bl
+  bool v14; // zf
+  __int64 v15; // rcx
+  signed __int32 v17; // eax
   unsigned __int16 HeapInterceptorIndex; // ax
-  __int64 v20; // rcx
-  int v21; // [rsp+28h] [rbp-41h]
-  __m128i v22; // [rsp+50h] [rbp-19h] BYREF
-  __int128 v23; // [rsp+60h] [rbp-9h] BYREF
-  __int64 (__fastcall *v24)(_QWORD, _QWORD, _QWORD, _QWORD); // [rsp+70h] [rbp+7h]
-  __int64 (__fastcall *v25)(_QWORD, _QWORD, _QWORD); // [rsp+78h] [rbp+Fh]
-  unsigned __int64 (__fastcall *v26)(__int64, __int64); // [rsp+80h] [rbp+17h]
-  __int64 (__fastcall *v27)(__int64, __int64); // [rsp+88h] [rbp+1Fh]
+  __int64 v19; // rcx
+  int v20; // [rsp+28h] [rbp-41h]
+  __int128 v21; // [rsp+50h] [rbp-19h] BYREF
+  __int64 (__fastcall *v22)(); // [rsp+60h] [rbp-9h] BYREF
+  __int64 (__fastcall *v23)(); // [rsp+68h] [rbp-1h]
+  __int64 (__fastcall *v24)(); // [rsp+70h] [rbp+7h]
+  __int64 (__fastcall *v25)(); // [rsp+78h] [rbp+Fh]
+  __int64 (__fastcall *v26)(); // [rsp+80h] [rbp+17h]
+  __int64 (__fastcall *v27)(); // [rsp+88h] [rbp+1Fh]
   int v28; // [rsp+D8h] [rbp+6Fh] BYREF
-  unsigned __int64 v29; // [rsp+E0h] [rbp+77h]
+  __int64 v29; // [rsp+E0h] [rbp+77h]
 
   v29 = a3;
   v4 = 0LL;
   v28 = 0;
-  if ( a2 <= 0x7FFFFFFFFFFFFFFFLL && (int)RtlpHpRegisterEnvironment(a4, 1, a3) >= 0 )
+  if ( a2 <= 0x7FFFFFFFFFFFFFFFLL && (int)RtlpHpRegisterEnvironment(a4, 1LL) >= 0 )
   {
-    ProcessorCount = dword_1801D2234;
-    if ( !dword_1801D2234 )
+    ProcessorCount = dword_1801D1228;
+    if ( !dword_1801D1228 )
     {
       ProcessorCount = RtlpHpEnvQueryProcessorCount();
-      v18 = _InterlockedCompareExchange(&dword_1801D2234, ProcessorCount, 0);
-      if ( v18 )
-        ProcessorCount = v18;
+      v17 = _InterlockedCompareExchange(&dword_1801D1228, ProcessorCount, 0);
+      if ( v17 )
+        ProcessorCount = v17;
     }
     if ( (int)RtlQueryResourcePolicy(0LL, 0LL, &v28, 4LL) >= 0 && v28 <= 10 )
       ProcessorCount = 1;
     if ( (a1 & 0x2000000) != 0 )
       ProcessorCount = 1;
-    v22 = *a4;
-    v9 = RtlpHpHeapAllocate(a1, ProcessorCount, &v22);
-    v11 = (unsigned __int64)v9;
+    v21 = *a4;
+    v9 = RtlpHpHeapAllocate(a1, ProcessorCount, &v21);
+    v10 = v9;
     if ( v9 )
     {
-      v12 = *a4;
-      *((_DWORD *)v9 + 4) = -571548178;
-      v13 = 0;
-      *((_DWORD *)v9 + 5) = a1;
-      *(__m128i *)v9 = v12;
-      if ( BYTE1(a4->m128i_i64[0]) >= 2u && BYTE1(a4->m128i_i64[0]) < 5u )
-        v13 = 16;
-      v14 = v13 | 4;
+      v11 = *a4;
+      *(_DWORD *)(v9 + 16) = -571548178;
+      v12 = 0;
+      *(_DWORD *)(v9 + 20) = a1;
+      *(_OWORD *)v9 = v11;
+      if ( BYTE1(*(_QWORD *)a4) >= 2u && BYTE1(*(_QWORD *)a4) < 5u )
+        v12 = 16;
+      v13 = v12 | 4;
       if ( (a1 & 0x4000000) == 0 )
-        v14 = v13;
-      v22 = v12;
-      RtlpHpSegContextInitialize(
-        (__int64 *)v9 + 40,
-        0x100000u,
-        (__int64)v9,
-        (__int64)(v9 + 104),
-        (__int64)(v9 + 88),
-        (_WORD)v9 + 128,
-        (_WORD)v9 + 168,
-        &v22,
-        v14);
-      v22 = *a4;
-      RtlpHpSegContextInitialize((__int64 *)(v11 + 512), 0x1000000u, v11, 0LL, 0LL, v11 + 128, v11 + 184, &v22, v14);
-      *(_QWORD *)(v11 + 64) = 0LL;
-      *(_QWORD *)(v11 + 72) = 0LL;
-      *(_QWORD *)(v11 + 80) = 0LL;
-      v15 = (*(_DWORD *)(v11 + 20) & 0x20000000) == 0;
-      *(_QWORD *)(v11 + 232) = 0LL;
-      if ( !v15 )
+        v13 = v12;
+      v21 = v11;
+      RtlpHpSegContextInitialize(v9 + 320, 0x100000, v9, v9 + 832, v9 + 704, v9 + 128, v9 + 168, (__int64)&v21, v13);
+      v21 = *a4;
+      RtlpHpSegContextInitialize(v10 + 512, 0x1000000, v10, 0, 0LL, v10 + 128, v10 + 184, (__int64)&v21, v13);
+      *(_QWORD *)(v10 + 64) = 0LL;
+      *(_QWORD *)(v10 + 72) = 0LL;
+      *(_QWORD *)(v10 + 80) = 0LL;
+      v14 = (*(_DWORD *)(v10 + 20) & 0x20000000) == 0;
+      *(_QWORD *)(v10 + 232) = 0LL;
+      if ( !v14 )
       {
         HeapInterceptorIndex = RtlpGetHeapInterceptorIndex(RtlpStackTraceDatabaseLogPrefix);
-        RtlpHpHeapSetInterceptor(v11, HeapInterceptorIndex);
+        RtlpHpHeapSetInterceptor(v10, HeapInterceptorIndex);
       }
-      *(_QWORD *)&v23 = RtlpHpSegVsAllocate;
+      v22 = RtlpHpSegVsAllocate;
       v27 = 0LL;
-      *((_QWORD *)&v23 + 1) = RtlpHpSegLfhVsFree;
+      v23 = RtlpHpSegLfhVsFree;
       v24 = RtlpHpSegLfhVsCommit;
       v25 = RtlpHpSegLfhVsDecommit;
       v26 = RtlpHpSegLfhExtendContext;
       RtlpHpVsContextInitialize(
-        v11 + 704,
-        v11 + 320,
-        &v23,
-        a4->m128i_i32[0] & 1,
+        v10 + 704,
+        v10 + 320,
+        (unsigned int)&v22,
+        *(_DWORD *)a4 & 1,
         ProcessorCount,
-        v21,
-        (_BYTE *)&qword_1801D21F8 + 4,
-        v11 + 128);
-      *(_QWORD *)&v23 = RtlpHpSegLfhAllocate;
-      *((_QWORD *)&v23 + 1) = RtlpHpSegLfhVsFree;
+        v20,
+        (__int64)&qword_1801D11E8 + 4,
+        v10 + 128);
+      v22 = RtlpHpSegLfhAllocate;
+      v23 = RtlpHpSegLfhVsFree;
       v24 = RtlpHpSegLfhVsCommit;
       v25 = RtlpHpSegLfhVsDecommit;
       v26 = RtlpHpSegLfhExtendContext;
       v27 = RtlpHpSegTlsCleanup;
-      RtlpHpLfhContextInitialize(v11 + 832, v11 + 320, ProcessorCount, a4->m128i_i32[0] & 1, &v23, v11 + 128);
-      *(_QWORD *)(v11 + 112) = 0LL;
-      if ( (int)RtlpHpLfhContextStart(v11 + 832) >= 0
-        && (int)RtlpHpVsContextStart(v11 + 704) >= 0
-        && ((a1 & 0x400000) != 0 || (int)RtlpHpLfhContextEnable(v11 + 832, &qword_1801D21F8) >= 0)
-        && (int)RtlpHpSegContextReserve((_BYTE *)(v11 + 320), a2, v29) >= 0 )
+      RtlpHpLfhContextInitialize(v10 + 832, v10 + 320, ProcessorCount, *(_DWORD *)a4 & 1, (__int64)&v22, v10 + 128);
+      *(_QWORD *)(v10 + 112) = 0LL;
+      if ( (int)RtlpHpLfhContextStart(v10 + 832) >= 0
+        && (int)RtlpHpVsContextStart(v10 + 704) >= 0
+        && ((a1 & 0x400000) != 0 || (int)RtlpHpLfhContextEnable(v10 + 832, &qword_1801D11E8) >= 0)
+        && (int)RtlpHpSegContextReserve(v10 + 320, a2, v29) >= 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v16 = (__int64)NtCurrentPeb()->SharedData + 558;
+        if ( RtlGetCurrentServiceSessionId() )
+          v15 = (__int64)NtCurrentPeb()->SharedData + 558;
         else
-          v16 = 2147353480LL;
-        if ( *(_BYTE *)v16 )
-          RtlpHeapLogRangeCreate(v11, *(_QWORD *)(v11 + 256) - v11, a1);
-        RtlpHpHeapLoggingStateSync(v11);
-        if ( *(char *)(v11 + 20) < 0 )
+          v15 = 2147353480LL;
+        if ( *(_BYTE *)v15 )
+          RtlpHeapLogRangeCreate(v10, *(_QWORD *)(v10 + 256) - v10, a1);
+        RtlpHpHeapLoggingStateSync(v10);
+        if ( *(char *)(v10 + 20) < 0 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-            v20 = (__int64)NtCurrentPeb()->SharedData + 550;
+          if ( RtlGetCurrentServiceSessionId() )
+            v19 = (__int64)NtCurrentPeb()->SharedData + 550;
           else
-            v20 = 2147353472LL;
+            v19 = 2147353472LL;
           RtlpLogHeapCreateEvent(
-            v11,
+            v10,
             a1,
-            *(_QWORD *)(v11 + 256) - v11,
-            *(_DWORD *)(v11 + 248) - v11,
-            *(unsigned __int8 *)v20);
+            *(_QWORD *)(v10 + 256) - v10,
+            *(_QWORD *)(v10 + 248) - v10,
+            (HANDLE)*(unsigned __int8 *)v19);
         }
-        return v11;
+        return v10;
       }
       else
       {
-        RtlpHpHeapDestroy(v11);
+        RtlpHpHeapDestroy(v10);
       }
     }
     else
     {
-      RtlpHpRegisterEnvironment(a4, 0, v10);
+      RtlpHpRegisterEnvironment(a4, 0LL);
     }
   }
   return v4;

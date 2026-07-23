@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteSparseRange @ 0x140A4311C
+ * XREFs of MiDeleteSparseRange @ 0x140A433CC
  * Callers:
- *     MiDeletePfnBitMaps @ 0x140A42FA8 (MiDeletePfnBitMaps.c)
+ *     MiDeletePfnBitMaps @ 0x140A43258 (MiDeletePfnBitMaps.c)
  * Callees:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiReturnPfnList @ 0x140376384 (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x14037644C (MiReturnSplitPageCharges.c)
- *     MiCaptureSparsePages @ 0x140A42ED4 (MiCaptureSparsePages.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiReturnPfnList @ 0x140376524 (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x1403765EC (MiReturnSplitPageCharges.c)
+ *     MiCaptureSparsePages @ 0x140A43184 (MiCaptureSparsePages.c)
  */
 
 void __fastcall MiDeleteSparseRange(unsigned __int64 a1, unsigned int a2)

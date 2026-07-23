@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQuerySystemCpuPartitionAffinity @ 0x1405BFC80
+ * XREFs of KeQuerySystemCpuPartitionAffinity @ 0x1405BD2B0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryCpuPartitionAffinity @ 0x1405BFB24 (KeQueryCpuPartitionAffinity.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405BD154 (KeQueryCpuPartitionAffinity.c)
  */
 
 __int64 __fastcall KeQuerySystemCpuPartitionAffinity(void *a1, unsigned __int16 a2, unsigned __int16 *a3)

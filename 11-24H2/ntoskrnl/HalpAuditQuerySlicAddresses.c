@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAuditQuerySlicAddresses @ 0x140C14140
+ * XREFs of HalpAuditQuerySlicAddresses @ 0x140C16140
  * Callers:
- *     HalpAuditAcpiTables @ 0x140C13DF4 (HalpAuditAcpiTables.c)
+ *     HalpAuditAcpiTables @ 0x140C15DF4 (HalpAuditAcpiTables.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpAuditQuerySlicAddresses(__int64 a1)
@@ -18,18 +18,18 @@ __int64 __fastcall HalpAuditQuerySlicAddresses(__int64 a1)
   __int64 v7; // rcx
   __int64 v8; // rax
   unsigned __int64 v9; // rbx
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   unsigned int v11; // r15d
   unsigned int *v12; // r12
   __int64 v13; // rdi
   __int64 *v14; // r13
-  ULONG_PTR v15; // rsi
+  __int64 v15; // rsi
   __int64 v16; // rbx
   _DWORD *v17; // rax
   unsigned __int64 v18; // rcx
   __int64 v19; // rax
   unsigned int v21; // [rsp+70h] [rbp+8h]
-  ULONG_PTR v22; // [rsp+78h] [rbp+10h]
+  __int64 v22; // [rsp+78h] [rbp+10h]
   unsigned __int64 v23; // [rsp+88h] [rbp+20h]
 
   v1 = 4096 - (*(_DWORD *)a1 & 0xFFF);
@@ -38,7 +38,7 @@ __int64 __fastcall HalpAuditQuerySlicAddresses(__int64 a1)
   v3 = 0;
   while ( 1 )
   {
-    v4 = MmMapIoSpaceEx(*(_QWORD *)a1, v1, 0x204u);
+    v4 = MmMapIoSpaceEx(*(_QWORD *)a1, v1, 516LL);
     v5 = v4;
     if ( !v4 )
       return (unsigned int)-1073741823;
@@ -81,7 +81,7 @@ __int64 __fastcall HalpAuditQuerySlicAddresses(__int64 a1)
           v16 = *v14;
         else
           v16 = *v12;
-        v17 = (_DWORD *)MmMapIoSpaceEx(v16, 36LL, 0x204u);
+        v17 = (_DWORD *)MmMapIoSpaceEx(v16, 36LL, 516LL);
         v18 = (unsigned __int64)v17;
         if ( v17 )
         {

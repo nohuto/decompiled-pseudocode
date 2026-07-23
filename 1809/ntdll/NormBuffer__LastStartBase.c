@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__LastStartBase @ 0x1800FC148
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
  *     NormBuffer__LastStartBasePair @ 0x1800FC174 (NormBuffer__LastStartBasePair.c)
  * Callees:
  *     Normalization__GetFirstDecomposedCharPlane0 @ 0x1800FC8C8 (Normalization__GetFirstDecomposedCharPlane0.c)

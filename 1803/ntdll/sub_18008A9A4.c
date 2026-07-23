@@ -25,47 +25,43 @@ __int64 __fastcall sub_18008A9A4(__int64 a1, _WORD *a2, _WORD *a3)
   const WCHAR *v10; // rdi
   WCHAR *v11; // rcx
   WCHAR i; // ax
-  unsigned int v13; // [rsp+30h] [rbp-50h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  int v16; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v17; // [rsp+58h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp-20h]
-  int v19; // [rsp+68h] [rbp-18h]
-  __int128 v20; // [rsp+70h] [rbp-10h]
-  int v21; // [rsp+B0h] [rbp+30h] BYREF
-  int v22; // [rsp+C8h] [rbp+48h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-50h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  DWORD Lcid; // [rsp+B0h] [rbp+30h] BYREF
+  int v18; // [rsp+C8h] [rbp+48h] BYREF
 
-  v14 = 0LL;
+  KeyHandle = 0LL;
   v5 = 0LL;
   if ( a1 && a2 && a3 )
   {
-    v6 = (_WORD *)sub_180036414(a1, 0xACu);
+    v6 = sub_180036414(a1, 0xACu);
     v5 = v6;
     if ( v6 )
     {
       memset(v6, 0, 0x158uLL);
       *a2 = 0;
-      v22 = 0;
+      v18 = 0;
       *a3 = 0;
       RtlInitUnicodeString(
         &DestinationString,
         L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NLS\\Language");
-      v14 = 0LL;
-      p_DestinationString = &DestinationString;
-      v16 = 48;
-      v17 = 0LL;
-      v19 = 64;
-      v20 = 0LL;
-      v7 = ZwOpenKey(&v14, 131097LL, &v16);
+      KeyHandle = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v7 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
       if ( v7 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"InstallLanguageFallback");
-        v13 = 8;
-        v7 = sub_18006F7EC(v14, (__int64)&DestinationString, &v22, v5, &v13);
+        LODWORD(v13) = 8;
+        v7 = sub_18006F7EC(KeyHandle, &DestinationString, &v18, v5, (ULONG *)&v13);
         if ( v7 >= 0 )
         {
-          if ( v22 != 1 )
+          if ( v18 != 1 )
             goto LABEL_15;
           v9 = *v5;
           v10 = v5;
@@ -83,15 +79,15 @@ __int64 __fastcall sub_18008A9A4(__int64 a1, _WORD *a2, _WORD *a3)
             ++v10;
           }
           RtlInitUnicodeString(&DestinationString, v5);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v21) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v21;
+            *a2 = Lcid;
             if ( *v10 )
             {
               RtlInitUnicodeString(&DestinationString, v10);
-              if ( RtlCultureNameToLCID(&DestinationString.Length, &v21) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v21;
+                *a3 = Lcid;
               }
               else
               {
@@ -117,9 +113,9 @@ LABEL_15:
   {
     v7 = -1073741811;
   }
-  if ( v14 )
-    ZwClose(v14);
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
   if ( v5 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   return (unsigned int)v7;
 }

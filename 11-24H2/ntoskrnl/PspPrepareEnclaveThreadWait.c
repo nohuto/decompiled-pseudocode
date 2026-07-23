@@ -1,10 +1,10 @@
 /*
- * XREFs of PspPrepareEnclaveThreadWait @ 0x140AC2638
+ * XREFs of PspPrepareEnclaveThreadWait @ 0x140ABD920
  * Callers:
- *     PsCallEnclave @ 0x140AD1D10 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x140AD0080 (PsCallEnclave.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspPrepareEnclaveThreadWait(__int64 a1, _QWORD *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall PspPrepareEnclaveThreadWait(__int64 a1, _QWORD *a2)
 
   if ( !*(_DWORD *)(a1 + 40) )
     return 3221226770LL;
-  Pool2 = ExAllocatePool2(0x41uLL);
+  Pool2 = ExAllocatePool2(0x41uLL, 0x30uLL, 0x57457350u);
   v6 = (_QWORD *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;

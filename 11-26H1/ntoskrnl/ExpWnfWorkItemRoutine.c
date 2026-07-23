@@ -1,17 +1,15 @@
 /*
- * XREFs of ExpWnfWorkItemRoutine @ 0x14094C320
+ * XREFs of ExpWnfWorkItemRoutine @ 0x1409C7C90
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExpWnfDispatchKernelSubscription @ 0x14094C3A0 (ExpWnfDispatchKernelSubscription.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x1409C7D10 (ExpWnfDispatchKernelSubscription.c)
  */
 
 __int64 ExpWnfWorkItemRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v1; // rdx
-  __int64 v2; // r8
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -22,5 +20,5 @@ __int64 ExpWnfWorkItemRoutine()
     _InterlockedAnd((volatile signed __int32 *)PspSiloMonitorLock.StackLimit + 10, 0xFFFFFFFD);
     ExpWnfDispatchKernelSubscription();
   }
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v1, v2);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

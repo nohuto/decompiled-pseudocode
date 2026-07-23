@@ -1,12 +1,12 @@
 /*
- * XREFs of PopReleaseUmpoPushLock @ 0x140A517F8
+ * XREFs of PopReleaseUmpoPushLock @ 0x140A488C8
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     PopUmpoProcessMessage @ 0x140A23CC8 (PopUmpoProcessMessage.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessage @ 0x140A180D8 (PopUmpoProcessMessage.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void PopReleaseUmpoPushLock()

@@ -27,8 +27,8 @@ __int64 CmpDelayDerefKCBWorker()
   signed __int32 v6; // eax
   __int64 v7; // rsi
   char v8; // bl
-  __int64 v9; // rax
-  __int64 v10; // rbx
+  _RTL_BALANCED_NODE *v9; // rax
+  _RTL_BALANCED_NODE *v10; // rbx
   unsigned __int8 CurrentIrql; // di
   __int64 v12; // rcx
   __int64 result; // rax
@@ -78,7 +78,7 @@ __int64 CmpDelayDerefKCBWorker()
     if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayDerefKCBLock, 0) )
       ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayDerefKCBLock, v9);
     if ( v10 )
-      *(_BYTE *)(v10 + 26) |= 1u;
+      BYTE2(v10[1].Left) |= 1u;
     *(&CmpDelayDerefKCBLock + 1) = (ULONG_PTR)KeGetCurrentThread();
     *((_DWORD *)&CmpDelayDerefKCBLock + 12) = CurrentIrql;
   }

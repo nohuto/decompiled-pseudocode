@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPlFindLimitEntry @ 0x1403A9D04
+ * XREFs of ExpPlFindLimitEntry @ 0x140396E20
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1402C2E9C (ExAllocateContiguousHeapPool.c)
- *     ExpInsertPoolTracker @ 0x1402C4BA8 (ExpInsertPoolTracker.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1403A9DD0 (ExpInsertPoolTrackerExpansion.c)
- *     ExPoolQueryLimits @ 0x140654308 (ExPoolQueryLimits.c)
- *     ExpTrackTableInsertLimit @ 0x140655330 (ExpTrackTableInsertLimit.c)
+ *     ExpInsertPoolTracker @ 0x14021BE10 (ExpInsertPoolTracker.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140396AFC (ExAllocateContiguousHeapPool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140396EF0 (ExpInsertPoolTrackerExpansion.c)
+ *     ExPoolQueryLimits @ 0x140652A00 (ExPoolQueryLimits.c)
+ *     ExpTrackTableInsertLimit @ 0x140653A30 (ExpTrackTableInsertLimit.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall ExpPlFindLimitEntry(int a1)
   v2 = (unsigned int)v1 & a1;
   if ( HIDWORD(ExPoolLimitState) >> 5 )
   {
-    v3 = qword_140E28F88
+    v3 = qword_140E290C8
        + 8LL
        * ((37
          * (BYTE6(v2)

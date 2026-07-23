@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlLookupFunctionEntry @ 0x14009DC20
+ * XREFs of RtlLookupFunctionEntry @ 0x14009DB60
  * Callers:
- *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x1400A0F40 (RtlDispatchException.c)
- *     RtlpSameFunction @ 0x140184F84 (RtlpSameFunction.c)
- *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
- *     RtlInitializeHistoryTable @ 0x1409D88D4 (RtlInitializeHistoryTable.c)
+ *     RtlUnwindEx @ 0x14009DE70 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x1400A0E80 (RtlDispatchException.c)
+ *     RtlpSameFunction @ 0x1401850C4 (RtlpSameFunction.c)
+ *     RtlRaiseException @ 0x1402EDA30 (RtlRaiseException.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
+ *     RtlInitializeHistoryTable @ 0x1409D98D4 (RtlInitializeHistoryTable.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpxLookupFunctionTable @ 0x1400A17F0 (RtlpxLookupFunctionTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
@@ -52,7 +52,7 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
   if ( HistoryTable->Once )
   {
     HistoryTable->Once = 0;
-    v31 = &RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_140559905];
+    v31 = &RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_14055A905];
     result = (PRUNTIME_FUNCTION)*((_QWORD *)v31 + 4);
     if ( result )
     {
@@ -66,8 +66,8 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
   }
   if ( !HistoryTable->Search )
     goto LABEL_18;
-  if ( ControlPc >= qword_140559910
-    || ControlPc < qword_140559908
+  if ( ControlPc >= qword_14055A910
+    || ControlPc < qword_14055A908
     || (GlobalHint = HistoryTable->GlobalHint, v7 = GlobalHint, GlobalHint >= RtlpUnwindHistoryTable[0]) )
   {
 LABEL_11:
@@ -98,15 +98,15 @@ LABEL_11:
       }
     }
 LABEL_18:
-    if ( ControlPc < *(&xmmword_140558020 + 1) || ControlPc >= *(&xmmword_140558020 + 1) + (unsigned int)qword_140558030 )
+    if ( ControlPc < *(&xmmword_140559020 + 1) || ControlPc >= *(&xmmword_140559020 + 1) + (unsigned int)qword_140559030 )
     {
       v16 = RtlpxLookupFunctionTable(ControlPc, &v33);
     }
     else
     {
-      v16 = xmmword_140558020;
-      v33 = *(_OWORD *)&xmmword_140558020;
-      v34 = qword_140558030;
+      v16 = xmmword_140559020;
+      v33 = *(_OWORD *)&xmmword_140559020;
+      v34 = qword_140559030;
     }
     v17 = 0LL;
     if ( v16 )

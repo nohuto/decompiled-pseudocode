@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSelectGroupFromNode @ 0x1404857DC
+ * XREFs of KeSelectGroupFromNode @ 0x140480DC0
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     KeFindNextSetRightGroupMask @ 0x140485844 (KeFindNextSetRightGroupMask.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeFindNextSetRightGroupMask @ 0x140480E28 (KeFindNextSetRightGroupMask.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeSelectGroupFromNode(__int64 a1)

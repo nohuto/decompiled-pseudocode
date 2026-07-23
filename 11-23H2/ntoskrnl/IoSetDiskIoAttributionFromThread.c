@@ -1,20 +1,20 @@
 /*
- * XREFs of IoSetDiskIoAttributionFromThread @ 0x1402A7C30
+ * XREFs of IoSetDiskIoAttributionFromThread @ 0x1402A7EC0
  * Callers:
- *     IoSynchronousPageWriteEx @ 0x140250F80 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x1402A6810 (IoPageReadEx.c)
- *     IoAsynchronousPageWrite @ 0x140369A0C (IoAsynchronousPageWrite.c)
- *     IopBuildAsynchronousFsdRequest @ 0x140371BF0 (IopBuildAsynchronousFsdRequest.c)
- *     IoSetIoAttributionIrp @ 0x1405570F0 (IoSetIoAttributionIrp.c)
- *     IopSynchronousServiceTail @ 0x1406E3E90 (IopSynchronousServiceTail.c)
+ *     IoSynchronousPageWriteEx @ 0x140251040 (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x1402A6AA0 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x140369BAC (IoAsynchronousPageWrite.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x140371D90 (IopBuildAsynchronousFsdRequest.c)
+ *     IoSetIoAttributionIrp @ 0x1405577B0 (IoSetIoAttributionIrp.c)
+ *     IopSynchronousServiceTail @ 0x1406E3EC0 (IopSynchronousServiceTail.c)
  * Callees:
- *     IopSetDiskIoAttributionFromProcess @ 0x1402902F4 (IopSetDiskIoAttributionFromProcess.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290350 (IopSetDiskIoAttributionExtension.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x140290584 (IopSetDiskIoAttributionFromProcess.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402905E0 (IopSetDiskIoAttributionExtension.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IoSetDiskIoAttributionFromThread(__int64 a1, struct _KTHREAD *a2)
@@ -58,10 +58,13 @@ __int64 __fastcall IoSetDiskIoAttributionFromThread(__int64 a1, struct _KTHREAD 
     v5 = 1;
   }
   ExReleaseSpinLockSharedFromDpcLevel(&PspThreadWorkOnBehalfLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v16 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -101,10 +104,10 @@ LABEL_12:
   if ( v12 )
     v9 = *(_QWORD *)(v12 + 24);
   ExReleaseSpinLockSharedFromDpcLevel(&IopDiskIoAttributionLock);
-  if ( !KiIrqlFlags )
+  if ( !(_DWORD)KiIrqlFlags )
     goto LABEL_17;
   v22 = KeGetCurrentIrql();
-  if ( (KiIrqlFlags & 1) == 0 || v22 > 0xFu )
+  if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v22 > 0xFu )
     goto LABEL_17;
   v13 = v26;
   if ( v26 <= 0xFu && v22 >= 2u )

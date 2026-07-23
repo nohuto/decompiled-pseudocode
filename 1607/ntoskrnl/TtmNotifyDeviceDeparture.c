@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifyDeviceDeparture @ 0x140676D1C
+ * XREFs of TtmNotifyDeviceDeparture @ 0x140676E00
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     TtmiAcquireCurrentSession @ 0x140546B38 (TtmiAcquireCurrentSession.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmpFindDeviceByToken @ 0x14067740C (TtmpFindDeviceByToken.c)
- *     TtmiScheduleSessionWorker @ 0x140678D08 (TtmiScheduleSessionWorker.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     TtmiAcquireCurrentSession @ 0x140547078 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmpFindDeviceByToken @ 0x1406774F0 (TtmpFindDeviceByToken.c)
+ *     TtmiScheduleSessionWorker @ 0x140678DEC (TtmiScheduleSessionWorker.c)
  */
 
 __int64 __fastcall TtmNotifyDeviceDeparture(unsigned int a1, __int64 a2)

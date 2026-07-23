@@ -1,10 +1,10 @@
 /*
- * XREFs of KiWakePriQueueWaiter @ 0x1400D1618
+ * XREFs of KiWakePriQueueWaiter @ 0x1400D1698
  * Callers:
- *     KeInsertPriQueue @ 0x1400D18C0 (KeInsertPriQueue.c)
- *     KiActivateWaiterPriQueue @ 0x140112650 (KiActivateWaiterPriQueue.c)
+ *     KeInsertPriQueue @ 0x1400D1940 (KeInsertPriQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x1401126C0 (KiActivateWaiterPriQueue.c)
  * Callees:
- *     KiTryUnwaitThreadWithPriority @ 0x1400CE5F0 (KiTryUnwaitThreadWithPriority.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x1400CE670 (KiTryUnwaitThreadWithPriority.c)
  */
 
 __int64 __fastcall KiWakePriQueueWaiter(__int64 a1, __int64 a2, __int64 a3, int a4)

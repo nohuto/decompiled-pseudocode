@@ -13,12 +13,12 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1403EDAA4 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
   KIRQL v6; // al
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned __int64 v8; // r14
-  bool v9; // r8
+  BOOLEAN v9; // r8
   int v10; // ebp
   unsigned __int64 v11; // rax
   __int64 v12; // rcx
@@ -74,7 +74,7 @@ LABEL_16:
       v7 = v11;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)a2, v7, v9, a3);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)v7, v9, (PRTL_BALANCED_NODE)a3);
   v12 = *(_QWORD *)(a2 + 24);
   if ( !v12 || (v13 = *(_DWORD *)(a3 + 132), *(_DWORD *)(v12 + 132) > v13) && v13 )
     *(_QWORD *)(a2 + 24) = a3;

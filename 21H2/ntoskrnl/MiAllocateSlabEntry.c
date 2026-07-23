@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAllocateSlabEntry @ 0x140392868
+ * XREFs of MiAllocateSlabEntry @ 0x1403929B8
  * Callers:
- *     MiReplenishSlabAllocator @ 0x140392814 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x140392964 (MiReplenishSlabAllocator.c)
  * Callees:
- *     RtlInterlockedSetClearRunEx @ 0x140228C90 (RtlInterlockedSetClearRunEx.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiAbortCombineScan @ 0x140303770 (MiAbortCombineScan.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140375928 (MiUpdateSlabPagePlaceholderState.c)
- *     MiReInitializeFreeSlabPfn @ 0x1403759EC (MiReInitializeFreeSlabPfn.c)
- *     MiSlabAllocatorRecentFailure @ 0x140392AC4 (MiSlabAllocatorRecentFailure.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlInterlockedSetClearRunEx @ 0x1402CD590 (RtlInterlockedSetClearRunEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiAbortCombineScan @ 0x14030E4C0 (MiAbortCombineScan.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x140375478 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiReInitializeFreeSlabPfn @ 0x14037553C (MiReInitializeFreeSlabPfn.c)
+ *     MiSlabAllocatorRecentFailure @ 0x140392C14 (MiSlabAllocatorRecentFailure.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiAllocateSlabEntry(__int64 a1, __int64 a2, int a3)
@@ -72,7 +72,7 @@ _QWORD *__fastcall MiAllocateSlabEntry(__int64 a1, __int64 a2, int a3)
         {
           v11 = *v8 >> 9;
           v7[4] = *v8 + 511;
-          RtlInterlockedSetClearRunEx((__int64)&unk_140C52580, v11, 1uLL);
+          RtlInterlockedSetClearRunEx((__int64)&unk_140C525C0, v11, 1uLL);
           v15 = 48 * *v8 - 0x58000000000LL;
           v16 = 48LL * v7[4] - 0x58000000000LL;
           CurrentIrql = KeGetCurrentIrql();

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIsSiloInSilo @ 0x14067E9B8
+ * XREFs of PspIsSiloInSilo @ 0x14067EA9C
  * Callers:
- *     PsIsThreadInSilo @ 0x140013600 (PsIsThreadInSilo.c)
- *     PsIsProcessInSilo @ 0x14001367C (PsIsProcessInSilo.c)
- *     PsRootSiloInformation @ 0x14067E078 (PsRootSiloInformation.c)
+ *     PsIsThreadInSilo @ 0x140013180 (PsIsThreadInSilo.c)
+ *     PsIsProcessInSilo @ 0x1400131FC (PsIsProcessInSilo.c)
+ *     PsRootSiloInformation @ 0x14067E15C (PsRootSiloInformation.c)
  * Callees:
  *     <none>
  */

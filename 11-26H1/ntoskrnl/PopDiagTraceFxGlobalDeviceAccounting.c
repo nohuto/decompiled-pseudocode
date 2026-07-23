@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x1404EB10C
+ * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x1404E46EC
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14042B348 (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x1404227BC (PopFxStopDeviceAccounting.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -28,12 +28,14 @@ NTSTATUS __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1, __int64 a2,
   __int64 *v20; // [rsp+C0h] [rbp+37h]
   __int64 v21; // [rsp+C8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140E07608 > 5 && !dword_140E67610 && (qword_140E07618 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E075D0 > 5
+    && !PopDiagFxAccountingTelemetryDisabled
+    && (qword_140E075E0 & 0x400000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E07620 & 0x400000000000LL) == qword_140E07620 )
+    if ( (qword_140E075E8 & 0x400000000000LL) == qword_140E075E8 )
     {
-      v5 = qword_140F0F5D0;
+      v5 = PopWnfCsEnterScenarioId;
       v10 = &v5;
       v12 = &v6;
       v18 = &v7;
@@ -50,8 +52,8 @@ NTSTATUS __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1, __int64 a2,
       v17 = 40LL;
       v8 = 0x1000000LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07608,
-               (unsigned __int8 *)byte_14004B973,
+               (__int64)&dword_140E075D0,
+               (unsigned __int8 *)&byte_14004C6FF,
                0LL,
                0LL,
                8u,

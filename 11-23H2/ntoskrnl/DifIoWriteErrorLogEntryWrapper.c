@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoWriteErrorLogEntryWrapper @ 0x1405E1C80
+ * XREFs of DifIoWriteErrorLogEntryWrapper @ 0x1405E21F0
  * Callers:
  *     <none>
  * Callees:
- *     IoWriteErrorLogEntry @ 0x1403C7310 (IoWriteErrorLogEntry.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoWriteErrorLogEntry @ 0x1403C74F0 (IoWriteErrorLogEntry.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoWriteErrorLogEntryWrapper(PVOID ElEntry)

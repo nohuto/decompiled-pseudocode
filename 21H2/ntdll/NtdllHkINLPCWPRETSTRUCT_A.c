@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllHkINLPCWPRETSTRUCT_A @ 0x18009D4D0
+ * XREFs of NtdllHkINLPCWPRETSTRUCT_A @ 0x18009D490
  * Callers:
  *     <none>
  * Callees:

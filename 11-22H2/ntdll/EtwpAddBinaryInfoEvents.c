@@ -41,7 +41,7 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3)
       v17 = v7;
     v7 = v17;
   }
-  Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v7);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
   if ( Heap )
   {
     v10 = (__int64 *)*v3;
@@ -62,7 +62,7 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3)
       v10 = (__int64 *)*v10;
       v4 -= (v18 + 7) & 0xFFFFFFF8;
     }
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
   else
   {

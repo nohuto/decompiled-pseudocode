@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeRemoveEntryDeviceQueue @ 0x1409326D0
+ * XREFs of VerifierKeRemoveEntryDeviceQueue @ 0x1409336D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierKeRemoveEntryDeviceQueue()

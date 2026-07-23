@@ -1,9 +1,9 @@
 /*
- * XREFs of KeXorAffinityEx @ 0x1401D3F3C
+ * XREFs of KeXorAffinityEx @ 0x1401D3D68
  * Callers:
- *     PpmParkComputeDiff @ 0x14020DF9C (PpmParkComputeDiff.c)
+ *     PpmParkComputeDiff @ 0x14020DDC8 (PpmParkComputeDiff.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 KeXorAffinityEx()

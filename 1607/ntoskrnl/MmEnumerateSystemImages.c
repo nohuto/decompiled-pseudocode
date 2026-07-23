@@ -1,22 +1,22 @@
 /*
- * XREFs of MmEnumerateSystemImages @ 0x140498F00
+ * XREFs of MmEnumerateSystemImages @ 0x140499990
  * Callers:
- *     EtwpSysModuleRunDown @ 0x140498DD4 (EtwpSysModuleRunDown.c)
- *     ExpCovQueryInformation @ 0x1406B71B8 (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x1406B7A34 (ExpCovResetInformation.c)
+ *     EtwpSysModuleRunDown @ 0x140499864 (EtwpSysModuleRunDown.c)
+ *     ExpCovQueryInformation @ 0x1406B72F0 (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x1406B7B6C (ExpCovResetInformation.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsIsSystemProcess @ 0x140072328 (PsIsSystemProcess.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MiReleaseResourceLite @ 0x140084C14 (MiReleaseResourceLite.c)
- *     MiSessionLookupImage @ 0x1400865D4 (MiSessionLookupImage.c)
- *     MmGetNextSession @ 0x140086620 (MmGetNextSession.c)
- *     MiAcquireResourceSharedLite @ 0x140086B00 (MiAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsIsSystemProcess @ 0x140071EA8 (PsIsSystemProcess.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MiReleaseResourceLite @ 0x140082D74 (MiReleaseResourceLite.c)
+ *     MiSessionLookupImage @ 0x140087EC4 (MiSessionLookupImage.c)
+ *     MmGetNextSession @ 0x140087F10 (MmGetNextSession.c)
+ *     MiAcquireResourceSharedLite @ 0x1400883F0 (MiAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
  */
 
 __int64 __fastcall MmEnumerateSystemImages(__int64 (__fastcall *a1)(PVOID *, __int64), __int64 a2)

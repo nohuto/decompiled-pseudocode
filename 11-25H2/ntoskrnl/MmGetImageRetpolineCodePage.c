@@ -8,9 +8,9 @@
  *     MmFindDataTableEntryByAddress @ 0x14036E0D0 (MmFindDataTableEntryByAddress.c)
  */
 
-unsigned __int64 __fastcall MmGetImageRetpolineCodePage(unsigned __int64 a1, _QWORD *a2)
+unsigned __int64 __fastcall MmGetImageRetpolineCodePage(PVOID a1, _QWORD *a2)
 {
-  __int64 v2; // rt1
+  PVOID v2; // rt1
   __int64 *DataTableEntryByAddress; // rax
   unsigned __int64 v6; // rbx
   __int64 v7; // rdx
@@ -18,7 +18,7 @@ unsigned __int64 __fastcall MmGetImageRetpolineCodePage(unsigned __int64 a1, _QW
   unsigned __int8 v9; // r11
   unsigned __int64 result; // rax
 
-  v2 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+  v2 = *(PVOID *)&KeNumberProcessorsGroup0[9];
   if ( a1 == v2 || a1 == PsHalImageBase )
   {
     *a2 = 0LL;
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall MmGetImageRetpolineCodePage(unsigned __int64 a1, _QW
   else
   {
     MmLockLoadedModuleListShared();
-    DataTableEntryByAddress = MmFindDataTableEntryByAddress(a1);
+    DataTableEntryByAddress = MmFindDataTableEntryByAddress((unsigned __int64)a1);
     v6 = DataTableEntryByAddress[6]
        + *((unsigned int *)DataTableEntryByAddress + 16)
        + (unsigned __int64)(unsigned int)(dword_140E3726C + dword_140E37270);

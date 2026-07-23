@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetIoPriorityHintIntoThread @ 0x140237F50
+ * XREFs of IoSetIoPriorityHintIntoThread @ 0x1402398B0
  * Callers:
  *     <none>
  * Callees:
- *     PsSetIoPriorityThread @ 0x140238294 (PsSetIoPriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x140239BF4 (PsSetIoPriorityThread.c)
  */
 
 __int64 __fastcall IoSetIoPriorityHintIntoThread(LegacyAutoBoost *a1, unsigned int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpFreeDebugEvent @ 0x140985EF4
+ * XREFs of DbgkpFreeDebugEvent @ 0x14091D428
  * Callers:
- *     DbgkpWakeTarget @ 0x140985E88 (DbgkpWakeTarget.c)
+ *     DbgkpWakeTarget @ 0x14091D3BC (DbgkpWakeTarget.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall DbgkpFreeDebugEvent(PVOID P)

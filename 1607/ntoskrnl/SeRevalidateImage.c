@@ -1,7 +1,7 @@
 /*
- * XREFs of SeRevalidateImage @ 0x14068C990
+ * XREFs of SeRevalidateImage @ 0x14068CA74
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  * Callees:
  *     <none>
  */

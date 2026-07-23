@@ -1,14 +1,14 @@
 /*
- * XREFs of PspIumResolveVirtualFault @ 0x140AD66A8
+ * XREFs of PspIumResolveVirtualFault @ 0x140AD33B4
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     PspIumReplenishPartitionPages @ 0x140416E68 (PspIumReplenishPartitionPages.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MmVirtualAccessFault @ 0x140AD6824 (MmVirtualAccessFault.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     PspIumReplenishPartitionPages @ 0x14040B478 (PspIumReplenishPartitionPages.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MmVirtualAccessFault @ 0x140AD3530 (MmVirtualAccessFault.c)
  */
 
 char __fastcall PspIumResolveVirtualFault(__int64 a1)

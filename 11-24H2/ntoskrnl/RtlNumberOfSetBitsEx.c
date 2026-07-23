@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlNumberOfSetBitsEx @ 0x1404181F0
+ * XREFs of RtlNumberOfSetBitsEx @ 0x140407FA0
  * Callers:
- *     KiHeteroSelectIdleProcessorFromNode @ 0x1402938F0 (KiHeteroSelectIdleProcessorFromNode.c)
- *     KeQueryNodeActiveAffinity2 @ 0x140417E90 (KeQueryNodeActiveAffinity2.c)
- *     KeFindFirstSetLeftGroupMask @ 0x140417FA4 (KeFindFirstSetLeftGroupMask.c)
- *     KeCountSetBitsGroupMask @ 0x140418024 (KeCountSetBitsGroupMask.c)
- *     KeFindBiasedSetBitGroupMask @ 0x14041804C (KeFindBiasedSetBitGroupMask.c)
- *     IopLiveDumpWriteDumpFile @ 0x14049ADE4 (IopLiveDumpWriteDumpFile.c)
- *     HvlIsSingleGroupRequired @ 0x140582834 (HvlIsSingleGroupRequired.c)
- *     IoWriteCrashDump @ 0x1405927D4 (IoWriteCrashDump.c)
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x14059A9C0 (IopLiveDumpEstimateMemoryPages.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059E850 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     RtlNumberOfClearBitsEx @ 0x1405E8150 (RtlNumberOfClearBitsEx.c)
- *     MiMakeEntireHugePfnGood @ 0x140670DEC (MiMakeEntireHugePfnGood.c)
- *     MiFinishChildPartitionHotAdd @ 0x14068A330 (MiFinishChildPartitionHotAdd.c)
- *     MiInsertPartitionPageNodes @ 0x14068A6C4 (MiInsertPartitionPageNodes.c)
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
+ *     KiHeteroSelectIdleProcessorFromNode @ 0x1402A34F0 (KiHeteroSelectIdleProcessorFromNode.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140407C40 (KeQueryNodeActiveAffinity2.c)
+ *     KeFindFirstSetLeftGroupMask @ 0x140407D54 (KeFindFirstSetLeftGroupMask.c)
+ *     KeCountSetBitsGroupMask @ 0x140407DD4 (KeCountSetBitsGroupMask.c)
+ *     KeFindBiasedSetBitGroupMask @ 0x140407DFC (KeFindBiasedSetBitGroupMask.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1404957D4 (IopLiveDumpWriteDumpFile.c)
+ *     HvlIsSingleGroupRequired @ 0x14057FBB4 (HvlIsSingleGroupRequired.c)
+ *     IoWriteCrashDump @ 0x14058F7F8 (IoWriteCrashDump.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140597940 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059B7D0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     RtlNumberOfClearBitsEx @ 0x1405E5740 (RtlNumberOfClearBitsEx.c)
+ *     MiMakeEntireHugePfnGood @ 0x140671FBC (MiMakeEntireHugePfnGood.c)
+ *     MiFinishChildPartitionHotAdd @ 0x14068B460 (MiFinishChildPartitionHotAdd.c)
+ *     MiInsertPartitionPageNodes @ 0x14068B7F4 (MiInsertPartitionPageNodes.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
  * Callees:
  *     <none>
  */
@@ -69,7 +69,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(__int64 *a1)
     v12 = *(_BYTE *)v3;
     v3 = (unsigned __int64 *)((char *)v3 + 1);
     if ( i == v7 - 1 && v4 )
-      v12 &= byte_14002B770[v4];
+      v12 &= byte_14002BBD0[v4];
     ++i;
     v2 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v12);
   }
@@ -94,7 +94,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(__int64 *a1)
       v19 = *(_BYTE *)v3;
       v3 = (unsigned __int64 *)((char *)v3 + 1);
       if ( i == v17 && v18 )
-        v19 &= byte_14002B770[v18];
+        v19 &= byte_14002BBD0[v18];
       ++i;
       v2 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v19);
       --v9;

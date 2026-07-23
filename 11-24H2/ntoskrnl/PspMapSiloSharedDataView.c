@@ -1,12 +1,12 @@
 /*
- * XREFs of PspMapSiloSharedDataView @ 0x140906E34
+ * XREFs of PspMapSiloSharedDataView @ 0x1408DD840
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x140907EE0 (PspSetupUserProcessAddressSpace.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1408DF5FC (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     PsGetProcessServerSilo @ 0x140445660 (PsGetProcessServerSilo.c)
- *     MmMapViewOfSection @ 0x1409071A0 (MmMapViewOfSection.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     PsGetProcessServerSilo @ 0x14043D810 (PsGetProcessServerSilo.c)
+ *     MmMapViewOfSection @ 0x1408DE270 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall PspMapSiloSharedDataView(__int64 a1)

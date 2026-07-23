@@ -32,7 +32,7 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
     while ( 1 )
     {
       v4 = (v2 + v3) >> 1;
-      v5 = RtlpRunTable[2 * v4];
+      v5 = dword_140019100[2 * v4];
       v6 = Status - v5;
       if ( Status < v5 )
       {
@@ -44,9 +44,9 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
         {
           v7 = (unsigned __int16)word_140019106[4 * v4];
           if ( byte_140019105[8 * v4] == 1 )
-            return (unsigned __int16)RtlpStatusTable[v6 + v7];
+            return (unsigned __int16)word_140019B20[v6 + v7];
           else
-            return (unsigned __int16)RtlpStatusTable[2 * v6 + v7] | ((unsigned __int16)RtlpStatusTable[2 * v6 + 1 + v7] << 16);
+            return (unsigned __int16)word_140019B20[2 * v6 + v7] | ((unsigned __int16)word_140019B20[2 * v6 + 1 + v7] << 16);
         }
         v2 = v4 + 1;
       }

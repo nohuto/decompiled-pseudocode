@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQuerySemaphore(
         HANDLE SemaphoreHandle,
         SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQuerySemaphore(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SemaphoreHandle, *(_QWORD *)&SemaphoreInformationClass, SemaphoreInformation);
+  return KiServiceInternal(SemaphoreHandle);
 }

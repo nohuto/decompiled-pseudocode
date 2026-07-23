@@ -1,13 +1,13 @@
 /*
- * XREFs of RemoveListEntryPte @ 0x14012973C
+ * XREFs of RemoveListEntryPte @ 0x14012980C
  * Callers:
- *     MiReleaseSystemCacheView @ 0x1400795B0 (MiReleaseSystemCacheView.c)
- *     MiRemoveSpecialPoolRange @ 0x1402AC8D0 (MiRemoveSpecialPoolRange.c)
+ *     MiReleaseSystemCacheView @ 0x1400795A0 (MiReleaseSystemCacheView.c)
+ *     MiRemoveSpecialPoolRange @ 0x1402ACAC0 (MiRemoveSpecialPoolRange.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiGetPteLink @ 0x1400AD7A4 (MiGetPteLink.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetPteLink @ 0x1400AD6E4 (MiGetPteLink.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char __fastcall RemoveListEntryPte(unsigned __int64 a1, unsigned __int64 *a2)
@@ -39,7 +39,7 @@ char __fastcall RemoveListEntryPte(unsigned __int64 a1, unsigned __int64 *a2)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v9 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_4;
       v17 = (v7 & 1) == 0;
     }
@@ -67,7 +67,7 @@ LABEL_4:
     if ( (_DWORD)CurrentThread )
     {
       v16 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_9;
       v18 = (v14 & 1) == 0;
     }

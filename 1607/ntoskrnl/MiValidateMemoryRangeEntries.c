@@ -1,8 +1,8 @@
 /*
- * XREFs of MiValidateMemoryRangeEntries @ 0x1404F422C
+ * XREFs of MiValidateMemoryRangeEntries @ 0x1404D71B8
  * Callers:
- *     MmOutSwapVirtualAddresses @ 0x1401F7898 (MmOutSwapVirtualAddresses.c)
- *     NtSetInformationVirtualMemory @ 0x1404F3D10 (NtSetInformationVirtualMemory.c)
+ *     MmOutSwapVirtualAddresses @ 0x1401F76C4 (MmOutSwapVirtualAddresses.c)
+ *     NtSetInformationVirtualMemory @ 0x1404D6C9C (NtSetInformationVirtualMemory.c)
  * Callees:
  *     <none>
  */

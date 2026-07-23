@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpDereferenceKeyControlBlock @ 0x1406441A0
+ * XREFs of CmpDereferenceKeyControlBlock @ 0x1406451C0
  * Callers:
- *     CmpLateUnloadHiveWorker @ 0x1405AFC50 (CmpLateUnloadHiveWorker.c)
- *     CmpDelayDerefKCBWorker @ 0x1405B10B0 (CmpDelayDerefKCBWorker.c)
- *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
- *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
- *     CmReleaseLoadKeyContext @ 0x1405B7C30 (CmReleaseLoadKeyContext.c)
- *     CmEnumerateKey @ 0x1405D2A20 (CmEnumerateKey.c)
- *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmOpenKey @ 0x1405E0EA0 (CmOpenKey.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmpDestroyVirtualStack @ 0x1407F2850 (CmpDestroyVirtualStack.c)
- *     CmpDoBuildVirtualStack @ 0x1407F2A18 (CmpDoBuildVirtualStack.c)
- *     CmpFreeSiloKeyLockEntry @ 0x1407F5ED0 (CmpFreeSiloKeyLockEntry.c)
- *     CmpGlobalUnlockKeyForWrite @ 0x1407F5F10 (CmpGlobalUnlockKeyForWrite.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x1407FF7D8 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpLateUnloadHiveWorker @ 0x1405B0C50 (CmpLateUnloadHiveWorker.c)
+ *     CmpDelayDerefKCBWorker @ 0x1405B20B0 (CmpDelayDerefKCBWorker.c)
+ *     CmLoadDifferencingKey @ 0x1405B5DBC (CmLoadDifferencingKey.c)
+ *     CmpCleanupParseContext @ 0x1405B6FC4 (CmpCleanupParseContext.c)
+ *     CmReleaseLoadKeyContext @ 0x1405B8C30 (CmReleaseLoadKeyContext.c)
+ *     CmEnumerateKey @ 0x1405D3A20 (CmEnumerateKey.c)
+ *     CmpWalkOneLevel @ 0x1405D5560 (CmpWalkOneLevel.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405D8CC0 (CmpGetSymbolicLinkTarget.c)
+ *     CmOpenKey @ 0x1405E1EA0 (CmOpenKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1405E6320 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063FDD0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpDeleteKeyObject @ 0x140640520 (CmpDeleteKeyObject.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmpDestroyVirtualStack @ 0x1407F3A50 (CmpDestroyVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x1407F3C18 (CmpDoBuildVirtualStack.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x1407F70D0 (CmpFreeSiloKeyLockEntry.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x1407F7110 (CmpGlobalUnlockKeyForWrite.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x1408009D8 (CmpKeyEnumStackFreeResumeContext.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     ExpReleaseFastMutexContended @ 0x140023F40 (ExpReleaseFastMutexContended.c)
@@ -26,14 +26,14 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CmpDeleteHive @ 0x1405B0DEC (CmpDeleteHive.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405D53B8 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpFreeKeyControlBlock @ 0x140693DB4 (CmpFreeKeyControlBlock.c)
  */
 
 void __fastcall CmpDereferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)
@@ -56,8 +56,8 @@ void __fastcall CmpDereferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)
   struct _KTHREAD *CurrentThread; // rax
   int v18; // edi
   int v19; // ecx
-  __int64 v20; // rax
-  __int64 v21; // rdi
+  _RTL_BALANCED_NODE *v20; // rax
+  _RTL_BALANCED_NODE *v21; // rdi
   unsigned __int8 CurrentIrql; // r12
   _QWORD *v23; // rax
   __int64 v24; // rcx
@@ -153,7 +153,7 @@ LABEL_56:
           if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )
             ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, v20);
           if ( v21 )
-            *(_BYTE *)(v21 + 26) |= 1u;
+            BYTE2(v21[1].Left) |= 1u;
           *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
           *((_DWORD *)&CmpDelayedCloseTableLock + 12) = CurrentIrql;
           v23 = (_QWORD *)(BugCheckParameter2 + 216);
@@ -167,7 +167,7 @@ LABEL_56:
           *(_QWORD *)(v24 + 8) = v23;
           CmpDelayedLRUListHead = BugCheckParameter2 + 216;
           *(_BYTE *)(BugCheckParameter2 + 56) |= 2u;
-          ++qword_14096EB28;
+          ++qword_14096FB28;
           v25 = *((_BYTE *)&CmpDelayedCloseTableLock + 48);
           v26 = ++CmpDelayedCloseElements > (unsigned int)CmpDelayedCloseSize;
           *(&CmpDelayedCloseTableLock + 1) = 0LL;

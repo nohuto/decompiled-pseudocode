@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLoadServicesNode @ 0x1409CCF10
+ * XREFs of CmpLoadServicesNode @ 0x1409CDF10
  * Callers:
- *     CmpFindDrivers @ 0x1409CE508 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x1409CF508 (CmpFindDrivers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x14073D0DC (CmpFindSubKeyByName.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x14073E2CC (CmpFindSubKeyByName.c)
  */
 
 bool __fastcall CmpLoadServicesNode(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)

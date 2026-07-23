@@ -54,7 +54,7 @@ int __fastcall RtlpHpLfhSubsegmentIncBlockCounts(int a1, int a2, unsigned int a3
         if ( !v7 )
         {
           v7 = 1;
-          RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 12));
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 12));
           v22 = -1;
           continue;
         }
@@ -90,6 +90,6 @@ LABEL_17:
     }
   }
   if ( v7 )
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a2 + 12));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 12));
   return v20;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiReadFixedMtrr @ 0x14056E88C
+ * XREFs of KiReadFixedMtrr @ 0x14056F88C
  * Callers:
- *     KeLoadMTRR @ 0x14056E550 (KeLoadMTRR.c)
- *     KiInitializeMTRR @ 0x1409C56F4 (KiInitializeMTRR.c)
+ *     KeLoadMTRR @ 0x14056F550 (KeLoadMTRR.c)
+ *     KiInitializeMTRR @ 0x1409C66F4 (KiInitializeMTRR.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ unsigned __int64 __fastcall KiReadFixedMtrr(_QWORD *a1)
   unsigned __int64 v3; // rax
   unsigned __int64 v4; // [rsp+8h] [rbp+8h]
 
-  if ( byte_14041B431 == 1 )
+  if ( byte_14041C4D1 == 1 )
   {
     v1 = __readmsr(0xC0010010) | 0x80000;
 LABEL_7:
@@ -46,7 +46,7 @@ LABEL_4:
   a1[9] = __readmsr(0x26Eu);
   result = __readmsr(0x26Fu);
   a1[10] = result;
-  if ( byte_14041B431 == 1 )
+  if ( byte_14041C4D1 == 1 )
   {
     result = v1 & 0xFFFFFFFFFFF7FFFFuLL;
     __writemsr(0xC0010010, v1 & 0xFFFFFFFFFFF7FFFFuLL);

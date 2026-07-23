@@ -42,7 +42,7 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
   _BYTE *v27; // rdx
   _QWORD *v28; // rcx
   unsigned __int64 v29; // rax
-  int VirtualMemory; // eax
+  NTSTATUS VirtualMemory; // eax
   unsigned int *v31; // r13
   __int64 v32; // r10
   _BYTE *v33; // rcx
@@ -78,7 +78,7 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
   char v63; // al
   unsigned __int64 v64; // r9
   char v65; // cl
-  char **v66; // rdx
+  PVOID *v66; // rdx
   unsigned __int64 *v67; // rcx
   _DWORD *v68; // rax
   char v69; // r8
@@ -93,7 +93,7 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
   unsigned __int64 v79; // [rsp+60h] [rbp-5F8h] BYREF
   unsigned __int16 v80; // [rsp+68h] [rbp-5F0h]
   unsigned __int64 v81; // [rsp+70h] [rbp-5E8h] BYREF
-  int v82; // [rsp+78h] [rbp-5E0h]
+  NTSTATUS v82; // [rsp+78h] [rbp-5E0h]
   int v83; // [rsp+7Ch] [rbp-5DCh]
   unsigned int i; // [rsp+80h] [rbp-5D8h]
   int v85; // [rsp+84h] [rbp-5D4h]
@@ -107,7 +107,7 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
   int v93; // [rsp+ACh] [rbp-5ACh]
   unsigned int v94; // [rsp+B0h] [rbp-5A8h]
   unsigned int v95; // [rsp+B4h] [rbp-5A4h]
-  __int128 v96; // [rsp+B8h] [rbp-5A0h] BYREF
+  __int128 v96; // [rsp+B8h] [rbp-5A0h]
   __int64 v97; // [rsp+C8h] [rbp-590h]
   _BYTE *v98; // [rsp+D0h] [rbp-588h]
   unsigned __int64 v99; // [rsp+D8h] [rbp-580h]
@@ -116,10 +116,10 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
   __int64 v102; // [rsp+F0h] [rbp-568h]
   _BYTE *v103; // [rsp+100h] [rbp-558h]
   unsigned int *v104; // [rsp+118h] [rbp-540h]
-  _BYTE v105[48]; // [rsp+120h] [rbp-538h] BYREF
+  _BYTE MemoryInformation[48]; // [rsp+120h] [rbp-538h] BYREF
   _BYTE v106[152]; // [rsp+150h] [rbp-508h] BYREF
   unsigned __int64 v107; // [rsp+1E8h] [rbp-470h]
-  char *v108; // [rsp+248h] [rbp-410h]
+  PVOID BaseAddress; // [rsp+248h] [rbp-410h]
   _QWORD v109[102]; // [rsp+2F0h] [rbp-368h]
 
   v4 = a4;
@@ -147,7 +147,7 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
         return v8;
       if ( v10 >= v81 )
         return v8;
-      v31 = (unsigned int *)sub_18000D2E0(v108, &v96);
+      v31 = (unsigned int *)sub_18000D2E0(BaseAddress);
       v104 = v31;
       if ( !v31 )
         return v8;
@@ -158,9 +158,15 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
       v103 = v33;
       if ( !v33[2] && !v33[1] && (*v33 & 0x20) == 0 )
       {
-        VirtualMemory = ZwQueryVirtualMemory(-1LL, v108, 0LL, v105, 48LL, 0LL);
+        VirtualMemory = ZwQueryVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          BaseAddress,
+                          MemoryBasicInformation,
+                          MemoryInformation,
+                          0x30uLL,
+                          0LL);
         v85 = VirtualMemory;
-        if ( VirtualMemory >= 0 && (v105[36] & 0x40) != 0 )
+        if ( VirtualMemory >= 0 && (MemoryInformation[36] & 0x40) != 0 )
         {
           v85 = -1073741823;
           return v8;
@@ -173,8 +179,8 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
         v9 = v79;
         goto LABEL_48;
       }
-      v34 = v108;
-      v87 = v108;
+      v34 = (char *)BaseAddress;
+      v87 = (char *)BaseAddress;
       v101 = v31;
       v35 = 0LL;
       v88 = 0;
@@ -193,7 +199,7 @@ __int64 __fastcall sub_18000C4A0(__int64 a1, unsigned int a2, __int64 a3, unsign
           break;
       }
 LABEL_5:
-      v14 = (_DWORD)v108 - DWORD2(v96) - *v31;
+      v14 = (_DWORD)BaseAddress - DWORD2(v96) - *v31;
       v15 = *(_BYTE *)(v36 + 3);
       if ( (v15 & 0xF) == 0 )
       {
@@ -388,13 +394,13 @@ LABEL_22:
                       goto LABEL_37;
                     case 0xA:
                       v22 = 1;
-                      v66 = (char **)v10;
+                      v66 = (PVOID *)v10;
                       v99 = v10;
                       v67 = (unsigned __int64 *)(v10 + 24);
                       v100 = v10 + 24;
                       if ( (_DWORD)v26 )
                       {
-                        v66 = (char **)(v10 + 8);
+                        v66 = (PVOID *)(v10 + 8);
                         v99 = v10 + 8;
                         v67 = (unsigned __int64 *)(v10 + 32);
                         v100 = v10 + 32;
@@ -407,11 +413,11 @@ LABEL_22:
                       {
                         goto LABEL_179;
                       }
-                      v108 = *v66;
+                      BaseAddress = *v66;
                       v10 = *v67;
                       goto LABEL_30;
                     default:
-                      RtlRaiseStatus(3221225727LL);
+                      RtlRaiseStatus(-1073741569);
                   }
                 }
                 v21 = (unsigned int)(v21 + 1);
@@ -448,7 +454,7 @@ LABEL_31:
             {
               if ( v10 < v79 || v10 > v81 - 8 )
                 goto LABEL_179;
-              v108 = *(char **)v10;
+              BaseAddress = *(PVOID *)v10;
               v10 += 8LL;
               v107 = v10;
             }
@@ -460,7 +466,7 @@ LABEL_31:
             ++v25;
           v31 = (unsigned int *)&v24[2 * v25 + 4];
           if ( (unsigned int)++v89 > 0x20 )
-            RtlRaiseStatus(3221225727LL);
+            RtlRaiseStatus(-1073741569);
         }
       }
       k = v34;
@@ -532,7 +538,7 @@ LABEL_12:
           v46 = *v31;
           if ( v45 < v46 || v45 >= v31[1] )
           {
-            v68 = (_DWORD *)sub_18000B108((__int64)v31, v32, (__int64)&k[v44]);
+            v68 = (_DWORD *)sub_18000B108((__int64)v31, v32, &k[v44]);
             if ( !v68 || v45 == *v68 )
             {
               v10 = v107;
@@ -619,7 +625,7 @@ LABEL_151:
       }
       if ( v10 >= v9 && v10 <= v64 - 8 )
       {
-        v108 = *(char **)v10;
+        BaseAddress = *(PVOID *)v10;
         v10 += 8LL;
         v107 = v10;
         v78 = 0;
@@ -635,11 +641,11 @@ LABEL_47:
       v5 = v95;
       v6 = v102;
 LABEL_48:
-      if ( VirtualMemory >= 0 && v108 )
+      if ( VirtualMemory >= 0 && BaseAddress )
       {
         if ( v8 >= v4 )
         {
-          *(_QWORD *)(v6 + 8LL * (v8 - v4)) = v108;
+          *(_QWORD *)(v6 + 8LL * (v8 - v4)) = BaseAddress;
           v10 = v107;
         }
         v90 = ++v8;
@@ -660,7 +666,7 @@ LABEL_48:
       v62 = &v11[2 * v61 + 4];
       v92 = ++v12;
       if ( v12 > 0x20 )
-        RtlRaiseStatus(3221225727LL);
+        RtlRaiseStatus(-1073741569);
       v11 = (_BYTE *)(v32 + *((unsigned int *)v62 + 2));
       v13 = v11 + 2;
       if ( v11[2] )

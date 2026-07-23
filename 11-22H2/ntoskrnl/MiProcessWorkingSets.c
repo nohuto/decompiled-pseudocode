@@ -189,10 +189,13 @@ LABEL_7:
       v63 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v4 + 224));
       *(_BYTE *)(v4 + 12) = 1;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 224));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v63 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v63 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -391,10 +394,10 @@ LABEL_128:
           }
 LABEL_40:
           OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v75 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v75 <= 0xFu && LockHandle.OldIrql <= 0xFu && v75 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v75 <= 0xFu && LockHandle.OldIrql <= 0xFu && v75 >= 2u )
             {
               v76 = KeGetCurrentPrcb();
               v24 = v76->SchedulerAssist;
@@ -419,7 +422,7 @@ LABEL_40:
           LockHandle.LockQueue.Next = 0LL;
           v35 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v35 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu )
           {
             v41 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v35 == 2 )
@@ -504,10 +507,10 @@ LABEL_51:
           *(_WORD *)v31 = v88;
           KxReleaseQueuedSpinLock(&LockHandle);
           v70 = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v71 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v71 <= 0xFu && LockHandle.OldIrql <= 0xFu && v71 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v71 <= 0xFu && LockHandle.OldIrql <= 0xFu && v71 >= 2u )
             {
               v72 = KeGetCurrentPrcb();
               v73 = v72->SchedulerAssist;
@@ -581,10 +584,10 @@ LABEL_64:
         LOBYTE(v83[2].Header.SignalState) = 0;
       KxReleaseQueuedSpinLock(&LockHandle);
       v49 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v84 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v84 <= 0xFu && LockHandle.OldIrql <= 0xFu && v84 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v84 <= 0xFu && LockHandle.OldIrql <= 0xFu && v84 >= 2u )
         {
           v80 = KeGetCurrentPrcb();
           v85 = v80->SchedulerAssist;
@@ -637,10 +640,10 @@ LABEL_64:
       }
       KxReleaseQueuedSpinLock(&LockHandle);
       v49 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v79 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v79 <= 0xFu && LockHandle.OldIrql <= 0xFu && v79 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v79 <= 0xFu && LockHandle.OldIrql <= 0xFu && v79 >= 2u )
         {
           v80 = KeGetCurrentPrcb();
           v81 = v80->SchedulerAssist;

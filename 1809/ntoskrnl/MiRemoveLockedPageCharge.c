@@ -6,13 +6,13 @@
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
- *     MiDeleteDirectMapFixupPfn @ 0x1402C3CC0 (MiDeleteDirectMapFixupPfn.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
- *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6810 (MiPurgeBadFileOnlyPages.c)
+ *     MiDeleteDirectMapFixupPfn @ 0x1402C3EB0 (MiDeleteDirectMapFixupPfn.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
+ *     MiSwapHardFaultPage @ 0x1402D014C (MiSwapHardFaultPage.c)
  * Callees:
- *     MiSyncCommitSignals @ 0x140187FEC (MiSyncCommitSignals.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiSyncCommitSignals @ 0x14018812C (MiSyncCommitSignals.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveLockedPageCharge(__int64 a1)
@@ -74,7 +74,7 @@ LABEL_8:
           {
             v9 = 1;
           }
-          v13 = *(_QWORD *)(qword_14043A748 + 8 * ((v5 >> 40) & 0x3FF));
+          v13 = *(_QWORD *)(qword_14043B808 + 8 * ((v5 >> 40) & 0x3FF));
           if ( v9 == 1 )
           {
             v18 = *(_QWORD *)(v13 + 6464);
@@ -152,7 +152,7 @@ LABEL_42:
                 v7 = (int)CachedResidentAvailable - 192 + 1LL;
               }
             }
-            _InterlockedExchangeAdd64(&qword_14043E600, v7);
+            _InterlockedExchangeAdd64(&qword_14043F6C0, v7);
           }
           else
           {

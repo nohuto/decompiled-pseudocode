@@ -1,7 +1,7 @@
 /*
  * XREFs of ExAllocatePool @ 0x14025D110
  * Callers:
- *     VerifierExAllocatePool @ 0x140A8FF70 (VerifierExAllocatePool.c)
+ *     sub_140A8FF70 @ 0x140A8FF70 (sub_140A8FF70.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */

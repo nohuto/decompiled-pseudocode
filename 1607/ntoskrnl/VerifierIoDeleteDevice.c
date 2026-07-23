@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoDeleteDevice @ 0x14070C794
+ * XREFs of VerifierIoDeleteDevice @ 0x14070C7C4
  * Callers:
  *     <none>
  * Callees:

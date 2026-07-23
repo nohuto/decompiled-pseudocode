@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeTopLevelBitmap @ 0x140D0ACD8
+ * XREFs of MiInitializeTopLevelBitmap @ 0x140D10FA8
  * Callers:
- *     MiInitializeSystemVa @ 0x140D0AC28 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140D10EF8 (MiInitializeSystemVa.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
  */
 
 __int64 MiInitializeTopLevelBitmap()
@@ -18,14 +18,14 @@ __int64 MiInitializeTopLevelBitmap()
   unsigned __int64 KernelWaitTime; // rcx
   __int64 v7; // rax
   __int64 result; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 256LL;
   v0 = __rdtsc();
-  *(_DWORD *)&stru_140E2D930.AbWaitEntryCount = (unsigned __int8)((((unsigned __int64)HIDWORD(v0) << 32) | (unsigned int)v0) >> 4);
-  BitMapHeader.Buffer = (unsigned int *)&stru_140E2D930.ThreadListEntry;
-  stru_140E2D930.ThreadListEntry = 0LL;
-  stru_140E2D930.MutantListHead = 0LL;
+  *(_DWORD *)&stru_140E2DAB0.AbWaitEntryCount = (unsigned __int8)((((unsigned __int64)HIDWORD(v0) << 32) | (unsigned int)v0) >> 4);
+  BitMapHeader.Buffer = (unsigned int *)&stru_140E2DAB0.ThreadListEntry;
+  stru_140E2DAB0.ThreadListEntry = 0LL;
+  stru_140E2DAB0.MutantListHead = 0LL;
   v1 = 0xFFFFF6FB7DBED800uLL;
   v2 = 256LL;
   do
@@ -59,8 +59,8 @@ __int64 MiInitializeTopLevelBitmap()
   while ( v2 );
   RtlSetBits(&BitMapHeader, ((__int64)(v1 + 0x90482412800LL) >> 3) - 1, 1u);
   if ( (MiFlags & 0x400000) == 0 )
-    BYTE5(stru_140E2D930.MutantListHead.Blink) &= ~0x20u;
+    BYTE5(stru_140E2DAB0.MutantListHead.Blink) &= ~0x20u;
   result = 1LL;
-  LOBYTE(stru_140E2D930.ThreadListEntry.Flink) |= 1u;
+  LOBYTE(stru_140E2DAB0.ThreadListEntry.Flink) |= 1u;
   return result;
 }

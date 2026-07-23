@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlReleaseStackTrace @ 0x180101160
+ * XREFs of RtlReleaseStackTrace @ 0x180101120
  * Callers:
  *     <none>
  * Callees:
- *     RtlStdReleaseStackTrace @ 0x180101460 (RtlStdReleaseStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x180101420 (RtlStdReleaseStackTrace.c)
  */
 
 __int64 __fastcall RtlReleaseStackTrace(__int64 a1)

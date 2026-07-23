@@ -50,7 +50,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
   _BOOL8 v32; // rax
   __int64 *v33; // r10
   __int64 v34; // rdi
-  union _SLIST_HEADER *v35; // rcx
+  _SLIST_HEADER *v35; // rcx
   PSLIST_ENTRY v36; // rax
   unsigned __int64 v37; // r9
   unsigned int v38; // r10d
@@ -67,8 +67,8 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
   __int64 v49; // [rsp+38h] [rbp-C0h]
   __int64 v50; // [rsp+40h] [rbp-B8h]
   unsigned __int8 v51; // [rsp+4Ch] [rbp-ACh]
-  struct _SLIST_ENTRY *ListEnd; // [rsp+50h] [rbp-A8h]
-  struct _SLIST_ENTRY *ListEntry; // [rsp+58h] [rbp-A0h]
+  _SLIST_ENTRY *ListEnd; // [rsp+50h] [rbp-A8h]
+  _SLIST_ENTRY *ListEntry; // [rsp+58h] [rbp-A0h]
   __int64 v54; // [rsp+60h] [rbp-98h]
   __int64 v55; // [rsp+68h] [rbp-90h]
   __int64 v56; // [rsp+70h] [rbp-88h]
@@ -157,7 +157,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
           BugCheckParameter4 = v18[2];
           v56 = (__int64)v18;
           v20 = 48 * BugCheckParameter4 - 0x220000000000LL;
-          ListEntry = (struct _SLIST_ENTRY *)v20;
+          ListEntry = (_SLIST_ENTRY *)v20;
           while ( 1 )
           {
             if ( _interlockedbittestandset64((volatile signed __int32 *)(v20 + 24), 0x3FuLL) )
@@ -166,7 +166,7 @@ LABEL_61:
               v19 = v49;
               break;
             }
-            ListEnd = (struct _SLIST_ENTRY *)v20;
+            ListEnd = (_SLIST_ENTRY *)v20;
             if ( !a2 && (MiFlags & 0x80u) != 0LL && (++dword_140E2FF28 & MmPageValidationFrequency) == 0 )
               MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((v20 + 0x220000000000LL) >> 4), 1uLL);
             if ( dword_140E2FE0C == 1 )
@@ -278,7 +278,7 @@ LABEL_36:
             MiSetPfnBlink(v20, 0x3FFFFFFFFFLL, 0);
             v34 = a1;
           }
-          v35 = (union _SLIST_HEADER *)(*v59 + v60);
+          v35 = (_SLIST_HEADER *)(*v59 + v60);
           if ( ListEnd )
             v36 = InterlockedPushListSList(v35, ListEntry, ListEnd, v19);
           else

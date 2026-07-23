@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapAttemptErrorRecovery @ 0x140610C64
+ * XREFs of WheapAttemptErrorRecovery @ 0x1406111B4
  * Callers:
- *     WheaReportHwError @ 0x140610630 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x140610B80 (WheaReportHwError.c)
  * Callees:
- *     WheaGetErrPacketFromErrRecord @ 0x1405194E0 (WheaGetErrPacketFromErrRecord.c)
- *     WheapGetErrorSource @ 0x140610E98 (WheapGetErrorSource.c)
- *     WheapCallErrorSourceRecover @ 0x1406127A8 (WheapCallErrorSourceRecover.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x140519A30 (WheaGetErrPacketFromErrRecord.c)
+ *     WheapGetErrorSource @ 0x1406113E8 (WheapGetErrorSource.c)
+ *     WheapCallErrorSourceRecover @ 0x140612CF8 (WheapCallErrorSourceRecover.c)
  */
 
 __int64 __fastcall WheapAttemptErrorRecovery(__int64 a1)

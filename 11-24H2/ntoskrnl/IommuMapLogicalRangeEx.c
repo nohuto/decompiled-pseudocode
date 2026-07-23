@@ -1,14 +1,14 @@
 /*
- * XREFs of IommuMapLogicalRangeEx @ 0x1403ADCD0
+ * XREFs of IommuMapLogicalRangeEx @ 0x14039C4E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x1403ACFA0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x1403AD6EC (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainMapLogical @ 0x1403ADEBC (HalpIommuDomainMapLogical.c)
- *     HalpIommuDomainMapLogicalRange @ 0x140553C24 (HalpIommuDomainMapLogicalRange.c)
- *     IommupValidateMdl @ 0x140567674 (IommupValidateMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14039B7B0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x14039BEFC (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainMapLogical @ 0x14039C6CC (HalpIommuDomainMapLogical.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x140551564 (HalpIommuDomainMapLogicalRange.c)
+ *     IommupValidateMdl @ 0x140565100 (IommupValidateMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuMapLogicalRangeEx(
@@ -31,12 +31,10 @@ __int64 __fastcall IommuMapLogicalRangeEx(
   int LogicalAddress; // eax
   unsigned int v18; // edi
   int v19; // eax
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v23; // rcx
-  __int64 v24; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v21; // rcx
+  __int64 v22; // [rsp+70h] [rbp+8h] BYREF
 
-  v24 = 0LL;
+  v22 = 0LL;
   LODWORD(v7) = 0;
   v8 = *(_DWORD *)(a1 + 8);
   LODWORD(v9) = 0;
@@ -67,8 +65,8 @@ __int64 __fastcall IommuMapLogicalRangeEx(
     if ( !(unsigned __int8)IommupValidateMdl(*(_QWORD *)(a3 + 8)) )
       return (unsigned int)-1073741583;
     v13 = 0;
-    v14 = *(unsigned int *)(v23 + 40);
-    LODWORD(v9) = v23 + 8 * ((*(_DWORD *)(v23 + 44) >> 12) + 6);
+    v14 = *(unsigned int *)(v21 + 40);
+    LODWORD(v9) = v21 + 8 * ((*(_DWORD *)(v21 + 44) >> 12) + 6);
   }
   if ( !v14 )
     return (unsigned int)-1073741583;
@@ -80,7 +78,7 @@ __int64 __fastcall IommuMapLogicalRangeEx(
     v16 = *a4;
     if ( (*a4 & 0xFFF) != 0 )
       return (unsigned int)-1073741584;
-    v24 = *a4;
+    v22 = *a4;
     goto LABEL_16;
   }
   if ( **v15 == HalpBuddyAllocatorAllocateLogicalAddress )
@@ -90,13 +88,13 @@ __int64 __fastcall IommuMapLogicalRangeEx(
                        v14,
                        a5,
                        a6,
-                       (unsigned __int64 *)&v24);
+                       (unsigned __int64 *)&v22);
   else
-    LogicalAddress = guard_dispatch_icall_no_overrides(v15, v10, v14, a5);
+    LogicalAddress = guard_dispatch_icall_no_overrides(v15, v10);
   v18 = LogicalAddress;
   if ( LogicalAddress >= 0 )
   {
-    v16 = v24;
+    v16 = v22;
 LABEL_16:
     if ( v13 )
       v19 = HalpIommuDomainMapLogicalRange(a1, a2, v7, v14, v16);
@@ -104,9 +102,9 @@ LABEL_16:
       v19 = HalpIommuDomainMapLogical(a1, a2, v9, v14 >> 12, v16);
     v18 = v19;
     if ( v19 < 0 )
-      HalpIommuDomainFreeLogicalAddressRange(a1, v24, v20, v21);
+      HalpIommuDomainFreeLogicalAddressRange(a1, v22);
     else
-      *a7 = v24;
+      *a7 = v22;
   }
   return v18;
 }

@@ -35,10 +35,10 @@ void __fastcall EtwpEnumerateAddressSpace(ULONG_PTR a1, __int64 a2, int *a3)
   int v15; // edx
   unsigned __int64 v16; // rax
   __int64 v17; // r13
-  __int64 v18; // rax
-  int v19; // r8d
-  int v20; // edx
-  __int64 v21; // r9
+  PIMAGE_NT_HEADERS v18; // rax
+  int CheckSum; // r8d
+  int TimeDateStamp; // edx
+  __int64 ImageBase; // r9
   struct _DMA_ADAPTER *v22; // r8
   unsigned int v23; // eax
   int v24; // ecx
@@ -266,21 +266,21 @@ LABEL_35:
       v46 = v52;
       v62 = *(_QWORD *)(i + 16);
       v59 = v62;
-      v18 = RtlImageNtHeader(*(_QWORD *)(i + 8));
+      v18 = RtlImageNtHeader(*(PVOID *)(i + 8));
       if ( v18 )
       {
-        v19 = *(_DWORD *)(v18 + 88);
-        v46 = v19;
-        v20 = *(_DWORD *)(v18 + 8);
-        v41 = v20;
-        v21 = *(_QWORD *)(v18 + 48);
-        v59 = v21;
+        CheckSum = v18->OptionalHeader.CheckSum;
+        v46 = CheckSum;
+        TimeDateStamp = v18->FileHeader.TimeDateStamp;
+        v41 = TimeDateStamp;
+        ImageBase = v18->OptionalHeader.ImageBase;
+        v59 = ImageBase;
       }
       else
       {
-        v20 = v41;
-        v19 = v52;
-        v21 = v62;
+        TimeDateStamp = v41;
+        CheckSum = v52;
+        ImageBase = v62;
       }
       if ( NameStringMode >= 0 )
       {
@@ -299,11 +299,11 @@ LABEL_35:
             BugCheckParameter1,
             *(_QWORD *)(i + 8),
             *(_QWORD *)(i + 24),
-            v19,
-            v20,
+            CheckSum,
+            TimeDateStamp,
             v17,
             v63,
-            v21,
+            ImageBase,
             0);
       }
       if ( v54 )

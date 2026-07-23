@@ -1,9 +1,9 @@
 /*
- * XREFs of MxGetNextPage @ 0x140C52A90
+ * XREFs of MxGetNextPage @ 0x140C54C20
  * Callers:
- *     MxMapVa @ 0x140C53144 (MxMapVa.c)
+ *     MxMapVa @ 0x140C552D4 (MxMapVa.c)
  * Callees:
- *     MxBootDescriptorDepleted @ 0x140C52198 (MxBootDescriptorDepleted.c)
+ *     MxBootDescriptorDepleted @ 0x140C54328 (MxBootDescriptorDepleted.c)
  */
 
 __int64 __fastcall MxGetNextPage(unsigned int a1, int a2)

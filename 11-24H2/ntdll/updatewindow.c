@@ -1,10 +1,10 @@
 /*
- * XREFs of updatewindow @ 0x1801528AC
+ * XREFs of updatewindow @ 0x180150C6C
  * Callers:
- *     inflate @ 0x180151674 (inflate.c)
+ *     inflate @ 0x18014FA34 (inflate.c)
  * Callees:
- *     memmove @ 0x180167400 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall updatewindow(__int64 a1, __int64 a2, unsigned int a3)

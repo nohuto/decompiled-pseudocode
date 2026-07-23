@@ -1,21 +1,22 @@
 /*
- * XREFs of PiDevCfgInitDeviceContext @ 0x140AD1214
+ * XREFs of PiDevCfgInitDeviceContext @ 0x140AE83CC
  * Callers:
- *     PiDevCfgInitDeviceCallback @ 0x1407A9BB0 (PiDevCfgInitDeviceCallback.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1407AA380 (PiDevCfgProcessDeviceCallback.c)
- *     PpDevCfgCheckDeviceNeedsUpdate @ 0x1407ABD9C (PpDevCfgCheckDeviceNeedsUpdate.c)
- *     PpDevCfgProcessDeviceClass @ 0x1407ABE10 (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x1407AC218 (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceReset @ 0x1407AC990 (PpDevCfgProcessDeviceReset.c)
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
- *     PpDevCfgProcessDeviceOperations @ 0x140AD10DC (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgInitDeviceCallback @ 0x1407AC820 (PiDevCfgInitDeviceCallback.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407AD0C0 (PiDevCfgProcessDeviceCallback.c)
+ *     PpDevCfgCheckDeviceNeedsUpdate @ 0x1407AEDDC (PpDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceClass @ 0x1407AEE54 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1407AF25C (PpDevCfgProcessDeviceExtensions.c)
+ *     PpDevCfgProcessDeviceReset @ 0x1407AF9D4 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x140AE8284 (PpDevCfgProcessDeviceOperations.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     PiDevCfgFreeDeviceContext @ 0x140AD11C4 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgQueryObjectProperties @ 0x140AD2A4C (PiDevCfgQueryObjectProperties.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x1405DDA04 (Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     PiDevCfgFreeDeviceContext @ 0x140AE836C (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgQueryObjectProperties @ 0x140AE9D80 (PiDevCfgQueryObjectProperties.c)
  */
 
 __int64 __fastcall PiDevCfgInitDeviceContext(__int64 a1, __int64 a2, _QWORD *a3)
@@ -33,7 +34,12 @@ __int64 __fastcall PiDevCfgInitDeviceContext(__int64 a1, __int64 a2, _QWORD *a3)
   char v17; // [rsp+48h] [rbp-A0h] BYREF
   char v18; // [rsp+60h] [rbp-88h] BYREF
 
-  memset_0(a3, 0, 0x48uLL);
+  memset_0(a3, 0, 0x58uLL);
+  if ( (unsigned int)Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline() )
+  {
+    a3[4] = a3 + 3;
+    a3[3] = a3 + 3;
+  }
   a3[1] = a1;
   v6 = a3 + 2;
   if ( a2 )
@@ -45,7 +51,7 @@ __int64 __fastcall PiDevCfgInitDeviceContext(__int64 a1, __int64 a2, _QWORD *a3)
     ObjectProperties = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, a1, 16, 0, 983103, 0, (__int64)(a3 + 2), 0LL);
     if ( ObjectProperties < 0 )
     {
-LABEL_13:
+LABEL_15:
       PiDevCfgFreeDeviceContext((__int64)a3);
       return (unsigned int)ObjectProperties;
     }
@@ -54,8 +60,8 @@ LABEL_13:
   memset_0(v16, 0, 0x78uLL);
   v8 = &v17;
   v9 = 3LL;
-  v10 = off_140FD5740;
-  v11 = a3 + 3;
+  v10 = off_140FD6750;
+  v11 = a3 + 5;
   do
   {
     v12 = (__int64)*v10++;
@@ -70,13 +76,13 @@ LABEL_13:
   while ( v9 );
   ObjectProperties = PiDevCfgQueryObjectProperties((_DWORD)v8, a3[1], 1, *v6, (__int64)v16, 3);
   if ( ObjectProperties < 0 )
-    goto LABEL_13;
+    goto LABEL_15;
   v13 = 0;
   v14 = (int *)&v18;
   do
   {
     if ( *v14 < 0 )
-      RtlInitUnicodeString((PUNICODE_STRING)&a3[2 * v13 + 3], 0LL);
+      RtlInitUnicodeString((PUNICODE_STRING)&a3[2 * v13 + 5], 0LL);
     ++v13;
     v14 += 10;
   }

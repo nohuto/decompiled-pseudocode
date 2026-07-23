@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpHvCpuid @ 0x1404FFA1C
+ * XREFs of HalpHvCpuid @ 0x1404F920C
  * Callers:
- *     HalpInterruptGetIrtInfo @ 0x1407815A8 (HalpInterruptGetIrtInfo.c)
- *     HalpInitializeProfiling @ 0x140BED728 (HalpInitializeProfiling.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407840A8 (HalpInterruptGetIrtInfo.c)
+ *     HalpInitializeProfiling @ 0x140BF3728 (HalpInitializeProfiling.c)
  * Callees:
  *     <none>
  */

@@ -1,24 +1,24 @@
 /*
- * XREFs of IommupDeviceEnablePasidTaggedDma @ 0x14078268C
+ * XREFs of IommupDeviceEnablePasidTaggedDma @ 0x14078518C
  * Callers:
- *     IommupDeviceEnableSvm @ 0x14078287C (IommupDeviceEnableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x14078537C (IommupDeviceEnableSvm.c)
  * Callees:
- *     HalpIommuFreeDomainId @ 0x1405334E8 (HalpIommuFreeDomainId.c)
- *     IommupPasidDeviceCreate @ 0x140588434 (IommupPasidDeviceCreate.c)
- *     IommupPasidDeviceDelete @ 0x140588584 (IommupPasidDeviceDelete.c)
- *     HalpIommuBusInterfaceCheckSvmSupport @ 0x14058BBAC (HalpIommuBusInterfaceCheckSvmSupport.c)
- *     HalpIommuBusInterfaceEnableSvmCapabilities @ 0x14058BC18 (HalpIommuBusInterfaceEnableSvmCapabilities.c)
- *     HalpIommuBusInterfaceGetSvmCapabilities @ 0x14058BC58 (HalpIommuBusInterfaceGetSvmCapabilities.c)
- *     HalpIommuGetDomainId @ 0x14058BF1C (HalpIommuGetDomainId.c)
- *     HalpIommuIsDmarStageCompatible @ 0x14058DCCC (HalpIommuIsDmarStageCompatible.c)
- *     IommuDisableDevicePasid @ 0x14059B9F0 (IommuDisableDevicePasid.c)
- *     IommuEnableDevicePasid @ 0x14059BCD0 (IommuEnableDevicePasid.c)
- *     IommuGetLeastMaximumSupportedAsidValue @ 0x14059C464 (IommuGetLeastMaximumSupportedAsidValue.c)
- *     IommupMapDeviceInternal @ 0x14059D094 (IommupMapDeviceInternal.c)
- *     IommupUnmapDeviceInternal @ 0x14059D414 (IommupUnmapDeviceInternal.c)
- *     IommupHvAttachPasidDevice @ 0x14059D89C (IommupHvAttachPasidDevice.c)
- *     IommupHvDetachPasidDevice @ 0x14059E048 (IommupHvDetachPasidDevice.c)
- *     IommupHvIsStage1DmarCompatible @ 0x14059E728 (IommupHvIsStage1DmarCompatible.c)
+ *     HalpIommuFreeDomainId @ 0x140535968 (HalpIommuFreeDomainId.c)
+ *     IommupPasidDeviceCreate @ 0x14058AAEC (IommupPasidDeviceCreate.c)
+ *     IommupPasidDeviceDelete @ 0x14058AC50 (IommupPasidDeviceDelete.c)
+ *     HalpIommuBusInterfaceCheckSvmSupport @ 0x14058E32C (HalpIommuBusInterfaceCheckSvmSupport.c)
+ *     HalpIommuBusInterfaceEnableSvmCapabilities @ 0x14058E398 (HalpIommuBusInterfaceEnableSvmCapabilities.c)
+ *     HalpIommuBusInterfaceGetSvmCapabilities @ 0x14058E3D8 (HalpIommuBusInterfaceGetSvmCapabilities.c)
+ *     HalpIommuGetDomainId @ 0x14058E69C (HalpIommuGetDomainId.c)
+ *     HalpIommuIsDmarStageCompatible @ 0x14059044C (HalpIommuIsDmarStageCompatible.c)
+ *     IommuDisableDevicePasid @ 0x14059E170 (IommuDisableDevicePasid.c)
+ *     IommuEnableDevicePasid @ 0x14059E450 (IommuEnableDevicePasid.c)
+ *     IommuGetLeastMaximumSupportedAsidValue @ 0x14059EBE4 (IommuGetLeastMaximumSupportedAsidValue.c)
+ *     IommupMapDeviceInternal @ 0x14059F814 (IommupMapDeviceInternal.c)
+ *     IommupUnmapDeviceInternal @ 0x14059FB94 (IommupUnmapDeviceInternal.c)
+ *     IommupHvAttachPasidDevice @ 0x1405A001C (IommupHvAttachPasidDevice.c)
+ *     IommupHvDetachPasidDevice @ 0x1405A07C8 (IommupHvDetachPasidDevice.c)
+ *     IommupHvIsStage1DmarCompatible @ 0x1405A0F08 (IommupHvIsStage1DmarCompatible.c)
  */
 
 __int64 __fastcall IommupDeviceEnablePasidTaggedDma(__int64 a1, char a2)

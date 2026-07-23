@@ -1,11 +1,11 @@
 /*
- * XREFs of SmHwInitializeAccelDescriptor @ 0x14079CDBC
+ * XREFs of SmHwInitializeAccelDescriptor @ 0x14079CECC
  * Callers:
- *     SmHwAcceleratorParitionCtxCreate @ 0x14079C8D8 (SmHwAcceleratorParitionCtxCreate.c)
+ *     SmHwAcceleratorParitionCtxCreate @ 0x14079C9E8 (SmHwAcceleratorParitionCtxCreate.c)
  * Callees:
- *     AccelInitializeCompressionWorkspace @ 0x140665974 (AccelInitializeCompressionWorkspace.c)
- *     AccelInitializeDescriptor @ 0x140665AB0 (AccelInitializeDescriptor.c)
- *     AccelSetDescriptorAddressSpace @ 0x140665C98 (AccelSetDescriptorAddressSpace.c)
+ *     AccelInitializeCompressionWorkspace @ 0x140664264 (AccelInitializeCompressionWorkspace.c)
+ *     AccelInitializeDescriptor @ 0x1406643A0 (AccelInitializeDescriptor.c)
+ *     AccelSetDescriptorAddressSpace @ 0x140664588 (AccelSetDescriptorAddressSpace.c)
  */
 
 __int64 __fastcall SmHwInitializeAccelDescriptor(__int64 a1, __int64 a2, int a3)

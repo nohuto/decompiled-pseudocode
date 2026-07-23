@@ -1,9 +1,9 @@
 /*
- * XREFs of PiControlAllocateBufferForUserModeCaller @ 0x14022AE54
+ * XREFs of PiControlAllocateBufferForUserModeCaller @ 0x14022AF64
  * Callers:
- *     PiControlGetRelatedDevice @ 0x1406C90A0 (PiControlGetRelatedDevice.c)
- *     PiControlGetPropertyData @ 0x140792750 (PiControlGetPropertyData.c)
- *     PiControlQueryDeviceRelations @ 0x14084DCE0 (PiControlQueryDeviceRelations.c)
+ *     PiControlGetRelatedDevice @ 0x1406C90D0 (PiControlGetRelatedDevice.c)
+ *     PiControlGetPropertyData @ 0x140792940 (PiControlGetPropertyData.c)
+ *     PiControlQueryDeviceRelations @ 0x14084DFE0 (PiControlQueryDeviceRelations.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,18 +1,24 @@
 /*
- * XREFs of DifNtAlpcCreatePortSectionWrapper @ 0x14066C360
+ * XREFs of DifNtAlpcCreatePortSectionWrapper @ 0x14066FF40
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtAlpcCreatePortSection @ 0x140AB69F0 (NtAlpcCreatePortSection.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtAlpcCreatePortSection @ 0x140AB7DB0 (NtAlpcCreatePortSection.c)
  */
 
-__int64 __fastcall DifNtAlpcCreatePortSectionWrapper(void *a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+__int64 __fastcall DifNtAlpcCreatePortSectionWrapper(
+        void *a1,
+        ULONG a2,
+        void *a3,
+        SIZE_T a4,
+        HANDLE *AlpcSectionHandle,
+        ULONG_PTR *ActualSectionSize)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -25,7 +31,7 @@ __int64 __fastcall DifNtAlpcCreatePortSectionWrapper(void *a1, int a2, __int64 a
   BOOLEAN v17; // di
   __int128 *j; // rbx
   _QWORD v20[5]; // [rsp+30h] [rbp-40h] BYREF
-  int v21; // [rsp+58h] [rbp-18h]
+  ULONG v21; // [rsp+58h] [rbp-18h]
   void *v22; // [rsp+60h] [rbp-10h]
   unsigned int PortSection; // [rsp+68h] [rbp-8h]
   void *retaddr; // [rsp+98h] [rbp+28h]
@@ -50,8 +56,8 @@ __int64 __fastcall DifNtAlpcCreatePortSectionWrapper(void *a1, int a2, __int64 a
 LABEL_7:
   v14 = 0;
   v22 = a1;
-  v20[2] = a5;
-  v20[1] = a6;
+  v20[2] = AlpcSectionHandle;
+  v20[1] = ActualSectionSize;
   v21 = a2;
   v20[4] = a3;
   v20[3] = a4;
@@ -67,7 +73,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  PortSection = NtAlpcCreatePortSection(a1, a5, a6);
+  PortSection = NtAlpcCreatePortSection(a1, a2, a3, a4, AlpcSectionHandle, ActualSectionSize);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

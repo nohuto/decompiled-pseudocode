@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmPerfApplyProcessorState @ 0x14012F3B0
+ * XREFs of PpmPerfApplyProcessorState @ 0x14012F920
  * Callers:
- *     PpmPerfAction @ 0x1400D86C0 (PpmPerfAction.c)
- *     PpmPerfApplyProcessorStates @ 0x14012F1C0 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfAction @ 0x1400D6560 (PpmPerfAction.c)
+ *     PpmPerfApplyProcessorStates @ 0x14012F730 (PpmPerfApplyProcessorStates.c)
  * Callees:
- *     PpmContinueActiveTimeAccumulation @ 0x14000D480 (PpmContinueActiveTimeAccumulation.c)
- *     PpmUpdatePerformanceFeedback @ 0x1400DB9C0 (PpmUpdatePerformanceFeedback.c)
- *     PpmEventTraceExpectedUtility @ 0x14012F51C (PpmEventTraceExpectedUtility.c)
- *     PpmEventProcessorPerfStateChange @ 0x14012F58C (PpmEventProcessorPerfStateChange.c)
- *     PpmEventPerfState @ 0x14012F63C (PpmEventPerfState.c)
- *     PpmScaleIdleStateValues @ 0x14012F6B0 (PpmScaleIdleStateValues.c)
- *     PpmGetIdleGenerationCounter @ 0x1401FFAA4 (PpmGetIdleGenerationCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14000D000 (PpmContinueActiveTimeAccumulation.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1400D9860 (PpmUpdatePerformanceFeedback.c)
+ *     PpmEventTraceExpectedUtility @ 0x14012FA8C (PpmEventTraceExpectedUtility.c)
+ *     PpmEventProcessorPerfStateChange @ 0x14012FAFC (PpmEventProcessorPerfStateChange.c)
+ *     PpmEventPerfState @ 0x14012FBAC (PpmEventPerfState.c)
+ *     PpmScaleIdleStateValues @ 0x14012FC20 (PpmScaleIdleStateValues.c)
+ *     PpmGetIdleGenerationCounter @ 0x1401FF8D0 (PpmGetIdleGenerationCounter.c)
  */
 
 char __fastcall PpmPerfApplyProcessorState(struct _KPRCB *a1, unsigned __int8 a2)

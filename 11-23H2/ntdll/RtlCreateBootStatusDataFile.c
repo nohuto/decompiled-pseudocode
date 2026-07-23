@@ -14,64 +14,62 @@
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlCreateBootStatusDataFile(const WCHAR *a1)
+NTSTATUS RtlCreateBootStatusDataFile(void)
 {
+  const WCHAR *v0; // rcx
   const WCHAR *v1; // rdx
-  int File; // ebx
-  void *Heap; // rax
-  __int64 v4; // rdi
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-19h] BYREF
-  int v7; // [rsp+80h] [rbp+7h]
-  __int64 v8; // [rsp+88h] [rbp+Fh]
-  UNICODE_STRING *p_DestinationString; // [rsp+90h] [rbp+17h]
-  int v10; // [rsp+98h] [rbp+1Fh]
-  __int128 v11; // [rsp+A0h] [rbp+27h]
-  char v12; // [rsp+E0h] [rbp+67h] BYREF
-  HANDLE Handle; // [rsp+E8h] [rbp+6Fh]
-  __int64 v14; // [rsp+F0h] [rbp+77h]
+  int v2; // ebx
+  PVOID Heap; // rax
+  void *v4; // rdi
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+7h] BYREF
+  char v9; // [rsp+E0h] [rbp+67h] BYREF
+  HANDLE FileHandle; // [rsp+E8h] [rbp+6Fh] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+F0h] [rbp+77h] BYREF
   PCWSTR SourceString; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  Handle = 0LL;
+  FileHandle = 0LL;
   SourceString = 0LL;
-  v12 = 0;
-  if ( a1 )
+  v9 = 0;
+  if ( v0 )
   {
-    v1 = a1;
+    v1 = v0;
   }
   else
   {
-    RtlpGetBootStatusPath(&SourceString, &v12);
+    RtlpGetBootStatusPath(&SourceString, &v9);
     v1 = SourceString;
   }
   RtlInitUnicodeString(&DestinationString, v1);
-  v8 = 0LL;
-  p_DestinationString = &DestinationString;
-  v7 = 48;
-  v10 = 64;
-  v11 = 0LL;
-  v14 = 67584LL;
-  File = ZwCreateFile();
-  if ( File >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ByteOffset.QuadPart = 67584LL;
+  v2 = ZwCreateFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, &ByteOffset, 4u, 0, 2u, 0x8020u, 0LL, 0);
+  if ( v2 >= 0 )
   {
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 67584LL);
-    v4 = (__int64)Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x10800uLL);
+    v4 = Heap;
     if ( Heap )
     {
       memset_thunk_772440563353939046(Heap, 254, 0x10800uLL);
-      v14 = 0LL;
-      File = NtWriteFile();
-      if ( File >= 0 )
-        File = RtlRestoreBootStatusDefaults(Handle);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+      ByteOffset.QuadPart = 0LL;
+      v2 = NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, v4, 0x10800u, &ByteOffset, 0LL);
+      if ( v2 >= 0 )
+        v2 = RtlRestoreBootStatusDefaults(FileHandle);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     }
     else
     {
-      File = -1073741801;
+      v2 = -1073741801;
     }
   }
-  if ( Handle )
-    NtClose(Handle);
-  if ( v12 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)SourceString);
-  return (unsigned int)File;
+  if ( FileHandle )
+    NtClose(FileHandle);
+  if ( v9 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)SourceString);
+  return v2;
 }

@@ -11,7 +11,7 @@
  *     memset @ 0x1800A4180 (memset.c)
  */
 
-__int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
+void __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
 {
   char CurrentProcessorNumber; // cl
   unsigned int v5; // eax
@@ -19,23 +19,20 @@ __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
   struct _TEB *v7; // rdx
   __int64 v8; // r15
   __int64 v9; // rbx
-  __int64 result; // rax
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // r9
-  unsigned __int8 *v14; // rcx
-  unsigned __int8 *v15; // r10
-  unsigned int v16; // edx
-  __int64 v17; // r8
-  __int64 v18; // rax
-  __int64 v19; // rbx
-  unsigned int v20; // r8d
-  _BYTE *v21; // rcx
-  unsigned int v22; // eax
-  __int64 v23; // r8
-  signed __int32 v24[8]; // [rsp+0h] [rbp-A8h] BYREF
-  __int64 v25; // [rsp+20h] [rbp-88h]
-  _BYTE v26[64]; // [rsp+30h] [rbp-78h] BYREF
+  unsigned __int8 *v10; // rcx
+  unsigned __int8 *v11; // r10
+  unsigned int v12; // edx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  __int64 v15; // rbx
+  unsigned int v16; // r8d
+  _BYTE *v17; // rcx
+  unsigned int v18; // eax
+  __int64 v19; // r8
+  __int64 Slot; // rax
+  signed __int32 v21[8]; // [rsp+0h] [rbp-A8h] BYREF
+  __int64 v22; // [rsp+20h] [rbp-88h]
+  _BYTE v23[64]; // [rsp+30h] [rbp-78h] BYREF
 
   CurrentProcessorNumber = RtlGetCurrentProcessorNumber();
   v5 = *(unsigned __int8 *)(a1 + 56);
@@ -50,76 +47,76 @@ __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
   v7 = NtCurrentTeb();
   v8 = (unsigned int)v6;
   v9 = *(unsigned __int8 *)(v6 + *(_QWORD *)(a2 + 88));
-  result = BYTE1(v7->HeapData);
-  if ( (_DWORD)result != (_DWORD)v6 )
+  if ( BYTE1(v7->HeapData) != (_DWORD)v6 )
   {
     BYTE1(v7->HeapData) = v6;
-    return result;
+    return;
   }
-  memset(v26, 0, sizeof(v26));
-  RtlAcquireSRWLockExclusive(a2 + 80, v11, v12, v13);
-  v14 = *(unsigned __int8 **)(a2 + 88);
-  v15 = &v14[v8];
-  if ( (_BYTE)v9 != v14[v8] )
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
-  v16 = *(unsigned __int8 *)(a1 + 56);
-  if ( (_BYTE)v16 )
+  memset(v23, 0, sizeof(v23));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
+  v10 = *(unsigned __int8 **)(a2 + 88);
+  v11 = &v10[v8];
+  if ( (_BYTE)v9 != v10[v8] )
+    goto LABEL_16;
+  v12 = *(unsigned __int8 *)(a1 + 56);
+  if ( (_BYTE)v12 )
   {
-    v17 = *(unsigned __int8 *)(a1 + 56);
+    v13 = *(unsigned __int8 *)(a1 + 56);
     do
     {
-      v18 = *v14++;
-      ++v26[v18];
-      --v17;
+      v14 = *v10++;
+      ++v23[v14];
+      --v13;
     }
-    while ( v17 );
+    while ( v13 );
   }
-  if ( v26[v9] == 1 )
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
-  v19 = (unsigned int)(v9 + 1);
-  v20 = v19;
-  if ( (unsigned int)v19 < v16 )
+  if ( v23[v9] == 1 )
   {
-    v21 = &v26[(unsigned int)v19];
+LABEL_16:
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
+    return;
+  }
+  v15 = (unsigned int)(v9 + 1);
+  v16 = v15;
+  if ( (unsigned int)v15 < v12 )
+  {
+    v17 = &v23[(unsigned int)v15];
     do
     {
-      if ( !*v21 )
+      if ( !*v17 )
         break;
-      if ( *v21 < v26[v19] )
-        v19 = v20;
-      ++v20;
-      ++v21;
+      if ( *v17 < v23[v15] )
+        v15 = v16;
+      ++v16;
+      ++v17;
     }
-    while ( v20 < v16 );
+    while ( v16 < v12 );
   }
-  if ( v26[v19] )
+  if ( v23[v15] )
   {
-    *v15 = v19;
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
+    *v11 = v15;
+    goto LABEL_16;
   }
-  v22 = *(unsigned __int8 *)(a2 + 77);
-  if ( v22 < RtlpHpLfhContentionLimit )
+  v18 = *(unsigned __int8 *)(a2 + 77);
+  if ( v18 < RtlpHpLfhContentionLimit )
   {
-    *(_BYTE *)(a2 + 77) = v22 + 1;
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
+    *(_BYTE *)(a2 + 77) = v18 + 1;
+    goto LABEL_16;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 80));
-  v25 = 0LL;
-  v23 = *(_QWORD *)(a2 + 96);
-  LOWORD(v25) = 2;
-  result = _InterlockedCompareExchange64((volatile signed __int64 *)(v23 + 8 * v19), 2LL, 0LL);
-  if ( !result )
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
+  v22 = 0LL;
+  v19 = *(_QWORD *)(a2 + 96);
+  LOWORD(v22) = 2;
+  if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(v19 + 8 * v15), 2LL, 0LL) )
   {
-    result = RtlpHpLfhBucketAllocateSlot(a1, a2, (unsigned int)v19);
-    *(_QWORD *)(*(_QWORD *)(a2 + 96) + 8 * v19) = result;
-    if ( result )
+    Slot = RtlpHpLfhBucketAllocateSlot(a1, a2, (unsigned int)v15);
+    *(_QWORD *)(*(_QWORD *)(a2 + 96) + 8 * v15) = Slot;
+    if ( Slot )
     {
-      _InterlockedOr(v24, 0);
-      *(_BYTE *)(a2 + 2) = v19 + 1;
-      result = *(_QWORD *)(a2 + 88);
-      *(_BYTE *)(v8 + result) = v19;
+      _InterlockedOr(v21, 0);
+      *(_BYTE *)(a2 + 2) = v15 + 1;
+      *(_BYTE *)(v8 + *(_QWORD *)(a2 + 88)) = v15;
       *(_BYTE *)(a2 + 77) = 0;
     }
   }
-  return result;
 }

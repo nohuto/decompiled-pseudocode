@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpSourceGetPrefetchSupport @ 0x140AB7630
+ * XREFs of PfpSourceGetPrefetchSupport @ 0x140AB1900
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x14095328C (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x140936C3C (PfpPrefetchPrivatePages.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     NtOpenProcess @ 0x140854320 (NtOpenProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     NtOpenProcess @ 0x1408505E0 (NtOpenProcess.c)
  */
 
 __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)

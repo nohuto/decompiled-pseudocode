@@ -1,35 +1,35 @@
 /*
- * XREFs of MiInsertSlabEntry @ 0x1402E7080
+ * XREFs of MiInsertSlabEntry @ 0x1402E7310
  * Callers:
- *     MiReplenishSlabAllocator @ 0x1402E6AC4 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x1402E6D54 (MiReplenishSlabAllocator.c)
  *     MiCreateBootSlabEntries @ 0x140B46868 (MiCreateBootSlabEntries.c)
  *     MmUpdateSlabRangeType @ 0x140B9A53C (MmUpdateSlabRangeType.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     RtlInterlockedSetClearRunEx @ 0x14027F070 (RtlInterlockedSetClearRunEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     RtlInterlockedSetClearRunEx @ 0x14027F300 (RtlInterlockedSetClearRunEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)
+__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v5; // r13
   unsigned int v9; // r15d
   unsigned __int64 v10; // r12
   __int64 v11; // rax
   unsigned __int64 v12; // rdx
-  bool v13; // r8
+  BOOLEAN v13; // r8
   __int64 v14; // rcx
   __int64 v15; // rax
   _DWORD *v16; // rbx
   __int64 UnbiasedInterruptTime; // rax
   __int64 v18; // rax
   int v20; // r9d
-  unsigned __int64 v21; // rcx
+  _RTL_BALANCED_NODE *v21; // rcx
   unsigned __int64 v22; // rax
   _DWORD *v23; // rax
   unsigned __int64 v24; // rbx
@@ -96,10 +96,10 @@ LABEL_4:
     v20 = v11 & 1;
     if ( v12 )
     {
-      v21 = *(_QWORD *)(a3 + 24);
+      v21 = *(_RTL_BALANCED_NODE **)(a3 + 24);
       while ( 1 )
       {
-        if ( v21 <= *(_QWORD *)(v12 + 32) && v21 < *(_QWORD *)(v12 + 24) )
+        if ( (unsigned __int64)v21 <= *(_QWORD *)(v12 + 32) && (unsigned __int64)v21 < *(_QWORD *)(v12 + 24) )
         {
           v22 = *(_QWORD *)v12;
           if ( v20 )
@@ -131,7 +131,7 @@ LABEL_28:
       }
     }
 LABEL_7:
-    RtlRbInsertNodeEx((unsigned __int64 *)a2, v12, v13, a3);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)v12, v13, (PRTL_BALANCED_NODE)a3);
     v15 = *(_QWORD *)(a2 + 32);
     if ( v15 )
     {
@@ -184,10 +184,13 @@ LABEL_9:
   v9 = 1;
 LABEL_17:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 16));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v10 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,15 +1,15 @@
 /*
  * XREFs of PopUmpoSendPowerRequestOverrideQuery @ 0x140002AE4
  * Callers:
- *     PopCreateUserPowerRequest @ 0x140588C2C (PopCreateUserPowerRequest.c)
- *     PopCreateKernelPowerRequest @ 0x140701214 (PopCreateKernelPowerRequest.c)
- *     PopPowerRequestOverrideInitialize @ 0x140763490 (PopPowerRequestOverrideInitialize.c)
+ *     PopCreateUserPowerRequest @ 0x140589C2C (PopCreateUserPowerRequest.c)
+ *     PopCreateKernelPowerRequest @ 0x1407024B4 (PopCreateKernelPowerRequest.c)
+ *     PopPowerRequestOverrideInitialize @ 0x140764680 (PopPowerRequestOverrideInitialize.c)
  * Callees:
  *     PoStoreRequester @ 0x140002BAC (PoStoreRequester.c)
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopUmpoSendPowerRequestOverrideQuery(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

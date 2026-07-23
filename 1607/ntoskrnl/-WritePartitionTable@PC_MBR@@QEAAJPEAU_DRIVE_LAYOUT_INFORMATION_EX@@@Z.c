@@ -1,16 +1,16 @@
 /*
- * XREFs of ?WritePartitionTable@PC_MBR@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023BD7C
+ * XREFs of ?WritePartitionTable@PC_MBR@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023BC60
  * Callers:
- *     PcWritePartitionTable @ 0x14023B81C (PcWritePartitionTable.c)
- *     ?CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BBD4 (-CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BC98 (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     PcWritePartitionTable @ 0x14023B700 (PcWritePartitionTable.c)
+ *     ?CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BAB8 (-CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BB7C (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  * Callees:
- *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14014757C (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?CheckSum@MBR@@QEAAKXZ @ 0x140147A30 (-CheckSum@MBR@@QEAAKXZ.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14023BB0C (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
- *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CCBC (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z @ 0x14061FE90 (-CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z.c)
+ *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x140147AEC (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?CheckSum@MBR@@QEAAKXZ @ 0x140147FA0 (-CheckSum@MBR@@QEAAKXZ.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14023B9F0 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
+ *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CBA0 (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z @ 0x14061FF44 (-CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z.c)
  */
 
 __int64 __fastcall PC_MBR::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAYOUT_INFORMATION_EX *a2)
@@ -23,13 +23,13 @@ __int64 __fastcall PC_MBR::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
   unsigned int v8; // r15d
   int v9; // esi
   char v10; // r14
-  ULONG Signature; // eax
+  DWORD Signature; // eax
   __int8 *v12; // r13
   __int8 *v13; // rdi
   unsigned int v14; // r12d
   BYTE PartitionType; // cl
   unsigned int v16; // r10d
-  ULONG v17; // eax
+  DWORD v17; // eax
   unsigned int v18; // ecx
   int Sectors; // eax
   DWORD v21; // [rsp+20h] [rbp-68h]
@@ -62,7 +62,7 @@ __int64 __fastcall PC_MBR::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
   {
     v7[27].m128i_i32[2] = Signature;
     v10 = 1;
-    *(_DWORD *)&a2->Gpt.DiskId.Data2 = MBR::CheckSum(v7);
+    a2->Mbr.CheckSum = MBR::CheckSum(v7);
   }
   while ( 2 )
   {
@@ -87,7 +87,7 @@ __int64 __fastcall PC_MBR::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
       }
       v17 = a2->Mbr.Signature;
       *(_DWORD *)&a2->PartitionEntry[v5].Gpt.PartitionType.Data4[4] = 0;
-      *(_DWORD *)a2->PartitionEntry[v5].Gpt.PartitionType.Data4 = v17;
+      a2->PartitionEntry[v5].Mbr.PartitionId.Data1 = v17;
       *(_QWORD *)&a2->PartitionEntry[v5].Gpt.PartitionId.Data1 = a2->PartitionEntry[v5].StartingOffset.QuadPart;
       if ( a2->PartitionEntry[v5].RewritePartition != (_BYTE)v3 )
       {

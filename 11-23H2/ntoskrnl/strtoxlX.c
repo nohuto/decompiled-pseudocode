@@ -1,12 +1,12 @@
 /*
- * XREFs of strtoxlX @ 0x1403D8BB0
+ * XREFs of strtoxlX @ 0x1403D8D90
  * Callers:
- *     strtol @ 0x1403D8DD8 (strtol.c)
- *     strtolX @ 0x1403D8E08 (strtolX.c)
- *     strtoul @ 0x1403D8E38 (strtoul.c)
+ *     strtol @ 0x1403D8FB8 (strtol.c)
+ *     strtolX @ 0x1403D8FE8 (strtolX.c)
+ *     strtoul @ 0x1403D9018 (strtoul.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
- *     __pctype_func @ 0x1403DD764 (__pctype_func.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x1403DD944 (__pctype_func.c)
  */
 
 __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, unsigned int a4, int a5, int a6)
@@ -15,13 +15,11 @@ __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a
   __int64 v9; // rbp
   unsigned __int8 *v10; // rdi
   unsigned int v11; // ebx
-  __int64 v12; // rcx
-  int v13; // esi
-  __int64 v14; // rdx
-  unsigned int v15; // r12d
-  __int64 v16; // rcx
-  int v17; // ecx
-  unsigned __int8 *v18; // rdi
+  int v12; // esi
+  unsigned int v13; // r12d
+  unsigned int v14; // ecx
+  int v15; // ecx
+  unsigned __int8 *v16; // rdi
 
   v6 = a4;
   if ( a3 )
@@ -34,12 +32,12 @@ __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a
   v9 = *a2;
   v10 = a2 + 1;
   v11 = 0;
-  while ( (*(_BYTE *)(((__int64 (*)(void))_pctype_func)() + 2 * v9) & 8) != 0 )
+  while ( (_pctype_func()[v9] & 8) != 0 )
     v9 = *v10++;
-  v13 = a5;
+  v12 = a5;
   if ( (_BYTE)v9 == 45 )
   {
-    v13 = a5 | 2;
+    v12 = a5 | 2;
   }
   else if ( (_BYTE)v9 != 43 )
   {
@@ -78,61 +76,60 @@ LABEL_25:
     v6 = 10;
   }
 LABEL_27:
-  v14 = 0xFFFFFFFF % v6;
-  v15 = 0xFFFFFFFF / v6;
+  v13 = 0xFFFFFFFF / v6;
   while ( 1 )
   {
-    if ( (*(_BYTE *)(_pctype_func(v12, v14) + 2LL * (unsigned __int8)v9) & 4) != 0 )
+    if ( (_pctype_func()[(unsigned __int8)v9] & 4) != 0 )
     {
-      v12 = (unsigned int)((char)v9 - 48);
+      v14 = (char)v9 - 48;
     }
     else
     {
-      if ( (*(_WORD *)(_pctype_func(v16, v14) + 2LL * (unsigned __int8)v9) & 0x103) == 0 )
+      if ( (_pctype_func()[(unsigned __int8)v9] & 0x103) == 0 )
         break;
-      v17 = (char)v9 - 32;
+      v15 = (char)v9 - 32;
       if ( (unsigned __int8)(v9 - 97) > 0x19u )
-        v17 = (char)v9;
-      v12 = (unsigned int)(v17 - 55);
+        v15 = (char)v9;
+      v14 = v15 - 55;
     }
-    if ( (unsigned int)v12 >= v6 )
+    if ( v14 >= v6 )
       break;
-    v13 |= 8u;
-    if ( a6 || v11 < v15 || v11 == v15 && (v14 = 0xFFFFFFFF % v6, (unsigned int)v12 <= 0xFFFFFFFF % v6) )
+    v12 |= 8u;
+    if ( a6 || v11 < v13 || v11 == v13 && v14 <= 0xFFFFFFFF % v6 )
     {
-      v11 = v12 + v6 * v11;
+      v11 = v14 + v6 * v11;
     }
     else
     {
-      v13 |= 4u;
+      v12 |= 4u;
       if ( !a3 )
         break;
     }
     LOBYTE(v9) = *v10++;
   }
-  v18 = v10 - 1;
-  if ( (v13 & 8) == 0 )
+  v16 = v10 - 1;
+  if ( (v12 & 8) == 0 )
   {
     if ( a3 )
-      v18 = a2;
+      v16 = a2;
     v11 = 0;
     goto LABEL_56;
   }
-  if ( (v13 & 4) != 0 )
+  if ( (v12 & 4) != 0 )
     goto LABEL_52;
-  if ( (v13 & 1) == 0 )
+  if ( (v12 & 1) == 0 )
   {
-    if ( (v13 & 2) != 0 )
+    if ( (v12 & 2) != 0 )
     {
       if ( v11 <= 0x80000000 )
         goto LABEL_56;
 LABEL_52:
       if ( !a6 )
       {
-        if ( (v13 & 1) != 0 )
+        if ( (v12 & 1) != 0 )
           v11 = -1;
         else
-          v11 = ((v13 & 2) != 0) + 0x7FFFFFFF;
+          v11 = ((v12 & 2) != 0) + 0x7FFFFFFF;
       }
       goto LABEL_56;
     }
@@ -141,8 +138,8 @@ LABEL_52:
   }
 LABEL_56:
   if ( a3 )
-    *a3 = v18;
-  if ( (v13 & 2) != 0 )
+    *a3 = v16;
+  if ( (v12 & 2) != 0 )
     return -v11;
   return v11;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of TpCallbackIndependent @ 0x1800BFD20
+ * XREFs of TpCallbackIndependent @ 0x1800BD4B0
  * Callers:
  *     <none>
  * Callees:
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     NtAlpcSetInformation @ 0x180160110 (NtAlpcSetInformation.c)
- *     NtSetInformationWorkerFactory @ 0x180162570 (NtSetInformationWorkerFactory.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     NtAlpcSetInformation @ 0x180160010 (NtAlpcSetInformation.c)
+ *     NtSetInformationWorkerFactory @ 0x180162470 (NtSetInformationWorkerFactory.c)
  */
 
-__int64 __fastcall TpCallbackIndependent(__int64 a1)
+NTSTATUS __fastcall TpCallbackIndependent(__int64 a1)
 {
-  unsigned int v1; // edi
+  int v1; // edi
   __int64 v2; // rbx
   __int64 v3; // rbx
   signed __int64 v4; // rax
@@ -21,13 +21,13 @@ __int64 __fastcall TpCallbackIndependent(__int64 a1)
   int v10; // eax
   signed __int32 v11; // ecx
   signed __int32 v12; // edx
-  __int64 v13; // rcx
-  unsigned int v14; // eax
-  int v15; // [rsp+30h] [rbp+8h] BYREF
-  signed __int64 v16; // [rsp+38h] [rbp+10h] BYREF
+  void *v13; // rcx
+  int v14; // eax
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
+  signed __int64 PortInformation; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = 0;
-  v15 = 0;
+  WorkerFactoryInformation = 0;
   if ( !a1 || *(_DWORD *)(a1 + 72) )
   {
     TppRaiseInvalidParameter();
@@ -42,19 +42,19 @@ LABEL_21:
     v3 = *(_QWORD *)(a1 + 128);
   if ( !v3 )
     goto LABEL_21;
-  if ( TppPoolpSerializedPool != v3 )
+  if ( TppPoolpSerializedPool != (PVOID)v3 )
   {
     _InterlockedDecrement((volatile signed __int32 *)(v3 + 416));
     _InterlockedIncrement((volatile signed __int32 *)(v3 + 420));
     _m_prefetchw((const void *)(v3 + 8));
     v4 = *(_QWORD *)(v3 + 8);
-    v16 = v4;
+    PortInformation = v4;
     do
     {
-      LODWORD(v16) = ((__int16)v4 + 1) ^ (v4 ^ ((__int16)v4 + 1)) & 0xFFFF0000;
+      LODWORD(PortInformation) = ((__int16)v4 + 1) ^ (v4 ^ ((__int16)v4 + 1)) & 0xFFFF0000;
       v5 = v4;
-      v4 = _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 8), v16, v4);
-      v16 = v4;
+      v4 = _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 8), PortInformation, v4);
+      PortInformation = v4;
     }
     while ( v5 != v4 );
     *(_DWORD *)(a1 + 144) |= 0x10u;
@@ -74,14 +74,14 @@ LABEL_21:
           break;
         if ( v8 == _InterlockedCompareExchange((volatile signed __int32 *)(v6 + 284), v12, v8) )
         {
-          v13 = *(_QWORD *)(v6 + 272);
-          LODWORD(v16) = v12;
-          NtAlpcSetInformation(v13, 8LL, &v16, 4LL);
+          v13 = *(void **)(v6 + 272);
+          LODWORD(PortInformation) = v12;
+          NtAlpcSetInformation(v13, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
         }
       }
     }
-    v15 = 2;
-    return NtSetInformationWorkerFactory(*(_QWORD *)(v3 + 56), 9LL, &v15, 4LL);
+    WorkerFactoryInformation = 2;
+    return NtSetInformationWorkerFactory(*(HANDLE *)(v3 + 56), WorkerFactoryCallbackType, &WorkerFactoryInformation, 4u);
   }
   v14 = -1073741637;
 LABEL_22:

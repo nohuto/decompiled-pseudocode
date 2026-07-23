@@ -30,19 +30,20 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v16; // rcx
   __int64 v17; // rdx
   unsigned __int64 v18; // rdx
-  PVOID v19; // rsi
-  int v20; // eax
-  unsigned __int64 v21; // r8
-  NTSTATUS v22; // eax
-  unsigned int v23; // eax
-  __int128 v24; // [rsp+38h] [rbp-B0h]
-  struct _SINGLE_LIST_ENTRY *v25; // [rsp+58h] [rbp-90h]
-  PVOID BaseAddress; // [rsp+60h] [rbp-88h] BYREF
-  _QWORD v27[2]; // [rsp+68h] [rbp-80h] BYREF
-  signed __int64 v28; // [rsp+78h] [rbp-70h]
-  __int64 v29; // [rsp+90h] [rbp-58h]
-  signed __int64 v30; // [rsp+98h] [rbp-50h]
-  __int64 v31; // [rsp+108h] [rbp+20h] BYREF
+  __int64 v19; // rdx
+  PVOID v20; // rsi
+  int v21; // eax
+  unsigned __int64 v22; // r8
+  NTSTATUS v23; // eax
+  unsigned int v24; // eax
+  __int128 v25; // [rsp+38h] [rbp-B0h]
+  struct _SINGLE_LIST_ENTRY *v26; // [rsp+58h] [rbp-90h]
+  PVOID BaseOfImage; // [rsp+60h] [rbp-88h] BYREF
+  _QWORD v28[2]; // [rsp+68h] [rbp-80h] BYREF
+  signed __int64 v29; // [rsp+78h] [rbp-70h]
+  __int64 v30; // [rsp+90h] [rbp-58h]
+  signed __int64 v31; // [rsp+98h] [rbp-50h]
+  __int64 v32; // [rsp+108h] [rbp+20h] BYREF
 
   result = RtlpLookupUserFunctionTableInverted();
   if ( !result )
@@ -76,9 +77,9 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
             if ( v12 < v11 )
               goto LABEL_31;
             v13 = (v12 + v11) >> 1;
-            v25 = Next[3 * v13 + 3].Next;
-            v14 = (char *)v25 + LODWORD(Next[3 * v13 + 4].Next);
-            if ( a1 >= (unsigned __int64)v25 )
+            v26 = Next[3 * v13 + 3].Next;
+            v14 = (char *)v26 + LODWORD(Next[3 * v13 + 4].Next);
+            if ( a1 >= (unsigned __int64)v26 )
               break;
             if ( !v13 )
               goto LABEL_31;
@@ -88,34 +89,34 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
             && v10
             && a1 >= (unsigned __int64)&v14[v9]
             && a1 < (unsigned __int64)&v14[v10 + v9]
-            && v25 != PsNtosImageBase
-            && v25 != PsHalImageBase )
+            && v26 != PsNtosImageBase
+            && v26 != PsHalImageBase )
           {
             break;
           }
           if ( a1 < (unsigned __int64)v14 )
           {
-            v24 = *(_OWORD *)&Next[3 * v13 + 2].Next;
+            v25 = *(_OWORD *)&Next[3 * v13 + 2].Next;
             v10 = (int)Next[3 * v13 + 4].Next;
             v15 = (char *)Next[3 * v13 + 3].Next;
             goto LABEL_23;
           }
           v11 = v13 + 1;
         }
-        *(_QWORD *)&v24 = &RtlRetpolineStubsFunctionTable;
+        *(_QWORD *)&v25 = &RtlRetpolineStubsFunctionTable;
         v15 = &v14[v9];
 LABEL_23:
         *(_QWORD *)(a2 + 8) = v15;
         *(_DWORD *)(a2 + 16) = v10;
-        v27[1] = 17LL;
-        v28 = _InterlockedCompareExchange64(p_ActiveProcessors, 0LL, 17LL);
-        if ( v28 != 17 )
+        v28[1] = 17LL;
+        v29 = _InterlockedCompareExchange64(p_ActiveProcessors, 0LL, 17LL);
+        if ( v29 != 17 )
           ExfReleasePushLockShared((signed __int64 *)p_ActiveProcessors);
         KeAbPostRelease((ULONG_PTR)p_ActiveProcessors);
         KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-        v16 = *(_QWORD *)(v24 + 16);
+        v16 = *(_QWORD *)(v25 + 16);
         *(_QWORD *)a2 = v16;
-        v17 = (unsigned int)(12 * *(_DWORD *)(v24 + 84));
+        v17 = (unsigned int)(12 * *(_DWORD *)(v25 + 84));
         *(_DWORD *)(a2 + 20) = v17;
         if ( (_DWORD)v17 )
         {
@@ -128,50 +129,51 @@ LABEL_23:
         return v16;
       }
 LABEL_31:
-      v29 = 17LL;
-      v30 = _InterlockedCompareExchange64(p_ActiveProcessors, 0LL, 17LL);
-      if ( v30 != 17 )
+      v30 = 17LL;
+      v31 = _InterlockedCompareExchange64(p_ActiveProcessors, 0LL, 17LL);
+      if ( v31 != 17 )
         ExfReleasePushLockShared((signed __int64 *)p_ActiveProcessors);
       KeAbPostRelease((ULONG_PTR)p_ActiveProcessors);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     }
-    if ( (int)MmGetImageBase(a1, &BaseAddress, v27) >= 0 )
+    if ( (int)MmGetImageBase(a1, &BaseOfImage, v28) >= 0 )
     {
-      v19 = BaseAddress;
-      v22 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, 1, 3u, a2 + 20, &v31);
-      v21 = v31;
-      if ( v22 < 0 )
-        v21 = 0LL;
-      v31 = v21;
-      if ( v21 )
+      LOBYTE(v19) = 1;
+      v20 = BaseOfImage;
+      v23 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage, v19, 3LL, a2 + 20, &v32);
+      v22 = v32;
+      if ( v23 < 0 )
+        v22 = 0LL;
+      v32 = v22;
+      if ( v22 )
       {
-        v23 = *(_DWORD *)(a2 + 20);
-        if ( v23 && v23 == 12 * (v23 / 0xCuLL) )
+        v24 = *(_DWORD *)(a2 + 20);
+        if ( v24 && v24 == 12 * (v24 / 0xCuLL) )
         {
-          if ( (v21 & 3) != 0 )
+          if ( (v22 & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          if ( v23 + v21 > 0x7FFFFFFF0000LL || v23 + v21 < v21 )
+          if ( v24 + v22 > 0x7FFFFFFF0000LL || v24 + v22 < v22 )
             MEMORY[0x7FFFFFFF0000] = 0;
         }
         else
         {
-          v21 = 0LL;
+          v22 = 0LL;
         }
       }
-      v20 = v27[0];
+      v21 = v28[0];
     }
     else
     {
-      v19 = 0LL;
-      v20 = 0;
-      v21 = 0LL;
+      v20 = 0LL;
+      v21 = 0;
+      v22 = 0LL;
     }
-    *(_QWORD *)(a2 + 8) = v19;
-    *(_DWORD *)(a2 + 16) = v20;
-    *(_QWORD *)a2 = v21;
-    if ( !v21 )
+    *(_QWORD *)(a2 + 8) = v20;
+    *(_DWORD *)(a2 + 16) = v21;
+    *(_QWORD *)a2 = v22;
+    if ( !v22 )
       *(_DWORD *)(a2 + 20) = 0;
-    return v21;
+    return v22;
   }
   return result;
 }

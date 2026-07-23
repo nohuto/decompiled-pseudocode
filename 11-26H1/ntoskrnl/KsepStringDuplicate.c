@@ -1,20 +1,20 @@
 /*
- * XREFs of KsepStringDuplicate @ 0x1409E5E2C
+ * XREFs of KsepStringDuplicate @ 0x1409D73AC
  * Callers:
- *     KsepDbGetSdbString @ 0x1407BCA08 (KsepDbGetSdbString.c)
- *     KsepStringSplitMultiString @ 0x1407BE83C (KsepStringSplitMultiString.c)
- *     KsepCacheDeviceInsertData @ 0x1407BEA8C (KsepCacheDeviceInsertData.c)
- *     KsepRegistryCreateKey @ 0x1407BECF8 (KsepRegistryCreateKey.c)
- *     KseAddHardwareId @ 0x1409E4D00 (KseAddHardwareId.c)
- *     KsepRegistryOpenKey @ 0x1409E5254 (KsepRegistryOpenKey.c)
- *     KsepDbQueryRegistryDeviceData @ 0x1409E5B5C (KsepDbQueryRegistryDeviceData.c)
- *     KsepStringTransform @ 0x1409E5CF0 (KsepStringTransform.c)
- *     KsepDbCacheReadDevice @ 0x1409E6158 (KsepDbCacheReadDevice.c)
- *     KsepEngineGetShimsFromRegistry @ 0x140A25360 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepDbGetSdbString @ 0x1407BFA68 (KsepDbGetSdbString.c)
+ *     KsepStringSplitMultiString @ 0x1407C189C (KsepStringSplitMultiString.c)
+ *     KsepCacheDeviceInsertData @ 0x1407C1AEC (KsepCacheDeviceInsertData.c)
+ *     KsepRegistryCreateKey @ 0x1407C1D58 (KsepRegistryCreateKey.c)
+ *     KsepDbCacheReadDevice @ 0x1409D6A58 (KsepDbCacheReadDevice.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x1409D70DC (KsepDbQueryRegistryDeviceData.c)
+ *     KsepStringTransform @ 0x1409D7270 (KsepStringTransform.c)
+ *     KsepRegistryOpenKey @ 0x1409D7988 (KsepRegistryOpenKey.c)
+ *     KseAddHardwareId @ 0x1409D80D0 (KseAddHardwareId.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140A38400 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1404DE51C (KsepPoolAllocatePaged.c)
- *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KsepPoolAllocatePaged @ 0x1404D7BFC (KsepPoolAllocatePaged.c)
+ *     RtlAssert @ 0x14061CB00 (RtlAssert.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall KsepStringDuplicate(__int64 a1, _WORD *a2)
@@ -28,13 +28,11 @@ __int64 __fastcall KsepStringDuplicate(__int64 a1, _WORD *a2)
 
   if ( !a2 )
   {
-    v9 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v9 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v9 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v9) = 197196;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v9) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v9) = 197196;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("SourceString != NULL", "minkernel\\ntos\\kshim\\ksemisc.c", 0x24Cu, 0LL);
   }
   v4 = -1LL;

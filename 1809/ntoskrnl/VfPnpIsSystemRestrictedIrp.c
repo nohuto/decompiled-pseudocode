@@ -1,5 +1,5 @@
 /*
- * XREFs of VfPnpIsSystemRestrictedIrp @ 0x140940360
+ * XREFs of VfPnpIsSystemRestrictedIrp @ 0x140941360
  * Callers:
  *     <none>
  * Callees:

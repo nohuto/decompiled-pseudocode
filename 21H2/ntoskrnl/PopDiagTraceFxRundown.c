@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagTraceFxRundown @ 0x140284428
+ * XREFs of PopDiagTraceFxRundown @ 0x140272A80
  * Callers:
- *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140671060 (PopDiagTraceControlCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PopDiagTraceDeviceVerboseRundown @ 0x14067E3D8 (PopDiagTraceDeviceVerboseRundown.c)
- *     PopFxTraceDeviceRegistration @ 0x14067E618 (PopFxTraceDeviceRegistration.c)
- *     PopDiagTraceFxPluginRegistration @ 0x1408EA86C (PopDiagTraceFxPluginRegistration.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x140672288 (PopDiagTraceDeviceVerboseRundown.c)
+ *     PopFxTraceDeviceRegistration @ 0x1406724C8 (PopFxTraceDeviceRegistration.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x1408EA9CC (PopDiagTraceFxPluginRegistration.c)
  */
 
-_QWORD *PopDiagTraceFxRundown()
+__int64 PopDiagTraceFxRundown()
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v1; // r8
@@ -44,5 +44,5 @@ _QWORD *PopDiagTraceFxRundown()
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread(KeGetCurrentThread());
 }

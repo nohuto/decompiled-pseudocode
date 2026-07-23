@@ -1,5 +1,5 @@
 /*
- * XREFs of VfMajorBuildIrpLogEntry @ 0x14070E450
+ * XREFs of VfMajorBuildIrpLogEntry @ 0x14070E480
  * Callers:
  *     VfIrpLogRecordEvent @ 0x14071946C (VfIrpLogRecordEvent.c)
  * Callees:

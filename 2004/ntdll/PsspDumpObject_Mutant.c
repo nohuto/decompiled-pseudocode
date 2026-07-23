@@ -6,17 +6,26 @@
  *     ZwQueryMutant @ 0x18009F8A0 (ZwQueryMutant.c)
  */
 
-__int64 __fastcall PsspDumpObject_Mutant(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall PsspDumpObject_Mutant(
+        HANDLE MutantHandle,
+        char *MutantInformation,
+        unsigned int a3,
+        ULONG *ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 < 0x18 )
-    return 3221225507LL;
-  result = ZwQueryMutant();
-  if ( (int)result < 0 || (result = ZwQueryMutant(), (int)result < 0) )
-    *a4 = 0;
+    return -1073741789;
+  result = ZwQueryMutant(MutantHandle, MutantBasicInformation, MutantInformation, 8u, ReturnLength);
+  if ( result < 0
+    || (result = ZwQueryMutant(MutantHandle, MutantOwnerInformation, MutantInformation + 8, 0x10u, 0LL), result < 0) )
+  {
+    *ReturnLength = 0;
+  }
   else
-    *a4 += 16;
+  {
+    *ReturnLength += 16;
+  }
   return result;
 }

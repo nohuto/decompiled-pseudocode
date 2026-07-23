@@ -1,16 +1,21 @@
 /*
- * XREFs of NtRegisterProtocolAddressInformation @ 0x1800A2F70
+ * XREFs of NtRegisterProtocolAddressInformation @ 0x1800A2F90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRegisterProtocolAddressInformation()
+NTSTATUS __cdecl NtRegisterProtocolAddressInformation(
+        HANDLE ResourceManager,
+        PCRM_PROTOCOL_ID ProtocolId,
+        ULONG ProtocolInformationSize,
+        PVOID ProtocolInformation,
+        ULONG CreateOptions)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 357LL;
+  result = 357;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,32 +1,26 @@
 /*
- * XREFs of EtwpTraceStackKey @ 0x14032C740
+ * XREFs of EtwpTraceStackKey @ 0x14032E770
  * Callers:
- *     EtwpTraceStackWalk @ 0x14020A5C0 (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x14020A6A0 (EtwpTraceStackWalk.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     EtwpDereferenceStackEntry @ 0x14032CCA0 (EtwpDereferenceStackEntry.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     EtwpDereferenceStackEntry @ 0x14032ECD0 (EtwpDereferenceStackEntry.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
-__int64 __fastcall EtwpTraceStackKey(
-        struct _SLIST_ENTRY *a1,
-        int a2,
-        __int16 a3,
-        __int64 a4,
-        __int64 a5,
-        unsigned int a6)
+__int64 __fastcall EtwpTraceStackKey(_SLIST_ENTRY *a1, int a2, __int16 a3, __int64 a4, __int64 a5, unsigned int a6)
 {
   _SLIST_ENTRY *Next; // r13
   unsigned int v7; // edi
@@ -41,27 +35,27 @@ __int64 __fastcall EtwpTraceStackKey(
   unsigned __int8 CurrentIrql; // bl
   __int64 v17; // rcx
   volatile signed __int32 *v18; // rcx
-  struct _SLIST_ENTRY *v19; // r14
+  _SLIST_ENTRY *v19; // r14
   unsigned int v20; // edx
   __int64 v21; // rcx
-  struct _SLIST_ENTRY *i; // r13
+  _SLIST_ENTRY *i; // r13
   SIZE_T v23; // rbx
   SIZE_T v24; // rax
   _SLIST_ENTRY *v25; // rcx
-  struct _SLIST_ENTRY **v26; // rax
-  struct _SLIST_ENTRY *v27; // rax
-  struct _SLIST_ENTRY *v28; // rdi
+  _SLIST_ENTRY **v26; // rax
+  _SLIST_ENTRY *v27; // rax
+  _SLIST_ENTRY *v28; // rdi
   PSLIST_ENTRY v29; // rbx
-  struct _SLIST_ENTRY *v31; // rcx
-  struct _SLIST_ENTRY **v32; // rax
+  _SLIST_ENTRY *v31; // rcx
+  _SLIST_ENTRY **v32; // rax
   __int64 v33; // rbp
-  union _SLIST_HEADER *v34; // rax
+  _SLIST_HEADER *v34; // rax
   PSLIST_ENTRY v35; // rbx
   unsigned int v36; // r13d
-  struct _SLIST_ENTRY **v37; // rax
+  _SLIST_ENTRY **v37; // rax
   __int64 v38; // rcx
   PSLIST_ENTRY v39; // rsi
-  union _SLIST_HEADER *v40; // rsi
+  _SLIST_HEADER *v40; // rsi
   unsigned __int64 Alignment; // rax
   unsigned __int16 v42; // r11
   PSLIST_ENTRY v43; // r10
@@ -69,13 +63,13 @@ __int64 __fastcall EtwpTraceStackKey(
   __int64 v45; // rdx
   int v46; // r9d
   __int64 v47; // rcx
-  struct _SLIST_ENTRY *v48; // rbx
+  _SLIST_ENTRY *v48; // rbx
   unsigned __int8 v51; // [rsp+38h] [rbp-130h]
   int v52; // [rsp+40h] [rbp-128h]
   unsigned int v53; // [rsp+48h] [rbp-120h]
   PSLIST_ENTRY v54; // [rsp+48h] [rbp-120h]
-  union _SLIST_HEADER *v55; // [rsp+50h] [rbp-118h]
-  struct _SLIST_ENTRY *v56; // [rsp+58h] [rbp-110h]
+  _SLIST_HEADER *v55; // [rsp+50h] [rbp-118h]
+  _SLIST_ENTRY *v56; // [rsp+58h] [rbp-110h]
   PSLIST_ENTRY ListEntry; // [rsp+60h] [rbp-108h] BYREF
   PSLIST_ENTRY v58; // [rsp+68h] [rbp-100h] BYREF
   __int64 v59; // [rsp+70h] [rbp-F8h]
@@ -87,7 +81,7 @@ __int64 __fastcall EtwpTraceStackKey(
   v59 = a4;
   v58 = a1;
   ListEntry = 0LL;
-  v55 = (union _SLIST_HEADER *)Next;
+  v55 = (_SLIST_HEADER *)Next;
   if ( !Next )
   {
 LABEL_35:
@@ -129,7 +123,7 @@ LABEL_35:
   {
 LABEL_10:
     v18 = (volatile signed __int32 *)(v15 + 16);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset64(v18, 0LL) )
         KxWaitForSpinLockAndAcquire(v18);
@@ -139,9 +133,9 @@ LABEL_10:
       KiAcquireSpinLockInstrumented(v18);
     }
 LABEL_13:
-    v19 = *(struct _SLIST_ENTRY **)v15;
+    v19 = *(_SLIST_ENTRY **)v15;
     v20 = 32;
-    while ( v19 != (struct _SLIST_ENTRY *)v15 )
+    while ( v19 != (_SLIST_ENTRY *)v15 )
     {
       ++v14;
       if ( *((_DWORD *)&v19[1].Next + 3) == v7 && LODWORD(v19[2].Next) == a6 )
@@ -165,10 +159,10 @@ LABEL_13:
         _InterlockedIncrement((volatile signed __int32 *)&v19[1].Next + 2);
         v25 = v19->Next;
         if ( *(&v19->Next->Next + 1) != v19
-          || (v26 = (struct _SLIST_ENTRY **)*((_QWORD *)&v19->Next + 1), *v26 != v19)
+          || (v26 = (_SLIST_ENTRY **)*((_QWORD *)&v19->Next + 1), *v26 != v19)
           || (*v26 = v25,
               *((_QWORD *)&v25->Next + 1) = v26,
-              v27 = *(struct _SLIST_ENTRY **)v15,
+              v27 = *(_SLIST_ENTRY **)v15,
               *(_QWORD *)(*(_QWORD *)v15 + 8LL) != v15) )
         {
 LABEL_27:
@@ -178,7 +172,7 @@ LABEL_27:
         *((_QWORD *)&v19->Next + 1) = v15;
         *((_QWORD *)&v27->Next + 1) = v19;
         *(_QWORD *)v15 = v19;
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           _InterlockedAnd64((volatile signed __int64 *)(v15 + 16), 0LL);
         else
           KiReleaseSpinLockInstrumented((volatile signed __int64 *)(v15 + 16), retaddr);
@@ -192,15 +186,15 @@ LABEL_17:
     }
     if ( v14 == 4 )
     {
-      v31 = *(struct _SLIST_ENTRY **)(v15 + 8);
+      v31 = *(_SLIST_ENTRY **)(v15 + 8);
       v56 = v31;
       if ( v31->Next != (_SLIST_ENTRY *)v15 )
         goto LABEL_27;
-      v32 = (struct _SLIST_ENTRY **)*((_QWORD *)&v31->Next + 1);
+      v32 = (_SLIST_ENTRY **)*((_QWORD *)&v31->Next + 1);
       if ( *v32 != v31 )
         goto LABEL_27;
       *(_QWORD *)(v15 + 8) = v32;
-      *v32 = (struct _SLIST_ENTRY *)v15;
+      *v32 = (_SLIST_ENTRY *)v15;
     }
     v19 = 0LL;
     v33 = 0LL;
@@ -236,8 +230,8 @@ LABEL_52:
       *((_DWORD *)&v19[1].Next + 3) = v7;
       LODWORD(v19[2].Next) = a6;
       *((_DWORD *)&v19[1].Next + 2) = 2;
-      v37 = *(struct _SLIST_ENTRY ***)(v15 + 8);
-      if ( *v37 != (struct _SLIST_ENTRY *)v15 )
+      v37 = *(_SLIST_ENTRY ***)(v15 + 8);
+      if ( *v37 != (_SLIST_ENTRY *)v15 )
         goto LABEL_27;
       v19->Next = (_SLIST_ENTRY *)v15;
       *((_QWORD *)&v19->Next + 1) = v37;
@@ -257,7 +251,7 @@ LABEL_63:
       *(_QWORD *)(v59 + 16) = &ListEntry;
       *(_QWORD *)(v38 + 24) = 8LL;
       EtwpLogKernelEvent(v38, v39[85].Next, v39->Next, 2, a3, a2);
-      v40 = (union _SLIST_HEADER *)v39[66].Next;
+      v40 = (_SLIST_HEADER *)v39[66].Next;
       v29 = ListEntry;
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)&ListEntry[1].Next + 2, 0xFFFFFFFF) == 1 )
       {

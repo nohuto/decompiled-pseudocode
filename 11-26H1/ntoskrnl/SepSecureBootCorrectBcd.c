@@ -1,102 +1,118 @@
 /*
- * XREFs of SepSecureBootCorrectBcd @ 0x140B5C260
+ * XREFs of SepSecureBootCorrectBcd @ 0x140B85B08
  * Callers:
- *     NtFilterBootOption @ 0x140815AF0 (NtFilterBootOption.c)
+ *     NtFilterBootOption @ 0x14081BCA0 (NtFilterBootOption.c)
  * Callees:
- *     BcdOpenSystemStore @ 0x14077B68C (BcdOpenSystemStore.c)
- *     SepSecureBootUpdateBcdDataForRule @ 0x140816134 (SepSecureBootUpdateBcdDataForRule.c)
- *     BcdCloseStore @ 0x1409D0088 (BcdCloseStore.c)
- *     BcdCloseObject @ 0x1409D4E38 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x1409D54D8 (BcdOpenObject.c)
- *     BcdEnumerateObjects @ 0x140B5C474 (BcdEnumerateObjects.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     BcdOpenSystemStore @ 0x14077E2CC (BcdOpenSystemStore.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x14081C344 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BcdCloseStore @ 0x1409A1068 (BcdCloseStore.c)
+ *     BcdCloseObject @ 0x1409A5E18 (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x1409A64B8 (BcdOpenObject.c)
+ *     BcdEnumerateObjects @ 0x140B6FB7C (BcdEnumerateObjects.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepSecureBootCorrectBcd(_BYTE *a1)
 {
+  char v1; // r13
   int updated; // ebx
   char *Pool2; // r15
-  __int64 v3; // r12
-  int v4; // eax
-  void *v5; // rdi
-  __int64 i; // r14
-  int v7; // ecx
-  int v8; // edx
-  __int64 v10; // [rsp+30h] [rbp-28h] BYREF
-  void *v11; // [rsp+38h] [rbp-20h] BYREF
-  _QWORD v12[3]; // [rsp+40h] [rbp-18h] BYREF
-  char v14; // [rsp+98h] [rbp+40h] BYREF
-  unsigned int v15; // [rsp+A0h] [rbp+48h] BYREF
-  unsigned int *v16; // [rsp+A8h] [rbp+50h] BYREF
+  ULONG v4; // r12d
+  unsigned int v5; // r14d
+  HANDLE v6; // rdi
+  _DWORD *SystemArgument1; // r8
+  int v8; // ecx
+  int v9; // edx
+  _BYTE v11[4]; // [rsp+30h] [rbp-40h] BYREF
+  ULONG ObjectCount; // [rsp+34h] [rbp-3Ch] BYREF
+  ULONG BufferSize; // [rsp+38h] [rbp-38h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp-30h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+48h] [rbp-28h] BYREF
+  _BYTE *v16; // [rsp+50h] [rbp-20h]
+  _BCD_OBJECT_DESCRIPTION BcdEnumDescriptor[2]; // [rsp+58h] [rbp-18h] BYREF
 
+  v16 = a1;
+  BcdObjectHandle = 0LL;
+  ObjectCount = 0;
+  BufferSize = 0;
+  BcdStoreHandle = 0LL;
+  v11[0] = 0;
   *a1 = 0;
-  v11 = 0LL;
-  v15 = 0;
-  LODWORD(v16) = 0;
-  v10 = 0LL;
-  v14 = 0;
-  updated = BcdOpenSystemStore((__int64)&v10);
+  if ( !HviIsAnyHypervisorPresent()
+    || (*(_OWORD *)&BcdEnumDescriptor[0].Version = 0LL,
+        HviGetHypervisorFeatures(BcdEnumDescriptor),
+        v1 = 1,
+        (*(_QWORD *)BcdEnumDescriptor & 0x100000000000LL) != 0) )
+  {
+    v1 = 0;
+  }
+  updated = BcdOpenSystemStore(&BcdStoreHandle);
   if ( updated >= 0 )
   {
-    v12[0] = 1LL;
-    updated = BcdEnumerateObjects(v10, (unsigned int)v12, 0, (unsigned int)&v16, (__int64)&v15);
+    BcdEnumDescriptor[0] = (_BCD_OBJECT_DESCRIPTION)1LL;
+    updated = BcdEnumerateObjects(BcdStoreHandle, BcdEnumDescriptor, 0LL, &BufferSize, &ObjectCount);
     if ( updated == -1073741789 )
     {
       Pool2 = (char *)ExAllocatePool2(0x100uLL);
       if ( Pool2 )
       {
-        updated = BcdEnumerateObjects(v10, (unsigned int)v12, (_DWORD)Pool2, (unsigned int)&v16, (__int64)&v15);
+        updated = BcdEnumerateObjects(BcdStoreHandle, BcdEnumDescriptor, Pool2, &BufferSize, &ObjectCount);
         if ( updated >= 0 )
         {
-          v3 = 0LL;
-          if ( v15 )
+          v4 = 0;
+          if ( ObjectCount )
           {
-            do
+            while ( 1 )
             {
-              v16 = (unsigned int *)&Pool2[24 * v3];
-              v4 = BcdOpenObject(v10, v16, &v11);
-              v5 = v11;
-              updated = v4;
-              if ( v4 < 0 )
+              BcdEnumDescriptor[0] = (_BCD_OBJECT_DESCRIPTION)&Pool2[24 * v4];
+              updated = BcdOpenObject(BcdStoreHandle, *(const GUID **)BcdEnumDescriptor, &BcdObjectHandle);
+              if ( updated < 0 )
                 break;
-              for ( i = 0LL;
-                    (unsigned int)i < *(unsigned __int16 *)(*(_QWORD *)&RtlpBootStatHandleLock.SavedApcStateFill[40]
-                                                          + 36LL);
-                    i = (unsigned int)(i + 1) )
+              v5 = 0;
+              v6 = BcdObjectHandle;
+              if ( *((_WORD *)RtlpBootStatHandleLock.SchedulerApc.Reserved[1] + 18) )
               {
-                v7 = *((_DWORD *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + 3 * i);
-                if ( !v7 || v7 == *(_DWORD *)(*((_QWORD *)v16 + 2) + 4LL) )
+                SystemArgument1 = RtlpBootStatHandleLock.SchedulerApc.SystemArgument1;
+                do
                 {
-                  v8 = *(unsigned __int16 *)((char *)&RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink->Flink
-                                           + *((unsigned int *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2]
-                                             + 3 * i
-                                             + 2));
-                  if ( (v8 & 0xFFFFF000) == 0
-                    && ((v8 & 0x20) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 4) != 0)
-                    && ((v8 & 0x40) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 0x10) != 0)
-                    && ((v8 & 0x800) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 0x40) != 0) )
+                  v8 = SystemArgument1[3 * v5];
+                  if ( !v8 || v8 == *(_DWORD *)(*(_QWORD *)(*(_QWORD *)BcdEnumDescriptor + 16LL) + 4LL) )
                   {
-                    updated = SepSecureBootUpdateBcdDataForRule(
-                                (__int64)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + 12 * i,
-                                (__int64)v5,
-                                &v14);
-                    if ( updated < 0 )
-                      goto LABEL_24;
-                    if ( v14 )
-                      *a1 = 1;
+                    v9 = *(unsigned __int16 *)((char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2]
+                                             + (unsigned int)SystemArgument1[3 * v5 + 2]);
+                    if ( (v9 & 0xFFFFF000) == 0
+                      && ((v9 & 0x20) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 4) != 0)
+                      && ((v9 & 0x40) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 0x10) != 0)
+                      && ((v9 & 0x800) == 0 || (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 0x40) != 0)
+                      && (!v1 || SystemArgument1[3 * v5 + 1] != 620757041) )
+                    {
+                      updated = SepSecureBootUpdateBcdDataForRule((__int64)&SystemArgument1[3 * v5], v6, v11);
+                      if ( updated < 0 )
+                        goto LABEL_31;
+                      SystemArgument1 = RtlpBootStatHandleLock.SchedulerApc.SystemArgument1;
+                      if ( v11[0] )
+                        *v16 = 1;
+                    }
                   }
+                  ++v5;
                 }
+                while ( v5 < *((unsigned __int16 *)RtlpBootStatHandleLock.SchedulerApc.Reserved[1] + 18) );
               }
-              BcdCloseObject(v5);
-              v5 = 0LL;
-              v3 = (unsigned int)(v3 + 1);
-              v11 = 0LL;
+              BcdCloseObject(v6);
+              ++v4;
+              v6 = 0LL;
+              BcdObjectHandle = 0LL;
+              if ( v4 >= ObjectCount )
+                goto LABEL_31;
             }
-            while ( (unsigned int)v3 < v15 );
-LABEL_24:
-            if ( v5 )
-              BcdCloseObject(v5);
+            v6 = BcdObjectHandle;
+LABEL_31:
+            if ( v6 )
+              BcdCloseObject(v6);
           }
         }
         ExFreePoolWithTag(Pool2, 0x62536553u);
@@ -107,7 +123,7 @@ LABEL_24:
       }
     }
   }
-  if ( v10 )
-    BcdCloseStore(v10);
+  if ( BcdStoreHandle )
+    BcdCloseStore(BcdStoreHandle);
   return (unsigned int)updated;
 }

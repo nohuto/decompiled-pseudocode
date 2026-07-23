@@ -25,22 +25,22 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1)
   NTSTATUS Acl; // edi
   ACL *v7; // rcx
   HANDLE EventHandle; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING Object; // [rsp+38h] [rbp-C8h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-C8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-B8h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+78h] [rbp-88h] BYREF
-  _BYTE Sid[48]; // [rsp+A0h] [rbp-60h] BYREF
-  char v13[48]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE CapabilitySid[48]; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE CapabilityGroupSid[48]; // [rsp+D0h] [rbp-30h] BYREF
 
-  *(_DWORD *)&Object.Length = 2621478;
-  Object.Buffer = L"lpacInstrumentation";
-  result = RtlDeriveCapabilitySidsFromName(&Object, v13, Sid);
+  *(_DWORD *)&UnicodeString.Length = 2621478;
+  UnicodeString.Buffer = L"lpacInstrumentation";
+  result = RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid);
   if ( result >= 0 )
   {
     result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     if ( result >= 0 )
     {
       v3 = 4
-         * (Sid[1]
+         * (CapabilitySid[1]
           + *((unsigned __int8 *)SeAllAppPackagesSid + 1)
           + *((unsigned __int8 *)SeLocalSid + 1)
           + *((unsigned __int8 *)SeLocalSystemSid + 1)
@@ -62,7 +62,7 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1)
           v7 = v5;
           if ( Acl >= 0 )
           {
-            Acl = RtlAddAccessAllowedAce(v5, 2u, 0x120001u, Sid);
+            Acl = RtlAddAccessAllowedAce(v5, 2u, 0x120001u, CapabilitySid);
             v7 = v5;
             if ( Acl >= 0 )
             {
@@ -91,9 +91,9 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1)
                               2u,
                               (POBJECT_TYPE)ExEventObjectType,
                               0,
-                              (PVOID *)&Object,
+                              (PVOID *)&UnicodeString,
                               0LL);
-                      DbgkErrorPortRegisteredEvent = *(PRKEVENT *)&Object.Length;
+                      DbgkErrorPortRegisteredEvent = *(PRKEVENT *)&UnicodeString.Length;
                       ZwClose(EventHandle);
                     }
                     return Acl;

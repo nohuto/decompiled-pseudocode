@@ -1,20 +1,20 @@
 /*
- * XREFs of PiSwIrpCleanup @ 0x1404C3820
+ * XREFs of PiSwIrpCleanup @ 0x1404868C8
  * Callers:
- *     PiSwDispatch @ 0x140489CB0 (PiSwDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
+ *     PiSwDispatch @ 0x140489090 (PiSwDispatch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     PnpDeviceObjectFromDeviceInstance @ 0x1403F4A34 (PnpDeviceObjectFromDeviceInstance.c)
- *     PiSwCloseDevice @ 0x1404C3900 (PiSwCloseDevice.c)
- *     PiSwCloseDescendants @ 0x1404C6390 (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x1404C63C0 (PiSwFindSwDevice.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     PnpDeviceObjectFromDeviceInstance @ 0x1403F38F8 (PnpDeviceObjectFromDeviceInstance.c)
+ *     PiSwCloseDevice @ 0x140483C1C (PiSwCloseDevice.c)
+ *     PiSwCloseDescendants @ 0x140484B98 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x1404867FC (PiSwFindSwDevice.c)
  */
 
 void __fastcall PiSwIrpCleanup(__int64 a1)
@@ -66,7 +66,7 @@ LABEL_3:
   *(_DWORD *)(a1 + 4) &= ~1u;
   if ( v3 )
   {
-    PiSwCloseDescendants(a1 + 72);
+    PiSwCloseDescendants((__int128 *)(a1 + 72));
     PiSwCloseDevice(a1);
   }
   ExReleaseResourceLite(&PiSwLockObj);

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorGetPromotionReason @ 0x140875C18
+ * XREFs of PopPowerAggregatorGetPromotionReason @ 0x140876E78
  * Callers:
- *     PopPowerAggregatorSelectRequest @ 0x140875CD4 (PopPowerAggregatorSelectRequest.c)
+ *     PopPowerAggregatorSelectRequest @ 0x140876F34 (PopPowerAggregatorSelectRequest.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiCompleteKernelInit @ 0x14099E0E0
+ * XREFs of KiCompleteKernelInit @ 0x14099F010
  * Callers:
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
  * Callees:
- *     KiUpdateThreadPriority @ 0x140230E50 (KiUpdateThreadPriority.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiSetProcessorIdle @ 0x14025721C (KiSetProcessorIdle.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     KeAttachProcess @ 0x1402C2F00 (KeAttachProcess.c)
- *     KeInitializeTimer2 @ 0x1402E9260 (KeInitializeTimer2.c)
+ *     KeAttachProcess @ 0x140241420 (KeAttachProcess.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KiSetProcessorIdle @ 0x14027878C (KiSetProcessorIdle.c)
+ *     KeInitializeTimer2 @ 0x14029A5B0 (KeInitializeTimer2.c)
+ *     KiUpdateThreadPriority @ 0x1402D56A0 (KiUpdateThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiCreateCpuSetForProcessor @ 0x14099E2CC (KiCreateCpuSetForProcessor.c)
+ *     KiCreateCpuSetForProcessor @ 0x14099F1FC (KiCreateCpuSetForProcessor.c)
  */
 
 __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
@@ -49,15 +49,15 @@ __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
   KeAttachProcess(PsInitialSystemProcess);
   if ( !a3 )
   {
-    qword_140C31FB8 = 0LL;
-    qword_140C31FB0 = (__int64)&qword_140C31FA8;
-    qword_140C31FA8 = (__int64)&qword_140C31FA8;
+    qword_140C31F38 = 0LL;
+    qword_140C31F30 = (__int64)&qword_140C31F28;
+    qword_140C31F28 = (__int64)&qword_140C31F28;
     KeInitializeTimer2((__int64)&KiForegroundState, (__int64)KiForegroundTimerCallback, 0LL, 8LL);
-    KeInitializeDpc((PRKDPC)&stru_140C31F28, (PKDEFERRED_ROUTINE)KiProcessPendingForegroundBoosts, 0LL);
-    KeInitializeDpc(&stru_140C31F68, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
+    KeInitializeDpc((PRKDPC)&stru_140C31EA8, (PKDEFERRED_ROUTINE)KiProcessPendingForegroundBoosts, 0LL);
+    KeInitializeDpc(&stru_140C31EE8, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
     KeInitializeDpc(&KiUpdateVpThreadPriorityDpc, (PKDEFERRED_ROUTINE)KiUpdateVpBackingThreadPriorityDpcRoutine, 0LL);
     KiUpdateVpThreadPriorityLock = 0LL;
-    qword_140C32008 = (__int64)&KiUpdateVpThreadPriorityListHead;
+    qword_140C31DC8 = (__int64)&KiUpdateVpThreadPriorityListHead;
     KiUpdateVpThreadPriorityListHead = (__int64)&KiUpdateVpThreadPriorityListHead;
     KiUpdateVpThreadPriorityDpc.Importance = 2;
   }

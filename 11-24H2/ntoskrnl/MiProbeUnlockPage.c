@@ -1,78 +1,81 @@
 /*
- * XREFs of MiProbeUnlockPage @ 0x14028A3B0
+ * XREFs of MiProbeUnlockPage @ 0x140299FB0
  * Callers:
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MiUnlockPhysicalPageByVa @ 0x14066EBA0 (MiUnlockPhysicalPageByVa.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     MiUnlockPhysicalPageByVa @ 0x14066FD70 (MiUnlockPhysicalPageByVa.c)
  * Callees:
- *     MiClearPageFileReservation @ 0x140213DEC (MiClearPageFileReservation.c)
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     ExReleaseRundownProtectionCacheAware @ 0x140275DE0 (ExReleaseRundownProtectionCacheAware.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14028C530 (MiRemoveLockedPageChargeAndDecRef.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUnlockPageTableCharges @ 0x1402C7D50 (MiUnlockPageTableCharges.c)
- *     MiGetBaseResidentPage @ 0x140307100 (MiGetBaseResidentPage.c)
- *     MiDereferenceControlAreaProbe @ 0x14036F6B4 (MiDereferenceControlAreaProbe.c)
- *     MiCanPfnOriginalPteBeLost @ 0x14039E1D0 (MiCanPfnOriginalPteBeLost.c)
- *     MiFinishLargePageFree @ 0x1403A3D48 (MiFinishLargePageFree.c)
+ *     MiFinishLargePageFree @ 0x14021B7C8 (MiFinishLargePageFree.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x14022B370 (ExReleaseRundownProtectionCacheAware.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14029C130 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x1402EE318 (MiCanPfnOriginalPteBeLost.c)
+ *     MiClearPageFileReservation @ 0x14030714C (MiClearPageFileReservation.c)
+ *     MiGetBaseResidentPage @ 0x140310FE0 (MiGetBaseResidentPage.c)
+ *     MiUnlockPageTableCharges @ 0x1403DB820 (MiUnlockPageTableCharges.c)
+ *     MiDereferenceControlAreaProbe @ 0x14043F320 (MiDereferenceControlAreaProbe.c)
  */
 
 void __fastcall MiProbeUnlockPage(__int64 a1, __int16 a2, __int64 *a3, int *a4)
 {
-  char v4; // r15
   __int64 v7; // rdi
-  __int64 v8; // rax
-  int v9; // eax
-  __int64 v10; // rsi
-  __int64 v11; // r13
-  __int64 v12; // r12
-  unsigned __int64 v13; // rbx
-  unsigned int v14; // ebp
-  __int64 v15; // r14
-  char v16; // bp
-  __int64 v17; // rdx
-  __int64 v18; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  int v10; // eax
+  __int64 v11; // rsi
+  __int64 v12; // r13
+  __int64 v13; // r12
+  unsigned __int64 v14; // rbx
+  unsigned int v15; // ebp
+  __int64 v16; // r14
+  char v17; // bp
+  __int64 v18; // r9
+  __int64 v19; // rax
   __int64 BaseResidentPage; // rax
-  __int64 v20; // rdx
-  unsigned __int64 v21; // [rsp+70h] [rbp+8h] BYREF
-  int v22; // [rsp+78h] [rbp+10h]
+  __int64 v21; // rdx
+  unsigned __int64 v22; // [rsp+70h] [rbp+8h] BYREF
+  int v23; // [rsp+78h] [rbp+10h]
 
-  v4 = a2;
   v7 = a1;
+  v8 = 0xFFFFFFFFFFLL;
   if ( (a2 & 0x100) != 0 && (*(_QWORD *)(a1 + 40) & 0x10000000000LL) == 0 && ((*(_QWORD *)(a1 + 40) >> 60) & 7) != 1 )
   {
-    v8 = *(_QWORD *)(a1 + 40);
+    v9 = *(_QWORD *)(a1 + 40);
     a1 = 0x3FFFFFFFFELL;
-    if ( (v8 & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL )
+    if ( (v9 & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL )
     {
       a1 = *a3;
       if ( *a3 != (*(_QWORD *)(v7 + 40) & 0xFFFFFFFFFFLL) )
       {
         if ( a1 != 0x3FFFFFFFFFLL )
+        {
           MiUnlockPageTableCharges(48 * a1 - 0x220000000000LL);
+          v8 = 0xFFFFFFFFFFLL;
+        }
         if ( *(__int64 *)(v7 + 40) < 0 )
-          v9 = 1;
+          v10 = 1;
         else
-          v9 = 2;
-        *a4 = v9;
+          v10 = 2;
+        *a4 = v10;
         *a3 = *(_QWORD *)(v7 + 40) & 0xFFFFFFFFFFLL;
       }
     }
   }
-  v10 = 0LL;
   v11 = 0LL;
   v12 = 0LL;
   v13 = 0LL;
-  v14 = 0;
+  v14 = 0LL;
+  v15 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 24), 0x3FuLL) )
   {
     do
     {
-      if ( (++v14 & HvlLongSpinCountMask) == 0
+      if ( (++v15 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1, v8, a3, a4) )
       {
-        HvlNotifyLongSpinWait(v14);
+        HvlNotifyLongSpinWait(v15);
       }
       else
       {
@@ -81,51 +84,51 @@ void __fastcall MiProbeUnlockPage(__int64 a1, __int16 a2, __int64 *a3, int *a4)
     }
     while ( *(__int64 *)(v7 + 24) < 0 );
   }
-  v15 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+  v16 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
   if ( (*(_DWORD *)(v7 + 32) & 0x200000) != 0
     && (*(_DWORD *)(v7 + 32) & 0x80000) == 0
     && (*(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 0 )
   {
-    v12 = *(_QWORD *)v7 - 32LL;
-    _InterlockedDecrement64((volatile signed __int64 *)(v12 + 264));
+    v13 = *(_QWORD *)v7 - 32LL;
+    _InterlockedDecrement64((volatile signed __int64 *)(v13 + 264));
   }
-  if ( v4 < 0 )
+  if ( (a2 & 0x80u) != 0 )
   {
-    if ( !v12 )
+    if ( !v13 )
     {
       if ( (*(_DWORD *)(v7 + 16) & 0x400LL) == 0 && (*(_BYTE *)(v7 + 34) & 8) == 0 )
       {
-        v21 = *(_QWORD *)(v7 + 16);
-        if ( (v21 & 4) != 0 )
+        v22 = *(_QWORD *)(v7 + 16);
+        if ( (v22 & 4) != 0 )
         {
           *(_QWORD *)(v7 + 16) &= ~4uLL;
-          MiClearPageFileReservation((__int64 *)&v21);
-          v13 = v21;
+          MiClearPageFileReservation(&v22);
+          v14 = v22;
         }
         else
         {
-          v21 = 0LL;
+          v22 = 0LL;
         }
       }
-      v22 = *(_DWORD *)(v7 + 32);
-      v16 = BYTE2(v22);
-      if ( (v22 & 0x80000) != 0
+      v23 = *(_DWORD *)(v7 + 32);
+      v17 = BYTE2(v23);
+      if ( (v23 & 0x80000) != 0
         && (unsigned int)MiCanPfnOriginalPteBeLost(v7)
         && (((*(_QWORD *)(v7 + 16) & 4) != 0) & (unsigned __int8)~(*(_BYTE *)(v7 + 34) >> 4)) != 0 )
       {
         *(_QWORD *)(v7 + 16) &= ~4uLL;
       }
-      BYTE2(v22) = v16 | 0x10;
-      *(_DWORD *)(v7 + 32) = v22;
+      BYTE2(v23) = v17 | 0x10;
+      *(_DWORD *)(v7 + 32) = v23;
     }
     if ( (*(_QWORD *)(v7 + 40) & 0x10000000000LL) == 0 && *(__int64 *)(v7 + 40) < 0 )
     {
-      v18 = *(_QWORD *)(v7 + 16);
-      if ( (v18 & 0x400) != 0 )
+      v19 = *(_QWORD *)(v7 + 16);
+      if ( (v19 & 0x400) != 0 )
       {
-        if ( qword_140E2DB80 && (v18 & 0x10) == 0 )
-          v18 &= ~qword_140E2DB80;
-        v11 = *(_QWORD *)(v18 >> 16);
+        if ( qword_140E2DCC0 && (v19 & 0x10) == 0 )
+          v19 &= ~qword_140E2DCC0;
+        v12 = *(_QWORD *)(v19 >> 16);
       }
     }
   }
@@ -135,22 +138,22 @@ void __fastcall MiProbeUnlockPage(__int64 a1, __int16 a2, __int64 *a3, int *a4)
     && (unsigned __int16)*(_DWORD *)(v7 + 32) == 2 )
   {
     *(_QWORD *)(v7 + 24) &= ~0x4000000000000000uLL;
-    BaseResidentPage = MiGetBaseResidentPage(v7, v17);
-    v20 = (*(_QWORD *)BaseResidentPage & 0xFFFFFFFFFFLL) - 1;
-    *(_QWORD *)BaseResidentPage = v20 ^ (v20 ^ *(_QWORD *)BaseResidentPage) & 0xFFFFFF0000000000uLL;
+    BaseResidentPage = MiGetBaseResidentPage(v7);
+    v21 = (*(_QWORD *)BaseResidentPage & 0xFFFFFFFFFFLL) - 1;
+    *(_QWORD *)BaseResidentPage = v21 ^ (v21 ^ *(_QWORD *)BaseResidentPage) & 0xFFFFFF0000000000uLL;
     if ( BaseResidentPage != v7 )
       _InterlockedAnd64((volatile signed __int64 *)(BaseResidentPage + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( v20 )
+    if ( v21 )
       BaseResidentPage = 0LL;
-    v10 = BaseResidentPage;
+    v11 = BaseResidentPage;
   }
   _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( v13 )
-    MiReleasePageFileInfo(v15, v13, 1LL);
-  if ( v10 )
-    MiFinishLargePageFree(v10, 1LL, 1LL, 16LL);
+  if ( v14 )
+    MiReleasePageFileInfo(v16, v14, 1LL, v18);
   if ( v11 )
-    MiDereferenceControlAreaProbe(v11, 1LL);
-  if ( (ULONG *)v15 != &MiSystemPartition )
-    ExReleaseRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(v15 + 2784));
+    MiFinishLargePageFree(v11, 1LL, 1, 0x10u);
+  if ( v12 )
+    MiDereferenceControlAreaProbe(v12, 1LL);
+  if ( (ULONG *)v16 != &MiSystemPartition )
+    ExReleaseRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(v16 + 2784));
 }

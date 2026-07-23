@@ -15,19 +15,22 @@
 __int64 DbgkpStartSystemErrorHandler()
 {
   unsigned int v0; // ebx
-  BOOL v1; // edi
+  int v1; // edi
+  int v3; // [rsp+40h] [rbp-38h] BYREF
   ULONGLONG RegHandle; // [rsp+48h] [rbp-30h] BYREF
   EVENT_DESCRIPTOR EventDescriptor; // [rsp+50h] [rbp-28h] BYREF
 
   v0 = 0;
   RegHandle = 0LL;
+  v3 = 0;
   v1 = 0;
-  ZwQueryWnfStateNameInformation((__int64)&WNF_WER_SERVICE_START, 1LL);
+  if ( ZwQueryWnfStateNameInformation(&WNF_WER_SERVICE_START, WnfInfoSubscribersPresent, 0LL, &v3, 4u) >= 0 && v3 )
+    v1 = ZwUpdateWnfStateData(&WNF_WER_SERVICE_START, 0LL, 0, 0LL, 0LL, 0, 0) >= 0;
   if ( EtwRegister(&ProviderId, 0LL, 0LL, &RegHandle) >= 0 )
   {
     EventDescriptor = 0LL;
-    if ( EtwEventEnabled(RegHandle, &EventDescriptor) )
-      v1 = EtwWrite(RegHandle, &EventDescriptor, 0LL, 0, 0LL) >= 0;
+    if ( EtwEventEnabled(RegHandle, &EventDescriptor) && EtwWrite(RegHandle, &EventDescriptor, 0LL, 0, 0LL) >= 0 )
+      ++v1;
     EtwUnregister(RegHandle);
   }
   if ( !v1 )

@@ -7,17 +7,17 @@
  *     sub_180101750 @ 0x180101750 (sub_180101750.c)
  */
 
-signed __int64 __fastcall sub_18004AC28(__int64 a1)
+void __fastcall sub_18004AC28(__int64 a1)
 {
-  __int64 v3; // rcx
+  __int64 v2; // rcx
 
-  RtlAcquireSRWLockExclusive(&qword_180166390);
+  RtlAcquireSRWLockExclusive(&stru_180166390);
   if ( (dword_180166398 & 1) != 0 && (dword_180166398 & 2) != 0 )
   {
-    v3 = 104LL;
+    v2 = 104LL;
     if ( *(_DWORD *)(a1 + 16) != -571548178 )
-      v3 = 368LL;
-    sub_180101750(a1 + v3, 0LL, 0LL);
+      v2 = 368LL;
+    sub_180101750(a1 + v2, 0LL, 0LL);
   }
-  return RtlReleaseSRWLockExclusive(&qword_180166390);
+  RtlReleaseSRWLockExclusive(&stru_180166390);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of SymCryptFdefModSquareMontgomeryMulxP384Asm @ 0x1405323D0
+ * XREFs of SymCryptFdefModSquareMontgomeryMulxP384Asm @ 0x14052C870
  * Callers:
  *     <none>
  * Callees:
@@ -11,6 +11,6 @@ void SymCryptFdefModSquareMontgomeryMulxP384Asm()
   __int64 v0; // [rsp+0h] [rbp-40h] BYREF
 
   if ( &v0 )
-    JUMPOUT(0x140531E60LL);
+    JUMPOUT(0x14052C300LL);
   __debugbreak();
 }

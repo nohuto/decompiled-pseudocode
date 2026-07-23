@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFormDllRegistryPath @ 0x14087508C
+ * XREFs of MiFormDllRegistryPath @ 0x14087B470
  * Callers:
- *     MiIssueDllInitializeCall @ 0x1408752E8 (MiIssueDllInitializeCall.c)
+ *     MiIssueDllInitializeCall @ 0x14087B6CC (MiIssueDllInitializeCall.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFormDllRegistryPath(__int64 a1, UNICODE_STRING *a2)

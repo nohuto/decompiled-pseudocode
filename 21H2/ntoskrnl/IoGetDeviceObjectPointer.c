@@ -1,25 +1,25 @@
 /*
- * XREFs of IoGetDeviceObjectPointer @ 0x140620E20
+ * XREFs of IoGetDeviceObjectPointer @ 0x14068AA90
  * Callers:
- *     IoVolumeDeviceToDosName @ 0x140620B50 (IoVolumeDeviceToDosName.c)
- *     NtApphelpCacheControl @ 0x140686430 (NtApphelpCacheControl.c)
- *     IoVolumeDeviceNameToGuidPath @ 0x1407223C0 (IoVolumeDeviceNameToGuidPath.c)
- *     HalpDynamicDeviceInterfaceNotification @ 0x1408648C0 (HalpDynamicDeviceInterfaceNotification.c)
- *     IopOpenSystemVariableDevice @ 0x14089AA6C (IopOpenSystemVariableDevice.c)
- *     PopRegisterCoolingExtensionProtection @ 0x1408E2FB0 (PopRegisterCoolingExtensionProtection.c)
- *     IopAssignBootDriveLetter @ 0x140A61AA8 (IopAssignBootDriveLetter.c)
- *     IopCreateArcNamesDisk @ 0x140A61CE8 (IopCreateArcNamesDisk.c)
- *     IopCreateArcNamesCd @ 0x140A61E50 (IopCreateArcNamesCd.c)
- *     IopGetBootDiskInformation @ 0x140A8F9DC (IopGetBootDiskInformation.c)
- *     VhdiMountVhdFile @ 0x140A94C98 (VhdiMountVhdFile.c)
- *     SbpAddTransportToInstance @ 0x140A955E8 (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x140A957E8 (SbpStartLanman.c)
+ *     NtApphelpCacheControl @ 0x1405E5590 (NtApphelpCacheControl.c)
+ *     IoVolumeDeviceToDosName @ 0x14068A7C0 (IoVolumeDeviceToDosName.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x1406F9CC0 (IoVolumeDeviceNameToGuidPath.c)
+ *     HalpDynamicDeviceInterfaceNotification @ 0x140864A20 (HalpDynamicDeviceInterfaceNotification.c)
+ *     IopOpenSystemVariableDevice @ 0x14089ABCC (IopOpenSystemVariableDevice.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1408E3110 (PopRegisterCoolingExtensionProtection.c)
+ *     IopAssignBootDriveLetter @ 0x140A62AA8 (IopAssignBootDriveLetter.c)
+ *     IopCreateArcNamesDisk @ 0x140A62CE8 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x140A62E50 (IopCreateArcNamesCd.c)
+ *     IopGetBootDiskInformation @ 0x140A909DC (IopGetBootDiskInformation.c)
+ *     VhdiMountVhdFile @ 0x140A95C98 (VhdiMountVhdFile.c)
+ *     SbpAddTransportToInstance @ 0x140A965E8 (SbpAddTransportToInstance.c)
+ *     SbpStartLanman @ 0x140A967E8 (SbpStartLanman.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceObjectPointer(

@@ -49,7 +49,7 @@ char LdrpInitializePolicy()
                 (__int64)&v17) < 0
       || v16 == 262145 )
     {
-      LdrSetDefaultDllDirectories(4096LL);
+      LdrSetDefaultDllDirectories(0x1000u);
     }
     else
     {
@@ -88,7 +88,7 @@ char LdrpInitializePolicy()
   }
   else if ( p_DllPath->Length )
   {
-    LOBYTE(ProcessParameters) = LdrSetDllDirectory();
+    LOBYTE(ProcessParameters) = LdrSetDllDirectory(p_DllPath);
   }
   return (char)ProcessParameters;
 }

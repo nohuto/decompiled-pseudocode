@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxPlatformRequestHandler @ 0x14018D7B0
+ * XREFs of PoFxPlatformRequestHandler @ 0x14018D8F0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxAcpiDispatchNotification @ 0x1402E8230 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x1402E8420 (PopFxAcpiDispatchNotification.c)
  */
 
 __int64 __fastcall PoFxPlatformRequestHandler(unsigned int *a1)

@@ -44,38 +44,36 @@ NTSTATUS __stdcall NtUnlockFile(
   void *v16; // rdi
   char v17; // r14
   char v18; // r14
-  bool v19; // di
+  char v19; // di
   struct _KTHREAD *v20; // rax
   __int64 v21; // rbx
   __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  NTSTATUS v25; // edi
-  struct _KEVENT *v26; // rsi
+  NTSTATUS v23; // edi
+  struct _KEVENT *v24; // rsi
   struct _KEVENT *Pool_0; // rax
-  __int64 v28; // rdx
+  __int64 v26; // rdx
   __int64 Irp; // rax
-  IRP *v30; // rdi
-  PIO_STATUS_BLOCK v31; // rax
-  struct _KEVENT *v32; // rcx
+  IRP *v28; // rdi
+  PIO_STATUS_BLOCK v29; // rax
+  struct _KEVENT *v30; // rcx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
   CHAR *PoolWithQuota_4; // rax
-  __int64 v35; // r9
+  __int64 v33; // r9
   KPROCESSOR_MODE PreviousMode; // [rsp+40h] [rbp-78h]
   _BYTE DmaAdapter[15]; // [rsp+41h] [rbp-77h] BYREF
   struct _KEVENT *HandleInformation; // [rsp+50h] [rbp-68h] BYREF
-  LONGLONG v39; // [rsp+58h] [rbp-60h] BYREF
+  LONGLONG v37; // [rsp+58h] [rbp-60h] BYREF
   LONGLONG QuadPart; // [rsp+60h] [rbp-58h] BYREF
-  PADAPTER_OBJECT v41; // [rsp+68h] [rbp-50h]
+  PADAPTER_OBJECT v39; // [rsp+68h] [rbp-50h]
   struct _KTHREAD *CurrentThread; // [rsp+70h] [rbp-48h]
-  __int128 v43; // [rsp+78h] [rbp-40h] BYREF
-  __int128 v44; // [rsp+88h] [rbp-30h] BYREF
+  __int128 v41; // [rsp+78h] [rbp-40h] BYREF
+  __int128 v42; // [rsp+88h] [rbp-30h] BYREF
   __int64 retaddr; // [rsp+B8h] [rbp+0h]
 
   QuadPart = 0LL;
-  v39 = 0LL;
+  v37 = 0LL;
   HandleInformation = 0LL;
-  v44 = 0LL;
+  v42 = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   *(_QWORD *)&DmaAdapter[7] = 0LL;
@@ -88,7 +86,7 @@ NTSTATUS __stdcall NtUnlockFile(
              (POBJECT_HANDLE_INFORMATION)&HandleInformation);
   v9 = *(struct _FILE_OBJECT **)&DmaAdapter[7];
   v10 = *(PADAPTER_OBJECT *)&DmaAdapter[7];
-  v41 = *(PADAPTER_OBJECT *)&DmaAdapter[7];
+  v39 = *(PADAPTER_OBJECT *)&DmaAdapter[7];
   if ( result < 0 )
     return result;
   if ( PreviousMode )
@@ -107,14 +105,14 @@ NTSTATUS __stdcall NtUnlockFile(
     QuadPart = ByteOffset->QuadPart;
     if ( ((unsigned __int8)Length & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v39 = Length->QuadPart;
-    v10 = v41;
+    v37 = Length->QuadPart;
+    v10 = v39;
     v9 = *(struct _FILE_OBJECT **)&DmaAdapter[7];
   }
   else
   {
     QuadPart = ByteOffset->QuadPart;
-    v39 = Length->QuadPart;
+    v37 = Length->QuadPart;
   }
   if ( (v9->Flags & 0x800) != 0 )
     AttachedDevice = IoGetAttachedDevice(v9->DeviceObject);
@@ -127,19 +125,19 @@ NTSTATUS __stdcall NtUnlockFile(
     v15 = *(__int64 (__fastcall **)(struct _FILE_OBJECT *, LONGLONG *, LONGLONG *, _KPROCESS *, ULONG, __int128 *, struct _DEVICE_OBJECT *))(FastIoDispatch + 56);
     if ( v15 )
     {
-      v43 = 0LL;
+      v41 = 0LL;
       if ( (MmVerifierData & 0x10) != 0 )
         v16 = (void *)VfFastIoSnapState();
       else
         v16 = 0LL;
-      v17 = v15(v9, &QuadPart, &v39, CurrentThread->ApcState.Process, Key, &v43, v13);
+      v17 = v15(v9, &QuadPart, &v37, CurrentThread->ApcState.Process, Key, &v41, v13);
       if ( v16 )
         VfFastIoCheckState(v16);
       if ( v17 )
       {
-        *(_OWORD *)&IoStatusBlock->Status = v43;
+        *(_OWORD *)&IoStatusBlock->Status = v41;
         HalPutDmaAdapter((PADAPTER_OBJECT)v9);
-        return v43;
+        return v41;
       }
     }
   }
@@ -150,14 +148,17 @@ NTSTATUS __stdcall NtUnlockFile(
     v20 = KeGetCurrentThread();
     --v20->KernelApcDisable;
     v21 = *(_QWORD *)&DmaAdapter[7];
-    v22 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[7] + 128LL, 0LL, 0LL);
+    v22 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[7] + 128LL, 0LL, 0);
     DmaAdapter[0] = 0;
     if ( _InterlockedExchange((volatile __int32 *)(v21 + 116), 1) )
     {
-      LOBYTE(v24) = v19;
-      LOBYTE(v23) = PreviousMode;
       v9 = *(struct _FILE_OBJECT **)&DmaAdapter[7];
-      v25 = IopWaitAndAcquireFileObjectLock(*(volatile signed __int32 **)&DmaAdapter[7], v23, v24, v22, DmaAdapter);
+      v23 = IopWaitAndAcquireFileObjectLock(
+              *(volatile signed __int32 **)&DmaAdapter[7],
+              PreviousMode,
+              v19,
+              v22,
+              DmaAdapter);
     }
     else
     {
@@ -165,34 +166,34 @@ NTSTATUS __stdcall NtUnlockFile(
         *(_BYTE *)(v22 + 26) |= 1u;
       v9 = *(struct _FILE_OBJECT **)&DmaAdapter[7];
       ObfReferenceObject(*(PVOID *)&DmaAdapter[7]);
-      v25 = 0;
+      v23 = 0;
     }
     if ( !DmaAdapter[0] )
     {
-      v26 = 0LL;
+      v24 = 0LL;
       HandleInformation = 0LL;
-      v10 = v41;
+      v10 = v39;
       goto LABEL_35;
     }
 LABEL_33:
     HalPutDmaAdapter((PADAPTER_OBJECT)v9);
-    return v25;
+    return v23;
   }
   Pool_0 = (struct _KEVENT *)IopVerifierExAllocatePool_0(FastIoDispatch, 0x18uLL);
-  v26 = Pool_0;
+  v24 = Pool_0;
   HandleInformation = Pool_0;
   if ( !Pool_0 )
   {
-    v25 = -1073741670;
+    v23 = -1073741670;
     goto LABEL_33;
   }
   KeInitializeEvent(Pool_0, SynchronizationEvent, 0);
   v18 = 0;
 LABEL_35:
   IopResetEvent((__int64)v9);
-  LOBYTE(v28) = v13->StackSize;
-  Irp = IopAllocateIrpExReturn((__int64)v13, v28, 0LL, retaddr);
-  v30 = (IRP *)Irp;
+  LOBYTE(v26) = v13->StackSize;
+  Irp = IopAllocateIrpExReturn((__int64)v13, v26, 0LL, retaddr);
+  v28 = (IRP *)Irp;
   *(_QWORD *)&DmaAdapter[7] = Irp;
   if ( Irp )
   {
@@ -201,38 +202,38 @@ LABEL_35:
     *(_BYTE *)(Irp + 64) = PreviousMode;
     if ( v18 )
     {
-      v31 = IoStatusBlock;
-      v32 = 0LL;
+      v29 = IoStatusBlock;
+      v30 = 0LL;
     }
     else
     {
       *(_DWORD *)(Irp + 16) = 4;
-      v31 = (PIO_STATUS_BLOCK)&v44;
-      v32 = v26;
+      v29 = (PIO_STATUS_BLOCK)&v42;
+      v30 = v24;
     }
-    v30->UserEvent = v32;
-    v30->UserIosb = v31;
-    v30->Overlay.AllocationSize.QuadPart = 0LL;
-    CurrentStackLocation = v30->Tail.Overlay.CurrentStackLocation;
+    v28->UserEvent = v30;
+    v28->UserIosb = v29;
+    v28->Overlay.AllocationSize.QuadPart = 0LL;
+    CurrentStackLocation = v28->Tail.Overlay.CurrentStackLocation;
     *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 529;
     CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v10;
     PoolWithQuota_4 = (CHAR *)IopVerifierExAllocatePoolWithQuota_4();
-    *(_QWORD *)PoolWithQuota_4 = v39;
-    v30->Tail.Overlay.AuxiliaryBuffer = PoolWithQuota_4;
+    *(_QWORD *)PoolWithQuota_4 = v37;
+    v28->Tail.Overlay.AuxiliaryBuffer = PoolWithQuota_4;
     CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)PoolWithQuota_4;
     CurrentStackLocation[-1].Parameters.Create.Options = Key;
     CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = QuadPart;
-    result = IopSynchronousServiceTail(v13, v30, (__int64)v10, 0, PreviousMode, v18, 2u);
+    result = IopSynchronousServiceTail(v13, v28, (__int64)v10, 0, PreviousMode, v18, 2u);
     if ( !v18 )
     {
-      LOBYTE(v35) = PreviousMode;
-      return IopSynchronousApiServiceTail((unsigned int)result, v26, v30, v35, &v44, IoStatusBlock);
+      LOBYTE(v33) = PreviousMode;
+      return IopSynchronousApiServiceTail((unsigned int)result, v24, v28, v33, &v42, IoStatusBlock);
     }
   }
   else
   {
-    if ( v26 )
-      ExFreePoolWithTag(v26, 0);
+    if ( v24 )
+      ExFreePoolWithTag(v24, 0);
     IopAllocateIrpCleanup((PADAPTER_OBJECT)v9, 0LL);
     return -1073741670;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopStatsNotifyAudioState @ 0x1406DB6CC
+ * XREFs of PopStatsNotifyAudioState @ 0x1406DC96C
  * Callers:
- *     PopPowerRequestNotifyAudioStateChanged @ 0x140141EA0 (PopPowerRequestNotifyAudioStateChanged.c)
+ *     PopPowerRequestNotifyAudioStateChanged @ 0x140141FA0 (PopPowerRequestNotifyAudioStateChanged.c)
  * Callees:
  *     PoPauseStopWatch @ 0x140001F30 (PoPauseStopWatch.c)
  *     PoStartStopWatch @ 0x140001F80 (PoStartStopWatch.c)
- *     PopGetStopWatchByRequestType @ 0x1405888A4 (PopGetStopWatchByRequestType.c)
- *     PopAvlFindOrMakeStatsForAudio @ 0x1406DB738 (PopAvlFindOrMakeStatsForAudio.c)
+ *     PopGetStopWatchByRequestType @ 0x1405898A4 (PopGetStopWatchByRequestType.c)
+ *     PopAvlFindOrMakeStatsForAudio @ 0x1406DC9D8 (PopAvlFindOrMakeStatsForAudio.c)
  */
 
 char __fastcall PopStatsNotifyAudioState(char a1)

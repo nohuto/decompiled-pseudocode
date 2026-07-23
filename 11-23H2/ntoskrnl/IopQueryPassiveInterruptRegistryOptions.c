@@ -1,11 +1,11 @@
 /*
- * XREFs of IopQueryPassiveInterruptRegistryOptions @ 0x1408564CC
+ * XREFs of IopQueryPassiveInterruptRegistryOptions @ 0x1408567CC
  * Callers:
  *     IopInitializePassiveInterruptServices @ 0x140B6A794 (IopInitializePassiveInterruptServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
  */
 
 __int64 IopQueryPassiveInterruptRegistryOptions()

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiComputeFaultNode @ 0x14023F100
+ * XREFs of MiComputeFaultNode @ 0x1402E3950
  * Callers:
- *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiMigratePfn @ 0x1402BCEF0 (MiMigratePfn.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
  */
 
-__int64 __fastcall MiComputeFaultNode(unsigned __int64 *a1, __int64 a2, __int64 *a3)
+__int64 __fastcall MiComputeFaultNode(unsigned __int64 *a1, __int64 a2, __int64 ***a3)
 {
   unsigned __int64 v4; // r11
   unsigned __int64 v7; // r10
-  __int64 v8; // rdx
+  __int64 **v8; // rdx
   unsigned __int64 v9; // r10
   struct _KTHREAD *CurrentThread; // rsi
   _KPROCESS *Process; // rbp
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rcx
   __int64 result; // rax
-  __int64 Address; // rax
+  __int64 **Address; // rax
   unsigned int v16; // eax
 
   v4 = a1[1] >> 57;
@@ -58,14 +58,14 @@ LABEL_4:
   if ( v8
     || ((v13 = *a1, *a1 < 0xFFFFF68000000000uLL) || v13 > 0xFFFFF6FFFFFFFFFFuLL)
     && (v9 || *(_QWORD *)(v12 + 424) || *(_QWORD *)(v12 + 432) || *(_BYTE *)(v12 + 352) == 1)
-    && (Address = MiLocateAddress(v13), *a3 = Address, (v8 = Address) != 0) )
+    && (Address = MiLocateAddress(v13), *a3 = Address, (v8 = Address) != 0LL) )
   {
-    v16 = *(_DWORD *)(v8 + 48);
+    v16 = *((_DWORD *)v8 + 12);
     LODWORD(v4) = (v16 >> 12) & 0x3F;
     if ( (_DWORD)v4 )
-      return (*(_DWORD *)(v8 + 48) >> 12) & 0x3F;
+      return (*((_DWORD *)v8 + 12) >> 12) & 0x3F;
     if ( (v16 & 0x100000) == 0 )
-      a2 = **(_QWORD **)(v8 + 72);
+      a2 = *v8[9];
   }
   if ( !a2
     || (result = (*(_DWORD *)(a2 + 56) >> 20) & 0x3F, LODWORD(v4) = (*(_DWORD *)(a2 + 56) >> 20) & 0x3F, !(_DWORD)v4) )

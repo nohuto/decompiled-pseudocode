@@ -1,15 +1,15 @@
 /*
- * XREFs of HsaUpdateRemappingTableEntry @ 0x140531270
+ * XREFs of HsaUpdateRemappingTableEntry @ 0x1405317C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExtEnvCriticalFailure @ 0x14051F4D8 (ExtEnvCriticalFailure.c)
- *     HsaGetDeviceAperture @ 0x140530010 (HsaGetDeviceAperture.c)
- *     HsaUpdateInterruptDestination @ 0x140530FEC (HsaUpdateInterruptDestination.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExtEnvCriticalFailure @ 0x14051FA28 (ExtEnvCriticalFailure.c)
+ *     HsaGetDeviceAperture @ 0x140530560 (HsaGetDeviceAperture.c)
+ *     HsaUpdateInterruptDestination @ 0x14053153C (HsaUpdateInterruptDestination.c)
  */
 
 char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, ULONG a3, _DWORD *a4)

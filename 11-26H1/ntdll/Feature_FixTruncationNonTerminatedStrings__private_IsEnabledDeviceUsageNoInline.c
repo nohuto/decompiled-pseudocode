@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x180114790
+ * XREFs of Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x180113F8C
  * Callers:
- *     RtlpQueryRegistryDirect @ 0x18005A930 (RtlpQueryRegistryDirect.c)
+ *     RtlpQueryRegistryDirect @ 0x180044EB0 (RtlpQueryRegistryDirect.c)
  * Callees:
  *     <none>
  */

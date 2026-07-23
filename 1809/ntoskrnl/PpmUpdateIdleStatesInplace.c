@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmUpdateIdleStatesInplace @ 0x1402D61E0
+ * XREFs of PpmUpdateIdleStatesInplace @ 0x1402D63D0
  * Callers:
  *     <none>
  * Callees:

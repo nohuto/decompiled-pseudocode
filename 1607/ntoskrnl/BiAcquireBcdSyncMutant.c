@@ -1,23 +1,23 @@
 /*
- * XREFs of BiAcquireBcdSyncMutant @ 0x14053E1C8
+ * XREFs of BiAcquireBcdSyncMutant @ 0x14053E708
  * Callers:
- *     BcdFlushStore @ 0x140532A04 (BcdFlushStore.c)
- *     BcdForciblyUnloadStore @ 0x140533BC0 (BcdForciblyUnloadStore.c)
- *     BcdOpenSystemStore @ 0x14053BF2C (BcdOpenSystemStore.c)
- *     BcdCloseStore @ 0x14053C8A8 (BcdCloseStore.c)
- *     BcdDeleteElement @ 0x14053D21C (BcdDeleteElement.c)
- *     BcdQueryObject @ 0x14053D33C (BcdQueryObject.c)
- *     BcdOpenObject @ 0x14053D54C (BcdOpenObject.c)
- *     BcdCloseObject @ 0x14053D664 (BcdCloseObject.c)
- *     BcdSetElementDataWithFlags @ 0x14053DADC (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x14053DC9C (BcdGetElementDataWithFlags.c)
- *     BcdCreateObject @ 0x1406D1FA4 (BcdCreateObject.c)
- *     BcdDeleteObject @ 0x1406D2034 (BcdDeleteObject.c)
- *     BcdEnumerateObjects @ 0x1406D2088 (BcdEnumerateObjects.c)
+ *     BcdFlushStore @ 0x140532F44 (BcdFlushStore.c)
+ *     BcdForciblyUnloadStore @ 0x140534100 (BcdForciblyUnloadStore.c)
+ *     BcdOpenSystemStore @ 0x14053C46C (BcdOpenSystemStore.c)
+ *     BcdCloseStore @ 0x14053CDE8 (BcdCloseStore.c)
+ *     BcdDeleteElement @ 0x14053D75C (BcdDeleteElement.c)
+ *     BcdQueryObject @ 0x14053D87C (BcdQueryObject.c)
+ *     BcdOpenObject @ 0x14053DA8C (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x14053DBA4 (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x14053E01C (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x14053E1DC (BcdGetElementDataWithFlags.c)
+ *     BcdCreateObject @ 0x1406D20DC (BcdCreateObject.c)
+ *     BcdDeleteObject @ 0x1406D216C (BcdDeleteObject.c)
+ *     BcdEnumerateObjects @ 0x1406D21C0 (BcdEnumerateObjects.c)
  * Callees:
- *     ZwWaitForSingleObject @ 0x140159D00 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenMutant @ 0x14015BF20 (ZwOpenMutant.c)
+ *     ZwWaitForSingleObject @ 0x14015A270 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenMutant @ 0x14015C490 (ZwOpenMutant.c)
  */
 
 NTSTATUS __fastcall BiAcquireBcdSyncMutant(char a1)

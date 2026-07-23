@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInitGenericErrorSourcePollingRoutine @ 0x140A920D4
+ * XREFs of HalpInitGenericErrorSourcePollingRoutine @ 0x140A91F54
  * Callers:
  *     HalpInitializeGenericErrorSource @ 0x140A8AE9C (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KeInitializeMutex @ 0x14033ADB0 (KeInitializeMutex.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KeInitializeMutex @ 0x14033B040 (KeInitializeMutex.c)
  */
 
 __int64 HalpInitGenericErrorSourcePollingRoutine()

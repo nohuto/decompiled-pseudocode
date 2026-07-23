@@ -6,14 +6,14 @@
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiCheckForTimerExpiration @ 0x1400605D0 (KiCheckForTimerExpiration.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
- *     KiCheckKeepAlive @ 0x1400ED9E8 (KiCheckKeepAlive.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     KdCheckForDebugBreak @ 0x140144678 (KdCheckForDebugBreak.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlInvokeHypervisorDebugger @ 0x140270E44 (HvlInvokeHypervisorDebugger.c)
- *     KiDpcWatchdogCaptureStack @ 0x14028D15C (KiDpcWatchdogCaptureStack.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D15A0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiCheckKeepAlive @ 0x1400EDA68 (KiCheckKeepAlive.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KdCheckForDebugBreak @ 0x140144778 (KdCheckForDebugBreak.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlInvokeHypervisorDebugger @ 0x140271034 (HvlInvokeHypervisorDebugger.c)
+ *     KiDpcWatchdogCaptureStack @ 0x14028D34C (KiDpcWatchdogCaptureStack.c)
  */
 
 __int64 __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, unsigned int a3, unsigned __int8 a4, char a5)

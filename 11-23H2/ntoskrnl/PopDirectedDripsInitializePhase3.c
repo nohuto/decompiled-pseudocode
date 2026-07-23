@@ -3,11 +3,11 @@
  * Callers:
  *     PopInitializeDirectedDrips @ 0x140B51F08 (PopInitializeDirectedDrips.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1407331A0 (ObReferenceObjectByHandleWithTag.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
- *     PopDirectedDripsQueryEnabledMitigations @ 0x14085990C (PopDirectedDripsQueryEnabledMitigations.c)
- *     PopDiagTraceDirectedDripsInitialization @ 0x140859A58 (PopDiagTraceDirectedDripsInitialization.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140733390 (ObReferenceObjectByHandleWithTag.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x140859B4C (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopDiagTraceDirectedDripsInitialization @ 0x140859C98 (PopDiagTraceDirectedDripsInitialization.c)
  *     PopDirectedDripsDiagInitialize @ 0x140B4EF98 (PopDirectedDripsDiagInitialize.c)
  */
 

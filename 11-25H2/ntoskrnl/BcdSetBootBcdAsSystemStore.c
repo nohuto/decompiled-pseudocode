@@ -26,7 +26,7 @@ __int64 BcdSetBootBcdAsSystemStore()
     {
       v0 = BiSetRegistryValue((__int64)v3, L"KeyName", 0LL, 1u, L"BCD00000000", 0x18u);
       if ( v0 >= 0 )
-        v0 = BcdSetSystemStore((__int64)v2);
+        v0 = BcdSetSystemStore(v2);
     }
     if ( v3 )
       BiCloseKey(v3);

@@ -1,105 +1,100 @@
 /*
- * XREFs of RtlValidateHeap @ 0x1800156C0
+ * XREFs of RtlValidateHeap @ 0x180060DF0
  * Callers:
- *     RtlValidateProcessHeapsCallback @ 0x1801446F0 (RtlValidateProcessHeapsCallback.c)
+ *     RtlValidateProcessHeapsCallback @ 0x1801445A0 (RtlValidateProcessHeapsCallback.c)
  * Callees:
- *     RtlpValidateHeap @ 0x180014EB8 (RtlpValidateHeap.c)
- *     RtlpValidateHeapEntry @ 0x180015970 (RtlpValidateHeapEntry.c)
- *     RtlUnlockHeap @ 0x180015DE0 (RtlUnlockHeap.c)
- *     RtlLockHeap @ 0x180015FD0 (RtlLockHeap.c)
- *     RtlNtStatusToDosErrorNoTeb @ 0x180019AA0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlpHpSizeHeap @ 0x18001A0F0 (RtlpHpSizeHeap.c)
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpBreakPointHeap @ 0x180027944 (RtlpBreakPointHeap.c)
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpHeapExceptionFilter @ 0x180100D78 (RtlpHeapExceptionFilter.c)
- *     RtlpLogHeapValidateEvent @ 0x180120B74 (RtlpLogHeapValidateEvent.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180004B80 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlpHpSizeHeap @ 0x1800051D0 (RtlpHpSizeHeap.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpBreakPointHeap @ 0x180012A14 (RtlpBreakPointHeap.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpValidateHeap @ 0x1800605E8 (RtlpValidateHeap.c)
+ *     RtlpValidateHeapEntry @ 0x1800610A0 (RtlpValidateHeapEntry.c)
+ *     RtlUnlockHeap @ 0x180061510 (RtlUnlockHeap.c)
+ *     RtlLockHeap @ 0x180061700 (RtlLockHeap.c)
+ *     RtlpHeapExceptionFilter @ 0x1801004C8 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapValidateEvent @ 0x180120924 (RtlpLogHeapValidateEvent.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlValidateHeap(__int64 a1, unsigned int a2, __int64 a3)
+BOOLEAN __cdecl RtlValidateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
   char v6; // di
-  unsigned __int8 v7; // si
+  BOOLEAN v7; // si
   int v8; // eax
-  __int64 v9; // rdx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rcx
-  __int64 v16; // r8
-  unsigned int v17; // edx
-  int v18; // r8d
-  unsigned int v19; // ecx
+  char *v9; // rdx
+  __int64 v10; // rcx
+  int v12; // r8d
+  ULONG v13; // edx
+  int v14; // r8d
+  ULONG v15; // ecx
 
   v6 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    if ( (a2 & 1) == 0 )
-      RtlLockHeap();
-    if ( a2 )
+    if ( (Flags & 1) == 0 )
+      RtlLockHeap(HeapHandle);
+    if ( Flags )
     {
-      if ( a2 == 8 )
+      if ( Flags == 8 )
       {
-        v16 = 2LL;
+        v12 = 2;
       }
       else
       {
-        v17 = (a2 >> 2) & 2 | 0x80000000;
-        if ( (a2 & 4) == 0 )
-          v17 = (a2 >> 2) & 2;
-        v18 = v17 | 0x100;
-        if ( (a2 & 0x100) == 0 )
-          v18 = v17;
-        v19 = a2 & 0xE00 | v18;
-        if ( (a2 & 0xE00) == 0 )
-          v19 = v18;
-        v16 = v19;
-        LODWORD(v16) = v19 | 0x10000000;
-        if ( (a2 & 0x10) == 0 )
-          v16 = v19;
+        v13 = (Flags >> 2) & 2 | 0x80000000;
+        if ( (Flags & 4) == 0 )
+          v13 = (Flags >> 2) & 2;
+        v14 = v13 | 0x100;
+        if ( (Flags & 0x100) == 0 )
+          v14 = v13;
+        v15 = Flags & 0xE00 | v14;
+        if ( (Flags & 0xE00) == 0 )
+          v15 = v14;
+        v12 = v15 | 0x10000000;
+        if ( (Flags & 0x10) == 0 )
+          v12 = v15;
       }
     }
     else
     {
-      v16 = 0LL;
+      v12 = 0;
     }
-    if ( a3 )
-      v7 = RtlpHpSizeHeap(a1, a3, v16) != -1;
+    if ( BaseAddress )
+      v7 = RtlpHpSizeHeap((__int64)HeapHandle, (unsigned __int64)BaseAddress, v12) != -1;
     else
       v7 = 1;
-    if ( (a2 & 1) == 0 )
-      RtlUnlockHeap(a1);
+    if ( (Flags & 1) == 0 )
+      RtlUnlockHeap(HeapHandle);
   }
   else
   {
     v7 = 0;
-    v8 = *(_DWORD *)(a1 + 116);
+    v8 = *((_DWORD *)HeapHandle + 29);
     if ( (v8 & 0x1000000) != 0 )
     {
-      v7 = ((__int64 (*)(void))qword_1801C55F8)();
+      v7 = ((__int64 (*)(void))qword_1801C45F8)();
     }
-    else if ( *(_DWORD *)(a1 + 152) == -285217025 )
+    else if ( *((_DWORD *)HeapHandle + 38) == -285217025 )
     {
-      if ( (((unsigned __int8)a2 | (unsigned __int8)v8) & 1) == 0 )
+      if ( (((unsigned __int8)Flags | (unsigned __int8)v8) & 1) == 0 )
       {
-        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
         v6 = 1;
       }
-      if ( a3 )
+      if ( BaseAddress )
       {
-        v9 = a3 - 16;
-        _m_prefetchw((const void *)(a3 - 16));
-        if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
-          v9 -= 16LL * *(unsigned __int8 *)(v9 + 14);
-        v7 = RtlpValidateHeapEntry(a1, v9, "RtlValidateHeap");
+        v9 = (char *)BaseAddress - 16;
+        _m_prefetchw((char *)BaseAddress - 16);
+        if ( *((char *)BaseAddress - 1) == 5 )
+          v9 -= 16 * (unsigned __int8)v9[14];
+        v7 = RtlpValidateHeapEntry(HeapHandle, v9, "RtlValidateHeap");
       }
       else
       {
-        v7 = RtlpValidateHeap(a1, 1);
+        v7 = RtlpValidateHeap((unsigned __int64)HeapHandle, 1);
       }
     }
     else
@@ -108,19 +103,19 @@ __int64 __fastcall RtlValidateHeap(__int64 a1, unsigned int a2, __int64 a3)
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      DbgPrint("Invalid heap signature for heap at %p", (const void *)a1);
+      DbgPrint("Invalid heap signature for heap at %p", HeapHandle);
       DbgPrint(", passed to %s", "RtlValidateHeap");
       DbgPrint("\n");
       RtlpBreakPointHeap();
     }
     if ( v6 )
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v11, v10, v12, v13) )
-      v14 = (__int64)NtCurrentPeb()->SharedData + 550;
+      RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
-      v14 = 2147353472LL;
-    if ( *(_BYTE *)v14 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapValidateEvent(a1);
+      v10 = 2147353472LL;
+    if ( *(_BYTE *)v10 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      RtlpLogHeapValidateEvent(HeapHandle);
   }
   return v7;
 }

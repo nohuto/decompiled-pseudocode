@@ -1,12 +1,12 @@
 /*
- * XREFs of PspDeleteObjectAccessState @ 0x14090A0DC
+ * XREFs of PspDeleteObjectAccessState @ 0x14090A23C
  * Callers:
- *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
+ *     PspInsertProcess @ 0x1406971A0 (PspInsertProcess.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x1407CE5D0 (PspCreateProcess.c)
  * Callees:
- *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SepDeleteAccessState @ 0x14026A600 (SepDeleteAccessState.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
  */
 
 void __fastcall PspDeleteObjectAccessState(struct _SECURITY_SUBJECT_CONTEXT *a1)

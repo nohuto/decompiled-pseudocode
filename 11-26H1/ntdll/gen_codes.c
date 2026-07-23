@@ -1,9 +1,9 @@
 /*
- * XREFs of gen_codes @ 0x18010D20C
+ * XREFs of gen_codes @ 0x18010CD5C
  * Callers:
- *     build_tree @ 0x18011EAD0 (build_tree.c)
+ *     build_tree @ 0x18011E880 (build_tree.c)
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall gen_codes(__int64 a1, int a2, __int64 a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpIsHiveLoadingOnOtherThread @ 0x1405D645C
+ * XREFs of CmpIsHiveLoadingOnOtherThread @ 0x1405D745C
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
+ *     CmpCreateKeyControlBlock @ 0x1405D6EB0 (CmpCreateKeyControlBlock.c)
  * Callees:
  *     <none>
  */

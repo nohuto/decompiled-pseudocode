@@ -14,8 +14,9 @@
 
 int __stdcall RtlpEnsureBufferSize(int a1, int a2, unsigned int a3)
 {
-  void *StringRoutine; // eax
-  void *v4; // ebx
+  PVOID StringRoutine; // eax
+  PVOID v4; // ebx
+  size_t v6; // [esp-4h] [ebp-10h]
 
   if ( (a1 & 0xFFFFFFFE) != 0 || !a2 )
     return -1073741811;
@@ -27,14 +28,17 @@ LABEL_12:
     *(_DWORD *)(a2 + 8) = a3;
     return 0;
   }
-  StringRoutine = (void *)NtdllpAllocateStringRoutine(a3);
+  StringRoutine = NtdllpAllocateStringRoutine(a3);
   v4 = StringRoutine;
   if ( StringRoutine )
   {
     if ( (a1 & 1) == 0 )
-      memcpy(StringRoutine, *(const void **)a2, *(_DWORD *)(a2 + 8));
+    {
+      LODWORD(v6) = *(_DWORD *)(a2 + 8);
+      memcpy(StringRoutine, *(const void **)a2, v6);
+    }
     if ( *(_DWORD *)a2 != *(_DWORD *)(a2 + 4) )
-      RtlDeleteBoundaryDescriptor(*(_DWORD *)a2);
+      RtlDeleteBoundaryDescriptor(*(POBJECT_BOUNDARY_DESCRIPTOR *)a2);
     *(_DWORD *)a2 = v4;
     goto LABEL_12;
   }

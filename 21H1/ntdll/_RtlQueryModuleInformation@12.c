@@ -22,17 +22,18 @@ signed int __stdcall RtlQueryModuleInformation(unsigned int *a1, int a2, int a3)
   _WORD *v11; // esi
   _WORD *v12; // edx
   _WORD *v13; // edi
+  SIZE_T v14; // [esp-4h] [ebp-154h]
   ULONG ReturnLength; // [esp+Ch] [ebp-144h] BYREF
-  _WORD *v15; // [esp+10h] [ebp-140h]
-  int v16; // [esp+14h] [ebp-13Ch]
-  unsigned int v17; // [esp+18h] [ebp-138h]
-  unsigned int *v18; // [esp+1Ch] [ebp-134h]
-  NTSTATUS v19; // [esp+20h] [ebp-130h]
-  unsigned int v20; // [esp+24h] [ebp-12Ch]
+  _WORD *v16; // [esp+10h] [ebp-140h]
+  int v17; // [esp+14h] [ebp-13Ch]
+  unsigned int v18; // [esp+18h] [ebp-138h]
+  unsigned int *v19; // [esp+1Ch] [ebp-134h]
+  NTSTATUS v20; // [esp+20h] [ebp-130h]
+  unsigned int v21; // [esp+24h] [ebp-12Ch]
   _BYTE SystemInformation[292]; // [esp+28h] [ebp-128h] BYREF
 
-  v18 = a1;
-  v16 = a3;
+  v19 = a1;
+  v17 = a3;
   if ( a2 != 4 )
   {
     if ( a2 != 268 )
@@ -55,30 +56,30 @@ LABEL_8:
     ReturnLength = 0;
     v6 = NtQuerySystemInformation(SystemModuleInformation, Heap, i, &ReturnLength);
     v7 = v6;
-    v19 = v6;
+    v20 = v6;
     if ( v6 < 0 && v6 != -1073741820 )
       break;
-    v8 = v16;
-    if ( !v16 )
+    v8 = v17;
+    if ( !v17 )
     {
       v9 = a2 * ((ReturnLength - 4) / 0x11C);
       v7 = 0;
 LABEL_28:
-      *v18 = v9;
+      *v19 = v9;
       break;
     }
     if ( v6 >= 0 )
     {
       v9 = a2 * *Heap;
-      v20 = v9;
-      if ( *v18 >= v9 )
+      v21 = v9;
+      if ( *v19 >= v9 )
       {
         v10 = 0;
-        v17 = 0;
+        v18 = 0;
         if ( *Heap )
         {
-          v11 = (_WORD *)(v16 + 8);
-          v15 = (_WORD *)(v16 + 8);
+          v11 = (_WORD *)(v17 + 8);
+          v16 = (_WORD *)(v17 + 8);
           v12 = (_WORD *)Heap + 15;
           do
           {
@@ -88,24 +89,24 @@ LABEL_28:
             }
             else
             {
-              v13 = v15;
+              v13 = v16;
               *((_DWORD *)v11 - 2) = *(_DWORD *)(v12 - 9);
               *((_DWORD *)v11 - 1) = *(_DWORD *)(v12 - 7);
               *v11 = *v12;
               qmemcpy(v13 + 1, v12 + 1, 0x100u);
-              v8 = v16;
-              v10 = v17;
-              v11 = v15;
+              v8 = v17;
+              v10 = v18;
+              v11 = v16;
             }
             ++v10;
             v11 += 134;
             v12 += 142;
-            v17 = v10;
-            v15 = v11;
+            v18 = v10;
+            v16 = v11;
           }
           while ( v10 < *Heap );
-          v7 = v19;
-          v9 = v20;
+          v7 = v20;
+          v9 = v21;
         }
       }
       else
@@ -115,12 +116,13 @@ LABEL_28:
       goto LABEL_28;
     }
     if ( Heap != (unsigned int *)SystemInformation )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-    Heap = (unsigned int *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, ReturnLength);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    LODWORD(v14) = ReturnLength;
+    Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v14);
     if ( !Heap )
       return -1073741670;
   }
   if ( Heap != (unsigned int *)SystemInformation )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v7;
 }

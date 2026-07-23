@@ -1,21 +1,21 @@
 /*
- * XREFs of VslpRecordBootRanges @ 0x140C67114
+ * XREFs of VslpRecordBootRanges @ 0x140C69290
  * Callers:
- *     VslConnectSwInterrupt @ 0x140C650B0 (VslConnectSwInterrupt.c)
+ *     VslConnectSwInterrupt @ 0x140C6722C (VslConnectSwInterrupt.c)
  * Callees:
- *     RtlPcToFileHeader @ 0x140452CF0 (RtlPcToFileHeader.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlPcToFileHeader @ 0x140447DA0 (RtlPcToFileHeader.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rbx
-  ULONG_PTR Pool2; // r14
+  __int64 Pool2; // r14
   unsigned __int64 i; // rsi
   unsigned __int64 v8; // rbp
   __int64 v9; // rdi
   _QWORD *v10; // r15
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = 0LL;
   if ( VslpHiberBootRanges )
@@ -35,7 +35,7 @@ __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
         if ( (*(_WORD *)(v9 + 16) == 4097 || *(_WORD *)(v9 + 16) == 4105)
           && *(_QWORD *)(v9 + 8)
           && (*(_BYTE *)(v9 + 18) & 1) == 0
-          && !RtlPcToFileHeader(*(_QWORD *)v9, &v11) )
+          && !RtlPcToFileHeader(*(PVOID *)v9, &BaseOfImage) )
         {
           if ( i == 1 )
           {

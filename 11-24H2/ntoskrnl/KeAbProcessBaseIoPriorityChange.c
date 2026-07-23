@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAbProcessBaseIoPriorityChange @ 0x140207C84
+ * XREFs of KeAbProcessBaseIoPriorityChange @ 0x14032F264
  * Callers:
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403EF8F4 (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403E2874 (PspNotifyProcessEffectiveIoLimitChanged.c)
  * Callees:
- *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1402097EC (KeAbProcessBaseIoPriorityChangeInternal.c)
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x140330DCC (KeAbProcessBaseIoPriorityChangeInternal.c)
  */
 
 __int64 __fastcall KeAbProcessBaseIoPriorityChange(__int64 a1, int a2, int a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpGetAvailableAttributesSet @ 0x1404CB044
+ * XREFs of AlpcpGetAvailableAttributesSet @ 0x1404B0A70
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x14044B990 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessagePort @ 0x14044CD70 (AlpcpReceiveMessagePort.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14044A860 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessagePort @ 0x14044BC40 (AlpcpReceiveMessagePort.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindLastBackwardRunClearEx @ 0x1404B37C4
+ * XREFs of RtlFindLastBackwardRunClearEx @ 0x1404ACD90
  * Callers:
- *     MiReduceMappedFileReadAhead @ 0x1404B3720 (MiReduceMappedFileReadAhead.c)
+ *     MiReduceMappedFileReadAhead @ 0x1404ACCEC (MiReduceMappedFileReadAhead.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ unsigned __int64 __fastcall RtlFindLastBackwardRunClearEx(
   {
     v4 = (const signed __int64 *)a1[1];
     i = (const signed __int64 *)((char *)v4 + 4 * (a2 >> 5));
-    if ( i != v4 && (*(_DWORD *)i | ~*((_DWORD *)qword_140019C60 + (a2 & 0x1F) + 1)) == 0xFFFFFFFF )
+    if ( i != v4 && (*(_DWORD *)i | ~*((_DWORD *)qword_1400195D0 + (a2 & 0x1F) + 1)) == 0xFFFFFFFF )
     {
       a2 = (a2 & 0xFFFFFFFFFFFFFFE0uLL) - 1;
       for ( i = (const signed __int64 *)((char *)i - 4);
@@ -38,7 +38,7 @@ unsigned __int64 __fastcall RtlFindLastBackwardRunClearEx(
     while ( a2 != -1LL && _bittest64(v4, a2) == 1 )
       --a2;
     v6 = a2;
-    if ( (*((_DWORD *)qword_140019C60 + (a2 & 0x1F)) & *(_DWORD *)i) == 0 )
+    if ( (*((_DWORD *)qword_1400195D0 + (a2 & 0x1F)) & *(_DWORD *)i) == 0 )
     {
       v6 = (a2 & 0xFFFFFFFFFFFFFFE0uLL) - 1;
       for ( j = (const signed __int64 *)((char *)i - 4);

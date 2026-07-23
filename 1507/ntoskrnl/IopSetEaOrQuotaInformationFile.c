@@ -53,7 +53,7 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(HANDLE Handle, ULONG64 a2, cha
   __int64 v25; // r12
   PDEVICE_OBJECT v26; // rdi
   ULONG Flags; // eax
-  struct _FILE_QUOTA_INFORMATION *PoolWithQuotaTag; // rdi
+  _FILE_QUOTA_INFORMATION *PoolWithQuotaTag; // rdi
   int v29; // eax
   _DWORD *v30; // rdx
   struct _MDL *Mdl; // rcx
@@ -211,17 +211,17 @@ LABEL_33:
       v36 = 0;
       if ( ViVerifierDriverAddedThunkListHead )
       {
-        PoolWithQuotaTag = (struct _FILE_QUOTA_INFORMATION *)ExAllocatePoolWithTagPriority(
-                                                               NonPagedPoolNx,
-                                                               v4,
-                                                               0x20206F49u,
-                                                               (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
+        PoolWithQuotaTag = (_FILE_QUOTA_INFORMATION *)ExAllocatePoolWithTagPriority(
+                                                        NonPagedPoolNx,
+                                                        v4,
+                                                        0x20206F49u,
+                                                        (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
         if ( !PoolWithQuotaTag )
           RtlRaiseStatus(-1073741670);
       }
       else
       {
-        PoolWithQuotaTag = (struct _FILE_QUOTA_INFORMATION *)ExAllocatePoolWithQuotaTag(NonPagedPoolNx, v4, 0x20206F49u);
+        PoolWithQuotaTag = (_FILE_QUOTA_INFORMATION *)ExAllocatePoolWithQuotaTag(NonPagedPoolNx, v4, 0x20206F49u);
       }
       v24->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuotaTag;
       memmove(PoolWithQuotaTag, a3, v4);

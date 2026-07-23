@@ -14,21 +14,21 @@ char LdrpPayloadRestrictionMitigationsEnabled()
   char v2; // al
 
   v0 = 0;
-  if ( (((unsigned __int64)qword_1801993A8 >> 20) & 3) == 1
-    || (BYTE2(qword_1801993A8) & 3) == 1
-    || (BYTE3(qword_1801993A8) & 3) == 1
-    || (((unsigned __int64)qword_1801993A8 >> 28) & 3) == 1
-    || (BYTE4(qword_1801993A8) & 3) == 1
-    || (v1 = 0, (BYTE5(qword_1801993A8) & 3) == 1) )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 20) & 3) == 1
+    || (BYTE2(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1
+    || (BYTE3(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1
+    || ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 28) & 3) == 1
+    || (BYTE4(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1
+    || (v1 = 0, (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]) & 3) == 1) )
   {
     v1 = 1;
   }
-  if ( (((unsigned __int64)qword_1801993E0 >> 20) & 3) == 1
-    || (BYTE2(qword_1801993E0) & 3) == 1
-    || (BYTE3(qword_1801993E0) & 3) == 1
-    || (((unsigned __int64)qword_1801993E0 >> 28) & 3) == 1
-    || (BYTE4(qword_1801993E0) & 3) == 1
-    || (v2 = 0, (BYTE5(qword_1801993E0) & 3) == 1) )
+  if ( ((LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1] >> 20) & 3) == 1
+    || (BYTE2(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1
+    || (BYTE3(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1
+    || ((LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1] >> 28) & 3) == 1
+    || (BYTE4(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1
+    || (v2 = 0, (BYTE5(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[1]) & 3) == 1) )
   {
     v2 = 1;
   }

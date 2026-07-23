@@ -21,9 +21,9 @@ __int64 MmStoreRegister()
   ULONG v0; // ebx
   char *StartContext; // rdi
   NTSTATUS v2; // esi
-  struct _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *PoolWithTag; // rax
   HANDLE v4; // r14
-  struct _RTL_BITMAP *v5; // rsi
+  _RTL_BITMAP *v5; // rsi
   unsigned __int64 v6; // r9
   __int64 *v7; // rdx
   __int64 v8; // r8
@@ -56,11 +56,10 @@ __int64 MmStoreRegister()
   }
   else
   {
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                          NonPagedPoolNx,
-                                          8 * (((dword_1403D00F8 & 0x3F) != 0) + ((unsigned int)dword_1403D00F8 >> 6))
-                                        + 16,
-                                          0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                   NonPagedPoolNx,
+                                   8 * (((dword_1403D00F8 & 0x3F) != 0) + ((unsigned int)dword_1403D00F8 >> 6)) + 16,
+                                   0x20206D4Du);
     v4 = ThreadHandle;
     v5 = PoolWithTag;
     if ( PoolWithTag )

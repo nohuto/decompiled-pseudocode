@@ -23,7 +23,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   unsigned int v6; // ebx
   _DWORD *PoolWithTag; // rdi
   unsigned __int64 v8; // r14
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v10; // rcx
   __int64 v11; // r8
   __int64 v12; // r9
@@ -37,7 +37,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   bool v20; // zf
   struct _EVENT_DATA_DESCRIPTOR v21; // xmm0
   int v22; // [rsp+40h] [rbp-19h] BYREF
-  LARGE_INTEGER v23; // [rsp+48h] [rbp-11h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-11h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-9h] BYREF
   int *v25; // [rsp+60h] [rbp+7h]
   int v26; // [rsp+68h] [rbp+Fh]
@@ -46,7 +46,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   int v29; // [rsp+78h] [rbp+1Fh]
   int v30; // [rsp+7Ch] [rbp+23h]
 
-  v23.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( PpmEtwRegistered )
   {
     if ( EtwEventEnabled(PpmEtwHandle, EventDescriptor) )
@@ -60,7 +60,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
           if ( PoolWithTag )
           {
             v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-            InterruptTimePrecise = RtlGetInterruptTimePrecise(&v23);
+            InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
             v10 = 0LL;
             v22 = 0;
             v11 = 0LL;
@@ -76,7 +76,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
                 *(_QWORD *)&PoolWithTag[5 * v22 + 3] = *(_QWORD *)(v11 + v13 + 40);
                 v15 = *(_QWORD *)(v11 + v13 + 32);
                 if ( v15 )
-                  *(_QWORD *)&PoolWithTag[5 * v22 + 3] += InterruptTimePrecise - v15;
+                  *(_QWORD *)&PoolWithTag[5 * v22 + 3] += InterruptTimePrecise.QuadPart - v15;
                 v10 = (unsigned int)++v22;
               }
               v11 += 64LL;

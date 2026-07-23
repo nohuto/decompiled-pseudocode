@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpInitializeLoadedDifferencingHives @ 0x1405512E8
+ * XREFs of VrpInitializeLoadedDifferencingHives @ 0x140551828
  * Callers:
- *     VRegSetup @ 0x140551650 (VRegSetup.c)
+ *     VRegSetup @ 0x140551B90 (VRegSetup.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -21,8 +21,8 @@ __int64 VrpInitializeLoadedDifferencingHives()
   if ( PoolWithTag )
   {
     gLoadedDiffHives = 0;
-    qword_1403225A8 = (__int64)PoolWithTag;
-    dword_1403225A4 = 1024;
+    qword_1403225C8 = (__int64)PoolWithTag;
+    dword_1403225C4 = 1024;
     v3 = 0LL;
     v4 = 32LL;
     if ( PoolWithTag >= PoolWithTag + 256 )

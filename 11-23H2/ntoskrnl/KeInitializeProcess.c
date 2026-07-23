@@ -1,19 +1,19 @@
 /*
- * XREFs of KeInitializeProcess @ 0x1406B66E8
+ * XREFs of KeInitializeProcess @ 0x1406B6898
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  *     KiInitializeIdleProcess @ 0x140B5EA40 (KiInitializeIdleProcess.c)
  * Callees:
  *     ExSaAllocate @ 0x14022363C (ExSaAllocate.c)
  *     KiComputeGroupMask @ 0x140223B08 (KiComputeGroupMask.c)
  *     KeSetGroupMaskProcess @ 0x140223B44 (KeSetGroupMaskProcess.c)
  *     KiSetIdealNodeProcessByGroup @ 0x140223B54 (KiSetIdealNodeProcessByGroup.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
- *     KeSelectNodeForAffinity @ 0x1403B54B8 (KeSelectNodeForAffinity.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VslCreateSecureProcess @ 0x140941B50 (VslCreateSecureProcess.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
+ *     KeSelectNodeForAffinity @ 0x1403B5698 (KeSelectNodeForAffinity.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VslCreateSecureProcess @ 0x140941D50 (VslCreateSecureProcess.c)
  */
 
 __int64 __fastcall KeInitializeProcess(

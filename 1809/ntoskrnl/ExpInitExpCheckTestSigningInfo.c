@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpInitExpCheckTestSigningInfo @ 0x140169F70
+ * XREFs of ExpInitExpCheckTestSigningInfo @ 0x14016A070
  * Callers:
  *     <none>
  * Callees:
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
  */
 
 __int64 __fastcall ExpInitExpCheckTestSigningInfo(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
@@ -14,7 +14,7 @@ __int64 __fastcall ExpInitExpCheckTestSigningInfo(PRTL_RUN_ONCE a1, PVOID a2, PV
   ULONG v7; // [rsp+58h] [rbp+20h] BYREF
 
   v6 = 8LL;
-  v3 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v6, 8u, &v7);
+  v3 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v6, 8u, &v7);
   v4 = 0;
   if ( v3 >= 0 )
   {

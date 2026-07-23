@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitAnsiStringEx @ 0x1404ED1B0
+ * XREFs of RtlInitAnsiStringEx @ 0x1404E6790
  * Callers:
- *     RtlInitUTF8StringEx @ 0x140617E50 (RtlInitUTF8StringEx.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x140801910 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     RtlInitUTF8StringEx @ 0x14061AEA0 (RtlInitUTF8StringEx.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x1408073B0 (RtlCreateUnicodeStringFromAsciiz.c)
  * Callees:
- *     strlen @ 0x14073DD10 (strlen.c)
+ *     strlen @ 0x140742910 (strlen.c)
  */
 
 NTSTATUS __stdcall RtlInitAnsiStringEx(PANSI_STRING DestinationString, PCSZ SourceString)

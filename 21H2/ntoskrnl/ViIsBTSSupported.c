@@ -1,12 +1,12 @@
 /*
- * XREFs of ViIsBTSSupported @ 0x1409D8628
+ * XREFs of ViIsBTSSupported @ 0x1409D9628
  * Callers:
- *     VfInitializeBranchTracing @ 0x1409D8394 (VfInitializeBranchTracing.c)
+ *     VfInitializeBranchTracing @ 0x1409D9394 (VfInitializeBranchTracing.c)
  * Callees:
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 ViIsBTSSupported()
@@ -17,8 +17,8 @@ __int64 ViIsBTSSupported()
   unsigned __int64 FeatureBits; // rcx
   char CpuType; // al
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   v1 = 0LL;

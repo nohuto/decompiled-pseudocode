@@ -17,12 +17,12 @@ int __fastcall RtlpFlsFree(int a1, unsigned int a2)
 {
   unsigned int v2; // eax
   int v3; // ecx
-  int v4; // eax
+  PRTL_SRWLOCK v4; // eax
   int v5; // ebx
   bool v6; // zf
-  int v7; // ebx
-  int v8; // eax
-  int v9; // edi
+  _RTL_SRWLOCK *v7; // ebx
+  unsigned int Value; // eax
+  unsigned int v9; // edi
   int v10; // esi
   int *v11; // ebx
   unsigned int v12; // ecx
@@ -33,8 +33,8 @@ int __fastcall RtlpFlsFree(int a1, unsigned int a2)
   unsigned int v18; // [esp+10h] [ebp-A0h]
   unsigned int v19; // [esp+14h] [ebp-9Ch]
   int v20; // [esp+18h] [ebp-98h]
-  int v21; // [esp+20h] [ebp-90h]
-  int v22; // [esp+24h] [ebp-8Ch]
+  unsigned int v21; // [esp+20h] [ebp-90h]
+  PRTL_SRWLOCK SRWLock; // [esp+24h] [ebp-8Ch]
   _DWORD v23[33]; // [esp+28h] [ebp-88h]
 
   if ( !a2 )
@@ -44,26 +44,26 @@ int __fastcall RtlpFlsFree(int a1, unsigned int a2)
   _BitScanReverse(&v2, a2 + 16);
   v19 = a2 + 16;
   v3 = (a2 + 16) ^ (1 << v2);
-  v4 = dword_4B3A66C4[v2];
+  v4 = (&dword_4B3A66C4)[v2];
   if ( !v4 )
     return -1073741811;
   v5 = 8 * v3 + 4;
-  v6 = v4 + v5 == 0;
-  v7 = v4 + v5;
-  v22 = v7;
+  v6 = (PRTL_SRWLOCK)((char *)v4 + v5) == 0;
+  v7 = (PRTL_SRWLOCK)((char *)v4 + v5);
+  SRWLock = v7;
   if ( v6 )
     return -1073741811;
-  v8 = *(_DWORD *)(v7 + 4);
-  if ( !v8 )
+  Value = v7[1].Value;
+  if ( !Value )
     return -1073741811;
-  v9 = v8 != -1 ? v8 : 0;
+  v9 = Value != -1 ? Value : 0;
   v21 = v9;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)v7);
+  RtlAcquireSRWLockExclusive(v7);
   v10 = 0;
   while ( 1 )
   {
     v18 = 0;
-    RtlAcquireSRWLockShared((volatile signed __int32 *)&RtlpFlsContext);
+    RtlAcquireSRWLockShared(&RtlpFlsContext);
     v11 = (int *)dword_4B3A66F4;
     if ( (int *)dword_4B3A66F4 != &dword_4B3A66F4 )
     {
@@ -96,18 +96,18 @@ LABEL_14:
       }
       while ( v11 != &dword_4B3A66F4 );
     }
-    RtlReleaseSRWLockShared((volatile signed __int32 *)&RtlpFlsContext);
+    RtlReleaseSRWLockShared(&RtlpFlsContext);
     if ( !v18 )
       break;
     for ( i = 0; i < v18; ++i )
       ((void (__thiscall *)(_DWORD, _DWORD))v23[2 * i])(v23[2 * i], v23[2 * i + 1]);
     v9 = v21;
   }
-  *(_DWORD *)(v22 + 4) = -2;
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)v22);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
-  *(_DWORD *)(v22 + 4) = 0;
+  SRWLock[1].Value = -2;
+  RtlReleaseSRWLockExclusive(SRWLock);
+  RtlAcquireSRWLockExclusive(&RtlpFlsContext);
+  SRWLock[1].Value = 0;
   RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree(dword_4B3A66D4);
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+  RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   return v10;
 }

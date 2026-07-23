@@ -1,17 +1,17 @@
 /*
- * XREFs of KeAreAllApcsDisabled @ 0x14025AC80
+ * XREFs of KeAreAllApcsDisabled @ 0x14027C1F0
  * Callers:
- *     EtwpTraceImageUnloadApc @ 0x1402BD930 (EtwpTraceImageUnloadApc.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x1402EE838 (PnpIsSafeToExamineUserModeTeb.c)
- *     sub_1403DDE50 @ 0x1403DDE50 (sub_1403DDE50.c)
- *     IopCopyCompleteReadIrp @ 0x1403F16B0 (IopCopyCompleteReadIrp.c)
- *     EtwpEnumerateAddressSpace @ 0x14061A45C (EtwpEnumerateAddressSpace.c)
- *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
- *     PerfLogImageUnload @ 0x140629C50 (PerfLogImageUnload.c)
- *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
- *     ViZwCheckApcRequirement @ 0x1409EC7F4 (ViZwCheckApcRequirement.c)
+ *     EtwpTraceImageUnloadApc @ 0x14023BF70 (EtwpTraceImageUnloadApc.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x1402F9588 (PnpIsSafeToExamineUserModeTeb.c)
+ *     sub_1403DDFC0 @ 0x1403DDFC0 (sub_1403DDFC0.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F1580 (IopCopyCompleteReadIrp.c)
+ *     MmFlushVirtualMemory @ 0x1405E85C4 (MmFlushVirtualMemory.c)
+ *     PerfLogImageUnload @ 0x1405FE2D4 (PerfLogImageUnload.c)
+ *     EtwpEnumerateAddressSpace @ 0x1406840BC (EtwpEnumerateAddressSpace.c)
+ *     PsCallImageNotifyRoutines @ 0x140684E90 (PsCallImageNotifyRoutines.c)
+ *     ViZwCheckApcRequirement @ 0x1409ED7F4 (ViZwCheckApcRequirement.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
  */
 
 BOOLEAN KeAreAllApcsDisabled(void)

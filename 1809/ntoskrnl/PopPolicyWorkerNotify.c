@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPolicyWorkerNotify @ 0x1405B01A0
+ * XREFs of PopPolicyWorkerNotify @ 0x1405B11A0
  * Callers:
- *     PopPolicyWorkerThread @ 0x1401305A0 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x140130670 (PopPolicyWorkerThread.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 PopPolicyWorkerNotify()
@@ -23,7 +23,7 @@ __int64 PopPolicyWorkerNotify()
     {
       _BitScanForward(&v0, v1);
       v1 &= ~(1 << v0);
-      v2 = &PopNotifyWork + 2 * v0;
+      v2 = &PopNotifyWork[2 * v0];
       if ( *v2 )
       {
         ((void (__fastcall *)(_QWORD))*v2)(*((unsigned int *)v2 + 2));

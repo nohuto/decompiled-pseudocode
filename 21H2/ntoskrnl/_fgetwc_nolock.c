@@ -1,12 +1,12 @@
 /*
- * XREFs of _fgetwc_nolock @ 0x1403DB880
+ * XREFs of _fgetwc_nolock @ 0x1403DB9F0
  * Callers:
- *     ReadString_0 @ 0x1403DA938 (ReadString_0.c)
- *     _whiteout @ 0x1403DADB0 (_whiteout.c)
- *     _winput_s @ 0x1403DAE08 (_winput_s.c)
+ *     ReadString_0 @ 0x1403DAAA8 (ReadString_0.c)
+ *     _whiteout @ 0x1403DAF20 (_whiteout.c)
+ *     _winput_s @ 0x1403DAF78 (_winput_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
- *     _filwbuf_s @ 0x1403DB974 (_filwbuf_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
+ *     _filwbuf_s @ 0x1403DBAE4 (_filwbuf_s.c)
  */
 
 wint_t __cdecl fgetwc_nolock(FILE *File)

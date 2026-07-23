@@ -1,8 +1,8 @@
 /*
- * XREFs of BgpFwFreeMemory @ 0x14012968C
+ * XREFs of BgpFwFreeMemory @ 0x140129BFC
  * Callers:
- *     RaspFreeMemory @ 0x140129678 (RaspFreeMemory.c)
- *     BgpFwQueryBootGraphicsInformation @ 0x140129AF0 (BgpFwQueryBootGraphicsInformation.c)
+ *     RaspFreeMemory @ 0x140129BE8 (RaspFreeMemory.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14012A060 (BgpFwQueryBootGraphicsInformation.c)
  *     ResFwBackgroundTransition @ 0x140725ACC (ResFwBackgroundTransition.c)
  *     ResFwpPageInBackground @ 0x140725B0C (ResFwpPageInBackground.c)
  *     BgpFwLibraryInitialize @ 0x140725E8C (BgpFwLibraryInitialize.c)
@@ -28,9 +28,9 @@
  *     FopValidateFontNameTable @ 0x1407D49E4 (FopValidateFontNameTable.c)
  *     FopReadNamingTable @ 0x1407D4B64 (FopReadNamingTable.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -50,7 +50,7 @@ void __fastcall BgpFwFreeMemory(__int64 a1)
   v2 = *(_DWORD *)(a1 - 24);
   if ( v2 == 1262700354 )
   {
-    v8 = v1 - qword_140328B38 - 8;
+    v8 = v1 - qword_140328B78 - 8;
     RtlClearBits(&BitMapHeader, v8, *(_DWORD *)(v1 + 8));
     if ( v8 < HintIndex )
       HintIndex = v8;

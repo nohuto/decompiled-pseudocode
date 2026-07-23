@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInitializeNewPfns @ 0x14066BBD4
+ * XREFs of MiInitializeNewPfns @ 0x14066CDA4
  * Callers:
- *     MiDoGangAssignment @ 0x1403A8984 (MiDoGangAssignment.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiCreateDescriptorPfns @ 0x140C50FF4 (MiCreateDescriptorPfns.c)
+ *     MiDoGangAssignment @ 0x14026FEE4 (MiDoGangAssignment.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiCreateDescriptorPfns @ 0x140C53184 (MiCreateDescriptorPfns.c)
  * Callees:
- *     MiSetNonResidentPteHeat @ 0x140224A40 (MiSetNonResidentPteHeat.c)
- *     MiSwizzleInvalidPte @ 0x14022A3B0 (MiSwizzleInvalidPte.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiMakeTransitionPte @ 0x1402E67B0 (MiMakeTransitionPte.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiGetContainingPageTable @ 0x1402ECE30 (MiGetContainingPageTable.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiCreateInitialLargeLeafPfns @ 0x14043CFC8 (MiCreateInitialLargeLeafPfns.c)
- *     MiDetermineNewPfnHeatState @ 0x140451C6C (MiDetermineNewPfnHeatState.c)
- *     MiCreateInitialPfns @ 0x14066C460 (MiCreateInitialPfns.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiSetNonResidentPteHeat @ 0x140251DF0 (MiSetNonResidentPteHeat.c)
+ *     MiSwizzleInvalidPte @ 0x1402FD620 (MiSwizzleInvalidPte.c)
+ *     MiMakeTransitionPte @ 0x140347DF0 (MiMakeTransitionPte.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiGetContainingPageTable @ 0x14034E470 (MiGetContainingPageTable.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiCreateInitialLargeLeafPfns @ 0x140431268 (MiCreateInitialLargeLeafPfns.c)
+ *     MiDetermineNewPfnHeatState @ 0x140446D1C (MiDetermineNewPfnHeatState.c)
+ *     MiCreateInitialPfns @ 0x14066D630 (MiCreateInitialPfns.c)
  */
 
 unsigned __int64 __fastcall MiInitializeNewPfns(
@@ -67,7 +67,7 @@ unsigned __int64 __fastcall MiInitializeNewPfns(
   {
     _InterlockedAdd64((volatile signed __int64 *)(a4 + 19648), a2);
     if ( (v10 & 0x100) != 0 )
-      _InterlockedAdd64(&qword_140E2DBE8, a2);
+      _InterlockedAdd64(&qword_140E2DD28, a2);
   }
   if ( (v10 & 2) == 0 )
     return MiCreateInitialPfns(a1, a2, a3);
@@ -115,7 +115,7 @@ unsigned __int64 __fastcall MiInitializeNewPfns(
         && (v21 & 0x20) == 0
         && (unsigned __int64)v16 >= 0xFFFFF6C000000000uLL )
       {
-        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v16, v21, 128);
+        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v16, v21, 128LL);
         v23 = v31;
       }
       *v16++ = v21;

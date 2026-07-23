@@ -1,35 +1,35 @@
 /*
- * XREFs of MiFreeInitializationCode @ 0x140703AFC
+ * XREFs of MiFreeInitializationCode @ 0x140703D0C
  * Callers:
- *     MiFreeDriverInitialization @ 0x1407034D4 (MiFreeDriverInitialization.c)
+ *     MiFreeDriverInitialization @ 0x1407036E4 (MiFreeDriverInitialization.c)
  *     MiFreeKernelPadSections @ 0x140B67E1C (MiFreeKernelPadSections.c)
  *     MmDiscardDriverSection @ 0x140B74914 (MmDiscardDriverSection.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     MiGetControlAreaPartition @ 0x1402756B0 (MiGetControlAreaPartition.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlSetBitsEx @ 0x14028B3C0 (RtlSetBitsEx.c)
- *     MiUnlockLoaderEntry @ 0x1402920D8 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x140292164 (MiLockLoaderEntry.c)
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
- *     MiVaToPfnEx @ 0x14038A270 (MiVaToPfnEx.c)
- *     MiFreeLargeInitializationCodePages @ 0x1403953EC (MiFreeLargeInitializationCodePages.c)
- *     KeReservePrivilegedPages @ 0x1403D70F0 (KeReservePrivilegedPages.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiBadRefCount @ 0x14064D640 (MiBadRefCount.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     MiGetControlAreaPartition @ 0x140275940 (MiGetControlAreaPartition.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlSetBitsEx @ 0x14028B650 (RtlSetBitsEx.c)
+ *     MiUnlockLoaderEntry @ 0x140292368 (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402923F4 (MiLockLoaderEntry.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
+ *     MiVaToPfnEx @ 0x14038A450 (MiVaToPfnEx.c)
+ *     MiFreeLargeInitializationCodePages @ 0x1403955CC (MiFreeLargeInitializationCodePages.c)
+ *     KeReservePrivilegedPages @ 0x1403D72D0 (KeReservePrivilegedPages.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiBadRefCount @ 0x14064DB90 (MiBadRefCount.c)
  *     MiFreeBootDriverPages @ 0x140B47054 (MiFreeBootDriverPages.c)
  */
 
-__int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4)
+__int64 __fastcall MiFreeInitializationCode(_QWORD *a1, unsigned __int64 a2, __int64 a3, int a4)
 {
-  unsigned __int64 v6; // rdi
+  PVOID v6; // rdi
   __int64 v7; // rsi
-  unsigned __int64 v8; // r14
+  _QWORD *v8; // r14
   unsigned __int64 v9; // r15
   ULONG_PTR v10; // rbx
   __int64 v11; // r12
@@ -64,14 +64,14 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int6
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 48);
-    v7 = a1 + 160;
+    v6 = (PVOID)a1[6];
+    v7 = (__int64)(a1 + 20);
     v8 = a1;
   }
   v9 = (__int64)(a2 << 25) >> 16;
   BugCheckParameter3 = ((__int64)(a3 - a2) >> 3) + 1;
   v10 = BugCheckParameter3;
-  v11 = (__int64)(a2 - MiGetPteAddress(v6)) >> 3;
+  v11 = (__int64)(a2 - MiGetPteAddress((unsigned __int64)v6)) >> 3;
   if ( !a4 )
   {
     MiLockLoaderEntry(v7, 0);
@@ -80,7 +80,7 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int6
   }
   v12 = 0LL;
   v13 = &qword_140C65918;
-  while ( *(_QWORD *)(*v13 + 48) != v6 )
+  while ( *(PVOID *)(*v13 + 48) != v6 )
   {
     v12 = (unsigned int)(v12 + 1);
     ++v13;
@@ -119,7 +119,7 @@ LABEL_8:
   }
   else if ( a4 )
   {
-    MiFreeBootDriverPages(v6, a2, BugCheckParameter3, 1, 0LL);
+    MiFreeBootDriverPages((_DWORD)v6, a2, BugCheckParameter3, 1, 0LL);
     ControlAreaPartition = MiSystemPartition;
     if ( v6 == PsNtosImageBase )
       MxKernelFreedGapCharges += BugCheckParameter3;
@@ -128,7 +128,7 @@ LABEL_8:
   }
   else
   {
-    v14 = *(_QWORD *)(v8 + 112);
+    v14 = v8[14];
     if ( v14 )
     {
       v15 = MiSectionControlArea(v14);

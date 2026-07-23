@@ -16,7 +16,7 @@ _BOOL8 __fastcall CmFcpManagerArmFeatureUsageRetryTimer(__int64 a1)
   {
     v3[0] = 0LL;
     v3[1] = -1LL;
-    result = ExSetTimer(*(_QWORD *)(a1 + 488), -600000000LL, 0LL, v3);
+    result = ExSetTimer(*(_QWORD *)(a1 + 488), -600000000LL, 0LL, (__int64)v3);
     *(_BYTE *)(a1 + 337) = 1;
   }
   return result;

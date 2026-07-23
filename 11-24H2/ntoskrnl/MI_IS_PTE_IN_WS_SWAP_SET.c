@@ -1,12 +1,12 @@
 /*
- * XREFs of MI_IS_PTE_IN_WS_SWAP_SET @ 0x14036C05C
+ * XREFs of MI_IS_PTE_IN_WS_SWAP_SET @ 0x1402EDDFC
  * Callers:
- *     MiDecommitHandleTransitionPte @ 0x140286C5C (MiDecommitHandleTransitionPte.c)
- *     MiReservePageFileSpace @ 0x140368314 (MiReservePageFileSpace.c)
- *     MiAddToReservationCluster @ 0x14036A110 (MiAddToReservationCluster.c)
- *     MiAbandonPrivatePfn @ 0x14036D268 (MiAbandonPrivatePfn.c)
+ *     MiReservePageFileSpace @ 0x140202948 (MiReservePageFileSpace.c)
+ *     MiAbandonPrivatePfn @ 0x140269D68 (MiAbandonPrivatePfn.c)
+ *     MiDecommitHandleTransitionPte @ 0x14029685C (MiDecommitHandleTransitionPte.c)
+ *     MiAddToReservationCluster @ 0x1402EBEB0 (MiAddToReservationCluster.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 _BOOL8 __fastcall MI_IS_PTE_IN_WS_SWAP_SET(__int64 a1, unsigned __int64 a2)

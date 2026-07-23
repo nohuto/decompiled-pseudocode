@@ -47,13 +47,13 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-D8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-A8h] BYREF
   int Data; // [rsp+A0h] [rbp-98h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
   __int64 v25; // [rsp+B8h] [rbp-80h]
   UNICODE_STRING v26; // [rsp+C0h] [rbp-78h] BYREF
   UNICODE_STRING v27; // [rsp+D0h] [rbp-68h] BYREF
   __int64 v28; // [rsp+E0h] [rbp-58h] BYREF
   int v29; // [rsp+E8h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
 
   v1 = 0LL;
   v25 = a1;

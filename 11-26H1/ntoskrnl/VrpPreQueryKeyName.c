@@ -1,16 +1,16 @@
 /*
- * XREFs of VrpPreQueryKeyName @ 0x140AA9B60
+ * XREFs of VrpPreQueryKeyName @ 0x140AA5E64
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     EtwWriteTransfer @ 0x140212F30 (EtwWriteTransfer.c)
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
+ *     EtwWriteTransfer @ 0x140213010 (EtwWriteTransfer.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
  */
 
 __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
   EVENT_DESCRIPTOR EventDescriptor; // [rsp+48h] [rbp-B0h] BYREF
   GUID ActivityId; // [rsp+60h] [rbp-98h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-88h] BYREF
-  __int64 *v25; // [rsp+80h] [rbp-78h]
+  __int16 *v25; // [rsp+80h] [rbp-78h]
   int v26; // [rsp+88h] [rbp-70h]
   int v27; // [rsp+8Ch] [rbp-6Ch]
   int *v28; // [rsp+90h] [rbp-68h]
@@ -69,7 +69,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     UserData.Ptr = (ULONGLONG)off_140E0A5C8;
     UserData.Size = *(unsigned __int16 *)off_140E0A5C8;
     UserData.Reserved = 2;
-    v25 = (__int64 *)byte_14005AB71;
+    v25 = (__int16 *)byte_14005B903;
     v26 = 35;
     v27 = 1;
     LODWORD(v20) = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
@@ -140,7 +140,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     UserData.Ptr = (ULONGLONG)off_140E0A5C8;
     UserData.Size = *(unsigned __int16 *)off_140E0A5C8;
     UserData.Reserved = 2;
-    v25 = qword_14005A848;
+    v25 = word_14005BA8A;
     v26 = 51;
     v27 = 1;
     LODWORD(v20) = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;

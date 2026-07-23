@@ -1,17 +1,17 @@
 /*
- * XREFs of HvCheckHive @ 0x140513594
+ * XREFs of HvCheckHive @ 0x1404F6984
  * Callers:
- *     CmCheckRegistry @ 0x140480374 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x14047F0C8 (CmCheckRegistry.c)
  * Callees:
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     HvCheckBin @ 0x14042EFC0 (HvCheckBin.c)
- *     HvMoveLayoutStats @ 0x14042FA6C (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x1404E91F0 (HvAddToLayoutStats.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     HvCheckBin @ 0x14042DE90 (HvCheckBin.c)
+ *     HvMoveLayoutStats @ 0x14042E93C (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1404CB2E0 (HvAddToLayoutStats.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
  */
 
 __int64 HvCheckHive(__int64 a1, ...)
@@ -37,14 +37,14 @@ __int64 HvCheckHive(__int64 a1, ...)
   _DWORD v20[22]; // [rsp+30h] [rbp-58h] BYREF
   __int64 v22; // [rsp+98h] [rbp+10h] BYREF
   va_list va; // [rsp+98h] [rbp+10h]
-  struct _RTL_BITMAP *v24; // [rsp+A0h] [rbp+18h]
+  _RTL_BITMAP *v24; // [rsp+A0h] [rbp+18h]
   __int64 v25; // [rsp+A8h] [rbp+20h]
   va_list va1; // [rsp+B0h] [rbp+28h] BYREF
 
   va_start(va1, a1);
   va_start(va, a1);
   v22 = va_arg(va1, _QWORD);
-  v24 = va_arg(va1, struct _RTL_BITMAP *);
+  v24 = va_arg(va1, _RTL_BITMAP *);
   v25 = va_arg(va1, _QWORD);
   v20[0] = 0;
   v1 = v25;

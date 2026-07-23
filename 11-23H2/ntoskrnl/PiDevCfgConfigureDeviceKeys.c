@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceKeys @ 0x14087CAA4
+ * XREFs of PiDevCfgConfigureDeviceKeys @ 0x14087CCE4
  * Callers:
- *     PpDevCfgProcessDeviceOperations @ 0x1407D8F50 (PpDevCfgProcessDeviceOperations.c)
- *     PiDevCfgConfigureDevice @ 0x14087A734 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x14087BEB8 (PiDevCfgConfigureDeviceDriverConfiguration.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x14087C4F8 (PiDevCfgConfigureDeviceLocation.c)
- *     PpDevCfgProcessDeviceClass @ 0x1409628FC (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x1407D9220 (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgConfigureDevice @ 0x14087A974 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x14087C0F8 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x14087C738 (PiDevCfgConfigureDeviceLocation.c)
+ *     PpDevCfgProcessDeviceClass @ 0x140962AFC (PpDevCfgProcessDeviceClass.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1403C6BBC (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     PiDevCfgQueryResolveValue @ 0x1405622C8 (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgConfigureDeviceFilters @ 0x14087CC3C (PiDevCfgConfigureDeviceFilters.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x14087CCF4 (PiDevCfgConfigureSoftwareDevices.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x14087CDA0 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiDevCfgInitResolveContext @ 0x14087CEB4 (PiDevCfgInitResolveContext.c)
- *     PiDevCfgEnumDeviceKeys @ 0x14087D024 (PiDevCfgEnumDeviceKeys.c)
- *     PiDevCfgFreeResolveContext @ 0x14087D25C (PiDevCfgFreeResolveContext.c)
+ *     PnpValidateRegistryDword @ 0x1403C6D9C (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     PiDevCfgQueryResolveValue @ 0x140562988 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgConfigureDeviceFilters @ 0x14087CE7C (PiDevCfgConfigureDeviceFilters.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x14087CF34 (PiDevCfgConfigureSoftwareDevices.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x14087CFE0 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgInitResolveContext @ 0x14087D0F4 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x14087D264 (PiDevCfgEnumDeviceKeys.c)
+ *     PiDevCfgFreeResolveContext @ 0x14087D49C (PiDevCfgFreeResolveContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

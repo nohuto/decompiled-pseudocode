@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCloseIoRing @ 0x140949170
+ * XREFs of IopCloseIoRing @ 0x140949370
  * Callers:
  *     <none>
  * Callees:
- *     MiUnmapViewOfSection @ 0x14071EFC0 (MiUnmapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x14071F1C0 (MiUnmapViewOfSection.c)
  */
 
 __int64 __fastcall IopCloseIoRing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

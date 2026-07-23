@@ -1,11 +1,11 @@
 /*
- * XREFs of PspUnlinkSessionId @ 0x14077C0FC
+ * XREFs of PspUnlinkSessionId @ 0x14077BFAC
  * Callers:
- *     PspReleaseReferenceToSession @ 0x140A86D78 (PspReleaseReferenceToSession.c)
+ *     PspReleaseReferenceToSession @ 0x140A81850 (PspReleaseReferenceToSession.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
  */
 
 _QWORD *__fastcall PspUnlinkSessionId(__int64 a1)

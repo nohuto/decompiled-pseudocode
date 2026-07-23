@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpAddForwarderPath @ 0x18011FA44
+ * XREFs of RtlpAddForwarderPath @ 0x18011F7F4
  * Callers:
- *     RtlpComputePath @ 0x18009C0E0 (RtlpComputePath.c)
+ *     RtlpComputePath @ 0x18009B210 (RtlpComputePath.c)
  * Callees:
- *     RtlpAddSystemPath @ 0x180114634 (RtlpAddSystemPath.c)
+ *     RtlpAddSystemPath @ 0x180113E30 (RtlpAddSystemPath.c)
  */
 
 char *__fastcall RtlpAddForwarderPath(char a1, char *a2)

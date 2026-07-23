@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbGetDatabaseMatchEx @ 0x14067C960
+ * XREFs of SdbGetDatabaseMatchEx @ 0x14067DB20
  * Callers:
- *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
+ *     KsepDbGetDriverShims @ 0x14067EA64 (KsepDbGetDriverShims.c)
+ *     KsepDbCacheReadDevice @ 0x140721F7C (KsepDbCacheReadDevice.c)
  * Callees:
- *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7C8 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x14067CC0C (SdbFindFirstStringIndexedTag.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbFindNextStringIndexedTag @ 0x140720304 (SdbFindNextStringIndexedTag.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x140721158 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpCheckKObject @ 0x140722D80 (SdbpCheckKObject.c)
- *     SdbTagIDToTagRef @ 0x14075D694 (SdbTagIDToTagRef.c)
+ *     wcsrchr @ 0x140197A00 (wcsrchr.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x14067D988 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x14067DDCC (SdbFindFirstStringIndexedTag.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbFindNextStringIndexedTag @ 0x1407215A4 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407223F8 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpCheckKObject @ 0x140724020 (SdbpCheckKObject.c)
+ *     SdbTagIDToTagRef @ 0x14075E884 (SdbTagIDToTagRef.c)
  */
 
 __int64 __fastcall SdbGetDatabaseMatchEx(

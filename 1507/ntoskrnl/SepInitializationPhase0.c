@@ -30,6 +30,6 @@ bool SepInitializationPhase0()
   SystemToken = SeMakeSystemToken();
   ObInitializeFastReference(&Process[1].Affinity.Bitmap[5], SystemToken);
   SepMandatoryObjectTypePolicyLock = 0LL;
-  SepDefaultMandatorySid = *(_QWORD *)&SeMediumMandatorySid;
+  SepDefaultMandatorySid = (__int64)SeMediumMandatorySid;
   return KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5] != 0;
 }

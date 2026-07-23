@@ -29,10 +29,10 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
       case StorageMiniportProperty:
         v6 = 192LL;
         break;
-      case StorageDeviceFaultDomainProperty:
+      case StorageAdapterCryptoProperty|StorageDeviceIdProperty:
         v6 = 176LL;
         break;
-      case StorageDeviceUnsafeShutdownCount|StorageDeviceIdProperty:
+      case StorageDeviceLedStateProperty:
         v6 = 168LL;
         break;
       default:
@@ -51,7 +51,7 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
   *(_QWORD *)((char *)this + v6) = a3;
   if ( a2 )
   {
-    if ( a2 == StorageDeviceFaultDomainProperty )
+    if ( a2 == (StorageAdapterCryptoProperty|StorageDeviceIdProperty) )
       SC_DEVICE::ExtractFaultDomainIds(this);
   }
   else

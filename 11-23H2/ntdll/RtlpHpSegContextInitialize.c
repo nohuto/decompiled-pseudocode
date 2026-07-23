@@ -4,8 +4,8 @@
  *     RtlpHpHeapCreate @ 0x180065EE8 (RtlpHpHeapCreate.c)
  * Callees:
  *     RtlpHpQueryVA @ 0x18006462C (RtlpHpQueryVA.c)
- *     RtlpHpSegMgrVaCtxInitialize @ 0x180123CA4 (RtlpHpSegMgrVaCtxInitialize.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x180123D00 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x180123C74 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x180123CD0 (RtlpHpSegMgrVaCtxInsert.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

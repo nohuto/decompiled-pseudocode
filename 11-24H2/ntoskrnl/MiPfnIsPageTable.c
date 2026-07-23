@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPfnIsPageTable @ 0x140684930
+ * XREFs of MiPfnIsPageTable @ 0x140685A5C
  * Callers:
- *     MiPfnIsActivePageTable @ 0x140224A0C (MiPfnIsActivePageTable.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
+ *     MiPfnIsActivePageTable @ 0x140251DBC (MiPfnIsActivePageTable.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
  * Callees:
  *     <none>
  */

@@ -8,19 +8,19 @@
 
 errno_t __cdecl _wcsset_s(wchar_t *Destination, size_t SizeInWords, wchar_t Value)
 {
-  size_t v3; // edx
+  int v3; // edx
   wchar_t *i; // esi
 
   if ( Destination )
   {
     v3 = SizeInWords;
-    if ( SizeInWords )
+    if ( (_DWORD)SizeInWords )
     {
       for ( i = Destination; *i; ++i )
       {
         if ( !--v3 )
           break;
-        *i = Value;
+        *i = WORD2(SizeInWords);
       }
       if ( v3 )
         return 0;

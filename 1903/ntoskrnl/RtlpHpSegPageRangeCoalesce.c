@@ -38,7 +38,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, unsigned i
   struct _KTHREAD *CurrentThread; // rbp
   ULONG_PTR SessionId; // r9
   unsigned __int8 v24; // r12
-  __int64 v25; // rdx
+  unsigned int v25; // edx
   bool v26; // zf
   __int64 v27; // rcx
   int v28; // eax
@@ -146,7 +146,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, unsigned i
           SessionId = 0xFFFFFFFFLL;
         --CurrentThread->SpecialApcDisable;
         v24 = ++CurrentThread->AbAllocationRegionCount;
-        LODWORD(v25) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+        v25 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
         v26 = !_BitScanReverse((unsigned int *)&v27, v25);
         v38 = v27;
         if ( v26 )
@@ -156,7 +156,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, unsigned i
           v28 = 1 << v27;
           v29 = v27;
           v30 = &CurrentThread->LockEntries[v29];
-          v25 = ~v28 & (unsigned int)v25;
+          v25 &= ~v28;
           if ( (v30->AcquiredByte & 1) != 0
             && (*(_DWORD *)&v30->LockState.0 & 1) == 0
             && (*(_QWORD *)&v30->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 64) & 0x7FFFFFFFFFFFFFFCLL)
@@ -181,7 +181,7 @@ LABEL_51:
         {
           v30->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v30->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v29], v25);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v29].TreeNode);
           v37 = 0;
           v37 = v30->BoostBitmap.AllFields & 0x1FFFF;
           v30->BoostBitmap.AllFields &= 0xFFFE0000;

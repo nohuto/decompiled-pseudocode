@@ -1,25 +1,25 @@
 /*
- * XREFs of GetOperandValue @ 0x14086038C
+ * XREFs of GetOperandValue @ 0x140864998
  * Callers:
- *     LocalGetConditionForString @ 0x14085FAE0 (LocalGetConditionForString.c)
- *     GetOperandValue @ 0x14086038C (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x1408640EC (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x140864998 (GetOperandValue.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     wcstoxq @ 0x1405009A4 (wcstoxq.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SddlpReAlloc @ 0x140796BF8 (SddlpReAlloc.c)
- *     GetBinaryOperandLen @ 0x140796F78 (GetBinaryOperandLen.c)
- *     GetDigitFromChar @ 0x140796FD4 (GetDigitFromChar.c)
- *     GetNextNoneWhiteSpace @ 0x1407970EC (GetNextNoneWhiteSpace.c)
- *     GetStringOperandValue @ 0x14085FA1C (GetStringOperandValue.c)
- *     GetOperandValue @ 0x14086038C (GetOperandValue.c)
- *     FreeOperandValue @ 0x1408604F8 (FreeOperandValue.c)
- *     IsValueSizeFixed @ 0x140860530 (IsValueSizeFixed.c)
- *     GetAttributeName @ 0x140860634 (GetAttributeName.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
- *     LocalGetSidForString @ 0x140866AC4 (LocalGetSidForString.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     wcstoxq @ 0x1404FE264 (wcstoxq.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SddlpReAlloc @ 0x140796D08 (SddlpReAlloc.c)
+ *     GetBinaryOperandLen @ 0x140797088 (GetBinaryOperandLen.c)
+ *     GetDigitFromChar @ 0x1407970E4 (GetDigitFromChar.c)
+ *     GetNextNoneWhiteSpace @ 0x1407971FC (GetNextNoneWhiteSpace.c)
+ *     GetStringOperandValue @ 0x140864028 (GetStringOperandValue.c)
+ *     GetOperandValue @ 0x140864998 (GetOperandValue.c)
+ *     FreeOperandValue @ 0x140864B04 (FreeOperandValue.c)
+ *     IsValueSizeFixed @ 0x140864B3C (IsValueSizeFixed.c)
+ *     GetAttributeName @ 0x140864C40 (GetAttributeName.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
+ *     LocalGetSidForString @ 0x14086B0D4 (LocalGetSidForString.c)
  */
 
 __int64 __fastcall GetOperandValue(

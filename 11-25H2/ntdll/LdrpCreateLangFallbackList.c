@@ -28,7 +28,7 @@ __int64 __fastcall LdrpCreateLangFallbackList(_QWORD *a1, __int64 a2, int a3, ch
   v9 = 6 * v7;
   if ( v9 <= 0xFFFFFFFF
     && (v11 = v9 + 64, (unsigned int)v9 < 0xFFFFFFC0)
-    && (Heap = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v11), (v13 = Heap) != 0LL) )
+    && (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v11), (v13 = Heap) != 0LL) )
   {
     *Heap = v11;
     result = 0LL;

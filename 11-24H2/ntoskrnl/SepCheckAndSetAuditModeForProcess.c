@@ -1,13 +1,13 @@
 /*
- * XREFs of SepCheckAndSetAuditModeForProcess @ 0x140A1C0F8
+ * XREFs of SepCheckAndSetAuditModeForProcess @ 0x1409FA668
  * Callers:
- *     SepIsImageInMinTcbList @ 0x140A1B9DC (SepIsImageInMinTcbList.c)
- *     SepIsMinTCB @ 0x140A1BD1C (SepIsMinTCB.c)
+ *     SepIsImageInMinTcbList @ 0x1409F9F4C (SepIsImageInMinTcbList.c)
+ *     SepIsMinTCB @ 0x1409FA28C (SepIsMinTCB.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     SeCompareSigningLevels @ 0x1409354F0 (SeCompareSigningLevels.c)
- *     RtlQueryImageFileKeyOption @ 0x140A22FB0 (RtlQueryImageFileKeyOption.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x140A31C68 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     SeCompareSigningLevels @ 0x1409FA8D0 (SeCompareSigningLevels.c)
+ *     RtlQueryImageFileKeyOption @ 0x140A173C0 (RtlQueryImageFileKeyOption.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x140A25BD8 (RtlpOpenImageFileOptionsKeyEx.c)
  */
 
 void __fastcall SepCheckAndSetAuditModeForProcess(__int64 a1, _BYTE *a2, _BYTE *a3)

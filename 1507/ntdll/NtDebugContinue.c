@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDebugContinue()
+NTSTATUS __cdecl NtDebugContinue(HANDLE DebugObjectHandle, PCLIENT_ID ClientId, NTSTATUS ContinueStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 192LL;
+  result = 192;
   __asm { syscall; Low latency system call }
   return result;
 }

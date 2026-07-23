@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRecoverEnlistment()
+NTSTATUS __cdecl ZwRecoverEnlistment(HANDLE EnlistmentHandle, PVOID EnlistmentKey)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 335LL;
+  result = 335;
   __asm { syscall; Low latency system call }
   return result;
 }

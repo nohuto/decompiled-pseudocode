@@ -1,9 +1,9 @@
 /*
- * XREFs of SPCallServerHandleAuthenticateCaller @ 0x1406CE91C
+ * XREFs of SPCallServerHandleAuthenticateCaller @ 0x1406CFBBC
  * Callers:
- *     sub_140685840 @ 0x140685840 (sub_140685840.c)
+ *     sub_140686A00 @ 0x140686A00 (sub_140686A00.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleAuthenticateCaller(unsigned int a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -82,7 +82,7 @@ LABEL_43:
     else
     {
       v16 = __rdtsc();
-      qword_14096D220 = v16;
+      qword_14096E220 = v16;
     }
     if ( !a4 )
       return (unsigned int)-1073741811;

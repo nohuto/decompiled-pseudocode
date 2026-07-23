@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x14095F8F0
+ * XREFs of RtlRunOnceExecuteOnce @ 0x1409473B0
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
- *     LdrpInitMuiCrits @ 0x14044F178 (LdrpInitMuiCrits.c)
- *     ExPoolSetLimit @ 0x140654500 (ExPoolSetLimit.c)
- *     ExQueryBootEntropyInformation @ 0x1406F9784 (ExQueryBootEntropyInformation.c)
- *     ExpCheckTestsigningEnabled @ 0x1406FB358 (ExpCheckTestsigningEnabled.c)
- *     SdbGetIndex @ 0x14095D914 (SdbGetIndex.c)
- *     ExCheckFullProcessInformationAccess @ 0x14095F62C (ExCheckFullProcessInformationAccess.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x14095F764 (SdbpGetStringTableItemFromStringRef.c)
- *     RtlpLogCapabilityCheckLatency @ 0x140A85D18 (RtlpLogCapabilityCheckLatency.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x140AA0B18 (ExpFirmwareAccessAppContainerCheck.c)
+ *     LdrpInitMuiCrits @ 0x1402DCF84 (LdrpInitMuiCrits.c)
+ *     RtlpHpMetadataAlloc @ 0x140458A08 (RtlpHpMetadataAlloc.c)
+ *     ExPoolSetLimit @ 0x140652BF8 (ExPoolSetLimit.c)
+ *     ExQueryBootEntropyInformation @ 0x1406F73C4 (ExQueryBootEntropyInformation.c)
+ *     ExpCheckTestsigningEnabled @ 0x1406F8F98 (ExpCheckTestsigningEnabled.c)
+ *     SdbGetIndex @ 0x1409453D4 (SdbGetIndex.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1409470EC (ExCheckFullProcessInformationAccess.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x140947224 (SdbpGetStringTableItemFromStringRef.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x140A80858 (RtlpLogCapabilityCheckLatency.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140A9BEA8 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlpRunOnceWaitForInit @ 0x1407872A8 (RtlpRunOnceWaitForInit.c)
- *     RtlRunOnceComplete @ 0x140A561F0 (RtlRunOnceComplete.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpRunOnceWaitForInit @ 0x1407871D8 (RtlpRunOnceWaitForInit.c)
+ *     RtlRunOnceComplete @ 0x140A4E140 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(
@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlRunOnceExecuteOnce(
   NTSTATUS v9; // ebx
   signed __int64 v11; // rcx
   signed __int64 v12; // rcx
-  NTSTATUS v13; // edi
+  int v13; // edi
   PVOID v14; // r8
 
   CurrentThread = KeGetCurrentThread();
@@ -66,7 +66,7 @@ LABEL_2:
       Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, 1LL, Value);
     }
     while ( Value != v12 );
-    if ( !(unsigned int)guard_dispatch_icall_no_overrides(RunOnce, Parameter, Context, Context) )
+    if ( !(unsigned int)guard_dispatch_icall_no_overrides(RunOnce, Parameter) )
     {
       v9 = -1073741823;
       v13 = RtlRunOnceComplete(RunOnce, 4u, 0LL);

@@ -1,19 +1,19 @@
 /*
- * XREFs of KeAccumulateTicks @ 0x1400DC3C0
+ * XREFs of KeAccumulateTicks @ 0x1400DA260
  * Callers:
- *     KeClockInterruptNotify @ 0x1400D9870 (KeClockInterruptNotify.c)
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
+ *     KeClockInterruptNotify @ 0x1400D7710 (KeClockInterruptNotify.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KiCheckKeepAlive @ 0x14009F7D8 (KiCheckKeepAlive.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D0220 (KiGetThreadEffectiveRankNonZero.c)
- *     KiRequestSoftwareInterrupt @ 0x1400D8230 (KiRequestSoftwareInterrupt.c)
- *     KiCheckForTimerExpiration @ 0x1400DC7F0 (KiCheckForTimerExpiration.c)
- *     KdPollBreakIn @ 0x1400DF790 (KdPollBreakIn.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     DbgBreakPointWithStatus @ 0x140166D80 (DbgBreakPointWithStatus.c)
- *     HvlInvokeHypervisorDebugger @ 0x1401BAACC (HvlInvokeHypervisorDebugger.c)
- *     KiDpcWatchdogCaptureStack @ 0x1401D1E10 (KiDpcWatchdogCaptureStack.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiCheckKeepAlive @ 0x14009E100 (KiCheckKeepAlive.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400CE0C0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiRequestSoftwareInterrupt @ 0x1400D60D0 (KiRequestSoftwareInterrupt.c)
+ *     KiCheckForTimerExpiration @ 0x1400DA690 (KiCheckForTimerExpiration.c)
+ *     KdPollBreakIn @ 0x1400DD630 (KdPollBreakIn.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     DbgBreakPointWithStatus @ 0x1401672F0 (DbgBreakPointWithStatus.c)
+ *     HvlInvokeHypervisorDebugger @ 0x1401BA9B0 (HvlInvokeHypervisorDebugger.c)
+ *     KiDpcWatchdogCaptureStack @ 0x1401D1C3C (KiDpcWatchdogCaptureStack.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
  */
 
 void __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, unsigned int a3, unsigned __int8 a4, char a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PfTAcquireLogEntry @ 0x140531A60
+ * XREFs of PfTAcquireLogEntry @ 0x140531FA0
  * Callers:
- *     PfpFlushBuffers @ 0x1403E8030 (PfpFlushBuffers.c)
+ *     PfpFlushBuffers @ 0x1403E9660 (PfpFlushBuffers.c)
  * Callees:
- *     PfTReplaceCurrentBuffer @ 0x1403E8A6C (PfTReplaceCurrentBuffer.c)
+ *     PfTReplaceCurrentBuffer @ 0x1403EA09C (PfTReplaceCurrentBuffer.c)
  */
 
 __int64 __fastcall PfTAcquireLogEntry(__int64 a1, int *a2, int a3)

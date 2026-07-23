@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptModElementIsZero @ 0x1403F96D0
+ * XREFs of SymCryptModElementIsZero @ 0x1403F98B0
  * Callers:
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointTransform @ 0x1403FF464 (SymCryptEcpointTransform.c)
- *     SymCryptTwistedEdwardsIsZero @ 0x1404004B0 (SymCryptTwistedEdwardsIsZero.c)
- *     SymCryptMontgomeryIsZero @ 0x140400E10 (SymCryptMontgomeryIsZero.c)
- *     SymCryptShortWeierstrassAdd @ 0x140401250 (SymCryptShortWeierstrassAdd.c)
- *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x1404018D4 (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
- *     SymCryptShortWeierstrassIsZero @ 0x1404028C0 (SymCryptShortWeierstrassIsZero.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointTransform @ 0x1403FF644 (SymCryptEcpointTransform.c)
+ *     SymCryptTwistedEdwardsIsZero @ 0x140400690 (SymCryptTwistedEdwardsIsZero.c)
+ *     SymCryptMontgomeryIsZero @ 0x140400FF0 (SymCryptMontgomeryIsZero.c)
+ *     SymCryptShortWeierstrassAdd @ 0x140401430 (SymCryptShortWeierstrassAdd.c)
+ *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x140401AB4 (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
+ *     SymCryptShortWeierstrassIsZero @ 0x140402AA0 (SymCryptShortWeierstrassIsZero.c)
  * Callees:
- *     SymCryptFdefModElementIsZero @ 0x1404042CC (SymCryptFdefModElementIsZero.c)
+ *     SymCryptFdefModElementIsZero @ 0x1404044AC (SymCryptFdefModElementIsZero.c)
  */
 
 __int64 SymCryptModElementIsZero()

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiAssignSubNodeSharedReadyQueues @ 0x1405B6308
+ * XREFs of KiAssignSubNodeSharedReadyQueues @ 0x1405B35D0
  * Callers:
- *     KiConfigureNodeSchedulingInformation @ 0x1405B6A2C (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1405B3CEC (KiConfigureNodeSchedulingInformation.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiFreeLocalSharedReadyQueue @ 0x1405B6E9C (KiFreeLocalSharedReadyQueue.c)
- *     KiInitializePriorityState @ 0x1405C2FE0 (KiInitializePriorityState.c)
- *     KiComputeSharedReadyQueueAssignments @ 0x1405C8700 (KiComputeSharedReadyQueueAssignments.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KeDetectHeterogeneousSets @ 0x14073AD58 (KeDetectHeterogeneousSets.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiFreeLocalSharedReadyQueue @ 0x1405B415C (KiFreeLocalSharedReadyQueue.c)
+ *     KiInitializePriorityState @ 0x1405C05B0 (KiInitializePriorityState.c)
+ *     KiComputeSharedReadyQueueAssignments @ 0x1405C5E30 (KiComputeSharedReadyQueueAssignments.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KeDetectHeterogeneousSets @ 0x140738C88 (KeDetectHeterogeneousSets.c)
  */
 
 __int64 __fastcall KiAssignSubNodeSharedReadyQueues(__int64 a1)
@@ -80,7 +80,7 @@ __int64 __fastcall KiAssignSubNodeSharedReadyQueues(__int64 a1)
   while ( !(unsigned int)KeEnumerateNextProcessor(&v19, &v20) )
   {
     v7 = KiProcessorBlock[v19];
-    v8 = KiProcessorBlock[*((unsigned int *)qword_140F21E78
+    v8 = KiProcessorBlock[*((unsigned int *)qword_140F22998
                           + 64 * (unsigned __int64)*(unsigned __int16 *)(a1 + 136)
                           + (unsigned __int8)v26[*(unsigned __int8 *)(v7 + 209)])];
     v9 = *(_QWORD *)(v8 + 36424);

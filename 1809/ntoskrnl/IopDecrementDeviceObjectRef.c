@@ -1,23 +1,23 @@
 /*
- * XREFs of IopDecrementDeviceObjectRef @ 0x1400B8C20
+ * XREFs of IopDecrementDeviceObjectRef @ 0x1400B8B60
  * Callers:
- *     IopCheckVpbMounted @ 0x1400B9030 (IopCheckVpbMounted.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x14016A190 (IopDecrementDeviceObjectHandleCount.c)
- *     IopShutdownBaseFileSystems @ 0x140577E88 (IopShutdownBaseFileSystems.c)
- *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
- *     IoCreateStreamFileObjectEx2 @ 0x1405A35A0 (IoCreateStreamFileObjectEx2.c)
- *     IopDeleteFile @ 0x14063B3C0 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
- *     IopLoadFileSystemDriver @ 0x140706E1C (IopLoadFileSystemDriver.c)
+ *     IopCheckVpbMounted @ 0x1400B8F70 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x14016A290 (IopDecrementDeviceObjectHandleCount.c)
+ *     IopShutdownBaseFileSystems @ 0x140578E88 (IopShutdownBaseFileSystems.c)
+ *     IopMountVolume @ 0x1405A3E64 (IopMountVolume.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1405A45A0 (IoCreateStreamFileObjectEx2.c)
+ *     IopDeleteFile @ 0x14063C3E0 (IopDeleteFile.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
+ *     IopLoadFileSystemDriver @ 0x1407080BC (IopLoadFileSystemDriver.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     IopCompleteUnloadOrDelete @ 0x1400DA90C (IopCompleteUnloadOrDelete.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     IopCompleteUnloadOrDelete @ 0x1400DA98C (IopCompleteUnloadOrDelete.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)

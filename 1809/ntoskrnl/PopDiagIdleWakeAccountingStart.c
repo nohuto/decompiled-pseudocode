@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagIdleWakeAccountingStart @ 0x14086FC30
+ * XREFs of PopDiagIdleWakeAccountingStart @ 0x140870E90
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void PopDiagIdleWakeAccountingStart()
@@ -16,7 +16,7 @@ void PopDiagIdleWakeAccountingStart()
   {
     memset(&PopDiagGlobalIdleWakeAccounting, 0, 0x5A98uLL);
     v0 = 0;
-    v1 = &unk_140410C14;
+    v1 = &unk_140411BD4;
     do
     {
       *(_QWORD *)(v1 - 41) = -1LL;

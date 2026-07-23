@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     GetNextWchar @ 0x1406AA3A0 (GetNextWchar.c)
- *     RtlComputeLfnChecksum @ 0x1406AA47C (RtlComputeLfnChecksum.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     sub_1406AA3A0 @ 0x1406AA3A0 (sub_1406AA3A0.c)
+ *     sub_1406AA47C @ 0x1406AA47C (sub_1406AA47C.c)
+ *     sub_1407CDA20 @ 0x1407CDA20 (sub_1407CDA20.c)
  */
 
 NTSTATUS __stdcall RtlGenerate8dot3Name(
@@ -19,14 +19,14 @@ NTSTATUS __stdcall RtlGenerate8dot3Name(
 {
   PCUNICODE_STRING v5; // r15
   bool v6; // di
-  char IsUtf8Process; // al
+  char v8; // al
   __int64 v9; // r8
   __int64 v10; // r9
   ULONG v11; // r11d
-  _WORD *CurrentServerSiloGlobals; // rax
+  _WORD *v12; // rax
   char v13; // r12
   unsigned int v14; // esi
-  __int16 NextWchar; // ax
+  __int16 v15; // ax
   __int64 v16; // r8
   __int64 v17; // r9
   unsigned int i; // edi
@@ -86,14 +86,14 @@ NTSTATUS __stdcall RtlGenerate8dot3Name(
   v67 = Context;
   LOBYTE(Name) = 1;
   v6 = 0;
-  IsUtf8Process = RtlpIsUtf8Process(Name);
+  v8 = sub_1407CDA20(Name);
   v11 = 0;
-  if ( !IsUtf8Process )
+  if ( !v8 )
   {
     _InterlockedOr(v62, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v6 = CurrentServerSiloGlobals[570] != (unsigned __int16)v11;
-    v64 = *((_QWORD *)CurrentServerSiloGlobals + 146);
+    v12 = sub_140347DB0();
+    v6 = v12[570] != (unsigned __int16)v11;
+    v64 = *((_QWORD *)v12 + 146);
   }
   if ( !AllowExtendedCharacters || (v13 = 1, !v6) )
     v13 = v11;
@@ -104,11 +104,11 @@ NTSTATUS __stdcall RtlGenerate8dot3Name(
     if ( v5->Length <= (unsigned __int16)v11 || (LOBYTE(v9) = 1, *v5->Buffer != 46) )
       LOBYTE(v9) = v11;
     LOBYTE(v10) = AllowExtendedCharacters;
-    NextWchar = GetNextWchar(v5, &v63, v9, v10);
-    for ( i = 0; NextWchar; NextWchar = GetNextWchar(v5, &v63, 0LL, v17) )
+    v15 = sub_1406AA3A0(v5, &v63, v9, v10);
+    for ( i = 0; v15; v15 = sub_1406AA3A0(v5, &v63, 0LL, v17) )
     {
       LOBYTE(v17) = AllowExtendedCharacters;
-      if ( NextWchar == 46 )
+      if ( v15 == 46 )
         v14 = v63;
     }
     v19 = v14 == v5->Length >> 1;
@@ -121,7 +121,7 @@ NTSTATUS __stdcall RtlGenerate8dot3Name(
     {
       LOBYTE(v17) = AllowExtendedCharacters;
       LOBYTE(v16) = 1;
-      v22 = GetNextWchar(v5, &v63, v16, v17);
+      v22 = sub_1406AA3A0(v5, &v63, v16, v17);
       v11 = 0;
       v23 = v22;
       if ( !v22 )
@@ -147,7 +147,7 @@ NTSTATUS __stdcall RtlGenerate8dot3Name(
 LABEL_28:
     if ( i <= 2 )
     {
-      v24 = RtlComputeLfnChecksum(v5);
+      v24 = sub_1406AA47C(v5);
       Context->Checksum = v24;
       LODWORD(v16) = v11;
       do
@@ -163,7 +163,7 @@ LABEL_28:
       }
       while ( (unsigned int)v16 < 4 );
       Context->NameLength += 4;
-      Context->ChecksumInserted = 1;
+      Context->CheckSumInserted = 1;
     }
     if ( v14 == -1 )
     {
@@ -176,7 +176,7 @@ LABEL_28:
       v28 = 1;
       LOBYTE(v16) = 1;
       Context->ExtensionLength = 1;
-      v29 = GetNextWchar(v5, &v65, v16, v17);
+      v29 = sub_1406AA3A0(v5, &v65, v16, v17);
       LOBYTE(v11) = 0;
       v32 = v29;
       if ( v29 )
@@ -198,7 +198,7 @@ LABEL_80:
             LOBYTE(v31) = AllowExtendedCharacters;
             ++Context->ExtensionLength;
             LOBYTE(v30) = 1;
-            v35 = GetNextWchar(v5, &v65, v30, v31);
+            v35 = sub_1406AA3A0(v5, &v65, v30, v31);
             LOBYTE(v11) = 0;
             v32 = v35;
             if ( v35 )
@@ -208,7 +208,7 @@ LABEL_80:
             goto LABEL_47;
           break;
         }
-        if ( FsRtlSafeExtensions )
+        if ( byte_140D3B045 )
           Context->ExtensionBuffer[Context->ExtensionLength - 1] = 126;
       }
     }
@@ -216,9 +216,9 @@ LABEL_80:
 LABEL_47:
   v36 = Context->LastIndexValue + 1;
   Context->LastIndexValue = v36;
-  if ( v36 > 4 && Context->ChecksumInserted == (_BYTE)v11 )
+  if ( v36 > 4 && Context->CheckSumInserted == (_BYTE)v11 )
   {
-    v37 = RtlComputeLfnChecksum(v5);
+    v37 = sub_1406AA47C(v5);
     Context->Checksum = v37;
     v39 = v37;
     if ( 2 - v38 < (unsigned int)(6 - v38) )
@@ -240,7 +240,7 @@ LABEL_47:
     Context->LastIndexValue = 1;
     Context->NameLength = 6 - v38;
     v36 = 1;
-    Context->ChecksumInserted = 1;
+    Context->CheckSumInserted = 1;
   }
   v44 = 1;
   v45 = 1;

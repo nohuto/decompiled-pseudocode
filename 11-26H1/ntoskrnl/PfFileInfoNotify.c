@@ -1,38 +1,38 @@
 /*
- * XREFs of PfFileInfoNotify @ 0x1402B8A80
+ * XREFs of PfFileInfoNotify @ 0x140303740
  * Callers:
  *     <none>
  * Callees:
- *     PfSnLogPageFaultCommon @ 0x140265B50 (PfSnLogPageFaultCommon.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x1402F0540 (ExAcquireRundownProtectionCacheAware.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     PfpPartitionIterate @ 0x140382630 (PfpPartitionIterate.c)
- *     PfpPartitionGetNext @ 0x140382870 (PfpPartitionGetNext.c)
- *     PfpPartitionReferenceParentSafe @ 0x140382960 (PfpPartitionReferenceParentSafe.c)
- *     PfLogEvent @ 0x1403829A0 (PfLogEvent.c)
- *     ExReleaseRundownProtectionCacheAware @ 0x14044F9D0 (ExReleaseRundownProtectionCacheAware.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     ExpReleaseRundownProtection @ 0x140463F50 (ExpReleaseRundownProtection.c)
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PfpRpFileKeyUpdate @ 0x1408D4BF0 (PfpRpFileKeyUpdate.c)
- *     PfSnLogVolumeCreate @ 0x1409E8C8C (PfSnLogVolumeCreate.c)
- *     PfSnNameRemoveAll @ 0x1409E9800 (PfSnNameRemoveAll.c)
- *     PfSnLogStreamCreate @ 0x1409E9998 (PfSnLogStreamCreate.c)
+ *     PfSnLogPageFaultCommon @ 0x1402650C0 (PfSnLogPageFaultCommon.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402D25C0 (ExAcquireRundownProtectionCacheAware.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     PfpPartitionIterate @ 0x1403843E0 (PfpPartitionIterate.c)
+ *     PfpPartitionGetNext @ 0x140384620 (PfpPartitionGetNext.c)
+ *     PfpPartitionReferenceParentSafe @ 0x140384710 (PfpPartitionReferenceParentSafe.c)
+ *     PfLogEvent @ 0x140384750 (PfLogEvent.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x140447B00 (ExReleaseRundownProtectionCacheAware.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     ExpReleaseRundownProtection @ 0x14045CF10 (ExpReleaseRundownProtection.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PfpRpFileKeyUpdate @ 0x1408DB1B0 (PfpRpFileKeyUpdate.c)
+ *     PfSnNameRemoveAll @ 0x1409D2C20 (PfSnNameRemoveAll.c)
+ *     PfSnLogStreamCreate @ 0x1409D2DB8 (PfSnLogStreamCreate.c)
+ *     PfSnLogVolumeCreate @ 0x1409D3F78 (PfSnLogVolumeCreate.c)
  */
 
 __int64 __fastcall PfFileInfoNotify(__int64 a1, __int64 a2, __int64 a3)
@@ -153,24 +153,24 @@ __int64 __fastcall PfFileInfoNotify(__int64 a1, __int64 a2, __int64 a3)
         if ( v65 )
         {
           if ( v65 == 1 )
-            return (stru_140E66FF0.WaitBlockFill5[32] & 2) != 0 ? 0xC0000189 : 0;
+            return (stru_140E67200.WaitBlockFill5[32] & 2) != 0 ? 0xC0000189 : 0;
           else
             return (unsigned int)-1073741637;
         }
-        PfLockExclusiveAcquire(&stru_140E66B30.Padding[4]);
-        if ( stru_140E66B30.Padding[2] )
+        PfLockExclusiveAcquire(&stru_140E66D40.Padding[4]);
+        if ( stru_140E66D40.Padding[2] )
         {
-          PfLockExclusiveAcquire(&stru_140E66FF0);
-          LODWORD(stru_140E66FF0.SListFaultAddress) |= 1u;
-          for ( i = stru_140E66FF0.Header.WaitListHead.Flink; i != &stru_140E66FF0.Header.WaitListHead; i = i->Flink )
+          PfLockExclusiveAcquire(&stru_140E67200);
+          LODWORD(stru_140E67200.SListFaultAddress) |= 1u;
+          for ( i = stru_140E67200.Header.WaitListHead.Flink; i != &stru_140E67200.Header.WaitListHead; i = i->Flink )
           {
             HIDWORD(i[4].Flink) |= 4u;
             KeSetEvent((PRKEVENT)&i[5].Blink, 0, 0);
           }
-          PfLockExclusiveRelease(&stru_140E66FF0);
-          ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_140E66B30.Padding[3]);
-          _InterlockedExchange64((volatile __int64 *)&stru_140E66B30.Padding[3], 1LL);
-          stru_140E66B30.Padding[2] = 0LL;
+          PfLockExclusiveRelease(&stru_140E67200);
+          ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_140E66D40.Padding[3]);
+          _InterlockedExchange64((volatile __int64 *)&stru_140E66D40.Padding[3], 1LL);
+          stru_140E66D40.Padding[2] = 0LL;
           v11 = 0;
         }
         else
@@ -180,26 +180,26 @@ __int64 __fastcall PfFileInfoNotify(__int64 a1, __int64 a2, __int64 a3)
       }
       else
       {
-        PfLockExclusiveAcquire(&stru_140E66B30.Padding[4]);
-        if ( stru_140E66B30.Padding[2] )
+        PfLockExclusiveAcquire(&stru_140E66D40.Padding[4]);
+        if ( stru_140E66D40.Padding[2] )
         {
           v11 = -1073741791;
         }
         else
         {
-          PfLockExclusiveAcquire(&stru_140E66FF0);
-          LODWORD(stru_140E66FF0.SListFaultAddress) &= ~1u;
-          PfLockExclusiveRelease(&stru_140E66FF0);
+          PfLockExclusiveAcquire(&stru_140E67200);
+          LODWORD(stru_140E67200.SListFaultAddress) &= ~1u;
+          PfLockExclusiveRelease(&stru_140E67200);
           guard_dispatch_icall_no_overrides(PfpPrefetchSharedConflictNotifyStart, v69, v70);
-          stru_140E66B30.Padding[2] = *(_QWORD *)(v4 + 16);
+          stru_140E66D40.Padding[2] = *(_QWORD *)(v4 + 16);
           v11 = 0;
-          _InterlockedExchange64((volatile __int64 *)&stru_140E66B30.Padding[3], 0LL);
+          _InterlockedExchange64((volatile __int64 *)&stru_140E66D40.Padding[3], 0LL);
         }
       }
-      PfLockExclusiveRelease((struct _KTHREAD *)&stru_140E66B30.Padding[4]);
+      PfLockExclusiveRelease((struct _KTHREAD *)&stru_140E66D40.Padding[4]);
       return v11;
     }
-    *(_DWORD *)(v4 + 16) = _InterlockedIncrement((volatile signed __int32 *)&stru_140F12D20.Padding[2]);
+    *(_DWORD *)(v4 + 16) = _InterlockedIncrement((volatile signed __int32 *)&xmmword_140F13528);
     return 0;
   }
   if ( (v5 & 4) != 0 )
@@ -222,7 +222,7 @@ __int64 __fastcall PfFileInfoNotify(__int64 a1, __int64 a2, __int64 a3)
   if ( (*(_DWORD *)(v4 + 8) & 1) == 0 )
     return 0;
   v6 = 0;
-  *(_QWORD *)&LockHandle.OldIrql = &stru_140E66FF0.InitialStack;
+  *(_QWORD *)&LockHandle.OldIrql = &stru_140E67200.InitialStack;
   LockHandle.LockQueue.Lock = 0LL;
   *(_QWORD *)&v77 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
@@ -231,9 +231,9 @@ __int64 __fastcall PfFileInfoNotify(__int64 a1, __int64 a2, __int64 a3)
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
   LOBYTE(v77) = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v8 = _InterlockedExchange64((volatile __int64 *)&stru_140E66FF0.InitialStack, (__int64)&LockHandle.LockQueue.Lock);
+    v8 = _InterlockedExchange64((volatile __int64 *)&stru_140E67200.InitialStack, (__int64)&LockHandle.LockQueue.Lock);
     if ( v8 )
       KxWaitForLockOwnerShip((volatile signed __int64)&LockHandle.LockQueue.Lock, v8, a3);
   }
@@ -241,11 +241,11 @@ __int64 __fastcall PfFileInfoNotify(__int64 a1, __int64 a2, __int64 a3)
   {
     KiAcquireQueuedSpinLockInstrumented(
       (__int64)&LockHandle.LockQueue.Lock,
-      (volatile __int64 *)&stru_140E66FF0.InitialStack);
+      (volatile __int64 *)&stru_140E67200.InitialStack);
   }
-  for ( j = (struct _KTHREAD *)stru_140E66FF0.StackLimit; ; j = *(struct _KTHREAD **)&j->Header.Lock )
+  for ( j = (struct _KTHREAD *)stru_140E67200.StackLimit; ; j = *(struct _KTHREAD **)&j->Header.Lock )
   {
-    if ( j == (struct _KTHREAD *)&stru_140E66FF0.StackLimit )
+    if ( j == (struct _KTHREAD *)&stru_140E67200.StackLimit )
     {
       KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
       goto LABEL_16;
@@ -304,7 +304,7 @@ LABEL_22:
         v53 = *(_QWORD *)(v4 + 16);
         if ( HIWORD(*(_DWORD *)(v53 + 32)) <= (unsigned int)(unsigned __int16)*(_DWORD *)(v53 + 32) )
           goto LABEL_70;
-        PfpRpFileKeyUpdate(&stru_140E66B30.KernelShadowStack, v53, 1LL);
+        PfpRpFileKeyUpdate(&stru_140E66D40.KernelShadowStack, v53, 1LL);
         v11 = PfpPartitionIterate(PfTFiNotifyFileStreamCreateCallback, 2LL, v4);
         if ( (v11 & 0x80000000) == 0 )
           goto LABEL_70;
@@ -313,7 +313,7 @@ LABEL_22:
         v48 = *(_QWORD *)(v4 + 16);
         if ( HIWORD(*(_DWORD *)(v48 + 32)) <= (unsigned int)(unsigned __int16)*(_DWORD *)(v48 + 32) )
           goto LABEL_70;
-        PfpRpFileKeyUpdate(&stru_140E66B30.KernelShadowStack, v48, 0LL);
+        PfpRpFileKeyUpdate(&stru_140E66D40.KernelShadowStack, v48, 0LL);
         v49 = *(_QWORD *)(v4 + 16);
         v50 = &v84;
         *(_QWORD *)&v84 = 0LL;
@@ -344,7 +344,7 @@ LABEL_22:
         if ( v61[1] )
         {
           *((_QWORD *)&v90 + 1) = v61[1];
-          v91 = LODWORD(stru_140F12D20.Padding[2]);
+          v91 = (unsigned int)xmmword_140F13528;
           *(_QWORD *)&v90 = *v61;
           HIDWORD(v75) = 0;
           LODWORD(v75) = 31;
@@ -356,7 +356,7 @@ LABEL_75:
           DWORD2(v75) = 24;
           v60 = ((v58 << 8) + (v57 >> 24)) >> 10;
           v52 = PfpPartitionLogEventCallback;
-          DWORD1(v75) = HIDWORD(stru_140E66B30.WriteOperationCount) + v60;
+          DWORD1(v75) = HIDWORD(stru_140E66D40.WriteOperationCount) + v60;
           LockHandle.LockQueue.Next = v59;
 LABEL_69:
           PfpPartitionIterate(v52, 2LL, v50);
@@ -376,7 +376,7 @@ LABEL_70:
   v13 = *(_QWORD *)(v4 + 16);
   v14 = ((*(_DWORD *)(v13 + 8) & 0xFFF) + (unsigned __int64)*(unsigned int *)(v13 + 16) + 4095) >> 12;
   v83 = v14;
-  if ( !LODWORD(stru_140E66FF0.ThreadLock) )
+  if ( !LODWORD(stru_140E67200.ThreadLock) )
     goto LABEL_28;
   v15 = v14;
   v16 = *(_QWORD *)(v13 + 24);
@@ -415,7 +415,7 @@ LABEL_27:
     if ( !(_DWORD)v21 )
     {
       v73 = 1;
-      v66 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea);
+      v66 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E67200.StateSaveArea);
       v74 = v66;
       v23 = *(_QWORD *)(v19 + 912) & 0xFFFFFFFFFFFFFFF0uLL;
       if ( v23 )
@@ -423,7 +423,7 @@ LABEL_27:
         v73 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v23 + 360));
         v66 = v74;
       }
-      KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea, v66);
+      KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E67200.StateSaveArea, v66);
       if ( !v73 )
         v23 = 0LL;
       goto LABEL_27;
@@ -515,13 +515,13 @@ LABEL_32:
     v46 = (*(_QWORD *)(v40 + 504) ^ v45) & 0x1FFFFFFFFFFFFFFFLL;
     *(_QWORD *)&LockHandle.OldIrql = v41 >> 12;
     *((_QWORD *)&v77 + 1) = v46;
-    v78 = __PAIR64__(v45, stru_140F12D20.Padding[2]);
+    v78 = __PAIR64__(v45, xmmword_140F13528);
     LockHandle.LockQueue.Lock = v43;
     LODWORD(v72) = 40;
     v11 = PfLogEvent(
             v30,
             10,
-            HIDWORD(stru_140E66B30.WriteOperationCount)
+            HIDWORD(stru_140E66D40.WriteOperationCount)
           + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                           + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
             (int)&LockHandle.LockQueue.Lock,

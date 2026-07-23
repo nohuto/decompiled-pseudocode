@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpFindNextPinnedPageStateHelper @ 0x14064A7D4
+ * XREFs of VmpFindNextPinnedPageStateHelper @ 0x140648D94
  * Callers:
- *     VmpSplitMemoryRange @ 0x1403AB5D4 (VmpSplitMemoryRange.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1403B04A4 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpRemoveMemoryRange @ 0x14047ED34 (VmpRemoveMemoryRange.c)
- *     VmpInvalidateSlatBatched @ 0x14047F01C (VmpInvalidateSlatBatched.c)
- *     VmpCheckPinAndReference @ 0x14064A43C (VmpCheckPinAndReference.c)
- *     VmpCheckUnpinAndDereference @ 0x14064A530 (VmpCheckUnpinAndDereference.c)
- *     VmpUnpinMemoryRangeHelper @ 0x14064B360 (VmpUnpinMemoryRangeHelper.c)
- *     VmpUpdateCommitStateMemoryRange @ 0x14064B5C0 (VmpUpdateCommitStateMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x140399CE8 (VmpSplitMemoryRange.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x14039ECB4 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpRemoveMemoryRange @ 0x140479B50 (VmpRemoveMemoryRange.c)
+ *     VmpInvalidateSlatBatched @ 0x140479E38 (VmpInvalidateSlatBatched.c)
+ *     VmpCheckPinAndReference @ 0x1406489FC (VmpCheckPinAndReference.c)
+ *     VmpCheckUnpinAndDereference @ 0x140648AF0 (VmpCheckUnpinAndDereference.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x140649920 (VmpUnpinMemoryRangeHelper.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x140649B80 (VmpUpdateCommitStateMemoryRange.c)
  * Callees:
  *     <none>
  */

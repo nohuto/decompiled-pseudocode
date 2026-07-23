@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGetPrivateSessionTraceHandle @ 0x14093F1B0
+ * XREFs of EtwpGetPrivateSessionTraceHandle @ 0x14093F380
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     RtlRandomEx @ 0x1402E5D70 (RtlRandomEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     EtwpGetCurrentSiloState @ 0x1405AA724 (EtwpGetCurrentSiloState.c)
- *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
- *     EtwpGetPidDemuxList @ 0x14093F140 (EtwpGetPidDemuxList.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409414D8 (EtwpCheckCurrentUserProcessAccess.c)
+ *     RtlRandomEx @ 0x1402970C0 (RtlRandomEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     EtwpGetCurrentSiloState @ 0x1405AA954 (EtwpGetCurrentSiloState.c)
+ *     PsLookupProcessByProcessId @ 0x14068F4F0 (PsLookupProcessByProcessId.c)
+ *     EtwpGetPidDemuxList @ 0x14093F310 (EtwpGetPidDemuxList.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409416A8 (EtwpCheckCurrentUserProcessAccess.c)
  */
 
 __int64 __fastcall EtwpGetPrivateSessionTraceHandle(__int64 a1, __int64 a2, unsigned __int16 *a3)

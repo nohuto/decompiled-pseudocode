@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpQuerySecurityDescriptor @ 0x1407442D8 (RtlpQuerySecurityDescriptor.c)
+ *     sub_1407442D8 @ 0x1407442D8 (sub_1407442D8.c)
  */
 
 NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD(
@@ -53,7 +53,7 @@ NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD(
   v32 = 0LL;
   if ( *((__int16 *)SelfRelativeSecurityDescriptor + 1) >= 0 )
     return -1073741593;
-  RtlpQuerySecurityDescriptor((__int64)SelfRelativeSecurityDescriptor, &Src, &v28, &v31, &v29, &v33, &v34, &v32, &v35);
+  sub_1407442D8((__int64)SelfRelativeSecurityDescriptor, &Src, &v28, &v31, &v29, &v33, &v34, &v32, &v35);
   v15 = PrimaryGroupSize;
   v16 = OwnerSize;
   v17 = SaclSize;

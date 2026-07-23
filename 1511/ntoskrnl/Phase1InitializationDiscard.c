@@ -128,7 +128,7 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
   char *v40; // rax
   char *v41; // rax
   char *v42; // rax
-  const char *Text; // rbx
+  const CHAR *Text; // rbx
   ULONG v44; // r9d
   NTSTATUS v45; // eax
   __int64 v46; // r9
@@ -151,50 +151,47 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
   int v63; // eax
   int v64; // eax
   int v65; // ebx
-  __int64 v66; // rdx
-  __int64 v67; // rcx
-  __int64 v68; // r8
-  __int64 v69; // r9
-  char *v70; // rbx
-  const char *v71; // rbx
-  int v72; // eax
-  ULONG v73; // r9d
-  int v74; // edi
-  int v75; // edi
-  char *v76; // rax
-  int v77; // eax
-  int v78; // eax
-  int v79; // eax
+  __int64 v66; // r9
+  char *v67; // rbx
+  const char *v68; // rbx
+  int v69; // eax
+  ULONG v70; // r9d
+  int v71; // edi
+  int v72; // edi
+  char *v73; // rax
+  int v74; // eax
+  int v75; // eax
+  int v76; // eax
   PMESSAGE_RESOURCE_ENTRY *MessageResourceEntry; // [rsp+20h] [rbp-E0h]
-  char v82; // [rsp+40h] [rbp-C0h]
+  char v79; // [rsp+40h] [rbp-C0h]
   LARGE_INTEGER Time; // [rsp+48h] [rbp-B8h] BYREF
-  PMESSAGE_RESOURCE_ENTRY v84; // [rsp+50h] [rbp-B0h] BYREF
-  int v85; // [rsp+58h] [rbp-A8h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v81; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG Type; // [rsp+58h] [rbp-A8h] BYREF
   size_t pcbRemaining; // [rsp+60h] [rbp-A0h] BYREF
-  int v87; // [rsp+68h] [rbp-98h]
+  ULONG ResultDataSize; // [rsp+68h] [rbp-98h] BYREF
   NTSTRSAFE_PSTR ppszDestEnd; // [rsp+70h] [rbp-90h] BYREF
-  int v89; // [rsp+78h] [rbp-88h] BYREF
+  int Buffer; // [rsp+78h] [rbp-88h] BYREF
   LARGE_INTEGER CurrentTime; // [rsp+80h] [rbp-80h] BYREF
-  char v91; // [rsp+88h] [rbp-78h] BYREF
+  char v88; // [rsp+88h] [rbp-78h] BYREF
   PVOID MappedBase; // [rsp+90h] [rbp-70h] BYREF
   HANDLE SectionHandle; // [rsp+98h] [rbp-68h] BYREF
-  PMESSAGE_RESOURCE_ENTRY v94; // [rsp+A0h] [rbp-60h] BYREF
-  STRING v95; // [rsp+A8h] [rbp-58h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v91; // [rsp+A0h] [rbp-60h] BYREF
+  _STRING v92; // [rsp+A8h] [rbp-58h] BYREF
   ULONG_PTR ViewSize; // [rsp+B8h] [rbp-48h] BYREF
-  PMESSAGE_RESOURCE_ENTRY v97; // [rsp+C0h] [rbp-40h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v94; // [rsp+C0h] [rbp-40h] BYREF
   PVOID Object; // [rsp+C8h] [rbp-38h] BYREF
   LARGE_INTEGER MaximumSize; // [rsp+D0h] [rbp-30h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+D8h] [rbp-28h] BYREF
-  char v101[4]; // [rsp+E8h] [rbp-18h] BYREF
-  int v102; // [rsp+ECh] [rbp-14h]
+  _TIME_FIELDS TimeFields; // [rsp+D8h] [rbp-28h] BYREF
+  char v98[4]; // [rsp+E8h] [rbp-18h] BYREF
+  int v99; // [rsp+ECh] [rbp-14h]
   LARGE_INTEGER *p_Time; // [rsp+F0h] [rbp-10h]
-  char *v104; // [rsp+F8h] [rbp-8h]
-  char v105; // [rsp+108h] [rbp+8h]
-  char v106[4]; // [rsp+110h] [rbp+10h] BYREF
-  int v107; // [rsp+114h] [rbp+14h]
-  LARGE_INTEGER *v108; // [rsp+118h] [rbp+18h]
-  char *v109; // [rsp+120h] [rbp+20h]
-  char v110; // [rsp+130h] [rbp+30h]
+  char *v101; // [rsp+F8h] [rbp-8h]
+  char v102; // [rsp+108h] [rbp+8h]
+  char v103[4]; // [rsp+110h] [rbp+10h] BYREF
+  int v104; // [rsp+114h] [rbp+14h]
+  LARGE_INTEGER *v105; // [rsp+118h] [rbp+18h]
+  char *v106; // [rsp+120h] [rbp+20h]
+  char v107; // [rsp+130h] [rbp+30h]
   UNICODE_STRING DestinationString; // [rsp+138h] [rbp+38h] BYREF
   char pszDest[24]; // [rsp+148h] [rbp+48h] BYREF
 
@@ -204,7 +201,7 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
     KeBugCheck(0x31u);
   CurrentThread = KeGetCurrentThread();
   LODWORD(InitializationPhase) = 1;
-  v82 = 0;
+  v79 = 0;
   KeSetPriorityThread(CurrentThread, 31);
   byte_1403962AD &= 0xF9u;
   byte_1403962AC = 0;
@@ -258,7 +255,7 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
     else
       InitWinPEModeType |= 1u;
   }
-  Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x4000007Eu, &v84);
+  Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x4000007Eu, &v81);
   v15 = PoolWithTag;
   ppszDestEnd = PoolWithTag;
   v16 = Message;
@@ -291,7 +288,7 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
   else
   {
     LODWORD(MessageResourceEntry) = 10586;
-    v21 = RtlStringCbPrintfA(v19, v18, (NTSTRSAFE_PCSTR)v84->Text, pszDest, MessageResourceEntry, PoolWithTag);
+    v21 = RtlStringCbPrintfA(v19, v18, (NTSTRSAFE_PCSTR)v81->Text, pszDest, MessageResourceEntry, PoolWithTag);
     if ( v21 < 0 )
       KeBugCheckEx(0x32u, v21, 7uLL, 2uLL, 0LL);
   }
@@ -325,7 +322,7 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
     {
       v28 = ExpAltTimeZoneBias;
       ExpLastTimeZoneBias = ExpAltTimeZoneBias;
-      v82 = 1;
+      v79 = 1;
     }
     ExpTimeZoneBias = 600000000LL * v28;
     MEMORY[0xFFFFF7800000025C] = 0;
@@ -352,17 +349,17 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
   if ( !ExpRealTimeIsUniversal )
     QuadPart = Time.QuadPart - ExpTimeZoneBias;
   CurrentTime.QuadPart = QuadPart;
-  v101[0] = 0;
+  v98[0] = 0;
   p_Time = &Time;
-  v105 = 0;
-  v104 = &v91;
-  v102 = 4;
-  KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v101);
+  v102 = 0;
+  v101 = &v88;
+  v99 = 4;
+  KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v98);
   PoNotifySystemTimeSet();
   RtlInitUnicodeString(&DestinationString, L"Kernel-RegisteredProcessors");
-  if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v85, (__int64)&KeRegisteredProcessors) < 0
-    || v87 != 4
-    || v85 != 4 )
+  if ( ZwQueryLicenseValue(&DestinationString, &Type, &KeRegisteredProcessors, 4u, &ResultDataSize) < 0
+    || ResultDataSize != 4
+    || Type != 4 )
   {
     KeRegisteredProcessors = 1;
   }
@@ -409,19 +406,19 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
   KeStartAllProcessors();
   KeSetAffinityProcess((__int64)KeGetCurrentThread()->ApcState.Process, 0, (unsigned __int16 *)KeActiveProcessors);
   KeInitializeBootProcessorShadowState();
-  if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000089u, &v97) < 0 )
+  if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000089u, &v94) < 0 )
     Text = "MultiProcessor Kernel\r\n";
   else
-    Text = (const char *)v97->Text;
+    Text = (const CHAR *)v94->Text;
   if ( !(unsigned __int8)HalAllProcessorsStarted() )
     KeBugCheck(0x61u);
-  RtlInitAnsiString(&v95, Text);
-  if ( v95.Length >= 2u )
-    v95.Length -= 2;
+  RtlInitAnsiString(&v92, Text);
+  if ( v92.Length >= 2u )
+    v92.Length -= 2;
   v44 = 1073741960;
   if ( (unsigned int)KeNumberProcessors_0 > 1 )
     v44 = 1073741981;
-  v45 = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v44, &v84);
+  v45 = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v44, &v81);
   v46 = 0LL;
   v47 = *(unsigned int *)MmPhysicalMemoryBlock;
   if ( (_DWORD)v47 )
@@ -442,15 +439,15 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
             "%u System Processor [%u MB Memory] %Z\n",
             (unsigned int)KeNumberProcessors_0,
             (unsigned __int64)(v46 + 255) >> 8,
-            &v95);
+            &v92);
   else
     v49 = RtlStringCbPrintfA(
             PoolWithTag,
             0x100uLL,
-            (NTSTRSAFE_PCSTR)v84->Text,
+            (NTSTRSAFE_PCSTR)v81->Text,
             (unsigned int)KeNumberProcessors_0,
             (unsigned __int64)(v46 + 255) >> 8,
-            &v95);
+            &v92);
   if ( v49 < 0 )
     KeBugCheckEx(0x32u, v49, 7uLL, 4uLL, 0LL);
   InbvDisplayString((__int64)PoolWithTag);
@@ -524,27 +521,27 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
   PfInitializeSuperfetch();
   SmInitSystem(0LL);
   if ( (*(_BYTE *)(BugCheckParameter3[30] + 2272LL) & 2) == 0 || strstr(v6, "FORCETIMESYNC") )
-    ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0LL);
-  v89 = 0;
-  FsRtlSendModernAppTermination(&v89, 1u, 1);
+    ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
+  Buffer = 0;
+  FsRtlSendModernAppTermination(&Buffer, 1u, 1);
   ExInitializeUtcTimeZoneBias(&CurrentTime);
   v65 = ExpLastTimeZoneBias;
   ExpRefreshTimeZoneInformation();
-  if ( v82 )
+  if ( v79 )
   {
-    v108 = &Time;
+    v105 = &Time;
     Time.QuadPart = ExpTimeZoneBias + CurrentTime.QuadPart;
-    v109 = &v91;
-    v106[0] = 0;
-    v110 = 0;
-    v107 = 4;
-    KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v106);
+    v106 = &v88;
+    v103[0] = 0;
+    v107 = 0;
+    v104 = 4;
+    KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v103);
   }
   else if ( v65 != ExpLastTimeZoneBias )
   {
     ZwSetSystemTime(0LL, 0LL);
   }
-  if ( !(unsigned __int8)FsRtlInitSystem(v67, v66, v68) )
+  if ( !(unsigned __int8)FsRtlInitSystem() )
     KeBugCheck(0x68u);
   ExInitializeNPagedLookasideList(&RtlLznt1DecompressChunkLookaside, 0LL, 0LL, 0x200u, 0x58uLL, 0x63647A6Cu, 0);
   ExInitializePagedLookasideList(
@@ -557,7 +554,7 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
     0x10u);
   HvlDebuggerSupportInitialize((__int64)BugCheckParameter3);
   HalReportResourceUsage(0LL);
-  KdInitialize(1LL, BugCheckParameter3, &KdpContext, v69);
+  KdInitialize(1LL, BugCheckParameter3, &KdpContext, v66);
   if ( !(unsigned __int8)PpInitSystem() )
     KeBugCheck(0x90u);
   LpcLegacyMaxMessageLength = 648;
@@ -566,22 +563,22 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
   LpcPortObjectType = AlpcPortObjectType;
   LpcWaitablePortObjectType = (__int64)AlpcPortObjectType;
   if ( v6 )
-    v70 = strstr(v6, "SAFEBOOT:");
+    v67 = strstr(v6, "SAFEBOOT:");
   else
-    v70 = 0LL;
-  if ( v70 )
+    v67 = 0LL;
+  if ( v67 )
   {
-    v71 = v70 + 9;
-    if ( !strncmp(v71, "MINIMAL", 7uLL) )
+    v68 = v67 + 9;
+    if ( !strncmp(v68, "MINIMAL", 7uLL) )
     {
       v23 = 1;
     }
-    else if ( strncmp(v71, "NETWORK", 7uLL) )
+    else if ( strncmp(v68, "NETWORK", 7uLL) )
     {
-      if ( !strncmp(v71, "DSREPAIR", 8uLL) )
+      if ( !strncmp(v68, "DSREPAIR", 8uLL) )
       {
         v23 = 3;
-        v71 += 8;
+        v68 += 8;
       }
       else
       {
@@ -589,68 +586,68 @@ bool __fastcall Phase1InitializationDiscard(_QWORD *BugCheckParameter3)
       }
       goto LABEL_126;
     }
-    v71 += 7;
+    v68 += 7;
 LABEL_126:
     InitSafeBootMode = v23;
-    if ( *v71 )
+    if ( *v68 )
     {
-      v72 = strncmp(v71, "(ALTERNATESHELL)", 0x10uLL);
+      v69 = strncmp(v68, "(ALTERNATESHELL)", 0x10uLL);
       v23 = InitSafeBootMode;
-      v70 = 0LL;
-      v2 = v72 == 0;
+      v67 = 0LL;
+      v2 = v69 == 0;
     }
     else
     {
-      v70 = 0LL;
+      v67 = 0LL;
     }
     if ( v23 )
     {
-      v73 = 0;
-      v74 = v23 - 1;
-      if ( v74 )
+      v70 = 0;
+      v71 = v23 - 1;
+      if ( v71 )
       {
-        v75 = v74 - 1;
-        if ( v75 )
+        v72 = v71 - 1;
+        if ( v72 )
         {
-          if ( v75 == 1 )
-            v73 = 170;
+          if ( v72 == 1 )
+            v70 = 170;
         }
         else
         {
-          v73 = 169;
+          v70 = 169;
         }
       }
       else
       {
-        v73 = 168;
+        v70 = 168;
       }
-      if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v73, &v94) >= 0 )
-        InbvDisplayString((__int64)v94->Text);
+      if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v70, &v91) >= 0 )
+        InbvDisplayString((__int64)v91->Text);
     }
   }
   if ( v6 )
-    v76 = strstr(v6, "BOOTLOG");
+    v73 = strstr(v6, "BOOTLOG");
   else
-    v76 = v70;
-  if ( v76 )
+    v73 = v67;
+  if ( v73 )
   {
-    if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0xB7u, &v84) >= 0 )
-      InbvDisplayString((__int64)v84->Text);
+    if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0xB7u, &v81) >= 0 )
+      InbvDisplayString((__int64)v81->Text);
     IopInitializeBootLogging((__int64)BugCheckParameter3, (__int64)(PoolWithTag + 256));
   }
   ExInitSystemPhase2();
-  v77 = SeCodeIntegrityInitializePolicy(BugCheckParameter3);
-  if ( v77 < 0 )
-    KeBugCheckEx(0x32u, v77, 0x69436553uLL, 0LL, (ULONG_PTR)v70);
-  KdpTimeSlipPending = (int)v70;
-  if ( InitIsWinPEMode != (_BYTE)v70 )
+  v74 = SeCodeIntegrityInitializePolicy(BugCheckParameter3);
+  if ( v74 < 0 )
+    KeBugCheckEx(0x32u, v74, 0x69436553uLL, 0LL, (ULONG_PTR)v67);
+  KdpTimeSlipPending = (int)v67;
+  if ( InitIsWinPEMode != (_BYTE)v67 )
     CreateMiniNtBootKey();
-  v78 = ExInitializeNls();
-  if ( v78 < 0 )
-    KeBugCheckEx(0x32u, v78, 7uLL, 0LL, (ULONG_PTR)v70);
-  v79 = ExInitializeExternalBootSupport();
-  if ( v79 < 0 )
-    KeBugCheckEx(0x32u, v79, 8uLL, 0LL, (ULONG_PTR)v70);
+  v75 = ExInitializeNls();
+  if ( v75 < 0 )
+    KeBugCheckEx(0x32u, v75, 7uLL, 0LL, (ULONG_PTR)v67);
+  v76 = ExInitializeExternalBootSupport();
+  if ( v76 < 0 )
+    KeBugCheckEx(0x32u, v76, 8uLL, 0LL, (ULONG_PTR)v67);
   if ( !(unsigned __int8)PoInitSystem(1LL, BugCheckParameter3) )
     KeBugCheck(0xA0u);
   return v2;

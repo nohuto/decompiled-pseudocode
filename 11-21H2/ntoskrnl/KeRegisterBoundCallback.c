@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExCompareExchangeCallBack @ 0x1403C7678 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExAllocateCallBack @ 0x140832A20 (ExAllocateCallBack.c)
- *     MmVerifyCallbackFunction @ 0x14096C8B0 (MmVerifyCallbackFunction.c)
+ *     sub_1403C7678 @ 0x1403C7678 (sub_1403C7678.c)
+ *     sub_1406D9550 @ 0x1406D9550 (sub_1406D9550.c)
+ *     sub_140832A20 @ 0x140832A20 (sub_140832A20.c)
+ *     sub_14096C8B0 @ 0x14096C8B0 (sub_14096C8B0.c)
  */
 
 __int64 __fastcall KeRegisterBoundCallback(__int64 a1)
@@ -16,16 +16,16 @@ __int64 __fastcall KeRegisterBoundCallback(__int64 a1)
   struct _EX_RUNDOWN_REF *v4; // rsi
 
   v2 = 0LL;
-  if ( (unsigned int)MmVerifyCallbackFunction() )
+  if ( (unsigned int)sub_14096C8B0() )
   {
-    v3 = (struct _EX_RUNDOWN_REF *)ExAllocateCallBack(a1, 0LL);
+    v3 = (struct _EX_RUNDOWN_REF *)sub_140832A20(a1, 0LL);
     v4 = v3;
     if ( v3 )
     {
-      if ( ExCompareExchangeCallBack(&KiBoundsCallback, v3, 0LL) )
+      if ( sub_1403C7678(&qword_140C2BD40, v3, 0LL) )
         return a1;
       else
-        SC_ENV::Free(v4);
+        sub_1406D9550(v4);
     }
   }
   return v2;

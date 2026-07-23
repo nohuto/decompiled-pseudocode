@@ -1,14 +1,14 @@
 /*
- * XREFs of KxFlushSingleTb @ 0x1405C9918
+ * XREFs of KxFlushSingleTb @ 0x1405C7048
  * Callers:
- *     KeFlushSingleTb @ 0x1405BCAD4 (KeFlushSingleTb.c)
+ *     KeFlushSingleTb @ 0x1405BA104 (KeFlushSingleTb.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x140292F80 (KiIpiSendRequestEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiIpiSendRequestEx @ 0x1402A2B80 (KiIpiSendRequestEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KxFlushSingleTb(__int64 a1, unsigned int a2, int a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCaptureImageCfgContext @ 0x140713450
+ * XREFs of MiCaptureImageCfgContext @ 0x1406C1AA0
  * Callers:
- *     MiParseImageLoadConfig @ 0x140712E88 (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x1406C14D8 (MiParseImageLoadConfig.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiFreeImageCfgContext @ 0x14035E8C0 (MiFreeImageCfgContext.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MiLogRelocationRva @ 0x1407138D4 (MiLogRelocationRva.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiFreeImageCfgContext @ 0x1402A37F0 (MiFreeImageCfgContext.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MiLogRelocationRva @ 0x1406C1F24 (MiLogRelocationRva.c)
  */
 
 __int64 __fastcall MiCaptureImageCfgContext(
@@ -94,7 +94,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
         if ( v15 < a4 || !v16 || v16 >= 0xFFFFFFFF / v22 )
         {
           v13 = -1073741819;
-          dword_140C4CC48 = 10;
+          dword_140C4CC88 = 10;
           goto LABEL_32;
         }
         v23 = v15 - a4;
@@ -103,7 +103,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
         if ( v25 <= v23 || (v26 = a7, v25 > *(unsigned int *)(a7 + 16)) || v24 + 4 < v24 )
         {
           v13 = -1073741819;
-          dword_140C4CC48 = 11;
+          dword_140C4CC88 = 11;
           goto LABEL_32;
         }
       }
@@ -116,7 +116,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
       if ( v28 + v27 <= v27 || v28 + v27 > *(unsigned int *)(v26 + 16) || (int)v28 + 4 < (unsigned int)v28 )
       {
         v13 = -1073741819;
-        dword_140C4CC48 = 5;
+        dword_140C4CC88 = 5;
       }
       else
       {
@@ -125,7 +125,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
         if ( !Pool )
         {
           v13 = -1073741670;
-          dword_140C4CC48 = 6;
+          dword_140C4CC88 = 6;
 LABEL_31:
           v14 = a11;
           goto LABEL_32;
@@ -143,7 +143,7 @@ LABEL_31:
               break;
             if ( v31 && (unsigned int)v32 < v12 )
             {
-              dword_140C4CC48 = 9;
+              dword_140C4CC88 = 9;
               goto LABEL_45;
             }
             v12 = *(_DWORD *)&v35[v31];
@@ -151,7 +151,7 @@ LABEL_31:
             if ( v31 >= (unsigned int)v28 )
               goto LABEL_46;
           }
-          dword_140C4CC48 = 8;
+          dword_140C4CC88 = 8;
 LABEL_45:
           v13 = -1073741701;
         }
@@ -163,7 +163,7 @@ LABEL_46:
           if ( v34 < a4 || v34 >= a4 + a5 )
           {
             v13 = -1073741701;
-            dword_140C4CC48 = 10;
+            dword_140C4CC88 = 10;
             goto LABEL_31;
           }
           v14 = a11;
@@ -206,7 +206,7 @@ LABEL_46:
     else
     {
       v13 = -1073741819;
-      dword_140C4CC48 = 4;
+      dword_140C4CC88 = 4;
     }
   }
 LABEL_32:

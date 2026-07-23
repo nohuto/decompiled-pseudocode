@@ -15,7 +15,7 @@ __int64 __fastcall RtlpValidateActivationContextData(__int64 a1, _DWORD *a2)
   __int64 v6; // rcx
   unsigned int v7; // eax
   __int64 v8; // rax
-  const char *v10; // r8
+  const CHAR *v10; // r8
   unsigned int v11; // [rsp+20h] [rbp-18h]
 
   if ( *a2 != 2020893505 || a2[2] != 1 )
@@ -24,19 +24,19 @@ __int64 __fastcall RtlpValidateActivationContextData(__int64 a1, _DWORD *a2)
   v3 = 0;
   if ( !(_DWORD)v2 || (v2 & 3) != 0 )
   {
-    DbgPrintEx(51, 0, "SXS: Warning: Activation context data at %p missing default TOC\n", a2);
+    DbgPrintEx(0x33u, 0, "SXS: Warning: Activation context data at %p missing default TOC\n", a2);
     return (unsigned int)-1072365565;
   }
   v4 = (unsigned int)a2[6];
   if ( !(_DWORD)v4 || (v4 & 3) != 0 )
   {
-    DbgPrintEx(51, 0, "SXS: Warning: Activation context data at %p lacks assembly roster\n", a2);
+    DbgPrintEx(0x33u, 0, "SXS: Warning: Activation context data at %p lacks assembly roster\n", a2);
     return (unsigned int)-1072365565;
   }
   v5 = (unsigned int)a2[3];
   if ( (unsigned int)v2 >= (unsigned int)v5 || (v6 = (unsigned int)v2, v2 + 16 > v5) )
   {
-    DbgPrintEx(51, 0, "SXS: Activation context data at %p has invalid TOC header offset\n", a2);
+    DbgPrintEx(0x33u, 0, "SXS: Activation context data at %p has invalid TOC header offset\n", a2);
     return (unsigned int)-1072365565;
   }
   v7 = *(_DWORD *)((char *)a2 + (unsigned int)v2);
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpValidateActivationContextData(__int64 a1, _DWORD *a2)
     v10 = "SXS: Activation context data at %p has TOC header too small (%lu)\n";
 LABEL_22:
     v11 = v7;
-    DbgPrintEx(51, 0, v10, a2, v11);
+    DbgPrintEx(0x33u, 0, v10, a2, v11);
     return (unsigned int)-1072365565;
   }
   v8 = *(unsigned int *)((char *)a2 + v6 + 8);
@@ -53,12 +53,12 @@ LABEL_22:
     || (v8 & 3) != 0
     || v8 + 16 * (unsigned __int64)*(unsigned int *)((char *)a2 + v6 + 4) > v5 )
   {
-    DbgPrintEx(51, 0, "SXS: Activation context data at %p has invalid TOC entry array offset\n", a2);
+    DbgPrintEx(0x33u, 0, "SXS: Activation context data at %p has invalid TOC entry array offset\n", a2);
     return (unsigned int)-1072365565;
   }
   if ( (unsigned int)v4 >= (unsigned int)v5 || v4 + 20 > v5 )
   {
-    DbgPrintEx(51, 0, "SXS: Activation context data at %p has invalid assembly roster offset\n", a2);
+    DbgPrintEx(0x33u, 0, "SXS: Activation context data at %p has invalid assembly roster offset\n", a2);
     return (unsigned int)-1072365565;
   }
   v7 = *(_DWORD *)((char *)a2 + v4);

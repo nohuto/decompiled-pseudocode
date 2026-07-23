@@ -21,21 +21,21 @@
  *     _LdrpLoadContextReplaceModule@8 @ 0x4B2DE80E (_LdrpLoadContextReplaceModule@8.c)
  */
 
-int __fastcall LdrpMapDllWithSectionHandle(int a1, int a2)
+int __fastcall LdrpMapDllWithSectionHandle(int a1, void *a2)
 {
-  int v3; // eax
-  int v4; // esi
+  NTSTATUS v3; // eax
+  NTSTATUS v4; // esi
   int v5; // edi
-  int v6; // ecx
-  int v7; // edx
+  void *v6; // ecx
+  NTSTATUS v7; // edx
   int v8; // ecx
   int v9; // eax
-  _DWORD *v11; // ecx
-  unsigned int v12; // [esp-Ch] [ebp-2Ch]
+  PIMAGE_NT_HEADERS v11; // ecx
+  ULONG64 v12; // [esp-Ch] [ebp-2Ch]
   int *v13; // [esp+Ch] [ebp-14h] BYREF
-  _DWORD *v14; // [esp+10h] [ebp-10h] BYREF
-  int v15; // [esp+14h] [ebp-Ch]
-  unsigned int v16[2]; // [esp+18h] [ebp-8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+10h] [ebp-10h] BYREF
+  NTSTATUS v15; // [esp+14h] [ebp-Ch]
+  _RTL_BALANCED_NODE *v16[2]; // [esp+18h] [ebp-8h] BYREF
 
   v3 = LdrpMinimalMapModule((_DWORD *)a1, a2);
   v4 = v3;
@@ -43,37 +43,37 @@ int __fastcall LdrpMapDllWithSectionHandle(int a1, int a2)
   {
     v5 = *(_DWORD *)(a1 + 32);
     v15 = v3;
-    v12 = *(_DWORD *)(a1 + 92);
+    v12 = *(unsigned int *)(a1 + 92);
     v13 = 0;
-    v4 = RtlImageNtHeaderEx(0, *(_DWORD *)(v5 + 24), v12, 0, &v14);
+    v4 = RtlImageNtHeaderEx(0, *(PVOID *)(v5 + 24), v12, &OutHeaders);
     if ( v4 >= 0 )
     {
       if ( (*(_DWORD *)(a1 + 16) & 0x800000) != 0 )
       {
-        v11 = v14;
+        v11 = OutHeaders;
         v7 = 0;
-        *(_DWORD *)(v5 + 68) = v14[2];
-        *(_DWORD *)(v5 + 32) = v11[20];
+        *(_DWORD *)(v5 + 68) = OutHeaders->FileHeader.TimeDateStamp;
+        *(_DWORD *)(v5 + 32) = v11->OptionalHeader.SizeOfImage;
       }
       else
       {
         RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
         if ( LdrpFindLoadedDllByNameLockHeld(
                (unsigned __int16 *)(v5 + 44),
-               (*(_DWORD *)(a1 + 16) & 0x20) == 0 ? v5 + 36 : 0,
+               (*(_DWORD *)(a1 + 16) & 0x20) == 0 ? (_UNICODE_STRING *)(v5 + 36) : 0,
                *(_DWORD *)(a1 + 16),
                &v13,
                *(_DWORD *)(v5 + 144)) == -1073741515 )
         {
-          v16[0] = v14[2];
-          v6 = *(_DWORD *)(v5 + 24);
-          v16[1] = v14[20];
-          LdrpFindLoadedDllByMappingLockHeld(v6, v14, v16, &v13);
+          v16[0] = (_RTL_BALANCED_NODE *)OutHeaders->FileHeader.TimeDateStamp;
+          v6 = *(void **)(v5 + 24);
+          v16[1] = (_RTL_BALANCED_NODE *)OutHeaders->OptionalHeader.SizeOfImage;
+          LdrpFindLoadedDllByMappingLockHeld(OutHeaders, v6, v5, v16, (_RTL_BALANCED_NODE ***)&v13);
         }
         if ( !v13 )
         {
           LdrpInsertDataTableEntry(v5);
-          LdrpInsertModuleToIndexLockHeld((_DWORD *)v5, (int)v14);
+          LdrpInsertModuleToIndexLockHeld(v5, (int)OutHeaders);
         }
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
         if ( v13 )
@@ -83,7 +83,7 @@ int __fastcall LdrpMapDllWithSectionHandle(int a1, int a2)
         }
         v7 = v15;
       }
-      if ( (void *)dword_4B3A32E4 == NtCurrentTeb()->ClientId.UniqueThread )
+      if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
       {
         return -1073741275;
       }
@@ -92,7 +92,7 @@ int __fastcall LdrpMapDllWithSectionHandle(int a1, int a2)
         v4 = LdrpCompleteMapModule(v7);
         if ( v4 >= 0 )
         {
-          v4 = LdrpProcessMappedModule((unsigned int *)v5, *(_DWORD *)(a1 + 16), v8, v8);
+          v4 = LdrpProcessMappedModule(v5, *(_DWORD *)(a1 + 16), v8, v8);
           if ( v4 >= 0 )
           {
             LdrpLogNewDllLoad(*(_DWORD *)(a1 + 28), v5);
@@ -111,7 +111,7 @@ int __fastcall LdrpMapDllWithSectionHandle(int a1, int a2)
             }
             else
             {
-              LdrpMapAndSnapDependency((int *)a1);
+              LdrpMapAndSnapDependency((_DWORD *)a1);
               return **(_DWORD **)(a1 + 24);
             }
           }

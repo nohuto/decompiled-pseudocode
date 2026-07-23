@@ -4,9 +4,9 @@
  *     MiInitializeDriverImages @ 0x1407A4F78 (MiInitializeDriverImages.c)
  *     MxMarkActiveDriverBits @ 0x1407A6134 (MxMarkActiveDriverBits.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x140101E54 (MiSplitBitmapPages.c)
- *     KeZeroSinglePage @ 0x140161E10 (KeZeroSinglePage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSplitBitmapPages @ 0x1400FFBD4 (MiSplitBitmapPages.c)
+ *     KeZeroSinglePage @ 0x140162380 (KeZeroSinglePage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     MxMarkActiveDriverBits @ 0x1407A6134 (MxMarkActiveDriverBits.c)
  */
 

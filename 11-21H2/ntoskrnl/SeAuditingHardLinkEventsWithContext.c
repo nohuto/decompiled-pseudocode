@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
+ *     sub_140724320 @ 0x140724320 (sub_140724320.c)
  */
 
 BOOLEAN __stdcall SeAuditingHardLinkEventsWithContext(
@@ -37,5 +37,5 @@ BOOLEAN __stdcall SeAuditingHardLinkEventsWithContext(
     return 0;
   LOBYTE(SecurityDescriptor) = AccessGranted;
   LOBYTE(SubjectSecurityContext) = AccessGranted == 0;
-  return (unsigned __int8)SepAdtAuditThisEventWithContext(116LL, SecurityDescriptor, SubjectSecurityContext, v4) != 0;
+  return (unsigned __int8)sub_140724320(116LL, SecurityDescriptor, SubjectSecurityContext, v4) != 0;
 }

@@ -13,25 +13,25 @@
  *     TtmNotifyConsoleUserPresent @ 0x1408BCF70 (TtmNotifyConsoleUserPresent.c)
  */
 
-__int64 __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigned int a3)
+ULONG __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigned int a3)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   _QWORD v6[6]; // [rsp+20h] [rbp-30h] BYREF
-  int v7; // [rsp+68h] [rbp+18h] BYREF
+  ULONG v7; // [rsp+68h] [rbp+18h] BYREF
   __int64 v8; // [rsp+78h] [rbp+28h] BYREF
 
   LOBYTE(v7) = a2;
-  result = (__int64)memset(v6, 0, 0x28uLL);
+  result = (unsigned int)memset(v6, 0, 0x28uLL);
   v8 = 0LL;
   if ( PsWin32CalloutsEstablished )
   {
     result = RtlGetActiveConsoleId();
     v7 = result;
-    if ( (_DWORD)result != -1 )
+    if ( result != -1 )
     {
       if ( TtmpEnabled == 1 )
       {
-        return TtmNotifyConsoleUserPresent((unsigned int)result, a3);
+        return TtmNotifyConsoleUserPresent(result, a3);
       }
       else
       {
@@ -43,7 +43,7 @@ __int64 __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsi
         LODWORD(v6[0]) = 1;
         BYTE4(v6[0]) = 0;
         LODWORD(v6[1]) = 8;
-        return PopInvokeWin32Callout(5, (__int64)v6, 1, &v7);
+        return PopInvokeWin32Callout(5, (__int64)v6, 1, (int *)&v7);
       }
     }
   }

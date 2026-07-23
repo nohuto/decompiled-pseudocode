@@ -13,17 +13,17 @@
  *     RtlConsoleMultiByteToUnicodeN @ 0x1800F12E0 (RtlConsoleMultiByteToUnicodeN.c)
  *     CompareNamesCaseSensitive @ 0x1800F1C44 (CompareNamesCaseSensitive.c)
  *     ComputeNameLength @ 0x1800F1DE4 (ComputeNameLength.c)
- *     RtlGenerate8dot3Name @ 0x18010A320 (RtlGenerate8dot3Name.c)
- *     RtlIsNameLegalDOS8Dot3 @ 0x18010A7B0 (RtlIsNameLegalDOS8Dot3.c)
- *     RtlIsValidOemCharacter @ 0x18010A984 (RtlIsValidOemCharacter.c)
+ *     RtlGenerate8dot3Name @ 0x18010A2F0 (RtlGenerate8dot3Name.c)
+ *     RtlIsNameLegalDOS8Dot3 @ 0x18010A780 (RtlIsNameLegalDOS8Dot3.c)
+ *     RtlIsValidOemCharacter @ 0x18010A954 (RtlIsValidOemCharacter.c)
  * Callees:
  *     <none>
  */
 
-bool RtlpIsUtf8Process()
+bool __fastcall RtlpIsUtf8Process()
 {
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
   _InterlockedOr((volatile signed __int32 *)&retaddr, 0);
-  return GlobalRtlNlsState == -535 || word_1801847A0 == -535;
+  return GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9;
 }

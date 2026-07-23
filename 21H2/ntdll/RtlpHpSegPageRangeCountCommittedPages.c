@@ -2,7 +2,7 @@
  * XREFs of RtlpHpSegPageRangeCountCommittedPages @ 0x180002CC0
  * Callers:
  *     RtlpHpSegReportSegment @ 0x180002BF8 (RtlpHpSegReportSegment.c)
- *     RtlpHpSegPageRangeSplit @ 0x18010F528 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegPageRangeSplit @ 0x18010F4E8 (RtlpHpSegPageRangeSplit.c)
  * Callees:
  *     <none>
  */

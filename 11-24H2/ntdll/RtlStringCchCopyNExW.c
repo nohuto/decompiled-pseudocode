@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCchCopyNExW @ 0x1800BE22C
+ * XREFs of RtlStringCchCopyNExW @ 0x1800B5FEC
  * Callers:
- *     punycode_encode @ 0x1800BDBA8 (punycode_encode.c)
+ *     punycode_encode @ 0x1800B5968 (punycode_encode.c)
  * Callees:
  *     <none>
  */

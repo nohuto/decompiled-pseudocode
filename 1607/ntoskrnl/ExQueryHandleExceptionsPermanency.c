@@ -1,11 +1,11 @@
 /*
- * XREFs of ExQueryHandleExceptionsPermanency @ 0x14022CB34
+ * XREFs of ExQueryHandleExceptionsPermanency @ 0x14022C960
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     ObpCloseHandle @ 0x14050C774 (ObpCloseHandle.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     ObpCloseHandle @ 0x1404EF704 (ObpCloseHandle.c)
  * Callees:
- *     ExpLockHandleTableExclusive @ 0x1400A8A84 (ExpLockHandleTableExclusive.c)
+ *     ExpLockHandleTableExclusive @ 0x1400A7004 (ExpLockHandleTableExclusive.c)
  */
 
 __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool *a3)

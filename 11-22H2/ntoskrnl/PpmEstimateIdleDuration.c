@@ -32,7 +32,7 @@ unsigned __int64 *__fastcall PpmEstimateIdleDuration(
   int v19; // eax
   unsigned __int64 v20; // rdi
   int v21; // ecx
-  unsigned int v22; // eax
+  ULONG v22; // eax
   unsigned __int64 *result; // rax
   unsigned __int64 v24; // rsi
   __int64 Prcb; // rax
@@ -78,7 +78,7 @@ unsigned __int64 *__fastcall PpmEstimateIdleDuration(
     v21 = *(_DWORD *)(a1 + 11684);
     if ( v21 )
     {
-      v22 = KeMaximumIncrement / (unsigned int)(v21 + 1);
+      v22 = KeMaximumIncrement / (v21 + 1);
       if ( !v22 )
         v22 = 1;
       v17 = v22;

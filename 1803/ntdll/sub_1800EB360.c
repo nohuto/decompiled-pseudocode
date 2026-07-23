@@ -17,61 +17,54 @@
 __int64 sub_1800EB360()
 {
   struct _PEB *v0; // r14
-  __int64 v1; // r9
-  unsigned int v2; // ebx
-  unsigned int i; // esi
-  void **ProcessHeaps; // rax
-  char *v5; // rdi
-  unsigned __int64 v6; // rdx
-  unsigned __int64 *v7; // r8
-  __int64 v8; // r9
-  int v9; // ebp
-  unsigned __int64 v10; // rdx
-  unsigned __int64 *v11; // r8
-  __int64 v12; // r9
-  unsigned __int64 v14; // rcx
-  char v15[40]; // [rsp+20h] [rbp-28h] BYREF
-  char v16; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v17; // [rsp+58h] [rbp+10h]
+  unsigned int v1; // ebx
+  ULONG i; // esi
+  PVOID *ProcessHeaps; // rax
+  char *v4; // rdi
+  int v5; // ebp
+  _RTL_SRWLOCK *v7; // rcx
+  char v8[40]; // [rsp+20h] [rbp-28h] BYREF
+  char v9; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+58h] [rbp+10h] BYREF
 
   v0 = NtCurrentPeb();
-  RtlEnterCriticalSection((__int64)&unk_18015AAC0);
-  sub_18005EF2C((__int64)&unk_18015D838, (char *)1, (__int64)v15, v1);
-  v2 = 0;
+  RtlEnterCriticalSection(&stru_18015AAC0);
+  sub_18005EF2C((_RTL_SRWLOCK *)&unk_18015D838, 1, (__int64)v8);
+  v1 = 0;
   for ( i = 0; i < v0->NumberOfHeaps; ++i )
   {
     ProcessHeaps = v0->ProcessHeaps;
-    v5 = (char *)ProcessHeaps[i];
-    if ( *((_DWORD *)v5 + 4) == -571548178 )
+    v4 = (char *)ProcessHeaps[i];
+    if ( *((_DWORD *)v4 + 4) == -571548178 )
     {
-      if ( (v5[20] & 1) == 0 )
+      if ( (v4[20] & 1) == 0 )
       {
-        sub_180022E4C((__int64)ProcessHeaps[i], &v16);
-        RtlAcquireSRWLockExclusive((unsigned __int64)(v5 + 360), v6, v7, v8);
-        sub_180104DE4(v5 + 512, 0LL);
+        sub_180022E4C((__int64)ProcessHeaps[i], &v9);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v4 + 45);
+        sub_180104DE4(v4 + 512, 0LL);
       }
     }
-    else if ( (v5[112] & 1) == 0 )
+    else if ( (v4[112] & 1) == 0 )
     {
-      v9 = 0;
-      v17 = -250000LL;
-      while ( !(unsigned int)RtlTryEnterCriticalSection(*((_QWORD *)v5 + 44)) )
+      v5 = 0;
+      DelayInterval.QuadPart = -250000LL;
+      while ( !RtlTryEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)v4 + 44)) )
       {
-        ZwDelayExecution();
-        if ( (unsigned int)++v9 >= 0x64 )
+        ZwDelayExecution(0, &DelayInterval);
+        if ( (unsigned int)++v5 >= 0x64 )
         {
-          v2 = -1073741420;
+          v1 = -1073741420;
           sub_1800ED18C(0LL, i);
-          return v2;
+          return v1;
         }
       }
-      if ( v5[386] == 2 )
-        v14 = *((_QWORD *)v5 + 47);
+      if ( v4[386] == 2 )
+        v7 = (_RTL_SRWLOCK *)*((_QWORD *)v4 + 47);
       else
-        v14 = 0LL;
-      if ( v14 )
-        RtlAcquireSRWLockExclusive(v14, v10, v11, v12);
+        v7 = 0LL;
+      if ( v7 )
+        RtlAcquireSRWLockExclusive(v7);
     }
   }
-  return v2;
+  return v1;
 }

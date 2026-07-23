@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwQueryBootEntryOrder @ 0x1403FCBA0
+ * XREFs of ZwQueryBootEntryOrder @ 0x1403FCD80
  * Callers:
- *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x14094B010 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
- *     BiQueryBootEntryOrder @ 0x14097285C (BiQueryBootEntryOrder.c)
- *     SiGetEspFromFirmware @ 0x140973FA8 (SiGetEspFromFirmware.c)
+ *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x14094B1E0 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
+ *     BiQueryBootEntryOrder @ 0x140972A3C (BiQueryBootEntryOrder.c)
+ *     SiGetEspFromFirmware @ 0x140974188 (SiGetEspFromFirmware.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryBootEntryOrder(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryBootEntryOrder(PULONG Ids, PULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Ids);
 }

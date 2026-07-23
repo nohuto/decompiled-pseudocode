@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAdjustTraceBuffers @ 0x1404887E0
+ * XREFs of EtwpAdjustTraceBuffers @ 0x140482320
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpAdjustStackLookasideBuffers @ 0x140488894 (EtwpAdjustStackLookasideBuffers.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x140488910 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpAdjustLastBranchLookasideBuffers @ 0x140488A5C (EtwpAdjustLastBranchLookasideBuffers.c)
- *     PspGetNextSilo @ 0x140959E18 (PspGetNextSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpAdjustStackLookasideBuffers @ 0x1404823D4 (EtwpAdjustStackLookasideBuffers.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140482450 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpAdjustLastBranchLookasideBuffers @ 0x14048259C (EtwpAdjustLastBranchLookasideBuffers.c)
+ *     PspGetNextSilo @ 0x1409FF6D8 (PspGetNextSilo.c)
  */
 
 void EtwpAdjustTraceBuffers()
@@ -45,6 +45,6 @@ void EtwpAdjustTraceBuffers()
     }
     EtwpAdjustStackLookasideBuffers();
     EtwpAdjustLastBranchLookasideBuffers();
-    _InterlockedExchange(&EtwpBufferAdjustmentActive, 0);
+    _InterlockedExchange((volatile __int32 *)&stru_140F03830.TrapFrame, 0);
   }
 }

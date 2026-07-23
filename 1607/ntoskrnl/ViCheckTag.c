@@ -1,14 +1,14 @@
 /*
- * XREFs of ViCheckTag @ 0x140708EC0
+ * XREFs of ViCheckTag @ 0x140708EF0
  * Callers:
- *     ViCheckAdapterBuffers @ 0x140708C18 (ViCheckAdapterBuffers.c)
- *     ViCheckPadding @ 0x140708D0C (ViCheckPadding.c)
- *     ViFreeMapRegistersToFile @ 0x1407095A8 (ViFreeMapRegistersToFile.c)
+ *     ViCheckAdapterBuffers @ 0x140708C48 (ViCheckAdapterBuffers.c)
+ *     ViCheckPadding @ 0x140708D3C (ViCheckPadding.c)
+ *     ViFreeMapRegistersToFile @ 0x1407095D8 (ViFreeMapRegistersToFile.c)
  * Callees:
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViCheckTag(ULONG_PTR a1, size_t Size, int a3, char a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpUnregisterPlugPlayNotification @ 0x1404ABEF8
+ * XREFs of PnpUnregisterPlugPlayNotification @ 0x1404A5588
  * Callers:
- *     PopCleanCoolingExtension @ 0x1407CB9D0 (PopCleanCoolingExtension.c)
- *     PopPolicyDeviceTargetChange @ 0x1407D7C00 (PopPolicyDeviceTargetChange.c)
- *     CmpHiveCacheEntryCleanup @ 0x140861D7C (CmpHiveCacheEntryCleanup.c)
- *     IoUnregisterPlugPlayNotificationEx @ 0x140AEA4D0 (IoUnregisterPlugPlayNotificationEx.c)
- *     IoUnregisterPlugPlayNotification @ 0x140B319C0 (IoUnregisterPlugPlayNotification.c)
+ *     PopCleanCoolingExtension @ 0x1407CEA70 (PopCleanCoolingExtension.c)
+ *     PopPolicyDeviceTargetChange @ 0x1407DB220 (PopPolicyDeviceTargetChange.c)
+ *     CmpHiveCacheEntryCleanup @ 0x14086815C (CmpHiveCacheEntryCleanup.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x140AECFC0 (IoUnregisterPlugPlayNotificationEx.c)
+ *     IoUnregisterPlugPlayNotification @ 0x140B33BC0 (IoUnregisterPlugPlayNotification.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PnpDereferenceNotify @ 0x1409DD548 (PnpDereferenceNotify.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PnpDereferenceNotify @ 0x140A1A800 (PnpDereferenceNotify.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpUnregisterPlugPlayNotification(struct _LIST_ENTRY *P, char a2)

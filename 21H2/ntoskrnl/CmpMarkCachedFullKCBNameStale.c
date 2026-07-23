@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpMarkCachedFullKCBNameStale @ 0x1404EC950
+ * XREFs of CmpMarkCachedFullKCBNameStale @ 0x1404ECB90
  * Callers:
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
  * Callees:
  *     <none>
  */

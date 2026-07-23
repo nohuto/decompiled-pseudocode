@@ -1,9 +1,9 @@
 /*
- * XREFs of ObAssignSecurity @ 0x140AA1EC0
+ * XREFs of ObAssignSecurity @ 0x140A9D250
  * Callers:
  *     <none>
  * Callees:
- *     ObpAssignSecurity @ 0x140857F90 (ObpAssignSecurity.c)
+ *     ObpAssignSecurity @ 0x140854270 (ObpAssignSecurity.c)
  */
 
 __int64 __fastcall ObAssignSecurity(__int64 a1, __int64 a2, __int64 a3, struct _OBJECT_TYPE *a4)

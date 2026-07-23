@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0j @ 0x140288ADC
+ * XREFs of McTemplateK0j @ 0x140288CCC
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14067F0DC (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14068029C (PpCheckInDriverDatabase.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0j(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

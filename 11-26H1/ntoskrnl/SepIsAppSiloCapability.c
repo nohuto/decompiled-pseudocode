@@ -1,9 +1,10 @@
 /*
- * XREFs of SepIsAppSiloCapability @ 0x1404BD69C
+ * XREFs of SepIsAppSiloCapability @ 0x1404B6E7C
  * Callers:
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlIdentifierAuthoritySid @ 0x140AFB42C (RtlIdentifierAuthoritySid.c)
+ *     RtlIdentifierAuthoritySid @ 0x140AFD33C (RtlIdentifierAuthoritySid.c)
  */
 
 char __fastcall SepIsAppSiloCapability(_BYTE *a1)
@@ -17,12 +18,12 @@ char __fastcall SepIsAppSiloCapability(_BYTE *a1)
   int v7; // r8d
   __int64 v8; // rdx
 
-  if ( (struct _LIST_ENTRY *)*a1 != RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink->Flink
-    || a1[1] <= BYTE1(RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink->Flink) )
+  if ( *a1 != **(_BYTE **)&RtlpBootStatHandleLock.ApcStateFill[40]
+    || a1[1] <= *(_BYTE *)(*(_QWORD *)&RtlpBootStatHandleLock.ApcStateFill[40] + 1LL) )
   {
     return 0;
   }
-  RtlIdentifierAuthoritySid(RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink);
+  RtlIdentifierAuthoritySid(*(PSID *)&RtlpBootStatHandleLock.ApcStateFill[40]);
   v2 = RtlIdentifierAuthoritySid(v1);
   v7 = *(_DWORD *)v2->Value - *(_DWORD *)v3;
   if ( *(_DWORD *)v2->Value == *(_DWORD *)v3 )

@@ -12,12 +12,12 @@
  *     RtlpInterlockedFlushSList @ 0x1401B2C50 (RtlpInterlockedFlushSList.c)
  */
 
-struct _SLIST_ENTRY *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)
+_SLIST_ENTRY *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)
 {
-  struct _SLIST_ENTRY *v2; // rsi
+  _SLIST_ENTRY *v2; // rsi
   PSLIST_ENTRY v3; // rdi
   unsigned __int64 *v4; // rbp
-  struct _SLIST_ENTRY *v5; // rbx
+  _SLIST_ENTRY *v5; // rbx
 
   v2 = 0LL;
   v3 = RtlpInterlockedFlushSList((PSLIST_HEADER)(*(_QWORD *)(a1 + 1296) + 336LL));

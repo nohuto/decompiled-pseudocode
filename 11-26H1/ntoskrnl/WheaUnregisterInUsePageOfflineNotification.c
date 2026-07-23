@@ -1,15 +1,15 @@
 /*
- * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x1408486A0
+ * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x14084E970
  * Callers:
- *     HvlUnregisterWheaErrorNotification @ 0x1407917E0 (HvlUnregisterWheaErrorNotification.c)
+ *     HvlUnregisterWheaErrorNotification @ 0x140794310 (HvlUnregisterWheaErrorNotification.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFLINE_NOTIFY Callback)
@@ -21,9 +21,9 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
   void *v7; // rdx
   signed __int8 v8; // cf
   AutoBoost *v9; // rsi
-  struct _LIST_ENTRY *i; // rcx
-  struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *Blink; // rdx
+  PFN_IN_USE_PAGE_OFFLINE_NOTIFY *i; // rcx
+  PFN_IN_USE_PAGE_OFFLINE_NOTIFY v11; // rax
+  PFN_IN_USE_PAGE_OFFLINE_NOTIFY **v12; // rdx
 
   v2 = 0;
   if ( WheapInUsePageOfflineNotifyInit != 1 )
@@ -45,17 +45,20 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
     else
       *((_BYTE *)v9 + 10) = 1;
   }
-  for ( i = WheapInUsePageOfflineNotifyLock.Header.WaitListHead.Flink;
-        i != &WheapInUsePageOfflineNotifyLock.Header.WaitListHead;
-        i = i->Flink )
+  for ( i = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)WheapInUsePageOfflineNotifyList;
+        i != (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)&WheapInUsePageOfflineNotifyList;
+        i = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)*i )
   {
-    Flink = i->Flink;
-    if ( Callback == (PFN_IN_USE_PAGE_OFFLINE_NOTIFY)i[1].Flink )
+    v11 = *i;
+    if ( Callback == i[2] )
     {
-      if ( Flink->Blink != i || (Blink = i->Blink, Blink->Flink != i) )
+      if ( *((PFN_IN_USE_PAGE_OFFLINE_NOTIFY **)v11 + 1) != i
+        || (v12 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY **)i[1], *v12 != i) )
+      {
         __fastfail(3u);
-      Blink->Flink = Flink;
-      Flink->Blink = Blink;
+      }
+      *v12 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)v11;
+      *((_QWORD *)v11 + 1) = v12;
       ExFreePoolWithTag(i, 0x61656857u);
       v2 = 1;
       break;

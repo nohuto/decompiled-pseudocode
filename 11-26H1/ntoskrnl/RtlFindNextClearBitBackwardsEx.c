@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindNextClearBitBackwardsEx @ 0x14042E0DC
+ * XREFs of RtlFindNextClearBitBackwardsEx @ 0x14041AFEC
  * Callers:
- *     MiFindNextLowerLargePageCandidate @ 0x14042E03C (MiFindNextLowerLargePageCandidate.c)
+ *     MiFindNextLowerLargePageCandidate @ 0x14041AF4C (MiFindNextLowerLargePageCandidate.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopVerifySystemPowerPolicy @ 0x140747958
+ * XREFs of PopVerifySystemPowerPolicy @ 0x140748B48
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PopApplyPolicy @ 0x1407476B4 (PopApplyPolicy.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     PopApplyPolicy @ 0x1407488A4 (PopApplyPolicy.c)
  * Callees:
- *     PopVerifyPowerActionPolicy @ 0x1407199D8 (PopVerifyPowerActionPolicy.c)
- *     PopVerifySystemPowerState @ 0x14071B328 (PopVerifySystemPowerState.c)
+ *     PopVerifyPowerActionPolicy @ 0x14071AC78 (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x14071C5C8 (PopVerifySystemPowerState.c)
  */
 
 __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
@@ -105,13 +105,13 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   if ( v10 > HIDWORD(PopAdminPolicy) )
     *(_DWORD *)(a2 + 192) = HIDWORD(PopAdminPolicy);
   v11 = *(_DWORD *)(a2 + 212);
-  if ( v11 < (unsigned int)qword_140418150 )
+  if ( v11 < (unsigned int)qword_140419210 )
   {
-    *(_DWORD *)(a2 + 212) = qword_140418150;
-    v11 = qword_140418150;
+    *(_DWORD *)(a2 + 212) = qword_140419210;
+    v11 = qword_140419210;
   }
-  if ( v11 > HIDWORD(qword_140418150) )
-    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140418150);
+  if ( v11 > HIDWORD(qword_140419210) )
+    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140419210);
   PopVerifyPowerActionPolicy((int *)(a2 + 4));
   PopVerifyPowerActionPolicy((int *)(a2 + 16));
   PopVerifyPowerActionPolicy((int *)(a2 + 28));

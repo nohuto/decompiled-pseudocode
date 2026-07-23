@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhBucketActivate @ 0x140323C50
+ * XREFs of RtlpHpLfhBucketActivate @ 0x140323EE0
  * Callers:
- *     RtlpHpLfhBucketUpdateStats @ 0x140323AC0 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x140323D50 (RtlpHpLfhBucketUpdateStats.c)
  * Callees:
- *     RtlpHpLfhBucketInitialize @ 0x140323BD4 (RtlpHpLfhBucketInitialize.c)
- *     RtlpHpLfhOwnerInitialize @ 0x140323E18 (RtlpHpLfhOwnerInitialize.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlpHpLfhBucketInitialize @ 0x140323E64 (RtlpHpLfhBucketInitialize.c)
+ *     RtlpHpLfhOwnerInitialize @ 0x1403240A8 (RtlpHpLfhOwnerInitialize.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall RtlpHpLfhBucketActivate(__int64 a1, unsigned int a2)

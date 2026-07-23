@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPoolInitPhase1 @ 0x140ADA148
+ * XREFs of VfPoolInitPhase1 @ 0x140ADA138
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140AC2D18 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140AC2D08 (VfInitSystemNoRebootNeeded.c)
  *     ViInitSystemPhase1 @ 0x140B532E4 (ViInitSystemPhase1.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
  */
 
 NTSTATUS VfPoolInitPhase1()

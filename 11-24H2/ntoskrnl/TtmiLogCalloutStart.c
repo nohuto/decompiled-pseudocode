@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutStart @ 0x14076BC78
+ * XREFs of TtmiLogCalloutStart @ 0x14076BE98
  * Callers:
- *     TtmpStartCallout @ 0x140769844 (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x140769A64 (TtmpStartCallout.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
@@ -40,9 +40,9 @@ char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
 
   v4 = &retaddr;
   v33 = a3;
-  if ( (unsigned int)dword_140FD78B8 > 5 )
+  if ( (unsigned int)dword_140FD88C8 > 5 )
   {
-    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140FD78B8, 1LL);
+    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140FD88C8, 1LL);
     if ( (_BYTE)v4 )
     {
       SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -69,8 +69,8 @@ char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
       v25 = 2;
       v12 = a4;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD78B8,
-                     (unsigned __int8 *)byte_14004FBAF,
+                     (__int64)&dword_140FD88C8,
+                     (unsigned __int8 *)byte_1400511AB,
                      0LL,
                      0LL,
                      8u,

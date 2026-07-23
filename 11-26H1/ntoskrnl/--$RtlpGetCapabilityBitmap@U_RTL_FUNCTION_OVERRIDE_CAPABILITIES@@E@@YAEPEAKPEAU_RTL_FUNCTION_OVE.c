@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$RtlpGetCapabilityBitmap@U_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@E@@YAEPEAKPEAU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEAPEAE@Z @ 0x140809D4C
+ * XREFs of ??$RtlpGetCapabilityBitmap@U_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@E@@YAEPEAKPEAU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEAPEAE@Z @ 0x14080F7DC
  * Callers:
- *     RtlpSetFunctionOverrideCapability @ 0x140809F0C (RtlpSetFunctionOverrideCapability.c)
+ *     RtlpSetFunctionOverrideCapability @ 0x14080F99C (RtlpSetFunctionOverrideCapability.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFlushRelease @ 0x14029F980
+ * XREFs of MiFlushRelease @ 0x14029FC10
  * Callers:
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     MmTrimSection @ 0x1402EF8D8 (MmTrimSection.c)
- *     MiFreeOverlappedFlushEntry @ 0x140635FE0 (MiFreeOverlappedFlushEntry.c)
- *     MiAllocateVirtualMemory @ 0x1406F7220 (MiAllocateVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1407B4258 (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     MmTrimSection @ 0x1402EFB68 (MmTrimSection.c)
+ *     MiFreeOverlappedFlushEntry @ 0x140636530 (MiFreeOverlappedFlushEntry.c)
+ *     MiAllocateVirtualMemory @ 0x1406F7430 (MiAllocateVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1407B4538 (MmFlushVirtualMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementSubsections @ 0x14029FA30 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsections @ 0x14029FCC0 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiFlushRelease(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

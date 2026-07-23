@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwWaitForMultipleObjects32()
+NTSTATUS __cdecl ZwWaitForMultipleObjects32(
+        ULONG Count,
+        LONG Handles[],
+        WAIT_TYPE WaitType,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 26LL;
+  result = 26;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

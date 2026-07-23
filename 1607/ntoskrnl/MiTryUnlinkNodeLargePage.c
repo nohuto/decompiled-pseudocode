@@ -1,17 +1,17 @@
 /*
- * XREFs of MiTryUnlinkNodeLargePage @ 0x14008A2E0
+ * XREFs of MiTryUnlinkNodeLargePage @ 0x1400899E0
  * Callers:
- *     MiLargeFreePageToMdl @ 0x14008A124 (MiLargeFreePageToMdl.c)
- *     MiDemoteLargeFreePage @ 0x14008A280 (MiDemoteLargeFreePage.c)
- *     MiMoveLargeFreePage @ 0x1401FBB54 (MiMoveLargeFreePage.c)
+ *     MiLargeFreePageToMdl @ 0x140089824 (MiLargeFreePageToMdl.c)
+ *     MiDemoteLargeFreePage @ 0x140089980 (MiDemoteLargeFreePage.c)
+ *     MiMoveLargeFreePage @ 0x1401FB980 (MiMoveLargeFreePage.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertLargePageInFreeOrZeroList @ 0x140064EF0 (MiInsertLargePageInFreeOrZeroList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiUnlinkNodeLargePageHelper @ 0x14008AA80 (MiUnlinkNodeLargePageHelper.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertLargePageInFreeOrZeroList @ 0x140064A70 (MiInsertLargePageInFreeOrZeroList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14008A180 (MiUnlinkNodeLargePageHelper.c)
  */
 
 __int64 __fastcall MiTryUnlinkNodeLargePage(unsigned __int64 a1, unsigned int a2)

@@ -15,9 +15,9 @@
  *     VerifierRtlUpcaseUnicodeStringToCountedOemString @ 0x14071B504 (VerifierRtlUpcaseUnicodeStringToCountedOemString.c)
  *     VerifierRtlUpcaseUnicodeStringToOemString @ 0x14071B548 (VerifierRtlUpcaseUnicodeStringToOemString.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
  */
 
 void __fastcall ViRtlReplaceStringBuffer(__int64 a1, _DWORD *a2, __int64 a3)

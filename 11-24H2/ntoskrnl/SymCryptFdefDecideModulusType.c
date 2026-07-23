@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptFdefDecideModulusType @ 0x1405356C8
+ * XREFs of SymCryptFdefDecideModulusType @ 0x14052FB68
  * Callers:
- *     SymCryptFdefIntToModulus @ 0x140535894 (SymCryptFdefIntToModulus.c)
+ *     SymCryptFdefIntToModulus @ 0x14052FD34 (SymCryptFdefIntToModulus.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x14048D93C (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptDigitsFromBits @ 0x140523724 (SymCryptDigitsFromBits.c)
- *     SymCryptIntBitsizeOfValue @ 0x1405237CC (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptFdefRawGetValue @ 0x14053751C (SymCryptFdefRawGetValue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x1404881BC (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptDigitsFromBits @ 0x14052103C (SymCryptDigitsFromBits.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1405210E4 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptFdefRawGetValue @ 0x1405319BC (SymCryptFdefRawGetValue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 __int64 __fastcall SymCryptFdefDecideModulusType(__int64 a1, unsigned int a2, unsigned int a3, char a4)

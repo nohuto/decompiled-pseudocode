@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAllocateFreeBuffers @ 0x1402ED308
+ * XREFs of EtwpAllocateFreeBuffers @ 0x14029E658
  * Callers:
- *     EtwpSwitchBuffer @ 0x140265E94 (EtwpSwitchBuffer.c)
- *     EtwpAdjustFreeBuffers @ 0x140642D70 (EtwpAdjustFreeBuffers.c)
- *     EtwpAllocateTraceBufferPool @ 0x1406DF4A0 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpSwitchBuffer @ 0x140253E34 (EtwpSwitchBuffer.c)
+ *     EtwpAdjustFreeBuffers @ 0x140637B80 (EtwpAdjustFreeBuffers.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1406B6780 (EtwpAllocateTraceBufferPool.c)
  * Callees:
- *     EtwpEnqueueAvailableBuffer @ 0x140266230 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpUnlockBufferList @ 0x1402662CC (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140266318 (EtwpLockBufferList.c)
- *     EtwpInitializeBufferHeader @ 0x1402ED46C (EtwpInitializeBufferHeader.c)
- *     EtwpAllocateTraceBuffer @ 0x1402ED4C8 (EtwpAllocateTraceBuffer.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402541D0 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpUnlockBufferList @ 0x14025426C (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402542B8 (EtwpLockBufferList.c)
+ *     EtwpInitializeBufferHeader @ 0x14029E7BC (EtwpInitializeBufferHeader.c)
+ *     EtwpAllocateTraceBuffer @ 0x14029E818 (EtwpAllocateTraceBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B51B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocateFreeBuffers(__int64 a1, unsigned int a2)

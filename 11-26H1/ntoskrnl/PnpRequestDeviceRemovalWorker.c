@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRequestDeviceRemovalWorker @ 0x140914AF4
+ * XREFs of PnpRequestDeviceRemovalWorker @ 0x14096F560
  * Callers:
- *     PnpRequestDeviceRemoval @ 0x14091493C (PnpRequestDeviceRemoval.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140914AF4 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpRequestDeviceRemoval @ 0x14096F3A8 (PnpRequestDeviceRemoval.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x14096F560 (PnpRequestDeviceRemovalWorker.c)
  * Callees:
- *     PipSetDevNodeState @ 0x1404D2858 (PipSetDevNodeState.c)
- *     PiListEntryToDependencyEdge @ 0x140515F40 (PiListEntryToDependencyEdge.c)
- *     PipIsDevNodeDNStarted @ 0x14051BDE4 (PipIsDevNodeDNStarted.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140914AF4 (PnpRequestDeviceRemovalWorker.c)
- *     PipDeviceRemovalCheckDeviceNodeState @ 0x140914C04 (PipDeviceRemovalCheckDeviceNodeState.c)
+ *     PipSetDevNodeState @ 0x1404CC0D0 (PipSetDevNodeState.c)
+ *     PiListEntryToDependencyEdge @ 0x14050F9B0 (PiListEntryToDependencyEdge.c)
+ *     PipIsDevNodeDNStarted @ 0x140516374 (PipIsDevNodeDNStarted.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x14096F560 (PnpRequestDeviceRemovalWorker.c)
+ *     PipDeviceRemovalCheckDeviceNodeState @ 0x14096F670 (PipDeviceRemovalCheckDeviceNodeState.c)
  */
 
 _QWORD *__fastcall PnpRequestDeviceRemovalWorker(int a1, __int64 a2, char a3, int a4, char a5)

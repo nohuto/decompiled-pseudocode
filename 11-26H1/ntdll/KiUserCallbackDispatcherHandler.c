@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUserCallbackDispatcherHandler @ 0x180162EE0
+ * XREFs of KiUserCallbackDispatcherHandler @ 0x180162DE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     LdrpLogFatalUserCallbackException @ 0x18015D5C0 (LdrpLogFatalUserCallbackException.c)
- *     ZwCallbackReturn @ 0x18015EFE0 (ZwCallbackReturn.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     LdrpLogFatalUserCallbackException @ 0x18015D480 (LdrpLogFatalUserCallbackException.c)
+ *     ZwCallbackReturn @ 0x18015EEE0 (ZwCallbackReturn.c)
  */
 
 __int64 __fastcall KiUserCallbackDispatcherHandler(
@@ -14,14 +14,14 @@ __int64 __fastcall KiUserCallbackDispatcherHandler(
         PVOID TargetFrame,
         PCONTEXT ContextRecord)
 {
-  int ExceptionCode; // [rsp+30h] [rbp-8h]
-  int v5; // [rsp+30h] [rbp-8h]
+  int Status; // [rsp+30h] [rbp-8h]
+  NTSTATUS Statusa; // [rsp+30h] [rbp-8h]
 
   if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x80000) != 0 )
   {
     if ( (ExceptionRecord->ExceptionFlags & 0x66) == 0 )
     {
-      ExceptionCode = ExceptionRecord->ExceptionCode;
+      Status = ExceptionRecord->ExceptionCode;
       RtlUnwindEx(
         TargetFrame,
         &KiUserCallbackDispatcherContinue,
@@ -29,18 +29,18 @@ __int64 __fastcall KiUserCallbackDispatcherHandler(
         (PVOID)(unsigned int)ExceptionRecord->ExceptionCode,
         ContextRecord,
         0LL);
-      RtlRaiseStatus(ExceptionCode);
+      RtlRaiseStatus(Status);
     }
     if ( (ExceptionRecord->ExceptionFlags & 0x20) == 0 )
     {
-      v5 = ZwCallbackReturn();
-      RtlRaiseStatus(v5);
+      Statusa = ZwCallbackReturn(0LL, 0, ExceptionRecord->ExceptionCode);
+      RtlRaiseStatus(Statusa);
     }
     return 1LL;
   }
   else
   {
-    LdrpLogFatalUserCallbackException(ExceptionRecord, ContextRecord);
+    LdrpLogFatalUserCallbackException(ExceptionRecord, (__int64)ContextRecord);
     return 0LL;
   }
 }

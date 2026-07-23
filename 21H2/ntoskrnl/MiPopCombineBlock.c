@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPopCombineBlock @ 0x14036AE54
+ * XREFs of MiPopCombineBlock @ 0x14036B004
  * Callers:
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
  * Callees:
  *     <none>
  */

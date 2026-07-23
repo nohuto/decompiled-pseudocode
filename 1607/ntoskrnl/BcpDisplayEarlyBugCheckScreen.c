@@ -1,7 +1,7 @@
 /*
  * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x1407D5260
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x14023A7EC (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14023A6D0 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
  *     BgConsoleGetInterface @ 0x140725A90 (BgConsoleGetInterface.c)
  *     BgConsoleDestroyInterface @ 0x1407287B8 (BgConsoleDestroyInterface.c)

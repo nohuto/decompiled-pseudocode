@@ -1,10 +1,10 @@
 /*
- * XREFs of IopMarkPagesForDpcData @ 0x1405D5734
+ * XREFs of IopMarkPagesForDpcData @ 0x1405D7F24
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D5088 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D7878 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopMarkPagesForDpcData(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall IopMarkPagesForDpcData(__int64 a1)
   unsigned int k; // ebp
   __int64 v17; // rdx
   _QWORD *v18; // rbx
-  struct _KTHREAD *v19; // r14
+  __int64 *v19; // r14
   int v20; // r12d
   __int64 m; // rdi
   __int64 n; // rbp
@@ -147,23 +147,21 @@ LABEL_15:
       }
     }
   }
-  if ( LODWORD(KsepShimDbLock.ExtendedFeatureDisableMask) && (PartialDumpControl & 1) != 0 )
+  if ( KiIntTrackRootCount && (PartialDumpControl & 1) != 0 )
   {
-    v19 = (struct _KTHREAD *)KsepShimDbLock.Spare35[0];
+    v19 = (__int64 *)KiIntTrackRootList;
     v20 = 0;
-    while ( v19 != (struct _KTHREAD *)KsepShimDbLock.Spare35 )
+    while ( v19 != &KiIntTrackRootList )
     {
       if ( !MmIsAddressValidEx((__int64)v19) )
         break;
-      if ( (unsigned int)++v20 > LODWORD(KsepShimDbLock.ExtendedFeatureDisableMask) )
+      if ( ++v20 > (unsigned int)KiIntTrackRootCount )
         break;
       result = MiAddRangeToCrashDump(a1, v19, 224LL, 0LL);
       v1 = result;
       if ( (int)result < 0 )
         return result;
-      for ( m = (__int64)v19->Header.WaitListHead.Blink;
-            (struct _LIST_ENTRY **)m != &v19->Header.WaitListHead.Blink && MmIsAddressValidEx(m);
-            m = *(_QWORD *)m )
+      for ( m = v19[2]; (__int64 *)m != v19 + 2 && MmIsAddressValidEx(m); m = *(_QWORD *)m )
       {
         if ( *(_QWORD *)(*(_QWORD *)m + 8LL) != m || **(_QWORD **)(m + 8) != m )
           return v1;
@@ -210,7 +208,7 @@ LABEL_15:
           }
         }
       }
-      v19 = *(struct _KTHREAD **)&v19->Header.Lock;
+      v19 = (__int64 *)*v19;
     }
   }
   return v1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFreeGenericTableEntryNonPaged @ 0x1404F7AF0
+ * XREFs of PnpFreeGenericTableEntryNonPaged @ 0x1404F1100
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpFreeGenericTableEntryNonPaged(__int64 a1, void *a2)

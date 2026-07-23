@@ -1,10 +1,10 @@
 /*
- * XREFs of MiImageVadHotPatchEligible @ 0x1407BA670
+ * XREFs of MiImageVadHotPatchEligible @ 0x1407BA950
  * Callers:
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiGetVadForHotPatchInProgress @ 0x140A3730C (MiGetVadForHotPatchInProgress.c)
- *     MiHotPatchProcess @ 0x140A374C4 (MiHotPatchProcess.c)
- *     MmPrepareImagePagesForHotPatch @ 0x140A3C214 (MmPrepareImagePagesForHotPatch.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiGetVadForHotPatchInProgress @ 0x140A375BC (MiGetVadForHotPatchInProgress.c)
+ *     MiHotPatchProcess @ 0x140A37774 (MiHotPatchProcess.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x140A3C4C4 (MmPrepareImagePagesForHotPatch.c)
  * Callees:
  *     <none>
  */

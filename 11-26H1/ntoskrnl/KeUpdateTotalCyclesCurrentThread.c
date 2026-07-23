@@ -1,14 +1,14 @@
 /*
- * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x14021B160
+ * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x14021CAF0
  * Callers:
- *     KeQueryTotalCycleTimeThread @ 0x14021AB70 (KeQueryTotalCycleTimeThread.c)
- *     PsQueryTotalCycleTimeProcess @ 0x140AA40B0 (PsQueryTotalCycleTimeProcess.c)
- *     KeEnableProfiling @ 0x140B5A4B4 (KeEnableProfiling.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14021C500 (KeQueryTotalCycleTimeThread.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x140AA4DE0 (PsQueryTotalCycleTimeProcess.c)
+ *     KeEnableProfiling @ 0x140B5D7D0 (KeEnableProfiling.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     HalRequestSoftwareInterrupt @ 0x14021E010 (HalRequestSoftwareInterrupt.c)
- *     KiUpdateThreadHgsFeedback @ 0x140226C00 (KiUpdateThreadHgsFeedback.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     HalRequestSoftwareInterrupt @ 0x14021F9A0 (HalRequestSoftwareInterrupt.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140228590 (KiUpdateThreadHgsFeedback.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall KeUpdateTotalCyclesCurrentThread(__int64 a1, unsigned __int64 *a2)
@@ -50,7 +50,7 @@ unsigned __int64 __fastcall KeUpdateTotalCyclesCurrentThread(__int64 a1, unsigne
   unsigned __int16 *FrequencyBucketThresholds; // rdx
   unsigned __int8 ArchitecturalEfficiencyClass; // r8
   _QWORD *v39; // rdx
-  unsigned int v40; // eax
+  unsigned int UserWaitTime_high; // eax
   unsigned int v41; // ecx
   unsigned int v42; // ecx
   int v43; // ecx
@@ -131,9 +131,9 @@ unsigned __int64 __fastcall KeUpdateTotalCyclesCurrentThread(__int64 a1, unsigne
           v12 = v5;
         }
         v13 = ((unsigned __int64)(((((unsigned __int64)v12.QuadPart * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-                                 * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount)
+                                 * (unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount)
             - ((unsigned __int64)((*((unsigned __int64 *)&v11 + 1)
-                                 * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount);
+                                 * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount);
         if ( v13 )
         {
           if ( (*(_DWORD *)(a1 + 116) & 0x400) != 0
@@ -270,21 +270,21 @@ LABEL_28:
         while ( v36 < 3 );
         ArchitecturalEfficiencyClass = CurrentPrcb->PowerState.ArchitecturalEfficiencyClass;
         v39 = (_QWORD *)(16LL * v36 + v32 + (ArchitecturalEfficiencyClass != 0 ? 8 : 0));
-        v40 = *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1);
+        UserWaitTime_high = HIDWORD(KsepShimDbLock.UserWaitTime);
         *v39 += v6;
         v41 = *(_DWORD *)(v32 + 192);
-        if ( v40 > v41 )
+        if ( UserWaitTime_high > v41 )
         {
-          LODWORD(v84) = v40;
-          if ( v40 - v41 >= 0x20 )
+          LODWORD(v84) = UserWaitTime_high;
+          if ( UserWaitTime_high - v41 >= 0x20 )
             HIDWORD(v84) = 1;
           else
-            HIDWORD(v84) = (*(_DWORD *)(v32 + 196) << (v40 - v41)) | 1;
+            HIDWORD(v84) = (*(_DWORD *)(v32 + 196) << (UserWaitTime_high - v41)) | 1;
           *(_QWORD *)(v32 + 192) = v84;
         }
         else
         {
-          v42 = v41 - v40;
+          v42 = v41 - UserWaitTime_high;
           if ( v42 < 0x20 )
             *(_DWORD *)(v32 + 196) |= 1 << v42;
         }
@@ -320,7 +320,7 @@ LABEL_28:
       v19 = v87;
     }
     if ( CurrentPrcb->CyclesByThreadType
-      && *(_UNKNOWN **)(a1 + 544) != &unk_140FC8F40
+      && *(_UNKNOWN **)(a1 + 544) != &unk_140FC9F40
       && *(unsigned __int8 *)(a1 + 516) < 7u )
     {
       v47 = *(_DWORD *)(a1 + 80);
@@ -340,7 +340,7 @@ LABEL_28:
           *i += v6;
       }
       if ( (*(_BYTE *)(a1 + 2) & 8) != 0
-        && *(_UNKNOWN **)(a1 + 544) != &unk_140FC8F40
+        && *(_UNKNOWN **)(a1 + 544) != &unk_140FC9F40
         && (CurrentPrcb->SchedulerSubNode->Affinity.Mask & *(_QWORD *)(*(_QWORD *)(a1 + 576)
                                                                      + 8LL
                                                                      * CurrentPrcb->SchedulerSubNode->Affinity.Group
@@ -412,9 +412,9 @@ LABEL_28:
       }
       v50 = v86;
       v59 = ((unsigned __int64)(((((unsigned __int64)v58.QuadPart * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-                               * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount)
+                               * (unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount)
           - ((unsigned __int64)((*((unsigned __int64 *)&v57 + 1)
-                               * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount);
+                               * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount);
       if ( v59 )
       {
         CurrentPrcb->KernelTime += v59;

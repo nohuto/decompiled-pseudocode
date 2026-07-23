@@ -18,41 +18,39 @@
  *     MiReturnCrossPartitionSectionCharges @ 0x14066B424 (MiReturnCrossPartitionSectionCharges.c)
  */
 
-__int64 __fastcall MiReturnCrossPartitionControlAreaCharges(__int64 a1)
+void __fastcall MiReturnCrossPartitionControlAreaCharges(__int64 a1)
 {
   BOOL v2; // r14d
   unsigned __int64 v3; // rsi
   __int64 v4; // rbx
-  __int64 result; // rax
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v8; // eax
   bool v9; // zf
 
   v2 = *(_QWORD *)(a1 + 64) != 0LL;
   v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
   v4 = MiDecrementSubsectionViewCount((__int64 *)(a1 + 128), 24);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-  result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+      v9 = (v8 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v8;
       if ( v9 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v3);
   if ( v4 )
-    return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)),
-             v2,
-             v4);
-  return result;
+    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)), v2, v4);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlDisownModuleHeapAllocation @ 0x1800EC5C0
+ * XREFs of RtlDisownModuleHeapAllocation @ 0x1800EB790
  * Callers:
  *     <none>
  * Callees:

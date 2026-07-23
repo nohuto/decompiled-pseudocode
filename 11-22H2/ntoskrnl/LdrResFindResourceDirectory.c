@@ -7,7 +7,7 @@
  */
 
 __int64 __fastcall LdrResFindResourceDirectory(
-        ULONGLONG a1,
+        unsigned __int64 a1,
         __int64 a2,
         __int64 a3,
         unsigned int **a4,

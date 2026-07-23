@@ -1,21 +1,21 @@
 /*
- * XREFs of MiMapImageInSystemSpace @ 0x1409CC82C
+ * XREFs of MiMapImageInSystemSpace @ 0x14099D80C
  * Callers:
- *     MiSetPagesModified @ 0x14045BE6C (MiSetPagesModified.c)
- *     MiOpenHotPatchFile @ 0x140873028 (MiOpenHotPatchFile.c)
- *     MiValidateSectionMap @ 0x1409CBB1C (MiValidateSectionMap.c)
- *     MiRelocateMapImage @ 0x1409CBD3C (MiRelocateMapImage.c)
- *     MiParseComAndCetHeaders @ 0x1409CC26C (MiParseComAndCetHeaders.c)
- *     MiGetSystemAddressForImage @ 0x140AC6DF4 (MiGetSystemAddressForImage.c)
+ *     MiSetPagesModified @ 0x140455A14 (MiSetPagesModified.c)
+ *     MiOpenHotPatchFile @ 0x140879388 (MiOpenHotPatchFile.c)
+ *     MiValidateSectionMap @ 0x14099CAFC (MiValidateSectionMap.c)
+ *     MiRelocateMapImage @ 0x14099CD1C (MiRelocateMapImage.c)
+ *     MiParseComAndCetHeaders @ 0x14099D24C (MiParseComAndCetHeaders.c)
+ *     MiGetSystemAddressForImage @ 0x140AC89E4 (MiGetSystemAddressForImage.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiMapImageInSystemSpace(__int64 a1, char a2, __int64 a3)

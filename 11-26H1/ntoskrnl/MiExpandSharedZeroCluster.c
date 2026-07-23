@@ -1,16 +1,16 @@
 /*
- * XREFs of MiExpandSharedZeroCluster @ 0x1403D9910
+ * XREFs of MiExpandSharedZeroCluster @ 0x1403DCAFC
  * Callers:
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
  * Callees:
- *     MiMakePrototypePteVadLookup @ 0x1402CFD90 (MiMakePrototypePteVadLookup.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPteEvaluated @ 0x1403D9CDC (MiIsPteEvaluated.c)
- *     MiComputeZeroClusterMaximum @ 0x1403D9D60 (MiComputeZeroClusterMaximum.c)
- *     MiUpdatePageTableUseCount @ 0x1403D9FE0 (MiUpdatePageTableUseCount.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiMakePrototypePteVadLookup @ 0x1402B1B50 (MiMakePrototypePteVadLookup.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPteEvaluated @ 0x1403DCEC8 (MiIsPteEvaluated.c)
+ *     MiComputeZeroClusterMaximum @ 0x1403DCF50 (MiComputeZeroClusterMaximum.c)
+ *     MiUpdatePageTableUseCount @ 0x1403DD1D0 (MiUpdatePageTableUseCount.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiExpandSharedZeroCluster(__int64 a1)

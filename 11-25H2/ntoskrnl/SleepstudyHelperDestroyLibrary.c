@@ -38,7 +38,7 @@ __int64 __fastcall SleepstudyHelperDestroyLibrary(ULONG *a1)
     v4 = _interlockedbittestandset64((volatile signed __int32 *)&SshpLibraryListLock, 0LL);
     v5 = v3;
     if ( v4 )
-      ExfAcquirePushLockExclusiveEx(&SshpLibraryListLock, v3, (__int64)&SshpLibraryListLock);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpLibraryListLock, v3, (__int64)&SshpLibraryListLock);
     if ( v5 )
       *((_BYTE *)v5 + 10) = 1;
     v6 = *(_QWORD *)a1;

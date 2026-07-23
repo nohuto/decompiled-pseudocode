@@ -1,11 +1,11 @@
 /*
- * XREFs of VmProbeAndLockPages @ 0x1405F8BC0
+ * XREFs of VmProbeAndLockPages @ 0x1405F9130
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14061D3E8 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x14061D938 (MmUpdateMdlTrackerForMdlSwitch.c)
  */
 
 __int64 __fastcall VmProbeAndLockPages(PMDL MemoryDescriptorList, char a2, unsigned int a3)

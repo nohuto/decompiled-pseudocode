@@ -24,7 +24,7 @@ __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
 
   if ( a2 < 4 )
     return 3221225476LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return 3221226335LL;
   v4 = 0;
   v5 = &VfRuleClasses;

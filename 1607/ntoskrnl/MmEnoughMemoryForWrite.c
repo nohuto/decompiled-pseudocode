@@ -1,11 +1,11 @@
 /*
- * XREFs of MmEnoughMemoryForWrite @ 0x140020C10
+ * XREFs of MmEnoughMemoryForWrite @ 0x140020790
  * Callers:
- *     CcCanIWriteStream @ 0x140020AA0 (CcCanIWriteStream.c)
+ *     CcCanIWriteStream @ 0x140020620 (CcCanIWriteStream.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1400218CC (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiLockSectionControlArea @ 0x14002144C (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)

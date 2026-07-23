@@ -6,9 +6,9 @@
  *     _RtlGetSuiteMask@0 @ 0x4B2B0630 (_RtlGetSuiteMask@0.c)
  */
 
-int __stdcall RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit()
+ULONG __stdcall RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit()
 {
-  int result; // eax
+  ULONG result; // eax
 
   result = RtlGetSuiteMask();
   if ( (result & 0x10000) != 0 )

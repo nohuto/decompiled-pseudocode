@@ -1,18 +1,16 @@
 /*
- * XREFs of PpmCheckPhaseComplete @ 0x140253278
+ * XREFs of PpmCheckPhaseComplete @ 0x140254BD8
  * Callers:
- *     PpmCheckControlActionCallback @ 0x1404FE270 (PpmCheckControlActionCallback.c)
+ *     PpmCheckControlActionCallback @ 0x1404F77B0 (PpmCheckControlActionCallback.c)
  * Callees:
- *     PpmCheckContinueExecution @ 0x1402533F8 (PpmCheckContinueExecution.c)
+ *     PpmCheckContinueExecution @ 0x140254D58 (PpmCheckContinueExecution.c)
  */
 
 __int64 PpmCheckPhaseComplete()
 {
   __int64 result; // rax
 
-  result = (unsigned int)_InterlockedExchangeAdd(
-                           (volatile signed __int32 *)&PopSleepstudySessionLock.ApcStateFill[8],
-                           0xFFFFFFFF);
+  result = (unsigned int)_InterlockedExchangeAdd(&PpmCheckActionCount, 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
     return PpmCheckContinueExecution();
   return result;

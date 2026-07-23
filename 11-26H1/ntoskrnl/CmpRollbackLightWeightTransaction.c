@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpRollbackLightWeightTransaction @ 0x1408AE484
+ * XREFs of CmpRollbackLightWeightTransaction @ 0x1408B48C4
  * Callers:
- *     NtRollbackRegistryTransaction @ 0x140850070 (NtRollbackRegistryTransaction.c)
- *     CmpCloseLightWeightTransaction @ 0x1408ADE70 (CmpCloseLightWeightTransaction.c)
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
- *     CmpRollbackTransactionArray @ 0x1408D0204 (CmpRollbackTransactionArray.c)
- *     CmpAbortRollbackPacket @ 0x140B4CB14 (CmpAbortRollbackPacket.c)
+ *     NtRollbackRegistryTransaction @ 0x140856380 (NtRollbackRegistryTransaction.c)
+ *     CmpCloseLightWeightTransaction @ 0x1408B42B0 (CmpCloseLightWeightTransaction.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
+ *     CmpRollbackTransactionArray @ 0x1408D67C8 (CmpRollbackTransactionArray.c)
+ *     CmpAbortRollbackPacket @ 0x140B4E8A4 (CmpAbortRollbackPacket.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     ExBlockOnAddressPushLock @ 0x14047EBC0 (ExBlockOnAddressPushLock.c)
- *     CmpAbortLightWeightTransaction @ 0x1408AE518 (CmpAbortLightWeightTransaction.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     ExBlockOnAddressPushLock @ 0x140478530 (ExBlockOnAddressPushLock.c)
+ *     CmpAbortLightWeightTransaction @ 0x1408B4958 (CmpAbortLightWeightTransaction.c)
  */
 
 __int64 __fastcall CmpRollbackLightWeightTransaction(__int64 a1)

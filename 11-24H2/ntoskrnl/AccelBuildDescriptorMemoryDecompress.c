@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelBuildDescriptorMemoryDecompress @ 0x14066551C
+ * XREFs of AccelBuildDescriptorMemoryDecompress @ 0x140663E0C
  * Callers:
- *     AccelDecompressBuffer @ 0x14066586C (AccelDecompressBuffer.c)
+ *     AccelDecompressBuffer @ 0x14066415C (AccelDecompressBuffer.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x14040A7AC (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x140402C8C (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall AccelBuildDescriptorMemoryDecompress(__int64 a1)

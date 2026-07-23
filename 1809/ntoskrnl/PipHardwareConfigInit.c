@@ -1,22 +1,22 @@
 /*
- * XREFs of PipHardwareConfigInit @ 0x1409C63FC
+ * XREFs of PipHardwareConfigInit @ 0x1409C73FC
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     KeQueryBootTimeValues @ 0x1401292B0 (KeQueryBootTimeValues.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlStringFromGUID @ 0x14058B220 (RtlStringFromGUID.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
- *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
- *     _PnpCtxRegQueryKeyPathName @ 0x140739C68 (_PnpCtxRegQueryKeyPathName.c)
- *     PipHardwareConfigClearStartOverrides @ 0x140822DA4 (PipHardwareConfigClearStartOverrides.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x140822F44 (PipHardwareConfigTriggerRespecialize.c)
- *     PipHardwareConfigExists @ 0x1409F52AC (PipHardwareConfigExists.c)
+ *     KeQueryBootTimeValues @ 0x140129380 (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlStringFromGUID @ 0x14058C220 (RtlStringFromGUID.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
+ *     IopCreateRegistryKeyEx @ 0x14070A964 (IopCreateRegistryKeyEx.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x14073AE58 (_PnpCtxRegQueryKeyPathName.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x140823FA4 (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x140824144 (PipHardwareConfigTriggerRespecialize.c)
+ *     PipHardwareConfigExists @ 0x1409F62AC (PipHardwareConfigExists.c)
  */
 
 __int64 __fastcall PipHardwareConfigInit(GUID *Guid)

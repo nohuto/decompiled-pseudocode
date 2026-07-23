@@ -99,10 +99,10 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
-          v27 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0LL);
+          v27 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0);
           if ( !_InterlockedExchange((volatile __int32 *)&a2->Busy, 1) )
             break;
-          if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0LL, 0LL, v27, &v33) )
+          if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0, 0, v27, &v33) )
             goto LABEL_45;
         }
         if ( v27 )
@@ -165,15 +165,10 @@ LABEL_45:
           {
             v14 = KeGetCurrentThread();
             --v14->KernelApcDisable;
-            v15 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0LL);
+            v15 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0);
             if ( !_InterlockedExchange((volatile __int32 *)&a2->Busy, 1) )
               break;
-            if ( !(unsigned int)IopWaitAndAcquireFileObjectLock(
-                                  (volatile signed __int32 *)&a2->Type,
-                                  0LL,
-                                  0LL,
-                                  v15,
-                                  &v36) )
+            if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0, 0, v15, &v36) )
               goto LABEL_21;
           }
           if ( v15 )

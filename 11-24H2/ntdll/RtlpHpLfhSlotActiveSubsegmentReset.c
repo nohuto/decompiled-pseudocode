@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSlotActiveSubsegmentReset @ 0x1800E3E80
+ * XREFs of RtlpHpLfhSlotActiveSubsegmentReset @ 0x1800DF800
  * Callers:
- *     RtlpHpLfhPrivateSlotShutdown @ 0x18004AEFC (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x180060ADC (RtlpHpLfhPrivateSlotShutdown.c)
  * Callees:
  *     <none>
  */

@@ -8,7 +8,7 @@
  *     RtlIsParentOfChildAppContainer @ 0x1406BAB88 (RtlIsParentOfChildAppContainer.c)
  */
 
-__int64 __fastcall SepCheckCreateLowBox(PSID a1)
+__int64 __fastcall SepCheckCreateLowBox(PSID ChildAppContainerSid)
 {
   int IsParentOfChildAppContainer; // ebx
   char v3; // di
@@ -35,7 +35,7 @@ __int64 __fastcall SepCheckCreateLowBox(PSID a1)
   IsParentOfChildAppContainer = *((_DWORD *)ClientToken + 50) & 0x2000;
 LABEL_4:
   if ( !IsParentOfChildAppContainer && v3 && (*((_DWORD *)ClientToken + 50) & 0x4000) != 0 )
-    IsParentOfChildAppContainer = (unsigned __int8)RtlIsParentOfChildAppContainer(*((PSID *)ClientToken + 98), a1);
+    IsParentOfChildAppContainer = RtlIsParentOfChildAppContainer(*((PSID *)ClientToken + 98), ChildAppContainerSid);
   SeReleaseSubjectContext(&SubjectContext);
   return IsParentOfChildAppContainer == 0 ? 0xC0000022 : 0;
 }

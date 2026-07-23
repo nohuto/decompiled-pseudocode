@@ -1,10 +1,10 @@
 /*
- * XREFs of KiHeteroSelectIdleProcessorFromSubNode @ 0x140417D10
+ * XREFs of KiHeteroSelectIdleProcessorFromSubNode @ 0x14040C320
  * Callers:
- *     KiHeteroSelectIdleProcessorFromNode @ 0x140234DB0 (KiHeteroSelectIdleProcessorFromNode.c)
+ *     KiHeteroSelectIdleProcessorFromNode @ 0x140236710 (KiHeteroSelectIdleProcessorFromNode.c)
  * Callees:
  *     KiFindBiasedProcessorIndex @ 0x140201890 (KiFindBiasedProcessorIndex.c)
- *     KiHeteroIdleSetReduction @ 0x140417FD0 (KiHeteroIdleSetReduction.c)
+ *     KiHeteroIdleSetReduction @ 0x14040C5E0 (KiHeteroIdleSetReduction.c)
  */
 
 __int64 __fastcall KiHeteroSelectIdleProcessorFromSubNode(
@@ -136,15 +136,18 @@ LABEL_22:
       v27 += v29 + 1;
       v24 >>= (unsigned __int8)v29 + 1;
     }
-    v26 = *((_DWORD *)KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread + 64 * *(unsigned __int8 *)(a3 + 208) + v27 - 1);
+    v26 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16
+                                                                                    * *(unsigned __int8 *)(a3 + 208)
+                                                                                    - 1].Blink
+          + v27
+          + 1);
     return KiProcessorBlock[v26];
   }
   if ( (KiDynamicHeteroCpuPolicyMask & 0x10) != 0 )
     goto LABEL_22;
 LABEL_20:
   _BitScanForward64(&v25, __ROR8__(v24, *(_BYTE *)(a3 + 209)));
-  v26 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-        + 64 * *(unsigned __int8 *)(a3 + 208)
-        + (((_BYTE)v25 + *(_BYTE *)(a3 + 209)) & 0x3Fu));
+  v26 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * *(unsigned __int8 *)(a3 + 208)].Flink
+        + (((_BYTE)v25 + *(_BYTE *)(a3 + 209)) & 0x3F));
   return KiProcessorBlock[v26];
 }

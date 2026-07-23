@@ -13,21 +13,21 @@
  *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
  */
 
-void __fastcall IopInitializeBootLogging(__int64 a1)
+void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
 {
   __int64 Pool2; // rax
-  __int64 v3; // rsi
-  __int64 v4; // rbx
-  __int64 v5; // rax
-  PUNICODE_STRING v6; // r8
-  unsigned __int16 v7; // ax
+  __int64 v5; // rsi
+  __int64 v6; // rbx
+  __int64 v7; // rax
   PUNICODE_STRING v8; // r8
+  unsigned __int16 v9; // ax
+  PUNICODE_STRING v10; // r8
   unsigned __int16 Length; // ax
-  unsigned __int16 v10; // ax
-  STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v12; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int16 v12; // ax
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+70h] [rbp+30h] BYREF
 
-  v12 = 0LL;
+  MessageEntry = 0LL;
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
   if ( !DestinationString )
   {
@@ -37,49 +37,49 @@ void __fastcall IopInitializeBootLogging(__int64 a1)
     {
       ExInitializeResourceLite((PERESOURCE)(Pool2 + 64));
       ExAcquireResourceExclusiveLite((PERESOURCE)&DestinationString[4], 1u);
-      v3 = *(_QWORD *)(a1 + 16);
-      v4 = -1LL;
-      if ( (int)RtlFindMessage(*(_QWORD *)(v3 + 48), 11, 0, 181, (__int64)&v12) >= 0 )
+      v5 = *(_QWORD *)(a1 + 16);
+      v6 = -1LL;
+      if ( RtlFindMessage(*(PVOID *)(v5 + 48), 0xBu, 0, 0xB5u, &MessageEntry) >= 0 )
       {
-        v5 = -1LL;
-        SourceString.Buffer = (char *)(v12 + 4);
+        v7 = -1LL;
+        SourceString.Buffer = (char *)MessageEntry->Text;
         do
-          ++v5;
-        while ( *(_BYTE *)(v12 + 4 + v5) );
-        SourceString.Length = v5;
-        SourceString.MaximumLength = v5 + 1;
+          ++v7;
+        while ( MessageEntry->Text[v7] );
+        SourceString.Length = v7;
+        SourceString.MaximumLength = v7 + 1;
         RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 1u);
-        v6 = DestinationString;
+        v8 = DestinationString;
         if ( DestinationString->Length > 4u )
         {
-          v7 = DestinationString->Length - 4;
-          DestinationString->Length = v7;
-          v6->Buffer[(unsigned __int64)v7 >> 1] = 0;
+          v9 = DestinationString->Length - 4;
+          DestinationString->Length = v9;
+          v8->Buffer[(unsigned __int64)v9 >> 1] = 0;
         }
       }
-      if ( (int)RtlFindMessage(*(_QWORD *)(v3 + 48), 11, 0, 182, (__int64)&v12) < 0 )
+      if ( RtlFindMessage(*(PVOID *)(v5 + 48), 0xBu, 0, 0xB6u, &MessageEntry) < 0 )
       {
-        v8 = DestinationString;
+        v10 = DestinationString;
       }
       else
       {
-        SourceString.Buffer = (char *)(v12 + 4);
+        SourceString.Buffer = (char *)MessageEntry->Text;
         do
-          ++v4;
-        while ( *(_BYTE *)(v12 + 4 + v4) );
-        SourceString.Length = v4;
-        SourceString.MaximumLength = v4 + 1;
+          ++v6;
+        while ( MessageEntry->Text[v6] );
+        SourceString.Length = v6;
+        SourceString.MaximumLength = v6 + 1;
         RtlAnsiStringToUnicodeString(DestinationString + 1, &SourceString, 1u);
-        v8 = DestinationString;
+        v10 = DestinationString;
         Length = DestinationString[1].Length;
         if ( Length > 4u )
         {
-          v10 = Length - 4;
-          DestinationString[1].Length = v10;
-          v8[1].Buffer[(unsigned __int64)v10 >> 1] = 0;
+          v12 = Length - 4;
+          DestinationString[1].Length = v12;
+          v10[1].Buffer[(unsigned __int64)v12 >> 1] = 0;
         }
       }
-      RtlCreateUnicodeStringFromAsciiz(v8 + 3);
+      RtlCreateUnicodeStringFromAsciiz(v10 + 3, (PCSTR)(a2 + 1));
       MmEnumerateSystemImages((__int64)IopBootLogDriver, 0LL);
       ExReleaseResourceLite((PERESOURCE)&DestinationString[4]);
     }

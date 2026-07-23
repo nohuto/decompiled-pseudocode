@@ -6,7 +6,7 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-const void **__stdcall RtlSidHashLookup(unsigned int *a1, unsigned __int8 *Buf1)
+PSID_AND_ATTRIBUTES __cdecl RtlSidHashLookup(PSID_AND_ATTRIBUTES_HASH SidAttrHash, PSID Sid)
 {
   __int16 *v2; // edx
   int v3; // eax
@@ -15,80 +15,83 @@ const void **__stdcall RtlSidHashLookup(unsigned int *a1, unsigned __int8 *Buf1)
   unsigned int v6; // ebx
   int v7; // ecx
   int v8; // eax
-  unsigned int v9; // edi
-  const void **v10; // edi
-  unsigned int v11; // ebx
+  PSID_AND_ATTRIBUTES SidAttr; // edi
+  _SID_AND_ATTRIBUTES *v10; // edi
+  DWORD SidCount; // ebx
   int v12; // edi
   __int16 v13; // cx
-  const void **i; // esi
-  __int16 v16; // [esp+Ch] [ebp-18h]
-  int v17; // [esp+10h] [ebp-14h]
-  int v18; // [esp+14h] [ebp-10h]
-  int v19; // [esp+18h] [ebp-Ch]
+  _SID_AND_ATTRIBUTES *i; // esi
+  size_t v16; // [esp-4h] [ebp-28h]
+  __int16 v17; // [esp+Ch] [ebp-18h]
+  int v18; // [esp+10h] [ebp-14h]
+  int v19; // [esp+14h] [ebp-10h]
+  int v20; // [esp+18h] [ebp-Ch]
   int Size; // [esp+1Ch] [ebp-8h]
-  char v21; // [esp+23h] [ebp-1h]
+  char Size_7; // [esp+23h] [ebp-1h]
 
-  if ( a1 )
+  if ( SidAttrHash )
   {
-    v2 = (__int16 *)Buf1;
-    if ( Buf1 )
+    v2 = (__int16 *)Sid;
+    if ( Sid )
     {
-      v3 = Buf1[1];
+      v3 = *((unsigned __int8 *)Sid + 1);
       Size = 4 * v3 + 8;
-      v16 = *(_WORD *)Buf1;
-      v4 = Buf1[4 * v3 + 4];
-      v6 = a1[(v4 & 0xF) + 2] & a1[(v4 >> 4) + 18];
+      v17 = *(_WORD *)Sid;
+      v4 = *((unsigned __int8 *)Sid + 4 * v3 + 4);
+      v6 = *((_DWORD *)SidAttrHash->Hash + (v4 & 0xF)) & *((_DWORD *)&SidAttrHash->Hash[8] + (v4 >> 4));
       v5 = v6 == 0;
       LOBYTE(v7) = 0;
       while ( 1 )
       {
-        v21 = v7;
+        Size_7 = v7;
         if ( v5 )
           break;
         LOBYTE(v8) = v6;
         if ( (_BYTE)v6 )
         {
-          v9 = a1[1];
+          SidAttr = SidAttrHash->SidAttr;
           v7 = (unsigned __int8)v7;
-          v17 = (unsigned __int8)v7;
+          v18 = (unsigned __int8)v7;
           do
           {
-            v19 = (unsigned __int8)v8;
-            v18 = (unsigned __int8)SidHashByteToIndexLookupTable[(unsigned __int8)v8];
-            v10 = (const void **)(v9 + 8 * (v7 + v18));
-            if ( *(_WORD *)*v10 == *v2 )
+            v20 = (unsigned __int8)v8;
+            v19 = (unsigned __int8)SidHashByteToIndexLookupTable[(unsigned __int8)v8];
+            v10 = &SidAttr[v7 + v19];
+            if ( *(_WORD *)v10->Sid == *v2 )
             {
-              if ( !memcmp(v2, *v10, Size) )
+              LODWORD(v16) = Size;
+              if ( !memcmp(v2, v10->Sid, v16) )
                 return v10;
-              v2 = (__int16 *)Buf1;
+              v2 = (__int16 *)Sid;
             }
-            v8 = v19 ^ (1 << v18);
-            v9 = a1[1];
-            v7 = v17;
+            v8 = v20 ^ (1 << v19);
+            SidAttr = SidAttrHash->SidAttr;
+            v7 = v18;
           }
           while ( (_BYTE)v8 );
-          LOBYTE(v7) = v21;
+          LOBYTE(v7) = Size_7;
         }
         v6 >>= 8;
         LOBYTE(v7) = v7 + 8;
         v5 = v6 == 0;
       }
-      v11 = *a1;
+      SidCount = SidAttrHash->SidCount;
       v12 = 32;
-      if ( *a1 > 0x20 )
+      if ( SidAttrHash->SidCount > 0x20 )
       {
         v13 = *v2;
-        for ( i = (const void **)(a1[1] + 256); ; i += 2 )
+        for ( i = SidAttrHash->SidAttr + 32; ; ++i )
         {
-          if ( *(_WORD *)*i == v13 )
+          if ( *(_WORD *)i->Sid == v13 )
           {
-            if ( !memcmp(v2, *i, Size) )
+            LODWORD(v16) = Size;
+            if ( !memcmp(v2, i->Sid, v16) )
               return i;
-            v13 = v16;
+            v13 = v17;
           }
-          if ( ++v12 >= v11 )
+          if ( ++v12 >= SidCount )
             return 0;
-          v2 = (__int16 *)Buf1;
+          v2 = (__int16 *)Sid;
         }
       }
     }

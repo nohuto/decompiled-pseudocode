@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmInstallFeedbackCounters @ 0x1403C1278
+ * XREFs of PpmInstallFeedbackCounters @ 0x1403C16A8
  * Callers:
- *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     PpmRegisterPerfStates @ 0x1407BA470 (PpmRegisterPerfStates.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14027B9CC (PpmContinueActiveTimeAccumulation.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     PpmPerfFeedbackCounterRead @ 0x1403C13FC (PpmPerfFeedbackCounterRead.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14026996C (PpmContinueActiveTimeAccumulation.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     PpmPerfFeedbackCounterRead @ 0x1403C182C (PpmPerfFeedbackCounterRead.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -34,8 +34,8 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, _QWORD *a2)
   int v19; // eax
   bool v20; // zf
   int v21; // [rsp+20h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY v22; // [rsp+28h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
+  _GROUP_AFFINITY v22; // [rsp+28h] [rbp-60h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
   int v24; // [rsp+80h] [rbp-8h]
 
   v21 = 0;

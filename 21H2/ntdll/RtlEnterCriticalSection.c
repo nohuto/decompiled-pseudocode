@@ -65,66 +65,66 @@
  *     RtlGetProcessPreferredUILanguages @ 0x18008AB40 (RtlGetProcessPreferredUILanguages.c)
  *     RtlSetCurrentEnvironment @ 0x18008C1D0 (RtlSetCurrentEnvironment.c)
  *     RtlPrepareForProcessCloning @ 0x18009BBB0 (RtlPrepareForProcessCloning.c)
- *     LdrpCreateSoftwareEnclave @ 0x1800CD2FC (LdrpCreateSoftwareEnclave.c)
- *     LdrpDeleteEnclave @ 0x1800CD3EC (LdrpDeleteEnclave.c)
- *     LdrUnregisterDllNotification @ 0x1800CE6E0 (LdrUnregisterDllNotification.c)
- *     RtlCloneUserProcess @ 0x1800D64B0 (RtlCloneUserProcess.c)
- *     RtlQueryProcessHeapInformation @ 0x1800D7D90 (RtlQueryProcessHeapInformation.c)
- *     AVrfDllUnloadNotification @ 0x1800D9884 (AVrfDllUnloadNotification.c)
- *     AVrfInternalHeapFreeNotification @ 0x1800DA3B0 (AVrfInternalHeapFreeNotification.c)
- *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DF58C (sxsisol_ExpandEnvironmentStrings_UEx.c)
- *     RtlpEnsureLiveDeadListsInitialized @ 0x1800DF920 (RtlpEnsureLiveDeadListsInitialized.c)
- *     RtlpMoveActCtxToFreeList @ 0x1800DF9B8 (RtlpMoveActCtxToFreeList.c)
- *     RtlpPlaceActivationContextOnLiveList @ 0x1800DFAE4 (RtlpPlaceActivationContextOnLiveList.c)
- *     RtlpCleanupRegistryKeys @ 0x1800EFC70 (RtlpCleanupRegistryKeys.c)
- *     RtlCompactHeap @ 0x1800F23F0 (RtlCompactHeap.c)
- *     RtlLockHeapManagerForCloning @ 0x1800F2894 (RtlLockHeapManagerForCloning.c)
- *     RtlQueryTagHeap @ 0x1800F2AD0 (RtlQueryTagHeap.c)
- *     RtlSetHeapDebuggingInformation @ 0x1800F2CA8 (RtlSetHeapDebuggingInformation.c)
- *     RtlSetUserFlagsHeap @ 0x1800F2E70 (RtlSetUserFlagsHeap.c)
- *     RtlZeroHeap @ 0x1800F6500 (RtlZeroHeap.c)
- *     RtlpSetupExtendedBlock @ 0x1800F6D48 (RtlpSetupExtendedBlock.c)
- *     RtlDebugAllocateHeap @ 0x1800F89E0 (RtlDebugAllocateHeap.c)
- *     RtlDebugCompactHeap @ 0x1800F8D9C (RtlDebugCompactHeap.c)
- *     RtlDebugCreateTagHeap @ 0x1800F91E4 (RtlDebugCreateTagHeap.c)
- *     RtlDebugFreeHeap @ 0x1800F93EC (RtlDebugFreeHeap.c)
- *     RtlDebugGetUserInfoHeap @ 0x1800F96E0 (RtlDebugGetUserInfoHeap.c)
- *     RtlDebugQueryTagHeap @ 0x1800F9884 (RtlDebugQueryTagHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800F99D0 (RtlDebugReAllocateHeap.c)
- *     RtlDebugSetUserFlagsHeap @ 0x1800F9F54 (RtlDebugSetUserFlagsHeap.c)
- *     RtlDebugSetUserValueHeap @ 0x1800FA120 (RtlDebugSetUserValueHeap.c)
- *     RtlDebugSizeHeap @ 0x1800FA2B4 (RtlDebugSizeHeap.c)
- *     RtlDebugZeroHeap @ 0x1800FA4C8 (RtlDebugZeroHeap.c)
- *     RtlTraceDatabaseAdd @ 0x180102850 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x180102A90 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x180102B60 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseLock @ 0x180102BE0 (RtlTraceDatabaseLock.c)
- *     RtlTraceDatabaseValidate @ 0x180102C30 (RtlTraceDatabaseValidate.c)
- *     EtwpBufferingModeFlush @ 0x180110C60 (EtwpBufferingModeFlush.c)
+ *     LdrpCreateSoftwareEnclave @ 0x1800CD2BC (LdrpCreateSoftwareEnclave.c)
+ *     LdrpDeleteEnclave @ 0x1800CD3AC (LdrpDeleteEnclave.c)
+ *     LdrUnregisterDllNotification @ 0x1800CE6A0 (LdrUnregisterDllNotification.c)
+ *     RtlCloneUserProcess @ 0x1800D6470 (RtlCloneUserProcess.c)
+ *     RtlQueryProcessHeapInformation @ 0x1800D7D50 (RtlQueryProcessHeapInformation.c)
+ *     AVrfDllUnloadNotification @ 0x1800D9844 (AVrfDllUnloadNotification.c)
+ *     AVrfInternalHeapFreeNotification @ 0x1800DA370 (AVrfInternalHeapFreeNotification.c)
+ *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DF54C (sxsisol_ExpandEnvironmentStrings_UEx.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x1800DF8E0 (RtlpEnsureLiveDeadListsInitialized.c)
+ *     RtlpMoveActCtxToFreeList @ 0x1800DF978 (RtlpMoveActCtxToFreeList.c)
+ *     RtlpPlaceActivationContextOnLiveList @ 0x1800DFAA4 (RtlpPlaceActivationContextOnLiveList.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800EFC30 (RtlpCleanupRegistryKeys.c)
+ *     RtlCompactHeap @ 0x1800F23B0 (RtlCompactHeap.c)
+ *     RtlLockHeapManagerForCloning @ 0x1800F2854 (RtlLockHeapManagerForCloning.c)
+ *     RtlQueryTagHeap @ 0x1800F2A90 (RtlQueryTagHeap.c)
+ *     RtlSetHeapDebuggingInformation @ 0x1800F2C68 (RtlSetHeapDebuggingInformation.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2E30 (RtlSetUserFlagsHeap.c)
+ *     RtlZeroHeap @ 0x1800F64C0 (RtlZeroHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1800F6D08 (RtlpSetupExtendedBlock.c)
+ *     RtlDebugAllocateHeap @ 0x1800F89A0 (RtlDebugAllocateHeap.c)
+ *     RtlDebugCompactHeap @ 0x1800F8D5C (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x1800F91A4 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800F93AC (RtlDebugFreeHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x1800F96A0 (RtlDebugGetUserInfoHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x1800F9844 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x1800F9990 (RtlDebugReAllocateHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x1800F9F14 (RtlDebugSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x1800FA0E0 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugSizeHeap @ 0x1800FA274 (RtlDebugSizeHeap.c)
+ *     RtlDebugZeroHeap @ 0x1800FA488 (RtlDebugZeroHeap.c)
+ *     RtlTraceDatabaseAdd @ 0x180102810 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x180102A50 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x180102B20 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseLock @ 0x180102BA0 (RtlTraceDatabaseLock.c)
+ *     RtlTraceDatabaseValidate @ 0x180102BF0 (RtlTraceDatabaseValidate.c)
+ *     EtwpBufferingModeFlush @ 0x180110C20 (EtwpBufferingModeFlush.c)
  * Callees:
  *     RtlpEnterCriticalSectionContended @ 0x18002FAF0 (RtlpEnterCriticalSectionContended.c)
  */
 
-__int64 __fastcall RtlEnterCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // rax
   signed __int8 v2; // cf
   void *UniqueThread; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   v1 = NtCurrentTeb();
-  v2 = _interlockedbittestandreset((volatile signed __int32 *)(a1 + 8), 0);
+  v2 = _interlockedbittestandreset(&CriticalSection->LockCount, 0);
   UniqueThread = v1->ClientId.UniqueThread;
   if ( v2 )
   {
-    *(_QWORD *)(a1 + 16) = UniqueThread;
-    result = 0LL;
-    *(_DWORD *)(a1 + 12) = 1;
+    CriticalSection->OwningThread = UniqueThread;
+    result = 0;
+    CriticalSection->RecursionCount = 1;
   }
-  else if ( *(void **)(a1 + 16) == UniqueThread )
+  else if ( CriticalSection->OwningThread == UniqueThread )
   {
-    ++*(_DWORD *)(a1 + 12);
-    return 0LL;
+    ++CriticalSection->RecursionCount;
+    return 0;
   }
   else
   {

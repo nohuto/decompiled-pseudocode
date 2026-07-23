@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvEpCpuid @ 0x1405000F0
+ * XREFs of HalpHvEpCpuid @ 0x1404F98E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _DWORD *__fastcall HalpHvEpCpuid(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, _DWORD *a6)
@@ -22,8 +22,8 @@ _DWORD *__fastcall HalpHvEpCpuid(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4,
   }
   else
   {
-    result = (_DWORD *)qword_140FBB0A8;
-    if ( !qword_140FBB0A8
+    result = (_DWORD *)qword_140FBB448;
+    if ( !qword_140FBB448
       || (LODWORD(a1) = a1 & 0x7FFFFFFF, result = (_DWORD *)guard_dispatch_icall_no_overrides(a1, a2), (int)result < 0) )
     {
       *a3 = 0;

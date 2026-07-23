@@ -3,16 +3,16 @@
  * Callers:
  *     <none>
  * Callees:
- *     RealPredecessor @ 0x140253690 (RealPredecessor.c)
- *     RealSuccessor @ 0x1402DEC9C (RealSuccessor.c)
+ *     sub_140253690 @ 0x140253690 (sub_140253690.c)
+ *     sub_1402DEC9C @ 0x1402DEC9C (sub_1402DEC9C.c)
  */
 
 PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
 {
-  unsigned int WhichOrderedElement; // r8d
+  ULONG WhichOrderedElement; // r8d
   ULONG v3; // r9d
   PRTL_AVL_TABLE v4; // r10
-  unsigned int NumberGenericTableElements; // edx
+  ULONG NumberGenericTableElements; // edx
   _QWORD *OrderedPointer; // rcx
   _QWORD *i; // rax
   int v9; // r8d
@@ -54,14 +54,14 @@ PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
         if ( v12 != 1 )
         {
           do
-            OrderedPointer = RealPredecessor(OrderedPointer);
+            OrderedPointer = sub_140253690(OrderedPointer);
           while ( v15 != 1 );
         }
       }
       else if ( v3 != WhichOrderedElement )
       {
         do
-          OrderedPointer = RealSuccessor(OrderedPointer);
+          OrderedPointer = sub_1402DEC9C(OrderedPointer);
         while ( v13 != 1 );
       }
     }
@@ -73,14 +73,14 @@ PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
       if ( v3 )
       {
         do
-          OrderedPointer = RealSuccessor(OrderedPointer);
+          OrderedPointer = sub_1402DEC9C(OrderedPointer);
         while ( v11 != 1 );
       }
     }
     else if ( WhichOrderedElement != v3 )
     {
       do
-        OrderedPointer = RealPredecessor(OrderedPointer);
+        OrderedPointer = sub_140253690(OrderedPointer);
       while ( v9 != 1 );
     }
     v4->OrderedPointer = OrderedPointer;

@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_store1 @ 0x1405DFDE0
+ * XREFs of __asan_store1 @ 0x1405E2750
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
  */
 
 char __fastcall _asan_store1(ULONG_PTR a1)

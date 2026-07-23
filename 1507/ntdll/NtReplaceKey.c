@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtReplaceKey()
+NTSTATUS __cdecl NtReplaceKey(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 346LL;
+  result = 346;
   __asm { syscall; Low latency system call }
   return result;
 }

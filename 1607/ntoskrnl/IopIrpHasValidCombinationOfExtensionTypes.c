@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x1401CA5B8
+ * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x1401CA458
  * Callers:
- *     IoSetFsTrackOffsetState @ 0x1401CA4C8 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x1401CA558 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCallDriver @ 0x1401CA708 (IopPerfCallDriver.c)
+ *     IoSetFsTrackOffsetState @ 0x1401CA368 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x1401CA3F8 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x1401CA5A8 (IopPerfCallDriver.c)
  * Callees:
  *     <none>
  */

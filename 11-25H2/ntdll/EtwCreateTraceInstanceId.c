@@ -22,7 +22,7 @@ __int64 __fastcall EtwCreateTraceInstanceId(__int64 a1, __int64 a2)
   }
   else
   {
-    RtlSetLastWin32Error(87LL);
+    RtlSetLastWin32Error(87);
     return 87LL;
   }
 }

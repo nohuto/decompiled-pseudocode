@@ -9,7 +9,7 @@
  *     memset @ 0x1800A4180 (memset.c)
  */
 
-void __fastcall RtlSetBits(__int64 a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlSetBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToSet)
 {
   unsigned __int64 v3; // rdi
   __int64 v4; // rdx
@@ -17,22 +17,22 @@ void __fastcall RtlSetBits(__int64 a1, unsigned int a2, unsigned int a3)
   __int64 v6; // rsi
   char v7; // al
 
-  if ( a3 )
+  if ( NumberToSet )
   {
-    v3 = a2;
-    v4 = a2 & 7;
-    v5 = (_BYTE *)(*(_QWORD *)(a1 + 8) + (v3 >> 3));
-    v6 = a3;
-    if ( (unsigned int)v4 + a3 <= 8 )
+    v3 = StartingIndex;
+    v4 = StartingIndex & 7;
+    v5 = (char *)BitMapHeader->Buffer + (v3 >> 3);
+    v6 = NumberToSet;
+    if ( (unsigned int)v4 + NumberToSet <= 8 )
     {
-      v7 = RtlIsSystemAceType[a3 + 16] << v4;
+      v7 = RtlIsSystemAceType[NumberToSet + 16] << v4;
 LABEL_4:
       *v5 |= v7;
       return;
     }
     if ( (_DWORD)v4 )
     {
-      v6 = (unsigned int)v4 + a3 - 8;
+      v6 = (unsigned int)v4 + NumberToSet - 8;
       *v5++ |= byte_18012E610[v4];
     }
     if ( (unsigned int)v6 > 8 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspStorageMakeSlotReadOnly @ 0x1409E21D0
+ * XREFs of PspStorageMakeSlotReadOnly @ 0x1409DBF80
  * Callers:
- *     PsMakeSiloContextPermanent @ 0x1406FB440 (PsMakeSiloContextPermanent.c)
+ *     PsMakeSiloContextPermanent @ 0x1406F9080 (PsMakeSiloContextPermanent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PspGetStorageArray @ 0x1409E23B8 (PspGetStorageArray.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PspGetStorageArray @ 0x1409DC168 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PspStorageMakeSlotReadOnly(__int64 a1, __int64 a2)
@@ -17,8 +17,8 @@ __int64 __fastcall PspStorageMakeSlotReadOnly(__int64 a1, __int64 a2)
   unsigned int v3; // esi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rdi
-  _QWORD *v6; // rax
-  _QWORD *v7; // rbp
+  char *v6; // rax
+  char *v7; // rbp
   unsigned int v8; // [rsp+50h] [rbp+18h] BYREF
   __int64 v9; // [rsp+58h] [rbp+20h] BYREF
 
@@ -31,12 +31,12 @@ __int64 __fastcall PspStorageMakeSlotReadOnly(__int64 a1, __int64 a2)
     CurrentThread = KeGetCurrentThread();
     v5 = (unsigned __int64 *)(v9 + 16LL * v8);
     --CurrentThread->KernelApcDisable;
-    v6 = KeAbPreAcquire((__int64)v5, 0LL);
+    v6 = (char *)KeAbPreAcquire((__int64)v5, 0LL);
     v7 = v6;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v5, (__int64)v6, (__int64)v5);
+      ExfAcquirePushLockExclusiveEx(v5, v6, (__int64)v5);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     if ( (v5[1] & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
       v5[1] = v5[1] & 0xFFFFFFFFFFFFFFFEuLL | 1;
     else

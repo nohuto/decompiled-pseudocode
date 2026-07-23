@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpCovReadFriendlyName @ 0x1408D7FD8
+ * XREFs of ExpCovReadFriendlyName @ 0x1408D9298
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x14070F404 (ExCovReadjustUnloadedModuleEntry.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x1408D7260 (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovIsModulePresent @ 0x1408D75F4 (ExpCovIsModulePresent.c)
- *     ExpCovQueryLoadedModule @ 0x1408D7E64 (ExpCovQueryLoadedModule.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407106A4 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x1408D8520 (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovIsModulePresent @ 0x1408D88B4 (ExpCovIsModulePresent.c)
+ *     ExpCovQueryLoadedModule @ 0x1408D9124 (ExpCovQueryLoadedModule.c)
  * Callees:
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     RtlInitAnsiStringEx @ 0x140180F00 (RtlInitAnsiStringEx.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1406D3C00 (RtlDuplicateUnicodeString.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     RtlInitAnsiStringEx @ 0x140181040 (RtlInitAnsiStringEx.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1406D4EA0 (RtlDuplicateUnicodeString.c)
  */
 
 int __fastcall ExpCovReadFriendlyName(__int64 a1, const UNICODE_STRING *a2, UNICODE_STRING *a3)
 {
   __int64 v3; // rax
   int result; // eax
-  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
   v3 = *(unsigned int *)(a1 + 36);
   DestinationString.Buffer = 0LL;

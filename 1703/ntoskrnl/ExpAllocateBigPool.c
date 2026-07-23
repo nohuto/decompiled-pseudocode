@@ -48,7 +48,7 @@ ULONG_PTR __fastcall ExpAllocateBigPool(ULONG_PTR a1, int a2, unsigned __int64 a
   unsigned __int64 v16; // rsi
   __int64 v17; // r15
   __int64 v18; // rcx
-  union _SLIST_HEADER *v19; // rcx
+  _SLIST_HEADER *v19; // rcx
   PSLIST_ENTRY v20; // rax
   ULONG_PTR Next; // r9
   ULONG_PTR v22; // rsi

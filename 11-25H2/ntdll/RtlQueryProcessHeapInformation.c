@@ -19,7 +19,7 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   unsigned __int64 v2; // rdi
   unsigned __int64 v3; // rcx
   unsigned int *v4; // r12
-  int HeapInformation; // r15d
+  NTSTATUS v5; // r15d
   __int64 v6; // rsi
   unsigned __int64 v7; // rdi
   unsigned __int64 v8; // rcx
@@ -28,14 +28,14 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   unsigned int i; // edx
   unsigned int *v12; // rdi
   __int64 v13; // rax
-  __int64 v14; // rcx
+  ULONG_PTR v14; // rcx
   unsigned int v15; // eax
   unsigned int v16; // esi
   unsigned __int64 v17; // r14
   unsigned __int64 v18; // rcx
   __int64 v19; // rax
   _QWORD *v20; // r13
-  __int64 v21; // r14
+  ULONG_PTR v21; // r14
   __int64 v22; // rsi
   unsigned int j; // edi
   wchar_t *v24; // r10
@@ -47,8 +47,8 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   int v30; // edi
   int v31; // eax
   unsigned int v33; // [rsp+38h] [rbp-110h]
-  __int64 v34; // [rsp+48h] [rbp-100h] BYREF
-  __int64 v35; // [rsp+50h] [rbp-F8h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-100h] BYREF
+  PVOID v35; // [rsp+50h] [rbp-F8h] BYREF
   wchar_t *v36; // [rsp+58h] [rbp-F0h]
   __int64 v37; // [rsp+60h] [rbp-E8h]
   const wchar_t *v38; // [rsp+68h] [rbp-E0h]
@@ -56,14 +56,14 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   __int64 v40; // [rsp+78h] [rbp-D0h]
   __int64 v41; // [rsp+80h] [rbp-C8h]
   _QWORD v42[5]; // [rsp+88h] [rbp-C0h] BYREF
-  _QWORD v43[2]; // [rsp+B0h] [rbp-98h] BYREF
+  _QWORD HeapInformation[2]; // [rsp+B0h] [rbp-98h] BYREF
   int v44; // [rsp+C0h] [rbp-88h]
   __int64 (__fastcall *v45)(); // [rsp+C8h] [rbp-80h]
   _QWORD *v46; // [rsp+D0h] [rbp-78h]
-  __int64 v47; // [rsp+150h] [rbp+8h] BYREF
-  __int64 v48; // [rsp+158h] [rbp+10h] BYREF
-  unsigned __int64 v49; // [rsp+160h] [rbp+18h] BYREF
-  __int64 v50; // [rsp+168h] [rbp+20h] BYREF
+  ULONG_PTR v47; // [rsp+150h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+158h] [rbp+10h] BYREF
+  ULONG_PTR v49; // [rsp+160h] [rbp+18h] BYREF
+  PVOID v50; // [rsp+168h] [rbp+20h] BYREF
 
   *(_QWORD *)(a1 + 152) = NtCurrentPeb()->ProcessHeap;
   v50 = 0LL;
@@ -74,9 +74,9 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   {
     if ( v2 > *(_QWORD *)(a1 + 88) )
       return 3221225495LL;
-    v50 = v3 + a1;
+    v50 = (PVOID)(v3 + a1);
     v47 = v2 - v3;
-    if ( (int)ZwAllocateVirtualMemory(-1LL, &v50, 0LL, &v47, 4096, 4) < 0 )
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v50, 0LL, &v47, 0x1000u, 4u) < 0 )
       return 3221225495LL;
     *(_QWORD *)(a1 + 80) += v47;
   }
@@ -86,9 +86,9 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   {
     *v4 = 0;
     *(_QWORD *)(a1 + 112) = v4;
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
-    HeapInformation = RtlpEnumProcessHeaps(RtlpQueryProcessEnumHeapsRoutine, a1, 2LL);
-    if ( HeapInformation < 0 )
+    RtlEnterCriticalSection(&RtlpProcessHeapsLock);
+    v5 = RtlpEnumProcessHeaps(RtlpQueryProcessEnumHeapsRoutine, a1, 2LL);
+    if ( v5 < 0 )
     {
       *(_QWORD *)(a1 + 112) = 0LL;
     }
@@ -108,7 +108,7 @@ LABEL_10:
           if ( !v13 || v13 == *((_QWORD *)v12 + 1) )
           {
             v14 = *((_QWORD *)v12 + 1);
-            v48 = v14;
+            RegionSize = v14;
             v15 = *(unsigned __int16 *)(v14 + 224);
             v12[10] = v15;
             v16 = 72 * v15;
@@ -125,9 +125,9 @@ LABEL_10:
             {
               if ( v17 > *(_QWORD *)(a1 + 88) )
                 goto LABEL_51;
-              v35 = v18 + a1;
+              v35 = (PVOID)(v18 + a1);
               v49 = v17 - v18;
-              if ( (int)ZwAllocateVirtualMemory(-1LL, &v35, 0LL, &v49, 4096, 4) < 0 )
+              if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v35, 0LL, &v49, 0x1000u, 4u) < 0 )
                 goto LABEL_51;
               *(_QWORD *)(a1 + 80) += v49;
             }
@@ -136,13 +136,13 @@ LABEL_10:
             *(_QWORD *)(a1 + 72) = v17;
             if ( !(a1 + v19) )
             {
-              HeapInformation = -1073741801;
+              v5 = -1073741801;
               goto LABEL_54;
             }
             memset_thunk_772440563353939046((void *)(a1 + v19), 0, v16);
             *((_QWORD *)v12 + 10) = v20;
-            v21 = v48;
-            v22 = *(_QWORD *)(v48 + 328);
+            v21 = RegionSize;
+            v22 = *(_QWORD *)(RegionSize + 328);
             v41 = v22;
             if ( v22 )
             {
@@ -209,19 +209,19 @@ LABEL_31:
         }
         goto LABEL_39;
       }
-      v34 = 0LL;
-      v48 = 0LL;
+      BaseAddress = 0LL;
+      RegionSize = 0LL;
       v7 = *(_QWORD *)(a1 + 72) + 96LL;
       v8 = *(_QWORD *)(a1 + 80);
       if ( v7 > v8 )
       {
         if ( v7 > *(_QWORD *)(a1 + 88) )
           goto LABEL_51;
-        v34 = v8 + a1;
-        v48 = v7 - v8;
-        if ( (int)ZwAllocateVirtualMemory(-1LL, &v34, 0LL, &v48, 4096, 4) < 0 )
+        BaseAddress = (PVOID)(v8 + a1);
+        RegionSize = v7 - v8;
+        if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
           goto LABEL_51;
-        *(_QWORD *)(a1 + 80) += v48;
+        *(_QWORD *)(a1 + 80) += RegionSize;
       }
       v9 = *(_QWORD *)(a1 + 72);
       v10 = a1 + v9;
@@ -237,20 +237,20 @@ LABEL_31:
         goto LABEL_10;
       }
 LABEL_51:
-      HeapInformation = -1073741801;
+      v5 = -1073741801;
 LABEL_54:
-      RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
-      return (unsigned int)HeapInformation;
+      RtlLeaveCriticalSection(&RtlpProcessHeapsLock);
+      return (unsigned int)v5;
     }
 LABEL_39:
-    if ( HeapInformation >= 0 )
+    if ( v5 >= 0 )
     {
       v30 = *(_DWORD *)(a1 + 64);
       if ( (v30 & 0x210) != 0 )
       {
-        memset_thunk_772440563353939046(v43, 0, 0x58uLL);
-        v43[0] = -1LL;
-        v43[1] = *(_QWORD *)(a1 + 128);
+        memset_thunk_772440563353939046(HeapInformation, 0, 0x58uLL);
+        HeapInformation[0] = -1LL;
+        HeapInformation[1] = *(_QWORD *)(a1 + 128);
         v45 = RtlpWalkCallbackRoutine;
         v46 = v42;
         v31 = 3;
@@ -261,7 +261,7 @@ LABEL_39:
         v42[1] = v4;
         v42[2] = 0LL;
         v42[3] = v4 + 2;
-        HeapInformation = RtlQueryHeapInformation(0LL, 2LL, v43, 88LL, 0LL);
+        v5 = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, HeapInformation, 0x58uLL, 0LL);
       }
     }
     goto LABEL_54;

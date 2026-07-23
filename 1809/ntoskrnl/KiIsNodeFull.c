@@ -1,8 +1,8 @@
 /*
- * XREFs of KiIsNodeFull @ 0x14017E69C
+ * XREFs of KiIsNodeFull @ 0x14017E7DC
  * Callers:
- *     KiQueryProcessorNode @ 0x14017E55C (KiQueryProcessorNode.c)
- *     KiFindFirstAvailableNode @ 0x14017E63C (KiFindFirstAvailableNode.c)
+ *     KiQueryProcessorNode @ 0x14017E69C (KiQueryProcessorNode.c)
+ *     KiFindFirstAvailableNode @ 0x14017E77C (KiFindFirstAvailableNode.c)
  * Callees:
  *     <none>
  */

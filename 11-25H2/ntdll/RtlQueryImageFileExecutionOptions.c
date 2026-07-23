@@ -11,25 +11,25 @@
 
 __int64 __fastcall RtlQueryImageFileExecutionOptions(
         __int64 a1,
-        __int64 a2,
-        unsigned int a3,
+        wchar_t *a2,
+        __int64 a3,
         __int64 a4,
         int a5,
         __int64 a6)
 {
-  int v10; // eax
+  int v8; // eax
   unsigned int ImageFileKeyOption; // ebx
   HANDLE Handle; // [rsp+50h] [rbp+8h] BYREF
 
   Handle = 0LL;
   if ( a1 )
-    v10 = RtlpOpenImageFileOptionsKeyEx(a1, 9LL);
+    v8 = RtlpOpenImageFileOptionsKeyEx(a1, 9LL);
   else
-    v10 = RtlpOpenBaseImageFileOptionsKey(&Handle);
-  ImageFileKeyOption = v10;
-  if ( v10 >= 0 )
+    v8 = RtlpOpenBaseImageFileOptionsKey(&Handle);
+  ImageFileKeyOption = v8;
+  if ( v8 >= 0 )
   {
-    ImageFileKeyOption = RtlQueryImageFileKeyOption(Handle, a2, a3, a4, a5, a6);
+    ImageFileKeyOption = RtlQueryImageFileKeyOption(Handle, a2, a5, a6);
     if ( a1 )
       NtClose(Handle);
   }

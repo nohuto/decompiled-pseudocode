@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpLockHiveWriter @ 0x1405646A8
+ * XREFs of CmpLockHiveWriter @ 0x140564BE8
  * Callers:
- *     CmpCreateHiveRootCell @ 0x140140F24 (CmpCreateHiveRootCell.c)
- *     CmpMarkEntireIndexDirty @ 0x14060A8F4 (CmpMarkEntireIndexDirty.c)
+ *     CmpCreateHiveRootCell @ 0x140141494 (CmpCreateHiveRootCell.c)
+ *     CmpMarkEntireIndexDirty @ 0x14060A9A8 (CmpMarkEntireIndexDirty.c)
  * Callees:
  *     <none>
  */

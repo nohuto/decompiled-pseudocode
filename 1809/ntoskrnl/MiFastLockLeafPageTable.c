@@ -4,23 +4,23 @@
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiLockPageLeafPageTable @ 0x140041DD0 (MiLockPageLeafPageTable.c)
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiCommitExistingVad @ 0x140071470 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
- *     MiIsCfgBitMapPageShared @ 0x140076150 (MiIsCfgBitMapPageShared.c)
- *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
- *     NtGetWriteWatch @ 0x140086AD0 (NtGetWriteWatch.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
- *     MiSynchronizeSystemVa @ 0x1400E9F68 (MiSynchronizeSystemVa.c)
- *     MiLockStealUserVm @ 0x1400EDC14 (MiLockStealUserVm.c)
- *     MiCountSharedPages @ 0x14010AC70 (MiCountSharedPages.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiCommitExistingVad @ 0x140071460 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140074A30 (MiMoveDirtyBitsToPfns.c)
+ *     MiIsCfgBitMapPageShared @ 0x140076140 (MiIsCfgBitMapPageShared.c)
+ *     MiGetNextPageTable @ 0x140084230 (MiGetNextPageTable.c)
+ *     NtGetWriteWatch @ 0x140086AC0 (NtGetWriteWatch.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
+ *     MiSynchronizeSystemVa @ 0x1400E9FE8 (MiSynchronizeSystemVa.c)
+ *     MiLockStealUserVm @ 0x1400EDC94 (MiLockStealUserVm.c)
+ *     MiCountSharedPages @ 0x14010ACF0 (MiCountSharedPages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiFastLockLeafPageTable(__int64 a1, unsigned __int64 a2, int a3)
@@ -48,7 +48,7 @@ __int64 __fastcall MiFastLockLeafPageTable(__int64 a1, unsigned __int64 a2, int 
   {
     if ( v6 == 5 )
     {
-      if ( a2 >= qword_14043BA90 && a2 < qword_14043BA90 + 0x100000000000LL )
+      if ( a2 >= qword_14043CB50 && a2 < qword_14043CB50 + 0x100000000000LL )
         return 0LL;
       goto LABEL_5;
     }

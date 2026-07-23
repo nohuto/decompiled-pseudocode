@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCaptureContext @ 0x1800A4310
+ * XREFs of RtlCaptureContext @ 0x1800A4330
  * Callers:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x18008FF10 (__report_gsfailure.c)
- *     __report_securityfailure @ 0x18009007C (__report_securityfailure.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x18008FF20 (__report_gsfailure.c)
+ *     __report_securityfailure @ 0x18009008C (__report_securityfailure.c)
  *     LdrAppxHandleIntegrityFailure @ 0x1800CD7D0 (LdrAppxHandleIntegrityFailure.c)
  *     LdrpLogIntegrityContinuityTelemetry @ 0x1800D1770 (LdrpLogIntegrityContinuityTelemetry.c)
  *     RtlpPossibleDeadlock @ 0x1800E9A20 (RtlpPossibleDeadlock.c)

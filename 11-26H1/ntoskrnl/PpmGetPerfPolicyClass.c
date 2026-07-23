@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmGetPerfPolicyClass @ 0x14048ACEC
+ * XREFs of PpmGetPerfPolicyClass @ 0x14048482C
  * Callers:
- *     PpmPerfCalculateQosClassPolicies @ 0x140489930 (PpmPerfCalculateQosClassPolicies.c)
- *     PpmPerfApplyDomainState @ 0x14048A450 (PpmPerfApplyDomainState.c)
- *     PpmPerfApplyLatencyHint @ 0x1405253B8 (PpmPerfApplyLatencyHint.c)
- *     PpmPerfResizeHistory @ 0x140B40670 (PpmPerfResizeHistory.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x140483470 (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmPerfApplyDomainState @ 0x140483F90 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyLatencyHint @ 0x140527A28 (PpmPerfApplyLatencyHint.c)
+ *     PpmPerfResizeHistory @ 0x140B42680 (PpmPerfResizeHistory.c)
  * Callees:
  *     <none>
  */

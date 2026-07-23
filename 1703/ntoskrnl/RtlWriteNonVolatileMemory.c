@@ -6,10 +6,15 @@
  *     memmove @ 0x140192A40 (memmove.c)
  */
 
-__int64 __fastcall RtlWriteNonVolatileMemory(char a1, void *a2, const void *a3, size_t a4)
+DWORD __cdecl RtlWriteNonVolatileMemory(
+        PVOID NvToken,
+        void *NvDestination,
+        const void *Source,
+        SIZE_T Size,
+        DWORD Flags)
 {
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
-  memmove(a2, a3, a4);
-  return 0LL;
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
+  memmove(NvDestination, Source, Size);
+  return 0;
 }

@@ -84,7 +84,7 @@ LABEL_2:
           if ( HeadLargeQueue == v6 + 144 || !HeadLargeQueue )
             break;
         }
-        v13 = (_KLOCK_ENTRY *)KeAbPreAcquire(HeadLargeQueue - 16, 0LL, 1LL);
+        v13 = (_KLOCK_ENTRY *)KeAbPreAcquire(HeadLargeQueue - 16, 0LL, 1);
         if ( !_interlockedbittestandset64((volatile signed __int32 *)(HeadLargeQueue - 16), 0LL) )
         {
           if ( v13 )

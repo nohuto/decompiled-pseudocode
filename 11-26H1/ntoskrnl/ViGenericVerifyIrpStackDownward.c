@@ -1,17 +1,17 @@
 /*
- * XREFs of ViGenericVerifyIrpStackDownward @ 0x140C22390
+ * XREFs of ViGenericVerifyIrpStackDownward @ 0x140C283A0
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x14052FE80 (VfUtilDbgPrint.c)
- *     RtlStringCbPrintfA @ 0x140576648 (RtlStringCbPrintfA.c)
- *     ViErrorReport1 @ 0x14064569C (ViErrorReport1.c)
- *     ViErrorReport6 @ 0x140645858 (ViErrorReport6.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VfMajorIsNewRequest @ 0x140C313D4 (VfMajorIsNewRequest.c)
- *     VfMajorIsValidIrpStatus @ 0x140C31454 (VfMajorIsValidIrpStatus.c)
- *     ViErrorDisplayDescription @ 0x140C31AD8 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x140C31B28 (ViErrorFinishReport.c)
+ *     VfUtilDbgPrint @ 0x140532380 (VfUtilDbgPrint.c)
+ *     RtlStringCbPrintfA @ 0x140578AF8 (RtlStringCbPrintfA.c)
+ *     ViErrorReport1 @ 0x14064927C (ViErrorReport1.c)
+ *     ViErrorReport6 @ 0x140649438 (ViErrorReport6.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VfMajorIsNewRequest @ 0x140C373E4 (VfMajorIsNewRequest.c)
+ *     VfMajorIsValidIrpStatus @ 0x140C37464 (VfMajorIsValidIrpStatus.c)
+ *     ViErrorDisplayDescription @ 0x140C37AE8 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x140C37B38 (ViErrorFinishReport.c)
  */
 
 __int64 __fastcall ViGenericVerifyIrpStackDownward(

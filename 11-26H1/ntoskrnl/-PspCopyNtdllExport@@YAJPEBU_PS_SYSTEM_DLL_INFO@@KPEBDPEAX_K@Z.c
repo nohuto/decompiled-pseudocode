@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PspCopyNtdllExport@@YAJPEBU_PS_SYSTEM_DLL_INFO@@KPEBDPEAX_K@Z @ 0x140CD938C
+ * XREFs of ?PspCopyNtdllExport@@YAJPEBU_PS_SYSTEM_DLL_INFO@@KPEBDPEAX_K@Z @ 0x140CDF70C
  * Callers:
- *     ?PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@@Z @ 0x140CD9680 (-PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_.c)
+ *     ?PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@@Z @ 0x140CDFA00 (-PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     PspLookupEntryPoint @ 0x140CD8C4C (PspLookupEntryPoint.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PspLookupEntryPoint @ 0x140CDEFCC (PspLookupEntryPoint.c)
  */
 
 __int64 __fastcall PspCopyNtdllExport(
@@ -19,7 +19,7 @@ __int64 __fastcall PspCopyNtdllExport(
   __int64 result; // rax
   char *v10; // rdx
   char *v11; // rax
-  unsigned __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
 
   v6 = a2;
   v12 = 0LL;

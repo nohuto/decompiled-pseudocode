@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFreeCommonBuffer @ 0x140579A50
+ * XREFs of HalFreeCommonBuffer @ 0x14057BF80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

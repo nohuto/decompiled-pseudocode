@@ -11,13 +11,17 @@
  *     _RtlULongLongToUInt@12 @ 0x4B2E4CC8 (_RtlULongLongToUInt@12.c)
  */
 
-int __fastcall MuiRegAllocArray(int a1, unsigned int a2)
+PVOID __fastcall MuiRegAllocArray(int a1, unsigned int a2)
 {
   int v2; // esi
-  int v4; // [esp+4h] [ebp-4h]
+  SIZE_T v4; // [esp-4h] [ebp-Ch]
+  int Size; // [esp+4h] [ebp-4h]
 
   v2 = 0;
-  if ( (int)RtlULongLongToUInt(2 * a2, (unsigned __int64)a2 >> 31) >= 0 && v4 )
-    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v4);
-  return v2;
+  if ( (int)RtlULongLongToUInt(2 * a2, (unsigned __int64)a2 >> 31) >= 0 && Size )
+  {
+    LODWORD(v4) = Size;
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v4);
+  }
+  return (PVOID)v2;
 }

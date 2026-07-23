@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetSessionObjectByProcess @ 0x140616E28
+ * XREFs of PspGetSessionObjectByProcess @ 0x140619E18
  * Callers:
- *     PspEstablishDfssHierarchy @ 0x1407F8254 (PspEstablishDfssHierarchy.c)
+ *     PspEstablishDfssHierarchy @ 0x1407FDD54 (PspEstablishDfssHierarchy.c)
  * Callees:
  *     <none>
  */

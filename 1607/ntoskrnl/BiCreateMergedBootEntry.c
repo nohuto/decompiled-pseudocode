@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateMergedBootEntry @ 0x1406D4498
+ * XREFs of BiCreateMergedBootEntry @ 0x1406D45D0
  * Callers:
- *     BiUpdateEfiEntry @ 0x1406D5CF0 (BiUpdateEfiEntry.c)
+ *     BiUpdateEfiEntry @ 0x1406D5E28 (BiUpdateEfiEntry.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiGetDeviceFromEfiPath @ 0x1406D4E9C (BiGetDeviceFromEfiPath.c)
- *     BiGetFilePathFromEfiPath @ 0x1406D5030 (BiGetFilePathFromEfiPath.c)
- *     BiTranslateFilePath @ 0x1406D58FC (BiTranslateFilePath.c)
+ *     BiGetDeviceFromEfiPath @ 0x1406D4FD4 (BiGetDeviceFromEfiPath.c)
+ *     BiGetFilePathFromEfiPath @ 0x1406D5168 (BiGetFilePathFromEfiPath.c)
+ *     BiTranslateFilePath @ 0x1406D5A34 (BiTranslateFilePath.c)
  */
 
 __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _WORD *a4, _QWORD *a5)
@@ -19,7 +19,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
   _WORD *v7; // rbx
   _DWORD *v9; // rdi
   _WORD *v10; // r15
-  struct _FILE_PATH *v11; // r14
+  _FILE_PATH *v11; // r14
   int DeviceFromEfiPath; // ebx
   int FilePathFromEfiPath; // eax
   __int64 v15; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
   __int64 v17; // rax
   unsigned int v18; // eax
   unsigned int v19; // ebx
-  struct _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *PoolWithTag; // rax
   void *v21; // rdx
   int v22; // eax
   unsigned int v23; // edx
@@ -108,7 +108,7 @@ LABEL_12:
     v19 = v18 + 12;
     if ( v18 + 12 < v18 )
       goto LABEL_29;
-    PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v19, 0x4B444342u);
+    PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v19, 0x4B444342u);
     v11 = PoolWithTag;
     if ( !PoolWithTag )
     {

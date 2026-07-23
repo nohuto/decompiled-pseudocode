@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFillLogProcessInfo @ 0x14025B460
+ * XREFs of MiFillLogProcessInfo @ 0x14025B6F0
  * Callers:
- *     MiAgeWorkingSet @ 0x14025B770 (MiAgeWorkingSet.c)
- *     MiLogTrimWs @ 0x14035D8F4 (MiLogTrimWs.c)
- *     MiLogWsEmptyControl @ 0x140652A60 (MiLogWsEmptyControl.c)
- *     MiLogHotPatchOperation @ 0x140A38AFC (MiLogHotPatchOperation.c)
- *     MiLogHotPatchOperationStatus @ 0x140A38F58 (MiLogHotPatchOperationStatus.c)
- *     MiLogHotPatchRundown @ 0x140A396B0 (MiLogHotPatchRundown.c)
+ *     MiAgeWorkingSet @ 0x14025BA00 (MiAgeWorkingSet.c)
+ *     MiLogTrimWs @ 0x14035DA94 (MiLogTrimWs.c)
+ *     MiLogWsEmptyControl @ 0x140652FB0 (MiLogWsEmptyControl.c)
+ *     MiLogHotPatchOperation @ 0x140A38DAC (MiLogHotPatchOperation.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A39208 (MiLogHotPatchOperationStatus.c)
+ *     MiLogHotPatchRundown @ 0x140A39960 (MiLogHotPatchRundown.c)
  * Callees:
  *     <none>
  */

@@ -113,33 +113,33 @@
  *     RtlpNotOwnerCriticalSection @ 0x1800CBE40 (RtlpNotOwnerCriticalSection.c)
  */
 
-__int64 __fastcall RtlLeaveCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   bool v1; // zf
   signed __int32 v3; // edi
   int v5; // edx
   signed __int32 v6; // eax
 
-  v1 = (*(_DWORD *)(a1 + 12))-- == 1;
+  v1 = CriticalSection->RecursionCount-- == 1;
   if ( v1 )
   {
-    *(_QWORD *)(a1 + 16) = 0LL;
-    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), -1, -2);
+    CriticalSection->OwningThread = 0LL;
+    v3 = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
     if ( v3 != -2 )
     {
-      if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-        RtlpNotOwnerCriticalSection(a1);
+      if ( (CriticalSection->LockCount & 1) != 0 )
+        RtlpNotOwnerCriticalSection(CriticalSection);
       do
       {
         v5 = v3 & 2 | 1;
-        v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), v5 + v3, v3);
+        v6 = _InterlockedCompareExchange(&CriticalSection->LockCount, v5 + v3, v3);
         v1 = v3 == v6;
         v3 = v6;
       }
       while ( !v1 );
       if ( (v5 & 2) != 0 )
-        RtlpUnWaitCriticalSection(a1);
+        RtlpUnWaitCriticalSection(CriticalSection);
     }
   }
-  return 0LL;
+  return 0;
 }

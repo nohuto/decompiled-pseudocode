@@ -39,7 +39,7 @@ __int64 PopEtInit()
   int ObjectType; // eax
   _QWORD DestinationString[3]; // [rsp+20h] [rbp-E8h] BYREF
   _QWORD v21[16]; // [rsp+38h] [rbp-D0h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+B8h] [rbp-50h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+B8h] [rbp-50h] BYREF
 
   v0 = 0;
   *(_OWORD *)&DestinationString[1] = 0LL;

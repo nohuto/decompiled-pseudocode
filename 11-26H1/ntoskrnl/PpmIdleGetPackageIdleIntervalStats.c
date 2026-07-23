@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleGetPackageIdleIntervalStats @ 0x140B03E2C
+ * XREFs of PpmIdleGetPackageIdleIntervalStats @ 0x140B05A3C
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmConvertTimeTo @ 0x140429470 (PpmConvertTimeTo.c)
- *     PpmParkGetParkNode @ 0x14042D7D4 (PpmParkGetParkNode.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmParkGetParkNode @ 0x140421EA4 (PpmParkGetParkNode.c)
+ *     PpmConvertTimeTo @ 0x1404239FC (PpmConvertTimeTo.c)
  */
 
 __int64 __fastcall PpmIdleGetPackageIdleIntervalStats(int a1, __int64 a2, ULONGLONG *a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PpmIdleGetPackageIdleIntervalStats(int a1, __int64 a2, ULONGL
   v5 = 0;
   v6 = a3;
   v7 = a2;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, (unsigned int)a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, (unsigned int)a3);
   ParkNode = PpmParkGetParkNode(v7);
   v9 = ParkNode;
   if ( !ParkNode || (v10 = *(_QWORD *)(ParkNode + 1072)) == 0 )
@@ -83,6 +83,6 @@ LABEL_10:
       goto LABEL_10;
   }
 LABEL_11:
-  PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   return (unsigned int)v4;
 }

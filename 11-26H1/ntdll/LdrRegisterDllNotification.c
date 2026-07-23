@@ -1,38 +1,42 @@
 /*
- * XREFs of LdrRegisterDllNotification @ 0x180101BF0
+ * XREFs of LdrRegisterDllNotification @ 0x180101340
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
  */
 
-__int64 __fastcall LdrRegisterDllNotification(int a1, __int64 a2, __int64 a3, __int64 *a4)
+NTSTATUS __cdecl LdrRegisterDllNotification(
+        ULONG Flags,
+        PLDR_DLL_NOTIFICATION_FUNCTION NotificationFunction,
+        PVOID Context,
+        PVOID *Cookie)
 {
-  __int64 Heap_0; // rax
-  __int64 v8; // rbx
-  __int64 *v9; // rax
-  __int64 result; // rax
+  _QWORD *Heap_0; // rax
+  _QWORD *v8; // rbx
+  _QWORD *v9; // rax
+  NTSTATUS result; // eax
 
-  if ( a1 || !a4 || !a2 )
-    return 3221225485LL;
-  Heap_0 = RtlAllocateHeap_0();
+  if ( Flags || !Cookie || !NotificationFunction )
+    return -1073741811;
+  Heap_0 = RtlAllocateHeap_0(LdrpHeap, NtdllBaseTag + 0x40000, 0x20uLL);
   v8 = Heap_0;
   if ( !Heap_0 )
-    return 3221225495LL;
-  *(_QWORD *)(Heap_0 + 16) = a2;
-  *(_QWORD *)(Heap_0 + 24) = a3;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
-  v9 = (__int64 *)off_1801C58D8[0];
-  if ( *(_UNKNOWN ***)off_1801C58D8[0] != &LdrpDllNotificationList )
+    return -1073741801;
+  Heap_0[2] = NotificationFunction;
+  Heap_0[3] = Context;
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
+  v9 = off_1801C48D8[0];
+  if ( *(_UNKNOWN ***)off_1801C48D8[0] != &LdrpDllNotificationList )
     __fastfail(3u);
-  *(_QWORD *)v8 = &LdrpDllNotificationList;
-  *(_QWORD *)(v8 + 8) = v9;
+  *v8 = &LdrpDllNotificationList;
+  v8[1] = v9;
   *v9 = v8;
-  off_1801C58D8[0] = (_UNKNOWN **)v8;
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
-  result = 0LL;
-  *a4 = v8;
+  off_1801C48D8[0] = (_UNKNOWN **)v8;
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
+  result = 0;
+  *Cookie = v8;
   return result;
 }

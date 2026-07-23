@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwSetInformationTransactionManager @ 0x180162530
+ * XREFs of ZwSetInformationTransactionManager @ 0x180162430
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetInformationTransactionManager()
+NTSTATUS __cdecl ZwSetInformationTransactionManager(
+        HANDLE TmHandle,
+        TRANSACTIONMANAGER_INFORMATION_CLASS TransactionManagerInformationClass,
+        PVOID TransactionManagerInformation,
+        ULONG TransactionManagerInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 432LL;
+  result = 432;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpEnableDisableSpecialGuids @ 0x140A6D54C
+ * XREFs of EtwpEnableDisableSpecialGuids @ 0x140A99808
  * Callers:
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpLogFileNameRundown @ 0x14082F4D4 (EtwpLogFileNameRundown.c)
- *     EtwpEnableDisableUMGL @ 0x140A6D758 (EtwpEnableDisableUMGL.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x140A6D8A4 (EtwpCheckGuidAccessAndDoRundown.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x140A6F5B8 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpLogFileNameRundown @ 0x140835714 (EtwpLogFileNameRundown.c)
+ *     EtwpEnableDisableUMGL @ 0x140A99A14 (EtwpEnableDisableUMGL.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x140A99B60 (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x140A99C44 (EtwpCheckLoggerAccessAndDoRundown.c)
  */
 
 __int64 __fastcall EtwpEnableDisableSpecialGuids(
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   __int64 v17; // rcx
   char v18; // r15
   unsigned int i; // r8d
-  __int64 *v20; // r13
+  GUID *v20; // r13
   __int64 v21; // rsi
   __int64 v22; // r8
   unsigned int j; // edx
@@ -46,9 +46,9 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   v16 = -1073741275;
   if ( a4 == 2 )
   {
-    v26 = SystemTraceControlGuid - *a2;
-    if ( SystemTraceControlGuid == *a2 )
-      v26 = 0x3969A8086000829ALL - a2[1];
+    v26 = *(_QWORD *)&SystemTraceControlGuid.Data1 - *a2;
+    if ( *(_QWORD *)&SystemTraceControlGuid.Data1 == *a2 )
+      v26 = *(_QWORD *)SystemTraceControlGuid.Data4 - a2[1];
     v27 = 0;
     if ( v26 || a1 != EtwpHostSiloState )
       goto LABEL_13;
@@ -80,9 +80,9 @@ LABEL_13:
   {
     if ( i >= 0xA )
     {
-      v22 = KernelRundownGuid - *a2;
-      if ( KernelRundownGuid == *a2 )
-        v22 = 0xCDF584518E9C7793uLL - a2[1];
+      v22 = *(_QWORD *)&KernelRundownGuid.Data1 - *a2;
+      if ( *(_QWORD *)&KernelRundownGuid.Data1 == *a2 )
+        v22 = *(_QWORD *)KernelRundownGuid.Data4 - a2[1];
       if ( v22 )
         goto LABEL_13;
       if ( !v18 )
@@ -115,10 +115,10 @@ LABEL_41:
       goto LABEL_41;
     }
     v31 = 2LL * i;
-    v20 = (__int64 *)(&EtwpUmglProviders)[v31];
-    v21 = *v20 - *a2;
-    if ( *v20 == *a2 )
-      v21 = v20[1] - a2[1];
+    v20 = (&EtwpUmglProviders)[v31];
+    v21 = *(_QWORD *)&v20->Data1 - *a2;
+    if ( *(_QWORD *)&v20->Data1 == *a2 )
+      v21 = *(_QWORD *)v20->Data4 - a2[1];
     if ( !v21 )
       break;
   }

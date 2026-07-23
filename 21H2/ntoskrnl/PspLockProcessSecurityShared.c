@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockProcessSecurityShared @ 0x140399E50
+ * XREFs of PspLockProcessSecurityShared @ 0x140399FA0
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
- *     PspAssignPrimaryToken @ 0x1407BBA40 (PspAssignPrimaryToken.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
+ *     PspAssignPrimaryToken @ 0x1407BC1D0 (PspAssignPrimaryToken.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspLockProcessSecurityShared(__int64 a1, __int64 a2)

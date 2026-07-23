@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlRegisterWheaErrorNotification @ 0x140791780
+ * XREFs of HvlRegisterWheaErrorNotification @ 0x1407942B0
  * Callers:
  *     <none>
  * Callees:
- *     WheaRegisterInUsePageOfflineNotification @ 0x1408484F0 (WheaRegisterInUsePageOfflineNotification.c)
+ *     WheaRegisterInUsePageOfflineNotification @ 0x14084E7C0 (WheaRegisterInUsePageOfflineNotification.c)
  */
 
 NTSTATUS __stdcall HvlRegisterWheaErrorNotification(PHVL_WHEA_ERROR_NOTIFICATION Callback)

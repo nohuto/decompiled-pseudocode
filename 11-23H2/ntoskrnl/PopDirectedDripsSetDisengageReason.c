@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsSetDisengageReason @ 0x14035E5D4
+ * XREFs of PopDirectedDripsSetDisengageReason @ 0x14035E774
  * Callers:
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x14058702C (PopDirectedDripsStartDisengageTimer.c)
- *     PopDirectedDripsNotify @ 0x1408754E4 (PopDirectedDripsNotify.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14099C190 (PopDripsWatchdogCallbackWorker.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x14058751C (PopDirectedDripsStartDisengageTimer.c)
+ *     PopDirectedDripsNotify @ 0x140875724 (PopDirectedDripsNotify.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14099C390 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x14035E6A4 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x14035E844 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsSetDisengageReason(char a1)

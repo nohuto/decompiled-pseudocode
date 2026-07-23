@@ -1,7 +1,7 @@
 /*
- * XREFs of IopLiveDumpValidateCancelObject @ 0x14094F1B4
+ * XREFs of IopLiveDumpValidateCancelObject @ 0x14094F3B4
  * Callers:
- *     IopLiveDumpValidateParameters @ 0x14094F280 (IopLiveDumpValidateParameters.c)
+ *     IopLiveDumpValidateParameters @ 0x14094F480 (IopLiveDumpValidateParameters.c)
  * Callees:
  *     <none>
  */

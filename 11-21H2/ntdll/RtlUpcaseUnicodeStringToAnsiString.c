@@ -9,43 +9,55 @@
  *     NtdllpFreeStringRoutine @ 0x180025BF0 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(__int64 a1, PWCH *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned int v5; // eax
-  __int64 result; // rax
-  _WORD *v7; // r15
-  __int64 *v8; // rdi
-  int v9; // ebx
-  __int16 v10; // dx
-  unsigned int v11; // [rsp+88h] [rbp+20h] BYREF
+  ULONG v6; // eax
+  NTSTATUS result; // eax
+  unsigned __int16 *p_MaximumLength; // r15
+  char **p_Buffer; // rdi
+  int v10; // ebx
+  unsigned __int16 v11; // dx
+  ULONG BytesInMultiByteString; // [rsp+88h] [rbp+20h] BYREF
 
-  v5 = RtlxUnicodeStringToOemSize(a2);
-  v11 = v5;
-  if ( v5 > 0xFFFF )
-    return 3221225712LL;
-  v7 = (_WORD *)(a1 + 2);
-  v8 = (__int64 *)(a1 + 8);
-  result = AllocateOrValidateCharStringBuffer(a3, v5, (__int64 *)(a1 + 8), (_WORD *)(a1 + 2));
-  if ( (int)result >= 0 )
+  v6 = RtlxUnicodeStringToOemSize((PWCH *)SourceString);
+  BytesInMultiByteString = v6;
+  if ( v6 > 0xFFFF )
+    return -1073741584;
+  p_MaximumLength = &DestinationString->MaximumLength;
+  p_Buffer = &DestinationString->Buffer;
+  result = AllocateOrValidateCharStringBuffer(
+             AllocateDestinationString,
+             v6,
+             (__int64 *)&DestinationString->Buffer,
+             &DestinationString->MaximumLength);
+  if ( result >= 0 )
   {
-    v9 = RtlUpcaseUnicodeToMultiByteN(*v8, (unsigned __int16)*v7, (__int64)&v11);
-    if ( v9 >= 0 )
+    v10 = RtlUpcaseUnicodeToMultiByteN(
+            *p_Buffer,
+            *p_MaximumLength,
+            &BytesInMultiByteString,
+            SourceString->Buffer,
+            SourceString->Length);
+    if ( v10 >= 0 )
     {
-      v10 = v11;
-      *(_BYTE *)(v11 + *v8) = 0;
-      *(_WORD *)a1 = v10;
-      v9 = 0;
+      v11 = BytesInMultiByteString;
+      (*p_Buffer)[BytesInMultiByteString] = 0;
+      DestinationString->Length = v11;
+      v10 = 0;
     }
-    if ( v9 < 0 )
+    if ( v10 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        NtdllpFreeStringRoutine(*v8);
-        *v8 = 0LL;
-        *v7 = 0;
+        NtdllpFreeStringRoutine(*p_Buffer);
+        *p_Buffer = 0LL;
+        *p_MaximumLength = 0;
       }
     }
-    return (unsigned int)v9;
+    return v10;
   }
   return result;
 }

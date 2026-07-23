@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwGetCurrentProcessorNumberEx @ 0x140725390
+ * XREFs of ZwGetCurrentProcessorNumberEx @ 0x140729F60
  * Callers:
- *     DifZwGetCurrentProcessorNumberExWrapper @ 0x1406A7670 (DifZwGetCurrentProcessorNumberExWrapper.c)
+ *     DifZwGetCurrentProcessorNumberExWrapper @ 0x1406AB250 (DifZwGetCurrentProcessorNumberExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetCurrentProcessorNumberEx(__int64 a1, __int64 a2)
+ULONG __cdecl ZwGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessorNumber);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepCommitSecurityAttributeChanges @ 0x140356490
+ * XREFs of AuthzBasepCommitSecurityAttributeChanges @ 0x1403611E0
  * Callers:
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x140356420 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x140361170 (AuthzBasepFinaliseSecurityAttributesList.c)
  * Callees:
- *     AuthzBasepFreeSecurityAttributeValues @ 0x1402C97B4 (AuthzBasepFreeSecurityAttributeValues.c)
- *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x1402D07EC (AuthzBasepRemoveSecurityAttributeFromLists.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x140248094 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x14024EC7C (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepCommitSecurityAttributeChanges(__int64 a1, __int64 a2)

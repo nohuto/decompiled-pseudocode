@@ -6,17 +6,22 @@
  *     SwitchedRtlGetVersion @ 0x18004A218 (SwitchedRtlGetVersion.c)
  *     RtlGetProductInfo @ 0x180078240 (RtlGetProductInfo.c)
  *     RtlpGetDeviceFamilyInfoEnum @ 0x180078700 (RtlpGetDeviceFamilyInfoEnum.c)
- *     RtlpEcReadSkuUpdateManagementGroup @ 0x18009FFA4 (RtlpEcReadSkuUpdateManagementGroup.c)
- *     RtlpMuiRegLoadLicInformation @ 0x18011388C (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpEcReadSkuUpdateManagementGroup @ 0x18009FF64 (RtlpEcReadSkuUpdateManagementGroup.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x18011385C (RtlpMuiRegLoadLicInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryLicenseValue()
+NTSTATUS __cdecl ZwQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 350LL;
+  result = 350;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

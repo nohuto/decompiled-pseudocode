@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCompressPendingBuffers @ 0x1406C7D5C
+ * XREFs of EtwpCompressPendingBuffers @ 0x1406CBD3C
  * Callers:
- *     EtwpBufferingModeCompressionFlush @ 0x1406C791C (EtwpBufferingModeCompressionFlush.c)
- *     EtwpCompressionProc @ 0x1406C7EC0 (EtwpCompressionProc.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x1406CB8FC (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpCompressionProc @ 0x1406CBEA0 (EtwpCompressionProc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     EtwpCompressBuffer @ 0x1406C79D4 (EtwpCompressBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x1406C7FC4 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpRotateCompressionTargetIfNeeded @ 0x1406C83E0 (EtwpRotateCompressionTargetIfNeeded.c)
- *     EtwpCompleteBuffer @ 0x140AE2528 (EtwpCompleteBuffer.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     EtwpCompressBuffer @ 0x1406CB9B4 (EtwpCompressBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x1406CBFA4 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x1406CC3C0 (EtwpRotateCompressionTargetIfNeeded.c)
+ *     EtwpCompleteBuffer @ 0x140ADFA18 (EtwpCompleteBuffer.c)
  */
 
 void __fastcall EtwpCompressPendingBuffers(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

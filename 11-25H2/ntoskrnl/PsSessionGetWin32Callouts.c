@@ -20,10 +20,10 @@
  *     <none>
  */
 
-union _RTL_RUN_ONCE *PsSessionGetWin32Callouts()
+_RTL_RUN_ONCE *PsSessionGetWin32Callouts()
 {
   __int64 v0; // rdx
-  union _RTL_RUN_ONCE *result; // rax
+  _RTL_RUN_ONCE *result; // rax
 
   if ( (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x1000000000000LL) == 0 )
     return &PsWin32CallBack;

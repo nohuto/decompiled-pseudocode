@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringExHandleOtherFlagsW @ 0x1800EE4C4
+ * XREFs of RtlStringExHandleOtherFlagsW @ 0x1800D0544
  * Callers:
- *     RtlStringCchPrintfExW @ 0x18005CCF0 (RtlStringCchPrintfExW.c)
- *     RtlStringCbPrintfExW @ 0x18005E3A8 (RtlStringCbPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x18005CCE0 (RtlStringCchPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x18005E398 (RtlStringCbPrintfExW.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

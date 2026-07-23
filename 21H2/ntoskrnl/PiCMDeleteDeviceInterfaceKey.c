@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCMDeleteDeviceInterfaceKey @ 0x1408AFE78
+ * XREFs of PiCMDeleteDeviceInterfaceKey @ 0x1408AFFD8
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     PiCMReleaseObjectInputData @ 0x140638B40 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x1406A0160 (PiCMReturnBasicResultData.c)
- *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
- *     _CmDeleteDeviceInterfaceRegKey @ 0x14072C6E0 (_CmDeleteDeviceInterfaceRegKey.c)
+ *     PiCMReturnBasicResultData @ 0x1405FF4A0 (PiCMReturnBasicResultData.c)
+ *     PiAuDoesClientHaveAccess @ 0x1405FF814 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReleaseObjectInputData @ 0x14062D950 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14062D984 (PiCMCaptureObjectInputData.c)
+ *     _CmDeleteDeviceInterfaceRegKey @ 0x14072CB90 (_CmDeleteDeviceInterfaceRegKey.c)
  */
 
 __int64 __fastcall PiCMDeleteDeviceInterfaceKey(

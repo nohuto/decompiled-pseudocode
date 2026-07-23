@@ -1,17 +1,17 @@
 /*
- * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0
+ * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x14030E640
  * Callers:
- *     MiFlushCacheForAttributeChange @ 0x140303848 (MiFlushCacheForAttributeChange.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB798 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpIommuInitializeDmarPageTable @ 0x1404DBC9C (HalpIommuInitializeDmarPageTable.c)
- *     HalpIommuMapLogical @ 0x1404DBE24 (HalpIommuMapLogical.c)
- *     HalpIommuMapLogicalRange @ 0x1404DC20C (HalpIommuMapLogicalRange.c)
- *     HalpIommuUnmapLogicalRange @ 0x1404DC62C (HalpIommuUnmapLogicalRange.c)
- *     IvtInitializeIdentityMappings @ 0x1404E01F0 (IvtInitializeIdentityMappings.c)
- *     KeInvalidateRangeAllCaches @ 0x14051B0F0 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushCacheForAttributeChange @ 0x14030E598 (MiFlushCacheForAttributeChange.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB9D8 (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x1404DBEDC (HalpIommuInitializeDmarPageTable.c)
+ *     HalpIommuMapLogical @ 0x1404DC064 (HalpIommuMapLogical.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC44C (HalpIommuMapLogicalRange.c)
+ *     HalpIommuUnmapLogicalRange @ 0x1404DC86C (HalpIommuUnmapLogicalRange.c)
+ *     IvtInitializeIdentityMappings @ 0x1404E0430 (IvtInitializeIdentityMappings.c)
+ *     KeInvalidateRangeAllCaches @ 0x14051B330 (KeInvalidateRangeAllCaches.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x1403A4E00 (KeInvalidateAllCaches.c)
- *     KiFlushCacheLines @ 0x140402E00 (KiFlushCacheLines.c)
+ *     KeInvalidateAllCaches @ 0x1403A4F50 (KeInvalidateAllCaches.c)
+ *     KiFlushCacheLines @ 0x140402FE0 (KiFlushCacheLines.c)
  */
 
 char __fastcall KeInvalidateRangeAllCachesNoIpi(__int64 a1, unsigned int a2)

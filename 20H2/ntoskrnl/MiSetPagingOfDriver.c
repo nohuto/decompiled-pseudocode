@@ -25,7 +25,7 @@
  *     memset @ 0x140411300 (memset.c)
  */
 
-__int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+PVOID __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 v4; // r12
   __int64 v5; // rdi
@@ -40,7 +40,7 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned
   char WsleContents; // al
   __int64 v15; // r8
   __int64 v16; // r9
-  __int64 result; // rax
+  PVOID result; // rax
   __int16 v18; // cx
   unsigned __int64 v19; // rcx
   BOOL v20; // ebx
@@ -157,10 +157,10 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned
     v10 = v28;
   }
   MiUnlockWorkingSetShared(v9, v10);
-  result = MiUnlockLoaderEntry(v4 + 160, 2);
+  result = (PVOID)MiUnlockLoaderEntry(v4 + 160, 2);
   if ( v5 )
   {
-    result = *(_QWORD *)(v4 + 48);
+    result = *(PVOID *)(v4 + 48);
     if ( result == PsHalImageBase || result == PsNtosImageBase )
       _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CBC8 + 2, v5);
     else

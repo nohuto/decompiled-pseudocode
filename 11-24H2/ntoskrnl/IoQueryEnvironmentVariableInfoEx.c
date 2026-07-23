@@ -1,17 +1,17 @@
 /*
- * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x1407188D8
+ * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140716468
  * Callers:
- *     NtQueryEnvironmentVariableInfoEx @ 0x1407BE500 (NtQueryEnvironmentVariableInfoEx.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x1407BE950 (NtQueryEnvironmentVariableInfoEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     IopOpenSystemVariableDevice @ 0x140967120 (IopOpenSystemVariableDevice.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     IopOpenSystemVariableDevice @ 0x14094FBB0 (IopOpenSystemVariableDevice.c)
  */
 
-__int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJECT *a2, __int64 *a3, __int64 *a4)
+__int64 __fastcall IoQueryEnvironmentVariableInfoEx(int a1, PDEVICE_OBJECT *a2, __int64 *a3, __int64 *a4)
 {
   int v8; // ebx
   PVOID Object; // [rsp+40h] [rbp-89h] BYREF
@@ -42,7 +42,7 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
   v8 = IopOpenSystemVariableDevice((PFILE_OBJECT *)&Object, &DeviceObject);
   if ( v8 >= 0 )
   {
-    v8 = guard_dispatch_icall_no_overrides(Object, DeviceObject, a1, a2);
+    v8 = guard_dispatch_icall_no_overrides(Object, DeviceObject);
     if ( Object )
       ObfDereferenceObject(Object);
   }
@@ -68,13 +68,7 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
     v29 = 4;
     LODWORD(v11) = a1;
     LODWORD(Object) = v8;
-    tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E06EB8,
-      (unsigned __int8 *)&dword_140046174,
-      0LL,
-      0LL,
-      7u,
-      &v15);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06EB8, (unsigned __int8 *)byte_1400465D3, 0LL, 0LL, 7u, &v15);
   }
   return (unsigned int)v8;
 }

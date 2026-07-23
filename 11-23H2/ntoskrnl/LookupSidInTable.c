@@ -1,17 +1,17 @@
 /*
- * XREFs of LookupSidInTable @ 0x1406C3660
+ * XREFs of LookupSidInTable @ 0x1406C3690
  * Callers:
  *     SeConvertStringSidToSid @ 0x14020BA20 (SeConvertStringSidToSid.c)
  *     LocalGetStringForSid @ 0x14069D410 (LocalGetStringForSid.c)
  *     LocalConvertAclToString @ 0x14069D4D0 (LocalConvertAclToString.c)
  *     LocalGetSidForString @ 0x14069E1D0 (LocalGetSidForString.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     RtlSubAuthorityCountSid @ 0x140297AC0 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x140297AD0 (RtlSubAuthoritySid.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     RtlSubAuthorityCountSid @ 0x140297D50 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x140297D60 (RtlSubAuthoritySid.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
  */
 

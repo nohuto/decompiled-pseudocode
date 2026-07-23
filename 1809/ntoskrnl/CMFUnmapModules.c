@@ -1,10 +1,10 @@
 /*
- * XREFs of CMFUnmapModules @ 0x1408D9AF4
+ * XREFs of CMFUnmapModules @ 0x1408DADB4
  * Callers:
- *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140707A40 (NtMapCMFModule.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CMFUnmapModules(__int16 a1)

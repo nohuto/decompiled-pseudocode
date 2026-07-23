@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreeCachedKernelShadowStackEntryCount @ 0x14067FE50
+ * XREFs of MiFreeCachedKernelShadowStackEntryCount @ 0x140681050
  * Callers:
- *     MiCreatePartitionOffsets @ 0x1407EC4FC (MiCreatePartitionOffsets.c)
+ *     MiCreatePartitionOffsets @ 0x1407ECACC (MiCreatePartitionOffsets.c)
  * Callees:
  *     <none>
  */

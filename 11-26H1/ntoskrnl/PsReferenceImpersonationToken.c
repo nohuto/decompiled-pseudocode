@@ -1,15 +1,15 @@
 /*
- * XREFs of PsReferenceImpersonationToken @ 0x140A04D20
+ * XREFs of PsReferenceImpersonationToken @ 0x1409E4930
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
@@ -24,8 +24,6 @@ PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
   LegacyAutoBoost *v11; // rdi
   void *v12; // rdi
   BOOLEAN v13; // al
-  __int64 v15; // rdx
-  __int64 v16; // r8
 
   if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) == 0 )
     return 0LL;
@@ -70,6 +68,6 @@ PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
   if ( _InterlockedCompareExchange64(p_WaitBlockList, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(p_WaitBlockList);
   KeAbPostRelease((unsigned __int64)p_WaitBlockList);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread, v15, v16);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   return v12;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpHeapSuspendCommitCaching @ 0x1406388C8
+ * XREFs of RtlpHpHeapSuspendCommitCaching @ 0x14063B8CC
  * Callers:
- *     ExConfigurePoolCommitCaching @ 0x1406D2710 (ExConfigurePoolCommitCaching.c)
+ *     ExConfigurePoolCommitCaching @ 0x1406D6740 (ExConfigurePoolCommitCaching.c)
  * Callees:
  *     <none>
  */

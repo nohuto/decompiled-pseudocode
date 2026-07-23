@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRollforwardTransactionManager @ 0x1800A3210
+ * XREFs of NtRollforwardTransactionManager @ 0x1800A3230
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRollforwardTransactionManager()
+NTSTATUS __cdecl NtRollforwardTransactionManager(HANDLE TransactionManagerHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 378LL;
+  result = 378;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

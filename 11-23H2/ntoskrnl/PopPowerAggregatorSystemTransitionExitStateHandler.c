@@ -1,27 +1,27 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994090
+ * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994290
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopGetPolicyWorker @ 0x14032CB64 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x14032CBB8 (PopCheckForWork.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140877DE8 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopGetPolicyWorker @ 0x14032CDF4 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x14032CE48 (PopCheckForWork.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140878028 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
  */
 
-__int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KEVENT *a1)
+__int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(__int64 a1)
 {
   _OWORD v3[2]; // [rsp+30h] [rbp-28h] BYREF
 
-  KeResetEvent(a1 + 11);
+  KeResetEvent((PRKEVENT)(a1 + 264));
   memset(v3, 0, sizeof(v3));
   LODWORD(v3[0]) = 3;
-  PopPowerAggregatorSetCurrentState((__int64)a1, (__int64)v3);
+  PopPowerAggregatorSetCurrentState((LARGE_INTEGER *)a1, (__int64)v3);
   PopReleaseRwLock(&PopPowerAggregatorLock);
   PopSleepstudyStartNextSession(1, 0x14u);
   if ( PopIdleScanInterval )

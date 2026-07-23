@@ -10,7 +10,7 @@
 
 __int64 __fastcall EtwpNotifyProcessTracingChange(void *a1)
 {
-  int updated; // ebx
+  NTSTATUS updated; // ebx
   CLIENT_ID ClientId; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE ProcessHandle; // [rsp+90h] [rbp+10h] BYREF
@@ -25,7 +25,7 @@ __int64 __fastcall EtwpNotifyProcessTracingChange(void *a1)
   ObjectAttributes.Attributes = 512;
   updated = ZwOpenProcess(&ProcessHandle, 0, &ObjectAttributes, &ClientId);
   if ( updated >= 0 )
-    updated = ZwUpdateWnfStateData((__int64)&WNF_ETW_UMGL_TRACING_CHANGE, 0LL);
+    updated = ZwUpdateWnfStateData(&WNF_ETW_UMGL_TRACING_CHANGE, 0LL, 0, 0LL, ProcessHandle, 0, 0);
   if ( ProcessHandle )
     ZwClose(ProcessHandle);
   return (unsigned int)updated;

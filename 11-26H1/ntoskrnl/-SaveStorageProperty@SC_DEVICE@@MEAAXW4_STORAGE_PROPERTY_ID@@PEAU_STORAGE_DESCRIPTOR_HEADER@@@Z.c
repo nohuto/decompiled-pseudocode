@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14071C510
+ * XREFs of ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1407211A0
  * Callers:
- *     ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14071B610 (-SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
+ *     ?SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1407202A0 (-SaveStorageProperty@SC_DISK@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
  * Callees:
- *     ?ScExtractDeviceStrings@@YAJPEAU_STORAGE_DEVICE_DESCRIPTOR@@PEAU_UNICODE_STRING@@111@Z @ 0x14071AAF4 (-ScExtractDeviceStrings@@YAJPEAU_STORAGE_DEVICE_DESCRIPTOR@@PEAU_UNICODE_STRING@@111@Z.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
+ *     ?ScExtractDeviceStrings@@YAJPEAU_STORAGE_DEVICE_DESCRIPTOR@@PEAU_UNICODE_STRING@@111@Z @ 0x14071F784 (-ScExtractDeviceStrings@@YAJPEAU_STORAGE_DEVICE_DESCRIPTOR@@PEAU_UNICODE_STRING@@111@Z.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
  */
 
 void __fastcall SC_DEVICE::SaveStorageProperty(
@@ -32,10 +32,10 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
       case StorageMiniportProperty:
         v6 = 192LL;
         break;
-      case StorageDeviceFaultDomainProperty:
+      case StorageAdapterCryptoProperty|StorageDeviceIdProperty:
         v6 = 176LL;
         break;
-      case StorageDeviceUnsafeShutdownCount|StorageDeviceIdProperty:
+      case StorageDeviceLedStateProperty:
         v6 = 168LL;
         break;
       default:
@@ -54,7 +54,7 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
   *(_QWORD *)((char *)this + v6) = a3;
   if ( a2 )
   {
-    if ( a2 == StorageDeviceFaultDomainProperty )
+    if ( a2 == (StorageAdapterCryptoProperty|StorageDeviceIdProperty) )
     {
       memset_0((char *)this + 88, 0, 0x40uLL);
       v8 = *((_QWORD *)this + 22);

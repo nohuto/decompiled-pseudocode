@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpApplyLogEntry @ 0x140612610
+ * XREFs of HvpApplyLogEntry @ 0x1406126C4
  * Callers:
- *     HvApplyLegacyLogFile @ 0x140611F4C (HvApplyLegacyLogFile.c)
- *     HvApplyLogFile @ 0x14061212C (HvApplyLogFile.c)
+ *     HvApplyLegacyLogFile @ 0x140612000 (HvApplyLegacyLogFile.c)
+ *     HvApplyLogFile @ 0x1406121E0 (HvApplyLogFile.c)
  * Callees:
- *     HvViewMapPinFile @ 0x1401B6704 (HvViewMapPinFile.c)
- *     HvpExpandMap @ 0x14047DE4C (HvpExpandMap.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     HvpValidateLoadedBin @ 0x140513FA8 (HvpValidateLoadedBin.c)
- *     HvpAddDummyBinToHive @ 0x1406123A0 (HvpAddDummyBinToHive.c)
- *     HvpAddLoadedBinToHive @ 0x140612530 (HvpAddLoadedBinToHive.c)
- *     HvpCopyModifiedData @ 0x1406128AC (HvpCopyModifiedData.c)
+ *     HvViewMapPinFile @ 0x1401B65E8 (HvViewMapPinFile.c)
+ *     HvpExpandMap @ 0x14047CBA0 (HvpExpandMap.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     HvpValidateLoadedBin @ 0x1404F7398 (HvpValidateLoadedBin.c)
+ *     HvpAddDummyBinToHive @ 0x140612454 (HvpAddDummyBinToHive.c)
+ *     HvpAddLoadedBinToHive @ 0x1406125E4 (HvpAddLoadedBinToHive.c)
+ *     HvpCopyModifiedData @ 0x140612960 (HvpCopyModifiedData.c)
  */
 
 __int64 __fastcall HvpApplyLogEntry(

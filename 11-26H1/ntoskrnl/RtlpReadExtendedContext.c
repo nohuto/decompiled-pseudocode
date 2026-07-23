@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpReadExtendedContext @ 0x1409EE360
+ * XREFs of RtlpReadExtendedContext @ 0x1409EAB30
  * Callers:
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x1403D2F80 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     KyRaiseException @ 0x1403D3E8C (KyRaiseException.c)
- *     KiContinuePreviousModeUser @ 0x1403D5A70 (KiContinuePreviousModeUser.c)
- *     PspSetContextThreadInternal @ 0x1409EC360 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1409EC6B0 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x140A214E8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x140B796B0 (PspWow64SetContextThread.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x1403D5F50 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     KyRaiseException @ 0x1403D6E5C (KyRaiseException.c)
+ *     KiContinuePreviousModeUser @ 0x1403D8A40 (KiContinuePreviousModeUser.c)
+ *     PspSetContextThreadInternal @ 0x1409E8B30 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1409E8E80 (PspGetContextThreadInternal.c)
+ *     PspWow64GetContextThread @ 0x140A2AB08 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x140B81920 (PspWow64SetContextThread.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x1403D6B50 (RtlpValidateContextFlags.c)
- *     RtlpCopyExtendedContext @ 0x140417400 (RtlpCopyExtendedContext.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     RtlpReadExtendedContextLayout @ 0x1409EE61C (RtlpReadExtendedContextLayout.c)
+ *     RtlpValidateContextFlags @ 0x1403D9B20 (RtlpValidateContextFlags.c)
+ *     RtlpCopyExtendedContext @ 0x14040BA10 (RtlpCopyExtendedContext.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpReadExtendedContextLayout @ 0x1409EADEC (RtlpReadExtendedContextLayout.c)
  */
 
 __int64 __fastcall RtlpReadExtendedContext(

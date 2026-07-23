@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpWerCaptureLiveFullDump @ 0x14093B658
+ * XREFs of DbgkpWerCaptureLiveFullDump @ 0x14093B858
  * Callers:
- *     DbgkpWerProcessPolicyResult @ 0x14093BD30 (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14093BF30 (DbgkpWerProcessPolicyResult.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     DbgkpWerInitializeDeferredLiveDump @ 0x14093BB14 (DbgkpWerInitializeDeferredLiveDump.c)
- *     DbgkpWerInvokeCallbacks @ 0x14093BC6C (DbgkpWerInvokeCallbacks.c)
- *     IoCaptureLiveDump @ 0x14094B9E8 (IoCaptureLiveDump.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x14093BD14 (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DbgkpWerInvokeCallbacks @ 0x14093BE6C (DbgkpWerInvokeCallbacks.c)
+ *     IoCaptureLiveDump @ 0x14094BBE8 (IoCaptureLiveDump.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -93,7 +93,7 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     LODWORD(v13) = 0x8000;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -112,10 +112,10 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
       a2[3] = (unsigned int)v7[12];
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;
@@ -143,10 +143,10 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
       v27 = a2[2];
       v28 = *(unsigned __int8 *)(v27 + 96);
       KxReleaseSpinLock((volatile signed __int64 *)(v27 + 88));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v29 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v28 <= 0xFu && v29 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v28 <= 0xFu && v29 >= 2u )
         {
           v30 = KeGetCurrentPrcb();
           v31 = v30->SchedulerAssist;
@@ -176,10 +176,10 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
       *((_QWORD *)v7 + 8) = v23;
       v34 = *((unsigned __int8 *)v7 + 96);
       KxReleaseSpinLock((volatile signed __int64 *)v7 + 11);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v35 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v35 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v35 >= 2u )
         {
           v36 = KeGetCurrentPrcb();
           v37 = v36->SchedulerAssist;
@@ -198,7 +198,7 @@ LABEL_48:
       v50[12] = v52;
       v40 = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v40 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu )
       {
         v41 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v40 != 15 )
@@ -216,10 +216,10 @@ LABEL_48:
         v42 = *a2;
       }
       IvtFlushTbInternal(a1, 0, (__int64)v7, 1, v42, 0LL, 0, 0LL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v43 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v40 <= 0xFu && v43 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v40 <= 0xFu && v43 >= 2u )
         {
           v44 = KeGetCurrentPrcb();
           v45 = v44->SchedulerAssist;

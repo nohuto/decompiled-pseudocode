@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAllocateKernelStackPages @ 0x1400B5660
+ * XREFs of MiAllocateKernelStackPages @ 0x1400B55A0
  * Callers:
- *     MmCreateKernelStack @ 0x1400C9F10 (MmCreateKernelStack.c)
- *     MmGrowKernelStackEx @ 0x140132ED0 (MmGrowKernelStackEx.c)
+ *     MmCreateKernelStack @ 0x1400C9FF0 (MmCreateKernelStack.c)
+ *     MmGrowKernelStackEx @ 0x140132FA0 (MmGrowKernelStackEx.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     PsGetPagePriorityThread @ 0x1400B5B20 (PsGetPagePriorityThread.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiAllocateKernelStackPages(
@@ -107,7 +107,7 @@ LABEL_4:
     {
       ValidPte = MiMakeValidPte(v7, 0LL, -1610612732);
       v16 = 0LL;
-      v62 = MiLockWorkingSetShared((__int64)&unk_14043B4C0);
+      v62 = MiLockWorkingSetShared((__int64)&unk_14043C580);
       v57 = (a4 >> 3) & 0xFFFFFFFFFFELL;
       v17 = 0x7FFFFFFFFFFFFFFFLL;
       v18 = 0xFFFFFA8000000000uLL;
@@ -119,10 +119,10 @@ LABEL_4:
         {
           if ( (v7 & 0xFFF) != 0 )
             goto LABEL_8;
-          MiUnlockPageTableInternal(&unk_14043B4C0, v16);
+          MiUnlockPageTableInternal(&unk_14043C580, v16);
         }
         v16 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        MiLockPageTableInternal((__int64)&unk_14043B4C0, v16, 0);
+        MiLockPageTableInternal((__int64)&unk_14043C580, v16, 0);
         v18 = 0xFFFFFA8000000000uLL;
         v17 = 0x7FFFFFFFFFFFFFFFLL;
 LABEL_8:
@@ -152,11 +152,11 @@ LABEL_8:
           goto LABEL_14;
         }
         v21 = 128LL;
-        if ( !qword_14043A0C0 )
+        if ( !qword_14043B180 )
           goto LABEL_15;
-        if ( (qword_14043A0C0 & 0x80) == 0 )
+        if ( (qword_14043B180 & 0x80) == 0 )
         {
-          v22 = qword_14043A0C0;
+          v22 = qword_14043B180;
 LABEL_14:
           v21 = v22 | 0x80;
           goto LABEL_15;
@@ -272,7 +272,7 @@ LABEL_15:
         {
           if ( (unsigned int)MiPteHasShadow(v35, ValidPte) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (ValidPte & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (ValidPte & 1) != 0 )
               v36 |= 0x8000000000000000uLL;
             *(_QWORD *)v7 = v36;
             MiWritePteShadow(v7);
@@ -357,8 +357,8 @@ LABEL_30:
         if ( v7 >= v58 )
         {
           if ( v16 )
-            MiUnlockPageTableInternal(&unk_14043B4C0, v16);
-          MiUnlockWorkingSetShared((__int64)&unk_14043B4C0, v62);
+            MiUnlockPageTableInternal(&unk_14043C580, v16);
+          MiUnlockWorkingSetShared((__int64)&unk_14043C580, v62);
           return 1LL;
         }
       }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNodes @ 0x1404C55B8
+ * XREFs of PnpDeleteLockedDeviceNodes @ 0x1404859EC
  * Callers:
- *     PipRemoveDevicesInRelationList @ 0x1404C3254 (PipRemoveDevicesInRelationList.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
- *     PiEventQueryRemoveDevices @ 0x14064CFD0 (PiEventQueryRemoveDevices.c)
+ *     PipRemoveDevicesInRelationList @ 0x1404835BC (PipRemoveDevicesInRelationList.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
+ *     PiEventQueryRemoveDevices @ 0x14064D0B4 (PiEventQueryRemoveDevices.c)
  * Callees:
- *     PoFxIdleDevice @ 0x14000842C (PoFxIdleDevice.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PipIsDeviceInDeviceObjectList @ 0x1404C4E98 (PipIsDeviceInDeviceObjectList.c)
- *     IopEnumerateRelations @ 0x1404C5848 (IopEnumerateRelations.c)
- *     PnpDeleteLockedDeviceNode @ 0x1404C58C8 (PnpDeleteLockedDeviceNode.c)
+ *     PoFxIdleDevice @ 0x140007FA0 (PoFxIdleDevice.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     IopEnumerateRelations @ 0x140485C7C (IopEnumerateRelations.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140485CFC (PnpDeleteLockedDeviceNode.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1404860FC (PipIsDeviceInDeviceObjectList.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNodes(
@@ -27,7 +27,7 @@ __int64 __fastcall PnpDeleteLockedDeviceNodes(
   ULONG_PTR v13; // rdi
   int v14; // eax
   __int64 v16; // r11
-  unsigned int *v17; // rax
+  _DWORD *v17; // rax
   ULONG_PTR v18; // rcx
   int v19; // [rsp+30h] [rbp-10h] BYREF
   int v20; // [rsp+34h] [rbp-Ch]
@@ -51,7 +51,10 @@ __int64 __fastcall PnpDeleteLockedDeviceNodes(
           v8 = v14;
           if ( !a3 && a5 == 54 && v14 == -1073740537 )
           {
-            if ( PipIsDeviceInDeviceObjectList(*(unsigned int **)a2, *(_QWORD *)(*(_QWORD *)(v13 + 16) + 32LL), 0LL) )
+            if ( (unsigned __int8)PipIsDeviceInDeviceObjectList(
+                                    *(_QWORD *)a2,
+                                    *(_QWORD *)(*(_QWORD *)(v13 + 16) + 32LL),
+                                    0LL) )
               *(_DWORD *)(v16 + 704) |= 2u;
             v8 = 0;
           }
@@ -63,7 +66,7 @@ __int64 __fastcall PnpDeleteLockedDeviceNodes(
             *(_DWORD *)(v13 + 704) &= ~4u;
             if ( v19 == 1 && v20 )
             {
-              v17 = *(unsigned int **)a2;
+              v17 = *(_DWORD **)a2;
               v19 = 2;
               v20 = *v17 - v20;
             }

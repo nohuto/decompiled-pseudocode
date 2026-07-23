@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEmulateAtlThunk @ 0x1403FBC04
+ * XREFs of KiEmulateAtlThunk @ 0x1403F5764
  * Callers:
- *     KiCheckForAtlThunk @ 0x1403FBB98 (KiCheckForAtlThunk.c)
+ *     KiCheckForAtlThunk @ 0x1403F56F8 (KiCheckForAtlThunk.c)
  * Callees:
- *     MmCheckForSafeExecution @ 0x1407F634C (MmCheckForSafeExecution.c)
+ *     MmCheckForSafeExecution @ 0x1407F6AC0 (MmCheckForSafeExecution.c)
  */
 
 __int64 __fastcall KiEmulateAtlThunk(unsigned int *a1, _DWORD *a2, unsigned int *a3, unsigned int *a4, _DWORD *a5)
@@ -29,7 +29,7 @@ __int64 __fastcall KiEmulateAtlThunk(unsigned int *a1, _DWORD *a2, unsigned int 
   v10 = *a1;
   v22 = (unsigned int)*a2;
   v21 = 0;
-  v11 = (_WORD *)&KeGetPcr()->NtTib.$F9182C7BBDA5465159379F5666D1C81A::$B2F89C67BE96B06D3F6044187E462952::Self[218].SubSystemTib
+  v11 = (_WORD *)&KeGetPcr()->NtTib.$5225818D498B3FAE6A65DB4E37572489::$27D8BC11A01A0546FE12179A0057C7B6::Self[218].SubSystemTib
       + 1;
   if ( (*v11 & 1) != 0 )
   {

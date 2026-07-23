@@ -37,7 +37,7 @@ void __fastcall CcAsyncReadWorker(_DWORD *StartContext)
   _GENERAL_LOOKASIDE *L; // rcx
   __int64 v14; // r14
   _QWORD *v15; // rdx
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rdi
+  _SLIST_ENTRY *NextWorkQueueEntry; // rdi
   _SLIST_ENTRY *Next; // rcx
   PWORK_QUEUE_ITEM v18; // rcx
   _SLIST_ENTRY *v19; // rax
@@ -121,7 +121,7 @@ LABEL_34:
             ExAcquirePushLockExclusiveEx((ULONG_PTR)(v4 + 112), 0LL);
             goto LABEL_32;
           }
-          NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry((__int64)v4, v15);
+          NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry((__int64)v4, v15);
           ExReleasePushLockEx((ULONG_PTR)(v4 + 112), 0LL);
           if ( !CcAsyncReadPrefetch((__int64)NextWorkQueueEntry) )
             goto LABEL_48;
@@ -162,7 +162,7 @@ LABEL_48:
         else
         {
           ++P->FreeMisses;
-          ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(NextWorkQueueEntry);
+          ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(NextWorkQueueEntry);
         }
         goto LABEL_30;
       }

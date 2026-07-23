@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReserveHalPtes @ 0x140C0E408
+ * XREFs of HalpReserveHalPtes @ 0x140C10408
  * Callers:
- *     HalpInitializeWheaPhysicalMappings @ 0x140C147D4 (HalpInitializeWheaPhysicalMappings.c)
+ *     HalpInitializeWheaPhysicalMappings @ 0x140C167D4 (HalpInitializeWheaPhysicalMappings.c)
  * Callees:
- *     HalpMmGetPteAddressSafe @ 0x140542E34 (HalpMmGetPteAddressSafe.c)
+ *     HalpMmGetPteAddressSafe @ 0x140540784 (HalpMmGetPteAddressSafe.c)
  */
 
 unsigned __int64 HalpReserveHalPtes()

@@ -57,7 +57,7 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   unsigned __int64 v40; // rtt
   char *v41; // rdi
   bool v42; // cf
-  unsigned int v43; // eax
+  ULONG v43; // eax
   unsigned __int64 v44; // rdi
   int v45; // r9d
   _QWORD *v46; // rax
@@ -67,7 +67,7 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   _DWORD *v51; // rcx
   PVOID v52; // [rsp+40h] [rbp-1C8h] BYREF
   __int64 v53; // [rsp+48h] [rbp-1C0h]
-  unsigned int NtGlobalFlags; // [rsp+50h] [rbp-1B8h]
+  ULONG NtGlobalFlags; // [rsp+50h] [rbp-1B8h]
   ULONG_PTR v55; // [rsp+58h] [rbp-1B0h] BYREF
   int v56; // [rsp+60h] [rbp-1A8h]
   ULONG_PTR v57; // [rsp+68h] [rbp-1A0h] BYREF
@@ -91,7 +91,7 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   __int128 v75; // [rsp+150h] [rbp-B8h] BYREF
   __int128 v76; // [rsp+160h] [rbp-A8h]
   __int128 v77; // [rsp+170h] [rbp-98h]
-  _BYTE v78[40]; // [rsp+180h] [rbp-88h] BYREF
+  _BYTE SystemInformation[40]; // [rsp+180h] [rbp-88h] BYREF
   __int64 v79; // [rsp+1A8h] [rbp-60h]
 
   BaseAddress = a3;
@@ -108,7 +108,7 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   v77 = 0LL;
   v56 = 0;
   v57 = 0LL;
-  memset_0(v78, 0, 0x40uLL);
+  memset_0(SystemInformation, 0, 0x40uLL);
   v52 = 0LL;
   v9 = 0LL;
   if ( (a1 & 0x100) != 0 )
@@ -203,7 +203,7 @@ LABEL_111:
   if ( !qword_140E67588 )
   {
     qword_140E67580 = 0x10000LL;
-    if ( (int)ZwQuerySystemInformation(0LL, v78) < 0 )
+    if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0 )
       goto LABEL_111;
     v27 = v79;
     qword_140E67588 = v79;
@@ -289,7 +289,7 @@ LABEL_111:
         if ( (v22 & 0x40000) != 0 && (BYTE4(v74) & 0x40) == 0 )
           goto LABEL_111;
         memset_0((void *)MemoryInformation, 0, 0x1000uLL);
-        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, (MEMORY_INFORMATION_CLASS)3, &v75, 0x30uLL, 0LL) < 0 )
+        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, MemoryRegionInformation, &v75, 0x30uLL, 0LL) < 0 )
           goto LABEL_111;
         v55 = v76;
         v57 = *((_QWORD *)&v73 + 1);

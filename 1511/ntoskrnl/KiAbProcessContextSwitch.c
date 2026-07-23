@@ -40,9 +40,9 @@ void __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
   int v7; // r14d
   unsigned int v8; // r14d
   bool v9; // zf
-  unsigned __int64 v10; // rdi
+  __int64 v10; // rdi
   __int64 v11; // rax
-  __int64 LockedHeadEntry; // rax
+  _RTL_RB_TREE *LockedHeadEntry; // rax
   __int64 v13; // rsi
   __int64 v14; // rax
   char v15; // dl
@@ -101,8 +101,8 @@ void __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
           if ( KiAbOwnerComputeCpuPriorityKey(v6 + 96 * a1) == *(_BYTE *)(v10 + 48) )
             goto LABEL_21;
 LABEL_10:
-          LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v10, 1LL, &v33);
-          v13 = LockedHeadEntry;
+          LockedHeadEntry = (_RTL_RB_TREE *)KiAbEntryGetLockedHeadEntry((PRTL_BALANCED_NODE)v10, 1LL, &v33);
+          v13 = (__int64)LockedHeadEntry;
           if ( !LockedHeadEntry )
           {
 LABEL_21:
@@ -111,8 +111,8 @@ LABEL_21:
           }
           if ( (*(_BYTE *)(v10 + 25) & 1) == 0 )
           {
-            if ( v10 != LockedHeadEntry )
-              KiAbEntryUpdateOwnerTreePosition(v10, LockedHeadEntry);
+            if ( (_RTL_RB_TREE *)v10 != LockedHeadEntry )
+              KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v10, LockedHeadEntry);
             if ( *(_WORD *)(v13 + 90) )
               HIBYTE(v34) = 2;
             else
@@ -143,14 +143,14 @@ LABEL_21:
                                  p_AbSelfIoBoostsList)
               && v10 != v13 )
             {
-              KiAbEntryUpdateOwnerTreePosition(v10, v13);
+              KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v10, (_RTL_RB_TREE *)v13);
             }
 LABEL_20:
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&v33);
             goto LABEL_21;
           }
-          if ( v10 != LockedHeadEntry )
-            KiAbEntryUpdateWaiterTreePosition(v10, LockedHeadEntry);
+          if ( (_RTL_RB_TREE *)v10 != LockedHeadEntry )
+            KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v10, LockedHeadEntry);
           v19 = 0;
           if ( *(_WORD *)(v13 + 90) )
             v19 = 2;

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReturnPageTablePageCommitment @ 0x140B23EB8
+ * XREFs of MiReturnPageTablePageCommitment @ 0x140B262B8
  * Callers:
- *     MiRemoveVad @ 0x140455D20 (MiRemoveVad.c)
- *     MiDeleteEmptyPageTableCommit @ 0x140467190 (MiDeleteEmptyPageTableCommit.c)
+ *     MiRemoveVad @ 0x14044DF80 (MiRemoveVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x1404608E0 (MiDeleteEmptyPageTableCommit.c)
  * Callees:
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiVadPageTableChargeLevel @ 0x1404786D0 (MiVadPageTableChargeLevel.c)
- *     MiCommittedVadsInRegion @ 0x1404B3C60 (MiCommittedVadsInRegion.c)
- *     MiUpdateChargedWsles @ 0x1405240B4 (MiUpdateChargedWsles.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
- *     MiReturnVadBitmapCommit @ 0x140AE6210 (MiReturnVadBitmapCommit.c)
- *     MiComputeVadCommitBelow @ 0x140B24174 (MiComputeVadCommitBelow.c)
- *     MiComputeVadCommitAbove @ 0x140B241BC (MiComputeVadCommitAbove.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiVadPageTableChargeLevel @ 0x140471E50 (MiVadPageTableChargeLevel.c)
+ *     MiCommittedVadsInRegion @ 0x1404AD22C (MiCommittedVadsInRegion.c)
+ *     MiUpdateChargedWsles @ 0x140526724 (MiUpdateChargedWsles.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
+ *     MiReturnVadBitmapCommit @ 0x140AE3FD0 (MiReturnVadBitmapCommit.c)
+ *     MiComputeVadCommitBelow @ 0x140B26574 (MiComputeVadCommitBelow.c)
+ *     MiComputeVadCommitAbove @ 0x140B265BC (MiComputeVadCommitAbove.c)
  */
 
 void __fastcall MiReturnPageTablePageCommitment(

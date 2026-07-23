@@ -2,37 +2,37 @@
  * XREFs of KeRemoveQueueEx @ 0x140058D60
  * Callers:
  *     IoRemoveIoCompletion @ 0x140058990 (IoRemoveIoCompletion.c)
- *     KeRemoveQueue @ 0x140136B10 (KeRemoveQueue.c)
- *     ExpWorkerFactoryManagerThread @ 0x14017FEA0 (ExpWorkerFactoryManagerThread.c)
- *     FsRtlWorkerThread @ 0x1401924E0 (FsRtlWorkerThread.c)
- *     IopPassiveInterruptRealtimeWorker @ 0x1401926E0 (IopPassiveInterruptRealtimeWorker.c)
- *     PopFxEmergencyWorker @ 0x140192E10 (PopFxEmergencyWorker.c)
- *     KiBlockAndActivateUmsThread @ 0x14029D490 (KiBlockAndActivateUmsThread.c)
- *     EtwpReceiveReplyDataBlock @ 0x1406CADEC (EtwpReceiveReplyDataBlock.c)
+ *     KeRemoveQueue @ 0x140136C10 (KeRemoveQueue.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14017FFE0 (ExpWorkerFactoryManagerThread.c)
+ *     FsRtlWorkerThread @ 0x140192620 (FsRtlWorkerThread.c)
+ *     IopPassiveInterruptRealtimeWorker @ 0x140192820 (IopPassiveInterruptRealtimeWorker.c)
+ *     PopFxEmergencyWorker @ 0x140192F50 (PopFxEmergencyWorker.c)
+ *     KiBlockAndActivateUmsThread @ 0x14029D680 (KiBlockAndActivateUmsThread.c)
+ *     EtwpReceiveReplyDataBlock @ 0x1406CC08C (EtwpReceiveReplyDataBlock.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSetVpThreadSpinLockCount @ 0x1400BC7E0 (KiSetVpThreadSpinLockCount.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiFastExitThreadWait @ 0x1400F9DAC (KiFastExitThreadWait.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KiProcessThreadWaitList @ 0x1400FBE60 (KiProcessThreadWaitList.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiSwitchQueue @ 0x140112408 (KiSwitchQueue.c)
- *     KiTestForAlertPending @ 0x14011F880 (KiTestForAlertPending.c)
- *     KiAttemptFastRemoveQueue @ 0x1401277B4 (KiAttemptFastRemoveQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiAcquirePrcbLock @ 0x14028F160 (KiAcquirePrcbLock.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     EtwTraceDequeueWork @ 0x14030FC70 (EtwTraceDequeueWork.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1400BC720 (KiSetVpThreadSpinLockCount.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiFastExitThreadWait @ 0x1400F9E2C (KiFastExitThreadWait.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KiProcessThreadWaitList @ 0x1400FBEE0 (KiProcessThreadWaitList.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiSwitchQueue @ 0x140112478 (KiSwitchQueue.c)
+ *     KiTestForAlertPending @ 0x14011F8F0 (KiTestForAlertPending.c)
+ *     KiAttemptFastRemoveQueue @ 0x140127884 (KiAttemptFastRemoveQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiAcquirePrcbLock @ 0x14028F350 (KiAcquirePrcbLock.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     EtwTraceDequeueWork @ 0x14030FE60 (EtwTraceDequeueWork.c)
  */
 
 ULONG __stdcall KeRemoveQueueEx(
@@ -111,7 +111,7 @@ ULONG __stdcall KeRemoveQueueEx(
   unsigned __int64 v74; // rcx
   LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *v76; // rcx
-  struct _LIST_ENTRY *v77; // rax
+  _LIST_ENTRY *v77; // rax
   __int64 v78; // rax
   unsigned __int8 v79; // di
   struct _KPRCB *v80; // rcx
@@ -674,9 +674,9 @@ LABEL_197:
     p_WaitListHead->Flink = (struct _LIST_ENTRY *)v67;
     _InterlockedAnd(&Queue->Header.Lock, 0xFFFFFF7F);
     CurrentThread->WaitBlockCount = 1;
-    v77 = (struct _LIST_ENTRY *)KiCommitThreadWait((__int64)CurrentThread, (__int64 *)&CurrentThread->320, v71, v70);
+    v77 = (_LIST_ENTRY *)KiCommitThreadWait((__int64)CurrentThread, (__int64 *)&CurrentThread->320, v71, v70);
     CurrentThread->WaitReason = 0;
-    if ( v77 != (struct _LIST_ENTRY *)256 )
+    if ( v77 != (_LIST_ENTRY *)256 )
       break;
     i = KeGetCurrentIrql();
     __writecr8(2uLL);
@@ -687,9 +687,9 @@ LABEL_197:
   }
   *EntryArray = v77;
   if ( Count > 1
-    && v77 != (struct _LIST_ENTRY *)128
+    && v77 != (_LIST_ENTRY *)128
     && (unsigned __int64)&v77[-17].Blink + 7 > 1
-    && v77 != (struct _LIST_ENTRY *)192
+    && v77 != (_LIST_ENTRY *)192
     && Queue->Header.SignalState )
   {
     v79 = KeGetCurrentIrql();

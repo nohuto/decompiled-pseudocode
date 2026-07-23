@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpFindAndCommitPages @ 0x14058A938
+ * XREFs of RtlpFindAndCommitPages @ 0x14058AB68
  * Callers:
- *     RtlpExtendHeap @ 0x14058A6B4 (RtlpExtendHeap.c)
+ *     RtlpExtendHeap @ 0x14058A8E4 (RtlpExtendHeap.c)
  * Callees:
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     RtlpHpHeapCheckCommitLimit @ 0x14030AB40 (RtlpHpHeapCheckCommitLimit.c)
- *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlpCreateUCREntry @ 0x140589FA4 (RtlpCreateUCREntry.c)
- *     RtlpRemoveUCRBlock @ 0x14058B848 (RtlpRemoveUCRBlock.c)
- *     RtlpUpdateHeapRates @ 0x14058BC24 (RtlpUpdateHeapRates.c)
- *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405935C0 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapHandleError @ 0x1405938E4 (RtlpHeapHandleError.c)
- *     RtlpFindUCREntry @ 0x140593D10 (RtlpFindUCREntry.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x140315890 (RtlpHpHeapCheckCommitLimit.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA880 (ZwAllocateVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlpCreateUCREntry @ 0x14058A1D4 (RtlpCreateUCREntry.c)
+ *     RtlpRemoveUCRBlock @ 0x14058BA78 (RtlpRemoveUCRBlock.c)
+ *     RtlpUpdateHeapRates @ 0x14058BE54 (RtlpUpdateHeapRates.c)
+ *     RtlpLogHeapFailure @ 0x14059379C (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405937F0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x140593B14 (RtlpHeapHandleError.c)
+ *     RtlpFindUCREntry @ 0x140593F40 (RtlpFindUCREntry.c)
  */
 
 unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiLoadDirectoryTableBase @ 0x140247600
+ * XREFs of KiLoadDirectoryTableBase @ 0x140248F60
  * Callers:
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     KiSwapDirectoryTableBaseTarget @ 0x1402BD0A0 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x140307D60 (KiSwapDirectoryTableBaseTarget.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     KiSetAddressPolicy @ 0x140247450 (KiSetAddressPolicy.c)
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
- *     EtwpGetPerfCounter @ 0x14032D3B0 (EtwpGetPerfCounter.c)
- *     EtwpGetHostPerfCounter @ 0x14046F124 (EtwpGetHostPerfCounter.c)
- *     HvcallpNoHypervisorPresent @ 0x1404E6190 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     KiSetAddressPolicy @ 0x140248DB0 (KiSetAddressPolicy.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
+ *     EtwpGetPerfCounter @ 0x14032F3E0 (EtwpGetPerfCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1404688A4 (EtwpGetHostPerfCounter.c)
+ *     HvcallpNoHypervisorPresent @ 0x1404DF730 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall KiLoadDirectoryTableBase(__int64 a1, unsigned __int64 a2)
@@ -47,24 +47,24 @@ unsigned __int64 __fastcall KiLoadDirectoryTableBase(__int64 a1, unsigned __int6
   v12[1] = 65537LL;
   v13 = 0LL;
   v14 = 0LL;
-  if ( (BYTE4(xmmword_140FBFC10) & 0x10) == 0 )
+  if ( (BYTE4(xmmword_140FC0C10) & 0x10) == 0 )
   {
     v6 = 0;
     goto LABEL_26;
   }
-  v7 = qword_140FC8C80;
+  v7 = qword_140FC9C80;
   v6 = 1;
   v8 = 0;
   LODWORD(v12[0]) = 0;
-  if ( qword_140FC8C80 )
+  if ( qword_140FC9C80 )
   {
-    a2 = *(unsigned int *)(qword_140FC8C80 + 4520);
+    a2 = *(unsigned int *)(qword_140FC9C80 + 4520);
     for ( i = !_BitScanForward((unsigned int *)&a1, a2); !i; i = !_BitScanForward((unsigned int *)&a1, a2) )
     {
       a2 = ((_DWORD)a2 - 1) & (unsigned int)a2;
-      v10 = qword_140FC8C80 + 32 * a1 + 4556;
+      v10 = qword_140FC9C80 + 32 * a1 + 4556;
       if ( v10 && (*(_DWORD *)(v10 + 20) & 0x10) != 0 )
-        v8 |= 1 << *(_BYTE *)(qword_140FC8C80 + 2 * a1 + 4505);
+        v8 |= 1 << *(_BYTE *)(qword_140FC9C80 + 2 * a1 + 4505);
     }
     if ( (v8 & 2) == 0 )
       goto LABEL_20;
@@ -73,10 +73,10 @@ unsigned __int64 __fastcall KiLoadDirectoryTableBase(__int64 a1, unsigned __int6
   {
     LOBYTE(v8) = 30;
   }
-  *(_QWORD *)&v13 = EtwpGetPerfCounter(a1, a2, qword_140FC8C80);
+  *(_QWORD *)&v13 = EtwpGetPerfCounter(a1, a2, qword_140FC9C80);
 LABEL_20:
   if ( (v8 & 4) != 0 )
-    *((_QWORD *)&v13 + 1) = RtlGetSystemTimePrecise();
+    *((LARGE_INTEGER *)&v13 + 1) = RtlGetSystemTimePrecise();
   else
     *((_QWORD *)&v13 + 1) = 0LL;
   if ( (v8 & 8) != 0 )

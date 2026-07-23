@@ -1,16 +1,16 @@
 /*
- * XREFs of TppGetCurrentThreadNumaNode @ 0x18003E1DC
+ * XREFs of TppGetCurrentThreadNumaNode @ 0x18003E1CC
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
- *     TpAllocWait @ 0x18003A580 (TpAllocWait.c)
- *     TppWorkInitialize @ 0x18003D7AC (TppWorkInitialize.c)
- *     TppAllocAlpcCompletion @ 0x180065614 (TppAllocAlpcCompletion.c)
- *     TpAllocPoolInternal @ 0x180072E74 (TpAllocPoolInternal.c)
- *     TppInitializeTimerSubQueue @ 0x180073350 (TppInitializeTimerSubQueue.c)
- *     TpAllocIoCompletion @ 0x180079E70 (TpAllocIoCompletion.c)
- *     TpReserveTaskPost @ 0x180080454 (TpReserveTaskPost.c)
- *     TpAllocJobNotification @ 0x180084520 (TpAllocJobNotification.c)
- *     RtlpTpIoAlloc @ 0x18009053C (RtlpTpIoAlloc.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
+ *     TpAllocWait @ 0x18003A570 (TpAllocWait.c)
+ *     TppWorkInitialize @ 0x18003D79C (TppWorkInitialize.c)
+ *     TppAllocAlpcCompletion @ 0x180065604 (TppAllocAlpcCompletion.c)
+ *     TpAllocPoolInternal @ 0x180072E64 (TpAllocPoolInternal.c)
+ *     TppInitializeTimerSubQueue @ 0x180073340 (TppInitializeTimerSubQueue.c)
+ *     TpAllocIoCompletion @ 0x180079E60 (TpAllocIoCompletion.c)
+ *     TpReserveTaskPost @ 0x180080444 (TpReserveTaskPost.c)
+ *     TpAllocJobNotification @ 0x180084510 (TpAllocJobNotification.c)
+ *     RtlpTpIoAlloc @ 0x18009052C (RtlpTpIoAlloc.c)
  * Callees:
  *     TppAdjustRunningThreadGoal @ 0x1800FE164 (TppAdjustRunningThreadGoal.c)
  */

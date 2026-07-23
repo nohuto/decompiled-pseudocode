@@ -1,24 +1,24 @@
 /*
- * XREFs of KiBeginThreadAccountingPeriod @ 0x1400C9150
+ * XREFs of KiBeginThreadAccountingPeriod @ 0x1400C6FF0
  * Callers:
- *     KiChainedDispatch @ 0x14015E9B0 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x14015F290 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x14015F640 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x14015F9F0 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x14015FDA0 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x140160150 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x140160D40 (KxIsrLinkage.c)
- *     KiHvInterrupt @ 0x140162640 (KiHvInterrupt.c)
- *     KiSwInterrupt @ 0x140162D50 (KiSwInterrupt.c)
- *     KiVmbusInterrupt0 @ 0x1401633F0 (KiVmbusInterrupt0.c)
- *     KiVmbusInterrupt1 @ 0x140163AF0 (KiVmbusInterrupt1.c)
- *     KiVmbusInterrupt2 @ 0x1401641F0 (KiVmbusInterrupt2.c)
- *     KiVmbusInterrupt3 @ 0x1401648F0 (KiVmbusInterrupt3.c)
- *     KiIpiInterrupt @ 0x1401655D0 (KiIpiInterrupt.c)
- *     SwapContext @ 0x140166000 (SwapContext.c)
+ *     KiChainedDispatch @ 0x14015EF20 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x14015F800 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x14015FBB0 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x14015FF60 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x140160310 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1401606C0 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x1401612B0 (KxIsrLinkage.c)
+ *     KiHvInterrupt @ 0x140162BB0 (KiHvInterrupt.c)
+ *     KiSwInterrupt @ 0x1401632C0 (KiSwInterrupt.c)
+ *     KiVmbusInterrupt0 @ 0x140163960 (KiVmbusInterrupt0.c)
+ *     KiVmbusInterrupt1 @ 0x140164060 (KiVmbusInterrupt1.c)
+ *     KiVmbusInterrupt2 @ 0x140164760 (KiVmbusInterrupt2.c)
+ *     KiVmbusInterrupt3 @ 0x140164E60 (KiVmbusInterrupt3.c)
+ *     KiIpiInterrupt @ 0x140165B40 (KiIpiInterrupt.c)
+ *     SwapContext @ 0x140166570 (SwapContext.c)
  * Callees:
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
- *     KiBeginCounterAccumulation @ 0x1401D6F18 (KiBeginCounterAccumulation.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
+ *     KiBeginCounterAccumulation @ 0x1401D6D44 (KiBeginCounterAccumulation.c)
  */
 
 void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3)

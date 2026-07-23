@@ -16,44 +16,44 @@
  *     _RtlpLoadPolicyLanguageSpec@16 @ 0x4B36AC26 (_RtlpLoadPolicyLanguageSpec@16.c)
  */
 
-int __fastcall RtlpLoadLanguageConfigList(int a1, int *a2, int a3)
+int __fastcall RtlpLoadLanguageConfigList(int a1, PVOID *a2, int a3)
 {
-  int v5; // eax
+  NTSTATUS v5; // eax
   int v6; // esi
   bool v7; // zf
   int LanguageConfigList; // eax
-  int v10; // eax
-  int v11; // eax
-  int v12; // ebx
-  HANDLE Handle; // [esp+Ch] [ebp-9Ch] BYREF
+  NTSTATUS v10; // eax
+  NTSTATUS v11; // eax
+  PVOID v12; // ebx
+  HANDLE KeyHandle; // [esp+Ch] [ebp-9Ch] BYREF
   char v14; // [esp+13h] [ebp-95h] BYREF
-  HANDLE v15; // [esp+14h] [ebp-94h] BYREF
+  HANDLE Handle; // [esp+14h] [ebp-94h] BYREF
   char v16; // [esp+1Bh] [ebp-8Dh] BYREF
   HANDLE v17; // [esp+1Ch] [ebp-8Ch] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-88h] BYREF
-  char v19[4]; // [esp+28h] [ebp-80h] BYREF
-  int v20; // [esp+2Ch] [ebp-7Ch]
-  _DWORD v21[6]; // [esp+30h] [ebp-78h] BYREF
-  _DWORD v22[6]; // [esp+48h] [ebp-60h] BYREF
-  _DWORD v23[6]; // [esp+60h] [ebp-48h] BYREF
-  _DWORD v24[6]; // [esp+78h] [ebp-30h] BYREF
-  _DWORD v25[6]; // [esp+90h] [ebp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-88h] BYREF
+  _BYTE v19[4]; // [esp+28h] [ebp-80h] BYREF
+  PVOID v20; // [esp+2Ch] [ebp-7Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+30h] [ebp-78h] BYREF
+  _OBJECT_ATTRIBUTES v22; // [esp+48h] [ebp-60h] BYREF
+  _OBJECT_ATTRIBUTES v23; // [esp+60h] [ebp-48h] BYREF
+  _OBJECT_ATTRIBUTES v24; // [esp+78h] [ebp-30h] BYREF
+  _OBJECT_ATTRIBUTES v25; // [esp+90h] [ebp-18h] BYREF
 
   v20 = 0;
-  Handle = 0;
+  KeyHandle = 0;
   v17 = 0;
-  v15 = 0;
+  Handle = 0;
   if ( a2 && a3 )
   {
     v20 = *a2;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-    v21[0] = 24;
-    v21[2] = &DestinationString;
-    v21[1] = 0;
-    v21[3] = 64;
-    v21[4] = 0;
-    v21[5] = 0;
-    if ( (int)ZwOpenKey(&Handle, 131097, v21) >= 0 )
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     {
       v6 = RtlpLoadPolicyLanguageSpec(&v16, v19);
       if ( v6 >= 0 )
@@ -61,29 +61,29 @@ int __fastcall RtlpLoadLanguageConfigList(int a1, int *a2, int a3)
       if ( a1 == 8 )
       {
         v14 = 0;
-        if ( !RtlpHasMachineUILock(Handle, &v14) && v14 == 1 )
+        if ( !RtlpHasMachineUILock(KeyHandle, &v14) && v14 == 1 )
           a1 = 4;
       }
-      NtClose(Handle);
-      Handle = 0;
+      NtClose(KeyHandle);
+      KeyHandle = 0;
     }
-    if ( (int)OpenGlobalizationUserSettingsKey(&v15) < 0 )
-      v15 = 0;
+    if ( OpenGlobalizationUserSettingsKey(0x2000000u, &Handle) < 0 )
+      Handle = 0;
     if ( a1 != 8 )
     {
       if ( a1 == 4 )
       {
-        if ( v15 )
+        if ( Handle )
         {
           RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration");
-          Handle = 0;
-          v24[4] = 0;
-          v24[5] = 0;
-          v24[1] = v15;
-          v24[2] = &DestinationString;
-          v24[0] = 24;
-          v24[3] = 64;
-          v10 = ZwOpenKey(&Handle, 131097, v24);
+          KeyHandle = 0;
+          v24.SecurityDescriptor = 0;
+          v24.SecurityQualityOfService = 0;
+          v24.RootDirectory = Handle;
+          v24.ObjectName = &DestinationString;
+          v24.Length = 24;
+          v24.Attributes = 64;
+          v10 = ZwOpenKey(&KeyHandle, 0x20019u, &v24);
         }
         else
         {
@@ -94,14 +94,14 @@ int __fastcall RtlpLoadLanguageConfigList(int a1, int *a2, int a3)
           RtlInitUnicodeString(
             &DestinationString,
             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings\\LanguageConfiguration");
-          Handle = 0;
-          v25[1] = 0;
-          v25[4] = 0;
-          v25[5] = 0;
-          v25[2] = &DestinationString;
-          v25[0] = 24;
-          v25[3] = 64;
-          v11 = ZwOpenKey(&Handle, 131097, v25);
+          KeyHandle = 0;
+          v25.RootDirectory = 0;
+          v25.SecurityDescriptor = 0;
+          v25.SecurityQualityOfService = 0;
+          v25.ObjectName = &DestinationString;
+          v25.Length = 24;
+          v25.Attributes = 64;
+          v11 = ZwOpenKey(&KeyHandle, 0x20019u, &v25);
           v6 = v11;
           if ( v11 < 0 )
           {
@@ -115,30 +115,30 @@ LABEL_11:
       }
       goto LABEL_28;
     }
-    if ( !v15 )
+    if ( !Handle )
     {
 LABEL_12:
       v6 = 0;
       goto LABEL_13;
     }
     RtlInitUnicodeString(&DestinationString, L"Software\\Policies\\Microsoft\\Control Panel\\Desktop");
-    v22[4] = 0;
-    v22[5] = 0;
-    v22[1] = v15;
-    v22[2] = &DestinationString;
-    v22[0] = 24;
-    v22[3] = 64;
-    if ( (int)ZwOpenKey(&v17, 131097, v22) < 0 || (v6 = RtlpLoadPolicyLanguageSpec(&v16, v19), v6 < 0) )
+    v22.SecurityDescriptor = 0;
+    v22.SecurityQualityOfService = 0;
+    v22.RootDirectory = Handle;
+    v22.ObjectName = &DestinationString;
+    v22.Length = 24;
+    v22.Attributes = 64;
+    if ( ZwOpenKey(&v17, 0x20019u, &v22) < 0 || (v6 = RtlpLoadPolicyLanguageSpec(&v16, v19), v6 < 0) )
     {
       RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\LanguageConfiguration");
-      Handle = 0;
-      v23[4] = 0;
-      v23[5] = 0;
-      v23[1] = v15;
-      v23[2] = &DestinationString;
-      v23[0] = 24;
-      v23[3] = 64;
-      v5 = ZwOpenKey(&Handle, 131097, v23);
+      KeyHandle = 0;
+      v23.SecurityDescriptor = 0;
+      v23.SecurityQualityOfService = 0;
+      v23.RootDirectory = Handle;
+      v23.ObjectName = &DestinationString;
+      v23.Length = 24;
+      v23.Attributes = 64;
+      v5 = ZwOpenKey(&KeyHandle, 0x20019u, &v23);
       v6 = v5;
       if ( v5 < 0 )
       {
@@ -146,7 +146,7 @@ LABEL_12:
         goto LABEL_11;
       }
 LABEL_28:
-      v6 = RtlpPopulateLanguageConfigList(a3);
+      v6 = RtlpPopulateLanguageConfigList(KeyHandle, a3);
     }
   }
   else
@@ -154,18 +154,18 @@ LABEL_28:
     v6 = -1073741811;
   }
 LABEL_13:
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   if ( v17 )
     NtClose(v17);
-  if ( v15 )
-    NtClose(v15);
+  if ( Handle )
+    NtClose(Handle);
   if ( v6 >= 0 )
   {
     if ( *a2 )
       return v6;
     LanguageConfigList = RtlpMuiRegCreateLanguageConfigList(1);
-    *a2 = LanguageConfigList;
+    *a2 = (PVOID)LanguageConfigList;
     if ( LanguageConfigList )
       return v6;
     v12 = v20;

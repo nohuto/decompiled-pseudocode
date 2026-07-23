@@ -2,7 +2,7 @@
  * XREFs of RtlULongLongSub @ 0x180057BA0
  * Callers:
  *     LdrpResSearchResourceInsideDirectory @ 0x180056708 (LdrpResSearchResourceInsideDirectory.c)
- *     RtlCalculateUserShadowStackSizes @ 0x1800E186C (RtlCalculateUserShadowStackSizes.c)
+ *     RtlCalculateUserShadowStackSizes @ 0x1800E182C (RtlCalculateUserShadowStackSizes.c)
  * Callees:
  *     <none>
  */

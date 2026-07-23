@@ -1,10 +1,10 @@
 /*
- * XREFs of IovFreeIrpTracker @ 0x140C2AA94
+ * XREFs of IovFreeIrpTracker @ 0x140C30AA4
  * Callers:
- *     ViIovPluginUnload @ 0x1406429A0 (ViIovPluginUnload.c)
+ *     ViIovPluginUnload @ 0x140646580 (ViIovPluginUnload.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY IovFreeIrpTracker()
@@ -13,13 +13,13 @@ PSLIST_ENTRY IovFreeIrpTracker()
 
   while ( 1 )
   {
-    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27B08.WaitBlockFill11[168]);
+    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27C48.WaitBlockFill11[152]);
     if ( !result )
       break;
     ExFreePoolWithTag(result, 0);
   }
-  *(_OWORD *)&stru_140E27B08.WaitBlockFill11[168] = 0LL;
-  *(_OWORD *)&stru_140E27B08.WaitBlockFill11[152] = 0LL;
+  *(_OWORD *)&stru_140E27C48.WaitBlockFill11[152] = 0LL;
+  *(_OWORD *)&stru_140E27C48.WaitBlockFill11[168] = 0LL;
   IovIrpTrackerCount = 0;
   return result;
 }

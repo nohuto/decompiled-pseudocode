@@ -67,50 +67,53 @@ char __fastcall ExpRefreshTimeZoneInformation(char a1)
   int v20; // ecx
   __int64 v21; // rsi
   LARGE_INTEGER v22; // rbx
-  unsigned int v23; // edi
-  bool v24; // zf
-  __int64 v25; // rdx
-  int v26; // r9d
-  LARGE_INTEGER v27; // rdi
-  int v28; // eax
-  LARGE_INTEGER v30; // rbx
-  int v31; // ecx
-  _DWORD *v32; // r15
-  int v33; // eax
-  _OWORD *v34; // rcx
-  _OWORD *v35; // rax
-  __int128 v36; // xmm1
-  __int128 v37; // xmm0
+  BOOLEAN v23; // r9
+  unsigned int v24; // edi
+  BOOLEAN v25; // r9
+  bool v26; // zf
+  __int64 v27; // rdx
+  int v28; // r9d
+  LARGE_INTEGER v29; // rdi
+  DWORD v30; // r8d
+  int v31; // eax
+  LARGE_INTEGER v33; // rbx
+  int v34; // ecx
+  _DWORD *v35; // r15
+  int v36; // eax
+  _OWORD *v37; // rcx
+  _OWORD *v38; // rax
+  __int128 v39; // xmm1
+  __int128 v40; // xmm0
   __int16 Year; // di
-  __int64 v39; // rdx
-  __int16 v40; // bx
-  int v41; // edx
-  int v42; // r9d
-  char v43; // [rsp+28h] [rbp-E0h]
-  char v44; // [rsp+48h] [rbp-C0h]
+  __int64 v42; // rdx
+  __int16 v43; // bx
+  int v44; // edx
+  int v45; // r9d
+  char TargetPath; // [rsp+28h] [rbp-E0h]
+  char v47; // [rsp+48h] [rbp-C0h]
   LARGE_INTEGER LocalTime; // [rsp+50h] [rbp-B8h] BYREF
-  LARGE_INTEGER v46; // [rsp+58h] [rbp-B0h] BYREF
+  LARGE_INTEGER v49; // [rsp+58h] [rbp-B0h] BYREF
   LARGE_INTEGER Time; // [rsp+60h] [rbp-A8h] BYREF
-  LARGE_INTEGER v48; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v49; // [rsp+70h] [rbp-98h]
-  unsigned __int64 v50; // [rsp+78h] [rbp-90h] BYREF
-  LARGE_INTEGER v51; // [rsp+80h] [rbp-88h] BYREF
+  LARGE_INTEGER v51; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v52; // [rsp+70h] [rbp-98h]
+  unsigned __int64 Buffer; // [rsp+78h] [rbp-90h] BYREF
+  LARGE_INTEGER v54; // [rsp+80h] [rbp-88h] BYREF
   HANDLE Handle; // [rsp+88h] [rbp-80h] BYREF
-  LARGE_INTEGER v53; // [rsp+90h] [rbp-78h] BYREF
-  LARGE_INTEGER v54; // [rsp+98h] [rbp-70h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-68h] BYREF
-  __int64 v56; // [rsp+B0h] [rbp-58h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+90h] [rbp-78h] BYREF
+  LARGE_INTEGER v57; // [rsp+98h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-68h] BYREF
+  ULONG BufferLengthOut; // [rsp+B0h] [rbp-58h] BYREF
   _QWORD Buf2[54]; // [rsp+B8h] [rbp-50h] BYREF
-  WCHAR v58[264]; // [rsp+268h] [rbp+160h] BYREF
+  WCHAR v61[264]; // [rsp+268h] [rbp+160h] BYREF
 
   memset(Buf2, 0, sizeof(Buf2));
   v2 = 0;
-  v53.QuadPart = 0LL;
-  v44 = 0;
-  v54.QuadPart = 0LL;
-  v48.QuadPart = 0LL;
+  SystemTime.QuadPart = 0LL;
+  v47 = 0;
+  v57.QuadPart = 0LL;
+  v51.QuadPart = 0LL;
   TimeFields = 0LL;
-  v50 = 0LL;
+  Buffer = 0LL;
   v3 = 0LL;
   v4 = (unsigned int)Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled() != 0;
   CurrentServerSilo = (void *)PsGetCurrentServerSilo();
@@ -220,7 +223,7 @@ char __fastcall ExpRefreshTimeZoneInformation(char a1)
       if ( (unsigned __int8)RtlpCheckDynamicTimeZoneInformation(Buf2) )
       {
         v2 = 1;
-        v44 = 1;
+        v47 = 1;
 LABEL_37:
         RtlpSetTimeZoneInformationWorker(Buf2);
         goto LABEL_38;
@@ -229,207 +232,207 @@ LABEL_37:
   }
   if ( ((unsigned int)Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled() && v4
      || !(unsigned int)Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled() && byte_140C10DC8)
-    && (int)RtlGetPersistedStateLocation(
-              L"TimeZoneInformationSettings",
-              L"TargetNtPath",
-              0LL,
-              0,
-              v58,
-              0x208u,
-              (unsigned int *)&v56) >= 0 )
+    && RtlGetPersistedStateLocation(
+         L"TimeZoneInformationSettings",
+         L"TargetNtPath",
+         0LL,
+         LocationTypeRegistry,
+         v61,
+         0x208u,
+         &BufferLengthOut) >= 0 )
   {
     Handle = 0LL;
-    v2 = (unsigned int)RtlpGetRegistryHandle(0, v58, 0, &Handle) == -1073741772;
-    v44 = v2;
+    v2 = (unsigned int)RtlpGetRegistryHandle(0, v61, 0, &Handle) == -1073741772;
+    v47 = v2;
     if ( Handle )
       ZwClose(Handle);
     if ( v2 )
       goto LABEL_37;
   }
 LABEL_38:
-  v23 = Buf2[0];
-  v46.QuadPart = -1LL;
-  v51.QuadPart = -1LL;
-  LODWORD(v49) = Buf2[0];
+  v24 = Buf2[0];
+  v49.QuadPart = -1LL;
+  v54.QuadPart = -1LL;
+  LODWORD(v52) = Buf2[0];
   if ( !HIWORD(Buf2[8]) || !WORD1(Buf2[19]) )
   {
     KeCancelTimer((PKTIMER)(v6 + 512));
-    v32 = (_DWORD *)(v6 + 432);
+    v35 = (_DWORD *)(v6 + 432);
     *(_DWORD *)(v6 + 432) = 0;
-    v30.QuadPart = 0LL;
+    v33.QuadPart = 0LL;
     LocalTime.QuadPart = 0LL;
     goto LABEL_66;
   }
-  if ( !(unsigned __int8)RtlCutoverTimeToSystemTime((PTIME_FIELDS)((char *)&Buf2[8] + 4), &v53, &Time) )
+  if ( !RtlCutoverTimeToSystemTime((PTIME_FIELDS)((char *)&Buf2[8] + 4), &SystemTime, &Time, v23) )
   {
     ++*(_DWORD *)(v6 + 1000);
     ExpSystemIsInCmosMode = 1;
     LODWORD(v10) = 2;
-    v24 = (unsigned int)Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled() == 0;
+    v26 = (unsigned int)Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled() == 0;
 LABEL_42:
-    if ( !v24 )
+    if ( !v26 )
     {
-      LOBYTE(v25) = v4;
-      ExpLogRefreshTimeZoneInformationCutoverFail(Buf2, v25, &v46, (unsigned int)v10);
-      LOBYTE(v26) = v2;
-      EtwTraceTimeZoneInformationRefresh(v10, *(_DWORD *)(v6 + 436), *(_DWORD *)(v6 + 432), v26, v4);
+      LOBYTE(v27) = v4;
+      ExpLogRefreshTimeZoneInformationCutoverFail(Buf2, v27, &v49, (unsigned int)v10);
+      LOBYTE(v28) = v2;
+      EtwTraceTimeZoneInformationRefresh(v10, *(_DWORD *)(v6 + 436), *(_DWORD *)(v6 + 432), v28, v4);
       return 0;
     }
-    LOBYTE(v25) = byte_140C10DC8;
-    ExpLogRefreshTimeZoneInformationCutoverFail(Buf2, v25, &v46, (unsigned int)v10);
+    LOBYTE(v27) = byte_140C10DC8;
+    ExpLogRefreshTimeZoneInformationCutoverFail(Buf2, v27, &v49, (unsigned int)v10);
     v20 = v10;
     LOBYTE(v19) = v2;
 LABEL_47:
     EtwTraceTimeZoneInformationRefresh(v20, *(_DWORD *)(v6 + 436), *(_DWORD *)(v6 + 432), v19, byte_140C10DC8);
     return 0;
   }
-  v27 = v53;
-  v46 = v53;
-  if ( !(unsigned __int8)RtlCutoverTimeToSystemTime((PTIME_FIELDS)&Buf2[19], &v54, &Time) )
+  v29 = SystemTime;
+  v49 = SystemTime;
+  if ( !RtlCutoverTimeToSystemTime((PTIME_FIELDS)&Buf2[19], &v57, &Time, v25) )
   {
     ++*(_DWORD *)(v6 + 1000);
     ExpSystemIsInCmosMode = 1;
-    v28 = Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled();
-    v25 = v28 != 0;
-    v24 = v28 == 0;
+    v31 = Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled();
+    v27 = v31 != 0;
+    v26 = v31 == 0;
     goto LABEL_42;
   }
-  v51 = v54;
-  if ( v22.QuadPart >= v54.QuadPart && v22.QuadPart >= v27.QuadPart )
+  v54 = v57;
+  if ( v22.QuadPart >= v57.QuadPart && v22.QuadPart >= v29.QuadPart )
   {
     LocalTime.QuadPart = 0LL;
-    v30.QuadPart = 0LL;
-    v31 = (v27.QuadPart <= v54.QuadPart) + 1;
+    v33.QuadPart = 0LL;
+    v34 = (v29.QuadPart <= v57.QuadPart) + 1;
 LABEL_57:
-    v32 = (_DWORD *)(v6 + 432);
-    *(_DWORD *)(v6 + 432) = v31;
+    v35 = (_DWORD *)(v6 + 432);
+    *(_DWORD *)(v6 + 432) = v34;
     goto LABEL_62;
   }
-  if ( v54.QuadPart < v27.QuadPart )
+  if ( v57.QuadPart < v29.QuadPart )
   {
-    if ( v22.QuadPart < v54.QuadPart || v22.QuadPart >= v27.QuadPart )
+    if ( v22.QuadPart < v57.QuadPart || v22.QuadPart >= v29.QuadPart )
     {
-      v30 = v54;
-      LocalTime = v54;
-      v31 = 1;
+      v33 = v57;
+      LocalTime = v57;
+      v34 = 1;
     }
     else
     {
-      v30 = v27;
-      v31 = 2;
-      LocalTime = v27;
+      v33 = v29;
+      v34 = 2;
+      LocalTime = v29;
     }
     goto LABEL_57;
   }
-  if ( v22.QuadPart >= v27.QuadPart && v22.QuadPart < v54.QuadPart )
+  if ( v22.QuadPart >= v29.QuadPart && v22.QuadPart < v57.QuadPart )
   {
-    v30 = v54;
-    LocalTime = v54;
-    v32 = (_DWORD *)(v6 + 432);
+    v33 = v57;
+    LocalTime = v57;
+    v35 = (_DWORD *)(v6 + 432);
     *(_DWORD *)(v6 + 432) = 1;
 LABEL_63:
-    v33 = HIDWORD(Buf2[10]);
+    v36 = HIDWORD(Buf2[10]);
     goto LABEL_64;
   }
-  v30 = v27;
-  v32 = (_DWORD *)(v6 + 432);
-  LocalTime = v27;
-  v31 = 2;
+  v33 = v29;
+  v35 = (_DWORD *)(v6 + 432);
+  LocalTime = v29;
+  v34 = 2;
   *(_DWORD *)(v6 + 432) = 2;
 LABEL_62:
-  v33 = Buf2[21];
-  if ( v31 != 2 )
+  v36 = Buf2[21];
+  if ( v34 != 2 )
     goto LABEL_63;
 LABEL_64:
   v10 = 3LL;
-  v23 = v33 + v49;
+  v24 = v36 + v52;
 LABEL_66:
-  if ( *(_DWORD *)(v6 + 436) != v23 )
+  if ( *(_DWORD *)(v6 + 436) != v24 )
   {
-    v50 = 0xFFFFFFFF00000000uLL;
-    ZwUpdateWnfStateData((__int64)&WNF_SEB_TIME_ZONE_CHANGE, (__int64)&v50);
-    EtwTraceTimeZoneBiasChange(v23, *(unsigned int *)(v6 + 436));
+    Buffer = 0xFFFFFFFF00000000uLL;
+    ZwUpdateWnfStateData(&WNF_SEB_TIME_ZONE_CHANGE, &Buffer, 8u, 0LL, 0LL, 0, 0);
+    EtwTraceTimeZoneBiasChange(v24, *(unsigned int *)(v6 + 436));
   }
-  *(_DWORD *)(v6 + 436) = v23;
-  v34 = Buf2;
-  *(_QWORD *)(v6 + 440) = 10000000LL * (int)(60 * v23);
-  v35 = (_OWORD *)v6;
+  *(_DWORD *)(v6 + 436) = v24;
+  v37 = Buf2;
+  *(_QWORD *)(v6 + 440) = 10000000LL * (int)(60 * v24);
+  v38 = (_OWORD *)v6;
   do
   {
-    *v35 = *v34;
-    v35[1] = v34[1];
-    v35[2] = v34[2];
-    v35[3] = v34[3];
-    v35[4] = v34[4];
-    v35[5] = v34[5];
-    v35[6] = v34[6];
-    v35 += 8;
-    v36 = v34[7];
-    v34 += 8;
-    *(v35 - 1) = v36;
+    *v38 = *v37;
+    v38[1] = v37[1];
+    v38[2] = v37[2];
+    v38[3] = v37[3];
+    v38[4] = v37[4];
+    v38[5] = v37[5];
+    v38[6] = v37[6];
+    v38 += 8;
+    v39 = v37[7];
+    v37 += 8;
+    *(v38 - 1) = v39;
     --v10;
   }
   while ( v10 );
-  v37 = *v34;
+  v40 = *v37;
   ExpSystemIsInCmosMode = 0;
-  *v35 = v37;
-  v35[1] = v34[1];
-  v35[2] = v34[2];
-  RtlSetSystemGlobalData((__int64)v34, v32);
+  *v38 = v40;
+  v38[1] = v37[1];
+  v38[2] = v37[2];
+  RtlSetSystemGlobalData((RTL_SYSTEM_GLOBAL_DATA_ID)v37, v35, v30);
   RtlTimeToTimeFields(&Time, &TimeFields);
-  if ( v30.QuadPart )
+  if ( v33.QuadPart )
   {
     ExLocalTimeToSystemTime(&LocalTime, (PLARGE_INTEGER)(v6 + 992));
     KiSetTimerEx(v6 + 512, *(_QWORD *)(v6 + 992), 0, 0, v6 + 448);
   }
   Year = TimeFields.Year;
   *(_WORD *)(v6 + 944) = 100 * (TimeFields.Year / 100 + 1);
-  RtlTimeFieldsToTime((PTIME_FIELDS)(v6 + 944), &v48);
-  ExLocalTimeToSystemTime(&v48, (PLARGE_INTEGER)(v6 + 936));
+  RtlTimeFieldsToTime((PTIME_FIELDS)(v6 + 944), &v51);
+  ExLocalTimeToSystemTime(&v51, (PLARGE_INTEGER)(v6 + 936));
   KiSetTimerEx(v6 + 672, *(_QWORD *)(v6 + 936), 0, 0, v6 + 608);
   *(_WORD *)(v6 + 968) = Year + 1;
-  RtlTimeFieldsToTime((PTIME_FIELDS)(v6 + 968), &v48);
-  ExLocalTimeToSystemTime(&v48, (PLARGE_INTEGER)(v6 + 960));
+  RtlTimeFieldsToTime((PTIME_FIELDS)(v6 + 968), &v51);
+  ExLocalTimeToSystemTime(&v51, (PLARGE_INTEGER)(v6 + 960));
   KiSetTimerEx(v6 + 832, *(_QWORD *)(v6 + 960), 0, 0, v6 + 768);
   _InterlockedAdd((volatile signed __int32 *)0xFFFFF7800000025CLL, 1u);
   ExpWriteTimeZoneBias((_DWORD *)(v6 + 440));
   if ( LocalTime.QuadPart )
-    v39 = *(_QWORD *)(v6 + 992);
+    v42 = *(_QWORD *)(v6 + 992);
   else
-    v39 = *(_QWORD *)(v6 + 960) - 10000LL;
-  ExpWriteTimeZoneBiasStartEnd(v21, v39);
+    v42 = *(_QWORD *)(v6 + 960) - 10000LL;
+  ExpWriteTimeZoneBiasStartEnd(v21, v42);
   _InterlockedAdd((volatile signed __int32 *)0xFFFFF7800000025CLL, 1u);
   if ( !ExpRealTimeIsUniversal )
     RtlSetActiveTimeBias(*(unsigned int *)(v6 + 436));
-  v40 = TimeFields.Year;
+  v43 = TimeFields.Year;
   if ( TimeFields.Year != *(_WORD *)(v6 + 984)
     && (unsigned __int8)RtlpUpdateDynamicTimeZones((unsigned __int16)TimeFields.Year) )
   {
-    *(_WORD *)(v6 + 984) = v40;
+    *(_WORD *)(v6 + 984) = v43;
   }
   if ( (unsigned int)Feature_Servicing_CorrectTimeAfterDST_33809459__private_IsEnabled() )
   {
-    LOBYTE(v41) = v4;
+    LOBYTE(v44) = v4;
     ExpLogRefreshTimeZoneInformationSuccess(
       (unsigned int)Buf2,
-      v41,
-      (unsigned int)&v46,
-      (unsigned int)&v51,
+      v44,
+      (unsigned int)&v49,
+      (unsigned int)&v54,
       (__int64)&LocalTime);
-    v43 = v4;
+    TargetPath = v4;
   }
   else
   {
-    LOBYTE(v41) = byte_140C10DC8;
+    LOBYTE(v44) = byte_140C10DC8;
     ExpLogRefreshTimeZoneInformationSuccess(
       (unsigned int)Buf2,
-      v41,
-      (unsigned int)&v46,
-      (unsigned int)&v51,
+      v44,
+      (unsigned int)&v49,
+      (unsigned int)&v54,
       (__int64)&LocalTime);
-    v43 = byte_140C10DC8;
+    TargetPath = byte_140C10DC8;
   }
-  LOBYTE(v42) = v44;
-  EtwTraceTimeZoneInformationRefresh(0, *(_DWORD *)(v6 + 436), *v32, v42, v43);
+  LOBYTE(v45) = v47;
+  EtwTraceTimeZoneInformationRefresh(0, *(_DWORD *)(v6 + 436), *v35, v45, TargetPath);
   return 1;
 }

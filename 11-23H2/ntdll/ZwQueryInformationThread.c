@@ -20,18 +20,23 @@
  *     RtlWow64GetThreadSelectorEntry @ 0x1800E7A10 (RtlWow64GetThreadSelectorEntry.c)
  *     RtlpWow64SuspendProcess @ 0x1800E7C08 (RtlpWow64SuspendProcess.c)
  *     WerpThreadId @ 0x1800E9288 (WerpThreadId.c)
- *     PsspSampleCounters @ 0x180129670 (PsspSampleCounters.c)
- *     PsspDumpObject_Thread @ 0x18012AB70 (PsspDumpObject_Thread.c)
- *     PsspDumpThread @ 0x18012B4E0 (PsspDumpThread.c)
+ *     PsspSampleCounters @ 0x180129640 (PsspSampleCounters.c)
+ *     PsspDumpObject_Thread @ 0x18012AB40 (PsspDumpObject_Thread.c)
+ *     PsspDumpThread @ 0x18012B4B0 (PsspDumpThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryInformationThread()
+NTSTATUS __cdecl ZwQueryInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 37LL;
+  result = 37;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

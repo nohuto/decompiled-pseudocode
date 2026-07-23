@@ -1,18 +1,18 @@
 /*
- * XREFs of PsQueryProcessCommandLine @ 0x140246E50
+ * XREFs of PsQueryProcessCommandLine @ 0x1402E1810
  * Callers:
- *     PnpGetProcessCommandLine @ 0x14072DCC4 (PnpGetProcessCommandLine.c)
- *     SeAuditProcessCreation @ 0x1408A73CC (SeAuditProcessCreation.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     PnpGetProcessCommandLine @ 0x14072BCD4 (PnpGetProcessCommandLine.c)
+ *     SeAuditProcessCreation @ 0x1408FD624 (SeAuditProcessCreation.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     MmCopyVirtualMemory @ 0x1409A9D40 (MmCopyVirtualMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     MmCopyVirtualMemory @ 0x140993150 (MmCopyVirtualMemory.c)
  */
 
 __int64 __fastcall PsQueryProcessCommandLine(
@@ -22,54 +22,56 @@ __int64 __fastcall PsQueryProcessCommandLine(
         char a4,
         unsigned int *a5)
 {
-  __int64 v7; // rax
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rax
   __int64 *ReadyTime; // rcx
   struct _LIST_ENTRY *Blink; // rax
-  __int64 v10; // rcx
-  unsigned __int64 v11; // r12
-  unsigned __int16 v12; // r14
-  unsigned __int16 v13; // bx
-  int v14; // esi
-  unsigned __int64 v15; // rcx
-  unsigned int v16; // eax
-  BOOLEAN v18; // [rsp+40h] [rbp-C8h]
-  int v19; // [rsp+44h] [rbp-C4h]
-  __int128 v20; // [rsp+48h] [rbp-C0h]
-  __int64 v21; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned int *v22; // [rsp+60h] [rbp-A8h]
+  __int64 v12; // rcx
+  unsigned __int64 v13; // r12
+  unsigned __int16 v14; // r14
+  unsigned __int16 v15; // bx
+  int v16; // esi
+  unsigned __int64 v17; // rcx
+  unsigned int v18; // eax
+  BOOLEAN v20; // [rsp+40h] [rbp-C8h]
+  int v21; // [rsp+44h] [rbp-C4h]
+  __int128 v22; // [rsp+48h] [rbp-C0h]
+  __int64 v23; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned int *v24; // [rsp+60h] [rbp-A8h]
   struct _LIST_ENTRY *Flink; // [rsp+68h] [rbp-A0h]
-  PRKPROCESS v24; // [rsp+70h] [rbp-98h]
-  __int64 v25; // [rsp+78h] [rbp-90h]
-  __int64 v26; // [rsp+80h] [rbp-88h] BYREF
+  PRKPROCESS v26; // [rsp+70h] [rbp-98h]
+  __int64 v27; // [rsp+78h] [rbp-90h]
+  __int64 v28; // [rsp+80h] [rbp-88h] BYREF
   PEX_RUNDOWN_REF RunRef; // [rsp+88h] [rbp-80h]
   struct _KAPC_STATE ApcState; // [rsp+90h] [rbp-78h] BYREF
 
-  v24 = PROCESS;
-  v25 = a2;
-  v22 = a5;
+  v26 = PROCESS;
+  v27 = a2;
+  v24 = a5;
   memset(&ApcState, 0, sizeof(ApcState));
-  v26 = 0LL;
-  v21 = 0LL;
+  v28 = 0LL;
+  v23 = 0LL;
   RunRef = (PEX_RUNDOWN_REF)&PROCESS[1].ProfileListHead.Blink;
-  v18 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&PROCESS[1].ProfileListHead.Blink);
-  if ( v18 )
+  v20 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&PROCESS[1].ProfileListHead.Blink);
+  if ( v20 )
   {
-    v20 = 0LL;
-    v19 = 0;
+    v22 = 0LL;
+    v21 = 0;
     KeStackAttachProcess(PROCESS, &ApcState);
-    v7 = 0LL;
+    v9 = 0LL;
     ReadyTime = (__int64 *)PROCESS[1].ReadyTime;
     if ( ReadyTime )
-      v7 = *ReadyTime;
-    if ( v7 )
+      v9 = *ReadyTime;
+    if ( v9 )
     {
-      RtlCopyVolatileMemory(&v21, (const void *)(*(unsigned int *)(v7 + 16) + 64LL), 8uLL);
-      v13 = v21;
-      LODWORD(v20) = v21;
-      v12 = WORD1(v21);
-      v11 = HIDWORD(v21);
-      *((_QWORD *)&v20 + 1) = HIDWORD(v21);
-      v14 = 0;
+      RtlCopyVolatileMemory(&v23, (const void *)(*(unsigned int *)(v9 + 16) + 64LL), 8uLL);
+      v15 = v23;
+      LODWORD(v22) = v23;
+      v14 = WORD1(v23);
+      v13 = HIDWORD(v23);
+      *((_QWORD *)&v22 + 1) = HIDWORD(v23);
+      v16 = 0;
     }
     else
     {
@@ -77,81 +79,81 @@ __int64 __fastcall PsQueryProcessCommandLine(
       if ( Blink )
       {
         Flink = Blink[2].Flink;
-        v10 = (__int64)&Flink[7];
+        v12 = (__int64)&Flink[7];
         if ( (unsigned __int64)&Flink[7] >= 0x7FFFFFFF0000LL )
-          v10 = 0x7FFFFFFF0000LL;
-        LODWORD(v20) = *(_DWORD *)v10;
-        v11 = *(_QWORD *)(v10 + 8);
-        *((_QWORD *)&v20 + 1) = v11;
-        v12 = HIWORD(*(_DWORD *)v10);
-        v13 = *(_DWORD *)v10;
+          v12 = 0x7FFFFFFF0000LL;
+        LODWORD(v22) = *(_DWORD *)v12;
+        v13 = *(_QWORD *)(v12 + 8);
+        *((_QWORD *)&v22 + 1) = v13;
+        v14 = HIWORD(*(_DWORD *)v12);
+        v15 = *(_DWORD *)v12;
+        v16 = 0;
+      }
+      else
+      {
+        v16 = -1073741275;
+        v21 = -1073741275;
+        v13 = 0LL;
         v14 = 0;
-      }
-      else
-      {
-        v14 = -1073741275;
-        v19 = -1073741275;
-        v11 = 0LL;
-        v12 = 0;
-        v13 = 0;
+        v15 = 0;
       }
     }
-    if ( WORD1(v20) )
+    if ( WORD1(v22) )
     {
-      if ( (v11 & 1) != 0 )
+      if ( (v13 & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      v15 = v11 + v12;
-      if ( v15 > 0x7FFFFFFF0000LL || v15 < v11 )
+      v17 = v13 + v14;
+      if ( v17 > 0x7FFFFFFF0000LL || v17 < v13 )
       {
-        v11 = *((_QWORD *)&v20 + 1);
-        v12 = WORD1(v20);
-        v13 = v20;
-        v14 = v19;
+        v13 = *((_QWORD *)&v22 + 1);
+        v14 = WORD1(v22);
+        v15 = v22;
+        v16 = v21;
       }
     }
-    KiUnstackDetachProcess(&ApcState, 0LL);
-    if ( v14 >= 0 )
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v7, v8);
+    if ( v16 >= 0 )
     {
-      if ( !v13 || v13 > v12 || (v13 & 1) != 0 || (v12 & 1) != 0 || !v11 )
+      if ( !v15 || v15 > v14 || (v15 & 1) != 0 || (v14 & 1) != 0 || !v13 )
       {
-        v14 = -1073741275;
+        v16 = -1073741275;
       }
       else
       {
-        v16 = v12 + 16;
-        if ( v22 )
-          *v22 = v16;
-        if ( a3 < v16 )
+        v18 = v14 + 16;
+        if ( v24 )
+          *v24 = v18;
+        if ( a3 < v18 )
         {
-          v14 = -1073741820;
+          v16 = -1073741820;
         }
         else
         {
-          *(_WORD *)a2 = v13;
-          *(_WORD *)(a2 + 2) = v12;
-          if ( v12 )
+          *(_WORD *)a2 = v15;
+          *(_WORD *)(a2 + 2) = v14;
+          if ( v14 )
             *(_QWORD *)(a2 + 8) = a2 + 16;
           else
             *(_QWORD *)(a2 + 8) = 0LL;
-          v14 = MmCopyVirtualMemory(
+          v16 = MmCopyVirtualMemory(
                   (_DWORD)PROCESS,
-                  DWORD2(v20),
+                  DWORD2(v22),
                   KeGetCurrentThread()->ApcState.Process,
                   (int)a2 + 16,
-                  WORD1(v20),
+                  WORD1(v22),
                   a4,
-                  (__int64)&v26);
-          if ( v14 >= 0 )
-            v14 = 0;
+                  (__int64)&v28);
+          if ( v16 >= 0 )
+            v16 = 0;
         }
       }
     }
   }
   else
   {
-    v14 = -1073741558;
+    v16 = -1073741558;
   }
-  if ( v18 )
+  if ( v20 )
     ExReleaseRundownProtection_0(RunRef);
-  return (unsigned int)v14;
+  return (unsigned int)v16;
 }

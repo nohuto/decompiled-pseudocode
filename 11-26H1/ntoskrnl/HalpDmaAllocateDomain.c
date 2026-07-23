@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpDmaAllocateDomain @ 0x14058A460
+ * XREFs of HalpDmaAllocateDomain @ 0x14058CB90
  * Callers:
- *     HalJoinDmaDomain @ 0x140517980 (HalJoinDmaDomain.c)
+ *     HalJoinDmaDomain @ 0x1405113F0 (HalJoinDmaDomain.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     HalpDmaReferenceDomainObject @ 0x14034914C (HalpDmaReferenceDomainObject.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpDmaGetReservedRegionsForDeviceResources @ 0x14058A82C (HalpDmaGetReservedRegionsForDeviceResources.c)
- *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x14058AAC4 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
- *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x14058AB4C (HalpDmaGetReservedRegionsForTranslateDomain.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDmaReferenceDomainObject @ 0x14034B1CC (HalpDmaReferenceDomainObject.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpDmaGetReservedRegionsForDeviceResources @ 0x14058CF5C (HalpDmaGetReservedRegionsForDeviceResources.c)
+ *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x14058D24C (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
+ *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x14058D2D4 (HalpDmaGetReservedRegionsForTranslateDomain.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpDmaAllocateDomain(__int64 a1)
@@ -52,13 +52,13 @@ __int64 __fastcall HalpDmaAllocateDomain(__int64 a1)
     return v7;
   memset_0(v6, 0, 0x78uLL);
   v8 = KeAcquireSpinLockRaiseToDpc(&HalpDmaDomainListLock);
-  v9 = (__int64 *)qword_140FBA958;
-  if ( *(__int64 **)qword_140FBA958 != &HalpDmaDomainList )
+  v9 = (__int64 *)qword_140FBAD18;
+  if ( *(__int64 **)qword_140FBAD18 != &HalpDmaDomainList )
     __fastfail(3u);
   *(_QWORD *)v7 = &HalpDmaDomainList;
   *(_QWORD *)(v7 + 8) = v9;
   *v9 = v7;
-  qword_140FBA958 = v7;
+  qword_140FBAD18 = v7;
   KeReleaseSpinLock(&HalpDmaDomainListLock, v8);
   HalpDmaReferenceDomainObject(v7);
   v11 = HalpIommuDomainMaxInputBitWidth;
@@ -144,7 +144,7 @@ LABEL_36:
     goto LABEL_36;
   }
 LABEL_37:
-  ReservedRegionsForDeviceResources = HalpDmaGetReservedRegionsForDeviceResources(*(PVOID *)(a1 + 528));
+  ReservedRegionsForDeviceResources = HalpDmaGetReservedRegionsForDeviceResources(*(PDEVICE_OBJECT *)(a1 + 528));
   v4 = ReservedRegionsForDeviceResources;
   if ( v5 )
   {

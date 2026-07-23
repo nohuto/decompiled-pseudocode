@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCopyProcessInfo @ 0x1408EC6F4
+ * XREFs of ExpCopyProcessInfo @ 0x14085DF24
  * Callers:
- *     ExProcessCounterSetCallback @ 0x1408EDBC0 (ExProcessCounterSetCallback.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     ExProcessCounterSetCallback @ 0x14085F3F0 (ExProcessCounterSetCallback.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     PsQueryStatisticsProcess @ 0x1408EC910 (PsQueryStatisticsProcess.c)
- *     ObGetProcessHandleCount @ 0x1408ECB30 (ObGetProcessHandleCount.c)
+ *     PsQueryStatisticsProcess @ 0x14085E140 (PsQueryStatisticsProcess.c)
+ *     ObGetProcessHandleCount @ 0x14085E360 (ObGetProcessHandleCount.c)
  */
 
 __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a4)

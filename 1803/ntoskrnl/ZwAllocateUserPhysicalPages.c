@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, NumberOfPages, UserPfnArray);
+  return KiServiceInternal(ProcessHandle);
 }

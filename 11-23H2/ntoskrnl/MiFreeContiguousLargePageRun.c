@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFreeContiguousLargePageRun @ 0x140649DB8
+ * XREFs of MiFreeContiguousLargePageRun @ 0x14064A308
  * Callers:
- *     MiFreeAwePagesFromMdl @ 0x140649D10 (MiFreeAwePagesFromMdl.c)
- *     MiFreePhysicalPageChain @ 0x14064A170 (MiFreePhysicalPageChain.c)
- *     MiDeleteAweInfoPages @ 0x140A41A90 (MiDeleteAweInfoPages.c)
+ *     MiFreeAwePagesFromMdl @ 0x14064A260 (MiFreeAwePagesFromMdl.c)
+ *     MiFreePhysicalPageChain @ 0x14064A6C0 (MiFreePhysicalPageChain.c)
+ *     MiDeleteAweInfoPages @ 0x140A41D40 (MiDeleteAweInfoPages.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiClearAweLargePageMetadata @ 0x1406495E8 (MiClearAweLargePageMetadata.c)
- *     MiFreePhysicalRange @ 0x14064A7F4 (MiFreePhysicalRange.c)
- *     MiReturnCrossPartitionCharges @ 0x14065B354 (MiReturnCrossPartitionCharges.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14065D4EC (MiCoalesceActivePagesIntoFree.c)
- *     MiFreeLargePages @ 0x140668250 (MiFreeLargePages.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiClearAweLargePageMetadata @ 0x140649B38 (MiClearAweLargePageMetadata.c)
+ *     MiFreePhysicalRange @ 0x14064AD44 (MiFreePhysicalRange.c)
+ *     MiReturnCrossPartitionCharges @ 0x14065B8A4 (MiReturnCrossPartitionCharges.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14065DA3C (MiCoalesceActivePagesIntoFree.c)
+ *     MiFreeLargePages @ 0x1406687A0 (MiFreeLargePages.c)
  */
 
 unsigned __int64 __fastcall MiFreeContiguousLargePageRun(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -91,10 +91,10 @@ unsigned __int64 __fastcall MiFreeContiguousLargePageRun(__int64 a1, unsigned __
             v35 = MiLockPageInline(v13);
             MiClearAweLargePageMetadata(v13);
             _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v35 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v35 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;

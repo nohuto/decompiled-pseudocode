@@ -1,8 +1,8 @@
 /*
- * XREFs of StringCchCopyW @ 0x1800E39B8
+ * XREFs of StringCchCopyW @ 0x1800DEF88
  * Callers:
- *     WerEscalationLazyInit @ 0x1800E2D10 (WerEscalationLazyInit.c)
- *     SbpParseFuncName @ 0x18015CB68 (SbpParseFuncName.c)
+ *     WerEscalationLazyInit @ 0x1800DE2E0 (WerEscalationLazyInit.c)
+ *     SbpParseFuncName @ 0x18015AF28 (SbpParseFuncName.c)
  * Callees:
  *     <none>
  */

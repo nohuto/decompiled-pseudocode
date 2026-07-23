@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPrivatePageCount @ 0x14036BB64
+ * XREFs of MiGetPrivatePageCount @ 0x14036BD14
  * Callers:
- *     MiAllocateCrcList @ 0x1407278B8 (MiAllocateCrcList.c)
+ *     MiAllocateCrcList @ 0x140727D68 (MiAllocateCrcList.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

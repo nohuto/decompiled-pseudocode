@@ -22,26 +22,26 @@ char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
   char v4; // si
   __int64 v5; // r8
   unsigned int i; // ecx
-  const wchar_t *NtSystemRoot; // rax
-  __int64 v8; // r12
+  const WCHAR *NtSystemRoot; // rax
+  wchar_t *Buffer; // r12
   int Dll; // eax
-  __int64 v10; // rdx
+  PIMAGE_NT_HEADERS v10; // rdx
   __int64 v11; // r8
   __int64 v12; // rdx
   __int64 (__fastcall *v13)(__int64, _QWORD, __int64); // rcx
   _DWORD *v14; // r15
   int v15; // ecx
-  __int64 v17; // [rsp+38h] [rbp-D0h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp-D0h] BYREF
   _DWORD *v18; // [rsp+40h] [rbp-C8h] BYREF
-  __int128 v19; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v20; // [rsp+58h] [rbp-B0h]
   _BYTE v21[128]; // [rsp+60h] [rbp-A8h] BYREF
 
   v20 = a1;
   v2 = 0;
   v18 = 0LL;
-  v17 = 0LL;
-  v19 = 0LL;
+  OutHeaders = 0LL;
+  Destination = 0LL;
   memset_thunk_772440563353939046(v21, 0, 0x80uLL);
   v3 = 0;
   v4 = 1;
@@ -61,14 +61,14 @@ char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
     DbgPrint("AVRF: Cannot load %ws from arbitrary location\n", *(_QWORD *)(a1 + 24), v5);
     return 0;
   }
-  *((_QWORD *)&v19 + 1) = &unk_1801CFFF0;
-  LODWORD(v19) = 34078720;
-  NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
-  RtlAppendUnicodeToString((unsigned __int16 *)&v19, NtSystemRoot);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v19, &SlashSystem32SlashString);
-  v8 = *((_QWORD *)&v19 + 1);
-  LdrpInitializeDllPath(0LL, *((_QWORD *)&v19 + 1), v21);
-  Dll = LdrpLoadDll((unsigned __int16 *)(a1 + 16), (__int64)v21, 1, (__int64)&v17);
+  Destination.Buffer = (wchar_t *)&unk_1801CFFF0;
+  *(_DWORD *)&Destination.Length = 34078720;
+  NtSystemRoot = RtlGetNtSystemRoot();
+  RtlAppendUnicodeToString(&Destination, NtSystemRoot);
+  RtlAppendUnicodeStringToString(&Destination, &SlashSystem32SlashString);
+  Buffer = Destination.Buffer;
+  LdrpInitializeDllPath(0LL, Destination.Buffer, v21);
+  Dll = LdrpLoadDll((unsigned __int16 *)(a1 + 16), (int)v21, 1, (__int64)&OutHeaders);
   if ( Dll < 0 )
   {
     DbgPrint(
@@ -76,16 +76,16 @@ char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
       *(_QWORD *)(qword_1801D4950 + 96),
       *(_QWORD *)(a1 + 24),
       (unsigned int)Dll,
-      v8);
+      Buffer);
     return 0;
   }
-  v10 = v17;
-  *(_QWORD *)(a1 + 32) = v17;
-  v17 = 0LL;
-  RtlImageNtHeaderEx(1, *(_QWORD *)(v10 + 48), 0LL, &v17);
-  if ( v17 )
+  v10 = OutHeaders;
+  *(_QWORD *)(a1 + 32) = OutHeaders;
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, (PVOID)v10->OptionalHeader.ImageBase, 0LL, &OutHeaders);
+  if ( OutHeaders )
   {
-    if ( (*(_WORD *)(v17 + 22) & 0x2000) != 0 )
+    if ( (OutHeaders->FileHeader.Characteristics & 0x2000) != 0 )
     {
       *(_DWORD *)(*(_QWORD *)(a1 + 32) + 104LL) |= 0x400u;
       v12 = *(_QWORD *)(a1 + 32);

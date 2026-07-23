@@ -23,7 +23,7 @@ __int64 HvlpGetVtlCallVa()
   v5 = 0;
   v4 = -2;
   v6 = 851970;
-  result = HvcallFastExtended(0x100010050LL, (__int64)&v3, 20LL, (__int64)&v2, 0x10u);
+  result = HvcallFastExtended(0x100010050LL, (__int64)&v3, 0x14u, (int)&v2, 0x10u);
   if ( !(_WORD)result )
     v0 = (char *)HvlpHypercallCodeVa + (v2 & 0xFFF);
   *(_QWORD *)&HvlpVsmVtlCallVa = v0;

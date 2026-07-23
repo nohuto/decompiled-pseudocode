@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMmAddRange @ 0x1407AFE84
+ * XREFs of PnprMmAddRange @ 0x1407B2EE4
  * Callers:
- *     PnprMmConstruct @ 0x1407AFFB8 (PnprMmConstruct.c)
+ *     PnprMmConstruct @ 0x1407B3018 (PnprMmConstruct.c)
  * Callees:
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnprMmAddRange(_QWORD *a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -37,7 +37,7 @@ __int64 __fastcall PnprMmAddRange(_QWORD *a1, unsigned __int64 a2, unsigned __in
       v4 = -1073741670;
       v13 = *(_DWORD *)(PnprContext + 33288);
       if ( !v13 )
-        v13 = 4372;
+        v13 = 3972;
       *(_DWORD *)(PnprContext + 33288) = v13;
       v14 = *(_DWORD *)(v12 + 33292);
       if ( !v14 )

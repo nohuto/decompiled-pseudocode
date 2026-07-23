@@ -1,19 +1,19 @@
 /*
- * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x140794D78
+ * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x140794E00
  * Callers:
- *     SepSetTokenCapabilities @ 0x140936380 (SepSetTokenCapabilities.c)
+ *     SepSetTokenCapabilities @ 0x1409854B8 (SepSetTokenCapabilities.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlRemoveEntryHashTable @ 0x140357120 (RtlRemoveEntryHashTable.c)
- *     RtlInsertEntryHashTable @ 0x140430180 (RtlInsertEntryHashTable.c)
- *     SepFindSharedSidEntry @ 0x140794C18 (SepFindSharedSidEntry.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlRemoveEntryHashTable @ 0x1403E3160 (RtlRemoveEntryHashTable.c)
+ *     RtlInsertEntryHashTable @ 0x140421C30 (RtlInsertEntryHashTable.c)
+ *     SepFindSharedSidEntry @ 0x140794CA0 (SepFindSharedSidEntry.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepInsertOrReferenceSharedSidEntries(__int64 a1, unsigned int **a2, unsigned int a3)
@@ -21,15 +21,15 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(__int64 a1, unsigned int
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v4; // ebp
   unsigned __int64 *v7; // rdi
-  _QWORD *v8; // rax
-  _QWORD *v9; // rsi
+  char *v8; // rax
+  char *v9; // rsi
   unsigned int v10; // edi
   unsigned int v11; // r15d
   PRTL_DYNAMIC_HASH_TABLE_ENTRY SharedSidEntry; // rax
   unsigned int *Blink; // rcx
-  int v14; // r13d
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *Pool2; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v16; // rbp
+  unsigned int v14; // r13d
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *Pool2; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v16; // rbp
   __int64 v17; // rcx
   ULONG_PTR v18; // r8
   __int64 v19; // rsi
@@ -42,12 +42,12 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(__int64 a1, unsigned int
   v4 = a3;
   --CurrentThread->KernelApcDisable;
   v7 = (unsigned __int64 *)g_SepSidMapping;
-  v8 = KeAbPreAcquire(g_SepSidMapping, 0LL);
+  v8 = (char *)KeAbPreAcquire(g_SepSidMapping, 0LL);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v7, (__int64)v8, (__int64)v7);
+    ExfAcquirePushLockExclusiveEx(v7, v8, (__int64)v7);
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
+    v9[10] = 1;
   v10 = 0;
   v11 = 0;
   while ( v10 < v4 )
@@ -63,7 +63,7 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(__int64 a1, unsigned int
     else
     {
       v14 = 8 * *(unsigned __int8 *)(*(_QWORD *)(a1 + 16LL * v10) + 1LL) + 96;
-      Pool2 = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePool2(0x100uLL, v14, 0x73536553u);
       v16 = Pool2;
       if ( !Pool2 )
       {

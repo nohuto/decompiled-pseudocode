@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetRegistryKeyInformation @ 0x14099C54C
+ * XREFs of IopGetRegistryKeyInformation @ 0x1409CECBC
  * Callers:
- *     pIoQueryDeviceDescription @ 0x140715D3C (pIoQueryDeviceDescription.c)
- *     PiDevCfgCopyDeviceKey @ 0x14099BA04 (PiDevCfgCopyDeviceKey.c)
- *     pIoQueryBusDescription @ 0x14099C1E4 (pIoQueryBusDescription.c)
+ *     pIoQueryDeviceDescription @ 0x1407138CC (pIoQueryDeviceDescription.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1409CE174 (PiDevCfgCopyDeviceKey.c)
+ *     pIoQueryBusDescription @ 0x1409CE954 (pIoQueryBusDescription.c)
  * Callees:
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopGetRegistryKeyInformation(HANDLE KeyHandle, _QWORD *a2)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall IopGetRegistryKeyInformation(HANDLE KeyHandle, _QWORD *a2)
   result = ZwQueryKey(KeyHandle, KeyFullInformation, 0LL, 0, &Length);
   if ( result == -1073741789 || result == -2147483643 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x40uLL);
+    Pool2 = (void *)ExAllocatePool2(0x40uLL, Length, 0x654B6F49u);
     if ( Pool2 )
     {
       v6 = ZwQueryKey(KeyHandle, KeyFullInformation, Pool2, Length, &Length);

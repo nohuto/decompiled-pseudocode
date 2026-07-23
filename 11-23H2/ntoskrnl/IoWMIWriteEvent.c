@@ -1,16 +1,16 @@
 /*
- * XREFs of IoWMIWriteEvent @ 0x1403A8480
+ * XREFs of IoWMIWriteEvent @ 0x1403A8660
  * Callers:
- *     PpmFireWmiEvent @ 0x140598D98 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x140598E20 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x140599288 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x140599310 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     WmipDoFindRegEntryByProviderId @ 0x14022AA80 (WmipDoFindRegEntryByProviderId.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExInterlockedInsertTailList @ 0x14028C2A0 (ExInterlockedInsertTailList.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     EtwTraceEvent @ 0x140468382 (EtwTraceEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x14022AB90 (WmipDoFindRegEntryByProviderId.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExInterlockedInsertTailList @ 0x14028C530 (ExInterlockedInsertTailList.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceEvent @ 0x140468782 (EtwTraceEvent.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -18,7 +18,7 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
 {
   NTSTATUS v1; // edi
   int v3; // ebx
-  struct _LIST_ENTRY *Pool2; // rbp
+  _LIST_ENTRY *Pool2; // rbp
   int v5; // ebx
   unsigned __int64 v6; // r14
   _DWORD *RegEntryByProviderId; // rax
@@ -60,7 +60,7 @@ LABEL_16:
     return -2147483643;
   }
 LABEL_3:
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(64LL, 32LL, 2003397975LL);
+  Pool2 = (_LIST_ENTRY *)ExAllocatePool2(64LL, 32LL, 2003397975LL);
   if ( !Pool2 )
     return -1073741670;
   v5 = *((_DWORD *)WnodeEventItem + 1);
@@ -70,10 +70,13 @@ LABEL_3:
   if ( RegEntryByProviderId )
     _InterlockedIncrement(RegEntryByProviderId + 12);
   KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

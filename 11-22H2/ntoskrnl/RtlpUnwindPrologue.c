@@ -263,7 +263,7 @@ LABEL_25:
       goto LABEL_84;
     if ( (unsigned int)++v40 > 0x20 )
 LABEL_112:
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( v39 )
   {

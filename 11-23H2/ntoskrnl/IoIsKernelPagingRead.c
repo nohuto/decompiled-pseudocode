@@ -1,9 +1,9 @@
 /*
- * XREFs of IoIsKernelPagingRead @ 0x140351540
+ * XREFs of IoIsKernelPagingRead @ 0x1403516E0
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290278 (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x140290508 (IopIrpHasExtensionType.c)
  */
 
 _BOOL8 __fastcall IoIsKernelPagingRead(__int64 a1)

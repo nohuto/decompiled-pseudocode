@@ -1,12 +1,12 @@
 /*
- * XREFs of PfPrefetchRequestVerify @ 0x1406A1FB4
+ * XREFs of PfPrefetchRequestVerify @ 0x1406A3254
  * Callers:
- *     PfpPrefetchRequest @ 0x1406A1CDC (PfpPrefetchRequest.c)
+ *     PfpPrefetchRequest @ 0x1406A2F7C (PfpPrefetchRequest.c)
  * Callees:
- *     PfPrefetchRequestVerifyRanges @ 0x1406A1ED0 (PfPrefetchRequestVerifyRanges.c)
- *     PfPrefetchRequestVerifyPath @ 0x1406A21F4 (PfPrefetchRequestVerifyPath.c)
- *     PfRequestRangeCheck @ 0x1406A2280 (PfRequestRangeCheck.c)
- *     PfPrefetchRequestPrepareForVerify @ 0x1406A22C0 (PfPrefetchRequestPrepareForVerify.c)
+ *     PfPrefetchRequestVerifyRanges @ 0x1406A3170 (PfPrefetchRequestVerifyRanges.c)
+ *     PfPrefetchRequestVerifyPath @ 0x1406A3494 (PfPrefetchRequestVerifyPath.c)
+ *     PfRequestRangeCheck @ 0x1406A3520 (PfRequestRangeCheck.c)
+ *     PfPrefetchRequestPrepareForVerify @ 0x1406A3560 (PfPrefetchRequestPrepareForVerify.c)
  */
 
 __int64 __fastcall PfPrefetchRequestVerify(_DWORD *a1, __int64 a2)

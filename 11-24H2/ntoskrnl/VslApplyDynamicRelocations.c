@@ -1,11 +1,11 @@
 /*
- * XREFs of VslApplyDynamicRelocations @ 0x140C19930
+ * XREFs of VslApplyDynamicRelocations @ 0x140C1B968
  * Callers:
- *     MiApplyDynamicRelocations @ 0x140C58C4C (MiApplyDynamicRelocations.c)
+ *     MiApplyDynamicRelocations @ 0x140C5ADDC (MiApplyDynamicRelocations.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslApplyDynamicRelocations(__int64 a1, __int64 a2, __int64 a3)
@@ -19,5 +19,5 @@ __int64 __fastcall VslApplyDynamicRelocations(__int64 a1, __int64 a2, __int64 a3
   v8 = a1;
   v9 = a2;
   v10 = a3;
-  return VslpEnterIumSecureMode(2u, 212LL, 0, (__int64)v7);
+  return VslpEnterIumSecureMode(2u, 0xD4u, 0, (__int64)v7);
 }

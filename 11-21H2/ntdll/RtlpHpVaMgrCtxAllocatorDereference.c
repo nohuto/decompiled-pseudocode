@@ -6,25 +6,21 @@
  *     RtlAcquireSRWLockExclusive @ 0x180019910 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpVaMgrCtxAllocatorDereference(
-        __int64 a1,
-        unsigned int *a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned int *a2)
 {
-  volatile signed __int64 *v4; // rsi
-  __int64 v6; // rbx
+  _RTL_SRWLOCK *v2; // rsi
+  __int64 v4; // rbx
 
-  v4 = (volatile signed __int64 *)(a1 + 2144);
-  v6 = a1 + 48 * (*a2 + 45LL);
-  RtlAcquireSRWLockExclusive(a1 + 2144, (unsigned __int64)a2, a3, a4);
-  if ( (*(_WORD *)(v6 + 42))-- == 1 )
+  v2 = (_RTL_SRWLOCK *)(a1 + 2144);
+  v4 = a1 + 48 * (*a2 + 45LL);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 2144));
+  if ( (*(_WORD *)(v4 + 42))-- == 1 )
   {
-    *(_OWORD *)v6 = 0LL;
-    *(_OWORD *)(v6 + 16) = 0LL;
-    *(_OWORD *)(v6 + 32) = 0LL;
-    *(_QWORD *)(v6 + 16) = 0LL;
+    *(_OWORD *)v4 = 0LL;
+    *(_OWORD *)(v4 + 16) = 0LL;
+    *(_OWORD *)(v4 + 32) = 0LL;
+    *(_QWORD *)(v4 + 16) = 0LL;
     --*(_DWORD *)(a1 + 2152);
   }
-  return RtlReleaseSRWLockExclusive(v4);
+  RtlReleaseSRWLockExclusive(v2);
 }

@@ -10,24 +10,31 @@
  *     RtlGetPersistedStateLocation @ 0x140682B80 (RtlGetPersistedStateLocation.c)
  */
 
-__int64 __fastcall RtlpGetTimeZoneInfoHandle(char a1, HANDLE *a2)
+int __fastcall RtlpGetTimeZoneInfoHandle(char a1, HANDLE *a2)
 {
-  __int64 result; // rax
-  __int64 v5; // [rsp+40h] [rbp-238h] BYREF
-  WCHAR v6[264]; // [rsp+50h] [rbp-228h] BYREF
+  int result; // eax
+  ULONG BufferLengthOut[4]; // [rsp+40h] [rbp-238h] BYREF
+  WCHAR TargetPath[264]; // [rsp+50h] [rbp-228h] BYREF
 
   if ( dword_140C4C4DC == 2 )
     return RtlpGetRegistryHandle(2, L"TimeZoneInformation", a1, a2);
-  result = RtlGetPersistedStateLocation(L"TimeZoneInformationSettings", v6, 520, (__int64)&v5);
-  if ( (int)result >= 0 )
+  result = RtlGetPersistedStateLocation(
+             L"TimeZoneInformationSettings",
+             L"TargetNtPath",
+             0LL,
+             LocationTypeRegistry,
+             TargetPath,
+             0x208u,
+             BufferLengthOut);
+  if ( result >= 0 )
   {
     dword_140C4C4DC = 1;
-    result = RtlpGetRegistryHandle(0, v6, a1, a2);
-    if ( (_DWORD)result != -1073741772 )
+    result = RtlpGetRegistryHandle(0, TargetPath, a1, a2);
+    if ( result != -1073741772 )
       return result;
     return RtlpGetRegistryHandle(2, L"TimeZoneInformation", a1, a2);
   }
-  if ( (_DWORD)result == -1073741772 )
+  if ( result == -1073741772 )
   {
     dword_140C4C4DC = 2;
     return RtlpGetRegistryHandle(2, L"TimeZoneInformation", a1, a2);

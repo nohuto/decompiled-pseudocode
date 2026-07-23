@@ -1,17 +1,16 @@
 /*
- * XREFs of _guard_check_icall_no_overrides @ 0x1406B3DA0
+ * XREFs of _guard_check_icall_no_overrides @ 0x1406B4D40
  * Callers:
- *     bsearch @ 0x1404FE760 (bsearch.c)
- *     bsearch_s @ 0x1404FE870 (bsearch_s.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     qsort_s @ 0x1404FF100 (qsort_s.c)
- *     sub_140508890 @ 0x140508890 (sub_140508890.c)
- *     sub_14050A110 @ 0x14050A110 (sub_14050A110.c)
- *     sub_14050A1F0 @ 0x14050A1F0 (sub_14050A1F0.c)
- *     sub_140518FB0 @ 0x140518FB0 (sub_140518FB0.c)
- *     HaliSaveProcessorContextAndSleep @ 0x1406A60C0 (HaliSaveProcessorContextAndSleep.c)
- *     HaliSaveProcessorContextAndSleepOld @ 0x1406A6160 (HaliSaveProcessorContextAndSleepOld.c)
- *     KeGuardCheckICall @ 0x140BDAA70 (KeGuardCheckICall.c)
+ *     bsearch @ 0x1404FC020 (bsearch.c)
+ *     bsearch_s @ 0x1404FC130 (bsearch_s.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     qsort_s @ 0x1404FC9C0 (qsort_s.c)
+ *     sub_140506150 @ 0x140506150 (sub_140506150.c)
+ *     sub_1405079D0 @ 0x1405079D0 (sub_1405079D0.c)
+ *     sub_140507AB0 @ 0x140507AB0 (sub_140507AB0.c)
+ *     sub_140516870 @ 0x140516870 (sub_140516870.c)
+ *     HaliSaveProcessorContextAndSleep @ 0x1406A70F0 (HaliSaveProcessorContextAndSleep.c)
+ *     KeGuardCheckICall @ 0x140BDCA70 (KeGuardCheckICall.c)
  * Callees:
  *     <none>
  */

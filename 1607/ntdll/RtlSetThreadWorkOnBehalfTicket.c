@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlSetThreadWorkOnBehalfTicket @ 0x18003B4B0
+ * XREFs of RtlSetThreadWorkOnBehalfTicket @ 0x18003B4A0
  * Callers:
- *     TppCleanupGroupMemberCallbackProlog @ 0x18003B404 (TppCleanupGroupMemberCallbackProlog.c)
+ *     TppCleanupGroupMemberCallbackProlog @ 0x18003B3F4 (TppCleanupGroupMemberCallbackProlog.c)
  * Callees:
  *     NtSetInformationThread @ 0x1800A65C0 (NtSetInformationThread.c)
  */
 
-__int64 __fastcall RtlSetThreadWorkOnBehalfTicket(_QWORD *a1)
+NTSTATUS __fastcall RtlSetThreadWorkOnBehalfTicket(_QWORD *ThreadInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( !a1 )
-    return 3221225485LL;
-  if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket == *a1 )
-    return 0LL;
-  result = NtSetInformationThread(-2LL, 44LL, a1);
-  if ( (int)result >= 0 )
-    *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *a1;
+  if ( !ThreadInformation )
+    return -1073741811;
+  if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket == *ThreadInformation )
+    return 0;
+  result = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, ThreadInformation, 8u);
+  if ( result >= 0 )
+    *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *ThreadInformation;
   return result;
 }

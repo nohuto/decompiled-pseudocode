@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsFreshPfnFromZeroedList @ 0x140303D1C
+ * XREFs of MiIsFreshPfnFromZeroedList @ 0x14030EA6C
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
  * Callees:
  *     <none>
  */

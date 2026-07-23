@@ -1,34 +1,35 @@
 /*
- * XREFs of CmUpdateFeatureConfiguration @ 0x1407D5C24
+ * XREFs of CmUpdateFeatureConfiguration @ 0x1407D6120
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     CmpAllocatePoolWithQuota @ 0x14045935C (CmpAllocatePoolWithQuota.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x1407E40E0 (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x1407E474C (CmFcManagerUpdateFeatureConfigurations.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     CmpAllocatePoolWithQuota @ 0x14044E3DC (CmpAllocatePoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x1407E4630 (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x1407E4C9C (CmFcManagerUpdateFeatureConfigurations.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)
 {
-  size_t v4; // r14
+  ULONG_PTR v4; // r14
   unsigned int *v6; // rdi
   struct _PRIVILEGE_SET *v7; // rsi
   BOOLEAN v8; // bl
   unsigned int v9; // ebx
   unsigned int *PoolWithQuota; // rax
   __int64 v11; // rcx
-  struct _PRIVILEGE_SET *v12; // rax
+  ULONG_PTR v12; // rdx
+  struct _PRIVILEGE_SET *v13; // rax
   unsigned int updated; // eax
-  unsigned __int64 v14; // rax
-  int v15; // ecx
+  unsigned __int64 v15; // rax
+  int v16; // ecx
   ACCESS_MASK GrantedAccess; // [rsp+60h] [rbp-68h] BYREF
-  unsigned int *v18; // [rsp+68h] [rbp-60h]
+  unsigned int *v19; // [rsp+68h] [rbp-60h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+88h] [rbp-40h] BYREF
   NTSTATUS AccessStatus; // [rsp+E8h] [rbp+20h] BYREF
 
@@ -58,9 +59,9 @@ __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESS
   }
   if ( (unsigned int)v4 < 4 )
     goto LABEL_4;
-  PoolWithQuota = (unsigned int *)CmpAllocatePoolWithQuota(256LL);
+  PoolWithQuota = (unsigned int *)CmpAllocatePoolWithQuota(256LL, v4, 0x63466D43u);
   v6 = PoolWithQuota;
-  v18 = PoolWithQuota;
+  v19 = PoolWithQuota;
   if ( !PoolWithQuota )
     goto LABEL_6;
   memmove(PoolWithQuota, Src, v4);
@@ -83,17 +84,18 @@ __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESS
             v11 = 0x7FFFFFFF0000LL;
           }
         }
-        if ( *((_QWORD *)v6 + 3) )
+        v12 = *((_QWORD *)v6 + 3);
+        if ( v12 )
         {
-          v12 = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuota(256LL);
-          v7 = v12;
-          if ( !v12 )
+          v13 = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuota(256LL, v12, 0x63466D43u);
+          v7 = v13;
+          if ( !v13 )
           {
 LABEL_6:
             v9 = -1073741670;
             goto LABEL_27;
           }
-          memmove(v12, *((const void **)v6 + 4), *((_QWORD *)v6 + 3));
+          memmove(v13, *((const void **)v6 + 4), *((_QWORD *)v6 + 3));
         }
         updated = CmFcManagerOverwriteFeatureConfigurationSection(
                     v11,
@@ -109,17 +111,17 @@ LABEL_4:
     v9 = -1073741820;
     goto LABEL_27;
   }
-  v14 = 32LL * v6[5];
-  if ( v14 > 0xFFFFFFFF )
+  v15 = 32LL * v6[5];
+  if ( v15 > 0xFFFFFFFF )
     goto LABEL_26;
-  v15 = v14 + 24;
-  if ( (int)v14 + 24 < (unsigned int)v14 )
+  v16 = v15 + 24;
+  if ( (int)v15 + 24 < (unsigned int)v15 )
     goto LABEL_26;
-  if ( v15 != (_DWORD)v4 )
+  if ( v16 != (_DWORD)v4 )
     goto LABEL_4;
   if ( v6[4] == 1 )
   {
-    updated = CmFcManagerUpdateFeatureConfigurations(v15, *((_QWORD *)v6 + 1), 1, (int)v6 + 24, v6[5]);
+    updated = CmFcManagerUpdateFeatureConfigurations(v16, *((_QWORD *)v6 + 1), 1, (int)v6 + 24, v6[5]);
 LABEL_25:
     v9 = updated;
     goto LABEL_27;

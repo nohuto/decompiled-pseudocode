@@ -11,38 +11,38 @@
  *     sub_1800CA0F0 @ 0x1800CA0F0 (sub_1800CA0F0.c)
  */
 
-__int64 __fastcall sub_1800C9EEC(_QWORD *a1, STRING *a2)
+__int64 __fastcall sub_1800C9EEC(_QWORD *a1, const ANSI_STRING *a2)
 {
   int v3; // ebx
-  int v5; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v5; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE v6[8]; // [rsp+48h] [rbp-B8h] BYREF
   int v7; // [rsp+50h] [rbp-B0h] BYREF
-  _WORD *v8; // [rsp+58h] [rbp-A8h]
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [rsp+58h] [rbp-A8h]
   _WORD v9[128]; // [rsp+60h] [rbp-A0h] BYREF
   int v10; // [rsp+160h] [rbp+60h] BYREF
-  _WORD *v11; // [rsp+168h] [rbp+68h]
+  POBJECT_BOUNDARY_DESCRIPTOR v11; // [rsp+168h] [rbp+68h]
   _WORD v12[128]; // [rsp+170h] [rbp+70h] BYREF
 
   v7 = 0x1000000;
-  v8 = v9;
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v9;
   v10 = 0x1000000;
-  v11 = v12;
+  v11 = (POBJECT_BOUNDARY_DESCRIPTOR)v12;
   v9[0] = 0;
   v12[0] = 0;
   v3 = sub_180041ACC((unsigned __int16 *)&v7, a2);
   if ( v3 >= 0 )
   {
     v5 = 0x800000;
-    v3 = sub_18003B92C((unsigned __int16 *)&v7, (unsigned __int16 *)&v10, 0, &v5);
+    v3 = sub_18003B92C((unsigned __int16 *)&v7, (unsigned __int16 *)&v10, 0LL, (int *)&v5);
     if ( v3 >= 0 )
-      v3 = sub_1800CA0F0(a1[21], (unsigned int)&v10, a1[2], v5, a1[7], (__int64)v6, a1[5]);
+      v3 = sub_1800CA0F0(a1[21], &v10, a1[2], v5, a1[7], v6, a1[5]);
   }
-  if ( v9 != v8 )
-    RtlDeleteBoundaryDescriptor((__int64)v8);
-  v8 = v9;
+  if ( v9 != (_WORD *)BoundaryDescriptor )
+    RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v9;
   v7 = 0x1000000;
   v9[0] = 0;
-  if ( v12 != v11 )
-    RtlDeleteBoundaryDescriptor((__int64)v11);
+  if ( v12 != (_WORD *)v11 )
+    RtlDeleteBoundaryDescriptor(v11);
   return (unsigned int)v3;
 }

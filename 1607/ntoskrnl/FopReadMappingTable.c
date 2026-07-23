@@ -3,10 +3,10 @@
  * Callers:
  *     FopInitializeFonts @ 0x1407D43C8 (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x140128F34 (FioFwReadBytesAtOffset.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     FioFwReadBytesAtOffset @ 0x1401294A4 (FioFwReadBytesAtOffset.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     FopFreeMappingTable @ 0x140728B2C (FopFreeMappingTable.c)
  *     FopReadCmapTable @ 0x1407D4894 (FopReadCmapTable.c)
  */

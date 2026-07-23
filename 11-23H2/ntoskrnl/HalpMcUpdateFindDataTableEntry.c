@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcUpdateFindDataTableEntry @ 0x1403796FC
+ * XREFs of HalpMcUpdateFindDataTableEntry @ 0x14037989C
  * Callers:
- *     HalMcFinishMicrocode @ 0x1403B0E04 (HalMcFinishMicrocode.c)
- *     HalpMcUpdateInitialize @ 0x14081E114 (HalpMcUpdateInitialize.c)
+ *     HalMcFinishMicrocode @ 0x1403B0FE4 (HalMcFinishMicrocode.c)
+ *     HalpMcUpdateInitialize @ 0x14081E3E4 (HalpMcUpdateInitialize.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
  */
 
 _QWORD *__fastcall HalpMcUpdateFindDataTableEntry(_QWORD *a1)

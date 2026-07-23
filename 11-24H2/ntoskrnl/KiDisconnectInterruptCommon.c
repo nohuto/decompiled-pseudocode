@@ -1,19 +1,19 @@
 /*
- * XREFs of KiDisconnectInterruptCommon @ 0x1403B8B5C
+ * XREFs of KiDisconnectInterruptCommon @ 0x140373CA8
  * Callers:
- *     KeDisconnectInterrupt @ 0x1403B8A3C (KeDisconnectInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x1403B9038 (KiDisconnectSecondaryInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140373B88 (KeDisconnectInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x140374188 (KiDisconnectSecondaryInterrupt.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KiDisconnectInterruptInternal @ 0x1403B8D74 (KiDisconnectInterruptInternal.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x14046E6B8 (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiDisconnectSecondaryInterruptInternal @ 0x1404B2A64 (KiDisconnectSecondaryInterruptInternal.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSignalWaitDisconnectLock @ 0x1405C209C (KiSignalWaitDisconnectLock.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     KiDisconnectInterruptInternal @ 0x140373EC0 (KiDisconnectInterruptInternal.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x140374A2C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiDisconnectSecondaryInterruptInternal @ 0x1403753C8 (KiDisconnectSecondaryInterruptInternal.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSignalWaitDisconnectLock @ 0x1405BF66C (KiSignalWaitDisconnectLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
@@ -33,8 +33,8 @@ __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
   char *v19; // [rsp+38h] [rbp-48h]
   _QWORD v20[2]; // [rsp+40h] [rbp-40h] BYREF
   __int64 v21; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
 
   v20[1] = a3;
   v19 = 0LL;
@@ -93,8 +93,7 @@ __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
       }
       v7 = KiDisconnectSecondaryInterruptInternal(a2);
 LABEL_24:
-      LOBYTE(v14) = CurrentIrql;
-      HalpReleaseHighLevelLock(v10, v14);
+      HalpReleaseHighLevelLock((volatile signed __int64 *)v10, CurrentIrql);
       goto LABEL_14;
     }
     _InterlockedOr((volatile signed __int32 *)(a2 + 104), 2u);

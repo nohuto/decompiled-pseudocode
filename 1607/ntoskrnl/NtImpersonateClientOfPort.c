@@ -1,16 +1,16 @@
 /*
- * XREFs of NtImpersonateClientOfPort @ 0x140654900
+ * XREFs of NtImpersonateClientOfPort @ 0x1406549E4
  * Callers:
  *     <none>
  * Callees:
- *     NtAlpcImpersonateClientOfPort @ 0x14050DF50 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1404F0EE0 (NtAlpcImpersonateClientOfPort.c)
  */
 
 NTSTATUS __stdcall NtImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE ClientMessage)
 {
   NTSTATUS result; // eax
 
-  result = NtAlpcImpersonateClientOfPort(PortHandle, (__int64)ClientMessage, 0LL);
+  result = NtAlpcImpersonateClientOfPort(PortHandle, ClientMessage, 0LL);
   if ( result == -1073740030 )
     return -1073741281;
   return result;

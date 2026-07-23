@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInitializeProcessor @ 0x1406CB480
+ * XREFs of ExInitializeProcessor @ 0x1406CF4B0
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline @ 0x140576470 (Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline.c)
- *     ExpLookasideMgrHotAddProcessor @ 0x1406CD8AC (ExpLookasideMgrHotAddProcessor.c)
- *     ExpNodeHotAddProcessor @ 0x1406D0BA0 (ExpNodeHotAddProcessor.c)
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline @ 0x140578920 (Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline.c)
+ *     ExpLookasideMgrHotAddProcessor @ 0x1406D18DC (ExpLookasideMgrHotAddProcessor.c)
+ *     ExpNodeHotAddProcessor @ 0x1406D4BD0 (ExpNodeHotAddProcessor.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExInitializeProcessor(__int64 a1, char a2)
@@ -30,7 +30,7 @@ __int64 __fastcall ExInitializeProcessor(__int64 a1, char a2)
   {
     IsNodeInitialized = KeIsNodeInitialized(*(_WORD *)KeNodeBlock[*(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 138LL)]);
     ExpNodeHotAddProcessor(v7 & -(__int64)IsNodeInitialized);
-    *(_QWORD *)(a1 + 35824) = *(_QWORD *)(ExSaPageArrays + 8LL * *(unsigned int *)(a1 + 36));
+    *(_QWORD *)(a1 + 35824) = *((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress + *(unsigned int *)(a1 + 36));
     if ( (unsigned int)Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline() )
       ExpLookasideMgrHotAddProcessor(a1);
   }

@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpEnsureBufferSize @ 0x1800767B0
+ * XREFs of RtlpEnsureBufferSize @ 0x1800767A0
  * Callers:
  *     sxsisol_RespectDotLocal @ 0x1800033F8 (sxsisol_RespectDotLocal.c)
- *     sxsisol_SearchActCtxForDllName @ 0x18001A964 (sxsisol_SearchActCtxForDllName.c)
- *     RtlMultiAppendUnicodeStringBuffer @ 0x1800766A0 (RtlMultiAppendUnicodeStringBuffer.c)
+ *     sxsisol_SearchActCtxForDllName @ 0x18001A954 (sxsisol_SearchActCtxForDllName.c)
+ *     RtlMultiAppendUnicodeStringBuffer @ 0x180076690 (RtlMultiAppendUnicodeStringBuffer.c)
  *     RtlNtPathNameToDosPathName @ 0x1800CFD00 (RtlNtPathNameToDosPathName.c)
- *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DA6B8 (sxsisol_ExpandEnvironmentStrings_UEx.c)
+ *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DA778 (sxsisol_ExpandEnvironmentStrings_UEx.c)
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, SIZE_T a3)
 {
   char v5; // bp
-  void *StringRoutine; // rax
-  void *v7; // rsi
+  PVOID StringRoutine; // rax
+  PVOID v7; // rsi
 
   v5 = a1;
   if ( (a1 & 0xFFFFFFFE) != 0 || !a2 )
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
     *(_QWORD *)(a2 + 16) = a3;
     return 0LL;
   }
-  StringRoutine = (void *)NtdllpAllocateStringRoutine(a3);
+  StringRoutine = NtdllpAllocateStringRoutine(a3);
   v7 = StringRoutine;
   if ( StringRoutine )
   {
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
       memmove(StringRoutine, *(const void **)a2, *(_QWORD *)(a2 + 16));
     if ( *(_QWORD *)a2 != *(_QWORD *)(a2 + 8) )
     {
-      NtdllpFreeStringRoutine(*(_QWORD *)a2);
+      NtdllpFreeStringRoutine(*(void **)a2);
       *(_QWORD *)a2 = 0LL;
     }
     *(_QWORD *)a2 = v7;

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampImageNotify @ 0x140900000
+ * XREFs of EtwpCovSampImageNotify @ 0x1409228E0
  * Callers:
- *     PsCallImageNotifyRoutines @ 0x1408FFB60 (PsCallImageNotifyRoutines.c)
- *     EtwpCovSampEnumerateProcess @ 0x140A13C40 (EtwpCovSampEnumerateProcess.c)
- *     EtwpCovSampEnumerateDriver @ 0x140AA3240 (EtwpCovSampEnumerateDriver.c)
+ *     PsCallImageNotifyRoutines @ 0x140922440 (PsCallImageNotifyRoutines.c)
+ *     EtwpCovSampEnumerateProcess @ 0x140A0C3A0 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpCovSampEnumerateDriver @ 0x140A9E5D0 (EtwpCovSampEnumerateDriver.c)
  * Callees:
- *     EtwpCovSampReleaseSamplerRundown @ 0x140900574 (EtwpCovSampReleaseSamplerRundown.c)
- *     EtwpCovSampModuleDereference @ 0x140900F9C (EtwpCovSampModuleDereference.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x140900FE0 (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampContextGetModule @ 0x140901050 (EtwpCovSampContextGetModule.c)
- *     EtwpCovSampProcessEnsureContext @ 0x140901F18 (EtwpCovSampProcessEnsureContext.c)
- *     EtwpCovSampProcessAddModule @ 0x140901FBC (EtwpCovSampProcessAddModule.c)
+ *     EtwpCovSampReleaseSamplerRundown @ 0x140922E54 (EtwpCovSampReleaseSamplerRundown.c)
+ *     EtwpCovSampModuleDereference @ 0x14092387C (EtwpCovSampModuleDereference.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1409238C0 (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampContextGetModule @ 0x140923930 (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x1409247F8 (EtwpCovSampProcessEnsureContext.c)
+ *     EtwpCovSampProcessAddModule @ 0x14092489C (EtwpCovSampProcessAddModule.c)
  */
 
 void __fastcall EtwpCovSampImageNotify(PUNICODE_STRING FullImageName, struct _LIST_ENTRY *ProcessId, char *ImageInfo)
@@ -34,7 +34,7 @@ void __fastcall EtwpCovSampImageNotify(PUNICODE_STRING FullImageName, struct _LI
   if ( (int)EtwpCovSampAcquireSamplerRundown(&v12) >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v3 = qword_140EFEC78 + 16;
+    v3 = qword_140EFEF98 + 16;
     Process = CurrentThread->ApcState.Process;
     if ( ProcessId )
     {
@@ -47,7 +47,7 @@ void __fastcall EtwpCovSampImageNotify(PUNICODE_STRING FullImageName, struct _LI
     }
     else if ( (*(_DWORD *)ImageInfo & 0x100) != 0 )
     {
-      Affinity = qword_140EFEC78 + 1264;
+      Affinity = qword_140EFEF98 + 1264;
 LABEL_7:
       if ( (int)EtwpCovSampContextGetModule(v3, (_DWORD)Process, Affinity, v6, (__int64)v7, (__int64)&v11) >= 0 )
         EtwpCovSampProcessAddModule(Affinity, v3, v11, *((_QWORD *)ImageInfo + 1));

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCallQueryRegistryRoutine @ 0x140A11494
+ * XREFs of RtlpCallQueryRegistryRoutine @ 0x140A10684
  * Callers:
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlpQueryRegistryDirect @ 0x140A11808 (RtlpQueryRegistryDirect.c)
- *     RtlpValidateKeyTrust @ 0x140A11BE0 (RtlpValidateKeyTrust.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlpQueryRegistryDirect @ 0x140A109F8 (RtlpQueryRegistryDirect.c)
+ *     RtlpValidateKeyTrust @ 0x140A10DD0 (RtlpValidateKeyTrust.c)
  */
 
 __int64 __fastcall RtlpCallQueryRegistryRoutine(

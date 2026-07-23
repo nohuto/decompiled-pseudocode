@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpIsProtectedHeap @ 0x18009178C
+ * XREFs of RtlpIsProtectedHeap @ 0x18007653C
  * Callers:
- *     RtlpEnumProcessHeaps @ 0x180091420 (RtlpEnumProcessHeaps.c)
- *     RtlpSetRequestedFrontEndHeap @ 0x180091E5C (RtlpSetRequestedFrontEndHeap.c)
- *     RtlpQueryExtendedHeapInformation @ 0x180092520 (RtlpQueryExtendedHeapInformation.c)
- *     RtlSetHeapInformation @ 0x180111030 (RtlSetHeapInformation.c)
- *     RtlSetHeapDebuggingInformation @ 0x180114E70 (RtlSetHeapDebuggingInformation.c)
- *     RtlpLockHeapForClone @ 0x180145468 (RtlpLockHeapForClone.c)
- *     RtlpUnlockHeapForClone @ 0x18014564C (RtlpUnlockHeapForClone.c)
- *     RtlpHpStackTraceHeapDisable @ 0x18014FBD0 (RtlpHpStackTraceHeapDisable.c)
+ *     RtlpEnumProcessHeaps @ 0x180076180 (RtlpEnumProcessHeaps.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x180092130 (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpSetRequestedFrontEndHeap @ 0x1800EC350 (RtlpSetRequestedFrontEndHeap.c)
+ *     RtlSetHeapInformation @ 0x180110BC0 (RtlSetHeapInformation.c)
+ *     RtlSetHeapDebuggingInformation @ 0x180114660 (RtlSetHeapDebuggingInformation.c)
+ *     RtlpLockHeapForClone @ 0x180145318 (RtlpLockHeapForClone.c)
+ *     RtlpUnlockHeapForClone @ 0x1801454FC (RtlpUnlockHeapForClone.c)
+ *     RtlpHpStackTraceHeapDisable @ 0x18014FA80 (RtlpHpStackTraceHeapDisable.c)
  * Callees:
  *     <none>
  */

@@ -4,8 +4,8 @@
  *     ExpAllocatePoolWithQuotaTag @ 0x140AAE008 (ExpAllocatePoolWithQuotaTag.c)
  * Callees:
  *     ExpStampPoolEntryWithQuotaProcess @ 0x14020819C (ExpStampPoolEntryWithQuotaProcess.c)
- *     ExpStampBigPoolEntry @ 0x140313608 (ExpStampBigPoolEntry.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExpStampBigPoolEntry @ 0x140313898 (ExpStampBigPoolEntry.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 _BYTE *__fastcall ExpStampPoolWithQuotaProcess(

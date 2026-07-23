@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPopFreeWsle @ 0x1400FEE10
+ * XREFs of MiPopFreeWsle @ 0x1400FCB90
  * Callers:
- *     MiRemoveWsleFromFreeList @ 0x1400B083C (MiRemoveWsleFromFreeList.c)
- *     MiMoveWorkingFreeToTail @ 0x1400FE014 (MiMoveWorkingFreeToTail.c)
- *     MiRemoveWorkingSetPages @ 0x1400FE750 (MiRemoveWorkingSetPages.c)
+ *     MiRemoveWsleFromFreeList @ 0x1400AE8AC (MiRemoveWsleFromFreeList.c)
+ *     MiMoveWorkingFreeToTail @ 0x1400FBD94 (MiMoveWorkingFreeToTail.c)
+ *     MiRemoveWorkingSetPages @ 0x1400FC4D0 (MiRemoveWorkingSetPages.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiPopFreeWsle(__int64 a1)

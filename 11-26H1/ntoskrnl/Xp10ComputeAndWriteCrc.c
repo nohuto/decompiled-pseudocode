@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10ComputeAndWriteCrc @ 0x14080C448
+ * XREFs of Xp10ComputeAndWriteCrc @ 0x140811ED8
  * Callers:
- *     Xp10CompressBuffer @ 0x14080BE88 (Xp10CompressBuffer.c)
+ *     Xp10CompressBuffer @ 0x140811918 (Xp10CompressBuffer.c)
  * Callees:
  *     <none>
  */

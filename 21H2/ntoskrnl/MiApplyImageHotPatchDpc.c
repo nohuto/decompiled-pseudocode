@@ -1,10 +1,10 @@
 /*
- * XREFs of MiApplyImageHotPatchDpc @ 0x1409B08F0
+ * XREFs of MiApplyImageHotPatchDpc @ 0x1409B1820
  * Callers:
  *     <none>
  * Callees:
- *     KeSignalCallDpcSynchronize @ 0x140519DE0 (KeSignalCallDpcSynchronize.c)
- *     RtlApplyHotPatch @ 0x1409B2744 (RtlApplyHotPatch.c)
+ *     KeSignalCallDpcSynchronize @ 0x14051A020 (KeSignalCallDpcSynchronize.c)
+ *     RtlApplyHotPatch @ 0x1409B3674 (RtlApplyHotPatch.c)
  */
 
 __int64 __fastcall MiApplyImageHotPatchDpc(__int64 a1, _QWORD *a2, volatile signed __int32 *a3, __int64 a4)

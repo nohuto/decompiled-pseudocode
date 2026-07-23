@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlSetAllBitsEx @ 0x14013B1F4
+ * XREFs of RtlSetAllBitsEx @ 0x14013B764
  * Callers:
- *     MiInitializePageZeroing @ 0x14013AE70 (MiInitializePageZeroing.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1406266AC (IopLiveDumpAllocAndInitResources.c)
+ *     MiInitializePageZeroing @ 0x14013B3E0 (MiInitializePageZeroing.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140626760 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
  *     <none>
  */

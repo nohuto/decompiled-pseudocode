@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwReadFileScatter(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, UserApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

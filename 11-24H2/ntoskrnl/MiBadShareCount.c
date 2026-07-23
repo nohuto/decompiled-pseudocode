@@ -1,18 +1,18 @@
 /*
- * XREFs of MiBadShareCount @ 0x14023EE28
+ * XREFs of MiBadShareCount @ 0x140206F78
  * Callers:
- *     MiWsleFree @ 0x14021BFD0 (MiWsleFree.c)
- *     MiCompletePrivateZeroFault @ 0x14021D340 (MiCompletePrivateZeroFault.c)
- *     MiDecrementShareCountEx @ 0x140220590 (MiDecrementShareCountEx.c)
- *     MiDecommitSharedPageTail @ 0x14023E140 (MiDecommitSharedPageTail.c)
- *     MiDecommitFreePage @ 0x14023E790 (MiDecommitFreePage.c)
- *     MiReduceShareCount @ 0x14023EDC0 (MiReduceShareCount.c)
- *     MiDeleteClusterPage @ 0x1402ED270 (MiDeleteClusterPage.c)
- *     MiDeleteSectionCluster @ 0x1403A0124 (MiDeleteSectionCluster.c)
- *     MiDecommitFreePagesTail @ 0x1404F1D60 (MiDecommitFreePagesTail.c)
- *     MiDecommitPrivatePageTail @ 0x1404F2240 (MiDecommitPrivatePageTail.c)
+ *     MiDecommitSharedPageTail @ 0x140206290 (MiDecommitSharedPageTail.c)
+ *     MiDecommitFreePage @ 0x1402068E0 (MiDecommitFreePage.c)
+ *     MiReduceShareCount @ 0x140206F10 (MiReduceShareCount.c)
+ *     MiDeleteSectionCluster @ 0x140216B54 (MiDeleteSectionCluster.c)
+ *     MiWsleFree @ 0x140248D20 (MiWsleFree.c)
+ *     MiCompletePrivateZeroFault @ 0x14024A090 (MiCompletePrivateZeroFault.c)
+ *     MiDecrementShareCountEx @ 0x14024D2E0 (MiDecrementShareCountEx.c)
+ *     MiDeleteClusterPage @ 0x14034E8B0 (MiDeleteClusterPage.c)
+ *     MiDecommitFreePagesTail @ 0x1404EF800 (MiDecommitFreePagesTail.c)
+ *     MiDecommitPrivatePageTail @ 0x1404EFCE0 (MiDecommitPrivatePageTail.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MiBadShareCount(__int64 a1)

@@ -10,76 +10,69 @@
  *     TppWorkWait @ 0x180041190 (TppWorkWait.c)
  */
 
-__int64 __fastcall TpWaitForWait(__int64 a1, __int64 a2, __int64 a3)
+void __cdecl TpWaitForWait(PTP_WAIT Wait, LOGICAL CancelPendingCallbacks)
 {
-  int v3; // eax
-  char v4; // r14
-  __int64 result; // rax
-  __int64 v7; // rdi
-  unsigned int v8; // ecx
-  __int64 (__fastcall *v9)(__int64); // rax
-  __int64 v10; // rcx
-  unsigned int v11; // [rsp+40h] [rbp+8h] BYREF
+  volatile int Flags; // eax
+  char v3; // r14
+  _TP_POOL *Pool; // rdi
+  unsigned int v7; // ecx
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  _PEB_LDR_DATA *Ldr; // rcx
+  unsigned int v10; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = *(_DWORD *)(a1 + 168);
-  v4 = 0;
-  v11 = 0;
-  if ( (v3 & 0x10000) != 0
-    || (v3 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWaitpCleanupGroupMemberVFuncs
+  Flags = Wait->Timer.Work.CleanupGroupMember.Flags;
+  v3 = 0;
+  v10 = 0;
+  if ( (Flags & 0x10000) != 0
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)())Wait->Timer.Work.CleanupGroupMember.VFuncs != TppWaitpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (__int64)NtCurrentPeb();
-    v10 = *(_QWORD *)(result + 24);
-    if ( !*(_BYTE *)(v10 + 72) )
-      return TppRaiseInvalidParameter(v10, a2, a3);
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      TppRaiseInvalidParameter(Ldr);
   }
   else
   {
-    if ( (_DWORD)a2 )
+    if ( CancelPendingCallbacks )
     {
-      v7 = *(_QWORD *)(a1 + 144);
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
-      ++*(_BYTE *)(a1 + 355);
-      TppCancelWait(a1, v7 + 112, 2LL, &v11);
-      if ( *(_DWORD *)(a1 + 56) )
-        v4 = 1;
+      Pool = Wait->Timer.Work.CleanupGroupMember.Pool;
+      RtlAcquireSRWLockExclusive(&Wait->Timer.Lock);
+      ++Wait->Timer.BlockInsert;
+      TppCancelWait(Wait, &Pool->TimerQueue, 2LL, &v10);
+      if ( Wait->Timer.Work.CleanupGroupMember.CallbackBarrier.Ptr.0 )
+        v3 = 1;
       else
-        --*(_BYTE *)(a1 + 355);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-      result = TppWorkWait(a1);
-      if ( v4 )
+        --Wait->Timer.BlockInsert;
+      RtlReleaseSRWLockExclusive(&Wait->Timer.Lock);
+      TppWorkWait(Wait, CancelPendingCallbacks);
+      if ( v3 )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
-        --*(_BYTE *)(a1 + 355);
-        result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+        RtlAcquireSRWLockExclusive(&Wait->Timer.Lock);
+        --Wait->Timer.BlockInsert;
+        RtlReleaseSRWLockExclusive(&Wait->Timer.Lock);
       }
     }
     else
     {
-      result = TppWorkWait(a1);
+      TppWorkWait(Wait, CancelPendingCallbacks);
     }
-    if ( v11 )
+    v7 = v10;
+    if ( v10 && _InterlockedExchangeAdd(&Wait->Timer.Work.CleanupGroupMember.Refcount.Refcount, v10) == -v7 )
     {
-      v8 = -v11;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, v11);
-      if ( (_DWORD)result == v8 )
+      Free = Wait->Timer.Work.CleanupGroupMember.VFuncs->Free;
+      if ( (char *)Free == (char *)TppFreeWait )
       {
-        v9 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-        if ( v9 == TppFreeWait )
-        {
-          return TppFreeWait(a1);
-        }
-        else if ( v9 == TppTimerpFree )
-        {
-          return TppTimerpFree(a1);
-        }
-        else
-        {
-          return v9(a1);
-        }
+        TppFreeWait(Wait);
+      }
+      else if ( (char *)Free == (char *)TppTimerpFree )
+      {
+        TppTimerpFree(Wait);
+      }
+      else
+      {
+        Free(&Wait->Timer.Work.CleanupGroupMember);
       }
     }
   }
-  return result;
 }

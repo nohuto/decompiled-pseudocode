@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteTopLevelPage @ 0x1404840DC
+ * XREFs of MiDeleteTopLevelPage @ 0x14047DA4C
  * Callers:
- *     MiDeleteProcessShadow @ 0x140483DCC (MiDeleteProcessShadow.c)
- *     MiDeleteFinalPageTables @ 0x1404CE05C (MiDeleteFinalPageTables.c)
+ *     MiDeleteProcessShadow @ 0x14047D73C (MiDeleteProcessShadow.c)
+ *     MiDeleteFinalPageTables @ 0x1404C7A8C (MiDeleteFinalPageTables.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiClearContainingMapping @ 0x140484250 (MiClearContainingMapping.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiClearContainingMapping @ 0x14047DBC0 (MiClearContainingMapping.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)

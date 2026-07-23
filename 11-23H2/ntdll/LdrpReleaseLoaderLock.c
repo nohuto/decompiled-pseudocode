@@ -22,25 +22,25 @@
 
 __int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, char a2, int a3)
 {
-  unsigned int v5; // esi
+  unsigned __int32 v5; // esi
   __int64 v6; // r8
   __int64 v7; // rcx
   int v9; // r9d
   __int64 v10; // rcx
 
-  v5 = RtlLeaveCriticalSection((__int64)&LdrpLoaderLock);
+  v5 = RtlLeaveCriticalSection(&LdrpLoaderLock);
   if ( a3 < 0 )
   {
     LOBYTE(v6) = a2;
     LdrpLogError((unsigned int)a3, 5282LL, v6, 0LL);
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v7 = 2147353476LL;
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
       v10 = 2147353477LL;

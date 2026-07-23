@@ -1,16 +1,16 @@
 /*
- * XREFs of KeInitializeQueue @ 0x1401219D0
+ * XREFs of KeInitializeQueue @ 0x140121AA0
  * Callers:
- *     PopFxRegisterPluginEx @ 0x1402D8F98 (PopFxRegisterPluginEx.c)
- *     EtwpCreateUmReplyObject @ 0x1406A62D8 (EtwpCreateUmReplyObject.c)
- *     NtCreateIoCompletion @ 0x1406A64A0 (NtCreateIoCompletion.c)
- *     KeInitializeUmsThread @ 0x140845314 (KeInitializeUmsThread.c)
- *     FsRtlInitializeWorkerThread @ 0x1409D797C (FsRtlInitializeWorkerThread.c)
- *     IopInitializePassiveInterruptServices @ 0x1409D8564 (IopInitializePassiveInterruptServices.c)
- *     PoFxInitPowerManagement @ 0x1409D8614 (PoFxInitPowerManagement.c)
- *     ExpWorkerFactoryInitialization @ 0x1409DD794 (ExpWorkerFactoryInitialization.c)
+ *     PopFxRegisterPluginEx @ 0x1402D9188 (PopFxRegisterPluginEx.c)
+ *     EtwpCreateUmReplyObject @ 0x1406A7578 (EtwpCreateUmReplyObject.c)
+ *     NtCreateIoCompletion @ 0x1406A7740 (NtCreateIoCompletion.c)
+ *     KeInitializeUmsThread @ 0x140846574 (KeInitializeUmsThread.c)
+ *     FsRtlInitializeWorkerThread @ 0x1409D897C (FsRtlInitializeWorkerThread.c)
+ *     IopInitializePassiveInterruptServices @ 0x1409D9564 (IopInitializePassiveInterruptServices.c)
+ *     PoFxInitPowerManagement @ 0x1409D9614 (PoFxInitPowerManagement.c)
+ *     ExpWorkerFactoryInitialization @ 0x1409DE794 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
  */
 
 void __stdcall KeInitializeQueue(PRKQUEUE Queue, ULONG Count)

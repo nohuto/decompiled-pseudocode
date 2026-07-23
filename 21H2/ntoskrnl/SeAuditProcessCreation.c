@@ -1,27 +1,27 @@
 /*
- * XREFs of SeAuditProcessCreation @ 0x1407BC598
+ * XREFs of SeAuditProcessCreation @ 0x1407BCD28
  * Callers:
- *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x1406971A0 (PspInsertProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PsQueryProcessCommandLine @ 0x1402BEE10 (PsQueryProcessCommandLine.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
- *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PsQueryProcessCommandLine @ 0x14023D260 (PsQueryProcessCommandLine.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2884 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14067B228 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     PsLookupProcessByProcessId @ 0x14068F4F0 (PsLookupProcessByProcessId.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     RtlCopySid @ 0x14071E2B0 (RtlCopySid.c)
+ *     SepAuditFailed @ 0x140925A60 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall SeAuditProcessCreation(struct _KPROCESS *BugCheckParameter1, unsigned __int16 *a2)
+void __fastcall SeAuditProcessCreation(PEPROCESS Process, unsigned __int16 *a2)
 {
   unsigned __int16 *PoolWithTag; // rsi
   unsigned int v4; // r13d
@@ -42,7 +42,7 @@ void __fastcall SeAuditProcessCreation(struct _KPROCESS *BugCheckParameter1, uns
   char v19; // [rsp+30h] [rbp-D0h]
   unsigned int NumberOfBytes[3]; // [rsp+34h] [rbp-CCh] BYREF
   PVOID v21; // [rsp+40h] [rbp-C0h] BYREF
-  PEPROCESS Process; // [rsp+48h] [rbp-B8h] BYREF
+  PEPROCESS Processa; // [rsp+48h] [rbp-B8h] BYREF
   _BYTE *v23; // [rsp+50h] [rbp-B0h]
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int16 *v25; // [rsp+68h] [rbp-98h]
@@ -56,37 +56,35 @@ void __fastcall SeAuditProcessCreation(struct _KPROCESS *BugCheckParameter1, uns
   v25 = a2;
   memset(NumberOfBytes, 0, sizeof(NumberOfBytes));
   PoolWithTag = 0LL;
-  Process = 0LL;
+  Processa = 0LL;
   v4 = 0;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   v21 = 0LL;
   v19 = 0;
   DestinationString = 0LL;
   v23 = DestinationSid;
-  if ( !BugCheckParameter1[1].ActiveProcessors.Bitmap[2] )
+  if ( !Process[1].ActiveProcessors.Bitmap[2] )
     return;
-  v5 = (void *)BugCheckParameter1[1].AffinityPadding[2];
-  Flink = BugCheckParameter1[1].Header.WaitListHead.Flink;
+  v5 = (void *)Process[1].AffinityPadding[2];
+  Flink = Process[1].Header.WaitListHead.Flink;
   v28 = v5;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(
-                                    (__int64)BugCheckParameter1,
-                                    (__int64)&NumberOfBytes[1]);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)Process, (__int64)&NumberOfBytes[1]);
   if ( AllocatedFullProcessImageName >= 0 )
   {
-    if ( PsLookupProcessByProcessId(v5, &Process) < 0 )
+    if ( PsLookupProcessByProcessId(v5, &Processa) < 0 )
     {
       v4 = 1845;
     }
     else
     {
-      v7 = Process;
-      if ( Process[1].ActiveProcessors.Bitmap[2] )
-        PsGetAllocatedFullProcessImageNameEx((__int64)Process, (__int64)&v21);
+      v7 = Processa;
+      if ( Processa[1].ActiveProcessors.Bitmap[2] )
+        PsGetAllocatedFullProcessImageNameEx((__int64)Processa, (__int64)&v21);
       else
         v4 = 1844;
       ObfDereferenceObjectWithTag(v7, 0x746C6644u);
     }
-    v8 = PsReferencePrimaryToken(BugCheckParameter1);
+    v8 = PsReferencePrimaryToken(Process);
     v9 = v8;
     if ( v8 )
     {
@@ -112,13 +110,13 @@ void __fastcall SeAuditProcessCreation(struct _KPROCESS *BugCheckParameter1, uns
             PoolWithTag = v25;
             goto LABEL_16;
           }
-          if ( (unsigned int)PsQueryProcessCommandLine((ULONG_PTR)BugCheckParameter1, 0LL, 0, 0, NumberOfBytes) == -1073741820 )
+          if ( (unsigned int)PsQueryProcessCommandLine((struct _EX_RUNDOWN_REF *)Process, 0LL, 0, 0, NumberOfBytes) == -1073741820 )
           {
             PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x4C436553u);
             if ( PoolWithTag )
             {
               if ( (int)PsQueryProcessCommandLine(
-                          (ULONG_PTR)BugCheckParameter1,
+                          (struct _EX_RUNDOWN_REF *)Process,
                           (__int64)PoolWithTag,
                           NumberOfBytes[0],
                           0,
@@ -130,11 +128,11 @@ void __fastcall SeAuditProcessCreation(struct _KPROCESS *BugCheckParameter1, uns
               ExFreePoolWithTag(PoolWithTag, 0);
             }
           }
-          RtlInitUnicodeString(&DestinationString, &word_1407D7BA0);
+          RtlInitUnicodeString(&DestinationString, &word_1407D7CE0);
         }
         else
         {
-          RtlInitUnicodeString(&DestinationString, &word_1407D7BA0);
+          RtlInitUnicodeString(&DestinationString, &word_1407D7CE0);
         }
         PoolWithTag = (unsigned __int16 *)&DestinationString;
 LABEL_16:

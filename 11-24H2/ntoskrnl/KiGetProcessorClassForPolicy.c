@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetProcessorClassForPolicy @ 0x14047A714
+ * XREFs of KiGetProcessorClassForPolicy @ 0x140475D94
  * Callers:
- *     KiMayStealStandbyThread @ 0x140298460 (KiMayStealStandbyThread.c)
- *     KiCheckPreferredHeteroProcessor @ 0x14029D8F0 (KiCheckPreferredHeteroProcessor.c)
+ *     KiMayStealStandbyThread @ 0x1402A6F50 (KiMayStealStandbyThread.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402AC3E0 (KiCheckPreferredHeteroProcessor.c)
  * Callees:
  *     <none>
  */

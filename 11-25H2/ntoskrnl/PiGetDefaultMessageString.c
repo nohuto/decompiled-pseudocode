@@ -18,15 +18,15 @@
  *     ExFreePool @ 0x140B62CB0 (ExFreePool.c)
  */
 
-__int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, unsigned int a2, _QWORD *a3)
+__int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, ULONG MessageId, _QWORD *a3)
 {
-  __int64 *v6; // rsi
-  int DriverNameFromKeyNode; // ebx
-  __int64 *v8; // rax
+  PVOID *v6; // rsi
+  NTSTATUS DriverNameFromKeyNode; // ebx
+  PVOID *v8; // rax
   wchar_t *Buffer; // rdi
-  unsigned __int16 v11; // ax
-  const WCHAR *v12; // rdx
-  int v13; // eax
+  WORD Flags; // ax
+  BYTE *Text; // rdx
+  NTSTATUS v13; // eax
   unsigned __int16 Length; // ax
   size_t v15; // rbx
   _WORD *Pool2; // rax
@@ -34,9 +34,9 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, unsigned int a2, 
   UNICODE_STRING v18; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
   STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
-  unsigned __int16 *v21; // [rsp+A8h] [rbp+48h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+A8h] [rbp+48h] BYREF
 
-  v21 = 0LL;
+  MessageEntry = 0LL;
   SourceString = 0LL;
   DestinationString = 0LL;
   v18 = 0LL;
@@ -46,25 +46,25 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, unsigned int a2, 
   DriverNameFromKeyNode = IopGetDriverNameFromKeyNode(KeyHandle, &DestinationString);
   if ( DriverNameFromKeyNode < 0 )
     goto LABEL_4;
-  v8 = (__int64 *)IopReferenceDriverObjectByName(&DestinationString);
+  v8 = (PVOID *)IopReferenceDriverObjectByName(&DestinationString);
   v6 = v8;
   if ( !v8 )
   {
     DriverNameFromKeyNode = -1073741823;
     goto LABEL_4;
   }
-  DriverNameFromKeyNode = RtlFindMessage(v8[3], 0xBu, 0, a2, &v21);
+  DriverNameFromKeyNode = RtlFindMessage(v8[3], 0xBu, 0, MessageId, &MessageEntry);
   if ( DriverNameFromKeyNode < 0 )
   {
 LABEL_4:
     Buffer = v18.Buffer;
     goto LABEL_5;
   }
-  v11 = v21[1];
-  v12 = v21 + 2;
-  if ( (v11 & 1) != 0 )
+  Flags = MessageEntry->Flags;
+  Text = MessageEntry->Text;
+  if ( (Flags & 1) != 0 )
   {
-    if ( !RtlCreateUnicodeString(&v18, v12) )
+    if ( !RtlCreateUnicodeString(&v18, (PCWSTR)Text) )
     {
       DriverNameFromKeyNode = -1073741670;
       goto LABEL_4;
@@ -72,15 +72,15 @@ LABEL_4:
   }
   else
   {
-    if ( (v11 & 2) != 0 )
+    if ( (Flags & 2) != 0 )
     {
       SourceString = 0LL;
-      RtlInitUTF8String(&SourceString, (const char *)v12);
-      v13 = RtlUTF8StringToUnicodeString((__int64)&v18, (char **)&SourceString, 1);
+      RtlInitUTF8String(&SourceString, (PCSZ)Text);
+      v13 = RtlUTF8StringToUnicodeString(&v18, &SourceString, 1u);
     }
     else
     {
-      RtlInitAnsiString(&SourceString, (PCSZ)v12);
+      RtlInitAnsiString(&SourceString, (PCSZ)Text);
       v13 = RtlAnsiStringToUnicodeString(&v18, &SourceString, 1u);
     }
     DriverNameFromKeyNode = v13;

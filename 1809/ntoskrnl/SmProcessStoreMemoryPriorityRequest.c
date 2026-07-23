@@ -1,16 +1,16 @@
 /*
- * XREFs of SmProcessStoreMemoryPriorityRequest @ 0x1406CBCE0
+ * XREFs of SmProcessStoreMemoryPriorityRequest @ 0x1406CCF80
  * Callers:
- *     SmSetStoreInformation @ 0x1406CBC30 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406CCED0 (SmSetStoreInformation.c)
  * Callees:
  *     SmpKeyedStoreEntryGet @ 0x140011FDC (SmpKeyedStoreEntryGet.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
- *     SmRereferenceProcessObject @ 0x140139660 (SmRereferenceProcessObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E12A8 (SmKmStoreRefFromStoreIndex.c)
+ *     SmRereferenceProcessObject @ 0x140139760 (SmRereferenceProcessObject.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, __int64 a2, KPROCESSOR_MODE a3)
@@ -62,7 +62,7 @@ __int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, __in
               KiStackAttachProcess((_KPROCESS *)Object, 0LL, (__int64)v12);
             }
             v11 = Object;
-            v7 = SmpKeyedStoreEntryGet((ULONG_PTR)&qword_14055B188, (unsigned __int64 *)&v11, 0, 0);
+            v7 = SmpKeyedStoreEntryGet((ULONG_PTR)&qword_14055C188, (unsigned __int64 *)&v11, 0, 0);
             if ( v7 )
               *(_BYTE *)(*(_QWORD *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, *(_WORD *)(v7 + 16) & 0x3FF) + 6023LL) = 1;
             else

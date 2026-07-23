@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateAndLockAweMapCountPage @ 0x1404B38C0
+ * XREFs of MiValidateAndLockAweMapCountPage @ 0x1404AE114
  * Callers:
- *     MiDecrementAweMapCount @ 0x14068190C (MiDecrementAweMapCount.c)
- *     MiIncrementAweMapCount @ 0x140682560 (MiIncrementAweMapCount.c)
+ *     MiDecrementAweMapCount @ 0x140682AFC (MiDecrementAweMapCount.c)
+ *     MiIncrementAweMapCount @ 0x140683750 (MiIncrementAweMapCount.c)
  * Callees:
- *     MiIsPageInHugePfn @ 0x1403CEEA0 (MiIsPageInHugePfn.c)
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
+ *     MiIsPageInHugePfn @ 0x14038ED20 (MiIsPageInHugePfn.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiValidateAndLockAweMapCountPage(__int64 a1, unsigned __int64 a2, int a3, __int64 a4)
@@ -41,7 +41,7 @@ __int64 __fastcall MiValidateAndLockAweMapCountPage(__int64 a1, unsigned __int64
   if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )
   {
     v12 = 0LL;
-    v13 = qword_140E2FFC0 + 8 * ((a2 >> 18) & 0x3FFFFF);
+    v13 = qword_140E30100 + 8 * ((a2 >> 18) & 0x3FFFFF);
     v11 = 48 * a2;
   }
   else
@@ -53,7 +53,7 @@ __int64 __fastcall MiValidateAndLockAweMapCountPage(__int64 a1, unsigned __int64
   if ( a3 )
   {
     v14 = (const signed __int64 *)v5[1];
-    if ( a2 <= qword_140E2DBE0 && ((*(_QWORD *)(v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+    if ( a2 <= qword_140E2DD20 && ((*(_QWORD *)(v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     {
       if ( !v12 )
         return 0LL;
@@ -81,8 +81,8 @@ __int64 __fastcall MiValidateAndLockAweMapCountPage(__int64 a1, unsigned __int64
         _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       else
         _InterlockedAnd(
-          (volatile signed __int32 *)(qword_140E2FFC8 + 4 * ((((v13 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-          ~(1 << (((v13 - qword_140E2FFC0) >> 3) & 0x1F)));
+          (volatile signed __int32 *)(qword_140E30108 + 4 * ((((v13 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+          ~(1 << (((v13 - qword_140E30100) >> 3) & 0x1F)));
       return 0LL;
     }
   }

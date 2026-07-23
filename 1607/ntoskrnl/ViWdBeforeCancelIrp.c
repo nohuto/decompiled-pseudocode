@@ -3,8 +3,8 @@
  * Callers:
  *     IovCancelIrp @ 0x140700D64 (IovCancelIrp.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
  *     ViWdInsertSortIrp @ 0x140716F7C (ViWdInsertSortIrp.c)
  */
 

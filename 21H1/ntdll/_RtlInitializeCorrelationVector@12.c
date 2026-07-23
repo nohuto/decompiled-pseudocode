@@ -7,22 +7,24 @@
  *     RtlpBase64Encode @ 0x4B362482 (RtlpBase64Encode.c)
  */
 
-int __stdcall RtlInitializeCorrelationVector(char *a1, char a2, int a3)
+DWORD __cdecl RtlInitializeCorrelationVector(PCORRELATION_VECTOR CorrelationVector, int Version, const GUID *Guid)
 {
-  int result; // eax
-  int v4; // [esp-4h] [ebp-Ch]
+  DWORD result; // eax
+  size_t v4; // [esp-4h] [ebp-Ch]
+  int v5; // [esp-4h] [ebp-Ch]
 
-  if ( (unsigned __int8)(a2 - 1) > 1u || !a3 )
+  if ( (unsigned __int8)(Version - 1) > 1u || !Guid )
     return -1073741811;
-  memset(a1 + 1, 0, 0x81u);
-  *a1 = a2;
-  result = RtlpBase64Encode(a1 + 1, v4);
-  if ( result >= 0 )
+  LODWORD(v4) = 129;
+  memset(CorrelationVector->Vector, 0, v4);
+  CorrelationVector->Version = Version;
+  result = RtlpBase64Encode(CorrelationVector->Vector, v5);
+  if ( (result & 0x80000000) == 0 )
   {
-    if ( a2 == 1 )
-      strcpy(a1 + 17, ".0");
+    if ( (_BYTE)Version == 1 )
+      strcpy(&CorrelationVector->Vector[16], ".0");
     else
-      strcpy(a1 + 23, ".0");
+      strcpy(&CorrelationVector->Vector[22], ".0");
   }
   return result;
 }

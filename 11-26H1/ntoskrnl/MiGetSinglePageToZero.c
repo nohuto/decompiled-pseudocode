@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetSinglePageToZero @ 0x1403C47E4
+ * XREFs of MiGetSinglePageToZero @ 0x1403CE6F0
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
- *     MiGetBackgroundHugePageToZero @ 0x1404C2588 (MiGetBackgroundHugePageToZero.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1404BBDD8 (MiGetBackgroundHugePageToZero.c)
  * Callees:
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiGetBestPageToZero @ 0x1403C497C (MiGetBestPageToZero.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiGetBestPageToZero @ 0x1403CE888 (MiGetBestPageToZero.c)
  */
 
 __int64 __fastcall MiGetSinglePageToZero(__int64 a1, __int64 a2, volatile signed __int32 *a3, int a4)
@@ -43,7 +43,7 @@ __int64 __fastcall MiGetSinglePageToZero(__int64 a1, __int64 a2, volatile signed
         for ( j = 0; ; ++j )
         {
           v17 = v15;
-          if ( j >= (unsigned __int8)byte_140E2D718 )
+          if ( j >= (unsigned __int8)byte_140E2D898 )
             break;
           v18 = j;
           if ( j == 2 )

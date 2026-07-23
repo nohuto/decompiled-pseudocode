@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveMdlPages @ 0x1406589E8
+ * XREFs of MiRemoveMdlPages @ 0x140658ACC
  * Callers:
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiSetPfnOwnedAndActive @ 0x14001B640 (MiSetPfnOwnedAndActive.c)
- *     MiFreeContiguousPages @ 0x14011191C (MiFreeContiguousPages.c)
- *     qsort @ 0x14014DF60 (qsort.c)
+ *     MiSetPfnOwnedAndActive @ 0x14001B1C0 (MiSetPfnOwnedAndActive.c)
+ *     MiFreeContiguousPages @ 0x140111E80 (MiFreeContiguousPages.c)
+ *     qsort @ 0x14014E520 (qsort.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  */
 
 _DWORD *__fastcall MiRemoveMdlPages(char *P, int a2)
@@ -90,7 +90,7 @@ _DWORD *__fastcall MiRemoveMdlPages(char *P, int a2)
     while ( v2 <= v13 );
     v5 = P;
   }
-  _InterlockedExchangeAdd64(&qword_1403278E8, -(__int64)v3);
+  _InterlockedExchangeAdd64(&qword_140327928, -(__int64)v3);
   if ( v9 )
   {
     if ( v9 == v3 )

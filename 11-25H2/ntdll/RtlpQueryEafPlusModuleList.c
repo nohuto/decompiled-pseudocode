@@ -7,14 +7,14 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpQueryEafPlusModuleList(__int64 a1, void *a2)
+__int64 __fastcall RtlpQueryEafPlusModuleList(HANDLE KeyHandle, void *a2)
 {
   unsigned int v4; // esi
-  int ImageFileKeyOption; // eax
+  NTSTATUS ImageFileKeyOption; // eax
 
   memset_thunk_772440563353939046(a2, 0, 0x400uLL);
   v4 = 0;
-  ImageFileKeyOption = RtlQueryImageFileKeyOption(a1, L"EAFModules", 1, (int *)a2, 0x400u, 0LL);
+  ImageFileKeyOption = RtlQueryImageFileKeyOption(KeyHandle, (wchar_t *)L"EAFModules", 1, (ULONG *)a2, 0x400u, 0LL);
   if ( ImageFileKeyOption >= 0 )
     return 0LL;
   if ( ImageFileKeyOption != -1073741772 )

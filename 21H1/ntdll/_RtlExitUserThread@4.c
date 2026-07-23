@@ -21,7 +21,6 @@
  *     _RtlUnlockProcessHeapOnProcessTerminate@0 @ 0x4B2DD99E (_RtlUnlockProcessHeapOnProcessTerminate@0.c)
  *     _RtlUnlockHeap@4 @ 0x4B2DD9F0 (_RtlUnlockHeap@4.c)
  *     _RtlLockHeap@4 @ 0x4B2DDA90 (_RtlLockHeap@4.c)
- *     _TpCheckTerminateWorker@4 @ 0x4B2EB4D0 (_TpCheckTerminateWorker@4.c)
  *     _EtwpStopUmLogger@16 @ 0x4B2ED853 (_EtwpStopUmLogger@16.c)
  *     _NtQueryInformationThread@20 @ 0x4B2F2BD0 (_NtQueryInformationThread@20.c)
  *     _ZwTerminateProcess@8 @ 0x4B2F2C40 (_ZwTerminateProcess@8.c)
@@ -30,7 +29,7 @@
  *     _EtwpDemuxUmTraceHandle@8 @ 0x4B381562 (_EtwpDemuxUmTraceHandle@8.c)
  */
 
-void __stdcall __noreturn RtlExitUserThread(int a1)
+void __cdecl __noreturn RtlExitUserThread(NTSTATUS ExitStatus)
 {
   int v1; // esi
   unsigned int v2; // ecx
@@ -39,63 +38,62 @@ void __stdcall __noreturn RtlExitUserThread(int a1)
   int v5; // ecx
   void *v6; // ecx
   int v7; // ecx
-  unsigned int v8; // [esp+10h] [ebp-C0h] BYREF
+  size_t v8; // [esp-4h] [ebp-D4h]
+  unsigned int v9; // [esp+10h] [ebp-C0h] BYREF
   int ThreadInformation; // [esp+14h] [ebp-BCh] BYREF
-  _DWORD v10[45]; // [esp+18h] [ebp-B8h] BYREF
+  _DWORD v11[45]; // [esp+18h] [ebp-B8h] BYREF
 
   ThreadInformation = 0;
-  if ( NtQueryInformationThread((HANDLE)0xFFFFFFFE, (THREADINFOCLASS)12, &ThreadInformation, 4u, 0) < 0
+  if ( NtQueryInformationThread((HANDLE)0xFFFFFFFE, ThreadAmILastThread, &ThreadInformation, 4u, 0) < 0
     || !ThreadInformation )
   {
     LdrShutdownThread();
-    TpCheckTerminateWorker(0);
-    ZwTerminateThread(0, a1);
   }
   if ( !EtwpLoggerArray )
   {
 LABEL_15:
     LdrpDrainWorkQueue((void *)((NtCurrentTeb()->SameTebFlags >> 12) & 1));
     LdrpAcquireLoaderLock();
-    RtlEnterCriticalSection((int)&FastPebLock);
-    RtlLockHeap((int)NtCurrentPeb()->ProcessHeap);
-    if ( (int)ZwTerminateProcess(0, a1) >= 0 )
+    RtlEnterCriticalSection(&FastPebLock);
+    RtlLockHeap(NtCurrentPeb()->ProcessHeap);
+    if ( ZwTerminateProcess(0, ExitStatus) >= 0 )
     {
       RtlUnlockProcessHeapOnProcessTerminate(v6);
-      dword_4B3A5B4C = (int)NtCurrentTeb()->ClientId.UniqueThread;
-      dword_4B3A5B44 = -2;
-      dword_4B3A5B48 = 1;
-      dword_4B3A5B50 = 0;
-      RtlLeaveCriticalSection((int)&FastPebLock);
-      RtlReportSilentProcessExit(-1, a1);
+      FastPebLock.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+      FastPebLock.LockCount = -2;
+      FastPebLock.RecursionCount = 1;
+      FastPebLock.LockSemaphore = 0;
+      RtlLeaveCriticalSection(&FastPebLock);
+      RtlReportSilentProcessExit((HANDLE)0xFFFFFFFF, ExitStatus);
       LdrShutdownProcess();
-      ZwTerminateProcess(-1, a1);
     }
-    RtlUnlockHeap(v6, (int)NtCurrentPeb()->ProcessHeap);
-    RtlLeaveCriticalSection((int)&FastPebLock);
+    RtlUnlockHeap(NtCurrentPeb()->ProcessHeap);
+    RtlLeaveCriticalSection(&FastPebLock);
     LdrpReleaseLoaderLock(v7, 18, 0, v7);
-    ZwTerminateThread(-2, a1);
+    ZwTerminateThread((HANDLE)0xFFFFFFFE, ExitStatus);
     __debugbreak();
   }
-  memset(v10, 0, 0xB0u);
-  v10[0] = 176;
-  v10[11] = 0x20000;
+  LODWORD(v8) = 176;
+  memset(v11, 0, v8);
+  v11[0] = 176;
+  v11[11] = 0x20000;
   v1 = 0;
   while ( 1 )
   {
     v2 = v1 & 0xFFFF7FFF;
-    v8 = v1 & 0xFFFF7FFF;
+    v9 = v1 & 0xFFFF7FFF;
     if ( EtwpLoggerArray )
     {
       if ( v2 < 0x40 )
         goto LABEL_10;
-      if ( !EtwpDemuxUmTraceHandle(v1, &v8) )
+      if ( !EtwpDemuxUmTraceHandle(v1, &v9) )
         break;
     }
 LABEL_14:
     if ( (unsigned int)++v1 >= 0x40 )
       goto LABEL_15;
   }
-  v2 = v8;
+  v2 = v9;
 LABEL_10:
   _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v2 + 4));
   if ( (*(_DWORD *)(EtwpLoggerArray + 8 * v2) & 1) != 0 )
@@ -110,9 +108,9 @@ LABEL_10:
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v5 + 4));
     if ( (v4 & 0x400) == 0 )
     {
-      v10[3] = 0;
-      v10[2] = v1;
-      EtwpStopUmLogger(v5, v10);
+      v11[3] = 0;
+      v11[2] = v1;
+      EtwpStopUmLogger(v5, v11);
     }
   }
   goto LABEL_14;

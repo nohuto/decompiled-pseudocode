@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCloneVadTree @ 0x1409618E4
+ * XREFs of MiCloneVadTree @ 0x140A075D8
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140961614 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140A07308 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiCloneVad @ 0x14030A8F8 (MiCloneVad.c)
- *     MiIsVadLargePrivate @ 0x14030B6CC (MiIsVadLargePrivate.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
+ *     MiCloneVad @ 0x1402EC978 (MiCloneVad.c)
+ *     MiIsVadLargePrivate @ 0x1402ED74C (MiIsVadLargePrivate.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
  */
 
 __int64 __fastcall MiCloneVadTree(const __m128i *a1)

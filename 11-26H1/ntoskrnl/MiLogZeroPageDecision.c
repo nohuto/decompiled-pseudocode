@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLogZeroPageDecision @ 0x14049165C
+ * XREFs of MiLogZeroPageDecision @ 0x14048B1AC
  * Callers:
- *     MiBackgroundZeroComplete @ 0x1404A543C (MiBackgroundZeroComplete.c)
- *     MiWakeZeroingThreads @ 0x14070ED28 (MiWakeZeroingThreads.c)
+ *     MiBackgroundZeroComplete @ 0x14049EACC (MiBackgroundZeroComplete.c)
+ *     MiWakeZeroingThreads @ 0x140713A28 (MiWakeZeroingThreads.c)
  * Callees:
- *     MiZeroPageLogEntriesMergable @ 0x140491788 (MiZeroPageLogEntriesMergable.c)
+ *     MiZeroPageLogEntriesMergable @ 0x14048B2D8 (MiZeroPageLogEntriesMergable.c)
  */
 
 void __fastcall MiLogZeroPageDecision(

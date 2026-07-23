@@ -1,13 +1,13 @@
 /*
- * XREFs of VfFreeMemoryNotification @ 0x140C45348
+ * XREFs of VfFreeMemoryNotification @ 0x140C4B358
  * Callers:
- *     VfPtFreePoolNotification @ 0x140C44F7C (VfPtFreePoolNotification.c)
- *     VfDriverUnloadImage @ 0x140C46D88 (VfDriverUnloadImage.c)
+ *     VfPtFreePoolNotification @ 0x140C4AF8C (VfPtFreePoolNotification.c)
+ *     VfDriverUnloadImage @ 0x140C4CD98 (VfDriverUnloadImage.c)
  * Callees:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1406470F8 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x14064725C (ViDeadlockRemoveMemoryRangeThreads.c)
- *     VfRemLockDeleteMemoryRange @ 0x140C453C8 (VfRemLockDeleteMemoryRange.c)
- *     ViDeadlockCanProceed @ 0x140C45460 (ViDeadlockCanProceed.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x14064ACD8 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x14064AE3C (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     VfRemLockDeleteMemoryRange @ 0x140C4B3D8 (VfRemLockDeleteMemoryRange.c)
+ *     ViDeadlockCanProceed @ 0x140C4B470 (ViDeadlockCanProceed.c)
  */
 
 __int64 __fastcall VfFreeMemoryNotification(unsigned __int64 a1, __int64 a2)

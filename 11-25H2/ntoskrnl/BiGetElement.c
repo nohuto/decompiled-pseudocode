@@ -12,29 +12,27 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiGetElement(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall BiGetElement(HANDLE BcdObjectHandle, ULONG BcdElement, _QWORD *a3, ULONG *a4)
 {
-  unsigned int v6; // ebp
-  int ElementData; // ebx
-  __int64 Pool2; // rax
+  NTSTATUS ElementData; // ebx
+  void *Pool2; // rax
   void *v10; // rdi
-  int v12; // [rsp+50h] [rbp+18h] BYREF
+  ULONG BufferSize; // [rsp+50h] [rbp+18h] BYREF
 
   *a3 = 0LL;
   *a4 = 0;
-  v12 = 0;
-  v6 = a2;
-  ElementData = BcdGetElementData(a1, a2, 0LL, &v12);
+  BufferSize = 0;
+  ElementData = BcdGetElementData(BcdObjectHandle, BcdElement, 0LL, &BufferSize);
   if ( ElementData == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(0x102uLL);
-    v10 = (void *)Pool2;
+    Pool2 = (void *)ExAllocatePool2(0x102uLL);
+    v10 = Pool2;
     if ( Pool2 )
     {
-      ElementData = BcdGetElementData(a1, v6, Pool2, &v12);
+      ElementData = BcdGetElementData(BcdObjectHandle, BcdElement, Pool2, &BufferSize);
       if ( ElementData >= 0 )
       {
-        *a4 = v12;
+        *a4 = BufferSize;
         *a3 = v10;
       }
       else

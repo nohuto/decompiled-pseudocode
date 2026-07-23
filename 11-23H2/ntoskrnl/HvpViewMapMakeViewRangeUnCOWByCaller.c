@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeUnCOWByCaller @ 0x140750708
+ * XREFs of HvpViewMapMakeViewRangeUnCOWByCaller @ 0x1407508F8
  * Callers:
- *     HvpViewMapUnCOWAndSealRange @ 0x140750654 (HvpViewMapUnCOWAndSealRange.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x140750844 (HvpViewMapUnCOWAndSealRange.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x140296CA8 (CmSiProtectViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x140296F38 (CmSiProtectViewOfSection.c)
  */
 
 void __fastcall HvpViewMapMakeViewRangeUnCOWByCaller(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -12,11 +12,11 @@ void __fastcall HvpViewMapMakeViewRangeUnCOWByCaller(__int64 a1, __int64 a2, __i
   __int64 v8; // rdx
   unsigned __int64 v9; // rdi
   char v10; // al
-  int v11; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
 
   if ( a3 < a4 )
   {
-    v11 = 0;
+    LODWORD(v11) = 0;
     v5 = a3;
     do
     {
@@ -26,12 +26,12 @@ void __fastcall HvpViewMapMakeViewRangeUnCOWByCaller(__int64 a1, __int64 a2, __i
       if ( (v10 & 2) != 0 )
       {
         CmSiProtectViewOfSection(
-          (__int64)&v11,
-          *(__int64 **)(a1 + 24),
-          v5 + *(_QWORD *)(a2 + 56) - v8,
-          4096LL,
+          (ULONG_PTR)&v11,
+          *(void ***)(a1 + 24),
+          (void *)(v5 + *(_QWORD *)(a2 + 56) - v8),
+          0x1000uLL,
           ((~v10 & 0xFC) << 29) | 2,
-          (__int64)&v11);
+          (ULONG *)&v11);
         *(_BYTE *)(v9 + a2 + 72) &= 0xF5u;
       }
       v5 += 4096LL;

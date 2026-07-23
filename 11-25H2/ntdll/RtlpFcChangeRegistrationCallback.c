@@ -7,9 +7,9 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpFcChangeRegistrationCallback(__int64 a1, __int64 a2)
+void __fastcall RtlpFcChangeRegistrationCallback(PTP_CALLBACK_INSTANCE a1, _RTL_SRWLOCK *a2, PTP_WORK a3)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 32));
-  (*(void (__fastcall **)(_QWORD))(a2 + 16))(*(_QWORD *)(a2 + 24));
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 32));
+  RtlAcquireSRWLockExclusive(a2 + 4);
+  ((void (__fastcall *)(unsigned __int64))a2[2].Value)(a2[3].Value);
+  RtlReleaseSRWLockExclusive(a2 + 4);
 }

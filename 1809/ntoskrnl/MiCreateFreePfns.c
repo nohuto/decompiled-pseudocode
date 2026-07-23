@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateFreePfns @ 0x1409BABA8
+ * XREFs of MiCreateFreePfns @ 0x1409BBBA8
  * Callers:
- *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
+ *     MiSwitchToPfns @ 0x1409BB954 (MiSwitchToPfns.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     MxReleaseFreeDescriptor @ 0x1409BA8A4 (MxReleaseFreeDescriptor.c)
- *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     MxReleaseFreeDescriptor @ 0x1409BB8A4 (MxReleaseFreeDescriptor.c)
+ *     MxCreateFreePfns @ 0x1409BBD10 (MxCreateFreePfns.c)
  */
 
 void __fastcall MiCreateFreePfns(__int128 *a1)
@@ -44,7 +44,7 @@ void __fastcall MiCreateFreePfns(__int128 *a1)
   v5 = *((_QWORD *)a1 + 4);
   if ( (v1 & 0x40000000) != 0 )
   {
-    v6 = qword_140A0D5B0;
+    v6 = qword_140A0E5B0;
     *((_DWORD *)a1 + 4) = v1 & 0xBFFFFFFF;
   }
   else

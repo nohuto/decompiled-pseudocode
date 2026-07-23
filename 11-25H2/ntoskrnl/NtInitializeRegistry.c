@@ -13,45 +13,45 @@
  *     SeSinglePrivilegeCheck @ 0x140858330 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 NtInitializeRegistry()
+NTSTATUS __cdecl NtInitializeRegistry(USHORT BootCondition)
 {
-  __int64 v0; // r9
+  __int64 v1; // r9
   struct _KTHREAD *CurrentThread; // r8
-  __int64 v2; // rdx
-  unsigned int v3; // r8d
-  __int128 v5; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v3; // rdx
+  NTSTATUS v4; // r8d
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
-  v5 = 0LL;
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v5);
+  v6 = 0LL;
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v6);
   CurrentThread = KeGetCurrentThread();
-  LOBYTE(v2) = CurrentThread->PreviousMode;
-  if ( (_BYTE)v2 )
+  LOBYTE(v3) = CurrentThread->PreviousMode;
+  if ( (_BYTE)v3 )
   {
-    if ( (_WORD)v0 == 5096 )
+    if ( (_WORD)v1 == 5096 )
     {
-      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, v2) )
+      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, v3) )
         CmpSyncNextBackupHive();
     }
     else
     {
-      ZwInitializeRegistry((unsigned __int16)v0, v2);
+      ZwInitializeRegistry(v1);
     }
   }
-  else if ( (unsigned __int16)(v0 - 4096) > 0x3E7u )
+  else if ( (unsigned __int16)(v1 - 4096) > 0x3E7u )
   {
-    if ( (_WORD)v0 == 2 )
+    if ( (_WORD)v1 == 2 )
     {
-      CmpHandlePageFileOpenNotification(999LL, v2, (__int64)CurrentThread, v0);
+      CmpHandlePageFileOpenNotification(999LL, v3, (__int64)CurrentThread, v1);
     }
-    else if ( (unsigned __int16)v0 < 2u )
+    else if ( (unsigned __int16)v1 < 2u )
     {
-      CmCompleteRegistryInitialization(v0);
+      CmCompleteRegistryInitialization(v1);
     }
   }
   else
   {
-    CmpAcceptBoot(v0);
+    CmpAcceptBoot(v1);
   }
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v5);
-  return v3;
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v6);
+  return v4;
 }

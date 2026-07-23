@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVadSupportsPhysicalContiguityQuery @ 0x1408D17CC
+ * XREFs of MiVadSupportsPhysicalContiguityQuery @ 0x1408D192C
  * Callers:
- *     MiProcessVaContiguityInformation @ 0x1405522C0 (MiProcessVaContiguityInformation.c)
+ *     MiProcessVaContiguityInformation @ 0x140552500 (MiProcessVaContiguityInformation.c)
  * Callees:
  *     <none>
  */

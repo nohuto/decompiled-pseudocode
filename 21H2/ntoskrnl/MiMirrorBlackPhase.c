@@ -1,13 +1,13 @@
 /*
  * XREFs of MiMirrorBlackPhase @ 0x1403F4064
  * Callers:
- *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14099625C (MmDuplicateMemory.c)
  * Callees:
- *     MiMirrorPerformBlackWrites @ 0x1403825C0 (MiMirrorPerformBlackWrites.c)
- *     MiIterateOverPartitions @ 0x1403841F0 (MiIterateOverPartitions.c)
- *     MiMirrorReduceBlackWrites @ 0x140385C70 (MiMirrorReduceBlackWrites.c)
- *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140534AD4 (MiMirrorReduceBlackToActiveAndPrivatePages.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x1409B0CD8 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorPerformBlackWrites @ 0x140382708 (MiMirrorPerformBlackWrites.c)
+ *     MiIterateOverPartitions @ 0x140384340 (MiIterateOverPartitions.c)
+ *     MiMirrorReduceBlackWrites @ 0x140385DC0 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140534D14 (MiMirrorReduceBlackToActiveAndPrivatePages.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x1409B1C08 (MiRemoveEnclavePagesFromMirror.c)
  */
 
 __int64 __fastcall MiMirrorBlackPhase(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiMirrorBlackPhase(__int64 a1)
   _QWORD *v12; // rdx
 
   v2 = *(_QWORD *)a1;
-  if ( qword_140C4EE80 )
+  if ( qword_140C4EEC0 )
     MiRemoveEnclavePagesFromMirror(*(_QWORD *)a1);
   v3 = *(_DWORD *)(a1 + 8);
   if ( (v3 & 0x40D) != 0 )
@@ -47,7 +47,7 @@ __int64 __fastcall MiMirrorBlackPhase(__int64 a1)
     {
       MiIterateOverPartitions((void (__fastcall *)(__int64, __int64))MiMirrorReduceBlackWrites, a1);
     }
-    v4 = (_QWORD *)qword_140C4E578;
+    v4 = (_QWORD *)qword_140C4E5B8;
     i = 0LL;
     while ( v4 )
     {
@@ -76,7 +76,7 @@ __int64 __fastcall MiMirrorBlackPhase(__int64 a1)
         }
       }
     }
-    for ( j = (_QWORD *)qword_140C4E568; j; j = (_QWORD *)*j )
+    for ( j = (_QWORD *)qword_140C4E5A8; j; j = (_QWORD *)*j )
       i = (unsigned __int64)j;
     while ( i )
     {

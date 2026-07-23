@@ -10,33 +10,35 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-NTSTATUS __fastcall SbpTraceContextUpdate(int a1, __int16 a2, int a3, __int16 a4, unsigned __int16 a5, int a6)
+ULONG __fastcall SbpTraceContextUpdate(unsigned int a1, __int16 a2, REGHANDLE RegHandle, unsigned __int16 a4, int a5)
 {
-  int v6; // eax
-  __int16 v8; // [esp+Ch] [ebp-8Ch] BYREF
-  _DWORD v9[33]; // [esp+10h] [ebp-88h] BYREF
+  ULONG v7; // eax
+  size_t v9; // [esp-4h] [ebp-9Ch]
+  _DWORD StackCookie[13]; // [esp+Ch] [ebp-8Ch] BYREF
+  _DWORD v11[21]; // [esp+40h] [ebp-58h] BYREF
 
-  v8 = a2;
-  v9[0] = a1;
-  v9[4] = &v8;
-  v9[8] = &a5;
-  v9[6] = 2;
-  v9[10] = 2;
-  v9[1] = 0;
-  v9[2] = 16;
-  v9[3] = 0;
-  v9[5] = 0;
-  v9[7] = 0;
-  v9[9] = 0;
-  memset(&v9[11], 0, 84);
-  v6 = 3;
-  if ( a5 )
+  LODWORD(v9) = 80;
+  memset(v11, 0, v9);
+  LOWORD(StackCookie[0]) = a2;
+  *(_QWORD *)&StackCookie[1] = a1;
+  StackCookie[5] = StackCookie;
+  StackCookie[9] = &a4;
+  StackCookie[7] = 2;
+  StackCookie[11] = 2;
+  StackCookie[3] = 16;
+  StackCookie[4] = 0;
+  StackCookie[6] = 0;
+  StackCookie[8] = 0;
+  StackCookie[10] = 0;
+  StackCookie[12] = 0;
+  v7 = 3;
+  if ( a4 )
   {
-    v9[12] = a6;
-    v9[14] = a5;
-    v9[13] = 0;
-    v9[15] = 0;
-    v6 = 4;
+    v11[0] = a5;
+    v11[2] = a4;
+    v11[1] = 0;
+    v11[3] = 0;
+    v7 = 4;
   }
-  return EtwEventWrite(a3, a4, AeSbContextUpdateEvent, v6, (int)v9);
+  return EtwEventWrite(RegHandle, &AeSbContextUpdateEvent, v7, (PEVENT_DATA_DESCRIPTOR)&StackCookie[1]);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPciInitSystem @ 0x140A916E0
+ * XREFs of HalpPciInitSystem @ 0x140A91560
  * Callers:
  *     <none>
  * Callees:

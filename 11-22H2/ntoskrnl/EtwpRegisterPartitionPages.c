@@ -132,10 +132,13 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
   ++EtwpMdlTable;
 LABEL_25:
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C31C10);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));

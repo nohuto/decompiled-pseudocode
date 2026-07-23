@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpConvertExclusiveToSharedLite @ 0x140120FD8
+ * XREFs of ExpConvertExclusiveToSharedLite @ 0x1401210A8
  * Callers:
- *     ExConvertExclusiveToSharedLite @ 0x140120F50 (ExConvertExclusiveToSharedLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140121020 (ExConvertExclusiveToSharedLite.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpApplyPriorityBoost @ 0x1400CEA20 (ExpApplyPriorityBoost.c)
- *     KeWakeWaitChain @ 0x140125BD8 (KeWakeWaitChain.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpApplyPriorityBoost @ 0x1400CEAA0 (ExpApplyPriorityBoost.c)
+ *     KeWakeWaitChain @ 0x140125CA8 (KeWakeWaitChain.c)
  */
 
 void __fastcall ExpConvertExclusiveToSharedLite(__int64 a1)

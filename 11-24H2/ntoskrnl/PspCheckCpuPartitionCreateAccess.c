@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCheckCpuPartitionCreateAccess @ 0x140776AB4
+ * XREFs of PspCheckCpuPartitionCreateAccess @ 0x140776CD4
  * Callers:
- *     PsCreateCpuPartition @ 0x14077643C (PsCreateCpuPartition.c)
+ *     PsCreateCpuPartition @ 0x14077665C (PsCreateCpuPartition.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeCreateAccessState @ 0x14083F490 (SeCreateAccessState.c)
- *     SeDeleteAccessState @ 0x140840F80 (SeDeleteAccessState.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeCreateAccessState @ 0x14083B750 (SeCreateAccessState.c)
+ *     SeDeleteAccessState @ 0x14083D240 (SeDeleteAccessState.c)
  */
 
 __int64 __fastcall PspCheckCpuPartitionCreateAccess(char a1)
@@ -30,7 +30,7 @@ __int64 __fastcall PspCheckCpuPartitionCreateAccess(char a1)
   {
     SeAccessCheckWithHint(
       PsCpuPartitionDefaultSd,
-      7u,
+      7,
       v6,
       0,
       0x2000000u,

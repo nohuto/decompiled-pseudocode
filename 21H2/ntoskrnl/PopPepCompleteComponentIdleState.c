@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepCompleteComponentIdleState @ 0x140574194
+ * XREFs of PopPepCompleteComponentIdleState @ 0x1405743D4
  * Callers:
- *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
+ *     PopFxProcessWork @ 0x140281D14 (PopFxProcessWork.c)
  * Callees:
- *     PopPepProcessEvent @ 0x140261A84 (PopPepProcessEvent.c)
- *     PopPepCountReadyActivities @ 0x140261BDC (PopPepCountReadyActivities.c)
- *     PopPepReleaseActivityLink @ 0x140261C28 (PopPepReleaseActivityLink.c)
- *     PopPepRequestWork @ 0x140261C9C (PopPepRequestWork.c)
- *     PopPepLockActivityLink @ 0x140261F78 (PopPepLockActivityLink.c)
- *     PopPlNotifyDeviceFState @ 0x1403A4A78 (PopPlNotifyDeviceFState.c)
+ *     PopPepProcessEvent @ 0x140282F54 (PopPepProcessEvent.c)
+ *     PopPepCountReadyActivities @ 0x1402830AC (PopPepCountReadyActivities.c)
+ *     PopPepReleaseActivityLink @ 0x1402830F8 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x14028316C (PopPepRequestWork.c)
+ *     PopPepLockActivityLink @ 0x140283448 (PopPepLockActivityLink.c)
+ *     PopPlNotifyDeviceFState @ 0x1403A4BC8 (PopPlNotifyDeviceFState.c)
  */
 
 __int64 __fastcall PopPepCompleteComponentIdleState(__int64 a1, unsigned int a2)

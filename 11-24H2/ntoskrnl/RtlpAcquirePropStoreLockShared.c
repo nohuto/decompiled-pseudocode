@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpAcquirePropStoreLockShared @ 0x1405EA26C
+ * XREFs of RtlpAcquirePropStoreLockShared @ 0x1405E77BC
  * Callers:
- *     RtlQueryPointerMapping @ 0x1405E9F00 (RtlQueryPointerMapping.c)
- *     RtlQueryPropertyStore @ 0x1405E9FC0 (RtlQueryPropertyStore.c)
+ *     RtlQueryPointerMapping @ 0x1405E7450 (RtlQueryPointerMapping.c)
+ *     RtlQueryPropertyStore @ 0x1405E7510 (RtlQueryPropertyStore.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int8 __fastcall RtlpAcquirePropStoreLockShared(PEX_SPIN_LOCK SpinLock)

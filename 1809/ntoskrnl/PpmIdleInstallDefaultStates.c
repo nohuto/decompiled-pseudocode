@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleInstallDefaultStates @ 0x14018B310
+ * XREFs of PpmIdleInstallDefaultStates @ 0x14018B450
  * Callers:
  *     <none>
  * Callees:
- *     PpmInstallNewIdleStates @ 0x14018B330 (PpmInstallNewIdleStates.c)
+ *     PpmInstallNewIdleStates @ 0x14018B470 (PpmInstallNewIdleStates.c)
  */
 
 __int64 __fastcall PpmIdleInstallDefaultStates(__int64 a1, __int64 a2)

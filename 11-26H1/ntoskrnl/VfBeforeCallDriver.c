@@ -1,16 +1,16 @@
 /*
- * XREFs of VfBeforeCallDriver @ 0x140C2C2D8
+ * XREFs of VfBeforeCallDriver @ 0x140C322E8
  * Callers:
- *     IovCallDriver @ 0x1404F36FC (IovCallDriver.c)
- *     IovCallDriverWithStackBuffer @ 0x140C2A83C (IovCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x1404ECCDC (IovCallDriver.c)
+ *     IovCallDriverWithStackBuffer @ 0x140C3084C (IovCallDriverWithStackBuffer.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     IovExpandIrpStackTracker @ 0x140C2A97C (IovExpandIrpStackTracker.c)
- *     IovExpandIrpTracker @ 0x140C2A9E4 (IovExpandIrpTracker.c)
- *     IovStatelessIoCallDriverRules @ 0x140C2AADC (IovStatelessIoCallDriverRules.c)
- *     IovpCallDriver1 @ 0x140C2B2B8 (IovpCallDriver1.c)
- *     VfGetPristineDispatchRoutine @ 0x140C2BE94 (VfGetPristineDispatchRoutine.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     IovExpandIrpStackTracker @ 0x140C3098C (IovExpandIrpStackTracker.c)
+ *     IovExpandIrpTracker @ 0x140C309F4 (IovExpandIrpTracker.c)
+ *     IovStatelessIoCallDriverRules @ 0x140C30AEC (IovStatelessIoCallDriverRules.c)
+ *     IovpCallDriver1 @ 0x140C312C8 (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x140C31EA4 (VfGetPristineDispatchRoutine.c)
  */
 
 void __fastcall VfBeforeCallDriver(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
@@ -38,10 +38,10 @@ void __fastcall VfBeforeCallDriver(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
       {
         if ( !*(_QWORD *)(v8 + 8) )
         {
-          v9 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27B08.WaitBlockFill11[152]);
+          v9 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27C48.WaitBlockFill11[168]);
           if ( v9
             || IovExpandIrpTracker()
-            && (v9 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27B08.WaitBlockFill11[152])) != 0LL )
+            && (v9 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27C48.WaitBlockFill11[168])) != 0LL )
           {
             *v9 = 0LL;
             _InterlockedIncrement(&IovIrpTrackerCount);
@@ -50,10 +50,10 @@ void __fastcall VfBeforeCallDriver(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
           }
         }
       }
-      v10 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27B08.LastXStateSaveDebugInfo);
+      v10 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27C48.QueueListEntry);
       if ( v10
         || IovExpandIrpStackTracker()
-        && (v10 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27B08.LastXStateSaveDebugInfo)) != 0LL )
+        && (v10 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27C48.QueueListEntry)) != 0LL )
       {
         *v10 = 0LL;
         v10[1] = 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCloneCaptureVadCommit @ 0x14054504C
+ * XREFs of MiCloneCaptureVadCommit @ 0x14054528C
  * Callers:
- *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8BF0 (MiAllocateChildVads.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
- *     MiCloneDiscardVadCommit @ 0x1408D0DE4 (MiCloneDiscardVadCommit.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiGetNextPageTable @ 0x140318570 (MiGetNextPageTable.c)
+ *     MiCloneDiscardVadCommit @ 0x1408D0F44 (MiCloneDiscardVadCommit.c)
  */
 
 __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
@@ -57,7 +57,7 @@ __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)
   v21 = v10;
   while ( v8 <= v12 )
   {
-    NextPageTable = MiGetNextPageTable(v8, v12, 0LL, v11, 4u, &v22);
+    NextPageTable = MiGetNextPageTable(v8, v12, 0LL, v11, 4, &v22);
     if ( !NextPageTable )
       break;
     v14 = NextPageTable & 0xFFFFFFFFFFFFF000uLL;

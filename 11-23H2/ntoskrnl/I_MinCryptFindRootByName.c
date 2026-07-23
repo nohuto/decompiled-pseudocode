@@ -1,9 +1,9 @@
 /*
- * XREFs of I_MinCryptFindRootByName @ 0x140A6F688
+ * XREFs of I_MinCryptFindRootByName @ 0x140A6F938
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6F858 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6FB08 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
  */
 
 __int64 *__fastcall I_MinCryptFindRootByName(const void **a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 *__fastcall I_MinCryptFindRootByName(const void **a1, __int64 a2)
   SIZE_T v10; // rax
 
   v2 = 0;
-  v3 = (const void **)&off_140A7B818;
+  v3 = (const void **)&off_140A7BAC8;
   v4 = a1;
   v5 = 0;
   LODWORD(a1) = *(_DWORD *)a1;
@@ -38,7 +38,7 @@ __int64 *__fastcall I_MinCryptFindRootByName(const void **a1, __int64 a2)
   if ( !a2 || (*(_DWORD *)(a2 + 4) & 0x80u) == 0 )
     return 0LL;
   LODWORD(v8) = *(_DWORD *)v4;
-  for ( i = (const void **)&off_140A79168; ; i += 5 )
+  for ( i = (const void **)&off_140A79418; ; i += 5 )
   {
     if ( (_DWORD)v8 == *((_DWORD *)i - 2) )
     {

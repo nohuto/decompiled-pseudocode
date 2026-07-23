@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDeleteFinalPageTables @ 0x1404CE05C
+ * XREFs of MiDeleteFinalPageTables @ 0x1404C7A8C
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140B3F940 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140B41970 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiDeleteVirtualAddresses @ 0x1403617EC (MiDeleteVirtualAddresses.c)
- *     MiDeleteProcessShadow @ 0x140483DCC (MiDeleteProcessShadow.c)
- *     KeFlushProcessTb @ 0x1404840AC (KeFlushProcessTb.c)
- *     MiDeleteTopLevelPage @ 0x1404840DC (MiDeleteTopLevelPage.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PsUnlinkProcessFromSession @ 0x140AF6EB4 (PsUnlinkProcessFromSession.c)
- *     MiDeleteVadBitmap @ 0x140AFAF24 (MiDeleteVadBitmap.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiDeleteVirtualAddresses @ 0x14036358C (MiDeleteVirtualAddresses.c)
+ *     MiDeleteProcessShadow @ 0x14047D73C (MiDeleteProcessShadow.c)
+ *     KeFlushProcessTb @ 0x14047DA1C (KeFlushProcessTb.c)
+ *     MiDeleteTopLevelPage @ 0x14047DA4C (MiDeleteTopLevelPage.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PsUnlinkProcessFromSession @ 0x140AF9554 (PsUnlinkProcessFromSession.c)
+ *     MiDeleteVadBitmap @ 0x140AFCE30 (MiDeleteVadBitmap.c)
  */
 
 __int64 __fastcall MiDeleteFinalPageTables(_KPROCESS *BugCheckParameter2)
@@ -52,8 +52,8 @@ __int64 __fastcall MiDeleteFinalPageTables(_KPROCESS *BugCheckParameter2)
   {
     if ( i )
     {
-      v7 = qword_140E2D638;
-      if ( !qword_140E2D638 )
+      v7 = qword_140E2D7B8;
+      if ( !qword_140E2D7B8 )
         continue;
     }
     else
@@ -83,7 +83,7 @@ __int64 __fastcall MiDeleteFinalPageTables(_KPROCESS *BugCheckParameter2)
   KiUnstackDetachProcess((__int64)v18, 0);
   _interlockedbittestandset((volatile signed __int32 *)&BugCheckParameter2->136, 0xBu);
   PsUnlinkProcessFromSession(BugCheckParameter2);
-  v10 = ExAcquireSpinLockExclusive(&dword_140E36080);
+  v10 = ExAcquireSpinLockExclusive(&dword_140E36200);
   Flink = BugCheckParameter2[2].CpuPartitionList.Flink;
   if ( Flink->Blink != &BugCheckParameter2[2].CpuPartitionList
     || (Blink = BugCheckParameter2[2].CpuPartitionList.Blink, Blink->Flink != &BugCheckParameter2[2].CpuPartitionList) )
@@ -93,9 +93,9 @@ __int64 __fastcall MiDeleteFinalPageTables(_KPROCESS *BugCheckParameter2)
   Blink->Flink = Flink;
   Flink->Blink = Blink;
   if ( v10 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36080);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36200);
   else
-    ExReleaseSpinLockExclusive(&dword_140E36080, v10);
+    ExReleaseSpinLockExclusive(&dword_140E36200, v10);
   KeFlushProcessTb(BugCheckParameter2->DirectoryTableBase);
   v14 = (unsigned int)MiDeleteTopLevelPage(v13, BugCheckParameter2->DirectoryTableBase >> 12) == 3;
   result = *((_QWORD *)&v16[0] + 1);

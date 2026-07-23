@@ -1,16 +1,16 @@
 /*
- * XREFs of CarInitializeTelemetryData @ 0x140649C90
+ * XREFs of CarInitializeTelemetryData @ 0x14064D870
  * Callers:
- *     CarReportDifPluginRuleViolation @ 0x14064A330 (CarReportDifPluginRuleViolation.c)
+ *     CarReportDifPluginRuleViolation @ 0x14064DF10 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     wcsncpy_s @ 0x14053CCA0 (wcsncpy_s.c)
- *     CarGetDriverInfoFromDriverName @ 0x140648F10 (CarGetDriverInfoFromDriverName.c)
- *     CarGetDriverInfoFromViolationStack @ 0x140648F98 (CarGetDriverInfoFromViolationStack.c)
- *     AppendUlongAsHexadecimalW @ 0x14064C848 (AppendUlongAsHexadecimalW.c)
- *     CarEtwCopyDriverName @ 0x14064C8E4 (CarEtwCopyDriverName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     wcsncpy_s @ 0x14053F120 (wcsncpy_s.c)
+ *     CarGetDriverInfoFromDriverName @ 0x14064CAF0 (CarGetDriverInfoFromDriverName.c)
+ *     CarGetDriverInfoFromViolationStack @ 0x14064CB78 (CarGetDriverInfoFromViolationStack.c)
+ *     AppendUlongAsHexadecimalW @ 0x140650428 (AppendUlongAsHexadecimalW.c)
+ *     CarEtwCopyDriverName @ 0x1406504C4 (CarEtwCopyDriverName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CarInitializeTelemetryData(
@@ -33,7 +33,7 @@ __int64 __fastcall CarInitializeTelemetryData(
     return 3221225711LL;
   *(_DWORD *)(a1 + 1120) = a3;
   v10 = (_QWORD *)(a1 + 1128);
-  *(_DWORD *)a1 = *(_DWORD *)&stru_140F066E8.WaitBlockFill11[40];
+  *(_DWORD *)a1 = CarTipTag;
   RtlCaptureStackBackTrace(5u, 0x14u, (PVOID *)(a1 + 1128), 0LL);
   *(_QWORD *)(a1 + 1112) = a5;
   if ( !a4 )

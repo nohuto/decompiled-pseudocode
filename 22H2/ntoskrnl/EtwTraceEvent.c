@@ -158,7 +158,7 @@ __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int64 a2, unsigned int a
               v14 = v41;
             }
           }
-          v22 = (char *)EtwpReserveTraceBuffer(v11, v15, (__int64)&v47, v46, 0);
+          v22 = (char *)EtwpReserveTraceBuffer((unsigned int *)v11, v15, (__int64)&v47, v46, 0);
           v23 = v22;
           v46[2].QuadPart = (LONGLONG)v22;
           if ( v22 )

@@ -8,29 +8,29 @@
  *     ZwQueryInformationProcess @ 0x1800A5620 (ZwQueryInformationProcess.c)
  */
 
-__int64 sub_180095680()
+__int64 __fastcall sub_180095680(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  int v0; // eax
-  int *v1; // r9
-  unsigned __int64 v2; // r8
-  __int64 v3; // r10
+  int v3; // eax
+  int *v4; // r9
+  unsigned __int64 v5; // r8
+  __int64 v6; // r10
   __int64 result; // rax
-  int v5; // [rsp+58h] [rbp+20h] BYREF
+  int ProcessInformation; // [rsp+58h] [rbp+20h] BYREF
 
-  v0 = ZwQueryInformationProcess(-1LL, 36LL, &v5, 4LL, 0LL);
-  if ( v0 < 0 )
-    RtlRaiseStatus(v0);
-  v1 = dword_1801596A0;
-  LODWORD(v2) = dword_18016B358 ^ v5;
-  v3 = 128LL;
+  v3 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
+  if ( v3 < 0 )
+    RtlRaiseStatus(v3);
+  v4 = dword_1801596A0;
+  LODWORD(v5) = LdrSystemDllInitBlock.RngData ^ ProcessInformation;
+  v6 = 128LL;
   do
   {
-    v2 = (2147483629 * (unsigned __int64)(unsigned int)v2 + 2147483587) % 0x7FFFFFFF;
-    *v1++ = v2;
-    --v3;
+    v5 = (2147483629 * (unsigned __int64)(unsigned int)v5 + 2147483587) % 0x7FFFFFFF;
+    *v4++ = v5;
+    --v6;
   }
-  while ( v3 );
+  while ( v6 );
   result = 1LL;
-  dword_1801598A0 = (2147483629 * (unsigned __int64)(unsigned int)v2 + 2147483587) % 0x7FFFFFFF;
+  dword_1801598A0 = (2147483629 * (unsigned __int64)(unsigned int)v5 + 2147483587) % 0x7FFFFFFF;
   return result;
 }

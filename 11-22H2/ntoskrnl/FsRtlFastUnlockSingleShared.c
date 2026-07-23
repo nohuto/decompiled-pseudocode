@@ -34,7 +34,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   unsigned int v15; // edi
   unsigned __int64 v16; // rbp
   __int64 FirstOverlappingSharedNode; // rax
-  RTL_SPLAY_LINKS *v18; // r9
+  _RTL_SPLAY_LINKS *v18; // r9
   _QWORD *v19; // rsi
   unsigned __int64 v20; // rax
   _QWORD *v21; // r14
@@ -73,7 +73,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
     goto LABEL_27;
   v42 = *a4 + v9 - 1;
   FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(v14, (unsigned int)&v39, (unsigned int)&v42, 0, 0LL);
-  v18 = (RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
+  v18 = (_RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
   if ( !FirstOverlappingSharedNode )
     goto LABEL_27;
   v19 = (_QWORD *)(FirstOverlappingSharedNode - 24);
@@ -126,10 +126,13 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
     if ( !a8 && *(_QWORD *)(a1 + 16) )
     {
       KxReleaseSpinLock((volatile signed __int64 *)v10);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v16 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -148,10 +151,10 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
     if ( a9 && *(_QWORD *)(v10 + 24) )
       FsRtlPrivateCheckWaitingLocks(a1, v10, v16);
     KxReleaseSpinLock((volatile signed __int64 *)v10);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v31 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v31 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v31 >= 2u )
       {
         v32 = KeGetCurrentPrcb();
         v33 = v32->SchedulerAssist;
@@ -167,10 +170,10 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   {
 LABEL_27:
     KxReleaseSpinLock((volatile signed __int64 *)v10);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v35 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v35 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v35 >= 2u )
       {
         v36 = KeGetCurrentPrcb();
         v37 = v36->SchedulerAssist;

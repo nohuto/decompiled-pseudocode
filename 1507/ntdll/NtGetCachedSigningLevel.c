@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtGetCachedSigningLevel()
+NTSTATUS __cdecl NtGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 225LL;
+  result = 225;
   __asm { syscall; Low latency system call }
   return result;
 }

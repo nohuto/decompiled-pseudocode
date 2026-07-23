@@ -1,9 +1,9 @@
 /*
- * XREFs of SepZwLockRegistryKey @ 0x140764380
+ * XREFs of SepZwLockRegistryKey @ 0x140765570
  * Callers:
  *     <none>
  * Callees:
- *     ZwLockRegistryKey @ 0x1401BA250 (ZwLockRegistryKey.c)
+ *     ZwLockRegistryKey @ 0x1401BA3B0 (ZwLockRegistryKey.c)
  */
 
 NTSTATUS __fastcall SepZwLockRegistryKey(void *a1)

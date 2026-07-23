@@ -3,8 +3,8 @@
  * Callers:
  *     EmpParseTargetRules @ 0x140B56A50 (EmpParseTargetRules.c)
  * Callees:
- *     strchr @ 0x1403DB0A0 (strchr.c)
- *     RtlCharToInteger @ 0x1408252E0 (RtlCharToInteger.c)
+ *     strchr @ 0x1403DB280 (strchr.c)
+ *     RtlCharToInteger @ 0x1408255E0 (RtlCharToInteger.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     EmpInfParseGetStringIndexFromName @ 0x140B56F0C (EmpInfParseGetStringIndexFromName.c)
@@ -29,12 +29,12 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
   __int64 v15; // r13
   _BYTE *v16; // r15
   unsigned __int64 v17; // rsi
-  char *Pool2; // rax
-  char *v19; // r14
-  char *v20; // rcx
+  CHAR *Pool2; // rax
+  CHAR *v19; // r14
+  CHAR *v20; // rcx
   __int64 v21; // r15
-  char v22; // al
-  char *v23; // rax
+  CHAR v22; // al
+  CHAR *v23; // rax
   __int64 v24; // rcx
   unsigned int v26; // [rsp+20h] [rbp-58h]
   int v27; // [rsp+24h] [rbp-54h]
@@ -131,7 +131,7 @@ LABEL_8:
         v9 = 1;
         v8 = v26;
       }
-      Pool2 = (char *)ExAllocatePool2(256LL, a2 - v16 + 1, 0x74694D45u);
+      Pool2 = (CHAR *)ExAllocatePool2(256LL, a2 - v16 + 1, 0x74694D45u);
       v19 = Pool2;
       if ( Pool2 && v17 <= 0x7FFFFFFF )
       {

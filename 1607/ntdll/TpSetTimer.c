@@ -1,5 +1,5 @@
 /*
- * XREFs of TpSetTimer @ 0x18003BFF0
+ * XREFs of TpSetTimer @ 0x18003BFE0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 TpSetTimer()
+void __cdecl TpSetTimer(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  return TpSetTimerEx();
+  TpSetTimerEx(Timer, DueTime, Period, WindowLength);
 }

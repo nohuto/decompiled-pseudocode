@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpAcpiPmRegisterRead @ 0x14046B750
+ * XREFs of HalpAcpiPmRegisterRead @ 0x140464ED0
  * Callers:
- *     HaliHaltSystem @ 0x14057F6B0 (HaliHaltSystem.c)
- *     HalpCheckPowerButton @ 0x14057F750 (HalpCheckPowerButton.c)
- *     HalpShutdown @ 0x14057FA90 (HalpShutdown.c)
- *     HaliAcpiSleep @ 0x1405A2710 (HaliAcpiSleep.c)
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
- *     HalpDpPostReplace @ 0x140BEDF84 (HalpDpPostReplace.c)
- *     HalpDpPreReplace @ 0x140BEE240 (HalpDpPreReplace.c)
- *     HalpAcpiPreSleep @ 0x140C08988 (HalpAcpiPreSleep.c)
- *     HalpCheckFixedWakeSources @ 0x140C0D340 (HalpCheckFixedWakeSources.c)
+ *     HaliHaltSystem @ 0x140581BD0 (HaliHaltSystem.c)
+ *     HalpCheckPowerButton @ 0x140581C70 (HalpCheckPowerButton.c)
+ *     HalpShutdown @ 0x140581FB0 (HalpShutdown.c)
+ *     HaliAcpiSleep @ 0x1405A4F20 (HaliAcpiSleep.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
+ *     HalpDpPostReplace @ 0x140BF3F84 (HalpDpPostReplace.c)
+ *     HalpDpPreReplace @ 0x140BF4240 (HalpDpPreReplace.c)
+ *     HalpAcpiPreSleep @ 0x140C0EB98 (HalpAcpiPreSleep.c)
+ *     HalpCheckFixedWakeSources @ 0x140C13550 (HalpCheckFixedWakeSources.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpAcpiPmRegisterRead(int a1, unsigned int a2, __int64 a3, unsigned int a4, _DWORD *a5)

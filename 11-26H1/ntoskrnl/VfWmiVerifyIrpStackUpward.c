@@ -1,12 +1,12 @@
 /*
- * XREFs of VfWmiVerifyIrpStackUpward @ 0x140C3B500
+ * XREFs of VfWmiVerifyIrpStackUpward @ 0x140C41510
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     ViErrorReport10 @ 0x140645720 (ViErrorReport10.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     ViErrorReport10 @ 0x140649300 (ViErrorReport10.c)
  */
 
 __int64 __fastcall VfWmiVerifyIrpStackUpward(const void **a1, __int64 a2, __int64 a3, __int64 a4, int a5)

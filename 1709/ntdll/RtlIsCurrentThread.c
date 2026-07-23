@@ -6,7 +6,7 @@
  *     NtCompareObjects @ 0x1800A13B0 (NtCompareObjects.c)
  */
 
-bool __fastcall RtlIsCurrentThread(__int64 a1)
+BOOLEAN __cdecl RtlIsCurrentThread(HANDLE ThreadHandle)
 {
-  return a1 == -2 || (int)NtCompareObjects(-2LL, a1) >= 0;
+  return ThreadHandle == (HANDLE)-2LL || NtCompareObjects((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadHandle) >= 0;
 }

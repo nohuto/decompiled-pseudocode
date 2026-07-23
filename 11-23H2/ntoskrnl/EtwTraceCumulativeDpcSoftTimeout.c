@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceCumulativeDpcSoftTimeout @ 0x1405FC924
+ * XREFs of EtwTraceCumulativeDpcSoftTimeout @ 0x1405FCE94
  * Callers:
- *     KiDpcWatchdogCounterReset @ 0x140346514 (KiDpcWatchdogCounterReset.c)
+ *     KiDpcWatchdogCounterReset @ 0x1403467A4 (KiDpcWatchdogCounterReset.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceCumulativeDpcSoftTimeout(__int64 a1, __int64 a2, int a3, int a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of LockRMLog @ 0x1408AD924
+ * XREFs of LockRMLog @ 0x1408B3D64
  * Callers:
- *     CmpStartRMLog @ 0x1408AC340 (CmpStartRMLog.c)
- *     CmpStopRMLog @ 0x1408ACBAC (CmpStopRMLog.c)
- *     CmpAccountForLogReservation @ 0x1408ACE58 (CmpAccountForLogReservation.c)
- *     CmpCleanupTransactionState @ 0x1408ACEE8 (CmpCleanupTransactionState.c)
- *     CmpTransWriteLog @ 0x1408AD634 (CmpTransWriteLog.c)
+ *     CmpStartRMLog @ 0x1408B2784 (CmpStartRMLog.c)
+ *     CmpStopRMLog @ 0x1408B2FF0 (CmpStopRMLog.c)
+ *     CmpAccountForLogReservation @ 0x1408B3298 (CmpAccountForLogReservation.c)
+ *     CmpCleanupTransactionState @ 0x1408B3328 (CmpCleanupTransactionState.c)
+ *     CmpTransWriteLog @ 0x1408B3A74 (CmpTransWriteLog.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall LockRMLog(__int64 a1)

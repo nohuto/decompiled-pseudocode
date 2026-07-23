@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
+ *     sub_1402828F0 @ 0x1402828F0 (sub_1402828F0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -13,7 +13,7 @@ __int64 __fastcall MmSetPermanentCacheAttribute(unsigned __int64 a1, unsigned __
   __int64 result; // rax
   unsigned __int64 v5; // rsi
   unsigned __int64 v6; // rdi
-  PVOID Pool; // rax
+  PVOID v7; // rax
   void *v8; // rbx
   PVOID v9; // [rsp+20h] [rbp-18h] BYREF
   int v10; // [rsp+28h] [rbp-10h]
@@ -34,16 +34,16 @@ __int64 __fastcall MmSetPermanentCacheAttribute(unsigned __int64 a1, unsigned __
     return 3221225712LL;
   if ( a3 != 1 )
     return 3221225713LL;
-  Pool = MiAllocatePool(64, 0x30uLL, 0x6F49694Du);
-  v8 = Pool;
-  if ( !Pool )
+  v7 = sub_1402828F0(64, 0x30uLL, 0x6F49694Du);
+  v8 = v7;
+  if ( !v7 )
     return 3221225626LL;
-  *((_QWORD *)Pool + 3) = v5;
-  *((_DWORD *)Pool + 10) = 1;
-  *((_QWORD *)Pool + 4) = v5 + v6 - 1;
+  *((_QWORD *)v7 + 3) = v5;
+  *((_DWORD *)v7 + 10) = 1;
+  *((_QWORD *)v7 + 4) = v5 + v6 - 1;
   v10 = 0;
-  v9 = Pool;
-  KeGenericCallDpc((__int64)MiMakeIoRangePermanentDpc, (__int64)&v9);
+  v9 = v7;
+  KeGenericCallDpc((__int64)sub_140591A10, (__int64)&v9);
   result = (unsigned int)v10;
   if ( v10 < 0 )
   {

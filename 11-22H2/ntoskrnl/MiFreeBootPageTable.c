@@ -34,10 +34,13 @@ __int64 __fastcall MiFreeBootPageTable(ULONG_PTR BugCheckParameter2)
     *(_WORD *)(v1 + 32) = 0;
     *(_BYTE *)(v1 + 34) = v4 & 0xF8 | 5;
     _InterlockedAnd64((volatile signed __int64 *)(v1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));

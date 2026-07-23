@@ -15,91 +15,95 @@
  *     memset @ 0x140411300 (memset.c)
  */
 
-__int64 __fastcall RtlInitializeExtendedContext2(__int64 a1, int a2, _QWORD *a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlInitializeExtendedContext2(
+        PCONTEXT Context,
+        ULONG ContextFlags,
+        PCONTEXT_EX *ContextEx,
+        ULONG64 EnabledExtendedFeatures)
 {
-  _DWORD *v4; // rbx
-  unsigned __int64 v5; // r14
+  _CONTEXT_EX *v4; // rbx
+  ULONG64 v5; // r14
   char v7; // r8
   _DWORD *v8; // rcx
-  int v9; // ecx
-  __int64 result; // rax
-  unsigned int v11; // ebp
-  unsigned int v12; // esi
-  unsigned int v13; // esi
+  ULONG Length; // ecx
+  NTSTATUS result; // eax
+  ULONG v11; // ebp
+  LONG v12; // esi
+  ULONG v13; // esi
 
   v4 = 0LL;
-  v5 = a4;
-  if ( (a2 & 0x27FFFF80) != 0x10000
-    && (a2 & 0x27FFFFA0) != 0x100000
-    && (a2 & 0x7FFFFF0) != 0x200000
-    && (a2 & 0x7FFFFE0) != 0x400000 )
+  v5 = EnabledExtendedFeatures;
+  if ( (ContextFlags & 0x27FFFF80) != 0x10000
+    && (ContextFlags & 0x27FFFFA0) != 0x100000
+    && (ContextFlags & 0x7FFFFF0) != 0x200000
+    && (ContextFlags & 0x7FFFFE0) != 0x400000 )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
   v7 = 1;
-  if ( (a2 & 0x100040) == 1048640 || (a2 & 0x10040) == 65600 )
+  if ( (ContextFlags & 0x100040) == 1048640 || (ContextFlags & 0x10040) == 65600 )
   {
     if ( !MEMORY[0xFFFFF780000003D8] )
-      return 3221225659LL;
+      return -1073741637;
     v7 = 3;
   }
-  if ( (a2 & 0x10000) != 0 )
+  if ( (ContextFlags & 0x10000) != 0 )
   {
-    v8 = (_DWORD *)((a1 + 3) & 0xFFFFFFFFFFFFFFFCuLL);
-    v4 = v8 + 179;
+    v8 = (_DWORD *)(((unsigned __int64)&Context->P1Home + 3) & 0xFFFFFFFFFFFFFFFCuLL);
+    v4 = (_CONTEXT_EX *)(v8 + 179);
 LABEL_16:
-    *v8 = a2;
+    *v8 = ContextFlags;
     goto LABEL_8;
   }
-  if ( (a2 & 0x100000) == 0 )
+  if ( (ContextFlags & 0x100000) == 0 )
   {
-    if ( (a2 & 0x200000) != 0 )
+    if ( (ContextFlags & 0x200000) != 0 )
     {
-      v8 = (_DWORD *)((a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
-      v4 = v8 + 104;
+      v8 = (_DWORD *)(((unsigned __int64)&Context->P1Home + 7) & 0xFFFFFFFFFFFFFFF8uLL);
+      v4 = (_CONTEXT_EX *)(v8 + 104);
     }
     else
     {
-      if ( (a2 & 0x400000) == 0 )
+      if ( (ContextFlags & 0x400000) == 0 )
         goto LABEL_9;
-      v8 = (_DWORD *)((a1 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
-      v4 = v8 + 228;
+      v8 = (_DWORD *)(((unsigned __int64)&Context->P2Home + 7) & 0xFFFFFFFFFFFFFFF0uLL);
+      v4 = (_CONTEXT_EX *)(v8 + 228);
     }
     goto LABEL_16;
   }
-  v8 = (_DWORD *)((a1 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
-  v8[12] = a2;
-  v4 = v8 + 308;
+  v8 = (_DWORD *)(((unsigned __int64)&Context->P2Home + 7) & 0xFFFFFFFFFFFFFFF0uLL);
+  v8[12] = ContextFlags;
+  v4 = (_CONTEXT_EX *)(v8 + 308);
 LABEL_8:
-  v4[3] = (_DWORD)v4 - (_DWORD)v8;
+  v4->Legacy.Length = (_DWORD)v4 - (_DWORD)v8;
 LABEL_9:
-  v9 = v4[3];
-  v4[2] = -v9;
-  *v4 = -v9;
-  v4[1] = v9 + 24;
-  if ( (a2 & 0x10020) != 65568 && (a2 & 0x10000) != 0 )
-    v4[3] = 204;
+  Length = v4->Legacy.Length;
+  v4->Legacy.Offset = -Length;
+  v4->All.Offset = -Length;
+  v4->All.Length = Length + 24;
+  if ( (ContextFlags & 0x10020) != 65568 && (ContextFlags & 0x10000) != 0 )
+    v4->Legacy.Length = 204;
   if ( (v7 & 2) != 0 )
   {
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-      v5 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL) & a4;
+      v5 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL) & EnabledExtendedFeatures;
     v11 = RtlpGetEntireXStateAreaLength(v5) - 512;
-    memset((void *)(((unsigned __int64)v4 + 87) & 0xFFFFFFFFFFFFFFC0uLL), 0, v11);
+    memset((void *)(((unsigned __int64)&v4[2].XState.Length + 3) & 0xFFFFFFFFFFFFFFC0uLL), 0, v11);
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-      *(_QWORD *)((((unsigned __int64)v4 + 87) & 0xFFFFFFFFFFFFFFC0uLL) + 8) = v5 | 0x8000000000000000uLL;
+      *(_QWORD *)((((unsigned __int64)&v4[2].XState.Length + 3) & 0xFFFFFFFFFFFFFFC0uLL) + 8) = v5 | 0x8000000000000000uLL;
     v12 = (((_DWORD)v4 + 87) & 0xFFFFFFC0) - (_DWORD)v4;
-    v4[4] = v12;
-    v13 = v11 + v12 - *v4;
-    v4[5] = v11;
-    result = 0LL;
-    v4[1] = v13;
-    *a3 = v4;
+    v4->XState.Offset = v12;
+    v13 = v11 + v12 - v4->All.Offset;
+    v4->XState.Length = v11;
+    result = 0;
+    v4->All.Length = v13;
+    *ContextEx = v4;
   }
   else
   {
-    *((_QWORD *)v4 + 2) = 25LL;
-    result = 0LL;
-    *a3 = v4;
+    v4->XState = (CONTEXT_CHUNK)25LL;
+    result = 0;
+    *ContextEx = v4;
   }
   return result;
 }

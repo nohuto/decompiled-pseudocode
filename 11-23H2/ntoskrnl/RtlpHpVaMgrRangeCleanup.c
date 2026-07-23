@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpVaMgrRangeFree @ 0x140210970 (RtlpHpVaMgrRangeFree.c)
  * Callees:
- *     RtlCSparseBitmapBitsClear @ 0x140315408 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140315698 (RtlCSparseBitmapBitsClear.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeCleanup(__int64 a1, char *a2)

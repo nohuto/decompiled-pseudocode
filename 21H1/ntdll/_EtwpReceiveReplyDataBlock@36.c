@@ -9,70 +9,73 @@
  *     _ZwTraceControl@24 @ 0x4B2F45B0 (_ZwTraceControl@24.c)
  */
 
-int __fastcall EtwpReceiveReplyDataBlock(
+NTSTATUS __fastcall EtwpReceiveReplyDataBlock(
         int a1,
         unsigned int a2,
         char a3,
         unsigned int a4,
-        int a5,
-        int a6,
-        unsigned int *a7,
-        _DWORD *a8,
-        int a9)
+        char *OutputBuffer,
+        SIZE_T Size,
+        _DWORD *a7,
+        int a8)
 {
-  int v9; // esi
-  int v10; // ebx
-  unsigned __int64 v11; // kr10_8
-  unsigned int v12; // ecx
-  ULONG v13; // eax
-  int v14; // edx
-  int v15; // ecx
-  int v16; // edi
-  unsigned int v17; // edx
-  int v19; // [esp-4h] [ebp-60h]
-  _DWORD v20[2]; // [esp+Ch] [ebp-50h] BYREF
-  int v21; // [esp+14h] [ebp-48h] BYREF
+  NTSTATUS v8; // esi
+  char *v9; // ebx
+  unsigned __int64 v10; // kr10_8
+  ULONG v11; // ecx
+  ULONG v12; // eax
+  int v13; // edx
+  _WORD *v14; // ecx
+  char *v15; // edi
+  unsigned int v16; // edx
+  SIZE_T v18; // [esp-4h] [ebp-60h]
+  SIZE_T v19; // [esp-4h] [ebp-60h]
+  int v20; // [esp-4h] [ebp-60h]
+  _DWORD InputBuffer[2]; // [esp+Ch] [ebp-50h] BYREF
+  ULONG v22; // [esp+14h] [ebp-48h] BYREF
   NTSTATUS Status; // [esp+18h] [ebp-44h]
-  unsigned int v23; // [esp+1Ch] [ebp-40h]
-  unsigned int v24; // [esp+20h] [ebp-3Ch]
-  _DWORD *v25; // [esp+24h] [ebp-38h]
-  int v26; // [esp+28h] [ebp-34h]
-  int v27; // [esp+2Ch] [ebp-30h]
-  unsigned int v28; // [esp+30h] [ebp-2Ch]
-  int Heap; // [esp+34h] [ebp-28h]
-  unsigned int v30; // [esp+38h] [ebp-24h]
-  int v31; // [esp+3Ch] [ebp-20h]
-  unsigned int v32; // [esp+40h] [ebp-1Ch]
-  int v33; // [esp+44h] [ebp-18h]
-  unsigned int v34; // [esp+48h] [ebp-14h]
-  int v35; // [esp+4Ch] [ebp-10h]
-  unsigned int v36; // [esp+50h] [ebp-Ch] BYREF
-  __int16 v37[3]; // [esp+54h] [ebp-8h] BYREF
-  char v38; // [esp+5Bh] [ebp-1h]
+  unsigned int v24; // [esp+1Ch] [ebp-40h]
+  unsigned int v25; // [esp+20h] [ebp-3Ch]
+  _DWORD *v26; // [esp+24h] [ebp-38h]
+  char *v27; // [esp+28h] [ebp-34h]
+  char *v28; // [esp+2Ch] [ebp-30h]
+  unsigned int v29; // [esp+30h] [ebp-2Ch]
+  PVOID BaseAddress; // [esp+34h] [ebp-28h]
+  unsigned int v31; // [esp+38h] [ebp-24h]
+  PVOID Heap; // [esp+3Ch] [ebp-20h]
+  unsigned int v33; // [esp+40h] [ebp-1Ch]
+  int v34; // [esp+44h] [ebp-18h]
+  unsigned int v35; // [esp+48h] [ebp-14h]
+  int v36; // [esp+4Ch] [ebp-10h]
+  ULONG ReturnLength; // [esp+50h] [ebp-Ch] BYREF
+  _WORD v38[3]; // [esp+54h] [ebp-8h] BYREF
+  char v39; // [esp+5Bh] [ebp-1h]
 
-  v34 = a2;
-  v9 = 0;
-  v26 = 0;
+  v35 = a2;
+  v8 = 0;
   v27 = 0;
-  v38 = 0;
-  v25 = 0;
-  v32 = 0;
-  v35 = 0;
+  v28 = 0;
+  v39 = 0;
+  v26 = 0;
   v33 = 0;
+  v36 = 0;
+  v34 = 0;
+  BaseAddress = 0;
   Heap = 0;
-  v31 = 0;
-  v20[0] = a1;
-  if ( a9 == 4 || a9 == 11 )
+  InputBuffer[0] = a1;
+  if ( a8 == 4 || a8 == 11 )
   {
-    Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, a6);
-    if ( !Heap )
+    LODWORD(v18) = Size;
+    BaseAddress = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v18);
+    if ( !BaseAddress )
       return 8;
-    v26 = a5;
-    v27 = a5 + 72;
-    v31 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 8 * a4);
-    if ( !v31 )
+    LODWORD(v19) = 8 * a4;
+    v27 = OutputBuffer;
+    v28 = OutputBuffer + 72;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v19);
+    if ( !Heap )
     {
-      v19 = 8;
+      v20 = 8;
       goto LABEL_45;
     }
   }
@@ -80,123 +83,123 @@ int __fastcall EtwpReceiveReplyDataBlock(
     goto LABEL_40;
   do
   {
-    v20[1] = v34;
-    v28 = MEMORY[0x7FFE0004];
+    InputBuffer[1] = v35;
+    v29 = MEMORY[0x7FFE0004];
     while ( MEMORY[0x7FFE0324] != MEMORY[0x7FFE0328] )
       _mm_pause();
-    v30 = (((v28 * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24) + ((v28 * (unsigned __int64)MEMORY[0x7FFE0324]) << 8)) >> 32;
-    v23 = ((v28 * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24) + ((v28 * MEMORY[0x7FFE0324]) << 8);
-    Status = ZwTraceControl(19, (int)v20, 8, a5, a6, (int)&v36);
-    v28 = MEMORY[0x7FFE0004];
+    v31 = (((v29 * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24) + ((v29 * (unsigned __int64)MEMORY[0x7FFE0324]) << 8)) >> 32;
+    v24 = ((v29 * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24) + ((v29 * MEMORY[0x7FFE0324]) << 8);
+    Status = ZwTraceControl(EtwReceiveReplyDataBlock, InputBuffer, 8u, OutputBuffer, Size, &ReturnLength);
+    v29 = MEMORY[0x7FFE0004];
     while ( 1 )
     {
-      v24 = MEMORY[0x7FFE0320];
+      v25 = MEMORY[0x7FFE0320];
       if ( MEMORY[0x7FFE0324] == MEMORY[0x7FFE0328] )
         break;
       _mm_pause();
     }
-    v10 = v27;
-    v11 = ((v28 * (unsigned __int64)v24) >> 24)
-        + ((v28 * (unsigned __int64)MEMORY[0x7FFE0324]) << 8)
-        - __PAIR64__(v30, v23);
-    if ( v34 <= v11 )
+    v9 = v28;
+    v10 = ((v29 * (unsigned __int64)v25) >> 24)
+        + ((v29 * (unsigned __int64)MEMORY[0x7FFE0324]) << 8)
+        - __PAIR64__(v31, v24);
+    if ( v35 <= v10 )
     {
-      v9 = 1460;
+      v8 = 1460;
       goto LABEL_46;
     }
-    v34 -= v11;
-    v12 = (v36 + 7) & 0xFFFFFFF8;
-    v36 = v12;
+    v35 -= v10;
+    v11 = (ReturnLength + 7) & 0xFFFFFFF8;
+    ReturnLength = v11;
     if ( !Status )
     {
-      v9 = 0;
+      v8 = 0;
       goto LABEL_19;
     }
-    v13 = RtlNtStatusToDosError(Status);
-    v9 = v13;
-    if ( !v13 )
+    v12 = RtlNtStatusToDosError(Status);
+    v8 = v12;
+    if ( !v12 )
     {
-      v12 = v36;
+      v11 = ReturnLength;
 LABEL_19:
       if ( !a3 )
       {
-        if ( !v26 )
+        if ( !v27 )
         {
-          *(_DWORD *)(a5 + 8) = v12;
-          v12 = v36;
-          v16 = v36 + a5;
-          a6 -= v36;
-          v25 = (_DWORD *)(a5 + 8);
+          *((_DWORD *)OutputBuffer + 2) = v11;
+          v11 = ReturnLength;
+          v15 = &OutputBuffer[ReturnLength];
+          LODWORD(Size) = Size - ReturnLength;
+          v26 = OutputBuffer + 8;
 LABEL_29:
-          a5 = v16;
+          OutputBuffer = v15;
           goto LABEL_30;
         }
-        if ( *(_DWORD *)(a5 + 4) >= 0xF8u )
+        if ( *((_DWORD *)OutputBuffer + 1) >= 0xF8u )
         {
-          v14 = v33;
-          if ( *(_DWORD *)(a5 + 76) == 1 )
+          v13 = v34;
+          if ( *((_DWORD *)OutputBuffer + 19) == 1 )
           {
-            v15 = v31;
-            *(_DWORD *)(v31 + 8 * v33) = *(_DWORD *)(a5 + 32);
-            *(_WORD *)(v15 + 8 * v14 + 4) = *(_WORD *)(a5 + 80);
-            *(_WORD *)(v15 + 8 * v14 + 6) = *(_WORD *)(a5 + 236);
-            v12 = v36;
+            v14 = Heap;
+            *((_DWORD *)Heap + 2 * v34) = *((_DWORD *)OutputBuffer + 8);
+            v14[4 * v13 + 2] = *((_WORD *)OutputBuffer + 40);
+            v14[4 * v13 + 3] = *((_WORD *)OutputBuffer + 118);
+            v11 = ReturnLength;
           }
-          v33 = v14 + 1;
-          if ( v14 )
+          v34 = v13 + 1;
+          if ( v13 )
           {
-            if ( *(_DWORD *)(a5 + 76) != 1 )
+            if ( *((_DWORD *)OutputBuffer + 19) != 1 )
             {
-              *(_DWORD *)(v10 + 104) += *(_DWORD *)(a5 + 176);
-              *(_DWORD *)(v10 + 108) += *(_DWORD *)(a5 + 180);
-              *(_DWORD *)(v10 + 112) += *(_DWORD *)(a5 + 184);
-              *(_DWORD *)(v10 + 116) += *(_DWORD *)(a5 + 188);
+              *((_DWORD *)v9 + 26) += *((_DWORD *)OutputBuffer + 44);
+              *((_DWORD *)v9 + 27) += *((_DWORD *)OutputBuffer + 45);
+              *((_DWORD *)v9 + 28) += *((_DWORD *)OutputBuffer + 46);
+              *((_DWORD *)v9 + 29) += *((_DWORD *)OutputBuffer + 47);
             }
             goto LABEL_30;
           }
-          v16 = Heap;
+          v15 = (char *)BaseAddress;
           goto LABEL_29;
         }
       }
 LABEL_30:
-      v35 += v12;
+      v36 += v11;
       goto LABEL_33;
     }
-    if ( v13 != 122 )
+    if ( v12 != 122 )
       goto LABEL_35;
-    v38 = 1;
-    v35 += v36;
+    v39 = 1;
+    v36 += ReturnLength;
 LABEL_33:
-    v17 = v32 + 1;
-    v32 = v17;
+    v16 = v33 + 1;
+    v33 = v16;
   }
-  while ( v17 < a4 );
-  v32 = v17;
+  while ( v16 < a4 );
+  v33 = v16;
 LABEL_35:
-  if ( v33 )
+  if ( v34 )
   {
-    if ( *(_DWORD *)(v10 + 4) == 1 )
+    if ( *((_DWORD *)v9 + 1) == 1 )
     {
-      v9 = ZwTraceControl(38, v31, 8 * v33, (int)v37, 2, (int)&v21);
-      if ( !v9 && v21 == 2 )
-        *(_WORD *)(v10 + 8) = v37[0];
+      v8 = ZwTraceControl(EtwGetPrivateSessionTraceHandle, Heap, 8 * v34, v38, 2u, &v22);
+      if ( !v8 && v22 == 2 )
+        *((_WORD *)v9 + 4) = v38[0];
     }
   }
 LABEL_40:
-  *a7 = v32;
-  *a8 = v35;
-  if ( v25 )
-    *v25 = 0;
-  if ( !v9 && v38 )
+  *(_DWORD *)HIDWORD(Size) = v33;
+  *a7 = v36;
+  if ( v26 )
+    *v26 = 0;
+  if ( !v8 && v39 )
   {
-    v19 = 122;
+    v20 = 122;
 LABEL_45:
-    v9 = v19;
+    v8 = v20;
   }
 LABEL_46:
+  if ( BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  if ( v31 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v31);
-  return v9;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v8;
 }

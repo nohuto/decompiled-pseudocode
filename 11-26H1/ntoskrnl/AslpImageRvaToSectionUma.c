@@ -1,11 +1,11 @@
 /*
- * XREFs of AslpImageRvaToSectionUma @ 0x14088F534
+ * XREFs of AslpImageRvaToSectionUma @ 0x140895930
  * Callers:
- *     AslpImageRvaToVa @ 0x14088F60C (AslpImageRvaToVa.c)
+ *     AslpImageRvaToVa @ 0x140895A08 (AslpImageRvaToVa.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     AslpImageFirstSectionUma @ 0x14088F438 (AslpImageFirstSectionUma.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     AslpImageFirstSectionUma @ 0x140895834 (AslpImageFirstSectionUma.c)
  */
 
 unsigned __int64 __fastcall AslpImageRvaToSectionUma(unsigned __int64 *a1, unsigned int a2, __int64 a3)

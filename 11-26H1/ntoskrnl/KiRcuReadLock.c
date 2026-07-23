@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRcuReadLock @ 0x1402223BC
+ * XREFs of KiRcuReadLock @ 0x140223D4C
  * Callers:
- *     CcForceWriteThrough @ 0x140222070 (CcForceWriteThrough.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     KeRcuReadLockAtDpcLevel @ 0x1405F0050 (KeRcuReadLockAtDpcLevel.c)
+ *     CcForceWriteThrough @ 0x140223A00 (CcForceWriteThrough.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     KeRcuReadLockAtDpcLevel @ 0x1405F29C0 (KeRcuReadLockAtDpcLevel.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiRcuReadLock(__int64 a1, __int64 a2)

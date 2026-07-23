@@ -106,21 +106,21 @@
  *     _RtlpEnterCriticalSectionContended@4 @ 0x4B2BFEE0 (_RtlpEnterCriticalSectionContended@4.c)
  */
 
-int __stdcall RtlEnterCriticalSection(int a1)
+NTSTATUS __cdecl RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // edx
-  int result; // eax
+  NTSTATUS result; // eax
 
   v1 = NtCurrentTeb();
-  if ( _interlockedbittestandreset((volatile signed __int32 *)(a1 + 4), 0) )
+  if ( _interlockedbittestandreset(&CriticalSection->LockCount, 0) )
   {
-    *(_DWORD *)(a1 + 12) = v1->ClientId.UniqueThread;
+    CriticalSection->OwningThread = v1->ClientId.UniqueThread;
     result = 0;
-    *(_DWORD *)(a1 + 8) = 1;
+    CriticalSection->RecursionCount = 1;
   }
-  else if ( *(void **)(a1 + 12) == v1->ClientId.UniqueThread )
+  else if ( CriticalSection->OwningThread == v1->ClientId.UniqueThread )
   {
-    ++*(_DWORD *)(a1 + 8);
+    ++CriticalSection->RecursionCount;
     return 0;
   }
   else

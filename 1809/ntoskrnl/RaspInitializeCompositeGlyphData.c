@@ -1,13 +1,13 @@
 /*
- * XREFs of RaspInitializeCompositeGlyphData @ 0x140329208
+ * XREFs of RaspInitializeCompositeGlyphData @ 0x1403293F8
  * Callers:
- *     RaspLoadCompositeGlyphData @ 0x140329590 (RaspLoadCompositeGlyphData.c)
+ *     RaspLoadCompositeGlyphData @ 0x140329780 (RaspLoadCompositeGlyphData.c)
  * Callees:
- *     RaspFreeMemory @ 0x14017AB5C (RaspFreeMemory.c)
- *     FioFwReadBytesAtOffset @ 0x14017BC48 (FioFwReadBytesAtOffset.c)
- *     RaspAllocateMemory @ 0x14017C064 (RaspAllocateMemory.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     RaspFreeMemory @ 0x14017AC5C (RaspFreeMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x14017BD48 (FioFwReadBytesAtOffset.c)
+ *     RaspAllocateMemory @ 0x14017C164 (RaspAllocateMemory.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RaspInitializeCompositeGlyphData(

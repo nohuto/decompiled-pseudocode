@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxInsertAcpiDevice @ 0x140202CE0
+ * XREFs of PopFxInsertAcpiDevice @ 0x140202B0C
  * Callers:
- *     PopFxAcpiRegisterDevice @ 0x14020E744 (PopFxAcpiRegisterDevice.c)
+ *     PopFxAcpiRegisterDevice @ 0x14020E570 (PopFxAcpiRegisterDevice.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PopFxInsertAcpiDevice(__int64 a1, __int64 a2, __int64 a3)
@@ -30,14 +30,14 @@ __int64 __fastcall PopFxInsertAcpiDevice(__int64 a1, __int64 a2, __int64 a3)
     ExfAcquirePushLockExclusiveEx(&PopFxDeviceListLock, v5, (ULONG_PTR)&PopFxDeviceListLock);
   if ( v7 )
     v7[26] |= 1u;
-  v8 = (_QWORD *)qword_140304568;
+  v8 = (_QWORD *)qword_1403045A8;
   v9 = (_QWORD *)(a3 + 176);
-  if ( *(__int64 **)qword_140304568 != &PopFxAcpiDeviceList )
+  if ( *(__int64 **)qword_1403045A8 != &PopFxAcpiDeviceList )
     __fastfail(3u);
   *v9 = &PopFxAcpiDeviceList;
   *(_QWORD *)(a3 + 184) = v8;
   *v8 = v9;
-  qword_140304568 = a3 + 176;
+  qword_1403045A8 = a3 + 176;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxDeviceListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);

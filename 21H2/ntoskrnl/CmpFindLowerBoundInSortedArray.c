@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpFindLowerBoundInSortedArray @ 0x1403F0888
+ * XREFs of CmpFindLowerBoundInSortedArray @ 0x1403F09F8
  * Callers:
- *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1402AB7E0 (CmpFindSecurityCellCacheIndex.c)
  * Callees:
  *     <none>
  */

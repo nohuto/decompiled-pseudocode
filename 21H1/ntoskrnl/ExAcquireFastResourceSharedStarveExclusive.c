@@ -19,7 +19,7 @@
 
 char __fastcall ExAcquireFastResourceSharedStarveExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
 {
-  unsigned __int64 v6; // rsi
+  ULONG_PTR v6; // rsi
   unsigned __int8 v7; // r8
   struct _KTHREAD *CurrentThread; // r10
   unsigned __int8 CurrentIrql; // cl
@@ -192,7 +192,7 @@ LABEL_15:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v38, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v6 )
-    KeAbPreAcquire(BugCheckParameter2, v6, 0LL);
+    KeAbPreAcquire(BugCheckParameter2, v6, 0);
   v18 = 1;
 LABEL_17:
   if ( v6 )

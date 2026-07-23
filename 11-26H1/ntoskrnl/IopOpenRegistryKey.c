@@ -1,22 +1,22 @@
 /*
- * XREFs of IopOpenRegistryKey @ 0x140B1C920
+ * XREFs of IopOpenRegistryKey @ 0x140B1EB30
  * Callers:
- *     IopAllowRemoteDASD @ 0x1405052F8 (IopAllowRemoteDASD.c)
- *     IopIsBitlockerOn @ 0x1405C99FC (IopIsBitlockerOn.c)
- *     IopReadDumpRegistry @ 0x1405C9ADC (IopReadDumpRegistry.c)
- *     IoInitializeLiveDump @ 0x1405CC0D4 (IoInitializeLiveDump.c)
- *     IopLiveDumpInitRegistrySettings @ 0x1405CFF50 (IopLiveDumpInitRegistrySettings.c)
- *     SecureDump_ReadRegistry @ 0x1405D71B0 (SecureDump_ReadRegistry.c)
- *     IopInitializeDumpPolicySettings @ 0x140793844 (IopInitializeDumpPolicySettings.c)
- *     IopCopyBootLogRegistryToFile @ 0x1407946FC (IopCopyBootLogRegistryToFile.c)
- *     IopBootLog @ 0x140A27974 (IopBootLog.c)
- *     pIoQueryDeviceDescription @ 0x140A73E4C (pIoQueryDeviceDescription.c)
- *     IopUnloadDriver @ 0x140B2ADF8 (IopUnloadDriver.c)
- *     IopSafebootDriverLoad @ 0x140B5C94C (IopSafebootDriverLoad.c)
- *     IopInitializeOfflineCrashDump @ 0x140CBA6C4 (IopInitializeOfflineCrashDump.c)
+ *     IopAllowRemoteDASD @ 0x1404FEC38 (IopAllowRemoteDASD.c)
+ *     IopIsBitlockerOn @ 0x1405CC2CC (IopIsBitlockerOn.c)
+ *     IopReadDumpRegistry @ 0x1405CC3AC (IopReadDumpRegistry.c)
+ *     IoInitializeLiveDump @ 0x1405CE8E8 (IoInitializeLiveDump.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x1405D2760 (IopLiveDumpInitRegistrySettings.c)
+ *     SecureDump_ReadRegistry @ 0x1405D99A0 (SecureDump_ReadRegistry.c)
+ *     IopInitializeDumpPolicySettings @ 0x140796374 (IopInitializeDumpPolicySettings.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14079722C (IopCopyBootLogRegistryToFile.c)
+ *     IopBootLog @ 0x140A3AA14 (IopBootLog.c)
+ *     pIoQueryDeviceDescription @ 0x140A4A8E8 (pIoQueryDeviceDescription.c)
+ *     IopUnloadDriver @ 0x140B2CE78 (IopUnloadDriver.c)
+ *     IopSafebootDriverLoad @ 0x140B5F86C (IopSafebootDriverLoad.c)
+ *     IopInitializeOfflineCrashDump @ 0x140CC0704 (IopInitializeOfflineCrashDump.c)
  * Callees:
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall IopOpenRegistryKey(HANDLE *a1, void *a2, UNICODE_STRING *a3, ACCESS_MASK a4, char a5)

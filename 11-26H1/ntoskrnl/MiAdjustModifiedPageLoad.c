@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAdjustModifiedPageLoad @ 0x1404BC438
+ * XREFs of MiAdjustModifiedPageLoad @ 0x1404B5B78
  * Callers:
- *     MiWorkingSetManager @ 0x1404BE000 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1404B7850 (MiWorkingSetManager.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiWakeModifiedPageWriter @ 0x1403E0E48 (MiWakeModifiedPageWriter.c)
- *     MiStoreUpdateMemoryConditions @ 0x1403E0ED8 (MiStoreUpdateMemoryConditions.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x140406A70 (MiUseLowIoPriorityForModifiedPages.c)
- *     MiUpdateReserveClusterInfo @ 0x1404A4D38 (MiUpdateReserveClusterInfo.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiWakeModifiedPageWriter @ 0x1403E4038 (MiWakeModifiedPageWriter.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1403E40C8 (MiStoreUpdateMemoryConditions.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x1403FFB60 (MiUseLowIoPriorityForModifiedPages.c)
+ *     MiUpdateReserveClusterInfo @ 0x14049E3C8 (MiUpdateReserveClusterInfo.c)
  */
 
 void __fastcall MiAdjustModifiedPageLoad(__int64 a1, unsigned __int64 a2, char a3)
@@ -119,8 +119,8 @@ LABEL_23:
         {
           v25 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v24 + 200));
           if ( *(_DWORD *)(v24 + 100) != *(_DWORD *)(v24 + 96) )
-            *(_DWORD *)(v24 + 92) = dword_140FBE21C;
-          *(_DWORD *)(v24 + 104) = 4 * dword_140FBE21C;
+            *(_DWORD *)(v24 + 92) = dword_140FBF21C;
+          *(_DWORD *)(v24 + 104) = 4 * dword_140FBF21C;
           if ( v20 )
           {
             v26 = *(_BYTE *)(v24 + 175);

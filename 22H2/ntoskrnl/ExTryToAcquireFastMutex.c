@@ -23,7 +23,7 @@ BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
   int v9; // eax
   bool v10; // zf
 
-  v2 = KeAbPreAcquire((ULONG_PTR)FastMutex, 0LL, 1LL);
+  v2 = KeAbPreAcquire((ULONG_PTR)FastMutex, 0LL, 1);
   v3 = v2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);

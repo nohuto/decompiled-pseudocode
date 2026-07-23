@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsReceiveResponseFromBmc @ 0x14071DAFC
+ * XREFs of IpmiLibpKcsReceiveResponseFromBmc @ 0x14072278C
  * Callers:
- *     IpmiLibpKcsBmcTransact @ 0x14071D904 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibpKcsBmcTransact @ 0x140722594 (IpmiLibpKcsBmcTransact.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x14071D3B4 (IpmiLibReadOneByte.c)
- *     IpmiLibWriteOneByte @ 0x14071D3F0 (IpmiLibWriteOneByte.c)
- *     IpmiLibpKcsSpinRegister @ 0x14071DF0C (IpmiLibpKcsSpinRegister.c)
- *     IpmiLibpHandleReadInterrupt @ 0x14071E13C (IpmiLibpHandleReadInterrupt.c)
+ *     IpmiLibReadOneByte @ 0x140722044 (IpmiLibReadOneByte.c)
+ *     IpmiLibWriteOneByte @ 0x140722080 (IpmiLibWriteOneByte.c)
+ *     IpmiLibpKcsSpinRegister @ 0x140722B9C (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpHandleReadInterrupt @ 0x140722DCC (IpmiLibpHandleReadInterrupt.c)
  */
 
 __int64 __fastcall IpmiLibpKcsReceiveResponseFromBmc(__int64 a1, __int64 a2, unsigned __int16 *a3, __int64 a4)

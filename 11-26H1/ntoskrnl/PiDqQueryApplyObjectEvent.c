@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDqQueryApplyObjectEvent @ 0x14098F6F0
+ * XREFs of PiDqQueryApplyObjectEvent @ 0x140950150
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x14098F320 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x14094FD80 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     PiDqQueryAddObjectToResultSet @ 0x14098DF2C (PiDqQueryAddObjectToResultSet.c)
- *     PiDqQueryActionQueueEntryCreate @ 0x14098E038 (PiDqQueryActionQueueEntryCreate.c)
- *     PiDqQueryLock @ 0x14098FDD0 (PiDqQueryLock.c)
- *     PiDqQueryUnlock @ 0x14098FE44 (PiDqQueryUnlock.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x140990010 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryFreeActiveData @ 0x140990044 (PiDqQueryFreeActiveData.c)
- *     PiDqSameUserHive @ 0x1409917AC (PiDqSameUserHive.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x14099B1B0 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryEvaluateFilter @ 0x1409A7950 (PiDqQueryEvaluateFilter.c)
- *     PiDqQueryAppendActionEntry @ 0x1409A8588 (PiDqQueryAppendActionEntry.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x14094E98C (PiDqQueryAddObjectToResultSet.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x14094EA98 (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryLock @ 0x140950830 (PiDqQueryLock.c)
+ *     PiDqQueryUnlock @ 0x1409508A4 (PiDqQueryUnlock.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x140950A70 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqQueryFreeActiveData @ 0x140950AA4 (PiDqQueryFreeActiveData.c)
+ *     PiDqSameUserHive @ 0x14095220C (PiDqSameUserHive.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x14095BC10 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqQueryEvaluateFilter @ 0x1409683B0 (PiDqQueryEvaluateFilter.c)
+ *     PiDqQueryAppendActionEntry @ 0x140968F98 (PiDqQueryAppendActionEntry.c)
  */
 
 int __fastcall PiDqQueryApplyObjectEvent(__int64 a1, __int64 a2)

@@ -6,7 +6,7 @@
  *     _RtlCheckTokenMembershipEx@16 @ 0x4B2D5F50 (_RtlCheckTokenMembershipEx@16.c)
  */
 
-int __stdcall RtlCheckTokenMembership(void *a1, unsigned __int8 *Src, _BYTE *a3)
+NTSTATUS __cdecl RtlCheckTokenMembership(HANDLE TokenHandle, PSID SidToCheck, PBOOLEAN IsMember)
 {
-  return RtlCheckTokenMembershipEx(a1, Src, 0, a3);
+  return RtlCheckTokenMembershipEx(TokenHandle, SidToCheck, 0, IsMember);
 }

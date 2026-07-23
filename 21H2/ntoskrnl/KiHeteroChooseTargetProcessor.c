@@ -1,17 +1,17 @@
 /*
- * XREFs of KiHeteroChooseTargetProcessor @ 0x14051F500
+ * XREFs of KiHeteroChooseTargetProcessor @ 0x14051F740
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiIsQosGroupingActive @ 0x140398E54 (KiIsQosGroupingActive.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiIsQosGroupingActive @ 0x140398FA4 (KiIsQosGroupingActive.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiFindBiasedProcessorIndex @ 0x140518D6C (KiFindBiasedProcessorIndex.c)
- *     KiConvertDynamicHeteroPolicy @ 0x14051F1A0 (KiConvertDynamicHeteroPolicy.c)
- *     KiGenerateHeteroSets @ 0x14051F2B8 (KiGenerateHeteroSets.c)
- *     KiSelectProcessorToPreempt @ 0x14051FD78 (KiSelectProcessorToPreempt.c)
- *     KiCanSelectSoftParkedProcessor @ 0x140525A94 (KiCanSelectSoftParkedProcessor.c)
- *     KiSelectCandidateProcessor @ 0x140525BA4 (KiSelectCandidateProcessor.c)
+ *     KiFindBiasedProcessorIndex @ 0x140518FAC (KiFindBiasedProcessorIndex.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x14051F3E0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x14051F4F8 (KiGenerateHeteroSets.c)
+ *     KiSelectProcessorToPreempt @ 0x14051FFB8 (KiSelectProcessorToPreempt.c)
+ *     KiCanSelectSoftParkedProcessor @ 0x140525CD4 (KiCanSelectSoftParkedProcessor.c)
+ *     KiSelectCandidateProcessor @ 0x140525DE4 (KiSelectCandidateProcessor.c)
  */
 
 __int64 __fastcall KiHeteroChooseTargetProcessor(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)

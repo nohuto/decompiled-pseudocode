@@ -31,7 +31,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, __in
   unsigned int v14; // r8d
   bool v15; // zf
   __int64 v16; // rcx
-  unsigned __int64 v17; // rdi
+  __int64 v17; // rdi
   __int64 v18; // rdx
   __int64 v19; // rcx
   int v21; // [rsp+30h] [rbp-48h] BYREF
@@ -78,7 +78,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, __in
         v15 = !_BitScanReverse((unsigned int *)&v16, v14);
         if ( v15 )
           break;
-        v17 = (unsigned __int64)&CurrentThread->LockEntries[v16];
+        v17 = (__int64)&CurrentThread->LockEntries[v16];
         v14 &= ~(1 << v16);
         if ( (*(_BYTE *)(v17 + 26) & 1) != 0
           && (*(_DWORD *)(v17 + 32) & 1) == 0
@@ -92,12 +92,12 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, __in
             {
               *(_BYTE *)(v17 + 32) |= 2u;
               if ( *(__int64 *)(v17 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v17);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v17);
               v21 = *(_DWORD *)(v17 + 88) & 0x1FFFF;
               *(_DWORD *)(v17 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v17 + 25) &= ~1u;
               *(_QWORD *)(v17 + 32) = 0LL;
-              v18 = (__int64)(v17 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+              v18 = (signed __int64)(v17 - (unsigned __int64)CurrentThread->LockEntries) / 96;
               if ( v23 == 1 )
                 CurrentThread->AbEntrySummary |= 1 << v18;
               else

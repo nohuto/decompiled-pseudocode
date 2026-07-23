@@ -1,18 +1,18 @@
 /*
- * XREFs of KiQueryQuantumReset @ 0x1403241CC
+ * XREFs of KiQueryQuantumReset @ 0x1402CCD5C
  * Callers:
- *     KeRemovePriQueue @ 0x140208340 (KeRemovePriQueue.c)
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     KiWakePriQueueWaiter @ 0x1403248F0 (KiWakePriQueueWaiter.c)
- *     KeYieldExecution @ 0x14033C510 (KeYieldExecution.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14045201C (KeSetPriorityAndQuantumProcess.c)
- *     KeBoostPriorityThread @ 0x1404E7068 (KeBoostPriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1404E7260 (KeSetBasePriorityThread.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     KiWakePriQueueWaiter @ 0x1402CD480 (KiWakePriQueueWaiter.c)
+ *     KeYieldExecution @ 0x14031B9F0 (KeYieldExecution.c)
+ *     KeRemovePriQueue @ 0x14032F920 (KeRemovePriQueue.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1404470CC (KeSetPriorityAndQuantumProcess.c)
+ *     KeBoostPriorityThread @ 0x1404DD768 (KeBoostPriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1404DDF20 (KeSetBasePriorityThread.c)
  * Callees:
  *     <none>
  */

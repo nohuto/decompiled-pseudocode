@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnCancelTraceTimer @ 0x140006974
+ * XREFs of PfSnCancelTraceTimer @ 0x140006AE4
  * Callers:
- *     PfSnDeactivateTrace @ 0x140006874 (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x1400069E4 (PfSnDeactivateTrace.c)
  * Callees:
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall PfSnCancelTraceTimer(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwThawTransactions @ 0x180165720
+ * XREFs of ZwThawTransactions @ 0x180163AE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwThawTransactions()
+NTSTATUS ZwThawTransactions(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 469LL;
+  result = 469;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

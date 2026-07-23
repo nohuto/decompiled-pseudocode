@@ -16,112 +16,111 @@
 
 int __stdcall RtlpHpStackTraceHeapSerialize(_DWORD *a1, int a2)
 {
-  int v2; // ebx
+  _RTL_SRWLOCK *v2; // ebx
   bool v3; // zf
   int v4; // esi
-  int v5; // edi
+  PVOID v5; // edi
   int Mapping; // eax
-  void *v7; // ecx
-  int v9; // [esp+Ch] [ebp-4Ch] BYREF
-  int v10; // [esp+10h] [ebp-48h] BYREF
-  int v11; // [esp+14h] [ebp-44h]
-  int v12; // [esp+18h] [ebp-40h]
-  int v13; // [esp+1Ch] [ebp-3Ch]
-  int v14; // [esp+20h] [ebp-38h]
-  _DWORD *v15; // [esp+24h] [ebp-34h]
-  int v16[7]; // [esp+28h] [ebp-30h] BYREF
-  _WORD v17[2]; // [esp+44h] [ebp-14h] BYREF
-  _DWORD *v18; // [esp+48h] [ebp-10h]
-  int v19; // [esp+4Ch] [ebp-Ch]
-  int v20; // [esp+50h] [ebp-8h]
+  _RTL_SRWLOCK *v8; // [esp+Ch] [ebp-4Ch] BYREF
+  int v9; // [esp+10h] [ebp-48h] BYREF
+  int v10; // [esp+14h] [ebp-44h]
+  int v11; // [esp+18h] [ebp-40h]
+  int v12; // [esp+1Ch] [ebp-3Ch]
+  int v13; // [esp+20h] [ebp-38h]
+  PVOID HeapHandle; // [esp+24h] [ebp-34h]
+  int v15[7]; // [esp+28h] [ebp-30h] BYREF
+  _WORD v16[2]; // [esp+44h] [ebp-14h] BYREF
+  _DWORD *v17; // [esp+48h] [ebp-10h]
+  int v18; // [esp+4Ch] [ebp-Ch]
+  int v19; // [esp+50h] [ebp-8h]
 
-  v14 = 0;
-  v15 = a1;
-  v13 = a2;
-  if ( RtlpHpStackTraceHeapGetContext((int)a1, 0, &v9) >= 0 )
+  v13 = 0;
+  HeapHandle = a1;
+  v12 = a2;
+  if ( RtlpHpStackTraceHeapGetContext(a1, 0, (PVOID *)&v8) >= 0 )
   {
-    v2 = v9;
+    v2 = v8;
   }
   else
   {
     v2 = 0;
-    v9 = 0;
+    v8 = 0;
   }
   v3 = a1[2] == -571548178;
-  v17[0] = 2;
-  v17[1] = 4;
-  v18 = a1;
+  v16[0] = 2;
+  v16[1] = 4;
+  v17 = a1;
   if ( v3 )
   {
-    v20 = a1[32] << 12;
-    v20 += a1[19] << 12;
-    v19 = a1[33] << 12;
-    v2 = v9;
-    v19 += a1[20] << 12;
+    v19 = a1[32] << 12;
+    v19 += a1[19] << 12;
+    v18 = a1[33] << 12;
+    v2 = v8;
+    v18 += a1[20] << 12;
   }
   else
   {
-    v19 = a1[126] - a1[145];
-    v20 = a1[125];
+    v18 = a1[126] - a1[145];
+    v19 = a1[125];
   }
   v4 = (*(int (__thiscall **)(_DWORD, _WORD *, int, _DWORD))(a2 + 8))(
          *(_DWORD *)(a2 + 8),
-         v17,
+         v16,
          16,
          *(_DWORD *)(a2 + 12));
   if ( v4 >= 0 )
   {
-    memset(v16, 0, sizeof(v16));
+    memset(v15, 0, sizeof(v15));
     if ( v2 )
     {
-      v14 = 1;
-      RtlAcquireSRWLockShared((volatile signed __int32 *)(v2 + 4));
-      ++*(_DWORD *)v2;
+      v13 = 1;
+      RtlAcquireSRWLockShared(v2 + 1);
+      ++v2->Value;
     }
-    v5 = (int)v15;
-    RtlLockHeap((int)v15);
-    while ( RtlpWalkHeapInternal(v5, (int)v16, 1) >= 0 )
+    v5 = HeapHandle;
+    RtlLockHeap(HeapHandle);
+    while ( RtlpWalkHeapInternal((int)v5, (int)v15, 1) >= 0 )
     {
-      if ( (v16[2] & 0x10000) != 0 )
+      if ( (v15[2] & 0x10000) != 0 )
       {
-        v11 = 0;
-        v10 = v16[0];
-        v12 = v16[1];
+        v10 = 0;
+        v9 = v15[0];
+        v11 = v15[1];
         if ( v2 )
         {
-          Mapping = RtlpHpStackTraceAllocFindMapping(v2, v16[0]);
+          Mapping = RtlpHpStackTraceAllocFindMapping((int)v2, v15[0]);
           if ( Mapping )
-            v11 = *(_DWORD *)(Mapping + 8);
+            v10 = *(_DWORD *)(Mapping + 8);
         }
         else
         {
-          v11 = 0;
+          v10 = 0;
         }
-        v4 = (*(int (__thiscall **)(_DWORD, int *, int, _DWORD))(v13 + 8))(
-               *(_DWORD *)(v13 + 8),
-               &v10,
+        v4 = (*(int (__thiscall **)(_DWORD, int *, int, _DWORD))(v12 + 8))(
+               *(_DWORD *)(v12 + 8),
+               &v9,
                12,
-               *(_DWORD *)(v13 + 12));
+               *(_DWORD *)(v12 + 12));
         if ( v4 < 0 )
           goto LABEL_21;
       }
     }
-    v12 = -1;
-    v11 = 0;
-    v10 = 305450479;
-    v4 = (*(int (__thiscall **)(_DWORD, int *, int, _DWORD))(v13 + 8))(
-           *(_DWORD *)(v13 + 8),
-           &v10,
+    v11 = -1;
+    v10 = 0;
+    v9 = 305450479;
+    v4 = (*(int (__thiscall **)(_DWORD, int *, int, _DWORD))(v12 + 8))(
+           *(_DWORD *)(v12 + 8),
+           &v9,
            12,
-           *(_DWORD *)(v13 + 12));
+           *(_DWORD *)(v12 + 12));
     if ( v4 >= 0 )
       v4 = 0;
 LABEL_21:
-    RtlUnlockHeap(v7, v5);
-    if ( v14 )
+    RtlUnlockHeap(v5);
+    if ( v13 )
     {
-      --*(_DWORD *)v2;
-      RtlReleaseSRWLockShared((volatile signed __int32 *)(v2 + 4));
+      --v2->Value;
+      RtlReleaseSRWLockShared(v2 + 1);
     }
   }
   return v4;

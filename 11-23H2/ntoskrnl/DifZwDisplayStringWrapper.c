@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwDisplayStringWrapper @ 0x1405EFA30
+ * XREFs of DifZwDisplayStringWrapper @ 0x1405EFFA0
  * Callers:
  *     <none>
  * Callees:
- *     ZwDisplayString @ 0x14041C9A0 (ZwDisplayString.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwDisplayString @ 0x14041CD30 (ZwDisplayString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwDisplayStringWrapper(PUNICODE_STRING String)

@@ -1,16 +1,16 @@
 /*
- * XREFs of InitializeTEBUserLangList @ 0x180008900
+ * XREFs of InitializeTEBUserLangList @ 0x180054030
  * Callers:
- *     RtlGetThreadPreferredUILanguages @ 0x180007380 (RtlGetThreadPreferredUILanguages.c)
- *     RtlpQueryDefaultUILanguage @ 0x180009CD0 (RtlpQueryDefaultUILanguage.c)
- *     RtlGetUserPreferredUILanguages @ 0x180038AA0 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180023010 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180052AB0 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlpQueryDefaultUILanguage @ 0x180055400 (RtlpQueryDefaultUILanguage.c)
  * Callees:
- *     RtlpMuiRegFreeLanguageList @ 0x180006B20 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpSetProcUserMachineLangList @ 0x180008EA0 (RtlpSetProcUserMachineLangList.c)
- *     RtlpMuiRegCreateLanguageList @ 0x18000AF40 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x18000BB60 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     RtlpLoadLanguageConfigList @ 0x18000CA10 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x18000D840 (RtlpUpdateTEBLanguage.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180052250 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpSetProcUserMachineLangList @ 0x1800545D0 (RtlpSetProcUserMachineLangList.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x180056670 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x180057290 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpLoadLanguageConfigList @ 0x180058140 (RtlpLoadLanguageConfigList.c)
+ *     RtlpUpdateTEBLanguage @ 0x180058F70 (RtlpUpdateTEBLanguage.c)
  */
 
 __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
@@ -29,12 +29,12 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   unsigned int MuiImpersonation; // r8d
   unsigned int v16; // edx
   struct _TEB *v17; // rax
-  __int64 *UserPrefLanguages; // rdi
+  PVOID *UserPrefLanguages; // rdi
   __int64 v19; // rax
   unsigned __int16 v20; // r9
   __int64 v21; // rcx
   __int64 v22; // rcx
-  __int64 v23; // rcx
+  _DWORD *v23; // rcx
   struct _TEB *v24; // r9
   int v25; // eax
   struct _TEB *v26; // r8
@@ -55,7 +55,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   unsigned int v42; // eax
   unsigned int v43; // [rsp+30h] [rbp-58h]
   __int64 v44; // [rsp+38h] [rbp-50h] BYREF
-  _QWORD v45[9]; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v45; // [rsp+40h] [rbp-48h]
   bool v46; // [rsp+98h] [rbp+10h]
   int v47; // [rsp+A0h] [rbp+18h] BYREF
   int v48; // [rsp+A8h] [rbp+20h]
@@ -72,7 +72,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v44 = 0LL;
   v46 = 0;
   LanguageList = 0LL;
-  v45[0] = 0LL;
+  v45 = 0LL;
   if ( WowTebOffset < 0 )
     LODWORD(v4) = WowTebOffset + (_DWORD)v4;
   v11 = NtCurrentTeb();
@@ -97,7 +97,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v17 = NtCurrentTeb();
   if ( !MEMORY[0x7FFE03A4] )
     v16 = 1;
-  UserPrefLanguages = (__int64 *)v17->UserPrefLanguages;
+  UserPrefLanguages = (PVOID *)v17->UserPrefLanguages;
   if ( a2 )
   {
     v19 = *(_QWORD *)(a2 + 24);
@@ -244,20 +244,20 @@ LABEL_62:
               }
               if ( v34 )
               {
-                updated = RtlpLoadLanguageConfigList(8LL, v45, a2);
+                updated = RtlpLoadLanguageConfigList(8u);
                 if ( (updated & 0x80000000) == 0 )
-                  return (unsigned int)RtlpUpdateTEBLanguage(0LL, v45[0], 5LL, v39);
+                  return (unsigned int)RtlpUpdateTEBLanguage(0LL, v45, 5LL, v39);
               }
               return updated;
             }
             if ( !*UserPrefLanguages
-              || (v22 = *(_QWORD *)(*UserPrefLanguages + 16)) == 0
+              || (v22 = *((_QWORD *)*UserPrefLanguages + 2)) == 0
               || *(_DWORD *)(v22 + 12) >= *(_DWORD *)(a2 + 12) )
             {
 LABEL_40:
               if ( *UserPrefLanguages )
               {
-                v32 = *(_DWORD *)(*UserPrefLanguages + 40);
+                v32 = *((_DWORD *)*UserPrefLanguages + 10);
                 if ( a1 )
                 {
                   if ( (v32 & 0x20) != 0 )
@@ -281,7 +281,7 @@ LABEL_40:
                 *UserPrefLanguages = 0LL;
                 if ( NtCurrentTeb()->MergedPrefLanguages )
                 {
-                  RtlpMuiRegFreeLanguageList((__int64)NtCurrentTeb()->MergedPrefLanguages);
+                  RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
                   NtCurrentTeb()->MergedPrefLanguages = 0LL;
                 }
               }
@@ -292,7 +292,7 @@ LABEL_54:
             }
             v23 = *UserPrefLanguages;
           }
-          v30 = *(_DWORD *)(v23 + 40);
+          v30 = v23[10];
           LOBYTE(v2) = (v30 & 2) != 0;
           v48 = v2;
           LOBYTE(v3) = (v30 & 4) != 0;

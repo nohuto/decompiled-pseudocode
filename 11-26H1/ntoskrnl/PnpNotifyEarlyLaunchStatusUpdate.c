@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpNotifyEarlyLaunchStatusUpdate @ 0x140C8017C
+ * XREFs of PnpNotifyEarlyLaunchStatusUpdate @ 0x140C8617C
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     PipInitializeCoreDriversAndElam @ 0x140D04EDC (PipInitializeCoreDriversAndElam.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140D0B1AC (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     ExNotifyWithProcessing @ 0x140439330 (ExNotifyWithProcessing.c)
- *     PnpDiagnosticTraceElamStatus @ 0x1405D9088 (PnpDiagnosticTraceElamStatus.c)
+ *     ExNotifyWithProcessing @ 0x140427F90 (ExNotifyWithProcessing.c)
+ *     PnpDiagnosticTraceElamStatus @ 0x1405DB888 (PnpDiagnosticTraceElamStatus.c)
  */
 
 __int64 __fastcall PnpNotifyEarlyLaunchStatusUpdate(int a1)

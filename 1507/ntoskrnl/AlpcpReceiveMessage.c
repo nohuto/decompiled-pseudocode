@@ -147,7 +147,7 @@ __int64 __fastcall AlpcpReceiveMessage(__int64 a1, ULONG64 a2, _QWORD *a3, _DWOR
   signed __int64 v121; // rcx
   __int64 v122; // rbx
   int (__fastcall *v123)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v124; // r8
+  _SLIST_HEADER *v124; // r8
   unsigned int v125; // [rsp+30h] [rbp-148h]
   ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-140h] BYREF
   ULONG_PTR v127; // [rsp+40h] [rbp-138h] BYREF

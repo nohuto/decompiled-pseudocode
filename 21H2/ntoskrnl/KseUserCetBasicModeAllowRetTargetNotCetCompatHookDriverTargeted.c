@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetUserCetAppcompatOptions @ 0x1403F2A8C (KeSetUserCetAppcompatOptions.c)
+ *     KeSetUserCetAppcompatOptions @ 0x1403F2ADC (KeSetUserCetAppcompatOptions.c)
  */
 
 __int64 KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted()

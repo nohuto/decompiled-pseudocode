@@ -1,10 +1,10 @@
 /*
- * XREFs of XmImmediateJump @ 0x140575300
+ * XREFs of XmImmediateJump @ 0x140572790
  * Callers:
  *     <none>
  * Callees:
- *     XmGetWordImmediate @ 0x140468D7C (XmGetWordImmediate.c)
- *     XmGetLongImmediate @ 0x14056C8F0 (XmGetLongImmediate.c)
+ *     XmGetWordImmediate @ 0x14046172C (XmGetWordImmediate.c)
+ *     XmGetLongImmediate @ 0x140569D80 (XmGetLongImmediate.c)
  */
 
 __int64 __fastcall XmImmediateJump(__int64 a1)

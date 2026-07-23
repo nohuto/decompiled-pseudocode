@@ -1,18 +1,18 @@
 /*
- * XREFs of HalSendNMI @ 0x14057EF50
+ * XREFs of HalSendNMI @ 0x140581470
  * Callers:
- *     HalpNmiReboot @ 0x140593E10 (HalpNmiReboot.c)
- *     KiSendFreeze @ 0x1405F6118 (KiSendFreeze.c)
+ *     HalpNmiReboot @ 0x140596590 (HalpNmiReboot.c)
+ *     KiSendFreeze @ 0x1405F8AD8 (KiSendFreeze.c)
  * Callees:
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KeAndGroupAffinityEx @ 0x140469070 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeAndGroupAffinityEx @ 0x140462640 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalSendNMI(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall HalSendNMI(__int64 a1)
   bool v12; // di
   bool v13; // di
   bool v14; // di
-  struct _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-D0h] BYREF
+  _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-D0h] BYREF
   __int64 v16; // [rsp+40h] [rbp-C8h] BYREF
   __int128 v17; // [rsp+48h] [rbp-C0h]
   __int64 v18; // [rsp+58h] [rbp-B0h]
@@ -59,8 +59,8 @@ __int64 __fastcall HalSendNMI(__int64 a1)
     && (unsigned int)RtlCountSetBitsAffinityEx((unsigned __int16 *)&v23) > HalpInterruptIpiThreshold )
   {
     LODWORD(v17) = 1;
-    ProcNumber[1] = *(struct _PROCESSOR_NUMBER *)(HalpInterruptIpiLines + 20);
-    ProcNumber[0] = *(struct _PROCESSOR_NUMBER *)(HalpInterruptIpiLines + 16);
+    ProcNumber[1] = *(_PROCESSOR_NUMBER *)(HalpInterruptIpiLines + 20);
+    ProcNumber[0] = *(_PROCESSOR_NUMBER *)(HalpInterruptIpiLines + 16);
     v5 = HalpDisableInterrupts();
     result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), ProcNumber);
     v4 = result;

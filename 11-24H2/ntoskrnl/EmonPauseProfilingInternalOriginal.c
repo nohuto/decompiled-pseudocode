@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonPauseProfilingInternalOriginal @ 0x14055D5D8
+ * XREFs of EmonPauseProfilingInternalOriginal @ 0x14055B208
  * Callers:
- *     EmonPauseProfilingOriginal @ 0x14055D6C0 (EmonPauseProfilingOriginal.c)
+ *     EmonPauseProfilingOriginal @ 0x14055B2F0 (EmonPauseProfilingOriginal.c)
  * Callees:
  *     <none>
  */

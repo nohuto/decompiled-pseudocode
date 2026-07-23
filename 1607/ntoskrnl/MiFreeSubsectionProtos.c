@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeSubsectionProtos @ 0x14066209C
+ * XREFs of MiFreeSubsectionProtos @ 0x140662180
  * Callers:
- *     MiCreatePerSessionProtos @ 0x140661B60 (MiCreatePerSessionProtos.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x140661C44 (MiCreatePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiDeletePerSessionProtos @ 0x1401F4ECC (MiDeletePerSessionProtos.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiDeletePerSessionProtos @ 0x1401F4CF8 (MiDeletePerSessionProtos.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

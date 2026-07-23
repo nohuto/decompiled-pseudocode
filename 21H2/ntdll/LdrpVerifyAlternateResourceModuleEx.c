@@ -6,16 +6,10 @@
  *     LdrpGetRcConfig @ 0x180034A90 (LdrpGetRcConfig.c)
  *     LdrResGetRCConfig @ 0x1800580E0 (LdrResGetRCConfig.c)
  *     _wcsicmp @ 0x18008E370 (_wcsicmp.c)
- *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800CFD64 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
+ *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800CFD24 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
  */
 
-char __fastcall LdrpVerifyAlternateResourceModuleEx(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        __int64 a3,
-        const wchar_t *a4,
-        int a5,
-        int a6)
+char __fastcall LdrpVerifyAlternateResourceModuleEx(void *a1, void *a2, __int64 a3, const wchar_t *a4, int a5, int a6)
 {
   __int64 v9; // rdx
   _DWORD *v10; // rcx
@@ -43,7 +37,7 @@ char __fastcall LdrpVerifyAlternateResourceModuleEx(
   }
   else
   {
-    v17 = LdrpGetRcConfig(a1, a2, 0, 1);
+    v17 = LdrpGetRcConfig(a1, (__int64)a2, 0, 1);
     if ( v17 )
     {
       v16 = LdrpGetRcConfig(a2, v9, 0, 0);

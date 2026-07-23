@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRemoveDeviceActionRequests @ 0x14046C600
+ * XREFs of PnpRemoveDeviceActionRequests @ 0x1404671A0
  * Callers:
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14046C80C (PopDirectedDripsClearDisengageReason.c)
- *     PnpDeleteDeviceActionRequest @ 0x1409EF704 (PnpDeleteDeviceActionRequest.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x1404673AC (PopDirectedDripsClearDisengageReason.c)
+ *     PnpDeleteDeviceActionRequest @ 0x1409ECFD4 (PnpDeleteDeviceActionRequest.c)
  */
 
 _QWORD **__fastcall PnpRemoveDeviceActionRequests(__int64 a1)
@@ -58,20 +58,20 @@ _QWORD **__fastcall PnpRemoveDeviceActionRequests(__int64 a1)
         if ( v11 )
           KeSetEvent(v11, 0, 0);
         v12 = *((unsigned int *)v3 + 6);
-        v13 = KeAcquireSpinLockRaiseToDpc(&qword_140F0DF60);
-        v14 = dword_140F0DF68-- == 1;
+        v13 = KeAcquireSpinLockRaiseToDpc(&qword_140F0E200);
+        v14 = dword_140F0E208-- == 1;
         v15 = v13;
         if ( v14 )
           PopDirectedDripsClearDisengageReason(4LL);
-        KeReleaseSpinLock(&qword_140F0DF60, v15);
-        v16 = KeAcquireSpinLockRaiseToDpc(&qword_140F06650);
-        if ( !--dword_140F06658 && byte_140F066D0 )
+        KeReleaseSpinLock(&qword_140F0E200, v15);
+        v16 = KeAcquireSpinLockRaiseToDpc(&qword_140F06950);
+        if ( !--dword_140F06958 && byte_140F069D0 )
         {
-          qword_140F066D8 += MEMORY[0xFFFFF78000000008] - qword_140F066E0;
-          qword_140F066E0 = 0LL;
+          qword_140F069D8 += MEMORY[0xFFFFF78000000008] - qword_140F069E0;
+          qword_140F069E0 = 0LL;
         }
-        --dword_140F06660[v12];
-        KeReleaseSpinLock(&qword_140F06650, v16);
+        --dword_140F06960[v12];
+        KeReleaseSpinLock(&qword_140F06950, v16);
         v17 = P;
         if ( *(_QWORD ***)P != &v18 )
 LABEL_22:

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspInsertSyscallProvider @ 0x1407ED8CC
+ * XREFs of PspInsertSyscallProvider @ 0x1407F342C
  * Callers:
- *     PsRegisterSyscallProvider @ 0x1407ED420 (PsRegisterSyscallProvider.c)
+ *     PsRegisterSyscallProvider @ 0x1407F2F80 (PsRegisterSyscallProvider.c)
  * Callees:
- *     PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1406145AC (PspAcquireSyscallProviderRegistrationLockExclusive.c)
- *     PspDereferenceSyscallProvider @ 0x140614630 (PspDereferenceSyscallProvider.c)
- *     PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1406147BC (PspReleaseSyscallProviderRegistrationLockExclusive.c)
- *     PspLookupSyscallProviderByIdNoLock @ 0x1407ED950 (PspLookupSyscallProviderByIdNoLock.c)
+ *     PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1406173EC (PspAcquireSyscallProviderRegistrationLockExclusive.c)
+ *     PspDereferenceSyscallProvider @ 0x140617470 (PspDereferenceSyscallProvider.c)
+ *     PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1406175FC (PspReleaseSyscallProviderRegistrationLockExclusive.c)
+ *     PspLookupSyscallProviderByIdNoLock @ 0x1407F34B0 (PspLookupSyscallProviderByIdNoLock.c)
  */
 
 __int64 __fastcall PspInsertSyscallProvider(struct _LIST_ENTRY *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

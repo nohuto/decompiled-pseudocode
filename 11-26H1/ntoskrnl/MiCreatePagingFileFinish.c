@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreatePagingFileFinish @ 0x1409B7E0C
+ * XREFs of MiCreatePagingFileFinish @ 0x140988DEC
  * Callers:
- *     MiCreatePagingFileMap @ 0x1409B88BC (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x14098989C (MiCreatePagingFileMap.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140458D20 (MiUpdateSystemProtoPtesTree.c)
- *     MiUpdateControlAreaCommitCount @ 0x1404853D8 (MiUpdateControlAreaCommitCount.c)
- *     MiWriteControlAreaFlags2 @ 0x1404B65F0 (MiWriteControlAreaFlags2.c)
- *     MiUpdateLargePageSectionPfns @ 0x1406F02F0 (MiUpdateLargePageSectionPfns.c)
- *     MiLogSectionCreate @ 0x14086893C (MiLogSectionCreate.c)
- *     MiInitializePrototypePtes @ 0x1409B8000 (MiInitializePrototypePtes.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140450590 (MiUpdateSystemProtoPtesTree.c)
+ *     MiUpdateControlAreaCommitCount @ 0x14047ED48 (MiUpdateControlAreaCommitCount.c)
+ *     MiWriteControlAreaFlags2 @ 0x1404AFA40 (MiWriteControlAreaFlags2.c)
+ *     MiUpdateLargePageSectionPfns @ 0x1406F4F60 (MiUpdateLargePageSectionPfns.c)
+ *     MiLogSectionCreate @ 0x14086ED1C (MiLogSectionCreate.c)
+ *     MiInitializePrototypePtes @ 0x140988FE0 (MiInitializePrototypePtes.c)
  */
 
 _QWORD *__fastcall MiCreatePagingFileFinish(_QWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -79,7 +79,7 @@ _QWORD *__fastcall MiCreatePagingFileFinish(_QWORD *a1, __int64 a2, __int64 a3, 
       ExfTryToWakePushLock((volatile signed __int64 *)v10);
     KeAbPostRelease((unsigned __int64)v10);
     v17 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v17 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v17 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v16, v15);
     v18 = v4 + 128;
     if ( v8 < 0 )
@@ -150,7 +150,7 @@ _QWORD *__fastcall MiCreatePagingFileFinish(_QWORD *a1, __int64 a2, __int64 a3, 
   *(_DWORD *)v5 |= 4u;
   result = (_QWORD *)_InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 24), -1LL, -1LL);
   *(_QWORD *)(v5 + 128) = result;
-  if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x400001) != 0 )
+  if ( (DWORD1(PerfGlobalGroupMask) & 0x400001) != 0 )
     return MiLogSectionCreate((__int64 *)v4, 1);
   return result;
 }

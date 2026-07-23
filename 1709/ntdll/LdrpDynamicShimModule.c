@@ -75,7 +75,7 @@ __int64 __fastcall LdrpDynamicShimModule(__int64 *a1)
 LABEL_3:
   if ( g_pShimmedModuleList && v1 == 1 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
     g_pShimmedModuleList = 0LL;
     g_pShimmedModuleListLength = 0LL;
   }

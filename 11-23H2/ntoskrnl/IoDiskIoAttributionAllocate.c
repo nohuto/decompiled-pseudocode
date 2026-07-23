@@ -1,12 +1,12 @@
 /*
- * XREFs of IoDiskIoAttributionAllocate @ 0x1407D8538
+ * XREFs of IoDiskIoAttributionAllocate @ 0x1407D8808
  * Callers:
- *     PspSetJobIoAttribution @ 0x1407D82E4 (PspSetJobIoAttribution.c)
- *     PspIoRateEntryActivate @ 0x1407D866C (PspIoRateEntryActivate.c)
+ *     PspSetJobIoAttribution @ 0x1407D85B4 (PspSetJobIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x1407D893C (PspIoRateEntryActivate.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     IoDiskIoAttributionReference @ 0x140463A78 (IoDiskIoAttributionReference.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     IoDiskIoAttributionReference @ 0x140463E78 (IoDiskIoAttributionReference.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

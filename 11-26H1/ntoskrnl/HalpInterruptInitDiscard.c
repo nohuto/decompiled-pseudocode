@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptInitDiscard @ 0x140CAFAB4
+ * XREFs of HalpInterruptInitDiscard @ 0x140CB5AF4
  * Callers:
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
  * Callees:
- *     HviGetHardwareFeatures @ 0x1404E6360 (HviGetHardwareFeatures.c)
- *     HalpInitializeInterrupts @ 0x140CADD98 (HalpInitializeInterrupts.c)
+ *     HviGetHardwareFeatures @ 0x1404DF900 (HviGetHardwareFeatures.c)
+ *     HalpInitializeInterrupts @ 0x140CB3DD8 (HalpInitializeInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptInitDiscard(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall HalpInterruptInitDiscard(__int64 a1)
   HalpDefaultPcIoSpace = HalpAddressUsageList;
   HalpAddressUsageList = (ULONG_PTR)&HalpDefaultPcIoSpace;
   v3 = 0LL;
-  HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart = 0LL;
+  HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink = 0LL;
   if ( HalpHvCpuManager )
   {
     HviGetHardwareFeatures((__int64)&v3);

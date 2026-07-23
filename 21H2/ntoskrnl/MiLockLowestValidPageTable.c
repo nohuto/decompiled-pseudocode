@@ -1,33 +1,33 @@
 /*
- * XREFs of MiLockLowestValidPageTable @ 0x1403055C0
+ * XREFs of MiLockLowestValidPageTable @ 0x140310310
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
- *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
- *     MiConvertAndFlushWsleVas @ 0x140270AEC (MiConvertAndFlushWsleVas.c)
- *     MiTranslatePageForCopy @ 0x1402B4DE4 (MiTranslatePageForCopy.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
- *     MiRelockFaultState @ 0x1403052A8 (MiRelockFaultState.c)
- *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
- *     MiLockPoolCommitPageTable @ 0x14030B3D0 (MiLockPoolCommitPageTable.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MiSynchronizeSystemVa @ 0x140311C40 (MiSynchronizeSystemVa.c)
- *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiTranslatePageForCopy @ 0x140232F94 (MiTranslatePageForCopy.c)
+ *     MiLockStealUserVm @ 0x140258F74 (MiLockStealUserVm.c)
+ *     MiGetWorkingSetInfoList @ 0x14025C83C (MiGetWorkingSetInfoList.c)
+ *     MiConvertAndFlushWsleVas @ 0x14025EA8C (MiConvertAndFlushWsleVas.c)
+ *     MiWalkPageTablesRecursively @ 0x1402B06A0 (MiWalkPageTablesRecursively.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiTrimSharedPageFromViews @ 0x1402FA994 (MiTrimSharedPageFromViews.c)
+ *     MiRelockFaultState @ 0x14030FFF8 (MiRelockFaultState.c)
+ *     MiDeleteSystemPagableVm @ 0x1403107D0 (MiDeleteSystemPagableVm.c)
+ *     MiLockPoolCommitPageTable @ 0x140316120 (MiLockPoolCommitPageTable.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MiSynchronizeSystemVa @ 0x14031C990 (MiSynchronizeSystemVa.c)
+ *     NtUnlockVirtualMemory @ 0x140338C80 (NtUnlockVirtualMemory.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
  *     MmUpdateUserShadowStackValue @ 0x1403F4628 (MmUpdateUserShadowStackValue.c)
- *     MiReacquireWalkLocks @ 0x1405306E0 (MiReacquireWalkLocks.c)
- *     MiSplitReducedCommitClonePage @ 0x140530D94 (MiSplitReducedCommitClonePage.c)
- *     MiSetGraphicsPtes @ 0x14053463C (MiSetGraphicsPtes.c)
- *     MiSetPagesModified @ 0x1405350B0 (MiSetPagesModified.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1405366CC (MiDeprioritizeVirtualAddresses.c)
- *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
- *     MiScrubLargeMappedPage @ 0x140563A88 (MiScrubLargeMappedPage.c)
+ *     MiReacquireWalkLocks @ 0x140530920 (MiReacquireWalkLocks.c)
+ *     MiSplitReducedCommitClonePage @ 0x140530FD4 (MiSplitReducedCommitClonePage.c)
+ *     MiSetGraphicsPtes @ 0x14053487C (MiSetGraphicsPtes.c)
+ *     MiSetPagesModified @ 0x1405352F0 (MiSetPagesModified.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14053690C (MiDeprioritizeVirtualAddresses.c)
+ *     MiProtectAweRegion @ 0x14054D5A4 (MiProtectAweRegion.c)
+ *     MiScrubLargeMappedPage @ 0x140563CC8 (MiScrubLargeMappedPage.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiPerformSafePdeWrite @ 0x14038179C (MiPerformSafePdeWrite.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MiPerformSafePdeWrite @ 0x1403812EC (MiPerformSafePdeWrite.c)
  */
 
 unsigned __int64 __fastcall MiLockLowestValidPageTable(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall MiLockLowestValidPageTable(__int64 a1, unsigned __in
   v17 = ((v16 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v18 = ((v17 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v6 = 0xFFFFF6FB7DBEDF68uLL;
-  MiLockPageTableInternal(a1, 0xFFFFF6FB7DBEDF68uLL, 0LL);
+  MiLockPageTableInternal(a1, 0xFFFFF6FB7DBEDF68uLL, 0);
   for ( i = 2LL; ; --i )
   {
     v9 = *(&v15 + i);
@@ -88,7 +88,7 @@ unsigned __int64 __fastcall MiLockLowestValidPageTable(__int64 a1, unsigned __in
       MiPerformSafePdeWrite(Process, *(&v15 + i), v10, 1LL);
     if ( v9 != v6 )
     {
-      MiLockPageTableInternal(a1, v9, 0LL);
+      MiLockPageTableInternal(a1, v9, 0);
       MiUnlockPageTableInternal(a1, v6);
       v6 = v9;
     }

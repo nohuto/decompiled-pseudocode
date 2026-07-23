@@ -1,11 +1,11 @@
 /*
- * XREFs of PPmHeteroHgsUpdateOrderValue @ 0x140203D90
+ * XREFs of PPmHeteroHgsUpdateOrderValue @ 0x14047BAB4
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140203248 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1404E2E24 (PpmHeteroUpdateHgsConfiguration.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
  */
 
 char __fastcall PPmHeteroHgsUpdateOrderValue(unsigned __int16 *a1, unsigned __int16 *a2, unsigned int a3, char a4)
@@ -58,8 +58,7 @@ char __fastcall PPmHeteroHgsUpdateOrderValue(unsigned __int16 *a1, unsigned __in
       {
         _BitScanForward64(&v37, v15);
         v15 &= ~(1LL << v37);
-        v38 = *(_QWORD *)(KeGetPrcb(*((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v16
-                                                                      + (unsigned __int8)v37))
+        v38 = *(_QWORD *)(KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v16 + (unsigned __int8)v37))
                         + 35408);
         if ( a4 )
         {
@@ -98,8 +97,7 @@ LABEL_3:
       {
         _BitScanForward64(&v13, v10);
         v10 &= ~(1LL << v13);
-        v14 = *(_QWORD *)(KeGetPrcb(*((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v11
-                                                                      + (unsigned __int8)v13))
+        v14 = *(_QWORD *)(KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v11 + (unsigned __int8)v13))
                         + 35408);
         if ( a4 )
         {
@@ -138,7 +136,7 @@ LABEL_23:
             break;
           _BitScanForward64(&v20, v17);
           v17 &= ~(1LL << v20);
-          Prcb = KeGetPrcb(*((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v18 + (unsigned __int8)v20));
+          Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v18 + (unsigned __int8)v20));
           if ( *(_BYTE *)(Prcb + 35404) )
           {
             v5 = 1;
@@ -163,9 +161,7 @@ LABEL_34:
             break;
           _BitScanForward64(&v28, v23);
           v23 &= ~(1LL << v28);
-          v29 = *(_QWORD *)(KeGetPrcb(*((unsigned int *)qword_140F21E78
-                                      + 64 * (unsigned __int16)v25
-                                      + (unsigned __int8)v28))
+          v29 = *(_QWORD *)(KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v25 + (unsigned __int8)v28))
                           + 35408);
           if ( a4 )
             v30 = *(_BYTE *)(v29 + 4LL * a3 + 6);
@@ -194,9 +190,7 @@ LABEL_50:
             break;
           _BitScanForward64(&v34, v31);
           v31 &= ~(1LL << v34);
-          v35 = *(_QWORD *)(KeGetPrcb(*((unsigned int *)qword_140F21E78
-                                      + 64 * (unsigned __int16)v32
-                                      + (unsigned __int8)v34))
+          v35 = *(_QWORD *)(KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v32 + (unsigned __int8)v34))
                           + 35408);
           if ( a4 )
             v36 = *(_BYTE *)(v35 + 4LL * a3 + 6);

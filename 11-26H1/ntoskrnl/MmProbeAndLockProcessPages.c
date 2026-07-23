@@ -1,14 +1,14 @@
 /*
- * XREFs of MmProbeAndLockProcessPages @ 0x140A9A0D0
+ * XREFs of MmProbeAndLockProcessPages @ 0x140A9E250
  * Callers:
- *     CcAsyncReadPrefetch @ 0x140388A0C (CcAsyncReadPrefetch.c)
- *     DifMmProbeAndLockProcessPagesWrapper @ 0x140667F40 (DifMmProbeAndLockProcessPagesWrapper.c)
+ *     CcAsyncReadPrefetch @ 0x14038A7BC (CcAsyncReadPrefetch.c)
+ *     DifMmProbeAndLockProcessPagesWrapper @ 0x14066BB20 (DifMmProbeAndLockProcessPagesWrapper.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __stdcall MmProbeAndLockProcessPages(
@@ -18,7 +18,7 @@ void __stdcall MmProbeAndLockProcessPages(
         LOCK_OPERATION Operation)
 {
   int v5; // edi
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   unsigned __int128 v7; // [rsp+20h] [rbp-68h] BYREF
   _OWORD v8[3]; // [rsp+30h] [rbp-58h] BYREF
 

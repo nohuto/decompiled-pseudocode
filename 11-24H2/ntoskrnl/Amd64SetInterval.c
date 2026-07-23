@@ -1,12 +1,12 @@
 /*
- * XREFs of Amd64SetInterval @ 0x14056C7D0
+ * XREFs of Amd64SetInterval @ 0x140569C60
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     HalpGetProfileDescriptor @ 0x1404B0FE4 (HalpGetProfileDescriptor.c)
- *     HalpTimerSetProfilingTarget @ 0x1404BF240 (HalpTimerSetProfilingTarget.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     HalpGetProfileDescriptor @ 0x1404AB874 (HalpGetProfileDescriptor.c)
+ *     HalpTimerSetProfilingTarget @ 0x1404BA774 (HalpTimerSetProfilingTarget.c)
  */
 
 __int64 __fastcall Amd64SetInterval(int a1, unsigned int *a2)
@@ -34,7 +34,7 @@ __int64 __fastcall Amd64SetInterval(int a1, unsigned int *a2)
     v8 = v18;
     v9 = *a2;
     v10 = *(unsigned __int8 *)(v18 + 28);
-    v11 = dword_140025C8C[2 * v10];
+    v11 = dword_1400261EC[2 * v10];
     if ( *a2 < v11 )
     {
       *a2 = v11;

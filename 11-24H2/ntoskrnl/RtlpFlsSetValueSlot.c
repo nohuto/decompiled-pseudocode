@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFlsSetValueSlot @ 0x140A198A4
+ * XREFs of RtlpFlsSetValueSlot @ 0x140A12A14
  * Callers:
- *     PsTlsSetValue @ 0x140A197E0 (PsTlsSetValue.c)
+ *     PsTlsSetValue @ 0x140A12950 (PsTlsSetValue.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ?SetValue@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z @ 0x1404632BC (-SetValue@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ?SetValue@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z @ 0x140459DA8 (-SetValue@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z.c)
  */
 
 __int64 __fastcall RtlpFlsSetValueSlot(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -20,14 +20,14 @@ __int64 __fastcall RtlpFlsSetValueSlot(__int64 a1, __int64 a2, unsigned int a3, 
   __int64 v12; // r8
   _QWORD *v13; // rsi
   unsigned __int64 *v14; // rdi
-  _QWORD *v15; // rax
-  _QWORD *v16; // r14
+  char *v15; // rax
+  char *v16; // r14
   unsigned __int64 **v17; // rcx
   __int64 result; // rax
   int v19; // ecx
   __int64 v20; // r8
-  _QWORD *v21; // rax
-  _QWORD *v22; // r14
+  char *v21; // rax
+  char *v22; // r14
   unsigned __int64 v23; // rcx
   unsigned __int64 *v24; // rax
   _BYTE v25[24]; // [rsp+20h] [rbp-40h] BYREF
@@ -71,12 +71,12 @@ LABEL_5:
     {
       if ( a4 )
       {
-        v15 = KeAbPreAcquire((__int64)v10, 0LL);
+        v15 = (char *)KeAbPreAcquire((__int64)v10, 0LL);
         v16 = v15;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-          ExfAcquirePushLockExclusiveEx(v10, (__int64)v15, (__int64)v10);
+          ExfAcquirePushLockExclusiveEx(v10, v15, (__int64)v10);
         if ( v16 )
-          *((_BYTE *)v16 + 10) = 1;
+          v16[10] = 1;
         v17 = (unsigned __int64 **)v10[4];
         if ( *v17 != v10 + 3 )
           goto LABEL_12;
@@ -92,12 +92,12 @@ LABEL_15:
     }
     else if ( !a4 )
     {
-      v21 = KeAbPreAcquire((__int64)v10, 0LL);
+      v21 = (char *)KeAbPreAcquire((__int64)v10, 0LL);
       v22 = v21;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v10, (__int64)v21, (__int64)v10);
+        ExfAcquirePushLockExclusiveEx(v10, v21, (__int64)v10);
       if ( v22 )
-        *((_BYTE *)v22 + 10) = 1;
+        v22[10] = 1;
       *v13 = 0LL;
       v23 = *v14;
       v24 = (unsigned __int64 *)v13[2];

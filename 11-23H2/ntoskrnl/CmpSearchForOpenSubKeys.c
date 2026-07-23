@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpSearchForOpenSubKeys @ 0x140875154
+ * XREFs of CmpSearchForOpenSubKeys @ 0x140875394
  * Callers:
- *     CmpFreezeHive @ 0x1408750DC (CmpFreezeHive.c)
- *     NtQueryOpenSubKeys @ 0x140A0DA20 (NtQueryOpenSubKeys.c)
- *     NtQueryOpenSubKeysEx @ 0x140A0DC60 (NtQueryOpenSubKeysEx.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A284D8 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpFreezeHive @ 0x14087531C (CmpFreezeHive.c)
+ *     NtQueryOpenSubKeys @ 0x140A0DCD0 (NtQueryOpenSubKeys.c)
+ *     NtQueryOpenSubKeysEx @ 0x140A0DF10 (NtQueryOpenSubKeysEx.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28788 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
  *     CmpEnumerateAllOpenSubKeys @ 0x140699ABC (CmpEnumerateAllOpenSubKeys.c)
- *     CmpDumpKeyBodyList @ 0x140A17098 (CmpDumpKeyBodyList.c)
+ *     CmpDumpKeyBodyList @ 0x140A17348 (CmpDumpKeyBodyList.c)
  */
 
 __int64 __fastcall CmpSearchForOpenSubKeys(__int64 a1, int a2, __int64 a3)

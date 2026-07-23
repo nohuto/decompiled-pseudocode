@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpAllocateSnapshotMessageLog @ 0x14084A354
+ * XREFs of AlpcpAllocateSnapshotMessageLog @ 0x14084B5B4
  * Callers:
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084B7F8 (AlpcpEnterStateChangeEventMessageLog.c)
  * Callees:
  *     <none>
  */
@@ -57,21 +57,21 @@ __int64 AlpcpAllocateSnapshotMessageLog()
         goto LABEL_19;
       *v5 = v7;
       v7[1] = v5;
-      v8 = (_QWORD *)qword_14041AB18;
-      if ( *(__int64 **)qword_14041AB18 != &AlpcpFreeMessageSnapshotListHead )
+      v8 = (_QWORD *)qword_14041BBC8;
+      if ( *(__int64 **)qword_14041BBC8 != &AlpcpFreeMessageSnapshotListHead )
         goto LABEL_19;
       *v6 = &AlpcpFreeMessageSnapshotListHead;
       v6[1] = v8;
       *v8 = v6;
-      qword_14041AB18 = (__int64)v6;
+      qword_14041BBC8 = (__int64)v6;
     }
-    v9 = (__int64 *)qword_14041AAE8;
-    if ( *(__int64 **)qword_14041AAE8 != &AlpcpFreeMessageLogListHead )
+    v9 = (__int64 *)qword_14041BBD8;
+    if ( *(__int64 **)qword_14041BBD8 != &AlpcpFreeMessageLogListHead )
       goto LABEL_19;
     *(_QWORD *)v1 = &AlpcpFreeMessageLogListHead;
     *(_QWORD *)(v1 + 8) = v9;
     *v9 = v1;
-    qword_14041AAE8 = v1;
+    qword_14041BBD8 = v1;
   }
   v10 = *(_QWORD *)AlpcpFreeMessageSnapshotListHead;
   if ( *(__int64 **)(AlpcpFreeMessageSnapshotListHead + 8) != &AlpcpFreeMessageSnapshotListHead

@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpCreateRegion @ 0x1406D2654
+ * XREFs of AlpcpCreateRegion @ 0x1406A9934
  * Callers:
- *     AlpcpCreateSectionView @ 0x1406D2558 (AlpcpCreateSectionView.c)
+ *     AlpcpCreateSectionView @ 0x1406A9838 (AlpcpCreateSectionView.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x1406558AC (AlpcpAllocateBlob.c)
  */
 
 __int64 __fastcall AlpcpCreateRegion(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3, _QWORD *a4)

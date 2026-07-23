@@ -3,15 +3,15 @@
  * Callers:
  *     PspReaper @ 0x140222A80 (PspReaper.c)
  *     MmOutPageKernelStack @ 0x140222E50 (MmOutPageKernelStack.c)
- *     DbgkpLkmdSnapKernelStack @ 0x14053BD3C (DbgkpLkmdSnapKernelStack.c)
- *     IoAddProcessThreadsToDump @ 0x14055C500 (IoAddProcessThreadsToDump.c)
- *     PspThreadDelete @ 0x1407473C0 (PspThreadDelete.c)
- *     PsDereferenceKernelStack @ 0x1407EA090 (PsDereferenceKernelStack.c)
+ *     DbgkpLkmdSnapKernelStack @ 0x14053C28C (DbgkpLkmdSnapKernelStack.c)
+ *     IoAddProcessThreadsToDump @ 0x14055CBC0 (IoAddProcessThreadsToDump.c)
+ *     PspThreadDelete @ 0x1407475B0 (PspThreadDelete.c)
+ *     PsDereferenceKernelStack @ 0x1407EA360 (PsDereferenceKernelStack.c)
  * Callees:
  *     KeGetNextKernelStackSegment @ 0x140222C2C (KeGetNextKernelStackSegment.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeEnumerateKernelStackSegments(

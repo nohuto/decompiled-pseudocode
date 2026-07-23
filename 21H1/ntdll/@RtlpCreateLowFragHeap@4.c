@@ -16,46 +16,54 @@
  *     _RtlpLogHeapExtendEvent@20 @ 0x4B36F013 (_RtlpLogHeapExtendEvent@20.c)
  */
 
-_DWORD *__thiscall RtlpCreateLowFragHeap(_DWORD *this)
+PVOID __thiscall RtlpCreateLowFragHeap(PVOID BaseAddress)
 {
   char v2; // al
-  int v3; // ecx
-  int HeapProtection; // eax
+  PVOID v3; // ecx
+  ULONG HeapProtection; // eax
   int v5; // eax
   int v6; // ebx
-  int v7; // eax
+  ULONG v7; // eax
   int v8; // esi
   int v9; // eax
-  _DWORD *v11; // [esp+Ch] [ebp-14h] BYREF
-  int v12; // [esp+10h] [ebp-10h]
+  ULONG_PTR v11; // [esp-10h] [ebp-30h]
+  ULONG_PTR v12; // [esp-10h] [ebp-30h]
+  ULONG v13; // [esp+0h] [ebp-20h]
+  ULONG v14; // [esp+0h] [ebp-20h]
+  PVOID BaseAddressa; // [esp+Ch] [ebp-14h] BYREF
+  int v16; // [esp+10h] [ebp-10h]
   int LowFragHeapSize; // [esp+14h] [ebp-Ch] BYREF
-  int v14; // [esp+18h] [ebp-8h] BYREF
-  int v15; // [esp+1Ch] [ebp-4h] BYREF
+  int v18; // [esp+18h] [ebp-8h] BYREF
+  int v19; // [esp+1Ch] [ebp-4h] BYREF
 
-  v12 = 0;
+  v16 = 0;
   RtlRunOnceExecuteOnce(&RtlpTestHookInit, RtlpTestHookInitialize, 0, 0);
-  if ( RtlpQueryPhysicalMemoryPolicy(&v15) >= 0 && v15 <= 10 )
+  if ( RtlpQueryPhysicalMemoryPolicy(&v19) >= 0 && v19 <= 10 )
   {
     v2 = 3;
-    v12 = 3;
+    v16 = 3;
   }
   else
   {
-    v2 = v12;
+    v2 = v16;
   }
   LowFragHeapSize = RtlpGetLowFragHeapSize(v2);
-  v11 = 0;
-  HeapProtection = RtlpGetHeapProtection(v3, 1);
-  if ( (int)NtAllocateVirtualMemory(-1, &v11, 0, &LowFragHeapSize, 0x2000, HeapProtection) < 0 )
+  BaseAddressa = 0;
+  HeapProtection = RtlpGetHeapProtection(v3);
+  HIDWORD(v11) = &LowFragHeapSize;
+  LODWORD(v11) = 0;
+  if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddressa, v11, (PSIZE_T)0x2000, HeapProtection, v13) < 0 )
     return 0;
-  if ( (v12 & 1) != 0 )
+  if ( (v16 & 1) != 0 )
     v5 = 1;
   else
     v5 = RtlpAffinityState;
-  v6 = 6 * v5;
-  v14 = 24 * v5 + 2000;
-  v7 = RtlpGetHeapProtection(this, 1);
-  if ( (int)NtAllocateVirtualMemory(-1, &v11, 0, &v14, 4096, v7) < 0 )
+  v6 = 24 * v5;
+  v18 = 24 * v5 + 2000;
+  v7 = RtlpGetHeapProtection(BaseAddress);
+  HIDWORD(v12) = &v18;
+  LODWORD(v12) = 0;
+  if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddressa, v12, (PSIZE_T)0x1000, v7, v14) < 0 )
   {
     LowFragHeapSize = 0;
     RtlpSecMemFreeVirtualMemory(&LowFragHeapSize, 0x8000);
@@ -70,20 +78,20 @@ _DWORD *__thiscall RtlpCreateLowFragHeap(_DWORD *this)
   {
     if ( RtlGetCurrentServiceSessionId() )
       v8 = (int)NtCurrentPeb()->SharedData + 550;
-    RtlpLogHeapExtendEvent(v14, 8 * this[29], *(unsigned __int8 *)v8);
-    RtlpLogHeapCommit(v14, 9);
+    RtlpLogHeapExtendEvent(v18, 8 * *((_DWORD *)BaseAddress + 29), (HANDLE)*(unsigned __int8 *)v8);
+    RtlpLogHeapCommit(v18, 9);
   }
-  RtlpInitializeLowFragHeap(v12);
-  *(_DWORD *)(v11[3] + 500) += LowFragHeapSize;
-  *(_DWORD *)(v11[3] + 504) += v14;
-  v11[6] = (char *)v11 + LowFragHeapSize;
-  v11[5] = (char *)v11 + v14;
-  v11[4] = &v11[v6 + 500];
+  RtlpInitializeLowFragHeap(v16);
+  *(_DWORD *)(*((_DWORD *)BaseAddressa + 3) + 500) += LowFragHeapSize;
+  *(_DWORD *)(*((_DWORD *)BaseAddressa + 3) + 504) += v18;
+  *((_DWORD *)BaseAddressa + 6) = (char *)BaseAddressa + LowFragHeapSize;
+  *((_DWORD *)BaseAddressa + 5) = (char *)BaseAddressa + v18;
+  *((_DWORD *)BaseAddressa + 4) = (char *)BaseAddressa + v6 + 2000;
   if ( (RtlpLowFragHeapGlobalFlags & 3) == 0 )
   {
     RtlpLowFragHeapGlobalFlags |= 1u;
     RtlpInitializeLfhRandomDataArray();
   }
-  v11[110] = v12;
-  return v11;
+  *((_DWORD *)BaseAddressa + 110) = v16;
+  return BaseAddressa;
 }

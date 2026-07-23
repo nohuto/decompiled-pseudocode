@@ -1,13 +1,13 @@
 /*
- * XREFs of PopNetEvaluationWorkerCallback @ 0x14057C2FC
+ * XREFs of PopNetEvaluationWorkerCallback @ 0x14057C7A8
  * Callers:
  *     <none>
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x14057C44C (PopTraceStandbyConnectivityUpdate.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14057C52C (PopNetUpdateCsConsumptionFlags.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x14057C8F8 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x14057C9D8 (PopNetUpdateCsConsumptionFlags.c)
  */
 
 __int64 PopNetEvaluationWorkerCallback()
@@ -23,8 +23,8 @@ __int64 PopNetEvaluationWorkerCallback()
   unsigned int v8; // esi
   __int64 v10; // rcx
   char v11; // [rsp+88h] [rbp+10h]
-  int v12; // [rsp+90h] [rbp+18h] BYREF
-  int v13; // [rsp+94h] [rbp+1Ch]
+  int Buffer; // [rsp+90h] [rbp+18h] BYREF
+  int Buffer_4; // [rsp+94h] [rbp+1Ch]
 
   PopAcquirePolicyLock();
   while ( 1 )
@@ -95,12 +95,12 @@ LABEL_6:
         goto LABEL_11;
       v6 = 1;
     }
-    if ( PopNetResiliencyEngaged && xmmword_140329000 )
+    if ( PopNetResiliencyEngaged && xmmword_140329040 )
     {
       v11 = 1;
       PopReleasePolicyLock();
       LOBYTE(v10) = 1;
-      xmmword_140329000(v10);
+      xmmword_140329040(v10);
       PopAcquirePolicyLock();
       v1 = 2;
     }
@@ -118,13 +118,13 @@ LABEL_11:
     }
     if ( v6 )
     {
-      v13 = -1;
-      v12 = v1 & (2 * v3) | 1;
-      ZwUpdateWnfStateData((__int64)&WNF_SEB_NETWORK_CONNECTIVITY_IN_STANDBY, (__int64)&v12, 8LL);
+      Buffer_4 = -1;
+      Buffer = v1 & (2 * v3) | 1;
+      ZwUpdateWnfStateData(&WNF_SEB_NETWORK_CONNECTIVITY_IN_STANDBY, &Buffer, 8u, 0LL, 0LL, 0, 0);
       if ( v11 )
       {
         PopReleasePolicyLock();
-        xmmword_140329000(0LL);
+        xmmword_140329040(0LL);
         PopAcquirePolicyLock();
       }
     }
@@ -135,6 +135,6 @@ LABEL_11:
     else
       PopNetDeferLogRequest = 1;
   }
-  _InterlockedExchange(&dword_140302688, 0);
+  _InterlockedExchange(&dword_1403026C8, 0);
   return PopReleasePolicyLock();
 }

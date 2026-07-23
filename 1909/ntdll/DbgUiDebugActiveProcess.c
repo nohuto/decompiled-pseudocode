@@ -8,16 +8,16 @@
  *     DbgUiIssueRemoteBreakin @ 0x1800CD2D0 (DbgUiIssueRemoteBreakin.c)
  */
 
-__int64 __fastcall DbgUiDebugActiveProcess(__int64 a1)
+NTSTATUS __cdecl DbgUiDebugActiveProcess(HANDLE Process)
 {
   int active; // ebx
 
-  active = NtDebugActiveProcess();
+  active = NtDebugActiveProcess(Process, NtCurrentTeb()->DbgSsReserved[1]);
   if ( active >= 0 )
   {
-    active = DbgUiIssueRemoteBreakin(a1);
+    active = DbgUiIssueRemoteBreakin(Process);
     if ( active < 0 )
-      ZwRemoveProcessDebug();
+      ZwRemoveProcessDebug(Process, NtCurrentTeb()->DbgSsReserved[1]);
   }
-  return (unsigned int)active;
+  return active;
 }

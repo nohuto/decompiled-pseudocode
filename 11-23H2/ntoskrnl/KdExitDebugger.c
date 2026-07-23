@@ -1,9 +1,9 @@
 /*
  * XREFs of KdExitDebugger @ 0x140AB0008
  * Callers:
- *     KdpReport @ 0x14030E874 (KdpReport.c)
- *     KdRefreshDebuggerNotPresent @ 0x1403B1ED0 (KdRefreshDebuggerNotPresent.c)
- *     KiTpWriteMemory @ 0x14057EF6C (KiTpWriteMemory.c)
+ *     KdpReport @ 0x14030EB04 (KdpReport.c)
+ *     KdRefreshDebuggerNotPresent @ 0x1403B20B0 (KdRefreshDebuggerNotPresent.c)
+ *     KiTpWriteMemory @ 0x14057F45C (KiTpWriteMemory.c)
  *     KdpSymbol @ 0x140AB0510 (KdpSymbol.c)
  *     KdpSendWaitContinue @ 0x140AB07C8 (KdpSendWaitContinue.c)
  *     KdpCreateRemoteFile @ 0x140AB0E04 (KdpCreateRemoteFile.c)
@@ -17,11 +17,11 @@
  * Callees:
  *     KeThawExecution @ 0x14020D410 (KeThawExecution.c)
  *     KeRestoreSupervisorState @ 0x14020E4F0 (KeRestoreSupervisorState.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     ExQueueDebuggerWorker @ 0x14029393C (ExQueueDebuggerWorker.c)
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfNotifyVerifierOfEvent @ 0x140AC2150 (VfNotifyVerifierOfEvent.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     ExQueueDebuggerWorker @ 0x140293BCC (ExQueueDebuggerWorker.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfNotifyVerifierOfEvent @ 0x140AC2140 (VfNotifyVerifierOfEvent.c)
  */
 
 __int64 __fastcall KdExitDebugger(char a1)

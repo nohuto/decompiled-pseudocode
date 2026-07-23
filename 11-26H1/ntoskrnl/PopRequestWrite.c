@@ -1,22 +1,22 @@
 /*
- * XREFs of PopRequestWrite @ 0x140BFB804
+ * XREFs of PopRequestWrite @ 0x140C01804
  * Callers:
- *     PopCompressCallback @ 0x140BF9F70 (PopCompressCallback.c)
- *     PopWriteHiberImage @ 0x140BFCAD4 (PopWriteHiberImage.c)
+ *     PopCompressCallback @ 0x140BFFF70 (PopCompressCallback.c)
+ *     PopWriteHiberImage @ 0x140C02AD4 (PopWriteHiberImage.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     MmGetNumberOfPhysicalPages @ 0x1404AF740 (MmGetNumberOfPhysicalPages.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopGetIoLocation @ 0x140BE9524 (PopGetIoLocation.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140BFA800 (PopGetRemainingHibernateRangeDataSize.c)
- *     PopHiberChecksumHiberFileData @ 0x140BFAB3C (PopHiberChecksumHiberFileData.c)
- *     PopRecordHibernateDiagnosticInfo @ 0x140BFB2F0 (PopRecordHibernateDiagnosticInfo.c)
- *     ConsumerBufferComplete @ 0x140BFE1D8 (ConsumerBufferComplete.c)
- *     ConsumerGetBuffer @ 0x140BFE250 (ConsumerGetBuffer.c)
- *     PopCheckpointSystemSleep @ 0x140C06470 (PopCheckpointSystemSleep.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1404A8DD0 (MmGetNumberOfPhysicalPages.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopGetIoLocation @ 0x140BEF524 (PopGetIoLocation.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x140C00800 (PopGetRemainingHibernateRangeDataSize.c)
+ *     PopHiberChecksumHiberFileData @ 0x140C00B3C (PopHiberChecksumHiberFileData.c)
+ *     PopRecordHibernateDiagnosticInfo @ 0x140C012F0 (PopRecordHibernateDiagnosticInfo.c)
+ *     ConsumerBufferComplete @ 0x140C043E0 (ConsumerBufferComplete.c)
+ *     ConsumerGetBuffer @ 0x140C04458 (ConsumerGetBuffer.c)
+ *     PopCheckpointSystemSleep @ 0x140C0C680 (PopCheckpointSystemSleep.c)
  */
 
 char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3)
@@ -81,7 +81,7 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
         BugCheckParameter4 = (int)guard_dispatch_icall_no_overrides(2LL, v7 + 400);
         v14 = __rdtsc();
         a2 = (unsigned __int64)HIDWORD(v14) << 32;
-        *(_QWORD *)&stru_140F10070.WaitBlockFill11[16] += (a2 | (unsigned int)v14) - v10;
+        qword_140F10A60 += (a2 | (unsigned int)v14) - v10;
         if ( (BugCheckParameter4 & 0x80000000) != 0LL )
         {
           PopCheckpointSystemSleep(21LL);
@@ -95,18 +95,13 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
       }
       else
       {
-        stru_140F10070.WaitBlock[0].WaitListEntry.Blink = (struct _LIST_ENTRY *)((char *)stru_140F10070.WaitBlock[0].WaitListEntry.Blink
-                                                                               + v9
-                                                                               - *(_QWORD *)(v7 + 368));
+        qword_140F10A58 += v9 - *(_QWORD *)(v7 + 368);
         ConsumerBufferComplete(v6, *(_QWORD *)(v7 + 416), *(unsigned int *)(v7 + 392));
         v11 = __rdtsc();
         a2 = (unsigned __int64)HIDWORD(v11) << 32;
-        stru_140F10070.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)((char *)stru_140F10070.WaitBlock[1].WaitListEntry.Blink
-                                                                               + (a2 | (unsigned int)v11)
-                                                                               - v10);
-        stru_140F10070.SchedulerSharedSystemSlot = (char *)stru_140F10070.SchedulerSharedSystemSlot
-                                                 + *(_QWORD *)(v7 + 392);
-        LODWORD(stru_140F10070.PropagateBoostsEntry.Next) += (unsigned __int64)(*(_QWORD *)(v7 + 384) + 4095LL) >> 12;
+        qword_140F10A88 += (a2 | (unsigned int)v11) - v10;
+        qword_140F10C30 += *(_QWORD *)(v7 + 392);
+        dword_140F10C38 += (unsigned __int64)(*(_QWORD *)(v7 + 384) + 4095LL) >> 12;
         v12 = *(_QWORD *)(v7 + 384);
         *(_QWORD *)(v7 + 408) += v12;
         *(_QWORD *)(v7 + 376) += v12;
@@ -114,11 +109,11 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
         *(_DWORD *)(v7 + 360) = 0;
       }
     }
-    if ( ((__int64)stru_140F11D08.InitialStack & 0x1F) == 0 )
+    if ( (PopWatchdogTimerCount & 0x1F) == 0 )
       guard_dispatch_icall_no_overrides(v8, a2);
     v15 = *(_QWORD *)(v7 + 408);
     v16 = *(_QWORD *)(v7 + 176);
-    ++LODWORD(stru_140F11D08.InitialStack);
+    ++PopWatchdogTimerCount;
     IoLocation = PopGetIoLocation(v16, v15, &v35);
     v18 = *(unsigned int *)(v7 + 440);
     *(_QWORD *)(v7 + 400) = IoLocation;
@@ -137,7 +132,7 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
     v23 = v41;
     *(_QWORD *)(v7 + 416) = Buffer;
     *(_QWORD *)(v7 + 392) = v23;
-    if ( v22 + v19 > qword_140F0FD70 )
+    if ( v22 + v19 > qword_140F108F0 )
     {
       PopCheckpointSystemSleep(22LL);
       v33 = *(_DWORD *)(v7 + 200);
@@ -146,8 +141,8 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
       *(_QWORD *)MaxDataSize = MmGetNumberOfPhysicalPages(0);
       IoAddTriageDumpDataBlock((ULONG)MaxDataSize, (PVOID)8);
       PopRecordHibernateDiagnosticInfo(v7);
-      IoAddTriageDumpDataBlock((ULONG)&stru_140F11D08.StackBase, (PVOID)0x80);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140F0FD70, *(unsigned int *)(v7 + 200), RemainingHibernateRangeDataSize);
+      IoAddTriageDumpDataBlock((ULONG)&PopHibernateDiagnosticInfo, (PVOID)0x80);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_140F108F0, *(unsigned int *)(v7 + 200), RemainingHibernateRangeDataSize);
     }
     PopHiberChecksumHiberFileData(v7, 1, v22, Buffer, v23);
     *(_WORD *)(v3 + 10) = 1;
@@ -182,14 +177,14 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
     v29 = (int)guard_dispatch_icall_no_overrides(1LL, v7 + 400);
     v30 = __rdtsc();
     a2 = (unsigned __int64)HIDWORD(v30) << 32;
-    *(_QWORD *)&stru_140F10070.WaitBlockFill11[16] += (a2 | (unsigned int)v30) - v28;
+    qword_140F10A60 += (a2 | (unsigned int)v30) - v28;
     if ( (_DWORD)v29 == -1073741637 )
     {
       *(_BYTE *)(v7 + 424) = 0;
     }
     else
     {
-      if ( (v29 & 0x80000000) != 0LL || dword_140F0FD40 == 2 )
+      if ( (v29 & 0x80000000) != 0LL || PopSimulateHiberBugcheck == 2 )
       {
         PopCheckpointSystemSleep(21LL);
         PopInternalAddToDumpFile(v7, 0x1F0u, 0LL);
@@ -205,7 +200,7 @@ LABEL_25:
       v31 = (int)guard_dispatch_icall_no_overrides(v7 + 400, v3);
       v32 = __rdtsc();
       a2 = (unsigned __int64)HIDWORD(v32) << 32;
-      *(_QWORD *)&stru_140F10070.WaitBlockFill11[16] += (a2 | (unsigned int)v32) - v28;
+      qword_140F10A60 += (a2 | (unsigned int)v32) - v28;
       if ( (v31 & 0x80000000) != 0LL )
       {
         PopCheckpointSystemSleep(21LL);

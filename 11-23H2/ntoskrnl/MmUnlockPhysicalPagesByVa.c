@@ -1,14 +1,14 @@
 /*
- * XREFs of MmUnlockPhysicalPagesByVa @ 0x140A2D800
+ * XREFs of MmUnlockPhysicalPagesByVa @ 0x140A2DAB0
  * Callers:
- *     MiProbeAndLockComplete @ 0x140238870 (MiProbeAndLockComplete.c)
- *     VmpUnlockMemoryForPin @ 0x1409DD7E0 (VmpUnlockMemoryForPin.c)
+ *     MiProbeAndLockComplete @ 0x140238940 (MiProbeAndLockComplete.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DD9E0 (VmpUnlockMemoryForPin.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BD00 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x14025BF90 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MmUnlockPhysicalPagesByVa(__int64 a1, __int64 a2, __int64 a3, int a4)

@@ -1,8 +1,8 @@
 /*
  * XREFs of ViKeWaitForMultipleObjectsCommon @ 0x140713278
  * Callers:
- *     VerifierKeWaitForMultipleObjects @ 0x1407128BC (VerifierKeWaitForMultipleObjects.c)
- *     VerifierKeWaitForMultipleObjectsNoReboot @ 0x140712964 (VerifierKeWaitForMultipleObjectsNoReboot.c)
+ *     VerifierKeWaitForMultipleObjects @ 0x140712874 (VerifierKeWaitForMultipleObjects.c)
+ *     VerifierKeWaitForMultipleObjectsNoReboot @ 0x14071291C (VerifierKeWaitForMultipleObjectsNoReboot.c)
  * Callees:
  *     ViKeInjectStatusAlerted @ 0x140712F08 (ViKeInjectStatusAlerted.c)
  *     ViKeWaitSanityChecks @ 0x1407133FC (ViKeWaitSanityChecks.c)

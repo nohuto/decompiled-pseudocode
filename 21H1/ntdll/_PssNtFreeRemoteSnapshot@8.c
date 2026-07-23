@@ -9,54 +9,57 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall PssNtFreeRemoteSnapshot(int a1, int a2)
+NTSTATUS __stdcall PssNtFreeRemoteSnapshot(HANDLE ProcessHandle, _DWORD *BaseAddress)
 {
-  int result; // eax
-  int v3; // [esp+10h] [ebp-3E0h] BYREF
-  int v4; // [esp+14h] [ebp-3DCh] BYREF
-  int v5; // [esp+18h] [ebp-3D8h] BYREF
-  char v6; // [esp+1Ch] [ebp-3D4h]
-  int v7; // [esp+308h] [ebp-E8h]
-  int v8; // [esp+31Ch] [ebp-D4h]
-  int v9; // [esp+32Ch] [ebp-C4h]
-  int v10; // [esp+33Ch] [ebp-B4h]
-  int v11; // [esp+350h] [ebp-A0h]
-  int v12; // [esp+368h] [ebp-88h]
+  NTSTATUS result; // eax
+  SIZE_T v3; // [esp-8h] [ebp-3F8h]
+  ULONG_PTR *v4; // [esp+0h] [ebp-3F0h]
+  ULONG_PTR RegionSize; // [esp+10h] [ebp-3E0h] BYREF
+  int Buffer; // [esp+18h] [ebp-3D8h] BYREF
+  char v7; // [esp+1Ch] [ebp-3D4h]
+  HANDLE v8; // [esp+308h] [ebp-E8h]
+  HANDLE v9; // [esp+31Ch] [ebp-D4h]
+  HANDLE v10; // [esp+32Ch] [ebp-C4h]
+  HANDLE v11; // [esp+33Ch] [ebp-B4h]
+  HANDLE v12; // [esp+350h] [ebp-A0h]
+  HANDLE SourceHandle; // [esp+368h] [ebp-88h]
 
-  result = NtReadVirtualMemory(a1, a2, (int)&v5, 976, (int)&v3);
+  HIDWORD(v3) = &RegionSize;
+  LODWORD(v3) = 976;
+  result = NtReadVirtualMemory(ProcessHandle, BaseAddress, &Buffer, v3, v4);
   if ( result >= 0 )
   {
-    if ( v3 == 976 )
+    if ( (_DWORD)RegionSize == 976 )
     {
-      if ( v5 == 1146311504 )
+      if ( Buffer == 1146311504 )
       {
-        if ( (v6 & 1) == 0 || (v6 & 2) != 0 )
+        if ( (v7 & 1) == 0 || (v7 & 2) != 0 )
         {
           return -1073741637;
         }
         else
         {
-          if ( (v6 & 4) != 0 )
+          if ( (v7 & 4) != 0 )
           {
-            v4 = *(_DWORD *)(a2 + 776);
-            v3 = 0;
-            NtFreeVirtualMemory(a1, (int)&v4, (int)&v3, 0x8000);
+            HIDWORD(RegionSize) = BaseAddress[194];
+            LODWORD(RegionSize) = 0;
+            NtFreeVirtualMemory(ProcessHandle, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
           }
+          if ( SourceHandle )
+            ZwDuplicateObject(ProcessHandle, SourceHandle, 0, 0, 0, 0, 1u);
           if ( v12 )
-            ZwDuplicateObject(a1, v12, 0, 0, 0, 0, 1);
-          if ( v11 )
-            ZwDuplicateObject(a1, v11, 0, 0, 0, 0, 1);
-          if ( v9 )
-            ZwDuplicateObject(a1, v9, 0, 0, 0, 0, 1);
+            ZwDuplicateObject(ProcessHandle, v12, 0, 0, 0, 0, 1u);
           if ( v10 )
-            ZwDuplicateObject(a1, v10, 0, 0, 0, 0, 1);
+            ZwDuplicateObject(ProcessHandle, v10, 0, 0, 0, 0, 1u);
+          if ( v11 )
+            ZwDuplicateObject(ProcessHandle, v11, 0, 0, 0, 0, 1u);
+          if ( v9 )
+            ZwDuplicateObject(ProcessHandle, v9, 0, 0, 0, 0, 1u);
           if ( v8 )
-            ZwDuplicateObject(a1, v8, 0, 0, 0, 0, 1);
-          if ( v7 )
-            ZwDuplicateObject(a1, v7, 0, 0, 0, 0, 1);
-          v4 = a2;
-          v3 = 0;
-          NtFreeVirtualMemory(a1, (int)&v4, (int)&v3, 0x8000);
+            ZwDuplicateObject(ProcessHandle, v8, 0, 0, 0, 0, 1u);
+          HIDWORD(RegionSize) = BaseAddress;
+          LODWORD(RegionSize) = 0;
+          NtFreeVirtualMemory(ProcessHandle, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
           return 0;
         }
       }

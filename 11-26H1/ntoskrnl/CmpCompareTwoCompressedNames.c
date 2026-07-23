@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCompareTwoCompressedNames @ 0x140A47130
+ * XREFs of CmpCompareTwoCompressedNames @ 0x140A50420
  * Callers:
- *     CmpFindSubKeyInRoot @ 0x1408D1B40 (CmpFindSubKeyInRoot.c)
- *     CmpCompareInIndex @ 0x1408D27E0 (CmpCompareInIndex.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1408D2EE0 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpDoCompareKeyName @ 0x1408D4080 (CmpDoCompareKeyName.c)
- *     CmpCompareKeysByName @ 0x140A46F20 (CmpCompareKeysByName.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A47070 (CmpSortedValueEnumStackValueCompareFunction.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x140B40448 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpFindSubKeyInRoot @ 0x1408D8100 (CmpFindSubKeyInRoot.c)
+ *     CmpCompareInIndex @ 0x1408D8DA0 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1408D94A0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpDoCompareKeyName @ 0x1408DA640 (CmpDoCompareKeyName.c)
+ *     CmpCompareKeysByName @ 0x140A50214 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A50360 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140B42454 (CmpFindKcbInHashEntryByCompressedName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpCompareTwoCompressedNames(

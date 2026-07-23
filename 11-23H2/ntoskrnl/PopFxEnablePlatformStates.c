@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxEnablePlatformStates @ 0x14058A230
+ * XREFs of PopFxEnablePlatformStates @ 0x14058A720
  * Callers:
- *     PpmEnableCoordinatedIdleStates @ 0x140981B2C (PpmEnableCoordinatedIdleStates.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x140981D2C (PpmEnableCoordinatedIdleStates.c)
  * Callees:
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1405841DC (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepPlatformStateRegistered @ 0x14059F994 (PopPepPlatformStateRegistered.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984C30 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1405846CC (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepPlatformStateRegistered @ 0x14059FE84 (PopPepPlatformStateRegistered.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984E30 (PopFxInitializeSocSubsystemStaticInfo.c)
  */
 
 void __fastcall PopFxEnablePlatformStates(int a1)

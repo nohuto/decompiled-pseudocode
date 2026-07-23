@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptDpReplaceBegin @ 0x140599C1C
+ * XREFs of HalpInterruptDpReplaceBegin @ 0x14059C39C
  * Callers:
- *     HalpDpReplaceBegin @ 0x140785E10 (HalpDpReplaceBegin.c)
+ *     HalpDpReplaceBegin @ 0x140788940 (HalpDpReplaceBegin.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptDpReplaceBegin(

@@ -1,25 +1,25 @@
 /*
- * XREFs of CcFlushCacheOneRange @ 0x140240110
+ * XREFs of CcFlushCacheOneRange @ 0x140208260
  * Callers:
- *     CcWriteBehindInternal @ 0x1402A81F0 (CcWriteBehindInternal.c)
- *     CcWriteBehindAsync @ 0x1402A91A8 (CcWriteBehindAsync.c)
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
- *     CcWriteBehindAsyncFlushOneRange @ 0x14057E33C (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
+ *     CcWriteBehindInternal @ 0x140279FE0 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x14027B44C (CcWriteBehindAsync.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x14057B7CC (CcWriteBehindAsyncFlushOneRange.c)
  * Callees:
- *     MmSetAddressRangeModifiedEx @ 0x140240600 (MmSetAddressRangeModifiedEx.c)
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14024109C (CcReferenceSharedCacheMapFileObject.c)
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140208750 (MmSetAddressRangeModifiedEx.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402091EC (CcReferenceSharedCacheMapFileObject.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcFlushCacheOneRange(__int64 *a1)
@@ -197,7 +197,7 @@ LABEL_14:
   }
   else
   {
-    if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+    if ( (xmmword_140FC6B50 & 0x20000) != 0 )
     {
       v21 = *((_DWORD *)a1 + 14);
       v22 = *((_DWORD *)a1 + 12);

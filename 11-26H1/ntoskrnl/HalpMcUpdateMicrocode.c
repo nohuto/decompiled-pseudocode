@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpMcUpdateMicrocode @ 0x140510840
+ * XREFs of HalpMcUpdateMicrocode @ 0x14050A2B0
  * Callers:
- *     HalpMcLoadMicrocodeWorker @ 0x140593770 (HalpMcLoadMicrocodeWorker.c)
- *     HalpLoadMicrocodeSerialized @ 0x140785120 (HalpLoadMicrocodeSerialized.c)
- *     HalpProcInitSystem @ 0x140BEB320 (HalpProcInitSystem.c)
- *     HalpPostSleepMP @ 0x140BECEF0 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140BEE0F0 (HalpDpPostReplaceInitialization.c)
+ *     HalpMcLoadMicrocodeWorker @ 0x140595EF0 (HalpMcLoadMicrocodeWorker.c)
+ *     HalpLoadMicrocodeSerialized @ 0x140787C50 (HalpLoadMicrocodeSerialized.c)
+ *     HalpProcInitSystem @ 0x140BF1320 (HalpProcInitSystem.c)
+ *     HalpPostSleepMP @ 0x140BF2EF0 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140BF40F0 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     PrExtApplyPatch @ 0x14052FDA8 (PrExtApplyPatch.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     PrExtApplyPatch @ 0x1405322A8 (PrExtApplyPatch.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 HalpMcUpdateMicrocode()
@@ -19,8 +19,8 @@ __int64 HalpMcUpdateMicrocode()
   unsigned __int64 v8; // rdx
 
   result = PrExtApplyPatch(
-             HalpDeviceBlockUnblockPushLock.WaitBlock[1].WaitListEntry.Blink,
-             *(unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[52],
+             HalpDeviceBlockUnblockPushLock.WaitBlock[0].Thread,
+             *(unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[16],
              (unsigned int)MicrocodeRecordType);
   if ( (_DWORD)result == -1073741762 )
   {

@@ -17,9 +17,9 @@ NTSTATUS __fastcall GetProcessIptTraceSize(__int64 a1, _DWORD *a2)
   _DWORD InputBuffer[4]; // [rsp+68h] [rbp-41h] BYREF
   __int16 v8; // [rsp+78h] [rbp-31h]
   __int64 v9; // [rsp+80h] [rbp-29h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-21h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp+Fh] BYREF
-  struct _IO_STATUS_BLOCK v12; // [rsp+C8h] [rbp+1Fh] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-21h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp+Fh] BYREF
+  _IO_STATUS_BLOCK v12; // [rsp+C8h] [rbp+1Fh] BYREF
   _BYTE OutputBuffer[8]; // [rsp+D8h] [rbp+2Fh] BYREF
   unsigned __int64 v14; // [rsp+E0h] [rbp+37h]
 

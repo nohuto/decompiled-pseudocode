@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpAllocatePostBlock @ 0x140AE38FC
+ * XREFs of CmpAllocatePostBlock @ 0x140AE51DC
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x1408BF750 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1408BD110 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)
@@ -20,7 +20,7 @@ __int64 __fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)
   _QWORD *v16; // rax
 
   v8 = ((a1 - 2) & 0xFFFFFFFD) == 0;
-  Pool2 = ExAllocatePool2(v8 + 256);
+  Pool2 = ExAllocatePool2(v8 + 256, 0x48uLL, 0x62704D43u);
   if ( !Pool2 )
     return 0LL;
   *(_DWORD *)(Pool2 + 56) = a2 | a1;
@@ -33,7 +33,7 @@ __int64 __fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)
     v12 = (unsigned int)v11 | 1LL;
     if ( !v8 )
       v12 = v11;
-    v13 = (struct _KEVENT *)ExAllocatePool2(v12);
+    v13 = (struct _KEVENT *)ExAllocatePool2(v12, 0x70uLL, 0x34344D43u);
     *(_QWORD *)(Pool2 + 64) = v13;
     if ( v13 )
     {
@@ -57,7 +57,7 @@ LABEL_14:
     return 0LL;
   }
   *(_QWORD *)(Pool2 + 64) = *(_QWORD *)(a4 + 64);
-  v15 = ExAllocatePool2(v8 + 256);
+  v15 = ExAllocatePool2(v8 + 256, 0x18uLL, 0x35344D43u);
   *(_QWORD *)(Pool2 + 48) = v15;
   if ( !v15 )
     goto LABEL_14;

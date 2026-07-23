@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlinkPageFromBadList @ 0x14064DFC4
+ * XREFs of MiUnlinkPageFromBadList @ 0x14064E514
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiRemoveBadPages @ 0x14062A440 (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x14062AD10 (MiUnlinkBadPages.c)
- *     MiMarkFileOnlyPfnGood @ 0x14063E334 (MiMarkFileOnlyPfnGood.c)
- *     MiPurgeBadFileOnlyPages @ 0x14063EA70 (MiPurgeBadFileOnlyPages.c)
- *     MiTransferPartitionPageRun @ 0x14065B604 (MiTransferPartitionPageRun.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiRemoveBadPages @ 0x14062A990 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x14062B260 (MiUnlinkBadPages.c)
+ *     MiMarkFileOnlyPfnGood @ 0x14063E884 (MiMarkFileOnlyPfnGood.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063EFC0 (MiPurgeBadFileOnlyPages.c)
+ *     MiTransferPartitionPageRun @ 0x14065BB54 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiAcquirePageListLock @ 0x1402673A0 (MiAcquirePageListLock.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiAcquirePageListLock @ 0x140267630 (MiAcquirePageListLock.c)
+ *     MiReleasePageListLock @ 0x1402DDD60 (MiReleasePageListLock.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)

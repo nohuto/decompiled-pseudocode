@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUpdateXSaveSizeAndVolatileFeatures @ 0x140A902F4
+ * XREFs of KiUpdateXSaveSizeAndVolatileFeatures @ 0x140A90174
  * Callers:
- *     KiInitializeXSave @ 0x140A8FF30 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x140A8FDB0 (KiInitializeXSave.c)
  * Callees:
  *     <none>
  */

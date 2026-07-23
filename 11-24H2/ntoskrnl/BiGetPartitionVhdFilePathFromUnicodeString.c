@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetPartitionVhdFilePathFromUnicodeString @ 0x140A86C10
+ * XREFs of BiGetPartitionVhdFilePathFromUnicodeString @ 0x140A816E8
  * Callers:
- *     BiGetPartitionVhdFilePath @ 0x140A86BE0 (BiGetPartitionVhdFilePath.c)
+ *     BiGetPartitionVhdFilePath @ 0x140A816B8 (BiGetPartitionVhdFilePath.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1406A64F0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     BiTranslateSymbolicLinkFile @ 0x140814368 (BiTranslateSymbolicLinkFile.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwDeviceIoControlFile @ 0x1406A7490 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     BiTranslateSymbolicLinkFile @ 0x140814AA8 (BiTranslateSymbolicLinkFile.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 ULONG *__fastcall BiGetPartitionVhdFilePathFromUnicodeString(UNICODE_STRING *a1)
@@ -39,7 +39,7 @@ ULONG *__fastcall BiGetPartitionVhdFilePathFromUnicodeString(UNICODE_STRING *a1)
     OutputBufferLength = 520;
     for ( i = 1; ; i = 2 )
     {
-      OutputBuffer = (ULONG *)ExAllocatePool2(0x102uLL);
+      OutputBuffer = (ULONG *)ExAllocatePool2(0x102uLL, OutputBufferLength, 0x4B444342u);
       v1 = OutputBuffer;
       if ( !OutputBuffer )
         break;

@@ -3,16 +3,16 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14015B580 (ZwDeleteKey.c)
- *     ZwOpenKeyEx @ 0x14015BEA0 (ZwOpenKeyEx.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x14015BAF0 (ZwDeleteKey.c)
+ *     ZwOpenKeyEx @ 0x14015C410 (ZwOpenKeyEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -33,8 +33,8 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
 
   ExpManufacturingInformation = 0LL;
   inited = 0;
-  qword_1402FD0E8 = 0LL;
-  qword_1402FD0F0 = 0LL;
+  qword_1402FD048 = 0LL;
+  qword_1402FD050 = 0LL;
   v2 = *(_QWORD *)(a1 + 240);
   v7 = 0LL;
   KeyHandle = 0LL;
@@ -43,12 +43,12 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     return (unsigned int)inited;
   if ( v3 >= 0x80u )
     return (unsigned int)-1073741811;
-  LODWORD(qword_1402FD0E8) = *(_DWORD *)(v2 + 2456);
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, WORD1(qword_1402FD0E8), 0x5067664Du);
-  qword_1402FD0F0 = PoolWithTag;
+  LODWORD(qword_1402FD048) = *(_DWORD *)(v2 + 2456);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, WORD1(qword_1402FD048), 0x5067664Du);
+  qword_1402FD050 = PoolWithTag;
   if ( PoolWithTag )
   {
-    inited = RtlStringCbCopyW((NTSTRSAFE_PWSTR)PoolWithTag, WORD1(qword_1402FD0E8), *(NTSTRSAFE_PCWSTR *)(v2 + 2464));
+    inited = RtlStringCbCopyW((NTSTRSAFE_PWSTR)PoolWithTag, WORD1(qword_1402FD048), *(NTSTRSAFE_PCWSTR *)(v2 + 2464));
     if ( inited < 0 )
       goto LABEL_22;
     inited = RtlStringCbPrintfW(
@@ -73,7 +73,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     ObjectAttributes.Attributes = 576;
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = KeyHandle;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_1402FD0E8;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_1402FD048;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     inited = ZwOpenKey(&Handle, 0xF003Fu, &ObjectAttributes);
     if ( inited < 0 )
@@ -81,7 +81,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     ZwClose(Handle);
     LODWORD(ExpManufacturingInformation) = ExpManufacturingInformation | 1;
     RtlInitUnicodeStringEx(&ValueName, L"LastProfile");
-    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, qword_1402FD0F0, WORD1(qword_1402FD0E8));
+    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, qword_1402FD050, WORD1(qword_1402FD048));
     if ( inited < 0 )
       goto LABEL_22;
     inited = RtlInitUnicodeStringEx(&DestinationString, L"Current");
@@ -109,7 +109,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
                  L"%s%s%wZ",
                  L"\\registry\\machine\\",
                  L"System\\CurrentControlSet\\Control\\ManufacturingMode\\",
-                 &qword_1402FD0E8);
+                 &qword_1402FD048);
       if ( inited >= 0 )
       {
         v6 = -1LL;

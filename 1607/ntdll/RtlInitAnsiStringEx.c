@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlInitAnsiStringEx @ 0x180073DC0
+ * XREFs of RtlInitAnsiStringEx @ 0x180073DB0
  * Callers:
- *     RtlCreateUnicodeStringFromAsciiz @ 0x180073D80 (RtlCreateUnicodeStringFromAsciiz.c)
- *     RtlInitStringEx @ 0x1800E3680 (RtlInitStringEx.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x180073D70 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     RtlInitStringEx @ 0x1800E3740 (RtlInitStringEx.c)
  * Callees:
  *     <none>
  */

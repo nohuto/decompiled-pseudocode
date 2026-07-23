@@ -2,13 +2,13 @@
  * XREFs of AnFwFadeCompletion @ 0x140AECFB8
  * Callers:
  *     BgpFwLibraryDisable @ 0x140AEC1EC (BgpFwLibraryDisable.c)
- *     BgpConsoleDisplayCharacter @ 0x140AF14C0 (BgpConsoleDisplayCharacter.c)
- *     BgpConsoleDisplayString @ 0x140AF1870 (BgpConsoleDisplayString.c)
- *     ResFwFreeContext @ 0x140AF1ED4 (ResFwFreeContext.c)
+ *     BgpConsoleDisplayCharacter @ 0x140AF14D0 (BgpConsoleDisplayCharacter.c)
+ *     BgpConsoleDisplayString @ 0x140AF1880 (BgpConsoleDisplayString.c)
+ *     ResFwFreeContext @ 0x140AF1EE4 (ResFwFreeContext.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
  *     LogFwStat @ 0x140AED85C (LogFwStat.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  */

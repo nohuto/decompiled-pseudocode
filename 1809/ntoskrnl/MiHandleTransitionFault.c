@@ -8,13 +8,13 @@
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEE04 (MiMakeTransitionHeatBatch.c)
  */
 
 __int64 __fastcall MiHandleTransitionFault(
@@ -93,8 +93,8 @@ __int64 __fastcall MiHandleTransitionFault(
     v20 = *((_QWORD *)BugCheckParameter4 + 2);
     if ( (v20 & 0x400) != 0 && ((*((_QWORD *)BugCheckParameter4 + 5) >> 54) & 7) != 3 )
     {
-      if ( qword_14043A0C0 && (v20 & 0x10) == 0 )
-        v20 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v20 & 0x10) == 0 )
+        v20 &= ~qword_14043B180;
       v21 = v20 >> 16;
       v22 = *(_QWORD *)v21;
       if ( (*(_DWORD *)(*(_QWORD *)v21 + 56LL) & 0x20) != 0 )

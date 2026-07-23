@@ -22,8 +22,8 @@ void Amd64InitializeUncoreProfilingEnhanced()
   __int64 v11; // rcx
   __int64 v12; // r8
   __int64 v13; // r9
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
 
   _RAX = 0x80000000LL;
   __asm { cpuid }

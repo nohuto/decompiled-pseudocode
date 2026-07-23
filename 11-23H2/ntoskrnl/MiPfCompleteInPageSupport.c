@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPfCompleteInPageSupport @ 0x1402A3AEC
+ * XREFs of MiPfCompleteInPageSupport @ 0x1402A3D7C
  * Callers:
- *     MiPfCompletePrefetchIos @ 0x1402A3A40 (MiPfCompletePrefetchIos.c)
- *     MiPfCompleteCoalescedIo @ 0x140631BA0 (MiPfCompleteCoalescedIo.c)
+ *     MiPfCompletePrefetchIos @ 0x1402A3CD0 (MiPfCompletePrefetchIos.c)
+ *     MiPfCompleteCoalescedIo @ 0x1406320F0 (MiPfCompleteCoalescedIo.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiWaitForInPageComplete @ 0x1402A17A0 (MiWaitForInPageComplete.c)
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiWaitForInPageComplete @ 0x1402A1A30 (MiWaitForInPageComplete.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiPfCompleteInPageSupport(ULONG_PTR a1, char *a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpWdatDiscover @ 0x1403A4AE8
+ * XREFs of HalpWdatDiscover @ 0x1403A4CC8
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A4318 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A44F8 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x140377F3C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpTimerRegister @ 0x140378AB4 (HalpTimerRegister.c)
- *     HalSocGetAcpiTable @ 0x1403A4BDC (HalSocGetAcpiTable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpWdatExecuteActionBeforeInitialize @ 0x14051EDB4 (HalpWdatExecuteActionBeforeInitialize.c)
- *     HalpWdatProcessWdatInternalData @ 0x14051F128 (HalpWdatProcessWdatInternalData.c)
- *     HalpWdatProcessWdrtInternalData @ 0x14051F184 (HalpWdatProcessWdrtInternalData.c)
- *     HviGetHardwareFeatures @ 0x1406153A0 (HviGetHardwareFeatures.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403780DC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpTimerRegister @ 0x140378C54 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x1403A4DBC (HalSocGetAcpiTable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x14051F304 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     HalpWdatProcessWdatInternalData @ 0x14051F678 (HalpWdatProcessWdatInternalData.c)
+ *     HalpWdatProcessWdrtInternalData @ 0x14051F6D4 (HalpWdatProcessWdrtInternalData.c)
+ *     HviGetHardwareFeatures @ 0x1406158F0 (HviGetHardwareFeatures.c)
  */
 
 __int64 HalpWdatDiscover()

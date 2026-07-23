@@ -8,11 +8,11 @@
  *     sub_180074184 @ 0x180074184 (sub_180074184.c)
  */
 
-signed __int64 __fastcall sub_180074154(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall sub_180074154(__int64 a1)
 {
-  __int64 v5; // rcx
+  __int64 v2; // rcx
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D288, a2, a3, a4);
-  sub_180074184(v5, a1);
-  return RtlReleaseSRWLockExclusive(&qword_18015D288);
+  RtlAcquireSRWLockExclusive(&Address);
+  sub_180074184(v2, a1);
+  RtlReleaseSRWLockExclusive(&Address);
 }

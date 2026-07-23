@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwCallbackReturn @ 0x1401B8230
+ * XREFs of ZwCallbackReturn @ 0x1401B8390
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCallbackReturn(PVOID Result, ULONG ResultLength, NTSTATUS Status)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Result, *(_QWORD *)&ResultLength, *(_QWORD *)&Status);
+  return KiServiceInternal(Result);
 }

@@ -10,11 +10,11 @@
  *     NtdllpAllocateStringRoutine @ 0x180039660 (NtdllpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall AllocateOrValidateCharStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)
+__int64 __fastcall AllocateOrValidateCharStringBuffer(char a1, unsigned int a2, _QWORD *a3, _WORD *a4)
 {
   unsigned int v4; // ebx
   __int16 v5; // si
-  __int64 StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v4 = 0;
   v5 = a2;

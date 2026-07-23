@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgLogDeviceStarted @ 0x1406F3698
+ * XREFs of PiDevCfgLogDeviceStarted @ 0x1406F4938
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
  * Callees:
  *     PipIsDevNodeDNStarted @ 0x140007294 (PipIsDevNodeDNStarted.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     McTemplateK0zzjzzzdd @ 0x14015D254 (McTemplateK0zzjzzzdd.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiDevCfgQueryObjectProperties @ 0x1406F6240 (PiDevCfgQueryObjectProperties.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     McTemplateK0zzjzzzdd @ 0x14015D354 (McTemplateK0zzjzzzdd.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1406F74E0 (PiDevCfgQueryObjectProperties.c)
  */
 
 void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
@@ -55,7 +55,7 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
   DestinationString.Buffer = 0LL;
   *(_DWORD *)&v29.Length = 0;
   v29.Buffer = 0LL;
-  if ( (byte_140405846 & 0x18) == 0x18 )
+  if ( (byte_140406846 & 0x18) == 0x18 )
   {
     memset(v33, 0, 0xC8uLL);
     HIDWORD(v33[8]) = 6;
@@ -162,13 +162,13 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
       {
         if ( (v5 & 0x2000) != 0 && *(_DWORD *)(a1 + 404) == 14 )
         {
-          if ( (byte_140405846 & 0x20) == 0 )
+          if ( (byte_140406846 & 0x20) == 0 )
             goto LABEL_31;
-          v9 = (wchar_t *)&dword_140911184;
+          v9 = (wchar_t *)&dword_140912444;
           v27 = v8;
-          v20 = &dword_140911184;
+          v20 = &dword_140912444;
           LOBYTE(v26) = 14;
-          v12 = (const wchar_t *)&dword_140911184;
+          v12 = (const wchar_t *)&dword_140912444;
           v11 = L"null";
           if ( UnicodeString.Buffer )
             v11 = UnicodeString.Buffer;
@@ -182,14 +182,14 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
             v9 = v31.Buffer;
           goto LABEL_30;
         }
-        if ( (byte_140405846 & 0x10) != 0 )
+        if ( (byte_140406846 & 0x10) != 0 )
         {
-          v21 = (wchar_t *)&dword_140911184;
-          v22 = (const wchar_t *)&dword_140911184;
+          v21 = (wchar_t *)&dword_140912444;
+          v22 = (const wchar_t *)&dword_140912444;
           v23 = L"null";
           if ( UnicodeString.Buffer )
             v23 = UnicodeString.Buffer;
-          v24 = (const wchar_t *)&dword_140911184;
+          v24 = (const wchar_t *)&dword_140912444;
           if ( v4 )
             v22 = v4;
           if ( Buffer )
@@ -210,15 +210,15 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
             v8);
         }
       }
-      else if ( (byte_140405846 & 8) != 0 )
+      else if ( (byte_140406846 & 8) != 0 )
       {
-        v9 = (wchar_t *)&dword_140911184;
+        v9 = (wchar_t *)&dword_140912444;
         v27 = v8;
-        v10 = &dword_140911184;
+        v10 = &dword_140912444;
         v11 = L"null";
         if ( UnicodeString.Buffer )
           v11 = UnicodeString.Buffer;
-        v12 = (const wchar_t *)&dword_140911184;
+        v12 = (const wchar_t *)&dword_140912444;
         if ( v4 )
           v10 = (int *)v4;
         if ( Buffer )

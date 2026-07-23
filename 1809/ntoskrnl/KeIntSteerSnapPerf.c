@@ -1,19 +1,19 @@
 /*
- * XREFs of KeIntSteerSnapPerf @ 0x14008B720
+ * XREFs of KeIntSteerSnapPerf @ 0x14008B710
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140063570 (PpmParkSteerInterrupts.c)
+ *     PpmParkSteerInterrupts @ 0x140063560 (PpmParkSteerInterrupts.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
+__int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, LARGE_INTEGER *a2)
 {
-  __int64 InterruptTimePrecise; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rsi
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LONGLONG v5; // rbx
+  LARGE_INTEGER v6; // rsi
   __int64 MHz; // rdi
   __int64 result; // rax
   __int64 v9; // r13
@@ -34,18 +34,18 @@ __int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
   ULONG_PTR v24; // rcx
   __int64 v25; // rax
   struct _KPRCB *CurrentPrcb; // rcx
-  char v27[72]; // [rsp+20h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-48h] BYREF
   KIRQL v28; // [rsp+80h] [rbp+18h]
   __int64 v29; // [rsp+88h] [rbp+20h]
 
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(v27);
-  v5 = InterruptTimePrecise - KiIntSteerPreviousPerfSnap;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v5 = InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap;
   v6 = InterruptTimePrecise;
   MHz = KeGetCurrentPrcb()->MHz;
   v29 = MHz;
-  if ( (unsigned __int64)(InterruptTimePrecise - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
+  if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
   {
-    KiIntSteerPreviousPerfSnap = InterruptTimePrecise;
+    KiIntSteerPreviousPerfSnap = InterruptTimePrecise.QuadPart;
     v9 = 0LL;
     v10 = KeAcquireSpinLockRaiseToDpc(&KiIntTrackSpinlock);
     v11 = (ULONG_PTR *)KiIntTrackRootList;

@@ -8,10 +8,10 @@
  *     DbgPrint @ 0x180049950 (DbgPrint.c)
  */
 
-__int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
+ULONG __cdecl RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
 {
   unsigned int v1; // r8d
-  __int64 result; // rax
+  ULONG result; // eax
   unsigned int v3; // r9d
   __int64 v4; // rdx
   unsigned int v5; // eax
@@ -19,24 +19,24 @@ __int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
   int v7; // eax
 
   v1 = 0;
-  if ( !a1 )
-    return 0LL;
-  if ( a1 == 259 )
-    return 997LL;
-  result = a1;
-  if ( (a1 & 0x20000000) == 0 )
+  if ( !Status )
+    return 0;
+  if ( Status == 259 )
+    return 997;
+  result = Status;
+  if ( (Status & 0x20000000) == 0 )
   {
-    if ( (a1 & 0xFF0000) != 0x70000 || ((HIBYTE(a1) - 128) & 0xFFFFFFBF) != 0 )
+    if ( (Status & 0xFF0000) != 0x70000 || ((HIBYTE(Status) - 128) & 0xFFFFFFBF) != 0 )
     {
-      if ( (a1 & 0xF0000000) == 0xD0000000 )
-        a1 &= 0xCFFFFFFF;
+      if ( (Status & 0xF0000000) == 0xD0000000 )
+        Status &= 0xCFFFFFFF;
       v3 = 273;
       do
       {
         v4 = (v3 + v1) >> 1;
         v5 = RtlpRunTable[2 * v4];
-        v6 = a1 - v5;
-        if ( a1 < v5 )
+        v6 = Status - v5;
+        if ( Status < v5 )
         {
           v3 = v4 - 1;
         }
@@ -54,16 +54,16 @@ __int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
         }
       }
       while ( v1 <= v3 );
-      if ( (a1 & 0xFFFF0000) == 0xC0010000 )
-        return (unsigned __int16)a1;
-      DbgPrint("RTL: RtlNtStatusToDosError(0x%lx): No Valid Win32 Error Mapping\n", a1);
+      if ( (Status & 0xFFFF0000) == 0xC0010000 )
+        return (unsigned __int16)Status;
+      DbgPrint("RTL: RtlNtStatusToDosError(0x%lx): No Valid Win32 Error Mapping\n", Status);
       DbgPrint("RTL: Edit ntos\\rtl\\generr.c to correct the problem\n");
       DbgPrint("RTL: ERROR_MR_MID_NOT_FOUND is being returned\n");
-      return 317LL;
+      return 317;
     }
     else
     {
-      return (unsigned __int16)a1;
+      return (unsigned __int16)Status;
     }
   }
   return result;

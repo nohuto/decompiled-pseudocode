@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputePageHash @ 0x1401151E0
+ * XREFs of MiComputePageHash @ 0x140115750
  * Callers:
- *     MiValidatePagefilePageHash @ 0x140114E00 (MiValidatePagefilePageHash.c)
- *     MiWritePageFileHash @ 0x140115040 (MiWritePageFileHash.c)
+ *     MiValidatePagefilePageHash @ 0x140115370 (MiValidatePagefilePageHash.c)
+ *     MiWritePageFileHash @ 0x1401155B0 (MiWritePageFileHash.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
  */
 
 __int64 __fastcall MiComputePageHash(__int64 a1, __int64 a2)

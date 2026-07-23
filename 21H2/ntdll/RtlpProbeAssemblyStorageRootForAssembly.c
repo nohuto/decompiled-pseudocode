@@ -10,9 +10,9 @@
  *     DbgPrintEx @ 0x180051450 (DbgPrintEx.c)
  *     NtdllpAllocateStringRoutine @ 0x18006EBE0 (NtdllpAllocateStringRoutine.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtOpenFile @ 0x18009DCA0 (NtOpenFile.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtOpenFile @ 0x18009DC60 (NtOpenFile.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpProbeAssemblyStorageRootForAssembly(
@@ -28,37 +28,36 @@ __int64 __fastcall RtlpProbeAssemblyStorageRootForAssembly(
   __int64 v11; // r8
   __int64 v12; // rax
   unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // r14
-  _BYTE *v15; // rbx
+  SIZE_T v14; // r14
+  WCHAR *v15; // rbx
   _WORD *v16; // rsi
   const void **v17; // rcx
   unsigned __int16 v18; // si
-  void *v19; // rax
+  HANDLE ContainingDirectory; // rax
   NTSTATUS v20; // edi
   HANDLE *v21; // rcx
   unsigned __int64 v23; // rax
   __int64 v24; // rcx
-  void *StringRoutine; // rax
+  PVOID StringRoutine; // rax
   unsigned __int8 v26; // [rsp+60h] [rbp-A0h]
   HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
   __int128 v28; // [rsp+70h] [rbp-90h]
   const void **v29; // [rsp+80h] [rbp-80h]
-  __int64 v30; // [rsp+88h] [rbp-78h]
-  __int128 v31; // [rsp+90h] [rbp-70h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp-78h]
+  _UNICODE_STRING NtFileName; // [rsp+90h] [rbp-70h] BYREF
   HANDLE *v32; // [rsp+A0h] [rbp-60h]
-  __int128 v33; // [rsp+A8h] [rbp-58h] BYREF
-  void *v34; // [rsp+B8h] [rbp-48h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-38h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+F8h] [rbp-8h] BYREF
-  _BYTE Src[528]; // [rsp+110h] [rbp+10h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+A8h] [rbp-58h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+F8h] [rbp-8h] BYREF
+  WCHAR DosFileName[264]; // [rsp+110h] [rbp+10h] BYREF
 
   v29 = (const void **)a3;
   v32 = a7;
   v26 = 0;
-  v30 = 0LL;
+  BaseAddress = 0LL;
   FileHandle = 0LL;
   v28 = 0LL;
-  v31 = 0LL;
+  NtFileName = 0LL;
   if ( a6 )
     *a6 = 0LL;
   if ( a7 )
@@ -81,7 +80,7 @@ __int64 __fastcall RtlpProbeAssemblyStorageRootForAssembly(
     if ( v14 > 0xFFFE )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS: Assembly storage resolution failing probe because combined path length does not fit in an UNICODE_STRING.\n");
       v20 = -1073741562;
@@ -90,11 +89,11 @@ __int64 __fastcall RtlpProbeAssemblyStorageRootForAssembly(
     if ( v14 > 0x208 )
     {
       *((_QWORD *)&v28 + 1) = NtdllpAllocateStringRoutine((unsigned __int16)v14);
-      v15 = (_BYTE *)*((_QWORD *)&v28 + 1);
+      v15 = (WCHAR *)*((_QWORD *)&v28 + 1);
       if ( !*((_QWORD *)&v28 + 1) )
       {
         DbgPrintEx(
-          51,
+          0x33u,
           0,
           "SXS: Assembly storage resolution failing probe because attempt to allocate %u bytes failed.\n",
           (unsigned __int16)v14);
@@ -105,41 +104,41 @@ __int64 __fastcall RtlpProbeAssemblyStorageRootForAssembly(
     }
     else
     {
-      v15 = Src;
-      *((_QWORD *)&v28 + 1) = Src;
+      v15 = DosFileName;
+      *((_QWORD *)&v28 + 1) = DosFileName;
     }
     memmove(v15, *((const void **)a2 + 1), (unsigned __int16)v10);
-    v16 = &v15[*a2];
+    v16 = (WCHAR *)((char *)v15 + *a2);
     if ( v26 )
       *v16++ = 92;
     memmove(v16, v29[1], *(unsigned __int16 *)v29);
     v17 = v29;
     *(_WORD *)((char *)v16 + *(unsigned __int16 *)v29) = 0;
     v18 = *a2 + *(_WORD *)v17 + 2 * v26;
-    if ( !RtlDosPathNameToRelativeNtPathName_U((int)v15, (int)&v31, 0, (__int64)&v33) )
+    if ( !RtlDosPathNameToRelativeNtPathName_U(v15, &NtFileName, 0LL, &RelativeName) )
     {
-      DbgPrintEx(51, 0, "SXS: Attempt to translate DOS path name \"%S\" to NT format failed\n", (const wchar_t *)v15);
+      DbgPrintEx(0x33u, 0, "SXS: Attempt to translate DOS path name \"%S\" to NT format failed\n", v15);
       v20 = -1073741766;
       goto LABEL_28;
     }
-    v30 = *((_QWORD *)&v31 + 1);
-    if ( (_WORD)v33 )
+    BaseAddress = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v19 = v34;
-      v31 = v33;
+      ContainingDirectory = RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v19 = 0LL;
-      v34 = 0LL;
+      ContainingDirectory = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     }
-    ObjectAttributes.RootDirectory = v19;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v31;
+    ObjectAttributes.RootDirectory = ContainingDirectory;
+    ObjectAttributes.ObjectName = &NtFileName;
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 64;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v20 = NtOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
-    RtlReleaseRelativeName((__int64)&v33);
+    RtlReleaseRelativeName(&RelativeName);
     if ( v20 < 0 )
     {
       v23 = (unsigned int)(v20 + 1073741809);
@@ -147,10 +146,10 @@ __int64 __fastcall RtlpProbeAssemblyStorageRootForAssembly(
         v20 = -1072365564;
       else
         DbgPrintEx(
-          51,
+          0x33u,
           0,
           "SXS: Unable to open assembly directory under storage root \"%S\"; Status = 0x%08lx\n",
-          (const wchar_t *)v15,
+          v15,
           v20);
     }
     else
@@ -168,7 +167,7 @@ LABEL_24:
         FileHandle = 0LL;
         goto LABEL_25;
       }
-      if ( v15 != Src )
+      if ( v15 != DosFileName )
       {
         *(_QWORD *)(a5 + 8) = v15;
         v15 = 0LL;
@@ -178,7 +177,7 @@ LABEL_51:
         a4 = a5;
         goto LABEL_24;
       }
-      StringRoutine = (void *)NtdllpAllocateStringRoutine(v14);
+      StringRoutine = NtdllpAllocateStringRoutine(v14);
       *(_QWORD *)(a5 + 8) = StringRoutine;
       if ( StringRoutine )
       {
@@ -191,7 +190,7 @@ LABEL_51:
   else
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters\n"
       "SXS:  Flags:               0x%lx\n"
@@ -209,19 +208,19 @@ LABEL_51:
       (const void *)a5,
       a6,
       a7);
-    v15 = (_BYTE *)*((_QWORD *)&v28 + 1);
+    v15 = (WCHAR *)*((_QWORD *)&v28 + 1);
     v20 = -1073741811;
   }
 LABEL_25:
-  if ( v30 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v30);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 LABEL_27:
-    v15 = (_BYTE *)*((_QWORD *)&v28 + 1);
+    v15 = (WCHAR *)*((_QWORD *)&v28 + 1);
   }
 LABEL_28:
-  if ( v15 && v15 != Src )
-    NtdllpFreeStringRoutine((__int64)v15);
+  if ( v15 && v15 != DosFileName )
+    NtdllpFreeStringRoutine(v15);
 LABEL_31:
   if ( FileHandle )
     NtClose(FileHandle);

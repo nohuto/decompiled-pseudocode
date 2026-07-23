@@ -6,22 +6,29 @@
  *     sub_1800100C4 @ 0x1800100C4 (sub_1800100C4.c)
  */
 
-__int64 RtlNewSecurityObjectEx(int a1, int a2, int a3, ...)
+NTSTATUS __cdecl RtlNewSecurityObjectEx(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        GUID *ObjectType,
+        BOOLEAN IsDirectoryObject,
+        ULONG AutoInheritFlags,
+        HANDLE Token,
+        PGENERIC_MAPPING GenericMapping)
 {
-  __int64 v4; // [rsp+78h] [rbp+20h] BYREF
-  va_list va; // [rsp+78h] [rbp+20h]
-  __int64 v6; // [rsp+80h] [rbp+28h]
-  __int64 v7; // [rsp+88h] [rbp+30h]
-  __int64 v8; // [rsp+90h] [rbp+38h]
-  __int64 v9; // [rsp+98h] [rbp+40h]
-  va_list va1; // [rsp+A0h] [rbp+48h] BYREF
+  int v9; // [rsp+28h] [rbp-30h]
+  GUID *v10; // [rsp+78h] [rbp+20h] BYREF
 
-  va_start(va1, a3);
-  va_start(va, a3);
-  v4 = va_arg(va1, _QWORD);
-  v6 = va_arg(va1, _QWORD);
-  v7 = va_arg(va1, _QWORD);
-  v8 = va_arg(va1, _QWORD);
-  v9 = va_arg(va1, _QWORD);
-  return sub_1800100C4(a1, a2, a3, (unsigned __int64)va & -(__int64)(v4 != 0), v4 != 0, v6, v7, v8, v9);
+  v10 = ObjectType;
+  LOBYTE(v9) = IsDirectoryObject;
+  return sub_1800100C4(
+           (int)ParentDescriptor,
+           (int)CreatorDescriptor,
+           (int)NewDescriptor,
+           (unsigned __int64)&v10 & -(__int64)(ObjectType != 0LL),
+           ObjectType != 0LL,
+           v9,
+           AutoInheritFlags,
+           Token,
+           (__int64)GenericMapping);
 }

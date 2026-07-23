@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x1409078BC
+ * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x140A2FA1C
  * Callers:
- *     ExSetFirmwareEnvironmentVariable @ 0x14083AE70 (ExSetFirmwareEnvironmentVariable.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x140907830 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1408410B0 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x140A2F990 (ExGetFirmwareEnvironmentVariable.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _WORD *__fastcall ExpUnicodeStringToNonpagedWStr(const void **a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of WdipSemEnableContextProvider @ 0x1408303AC
+ * XREFs of WdipSemEnableContextProvider @ 0x1408306AC
  * Callers:
- *     WdipSemEnableContextProviders @ 0x1408302E0 (WdipSemEnableContextProviders.c)
+ *     WdipSemEnableContextProviders @ 0x1408305E0 (WdipSemEnableContextProviders.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     WdipSemEnableDisableTrace @ 0x140831CA0 (WdipSemEnableDisableTrace.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     WdipSemEnableDisableTrace @ 0x140831FA0 (WdipSemEnableDisableTrace.c)
  */
 
 __int64 __fastcall WdipSemEnableContextProvider(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall WdipSemEnableContextProvider(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   v3 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C34AA8, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C34E68, 0LL);
   if ( !a1 )
   {
     v3 = -1073741811;
@@ -61,7 +61,7 @@ LABEL_8:
     }
   }
 LABEL_9:
-  ExReleasePushLockEx((__int64 *)&qword_140C34AA8, 0LL);
+  ExReleasePushLockEx((__int64 *)&qword_140C34E68, 0LL);
   KeLeaveCriticalRegion();
   return (unsigned int)v3;
 }

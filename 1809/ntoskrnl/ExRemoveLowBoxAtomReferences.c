@@ -1,9 +1,9 @@
 /*
- * XREFs of ExRemoveLowBoxAtomReferences @ 0x140126624
+ * XREFs of ExRemoveLowBoxAtomReferences @ 0x1401266F4
  * Callers:
- *     SepDereferenceLowBoxNumberEntry @ 0x1405DF038 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1405E0038 (SepDereferenceLowBoxNumberEntry.c)
  * Callees:
- *     RtlDestroyLowBoxAtoms @ 0x14012664C (RtlDestroyLowBoxAtoms.c)
+ *     RtlDestroyLowBoxAtoms @ 0x14012671C (RtlDestroyLowBoxAtoms.c)
  */
 
 __int64 ExRemoveLowBoxAtomReferences()

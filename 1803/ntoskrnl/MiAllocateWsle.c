@@ -487,7 +487,8 @@ LABEL_50:
   if ( (_BYTE)v20 != 4 )
     goto LABEL_59;
   if ( PsNtosImageBase
-    && (v9 < PsNtosImageEnd && v9 >= PsNtosImageBase || v9 < PsHalImageEnd && v9 >= (unsigned __int64)PsHalImageBase) )
+    && (v9 < PsNtosImageEnd && v9 >= (unsigned __int64)PsNtosImageBase
+     || v9 < PsHalImageEnd && v9 >= (unsigned __int64)PsHalImageBase) )
   {
     LODWORD(xmmword_1403CB5A0) = xmmword_1403CB5A0 + 1;
     goto LABEL_59;

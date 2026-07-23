@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpAllocateBuffer @ 0x140AC04D0
+ * XREFs of AlpcpAllocateBuffer @ 0x140AC2570
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 AlpcpAllocateBuffer()

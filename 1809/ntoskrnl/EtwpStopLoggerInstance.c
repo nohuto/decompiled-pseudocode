@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpStopLoggerInstance @ 0x1406CB854
+ * XREFs of EtwpStopLoggerInstance @ 0x1406CCAF4
  * Callers:
- *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
- *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1405C2430 (EtwpLogger.c)
+ *     EtwpStopTrace @ 0x14065A150 (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
- *     ExCancelTimer @ 0x1400FA2D0 (ExCancelTimer.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwpStackRundown @ 0x1403159D4 (EtwpStackRundown.c)
- *     EtwpDisableTraceProviders @ 0x1405C2530 (EtwpDisableTraceProviders.c)
- *     EtwpSendSessionNotification @ 0x140658D68 (EtwpSendSessionNotification.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x140725D9C (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpLogPmcCounterRundown @ 0x1408BEA34 (EtwpLogPmcCounterRundown.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeGetEffectiveIrql @ 0x1400CABB0 (KeGetEffectiveIrql.c)
+ *     ExCancelTimer @ 0x1400FA350 (ExCancelTimer.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwpStackRundown @ 0x140315BC4 (EtwpStackRundown.c)
+ *     EtwpDisableTraceProviders @ 0x1405C3530 (EtwpDisableTraceProviders.c)
+ *     EtwpSendSessionNotification @ 0x140659F28 (EtwpSendSessionNotification.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x14072703C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpLogPmcCounterRundown @ 0x1408BFCF4 (EtwpLogPmcCounterRundown.c)
  */
 
 __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)

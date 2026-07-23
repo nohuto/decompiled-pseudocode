@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxRegisterPrimaryDevice @ 0x1407CD3C0
+ * XREFs of PoFxRegisterPrimaryDevice @ 0x1407D0460
  * Callers:
  *     <none>
  * Callees:
- *     PopFxRegisterDevice @ 0x140B4F9A0 (PopFxRegisterDevice.c)
- *     PopFxConvertV1Components @ 0x140B56968 (PopFxConvertV1Components.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopFxRegisterDevice @ 0x140B52230 (PopFxRegisterDevice.c)
+ *     PopFxConvertV1Components @ 0x140B59668 (PopFxConvertV1Components.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoFxRegisterPrimaryDevice(PVOID Object, __int64 a2, __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall PoFxRegisterPrimaryDevice(PVOID Object, __int64 a2, __int64 a
     if ( v6 )
     {
       v7 = PopFxRegisterDevice(Object, *(_QWORD *)(a2 + 72), 0LL, a3);
-      if ( v7 >= 0 && PopModernStandbyStateNotify.ApcStateFill[33] && (*(_DWORD *)(a2 + 8) & 1) != 0 )
+      if ( v7 >= 0 && PopErrataDisablePrimaryDeviceFastResume && (*(_DWORD *)(a2 + 8) & 1) != 0 )
         _InterlockedOr((volatile signed __int32 *)(*(_QWORD *)a3 + 864LL), 0x80u);
       ExFreePoolWithTag(v6, 0x4D584650u);
     }

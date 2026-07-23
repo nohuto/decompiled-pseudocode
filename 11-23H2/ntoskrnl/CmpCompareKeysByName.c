@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCompareKeysByName @ 0x140A1F6C4
+ * XREFs of CmpCompareKeysByName @ 0x140A1F974
  * Callers:
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140A19608 (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmpKeyEnumStackAdvanceInternal @ 0x140A2372C (CmpKeyEnumStackAdvanceInternal.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x140A23B0C (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryBegin @ 0x140A23C2C (CmpKeyEnumStackEntryBegin.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x140A198B8 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x140A239DC (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x140A23DBC (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x140A23EDC (CmpKeyEnumStackEntryBegin.c)
  * Callees:
  *     CmpCompareUnicodeString @ 0x140690A4C (CmpCompareUnicodeString.c)
- *     CmpCompareTwoCompressedNames @ 0x1407BF7D0 (CmpCompareTwoCompressedNames.c)
- *     CmpCompareCompressedName @ 0x1407C46E4 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x1407BFAA0 (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareCompressedName @ 0x1407C49B4 (CmpCompareCompressedName.c)
  */
 
 __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)

@@ -1,8 +1,8 @@
 /*
  * XREFs of sub_14082E084 @ 0x14082E084
  * Callers:
- *     ExInitLicenseData @ 0x14082D3F8 (ExInitLicenseData.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14082DE40 (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     sub_14082D3F8 @ 0x14082D3F8 (sub_14082D3F8.c)
+ *     sub_14082DE40 @ 0x14082DE40 (sub_14082DE40.c)
  * Callees:
  *     <none>
  */

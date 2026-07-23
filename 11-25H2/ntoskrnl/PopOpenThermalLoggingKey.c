@@ -13,13 +13,13 @@
 __int64 __fastcall PopOpenThermalLoggingKey(char a1, HANDLE *a2)
 {
   NTSTATUS PersistedStateLocation; // ecx
-  ULONG CreateOptions; // ebx
-  const WCHAR *v5; // rdx
+  ULONG v4; // ebx
+  WCHAR *v5; // rdx
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v8; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG BufferLengthOut; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v11[528]; // [rsp+90h] [rbp-70h] BYREF
+  WCHAR TargetPath[264]; // [rsp+90h] [rbp-70h] BYREF
 
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
@@ -27,16 +27,23 @@ __int64 __fastcall PopOpenThermalLoggingKey(char a1, HANDLE *a2)
   DestinationString = 0LL;
   if ( a1 )
   {
-    CreateOptions = 1;
-    v5 = L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\Power\\LastThermalEvent";
+    v4 = 1;
+    v5 = (WCHAR *)L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\Power\\LastThermalEvent";
   }
   else
   {
-    PersistedStateLocation = RtlGetPersistedStateLocation(L"ThermalLogging", v11, 520, (__int64)&v8);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               L"ThermalLogging",
+                               0LL,
+                               L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+                               LocationTypeRegistry,
+                               TargetPath,
+                               0x208u,
+                               &BufferLengthOut);
     if ( PersistedStateLocation < 0 )
       return (unsigned int)PersistedStateLocation;
-    CreateOptions = 0;
-    v5 = (const WCHAR *)v11;
+    v4 = 0;
+    v5 = TargetPath;
   }
   RtlInitUnicodeString(&DestinationString, v5);
   ObjectAttributes.RootDirectory = 0LL;
@@ -44,7 +51,7 @@ __int64 __fastcall PopOpenThermalLoggingKey(char a1, HANDLE *a2)
   ObjectAttributes.Length = 48;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ObjectAttributes.Attributes = 576;
-  PersistedStateLocation = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, CreateOptions, 0LL);
+  PersistedStateLocation = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, v4, 0LL);
   if ( PersistedStateLocation >= 0 )
     *a2 = KeyHandle;
   return (unsigned int)PersistedStateLocation;

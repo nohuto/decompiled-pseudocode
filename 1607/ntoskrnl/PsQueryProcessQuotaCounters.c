@@ -1,8 +1,8 @@
 /*
- * XREFs of PsQueryProcessQuotaCounters @ 0x1404D8180
+ * XREFs of PsQueryProcessQuotaCounters @ 0x1404BB784
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     EtwpProcessPerfCtrsRundown @ 0x1406A7998 (EtwpProcessPerfCtrsRundown.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x1406A7AD0 (EtwpProcessPerfCtrsRundown.c)
  * Callees:
  *     <none>
  */

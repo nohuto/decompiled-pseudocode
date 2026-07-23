@@ -3,9 +3,9 @@
  * Callers:
  *     HalpNumaInitializeStaticConfiguration @ 0x140B65B38 (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     HalpParseChannelCount @ 0x1403A54EC (HalpParseChannelCount.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     HalpParseChannelCount @ 0x1403A56CC (HalpParseChannelCount.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpChannelInitializeStaticConfiguration @ 0x140B65F50 (HalpChannelInitializeStaticConfiguration.c)
  *     HalpAllocateNumaConfigData @ 0x140B65FA0 (HalpAllocateNumaConfigData.c)
  */

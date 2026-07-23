@@ -1,21 +1,22 @@
 /*
- * XREFs of MiTrimOrAgeWorkingSet @ 0x140378F30
+ * XREFs of MiTrimOrAgeWorkingSet @ 0x1402F35B0
  * Callers:
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
  * Callees:
- *     MiAgeWorkingSet @ 0x140235110 (MiAgeWorkingSet.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiAttachWorkingSet @ 0x1403792E0 (MiAttachWorkingSet.c)
- *     MiDetachFromWorkingSet @ 0x140379390 (MiDetachFromWorkingSet.c)
- *     MiAgeAweRegions @ 0x1403797D0 (MiAgeAweRegions.c)
- *     MiDrainOldAccessBuffers @ 0x1403799CC (MiDrainOldAccessBuffers.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140379A98 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     MiCheckAndProcessCcAccessLog @ 0x140379B9C (MiCheckAndProcessCcAccessLog.c)
- *     MiTrimWorkingSet @ 0x1403CF15C (MiTrimWorkingSet.c)
- *     PfLogForegroundProcess @ 0x1403D4A6C (PfLogForegroundProcess.c)
- *     MiEmptyWorkingSetInitiate @ 0x140404B98 (MiEmptyWorkingSetInitiate.c)
- *     MiComputeTrimAmount @ 0x14048BFDC (MiComputeTrimAmount.c)
+ *     MiAgeWorkingSet @ 0x14020F2A0 (MiAgeWorkingSet.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     PfLogForegroundProcess @ 0x1402629EC (PfLogForegroundProcess.c)
+ *     MiTrimWorkingSet @ 0x140390208 (MiTrimWorkingSet.c)
+ *     MiEmptyWorkingSetInitiate @ 0x1403C9030 (MiEmptyWorkingSetInitiate.c)
+ *     MiDetachFromWorkingSet @ 0x1403E1C30 (MiDetachFromWorkingSet.c)
+ *     MiAttachWorkingSet @ 0x1404329F4 (MiAttachWorkingSet.c)
+ *     MiAgeAweRegions @ 0x14043DAC0 (MiAgeAweRegions.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x14044B1B4 (MiCheckAndProcessCcAccessLog.c)
+ *     MiDrainOldAccessBuffers @ 0x14045F56C (MiDrainOldAccessBuffers.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x140462890 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiComputeTrimAmount @ 0x140486CF0 (MiComputeTrimAmount.c)
+ *     Feature_Servicing_Mm_WsTrimFixes__private_IsEnabledDeviceUsageNoInline @ 0x14067998C (Feature_Servicing_Mm_WsTrimFixes__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3)
@@ -23,29 +24,34 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3
   int v3; // ebx
   unsigned int v4; // edi
   unsigned int v8; // ebp
-  __int64 v9; // r12
-  char v10; // al
-  _QWORD *v11; // rdx
-  int v12; // r8d
-  char v13; // r15
-  unsigned int v14; // ebx
-  int v15; // eax
-  unsigned int v16; // r14d
-  int v17; // ebx
-  __int64 v18; // r12
-  char v19; // cl
-  __int64 v20; // r9
-  unsigned int v22; // r8d
-  unsigned __int64 v23; // rax
-  unsigned __int8 v24; // r12
-  unsigned __int64 v25; // r8
-  __int64 v26; // [rsp+70h] [rbp+8h]
-  __int64 v27; // [rsp+88h] [rbp+20h]
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  char v14; // al
+  _QWORD *v15; // rdx
+  __int64 v16; // r8
+  char v17; // r14
+  unsigned int v18; // r12d
+  int v19; // eax
+  unsigned int v20; // r15d
+  unsigned __int64 v21; // rbx
+  unsigned __int8 v22; // r15
+  unsigned __int64 v23; // r12
+  int v24; // r8d
+  unsigned __int64 v25; // rax
+  int v26; // ebx
+  __int64 v27; // r12
+  char v28; // cl
+  __int64 v29; // r9
+  unsigned int v30; // [rsp+30h] [rbp-58h]
+  __int64 v31; // [rsp+38h] [rbp-50h]
+  __int64 v32; // [rsp+40h] [rbp-48h]
 
   v3 = *(_DWORD *)(a1 + 184);
   v4 = a3;
   if ( BYTE2(v3) == 2 && (v3 & 0xF) == 0 )
-    PfLogForegroundProcess();
+    PfLogForegroundProcess(a1);
   v8 = 0;
   if ( (v4 & 0x300) != 0 )
   {
@@ -62,126 +68,140 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3
     if ( !v4 )
       return 0LL;
   }
-  v27 = *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174));
-  v9 = *(_QWORD *)(v27 + 17600);
-  v26 = v9;
+  v32 = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174));
+  v10 = *(_QWORD *)(v32 + 17600);
+  v31 = v10;
   MiAttachWorkingSet(a1);
   if ( (v4 & 4) != 0 )
     MiEmptyWorkingSetInitiate(a1, 0LL, 0LL, -1LL);
-  v10 = MiLockWorkingSetShared(a1);
-  v13 = v10;
+  v14 = MiLockWorkingSetShared(a1, v11, v12, v13);
+  v17 = v14;
   if ( (v4 & 0x300) != 0 )
   {
-    LOBYTE(v12) = v10;
-    MiTrimWorkingSet(a1, *(_QWORD *)(a1 + 144), v12, 0, 2);
+    LOBYTE(v16) = v14;
+    MiTrimWorkingSet(a1, *(_QWORD *)(a1 + 144), v16, 0, 2);
   }
   if ( (v4 & 0x80u) != 0 )
   {
-    LOBYTE(v12) = v13;
-    MiTrimWorkingSet(a1, *(_QWORD *)(a1 + 144), v12, 0, 4);
+    LOBYTE(v16) = v17;
+    MiTrimWorkingSet(a1, *(_QWORD *)(a1 + 144), v16, 0, 4);
   }
-  v14 = *(unsigned __int16 *)(v9 + 274);
-  v15 = 0;
-  v16 = 0;
-  if ( (v4 & 1) != 0 )
+  v18 = *(unsigned __int16 *)(v10 + 274);
+  v30 = v18;
+  v19 = 0;
+  v20 = 0;
+  if ( (v4 & 1) == 0 )
   {
-    *(_BYTE *)(a2 + 1) = *((_BYTE *)&MiTrimPassToAge + (*(_BYTE *)a2 & 0x7F));
-    v23 = MiComputeTrimAmount(a2, a1);
-    if ( v23 )
+    if ( (v4 & 2) != 0 )
     {
-      v24 = 8;
-      if ( *(_BYTE *)(a2 + 1) != 8 )
+      v20 = MiAgeWorkingSet(a1, v17, 1u, v18);
+      v19 = 1;
+      if ( v20 || !*(_BYTE *)(v10 + 55) )
+        goto LABEL_40;
+      if ( v18 - 1 <= 8 )
       {
-        do
-        {
-          --v24;
-          v11 = (_QWORD *)v23;
-          v25 = *(_QWORD *)(a1 + 8LL * v24 + 40);
-          if ( v25 <= v23 )
-            v11 = *(_QWORD **)(a1 + 8LL * v24 + 40);
-          if ( v11 )
-          {
-            LOBYTE(v25) = v13;
-            v23 = MiTrimWorkingSet(a1, (_DWORD)v11, v25, v24, 17);
-          }
-          *(_QWORD *)(a2 + 96) += v23;
-        }
-        while ( v24 != *(_BYTE *)(a2 + 1) );
+        v20 = MiAgeWorkingSet(a1, v17, 2u, 0xAu);
+        v19 = 1;
+        goto LABEL_40;
       }
-      v9 = v26;
+LABEL_63:
+      v19 = 1;
+      goto LABEL_40;
     }
-    v22 = 0;
-    if ( ((*(_BYTE *)a2 & 0x7F) == 0 && *(char *)a2 >= 0 || (*(_BYTE *)a2 & 0x7F) == 4) && *(_WORD *)(v9 + 274) )
-      v22 = 1;
-    if ( ((*(_BYTE *)(a2 + 4) - 1) & 0xFD) != 0 )
-    {
-      v15 = 0;
-      goto LABEL_12;
-    }
-LABEL_37:
-    v16 = MiAgeWorkingSet(a1, v13, v22, v14);
-LABEL_38:
-    v15 = 1;
-    goto LABEL_12;
-  }
-  if ( (v4 & 2) == 0 )
-  {
     if ( (v4 & 0x20) != 0 )
     {
-      v22 = 1;
+      LODWORD(v16) = 1;
     }
     else
     {
       if ( (v4 & 0x40) == 0 )
-        goto LABEL_12;
-      v22 = 2;
+        goto LABEL_40;
+      LODWORD(v16) = 2;
     }
-    goto LABEL_37;
+LABEL_62:
+    v20 = MiAgeWorkingSet(a1, v17, v16, v18);
+    goto LABEL_63;
   }
-  v16 = MiAgeWorkingSet(a1, v13, 1u, v14);
-  v15 = 1;
-  if ( v16 || !*(_BYTE *)(v9 + 55) )
-    goto LABEL_12;
-  if ( v14 - 1 > 8 )
-    goto LABEL_38;
-  v16 = MiAgeWorkingSet(a1, v13, 2u, 0xAu);
-  v15 = 1;
-LABEL_12:
-  v17 = *(_DWORD *)(a1 + 184);
-  v18 = 0LL;
-  if ( !v16 )
+  *(_BYTE *)(a2 + 1) = *((_BYTE *)&MiTrimPassToAge + (*(_BYTE *)a2 & 0x7F));
+  v21 = MiComputeTrimAmount(a2, a1);
+  if ( v21 && *(_BYTE *)(a2 + 1) != 8 )
   {
-    if ( v15 )
+    v22 = 8;
+    do
     {
-      v19 = 3;
-      v11 = (_QWORD *)(a2 + 8);
-      v20 = 8LL;
-      if ( BYTE2(v17) != 2 )
-        v19 = 1;
+      --v22;
+      v23 = v21;
+      if ( *(_QWORD *)(a1 + 8LL * v22 + 40) <= v21 )
+        v23 = *(_QWORD *)(a1 + 8LL * v22 + 40);
+      if ( (unsigned int)Feature_Servicing_Mm_WsTrimFixes__private_IsEnabledDeviceUsageNoInline() )
+      {
+        if ( v23 )
+        {
+          LOBYTE(v24) = v17;
+          v25 = MiTrimWorkingSet(a1, v23, v24, v22, 17);
+          *(_QWORD *)(a2 + 96) += v25;
+          if ( v21 <= v25 )
+            break;
+          v21 -= v25;
+        }
+      }
+      else
+      {
+        if ( v23 )
+        {
+          LOBYTE(v24) = v17;
+          v21 = MiTrimWorkingSet(a1, v23, v24, v22, 17);
+        }
+        *(_QWORD *)(a2 + 96) += v21;
+      }
+    }
+    while ( v22 != *(_BYTE *)(a2 + 1) );
+    v18 = v30;
+    v20 = 0;
+  }
+  v16 = 0LL;
+  if ( ((*(_BYTE *)a2 & 0x7F) == 0 && *(char *)a2 >= 0 || (*(_BYTE *)a2 & 0x7F) == 4) && *(_WORD *)(v31 + 274) )
+    v16 = 1LL;
+  if ( ((*(_BYTE *)(a2 + 4) - 1) & 0xFD) == 0 )
+    goto LABEL_62;
+  v19 = 0;
+LABEL_40:
+  v26 = *(_DWORD *)(a1 + 184);
+  v27 = 0LL;
+  if ( !v20 )
+  {
+    if ( v19 )
+    {
+      v28 = 3;
+      v15 = (_QWORD *)(a2 + 8);
+      v29 = 8LL;
+      if ( BYTE2(v26) != 2 )
+        v28 = 1;
+      v16 = a1 - a2;
       do
       {
-        *v11 += *(_QWORD *)((char *)v11 + a1 - a2 + 32) >> v19;
-        ++v11;
-        --v20;
+        *v15 += *(_QWORD *)((char *)v15 + v16 + 32) >> v28;
+        ++v15;
+        --v29;
       }
-      while ( v20 );
+      while ( v29 );
     }
     if ( (v4 & 0x10) != 0 || (v4 & 8) != 0 )
     {
-      LOBYTE(v11) = v13;
-      MiCaptureAndResetWorkingSetAccessBits(a1, v11, v4);
+      LOBYTE(v15) = v17;
+      MiCaptureAndResetWorkingSetAccessBits(a1, v15, v4);
     }
-    v18 = MEMORY[0xFFFFF78000000320];
-    MiDrainOldAccessBuffers(a1, MEMORY[0xFFFFF78000000320]);
+    v27 = MEMORY[0xFFFFF78000000320];
+    MiDrainOldAccessBuffers(a1, MEMORY[0xFFFFF78000000320], v16);
   }
-  MiUnlockWorkingSetShared(a1, v13);
-  if ( (v17 & 0xF) == 0 )
+  MiUnlockWorkingSetShared(a1, v17);
+  if ( (v26 & 0xF) == 0 )
     MiAgeAweRegions();
   MiDetachFromWorkingSet(a1);
-  if ( !v16 )
+  if ( !v20 )
   {
     LOBYTE(v8) = (v4 & 0x18) != 0;
-    MiCheckAndProcessCcAccessLog(v27, v18, v8);
+    MiCheckAndProcessCcAccessLog(v32, v27, v8);
   }
-  return v16;
+  return v20;
 }

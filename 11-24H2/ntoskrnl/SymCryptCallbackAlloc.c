@@ -1,21 +1,20 @@
 /*
- * XREFs of SymCryptCallbackAlloc @ 0x1406A5810
+ * XREFs of SymCryptCallbackAlloc @ 0x1406A6810
  * Callers:
- *     SymCryptRsakeyAllocate @ 0x140521014 (SymCryptRsakeyAllocate.c)
- *     SymCryptRsakeySetValueInternal @ 0x140521B70 (SymCryptRsakeySetValueInternal.c)
- *     SymCryptEcurveAllocate @ 0x140522320 (SymCryptEcurveAllocate.c)
- *     SymCryptEckeyAllocate @ 0x140522CE8 (SymCryptEckeyAllocate.c)
- *     SymCryptEckeySetValue @ 0x140522F10 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaSignEx @ 0x140524044 (SymCryptEcDsaSignEx.c)
- *     SymCryptEcDsaVerify @ 0x1405246D8 (SymCryptEcDsaVerify.c)
- *     SymCryptRsaPkcs1Sign @ 0x140525478 (SymCryptRsaPkcs1Sign.c)
- *     SymCryptRsaPkcs1Verify @ 0x1405255D4 (SymCryptRsaPkcs1Verify.c)
- *     SymCryptRsaSelftest @ 0x140529908 (SymCryptRsaSelftest.c)
- *     SymCryptRsaSignVerifyPct @ 0x140529B14 (SymCryptRsaSignVerifyPct.c)
- *     SymCryptFdefIntAllocate @ 0x14053709C (SymCryptFdefIntAllocate.c)
- *     SymCryptEcDhSecretAgreement @ 0x140538EE8 (SymCryptEcDhSecretAgreement.c)
+ *     SymCryptRsakeyAllocate @ 0x14051E8E4 (SymCryptRsakeyAllocate.c)
+ *     SymCryptRsakeySetValueInternal @ 0x14051F4C4 (SymCryptRsakeySetValueInternal.c)
+ *     SymCryptEcurveAllocate @ 0x14051FC64 (SymCryptEcurveAllocate.c)
+ *     SymCryptEckeyAllocate @ 0x1405205FC (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeySetValue @ 0x140520824 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaSignEx @ 0x14052195C (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaVerify @ 0x140521FF0 (SymCryptEcDsaVerify.c)
+ *     SymCryptRsaPkcs1Sign @ 0x140522D90 (SymCryptRsaPkcs1Sign.c)
+ *     SymCryptRsaPkcs1Verify @ 0x140522EEC (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptRsaSelftest @ 0x140527228 (SymCryptRsaSelftest.c)
+ *     SymCryptFdefIntAllocate @ 0x14053153C (SymCryptFdefIntAllocate.c)
+ *     SymCryptEcDhSecretAgreement @ 0x140533388 (SymCryptEcDhSecretAgreement.c)
  * Callees:
- *     MincryptAlloc @ 0x14082897C (MincryptAlloc.c)
+ *     MincryptAlloc @ 0x14082914C (MincryptAlloc.c)
  */
 
 unsigned __int64 __fastcall SymCryptCallbackAlloc(__int64 a1)

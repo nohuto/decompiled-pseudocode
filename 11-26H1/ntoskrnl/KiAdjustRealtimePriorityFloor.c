@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAdjustRealtimePriorityFloor @ 0x1403F6A80
+ * XREFs of KiAdjustRealtimePriorityFloor @ 0x1403F0430
  * Callers:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     KeSetBasePriorityThread @ 0x140528B30 (KeSetBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     KeSetBasePriorityThread @ 0x14052B1A0 (KeSetBasePriorityThread.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiAdjustRealtimePriorityFloor(ULONG_PTR BugCheckParameter1, int a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfWdSetCancelTimeout @ 0x140B9C9B8
+ * XREFs of VfWdSetCancelTimeout @ 0x140B9E9B8
  * Callers:
- *     VfSetVerifierInformationEx @ 0x140B9C634 (VfSetVerifierInformationEx.c)
- *     VfWdInit @ 0x140B9C8F8 (VfWdInit.c)
+ *     VfSetVerifierInformationEx @ 0x140B9E634 (VfSetVerifierInformationEx.c)
+ *     VfWdInit @ 0x140B9E8F8 (VfWdInit.c)
  * Callees:
- *     VfWdCheckForSettingsChange @ 0x140B9C898 (VfWdCheckForSettingsChange.c)
+ *     VfWdCheckForSettingsChange @ 0x140B9E898 (VfWdCheckForSettingsChange.c)
  */
 
 __int64 __fastcall VfWdSetCancelTimeout(unsigned int a1)

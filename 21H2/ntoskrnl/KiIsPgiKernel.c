@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsPgiKernel @ 0x1403CD258
+ * XREFs of KiIsPgiKernel @ 0x1403CD3C8
  * Callers:
- *     KiDetermineRetpolineEnablement @ 0x1403CD1B0 (KiDetermineRetpolineEnablement.c)
+ *     KiDetermineRetpolineEnablement @ 0x1403CD320 (KiDetermineRetpolineEnablement.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x140286140 (RtlImageDirectoryEntryToData.c)
  */
 
 char KiIsPgiKernel()
@@ -13,13 +13,13 @@ char KiIsPgiKernel()
   int v2; // eax
   _DWORD *v4; // rcx
   _DWORD *v5; // rdx
-  unsigned int v6; // [rsp+30h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
-  v0 = (_DWORD *)RtlImageDirectoryEntryToData(0x40000000, 1, 6, (int)&v6);
+  Size = 0;
+  v0 = RtlImageDirectoryEntryToData((PVOID)0x140000000LL, 1u, 6u, &Size);
   if ( v0 )
   {
-    for ( i = &v0[7 * (v6 / 0x1CuLL)]; v0 < i; v0 += 7 )
+    for ( i = &v0[7 * (Size / 0x1CuLL)]; v0 < i; v0 += 7 )
     {
       v2 = v0[3];
       if ( v2 == 10 )

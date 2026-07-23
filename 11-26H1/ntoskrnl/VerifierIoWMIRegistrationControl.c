@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierIoWMIRegistrationControl @ 0x140C403C0
+ * XREFs of VerifierIoWMIRegistrationControl @ 0x140C463D0
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     VfTargetWMIRegistrationControl @ 0x140C29404 (VfTargetWMIRegistrationControl.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     VfTargetWMIRegistrationControl @ 0x140C2F414 (VfTargetWMIRegistrationControl.c)
  */
 
 __int64 __fastcall VerifierIoWMIRegistrationControl(unsigned __int64 a1, int a2)

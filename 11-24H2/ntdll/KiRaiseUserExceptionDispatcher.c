@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRaiseUserExceptionDispatcher @ 0x180165D60
+ * XREFs of KiRaiseUserExceptionDispatcher @ 0x180164120
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
  */
 
 __int64 __fastcall KiRaiseUserExceptionDispatcher()

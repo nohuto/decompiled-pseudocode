@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpExtRegisterResourceDescriptor @ 0x1405872E0
+ * XREFs of HalpExtRegisterResourceDescriptor @ 0x140589800
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpExtBuildResourceIdString @ 0x14058712C (HalpExtBuildResourceIdString.c)
- *     HalpRegisterDmaChannel @ 0x14058CCB8 (HalpRegisterDmaChannel.c)
- *     HalpRegisterDmaController @ 0x14058CDC8 (HalpRegisterDmaController.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpExtBuildResourceIdString @ 0x14058964C (HalpExtBuildResourceIdString.c)
+ *     HalpRegisterDmaChannel @ 0x14058F438 (HalpRegisterDmaChannel.c)
+ *     HalpRegisterDmaController @ 0x14058F548 (HalpRegisterDmaController.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpExtRegisterResourceDescriptor(unsigned int a1, ULONG_PTR a2, __int64 a3, __int64 a4)
@@ -35,12 +35,12 @@ __int64 __fastcall HalpExtRegisterResourceDescriptor(unsigned int a1, ULONG_PTR 
     return 3221225485LL;
   if ( !a2 )
     return 3221225485LL;
-  if ( a1 >= *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[80] )
+  if ( a1 >= *(_DWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[48] )
     return 3221225485LL;
   v7 = (unsigned __int64)a1 << 6;
-  if ( !*(&HalpDeviceBlockUnblockPushLock.WaitBlock[1].Thread->Header.Type + v7) )
+  if ( !*((_BYTE *)HalpDeviceBlockUnblockPushLock.WaitBlock[0].SparePtr + v7) )
     return 3221225485LL;
-  v8 = (unsigned __int64 *)((char *)&HalpDeviceBlockUnblockPushLock.WaitBlock[1].Thread->QuantumTarget + v7);
+  v8 = (ULONG_PTR *)((char *)HalpDeviceBlockUnblockPushLock.WaitBlock[0].SparePtr + v7 + 32);
   for ( i = *v8; (ULONG_PTR *)i != v8; i = *(_QWORD *)i )
   {
     v10 = *(_QWORD *)(i + 24);

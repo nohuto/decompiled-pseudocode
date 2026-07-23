@@ -1,24 +1,24 @@
 /*
- * XREFs of KiBeginThreadAccountingPeriod @ 0x140308DB0
+ * XREFs of KiBeginThreadAccountingPeriod @ 0x140309040
  * Callers:
- *     KiChainedDispatch @ 0x1404202A0 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x140420C70 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x1404210B0 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x1404214F0 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x140421930 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x140421D60 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x1404229F0 (KxIsrLinkage.c)
- *     KiHvInterruptDispatch @ 0x140425FE0 (KiHvInterruptDispatch.c)
- *     KiVmbusInterruptDispatch @ 0x140426430 (KiVmbusInterruptDispatch.c)
- *     KiSwInterrupt @ 0x140426B20 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x140427A20 (KiIpiInterrupt.c)
- *     SwapContext @ 0x1404283C0 (SwapContext.c)
+ *     KiChainedDispatch @ 0x140420630 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x140421000 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x140421440 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140421880 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x140421CC0 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1404220F0 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x140422D80 (KxIsrLinkage.c)
+ *     KiHvInterruptDispatch @ 0x140426370 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x1404267C0 (KiVmbusInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x140426EB0 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x140427DB0 (KiIpiInterrupt.c)
+ *     SwapContext @ 0x140428750 (SwapContext.c)
  * Callees:
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030909C (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1403090BC (KiCheckForMaxOverQuotaScb.c)
- *     KiInsertDeferredPreemptionApc @ 0x140309124 (KiInsertDeferredPreemptionApc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiBeginCounterAccumulation @ 0x1405740F0 (KiBeginCounterAccumulation.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030932C (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x14030934C (KiCheckForMaxOverQuotaScb.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1403093B4 (KiInsertDeferredPreemptionApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBeginCounterAccumulation @ 0x140574630 (KiBeginCounterAccumulation.c)
  */
 
 void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3)

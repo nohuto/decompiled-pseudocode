@@ -1,14 +1,14 @@
 /*
- * XREFs of EmonInitializeProfiling @ 0x1409A06C0
+ * XREFs of EmonInitializeProfiling @ 0x1409A15F0
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     EmonFreeCounter @ 0x1403BB1B8 (EmonFreeCounter.c)
- *     HalpMmAllocateMemory @ 0x1403BB1F0 (HalpMmAllocateMemory.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EmonInitializePebs @ 0x1409A09F8 (EmonInitializePebs.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A24C4 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     EmonFreeCounter @ 0x1403BB328 (EmonFreeCounter.c)
+ *     HalpMmAllocateMemory @ 0x1403BB360 (HalpMmAllocateMemory.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EmonInitializePebs @ 0x1409A1928 (EmonInitializePebs.c)
  */
 
 __int64 EmonInitializeProfiling()
@@ -65,9 +65,9 @@ __int64 EmonInitializeProfiling()
     EmonProfileSourceDescriptorListLock = 0LL;
     EmonReservedResourcesLock = 0LL;
     _RCX = (unsigned __int64)&EmonReservedResourcesList;
-    qword_140C49008 = (__int64)&EmonProfileSourceDescriptorListHead;
+    qword_140C49048 = (__int64)&EmonProfileSourceDescriptorListHead;
     EmonProfileSourceDescriptorListHead = (__int64)&EmonProfileSourceDescriptorListHead;
-    qword_140C49028 = (__int64)&EmonReservedResourcesList;
+    qword_140C49068 = (__int64)&EmonReservedResourcesList;
     EmonReservedResourcesList = (__int64)&EmonReservedResourcesList;
     EmonCounterStatus = Memory;
     if ( Memory )
@@ -79,14 +79,14 @@ __int64 EmonInitializeProfiling()
         if ( !EmonProfileSourceDescriptorTable[v24 + 29] )
         {
           v25 = &EmonProfileSourceDescriptorTable[v24 + 8];
-          v26 = (_QWORD *)qword_140C49008;
-          if ( *(__int64 **)qword_140C49008 != &EmonProfileSourceDescriptorListHead )
+          v26 = (_QWORD *)qword_140C49048;
+          if ( *(__int64 **)qword_140C49048 != &EmonProfileSourceDescriptorListHead )
             __fastfail(3u);
           ++EmonProfileSourceDescriptorCount;
           *v25 = &EmonProfileSourceDescriptorListHead;
           v25[1] = v26;
           *v26 = v25;
-          qword_140C49008 = (__int64)v25;
+          qword_140C49048 = (__int64)v25;
         }
         _RCX = (unsigned int)(_RCX + 1);
       }

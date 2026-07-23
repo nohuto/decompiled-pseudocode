@@ -1,16 +1,16 @@
 /*
- * XREFs of MxMapVa @ 0x140CF7FB0
+ * XREFs of MxMapVa @ 0x140CFE330
  * Callers:
- *     MxMapPfnRange @ 0x140CF7DA8 (MxMapPfnRange.c)
+ *     MxMapPfnRange @ 0x140CFE128 (MxMapPfnRange.c)
  * Callees:
- *     MiFillPhysicalPages @ 0x140289560 (MiFillPhysicalPages.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiFillPteHierarchy @ 0x14039FA50 (MiFillPteHierarchy.c)
- *     MiGetLargePteAddress @ 0x14043AB90 (MiGetLargePteAddress.c)
- *     MxMapLargeVa @ 0x1406E7444 (MxMapLargeVa.c)
- *     MxGetPage @ 0x140CF6D70 (MxGetPage.c)
- *     MxMarkPfnChannelHot @ 0x140CF8184 (MxMarkPfnChannelHot.c)
+ *     MiFillPhysicalPages @ 0x140288AC0 (MiFillPhysicalPages.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiFillPteHierarchy @ 0x1403A17B0 (MiFillPteHierarchy.c)
+ *     MiGetLargePteAddress @ 0x14042D440 (MiGetLargePteAddress.c)
+ *     MxMapLargeVa @ 0x1406EC0F4 (MxMapLargeVa.c)
+ *     MxGetPage @ 0x140CFD0F0 (MxGetPage.c)
+ *     MxMarkPfnChannelHot @ 0x140CFE504 (MxMarkPfnChannelHot.c)
  */
 
 __int64 __fastcall MxMapVa(__int64 a1)
@@ -68,16 +68,16 @@ LABEL_16:
       MxMarkPfnChannelHot(Page);
       if ( *(_DWORD *)(a1 + 16) )
       {
-        v13 = (__int64 *)qword_14101EC88;
+        v13 = (__int64 *)qword_14101FC88;
         v14 = *(_QWORD *)a1 + 0x220000000000LL;
         v15 = v14 >> 21;
-        if ( !qword_14101EC88 )
+        if ( !qword_14101FC88 )
         {
-          v13 = qword_14101EC90;
-          qword_14101EC80 = 0x80000LL;
-          qword_14101EC88 = (__int64)qword_14101EC90;
+          v13 = qword_14101FC90;
+          qword_14101FC80 = 0x80000LL;
+          qword_14101FC88 = (__int64)qword_14101FC90;
         }
-        if ( v15 < qword_14101EC80 )
+        if ( v15 < qword_14101FC80 )
           *((_BYTE *)v13 + (v14 >> 24)) |= 1 << (v15 & 7);
       }
       MxMapLargeVa(a1, v9);
@@ -93,7 +93,7 @@ LABEL_11:
     if ( i || *(_DWORD *)(a1 + 12) )
       MiFillPhysicalPages(0LL, v11, v12, 0LL);
     *v4 = MiMakeValidPte((unsigned __int64)v4, v11, i != 0 ? -1744830460 : -1342177276);
-    _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.WaitBlock[0].Thread, 1uLL);
+    _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.WaitBlock[0].Thread, 1uLL);
     goto LABEL_16;
   }
   return 0LL;

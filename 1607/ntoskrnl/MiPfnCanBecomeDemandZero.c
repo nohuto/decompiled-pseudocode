@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPfnCanBecomeDemandZero @ 0x1401E2A48
+ * XREFs of MiPfnCanBecomeDemandZero @ 0x1401E2874
  * Callers:
- *     MiConvertPrivateToDemandZero @ 0x1401F883C (MiConvertPrivateToDemandZero.c)
+ *     MiConvertPrivateToDemandZero @ 0x1401F8668 (MiConvertPrivateToDemandZero.c)
  * Callees:
  *     <none>
  */

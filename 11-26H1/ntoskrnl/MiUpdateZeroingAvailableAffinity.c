@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateZeroingAvailableAffinity @ 0x1403E9620
+ * XREFs of MiUpdateZeroingAvailableAffinity @ 0x1402F6500
  * Callers:
- *     MiAssignBackgroundZeroThreadToProcessor @ 0x1403E8F54 (MiAssignBackgroundZeroThreadToProcessor.c)
- *     MiInitializeEngineWorkAffinity @ 0x1403E94E4 (MiInitializeEngineWorkAffinity.c)
+ *     MiAssignBackgroundZeroThreadToProcessor @ 0x1402F5E34 (MiAssignBackgroundZeroThreadToProcessor.c)
+ *     MiInitializeEngineWorkAffinity @ 0x1402F63C4 (MiInitializeEngineWorkAffinity.c)
  * Callees:
  *     <none>
  */

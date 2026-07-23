@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1403B6230
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1403C0130
  * Callers:
- *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1403B43BC (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
- *     PdcPoCurrentPdcPhase @ 0x14060D4E0 (PdcPoCurrentPdcPhase.c)
+ *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1403BE2C8 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
+ *     PdcPoCurrentPdcPhase @ 0x1406105F0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopDeepSleepResiliencyPhaseAccountingBegin(unsigned int a1, char a2)
@@ -20,20 +20,20 @@ void __fastcall PopDeepSleepResiliencyPhaseAccountingBegin(unsigned int a1, char
   v2 = 0;
   if ( !a2 )
   {
-    v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopWeakChargerLock.SchedulerApc.Thread);
-    KxAcquireSpinLock(&stru_140F10070.Spare35[1]);
+    v2 = KeAcquireSpinLockRaiseToDpc(&PopDeepSleepDisengageReasonLock);
+    KxAcquireSpinLock(&PopCsResiliencyStatsLock);
   }
-  dword_140F10CFC |= a1;
+  dword_140F1011C |= a1;
   while ( _BitScanForward((unsigned int *)&v6, a1) )
   {
-    v7 = *(_DWORD *)&PopWeakChargerLock.SchedulerApcFill5[72];
+    v7 = PopDeepSleepDisengageReasonMask;
     a1 &= a1 - 1;
     if ( _bittest(&v7, v6) )
-      stru_140F10D00[v6] = KeQueryPerformanceCounter(0LL);
+      stru_140F10120[v6] = KeQueryPerformanceCounter(0LL);
   }
   if ( !a2 )
   {
-    KxReleaseSpinLock(&stru_140F10070.Spare35[1]);
-    KeReleaseSpinLock((PKSPIN_LOCK)&PopWeakChargerLock.SchedulerApc.Thread, v2);
+    KxReleaseSpinLock(&PopCsResiliencyStatsLock);
+    KeReleaseSpinLock(&PopDeepSleepDisengageReasonLock, v2);
   }
 }

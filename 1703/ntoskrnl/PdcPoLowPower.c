@@ -10,12 +10,8 @@
 
 __int64 __fastcall PdcPoLowPower(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-
   PopAcquirePolicyLock(a1, a2);
   PopSetPowerSettingValueAcDc(&GUID_LOW_POWER_EPOCH);
-  PopReleasePolicyLock(v3, v2, v4);
+  PopReleasePolicyLock();
   return 0LL;
 }

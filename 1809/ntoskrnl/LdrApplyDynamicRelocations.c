@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrApplyDynamicRelocations @ 0x1401876E4
+ * XREFs of LdrApplyDynamicRelocations @ 0x140187824
  * Callers:
- *     MiApplyDynamicRelocations @ 0x1409D2650 (MiApplyDynamicRelocations.c)
+ *     MiApplyDynamicRelocations @ 0x1409D3650 (MiApplyDynamicRelocations.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlSplitLargeMcb @ 0x14053CE80
+ * XREFs of FsRtlSplitLargeMcb @ 0x14053D3D0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     FsRtlSplitBaseMcb @ 0x14053CD10 (FsRtlSplitBaseMcb.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     FsRtlSplitBaseMcb @ 0x14053D260 (FsRtlSplitBaseMcb.c)
  */
 
 BOOLEAN __stdcall FsRtlSplitLargeMcb(PLARGE_MCB Mcb, LONGLONG Vbn, LONGLONG Amount)

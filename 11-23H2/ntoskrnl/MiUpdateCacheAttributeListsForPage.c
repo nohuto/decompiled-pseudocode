@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateCacheAttributeListsForPage @ 0x1402F9B08
+ * XREFs of MiUpdateCacheAttributeListsForPage @ 0x1402F9D98
  * Callers:
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9810 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiFindLargePageMemory @ 0x140A49768 (MiFindLargePageMemory.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9AA0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiFindLargePageMemory @ 0x140A49A18 (MiFindLargePageMemory.c)
  * Callees:
- *     MiPageAttributeBatchChangeNeeded @ 0x1402F9B74 (MiPageAttributeBatchChangeNeeded.c)
- *     MiPfnBestZeroAttribute @ 0x14033956C (MiPfnBestZeroAttribute.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x1402F9E04 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiPfnBestZeroAttribute @ 0x1403397FC (MiPfnBestZeroAttribute.c)
  */
 
 _QWORD *__fastcall MiUpdateCacheAttributeListsForPage(

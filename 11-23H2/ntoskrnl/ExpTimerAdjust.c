@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpTimerAdjust @ 0x14060BD5C
+ * XREFs of ExpTimerAdjust @ 0x14060C2AC
  * Callers:
- *     PspSetProcessTimerDelayForKTimers @ 0x1405A47B0 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x1405A4D20 (PspSetProcessTimerDelayForKTimers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     KeCancelTimerInternal @ 0x1403698D0 (KeCancelTimerInternal.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     KeCancelTimerInternal @ 0x140369A70 (KeCancelTimerInternal.c)
  */
 
 char __fastcall ExpTimerAdjust(PKTIMER Timer, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)

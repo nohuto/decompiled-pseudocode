@@ -1,12 +1,12 @@
 /*
- * XREFs of KeConvertPerformanceCounterToAuxiliaryCounter @ 0x14028EC30
+ * XREFs of KeConvertPerformanceCounterToAuxiliaryCounter @ 0x14028EE20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 KeConvertPerformanceCounterToAuxiliaryCounter()
 {
-  return off_1403FE660[0]();
+  return off_1403FF660[0]();
 }

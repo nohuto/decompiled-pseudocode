@@ -11,7 +11,7 @@ __int64 __fastcall HalpAcpiRealTimeToUtcTime(__int64 a1, LARGE_INTEGER *a2)
 {
   unsigned int v4; // ebx
   __int64 v5; // rcx
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+40h] [rbp+10h] BYREF
 
   TimeFields.Year = *(_WORD *)a1;

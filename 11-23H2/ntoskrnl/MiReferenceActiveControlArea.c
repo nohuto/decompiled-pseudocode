@@ -2,10 +2,10 @@
  * XREFs of MiReferenceActiveControlArea @ 0x140219910
  * Callers:
  *     MiReferenceExistingControlArea @ 0x14020EFE0 (MiReferenceExistingControlArea.c)
- *     MiReferenceControlArea @ 0x1402882B8 (MiReferenceControlArea.c)
+ *     MiReferenceControlArea @ 0x140288548 (MiReferenceControlArea.c)
  * Callees:
  *     MiRemoveUnusedSegment @ 0x140219970 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x1402894E4 (MiBuildWakeList.c)
+ *     MiBuildWakeList @ 0x140289774 (MiBuildWakeList.c)
  */
 
 __int64 __fastcall MiReferenceActiveControlArea(_DWORD *a1, __int64 a2)

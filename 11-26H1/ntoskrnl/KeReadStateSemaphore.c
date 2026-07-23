@@ -1,10 +1,10 @@
 /*
- * XREFs of KeReadStateSemaphore @ 0x140480600
+ * XREFs of KeReadStateSemaphore @ 0x140479F40
  * Callers:
- *     SymCryptCrtGenerateForTwoCoprimes @ 0x140562430 (SymCryptCrtGenerateForTwoCoprimes.c)
- *     SymCryptCrtSolve @ 0x140562634 (SymCryptCrtSolve.c)
- *     SymCryptIntExtendedGcd @ 0x140562838 (SymCryptIntExtendedGcd.c)
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x1407BC154 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     SymCryptCrtGenerateForTwoCoprimes @ 0x140564940 (SymCryptCrtGenerateForTwoCoprimes.c)
+ *     SymCryptCrtSolve @ 0x140564B44 (SymCryptCrtSolve.c)
+ *     SymCryptIntExtendedGcd @ 0x140564D48 (SymCryptIntExtendedGcd.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x1407BF1B4 (KiTpBuildExcludedKernelTracepointBitmap.c)
  * Callees:
  *     <none>
  */

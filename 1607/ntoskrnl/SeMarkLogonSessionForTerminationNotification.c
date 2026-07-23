@@ -1,5 +1,5 @@
 /*
- * XREFs of SeMarkLogonSessionForTerminationNotification @ 0x1404EDCF4
+ * XREFs of SeMarkLogonSessionForTerminationNotification @ 0x1404CFE18
  * Callers:
  *     <none>
  * Callees:

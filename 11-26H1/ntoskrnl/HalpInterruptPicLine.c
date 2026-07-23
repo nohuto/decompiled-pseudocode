@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptPicLine @ 0x1404F1D7C
+ * XREFs of HalpInterruptPicLine @ 0x1404EB35C
  * Callers:
- *     HalpInterruptMaskAcpi @ 0x140C08BC0 (HalpInterruptMaskAcpi.c)
+ *     HalpInterruptMaskAcpi @ 0x140C0EDD0 (HalpInterruptMaskAcpi.c)
  * Callees:
  *     <none>
  */

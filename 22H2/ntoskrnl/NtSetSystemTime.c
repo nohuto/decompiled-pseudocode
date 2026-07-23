@@ -24,74 +24,74 @@
  *     ExpSetSystemTime @ 0x140998FB8 (ExpSetSystemTime.c)
  */
 
-__int64 __fastcall NtSetSystemTime(LARGE_INTEGER *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER PreviousTime)
 {
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v8; // rcx
-  LARGE_INTEGER v9; // rax
+  LONGLONG QuadPart; // rax
   int v10; // ecx
-  unsigned int v11; // ebx
+  NTSTATUS v11; // ebx
   char v12; // di
   LARGE_INTEGER v13; // rax
-  char v14[8]; // [rsp+30h] [rbp-58h] BYREF
-  LARGE_INTEGER SystemTime; // [rsp+38h] [rbp-50h] BYREF
+  BOOLEAN HasCapability[8]; // [rsp+30h] [rbp-58h] BYREF
+  LARGE_INTEGER SystemTimea; // [rsp+38h] [rbp-50h] BYREF
   LARGE_INTEGER v16; // [rsp+40h] [rbp-48h] BYREF
   LARGE_INTEGER Time; // [rsp+48h] [rbp-40h] BYREF
-  UNICODE_STRING SourceString; // [rsp+50h] [rbp-38h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+60h] [rbp-28h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+50h] [rbp-38h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-28h] BYREF
 
-  SystemTime.QuadPart = 0LL;
+  SystemTimea.QuadPart = 0LL;
   v16.QuadPart = 0LL;
   Time.QuadPart = 0LL;
   TimeFields = 0LL;
-  v14[0] = 0;
-  *(_QWORD *)&SourceString.Length = 2228256LL;
-  SourceString.Buffer = L"systemManagement";
-  if ( a1 )
+  HasCapability[0] = 0;
+  *(_QWORD *)&CapabilityName.Length = 2228256LL;
+  CapabilityName.Buffer = L"systemManagement";
+  if ( SystemTime )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( !SeSinglePrivilegeCheck(SeSystemtimePrivilege, PreviousMode)
-      && (RtlIsMultiSessionSku(v6, v5) || (int)RtlCapabilityCheck(0LL, &SourceString, v14) < 0 || !v14[0])
+      && (RtlIsMultiSessionSku() || RtlCapabilityCheck(0LL, &CapabilityName, HasCapability) < 0 || !HasCapability[0])
       || PsIsCurrentThreadInServerSilo(v6, v5) )
     {
-      return 3221225569LL;
+      return -1073741727;
     }
     if ( PreviousMode )
     {
-      if ( ((unsigned __int8)a1 & 3) != 0 )
+      if ( ((unsigned __int8)SystemTime & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       v8 = 0x7FFFFFFF0000LL;
-      if ( a2 )
+      if ( PreviousTime )
       {
-        if ( (a2 & 3) != 0 )
+        if ( ((unsigned __int8)PreviousTime & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( a2 < 0x7FFFFFFF0000LL )
-          v8 = a2;
+        if ( (unsigned __int64)PreviousTime < 0x7FFFFFFF0000LL )
+          v8 = (__int64)PreviousTime;
         *(_BYTE *)v8 = *(_BYTE *)v8;
         *(_BYTE *)(v8 + 7) = *(_BYTE *)(v8 + 7);
       }
-      v9 = *a1;
-      v16 = *a1;
+      QuadPart = SystemTime->QuadPart;
+      v16 = *SystemTime;
     }
     else
     {
-      v9 = *a1;
-      v16 = *a1;
+      QuadPart = SystemTime->QuadPart;
+      v16 = *SystemTime;
     }
-    if ( v9.HighPart > 0x20000000u )
-      return 3221225485LL;
+    if ( HIDWORD(QuadPart) > 0x20000000 )
+      return -1073741811;
     ExAcquireTimeRefreshLock(1u);
     LOBYTE(v10) = 1;
-    ExpSetSystemTime(v10, 0, 1, v16.LowPart, (__int64)&SystemTime);
-    SeAuditSystemTimeChange(SystemTime.QuadPart, v16.QuadPart);
+    ExpSetSystemTime(v10, 0, 1, v16.LowPart, (__int64)&SystemTimea);
+    SeAuditSystemTimeChange(SystemTimea.QuadPart, v16.QuadPart);
     ExReleaseTimeRefreshLock();
-    if ( a2 )
-      *(LARGE_INTEGER *)a2 = SystemTime;
+    if ( PreviousTime )
+      *PreviousTime = SystemTimea;
     return 0;
   }
-  if ( PsIsCurrentThreadInServerSilo(0LL, a2) )
+  if ( PsIsCurrentThreadInServerSilo(0LL, (__int64)PreviousTime) )
   {
     ExAcquireTimeRefreshLock(1u);
     ExpRefreshTimeZoneInformation(0);
@@ -106,23 +106,23 @@ __int64 __fastcall NtSetSystemTime(LARGE_INTEGER *a1, unsigned __int64 a2)
     && ExpRefreshTimeZoneInformation(0) )
   {
     v13.QuadPart = MEMORY[0xFFFFF78000000014];
-    SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
+    SystemTimea.QuadPart = MEMORY[0xFFFFF78000000014];
     if ( !ExpRealTimeIsUniversal )
     {
       if ( v12 )
       {
         ExLocalTimeToSystemTime(&Time, &v16);
-        KeSetSystemTime((__int64)&v16, (__int64)&SystemTime, 0);
+        KeSetSystemTime((__int64)&v16, (__int64)&SystemTimea, 0);
         goto LABEL_29;
       }
-      ExSystemTimeToLocalTime(&SystemTime, &Time);
+      ExSystemTimeToLocalTime(&SystemTimea, &Time);
       RtlTimeToTimeFields(&Time, &TimeFields);
       HalSetRealTimeClock(&TimeFields.Year);
-      v13 = SystemTime;
+      v13 = SystemTimea;
     }
     v16 = v13;
 LABEL_29:
-    PoNotifySystemTimeSet((__int64 *)&v16, (__int64 *)&SystemTime);
+    PoNotifySystemTimeSet((__int64 *)&v16, (__int64 *)&SystemTimea);
     v11 = 0;
   }
   ExReleaseTimeRefreshLock();

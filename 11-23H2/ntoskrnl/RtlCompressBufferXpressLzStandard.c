@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressBufferXpressLzStandard @ 0x14038AB80
+ * XREFs of RtlCompressBufferXpressLzStandard @ 0x14038AD60
  * Callers:
- *     RtlCompressBufferXpressLz @ 0x14038AB10 (RtlCompressBufferXpressLz.c)
- *     RtlCompressBufferProgress @ 0x1405B2628 (RtlCompressBufferProgress.c)
+ *     RtlCompressBufferXpressLz @ 0x14038ACF0 (RtlCompressBufferXpressLz.c)
+ *     RtlCompressBufferProgress @ 0x1405B2B98 (RtlCompressBufferProgress.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x1405B4938 (RtlpMakeXpressCallback.c)
+ *     RtlpMakeXpressCallback @ 0x1405B4EA8 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLzStandard(

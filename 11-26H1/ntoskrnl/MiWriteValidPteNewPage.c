@@ -1,16 +1,16 @@
 /*
- * XREFs of MiWriteValidPteNewPage @ 0x14029FC70
+ * XREFs of MiWriteValidPteNewPage @ 0x14029F1C0
  * Callers:
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiTradePageWritePte @ 0x14029F8EC (MiTradePageWritePte.c)
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
- *     MiWriteAweClusterPte @ 0x14052DDF8 (MiWriteAweClusterPte.c)
- *     MiWritePteHighLevelIsr @ 0x1406F2D80 (MiWritePteHighLevelIsr.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiTradePageWritePte @ 0x14029EE3C (MiTradePageWritePte.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
+ *     MiWriteAweClusterPte @ 0x140530318 (MiWriteAweClusterPte.c)
+ *     MiWritePteHighLevelIsr @ 0x1406F79F0 (MiWritePteHighLevelIsr.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
  */
 
 __int64 __fastcall MiWriteValidPteNewPage(signed __int64 *a1, __int64 a2, __int64 a3)

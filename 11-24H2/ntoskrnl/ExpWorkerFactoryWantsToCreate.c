@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpWorkerFactoryWantsToCreate @ 0x14044BC28
+ * XREFs of ExpWorkerFactoryWantsToCreate @ 0x140442D68
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A3010 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402D2740 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
  *     <none>
  */

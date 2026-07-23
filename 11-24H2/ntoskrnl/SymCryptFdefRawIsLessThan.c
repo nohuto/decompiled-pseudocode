@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefRawIsLessThan @ 0x14052F5CC
+ * XREFs of SymCryptFdefRawIsLessThan @ 0x140529A74
  * Callers:
- *     SymCryptFdefModSetRandomGeneric @ 0x1405368D0 (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x140530D70 (SymCryptFdefModSetRandomGeneric.c)
  * Callees:
- *     SymCryptFdefRawIsLessThanC @ 0x14052F5E4 (SymCryptFdefRawIsLessThanC.c)
+ *     SymCryptFdefRawIsLessThanC @ 0x140529A8C (SymCryptFdefRawIsLessThanC.c)
  */
 
 __int64 __fastcall SymCryptFdefRawIsLessThan(__int64 a1, __int64 a2, __int64 a3)

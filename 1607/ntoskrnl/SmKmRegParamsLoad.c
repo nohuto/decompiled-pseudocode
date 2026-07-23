@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmRegParamsLoad @ 0x140698868
+ * XREFs of SmKmRegParamsLoad @ 0x14069894C
  * Callers:
- *     SmcStoreCreate @ 0x14069A590 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14069A674 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall SmKmRegParamsLoad(__int64 a1)

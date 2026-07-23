@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeMdlBatchPages @ 0x1402E38E4
+ * XREFs of MiInitializeMdlBatchPages @ 0x140294C34
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
- *     MiReturnMdlExcess @ 0x1405341AC (MiReturnMdlExcess.c)
+ *     MiAllocatePagesForMdl @ 0x140294744 (MiAllocatePagesForMdl.c)
+ *     MiReturnMdlExcess @ 0x1405343EC (MiReturnMdlExcess.c)
  * Callees:
- *     MiSetLeafPfnBuddy @ 0x1402CA91C (MiSetLeafPfnBuddy.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
+ *     MiSetLeafPfnBuddy @ 0x14024920C (MiSetLeafPfnBuddy.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140295074 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     PsGetCurrentProcess @ 0x140346350 (PsGetCurrentProcess.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiShouldYieldProcessor @ 0x1405369D8 (MiShouldYieldProcessor.c)
- *     MiLockPageAtDpc @ 0x14054F91C (MiLockPageAtDpc.c)
+ *     MiShouldYieldProcessor @ 0x140536C18 (MiShouldYieldProcessor.c)
+ *     MiLockPageAtDpc @ 0x14054FB5C (MiLockPageAtDpc.c)
  */
 
 __int64 __fastcall MiInitializeMdlBatchPages(__int64 a1)

@@ -1,10 +1,10 @@
 /*
  * XREFs of KeRemoveQueueDpc @ 0x14024E180
  * Callers:
- *     EtwpCancelPendingStackWalkApcs @ 0x14024E07C (EtwpCancelPendingStackWalkApcs.c)
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
+ *     sub_14024E07C @ 0x14024E07C (sub_14024E07C.c)
+ *     sub_1406D1830 @ 0x1406D1830 (sub_1406D1830.c)
  *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
- *     KiCalibrateTimeAdjustment @ 0x140A48E70 (KiCalibrateTimeAdjustment.c)
+ *     BroadcastFunction @ 0x140A48E70 (BroadcastFunction.c)
  * Callees:
  *     KeRemoveQueueDpcEx @ 0x14024E1A0 (KeRemoveQueueDpcEx.c)
  */

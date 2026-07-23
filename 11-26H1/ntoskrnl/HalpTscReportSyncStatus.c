@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscReportSyncStatus @ 0x1407819C0
+ * XREFs of HalpTscReportSyncStatus @ 0x1407844C0
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void HalpTscReportSyncStatus()
@@ -57,7 +57,7 @@ void HalpTscReportSyncStatus()
       v11 = 1LL;
       v13 = 8LL;
       v15 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E024C8, (unsigned __int8 *)byte_14004475D, 0LL, 0LL, 5u, &v9);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E024C8, (unsigned __int8 *)byte_140044D5D, 0LL, 0LL, 5u, &v9);
     }
   }
 }

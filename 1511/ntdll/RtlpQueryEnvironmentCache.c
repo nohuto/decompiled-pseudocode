@@ -9,42 +9,42 @@
 
 __int64 __fastcall RtlpQueryEnvironmentCache(
         _QWORD *a1,
-        int a2,
-        __int64 a3,
+        const WCHAR *a2,
+        SIZE_T a3,
         _WORD *a4,
         unsigned __int64 a5,
         unsigned __int64 *a6)
 {
   __int64 v9; // r12
   unsigned int v10; // edi
-  _QWORD *v11; // rbx
-  unsigned int v12; // r13d
-  _QWORD *v13; // rbp
+  char *v11; // rbx
+  int v12; // r13d
+  char *v13; // rbp
   void *Environment; // rax
   const void *v15; // rdx
   unsigned __int64 v16; // rcx
   __int64 v17; // rbx
-  int v19; // [rsp+68h] [rbp+10h]
+  const WCHAR *v19; // [rsp+68h] [rbp+10h]
 
   v19 = a2;
-  if ( (unsigned __int64)(a3 - 1) <= 0x13 )
+  if ( a3 - 1 <= 0x13 )
   {
     v9 = 14 * a3;
     v10 = 0;
-    v11 = &RtlpEnvironLookupTable[14 * a3 - 12];
+    v11 = (char *)&RtlpEnvironLookupTable[14 * a3 - 12];
     v12 = RtlpEnvironLookupTable[14 * a3 - 14];
-    v13 = &v11[2 * v12];
+    v13 = &v11[16 * v12];
     if ( v11 < v13 )
     {
-      while ( (unsigned int)RtlCompareUnicodeStrings(*v11, a3, a2, a3, 1) )
+      while ( RtlCompareUnicodeStrings(*(PCWCH *)v11, a3, a2, a3, 1u) )
       {
         a2 = v19;
-        v11 += 2;
+        v11 += 16;
         if ( v11 >= v13 )
           goto LABEL_5;
       }
-      v15 = (const void *)(*v11 + 2 * (a3 + 1));
-      v16 = ((__int64)(v11[1] - (_QWORD)v15) >> 1) - 1;
+      v15 = (const void *)(*(_QWORD *)v11 + 2 * (a3 + 1));
+      v16 = ((__int64)(*((_QWORD *)v11 + 1) - (_QWORD)v15) >> 1) - 1;
       if ( a4 )
       {
         if ( v16 < a5 )

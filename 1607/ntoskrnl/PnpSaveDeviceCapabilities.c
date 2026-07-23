@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpSaveDeviceCapabilities @ 0x14048990C
+ * XREFs of PnpSaveDeviceCapabilities @ 0x14051208C
  * Callers:
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x140486C30 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14050FD98 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _CmSetDeviceRegProp @ 0x140489A34 (_CmSetDeviceRegProp.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140489B8C (PnpDeviceObjectToDeviceInstance.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmSetDeviceRegProp @ 0x1405121B4 (_CmSetDeviceRegProp.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x14051230C (PnpDeviceObjectToDeviceInstance.c)
  */
 
 __int64 __fastcall PnpSaveDeviceCapabilities(__int64 a1, __int64 a2, char a3)

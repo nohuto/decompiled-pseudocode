@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpAcquireWriteQueue @ 0x1404CBF1C
+ * XREFs of CmpAcquireWriteQueue @ 0x1404C594C
  * Callers:
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140856CB8 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14085D050 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 unsigned __int64 __fastcall CmpAcquireWriteQueue(_QWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_Opnum_Filter__private_IsEnabledFallback @ 0x14041A348
+ * XREFs of Feature_Servicing_Opnum_Filter__private_IsEnabledFallback @ 0x14041A6D8
  * Callers:
- *     Feature_Servicing_Opnum_Filter__private_IsEnabledDeviceUsage @ 0x14041A310 (Feature_Servicing_Opnum_Filter__private_IsEnabledDeviceUsage.c)
+ *     Feature_Servicing_Opnum_Filter__private_IsEnabledDeviceUsage @ 0x14041A6A0 (Feature_Servicing_Opnum_Filter__private_IsEnabledDeviceUsage.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x14040F8CC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x14040FAAC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_Opnum_Filter__private_IsEnabledFallback(__int64 a1, int a2)

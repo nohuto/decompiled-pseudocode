@@ -19,7 +19,7 @@
  *     wcslen @ 0x1801292B0 (wcslen.c)
  */
 
-__int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const wchar_t *a2, char a3, _WORD *a4)
+__int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, wchar_t *a2, char a3, _WORD *a4)
 {
   char v4; // r12
   _WORD *v5; // r10
@@ -33,17 +33,15 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const w
   int j; // ecx
   _WORD *v16; // rdx
   size_t v18; // rax
-  unsigned __int16 v19[2]; // [rsp+20h] [rbp-48h] BYREF
-  int v20; // [rsp+24h] [rbp-44h]
-  const wchar_t *v21; // [rsp+28h] [rbp-40h]
-  int v22; // [rsp+70h] [rbp+8h] BYREF
-  char v23; // [rsp+80h] [rbp+18h]
-  _WORD *v24; // [rsp+88h] [rbp+20h]
+  _UNICODE_STRING String; // [rsp+20h] [rbp-48h] BYREF
+  DWORD Lcid; // [rsp+70h] [rbp+8h] BYREF
+  char v21; // [rsp+80h] [rbp+18h]
+  _WORD *v22; // [rsp+88h] [rbp+20h]
 
-  v24 = a4;
-  v23 = a3;
+  v22 = a4;
+  v21 = a3;
   v4 = 0;
-  v22 = 0;
+  Lcid = 0;
   v5 = a4;
   v6 = a3;
   InstalledLanguageIndexByLangId = -1073741772;
@@ -60,8 +58,8 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const w
       {
         if ( v12 >= *(unsigned __int16 *)(v11 + 6) )
         {
-          v6 = v23;
-          v5 = v24;
+          v6 = v21;
+          v5 = v22;
           goto LABEL_19;
         }
         v14 = (const wchar_t *)(*(_QWORD *)(v11 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v11 + 16) + i));
@@ -69,8 +67,8 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const w
           break;
         ++v12;
       }
-      v6 = v23;
-      v5 = v24;
+      v6 = v21;
+      v5 = v22;
       if ( v12 < 0 )
         goto LABEL_19;
     }
@@ -100,20 +98,20 @@ LABEL_19:
           }
         }
       }
-      v6 = v23;
+      v6 = v21;
     }
   }
   if ( v6 )
   {
-    v20 = 0;
-    v21 = a2;
+    *(_DWORD *)(&String.MaximumLength + 1) = 0;
+    String.Buffer = a2;
     v18 = 2 * wcslen(a2);
     if ( v18 >= 0xFFFE )
       LOWORD(v18) = -4;
-    v19[0] = v18;
-    v19[1] = v18 + 2;
-    if ( RtlCultureNameToLCID(v19, &v22) && v22 != 4096 )
-      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, v22, 0, v24);
+    String.Length = v18;
+    String.MaximumLength = v18 + 2;
+    if ( RtlCultureNameToLCID(&String, &Lcid) && Lcid != 4096 )
+      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, Lcid, 0, v22);
   }
   if ( v4 && InstalledLanguageIndexByLangId == -1073741772 )
     return (unsigned int)-1073741637;

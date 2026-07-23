@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetLeafPfnBuddy @ 0x1402CA91C
+ * XREFs of MiSetLeafPfnBuddy @ 0x14024920C
  * Callers:
- *     MiDeleteSubsectionPages @ 0x140239170 (MiDeleteSubsectionPages.c)
- *     MiInitializeMdlBatchPages @ 0x1402E38E4 (MiInitializeMdlBatchPages.c)
- *     MiDecommitLargePte @ 0x14053CBE0 (MiDecommitLargePte.c)
- *     MiDeleteLargeUserPde @ 0x14054F95C (MiDeleteLargeUserPde.c)
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiInitializeMdlBatchPages @ 0x140294C34 (MiInitializeMdlBatchPages.c)
+ *     MiDeleteSubsectionPages @ 0x1402DD9C0 (MiDeleteSubsectionPages.c)
+ *     MiDecommitLargePte @ 0x14053CE20 (MiDecommitLargePte.c)
+ *     MiDeleteLargeUserPde @ 0x14054FB9C (MiDeleteLargeUserPde.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
  * Callees:
  *     <none>
  */

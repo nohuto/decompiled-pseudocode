@@ -8,55 +8,54 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall TpAllocCleanupGroup(__int64 *a1)
+NTSTATUS __cdecl TpAllocCleanupGroup(PTP_CLEANUP_GROUP *CleanupGroupReturn)
 {
-  __int64 Heap; // rax
-  __int64 v3; // r9
-  __int64 v4; // rcx
-  _QWORD *v5; // rax
-  __int64 result; // rax
-  unsigned int v7; // [rsp+20h] [rbp-18h]
-  __int64 v8; // [rsp+40h] [rbp+8h]
+  _QWORD *Heap; // rax
+  _QWORD *v3; // rcx
+  _QWORD *v4; // rax
+  NTSTATUS result; // eax
+  NTSTATUS v6; // [rsp+20h] [rbp-18h]
+  PVOID BaseAddress; // [rsp+40h] [rbp+8h]
 
-  if ( !a1 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !CleanupGroupReturn || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
-    return 3221225485LL;
+    return -1073741811;
   }
   else
   {
-    *a1 = 0LL;
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, TppHeapTag | 8u, 0x50uLL);
-    v4 = Heap;
-    v8 = Heap;
+    *CleanupGroupReturn = 0LL;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag | 8, 0x50uLL);
+    v3 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
       *(_DWORD *)Heap = 1;
-      *(_DWORD *)(Heap + 4) = 0;
-      *(_QWORD *)(Heap + 8) = 0LL;
-      *(_QWORD *)(Heap + 56) = 0LL;
-      v5 = (_QWORD *)(Heap + 16);
-      v5[1] = v5;
-      *v5 = v5;
-      *(_QWORD *)(v4 + 72) = v4 + 64;
-      *(_QWORD *)(v4 + 64) = v4 + 64;
-      result = 0LL;
-      *(_OWORD *)(v4 + 32) = 0LL;
-      *(_QWORD *)(v4 + 48) = 0LL;
-      v7 = 0;
-      *a1 = v4;
+      *((_DWORD *)Heap + 1) = 0;
+      Heap[1] = 0LL;
+      Heap[7] = 0LL;
+      v4 = Heap + 2;
+      v4[1] = v4;
+      *v4 = v4;
+      v3[9] = v3 + 8;
+      v3[8] = v3 + 8;
+      result = 0;
+      *((_OWORD *)v3 + 2) = 0LL;
+      v3[6] = 0LL;
+      v6 = 0;
+      *CleanupGroupReturn = (PTP_CLEANUP_GROUP)v3;
     }
     else
     {
-      result = 3221225495LL;
-      v7 = -1073741801;
+      result = -1073741801;
+      v6 = -1073741801;
     }
-    if ( (int)result < 0 )
+    if ( result < 0 )
     {
-      if ( v4 )
+      if ( v3 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag, v8, v3);
-        return v7;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, BaseAddress);
+        return v6;
       }
     }
   }

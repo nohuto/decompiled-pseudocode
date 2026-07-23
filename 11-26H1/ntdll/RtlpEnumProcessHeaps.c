@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpEnumProcessHeaps @ 0x180091420
+ * XREFs of RtlpEnumProcessHeaps @ 0x180076180
  * Callers:
- *     LdrpEnableUMGLTracingStateSync @ 0x18006FA5C (LdrpEnableUMGLTracingStateSync.c)
- *     RtlHeapsStackCollection @ 0x180075A88 (RtlHeapsStackCollection.c)
- *     RtlQueryProcessHeapInformation @ 0x180090DF0 (RtlQueryProcessHeapInformation.c)
- *     RtlpQueryExtendedInformationAllHeaps @ 0x180091D10 (RtlpQueryExtendedInformationAllHeaps.c)
- *     RtlpHpGCTimerCallback @ 0x1800924E0 (RtlpHpGCTimerCallback.c)
- *     RtlpHeapTrkDumpOutstandingAllocs @ 0x180101878 (RtlpHeapTrkDumpOutstandingAllocs.c)
- *     RtlFlushHeaps @ 0x18010E320 (RtlFlushHeaps.c)
- *     RtlGetProcessHeaps @ 0x180110010 (RtlGetProcessHeaps.c)
- *     RtlHeapTrkInitialize @ 0x180110AB0 (RtlHeapTrkInitialize.c)
- *     RtlSetHeapInformation @ 0x180111030 (RtlSetHeapInformation.c)
- *     RtlSetHeapDebuggingInformation @ 0x180114E70 (RtlSetHeapDebuggingInformation.c)
- *     RtlpHpStackTraceSerialize @ 0x1801223E0 (RtlpHpStackTraceSerialize.c)
- *     RtlpHpStackTraceEnable @ 0x180122CF0 (RtlpHpStackTraceEnable.c)
- *     RtlEnumProcessHeaps @ 0x180144380 (RtlEnumProcessHeaps.c)
- *     RtlValidateProcessHeaps @ 0x1801446C0 (RtlValidateProcessHeaps.c)
- *     RtlpHpStackTraceDisable @ 0x18014F998 (RtlpHpStackTraceDisable.c)
- *     LdrpUMGLTracingStateChangeNotification @ 0x18015C2A0 (LdrpUMGLTracingStateChangeNotification.c)
+ *     RtlQueryProcessHeapInformation @ 0x180075B50 (RtlQueryProcessHeapInformation.c)
+ *     LdrpEnableUMGLTracingStateSync @ 0x18008FEAC (LdrpEnableUMGLTracingStateSync.c)
+ *     RtlpQueryExtendedInformationAllHeaps @ 0x1800925A0 (RtlpQueryExtendedInformationAllHeaps.c)
+ *     RtlHeapsStackCollection @ 0x180096678 (RtlHeapsStackCollection.c)
+ *     RtlpHeapTrkDumpOutstandingAllocs @ 0x180100FC8 (RtlpHeapTrkDumpOutstandingAllocs.c)
+ *     RtlpHpGCTimerCallback @ 0x180101FC0 (RtlpHpGCTimerCallback.c)
+ *     RtlFlushHeaps @ 0x18010DE70 (RtlFlushHeaps.c)
+ *     RtlGetProcessHeaps @ 0x18010FBA0 (RtlGetProcessHeaps.c)
+ *     RtlHeapTrkInitialize @ 0x180110640 (RtlHeapTrkInitialize.c)
+ *     RtlSetHeapInformation @ 0x180110BC0 (RtlSetHeapInformation.c)
+ *     RtlSetHeapDebuggingInformation @ 0x180114660 (RtlSetHeapDebuggingInformation.c)
+ *     RtlpHpStackTraceSerialize @ 0x180122180 (RtlpHpStackTraceSerialize.c)
+ *     RtlpHpStackTraceEnable @ 0x180122A60 (RtlpHpStackTraceEnable.c)
+ *     RtlEnumProcessHeaps @ 0x180144280 (RtlEnumProcessHeaps.c)
+ *     RtlValidateProcessHeaps @ 0x180144570 (RtlValidateProcessHeaps.c)
+ *     RtlpHpStackTraceDisable @ 0x18014F848 (RtlpHpStackTraceDisable.c)
+ *     LdrpUMGLTracingStateChangeNotification @ 0x18015C160 (LdrpUMGLTracingStateChangeNotification.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpIsProtectedHeap @ 0x18009178C (RtlpIsProtectedHeap.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpReleaseHeapListLock @ 0x1800762B0 (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x1800762FC (RtlpAcquireHeapListLock.c)
+ *     RtlpIsProtectedHeap @ 0x18007653C (RtlpIsProtectedHeap.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(__int64, _QWORD, __int64), __int64 a2, int a3)
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(__int64, _QWORD
   v6 = -1073741823;
   v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlpAcquireHeapListLock();
   v8 = RtlpProcessHeaps;
   v9 = &RtlpProcessHeaps;
   v10 = 2LL;
@@ -70,7 +70,7 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(__int64, _QWORD
   {
     for ( i = 0; i < 4; ++i )
     {
-      v14 = qword_1801CB148[2 * i];
+      v14 = qword_1801CA198[2 * i];
       if ( v14 )
       {
         v6 = a1(v14, a2, v10);
@@ -82,6 +82,6 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(__int64, _QWORD
   }
 LABEL_22:
   if ( !v7 )
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlpReleaseHeapListLock(0LL);
   return (unsigned int)v6;
 }

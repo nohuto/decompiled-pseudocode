@@ -1,30 +1,30 @@
 /*
- * XREFs of ObReferenceObjectByName @ 0x1408F2260
+ * XREFs of ObReferenceObjectByName @ 0x1408F8820
  * Callers:
- *     IopGetDriverPathInformation @ 0x1405CA8E4 (IopGetDriverPathInformation.c)
- *     ObShutdownSystem @ 0x1407C25A0 (ObShutdownSystem.c)
- *     IopGetLegacyVetoListDrivers @ 0x14094522C (IopGetLegacyVetoListDrivers.c)
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
+ *     IopGetDriverPathInformation @ 0x1405CD1B4 (IopGetDriverPathInformation.c)
+ *     ObShutdownSystem @ 0x1407C5600 (ObShutdownSystem.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1409C0B9C (IopGetLegacyVetoListDrivers.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ObpReleaseLookupContext @ 0x14027BE10 (ObpReleaseLookupContext.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     SeClearLearningModeObjectInformation @ 0x14042F300 (SeClearLearningModeObjectInformation.c)
- *     SeSetLearningModeObjectInformation @ 0x140430644 (SeSetLearningModeObjectInformation.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x1404425E0 (SepCreateAccessStateFromSubjectContext.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpCheckObjectReference @ 0x1408EE834 (ObpCheckObjectReference.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     ObpFreeObjectNameBuffer @ 0x1408F17F0 (ObpFreeObjectNameBuffer.c)
- *     ObpCaptureObjectName @ 0x1408F26B0 (ObpCaptureObjectName.c)
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ObpReleaseLookupContext @ 0x14027B380 (ObpReleaseLookupContext.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     SeClearLearningModeObjectInformation @ 0x14041C210 (SeClearLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x14041D674 (SeSetLearningModeObjectInformation.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14043B0F0 (SepCreateAccessStateFromSubjectContext.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpCheckObjectReference @ 0x1408F4DF4 (ObpCheckObjectReference.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     ObpFreeObjectNameBuffer @ 0x1408F7DB0 (ObpFreeObjectNameBuffer.c)
+ *     ObpCaptureObjectName @ 0x1408F8C70 (ObpCaptureObjectName.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
  */
 
 __int64 __fastcall ObReferenceObjectByName(
@@ -46,8 +46,8 @@ __int64 __fastcall ObReferenceObjectByName(
   __int64 Process; // r15
   void *v17; // rdx
   LegacyAutoBoost *v18; // r12
-  _KTRAP_FRAME *v19; // rdi
-  _KTRAP_FRAME *v20; // rax
+  struct _LIST_ENTRY *v19; // rdi
+  struct _LIST_ENTRY *v20; // rax
   struct _LIST_ENTRY *CurrentSilo; // rax
   BOOLEAN v22; // r8
   bool v23; // sf
@@ -61,7 +61,7 @@ __int64 __fastcall ObReferenceObjectByName(
   PVOID *v31; // [rsp+A0h] [rbp-60h]
   __int64 v32; // [rsp+A8h] [rbp-58h]
   __int128 v33; // [rsp+B0h] [rbp-50h] BYREF
-  _KTRAP_FRAME *v34; // [rsp+C0h] [rbp-40h]
+  struct _LIST_ENTRY *v34; // [rsp+C0h] [rbp-40h]
   __int64 v35; // [rsp+C8h] [rbp-38h]
   __int64 v36[2]; // [rsp+D0h] [rbp-30h] BYREF
   __int64 v37; // [rsp+E0h] [rbp-20h]
@@ -123,7 +123,7 @@ __int64 __fastcall ObReferenceObjectByName(
       }
       if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
       {
-        v19 = (_KTRAP_FRAME *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+        v19 = (struct _LIST_ENTRY *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
         ObfReferenceObjectWithTag(v19, 0x75536553u);
         DWORD2(v33) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
       }
@@ -139,20 +139,20 @@ __int64 __fastcall ObReferenceObjectByName(
       v19 = 0LL;
     }
     *(_QWORD *)&v33 = v19;
-    v20 = (_KTRAP_FRAME *)PsReferencePrimaryTokenWithTag(Process, 0x75536553u, v13, v14);
+    v20 = (struct _LIST_ENTRY *)PsReferencePrimaryTokenWithTag(Process, 0x75536553u, v13, v14);
     v34 = v20;
     if ( SeTokenLeakTracking )
     {
       if ( v20 )
       {
-        _InterlockedIncrement((volatile signed __int32 *)(v20[2].Rbp + 284));
-        if ( v20 == RtlpBootStatHandleLock.TrapFrame )
+        _InterlockedIncrement((volatile signed __int32 *)&v20[71].Blink[17].Blink + 1);
+        if ( v20 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
           __debugbreak();
       }
       if ( v19 )
       {
-        _InterlockedIncrement((volatile signed __int32 *)(v19[2].Rbp + 284));
-        if ( v19 == RtlpBootStatHandleLock.TrapFrame )
+        _InterlockedIncrement((volatile signed __int32 *)&v19[71].Blink[17].Blink + 1);
+        if ( v19 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
           __debugbreak();
       }
     }

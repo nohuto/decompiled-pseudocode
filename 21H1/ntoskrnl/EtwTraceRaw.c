@@ -78,7 +78,7 @@ LABEL_31:
         ReserveTraceBufferStatus = -1073741637;
         goto LABEL_31;
       }
-      v11 = (void *)EtwpReserveTraceBuffer(v10, (unsigned int)v5, (__int64)&v15, v14, 0);
+      v11 = (void *)EtwpReserveTraceBuffer((unsigned int *)v10, (unsigned int)v5, (__int64)&v15, v14, 0);
       if ( v11 )
       {
         memmove(v11, Src, v5);

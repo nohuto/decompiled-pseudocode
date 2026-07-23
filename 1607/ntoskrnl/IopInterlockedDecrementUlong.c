@@ -1,10 +1,10 @@
 /*
- * XREFs of IopInterlockedDecrementUlong @ 0x1401C516C
+ * XREFs of IopInterlockedDecrementUlong @ 0x1401C5050
  * Callers:
- *     IopDecrementDeviceObjectRefCount @ 0x14007F460 (IopDecrementDeviceObjectRefCount.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x14007F4E0 (IopDecrementDeviceObjectRefCount.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopInterlockedDecrementUlong(KSPIN_LOCK_QUEUE_NUMBER Number, _DWORD *a2)

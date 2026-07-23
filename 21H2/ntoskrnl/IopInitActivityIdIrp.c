@@ -1,18 +1,18 @@
 /*
- * XREFs of IopInitActivityIdIrp @ 0x140500C9C
+ * XREFs of IopInitActivityIdIrp @ 0x140500C1C
  * Callers:
- *     IopAllocateIrpWithExtension @ 0x1402ED748 (IopAllocateIrpWithExtension.c)
- *     IopAllocateIrpPrivate @ 0x140351A70 (IopAllocateIrpPrivate.c)
- *     IopAllocateBackpocketIrp @ 0x1405000D0 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140500370 (IopAllocateReserveIrp.c)
- *     IovAllocateIrp @ 0x1409C47A0 (IovAllocateIrp.c)
+ *     IopAllocateIrpWithExtension @ 0x14020D120 (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpPrivate @ 0x14035C7C0 (IopAllocateIrpPrivate.c)
+ *     IopAllocateBackpocketIrp @ 0x140500050 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1405002F0 (IopAllocateReserveIrp.c)
+ *     IovAllocateIrp @ 0x1409C57A0 (IovAllocateIrp.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x1402EE838 (PnpIsSafeToExamineUserModeTeb.c)
- *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
- *     IopIsActivityTracingEventEnabled @ 0x140399398 (IopIsActivityTracingEventEnabled.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwActivityIdControl @ 0x140272110 (EtwActivityIdControl.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x1402F9588 (PnpIsSafeToExamineUserModeTeb.c)
+ *     IoSetActivityIdIrp @ 0x140378D50 (IoSetActivityIdIrp.c)
+ *     IopIsActivityTracingEventEnabled @ 0x1403994E8 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall IopInitActivityIdIrp(__int64 a1)

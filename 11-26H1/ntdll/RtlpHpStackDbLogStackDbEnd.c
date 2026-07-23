@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpStackDbLogStackDbEnd @ 0x18014F648
+ * XREFs of RtlpHpStackDbLogStackDbEnd @ 0x18014F4F8
  * Callers:
- *     RtlpHpStackTraceEventWriter @ 0x18014FAD0 (RtlpHpStackTraceEventWriter.c)
+ *     RtlpHpStackTraceEventWriter @ 0x18014F980 (RtlpHpStackTraceEventWriter.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x18000F380 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     EtwpEventWriteFull @ 0x18005AAB0 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpStackDbLogStackDbEnd(int a1, int a2)

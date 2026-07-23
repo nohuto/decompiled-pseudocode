@@ -54,5 +54,5 @@ NTSTATUS __stdcall ZwQuerySystemInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&SystemInformationClass, SystemInformation, *(_QWORD *)&SystemInformationLength);
+  return KiServiceInternal(*(_QWORD *)&SystemInformationClass);
 }

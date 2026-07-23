@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpIsSecurityEtwLoggingEnabled @ 0x18009985C
+ * XREFs of LdrpIsSecurityEtwLoggingEnabled @ 0x18009898C
  * Callers:
- *     LdrpSearchPath @ 0x180098BBC (LdrpSearchPath.c)
- *     LdrpMapDllSearchPath @ 0x18011C9D0 (LdrpMapDllSearchPath.c)
+ *     LdrpSearchPath @ 0x180097CEC (LdrpSearchPath.c)
+ *     LdrpMapDllSearchPath @ 0x18011C780 (LdrpMapDllSearchPath.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
  */
 
 char LdrpIsSecurityEtwLoggingEnabled()
@@ -17,22 +17,22 @@ char LdrpIsSecurityEtwLoggingEnabled()
 
   v0 = 0;
   v1 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v2 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v2 = 2147353476LL;
   v3 = 2147353477LL;
   if ( *(_BYTE *)v2 )
   {
-    v4 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    v4 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( (*v4 & 0x40) != 0 )
       return 1;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v1 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v1 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v3 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v3 & 0x20) != 0 )
       return 1;

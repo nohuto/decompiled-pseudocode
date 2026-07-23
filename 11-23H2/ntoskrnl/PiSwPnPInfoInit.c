@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwPnPInfoInit @ 0x1408195D0
+ * XREFs of PiSwPnPInfoInit @ 0x1408198A0
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PiSwQueuedCreateInfoCreate @ 0x140967A00 (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x140967C00 (PiSwQueuedCreateInfoCreate.c)
  * Callees:
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
- *     PnpAllocateMultiSZ @ 0x14081968C (PnpAllocateMultiSZ.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
+ *     PnpAllocateMultiSZ @ 0x14081995C (PnpAllocateMultiSZ.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

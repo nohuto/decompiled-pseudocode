@@ -18,12 +18,12 @@ BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
   bool v7; // zf
   char *Buffer; // rax
   char *v9; // rbx
-  STRING v10; // xmm1
+  _STRING v10; // xmm1
   __int16 v11; // ax
   unsigned int v13; // r9d
   __int64 v14; // r8
-  STRING RemainingName; // [rsp+20h] [rbp-48h] BYREF
-  STRING FirstName; // [rsp+30h] [rbp-38h] BYREF
+  _STRING RemainingName; // [rsp+20h] [rbp-48h] BYREF
+  _STRING FirstName; // [rsp+30h] [rbp-38h] BYREF
   ANSI_STRING Path; // [rsp+40h] [rbp-28h] BYREF
 
   Length = DbcsName->Length;

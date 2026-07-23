@@ -94,7 +94,7 @@ void __fastcall MiContractWsSwapPageFileWorker(__int64 a1)
         {
           v18->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v18->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v10->LockEntries[v17], v13);
+            KiAbEntryRemoveFromTree(&v10->LockEntries[v17].TreeNode, v13);
           v21 = 0;
           v21 = v18->BoostBitmap.AllFields & 0x1FFFF;
           v18->BoostBitmap.AllFields &= 0xFFFE0000;

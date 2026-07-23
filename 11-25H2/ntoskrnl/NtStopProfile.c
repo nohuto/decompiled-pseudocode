@@ -13,9 +13,9 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtStopProfile(void *a1)
+NTSTATUS __cdecl NtStopProfile(HANDLE ProfileHandle)
 {
-  int v1; // ebp
+  NTSTATUS v1; // ebp
   NTSTATUS result; // eax
   _QWORD *v3; // r14
   void *v4; // rbx
@@ -25,7 +25,13 @@ NTSTATUS __fastcall NtStopProfile(void *a1)
 
   v1 = 0;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             ProfileHandle,
+             1u,
+             ExProfileObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
   if ( result >= 0 )
   {
     KeWaitForSingleObject(&ExpProfileStateMutex, Executive, 0, 0, 0LL);

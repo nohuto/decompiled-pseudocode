@@ -1,8 +1,8 @@
 /*
- * XREFs of IopFindPassiveInterruptBlockLocked @ 0x1403A3588
+ * XREFs of IopFindPassiveInterruptBlockLocked @ 0x1403A3768
  * Callers:
- *     IopInsertPassiveInterruptBlock @ 0x1403A2DC0 (IopInsertPassiveInterruptBlock.c)
- *     IopFindPassiveInterruptBlock @ 0x1403A3528 (IopFindPassiveInterruptBlock.c)
+ *     IopInsertPassiveInterruptBlock @ 0x1403A2FA0 (IopInsertPassiveInterruptBlock.c)
+ *     IopFindPassiveInterruptBlock @ 0x1403A3708 (IopFindPassiveInterruptBlock.c)
  * Callees:
  *     <none>
  */

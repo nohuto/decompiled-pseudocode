@@ -6,7 +6,7 @@
  *     vDbgPrintExWithPrefixInternal @ 0x1800EC740 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 __fastcall vDbgPrintEx(int a1, int a2, int a3, __int64 a4)
+ULONG __cdecl vDbgPrintEx(ULONG ComponentId, ULONG Level, PCCH Format, va_list arglist)
 {
-  return vDbgPrintExWithPrefixInternal((int)&unk_18017BF30, a1, a2, a3, a4, 1);
+  return vDbgPrintExWithPrefixInternal((__int64)&Flags, ComponentId, Level, (__int64)Format, (__int64)arglist, 1);
 }

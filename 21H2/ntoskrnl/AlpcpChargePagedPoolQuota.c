@@ -1,32 +1,29 @@
 /*
- * XREFs of AlpcpChargePagedPoolQuota @ 0x140660A4C
+ * XREFs of AlpcpChargePagedPoolQuota @ 0x14065586C
  * Callers:
- *     AlpcpCaptureMessageData @ 0x1405E3D7C (AlpcpCaptureMessageData.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x1405E6080 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateReserve @ 0x1406B0D14 (AlpcpCreateReserve.c)
+ *     AlpcpCreateReserve @ 0x14060FCC4 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14065540C (AlpcpCreateSecurityContext.c)
+ *     AlpcpCaptureMessageData @ 0x1406D34DC (AlpcpCaptureMessageData.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1406D57E0 (AlpcpCaptureMessageDataSafe.c)
  * Callees:
- *     PsChargeProcessPagedPoolQuota @ 0x14062B3D0 (PsChargeProcessPagedPoolQuota.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x140695BB0 (PsChargeProcessPagedPoolQuota.c)
  */
 
-__int64 __fastcall AlpcpChargePagedPoolQuota(struct _KPROCESS *a1, unsigned __int64 a2)
+__int64 __fastcall AlpcpChargePagedPoolQuota(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 SecureHandle; // rax
-  unsigned __int64 v3; // rtt
+  unsigned __int64 v2; // rax
+  __int64 v3; // rtt
 
-  _m_prefetchw(&a1[1].SecureState);
+  _m_prefetchw((const void *)(a1 + 2072));
   while ( 1 )
   {
-    SecureHandle = a1[1].SecureState.SecureHandle;
-    if ( SecureHandle < a2 )
+    v2 = *(_QWORD *)(a1 + 2072);
+    if ( v2 < a2 )
       break;
-    v3 = a1[1].SecureState.SecureHandle;
-    if ( v3 == _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)&a1[1].SecureState,
-                 SecureHandle - a2,
-                 SecureHandle) )
+    v3 = *(_QWORD *)(a1 + 2072);
+    if ( v3 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 2072), v2 - a2, v2) )
       return 0LL;
   }
-  return PsChargeProcessPagedPoolQuota(a1, a2);
+  return PsChargeProcessPagedPoolQuota();
 }

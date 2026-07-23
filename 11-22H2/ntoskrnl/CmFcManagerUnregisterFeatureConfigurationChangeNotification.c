@@ -27,7 +27,7 @@ void __fastcall CmFcManagerUnregisterFeatureConfigurationChangeNotification(__in
   v5 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C14250, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(&stru_140C14250, v4, (__int64)&stru_140C14250);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140C14250, v4, (__int64)&stru_140C14250);
   if ( v6 )
     *(_BYTE *)(v6 + 18) = 1;
   Count = a2->Count;

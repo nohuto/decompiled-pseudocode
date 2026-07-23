@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpStackTraceDatabaseHeapEnum @ 0x18010F830
+ * XREFs of RtlpStackTraceDatabaseHeapEnum @ 0x18010F800
  * Callers:
  *     <none>
  * Callees:

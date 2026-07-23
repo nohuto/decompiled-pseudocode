@@ -1,60 +1,67 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x18013C3A0
+ * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x18013A590
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     AllocateOrValidateCharStringBuffer @ 0x18000BE90 (AllocateOrValidateCharStringBuffer.c)
- *     RtlUnicodeToMultiByteSize @ 0x1800B18B0 (RtlUnicodeToMultiByteSize.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1800B1970 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     AllocateOrValidateCharStringBuffer @ 0x180038890 (AllocateOrValidateCharStringBuffer.c)
+ *     RtlUnicodeToMultiByteSize @ 0x18007E150 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x18007E210 (RtlUpcaseUnicodeToMultiByteN.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(__int64 a1, PWCH *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned int v6; // edx
-  __int64 result; // rax
-  _WORD *v8; // r15
-  __int64 *v9; // rdi
+  ULONG v6; // edx
+  NTSTATUS result; // eax
+  unsigned __int16 *p_MaximumLength; // r15
+  char **p_Buffer; // rdi
   int v10; // ebx
-  __int16 v11; // dx
-  unsigned int v12; // [rsp+78h] [rbp+10h] BYREF
-  char v13; // [rsp+80h] [rbp+18h]
+  unsigned __int16 v11; // dx
+  ULONG BytesInMultiByteString; // [rsp+78h] [rbp+10h] BYREF
+  BOOLEAN v13; // [rsp+80h] [rbp+18h]
 
-  v13 = a3;
-  v12 = 0;
-  RtlUnicodeToMultiByteSize(&v12, a2[1], *(unsigned __int16 *)a2);
-  v6 = v12 + 1;
-  v12 = v6;
+  v13 = AllocateDestinationString;
+  BytesInMultiByteString = 0;
+  RtlUnicodeToMultiByteSize(&BytesInMultiByteString, SourceString->Buffer, SourceString->Length);
+  v6 = BytesInMultiByteString + 1;
+  BytesInMultiByteString = v6;
   if ( v6 > 0xFFFF )
-    return 3221225712LL;
-  v8 = (_WORD *)(a1 + 2);
-  v9 = (__int64 *)(a1 + 8);
-  result = AllocateOrValidateCharStringBuffer(a3, v6, (__int64 *)(a1 + 8), (_WORD *)(a1 + 2));
-  if ( (int)result >= 0 )
+    return -1073741584;
+  p_MaximumLength = &DestinationString->MaximumLength;
+  p_Buffer = &DestinationString->Buffer;
+  result = AllocateOrValidateCharStringBuffer(
+             AllocateDestinationString,
+             v6,
+             (__int64 *)&DestinationString->Buffer,
+             &DestinationString->MaximumLength);
+  if ( result >= 0 )
   {
     v10 = RtlUpcaseUnicodeToMultiByteN(
-            (_BYTE *)*v9,
-            (unsigned __int16)*v8,
-            &v12,
-            (char *)a2[1],
-            *(unsigned __int16 *)a2);
+            *p_Buffer,
+            *p_MaximumLength,
+            &BytesInMultiByteString,
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v10 >= 0 )
     {
-      v11 = v12;
-      *(_BYTE *)(v12 + *v9) = 0;
-      *(_WORD *)a1 = v11;
+      v11 = BytesInMultiByteString;
+      (*p_Buffer)[BytesInMultiByteString] = 0;
+      DestinationString->Length = v11;
       v10 = 0;
     }
     if ( v10 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        RtlpSysVolFree(*v9);
-        *v9 = 0LL;
-        *v8 = 0;
+        RtlpSysVolFree(*p_Buffer);
+        *p_Buffer = 0LL;
+        *p_MaximumLength = 0;
       }
     }
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

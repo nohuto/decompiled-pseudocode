@@ -1,10 +1,10 @@
 /*
- * XREFs of IopFileObjectRevoked @ 0x1400D16F0
+ * XREFs of IopFileObjectRevoked @ 0x1400CF590
  * Callers:
- *     IopReferenceFileObject @ 0x14007B630 (IopReferenceFileObject.c)
- *     BuildQueryDirectoryIrp @ 0x14050D480 (BuildQueryDirectoryIrp.c)
+ *     IopReferenceFileObject @ 0x14007B6B0 (IopReferenceFileObject.c)
+ *     BuildQueryDirectoryIrp @ 0x1404F0410 (BuildQueryDirectoryIrp.c)
  * Callees:
- *     IopIsProcessAppContainer @ 0x1400B2774 (IopIsProcessAppContainer.c)
+ *     IopIsProcessAppContainer @ 0x1400B06B4 (IopIsProcessAppContainer.c)
  */
 
 bool __fastcall IopFileObjectRevoked(__int64 a1)

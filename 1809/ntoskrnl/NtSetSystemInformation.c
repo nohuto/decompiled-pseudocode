@@ -1,7 +1,7 @@
 /*
- * XREFs of NtSetSystemInformation @ 0x140663DF0
+ * XREFs of NtSetSystemInformation @ 0x140664FB0
  * Callers:
- *     WmipRegisterFirmwareProviders @ 0x1409DEA74 (WmipRegisterFirmwareProviders.c)
+ *     WmipRegisterFirmwareProviders @ 0x1409DFA74 (WmipRegisterFirmwareProviders.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -9,82 +9,82 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     ExpUpdateTimerConfiguration @ 0x1400E2008 (ExpUpdateTimerConfiguration.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     KeSetSystemAllowedCpuSets @ 0x14011499C (KeSetSystemAllowedCpuSets.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1401269E8 (ExCpuSetResourceManagerAccessCheck.c)
- *     MmAdjustWorkingSetSizeEx @ 0x14013C064 (MmAdjustWorkingSetSizeEx.c)
- *     MiGetThreadPartition @ 0x14013DB60 (MiGetThreadPartition.c)
- *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     ZwLoadDriver @ 0x1401BA170 (ZwLoadDriver.c)
- *     ZwSetSystemInformation @ 0x1401BB5F0 (ZwSetSystemInformation.c)
- *     ZwUnloadDriver @ 0x1401BB970 (ZwUnloadDriver.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     VslProvisionDumpEncryption @ 0x14027B930 (VslProvisionDumpEncryption.c)
- *     KdUpdateTimeSlipEvent @ 0x14028C400 (KdUpdateTimeSlipEvent.c)
- *     KeProcessorProfileControlArea @ 0x14028ED44 (KeProcessorProfileControlArea.c)
- *     KeSetTagCpuSets @ 0x140296DE8 (KeSetTagCpuSets.c)
- *     KeIntSteerAssignCpuSetForGsiv @ 0x14029A7C4 (KeIntSteerAssignCpuSetForGsiv.c)
- *     PsSetCpuQuotaInformation @ 0x1402E9758 (PsSetCpuQuotaInformation.c)
- *     PsSetExeModerationState @ 0x1402E9B94 (PsSetExeModerationState.c)
- *     ExpSetSoftRebootFlags @ 0x140319598 (ExpSetSoftRebootFlags.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
- *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
- *     PfSnSetPrefetcherInformation @ 0x140665E98 (PfSnSetPrefetcherInformation.c)
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     ExHandleSPCall2 @ 0x1406AACEC (ExHandleSPCall2.c)
- *     PsLookupProcessThreadByCid @ 0x1406B2F90 (PsLookupProcessThreadByCid.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1406B4DC0 (KeSynchronizeWithDynamicProcessors.c)
- *     SmSetStoreInformation @ 0x1406CBC30 (SmSetStoreInformation.c)
- *     MiCombineIdenticalPages @ 0x1406D1578 (MiCombineIdenticalPages.c)
- *     DbgkRegisterErrorPort @ 0x1407024A0 (DbgkRegisterErrorPort.c)
- *     MmUnloadSystemImage @ 0x14070EEB0 (MmUnloadSystemImage.c)
- *     MmIssueMemoryListCommand @ 0x14071BED8 (MmIssueMemoryListCommand.c)
- *     PsChangeQuantumTable @ 0x14071BFC8 (PsChangeQuantumTable.c)
- *     ExpInitializeSessionDriver @ 0x14071E310 (ExpInitializeSessionDriver.c)
- *     ExpRegisterFirmwareTableInformationHandler @ 0x14075B6CC (ExpRegisterFirmwareTableInformationHandler.c)
- *     KeInitializeEntropySystem @ 0x140761584 (KeInitializeEntropySystem.c)
- *     WheaCrashDumpInitializationComplete @ 0x140763A8C (WheaCrashDumpInitializationComplete.c)
- *     CmSetRegistryQuotaInformation @ 0x1407EC614 (CmSetRegistryQuotaInformation.c)
- *     CmReconcileAndValidateAllHives @ 0x1407F5CF0 (CmReconcileAndValidateAllHives.c)
- *     VslRelaxQuotas @ 0x140818CF0 (VslRelaxQuotas.c)
- *     MmAddVerifierThunks @ 0x14084DB40 (MmAddVerifierThunks.c)
- *     MmCreateMirror @ 0x14084E470 (MmCreateMirror.c)
- *     MmScrubMemory @ 0x14085FCC4 (MmScrubMemory.c)
- *     ObSetRefTraceInformation @ 0x140862B10 (ObSetRefTraceInformation.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
- *     ExpIsKernelCfgActive @ 0x1408CBA80 (ExpIsKernelCfgActive.c)
- *     ExpQueryElamCertInfo @ 0x1408CBF10 (ExpQueryElamCertInfo.c)
- *     ExpSetProcessorMicrocodeUpdateInformation @ 0x1408CC90C (ExpSetProcessorMicrocodeUpdateInformation.c)
- *     ExpSetTimeZoneInformation @ 0x1408CC974 (ExpSetTimeZoneInformation.c)
- *     ExpUpdateComPlusPackage @ 0x1408CCD58 (ExpUpdateComPlusPackage.c)
- *     ExSetLeapSecondEnabled @ 0x1408CD0C8 (ExSetLeapSecondEnabled.c)
- *     ExpCapabilityCheck @ 0x1408CFBF4 (ExpCapabilityCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
- *     ExpCovResetInformation @ 0x1408D81E4 (ExpCovResetInformation.c)
- *     VfFreeCapturedUnicodeString @ 0x140925C98 (VfFreeCapturedUnicodeString.c)
- *     VfProbeAndCaptureUnicodeString @ 0x140925E48 (VfProbeAndCaptureUnicodeString.c)
- *     VfProbeAndCaptureUnicodeStringBuffer @ 0x140925E80 (VfProbeAndCaptureUnicodeStringBuffer.c)
- *     VfFaultsSetParameters @ 0x1409384A0 (VfFaultsSetParameters.c)
- *     VfAddVerifierEntry @ 0x14094A814 (VfAddVerifierEntry.c)
- *     VfRemoveVerifierEntry @ 0x14094A9F8 (VfRemoveVerifierEntry.c)
- *     VfSetVerifierInformation @ 0x14094AA20 (VfSetVerifierInformation.c)
- *     VfSetVerifierInformationEx @ 0x14094AB28 (VfSetVerifierInformationEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     ExpUpdateTimerConfiguration @ 0x1400E2088 (ExpUpdateTimerConfiguration.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     KeSetSystemAllowedCpuSets @ 0x140114A0C (KeSetSystemAllowedCpuSets.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x140126AB8 (ExCpuSetResourceManagerAccessCheck.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14013C164 (MmAdjustWorkingSetSizeEx.c)
+ *     MiGetThreadPartition @ 0x14013DC60 (MiGetThreadPartition.c)
+ *     IoConfigureCrashDump @ 0x1401885EC (IoConfigureCrashDump.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     ZwLoadDriver @ 0x1401BA2D0 (ZwLoadDriver.c)
+ *     ZwSetSystemInformation @ 0x1401BB750 (ZwSetSystemInformation.c)
+ *     ZwUnloadDriver @ 0x1401BBAD0 (ZwUnloadDriver.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     VslProvisionDumpEncryption @ 0x14027BB20 (VslProvisionDumpEncryption.c)
+ *     KdUpdateTimeSlipEvent @ 0x14028C5F0 (KdUpdateTimeSlipEvent.c)
+ *     KeProcessorProfileControlArea @ 0x14028EF34 (KeProcessorProfileControlArea.c)
+ *     KeSetTagCpuSets @ 0x140296FD8 (KeSetTagCpuSets.c)
+ *     KeIntSteerAssignCpuSetForGsiv @ 0x14029A9B4 (KeIntSteerAssignCpuSetForGsiv.c)
+ *     PsSetCpuQuotaInformation @ 0x1402E9948 (PsSetCpuQuotaInformation.c)
+ *     PsSetExeModerationState @ 0x1402E9D84 (PsSetExeModerationState.c)
+ *     ExpSetSoftRebootFlags @ 0x140319788 (ExpSetSoftRebootFlags.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     PsInvokeWin32Callout @ 0x1405F5E90 (PsInvokeWin32Callout.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406669FC (ExAcquireTimeRefreshLock.c)
+ *     PfSetSuperfetchInformation @ 0x140666A38 (PfSetSuperfetchInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140667058 (PfSnSetPrefetcherInformation.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     ExHandleSPCall2 @ 0x1406ABF8C (ExHandleSPCall2.c)
+ *     PsLookupProcessThreadByCid @ 0x1406B4230 (PsLookupProcessThreadByCid.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x1406B6060 (KeSynchronizeWithDynamicProcessors.c)
+ *     SmSetStoreInformation @ 0x1406CCED0 (SmSetStoreInformation.c)
+ *     MiCombineIdenticalPages @ 0x1406D2818 (MiCombineIdenticalPages.c)
+ *     DbgkRegisterErrorPort @ 0x140703740 (DbgkRegisterErrorPort.c)
+ *     MmUnloadSystemImage @ 0x140710150 (MmUnloadSystemImage.c)
+ *     MmIssueMemoryListCommand @ 0x14071D178 (MmIssueMemoryListCommand.c)
+ *     PsChangeQuantumTable @ 0x14071D268 (PsChangeQuantumTable.c)
+ *     ExpInitializeSessionDriver @ 0x14071F5B0 (ExpInitializeSessionDriver.c)
+ *     ExpRegisterFirmwareTableInformationHandler @ 0x14075C8BC (ExpRegisterFirmwareTableInformationHandler.c)
+ *     KeInitializeEntropySystem @ 0x140762774 (KeInitializeEntropySystem.c)
+ *     WheaCrashDumpInitializationComplete @ 0x140764C7C (WheaCrashDumpInitializationComplete.c)
+ *     CmSetRegistryQuotaInformation @ 0x1407ED814 (CmSetRegistryQuotaInformation.c)
+ *     CmReconcileAndValidateAllHives @ 0x1407F6EF0 (CmReconcileAndValidateAllHives.c)
+ *     VslRelaxQuotas @ 0x140819EF0 (VslRelaxQuotas.c)
+ *     MmAddVerifierThunks @ 0x14084EDA0 (MmAddVerifierThunks.c)
+ *     MmCreateMirror @ 0x14084F6D0 (MmCreateMirror.c)
+ *     MmScrubMemory @ 0x140860F24 (MmScrubMemory.c)
+ *     ObSetRefTraceInformation @ 0x140863D70 (ObSetRefTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
+ *     ExpIsKernelCfgActive @ 0x1408CCD40 (ExpIsKernelCfgActive.c)
+ *     ExpQueryElamCertInfo @ 0x1408CD1D0 (ExpQueryElamCertInfo.c)
+ *     ExpSetProcessorMicrocodeUpdateInformation @ 0x1408CDBCC (ExpSetProcessorMicrocodeUpdateInformation.c)
+ *     ExpSetTimeZoneInformation @ 0x1408CDC34 (ExpSetTimeZoneInformation.c)
+ *     ExpUpdateComPlusPackage @ 0x1408CE018 (ExpUpdateComPlusPackage.c)
+ *     ExSetLeapSecondEnabled @ 0x1408CE388 (ExSetLeapSecondEnabled.c)
+ *     ExpCapabilityCheck @ 0x1408D0EB4 (ExpCapabilityCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
+ *     ExpCovResetInformation @ 0x1408D94A4 (ExpCovResetInformation.c)
+ *     VfFreeCapturedUnicodeString @ 0x140926C98 (VfFreeCapturedUnicodeString.c)
+ *     VfProbeAndCaptureUnicodeString @ 0x140926E48 (VfProbeAndCaptureUnicodeString.c)
+ *     VfProbeAndCaptureUnicodeStringBuffer @ 0x140926E80 (VfProbeAndCaptureUnicodeStringBuffer.c)
+ *     VfFaultsSetParameters @ 0x1409394A0 (VfFaultsSetParameters.c)
+ *     VfAddVerifierEntry @ 0x14094B814 (VfAddVerifierEntry.c)
+ *     VfRemoveVerifierEntry @ 0x14094B9F8 (VfRemoveVerifierEntry.c)
+ *     VfSetVerifierInformation @ 0x14094BA20 (VfSetVerifierInformation.c)
+ *     VfSetVerifierInformationEx @ 0x14094BB28 (VfSetVerifierInformationEx.c)
  */
 
 NTSTATUS __stdcall NtSetSystemInformation(
@@ -234,9 +234,9 @@ NTSTATUS __stdcall NtSetSystemInformation(
   updated = 0;
   if ( SystemInformationClass > SystemImageFileExecutionOptionsInformation )
   {
-    if ( SystemInformationClass <= (SystemInterruptInformation|0x80) )
+    if ( SystemInformationClass <= SystemSoftRebootInformation )
     {
-      if ( SystemInformationClass == (SystemInterruptInformation|0x80) )
+      if ( SystemInformationClass == SystemSoftRebootInformation )
       {
         PrivilegeValue = (LUID)19LL;
         if ( !SeSinglePrivilegeCheck((LUID)19LL, PreviousMode) )
@@ -259,9 +259,9 @@ NTSTATUS __stdcall NtSetSystemInformation(
         }
         return ExpSetSoftRebootFlags(v6);
       }
-      if ( SystemInformationClass <= (SystemVerifierFaultsInformation|SystemHandleInformation) )
+      if ( SystemInformationClass <= SystemCpuQuotaInformation )
       {
-        if ( SystemInformationClass == (SystemVerifierFaultsInformation|SystemHandleInformation) )
+        if ( SystemInformationClass == SystemCpuQuotaInformation )
           return PsSetCpuQuotaInformation((unsigned __int64)SystemInformation, v3, PreviousMode);
         v60 = SystemInformationClass - 95;
         if ( !v60 )
@@ -339,7 +339,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
         v52 = 432;
         if ( (_DWORD)v3 != 432 )
           return -1073741820;
-        if ( !PreviousMode || (unsigned __int8)ExpCapabilityCheck(&TimeZoneCapability) )
+        if ( !PreviousMode || (unsigned __int8)ExpCapabilityCheck((PUNICODE_STRING)&TimeZoneCapability) )
           return ExpSetTimeZoneInformation(SystemInformation, v52);
         v53 = SeSinglePrivilegeCheck(SeTimeZonePrivilege, PreviousMode) == 0;
 LABEL_193:
@@ -498,11 +498,11 @@ LABEL_193:
       }
       return -1073741820;
     }
-    if ( SystemInformationClass <= (SystemSessionInformation|0x80) )
+    if ( SystemInformationClass <= SystemWin32WerStartCallout )
     {
       switch ( SystemInformationClass )
       {
-        case SystemSessionInformation|0x80:
+        case SystemWin32WerStartCallout:
           if ( (_DWORD)v3 != 8 )
           {
             if ( !(_DWORD)v3 )
@@ -528,17 +528,17 @@ LABEL_193:
             updated = PsInvokeWin32Callout(32, (__int64)v94, 1, (__int64)&SessionId);
           v58 = v94;
           goto LABEL_224;
-        case SystemDpcBehaviorInformation|0x80:
+        case SystemElamCertificateInformation:
           if ( (_DWORD)v3 != 8 )
             return -1073741820;
           if ( PreviousMode )
             return ExpQueryElamCertInfo(*(_QWORD *)SystemInformation, v7, v9, 3LL);
           return -1073741811;
-        case SystemUnloadGdiDriverInformation|0x80:
+        case SystemRegistryReconciliationInformation:
           return CmReconcileAndValidateAllHives();
-        case SystemPerformanceTraceInformation|0x80:
+        case SystemHypervisorDetailInformation:
           return -1073741637;
-        case SystemExceptionInformation|0x80:
+        case SystemVmGenerationCountInformation:
           if ( !PreviousMode )
           {
             if ( (_DWORD)v3 == 8 )
@@ -547,11 +547,11 @@ LABEL_193:
           }
           return -1073741790;
       }
-      if ( SystemInformationClass != (SystemContextSwitchInformation|0x80) )
+      if ( SystemInformationClass != SystemCodeIntegrityPolicyInformation )
       {
-        if ( SystemInformationClass != (SystemPlugPlayBusInformation|0x80) )
+        if ( SystemInformationClass != SystemAllowedCpuSetsInformation )
         {
-          if ( SystemInformationClass == (SystemPowerInformationNative|0x80) )
+          if ( SystemInformationClass == SystemInterruptCpuSetsInformation )
           {
             if ( (_DWORD)v3 == 16 )
             {
@@ -565,7 +565,7 @@ LABEL_193:
           }
           else
           {
-            if ( SystemInformationClass != (SystemSessionDetach|0x80) )
+            if ( SystemInformationClass != SystemCpuSetTagInformation )
               return -1073741821;
             if ( (unsigned int)v3 >= 8 )
             {
@@ -599,7 +599,7 @@ LABEL_193:
     }
     switch ( SystemInformationClass )
     {
-      case SystemComPlusPackage|0x80:
+      case SystemActivityModerationExeState:
         if ( (_DWORD)v3 != 24 )
           return -1073741820;
         v120[0] = *(__m128i *)SystemInformation;
@@ -612,9 +612,9 @@ LABEL_193:
           goto LABEL_268;
         }
         return result;
-      case SystemEmulationBasicInformation|0x80:
+      case SystemCodeIntegrityUnlockInformation:
         goto LABEL_407;
-      case SystemEmulationProcessorInformation|0x80:
+      case SystemIntegrityQuotaInformation:
         if ( !(_DWORD)v3 )
         {
           if ( !PreviousMode || SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
@@ -622,7 +622,7 @@ LABEL_193:
           return -1073741727;
         }
         break;
-      case SystemBigPoolInformation|0x80:
+      case SystemSecureDumpEncryptionInformation:
         if ( !(_DWORD)v3 )
         {
           if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
@@ -630,12 +630,12 @@ LABEL_193:
           return -1073741727;
         }
         break;
-      case SystemWatchDogTimerHandler|0x80:
+      case SystemCodeIntegrityVerificationInformation:
 LABEL_407:
-        if ( qword_14040DE08 )
-          return qword_14040DE08((unsigned int)SystemInformationClass, SystemInformation, (unsigned int)v3);
+        if ( qword_14040EE68 )
+          return qword_14040EE68((unsigned int)SystemInformationClass, SystemInformation, (unsigned int)v3);
         return -1073741637;
-      case SystemFirmwareTableInformation|0x80:
+      case SystemWorkloadAllowedCpuSetsInformation:
         if ( (unsigned int)v3 < 8 )
           return -1073741820;
         v96 = v3 - 8;
@@ -652,7 +652,7 @@ LABEL_407:
         v92 = v97;
         v93 = v123;
         return KeSetSystemAllowedCpuSets(v91, v93, v92);
-      case SystemVerifierTriageInformation|0x80:
+      case SystemLeapSecondInformation:
         if ( (_DWORD)v3 == 8 )
         {
           if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemtimePrivilege, PreviousMode) )
@@ -671,7 +671,7 @@ LABEL_407:
           return result;
         }
         return -1073741820;
-      case SystemSuperfetchInformation|0x80:
+      case SystemFlags2Information:
         if ( (_DWORD)v3 == 4 )
         {
           if ( SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
@@ -701,7 +701,7 @@ LABEL_407:
     }
     return -1073741820;
   }
-  if ( SystemInformationClass > SystemLoadGdiDriverInSystemSpaceInformation )
+  if ( SystemInformationClass > SystemLoadGdiDriverInSystemSpace )
   {
     if ( SystemInformationClass <= SystemMemoryListInformation )
     {
@@ -764,21 +764,21 @@ LABEL_407:
           case 0:
             return -1073741637;
           case 1:
-            v50 = (void (*)(void))off_1403FE600[0];
+            v50 = (void (*)(void))off_1403FF600[0];
             break;
           case 2:
-            v50 = (void (*)(void))off_1403FE608[0];
+            v50 = (void (*)(void))off_1403FF608[0];
             break;
           case 3:
-            v50 = (void (*)(void))off_1403FE5F8[0];
+            v50 = (void (*)(void))off_1403FF5F8[0];
             break;
           case 4:
             return -1073741637;
           case 6:
-            return ((__int64 (__fastcall *)(__int64))off_1403FE618[0])(1LL);
+            return ((__int64 (__fastcall *)(__int64))off_1403FF618[0])(1LL);
           case 7:
             updated = 0;
-            if ( off_1403FE618[0] == xKdEnumerateDebuggingDevices )
+            if ( off_1403FF618[0] == xKdEnumerateDebuggingDevices )
               return -1073741822;
             return updated;
           default:
@@ -861,7 +861,7 @@ LABEL_225:
         if ( (_DWORD)v3 != 172 )
           return -1073741820;
         if ( PreviousMode
-          && !(unsigned __int8)ExpCapabilityCheck(&TimeZoneCapability)
+          && !(unsigned __int8)ExpCapabilityCheck((PUNICODE_STRING)&TimeZoneCapability)
           && !SeSinglePrivilegeCheck(SeTimeZonePrivilege, PreviousMode) )
         {
           return -1073741727;
@@ -911,7 +911,7 @@ LABEL_224:
     ObfDereferenceObject(v58);
     return updated;
   }
-  if ( SystemInformationClass == SystemLoadGdiDriverInSystemSpaceInformation )
+  if ( SystemInformationClass == SystemLoadGdiDriverInSystemSpace )
   {
     v37 = 0;
     goto LABEL_136;
@@ -1188,7 +1188,7 @@ LABEL_136:
     PsChangeQuantumTable(v34);
     return 0;
   }
-  if ( SystemInformationClass > SystemDockInformation )
+  if ( SystemInformationClass > SystemVerifierRemoveDriverInformation )
   {
     if ( SystemInformationClass == SystemTimeSlipNotification )
     {
@@ -1218,7 +1218,7 @@ LABEL_136:
     {
       if ( SystemInformationClass != SystemVerifierInformation )
       {
-        if ( SystemInformationClass != SystemAddVerifier )
+        if ( SystemInformationClass != SystemVerifierThunkExtend )
           return -1073741821;
         if ( !PreviousMode )
           return MmAddVerifierThunks(SystemInformation, v3);

@@ -1,9 +1,9 @@
 /*
- * XREFs of SmCrAuthEncrypt @ 0x1404C6130
+ * XREFs of SmCrAuthEncrypt @ 0x1404BF58C
  * Callers:
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14027ABDC (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14023016C (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
  * Callees:
- *     BCryptEncrypt @ 0x1404F8AE4 (BCryptEncrypt.c)
+ *     BCryptEncrypt @ 0x1404F63C4 (BCryptEncrypt.c)
  */
 
 NTSTATUS __fastcall SmCrAuthEncrypt(

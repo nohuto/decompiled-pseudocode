@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 NtCreateProcess()
+NTSTATUS __cdecl NtCreateProcess(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ParentProcess,
+        BOOLEAN InheritObjectTable,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 173LL;
+  result = 173;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of SeIsSModeAdminlessEnabled @ 0x140252ED0
+ * XREFs of SeIsSModeAdminlessEnabled @ 0x140285D40
  * Callers:
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
- *     SeGetLinkedToken @ 0x140922890 (SeGetLinkedToken.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
+ *     SeGetLinkedToken @ 0x1409229F0 (SeGetLinkedToken.c)
  * Callees:
- *     SepIsAdminlessEnforcementModeEnabled @ 0x140252EF8 (SepIsAdminlessEnforcementModeEnabled.c)
- *     SepIsSModeEnabled @ 0x14028FE30 (SepIsSModeEnabled.c)
+ *     SepIsSModeEnabled @ 0x14020DDA0 (SepIsSModeEnabled.c)
+ *     SepIsAdminlessEnforcementModeEnabled @ 0x140285D68 (SepIsAdminlessEnforcementModeEnabled.c)
  */
 
 char SeIsSModeAdminlessEnabled()
@@ -13,7 +13,7 @@ char SeIsSModeAdminlessEnabled()
   char v0; // bl
 
   v0 = 1;
-  if ( (unsigned __int8)SepIsAdminlessEnforcementModeEnabled() != 1 || (unsigned __int8)SepIsSModeEnabled() != 1 )
+  if ( (unsigned __int8)SepIsAdminlessEnforcementModeEnabled() != 1 || !SepIsSModeEnabled() )
     return 0;
   return v0;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiIdleSchedule @ 0x140307420
+ * XREFs of KiIdleSchedule @ 0x1403076B0
  * Callers:
- *     KiIdleLoop @ 0x1404239C0 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x140423D50 (KiIdleLoop.c)
  * Callees:
- *     KiSearchForNewThread @ 0x140240350 (KiSearchForNewThread.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiEndThreadCycleAccumulation @ 0x1402B2C90 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x1402B2D40 (KiStartThreadCycleAccumulation.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140462166 (KiSendHeteroRescheduleIntRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSearchForNewThread @ 0x140240420 (KiSearchForNewThread.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402B2F20 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402B2FD0 (KiStartThreadCycleAccumulation.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140462566 (KiSendHeteroRescheduleIntRequest.c)
  */
 
 __int64 __fastcall KiIdleSchedule(__int64 a1)

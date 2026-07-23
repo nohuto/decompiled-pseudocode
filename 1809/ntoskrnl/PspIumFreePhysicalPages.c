@@ -1,17 +1,17 @@
 /*
- * XREFs of PspIumFreePhysicalPages @ 0x1402EB92C
+ * XREFs of PspIumFreePhysicalPages @ 0x1402EBB1C
  * Callers:
- *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1402EAD84 (PsDispatchIumService.c)
  * Callees:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x14018E920 (MmMapLockedPagesWithReservedMapping.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MmUnmapReservedMapping @ 0x1402A9820 (MmUnmapReservedMapping.c)
- *     MmFreeSecureKernelPages @ 0x1402C3134 (MmFreeSecureKernelPages.c)
- *     PspIumFreePartitionPages @ 0x1402EB76C (PspIumFreePartitionPages.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14018EA60 (MmMapLockedPagesWithReservedMapping.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmUnmapReservedMapping @ 0x1402A9A10 (MmUnmapReservedMapping.c)
+ *     MmFreeSecureKernelPages @ 0x1402C3324 (MmFreeSecureKernelPages.c)
+ *     PspIumFreePartitionPages @ 0x1402EB95C (PspIumFreePartitionPages.c)
  */
 
 void __fastcall PspIumFreePhysicalPages(__int64 a1, int a2, ULONG_PTR a3)

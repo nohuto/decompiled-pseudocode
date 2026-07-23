@@ -19,7 +19,7 @@ NTSTATUS __stdcall SeFilterToken(
   PACCESS_TOKEN *v6; // rsi
   ULONG PrivilegeCount; // ebx
   ULONG v8; // r10d
-  __int64 *v9; // r11
+  SID_AND_ATTRIBUTES *v9; // r11
   ULONG GroupCount; // ebp
   SID_AND_ATTRIBUTES *Groups; // r14
   LUID_AND_ATTRIBUTES *Privileges; // rdi
@@ -49,7 +49,7 @@ NTSTATUS __stdcall SeFilterToken(
     Privileges = PrivilegesToDelete->Privileges;
   }
   if ( RestrictedSids
-    && (v8 = RestrictedSids->GroupCount, v9 = (__int64 *)RestrictedSids->Groups, v14 = 0, RestrictedSids->GroupCount) )
+    && (v8 = RestrictedSids->GroupCount, v9 = RestrictedSids->Groups, v14 = 0, RestrictedSids->GroupCount) )
   {
     p_Attributes = &RestrictedSids->Groups[0].Attributes;
     while ( !*p_Attributes )
@@ -73,7 +73,7 @@ LABEL_10:
                  PrivilegeCount,
                  Privileges,
                  v8,
-                 v9,
+                 &v9->Sid,
                  0,
                  &Object);
     if ( inserted >= 0 )

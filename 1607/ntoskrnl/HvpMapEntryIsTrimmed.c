@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpMapEntryIsTrimmed @ 0x14000B324
+ * XREFs of HvpMapEntryIsTrimmed @ 0x14000AEA4
  * Callers:
- *     HvpFindFreeCell @ 0x140401F50 (HvpFindFreeCell.c)
+ *     HvpFindFreeCell @ 0x140400E10 (HvpFindFreeCell.c)
  * Callees:
  *     <none>
  */

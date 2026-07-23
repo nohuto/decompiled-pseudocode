@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpResetPageProtection @ 0x14097EE80
+ * XREFs of HvpResetPageProtection @ 0x140967690
  * Callers:
- *     HvResetDirtyData @ 0x14097EE44 (HvResetDirtyData.c)
+ *     HvResetDirtyData @ 0x140967654 (HvResetDirtyData.c)
  * Callees:
- *     RtlFindNextForwardRunSet @ 0x140438140 (RtlFindNextForwardRunSet.c)
- *     HvpSetRangeProtection @ 0x1408832A4 (HvpSetRangeProtection.c)
+ *     RtlFindNextForwardRunSet @ 0x14042AD00 (RtlFindNextForwardRunSet.c)
+ *     HvpSetRangeProtection @ 0x140887154 (HvpSetRangeProtection.c)
  */
 
 _UNKNOWN **__fastcall HvpResetPageProtection(ULONG_PTR BugCheckParameter2)

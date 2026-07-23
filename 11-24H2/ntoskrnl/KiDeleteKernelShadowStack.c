@@ -1,13 +1,13 @@
 /*
- * XREFs of KiDeleteKernelShadowStack @ 0x140A19B34
+ * XREFs of KiDeleteKernelShadowStack @ 0x140A12CA4
  * Callers:
- *     PspDeleteKernelStack @ 0x14026A0E0 (PspDeleteKernelStack.c)
- *     KiFreeProcessorStacks @ 0x1405B6F14 (KiFreeProcessorStacks.c)
- *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405BC3A4 (KiAllocateProcessorHiberSwapShadowStacks.c)
- *     KeUninitThread @ 0x140A19A98 (KeUninitThread.c)
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
+ *     PspDeleteKernelStack @ 0x14021F670 (PspDeleteKernelStack.c)
+ *     KiFreeProcessorStacks @ 0x1405B41D4 (KiFreeProcessorStacks.c)
+ *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405B99D4 (KiAllocateProcessorHiberSwapShadowStacks.c)
+ *     KeUninitThread @ 0x140A12C08 (KeUninitThread.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
  * Callees:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
  */
 
 unsigned __int64 __fastcall KiDeleteKernelShadowStack(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)

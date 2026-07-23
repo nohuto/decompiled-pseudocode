@@ -7,112 +7,115 @@
  *     _RtlStringCbLengthW@12 @ 0x4B3475AA (_RtlStringCbLengthW@12.c)
  */
 
-char __fastcall RtlpIsAttributeAceInSacl(int a1, int a2, char a3, _BYTE *a4)
+char __userpurge RtlpIsAttributeAceInSacl@<al>(int a1@<edx>, int a2@<ecx>, int a3@<edi>, char a4, _BYTE *a5)
 {
-  int v7; // edx
-  int v8; // ecx
-  size_t v9; // ecx
-  size_t *v10; // edi
-  size_t v11; // eax
+  int v8; // edx
+  int v9; // ecx
+  unsigned int v10; // ecx
+  unsigned int *v11; // edi
   unsigned int v12; // eax
-  int v13; // esi
-  unsigned int v14; // ebx
-  int v15; // edx
-  int v16; // ecx
-  unsigned int *v17; // ebx
-  unsigned int v18; // eax
-  unsigned int v19; // ecx
-  char v20; // al
-  unsigned int v21; // ecx
-  size_t v22; // esi
-  unsigned int v23; // [esp+8h] [ebp-24h]
-  unsigned int v24; // [esp+8h] [ebp-24h]
-  size_t v25; // [esp+Ch] [ebp-20h]
-  unsigned int v26; // [esp+10h] [ebp-1Ch]
+  unsigned int v13; // eax
+  int v14; // esi
+  unsigned int v15; // ebx
+  int v16; // edx
+  int v17; // ecx
+  unsigned int *v18; // ebx
+  unsigned int v19; // eax
+  unsigned int v20; // ecx
+  char v21; // al
+  unsigned int v22; // ecx
+  unsigned int v23; // esi
+  size_t v24; // [esp-8h] [ebp-34h]
+  unsigned int v25; // [esp+8h] [ebp-24h]
+  unsigned int v26; // [esp+8h] [ebp-24h]
+  unsigned int v27; // [esp+Ch] [ebp-20h]
+  unsigned int v28; // [esp+10h] [ebp-1Ch]
   char *Buf1; // [esp+14h] [ebp-18h]
   char *Buf2; // [esp+18h] [ebp-14h]
-  size_t Size; // [esp+1Ch] [ebp-10h]
-  size_t v30; // [esp+20h] [ebp-Ch] BYREF
-  unsigned int v31; // [esp+24h] [ebp-8h]
-  char v32; // [esp+2Bh] [ebp-1h]
+  int Size; // [esp+1Ch] [ebp-10h]
+  int Size_4; // [esp+20h] [ebp-Ch] BYREF
+  unsigned int v33; // [esp+24h] [ebp-8h]
+  char v34; // [esp+2Bh] [ebp-1h]
 
-  v32 = 0;
-  v30 = 0;
-  *a4 = 0;
-  if ( !a2 )
+  v34 = 0;
+  Size_4 = 0;
+  *a5 = 0;
+  if ( !a1 )
     return 0;
-  v7 = 4 * *(unsigned __int8 *)(a1 + 9) + 8;
-  v8 = *(unsigned __int16 *)(a1 + 2) - v7;
-  if ( v8 - 8 <= 20 )
+  HIDWORD(v24) = a3;
+  v8 = 4 * *(unsigned __int8 *)(a2 + 9) + 8;
+  v9 = *(unsigned __int16 *)(a2 + 2) - v8;
+  if ( v9 - 8 <= 20 )
     return 1;
-  v9 = v8 - 8;
-  v10 = (size_t *)(v7 + a1 + 8);
-  v25 = v9;
-  v11 = *v10;
-  if ( v9 < *v10 )
+  v10 = v9 - 8;
+  v11 = (unsigned int *)(v8 + a2 + 8);
+  v27 = v10;
+  v12 = *v11;
+  if ( v10 < *v11 )
     return 1;
-  if ( v9 - v11 < 4 )
+  if ( v10 - v12 < 4 )
     return 1;
-  Buf2 = (char *)v10 + v11;
-  if ( RtlStringCbLengthW((char *)v10 + v11, &v30) < 0 )
+  Buf2 = (char *)v11 + v12;
+  if ( RtlStringCbLengthW((char *)v11 + v12, &Size_4) < 0 )
     return 1;
-  v12 = *(unsigned __int16 *)(a2 + 4);
-  v13 = a2 + 8;
-  v31 = 0;
-  Size = v30;
-  v26 = v12;
-  if ( !v12 )
-    return v32;
-  v14 = v31;
+  v13 = *(unsigned __int16 *)(a1 + 4);
+  v14 = a1 + 8;
+  v33 = 0;
+  Size = Size_4;
+  v28 = v13;
+  if ( !v13 )
+    return v34;
+  v15 = v33;
   while ( 1 )
   {
-    if ( *(_BYTE *)v13 != 18 || a3 && (*(_BYTE *)(v13 + 1) & 0x10) == 0 )
+    if ( *(_BYTE *)v14 != 18 || a4 && (*(_BYTE *)(v14 + 1) & 0x10) == 0 )
       goto LABEL_22;
-    v15 = 4 * *(unsigned __int8 *)(v13 + 9) + 8;
-    v16 = *(unsigned __int16 *)(v13 + 2) - v15;
-    if ( v16 - 8 <= 20 )
+    v16 = 4 * *(unsigned __int8 *)(v14 + 9) + 8;
+    v17 = *(unsigned __int16 *)(v14 + 2) - v16;
+    if ( v17 - 8 <= 20 )
       goto LABEL_22;
-    v17 = (unsigned int *)(v15 + v13 + 8);
-    v18 = v16 - 8;
-    v23 = v18;
-    v19 = *v17;
-    if ( v18 >= *v17 && v18 - v19 >= 4 )
+    v18 = (unsigned int *)(v16 + v14 + 8);
+    v19 = v17 - 8;
+    v25 = v19;
+    v20 = *v18;
+    if ( v19 >= *v18 && v19 - v20 >= 4 )
     {
-      Buf1 = (char *)v17 + v19;
-      if ( RtlStringCbLengthW((char *)v17 + v19, &v30) >= 0 )
+      Buf1 = (char *)v18 + v20;
+      if ( RtlStringCbLengthW((char *)v18 + v20, &Size_4) >= 0 )
       {
-        if ( v30 == Size && !memcmp(Buf1, Buf2, Size) )
+        if ( Size_4 == Size && (LODWORD(v24) = Size, !memcmp(Buf1, Buf2, v24)) )
         {
-          v20 = 1;
-          v32 = 1;
+          v21 = 1;
+          v34 = 1;
         }
         else
         {
-          v20 = v32;
+          v21 = v34;
         }
-        if ( v20 )
+        if ( v21 )
           break;
       }
     }
-    v14 = v31;
+    v15 = v33;
 LABEL_22:
-    ++v14;
-    v13 += *(unsigned __int16 *)(v13 + 2);
-    v31 = v14;
-    if ( v14 >= v26 )
-      return v32;
+    ++v15;
+    v14 += *(unsigned __int16 *)(v14 + 2);
+    v33 = v15;
+    if ( v15 >= v28 )
+      return v34;
   }
-  if ( a3 && v23 == v25 )
+  if ( a4 && v25 == v27 )
   {
-    v21 = v17[2];
-    v22 = v10[2];
-    *((_BYTE *)v10 + 10) = 0;
-    v24 = v21;
-    *((_BYTE *)v17 + 10) = 0;
-    if ( !memcmp(v17, v10, v25) )
-      *a4 = 1;
-    v10[2] = v22;
-    v17[2] = v24;
+    v22 = v18[2];
+    v23 = v11[2];
+    LODWORD(v24) = v27;
+    *((_BYTE *)v11 + 10) = 0;
+    v26 = v22;
+    *((_BYTE *)v18 + 10) = 0;
+    if ( !memcmp(v18, v11, v24) )
+      *a5 = 1;
+    v11[2] = v23;
+    v18[2] = v26;
   }
-  return v32;
+  return v34;
 }

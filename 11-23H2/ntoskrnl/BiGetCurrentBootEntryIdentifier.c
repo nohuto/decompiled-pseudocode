@@ -1,20 +1,20 @@
 /*
- * XREFs of BiGetCurrentBootEntryIdentifier @ 0x140806EC8
+ * XREFs of BiGetCurrentBootEntryIdentifier @ 0x140807198
  * Callers:
- *     BcdOpenObject @ 0x140804F44 (BcdOpenObject.c)
+ *     BcdOpenObject @ 0x140805214 (BcdOpenObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
  */
 
-__int64 __fastcall BiGetCurrentBootEntryIdentifier(_OWORD *a1)
+NTSTATUS __fastcall BiGetCurrentBootEntryIdentifier(_OWORD *a1)
 {
-  __int64 result; // rax
-  _OWORD v3[2]; // [rsp+20h] [rbp-38h] BYREF
+  NTSTATUS result; // eax
+  _OWORD SystemInformation[2]; // [rsp+20h] [rbp-38h] BYREF
 
-  memset(v3, 0, sizeof(v3));
-  result = ZwQuerySystemInformation(90LL, (__int64)v3);
-  if ( (int)result >= 0 )
-    *a1 = v3[0];
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  result = ZwQuerySystemInformation(SystemBootEnvironmentInformation, SystemInformation, 0x20u, 0LL);
+  if ( result >= 0 )
+    *a1 = SystemInformation[0];
   return result;
 }

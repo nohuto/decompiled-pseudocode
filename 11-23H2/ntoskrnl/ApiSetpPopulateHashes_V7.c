@@ -1,13 +1,13 @@
 /*
- * XREFs of ApiSetpPopulateHashes_V7 @ 0x140419610
+ * XREFs of ApiSetpPopulateHashes_V7 @ 0x1404199A0
  * Callers:
- *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x14041890C (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
- *     ApiSetSchemaExpander_InsertGroupContractEntry @ 0x1404189F4 (ApiSetSchemaExpander_InsertGroupContractEntry.c)
- *     ApiSetSchemaExpander_InsertHostEntry @ 0x140418AEC (ApiSetSchemaExpander_InsertHostEntry.c)
- *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418BE0 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
+ *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x140418C9C (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
+ *     ApiSetSchemaExpander_InsertGroupContractEntry @ 0x140418D84 (ApiSetSchemaExpander_InsertGroupContractEntry.c)
+ *     ApiSetSchemaExpander_InsertHostEntry @ 0x140418E7C (ApiSetSchemaExpander_InsertHostEntry.c)
+ *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418F70 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
  * Callees:
- *     qsort @ 0x1403DA430 (qsort.c)
- *     ApiSetpGetSearchKeyHash_V7 @ 0x140417F10 (ApiSetpGetSearchKeyHash_V7.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     ApiSetpGetSearchKeyHash_V7 @ 0x1404182A0 (ApiSetpGetSearchKeyHash_V7.c)
  */
 
 __int64 __fastcall ApiSetpPopulateHashes_V7(__int64 a1, unsigned int *a2)

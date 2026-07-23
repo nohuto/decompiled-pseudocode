@@ -1,12 +1,12 @@
 /*
- * XREFs of WbGetWowTrapFrame @ 0x140A4D9B8
+ * XREFs of WbGetWowTrapFrame @ 0x140A4DC68
  * Callers:
- *     WbGetTrapFrame @ 0x140762DDC (WbGetTrapFrame.c)
+ *     WbGetTrapFrame @ 0x140762FCC (WbGetTrapFrame.c)
  * Callees:
- *     PspWow64GetContextThread @ 0x1407A018C (PspWow64GetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1407A037C (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbGetWowTrapFrame(_DWORD *a1, __int64 a2)
+__int64 __fastcall WbGetWowTrapFrame(ULONG *a1, __int64 a2)
 {
   _KPROCESS *Process; // rcx
   __int16 v5; // si
@@ -37,14 +37,14 @@ LABEL_7:
   {
     if ( v5 == 332 )
     {
-      *(_QWORD *)(a2 + 8) = (unsigned int)a1[58];
-      *(_QWORD *)a2 = (unsigned int)a1[61];
+      *(_QWORD *)(a2 + 8) = a1[58];
+      *(_QWORD *)a2 = a1[61];
       *(_DWORD *)(a2 + 16) = a1[60];
     }
     else
     {
-      *(_QWORD *)(a2 + 8) = (unsigned int)a1[28];
-      *(_QWORD *)a2 = (unsigned int)a1[26];
+      *(_QWORD *)(a2 + 8) = a1[28];
+      *(_QWORD *)a2 = a1[26];
       *(_DWORD *)(a2 + 16) = a1[29];
     }
   }

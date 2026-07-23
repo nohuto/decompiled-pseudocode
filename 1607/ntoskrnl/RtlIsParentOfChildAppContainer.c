@@ -1,21 +1,36 @@
 /*
  * XREFs of RtlIsParentOfChildAppContainer @ 0x1403E1C94
  * Callers:
- *     SepSetTokenPackage @ 0x1404769B4 (SepSetTokenPackage.c)
- *     SepSetTokenCapabilities @ 0x140478A4C (SepSetTokenCapabilities.c)
- *     SepCheckCreateLowBox @ 0x14047C9E0 (SepCheckCreateLowBox.c)
- *     SepIsParentOfChildAppContainer @ 0x1404E71CC (SepIsParentOfChildAppContainer.c)
- *     SeTokenCanImpersonate @ 0x14050F920 (SeTokenCanImpersonate.c)
+ *     SepSetTokenPackage @ 0x140475884 (SepSetTokenPackage.c)
+ *     SepSetTokenCapabilities @ 0x14047791C (SepSetTokenCapabilities.c)
+ *     SepCheckCreateLowBox @ 0x14047B8B0 (SepCheckCreateLowBox.c)
+ *     SepIsParentOfChildAppContainer @ 0x1404C9740 (SepIsParentOfChildAppContainer.c)
+ *     SeTokenCanImpersonate @ 0x1404F28B0 (SeTokenCanImpersonate.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     RtlGetAppContainerSidType @ 0x14047BB60 (RtlGetAppContainerSidType.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     RtlGetAppContainerSidType @ 0x14047AA30 (RtlGetAppContainerSidType.c)
  */
 
-char __fastcall RtlIsParentOfChildAppContainer(PSID Sid, PSID a2)
+BOOLEAN __cdecl RtlIsParentOfChildAppContainer(PSID ParentAppContainerSid, PSID ChildAppContainerSid)
 {
-  int v4; // [rsp+40h] [rbp+18h]
+  ULONG v4; // edi
+  PULONG v5; // rbx
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (int)RtlGetAppContainerSidType(Sid) >= 0 && v4 == 2 )
-    RtlGetAppContainerSidType(a2);
+  if ( RtlGetAppContainerSidType(ParentAppContainerSid, &AppContainerSidType) >= 0
+    && AppContainerSidType == ParentAppContainerSidType
+    && RtlGetAppContainerSidType(ChildAppContainerSid, &AppContainerSidType) >= 0
+    && AppContainerSidType == ChildAppContainerSidType )
+  {
+    v4 = 1;
+    while ( 1 )
+    {
+      v5 = RtlSubAuthoritySid(ParentAppContainerSid, v4);
+      if ( *v5 != *RtlSubAuthoritySid(ChildAppContainerSid, v4) )
+        break;
+      if ( ++v4 >= 8 )
+        return 1;
+    }
+  }
   return 0;
 }

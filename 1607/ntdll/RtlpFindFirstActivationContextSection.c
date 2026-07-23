@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFindFirstActivationContextSection @ 0x1800193CC
+ * XREFs of RtlpFindFirstActivationContextSection @ 0x1800193BC
  * Callers:
- *     RtlFindActivationContextSectionGuid @ 0x180019EF0 (RtlFindActivationContextSectionGuid.c)
+ *     RtlFindActivationContextSectionGuid @ 0x180019EE0 (RtlFindActivationContextSectionGuid.c)
  * Callees:
- *     RtlpFindNextActivationContextSection @ 0x18001AFDC (RtlpFindNextActivationContextSection.c)
+ *     RtlpFindNextActivationContextSection @ 0x18001AFCC (RtlpFindNextActivationContextSection.c)
  */
 
 __int64 __fastcall RtlpFindFirstActivationContextSection(_DWORD *a1, __int64 a2, __int64 a3, _QWORD *a4)

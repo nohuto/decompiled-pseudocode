@@ -1,12 +1,12 @@
 /*
- * XREFs of I_MinCryptGetSigningTime @ 0x1408A23A4
+ * XREFs of I_MinCryptGetSigningTime @ 0x1408A87B4
  * Callers:
- *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A2AC4 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A8ED4 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A250C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
- *     I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A27C4 (I_MinCryptVerifyRFC3161TimeStamp.c)
- *     I_MinAsn1ParseSingleAttribute @ 0x1408A308C (I_MinAsn1ParseSingleAttribute.c)
- *     I_MinCryptBuildErrorPolicy @ 0x1408A3864 (I_MinCryptBuildErrorPolicy.c)
+ *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A891C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
+ *     I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A8BD4 (I_MinCryptVerifyRFC3161TimeStamp.c)
+ *     I_MinAsn1ParseSingleAttribute @ 0x1408A949C (I_MinAsn1ParseSingleAttribute.c)
+ *     I_MinCryptBuildErrorPolicy @ 0x1408A9C74 (I_MinCryptBuildErrorPolicy.c)
  */
 
 __int64 __fastcall I_MinCryptGetSigningTime(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -29,7 +29,7 @@ __int64 __fastcall I_MinCryptGetSigningTime(__int64 a1, int a2, __int64 a3, __in
   v18[1] = 0;
   v17 = 0;
   v18[0] = 9;
-  v19 = qword_140BD94A8;
+  v19 = qword_140BE0318;
   v11 = a1 + 288;
   if ( (unsigned __int8)I_MinAsn1ParseSingleAttribute(v18, a1 + 288, a3, &v20) )
   {
@@ -39,7 +39,7 @@ LABEL_5:
     goto LABEL_7;
   }
   v18[0] = 10;
-  v19 = qword_140BD95C0;
+  v19 = qword_140BE0440;
   if ( (unsigned __int8)I_MinAsn1ParseSingleAttribute(v18, v11, v13, &v20) )
   {
     v14 = I_MinCryptVerifyRFC3161TimeStamp((unsigned int)&v20, v15, v9, a4, (__int64)&v17, a5, a6);

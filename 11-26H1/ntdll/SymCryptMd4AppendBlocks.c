@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMd4AppendBlocks @ 0x18015E2F0
+ * XREFs of SymCryptMd4AppendBlocks @ 0x18015E1F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptMd4AppendBlocks(int *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)

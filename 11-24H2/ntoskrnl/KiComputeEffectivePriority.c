@@ -1,15 +1,15 @@
 /*
- * XREFs of KiComputeEffectivePriority @ 0x1404024F0
+ * XREFs of KiComputeEffectivePriority @ 0x1403FCAF0
  * Callers:
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x14024FA80 (KiComputeThreadPriority.c)
- *     KiUpdateThreadPriority @ 0x140429720 (KiUpdateThreadPriority.c)
- *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x1405C5094 (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
- *     KiScheduleNextForegroundBoost @ 0x1405C50CC (KiScheduleNextForegroundBoost.c)
+ *     KiComputeThreadPriority @ 0x140280090 (KiComputeThreadPriority.c)
+ *     KiUpdateThreadPriority @ 0x1402E0E50 (KiUpdateThreadPriority.c)
+ *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x1405C275C (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
+ *     KiScheduleNextForegroundBoost @ 0x1405C2800 (KiScheduleNextForegroundBoost.c)
  */
 
-__int64 __fastcall KiComputeEffectivePriority(__int64 a1, int a2, unsigned __int64 a3, char a4)
+__int64 __fastcall KiComputeEffectivePriority(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
 {
   __int64 v4; // rdi
   char v5; // bp
@@ -19,7 +19,7 @@ __int64 __fastcall KiComputeEffectivePriority(__int64 a1, int a2, unsigned __int
   char v10; // dl
   char v11; // al
   char v12; // dl
-  char v13; // bl
+  unsigned __int8 v13; // bl
   unsigned int v14; // edx
   int v15; // eax
   char v16; // cl
@@ -64,7 +64,7 @@ __int64 __fastcall KiComputeEffectivePriority(__int64 a1, int a2, unsigned __int
         if ( (*(_WORD *)(v4 + 518) & 0xFF0) != 0 || v14 < 2 )
         {
 LABEL_53:
-          LOBYTE(a2) = v13;
+          a2 = v13;
           v24 = *(unsigned int *)(*(_QWORD *)(v4 + 544) + 136LL);
           v25 = v13 | 2;
           if ( (v24 & 0x2000) == 0 )
@@ -227,7 +227,7 @@ LABEL_51:
   }
   v9 = 4080LL;
   LOWORD(v9) = *(_WORD *)(v4 + 518) & 0xFF0;
-  LOBYTE(a2) = 0;
+  a2 = 256LL;
   v40 = (unsigned __int16)v9 < 0x100u;
   if ( a3 >= *(_QWORD *)(v4 + 32) )
   {
@@ -286,7 +286,7 @@ LABEL_13:
   }
 LABEL_99:
   if ( v6 != 63 )
-    KiUpdateThreadPriority(0, (_BYTE)a2, v4, v6, 0);
+    KiUpdateThreadPriority(0LL, a2, v4, v6, 0);
   if ( (v40 & 2) != 0 )
     KiScheduleNextForegroundBoost(v4);
   return v40 & 1;

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpNumaParseHmat @ 0x140A8D0E4
+ * XREFs of HalpNumaParseHmat @ 0x140A8E0E4
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A64D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpNumaQueryProximityNode @ 0x1403CF7F0 (HalpNumaQueryProximityNode.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpVerifyHmatEntryValidity @ 0x140A8D578 (HalpVerifyHmatEntryValidity.c)
+ *     HalpNumaQueryProximityNode @ 0x1403CF960 (HalpNumaQueryProximityNode.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpVerifyHmatEntryValidity @ 0x140A8E578 (HalpVerifyHmatEntryValidity.c)
  */
 
 __int64 __fastcall HalpNumaParseHmat(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int *a4)

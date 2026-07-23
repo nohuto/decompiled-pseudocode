@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsUmQueryCapabilities @ 0x1407E2730
+ * XREFs of PopDirectedDripsUmQueryCapabilities @ 0x1407E77C0
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x140772F20 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x140775F20 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     PopDirectedDripsQueryMitigationStatus @ 0x140B25D5C (PopDirectedDripsQueryMitigationStatus.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x140B27FBC (PopDirectedDripsQueryMitigationStatus.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmQueryCapabilities(_DWORD *a1, _QWORD *a2)

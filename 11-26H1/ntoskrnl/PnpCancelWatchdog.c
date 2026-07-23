@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCancelWatchdog @ 0x1409DE054
+ * XREFs of PnpCancelWatchdog @ 0x140A1B180
  * Callers:
- *     PnpDisableWatchdog @ 0x1409DDFA8 (PnpDisableWatchdog.c)
+ *     PnpDisableWatchdog @ 0x140A1B0D4 (PnpDisableWatchdog.c)
  * Callees:
- *     PnpWatchdogEtwWrite @ 0x14049FA50 (PnpWatchdogEtwWrite.c)
- *     PnpWatchdogTimerPause @ 0x1409DE0A8 (PnpWatchdogTimerPause.c)
- *     PnpRecordBlackbox @ 0x1409DE16C (PnpRecordBlackbox.c)
+ *     PnpWatchdogEtwWrite @ 0x1404995A0 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogTimerPause @ 0x140A1B1D4 (PnpWatchdogTimerPause.c)
+ *     PnpRecordBlackbox @ 0x140A1B298 (PnpRecordBlackbox.c)
  */
 
 __int64 __fastcall PnpCancelWatchdog(__int64 a1, __int64 a2)

@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlReleasePrivilege @ 0x1407DEF60
+ * XREFs of RtlReleasePrivilege @ 0x1407DF230
  * Callers:
  *     VhdiAutoAttachOneVhd @ 0x140681468 (VhdiAutoAttachOneVhd.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     ZwSetInformationThread @ 0x14041AF00 (ZwSetInformationThread.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwAdjustPrivilegesToken @ 0x14041B580 (ZwAdjustPrivilegesToken.c)
+ *     ZwSetInformationThread @ 0x14041B290 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwAdjustPrivilegesToken @ 0x14041B910 (ZwAdjustPrivilegesToken.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall RtlReleasePrivilege(__int64 *P)
+void __cdecl RtlReleasePrivilege(PVOID StatePointer)
 {
   void *v2; // rcx
   char *v3; // rcx
 
-  if ( (P[4] & 3) != 1 )
-    ZwAdjustPrivilegesToken(*P, 0LL);
-  if ( (P[4] & 1) != 0 )
+  if ( (*((_DWORD *)StatePointer + 8) & 3) != 1 )
+    ZwAdjustPrivilegesToken(*(HANDLE *)StatePointer, 0, *((PTOKEN_PRIVILEGES *)StatePointer + 2), 0, 0LL, 0LL);
+  if ( (*((_DWORD *)StatePointer + 8) & 1) != 0 )
   {
-    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, P + 1, 8u);
-    v2 = (void *)P[1];
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, (char *)StatePointer + 8, 8u);
+    v2 = (void *)*((_QWORD *)StatePointer + 1);
     if ( v2 )
       ZwClose(v2);
   }
-  v3 = (char *)P[2];
-  if ( v3 != (char *)P + 36 )
+  v3 = (char *)*((_QWORD *)StatePointer + 2);
+  if ( v3 != (char *)StatePointer + 36 )
     ExFreePoolWithTag(v3, 0);
-  ZwClose((HANDLE)*P);
-  ExFreePoolWithTag(P, 0);
+  ZwClose(*(HANDLE *)StatePointer);
+  ExFreePoolWithTag(StatePointer, 0);
 }

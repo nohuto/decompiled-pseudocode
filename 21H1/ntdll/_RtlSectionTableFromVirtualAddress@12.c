@@ -9,26 +9,31 @@
  *     <none>
  */
 
-char *__thiscall RtlSectionTableFromVirtualAddress(unsigned __int16 *this, unsigned int a2)
+PIMAGE_SECTION_HEADER __cdecl RtlSectionTableFromVirtualAddress(
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
+        ULONG VirtualAddress)
 {
-  unsigned __int16 v2; // ax
-  unsigned __int16 *v3; // edx
-  unsigned int v4; // edi
-  int v5; // ecx
-  char *v6; // edx
+  int v3; // ecx
+  unsigned __int16 v4; // ax
+  int v5; // edx
+  unsigned int v6; // edi
+  int v7; // ecx
+  _IMAGE_SECTION_HEADER *v8; // edx
 
-  v2 = this[10];
-  v3 = this + 12;
-  v4 = this[3];
-  v5 = 0;
-  v6 = (char *)v3 + v2;
-  if ( !v4 )
+  v4 = *(_WORD *)(v3 + 20);
+  v5 = v3 + 24;
+  v6 = *(unsigned __int16 *)(v3 + 6);
+  v7 = 0;
+  v8 = (_IMAGE_SECTION_HEADER *)(v4 + v5);
+  if ( !v6 )
     return 0;
-  while ( a2 < *((_DWORD *)v6 + 3) || a2 >= *((_DWORD *)v6 + 3) + *((_DWORD *)v6 + 4) )
+  while ( (unsigned int)NtHeaders < v8->VirtualAddress
+       || (unsigned int)NtHeaders >= v8->VirtualAddress + v8->SizeOfRawData )
   {
-    v6 += 40;
-    if ( ++v5 >= v4 )
+    ++v8;
+    if ( ++v7 >= v6 )
       return 0;
   }
-  return v6;
+  return v8;
 }

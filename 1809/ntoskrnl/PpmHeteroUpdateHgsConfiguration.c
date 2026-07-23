@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x14018A264
+ * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x14018A3A4
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14074F434 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140750624 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED9C0 (KeCountSetBitsAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 char PpmHeteroUpdateHgsConfiguration()
@@ -52,7 +52,7 @@ char PpmHeteroUpdateHgsConfiguration()
       memset((char *)v26 + 4, 0, 0xA4uLL);
       LODWORD(v25[0]) = 1310721;
       memset((char *)v25 + 4, 0, 0xA4uLL);
-      v23 = qword_140404158[0];
+      v23 = qword_140405158[0];
       LOWORD(v24) = 0;
       v22 = (unsigned __int16 *)PpmCheckRegistered;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
@@ -67,7 +67,7 @@ char PpmHeteroUpdateHgsConfiguration()
       }
       if ( (unsigned int)KeIsEmptyAffinityEx(v25) )
       {
-        v23 = qword_140404158[0];
+        v23 = qword_140405158[0];
         LOWORD(v24) = 0;
         v22 = (unsigned __int16 *)PpmCheckRegistered;
         while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )

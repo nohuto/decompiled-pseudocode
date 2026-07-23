@@ -1,33 +1,35 @@
 /*
- * XREFs of RtlpInitUppercaseTables @ 0x14077EC0C
+ * XREFs of RtlpInitUppercaseTables @ 0x14077EB3C
  * Callers:
- *     ExInitializeNls @ 0x140AC1714 (ExInitializeNls.c)
+ *     ExInitializeNls @ 0x140ABC9FC (ExInitializeNls.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     NtGetNlsSectionPtr @ 0x140A08EB0 (NtGetNlsSectionPtr.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     NtGetNlsSectionPtr @ 0x140A053E0 (NtGetNlsSectionPtr.c)
  */
 
 __int64 RtlpInitUppercaseTables()
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   struct _LIST_ENTRY *v1; // rbx
-  int NlsSectionPtr; // eax
-  __int64 v3; // rcx
-  __int64 v5; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS NlsSectionPtr; // eax
+  PVOID v3; // rcx
+  PVOID SectionPointer; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v5 = 0LL;
+  SectionPointer = 0LL;
   v1 = CurrentServerSiloGlobals;
-  NlsSectionPtr = NtGetNlsSectionPtr(14, 0, 0, (unsigned int)&v5, 0LL);
-  v3 = v5;
+  NlsSectionPtr = NtGetNlsSectionPtr(0xEu, 0, 0LL, &SectionPointer, 0LL);
+  v3 = SectionPointer;
   if ( NlsSectionPtr < 0 )
     v3 = 0LL;
-  v5 = v3;
+  SectionPointer = v3;
   if ( v3 )
   {
-    _InterlockedExchange64((volatile __int64 *)&v1[75], v3 + 4);
-    _InterlockedExchange64((volatile __int64 *)&v1[75].Blink, v5 + 2 * (*(unsigned __int16 *)(v5 + 2) + 2LL));
-    v1[74].Blink = (struct _LIST_ENTRY *)v5;
+    _InterlockedExchange64((volatile __int64 *)&v1[75], (__int64)v3 + 4);
+    _InterlockedExchange64(
+      (volatile __int64 *)&v1[75].Blink,
+      (__int64)SectionPointer + 2 * *((unsigned __int16 *)SectionPointer + 1) + 4);
+    v1[74].Blink = (struct _LIST_ENTRY *)SectionPointer;
   }
   else
   {

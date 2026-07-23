@@ -9,45 +9,45 @@
  *     EtwpRegistrationCompare @ 0x180038E58 (EtwpRegistrationCompare.c)
  */
 
-signed __int64 __fastcall EtwpInsertRegistration(unsigned __int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall EtwpInsertRegistration(PRTL_BALANCED_NODE Node)
 {
-  _QWORD *v5; // rbx
-  bool v6; // r8
-  _QWORD *v7; // rax
-  unsigned __int64 v9; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v10; // [rsp+28h] [rbp-10h]
+  _RTL_BALANCED_NODE *Root; // rbx
+  BOOLEAN v3; // r8
+  _RTL_BALANCED_NODE *v4; // rax
+  _RTL_BALANCED_NODE **v5; // [rsp+20h] [rbp-18h] BYREF
+  __int16 v6; // [rsp+28h] [rbp-10h]
 
-  v9 = a1 + 32;
-  v10 = *(_WORD *)(a1 + 96);
-  RtlAcquireSRWLockExclusive(&EtwpProvLock, a2, a3, a4);
-  v5 = (_QWORD *)EtwpRegistrationTable;
-  v6 = 0;
-  if ( EtwpRegistrationTable )
+  v5 = &Node[1].Children[1];
+  v6 = (__int16)Node[4].Children[0];
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  Root = EtwpRegistrationTable.Root;
+  v3 = 0;
+  if ( EtwpRegistrationTable.Root )
   {
     while ( 1 )
     {
-      if ( (int)EtwpRegistrationCompare(&v9, v5) >= 0 )
+      if ( (int)EtwpRegistrationCompare(&v5, Root) >= 0 )
       {
-        v7 = (_QWORD *)v5[1];
-        if ( !v7 )
+        v4 = Root->Children[1];
+        if ( !v4 )
         {
-          v6 = 1;
+          v3 = 1;
           break;
         }
       }
       else
       {
-        v7 = (_QWORD *)*v5;
-        if ( !*v5 )
+        v4 = Root->Children[0];
+        if ( !Root->Children[0] )
         {
-          v6 = 0;
+          v3 = 0;
           break;
         }
       }
-      v5 = v7;
+      Root = v4;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&EtwpRegistrationTable, (unsigned __int64)v5, v6, a1);
+  RtlRbInsertNodeEx(&EtwpRegistrationTable, Root, v3, Node);
   EtwpProvLockOwner = 0;
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

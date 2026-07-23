@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipLinkDataSourceToList @ 0x1409CF724
+ * XREFs of WmipLinkDataSourceToList @ 0x1409B19AC
  * Callers:
- *     WmipUpdateAddGuid @ 0x1407A5DE0 (WmipUpdateAddGuid.c)
- *     WmipAddDataSource @ 0x1409CFD60 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x1407A5F20 (WmipUpdateAddGuid.c)
+ *     WmipAddDataSource @ 0x1409B01A8 (WmipAddDataSource.c)
  * Callees:
- *     WmipRegisterEtwProvider @ 0x1407A57CC (WmipRegisterEtwProvider.c)
- *     WmipFindGEByGuid @ 0x1409CD8B0 (WmipFindGEByGuid.c)
- *     WmipAllocGuidEntry @ 0x1409D0E2C (WmipAllocGuidEntry.c)
+ *     WmipRegisterEtwProvider @ 0x1407A590C (WmipRegisterEtwProvider.c)
+ *     WmipAllocGuidEntry @ 0x1409AFDEC (WmipAllocGuidEntry.c)
+ *     WmipFindGEByGuid @ 0x1409B2884 (WmipFindGEByGuid.c)
  */
 
 __int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)
@@ -30,10 +30,10 @@ __int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)
     v9 = v5 - 5;
     if ( (*(_DWORD *)(v5 - 3) & 8) != 0 )
     {
-      GEByGuid = WmipFindGEByGuid((_QWORD *)v9[7], 0);
+      GEByGuid = (_QWORD *)WmipFindGEByGuid(v9[7], 0LL);
       if ( !GEByGuid )
       {
-        GEByGuid = (_QWORD *)WmipAllocGuidEntry();
+        GEByGuid = WmipAllocGuidEntry();
         if ( !GEByGuid )
           return (unsigned int)-1073741670;
         v15 = WmipGEHeadPtr;

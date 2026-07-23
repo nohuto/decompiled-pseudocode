@@ -10,14 +10,24 @@
  *     _UpcaseUnicodeToUTF8NHelper@20 @ 0x4B344718 (_UpcaseUnicodeToUTF8NHelper@20.c)
  */
 
-int __stdcall RtlUpcaseUnicodeToMultiByteN(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
   int v5; // edx
   char v6; // cl
 
   if ( (unsigned __int8)RtlpIsUtf8Process(0) )
-    return UpcaseUnicodeToUTF8NHelper(a3, a4, v5);
+    return UpcaseUnicodeToUTF8NHelper(BytesInMultiByteString, UnicodeString, v5);
   if ( NlsMbCodePageTag == v6 )
-    return UpcaseUnicodeToSingleByteNHelper(a3, a4, v5, NlsUnicodeToAnsiData, NlsAnsiToUnicodeData);
-  return UpcaseUnicodeToMultiByteNHelper(a3, a4, v5);
+    return UpcaseUnicodeToSingleByteNHelper(
+             BytesInMultiByteString,
+             UnicodeString,
+             v5,
+             NlsUnicodeToAnsiData,
+             NlsAnsiToUnicodeData);
+  return UpcaseUnicodeToMultiByteNHelper(BytesInMultiByteString, UnicodeString, v5);
 }

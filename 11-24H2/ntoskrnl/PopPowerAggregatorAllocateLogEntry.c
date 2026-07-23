@@ -1,28 +1,28 @@
 /*
- * XREFs of PopPowerAggregatorAllocateLogEntry @ 0x1409BD94C
+ * XREFs of PopPowerAggregatorAllocateLogEntry @ 0x1409A3F9C
  * Callers:
- *     PopPowerAggregatorSetCurrentState @ 0x140902BD0 (PopPowerAggregatorSetCurrentState.c)
- *     PopPowerAggregatorInvokeStateMachine @ 0x1409B9FD8 (PopPowerAggregatorInvokeStateMachine.c)
- *     PopPowerAggregatorRecordIntent @ 0x1409BC260 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x1409A0628 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1409A28B0 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140A6E4B0 (PopPowerAggregatorSetCurrentState.c)
  * Callees:
- *     KeQueryInterruptTimePrecise @ 0x14033BC40 (KeQueryInterruptTimePrecise.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeQueryInterruptTimePrecise @ 0x14031B120 (KeQueryInterruptTimePrecise.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-__int64 __fastcall PopPowerAggregatorAllocateLogEntry(__int64 a1, int a2)
+LARGE_INTEGER *__fastcall PopPowerAggregatorAllocateLogEntry(LARGE_INTEGER *a1, ULONG a2)
 {
-  __int64 v2; // r8
-  __int64 v5; // rbx
-  __int64 result; // rax
-  char v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 LowPart; // r8
+  LARGE_INTEGER *v5; // rbx
+  LARGE_INTEGER *result; // rax
+  LARGE_INTEGER v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(unsigned int *)(a1 + 712);
-  *(_DWORD *)(a1 + 712) = ((_BYTE)v2 + 1) & 0x1F;
-  v5 = 152 * v2 + a1;
-  memset_0((void *)(152 * v2 + a1 + 724), 0, 0x94uLL);
-  *(_DWORD *)(v5 + 720) = a2;
-  *(_QWORD *)(v5 + 728) = KeQueryInterruptTimePrecise((__int64)&v7);
-  result = v5 + 720;
-  *(_QWORD *)(v5 + 736) = *(_QWORD *)a1;
+  LowPart = a1[89].LowPart;
+  a1[89].LowPart = ((_BYTE)LowPart + 1) & 0x1F;
+  v5 = &a1[19 * LowPart];
+  memset_0((char *)&a1[19 * LowPart + 90].QuadPart + 4, 0, 0x94uLL);
+  v5[90].LowPart = a2;
+  v5[91] = KeQueryInterruptTimePrecise(&v7);
+  result = v5 + 90;
+  v5[92] = *a1;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of VslValidateDynamicCodePages @ 0x140A460AC
+ * XREFs of VslValidateDynamicCodePages @ 0x140A3BD6C
  * Callers:
- *     MmChangeImageProtection @ 0x140A45E20 (MmChangeImageProtection.c)
+ *     MmChangeImageProtection @ 0x140A3BAE0 (MmChangeImageProtection.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MmSizeOfMdl @ 0x140458550 (MmSizeOfMdl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     MmSizeOfMdl @ 0x14044DA00 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslValidateDynamicCodePages(__int64 a1, struct _MDL *a2, unsigned int a3)
@@ -49,7 +49,7 @@ __int64 __fastcall VslValidateDynamicCodePages(__int64 a1, struct _MDL *a2, unsi
     v13 = v17;
     v14 = v10[0];
     v15 = v10[7];
-    v8 = VslpEnterIumSecureMode(2u, 32LL, 0, (__int64)v11);
+    v8 = VslpEnterIumSecureMode(2u, 0x20u, 0, (__int64)v11);
     VslpUnlockPagesForTransfer(v10);
   }
   MmUnlockPages(&MemoryDescriptorList);

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeHgsPlusWorkloadClasses @ 0x140A8DEE4
+ * XREFs of KiInitializeHgsPlusWorkloadClasses @ 0x140A8DD5C
  * Callers:
  *     KiSetFeatureBits @ 0x140A8D4C4 (KiSetFeatureBits.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiInitializeHgsPlusWorkloadClasses(__int64 a1, unsigned int a2)

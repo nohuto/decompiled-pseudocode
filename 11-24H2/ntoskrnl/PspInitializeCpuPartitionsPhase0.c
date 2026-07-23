@@ -1,10 +1,10 @@
 /*
- * XREFs of PspInitializeCpuPartitionsPhase0 @ 0x140C356C8
+ * XREFs of PspInitializeCpuPartitionsPhase0 @ 0x140C37808
  * Callers:
- *     PspInitPhase0 @ 0x140C65530 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140C676AC (PspInitPhase0.c)
  * Callees:
- *     PsCreateCpuPartition @ 0x14077643C (PsCreateCpuPartition.c)
- *     PspInitializeCpuPartitionsDefaultSd @ 0x140C35470 (PspInitializeCpuPartitionsDefaultSd.c)
+ *     PsCreateCpuPartition @ 0x14077665C (PsCreateCpuPartition.c)
+ *     PspInitializeCpuPartitionsDefaultSd @ 0x140C375B0 (PspInitializeCpuPartitionsDefaultSd.c)
  */
 
 __int64 PspInitializeCpuPartitionsPhase0()
@@ -21,7 +21,7 @@ __int64 PspInitializeCpuPartitionsPhase0()
   PspCpuPartitionListLock = 0LL;
   v5 = 0;
   v1[1] = 0;
-  qword_140FD93D8 = (__int64)&PspCpuPartitionListHead;
+  qword_140FDA3F0 = (__int64)&PspCpuPartitionListHead;
   PspCpuPartitionListHead = (__int64)&PspCpuPartitionListHead;
   result = PspInitializeCpuPartitionsDefaultSd(&PsCpuPartitionDefaultSd, 0);
   if ( (int)result >= 0 )

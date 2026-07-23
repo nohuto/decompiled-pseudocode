@@ -1,9 +1,9 @@
 /*
- * XREFs of IopMarkPagesForLoadedDriverInformation @ 0x14055D52C
+ * XREFs of IopMarkPagesForLoadedDriverInformation @ 0x14055DBEC
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055CB68 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055D228 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopMarkPagesForLoadedDriverInformation(__int64 a1)

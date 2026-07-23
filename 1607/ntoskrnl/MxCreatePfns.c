@@ -4,10 +4,10 @@
  *     MiInitializePfnsForValidMappings @ 0x14078F8AC (MiInitializePfnsForValidMappings.c)
  *     MxCreatePfns @ 0x140797A68 (MxCreatePfns.c)
  * Callees:
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     MxCreatePfns @ 0x140797A68 (MxCreatePfns.c)
  *     MiIsRegularMemory @ 0x140797D00 (MiIsRegularMemory.c)
  *     MxCreatePfn @ 0x140797D78 (MxCreatePfn.c)
@@ -65,7 +65,7 @@ void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, _
             v15 = v8 & 0xFFFFFFFFFFFFFFFBuLL;
             if ( (v15 & 0x42) != 0 )
               v15 |= 0x800uLL;
-            v23 = ((unsigned __int16)v15 ^ (unsigned __int16)((unsigned __int8)word_140326AA8 << 8)) & 0x100 ^ v15;
+            v23 = ((unsigned __int16)v15 ^ (unsigned __int16)((unsigned __int8)word_140326AE8 << 8)) & 0x100 ^ v15;
             *(_QWORD *)v5 = v23;
             if ( MiPteInShadowRange(v5) )
               MiWritePteShadow(v16, v17);
@@ -95,7 +95,7 @@ void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, _
           v10 = v8 & 0xFFFFFFFFFFFFFFFBuLL;
           if ( (v10 & 0x42) != 0 )
             v10 |= 0x800uLL;
-          v23 = ((unsigned __int16)v10 ^ (unsigned __int16)((unsigned __int8)word_140326AA8 << 8)) & 0x100 ^ v10;
+          v23 = ((unsigned __int16)v10 ^ (unsigned __int16)((unsigned __int8)word_140326AE8 << 8)) & 0x100 ^ v10;
           *(_QWORD *)v5 = v23;
           if ( MiPteInShadowRange(v5) )
             MiWritePteShadow(v11, v12);

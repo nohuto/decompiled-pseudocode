@@ -1,13 +1,13 @@
 /*
- * XREFs of AllocateOrValidateCharStringBuffer @ 0x1404412E0
+ * XREFs of AllocateOrValidateCharStringBuffer @ 0x1404379D0
  * Callers:
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x14077D1A0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1408B0260 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1408B0F30 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x140A6D650 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToOemString @ 0x140AA95F0 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x14077D0D0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1409064C0 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x140907190 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x140A66D10 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x140AA46A0 (RtlUnicodeStringToOemString.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AllocateOrValidateCharStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)
@@ -18,7 +18,7 @@ __int64 __fastcall AllocateOrValidateCharStringBuffer(char a1, unsigned int a2, 
   v4 = a2;
   if ( a1 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, a2, 0x67727453u);
     *a3 = Pool2;
     if ( Pool2 )
     {

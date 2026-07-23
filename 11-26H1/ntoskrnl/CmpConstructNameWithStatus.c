@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpConstructNameWithStatus @ 0x1408C1660
+ * XREFs of CmpConstructNameWithStatus @ 0x1408C7C30
  * Callers:
- *     CmQueryLayeredKey @ 0x1404922D0 (CmQueryLayeredKey.c)
- *     CmpLoadHiveVolatile @ 0x14084D878 (CmpLoadHiveVolatile.c)
- *     CmpTraceSecurityChanging @ 0x1408BFC0C (CmpTraceSecurityChanging.c)
- *     CmCallbackGetKeyObjectID @ 0x1408C0E90 (CmCallbackGetKeyObjectID.c)
- *     CmpDoWritethroughReparse @ 0x1408C11D0 (CmpDoWritethroughReparse.c)
- *     CmpConstructAndCacheName @ 0x1408C15B0 (CmpConstructAndCacheName.c)
+ *     CmQueryLayeredKey @ 0x14048BE20 (CmQueryLayeredKey.c)
+ *     CmpLoadHiveVolatile @ 0x140853B84 (CmpLoadHiveVolatile.c)
+ *     CmpTraceSecurityChanging @ 0x1408C61DC (CmpTraceSecurityChanging.c)
+ *     CmCallbackGetKeyObjectID @ 0x1408C7460 (CmCallbackGetKeyObjectID.c)
+ *     CmpDoWritethroughReparse @ 0x1408C77A0 (CmpDoWritethroughReparse.c)
+ *     CmpConstructAndCacheName @ 0x1408C7B80 (CmpConstructAndCacheName.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1408C182C (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpConstructNameFromKeyNodes @ 0x1408D8510 (CmpConstructNameFromKeyNodes.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1408C7DFC (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1408DEAD0 (CmpConstructNameFromKeyNodes.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
 __int64 __fastcall CmpConstructNameWithStatus(__int64 a1, _QWORD *a2)

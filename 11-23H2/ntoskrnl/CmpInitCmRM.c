@@ -1,41 +1,41 @@
 /*
  * XREFs of CmpInitCmRM @ 0x14068571C
  * Callers:
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x14080AF10 (CmpFinishSystemHivesLoad.c)
- *     CmpMountPreloadedHives @ 0x1408630AC (CmpMountPreloadedHives.c)
+ *     CmpLoadKeyCommon @ 0x1402F682C (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x14080B1E0 (CmpFinishSystemHivesLoad.c)
+ *     CmpMountPreloadedHives @ 0x1408632EC (CmpMountPreloadedHives.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateResourceManager @ 0x14041C5C0 (ZwCreateResourceManager.c)
- *     ZwCreateTransactionManager @ 0x14041C720 (ZwCreateTransactionManager.c)
- *     ZwOpenResourceManager @ 0x14041D3C0 (ZwOpenResourceManager.c)
- *     ZwRecoverResourceManager @ 0x14041DC40 (ZwRecoverResourceManager.c)
- *     ZwRecoverTransactionManager @ 0x14041DC60 (ZwRecoverTransactionManager.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateResourceManager @ 0x14041C950 (ZwCreateResourceManager.c)
+ *     ZwCreateTransactionManager @ 0x14041CAB0 (ZwCreateTransactionManager.c)
+ *     ZwOpenResourceManager @ 0x14041D750 (ZwOpenResourceManager.c)
+ *     ZwRecoverResourceManager @ 0x14041DFD0 (ZwRecoverResourceManager.c)
+ *     ZwRecoverTransactionManager @ 0x14041DFF0 (ZwRecoverTransactionManager.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     CmpQueryNameString @ 0x140684F94 (CmpQueryNameString.c)
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
  *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
  *     CmpQueryFileSecurityDescriptor @ 0x14068C0AC (CmpQueryFileSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
- *     CmpStartRMLog @ 0x140872B98 (CmpStartRMLog.c)
- *     HvMarkBaseBlockDirty @ 0x14087482C (HvMarkBaseBlockDirty.c)
- *     CmpLogTxrInitEvent @ 0x140A1E4FC (CmpLogTxrInitEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
+ *     CmpStartRMLog @ 0x140872DD8 (CmpStartRMLog.c)
+ *     HvMarkBaseBlockDirty @ 0x140874A6C (HvMarkBaseBlockDirty.c)
+ *     CmpLogTxrInitEvent @ 0x140A1E7AC (CmpLogTxrInitEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)
@@ -62,7 +62,7 @@ __int64 __fastcall CmpInitCmRM(ULONG_PTR a1, char a2)
   __int128 v18; // xmm6
   void *v19; // r12
   __int64 v20; // rcx
-  int FileSecurityDescriptor; // esi
+  NTSTATUS FileSecurityDescriptor; // esi
   unsigned __int16 Length; // ax
   UNICODE_STRING *p_Source; // rbx
   PSECURITY_DESCRIPTOR v24; // rbx
@@ -104,7 +104,7 @@ __int64 __fastcall CmpInitCmRM(ULONG_PTR a1, char a2)
   UNICODE_STRING Destination; // [rsp+78h] [rbp-90h] BYREF
   FILE_OBJECT *pplfoLog; // [rsp+88h] [rbp-80h] BYREF
   PVOID ClientCookie; // [rsp+90h] [rbp-78h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+98h] [rbp-70h] BYREF
+  UNICODE_STRING GuidString; // [rsp+98h] [rbp-70h] BYREF
   UNICODE_STRING Source; // [rsp+A8h] [rbp-60h] BYREF
   UNICODE_STRING LogFileName; // [rsp+B8h] [rbp-50h] BYREF
   PSECURITY_DESCRIPTOR P; // [rsp+C8h] [rbp-40h]
@@ -118,8 +118,8 @@ __int64 __fastcall CmpInitCmRM(ULONG_PTR a1, char a2)
   __int128 v75; // [rsp+180h] [rbp+78h]
 
   v68 = a1;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  UnicodeString.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   v3 = a1;
   v75 = 0LL;
   *(_QWORD *)&Source.Length = 0LL;
@@ -226,10 +226,7 @@ LABEL_69:
   while ( 1 )
   {
     v19 = *(void **)(v5 + 1544);
-    FileSecurityDescriptor = RtlStringFromGUIDEx(
-                               (unsigned int *)(*(_QWORD *)(v5 + 64) + 148LL),
-                               (__int64)&UnicodeString,
-                               1);
+    FileSecurityDescriptor = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(v5 + 64) + 148LL), &GuidString, 1u);
     if ( FileSecurityDescriptor < 0 )
     {
       *(_DWORD *)(v5 + 4160) = 3;
@@ -252,7 +249,7 @@ LABEL_69:
       CreateOptions = 52;
       Length = 64;
     }
-    Destination.MaximumLength = UnicodeString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + Length;
+    Destination.MaximumLength = GuidString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + Length;
     Destination.Buffer = (wchar_t *)ExpAllocateStringRoutine(Destination.MaximumLength);
     if ( !Destination.Buffer )
     {
@@ -267,8 +264,8 @@ LABEL_113:
       }
       if ( pplfoLog )
         ClfsCloseLogFileObject(pplfoLog);
-      if ( UnicodeString.Buffer )
-        RtlFreeUnicodeString(&UnicodeString);
+      if ( GuidString.Buffer )
+        RtlFreeUnicodeString(&GuidString);
       if ( Source.Buffer )
         RtlFreeUnicodeString(&Source);
       if ( Destination.Buffer )
@@ -290,9 +287,9 @@ LABEL_113:
     }
     RtlAppendUnicodeStringToString(&Destination, &CmpClfsLogPrefix);
     RtlAppendUnicodeStringToString(&Destination, p_Source);
-    RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
+    RtlAppendUnicodeStringToString(&Destination, &GuidString);
     RtlAppendUnicodeStringToString(&Destination, &TmLogExt);
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeUnicodeString(&GuidString);
     if ( v3 )
       RtlFreeUnicodeString(&Source);
     FileSecurityDescriptor = CmpQueryFileSecurityDescriptor(v19);
@@ -368,7 +365,7 @@ LABEL_86:
   *(_DWORD *)v25 = 1;
   *(_DWORD *)(v25 + 12) = 9;
   v29 = v27 + 24;
-  v30 = off_140C06B78;
+  v30 = off_140C06B68;
   *(_DWORD *)(v25 + 4) = v29;
   memmove((void *)(v25 + 18), v30, v28);
   FileSecurityDescriptor = ClfsMgmtInstallPolicy(pplfoLog, v26, v29);
@@ -531,13 +528,13 @@ LABEL_51:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&CmpRmListLock);
-  v38 = (_QWORD *)qword_140C13B68;
-  if ( *(__int64 **)qword_140C13B68 != &CmpRmListHead )
+  v38 = (_QWORD *)qword_140C13B98;
+  if ( *(__int64 **)qword_140C13B98 != &CmpRmListHead )
     __fastfail(3u);
   *Pool2 = &CmpRmListHead;
   Pool2[1] = v38;
   *v38 = Pool2;
-  qword_140C13B68 = (__int64)Pool2;
+  qword_140C13B98 = (__int64)Pool2;
   ExReleaseFastMutexUnsafe(&CmpRmListLock);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v59 )

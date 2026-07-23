@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierZwOpenKeyEx @ 0x14070CDDC
+ * XREFs of VerifierZwOpenKeyEx @ 0x14070CE0C
  * Callers:
  *     <none>
  * Callees:

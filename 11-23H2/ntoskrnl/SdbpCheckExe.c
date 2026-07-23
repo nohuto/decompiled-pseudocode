@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpCheckExe @ 0x140863540
+ * XREFs of SdbpCheckExe @ 0x140863780
  * Callers:
- *     SdbpSearchDB @ 0x140752204 (SdbpSearchDB.c)
+ *     SdbpSearchDB @ 0x1407523F4 (SdbpSearchDB.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpCheckForMatch @ 0x1407569FC (SdbpCheckForMatch.c)
+ *     SdbpCheckForMatch @ 0x140756BEC (SdbpCheckForMatch.c)
  */
 
 __int64 __fastcall SdbpCheckExe(int a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5, int a6, int *a7, void *a8)

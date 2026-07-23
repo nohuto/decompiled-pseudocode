@@ -3,16 +3,16 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
+ *     sub_140224100 @ 0x140224100 (sub_140224100.c)
  *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiIpiSendPacket @ 0x1402F38C4 (KiIpiSendPacket.c)
- *     KiAcquireThreadStateLock @ 0x140344DD0 (KiAcquireThreadStateLock.c)
- *     KiStartThreadCycleAccumulation @ 0x140345B70 (KiStartThreadCycleAccumulation.c)
- *     KiEndThreadCycleAccumulation @ 0x140345C80 (KiEndThreadCycleAccumulation.c)
- *     KiReleaseThreadStateLock @ 0x14035D0F8 (KiReleaseThreadStateLock.c)
+ *     sub_1402F32E0 @ 0x1402F32E0 (sub_1402F32E0.c)
+ *     sub_1402F38C4 @ 0x1402F38C4 (sub_1402F38C4.c)
+ *     sub_140344DD0 @ 0x140344DD0 (sub_140344DD0.c)
+ *     sub_140345B70 @ 0x140345B70 (sub_140345B70.c)
+ *     sub_140345C80 @ 0x140345C80 (sub_140345C80.c)
+ *     sub_14035D0F8 @ 0x14035D0F8 (sub_14035D0F8.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     memset @ 0x140435E00 (memset.c)
  */
 
@@ -20,10 +20,10 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
 {
   __int64 v3; // rdx
   __int64 v4; // r8
-  _DWORD *SchedulerAssist; // r9
+  __int64 v5; // r9
   unsigned __int8 CurrentIrql; // si
   struct _KPRCB *CurrentPrcb; // rbx
-  _DWORD *v8; // rcx
+  __int64 v8; // rcx
   struct _KPRCB *v9; // rbx
   char v10; // al
   __int64 result; // rax
@@ -31,13 +31,13 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
   char v13; // al
   int v14; // ebx
   unsigned __int8 v15; // cl
-  _DWORD *v16; // r9
-  _DWORD *v17; // rcx
+  __int64 v16; // r9
+  __int64 v17; // rcx
   int v18; // eax
   int v19; // eax
   unsigned __int8 v20; // al
   struct _KPRCB *v21; // r9
-  _DWORD *v22; // r8
+  __int64 v22; // r8
   int v23; // eax
   bool v24; // zf
   int v25; // [rsp+30h] [rbp-D0h] BYREF
@@ -52,43 +52,43 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
   v27 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    v5 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
     v3 = (-1LL << (CurrentIrql + 1)) & 4;
-    v4 = (unsigned int)v3 | SchedulerAssist[5];
-    SchedulerAssist[5] = v4;
+    v4 = (unsigned int)v3 | *(_DWORD *)(v5 + 20);
+    *(_DWORD *)(v5 + 20) = v4;
   }
   CurrentPrcb = KeGetCurrentPrcb();
   v25 = 0;
   while ( 1 )
   {
-    v8 = CurrentPrcb->SchedulerAssist;
+    v8 = *((_QWORD *)CurrentPrcb + 4375);
     if ( v8 )
     {
-      if ( CurrentPrcb->NestingLevel <= 1u )
+      if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
       {
-        v18 = v8[6];
-        v8[6] = v18 + 1;
+        v18 = *(_DWORD *)(v8 + 24);
+        *(_DWORD *)(v8 + 24) = v18 + 1;
         if ( v18 == -1 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
       break;
-    v17 = CurrentPrcb->SchedulerAssist;
+    v17 = *((_QWORD *)CurrentPrcb + 4375);
     if ( v17 )
     {
-      if ( CurrentPrcb->NestingLevel <= 1u )
+      if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
       {
-        v19 = v17[6] - 1;
-        v17[6] = v19;
+        v19 = *(_DWORD *)(v17 + 24) - 1;
+        *(_DWORD *)(v17 + 24) = v19;
         if ( !v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v25, v3, v4, (__int64)SchedulerAssist);
+      sub_1402F32E0(&v25, v3, v4, v5);
     while ( *(_QWORD *)(a1 + 64) );
   }
   if ( *(unsigned __int8 *)(a1 + 124) != v29 )
@@ -98,23 +98,19 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
       v9 = KeGetCurrentPrcb();
       v26 = v9;
       _disable();
-      KiEndThreadCycleAccumulation((__int64)v9, a1, 0LL, 0LL);
+      sub_140345C80((__int64)v9, a1, 0LL, 0LL);
       v10 = v29;
       if ( v29 )
         _interlockedbittestandset((volatile signed __int32 *)a1, 0x14u);
       else
         _interlockedbittestandreset((volatile signed __int32 *)a1, 0x14u);
       *(_BYTE *)(a1 + 124) = v10;
-      KiStartThreadCycleAccumulation((__int64)v9, a1, 0);
+      sub_140345B70((__int64)v9, a1, 0);
       _enable();
     }
     else
     {
-      if ( (unsigned __int8)KiAcquireThreadStateLock(
-                              a1,
-                              (__int64)&v26,
-                              (volatile signed __int32 **)&v27,
-                              (__int64)SchedulerAssist) == 2
+      if ( (unsigned __int8)sub_140344DD0(a1, (__int64)&v26, (volatile signed __int32 **)&v27, v5) == 2
         || *(_BYTE *)(a1 + 113) )
       {
         v14 = *(_DWORD *)(a1 + 536);
@@ -123,14 +119,14 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
         KeAddProcessorAffinityEx((unsigned __int16 *)v28, v14 & 0x7FFFFFFF);
         v15 = KeGetCurrentIrql();
         __writecr8(0xCuLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
+        if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && v15 <= 0xFu )
         {
-          v16 = KeGetCurrentPrcb()->SchedulerAssist;
-          v16[5] |= (-1 << (v15 + 1)) & 0x1FFC;
+          v16 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+          *(_DWORD *)(v16 + 20) |= (-1 << (v15 + 1)) & 0x1FFC;
         }
-        KiIpiSendPacket(0, (int)v28, (__int64)KiIpiUpdateThreadTag, a1, (__int64)&v29, 0LL);
+        sub_1402F38C4(0, (int)v28, (__int64)sub_140377070, a1, (__int64)&v29, 0LL);
         v12 = KeGetCurrentPrcb();
-        while ( v12->PacketBarrier )
+        while ( *((_DWORD *)v12 + 2912) )
           _mm_pause();
       }
       else
@@ -142,24 +138,24 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
           _interlockedbittestandreset((volatile signed __int32 *)a1, 0x14u);
         *(_BYTE *)(a1 + 124) = v13;
       }
-      KiReleaseThreadStateLock((__int64)v12, (__int64)v26, v27);
+      sub_14035D0F8((__int64)v12, (__int64)v26, v27);
     }
   }
-  KiReleaseThreadLockSafe(a1);
-  if ( KiIrqlFlags )
+  sub_140224100(a1);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v20 = KeGetCurrentIrql();
       if ( v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
       {
         v21 = KeGetCurrentPrcb();
-        v22 = v21->SchedulerAssist;
+        v22 = *((_QWORD *)v21 + 4375);
         v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v24 = (v23 & v22[5]) == 0;
-        v22[5] &= v23;
+        v24 = (v23 & *(_DWORD *)(v22 + 20)) == 0;
+        *(_DWORD *)(v22 + 20) &= v23;
         if ( v24 )
-          KiRemoveSystemWorkPriorityKick(v21);
+          sub_140418E4C(v21);
       }
     }
   }

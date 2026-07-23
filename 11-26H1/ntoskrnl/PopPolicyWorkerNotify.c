@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPolicyWorkerNotify @ 0x140AEC0E0
+ * XREFs of PopPolicyWorkerNotify @ 0x140AEF0F0
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPolicyWorkerNotify(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall PopPolicyWorkerNotify(__int64 a1, __int64 a2)
 
   while ( 1 )
   {
-    v2 = _InterlockedExchange(&dword_140F10E40, 0);
+    v2 = _InterlockedExchange(&PopNotifyEvents, 0);
     if ( !v2 )
       break;
     while ( v2 )

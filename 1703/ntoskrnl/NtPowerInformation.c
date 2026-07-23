@@ -112,7 +112,7 @@ NTSTATUS __stdcall NtPowerInformation(
 {
   __int64 v9; // r8
   __int64 v10; // r9
-  struct _PROCESSOR_NUMBER *PoolWithTag; // rsi
+  _PROCESSOR_NUMBER *PoolWithTag; // rsi
   __int64 v12; // rdx
   KPROCESSOR_MODE PreviousMode; // si
   ULONG v14; // r15d
@@ -136,7 +136,7 @@ NTSTATUS __stdcall NtPowerInformation(
   int v32; // eax
   ULONG v33; // r15d
   unsigned __int64 v35; // rax
-  struct _PROCESSOR_NUMBER v36; // ebx
+  _PROCESSOR_NUMBER v36; // ebx
   NTSTATUS v37; // eax
   bool v38; // sf
   int v39; // eax
@@ -220,7 +220,7 @@ NTSTATUS __stdcall NtPowerInformation(
   v90 = 0;
   Size_4 = 0;
   v101 = 0;
-  if ( (unsigned int)InformationLevel <= (TraceApplicationPowerMessage|0x40) )
+  if ( (unsigned int)InformationLevel <= UpdateBlackBoxRecorder )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     Size_5 = PreviousMode;
@@ -237,7 +237,7 @@ NTSTATUS __stdcall NtPowerInformation(
         && (v15 = 0x209E02E385CA1E1FLL, _bittest64((const __int64 *)&v15, v18)) )
       {
         IsAppContainerOrIdentifyLevelContext = -1073741790;
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         v30 = 0;
         goto LABEL_69;
       }
@@ -249,35 +249,35 @@ NTSTATUS __stdcall NtPowerInformation(
         v99 = IsAppContainerOrIdentifyLevelContext;
         if ( IsAppContainerOrIdentifyLevelContext < 0 )
         {
-          PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+          PoolWithTag = (_PROCESSOR_NUMBER *)psz;
           InputBuffer = Length_4;
           v30 = 0;
           goto LABEL_69;
         }
         if ( v98 )
         {
-          if ( InformationLevel != (AdministratorPowerPolicy|0x40) && InformationLevel != (SystemPowerLoggingEntry|0x40) )
+          if ( InformationLevel != ScreenOff && InformationLevel != ThermalStandby )
           {
             IsAppContainerOrIdentifyLevelContext = -1073741790;
             v99 = -1073741790;
-            PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+            PoolWithTag = (_PROCESSOR_NUMBER *)psz;
             InputBuffer = Length_4;
             v30 = 0;
             goto LABEL_69;
           }
-          v100 = PopCapabilityCheck();
+          v100 = PopCapabilityCheck(v15);
           if ( !v100 )
           {
             IsAppContainerOrIdentifyLevelContext = -1073741790;
             v99 = -1073741790;
-            PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+            PoolWithTag = (_PROCESSOR_NUMBER *)psz;
             InputBuffer = Length_4;
             v30 = 0;
             goto LABEL_69;
           }
         }
       }
-      if ( InformationLevel == PowerInformationLevelUnused1
+      if ( InformationLevel == SystemMonitorHiberBootPowerOff
         || (v20 = (unsigned int)(InformationLevel - 45), (unsigned int)v20 <= 0x30)
         && (v15 = 0x1800200000021LL, _bittest64((const __int64 *)&v15, v20)) )
       {
@@ -285,7 +285,7 @@ NTSTATUS __stdcall NtPowerInformation(
         {
           IsAppContainerOrIdentifyLevelContext = -1073741790;
           v99 = -1073741790;
-          PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+          PoolWithTag = (_PROCESSOR_NUMBER *)psz;
           InputBuffer = Length_4;
           v30 = 0;
           goto LABEL_69;
@@ -300,7 +300,7 @@ NTSTATUS __stdcall NtPowerInformation(
           {
             IsAppContainerOrIdentifyLevelContext = -1073741637;
             v99 = -1073741637;
-            PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+            PoolWithTag = (_PROCESSOR_NUMBER *)psz;
             InputBuffer = Length_4;
             v30 = 0;
             goto LABEL_69;
@@ -314,7 +314,7 @@ NTSTATUS __stdcall NtPowerInformation(
           {
             IsAppContainerOrIdentifyLevelContext = -1073741790;
             v99 = -1073741790;
-            PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+            PoolWithTag = (_PROCESSOR_NUMBER *)psz;
             InputBuffer = Length_4;
             v30 = 0;
             goto LABEL_69;
@@ -339,7 +339,7 @@ NTSTATUS __stdcall NtPowerInformation(
             {
               IsAppContainerOrIdentifyLevelContext = -1073741727;
               v99 = -1073741727;
-              PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+              PoolWithTag = (_PROCESSOR_NUMBER *)psz;
               InputBuffer = Length_4;
               v30 = 0;
               goto LABEL_69;
@@ -354,7 +354,7 @@ NTSTATUS __stdcall NtPowerInformation(
         }
         if ( v14 > 0x40 )
         {
-          PoolWithTag = (struct _PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, v14, 0x206D654Du);
+          PoolWithTag = (_PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, v14, 0x206D654Du);
           psz = &PoolWithTag->Group;
           if ( !PoolWithTag )
           {
@@ -367,7 +367,7 @@ NTSTATUS __stdcall NtPowerInformation(
         }
         else
         {
-          PoolWithTag = (struct _PROCESSOR_NUMBER *)v107;
+          PoolWithTag = (_PROCESSOR_NUMBER *)v107;
           psz = (STRSAFE_PCNZWCH)v107;
         }
         memmove(PoolWithTag, Length_4, v14);
@@ -375,7 +375,7 @@ NTSTATUS __stdcall NtPowerInformation(
       else
       {
         v21 = 11;
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
       }
       if ( v16 )
         ProbeForWrite(v16, Length, 1u);
@@ -383,7 +383,7 @@ NTSTATUS __stdcall NtPowerInformation(
     }
     else
     {
-      PoolWithTag = (struct _PROCESSOR_NUMBER *)v15;
+      PoolWithTag = (_PROCESSOR_NUMBER *)v15;
       psz = (STRSAFE_PCNZWCH)v15;
       v21 = 11;
     }
@@ -400,8 +400,8 @@ NTSTATUS __stdcall NtPowerInformation(
     }
     switch ( InformationLevel )
     {
-      case 0:
-      case 1:
+      case SystemPowerPolicyAc:
+      case SystemPowerPolicyDc:
         if ( !PoolWithTag )
         {
           if ( !v16 )
@@ -416,8 +416,8 @@ LABEL_328:
         if ( IsAppContainerOrIdentifyLevelContext >= 0 )
           goto LABEL_328;
         goto LABEL_134;
-      case 2:
-      case 3:
+      case VerifySystemPolicyAc:
+      case VerifySystemPolicyDc:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 < 0xE8 )
@@ -430,7 +430,7 @@ LABEL_329:
         Src = v71;
         Size = 232;
         goto LABEL_61;
-      case 4:
+      case SystemPowerCapabilities:
         if ( !PoolWithTag )
         {
           if ( !v16 )
@@ -462,11 +462,11 @@ LABEL_106:
 LABEL_327:
         IsAppContainerOrIdentifyLevelContext = -1073741789;
         goto LABEL_134;
-      case 5:
+      case SystemBatteryState:
         if ( !PoolWithTag && v16 )
           goto LABEL_60;
         goto LABEL_318;
-      case 6:
+      case SystemPowerStateHandler:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 < 0x18 )
@@ -561,18 +561,18 @@ LABEL_67:
           IsAppContainerOrIdentifyLevelContext = 0;
         }
         goto LABEL_68;
-      case 7:
+      case ProcessorStateHandler:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         Src = &PpmProcessorDriverDispatchTable;
         Size = 248;
         goto LABEL_61;
-      case 8:
+      case SystemPowerPolicyCurrent:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         v71 = PopPolicy;
         goto LABEL_329;
-      case 9:
+      case AdministratorPowerPolicy:
         if ( PoolWithTag )
         {
           if ( v14 < 0x18 )
@@ -596,7 +596,7 @@ LABEL_68:
         Src = &PopAdminPolicy;
         Size = 24;
         goto LABEL_61;
-      case 10:
+      case SystemReserveHiberFile:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( !v14 )
@@ -609,7 +609,7 @@ LABEL_68:
         PopReleasePolicyLock();
         KeSetEvent(&PopTransitionLock, 0, 0);
         goto LABEL_92;
-      case 11:
+      case ProcessorInformation:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         IsAppContainerOrIdentifyLevelContext = PopProcessorInformation(
@@ -617,13 +617,13 @@ LABEL_68:
                                                  v12,
                                                  KeGetCurrentPrcb()->Group,
                                                  &Size);
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         v30 = v90;
         if ( IsAppContainerOrIdentifyLevelContext < 0 )
           goto LABEL_68;
         Src = v106;
         goto LABEL_62;
-      case 12:
+      case SystemPowerInformation:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         LODWORD(v106[0]) = 0;
@@ -633,35 +633,35 @@ LABEL_68:
         Src = v106;
         Size = 16;
         goto LABEL_61;
-      case 13:
-      case 18:
-      case 19:
-      case 20:
-      case 21:
-      case 22:
-      case 32:
-      case 33:
-      case 34:
-      case 49:
-      case 52:
-      case 53:
-      case 54:
-      case 79:
-      case 80:
-      case 81:
-      case 82:
+      case ProcessorStateHandler2:
+      case ProcessorPowerPolicyAc:
+      case ProcessorPowerPolicyDc:
+      case VerifyProcessorPowerPolicyAc:
+      case VerifyProcessorPowerPolicyDc:
+      case ProcessorPowerPolicyCurrent:
+      case ProcessorPerfStates:
+      case ProcessorIdleStates:
+      case ProcessorCap:
+      case ProcessorIdleDomains:
+      case ProcessorIdleStatesHv:
+      case ProcessorPerfStatesHv:
+      case ProcessorPerfCapHv:
+      case RegisterSpmPowerSettings:
+      case PlatformIdleStates:
+      case ProcessorIdleVeto:
+      case PlatformIdleVeto:
         goto LABEL_330;
-      case 14:
+      case LastWakeTime:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         v66 = &qword_14034B1C8;
         goto LABEL_229;
-      case 15:
+      case LastSleepTime:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         v66 = &qword_14034B1D0;
         goto LABEL_229;
-      case 16:
+      case SystemExecutionState:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         if ( dword_14033B6D0 )
@@ -671,7 +671,7 @@ LABEL_68:
         Src = v106;
         Size = 4;
         goto LABEL_61;
-      case 17:
+      case SystemPowerStateNotifyHandler:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 < 0x10 )
@@ -680,7 +680,7 @@ LABEL_68:
           goto LABEL_318;
         PopPowerStateNotifyHandler = *(_OWORD *)&PoolWithTag->Group;
         goto LABEL_61;
-      case 23:
+      case SystemPowerStateLogging:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         IsAppContainerOrIdentifyLevelContext = PopLoggingInformation(P, &v102);
@@ -689,14 +689,14 @@ LABEL_68:
         Src = P[0];
         Size = v102;
         goto LABEL_61;
-      case 24:
+      case SystemPowerLoggingEntry:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 < 8 )
           goto LABEL_327;
         v40 = PopLogSleepDisabled(*(_DWORD *)PoolWithTag, *(_DWORD *)&PoolWithTag[1], 0LL, 0LL);
         goto LABEL_119;
-      case 25:
+      case SetPowerSettingValue:
         if ( !PoolWithTag )
           goto LABEL_318;
         if ( v16 )
@@ -732,15 +732,15 @@ LABEL_68:
         if ( v14 < v78 )
           goto LABEL_318;
         ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         v40 = PopSetPowerSettingValue((LPCGUID)(psz + 2), ProcessSessionId, v103, v77, (void *)(psz + 14));
         goto LABEL_119;
-      case 28:
+      case SystemMonitorHiberBootPowerOff:
         PopSuspendResumePdc(1LL, v12);
         PopHiberBootForceMonitorOff = 1;
         SettingValue = PoPowerOffMonitor();
         goto LABEL_133;
-      case 29:
+      case SystemVideoState:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         Size = 4;
@@ -752,8 +752,8 @@ LABEL_68:
         Size_4 = 1;
         *v47 = PopConsoleDisplayState;
         goto LABEL_62;
-      case 30:
-      case 31:
+      case TraceApplicationPowerMessage:
+      case TraceApplicationPowerMessageEnd:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 < 8 )
@@ -763,7 +763,7 @@ LABEL_68:
         else
           PopDiagTraceAppPowerMessageEnd(PoolWithTag, v12);
         goto LABEL_61;
-      case 35:
+      case SystemWakeSource:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         if ( (_BYTE)v12 )
@@ -793,7 +793,7 @@ LABEL_295:
         if ( IsAppContainerOrIdentifyLevelContext < 0 )
           goto LABEL_68;
         goto LABEL_62;
-      case 36:
+      case SystemHiberFileInformation:
         if ( !v16 )
           goto LABEL_318;
         if ( (_DWORD)dword_14034B2C0 && qword_14034B2B8 )
@@ -817,7 +817,7 @@ LABEL_401:
           IsAppContainerOrIdentifyLevelContext = -1073741275;
         }
         goto LABEL_134;
-      case 37:
+      case TraceServicePowerMessage:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( Size_5 != 1 )
@@ -836,7 +836,7 @@ LABEL_401:
           goto LABEL_134;
         PopDiagTraceServiceNotification(PoolWithTag);
         goto LABEL_61;
-      case 38:
+      case ProcessorLoad:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 == 6 )
@@ -848,7 +848,7 @@ LABEL_401:
           goto LABEL_409;
         v37 = PpmClearSimulatedLoad(PoolWithTag);
         goto LABEL_91;
-      case 39:
+      case PowerShutdownNotification:
         if ( !PoolWithTag || v16 || v14 != 24 )
           goto LABEL_318;
         v68 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x206D654Du);
@@ -863,15 +863,15 @@ LABEL_401:
           goto LABEL_107;
         ExFreePoolWithTag(v68, 0x206D654Du);
         IsAppContainerOrIdentifyLevelContext = -1073741823;
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         goto LABEL_134;
-      case 40:
+      case MonitorCapabilities:
         if ( !PoolWithTag || v14 != 4 || v16 )
           goto LABEL_318;
         v101 = *PoolWithTag != 0;
         PopSetPowerSettingValueAcDc(&GUID_VIDEO_BRIGHTNESS_CAPABLE);
         goto LABEL_61;
-      case 41:
+      case SessionPowerInit:
         if ( PoolWithTag )
           goto LABEL_318;
         if ( !v16 )
@@ -907,9 +907,9 @@ LABEL_401:
         PopPrintEx(3u, (__int64)"PopAdaptive: Session %u is started\n", v58);
         PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CREATED, v58, 0);
         PopReleasePolicyLock();
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         goto LABEL_142;
-      case 42:
+      case SessionDisplayState:
         if ( !PoolWithTag || v14 != 16 || v16 )
           goto LABEL_318;
         if ( HIBYTE(PoolWithTag[3].Group) && LOBYTE(PoolWithTag[3].Group) )
@@ -922,7 +922,7 @@ LABEL_401:
         if ( !PoolWithTag[3].Number )
           goto LABEL_151;
         if ( LOBYTE(PoolWithTag[3].Group) )
-          ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&PoolWithTag[1], 4LL);
+          ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &PoolWithTag[1], 4u, 0LL, 0LL, 0, 0);
         if ( !PoolWithTag[3].Number )
           goto LABEL_151;
         PopDiagTraceSessionDisplayStateChange(
@@ -931,8 +931,8 @@ LABEL_401:
           LOBYTE(PoolWithTag[3].Group),
           *(_DWORD *)&PoolWithTag[2]);
         goto LABEL_61;
-      case 43:
-      case 72:
+      case PowerRequestCreate:
+      case PlmPowerRequestCreate:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 != 40 )
@@ -940,22 +940,22 @@ LABEL_401:
         v33 = Length;
         if ( Length != 8 )
           goto LABEL_327;
-        LOBYTE(v12) = InformationLevel == 72;
+        LOBYTE(v12) = InformationLevel == PlmPowerRequestCreate;
         Info = PopPowerRequestCreateInfo(PoolWithTag, v12, v106);
         goto LABEL_140;
-      case 44:
+      case PowerRequestAction:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 != 24 )
           goto LABEL_327;
         v40 = PopPowerRequestActionInfo(PoolWithTag, v12);
         goto LABEL_119;
-      case 45:
+      case GetPowerRequestList:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         PowerRequestListInfo = PopGetPowerRequestListInfo(&Src, &Size);
         goto LABEL_434;
-      case 46:
+      case ProcessorInformationEx:
         if ( !PoolWithTag )
           goto LABEL_318;
         if ( v14 < 2 )
@@ -970,7 +970,7 @@ LABEL_401:
           goto LABEL_134;
         Src = v106;
         goto LABEL_61;
-      case 47:
+      case NotifyUserModeLegacyPowerEvent:
         if ( !PoolWithTag || v14 != 16 )
           goto LABEL_318;
         IsAppContainerOrIdentifyLevelContext = PopUmpoSendLegacyEvent(PoolWithTag, v12);
@@ -979,7 +979,7 @@ LABEL_401:
         if ( IsAppContainerOrIdentifyLevelContext != -1073741536 )
           goto LABEL_134;
         goto LABEL_61;
-      case 48:
+      case GroupPark:
         if ( !(_BYTE)KdDebuggerEnabled )
           goto LABEL_392;
         if ( !PoolWithTag || v16 )
@@ -993,7 +993,7 @@ LABEL_401:
           goto LABEL_409;
         v37 = PpmParkClearForcedMask(PoolWithTag, v12);
         goto LABEL_91;
-      case 50:
+      case WakeTimerList:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         PowerRequestListInfo = ExGetWakeTimerList(&Src, &Size);
@@ -1003,7 +1003,7 @@ LABEL_434:
           goto LABEL_134;
         Size_4 = 1;
         goto LABEL_61;
-      case 51:
+      case SystemHiberFileSize:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 < 4 )
@@ -1012,7 +1012,7 @@ LABEL_434:
         PopAcquirePolicyLock();
         v76 = PopSetHiberFileSize(*(_DWORD *)PoolWithTag, v104);
         goto LABEL_368;
-      case 55:
+      case ProcessorSetIdle:
         if ( !(_BYTE)KdDebuggerEnabled )
           goto LABEL_392;
         if ( !PoolWithTag || v16 )
@@ -1032,7 +1032,7 @@ LABEL_409:
           v37 = PpmClearSimulatedIdle(PoolWithTag);
         }
         goto LABEL_91;
-      case 56:
+      case LogicalProcessorIdling:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 != 8 )
@@ -1049,7 +1049,7 @@ LABEL_409:
         Src = v106;
         Size = 4;
         goto LABEL_142;
-      case 57:
+      case UserPresence:
         if ( !ExVerifySuite(PhoneNT) )
         {
 LABEL_330:
@@ -1064,7 +1064,7 @@ LABEL_119:
         IsAppContainerOrIdentifyLevelContext = v40;
         v38 = v40 < 0;
         goto LABEL_93;
-      case 58:
+      case PowerSettingNotificationName:
         InputBuffer = Length_4;
         if ( v16 )
         {
@@ -1079,21 +1079,21 @@ LABEL_119:
         }
         v30 = v90;
         goto LABEL_69;
-      case 59:
+      case GetPowerSettingValue:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 != 16 || Length < 4 )
           goto LABEL_327;
         SettingValue = PopGetSettingValue(PoolWithTag, v16, Length);
         goto LABEL_133;
-      case 60:
+      case IdleResiliency:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 < 8 )
           goto LABEL_327;
         PopEnforceResiliencyScenarios(PoolWithTag);
         goto LABEL_61;
-      case 61:
+      case SessionRITState:
         if ( !PoolWithTag )
           goto LABEL_318;
         if ( v14 != 8 )
@@ -1104,10 +1104,10 @@ LABEL_119:
         if ( Length != 8 )
           goto LABEL_318;
         v48 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         PopSessionInputChange(v48, (char *)psz, v16);
         goto LABEL_142;
-      case 62:
+      case SessionConnectNotification:
         if ( !PoolWithTag )
           goto LABEL_318;
         if ( v14 != 2 )
@@ -1120,7 +1120,7 @@ LABEL_119:
         v62 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
         PopSessionConnectionChange(v62, psz, v16);
         v64 = (unsigned int)PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         if ( xmmword_14036E6F0 )
         {
           LOBYTE(v63) = *((_BYTE *)psz + 1);
@@ -1128,7 +1128,7 @@ LABEL_119:
           xmmword_14036E6F0(v64, v63, v65);
         }
         goto LABEL_142;
-      case 63:
+      case SessionPowerCleanup:
         if ( PoolWithTag || v16 )
           goto LABEL_318;
         v69 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -1138,14 +1138,14 @@ LABEL_119:
         if ( TtmpEnabled == 1 )
           TtmCleanupCurrentSession();
         goto LABEL_107;
-      case 64:
+      case SessionLockState:
         if ( !PoolWithTag || v14 != 8 || v16 )
           goto LABEL_318;
         v70 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+        PoolWithTag = (_PROCESSOR_NUMBER *)psz;
         PopSessionWinlogonNotification(v70, (__int64)psz);
         goto LABEL_61;
-      case 65:
+      case SystemHiberbootState:
         if ( PsIsCurrentThreadInServerSilo() )
           goto LABEL_350;
         if ( PoolWithTag || !v16 )
@@ -1155,17 +1155,17 @@ LABEL_119:
           PopReadHiberbootPolicy((char *)&v106[2] + 2);
         v42 = (char *)&v106[2] + 2;
         goto LABEL_124;
-      case 66:
+      case PlatformInformation:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         IsDevicePotentialDripsConstraint = PopPlatformAoAc;
         goto LABEL_123;
-      case 67:
+      case PdcInvocation:
         if ( !PoolWithTag || v14 != 128 || v16 && Length != 184 )
           goto LABEL_318;
         SettingValue = PopPdcInvocation(PoolWithTag, v16);
         goto LABEL_133;
-      case 68:
+      case MonitorInvocation:
         if ( !PoolWithTag || v14 != 8 || v16 || Length )
           goto LABEL_318;
         IsAppContainerOrIdentifyLevelContext = 0;
@@ -1181,23 +1181,27 @@ LABEL_119:
             {
               PopLastStandbyExitScenarioId = PopWdiCurrentScenarioInstanceId;
               ZwUpdateWnfStateData(
-                (__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED,
-                (__int64)&PopLastStandbyExitScenarioId,
-                1LL);
+                &WNF_PO_MODERN_STANDBY_EXIT_INITIATED,
+                &PopLastStandbyExitScenarioId,
+                1u,
+                0LL,
+                0LL,
+                0,
+                0);
             }
           }
         }
         goto LABEL_134;
-      case 69:
+      case FirmwareTableInformationRegistered:
         if ( PoolWithTag || v16 )
           goto LABEL_318;
         IsAppContainerOrIdentifyLevelContext = PopInitPlatformSettings(v15, v12);
         byte_14034BC94 = PopPlatformAoAc;
         goto LABEL_134;
-      case 70:
+      case SetShutdownSelectedTime:
         PopShutdownButtonPressTime = KeQueryPerformanceCounter(0LL).QuadPart;
         goto LABEL_61;
-      case 71:
+      case SuspendResumeInvocation:
         if ( !PoolWithTag || v14 != 8 || v16 && Length )
           goto LABEL_318;
         IsAppContainerOrIdentifyLevelContext = 0;
@@ -1208,16 +1212,16 @@ LABEL_119:
         LOBYTE(v10) = PoolWithTag[1].Number;
         SettingValue = xmmword_14036E700(*(_DWORD *)PoolWithTag, v12, v9, v10);
         goto LABEL_133;
-      case 73:
-      case 88:
+      case ScreenOff:
+      case ThermalStandby:
         if ( PoolWithTag || v16 )
           goto LABEL_318;
-        if ( InformationLevel == (SystemPowerLoggingEntry|0x40) )
+        if ( InformationLevel == ThermalStandby )
           v21 = 23;
         PopScreenOff(v21, v12);
         IsAppContainerOrIdentifyLevelContext = 0;
         goto LABEL_134;
-      case 74:
+      case CsDeviceNotification:
         if ( Size_5 )
           goto LABEL_392;
         if ( !PoolWithTag || v14 != 16 || v16 || Length )
@@ -1226,7 +1230,7 @@ LABEL_119:
 LABEL_133:
         IsAppContainerOrIdentifyLevelContext = SettingValue;
         goto LABEL_134;
-      case 75:
+      case PlatformRole:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         v39 = PopPlatformRole;
@@ -1239,7 +1243,7 @@ LABEL_133:
         LODWORD(v106[0]) = v39;
         Size = 4;
         goto LABEL_106;
-      case 76:
+      case LastResumePerformance:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         LODWORD(v106[0]) = qword_14034B628;
@@ -1254,7 +1258,7 @@ LABEL_133:
         }
         IsAppContainerOrIdentifyLevelContext = -1073741823;
         goto LABEL_68;
-      case 77:
+      case DisplayBurst:
         if ( PoolWithTag || v16 )
           goto LABEL_318;
         v87 = PopErrataReportingIncorrectLidState;
@@ -1263,7 +1267,7 @@ LABEL_133:
           v88 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
           TtmNotifySessionDisplayBurst(v88, 6LL);
 LABEL_107:
-          PoolWithTag = (struct _PROCESSOR_NUMBER *)psz;
+          PoolWithTag = (_PROCESSOR_NUMBER *)psz;
           goto LABEL_61;
         }
         v89 = 0;
@@ -1282,7 +1286,7 @@ LABEL_151:
 LABEL_142:
         v30 = v90;
         goto LABEL_63;
-      case 78:
+      case ExitLatencySamplingPercentage:
         if ( Size_5 != 1 )
         {
 LABEL_392:
@@ -1302,7 +1306,7 @@ LABEL_392:
           PpmClearExitLatencySamplingPercentage();
         }
         goto LABEL_61;
-      case 83:
+      case SystemBatteryStatePrecise:
         if ( PoolWithTag || !v16 )
           goto LABEL_318;
         PopBatteryUpdateCurrentState(v15, v12);
@@ -1311,14 +1315,14 @@ LABEL_60:
         Src = v106;
         Size = 32;
         goto LABEL_61;
-      case 84:
+      case ThermalEvent:
         if ( !PoolWithTag || v16 )
           goto LABEL_318;
         if ( v14 < 0x10 || v14 < 2 * (unsigned int)PoolWithTag[3].Group + 14 )
           goto LABEL_327;
         v40 = PopThermalProcessUsermodeEvent(PoolWithTag, v12);
         goto LABEL_119;
-      case 85:
+      case PowerRequestActionInternal:
         v83 = (unsigned int)PoolWithTag[2];
         v84 = *(_QWORD *)&PoolWithTag->Group;
         if ( LOBYTE(PoolWithTag[3].Group) )
@@ -1326,7 +1330,7 @@ LABEL_60:
         else
           PoClearPowerRequestInternal(v84, v83);
         goto LABEL_61;
-      case 86:
+      case BatteryDeviceState:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         IsAppContainerOrIdentifyLevelContext = RtlStringCbLengthW(&PoolWithTag->Group, v14, 0LL);
@@ -1338,7 +1342,7 @@ LABEL_60:
         Src = v106;
         Size = 52;
         goto LABEL_61;
-      case 87:
+      case PowerInformationInternal:
         if ( !PoolWithTag )
           goto LABEL_318;
         if ( v14 < 8 )
@@ -1382,7 +1386,7 @@ LABEL_93:
         if ( v38 )
           goto LABEL_134;
         goto LABEL_61;
-      case 89:
+      case SystemHiberFileType:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 < 4 )
@@ -1401,12 +1405,12 @@ LABEL_229:
         Src = v66;
         Size = 8;
         goto LABEL_61;
-      case 90:
+      case PhysicalPowerButtonPress:
         if ( !PoolWithTag || v14 < 4 || v16 )
           goto LABEL_318;
         PopUpdatePowerButtonHoldState(*PoolWithTag != 0);
         goto LABEL_61;
-      case 91:
+      case QueryPotentialDripsConstraint:
         if ( !PopPlatformAoAc )
         {
 LABEL_350:
@@ -1427,7 +1431,7 @@ LABEL_124:
         Src = v42;
         Size = 1;
         goto LABEL_61;
-      case 92:
+      case EnergyTrackerCreate:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 != 12 )
@@ -1443,7 +1447,7 @@ LABEL_140:
         Src = v106;
         Size = 8;
         goto LABEL_142;
-      case 93:
+      case EnergyTrackerQuery:
         if ( !PoolWithTag || !v16 )
           goto LABEL_318;
         if ( v14 != 8 )
@@ -1455,7 +1459,7 @@ LABEL_140:
         if ( IsAppContainerOrIdentifyLevelContext >= 0 )
           goto LABEL_142;
         goto LABEL_134;
-      case 94:
+      case UpdateBlackBoxRecorder:
         if ( !PoolWithTag || v16 || Length )
           goto LABEL_318;
         if ( v14 != 32 )
@@ -1478,7 +1482,7 @@ LABEL_69:
     ExFreePoolWithTag(Src, 0x206D654Du);
   if ( v30 )
     PopReleasePolicyLock();
-  if ( PoolWithTag && PoolWithTag != InputBuffer && PoolWithTag != (struct _PROCESSOR_NUMBER *)v107 )
+  if ( PoolWithTag && PoolWithTag != InputBuffer && PoolWithTag != (_PROCESSOR_NUMBER *)v107 )
     ExFreePoolWithTag(PoolWithTag, 0x206D654Du);
   return IsAppContainerOrIdentifyLevelContext;
 }

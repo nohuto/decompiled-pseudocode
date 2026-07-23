@@ -1,22 +1,22 @@
 /*
- * XREFs of MiResolvePrivateZeroFault @ 0x14026A380
+ * XREFs of MiResolvePrivateZeroFault @ 0x14026A610
  * Callers:
- *     MiZeroFault @ 0x140232320 (MiZeroFault.c)
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
+ *     MiZeroFault @ 0x1402323F0 (MiZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiCompletePrivateZeroFault @ 0x14026A980 (MiCompletePrivateZeroFault.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiAdvanceFaultList @ 0x1402EE7F4 (MiAdvanceFaultList.c)
- *     MiComputeZeroClusterMaximum @ 0x1402F28B0 (MiComputeZeroClusterMaximum.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14033EAC4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiGetClusterPage @ 0x140669FF4 (MiGetClusterPage.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiCompletePrivateZeroFault @ 0x14026AC10 (MiCompletePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiGetLargePage @ 0x1402D7D10 (MiGetLargePage.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E17F0 (MiProtectionToCacheAttribute.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiAdvanceFaultList @ 0x1402EEA84 (MiAdvanceFaultList.c)
+ *     MiComputeZeroClusterMaximum @ 0x1402F2B40 (MiComputeZeroClusterMaximum.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x14033ED54 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiGetClusterPage @ 0x14066A544 (MiGetClusterPage.c)
  */
 
 __int64 __fastcall MiResolvePrivateZeroFault(int *a1)

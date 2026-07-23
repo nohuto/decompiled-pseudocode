@@ -4,18 +4,18 @@
  *     LdrpLoadForwardedDll @ 0x180016C08 (LdrpLoadForwardedDll.c)
  *     LdrpLoadDll @ 0x18001733C (LdrpLoadDll.c)
  *     LdrpFindLoadedDll @ 0x18001DB20 (LdrpFindLoadedDll.c)
- *     LdrLoadEnclaveModule @ 0x1800CCFC0 (LdrLoadEnclaveModule.c)
- *     LdrpEnclaveAddDependentModule @ 0x1800CD57C (LdrpEnclaveAddDependentModule.c)
- *     LdrpAddRedirectedFunction @ 0x1800D4C94 (LdrpAddRedirectedFunction.c)
+ *     LdrLoadEnclaveModule @ 0x1800CCF80 (LdrLoadEnclaveModule.c)
+ *     LdrpEnclaveAddDependentModule @ 0x1800CD53C (LdrpEnclaveAddDependentModule.c)
+ *     LdrpAddRedirectedFunction @ 0x1800D4C54 (LdrpAddRedirectedFunction.c)
  * Callees:
  *     LdrpApplyFileNameRedirection @ 0x18001A514 (LdrpApplyFileNameRedirection.c)
  *     LdrpAppendUnicodeStringToFilenameBuffer @ 0x18001A8AC (LdrpAppendUnicodeStringToFilenameBuffer.c)
  *     RtlDetermineDosPathNameType_Ustr @ 0x18001C1AC (RtlDetermineDosPathNameType_Ustr.c)
  *     LdrpGetFullPath @ 0x18006099C (LdrpGetFullPath.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, int a3, int *a4)
+__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3, int *a4)
 {
   bool v5; // zf
   int FullPath; // ebx
@@ -38,7 +38,7 @@ __int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 
   v9 = 0;
   if ( v5 )
   {
-    FullPath = LdrpApplyFileNameRedirection(a3, (_DWORD)a1, a3, (_DWORD)a2, (__int64)&v21);
+    FullPath = LdrpApplyFileNameRedirection(a3, a1, a3, a2, &v21);
     if ( FullPath < 0 )
       goto LABEL_23;
     v9 = v21;
@@ -95,7 +95,7 @@ LABEL_12:
       if ( (unsigned __int64)j < v13 )
       {
 LABEL_29:
-        FullPath = LdrpAppendUnicodeStringToFilenameBuffer(a2, L"\b\n");
+        FullPath = LdrpAppendUnicodeStringToFilenameBuffer(a2, &LdrpDefaultExtension);
         goto LABEL_23;
       }
       if ( *j == 46 )

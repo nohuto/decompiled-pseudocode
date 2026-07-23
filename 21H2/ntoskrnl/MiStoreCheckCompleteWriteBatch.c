@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreCheckCompleteWriteBatch @ 0x1402D25A0
+ * XREFs of MiStoreCheckCompleteWriteBatch @ 0x140250970
  * Callers:
- *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
- *     MiModifiedPageWriter @ 0x1403BDB20 (MiModifiedPageWriter.c)
+ *     MiWriteComplete @ 0x1402766E0 (MiWriteComplete.c)
+ *     MiModifiedPageWriter @ 0x1403BF240 (MiModifiedPageWriter.c)
  * Callees:
- *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x1402CEE50 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
+ *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x14024D350 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
  */
 
 void __fastcall MiStoreCheckCompleteWriteBatch(__int64 a1)

@@ -1,19 +1,19 @@
 /*
- * XREFs of IoGetAttachedDevice @ 0x14044F180
+ * XREFs of IoGetAttachedDevice @ 0x1404472B0
  * Callers:
- *     NtSetInformationFile @ 0x14026A2F0 (NtSetInformationFile.c)
- *     IopAttachDeviceToDeviceStackSafe @ 0x14044EEC4 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoAdjustStackSizeForRedirection @ 0x1404F24B0 (IoAdjustStackSizeForRedirection.c)
- *     PipSendGuestAssignedNotification @ 0x1407B4B18 (PipSendGuestAssignedNotification.c)
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     NtUnlockFile @ 0x1409B0030 (NtUnlockFile.c)
- *     NtQueryInformationFile @ 0x1409B4B00 (NtQueryInformationFile.c)
- *     IopDeleteFile @ 0x140A1ECD0 (IopDeleteFile.c)
- *     IopCloseFile @ 0x140A1EFA0 (IopCloseFile.c)
- *     FsRtlQueryOpen @ 0x140ABB7B4 (FsRtlQueryOpen.c)
- *     IopShutdownBaseFileSystems @ 0x140BF150C (IopShutdownBaseFileSystems.c)
- *     VfFilterAttach @ 0x140C3BD80 (VfFilterAttach.c)
+ *     NtSetInformationFile @ 0x140269860 (NtSetInformationFile.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140446FF4 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoAdjustStackSizeForRedirection @ 0x1404EBA90 (IoAdjustStackSizeForRedirection.c)
+ *     PipSendGuestAssignedNotification @ 0x1407B7B78 (PipSendGuestAssignedNotification.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     NtUnlockFile @ 0x1409810F0 (NtUnlockFile.c)
+ *     NtQueryInformationFile @ 0x140985BC0 (NtQueryInformationFile.c)
+ *     IopDeleteFile @ 0x140A282F0 (IopDeleteFile.c)
+ *     IopCloseFile @ 0x140A285C0 (IopCloseFile.c)
+ *     FsRtlQueryOpen @ 0x140ABD4B8 (FsRtlQueryOpen.c)
+ *     IopShutdownBaseFileSystems @ 0x140BF750C (IopShutdownBaseFileSystems.c)
+ *     VfFilterAttach @ 0x140C41D90 (VfFilterAttach.c)
  * Callees:
  *     <none>
  */

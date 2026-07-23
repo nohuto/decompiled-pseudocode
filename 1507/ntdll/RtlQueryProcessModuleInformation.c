@@ -20,34 +20,54 @@ __int64 __fastcall RtlQueryProcessModuleInformation(__int64 a1, __int16 a2, __in
   void *DebugInfo; // rax
   void *v10; // rbx
   int ProcessModuleInformation; // eax
-  char v13; // [rsp+50h] [rbp+8h] BYREF
-  size_t Size; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int Enumerator; // [rsp+58h] [rbp+10h] BYREF
 
   v4 = a1;
   v5 = (a1 == 0 ? 2 : 0) | ((unsigned __int8)a2 >> 6) & 1;
   v6 = a2 & 0x100;
   if ( (a2 & 0x100) != 0 )
-    ProcessModuleInformationEx2 = LdrQueryProcessModuleInformationEx2(a1, v5, 0, 0, (__int64)&Size);
+    ProcessModuleInformationEx2 = LdrQueryProcessModuleInformationEx2(
+                                    a1,
+                                    v5,
+                                    0,
+                                    0,
+                                    (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)&Enumerator);
   else
-    ProcessModuleInformationEx2 = LdrQueryProcessModuleInformationEx(a1, v5, 0, 0, (__int64)&Size);
+    ProcessModuleInformationEx2 = LdrQueryProcessModuleInformationEx(
+                                    a1,
+                                    v5,
+                                    0,
+                                    0,
+                                    (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)&Enumerator);
   v8 = ProcessModuleInformationEx2;
   if ( ProcessModuleInformationEx2 == -1073741820 )
   {
-    DebugInfo = (void *)RtlpCommitQueryDebugInfo(a3, (unsigned int)Size);
+    DebugInfo = (void *)RtlpCommitQueryDebugInfo(a3, Enumerator);
     v10 = DebugInfo;
     if ( DebugInfo )
     {
-      memset(DebugInfo, 0, (unsigned int)Size);
+      memset(DebugInfo, 0, Enumerator);
       if ( v6 )
-        ProcessModuleInformation = LdrQueryProcessModuleInformationEx2(v4, v5, (_DWORD)v10, Size, (__int64)&v13);
+        ProcessModuleInformation = LdrQueryProcessModuleInformationEx2(
+                                     v4,
+                                     v5,
+                                     (int)v10,
+                                     Enumerator,
+                                     (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)&v13);
       else
-        ProcessModuleInformation = LdrQueryProcessModuleInformationEx(v4, v5, (_DWORD)v10, Size, (__int64)&v13);
+        ProcessModuleInformation = LdrQueryProcessModuleInformationEx(
+                                     v4,
+                                     v5,
+                                     (int)v10,
+                                     Enumerator,
+                                     (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)&v13);
       if ( ProcessModuleInformation >= 0 )
       {
         *(_QWORD *)(a3 + 96) = v10;
         return 0LL;
       }
-      RtlpDeCommitQueryDebugInfo(a3, v10, (unsigned int)Size);
+      RtlpDeCommitQueryDebugInfo(a3, v10, Enumerator);
     }
     else
     {

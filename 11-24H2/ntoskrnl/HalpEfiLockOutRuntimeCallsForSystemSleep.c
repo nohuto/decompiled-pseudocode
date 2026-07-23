@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x1403BC158
+ * XREFs of HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x1403755D8
  * Callers:
- *     HalpDispatchSystemStateTransition @ 0x1404BD3D0 (HalpDispatchSystemStateTransition.c)
+ *     HalpDispatchSystemStateTransition @ 0x1404B8540 (HalpDispatchSystemStateTransition.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x1403BC0C0 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375540 (HalQueryMaximumProcessorCount.c)
  */
 
 __int64 __fastcall HalpEfiLockOutRuntimeCallsForSystemSleep(char a1)

@@ -2,12 +2,12 @@
  * XREFs of ExAcquireAutoExpandPushLockShared @ 0x14029EDB0
  * Callers:
  *     FsRtlLookupPerFileContext @ 0x140258F50 (FsRtlLookupPerFileContext.c)
- *     MiLockAwePagesShared @ 0x1405AB994 (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x1405AB9F0 (MiLockAweVadsShared.c)
+ *     sub_1405AB994 @ 0x1405AB994 (sub_1405AB994.c)
+ *     sub_1405AB9F0 @ 0x1405AB9F0 (sub_1405AB9F0.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14029F6A8 (KiAbTryReclaimOrphanedEntries.c)
+ *     sub_140287F30 @ 0x140287F30 (sub_140287F30.c)
+ *     sub_14029F350 @ 0x14029F350 (sub_14029F350.c)
+ *     sub_14029F6A8 @ 0x14029F6A8 (sub_14029F6A8.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -17,9 +17,9 @@ ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParamet
   __int64 v4; // rdi
   int v5; // esi
   struct _KTHREAD *CurrentThread; // rbp
-  unsigned int AbEntrySummary; // eax
+  unsigned int v7; // eax
   __int64 v8; // rcx
-  int SessionId; // eax
+  int v9; // eax
   unsigned int v10; // eax
   ULONG_PTR v11; // rbx
   unsigned __int64 v13; // r9
@@ -36,19 +36,18 @@ ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParamet
   {
     CurrentThread = KeGetCurrentThread();
     _disable();
-    AbEntrySummary = CurrentThread->AbEntrySummary;
-    if ( CurrentThread->AbEntrySummary
-      || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(BugCheckParameter2, CurrentThread)) != 0 )
+    v7 = *((unsigned __int8 *)CurrentThread + 792);
+    if ( *((_BYTE *)CurrentThread + 792) || (v7 = sub_14029F6A8(BugCheckParameter2, CurrentThread)) != 0 )
     {
-      _BitScanForward((unsigned int *)&v8, AbEntrySummary);
-      CurrentThread->AbEntrySummary = AbEntrySummary & ~(1 << v8);
+      _BitScanForward((unsigned int *)&v8, v7);
+      *((_BYTE *)CurrentThread + 792) = v7 & ~(1 << v8);
       _enable();
-      v4 = (__int64)(&CurrentThread[1].Process + 12 * v8);
+      v4 = (__int64)CurrentThread + 96 * v8 + 1696;
       if ( BugCheckParameter2 - qword_140C50630 < 0x8000000000LL )
-        SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+        v9 = sub_140287F30(*((_QWORD *)CurrentThread + 23));
       else
-        SessionId = -1;
-      *(_DWORD *)(v4 + 8) = SessionId;
+        v9 = -1;
+      *(_DWORD *)(v4 + 8) = v9;
       *(_QWORD *)v4 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
     }
   }
@@ -58,18 +57,18 @@ ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParamet
     v13 = v10;
     v14 = (v10 >> 13) & 0x3FFFF;
     _BitScanReverse(&v15, v14);
-    v16 = (volatile signed __int64 *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v15 - 2)
+    v16 = (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb() + 4310) + 8LL * (v15 - 2))
                                                 + 8LL * (v14 ^ (1 << v15))
                                                 + 8)
                                     + 8 * ((v13 >> 4) & 0x1FF));
     if ( _InterlockedCompareExchange64(v16, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx(v16, v2, v4, BugCheckParameter2);
+      sub_14029F350(v16, v2, v4, BugCheckParameter2);
     v11 = (ULONG_PTR)v16;
   }
   else
   {
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx(BugCheckParameter2, v2, v4, BugCheckParameter2);
+      sub_14029F350(BugCheckParameter2, v2, v4, BugCheckParameter2);
     v11 = BugCheckParameter2 | 1;
   }
   if ( !v5 )

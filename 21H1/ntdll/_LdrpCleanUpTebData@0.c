@@ -13,7 +13,7 @@ struct _TEB *__stdcall LdrpCleanUpTebData()
   result = NtCurrentTeb();
   if ( result->ResourceRetValue )
   {
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)NtCurrentTeb()->ResourceRetValue);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, NtCurrentTeb()->ResourceRetValue);
     result = NtCurrentTeb();
     result->ResourceRetValue = 0;
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpTxtRegionSize @ 0x140129BF0
+ * XREFs of BgpTxtRegionSize @ 0x14012A160
  * Callers:
  *     AnFwConfigureProgressResources @ 0x140727B18 (AnFwConfigureProgressResources.c)
  *     ResFwConfigureDisplayStringResources @ 0x140727BF4 (ResFwConfigureDisplayStringResources.c)

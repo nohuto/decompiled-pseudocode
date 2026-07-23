@@ -26,7 +26,7 @@ __int64 __fastcall sub_180002A00(__int64 a1, __int128 *a2, __int64 a3, _OWORD *a
   else
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(87LL);
+      RtlSetLastWin32Error(87);
     v9 = 0LL;
   }
   if ( !v9 )

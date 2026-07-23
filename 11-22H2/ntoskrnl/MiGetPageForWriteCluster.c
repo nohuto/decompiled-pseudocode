@@ -37,7 +37,9 @@ unsigned __int64 __fastcall MiGetPageForWriteCluster(
   {
     *a5 = MiReferencePageForModifiedWrite(v9, 0);
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v13 = v18[0];
       if ( v18[0] <= 0xFu && CurrentIrql >= 2u )

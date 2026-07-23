@@ -1,15 +1,15 @@
 /*
- * XREFs of MiExpandSystemCache @ 0x1400A2B00
+ * XREFs of MiExpandSystemCache @ 0x1400A1428
  * Callers:
- *     MiObtainSystemCacheView @ 0x140019B70 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1400196F0 (MiObtainSystemCacheView.c)
  * Callees:
- *     InsertTailListPte @ 0x140017ED0 (InsertTailListPte.c)
- *     MiObtainSystemVa @ 0x1400A3024 (MiObtainSystemVa.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     MiSetSystemCacheReverseMap @ 0x1401E6E68 (MiSetSystemCacheReverseMap.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     InsertTailListPte @ 0x140017A50 (InsertTailListPte.c)
+ *     MiObtainSystemVa @ 0x1400A194C (MiObtainSystemVa.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     MiSetSystemCacheReverseMap @ 0x1401E6C94 (MiSetSystemCacheReverseMap.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -26,7 +26,7 @@ __int64 MiExpandSystemCache()
   __int64 v8; // rbx
   __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( (unsigned __int64)qword_140326AC8 <= 0x4000000 )
+  if ( (unsigned __int64)qword_140326B08 <= 0x4000000 )
     return 0LL;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x140uLL, 0x6353694Du);
   v2 = PoolWithTag;
@@ -61,7 +61,7 @@ __int64 MiExpandSystemCache()
   MiSetSystemCacheReverseMap(v7, v2);
   do
   {
-    InsertTailListPte(&qword_140326D40);
+    InsertTailListPte(&qword_140326D80);
     v8 += 512LL;
     --v3;
   }

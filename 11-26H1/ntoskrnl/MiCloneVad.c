@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCloneVad @ 0x14030A8F8
+ * XREFs of MiCloneVad @ 0x1402EC978
  * Callers:
- *     MiCloneVadTree @ 0x1409618E4 (MiCloneVadTree.c)
+ *     MiCloneVadTree @ 0x140A075D8 (MiCloneVadTree.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
- *     MiUnlockClonePageTable @ 0x14030B67C (MiUnlockClonePageTable.c)
- *     MiGetNextPageTable @ 0x140318050 (MiGetNextPageTable.c)
- *     MiCloneWriteWatch @ 0x140703194 (MiCloneWriteWatch.c)
- *     MiUpdateForkMaps @ 0x140AF443C (MiUpdateForkMaps.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
+ *     MiUnlockClonePageTable @ 0x1402ED6FC (MiUnlockClonePageTable.c)
+ *     MiGetNextPageTable @ 0x14031A080 (MiGetNextPageTable.c)
+ *     MiCloneWriteWatch @ 0x140707E64 (MiCloneWriteWatch.c)
+ *     MiUpdateForkMaps @ 0x140AF6AB0 (MiUpdateForkMaps.c)
  */
 
 __int64 __fastcall MiCloneVad(const __m128i *a1)

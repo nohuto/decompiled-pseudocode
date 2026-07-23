@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmSetDeviceMappedProperty @ 0x14073A544
+ * XREFs of _CmSetDeviceMappedProperty @ 0x14073A704
  * Callers:
- *     _PnpDispatchDevice @ 0x14063C410 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x14072CA88 (_CmDeleteDeviceWorker.c)
+ *     _PnpDispatchDevice @ 0x140631220 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x14072CF38 (_CmDeleteDeviceWorker.c)
  * Callees:
- *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
- *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x1407307CC (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140733B4C (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14073A788 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _CmSetDeviceMappedPropertyFromRegProp @ 0x14073A964 (_CmSetDeviceMappedPropertyFromRegProp.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407460B4 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14097BA48 (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmIsRootDevice @ 0x14060FAF4 (_CmIsRootDevice.c)
+ *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140730998 (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140733D0C (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14073A948 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromRegProp @ 0x14073AB24 (_CmSetDeviceMappedPropertyFromRegProp.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140746274 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14097BC28 (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedProperty(
@@ -69,7 +69,7 @@ __int64 __fastcall CmSetDeviceMappedProperty(
       if ( v11 != -1073741802 )
         return v11;
 LABEL_7:
-      v15 = &off_1409868A0;
+      v15 = &off_140986A80;
       v16 = 0;
       while ( 1 )
       {
@@ -93,7 +93,7 @@ LABEL_7:
         CmSetDeviceMappedPropertyFromDriverKeyRegValue(a1, (int)a2, a5, a6, Time, a8);
       v11 = -1073741802;
 LABEL_10:
-      v18 = &off_140983DC0;
+      v18 = &off_140983FA0;
       v19 = 0;
       while ( 1 )
       {
@@ -121,7 +121,7 @@ LABEL_10:
       if ( v11 != -1073741802 )
         return v11;
 LABEL_13:
-      v21 = &off_140985DB0;
+      v21 = &off_140985F90;
       v22 = 0;
       while ( 1 )
       {

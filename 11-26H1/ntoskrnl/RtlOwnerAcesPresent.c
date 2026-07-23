@@ -1,63 +1,64 @@
 /*
- * XREFs of RtlOwnerAcesPresent @ 0x14041A340
+ * XREFs of RtlOwnerAcesPresent @ 0x140411B90
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
-char __fastcall RtlOwnerAcesPresent(__int64 a1)
+BOOLEAN __cdecl RtlOwnerAcesPresent(PACL pAcl)
 {
   _WORD *SeOwnerRightsSid; // rbp
-  char *v2; // rbx
-  unsigned int v3; // esi
+  PACL v2; // rbx
+  unsigned int AceCount; // esi
   unsigned int i; // edi
-  unsigned __int8 v5; // cl
-  char *v6; // rcx
+  UCHAR AclRevision; // cl
+  USHORT *p_AceCount; // rcx
 
   SeOwnerRightsSid = SeExports->SeOwnerRightsSid;
-  if ( a1 )
+  if ( pAcl )
   {
-    v2 = (char *)(a1 + 8);
-    v3 = *(unsigned __int16 *)(a1 + 4);
+    v2 = pAcl + 1;
+    AceCount = pAcl->AceCount;
     for ( i = 0; ; ++i )
     {
-      if ( i >= v3 )
+      if ( i >= AceCount )
         return 0;
-      if ( (v2[1] & 8) != 0 )
+      if ( (v2->Sbz1 & 8) != 0 )
         goto LABEL_14;
-      v5 = *v2;
-      if ( (unsigned __int8)*v2 >= 5u && v5 <= 8u || (unsigned __int8)(v5 - 11) <= 1u )
+      AclRevision = v2->AclRevision;
+      if ( v2->AclRevision >= 5u && AclRevision <= 8u || (unsigned __int8)(AclRevision - 11) <= 1u )
       {
-LABEL_21:
-        v6 = &v2[16 * (*((_DWORD *)v2 + 2) & 1) + ((8LL * (*((_DWORD *)v2 + 2) & 2)) | 0xC)];
+LABEL_20:
+        p_AceCount = (USHORT *)((char *)&v2[2 * (*(_DWORD *)&v2[1].AclRevision & 1)]
+                              + ((8LL * (*(_DWORD *)&v2[1].AclRevision & 2)) | 0xC));
         goto LABEL_11;
       }
-      if ( v5 >= 0xFu )
+      if ( AclRevision >= 0xFu )
         break;
-      if ( v5 == 4 )
+      if ( AclRevision == 4 )
       {
-        v6 = v2 + 12;
+        p_AceCount = &v2[1].AceCount;
         goto LABEL_11;
       }
-      if ( v5 >= 0xBu )
-        goto LABEL_23;
+      if ( AclRevision >= 0xBu )
+        goto LABEL_22;
 LABEL_10:
-      v6 = v2 + 8;
+      p_AceCount = (USHORT *)&v2[1];
 LABEL_11:
-      if ( v6
-        && *(_WORD *)v6 == *SeOwnerRightsSid
-        && !memcmp(v6, SeOwnerRightsSid, 4 * ((unsigned __int64)*(unsigned __int16 *)v6 >> 8) + 8) )
+      if ( p_AceCount
+        && *p_AceCount == *SeOwnerRightsSid
+        && !memcmp(p_AceCount, SeOwnerRightsSid, 4 * ((unsigned __int64)*p_AceCount >> 8) + 8) )
       {
         return 1;
       }
 LABEL_14:
-      v2 += *((unsigned __int16 *)v2 + 1);
+      v2 = (PACL)((char *)v2 + v2->AclSize);
     }
-    if ( v5 <= 0x10u )
-      goto LABEL_21;
-LABEL_23:
-    if ( (unsigned __int8)(v5 - 13) > 1u )
+    if ( AclRevision <= 0x10u )
+      goto LABEL_20;
+LABEL_22:
+    if ( (unsigned __int8)(AclRevision - 13) > 1u )
       goto LABEL_14;
     goto LABEL_10;
   }

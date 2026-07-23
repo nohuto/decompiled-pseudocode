@@ -1,8 +1,8 @@
 /*
  * XREFs of MiGetClosestNodeWithProcessors @ 0x140200B4C
  * Callers:
- *     MiCreateZeroThreadContext @ 0x140773624 (MiCreateZeroThreadContext.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     MiCreateZeroThreadContext @ 0x140776624 (MiCreateZeroThreadContext.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     KeQueryNodeGroupAffinity @ 0x14020183C (KeQueryNodeGroupAffinity.c)
  */
@@ -14,7 +14,7 @@ __int64 __fastcall MiGetClosestNodeWithProcessors(int a1)
   unsigned int v3; // edi
   __int64 v4; // rcx
 
-  v1 = (unsigned int *)(qword_140E2D690 + 4LL * (unsigned int)(unsigned __int16)KeNumberNodes * a1);
+  v1 = (unsigned int *)(qword_140E2D810 + 4LL * (unsigned int)(unsigned __int16)KeNumberNodes * a1);
   v2 = &v1[(unsigned __int16)KeNumberNodes];
   while ( v1 < v2 )
   {

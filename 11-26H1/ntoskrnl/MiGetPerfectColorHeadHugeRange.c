@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetPerfectColorHeadHugeRange @ 0x1406EBC70
+ * XREFs of MiGetPerfectColorHeadHugeRange @ 0x1406F0910
  * Callers:
- *     MiGetPerfectFreeOrZeroHugeRange @ 0x1406EBEB0 (MiGetPerfectFreeOrZeroHugeRange.c)
- *     MiRemoveHugeRangeAnyColor @ 0x1406ED810 (MiRemoveHugeRangeAnyColor.c)
+ *     MiGetPerfectFreeOrZeroHugeRange @ 0x1406F0B50 (MiGetPerfectFreeOrZeroHugeRange.c)
+ *     MiRemoveHugeRangeAnyColor @ 0x1406F24B0 (MiRemoveHugeRangeAnyColor.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiUnlinkHugeRangeEx @ 0x14048E398 (MiUnlinkHugeRangeEx.c)
- *     MiGetColorHeadHugeRangeBase @ 0x14048E87C (MiGetColorHeadHugeRangeBase.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiUnlinkHugeRangeEx @ 0x140487ED8 (MiUnlinkHugeRangeEx.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404883BC (MiGetColorHeadHugeRangeBase.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _QWORD *__fastcall MiGetPerfectColorHeadHugeRange(__int64 a1)
@@ -38,14 +38,14 @@ _QWORD *__fastcall MiGetPerfectColorHeadHugeRange(__int64 a1)
   v8 = (*(_QWORD *)(ColorHeadHugeRangeBase + 8 * Cache) >> 15) & 0x3FFFFFLL;
   if ( ((*(_QWORD *)(ColorHeadHugeRangeBase + 8 * Cache) >> 15) & 0x3FFFFF) == 0 )
     return 0LL;
-  while ( !_bittest64(*(const signed __int64 **)&stru_140E2EB88.WaitRegister.Flags, v8) )
+  while ( !_bittest64(*(const signed __int64 **)&stru_140E2ED08.WaitRegister.Flags, v8) )
   {
 LABEL_21:
     v8 = (*(_QWORD *)(ColorHeadHugeRangeBase + 8 * Cache) >> 15) & 0x3FFFFFLL;
     if ( ((*(_QWORD *)(ColorHeadHugeRangeBase + 8 * Cache) >> 15) & 0x3FFFFF) == 0 )
       return 0LL;
   }
-  v9 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v8);
+  v9 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v8);
   if ( (v1 & 1) != 0 )
   {
     CurrentIrql = 17;
@@ -64,11 +64,11 @@ LABEL_21:
   MiLockHugePfnAtDpc((__int64)v9);
   if ( ((*v9 >> 4) & 0x7FFLL) != v14 || (*v9 & 7) != v15 )
   {
-    v11 = (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
+    v11 = (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
 LABEL_17:
     v6 = ~(1 << v11);
     _InterlockedAnd(
-      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber + 4 * ((unsigned __int64)v11 >> 5)),
+      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber + 4 * ((unsigned __int64)v11 >> 5)),
       v6);
     if ( CurrentIrql != 17 )
     {
@@ -88,16 +88,16 @@ LABEL_17:
   if ( v8 != ((*(_QWORD *)(ColorHeadHugeRangeBase + 8 * Cache) >> 15) & 0x3FFFFFLL) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(ColorHeadHugeRangeBase + 8 * Cache), 0xFFFFFFFFFFFFFFF7uLL);
-    v11 = (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
+    v11 = (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
     goto LABEL_17;
   }
   MiUnlinkHugeRangeEx(*(_QWORD *)(*(_QWORD *)a1 + 13896LL), v8, 0);
   _InterlockedAnd64((volatile signed __int64 *)(ColorHeadHugeRangeBase + 8 * Cache), 0xFFFFFFFFFFFFFFF7uLL);
   _InterlockedAnd(
-    (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+    (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                               + 4
-                              * (((((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-    ~(1 << (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                              * (((((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+    ~(1 << (((__int64)v9 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
   if ( CurrentIrql != 17 )
   {
     if ( KiIrqlFlags )

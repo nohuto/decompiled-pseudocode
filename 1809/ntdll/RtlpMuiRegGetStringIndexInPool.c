@@ -4,7 +4,7 @@
  *     RtlpMuiRegGetOrAddStringToPool @ 0x1800403A8 (RtlpMuiRegGetOrAddStringToPool.c)
  *     RtlCultureNameToLCID @ 0x180040460 (RtlCultureNameToLCID.c)
  * Callees:
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetStringIndexInPool(__int64 a1, const wchar_t *a2)

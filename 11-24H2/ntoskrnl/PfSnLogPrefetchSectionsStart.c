@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogPrefetchSectionsStart @ 0x140954C4C
+ * XREFs of PfSnLogPrefetchSectionsStart @ 0x1409385FC
  * Callers:
- *     PfSnPrefetchSections @ 0x140954784 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSections @ 0x140938134 (PfSnPrefetchSections.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogPrefetchSectionsStart(__int64 a1, int a2, int a3)
@@ -35,9 +35,9 @@ void __fastcall PfSnLogPrefetchSectionsStart(__int64 a1, int a2, int a3)
     v22 = a3;
     v21 = a2;
     v5 = 0;
-    if ( qword_140E67108 )
+    if ( qword_140E67258 )
     {
-      if ( EtwEventEnabled(qword_140E67108, &PfSnEvt_PrefetchSections_Start) )
+      if ( EtwEventEnabled(qword_140E67258, &PfSnEvt_PrefetchSections_Start) )
       {
         v4 = -1LL;
         do
@@ -59,7 +59,7 @@ void __fastcall PfSnLogPrefetchSectionsStart(__int64 a1, int a2, int a3)
         v16 = 4LL;
         v18 = 4LL;
         v20 = 1LL;
-        EtwWrite(qword_140E67108, &PfSnEvt_PrefetchSections_Start, 0LL, 7u, &UserData);
+        EtwWrite(qword_140E67258, &PfSnEvt_PrefetchSections_Start, 0LL, 7u, &UserData);
       }
     }
   }

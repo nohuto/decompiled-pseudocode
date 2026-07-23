@@ -24,7 +24,7 @@ __int64 PopGetConsoleDisplayRequestCount()
   unsigned int *v11; // [rsp+40h] [rbp-10h]
   unsigned int v12; // [rsp+60h] [rbp+10h] BYREF
   int v13; // [rsp+68h] [rbp+18h] BYREF
-  unsigned int ActiveConsoleId; // [rsp+70h] [rbp+20h] BYREF
+  ULONG ActiveConsoleId; // [rsp+70h] [rbp+20h] BYREF
 
   v0 = 0;
   v6 = 0;
@@ -54,7 +54,7 @@ __int64 PopGetConsoleDisplayRequestCount()
       v13 = 0;
       v4 = 2;
       v5 = 0;
-      v1 = ((__int64 (__fastcall *)(__int64, int *, __int64, unsigned int *))PopInvokeWin32Callout)(
+      v1 = ((__int64 (__fastcall *)(__int64, int *, __int64, ULONG *))PopInvokeWin32Callout)(
              5LL,
              &v4,
              1LL,

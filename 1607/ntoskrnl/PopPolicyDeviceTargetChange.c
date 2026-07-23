@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPolicyDeviceTargetChange @ 0x140672E7C
+ * XREFs of PopPolicyDeviceTargetChange @ 0x140672F60
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     PnpUnregisterPlugPlayNotification @ 0x140111A40 (PnpUnregisterPlugPlayNotification.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x140111FA4 (PnpUnregisterPlugPlayNotification.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PopConnectToPolicyDevice @ 0x14056C0D8 (PopConnectToPolicyDevice.c)
- *     PopPolicyDeviceRemove @ 0x140672E1C (PopPolicyDeviceRemove.c)
+ *     PopConnectToPolicyDevice @ 0x14056C618 (PopConnectToPolicyDevice.c)
+ *     PopPolicyDeviceRemove @ 0x140672F00 (PopPolicyDeviceRemove.c)
  */
 
 __int64 __fastcall PopPolicyDeviceTargetChange(char *NotificationStructure, int *Context)

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpConstructCrossVmObjectPath @ 0x1409BAE18 (RtlpConstructCrossVmObjectPath.c)
+ *     sub_1409BAE18 @ 0x1409BAE18 (sub_1409BAE18.c)
  */
 
 __int64 RtlConstructCrossVmMutexPath()
 {
-  return RtlpConstructCrossVmObjectPath();
+  return sub_1409BAE18();
 }

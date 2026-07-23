@@ -1,24 +1,22 @@
 /*
- * XREFs of EtwpQueryCoverageSamplerInformation @ 0x14093E61C
+ * XREFs of EtwpQueryCoverageSamplerInformation @ 0x140A31734
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x14093E008 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140A31120 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     EtwpCoverageSamplerQueryStatusInformation @ 0x1408312D8 (EtwpCoverageSamplerQueryStatusInformation.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     EtwpCoverageSamplerQuery @ 0x14093FBF0 (EtwpCoverageSamplerQuery.c)
- *     ExCheckFullProcessInformationAccess @ 0x1409E78E0 (ExCheckFullProcessInformationAccess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     EtwpCoverageSamplerQueryStatusInformation @ 0x140837518 (EtwpCoverageSamplerQueryStatusInformation.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1409D42F8 (ExCheckFullProcessInformationAccess.c)
+ *     EtwpCoverageSamplerQuery @ 0x140A32D00 (EtwpCoverageSamplerQuery.c)
  */
 
-__int64 __fastcall EtwpQueryCoverageSamplerInformation(void *Src, unsigned int a2, KPROCESSOR_MODE a3, _DWORD *a4)
+__int64 __fastcall EtwpQueryCoverageSamplerInformation(void *Src, unsigned int a2, char a3, _DWORD *a4)
 {
   PVOID v8; // rsi
-  __int64 v9; // rcx
   int StatusInformation; // ebx
-  __int64 v12; // rcx
   PVOID Object; // [rsp+30h] [rbp-48h] BYREF
   HANDLE Handle[2]; // [rsp+38h] [rbp-40h] BYREF
 
@@ -36,20 +34,18 @@ __int64 __fastcall EtwpQueryCoverageSamplerInformation(void *Src, unsigned int a
     RtlCopyVolatileMemory(Handle, Src, 0x10uLL);
   if ( BYTE5(Handle[0]) != 0xCF )
     goto LABEL_16;
-  v9 = (unsigned int)BYTE4(Handle[0]) - 1;
   if ( BYTE4(Handle[0]) == 1 )
   {
     if ( a3 )
     {
-      LOBYTE(v9) = a3;
-      StatusInformation = ExCheckFullProcessInformationAccess(v9);
+      StatusInformation = ExCheckFullProcessInformationAccess(a3);
       if ( StatusInformation >= 0 )
       {
         Object = 0LL;
         StatusInformation = ObReferenceObjectByHandle(
                               Handle[1],
                               1u,
-                              (POBJECT_TYPE)ExpSysDbgLock.OtherTransferCount,
+                              (POBJECT_TYPE)ExpSysDbgLock.KernelWaitTime,
                               a3,
                               &Object,
                               0LL);
@@ -67,7 +63,6 @@ LABEL_16:
     StatusInformation = -1073741637;
     goto LABEL_12;
   }
-  v12 = (unsigned int)BYTE4(Handle[0]) - 3;
   if ( BYTE4(Handle[0]) == 3 )
     goto LABEL_16;
   if ( BYTE4(Handle[0]) != 4 )
@@ -77,8 +72,7 @@ LABEL_16:
   }
   if ( !a3 )
     goto LABEL_16;
-  LOBYTE(v12) = a3;
-  StatusInformation = ExCheckFullProcessInformationAccess(v12);
+  StatusInformation = ExCheckFullProcessInformationAccess(a3);
   if ( StatusInformation >= 0 )
   {
     *a4 = 24;

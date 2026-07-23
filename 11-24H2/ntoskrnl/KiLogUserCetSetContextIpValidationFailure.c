@@ -1,15 +1,15 @@
 /*
- * XREFs of KiLogUserCetSetContextIpValidationFailure @ 0x1405C6D6C
+ * XREFs of KiLogUserCetSetContextIpValidationFailure @ 0x1405C449C
  * Callers:
- *     KeVerifyContextIpForUserCet @ 0x1403E69D0 (KeVerifyContextIpForUserCet.c)
- *     KiContinuePreviousModeUser @ 0x1403E6E30 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextRecord @ 0x1403E7FA0 (KeVerifyContextRecord.c)
+ *     KeVerifyContextIpForUserCet @ 0x1403D4570 (KeVerifyContextIpForUserCet.c)
+ *     KiContinuePreviousModeUser @ 0x1403D49D0 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextRecord @ 0x1403D5B40 (KeVerifyContextRecord.c)
  * Callees:
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiLogUserCetSetContextIpValidationFailure(int a1, int a2, __int64 a3, unsigned __int8 a4)
@@ -35,10 +35,10 @@ void __fastcall KiLogUserCetSetContextIpValidationFailure(int a1, int a2, __int6
   while ( v10 != Ptr_high );
   if ( (Ptr_high & 0x80000) == 0 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x40uLL, 0x63736C4Bu);
     if ( Pool2 )
     {
-      if ( ExAcquireRundownProtection(Process + 61) )
+      if ( ExAcquireRundownProtection_0(Process + 61) )
       {
         ObfReferenceObjectWithTag(Process, 0x746C6644u);
         *(_QWORD *)Pool2 = 0LL;

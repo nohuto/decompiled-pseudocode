@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwIrpStartCreate @ 0x14081ABD8
+ * XREFs of PiSwIrpStartCreate @ 0x14081AEA8
  * Callers:
- *     PiSwDispatch @ 0x14079C620 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14079C810 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x14055493C (McTemplateK0_EtwWriteTransfer.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x14055F59C (McTemplateK0d_EtwWriteTransfer.c)
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x140554FFC (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14055FC5C (McTemplateK0d_EtwWriteTransfer.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -42,7 +42,7 @@ __int64 __fastcall PiSwIrpStartCreate(__int64 Irp, __int64 a2, __int64 a3)
       Worker = MesDecodeBufferHandleCreate(v6, v4->Parameters.Create.Options, &v11);
       if ( Worker >= 0 )
       {
-        NdrMesTypeDecode3(v11, "TP 3\a", &off_140A77E38, &off_140C02F50, 0, &P);
+        NdrMesTypeDecode3(v11, "TP 3\a", &off_140A780E8, &off_140C02F50, 0, &P);
         Worker = PiSwIrpStartCreateWorker((__int64)P, Irp);
         v5 = 0LL;
       }

@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmRemoveDeviceFromContainer @ 0x1406DA88C
+ * XREFs of _CmRemoveDeviceFromContainer @ 0x1406DA9C4
  * Callers:
- *     PiDcUpdateDeviceContainerMembership @ 0x140485DB8 (PiDcUpdateDeviceContainerMembership.c)
- *     PiDcResetChildDeviceContainers @ 0x140630AF8 (PiDcResetChildDeviceContainers.c)
- *     _CmDeleteDeviceWorker @ 0x1406D8934 (_CmDeleteDeviceWorker.c)
- *     _CmMoveBaseContainer @ 0x1406DA7B0 (_CmMoveBaseContainer.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14050FABC (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcResetChildDeviceContainers @ 0x140630BAC (PiDcResetChildDeviceContainers.c)
+ *     _CmDeleteDeviceWorker @ 0x1406D8A6C (_CmDeleteDeviceWorker.c)
+ *     _CmMoveBaseContainer @ 0x1406DA8E8 (_CmMoveBaseContainer.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x1406DA9BC (_CmRemoveDeviceFromContainerWorker.c)
- *     _PnpContainerRaiseDevicesChangedEvent @ 0x1406DBFCC (_PnpContainerRaiseDevicesChangedEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x1406DAAF4 (_CmRemoveDeviceFromContainerWorker.c)
+ *     _PnpContainerRaiseDevicesChangedEvent @ 0x1406DC104 (_PnpContainerRaiseDevicesChangedEvent.c)
  */
 
 __int64 __fastcall CmRemoveDeviceFromContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

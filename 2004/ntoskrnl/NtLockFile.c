@@ -213,7 +213,7 @@ NTSTATUS __stdcall NtLockFile(
         v31 = KeGetCurrentThread();
         --v31->KernelApcDisable;
         v32 = DmaAdapter;
-        v33 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0LL);
+        v33 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0);
         LOBYTE(v44) = 0;
         if ( _InterlockedExchange((volatile __int32 *)(&v32[7].Size + 1), 1) )
         {

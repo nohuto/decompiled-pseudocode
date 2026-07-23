@@ -1,15 +1,15 @@
 /*
- * XREFs of CcInitializeAsyncReadForNodeHelper @ 0x1404CEA30
+ * XREFs of CcInitializeAsyncReadForNodeHelper @ 0x1404C8460
  * Callers:
  *     <none>
  * Callees:
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140386DD4 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039C160 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140388B84 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039DEC0 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int64 a3, char *a4)
@@ -19,7 +19,7 @@ char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int
   __int64 PoolWithTagFromNode; // rax
   _QWORD *v10; // rcx
   __int64 v11; // rax
-  int WriteOperationCount; // edx
+  int OtherOperationCount_high; // edx
   unsigned int v13; // r9d
   __int64 v14; // rcx
   __int64 v15; // rax
@@ -67,14 +67,14 @@ char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int
   memset(&ObjectAttributes, 0, 44);
   PoolWithTagFromNode = ExAllocatePoolWithTagFromNode(
                           a1,
-                          16LL * (unsigned int)(LODWORD(EmpParseLock.WriteOperationCount) + 1),
+                          16LL * (unsigned int)(HIDWORD(EmpParseLock.OtherOperationCount) + 1),
                           0x71576343u,
                           v4 | 0x80000000);
   *(_QWORD *)(a3 + 232) = PoolWithTagFromNode;
   if ( PoolWithTagFromNode )
   {
     v44 = 0LL;
-    v45 = (unsigned int)(LODWORD(EmpParseLock.WriteOperationCount) + 1);
+    v45 = (unsigned int)(HIDWORD(EmpParseLock.OtherOperationCount) + 1);
     do
     {
       v10 = (_QWORD *)(v44 + *(_QWORD *)(a3 + 232));
@@ -87,14 +87,14 @@ char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int
   }
   v11 = ExAllocatePoolWithTagFromNode(
           (__int64)v10,
-          16LL * (unsigned int)(LODWORD(EmpParseLock.WriteOperationCount) + 1),
+          16LL * (unsigned int)(HIDWORD(EmpParseLock.OtherOperationCount) + 1),
           0x71576343u,
           *(_DWORD *)(a3 + 24) | 0x80000000);
-  WriteOperationCount = EmpParseLock.WriteOperationCount;
+  OtherOperationCount_high = HIDWORD(EmpParseLock.OtherOperationCount);
   v13 = *(_DWORD *)(a3 + 24) | 0x80000000;
   *(_QWORD *)(a3 + 256) = v11;
-  v15 = ExAllocatePoolWithTagFromNode(v14, 16LL * (unsigned int)(WriteOperationCount + 1), 0x71576343u, v13);
-  v16 = EmpParseLock.WriteOperationCount;
+  v15 = ExAllocatePoolWithTagFromNode(v14, 16LL * (unsigned int)(OtherOperationCount_high + 1), 0x71576343u, v13);
+  v16 = HIDWORD(EmpParseLock.OtherOperationCount);
   v17 = *(_DWORD *)(a3 + 24) | 0x80000000;
   *(_QWORD *)(a3 + 264) = v15;
   v18 = ExAllocatePoolWithTagFromNode((unsigned int)(v16 + 1), 404LL * (unsigned int)(v16 + 1), 0x71576343u, v17);
@@ -102,14 +102,14 @@ char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int
   *(_QWORD *)(a3 + 280) = v18;
   v21 = ExAllocatePoolWithTagFromNode(
           v20,
-          24LL * (unsigned int)(LODWORD(EmpParseLock.WriteOperationCount) + 1),
+          24LL * (unsigned int)(HIDWORD(EmpParseLock.OtherOperationCount) + 1),
           0x71576343u,
           v19 | 0x80000000);
-  v22 = EmpParseLock.WriteOperationCount;
+  v22 = HIDWORD(EmpParseLock.OtherOperationCount);
   v23 = *(_DWORD *)(a3 + 24) | 0x80000000;
   *(_QWORD *)(a3 + 272) = v21;
   v25 = ExAllocatePoolWithTagFromNode(v24, 4LL * (unsigned int)(v22 + 1), 0x71576343u, v23);
-  v26 = EmpParseLock.WriteOperationCount;
+  v26 = HIDWORD(EmpParseLock.OtherOperationCount);
   v27 = *(_DWORD *)(a3 + 24) | 0x80000000;
   *(_QWORD *)(a3 + 240) = v25;
   v29 = ExAllocatePoolWithTagFromNode(v28, 4LL * (unsigned int)(v26 + 1), 0x71576343u, v27);
@@ -122,7 +122,7 @@ char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int
     && *(_QWORD *)(a3 + 240)
     && v29 )
   {
-    for ( i = 0; i <= LODWORD(EmpParseLock.WriteOperationCount); ++i )
+    for ( i = 0; i <= HIDWORD(EmpParseLock.OtherOperationCount); ++i )
     {
       v33 = 404LL * i;
       v34 = 3LL * i;
@@ -142,10 +142,10 @@ char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int
       *v39 = v39;
       *(_DWORD *)(*(_QWORD *)(a3 + 240) + 4LL * i) = 0;
       *(_DWORD *)(*(_QWORD *)(a3 + 248) + 4LL * i) = 0;
-      memset_0((void *)(v33 + *(_QWORD *)(a3 + 280)), 255, 4LL * LODWORD(EmpParseLock.InGlobalForegroundList));
+      memset_0((void *)(v33 + *(_QWORD *)(a3 + 280)), 255, 4LL * LODWORD(EmpParseLock.OtherOperationCount));
       *(_DWORD *)(v33 + *(_QWORD *)(a3 + 280)) = 0;
       v40 = 1;
-      while ( v40 < LODWORD(EmpParseLock.InGlobalForegroundList) )
+      while ( v40 < LODWORD(EmpParseLock.OtherOperationCount) )
       {
         v41 = ExAllocatePoolWithTagFromNode((__int64)v30, 0x50uLL, 0x71576343u, *(_DWORD *)(a3 + 24) | 0x80000000);
         v30 = (_QWORD *)v41;
@@ -173,7 +173,7 @@ char __fastcall CcInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int
     }
     for ( j = 0; ; ++j )
     {
-      if ( j > LODWORD(EmpParseLock.WriteOperationCount) )
+      if ( j > HIDWORD(EmpParseLock.OtherOperationCount) )
       {
         v6 = 1;
         goto LABEL_3;

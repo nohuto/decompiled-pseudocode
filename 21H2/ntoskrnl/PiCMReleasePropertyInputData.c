@@ -1,10 +1,10 @@
 /*
- * XREFs of PiCMReleasePropertyInputData @ 0x140635094
+ * XREFs of PiCMReleasePropertyInputData @ 0x140629EA4
  * Callers:
- *     PiCMGetObjectProperty @ 0x140634B3C (PiCMGetObjectProperty.c)
- *     PiCMSetObjectProperty @ 0x1407473B8 (PiCMSetObjectProperty.c)
+ *     PiCMGetObjectProperty @ 0x14062994C (PiCMGetObjectProperty.c)
+ *     PiCMSetObjectProperty @ 0x140747578 (PiCMSetObjectProperty.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
  */
 
 __int64 __fastcall PiCMReleasePropertyInputData(__int64 a1)

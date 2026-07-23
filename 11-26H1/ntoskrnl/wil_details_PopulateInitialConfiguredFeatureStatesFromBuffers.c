@@ -1,13 +1,13 @@
 /*
- * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140CEDC08
+ * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140CF3F84
  * Callers:
- *     CmFcInitSystem0 @ 0x140CEDAA0 (CmFcInitSystem0.c)
+ *     CmFcInitSystem0 @ 0x140CF3DA4 (CmFcInitSystem0.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404FE2F8 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     RtlQueryFeatureConfigurationFromBuffers @ 0x1406178CC (RtlQueryFeatureConfigurationFromBuffers.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1407778DC (wil_details_BuildFeatureStateCacheFromQueryResults.c)
- *     wil_details_PopulateInitialConfiguredFeatureStatesWithDefaults @ 0x140CEDCD0 (wil_details_PopulateInitialConfiguredFeatureStatesWithDefaults.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404F78A8 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     RtlQueryFeatureConfigurationFromBuffers @ 0x14061A91C (RtlQueryFeatureConfigurationFromBuffers.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x14077A77C (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesWithDefaults @ 0x140CF404C (wil_details_PopulateInitialConfiguredFeatureStatesWithDefaults.c)
  */
 
 __int64 *__fastcall wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers(__int64 a1)

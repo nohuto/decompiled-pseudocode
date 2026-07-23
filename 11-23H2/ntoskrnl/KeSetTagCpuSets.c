@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetTagCpuSets @ 0x140576464
+ * XREFs of KeSetTagCpuSets @ 0x1405769A4
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiValidateCpuSetMasks @ 0x14039D66C (KiValidateCpuSetMasks.c)
- *     RtlWriteAcquireTickLock @ 0x1403C16E0 (RtlWriteAcquireTickLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiValidateCpuSetMasks @ 0x14039D84C (KiValidateCpuSetMasks.c)
+ *     RtlWriteAcquireTickLock @ 0x1403C18C0 (RtlWriteAcquireTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetTagCpuSets(unsigned int a1, char *a2, __int64 a3)
@@ -32,7 +32,7 @@ __int64 __fastcall KeSetTagCpuSets(unsigned int a1, char *a2, __int64 a3)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v9 = 4;
@@ -53,10 +53,10 @@ __int64 __fastcall KeSetTagCpuSets(unsigned int a1, char *a2, __int64 a3)
     }
     ++KiCpuSetSequence;
     KxReleaseSpinLock((volatile signed __int64 *)&KiCpuSetLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = CurrentPrcb->SchedulerAssist;

@@ -6,7 +6,7 @@
  *     LdrpLoadDllInternal @ 0x18001FA14 (LdrpLoadDllInternal.c)
  *     LdrpInitShimEngine @ 0x18006C77C (LdrpInitShimEngine.c)
  *     LdrpLoadShimEngine @ 0x18006C924 (LdrpLoadShimEngine.c)
- *     LdrInitShimEngineDynamic @ 0x1800D05B0 (LdrInitShimEngineDynamic.c)
+ *     LdrInitShimEngineDynamic @ 0x1800D0570 (LdrInitShimEngineDynamic.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)

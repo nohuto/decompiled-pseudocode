@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetNextNonGapPfnPage @ 0x1406E9108
+ * XREFs of MiGetNextNonGapPfnPage @ 0x1406EDDA8
  * Callers:
- *     MiFreedUnusedPfnPagesDpc @ 0x1406E8B80 (MiFreedUnusedPfnPagesDpc.c)
- *     MiGetFileOnlyRanges @ 0x1406E8E88 (MiGetFileOnlyRanges.c)
+ *     MiFreedUnusedPfnPagesDpc @ 0x1406ED820 (MiFreedUnusedPfnPagesDpc.c)
+ *     MiGetFileOnlyRanges @ 0x1406EDB28 (MiGetFileOnlyRanges.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetNextPageTable @ 0x140318050 (MiGetNextPageTable.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetNextPageTable @ 0x14031A080 (MiGetNextPageTable.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
  */
 
 __int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64 *a2, char a3, int a4)
@@ -44,10 +44,10 @@ __int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64
   }
   else
   {
-    v8 = 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL;
+    v8 = 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL;
     v7 = ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     if ( ((v8 >> 9) & 0xFF8) == 0 )
-      v7 = (((unsigned __int64)(48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000008LL;
+      v7 = (((unsigned __int64)(48 * qword_140E2D920 - 0x21FFFFFFFFD0LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000008LL;
   }
   v21 = a4 != 0 ? 7 : 3;
   v9 = MiSystemVaTypeToVm(3);
@@ -95,8 +95,8 @@ LABEL_8:
     else
     {
       while ( (*(_QWORD *)NextPageTable & 1) == 0
-           || qword_140E36000[0] != (PVOID)qword_140E36018
-           && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E36000[0] )
+           || qword_140E36180[0] != (PVOID)qword_140E36198
+           && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E36180[0] )
       {
         NextPageTable += 8LL;
         if ( NextPageTable > v7 || (NextPageTable & 0xFFF) == 0 )
@@ -113,8 +113,8 @@ LABEL_8:
         if ( NextPageTable > v7
           || (NextPageTable & 0xFFF) == 0
           || (*(_QWORD *)NextPageTable & 1) == 0
-          || qword_140E36000[0] != (PVOID)qword_140E36018
-          && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E36000[0] )
+          || qword_140E36180[0] != (PVOID)qword_140E36198
+          && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E36180[0] )
         {
           break;
         }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PoUnarmStopWatchCollection @ 0x1402D16C4
+ * XREFs of PoUnarmStopWatchCollection @ 0x1402725E8
  * Callers:
- *     PdcPoPowerRequestBlockingCallback @ 0x14062BD40 (PdcPoPowerRequestBlockingCallback.c)
- *     PopStatsNotifyPowerRequestCsState @ 0x1408F6690 (PopStatsNotifyPowerRequestCsState.c)
+ *     PdcPoPowerRequestBlockingCallback @ 0x140670910 (PdcPoPowerRequestBlockingCallback.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x1408F67F0 (PopStatsNotifyPowerRequestCsState.c)
  * Callees:
- *     PopInternalUpdateStopWatchState @ 0x140264248 (PopInternalUpdateStopWatchState.c)
- *     PopInternalUpdateActiveStopWatchesCollectionState @ 0x14026435C (PopInternalUpdateActiveStopWatchesCollectionState.c)
+ *     PopInternalUpdateStopWatchState @ 0x140272464 (PopInternalUpdateStopWatchState.c)
+ *     PopInternalUpdateActiveStopWatchesCollectionState @ 0x140272530 (PopInternalUpdateActiveStopWatchesCollectionState.c)
  */
 
 char __fastcall PoUnarmStopWatchCollection(__int64 *a1)

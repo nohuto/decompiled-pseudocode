@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpStdExtendLowerWatermark @ 0x140618E54
+ * XREFs of RtlpStdExtendLowerWatermark @ 0x14061BEA4
  * Callers:
- *     RtlpStdGetSpaceForTrace @ 0x140619018 (RtlpStdGetSpaceForTrace.c)
+ *     RtlpStdGetSpaceForTrace @ 0x14061C068 (RtlpStdGetSpaceForTrace.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
  */
 
 KSPIN_LOCK __fastcall RtlpStdExtendLowerWatermark(KSPIN_LOCK *SpinLock, __int64 a2)

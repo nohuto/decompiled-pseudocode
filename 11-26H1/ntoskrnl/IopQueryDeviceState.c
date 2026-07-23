@@ -1,10 +1,10 @@
 /*
- * XREFs of IopQueryDeviceState @ 0x14090F0B0
+ * XREFs of IopQueryDeviceState @ 0x1409B11E0
  * Callers:
- *     IopMarkDeviceToBeReset @ 0x1407A2860 (IopMarkDeviceToBeReset.c)
+ *     IopMarkDeviceToBeReset @ 0x1407A53A0 (IopMarkDeviceToBeReset.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopSynchronousCall @ 0x14090E5F0 (IopSynchronousCall.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopSynchronousCall @ 0x1409B0720 (IopSynchronousCall.c)
  */
 
 __int64 __fastcall IopQueryDeviceState(_QWORD *a1, _DWORD *a2)

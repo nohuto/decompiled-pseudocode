@@ -6,13 +6,12 @@
  *     _RtlExtendedIntegerMultiply@12 @ 0x4B308450 (_RtlExtendedIntegerMultiply@12.c)
  */
 
-int __stdcall RtlSecondsSince1970ToTime(unsigned int a1, int *a2)
+void __cdecl RtlSecondsSince1970ToTime(ULONG ElapsedSeconds, PLARGE_INTEGER Time)
 {
-  int result; // eax
-  int v3; // edx
+  int v2; // edx
 
-  result = RtlExtendedIntegerMultiply(((unsigned int)SecondsToStartOf1970 | 0x200000000LL) + a1, 10000000);
-  *a2 = result;
-  a2[1] = v3;
-  return result;
+  Time->LowPart = RtlExtendedIntegerMultiply(
+                    ((unsigned int)SecondsToStartOf1970 | 0x200000000LL) + ElapsedSeconds,
+                    10000000);
+  Time->HighPart = v2;
 }

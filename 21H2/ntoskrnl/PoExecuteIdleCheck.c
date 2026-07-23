@@ -1,18 +1,18 @@
 /*
- * XREFs of PoExecuteIdleCheck @ 0x140227E50
+ * XREFs of PoExecuteIdleCheck @ 0x1402CC750
  * Callers:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     KiUpdateTime @ 0x140227730 (KiUpdateTime.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     KiUpdateTime @ 0x1402CC030 (KiUpdateTime.c)
  * Callees:
- *     KiEnumerateNextProcessorNumber @ 0x1402284F0 (KiEnumerateNextProcessorNumber.c)
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     HalRequestIpi @ 0x14027AEA0 (HalRequestIpi.c)
- *     PpmGetIdleConstrainedMask @ 0x1403907C0 (PpmGetIdleConstrainedMask.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmEventIdleDurationExpiration @ 0x1405799B4 (PpmEventIdleDurationExpiration.c)
+ *     HalRequestIpi @ 0x140268E40 (HalRequestIpi.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1402CCDF0 (KiEnumerateNextProcessorNumber.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     PpmGetIdleConstrainedMask @ 0x140390910 (PpmGetIdleConstrainedMask.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmEventIdleDurationExpiration @ 0x140579BF4 (PpmEventIdleDurationExpiration.c)
  */
 
 __int64 __fastcall PoExecuteIdleCheck(unsigned __int64 a1)
@@ -60,7 +60,7 @@ __int64 __fastcall PoExecuteIdleCheck(unsigned __int64 a1)
         if ( !(_DWORD)result )
         {
           PpmEventIdleDurationExpiration(v10);
-          return HalRequestIpi(0LL, v10);
+          return HalRequestIpi(0, (__int64)v10);
         }
       }
     }

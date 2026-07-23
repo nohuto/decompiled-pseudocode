@@ -55,9 +55,9 @@ __int64 __fastcall EtwpGetGuidList(__int64 a1, unsigned int a2, __int64 a3, unsi
     v13 = NextGuidEntry + 40;
     if ( v6 )
       goto LABEL_7;
-    v14 = *(_QWORD *)v13 - PrivateLoggerNotificationGuid;
-    if ( *(_QWORD *)v13 == (_QWORD)PrivateLoggerNotificationGuid )
-      v14 = *(_QWORD *)(NextGuidEntry + 48) - *((_QWORD *)&PrivateLoggerNotificationGuid + 1);
+    v14 = *(_QWORD *)v13 - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
+    if ( *(_QWORD *)v13 == *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 )
+      v14 = *(_QWORD *)(NextGuidEntry + 48) - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
     if ( v14 )
     {
 LABEL_7:

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsCaptureUserProcessParameters @ 0x1409DE9E0
+ * XREFs of PsCaptureUserProcessParameters @ 0x1409D8790
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     PspCaptureUserProcessParameters @ 0x1409DEA90 (PspCaptureUserProcessParameters.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     PspCaptureUserProcessParameters @ 0x1409D8840 (PspCaptureUserProcessParameters.c)
  */
 
 __int64 __fastcall PsCaptureUserProcessParameters(int a1, int a2)

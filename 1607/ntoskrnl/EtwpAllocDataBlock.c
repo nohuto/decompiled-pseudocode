@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAllocDataBlock @ 0x140491EC8
+ * XREFs of EtwpAllocDataBlock @ 0x140492958
  * Callers:
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14040AED0 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpNotifyGuid @ 0x14048DF38 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     EtwpBuildNotificationPacket @ 0x140491E2C (EtwpBuildNotificationPacket.c)
- *     EtwpQueueReply @ 0x140494EB8 (EtwpQueueReply.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140409D90 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpNotifyGuid @ 0x14048E9C8 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     EtwpBuildNotificationPacket @ 0x1404928BC (EtwpBuildNotificationPacket.c)
+ *     EtwpQueueReply @ 0x140495948 (EtwpQueueReply.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

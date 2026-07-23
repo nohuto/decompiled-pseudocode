@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInsertInvertedFunctionTable @ 0x140290900
+ * XREFs of RtlInsertInvertedFunctionTable @ 0x140290B90
  * Callers:
- *     MiProcessLoaderEntry @ 0x1402909C8 (MiProcessLoaderEntry.c)
+ *     MiProcessLoaderEntry @ 0x140290C58 (MiProcessLoaderEntry.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlCaptureImageExceptionValues @ 0x140290984 (RtlCaptureImageExceptionValues.c)
- *     MmLockLoadedModuleListExclusive @ 0x140290C18 (MmLockLoadedModuleListExclusive.c)
- *     RtlpInsertInvertedFunctionTableEntry @ 0x140290C68 (RtlpInsertInvertedFunctionTableEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlCaptureImageExceptionValues @ 0x140290C14 (RtlCaptureImageExceptionValues.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140290EA8 (MmLockLoadedModuleListExclusive.c)
+ *     RtlpInsertInvertedFunctionTableEntry @ 0x140290EF8 (RtlpInsertInvertedFunctionTableEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall RtlInsertInvertedFunctionTable(__int64 a1, int a2)
@@ -33,7 +33,9 @@ __int64 __fastcall RtlInsertInvertedFunctionTable(__int64 a1, int a2)
   MmLockLoadedModuleListExclusive(&v13);
   RtlpInsertInvertedFunctionTableEntry(v4, v3, v12[0], a2, v14);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v5 = v13;
     if ( v13 <= 0xFu && CurrentIrql >= 2u )

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpOpenHiveFiles @ 0x1408B4E2C
+ * XREFs of CmpOpenHiveFiles @ 0x1408BB400
  * Callers:
- *     CmpHiveCachePopulateHiveEntryThread @ 0x140862230 (CmpHiveCachePopulateHiveEntryThread.c)
- *     CmpInitHiveFromFile @ 0x1408B48B4 (CmpInitHiveFromFile.c)
+ *     CmpHiveCachePopulateHiveEntryThread @ 0x140868610 (CmpHiveCachePopulateHiveEntryThread.c)
+ *     CmpInitHiveFromFile @ 0x1408BAE88 (CmpInitHiveFromFile.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1408B5DB0 (CmpQueryFileSecurityDescriptor.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1408BC384 (CmpQueryFileSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmpOpenHiveFiles(

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteFileExtents @ 0x1406B0AB0
+ * XREFs of MiDeleteFileExtents @ 0x1406B0AE0
  * Callers:
  *     MiDeleteControlArea @ 0x1402199D0 (MiDeleteControlArea.c)
- *     MiSetPagesModified @ 0x1406288FC (MiSetPagesModified.c)
+ *     MiSetPagesModified @ 0x140628E4C (MiSetPagesModified.c)
  * Callees:
- *     MiDeleteFileExtentList @ 0x140A33E10 (MiDeleteFileExtentList.c)
+ *     MiDeleteFileExtentList @ 0x140A340C0 (MiDeleteFileExtentList.c)
  */
 
 char __fastcall MiDeleteFileExtents(__int64 a1)

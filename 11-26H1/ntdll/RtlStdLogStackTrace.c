@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStdLogStackTrace @ 0x18007C2C0
+ * XREFs of RtlStdLogStackTrace @ 0x18006AAE0
  * Callers:
- *     RtlInitializeResource @ 0x180079E50 (RtlInitializeResource.c)
- *     RtlpAddDebugInfoToCriticalSection @ 0x18007AED0 (RtlpAddDebugInfoToCriticalSection.c)
- *     RtlLogStackBackTraceEx @ 0x18007C250 (RtlLogStackBackTraceEx.c)
- *     RtlLogStackTrace @ 0x1800FC9F0 (RtlLogStackTrace.c)
+ *     RtlInitializeResource @ 0x180068670 (RtlInitializeResource.c)
+ *     RtlpAddDebugInfoToCriticalSection @ 0x1800696F0 (RtlpAddDebugInfoToCriticalSection.c)
+ *     RtlLogStackBackTraceEx @ 0x18006AA70 (RtlLogStackBackTraceEx.c)
+ *     RtlLogStackTrace @ 0x1800FC140 (RtlLogStackTrace.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x180010460 (RtlCaptureStackBackTrace.c)
- *     RtlpStdLogCapturedStackTrace @ 0x18007C648 (RtlpStdLogCapturedStackTrace.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlCaptureStackBackTrace @ 0x18005BB90 (RtlCaptureStackBackTrace.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x18006AE68 (RtlpStdLogCapturedStackTrace.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlStdLogStackTrace(__int64 a1, int a2)

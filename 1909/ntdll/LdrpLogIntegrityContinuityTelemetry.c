@@ -13,7 +13,7 @@
  *     RtlReportException @ 0x1800DB9E0 (RtlReportException.c)
  */
 
-__int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a3, int a4, char a5)
+NTSTATUS __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a3, int a4, char a5)
 {
   __int64 v9; // rax
   unsigned __int16 *v10; // rbx
@@ -32,7 +32,7 @@ __int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a
   int v24; // [rsp+54h] [rbp-B4h] BYREF
   __int64 v25; // [rsp+58h] [rbp-B0h] BYREF
   __int64 SystemInformation; // [rsp+60h] [rbp-A8h] BYREF
-  _QWORD v27[20]; // [rsp+68h] [rbp-A0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+68h] [rbp-A0h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+108h] [rbp+0h] BYREF
   EVENT_DATA_DESCRIPTOR pData; // [rsp+5D8h] [rbp+4D0h] BYREF
   _DWORD *v30; // [rsp+5F8h] [rbp+4F0h]
@@ -63,11 +63,11 @@ __int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a
   __int64 v55; // [rsp+6C0h] [rbp+5B8h]
 
   SystemInformation = 0LL;
-  if ( (int)RtlRunOnceExecuteOnce(
-              &LibLoaderTelemetryInitRunOnce,
-              (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
-              0LL,
-              0LL) >= 0 )
+  if ( RtlRunOnceExecuteOnce(
+         &LibLoaderTelemetryInitRunOnce,
+         (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce,
+         0LL,
+         0LL) >= 0 )
   {
     v9 = *(_QWORD *)(a1 + 48);
     v10 = (unsigned __int16 *)(v9 + 72);
@@ -127,10 +127,11 @@ __int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a
     }
   }
   RtlCaptureContext(&ContextRecord);
-  memset(v27, 0, 0x98uLL);
-  v27[0] = 3221226505LL;
-  v27[2] = 0LL;
-  LODWORD(v27[3]) = 1;
-  v27[4] = 45LL;
-  return RtlReportException(v27, &ContextRecord, 30LL);
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+  ExceptionRecord.ExceptionCode = -1073740791;
+  ExceptionRecord.ExceptionFlags = 0;
+  ExceptionRecord.ExceptionAddress = 0LL;
+  ExceptionRecord.NumberParameters = 1;
+  ExceptionRecord.ExceptionInformation[0] = 45LL;
+  return RtlReportException(&ExceptionRecord, &ContextRecord, 0x1Eu);
 }

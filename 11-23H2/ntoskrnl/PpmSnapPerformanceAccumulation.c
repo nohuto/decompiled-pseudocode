@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmSnapPerformanceAccumulation @ 0x1402562D0
+ * XREFs of PpmSnapPerformanceAccumulation @ 0x140256390
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140255F80 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmResetPerfTimes @ 0x1403A70A0 (PpmResetPerfTimes.c)
- *     PpmGetThroughputInfoCallback @ 0x1404631A0 (PpmGetThroughputInfoCallback.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x140597C50 (PpmCapturePerformanceDistributionCallback.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140256040 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1403A7280 (PpmResetPerfTimes.c)
+ *     PpmGetThroughputInfoCallback @ 0x1404635A0 (PpmGetThroughputInfoCallback.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x140598140 (PpmCapturePerformanceDistributionCallback.c)
  * Callees:
- *     PpmUpdateTimeAccumulation @ 0x140255404 (PpmUpdateTimeAccumulation.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PpmUpdatePerformanceFeedback @ 0x1402C6D40 (PpmUpdatePerformanceFeedback.c)
- *     PpmGetIdleGenerationCounter @ 0x14034B444 (PpmGetIdleGenerationCounter.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmUpdateTimeAccumulation @ 0x1402554C4 (PpmUpdateTimeAccumulation.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402C6FD0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmGetIdleGenerationCounter @ 0x14034B5E4 (PpmGetIdleGenerationCounter.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall PpmSnapPerformanceAccumulation(

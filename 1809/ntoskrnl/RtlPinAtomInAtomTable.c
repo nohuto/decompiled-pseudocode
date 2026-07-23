@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlPinAtomInAtomTable @ 0x1406B7C70
+ * XREFs of RtlPinAtomInAtomTable @ 0x1406B8F10
  * Callers:
  *     <none>
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     RtlpLookupLowBox @ 0x1400892B0 (RtlpLookupLowBox.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpLockAtomTable @ 0x1405F547C (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1405F5614 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpLookupLowBox @ 0x1400892A0 (RtlpLookupLowBox.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpLockAtomTable @ 0x1405F647C (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x1405F6614 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
 NTSTATUS __stdcall RtlPinAtomInAtomTable(PRTL_ATOM_TABLE AtomTable, RTL_ATOM Atom)

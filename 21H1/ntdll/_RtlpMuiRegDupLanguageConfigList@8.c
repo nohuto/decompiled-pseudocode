@@ -13,6 +13,7 @@ int __thiscall RtlpMuiRegDupLanguageConfigList(int this)
   int v2; // ebx
   int LanguageConfigList; // eax
   int v4; // esi
+  size_t v6; // [esp-4h] [ebp-18h]
   size_t Size; // [esp+10h] [ebp-4h] BYREF
 
   if ( !this )
@@ -26,7 +27,8 @@ int __thiscall RtlpMuiRegDupLanguageConfigList(int this)
     return 0;
   if ( v2 )
   {
-    memcpy(*(void **)(LanguageConfigList + 8), *(const void **)(this + 8), Size);
+    LODWORD(v6) = Size;
+    memcpy(*(void **)(LanguageConfigList + 8), *(const void **)(this + 8), v6);
     *(_WORD *)(v4 + 4) = v2;
   }
   return v4;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSaveKey @ 0x1401BB0F0
+ * XREFs of ZwSaveKey @ 0x1401BB250
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwSaveKey(HANDLE KeyHandle, HANDLE FileHandle)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, FileHandle, v2);
+  return KiServiceInternal(KeyHandle);
 }

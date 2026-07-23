@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCommitPageTablesForVad @ 0x1409C6018
+ * XREFs of MiCommitPageTablesForVad @ 0x140996FF8
  * Callers:
- *     MiSplitPrivatePage @ 0x1403173FC (MiSplitPrivatePage.c)
- *     MiCommitPageTableRangesForVad @ 0x14052B41C (MiCommitPageTableRangesForVad.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
- *     MiSectionProtectGetCharges @ 0x1409C6FE0 (MiSectionProtectGetCharges.c)
+ *     MiSplitPrivatePage @ 0x14031942C (MiSplitPrivatePage.c)
+ *     MiCommitPageTableRangesForVad @ 0x14052D93C (MiCommitPageTableRangesForVad.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiSectionProtectGetCharges @ 0x140997FC0 (MiSectionProtectGetCharges.c)
  * Callees:
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiVadLeafPagesPrecharged @ 0x140477424 (MiVadLeafPagesPrecharged.c)
- *     MiVadPageTableChargeLevel @ 0x1404786D0 (MiVadPageTableChargeLevel.c)
- *     MiUpdateChargedWsles @ 0x1405240B4 (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
- *     MiCommitPageTablesSetBits @ 0x1409C7A4C (MiCommitPageTablesSetBits.c)
- *     MiMapPageTableCommit @ 0x1409C7B90 (MiMapPageTableCommit.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiVadLeafPagesPrecharged @ 0x140470BA4 (MiVadLeafPagesPrecharged.c)
+ *     MiVadPageTableChargeLevel @ 0x140471E50 (MiVadPageTableChargeLevel.c)
+ *     MiUpdateChargedWsles @ 0x140526724 (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
+ *     MiCommitPageTablesSetBits @ 0x140998A2C (MiCommitPageTablesSetBits.c)
+ *     MiMapPageTableCommit @ 0x140998B70 (MiMapPageTableCommit.c)
  */
 
 __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)

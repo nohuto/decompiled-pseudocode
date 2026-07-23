@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationTransactionManager(
         HANDLE TmHandle,
         TRANSACTIONMANAGER_INFORMATION_CLASS TransactionManagerInformationClass,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSetInformationTransactionManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TmHandle, *(_QWORD *)&TransactionManagerInformationClass, TransactionManagerInformation);
+  return KiServiceInternal(TmHandle);
 }

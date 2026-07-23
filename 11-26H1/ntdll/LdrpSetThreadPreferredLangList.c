@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpSetThreadPreferredLangList @ 0x180008130
+ * XREFs of LdrpSetThreadPreferredLangList @ 0x180053860
  * Callers:
- *     LdrResFallbackLangList @ 0x1800094E0 (LdrResFallbackLangList.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x18002DF70 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpSearchResourceSection_U @ 0x18002E860 (LdrpSearchResourceSection_U.c)
- *     LdrLoadAlternateResourceModule @ 0x1800E4F90 (LdrLoadAlternateResourceModule.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x180019070 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpSearchResourceSection_U @ 0x180019960 (LdrpSearchResourceSection_U.c)
+ *     LdrResFallbackLangList @ 0x180054C10 (LdrResFallbackLangList.c)
+ *     LdrLoadAlternateResourceModule @ 0x1800E2E40 (LdrLoadAlternateResourceModule.c)
  * Callees:
- *     RtlGetThreadPreferredUILanguages @ 0x180007380 (RtlGetThreadPreferredUILanguages.c)
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18000844C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlInitializeCriticalSectionEx @ 0x18007BB90 (RtlInitializeCriticalSectionEx.c)
- *     ZwDelayExecution @ 0x18015F5C0 (ZwDelayExecution.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180052AB0 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180053B7C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlInitializeCriticalSectionEx @ 0x18006A3B0 (RtlInitializeCriticalSectionEx.c)
+ *     ZwDelayExecution @ 0x18015F4C0 (ZwDelayExecution.c)
  */
 
 bool LdrpSetThreadPreferredLangList()
 {
-  __int64 v0; // rax
+  _DWORD *v0; // rax
   int v1; // eax
   int RegistryInfo; // ebx
   struct _TEB *v3; // rdx
@@ -27,29 +27,29 @@ bool LdrpSetThreadPreferredLangList()
   __int64 v8; // rax
   unsigned int MuiImpersonation; // eax
   _DWORD *MergedPrefLanguages; // rcx
-  int ThreadPreferredUILanguages; // eax
-  __int64 v13; // [rsp+30h] [rbp+8h] BYREF
-  int v14; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS ThreadPreferredUILanguages; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+30h] [rbp+8h] BYREF
+  ULONG NumberOfLanguages; // [rsp+38h] [rbp+10h] BYREF
 
-  v14 = 0;
+  NumberOfLanguages = 0;
   if ( NtCurrentTeb()->MergedPrefLanguages && *((char *)NtCurrentTeb()->MergedPrefLanguages + 40) >= 0 )
   {
     v0 = g_RegInfo;
     if ( !g_RegInfo )
     {
-      v13 = -1000000LL;
+      DelayInterval.QuadPart = -1000000LL;
       while ( _InterlockedCompareExchange(&InitRegistryInfoCritSect, 1, 0) )
       {
         v1 = InitRegistryInfoCritSect;
         if ( InitRegistryInfoCritSect == 1 )
         {
-          ZwDelayExecution(0LL, &v13);
+          ZwDelayExecution(0, &DelayInterval);
           v1 = InitRegistryInfoCritSect;
         }
         if ( v1 == 2 )
           goto LABEL_9;
       }
-      RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0LL, 0LL);
+      RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0, 0);
       InitRegistryInfoCritSect = 2;
 LABEL_9:
       RtlEnterCriticalSection(&RegistryInfoCritSect);
@@ -65,7 +65,7 @@ LABEL_9:
     }
     if ( !*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2)
       || *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2) + 12LL) == MEMORY[0x7FFE03A4]
-      && NtCurrentTeb()->MuiGeneration == *(_DWORD *)(v0 + 16) )
+      && NtCurrentTeb()->MuiGeneration == v0[4] )
     {
       v3 = NtCurrentTeb();
       WowTebOffset = v3->WowTebOffset;
@@ -98,8 +98,8 @@ LABEL_9:
       MergedPrefLanguages[10] |= 0x80u;
     }
   }
-  LODWORD(v13) = 0;
-  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(48, &v14, 0LL, &v13);
+  DelayInterval.LowPart = 0;
+  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, (PULONG)&DelayInterval);
   return ((int)(ThreadPreferredUILanguages + 0x80000000) < 0 || ThreadPreferredUILanguages == -1073741789)
       && NtCurrentTeb()->MergedPrefLanguages;
 }

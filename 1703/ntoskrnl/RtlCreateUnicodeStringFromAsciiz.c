@@ -12,7 +12,7 @@
 
 BOOLEAN __stdcall RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING Destination, PCSZ Source)
 {
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   return RtlInitAnsiStringEx(&DestinationString, Source) >= 0
       && RtlAnsiStringToUnicodeString(Destination, &DestinationString, 1u) >= 0;

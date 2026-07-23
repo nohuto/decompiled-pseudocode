@@ -1,9 +1,9 @@
 /*
- * XREFs of WbProcessStartup @ 0x1407E77E0
+ * XREFs of WbProcessStartup @ 0x1407E7AB0
  * Callers:
- *     WbDispatchOperation @ 0x140763418 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140763608 (WbDispatchOperation.c)
  * Callees:
- *     WbAlloc @ 0x140763988 (WbAlloc.c)
+ *     WbAlloc @ 0x140763B78 (WbAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

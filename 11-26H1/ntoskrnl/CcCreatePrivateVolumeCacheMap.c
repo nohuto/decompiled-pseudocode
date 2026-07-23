@@ -1,19 +1,19 @@
 /*
- * XREFs of CcCreatePrivateVolumeCacheMap @ 0x1403E1FBC
+ * XREFs of CcCreatePrivateVolumeCacheMap @ 0x1403E51AC
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x1403E1230 (CcInitializeCacheMapInternal.c)
- *     CcAddExternalCacheToVolumeEx @ 0x1405B0A30 (CcAddExternalCacheToVolumeEx.c)
- *     CcRegisterExternalCache @ 0x1405B1060 (CcRegisterExternalCache.c)
+ *     CcInitializeCacheMapInternal @ 0x1403E4420 (CcInitializeCacheMapInternal.c)
+ *     CcAddExternalCacheToVolumeEx @ 0x1405B3240 (CcAddExternalCacheToVolumeEx.c)
+ *     CcRegisterExternalCache @ 0x1405B3870 (CcRegisterExternalCache.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDecrementPrivateVolumeUseCount @ 0x14039D1B0 (CcDecrementPrivateVolumeUseCount.c)
- *     CcFindPrivateVolumeCacheMap @ 0x1403E211C (CcFindPrivateVolumeCacheMap.c)
- *     CcInitializePrivateVolumeCacheMap @ 0x1403E3550 (CcInitializePrivateVolumeCacheMap.c)
- *     CcInsertPrivateVolumeCacheMap @ 0x1403E3C18 (CcInsertPrivateVolumeCacheMap.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1403E3E90 (CcDeletePrivateVolumeCacheMap.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x14039EF10 (CcDecrementPrivateVolumeUseCount.c)
+ *     CcFindPrivateVolumeCacheMap @ 0x1403E530C (CcFindPrivateVolumeCacheMap.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403E6740 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcInsertPrivateVolumeCacheMap @ 0x1403E6E08 (CcInsertPrivateVolumeCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403E7080 (CcDeletePrivateVolumeCacheMap.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcCreatePrivateVolumeCacheMap(__int64 a1, __int64 a2, _QWORD *a3)

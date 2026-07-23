@@ -1,16 +1,16 @@
 /*
- * XREFs of VfLookasideAdd @ 0x140C3EC54
+ * XREFs of VfLookasideAdd @ 0x140C44C64
  * Callers:
- *     VfMiscExInitializePagedLookasideList_Exit @ 0x140C3C980 (VfMiscExInitializePagedLookasideList_Exit.c)
+ *     VfMiscExInitializePagedLookasideList_Exit @ 0x140C42990 (VfMiscExInitializePagedLookasideList_Exit.c)
  * Callees:
- *     VfAvlFreeNodeNoLock @ 0x1403B7710 (VfAvlFreeNodeNoLock.c)
- *     VfAvlDeleteTreeNode @ 0x1403B7A64 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x1403B86F4 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlReserveNode @ 0x1403B8790 (VfAvlReserveNode.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     VfAvlFreeNodeNoLock @ 0x1403C1610 (VfAvlFreeNodeNoLock.c)
+ *     VfAvlDeleteTreeNode @ 0x1403C1964 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403C25F4 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x1403C2690 (VfAvlReserveNode.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall VfLookasideAdd(ULONG_PTR BugCheckParameter2, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepIsChildTokenByPointer @ 0x1407DCF20
+ * XREFs of SepIsChildTokenByPointer @ 0x1407DD1F0
  * Callers:
- *     SeIsTokenAssignableToProcess @ 0x1406BA488 (SeIsTokenAssignableToProcess.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406BA4B8 (SeIsTokenAssignableToProcess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
  */
 
 __int64 __fastcall SepIsChildTokenByPointer(__int64 a1, _BYTE *a2)

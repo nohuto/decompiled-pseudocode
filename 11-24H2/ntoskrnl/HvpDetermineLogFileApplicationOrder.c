@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpDetermineLogFileApplicationOrder @ 0x14098413C
+ * XREFs of HvpDetermineLogFileApplicationOrder @ 0x14096C94C
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140983108 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x14096B918 (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HvpCompareLogSequenceNumbers @ 0x1407E62A4 (HvpCompareLogSequenceNumbers.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HvpCompareLogSequenceNumbers @ 0x1407E6874 (HvpCompareLogSequenceNumbers.c)
  */
 
 char __fastcall HvpDetermineLogFileApplicationOrder(_DWORD *a1)
@@ -65,9 +65,9 @@ LABEL_9:
         goto LABEL_16;
       }
     }
-    else if ( !v9 && (unsigned int)dword_140E09EE8 > 5 )
+    else if ( !v9 && (unsigned int)dword_140E09F58 > 5 )
     {
-      LOBYTE(v7) = tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL);
+      LOBYTE(v7) = tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL);
       if ( (_BYTE)v7 )
       {
         v17 = 0;
@@ -75,8 +75,8 @@ LABEL_9:
         v13 = 0x1000000LL;
         v16 = 8;
         LOBYTE(v7) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140E09EE8,
-                       (unsigned __int8 *)&word_140055D06,
+                       (__int64)&dword_140E09F58,
+                       (unsigned __int8 *)&word_14005682E,
                        0LL,
                        0LL,
                        3u,

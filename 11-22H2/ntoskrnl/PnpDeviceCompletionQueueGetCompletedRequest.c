@@ -31,10 +31,13 @@ __int64 PnpDeviceCompletionQueueGetCompletedRequest()
   qword_140C5CA98 = *(_QWORD *)qword_140C5CA98;
   *(_QWORD *)(v3 + 8) = &qword_140C5CA98;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5CAC8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlNormalizeNtstatus @ 0x1404563D0
+ * XREFs of FsRtlNormalizeNtstatus @ 0x14044B3A0
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x140456400 (FsRtlIsNtstatusExpected.c)
+ *     FsRtlIsNtstatusExpected @ 0x14044B3D0 (FsRtlIsNtstatusExpected.c)
  */
 
 NTSTATUS __stdcall FsRtlNormalizeNtstatus(NTSTATUS Exception, NTSTATUS GenericException)

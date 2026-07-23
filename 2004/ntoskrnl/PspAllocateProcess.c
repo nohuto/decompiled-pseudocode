@@ -136,7 +136,7 @@ __int64 __fastcall PspAllocateProcess(
   int v23; // ecx
   int v24; // r9d
   unsigned int v25; // r12d
-  char *v26; // r15
+  LARGE_INTEGER *v26; // r15
   int v27; // r14d
   char *v28; // rcx
   char v29; // al
@@ -148,7 +148,7 @@ __int64 __fastcall PspAllocateProcess(
   __int64 v35; // r12
   int v36; // edx
   int DefaultPagePriority; // r8d
-  __int64 v38; // r8
+  LARGE_INTEGER v38; // r8
   int v39; // r9d
   int SectionInformation; // r14d
   void *v41; // rax
@@ -170,8 +170,8 @@ __int64 __fastcall PspAllocateProcess(
   _WORD *PoolWithTag; // r10
   int v58; // eax
   __int16 v59; // r11
-  _QWORD *v60; // rax
-  unsigned int v61; // edi
+  _QWORD *QuadPart; // rax
+  ULONG v61; // edi
   KPROCESSOR_MODE v62; // al
   __int16 v63; // r14
   bool v64; // sf
@@ -188,7 +188,7 @@ __int64 __fastcall PspAllocateProcess(
   __int64 SessionSchedulingGroupByProcess; // rax
   int v76; // ecx
   char v77; // r8
-  char v78; // al
+  char QuadPart_high; // al
   __int64 v79; // r9
   __int64 v80; // r8
   int inited; // eax
@@ -211,12 +211,12 @@ __int64 __fastcall PspAllocateProcess(
   PVOID v98; // r12
   int v99; // eax
   __int64 ImageSectionBasedAddress; // rax
-  __int64 v101; // rcx
+  LARGE_INTEGER v101; // rcx
   bool IsProtectedProcess; // di
   bool IsProtectedProcessLight; // al
   char v104; // di
   PEPROCESS v105; // rcx
-  __int64 v106; // rax
+  LARGE_INTEGER v106; // rax
   __int16 v107; // cx
   __int64 v108; // rdi
   __int64 v109; // rax
@@ -258,17 +258,17 @@ __int64 __fastcall PspAllocateProcess(
   int v146; // [rsp+118h] [rbp-450h]
   PVOID Address; // [rsp+120h] [rbp-448h]
   struct _KTHREAD *CurrentThread; // [rsp+128h] [rbp-440h]
-  volatile signed __int32 *v149; // [rsp+130h] [rbp-438h]
+  volatile signed __int32 *p_HighPart; // [rsp+130h] [rbp-438h]
   unsigned __int64 v150; // [rsp+138h] [rbp-430h]
   __int128 v151; // [rsp+140h] [rbp-428h] BYREF
   PVOID v152; // [rsp+150h] [rbp-418h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+158h] [rbp-410h] BYREF
   int v154; // [rsp+160h] [rbp-408h] BYREF
-  PVOID v155; // [rsp+168h] [rbp-400h] BYREF
+  PVOID ReturnedState; // [rsp+168h] [rbp-400h] BYREF
   PVOID P; // [rsp+170h] [rbp-3F8h]
   HANDLE KeyHandle; // [rsp+178h] [rbp-3F0h] BYREF
   HANDLE Handle; // [rsp+180h] [rbp-3E8h] BYREF
-  unsigned __int64 *v159; // [rsp+188h] [rbp-3E0h]
+  unsigned __int64 *p_QuadPart; // [rsp+188h] [rbp-3E0h]
   __int64 v160; // [rsp+190h] [rbp-3D8h]
   __int128 v161; // [rsp+198h] [rbp-3D0h] BYREF
   __int64 v162; // [rsp+1B0h] [rbp-3B8h]
@@ -276,7 +276,7 @@ __int64 __fastcall PspAllocateProcess(
   __int64 v164; // [rsp+1C8h] [rbp-3A0h]
   __int64 v165; // [rsp+1D0h] [rbp-398h]
   __int64 v166; // [rsp+1D8h] [rbp-390h]
-  char *v167; // [rsp+1E0h] [rbp-388h]
+  LARGE_INTEGER *v167; // [rsp+1E0h] [rbp-388h]
   __int64 v168; // [rsp+1E8h] [rbp-380h]
   _QWORD *v169; // [rsp+1F0h] [rbp-378h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+1F8h] [rbp-370h] BYREF
@@ -306,11 +306,11 @@ __int64 __fastcall PspAllocateProcess(
   __int128 v194; // [rsp+410h] [rbp-158h] BYREF
   __int128 v195; // [rsp+420h] [rbp-148h]
   _OWORD v196[11]; // [rsp+430h] [rbp-138h] BYREF
-  _DWORD v197[6]; // [rsp+4E0h] [rbp-88h] BYREF
+  ULONG Privilege[6]; // [rsp+4E0h] [rbp-88h] BYREF
   _WORD v198[20]; // [rsp+4F8h] [rbp-70h] BYREF
 
   v16 = (int)a3;
-  v149 = a3;
+  p_HighPart = a3;
   Process = (PEPROCESS)a1;
   v166 = a1;
   v137 = a7;
@@ -393,7 +393,7 @@ __int64 __fastcall PspAllocateProcess(
     v19 |= 0x1000u;
   v194 = 0LL;
   v195 = 0LL;
-  v155 = 0LL;
+  ReturnedState = 0LL;
   v21 = 2624;
   v122 = 0;
   v139 = 0LL;
@@ -408,7 +408,7 @@ __int64 __fastcall PspAllocateProcess(
     v122 = (v21 + 7) & 0xFFFFFFF8;
     v21 = v122 + 480;
     v19 |= 0x2000u;
-    v16 = (int)v149;
+    v16 = (int)p_HighPart;
   }
   MaximumGroupCount = KeQueryMaximumGroupCount();
   NumberOfBytes_4 = MaximumGroupCount;
@@ -423,7 +423,7 @@ __int64 __fastcall PspAllocateProcess(
   result = ObCreateObject(v23, (int)PsProcessType, v16, v24);
   if ( (int)result >= 0 )
   {
-    v26 = (char *)Object;
+    v26 = (LARGE_INTEGER *)Object;
     ObfReferenceObjectWithTag(Object, 0x72437350u);
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
     memset(Object, 0, v21);
@@ -431,51 +431,51 @@ __int64 __fastcall PspAllocateProcess(
     ExInitializePushLock((PKSPIN_LOCK)Object + 139);
     PspInitializeProcessLock((__int64)Object);
     *((_QWORD *)Object + 189) = (char *)Object + 1504;
-    *((_QWORD *)v26 + 188) = v26 + 1504;
-    *((_QWORD *)v26 + 277) = v26 + 2208;
-    *((_QWORD *)v26 + 276) = v26 + 2208;
-    *((_QWORD *)v26 + 307) = v26 + 2448;
-    *((_QWORD *)v26 + 306) = v26 + 2448;
-    v26[2170] = a4;
-    v26[2168] = a5;
-    v26[2169] = a6;
-    *((_QWORD *)v26 + 283) = 0LL;
-    *((_QWORD *)v26 + 321) = 0LL;
-    *((_QWORD *)v26 + 320) = 0LL;
-    *((_QWORD *)v26 + 323) = 0LL;
-    *((_QWORD *)v26 + 322) = 0LL;
+    v26[188].QuadPart = (LONGLONG)&v26[188];
+    v26[277].QuadPart = (LONGLONG)&v26[276];
+    v26[276].QuadPart = (LONGLONG)&v26[276];
+    v26[307].QuadPart = (LONGLONG)&v26[306];
+    v26[306].QuadPart = (LONGLONG)&v26[306];
+    BYTE2(v26[271].u.LowPart) = a4;
+    LOBYTE(v26[271].LowPart) = a5;
+    BYTE1(v26[271].LowPart) = a6;
+    v26[283].QuadPart = 0LL;
+    v26[321].QuadPart = 0LL;
+    v26[320].QuadPart = 0LL;
+    v26[323].QuadPart = 0LL;
+    v26[322].QuadPart = 0LL;
     if ( (v19 & 0x400) != 0 )
-      *((_DWORD *)v26 + 543) |= 1u;
+      v26[271].HighPart |= 1u;
     v27 = v115;
     v133 = 32;
     if ( (v115 & 0x8000) != 0 )
-      *((_DWORD *)v26 + 543) |= 0x20u;
+      v26[271].HighPart |= 0x20u;
     if ( v25 )
     {
-      *((_DWORD *)v26 + 543) |= 0x80u;
-      v28 = &v26[v25];
-      *((_QWORD *)v26 + 297) = v28;
-      *((_QWORD *)v26 + 298) = &v28[8 * NumberOfBytes_4];
+      v26[271].HighPart |= 0x80u;
+      v28 = (char *)v26 + v25;
+      v26[297].QuadPart = (LONGLONG)v28;
+      v26[298].QuadPart = (LONGLONG)&v28[8 * NumberOfBytes_4];
     }
     v29 = a10;
     if ( (a10 & 1) != 0 )
-      *((_DWORD *)v26 + 543) |= 0x1000u;
+      v26[271].HighPart |= 0x1000u;
     if ( (v29 & 4) != 0 )
-      *((_DWORD *)v26 + 543) |= 0x800000u;
+      v26[271].HighPart |= 0x800000u;
     if ( (v29 & 8) != 0 )
-      *((_DWORD *)v26 + 543) |= 0x8000000u;
+      v26[271].HighPart |= 0x8000000u;
     Flink = v136[1].Header.WaitListHead.Flink;
     v31 = 512;
     v32 = (unsigned __int64)Flink | 2;
     if ( (v115 & 0x200) != 0 )
       v32 = (__int64)v136[1].Header.WaitListHead.Flink;
-    *((_QWORD *)v26 + 169) = v32;
+    v26[169].QuadPart = v32;
     if ( (v19 & 0x200) != 0 )
-      *((_QWORD *)v26 + 279) = &v26[v139];
+      v26[279].QuadPart = (LONGLONG)v26 + v139;
     if ( (v19 & 0x2000) != 0 )
     {
-      v33 = &v26[v122];
-      *((_QWORD *)v26 + 285) = v33;
+      v33 = (char *)v26 + v122;
+      v26[285].QuadPart = (LONGLONG)v33;
       PoEnergyContextInitialize(v33, Flink, 512LL, v19 & 0x400, 0LL);
     }
     if ( v18 && (v31 & *(_DWORD *)(v18 + 4)) != 0 )
@@ -491,23 +491,23 @@ __int64 __fastcall PspAllocateProcess(
       else
         v34 = 5;
     }
-    v167 = v26 + 1528;
-    *((_DWORD *)v26 + 382) = v34;
-    *((_DWORD *)v26 + 501) = 259;
+    v167 = v26 + 191;
+    v26[191].LowPart = v34;
+    v26[250].HighPart = 259;
     if ( v35 )
     {
       v36 = (*(_DWORD *)(v35 + 1124) >> 27) & 7;
       DefaultPagePriority = (*(_DWORD *)(v35 + 1120) >> 12) & 7;
-      *((_QWORD *)v26 + 168) = *(_QWORD *)(v35 + 1088);
+      v26[168] = *(LARGE_INTEGER *)(v35 + 1088);
     }
     else
     {
       DefaultPagePriority = MmGetDefaultPagePriority();
     }
-    v149 = (volatile signed __int32 *)(v26 + 1124);
-    *((_DWORD *)v26 + 281) = *((_DWORD *)v26 + 281) & 0xC7FFFFFF | (v36 << 27);
-    v139 = (__int64)(v26 + 1120);
-    *((_DWORD *)v26 + 280) = (DefaultPagePriority << 12) | *((_DWORD *)v26 + 280) & 0xFFFF8FFF;
+    p_HighPart = &v26[140].HighPart;
+    v26[140].HighPart = v26[140].HighPart & 0xC7FFFFFF | (v36 << 27);
+    v139 = (__int64)&v26[140];
+    v26[140].LowPart = (DefaultPagePriority << 12) | v26[140].LowPart & 0xFFFF8FFF;
     if ( v152 )
     {
       if ( !PsReferencePartitionSafe((__int64)v152) )
@@ -527,7 +527,7 @@ LABEL_178:
       v152 = PspSystemPartition;
       PsReferencePartition((__int64)PspSystemPartition);
     }
-    *((_QWORD *)v26 + 315) = v38;
+    v26[315] = v38;
     if ( !v39 )
     {
       v138 = v137;
@@ -577,13 +577,13 @@ LABEL_57:
         }
       }
     }
-    v159 = (unsigned __int64 *)(v26 + 1304);
+    p_QuadPart = (unsigned __int64 *)&v26[163].QuadPart;
     v43 = v137;
-    *((_QWORD *)v26 + 163) = v137;
+    v26[163].QuadPart = (LONGLONG)v137;
     LOWORD(v122) = 0;
     if ( v18 )
     {
-      *((_QWORD *)v26 + 270) = *(_QWORD *)(v18 + 464);
+      v26[270] = *(LARGE_INTEGER *)(v18 + 464);
       SectionInformation = MmGetSectionInformation(v43, 4LL, v18 + 48);
       if ( SectionInformation < 0 )
         goto LABEL_177;
@@ -638,7 +638,7 @@ LABEL_83:
           *v51 = 0LL;
         }
         ObfReferenceObjectWithTag(*(PVOID *)(v18 + 176), 0x72437350u);
-        *((_QWORD *)v26 + 180) = *(_QWORD *)(v18 + 176);
+        v26[180] = *(LARGE_INTEGER *)(v18 + 176);
         if ( (v19 & 0x4000) != 0 )
         {
           v53 = v115;
@@ -756,7 +756,7 @@ LABEL_139:
         if ( (v19 & 0x4000) != 0 )
         {
           PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x50776F57u);
-          *((_QWORD *)v26 + 176) = PoolWithTag;
+          v26[176].QuadPart = (LONGLONG)PoolWithTag;
           if ( !PoolWithTag )
             goto LABEL_132;
           v58 = HIDWORD(TokenInformation);
@@ -764,10 +764,10 @@ LABEL_139:
           if ( !HIDWORD(TokenInformation) )
             v58 = PspWow64PickBestNtdll(v18);
           PoolWithTag[4] = v59;
-          *(_DWORD *)(*((_QWORD *)v26 + 176) + 12LL) = v58;
-          v60 = (_QWORD *)*((_QWORD *)v26 + 176);
-          if ( v60 )
-            *v60 = 1LL;
+          *(_DWORD *)(v26[176].QuadPart + 12) = v58;
+          QuadPart = (_QWORD *)v26[176].QuadPart;
+          if ( QuadPart )
+            *QuadPart = 1LL;
         }
         SectionInformation = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
         if ( SectionInformation < 0 )
@@ -778,21 +778,21 @@ LABEL_139:
         {
           if ( v18 && (*(_DWORD *)(v18 + 4) & 0x100) != 0 && *(_BYTE *)(v18 + 248) == 4 )
           {
-            v197[0] = 14;
+            Privilege[0] = 14;
             v61 = 1;
           }
           if ( a12 )
-            v197[v61++] = 3;
+            Privilege[v61++] = 3;
           v63 = v115;
           if ( (v115 & 0x30) != 0 )
-            v197[v61++] = 4;
+            Privilege[v61++] = 4;
           if ( (v115 & 0x80u) != 0 && !(unsigned int)MmIsSessionLeaderProcess(v136) )
-            v197[v61++] = 10;
+            Privilege[v61++] = 10;
           if ( (v115 & 0x8400) != 0 )
-            v197[v61++] = 7;
+            Privilege[v61++] = 7;
           if ( v61 )
           {
-            v64 = (int)RtlAcquirePrivilege(v197, v61, a12 != 0, &v155) < 0;
+            v64 = RtlAcquirePrivilege(Privilege, v61, a12 != 0, &ReturnedState) < 0;
             v62 = a2;
             if ( !v64 )
               v19 |= 0x10u;
@@ -848,17 +848,17 @@ LABEL_139:
           if ( v129 )
           {
             LOBYTE(v115) = a9;
-            v26 = (char *)Object;
+            v26 = (LARGE_INTEGER *)Object;
             goto LABEL_198;
           }
           v66 = KeSelectNodeForAffinity((__int64)&v151);
           LOBYTE(v115) = a9;
-          v26 = (char *)Object;
+          v26 = (LARGE_INTEGER *)Object;
         }
         v129 = v66;
 LABEL_198:
-        v67 = v149;
-        *v149 |= NumberOfBytes_4;
+        v67 = p_HighPart;
+        *p_HighPart |= NumberOfBytes_4;
         *(_DWORD *)v139 |= v124;
         if ( v35 )
         {
@@ -948,19 +948,19 @@ LABEL_174:
           if ( (v19 & 0x20) == 0 )
             goto LABEL_230;
           v35 = (__int64)Process;
-          v67 = v149;
+          v67 = p_HighPart;
         }
         else
         {
           PspInheritQuota(v26, 0LL);
-          v26[912] = 1;
+          LOBYTE(v26[114].LowPart) = 1;
           SectionInformation = MmInitializeHandBuiltProcess();
           if ( SectionInformation < 0 )
             goto LABEL_175;
         }
         HIDWORD(TokenInformation) = v19;
         _InterlockedOr(v67, 0x40000u);
-        v26 = (char *)Object;
+        v26 = (LARGE_INTEGER *)Object;
         SessionSchedulingGroupByProcess = MmGetSessionSchedulingGroupByProcess(Object);
         SectionInformation = KeInitializeProcess(
                                v76,
@@ -995,20 +995,20 @@ LABEL_174:
                                v168);
         if ( SectionInformation < 0 )
           goto LABEL_175;
-        v26[1463] = 2;
+        HIBYTE(v26[182].QuadPart) = 2;
         if ( v35 )
         {
-          v78 = v26[1463];
+          QuadPart_high = HIBYTE(v26[182].QuadPart);
           if ( ((*(_BYTE *)(v35 + 1463) - 1) & 0xFB) == 0 )
-            v78 = *(_BYTE *)(v35 + 1463);
-          v26[1463] = v78;
+            QuadPart_high = *(_BYTE *)(v35 + 1463);
+          HIBYTE(v26[182].QuadPart) = QuadPart_high;
           v79 = v18 ? *(_QWORD *)(v18 + 296) : 0LL;
           v80 = v18 ? *(unsigned int *)(v18 + 292) : 0LL;
           inited = ObInitProcess(v35 & -(__int64)((a9 & 4) != 0), v26, v80, v79);
         }
         else
         {
-          *((_QWORD *)v26 + 174) = v136[1].AffinityPadding[8];
+          v26[174] = (LARGE_INTEGER)v136[1].AffinityPadding[8];
           inited = MmInitializeHandBuiltProcess2((ULONG_PTR)v26);
         }
         SectionInformation = inited;
@@ -1032,8 +1032,8 @@ LABEL_174:
               goto LABEL_175;
           }
         }
-        v26[640] = PspComputeQuantumAndPriority((_DWORD)v26, 0, (unsigned int)&v117, 0, 0LL);
-        v26[641] = v117;
+        LOBYTE(v26[80].LowPart) = PspComputeQuantumAndPriority((_DWORD)v26, 0, (unsigned int)&v117, 0, 0LL);
+        BYTE1(v26[80].LowPart) = v117;
         SectionInformation = 0;
         v127 = 0;
         PspReadIFEOMitigationOptions(v18, &v189);
@@ -1114,7 +1114,7 @@ LABEL_174:
           v94 = (_DWORD)TokenInformation != 0;
         SmProcessCreateNotification(v26, v94);
         if ( v91 && v91 != PsInitialSystemProcess && (HIDWORD(v91[2].Header.WaitListHead.Flink) & 0x2000000) != 0 )
-          *((_DWORD *)v26 + 543) |= 0x2000000u;
+          v26[271].HighPart |= 0x2000000u;
         if ( (a9 & 0x80u) != 0
           && !(unsigned int)MmIsSessionLeaderProcess(v136)
           && !SeSinglePrivilegeCheck(SeLoadDriverPrivilege, a2) )
@@ -1143,9 +1143,9 @@ LABEL_174:
               if ( v18 )
               {
                 ImageSectionBasedAddress = MmGetImageSectionBasedAddress(v98);
-                v101 = *((_QWORD *)v26 + 164);
-                if ( ImageSectionBasedAddress != v101 )
-                  *(_QWORD *)(v18 + 48) += v101 - ImageSectionBasedAddress;
+                v101 = v26[164];
+                if ( ImageSectionBasedAddress != v101.QuadPart )
+                  *(_QWORD *)(v18 + 48) += v101.QuadPart - ImageSectionBasedAddress;
               }
               v127 = SectionInformation;
               if ( !v95 )
@@ -1159,14 +1159,14 @@ LABEL_174:
         {
           if ( !v91 )
             goto LABEL_314;
-          *((_QWORD *)v26 + 164) = v91[1].Affinity.Bitmap[18];
+          v26[164] = (LARGE_INTEGER)v91[1].Affinity.Bitmap[18];
           SectionInformation = MmInitializeProcessAddressSpace((ULONG_PTR)v26, (v19 >> 11) & 1);
           if ( SectionInformation >= 0 )
           {
             LOWORD(v19) = WORD2(TokenInformation) | (4 * (a9 & 0x10)) | 2;
             v96 = *(unsigned __int16 *)(v91[1].ActiveProcessors.Bitmap[2] + 2);
             v97 = ExAllocatePoolWithTag(NonPagedPoolNx, v96 + 16, 0x61506553u);
-            *((_QWORD *)v26 + 184) = v97;
+            v26[184].QuadPart = (LONGLONG)v97;
             if ( !v97 )
             {
 LABEL_230:
@@ -1174,18 +1174,18 @@ LABEL_230:
               goto LABEL_175;
             }
             memmove(v97, (const void *)v91[1].ActiveProcessors.Bitmap[2], v96 + 16);
-            *(_QWORD *)(*((_QWORD *)v26 + 184) + 8LL) = *((_QWORD *)v26 + 184) + 16LL;
-            *((_DWORD *)v26 + 330) = v91[1].Affinity.Bitmap[19];
+            *(_QWORD *)(v26[184].QuadPart + 8) = v26[184].QuadPart + 16;
+            v26[165].LowPart = v91[1].Affinity.Bitmap[19];
             if ( (a9 & 0x1000) != 0 )
             {
-              *v159 = 0LL;
+              *p_QuadPart = 0LL;
               HalPutDmaAdapter((PADAPTER_OBJECT)v137);
             }
 LABEL_314:
             if ( (v19 & 0x10) != 0 )
-              RtlReleasePrivilege(v155);
+              RtlReleasePrivilege(ReturnedState);
             if ( (unsigned __int16)PsWow64GetProcessMachine(v26) == 332 )
-              *((_DWORD *)v26 + 158) |= 1u;
+              v26[79].LowPart |= 1u;
             v128 = v19 & 8;
             if ( (v19 & 8) != 0 )
             {
@@ -1209,16 +1209,16 @@ LABEL_314:
               BYTE3(v161) = v104;
               if ( v138 )
               {
-                SectionInformation = MmCreatePeb(v26, &v161, v26 + 1360, &v151);
+                SectionInformation = MmCreatePeb(v26, &v161, &v26[170], &v151);
                 if ( SectionInformation < 0 )
                 {
-                  *((_QWORD *)v26 + 170) = 0LL;
+                  v26[170].QuadPart = 0LL;
                   goto LABEL_177;
                 }
                 if ( (_QWORD)v151 )
                 {
                   _InterlockedAnd((volatile signed __int32 *)v139, 0xFFCFFFFF);
-                  v26 = (char *)Object;
+                  v26 = (LARGE_INTEGER *)Object;
                   PspSetProcessAffinitySafe((_DWORD)Object, 1, 0, (unsigned int)&v151, (__int64)&v154);
                 }
               }
@@ -1226,7 +1226,7 @@ LABEL_314:
               {
                 v105 = Process;
                 Address = (PVOID)Process[1].AffinityPadding[4];
-                *((_QWORD *)v26 + 170) = Address;
+                v26[170].QuadPart = (LONGLONG)Address;
                 if ( (v19 & 0x800) != 0 )
                 {
 LABEL_340:
@@ -1251,7 +1251,7 @@ LABEL_340:
                           SectionInformation = PspPrepareSystemDllInitBlock(0LL, 0LL);
                           if ( SectionInformation >= 0 )
                           {
-                            if ( *((_QWORD *)v26 + 176) )
+                            if ( v26[176].QuadPart )
                             {
                               ProcessNtdllType = PsWow64GetProcessNtdllType(v26);
                               SectionInformation = PspPrepareSystemDllInitBlock(ProcessNtdllType, 0LL);
@@ -1267,7 +1267,7 @@ LABEL_344:
                       goto LABEL_177;
                     PspLockProcessExclusive((__int64)v26, v108);
                     v109 = ExCreateHandle(PspCidTable, v26);
-                    *((_QWORD *)v26 + 136) = v109;
+                    v26[136].QuadPart = v109;
                     if ( !v109 )
                     {
                       PspUnlockProcessExclusive((__int64)v26, v108);
@@ -1276,7 +1276,11 @@ LABEL_344:
                     }
                     if ( (v19 & 0x1000) != 0 )
                     {
-                      SectionInformation = MmGetSectionStrongImageReference(0LL, 0LL, *((_QWORD *)v26 + 163), &v163);
+                      SectionInformation = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MmGetSectionStrongImageReference)(
+                                             0LL,
+                                             0LL,
+                                             (LARGE_INTEGER)v26[163].QuadPart,
+                                             &v163);
                       v111 = (__int64)v26;
                       if ( SectionInformation < 0 )
                       {
@@ -1287,10 +1291,10 @@ LABEL_358:
                       SectionInformation = KeSecureProcess(
                                              (_KPROCESS *)v26,
                                              **(_QWORD **)(v18 + 392),
-                                             *((_QWORD *)v26 + 170),
-                                             *((_QWORD *)v26 + 136),
+                                             v26[170].QuadPart,
+                                             v26[136].QuadPart,
                                              v163,
-                                             *((_QWORD *)v26 + 164),
+                                             v26[164].QuadPart,
                                              *(struct _MDL **)(v18 + 392),
                                              *(unsigned int *)(v18 + 408));
                       if ( SectionInformation < 0 )
@@ -1301,18 +1305,18 @@ LABEL_358:
                     }
                     if ( KeQuerySystemTimeUnsafe() )
                     {
-                      KeQuerySystemTimePrecise((__int64 *)v26 + 141);
+                      KeQuerySystemTimePrecise(v26 + 141);
                     }
                     else
                     {
-                      v26 = (char *)Object;
+                      v26 = (LARGE_INTEGER *)Object;
                       *((_QWORD *)Object + 141) = MEMORY[0xFFFFF78000000014];
                     }
-                    *((_QWORD *)v26 + 288) = MEMORY[0xFFFFF78000000008];
+                    v26[288].QuadPart = MEMORY[0xFFFFF78000000008];
                     UnbiasedInterruptTime = KeQueryUnbiasedInterruptTime();
                     v113 = Object;
                     *((_QWORD *)Object + 289) = UnbiasedInterruptTime;
-                    v113[291] = *((_QWORD *)v26 + 288);
+                    v113[291] = v26[288].QuadPart;
                     *v169 = v113;
                     SectionInformation = v127;
                     goto LABEL_178;
@@ -1328,18 +1332,18 @@ LABEL_358:
                   SectionInformation = -1073741503;
                 if ( SectionInformation >= 0 )
                 {
-                  v106 = *((_QWORD *)v26 + 176);
-                  if ( v106 )
+                  v106 = v26[176];
+                  if ( v106.QuadPart )
                   {
-                    v107 = *(_WORD *)(v106 + 8);
+                    v107 = *(_WORD *)(v106.QuadPart + 8);
                     if ( v107 == 332 || v107 == 452 )
                     {
-                      v159 = *(unsigned __int64 **)v106;
-                      if ( MmSecureVirtualMemory(v159, 0x480uLL, 4u) )
+                      p_QuadPart = *(unsigned __int64 **)v106.QuadPart;
+                      if ( MmSecureVirtualMemory(p_QuadPart, 0x480uLL, 4u) )
                       {
                         v150 = 0xFFFFFFFF00000001uLL;
                         BYTE3(v150) = v104;
-                        *v159 = v150;
+                        *p_QuadPart = v150;
                       }
                       else
                       {
@@ -1359,7 +1363,7 @@ LABEL_358:
         }
 LABEL_175:
         if ( (v19 & 0x10) != 0 )
-          RtlReleasePrivilege(v155);
+          RtlReleasePrivilege(ReturnedState);
         goto LABEL_177;
       }
     }

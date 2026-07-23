@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipFirmwareTableHandler @ 0x14064C4B0
+ * XREFs of WmipFirmwareTableHandler @ 0x14064AAC0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall WmipFirmwareTableHandler(_DWORD *a1)
@@ -70,7 +70,7 @@ __int64 __fastcall WmipFirmwareTableHandler(_DWORD *a1)
     return 3221225711LL;
 LABEL_15:
   v13 = v11;
-  v14 = (const void *)MmMapIoSpaceEx(LODWORD(WmipFirmwareTableArray[v9]), v11, 0x204u);
+  v14 = (const void *)MmMapIoSpaceEx(LODWORD(WmipFirmwareTableArray[v9]), v11, 516LL);
   v15 = (unsigned __int64)v14;
   if ( v14 )
   {

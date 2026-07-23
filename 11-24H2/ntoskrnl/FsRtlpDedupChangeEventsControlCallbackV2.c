@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpDedupChangeEventsControlCallbackV2 @ 0x1405818E0
+ * XREFs of FsRtlpDedupChangeEventsControlCallbackV2 @ 0x14057EC60
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     McTemplateK0jjtq_EtwWriteTransfer @ 0x140581AA4 (McTemplateK0jjtq_EtwWriteTransfer.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     McTemplateK0jjtq_EtwWriteTransfer @ 0x14057EE24 (McTemplateK0jjtq_EtwWriteTransfer.c)
  */
 
 void __fastcall FsRtlpDedupChangeEventsControlCallbackV2(

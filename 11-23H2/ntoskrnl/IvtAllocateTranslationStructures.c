@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtAllocateTranslationStructures @ 0x14052B77C
+ * XREFs of IvtAllocateTranslationStructures @ 0x14052BCCC
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x14052B808 (IvtAttachDeviceDomainInternal.c)
- *     IvtConfigureAts @ 0x14052BFF0 (IvtConfigureAts.c)
- *     IvtProcessDeviceExceptions @ 0x140A98E94 (IvtProcessDeviceExceptions.c)
- *     HalpIvtpInitializeReservedDomain @ 0x140A99938 (HalpIvtpInitializeReservedDomain.c)
+ *     IvtAttachDeviceDomainInternal @ 0x14052BD58 (IvtAttachDeviceDomainInternal.c)
+ *     IvtConfigureAts @ 0x14052C540 (IvtConfigureAts.c)
+ *     IvtProcessDeviceExceptions @ 0x140A98D04 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x140A997A8 (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     IvtAllocateContextTable @ 0x14052B220 (IvtAllocateContextTable.c)
- *     IvtAllocateScalableModePasidTables @ 0x14052B480 (IvtAllocateScalableModePasidTables.c)
+ *     IvtAllocateContextTable @ 0x14052B770 (IvtAllocateContextTable.c)
+ *     IvtAllocateScalableModePasidTables @ 0x14052B9D0 (IvtAllocateScalableModePasidTables.c)
  */
 
 __int64 __fastcall IvtAllocateTranslationStructures(

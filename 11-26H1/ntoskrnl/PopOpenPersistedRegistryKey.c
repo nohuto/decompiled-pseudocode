@@ -1,20 +1,20 @@
 /*
- * XREFs of PopOpenPersistedRegistryKey @ 0x1407C8E0C
+ * XREFs of PopOpenPersistedRegistryKey @ 0x1407CBEAC
  * Callers:
- *     PopLidReliabilityInit @ 0x14060799C (PopLidReliabilityInit.c)
- *     PopSaveLidReliabilityState @ 0x1407D15B8 (PopSaveLidReliabilityState.c)
+ *     PopLidReliabilityInit @ 0x14060A4FC (PopLidReliabilityInit.c)
+ *     PopSaveLidReliabilityState @ 0x1407D4658 (PopSaveLidReliabilityState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     RtlGetPersistedStateLocation @ 0x140A10D20 (RtlGetPersistedStateLocation.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     RtlGetPersistedStateLocation @ 0x140A0FF10 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 __fastcall PopOpenPersistedRegistryKey(__int64 a1, HANDLE *a2)
 {
   NTSTATUS PersistedStateLocation; // ecx
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v6; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG BufferLengthOut; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   WCHAR SourceString[264]; // [rsp+90h] [rbp-70h] BYREF
@@ -23,7 +23,14 @@ __int64 __fastcall PopOpenPersistedRegistryKey(__int64 a1, HANDLE *a2)
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
-  PersistedStateLocation = RtlGetPersistedStateLocation(L"Power", SourceString, 520, (__int64)&v6);
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             L"Power",
+                             0LL,
+                             L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
+                             LocationTypeRegistry,
+                             SourceString,
+                             0x208u,
+                             &BufferLengthOut);
   if ( PersistedStateLocation >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);

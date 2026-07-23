@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlApplyHotPatch @ 0x14057E148
+ * XREFs of RtlApplyHotPatch @ 0x14057F148
  * Callers:
- *     MiApplyImageHotPatchDpc @ 0x14057C730 (MiApplyImageHotPatchDpc.c)
- *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiApplyImageHotPatchDpc @ 0x14057D730 (MiApplyImageHotPatchDpc.c)
+ *     MiApplyImageHotPatch @ 0x1408558E8 (MiApplyImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
- *     RtlGetHotPatchSize @ 0x1402F7E74 (RtlGetHotPatchSize.c)
- *     RtlpCheckFunctionPatchApplied @ 0x14057E480 (RtlpCheckFunctionPatchApplied.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D9660 (RtlFindClearBitsAndSet.c)
+ *     RtlGetHotPatchSize @ 0x1402F8064 (RtlGetHotPatchSize.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x14057F480 (RtlpCheckFunctionPatchApplied.c)
  */
 
 __int64 __fastcall RtlApplyHotPatch(

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDialogWndProcWorker @ 0x18015EEB0
+ * XREFs of NtdllDialogWndProcWorker @ 0x18015EDB0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllDialogWndProcWorker()
 {
-  off_1801E02D8();
+  off_1801DF2D8();
 }

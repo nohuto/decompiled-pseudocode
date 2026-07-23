@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuDeviceGetDomainTypes @ 0x140587CE0
+ * XREFs of HalpIommuDeviceGetDomainTypes @ 0x14058A2B8
  * Callers:
- *     HalpIommuInvokeInterfaceStateChangeCallbacks @ 0x14051167C (HalpIommuInvokeInterfaceStateChangeCallbacks.c)
- *     IommuDeviceQueryDomainTypes @ 0x14059EAE0 (IommuDeviceQueryDomainTypes.c)
- *     IommuDomainAttachDeviceEx @ 0x14059ED10 (IommuDomainAttachDeviceEx.c)
- *     IommuRegisterInterfaceStateChangeCallback @ 0x14059F3C0 (IommuRegisterInterfaceStateChangeCallback.c)
- *     IommuRegisterInterfaceStateChangeCallbackLegacy @ 0x14059F600 (IommuRegisterInterfaceStateChangeCallbackLegacy.c)
- *     IommuDomainAttachPasidDevice @ 0x140786EE0 (IommuDomainAttachPasidDevice.c)
+ *     HalpIommuInvokeInterfaceStateChangeCallbacks @ 0x14050B0EC (HalpIommuInvokeInterfaceStateChangeCallbacks.c)
+ *     IommuDeviceQueryDomainTypes @ 0x1405A12C0 (IommuDeviceQueryDomainTypes.c)
+ *     IommuDomainAttachDeviceEx @ 0x1405A14F0 (IommuDomainAttachDeviceEx.c)
+ *     IommuRegisterInterfaceStateChangeCallback @ 0x1405A1BB0 (IommuRegisterInterfaceStateChangeCallback.c)
+ *     IommuRegisterInterfaceStateChangeCallbackLegacy @ 0x1405A1DF0 (IommuRegisterInterfaceStateChangeCallbackLegacy.c)
+ *     IommuDomainAttachPasidDevice @ 0x140789A10 (IommuDomainAttachPasidDevice.c)
  * Callees:
- *     IommupHvIsDmarStageCompatible @ 0x14059E6A4 (IommupHvIsDmarStageCompatible.c)
- *     IoGetDevicePropertyData @ 0x140A98450 (IoGetDevicePropertyData.c)
+ *     IommupHvIsDmarStageCompatible @ 0x1405A0E84 (IommupHvIsDmarStageCompatible.c)
+ *     IoGetDevicePropertyData @ 0x140A9C5D0 (IoGetDevicePropertyData.c)
  */
 
 __int64 __fastcall HalpIommuDeviceGetDomainTypes(__int64 a1, __int64 a2)

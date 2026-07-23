@@ -1,15 +1,15 @@
 /*
- * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1402E8B14
+ * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1402E8D04
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x14087CF94 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x14087E1F4 (PopRecordPoBlackboxInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  */
 
 void PopRecordPepWorkorderBlackboxInformation()
@@ -92,7 +92,7 @@ LABEL_13:
     InputBuffer[1] = (unsigned int)v4;
     LODWORD(InputBuffer[3]) = 7;
     InputBuffer[0] = v1;
-    NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
   }
   if ( v1 )
     ExFreePoolWithTag(v1, 0x42424F50u);

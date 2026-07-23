@@ -1,8 +1,8 @@
 /*
- * XREFs of PoEnergyContextInitialize @ 0x140AF3EE8
+ * XREFs of PoEnergyContextInitialize @ 0x140AF6908
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PopEtInit @ 0x140CD5AFC (PopEtInit.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
+ *     PopEtInit @ 0x140CDBE50 (PopEtInit.c)
  * Callees:
  *     <none>
  */

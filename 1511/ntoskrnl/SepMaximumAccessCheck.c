@@ -125,7 +125,7 @@ __int64 __fastcall SepMaximumAccessCheck(
           {
             if ( !a9 )
               goto LABEL_27;
-            if ( !(unsigned __int8)SepSidInToken(v16, v22, (__int64)&v20[8 * (v49 & 2) + 28], 0LL, v15) )
+            if ( !(unsigned __int8)SepSidInToken(v16, v22, (__int64)&v20[8 * (v49 & 2) + 28], 0LL, v15, a12) )
               goto LABEL_25;
             if ( (unsigned __int8)AuthzBasepObjectInTypeList(v20 + 12, a8, a7, &v55) )
             {
@@ -145,7 +145,8 @@ __int64 __fastcall SepMaximumAccessCheck(
                 v22,
                 (__int64)&v20[8 * (v49 & 2) + 12 + ((*((_DWORD *)v20 + 2) & 1) != 0 ? 0x10 : 0)],
                 0LL,
-                v15);
+                v15,
+                a12);
       }
       else
       {
@@ -156,7 +157,7 @@ __int64 __fastcall SepMaximumAccessCheck(
             case 1:
               v52 = v15;
               LOBYTE(v15) = 1;
-              if ( !(unsigned __int8)SepSidInToken(v16, v22, (__int64)(v20 + 8), v15, v52) )
+              if ( !(unsigned __int8)SepSidInToken(v16, v22, (__int64)(v20 + 8), v15, v52, a12) )
                 goto LABEL_76;
               break;
             case 6:
@@ -169,7 +170,8 @@ __int64 __fastcall SepMaximumAccessCheck(
                                                    + 12
                                                    + 8 * (*((_DWORD *)v20 + 2) & 2)],
                                        v15,
-                                       v53) )
+                                       v53,
+                                       a12) )
                 goto LABEL_76;
               if ( (*((_DWORD *)v20 + 2) & 1) != 0 && v20 != (char *)-12LL )
               {
@@ -253,7 +255,7 @@ LABEL_38:
                 v17 = v54;
               }
               v13 = a7;
-              if ( (unsigned __int8)SepSidInToken(v16, v22, (__int64)(v20 + 8), 0LL, a11) )
+              if ( (unsigned __int8)SepSidInToken(v16, v22, (__int64)(v20 + 8), 0LL, a11, a12) )
               {
                 AuthzBasepAddAccessTypeList(a8, a7, 0, v21, *((_DWORD *)v20 + 1), 1);
                 goto LABEL_79;
@@ -276,9 +278,9 @@ LABEL_79:
           v14 = a4;
           goto LABEL_28;
         }
-        if ( !(unsigned __int8)SepSidInToken(v16, v22, (__int64)&v20[4 * (unsigned __int8)v20[13] + 20], 0LL, v15) )
+        if ( !(unsigned __int8)SepSidInToken(v16, v22, (__int64)&v20[4 * (unsigned __int8)v20[13] + 20], 0LL, v15, a12) )
           goto LABEL_25;
-        v51 = SepSidInTokenSidHash(v18 + 232, 0LL, v20 + 12, 0, 0, a12);
+        v51 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v18 + 232), 0LL, v20 + 12, 0, 0, a12);
         v13 = a7;
       }
       if ( !v51 )

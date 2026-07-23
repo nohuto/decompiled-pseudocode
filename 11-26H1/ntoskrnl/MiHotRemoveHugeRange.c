@@ -1,31 +1,31 @@
 /*
- * XREFs of MiHotRemoveHugeRange @ 0x1406EBF04
+ * XREFs of MiHotRemoveHugeRange @ 0x1406F0BA4
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
- *     MiCompleteMemoryAddition @ 0x140865B8C (MiCompleteMemoryAddition.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
+ *     MiCompleteMemoryAddition @ 0x14086BF6C (MiCompleteMemoryAddition.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlFindSetBitsAndClearEx @ 0x14024EA40 (RtlFindSetBitsAndClearEx.c)
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x1402CABF0 (MiRestrictRangeToNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiMakeEntireHugePfnGood @ 0x1406EC6B8 (MiMakeEntireHugePfnGood.c)
- *     MiUpdateHugePageCounts @ 0x1406EDE20 (MiUpdateHugePageCounts.c)
- *     MiClearMirrorBitmaps @ 0x1406EF634 (MiClearMirrorBitmaps.c)
- *     MiSetPfnRemovalRequested @ 0x1406F1D98 (MiSetPfnRemovalRequested.c)
- *     MiMarkHugeRangeIoPfnDeleted @ 0x1406F4C48 (MiMarkHugeRangeIoPfnDeleted.c)
- *     MiFlushCacheRange @ 0x14070D474 (MiFlushCacheRange.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlFindSetBitsAndClearEx @ 0x1402503A0 (RtlFindSetBitsAndClearEx.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x1402AC9B0 (MiRestrictRangeToNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiMakeEntireHugePfnGood @ 0x1406F1358 (MiMakeEntireHugePfnGood.c)
+ *     MiUpdateHugePageCounts @ 0x1406F2AC0 (MiUpdateHugePageCounts.c)
+ *     MiClearMirrorBitmaps @ 0x1406F42D4 (MiClearMirrorBitmaps.c)
+ *     MiSetPfnRemovalRequested @ 0x1406F6A08 (MiSetPfnRemovalRequested.c)
+ *     MiMarkHugeRangeIoPfnDeleted @ 0x1406F98B8 (MiMarkHugeRangeIoPfnDeleted.c)
+ *     MiFlushCacheRange @ 0x140712124 (MiFlushCacheRange.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3)
@@ -57,17 +57,17 @@ __int64 __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR 
   KIRQL v27; // di
   unsigned __int64 v28; // rbx
   unsigned int v29; // r12d
-  unsigned __int64 v30; // r15
-  unsigned __int64 v31; // r8
+  __int64 v30; // r15
+  ULONG64 v31; // r8
   unsigned __int64 v32; // rdi
   unsigned __int8 v33; // r12
   int v34; // edx
   unsigned __int8 v35; // r14
-  unsigned __int64 SetBitsAndClear; // rax
-  unsigned __int64 v37; // rsi
-  _QWORD *v38; // rbx
+  ULONG64 SetBitsAndClear; // rax
+  ULONG64 v37; // rsi
+  PVOID v38; // rbx
   ULONG_PTR v40; // [rsp+28h] [rbp-20h]
-  unsigned __int64 v41[3]; // [rsp+30h] [rbp-18h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+30h] [rbp-18h] BYREF
   PVOID P; // [rsp+90h] [rbp+48h] BYREF
   ULONG_PTR v43; // [rsp+98h] [rbp+50h] BYREF
   int v44; // [rsp+A0h] [rbp+58h]
@@ -81,9 +81,9 @@ __int64 __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR 
   v5 = (BugCheckParameter2 >> 18) & 0x3FFFFF;
   P = 0LL;
   v6 = a2;
-  v41[0] = BugCheckParameter2 >> 18;
+  BitMapHeader.SizeOfBitMap = BugCheckParameter2 >> 18;
   v7 = a2;
-  v8 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v5);
+  v8 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v5);
   v9 = MiHugePfnPartition(v8);
   if ( v10 )
   {
@@ -135,11 +135,11 @@ LABEL_17:
         v16 = *v8;
 LABEL_18:
         *v8 = v16 & 0xFFFFFFFFFFFF800FuLL | 0x4010;
-        v14 = ~(1 << (((__int64)v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3));
+        v14 = ~(1 << (((__int64)v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3));
         _InterlockedAnd(
-          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                     + 4
-                                    * (((((__int64)v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+                                    * (((((__int64)v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
           v14);
         if ( CurrentIrql != 17 )
         {
@@ -163,7 +163,7 @@ LABEL_24:
       PoolMm = v7;
       if ( !v7 )
       {
-        LODWORD(v3) = v41[0];
+        LODWORD(v3) = BitMapHeader.SizeOfBitMap;
         v6 = v43;
         break;
       }
@@ -172,8 +172,8 @@ LABEL_24:
   v23 = v6 >> 18;
   v24 = v3 & 0x3FFFFF;
   v25 = 0LL;
-  v26 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v24);
-  v27 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32]);
+  v26 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v24);
+  v27 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32]);
   MiClearMirrorBitmaps(1LL, (unsigned int)v24, v23);
   v28 = 0LL;
   if ( v23 )
@@ -183,21 +183,21 @@ LABEL_24:
     {
       MiLockHugePfnAtDpc((__int64)v26);
       *v26 = 0LL;
-      RtlClearBitsEx((__int64)&stru_140E2EB88.SchedulingGroup, v29 + v28, 1uLL);
+      RtlClearBitsEx((__int64)&stru_140E2ED08.SchedulingGroup, v29 + v28, 1uLL);
       _InterlockedAnd(
-        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                   + 4
-                                  * (((((__int64)v26 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << (((__int64)v26 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                  * (((((__int64)v26 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << (((__int64)v26 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
       ++v26;
       ++v28;
     }
     while ( v28 < v23 );
   }
   if ( v27 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32]);
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32]);
   else
-    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32], v27);
+    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32], v27);
   while ( 1 )
   {
     v38 = P;
@@ -206,18 +206,18 @@ LABEL_24:
     RtlAvlRemoveNode((unsigned __int64 *)&P, (__int64)P);
     if ( !v44 )
     {
-      v30 = v38[4];
+      v30 = *((_QWORD *)v38 + 4);
       v31 = 0LL;
-      v41[1] = v30;
-      v41[0] = 0x40000LL;
+      BitMapHeader.Buffer = (unsigned __int64 *)v30;
+      BitMapHeader.SizeOfBitMap = 0x40000LL;
       while ( 1 )
       {
-        SetBitsAndClear = RtlFindSetBitsAndClearEx(v41, 1uLL, v31);
+        SetBitsAndClear = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, v31);
         v37 = SetBitsAndClear;
         if ( SetBitsAndClear == -1LL )
           break;
         ++v25;
-        v32 = 48 * (SetBitsAndClear + ((v38[3] & 0x3FFFFF) << 18)) - 0x220000000000LL;
+        v32 = 48 * (SetBitsAndClear + ((unsigned __int64)(*((_DWORD *)v38 + 6) & 0x3FFFFF) << 18)) - 0x220000000000LL;
         v33 = _bittest64((const signed __int64 *)(v30 + 0x8000), SetBitsAndClear);
         PoolMm = ExAllocatePoolMm(
                    64LL,
@@ -252,7 +252,7 @@ LABEL_24:
         v31 = v37;
       }
     }
-    ExFreePoolWithTag((PVOID)v38[4], 0);
+    ExFreePoolWithTag(*((PVOID *)v38 + 4), 0);
     ExFreePoolWithTag(v38, 0);
   }
   return v25;

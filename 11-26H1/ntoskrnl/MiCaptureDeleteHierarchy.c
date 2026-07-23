@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCaptureDeleteHierarchy @ 0x140303880
+ * XREFs of MiCaptureDeleteHierarchy @ 0x1402E5900
  * Callers:
- *     MiRemoveVad @ 0x140455D20 (MiRemoveVad.c)
- *     MiDeleteEmptyPageTableCommit @ 0x140467190 (MiDeleteEmptyPageTableCommit.c)
+ *     MiRemoveVad @ 0x14044DF80 (MiRemoveVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x1404608E0 (MiDeleteEmptyPageTableCommit.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall MiCaptureDeleteHierarchy(unsigned __int64 a1, unsigned __int64 a2, KIRQL a3, __int64 a4)
 {
   int v4; // esi
   _KPROCESS *Process; // r15
-  signed __int64 p_Blink; // r15
+  __int64 p_Blink; // r15
   unsigned int v9; // ebp
   int v10; // edi
   unsigned __int64 *v11; // r14
@@ -58,7 +58,7 @@ void __fastcall MiCaptureDeleteHierarchy(unsigned __int64 a1, unsigned __int64 a
   v4 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   *(_DWORD *)a4 = 0;
-  p_Blink = (signed __int64)&Process[2].ReadyListHead.Blink;
+  p_Blink = (__int64)&Process[2].ReadyListHead.Blink;
   v39 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v40 = ((v39 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v41 = ((v40 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

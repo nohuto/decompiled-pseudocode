@@ -1,9 +1,9 @@
 /*
- * XREFs of VfDifRecoverIoCallbacks @ 0x1405CECF4
+ * XREFs of VfDifRecoverIoCallbacks @ 0x1405CF264
  * Callers:
- *     VfTargetRecoverIoCallbacks @ 0x1405CF204 (VfTargetRecoverIoCallbacks.c)
+ *     VfTargetRecoverIoCallbacks @ 0x1405CF774 (VfTargetRecoverIoCallbacks.c)
  * Callees:
- *     ViDifFindIoCallbackContext @ 0x1405CF184 (ViDifFindIoCallbackContext.c)
+ *     ViDifFindIoCallbackContext @ 0x1405CF6F4 (ViDifFindIoCallbackContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeFindNextSetRightGroupMask @ 0x140485844
+ * XREFs of KeFindNextSetRightGroupMask @ 0x140480E28
  * Callers:
- *     KeSelectGroupFromNode @ 0x1404857DC (KeSelectGroupFromNode.c)
+ *     KeSelectGroupFromNode @ 0x140480DC0 (KeSelectGroupFromNode.c)
  * Callees:
  *     <none>
  */

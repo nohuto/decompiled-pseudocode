@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmDeleteInstallerClassRegKey @ 0x1406D8F50
+ * XREFs of _CmDeleteInstallerClassRegKey @ 0x1406D9088
  * Callers:
- *     _CmDeleteInstallerClassWorker @ 0x1406D8F74 (_CmDeleteInstallerClassWorker.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1406D90AC (_CmDeleteInstallerClassWorker.c)
  * Callees:
  *     <none>
  */

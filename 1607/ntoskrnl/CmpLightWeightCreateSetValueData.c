@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpLightWeightCreateSetValueData @ 0x14053B4E8
+ * XREFs of CmpLightWeightCreateSetValueData @ 0x14053BA28
  * Callers:
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B080 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F08C (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B5C0 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F140 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     CmpCopyCell @ 0x1404EC0FC (CmpCopyCell.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     CmpCopyCell @ 0x1404CE184 (CmpCopyCell.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpLightWeightCreateSetValueData(__int64 a1, _QWORD *a2)

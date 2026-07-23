@@ -14,7 +14,7 @@ NTSTATUS __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, 
 
   Buffer = *a2;
   v7 = a4;
-  result = ZwPlugPlayControl(MaxPlugPlayControl, &Buffer, 0x18u);
+  result = ZwPlugPlayControl(PlugPlayControlGetDeviceInterfaceEnabled, &Buffer, 0x18u);
   *a3 = BYTE4(v7);
   return result;
 }

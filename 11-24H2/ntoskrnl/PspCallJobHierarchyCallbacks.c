@@ -1,18 +1,18 @@
 /*
- * XREFs of PspCallJobHierarchyCallbacks @ 0x1408EBFF8
+ * XREFs of PspCallJobHierarchyCallbacks @ 0x14085D828
  * Callers:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PspEnforceLimitsJobPreCallback @ 0x1408EC1D0 (PspEnforceLimitsJobPreCallback.c)
- *     PspQueryProcessIdListCallback @ 0x1408EC5A0 (PspQueryProcessIdListCallback.c)
- *     PspEnforceLimitsProcessCallback @ 0x1408EC5F0 (PspEnforceLimitsProcessCallback.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1408ECC80 (PspEnforceLimitsJobPostCallback.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x1408ED3B0 (PspQueryProcessAccountingInformationCallback.c)
- *     PspLockJobShared @ 0x1408ED5D4 (PspLockJobShared.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PspEnforceLimitsJobPreCallback @ 0x14085DA00 (PspEnforceLimitsJobPreCallback.c)
+ *     PspQueryProcessIdListCallback @ 0x14085DDD0 (PspQueryProcessIdListCallback.c)
+ *     PspEnforceLimitsProcessCallback @ 0x14085DE20 (PspEnforceLimitsProcessCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x14085E4B0 (PspEnforceLimitsJobPostCallback.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x14085EBE0 (PspQueryProcessAccountingInformationCallback.c)
+ *     PspLockJobShared @ 0x14085EE04 (PspLockJobShared.c)
  */
 
 __int64 __fastcall PspCallJobHierarchyCallbacks(
@@ -29,8 +29,7 @@ __int64 __fastcall PspCallJobHierarchyCallbacks(
   int v12; // edi
   int v13; // eax
   _QWORD *i; // r14
-  __int64 v15; // rdx
-  _QWORD *v19; // rcx
+  _QWORD *v18; // rcx
   int ProcessIdListCallback; // eax
 
   CurrentThread = KeGetCurrentThread();
@@ -54,7 +53,7 @@ __int64 __fastcall PspCallJobHierarchyCallbacks(
   }
   if ( !a2
     || (a2 != PspEnforceLimitsJobPreCallback
-      ? (v13 = guard_dispatch_icall_no_overrides(a1, a5, a3, a4))
+      ? (v13 = guard_dispatch_icall_no_overrides(a1, a5))
       : (v13 = PspEnforceLimitsJobPreCallback(a1, a5)),
         v12 = v13,
         v13 >= 0) )
@@ -63,20 +62,20 @@ __int64 __fastcall PspCallJobHierarchyCallbacks(
     {
       for ( i = *(_QWORD **)(a1 + 40); i != (_QWORD *)(a1 + 40); i = (_QWORD *)*i )
       {
-        v19 = i - 107;
+        v18 = i - 107;
         if ( a4 == PspQueryProcessIdListCallback )
         {
-          ProcessIdListCallback = PspQueryProcessIdListCallback(v19, a5);
+          ProcessIdListCallback = PspQueryProcessIdListCallback(v18, a5);
         }
         else if ( a4 == PspEnforceLimitsProcessCallback )
         {
-          ProcessIdListCallback = PspEnforceLimitsProcessCallback(v19, a5);
+          ProcessIdListCallback = PspEnforceLimitsProcessCallback(v18, a5);
         }
         else
         {
           ProcessIdListCallback = a4 == PspQueryProcessAccountingInformationCallback
-                                ? PspQueryProcessAccountingInformationCallback(v19, a5)
-                                : guard_dispatch_icall_no_overrides(v19, a5, a3, a4);
+                                ? PspQueryProcessAccountingInformationCallback(v18, a5)
+                                : guard_dispatch_icall_no_overrides(v18, a5);
         }
         v12 = ProcessIdListCallback;
         if ( ProcessIdListCallback < 0 )
@@ -91,9 +90,9 @@ __int64 __fastcall PspCallJobHierarchyCallbacks(
     if ( CurrentThread )
     {
       if ( CurrentThread->SpecialApcDisable++ == -1
-        && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(1LL, v15);
+        KiCheckForKernelApcDelivery();
       }
     }
   }
@@ -111,7 +110,7 @@ LABEL_21:
       if ( v9 == PspEnforceLimitsJobPostCallback )
         return (unsigned int)PspEnforceLimitsJobPostCallback((PVOID)a1);
       else
-        return (unsigned int)guard_dispatch_icall_no_overrides(a1, a5, a3, a4);
+        return (unsigned int)guard_dispatch_icall_no_overrides(a1, a5);
     }
   }
   return (unsigned int)v12;

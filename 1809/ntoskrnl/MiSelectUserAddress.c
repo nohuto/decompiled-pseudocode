@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSelectUserAddress @ 0x1405F2360
+ * XREFs of MiSelectUserAddress @ 0x1405F3360
  * Callers:
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140697060 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfPhysicalSection @ 0x140755690 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x14085A3B8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiFindEmptyAddressRange @ 0x1405F2500 (MiFindEmptyAddressRange.c)
- *     MiFindEmptyAddressRangeDown @ 0x140698D50 (MiFindEmptyAddressRangeDown.c)
+ *     MiFindEmptyAddressRange @ 0x1405F3500 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRangeDown @ 0x140699F10 (MiFindEmptyAddressRangeDown.c)
  */
 
 __int64 __fastcall MiSelectUserAddress(
@@ -22,17 +22,17 @@ __int64 __fastcall MiSelectUserAddress(
         __int64 a6,
         int a7,
         unsigned int a8,
-        struct _RTL_BITMAP **a9,
+        _RTL_BITMAP **a9,
         __int64 a10)
 {
-  struct _RTL_BITMAP **v11; // r14
+  _RTL_BITMAP **v11; // r14
   __int64 v13; // r8
   int v14; // r10d
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v16; // ecx
   _KPROCESS *Process; // rsi
   unsigned __int64 v18; // rdx
-  struct _RTL_BITMAP *v19; // rdi
+  _RTL_BITMAP *v19; // rdi
   __int64 v20; // rbp
   int v21; // r15d
   int v22; // ebx
@@ -57,7 +57,7 @@ __int64 __fastcall MiSelectUserAddress(
   v18 = Process[1].ActiveProcessors.Bitmap[18];
   if ( a3 > v18 - 1 && v18 <= 0x100000000LL )
     v16 = 2;
-  v19 = (struct _RTL_BITMAP *)(56LL * v16 + *(_QWORD *)&Process[1].IdealGlobalNode + 48LL);
+  v19 = (_RTL_BITMAP *)(56LL * v16 + *(_QWORD *)&Process[1].IdealGlobalNode + 48LL);
   if ( (a1 & 0x20400000) != 541065216 && (a1 & 0x20000000) != 0 && a4 >= 0x40000000 )
   {
     v20 = a5;

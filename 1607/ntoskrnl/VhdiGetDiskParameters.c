@@ -4,7 +4,7 @@
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  *     IopGetBootDiskInformationLite @ 0x1407A7560 (IopGetBootDiskInformationLite.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall VhdiGetDiskParameters(__int64 a1, _DWORD *a2, _QWORD *a3, _QWORD *a4)

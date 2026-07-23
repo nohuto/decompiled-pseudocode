@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpUnlockNameHashEntry @ 0x1405EFE60
+ * XREFs of CmpUnlockNameHashEntry @ 0x1406DF5C0
  * Callers:
- *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
+ *     CmpGetNameControlBlock @ 0x1406DF370 (CmpGetNameControlBlock.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 char __fastcall CmpUnlockNameHashEntry(unsigned int a1)

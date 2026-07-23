@@ -16,99 +16,95 @@
  *     NtClose @ 0x1800A02A0 (NtClose.c)
  */
 
-void __fastcall __noreturn EtwpLogger(unsigned __int64 a1)
+void __fastcall __noreturn EtwpLogger(__int64 BaseAddress)
 {
   void *UniqueThread; // rdx
   NTSTATUS v3; // eax
   BOOL v4; // esi
   int active; // eax
   __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  int v9; // edi
+  int v7; // edi
+  int v8; // eax
+  int v9; // eax
   int v10; // eax
-  int v11; // eax
-  int v12; // eax
-  signed int v13; // edi
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rcx
-  __int64 v17; // rcx
-  bool v18; // zf
-  void *v19; // rsi
-  int v20; // eax
-  int v21; // [rsp+40h] [rbp+8h] BYREF
+  signed int v11; // edi
+  void *v12; // rcx
+  void *v13; // rcx
+  bool v14; // zf
+  void *v15; // rsi
+  int v16; // eax
+  int ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-  *(_DWORD *)(a1 + 40) = 0;
-  *(_QWORD *)(a1 + 24) = UniqueThread;
-  v21 = 2;
-  NtSetInformationThread(-2LL, 3LL, &v21);
-  while ( *(_DWORD *)(a1 + 328) )
+  *(_DWORD *)(BaseAddress + 40) = 0;
+  *(_QWORD *)(BaseAddress + 24) = UniqueThread;
+  ThreadInformation = 2;
+  NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadBasePriority, &ThreadInformation, 4u);
+  while ( *(_DWORD *)(BaseAddress + 328) )
   {
     v3 = NtWaitForSingleObject(
-           *(HANDLE *)(a1 + 128),
+           *(HANDLE *)(BaseAddress + 128),
            0,
-           (PLARGE_INTEGER)((a1 + 344) & -(__int64)(*(_QWORD *)(a1 + 344) != 0LL)));
-    v4 = v3 == 258 || !v3 && (*(_BYTE *)(a1 + 332) & 2) != 0;
-    active = EtwpFlushActiveBuffers(a1, v4);
-    v9 = active;
-    if ( (*(_BYTE *)(a1 + 332) & 1) != 0 && active >= 0 && !v4 )
-      v9 = EtwpFlushActiveBuffers(a1, 1LL);
-    v10 = *(_DWORD *)(a1 + 332);
-    if ( (v10 & 4) != 0 || (v10 & 1) != 0 )
+           (PLARGE_INTEGER)((BaseAddress + 344) & -(__int64)(*(_QWORD *)(BaseAddress + 344) != 0LL)));
+    v4 = v3 == 258 || !v3 && (*(_BYTE *)(BaseAddress + 332) & 2) != 0;
+    active = EtwpFlushActiveBuffers(BaseAddress, v4);
+    v7 = active;
+    if ( (*(_BYTE *)(BaseAddress + 332) & 1) != 0 && active >= 0 && !v4 )
+      v7 = EtwpFlushActiveBuffers(BaseAddress, 1LL);
+    v8 = *(_DWORD *)(BaseAddress + 332);
+    if ( (v8 & 4) != 0 || (v8 & 1) != 0 )
     {
-      EtwpFinalizeLogFileHeader(a1, 0LL);
-      v19 = *(void **)(a1 + 144);
-      *(_QWORD *)(a1 + 144) = 0LL;
-      v20 = EtwpAddLogHeaderToLogFile(a1, 0LL, 0LL, 0LL);
-      *(_DWORD *)(a1 + 40) = v20;
-      v9 = v20;
-      if ( v20 >= 0 )
+      EtwpFinalizeLogFileHeader(BaseAddress, 0LL);
+      v15 = *(void **)(BaseAddress + 144);
+      *(_QWORD *)(BaseAddress + 144) = 0LL;
+      v16 = EtwpAddLogHeaderToLogFile(BaseAddress, 0LL, 0LL, 0LL);
+      *(_DWORD *)(BaseAddress + 40) = v16;
+      v7 = v16;
+      if ( v16 >= 0 )
       {
-        NtClose(v19);
-        if ( (*(_BYTE *)(a1 + 332) & 1) != 0 )
-          EtwpSendSessionNotification(a1, 1LL, 0LL);
+        NtClose(v15);
+        if ( (*(_BYTE *)(BaseAddress + 332) & 1) != 0 )
+          EtwpSendSessionNotification(BaseAddress, 1LL, 0LL);
       }
       else
       {
-        v18 = (*(_BYTE *)(a1 + 332) & 4) == 0;
-        *(_QWORD *)(a1 + 144) = v19;
-        if ( !v18 )
-          v9 = 0;
+        v14 = (*(_BYTE *)(BaseAddress + 332) & 4) == 0;
+        *(_QWORD *)(BaseAddress + 144) = v15;
+        if ( !v14 )
+          v7 = 0;
       }
-      *(_DWORD *)(a1 + 332) &= ~1u;
+      *(_DWORD *)(BaseAddress + 332) &= ~1u;
     }
-    v11 = *(_DWORD *)(a1 + 332);
-    if ( (v11 & 0x10) != 0 )
+    v9 = *(_DWORD *)(BaseAddress + 332);
+    if ( (v9 & 0x10) != 0 )
     {
-      v18 = *(_QWORD *)(a1 + 144) == 0LL;
-      *(_DWORD *)(a1 + 332) = v11 & 0xFFFFFFEF;
-      if ( !v18 )
+      v14 = *(_QWORD *)(BaseAddress + 144) == 0LL;
+      *(_DWORD *)(BaseAddress + 332) = v9 & 0xFFFFFFEF;
+      if ( !v14 )
       {
         LOBYTE(v6) = 1;
-        EtwpFinalizeLogFileHeader(a1, v6);
+        EtwpFinalizeLogFileHeader(BaseAddress, v6);
       }
     }
-    v12 = *(_DWORD *)(a1 + 332);
-    if ( (v12 & 6) != 0 )
+    v10 = *(_DWORD *)(BaseAddress + 332);
+    if ( (v10 & 6) != 0 )
     {
-      v17 = *(_QWORD *)(a1 + 136);
-      *(_DWORD *)(a1 + 332) = v12 & 0xFFFFFFF9;
-      ZwSetEvent(v17, 0LL, v7, v8);
+      v13 = *(void **)(BaseAddress + 136);
+      *(_DWORD *)(BaseAddress + 332) = v10 & 0xFFFFFFF9;
+      ZwSetEvent(v13, 0LL);
     }
-    if ( v9 < 0 )
-      EtwpStopLoggerInstance(a1);
+    if ( v7 < 0 )
+      EtwpStopLoggerInstance(BaseAddress);
   }
-  EtwpFlushActiveBuffers(a1, 1LL);
-  v13 = EtwpFinalizeLogFileHeader(a1, 0LL);
-  NtClose(*(HANDLE *)(a1 + 144));
-  *(_QWORD *)(a1 + 144) = 0LL;
-  if ( v13 > 0 )
-    v13 = (unsigned __int16)v13 | 0xC0070000;
-  v16 = *(_QWORD *)(a1 + 136);
-  *(_DWORD *)(a1 + 40) = v13;
-  ZwSetEvent(v16, 0LL, v14, v15);
-  EtwpFreeLoggerContext(a1);
+  EtwpFlushActiveBuffers(BaseAddress, 1LL);
+  v11 = EtwpFinalizeLogFileHeader(BaseAddress, 0LL);
+  NtClose(*(HANDLE *)(BaseAddress + 144));
+  *(_QWORD *)(BaseAddress + 144) = 0LL;
+  if ( v11 > 0 )
+    v11 = (unsigned __int16)v11 | 0xC0070000;
+  v12 = *(void **)(BaseAddress + 136);
+  *(_DWORD *)(BaseAddress + 40) = v11;
+  ZwSetEvent(v12, 0LL);
+  EtwpFreeLoggerContext((unsigned int *)BaseAddress);
   RtlExitUserThread(0);
 }

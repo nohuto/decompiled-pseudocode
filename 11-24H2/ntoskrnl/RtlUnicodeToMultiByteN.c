@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnicodeToMultiByteN @ 0x1408AF5B0
+ * XREFs of RtlUnicodeToMultiByteN @ 0x140905810
  * Callers:
- *     wcstombs @ 0x1405004D0 (wcstombs.c)
- *     _wctomb_s_l @ 0x140500804 (_wctomb_s_l.c)
- *     _safecrt_wctomb_s @ 0x1405053D8 (_safecrt_wctomb_s.c)
+ *     wcstombs @ 0x1404FDD90 (wcstombs.c)
+ *     _wctomb_s_l @ 0x1404FE0C4 (_wctomb_s_l.c)
+ *     _safecrt_wctomb_s @ 0x140502C98 (_safecrt_wctomb_s.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteN(
@@ -21,7 +21,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteN(
   PCWCH v10; // r10
   ULONG v11; // eax
   PCHAR v12; // r8
-  struct _CPTABLEINFO *p_Blink; // rcx
+  _CPTABLEINFO *p_Blink; // rcx
   ULONG v14; // r11d
   _WORD *WideCharTable; // rbx
   __int64 v16; // rcx
@@ -48,7 +48,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteN(
     v10 = UnicodeString;
     v11 = MaxBytesInMultiByteString;
     v12 = MultiByteString;
-    p_Blink = (struct _CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
     if ( !p_Blink )
     {
 LABEL_22:

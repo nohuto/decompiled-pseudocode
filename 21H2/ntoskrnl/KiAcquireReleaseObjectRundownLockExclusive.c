@@ -1,20 +1,20 @@
 /*
- * XREFs of KiAcquireReleaseObjectRundownLockExclusive @ 0x1402AA214
+ * XREFs of KiAcquireReleaseObjectRundownLockExclusive @ 0x140228354
  * Callers:
- *     KeRundownQueueEx @ 0x1402A9CF8 (KeRundownQueueEx.c)
- *     KeDeleteMutant @ 0x1402AA058 (KeDeleteMutant.c)
- *     KeReleaseMutant @ 0x1403424B0 (KeReleaseMutant.c)
- *     KeRundownPriQueue @ 0x14052446C (KeRundownPriQueue.c)
+ *     KeRundownQueueEx @ 0x140227E38 (KeRundownQueueEx.c)
+ *     KeDeleteMutant @ 0x140228198 (KeDeleteMutant.c)
+ *     KeReleaseMutant @ 0x14034D200 (KeReleaseMutant.c)
+ *     KeRundownPriQueue @ 0x1405246AC (KeRundownPriQueue.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall KiAcquireReleaseObjectRundownLockExclusive(unsigned __int64 a1)
 {
   volatile LONG *v1; // rbx
 
-  v1 = &KiObjectRundownLocks[16 * ((a1 >> 4) & 0x3F)];
+  v1 = (volatile LONG *)((char *)&KiObjectRundownLocks + 64 * ((a1 >> 4) & 0x3F));
   ExAcquireSpinLockExclusiveAtDpcLevel(v1);
   ExReleaseSpinLockExclusiveFromDpcLevel(v1);
 }

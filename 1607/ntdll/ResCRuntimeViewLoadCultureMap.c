@@ -3,18 +3,18 @@
  * Callers:
  *     ResCRuntimeGetCultureID @ 0x1800FF388 (ResCRuntimeGetCultureID.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     ResCGetName @ 0x180105118 (ResCGetName.c)
- *     ResCCreateCultureMap @ 0x180105644 (ResCCreateCultureMap.c)
- *     ResCLoadCultureMap @ 0x180105A7C (ResCLoadCultureMap.c)
- *     ResCReloadCultureMap @ 0x180105B20 (ResCReloadCultureMap.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     ResCGetName @ 0x180105058 (ResCGetName.c)
+ *     ResCCreateCultureMap @ 0x180105584 (ResCCreateCultureMap.c)
+ *     ResCLoadCultureMap @ 0x1801059BC (ResCLoadCultureMap.c)
+ *     ResCReloadCultureMap @ 0x180105A60 (ResCReloadCultureMap.c)
  */
 
 _BOOL8 __fastcall ResCRuntimeViewLoadCultureMap(__int64 a1)
 {
-  unsigned int LastErrorValue; // ecx
-  __int64 v4; // rcx
+  LONG LastErrorValue; // ecx
+  void *v4; // rcx
   __int64 v5; // rax
   __int64 v6; // rax
   _BYTE Src[528]; // [rsp+20h] [rbp-228h] BYREF
@@ -28,7 +28,7 @@ LABEL_4:
     RtlSetLastWin32Error(LastErrorValue);
     return 0LL;
   }
-  v4 = *(_QWORD *)(a1 + 8);
+  v4 = *(void **)(a1 + 8);
   if ( v4 )
   {
     v5 = ResCReloadCultureMap(v4);

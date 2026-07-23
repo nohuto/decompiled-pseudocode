@@ -23,8 +23,8 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
   void *v4; // r14
   _DWORD *v5; // r15
   _QWORD *v6; // r12
-  _BYTE *v7; // rax
-  _BYTE *v8; // rdi
+  PRTL_BALANCED_NODE v7; // rax
+  PRTL_BALANCED_NODE v8; // rdi
   __int64 *v9; // rdi
   __int64 v10; // rcx
   SIZE_T v11; // rdx
@@ -53,12 +53,12 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
   v5 = a2;
   v6 = a1;
   --CurrentThread->KernelApcDisable;
-  v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v7, (ULONG_PTR)&ExpWakeTimerLock);
   if ( v8 )
-    v8[26] |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v9 = (__int64 *)ExpWakeTimerList;
   if ( (__int64 *)ExpWakeTimerList != &ExpWakeTimerList )
   {

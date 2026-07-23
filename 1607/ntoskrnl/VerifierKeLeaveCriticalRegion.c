@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViKeLogCriticalRegionStackTrace @ 0x14022392C (ViKeLogCriticalRegionStackTrace.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     ViKeLogCriticalRegionStackTrace @ 0x140223758 (ViKeLogCriticalRegionStackTrace.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 VerifierKeLeaveCriticalRegion()

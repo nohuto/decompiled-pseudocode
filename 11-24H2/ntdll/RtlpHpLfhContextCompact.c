@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhContextCompact @ 0x1800503D0
+ * XREFs of RtlpHpLfhContextCompact @ 0x180065FB0
  * Callers:
- *     RtlpHpHeapCompact @ 0x180050D34 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x180066914 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpEnvCompactionSchedule @ 0x18004FAE0 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpLfhOwnerCompact @ 0x1800506A0 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhPrivateSlotsCompact @ 0x1800E88A0 (RtlpHpLfhPrivateSlotsCompact.c)
- *     RtlpHpEnvCompactionIsScheduled @ 0x1801426C4 (RtlpHpEnvCompactionIsScheduled.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x1800656C0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180066280 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhPrivateSlotsCompact @ 0x1800E3F90 (RtlpHpLfhPrivateSlotsCompact.c)
+ *     RtlpHpEnvCompactionIsScheduled @ 0x180140874 (RtlpHpEnvCompactionIsScheduled.c)
  */
 
 void __fastcall RtlpHpLfhContextCompact(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

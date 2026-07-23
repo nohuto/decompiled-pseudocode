@@ -1,7 +1,7 @@
 /*
- * XREFs of MxGetSplitDescriptor @ 0x140CF6FEC
+ * XREFs of MxGetSplitDescriptor @ 0x140CFD36C
  * Callers:
- *     MxCreateFreePageNode @ 0x140CF5A8C (MxCreateFreePageNode.c)
+ *     MxCreateFreePageNode @ 0x140CFBE0C (MxCreateFreePageNode.c)
  * Callees:
  *     <none>
  */

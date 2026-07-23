@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDpPostReplace @ 0x1409A836C
+ * XREFs of HalpDpPostReplace @ 0x1409A929C
  * Callers:
- *     HalpDpReplaceControl @ 0x1409A8780 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x1409A96B0 (HalpDpReplaceControl.c)
  * Callees:
- *     HalpAcpiPmRegisterWrite @ 0x14037C760 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterAvailable @ 0x14037CA20 (HalpAcpiPmRegisterAvailable.c)
- *     HalpSetClockAfterSleep @ 0x140386D7C (HalpSetClockAfterSleep.c)
- *     HalpAcpiPmRegisterRead @ 0x140399640 (HalpAcpiPmRegisterRead.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C2B0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x14037C570 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpSetClockAfterSleep @ 0x140386ECC (HalpSetClockAfterSleep.c)
+ *     HalpAcpiPmRegisterRead @ 0x140399790 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpDpPostReplace(__int64 a1, __int64 a2, __int64 a3)
@@ -47,18 +47,18 @@ void __fastcall HalpDpPostReplace(__int64 a1, __int64 a2, __int64 a3)
     (*(void (__fastcall **)(__int64, __int64, __int64, __int64))(PmAcpiDispatchTable + 8))(a1, a2, a3, v3);
     if ( (int)HalpAcpiPmRegisterAvailable(0) >= 0 )
     {
-      HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v9, 2u, 0LL);
+      HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4A078 >> 1, (__int64)&v9, 2u, 0LL);
       v4 = v9;
       v10 = v9;
       if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
       {
-        HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v9, 2u, 0LL);
+        HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4A078 >> 1, (__int64)&v9, 2u, 0LL);
         v4 = v9 | v10;
       }
       v10 = v4 | 0x20;
-      HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v10, 2u, 0LL);
+      HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4A078 >> 1, (__int64)&v10, 2u, 0LL);
       if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
-        HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v10, 2u, 0LL);
+        HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4A078 >> 1, (__int64)&v10, 2u, 0LL);
     }
   }
 }

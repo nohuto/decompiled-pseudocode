@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlAddVectoredExceptionHandler(__int64 a1, __int64 a2)
+PVOID __cdecl RtlAddVectoredExceptionHandler(ULONG First, PVECTORED_EXCEPTION_HANDLER Handler)
 {
-  return sub_18007F8D0(a1, a2, 0LL);
+  return (PVOID)sub_18007F8D0(First, Handler, 0LL);
 }

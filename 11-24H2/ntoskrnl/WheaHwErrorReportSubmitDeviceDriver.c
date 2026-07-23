@@ -1,15 +1,15 @@
 /*
- * XREFs of WheaHwErrorReportSubmitDeviceDriver @ 0x14065C2B0
+ * XREFs of WheaHwErrorReportSubmitDeviceDriver @ 0x14065A9D0
  * Callers:
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14065C3D0 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x14065C4F0 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14065AAF0 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x14065AC10 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheaReportHwError @ 0x14042E300 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x14042E7A8 (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x14065C6E4 (WheapErrDescIsDeviceDriver.c)
- *     WheapErrorHandleIsValid @ 0x14065C6FC (WheapErrorHandleIsValid.c)
- *     WheapFreeDriverPacketBuffer @ 0x14065C718 (WheapFreeDriverPacketBuffer.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     WheaReportHwError @ 0x140420030 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1404204D8 (WheapGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x14065AE04 (WheapErrDescIsDeviceDriver.c)
+ *     WheapErrorHandleIsValid @ 0x14065AE1C (WheapErrorHandleIsValid.c)
+ *     WheapFreeDriverPacketBuffer @ 0x14065AE38 (WheapFreeDriverPacketBuffer.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(char *P)

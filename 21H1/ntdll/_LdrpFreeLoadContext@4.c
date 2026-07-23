@@ -9,49 +9,53 @@
  *     _LdrpFreeReplacedModule@4 @ 0x4B2F2697 (_LdrpFreeReplacedModule@4.c)
  */
 
-int __thiscall LdrpFreeLoadContext(_DWORD *this)
+void *__thiscall LdrpFreeLoadContext(_DWORD *BaseAddress)
 {
-  int result; // eax
+  void *result; // eax
   unsigned int v3; // edi
-  int v4; // ecx
+  _DWORD *v4; // ecx
   int v5; // eax
+  int v6; // eax
+  void *v7; // ecx
 
-  *(_DWORD *)(this[8] + 92) = 0;
-  if ( this[11] )
+  *(_DWORD *)(BaseAddress[8] + 92) = 0;
+  if ( BaseAddress[11] )
   {
-    if ( LdrpHandleReplacedModule() != this[11] )
-      LdrpFreeReplacedModule();
-    this[11] = 0;
+    v6 = LdrpHandleReplacedModule();
+    v7 = (void *)BaseAddress[11];
+    if ( (void *)v6 != v7 )
+      LdrpFreeReplacedModule(v7);
+    BaseAddress[11] = 0;
   }
-  result = this[12];
+  result = (void *)BaseAddress[12];
   if ( result )
   {
     v3 = 0;
-    if ( this[13] )
+    if ( BaseAddress[13] )
     {
       do
       {
-        v4 = *(_DWORD *)(this[12] + 4 * v3);
+        v4 = *(_DWORD **)(BaseAddress[12] + 4 * v3);
         if ( v4 )
         {
-          v5 = *(_DWORD *)(v4 + 92);
+          v5 = v4[23];
           if ( v5 )
           {
-            if ( (*(_DWORD *)(v5 + 16) & 0x80000) == 0 && *(_DWORD *)(v5 + 32) != v4 )
+            if ( (*(_DWORD *)(v5 + 16) & 0x80000) == 0 && *(_DWORD **)(v5 + 32) != v4 )
             {
               *(_DWORD *)(v5 + 32) = v4;
-              LdrpFreeReplacedModule();
+              LdrpFreeReplacedModule(v4);
             }
           }
         }
         ++v3;
       }
-      while ( v3 < this[13] );
-      result = this[12];
+      while ( v3 < BaseAddress[13] );
+      result = (void *)BaseAddress[12];
     }
-    result = RtlFreeHeap(LdrpHeap, 0, result);
+    result = (void *)RtlFreeHeap(LdrpHeap, 0, result);
   }
-  if ( (this[4] & 0x8000) != 0 )
-    return RtlFreeHeap(LdrpHeap, 0, (int)this);
+  if ( (BaseAddress[4] & 0x8000) != 0 )
+    return (void *)RtlFreeHeap(LdrpHeap, 0, BaseAddress);
   return result;
 }

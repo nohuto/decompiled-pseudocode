@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputeIdealDpcGang @ 0x1405600BC
+ * XREFs of MiComputeIdealDpcGang @ 0x1405602FC
  * Callers:
- *     MiInitializeDpcGang @ 0x140560550 (MiInitializeDpcGang.c)
+ *     MiInitializeDpcGang @ 0x140560790 (MiInitializeDpcGang.c)
  * Callees:
- *     MiGetClosestNodeWithProcessors @ 0x1402E24C0 (MiGetClosestNodeWithProcessors.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     MiGetClosestNodeWithProcessors @ 0x140293810 (MiGetClosestNodeWithProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
  */
 
 __int64 __fastcall MiComputeIdealDpcGang(__int64 a1, unsigned int a2)
@@ -15,7 +15,7 @@ __int64 __fastcall MiComputeIdealDpcGang(__int64 a1, unsigned int a2)
   unsigned int v6; // r8d
   __int64 v7; // rdx
   __int64 v8; // rdx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
   USHORT Count; // [rsp+40h] [rbp+8h] BYREF
 
   Affinity = 0LL;
@@ -25,7 +25,7 @@ __int64 __fastcall MiComputeIdealDpcGang(__int64 a1, unsigned int a2)
   KeQueryNodeActiveAffinity(v4, &Affinity, &Count);
   v5 = 0;
   v6 = 0;
-  for ( *(struct _GROUP_AFFINITY *)(a1 + 200) = Affinity; v6 < (unsigned int)KeNumberProcessors_0; ++v6 )
+  for ( *(_GROUP_AFFINITY *)(a1 + 200) = Affinity; v6 < (unsigned int)KeNumberProcessors_0; ++v6 )
   {
     v7 = KiProcessorBlock[v6];
     if ( *(unsigned __int8 *)(v7 + 208) == Affinity.Group )

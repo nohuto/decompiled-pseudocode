@@ -35,13 +35,13 @@ __int64 __fastcall ObCreateKernelObjectsSD(PSECURITY_DESCRIPTOR SecurityDescript
       Acl = RtlCreateAcl(PoolWithTag, v5, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v7, 2u, 0, 131075, (unsigned __int8 *)SeWorldSid, 0);
+        Acl = RtlpAddKnownAce(v7, 2u, 0, 131075, (unsigned __int8 *)SeWorldSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v7, 2u, 0, 983055, (unsigned __int8 *)SeAliasAdminsSid, 0);
+          Acl = RtlpAddKnownAce(v7, 2u, 0, 983055, (unsigned __int8 *)SeAliasAdminsSid, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v7, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
+            Acl = RtlpAddKnownAce(v7, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
             if ( Acl >= 0 )
             {
               Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v7, 0);

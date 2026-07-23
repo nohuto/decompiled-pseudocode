@@ -319,36 +319,31 @@
  *     sub_18010A694 @ 0x18010A694 (sub_18010A694.c)
  */
 
-__int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, __int64 a3)
+LOGICAL __cdecl RtlFreeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  unsigned int v7; // r9d
+  LOGICAL v7; // r9d
   unsigned __int16 v9; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+20h]
 
-  if ( a3 )
+  if ( BaseAddress )
   {
-    if ( !a1 )
-      sub_18010A694(19, 0, a3, 0, 0LL, 0LL);
-    if ( *(_DWORD *)(a1 + 16) == -571548178 )
+    if ( !HeapHandle )
+      sub_18010A694(19, 0, (_DWORD)BaseAddress, 0, 0LL, 0LL);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      return sub_1800407A0(HeapHandle, BaseAddress, Flags);
+    if ( (byte_180166058 & 2) != 0 )
     {
-      return (unsigned int)sub_1800407A0(a1, a3, a2);
-    }
-    else
-    {
-      if ( (byte_180166058 & 2) != 0 )
+      v7 = sub_180040B50((_DWORD)HeapHandle, (__int64)&v9);
+      if ( v7 )
       {
-        v7 = sub_180040B50(a1, a3, a2, (unsigned int)&v10, (__int64)&v9);
-        if ( v7 )
-        {
-          if ( v9 )
-            _InterlockedExchangeAdd64(
-              (volatile signed __int64 *)(*(_QWORD *)(qword_180163B58 + 8LL * v9 - 8) + 32LL),
-              -v10);
-        }
-        return v7;
+        if ( v9 )
+          _InterlockedExchangeAdd64(
+            (volatile signed __int64 *)(*(_QWORD *)(qword_180163B58 + 8LL * v9 - 8) + 32LL),
+            -v10);
       }
-      return (unsigned int)sub_180040B50(a1, a3, a2, 0, 0LL);
+      return v7;
     }
+    return sub_180040B50((_DWORD)HeapHandle, 0LL);
   }
-  return 1LL;
+  return 1;
 }

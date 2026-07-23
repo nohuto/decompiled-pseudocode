@@ -17,13 +17,13 @@
 
 char PfpFlushBuffers()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   _SLIST_ENTRY *v1; // rdi
   void *v2; // r13
   PSLIST_ENTRY v3; // rax
-  struct _SLIST_ENTRY *v4; // rcx
-  struct _SLIST_ENTRY *v5; // r12
-  struct _SLIST_ENTRY *v6; // rsi
+  _SLIST_ENTRY *v4; // rcx
+  _SLIST_ENTRY *v5; // r12
+  _SLIST_ENTRY *v6; // rsi
   __int64 v7; // rax
   unsigned __int64 v8; // rcx
   __int64 v9; // r14
@@ -31,7 +31,7 @@ char PfpFlushBuffers()
   int v11; // r14d
   __int64 v12; // r8
   __int64 v13; // rdx
-  struct _SLIST_ENTRY *v15; // rcx
+  _SLIST_ENTRY *v15; // rcx
   _SLIST_ENTRY *Next; // r14
   unsigned __int64 v17; // r15
   __int64 v18; // rax
@@ -131,7 +131,7 @@ char PfpFlushBuffers()
       goto LABEL_14;
     }
     v2 = &v6[4].Next + 1;
-    v1 = (struct _SLIST_ENTRY *)((char *)v6 + 72);
+    v1 = (_SLIST_ENTRY *)((char *)v6 + 72);
     if ( (_SLIST_ENTRY *)(&v6[4].Next + 1) < v6[2].Next )
       break;
 LABEL_12:

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPolicyWorkerAction @ 0x140775870
+ * XREFs of PopPolicyWorkerAction @ 0x140775A30
  * Callers:
- *     PopPolicyWorkerThread @ 0x1402C4F30 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1402434B0 (PopPolicyWorkerThread.c)
  * Callees:
- *     PopGetPolicyWorker @ 0x140281B10 (PopGetPolicyWorker.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     PopSetPowerActionState @ 0x140382B6C (PopSetPowerActionState.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopCompleteAction @ 0x140773D74 (PopCompleteAction.c)
- *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopGetPolicyWorker @ 0x14026FD50 (PopGetPolicyWorker.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     PopSetPowerActionState @ 0x140382D1C (PopSetPowerActionState.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopCompleteAction @ 0x140773F34 (PopCompleteAction.c)
+ *     PopIssueActionRequest @ 0x140775BC8 (PopIssueActionRequest.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopPolicyWorkerAction(int a1)
@@ -35,22 +35,22 @@ __int64 __fastcall PopPolicyWorkerAction(int a1)
 
   v1 = 0;
   PopAcquirePolicyLock(a1);
-  qword_140C235F0 = (__int64)KeGetCurrentThread();
-  if ( byte_140C23441 == 1 )
+  qword_140C23C10 = (__int64)KeGetCurrentThread();
+  if ( byte_140C23A61 == 1 )
   {
-    v4 = (int)qword_140C23444;
-    v5 = HIDWORD(qword_140C23444);
-    v6 = dword_140C2344C;
+    v4 = (int)qword_140C23A64;
+    v5 = HIDWORD(qword_140C23A64);
+    v6 = dword_140C23A6C;
     PopSetPowerActionState(2);
-    v7 = dword_140C23454;
+    v7 = dword_140C23A74;
     v8 = PopIssueActionRequest(0LL, (unsigned int)v4, v5, v6);
     v1 = 1;
     if ( (PopAction & 2) != 0 )
     {
-      if ( HIDWORD(qword_140C23444) == 5 )
+      if ( HIDWORD(qword_140C23A64) == 5 )
         v7 = 6;
-      dword_140C23454 = v7;
-      dword_140C2344C = dword_140C2344C & 0x7FFFFFDC | 0x80000020;
+      dword_140C23A74 = v7;
+      dword_140C23A6C = dword_140C23A6C & 0x7FFFFFDC | 0x80000020;
       LOBYTE(PopAction) = PopAction & 0xFD;
       PopSetPowerActionState(1);
       v10 = 2;
@@ -67,7 +67,7 @@ __int64 __fastcall PopPolicyWorkerAction(int a1)
         v16 = 16;
         EtwTraceKernelEvent((int)&v15, 1, 0x80008000, 4643, 4200450);
       }
-      dword_140C23450 = v8;
+      dword_140C23A70 = v8;
       PopSetPowerActionState(0);
       for ( i = (__int64 *)PopActionWaiters; i != &PopActionWaiters; i = (__int64 *)*i )
         PopCompleteAction(i[2], v8);
@@ -75,7 +75,7 @@ __int64 __fastcall PopPolicyWorkerAction(int a1)
     }
     PopGetPolicyWorker(v10);
   }
-  qword_140C235F0 = 0LL;
+  qword_140C23C10 = 0LL;
   PopReleasePolicyLock(v3, v2);
   if ( v1 && PoPdcCallbacks )
     PoPdcCallbacks();

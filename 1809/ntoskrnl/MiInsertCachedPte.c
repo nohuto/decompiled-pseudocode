@@ -2,17 +2,17 @@
  * XREFs of MiInsertCachedPte @ 0x1400344D0
  * Callers:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     MiEmptyPteBins @ 0x1400EFC10 (MiEmptyPteBins.c)
- *     MiReplenishBitMap @ 0x1400EFDF0 (MiReplenishBitMap.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePteMappings @ 0x1402C399C (MiReleaseLargePteMappings.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     MiEmptyPteBins @ 0x1400EFC90 (MiEmptyPteBins.c)
+ *     MiReplenishBitMap @ 0x1400EFE70 (MiReplenishBitMap.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePteMappings @ 0x1402C3B8C (MiReleaseLargePteMappings.c)
  */
 
 __int64 __fastcall MiInsertCachedPte(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -88,18 +88,18 @@ __int64 __fastcall MiInsertCachedPte(__int64 a1, unsigned __int64 a2, unsigned i
   }
   v6 = a2 + 8;
   v25 = v3 << 32;
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
-    if ( (v25 & qword_14043A0C0) != 0 )
+    if ( (v25 & qword_14043B180) != 0 )
       v25 |= 0x10uLL;
     else
-      v25 |= qword_14043A0C0;
+      v25 |= qword_14043B180;
   }
   if ( v6 >= 0xFFFFF6FB7DBED000uLL && v6 <= 0xFFFFF6FB7DBED7F8uLL )
   {
-    if ( (unsigned int)MiPteHasShadow(qword_14043A0C0, v25) )
+    if ( (unsigned int)MiPteHasShadow(qword_14043B180, v25) )
     {
-      if ( !HIBYTE(word_14043A1AC) && (v25 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v25 & 1) != 0 )
         v25 |= 0x8000000000000000uLL;
       *(_QWORD *)v6 = v25;
       MiWritePteShadow(v6);
@@ -146,8 +146,8 @@ LABEL_7:
   }
 LABEL_12:
   v14 = 0LL;
-  if ( qword_14043A0C0 )
-    v14 = qword_14043A0C0;
+  if ( qword_14043B180 )
+    v14 = qword_14043B180;
   v15 = a1;
   v16 = v46 | v14 & 0xFFFFFFFFFFFF0FFFuLL;
   v17 = v43;
@@ -169,12 +169,12 @@ LABEL_15:
       if ( v16 )
       {
         v21 = v16;
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
           if ( (v16 & 0x10) != 0 )
             v21 = v16 & 0xFFFFFFEF;
           else
-            v21 = v16 & ~(_DWORD)qword_14043A0C0;
+            v21 = v16 & ~(_DWORD)qword_14043B180;
         }
       }
       else
@@ -182,19 +182,19 @@ LABEL_15:
         v21 = 0;
       }
       v16 = v21 | ((unsigned __int64)HIDWORD(v49) << 32);
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
-        if ( (qword_14043A0C0 & v16) != 0 )
+        if ( (qword_14043B180 & v16) != 0 )
           v16 |= 0x10uLL;
         else
-          v16 |= qword_14043A0C0;
+          v16 |= qword_14043B180;
       }
       v22 = v16;
       if ( a2 >= v18 && a2 <= v19 )
       {
         if ( (unsigned int)MiPteHasShadow(v21, v16) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v16 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v16 & 1) != 0 )
             v22 |= 0x8000000000000000uLL;
           *(_QWORD *)a2 = v22;
           MiWritePteShadow(a2);
@@ -277,7 +277,7 @@ LABEL_27:
     goto LABEL_59;
   if ( (unsigned int)MiPteHasShadow(v33, v32) )
   {
-    if ( !HIBYTE(word_14043A1AC) && (v32 & 1) != 0 )
+    if ( !HIBYTE(word_14043B26C) && (v32 & 1) != 0 )
       v32 |= 0x8000000000000000uLL;
     *(_QWORD *)a2 = v32;
     MiWritePteShadow(a2);

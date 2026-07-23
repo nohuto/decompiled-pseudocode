@@ -45,7 +45,7 @@ char __fastcall CcMapAndCopyInToCache(
   __int64 v11; // r12
   int v12; // edx
   bool v13; // r10
-  struct _SLIST_ENTRY *v14; // rbx
+  _SLIST_ENTRY *v14; // rbx
   char v15; // r9
   struct _KTHREAD *v16; // r8
   int v17; // eax
@@ -90,7 +90,7 @@ char __fastcall CcMapAndCopyInToCache(
   __int64 v57; // rcx
   struct _KEVENT *v58; // rcx
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v60; // rax
+  _SLIST_ENTRY **v60; // rax
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
   KIRQL v63; // di
@@ -224,7 +224,7 @@ LABEL_8:
       v97.LockQueue.Lock = (unsigned __int64 *volatile)(v19 + 128);
       v97.LockQueue.Next = 0LL;
       KxAcquireQueuedSpinLock(&v97);
-      v14 = *(struct _SLIST_ENTRY **)(a1 + 496);
+      v14 = *(_SLIST_ENTRY **)(a1 + 496);
       if ( !v14 )
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&v97);
@@ -233,7 +233,7 @@ LABEL_8:
         RtlRaiseStatus(-1073741608);
       }
       Next = v14->Next;
-      v60 = (struct _SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
+      v60 = (_SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
       if ( *(&v14->Next->Next + 1) != v14 || *v60 != v14 )
         __fastfail(3u);
       *v60 = Next;
@@ -266,7 +266,7 @@ LABEL_8:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v14);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v14);
     }
     v18 = a4;
   }

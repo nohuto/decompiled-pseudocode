@@ -1,26 +1,26 @@
 /*
- * XREFs of KeQuerySystemTimePrecise @ 0x140278F00
+ * XREFs of KeQuerySystemTimePrecise @ 0x140266EA0
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     PspUserThreadStartup @ 0x140646E40 (PspUserThreadStartup.c)
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
- *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     EtwpInitLoggerContext @ 0x1406DD980 (EtwpInitLoggerContext.c)
- *     EtwpInitializeTimeStamp @ 0x1406DDD64 (EtwpInitializeTimeStamp.c)
- *     EtwpFinalizeHeader @ 0x1406DF770 (EtwpFinalizeHeader.c)
- *     EtwpTraceSystemShutdown @ 0x140937A84 (EtwpTraceSystemShutdown.c)
- *     EtwTraceAdminlessAccessFailure @ 0x14093FC38 (EtwTraceAdminlessAccessFailure.c)
- *     EtwTraceLpacAccessFailure @ 0x14093FF54 (EtwTraceLpacAccessFailure.c)
+ *     PspUserThreadStartup @ 0x14063BC30 (PspUserThreadStartup.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
+ *     PspAllocateThread @ 0x14063FE68 (PspAllocateThread.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     EtwpInitLoggerContext @ 0x1406B4C60 (EtwpInitLoggerContext.c)
+ *     EtwpInitializeTimeStamp @ 0x1406B5044 (EtwpInitializeTimeStamp.c)
+ *     EtwpFinalizeHeader @ 0x1406B6A50 (EtwpFinalizeHeader.c)
+ *     EtwpTraceSystemShutdown @ 0x140937C54 (EtwpTraceSystemShutdown.c)
+ *     EtwTraceAdminlessAccessFailure @ 0x14093FE08 (EtwTraceAdminlessAccessFailure.c)
+ *     EtwTraceLpacAccessFailure @ 0x140940124 (EtwTraceLpacAccessFailure.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140278F20 (RtlGetSystemTimePrecise.c)
+ *     RtlGetSystemTimePrecise @ 0x140266EC0 (RtlGetSystemTimePrecise.c)
  */
 
-__int64 __fastcall KeQuerySystemTimePrecise(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
+LARGE_INTEGER __fastcall KeQuerySystemTimePrecise(LARGE_INTEGER *a1)
 {
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
 
-  result = RtlGetSystemTimePrecise(a1, a2, a3, a4);
+  result = RtlGetSystemTimePrecise();
   *a1 = result;
   return result;
 }

@@ -1,27 +1,27 @@
 /*
- * XREFs of MmCreateKernelStack @ 0x1400F17B0
+ * XREFs of MmCreateKernelStack @ 0x1400EF600
  * Callers:
- *     MiAdjustCachedStacks @ 0x1400BEBA4 (MiAdjustCachedStacks.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400F12A0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     MiAdjustCachedStacks @ 0x1400BCA34 (MiAdjustCachedStacks.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400EF0F0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
  *     KeInitThread @ 0x1403C8E74 (KeInitThread.c)
- *     KeUserModeCallback @ 0x140515D20 (KeUserModeCallback.c)
- *     KeAllocateCalloutStackEx @ 0x1405416E4 (KeAllocateCalloutStackEx.c)
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KeUserModeCallback @ 0x1404F9110 (KeUserModeCallback.c)
+ *     KeAllocateCalloutStackEx @ 0x140541C24 (KeAllocateCalloutStackEx.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     MiAllocateKernelStackPages @ 0x1400019C0 (MiAllocateKernelStackPages.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     MiLogKernelStackEvent @ 0x1401EEE90 (MiLogKernelStackEvent.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAllocateKernelStackPages @ 0x140001B34 (MiAllocateKernelStackPages.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x1401EECBC (MiLogKernelStackEvent.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MmCreateKernelStack(char a1, unsigned __int16 a2, __int64 a3)
@@ -31,7 +31,7 @@ __int64 __fastcall MmCreateKernelStack(char a1, unsigned __int16 a2, __int64 a3)
   BOOL v6; // ebp
   _BOOL8 v7; // rbx
   __int64 v8; // r14
-  union _SLIST_HEADER *v9; // rdi
+  _SLIST_HEADER *v9; // rdi
   __int16 Alignment; // si
   unsigned __int8 CurrentIrql; // r12
   PSLIST_ENTRY v12; // rax
@@ -78,14 +78,14 @@ __int64 __fastcall MmCreateKernelStack(char a1, unsigned __int16 a2, __int64 a3)
   }
   if ( (a1 & 1) == 0 )
   {
-    v39 = (unsigned __int8)byte_140327540;
+    v39 = (unsigned __int8)byte_140327580;
     v6 = v4 != 0;
-    v36 = (unsigned __int8)byte_140327540;
+    v36 = (unsigned __int8)byte_140327580;
     v7 = v4 != 0;
     v8 = 13LL * a2;
     while ( 1 )
     {
-      v9 = &qword_1403269B0[2 * v8 + 2 * v7];
+      v9 = &qword_1403269F0[2 * v8 + 2 * v7];
       Alignment = v9[7].Alignment;
       if ( Alignment )
       {
@@ -105,14 +105,14 @@ __int64 __fastcall MmCreateKernelStack(char a1, unsigned __int16 a2, __int64 a3)
             *((_DWORD *)&v9[8].HeaderX64 + 3) = 1;
           Next = (ULONG_PTR)v12[-1].Next;
           v14 = (ULONG_PTR)&v12[-255];
-          BugCheckParameter4 = (unsigned __int64)&v12[-255] ^ qword_140327780;
+          BugCheckParameter4 = (unsigned __int64)&v12[-255] ^ qword_1403277C0;
           if ( Next != BugCheckParameter4 )
             KeBugCheckEx(0x1Au, 0x3470uLL, v14, Next, BugCheckParameter4);
           v16 = ((v14 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
           v17 = (__int64)((v16 << 25) + 0x10000000) >> 16;
           if ( !v6 )
           {
-            v18 = v16 - 8LL * (unsigned __int8)byte_140327540 + 8;
+            v18 = v16 - 8LL * (unsigned __int8)byte_140327580 + 8;
             do
             {
               v37 = MI_READ_PTE_LOCK_FREE(v16);
@@ -169,7 +169,7 @@ LABEL_39:
   if ( !(unsigned int)MiChargeCommit((__int64)MiSystemPartition, v27, (a1 & 2) != 0) )
     return 0LL;
   v30 = v27 + 1;
-  v31 = MiReservePtes((__int64)&qword_140327870, v27 + 1, v29);
+  v31 = MiReservePtes((__int64)&qword_1403278B0, v27 + 1, v29);
   v32 = v31;
   if ( v31 )
   {
@@ -183,12 +183,12 @@ LABEL_39:
       v23 = v38;
       if ( (unsigned int)MiAllocateKernelStackPages(v34, v24, v5, a2, v38) )
       {
-        _InterlockedExchangeAdd64(&qword_140327910, v28);
+        _InterlockedExchangeAdd64(&qword_140327950, v28);
         goto LABEL_31;
       }
       MiReturnResidentAvailable(v24);
     }
-    MiReleasePtes((__int64)&qword_140327870, v32, v30);
+    MiReleasePtes((__int64)&qword_1403278B0, v32, v30);
   }
   MiReturnCommit((__int64)MiSystemPartition, v28);
   return 0LL;

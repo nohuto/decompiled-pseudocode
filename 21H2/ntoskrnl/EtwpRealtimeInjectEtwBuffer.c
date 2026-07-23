@@ -1,95 +1,94 @@
 /*
- * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x140645E50
+ * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x14063AC3C
  * Callers:
- *     EtwpRealtimeDeliverBuffer @ 0x140645D0C (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1406BC504 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x14061B674 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x14063AAF8 (EtwpRealtimeDeliverBuffer.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpFindUserBufferSpace @ 0x140646044 (EtwpFindUserBufferSpace.c)
- *     EtwpFreeUserBufferSpace @ 0x140941BDC (EtwpFreeUserBufferSpace.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpFindUserBufferSpace @ 0x14063AE30 (EtwpFindUserBufferSpace.c)
+ *     EtwpFreeUserBufferSpace @ 0x140941DAC (EtwpFreeUserBufferSpace.c)
  */
 
 __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a3)
 {
-  _DWORD *v6; // r9
-  __int64 v7; // rcx
-  volatile signed __int32 *v8; // rdx
-  _DWORD *v9; // r8
-  signed __int64 v10; // rax
-  signed __int64 v11; // rcx
-  int v12; // ecx
-  unsigned int v14; // ecx
+  __int64 v6; // rcx
+  volatile signed __int32 *v7; // rdx
+  _DWORD *v8; // r8
+  signed __int64 v9; // rax
+  signed __int64 v10; // rcx
+  int v11; // ecx
+  unsigned int v13; // ecx
   int UserBufferSpace; // [rsp+20h] [rbp-78h]
-  void *v16; // [rsp+28h] [rbp-70h] BYREF
-  signed __int64 v17; // [rsp+30h] [rbp-68h]
-  __int64 v18; // [rsp+38h] [rbp-60h]
-  __int64 v19; // [rsp+40h] [rbp-58h]
-  char *v20; // [rsp+48h] [rbp-50h]
-  _OWORD v21[3]; // [rsp+50h] [rbp-48h] BYREF
+  void *v15; // [rsp+28h] [rbp-70h] BYREF
+  signed __int64 v16; // [rsp+30h] [rbp-68h]
+  __int64 v17; // [rsp+38h] [rbp-60h]
+  __int64 v18; // [rsp+40h] [rbp-58h]
+  char *v19; // [rsp+48h] [rbp-50h]
+  _OWORD v20[3]; // [rsp+50h] [rbp-48h] BYREF
 
-  v18 = a2;
-  v19 = a3;
-  memset(v21, 0, sizeof(v21));
-  v16 = 0LL;
+  v17 = a2;
+  v18 = a3;
+  memset(v20, 0, sizeof(v20));
+  v15 = 0LL;
   if ( *(_WORD *)(a3 + 54) == 6 )
   {
-    v14 = *(_DWORD *)(a2 + 84) + 1;
-    *(_DWORD *)(a2 + 84) = v14;
-    if ( (a1[3] & 0x10000000) != 0 || v14 > 2 )
+    v13 = *(_DWORD *)(a2 + 84) + 1;
+    *(_DWORD *)(a2 + 84) = v13;
+    if ( (a1[3] & 0x10000000) != 0 || v13 > 2 )
       return 0LL;
   }
   else
   {
     *(_DWORD *)(a2 + 84) = 0;
   }
-  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(a2 + 24) + 1112LL)) )
+  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(a2 + 24) + 1112LL)) )
     return 3221225738LL;
-  KiStackAttachProcess(*(_KPROCESS **)(a2 + 24), 0LL, (__int64)v21, v6);
+  KiStackAttachProcess(*(_KPROCESS **)(a2 + 24), 0, (__int64)v20);
   **(_DWORD **)(a2 + 136) = a1[64];
   **(_DWORD **)(a2 + 144) = a1[69];
-  v7 = (unsigned int)(4 * a1[63]);
-  if ( **(_DWORD **)(a2 + 64) < (unsigned int)v7 )
+  v6 = (unsigned int)(4 * a1[63]);
+  if ( **(_DWORD **)(a2 + 64) < (unsigned int)v6 )
   {
-    UserBufferSpace = EtwpFindUserBufferSpace(v7, a2, *(unsigned int *)(a3 + 48), &v16);
+    UserBufferSpace = EtwpFindUserBufferSpace(v6, a2, *(unsigned int *)(a3 + 48), &v15);
     if ( UserBufferSpace >= 0 )
     {
-      memmove(v16, (const void *)a3, *(unsigned int *)(a3 + 48));
-      v8 = *(volatile signed __int32 **)(a2 + 72);
-      v9 = (char *)v16 + 32;
+      memmove(v15, (const void *)a3, *(unsigned int *)(a3 + 48));
+      v7 = *(volatile signed __int32 **)(a2 + 72);
+      v8 = (char *)v15 + 32;
       if ( (*(_BYTE *)(a2 + 90) & 0x10) != 0 )
       {
-        v20 = (char *)v16 + 32;
-        LODWORD(v10) = *v8;
+        v19 = (char *)v15 + 32;
+        LODWORD(v9) = *v7;
         do
         {
-          *v9 = v10;
-          v12 = v10;
-          LODWORD(v10) = _InterlockedCompareExchange(v8, (signed __int32)v9, v10);
+          *v8 = v9;
+          v11 = v9;
+          LODWORD(v9) = _InterlockedCompareExchange(v7, (signed __int32)v8, v9);
         }
-        while ( (_DWORD)v10 != v12 );
-        v10 = (unsigned int)v10;
+        while ( (_DWORD)v9 != v11 );
+        v9 = (unsigned int)v9;
       }
       else
       {
-        _m_prefetchw((const void *)v8);
-        v10 = *(_QWORD *)v8;
+        _m_prefetchw((const void *)v7);
+        v9 = *(_QWORD *)v7;
         do
         {
-          *(_QWORD *)v9 = v10;
-          v11 = v10;
-          v10 = _InterlockedCompareExchange64((volatile signed __int64 *)v8, (signed __int64)v9, v10);
+          *(_QWORD *)v8 = v9;
+          v10 = v9;
+          v9 = _InterlockedCompareExchange64((volatile signed __int64 *)v7, (signed __int64)v8, v9);
         }
-        while ( v10 != v11 );
+        while ( v9 != v10 );
       }
-      v17 = v10;
+      v16 = v9;
       _InterlockedIncrement(*(volatile signed __int32 **)(a2 + 64));
-      if ( !v17 )
+      if ( !v16 )
         KeSetEvent(*(PRKEVENT *)(a2 + 56), 0, 0);
     }
   }
@@ -97,7 +96,7 @@ __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a
   {
     UserBufferSpace = -1073741764;
   }
-  KiUnstackDetachProcess((__int64)v21, 0);
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(a2 + 24) + 1112LL));
+  KiUnstackDetachProcess((__int64)v20, 0LL);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(a2 + 24) + 1112LL));
   return (unsigned int)UserBufferSpace;
 }

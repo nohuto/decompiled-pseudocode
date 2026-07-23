@@ -1,16 +1,16 @@
 /*
- * XREFs of PoRunDownDeviceObject @ 0x140437D0C
+ * XREFs of PoRunDownDeviceObject @ 0x140426C2C
  * Callers:
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     PoRegisterDeviceForIdleDetection @ 0x140437DF0 (PoRegisterDeviceForIdleDetection.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x140426D10 (PoRegisterDeviceForIdleDetection.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PoRunDownDeviceObject(struct _DEVICE_OBJECT *a1)
@@ -29,8 +29,8 @@ void __fastcall PoRunDownDeviceObject(struct _DEVICE_OBJECT *a1)
   if ( Dope )
   {
     MmLockPagableSectionByHandle(ExPageLockHandle);
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F10828.SListFaultAddress);
-    v3 = KeAcquireSpinLockRaiseToDpc(&qword_140F10808);
+    ExAcquireFastMutex((PKGUARDED_MUTEX)&PpmIdlePolicyLock.WriteTransferCount);
+    v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160]);
     p_Volume = &Dope->Volume;
     v5 = v3;
     Flink = Dope->Volume.Flink;
@@ -45,8 +45,8 @@ void __fastcall PoRunDownDeviceObject(struct _DEVICE_OBJECT *a1)
     }
     DeviceObjectExtension->Dope = 0LL;
     ExFreePoolWithTag(Dope, 0);
-    KeReleaseSpinLock(&qword_140F10808, v5);
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F10828.SListFaultAddress);
+    KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160], v5);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PpmIdlePolicyLock.WriteTransferCount);
     MmUnlockPagableImageSection(ExPageLockHandle);
   }
 }

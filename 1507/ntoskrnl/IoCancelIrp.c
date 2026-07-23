@@ -32,9 +32,9 @@ BOOLEAN __stdcall IoCancelIrp(PIRP Irp)
 {
   void (__fastcall *v2)(PDEVICE_OBJECT, PIRP); // rdi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  KIRQL v4; // si
+  UCHAR v4; // si
   PDEVICE_OBJECT DeviceObject; // rcx
-  KIRQL Irql; // [rsp+40h] [rbp+8h] BYREF
+  UCHAR Irql; // [rsp+40h] [rbp+8h] BYREF
 
   if ( ViVerifierDriverAddedThunkListHead )
     IovCancelIrp();

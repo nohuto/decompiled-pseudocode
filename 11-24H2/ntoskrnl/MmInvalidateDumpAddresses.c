@@ -1,11 +1,11 @@
 /*
- * XREFs of MmInvalidateDumpAddresses @ 0x140B631B0
+ * XREFs of MmInvalidateDumpAddresses @ 0x140B65280
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140B6552C (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140B6766C (PopInvokeSystemStateHandler.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline @ 0x1405D3348 (Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline @ 0x1405D0A68 (Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 a2)
@@ -38,11 +38,11 @@ __int64 __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int
     }
     while ( a2 );
   }
-  v7 = (_QWORD *)qword_140E300B8;
+  v7 = (_QWORD *)qword_140E301F8;
   result = Feature_CrashDumpOneMBTransferSize__private_IsEnabledDeviceUsageNoInline();
   if ( (_DWORD)result )
   {
-    if ( dword_140E300C0 )
+    if ( dword_140E30200 )
     {
       result = CLFS_LSN_NULL_EXT;
       do
@@ -51,7 +51,7 @@ __int64 __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int
         ++v4;
         ++v7;
       }
-      while ( v4 < dword_140E300C0 );
+      while ( v4 < dword_140E30200 );
     }
   }
   else

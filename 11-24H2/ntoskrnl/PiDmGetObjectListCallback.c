@@ -1,85 +1,85 @@
 /*
- * XREFs of PiDmGetObjectListCallback @ 0x1408CF850
+ * XREFs of PiDmGetObjectListCallback @ 0x1408CD240
  * Callers:
- *     PiDmListEnumObjectsWithCallback @ 0x1408CF680 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmEnumObjectsWithCallback @ 0x1408D0E10 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1408CD070 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1408CE800 (PiDmEnumObjectsWithCallback.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PiDmCmObjectMatchCallback @ 0x1408CF9A0 (PiDmCmObjectMatchCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PiDmCmObjectMatchCallback @ 0x1408CD390 (PiDmCmObjectMatchCallback.c)
  */
 
-__int64 __fastcall PiDmGetObjectListCallback(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4)
+__int64 __fastcall PiDmGetObjectListCallback(__int64 a1, __int64 a2, _BYTE *a3)
 {
-  unsigned int v5; // esi
-  __int64 (__fastcall *v7)(_QWORD, _QWORD, _QWORD); // rax
-  __int64 v8; // r10
-  unsigned int v9; // eax
-  unsigned int v10; // r10d
-  char *v11; // r11
-  __int64 v12; // rdx
-  const wchar_t *v13; // r8
-  _WORD *v14; // rax
-  __int64 v15; // r9
-  signed __int64 v16; // r8
-  __int16 v17; // cx
-  _WORD *v18; // rcx
-  __int64 v20; // rdx
+  unsigned int v4; // esi
+  __int64 (__fastcall *v6)(_QWORD, _QWORD, _QWORD); // rax
+  __int64 v7; // r10
+  unsigned int v8; // eax
+  unsigned int v9; // r10d
+  char *v10; // r11
+  __int64 v11; // rdx
+  const wchar_t *v12; // r8
+  _WORD *v13; // rax
+  __int64 v14; // r9
+  signed __int64 v15; // r8
+  __int16 v16; // cx
+  _WORD *v17; // rcx
+  __int64 v19; // rdx
   int matched; // eax
-  char v22; // [rsp+38h] [rbp+10h] BYREF
+  char v21; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = 0;
+  v4 = 0;
   *a3 = 0;
-  v7 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))a2;
-  v22 = 0;
-  if ( !v7
-    || ((v20 = *(_QWORD *)(a2 + 8), v7 != PiDmCmObjectMatchCallback)
-      ? (matched = guard_dispatch_icall_no_overrides(a1, v20, &v22, a4))
-      : (matched = PiDmCmObjectMatchCallback(a1, v20, &v22)),
-        (v5 = matched, matched >= 0) && v22) )
+  v6 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))a2;
+  v21 = 0;
+  if ( !v6
+    || ((v19 = *(_QWORD *)(a2 + 8), v6 != PiDmCmObjectMatchCallback)
+      ? (matched = guard_dispatch_icall_no_overrides(a1, v19))
+      : (matched = PiDmCmObjectMatchCallback(a1, v19, &v21)),
+        (v4 = matched, matched >= 0) && v21) )
   {
-    v8 = -1LL;
+    v7 = -1LL;
     do
-      ++v8;
-    while ( *(_WORD *)(*(_QWORD *)(a1 + 16) + 2 * v8) );
-    v9 = *(_DWORD *)(a2 + 24);
-    v10 = v8 + 1;
-    *(_DWORD *)(a2 + 28) += v10;
-    if ( v9 > v10 )
+      ++v7;
+    while ( *(_WORD *)(*(_QWORD *)(a1 + 16) + 2 * v7) );
+    v8 = *(_DWORD *)(a2 + 24);
+    v9 = v7 + 1;
+    *(_DWORD *)(a2 + 28) += v9;
+    if ( v8 > v9 )
     {
-      v11 = *(char **)(a2 + 16);
-      v12 = v9;
-      v13 = *(const wchar_t **)(a1 + 16);
-      if ( !v11 && v9 || v9 > 0x7FFFFFFFuLL )
+      v10 = *(char **)(a2 + 16);
+      v11 = v8;
+      v12 = *(const wchar_t **)(a1 + 16);
+      if ( !v10 && v8 || v8 > 0x7FFFFFFFuLL )
         goto LABEL_25;
-      if ( !v13 )
-        v13 = &SourceString;
-      if ( v9 )
+      if ( !v12 )
+        v12 = &SourceString;
+      if ( v8 )
       {
-        v14 = *(_WORD **)(a2 + 16);
-        v15 = 2147483646 - v12;
-        v16 = (char *)v13 - v11;
+        v13 = *(_WORD **)(a2 + 16);
+        v14 = 2147483646 - v11;
+        v15 = (char *)v12 - v10;
         do
         {
-          if ( !(v15 + v12) )
+          if ( !(v14 + v11) )
             break;
-          v17 = *(_WORD *)((char *)v14 + v16);
-          if ( !v17 )
+          v16 = *(_WORD *)((char *)v13 + v15);
+          if ( !v16 )
             break;
-          *v14++ = v17;
-          --v12;
+          *v13++ = v16;
+          --v11;
         }
-        while ( v12 );
-        v18 = v14 - 1;
-        if ( v12 )
-          v18 = v14;
-        *v18 = 0;
-        if ( !v12 )
+        while ( v11 );
+        v17 = v13 - 1;
+        if ( v11 )
+          v17 = v13;
+        *v17 = 0;
+        if ( !v11 )
 LABEL_25:
-          *(_WORD *)v11 = 0;
+          *(_WORD *)v10 = 0;
       }
-      *(_QWORD *)(a2 + 16) += 2LL * v10;
-      *(_DWORD *)(a2 + 24) -= v10;
+      *(_QWORD *)(a2 + 16) += 2LL * v9;
+      *(_DWORD *)(a2 + 24) -= v9;
     }
   }
-  return v5;
+  return v4;
 }

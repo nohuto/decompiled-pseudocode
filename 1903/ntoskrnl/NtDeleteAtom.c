@@ -10,7 +10,7 @@
 
 NTSTATUS __stdcall NtDeleteAtom(RTL_ATOM Atom)
 {
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   PRTL_ATOM_TABLE AtomTable; // [rsp+38h] [rbp+10h] BYREF
 
   AtomTable = 0LL;

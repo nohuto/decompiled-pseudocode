@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptParallelSha256AppendBlocks_xmm @ 0x140235F74
+ * XREFs of SymCryptParallelSha256AppendBlocks_xmm @ 0x140235DA0
  * Callers:
- *     SymCryptParallelSha256Append @ 0x140235EA8 (SymCryptParallelSha256Append.c)
+ *     SymCryptParallelSha256Append @ 0x140235CD4 (SymCryptParallelSha256Append.c)
  * Callees:
  *     <none>
  */

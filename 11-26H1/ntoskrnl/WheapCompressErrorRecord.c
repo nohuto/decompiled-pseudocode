@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapCompressErrorRecord @ 0x1403DFCE8
+ * XREFs of WheapCompressErrorRecord @ 0x1403E2ED8
  * Callers:
- *     WheaReportHwError @ 0x1403DDD80 (WheaReportHwError.c)
- *     WheapGenerateETWEvents @ 0x1403DFC68 (WheapGenerateETWEvents.c)
- *     WheaRecoveryBugCheck @ 0x1406D4B50 (WheaRecoveryBugCheck.c)
+ *     WheaReportHwError @ 0x1403E0F70 (WheaReportHwError.c)
+ *     WheapGenerateETWEvents @ 0x1403E2E58 (WheapGenerateETWEvents.c)
+ *     WheaRecoveryBugCheck @ 0x1406D8C30 (WheaRecoveryBugCheck.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall WheapCompressErrorRecord(char a1, __int64 a2)

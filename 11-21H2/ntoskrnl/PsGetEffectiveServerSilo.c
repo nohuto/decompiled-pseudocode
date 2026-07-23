@@ -1,20 +1,20 @@
 /*
  * XREFs of PsGetEffectiveServerSilo @ 0x14020A3D0
  * Callers:
- *     EtwpTraceIo @ 0x14020A0D0 (EtwpTraceIo.c)
- *     EtwpTraceFileIo @ 0x1402AB040 (EtwpTraceFileIo.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x1402D7D00 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     sub_14020A0D0 @ 0x14020A0D0 (sub_14020A0D0.c)
+ *     sub_1402AB040 @ 0x1402AB040 (sub_1402AB040.c)
+ *     sub_1402D7D00 @ 0x1402D7D00 (sub_1402D7D00.c)
  *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
  *     PsGetJobServerSilo @ 0x140377150 (PsGetJobServerSilo.c)
- *     PspIsSiloInServerSilo @ 0x1405E009C (PspIsSiloInServerSilo.c)
- *     PspEstimateNewProcessServerSilo @ 0x14066F8EC (PspEstimateNewProcessServerSilo.c)
- *     PspImplicitAssignProcessToJob @ 0x140682900 (PspImplicitAssignProcessToJob.c)
- *     PspGetMemoryPartitionImplicit @ 0x140682A98 (PspGetMemoryPartitionImplicit.c)
- *     PspValidateJobAssignmentSiloPolicy @ 0x140687E80 (PspValidateJobAssignmentSiloPolicy.c)
+ *     sub_1405E009C @ 0x1405E009C (sub_1405E009C.c)
+ *     sub_14066F8EC @ 0x14066F8EC (sub_14066F8EC.c)
+ *     sub_140682900 @ 0x140682900 (sub_140682900.c)
+ *     sub_140682A98 @ 0x140682A98 (sub_140682A98.c)
+ *     sub_140687E80 @ 0x140687E80 (sub_140687E80.c)
  *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     ObpSetSiloDeviceMap @ 0x14082C6E0 (ObpSetSiloDeviceMap.c)
+ *     sub_14082C6E0 @ 0x14082C6E0 (sub_14082C6E0.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020A400 (PsIsServerSilo.c)
+ *     sub_14020A400 @ 0x14020A400 (sub_14020A400.c)
  */
 
 __int64 __fastcall PsGetEffectiveServerSilo(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall PsGetEffectiveServerSilo(__int64 a1)
 
   if ( !a1 )
     return 0LL;
-  while ( !(unsigned __int8)PsIsServerSilo() )
+  while ( !(unsigned __int8)sub_14020A400() )
     ;
   return v2;
 }

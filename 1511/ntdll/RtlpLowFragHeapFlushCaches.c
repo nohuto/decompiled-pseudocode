@@ -26,7 +26,7 @@ struct _PEB *__fastcall RtlpLowFragHeapFlushCaches(__int64 a1)
   struct _PEB *result; // rax
   struct _PEB *v13; // r14
   unsigned __int64 v14; // rax
-  int v15; // r8d
+  ULONG v15; // r8d
   struct _PEB *v16; // r13
   unsigned __int64 v17; // rdx
   unsigned __int64 v18; // r12
@@ -97,7 +97,7 @@ LABEL_9:
           v17 = 983040LL;
         v18 = v17 + WORD1(v16->ImageBaseAddress);
         v3 += v18;
-        result = (struct _PEB *)RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), v16);
+        result = (struct _PEB *)RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), v16);
         ++v11;
         if ( MEMORY[0x7FFE0380] )
         {

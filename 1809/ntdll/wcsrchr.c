@@ -1,13 +1,13 @@
 /*
- * XREFs of wcsrchr @ 0x180095C80
+ * XREFs of wcsrchr @ 0x180095C90
  * Callers:
  *     RtlpResolveAssemblyStorageMapEntry @ 0x180033AC8 (RtlpResolveAssemblyStorageMapEntry.c)
  *     LdrpGetDataModulePath @ 0x180034A1C (LdrpGetDataModulePath.c)
  *     LdrLoadAlternateResourceModuleEx @ 0x18003E950 (LdrLoadAlternateResourceModuleEx.c)
  *     RtlpGetDirPath @ 0x180057540 (RtlpGetDirPath.c)
- *     CompatCachepLookupCdb @ 0x180077890 (CompatCachepLookupCdb.c)
- *     EtwpGenerateFileName @ 0x1800888C4 (EtwpGenerateFileName.c)
- *     LdrpGetModuleInfoFromVirtualMemory @ 0x18008F554 (LdrpGetModuleInfoFromVirtualMemory.c)
+ *     CompatCachepLookupCdb @ 0x1800778A0 (CompatCachepLookupCdb.c)
+ *     EtwpGenerateFileName @ 0x1800888D4 (EtwpGenerateFileName.c)
+ *     LdrpGetModuleInfoFromVirtualMemory @ 0x18008F564 (LdrpGetModuleInfoFromVirtualMemory.c)
  * Callees:
  *     <none>
  */

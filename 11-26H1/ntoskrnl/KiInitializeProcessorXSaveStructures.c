@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeProcessorXSaveStructures @ 0x1405ECE44
+ * XREFs of KiInitializeProcessorXSaveStructures @ 0x1405EF7B4
  * Callers:
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
  * Callees:
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KiInitializeProcessorXSaveStructures(__int64 a1)

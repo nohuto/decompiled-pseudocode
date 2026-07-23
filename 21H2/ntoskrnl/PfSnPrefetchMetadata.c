@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnPrefetchMetadata @ 0x1406C8184
+ * XREFs of PfSnPrefetchMetadata @ 0x140676A74
  * Callers:
- *     PfSnAsyncPrefetchStep @ 0x1406C66A4 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncPrefetchStep @ 0x140674F94 (PfSnAsyncPrefetchStep.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PfSnPrefetchFileMetadata @ 0x1406C6D4C (PfSnPrefetchFileMetadata.c)
- *     PfSnLogPrefetchMetadata @ 0x1406C77C8 (PfSnLogPrefetchMetadata.c)
- *     PfpPrefetchEntireDirectory @ 0x1406C846C (PfpPrefetchEntireDirectory.c)
- *     PfSnFindPrefetchVolumeInfoInList @ 0x1406C928C (PfSnFindPrefetchVolumeInfoInList.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     NtCreateEvent @ 0x140703CD0 (NtCreateEvent.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PfSnPrefetchFileMetadata @ 0x14067563C (PfSnPrefetchFileMetadata.c)
+ *     PfSnLogPrefetchMetadata @ 0x1406760B8 (PfSnLogPrefetchMetadata.c)
+ *     PfpPrefetchEntireDirectory @ 0x140676D5C (PfpPrefetchEntireDirectory.c)
+ *     PfSnFindPrefetchVolumeInfoInList @ 0x140677B7C (PfSnFindPrefetchVolumeInfoInList.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     NtCreateEvent @ 0x14071B0B0 (NtCreateEvent.c)
  */
 
 __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
@@ -17,7 +17,7 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
   __int64 v2; // rbx
   unsigned int v3; // r12d
   int v5; // r13d
-  int v6; // edi
+  NTSTATUS v6; // edi
   __int64 v7; // r15
   __int64 v8; // rax
   unsigned int *v9; // rdi
@@ -43,26 +43,21 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
   __int64 v30; // rax
   __int128 v31; // [rsp+30h] [rbp-59h] BYREF
   __int64 v32; // [rsp+40h] [rbp-49h]
-  _DWORD v33[2]; // [rsp+48h] [rbp-41h] BYREF
-  __int64 v34; // [rsp+50h] [rbp-39h]
-  UNICODE_STRING *p_DestinationString; // [rsp+58h] [rbp-31h]
-  int v36; // [rsp+60h] [rbp-29h]
-  int v37; // [rsp+64h] [rbp-25h]
-  __int128 v38; // [rsp+68h] [rbp-21h]
-  __int64 v39; // [rsp+78h] [rbp-11h]
-  __int64 v40; // [rsp+80h] [rbp-9h]
-  __int64 v41; // [rsp+88h] [rbp-1h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-41h] BYREF
+  __int64 v34; // [rsp+78h] [rbp-11h]
+  __int64 v35; // [rsp+80h] [rbp-9h]
+  __int64 v36; // [rsp+88h] [rbp-1h]
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp+7h] BYREF
-  unsigned int v43; // [rsp+F0h] [rbp+67h]
+  unsigned int v38; // [rsp+F0h] [rbp+67h]
   int i; // [rsp+100h] [rbp+77h]
-  HANDLE Handle; // [rsp+108h] [rbp+7Fh] BYREF
+  HANDLE EventHandle; // [rsp+108h] [rbp+7Fh] BYREF
 
   v2 = *(_QWORD *)a1;
   v3 = 0;
-  v33[1] = 0;
-  v37 = 0;
-  v40 = v2;
-  Handle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v35 = v2;
+  EventHandle = 0LL;
   v32 = 0LL;
   v5 = a2;
   DestinationString = 0LL;
@@ -70,17 +65,17 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
   PfSnLogPrefetchMetadata(v2, a2, 1);
   if ( v2 )
   {
-    v33[0] = 48;
-    v34 = 0LL;
-    v36 = 512;
-    p_DestinationString = 0LL;
-    v38 = 0LL;
-    v6 = NtCreateEvent(&Handle, 2031619LL, v33, 0LL, 0);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 512;
+    ObjectAttributes.ObjectName = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v6 = NtCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
     if ( v6 >= 0 )
     {
       v7 = v2 + *(unsigned int *)(v2 + 108);
       v8 = 0LL;
-      v41 = v7;
+      v36 = v7;
       for ( i = 0; (unsigned int)v8 < *(_DWORD *)(v2 + 112); i = v8 )
       {
         v9 = (unsigned int *)(v7 + 96 * v8);
@@ -101,10 +96,10 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
             v7 + v9[5],
             *(_DWORD *)(PrefetchVolumeInfoInList + 104),
             v3,
-            Handle);
+            EventHandle);
           *(_DWORD *)(v11 + 104) += v3;
           v14 = *(_QWORD *)(a1 + 80);
-          v39 = v14;
+          v34 = v14;
           *(_DWORD *)v14 = 4;
           v15 = *(_DWORD *)(a1 + 96);
           v16 = *(_DWORD *)(a1 + 100) & 7 | 8;
@@ -122,8 +117,8 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
           v21 = 0;
           v22 = a2;
           v23 = v9 + 16;
-          v24 = v39;
-          v43 = 0;
+          v24 = v34;
+          v38 = 0;
           do
           {
             if ( _bittest(&v22, v21) )
@@ -135,14 +130,14 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
                 {
                   RtlInitUnicodeString(&DestinationString, &v20[*(unsigned int *)(v11 + 24) + 2]);
                   v27 = *(_QWORD *)(a1 + 8);
-                  v34 = *(_QWORD *)(v11 + 64);
-                  v33[0] = 48;
-                  p_DestinationString = &DestinationString;
-                  v36 = 576;
+                  ObjectAttributes.RootDirectory = *(HANDLE *)(v11 + 64);
+                  ObjectAttributes.Length = 48;
+                  ObjectAttributes.ObjectName = &DestinationString;
+                  ObjectAttributes.Attributes = 576;
                   v32 = 0LL;
-                  v38 = 0LL;
+                  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
                   v31 = 0LL;
-                  PfpPrefetchEntireDirectory(v27, v11 + 32, v24, &v31, v33);
+                  PfpPrefetchEntireDirectory(v27, v11 + 32, v24, &v31, &ObjectAttributes);
                   if ( (_QWORD)v31 && *(_DWORD *)(a1 + 120) < *(_DWORD *)(a1 + 124) )
                   {
                     v28 = v32;
@@ -156,18 +151,18 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
                   v20 += *v20 + 2;
                 }
                 while ( v26 < *v23 );
-                v21 = v43;
+                v21 = v38;
                 v22 = a2;
               }
             }
             ++v21;
             ++v23;
-            v43 = v21;
+            v38 = v21;
           }
           while ( v21 < 7 );
-          v2 = v40;
+          v2 = v35;
           v3 = 0;
-          v7 = v41;
+          v7 = v36;
           *(_QWORD *)(v11 + 96) = v20;
           v5 = a2;
         }
@@ -175,8 +170,8 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)
       }
       v6 = 0;
     }
-    if ( Handle )
-      NtClose(Handle);
+    if ( EventHandle )
+      NtClose(EventHandle);
   }
   else
   {

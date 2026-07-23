@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpDirectoryTeardownCallback @ 0x140980960
+ * XREFs of ObpDirectoryTeardownCallback @ 0x140980B40
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObMakeTemporaryObject @ 0x14061C330 (ObMakeTemporaryObject.c)
  */
 
 LONG_PTR __fastcall ObpDirectoryTeardownCallback(PVOID *a1)

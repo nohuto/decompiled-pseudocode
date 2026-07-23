@@ -1,23 +1,23 @@
 /*
- * XREFs of MiLogHotPatchRundown @ 0x14087272C
+ * XREFs of MiLogHotPatchRundown @ 0x140878A8C
  * Callers:
- *     MiTracingEnabledCallback @ 0x140B43F00 (MiTracingEnabledCallback.c)
+ *     MiTracingEnabledCallback @ 0x140B45DF0 (MiTracingEnabledCallback.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     MiLogHotPatchRundownForProcess @ 0x1406FC34C (MiLogHotPatchRundownForProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiIsActiveSystemHotPatch @ 0x140870D14 (MiIsActiveSystemHotPatch.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     MiLogHotPatchRundownForProcess @ 0x14070101C (MiLogHotPatchRundownForProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiIsActiveSystemHotPatch @ 0x140877074 (MiIsActiveSystemHotPatch.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -85,13 +85,13 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
   _UNKNOWN *retaddr; // [rsp+130h] [rbp+5Fh] BYREF
 
   result = &retaddr;
-  if ( stru_140E36558.FirstArgument && HIDWORD(stru_140E36558.SListFaultAddress) )
+  if ( stru_140E366D8.FirstArgument && HIDWORD(stru_140E366D8.SListFaultAddress) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v7 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E36558.Header.Lock, 0, v7, &stru_140E36558);
+    v7 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E366D8.Header.Lock, 0, v7, &stru_140E366D8);
     if ( v7 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -99,7 +99,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
       else
         *((_BYTE *)v7 + 10) = 1;
     }
-    v8 = (_QWORD *)xmmword_140E36540;
+    v8 = (_QWORD *)xmmword_140E366C0;
     v9 = 0LL;
     while ( v8 )
     {
@@ -108,7 +108,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
     }
     while ( v9 )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
       {
         v43 = *(_DWORD *)(v9 + 24);
         v50 = 4LL;
@@ -120,7 +120,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
         v56 = *(unsigned __int16 *)(v9 + 40);
         v52 = 4LL;
         v54 = 2LL;
-        tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&byte_14005868D, v10, 1u, v41, v42, 6u, v48);
+        tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&word_1400594EE, v10, 1u, v41, v42, 6u, v48);
       }
       v11 = *(_QWORD ***)(v9 + 8);
       v12 = v9;
@@ -141,7 +141,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
         }
       }
     }
-    v14 = (_QWORD *)qword_140E36538;
+    v14 = (_QWORD *)qword_140E366B8;
     v15 = 0LL;
     while ( v14 )
     {
@@ -159,7 +159,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
       }
       while ( v17 )
       {
-        if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+        if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
         {
           v44 = *(_DWORD *)(v17 + 24);
           v50 = 4LL;
@@ -174,7 +174,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
           v52 = 4LL;
           v54 = 2LL;
           v58 = (unsigned int)(4 * v19 + 8);
-          tlgWriteEx_EtwWriteEx(v18, (unsigned __int8 *)&unk_1400586E0, v18, 1u, v41, v42, 7u, v48);
+          tlgWriteEx_EtwWriteEx(v18, (unsigned __int8 *)&byte_14005948B, v18, 1u, v41, v42, 7u, v48);
         }
         v20 = *(_QWORD ***)(v17 + 8);
         v21 = v17;
@@ -214,14 +214,14 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
         }
       }
     }
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&stru_140E36558.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E36558);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&stru_140E366D8.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E366D8);
     v28 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v28 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v28 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v27, v26);
     MmAcquireLoadLock();
-    v29 = (_QWORD *)qword_140E36550;
+    v29 = (_QWORD *)qword_140E366D0;
     v30 = 0LL;
     while ( v29 )
     {
@@ -230,7 +230,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
     }
     while ( v30 )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
       {
         v44 = *(_DWORD *)(v30 + 24);
         v50 = 4LL;
@@ -252,7 +252,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
         v58 = 4LL;
         v60 = 2LL;
         v63 = 0;
-        tlgWriteEx_EtwWriteEx(v31, (unsigned __int8 *)&byte_140058743, v31, 1u, v41, v42, 9u, v48);
+        tlgWriteEx_EtwWriteEx(v31, (unsigned __int8 *)&byte_140059A2F, v31, 1u, v41, v42, 9u, v48);
       }
       v32 = *(_QWORD ***)(v30 + 8);
       v33 = v30;
@@ -278,7 +278,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
       if ( (unsigned int)MiIsActiveSystemHotPatch((__int64)n) )
       {
         MiGetBaseLoaderPortion((__int64)n);
-        if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+        if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
         {
           v47[0] = *(_DWORD *)(v38 + 120);
           v50 = 4LL;
@@ -300,7 +300,7 @@ _UNKNOWN **__fastcall MiLogHotPatchRundown(__int64 a1, __int64 a2, __int64 a3, s
           v58 = 4LL;
           v60 = 2LL;
           v63 = 0;
-          tlgWriteEx_EtwWriteEx(v36, (unsigned __int8 *)&unk_140058498, v36, 1u, v41, v42, 9u, v48);
+          tlgWriteEx_EtwWriteEx(v36, (unsigned __int8 *)&word_1400599A2, v36, 1u, v41, v42, 9u, v48);
         }
       }
     }

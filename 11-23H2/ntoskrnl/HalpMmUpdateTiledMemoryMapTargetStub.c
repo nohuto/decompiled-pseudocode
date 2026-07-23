@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMmUpdateTiledMemoryMapTargetStub @ 0x14051B548
+ * XREFs of HalpMmUpdateTiledMemoryMapTargetStub @ 0x14051BA98
  * Callers:
  *     HalpInterruptStartProcessor @ 0x140A88D4C (HalpInterruptStartProcessor.c)
- *     HalpBuildResumeStructures @ 0x140A95EF8 (HalpBuildResumeStructures.c)
+ *     HalpBuildResumeStructures @ 0x140A95D68 (HalpBuildResumeStructures.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
  */
 
 __int64 HalpMmUpdateTiledMemoryMapTargetStub()

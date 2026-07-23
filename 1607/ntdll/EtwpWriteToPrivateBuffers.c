@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpWriteToPrivateBuffers @ 0x18005B254
+ * XREFs of EtwpWriteToPrivateBuffers @ 0x18005B244
  * Callers:
- *     EtwpEventWriteFull @ 0x18005AFA4 (EtwpEventWriteFull.c)
+ *     EtwpEventWriteFull @ 0x18005AF94 (EtwpEventWriteFull.c)
  *     EtwEventWriteString @ 0x1800FD1A0 (EtwEventWriteString.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x18005BD10 (EtwpReserveTraceBuffer.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     EtwpReserveTraceBuffer @ 0x18005BD00 (EtwpReserveTraceBuffer.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQueryInformationToken @ 0x1800A6840 (NtQueryInformationToken.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  *     memset @ 0x1800ACCC0 (memset.c)
- *     RtlResetStackOverflow @ 0x1800D97F8 (RtlResetStackOverflow.c)
+ *     RtlResetStackOverflow @ 0x1800D98B8 (RtlResetStackOverflow.c)
  *     EtwpCheckForEnoughStackSpace @ 0x1800FD808 (EtwpCheckForEnoughStackSpace.c)
  *     EtwpGetStackExtendedHeaderItem @ 0x1800FDA00 (EtwpGetStackExtendedHeaderItem.c)
  */
@@ -70,27 +70,27 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   size_t v53; // rbx
   char *v54; // r13
   void *v55; // rsp
-  int InformationToken; // eax
-  int v57; // r8d
+  NTSTATUS v56; // eax
+  ULONG v57; // r8d
   _WORD *v58; // rbx
   unsigned __int16 v59; // di
   _DWORD *v60; // rdx
   void *v61; // rbx
   char v62; // [rsp+0h] [rbp-810h] BYREF
-  size_t *p_Size; // [rsp+800h] [rbp-10h]
-  unsigned __int16 v64; // [rsp+810h] [rbp+0h]
-  char v65; // [rsp+814h] [rbp+4h]
-  char v66; // [rsp+815h] [rbp+5h]
-  char v67; // [rsp+816h] [rbp+6h]
-  unsigned __int16 v68[2]; // [rsp+818h] [rbp+8h] BYREF
-  int v69; // [rsp+81Ch] [rbp+Ch]
-  unsigned __int16 v70; // [rsp+820h] [rbp+10h]
-  int v71; // [rsp+824h] [rbp+14h]
-  size_t Size; // [rsp+828h] [rbp+18h] BYREF
+  unsigned __int16 v63; // [rsp+810h] [rbp+0h]
+  char v64; // [rsp+814h] [rbp+4h]
+  char v65; // [rsp+815h] [rbp+5h]
+  char v66; // [rsp+816h] [rbp+6h]
+  unsigned __int16 v67[2]; // [rsp+818h] [rbp+8h] BYREF
+  int v68; // [rsp+81Ch] [rbp+Ch]
+  unsigned __int16 v69; // [rsp+820h] [rbp+10h]
+  int v70; // [rsp+824h] [rbp+14h]
+  ULONG ReturnLength; // [rsp+828h] [rbp+18h] BYREF
+  int v72; // [rsp+82Ch] [rbp+1Ch]
   unsigned int v73; // [rsp+830h] [rbp+20h]
   int v74; // [rsp+834h] [rbp+24h]
   unsigned int v75; // [rsp+838h] [rbp+28h]
-  int v76; // [rsp+83Ch] [rbp+2Ch]
+  ULONG v76; // [rsp+83Ch] [rbp+2Ch]
   void *v77; // [rsp+840h] [rbp+30h] BYREF
   unsigned __int64 v78; // [rsp+848h] [rbp+38h]
   unsigned __int16 *v79; // [rsp+850h] [rbp+40h] BYREF
@@ -101,7 +101,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   void *v84; // [rsp+888h] [rbp+78h]
   __int64 v85; // [rsp+890h] [rbp+80h]
   __int64 v86; // [rsp+898h] [rbp+88h]
-  char v87[16]; // [rsp+8B0h] [rbp+A0h] BYREF
+  char TokenInformation[16]; // [rsp+8B0h] [rbp+A0h] BYREF
   char v88[80]; // [rsp+8C0h] [rbp+B0h] BYREF
   _OWORD *v89; // [rsp+978h] [rbp+168h]
 
@@ -114,8 +114,8 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   v82 = a10;
   v13 = 0;
   v77 = 0LL;
-  v68[0] = 0;
-  v70 = 0;
+  v67[0] = 0;
+  v69 = 0;
   Src = 0LL;
   *(_DWORD *)(a10 + 128) = 0;
   if ( a8 > 0x80 )
@@ -126,14 +126,14 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
     {
       v55 = alloca(2064LL);
       v77 = &v62;
-      EtwpGetStackExtendedHeaderItem(&v77, v68);
+      EtwpGetStackExtendedHeaderItem(&v77, v67);
     }
     a2 = v89;
   }
   v14 = 0;
   v73 = 0;
   v15 = a4;
-  v71 = a4;
+  v70 = a4;
   v16 = (_BYTE *)(v11 + 149);
   v81 = (_BYTE *)(v11 + 149);
   while ( 1 )
@@ -141,14 +141,15 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
     v85 = 0LL;
     v79 = 0LL;
     v17 = 0LL;
-    v69 = 80;
-    v66 = 0;
+    v68 = 80;
     v65 = 0;
-    v67 = 0;
-    LOWORD(v76) = 0;
-    Size = 0LL;
-    v18 = 0;
     v64 = 0;
+    v66 = 0;
+    LOWORD(v76) = 0;
+    ReturnLength = 0;
+    v18 = 0;
+    v63 = 0;
+    v72 = 0;
     v84 = 0LL;
     if ( !_bittest(&v15, v14) )
     {
@@ -195,7 +196,7 @@ LABEL_6:
   if ( v13 )
   {
 LABEL_56:
-    v15 = v71;
+    v15 = v70;
     goto LABEL_6;
   }
   v22 = 80;
@@ -203,28 +204,27 @@ LABEL_56:
     v22 = 104;
   if ( (*(v16 - 5) & 1) != 0 )
   {
-    p_Size = &Size;
-    InformationToken = NtQueryInformationToken(-6LL, 1LL, v87);
+    v56 = NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, TokenInformation, 0x58u, &ReturnLength);
     v20 = v75;
     v18 = 0;
-    if ( InformationToken >= 0 )
+    if ( v56 >= 0 )
     {
-      v57 = Size - 16;
-      LODWORD(Size) = v57;
+      v57 = ReturnLength - 16;
+      ReturnLength = v57;
       LOWORD(v57) = (v57 + 15) & 0xFFF8;
       v76 = v57;
-      v65 = 1;
+      v64 = 1;
       v22 += (unsigned __int16)v57;
     }
   }
   if ( (*(v16 - 5) & 4) != 0 && v77 )
   {
-    v67 = 1;
-    v22 += v68[0];
+    v66 = 1;
+    v22 += v67[0];
   }
   if ( (*(v16 - 5) & 2) != 0 )
   {
-    v66 = 1;
+    v65 = 1;
     v22 += 16;
   }
   v23 = v82 + 32LL * *(unsigned int *)(v82 + 128);
@@ -241,14 +241,14 @@ LABEL_56:
         if ( v27 == 1 )
         {
           v18 += *(_WORD *)(v12 + 16LL * v24 + 8);
-          v64 = v18;
-          ++HIDWORD(Size);
+          v63 = v18;
+          ++v72;
         }
         else if ( v27 == 2 )
         {
           Src = *(void **)(v12 + 16LL * v24);
-          v70 = *(_WORD *)(v12 + 16LL * v24 + 8);
-          v22 += (v70 + 15) & 0xFFFFFFF8;
+          v69 = *(_WORD *)(v12 + 16LL * v24 + 8);
+          v22 += (v69 + 15) & 0xFFFFFFF8;
         }
       }
       else
@@ -264,7 +264,7 @@ LABEL_56:
     v74 = 534;
   }
 LABEL_32:
-  if ( HIDWORD(Size) )
+  if ( v72 )
     v22 += (v18 + 15) & 0xFFFFFFF8;
   if ( v13 )
   {
@@ -273,12 +273,7 @@ LABEL_32:
   }
   *(_DWORD *)(v23 + 24) = v22;
   v28 = v85;
-  v29 = EtwpReserveTraceBuffer(
-          v85,
-          v22,
-          NtCurrentTeb()->CurrentIdealProcessor.Reserved,
-          (unsigned int)&v80,
-          (__int64)&v79);
+  v29 = EtwpReserveTraceBuffer(v85, v22, NtCurrentTeb()->CurrentIdealProcessor.Reserved, &v80, &v79);
   v30 = v29;
   if ( v29 )
   {
@@ -304,29 +299,29 @@ LABEL_32:
       *(_OWORD *)(v29 + 88) = *a7;
       *(_WORD *)(v29 + 4) |= 1u;
       v32 = 104;
-      v69 = 104;
+      v68 = 104;
     }
     else
     {
-      v32 = v69;
+      v32 = v68;
     }
-    if ( v65 == 1 )
+    if ( v64 == 1 )
     {
       v58 = (_WORD *)(v29 + v32);
       v59 = v76;
       *v58 = v76;
       v58[1] = 2;
-      v58[3] = Size;
+      v58[3] = ReturnLength;
       v58[2] = 0;
-      memmove(v58 + 4, v88, (unsigned int)Size);
+      memmove(v58 + 4, v88, ReturnLength);
       *(_WORD *)(v30 + 4) |= 1u;
       v32 += v59;
-      v69 = v32;
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v58;
     }
-    if ( v66 == 1 )
+    if ( v65 == 1 )
     {
       v60 = (_DWORD *)(v30 + v32);
       *v60 = 196624;
@@ -334,18 +329,18 @@ LABEL_32:
       v60[2] = NtCurrentPeb()->SessionId;
       *(_WORD *)(v30 + 4) |= 1u;
       v32 += 16;
-      v69 = v32;
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v60;
     }
-    if ( v67 == 1 )
+    if ( v66 == 1 )
     {
       v61 = (void *)(v30 + v32);
-      memmove(v61, v77, v68[0]);
+      memmove(v61, v77, v67[0]);
       *(_WORD *)(v30 + 4) |= 1u;
-      v32 += v68[0];
-      v69 = v32;
+      v32 += v67[0];
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v61;
@@ -355,8 +350,8 @@ LABEL_32:
     {
       v43 = (unsigned __int16 *)(v30 + v32);
       v79 = v43;
-      v44 = v70;
-      v45 = (v70 + 15) & 0xFFF8;
+      v44 = v69;
+      v45 = (v69 + 15) & 0xFFF8;
       *v43 = v45;
       *(_DWORD *)(v43 + 1) = 12;
       v43[3] = v44;
@@ -367,24 +362,24 @@ LABEL_32:
       memset((char *)v47 + v48, 0, v46);
       *(_WORD *)(v30 + 4) |= 1u;
       v49 = v79;
-      v32 = *v79 + v69;
-      v69 = v32;
+      v32 = *v79 + v68;
+      v68 = v32;
       if ( v17 )
         v17[2] |= 1u;
       v17 = v49;
     }
-    if ( HIDWORD(Size) )
+    if ( v72 )
     {
       v50 = (unsigned __int16 *)(v30 + v32);
-      v51 = v64;
-      v52 = (v64 + 15) & 0xFFF8;
+      v51 = v63;
+      v52 = (v63 + 15) & 0xFFF8;
       *v50 = v52;
       *(_DWORD *)(v50 + 1) = 11;
       v50[3] = v51;
       v84 = v50 + 4;
       memset((char *)v50 + v51 + 8, 0, (unsigned __int16)(v52 - v51 - 8));
       *(_WORD *)(v30 + 4) |= 1u;
-      v69 = *v50 + v32;
+      v68 = *v50 + v32;
       if ( v17 )
         v17[2] |= 1u;
     }
@@ -392,7 +387,7 @@ LABEL_32:
     {
       v34 = (_BYTE *)(v86 + 12);
       v35 = a8;
-      v36 = v69;
+      v36 = v68;
       do
       {
         v37 = *((_DWORD *)v34 - 1);

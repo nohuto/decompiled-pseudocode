@@ -1,12 +1,12 @@
 /*
- * XREFs of KeCopyContextFromUmsContext @ 0x140651408
+ * XREFs of KeCopyContextFromUmsContext @ 0x1406514EC
  * Callers:
- *     PspGetSetContextInternal @ 0x140518130 (PspGetSetContextInternal.c)
- *     KeFixUserSwitchContext @ 0x1406519E4 (KeFixUserSwitchContext.c)
+ *     PspGetSetContextInternal @ 0x1404FB520 (PspGetSetContextInternal.c)
+ *     KeFixUserSwitchContext @ 0x140651AC8 (KeFixUserSwitchContext.c)
  * Callees:
- *     RtlpCopyLegacyContext @ 0x1400F32B4 (RtlpCopyLegacyContext.c)
- *     KiCopyXStateArea @ 0x1401D64B8 (KiCopyXStateArea.c)
- *     RtlpSanitizeContextFlags @ 0x1405187CC (RtlpSanitizeContextFlags.c)
+ *     RtlpCopyLegacyContext @ 0x1400F1104 (RtlpCopyLegacyContext.c)
+ *     KiCopyXStateArea @ 0x1401D62E4 (KiCopyXStateArea.c)
+ *     RtlpSanitizeContextFlags @ 0x1404FBBBC (RtlpSanitizeContextFlags.c)
  */
 
 __int64 __fastcall KeCopyContextFromUmsContext(__int64 a1, __int64 a2)

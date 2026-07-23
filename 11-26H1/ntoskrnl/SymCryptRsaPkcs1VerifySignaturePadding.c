@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptRsaPkcs1VerifySignaturePadding @ 0x14055BFD0
+ * XREFs of SymCryptRsaPkcs1VerifySignaturePadding @ 0x14055E4B8
  * Callers:
- *     SymCryptRsaPkcs1Verify @ 0x14055ECB0 (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1405611D4 (SymCryptRsaPkcs1Verify.c)
  * Callees:
- *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x14055BF28 (SymCryptRsaPkcs1CheckSignaturePadding.c)
+ *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x14055E410 (SymCryptRsaPkcs1CheckSignaturePadding.c)
  */
 
 __int64 __fastcall SymCryptRsaPkcs1VerifySignaturePadding(

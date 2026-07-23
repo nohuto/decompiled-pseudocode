@@ -1,9 +1,9 @@
 /*
- * XREFs of IofCallDriverSpecifyReturn @ 0x14012B57C
+ * XREFs of IofCallDriverSpecifyReturn @ 0x14012BAEC
  * Callers:
- *     PopRequestPowerIrp @ 0x14012AB98 (PopRequestPowerIrp.c)
- *     VerifierIofCallDriver @ 0x14070C924 (VerifierIofCallDriver.c)
- *     VerifierPoCallDriver @ 0x14070CB80 (VerifierPoCallDriver.c)
+ *     PopRequestPowerIrp @ 0x14012B108 (PopRequestPowerIrp.c)
+ *     VerifierIofCallDriver @ 0x14070C954 (VerifierIofCallDriver.c)
+ *     VerifierPoCallDriver @ 0x14070CBB0 (VerifierPoCallDriver.c)
  * Callees:
  *     <none>
  */

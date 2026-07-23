@@ -16,34 +16,29 @@
 
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   __int64 result; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // r8
-  __int64 v8; // r9
   __int64 Languages; // rax
   __int64 StringPool; // rax
 
   InstallUILanguage = 0;
   if ( !a1 )
     return 3221225485LL;
-  if ( (int)NtIsUILanguageComitted() >= 0 )
+  if ( NtIsUILanguageComitted() >= 0 )
   {
-    InstallUILanguage = NtQueryInstallUILanguage(a1 + 4, v4, v5);
+    InstallUILanguage = NtQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_12;
-    RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8), v8);
+    RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));
   }
-  RtlpMuiRegFreeRegistryInfo(a1, 0x3FFu, v5, v6);
+  RtlpMuiRegFreeRegistryInfo(a1, 0x3FFu);
   Languages = RtlpMuiRegCreateLanguages();
   *(_QWORD *)(a1 + 24) = Languages;
   if ( !Languages )
   {
     InstallUILanguage = -1073741801;
 LABEL_12:
-    RtlpMuiRegFreeRegistryInfo(a1, 0x3FFu, v7, v8);
+    RtlpMuiRegFreeRegistryInfo(a1, 0x3FFu);
     return (unsigned int)InstallUILanguage;
   }
   *(_DWORD *)a1 |= 1u;

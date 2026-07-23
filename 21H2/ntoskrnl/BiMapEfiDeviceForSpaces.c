@@ -1,15 +1,15 @@
 /*
- * XREFs of BiMapEfiDeviceForSpaces @ 0x1405C3E74
+ * XREFs of BiMapEfiDeviceForSpaces @ 0x1405C40A4
  * Callers:
- *     BiUpdateBcdObject @ 0x140972E90 (BiUpdateBcdObject.c)
+ *     BiUpdateBcdObject @ 0x140973070 (BiUpdateBcdObject.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
- *     SyspartGetSystemPartition @ 0x1409735A0 (SyspartGetSystemPartition.c)
- *     SyspartIsSpace @ 0x14097360C (SyspartIsSpace.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     BiLogMessage @ 0x140784F5C (BiLogMessage.c)
+ *     SyspartGetSystemPartition @ 0x140973780 (SyspartGetSystemPartition.c)
+ *     SyspartIsSpace @ 0x1409737EC (SyspartIsSpace.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned int *a3)
@@ -18,60 +18,54 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
   int SystemPartition; // edi
   PVOID PoolWithTag; // rax
   const void *v8; // rsi
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _DWORD *v11; // r9
-  size_t v12; // r15
-  unsigned int v13; // r14d
-  SIZE_T v14; // rbx
-  char *v15; // rax
-  char *v16; // rbp
-  size_t v17; // r8
-  const void *v18; // rbx
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  _DWORD *v21; // r9
-  char v23; // [rsp+60h] [rbp+8h] BYREF
-  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+20h] BYREF
+  size_t v9; // r15
+  unsigned int v10; // r14d
+  SIZE_T v11; // rbx
+  char *v12; // rax
+  char *v13; // rbp
+  size_t v14; // r8
+  const void *v15; // rbx
+  char v17; // [rsp+60h] [rbp+8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+20h]
 
   v3 = *(_DWORD *)(a1 + 48);
-  v23 = 0;
+  v17 = 0;
   LODWORD(NumberOfBytes) = 0;
   SystemPartition = 0;
   if ( (v3 & 8) == 0 )
   {
-    SystemPartition = SyspartGetSystemPartition(0LL, 0LL, &NumberOfBytes);
+    SystemPartition = SyspartGetSystemPartition(0LL);
     if ( (int)(SystemPartition + 0x80000000) < 0 || SystemPartition == -1073741789 )
     {
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
       v8 = PoolWithTag;
       if ( PoolWithTag )
       {
-        SystemPartition = SyspartGetSystemPartition(PoolWithTag, (unsigned int)NumberOfBytes, &NumberOfBytes);
+        SystemPartition = SyspartGetSystemPartition(PoolWithTag);
         if ( SystemPartition >= 0 )
         {
-          SystemPartition = SyspartIsSpace(v8, &v23);
+          SystemPartition = SyspartIsSpace(v8, &v17);
           if ( SystemPartition >= 0 )
           {
-            if ( v23 )
+            if ( v17 )
             {
-              v12 = (unsigned int)NumberOfBytes;
-              v13 = NumberOfBytes + 20;
-              v14 = (unsigned int)(NumberOfBytes + 20);
-              v15 = (char *)ExAllocatePoolWithTag(PagedPool, v14, 0x4B444342u);
-              v16 = v15;
-              if ( v15 )
+              v9 = (unsigned int)NumberOfBytes;
+              v10 = NumberOfBytes + 20;
+              v11 = (unsigned int)(NumberOfBytes + 20);
+              v12 = (char *)ExAllocatePoolWithTag(PagedPool, v11, 0x4B444342u);
+              v13 = v12;
+              if ( v12 )
               {
-                memset(v15, 0, v14);
-                v17 = v13;
-                v18 = *a2;
-                if ( v13 >= *a3 )
-                  v17 = *a3;
-                memmove(v16, *a2, v17);
-                memmove(v16 + 20, v8, v12);
-                ExFreeHeapPool((ULONG_PTR)v18, v19, v20, v21);
-                *a2 = v16;
-                *a3 = v13;
+                memset(v12, 0, v11);
+                v14 = v10;
+                v15 = *a2;
+                if ( v10 >= *a3 )
+                  v14 = *a3;
+                memmove(v13, *a2, v14);
+                memmove(v13 + 20, v8, v9);
+                ExFreeHeapPool((ULONG_PTR)v15);
+                *a2 = v13;
+                *a3 = v10;
               }
               else
               {
@@ -84,7 +78,7 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
             BiLogMessage(4LL, L"SyspartIsSpace failed for partition path: %s", v8);
           }
         }
-        ExFreeHeapPool((ULONG_PTR)v8, v9, v10, v11);
+        ExFreeHeapPool((ULONG_PTR)v8);
       }
       else
       {

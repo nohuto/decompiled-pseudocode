@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptScsTableInit @ 0x14040EC60
+ * XREFs of SymCryptScsTableInit @ 0x14040EE40
  * Callers:
- *     SymCryptModExpWindowed @ 0x140409380 (SymCryptModExpWindowed.c)
+ *     SymCryptModExpWindowed @ 0x140409560 (SymCryptModExpWindowed.c)
  * Callees:
  *     <none>
  */

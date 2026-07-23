@@ -1,10 +1,10 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryRemoveAll @ 0x140088220
+ * XREFs of PspJobIoRateVolumeEntryRemoveAll @ 0x14010C410
  * Callers:
- *     PspJobIoRateControlDisable @ 0x1404A204C (PspJobIoRateControlDisable.c)
+ *     PspJobIoRateControlDisable @ 0x14051A458 (PspJobIoRateControlDisable.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     PspIoRateEntryVolumeDelete @ 0x14020F85C (PspIoRateEntryVolumeDelete.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     PspIoRateEntryVolumeDelete @ 0x14020F688 (PspIoRateEntryVolumeDelete.c)
  */
 
 void __fastcall PspJobIoRateVolumeEntryRemoveAll(__int64 a1, __int64 a2)

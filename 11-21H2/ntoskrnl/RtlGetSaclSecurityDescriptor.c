@@ -1,16 +1,16 @@
 /*
  * XREFs of RtlGetSaclSecurityDescriptor @ 0x14066FE80
  * Callers:
- *     AdtpBuildContextFromSecurityDescriptor @ 0x14064C418 (AdtpBuildContextFromSecurityDescriptor.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14066FDE8 (ExpWnfSpecializeSecurityDescriptor.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x140676314 (LocalConvertSDToStringSD_Rev1.c)
- *     IopGetSecurityDescriptorInformation @ 0x1406796E8 (IopGetSecurityDescriptorInformation.c)
+ *     sub_14064C418 @ 0x14064C418 (sub_14064C418.c)
+ *     sub_14066FDE8 @ 0x14066FDE8 (sub_14066FDE8.c)
+ *     sub_140676314 @ 0x140676314 (sub_140676314.c)
+ *     sub_1406796E8 @ 0x1406796E8 (sub_1406796E8.c)
  *     NtSetSecurityObject @ 0x1406B57C0 (NtSetSecurityObject.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406BCE90 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     CmpCopySaclToVirtualKey @ 0x14091822C (CmpCopySaclToVirtualKey.c)
- *     CmpExamineSaclForAuditEvent @ 0x140918574 (CmpExamineSaclForAuditEvent.c)
+ *     sub_1406BCE90 @ 0x1406BCE90 (sub_1406BCE90.c)
+ *     sub_14091822C @ 0x14091822C (sub_14091822C.c)
+ *     sub_140918574 @ 0x140918574 (sub_140918574.c)
  *     RtlReplaceSidInSd @ 0x1409B92B0 (RtlReplaceSidInSd.c)
- *     SepSDContainsAttributeACE @ 0x1409CE660 (SepSDContainsAttributeACE.c)
+ *     sub_1409CE660 @ 0x1409CE660 (sub_1409CE660.c)
  * Callees:
  *     <none>
  */

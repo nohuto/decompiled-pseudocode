@@ -10,7 +10,7 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlQueryProcessModuleInformation(__int64 *a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall RtlQueryProcessModuleInformation(void **a1, unsigned int a2, _QWORD *a3)
 {
   unsigned __int64 v5; // rdi
   int v6; // r15d

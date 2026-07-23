@@ -1,21 +1,21 @@
 /*
- * XREFs of ExDereferenceCallBackBlock @ 0x14025AA10
+ * XREFs of ExDereferenceCallBackBlock @ 0x14027BF80
  * Callers:
- *     ExCallCallBack @ 0x14061AE3C (ExCallCallBack.c)
- *     PspCallProcessNotifyRoutines @ 0x14061AEAC (PspCallProcessNotifyRoutines.c)
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
- *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
- *     PspCallThreadNotifyRoutines @ 0x14061B3C0 (PspCallThreadNotifyRoutines.c)
- *     ExCallSessionCallBack @ 0x140683678 (ExCallSessionCallBack.c)
- *     DbgkLkmdRegisterCallback @ 0x14078FAE0 (DbgkLkmdRegisterCallback.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x14078FF78 (PspSetCreateProcessNotifyRoutine.c)
- *     DbgkLkmdUnregisterCallback @ 0x140888170 (DbgkLkmdUnregisterCallback.c)
- *     DbgkpLkmdFireCallbacks @ 0x140888214 (DbgkpLkmdFireCallbacks.c)
- *     PoUnregisterCoalescingCallback @ 0x1408E6710 (PoUnregisterCoalescingCallback.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x14090C3B0 (PsRemoveCreateThreadNotifyRoutine.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x14090C4A0 (PsRemoveLoadImageNotifyRoutine.c)
+ *     ExCallSessionCallBack @ 0x1405E44F8 (ExCallSessionCallBack.c)
+ *     ExCallCallBack @ 0x140684A9C (ExCallCallBack.c)
+ *     PspCallProcessNotifyRoutines @ 0x140684B0C (PspCallProcessNotifyRoutines.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
+ *     PsCallImageNotifyRoutines @ 0x140684E90 (PsCallImageNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x140685020 (PspCallThreadNotifyRoutines.c)
+ *     DbgkLkmdRegisterCallback @ 0x140791090 (DbgkLkmdRegisterCallback.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140791528 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdUnregisterCallback @ 0x1408882D0 (DbgkLkmdUnregisterCallback.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140888374 (DbgkpLkmdFireCallbacks.c)
+ *     PoUnregisterCoalescingCallback @ 0x1408E6870 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x14090C510 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x14090C600 (PsRemoveLoadImageNotifyRoutine.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
  */
 
 void __fastcall ExDereferenceCallBackBlock(signed __int64 *a1, struct _EX_RUNDOWN_REF *a2)
@@ -28,7 +28,7 @@ void __fastcall ExDereferenceCallBackBlock(signed __int64 *a1, struct _EX_RUNDOW
   if ( ((unsigned __int64)a2 ^ *a1) >= 0xF )
   {
 LABEL_4:
-    ExReleaseRundownProtection_0(a2);
+    ExReleaseRundownProtection(a2);
   }
   else
   {

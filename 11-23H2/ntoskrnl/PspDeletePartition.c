@@ -1,10 +1,10 @@
 /*
- * XREFs of PspDeletePartition @ 0x1409B6670
+ * XREFs of PspDeletePartition @ 0x1409B6870
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PspRemovePartitionFromGlobalList @ 0x1405A65C8 (PspRemovePartitionFromGlobalList.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PspRemovePartitionFromGlobalList @ 0x1405A6B38 (PspRemovePartitionFromGlobalList.c)
  */
 
 void __fastcall PspDeletePartition(ULONG_PTR BugCheckParameter2)

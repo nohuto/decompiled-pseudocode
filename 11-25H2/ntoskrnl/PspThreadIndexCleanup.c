@@ -11,15 +11,15 @@
 void __fastcall PspThreadIndexCleanup(__int64 a1, int a2)
 {
   __int64 v2; // rdi
-  union _SLIST_HEADER *v4; // rbx
-  struct _SLIST_ENTRY *v5; // rdx
+  _SLIST_HEADER *v4; // rbx
+  _SLIST_ENTRY *v5; // rdx
   PSLIST_ENTRY v6; // rax
 
   v2 = *(_QWORD *)(a1 + 544);
-  v4 = *(union _SLIST_HEADER **)(v2 + 2048);
+  v4 = *(_SLIST_HEADER **)(v2 + 2048);
   if ( v4 )
   {
-    v5 = *(struct _SLIST_ENTRY **)(a1 + 1920);
+    v5 = *(_SLIST_ENTRY **)(a1 + 1920);
     if ( v5 )
       RtlpInterlockedPushEntrySList(*(PSLIST_HEADER *)(v2 + 2048), v5);
     if ( a2 )

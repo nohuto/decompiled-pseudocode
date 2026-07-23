@@ -1,10 +1,9 @@
 /*
- * XREFs of RtlpHpSegVsAllocate @ 0x1402C07E0
+ * XREFs of RtlpHpSegVsAllocate @ 0x1403681F0
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x1402B52CC (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpHpVsSubsegmentCreate @ 0x1402C03D4 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x140367D08 (RtlpHpVsSubsegmentCreate.c)
  * Callees:
- *     RtlpHpSegSubAllocate @ 0x1402C0804 (RtlpHpSegSubAllocate.c)
+ *     RtlpHpSegSubAllocate @ 0x140368214 (RtlpHpSegSubAllocate.c)
  */
 
 __int64 __fastcall RtlpHpSegVsAllocate(int a1, int a2, int a3, __int64 a4)

@@ -59,7 +59,7 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   __int64 v27; // rax
   NTSTATUS v28; // ebx
   _BYTE *PoolWithQuota; // r14
-  signed int DriverPathInformation; // eax
+  NTSTATUS DriverPathInformation; // eax
   PDEVICE_OBJECT RelatedDeviceObject; // rax
   struct _KEVENT *Pool_1; // rax
   struct _KEVENT *v33; // r14
@@ -174,7 +174,7 @@ LABEL_32:
     v25 = KeGetCurrentThread();
     --v25->KernelApcDisable;
     v26 = DmaAdapter;
-    v27 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0LL);
+    v27 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0);
     v42 = 0;
     if ( _InterlockedExchange((volatile __int32 *)(&v26[7].Size + 1), 1) )
     {

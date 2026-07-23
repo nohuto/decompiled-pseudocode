@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __fastcall RtlGetCurrentProcessorNumberEx(_WORD *a1)
+void __cdecl RtlGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
   char v1; // zf
   unsigned __int32 v2; // eax
@@ -14,21 +14,21 @@ void __fastcall RtlGetCurrentProcessorNumberEx(_WORD *a1)
   if ( MEMORY[0x7FFE0294] )
   {
     __asm { rdtscp }
-    *a1 = (unsigned int)a1 >> 8;
-    a1[1] = (unsigned __int8)a1;
+    ProcessorNumber->Group = (unsigned int)ProcessorNumber >> 8;
+    *(_WORD *)&ProcessorNumber->Number = (unsigned __int8)ProcessorNumber;
   }
   else
   {
     v2 = __segmentlimit(0x53u);
     if ( v1 )
     {
-      *a1 = v2 & 0x3FF;
-      a1[1] = v2 >> 14;
+      ProcessorNumber->Group = v2 & 0x3FF;
+      *(_WORD *)&ProcessorNumber->Number = v2 >> 14;
     }
     else
     {
-      *(_DWORD *)a1 = 0;
-      NtGetCurrentProcessorNumberEx();
+      *ProcessorNumber = 0;
+      NtGetCurrentProcessorNumberEx(ProcessorNumber);
     }
   }
 }

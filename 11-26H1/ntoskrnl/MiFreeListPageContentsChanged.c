@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeListPageContentsChanged @ 0x14028DB50
+ * XREFs of MiFreeListPageContentsChanged @ 0x14028D0B0
  * Callers:
- *     MiBeginPageAccessor @ 0x1403C4E34 (MiBeginPageAccessor.c)
+ *     MiBeginPageAccessor @ 0x1403CED40 (MiBeginPageAccessor.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiFreeZeroPageToColorHead @ 0x14028DDE0 (MiFreeZeroPageToColorHead.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiFreeZeroPageToColorHead @ 0x14028D340 (MiFreeZeroPageToColorHead.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiFreeListPageContentsChanged(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -43,11 +43,11 @@ __int64 __fastcall MiFreeListPageContentsChanged(ULONG_PTR BugCheckParameter2, _
     v7 = MiFreeZeroPageToColorHead(BugCheckParameter2);
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v7 + 32));
   }
-  result = LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink);
-  if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+  result = LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink);
+  if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
   {
     v11 = BugCheckParameter2 & 0x1F;
-    v12 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
+    v12 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
     result = v11 + v6;
     if ( v11 + v6 > 0x20 )
     {
@@ -84,10 +84,10 @@ __int64 __fastcall MiFreeListPageContentsChanged(ULONG_PTR BugCheckParameter2, _
       _InterlockedOr(v12, ((1 << v6) - 1) << v11);
     }
   }
-  else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+  else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
   {
     v9 = BugCheckParameter2 & 0x1F;
-    v10 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
+    v10 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
     result = v9 + v6;
     if ( v9 + v6 > 0x20 )
     {
@@ -129,7 +129,7 @@ __int64 __fastcall MiFreeListPageContentsChanged(ULONG_PTR BugCheckParameter2, _
   if ( v7 )
   {
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+      || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
       *(_DWORD *)(v7 + 32) = 0;
     }

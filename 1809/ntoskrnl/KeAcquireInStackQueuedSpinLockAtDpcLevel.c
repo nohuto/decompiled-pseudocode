@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14007EE60
+ * XREFs of KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14007EE50
  * Callers:
- *     CcSerializeWithLazyWriter @ 0x1401B2DA4 (CcSerializeWithLazyWriter.c)
- *     PnprMirrorMarkedPages @ 0x140579FFC (PnprMirrorMarkedPages.c)
+ *     CcSerializeWithLazyWriter @ 0x1401B2EE4 (CcSerializeWithLazyWriter.c)
+ *     PnprMirrorMarkedPages @ 0x14057AFFC (PnprMirrorMarkedPages.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall KeAcquireInStackQueuedSpinLockAtDpcLevel(PKSPIN_LOCK SpinLock, PKLOCK_QUEUE_HANDLE LockHandle)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SeMaximumAuditMask @ 0x1402199C0
+ * XREFs of SeMaximumAuditMask @ 0x1402197EC
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1404070A0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x140520EA8 (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x14069556C (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140405F60 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140503F10 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140695650 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
- *     SepSidInTokenSidHash @ 0x1400611F0 (SepSidInTokenSidHash.c)
+ *     SepSidInTokenSidHash @ 0x140060D70 (SepSidInTokenSidHash.c)
  */
 
 unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _DWORD *a4)
@@ -32,8 +32,11 @@ unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _
         if ( (v10 & 8) == 0 && (*(_BYTE *)v8 == 2 || *(_BYTE *)v8 == 13) )
         {
           v11 = a2 & *(_DWORD *)(v8 + 4);
-          if ( ((v10 >> 6) & (v11 != 0)) != 0 && SepSidInTokenSidHash(a3 + 232, 0LL, (void *)(v8 + 8), 1, 0, 0) )
+          if ( ((v10 >> 6) & (v11 != 0)) != 0
+            && SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a3 + 232), 0LL, (void *)(v8 + 8), 1, 0, 0) )
+          {
             *a4 |= v11;
+          }
         }
         result = *(unsigned __int16 *)(v8 + 2);
         v8 += result;

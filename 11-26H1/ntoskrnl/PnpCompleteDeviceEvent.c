@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCompleteDeviceEvent @ 0x1409DE1B4
+ * XREFs of PnpCompleteDeviceEvent @ 0x140A1B2E0
  * Callers:
- *     PnpProcessCompletedEject @ 0x1407A4D50 (PnpProcessCompletedEject.c)
- *     PnpDeviceEventWorker @ 0x1409DCD90 (PnpDeviceEventWorker.c)
+ *     PnpProcessCompletedEject @ 0x1407A7890 (PnpProcessCompletedEject.c)
+ *     PnpDeviceEventWorker @ 0x140A1A040 (PnpDeviceEventWorker.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PiPdcDeactivate @ 0x1409DE320 (PiPdcDeactivate.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PiPdcDeactivate @ 0x140A1B44C (PiPdcDeactivate.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpCompleteDeviceEvent(PVOID P, int a2)

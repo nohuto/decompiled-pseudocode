@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCleanupProcessViews @ 0x14060805C
+ * XREFs of AlpcpCleanupProcessViews @ 0x14060905C
  * Callers:
- *     LpcExitProcess @ 0x140608018 (LpcExitProcess.c)
+ *     LpcExitProcess @ 0x140609018 (LpcExitProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpForceUnlinkSecureView @ 0x14084B188 (AlpcpForceUnlinkSecureView.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     AlpcpReferenceBlob @ 0x140619428 (AlpcpReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpForceUnlinkSecureView @ 0x14084C3E8 (AlpcpForceUnlinkSecureView.c)
  */
 
 void __fastcall AlpcpCleanupProcessViews(__int64 a1)

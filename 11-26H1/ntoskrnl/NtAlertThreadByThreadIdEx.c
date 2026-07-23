@@ -1,24 +1,24 @@
 /*
- * XREFs of NtAlertThreadByThreadIdEx @ 0x140A33250
+ * XREFs of NtAlertThreadByThreadIdEx @ 0x140A4E1B0
  * Callers:
- *     DifNtAlertThreadByThreadIdExWrapper @ 0x14066AF50 (DifNtAlertThreadByThreadIdExWrapper.c)
+ *     DifNtAlertThreadByThreadIdExWrapper @ 0x14066EB30 (DifNtAlertThreadByThreadIdExWrapper.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeAlertThreadByThreadIdEx @ 0x140381260 (KeAlertThreadByThreadIdEx.c)
- *     ExFastReferenceHandleTableEntry @ 0x1403F3A50 (ExFastReferenceHandleTableEntry.c)
- *     PsIsProcessInSilo @ 0x14043D820 (PsIsProcessInSilo.c)
- *     ExLookupHandleTableEntry @ 0x140446220 (ExLookupHandleTableEntry.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
- *     ExLockHandleTableEntry @ 0x14044C040 (ExLockHandleTableEntry.c)
- *     ExSlowReplenishHandleTableEntry @ 0x14044D280 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     KeAbIsValidUserModeLockAddress @ 0x140457F30 (KeAbIsValidUserModeLockAddress.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     ObDereferenceObjectExWithTag2 @ 0x14047F848 (ObDereferenceObjectExWithTag2.c)
- *     ExUnlockHandleTableEntry @ 0x140A33080 (ExUnlockHandleTableEntry.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeAlertThreadByThreadIdEx @ 0x140383010 (KeAlertThreadByThreadIdEx.c)
+ *     ExFastReferenceHandleTableEntry @ 0x1403ED400 (ExFastReferenceHandleTableEntry.c)
+ *     PsIsProcessInSilo @ 0x1404300D0 (PsIsProcessInSilo.c)
+ *     ExLookupHandleTableEntry @ 0x14043ED20 (ExLookupHandleTableEntry.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
+ *     ExLockHandleTableEntry @ 0x140444160 (ExLockHandleTableEntry.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1404453A0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     KeAbIsValidUserModeLockAddress @ 0x14044F7A0 (KeAbIsValidUserModeLockAddress.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     ObDereferenceObjectExWithTag2 @ 0x1404791B8 (ObDereferenceObjectExWithTag2.c)
+ *     ExUnlockHandleTableEntry @ 0x140A4DFE0 (ExUnlockHandleTableEntry.c)
  */
 
 __int64 __fastcall NtAlertThreadByThreadIdEx(__int16 a1, struct _KTHREAD *a2)
@@ -37,7 +37,7 @@ __int64 __fastcall NtAlertThreadByThreadIdEx(__int16 a1, struct _KTHREAD *a2)
   struct _KLOCK_ENTRIES *v14; // r9
   unsigned __int64 CurrentServerSilo; // rax
   int v16; // ebp
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v18; // rcx
+  $241382875694CED3D471BC5892DE3337 *v18; // rcx
   int v20; // ebp
   signed __int64 v21; // rax
   signed __int64 v22; // rtt
@@ -134,7 +134,7 @@ LABEL_11:
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v18 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v18->ApcState.ApcListHead[0].Flink != v18 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v18->ApcState.ApcListHead[0].Flink != v18 )
       KiCheckForKernelApcDelivery((__int64)v18, v6);
   }
   if ( v16 < 0 )

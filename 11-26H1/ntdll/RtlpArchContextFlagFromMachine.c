@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpArchContextFlagFromMachine @ 0x1800C9FF0
+ * XREFs of RtlpArchContextFlagFromMachine @ 0x1800C7770
  * Callers:
- *     RtlGetEnabledExtendedFeatures @ 0x1800C9F80 (RtlGetEnabledExtendedFeatures.c)
+ *     RtlGetEnabledExtendedFeatures @ 0x1800C7700 (RtlGetEnabledExtendedFeatures.c)
  * Callees:
  *     <none>
  */

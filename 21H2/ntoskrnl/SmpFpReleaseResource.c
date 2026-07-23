@@ -1,10 +1,10 @@
 /*
- * XREFs of SmpFpReleaseResource @ 0x14059ED10
+ * XREFs of SmpFpReleaseResource @ 0x14059EF40
  * Callers:
- *     SmFpFree @ 0x1402DA854 (SmFpFree.c)
+ *     SmFpFree @ 0x14028BBA4 (SmFpFree.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

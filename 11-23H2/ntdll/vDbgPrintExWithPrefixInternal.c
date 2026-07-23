@@ -17,13 +17,7 @@
  *     memmove @ 0x1800A7A40 (memmove.c)
  */
 
-__int64 __fastcall vDbgPrintExWithPrefixInternal(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int a3,
-        char *a4,
-        va_list a5,
-        char a6)
+__int64 __fastcall vDbgPrintExWithPrefixInternal(_BYTE *a1, ULONG a2, ULONG a3, char *a4, va_list a5, char a6)
 {
   _BYTE *v7; // rdx
   struct _TEB *v8; // rsi
@@ -43,8 +37,8 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
   _BYTE v23[96]; // [rsp+0h] [rbp-80h] BYREF
   int v24; // [rsp+80h] [rbp+0h]
   int v25; // [rsp+84h] [rbp+4h]
-  unsigned int v26; // [rsp+88h] [rbp+8h]
-  unsigned int v27; // [rsp+8Ch] [rbp+Ch]
+  ULONG v26; // [rsp+88h] [rbp+8h]
+  ULONG v27; // [rsp+8Ch] [rbp+Ch]
   _BYTE *v28; // [rsp+90h] [rbp+10h]
   void *Src; // [rsp+98h] [rbp+18h]
   int v30; // [rsp+A0h] [rbp+20h]
@@ -66,7 +60,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
   v33 = v8;
   if ( a2 != -1 && (!NtCurrentPeb()->BeingDebugged || a2 != 101) )
   {
-    if ( !(unsigned int)ZwQueryDebugFilterState(a2, a3) )
+    if ( !ZwQueryDebugFilterState(a2, a3) )
       return 0LL;
     v7 = Src;
   }
@@ -159,7 +153,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
   v22 = v21;
   if ( a6 == 1 && v21 == -2147483645 )
   {
-    DbgBreakPointWithStatus(1LL);
+    DbgBreakPointWithStatus(1u);
     v22 = 0;
   }
   v10->SameTebFlags &= ~2u;

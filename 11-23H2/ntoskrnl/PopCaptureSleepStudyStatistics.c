@@ -1,51 +1,51 @@
 /*
- * XREFs of PopCaptureSleepStudyStatistics @ 0x1403C7F00
+ * XREFs of PopCaptureSleepStudyStatistics @ 0x1403C80E0
  * Callers:
- *     PopSleepstudyCaptureSessionStatistics @ 0x140878564 (PopSleepstudyCaptureSessionStatistics.c)
+ *     PopSleepstudyCaptureSessionStatistics @ 0x1408787A4 (PopSleepstudyCaptureSessionStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopGetPowerSettingValue @ 0x14032CC40 (PopGetPowerSettingValue.c)
- *     PopFxStartDeviceAccounting @ 0x1403C79D0 (PopFxStartDeviceAccounting.c)
- *     PopIdleWakeNotifyModernStandbyEnter @ 0x1403C7BB0 (PopIdleWakeNotifyModernStandbyEnter.c)
- *     PopCalculateIdleInformation @ 0x1403C7D40 (PopCalculateIdleInformation.c)
- *     PopDiagGetPowerSchemeInfo @ 0x1403C7DD4 (PopDiagGetPowerSchemeInfo.c)
- *     PopGetModernStandbyTransitionReason @ 0x1403C84BC (PopGetModernStandbyTransitionReason.c)
- *     PpmGetPlatformSelectionVetoCounts @ 0x1403C8524 (PpmGetPlatformSelectionVetoCounts.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmIdleCaptureCsVetoAccounting @ 0x1405842D0 (PpmIdleCaptureCsVetoAccounting.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140584FDC (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PpmSnapDripsAccountingSnapshot @ 0x140585E10 (PpmSnapDripsAccountingSnapshot.c)
- *     PopDiagTraceFxRundown @ 0x1405888D8 (PopDiagTraceFxRundown.c)
- *     PopFxStopDeviceAccounting @ 0x14058BBFC (PopFxStopDeviceAccounting.c)
- *     PopCalculateCsSummary @ 0x140591334 (PopCalculateCsSummary.c)
- *     PopIdleWakeNotifyModernStandbyExit @ 0x14059DAF4 (PopIdleWakeNotifyModernStandbyExit.c)
- *     PopFilterCapabilities @ 0x1407A8694 (PopFilterCapabilities.c)
- *     PopQueryInputSuppressionCount @ 0x1407EAF7C (PopQueryInputSuppressionCount.c)
- *     PopIsHibernateSupported @ 0x140873604 (PopIsHibernateSupported.c)
- *     PopDirectedDripsNotify @ 0x1408754E4 (PopDirectedDripsNotify.c)
- *     PopGetEnergyCounter @ 0x1408757CC (PopGetEnergyCounter.c)
- *     PopDiagTraceCsEnterReason @ 0x140878074 (PopDiagTraceCsEnterReason.c)
- *     PopQueryRemainingSystemIdleTime @ 0x140878318 (PopQueryRemainingSystemIdleTime.c)
- *     PopSetConnectedStandbyMarker @ 0x14087847C (PopSetConnectedStandbyMarker.c)
- *     PopNetIsDisconnectStandbyActive @ 0x140878508 (PopNetIsDisconnectStandbyActive.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140878938 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     PopQueryPowerButtonSuppressionCount @ 0x14087895C (PopQueryPowerButtonSuppressionCount.c)
- *     PopNetIsCompliantNicPresent @ 0x14087896C (PopNetIsCompliantNicPresent.c)
- *     PopIsLockConsoleTimeoutActive @ 0x140878980 (PopIsLockConsoleTimeoutActive.c)
- *     ExStartRecordingIRTimerExpiries @ 0x140878A6C (ExStartRecordingIRTimerExpiries.c)
- *     PopClearConnectedStandbyMarker @ 0x1409806A8 (PopClearConnectedStandbyMarker.c)
- *     PopFxLogSocSubsystemBlockingTimes @ 0x140985038 (PopFxLogSocSubsystemBlockingTimes.c)
- *     PopFxLogSocSubsystemMetadata @ 0x1409851EC (PopFxLogSocSubsystemMetadata.c)
- *     PopFxResetSocSubsystemAccounting @ 0x140985D5C (PopFxResetSocSubsystemAccounting.c)
- *     PopDiagTraceCsConsumption @ 0x14098D384 (PopDiagTraceCsConsumption.c)
- *     PopDiagTraceCsExitReason @ 0x14098D4C8 (PopDiagTraceCsExitReason.c)
- *     PopNetCheckAdaptiveCsState @ 0x140996634 (PopNetCheckAdaptiveCsState.c)
- *     PopNetCheckUserConnectivityPolicy @ 0x14099666C (PopNetCheckUserConnectivityPolicy.c)
- *     ExStopRecordingIRTimerExpiries @ 0x1409FB5AC (ExStopRecordingIRTimerExpiries.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopGetPowerSettingValue @ 0x14032CED0 (PopGetPowerSettingValue.c)
+ *     PopFxStartDeviceAccounting @ 0x1403C7BB0 (PopFxStartDeviceAccounting.c)
+ *     PopIdleWakeNotifyModernStandbyEnter @ 0x1403C7D90 (PopIdleWakeNotifyModernStandbyEnter.c)
+ *     PopCalculateIdleInformation @ 0x1403C7F20 (PopCalculateIdleInformation.c)
+ *     PopDiagGetPowerSchemeInfo @ 0x1403C7FB4 (PopDiagGetPowerSchemeInfo.c)
+ *     PopGetModernStandbyTransitionReason @ 0x1403C869C (PopGetModernStandbyTransitionReason.c)
+ *     PpmGetPlatformSelectionVetoCounts @ 0x1403C8704 (PpmGetPlatformSelectionVetoCounts.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpmIdleCaptureCsVetoAccounting @ 0x1405847C0 (PpmIdleCaptureCsVetoAccounting.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1405854CC (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x140586300 (PpmSnapDripsAccountingSnapshot.c)
+ *     PopDiagTraceFxRundown @ 0x140588DC8 (PopDiagTraceFxRundown.c)
+ *     PopFxStopDeviceAccounting @ 0x14058C0EC (PopFxStopDeviceAccounting.c)
+ *     PopCalculateCsSummary @ 0x140591824 (PopCalculateCsSummary.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14059DFE4 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopFilterCapabilities @ 0x1407A8884 (PopFilterCapabilities.c)
+ *     PopQueryInputSuppressionCount @ 0x1407EB24C (PopQueryInputSuppressionCount.c)
+ *     PopIsHibernateSupported @ 0x140873844 (PopIsHibernateSupported.c)
+ *     PopDirectedDripsNotify @ 0x140875724 (PopDirectedDripsNotify.c)
+ *     PopGetEnergyCounter @ 0x140875A0C (PopGetEnergyCounter.c)
+ *     PopDiagTraceCsEnterReason @ 0x1408782B4 (PopDiagTraceCsEnterReason.c)
+ *     PopQueryRemainingSystemIdleTime @ 0x140878558 (PopQueryRemainingSystemIdleTime.c)
+ *     PopSetConnectedStandbyMarker @ 0x1408786BC (PopSetConnectedStandbyMarker.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x140878748 (PopNetIsDisconnectStandbyActive.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140878B78 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopQueryPowerButtonSuppressionCount @ 0x140878B9C (PopQueryPowerButtonSuppressionCount.c)
+ *     PopNetIsCompliantNicPresent @ 0x140878BAC (PopNetIsCompliantNicPresent.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x140878BC0 (PopIsLockConsoleTimeoutActive.c)
+ *     ExStartRecordingIRTimerExpiries @ 0x140878CAC (ExStartRecordingIRTimerExpiries.c)
+ *     PopClearConnectedStandbyMarker @ 0x1409808A8 (PopClearConnectedStandbyMarker.c)
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x140985238 (PopFxLogSocSubsystemBlockingTimes.c)
+ *     PopFxLogSocSubsystemMetadata @ 0x1409853EC (PopFxLogSocSubsystemMetadata.c)
+ *     PopFxResetSocSubsystemAccounting @ 0x140985F5C (PopFxResetSocSubsystemAccounting.c)
+ *     PopDiagTraceCsConsumption @ 0x14098D584 (PopDiagTraceCsConsumption.c)
+ *     PopDiagTraceCsExitReason @ 0x14098D6C8 (PopDiagTraceCsExitReason.c)
+ *     PopNetCheckAdaptiveCsState @ 0x140996834 (PopNetCheckAdaptiveCsState.c)
+ *     PopNetCheckUserConnectivityPolicy @ 0x14099686C (PopNetCheckUserConnectivityPolicy.c)
+ *     ExStopRecordingIRTimerExpiries @ 0x1409FB83C (ExStopRecordingIRTimerExpiries.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
@@ -184,14 +184,17 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
     ModernStandbyTransitionReason = PopGetModernStandbyTransitionReason(0LL);
     PopClearConnectedStandbyMarker(ModernStandbyTransitionReason);
     qword_140CF7C08 = 0LL;
-    v53 = KeAcquireSpinLockRaiseToDpc(&qword_140C3C9B8);
-    dword_140C3C9C0 = 0;
+    v53 = KeAcquireSpinLockRaiseToDpc(&qword_140C3C938);
+    dword_140C3C940 = 0;
     v54 = v53;
-    KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C9B8);
-    if ( KiIrqlFlags )
+    KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C938);
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v54 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v54 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -232,16 +235,16 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
     qword_140CF7CF8 = 0LL;
     byte_140CF7CD4 = 0;
     PopNetIsDisconnectStandbyActive(&v61);
-    v17 = KeAcquireSpinLockRaiseToDpc(&qword_140C3C9B8);
-    qword_140C3C9A8 = 0LL;
-    qword_140C3C9B0 = 0LL;
+    v17 = KeAcquireSpinLockRaiseToDpc(&qword_140C3C938);
+    qword_140C3C928 = 0LL;
+    qword_140C3C930 = 0LL;
     PopDisplayOnPerformance = 0LL;
-    dword_140C3C9C0 = 1;
-    KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C9B8);
-    if ( KiIrqlFlags )
+    dword_140C3C940 = 1;
+    KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C938);
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;
@@ -254,7 +257,7 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
     }
     __writecr8(v17);
     PopGetEnergyCounter(&CsSessionEnergyCounter);
-    byte_140CF7CC8 = (dword_140C3D86C == 0) | byte_140CF7CC8 & 0xFE;
+    byte_140CF7CC8 = (dword_140C3D96C == 0) | byte_140CF7CC8 & 0xFE;
     byte_140CF7CC9 ^= (byte_140CF7CC9 ^ PopNetIsCompliantNicPresent()) & 1;
     if ( (((v61 - 1) & 0xFFFFFFFC) != 0 || v61 == 2)
       && (unsigned __int8)PopNetCheckUserConnectivityPolicy()
@@ -312,10 +315,10 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
         v35 = PpmPlatformStates;
       }
       KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v41 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v41 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v41 >= 2u )
         {
           v42 = KeGetCurrentPrcb();
           v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v36 + 1));

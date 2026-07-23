@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetHighestPhysicalPage @ 0x1402F8938
+ * XREFs of MmGetHighestPhysicalPage @ 0x1402F8BC8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     PfpCopyUserPfnPrioRequest @ 0x14075DF10 (PfpCopyUserPfnPrioRequest.c)
- *     PopPreallocateHibernateMemory @ 0x140800DF4 (PopPreallocateHibernateMemory.c)
- *     PopEnableHiberFile @ 0x1408016DC (PopEnableHiberFile.c)
- *     PopAllocateHiberContext @ 0x140987D38 (PopAllocateHiberContext.c)
- *     PopBuildMemoryImageHeader @ 0x140AA1BB8 (PopBuildMemoryImageHeader.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     PfpCopyUserPfnPrioRequest @ 0x14075E100 (PfpCopyUserPfnPrioRequest.c)
+ *     PopPreallocateHibernateMemory @ 0x1408010C4 (PopPreallocateHibernateMemory.c)
+ *     PopEnableHiberFile @ 0x1408019AC (PopEnableHiberFile.c)
+ *     PopAllocateHiberContext @ 0x140987F38 (PopAllocateHiberContext.c)
+ *     PopBuildMemoryImageHeader @ 0x140AA1A28 (PopBuildMemoryImageHeader.c)
  * Callees:
  *     <none>
  */

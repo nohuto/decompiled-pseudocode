@@ -1,11 +1,11 @@
 /*
- * XREFs of VmTerminateMemoryProcess @ 0x14092F250
+ * XREFs of VmTerminateMemoryProcess @ 0x14092F3B0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     PsTerminateMinimalProcess @ 0x14090AD0C (PsTerminateMinimalProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     PsTerminateMinimalProcess @ 0x14090AE6C (PsTerminateMinimalProcess.c)
  */
 
 NTSTATUS __fastcall VmTerminateMemoryProcess(void *a1, int a2)

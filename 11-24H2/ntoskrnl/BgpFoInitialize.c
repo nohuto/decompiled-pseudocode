@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpFoInitialize @ 0x140C6FFA0
+ * XREFs of BgpFoInitialize @ 0x140C72100
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140BB5400 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x140BB7400 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14037DE10 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140467320 (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x14069BF2C (FioFwReadUlongAtOffset.c)
- *     FopInitializeFonts @ 0x140C701EC (FopInitializeFonts.c)
+ *     BgpFwFreeMemory @ 0x14045EC7C (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14045ED38 (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x14069CFAC (FioFwReadUlongAtOffset.c)
+ *     FopInitializeFonts @ 0x140C7234C (FopInitializeFonts.c)
  */
 
 __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
   v10 = 0;
   if ( !FontLibraryInitialized )
   {
-    qword_140EEFFB8 = (__int64)&FopFontFileListHead;
+    qword_140EF01F8 = (__int64)&FopFontFileListHead;
     FopFontFileListHead = (__int64)&FopFontFileListHead;
     FontLibraryInitialized = 1;
   }

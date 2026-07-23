@@ -12,7 +12,7 @@
 __int64 KiGetSystemServiceTraceTable()
 {
   __int64 Pool2; // rax
-  _BOOL8 v1; // r8
+  __int64 v1; // r8
   signed __int64 v2; // rdi
   __int64 (__fastcall **v3)(ULONG_PTR); // r14
   __int64 v4; // r12
@@ -81,7 +81,7 @@ LABEL_13:
             v7 = v9;
           }
         }
-        RtlRbInsertNodeEx((__int64 *)v2, v7, v1, v5 - 24);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v7, v1, (PRTL_BALANCED_NODE)(v5 - 24));
         v5 += 64LL;
         v3 += 2;
         --v4;

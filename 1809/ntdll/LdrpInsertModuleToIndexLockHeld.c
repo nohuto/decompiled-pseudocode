@@ -2,49 +2,49 @@
  * XREFs of LdrpInsertModuleToIndexLockHeld @ 0x1800207B8
  * Callers:
  *     LdrpMapDllWithSectionHandle @ 0x180021D1C (LdrpMapDllWithSectionHandle.c)
- *     LdrpInsertModuleToIndex @ 0x1800836E0 (LdrpInsertModuleToIndex.c)
+ *     LdrpInsertModuleToIndex @ 0x1800836F0 (LdrpInsertModuleToIndex.c)
  * Callees:
  *     RtlRbInsertNodeEx @ 0x18001F940 (RtlRbInsertNodeEx.c)
  */
 
-char __fastcall LdrpInsertModuleToIndexLockHeld(__int64 a1, __int64 a2)
+BOOLEAN __fastcall LdrpInsertModuleToIndexLockHeld(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r9d
-  bool v3; // bl
+  BOOLEAN v3; // bl
   unsigned int v4; // r10d
-  __int64 v6; // rdx
-  bool v7; // r8
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  char result; // al
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // rax
+  BOOLEAN result; // al
 
   v2 = *(_DWORD *)(a2 + 8);
   *(_DWORD *)(a1 + 128) = v2;
   v3 = 0;
   v4 = *(_DWORD *)(a2 + 80);
   *(_DWORD *)(a1 + 64) = v4;
-  v6 = LdrpMappingInfoIndex;
-  if ( (qword_1801662D0 & 1) != 0 )
+  Root = (unsigned __int64)LdrpMappingInfoIndex.Root;
+  if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 )
   {
-    if ( LdrpMappingInfoIndex )
-      v6 = (unsigned __int64)&LdrpMappingInfoIndex ^ LdrpMappingInfoIndex;
+    if ( LdrpMappingInfoIndex.Root )
+      Root = (unsigned __int64)&LdrpMappingInfoIndex ^ (unsigned __int64)LdrpMappingInfoIndex.Root;
     else
-      v6 = 0LL;
+      Root = 0LL;
   }
   v7 = 0;
-  if ( v6 )
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( v2 < *(_DWORD *)(v6 - 96) || v2 <= *(_DWORD *)(v6 - 96) && v4 < *(_DWORD *)(v6 - 160) )
+      if ( v2 < *(_DWORD *)(Root - 96) || v2 <= *(_DWORD *)(Root - 96) && v4 < *(_DWORD *)(Root - 160) )
       {
-        v8 = *(_QWORD *)v6;
-        if ( (qword_1801662D0 & 1) != 0 )
+        v8 = *(_QWORD *)Root;
+        if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 )
         {
           if ( !v8 )
             goto LABEL_19;
-          v8 ^= v6;
+          v8 ^= Root;
         }
         if ( !v8 )
         {
@@ -55,12 +55,12 @@ LABEL_19:
       }
       else
       {
-        v8 = *(_QWORD *)(v6 + 8);
-        if ( (qword_1801662D0 & 1) != 0 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 )
         {
           if ( !v8 )
             goto LABEL_13;
-          v8 ^= v6;
+          v8 ^= Root;
         }
         if ( !v8 )
         {
@@ -69,15 +69,15 @@ LABEL_13:
           break;
         }
       }
-      v6 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64)&LdrpMappingInfoIndex, v6, v7, (_QWORD *)(a1 + 224));
-  v9 = LdrpModuleBaseAddressIndex;
-  if ( (qword_1801662C0 & 1) != 0 )
+  RtlRbInsertNodeEx(&LdrpMappingInfoIndex, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)(a1 + 224));
+  v9 = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( LdrpModuleBaseAddressIndex )
-      v9 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    if ( LdrpModuleBaseAddressIndex.Root )
+      v9 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
     else
       v9 = 0LL;
   }
@@ -88,7 +88,7 @@ LABEL_13:
       if ( *(_QWORD *)(a1 + 48) < *(_QWORD *)(v9 - 152) )
       {
         v10 = *(_QWORD *)v9;
-        if ( (qword_1801662C0 & 1) != 0 )
+        if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
         {
           if ( !v10 )
             break;
@@ -100,7 +100,7 @@ LABEL_13:
       else
       {
         v10 = *(_QWORD *)(v9 + 8);
-        if ( (qword_1801662C0 & 1) != 0 )
+        if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
         {
           if ( !v10 )
             goto LABEL_30;
@@ -116,7 +116,7 @@ LABEL_30:
       v9 = v10;
     }
   }
-  result = RtlRbInsertNodeEx((unsigned __int64)&LdrpModuleBaseAddressIndex, v9, v3, (_QWORD *)(a1 + 200));
+  result = RtlRbInsertNodeEx(&LdrpModuleBaseAddressIndex, (PRTL_BALANCED_NODE)v9, v3, (PRTL_BALANCED_NODE)(a1 + 200));
   *(_DWORD *)(a1 + 104) |= 0x80u;
   return result;
 }

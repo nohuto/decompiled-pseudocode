@@ -6,26 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetNtVersionNumbers(_DWORD *a1, _DWORD *a2, _DWORD *a3)
+void __cdecl RtlGetNtVersionNumbers(PULONG NtMajorVersion, PULONG NtMinorVersion, PULONG NtBuildNumber)
 {
   struct _PEB *v3; // r9
-  __int64 result; // rax
 
   v3 = NtCurrentPeb();
-  if ( a1 )
-  {
-    result = v3->OSMajorVersion;
-    *a1 = result;
-  }
-  if ( a2 )
-  {
-    result = v3->OSMinorVersion;
-    *a2 = result;
-  }
-  if ( a3 )
-  {
-    result = v3->OSBuildNumber | 0xF0000000;
-    *a3 = result;
-  }
-  return result;
+  if ( NtMajorVersion )
+    *NtMajorVersion = v3->OSMajorVersion;
+  if ( NtMinorVersion )
+    *NtMinorVersion = v3->OSMinorVersion;
+  if ( NtBuildNumber )
+    *NtBuildNumber = v3->OSBuildNumber | 0xF0000000;
 }

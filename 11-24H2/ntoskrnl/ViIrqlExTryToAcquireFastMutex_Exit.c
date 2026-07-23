@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIrqlExTryToAcquireFastMutex_Exit @ 0x140B9D5B0
+ * XREFs of ViIrqlExTryToAcquireFastMutex_Exit @ 0x140B9F5B0
  * Callers:
  *     <none>
  * Callees:
- *     VfKeIrqlLogRaise @ 0x140BA7FE0 (VfKeIrqlLogRaise.c)
+ *     VfKeIrqlLogRaise @ 0x140BA9FE0 (VfKeIrqlLogRaise.c)
  */
 
 __int64 __fastcall ViIrqlExTryToAcquireFastMutex_Exit(__int64 a1, __int64 a2)

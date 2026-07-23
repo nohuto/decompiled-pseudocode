@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpAddNonMirroredRanges @ 0x140C403CC
+ * XREFs of ExpAddNonMirroredRanges @ 0x140C4251C
  * Callers:
- *     ExpInitializeMemoryMirroring @ 0x140C40498 (ExpInitializeMemoryMirroring.c)
+ *     ExpInitializeMemoryMirroring @ 0x140C425E8 (ExpInitializeMemoryMirroring.c)
  * Callees:
- *     ZwManagePartition @ 0x1406A8770 (ZwManagePartition.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwManagePartition @ 0x1406A9710 (ZwManagePartition.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ExpAddNonMirroredRanges(__int64 a1, unsigned int a2, __int64 *a3, char a4)
+__int64 __fastcall ExpAddNonMirroredRanges(HANDLE TargetHandle, unsigned int a2, __int64 *a3, char a4)
 {
   __int64 v6; // rbp
   _DWORD *Pool2; // rax
@@ -40,7 +40,7 @@ __int64 __fastcall ExpAddNonMirroredRanges(__int64 a1, unsigned int a2, __int64 
       }
       while ( v6 );
     }
-    v11 = ZwManagePartition(a1, 0LL);
+    v11 = ZwManagePartition(TargetHandle, 0LL, SystemMemoryPartitionInitialAddMemory, v10, 0x40u);
     ExFreePoolWithTag(v10, 0);
   }
   else

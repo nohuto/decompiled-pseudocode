@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCsqInsertIrp @ 0x1402A7CB0
+ * XREFs of IoCsqInsertIrp @ 0x140225DF0
  * Callers:
  *     <none>
  * Callees:
- *     IoCsqInsertIrpEx @ 0x1402A7CD0 (IoCsqInsertIrpEx.c)
+ *     IoCsqInsertIrpEx @ 0x140225E10 (IoCsqInsertIrpEx.c)
  */
 
 void __stdcall IoCsqInsertIrp(PIO_CSQ Csq, PIRP Irp, PIO_CSQ_IRP_CONTEXT Context)

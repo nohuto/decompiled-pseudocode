@@ -1,14 +1,14 @@
 /*
- * XREFs of KeRundownQueueEx @ 0x14028C804
+ * XREFs of KeRundownQueueEx @ 0x14028CA94
  * Callers:
- *     KeRundownQueue @ 0x14028C700 (KeRundownQueue.c)
- *     IopDeleteIoCompletionInternal @ 0x14028C718 (IopDeleteIoCompletionInternal.c)
- *     EtwpDeleteRegistrationObject @ 0x1406BED90 (EtwpDeleteRegistrationObject.c)
+ *     KeRundownQueue @ 0x14028C990 (KeRundownQueue.c)
+ *     IopDeleteIoCompletionInternal @ 0x14028C9A8 (IopDeleteIoCompletionInternal.c)
+ *     EtwpDeleteRegistrationObject @ 0x1406BEDC0 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KeRundownQueueCommon @ 0x14028C934 (KeRundownQueueCommon.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14028CD8C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KeRundownQueueCommon @ 0x14028CBC4 (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14028D01C (KiAcquireReleaseObjectRundownLockExclusive.c)
  */
 
 __int64 __fastcall KeRundownQueueEx(__int64 a1, char a2)
@@ -23,7 +23,7 @@ __int64 __fastcall KeRundownQueueEx(__int64 a1, char a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v9) = 4;
@@ -54,6 +54,6 @@ __int64 __fastcall KeRundownQueueEx(__int64 a1, char a2)
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   if ( a2 )
     KiAcquireReleaseObjectRundownLockExclusive(a1);
-  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v6;
 }

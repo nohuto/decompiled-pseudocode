@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAcquireProcessActivityReference @ 0x140B272F0
+ * XREFs of NtAcquireProcessActivityReference @ 0x140B293A0
  * Callers:
- *     DifNtAcquireProcessActivityReferenceWrapper @ 0x140669F00 (DifNtAcquireProcessActivityReferenceWrapper.c)
+ *     DifNtAcquireProcessActivityReferenceWrapper @ 0x14066DAE0 (DifNtAcquireProcessActivityReferenceWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1404E7FA4 (ExCpuSetResourceManagerAccessCheck.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PspCreateActivityReference @ 0x140B27418 (PspCreateActivityReference.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x1404E1364 (ExCpuSetResourceManagerAccessCheck.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspCreateActivityReference @ 0x140B294C8 (PspCreateActivityReference.c)
  */
 
 __int64 __fastcall NtAcquireProcessActivityReference(_QWORD *a1, ULONG_PTR a2, int a3)
@@ -34,7 +34,15 @@ __int64 __fastcall NtAcquireProcessActivityReference(_QWORD *a1, ULONG_PTR a2, i
   result = ExCpuSetResourceManagerAccessCheck(PreviousMode);
   if ( (int)result >= 0 )
   {
-    result = ObpReferenceObjectByHandleWithTag(a2, 4096LL, PsProcessType, PreviousMode, 0x63417350u, Object, 0LL, 0LL);
+    result = ObpReferenceObjectByHandleWithTag(
+               a2,
+               4096,
+               (__int64)PsProcessType,
+               PreviousMode,
+               0x63417350u,
+               Object,
+               0LL,
+               0LL);
     if ( (int)result >= 0 )
     {
       v8 = Object[0];

@@ -16,76 +16,82 @@
 
 char __fastcall RtlpAddLanguagesToMultiSZ(
         const void **a1,
-        size_t *a2,
+        unsigned int *a2,
         unsigned int *a3,
         _WORD *a4,
         int a5,
         _DWORD *a6,
         int a7)
 {
-  void *Heap; // eax
-  size_t v10; // edx
+  wchar_t *Heap; // eax
+  unsigned int v10; // edx
   unsigned int v11; // esi
   int v12; // eax
-  void *v13; // esi
+  PVOID v13; // esi
   char *v14; // esi
   _DWORD *v15; // edx
   unsigned __int16 v16; // bx
   int v17; // eax
   _WORD *v18; // ecx
-  int v19; // [esp+14h] [ebp-40h]
-  int v20; // [esp+20h] [ebp-34h] BYREF
-  void *Src; // [esp+24h] [ebp-30h]
-  _DWORD *v22; // [esp+28h] [ebp-2Ch]
-  const void **v23; // [esp+2Ch] [ebp-28h]
-  char v24; // [esp+33h] [ebp-21h]
-  _WORD v25[14]; // [esp+34h] [ebp-20h] BYREF
+  SIZE_T v19; // [esp-4h] [ebp-58h]
+  SIZE_T v20; // [esp-4h] [ebp-58h]
+  size_t v21; // [esp-4h] [ebp-58h]
+  wchar_t *BaseAddress; // [esp+14h] [ebp-40h]
+  _UNICODE_STRING String; // [esp+20h] [ebp-34h] BYREF
+  _DWORD *v24; // [esp+28h] [ebp-2Ch]
+  const void **v25; // [esp+2Ch] [ebp-28h]
+  char v26; // [esp+33h] [ebp-21h]
+  _WORD v27[14]; // [esp+34h] [ebp-20h] BYREF
 
-  v22 = a6;
-  v23 = a1;
-  v24 = 1;
-  memset(v25, 0, sizeof(v25));
-  if ( a1 && a2 && a3 && a4 && a5 && v22 )
+  v24 = a6;
+  v25 = a1;
+  v26 = 1;
+  memset(v27, 0, sizeof(v27));
+  if ( a1 && a2 && a3 && a4 && a5 && v24 )
   {
     if ( (unsigned __int16)a7 > 2u )
       return 1;
-    Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 170);
-    v19 = (int)Heap;
+    LODWORD(v19) = 170;
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v19);
+    BaseAddress = Heap;
     if ( !Heap )
-      return v24;
-    Src = Heap;
-    v20 = 11141120;
-    if ( RtlpGetNameFromLangInfoNode(a5, (int)a4, (unsigned __int16 *)&v20) >= 0 )
+      return v26;
+    String.Buffer = Heap;
+    *(_DWORD *)&String.Length = 11141120;
+    if ( RtlpGetNameFromLangInfoNode(a5, (int)a4, &String) >= 0 )
     {
       v10 = *a2;
-      v11 = *a2 + (unsigned __int16)v20 + 2;
-      if ( v11 >= (unsigned __int16)v20 && v11 >= v10 )
+      v11 = *a2 + String.Length + 2;
+      if ( v11 >= String.Length && v11 >= v10 )
       {
         if ( v11 <= *a3 )
           goto LABEL_17;
         v12 = LdrpCalcAllocSize(*a3, 2u);
         if ( v12 )
         {
-          v13 = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v12);
+          LODWORD(v20) = v12;
+          v13 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v20);
           if ( v13 )
           {
-            memcpy(v13, *v23, *a2);
-            RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)*v23);
-            *v23 = v13;
+            LODWORD(v21) = *a2;
+            memcpy(v13, *v25, v21);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)*v25);
+            *v25 = v13;
             *a3 *= 2;
             v10 = *a2;
 LABEL_17:
-            v14 = (char *)*v23 + v10;
-            if ( RtlpLangNameInMultiSzString((wchar_t *)*v23, (wchar_t *)Src) )
+            v14 = (char *)*v25 + v10;
+            if ( RtlpLangNameInMultiSzString((wchar_t *)*v25, String.Buffer) )
             {
-              v15 = v22;
+              v15 = v24;
             }
             else
             {
-              memcpy(v14, Src, (unsigned __int16)v20);
-              v15 = v22;
-              *(_WORD *)&v14[(unsigned __int16)v20] = 0;
-              *a2 += (unsigned __int16)v20 + 2;
+              LODWORD(v20) = String.Length;
+              memcpy(v14, String.Buffer, v20);
+              v15 = v24;
+              *(_WORD *)&v14[String.Length] = 0;
+              *a2 += String.Length + 2;
               ++*v15;
             }
             if ( (*a4 & 0x402) != 0 )
@@ -98,20 +104,20 @@ LABEL_17:
                   break;
                 if ( v17 == 1 )
                 {
-                  v25[2] = a4[v16 + 6];
+                  v27[2] = a4[v16 + 6];
                   goto LABEL_28;
                 }
                 if ( v17 == 3 )
                 {
-                  v25[3] = a4[v16 + 6];
+                  v27[3] = a4[v16 + 6];
 LABEL_28:
-                  v18 = v25;
+                  v18 = v27;
 LABEL_30:
-                  v24 = RtlpAddLanguagesToMultiSZ(a3, v18, a5, v15, a7 + 1);
-                  if ( !v24 )
+                  v26 = RtlpAddLanguagesToMultiSZ(a3, v18, a5, v15, a7 + 1);
+                  if ( !v26 )
                     goto LABEL_32;
                 }
-                v15 = v22;
+                v15 = v24;
                 if ( ++v16 >= 4u )
                   goto LABEL_32;
               }
@@ -120,13 +126,13 @@ LABEL_30:
             }
             goto LABEL_32;
           }
-          RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, 0);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, 0);
         }
       }
     }
 LABEL_32:
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v19);
-    return v24;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    return v26;
   }
   return 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CcAdjustVacbLevelLockCount @ 0x1402F56B4
+ * XREFs of CcAdjustVacbLevelLockCount @ 0x140300404
  * Callers:
- *     CcDeleteBcbs @ 0x1402D2640 (CcDeleteBcbs.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     CcAllocateInitializeBcb @ 0x14031CD80 (CcAllocateInitializeBcb.c)
+ *     CcDeleteBcbs @ 0x140250A10 (CcDeleteBcbs.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     CcAllocateInitializeBcb @ 0x140327AD0 (CcAllocateInitializeBcb.c)
  * Callees:
- *     CcSetVacbLargeOffset @ 0x1402F53AC (CcSetVacbLargeOffset.c)
- *     VacbLevelReference @ 0x1402F575C (VacbLevelReference.c)
+ *     CcSetVacbLargeOffset @ 0x1403000FC (CcSetVacbLargeOffset.c)
+ *     VacbLevelReference @ 0x1403004AC (VacbLevelReference.c)
  */
 
 char __fastcall CcAdjustVacbLevelLockCount(__int64 a1, __int64 a2, int a3)

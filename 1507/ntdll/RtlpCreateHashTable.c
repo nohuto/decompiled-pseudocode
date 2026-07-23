@@ -10,15 +10,15 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-char __fastcall RtlpCreateHashTable(_DWORD **a1, unsigned int a2, int a3, int a4)
+char __fastcall RtlpCreateHashTable(_RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
 {
   unsigned int v4; // ebp
-  _DWORD *Heap; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *Heap; // rbx
   int v10; // esi
   __int64 v11; // rbp
   __int64 v12; // rax
-  _QWORD *v14; // rax
-  _QWORD *v15; // rsi
+  PVOID v14; // rax
+  PVOID v15; // rsi
   __int64 v16; // rdi
   __int64 SecondLevelDir; // rax
 
@@ -29,33 +29,33 @@ char __fastcall RtlpCreateHashTable(_DWORD **a1, unsigned int a2, int a3, int a4
   v10 = 0;
   if ( !*a1 )
   {
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 40LL);
+    Heap = (_RTL_DYNAMIC_HASH_TABLE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
     if ( !Heap )
       return 0;
     v10 = 1;
   }
-  memset(Heap, 0, 0x28uLL);
-  Heap[3] = 0;
-  Heap[4] = v4;
+  memset(Heap, 0, sizeof(_RTL_DYNAMIC_HASH_TABLE));
+  Heap->Pivot = 0;
+  Heap->DivisorMask = v4;
   v11 = v4 >> 7;
-  *Heap = a4 | v10;
-  Heap[2] = a2;
-  Heap[1] = a3;
+  Heap->Flags = a4 | v10;
+  Heap->TableSize = a2;
+  Heap->Shift = a3;
   if ( a2 > 0x80 )
   {
-    v14 = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 4096LL);
+    v14 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
     v15 = v14;
     if ( v14 )
     {
       memset(v14, 0, 0x1000uLL);
       v16 = 0LL;
-      *((_QWORD *)Heap + 4) = v15;
+      Heap->Directory = v15;
       while ( 1 )
       {
         SecondLevelDir = RtlpAllocateSecondLevelDir();
         if ( !SecondLevelDir )
           break;
-        v15[v16++] = SecondLevelDir;
+        *((_QWORD *)v15 + v16++) = SecondLevelDir;
         if ( v16 > v11 )
           goto LABEL_7;
       }
@@ -69,7 +69,7 @@ LABEL_11:
     RtlDeleteHashTable(Heap);
     return 0;
   }
-  *((_QWORD *)Heap + 4) = v12;
+  Heap->Directory = (void *)v12;
 LABEL_7:
   *a1 = Heap;
   return 1;

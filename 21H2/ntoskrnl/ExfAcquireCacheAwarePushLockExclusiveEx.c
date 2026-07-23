@@ -1,10 +1,10 @@
 /*
- * XREFs of ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1402F2B30
+ * XREFs of ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1402FD880
  * Callers:
- *     ExAcquireCacheAwarePushLockExclusive @ 0x1402F2AE0 (ExAcquireCacheAwarePushLockExclusive.c)
- *     ExAcquireCacheAwarePushLockExclusiveEx @ 0x1403F9420 (ExAcquireCacheAwarePushLockExclusiveEx.c)
+ *     ExAcquireCacheAwarePushLockExclusive @ 0x1402FD830 (ExAcquireCacheAwarePushLockExclusive.c)
+ *     ExAcquireCacheAwarePushLockExclusiveEx @ 0x1403F95A0 (ExAcquireCacheAwarePushLockExclusiveEx.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 volatile signed __int32 *__fastcall ExfAcquireCacheAwarePushLockExclusiveEx(

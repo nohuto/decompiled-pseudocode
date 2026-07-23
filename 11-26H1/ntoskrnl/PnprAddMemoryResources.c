@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddMemoryResources @ 0x1407AE908
+ * XREFs of PnprAddMemoryResources @ 0x1407B1968
  * Callers:
- *     PnprAddDeviceResources @ 0x1407AE880 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1407B18E0 (PnprAddDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1404D4880 (RtlCmDecodeMemIoResource.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x1404CE0F0 (RtlCmDecodeMemIoResource.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddMemoryResources(__int64 a1, _DWORD **a2)
@@ -45,7 +45,7 @@ __int64 __fastcall PnprAddMemoryResources(__int64 a1, _DWORD **a2)
     LODWORD(v6) = 0;
     v7 = *(_DWORD *)(PnprContext + 33288);
     if ( !v7 )
-      v7 = 631;
+      v7 = 598;
     *(_DWORD *)(PnprContext + 33288) = v7;
     v8 = *(_DWORD *)(v5 + 33292);
     if ( !v8 )
@@ -82,7 +82,7 @@ LABEL_10:
             LODWORD(v6) = -1073741670;
             v16 = *(_DWORD *)(PnprContext + 33288);
             if ( !v16 )
-              v16 = 671;
+              v16 = 638;
             *(_DWORD *)(PnprContext + 33288) = v16;
             v17 = *(_DWORD *)(v15 + 33292);
             if ( !v17 )

@@ -10,7 +10,7 @@
 
 __int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
 {
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // rbp
   __int64 v6; // rdi
   unsigned int v7; // ebx

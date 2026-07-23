@@ -1,24 +1,24 @@
 /*
- * XREFs of MmPrefetchVirtualMemory @ 0x1404F4680
+ * XREFs of MmPrefetchVirtualMemory @ 0x1404D760C
  * Callers:
- *     MiProcessWsInSwapRanges @ 0x1400B704C (MiProcessWsInSwapRanges.c)
- *     MmPrefetchVirtualAddresses @ 0x1404F4814 (MmPrefetchVirtualAddresses.c)
- *     PfpPrefetchPrivatePages @ 0x1405333EC (PfpPrefetchPrivatePages.c)
+ *     MiProcessWsInSwapRanges @ 0x1400B4E74 (MiProcessWsInSwapRanges.c)
+ *     MmPrefetchVirtualAddresses @ 0x1404D77A0 (MmPrefetchVirtualAddresses.c)
+ *     PfpPrefetchPrivatePages @ 0x14053392C (PfpPrefetchPrivatePages.c)
  *     ExpDebuggerWorker @ 0x1406F3E60 (ExpDebuggerWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MiPrefetchVirtualMemory @ 0x1400BFCA0 (MiPrefetchVirtualMemory.c)
- *     MiGetSessionVm @ 0x1400C0E60 (MiGetSessionVm.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ObIsKernelHandle @ 0x140126C74 (ObIsKernelHandle.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiLockAndSelectSessionAttachProcess @ 0x1401E8760 (MiLockAndSelectSessionAttachProcess.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MiPrefetchVirtualMemory @ 0x1400BDB30 (MiPrefetchVirtualMemory.c)
+ *     MiGetSessionVm @ 0x1400BECF0 (MiGetSessionVm.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ObIsKernelHandle @ 0x1401271E4 (ObIsKernelHandle.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiLockAndSelectSessionAttachProcess @ 0x1401E858C (MiLockAndSelectSessionAttachProcess.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall MmPrefetchVirtualMemory(char *Handle, unsigned __int64 a2, __int64 a3, int a4)

@@ -8,7 +8,7 @@
  *     TppPoolpDereferenceGlobalPool @ 0x18003DF80 (TppPoolpDereferenceGlobalPool.c)
  */
 
-struct _PEB *__fastcall TpDereferenceGlobalPool(__int64 a1, __int64 a2, __int64 a3)
+struct _PEB *__fastcall TpDereferenceGlobalPool(__int64 a1)
 {
   struct _PEB *result; // rax
   _PEB_LDR_DATA *Ldr; // rcx
@@ -18,6 +18,6 @@ struct _PEB *__fastcall TpDereferenceGlobalPool(__int64 a1, __int64 a2, __int64 
   result = NtCurrentPeb();
   Ldr = result->Ldr;
   if ( !Ldr->ShutdownInProgress )
-    return (struct _PEB *)TppRaiseInvalidParameter(Ldr, a2, a3);
+    return (struct _PEB *)TppRaiseInvalidParameter(Ldr);
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetPfnProtection @ 0x14011FD90
+ * XREFs of MiGetPfnProtection @ 0x14011FE00
  * Callers:
- *     MiRevokeExecutePte @ 0x14011FCE0 (MiRevokeExecutePte.c)
- *     MiQueryLeafPte @ 0x1402BF070 (MiQueryLeafPte.c)
+ *     MiRevokeExecutePte @ 0x14011FD50 (MiRevokeExecutePte.c)
+ *     MiQueryLeafPte @ 0x1402BF260 (MiQueryLeafPte.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiGetWsleProtection @ 0x1400B5C20 (MiGetWsleProtection.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiGetWsleProtection @ 0x1400B5B60 (MiGetWsleProtection.c)
  */
 
 __int64 __fastcall MiGetPfnProtection(__int64 a1, unsigned __int64 a2)

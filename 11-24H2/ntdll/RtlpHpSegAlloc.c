@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpSegAlloc @ 0x180051440
+ * XREFs of RtlpHpSegAlloc @ 0x180067020
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x180010830 (RtlpHpMetadataAlloc.c)
- *     RtlpHpSegSubAllocate @ 0x180051270 (RtlpHpSegSubAllocate.c)
- *     RtlpHpAllocateHeapBackend @ 0x180051334 (RtlpHpAllocateHeapBackend.c)
- *     RtlpHpSegLfhAllocate @ 0x180051370 (RtlpHpSegLfhAllocate.c)
+ *     RtlpHpMetadataAlloc @ 0x18003D230 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpSegSubAllocate @ 0x180066E50 (RtlpHpSegSubAllocate.c)
+ *     RtlpHpAllocateHeapBackend @ 0x180066F14 (RtlpHpAllocateHeapBackend.c)
+ *     RtlpHpSegLfhAllocate @ 0x180066F50 (RtlpHpSegLfhAllocate.c)
  * Callees:
- *     RtlpHpSegPageRangeAllocate @ 0x180051620 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeShrink @ 0x1800544A0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegPageRangeCommit @ 0x180056980 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1800F7560 (RtlpHpSegPageRangeComputeLargePageCost.c)
- *     RtlHeapZero @ 0x180167000 (RtlHeapZero.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x180067200 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18006A080 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegPageRangeCommit @ 0x18006C560 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1800F1CB0 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlHeapZero @ 0x1801653C0 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
@@ -47,7 +47,7 @@ __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4
   v17 = a5 & 0xFFFFFFFD;
   if ( !v14 )
     v17 = a5;
-  if ( (int)RtlpHpSegPageRangeCommit(a1, v12, 0, v6, v17, 0LL) < 0 )
+  if ( (int)RtlpHpSegPageRangeCommit(a1, v17, 0LL) < 0 )
   {
     RtlpHpSegPageRangeShrink(a1, v12, 0LL);
     return 0LL;
@@ -56,7 +56,7 @@ __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4
   {
 LABEL_6:
     if ( v8 )
-      RtlpHpSegPageRangeCommit(a1, v12, v10 - 1, v10 - (v13 << *(_BYTE *)(a1 + 9)) - 1, 0, 0LL);
+      RtlpHpSegPageRangeCommit(a1, 0, 0LL);
     *(_DWORD *)(v12 + 4) = (v13 << *(_BYTE *)(a1 + 8)) - a2;
     v15 = (v12 & *(_QWORD *)a1) + ((v12 - (v12 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8));
     if ( (a5 & 2) != 0

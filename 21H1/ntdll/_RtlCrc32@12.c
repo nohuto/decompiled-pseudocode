@@ -6,7 +6,7 @@
  *     _RtlpComputeCrcInternal@20 @ 0x4B35C6FF (_RtlpComputeCrcInternal@20.c)
  */
 
-int __stdcall RtlCrc32(int a1, int a2, int a3)
+DWORD __cdecl RtlCrc32(const void *Buffer, size_t Size, DWORD InitialCrc)
 {
-  return RtlpComputeCrcInternal(a3, 0, Crc32Ctrl);
+  return RtlpComputeCrcInternal(HIDWORD(Size), 0, Crc32Ctrl);
 }

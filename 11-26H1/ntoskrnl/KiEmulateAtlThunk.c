@@ -1,16 +1,16 @@
 /*
- * XREFs of KiEmulateAtlThunk @ 0x1403D2630
+ * XREFs of KiEmulateAtlThunk @ 0x1403D5600
  * Callers:
- *     KiCheckForAtlThunk @ 0x1403D25C4 (KiCheckForAtlThunk.c)
+ *     KiCheckForAtlThunk @ 0x1403D5594 (KiCheckForAtlThunk.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     MmCheckForSafeExecution @ 0x140874E24 (MmCheckForSafeExecution.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     MmCheckForSafeExecution @ 0x14087B208 (MmCheckForSafeExecution.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall KiEmulateAtlThunk(unsigned int *a1, _DWORD *a2, unsigned int *a3, unsigned int *a4, _DWORD *a5)
@@ -36,7 +36,7 @@ __int64 __fastcall KiEmulateAtlThunk(unsigned int *a1, _DWORD *a2, unsigned int 
   v9 = *a1;
   v10 = (unsigned int)*a2;
   ProbeForRead((volatile void *)(unsigned int)v9, 1uLL, 1u);
-  v11 = (char *)&KeGetPcr()->NtTib.$1A4E1036E6CD9573DBF0CCD06E827B69::$8A7F5B5E2BB4B7163F26170312D282BB::Self[218].SubSystemTib
+  v11 = (char *)&KeGetPcr()->NtTib.$52D3C1DA33407D154F0BDE5002546D79::$6F04B0361B22895021FCD2048B05DFAB::Self[218].SubSystemTib
       + 2;
   UShortFromUser = RtlReadUShortFromUser(v11);
   v13 = UShortFromUser & 1;

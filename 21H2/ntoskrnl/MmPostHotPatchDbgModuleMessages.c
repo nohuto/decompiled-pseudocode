@@ -1,19 +1,19 @@
 /*
- * XREFs of MmPostHotPatchDbgModuleMessages @ 0x1408CEA00
+ * XREFs of MmPostHotPatchDbgModuleMessages @ 0x1408CEB60
  * Callers:
- *     DbgkpPostModuleMessages @ 0x1408852A0 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140885400 (DbgkpPostModuleMessages.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     DbgkPostModuleMessage @ 0x1404EDF6C (DbgkPostModuleMessage.c)
- *     MiGetProcessHotPatchContext @ 0x1408CA1F8 (MiGetProcessHotPatchContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     DbgkPostModuleMessage @ 0x1404EE1AC (DbgkPostModuleMessage.c)
+ *     MiGetProcessHotPatchContext @ 0x1408CA358 (MiGetProcessHotPatchContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmPostHotPatchDbgModuleMessages(struct _EX_RUNDOWN_REF *a1, void *a2, struct _KEVENT *a3)
@@ -39,8 +39,8 @@ __int64 __fastcall MmPostHotPatchDbgModuleMessages(struct _EX_RUNDOWN_REF *a1, v
   char *v22; // r12
   __int64 v23; // rax
   _QWORD *v24; // rdi
-  _QWORD *k; // rsi
-  __int64 v26; // rax
+  __int64 **k; // rsi
+  PIMAGE_NT_HEADERS v26; // rax
   _QWORD *v27; // rcx
   _QWORD **v28; // rax
   _QWORD *m; // rcx
@@ -55,7 +55,7 @@ __int64 __fastcall MmPostHotPatchDbgModuleMessages(struct _EX_RUNDOWN_REF *a1, v
   v32 = (__int64)CurrentThread;
   v7 = 0LL;
   RunRef = a1 + 139;
-  v8 = ExAcquireRundownProtection_0(a1 + 139);
+  v8 = ExAcquireRundownProtection(a1 + 139);
   v9 = v8;
   v37 = v8;
   if ( !v8 )
@@ -125,15 +125,15 @@ __int64 __fastcall MmPostHotPatchDbgModuleMessages(struct _EX_RUNDOWN_REF *a1, v
       }
       while ( v24 )
       {
-        for ( k = (_QWORD *)v24[7]; k; k = (_QWORD *)*k )
+        for ( k = (__int64 **)v24[7]; k; k = (__int64 **)*k )
         {
           *(_OWORD *)v21 = 0LL;
           *(_QWORD *)v21 = k[1];
           v26 = RtlImageNtHeader(k[1]);
           if ( v26 )
           {
-            *((_DWORD *)v21 + 2) = *(_DWORD *)(v26 + 12);
-            *((_DWORD *)v21 + 3) = *(_DWORD *)(v26 + 16);
+            *((_DWORD *)v21 + 2) = v26->FileHeader.PointerToSymbolTable;
+            *((_DWORD *)v21 + 3) = v26->FileHeader.NumberOfSymbols;
           }
           v21 += 16;
         }
@@ -177,7 +177,7 @@ LABEL_50:
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   if ( v9 )
-    ExReleaseRundownProtection_0(RunRef);
+    ExReleaseRundownProtection(RunRef);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
   return v10;

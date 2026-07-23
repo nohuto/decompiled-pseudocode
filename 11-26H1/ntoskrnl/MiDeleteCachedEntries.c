@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteCachedEntries @ 0x1404A3510
+ * XREFs of MiDeleteCachedEntries @ 0x14049D020
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1404A3280 (MiRemoveUnusedSegments.c)
- *     MiSegmentDereferenceWorker @ 0x1404A3320 (MiSegmentDereferenceWorker.c)
- *     MiDeleteZeroValueSegments @ 0x1404A33F4 (MiDeleteZeroValueSegments.c)
+ *     MiRemoveUnusedSegments @ 0x14049CD9C (MiRemoveUnusedSegments.c)
+ *     MiSegmentDereferenceWorker @ 0x14049CE30 (MiSegmentDereferenceWorker.c)
+ *     MiDeleteZeroValueSegments @ 0x14049CF04 (MiDeleteZeroValueSegments.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
  */
 
 __int64 __fastcall MiDeleteCachedEntries(__int64 a1, unsigned int a2)

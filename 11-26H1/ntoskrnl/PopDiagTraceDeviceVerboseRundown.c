@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x140ADB770
+ * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x140AD81C0
  * Callers:
- *     PopDiagTraceFxRundown @ 0x14042B1A4 (PopDiagTraceFxRundown.c)
+ *     PopDiagTraceFxRundown @ 0x140422618 (PopDiagTraceFxRundown.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PopPepGetDevicePlatformStateDependents @ 0x1404D1FF4 (PopPepGetDevicePlatformStateDependents.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PopPepGetDevicePlatformStateDependents @ 0x1404CBBA4 (PopPepGetDevicePlatformStateDependents.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1, __int64 a2)
@@ -83,7 +83,7 @@ char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1, __int64 a2)
   }
   else
   {
-    RtlInitUnicodeString(&DestinationString, &word_140B814F0);
+    RtlInitUnicodeString(&DestinationString, &word_140B8A320);
     p_DestinationString = &DestinationString;
   }
   Length = p_DestinationString->Length;
@@ -125,34 +125,35 @@ char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1, __int64 a2)
   v51 = Length;
   v52 = 0;
   v54 = 4LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v11) = EtwEventEnabled(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    &POP_ETW_EVENT_DEVICE_VERBOSE_RUNDOWN);
+    LOBYTE(v11) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_VERBOSE_RUNDOWN);
     if ( (_BYTE)v11 )
     {
       if ( !a2 )
         LOBYTE(v11) = EtwWrite(
-                        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                        PopDiagHandle,
                         &POP_ETW_EVENT_DEVICE_VERBOSE_RUNDOWN,
-                        &ActivityId,
+                        &PopDiagActivityId,
                         0xEu,
                         &UserData);
     }
   }
-  if ( byte_140E6760C )
+  if ( PopDiagSleepStudyHandleRegistered )
   {
-    LOBYTE(v11) = EtwEventEnabled(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    &SLEEPSTUDY_EVT_SCENARIO_DEVICE_RUNDOWN);
+    LOBYTE(v11) = EtwEventEnabled(PopDiagHandle, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_RUNDOWN);
     if ( (_BYTE)v11 )
     {
       if ( a2 )
       {
         v55 = a2;
         v56 = 8LL;
-        LOBYTE(v11) = EtwWrite(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_RUNDOWN, &ActivityId, 0xFu, &UserData);
+        LOBYTE(v11) = EtwWrite(
+                        PopDiagSleepStudyHandle,
+                        &SLEEPSTUDY_EVT_SCENARIO_DEVICE_RUNDOWN,
+                        &PopDiagActivityId,
+                        0xFu,
+                        &UserData);
       }
     }
   }

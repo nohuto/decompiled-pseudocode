@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x18015B8CC
+ * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x180159C8C
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 SymCryptDetectCpuFeaturesByCpuid()
@@ -22,7 +22,7 @@ __int64 SymCryptDetectCpuFeaturesByCpuid()
   int v35; // [rsp+Ch] [rbp-14h]
 
   v0 = 0;
-  v1 = (unsigned __int8 *)&unk_18019A642;
+  v1 = (unsigned __int8 *)&unk_180199752;
   _RAX = 0LL;
   v3 = -16352;
   v4 = 0;
@@ -67,8 +67,8 @@ __int64 SymCryptDetectCpuFeaturesByCpuid()
   g_SymCryptCpuFeaturesNotPresent = v3;
   __asm { cpuid }
   g_SymCryptCpuid1 = result;
-  dword_1801D3434 = _RBX;
-  dword_1801D3438 = _RCX;
-  dword_1801D343C = _RDX;
+  dword_1801D2434 = _RBX;
+  dword_1801D2438 = _RCX;
+  dword_1801D243C = _RDX;
   return result;
 }

@@ -1,15 +1,15 @@
 /*
  * XREFs of RtlQueryImageFileKeyOption @ 0x1406CC700
  * Callers:
- *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403DCE64 (KiInitializeNormalPriorityAntiStarvationPolicies.c)
- *     PspReadDfssConfigurationValues @ 0x1405DFE94 (PspReadDfssConfigurationValues.c)
- *     SepIsImageInMinTcbList @ 0x1406C2FDC (SepIsImageInMinTcbList.c)
- *     PspReadIFEONodeOptions @ 0x1406CC6A0 (PspReadIFEONodeOptions.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     PspReadOptionsMapFromIFEO @ 0x14070F040 (PspReadOptionsMapFromIFEO.c)
- *     PspReadIFEOPerfOptions @ 0x1407F6CE0 (PspReadIFEOPerfOptions.c)
- *     PspQueryComPlusRunUnderWoW @ 0x1407F8490 (PspQueryComPlusRunUnderWoW.c)
- *     RtlQueryImageFileExecutionOptions @ 0x140835490 (RtlQueryImageFileExecutionOptions.c)
+ *     sub_1403DCE64 @ 0x1403DCE64 (sub_1403DCE64.c)
+ *     sub_1405DFE94 @ 0x1405DFE94 (sub_1405DFE94.c)
+ *     sub_1406C2FDC @ 0x1406C2FDC (sub_1406C2FDC.c)
+ *     sub_1406CC6A0 @ 0x1406CC6A0 (sub_1406CC6A0.c)
+ *     sub_14070BD10 @ 0x14070BD10 (sub_14070BD10.c)
+ *     sub_14070F040 @ 0x14070F040 (sub_14070F040.c)
+ *     sub_1407F6CE0 @ 0x1407F6CE0 (sub_1407F6CE0.c)
+ *     sub_1407F8490 @ 0x1407F8490 (sub_1407F8490.c)
+ *     sub_140835490 @ 0x140835490 (sub_140835490.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
  *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)

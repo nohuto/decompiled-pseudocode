@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpViewMapDeleteViewTreeNode @ 0x1406C7B28
+ * XREFs of HvpViewMapDeleteViewTreeNode @ 0x1406C8DC8
  * Callers:
- *     HvpViewMapCleanup @ 0x1406C3DF8 (HvpViewMapCleanup.c)
+ *     HvpViewMapCleanup @ 0x1406C5098 (HvpViewMapCleanup.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     CmSiUnmapViewOfSection @ 0x14013608C (CmSiUnmapViewOfSection.c)
+ *     CmSiUnmapViewOfSection @ 0x14013618C (CmSiUnmapViewOfSection.c)
  */
 
 void __fastcall HvpViewMapDeleteViewTreeNode(PPRIVILEGE_SET Privileges, __int64 a2)

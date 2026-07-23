@@ -1,19 +1,19 @@
 /*
- * XREFs of TppWorkerFindTask @ 0x180023100
+ * XREFs of TppWorkerFindTask @ 0x18004FB00
  * Callers:
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
  * Callees:
- *     TppAdjustRunningThreadGoalWithLock @ 0x1800252B4 (TppAdjustRunningThreadGoalWithLock.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppQueueRemoveHead @ 0x1800DEFA0 (TppQueueRemoveHead.c)
- *     TppAreNodeWorkersSteadyState @ 0x1800EF6A8 (TppAreNodeWorkersSteadyState.c)
- *     TppETWWorkerNodeSwitch @ 0x1800F76FC (TppETWWorkerNodeSwitch.c)
- *     NtSetInformationThread @ 0x180161E30 (NtSetInformationThread.c)
- *     ZwAlertThreadByThreadIdEx @ 0x180162AC0 (ZwAlertThreadByThreadIdEx.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180051CB4 (TppAdjustRunningThreadGoalWithLock.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppQueueRemoveHead @ 0x1800DA110 (TppQueueRemoveHead.c)
+ *     TppAreNodeWorkersSteadyState @ 0x1800EA638 (TppAreNodeWorkersSteadyState.c)
+ *     TppETWWorkerNodeSwitch @ 0x1800F1E4C (TppETWWorkerNodeSwitch.c)
+ *     NtSetInformationThread @ 0x1801601F0 (NtSetInformationThread.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x180160E80 (ZwAlertThreadByThreadIdEx.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   int Group; // edi
   int v8; // eax
   int v9; // r14d
-  __int64 i; // rdx
+  unsigned int i; // edx
   __int64 v11; // rax
   __int64 v12; // rax
   __int64 v13; // rbx
@@ -33,19 +33,19 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   int v16; // eax
   unsigned int v17; // r15d
   __int64 v18; // r13
-  _QWORD *j; // rdx
+  _QWORD *k; // rdx
   volatile signed __int64 *v20; // rbx
-  volatile signed __int32 *v21; // rcx
+  void *v21; // rcx
   char *SchedulerSharedDataSlot; // r8
-  unsigned int k; // r9d
-  volatile signed __int32 **v24; // rdx
+  unsigned int m; // r9d
+  char *v24; // rdx
   __int64 v25; // rdi
   volatile signed __int64 v26; // rax
   volatile signed __int64 *v27; // rsi
   signed __int64 v28; // rax
   char *v29; // rdx
   __int64 v30; // rsi
-  unsigned int m; // ecx
+  unsigned int n; // ecx
   char *v32; // r15
   __int64 v33; // rbx
   char v34; // si
@@ -64,36 +64,31 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   bool v48; // zf
   signed __int64 v49; // rax
   __int64 v50; // r11
-  __int64 v51; // r8
-  __int64 v52; // r9
-  __int64 v53; // rcx
-  __int64 v54; // rcx
-  __int64 v55; // r15
+  __int64 v51; // rcx
+  __int64 v52; // r15
+  __int64 v53; // rax
+  __int64 v54; // r11
+  unsigned __int16 ii; // r9
   __int64 v56; // rax
-  __int64 v57; // r11
-  __int64 v58; // rdx
-  __int64 v59; // r8
-  __int64 v60; // rcx
-  __int64 n; // r9
-  __int64 v62; // rax
-  signed __int64 v63; // rax
-  __int64 v64; // rbx
-  _QWORD *v65; // rsi
-  _QWORD *v66; // rax
-  __int16 v67; // [rsp+30h] [rbp-A8h]
-  int v68; // [rsp+34h] [rbp-A4h] BYREF
-  int v69; // [rsp+38h] [rbp-A0h] BYREF
-  __int64 v70; // [rsp+40h] [rbp-98h]
-  _QWORD *v71; // [rsp+48h] [rbp-90h]
-  __int64 v72; // [rsp+50h] [rbp-88h]
-  _QWORD *v73; // [rsp+58h] [rbp-80h]
-  _QWORD v74[2]; // [rsp+60h] [rbp-78h] BYREF
-  __int128 v75; // [rsp+70h] [rbp-68h] BYREF
-  __int128 v76; // [rsp+80h] [rbp-58h] BYREF
+  signed __int64 v57; // rax
+  unsigned __int16 j; // dx
+  __int64 v59; // rbx
+  _QWORD *v60; // rsi
+  _QWORD *v61; // rax
+  __int16 v62; // [rsp+30h] [rbp-A8h]
+  int v63; // [rsp+34h] [rbp-A4h] BYREF
+  int v64; // [rsp+38h] [rbp-A0h] BYREF
+  __int64 v65; // [rsp+40h] [rbp-98h]
+  _QWORD *v66; // [rsp+48h] [rbp-90h]
+  __int64 v67; // [rsp+50h] [rbp-88h]
+  _QWORD *v68; // [rsp+58h] [rbp-80h]
+  _QWORD v69[2]; // [rsp+60h] [rbp-78h] BYREF
+  __int128 ThreadInformation; // [rsp+70h] [rbp-68h] BYREF
+  __int128 v71; // [rsp+80h] [rbp-58h] BYREF
 
   v3 = a2;
-  v73 = a3;
-  v72 = a2;
+  v68 = a3;
+  v67 = a2;
   Number = NtCurrentTeb()->CurrentIdealProcessor.Number;
   v6 = TppNumberNodes;
   Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
@@ -101,14 +96,14 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
     v8 = MEMORY[0x7FFE03C0];
   if ( *(_DWORD *)(a1 + 424) != v8 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 72);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    RtlReleaseSRWLockExclusive(a1 + 72);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   }
   v9 = 0;
-  for ( i = 0LL; (unsigned int)i < TppNumberNodes; i = (unsigned int)(i + 1) )
+  for ( i = 0; i < TppNumberNodes; ++i )
   {
-    v11 = *(_QWORD *)(a1 + 48) + 16LL * (unsigned int)(Group + TppMaximumGroups * i);
+    v11 = *(_QWORD *)(a1 + 48) + 16LL * (Group + TppMaximumGroups * i);
     if ( *(_WORD *)(v11 + 8) == (_WORD)Group )
     {
       v12 = *(_QWORD *)v11;
@@ -121,11 +116,11 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   }
   v13 = *(unsigned int *)(v3 + 352);
   v14 = *(unsigned __int16 *)(v3 + 362);
-  v67 = -1;
+  v62 = -1;
   v15 = -1;
   v16 = *(_DWORD *)(a1 + 428);
-  v68 = 0;
-  v75 = 0LL;
+  v63 = 0;
+  ThreadInformation = 0LL;
   if ( v6 == (_DWORD)v13 )
   {
     if ( v16 == -1 && !*(_BYTE *)(v3 + 360) )
@@ -145,40 +140,33 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
       _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * v6));
     }
     v50 = *(_QWORD *)(a1 + 48);
-    v51 = TppMaximumGroups * v6;
-    v52 = 1LL << Number;
-    v53 = 2LL * (unsigned int)(v51 + v14);
-    if ( ((1LL << Number) & *(_QWORD *)(v50 + 16LL * (unsigned int)(v51 + v14))) != 0 )
+    if ( ((1LL << Number) & *(_QWORD *)(v50 + 16LL * (TppMaximumGroups * v6 + v14))) != 0 )
     {
       v15 = v14;
     }
     else
     {
-      for ( i = 0LL; (unsigned __int16)i < (unsigned int)TppMaximumGroups; LOWORD(i) = i + 1 )
+      for ( j = 0; j < (unsigned int)TppMaximumGroups; ++j )
       {
-        if ( (_WORD)i != (_WORD)v14 )
+        if ( j != (_WORD)v14 && ((1LL << Number) & *(_QWORD *)(v50 + 16LL * (TppMaximumGroups * v6 + j))) != 0 )
         {
-          v53 = 2LL * ((unsigned int)v51 + (unsigned __int16)i);
-          if ( (v52 & *(_QWORD *)(v50 + 16LL * ((unsigned int)v51 + (unsigned __int16)i))) != 0 )
-          {
-            v15 = i;
-            break;
-          }
+          v15 = j;
+          break;
         }
       }
     }
     *(_DWORD *)(v3 + 352) = v6;
     *(_WORD *)(v3 + 362) = v15;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v53, i, v51, v52) )
-      v54 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v51 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v54 = 2147353478LL;
-    if ( *(_BYTE *)v54 )
+      v51 = 2147353478LL;
+    if ( *(_BYTE *)v51 )
       TppETWWorkerNodeSwitch(a1, v13, v6, (unsigned __int16)v14, v15);
-    NtSetInformationThread(-2LL, 30LL, &v75);
-    LOWORD(v68) = v15;
-    BYTE2(v68) = Number;
-    NtSetInformationThread(-2LL, 33LL, &v68);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, &ThreadInformation, 0x10u);
+    LOWORD(v63) = v15;
+    BYTE2(v63) = Number;
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessorEx, &v63, 4u);
   }
   v17 = v6;
   if ( *(_DWORD *)(a1 + 428) == -1 && *(_DWORD *)(v3 + 356) >= 0x10u && !(unsigned int)TppAreNodeWorkersSteadyState(a1) )
@@ -188,23 +176,23 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
 LABEL_44:
       if ( *(_BYTE *)(a1 + 377) )
         return 0LL;
-      v64 = 0LL;
-      v65 = (_QWORD *)(a1 + 16);
+      v59 = 0LL;
+      v60 = (_QWORD *)(a1 + 16);
 LABEL_110:
       ;
     }
-    while ( v64 > 2 );
+    while ( v59 > 2 );
     while ( 1 )
     {
-      v25 = TppQueueRemoveHead(*v65 + 24LL * v17);
+      v25 = TppQueueRemoveHead(*v60 + 24LL * v17);
       if ( v25 )
         break;
       if ( ++v17 >= TppNumberNodes )
         v17 = 0;
       if ( v17 == v6 )
       {
-        ++v64;
-        ++v65;
+        ++v59;
+        ++v60;
         goto LABEL_110;
       }
     }
@@ -212,33 +200,33 @@ LABEL_110:
   else
   {
     v18 = 0LL;
-    v70 = 0LL;
-    for ( j = (_QWORD *)(a1 + 16); ; j = v71 + 1 )
+    v65 = 0LL;
+    for ( k = (_QWORD *)(a1 + 16); ; k = v66 + 1 )
     {
-      v71 = j;
+      v66 = k;
       if ( v18 > 2 )
       {
-        v3 = v72;
+        v3 = v67;
         v17 = v6;
         goto LABEL_44;
       }
-      v20 = (volatile signed __int64 *)(*j + 24LL * v6);
-      v21 = (volatile signed __int32 *)(v20 + 2);
+      v20 = (volatile signed __int64 *)(*k + 24LL * v6);
+      v21 = (void *)(v20 + 2);
       SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
       if ( SchedulerSharedDataSlot )
       {
-        for ( k = 0; k < 8; ++k )
+        for ( m = 0; m < 8; ++m )
         {
-          v24 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * k];
-          if ( !*v24 )
+          v24 = &SchedulerSharedDataSlot[8 * m];
+          if ( !*(_QWORD *)v24 )
           {
             if ( v24 )
-              *v24 = v21;
+              *(_QWORD *)v24 = v21;
             break;
           }
         }
       }
-      if ( _interlockedbittestandset64(v21, 0LL) )
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v21, 0LL) )
         RtlpAcquireSRWLockExclusiveContended(v21);
       v25 = *v20;
       if ( *(volatile signed __int64 **)(*v20 + 8) != v20
@@ -270,12 +258,12 @@ LABEL_110:
           {
             while ( (v41 & 1) != 0 )
             {
-              v63 = _InterlockedCompareExchange64(v27, v41 - 4, v41);
-              v48 = v41 == v63;
-              v41 = v63;
+              v57 = _InterlockedCompareExchange64(v27, v41 - 4, v41);
+              v48 = v41 == v57;
+              v41 = v57;
               if ( v48 )
               {
-                v18 = v70;
+                v18 = v65;
                 goto LABEL_27;
               }
             }
@@ -286,9 +274,9 @@ LABEL_110:
             {
               do
               {
-                v66 = v45;
+                v61 = v45;
                 v45 = (_QWORD *)*v45;
-                v45[2] = v66;
+                v45[2] = v61;
                 v46 = v45[1];
               }
               while ( !v46 );
@@ -314,15 +302,15 @@ LABEL_110:
           do
           {
 LABEL_70:
-            v55 = *(_QWORD *)(v46 + 16);
-            v56 = *(_QWORD *)(v46 + 24);
+            v52 = *(_QWORD *)(v46 + 16);
+            v53 = *(_QWORD *)(v46 + 24);
             _interlockedbittestandset((volatile signed __int32 *)(v46 + 36), 2u);
             if ( !_interlockedbittestandreset((volatile signed __int32 *)(v46 + 36), 1u) )
-              ZwAlertThreadByThreadIdEx(v56, v43, v45, v44);
-            v46 = v55;
+              ZwAlertThreadByThreadIdEx(v53, v43, v45, v44);
+            v46 = v52;
           }
-          while ( v55 );
-          v18 = v70;
+          while ( v52 );
+          v18 = v65;
         }
       }
 LABEL_27:
@@ -330,9 +318,9 @@ LABEL_27:
       if ( v29 )
       {
         v30 = (unsigned __int64)v27 & 0x7FFFFFFFFFFFFFFCLL;
-        for ( m = 0; m < 8; ++m )
+        for ( n = 0; n < 8; ++n )
         {
-          v32 = &v29[8 * m];
+          v32 = &v29[8 * n];
           if ( (*(_QWORD *)v32 & 0x7FFFFFFFFFFFFFFCLL) == v30 )
           {
             if ( v32 )
@@ -340,9 +328,9 @@ LABEL_27:
               *v32 |= 2u;
               if ( v32[7] < 0 )
               {
-                v74[1] = 0LL;
-                v74[0] = (v32 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-                NtSetInformationThread(-2LL, 56LL, v74);
+                v69[1] = 0LL;
+                v69[0] = (v32 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+                NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, v69, 0x10u);
               }
               *(_QWORD *)v32 = 0LL;
             }
@@ -352,18 +340,18 @@ LABEL_27:
       }
       if ( (volatile signed __int64 *)v25 != v20 )
         break;
-      v70 = ++v18;
+      v65 = ++v18;
     }
-    v3 = v72;
+    v3 = v67;
     v17 = v6;
   }
-  *v73 = v25 - 16;
+  *v68 = v25 - 16;
   v33 = *(unsigned int *)(v3 + 352);
   v34 = *(_BYTE *)(v25 - 16 + 12);
   v35 = *(unsigned __int16 *)(v3 + 362);
   v36 = *(_DWORD *)(a1 + 428);
-  v69 = 0;
-  v76 = 0LL;
+  v64 = 0;
+  v71 = 0LL;
   if ( v17 == (_DWORD)v33 )
   {
     if ( v36 == -1 && !*(_BYTE *)(v3 + 360) )
@@ -382,41 +370,34 @@ LABEL_27:
         *(_BYTE *)(v3 + 360) = 1;
       _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * v17));
     }
-    v57 = *(_QWORD *)(a1 + 48);
-    v58 = TppMaximumGroups * v17;
-    v59 = 1LL << v34;
-    v60 = 2LL * (unsigned int)(v58 + v35);
-    if ( ((1LL << v34) & *(_QWORD *)(v57 + 16LL * (unsigned int)(v58 + v35))) != 0 )
+    v54 = *(_QWORD *)(a1 + 48);
+    if ( ((1LL << v34) & *(_QWORD *)(v54 + 16LL * (TppMaximumGroups * v17 + v35))) != 0 )
     {
-      n = (unsigned __int16)v35;
+      ii = v35;
 LABEL_80:
-      v67 = n;
+      v62 = ii;
     }
     else
     {
-      for ( n = 0LL; (unsigned __int16)n < (unsigned int)TppMaximumGroups; LOWORD(n) = n + 1 )
+      for ( ii = 0; ii < (unsigned int)TppMaximumGroups; ++ii )
       {
-        if ( (_WORD)n != (_WORD)v35 )
-        {
-          v60 = 2LL * ((unsigned int)v58 + (unsigned __int16)n);
-          if ( (v59 & *(_QWORD *)(v57 + 16LL * ((unsigned int)v58 + (unsigned __int16)n))) != 0 )
-            goto LABEL_80;
-        }
+        if ( ii != (_WORD)v35 && ((1LL << v34) & *(_QWORD *)(v54 + 16LL * (TppMaximumGroups * v17 + ii))) != 0 )
+          goto LABEL_80;
       }
-      n = 0xFFFFLL;
+      ii = -1;
     }
     *(_DWORD *)(v3 + 352) = v17;
-    *(_WORD *)(v3 + 362) = n;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v60, v58, v59, n) )
-      v62 = (__int64)NtCurrentPeb()->SharedData + 556;
+    *(_WORD *)(v3 + 362) = ii;
+    if ( RtlGetCurrentServiceSessionId() )
+      v56 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v62 = 2147353478LL;
-    if ( *(_BYTE *)v62 )
-      TppETWWorkerNodeSwitch(a1, v33, v17, (unsigned __int16)v35, v67);
-    NtSetInformationThread(-2LL, 30LL, &v76);
-    LOWORD(v69) = v67;
-    BYTE2(v69) = v34;
-    NtSetInformationThread(-2LL, 33LL, &v69);
+      v56 = 2147353478LL;
+    if ( *(_BYTE *)v56 )
+      TppETWWorkerNodeSwitch(a1, v33, v17, (unsigned __int16)v35, v62);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, &v71, 0x10u);
+    LOWORD(v64) = v62;
+    BYTE2(v64) = v34;
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessorEx, &v64, 4u);
   }
   if ( v17 == v6 )
   {

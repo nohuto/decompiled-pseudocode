@@ -8,56 +8,65 @@
  *     sub_18003F2C4 @ 0x18003F2C4 (sub_18003F2C4.c)
  */
 
-__int64 __fastcall sub_18003DF20(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall sub_18003DF20(PUNICODE_STRING FileName, PUNICODE_STRING StaticString, PUNICODE_STRING DynamicString)
 {
   bool v3; // r14
-  int v7; // r11d
-  int FullPathName_Ustr; // ebx
-  _QWORD *v9; // rcx
-  __int128 v10; // xmm0
-  unsigned __int16 v11; // ax
-  __int64 v13; // rax
-  __int128 v14; // [rsp+40h] [rbp-10h]
-  int v15; // [rsp+70h] [rbp+20h] BYREF
-  _OWORD *v16; // [rsp+88h] [rbp+38h] BYREF
+  RTL_PATH_TYPE v7; // r11d
+  NTSTATUS FullPathName_Ustr; // ebx
+  PUNICODE_STRING v9; // rcx
+  _UNICODE_STRING v10; // xmm0
+  USHORT v11; // ax
+  _OBJECT_BOUNDARY_DESCRIPTOR *v12; // rcx
+  PWCH Buffer; // rax
+  _UNICODE_STRING v15; // [rsp+40h] [rbp-10h]
+  RTL_PATH_TYPE InputPathType; // [rsp+70h] [rbp+20h] BYREF
+  PUNICODE_STRING StringUsed; // [rsp+88h] [rbp+38h] BYREF
 
-  v16 = 0LL;
+  StringUsed = 0LL;
   v3 = 0;
-  if ( !a1 || a3 && a3[1] )
+  if ( !FileName || DynamicString && DynamicString->Buffer )
   {
     FullPathName_Ustr = -1073741811;
   }
   else
   {
-    v7 = sub_18003F2C4(a1);
-    v15 = v7;
-    if ( ((v7 - 1) & 0xFFFFFFFA) != 0 || v7 == 5 )
+    v7 = (unsigned int)sub_18003F2C4(FileName);
+    InputPathType = v7;
+    if ( ((v7 - 1) & 0xFFFFFFFA) != 0 || v7 == RtlPathTypeRelative )
       goto LABEL_11;
-    FullPathName_Ustr = RtlGetFullPathName_UstrEx(a1, a2, (__int64)a3, &v16, 0LL, 0LL, &v15, 0LL);
+    FullPathName_Ustr = RtlGetFullPathName_UstrEx(
+                          FileName,
+                          StaticString,
+                          DynamicString,
+                          &StringUsed,
+                          0LL,
+                          0LL,
+                          &InputPathType,
+                          0LL);
     if ( FullPathName_Ustr >= 0 )
     {
-      v9 = v16;
-      v10 = *v16;
-      v14 = *v16;
-      if ( v15 == 6 && (v13 = *(_QWORD *)(a1 + 8), *(_WORD *)(v13 + 10) == 58) && *(_WORD *)(v13 + 12) == 92 )
+      v9 = StringUsed;
+      v10 = *StringUsed;
+      v15 = *StringUsed;
+      if ( InputPathType == RtlPathTypeLocalDevice && (Buffer = FileName->Buffer, Buffer[5] == 58) && Buffer[6] == 92 )
       {
-        *((_QWORD *)&v14 + 1) += 8LL;
-        *(_QWORD *)(a1 + 8) = v13 + 8;
-        *(_WORD *)a1 -= 8;
-        v11 = v14 - 8;
-        *(_WORD *)(a1 + 2) -= 8;
-        WORD1(v14) -= 8;
-        LOWORD(v14) = v14 - 8;
-        v10 = v14;
+        v15.Buffer += 4;
+        FileName->Buffer = Buffer + 4;
+        FileName->Length -= 8;
+        v11 = v15.Length - 8;
+        FileName->MaximumLength -= 8;
+        v15.MaximumLength -= 8;
+        v15.Length -= 8;
+        v10 = v15;
       }
       else
       {
-        v11 = *v16;
+        v11 = (USHORT)*StringUsed;
       }
-      if ( *(_WORD *)a1 > v11 )
+      if ( FileName->Length > v11 )
       {
-        v3 = v9 == a3;
-        *(_OWORD *)a1 = v10;
+        v3 = v9 == DynamicString;
+        *FileName = v10;
       }
 LABEL_11:
       FullPathName_Ustr = 0;
@@ -65,11 +74,12 @@ LABEL_11:
         return (unsigned int)FullPathName_Ustr;
     }
   }
-  if ( a3[1] )
+  v12 = (_OBJECT_BOUNDARY_DESCRIPTOR *)DynamicString->Buffer;
+  if ( v12 )
   {
-    RtlDeleteBoundaryDescriptor();
-    *a3 = 0LL;
-    a3[1] = 0LL;
+    RtlDeleteBoundaryDescriptor(v12);
+    *(_QWORD *)&DynamicString->Length = 0LL;
+    DynamicString->Buffer = 0LL;
   }
   return (unsigned int)FullPathName_Ustr;
 }

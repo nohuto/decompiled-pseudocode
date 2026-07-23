@@ -10,60 +10,60 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAddAtomEx(char *Src, size_t Size, _WORD *a3, unsigned int a4)
+NTSTATUS __cdecl NtAddAtomEx(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom, ULONG Flags)
 {
   size_t v6; // rbx
   char PreviousMode; // r15
-  char *v9; // r14
+  WCHAR *v9; // r14
   _WORD *v10; // rcx
-  __int64 result; // rax
-  __int16 v12; // [rsp+20h] [rbp-268h] BYREF
+  NTSTATUS result; // eax
+  USHORT v12; // [rsp+20h] [rbp-268h] BYREF
   __int64 v13; // [rsp+28h] [rbp-260h] BYREF
-  char *v14; // [rsp+30h] [rbp-258h]
+  PWSTR v14; // [rsp+30h] [rbp-258h]
   _WORD v15[256]; // [rsp+40h] [rbp-248h] BYREF
 
-  v6 = (unsigned int)Size;
+  v6 = Length;
   v13 = 0LL;
-  if ( (a4 & 0xFFFFFFFD) != 0 )
-    return 3221225485LL;
-  ExCallCallBack((__int64)Src, 2LL, (__int64)&v13);
+  if ( (Flags & 0xFFFFFFFD) != 0 )
+    return -1073741811;
+  ExCallCallBack((__int64)AtomName, 2LL, (__int64)&v13);
   if ( !v13 )
-    return 3221225506LL;
+    return -1073741790;
   if ( (unsigned int)v6 > 0x1FE )
-    return 3221225485LL;
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v9 = Src;
-  v14 = Src;
+  v9 = AtomName;
+  v14 = AtomName;
   if ( PreviousMode )
   {
-    if ( a3 )
+    if ( Atom )
     {
-      v10 = a3;
-      if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+      v10 = Atom;
+      if ( (unsigned __int64)Atom >= MmUserProbeAddress )
         v10 = (_WORD *)MmUserProbeAddress;
       *v10 = *v10;
       v9 = v14;
     }
-    if ( Src )
+    if ( AtomName )
     {
       if ( (_DWORD)v6 )
       {
-        if ( ((unsigned __int8)Src & 1) != 0 )
+        if ( ((unsigned __int8)AtomName & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)&Src[v6] > MmUserProbeAddress || &Src[v6] < Src )
+        if ( (unsigned __int64)AtomName + v6 > MmUserProbeAddress || (PWSTR)((char *)AtomName + v6) < AtomName )
           *(_BYTE *)MmUserProbeAddress = 0;
       }
-      v9 = (char *)v15;
-      v14 = (char *)v15;
-      memmove(v15, Src, v6);
+      v9 = v15;
+      v14 = v15;
+      memmove(v15, AtomName, v6);
       v15[v6 >> 1] = 0;
     }
   }
-  LODWORD(result) = RtlAddAtomToAtomTableEx(v13, v9, &v12, a4);
-  if ( a3 )
+  result = RtlAddAtomToAtomTableEx(v13, v9, &v12, Flags);
+  if ( Atom )
   {
-    if ( (int)result >= 0 )
-      *a3 = v12;
+    if ( result >= 0 )
+      *Atom = v12;
   }
-  return (unsigned int)result;
+  return result;
 }

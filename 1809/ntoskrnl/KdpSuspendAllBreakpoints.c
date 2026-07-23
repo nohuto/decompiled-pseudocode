@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpSuspendAllBreakpoints @ 0x140919280
+ * XREFs of KdpSuspendAllBreakpoints @ 0x14091A280
  * Callers:
- *     KdDisableDebuggerWithLock @ 0x1401936E4 (KdDisableDebuggerWithLock.c)
+ *     KdDisableDebuggerWithLock @ 0x140193824 (KdDisableDebuggerWithLock.c)
  * Callees:
- *     KdpLowWriteContent @ 0x140918F7C (KdpLowWriteContent.c)
+ *     KdpLowWriteContent @ 0x140919F7C (KdpLowWriteContent.c)
  */
 
 char KdpSuspendAllBreakpoints()
@@ -15,10 +15,10 @@ char KdpSuspendAllBreakpoints()
   for ( i = 1; i <= 0x20; ++i )
   {
     v1 = i - 1;
-    result = *((_DWORD *)&unk_140423240 + 10 * v1) & 5;
+    result = *((_DWORD *)&unk_140424340 + 10 * v1) & 5;
     if ( result == 1 )
     {
-      *((_DWORD *)&unk_140423240 + 10 * v1) |= 4u;
+      *((_DWORD *)&unk_140424340 + 10 * v1) |= 4u;
       result = KdpLowWriteContent(v1);
     }
   }

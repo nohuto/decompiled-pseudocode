@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaCvmMakeMdlDeviceShared @ 0x1406FFEB4
+ * XREFs of HalpDmaCvmMakeMdlDeviceShared @ 0x1406FDAF4
  * Callers:
- *     HalpDmaAllocateScatterMemory @ 0x140A8AB00 (HalpDmaAllocateScatterMemory.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140A86E40 (HalpDmaAllocateScatterMemory.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpDmaCvmSetPageShareability @ 0x1406FFFBC (HalpDmaCvmSetPageShareability.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpDmaCvmSetPageShareability @ 0x1406FDBFC (HalpDmaCvmSetPageShareability.c)
  */
 
 __int64 __fastcall HalpDmaCvmMakeMdlDeviceShared(__int64 a1, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall HalpDmaCvmMakeMdlDeviceShared(__int64 a1, __int64 a2, __int64
   v13 = 0LL;
   if ( *(_QWORD *)a1 )
     return 3221225474LL;
-  v5 = qword_140FC0AE8;
+  v5 = qword_140FC0D48;
   v6 = 0LL;
   v7 = (*(_DWORD *)(a1 + 40) >> 12) + (unsigned int)((*(_DWORD *)(a1 + 40) & 0xFFF) != 0);
   while ( 1 )

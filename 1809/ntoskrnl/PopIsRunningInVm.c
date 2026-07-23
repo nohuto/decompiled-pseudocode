@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIsRunningInVm @ 0x1402D6DC0
+ * XREFs of PopIsRunningInVm @ 0x1402D6FB0
  * Callers:
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
- *     HviGetHypervisorFeatures @ 0x14017D710 (HviGetHypervisorFeatures.c)
- *     HviGetEnlightenmentInformation @ 0x14017D750 (HviGetEnlightenmentInformation.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176CB0 (HviIsAnyHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x14017D850 (HviGetHypervisorFeatures.c)
+ *     HviGetEnlightenmentInformation @ 0x14017D890 (HviGetEnlightenmentInformation.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 bool PopIsRunningInVm()

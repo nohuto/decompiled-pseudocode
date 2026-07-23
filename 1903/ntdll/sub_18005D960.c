@@ -12,51 +12,48 @@
  *     ZwOpenFile @ 0x18009CD40 (ZwOpenFile.c)
  */
 
-__int64 __fastcall sub_18005D960(WCHAR a1)
+NTSTATUS __fastcall sub_18005D960(WCHAR a1)
 {
-  int v2; // ebx
-  __int64 v4; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 *v5; // [rsp+40h] [rbp-C8h]
-  __int64 v6; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v7; // [rsp+50h] [rbp-B8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-B0h] BYREF
-  _QWORD v9[3]; // [rsp+68h] [rbp-A0h] BYREF
-  int v10; // [rsp+80h] [rbp-88h]
-  __int128 v11; // [rsp+88h] [rbp-80h]
-  _BYTE v12[16]; // [rsp+98h] [rbp-70h] BYREF
+  NTSTATUS v2; // ebx
+  _UNICODE_STRING Value; // [rsp+38h] [rbp-D0h] BYREF
+  ULONG OldMode[2]; // [rsp+48h] [rbp-C0h] BYREF
+  HANDLE FileHandle; // [rsp+50h] [rbp-B8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-B0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-70h] BYREF
   WCHAR SourceString[2]; // [rsp+A8h] [rbp-60h] BYREF
-  int v14; // [rsp+ACh] [rbp-5Ch]
-  __int64 v15; // [rsp+B8h] [rbp-50h] BYREF
-  char v16; // [rsp+C0h] [rbp-48h] BYREF
+  int v11; // [rsp+ACh] [rbp-5Ch]
+  __int64 v12; // [rsp+B8h] [rbp-50h] BYREF
+  char v13; // [rsp+C0h] [rbp-48h] BYREF
 
   SourceString[1] = a1;
   SourceString[0] = 61;
-  v14 = 58;
+  v11 = 58;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  v15 = 0x5C003F003F005CLL;
-  LODWORD(v4) = 34078720;
-  v5 = (__int64 *)&v16;
-  if ( (int)RtlQueryEnvironmentVariable_U(0LL, (wchar_t **)&DestinationString, (__int64)&v4) < 0 )
+  v12 = 0x5C003F003F005CLL;
+  *(_DWORD *)&Value.Length = 34078720;
+  Value.Buffer = (PWCH)&v13;
+  if ( RtlQueryEnvironmentVariable_U(0LL, &DestinationString, &Value) < 0 )
   {
-    *(_WORD *)v5 = a1;
-    *((_WORD *)v5 + 1) = 58;
-    *((_WORD *)v5 + 2) = 92;
-    *((_WORD *)v5 + 3) = 0;
-    LOWORD(v4) = 6;
+    *Value.Buffer = a1;
+    Value.Buffer[1] = 58;
+    Value.Buffer[2] = 92;
+    Value.Buffer[3] = 0;
+    Value.Length = 6;
     return sub_18005D8C0(a1);
   }
-  LOWORD(v4) = v4 + 8;
-  LODWORD(v9[0]) = 48;
-  WORD1(v4) = 544;
-  v9[1] = 0LL;
-  v5 = &v15;
-  v10 = 64;
-  v9[2] = &v4;
-  v11 = 0LL;
-  RtlSetThreadErrorMode(16LL, &v6);
-  v2 = ZwOpenFile(&v7, 0x100000LL, v9, v12, 3, 33);
-  RtlSetThreadErrorMode((unsigned int)v6, 0LL);
+  Value.Length += 8;
+  ObjectAttributes.Length = 48;
+  Value.MaximumLength = 544;
+  ObjectAttributes.RootDirectory = 0LL;
+  Value.Buffer = (PWCH)&v12;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = &Value;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  RtlSetThreadErrorMode(0x10u, OldMode);
+  v2 = ZwOpenFile(&FileHandle, 0x100000u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
+  RtlSetThreadErrorMode(OldMode[0], 0LL);
   if ( v2 < 0 )
     return sub_18005D8C0(a1);
-  return ZwClose(v7);
+  return ZwClose(FileHandle);
 }

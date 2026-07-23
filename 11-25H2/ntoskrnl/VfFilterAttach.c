@@ -30,7 +30,7 @@ void __fastcall VfFilterAttach(PDEVICE_OBJECT TargetDevice, int a2)
   if ( !VfFilterCreated )
   {
     RtlInitUnicodeString(&DestinationString, L"\\DRIVER\\VERIFIER_FILTER");
-    IoCreateDriver(&DestinationString, (unsigned __int64)ViFilterDriverEntry);
+    IoCreateDriver(&DestinationString, ViFilterDriverEntry);
     VfFilterCreated = 1;
   }
   if ( VfFilterDriverObject )

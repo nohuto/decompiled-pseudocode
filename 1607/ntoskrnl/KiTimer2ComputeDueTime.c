@@ -1,7 +1,7 @@
 /*
- * XREFs of KiTimer2ComputeDueTime @ 0x1400EE418
+ * XREFs of KiTimer2ComputeDueTime @ 0x1400EC28C
  * Callers:
- *     KiExpireTimer2 @ 0x1400EC080 (KiExpireTimer2.c)
+ *     KiExpireTimer2 @ 0x1400E9EF0 (KiExpireTimer2.c)
  * Callees:
  *     <none>
  */

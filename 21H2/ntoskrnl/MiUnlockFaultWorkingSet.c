@@ -1,25 +1,24 @@
 /*
- * XREFs of MiUnlockFaultWorkingSet @ 0x14028DD1C
+ * XREFs of MiUnlockFaultWorkingSet @ 0x14020AEBC
  * Callers:
- *     MiSoftFaultMappedView @ 0x14028D5A0 (MiSoftFaultMappedView.c)
- *     MiWaitForRotateToComplete @ 0x1402D2AF0 (MiWaitForRotateToComplete.c)
- *     MiCheckHoldFaultForHotPatch @ 0x14053E2DC (MiCheckHoldFaultForHotPatch.c)
+ *     MiSoftFaultMappedView @ 0x14020A740 (MiSoftFaultMappedView.c)
+ *     MiWaitForRotateToComplete @ 0x140251070 (MiWaitForRotateToComplete.c)
+ *     MiCheckHoldFaultForHotPatch @ 0x14053E51C (MiCheckHoldFaultForHotPatch.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
  */
 
-void __fastcall MiUnlockFaultWorkingSet(__int64 a1)
+__int64 __fastcall MiUnlockFaultWorkingSet(__int64 *a1, __int64 a2)
 {
-  unsigned __int8 v1; // dl
   bool v2; // zf
   __int64 v3; // rcx
 
-  v1 = *(_BYTE *)(a1 + 12);
-  v2 = (*(_BYTE *)(a1 + 13) & 1) == 0;
-  v3 = *(_QWORD *)a1;
+  LOBYTE(a2) = *((_BYTE *)a1 + 12);
+  v2 = (*((_BYTE *)a1 + 13) & 1) == 0;
+  v3 = *a1;
   if ( v2 )
-    MiUnlockWorkingSetShared(v3, v1);
+    return MiUnlockWorkingSetShared(v3, a2);
   else
-    MiUnlockWorkingSetExclusive(v3, v1);
+    return MiUnlockWorkingSetExclusive(v3, a2);
 }

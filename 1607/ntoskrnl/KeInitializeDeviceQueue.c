@@ -1,8 +1,8 @@
 /*
- * XREFs of KeInitializeDeviceQueue @ 0x14007F188
+ * XREFs of KeInitializeDeviceQueue @ 0x14007F208
  * Callers:
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     IoCreateController @ 0x14057F5FC (IoCreateController.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     IoCreateController @ 0x14057FAA8 (IoCreateController.c)
  * Callees:
  *     <none>
  */

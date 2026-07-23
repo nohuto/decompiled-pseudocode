@@ -7,14 +7,14 @@
  *     RtlRestoreBootStatusDefaults @ 0x1800EDCE0 (RtlRestoreBootStatusDefaults.c)
  *     RtlpHpOptIntoSegmentHeap @ 0x18010C8E4 (RtlpHpOptIntoSegmentHeap.c)
  * Callees:
- *     RtlpGetNtProductTypeFromRegistry @ 0x18008AEB0 (RtlpGetNtProductTypeFromRegistry.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x18008AEC0 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   _DWORD *SharedData; // rcx
-  int v4; // eax
+  _NT_PRODUCT_TYPE v4; // eax
 
   v2 = 0;
   SharedData = NtCurrentPeb()->SharedData;
@@ -27,12 +27,12 @@ char __fastcall RtlGetNtProductType(_DWORD *a1)
   {
     v4 = MEMORY[0x7FFE0264];
 LABEL_4:
-    *a1 = v4;
+    *NtProductType = v4;
     return 1;
   }
-  if ( (int)RtlpGetNtProductTypeFromRegistry(a1) < 0 )
+  if ( (int)RtlpGetNtProductTypeFromRegistry(NtProductType) < 0 )
   {
-    *a1 = 1;
+    *NtProductType = NtProductWinNt;
     return v2;
   }
   return 1;

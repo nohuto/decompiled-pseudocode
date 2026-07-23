@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x1407FA8A4
+ * XREFs of CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x1407FBAA4
  * Callers:
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F4E14 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpPromoteSubtree @ 0x140805B3C (CmpPromoteSubtree.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F6014 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpPromoteSubtree @ 0x140806D3C (CmpPromoteSubtree.c)
  * Callees:
  *     <none>
  */

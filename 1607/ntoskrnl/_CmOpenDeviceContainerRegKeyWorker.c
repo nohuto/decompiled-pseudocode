@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmOpenDeviceContainerRegKeyWorker @ 0x1404867A4
+ * XREFs of _CmOpenDeviceContainerRegKeyWorker @ 0x1405135B4
  * Callers:
- *     _CmOpenDeviceContainerRegKey @ 0x140486698 (_CmOpenDeviceContainerRegKey.c)
+ *     _CmOpenDeviceContainerRegKey @ 0x1405134A8 (_CmOpenDeviceContainerRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x140486980 (_CmGetDeviceContainerRegKeyPath.c)
- *     _PnpCtxRegCreateTree @ 0x1404FA7B8 (_PnpCtxRegCreateTree.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D710C (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxRegCreateTree @ 0x1404DD744 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x140513790 (_CmGetDeviceContainerRegKeyPath.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D7244 (_PnpCtxRegOpenCurrentUserKey.c)
  */
 
 __int64 __fastcall CmOpenDeviceContainerRegKeyWorker(
@@ -20,7 +20,7 @@ __int64 __fastcall CmOpenDeviceContainerRegKeyWorker(
         int a2,
         int a3,
         int a4,
-        int a5,
+        unsigned int a5,
         char a6,
         __int64 a7,
         _DWORD *a8)
@@ -31,16 +31,16 @@ __int64 __fastcall CmOpenDeviceContainerRegKeyWorker(
   __int64 v14; // rdx
   __int64 v15; // r8
   int v16; // r9d
-  NTSTATUS DeviceContainerRegKeyPath; // ebx
-  int v18; // r14d
-  int v19; // edx
+  int DeviceContainerRegKeyPath; // ebx
+  __int64 v18; // r14
+  HANDLE v19; // rdx
   __int64 v20; // rcx
   int Tree; // ecx
   unsigned __int64 v23; // rax
   int v24; // [rsp+20h] [rbp-40h]
   size_t cchDest; // [rsp+30h] [rbp-30h]
   HANDLE Handle; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v27; // [rsp+48h] [rbp-18h] BYREF
+  void *v27; // [rsp+48h] [rbp-18h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
   __int64 v29; // [rsp+A8h] [rbp+48h] BYREF
 
@@ -84,11 +84,11 @@ LABEL_6:
     goto LABEL_22;
   if ( (a3 & 0x100) != 0 )
   {
-    v18 = (int)pszDest;
+    v18 = (__int64)pszDest;
     DeviceContainerRegKeyPath = PnpCtxRegOpenCurrentUserKey(a1, v14, v15, &Handle);
     if ( DeviceContainerRegKeyPath < 0 )
       goto LABEL_22;
-    v19 = (int)Handle;
+    v19 = Handle;
     goto LABEL_14;
   }
   DeviceContainerRegKeyPath = RtlInitUnicodeStringEx(&DestinationString, pszDest);
@@ -102,23 +102,23 @@ LABEL_36:
     DeviceContainerRegKeyPath = -1073741811;
     goto LABEL_22;
   }
-  v18 = (_DWORD)pszDest + 50;
-  DeviceContainerRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, 4LL, &v27);
+  v18 = (__int64)(pszDest + 25);
+  DeviceContainerRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, 4, (__int64 *)&v27);
   if ( DeviceContainerRegKeyPath < 0 )
     goto LABEL_22;
   v19 = v27;
 LABEL_14:
   if ( a6 )
   {
-    Tree = PnpCtxRegCreateTree((_DWORD)a1, v19, v18, 0, a5, 0LL, a7, (__int64)a8);
+    Tree = PnpCtxRegCreateTree(a1);
   }
   else
   {
     if ( a1 )
       v20 = *a1;
     else
-      LODWORD(v20) = 0;
-    Tree = SysCtxRegOpenKey(v20, v19, v18, 0, a5, a7);
+      v20 = 0LL;
+    Tree = SysCtxRegOpenKey(v20, (__int64)v19, v18, 0, a5, a7);
     if ( Tree >= 0 )
       *a8 = 2;
   }

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCompareKeysByName @ 0x140A4D6E4
+ * XREFs of CmpCompareKeysByName @ 0x140A44274
  * Callers:
- *     CmpFindSubKeyByNumberFromMergedView @ 0x14087BB00 (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmpKeyEnumStackAdvanceInternal @ 0x140916AD0 (CmpKeyEnumStackAdvanceInternal.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x140916DD4 (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryBegin @ 0x140916FE0 (CmpKeyEnumStackEntryBegin.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x14087F9B0 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x14090A540 (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14090A844 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x14090AA50 (CmpKeyEnumStackEntryBegin.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     CmpCompareTwoCompressedNames @ 0x14086CFA0 (CmpCompareTwoCompressedNames.c)
- *     CmpCompareCompressedName @ 0x140950BA0 (CmpCompareCompressedName.c)
- *     CmpCompareUnicodeString @ 0x140A03D60 (CmpCompareUnicodeString.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     CmpCompareTwoCompressedNames @ 0x1408712D0 (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareCompressedName @ 0x140940E20 (CmpCompareCompressedName.c)
+ *     CmpCompareUnicodeString @ 0x140A00290 (CmpCompareUnicodeString.c)
  */
 
 __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)

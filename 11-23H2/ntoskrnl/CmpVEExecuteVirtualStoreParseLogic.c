@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A404
+ * XREFs of CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A6B4
  * Callers:
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
  *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
  *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
  *     CmpFindPathByNameEx @ 0x14067EED0 (CmpFindPathByNameEx.c)
- *     CmpBlockHiveWrites @ 0x140A137A4 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x140A13974 (CmpUnblockHiveWrites.c)
- *     CmVirtualKCBToRealPath @ 0x140A18808 (CmVirtualKCBToRealPath.c)
- *     CmpVirtualBranchIsReplicated @ 0x140A1A62C (CmpVirtualBranchIsReplicated.c)
- *     CmpUnicodeStringAppendCharacter @ 0x140A1F794 (CmpUnicodeStringAppendCharacter.c)
+ *     CmpBlockHiveWrites @ 0x140A13A54 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A13C24 (CmpUnblockHiveWrites.c)
+ *     CmVirtualKCBToRealPath @ 0x140A18AB8 (CmVirtualKCBToRealPath.c)
+ *     CmpVirtualBranchIsReplicated @ 0x140A1A8DC (CmpVirtualBranchIsReplicated.c)
+ *     CmpUnicodeStringAppendCharacter @ 0x140A1FA44 (CmpUnicodeStringAppendCharacter.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

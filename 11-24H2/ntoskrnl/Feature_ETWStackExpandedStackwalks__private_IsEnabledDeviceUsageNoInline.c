@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_ETWStackExpandedStackwalks__private_IsEnabledDeviceUsageNoInline @ 0x1403EE684
+ * XREFs of Feature_ETWStackExpandedStackwalks__private_IsEnabledDeviceUsageNoInline @ 0x1403DE574
  * Callers:
- *     EtwpExpandStackAndWalkFrameChain @ 0x1403ED390 (EtwpExpandStackAndWalkFrameChain.c)
- *     EtwpTraceStackWalk @ 0x1403EDBD0 (EtwpTraceStackWalk.c)
+ *     EtwpExpandStackAndWalkFrameChain @ 0x1403DD360 (EtwpExpandStackAndWalkFrameChain.c)
+ *     EtwpTraceStackWalk @ 0x1403DDBA0 (EtwpTraceStackWalk.c)
  * Callees:
- *     Feature_ETWStackExpandedStackwalks__private_IsEnabledFallback @ 0x1404FB4CC (Feature_ETWStackExpandedStackwalks__private_IsEnabledFallback.c)
+ *     Feature_ETWStackExpandedStackwalks__private_IsEnabledFallback @ 0x1404F8DAC (Feature_ETWStackExpandedStackwalks__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ETWStackExpandedStackwalks__private_IsEnabledDeviceUsageNoInline()

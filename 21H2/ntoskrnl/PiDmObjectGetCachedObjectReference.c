@@ -1,25 +1,21 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectReference @ 0x1406B2EC0
+ * XREFs of PiDmObjectGetCachedObjectReference @ 0x140611F80
  * Callers:
- *     PiDmObjectGetCachedObjectProperty @ 0x1406368E0 (PiDmObjectGetCachedObjectProperty.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x14074AA30 (PiDmGetReferencedObjectFromProperty.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x14062B6F0 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x14074ABF0 (PiDmGetReferencedObjectFromProperty.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     PiDmGetCacheKeys @ 0x140636F9C (PiDmGetCacheKeys.c)
- *     PiDmGetCachedKeyIndex @ 0x140636FEC (PiDmGetCachedKeyIndex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PiDmGetObject @ 0x14062B87C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     PiDmGetCacheKeys @ 0x14062BDAC (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x14062BDFC (PiDmGetCachedKeyIndex.c)
  */
 
-__int64 __fastcall PiDmObjectGetCachedObjectReference(
-        unsigned int a1,
-        __int64 a2,
-        ULONG_PTR a3,
-        __int64 a4,
-        _QWORD *a5)
+__int64 __fastcall PiDmObjectGetCachedObjectReference(__int64 a1, __int64 a2, ULONG_PTR a3, __int64 a4, _QWORD *a5)
 {
+  unsigned int v7; // r14d
   int Object; // ebx
   char v9; // si
   __int64 v10; // r9
@@ -30,25 +26,29 @@ __int64 __fastcall PiDmObjectGetCachedObjectReference(
   ULONG_PTR v15; // rdi
   int v16; // eax
   __int64 v17; // rcx
-  unsigned int v19; // [rsp+20h] [rbp-28h] BYREF
-  DEVPROPKEY **v20; // [rsp+28h] [rbp-20h] BYREF
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  unsigned int v22; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v23[4]; // [rsp+28h] [rbp-20h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp+18h] BYREF
 
   BugCheckParameter2 = a3;
-  v20 = 0LL;
-  v19 = 0;
+  v23[0] = 0LL;
+  v22 = 0;
+  v7 = a1;
   Object = -1073741802;
   v9 = 0;
-  PiDmGetCacheKeys(a1, &v20, &v19);
-  if ( v19 )
+  PiDmGetCacheKeys(a1, v23, &v22);
+  if ( v22 )
   {
-    CachedKeyIndex = PiDmGetCachedKeyIndex((__int64)v20, v19, v10);
+    CachedKeyIndex = PiDmGetCachedKeyIndex(v23[0], v22, v10);
     v12 = CachedKeyIndex;
     if ( CachedKeyIndex < v13 )
     {
       if ( !a3 )
       {
-        Object = PiDmGetObject(a1, a2, (__int64 *)&BugCheckParameter2);
+        Object = PiDmGetObject(v7, a2, &BugCheckParameter2);
         if ( Object < 0 )
           return (unsigned int)Object;
         v9 = 1;
@@ -75,9 +75,9 @@ __int64 __fastcall PiDmObjectGetCachedObjectReference(
         Object = -1073741802;
       }
       ExReleasePushLockEx(v15, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
       if ( v9 )
-        PiDmObjectRelease((unsigned int *)BugCheckParameter2);
+        PiDmObjectRelease((PVOID)BugCheckParameter2);
     }
   }
   return (unsigned int)Object;

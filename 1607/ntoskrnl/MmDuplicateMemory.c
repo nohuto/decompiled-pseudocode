@@ -5,43 +5,43 @@
  *     IopLiveDumpCaptureMemoryPages @ 0x1403DA8AC (IopLiveDumpCaptureMemoryPages.c)
  *     IopLiveDumpEstimateMemoryPages @ 0x1403DAE30 (IopLiveDumpEstimateMemoryPages.c)
  *     PnprInitiateReplaceOperation @ 0x1403DBA90 (PnprInitiateReplaceOperation.c)
- *     MmCreateMirror @ 0x140658F98 (MmCreateMirror.c)
+ *     MmCreateMirror @ 0x14065907C (MmCreateMirror.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiIsDecayPfn @ 0x1400A3DF8 (MiIsDecayPfn.c)
- *     CcNotifyWriteBehind @ 0x1400AB9E0 (CcNotifyWriteBehind.c)
- *     MmUnlockPagableImageSection @ 0x1400AC6FC (MmUnlockPagableImageSection.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiLockAllMemoryLists @ 0x140112200 (MiLockAllMemoryLists.c)
- *     MiMirrorNodeLargePages @ 0x14011246C (MiMirrorNodeLargePages.c)
- *     MiResumeFromHibernate @ 0x1401126A0 (MiResumeFromHibernate.c)
- *     MiUnlockAllMemoryLists @ 0x1401127C8 (MiUnlockAllMemoryLists.c)
- *     RtlInterlockedClearBitRunEx @ 0x140112998 (RtlInterlockedClearBitRunEx.c)
- *     RtlFindNextForwardRunClearEx @ 0x1401129E8 (RtlFindNextForwardRunClearEx.c)
- *     RtlFindSetBitsEx @ 0x1401129F0 (RtlFindSetBitsEx.c)
- *     MiDiscardTransitionPte @ 0x1401238C0 (MiDiscardTransitionPte.c)
- *     MiLockDynamicMemoryExclusive @ 0x140132E08 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x140132E74 (MiUnlockDynamicMemoryExclusive.c)
- *     MiLockPage @ 0x1401593D8 (MiLockPage.c)
- *     MmEmptyAllWorkingSets @ 0x1401EA3D8 (MmEmptyAllWorkingSets.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MiUnlockPage @ 0x1401F2B80 (MiUnlockPage.c)
- *     RtlInterlockedSetBitRunEx @ 0x140213024 (RtlInterlockedSetBitRunEx.c)
- *     MmLockPagableSectionByHandle @ 0x1404DC9CC (MmLockPagableSectionByHandle.c)
- *     MiUpdateMirrorBitmaps @ 0x14052F194 (MiUpdateMirrorBitmaps.c)
- *     MiActOnMirrorBitmap @ 0x14052F1D0 (MiActOnMirrorBitmap.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiIsDecayPfn @ 0x1400A2720 (MiIsDecayPfn.c)
+ *     CcNotifyWriteBehind @ 0x1400A9F48 (CcNotifyWriteBehind.c)
+ *     MmUnlockPagableImageSection @ 0x1400AAC64 (MmUnlockPagableImageSection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiLockAllMemoryLists @ 0x140112770 (MiLockAllMemoryLists.c)
+ *     MiMirrorNodeLargePages @ 0x1401129DC (MiMirrorNodeLargePages.c)
+ *     MiResumeFromHibernate @ 0x140112C10 (MiResumeFromHibernate.c)
+ *     MiUnlockAllMemoryLists @ 0x140112D38 (MiUnlockAllMemoryLists.c)
+ *     RtlInterlockedClearBitRunEx @ 0x140112F08 (RtlInterlockedClearBitRunEx.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140112F58 (RtlFindNextForwardRunClearEx.c)
+ *     RtlFindSetBitsEx @ 0x140112F60 (RtlFindSetBitsEx.c)
+ *     MiDiscardTransitionPte @ 0x140123E30 (MiDiscardTransitionPte.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140133378 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1401333E4 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockPage @ 0x140159948 (MiLockPage.c)
+ *     MmEmptyAllWorkingSets @ 0x1401EA204 (MmEmptyAllWorkingSets.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MiUnlockPage @ 0x1401F29AC (MiUnlockPage.c)
+ *     RtlInterlockedSetBitRunEx @ 0x140212E50 (RtlInterlockedSetBitRunEx.c)
+ *     MmLockPagableSectionByHandle @ 0x1404BFFD0 (MmLockPagableSectionByHandle.c)
+ *     MiUpdateMirrorBitmaps @ 0x14052F6D4 (MiUpdateMirrorBitmaps.c)
+ *     MiActOnMirrorBitmap @ 0x14052F710 (MiActOnMirrorBitmap.c)
  */
 
 __int64 __fastcall MmDuplicateMemory(__int64 a1)
@@ -74,13 +74,13 @@ __int64 __fastcall MmDuplicateMemory(__int64 a1)
   unsigned __int64 *v27; // r14
   unsigned __int64 j; // rdi
   unsigned __int64 v29; // rdi
-  unsigned __int64 v30; // r14
+  ULONG64 v30; // r14
   int v31; // ebp
   unsigned __int64 v32; // rsi
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   unsigned __int64 v34; // r15
   unsigned __int64 NextForwardRunClear; // rax
-  __int64 v36; // r14
+  unsigned __int64 SizeOfBitMap; // r14
   unsigned __int64 v37; // rdi
   unsigned __int64 v38; // r14
   __int64 v39; // rsi
@@ -114,18 +114,18 @@ __int64 __fastcall MmDuplicateMemory(__int64 a1)
   __int64 v67; // r8
   __int64 v68; // r9
   unsigned __int64 v69; // rsi
-  unsigned __int64 v70; // rdi
-  unsigned __int64 v71; // rax
-  unsigned __int64 v72; // rbp
+  ULONG64 v70; // rdi
+  ULONG64 v71; // rax
+  ULONG64 v72; // rbp
   unsigned __int64 v73; // rax
-  __int64 v74; // rdi
+  unsigned __int64 v74; // rdi
   unsigned __int64 v75; // r14
   unsigned __int64 v76; // rdi
-  unsigned __int64 v77; // rdi
-  unsigned __int64 v78; // rax
-  unsigned __int64 v79; // rbp
+  ULONG64 v77; // rdi
+  ULONG64 v78; // rax
+  ULONG64 v79; // rbp
   unsigned __int64 v80; // rax
-  __int64 v81; // rdi
+  unsigned __int64 v81; // rdi
   unsigned __int64 v82; // r14
   unsigned __int64 v83; // rdi
   int v84; // eax
@@ -137,7 +137,7 @@ __int64 __fastcall MmDuplicateMemory(__int64 a1)
   unsigned __int64 v90; // [rsp+48h] [rbp-90h]
   int v91; // [rsp+50h] [rbp-88h]
   int v92; // [rsp+54h] [rbp-84h]
-  __int64 v93; // [rsp+58h] [rbp-80h] BYREF
+  unsigned __int64 v93; // [rsp+58h] [rbp-80h] BYREF
   __int64 v94; // [rsp+60h] [rbp-78h]
   int v95; // [rsp+68h] [rbp-70h]
   _QWORD *v96; // [rsp+70h] [rbp-68h]
@@ -170,28 +170,28 @@ __int64 __fastcall MmDuplicateMemory(__int64 a1)
   v85 = v4;
   v92 = 0;
   v88 = 0;
-  KeWaitForSingleObject(&stru_140327020, WrVirtualMemory, 0, 0, 0LL);
+  KeWaitForSingleObject(&stru_140327060, WrVirtualMemory, 0, 0, 0LL);
   CurrentThread = KeGetCurrentThread();
   v6 = 8;
   v89 = (__int64)CurrentThread;
   v99 = 8;
   --CurrentThread->SpecialApcDisable;
-  v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326FB8, 0LL, 0);
+  v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326FF8, 0LL, 0);
   v8 = v7;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326FB8, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&qword_140326FB8, v7, (ULONG_PTR)&qword_140326FB8);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326FF8, 0LL) )
+    ExfAcquirePushLockExclusiveEx(&qword_140326FF8, v7, (ULONG_PTR)&qword_140326FF8);
   if ( v8 )
     v8[26] |= 1u;
   MiLockDynamicMemoryExclusive((__int64)MiSystemPartition, (__int64)CurrentThread);
   if ( (MiFlags & 4) == 0 )
     MmLockPagableSectionByHandle(ExPageLockHandle);
-  _InterlockedAdd(&dword_140327788, 1u);
+  _InterlockedAdd(&dword_1403277C8, 1u);
   if ( !(unsigned int)MiUpdateMirrorBitmaps() )
   {
     v9 = -1073741670;
     goto LABEL_187;
   }
-  MiActOnMirrorBitmap(&qword_140327078, 1LL);
+  MiActOnMirrorBitmap(&stru_1403270B8, 1LL);
   v103 = 1;
   v10 = 0;
   v91 = 0;
@@ -226,11 +226,11 @@ LABEL_24:
   v95 = v13;
   while ( 2 )
   {
-    MiActOnMirrorBitmap(&qword_140327068, 2LL);
+    MiActOnMirrorBitmap(&stru_1403270A8, 2LL);
     if ( v10 == v4 )
     {
       v88 = 1;
-      _InterlockedAdd(&dword_140327668, 1u);
+      _InterlockedAdd(&dword_1403276A8, 1u);
     }
     if ( v13 )
     {
@@ -243,7 +243,7 @@ LABEL_24:
       v14 = 0;
     }
     v100 = 0;
-    dword_140327060 = 1;
+    dword_1403270A0 = 1;
     v15 = 0;
     v16 = v12;
     if ( v12 <= 4 )
@@ -257,7 +257,7 @@ LABEL_24:
           v17 = &MiSystemPartition[8 * v14 + 496 + 2 * v14];
         if ( v16 != 3 )
           goto LABEL_41;
-        if ( *(_QWORD *)v17 != qword_1403251F0 )
+        if ( *(_QWORD *)v17 != qword_140325230 )
           break;
 LABEL_57:
         if ( ++v16 > 4 )
@@ -278,19 +278,19 @@ LABEL_41:
             for ( i = MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE(v20 + 2, v19, v21, v22); i != v18; i = *v24 & 0xFFFFFFFFFLL )
             {
               v24 = (_QWORD *)(v19 + 48 * i);
-              if ( _bittest64((const signed __int64 *)qword_140327080, i) )
+              if ( _bittest64((const signed __int64 *)stru_1403270B8.Buffer, i) )
               {
-                RtlInterlockedClearBitRunEx((__int64)&qword_140327078, i, 1uLL);
+                RtlInterlockedClearBitRunEx((__int64)&stru_1403270B8, i, 1uLL);
                 v19 = 0xFFFFFA8000000000uLL;
-                _bittestandset64((signed __int64 *)qword_140327070, i);
+                _bittestandset64((signed __int64 *)stru_1403270A8.Buffer, i);
               }
             }
           }
-          else if ( _bittest64((const signed __int64 *)qword_140327080, v18) )
+          else if ( _bittest64((const signed __int64 *)stru_1403270B8.Buffer, v18) )
           {
-            RtlInterlockedClearBitRunEx((__int64)&qword_140327078, v18, 1uLL);
+            RtlInterlockedClearBitRunEx((__int64)&stru_1403270B8, v18, 1uLL);
             v19 = 0xFFFFFA8000000000uLL;
-            _bittestandset64((signed __int64 *)qword_140327070, v18);
+            _bittestandset64((signed __int64 *)stru_1403270A8.Buffer, v18);
           }
           v18 = *v20 & 0xFFFFFFFFFLL;
         }
@@ -316,7 +316,7 @@ LABEL_41:
       else
       {
         v100 = ++v15;
-        if ( v15 >= dword_1403269FC )
+        if ( v15 >= dword_140326A3C )
         {
           v100 = 0;
           v15 = 0;
@@ -331,33 +331,33 @@ LABEL_41:
       goto LABEL_57;
     }
 LABEL_58:
-    KeAcquireInStackQueuedSpinLock(&qword_1403251A0, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_1403251E0, &LockHandle);
     v26 = 16LL;
-    v27 = (unsigned __int64 *)&unk_140323E90;
+    v27 = (unsigned __int64 *)&unk_140323ED0;
     do
     {
       for ( j = *v27; j != 0xFFFFFFFFFLL; j = *(_QWORD *)(48 * j - 0x58000000000LL) & 0xFFFFFFFFFLL )
       {
-        if ( _bittest64((const signed __int64 *)qword_140327080, j) )
+        if ( _bittest64((const signed __int64 *)stru_1403270B8.Buffer, j) )
         {
-          RtlInterlockedClearBitRunEx((__int64)&qword_140327078, j, 1uLL);
-          _bittestandset64((signed __int64 *)qword_140327070, j);
+          RtlInterlockedClearBitRunEx((__int64)&stru_1403270B8, j, 1uLL);
+          _bittestandset64((signed __int64 *)stru_1403270A8.Buffer, j);
         }
       }
       v27 += 5;
       --v26;
     }
     while ( v26 );
-    v29 = qword_140323E50;
+    v29 = qword_140323E90;
     LOBYTE(v1) = v87;
-    if ( qword_140323E50 != 0xFFFFFFFFFLL )
+    if ( qword_140323E90 != 0xFFFFFFFFFLL )
     {
       do
       {
-        if ( _bittest64((const signed __int64 *)qword_140327080, v29) )
+        if ( _bittest64((const signed __int64 *)stru_1403270B8.Buffer, v29) )
         {
-          RtlInterlockedClearBitRunEx((__int64)&qword_140327078, v29, 1uLL);
-          _bittestandset64((signed __int64 *)qword_140327070, v29);
+          RtlInterlockedClearBitRunEx((__int64)&stru_1403270B8, v29, 1uLL);
+          _bittestandset64((signed __int64 *)stru_1403270A8.Buffer, v29);
         }
         v29 = *(_QWORD *)(48 * v29 - 0x58000000000LL) & 0xFFFFFFFFFLL;
       }
@@ -372,22 +372,22 @@ LABEL_58:
     v32 = 0LL;
     do
     {
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)&qword_140327068, 1uLL, v30);
+      SetBits = RtlFindSetBitsEx(&stru_1403270A8, 1uLL, v30);
       v34 = SetBits;
       if ( SetBits < v30 || SetBits == -1LL )
         break;
-      NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)&qword_140327068, SetBits, (unsigned __int64 *)&v93);
-      v36 = v93;
+      NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)&stru_1403270A8, SetBits, &v93);
+      SizeOfBitMap = v93;
       v37 = NextForwardRunClear;
       v94 = NextForwardRunClear;
       if ( !NextForwardRunClear )
-        v36 = qword_140327068;
-      v38 = v36 - v34;
+        SizeOfBitMap = stru_1403270A8.SizeOfBitMap;
+      v38 = SizeOfBitMap - v34;
       if ( (v1 & 8) == 0 )
         goto LABEL_107;
       if ( v31 == 1 )
       {
-        RtlInterlockedSetBitRunEx((__int64)&qword_140327078, v34, v38);
+        RtlInterlockedSetBitRunEx((__int64)&stru_1403270B8, v34, v38);
         v30 = v34 + v37 + v38;
         continue;
       }
@@ -417,7 +417,7 @@ LABEL_58:
           MiPfnReferenceCountIsZero(v41, v30);
           goto LABEL_104;
         }
-        RtlInterlockedClearBitRunEx((__int64)&qword_140327078, v30, 1uLL);
+        RtlInterlockedClearBitRunEx((__int64)&stru_1403270B8, v30, 1uLL);
         MiUnlockPage(v41, v43);
         if ( v39 == -1 )
           v39 = v30;
@@ -461,8 +461,8 @@ LABEL_107:
       if ( v9 < 0 )
       {
         if ( v88 == 1 )
-          _InterlockedAdd(&dword_140327668, 0xFFFFFFFF);
-        dword_140327060 = 0;
+          _InterlockedAdd(&dword_1403276A8, 0xFFFFFFFF);
+        dword_1403270A0 = 0;
         goto LABEL_186;
       }
       v31 = v101;
@@ -470,7 +470,7 @@ LABEL_107:
 LABEL_112:
       v32 = v90;
     }
-    while ( v30 < qword_140327068 );
+    while ( v30 < stru_1403270A8.SizeOfBitMap );
     v53 = v88;
     if ( v88 != 1 && v32 >= 0x400 )
     {
@@ -487,7 +487,7 @@ LABEL_112:
   }
   if ( (v1 & 2) == 0 && v88 == 1 )
   {
-    _InterlockedAdd(&dword_140327668, 0xFFFFFFFF);
+    _InterlockedAdd(&dword_1403276A8, 0xFFFFFFFF);
     v53 = 0;
   }
   CurrentIrql = KeGetCurrentIrql();
@@ -496,23 +496,23 @@ LABEL_112:
   if ( v9 < 0 )
   {
     if ( v53 == 1 )
-      _InterlockedAdd(&dword_140327668, 0xFFFFFFFF);
-    dword_140327060 = 0;
+      _InterlockedAdd(&dword_1403276A8, 0xFFFFFFFF);
+    dword_1403270A0 = 0;
 LABEL_127:
     __writecr8(CurrentIrql);
     goto LABEL_186;
   }
   v56 = KeGetCurrentIrql();
   if ( *(_QWORD *)(a1 + 24) )
-    MiActOnMirrorBitmap(&qword_140327068, 1LL);
+    MiActOnMirrorBitmap(&stru_1403270A8, 1LL);
   if ( v56 < 2u )
     __writecr8(2uLL);
   MiLockAllMemoryLists();
-  qword_140327058 = v89;
+  qword_140327098 = v89;
   if ( v53 == 1 )
-    _InterlockedAdd(&dword_140327668, 0xFFFFFFFF);
+    _InterlockedAdd(&dword_1403276A8, 0xFFFFFFFF);
   v58 = 2LL;
-  dword_140327060 = 2;
+  dword_1403270A0 = 2;
   if ( (v1 & 0xD) == 0 )
     goto LABEL_164;
   v59 = 2;
@@ -550,9 +550,9 @@ LABEL_138:
           {
             do
             {
-              RtlInterlockedClearBitRunEx((__int64)&qword_140327078, v69, 1uLL);
+              RtlInterlockedClearBitRunEx((__int64)&stru_1403270B8, v69, 1uLL);
               if ( *(_QWORD *)(a1 + 24) )
-                _bittestandreset64((signed __int64 *)qword_140327070, v69);
+                _bittestandreset64((signed __int64 *)stru_1403270A8.Buffer, v69);
               v69 = *(_QWORD *)(48 * v69 - 0x58000000000LL) & 0xFFFFFFFFFLL;
             }
             while ( v69 != v64 );
@@ -563,9 +563,9 @@ LABEL_138:
         }
         else
         {
-          RtlInterlockedClearBitRunEx((__int64)&qword_140327078, v64, 1uLL);
+          RtlInterlockedClearBitRunEx((__int64)&stru_1403270B8, v64, 1uLL);
           if ( *(_QWORD *)(a1 + 24) )
-            _bittestandreset64((signed __int64 *)qword_140327070, v64);
+            _bittestandreset64((signed __int64 *)stru_1403270A8.Buffer, v64);
           v58 = 2LL;
         }
         v64 = *v65 & 0xFFFFFFFFFLL;
@@ -577,7 +577,7 @@ LABEL_138:
     if ( v60 <= 1 )
     {
       v102 = ++v62;
-      if ( v62 < dword_1403269FC )
+      if ( v62 < dword_140326A3C )
         continue;
       v62 = 0;
       v102 = 0;
@@ -599,50 +599,50 @@ LABEL_164:
   v70 = 0LL;
   do
   {
-    v71 = RtlFindSetBitsEx((unsigned __int64 *)&qword_140327078, 1uLL, v70);
+    v71 = RtlFindSetBitsEx(&stru_1403270B8, 1uLL, v70);
     v72 = v71;
     if ( v71 < v70 || v71 == -1LL )
       break;
-    v73 = RtlFindNextForwardRunClearEx((__int64)&qword_140327078, v71, (unsigned __int64 *)&v93);
+    v73 = RtlFindNextForwardRunClearEx((__int64)&stru_1403270B8, v71, &v93);
     v74 = v93;
     v75 = v73;
     if ( !v73 )
-      v74 = qword_140327078;
+      v74 = stru_1403270B8.SizeOfBitMap;
     v76 = v74 - v72;
-    v9 = (*(__int64 (__fastcall **)(unsigned __int64, unsigned __int64))(v55 + 16))(v72 << 12, v76 << 12);
+    v9 = (*(__int64 (__fastcall **)(ULONG64, unsigned __int64))(v55 + 16))(v72 << 12, v76 << 12);
     if ( v9 < 0 )
     {
 LABEL_180:
-      qword_140327058 = 0LL;
+      qword_140327098 = 0LL;
       goto LABEL_184;
     }
     v70 = v72 + v75 + v76;
   }
-  while ( v70 < qword_140327078 );
+  while ( v70 < stru_1403270B8.SizeOfBitMap );
   if ( *(_QWORD *)(v55 + 24) )
   {
     v77 = 0LL;
     do
     {
-      v78 = RtlFindSetBitsEx((unsigned __int64 *)&qword_140327068, 1uLL, v77);
+      v78 = RtlFindSetBitsEx(&stru_1403270A8, 1uLL, v77);
       v79 = v78;
       if ( v78 < v77 || v78 == -1LL )
         break;
-      v80 = RtlFindNextForwardRunClearEx((__int64)&qword_140327068, v78, (unsigned __int64 *)&v93);
+      v80 = RtlFindNextForwardRunClearEx((__int64)&stru_1403270A8, v78, &v93);
       v81 = v93;
       v82 = v80;
       if ( !v80 )
-        v81 = qword_140327068;
+        v81 = stru_1403270A8.SizeOfBitMap;
       v83 = v81 - v79;
-      v9 = (*(__int64 (__fastcall **)(unsigned __int64, unsigned __int64))(v55 + 24))(v79 << 12, v83 << 12);
+      v9 = (*(__int64 (__fastcall **)(ULONG64, unsigned __int64))(v55 + 24))(v79 << 12, v83 << 12);
       if ( v9 < 0 )
         goto LABEL_180;
       v77 = v79 + v82 + v83;
     }
-    while ( v77 < qword_140327068 );
+    while ( v77 < stru_1403270A8.SizeOfBitMap );
   }
   v84 = (*(__int64 (__fastcall **)(__int64))(v55 + 8))(1LL);
-  qword_140327058 = 0LL;
+  qword_140327098 = 0LL;
   v9 = v84;
   if ( v84 == 1073742484 && !v103 )
   {
@@ -651,7 +651,7 @@ LABEL_180:
     v92 = 1;
   }
 LABEL_184:
-  dword_140327060 = 0;
+  dword_1403270A0 = 0;
   if ( CurrentIrql != 17 )
   {
     MiUnlockAllMemoryLists();
@@ -664,18 +664,18 @@ LABEL_187:
     MmUnlockPagableImageSection(ExPageLockHandle);
   if ( v92 == 1 )
   {
-    stru_140327038.Parameter = (void *)v99;
-    ExQueueWorkItem(&stru_140327038, HyperCriticalWorkQueue);
+    stru_140327078.Parameter = (void *)v99;
+    ExQueueWorkItem(&stru_140327078, HyperCriticalWorkQueue);
   }
   else
   {
-    _InterlockedAdd(&dword_140327788, 0xFFFFFFFF);
-    KeSetEvent(&stru_140327020, 0, 0);
+    _InterlockedAdd(&dword_1403277C8, 0xFFFFFFFF);
+    KeSetEvent(&stru_140327060, 0, 0);
   }
   MiUnlockDynamicMemoryExclusive((__int64)MiSystemPartition, (__int64)CurrentThread);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326FB8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326FB8);
-  KeAbPostRelease((ULONG_PTR)&qword_140326FB8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326FF8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326FF8);
+  KeAbPostRelease((ULONG_PTR)&qword_140326FF8);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return (unsigned int)v9;
 }

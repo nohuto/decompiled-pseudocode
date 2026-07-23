@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreRefFromStoreIndex @ 0x140204B30
+ * XREFs of SmKmStoreRefFromStoreIndex @ 0x140204C10
  * Callers:
- *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x140204A10 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x1404E0280 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmGetStoreOwnerProcessId @ 0x14063EE98 (SmGetStoreOwnerProcessId.c)
- *     SmProcessListRequest @ 0x1408199A8 (SmProcessListRequest.c)
- *     SmKmStoreDelete @ 0x140B20310 (SmKmStoreDelete.c)
+ *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x140204AF0 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x1404D9960 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmGetStoreOwnerProcessId @ 0x140642A78 (SmGetStoreOwnerProcessId.c)
+ *     SmProcessListRequest @ 0x14081FBB8 (SmProcessListRequest.c)
+ *     SmKmStoreDelete @ 0x140B22710 (SmKmStoreDelete.c)
  * Callees:
  *     <none>
  */

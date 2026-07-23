@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x1403B7F18
+ * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x1402B3FD8
  * Callers:
- *     KiIntSteerConnect @ 0x1403B7680 (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x1402B3934 (KiIntSteerConnect.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140354604 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KeIntSteerGetSteeringMode @ 0x1403B8024 (KeIntSteerGetSteeringMode.c)
- *     KiIntRedirectConnnect @ 0x1404C9CBC (KiIntRedirectConnnect.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402B2334 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KeIntSteerGetSteeringMode @ 0x1402B40E4 (KeIntSteerGetSteeringMode.c)
+ *     KiIntRedirectConnnect @ 0x1402B4C68 (KiIntRedirectConnnect.c)
  */
 
 __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
@@ -43,8 +43,8 @@ __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
     *(_WORD *)(a6 + 8) = v14;
     if ( SteeringMode )
     {
-      v15 = (*(_QWORD *)v7 & qword_140F0FDC8[v14]) == 0LL;
-      *(_QWORD *)a6 = *(_QWORD *)v7 & qword_140F0FDC8[v14];
+      v15 = (*(_QWORD *)v7 & qword_140F100E8[v14]) == 0LL;
+      *(_QWORD *)a6 = *(_QWORD *)v7 & qword_140F100E8[v14];
       if ( !v15 )
         v7 = a6;
       v16 = *((_DWORD *)KiGlobalState + (unsigned int)KiIntPartGetLowestClassProcessorInMask(v7));

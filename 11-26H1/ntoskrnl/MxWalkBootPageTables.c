@@ -1,11 +1,11 @@
 /*
- * XREFs of MxWalkBootPageTables @ 0x140CF8610
+ * XREFs of MxWalkBootPageTables @ 0x140CFE990
  * Callers:
- *     MxInitializePfnsForValidMappings @ 0x140CF70A8 (MxInitializePfnsForValidMappings.c)
+ *     MxInitializePfnsForValidMappings @ 0x140CFD428 (MxInitializePfnsForValidMappings.c)
  * Callees:
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MxCreatePfnsForPtes @ 0x140CF6200 (MxCreatePfnsForPtes.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MxCreatePfnsForPtes @ 0x140CFC580 (MxCreatePfnsForPtes.c)
  */
 
 __int64 __fastcall MxWalkBootPageTables(__int64 a1, int a2)

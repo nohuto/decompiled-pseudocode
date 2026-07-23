@@ -1,30 +1,30 @@
 /*
- * XREFs of CmpFlushBackupHive @ 0x14085A45C
+ * XREFs of CmpFlushBackupHive @ 0x140860750
  * Callers:
- *     CmpSyncNextBackupHive @ 0x14085A968 (CmpSyncNextBackupHive.c)
+ *     CmpSyncNextBackupHive @ 0x140860C5C (CmpSyncNextBackupHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1407238D0 (ZwSetInformationFile.c)
- *     ZwSetInformationObject @ 0x140723F70 (ZwSetInformationObject.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpCmdRenameHive @ 0x140854A18 (CmpCmdRenameHive.c)
- *     CmpFreeOffsetArray @ 0x14085A7E0 (CmpFreeOffsetArray.c)
- *     CmpInitBackupHive @ 0x14085A834 (CmpInitBackupHive.c)
- *     CmpWriteOffsetArrayToFile @ 0x14085AACC (CmpWriteOffsetArrayToFile.c)
- *     CmpCmdHiveOpen @ 0x1408B4674 (CmpCmdHiveOpen.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     RtlAppendStringToString @ 0x140B20220 (RtlAppendStringToString.c)
- *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140B3BD78 (HvAllocateOffsetArraysForHiveSnapshot.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140C5846C (HvSnapshotHiveToOffsetArray.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1407284A0 (ZwSetInformationFile.c)
+ *     ZwSetInformationObject @ 0x140728B40 (ZwSetInformationObject.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpCmdRenameHive @ 0x14085AD28 (CmpCmdRenameHive.c)
+ *     CmpFreeOffsetArray @ 0x140860AD4 (CmpFreeOffsetArray.c)
+ *     CmpInitBackupHive @ 0x140860B28 (CmpInitBackupHive.c)
+ *     CmpWriteOffsetArrayToFile @ 0x140860DC0 (CmpWriteOffsetArrayToFile.c)
+ *     CmpCmdHiveOpen @ 0x1408BAC48 (CmpCmdHiveOpen.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     RtlAppendStringToString @ 0x140B22640 (RtlAppendStringToString.c)
+ *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140B3DFF8 (HvAllocateOffsetArraysForHiveSnapshot.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140C5E46C (HvSnapshotHiveToOffsetArray.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
@@ -39,11 +39,11 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
   __int64 v8; // rcx
   int v9; // ecx
   int v10; // ebx
-  __int64 v11; // rcx
+  void *v11; // rcx
   _QWORD *v12; // rbx
   __int64 v13; // rcx
-  __int64 v14; // rcx
-  int v16; // [rsp+50h] [rbp-B0h] BYREF
+  void *v14; // rcx
+  unsigned int ObjectInformation; // [rsp+50h] [rbp-B0h] BYREF
   char FileInformation[4]; // [rsp+54h] [rbp-ACh] BYREF
   int v18; // [rsp+58h] [rbp-A8h] BYREF
   STRING Destination; // [rsp+60h] [rbp-A0h] BYREF
@@ -59,7 +59,7 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
   FileInformation[0] = 1;
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   v21 = 0LL;
-  v16 = 0;
+  ObjectInformation = 0;
   DestinationString = 0LL;
   *(_QWORD *)v20 = 0LL;
   v18 = 0;
@@ -68,7 +68,7 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
   memset_0(v25, 0, sizeof(v25));
   v2 = 23 * v1;
   v3 = CmpMachineHiveList[v2 + 6];
-  if ( !*(_DWORD *)&WheapPfaLock.ApcStateFill[40] )
+  if ( !HIDWORD(WheapPfaLock.RelativeTimerBias) )
     return (unsigned int)-1073741431;
   *(_DWORD *)&Destination.Length = 0x800000;
   Destination.Buffer = &v26;
@@ -90,7 +90,7 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
         CmpAttachToRegistryProcess(&ApcState);
         CmpLockRegistry();
         HvLockHiveFlusherExclusive(v3);
-        if ( (int)HvAllocateOffsetArraysForHiveSnapshot(v3, &v16, v20, &v18) < 0
+        if ( (int)HvAllocateOffsetArraysForHiveSnapshot(v3, &ObjectInformation, v20, &v18) < 0
           || (v7 = *(_QWORD *)v20, (int)HvSnapshotHiveToOffsetArray(v3, v6, *(_QWORD *)v20) < 0) )
         {
           HvUnlockHiveFlusherExclusive(v3);
@@ -102,16 +102,16 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
           HvUnlockHiveFlusherExclusive(v3);
           CmpUnlockRegistry(v8);
           CmpDetachFromRegistryProcess(&ApcState);
-          v10 = CmpWriteOffsetArrayToFile(v9, v16, v7, v18, *((HANDLE *)v3 + 196));
-          CmpFreeOffsetArray((unsigned int)v16, v7);
+          v10 = CmpWriteOffsetArrayToFile(v9, ObjectInformation, v7, v18, *((HANDLE *)v3 + 196));
+          CmpFreeOffsetArray(ObjectInformation, v7);
           if ( v10 >= 0 )
           {
-            v11 = *((_QWORD *)v3 + 196);
-            LOWORD(v16) = 0;
-            ZwSetInformationObject(v11, 4LL);
+            v11 = (void *)*((_QWORD *)v3 + 196);
+            LOWORD(ObjectInformation) = 0;
+            ZwSetInformationObject(v11, ObjectHandleFlagInformation, &ObjectInformation, 2u);
             ZwClose(*((HANDLE *)v3 + 196));
             *((_QWORD *)v3 + 196) = 0LL;
-            LOBYTE(v16) = 0;
+            LOBYTE(ObjectInformation) = 0;
             v4 = CmpCmdHiveOpen((unsigned int)&Destination, 18415617, 0, 0LL, 0LL, (__int64)v25);
             if ( v4 >= 0 )
             {
@@ -122,19 +122,19 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
               CmpDestroyHive(v12);
               CmpDetachFromRegistryProcess(&ApcState);
               ZwSetInformationFile(v5, &IoStatusBlock, FileInformation, 1u, FileDispositionInformation);
-              LOWORD(v16) = 0;
-              ZwSetInformationObject((__int64)v5, 4LL);
+              LOWORD(ObjectInformation) = 0;
+              ZwSetInformationObject(v5, ObjectHandleFlagInformation, &ObjectInformation, 2u);
               ZwClose(v5);
               return (unsigned int)v4;
             }
           }
         }
       }
-      v14 = *((_QWORD *)v3 + 196);
+      v14 = (void *)*((_QWORD *)v3 + 196);
       if ( v14 )
       {
-        LOWORD(v16) = 0;
-        ZwSetInformationObject(v14, 4LL);
+        LOWORD(ObjectInformation) = 0;
+        ZwSetInformationObject(v14, ObjectHandleFlagInformation, &ObjectInformation, 2u);
         ZwClose(*((HANDLE *)v3 + 196));
         *((_QWORD *)v3 + 196) = 0LL;
       }

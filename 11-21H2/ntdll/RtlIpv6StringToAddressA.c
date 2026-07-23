@@ -15,7 +15,7 @@ LONG __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_ad
 {
   CHAR v3; // bl
   char v4; // r9
-  int v5; // edx
+  unsigned int v5; // edx
   PCSTR v6; // rsi
   int v7; // r12d
   unsigned int v8; // ebp
@@ -32,7 +32,7 @@ LONG __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_ad
   char *String; // [rsp+28h] [rbp-50h]
   char v21; // [rsp+80h] [rbp+8h]
   struct in6_addr *v23; // [rsp+90h] [rbp+18h]
-  int v24; // [rsp+98h] [rbp+20h]
+  unsigned int v24; // [rsp+98h] [rbp+20h]
 
   v23 = Addr;
   v3 = *S;
@@ -154,7 +154,7 @@ LABEL_67:
         v19 = v4;
         v24 = v5 + 1;
         ++v6;
-        Addr->u.Word[v5] = 0;
+        *((_WORD *)Addr + v5) = 0;
         v7 = 2;
       }
       if ( !String )
@@ -167,14 +167,14 @@ LABEL_67:
         if ( v16 > 0xFF )
           return -1073741811;
         Addr = v23;
-        v23->u.Byte[2 * v24 - 1 + v9] = v16;
+        *((_BYTE *)v23 + 2 * v24 + v9 - 1) = v16;
         goto LABEL_30;
       }
       if ( v10 > 4 )
         return -1073741811;
       v13 = strtol(String, 0LL, 16);
       Addr = v23;
-      v23->u.Word[v24] = __ROR2__(v13, 8);
+      *((_WORD *)v23 + v24) = __ROR2__(v13, 8);
       v5 = ++v24;
 LABEL_31:
       v3 = *++v6;
@@ -199,13 +199,13 @@ LABEL_10:
       if ( v18 > 0xFF )
         return -1073741811;
       v15 = v23;
-      v23->u.Byte[2 * v24 + v9] = v18;
+      *((_BYTE *)v23 + 2 * v24 + v9) = v18;
     }
     else
     {
       if ( v10 > 4 )
         return -1073741811;
-      v23->u.Word[v24] = __ROR2__(strtol(String, 0LL, 16), 8);
+      *((_WORD *)v23 + v24) = __ROR2__(strtol(String, 0LL, 16), 8);
       v15 = v23;
     }
   }
@@ -214,12 +214,12 @@ LABEL_10:
     if ( v7 != 2 )
       return -1073741811;
     v15 = v23;
-    v23->u.Word[v24] = 0;
+    *((_WORD *)v23 + v24) = 0;
   }
   if ( v11 )
   {
     v17 = (char *)v15 + 2 * v11;
-    memmove((char *)&v15[1] + 2 * (v11 - v8), v17, 2LL * (v8 - v11));
+    memmove((char *)v15 + 2 * (v11 - v8) + 16, v17, 2LL * (v8 - v11));
     memset(v17, 0, 2LL * (8 - v8));
   }
   return 0;

@@ -8,21 +8,27 @@
  *     ObReferenceObjectByHandle @ 0x1405F5C90 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)
+NTSTATUS __cdecl NtSetIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        HANDLE IoCompletionPacketHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
   NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // r9
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   signed __int32 v12; // eax
   struct _DMA_ADAPTER *v13; // rsi
-  __int64 v14; // r8
+  PVOID v14; // r8
   struct _DMA_ADAPTER *v15; // rdi
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-10h] BYREF
 
   DmaAdapter = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             IoCompletionHandle,
              2u,
              IoCompletionObjectType,
              KeGetCurrentThread()->PreviousMode,
@@ -32,7 +38,7 @@ NTSTATUS __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 
     return result;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v11 = ObReferenceObjectByHandle(a2, 2u, ObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(IoCompletionPacketHandle, 2u, ObjectType, PreviousMode, &Object, 0LL);
   if ( v11 < 0 )
   {
     v15 = DmaAdapter;
@@ -49,9 +55,16 @@ LABEL_11:
       HalPutDmaAdapter(v13);
     goto LABEL_5;
   }
-  v14 = a4;
+  v14 = ApcContext;
   v15 = DmaAdapter;
-  v11 = IoSetIoCompletionEx((__int64)DmaAdapter, a3, v14, (_DWORD *)a5, a6, 0, (__int64)Object + 8);
+  v11 = IoSetIoCompletionEx(
+          (__int64)DmaAdapter,
+          (__int64)KeyContext,
+          (__int64)v14,
+          (_DWORD *)(unsigned int)IoStatus,
+          IoStatusInformation,
+          0,
+          (__int64)Object + 8);
   if ( v11 < 0 )
   {
     *(_DWORD *)&v13->Version = 0;

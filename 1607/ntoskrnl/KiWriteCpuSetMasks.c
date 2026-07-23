@@ -1,10 +1,10 @@
 /*
- * XREFs of KiWriteCpuSetMasks @ 0x1401D7BB4
+ * XREFs of KiWriteCpuSetMasks @ 0x1401D79E0
  * Callers:
- *     KeSetCpuSetsProcess @ 0x1401D7720 (KeSetCpuSetsProcess.c)
- *     KeSetSelectedCpuSetsThread @ 0x1401D7844 (KeSetSelectedCpuSetsThread.c)
+ *     KeSetCpuSetsProcess @ 0x1401D754C (KeSetCpuSetsProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x1401D7670 (KeSetSelectedCpuSetsThread.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 unsigned __int64 __fastcall KiWriteCpuSetMasks(unsigned __int64 *a1, unsigned int a2, __int64 a3, unsigned int a4)

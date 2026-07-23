@@ -1,16 +1,16 @@
 /*
- * XREFs of NtFreezeRegistry @ 0x1401B2FB0
+ * XREFs of NtFreezeRegistry @ 0x1401B2E94
  * Callers:
  *     <none>
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 __fastcall NtFreezeRegistry(unsigned int a1)
+NTSTATUS __cdecl NtFreezeRegistry(ULONG TimeOutInSeconds)
 {
-  if ( a1 > 0x384 )
-    return 3221225485LL;
+  if ( TimeOutInSeconds > 0x384 )
+    return -1073741811;
   if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
-    return CmFreezeRegistry(a1);
-  return 3221225569LL;
+    return CmFreezeRegistry(TimeOutInSeconds);
+  return -1073741727;
 }

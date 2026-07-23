@@ -4,36 +4,38 @@
  *     <none>
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     PoEnergyEstimationEnabled @ 0x1402C0B50 (PoEnergyEstimationEnabled.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     PoEnergyEstimationEnabled @ 0x1402C0DE0 (PoEnergyEstimationEnabled.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
  *     PspUnlockJobListExclusive @ 0x140688AA0 (PspUnlockJobListExclusive.c)
  *     PspIoRateEntryInitialize @ 0x140688AF8 (PspIoRateEntryInitialize.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ExCreateHandleEx @ 0x140740464 (ExCreateHandleEx.c)
- *     EtwTraceJob @ 0x1409E5308 (EtwTraceJob.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ExCreateHandleEx @ 0x140740654 (ExCreateHandleEx.c)
+ *     EtwTraceJob @ 0x1409E5598 (EtwTraceJob.c)
  */
 
-__int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
+  int v3; // r13d
   struct _KTHREAD *CurrentThread; // r15
   char PreviousMode; // si
   __int64 v7; // rcx
   char v8; // r12
   int v9; // r9d
   int v10; // ecx
-  int Object; // esi
+  NTSTATUS Object; // esi
   __int64 Handle; // rax
   __int64 v14; // [rsp+60h] [rbp-48h] BYREF
   LARGE_INTEGER Interval; // [rsp+68h] [rbp-40h] BYREF
   unsigned int v16; // [rsp+C8h] [rbp+20h]
 
+  v3 = (int)ObjectAttributes;
   v14 = 0LL;
   v16 = 0;
   CurrentThread = KeGetCurrentThread();
@@ -41,15 +43,15 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)JobHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)JobHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  *a1 = 0LL;
+  *JobHandle = 0LL;
   v8 = PoEnergyEstimationEnabled();
   LOBYTE(v9) = PreviousMode;
   LOBYTE(v10) = PreviousMode;
-  Object = ObCreateObjectEx(v10, (_DWORD)PsJobType, a3, v9);
+  Object = ObCreateObjectEx(v10, (_DWORD)PsJobType, v3, v9);
   if ( Object >= 0 )
   {
     memset(0LL, 0, v8 != 0 ? 2248 : 1816);
@@ -119,9 +121,9 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
     if ( Object < 0 || (ObfReferenceObject(0LL), Object = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v14), Object < 0) )
       ObfDereferenceObject(0LL);
     else
-      *a1 = v14;
+      *JobHandle = (HANDLE)v14;
   }
   if ( (PerfGlobalGroupMask & 0x80000) != 0 )
     EtwTraceJob(0LL, v16, (unsigned int)Object, 1824LL);
-  return (unsigned int)Object;
+  return Object;
 }

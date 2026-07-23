@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipQueueLegacyEtwWork @ 0x1409D101C
+ * XREFs of WmipQueueLegacyEtwWork @ 0x140A8AB68
  * Callers:
- *     WmipRegisterEtwProvider @ 0x1407A57CC (WmipRegisterEtwProvider.c)
- *     WmipUnregisterEtwProvider @ 0x1409D14D8 (WmipUnregisterEtwProvider.c)
+ *     WmipRegisterEtwProvider @ 0x1407A590C (WmipRegisterEtwProvider.c)
+ *     WmipUnregisterEtwProvider @ 0x140A49BD8 (WmipUnregisterEtwProvider.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall WmipQueueLegacyEtwWork(_QWORD *a1, ULONG_PTR a2, __int64 a3)
@@ -31,7 +31,7 @@ void __fastcall WmipQueueLegacyEtwWork(_QWORD *a1, ULONG_PTR a2, __int64 a3)
   {
     if ( (*(_DWORD *)(a2 + 16) & 0x10) == 0 )
     {
-      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x38uLL, 0x70696D57u);
       if ( Pool2 )
       {
         Pool2[2] = a2;
@@ -63,7 +63,7 @@ void __fastcall WmipQueueLegacyEtwWork(_QWORD *a1, ULONG_PTR a2, __int64 a3)
       *(_QWORD *)(v6 + 32) = a1;
       if ( !a3 )
         return;
-      v13 = ExAllocatePool2(0x40uLL);
+      v13 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x70696D57u);
       v14 = (_QWORD *)v13;
       if ( !v13 )
         return;

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDmListEnumObjectsWithCallback @ 0x1408CF680
+ * XREFs of PiDmListEnumObjectsWithCallback @ 0x1408CD070
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1408B41E4 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B4A8C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
- *     PiDmGetObjectConstraintList @ 0x1409D4AD0 (PiDmGetObjectConstraintList.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1408B1AD4 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B237C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
+ *     PiDmGetObjectConstraintList @ 0x1409C4900 (PiDmGetObjectConstraintList.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     PiDmGetObjectListCallback @ 0x1408CF850 (PiDmGetObjectListCallback.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectAcquireSharedLock @ 0x1408D0A7C (PiDmObjectAcquireSharedLock.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     PiDmGetObjectListCallback @ 0x1408CD240 (PiDmGetObjectListCallback.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectAcquireSharedLock @ 0x1408CE46C (PiDmObjectAcquireSharedLock.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmListEnumObjectsWithCallback(
@@ -28,18 +28,18 @@ __int64 __fastcall PiDmListEnumObjectsWithCallback(
   __int64 *v9; // r14
   __int64 v10; // rbp
   ULONG_PTR v11; // rdi
+  unsigned int v12; // eax
   __int64 Pool2; // rax
-  _QWORD *v13; // rdx
-  volatile signed __int32 *v14; // rcx
-  unsigned __int64 *v15; // rbp
-  __int64 v16; // r9
+  _QWORD *v14; // rdx
+  volatile signed __int32 *v15; // rcx
+  unsigned __int64 *v16; // rbp
   __int64 *v17; // rdi
   __int64 v18; // rcx
   int ObjectListCallback; // eax
   PVOID *v20; // rdi
   _QWORD *v22; // rax
   int v23; // ecx
-  _BYTE v24[72]; // [rsp+20h] [rbp-48h] BYREF
+  char v24[72]; // [rsp+20h] [rbp-48h] BYREF
   char v25; // [rsp+70h] [rbp+8h]
 
   v4 = 0;
@@ -51,24 +51,25 @@ __int64 __fastcall PiDmListEnumObjectsWithCallback(
   v10 = 5LL * a1;
   v11 = a2 + PiDmListDefs[v10 + 1];
   PiDmObjectAcquireSharedLock(a2);
-  if ( *(_DWORD *)(v11 + 16) )
+  v12 = *(_DWORD *)(v11 + 16);
+  if ( v12 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 8LL * v12, 0x5A706E50u);
     v9 = (__int64 *)Pool2;
     if ( Pool2 )
     {
-      v13 = *(_QWORD **)v11;
-      while ( v13 != (_QWORD *)v11 )
+      v14 = *(_QWORD **)v11;
+      while ( v14 != (_QWORD *)v11 )
       {
         if ( (unsigned int)v6 >= *(_DWORD *)(v11 + 16) )
         {
           v25 = 1;
           break;
         }
-        v14 = (volatile signed __int32 *)((char *)v13 - PiDmListDefs[v10 + 3]);
-        *(_QWORD *)(Pool2 + 8 * v6) = v14;
-        _InterlockedIncrement(v14 + 2);
-        v13 = (_QWORD *)*v13;
+        v15 = (volatile signed __int32 *)((char *)v14 - PiDmListDefs[v10 + 3]);
+        *(_QWORD *)(Pool2 + 8 * v6) = v15;
+        _InterlockedIncrement(v15 + 2);
+        v14 = (_QWORD *)*v14;
         v6 = (unsigned int)(v6 + 1);
       }
       if ( (unsigned int)v6 < *(_DWORD *)(v11 + 16) )
@@ -78,7 +79,7 @@ __int64 __fastcall PiDmListEnumObjectsWithCallback(
     {
       v8 = -1073741670;
     }
-    v15 = (unsigned __int64 *)a2;
+    v16 = (unsigned __int64 *)a2;
     PiDmObjectReleaseLock(a2);
     if ( !v25 )
       goto LABEL_11;
@@ -90,10 +91,10 @@ __int64 __fastcall PiDmListEnumObjectsWithCallback(
       PiDmObjectReleaseLock(a2);
       return v8;
     }
-    v15 = (unsigned __int64 *)a2;
+    v16 = (unsigned __int64 *)a2;
     PiDmObjectReleaseLock(a2);
   }
-  KsepCacheLock(v15);
+  KsepCacheLock(v16);
   v22 = *(_QWORD **)v11;
   v23 = 0;
   if ( *(_QWORD *)v11 != v11 )
@@ -106,7 +107,7 @@ __int64 __fastcall PiDmListEnumObjectsWithCallback(
     while ( v22 != (_QWORD *)v11 );
   }
   *(_DWORD *)(v11 + 16) = v23;
-  PiDmObjectReleaseLock((ULONG_PTR)v15);
+  PiDmObjectReleaseLock((ULONG_PTR)v16);
 LABEL_11:
   if ( (_DWORD)v6 )
   {
@@ -117,7 +118,7 @@ LABEL_11:
       if ( a3 == PiDmGetObjectListCallback )
         ObjectListCallback = PiDmGetObjectListCallback(v18, a4, v24);
       else
-        ObjectListCallback = guard_dispatch_icall_no_overrides(v18, a4, v24, v16);
+        ObjectListCallback = guard_dispatch_icall_no_overrides(v18, a4);
       v8 = ObjectListCallback;
       if ( ObjectListCallback < 0 )
         break;

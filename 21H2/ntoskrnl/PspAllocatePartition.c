@@ -1,23 +1,23 @@
 /*
- * XREFs of PspAllocatePartition @ 0x1407CC2B4
+ * XREFs of PspAllocatePartition @ 0x1407CC424
  * Callers:
- *     NtCreatePartition @ 0x14090CD70 (NtCreatePartition.c)
- *     PspInitializeSystemPartitionPhase0 @ 0x140A6DD90 (PspInitializeSystemPartitionPhase0.c)
+ *     NtCreatePartition @ 0x14090CED0 (NtCreatePartition.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x140A6ED90 (PspInitializeSystemPartitionPhase0.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PspAddPartitionToGlobalList @ 0x1403CA8FC (PspAddPartitionToGlobalList.c)
- *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     ExpPartitionStart @ 0x1407C2134 (ExpPartitionStart.c)
- *     ExpPartitionInitialize @ 0x1407C23AC (ExpPartitionInitialize.c)
- *     PspCreatePartitionSystemProcess @ 0x14090CF58 (PspCreatePartitionSystemProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     PspAddPartitionToGlobalList @ 0x1403CAA9C (PspAddPartitionToGlobalList.c)
+ *     MmCreatePartition @ 0x1403CAB14 (MmCreatePartition.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     ExpPartitionStart @ 0x1407C2654 (ExpPartitionStart.c)
+ *     ExpPartitionInitialize @ 0x1407C28CC (ExpPartitionInitialize.c)
+ *     PspCreatePartitionSystemProcess @ 0x14090D0B8 (PspCreatePartitionSystemProcess.c)
  */
 
 __int64 __fastcall PspAllocatePartition(
@@ -33,27 +33,26 @@ __int64 __fastcall PspAllocatePartition(
   char v9; // si
   int PartitionSystemProcess; // edi
   char *v11; // rbx
-  _DWORD *v12; // r9
-  _QWORD *v14; // rcx
-  __int64 v15; // rax
-  signed __int64 v16; // rax
-  bool v17; // cc
-  signed __int64 v18; // rax
-  char *v19; // [rsp+20h] [rbp-81h]
+  _QWORD *v13; // rcx
+  __int64 v14; // rax
+  signed __int64 v15; // rax
+  bool v16; // cc
+  signed __int64 v17; // rax
+  char *v18; // [rsp+20h] [rbp-81h]
   PVOID Object; // [rsp+50h] [rbp-51h] BYREF
-  ACCESS_MASK v21; // [rsp+58h] [rbp-49h]
-  __int64 v22; // [rsp+60h] [rbp-41h] BYREF
-  __int64 v23; // [rsp+68h] [rbp-39h]
-  _OWORD v24[3]; // [rsp+70h] [rbp-31h] BYREF
+  ACCESS_MASK v20; // [rsp+58h] [rbp-49h]
+  __int64 v21; // [rsp+60h] [rbp-41h] BYREF
+  __int64 v22; // [rsp+68h] [rbp-39h]
+  _OWORD v23[3]; // [rsp+70h] [rbp-31h] BYREF
 
-  v21 = a2;
-  v23 = a7;
+  v20 = a2;
+  v22 = a7;
   v8 = 0;
-  memset(v24, 0, sizeof(v24));
-  v22 = 0LL;
+  memset(v23, 0, sizeof(v23));
+  v21 = 0LL;
   v9 = 0;
   Object = 0LL;
-  PartitionSystemProcess = ObCreateObjectEx(a3, PsPartitionType, a1, a3, v19, 128, 0, 0, &Object, 0LL);
+  PartitionSystemProcess = ObCreateObjectEx(a3, PsPartitionType, a1, a3, v18, 128, 0, 0, &Object, 0LL);
   if ( PartitionSystemProcess < 0 )
   {
     v11 = (char *)Object;
@@ -84,9 +83,9 @@ __int64 __fastcall PspAllocatePartition(
   }
   if ( !a5 )
   {
-    KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v24, v12);
+    KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v23);
     PartitionSystemProcess = PspCreatePartitionSystemProcess(v11 + 104, v11 + 112);
-    KiUnstackDetachProcess((__int64)v24, 0);
+    KiUnstackDetachProcess((__int64)v23, 0LL);
     if ( PartitionSystemProcess < 0 )
       goto LABEL_9;
     PartitionSystemProcess = ExpPartitionInitialize((__int64)v11);
@@ -115,13 +114,13 @@ LABEL_8:
   if ( PartitionSystemProcess >= 0 )
   {
     v9 = 0;
-    PartitionSystemProcess = ObInsertObjectEx(v11, 0LL, v21, 0, 0, 0LL, (unsigned __int64 *)&v22);
+    PartitionSystemProcess = ObInsertObjectEx(v11, 0LL, v20, 0, 0, 0LL, (unsigned __int64 *)&v21);
     if ( PartitionSystemProcess >= 0 )
     {
-      v14 = (_QWORD *)v23;
-      v15 = v22;
+      v13 = (_QWORD *)v22;
+      v14 = v21;
       *a6 = v11;
-      *v14 = v15;
+      *v13 = v14;
       goto LABEL_8;
     }
   }
@@ -130,12 +129,12 @@ LABEL_9:
   {
     if ( v9 )
       HalPutDmaAdapter((PADAPTER_OBJECT)v11);
-    v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)v11 + 4, 0xFFFFFFFFFFFFFFFFuLL);
-    v17 = v16 <= 1;
-    v18 = v16 - 1;
-    if ( v17 )
+    v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)v11 + 4, 0xFFFFFFFFFFFFFFFFuLL);
+    v16 = v15 <= 1;
+    v17 = v15 - 1;
+    if ( v16 )
     {
-      if ( v18 )
+      if ( v17 )
         __fastfail(0xEu);
       PsDereferencePartition((__int64)Object);
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CMFAllocFn @ 0x1408D83C0
+ * XREFs of CMFAllocFn @ 0x1408D9680
  * Callers:
- *     XpressDecodeCreate @ 0x14032CA1C (XpressDecodeCreate.c)
+ *     XpressDecodeCreate @ 0x14032CC0C (XpressDecodeCreate.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall CMFAllocFn(__int64 a1, int a2)

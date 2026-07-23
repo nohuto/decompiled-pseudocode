@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierPortKeReleaseSpinLockNoXdv @ 0x140C34160
+ * XREFs of VerifierPortKeReleaseSpinLockNoXdv @ 0x140C3A170
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140C34274 (VfKeIrqlTransitionReserveLogEntry.c)
- *     VfKeIrqlLogLower @ 0x140C47B58 (VfKeIrqlLogLower.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140C3A284 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VfKeIrqlLogLower @ 0x140C4DB68 (VfKeIrqlLogLower.c)
  */
 
 void __fastcall VerifierPortKeReleaseSpinLockNoXdv(PKSPIN_LOCK SpinLock, __int64 a2, __int64 a3)

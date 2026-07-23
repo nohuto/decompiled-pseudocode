@@ -64,7 +64,7 @@ LABEL_10:
                  PrivilegeCount,
                  (_DWORD *)((unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL)),
                  v8,
-                 Groups,
+                 &Groups->Sid,
                  0,
                  &DmaAdapter);
     if ( inserted >= 0 )
@@ -75,7 +75,7 @@ LABEL_10:
         if ( (unsigned int)Feature_Servicing_HardenTokenPPLRestrictions__private_IsEnabled() )
           SepFinalizeTokenAcls(DmaAdapter);
         else
-          SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8, SeAliasAdminsSid);
+          SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8u, SeAliasAdminsSid);
         *v6 = DmaAdapter;
       }
     }

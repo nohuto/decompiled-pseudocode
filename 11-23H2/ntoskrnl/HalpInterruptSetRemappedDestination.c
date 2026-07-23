@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptSetRemappedDestination @ 0x14031FB08
+ * XREFs of HalpInterruptSetRemappedDestination @ 0x14031FD98
  * Callers:
- *     HalpInterruptSetDestination @ 0x14031F950 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x14031FBE0 (HalpInterruptSetDestination.c)
  * Callees:
- *     HalpInterruptGetRemappedLineState @ 0x14031FBCC (HalpInterruptGetRemappedLineState.c)
- *     HalpInterruptDestinationToTarget @ 0x14031FC7C (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptRemapUpdateDeliveryMode @ 0x14031FDAC (HalpInterruptRemapUpdateDeliveryMode.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x140367DEC (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptGetRemappedLineState @ 0x14031FE5C (HalpInterruptGetRemappedLineState.c)
+ *     HalpInterruptDestinationToTarget @ 0x14031FF0C (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptRemapUpdateDeliveryMode @ 0x14032003C (HalpInterruptRemapUpdateDeliveryMode.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x140367F8C (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedDestination(__int64 a1, _DWORD *a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMapIoSpace @ 0x1404B8360
+ * XREFs of MmMapIoSpace @ 0x1404B1B90
  * Callers:
- *     DifMmMapIoSpaceWrapper @ 0x1406675A0 (DifMmMapIoSpaceWrapper.c)
- *     SfsInitialize @ 0x1406DD17C (SfsInitialize.c)
+ *     DifMmMapIoSpaceWrapper @ 0x14066B180 (DifMmMapIoSpaceWrapper.c)
+ *     SfsInitialize @ 0x1406E141C (SfsInitialize.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
  */
 
 PVOID __stdcall MmMapIoSpace(PHYSICAL_ADDRESS PhysicalAddress, SIZE_T NumberOfBytes, MEMORY_CACHING_TYPE CacheType)

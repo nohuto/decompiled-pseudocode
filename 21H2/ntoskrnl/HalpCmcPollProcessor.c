@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpCmcPollProcessor @ 0x1403A0B10
+ * XREFs of HalpCmcPollProcessor @ 0x1403A0C60
  * Callers:
- *     HalpCmciPollProcessor @ 0x1403A0AAC (HalpCmciPollProcessor.c)
- *     HalpCmcWorkerRoutine @ 0x140864440 (HalpCmcWorkerRoutine.c)
+ *     HalpCmciPollProcessor @ 0x1403A0BFC (HalpCmciPollProcessor.c)
+ *     HalpCmcWorkerRoutine @ 0x1408645A0 (HalpCmcWorkerRoutine.c)
  * Callees:
- *     KeQueryDpcWatchdogInformation @ 0x1402941D0 (KeQueryDpcWatchdogInformation.c)
- *     HalpMcaReadErrorPresence @ 0x1403A0D98 (HalpMcaReadErrorPresence.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeQueryDpcWatchdogInformation @ 0x140212180 (KeQueryDpcWatchdogInformation.c)
+ *     HalpMcaReadErrorPresence @ 0x1403A0EE8 (HalpMcaReadErrorPresence.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpCmcIsDpcTimeRunningLow @ 0x1404B99D4 (HalpCmcIsDpcTimeRunningLow.c)
- *     HalpCmcLogPollingTimeoutEvent @ 0x1404B9A2C (HalpCmcLogPollingTimeoutEvent.c)
- *     HalpMcaClearError @ 0x1404BA2E8 (HalpMcaClearError.c)
- *     HalpMcaReadError @ 0x1404BA810 (HalpMcaReadError.c)
- *     HalpMcaReportError @ 0x1404BAA90 (HalpMcaReportError.c)
+ *     HalpCmcIsDpcTimeRunningLow @ 0x1404B9C14 (HalpCmcIsDpcTimeRunningLow.c)
+ *     HalpCmcLogPollingTimeoutEvent @ 0x1404B9C6C (HalpCmcLogPollingTimeoutEvent.c)
+ *     HalpMcaClearError @ 0x1404BA528 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x1404BAA50 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x1404BACD0 (HalpMcaReportError.c)
  */
 
 __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64 a4)

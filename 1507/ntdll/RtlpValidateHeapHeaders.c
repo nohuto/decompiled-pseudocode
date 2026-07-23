@@ -15,22 +15,23 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-char __fastcall RtlpValidateHeapHeaders(void **Src, char a2)
+char __fastcall RtlpValidateHeapHeaders(PVOID *Src, char a2)
 {
-  void **v3; // rdi
+  PVOID *v3; // rdi
   size_t v4; // r8
   SIZE_T v5; // rsi
-  size_t v6; // rax
+  ULONG_PTR v6; // rax
   unsigned int v7; // ebx
   __int64 v8; // rax
-  size_t v10; // [rsp+50h] [rbp+18h]
+  ULONG_PTR v10; // [rsp+50h] [rbp+18h] BYREF
 
   if ( !RtlpValidateHeapHdrsEnable )
     return 1;
   v3 = Src + 27;
   if ( Src[27] )
     goto LABEL_5;
-  if ( (int)ZwAllocateVirtualMemory() < 0 )
+  v10 = *((unsigned __int16 *)Src + 105);
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, 0LL, &v10, 0x1000u, 4u) < 0 )
     return 1;
   a2 = 1;
 LABEL_5:

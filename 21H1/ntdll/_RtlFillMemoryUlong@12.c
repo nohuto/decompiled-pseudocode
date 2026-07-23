@@ -15,11 +15,7 @@
  *     <none>
  */
 
-int __stdcall RtlFillMemoryUlong(void *a1, unsigned int a2, int a3)
+void __cdecl RtlFillMemoryUlong(PVOID Destination, SIZE_T Length, ULONG Pattern)
 {
-  int result; // eax
-
-  result = a3;
-  memset32(a1, a3, a2 >> 2);
-  return result;
+  memset32(Destination, SHIDWORD(Length), (unsigned int)Length >> 2);
 }

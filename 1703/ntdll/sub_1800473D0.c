@@ -12,7 +12,7 @@ __int64 __fastcall sub_1800473D0(__int64 a1, int a2)
 {
   unsigned int v2; // ebx
   unsigned int v3; // edi
-  __int64 v5; // rax
+  PVOID v5; // rax
 
   v2 = 0;
   v3 = a2 + 2;

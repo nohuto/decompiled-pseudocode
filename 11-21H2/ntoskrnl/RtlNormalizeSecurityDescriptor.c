@@ -13,17 +13,17 @@
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall RtlNormalizeSecurityDescriptor(
-        PSECURITY_DESCRIPTOR *a1,
-        ULONG a2,
-        PSECURITY_DESCRIPTOR *a3,
-        ULONG *a4,
-        char a5)
+BOOLEAN __cdecl RtlNormalizeSecurityDescriptor(
+        PSECURITY_DESCRIPTOR *SecurityDescriptor,
+        ULONG SecurityDescriptorLength,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor,
+        PULONG NewSecurityDescriptorLength,
+        BOOLEAN CheckOnly)
 {
   _DWORD *v5; // rsi
   SIZE_T v6; // rbx
   _DWORD *PoolWithTag; // rdi
-  char v9; // r12
+  BOOLEAN v9; // r12
   unsigned int v10; // ebx
   unsigned int v11; // r13d
   unsigned int v12; // r10d
@@ -64,20 +64,20 @@ char __fastcall RtlNormalizeSecurityDescriptor(
   __int64 v48; // [rsp+40h] [rbp-58h]
   char v50; // [rsp+A8h] [rbp+10h]
 
-  v5 = *a1;
-  v6 = a2;
+  v5 = *SecurityDescriptor;
+  v6 = SecurityDescriptorLength;
   v47 = 0LL;
   v50 = 0;
   PoolWithTag = 0LL;
   v9 = 0;
-  if ( !SeValidSecurityDescriptor(a2, *a1) )
+  if ( !SeValidSecurityDescriptor(SecurityDescriptorLength, *SecurityDescriptor) )
     return 0;
-  if ( !a5 )
+  if ( !CheckOnly )
   {
-    if ( a3 )
+    if ( NewSecurityDescriptor )
     {
-      PoolWithTag = *a3;
-      if ( *a3 )
+      PoolWithTag = *NewSecurityDescriptor;
+      if ( *NewSecurityDescriptor )
         goto LABEL_7;
     }
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x64536553u);
@@ -117,7 +117,7 @@ LABEL_8:
       v14 = 0;
     }
     v9 = 1;
-    if ( a5 )
+    if ( CheckOnly )
       goto LABEL_81;
     if ( v11 == 1 )
       PoolWithTag[3] = v14;
@@ -126,7 +126,7 @@ LABEL_8:
 LABEL_21:
     if ( v14 )
     {
-      if ( !a5 )
+      if ( !CheckOnly )
       {
         v47 = (char *)PoolWithTag + v14;
         *(_QWORD *)v47 = *(_QWORD *)((char *)v5 + v12);
@@ -145,7 +145,7 @@ LABEL_21:
         {
           v44 = 0;
           v20 = 0;
-          if ( !a5 )
+          if ( !CheckOnly )
           {
             v24 = v47 + 8;
             if ( v17 )
@@ -224,7 +224,7 @@ LABEL_46:
             goto LABEL_48;
           }
         }
-        if ( a5 )
+        if ( CheckOnly )
           goto LABEL_45;
         goto LABEL_43;
       }
@@ -238,7 +238,7 @@ LABEL_48:
       else
       {
         v9 = 1;
-        if ( a5 )
+        if ( CheckOnly )
           goto LABEL_81;
         v30 = v47;
         *((_WORD *)v47 + 1) = v29;
@@ -250,13 +250,13 @@ LABEL_48:
       {
         if ( v14 == v12
           && v29 == *(unsigned __int16 *)((char *)v5 + v13 + 2)
-          && !(unsigned __int8)RtlIsZeroMemory((char *)v5 + v10, v28 - v10) )
+          && !RtlIsZeroMemory((char *)v5 + v10, v28 - v10) )
         {
           v9 = 1;
-          if ( a5 )
+          if ( CheckOnly )
             goto LABEL_81;
         }
-        if ( !a5 )
+        if ( !CheckOnly )
           memset((char *)PoolWithTag + v10, 0, v28 - v10);
         v10 = (v10 + 3) & 0xFFFFFFFC;
       }
@@ -269,7 +269,7 @@ LABEL_62:
   if ( v10 == v31 )
     goto LABEL_66;
   v9 = 1;
-  if ( a5 )
+  if ( CheckOnly )
     goto LABEL_81;
   PoolWithTag[1] = v10;
   v31 = v5[1];
@@ -277,7 +277,7 @@ LABEL_66:
   v32 = (unsigned __int8 *)v5 + v31;
   v33 = RtlLengthRequiredSid(v32[1]);
   v34 = v33;
-  if ( !a5 )
+  if ( !CheckOnly )
     memmove((char *)PoolWithTag + (unsigned int)PoolWithTag[1], v32, v33);
   v35 = v5[2];
   v36 = v34 + v10;
@@ -286,7 +286,7 @@ LABEL_66:
   if ( v36 == v35 )
     goto LABEL_72;
   v9 = 1;
-  if ( a5 )
+  if ( CheckOnly )
   {
 LABEL_81:
     if ( v50 )
@@ -300,24 +300,24 @@ LABEL_72:
     v37 = (unsigned __int8 *)v5 + v35;
     v38 = RtlLengthRequiredSid(v37[1]);
     v39 = v38;
-    if ( !a5 )
+    if ( !CheckOnly )
       memmove((char *)PoolWithTag + (unsigned int)PoolWithTag[2], v37, v38);
     v36 += v39;
 LABEL_75:
-    if ( !v9 || a5 )
+    if ( !v9 || CheckOnly )
       goto LABEL_81;
-    v40 = a3;
-    if ( !a3 )
+    v40 = NewSecurityDescriptor;
+    if ( !NewSecurityDescriptor )
     {
       ExFreePoolWithTag(v5, 0);
-      v40 = a1;
+      v40 = SecurityDescriptor;
       goto LABEL_85;
     }
     if ( v50 )
 LABEL_85:
       *v40 = PoolWithTag;
-    if ( a4 )
-      *a4 = v36;
+    if ( NewSecurityDescriptorLength )
+      *NewSecurityDescriptorLength = v36;
   }
   return v9;
 }

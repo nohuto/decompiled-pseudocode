@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpStringCapture @ 0x1409F798C
+ * XREFs of ExpStringCapture @ 0x1409F7C1C
  * Callers:
- *     ExpGetDeviceDataInformation @ 0x1409F62A8 (ExpGetDeviceDataInformation.c)
+ *     ExpGetDeviceDataInformation @ 0x1409F6538 (ExpGetDeviceDataInformation.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

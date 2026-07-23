@@ -1,16 +1,16 @@
 /*
- * XREFs of PopUpdateWakeSource @ 0x14056F05C
+ * XREFs of PopUpdateWakeSource @ 0x14056F29C
  * Callers:
- *     PopRequestCompletion @ 0x14037A900 (PopRequestCompletion.c)
- *     PoSetSystemWakeDevice @ 0x1405653D0 (PoSetSystemWakeDevice.c)
+ *     PopRequestCompletion @ 0x14037A450 (PopRequestCompletion.c)
+ *     PoSetSystemWakeDevice @ 0x140565610 (PoSetSystemWakeDevice.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopUpdateWakeSource(PVOID Object)
@@ -45,14 +45,14 @@ __int64 __fastcall PopUpdateWakeSource(PVOID Object)
       v4[3] = PopCurrentWakeInfo;
       v4[2] = Object;
       _InterlockedIncrement((volatile signed __int32 *)(v5 + 16));
-      v6 = (_QWORD *)qword_140C243B8;
-      if ( *(PVOID **)qword_140C243B8 != &PopWakeSourceWorkList )
+      v6 = (_QWORD *)qword_140C243C8;
+      if ( *(PVOID **)qword_140C243C8 != &PopWakeSourceWorkList )
         __fastfail(3u);
       v7 = PopWakeSourceWorkInProgress == 0;
       *v4 = &PopWakeSourceWorkList;
       v4[1] = v6;
       *v6 = v4;
-      qword_140C243B8 = (__int64)v4;
+      qword_140C243C8 = (__int64)v4;
       v4 = 0LL;
       if ( v7 )
       {

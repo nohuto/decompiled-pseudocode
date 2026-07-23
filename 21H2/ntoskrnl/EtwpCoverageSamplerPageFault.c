@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCoverageSamplerPageFault @ 0x1405AFE84
+ * XREFs of EtwpCoverageSamplerPageFault @ 0x1405B00B4
  * Callers:
- *     EtwTracePageFault @ 0x1405A7B2C (EtwTracePageFault.c)
+ *     EtwTracePageFault @ 0x1405A7D5C (EtwTracePageFault.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     EtwpCovSampCaptureSample @ 0x1405AF1D8 (EtwpCovSampCaptureSample.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF408 (EtwpCovSampCaptureSample.c)
  */
 
 void __fastcall EtwpCoverageSamplerPageFault(unsigned __int64 a1, unsigned __int64 a2, char a3)

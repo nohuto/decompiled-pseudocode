@@ -1,18 +1,18 @@
 /*
- * XREFs of SmPartitionCleanup @ 0x1409D6BB8
+ * XREFs of SmPartitionCleanup @ 0x1409D6DB8
  * Callers:
- *     SmCreatePartition @ 0x140706428 (SmCreatePartition.c)
- *     SmDeletePartition @ 0x1409D6AE8 (SmDeletePartition.c)
+ *     SmCreatePartition @ 0x140706638 (SmCreatePartition.c)
+ *     SmDeletePartition @ 0x1409D6CE8 (SmDeletePartition.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     SmFpCleanup @ 0x140344318 (SmFpCleanup.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140345194 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BE68C (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmTerminateStoreProcess @ 0x1405C9BE8 (SmTerminateStoreProcess.c)
- *     SmpKeyedStoreCtxCleanup @ 0x1405C9CE8 (SmpKeyedStoreCtxCleanup.c)
- *     MmStoreReleaseResidentAvailableForRead @ 0x14065D448 (MmStoreReleaseResidentAvailableForRead.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     SmFpCleanup @ 0x1403445A8 (SmFpCleanup.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140345424 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BEBFC (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmTerminateStoreProcess @ 0x1405CA158 (SmTerminateStoreProcess.c)
+ *     SmpKeyedStoreCtxCleanup @ 0x1405CA258 (SmpKeyedStoreCtxCleanup.c)
+ *     MmStoreReleaseResidentAvailableForRead @ 0x14065D998 (MmStoreReleaseResidentAvailableForRead.c)
  */
 
 unsigned __int64 __fastcall SmPartitionCleanup(__int64 a1)

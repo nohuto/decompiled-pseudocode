@@ -1,7 +1,7 @@
 /*
  * XREFs of HalpAuditAcpiTables @ 0x140B65A08
  * Callers:
- *     HalpAcpiInitSystem @ 0x140A90C00 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x140A90A80 (HalpAcpiInitSystem.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     HalpAuditEnumerateRsdts @ 0x140B920BC (HalpAuditEnumerateRsdts.c)

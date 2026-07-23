@@ -1,17 +1,17 @@
 /*
- * XREFs of HsaInitializeInterruptRemapping @ 0x1409AA448
+ * XREFs of HsaInitializeInterruptRemapping @ 0x1409AB378
  * Callers:
- *     HsaInitializeIommu @ 0x1409AA5F0 (HsaInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x1409AB520 (HsaInitializeIommu.c)
  * Callees:
- *     RtlInitializeBitMap @ 0x1402B2D90 (RtlInitializeBitMap.c)
- *     ExtEnvZeroMemory @ 0x14036D6F0 (ExtEnvZeroMemory.c)
- *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpGetIrtEntryCount @ 0x1404D1568 (HalpGetIrtEntryCount.c)
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
- *     ExtEnvClearBits @ 0x1404D5384 (ExtEnvClearBits.c)
- *     ExtEnvInitializeSpinLock @ 0x1404D5534 (ExtEnvInitializeSpinLock.c)
+ *     RtlInitializeBitMap @ 0x140230F40 (RtlInitializeBitMap.c)
+ *     ExtEnvZeroMemory @ 0x14036D8A0 (ExtEnvZeroMemory.c)
+ *     HalMapIoSpace @ 0x1403AD060 (HalMapIoSpace.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpGetIrtEntryCount @ 0x1404D17A8 (HalpGetIrtEntryCount.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
+ *     ExtEnvClearBits @ 0x1404D55C4 (ExtEnvClearBits.c)
+ *     ExtEnvInitializeSpinLock @ 0x1404D5774 (ExtEnvInitializeSpinLock.c)
  */
 
 __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
   LARGE_INTEGER v4; // rax
   PVOID v5; // rax
   __int64 v6; // rcx
-  RTL_BITMAP *v7; // rcx
+  _RTL_BITMAP *v7; // rcx
   __int64 v8; // rcx
   char *v9; // rbx
   PULONG BitMapBuffer; // [rsp+30h] [rbp+8h] BYREF
@@ -67,7 +67,7 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
               HsaDeviceApertureRanges[0] = (__int64)v9;
               *(_OWORD *)(v9 + 8) = HsaSharedRemappingTable;
               *(_OWORD *)(v9 + 24) = *(_OWORD *)&NumberOfBytes;
-              *((_QWORD *)v9 + 5) = qword_140C48960;
+              *((_QWORD *)v9 + 5) = qword_140C489A0;
               *((_DWORD *)v9 + 12) = 1;
               *((_DWORD *)v9 + 13) = -1;
               *((_DWORD *)v9 + 14) = 0;

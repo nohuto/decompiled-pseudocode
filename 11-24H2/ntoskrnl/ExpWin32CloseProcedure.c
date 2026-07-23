@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWin32CloseProcedure @ 0x140934B50
+ * XREFs of ExpWin32CloseProcedure @ 0x1408F3DD0
  * Callers:
  *     <none>
  * Callees:
- *     PsSessionGetWin32Callouts @ 0x14046B2A0 (PsSessionGetWin32Callouts.c)
- *     PspUpdateCalloutParameters @ 0x1404EEDCC (PspUpdateCalloutParameters.c)
- *     ExCallCallBack @ 0x1409358AC (ExCallCallBack.c)
+ *     PsSessionGetWin32Callouts @ 0x140463D20 (PsSessionGetWin32Callouts.c)
+ *     PspUpdateCalloutParameters @ 0x1404E64C0 (PspUpdateCalloutParameters.c)
+ *     ExCallCallBack @ 0x1408F47CC (ExCallCallBack.c)
  */
 
 POBJECT_TYPE *__fastcall ExpWin32CloseProcedure(__int64 a1, int *a2, int a3, int a4)
@@ -14,7 +14,7 @@ POBJECT_TYPE *__fastcall ExpWin32CloseProcedure(__int64 a1, int *a2, int a3, int
   unsigned __int64 v5; // r11
   POBJECT_TYPE *result; // rax
   int v7; // r10d
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v9; // r10
   _QWORD v10[4]; // [rsp+30h] [rbp-30h] BYREF
   int v11; // [rsp+50h] [rbp-10h]

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoStartPacket @ 0x1400AE5CC
+ * XREFs of IoStartPacket @ 0x1400ACB34
  * Callers:
  *     <none>
  * Callees:
- *     IoAcquireCancelSpinLock @ 0x140078440 (IoAcquireCancelSpinLock.c)
- *     KeInsertDeviceQueue @ 0x1400AE670 (KeInsertDeviceQueue.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     KeInsertByKeyDeviceQueue @ 0x1401D682C (KeInsertByKeyDeviceQueue.c)
+ *     IoAcquireCancelSpinLock @ 0x1400784C0 (IoAcquireCancelSpinLock.c)
+ *     KeInsertDeviceQueue @ 0x1400ACBD8 (KeInsertDeviceQueue.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     KeInsertByKeyDeviceQueue @ 0x1401D6658 (KeInsertByKeyDeviceQueue.c)
  */
 
 void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, PDRIVER_CANCEL CancelFunction)
@@ -16,7 +16,7 @@ void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, 
   union _IRP::$66699B8BF83DC91F51A70E4C6E3F33A6 *p_Tail; // rdx
   KDEVICE_QUEUE *p_DeviceQueue; // rcx
   BOOLEAN inserted; // al
-  KIRQL Irql; // [rsp+50h] [rbp+18h] BYREF
+  UCHAR Irql; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0;
   Irql = 0;

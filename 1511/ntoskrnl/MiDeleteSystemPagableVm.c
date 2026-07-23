@@ -321,7 +321,8 @@ __int64 __fastcall MiDeleteSystemPagableVm(
             if ( SpinLock == &dword_1402FFA80 )
             {
               if ( PsNtosImageBase
-                && (v33 >= PsNtosImageBase && v33 < PsNtosImageEnd || v33 >= PsHalImageBase && v33 < PsHalImageEnd) )
+                && (v33 >= (unsigned __int64)PsNtosImageBase && v33 < PsNtosImageEnd
+                 || v33 >= (unsigned __int64)PsHalImageBase && v33 < PsHalImageEnd) )
               {
                 LODWORD(xmmword_1402FE598) = xmmword_1402FE598 - 1;
               }

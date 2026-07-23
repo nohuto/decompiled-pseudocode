@@ -1,10 +1,10 @@
 /*
- * XREFs of PoUnblockConsoleSwitch @ 0x140A38848
+ * XREFs of PoUnblockConsoleSwitch @ 0x1409F4408
  * Callers:
- *     PoPowerOffMonitor @ 0x14050090C (PoPowerOffMonitor.c)
- *     PnprWakeDevices @ 0x140BF2D2C (PnprWakeDevices.c)
+ *     PoPowerOffMonitor @ 0x1404FA0FC (PoPowerOffMonitor.c)
+ *     PnprWakeDevices @ 0x140BF8D2C (PnprWakeDevices.c)
  * Callees:
- *     PopDispatchStateCallout @ 0x140A39B10 (PopDispatchStateCallout.c)
+ *     PopDispatchStateCallout @ 0x1409F5718 (PopDispatchStateCallout.c)
  */
 
 __int64 __fastcall PoUnblockConsoleSwitch(__int64 a1, int a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpStopDeviceSubtree @ 0x14073565C
+ * XREFs of PnpStopDeviceSubtree @ 0x14073358C
  * Callers:
- *     PnpRebalance @ 0x1407352B8 (PnpRebalance.c)
- *     PnpStopDeviceSubtree @ 0x14073565C (PnpStopDeviceSubtree.c)
+ *     PnpRebalance @ 0x1407331E8 (PnpRebalance.c)
+ *     PnpStopDeviceSubtree @ 0x14073358C (PnpStopDeviceSubtree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     IopQueryReconfiguration @ 0x140733D7C (IopQueryReconfiguration.c)
- *     PnpStopDeviceSubtree @ 0x14073565C (PnpStopDeviceSubtree.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     IopQueryReconfiguration @ 0x140731CB0 (IopQueryReconfiguration.c)
+ *     PnpStopDeviceSubtree @ 0x14073358C (PnpStopDeviceSubtree.c)
  */
 
 void __fastcall PnpStopDeviceSubtree(__int64 a1)

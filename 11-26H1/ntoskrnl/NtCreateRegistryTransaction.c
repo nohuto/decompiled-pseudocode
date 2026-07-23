@@ -1,26 +1,30 @@
 /*
- * XREFs of NtCreateRegistryTransaction @ 0x140AFDE40
+ * XREFs of NtCreateRegistryTransaction @ 0x140AFFEB0
  * Callers:
- *     DifNtCreateRegistryTransactionWrapper @ 0x140673250 (DifNtCreateRegistryTransactionWrapper.c)
+ *     DifNtCreateRegistryTransactionWrapper @ 0x140676E30 (DifNtCreateRegistryTransactionWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, __int64 a3, int a4)
+NTSTATUS __cdecl NtCreateRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes,
+        ULONG CreateOptions)
 {
   __int64 v8; // rdx
   __int64 v9; // rcx
   char v10; // r15
   char PreviousMode; // si
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   _OWORD *v13; // rcx
   PVOID v14; // rcx
   __int64 v16; // [rsp+20h] [rbp-88h]
@@ -37,7 +41,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, __in
   v10 = CmpAcquireShutdownRundown(v9, v8);
   if ( v10 )
   {
-    if ( a4 )
+    if ( CreateOptions )
     {
       inserted = -1073741811;
     }
@@ -45,13 +49,13 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, __in
     {
       PreviousMode = KeGetCurrentThread()->PreviousMode;
       if ( PreviousMode )
-        RtlWriteULong64ToUser(a1, 0LL);
+        RtlWriteULong64ToUser(RegistryTransactionHandle, 0LL);
       else
-        *a1 = 0LL;
+        *RegistryTransactionHandle = 0LL;
       inserted = ObCreateObjectEx(
                    PreviousMode,
                    CmRegistryTransactionType,
-                   a3,
+                   (__int64)ObjAttributes,
                    PreviousMode,
                    v16,
                    32,
@@ -65,14 +69,14 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, __in
         *(_OWORD *)Object = 0LL;
         v13[1] = 0LL;
         *((_QWORD *)v13 + 1) = 0LL;
-        inserted = ObInsertObjectEx((char *)v13, 0LL, a2, 0, 0, 0LL, &Handle);
+        inserted = ObInsertObjectEx((char *)v13, 0LL, DesiredAccess, 0, 0, 0LL, &Handle);
         Object = 0LL;
         if ( inserted >= 0 )
         {
           if ( PreviousMode )
-            RtlWriteULong64ToUser(a1, (__int64)Handle);
+            RtlWriteULong64ToUser(RegistryTransactionHandle, (__int64)Handle);
           else
-            *a1 = Handle;
+            *RegistryTransactionHandle = Handle;
           Handle = 0LL;
           inserted = 0;
         }
@@ -91,5 +95,5 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, __in
   if ( v10 )
     CmpReleaseShutdownRundown(v14);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v19);
-  return (unsigned int)inserted;
+  return inserted;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64GetGenericPerfEvent @ 0x14052952C
+ * XREFs of Amd64GetGenericPerfEvent @ 0x140529A7C
  * Callers:
- *     Amd64InitializeProfiling @ 0x140A98780 (Amd64InitializeProfiling.c)
+ *     Amd64InitializeProfiling @ 0x140A985F0 (Amd64InitializeProfiling.c)
  * Callees:
  *     <none>
  */

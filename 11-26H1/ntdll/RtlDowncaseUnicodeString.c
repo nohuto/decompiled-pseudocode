@@ -1,49 +1,52 @@
 /*
- * XREFs of RtlDowncaseUnicodeString @ 0x1800C42B0
+ * XREFs of RtlDowncaseUnicodeString @ 0x1800C1A70
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
  */
 
-__int64 __fastcall RtlDowncaseUnicodeString(__int64 a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlDowncaseUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   __int64 v5; // rdi
-  unsigned __int16 v6; // r14
-  __int64 Atom; // rax
+  unsigned __int16 Length; // r14
+  wchar_t *Atom; // rax
   unsigned int v8; // r11d
   __int64 i; // r10
   unsigned __int64 v10; // r9
 
-  if ( !a3 && !*a2 )
+  if ( !AllocateDestinationString && !SourceString->Length )
   {
-    *(_WORD *)a1 = 0;
-    return 0LL;
+    DestinationString->Length = 0;
+    return 0;
   }
-  v5 = qword_1801C6040;
-  v6 = *a2;
-  if ( a3 )
+  v5 = qword_1801C5040;
+  Length = SourceString->Length;
+  if ( AllocateDestinationString )
   {
-    Atom = RtlpAllocateAtom(*a2);
-    *(_QWORD *)(a1 + 8) = Atom;
+    Atom = (wchar_t *)RtlpAllocateAtom(SourceString->Length);
+    DestinationString->Buffer = Atom;
     if ( Atom )
     {
-      *(_WORD *)(a1 + 2) = v6;
+      DestinationString->MaximumLength = Length;
       goto LABEL_6;
     }
-    *(_WORD *)(a1 + 2) = 0;
-    return 3221225495LL;
+    DestinationString->MaximumLength = 0;
+    return -1073741801;
   }
   else
   {
-    if ( v6 <= *(_WORD *)(a1 + 2) && *(_QWORD *)(a1 + 8) )
+    if ( Length <= DestinationString->MaximumLength && DestinationString->Buffer )
     {
 LABEL_6:
-      v8 = *a2 >> 1;
+      v8 = SourceString->Length >> 1;
       for ( i = 0LL; (unsigned int)i < v8; i = (unsigned int)(i + 1) )
       {
-        v10 = *(unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2 * i);
+        v10 = SourceString->Buffer[i];
         if ( (unsigned int)v10 >= 0x41 )
         {
           if ( (unsigned int)v10 <= 0x5A )
@@ -63,11 +66,11 @@ LABEL_6:
                           + v10;
           }
         }
-        *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * i) = v10;
+        DestinationString->Buffer[i] = v10;
       }
-      *(_WORD *)a1 = *a2;
-      return 0LL;
+      DestinationString->Length = SourceString->Length;
+      return 0;
     }
-    return 2147483653LL;
+    return -2147483643;
   }
 }

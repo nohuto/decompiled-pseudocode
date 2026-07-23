@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceQueryStopFailure @ 0x140649214
+ * XREFs of PnpTraceQueryStopFailure @ 0x1406492F8
  * Callers:
- *     PnpQueryStopDeviceNode @ 0x140630334 (PnpQueryStopDeviceNode.c)
+ *     PnpQueryStopDeviceNode @ 0x1406303E8 (PnpQueryStopDeviceNode.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceQueryStopFailure(__int64 a1)
@@ -59,7 +59,7 @@ void __fastcall PnpTraceQueryStopFailure(__int64 a1)
       v13 = 2;
       v18 = 4;
       v21 = 1;
-      TlgWrite(&stru_1402F3230, &unk_14027BE94, 0LL, 0LL, 8u, &pData);
+      TlgWrite(&stru_1402F3230, &unk_14027BF94, 0LL, 0LL, 8u, &pData);
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtFlushBuffersFile @ 0x1409B0C80
+ * XREFs of NtFlushBuffersFile @ 0x140981D40
  * Callers:
- *     DifNtFlushBuffersFileWrapper @ 0x140677E90 (DifNtFlushBuffersFileWrapper.c)
+ *     DifNtFlushBuffersFileWrapper @ 0x14067BA70 (DifNtFlushBuffersFileWrapper.c)
  * Callees:
- *     NtFlushBuffersFileEx @ 0x1409B0CB0 (NtFlushBuffersFileEx.c)
+ *     NtFlushBuffersFileEx @ 0x140981D70 (NtFlushBuffersFileEx.c)
  */
 
-__int64 __fastcall NtFlushBuffersFile(int a1, __int64 a2)
+NTSTATUS __cdecl NtFlushBuffersFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
-  return NtFlushBuffersFileEx(a1, 0, 0, 0, a2);
+  return NtFlushBuffersFileEx(FileHandle, 0, 0LL, 0, IoStatusBlock);
 }

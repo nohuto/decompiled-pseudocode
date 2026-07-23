@@ -1,9 +1,9 @@
 /*
- * XREFs of _fputwc_nolock @ 0x180099DB8
+ * XREFs of _fputwc_nolock @ 0x180099DC8
  * Callers:
- *     write_char_0 @ 0x180097738 (write_char_0.c)
+ *     write_char_0 @ 0x180097748 (write_char_0.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  */
 
 wint_t __cdecl fputwc_nolock(wchar_t Character, FILE *Stream)

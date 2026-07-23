@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueueThreadIrp @ 0x140160E10
+ * XREFs of IoQueueThreadIrp @ 0x140160F10
  * Callers:
- *     PiPagePathSetState @ 0x14075C1DC (PiPagePathSetState.c)
+ *     PiPagePathSetState @ 0x14075D3CC (PiPagePathSetState.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
+ *     IopQueueThreadIrp @ 0x1400BC2C0 (IopQueueThreadIrp.c)
  */
 
 void __stdcall IoQueueThreadIrp(PIRP Irp)

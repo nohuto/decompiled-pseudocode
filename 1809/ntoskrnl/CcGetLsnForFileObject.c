@@ -1,5 +1,5 @@
 /*
- * XREFs of CcGetLsnForFileObject @ 0x140269F80
+ * XREFs of CcGetLsnForFileObject @ 0x14026A170
  * Callers:
  *     <none>
  * Callees:

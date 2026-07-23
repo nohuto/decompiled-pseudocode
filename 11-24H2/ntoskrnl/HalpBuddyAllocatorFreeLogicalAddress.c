@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBuddyAllocatorFreeLogicalAddress @ 0x1403AD740
+ * XREFs of HalpBuddyAllocatorFreeLogicalAddress @ 0x14039BF50
  * Callers:
- *     IommuUnmapIdentityRangeEx @ 0x1403AD580 (IommuUnmapIdentityRangeEx.c)
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x1403AD6EC (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     IommuUnmapIdentityRangeEx @ 0x14039BD90 (IommuUnmapIdentityRangeEx.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x14039BEFC (HalpIommuDomainFreeLogicalAddressRange.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpBuddyAllocatorBltPopBuddy @ 0x1403AC510 (HalpBuddyAllocatorBltPopBuddy.c)
- *     HalpBuddyAllocatorBltAdd @ 0x1403AC5B0 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpBuddyAllocatorBltPopBuddy @ 0x14039AD1C (HalpBuddyAllocatorBltPopBuddy.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x14039ADBC (HalpBuddyAllocatorBltAdd.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorFreeLogicalAddress(__int64 a1, unsigned __int64 a2)

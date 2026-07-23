@@ -9,14 +9,14 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-void *__fastcall RtlRcuAllocate(int a1)
+PVOID __fastcall RtlRcuAllocate(int a1)
 {
-  void *result; // rax
+  PVOID result; // rax
   __int64 v3; // rbx
   __int64 **v4; // rax
   signed __int32 v5[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  result = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x88uLL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x88uLL);
   v3 = (__int64)result;
   if ( result )
   {
@@ -24,7 +24,7 @@ void *__fastcall RtlRcuAllocate(int a1)
     *(_DWORD *)(v3 + 128) = a1;
     *(_QWORD *)(v3 + 16) = 1LL;
     _InterlockedOr(v5, 0);
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&qword_1801D5CD0);
+    RtlAcquireSRWLockExclusive(&stru_1801D5CD0);
     if ( RtlpRcuState )
     {
       v4 = (__int64 **)qword_1801D5CC8;
@@ -41,8 +41,8 @@ void *__fastcall RtlRcuAllocate(int a1)
     *(_QWORD *)(v3 + 8) = v4;
     *v4 = (__int64 *)v3;
     qword_1801D5CC8 = v3;
-    RtlReleaseSRWLockExclusive(&qword_1801D5CD0);
-    return (void *)v3;
+    RtlReleaseSRWLockExclusive(&stru_1801D5CD0);
+    return (PVOID)v3;
   }
   return result;
 }

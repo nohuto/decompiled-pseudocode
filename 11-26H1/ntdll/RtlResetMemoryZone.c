@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlResetMemoryZone @ 0x180140500
+ * XREFs of RtlResetMemoryZone @ 0x180140400
  * Callers:
- *     RtlResetMemoryBlockLookaside @ 0x1801404A0 (RtlResetMemoryBlockLookaside.c)
+ *     RtlResetMemoryBlockLookaside @ 0x1801403A0 (RtlResetMemoryBlockLookaside.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlResetMemoryZone(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlResetMemoryZone(PVOID MemoryZone)
 {
-  __int64 *i; // rdx
+  volatile __int64 *i; // rdx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 32), a2);
-  for ( i = *(__int64 **)(a1 + 48); i != (__int64 *)a1; i = (__int64 *)*i )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
+  for ( i = (volatile __int64 *)*((_QWORD *)MemoryZone + 6); i != MemoryZone; i = (volatile __int64 *)*i )
     _InterlockedExchange64(i + 2, (__int64)(i + 4));
-  _InterlockedExchange64((volatile __int64 *)(a1 + 16), a1 + 56);
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
-  return 0LL;
+  _InterlockedExchange64((volatile __int64 *)MemoryZone + 2, (__int64)MemoryZone + 56);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
+  return 0;
 }

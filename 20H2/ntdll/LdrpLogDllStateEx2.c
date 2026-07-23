@@ -10,43 +10,38 @@
  *     LdrpLogEtwEvent @ 0x1800CF2C0 (LdrpLogEtwEvent.c)
  */
 
-void __fastcall LdrpLogDllStateEx2(__int64 a1, void *a2, __int64 a3, unsigned __int16 a4)
+void __fastcall LdrpLogDllStateEx2(__int64 a1, const WCHAR *a2, const WCHAR *a3, unsigned __int16 a4)
 {
-  void *v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  char *v9; // rcx
-  char v10; // bl
-  char v11; // al
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
-  UNICODE_STRING v13; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v7; // rcx
+  char *v8; // rcx
+  BOOLEAN v9; // bl
+  BOOLEAN v10; // al
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
 
-  v13 = 0LL;
+  DestinationString = 0LL;
   UnicodeString = 0LL;
-  v6 = a2;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    v8 = 2147353476LL;
-  if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+    v7 = 2147353476LL;
+  if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v9 = (unsigned int)RtlGetCurrentServiceSessionId(v8, v7)
-       ? (char *)NtCurrentPeb()->SharedData + 555
-       : (char *)2147353477;
-    if ( (*v9 & 0x20) != 0 )
+    v8 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    if ( (*v8 & 0x20) != 0 )
     {
-      if ( !v6 )
-        v6 = &unk_180122374;
-      v10 = RtlCreateUnicodeString(&v13, v6);
-      v11 = RtlCreateUnicodeString(&UnicodeString, a3);
-      if ( v10 )
+      if ( !a2 )
+        a2 = &word_180122374;
+      v9 = RtlCreateUnicodeString(&DestinationString, a2);
+      v10 = RtlCreateUnicodeString(&UnicodeString, a3);
+      if ( v9 )
       {
-        if ( v11 )
+        if ( v10 )
         {
-          LdrpLogEtwEvent(a4, 0, 0, 0, (__int64)&UnicodeString, (__int64)&v13);
+          LdrpLogEtwEvent(a4, 0, 0, 0, (__int64)&UnicodeString, (__int64)&DestinationString);
           RtlFreeAnsiString(&UnicodeString);
         }
-        RtlFreeAnsiString(&v13);
+        RtlFreeAnsiString(&DestinationString);
       }
     }
   }

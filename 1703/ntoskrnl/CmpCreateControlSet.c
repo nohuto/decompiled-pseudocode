@@ -41,7 +41,7 @@ NTSTATUS __fastcall CmpCreateControlSet(__int64 a1)
   HANDLE Handle; // [rsp+A8h] [rbp-60h] BYREF
   ULONG ResultLength; // [rsp+B0h] [rbp-58h] BYREF
   HANDLE v22; // [rsp+B8h] [rbp-50h] BYREF
-  STRING DestinationString; // [rsp+C0h] [rbp-48h] BYREF
+  _STRING DestinationString; // [rsp+C0h] [rbp-48h] BYREF
   ULONG Disposition; // [rsp+D0h] [rbp-38h] BYREF
   __int16 v25; // [rsp+D4h] [rbp-34h]
   _DWORD KeyValueInformation[2]; // [rsp+D8h] [rbp-30h] BYREF

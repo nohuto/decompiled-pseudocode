@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDeleteUltraMapHierarchy @ 0x1404697BC
+ * XREFs of MiDeleteUltraMapHierarchy @ 0x140462310
  * Callers:
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
  */
 
 void __fastcall MiDeleteUltraMapHierarchy(unsigned __int64 a1)
@@ -31,7 +31,7 @@ void __fastcall MiDeleteUltraMapHierarchy(unsigned __int64 a1)
       *(_QWORD *)v1 = v4;
       v2 = 1;
     }
-    if ( v1 >= qword_140E35F30 && v1 <= qword_140E35F38 )
+    if ( v1 >= qword_140E36070 && v1 <= qword_140E36078 )
       break;
     v1 = ((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   }

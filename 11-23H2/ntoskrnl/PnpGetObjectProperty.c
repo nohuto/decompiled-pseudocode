@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpGetObjectProperty @ 0x1406D00B0
+ * XREFs of PnpGetObjectProperty @ 0x1406D00E0
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9768 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlIsDeviceEnumerableForUser @ 0x14074071C (PiPnpRtlIsDeviceEnumerableForUser.c)
- *     PiUEventCacheObjectProperties @ 0x140783800 (PiUEventCacheObjectProperties.c)
- *     IopGetDeviceInterfaces @ 0x1407873F0 (IopGetDeviceInterfaces.c)
- *     PiDmObjectProcessPropertyChange @ 0x14078973C (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D2CC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x1407CBFF4 (PiDmGetReferencedObjectFromProperty.c)
- *     PnpInitializeInheritedRestrictedSd @ 0x1407DD03C (PnpInitializeInheritedRestrictedSd.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x140878BF0 (PiDevCfgResolveVariableDeviceProperty.c)
- *     IoGetDeviceDirectory @ 0x140955010 (IoGetDeviceDirectory.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14095A5AC (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9798 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlIsDeviceEnumerableForUser @ 0x14074090C (PiPnpRtlIsDeviceEnumerableForUser.c)
+ *     PiUEventCacheObjectProperties @ 0x1407839F0 (PiUEventCacheObjectProperties.c)
+ *     IopGetDeviceInterfaces @ 0x1407875E0 (IopGetDeviceInterfaces.c)
+ *     PiDmObjectProcessPropertyChange @ 0x14078992C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D4BC (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x1407CC2C4 (PiDmGetReferencedObjectFromProperty.c)
+ *     PnpInitializeInheritedRestrictedSd @ 0x1407DD30C (PnpInitializeInheritedRestrictedSd.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x140878E30 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     IoGetDeviceDirectory @ 0x140955210 (IoGetDeviceDirectory.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14095A7AC (PiPnpRtlGatherInterfaceDeleteInfo.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

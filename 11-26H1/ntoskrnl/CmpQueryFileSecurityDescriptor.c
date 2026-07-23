@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpQueryFileSecurityDescriptor @ 0x1408B5DB0
+ * XREFs of CmpQueryFileSecurityDescriptor @ 0x1408BC384
  * Callers:
- *     CmpStartRMLog @ 0x1408AC340 (CmpStartRMLog.c)
- *     CmpOpenHiveFiles @ 0x1408B4E2C (CmpOpenHiveFiles.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
- *     CmpLogHiveFileInaccessible @ 0x1408B5990 (CmpLogHiveFileInaccessible.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
+ *     CmpStartRMLog @ 0x1408B2784 (CmpStartRMLog.c)
+ *     CmpOpenHiveFiles @ 0x1408BB400 (CmpOpenHiveFiles.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
+ *     CmpLogHiveFileInaccessible @ 0x1408BBF64 (CmpLogHiveFileInaccessible.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmSiAllocateMemory @ 0x1404BE3D8 (CmSiAllocateMemory.c)
- *     ZwQuerySecurityObject @ 0x140726110 (ZwQuerySecurityObject.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmSiAllocateMemory @ 0x1404B7C28 (CmSiAllocateMemory.c)
+ *     ZwQuerySecurityObject @ 0x14072ACE0 (ZwQuerySecurityObject.c)
  */
 
 __int64 __fastcall CmpQueryFileSecurityDescriptor(HANDLE Handle, struct _PRIVILEGE_SET **a2)

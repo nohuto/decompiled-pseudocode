@@ -1,20 +1,20 @@
 /*
- * XREFs of MmCreatePeb @ 0x140678530
+ * XREFs of MmCreatePeb @ 0x1406796F0
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     KeQueryGroupAffinity @ 0x1400F3680 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiCreatePebOrTeb @ 0x1405F8B40 (MiCreatePebOrTeb.c)
- *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
- *     MiInitializeWowPeb @ 0x14068B5F4 (MiInitializeWowPeb.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     MmGetSessionId @ 0x1400897A0 (MmGetSessionId.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A84 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     KeQueryGroupAffinity @ 0x1400F3700 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiCreatePebOrTeb @ 0x1405F9B40 (MiCreatePebOrTeb.c)
+ *     MmMapViewOfSection @ 0x140679D20 (MmMapViewOfSection.c)
+ *     MiInitializeWowPeb @ 0x14068C7B4 (MiInitializeWowPeb.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
@@ -43,7 +43,7 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
   __int64 v29; // [rsp+70h] [rbp-158h] BYREF
   __int64 v30; // [rsp+78h] [rbp-150h] BYREF
   __int64 v31; // [rsp+80h] [rbp-148h] BYREF
-  struct _IMAGE_NT_HEADERS64 *v32; // [rsp+88h] [rbp-140h]
+  _IMAGE_NT_HEADERS64 *v32; // [rsp+88h] [rbp-140h]
   int v33; // [rsp+90h] [rbp-138h] BYREF
   int v34; // [rsp+94h] [rbp-134h]
   int MinorSubsystemVersion; // [rsp+98h] [rbp-130h]
@@ -108,15 +108,15 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
     v37 = 2;
     v9 = CmNtCSDVersion;
     v39 = CmNtCSDVersion;
-    v40 = qword_1405401B8;
-    v41 = qword_1405401B0;
+    v40 = qword_1405411B8;
+    v41 = qword_1405411B0;
     v42 = KeNumberProcessors_0;
     v43 = NtGlobalFlag;
     v44 = NtGlobalFlag2;
-    v46 = qword_140439FE0;
-    v47 = (unsigned int)dword_140540198;
-    v48 = qword_1405401A8;
-    v49 = qword_1405401A0;
+    v46 = qword_14043B0A0;
+    v47 = (unsigned int)dword_140541198;
+    v48 = qword_1405411A8;
+    v49 = qword_1405411A0;
     v50 = *a2;
     v51 = a2[3];
     v52 = *((_QWORD *)a2 + 1);
@@ -192,7 +192,7 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
     }
     if ( (Characteristics & 0x4000) != 0 )
     {
-      v23 = _InterlockedExchangeAdd(&dword_140439FDC, 1u) + 1;
+      v23 = _InterlockedExchangeAdd(&dword_14043B09C, 1u) + 1;
       do
       {
         v24 = v23 & 0x3F;
@@ -218,10 +218,10 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, _QWORD *a3, _QWORD *a4)
     *(_DWORD *)(v20 + 184) = KeNumberProcessors_0;
     *(_DWORD *)(v20 + 188) = NtGlobalFlag;
     *(_DWORD *)(v20 + 1988) = NtGlobalFlag2;
-    *(_QWORD *)(v20 + 192) = qword_140439FE0;
-    *(_QWORD *)(v20 + 792) = (unsigned int)dword_140540198;
-    *(_QWORD *)(v20 + 216) = qword_1405401A8;
-    *(_QWORD *)(v20 + 224) = qword_1405401A0;
+    *(_QWORD *)(v20 + 192) = qword_14043B0A0;
+    *(_QWORD *)(v20 + 792) = (unsigned int)dword_140541198;
+    *(_QWORD *)(v20 + 216) = qword_1405411A8;
+    *(_QWORD *)(v20 + 224) = qword_1405411A0;
     *(_DWORD *)(v20 + 704) = SessionId;
     *(_DWORD *)(v20 + 296) = Subsystem;
     *(_DWORD *)(v20 + 300) = MajorSubsystemVersion;

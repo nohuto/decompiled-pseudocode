@@ -14,60 +14,58 @@
  *     _RtlpTpIoDllLoaded@4 @ 0x4B385807 (_RtlpTpIoDllLoaded@4.c)
  */
 
-signed __int32 __thiscall RtlpTpIoDllLoaded(_DWORD *this, int a2)
+void __thiscall RtlpTpIoDllLoaded(_DWORD *this, int a2)
 {
-  int v3; // esi
-  int *v4; // ecx
-  int *v5; // edi
-  unsigned int v6; // edx
-  signed __int32 result; // eax
-  int *v8; // [esp+10h] [ebp-20h]
-  int v9; // [esp+14h] [ebp-1Ch]
+  _UNICODE_STRING *v3; // esi
+  PRTL_SPLAY_LINKS v4; // ecx
+  _RTL_SPLAY_LINKS **p_LeftChild; // edi
+  unsigned int LeftChild; // edx
+  _DWORD *BaseAddress; // [esp+10h] [ebp-20h]
+  _RTL_SPLAY_LINKS *v8; // [esp+14h] [ebp-1Ch]
 
   v3 = 0;
   RtlAcquireSRWLockExclusive(&RtlpTpIoTreeLock);
-  v4 = (int *)RtlpTpIoTree;
+  v4 = RtlpTpIoTree;
   while ( 1 )
   {
-    v8 = v4;
+    BaseAddress = &v4->Parent;
     if ( !v4 )
       break;
-    v5 = v4 - 14;
-    v6 = *(v4 - 14);
-    if ( v6 < this[3] )
+    p_LeftChild = &v4[-5].LeftChild;
+    LeftChild = (unsigned int)v4[-5].LeftChild;
+    if ( LeftChild < this[3] )
       goto LABEL_7;
-    if ( v6 >= this[3] + this[4] )
+    if ( LeftChild >= this[3] + this[4] )
     {
-      if ( v6 >= this[3] )
-        v4 = (int *)v4[1];
+      if ( LeftChild >= this[3] )
+        v4 = v4->LeftChild;
       else
 LABEL_7:
-        v4 = (int *)v4[2];
+        v4 = v4->RightChild;
     }
     else
     {
       v4 = RtlDelete(v4);
-      RtlpTpIoTree = (int)v4;
-      *v8 = v3;
-      v3 = (int)v5;
+      RtlpTpIoTree = v4;
+      *BaseAddress = v3;
+      v3 = (_UNICODE_STRING *)p_LeftChild;
     }
   }
-  result = RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
+  RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
   while ( v3 )
   {
-    v9 = *(_DWORD *)(v3 + 56);
-    if ( *(_DWORD *)(v3 + 48) != TppPoolpGlobalPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
+    v8 = *(_RTL_SPLAY_LINKS **)&v3[7].Length;
+    if ( *(_DWORD *)&v3[6].Length != TppPoolpGlobalPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
     {
       if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
         TppRaiseInvalidParameter();
     }
     else
     {
-      TppPoolpDereferenceGlobalPool((signed __int32 **)&TppPoolpGlobalPool, (int)&TppPoolpGlobalPoolLock);
+      TppPoolpDereferenceGlobalPool((signed __int32 **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
     }
-    RtlFreeAnsiString((PUNICODE_STRING)(v3 + 72));
-    result = RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v3);
-    v3 = v9;
+    RtlFreeAnsiString(v3 + 9);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+    v3 = (_UNICODE_STRING *)v8;
   }
-  return result;
 }

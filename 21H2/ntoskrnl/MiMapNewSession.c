@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMapNewSession @ 0x14078708C
+ * XREFs of MiMapNewSession @ 0x14078724C
  * Callers:
- *     MiSessionCreateInternal @ 0x140786C10 (MiSessionCreateInternal.c)
+ *     MiSessionCreateInternal @ 0x140786DD0 (MiSessionCreateInternal.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiInitializePfn @ 0x140241A00 (MiInitializePfn.c)
- *     MiGetSystemPage @ 0x140270ED8 (MiGetSystemPage.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiPartitionIdToPointer @ 0x1402CBF58 (MiPartitionIdToPointer.c)
- *     MiGetPfnLink @ 0x1402D2F30 (MiGetPfnLink.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E5808 (MiInitializePfnForOtherProcess.c)
- *     MiSetPageTablePfnBuddy @ 0x1402E5B84 (MiSetPageTablePfnBuddy.c)
- *     MiGetNextPageColor @ 0x1402E5C08 (MiGetNextPageColor.c)
- *     MiFillPteHierarchy @ 0x14030C470 (MiFillPteHierarchy.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiSetPfnLink @ 0x14031818C (MiSetPfnLink.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiWriteTopLevelPxe @ 0x14039DF0C (MiWriteTopLevelPxe.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiPartitionIdToPointer @ 0x14024A6C4 (MiPartitionIdToPointer.c)
+ *     MiGetPfnLink @ 0x1402514D0 (MiGetPfnLink.c)
+ *     MiGetSystemPage @ 0x14025EE78 (MiGetSystemPage.c)
+ *     MiInitializePfnForOtherProcess @ 0x140296B58 (MiInitializePfnForOtherProcess.c)
+ *     MiSetPageTablePfnBuddy @ 0x140296ED4 (MiSetPageTablePfnBuddy.c)
+ *     MiGetNextPageColor @ 0x140296F58 (MiGetNextPageColor.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiInitializePfn @ 0x1402E6250 (MiInitializePfn.c)
+ *     MiFillPteHierarchy @ 0x1403171C0 (MiFillPteHierarchy.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiSetPfnLink @ 0x140322EDC (MiSetPfnLink.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiWriteTopLevelPxe @ 0x14039E05C (MiWriteTopLevelPxe.c)
  */
 
 __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)
@@ -40,58 +40,55 @@ __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)
   unsigned __int64 ValidPte; // rax
   unsigned __int64 v17; // rbx
   int v18; // r15d
-  __int64 v19; // r8
-  bool v20; // zf
-  unsigned __int64 v21; // rdi
-  unsigned int v22; // r14d
-  __int64 *v23; // rsi
-  __int64 v24; // r9
-  __int64 v25; // rbp
-  __int64 v26; // rax
-  __int64 v27; // r9
-  unsigned __int64 v28; // rbx
-  unsigned __int64 *v29; // r15
-  int v30; // r13d
-  __int64 v31; // r8
-  bool v32; // zf
-  unsigned __int64 v33; // rbx
-  __int64 v34; // r8
-  __int128 v36; // [rsp+20h] [rbp-68h] BYREF
-  unsigned __int64 v37[11]; // [rsp+30h] [rbp-58h] BYREF
+  bool v19; // zf
+  unsigned __int64 v20; // rdi
+  unsigned int v21; // r14d
+  __int64 *v22; // rsi
+  __int64 v23; // r9
+  __int64 v24; // rbp
+  __int64 v25; // rax
+  __int64 v26; // r9
+  unsigned __int64 v27; // rbx
+  unsigned __int64 *v28; // r15
+  int v29; // r13d
+  bool v30; // zf
+  unsigned __int64 v31; // rbx
+  __int128 v33; // [rsp+20h] [rbp-68h] BYREF
+  unsigned __int64 v34[11]; // [rsp+30h] [rbp-58h] BYREF
   unsigned __int64 PteAddress; // [rsp+A0h] [rbp+18h]
-  unsigned __int64 v40; // [rsp+A0h] [rbp+18h]
-  __int64 v41; // [rsp+A8h] [rbp+20h]
+  unsigned __int64 v37; // [rsp+A0h] [rbp+18h]
+  __int64 v38; // [rsp+A8h] [rbp+20h]
 
   v2 = a1;
-  v36 = 0LL;
-  memset(v37, 0, 32);
+  v33 = 0LL;
+  memset(v34, 0, 32);
   v3 = MiPartitionIdToPointer(a2);
   v4 = 0LL;
   PteAddress = MiGetPteAddress(v2);
-  MiInitializePageColorBase(0LL, 0, (__int64)&v36);
+  MiInitializePageColorBase(0LL, 0, (__int64)&v33);
   v5 = 8LL;
   do
   {
-    SystemPage = (_QWORD *)MiGetSystemPage(v3, (__int64)&v36);
+    SystemPage = (_QWORD *)MiGetSystemPage(v3, (__int64)&v33);
     MiSetPfnLink(SystemPage, v4);
     v4 = v7;
     --v5;
   }
   while ( v5 );
-  MiFillPteHierarchy(qword_140C4DDE0, v37);
+  MiFillPteHierarchy(qword_140C4DE20, v34);
   v9 = 4LL;
   v10 = (v8 + 0x58000000000LL) / 48;
   do
   {
-    v11 = (__int64 *)v37[--v9];
+    v11 = (__int64 *)v34[--v9];
     v12 = v4;
     PfnLink = MiGetPfnLink(v4);
     *v14 = 0LL;
     v4 = PfnLink;
     if ( v9 == 3 )
     {
-      *(_QWORD *)(v12 + 8) = MiGetPteAddress(qword_140C4DDE0);
-      MiSetPageTablePfnBuddy(v12, v2, 0LL);
+      *(_QWORD *)(v12 + 8) = MiGetPteAddress(qword_140C4DE20);
+      MiSetPageTablePfnBuddy(v12, v2, 0);
     }
     v15 = (v12 + 0x58000000000LL) / 48;
     ValidPte = MiMakeValidPte(0LL, v15, -1879048186);
@@ -107,95 +104,95 @@ __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v18 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        if ( !HIBYTE(word_140C4E048) )
         {
-          v20 = (v17 & 1) == 0;
+          v19 = (v17 & 1) == 0;
           goto LABEL_14;
         }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
       {
-        v20 = (v17 & 1) == 0;
+        v19 = (v17 & 1) == 0;
 LABEL_14:
-        if ( !v20 )
+        if ( !v19 )
           v17 |= 0x8000000000000000uLL;
       }
     }
     *v11 = v17;
     if ( v18 )
-      MiWritePteShadow((__int64)v11, v17, v19);
+      MiWritePteShadow((__int64)v11, v17);
     v2 = a1;
 LABEL_19:
-    MiInitializePfnForOtherProcess(v15, (__int64)v11, v10, 512LL);
+    MiInitializePfnForOtherProcess(v15, (__int64)v11, v10, 512);
     v10 = v15;
   }
   while ( v9 != 1 );
-  v21 = MiMakeValidPte(PteAddress, 0LL, -1610612732);
-  v22 = 0;
-  v23 = (__int64 *)MiGetPteAddress(qword_140C4DDE0);
-  v40 = PteAddress - (_QWORD)v23;
+  v20 = MiMakeValidPte(PteAddress, 0LL, -1610612732);
+  v21 = 0;
+  v22 = (__int64 *)MiGetPteAddress(qword_140C4DE20);
+  v37 = PteAddress - (_QWORD)v22;
   while ( 2 )
   {
-    v41 = v4;
+    v38 = v4;
     v4 = MiGetPfnLink(v4);
-    v25 = (v24 + 0x58000000000LL) / 48;
-    if ( v22 )
+    v24 = (v23 + 0x58000000000LL) / 48;
+    if ( v21 )
       goto LABEL_32;
-    v21 ^= (v21 ^ (v25 << 12)) & 0xFFFFFFFFF000LL;
-    v26 = MiGetPteAddress(qword_140C4DDE0);
-    *(_QWORD *)(v27 + 8) = v26;
-    MiSetPageTablePfnBuddy(v27, v2, 0LL);
-    v28 = v21;
-    v29 = (unsigned __int64 *)((char *)v23 + v40);
-    v30 = 0;
-    if ( MiPteInShadowRange((unsigned __int64)v23 + v40) )
+    v20 ^= (v20 ^ (v24 << 12)) & 0xFFFFFFFFF000LL;
+    v25 = MiGetPteAddress(qword_140C4DE20);
+    *(_QWORD *)(v26 + 8) = v25;
+    MiSetPageTablePfnBuddy(v26, v2, 0);
+    v27 = v20;
+    v28 = (unsigned __int64 *)((char *)v22 + v37);
+    v29 = 0;
+    if ( MiPteInShadowRange((unsigned __int64)v22 + v37) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v30 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        v29 = 1;
+        if ( !HIBYTE(word_140C4E048) )
         {
-          v32 = (v21 & 1) == 0;
+          v30 = (v20 & 1) == 0;
 LABEL_28:
-          if ( !v32 )
-            v28 = v21 | 0x8000000000000000uLL;
+          if ( !v30 )
+            v27 = v20 | 0x8000000000000000uLL;
         }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
       {
-        v32 = (v21 & 1) == 0;
+        v30 = (v20 & 1) == 0;
         goto LABEL_28;
       }
     }
-    *v29 = v28;
-    if ( v30 )
-      MiWritePteShadow((__int64)v29, v28, v31);
+    *v28 = v27;
+    if ( v29 )
+      MiWritePteShadow((__int64)v28, v27);
 LABEL_32:
-    v33 = MiMakeValidPte(0LL, v25, -2147483644) & 0xFFFFFFFFFFFFFEFFuLL;
-    MiInitializePfn(v41, v23, 4u, 4);
-    if ( !MiPteInShadowRange((unsigned __int64)v23) )
+    v31 = MiMakeValidPte(0LL, v24, -2147483644) & 0xFFFFFFFFFFFFFEFFuLL;
+    MiInitializePfn(v38, v22, 4u, 4);
+    if ( !MiPteInShadowRange((unsigned __int64)v22) )
       goto LABEL_41;
     if ( !(unsigned int)MiPteHasShadow() )
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-        && (v33 & 1) != 0 )
+        && (v31 & 1) != 0 )
       {
-        v33 |= 0x8000000000000000uLL;
+        v31 |= 0x8000000000000000uLL;
       }
 LABEL_41:
-      *v23 = v33;
+      *v22 = v31;
       goto LABEL_42;
     }
-    if ( !HIBYTE(word_140C4E008) && (v33 & 1) != 0 )
-      v33 |= 0x8000000000000000uLL;
-    *v23 = v33;
-    MiWritePteShadow((__int64)v23, v33, v34);
+    if ( !HIBYTE(word_140C4E048) && (v31 & 1) != 0 )
+      v31 |= 0x8000000000000000uLL;
+    *v22 = v31;
+    MiWritePteShadow((__int64)v22, v31);
 LABEL_42:
     v2 = a1;
+    ++v21;
     ++v22;
-    ++v23;
-    if ( v22 < 5 )
+    if ( v21 < 5 )
       continue;
-    return MiGetNextPageColor((__int64)&v36);
+    return MiGetNextPageColor((__int64)&v33);
   }
 }

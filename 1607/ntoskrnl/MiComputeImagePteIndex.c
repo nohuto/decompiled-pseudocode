@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeImagePteIndex @ 0x140026C20
+ * XREFs of MiComputeImagePteIndex @ 0x1400267A0
  * Callers:
- *     MiReferenceInPageFile @ 0x140024E50 (MiReferenceInPageFile.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
+ *     MiReferenceInPageFile @ 0x1400249D0 (MiReferenceInPageFile.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
  * Callees:
- *     MiGetSubsectionDriverProtos @ 0x140026CD4 (MiGetSubsectionDriverProtos.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiGetSharedProtos @ 0x1401F5088 (MiGetSharedProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x140026854 (MiGetSubsectionDriverProtos.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiGetSharedProtos @ 0x1401F4EB4 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiComputeImagePteIndex(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMapParametersInitialize @ 0x14099F410
+ * XREFs of MiMapParametersInitialize @ 0x140987B90
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x14099F100 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x140987880 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall MiMapParametersInitialize(

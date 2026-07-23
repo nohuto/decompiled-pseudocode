@@ -83,7 +83,7 @@ LABEL_20:
       v7[1] = v8;
       v9 = v6[5];
       if ( v9 && v9 != (PVOID *)(v3 + 96) )
-        ExFreeToNPagedLookasideList(&CcBitmapLookasideList, v9);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&CcBitmapLookasideList, v9);
       if ( (unsigned __int64)v6 < v3 || (unsigned __int64)v6 >= v3 + 192 )
       {
         v10 = p_P;

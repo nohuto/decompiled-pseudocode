@@ -1,11 +1,11 @@
 /*
- * XREFs of PspValidateMitigationAuditOptions @ 0x1407C4608
+ * XREFs of PspValidateMitigationAuditOptions @ 0x1407C4B28
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140608C44 (PspBuildCreateProcessContext.c)
- *     PspReadIFEOMitigationAuditOptions @ 0x1406D983C (PspReadIFEOMitigationAuditOptions.c)
- *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
+ *     PspBuildCreateProcessContext @ 0x1406986F4 (PspBuildCreateProcessContext.c)
+ *     PspReadIFEOMitigationAuditOptions @ 0x1406B0B1C (PspReadIFEOMitigationAuditOptions.c)
+ *     PspInitPhase0 @ 0x140A3EC68 (PspInitPhase0.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspValidateMitigationAuditOptions(__int128 *a1)

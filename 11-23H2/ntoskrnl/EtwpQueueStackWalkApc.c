@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpQueueStackWalkApc @ 0x140468A86
+ * XREFs of EtwpQueueStackWalkApc @ 0x140468E86
  * Callers:
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     EtwpStackTraceDispatcher @ 0x140468CB0 (EtwpStackTraceDispatcher.c)
- *     EtwpStackWalkDpc @ 0x1405FFD80 (EtwpStackWalkDpc.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     EtwpStackTraceDispatcher @ 0x1404690B0 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkDpc @ 0x1406002F0 (EtwpStackWalkDpc.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259CD0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140321E00 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     KeRemoveQueueApc @ 0x140362360 (KeRemoveQueueApc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     EtwpPopFreeApcEntry @ 0x1404689F0 (EtwpPopFreeApcEntry.c)
- *     KeTryToInsertQueueApc @ 0x1405731B0 (KeTryToInsertQueueApc.c)
- *     EtwpQueueStackWalkDpc @ 0x1405FFC8C (EtwpQueueStackWalkDpc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259F60 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140322090 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     KeRemoveQueueApc @ 0x140362500 (KeRemoveQueueApc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpPopFreeApcEntry @ 0x140468DF0 (EtwpPopFreeApcEntry.c)
+ *     KeTryToInsertQueueApc @ 0x1405736F0 (KeTryToInsertQueueApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x1406001FC (EtwpQueueStackWalkDpc.c)
  */
 
 char __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, char a4, _SLIST_ENTRY **a5)
 {
   char v5; // r13
-  struct _SLIST_ENTRY *v6; // rbp
+  _SLIST_ENTRY *v6; // rbp
   unsigned int v7; // esi
   signed __int8 v12; // cf
   PSLIST_ENTRY v13; // rax

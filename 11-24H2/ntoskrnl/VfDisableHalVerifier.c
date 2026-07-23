@@ -1,9 +1,9 @@
 /*
- * XREFs of VfDisableHalVerifier @ 0x140610C18
+ * XREFs of VfDisableHalVerifier @ 0x14060F1D8
  * Callers:
- *     VfAllocateCrashDumpRegisters @ 0x140B85870 (VfAllocateCrashDumpRegisters.c)
- *     VfAllocateCrashDumpRegistersEx @ 0x140B85910 (VfAllocateCrashDumpRegistersEx.c)
- *     VfNotifyOfHibernate @ 0x140B87628 (VfNotifyOfHibernate.c)
+ *     VfAllocateCrashDumpRegisters @ 0x140B87870 (VfAllocateCrashDumpRegisters.c)
+ *     VfAllocateCrashDumpRegistersEx @ 0x140B87910 (VfAllocateCrashDumpRegistersEx.c)
+ *     VfNotifyOfHibernate @ 0x140B89628 (VfNotifyOfHibernate.c)
  * Callees:
  *     <none>
  */

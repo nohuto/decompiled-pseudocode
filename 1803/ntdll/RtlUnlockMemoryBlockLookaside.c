@@ -9,38 +9,30 @@
  *     RtlUnlockMemoryZone @ 0x180049280 (RtlUnlockMemoryZone.c)
  */
 
-__int64 __fastcall RtlUnlockMemoryBlockLookaside(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+NTSTATUS __cdecl RtlUnlockMemoryBlockLookaside(PVOID MemoryBlockLookaside)
 {
-  int v5; // ecx
-  unsigned int v6; // edi
-  int v7; // ecx
-  unsigned __int64 v8; // rdx
-  __int64 v9; // rcx
-  unsigned __int64 *v10; // r8
-  __int64 v11; // r9
+  int v2; // ecx
+  NTSTATUS v3; // edi
+  int v4; // ecx
 
-  RtlAcquireSRWLockExclusive(a1, a2, a3, a4);
-  v5 = *(_DWORD *)(a1 + 44);
-  v6 = 0;
-  if ( v5 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
+  v2 = *((_DWORD *)MemoryBlockLookaside + 11);
+  v3 = 0;
+  if ( v2 )
   {
-    v7 = v5 - 1;
-    *(_DWORD *)(a1 + 44) = v7;
-    if ( !v7 )
+    v4 = v2 - 1;
+    *((_DWORD *)MemoryBlockLookaside + 11) = v4;
+    if ( !v4 )
     {
-      RtlUnlockMemoryZone(*(_QWORD *)(a1 + 16));
-      RtlUnlockMemoryZone(*(_QWORD *)(a1 + 8));
-      sub_1800491C0(v9, v8, v10, v11);
+      RtlUnlockMemoryZone(*((PVOID *)MemoryBlockLookaside + 2));
+      RtlUnlockMemoryZone(*((PVOID *)MemoryBlockLookaside + 1));
+      sub_1800491C0();
     }
   }
   else
   {
-    v6 = -1073741823;
+    v3 = -1073741823;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-  return v6;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
+  return v3;
 }

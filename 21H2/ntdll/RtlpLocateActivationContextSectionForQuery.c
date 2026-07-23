@@ -4,12 +4,12 @@
  *     RtlpQueryRunLevel @ 0x180078F58 (RtlpQueryRunLevel.c)
  *     RtlpQueryInformationActivationContextDetailedInformation @ 0x180079048 (RtlpQueryInformationActivationContextDetailedInformation.c)
  *     RtlpQueryInformationActivationContextCompatibilityInformation @ 0x1800792A4 (RtlpQueryInformationActivationContextCompatibilityInformation.c)
- *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DFBE8 (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DFE78 (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800E0100 (RtlpQueryInformationActivationContextManifestResourceName.c)
+ *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DFBA8 (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DFE38 (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800E00C0 (RtlpQueryInformationActivationContextManifestResourceName.c)
  * Callees:
  *     RtlpLocateActivationContextSection @ 0x18001D0FC (RtlpLocateActivationContextSection.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 void __fastcall RtlpLocateActivationContextSectionForQuery(

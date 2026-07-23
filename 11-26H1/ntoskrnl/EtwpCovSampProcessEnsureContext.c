@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampProcessEnsureContext @ 0x140942010
+ * XREFs of EtwpCovSampProcessEnsureContext @ 0x140A35120
  * Callers:
- *     EtwpCovSampImageNotify @ 0x140940E70 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x140A33F80 (EtwpCovSampImageNotify.c)
  * Callees:
- *     EtwpCovSampProcessCleanup @ 0x140940DC0 (EtwpCovSampProcessCleanup.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpCovSampProcessCleanup @ 0x140A33ED0 (EtwpCovSampProcessCleanup.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessEnsureContext(__int64 a1)

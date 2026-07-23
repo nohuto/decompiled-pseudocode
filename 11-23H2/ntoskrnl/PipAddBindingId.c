@@ -1,10 +1,10 @@
 /*
- * XREFs of PipAddBindingId @ 0x140837F1C
+ * XREFs of PipAddBindingId @ 0x14083821C
  * Callers:
- *     IoResolveDependency @ 0x140398140 (IoResolveDependency.c)
- *     PipCreateDependencyNode @ 0x140837FA0 (PipCreateDependencyNode.c)
+ *     IoResolveDependency @ 0x140398320 (IoResolveDependency.c)
+ *     PipCreateDependencyNode @ 0x1408382A0 (PipCreateDependencyNode.c)
  * Callees:
- *     RtlDuplicateUnicodeString @ 0x1407B6FC0 (RtlDuplicateUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1407B72A0 (RtlDuplicateUnicodeString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

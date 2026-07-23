@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSelectProcessorToPreempt @ 0x140427380
+ * XREFs of KiSelectProcessorToPreempt @ 0x14041B510
  * Callers:
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall KiSelectProcessorToPreempt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -97,10 +97,10 @@ LABEL_6:
         if ( v15 < 0 )
           return a2;
       }
-      return KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int8 *)(a2 + 208) + v15)];
+      return KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * *(unsigned __int8 *)(a2 + 208) + v15)];
     }
     if ( v15 >= 0 )
-      return KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int8 *)(a2 + 208) + v15)];
+      return KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * *(unsigned __int8 *)(a2 + 208) + v15)];
     v23 = v9;
     if ( (unsigned int)v9 < v13 )
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpShutdownReset @ 0x140506E20
+ * XREFs of HalpShutdownReset @ 0x140507370
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
  */
 
 void __fastcall __noreturn HalpShutdownReset(

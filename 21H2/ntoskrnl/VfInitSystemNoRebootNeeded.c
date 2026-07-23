@@ -1,18 +1,18 @@
 /*
- * XREFs of VfInitSystemNoRebootNeeded @ 0x1409C6D40
+ * XREFs of VfInitSystemNoRebootNeeded @ 0x1409C7D40
  * Callers:
- *     VfAddVerifierEntry @ 0x1409EC9D8 (VfAddVerifierEntry.c)
- *     VfSetVerifierInformation @ 0x1409ECBEC (VfSetVerifierInformation.c)
- *     ViInitSystemPhase0 @ 0x140A6FAB8 (ViInitSystemPhase0.c)
+ *     VfAddVerifierEntry @ 0x1409ED9D8 (VfAddVerifierEntry.c)
+ *     VfSetVerifierInformation @ 0x1409EDBEC (VfSetVerifierInformation.c)
+ *     ViInitSystemPhase0 @ 0x140A70AB8 (ViInitSystemPhase0.c)
  * Callees:
- *     ExSetPoolFlags @ 0x1405B3BD8 (ExSetPoolFlags.c)
- *     ExDisableAllLookasideLists @ 0x1405B68EC (ExDisableAllLookasideLists.c)
- *     MmLockPagableDataSection @ 0x1406D0CD0 (MmLockPagableDataSection.c)
- *     IoVerifierInit @ 0x1409C476C (IoVerifierInit.c)
- *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
- *     VfPendingInitPhase1 @ 0x1409D579C (VfPendingInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x1409E0220 (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x1409E0578 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     ExSetPoolFlags @ 0x1405B3E08 (ExSetPoolFlags.c)
+ *     ExDisableAllLookasideLists @ 0x1405B6B1C (ExDisableAllLookasideLists.c)
+ *     MmLockPagableDataSection @ 0x1406A7FB0 (MmLockPagableDataSection.c)
+ *     IoVerifierInit @ 0x1409C576C (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x1409C7E70 (VfInitVerifierComponents.c)
+ *     VfPendingInitPhase1 @ 0x1409D679C (VfPendingInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x1409E1220 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x1409E1578 (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 
 void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2)
@@ -44,9 +44,9 @@ void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2)
       MmVerifierData = v4 & 0xFFFFFFDF;
       ExSetPoolFlags(8u);
     }
-    qword_140C1D0C8 = (__int64)&ViVerifierDriverAddedThunkListHead;
+    qword_140C1D518 = (__int64)&ViVerifierDriverAddedThunkListHead;
     ViVerifierDriverAddedThunkListHead = (__int64)&ViVerifierDriverAddedThunkListHead;
-    qword_140C1CE78 = (__int64)&ViVerifierDriverAddedSpecialThunkListHead;
+    qword_140C1D328 = (__int64)&ViVerifierDriverAddedSpecialThunkListHead;
     ViVerifierDriverAddedSpecialThunkListHead = &ViVerifierDriverAddedSpecialThunkListHead;
     if ( !a2 )
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpViewMapSealRange @ 0x1405A592C
+ * XREFs of HvpViewMapSealRange @ 0x1405A692C
  * Callers:
- *     HvpSetRangeProtection @ 0x1405FBD30 (HvpSetRangeProtection.c)
+ *     HvpSetRangeProtection @ 0x1405FCD30 (HvpSetRangeProtection.c)
  * Callees:
- *     HvpViewMapMakeViewRangeReadOnly @ 0x1405A5998 (HvpViewMapMakeViewRangeReadOnly.c)
- *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)
+ *     HvpViewMapMakeViewRangeReadOnly @ 0x1405A6998 (HvpViewMapMakeViewRangeReadOnly.c)
+ *     HvpViewMapFindViewForFileOffset @ 0x1405FACD0 (HvpViewMapFindViewForFileOffset.c)
  */
 
 void __fastcall HvpViewMapSealRange(__int64 a1, int a2, unsigned int a3)

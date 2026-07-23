@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWalkImageRemoveDebuggerPatchesFromPage @ 0x1406E7AA0
+ * XREFs of MiWalkImageRemoveDebuggerPatchesFromPage @ 0x1406EC750
  * Callers:
  *     <none>
  * Callees:
- *     MiApplyDebuggerPatches @ 0x14038C7F8 (MiApplyDebuggerPatches.c)
+ *     MiApplyDebuggerPatches @ 0x14038E5A8 (MiApplyDebuggerPatches.c)
  */
 
 __int64 __fastcall MiWalkImageRemoveDebuggerPatchesFromPage(__int64 a1)

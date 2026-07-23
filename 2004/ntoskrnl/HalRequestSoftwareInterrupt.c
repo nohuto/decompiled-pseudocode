@@ -56,7 +56,7 @@ __int64 __fastcall HalRequestSoftwareInterrupt(char a1)
   __int64 v19; // rbp
   unsigned __int64 v20; // rdx
   __int64 (__fastcall *v21)(_QWORD, _DWORD *, __int128 *, _QWORD, _DWORD *); // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-228h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-228h] BYREF
   __int128 v23; // [rsp+38h] [rbp-220h] BYREF
   __int64 v24; // [rsp+48h] [rbp-210h]
   _DWORD v25[2]; // [rsp+50h] [rbp-208h] BYREF

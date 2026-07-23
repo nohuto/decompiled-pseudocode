@@ -27,7 +27,7 @@ signed __int64 ObpPushStackInfoQueue()
         *(_DWORD *)(v0 + 20));
       v1 = v0;
       v0 = *(_QWORD *)v0;
-      ObpFreeWorkItemBlock((struct _SLIST_ENTRY *)(v1 - 16));
+      ObpFreeWorkItemBlock((_SLIST_ENTRY *)(v1 - 16));
     }
     while ( v0 > 1 );
     if ( ObpPushStackInfoList == 1 )

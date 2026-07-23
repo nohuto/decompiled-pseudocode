@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmOpenCommonClassRegKey @ 0x140645374
+ * XREFs of _CmOpenCommonClassRegKey @ 0x14063A184
  * Callers:
- *     _CmOpenInterfaceClassRegKey @ 0x14063A994 (_CmOpenInterfaceClassRegKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x14062F7A4 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x140645118 (_CmOpenCommonClassRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140639F28 (_CmOpenCommonClassRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenCommonClassRegKey(
         __int64 a1,
-        __int64 a2,
+        const WCHAR *a2,
         unsigned int a3,
         unsigned int a4,
         int a5,
@@ -21,7 +21,7 @@ __int64 __fastcall CmOpenCommonClassRegKey(
         _DWORD *a8)
 {
   unsigned int v11; // esi
-  __int64 (__fastcall *v12)(__int64, __int64, _QWORD, __int64, int, _QWORD *); // rdi
+  __int64 (__fastcall *v12)(__int64, const WCHAR *, _QWORD, __int64, int, _QWORD *); // rdi
   int v13; // eax
   int v14; // eax
   int v15; // ebx
@@ -42,7 +42,7 @@ __int64 __fastcall CmOpenCommonClassRegKey(
     }
     v11 = 4;
   }
-  v12 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, int, _QWORD *))(a1 + 504);
+  v12 = *(__int64 (__fastcall **)(__int64, const WCHAR *, _QWORD, __int64, int, _QWORD *))(a1 + 504);
   LODWORD(v19[3]) = a5;
   v19[4] = a7;
   BYTE4(v19[3]) = a6;

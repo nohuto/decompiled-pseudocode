@@ -1,15 +1,15 @@
 /*
- * XREFs of ObQuerySecurityDescriptorInfo @ 0x140663148
+ * XREFs of ObQuerySecurityDescriptorInfo @ 0x140657F68
  * Callers:
- *     SeDefaultObjectMethod @ 0x14065FC50 (SeDefaultObjectMethod.c)
- *     WmipSecurityMethod @ 0x14069D030 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1405FC100 (WmipSecurityMethod.c)
+ *     SeDefaultObjectMethod @ 0x140654A70 (SeDefaultObjectMethod.c)
  * Callees:
- *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
- *     ObpReferenceSecurityDescriptor @ 0x14065F9D0 (ObpReferenceSecurityDescriptor.c)
- *     SeQuerySecurityDescriptorInfo @ 0x140665520 (SeQuerySecurityDescriptorInfo.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406544C0 (ObDereferenceSecurityDescriptor.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1406547F0 (ObpReferenceSecurityDescriptor.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x14065A340 (SeQuerySecurityDescriptorInfo.c)
  */
 
-__int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, ULONG *a2, void *a3, ULONG *a4)
+__int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, DWORD *a2, void *a3, ULONG *a4)
 {
   PSECURITY_DESCRIPTOR v7; // rbp
   unsigned int v8; // ebx

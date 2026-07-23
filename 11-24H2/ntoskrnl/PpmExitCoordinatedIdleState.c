@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmExitCoordinatedIdleState @ 0x1404A9B44
+ * XREFs of PpmExitCoordinatedIdleState @ 0x1404A3E14
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1403B6A20 (PpmExitCoordinatedIdle.c)
+ *     PpmExitCoordinatedIdle @ 0x140371BCC (PpmExitCoordinatedIdle.c)
  * Callees:
- *     PpmIdleTransitionStall @ 0x1405CECAC (PpmIdleTransitionStall.c)
+ *     PpmIdleTransitionStall @ 0x1405CC3CC (PpmIdleTransitionStall.c)
  */
 
 char __fastcall PpmExitCoordinatedIdleState(volatile signed __int32 *a1, bool *a2)

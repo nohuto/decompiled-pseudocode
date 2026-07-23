@@ -1,18 +1,18 @@
 /*
- * XREFs of PsRestoreImpersonation @ 0x140706540
+ * XREFs of PsRestoreImpersonation @ 0x14071D920
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140705F00 (NtOpenThreadTokenEx.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpStartCLFSLog @ 0x14077D984 (CmpStartCLFSLog.c)
+ *     NtOpenThreadTokenEx @ 0x14071D2E0 (NtOpenThreadTokenEx.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077CB9C (CmpAddRemoveContainerToCLFSLog.c)
+ *     CmpStartCLFSLog @ 0x14077DB44 (CmpStartCLFSLog.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     SeQueryTokenTrustLink @ 0x1403566F8 (SeQueryTokenTrustLink.c)
- *     PspWriteTebImpersonationInfo @ 0x14065B280 (PspWriteTebImpersonationInfo.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     SeQueryTokenTrustLink @ 0x140361448 (SeQueryTokenTrustLink.c)
+ *     PspWriteTebImpersonationInfo @ 0x1406500A0 (PspWriteTebImpersonationInfo.c)
  */
 
 void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
@@ -26,8 +26,9 @@ void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE I
   unsigned __int64 v10; // rbx
   char v11; // bl
   char v12; // al
-  __int64 v13; // r8
-  _DWORD *v14; // r9
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;
@@ -76,13 +77,13 @@ LABEL_12:
   if ( (v12 & 2) != 0 && (v12 & 4) == 0 )
     ExfTryToWakePushLock(&Thread[1].WaitBlockList);
   KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v13, v14, v15);
   if ( v3 )
   {
     HalPutDmaAdapter(v3);
     if ( v6 )
       HalPutDmaAdapter((PADAPTER_OBJECT)v6);
     if ( v11 )
-      PspWriteTebImpersonationInfo((__int64)Thread, (__int64)CurrentThread, v13, v14);
+      PspWriteTebImpersonationInfo((__int64)Thread, (__int64)CurrentThread);
   }
 }

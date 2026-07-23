@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierExFreePoolWithTag @ 0x1409257D0
+ * XREFs of VerifierExFreePoolWithTag @ 0x1409267D0
  * Callers:
- *     VerifierExFreePool @ 0x140925780 (VerifierExFreePool.c)
+ *     VerifierExFreePool @ 0x140926780 (VerifierExFreePool.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VfFreePoolNotification @ 0x140937E9C (VfFreePoolNotification.c)
- *     VfIrpDatabaseCheckExFreePool @ 0x14093E18C (VfIrpDatabaseCheckExFreePool.c)
- *     ExFreePoolSanityChecks @ 0x14094AD7C (ExFreePoolSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VfFreePoolNotification @ 0x140938E9C (VfFreePoolNotification.c)
+ *     VfIrpDatabaseCheckExFreePool @ 0x14093F18C (VfIrpDatabaseCheckExFreePool.c)
+ *     ExFreePoolSanityChecks @ 0x14094BD7C (ExFreePoolSanityChecks.c)
  */
 
 void __fastcall VerifierExFreePoolWithTag(PVOID P, ULONG Tag)

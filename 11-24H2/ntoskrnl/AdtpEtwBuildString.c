@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpEtwBuildString @ 0x140A32900
+ * XREFs of AdtpEtwBuildString @ 0x140A26918
  * Callers:
- *     AdtpPackageParameters @ 0x1404534B8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140448568 (AdtpPackageParameters.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AdtpEtwBuildString(__int64 a1, unsigned __int16 *a2, __int64 a3, _DWORD *a4, _BYTE *a5)
@@ -54,7 +54,7 @@ LABEL_8:
     *(_DWORD *)(a1 + 12) = 0;
     return result;
   }
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 2LL * v10, 0x6B416553u);
   if ( Pool2 )
   {
     *a5 = 1;

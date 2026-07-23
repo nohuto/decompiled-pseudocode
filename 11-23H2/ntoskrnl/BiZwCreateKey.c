@@ -1,9 +1,9 @@
 /*
- * XREFs of BiZwCreateKey @ 0x140373E64
+ * XREFs of BiZwCreateKey @ 0x140374004
  * Callers:
- *     BiCreateKey @ 0x140803E04 (BiCreateKey.c)
+ *     BiCreateKey @ 0x1408040D4 (BiCreateKey.c)
  * Callees:
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall BiZwCreateKey(

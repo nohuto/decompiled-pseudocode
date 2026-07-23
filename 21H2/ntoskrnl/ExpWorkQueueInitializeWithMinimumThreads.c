@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C267C
+ * XREFs of ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C2B9C
  * Callers:
- *     ExpPartitionCreatePoolInternal @ 0x1407C25B0 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1407C2AD0 (ExpPartitionCreatePoolInternal.c)
  * Callees:
- *     ExpCreateWorkerThread @ 0x1406CFF28 (ExpCreateWorkerThread.c)
- *     ExpWorkQueueInitialize @ 0x1407C26E8 (ExpWorkQueueInitialize.c)
+ *     ExpCreateWorkerThread @ 0x1406A7208 (ExpCreateWorkerThread.c)
+ *     ExpWorkQueueInitialize @ 0x1407C2C08 (ExpWorkQueueInitialize.c)
  */
 
 __int64 __fastcall ExpWorkQueueInitializeWithMinimumThreads(

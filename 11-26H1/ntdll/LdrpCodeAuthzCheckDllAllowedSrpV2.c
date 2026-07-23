@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpCodeAuthzCheckDllAllowedSrpV2 @ 0x1800E4740
+ * XREFs of LdrpCodeAuthzCheckDllAllowedSrpV2 @ 0x1800E25F0
  * Callers:
  *     <none>
  * Callees:
- *     SaferpIsV2PolicyPresent @ 0x1800E4790 (SaferpIsV2PolicyPresent.c)
- *     SaferpIsDllAllowed @ 0x1800E48F4 (SaferpIsDllAllowed.c)
+ *     SaferpIsV2PolicyPresent @ 0x1800E2640 (SaferpIsV2PolicyPresent.c)
+ *     SaferpIsDllAllowed @ 0x1800E27A4 (SaferpIsDllAllowed.c)
  */
 
 __int64 __fastcall LdrpCodeAuthzCheckDllAllowedSrpV2(__int64 a1, __int64 a2)

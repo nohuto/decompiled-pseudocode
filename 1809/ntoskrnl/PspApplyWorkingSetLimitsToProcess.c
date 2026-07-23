@@ -1,8 +1,8 @@
 /*
- * XREFs of PspApplyWorkingSetLimitsToProcess @ 0x140604D74
+ * XREFs of PspApplyWorkingSetLimitsToProcess @ 0x140605D74
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x1406047A0 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406057A0 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140606664 (PspAssignProcessToJob.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -13,10 +13,10 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MmEnforceWorkingSetLimit @ 0x14008FB50 (MmEnforceWorkingSetLimit.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmAdjustWorkingSetSize @ 0x14018ED30 (MmAdjustWorkingSetSize.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MmEnforceWorkingSetLimit @ 0x14008FA70 (MmEnforceWorkingSetLimit.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MmAdjustWorkingSetSize @ 0x14018EE70 (MmAdjustWorkingSetSize.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspApplyWorkingSetLimitsToProcess(ULONG_PTR BugCheckParameter1)
@@ -41,16 +41,16 @@ __int64 __fastcall PspApplyWorkingSetLimitsToProcess(ULONG_PTR BugCheckParameter
   v10 = *(_QWORD *)(v3 + 792);
   v11 = *(_QWORD *)(v3 + 800);
   v5 = ((*(_DWORD *)(v3 + 848) & 1) == 0) + 1;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140405830, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140406830, 0LL);
   _InterlockedOr((volatile signed __int32 *)(v3 + 1304), 0x100u);
   ExReleaseResourceLite((PERESOURCE)(v3 + 56));
   if ( v5 == 2 || (v4 = MmAdjustWorkingSetSize(v10, v11, 0, 1), v4 >= 0) )
   {
     MmEnforceWorkingSetLimit((_KPROCESS *)BugCheckParameter1, v5);
     _InterlockedAnd((volatile signed __int32 *)(v3 + 1304), 0xFFFFFEFF);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140405830, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140405830);
-    KeAbPostRelease((ULONG_PTR)&qword_140405830);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140406830, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140406830);
+    KeAbPostRelease((ULONG_PTR)&qword_140406830);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     v6 = *(_QWORD *)(BugCheckParameter1 + 1016);
     if ( v6 )
@@ -79,9 +79,9 @@ __int64 __fastcall PspApplyWorkingSetLimitsToProcess(ULONG_PTR BugCheckParameter
   else
   {
     _InterlockedAnd((volatile signed __int32 *)(v3 + 1304), 0xFFFFFEFF);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140405830, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140405830);
-    KeAbPostRelease((ULONG_PTR)&qword_140405830);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140406830, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140406830);
+    KeAbPostRelease((ULONG_PTR)&qword_140406830);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   KiUnstackDetachProcess((__int64)v12, 0LL);

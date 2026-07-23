@@ -1,13 +1,13 @@
 /*
- * XREFs of ExDeleteTimer @ 0x14031DAB0
+ * XREFs of ExDeleteTimer @ 0x14031DD40
  * Callers:
- *     WdtpCancelTimer @ 0x1407856CC (WdtpCancelTimer.c)
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
- *     CancelTimerCallbacksAndDeleteTimer @ 0x140A6F094 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     WdtpCancelTimer @ 0x1407858BC (WdtpCancelTimer.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x140A6F344 (CancelTimerCallbacksAndDeleteTimer.c)
  * Callees:
- *     KeDisableTimer2 @ 0x14031DB78 (KeDisableTimer2.c)
- *     ExpCheckForFreedEnhancedTimer @ 0x14031DEB4 (ExpCheckForFreedEnhancedTimer.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeDisableTimer2 @ 0x14031DE08 (KeDisableTimer2.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x14031E144 (ExpCheckForFreedEnhancedTimer.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExDeleteTimer(ULONG_PTR a1, char a2, char a3, unsigned int *a4)

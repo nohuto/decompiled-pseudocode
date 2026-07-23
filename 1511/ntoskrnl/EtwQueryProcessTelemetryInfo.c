@@ -52,7 +52,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   unsigned int *v29; // [rsp+50h] [rbp-288h]
   PACCESS_TOKEN v30; // [rsp+58h] [rbp-280h]
   __int64 v31; // [rsp+60h] [rbp-278h]
-  size_t v32; // [rsp+70h] [rbp-268h] BYREF
+  size_t PackageSize; // [rsp+70h] [rbp-268h] BYREF
   size_t v33; // [rsp+78h] [rbp-260h]
   char v34[256]; // [rsp+80h] [rbp-258h] BYREF
   char v35[144]; // [rsp+180h] [rbp-158h] BYREF
@@ -72,7 +72,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v10 = PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
   v30 = v10;
   Size = 0;
-  EtwpQueryTokenPackageInfo((__int64)v10, (__int64)&v32, &Size);
+  EtwpQueryTokenPackageInfo(v10, (WCHAR *)&PackageSize, &Size);
   v11 = SeQueryUserSidToken((__int64)v10, Src, 0x44u, &Size);
   if ( v11 >= 0 )
   {
@@ -86,7 +86,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       v9 = v28;
       v8 = v27;
     }
-    v12 = v32 + v33 + *(unsigned __int16 *)v26 + v8 + Size + 100;
+    v12 = PackageSize + v33 + *(unsigned __int16 *)v26 + v8 + Size + 100;
     *v29 = v12;
     if ( a4 )
       ProbeForWrite(a2, v5, 4u);
@@ -124,8 +124,8 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         memmove(v15, v26[1], *(unsigned __int16 *)v26);
         v17 = &v15[*v16 + 2];
         *((_DWORD *)a2 + 20) = (_DWORD)v17 - (_DWORD)a2;
-        memmove(v17, v34, v32);
-        v18 = &v17[v32];
+        memmove(v17, v34, PackageSize);
+        v18 = &v17[PackageSize];
         *((_DWORD *)a2 + 21) = (_DWORD)v18 - (_DWORD)a2;
         memmove(v18, v35, v33);
         v19 = &v18[v33];

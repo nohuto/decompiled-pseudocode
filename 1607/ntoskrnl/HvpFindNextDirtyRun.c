@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpFindNextDirtyRun @ 0x140084698
+ * XREFs of HvpFindNextDirtyRun @ 0x1400827F8
  * Callers:
- *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5964 (HvpFindNextDirtyBlockAndCreateTemporary.c)
- *     HvpFindNextDirtyBlock @ 0x1404815C8 (HvpFindNextDirtyBlock.c)
+ *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5848 (HvpFindNextDirtyBlockAndCreateTemporary.c)
+ *     HvpFindNextDirtyBlock @ 0x14048031C (HvpFindNextDirtyBlock.c)
  * Callees:
- *     RtlFindNextForwardRunClearCapped @ 0x140017C70 (RtlFindNextForwardRunClearCapped.c)
+ *     RtlFindNextForwardRunClearCapped @ 0x1400177F0 (RtlFindNextForwardRunClearCapped.c)
  */
 
 char __fastcall HvpFindNextDirtyRun(unsigned int *a1, unsigned int *a2, unsigned int *a3, unsigned int *a4, _DWORD *a5)

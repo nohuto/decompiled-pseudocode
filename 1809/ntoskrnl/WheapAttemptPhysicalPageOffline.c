@@ -1,18 +1,18 @@
 /*
- * XREFs of WheapAttemptPhysicalPageOffline @ 0x1408DBD4C
+ * XREFs of WheapAttemptPhysicalPageOffline @ 0x1408DD00C
  * Callers:
- *     WheaAttemptPhysicalPageOffline @ 0x1408DBA00 (WheaAttemptPhysicalPageOffline.c)
- *     WheapAttemptPhysicalPageOfflineWorker @ 0x1408DBE70 (WheapAttemptPhysicalPageOfflineWorker.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x1408DCCC0 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOfflineWorker @ 0x1408DD130 (WheapAttemptPhysicalPageOfflineWorker.c)
  * Callees:
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
- *     WheaPersistOfflinedPage @ 0x1403205A4 (WheaPersistOfflinedPage.c)
- *     WheapLogPageOfflineAttemptEvent @ 0x140321008 (WheapLogPageOfflineAttemptEvent.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x1408DBEA8 (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapClearPoison @ 0x1408DBF84 (WheapClearPoison.c)
- *     WheapSqmAddToStream @ 0x1408DD194 (WheapSqmAddToStream.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7600 (MmMarkPhysicalMemoryAsBad.c)
+ *     WheaPersistOfflinedPage @ 0x140320794 (WheaPersistOfflinedPage.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x1403211F8 (WheapLogPageOfflineAttemptEvent.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x1408DD168 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapClearPoison @ 0x1408DD244 (WheapClearPoison.c)
+ *     WheapSqmAddToStream @ 0x1408DE454 (WheapSqmAddToStream.c)
  */
 
-__int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
+__int64 __fastcall WheapAttemptPhysicalPageOffline(UNICODE_STRING *a1, char a2, char a3)
 {
   __int64 v3; // rbp
   char v4; // di
@@ -28,9 +28,9 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
   __int64 v18; // [rsp+A8h] [rbp+20h] BYREF
 
   v18 = 4096LL;
-  v3 = a1 << 12;
+  v3 = (_QWORD)a1 << 12;
   v4 = 0;
-  StartAddress.QuadPart = a1 << 12;
+  StartAddress.QuadPart = (_QWORD)a1 << 12;
   if ( a3 )
   {
     v8 = 2;

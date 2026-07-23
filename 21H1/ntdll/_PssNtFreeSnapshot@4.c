@@ -15,8 +15,8 @@ int __stdcall PssNtFreeSnapshot(int a1)
   int result; // eax
   int v2; // eax
   int v3; // eax
-  int v4; // [esp+Ch] [ebp-8h] BYREF
-  int v5; // [esp+10h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+Ch] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+10h] [ebp-4h] BYREF
   void *retaddr; // [esp+18h] [ebp+4h]
 
   result = PssNtValidateDescriptor(a1, retaddr);
@@ -27,7 +27,7 @@ int __stdcall PssNtFreeSnapshot(int a1)
     {
       if ( *(_DWORD *)(a1 + 776) )
       {
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 776));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 776));
         v2 = *(_DWORD *)(a1 + 4);
         *(_DWORD *)(a1 + 776) = 0;
       }
@@ -35,9 +35,9 @@ int __stdcall PssNtFreeSnapshot(int a1)
     }
     else if ( (v2 & 4) != 0 && *(_DWORD *)(a1 + 776) )
     {
-      v4 = *(_DWORD *)(a1 + 776);
-      v5 = 0;
-      NtFreeVirtualMemory(-1, (int)&v4, (int)&v5, 0x8000);
+      BaseAddress = *(PVOID *)(a1 + 776);
+      LODWORD(RegionSize) = 0;
+      NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
       *(_DWORD *)(a1 + 4) &= ~4u;
       *(_DWORD *)(a1 + 776) = 0;
     }
@@ -82,9 +82,9 @@ int __stdcall PssNtFreeSnapshot(int a1)
     }
     if ( (v3 & 1) != 0 )
     {
-      v4 = a1;
-      v5 = 0;
-      NtFreeVirtualMemory(-1, (int)&v4, (int)&v5, 0x8000);
+      BaseAddress = (PVOID)a1;
+      LODWORD(RegionSize) = 0;
+      NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
     }
     return 0;
   }

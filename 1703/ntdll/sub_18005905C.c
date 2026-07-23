@@ -17,18 +17,18 @@
 __int64 sub_18005905C()
 {
   struct _TEB *v0; // r13
-  void *ProcessHeap; // r12
-  unsigned int v2; // r15d
-  void **p_ThreadLocalStoragePointer; // rdi
+  PVOID ProcessHeap; // r12
+  ULONG SizeOfBitMap; // r15d
+  PVOID *p_ThreadLocalStoragePointer; // rdi
   _DWORD *i; // rcx
   _DWORD *v5; // r14
   int v6; // ecx
   char v7; // al
   int v8; // r8d
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   _QWORD *v10; // rcx
-  unsigned int j; // r14d
-  _QWORD *v13; // r8
+  ULONG j; // r14d
+  PVOID *v13; // r8
   __int64 v14; // [rsp+58h] [rbp-70h]
   size_t Size; // [rsp+60h] [rbp-68h]
   int v16; // [rsp+D0h] [rbp+8h]
@@ -36,18 +36,18 @@ __int64 sub_18005905C()
 
   v0 = NtCurrentTeb();
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  RtlAcquireSRWLockShared(&qword_18015C0D8);
-  v2 = dword_18015B1B0;
-  if ( !dword_18015B1B0 )
+  RtlAcquireSRWLockShared(&stru_18015C0D8);
+  SizeOfBitMap = BitMapHeader.SizeOfBitMap;
+  if ( !BitMapHeader.SizeOfBitMap )
   {
     p_ThreadLocalStoragePointer = &v0->ThreadLocalStoragePointer;
 LABEL_14:
     v0->ThreadLocalStoragePointer = p_ThreadLocalStoragePointer;
     _InterlockedIncrement(&dword_18015B1A0);
-    RtlReleaseSRWLockShared(&qword_18015C0D8);
+    RtlReleaseSRWLockShared(&stru_18015C0D8);
     return 0LL;
   }
-  p_ThreadLocalStoragePointer = (void **)sub_180059228((unsigned int)dword_18015B1B0);
+  p_ThreadLocalStoragePointer = (PVOID *)sub_180059228(BitMapHeader.SizeOfBitMap);
   if ( p_ThreadLocalStoragePointer )
   {
     for ( i = off_1801555D0; i != (_DWORD *)&off_1801555D0; i = v17 )
@@ -65,22 +65,22 @@ LABEL_14:
       v16 = v8 - 1;
       v14 = (unsigned int)(v8 - 1);
       Heap = RtlAllocateHeap(
-               (__int64)ProcessHeap,
+               ProcessHeap,
                dword_18015B268 + 786432,
                v14 + *((_QWORD *)v5 + 3) - *((_QWORD *)v5 + 2) + 1LL);
       if ( !Heap )
       {
-        RtlReleaseSRWLockShared(&qword_18015C0D8);
-        for ( j = 0; j < v2; ++j )
+        RtlReleaseSRWLockShared(&stru_18015C0D8);
+        for ( j = 0; j < SizeOfBitMap; ++j )
         {
-          v13 = p_ThreadLocalStoragePointer[j];
+          v13 = (PVOID *)p_ThreadLocalStoragePointer[j];
           if ( v13 )
-            RtlFreeHeap((__int64)ProcessHeap, 0, *(v13 - 1));
+            RtlFreeHeap(ProcessHeap, 0, *(v13 - 1));
         }
-        RtlFreeHeap((__int64)ProcessHeap, 0, (unsigned __int64)(p_ThreadLocalStoragePointer - 2));
+        RtlFreeHeap(ProcessHeap, 0, p_ThreadLocalStoragePointer - 2);
         return 3221225495LL;
       }
-      v10 = (_QWORD *)(~v14 & (Heap + (unsigned int)(v16 + 1)));
+      v10 = (_QWORD *)(~v14 & ((unsigned __int64)Heap + (unsigned int)(v16 + 1)));
       *(v10 - 1) = Heap;
       p_ThreadLocalStoragePointer[v5[16]] = v10;
       memmove(v10, *((const void **)v5 + 2), Size);
@@ -99,6 +99,6 @@ LABEL_14:
     }
     goto LABEL_14;
   }
-  RtlReleaseSRWLockShared(&qword_18015C0D8);
+  RtlReleaseSRWLockShared(&stru_18015C0D8);
   return 3221225495LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceIoCoalescingOn @ 0x1408EA95C
+ * XREFs of PopDiagTraceIoCoalescingOn @ 0x1408EAABC
  * Callers:
- *     PopCoalescingSetActiveState @ 0x14056EBC4 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingSetActiveState @ 0x14056EE04 (PopCoalescingSetActiveState.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopPrintEx @ 0x140272730 (PopPrintEx.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceIoCoalescingOn(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -33,7 +33,7 @@ char __fastcall PopDiagTraceIoCoalescingOn(__int64 a1, __int64 a2, __int64 a3, i
   v7 = PopCoalescingTimerInterval;
   v6 = PopCurrentCoalescingSpindownTimeout;
   result = PopPrintEx(
-             3LL,
+             3u,
              (__int64)"PopCoalescing: ON notification sent (spindown timeout:%u, timer interval: %u, flush delay interval"
                       ":%u, Enforced:%u)\n",
              PopCurrentCoalescingSpindownTimeout,

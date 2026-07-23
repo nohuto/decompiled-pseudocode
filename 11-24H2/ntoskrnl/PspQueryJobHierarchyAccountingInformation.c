@@ -1,17 +1,17 @@
 /*
- * XREFs of PspQueryJobHierarchyAccountingInformation @ 0x1408EB654
+ * XREFs of PspQueryJobHierarchyAccountingInformation @ 0x14085CE84
  * Callers:
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     KeQuerySchedulingGroupReadyTime @ 0x14046EDC4 (KeQuerySchedulingGroupReadyTime.c)
- *     PsAddProcessEnergyValues @ 0x1404EE7B4 (PsAddProcessEnergyValues.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspLockRootJobShared @ 0x1408EB990 (PspLockRootJobShared.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     KeQuerySchedulingGroupReadyTime @ 0x1404694D4 (KeQuerySchedulingGroupReadyTime.c)
+ *     PsAddProcessEnergyValues @ 0x1404E5EF8 (PsAddProcessEnergyValues.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspLockRootJobShared @ 0x14085D1C0 (PspLockRootJobShared.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
  */
 
 __int64 __fastcall PspQueryJobHierarchyAccountingInformation(char *Object, __int64 a2)

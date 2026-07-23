@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteZeroValueSegments @ 0x1404A33F4
+ * XREFs of MiDeleteZeroValueSegments @ 0x14049CF04
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1404A3280 (MiRemoveUnusedSegments.c)
- *     MiSegmentDereferenceWorker @ 0x1404A3320 (MiSegmentDereferenceWorker.c)
+ *     MiRemoveUnusedSegments @ 0x14049CD9C (MiRemoveUnusedSegments.c)
+ *     MiSegmentDereferenceWorker @ 0x14049CE30 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     MiDeleteControlAreaList @ 0x1404A3428 (MiDeleteControlAreaList.c)
- *     MiDeleteCachedEntries @ 0x1404A3510 (MiDeleteCachedEntries.c)
+ *     MiDeleteControlAreaList @ 0x14049CF38 (MiDeleteControlAreaList.c)
+ *     MiDeleteCachedEntries @ 0x14049D020 (MiDeleteCachedEntries.c)
  */
 
 __int64 __fastcall MiDeleteZeroValueSegments(__int64 a1)

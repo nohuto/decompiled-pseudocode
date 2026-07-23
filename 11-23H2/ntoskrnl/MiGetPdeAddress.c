@@ -3,8 +3,8 @@
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  *     MiEliminateZeroPages @ 0x140696B90 (MiEliminateZeroPages.c)
- *     MiProtectLargeKernelHalRange @ 0x14081CAB0 (MiProtectLargeKernelHalRange.c)
- *     MiUnmapLargeDriver @ 0x140A49F18 (MiUnmapLargeDriver.c)
+ *     MiProtectLargeKernelHalRange @ 0x14081CD80 (MiProtectLargeKernelHalRange.c)
+ *     MiUnmapLargeDriver @ 0x140A4A1C8 (MiUnmapLargeDriver.c)
  * Callees:
  *     <none>
  */

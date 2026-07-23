@@ -1,7 +1,7 @@
 /*
- * XREFs of ExBurnMemory @ 0x1409F3248
+ * XREFs of ExBurnMemory @ 0x1409F4248
  * Callers:
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

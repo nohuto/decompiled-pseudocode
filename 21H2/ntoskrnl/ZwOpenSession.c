@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwOpenSession @ 0x1403FC940
+ * XREFs of ZwOpenSession @ 0x1403FCB20
  * Callers:
- *     PnpInitializeNotifyEntry @ 0x1406C4D64 (PnpInitializeNotifyEntry.c)
+ *     PnpInitializeNotifyEntry @ 0x140673654 (PnpInitializeNotifyEntry.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenSession(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenSession(PHANDLE SessionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SessionHandle);
 }

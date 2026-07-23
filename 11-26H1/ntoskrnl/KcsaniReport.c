@@ -1,9 +1,9 @@
 /*
- * XREFs of KcsaniReport @ 0x1405E34A0
+ * XREFs of KcsaniReport @ 0x1405E5E10
  * Callers:
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn KcsaniReport(__int64 a1, __int64 a2)

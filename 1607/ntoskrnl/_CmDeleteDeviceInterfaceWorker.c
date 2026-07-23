@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceWorker @ 0x1406D81F8
+ * XREFs of _CmDeleteDeviceInterfaceWorker @ 0x1406D8330
  * Callers:
- *     _CmDeleteDeviceInterface @ 0x1406D7DE0 (_CmDeleteDeviceInterface.c)
+ *     _CmDeleteDeviceInterface @ 0x1406D7F18 (_CmDeleteDeviceInterface.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x140576A48 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmDeleteDeviceInterfaceRegKey @ 0x1406D7EFC (_CmDeleteDeviceInterfaceRegKey.c)
- *     _CmRaiseDeleteEvent @ 0x1406DBF64 (_CmRaiseDeleteEvent.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1406DD150 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x140576F88 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmDeleteDeviceInterfaceRegKey @ 0x1406D8034 (_CmDeleteDeviceInterfaceRegKey.c)
+ *     _CmRaiseDeleteEvent @ 0x1406DC09C (_CmRaiseDeleteEvent.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1406DD288 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
  */
 
 __int64 __fastcall CmDeleteDeviceInterfaceWorker(__int64 a1, __int64 a2, __int16 a3, __int64 a4)

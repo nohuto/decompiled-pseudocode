@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14047F0C4
+ * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x140478A34
  * Callers:
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
- *     MiCopyHeaderIfResident @ 0x1404B51A4 (MiCopyHeaderIfResident.c)
- *     MiCopyFileOnlyPage @ 0x1404B5FDC (MiCopyFileOnlyPage.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
+ *     MiCopyHeaderIfResident @ 0x1404AE5F4 (MiCopyHeaderIfResident.c)
+ *     MiCopyFileOnlyPage @ 0x1404AF42C (MiCopyFileOnlyPage.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiWriteValidPteVolatile @ 0x14044AF20 (MiWriteValidPteVolatile.c)
- *     MiTryLockLeafPage @ 0x14047F28C (MiTryLockLeafPage.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiWriteValidPteVolatile @ 0x140443050 (MiWriteValidPteVolatile.c)
+ *     MiTryLockLeafPage @ 0x140478BFC (MiTryLockLeafPage.c)
  */
 
 __int64 __fastcall MiTryLockProtoPoolPageAtDpc(ULONG_PTR BugCheckParameter4, __int64 a2, __int64 *a3, __int64 a4)
@@ -40,7 +40,7 @@ __int64 __fastcall MiTryLockProtoPoolPageAtDpc(ULONG_PTR BugCheckParameter4, __i
     if ( (*v8 & 1) == 0 )
       return 3221435187LL;
     v10 = ((unsigned __int64)*v8 >> 12) & 0xFFFFFFFFFFLL;
-    if ( v10 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v10 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+    if ( v10 > qword_140E2D920 || ((*(_QWORD *)(48 * v10 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
       return 3221225557LL;
   }
   v11 = 0;

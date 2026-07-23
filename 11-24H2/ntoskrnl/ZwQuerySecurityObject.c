@@ -1,18 +1,17 @@
 /*
- * XREFs of ZwQuerySecurityObject @ 0x1406A9110
+ * XREFs of ZwQuerySecurityObject @ 0x1406AA0B0
  * Callers:
- *     RtlIsUntrustedObject @ 0x140490B00 (RtlIsUntrustedObject.c)
- *     DifZwQuerySecurityObjectWrapper @ 0x140646580 (DifZwQuerySecurityObjectWrapper.c)
- *     CmpSaveBootControlSet @ 0x1407CC764 (CmpSaveBootControlSet.c)
- *     CmpCloneHwProfile @ 0x1407D305C (CmpCloneHwProfile.c)
- *     _RegRtlGetKeySecurity @ 0x1408210D4 (_RegRtlGetKeySecurity.c)
- *     CmpQueryFileSecurityDescriptor @ 0x140930A60 (CmpQueryFileSecurityDescriptor.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14099C6D0 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     RtlIsUntrustedObject @ 0x14048B140 (RtlIsUntrustedObject.c)
+ *     DifZwQuerySecurityObjectWrapper @ 0x140644B40 (DifZwQuerySecurityObjectWrapper.c)
+ *     CmpSaveBootControlSet @ 0x1407CCC54 (CmpSaveBootControlSet.c)
+ *     CmpCloneHwProfile @ 0x1407D354C (CmpCloneHwProfile.c)
+ *     _RegRtlGetKeySecurity @ 0x140821814 (_RegRtlGetKeySecurity.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x140932BA0 (CmpQueryFileSecurityDescriptor.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x1409CEE40 (PiDevCfgGetKeySecurityDescriptor.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQuerySecurityObject(
         HANDLE Handle,
         SECURITY_INFORMATION SecurityInformation,
@@ -22,5 +21,5 @@ NTSTATUS __stdcall ZwQuerySecurityObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, *(_QWORD *)&SecurityInformation);
+  return KiServiceInternal(Handle);
 }

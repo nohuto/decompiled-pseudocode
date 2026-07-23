@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     ExExtendZone @ 0x14063E630 (ExExtendZone.c)
  */
 
@@ -15,27 +15,27 @@ NTSTATUS __stdcall ExInterlockedExtendZone(PZONE_HEADER Zone, PVOID Segment, ULO
   NTSTATUS v9; // ebx
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v12; // r9
   int v13; // eax
   bool v14; // zf
 
   v8 = KeAcquireSpinLockRaiseToDpc(Lock);
   v9 = ExExtendZone(Zone, Segment, SegmentSize);
-  KxReleaseSpinLock(Lock);
-  if ( KiIrqlFlags )
+  KeReleaseSpinLockFromDpcLevel(Lock);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = *((_QWORD *)CurrentPrcb + 4375);
         v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v14 = (v13 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v13;
+        v14 = (v13 & *(_DWORD *)(v12 + 20)) == 0;
+        *(_DWORD *)(v12 + 20) &= v13;
         if ( v14 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          sub_140418E4C((__int64)CurrentPrcb);
       }
     }
   }

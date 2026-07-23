@@ -8,10 +8,10 @@
  *     RtlFreeHeap @ 0x18003ECC0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall TppIopFree(__int64 a1)
+LOGICAL __fastcall TppIopFree(_QWORD *BaseAddress)
 {
-  TpAdjustBindingCount(*(_QWORD *)(a1 + 144), 0xFFFFFFFFLL);
-  *(_QWORD *)(a1 + 256) = 0LL;
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x40000), a1);
+  TpAdjustBindingCount(BaseAddress[18], 0xFFFFFFFFLL);
+  BaseAddress[32] = 0LL;
+  TppCleanupGroupMemberDestroy(BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x40000, BaseAddress);
 }

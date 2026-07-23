@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptBlockSmtSiblings @ 0x14051A5D0
+ * XREFs of HalpInterruptBlockSmtSiblings @ 0x14051AB20
  * Callers:
- *     HalpInterruptParseMadt @ 0x1403797C8 (HalpInterruptParseMadt.c)
+ *     HalpInterruptParseMadt @ 0x140379968 (HalpInterruptParseMadt.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 unsigned __int64 HalpInterruptBlockSmtSiblings()

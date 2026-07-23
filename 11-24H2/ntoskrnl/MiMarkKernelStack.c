@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkKernelStack @ 0x1403A0010
+ * XREFs of MiMarkKernelStack @ 0x140216A40
  * Callers:
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     MiSetPageProtection @ 0x14066F27C (MiSetPageProtection.c)
- *     MiMarkBootKernelStack @ 0x140C575E4 (MiMarkBootKernelStack.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiSetPageProtection @ 0x14067044C (MiSetPageProtection.c)
+ *     MiMarkBootKernelStack @ 0x140C59774 (MiMarkBootKernelStack.c)
  * Callees:
- *     MiSetPfnKernelStack @ 0x1403A0080 (MiSetPfnKernelStack.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
+ *     MiSetPfnKernelStack @ 0x140216AB0 (MiSetPfnKernelStack.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
  */
 
 __int64 __fastcall MiMarkKernelStack(__int64 a1, __int64 a2, __int64 a3)

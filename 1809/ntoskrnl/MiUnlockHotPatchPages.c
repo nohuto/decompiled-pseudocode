@@ -1,31 +1,31 @@
 /*
- * XREFs of MiUnlockHotPatchPages @ 0x14085839C
+ * XREFs of MiUnlockHotPatchPages @ 0x1408595FC
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x140858114 (MiUnapplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408552E0 (MiApplyDriverHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x140859374 (MiUnapplyDriverHotPatch.c)
  * Callees:
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiUnlockCodePage @ 0x14009C770 (MiUnlockCodePage.c)
- *     KeReservePrivilegedPages @ 0x14028DC0C (KeReservePrivilegedPages.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x14009C6B0 (MiUnlockCodePage.c)
+ *     KeReservePrivilegedPages @ 0x14028DDFC (KeReservePrivilegedPages.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiUnlockHotPatchPages(_QWORD *a1)
+void __fastcall MiUnlockHotPatchPages(_RTL_BITMAP_EX *a1)
 {
-  __int64 v2; // rbx
+  unsigned __int64 SizeOfBitMap; // rbx
   __int64 PteAddress; // rsi
-  unsigned __int64 *v4; // rbx
-  unsigned __int64 v5; // r8
-  unsigned __int64 SetBits; // rax
+  _RTL_BITMAP_EX *v4; // rbx
+  ULONG64 v5; // r8
+  ULONG64 SetBits; // rax
   unsigned __int64 v7; // rdi
 
-  if ( a1[3] )
+  if ( a1[1].Buffer )
   {
-    v2 = *a1;
+    SizeOfBitMap = a1->SizeOfBitMap;
     KeReservePrivilegedPages();
-    PteAddress = MiGetPteAddress(*(_QWORD *)(v2 + 48));
-    v4 = a1 + 2;
+    PteAddress = MiGetPteAddress(*(_QWORD *)(SizeOfBitMap + 48));
+    v4 = a1 + 1;
     v5 = 0LL;
     while ( 1 )
     {
@@ -35,9 +35,9 @@ void __fastcall MiUnlockHotPatchPages(_QWORD *a1)
         break;
       MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits);
       v5 = v7;
-      _bittestandreset64((signed __int64 *)v4[1], v7);
+      _bittestandreset64((signed __int64 *)v4->Buffer, v7);
     }
-    ExFreePoolWithTag((PVOID)v4[1], 0);
-    v4[1] = 0LL;
+    ExFreePoolWithTag(v4->Buffer, 0);
+    v4->Buffer = 0LL;
   }
 }

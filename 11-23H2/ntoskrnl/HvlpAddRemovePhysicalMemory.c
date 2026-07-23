@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpAddRemovePhysicalMemory @ 0x140678C10
+ * XREFs of HvlpAddRemovePhysicalMemory @ 0x140679160
  * Callers:
- *     HvlConfigureDynamicMemory @ 0x140678AD0 (HvlConfigureDynamicMemory.c)
+ *     HvlConfigureDynamicMemory @ 0x140679020 (HvlConfigureDynamicMemory.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x14045F516 (HvlpHvToNtStatus.c)
- *     HvlpDepositPages @ 0x140540B94 (HvlpDepositPages.c)
- *     HvlpWithdrawPages @ 0x140542470 (HvlpWithdrawPages.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x14045F916 (HvlpHvToNtStatus.c)
+ *     HvlpDepositPages @ 0x140541254 (HvlpDepositPages.c)
+ *     HvlpWithdrawPages @ 0x140542B30 (HvlpWithdrawPages.c)
  */
 
 __int64 __fastcall HvlpAddRemovePhysicalMemory(char a1, char a2, __int64 a3, unsigned __int64 a4, _QWORD *a5)

@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtOpenPrivateNamespace()
+NTSTATUS __cdecl NtOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 275LL;
+  result = 275;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFlushStaleCacheMap @ 0x1406F3FF0
+ * XREFs of MiFlushStaleCacheMap @ 0x1406F8C5C
  * Callers:
- *     MiDeleteStaleCacheMaps @ 0x1406F3AF0 (MiDeleteStaleCacheMaps.c)
+ *     MiDeleteStaleCacheMaps @ 0x1406F8760 (MiDeleteStaleCacheMaps.c)
  * Callees:
- *     MiFlushCachedIoPfnRange @ 0x14052448C (MiFlushCachedIoPfnRange.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiFlushCachedIoPfnRange @ 0x140526AFC (MiFlushCachedIoPfnRange.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFlushStaleCacheMap(__int64 a1)
@@ -26,11 +26,11 @@ __int64 __fastcall MiFlushStaleCacheMap(__int64 a1)
     if ( ((*(_DWORD *)(a1
                      + 4
                      * ((unsigned __int64)(2
-                                         * (((unsigned int)v2 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8
+                                         * (((unsigned int)v2 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878
                                                                                       - 12))
                                                                - 1))
                                           - *(_DWORD *)(a1 + 24))) >> 5)
-                     + 44) >> (2 * ((v2 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *(_BYTE *)(a1 + 24)))) & 3) == 1 )
+                     + 44) >> (2 * ((v2 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *(_BYTE *)(a1 + 24)))) & 3) == 1 )
     {
       *v3 = v2;
       ++v4;

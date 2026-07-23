@@ -1,24 +1,24 @@
 /*
- * XREFs of BiCreatePartitionDevice @ 0x1407850C0
+ * XREFs of BiCreatePartitionDevice @ 0x140785280
  * Callers:
- *     BiConvertNtDeviceToBootEnvironment @ 0x140784FF8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1407851B8 (BiConvertNtDeviceToBootEnvironment.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140784FF8 (BiConvertNtDeviceToBootEnvironment.c)
- *     BiGetPartitionInformation @ 0x140785390 (BiGetPartitionInformation.c)
- *     BiGetPartitionVhdFilePath @ 0x1407854A4 (BiGetPartitionVhdFilePath.c)
- *     BiGetDriveLayoutInformation @ 0x14078560C (BiGetDriveLayoutInformation.c)
- *     BiCreateFileDeviceElement @ 0x14096FBE0 (BiCreateFileDeviceElement.c)
- *     BiGetPhysicalDriveName @ 0x14096FD8C (BiGetPhysicalDriveName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1407851B8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiGetPartitionInformation @ 0x140785550 (BiGetPartitionInformation.c)
+ *     BiGetPartitionVhdFilePath @ 0x140785664 (BiGetPartitionVhdFilePath.c)
+ *     BiGetDriveLayoutInformation @ 0x1407857CC (BiGetDriveLayoutInformation.c)
+ *     BiCreateFileDeviceElement @ 0x14096FDC0 (BiCreateFileDeviceElement.c)
+ *     BiGetPhysicalDriveName @ 0x14096FF6C (BiGetPhysicalDriveName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreatePartitionDevice(PCWSTR SourceString, int a2, _QWORD *a3, _DWORD *a4)

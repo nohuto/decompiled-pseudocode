@@ -1,16 +1,16 @@
 /*
- * XREFs of CcQueueLazyWriteScanThread @ 0x14013FDAC
+ * XREFs of CcQueueLazyWriteScanThread @ 0x14014031C
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     CcSetLazyWriteScanQueued @ 0x14006E9FC (CcSetLazyWriteScanQueued.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006FC80 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     CcPostWorkQueue @ 0x1400714A8 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x140072080 (CcAllocateWorkQueueEntry.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcNotifyExternalCaches @ 0x1401340A4 (CcNotifyExternalCaches.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     CcSetLazyWriteScanQueued @ 0x14006E57C (CcSetLazyWriteScanQueued.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006F800 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcPostWorkQueue @ 0x140071028 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x140071C00 (CcAllocateWorkQueueEntry.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcNotifyExternalCaches @ 0x140134614 (CcNotifyExternalCaches.c)
  */
 
 void __fastcall __noreturn CcQueueLazyWriteScanThread(PVOID StartContext)
@@ -86,19 +86,19 @@ LABEL_6:
       goto LABEL_23;
     if ( v1 == 4 )
     {
-      if ( byte_1403231C3 )
+      if ( byte_1403231E3 )
         goto LABEL_30;
-      v7 = byte_1403231C2 == 0;
+      v7 = byte_1403231E2 == 0;
       goto LABEL_12;
     }
     if ( v1 == 8 )
     {
-      v11 = byte_1403231C2;
+      v11 = byte_1403231E2;
     }
     else
     {
 LABEL_23:
-      if ( !byte_1403231C5 && !byte_1403231C4 && !byte_1403231C6 )
+      if ( !byte_1403231E5 && !byte_1403231E4 && !byte_1403231E6 )
         goto LABEL_13;
       v11 = 1;
     }
@@ -117,7 +117,7 @@ LABEL_13:
     {
       ++CcDbgNumberOfFailedWorkQueueEntryAllocations;
       KeAcquireQueuedSpinLock(5uLL);
-      byte_1403231C0 = 0;
+      byte_1403231E0 = 0;
       CcSetLazyWriteScanQueued(v1, 0);
       v13 = v14;
 LABEL_31:

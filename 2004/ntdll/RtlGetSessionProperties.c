@@ -8,32 +8,27 @@
  *     NtQueryInformationJobObject @ 0x18009F740 (NtQueryInformationJobObject.c)
  */
 
-__int64 __fastcall RtlGetSessionProperties(int a1, _DWORD *a2)
+NTSTATUS __cdecl RtlGetSessionProperties(ULONG SessionId, PULONG SharedUserSessionId)
 {
-  unsigned int v4; // ebx
-  char *SharedData; // rcx
-  char v7; // [rsp+30h] [rbp-288h] BYREF
+  NTSTATUS v4; // ebx
+  _BYTE *SharedData; // rcx
+  _BYTE JobObjectInformation[624]; // [rsp+30h] [rbp-288h] BYREF
 
-  if ( a1 == -1 )
-    return (unsigned int)-1073741811;
+  if ( SessionId == -1 )
+    return -1073741811;
   v4 = 0;
-  if ( !a2 )
+  if ( !SharedUserSessionId )
+    return -1073741811;
+  *SharedUserSessionId = 0;
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    return (unsigned int)-1073741811;
+    SharedData = NtCurrentPeb()->SharedData;
   }
   else
   {
-    *a2 = 0;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    {
-      SharedData = (char *)NtCurrentPeb()->SharedData;
-    }
-    else
-    {
-      NtQueryInformationJobObject();
-      SharedData = &v7;
-    }
-    *a2 = *((_DWORD *)SharedData + 6) == a1;
+    NtQueryInformationJobObject(0LL, JobObjectServerSiloUserSharedData, JobObjectInformation, 0x270u, 0LL);
+    SharedData = JobObjectInformation;
   }
+  *SharedUserSessionId = *((_DWORD *)SharedData + 6) == SessionId;
   return v4;
 }

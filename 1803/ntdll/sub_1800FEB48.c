@@ -6,11 +6,11 @@
  *     DbgPrint @ 0x180008590 (DbgPrint.c)
  */
 
-__int64 sub_1800FEB48()
+ULONG sub_1800FEB48()
 {
   const char *v0; // rbx
 
-  v0 = byte_180114112;
+  v0 = (const char *)&dword_180114112;
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else

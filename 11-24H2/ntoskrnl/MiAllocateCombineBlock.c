@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocateCombineBlock @ 0x1402FA538
+ * XREFs of MiAllocateCombineBlock @ 0x140345874
  * Callers:
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140C5428C (MmInitializeImageViewExtensionCfg.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140C5641C (MmInitializeImageViewExtensionCfg.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiInsertNewCombineBlocks @ 0x140479DDC (MiInsertNewCombineBlocks.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiInsertNewCombineBlocks @ 0x14047566C (MiInsertNewCombineBlocks.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateCombineBlock(__int64 a1)

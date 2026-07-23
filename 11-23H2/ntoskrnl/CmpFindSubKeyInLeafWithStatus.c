@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFindSubKeyInLeafWithStatus @ 0x1406D94E0
+ * XREFs of CmpFindSubKeyInLeafWithStatus @ 0x1406D9510
  * Callers:
- *     CmpWalkOneLevel @ 0x1406DD820 (CmpWalkOneLevel.c)
- *     CmpAddToLeaf @ 0x1407089F4 (CmpAddToLeaf.c)
- *     CmpRemoveSubKeyFromList @ 0x14070BD20 (CmpRemoveSubKeyFromList.c)
- *     CmpMarkIndexDirtyInStorageType @ 0x14070C1CC (CmpMarkIndexDirtyInStorageType.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x140825970 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpWalkOneLevel @ 0x1406DD850 (CmpWalkOneLevel.c)
+ *     CmpAddToLeaf @ 0x140708C04 (CmpAddToLeaf.c)
+ *     CmpRemoveSubKeyFromList @ 0x14070BF30 (CmpRemoveSubKeyFromList.c)
+ *     CmpMarkIndexDirtyInStorageType @ 0x14070C3DC (CmpMarkIndexDirtyInStorageType.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x140825C70 (CmpFindSubKeyByNameWithStatus.c)
  * Callees:
- *     CmpCompareInIndex @ 0x1406D9660 (CmpCompareInIndex.c)
+ *     CmpCompareInIndex @ 0x1406D9690 (CmpCompareInIndex.c)
  */
 
 __int64 __fastcall CmpFindSubKeyInLeafWithStatus(int a1, __int64 a2, int a3, int a4, _DWORD *a5, unsigned int *a6)

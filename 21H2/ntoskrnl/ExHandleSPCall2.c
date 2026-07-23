@@ -1,14 +1,14 @@
 /*
- * XREFs of ExHandleSPCall2 @ 0x14064F4A0
+ * XREFs of ExHandleSPCall2 @ 0x1406442C0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     sub_14064F6C8 @ 0x14064F6C8 (sub_14064F6C8.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     sub_1406444E8 @ 0x1406444E8 (sub_1406444E8.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExHandleSPCall2(__int64 a1, unsigned __int64 a2)
@@ -76,7 +76,7 @@ __int64 __fastcall ExHandleSPCall2(__int64 a1, unsigned __int64 a2)
 LABEL_17:
   if ( v3 >= 0 )
   {
-    v3 = sub_14064F6C8((_DWORD)v4, v5, v6, (unsigned int)&P, (__int64)&Length);
+    v3 = sub_1406444E8((_DWORD)v4, v5, v6, (unsigned int)&P, (__int64)&Length);
     if ( v3 >= 0 )
     {
       if ( v11 )

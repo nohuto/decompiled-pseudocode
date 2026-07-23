@@ -7,9 +7,9 @@
  *     sub_1800365A0 @ 0x1800365A0 (sub_1800365A0.c)
  */
 
-char __fastcall RtlTryAcquireSRWLockShared(volatile signed __int64 *a1)
+BOOLEAN __cdecl RtlTryAcquireSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  char v1; // r9
+  BOOLEAN v1; // r9
   volatile signed __int64 *v2; // r10
   unsigned __int64 v3; // rax
   __int64 v5; // r8
@@ -17,9 +17,9 @@ char __fastcall RtlTryAcquireSRWLockShared(volatile signed __int64 *a1)
   unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = 0;
-  v2 = a1;
+  v2 = (volatile signed __int64 *)SRWLock;
   v7 = 0;
-  v3 = _InterlockedCompareExchange64(a1, 17LL, 0LL);
+  v3 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 17LL, 0LL);
   if ( !v3 )
     return 1;
   while ( 1 )

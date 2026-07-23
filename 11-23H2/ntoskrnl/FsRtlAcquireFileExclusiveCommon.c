@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x140723B20
+ * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x140723D20
  * Callers:
- *     FsRtlAcquireToCreateMappedSection @ 0x14072380C (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlAcquireFileExclusive @ 0x1407238E0 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x140723A0C (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlAcquireFileExclusive @ 0x140723AE0 (FsRtlAcquireFileExclusive.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x1402A1E50 (IoGetBaseFileSystemDeviceObject.c)
- *     FsFilterCtrlInit @ 0x1402A1E90 (FsFilterCtrlInit.c)
- *     FsFilterPerformCompletionCallbacks @ 0x1402A1F20 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1402A1FB0 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlFree @ 0x1402A22C8 (FsFilterCtrlFree.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x1402A20E0 (IoGetBaseFileSystemDeviceObject.c)
+ *     FsFilterCtrlInit @ 0x1402A2120 (FsFilterCtrlInit.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x1402A21B0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x1402A2240 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x1402A2558 (FsFilterCtrlFree.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x140302D80 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileExclusiveCommon(

@@ -136,7 +136,7 @@ __int64 __fastcall SepAccessCheckAndAuditAlarm(
   __int64 v71; // r8
   __int16 v73; // ax
   __int64 v74; // rax
-  __int64 v75; // rcx
+  ACL *v75; // rcx
   int v76; // eax
   unsigned int v77; // eax
   unsigned int v78; // eax
@@ -153,9 +153,9 @@ __int64 __fastcall SepAccessCheckAndAuditAlarm(
   __int16 v89; // r8
   __int64 v90; // rax
   ACL *v91; // rax
-  unsigned __int8 *ScopedPolicySid; // rax
+  _BYTE *ScopedPolicySid; // rax
   int Cap; // eax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v94; // rdx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v94; // rdx
   char *v95; // r9
   unsigned int v96; // r14d
   char *v97; // r8
@@ -957,7 +957,7 @@ LABEL_91:
                           v58 = v190;
                           goto LABEL_92;
                         }
-                        IsOwner = SepTokenIsOwner((__int64)ClientToken, (__int64)v28);
+                        IsOwner = SepTokenIsOwner((__int64)ClientToken);
                         v164 = IsOwner;
                         v28 = (unsigned int *)v178;
                         if ( !SepRmEnforceCap )
@@ -991,13 +991,13 @@ LABEL_228:
                         v197 = v91;
                         if ( v91 )
                         {
-                          ScopedPolicySid = SepGetScopedPolicySid((__int64)v91);
+                          ScopedPolicySid = SepGetScopedPolicySid(v91);
                           if ( ScopedPolicySid )
                           {
                             Cap = SepRmReferenceFindCap(ScopedPolicySid, &v206);
                             v94 = v206;
                             if ( Cap < 0 )
-                              v94 = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)SepRmDefaultCap;
+                              v94 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)SepRmDefaultCap;
                             v206 = v94;
                             v25 = 0;
                             v168 = 0;
@@ -1010,11 +1010,11 @@ LABEL_59:
                               && ((v73 = *((_WORD *)v28 + 1), (v73 & 4) == 0)
                                 ? (v75 = 0LL)
                                 : v73 >= 0
-                                ? (v75 = *((_QWORD *)v28 + 4))
+                                ? (v75 = (ACL *)*((_QWORD *)v28 + 4))
                                 : (v74 = v28[4], !(_DWORD)v74)
                                 ? (v75 = 0LL)
-                                : (v75 = (__int64)v28 + v74),
-                                  !(unsigned __int8)RtlOwnerAcesPresent(v75)) )
+                                : (v75 = (ACL *)((char *)v28 + v74)),
+                                  !RtlOwnerAcesPresent(v75)) )
                             {
                               if ( (v37 & 0x2000000) != 0 )
                                 v76 = 393216;

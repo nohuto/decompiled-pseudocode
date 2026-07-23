@@ -1,54 +1,56 @@
 /*
- * XREFs of RtlProtectHeap @ 0x18009C280
+ * XREFs of RtlProtectHeap @ 0x180028BA0
  * Callers:
- *     RtlpAddVectoredHandler @ 0x180006308 (RtlpAddVectoredHandler.c)
- *     RtlAddGrowableFunctionTable @ 0x180006BA0 (RtlAddGrowableFunctionTable.c)
- *     LdrEnsureMrdataHeapExists @ 0x180006F10 (LdrEnsureMrdataHeapExists.c)
- *     RtlpCallVectoredHandlers @ 0x180019DC0 (RtlpCallVectoredHandlers.c)
- *     RtlInstallFunctionTableCallback @ 0x1800E0D10 (RtlInstallFunctionTableCallback.c)
- *     RtlDeleteFunctionTable @ 0x1800E74E0 (RtlDeleteFunctionTable.c)
- *     RtlDeleteGrowableFunctionTable @ 0x1800E76F0 (RtlDeleteGrowableFunctionTable.c)
- *     RtlpRemoveVectoredHandler @ 0x1800EF340 (RtlpRemoveVectoredHandler.c)
- *     RtlAddFunctionTable @ 0x1800F1F70 (RtlAddFunctionTable.c)
- *     RtlGrowFunctionTable @ 0x1800F9570 (RtlGrowFunctionTable.c)
- *     RtlSetProtectedPolicy @ 0x1800F9EC0 (RtlSetProtectedPolicy.c)
+ *     RtlpRemoveVectoredHandler @ 0x180027330 (RtlpRemoveVectoredHandler.c)
+ *     RtlDeleteFunctionTable @ 0x1800277A0 (RtlDeleteFunctionTable.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x1800279B0 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlpAddVectoredHandler @ 0x180032D08 (RtlpAddVectoredHandler.c)
+ *     RtlAddGrowableFunctionTable @ 0x1800335A0 (RtlAddGrowableFunctionTable.c)
+ *     LdrEnsureMrdataHeapExists @ 0x180033910 (LdrEnsureMrdataHeapExists.c)
+ *     RtlpCallVectoredHandlers @ 0x1800467C0 (RtlpCallVectoredHandlers.c)
+ *     RtlInstallFunctionTableCallback @ 0x1800DC260 (RtlInstallFunctionTableCallback.c)
+ *     RtlAddFunctionTable @ 0x1800ECBF0 (RtlAddFunctionTable.c)
+ *     RtlGrowFunctionTable @ 0x1800F4140 (RtlGrowFunctionTable.c)
+ *     RtlSetProtectedPolicy @ 0x1800F4C20 (RtlSetProtectedPolicy.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpHpHeapValidateProtection @ 0x180091990 (RtlpHpHeapValidateProtection.c)
- *     RtlpProtectHeap @ 0x18009C350 (RtlpProtectHeap.c)
- *     RtlpGetHeapProtection @ 0x18009C570 (RtlpGetHeapProtection.c)
- *     RtlpHpHeapProtect @ 0x180157DB4 (RtlpHpHeapProtect.c)
+ *     RtlpGetHeapProtection @ 0x1800288C0 (RtlpGetHeapProtection.c)
+ *     RtlpProtectHeap @ 0x180028980 (RtlpProtectHeap.c)
+ *     RtlpReleaseHeapListLock @ 0x18002AA6C (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x18002AAB4 (RtlpAcquireHeapListLock.c)
+ *     RtlpHpHeapValidateProtection @ 0x18009C520 (RtlpHpHeapValidateProtection.c)
+ *     RtlpHpHeapProtect @ 0x180156174 (RtlpHpHeapProtect.c)
  */
 
-struct _PEB *__fastcall RtlProtectHeap(_DWORD *a1, char a2)
+void __cdecl RtlProtectHeap(PVOID HeapHandle, BOOLEAN MakeReadOnly)
 {
-  struct _PEB *result; // rax
-  unsigned int HeapProtection; // eax
-  __int64 v6; // rdx
-  unsigned int v7; // eax
+  ULONG HeapProtection; // eax
+  ULONG v5; // edx
+  int v6; // eax
 
-  result = NtCurrentPeb();
-  if ( a1 != result->ProcessHeap && (a1[4] == -571548178 || (a1[29] & 0x1000000) == 0) )
+  if ( HeapHandle != NtCurrentPeb()->ProcessHeap
+    && (*((_DWORD *)HeapHandle + 4) == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) == 0) )
   {
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
-    if ( a1[4] == -571548178 )
-      HeapProtection = RtlpHpHeapValidateProtection((__int64)a1, (a1[5] & 0x40000000) != 0 ? 64 : 4);
+    RtlpAcquireHeapListLock();
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      HeapProtection = RtlpHpHeapValidateProtection(
+                         HeapHandle,
+                         (*((_DWORD *)HeapHandle + 5) & 0x40000000) != 0 ? 64 : 4,
+                         (unsigned __int8)BYTE1(*(_QWORD *)HeapHandle),
+                         *((_QWORD *)HeapHandle + 1));
     else
-      HeapProtection = RtlpGetHeapProtection(a1, 1LL);
-    v6 = HeapProtection;
-    if ( a2 )
+      HeapProtection = RtlpGetHeapProtection(HeapHandle, 1);
+    v5 = HeapProtection;
+    if ( MakeReadOnly )
     {
-      v7 = 2;
-      if ( (_DWORD)v6 == 64 )
-        v7 = 32;
-      v6 = v7;
+      v6 = 2;
+      if ( v5 == 64 )
+        v6 = 32;
+      v5 = v6;
     }
-    if ( a1[4] == -571548178 )
-      RtlpHpHeapProtect(a1, v6);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      RtlpHpHeapProtect(HeapHandle, v5);
     else
-      RtlpProtectHeap(a1, v6);
-    return (struct _PEB *)RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+      RtlpProtectHeap((__int64)HeapHandle, v5);
+    RtlpReleaseHeapListLock(0LL);
   }
-  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of StEtaInitialize @ 0x140306944
+ * XREFs of StEtaInitialize @ 0x140306B34
  * Callers:
- *     SmcCacheInitialize @ 0x1408AEA80 (SmcCacheInitialize.c)
+ *     SmcCacheInitialize @ 0x1408AFCE0 (SmcCacheInitialize.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void *__fastcall StEtaInitialize(void *a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PipResetMatchingFilteredDevices @ 0x140C22040
+ * XREFs of PipResetMatchingFilteredDevices @ 0x140C24080
  * Callers:
- *     PipResetDevices @ 0x140C21F70 (PipResetDevices.c)
+ *     PipResetDevices @ 0x140C23FB0 (PipResetDevices.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumValue @ 0x14099359C (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140993F58 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegCloseKey @ 0x140A16E6C (_PnpCtxRegCloseKey.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x140A1A490 (_CmGetMatchingFilteredDeviceList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PipResetDevice @ 0x140C21D70 (PipResetDevice.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x14097E5DC (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14097EF98 (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegCloseKey @ 0x140A1004C (_PnpCtxRegCloseKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140A163D4 (_CmGetMatchingFilteredDeviceList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PipResetDevice @ 0x140C23DB0 (PipResetDevice.c)
  */
 
 __int64 __fastcall PipResetMatchingFilteredDevices(__int64 a1, __int64 a2, int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall PipResetMatchingFilteredDevices(__int64 a1, __int64 a2, int a
   int InfoKey; // ebx
   ULONG v12; // r13d
   int v13; // r12d
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   ULONG i; // r15d
   int v16; // eax
   const CHAR *v17; // r8

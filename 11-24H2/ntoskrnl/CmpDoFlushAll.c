@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDoFlushAll @ 0x14024528C
+ * XREFs of CmpDoFlushAll @ 0x14020DA6C
  * Callers:
- *     CmReconcileAndValidateAllHives @ 0x1407D7E5C (CmReconcileAndValidateAllHives.c)
- *     CmpForceFlushWorker @ 0x140A52FE0 (CmpForceFlushWorker.c)
- *     NtFlushKey @ 0x140A74F60 (NtFlushKey.c)
+ *     CmReconcileAndValidateAllHives @ 0x1407D83B0 (CmReconcileAndValidateAllHives.c)
+ *     CmpForceFlushWorker @ 0x140A4AFD0 (CmpForceFlushWorker.c)
+ *     NtFlushKey @ 0x140A6F280 (NtFlushKey.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     CmpGetNextHive @ 0x14084425C (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1408443C0 (CmpDereferenceHive.c)
- *     CmpGetLastHive @ 0x14092EBCC (CmpGetLastHive.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     CmpQuitNextHive @ 0x140A5EBA0 (CmpQuitNextHive.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     CmpGetNextHive @ 0x14084051C (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x140840680 (CmpDereferenceHive.c)
+ *     CmpGetLastHive @ 0x140930D0C (CmpGetLastHive.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     CmpQuitNextHive @ 0x140A56D90 (CmpQuitNextHive.c)
  */
 
 void __fastcall CmpDoFlushAll(unsigned int a1)
@@ -32,7 +32,7 @@ void __fastcall CmpDoFlushAll(unsigned int a1)
         v5 = NextHive;
         if ( !NextHive )
           break;
-        if ( ExAcquireRundownProtection(NextHive + 205) )
+        if ( ExAcquireRundownProtection_0(NextHive + 205) )
         {
           if ( (v5[20].Count & 2) == 0 )
             CmpFlushHive(v5, a1);

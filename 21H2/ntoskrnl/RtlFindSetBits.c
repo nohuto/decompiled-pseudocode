@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFindSetBits @ 0x140357850
+ * XREFs of RtlFindSetBits @ 0x1403625A0
  * Callers:
- *     HvpFindFreeCell @ 0x140707F4C (HvpFindFreeCell.c)
- *     HvpRemoveFreeCellHint @ 0x140708130 (HvpRemoveFreeCellHint.c)
- *     MiFindDriverNonPagedSections @ 0x14075CA84 (MiFindDriverNonPagedSections.c)
- *     SmcStorePlacementGet @ 0x14092DF58 (SmcStorePlacementGet.c)
- *     EtwQueryPerformanceTraceInformation @ 0x140937E6C (EtwQueryPerformanceTraceInformation.c)
+ *     HvpFindFreeCell @ 0x14071F32C (HvpFindFreeCell.c)
+ *     HvpRemoveFreeCellHint @ 0x14071F510 (HvpRemoveFreeCellHint.c)
+ *     MiFindDriverNonPagedSections @ 0x14075CC44 (MiFindDriverNonPagedSections.c)
+ *     SmcStorePlacementGet @ 0x14092E0B8 (SmcStorePlacementGet.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14093803C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

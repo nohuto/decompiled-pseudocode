@@ -1,7 +1,7 @@
 /*
- * XREFs of PfFbBufferListUpdateMax @ 0x1402D3F68
+ * XREFs of PfFbBufferListUpdateMax @ 0x1402521D8
  * Callers:
- *     PfTStart @ 0x1407BFA40 (PfTStart.c)
+ *     PfTStart @ 0x1407BFF5C (PfTStart.c)
  * Callees:
  *     <none>
  */

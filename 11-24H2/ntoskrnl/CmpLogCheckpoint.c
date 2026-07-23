@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpLogCheckpoint @ 0x140A05DB4
+ * XREFs of CmpLogCheckpoint @ 0x140A022E4
  * Callers:
- *     CmpStopRMLog @ 0x140A0452C (CmpStopRMLog.c)
- *     CmpCleanupTransactionState @ 0x140A05204 (CmpCleanupTransactionState.c)
- *     CmpTransWriteLog @ 0x140A0592C (CmpTransWriteLog.c)
+ *     CmpStopRMLog @ 0x140A00A5C (CmpStopRMLog.c)
+ *     CmpCleanupTransactionState @ 0x140A01734 (CmpCleanupTransactionState.c)
+ *     CmpTransWriteLog @ 0x140A01E5C (CmpTransWriteLog.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     LOCK_TRANSACTION_LIST @ 0x14087B17C (LOCK_TRANSACTION_LIST.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x140BB9940 (CmListGetNextElement.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14087F02C (LOCK_TRANSACTION_LIST.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140BBB940 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
@@ -76,7 +76,7 @@ __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
       plsn = pinfoBuffer.LastLsn;
   }
   pcbInfoBuffer[0] = 120;
-  Pool2 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL);
+  Pool2 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL, 0x78uLL, 0x20204D43u);
   v8 = Pool2;
   if ( Pool2 )
   {
@@ -103,17 +103,17 @@ __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
     }
   }
   pcbInfoBuffer[0] = 120;
-  v9 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL);
+  v9 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL, 0x78uLL, 0x20204D43u);
   v10 = v9;
   if ( v9 )
   {
     ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), v9, pcbInfoBuffer);
     ExFreePoolWithTag(v10, 0);
   }
-  if ( (unsigned int)dword_140E09EE8 > 5 )
+  if ( (unsigned int)dword_140E09F58 > 5 )
   {
     v11 = 1;
-    if ( (qword_140E09EF8 & 1) == 0 || (qword_140E09F00 & 1) != qword_140E09F00 )
+    if ( (qword_140E09F68 & 1) == 0 || (qword_140E09F70 & 1) != qword_140E09F70 )
       v11 = 0;
     if ( v11 )
     {
@@ -122,8 +122,8 @@ __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
       pcbInfoBuffer[0] = LogFileInformation;
       v25 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)&dword_140055874,
+        (__int64)&dword_140E09F58,
+        (unsigned __int8 *)&word_14005636E,
         0LL,
         0LL,
         3u,

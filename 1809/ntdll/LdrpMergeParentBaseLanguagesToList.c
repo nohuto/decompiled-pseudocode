@@ -2,8 +2,8 @@
  * XREFs of LdrpMergeParentBaseLanguagesToList @ 0x1800EE89C
  * Callers:
  *     LdrpMergeLangFallbackLists @ 0x18003C708 (LdrpMergeLangFallbackLists.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007A100 (RtlGetSystemPreferredUILanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x180080700 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007A110 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180080710 (RtlGetUserPreferredUILanguages.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
@@ -18,68 +18,68 @@
 __int64 LdrpMergeParentBaseLanguagesToList(__int64 *a1, _WORD *a2, __int64 a3, __int64 a4, ...)
 {
   wchar_t *Heap; // rsi
-  int TraverseNodes; // ebx
+  int appended; // ebx
   __int16 v10; // di
   unsigned __int16 v11; // dx
   __int16 v12; // dx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 v15; // [rsp+70h] [rbp+30h] BYREF
+  _UNICODE_STRING String; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp+30h] BYREF
   va_list va; // [rsp+90h] [rbp+50h] BYREF
 
   va_start(va, a4);
-  v15 = 0LL;
+  BaseAddress = 0LL;
   Heap = 0LL;
   if ( !a1 || !*a1 || !a2 || !a3 )
   {
-    TraverseNodes = -1073741811;
+    appended = -1073741811;
     goto LABEL_22;
   }
-  TraverseNodes = RtlpCreateTraverseNodes((__int64 *)&v15);
-  if ( TraverseNodes >= 0 )
+  appended = RtlpCreateTraverseNodes(&BaseAddress);
+  if ( appended >= 0 )
   {
-    if ( !RtlpTraverseParents(a2, v15, a3, a4, 0, 42) )
+    if ( !RtlpTraverseParents(a2, (__int64)BaseAddress, a3, a4, 0, 42) )
     {
-      TraverseNodes = -1073741823;
+      appended = -1073741823;
       goto LABEL_24;
     }
-    Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
     if ( !Heap )
     {
-      TraverseNodes = -1073741801;
+      appended = -1073741801;
       goto LABEL_24;
     }
     v10 = 0;
     while ( 1 )
     {
-      if ( v10 && *(_DWORD *)(v15 + 8LL * v10 + 4) )
+      if ( v10 && *((_DWORD *)BaseAddress + 2 * v10 + 1) )
       {
-        v11 = *(_WORD *)(v15 + 8LL * v10);
+        v11 = *((_WORD *)BaseAddress + 4 * v10);
         if ( v11 )
         {
-          DestinationString.Buffer = Heap;
-          *(_DWORD *)&DestinationString.Length = 11141120;
-          if ( !RtlLCIDToCultureName(v11, (__int64)&DestinationString) )
+          String.Buffer = Heap;
+          *(_DWORD *)&String.Length = 11141120;
+          if ( !RtlLCIDToCultureName(v11, &String) )
             goto LABEL_15;
         }
         else
         {
-          v12 = *(_WORD *)(v15 + 8LL * v10 + 2);
+          v12 = *((_WORD *)BaseAddress + 4 * v10 + 1);
           if ( v12 < 0 )
           {
 LABEL_15:
-            TraverseNodes = -1073741595;
+            appended = -1073741595;
 LABEL_22:
             if ( Heap )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
             break;
           }
           RtlInitUnicodeString(
-            &DestinationString,
+            &String,
             (PCWSTR)(*(_QWORD *)(*(_QWORD *)(a3 + 32) + 24LL)
                    + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a3 + 32) + 16LL) + 2LL * v12)));
         }
-        TraverseNodes = LdrpLangFallbackListAppendNode(a1, a3, 0, (__int16 *)va, DestinationString.Buffer);
-        if ( TraverseNodes < 0 )
+        appended = LdrpLangFallbackListAppendNode(a1, a3, 0, (__int16 *)va, String.Buffer);
+        if ( appended < 0 )
           goto LABEL_22;
       }
       if ( ++v10 >= 42 )
@@ -87,7 +87,7 @@ LABEL_22:
     }
   }
 LABEL_24:
-  if ( v15 )
-    RtlpFreeTraverseNodes(v15);
-  return (unsigned int)TraverseNodes;
+  if ( BaseAddress )
+    RtlpFreeTraverseNodes(BaseAddress);
+  return (unsigned int)appended;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopNetIsDisconnectStandbyActive @ 0x140A9AD40
+ * XREFs of PopNetIsDisconnectStandbyActive @ 0x140A962B0
  * Callers:
- *     PopPdcCsCheckSystemVolumeDevice @ 0x140C328E4 (PopPdcCsCheckSystemVolumeDevice.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140C34A24 (PopPdcCsCheckSystemVolumeDevice.c)
  * Callees:
  *     <none>
  */

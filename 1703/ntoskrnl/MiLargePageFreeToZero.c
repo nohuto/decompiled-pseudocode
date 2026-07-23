@@ -79,7 +79,7 @@ __int64 __fastcall MiLargePageFreeToZero(unsigned __int64 a1, unsigned int a2)
   {
     v16 = a1 & 0x1F;
     v17 = v5;
-    v18 = (volatile signed __int32 *)(qword_14036C978 + 4 * (a1 >> 5));
+    v18 = (volatile signed __int32 *)stru_14036C970.Buffer + (a1 >> 5);
     if ( v16 + v5 <= 0x20 )
     {
       if ( v5 == 32 )

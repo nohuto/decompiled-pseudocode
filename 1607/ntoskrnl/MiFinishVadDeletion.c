@@ -1,25 +1,25 @@
 /*
- * XREFs of MiFinishVadDeletion @ 0x1400295E0
+ * XREFs of MiFinishVadDeletion @ 0x140029160
  * Callers:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
  * Callees:
- *     MiClearVadBits @ 0x1400281C0 (MiClearVadBits.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EF00 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiPreUnlockWorkingSetExclusive @ 0x1401F2A6C (MiPreUnlockWorkingSetExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiClearVadBits @ 0x140027D40 (MiClearVadBits.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EA80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiPreUnlockWorkingSetExclusive @ 0x1401F2898 (MiPreUnlockWorkingSetExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiReturnVadQuota @ 0x14042FA80 (MiReturnVadQuota.c)
- *     MiRemoveVadCharges @ 0x14042FB20 (MiRemoveVadCharges.c)
- *     MiReturnPageTablePageCommitment @ 0x140434210 (MiReturnPageTablePageCommitment.c)
+ *     MiReturnVadQuota @ 0x14042E950 (MiReturnVadQuota.c)
+ *     MiRemoveVadCharges @ 0x14042E9F0 (MiRemoveVadCharges.c)
+ *     MiReturnPageTablePageCommitment @ 0x1404330E0 (MiReturnPageTablePageCommitment.c)
  */
 
 void __fastcall MiFinishVadDeletion(
@@ -86,17 +86,17 @@ void __fastcall MiFinishVadDeletion(
     Process[1].Affinity.Bitmap[1] += a4 - v9 - 1;
   v18 = P[12];
   if ( (v18 & 7) == 2 && (v18 & 0x10000) != 0 )
-    --*(_QWORD *)(qword_140327F90 + 276840640);
+    --*(_QWORD *)(qword_140327FD0 + 276840640);
   if ( v13 == 1 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(qword_140327F90 + 276840552));
+    _InterlockedIncrement((volatile signed __int32 *)(qword_140327FD0 + 276840552));
     v19 = P[12];
     if ( (v19 & 0x100000) != 0 )
     {
       if ( (v19 & 0x8000) != 0 )
-        --*(_QWORD *)(qword_140327F90 + 276840648);
+        --*(_QWORD *)(qword_140327FD0 + 276840648);
       else
-        --*(_QWORD *)(qword_140327F90 + 276840656);
+        --*(_QWORD *)(qword_140327FD0 + 276840656);
     }
     MiReturnVadQuota(P, Process, v16);
     MiRemoveVadCharges(P, Process);
@@ -114,7 +114,7 @@ void __fastcall MiFinishVadDeletion(
   if ( v13 == 1 )
   {
     v23 = (__int64 **)(P + 14);
-    p_Blink = &dword_140327C80;
+    p_Blink = &dword_140327CC0;
     v25 = KeGetCurrentThread()->ApcState.Process;
     if ( ((__int64)v25[2].Header.WaitListHead.Flink & 7) != 2 )
       p_Blink = (LONG *)&v25[2].Header.WaitListHead.Blink;
@@ -168,7 +168,7 @@ void __fastcall MiFinishVadDeletion(
     }
     v32 = a5;
     MiPreUnlockWorkingSetExclusive(&v25[1].IdealNode[12], (unsigned __int8)a5);
-    v33 = &dword_140327C80;
+    v33 = &dword_140327CC0;
     if ( ((__int64)v25[2].Header.WaitListHead.Flink & 7) != 2 )
       v33 = (LONG *)&v25[2].Header.WaitListHead.Blink;
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
@@ -177,8 +177,8 @@ void __fastcall MiFinishVadDeletion(
       *v33 = 0;
     __writecr8(v32);
     *((_QWORD *)P + 2) = -1LL;
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(qword_140327F90 + 276840552), 0xFFFFFFFF) == 1 )
-      KeSetEvent(*(PRKEVENT *)(qword_140327F90 + 276840568), 0, 0);
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(qword_140327FD0 + 276840552), 0xFFFFFFFF) == 1 )
+      KeSetEvent(*(PRKEVENT *)(qword_140327FD0 + 276840568), 0, 0);
     if ( v22 )
       --CurrentThread->KernelApcDisable;
   }

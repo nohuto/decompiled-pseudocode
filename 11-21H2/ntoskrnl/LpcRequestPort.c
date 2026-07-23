@@ -1,12 +1,12 @@
 /*
  * XREFs of LpcRequestPort @ 0x1407A7CB0
  * Callers:
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     sub_1407A0088 @ 0x1407A0088 (sub_1407A0088.c)
  *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
  *     memset @ 0x140435E00 (memset.c)
- *     AlpcpSendMessage @ 0x1407A9ED0 (AlpcpSendMessage.c)
+ *     sub_1407A9ED0 @ 0x1407A9ED0 (sub_1407A9ED0.c)
  */
 
 __int64 __fastcall LpcRequestPort(__int64 a1, __int64 a2)
@@ -16,10 +16,10 @@ __int64 __fastcall LpcRequestPort(__int64 a1, __int64 a2)
 
   memset(v6, 0, 0x40uLL);
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v6[0] = a1;
   LODWORD(v6[6]) = 65538;
-  LODWORD(a1) = AlpcpSendMessage(v6, a2, 0LL, 0LL);
+  LODWORD(a1) = sub_1407A9ED0(v6, a2, 0LL, 0LL);
   KeLeaveCriticalRegion();
   return (unsigned int)a1;
 }

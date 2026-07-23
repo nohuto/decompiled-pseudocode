@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpLogHeapFreeEvent @ 0x140219210
+ * XREFs of RtlpLogHeapFreeEvent @ 0x14021903C
  * Callers:
- *     RtlpFreeHeap @ 0x1400936CC (RtlpFreeHeap.c)
+ *     RtlpFreeHeap @ 0x140092ECC (RtlpFreeHeap.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpLogHeapFreeEvent(__int64 a1, __int64 a2, int a3)

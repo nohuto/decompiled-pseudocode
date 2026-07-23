@@ -100,5 +100,5 @@ __int64 __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __
     }
   }
   _InterlockedDecrement(a3);
-  return KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, 2u);
+  return KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, 2u);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDereferencePerSessionProtos @ 0x140661CF8
+ * XREFs of MiDereferencePerSessionProtos @ 0x140661DDC
  * Callers:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiInsertInSystemSpace @ 0x1400FF2A0 (MiInsertInSystemSpace.c)
- *     MiRemoveFromSystemSpace @ 0x140100090 (MiRemoveFromSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiSectionDelete @ 0x14042E240 (MiSectionDelete.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MiMapSystemImage @ 0x140484528 (MiMapSystemImage.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
- *     MiDeletePartialCloneVad @ 0x14066313C (MiDeletePartialCloneVad.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiInsertInSystemSpace @ 0x1400FD020 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x1400FDE10 (MiRemoveFromSystemSpace.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiSectionDelete @ 0x14042D110 (MiSectionDelete.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MiMapSystemImage @ 0x14048327C (MiMapSystemImage.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
+ *     MiDeletePartialCloneVad @ 0x140663220 (MiDeletePartialCloneVad.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiDereferenceSubsectionProtos @ 0x140661DD4 (MiDereferenceSubsectionProtos.c)
- *     MiFreeSubsectionProtos @ 0x14066209C (MiFreeSubsectionProtos.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiDereferenceSubsectionProtos @ 0x140661EB8 (MiDereferenceSubsectionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x140662180 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiDereferencePerSessionProtos(__int64 *a1, unsigned int a2)

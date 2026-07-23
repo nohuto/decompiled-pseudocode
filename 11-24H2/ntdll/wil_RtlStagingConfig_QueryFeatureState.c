@@ -1,40 +1,39 @@
 /*
- * XREFs of wil_RtlStagingConfig_QueryFeatureState @ 0x1800D61C4
+ * XREFs of wil_RtlStagingConfig_QueryFeatureState @ 0x1800D1534
  * Callers:
- *     wil_details_GetCurrentFeatureEnabledState @ 0x1800D59FC (wil_details_GetCurrentFeatureEnabledState.c)
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x1800D0D6C (wil_details_GetCurrentFeatureEnabledState.c)
  * Callees:
- *     RtlQueryFeatureConfiguration @ 0x1800D6290 (RtlQueryFeatureConfiguration.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlQueryFeatureConfiguration @ 0x1800D1600 (RtlQueryFeatureConfiguration.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(__int64 a1, RTL_FEATURE_ID a2, int a3)
 {
   unsigned int v4; // ebx
-  int v5; // eax
-  unsigned int v7; // ecx
-  __int64 v8; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-20h] BYREF
-  int v10; // [rsp+30h] [rbp-18h]
+  NTSTATUS v5; // eax
+  ULONG Flags; // ecx
+  ULONGLONG v8; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_FEATURE_CONFIGURATION v9; // [rsp+28h] [rbp-20h] BYREF
 
   v4 = 0;
   v8 = 0LL;
-  v9 = 0LL;
-  v10 = 0;
-  v5 = ((__int64 (__fastcall *)(_QWORD, bool, __int64 *, __int64 *))RtlQueryFeatureConfiguration)(a2, a3 == 0, &v8, &v9);
+  *(_QWORD *)&v9.FeatureId = 0LL;
+  v9.VariantPayload = 0;
+  v5 = RtlQueryFeatureConfiguration(a2, (RTL_FEATURE_CONFIGURATION_TYPE)(a3 == 0), &v8, &v9);
   if ( !v5 )
   {
-    v7 = HIDWORD(v9);
-    *(_DWORD *)a1 = (HIDWORD(v9) >> 4) & 3;
-    *(_BYTE *)(a1 + 4) = BYTE1(v7) & 0x3F;
-    *(_DWORD *)(a1 + 12) = v10;
-    *(_DWORD *)(a1 + 8) = (unsigned __int16)v7 >> 14;
-    *(_DWORD *)(a1 + 20) = (v7 >> 6) & 1;
-    *(_DWORD *)(a1 + 16) = (v7 >> 7) & 1;
+    Flags = v9.Flags;
+    *(_DWORD *)a1 = (v9.Flags >> 4) & 3;
+    *(_BYTE *)(a1 + 4) = BYTE1(Flags) & 0x3F;
+    *(_DWORD *)(a1 + 12) = v9.VariantPayload;
+    *(_DWORD *)(a1 + 8) = (unsigned __int16)Flags >> 14;
+    *(_DWORD *)(a1 + 20) = (Flags >> 6) & 1;
+    *(_DWORD *)(a1 + 16) = (Flags >> 7) & 1;
     return 1;
   }
   if ( v5 == 279 )
   {
-    *(_DWORD *)(a1 + 16) = (HIDWORD(v9) >> 7) & 1;
+    *(_DWORD *)(a1 + 16) = (v9.Flags >> 7) & 1;
     return 1;
   }
   return v4;

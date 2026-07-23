@@ -7,19 +7,19 @@
  *     <none>
  */
 
-__int64 RtlpGetCurrentProcessorNumberExUninitialized()
+void __fastcall RtlpGetCurrentProcessorNumberExUninitialized(PPROCESSOR_NUMBER ProcessorNumber)
 {
-  int v0; // eax
+  int v1; // eax
 
-  v0 = 3;
+  v1 = 3;
   if ( MEMORY[0x7FFE0295] )
   {
-    v0 = 1;
+    v1 = 1;
   }
   else if ( MEMORY[0x7FFE0294] )
   {
-    v0 = 2;
+    v1 = 2;
   }
-  RtlpGetCurrentProcessorNumberHow = v0;
-  return RtlGetCurrentProcessorNumberEx();
+  RtlpGetCurrentProcessorNumberHow = v1;
+  RtlGetCurrentProcessorNumberEx(ProcessorNumber);
 }

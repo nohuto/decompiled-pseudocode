@@ -23,7 +23,7 @@ __int64 PopPowerRequestSetExecutionRequiredTimeoutTimer()
       v1 = 10000000LL;
     v3[1] = -1LL;
     v3[0] = 0LL;
-    return KeSetTimer2((__int64)&PopPowerRequestExecutionRequiredTimeoutTimer, -v1, 0LL, (__int64)v3);
+    return KeSetTimer2((__int64)&PopPowerRequestExecutionRequiredTimeoutTimer, (LARGE_INTEGER)-v1, 0LL, (__int64)v3);
   }
   return result;
 }

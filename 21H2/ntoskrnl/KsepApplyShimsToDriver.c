@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepApplyShimsToDriver @ 0x1408C01B0
+ * XREFs of KsepApplyShimsToDriver @ 0x1408C0310
  * Callers:
- *     KseDriverLoadImage @ 0x14075B560 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14075B720 (KseDriverLoadImage.c)
  * Callees:
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     KsepLogInfo @ 0x1403717A8 (KsepLogInfo.c)
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     KsepPatchDriverImportsTable @ 0x1408C0458 (KsepPatchDriverImportsTable.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     KsepLogInfo @ 0x1403712F8 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     KsepPatchDriverImportsTable @ 0x1408C05B8 (KsepPatchDriverImportsTable.c)
  */
 
 __int64 __fastcall KsepApplyShimsToDriver(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -54,7 +54,7 @@ LABEL_16:
     if ( (v11 & 0x80000000) != 0 )
     {
       v17 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140C2AAA4[2 * v17] = v11;
+      dword_140C2AAC4[2 * v17] = v11;
       KsepHistoryErrors[2 * v17] = 459415;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(8LL, "KSE: Failed to patch driver [%ws]: 0x%x\n", *(_QWORD *)(a2 + 8), v11);
@@ -85,7 +85,7 @@ LABEL_15:
       goto LABEL_16;
   }
   v16 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-  dword_140C2AAA4[2 * v16] = v10;
+  dword_140C2AAC4[2 * v16] = v10;
   KsepHistoryErrors[2 * v16] = 459396;
   if ( (KsepDebugFlag & 2) != 0 )
     KsepDebugPrint(8LL, "KSE: Driver blocked with [%ws]: 0x%x\n", *(_QWORD *)(a2 + 8), (unsigned int)v10);

@@ -3,9 +3,9 @@
  * Callers:
  *     BgkResumePrepare @ 0x1403CA94C (BgkResumePrepare.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x14002ECE0 (KeGetCurrentIrql.c)
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
+ *     KeGetCurrentIrql @ 0x14002E860 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
  *     ResFwGetContext @ 0x140725238 (ResFwGetContext.c)
  */
 

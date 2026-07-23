@@ -1,12 +1,12 @@
 /*
- * XREFs of WerpProcessId @ 0x1800029B4
+ * XREFs of WerpProcessId @ 0x1800AC6B4
  * Callers:
- *     RtlReportExceptionHelper @ 0x18000226C (RtlReportExceptionHelper.c)
- *     WerpWaitForCrashReporting @ 0x180002A54 (WerpWaitForCrashReporting.c)
- *     RtlReportSilentProcessExit @ 0x180002F20 (RtlReportSilentProcessExit.c)
- *     RtlReportExceptionEx @ 0x1801342D0 (RtlReportExceptionEx.c)
+ *     RtlReportSilentProcessExit @ 0x1800AB9C0 (RtlReportSilentProcessExit.c)
+ *     RtlReportExceptionHelper @ 0x1800ABF6C (RtlReportExceptionHelper.c)
+ *     WerpWaitForCrashReporting @ 0x1800AC754 (WerpWaitForCrashReporting.c)
+ *     RtlReportExceptionEx @ 0x180132500 (RtlReportExceptionEx.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x180161FB0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x180160370 (NtQueryInformationProcess.c)
  */
 
 __int64 __fastcall WerpProcessId(void *a1)

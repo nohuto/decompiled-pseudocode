@@ -1,12 +1,12 @@
 /*
- * XREFs of KiComputeHeteroConfig @ 0x1403EE2D8
+ * XREFs of KiComputeHeteroConfig @ 0x140452E08
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x1403ED9F4 (KeConfigureHeteroProcessors.c)
+ *     KeConfigureHeteroProcessors @ 0x140452524 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KiConfigureHeteroMultiCoreProcessors @ 0x140B38AA0 (KiConfigureHeteroMultiCoreProcessors.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KiConfigureHeteroMultiCoreProcessors @ 0x140B3ACB0 (KiConfigureHeteroMultiCoreProcessors.c)
  */
 
 __int64 __fastcall KiComputeHeteroConfig(__int64 a1, int a2)
@@ -141,16 +141,16 @@ __int64 __fastcall KiComputeHeteroConfig(__int64 a1, int a2)
     v19 = 0;
     if ( !v39 )
       goto LABEL_42;
-    v20 = *(unsigned __int8 **)(a1 + 8);
+    v20 = *(unsigned __int8 **)(a1 + 16);
     v21 = v42;
     v22 = v45;
     do
     {
-      v23 = *(_BYTE *)(a1 + 4LL * (v42 + v45 * v19) + 25);
+      v23 = *(_BYTE *)(a1 + 4LL * (v42 + v45 * v19) + 49);
       if ( v23 <= (unsigned __int8)v15 )
         v23 = v15;
       LOBYTE(v15) = v23;
-      v24 = *(_BYTE *)(a1 + 4LL * (v42 + v45 * v19) + 24);
+      v24 = *(_BYTE *)(a1 + 4LL * (v42 + v45 * v19) + 48);
       if ( v24 <= (unsigned __int8)v14 )
         v24 = v14;
       LOBYTE(v14) = v24;
@@ -173,9 +173,9 @@ LABEL_42:
           v38 = 2LL;
           do
           {
-            RtlpCopyAffinityEx(*(v12 - 28), (*(v12 - 28))->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
-            RtlpCopyAffinityEx(*v12, (*v12)->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
-            RtlpCopyAffinityEx(*(v12 - 14), (*(v12 - 14))->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+            RtlpCopyAffinityEx(*(v12 - 28), (*(v12 - 28))->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
+            RtlpCopyAffinityEx(*v12, (*v12)->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
+            RtlpCopyAffinityEx(*(v12 - 14), (*(v12 - 14))->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
             ++v12;
             --v38;
           }
@@ -186,12 +186,12 @@ LABEL_42:
       }
       else
       {
-        RtlpCopyAffinityEx(*v5, (*v5)->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
-        RtlpCopyAffinityEx(v5[1], v5[1]->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
-        RtlpCopyAffinityEx(v5[2], v5[2]->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
-        RtlpCopyAffinityEx(v5[3], v5[3]->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
-        RtlpCopyAffinityEx(v5[4], v5[4]->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
-        RtlpCopyAffinityEx(v5[5], v5[5]->Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+        RtlpCopyAffinityEx(*v5, (*v5)->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
+        RtlpCopyAffinityEx(v5[1], v5[1]->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
+        RtlpCopyAffinityEx(v5[2], v5[2]->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
+        RtlpCopyAffinityEx(v5[3], v5[3]->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
+        RtlpCopyAffinityEx(v5[4], v5[4]->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
+        RtlpCopyAffinityEx(v5[5], v5[5]->Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
       }
       *(_DWORD *)(v41 + 12) = a2;
       *(_DWORD *)(v41 + 16) = v17 != 0;
@@ -207,25 +207,25 @@ LABEL_42:
     v26 = v40;
     for ( i = 0; i < v39; ++i )
     {
-      v44 = *(_QWORD *)(a1 + 16);
+      v44 = *(_QWORD *)(a1 + 24);
       v28 = v21 + v22 * i;
-      if ( *(_BYTE *)(a1 + 4 * v28 + 25) >= *(_BYTE *)(v26 + v44 + 1) )
+      if ( *(_BYTE *)(a1 + 4 * v28 + 49) >= *(_BYTE *)(v26 + v44 + 1) )
       {
         KeAddProcessorAffinityEx(&(*v5)->Count, i);
-        if ( *(_BYTE *)(a1 + 4 * v28 + 25) == (_BYTE)v15 )
+        if ( *(_BYTE *)(a1 + 4 * v28 + 49) == (_BYTE)v15 )
           KeAddProcessorAffinityEx(&v5[1]->Count, i);
       }
-      if ( !*(_BYTE *)(a1 + 4 * v28 + 27) )
+      if ( !*(_BYTE *)(a1 + 4 * v28 + 51) )
         KeAddProcessorAffinityEx(&v5[5]->Count, i);
-      if ( !*(_BYTE *)(a1 + 4 * v28 + 26) )
+      if ( !*(_BYTE *)(a1 + 4 * v28 + 50) )
         KeAddProcessorAffinityEx(&v5[4]->Count, i);
       v26 = v40;
       if ( v17 )
       {
-        if ( *(_BYTE *)(a1 + 4 * v28 + 24) < *(_BYTE *)(v40 + v44) )
+        if ( *(_BYTE *)(a1 + 4 * v28 + 48) < *(_BYTE *)(v40 + v44) )
           goto LABEL_32;
         KeAddProcessorAffinityEx(&v5[2]->Count, i);
-        if ( *(_BYTE *)(a1 + 4 * v28 + 24) == (_BYTE)v14 )
+        if ( *(_BYTE *)(a1 + 4 * v28 + 48) == (_BYTE)v14 )
         {
           v29 = (unsigned __int16 *)v5[3];
           goto LABEL_30;
@@ -233,7 +233,7 @@ LABEL_42:
         goto LABEL_31;
       }
       v30 = *(_BYTE *)(v40 + v44 + 1);
-      if ( !v30 || *(_BYTE *)(a1 + 4 * v28 + 25) < v30 )
+      if ( !v30 || *(_BYTE *)(a1 + 4 * v28 + 49) < v30 )
       {
         KeAddProcessorAffinityEx(&v5[2]->Count, i);
         KeAddProcessorAffinityEx(&v5[3]->Count, i);

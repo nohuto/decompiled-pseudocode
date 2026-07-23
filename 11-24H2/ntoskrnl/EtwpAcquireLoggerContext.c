@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpAcquireLoggerContext @ 0x140926CDC
+ * XREFs of EtwpAcquireLoggerContext @ 0x140928E1C
  * Callers:
- *     EtwpTransitionToRealtime @ 0x14064F408 (EtwpTransitionToRealtime.c)
- *     EtwpIncrementTraceFile @ 0x1407AA940 (EtwpIncrementTraceFile.c)
- *     EtwpStopTrace @ 0x1408325A4 (EtwpStopTrace.c)
- *     EtwpUpdateTrace @ 0x14083311C (EtwpUpdateTrace.c)
- *     EtwpFlushTrace @ 0x140833B94 (EtwpFlushTrace.c)
- *     EtwpQueryTrace @ 0x1408347C0 (EtwpQueryTrace.c)
+ *     EtwpTransitionToRealtime @ 0x14064DB08 (EtwpTransitionToRealtime.c)
+ *     EtwpQueryTrace @ 0x1408360C0 (EtwpQueryTrace.c)
+ *     EtwpStopTrace @ 0x1409D2184 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x1409D2420 (EtwpFlushTrace.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
+ *     EtwpUpdateTrace @ 0x140ADA038 (EtwpUpdateTrace.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     EtwpCaptureString @ 0x140832F00 (EtwpCaptureString.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     EtwpCaptureString @ 0x1409D28F8 (EtwpCaptureString.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, __int64 *a3)
@@ -34,10 +34,10 @@ __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, __int64 *a3)
   v4 = (unsigned __int8 *)(a1 + 4504);
   v6 = 0xFFFFFFFFLL;
   v8 = 0xFFFFFFFFLL;
-  v9 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+  v9 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
   *a3 = 0LL;
   if ( !v9 )
-    v9 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+    v9 = *(_QWORD *)(a2 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v9 )
     v8 = *v4;
   if ( (_DWORD)v8 == *v4 || !*(_WORD *)(a2 + 144) )
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, __int64 *a3)
     return v10 == 0 ? 0xC0000296 : 0;
   }
   String2 = 0LL;
-  result = EtwpCaptureString((unsigned __int16 *)(a2 + 144), &String2);
+  result = EtwpCaptureString(a2 + 144, &String2, 0xFFFFFFFFLL, v4);
   if ( (int)result >= 0 )
   {
     for ( i = 0; i < *(_DWORD *)(a1 + 16); ++i )

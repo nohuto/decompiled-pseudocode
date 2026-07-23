@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetLastRange @ 0x140829C40
+ * XREFs of RtlGetLastRange @ 0x140829F40
  * Callers:
- *     RtlFindRange @ 0x140829960 (RtlFindRange.c)
+ *     RtlFindRange @ 0x140829C60 (RtlFindRange.c)
  * Callees:
  *     <none>
  */

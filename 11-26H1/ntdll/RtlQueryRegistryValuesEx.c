@@ -1,12 +1,20 @@
 /*
- * XREFs of RtlQueryRegistryValuesEx @ 0x180059910
+ * XREFs of RtlQueryRegistryValuesEx @ 0x180043E90
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryRegistryValues @ 0x180059B20 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1800440A0 (RtlpQueryRegistryValues.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValuesEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlQueryRegistryValuesEx(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
-  return RtlpQueryRegistryValues(a1, a2);
+  char v6; // [rsp+28h] [rbp-10h]
+
+  v6 = 1;
+  return RtlpQueryRegistryValues(RelativeTo, Path, QueryTable, Context, Environment, v6);
 }

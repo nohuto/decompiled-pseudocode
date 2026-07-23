@@ -20,18 +20,13 @@
  *     LdrpMUIEtwOutput @ 0x1800E133C (LdrpMUIEtwOutput.c)
  */
 
-__int64 __fastcall LdrpLoadResourceFromAlternativeModule(
-        unsigned __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        int a4,
-        __int64 *a5)
+__int64 __fastcall LdrpLoadResourceFromAlternativeModule(PVOID BaseOfImage, __int64 a2, DWORD a3, ULONG a4, _QWORD *a5)
 {
-  unsigned __int64 v5; // r10
+  PVOID v5; // r10
   unsigned int v6; // ecx
   unsigned int v8; // eax
   unsigned int MessageInAlternateModule; // esi
-  unsigned __int16 v11; // bx
+  LANGID v11; // bx
   int v12; // r12d
   __int64 v13; // rdx
   unsigned int v14; // r14d
@@ -45,63 +40,61 @@ __int64 __fastcall LdrpLoadResourceFromAlternativeModule(
   __int64 v22; // rcx
   char v23; // al
   unsigned __int16 *MergedPrefLanguages; // rcx
-  int v25; // eax
-  __int64 *v26; // rdi
+  NTSTATUS v25; // eax
+  _QWORD *v26; // rdi
   __int64 v27; // rdx
   int v28; // eax
-  unsigned __int64 v29; // rdi
+  PVOID v29; // rdi
   __int64 v30; // rcx
   int IsReparsePoint; // eax
   char v33; // al
   int ParentLangId; // eax
   _WORD *v35; // rax
   _DWORD *RcConfig; // rax
-  char v37; // al
-  __int64 v38; // r9
-  char v39; // [rsp+30h] [rbp-D0h]
-  _WORD v40[2]; // [rsp+34h] [rbp-CCh] BYREF
-  unsigned __int16 v41; // [rsp+38h] [rbp-C8h]
-  _BYTE v42[2]; // [rsp+3Ah] [rbp-C6h] BYREF
-  unsigned int v43; // [rsp+3Ch] [rbp-C4h]
-  char v44; // [rsp+40h] [rbp-C0h]
-  unsigned __int64 v45; // [rsp+48h] [rbp-B8h]
-  _DWORD *v46; // [rsp+50h] [rbp-B0h]
-  unsigned int v47; // [rsp+58h] [rbp-A8h]
-  unsigned __int64 v48; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int16 v49[2]; // [rsp+68h] [rbp-98h] BYREF
-  unsigned int v50; // [rsp+6Ch] [rbp-94h]
-  __int64 v51; // [rsp+70h] [rbp-90h]
-  __int64 *v52; // [rsp+78h] [rbp-88h]
-  __int64 v53; // [rsp+80h] [rbp-80h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  _WORD v55[64]; // [rsp+A0h] [rbp-60h] BYREF
+  BOOLEAN v37; // al
+  char v38; // [rsp+30h] [rbp-D0h]
+  _WORD v39[2]; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned __int16 v40; // [rsp+38h] [rbp-C8h]
+  _BYTE v41[2]; // [rsp+3Ah] [rbp-C6h] BYREF
+  unsigned int v42; // [rsp+3Ch] [rbp-C4h]
+  char v43; // [rsp+40h] [rbp-C0h]
+  PVOID DllHandle; // [rsp+48h] [rbp-B8h]
+  _DWORD *v45; // [rsp+50h] [rbp-B0h]
+  unsigned int v46; // [rsp+58h] [rbp-A8h]
+  PVOID ResourceDllBase; // [rsp+60h] [rbp-A0h] BYREF
+  DWORD Lcid[2]; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v49; // [rsp+70h] [rbp-90h]
+  _QWORD *v50; // [rsp+78h] [rbp-88h]
+  ULONG_PTR ResourceOffset; // [rsp+80h] [rbp-80h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
+  _WORD v53[64]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v5 = a1;
-  v45 = a1;
+  v5 = BaseOfImage;
+  DllHandle = BaseOfImage;
   v6 = 0;
-  v52 = a5;
-  v50 = a3;
+  v50 = a5;
+  Lcid[1] = a3;
   v8 = a3 - 3;
-  v51 = a2;
-  v48 = 0LL;
-  v40[0] = 0;
+  v49 = a2;
+  ResourceDllBase = 0LL;
+  v39[0] = 0;
   MessageInAlternateModule = -1073020927;
-  v44 = 0;
-  v11 = 0;
   v43 = 0;
+  v11 = 0;
+  v42 = 0;
   v12 = 0;
-  v47 = 0;
+  v46 = 0;
   v13 = 0LL;
-  v46 = 0LL;
+  v45 = 0LL;
   v14 = 0;
-  v39 = 0;
+  v38 = 0;
   v15 = 0LL;
   v16 = 0;
   if ( v8 > 1 )
     return (unsigned int)-1073741583;
   v17 = *(unsigned __int16 *)(a2 + 16);
-  v41 = v17;
-  v42[0] = 0;
+  v40 = v17;
+  v41[0] = 0;
   while ( 1 )
   {
     do
@@ -113,7 +106,7 @@ __int64 __fastcall LdrpLoadResourceFromAlternativeModule(
         if ( (a4 & 0x1000000) != 0 )
         {
           v11 = -3346;
-          v40[0] = -3346;
+          v39[0] = -3346;
           goto LABEL_20;
         }
         v20 = v12++;
@@ -126,7 +119,7 @@ __int64 __fastcall LdrpLoadResourceFromAlternativeModule(
           if ( !(_DWORD)v22 )
           {
             v11 = 0;
-            v40[0] = 0;
+            v39[0] = 0;
             v23 = LdrpSetThreadPreferredLangList(v22, v13, v15);
             v6 = 0;
             if ( v23 )
@@ -137,159 +130,159 @@ __int64 __fastcall LdrpLoadResourceFromAlternativeModule(
                   (_DWORD)MergedPrefLanguages,
                   NtCurrentTeb()->MergedPrefLanguages,
                   v14,
-                  (unsigned int)v40,
-                  (__int64)v42);
-              v11 = v40[0];
+                  (unsigned int)v39,
+                  (__int64)v41);
+              v11 = v39[0];
               v6 = 0;
             }
             if ( !v11 )
             {
               v11 = -4370;
-              v40[0] = -4370;
-LABEL_46:
-              v15 = v46;
-              goto LABEL_47;
+              v39[0] = -4370;
+LABEL_47:
+              v15 = v45;
+              goto LABEL_48;
             }
-            if ( v42[0] && (a4 & 0x100000) != 0 )
+            if ( v41[0] && (a4 & 0x100000) != 0 )
             {
               v11 = -4370;
-              v40[0] = -4370;
+              v39[0] = -4370;
             }
             ++v14;
             v12 = v18;
-            v47 = v14;
+            v46 = v14;
             goto LABEL_14;
           }
           if ( (_DWORD)v22 == 1 )
           {
             v6 = 0;
-            if ( v15 || (RcConfig = LdrpGetRcConfig(v5, v13, 0, 1), v6 = 0, v46 = RcConfig, (v15 = RcConfig) != 0LL) )
+            if ( v15 || (RcConfig = LdrpGetRcConfig(v5, v13, 0, 1), v6 = 0, v45 = RcConfig, (v15 = RcConfig) != 0LL) )
             {
               if ( *v15 == -20054323 && (v15[6] & 2) != 0 && v15[31] )
               {
                 RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)v15 + (unsigned int)v15[31]));
-                v37 = RtlCultureNameToLCID(&DestinationString, v49);
+                v37 = RtlCultureNameToLCID(&DestinationString, Lcid);
                 v6 = 0;
                 if ( v37 )
                 {
-                  v11 = v49[0];
-                  v40[0] = v49[0];
+                  v11 = Lcid[0];
+                  v39[0] = Lcid[0];
                   if ( (a4 & 0x100000) != 0 )
                   {
                     GetLCIDFromLangListNodeWithLICCheck(
                       0,
                       NtCurrentTeb()->MergedPrefLanguages,
                       0,
-                      (unsigned int)v40,
-                      (__int64)v42);
-                    v15 = v46;
+                      (unsigned int)v39,
+                      (__int64)v41);
+                    v15 = v45;
                     v6 = 0;
-                    v5 = v45;
-                    v17 = v41;
-                    v16 = v39;
-                    if ( v42[0] )
+                    v5 = DllHandle;
+                    v17 = v40;
+                    v16 = v38;
+                    if ( v41[0] )
                     {
                       v11 = -4370;
-                      v40[0] = -4370;
+                      v39[0] = -4370;
                     }
                     else
                     {
-                      v11 = v40[0];
+                      v11 = v39[0];
                     }
                     goto LABEL_15;
                   }
 LABEL_14:
-                  v16 = v39;
-                  v17 = v41;
-                  v5 = v45;
-                  v15 = v46;
+                  v16 = v38;
+                  v17 = v40;
+                  v5 = DllHandle;
+                  v15 = v45;
 LABEL_15:
-                  v13 = v43;
+                  v13 = v42;
                   goto LABEL_20;
                 }
-                v15 = v46;
+                v15 = v45;
                 MessageInAlternateModule = -1073020923;
               }
             }
             v11 = -4370;
-            v40[0] = -4370;
-LABEL_47:
-            v13 = v43;
-            v5 = v45;
-            v17 = v41;
-            v16 = v39;
+            v39[0] = -4370;
+LABEL_48:
+            v13 = v42;
+            v5 = DllHandle;
+            v17 = v40;
+            v16 = v38;
           }
           else
           {
             if ( v16 )
               return MessageInAlternateModule;
-            if ( v44 )
+            if ( v43 )
               return MessageInAlternateModule;
             IsReparsePoint = LdrpIsReparsePoint(v5, v13, v15, v17);
             v6 = 0;
             if ( IsReparsePoint < 0 )
               return MessageInAlternateModule;
-            v15 = v46;
+            v15 = v45;
             v16 = 1;
-            v5 = v45;
+            v5 = DllHandle;
             a4 |= 0x400000u;
-            v17 = v41;
+            v17 = v40;
             v12 = 0;
-            v39 = 1;
+            v38 = 1;
             v13 = 0LL;
-            v43 = 0;
+            v42 = 0;
             v14 = 0;
-            v47 = 0;
+            v46 = 0;
           }
         }
         else
         {
           if ( v11 == 0xEEEE )
-            goto LABEL_36;
+            goto LABEL_37;
           if ( (a4 & 4) != 0 )
           {
             v11 = -4370;
-            v40[0] = -4370;
+            v39[0] = -4370;
             v12 = -2;
-            goto LABEL_72;
+            goto LABEL_73;
           }
           if ( (v17 & 0x3FF) == 0 )
           {
-LABEL_36:
+LABEL_37:
             v6 = 0;
-            goto LABEL_37;
+            goto LABEL_38;
           }
-          ParentLangId = LdrpGetParentLangId(v11, v40, v15);
-          v15 = v46;
+          ParentLangId = LdrpGetParentLangId(v11, v39, v15);
+          v15 = v45;
           v6 = 0;
-          v13 = v43;
-          v5 = v45;
-          v17 = v41;
-          v16 = v39;
+          v13 = v42;
+          v5 = DllHandle;
+          v17 = v40;
+          v16 = v38;
           if ( ParentLangId >= 0 )
           {
-            v11 = v40[0];
-            if ( v40[0] )
+            v11 = v39[0];
+            if ( v39[0] )
             {
               v12 = v18;
               goto LABEL_20;
             }
           }
           v12 = -2;
-LABEL_37:
+LABEL_38:
           v11 = -4370;
-          v40[0] = -4370;
+          v39[0] = -4370;
         }
       }
       if ( (v17 & 0xF3FF) != 0 || (_WORD)v17 == 3072 )
       {
         v11 = v17;
-        v40[0] = v17;
+        v39[0] = v17;
       }
       else
       {
         v11 = -4370;
-        v40[0] = -4370;
+        v39[0] = -4370;
       }
       v6 = 0;
 LABEL_20:
@@ -298,7 +291,7 @@ LABEL_20:
     while ( v11 == 0xEEEE );
     if ( !(_DWORD)v13 )
       break;
-    v35 = v55;
+    v35 = v53;
     while ( *v35 != v11 )
     {
       ++v6;
@@ -306,16 +299,16 @@ LABEL_20:
       if ( v6 >= (unsigned int)v13 )
         goto LABEL_22;
     }
-LABEL_72:
+LABEL_73:
     v6 = 0;
   }
 LABEL_22:
   if ( (unsigned int)v13 >= 0x40 )
     return MessageInAlternateModule;
-  v53 = 0LL;
-  v43 = v13 + 1;
-  v55[(unsigned int)v13] = v11;
-  v25 = LdrLoadAlternateResourceModuleEx(v5, v11, (__int64 *)&v48, &v53, a4);
+  ResourceOffset = 0LL;
+  v42 = v13 + 1;
+  v53[(unsigned int)v13] = v11;
+  v25 = LdrLoadAlternateResourceModuleEx(v5, v11, &ResourceDllBase, &ResourceOffset, a4);
   v6 = 0;
   MessageInAlternateModule = v25;
   if ( v25 < 0 )
@@ -324,51 +317,57 @@ LABEL_22:
       MessageInAlternateModule = -1073020927;
     if ( v19 )
       return MessageInAlternateModule;
-    goto LABEL_46;
+    goto LABEL_47;
   }
-  v26 = v52;
-  v27 = v51;
-  v44 = 1;
-  *(_QWORD *)(v51 + 16) = v11;
-  v28 = LdrpSearchResourceSection_U(v48, v27, 3u, 0x2000030u, v26);
+  v26 = v50;
+  v27 = v49;
+  v43 = 1;
+  *(_QWORD *)(v49 + 16) = v11;
+  v28 = LdrpSearchResourceSection_U(ResourceDllBase, v27, 3u, 0x2000030u, (__int64)v26);
   MessageInAlternateModule = v28;
   if ( (a4 & 0x40) == 0 )
   {
 LABEL_25:
     if ( (MessageInAlternateModule & 0x80000000) == 0 )
       goto LABEL_26;
-LABEL_53:
-    v33 = LdrpCompareServiceChecksum(v45, v48);
+LABEL_54:
+    v33 = LdrpCompareServiceChecksum(DllHandle, ResourceDllBase);
     v6 = 0;
     if ( v33 )
       return MessageInAlternateModule;
-LABEL_86:
+LABEL_87:
     if ( v19 )
       return MessageInAlternateModule;
-    v14 = v47;
-    goto LABEL_46;
+    v14 = v46;
+    goto LABEL_47;
   }
   if ( v28 < 0 )
-    goto LABEL_53;
-  MessageInAlternateModule = LdrpFindMessageInAlternateModule(v48, *v26, 0, *(_DWORD *)(v51 + 24), 0);
+    goto LABEL_54;
+  MessageInAlternateModule = LdrpFindMessageInAlternateModule(
+                               (_DWORD)ResourceDllBase,
+                               *v26,
+                               0,
+                               *(_DWORD *)(v49 + 24),
+                               0);
   if ( (MessageInAlternateModule & 0x80000000) != 0 )
   {
     *v26 = 0LL;
     goto LABEL_25;
   }
 LABEL_26:
-  v29 = v48;
-  if ( *v52 <= v48 || v53 && *v52 >= v48 + v53 )
+  v29 = ResourceDllBase;
+  if ( *v50 <= (unsigned __int64)ResourceDllBase
+    || ResourceOffset && *v50 >= (unsigned __int64)ResourceDllBase + ResourceOffset )
   {
-    *v52 = 0LL;
+    *v50 = 0LL;
     MessageInAlternateModule = -1073741701;
-    DbgPrintEx(85LL, 2LL, "'LDR: %s(), invalid image format of MUI file \n", "LdrpLoadResourceFromAlternativeModule");
+    DbgPrintEx(0x55u, 2u, "'LDR: %s(), invalid image format of MUI file \n", "LdrpLoadResourceFromAlternativeModule");
     v6 = 0;
-    goto LABEL_86;
+    goto LABEL_87;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v29 = v48;
+    v29 = ResourceDllBase;
     v30 = (__int64)NtCurrentPeb()->SharedData + 555;
   }
   else
@@ -376,14 +375,8 @@ LABEL_26:
     v30 = 2147353477LL;
   }
   if ( (*(_BYTE *)v30 & 2) != 0 )
-  {
-    if ( (a4 & 0x40) != 0 )
-      v38 = 9LL;
-    else
-      v38 = (a4 & 1) != 0 ? 5 : 3;
-    LdrpMUIEtwOutput(v29, v51, v50, v38);
-  }
+    LdrpMUIEtwOutput(v29);
   if ( NtCurrentTeb()->ResourceRetValue )
-    *(_QWORD *)NtCurrentTeb()->ResourceRetValue = v45;
+    *(_QWORD *)NtCurrentTeb()->ResourceRetValue = DllHandle;
   return MessageInAlternateModule;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiBugcheckUnloadDebugSymbols @ 0x1405E797C
+ * XREFs of KiBugcheckUnloadDebugSymbols @ 0x1405EA2EC
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     ExRebootSystemForRecovery @ 0x1406CB54C (ExRebootSystemForRecovery.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     ExRebootSystemForRecovery @ 0x1406CF57C (ExRebootSystemForRecovery.c)
  * Callees:
- *     DbgUnLoadImageSymbols @ 0x1404FDB4C (DbgUnLoadImageSymbols.c)
+ *     DbgUnLoadImageSymbols @ 0x1404F708C (DbgUnLoadImageSymbols.c)
  */
 
 __int64 KiBugcheckUnloadDebugSymbols()

@@ -19,7 +19,7 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
   NTSTATUS v1; // ebx
   unsigned int v3; // esi
   unsigned int SectionLineCount; // ebp
-  const char *SectionLineIndex; // rax
+  const CHAR *SectionLineIndex; // rax
   GUID *PoolWithTag; // rax
   GUID *v7; // rdi
   GUID *v8; // rcx
@@ -37,7 +37,7 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
   {
     while ( 1 )
     {
-      SectionLineIndex = (const char *)CmpGetSectionLineIndex(a1, "EntryTypeGuidDef", v3, 0LL);
+      SectionLineIndex = (const CHAR *)CmpGetSectionLineIndex(a1, "EntryTypeGuidDef", v3, 0LL);
       if ( !SectionLineIndex )
         return 0;
       RtlInitAnsiString(&DestinationString, SectionLineIndex);

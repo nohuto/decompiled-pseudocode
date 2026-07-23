@@ -1,18 +1,19 @@
 /*
- * XREFs of RtlSubAuthorityCountSid @ 0x1404600D0
+ * XREFs of RtlSubAuthorityCountSid @ 0x140454FB0
  * Callers:
- *     RtlReplaceSidInSd @ 0x140780E60 (RtlReplaceSidInSd.c)
- *     LookupSidInTable @ 0x140866BD0 (LookupSidInTable.c)
- *     RtlpValidateSidBuffer @ 0x1408670C8 (RtlpValidateSidBuffer.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x140867130 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     SeQueryMandatoryLabel @ 0x1408696DC (SeQueryMandatoryLabel.c)
- *     RtlGetAppContainerSidType @ 0x1408F2D70 (RtlGetAppContainerSidType.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     RtlIsElevatedRid @ 0x1409B2C30 (RtlIsElevatedRid.c)
- *     SepCheckCapabilities @ 0x140A8CD3C (SepCheckCapabilities.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     RtlReplaceSidInSd @ 0x140780D90 (RtlReplaceSidInSd.c)
+ *     LookupSidInTable @ 0x14086B1E0 (LookupSidInTable.c)
+ *     RtlpValidateSidBuffer @ 0x14086B55C (RtlpValidateSidBuffer.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x14086B5C0 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     SeQueryMandatoryLabel @ 0x14086DA0C (SeQueryMandatoryLabel.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     RtlGetAppContainerSidType @ 0x1409143B0 (RtlGetAppContainerSidType.c)
+ *     RtlIsElevatedRid @ 0x1409A9FC0 (RtlIsElevatedRid.c)
+ *     SepCheckCapabilities @ 0x140A8926C (SepCheckCapabilities.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
+ *     SeSubProcessToken @ 0x140AD660C (SeSubProcessToken.c)
  * Callees:
  *     <none>
  */

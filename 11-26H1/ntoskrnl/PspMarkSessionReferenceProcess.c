@@ -1,10 +1,10 @@
 /*
- * XREFs of PspMarkSessionReferenceProcess @ 0x1407FF39C
+ * XREFs of PspMarkSessionReferenceProcess @ 0x140804DCC
  * Callers:
- *     PsSessionCreate @ 0x1409638D4 (PsSessionCreate.c)
+ *     PsSessionCreate @ 0x140A0975C (PsSessionCreate.c)
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
  */
 
 __int64 __fastcall PspMarkSessionReferenceProcess(__int64 a1, __int64 a2)

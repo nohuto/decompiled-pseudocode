@@ -1,12 +1,12 @@
 /*
- * XREFs of PsPicoWalkUserStack @ 0x14090B9EC
+ * XREFs of PsPicoWalkUserStack @ 0x14090BB4C
  * Callers:
- *     EtwpTraceStackWalk @ 0x1405A7134 (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x1405A7364 (EtwpTraceStackWalk.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PsGetBaseTrapFrame @ 0x140581320 (PsGetBaseTrapFrame.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PsGetBaseTrapFrame @ 0x140581560 (PsGetBaseTrapFrame.c)
  */
 
 __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)

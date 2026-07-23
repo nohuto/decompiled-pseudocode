@@ -1,16 +1,16 @@
 /*
- * XREFs of PspGetProcessProtectionRequirementsFromImage @ 0x1406B908C
+ * XREFs of PspGetProcessProtectionRequirementsFromImage @ 0x1406B90BC
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14085C7C0 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x14085CA00 (PspCreateProcess.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     RtlTestProtectedAccess @ 0x1406B828C (RtlTestProtectedAccess.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     RtlTestProtectedAccess @ 0x1406B82BC (RtlTestProtectedAccess.c)
  */
 
 __int64 __fastcall PspGetProcessProtectionRequirementsFromImage(__int64 a1)
 {
-  unsigned __int8 v1; // r9
+  PS_PROTECTION v1; // r9
   unsigned __int8 *v2; // r11
   char v4; // r10
   char v5; // r9
@@ -18,10 +18,10 @@ __int64 __fastcall PspGetProcessProtectionRequirementsFromImage(__int64 a1)
   if ( (*(_BYTE *)(*(_QWORD *)MiSectionControlArea(a1) + 15LL) & 0xF0) == 0x50 )
   {
     v4 = -127;
-    if ( v1 && v1 != 0x81 && RtlTestProtectedAccess(v1, 0x81u) )
+    if ( v1.Level && v1.Level != 0x81 && RtlTestProtectedAccess(v1, (PS_PROTECTION)-127) )
       v4 = v5;
-    v1 = v4;
+    v1.Level = v4;
   }
-  *v2 = v1;
+  *v2 = v1.Level;
   return 0LL;
 }

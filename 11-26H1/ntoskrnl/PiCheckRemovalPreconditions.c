@@ -1,10 +1,10 @@
 /*
- * XREFs of PiCheckRemovalPreconditions @ 0x140912850
+ * XREFs of PiCheckRemovalPreconditions @ 0x1409B4930
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PiGetTargetDeviceNode @ 0x14091250C (PiGetTargetDeviceNode.c)
- *     PnpFinalizeVetoedRemove @ 0x140B5E9D4 (PnpFinalizeVetoedRemove.c)
+ *     PiGetTargetDeviceNode @ 0x1409B45EC (PiGetTargetDeviceNode.c)
+ *     PnpFinalizeVetoedRemove @ 0x140B61B54 (PnpFinalizeVetoedRemove.c)
  */
 
 __int64 __fastcall PiCheckRemovalPreconditions(__int64 a1, __int64 a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of SepRemoveTokenLogonSession @ 0x1408158D8
+ * XREFs of SepRemoveTokenLogonSession @ 0x14081BA88
  * Callers:
- *     SepLinkLogonSessions @ 0x1404E0EFC (SepLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessions @ 0x14063AEE8 (SepOneWayLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessionsEx @ 0x14063B1C0 (SepOneWayLinkLogonSessionsEx.c)
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
- *     SepSetServerSiloToken @ 0x14081221C (SepSetServerSiloToken.c)
- *     SepTokenDeleteMethod @ 0x140B7CB10 (SepTokenDeleteMethod.c)
+ *     SepLinkLogonSessions @ 0x1404DA5DC (SepLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessions @ 0x14063DFB0 (SepOneWayLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessionsEx @ 0x14063E288 (SepOneWayLinkLogonSessionsEx.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
+ *     SepSetServerSiloToken @ 0x140818078 (SepSetServerSiloToken.c)
+ *     SepTokenDeleteMethod @ 0x140B85580 (SepTokenDeleteMethod.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepRemoveTokenLogonSession(__int64 a1)
@@ -31,7 +31,7 @@ void __fastcall SepRemoveTokenLogonSession(__int64 a1)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     v4 = v2 >> 28;
-    v5 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v4 & 3));
+    v5 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v4 & 3));
     ExAcquireResourceExclusiveLite(v5, 1u);
     for ( i = *(__int64 **)(SepLogonSessions + 8 * v4); i; i = (__int64 *)*i )
     {

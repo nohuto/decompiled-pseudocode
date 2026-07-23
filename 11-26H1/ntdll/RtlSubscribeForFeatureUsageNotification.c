@@ -1,12 +1,14 @@
 /*
- * XREFs of RtlSubscribeForFeatureUsageNotification @ 0x180148E10
+ * XREFs of RtlSubscribeForFeatureUsageNotification @ 0x180148CC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSubscribeForFeatureUsageNotification(__int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl RtlSubscribeForFeatureUsageNotification(
+        PRTL_FEATURE_USAGE_SUBSCRIPTION_DETAILS SubscriptionDetails,
+        SIZE_T SubscriptionCount)
 {
-  return RtlpFcUpdateUsageSubscriptions(a1, a2, 0);
+  return RtlpFcUpdateUsageSubscriptions((__int64)SubscriptionDetails, SubscriptionCount, 0);
 }

@@ -1,64 +1,65 @@
 /*
- * XREFs of LdrpCorFixupImage @ 0x1800908B0
+ * XREFs of LdrpCorFixupImage @ 0x1800908A0
  * Callers:
- *     LdrpMapImage @ 0x18002F44C (LdrpMapImage.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpMapImage @ 0x18002F43C (LdrpMapImage.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeader @ 0x180031C20 (RtlImageNtHeader.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeader @ 0x180031C10 (RtlImageNtHeader.c)
  *     ZwProtectVirtualMemory @ 0x1800A6E20 (ZwProtectVirtualMemory.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall LdrpCorFixupImage(__int64 a1)
+NTSTATUS __fastcall LdrpCorFixupImage(void *a1)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rax
-  _QWORD *v3; // r14
+  PIMAGE_NT_HEADERS v1; // rbx
+  _BYTE *v2; // rax
+  unsigned __int64 *p_SizeOfHeapCommit; // r14
   __int64 v4; // rsi
-  __int64 result; // rax
-  unsigned int v6; // edi
-  int v7; // eax
-  unsigned __int16 v8; // ax
-  unsigned __int64 v9; // [rsp+70h] [rbp+40h] BYREF
-  unsigned int v10; // [rsp+78h] [rbp+48h] BYREF
-  int v11; // [rsp+80h] [rbp+50h] BYREF
-  __int64 v12; // [rsp+88h] [rbp+58h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v6; // edi
+  unsigned int SizeOfHeapReserve_high; // eax
+  unsigned __int16 Machine; // ax
+  PVOID BaseOfImage; // [rsp+70h] [rbp+40h] BYREF
+  ULONG NewProtect; // [rsp+78h] [rbp+48h] BYREF
+  ULONG Size; // [rsp+80h] [rbp+50h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp+58h] BYREF
 
-  v9 = a1;
+  BaseOfImage = a1;
   v1 = RtlImageNtHeader(a1);
-  v2 = RtlImageDirectoryEntryToData(v9, 1, 0xEu, &v11);
-  if ( *(_WORD *)(v1 + 24) != 267 || *(_WORD *)(v1 + 4) != 332 || (*(_BYTE *)(v2 + 16) & 2) != 0 )
+  v2 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0xEu, &Size);
+  if ( v1->OptionalHeader.Magic != 267 || v1->FileHeader.Machine != 332 || (v2[16] & 2) != 0 )
   {
-    v8 = *(_WORD *)(v1 + 4);
-    if ( v8 < MEMORY[0x7FFE002C] || v8 > MEMORY[0x7FFE002E] )
-      return (unsigned int)-1073741701;
+    Machine = v1->FileHeader.Machine;
+    if ( Machine < MEMORY[0x7FFE002C] || Machine > MEMORY[0x7FFE002E] )
+      return -1073741701;
     else
       return 0;
   }
-  v3 = (_QWORD *)(v1 + 120);
-  v4 = v1
-     + *(unsigned __int16 *)(v1 + 20)
-     + 8 * (*(unsigned __int16 *)(v1 + 6) + 4LL * *(unsigned __int16 *)(v1 + 6) + 3);
-  v12 = 4096LL;
-  if ( v4 - v9 + 16 > 0x1000 )
-    return 3221225595LL;
-  result = ZwProtectVirtualMemory(-1LL, &v9, &v12, 4LL, &v10);
+  p_SizeOfHeapCommit = &v1->OptionalHeader.SizeOfHeapCommit;
+  v4 = (__int64)&v1->OptionalHeader
+     + 32 * v1->FileHeader.NumberOfSections
+     + 8 * v1->FileHeader.NumberOfSections
+     + v1->FileHeader.SizeOfOptionalHeader;
+  RegionSize = 4096LL;
+  if ( (unsigned __int64)(v4 - (_QWORD)BaseOfImage + 16) > 0x1000 )
+    return -1073741701;
+  result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseOfImage, &RegionSize, 4u, &NewProtect);
   v6 = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    memmove((void *)(v1 + 136), (const void *)(v1 + 120), v4 - (_QWORD)v3);
-    v7 = *(_DWORD *)(v1 + 116);
-    *(_WORD *)(v1 + 20) += 16;
-    *(_DWORD *)(v1 + 132) = v7;
-    *(_DWORD *)(v1 + 128) = *(_DWORD *)(v1 + 112);
-    *v3 = *(unsigned int *)(v1 + 108);
-    *(_QWORD *)(v1 + 112) = *(unsigned int *)(v1 + 104);
-    *(_QWORD *)(v1 + 104) = *(unsigned int *)(v1 + 100);
-    *(_QWORD *)(v1 + 96) = *(unsigned int *)(v1 + 96);
-    *(_QWORD *)(v1 + 48) = *(unsigned int *)(v1 + 52);
-    *(_WORD *)(v1 + 24) = 523;
-    ZwProtectVirtualMemory(-1LL, &v9, &v12, v10, &v10);
+    memmove(v1->OptionalHeader.DataDirectory, &v1->OptionalHeader.SizeOfHeapCommit, v4 - (_QWORD)p_SizeOfHeapCommit);
+    SizeOfHeapReserve_high = HIDWORD(v1->OptionalHeader.SizeOfHeapReserve);
+    v1->FileHeader.SizeOfOptionalHeader += 16;
+    v1->OptionalHeader.NumberOfRvaAndSizes = SizeOfHeapReserve_high;
+    v1->OptionalHeader.LoaderFlags = v1->OptionalHeader.SizeOfHeapReserve;
+    *p_SizeOfHeapCommit = HIDWORD(v1->OptionalHeader.SizeOfStackCommit);
+    v1->OptionalHeader.SizeOfHeapReserve = LODWORD(v1->OptionalHeader.SizeOfStackCommit);
+    v1->OptionalHeader.SizeOfStackCommit = HIDWORD(v1->OptionalHeader.SizeOfStackReserve);
+    v1->OptionalHeader.SizeOfStackReserve = LODWORD(v1->OptionalHeader.SizeOfStackReserve);
+    v1->OptionalHeader.ImageBase = HIDWORD(v1->OptionalHeader.ImageBase);
+    v1->OptionalHeader.Magic = 523;
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseOfImage, &RegionSize, NewProtect, &NewProtect);
     return v6;
   }
   return result;

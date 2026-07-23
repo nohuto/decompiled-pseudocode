@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpBuildKeyPath @ 0x14080DFDC
+ * XREFs of VrpBuildKeyPath @ 0x14080F1DC
  * Callers:
- *     VrpCreateNamespaceNode @ 0x140809E3C (VrpCreateNamespaceNode.c)
- *     VrpPostEnumerateKey @ 0x14080A600 (VrpPostEnumerateKey.c)
- *     VrpPostOpenOrCreate @ 0x14080AE44 (VrpPostOpenOrCreate.c)
- *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
- *     VrpPreOpenOrCreate @ 0x14080C2E0 (VrpPreOpenOrCreate.c)
- *     VrpTranslatePath @ 0x14080CB70 (VrpTranslatePath.c)
+ *     VrpCreateNamespaceNode @ 0x14080B03C (VrpCreateNamespaceNode.c)
+ *     VrpPostEnumerateKey @ 0x14080B800 (VrpPostEnumerateKey.c)
+ *     VrpPostOpenOrCreate @ 0x14080C044 (VrpPostOpenOrCreate.c)
+ *     VrpPreLoadKey @ 0x14080C964 (VrpPreLoadKey.c)
+ *     VrpPreOpenOrCreate @ 0x14080D4E0 (VrpPreOpenOrCreate.c)
+ *     VrpTranslatePath @ 0x14080DD70 (VrpTranslatePath.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     RtlUShortAdd @ 0x14011CE8C (RtlUShortAdd.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpBuildKeyPath(PCUNICODE_STRING SourceString, PCUNICODE_STRING Source, PUNICODE_STRING Destination)

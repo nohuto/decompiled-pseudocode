@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogAsyncWorker @ 0x14066682C
+ * XREFs of PfSnLogAsyncWorker @ 0x1406679EC
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x140666560 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x140667720 (PfSnAsyncPrefetchWorker.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogAsyncWorker(__int64 a1, const EVENT_DESCRIPTOR *a2)

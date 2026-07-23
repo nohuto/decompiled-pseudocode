@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopPropogateCoolingChange @ 0x1405C9A5C (PopPropogateCoolingChange.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x14081CEB4 (PopThermalUpdateActiveTimeTracking.c)
+ *     sub_1402935D0 @ 0x1402935D0 (sub_1402935D0.c)
+ *     sub_1402D66A8 @ 0x1402D66A8 (sub_1402D66A8.c)
+ *     sub_1405C9A5C @ 0x1405C9A5C (sub_1405C9A5C.c)
+ *     sub_14081CEB4 @ 0x14081CEB4 (sub_14081CEB4.c)
  *     PoGetThermalRequestSupport @ 0x140861E30 (PoGetThermalRequestSupport.c)
- *     PopDiagTraceThermalRequestActiveUpdate @ 0x140993398 (PopDiagTraceThermalRequestActiveUpdate.c)
+ *     sub_140993398 @ 0x140993398 (sub_140993398.c)
  */
 
 __int64 __fastcall PoSetThermalActiveCooling(__int64 a1, char a2)
@@ -24,24 +24,24 @@ __int64 __fastcall PoSetThermalActiveCooling(__int64 a1, char a2)
   {
     v5 = *(_QWORD *)(a1 + 32);
     v6 = a2 != 0;
-    PopAcquireRwLockExclusive(v5 + 32);
+    sub_1402D66A8(v5 + 32);
     if ( *(_BYTE *)(a1 + 18) )
     {
       v8 = *(_BYTE *)(a1 + 17);
       if ( v8 != v6 )
       {
         LOBYTE(v7) = v8 == 0;
-        PopThermalUpdateActiveTimeTracking(a1 + 40, v7);
+        sub_14081CEB4(a1 + 40, v7);
         *(_BYTE *)(a1 + 17) = v6;
-        PopDiagTraceThermalRequestActiveUpdate(a1);
-        PopPropogateCoolingChange(v5);
+        sub_140993398(a1);
+        sub_1405C9A5C(v5);
       }
     }
     else
     {
       v4 = -1073741431;
     }
-    PopReleaseRwLock(v5 + 32);
+    sub_1402935D0(v5 + 32);
   }
   else
   {

@@ -1,0 +1,73 @@
+/*
+ * XREFs of sub_140831280 @ 0x140831280
+ * Callers:
+ *     sub_140747FB4 @ 0x140747FB4 (sub_140747FB4.c)
+ * Callees:
+ *     sub_1402DCF44 @ 0x1402DCF44 (sub_1402DCF44.c)
+ *     sub_1405611AC @ 0x1405611AC (sub_1405611AC.c)
+ *     sub_14076FBEC @ 0x14076FBEC (sub_14076FBEC.c)
+ *     sub_14083136C @ 0x14083136C (sub_14083136C.c)
+ *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall sub_140831280(unsigned __int64 a1, unsigned __int64 a2)
+{
+  int v2; // edi
+  unsigned __int64 v3; // rbx
+  void *v5; // rdx
+  __int64 v6; // rax
+  __int64 v7; // rsi
+  int v8; // r14d
+  void *v9; // rcx
+  int v10; // [rsp+60h] [rbp+8h] BYREF
+
+  if ( a1 < a2 )
+  {
+    v2 = 0;
+    v3 = a1 + 40;
+    do
+    {
+      if ( (*(_DWORD *)(v3 - 32) & 0x28) == 0 )
+      {
+        if ( !*(_DWORD *)(v3 + 16) && *(_DWORD *)(v3 - 28) == 4 )
+        {
+          v5 = *(void **)v3;
+          if ( *(_QWORD *)v3 )
+          {
+            v10 = 0;
+            v6 = *(_QWORD *)(v3 - 40);
+            if ( v6 )
+              v7 = *(_QWORD *)(*(_QWORD *)(v6 + 312) + 40LL);
+            else
+              v7 = 0LL;
+            if ( (unsigned int)sub_14083136C(v7, v5, &v10) )
+            {
+              v2 = 1;
+              v8 = sub_1405611AC((__int64 *)(v3 - 40));
+              sub_14076FBEC(v7, 128);
+              if ( v8 < 0 )
+              {
+                v9 = *(void **)v3;
+                *(_DWORD *)(v3 - 32) = 16;
+                *(_DWORD *)(v3 + 16) = v8;
+                ExFreePoolWithTag(v9, 0);
+                *(_QWORD *)v3 = 0LL;
+              }
+              *(_QWORD *)(v7 + 416) = 0LL;
+            }
+            else if ( v10 )
+            {
+              v2 = 1;
+            }
+          }
+        }
+        if ( ((*(_DWORD *)(v3 - 32) & 0x10) != 0 || !*(_QWORD *)v3) && *(_DWORD *)(v3 + 16) != -1073739512 )
+          *(_DWORD *)(v3 + 16) = -1073741800;
+      }
+      v3 += 64LL;
+    }
+    while ( v3 - 40 < a2 );
+    if ( v2 )
+      sub_1402DCF44(0LL, 0, 0, 0LL, 0LL, 0LL, 0LL);
+  }
+}

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeLegacyWatchdogProfileThresholds @ 0x140C2855C
+ * XREFs of KiInitializeLegacyWatchdogProfileThresholds @ 0x140C2A5B8
  * Callers:
- *     KiInitDpcThresholds @ 0x140C280F0 (KiInitDpcThresholds.c)
+ *     KiInitDpcThresholds @ 0x140C2A14C (KiInitDpcThresholds.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x14080E94C
+ * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x14080EC1C
  * Callers:
- *     wil_details_UpdateFeatureConfiguredStates @ 0x140A12374 (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x140A12624 (wil_details_UpdateFeatureConfiguredStates.c)
  *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140B389A8 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
  * Callees:
  *     <none>

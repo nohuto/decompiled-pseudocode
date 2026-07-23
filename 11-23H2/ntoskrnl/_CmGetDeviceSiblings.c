@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmGetDeviceSiblings @ 0x14083917C
+ * XREFs of _CmGetDeviceSiblings @ 0x14083947C
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3BC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3EC (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     _PnpMultiSzGetLen @ 0x1406C939C (_PnpMultiSzGetLen.c)
- *     _CmGetDeviceParent @ 0x14079A334 (_CmGetDeviceParent.c)
- *     _CmGetDeviceChildren @ 0x140839340 (_CmGetDeviceChildren.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     _PnpMultiSzGetLen @ 0x1406C93CC (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceParent @ 0x14079A524 (_CmGetDeviceParent.c)
+ *     _CmGetDeviceChildren @ 0x140839640 (_CmGetDeviceChildren.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

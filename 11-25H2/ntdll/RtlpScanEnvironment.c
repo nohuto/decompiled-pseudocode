@@ -35,25 +35,24 @@ __int64 __fastcall RtlpScanEnvironment(
   _BYTE *v22; // r14
   __int64 v23; // rdi
   _QWORD *Heap; // rax
-  __int64 v25; // r15
+  void *v25; // r15
   __int64 v26; // r9
   unsigned __int16 *v27; // r10
   unsigned __int64 v28; // r8
   __int16 v29; // dx
   int inserted; // edi
-  __int64 v31; // r9
-  unsigned __int64 v32; // rbx
-  size_t v33; // rbx
-  unsigned __int16 *v35; // [rsp+70h] [rbp+8h]
-  __int64 v37; // [rsp+80h] [rbp+18h]
+  unsigned __int64 v31; // rbx
+  size_t v32; // rbx
+  unsigned __int16 *v34; // [rsp+70h] [rbp+8h]
+  __int64 v36; // [rsp+80h] [rbp+18h]
 
   v7 = qword_1801CF038;
   v8 = &a2[a3];
   v9 = a7;
   v10 = a2;
-  v35 = v8;
+  v34 = v8;
   v12 = 0;
-  v37 = qword_1801CF038;
+  v36 = qword_1801CF038;
   while ( *a1 )
   {
     v13 = a1;
@@ -144,8 +143,8 @@ LABEL_19:
         goto LABEL_22;
       if ( NtCurrentPeb()->ProcessHeap )
       {
-        Heap = (_QWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
-        v25 = (__int64)Heap;
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
+        v25 = Heap;
         if ( Heap )
         {
           v26 = 314159LL;
@@ -201,7 +200,7 @@ LABEL_22:
             v9 = a7;
             goto LABEL_23;
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v25, v31);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v25);
           if ( inserted == -1073741771 )
             goto LABEL_53;
         }
@@ -212,28 +211,28 @@ LABEL_22:
 LABEL_23:
       if ( v19 )
       {
-        v32 = ((char *)a1 - v22) >> 1;
+        v31 = ((char *)a1 - v22) >> 1;
         if ( a4 )
         {
-          if ( v32 < a5 )
+          if ( v31 < a5 )
           {
-            *a6 = v32;
-            v33 = v32;
-            memmove(a4, v22, v33 * 2);
-            a4[v33] = 0;
+            *a6 = v31;
+            v32 = v31;
+            memmove(a4, v22, v32 * 2);
+            a4[v32] = 0;
             return v12;
           }
           if ( a5 )
             *a4 = 0;
         }
         v12 = -1073741789;
-        *a6 = v32 + 1;
+        *a6 = v31 + 1;
         return v12;
       }
-      v8 = v35;
+      v8 = v34;
       ++a1;
       v10 = a2;
-      v7 = v37;
+      v7 = v36;
     }
     else
     {

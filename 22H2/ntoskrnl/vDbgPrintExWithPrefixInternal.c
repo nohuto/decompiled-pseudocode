@@ -27,8 +27,8 @@
 
 __int64 __fastcall vDbgPrintExWithPrefixInternal(
         _BYTE *Src,
-        unsigned int a2,
-        unsigned int a3,
+        ULONG ComponentId,
+        ULONG Level,
         const char *a4,
         va_list argList,
         char a6)
@@ -59,7 +59,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
 
   pszFormat = a4;
   v29 = 0LL;
-  if ( !(unsigned int)NtQueryDebugFilterState(a2, a3) )
+  if ( !NtQueryDebugFilterState(ComponentId, Level) )
     return 0LL;
   v10 = 0LL;
   v11 = 0;
@@ -132,7 +132,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
           if ( v16 )
             ExReleaseRundownProtection(v16 + 1);
           v16 = v21;
-          Count(&v29, a2, a3);
+          Count(&v29, ComponentId, Level);
           ExAcquireSpinLockSharedAtDpcLevel(&RtlpDebugPrintCallbackLock);
           v20 = (struct _EX_RUNDOWN_REF *)v21[3].Count;
         }
@@ -164,7 +164,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
       __writecr8(CurrentIrql);
     }
   }
-  result = DebugPrint(&v29, a2, a3);
+  result = DebugPrint(&v29, ComponentId, Level);
   if ( (_DWORD)result == -2147483645 && a6 == 1 )
   {
     DbgBreakPointWithStatus(1u);

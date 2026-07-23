@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetNetRateControl @ 0x1409098C4
+ * XREFs of PspSetNetRateControl @ 0x140909A24
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PspLockJobConditionally @ 0x140616368 (PspLockJobConditionally.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspUnlockJobConditionally @ 0x140618F8C (PspUnlockJobConditionally.c)
- *     PspLockRootJobExclusive @ 0x14067F980 (PspLockRootJobExclusive.c)
- *     PspNetRateControlDispatch @ 0x140909004 (PspNetRateControlDispatch.c)
- *     PspSetJobRateControl @ 0x1409096B0 (PspSetJobRateControl.c)
- *     EtwTraceJobSetQuery @ 0x1409360DC (EtwTraceJobSetQuery.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PspLockRootJobExclusive @ 0x1405DA420 (PspLockRootJobExclusive.c)
+ *     PspLockJobConditionally @ 0x14067FFC8 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspUnlockJobConditionally @ 0x140682BEC (PspUnlockJobConditionally.c)
+ *     PspNetRateControlDispatch @ 0x140909164 (PspNetRateControlDispatch.c)
+ *     PspSetJobRateControl @ 0x140909810 (PspSetJobRateControl.c)
+ *     EtwTraceJobSetQuery @ 0x1409362AC (EtwTraceJobSetQuery.c)
  */
 
 __int64 __fastcall PspSetNetRateControl(void *Src, size_t Size, _QWORD *Object)

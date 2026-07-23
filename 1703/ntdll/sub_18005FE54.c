@@ -7,10 +7,10 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_18005FE54(unsigned __int64 *a1)
+void __fastcall sub_18005FE54(PRTL_BALANCED_NODE Node)
 {
-  RtlAcquireSRWLockExclusive(&qword_18015C348);
-  RtlRbRemoveNode((__int64)&qword_18015C338, a1);
-  memset(a1, 171, 24);
-  return RtlReleaseSRWLockExclusive(&qword_18015C348);
+  RtlAcquireSRWLockExclusive(&stru_18015C348);
+  RtlRbRemoveNode((PRTL_RB_TREE)&Parent, Node);
+  memset(Node, 171, sizeof(_RTL_BALANCED_NODE));
+  RtlReleaseSRWLockExclusive(&stru_18015C348);
 }

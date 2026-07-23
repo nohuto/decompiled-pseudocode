@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceStandbyConnectivityUpdate @ 0x14075DAF4
+ * XREFs of PopTraceStandbyConnectivityUpdate @ 0x14075ECE4
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x14075D9E0 (PopNetEvaluationWorkerCallback.c)
- *     PopNetInitialize @ 0x1409B2AB4 (PopNetInitialize.c)
+ *     PopNetEvaluationWorkerCallback @ 0x14075EBD0 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetInitialize @ 0x1409B3AB4 (PopNetInitialize.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
@@ -50,7 +50,7 @@ char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
       v8 = v3;
       v15 = 4;
       v18 = 4;
-      LOBYTE(v2) = TlgWrite(&pCallbackContext, &unk_1403701AF, 0LL, 0LL, 4u, &pData);
+      LOBYTE(v2) = TlgWrite(&pCallbackContext, &unk_14037113F, 0LL, 0LL, 4u, &pData);
     }
   }
   if ( PopDiagHandleRegistered )

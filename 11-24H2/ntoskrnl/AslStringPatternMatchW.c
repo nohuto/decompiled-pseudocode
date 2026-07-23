@@ -1,9 +1,9 @@
 /*
- * XREFs of AslStringPatternMatchW @ 0x14095F194
+ * XREFs of AslStringPatternMatchW @ 0x140946C54
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x140696028 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1406970F8 (SdbpCheckApplicationTypeAttributes.c)
  * Callees:
- *     AslStringPatternMatchExW @ 0x140960540 (AslStringPatternMatchExW.c)
+ *     AslStringPatternMatchExW @ 0x140948000 (AslStringPatternMatchExW.c)
  */
 
 __int64 __fastcall AslStringPatternMatchW(__int64 a1, __int64 a2)

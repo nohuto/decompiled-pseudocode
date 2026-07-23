@@ -1,13 +1,13 @@
 /*
- * XREFs of PsQuerySystemDllInfo @ 0x14064E8DC
+ * XREFs of PsQuerySystemDllInfo @ 0x1406436FC
  * Callers:
- *     PspWow64PickBestNtdll @ 0x1402CE2E4 (PspWow64PickBestNtdll.c)
- *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
- *     PsWow64IsMachineSupported @ 0x14064E890 (PsWow64IsMachineSupported.c)
- *     DbgkSendSystemDllMessages @ 0x1408844DC (DbgkSendSystemDllMessages.c)
- *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
- *     PspInitializeSystemDlls @ 0x140A4B284 (PspInitializeSystemDlls.c)
- *     MmInitSystemDll @ 0x140A4B9EC (MmInitSystemDll.c)
+ *     PspWow64PickBestNtdll @ 0x14024C7E4 (PspWow64PickBestNtdll.c)
+ *     DbgkCreateThread @ 0x14063C210 (DbgkCreateThread.c)
+ *     PsWow64IsMachineSupported @ 0x1406436B0 (PsWow64IsMachineSupported.c)
+ *     DbgkSendSystemDllMessages @ 0x14088463C (DbgkSendSystemDllMessages.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3F30 (ExpSystemErrorHandler2.c)
+ *     PspInitializeSystemDlls @ 0x140A4C284 (PspInitializeSystemDlls.c)
+ *     MmInitSystemDll @ 0x140A4C9EC (MmInitSystemDll.c)
  * Callees:
  *     <none>
  */

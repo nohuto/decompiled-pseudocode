@@ -3,8 +3,8 @@
  * Callers:
  *     HalpInterruptInitSystem @ 0x140A89A80 (HalpInterruptInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x1406153A0 (HviGetHardwareFeatures.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x1406158F0 (HviGetHardwareFeatures.c)
  *     HalpInitializeInterrupts @ 0x140B48390 (HalpInitializeInterrupts.c)
  */
 

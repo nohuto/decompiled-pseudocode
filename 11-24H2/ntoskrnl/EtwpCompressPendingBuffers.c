@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpCompressPendingBuffers @ 0x14065101C
+ * XREFs of EtwpCompressPendingBuffers @ 0x14064F724
  * Callers:
- *     EtwpBufferingModeCompressionFlush @ 0x140650C1C (EtwpBufferingModeCompressionFlush.c)
- *     EtwpCompressionProc @ 0x1406511B0 (EtwpCompressionProc.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x14064F324 (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpCompressionProc @ 0x14064F8B0 (EtwpCompressionProc.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     EtwpCompressBuffer @ 0x140650CB4 (EtwpCompressBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140651298 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpRotateCompressionTargetIfNeeded @ 0x140651708 (EtwpRotateCompressionTargetIfNeeded.c)
- *     EtwpCompleteBuffer @ 0x140AD9E0C (EtwpCompleteBuffer.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     EtwpCompressBuffer @ 0x14064F3BC (EtwpCompressBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x14064F998 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x14064FE08 (EtwpRotateCompressionTargetIfNeeded.c)
+ *     EtwpCompleteBuffer @ 0x140ADB650 (EtwpCompleteBuffer.c)
  */
 
 __int64 __fastcall EtwpCompressPendingBuffers(__int64 a1)
 {
   unsigned __int64 *v1; // rbx
-  _QWORD *v3; // rax
-  _QWORD *v4; // rsi
+  char *v3; // rax
+  char *v4; // rsi
   LARGE_INTEGER PerformanceCounter; // rbx
   _DWORD *v6; // rax
   _DWORD *v7; // rsi
@@ -28,12 +28,12 @@ __int64 __fastcall EtwpCompressPendingBuffers(__int64 a1)
   LONGLONG v10; // rax
 
   v1 = (unsigned __int64 *)(a1 + 1408);
-  v3 = KeAbPreAcquire(a1 + 1408, 0LL);
+  v3 = (char *)KeAbPreAcquire(a1 + 1408, 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v1, (__int64)v3, (__int64)v1);
+    ExfAcquirePushLockExclusiveEx(v1, v3, (__int64)v1);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   EtwpRotateCompressionTargetIfNeeded(a1);
   while ( 1 )
   {

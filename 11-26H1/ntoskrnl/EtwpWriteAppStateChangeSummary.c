@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpWriteAppStateChangeSummary @ 0x1409546CC
+ * XREFs of EtwpWriteAppStateChangeSummary @ 0x1409D0688
  * Callers:
- *     EtwTraceAppStateChange @ 0x1409540B8 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14096E118 (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x1409CF9F8 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x1409D02D8 (EtwTraceProcess.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     PsIsHostSilo @ 0x14046E630 (PsIsHostSilo.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     PsIsHostSilo @ 0x140467DB0 (PsIsHostSilo.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall EtwpWriteAppStateChangeSummary(
@@ -144,10 +144,10 @@ int __fastcall EtwpWriteAppStateChangeSummary(
   v36 = a2;
   v35 = a4;
   memset(v62, 0, 29);
-  if ( dword_140E08F80 && (qword_140E08F90 & 0x200000000000LL) != 0 )
+  if ( dword_140E08F40 && (qword_140E08F50 & 0x200000000000LL) != 0 )
   {
     v8 = *(_QWORD *)&v62[0];
-    if ( (qword_140E08F98 & 0x200000000000LL) == qword_140E08F98 )
+    if ( (qword_140E08F58 & 0x200000000000LL) == qword_140E08F58 )
       v8 = 1LL;
     *(_QWORD *)&v62[0] = v8;
   }
@@ -175,10 +175,10 @@ LABEL_9:
   v13 = &EmptyUnicodeString;
   if ( v12 )
     v13 = *(__int64 **)(a1 + 848);
-  if ( (unsigned int)dword_140E08F80 > 5 && (qword_140E08F90 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E08F40 > 5 && (qword_140E08F50 & 0x400000000000LL) != 0 )
   {
     LODWORD(v12) = 0;
-    if ( (qword_140E08F98 & 0x400000000000LL) == qword_140E08F98 )
+    if ( (qword_140E08F58 & 0x400000000000LL) == qword_140E08F58 )
     {
       v65 = 8LL;
       v67 = 8LL;
@@ -325,7 +325,7 @@ LABEL_9:
       v127 = 29LL;
       v61 = 50331648LL;
       v129 = 8LL;
-      LODWORD(v12) = tlgWriteAgg((__int64)&dword_140E08F80, (unsigned __int8 *)&word_140053D1E, v33, 0x24u, &v63);
+      LODWORD(v12) = tlgWriteAgg((__int64)&dword_140E08F40, (unsigned __int8 *)&byte_140054C75, v33, 0x24u, &v63);
     }
   }
   return v12;

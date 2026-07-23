@@ -1,12 +1,12 @@
 /*
- * XREFs of SeRegisterLogonSessionTerminatedRoutine @ 0x140815140
+ * XREFs of SeRegisterLogonSessionTerminatedRoutine @ 0x14081B2F0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall SeRegisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_TERMINATED_ROUTINE CallbackRoutine)
@@ -21,11 +21,11 @@ NTSTATUS __stdcall SeRegisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_TER
     return -1073741670;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe((PFAST_MUTEX)RtlpBootStatHandleLock.TracingPrivate);
+  ExAcquireFastMutexUnsafe(&SepRmNotifyMutex);
   *Pool2 = ExpPlatformBinaryLock.WaitBlock[1].SparePtr;
   Pool2[1] = CallbackRoutine;
   ExpPlatformBinaryLock.WaitBlock[1].SparePtr = Pool2;
-  ExReleaseFastMutexUnsafe((PFAST_MUTEX)RtlpBootStatHandleLock.TracingPrivate);
+  ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
   KeLeaveCriticalRegion();
   return 0;
 }

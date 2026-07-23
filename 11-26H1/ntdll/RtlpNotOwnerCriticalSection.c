@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpNotOwnerCriticalSection @ 0x18004A6E0
+ * XREFs of RtlpNotOwnerCriticalSection @ 0x180034C60
  * Callers:
- *     LdrpAddUnicodeStringToSnapsBuffer @ 0x1800476B0 (LdrpAddUnicodeStringToSnapsBuffer.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     LdrpAddUnicodeStringToSnapsBuffer @ 0x180031C30 (LdrpAddUnicodeStringToSnapsBuffer.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
  * Callees:
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlDecodePointer @ 0x18004D5D0 (RtlDecodePointer.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlDecodePointer @ 0x180037B50 (RtlDecodePointer.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-_PEB_LDR_DATA *__fastcall RtlpNotOwnerCriticalSection(const void **a1)
+_PEB_LDR_DATA *__fastcall RtlpNotOwnerCriticalSection(_RTL_CRITICAL_SECTION *a1)
 {
   _PEB_LDR_DATA *result; // rax
   struct _TEB *v2; // rdx
@@ -18,7 +18,7 @@ _PEB_LDR_DATA *__fastcall RtlpNotOwnerCriticalSection(const void **a1)
 
   result = NtCurrentPeb()->Ldr;
   if ( !result->ShutdownInProgress
-    || a1 == (const void **)&LdrpLoaderLock && result->ShutdownThreadId != NtCurrentTeb()->ClientId.UniqueThread )
+    || a1 == &LdrpLoaderLock && result->ShutdownThreadId != NtCurrentTeb()->ClientId.UniqueThread )
   {
     if ( !UseWOW64 )
       goto LABEL_17;
@@ -40,16 +40,16 @@ LABEL_17:
       if ( NtCurrentPeb()->BeingDebugged )
       {
         DbgPrintEx(
-          101,
+          0x65u,
           0,
           "NTDLL: Calling thread (%p) not owner of CritSect: %p  Owner ThreadId: %p\n",
           NtCurrentTeb()->ClientId.UniqueThread,
           a1,
-          a1[2]);
+          a1->OwningThread);
         __debugbreak();
       }
       RtlDecodePointer(RtlpUnhandledExceptionFilter);
-      RtlRaiseStatus(3221226084LL);
+      RtlRaiseStatus(-1073741212);
     }
   }
   return result;

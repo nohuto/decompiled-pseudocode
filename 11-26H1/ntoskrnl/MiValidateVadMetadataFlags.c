@@ -1,10 +1,10 @@
 /*
- * XREFs of MiValidateVadMetadataFlags @ 0x1409F3CF0
+ * XREFs of MiValidateVadMetadataFlags @ 0x1409F04C0
  * Callers:
- *     MiMapViewOfSection @ 0x1409C31E8 (MiMapViewOfSection.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     MiMapViewOfSection @ 0x1409941C8 (MiMapViewOfSection.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
  */
 
 __int64 __fastcall MiValidateVadMetadataFlags(__int64 a1)

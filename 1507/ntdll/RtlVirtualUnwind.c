@@ -15,7 +15,7 @@
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
-  EXCEPTION_ROUTINE *v8; // rsi
+  EXCEPTION_DISPOSITION (__cdecl *v8)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // rsi
   ULONG64 v9; // rbp
   PRUNTIME_FUNCTION v10; // r14
   ULONG64 v11; // rdi
@@ -329,7 +329,7 @@ LABEL_59:
   BeginAddress = v88->BeginAddress;
   if ( v49 < BeginAddress || v49 >= v88->EndAddress )
   {
-    v69 = (unsigned int *)RtlpSameFunction((__int64)v88, v12, v49 + v12);
+    v69 = (unsigned int *)RtlpSameFunction((__int64)v88, v12, (void *)(v49 + v12));
     if ( !v69 )
       goto LABEL_56;
     v43 = v49 == *v69;
@@ -383,7 +383,7 @@ LABEL_19:
                   {
                     if ( v66 != 1 )
 LABEL_155:
-                      RtlRaiseStatus(3221225727LL);
+                      RtlRaiseStatus(-1073741569);
                     v67 = (DWORD64 *)v17->Rsp;
                     v87 = 1;
                     v68 = v67 + 3;
@@ -511,7 +511,7 @@ LABEL_155:
     v22 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)&v26[2 * v65 + 4];
     v88 = v22;
     if ( v24 > 0x20 )
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( !v29 )
   {

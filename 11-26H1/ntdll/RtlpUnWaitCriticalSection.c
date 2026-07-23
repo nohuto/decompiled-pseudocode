@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpUnWaitCriticalSection @ 0x18013E050
+ * XREFs of RtlpUnWaitCriticalSection @ 0x18013DF00
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlpCreateDeferredCriticalSectionEvent @ 0x18007AE40 (RtlpCreateDeferredCriticalSectionEvent.c)
- *     ZwSetEventEx @ 0x180162370 (ZwSetEventEx.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlpCreateDeferredCriticalSectionEvent @ 0x180069660 (RtlpCreateDeferredCriticalSectionEvent.c)
+ *     ZwSetEventEx @ 0x180162270 (ZwSetEventEx.c)
  */
 
 signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)

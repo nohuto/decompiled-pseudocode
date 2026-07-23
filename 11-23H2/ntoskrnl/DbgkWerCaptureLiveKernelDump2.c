@@ -1,15 +1,15 @@
 /*
- * XREFs of DbgkWerCaptureLiveKernelDump2 @ 0x140883560
+ * XREFs of DbgkWerCaptureLiveKernelDump2 @ 0x1408837A0
  * Callers:
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     DbgkpWerIsFullLiveDumpDisabled @ 0x14088370C (DbgkpWerIsFullLiveDumpDisabled.c)
- *     DbgkpWerCleanupContext @ 0x1408837C4 (DbgkpWerCleanupContext.c)
- *     DbgkpWerProcessPolicyResult @ 0x14093BD30 (DbgkpWerProcessPolicyResult.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x14088394C (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     DbgkpWerCleanupContext @ 0x140883A04 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14093BF30 (DbgkpWerProcessPolicyResult.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

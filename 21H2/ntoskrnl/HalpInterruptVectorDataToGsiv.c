@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpInterruptVectorDataToGsiv @ 0x1404BBAC0
+ * XREFs of HalpInterruptVectorDataToGsiv @ 0x1404BBD00
  * Callers:
  *     <none>
  * Callees:

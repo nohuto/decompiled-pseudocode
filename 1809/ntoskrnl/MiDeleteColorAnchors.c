@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDeleteColorAnchors @ 0x14085D154
+ * XREFs of MiDeleteColorAnchors @ 0x14085E3B4
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteColorAnchors(__int64 a1)

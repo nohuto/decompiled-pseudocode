@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetFieldValue @ 0x14022C3DC
+ * XREFs of EtwpGetFieldValue @ 0x14022C208
  * Callers:
- *     EtwpApplyPayloadFilterInternal @ 0x14022B614 (EtwpApplyPayloadFilterInternal.c)
- *     EtwpApplyPredicate @ 0x14022BE8C (EtwpApplyPredicate.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x14022B440 (EtwpApplyPayloadFilterInternal.c)
+ *     EtwpApplyPredicate @ 0x14022BCB8 (EtwpApplyPredicate.c)
  * Callees:
- *     ExSystemExceptionFilter @ 0x1404BBBFC (ExSystemExceptionFilter.c)
+ *     ExSystemExceptionFilter @ 0x1404A792C (ExSystemExceptionFilter.c)
  */
 
 char __fastcall EtwpGetFieldValue(unsigned __int8 *a1, int a2, _QWORD *a3)

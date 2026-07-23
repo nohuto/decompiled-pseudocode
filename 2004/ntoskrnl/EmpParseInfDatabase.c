@@ -100,7 +100,7 @@ __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
         {
           *(_BYTE *)(v14 + 32) |= 2u;
           if ( *(__int64 *)(v14 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v14);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v14);
           v15 = *(_DWORD *)(v14 + 88) & 0x1FFFF;
           v16 = *(_DWORD *)(v14 + 88) & 0xFFFE0000;
           *(_BYTE *)(v14 + 25) &= ~1u;

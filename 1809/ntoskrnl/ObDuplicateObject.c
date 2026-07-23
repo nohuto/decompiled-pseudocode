@@ -1,13 +1,13 @@
 /*
- * XREFs of ObDuplicateObject @ 0x1405D0B70
+ * XREFs of ObDuplicateObject @ 0x1405D1B70
  * Callers:
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     NtDuplicateObject @ 0x1405D09B0 (NtDuplicateObject.c)
- *     PspPropagateHandle @ 0x14060D310 (PspPropagateHandle.c)
- *     PspCopyAndFixupParameters @ 0x140678C24 (PspCopyAndFixupParameters.c)
- *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
- *     DbgkpOpenHandles @ 0x14080EB70 (DbgkpOpenHandles.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14081C000 (IoConvertFileHandleToKernelHandle.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     NtDuplicateObject @ 0x1405D19B0 (NtDuplicateObject.c)
+ *     PspPropagateHandle @ 0x14060E310 (PspPropagateHandle.c)
+ *     PspCopyAndFixupParameters @ 0x140679DE4 (PspCopyAndFixupParameters.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F77D8 (CmpCreateEmptyHiveClone.c)
+ *     DbgkpOpenHandles @ 0x14080FD70 (DbgkpOpenHandles.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14081D200 (IoConvertFileHandleToKernelHandle.c)
  * Callees:
  *     ObpFilterOperation @ 0x14001679C (ObpFilterOperation.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
@@ -15,23 +15,23 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObpGrantAccess @ 0x14059578C (ObpGrantAccess.c)
- *     ObpDecrementHandleCount @ 0x1405A9584 (ObpDecrementHandleCount.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1405D11B0 (ObpReferenceProcessObjectByHandle.c)
- *     ExCreateHandleEx @ 0x1405D1380 (ExCreateHandleEx.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     SeAuditingWithTokenForSubcategory @ 0x14060A3C0 (SeAuditingWithTokenForSubcategory.c)
- *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
- *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
- *     ObpPreInterceptHandleDuplicate @ 0x1406AE62C (ObpPreInterceptHandleDuplicate.c)
- *     SeAuditHandleCreation @ 0x1406BCD70 (SeAuditHandleCreation.c)
- *     ObpPostInterceptHandleDuplicate @ 0x140862654 (ObpPostInterceptHandleDuplicate.c)
- *     SeAuditHandleDuplication @ 0x14089CD6C (SeAuditHandleDuplication.c)
- *     EtwTraceDuplicateHandle @ 0x1408B7240 (EtwTraceDuplicateHandle.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObpGrantAccess @ 0x14059678C (ObpGrantAccess.c)
+ *     ObpDecrementHandleCount @ 0x1405AA584 (ObpDecrementHandleCount.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x1405D21B0 (ObpReferenceProcessObjectByHandle.c)
+ *     ExCreateHandleEx @ 0x1405D2380 (ExCreateHandleEx.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObpIncrementHandleCountEx @ 0x1405E45F0 (ObpIncrementHandleCountEx.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14060B3C0 (SeAuditingWithTokenForSubcategory.c)
+ *     SeCreateAccessState @ 0x140613230 (SeCreateAccessState.c)
+ *     RtlMapGenericMask @ 0x14063FD50 (RtlMapGenericMask.c)
+ *     ObpPreInterceptHandleDuplicate @ 0x1406AF8CC (ObpPreInterceptHandleDuplicate.c)
+ *     SeAuditHandleCreation @ 0x1406BE010 (SeAuditHandleCreation.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x1408638B4 (ObpPostInterceptHandleDuplicate.c)
+ *     SeAuditHandleDuplication @ 0x14089DFCC (SeAuditHandleDuplication.c)
+ *     EtwTraceDuplicateHandle @ 0x1408B8500 (EtwTraceDuplicateHandle.c)
  */
 
 __int64 __fastcall ObDuplicateObject(
@@ -299,7 +299,7 @@ LABEL_32:
                 ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&a3[1].ProfileListHead.Blink);
                 if ( (_QWORD *)v51[0] != v51 )
                   ObpPostInterceptHandleDuplicate(v33, v40, v29, v42, (__int64)v51);
-                if ( (xmmword_140541350 & 0x40) != 0 && v29 >= 0 )
+                if ( (xmmword_140542350 & 0x40) != 0 && v29 >= 0 )
                   EtwTraceDuplicateHandle(
                     (_DWORD)Handle,
                     v43,

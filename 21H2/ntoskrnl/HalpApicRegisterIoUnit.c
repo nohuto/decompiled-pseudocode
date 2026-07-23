@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpApicRegisterIoUnit @ 0x1403AAC70
+ * XREFs of HalpApicRegisterIoUnit @ 0x1403ABA00
  * Callers:
- *     HalpApicDiscover @ 0x1403AABC0 (HalpApicDiscover.c)
+ *     HalpApicDiscover @ 0x1403AB950 (HalpApicDiscover.c)
  * Callees:
- *     HalpInterruptRegisterController @ 0x1403AB844 (HalpInterruptRegisterController.c)
- *     HalRegisterPermanentAddressUsage @ 0x1403AC030 (HalRegisterPermanentAddressUsage.c)
- *     HalpApicGetCpuInfo @ 0x1403CDF38 (HalpApicGetCpuInfo.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalpInterruptRegisterController @ 0x1403AC5D4 (HalpInterruptRegisterController.c)
+ *     HalRegisterPermanentAddressUsage @ 0x1403ACDC0 (HalRegisterPermanentAddressUsage.c)
+ *     HalpApicGetCpuInfo @ 0x1403CE0A8 (HalpApicGetCpuInfo.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall HalpApicRegisterIoUnit(LARGE_INTEGER PhysicalAddress, int a2, int a3)

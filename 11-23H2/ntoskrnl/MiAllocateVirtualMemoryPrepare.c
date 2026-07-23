@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1406F6BB0
+ * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1406F6DC0
  * Callers:
- *     MiAllocateVirtualMemoryCommon @ 0x1406F6A20 (MiAllocateVirtualMemoryCommon.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1406F6C30 (MiAllocateVirtualMemoryCommon.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     xHalUnmaskInterrupt @ 0x140371F70 (xHalUnmaskInterrupt.c)
- *     MiHugePagesSupported @ 0x1403C78A4 (MiHugePagesSupported.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     MiValidateAllocationType @ 0x1406F7148 (MiValidateAllocationType.c)
- *     MiValidateZeroBits @ 0x1407210B0 (MiValidateZeroBits.c)
- *     MiGetUserReservationHighestAddress @ 0x140721FD0 (MiGetUserReservationHighestAddress.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     xHalUnmaskInterrupt @ 0x140372110 (xHalUnmaskInterrupt.c)
+ *     MiHugePagesSupported @ 0x1403C7A84 (MiHugePagesSupported.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiValidateAllocationType @ 0x1406F7358 (MiValidateAllocationType.c)
+ *     MiValidateZeroBits @ 0x1407212B0 (MiValidateZeroBits.c)
+ *     MiGetUserReservationHighestAddress @ 0x1407221D0 (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 MiAllocateVirtualMemoryPrepare(ULONG_PTR a1, unsigned __int64 a2, ...)

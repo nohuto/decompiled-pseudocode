@@ -1,9 +1,9 @@
 /*
- * XREFs of MiNotifyPfCheckCachedPages @ 0x140A84860
+ * XREFs of MiNotifyPfCheckCachedPages @ 0x140A89BE0
  * Callers:
  *     <none>
  * Callees:
- *     PfSnLogPageFault @ 0x140374EF0 (PfSnLogPageFault.c)
+ *     PfSnLogPageFault @ 0x140376CA0 (PfSnLogPageFault.c)
  */
 
 __int64 __fastcall MiNotifyPfCheckCachedPages(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

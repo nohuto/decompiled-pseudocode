@@ -1,14 +1,14 @@
 /*
- * XREFs of _stricmp @ 0x1401953E0
+ * XREFs of _stricmp @ 0x140195520
  * Callers:
- *     ViThunkSnapSharedExportByName @ 0x1409210B8 (ViThunkSnapSharedExportByName.c)
- *     VfCheckImageCompliance @ 0x1409271A4 (VfCheckImageCompliance.c)
- *     HdlspBugCheckProcessing @ 0x14094BD1C (HdlspBugCheckProcessing.c)
- *     CmpSearchSectionByName @ 0x1409BF69C (CmpSearchSectionByName.c)
- *     CmpSetupConfigurationTree @ 0x1409C22E8 (CmpSetupConfigurationTree.c)
- *     CmpAppendSection @ 0x1409CF1E4 (CmpAppendSection.c)
+ *     ViThunkSnapSharedExportByName @ 0x1409220B8 (ViThunkSnapSharedExportByName.c)
+ *     VfCheckImageCompliance @ 0x1409281A4 (VfCheckImageCompliance.c)
+ *     HdlspBugCheckProcessing @ 0x14094CD1C (HdlspBugCheckProcessing.c)
+ *     CmpSearchSectionByName @ 0x1409C069C (CmpSearchSectionByName.c)
+ *     CmpSetupConfigurationTree @ 0x1409C32E8 (CmpSetupConfigurationTree.c)
+ *     CmpAppendSection @ 0x1409D01E4 (CmpAppendSection.c)
  * Callees:
- *     __ascii_stricmp @ 0x14019538C (__ascii_stricmp.c)
+ *     __ascii_stricmp @ 0x1401954CC (__ascii_stricmp.c)
  */
 
 int __cdecl stricmp(const char *Str1, const char *Str2)

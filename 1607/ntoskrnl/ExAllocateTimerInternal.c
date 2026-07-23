@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAllocateTimerInternal @ 0x140132AB8
+ * XREFs of ExAllocateTimerInternal @ 0x140133028
  * Callers:
- *     ExAllocateTimer @ 0x140132AA0 (ExAllocateTimer.c)
+ *     ExAllocateTimer @ 0x140133010 (ExAllocateTimer.c)
  * Callees:
- *     KeInitializeTimer2 @ 0x14007DD48 (KeInitializeTimer2.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeInitializeTimer2 @ 0x14007DDC8 (KeInitializeTimer2.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

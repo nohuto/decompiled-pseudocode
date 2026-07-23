@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateCrcList @ 0x1407E4FF4
+ * XREFs of MiAllocateCrcList @ 0x1407E52C4
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetPrivatePageCount @ 0x140368FFC (MiGetPrivatePageCount.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiGetPrivatePageCount @ 0x14036919C (MiGetPrivatePageCount.c)
  */
 
 PVOID __fastcall MiAllocateCrcList(__int64 *a1, char a2, SIZE_T *a3)

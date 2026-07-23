@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrqlKeLeaveCriticalRegion_Entry @ 0x140AE8580
+ * XREFs of ViIrqlKeLeaveCriticalRegion_Entry @ 0x140AE8570
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViIrqlLogCRStackTrace @ 0x140AE85C4 (ViIrqlLogCRStackTrace.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViIrqlLogCRStackTrace @ 0x140AE85B4 (ViIrqlLogCRStackTrace.c)
  */
 
 struct _KTHREAD *ViIrqlKeLeaveCriticalRegion_Entry()

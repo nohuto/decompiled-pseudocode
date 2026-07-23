@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfLatencySensitivityHintWorker @ 0x140382130
+ * XREFs of PpmPerfLatencySensitivityHintWorker @ 0x140381C80
  * Callers:
  *     <none>
  * Callees:
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PpmCheckCustomRun @ 0x14037D0D8 (PpmCheckCustomRun.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x14037CC28 (PpmCheckCustomRun.c)
  */
 
 char PpmPerfLatencySensitivityHintWorker()

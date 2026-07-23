@@ -5,53 +5,53 @@
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     PoFxSendSystemLatencyUpdate @ 0x14000A2A0 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     KiInitializeMutant @ 0x140085B84 (KiInitializeMutant.c)
- *     PpmReleaseLock @ 0x1400D46D4 (PpmReleaseLock.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     ExInitializeNPagedLookasideList @ 0x140110BFC (ExInitializeNPagedLookasideList.c)
- *     HviIsAnyHypervisorPresent @ 0x14013123C (HviIsAnyHypervisorPresent.c)
- *     PopComputeCounterShifts @ 0x140139ADC (PopComputeCounterShifts.c)
- *     PopInitilizeAcDcSettings @ 0x140139B7C (PopInitilizeAcDcSettings.c)
- *     PpmInitIllegalThrottleLogging @ 0x140147B24 (PpmInitIllegalThrottleLogging.c)
- *     PopCheckPowerSourceAfterRtcWakeInitialize @ 0x1401498F0 (PopCheckPowerSourceAfterRtcWakeInitialize.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     PopDiagTraceAbnormalReset @ 0x140207A28 (PopDiagTraceAbnormalReset.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x140009E20 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     KiInitializeMutant @ 0x140087474 (KiInitializeMutant.c)
+ *     PpmReleaseLock @ 0x1400D2574 (PpmReleaseLock.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     ExInitializeNPagedLookasideList @ 0x140111160 (ExInitializeNPagedLookasideList.c)
+ *     HviIsAnyHypervisorPresent @ 0x1401317AC (HviIsAnyHypervisorPresent.c)
+ *     PopComputeCounterShifts @ 0x14013A04C (PopComputeCounterShifts.c)
+ *     PopInitilizeAcDcSettings @ 0x14013A0EC (PopInitilizeAcDcSettings.c)
+ *     PpmInitIllegalThrottleLogging @ 0x140148094 (PpmInitIllegalThrottleLogging.c)
+ *     PopCheckPowerSourceAfterRtcWakeInitialize @ 0x140149E60 (PopCheckPowerSourceAfterRtcWakeInitialize.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceAbnormalReset @ 0x140207854 (PopDiagTraceAbnormalReset.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PoRegisterPowerSettingCallback @ 0x1403F2E38 (PoRegisterPowerSettingCallback.c)
- *     RtlIsMultiSessionSku @ 0x1405037BC (RtlIsMultiSessionSku.c)
- *     PopEsWorkItemSchedule @ 0x140544120 (PopEsWorkItemSchedule.c)
- *     PopInitializePowerPolicySimulate @ 0x140547648 (PopInitializePowerPolicySimulate.c)
- *     PopUpdateConsoleDisplayState @ 0x1405477D4 (PopUpdateConsoleDisplayState.c)
- *     RtlLockBootStatusData @ 0x1405478FC (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x140547DAC (RtlUnlockBootStatusData.c)
- *     PopResetActionDefaults @ 0x1405486D4 (PopResetActionDefaults.c)
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
- *     PopLogSleepDisabled @ 0x14054CA58 (PopLogSleepDisabled.c)
- *     PpmIdleRegisterDefaultStates @ 0x14054EAE0 (PpmIdleRegisterDefaultStates.c)
- *     EmpProviderRegister @ 0x14055420C (EmpProviderRegister.c)
- *     PpmCheckInitProcessors @ 0x140569DD0 (PpmCheckInitProcessors.c)
- *     PopInitializeHeteroProcessors @ 0x14056A584 (PopInitializeHeteroProcessors.c)
- *     PopResetCurrentPolicies @ 0x14056DF0C (PopResetCurrentPolicies.c)
- *     PopIdleInitAoAcDozeS4Timer @ 0x14056F558 (PopIdleInitAoAcDozeS4Timer.c)
- *     PpmEnableWmiInterface @ 0x1405769E8 (PpmEnableWmiInterface.c)
- *     KeRegisterProcessorChangeCallback @ 0x140578064 (KeRegisterProcessorChangeCallback.c)
- *     PopInitializeTimer @ 0x14057A27C (PopInitializeTimer.c)
- *     PopDefaultPolicy @ 0x14057F920 (PopDefaultPolicy.c)
- *     TtmInit @ 0x14057FD28 (TtmInit.c)
- *     PopSetupAudioEventNotification @ 0x14057FF24 (PopSetupAudioEventNotification.c)
- *     PopThermalHandlePreviousShutdown @ 0x140580B3C (PopThermalHandlePreviousShutdown.c)
- *     PopUpdateBackgroundCoolingStatus @ 0x140581144 (PopUpdateBackgroundCoolingStatus.c)
- *     PopSetupFullScrenVideoNotification @ 0x140581438 (PopSetupFullScrenVideoNotification.c)
- *     PopSetupUserPresencePredictionNotification @ 0x14058146C (PopSetupUserPresencePredictionNotification.c)
- *     PopSetupHighPerfPowerRequest @ 0x14058163C (PopSetupHighPerfPowerRequest.c)
- *     PopCheckSkipTick @ 0x140581690 (PopCheckSkipTick.c)
- *     IopDmaOverrideConflict @ 0x140581948 (IopDmaOverrideConflict.c)
- *     PopDiagTraceSkipTick @ 0x140671AA0 (PopDiagTraceSkipTick.c)
+ *     PoRegisterPowerSettingCallback @ 0x1403F1CFC (PoRegisterPowerSettingCallback.c)
+ *     RtlIsMultiSessionSku @ 0x1404E674C (RtlIsMultiSessionSku.c)
+ *     PopEsWorkItemSchedule @ 0x140544660 (PopEsWorkItemSchedule.c)
+ *     PopInitializePowerPolicySimulate @ 0x140547B88 (PopInitializePowerPolicySimulate.c)
+ *     PopUpdateConsoleDisplayState @ 0x140547D14 (PopUpdateConsoleDisplayState.c)
+ *     RtlLockBootStatusData @ 0x140547E3C (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x1405482EC (RtlUnlockBootStatusData.c)
+ *     PopResetActionDefaults @ 0x140548C14 (PopResetActionDefaults.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
+ *     PopLogSleepDisabled @ 0x14054CF98 (PopLogSleepDisabled.c)
+ *     PpmIdleRegisterDefaultStates @ 0x14054EE80 (PpmIdleRegisterDefaultStates.c)
+ *     EmpProviderRegister @ 0x14055474C (EmpProviderRegister.c)
+ *     PpmCheckInitProcessors @ 0x14056A310 (PpmCheckInitProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14056AAC4 (PopInitializeHeteroProcessors.c)
+ *     PopResetCurrentPolicies @ 0x14056E44C (PopResetCurrentPolicies.c)
+ *     PopIdleInitAoAcDozeS4Timer @ 0x14056FA98 (PopIdleInitAoAcDozeS4Timer.c)
+ *     PpmEnableWmiInterface @ 0x140576F28 (PpmEnableWmiInterface.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1405785A4 (KeRegisterProcessorChangeCallback.c)
+ *     PopInitializeTimer @ 0x14057A7BC (PopInitializeTimer.c)
+ *     PopDefaultPolicy @ 0x14057FDCC (PopDefaultPolicy.c)
+ *     TtmInit @ 0x1405801D4 (TtmInit.c)
+ *     PopSetupAudioEventNotification @ 0x1405803D0 (PopSetupAudioEventNotification.c)
+ *     PopThermalHandlePreviousShutdown @ 0x140580FE8 (PopThermalHandlePreviousShutdown.c)
+ *     PopUpdateBackgroundCoolingStatus @ 0x1405815F0 (PopUpdateBackgroundCoolingStatus.c)
+ *     PopSetupFullScrenVideoNotification @ 0x1405818E4 (PopSetupFullScrenVideoNotification.c)
+ *     PopSetupUserPresencePredictionNotification @ 0x140581918 (PopSetupUserPresencePredictionNotification.c)
+ *     PopSetupHighPerfPowerRequest @ 0x140581AE8 (PopSetupHighPerfPowerRequest.c)
+ *     PopCheckSkipTick @ 0x140581B3C (PopCheckSkipTick.c)
+ *     IopDmaOverrideConflict @ 0x140581DF8 (IopDmaOverrideConflict.c)
+ *     PopDiagTraceSkipTick @ 0x140671B84 (PopDiagTraceSkipTick.c)
  *     PopInitializePowerSettings @ 0x140793708 (PopInitializePowerSettings.c)
  *     PopDeepSleepInitialize @ 0x1407954E4 (PopDeepSleepInitialize.c)
  *     PopNetInitialize @ 0x140795FD0 (PopNetInitialize.c)
@@ -91,14 +91,11 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
   unsigned __int8 v7; // bl
   unsigned __int8 v8; // si
   HANDLE v9; // rbx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  char v13; // bl
-  __int64 v14; // [rsp+40h] [rbp-48h] BYREF
-  _BYTE v15[20]; // [rsp+48h] [rbp-40h] BYREF
-  int v16; // [rsp+5Ch] [rbp-2Ch]
-  int v17; // [rsp+90h] [rbp+8h] BYREF
+  char v10; // bl
+  __int64 v11; // [rsp+40h] [rbp-48h] BYREF
+  _BYTE v12[20]; // [rsp+48h] [rbp-40h] BYREF
+  int v13; // [rsp+5Ch] [rbp-2Ch]
+  int Buffer; // [rsp+90h] [rbp+8h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+A0h] [rbp+18h] BYREF
   HANDLE FileHandle; // [rsp+A8h] [rbp+20h] BYREF
 
@@ -113,55 +110,55 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
       &PpmPerformanceDistributionShift,
       &PpmPerformanceCounterShift);
     PopComputeCounterShifts(0x989680uLL, &PpmHvPerformanceDistributionShift, &PpmHvPerformanceCounterShift);
-    qword_140303AB8 = (__int64)&PopIrpList;
+    qword_1403039F8 = (__int64)&PopIrpList;
     PopIrpList = (__int64)&PopIrpList;
-    qword_140303AD8 = (__int64)&PopInrushIrpList;
+    qword_140303A18 = (__int64)&PopInrushIrpList;
     PopInrushIrpList = (__int64)&PopInrushIrpList;
     PopIrpLock = 0LL;
     ExInitializeNPagedLookasideList(&PopIrpDataLookaside, 0LL, 0LL, 0x200u, 0xF8uLL, 0x72496F50u, 0);
     PopBsdUpdateLock = 0LL;
-    qword_140304CA8 = 0LL;
+    qword_140304CE8 = 0LL;
     KiInitializeMutant((__int64)&PopWdiTimerMutex, 0, 1);
     PopWdiTimer = 8LL;
     PopWdiCurrentScenario = (__int64)&NullGuid;
-    qword_140302990 = (__int64)&qword_140302988;
-    qword_140302988 = (__int64)&qword_140302988;
-    qword_1403029F8 = (__int64)PopWdiTimerCallback;
-    qword_140302A30 = (__int64)PopWdiTimerWorkerThread;
+    qword_1403029F0 = (__int64)&qword_1403029E8;
+    qword_1403029E8 = (__int64)&qword_1403029E8;
+    qword_140302A58 = (__int64)PopWdiTimerCallback;
+    qword_140302A90 = (__int64)PopWdiTimerWorkerThread;
     PopWdiCurrentScenarioInstanceId = 0;
-    qword_140302998 = 0LL;
-    qword_1403029B8 = 0LL;
+    qword_1403029F8 = 0LL;
+    qword_140302A18 = 0LL;
     PopWdiTimerTimeoutValue = -50000000LL;
     PopWdiTimerDpc = 275;
-    qword_140302A00 = 0LL;
-    qword_140302A18 = 0LL;
-    qword_1403029F0 = 0LL;
-    qword_140302A38 = 0LL;
+    qword_140302A60 = 0LL;
+    qword_140302A78 = 0LL;
+    qword_140302A50 = 0LL;
+    qword_140302A98 = 0LL;
     PopWdiTimerWorker = 0LL;
     PopMonitorOffDueToSleep = 0;
     PpmCheckInit();
     if ( (int)PopInitializeIrpWorkers() < 0 )
       return v2;
     PopIrpSerialLock = 0LL;
-    qword_140303AE8 = 0LL;
+    qword_140303A38 = 0LL;
     Object.Header.WaitListHead.Blink = &Object.Header.WaitListHead;
     Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
-    qword_140303B58 = (__int64)&PopIrpSerialList;
+    qword_140303A98 = (__int64)&PopIrpSerialList;
     PopIrpSerialList = (__int64)&PopIrpSerialList;
-    qword_140303B48 = (__int64)&PopRequestedIrps;
+    qword_140303A88 = (__int64)&PopRequestedIrps;
     PopRequestedIrps = (__int64)&PopRequestedIrps;
     PopTransitionLock.Header.WaitListHead.Blink = &PopTransitionLock.Header.WaitListHead;
     PopTransitionLock.Header.WaitListHead.Flink = &PopTransitionLock.Header.WaitListHead;
-    qword_140303B78 = (__int64)&PowerStateDisableReasonListHead;
+    qword_140303AB8 = (__int64)&PowerStateDisableReasonListHead;
     PowerStateDisableReasonListHead = (__int64)&PowerStateDisableReasonListHead;
     PopDisableSleepMutex.Event.Header.WaitListHead.Blink = &PopDisableSleepMutex.Event.Header.WaitListHead;
     PopDisableSleepMutex.Event.Header.WaitListHead.Flink = &PopDisableSleepMutex.Event.Header.WaitListHead;
-    qword_140304A88 = (__int64)&PopDisableSleepList;
+    qword_140304AA8 = (__int64)&PopDisableSleepList;
     PopDisableSleepList = (__int64)&PopDisableSleepList;
     PpmIdlePolicyLock = 0LL;
     PpmIdleVetoLock = 0LL;
     PpmParkStateLock = 0LL;
-    qword_140328948 = 0LL;
+    qword_140328988 = 0LL;
     LOWORD(Object.Header.Lock) = 1;
     Object.Header.Size = 6;
     Object.Header.SignalState = 1;
@@ -177,7 +174,7 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
     PopDisableSleepMutex.Event.Header.SignalState = 0;
     PopInitShutdownList();
     v6 = PopIdleScanInterval;
-    qword_140303B88 = (__int64)&PopIdleDetectList;
+    qword_140303AC8 = (__int64)&PopIdleDetectList;
     PopIdleDetectList = (__int64)&PopIdleDetectList;
     PopDopeGlobalLock = 0LL;
     if ( PopIdleScanInterval )
@@ -207,11 +204,11 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
     PopVolumeLock.Count = 1;
     PopPowerSettingCallbackReturned.Header.WaitListHead.Blink = &PopPowerSettingCallbackReturned.Header.WaitListHead;
     PopPowerSettingCallbackReturned.Header.WaitListHead.Flink = &PopPowerSettingCallbackReturned.Header.WaitListHead;
-    qword_140303CD8 = (__int64)&PopVolumeDevices;
+    qword_140303C18 = (__int64)&PopVolumeDevices;
     PopVolumeDevices = (__int64)&PopVolumeDevices;
-    qword_140303CC8 = (__int64)&PopSwitches;
+    qword_140303C08 = (__int64)&PopSwitches;
     PopSwitches = (__int64)&PopSwitches;
-    qword_140303CF8 = (__int64)&PopFans;
+    qword_140303C38 = (__int64)&PopFans;
     PopFans = (__int64)&PopFans;
     PopVolumeLock.Owner = 0LL;
     PopVolumeLock.Contention = 0;
@@ -221,22 +218,22 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
     LOWORD(PopPowerSettingCallbackReturned.Header.Lock) = 0;
     PopPowerSettingCallbackReturned.Header.Size = 6;
     PopPowerSettingCallbackReturned.Header.SignalState = 0;
-    qword_140303CE8 = (__int64)&PopThermal;
+    qword_140303C28 = (__int64)&PopThermal;
     PopThermal = (__int64)&PopThermal;
     IoAddTriageDumpDataBlock((int)&PopThermal, 16);
-    qword_140303D08 = (__int64)&PopActionWaiters;
+    qword_140303C48 = (__int64)&PopActionWaiters;
     PopActionWaiters = (__int64)&PopActionWaiters;
     PopResetActionDefaults();
-    PopPolicy = dword_140303D24;
-    PopDefaultPolicy(dword_140303D24);
+    PopPolicy = dword_140303C64;
+    PopDefaultPolicy(dword_140303C64);
     LODWORD(PopAdminPolicy) = 2;
     *(_QWORD *)((char *)&PopAdminPolicy + 4) = 5LL;
     HIDWORD(PopAdminPolicy) = -1;
-    qword_140303E90 = 0xFFFFFFFF00000000uLL;
+    qword_140303DD0 = 0xFFFFFFFF00000000uLL;
     PopFullWake = 1;
     PopCoolingMode = 0;
-    dword_140328940 = -1;
-    dword_140328944 = 2;
+    dword_140328980 = -1;
+    dword_140328984 = 2;
     PpmInitPolicyConfiguration();
     PpmInitIdlePolicy();
     PpmPerfInitialize();
@@ -247,50 +244,50 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
     PopInitializePowerSettings();
     PopInitilizeAcDcSettings();
     PopPolicyDeviceLock = 0LL;
-    qword_140303FD8 = 0LL;
+    qword_140303F18 = 0LL;
     PopBatteryInit();
     PopFanLock = 0LL;
-    qword_140303FF8 = 0LL;
+    qword_140303F38 = 0LL;
     PopThermalInit();
     PopCoolingExtensionLock = 0LL;
-    qword_140303288 = 0LL;
-    qword_140303278 = (__int64)&PopCoolingExtensionList;
+    qword_1403031D8 = 0LL;
+    qword_1403031C8 = (__int64)&PopCoolingExtensionList;
     PopCoolingExtensionList = (__int64)&PopCoolingExtensionList;
-    dword_140303F00 = 4;
-    byte_140303F04 = 0;
-    qword_140303F08 = (__int64)PopShutdownHandler;
+    dword_140303E40 = 4;
+    byte_140303E44 = 0;
+    qword_140303E48 = (__int64)PopShutdownHandler;
     PopWakeSourceInit();
     *(_QWORD *)&PpmWmiIdleAccountingTimer.Header.Lock = 8LL;
     PpmWmiIdleAccountingTimer.Header.WaitListHead.Blink = &PpmWmiIdleAccountingTimer.Header.WaitListHead;
     PpmWmiIdleAccountingTimer.Header.WaitListHead.Flink = &PpmWmiIdleAccountingTimer.Header.WaitListHead;
-    qword_1403026F8 = (__int64)PpmWmiIdleAccountingProcedure;
-    qword_140341520 = (__int64)&qword_140341518;
-    qword_140341518 = (__int64)&qword_140341518;
+    qword_140302758 = (__int64)PpmWmiIdleAccountingProcedure;
+    qword_140341560 = (__int64)&qword_140341558;
+    qword_140341558 = (__int64)&qword_140341558;
     PopUserPresentCompletedEvent.Header.WaitListHead.Blink = &PopUserPresentCompletedEvent.Header.WaitListHead;
     PopUserPresentCompletedEvent.Header.WaitListHead.Flink = &PopUserPresentCompletedEvent.Header.WaitListHead;
     PopAwayModeUserPresenceTimer = 8LL;
-    qword_140304A18 = (__int64)&qword_140304A10;
-    qword_140304A10 = (__int64)&qword_140304A10;
+    qword_140304598 = (__int64)&qword_140304590;
+    qword_140304590 = (__int64)&qword_140304590;
     PpmWmiIdleAccountingTimer.DueTime.QuadPart = 0LL;
     *(_QWORD *)&PpmWmiIdleAccountingTimer.Processor = 0LL;
     PpmWmiIdleAccountingDpc = 275;
-    qword_140302700 = 0LL;
-    qword_140302718 = 0LL;
-    qword_1403026F0 = 0LL;
+    qword_140302760 = 0LL;
+    qword_140302778 = 0LL;
+    qword_140302750 = 0LL;
     PopUserPresentSetStatus = 0;
-    qword_140341528 = 0LL;
-    qword_140341548 = 0LL;
+    qword_140341568 = 0LL;
+    qword_140341588 = 0LL;
     LOWORD(PopUserPresentCompletedEvent.Header.Lock) = 1;
     PopUserPresentCompletedEvent.Header.Size = 6;
     PopUserPresentCompletedEvent.Header.SignalState = 0;
-    word_140304A08 = 1;
-    byte_140304A0A = 6;
-    dword_140304A0C = 1;
+    word_140304588 = 1;
+    byte_14030458A = 6;
+    dword_14030458C = 1;
     PoFxInitPowerManagement();
-    dword_140303E2C = 0;
-    qword_140303E30 = 100LL;
-    qword_140303E38 = 100LL;
-    dword_140303E40 = 100;
+    dword_140303D6C = 0;
+    qword_140303D70 = 100LL;
+    qword_140303D78 = 100LL;
+    dword_140303D80 = 100;
     PopNetInitialize(0LL);
   }
   if ( a1 == 1 )
@@ -303,7 +300,7 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
     PopUmpoInitializeChannel();
     PopUmpoInitializeMonitorChannel();
     PopPdcDeviceListLock = 0LL;
-    qword_1403024F8 = 0LL;
+    qword_140302518 = 0LL;
     PopEsLock = 0LL;
     PopEsWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopEsWorker;
     PopEsWorkItem.Parameter = 0LL;
@@ -314,7 +311,7 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
       return v2;
     PopCheckPowerSourceAfterRtcWakeInitialize();
     PopWatchdogLock = 0LL;
-    qword_1403024C8 = (__int64)&PopWatchdogList;
+    qword_1403024E8 = (__int64)&PopWatchdogList;
     PopWatchdogList = (__int64)&PopWatchdogList;
   }
   if ( a1 == 2 )
@@ -342,7 +339,7 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
   }
   if ( a1 != 3 )
     return 1;
-  if ( (int)EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 1u, &v14) >= 0
+  if ( (int)EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 1u, &v11) >= 0
     && (int)PopDiagInitialize() >= 0 )
   {
     PopTriggerDiagTraceAoAcCapability();
@@ -354,9 +351,9 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
       if ( PopSkipTickPolicy == 1 )
       {
         v8 = 0;
-        if ( (int)HalGetInterruptTargetInformation(2LL, 0LL, v15) >= 0 )
+        if ( (int)HalGetInterruptTargetInformation(2LL, 0LL, v12) >= 0 )
         {
-          PopApicMode = v16;
+          PopApicMode = v13;
           v7 = !PopCheckSkipTick();
         }
       }
@@ -382,24 +379,24 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
     PopCheckForUpgradeInProgress();
     if ( InitIsWinPEMode )
       PopLogSleepDisabled(16, 15, 0LL, 0LL);
-    if ( byte_140303F74 )
+    if ( byte_140303EB4 )
       PopLogSleepDisabled(17, 7, 0LL, 0LL);
     PopDeepSleepInitialize(3);
     PopInitializePowerPolicySimulate();
     if ( (PopSimulate & 1) != 0 )
     {
-      byte_140303F7E = 1;
-      *(_QWORD *)&xmmword_140303F80 = 0x19000000064LL;
-      *((_QWORD *)&xmmword_140303F80 + 1) = 0xFFFF0000000ALL;
-      LODWORD(qword_140303FA0) = 4;
-      dword_140303FA8 = 2;
+      byte_140303EBE = 1;
+      *(_QWORD *)&xmmword_140303EC0 = 0x19000000064LL;
+      *((_QWORD *)&xmmword_140303EC0 + 1) = 0xFFFF0000000ALL;
+      LODWORD(qword_140303EE0) = 4;
+      dword_140303EE8 = 2;
     }
     if ( (PopSimulate & 2) != 0 )
     {
       PopCapabilities = 16843009;
-      word_140303F64 = 257;
-      byte_140303F66 = 1;
-      unk_140303F71 = 257;
+      word_140303EA4 = 257;
+      byte_140303EA6 = 1;
+      unk_140303EB1 = 257;
     }
     PopResetCurrentPolicies();
     PopInitializeAdpm();
@@ -419,9 +416,9 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
         0LL);
     }
     PopInitilizeAcDcSettings();
-    v17 = 1;
+    Buffer = 1;
     PopUpdateConsoleDisplayState(1);
-    ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v17, 4LL);
+    ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
     PopNetInitialize(3LL);
     PopReleasePolicyLock();
     *(_QWORD *)&PopIdleScanTimer.Header.Lock = 8LL;
@@ -446,23 +443,23 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
     PopSetupHighPerfPowerRequest();
     PpmEnableWmiInterface();
     PopAcquirePolicyLock();
-    PopCoalescingInitialize(v11, v10, v12);
+    PopCoalescingInitialize();
     PopReleasePolicyLock();
     if ( PopPlatformAoAc )
     {
-      v13 = PopDripsWatchdogAction;
+      v10 = PopDripsWatchdogAction;
       if ( (unsigned int)(PopPlatformAoAcOverride - 1) <= 0xFFFFFFFD )
       {
         if ( (PopDripsWatchdogAction & 0x10) != 0 )
-          v13 = PopDripsWatchdogAction | 2;
+          v10 = PopDripsWatchdogAction | 2;
         else
-          v13 = PopDripsWatchdogAction & 0xFD;
+          v10 = PopDripsWatchdogAction & 0xFD;
       }
-      ExInitializeResourceLite(&stru_140329B98);
-      byte_140329B34 = v13;
+      ExInitializeResourceLite(&stru_140329BD8);
+      byte_140329B74 = v10;
       PopDripsWatchdog = PopDripsWatchdogTimeout;
       PopInitializeTimer(
-        (__int64)&unk_140329C00,
+        (__int64)&unk_140329C40,
         (__int64)PopDripsWatchdogTimerCallbackRoutine,
         (__int64)&PopDripsWatchdog,
         (__int64)PopDripsWatchdogWorkerRoutine,

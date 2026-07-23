@@ -1,30 +1,30 @@
 /*
- * XREFs of MiAgeWorkingSet @ 0x140047090
+ * XREFs of MiAgeWorkingSet @ 0x140046C10
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x1400CDCA0 (MiTrimOrAgeWorkingSet.c)
- *     MiPreUnlockWorkingSetExclusive @ 0x1401F2A6C (MiPreUnlockWorkingSetExclusive.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1400CBB40 (MiTrimOrAgeWorkingSet.c)
+ *     MiPreUnlockWorkingSetExclusive @ 0x1401F2898 (MiPreUnlockWorkingSetExclusive.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
- *     MiCompressTbFlushList @ 0x1400974F0 (MiCompressTbFlushList.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiInsertWsle @ 0x1400E2090 (MiInsertWsle.c)
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiVolunteerForTrimFirst @ 0x1400E5F90 (MiVolunteerForTrimFirst.c)
- *     MiIsStoreProcess @ 0x14010CE84 (MiIsStoreProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     _TlgCreateSz @ 0x1401CDF00 (_TlgCreateSz.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402261BC (EtwTraceShouldYieldProcessor.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
+ *     MiCompressTbFlushList @ 0x140096CF0 (MiCompressTbFlushList.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiInsertWsle @ 0x1400DFF30 (MiInsertWsle.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiVolunteerForTrimFirst @ 0x1400E3E30 (MiVolunteerForTrimFirst.c)
+ *     MiIsStoreProcess @ 0x14010AC04 (MiIsStoreProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     _TlgCreateSz @ 0x1401CDD4C (_TlgCreateSz.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140225FE8 (EtwTraceShouldYieldProcessor.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -280,7 +280,7 @@ __int64 __fastcall MiAgeWorkingSet(__int64 a1, char a2, int a3, unsigned __int64
         v18 = v10;
     }
     v24 = *(_WORD *)(v9 + 164);
-    v25 = qword_140326FF8;
+    v25 = qword_140327038;
     *(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
     *(_DWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0xD0) = 0;
     *(_DWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30) = 0;
@@ -532,7 +532,7 @@ LABEL_370:
           }
         }
         v79 = *(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
-        v80 = dword_140327188;
+        v80 = dword_1403271C8;
         v81 = 0;
         if ( (*(_BYTE *)(v79 + 184) & 7) != 0 )
         {
@@ -751,7 +751,7 @@ LABEL_199:
           *((_QWORD *)v119 + 3) = ((v120 - 4096) ^ (v120 - 4096 + 1)) & 0x3FF ^ (v120 - 4096);
 LABEL_212:
           ++*(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0x88);
-          v125 = qword_140326A18;
+          v125 = qword_140326A58;
           if ( (v19[1] & 2) == 0 && KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[14] )
             v125 = -1LL;
           if ( (v19[3] >= (unsigned int)v19[2] || *((_BYTE *)v19 + 5) || *((_QWORD *)v19 + 2) > v125)
@@ -976,7 +976,7 @@ LABEL_331:
                     }
                     if ( (v18 & 0x3F) == 0 )
                     {
-                      v170 = &dword_140327C80;
+                      v170 = &dword_140327CC0;
                       if ( (*(_BYTE *)(v9 + 184) & 7) != 2 )
                         v170 = (LONG *)(v9 + 192);
                       if ( (*v170 & 0x40000000) != 0 )
@@ -1097,7 +1097,7 @@ LABEL_371:
           }
           if ( !v158 )
           {
-            v159 = &dword_140327C80;
+            v159 = &dword_140327CC0;
             if ( (*(_BYTE *)(v9 + 184) & 7) != 2 )
               v159 = (LONG *)(v9 + 192);
             if ( (*v159 & 0x40000000) != 0 )
@@ -1191,7 +1191,7 @@ LABEL_289:
     goto LABEL_290;
   }
 LABEL_384:
-  if ( hProvider )
+  if ( qword_1403277E0 )
   {
     v181 = *(_BYTE *)(v9 + 184) & 7;
     if ( v181 )
@@ -1206,9 +1206,9 @@ LABEL_384:
       v182 = *(_DWORD *)(v9 - 536);
       v183 = (const CHAR *)(v9 - 176);
     }
-    if ( hProvider->LevelPlus1 > 5
-      && (hProvider->KeywordAny & 1) != 0
-      && (hProvider->KeywordAll & 1) == hProvider->KeywordAll )
+    if ( qword_1403277E0->LevelPlus1 > 5
+      && (qword_1403277E0->KeywordAny & 1) != 0
+      && (qword_1403277E0->KeywordAll & 1) == qword_1403277E0->KeywordAll )
     {
       *(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC0) = *(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL)
                                                                                         + 0x80);
@@ -1241,7 +1241,7 @@ LABEL_384:
       *(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0x2A8) = 8LL;
       *(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0x2B8) = 8LL;
       *(_QWORD *)(((unsigned __int64)&v187 & 0xFFFFFFFFFFFFFFE0uLL) + 0x2C8) = 4LL;
-      TlgWriteEx(v184, &unk_14027C444, 0LL, 1u, pActivityId, pActivityId, 0xAu, (EVENT_DATA_DESCRIPTOR *)(v4 + 560));
+      TlgWriteEx(v184, &unk_14027C544, 0LL, 1u, pActivityId, pActivityId, 0xAu, (EVENT_DATA_DESCRIPTOR *)(v4 + 560));
     }
   }
   return v14;

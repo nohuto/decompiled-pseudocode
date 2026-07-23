@@ -34,9 +34,8 @@ __int64 __fastcall sub_1800EEE84(__int64 a1)
   __int64 v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // r8
-  __int64 v17; // rcx
-  int v19; // [rsp+38h] [rbp+10h] BYREF
-  int v20; // [rsp+40h] [rbp+18h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
+  int v19; // [rsp+40h] [rbp+18h] BYREF
 
   memset(&qword_180163540, 0, 0x38uLL);
   qword_180163540 = sub_180049EE0(v3, v2, v4);
@@ -57,19 +56,19 @@ __int64 __fastcall sub_1800EEE84(__int64 a1)
   v10 = dword_180163534;
   if ( (dword_180163534 & 0x40) != 0 )
   {
-    qword_180163BD8 = -10000000LL;
+    DueTime.QuadPart = -10000000LL;
     sub_1800F0CD8(a1);
     v10 = dword_180163534;
   }
   dword_180163534 = v10 | 0x98;
-  if ( RtlGetNtProductType(&v19) && v19 != 1 )
+  if ( RtlGetNtProductType(&NtProductType) && NtProductType != NtProductWinNt )
   {
     dword_180163534 |= 0x67u;
 LABEL_14:
-    qword_180163BD8 = -10000000LL;
+    DueTime.QuadPart = -10000000LL;
     goto LABEL_15;
   }
-  if ( (int)RtlQueryResourcePolicy(0, 0, &v20, 4LL) >= 0 && v20 > 10 )
+  if ( (int)RtlQueryResourcePolicy(0, 0, &v19, 4LL) >= 0 && v19 > 10 )
   {
     dword_180163534 |= 0x60u;
     goto LABEL_14;
@@ -94,10 +93,10 @@ LABEL_15:
   v8->MaximumNumberOfHeaps = 16;
   v8->NumberOfHeaps = 0;
   dword_180166044 = v13 != 0 ? v12 : 0;
-  v8->ProcessHeaps = (void **)&unk_180163C40;
-  RtlInitializeCriticalSectionEx((__int64)&unk_180163BE0, 0, 0x10000000);
+  v8->ProcessHeaps = (PVOID *)&unk_180163C40;
+  RtlInitializeCriticalSectionEx(&stru_180163BE0, 0, 0x10000000u);
   qword_180166970 = sub_180049EE0(v15, v14, v16);
-  if ( (RtlGetSuiteMask(v17) & 0x10000) != 0 )
+  if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {
     dword_180166070 |= 4u;
     qword_1801627A0 = 1024LL;

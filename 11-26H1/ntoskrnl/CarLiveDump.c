@@ -1,12 +1,12 @@
 /*
- * XREFs of CarLiveDump @ 0x14064CB60
+ * XREFs of CarLiveDump @ 0x140650740
  * Callers:
- *     CarWriteLivedump @ 0x14064CD54 (CarWriteLivedump.c)
+ *     CarWriteLivedump @ 0x140650934 (CarWriteLivedump.c)
  * Callees:
- *     CarEtwWriteLiveDumpEvent @ 0x140648D98 (CarEtwWriteLiveDumpEvent.c)
- *     DifiDbgPrint @ 0x14064C7F0 (DifiDbgPrint.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CarEtwWriteLiveDumpEvent @ 0x14064C978 (CarEtwWriteLiveDumpEvent.c)
+ *     DifiDbgPrint @ 0x1406503D0 (DifiDbgPrint.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CarLiveDump(_QWORD *P)
@@ -43,7 +43,7 @@ __int64 __fastcall CarLiveDump(_QWORD *P)
     if ( v7 >= 0 )
     {
       CarEtwWriteLiveDumpEvent((int *)P, v8, v9);
-      stru_140F066E8.KernelStack = (void *)MEMORY[0xFFFFF78000000014];
+      stru_140F06A28.StateSaveArea = (_XSAVE_FORMAT *)MEMORY[0xFFFFF78000000014];
     }
     else
     {
@@ -55,6 +55,6 @@ __int64 __fastcall CarLiveDump(_QWORD *P)
   {
     v2 = -1073741811;
   }
-  _InterlockedExchange((volatile __int32 *)&stru_140F066E8.CurrentRunTime, 0);
+  _InterlockedExchange((volatile __int32 *)&stru_140F06A28.KernelStack, 0);
   return v2;
 }

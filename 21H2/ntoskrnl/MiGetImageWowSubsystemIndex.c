@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetImageWowSubsystemIndex @ 0x140714AA8
+ * XREFs of MiGetImageWowSubsystemIndex @ 0x1406C30F8
  * Callers:
- *     MiUpdateCfgSystemWideBitmap @ 0x140714460 (MiUpdateCfgSystemWideBitmap.c)
- *     MiSelectImageBase @ 0x140714524 (MiSelectImageBase.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x1406C2AB0 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x1406C2B74 (MiSelectImageBase.c)
  * Callees:
  *     <none>
  */

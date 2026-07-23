@@ -1,10 +1,10 @@
 /*
- * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x1406281D4
+ * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140628288
  * Callers:
- *     NtQueryEnvironmentVariableInfoEx @ 0x1406B4C80 (NtQueryEnvironmentVariableInfoEx.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x1406B4DB8 (NtQueryEnvironmentVariableInfoEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopOpenSystemVariableDevice @ 0x140628DBC (IopOpenSystemVariableDevice.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopOpenSystemVariableDevice @ 0x140628E70 (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInsertTimerTable @ 0x140348000
+ * XREFs of KiInsertTimerTable @ 0x140352D50
  * Callers:
- *     KiTimerWaitTest @ 0x140247DF0 (KiTimerWaitTest.c)
- *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x14025FF30 (KeSetTimerEx.c)
- *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
- *     KiAdjustTimerDueTimes @ 0x14039E16C (KiAdjustTimerDueTimes.c)
+ *     KiResumeThread @ 0x140267870 (KiResumeThread.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x1402816A0 (KeSetTimerEx.c)
+ *     KiTimerWaitTest @ 0x1402EC640 (KiTimerWaitTest.c)
+ *     ExpSetTimerObject @ 0x1402EDC70 (ExpSetTimerObject.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
+ *     KiAdjustTimerDueTimes @ 0x14039E2BC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KiRemoveEntryTimer @ 0x140247790 (KiRemoveEntryTimer.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRemoveEntryTimer @ 0x1402EBFE0 (KiRemoveEntryTimer.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -150,7 +150,7 @@ _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, unsigned __int64 a3
     if ( v11 > v21 )
     {
       v31 = (_QWORD *)(v17 + 16);
-      if ( v11 - v21 <= (unsigned __int64)(unsigned int)KeMaximumIncrement >> 2 )
+      if ( v11 - v21 <= (unsigned __int64)KeMaximumIncrement >> 2 )
       {
         v18 = v20;
         if ( v20 != (_QWORD *)*v31 )

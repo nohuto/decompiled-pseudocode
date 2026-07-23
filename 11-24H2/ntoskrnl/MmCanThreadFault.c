@@ -1,23 +1,23 @@
 /*
- * XREFs of MmCanThreadFault @ 0x14027DC40
+ * XREFs of MmCanThreadFault @ 0x1402331D0
  * Callers:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x1403ED180 (EtwpGetStackExtendedHeaderItem.c)
- *     EtwpStackTraceDispatcher @ 0x1403ED650 (EtwpStackTraceDispatcher.c)
- *     EtwpCovSampCaptureApc @ 0x14043E480 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x14044BFEC (EtwpCovSampSafeForUserAddressCapture.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x1403DD150 (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpStackTraceDispatcher @ 0x1403DD620 (EtwpStackTraceDispatcher.c)
+ *     EtwpCovSampCaptureApc @ 0x1404340A0 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x14044312C (EtwpCovSampSafeForUserAddressCapture.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
  */
 
-_BOOL8 MmCanThreadFault()
+_BOOL8 __fastcall MmCanThreadFault(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rcx
 
-  if ( !KeAreInterruptsEnabled() )
+  if ( !(unsigned __int8)KeAreInterruptsEnabled(a1, a2) )
     return 0LL;
   if ( KeGetCurrentIrql() >= 2u )
     return 0LL;

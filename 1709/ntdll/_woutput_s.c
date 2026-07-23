@@ -10,29 +10,29 @@
  *     write_string_2 @ 0x18009E9F4 (write_string_2.c)
  */
 
-__int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
+__int64 __fastcall woutput_s(__int64 a1, WCHAR *a2, int *a3)
 {
   int v4; // edi
   int v5; // r14d
   int v6; // edx
   int v7; // r11d
-  unsigned __int16 v9; // r9
+  WCHAR v9; // r9
   int v10; // esi
   __int64 v11; // r12
   int v12; // r10d
-  char *v13; // rbx
+  WCHAR *v13; // rbx
   int v14; // ecx
   unsigned int v15; // r10d
   __int64 v16; // rax
   int *v17; // r8
-  char *v18; // rcx
+  unsigned __int16 *v18; // rcx
   int v19; // ecx
-  char *v20; // rax
+  WCHAR *v20; // rax
   _BYTE *v21; // rax
-  __int16 v22; // ax
+  WCHAR v22; // ax
   int v23; // eax
   int v24; // eax
-  char *j; // r12
+  _WORD *j; // r12
   int v26; // r13d
   unsigned __int64 v27; // r8
   char *v28; // rbx
@@ -51,7 +51,7 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
   __int64 v41; // rdx
   int v42; // r11d
   int v43; // r10d
-  char *v44; // r15
+  UCHAR *v44; // r15
   int v45; // esi
   int v46; // r10d
   __int64 v47; // r11
@@ -67,8 +67,8 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
   int v57; // [rsp+40h] [rbp-C0h]
   int *v58; // [rsp+48h] [rbp-B8h]
   int v59; // [rsp+50h] [rbp-B0h]
-  char v60[4]; // [rsp+54h] [rbp-ACh] BYREF
-  unsigned __int16 v61[2]; // [rsp+58h] [rbp-A8h] BYREF
+  UCHAR v60[4]; // [rsp+54h] [rbp-ACh] BYREF
+  WCHAR v61[2]; // [rsp+58h] [rbp-A8h] BYREF
   _WORD v62[2]; // [rsp+5Ch] [rbp-A4h] BYREF
   __int64 v63; // [rsp+60h] [rbp-A0h]
   int v64; // [rsp+68h] [rbp-98h]
@@ -76,8 +76,8 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
   int v66; // [rsp+70h] [rbp-90h]
   int v67; // [rsp+74h] [rbp-8Ch]
   int v68; // [rsp+78h] [rbp-88h]
-  char *v69; // [rsp+80h] [rbp-80h]
-  _WORD v70[56]; // [rsp+90h] [rbp-70h] BYREF
+  WCHAR *v69; // [rsp+80h] [rbp-80h]
+  WCHAR v70[56]; // [rsp+90h] [rbp-70h] BYREF
   __int64 v71; // [rsp+100h] [rbp+0h] BYREF
   char v72; // [rsp+28Fh] [rbp+18Fh] BYREF
 
@@ -98,7 +98,7 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
     invalid_parameter();
     return 0xFFFFFFFFLL;
   }
-  v9 = *(_WORD *)a2;
+  v9 = *a2;
   v10 = 0;
   v56 = 0;
   LODWORD(v11) = 0;
@@ -110,8 +110,7 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
   v66 = 32;
   do
   {
-    a2 += 2;
-    v69 = a2;
+    v69 = ++a2;
     if ( v10 < 0 )
       break;
     if ( (unsigned __int16)(v9 - v66) <= 0x58u )
@@ -208,19 +207,19 @@ LABEL_172:
         switch ( v9 )
         {
           case 'I':
-            v51 = *(unsigned __int16 *)a2;
+            v51 = *a2;
             v4 |= 0x8000u;
             if ( (_WORD)v51 == 54 )
             {
-              if ( *((_WORD *)a2 + 1) != 52 )
+              if ( a2[1] != 52 )
                 goto LABEL_189;
-              a2 += 4;
+              a2 += 2;
             }
             else if ( (_WORD)v51 == 51 )
             {
-              if ( *((_WORD *)a2 + 1) != 50 )
+              if ( a2[1] != 50 )
                 goto LABEL_189;
-              a2 += 4;
+              a2 += 2;
               v4 &= ~0x8000u;
             }
             else
@@ -237,9 +236,9 @@ LABEL_172:
             v4 |= 0x20u;
             break;
           case 'l':
-            if ( *(_WORD *)a2 == 108 )
+            if ( *a2 == 108 )
             {
-              a2 += 2;
+              ++a2;
               v50 = 4096;
             }
             else
@@ -270,18 +269,18 @@ LABEL_172:
             {
               if ( v9 == 90 )
               {
-                v18 = *(char **)a3;
+                v18 = *(unsigned __int16 **)a3;
                 v58 = a3 + 2;
-                if ( v18 && (v13 = (char *)*((_QWORD *)v18 + 1)) != 0LL )
+                if ( v18 && (v13 = (WCHAR *)*((_QWORD *)v18 + 1)) != 0LL )
                 {
-                  if ( *((_WORD *)v18 + 1) < *(_WORD *)v18 )
+                  if ( v18[1] < *v18 )
                     goto LABEL_190;
-                  LODWORD(v11) = *(unsigned __int16 *)v18;
+                  LODWORD(v11) = *v18;
                   if ( (v4 & 0x800) != 0 )
                   {
                     if ( (v11 & 1) != 0 || ((unsigned __int8)v13 & 1) != 0 )
                       goto LABEL_190;
-                    LODWORD(v11) = *(unsigned __int16 *)v18 >> 1;
+                    LODWORD(v11) = *v18 >> 1;
                     v59 = 1;
                   }
                   else
@@ -291,7 +290,7 @@ LABEL_172:
                 }
                 else
                 {
-                  v13 = "(null)";
+                  v13 = (WCHAR *)"(null)";
                   LODWORD(v11) = 6;
                 }
                 goto LABEL_105;
@@ -348,7 +347,7 @@ LABEL_116:
                     }
                     if ( v59 == v42 && (int)v11 > 0 )
                     {
-                      v44 = v13;
+                      v44 = (UCHAR *)v13;
                       v45 = v11;
                       while ( 1 )
                       {
@@ -421,7 +420,7 @@ LABEL_52:
               {
                 v70[0] = v22;
               }
-              v13 = (char *)v70;
+              v13 = v70;
               LODWORD(v11) = 1;
               goto LABEL_105;
             }
@@ -444,11 +443,11 @@ LABEL_41:
           v19 = v6;
           if ( v6 == -1 )
             v19 = 0x7FFFFFFF;
-          v20 = *(char **)a3;
+          v20 = *(WCHAR **)a3;
           v58 = a3 + 2;
           if ( (v4 & 0x20) != 0 )
           {
-            v13 = "(null)";
+            v13 = (WCHAR *)"(null)";
             LODWORD(v11) = 0;
             if ( v20 )
               v13 = v20;
@@ -468,16 +467,16 @@ LABEL_41:
           else
           {
             v59 = 1;
-            v13 = (char *)L"(null)";
+            v13 = L"(null)";
             if ( v20 )
               v13 = v20;
-            for ( j = v13; v19; j += 2 )
+            for ( j = v13; v19; ++j )
             {
               --v19;
-              if ( !*(_WORD *)j )
+              if ( !*j )
                 break;
             }
-            v11 = (j - v13) >> 1;
+            v11 = j - v13;
           }
           goto LABEL_105;
         }
@@ -569,26 +568,26 @@ LABEL_86:
         }
         v55 = v26;
         LODWORD(v11) = (unsigned int)&v71 + 399 - (_DWORD)v28;
-        v13 = v28 + 1;
+        v13 = (WCHAR *)(v28 + 1);
         v7 = v31;
         if ( (v4 & 0x200) != 0 )
         {
-          if ( !(_DWORD)v11 || (v54 = v31, *v13 != 48) )
+          if ( !(_DWORD)v11 || (v54 = v31, *(_BYTE *)v13 != 48) )
           {
-            --v13;
+            v13 = (WCHAR *)((char *)v13 - 1);
             v54 = v31;
             LODWORD(v11) = v11 + 1;
-            *v13 = 48;
+            *(_BYTE *)v13 = 48;
           }
         }
         goto LABEL_105;
     }
     v12 = v53;
 LABEL_145:
-    v9 = *(_WORD *)a2;
+    v9 = *a2;
     v14 = 0;
   }
-  while ( *(_WORD *)a2 );
+  while ( *a2 );
   if ( v12 && v12 != 7 )
   {
 LABEL_190:

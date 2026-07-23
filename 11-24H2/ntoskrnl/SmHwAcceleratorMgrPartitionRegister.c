@@ -1,36 +1,36 @@
 /*
- * XREFs of SmHwAcceleratorMgrPartitionRegister @ 0x14079C60C
+ * XREFs of SmHwAcceleratorMgrPartitionRegister @ 0x14079C71C
  * Callers:
- *     SmHwAcceleratorPartitionMgrStart @ 0x14079CCB0 (SmHwAcceleratorPartitionMgrStart.c)
+ *     SmHwAcceleratorPartitionMgrStart @ 0x14079CDC0 (SmHwAcceleratorPartitionMgrStart.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SmHwAcceleratorMgrAcquireAccelerators @ 0x14079BE58 (SmHwAcceleratorMgrAcquireAccelerators.c)
- *     SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x14079C48C (SmHwAcceleratorMgrCreatePartitionAccelerators.c)
- *     SmHwAcceleratorMgrPartitionUnregister @ 0x14079C72C (SmHwAcceleratorMgrPartitionUnregister.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SmHwAcceleratorMgrAcquireAccelerators @ 0x14079BF68 (SmHwAcceleratorMgrAcquireAccelerators.c)
+ *     SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x14079C59C (SmHwAcceleratorMgrCreatePartitionAccelerators.c)
+ *     SmHwAcceleratorMgrPartitionUnregister @ 0x14079C83C (SmHwAcceleratorMgrPartitionUnregister.c)
  */
 
 __int64 __fastcall SmHwAcceleratorMgrPartitionRegister(ULONG_PTR BugCheckParameter2, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rax
-  _QWORD *v6; // rbp
+  char *v5; // rax
+  char *v6; // rbp
   int v7; // r14d
   _QWORD *v8; // rcx
   int PartitionAccelerators; // ebp
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+  v5 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v5, BugCheckParameter2);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v5, BugCheckParameter2);
   v7 = 1;
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   if ( !*(_DWORD *)(BugCheckParameter2 + 1304) && (int)SmHwAcceleratorMgrAcquireAccelerators(BugCheckParameter2) < 0 )
     *(_DWORD *)(BugCheckParameter2 + 1304) = -1;
   v8 = *(_QWORD **)(BugCheckParameter2 + 16);

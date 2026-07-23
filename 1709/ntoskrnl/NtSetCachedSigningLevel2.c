@@ -13,23 +13,23 @@
  *     ExRaiseDatatypeMisalignment @ 0x14075EBC0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetCachedSigningLevel2(
-        char a1,
-        char a2,
-        char *a3,
-        unsigned int a4,
-        __int64 a5,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtSetCachedSigningLevel2(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile,
+        SE_SET_FILE_CACHE_INFORMATION *CacheInformation)
 {
   __int64 v6; // r15
   char v8; // r14
   UNICODE_STRING *PoolWithTag; // rdi
   char PreviousMode; // r12
   _KPROCESS *Process; // rdx
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   int v14; // ebx
   SIZE_T v15; // r15
-  unsigned __int64 v16; // rbx
+  SE_SET_FILE_CACHE_INFORMATION *v16; // rbx
   __int64 v17; // r8
   ULONG v18; // edx
   __int64 v19; // rdx
@@ -37,8 +37,8 @@ __int64 __fastcall NtSetCachedSigningLevel2(
   unsigned int v21; // [rsp+54h] [rbp-54h]
   PCUNICODE_STRING SourceString[4]; // [rsp+60h] [rbp-48h] BYREF
 
-  v6 = a4;
-  v8 = a1;
+  v6 = SourceFileCount;
+  v8 = Flags;
   PoolWithTag = 0LL;
   LOBYTE(v21) = 0;
   SourceString[0] = 0LL;
@@ -48,26 +48,26 @@ __int64 __fastcall NtSetCachedSigningLevel2(
     v12 = -1073741823;
     goto LABEL_12;
   }
-  if ( (a2 & 0x30) != 0 )
+  if ( (InputSigningLevel & 0x30) != 0 )
     goto LABEL_47;
-  if ( a4 - 1 > 0xFFF )
+  if ( SourceFileCount - 1 > 0xFFF )
     goto LABEL_58;
-  if ( (a1 & 6) == 0 && a2 )
+  if ( (Flags & 6) == 0 && InputSigningLevel )
   {
 LABEL_47:
     v12 = -1073741584;
     goto LABEL_12;
   }
-  if ( (a1 & 3) == 3 )
+  if ( (Flags & 3) == 3 )
     goto LABEL_48;
   if ( PreviousMode != 1 )
   {
-    if ( (a1 & 1) != 0 )
+    if ( (Flags & 1) != 0 )
     {
       LOBYTE(v21) = 15;
       goto LABEL_21;
     }
-    if ( (a1 & 2) != 0 )
+    if ( (Flags & 2) != 0 )
     {
       LOBYTE(v21) = 8;
       goto LABEL_21;
@@ -76,10 +76,10 @@ LABEL_48:
     v12 = -1073741585;
     goto LABEL_12;
   }
-  if ( (a1 & 2) != 0 )
+  if ( (Flags & 2) != 0 )
     goto LABEL_48;
-  v8 = a1 | 1;
-  if ( (a1 & 4) == 0 )
+  v8 = Flags | 1;
+  if ( (Flags & 4) == 0 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
     v20 = BYTE1(Process[2].ActiveProcessors.Bitmap[0]);
@@ -106,58 +106,61 @@ LABEL_21:
   {
     if ( v15 )
     {
-      if ( ((unsigned __int8)a3 & 7) != 0 )
+      if ( ((unsigned __int8)SourceFiles & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&a3[v15] > 0x7FFFFFFF0000LL || &a3[v15] < a3 )
+      if ( (unsigned __int64)&SourceFiles[v15 / 8] > 0x7FFFFFFF0000LL || &SourceFiles[v15 / 8] < SourceFiles )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    v16 = a6;
-    if ( a6 )
+    v16 = CacheInformation;
+    if ( CacheInformation )
     {
-      if ( (a6 & 3) != 0 )
+      if ( ((unsigned __int8)CacheInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( a6 + 24 > 0x7FFFFFFF0000LL || a6 + 24 < a6 )
+      if ( (unsigned __int64)&CacheInformation->OriginClaimInfo > 0x7FFFFFFF0000LL
+        || &CacheInformation->OriginClaimInfo < (SE_FILE_CACHE_CLAIM_INFORMATION *)CacheInformation )
+      {
         MEMORY[0x7FFFFFFF0000] = 0;
+      }
     }
   }
   else
   {
-    v16 = a6;
+    v16 = CacheInformation;
   }
-  memmove(PoolWithTag, a3, v15);
+  memmove(PoolWithTag, SourceFiles, v15);
   if ( !v16 )
     goto LABEL_44;
-  if ( *(_DWORD *)v16 < 0x18u )
+  if ( v16->Size < 0x18 )
   {
     v12 = -1073741580;
     goto LABEL_12;
   }
-  if ( !*(_WORD *)(v16 + 8)
-    || (v12 = SepCaptureUnicodeStringArray(v16 + 8, 1u, PreviousMode, SourceString), v12 >= 0)
+  if ( !v16->CatalogDirectoryPath.Length
+    || (v12 = SepCaptureUnicodeStringArray((__int64)&v16->CatalogDirectoryPath, 1u, PreviousMode, SourceString), v12 >= 0)
     && (v12 = RtlUnicodeStringValidateEx(SourceString[0], v18), v12 >= 0) )
   {
 LABEL_44:
-    v19 = a4;
+    v19 = SourceFileCount;
     if ( (v8 & 6) == 0 )
       goto LABEL_57;
-    if ( a4 == 1 )
+    if ( SourceFileCount == 1 )
     {
-      if ( a5 != *(_QWORD *)&PoolWithTag->Length )
+      if ( TargetFile != *(HANDLE *)&PoolWithTag->Length )
       {
         v12 = -1073741581;
         goto LABEL_12;
       }
 LABEL_57:
-      LOBYTE(v17) = a2;
+      LOBYTE(v17) = InputSigningLevel;
       LOBYTE(v19) = PreviousMode;
-      v12 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD, UNICODE_STRING *, unsigned int, __int64, PCUNICODE_STRING))qword_140362628)(
+      v12 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD, UNICODE_STRING *, ULONG, HANDLE, PCUNICODE_STRING))qword_140362628)(
               v8 & 0xF,
               v19,
               v17,
               v21,
               PoolWithTag,
-              a4,
-              a5,
+              SourceFileCount,
+              TargetFile,
               SourceString[0]);
       goto LABEL_12;
     }
@@ -169,5 +172,5 @@ LABEL_12:
     ExFreePoolWithTag((PVOID)SourceString[0], 0);
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0x63734943u);
-  return (unsigned int)v12;
+  return v12;
 }

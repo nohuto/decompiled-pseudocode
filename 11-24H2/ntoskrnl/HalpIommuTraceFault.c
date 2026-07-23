@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuTraceFault @ 0x1404B644C
+ * XREFs of HalpIommuTraceFault @ 0x1404B0C2C
  * Callers:
- *     HalpIommuReportIommuFault @ 0x1404B6400 (HalpIommuReportIommuFault.c)
+ *     HalpIommuReportIommuFault @ 0x1404B0BE0 (HalpIommuReportIommuFault.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN HalpIommuTraceFault(__int64 a1, __int64 a2, int a3, ...)
@@ -62,11 +62,11 @@ BOOLEAN HalpIommuTraceFault(__int64 a1, __int64 a2, int a3, ...)
     KxAcquireSpinLock(&HalpIommuEarlyFaultRecordsLock);
     if ( (HalpIommuEarlyFaultRecords & 1) == 0 )
     {
-      qword_140FC08E8 = v14;
-      qword_140FC08F0 = v15;
-      dword_140FC08E4 = v16;
+      qword_140FC0B48 = v14;
+      qword_140FC0B50 = v15;
+      dword_140FC0B44 = v16;
       HalpIommuEarlyFaultRecords |= 1u;
-      qword_140FC08F8 = v17;
+      qword_140FC0B58 = v17;
       KeInsertQueueDpc(&HalpIommuEarlyFaultDpc, 0LL, 0LL);
     }
     return KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuEarlyFaultRecordsLock);

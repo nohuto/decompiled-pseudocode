@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkApicInitializeLocalUnit @ 0x140C7C1F0
+ * XREFs of HalpBlkApicInitializeLocalUnit @ 0x140C821F0
  * Callers:
- *     HalpBlkProcessorStartup @ 0x140C7C870 (HalpBlkProcessorStartup.c)
+ *     HalpBlkProcessorStartup @ 0x140C82870 (HalpBlkProcessorStartup.c)
  * Callees:
- *     HalpBlkApicRead @ 0x140C7C34C (HalpBlkApicRead.c)
- *     HalpBlkApicWrite @ 0x140C7C390 (HalpBlkApicWrite.c)
+ *     HalpBlkApicRead @ 0x140C8234C (HalpBlkApicRead.c)
+ *     HalpBlkApicWrite @ 0x140C82390 (HalpBlkApicWrite.c)
  */
 
 __int64 HalpBlkApicInitializeLocalUnit()

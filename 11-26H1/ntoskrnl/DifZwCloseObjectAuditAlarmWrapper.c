@@ -1,82 +1,83 @@
 /*
- * XREFs of DifZwCloseObjectAuditAlarmWrapper @ 0x14069D110
+ * XREFs of DifZwCloseObjectAuditAlarmWrapper @ 0x1406A0CF0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCloseObjectAuditAlarm @ 0x140723B50 (ZwCloseObjectAuditAlarm.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCloseObjectAuditAlarm @ 0x140728720 (ZwCloseObjectAuditAlarm.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwCloseObjectAuditAlarmWrapper(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall DifZwCloseObjectAuditAlarmWrapper(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        BOOLEAN GenerateOnClose)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int128 *v9; // rsi
-  int v10; // eax
-  BOOLEAN v11; // r14
+  __int128 *v8; // rsi
+  int v9; // eax
+  BOOLEAN v10; // r14
   __int128 *i; // rbx
-  __int64 v13; // rdx
-  BOOLEAN v14; // di
-  _QWORD **v15; // rsi
+  __int64 v12; // rdx
+  BOOLEAN v13; // di
+  _QWORD **v14; // rsi
   _QWORD *j; // rbx
-  __int128 v18; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v19; // [rsp+30h] [rbp-20h]
-  __int64 v20; // [rsp+40h] [rbp-10h]
+  __int128 v17; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v18; // [rsp+30h] [rbp-20h]
+  __int64 v19; // [rsp+40h] [rbp-10h]
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+28h]
 
-  v20 = 0LL;
-  v18 = 0LL;
   v19 = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(130);
-  v9 = APIThunkContextById;
+  v8 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v10 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v10 & 0x18) != 0 )
+    v9 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v9 & 0x18) != 0 )
     {
-      *(_QWORD *)&v18 = retaddr;
+      *(_QWORD *)&v17 = retaddr;
     }
-    else if ( (v10 & 4) != 0 )
+    else if ( (v9 & 4) != 0 )
     {
-      *(_QWORD *)&v18 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
-    v11 = 0;
-    *((_QWORD *)&v19 + 1) = a1;
-    *(_QWORD *)&v19 = a2;
-    BYTE8(v18) = a3;
+    v10 = 0;
+    *((_QWORD *)&v18 + 1) = SubsystemName;
+    *(_QWORD *)&v18 = HandleId;
+    BYTE8(v17) = GenerateOnClose;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v11 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+      || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int128 *)*((_QWORD *)v9 + 4); i != v9 + 2; i = *(__int128 **)i )
+      for ( i = (__int128 *)*((_QWORD *)v8 + 4); i != v8 + 2; i = *(__int128 **)i )
       {
         if ( i != (__int128 *)16 )
-          guard_dispatch_icall_no_overrides(&v18, v7);
+          guard_dispatch_icall_no_overrides(&v17, v7);
       }
-      if ( v11 )
+      if ( v10 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v8) = a3;
-  LODWORD(v20) = ZwCloseObjectAuditAlarm(a1, a2, v8);
-  if ( v9 )
+  LODWORD(v19) = ZwCloseObjectAuditAlarm(SubsystemName, HandleId, GenerateOnClose);
+  if ( v8 )
   {
-    if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v14 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+    if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v13 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v15 = (_QWORD **)(v9 + 3);
-      for ( j = *v15; j != v15; j = (_QWORD *)*j )
+      v14 = (_QWORD **)(v8 + 3);
+      for ( j = *v14; j != v14; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v18, v13);
+          guard_dispatch_icall_no_overrides(&v17, v12);
       }
-      if ( v14 )
+      if ( v13 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return (unsigned int)v20;
+  return (unsigned int)v19;
 }

@@ -6,12 +6,12 @@
  *     RtlAnsiCharToUnicodeChar @ 0x1407CD880 (RtlAnsiCharToUnicodeChar.c)
  */
 
-size_t __cdecl mbstrlen(const char *Str)
+size_t __cdecl mbstrlen(const char *_String)
 {
-  const char *v3; // [rsp+30h] [rbp+8h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = Str;
-  while ( (unsigned __int16)RtlAnsiCharToUnicodeChar(&v3) )
+  SourceCharacter = (PUCHAR)_String;
+  while ( RtlAnsiCharToUnicodeChar(&SourceCharacter) )
     ;
-  return v3 - Str - 1;
+  return SourceCharacter - (PUCHAR)_String - 1;
 }

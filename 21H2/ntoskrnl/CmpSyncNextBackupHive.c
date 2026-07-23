@@ -1,27 +1,36 @@
 /*
- * XREFs of CmpSyncNextBackupHive @ 0x140871460
+ * XREFs of CmpSyncNextBackupHive @ 0x1408715C0
  * Callers:
- *     NtInitializeRegistry @ 0x14078D500 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14078D6C0 (NtInitializeRegistry.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     CmpFlushBackupHive @ 0x140870F40 (CmpFlushBackupHive.c)
- *     TryLockShutdownShared @ 0x140875C60 (TryLockShutdownShared.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     CmpFlushBackupHive @ 0x1408710A0 (CmpFlushBackupHive.c)
+ *     TryLockShutdownShared @ 0x140875DC0 (TryLockShutdownShared.c)
  */
 
 __int64 CmpSyncNextBackupHive()
 {
   unsigned int v0; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  BOOLEAN v2; // di
+  __int64 v2; // rdx
+  BOOLEAN v3; // di
+  __int64 v4; // r8
+  __int64 v5; // r9
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  unsigned int v5; // [rsp+90h] [rbp+20h]
-  int v6; // [rsp+98h] [rbp+28h]
+  unsigned int v14; // [rsp+90h] [rbp+20h]
+  int v15; // [rsp+98h] [rbp+28h]
   HANDLE KeyHandle; // [rsp+A0h] [rbp+30h] BYREF
 
   KeyHandle = 0LL;
@@ -30,23 +39,23 @@ __int64 CmpSyncNextBackupHive()
     return (unsigned int)-2147483622;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v2 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-  if ( v2 )
+  v3 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  if ( v3 )
   {
     if ( CmpDoIdleProcessing )
     {
       do
       {
-        v6 = CmpPeriodicBackupFlushHiveCount;
+        v15 = CmpPeriodicBackupFlushHiveCount;
         if ( (unsigned int)CmpPeriodicBackupFlushHiveCount >= 6 )
-          v5 = 0;
+          v14 = 0;
         else
-          v5 = CmpPeriodicBackupFlushHiveCount + 1;
+          v14 = CmpPeriodicBackupFlushHiveCount + 1;
       }
-      while ( _InterlockedCompareExchange(&CmpPeriodicBackupFlushHiveCount, v5, CmpPeriodicBackupFlushHiveCount) != v6 );
-      if ( ((__int64)CmpMachineHiveList[25 * v5 + 4] & 1) == 0 && CmpMachineHiveList[25 * v5 + 6] )
-        CmpFlushBackupHive(v5);
-      if ( v5 == 6 )
+      while ( _InterlockedCompareExchange(&CmpPeriodicBackupFlushHiveCount, v14, CmpPeriodicBackupFlushHiveCount) != v15 );
+      if ( ((__int64)CmpMachineHiveList[25 * v14 + 4] & 1) == 0 && CmpMachineHiveList[25 * v14 + 6] )
+        CmpFlushBackupHive(v14);
+      if ( v14 == 6 )
       {
         ObjectAttributes.RootDirectory = 0LL;
         ObjectAttributes.Length = 48;
@@ -70,16 +79,16 @@ __int64 CmpSyncNextBackupHive()
   }
   else
   {
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v2, v4, v5);
   }
   v0 = -1073741431;
 LABEL_19:
   ExReleasePushLockEx((ULONG_PTR)&CmpShutdownLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( v2 )
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
+  if ( v3 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
   }
   return v0;
 }

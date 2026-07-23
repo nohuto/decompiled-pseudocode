@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeSharedUserData @ 0x140A579E0
+ * XREFs of MiInitializeSharedUserData @ 0x140A589E0
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     HvlGetSharedPageVa @ 0x1402ED170 (HvlGetSharedPageVa.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     HvlGetSharedPageVa @ 0x14029E4C0 (HvlGetSharedPageVa.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -61,7 +61,7 @@ __int64 MiInitializeSharedUserData()
       v3 = 15LL;
       if ( v2 )
         v3 = v2;
-      qword_140C4DE48 = (v3 + 524256) << 12;
+      qword_140C4DE88 = (v3 + 524256) << 12;
     }
   }
   result = (__int64)MiAllocatePool(274, 8 * v0, 0x74536D4Du);
@@ -83,7 +83,7 @@ __int64 MiInitializeSharedUserData()
         if ( (unsigned int)MiPteHasShadow() )
         {
           v11 = 1;
-          if ( !HIBYTE(word_140C4E008) )
+          if ( !HIBYTE(word_140C4E048) )
           {
             v16 = (v10 & 1) == 0;
             goto LABEL_15;
@@ -99,8 +99,8 @@ LABEL_15:
       }
       *v9 = v12;
       if ( v11 )
-        MiWritePteShadow(v5 + 8 * v6, v12, v14);
-      qword_140C4DE38[v6] = (__int64)v9;
+        MiWritePteShadow(v5 + 8 * v6, v12);
+      qword_140C4DE78[v6] = (__int64)v9;
       v17 = 48 * v8 - 0x58000000000LL;
       v18 = (unsigned __int8)MiLockPageInline(v17, v13, v14, v15);
       *(_QWORD *)(v17 + 16) = MiSwizzleInvalidPte(128LL);

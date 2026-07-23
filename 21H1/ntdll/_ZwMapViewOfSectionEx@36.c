@@ -6,7 +6,16 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwMapViewOfSectionEx(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)
+NTSTATUS __cdecl ZwMapViewOfSectionEx(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   return Wow64SystemServiceCall();
 }

@@ -21,7 +21,7 @@ __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(__int64 a1, unsigned int a2, 
   __int64 v12; // r8
   _BYTE v13[32]; // [rsp+20h] [rbp-58h] BYREF
 
-  result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+  result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
   v9 = result;
   if ( (int)result >= 0 )
   {

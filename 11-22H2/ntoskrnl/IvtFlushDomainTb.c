@@ -21,10 +21,10 @@ __int64 __fastcall IvtFlushDomainTb(__int64 a1, __int64 a2, __int64 a3, unsigned
   IvtFlushTbInternal(a1, 0, a2, 1, 0LL, (_QWORD *)(a2 + 56), a4, a5);
   v8 = *(unsigned __int8 *)(a2 + 96);
   result = KxReleaseSpinLock((volatile signed __int64 *)(a2 + 88));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v8 <= 0xFu
       && (unsigned __int8)result >= 2u )

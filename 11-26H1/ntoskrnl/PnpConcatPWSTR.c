@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpConcatPWSTR @ 0x140992634
+ * XREFs of PnpConcatPWSTR @ 0x140953094
  * Callers:
- *     PiSwStopDestroy @ 0x14090FEE8 (PiSwStopDestroy.c)
- *     PiDqOpenUserObjectRegKey @ 0x1409920EC (PiDqOpenUserObjectRegKey.c)
- *     PnpActivatePdcForDeviceEvent @ 0x1409DCA60 (PnpActivatePdcForDeviceEvent.c)
- *     PiSwGetChildPdo @ 0x140A7AAD4 (PiSwGetChildPdo.c)
- *     PiSwInstanceInfoInit @ 0x140A7C318 (PiSwInstanceInfoInit.c)
- *     PipCheckForDenyExecute @ 0x140B02460 (PipCheckForDenyExecute.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140952B4C (PiDqOpenUserObjectRegKey.c)
+ *     PiSwStopDestroy @ 0x1409B2018 (PiSwStopDestroy.c)
+ *     PnpActivatePdcForDeviceEvent @ 0x140A19D10 (PnpActivatePdcForDeviceEvent.c)
+ *     PiSwGetChildPdo @ 0x140A8BC18 (PiSwGetChildPdo.c)
+ *     PiSwInstanceInfoInit @ 0x140A8D448 (PiSwInstanceInfoInit.c)
+ *     PipCheckForDenyExecute @ 0x140B04190 (PipCheckForDenyExecute.c)
  * Callees:
- *     RtlStringCbCatW @ 0x1404308C4 (RtlStringCbCatW.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCbCatW @ 0x14041D8F0 (RtlStringCbCatW.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PnpConcatPWSTR(unsigned __int64 a1, ULONG a2, PVOID *a3, ...)

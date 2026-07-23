@@ -1,18 +1,18 @@
 /*
- * XREFs of KeTryToFreezeThreadStack @ 0x1404AB95C
+ * XREFs of KeTryToFreezeThreadStack @ 0x1404A5F7C
  * Callers:
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
  * Callees:
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiReleaseThreadStateLock @ 0x1403B27B0 (KiReleaseThreadStateLock.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiIsKernelStackSwappable @ 0x14040DFD0 (KiIsKernelStackSwappable.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiReleaseThreadStateLock @ 0x1403A0FC0 (KiReleaseThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiIsKernelStackSwappable @ 0x140406220 (KiIsKernelStackSwappable.c)
  */
 
 char __fastcall KeTryToFreezeThreadStack(__int64 a1, _QWORD *a2)
@@ -77,7 +77,7 @@ LABEL_18:
             if ( (int)v9 >= 0 )
             {
               v6 = KiProcessorBlock[v9];
-              KiAcquirePrcbLocksForIsolationUnit(v6, 0, (unsigned __int64 *)&v21);
+              KiAcquirePrcbLocksForIsolationUnit(v6, 0LL, (unsigned __int64 *)&v21);
               if ( a1 == *(_QWORD *)(v6 + 8) )
                 goto LABEL_48;
               if ( *(_BYTE *)(a1 + 388) == 2 && *(_DWORD *)(a1 + 536) == (_DWORD)v9 )
@@ -90,7 +90,7 @@ LABEL_18:
             if ( (int)v10 >= 0 )
             {
               v6 = KiProcessorBlock[v10];
-              KiAcquirePrcbLocksForIsolationUnit(v6, 0, (unsigned __int64 *)&v21);
+              KiAcquirePrcbLocksForIsolationUnit(v6, 0LL, (unsigned __int64 *)&v21);
               if ( a1 == *(_QWORD *)(v6 + 16) )
                 goto LABEL_48;
               if ( *(_BYTE *)(a1 + 388) == 3 && *(_DWORD *)(a1 + 536) == (_DWORD)v10 )
@@ -112,7 +112,7 @@ LABEL_18:
       if ( (int)v11 < 0 )
         break;
       v6 = KiProcessorBlock[v11];
-      KiAcquirePrcbLocksForIsolationUnit(v6, 0, (unsigned __int64 *)&v21);
+      KiAcquirePrcbLocksForIsolationUnit(v6, 0LL, (unsigned __int64 *)&v21);
       if ( *(_BYTE *)(a1 + 388) == 1 && *(_DWORD *)(a1 + 536) == (_DWORD)v11 )
         goto LABEL_48;
 LABEL_47:

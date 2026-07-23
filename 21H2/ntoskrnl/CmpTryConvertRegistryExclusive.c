@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpTryConvertRegistryExclusive @ 0x14086EAC4
+ * XREFs of CmpTryConvertRegistryExclusive @ 0x14086EC24
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x1408709C4 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x140870B24 (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     ExTryConvertSharedToExclusiveLite @ 0x1405B54DC (ExTryConvertSharedToExclusiveLite.c)
+ *     ExTryConvertSharedToExclusiveLite @ 0x1405B570C (ExTryConvertSharedToExclusiveLite.c)
  */
 
 __int64 CmpTryConvertRegistryExclusive()

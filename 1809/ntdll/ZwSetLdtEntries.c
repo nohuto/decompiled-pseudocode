@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwSetLdtEntries @ 0x1800A3650
+ * XREFs of ZwSetLdtEntries @ 0x1800A3670
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetLdtEntries()
+NTSTATUS __cdecl ZwSetLdtEntries(
+        ULONG Selector0,
+        ULONG Entry0Low,
+        ULONG Entry0Hi,
+        ULONG Selector1,
+        ULONG Entry1Low,
+        ULONG Entry1Hi)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 412LL;
+  result = 412;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

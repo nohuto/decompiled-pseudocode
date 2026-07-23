@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptMlDsaVectorINTT @ 0x14057448C
+ * XREFs of SymCryptMlDsaVectorINTT @ 0x1405736F0
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
- *     SymCryptMlDsaPkEncode @ 0x140572FE0 (SymCryptMlDsaPkEncode.c)
- *     SymCryptMlDsaSkEncode @ 0x140573DD0 (SymCryptMlDsaSkEncode.c)
- *     SymCryptMlDsakeyComputeT @ 0x1405747F8 (SymCryptMlDsakeyComputeT.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaPkEncode @ 0x1405721EC (SymCryptMlDsaPkEncode.c)
+ *     SymCryptMlDsaSkEncode @ 0x140573034 (SymCryptMlDsaSkEncode.c)
+ *     SymCryptMlDsakeyComputeT @ 0x140573A5C (SymCryptMlDsakeyComputeT.c)
  * Callees:
- *     SymCryptMlDsaPolyElementINTT @ 0x1405732B0 (SymCryptMlDsaPolyElementINTT.c)
+ *     SymCryptMlDsaPolyElementINTT @ 0x1405724BC (SymCryptMlDsaPolyElementINTT.c)
  */
 
 __int64 __fastcall SymCryptMlDsaVectorINTT(_BYTE *a1)

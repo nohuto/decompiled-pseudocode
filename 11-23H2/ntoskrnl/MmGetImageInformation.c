@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGetImageInformation @ 0x14077E280
+ * XREFs of MmGetImageInformation @ 0x14077E470
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x1403A289C (RtlpLookupUserFunctionTable.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x1405B1E00 (RtlGetImageBaseAndLoadConfig.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x14077DD7C (EtwpLocateDbgIdForRegEntry.c)
- *     KiCheckUserAddressCetCompat @ 0x14097561C (KiCheckUserAddressCetCompat.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E91F0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     RtlpLookupUserFunctionTable @ 0x1403A2A7C (RtlpLookupUserFunctionTable.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1405B2370 (RtlGetImageBaseAndLoadConfig.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x14077DF6C (EtwpLocateDbgIdForRegEntry.c)
+ *     KiCheckUserAddressCetCompat @ 0x14097581C (KiCheckUserAddressCetCompat.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E9480 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
  * Callees:
  *     MiCheckForConflictingVad @ 0x140214E40 (MiCheckForConflictingVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
  */
 
 __int64 __fastcall MmGetImageInformation(unsigned __int64 a1, _QWORD *a2, _QWORD *a3, int *a4)

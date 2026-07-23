@@ -1,17 +1,17 @@
 /*
- * XREFs of SepInitSystemDacls @ 0x1409AD07C
+ * XREFs of SepInitSystemDacls @ 0x1409AE07C
  * Callers:
- *     SepVariableInitialization @ 0x1409AB3EC (SepVariableInitialization.c)
+ *     SepVariableInitialization @ 0x1409AC3EC (SepVariableInitialization.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlAddMandatoryAce @ 0x1406308A0 (RtlAddMandatoryAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140654290 (RtlSetSaclSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1406555B0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     RtlAddMandatoryAce @ 0x1406318C0 (RtlAddMandatoryAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140655450 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140656740 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140656770 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406567D0 (RtlSetOwnerSecurityDescriptor.c)
  */
 
 NTSTATUS SepInitSystemDacls()
@@ -70,7 +70,7 @@ NTSTATUS SepInitSystemDacls()
        + v6
        + *((unsigned __int8 *)SeServiceSid + 1)
        + *((unsigned __int8 *)SeNetworkServiceSid + 1));
-  v11 = 4 * *(unsigned __int8 *)(*(_QWORD *)&SeMediumMandatorySid + 1LL) + 28;
+  v11 = 4 * *((unsigned __int8 *)SeMediumMandatorySid + 1) + 28;
   SePublicDefaultDacl = (PACL)ExAllocatePoolWithTag((POOL_TYPE)17, v5, 0x63416553u);
   SePublicDefaultUnrestrictedDacl = (PACL)ExAllocatePoolWithTag((POOL_TYPE)17, v7, 0x63416553u);
   SePublicOpenDacl = (PACL)ExAllocatePoolWithTag((POOL_TYPE)17, v5, 0x63416553u);
@@ -145,7 +145,7 @@ NTSTATUS SepInitSystemDacls()
   RtlAddAccessAllowedAce(AclLengtha, 2u, 0x1FFFFFu, SeServiceSid);
   RtlAddAccessAllowedAce(AclLengtha, 2u, 0x1200A9u, SeAllAppPackagesSid);
   LODWORD(LabelSid) = 2;
-  RtlAddMandatoryAce(SeMediumSacl, v25, 0, SeMediumMandatorySid, v27, LabelSid);
+  RtlAddMandatoryAce(SeMediumSacl, v25, 0, (ULONG)SeMediumMandatorySid, v27, LabelSid);
   SePublicDefaultSd = (__int64)&SepPublicDefaultSd;
   RtlCreateSecurityDescriptor(&SepPublicDefaultSd, 1u);
   RtlSetDaclSecurityDescriptor(&SepPublicDefaultSd, 1u, SePublicDefaultDacl, 0);

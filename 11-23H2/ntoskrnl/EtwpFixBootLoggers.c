@@ -3,17 +3,17 @@
  * Callers:
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1402AFA30 (KeReleaseMutant.c)
- *     EtwpStartLoggerThread @ 0x140343944 (EtwpStartLoggerThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpFreeSecurityDescriptor @ 0x1406C048C (EtwpFreeSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0F5C (EtwpGetSecurityDescriptorByGuid.c)
- *     SeCreateClientSecurity @ 0x14071D350 (SeCreateClientSecurity.c)
- *     EtwpEnableKernelTrace @ 0x1407D5090 (EtwpEnableKernelTrace.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x1407E5CDC (EtwpInitializeLoggerSecurityDescriptor.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutant @ 0x1402AFF20 (KeReleaseMutant.c)
+ *     EtwpStartLoggerThread @ 0x140343BD4 (EtwpStartLoggerThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpFreeSecurityDescriptor @ 0x1406C04BC (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0F8C (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeCreateClientSecurity @ 0x14071D550 (SeCreateClientSecurity.c)
+ *     EtwpEnableKernelTrace @ 0x1407D5360 (EtwpEnableKernelTrace.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x1407E5FAC (EtwpInitializeLoggerSecurityDescriptor.c)
  */
 
 __int64 EtwpFixBootLoggers()

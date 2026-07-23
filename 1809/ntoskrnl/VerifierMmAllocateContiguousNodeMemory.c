@@ -1,15 +1,15 @@
 /*
- * XREFs of VerifierMmAllocateContiguousNodeMemory @ 0x140944030
+ * XREFs of VerifierMmAllocateContiguousNodeMemory @ 0x140945030
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfCheckPageProtection @ 0x140927548 (VfCheckPageProtection.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetTrackContiguousMemory @ 0x140935218 (ViTargetTrackContiguousMemory.c)
- *     VfAllocPoolNotification @ 0x140937DDC (VfAllocPoolNotification.c)
- *     VfFillAllocatedMemory @ 0x140937E18 (VfFillAllocatedMemory.c)
- *     VfFaultsInjectResourceFailure @ 0x140938308 (VfFaultsInjectResourceFailure.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfCheckPageProtection @ 0x140928548 (VfCheckPageProtection.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetTrackContiguousMemory @ 0x140936218 (ViTargetTrackContiguousMemory.c)
+ *     VfAllocPoolNotification @ 0x140938DDC (VfAllocPoolNotification.c)
+ *     VfFillAllocatedMemory @ 0x140938E18 (VfFillAllocatedMemory.c)
+ *     VfFaultsInjectResourceFailure @ 0x140939308 (VfFaultsInjectResourceFailure.c)
  */
 
 _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousNodeMemory(

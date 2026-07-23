@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitializeUserApc @ 0x1400A7C9C
+ * XREFs of KiInitializeUserApc @ 0x1400A6214
  * Callers:
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
  * Callees:
- *     KiSetupForInstrumentationReturn @ 0x1400ADFB4 (KiSetupForInstrumentationReturn.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
- *     KeContextFromKframes @ 0x1400F4450 (KeContextFromKframes.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiCopyInformation @ 0x1401D2B80 (KiCopyInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KiSetupForInstrumentationReturn @ 0x1400AC51C (KiSetupForInstrumentationReturn.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
+ *     KeContextFromKframes @ 0x1400F22A0 (KeContextFromKframes.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiCopyInformation @ 0x1401D29AC (KiCopyInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 unsigned __int64 __fastcall KiInitializeUserApc(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -65,55 +65,55 @@ unsigned __int64 __fastcall KiInitializeUserApc(_QWORD *a1, __int64 a2, __int64 
   LOBYTE(a1) = 1;
   result = KiQueryUnbiasedInterruptTime(a1);
   v22 = result;
-  if ( result >= qword_140326350 )
+  if ( result >= qword_140326390 )
   {
     __sidt(v20);
     v12 = (_QWORD *)v21;
     for ( i = (const char *)v21; (unsigned __int64)i < v21 + 848; i += 64 )
       _mm_prefetch(i, 0);
     v14 = 848;
-    v15 = qword_140326340;
-    v16 = (unsigned int)qword_140326348;
+    v15 = qword_140326380;
+    v16 = (unsigned int)qword_140326388;
     while ( v14 >= 8 )
     {
-      v15 = __ROR8__(v15 - *v12++, qword_140326348);
+      v15 = __ROR8__(v15 - *v12++, qword_140326388);
       v14 -= 8;
     }
     while ( v14 )
     {
-      v15 = __ROR8__(v15 - *(unsigned __int8 *)v12, qword_140326348);
+      v15 = __ROR8__(v15 - *(unsigned __int8 *)v12, qword_140326388);
       v12 = (_QWORD *)((char *)v12 + 1);
       --v14;
     }
-    if ( qword_140326358 != v15 )
+    if ( qword_140326398 != v15 )
     {
-      if ( qword_140326310 )
+      if ( qword_140326350 )
         goto LABEL_23;
-      qword_140326310 = (unsigned int)__ROL4__(-1879048176, 196);
-      qword_140326318 = 0LL;
-      qword_140326320 = 0LL;
-      qword_140326328 = 269LL;
-      qword_140326330 = v21;
+      qword_140326350 = (unsigned int)__ROL4__(-1879048176, 196);
+      qword_140326358 = 0LL;
+      qword_140326360 = 0LL;
+      qword_140326368 = 269LL;
+      qword_140326370 = v21;
     }
-    if ( !qword_140326310 )
+    if ( !qword_140326350 )
     {
 LABEL_26:
       LOBYTE(v16) = 1;
       result = KiQueryUnbiasedInterruptTime(v16) + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
-      qword_140326350 = result;
+      qword_140326390 = result;
       return result;
     }
 LABEL_23:
-    if ( (KDEFERRED_ROUTINE *)qword_1403262E8 != KiScanQueues )
+    if ( (KDEFERRED_ROUTINE *)qword_140326328 != KiScanQueues )
     {
-      LODWORD(dword_1403262D0) = 275;
-      qword_1403262E8 = (__int64)KiScanQueues;
-      qword_1403262F0 = (__int64)&dword_1403262D0;
-      qword_140326308 = 0LL;
-      qword_1403262E0 = 0LL;
+      LODWORD(dword_140326310) = 275;
+      qword_140326328 = (__int64)KiScanQueues;
+      qword_140326330 = (__int64)&dword_140326310;
+      qword_140326348 = 0LL;
+      qword_140326320 = 0LL;
     }
-    qword_140326338 = 528240LL;
-    KiInsertQueueDpc((ULONG_PTR)&dword_1403262D0, 0);
+    qword_140326378 = 528240LL;
+    KiInsertQueueDpc((ULONG_PTR)&dword_140326310, 0);
     goto LABEL_26;
   }
   return result;

@@ -1,24 +1,24 @@
 /*
- * XREFs of PopNetUpdateStandbyRequest @ 0x140876F6C
+ * XREFs of PopNetUpdateStandbyRequest @ 0x1408781CC
  * Callers:
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB90 (RtlCheckTokenMembership.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopNetUpdateStandbyRequest(char a1)
 {
-  int v2; // ebx
-  char v4; // [rsp+38h] [rbp+10h]
+  NTSTATUS v2; // ebx
+  BOOLEAN IsMember; // [rsp+38h] [rbp+10h] BYREF
 
   if ( PopNetBIServiceSid )
   {
-    v2 = RtlCheckTokenMembership(0LL, (void *)PopNetBIServiceSid);
+    v2 = RtlCheckTokenMembership(0LL, PopNetBIServiceSid, &IsMember);
     if ( v2 < 0 )
       return (unsigned int)v2;
-    if ( !v4 )
+    if ( !IsMember )
       return (unsigned int)-1073741790;
     PopAcquirePolicyLock();
     if ( PopNetBIRequestActive )

@@ -1,9 +1,9 @@
 /*
- * XREFs of PipAreDriversLoadedWorker @ 0x1400097F0
+ * XREFs of PipAreDriversLoadedWorker @ 0x140009364
  * Callers:
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     PipAreDriversLoaded @ 0x1400097DC (PipAreDriversLoaded.c)
- *     PipRestoreDevNodeState @ 0x14009E68C (PipRestoreDevNodeState.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     PipAreDriversLoaded @ 0x140009350 (PipAreDriversLoaded.c)
+ *     PipRestoreDevNodeState @ 0x140084EBC (PipRestoreDevNodeState.c)
  * Callees:
  *     <none>
  */

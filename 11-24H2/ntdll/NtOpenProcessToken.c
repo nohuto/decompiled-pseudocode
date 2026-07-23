@@ -1,20 +1,20 @@
 /*
- * XREFs of NtOpenProcessToken @ 0x1801642E0
+ * XREFs of NtOpenProcessToken @ 0x1801626A0
  * Callers:
- *     RtlpValidOwnerSubjectContext @ 0x1800C6760 (RtlpValidOwnerSubjectContext.c)
- *     RtlpSetSecurityObject @ 0x1800C6F30 (RtlpSetSecurityObject.c)
- *     RtlpGetDefaultsSubjectContext @ 0x1800C8C40 (RtlpGetDefaultsSubjectContext.c)
- *     WerEscalationLazyInit @ 0x1800E2D10 (WerEscalationLazyInit.c)
- *     RtlAdjustPrivilege @ 0x1800F1D00 (RtlAdjustPrivilege.c)
+ *     RtlpValidOwnerSubjectContext @ 0x1800BE320 (RtlpValidOwnerSubjectContext.c)
+ *     RtlpSetSecurityObject @ 0x1800BEAF0 (RtlpSetSecurityObject.c)
+ *     RtlpGetDefaultsSubjectContext @ 0x1800C0800 (RtlpGetDefaultsSubjectContext.c)
+ *     WerEscalationLazyInit @ 0x1800DE2E0 (WerEscalationLazyInit.c)
+ *     RtlAdjustPrivilege @ 0x1800EC980 (RtlAdjustPrivilege.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenProcessToken()
+NTSTATUS __cdecl NtOpenProcessToken(HANDLE ProcessHandle, ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 307LL;
+  result = 307;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

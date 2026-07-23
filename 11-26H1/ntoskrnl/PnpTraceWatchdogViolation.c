@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceWatchdogViolation @ 0x14052FFD8
+ * XREFs of PnpTraceWatchdogViolation @ 0x1405324D8
  * Callers:
- *     PnpWatchdogEtwWrite @ 0x14049FA50 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogEtwWrite @ 0x1404995A0 (PnpWatchdogEtwWrite.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceWatchdogViolation(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int16 *a5)
@@ -36,7 +36,7 @@ void __fastcall PnpTraceWatchdogViolation(__int64 a1, __int64 a2, __int64 a3, __
   char *v28; // [rsp+E0h] [rbp+2Fh]
   __int64 v29; // [rsp+E8h] [rbp+37h]
 
-  if ( (unsigned int)dword_140E06EA8 > 5 && tlgKeywordOn((__int64)&dword_140E06EA8, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E06E48 > 5 && tlgKeywordOn((__int64)&dword_140E06E48, 0x400000000000LL) )
   {
     v14 = &v12;
     v11 = v5;
@@ -61,8 +61,8 @@ void __fastcall PnpTraceWatchdogViolation(__int64 a1, __int64 a2, __int64 a3, __
     v9 = v7;
     v29 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E06EA8,
-      (unsigned __int8 *)byte_140047F18,
+      (__int64)&dword_140E06E48,
+      (unsigned __int8 *)byte_140048628,
       0LL,
       0LL,
       0xAu,

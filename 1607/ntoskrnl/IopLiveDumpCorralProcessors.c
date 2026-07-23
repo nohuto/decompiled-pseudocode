@@ -3,14 +3,14 @@
  * Callers:
  *     IopLiveDumpEndMirroringCallback @ 0x1403DABEC (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KeInsertQueueDpc @ 0x1400D82A0 (KeInsertQueueDpc.c)
- *     IopLiveDumpTraceSystemQuiesceStart @ 0x1401CB448 (IopLiveDumpTraceSystemQuiesceStart.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KeInsertQueueDpc @ 0x1400D6140 (KeInsertQueueDpc.c)
+ *     IopLiveDumpTraceSystemQuiesceStart @ 0x1401CB32C (IopLiveDumpTraceSystemQuiesceStart.c)
  *     IopLiveDumpInitiateCorralStateChange @ 0x1403DB0C0 (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpLockPages @ 0x1406272D4 (IopLiveDumpLockPages.c)
+ *     IopLiveDumpLockPages @ 0x140627388 (IopLiveDumpLockPages.c)
  */
 
 __int64 __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)

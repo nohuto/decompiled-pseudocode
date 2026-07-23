@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRebuildLargePagesThread @ 0x1403C7830
+ * XREFs of MiRebuildLargePagesThread @ 0x1403D1720
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     MiProcessLargeCoalesceCandidates @ 0x1403C8674 (MiProcessLargeCoalesceCandidates.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x1403D2564 (MiProcessLargeCoalesceCandidates.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall MiRebuildLargePagesThread(__int64 a1)
@@ -86,7 +86,7 @@ BOOLEAN __fastcall MiRebuildLargePagesThread(__int64 a1)
     if ( !v9 )
       break;
     v21 = 0;
-    while ( *(_DWORD *)&stru_140E2EB88.WaitBlockFill11[32] )
+    while ( *(_DWORD *)&stru_140E2ED08.WaitBlockFill11[32] )
       KeYieldProcessorEx(&v21);
     v11 = (struct _KEVENT *)Object[v10];
     v12 = (unsigned int)(v10 - 1);

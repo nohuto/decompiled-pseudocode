@@ -1,20 +1,20 @@
 /*
- * XREFs of MiClearPteAccessed @ 0x1400E1EF0
+ * XREFs of MiClearPteAccessed @ 0x1400DFD90
  * Callers:
- *     MiSimpleAging @ 0x1400AC264 (MiSimpleAging.c)
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140129C50 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     MiCrcStillIntact @ 0x1401F94D4 (MiCrcStillIntact.c)
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
+ *     MiSimpleAging @ 0x1400AA7CC (MiSimpleAging.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x14012A1C0 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiCrcStillIntact @ 0x1401F9300 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiInsertWsle @ 0x1400E2090 (MiInsertWsle.c)
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiInsertWsle @ 0x1400DFF30 (MiInsertWsle.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiClearPteAccessed(__int64 a1, __int64 a2, unsigned __int64 *a3, _DWORD *a4, __int64 a5, int a6)

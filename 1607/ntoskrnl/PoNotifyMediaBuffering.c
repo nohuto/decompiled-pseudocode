@@ -1,12 +1,12 @@
 /*
- * XREFs of PoNotifyMediaBuffering @ 0x14010D8D4
+ * XREFs of PoNotifyMediaBuffering @ 0x14010DE38
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KeQueryPriorityThread @ 0x1400C73C0 (KeQueryPriorityThread.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KeQueryPriorityThread @ 0x1400C5260 (KeQueryPriorityThread.c)
  */
 
 void __fastcall PoNotifyMediaBuffering(char a1)
@@ -16,18 +16,18 @@ void __fastcall PoNotifyMediaBuffering(char a1)
 
   v2 = 0;
   KxAcquireSpinLock(&PpmMediaBufferingWork);
-  if ( !byte_1403044E8 )
+  if ( !byte_140304508 )
   {
     v2 = 1;
-    byte_1403044E8 = 1;
+    byte_140304508 = 1;
   }
-  byte_1403044E9 = a1;
+  byte_140304509 = a1;
   KxReleaseSpinLock(&PpmMediaBufferingWork);
   if ( v2 )
   {
     PriorityThread = KeQueryPriorityThread(KeGetCurrentThread());
     if ( PriorityThread < 31 )
       ++PriorityThread;
-    ExQueueWorkItem(&stru_1403044F0, (WORK_QUEUE_TYPE)(PriorityThread + 32));
+    ExQueueWorkItem(&stru_140304510, (WORK_QUEUE_TYPE)(PriorityThread + 32));
   }
 }

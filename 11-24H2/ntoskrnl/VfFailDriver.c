@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFailDriver @ 0x140610710
+ * XREFs of VfFailDriver @ 0x14060ECD0
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VfFailDriver(ULONG a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, __int64 a7)

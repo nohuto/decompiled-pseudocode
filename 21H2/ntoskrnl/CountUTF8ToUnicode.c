@@ -1,8 +1,8 @@
 /*
- * XREFs of CountUTF8ToUnicode @ 0x14058EFA8
+ * XREFs of CountUTF8ToUnicode @ 0x14058F1D8
  * Callers:
- *     RtlUTF8ToUnicodeN @ 0x1406B6350 (RtlUTF8ToUnicodeN.c)
- *     RtlUTF8StringToUnicodeString @ 0x140919780 (RtlUTF8StringToUnicodeString.c)
+ *     RtlUTF8ToUnicodeN @ 0x140615810 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8StringToUnicodeString @ 0x1409198E0 (RtlUTF8StringToUnicodeString.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentLockOwner @ 0x18001D3C8
+ * XREFs of RtlpHpLfhSubsegmentLockOwner @ 0x18001D3B8
  * Callers:
- *     RtlpHpFreeHeap @ 0x180047A70 (RtlpHpFreeHeap.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x180089210 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpFreeHeap @ 0x180047A60 (RtlpHpFreeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x180089200 (RtlpHpLfhSubsegmentFreeBlock.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpLfhSubsegmentLockOwner(__int64 a1)
+_RTL_SRWLOCK *__fastcall RtlpHpLfhSubsegmentLockOwner(__int64 a1)
 {
   signed __int64 v1; // rbx
-  volatile signed __int64 *v3; // rbp
-  signed __int64 v4; // rdi
+  _RTL_SRWLOCK *v3; // rbp
+  _RTL_SRWLOCK *v4; // rdi
   unsigned __int64 v6; // rcx
   signed __int64 v7; // rax
 
@@ -28,11 +28,11 @@ signed __int64 __fastcall RtlpHpLfhSubsegmentLockOwner(__int64 a1)
         v7 = v1;
         goto LABEL_7;
       }
-      v3 = (volatile signed __int64 *)(v1 + 16);
-      v4 = v1;
-      RtlAcquireSRWLockExclusive(v1 + 16);
+      v3 = (_RTL_SRWLOCK *)(v1 + 16);
+      v4 = (_RTL_SRWLOCK *)v1;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v1 + 16));
       v1 = *(_QWORD *)(a1 + 16);
-      if ( v4 == v1 )
+      if ( v4 == (_RTL_SRWLOCK *)v1 )
         return v4;
       RtlReleaseSRWLockExclusive(v3);
     }

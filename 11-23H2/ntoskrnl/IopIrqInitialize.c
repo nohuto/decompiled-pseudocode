@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIrqInitialize @ 0x140812670
+ * XREFs of IopIrqInitialize @ 0x140812940
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ArbInitializeArbiterInstance @ 0x140813748 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x140813A18 (ArbInitializeArbiterInstance.c)
  */
 
 __int64 __fastcall IopIrqInitialize(__int64 a1, int a2)

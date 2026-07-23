@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroHgsBackupProcessorInit @ 0x14059E800
+ * XREFs of PpmHeteroHgsBackupProcessorInit @ 0x14059ECF0
  * Callers:
  *     <none>
  * Callees:
- *     PpmHeteroHgsProcessorInit @ 0x1403813B0 (PpmHeteroHgsProcessorInit.c)
+ *     PpmHeteroHgsProcessorInit @ 0x140381550 (PpmHeteroHgsProcessorInit.c)
  */
 
 __int64 __fastcall PpmHeteroHgsBackupProcessorInit(__int64 a1, __int64 a2, __int64 a3)

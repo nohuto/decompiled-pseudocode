@@ -17,21 +17,20 @@
  *     LdrpCompleteProcessCloning @ 0x1801620DC (LdrpCompleteProcessCloning.c)
  */
 
-__int64 __fastcall RtlCompleteProcessCloning(unsigned int a1)
+void __fastcall RtlCompleteProcessCloning(unsigned int a1)
 {
   int v2; // edi
   void *UniqueThread; // rdx
-  __int64 result; // rax
 
   if ( a1 )
   {
-    RtlCriticalSectionLock = 1LL;
+    RtlCriticalSectionLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
     v2 = 1;
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_1801D47B8 = 0LL;
-    qword_1801D47B0 = (__int64)UniqueThread;
-    dword_1801D47A8 = -2;
-    dword_1801D47AC = 1;
+    FastPebLock.LockSemaphore = 0LL;
+    FastPebLock.OwningThread = UniqueThread;
+    FastPebLock.LockCount = -2;
+    FastPebLock.RecursionCount = 1;
   }
   else
   {
@@ -42,24 +41,23 @@ __int64 __fastcall RtlCompleteProcessCloning(unsigned int a1)
   RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
   LdrForkMrdata(v2);
   if ( v2 == 1 )
-    RtlpProtectedPoliciesSRWLock = 1LL;
+    RtlpProtectedPoliciesSRWLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
   RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   RtlUnlockHeapManagerForCloning(a1);
   RtlpFeatureConfigurationCloneComplete(a1);
   LdrpUnlockTlsDelayedReclaimTable(a1);
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
+  RtlLeaveCriticalSection(&FastPebLock);
   RtlpFlsCloneComplete((__int64)&RtlpFlsContext, a1);
-  result = LdrpCompleteProcessCloning(a1);
+  LdrpCompleteProcessCloning(a1);
   if ( a1 )
   {
     LdrpForkInProgress = 0;
-    RtlAcquireReleaseSRWLockExclusive((volatile signed __int32 *)&LdrpForkActiveLock);
+    RtlAcquireReleaseSRWLockExclusive(&LdrpForkActiveLock);
     RtlWakeAllConditionVariable(&LdrpForkConditionVariable);
-    LdrpSchedulerSharedDataListHeadLock = 0LL;
+    LdrpSchedulerSharedDataListHeadLock.0 = 0LL;
     qword_1801D49F8 = (__int64)&LdrpSchedulerSharedDataListHead;
     LdrpSchedulerSharedDataListHead = (__int64)&LdrpSchedulerSharedDataListHead;
     LdrpAllocateSchedulerSharedData();
-    return LdrpAcquireSchedulerSharedDataSlot((__int64)NtCurrentTeb());
+    LdrpAcquireSchedulerSharedDataSlot((__int64)NtCurrentTeb());
   }
-  return result;
 }

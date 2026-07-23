@@ -1,15 +1,15 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalled @ 0x14082DCBC
+ * XREFs of _RtlpMuiRegLoadInstalled @ 0x14082E4EC
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x14082CF64 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x14082D794 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x1406A26DC (_RtlpMuiRegLoadInstalledFromKey.c)
- *     _SafeAllocBlob @ 0x1406A2A8C (_SafeAllocBlob.c)
- *     ZwQueryInstallUILanguage @ 0x1406A8F90 (ZwQueryInstallUILanguage.c)
- *     RtlpLoadInstallLanguageFallback @ 0x14082B418 (RtlpLoadInstallLanguageFallback.c)
- *     RtlpMuiRegCreateStringPool @ 0x14082BF0C (RtlpMuiRegCreateStringPool.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x14082BFB4 (RtlpMuiRegFreeRegistryInfo.c)
- *     _RtlpMuiRegValidateInstalled @ 0x14082E674 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x1406A372C (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     _SafeAllocBlob @ 0x1406A3ADC (_SafeAllocBlob.c)
+ *     ZwQueryInstallUILanguage @ 0x1406A9F30 (ZwQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x14082BC48 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpMuiRegCreateStringPool @ 0x14082C73C (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x14082C7E4 (RtlpMuiRegFreeRegistryInfo.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14082EEA4 (_RtlpMuiRegValidateInstalled.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2, __int64 a3, u
     return 3221225485LL;
   if ( PsUILanguageComitted )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage(a1 + 4, a2);
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_14;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));

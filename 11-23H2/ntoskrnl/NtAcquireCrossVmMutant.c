@@ -1,11 +1,11 @@
 /*
- * XREFs of NtAcquireCrossVmMutant @ 0x140A05690
+ * XREFs of NtAcquireCrossVmMutant @ 0x140A05920
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ExpAcquireCrossVmMutant @ 0x140A059BC (ExpAcquireCrossVmMutant.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ExpAcquireCrossVmMutant @ 0x140A05C4C (ExpAcquireCrossVmMutant.c)
  */
 
 __int64 __fastcall NtAcquireCrossVmMutant(void *a1, unsigned __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnicodeStringPrintfEx @ 0x1401CF714
+ * XREFs of RtlUnicodeStringPrintfEx @ 0x1401CF540
  * Callers:
- *     PiDevCfgBuildDriverConfigurationId @ 0x1406325E4 (PiDevCfgBuildDriverConfigurationId.c)
- *     PiDevCfgBuildIndirectString @ 0x14063287C (PiDevCfgBuildIndirectString.c)
- *     PiDevCfgLogDeviceConfigured @ 0x140639900 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140632698 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgBuildIndirectString @ 0x140632930 (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406399B4 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     _vsnwprintf @ 0x14014CCB4 (_vsnwprintf.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x1401CCCA0 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     _vsnwprintf @ 0x14014D224 (_vsnwprintf.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x1401CF4A8 (RtlUnicodeStringExHandleOtherFlags.c)
  */
 
 NTSTATUS RtlUnicodeStringPrintfEx(

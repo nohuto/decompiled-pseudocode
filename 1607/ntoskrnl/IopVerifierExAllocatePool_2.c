@@ -1,8 +1,8 @@
 /*
- * XREFs of IopVerifierExAllocatePool_2 @ 0x1401CAE28
+ * XREFs of IopVerifierExAllocatePool_2 @ 0x1401CACC8
  * Callers:
- *     NtQueryEaFile @ 0x14046B6CC (NtQueryEaFile.c)
- *     NtSetEaFile @ 0x1406251DC (NtSetEaFile.c)
+ *     NtQueryEaFile @ 0x14046A59C (NtQueryEaFile.c)
+ *     NtSetEaFile @ 0x140625290 (NtSetEaFile.c)
  * Callees:
  *     <none>
  */

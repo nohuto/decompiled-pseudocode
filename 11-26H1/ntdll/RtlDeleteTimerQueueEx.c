@@ -1,83 +1,78 @@
 /*
- * XREFs of RtlDeleteTimerQueueEx @ 0x1800FBCA0
+ * XREFs of RtlDeleteTimerQueueEx @ 0x1800FB3F0
  * Callers:
- *     RtlDeleteTimerQueue @ 0x180159590 (RtlDeleteTimerQueue.c)
+ *     RtlDeleteTimerQueue @ 0x180159460 (RtlDeleteTimerQueue.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpTpResumeImpersonation @ 0x18004F238 (RtlpTpResumeImpersonation.c)
- *     RtlpTpRevertCapture @ 0x180067740 (RtlpTpRevertCapture.c)
- *     RtlpTpTimerRundown @ 0x1800677EC (RtlpTpTimerRundown.c)
- *     TpTimerOutstandingCallbackCount @ 0x1800679A0 (TpTimerOutstandingCallbackCount.c)
- *     TpReleaseTimer @ 0x180067E70 (TpReleaseTimer.c)
- *     RtlpTpTimerQueueRundown @ 0x1800FBE04 (RtlpTpTimerQueueRundown.c)
- *     NtWaitForAlertByThreadId @ 0x180162BB0 (NtWaitForAlertByThreadId.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpTpResumeImpersonation @ 0x1800397B8 (RtlpTpResumeImpersonation.c)
+ *     RtlpTpRevertCapture @ 0x180087B90 (RtlpTpRevertCapture.c)
+ *     RtlpTpTimerRundown @ 0x180087C3C (RtlpTpTimerRundown.c)
+ *     TpTimerOutstandingCallbackCount @ 0x180087DF0 (TpTimerOutstandingCallbackCount.c)
+ *     TpReleaseTimer @ 0x1800882C0 (TpReleaseTimer.c)
+ *     RtlpTpTimerQueueRundown @ 0x1800FB554 (RtlpTpTimerQueueRundown.c)
+ *     NtWaitForAlertByThreadId @ 0x180162AB0 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlDeleteTimerQueueEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlDeleteTimerQueueEx(HANDLE TimerQueueHandle, HANDLE Event)
 {
   int v4; // r14d
-  __int64 v5; // rdx
-  int v6; // edi
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  _QWORD *v9; // r15
-  __int64 v10; // rdi
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  HANDLE v14; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+70h] [rbp+18h]
+  int v5; // edi
+  volatile signed __int32 *v6; // r15
+  volatile signed __int32 *v7; // rdi
+  HANDLE v9; // [rsp+60h] [rbp+8h] BYREF
+  HANDLE v10; // [rsp+70h] [rbp+18h]
 
   v4 = 0;
-  v14 = 0LL;
-  v15 = a1;
+  v9 = 0LL;
+  v10 = TimerQueueHandle;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 0LL;
-  if ( a1 )
+    return 0;
+  if ( TimerQueueHandle )
   {
-    v6 = RtlpTpRevertCapture(&v14, 0);
-    if ( v6 >= 0 )
+    v5 = RtlpTpRevertCapture(&v9, 0);
+    if ( v5 >= 0 )
     {
-      if ( a2 )
+      if ( Event )
       {
-        if ( a2 == -1 )
-          *(_QWORD *)(a1 + 40) = NtCurrentTeb()->ClientId.UniqueThread;
+        if ( Event == (HANDLE)-1LL )
+          *((_QWORD *)TimerQueueHandle + 5) = NtCurrentTeb()->ClientId.UniqueThread;
         else
-          *(_QWORD *)(a1 + 16) = a2;
+          *((_QWORD *)TimerQueueHandle + 2) = Event;
       }
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 8), v5);
-      v9 = *(_QWORD **)(a1 + 24);
-      while ( v9 != (_QWORD *)(a1 + 24) )
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)TimerQueueHandle + 1);
+      v6 = (volatile signed __int32 *)*((_QWORD *)TimerQueueHandle + 3);
+      while ( v6 != (volatile signed __int32 *)((char *)TimerQueueHandle + 24) )
       {
-        v10 = (__int64)v9;
-        v9 = (_QWORD *)*v9;
-        _InterlockedOr((volatile signed __int32 *)(v10 + 48), 1u);
-        v4 += TpTimerOutstandingCallbackCount(*(_QWORD *)(v10 + 64), v7, v8);
-        TpReleaseTimer(*(_QWORD *)(v10 + 64), v11, v12);
-        _m_prefetchw((const void *)(v10 + 48));
-        if ( (_InterlockedAnd((volatile signed __int32 *)(v10 + 48), 0xFFFFFFFE) & 2) != 0 )
-          RtlpTpTimerRundown(v10);
+        v7 = v6;
+        v6 = *(volatile signed __int32 **)v6;
+        _InterlockedOr(v7 + 12, 1u);
+        v4 += TpTimerOutstandingCallbackCount(*((_QWORD *)v7 + 8));
+        TpReleaseTimer(*((PTP_TIMER *)v7 + 8));
+        _m_prefetchw((const void *)(v7 + 12));
+        if ( (_InterlockedAnd(v7 + 12, 0xFFFFFFFE) & 2) != 0 )
+          RtlpTpTimerRundown((PVOID)v7);
       }
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-      if ( _InterlockedDecrement((volatile signed __int32 *)a1) )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)TimerQueueHandle + 1);
+      if ( _InterlockedDecrement((volatile signed __int32 *)TimerQueueHandle) )
       {
-        if ( a2 != -1 )
+        if ( Event != (HANDLE)-1LL )
         {
-          v6 = v4 != 0 ? 0x103 : 0;
+          v5 = v4 != 0 ? 0x103 : 0;
           goto LABEL_19;
         }
-        NtWaitForAlertByThreadId(a1, 0LL);
+        NtWaitForAlertByThreadId(TimerQueueHandle, 0LL);
       }
       else
       {
-        *(_QWORD *)(a1 + 40) = 0LL;
-        RtlpTpTimerQueueRundown(a1);
+        *((_QWORD *)TimerQueueHandle + 5) = 0LL;
+        RtlpTpTimerQueueRundown(TimerQueueHandle);
       }
-      v6 = 0;
+      v5 = 0;
     }
 LABEL_19:
-    RtlpTpResumeImpersonation(v14);
-    return (unsigned int)v6;
+    RtlpTpResumeImpersonation(v9);
+    return v5;
   }
-  return 3221225711LL;
+  return -1073741585;
 }

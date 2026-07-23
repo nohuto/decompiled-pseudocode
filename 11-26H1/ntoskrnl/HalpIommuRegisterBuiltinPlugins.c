@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuRegisterBuiltinPlugins @ 0x14059FF48
+ * XREFs of HalpIommuRegisterBuiltinPlugins @ 0x1405A2738
  * Callers:
- *     HalpIommuInitDiscard @ 0x140CAFE24 (HalpIommuInitDiscard.c)
+ *     HalpIommuInitDiscard @ 0x140CB5E64 (HalpIommuInitDiscard.c)
  * Callees:
- *     HalSocGetAcpiTable @ 0x140598054 (HalSocGetAcpiTable.c)
- *     HalpIvtProcessDmarTable @ 0x1405AEA34 (HalpIvtProcessDmarTable.c)
- *     HalpIommuHsaDiscover @ 0x140CB5574 (HalpIommuHsaDiscover.c)
+ *     HalSocGetAcpiTable @ 0x14059A7D4 (HalSocGetAcpiTable.c)
+ *     HalpIvtProcessDmarTable @ 0x1405B1244 (HalpIvtProcessDmarTable.c)
+ *     HalpIommuHsaDiscover @ 0x140CBB5B4 (HalpIommuHsaDiscover.c)
  */
 
 __int64 HalpIommuRegisterBuiltinPlugins()

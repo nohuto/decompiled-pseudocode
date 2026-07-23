@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUnmapKernelScp @ 0x1404F6C64
+ * XREFs of MiUnmapKernelScp @ 0x1404F0274
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiWriteWsle @ 0x14029F7F0 (MiWriteWsle.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiDecreaseUsedPtes @ 0x14033F020 (MiDecreaseUsedPtes.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiWriteWsle @ 0x14029ED40 (MiWriteWsle.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiDecreaseUsedPtes @ 0x1403410A0 (MiDecreaseUsedPtes.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiUnmapKernelScp(__int64 a1)
@@ -42,16 +42,16 @@ void __fastcall MiUnmapKernelScp(__int64 a1)
   __int64 v19; // [rsp+78h] [rbp+10h]
 
   v1 = 0LL;
-  v2 = ((WORD2(stru_140E36558.SListFaultAddress) + LOWORD(stru_140E36558.QuantumTarget)) & 0xFFF) != 0 ? 0x1000 : 0;
-  v3 = (HIDWORD(stru_140E36558.SListFaultAddress) + LODWORD(stru_140E36558.QuantumTarget)) & 0xFFFFF000;
+  v2 = ((WORD2(stru_140E366D8.SListFaultAddress) + LOWORD(stru_140E366D8.QuantumTarget)) & 0xFFF) != 0 ? 0x1000 : 0;
+  v3 = (HIDWORD(stru_140E366D8.SListFaultAddress) + LODWORD(stru_140E366D8.QuantumTarget)) & 0xFFFFF000;
   v4 = *(_QWORD *)(a1 + 48) + (unsigned int)v3 + (_DWORD)v2 + (*(_DWORD *)(a1 + 64) & 0xFFFFF000);
   v5 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   ProcessorFlushList = 0LL;
-  Object = stru_140E2D150.WaitBlock[1].Object;
+  Object = stru_140E2D2D0.WaitBlock[1].Object;
   v7 = 0LL;
-  v17 = MiLockWorkingSetShared((__int64)&unk_140E36E00, v2, v3);
+  v17 = MiLockWorkingSetShared((__int64)&unk_140E36F80, v2, v3);
   v9 = v17;
-  if ( !*(_DWORD *)&stru_140E2D150.WaitBlockFill11[76] )
+  if ( !*(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[76] )
     goto LABEL_18;
   v10 = Object;
   do
@@ -69,10 +69,10 @@ void __fastcall MiUnmapKernelScp(__int64 a1)
         MiReleaseProcessorFlushList();
         ProcessorFlushList = 0LL;
       }
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v1);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v1);
     }
     v1 = ((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    MiLockPageTableInternal((signed __int64)&unk_140E36E00, v1, 0);
+    MiLockPageTableInternal((signed __int64)&unk_140E36F80, v1, 0);
 LABEL_9:
     if ( *(_QWORD *)v12 )
     {
@@ -84,7 +84,7 @@ LABEL_9:
         ProcessorFlushList = MiGetProcessorFlushList();
         MiInitializeTbFlushList(
           (__int64)ProcessorFlushList,
-          (__int64)&unk_140E36E00,
+          (__int64)&unk_140E36F80,
           *((_DWORD *)ProcessorFlushList + 3),
           0,
           1);
@@ -97,7 +97,7 @@ LABEL_9:
     }
     v7 = (unsigned int)(v7 + 1);
   }
-  while ( (unsigned int)v7 < *(_DWORD *)&stru_140E2D150.WaitBlockFill11[76] );
+  while ( (unsigned int)v7 < *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[76] );
   v9 = v17;
   if ( ProcessorFlushList )
   {
@@ -105,8 +105,8 @@ LABEL_9:
     MiReleaseProcessorFlushList();
   }
   if ( v1 )
-    MiUnlockPageTableInternal((__int64)&unk_140E36E00, v1);
+    MiUnlockPageTableInternal((__int64)&unk_140E36F80, v1);
 LABEL_18:
   LOBYTE(v8) = v9;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v8);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v8);
 }

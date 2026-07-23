@@ -1,11 +1,11 @@
 /*
- * XREFs of SeGetLinkedToken @ 0x140AB6E90
+ * XREFs of SeGetLinkedToken @ 0x140AB84D0
  * Callers:
  *     <none>
  * Callees:
- *     SepDeReferenceLogonSessionDirect @ 0x140476B90 (SepDeReferenceLogonSessionDirect.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SepReferenceLogonSessionSilo @ 0x140AB6FE8 (SepReferenceLogonSessionSilo.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140470310 (SepDeReferenceLogonSessionDirect.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SepReferenceLogonSessionSilo @ 0x140AB8628 (SepReferenceLogonSessionSilo.c)
  */
 
 __int64 __fastcall SeGetLinkedToken(int a1, __int64 a2, char **a3)
@@ -47,7 +47,7 @@ LABEL_6:
     DWORD2(v12) = 0;
     *(_QWORD *)&v12 = 0LL;
     v13 = 0LL;
-    v9 = SepDuplicateToken(v5, (__int64)&v11, 0, 1, 0, 0, 0, a3);
+    v9 = SepDuplicateToken(v5, (int)&v11, 0, 1, 0, 0, 0, a3);
   }
   if ( v3 )
     SepDeReferenceLogonSessionDirect(v3);

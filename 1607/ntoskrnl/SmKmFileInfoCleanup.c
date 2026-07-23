@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmFileInfoCleanup @ 0x140697DE0
+ * XREFs of SmKmFileInfoCleanup @ 0x140697EC4
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400039C4 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmKmFileInfoDuplicate @ 0x140697E7C (SmKmFileInfoDuplicate.c)
- *     SmKmStoreFileCreate @ 0x140698AE8 (SmKmStoreFileCreate.c)
- *     SmKmStoreFileCreateForIoType @ 0x140698F68 (SmKmStoreFileCreateForIoType.c)
- *     SmcCacheCleanup @ 0x140699E38 (SmcCacheCleanup.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140003B38 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmKmFileInfoDuplicate @ 0x140697F60 (SmKmFileInfoDuplicate.c)
+ *     SmKmStoreFileCreate @ 0x140698BCC (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14069904C (SmKmStoreFileCreateForIoType.c)
+ *     SmcCacheCleanup @ 0x140699F1C (SmcCacheCleanup.c)
  * Callees:
- *     IoFreeIrp @ 0x140055DD0 (IoFreeIrp.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     IoReuseIrp @ 0x1400D11E0 (IoReuseIrp.c)
- *     PnpUnregisterPlugPlayNotification @ 0x140111A40 (PnpUnregisterPlugPlayNotification.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     SmKmSendUsageNotification @ 0x140698A2C (SmKmSendUsageNotification.c)
+ *     IoFreeIrp @ 0x140055950 (IoFreeIrp.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     IoReuseIrp @ 0x1400CF080 (IoReuseIrp.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x140111FA4 (PnpUnregisterPlugPlayNotification.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     SmKmSendUsageNotification @ 0x140698B10 (SmKmSendUsageNotification.c)
  */
 
 BOOLEAN __fastcall SmKmFileInfoCleanup(__int64 a1)

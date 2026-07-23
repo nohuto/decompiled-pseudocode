@@ -6,29 +6,29 @@
  *     <none>
  */
 
-int __stdcall RtlSetThreadErrorMode(unsigned int a1, unsigned int *a2)
+NTSTATUS __cdecl RtlSetThreadErrorMode(ULONG NewMode, PULONG OldMode)
 {
   struct _TEB *v2; // eax
   int WowTebOffset; // edx
-  unsigned int HardErrorMode; // esi
+  ULONG HardErrorMode; // esi
 
-  if ( (a1 & 0xFFFFFF8F) != 0 )
+  if ( (NewMode & 0xFFFFFF8F) != 0 )
     return -1073741585;
   v2 = NtCurrentTeb();
   WowTebOffset = v2->WowTebOffset;
   if ( WowTebOffset < 0 )
     v2 = (struct _TEB *)((char *)v2 + WowTebOffset);
-  if ( a2 )
+  if ( OldMode )
   {
     if ( v2 == (struct _TEB *)v2->NtTib.Self )
       HardErrorMode = v2->HardErrorMode;
     else
       HardErrorMode = v2[1].GdiTebBatch.Buffer[309];
-    *a2 = HardErrorMode;
+    *OldMode = HardErrorMode;
   }
   if ( v2 == (struct _TEB *)v2->NtTib.Self )
-    v2->HardErrorMode = a1;
+    v2->HardErrorMode = NewMode;
   else
-    v2[1].GdiTebBatch.Buffer[309] = a1;
+    v2[1].GdiTebBatch.Buffer[309] = NewMode;
   return 0;
 }

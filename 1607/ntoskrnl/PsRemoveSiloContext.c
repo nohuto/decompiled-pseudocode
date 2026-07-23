@@ -1,7 +1,7 @@
 /*
- * XREFs of PsRemoveSiloContext @ 0x14067DFE0
+ * XREFs of PsRemoveSiloContext @ 0x14067E0C4
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140613754 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140613808 (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
  *     <none>
  */

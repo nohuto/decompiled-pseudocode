@@ -1,18 +1,18 @@
 /*
- * XREFs of ExRegisterBootDevice @ 0x1406CD5C0
+ * XREFs of ExRegisterBootDevice @ 0x1406D15F0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
@@ -31,8 +31,8 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v4 = 0;
-  KeWaitForSingleObject(&ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldCounter, Executive, 0, 0, 0LL);
-  if ( !qword_140EFEF40 )
+  KeWaitForSingleObject(&word_140EFF280, Executive, 0, 0, 0LL);
+  if ( !ExSaPageGroupDescriptorArrayLock.Padding[2] )
   {
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
@@ -44,12 +44,12 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
     {
       Object = 0LL;
       v4 = ObReferenceObjectByHandle(ThreadHandle, 0x1FFFFFu, 0LL, 0, &Object, 0LL);
-      qword_140EFEF40 = (PKTHREAD)Object;
+      ExSaPageGroupDescriptorArrayLock.Padding[2] = (unsigned __int64)Object;
       ZwClose(ThreadHandle);
-      KeSetPriorityThread(qword_140EFEF40, 31);
+      KeSetPriorityThread((PKTHREAD)ExSaPageGroupDescriptorArrayLock.Padding[2], 31);
     }
   }
-  KeSetEvent((PRKEVENT)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldCounter, 0, 0);
+  KeSetEvent(&word_140EFF280, 0, 0);
   if ( v4 >= 0 )
   {
     if ( *(_DWORD *)a1 == 1 && *(_QWORD *)(a1 + 8) && !*(_DWORD *)(a1 + 4) && *(_QWORD *)(a1 + 24) )
@@ -65,16 +65,16 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
         *(_OWORD *)(Pool2 + 24) = *(_OWORD *)a1;
         *(_OWORD *)(Pool2 + 40) = *(_OWORD *)(a1 + 16);
         *(_QWORD *)(Pool2 + 56) = *(_QWORD *)(a1 + 32);
-        v7 = KeAcquireSpinLockRaiseToDpc(&ExSaPageGroupDescriptorArrayLock.Padding[4]);
-        v8 = (_QWORD *)ExSaPageGroupDescriptorArrayLock.Padding[3];
+        v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldCounter);
+        v8 = (_QWORD *)ExSaPageGroupDescriptorArrayLock.Padding[4];
         v9 = (_QWORD *)(Pool2 + 8);
-        if ( *(struct _KTHREAD **)ExSaPageGroupDescriptorArrayLock.Padding[3] != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.Padding[2] )
+        if ( *(struct _KTHREAD **)ExSaPageGroupDescriptorArrayLock.Padding[4] != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.Padding[3] )
           __fastfail(3u);
-        *(_QWORD *)(Pool2 + 16) = ExSaPageGroupDescriptorArrayLock.Padding[3];
-        *v9 = &ExSaPageGroupDescriptorArrayLock.Padding[2];
+        *(_QWORD *)(Pool2 + 16) = ExSaPageGroupDescriptorArrayLock.Padding[4];
+        *v9 = &ExSaPageGroupDescriptorArrayLock.Padding[3];
         *v8 = v9;
-        ExSaPageGroupDescriptorArrayLock.Padding[3] = Pool2 + 8;
-        KeReleaseSpinLock(&ExSaPageGroupDescriptorArrayLock.Padding[4], v7);
+        ExSaPageGroupDescriptorArrayLock.Padding[4] = Pool2 + 8;
+        KeReleaseSpinLock((PKSPIN_LOCK)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldCounter, v7);
         *a2 = Pool2;
       }
       else

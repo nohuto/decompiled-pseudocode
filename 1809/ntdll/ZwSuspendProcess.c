@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSuspendProcess @ 0x1800A3950
+ * XREFs of ZwSuspendProcess @ 0x1800A3970
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSuspendProcess()
+NTSTATUS __cdecl ZwSuspendProcess(HANDLE ProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 436LL;
+  result = 436;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

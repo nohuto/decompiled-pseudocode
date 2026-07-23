@@ -1,17 +1,17 @@
 /*
- * XREFs of KiFlushAddressSpaceTb @ 0x1403CC050
+ * XREFs of KiFlushAddressSpaceTb @ 0x1403CC230
  * Callers:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     KeFlushProcessTb @ 0x140292C60 (KeFlushProcessTb.c)
- *     KeFlushEntireTb @ 0x1403B2A40 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     KeFlushProcessTb @ 0x140292EF0 (KeFlushProcessTb.c)
+ *     KeFlushEntireTb @ 0x1403B2C20 (KeFlushEntireTb.c)
  * Callees:
- *     KxSetTimeStampBusy @ 0x140346694 (KxSetTimeStampBusy.c)
- *     HvlFlushAddressSpaceTb @ 0x1403CBF98 (HvlFlushAddressSpaceTb.c)
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlpPrepareFlushHeader @ 0x1403CC248 (HvlpPrepareFlushHeader.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140549BB4 (HvlpSlowFlushAddressSpaceTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxSetTimeStampBusy @ 0x140346924 (KxSetTimeStampBusy.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403CC178 (HvlFlushAddressSpaceTb.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlpPrepareFlushHeader @ 0x1403CC428 (HvlpPrepareFlushHeader.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x14054A274 (HvlpSlowFlushAddressSpaceTb.c)
  */
 
 __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -33,7 +33,7 @@ __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, cha
     return HvlFlushAddressSpaceTb(a1, a2, a3);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -55,10 +55,10 @@ __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, cha
     }
     _InterlockedIncrement(&KiTbFlushTimeStamp);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

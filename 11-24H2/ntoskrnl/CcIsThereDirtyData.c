@@ -1,14 +1,14 @@
 /*
- * XREFs of CcIsThereDirtyData @ 0x140480940
+ * XREFs of CcIsThereDirtyData @ 0x14047B410
  * Callers:
  *     <none>
  * Callees:
- *     PsGetNextPartitionUnsafe @ 0x140246D98 (PsGetNextPartitionUnsafe.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x1402A7F20 (CcDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     CcIsThereDirtyDataHelper @ 0x140480A40 (CcIsThereDirtyDataHelper.c)
+ *     PsGetNextPartitionUnsafe @ 0x1402194E8 (PsGetNextPartitionUnsafe.c)
+ *     CcDereferencePartition @ 0x140279D10 (CcDereferencePartition.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     CcIsThereDirtyDataHelper @ 0x14047B510 (CcIsThereDirtyDataHelper.c)
  */
 
 BOOLEAN __stdcall CcIsThereDirtyData(PVPB Vpb)

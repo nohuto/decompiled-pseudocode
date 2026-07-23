@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x1402A697C
+ * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x1402A5D98
  * Callers:
- *     MiSystemPeriodicTick @ 0x1402A6FA0 (MiSystemPeriodicTick.c)
+ *     MiSystemPeriodicTick @ 0x1402A63BC (MiSystemPeriodicTick.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDeleteUltraMapContext @ 0x1404655E0 (MiDeleteUltraMapContext.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDeleteUltraMapContext @ 0x14045E5A0 (MiDeleteUltraMapContext.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void MiReclaimUnusedUltraMdlMaps()
@@ -16,7 +16,7 @@ void MiReclaimUnusedUltraMdlMaps()
   int v0; // esi
   unsigned int v1; // ebx
   __int64 v2; // r14
-  union _SLIST_HEADER *v3; // rdi
+  _SLIST_HEADER *v3; // rdi
   PSLIST_ENTRY v4; // rax
   PSLIST_ENTRY v5; // rbp
   KIRQL v6; // al
@@ -28,7 +28,7 @@ void MiReclaimUnusedUltraMdlMaps()
     do
     {
       v2 = 8LL;
-      v3 = (union _SLIST_HEADER *)(qword_140E34BF0 + ((unsigned __int64)v1 << 9));
+      v3 = (_SLIST_HEADER *)(qword_140E34D70 + ((unsigned __int64)v1 << 9));
       do
       {
         while ( LOWORD(v3->Alignment) > 2u )
@@ -50,12 +50,12 @@ void MiReclaimUnusedUltraMdlMaps()
     while ( v1 < (unsigned __int16)KeNumberNodes );
     if ( v0 )
     {
-      v6 = ExAcquireSpinLockExclusive(&dword_140E34BA8);
-      dword_140E34BE8 -= v0;
+      v6 = ExAcquireSpinLockExclusive(&dword_140E34D28);
+      dword_140E34D68 -= v0;
       if ( v6 == 17 )
-        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34BA8);
+        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34D28);
       else
-        ExReleaseSpinLockExclusive(&dword_140E34BA8, v6);
+        ExReleaseSpinLockExclusive(&dword_140E34D28, v6);
     }
   }
 }

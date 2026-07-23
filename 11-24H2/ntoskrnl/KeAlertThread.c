@@ -1,17 +1,17 @@
 /*
- * XREFs of KeAlertThread @ 0x140479900
+ * XREFs of KeAlertThread @ 0x140475190
  * Callers:
- *     IoDecrementKeepAliveCount @ 0x1404796A0 (IoDecrementKeepAliveCount.c)
- *     KeRequestTerminationThread @ 0x140479818 (KeRequestTerminationThread.c)
- *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x14048C460 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
- *     KeAlertResumeThread @ 0x1405B7BA8 (KeAlertResumeThread.c)
- *     NtAlertThread @ 0x140A73ED0 (NtAlertThread.c)
+ *     IoDecrementKeepAliveCount @ 0x140474F30 (IoDecrementKeepAliveCount.c)
+ *     KeRequestTerminationThread @ 0x1404750A8 (KeRequestTerminationThread.c)
+ *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x140487180 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
+ *     KeAlertResumeThread @ 0x1405B5180 (KeAlertResumeThread.c)
+ *     NtAlertThread @ 0x140A6D830 (NtAlertThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiSignalThread @ 0x140324240 (KiSignalThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiSignalThread @ 0x1402CCDD0 (KiSignalThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeAlertThread(__int64 a1, __int64 a2)

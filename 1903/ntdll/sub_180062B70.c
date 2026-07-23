@@ -14,53 +14,36 @@
 __int64 __fastcall sub_180062B70(unsigned int a1)
 {
   int v2; // esi
-  __int64 v3; // rcx
-  unsigned int v4; // ebx
-  int v6; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v7; // [rsp+28h] [rbp-50h]
-  __int64 v8; // [rsp+30h] [rbp-48h]
-  __int64 v9; // [rsp+38h] [rbp-40h]
-  __int128 v10; // [rsp+40h] [rbp-38h]
-  __int64 v11; // [rsp+50h] [rbp-28h]
-  int v12; // [rsp+58h] [rbp-20h]
-  int v13; // [rsp+5Ch] [rbp-1Ch]
-  int v14; // [rsp+60h] [rbp-18h]
+  unsigned int v3; // ebx
+  TP_CALLBACK_ENVIRON_V3 CallbackEnviron; // [rsp+20h] [rbp-58h] BYREF
 
   v2 = 0;
   sub_18006352C();
   if ( a1 )
   {
-    v4 = a1;
+    v3 = a1;
     if ( a1 > 0x10 )
-      v4 = 16;
+      v3 = 16;
   }
   else
   {
-    v4 = 4;
-    if ( (RtlGetSuiteMask(v3) & 0x10000) != 0 )
-      v4 = 0;
+    v3 = 4;
+    if ( (RtlGetSuiteMask() & 0x10000) != 0 )
+      v3 = 0;
   }
-  if ( v4 > 1 && !byte_180165300 )
+  if ( v3 > 1 && !byte_180165300 )
   {
-    v2 = sub_180062F34(&qword_1801661B0, 1LL);
+    v2 = sub_180062F34(&Pool, 1LL);
     if ( v2 >= 0 )
     {
-      TpSetPoolWorkerThreadIdleTimeout(qword_1801661B0, -300000000LL);
-      TpSetPoolMaxThreads(qword_1801661B0, v4 - 1);
-      v8 = 0LL;
-      v9 = 0LL;
-      v11 = 0LL;
-      v12 = 0;
-      v10 = 0LL;
-      v7 = qword_1801661B0;
-      v6 = 3;
-      v13 = 1;
-      v14 = 72;
-      return (unsigned int)((__int64 (__fastcall *)(__int64 *, void (*)(), _QWORD, int *))TpAllocWork)(
-                             &qword_180165288,
-                             sub_18002E1E0,
-                             0LL,
-                             &v6);
+      TpSetPoolWorkerThreadIdleTimeout(Pool, -300000000LL);
+      TpSetPoolMaxThreads(Pool, v3 - 1);
+      memset(&CallbackEnviron.CleanupGroup, 0, 44);
+      CallbackEnviron.Pool = Pool;
+      CallbackEnviron.Version = 3;
+      CallbackEnviron.CallbackPriority = TP_CALLBACK_PRIORITY_NORMAL;
+      CallbackEnviron.Size = 72;
+      return (unsigned int)TpAllocWork(&Work, (PTP_WORK_CALLBACK)sub_18002E1E0, 0LL, &CallbackEnviron);
     }
   }
   return (unsigned int)v2;

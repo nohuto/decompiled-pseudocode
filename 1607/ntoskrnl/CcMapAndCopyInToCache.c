@@ -1,32 +1,32 @@
 /*
- * XREFs of CcMapAndCopyInToCache @ 0x140034F60
+ * XREFs of CcMapAndCopyInToCache @ 0x140034AE0
  * Callers:
- *     CcCopyWriteEx @ 0x1400EBDE0 (CcCopyWriteEx.c)
+ *     CcCopyWriteEx @ 0x1400E9C50 (CcCopyWriteEx.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     CcCanIWriteStream @ 0x140020AA0 (CcCanIWriteStream.c)
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E6C0 (KeAcquireQueuedSpinLockAtDpcLevel.c)
- *     CcSetDirtyInMask @ 0x14006F660 (CcSetDirtyInMask.c)
- *     MmUpdateSectionIoAttribution @ 0x1400A7A10 (MmUpdateSectionIoAttribution.c)
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcFlushCachePriv @ 0x1400E8E10 (CcFlushCachePriv.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     PsGetBaseIoPriorityThread @ 0x1400EBF30 (PsGetBaseIoPriorityThread.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     CcCopyReadExceptionFilter @ 0x1401B19C0 (CcCopyReadExceptionFilter.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     CcCanIWriteStream @ 0x140020620 (CcCanIWriteStream.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E240 (KeAcquireQueuedSpinLockAtDpcLevel.c)
+ *     CcSetDirtyInMask @ 0x14006F1E0 (CcSetDirtyInMask.c)
+ *     MmUpdateSectionIoAttribution @ 0x1400A5F88 (MmUpdateSectionIoAttribution.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcFlushCachePriv @ 0x1400E6CB0 (CcFlushCachePriv.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400E9DA0 (PsGetBaseIoPriorityThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     CcCopyReadExceptionFilter @ 0x1401B18A4 (CcCopyReadExceptionFilter.c)
  */
 
 __int64 __fastcall CcMapAndCopyInToCache(
@@ -44,7 +44,7 @@ __int64 __fastcall CcMapAndCopyInToCache(
   int v10; // edx
   bool v11; // r10
   int v12; // r12d
-  struct _SLIST_ENTRY *v13; // rbx
+  _SLIST_ENTRY *v13; // rbx
   char v14; // di
   int BaseIoPriorityThread; // eax
   struct _KTHREAD *v16; // rdx
@@ -54,7 +54,7 @@ __int64 __fastcall CcMapAndCopyInToCache(
   int v20; // ecx
   KIRQL v21; // al
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v23; // rax
+  _SLIST_ENTRY **v23; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   _GENERAL_LOOKASIDE *P; // r8
   struct _KTHREAD *v26; // r13
@@ -198,7 +198,7 @@ LABEL_14:
       if ( (*(_DWORD *)(v9 + 152) & 0x20) != 0 )
       {
         KeAcquireQueuedSpinLockAtDpcLevel((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 128);
-        v13 = *(struct _SLIST_ENTRY **)(v9 + 496);
+        v13 = *(_SLIST_ENTRY **)(v9 + 496);
         if ( !v13 )
         {
           KxReleaseQueuedSpinLock((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 128);
@@ -207,7 +207,7 @@ LABEL_14:
           RtlRaiseStatus(-1073741608);
         }
         Next = v13->Next;
-        v23 = (struct _SLIST_ENTRY **)*((_QWORD *)&v13->Next + 1);
+        v23 = (_SLIST_ENTRY **)*((_QWORD *)&v13->Next + 1);
         if ( *(&v13->Next->Next + 1) != v13 || *v23 != v13 )
           __fastfail(3u);
         *v23 = Next;
@@ -241,7 +241,7 @@ LABEL_14:
       else
       {
         ++P->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v13);
+        ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v13);
       }
       v12 = 0;
     }

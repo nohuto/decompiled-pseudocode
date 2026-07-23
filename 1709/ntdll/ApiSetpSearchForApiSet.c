@@ -6,13 +6,12 @@
  *     RtlCompareUnicodeStrings @ 0x180049F70 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, unsigned __int16 *a2, unsigned __int16 a3)
+__int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, const WCHAR *a2, unsigned __int16 a3)
 {
   unsigned int v4; // r9d
-  int v5; // ebp
-  unsigned __int16 *v7; // r11
+  const WCHAR *v7; // r11
   __int64 v8; // rbx
-  unsigned __int16 v9; // dx
+  WCHAR v9; // dx
   __int64 v10; // rbx
   int v11; // r8d
   int v12; // ecx
@@ -20,7 +19,6 @@ __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, unsigned __int16 *a2, unsi
   __int64 v14; // r11
 
   v4 = 0;
-  v5 = (int)a2;
   v7 = a2;
   if ( a3 )
   {
@@ -59,7 +57,12 @@ LABEL_10:
   }
   v10 = (__int64)&a1[6 * *(_DWORD *)((char *)a1 + v14 + 4)] + (unsigned int)a1[4];
   if ( !v10
-    || !(unsigned int)RtlCompareUnicodeStrings(v5, a3, (int)a1 + *(_DWORD *)(v10 + 4), *(_DWORD *)(v10 + 12) >> 1, 1) )
+    || !RtlCompareUnicodeStrings(
+          a2,
+          a3,
+          (PCWCH)((char *)a1 + *(unsigned int *)(v10 + 4)),
+          (unsigned __int64)*(unsigned int *)(v10 + 12) >> 1,
+          1u) )
   {
     return v10;
   }

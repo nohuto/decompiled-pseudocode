@@ -21,7 +21,7 @@ __int64 __fastcall MiReserveBootDriverPtes(unsigned __int64 a1, int a2)
   unsigned __int64 v9; // r10
   __int64 result; // rax
   size_t v11; // r13
-  struct _RTL_BITMAP *v12; // r14
+  _RTL_BITMAP *v12; // r14
   unsigned int *v13; // rbx
   unsigned int v14; // [rsp+50h] [rbp+8h]
 
@@ -48,7 +48,7 @@ __int64 __fastcall MiReserveBootDriverPtes(unsigned __int64 a1, int a2)
   v11 = (unsigned __int64)(unsigned int)((__int64)(v6 - v7) >> 3) >> 3;
   v14 = (__int64)(v6 - v7) >> 3;
   result = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, v11 + 40, 0x70446D4Du);
-  v12 = (struct _RTL_BITMAP *)result;
+  v12 = (_RTL_BITMAP *)result;
   if ( result )
   {
     v13 = (unsigned int *)(result + 40);

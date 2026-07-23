@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeCreateSectionPacket @ 0x1409BA6F4
+ * XREFs of MiInitializeCreateSectionPacket @ 0x14098B6D4
  * Callers:
- *     MiCreateSection @ 0x1409BA4D4 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14098B4B4 (MiCreateSection.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiHugePagesSupported @ 0x1404CFA24 (MiHugePagesSupported.c)
- *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x140615670 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiHugePagesSupported @ 0x1404C9454 (MiHugePagesSupported.c)
+ *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x140618694 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall MiInitializeCreateSectionPacket(

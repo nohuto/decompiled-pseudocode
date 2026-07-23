@@ -1,59 +1,52 @@
 /*
- * XREFs of LdrpGetNtPathFromDosPath @ 0x180075ED0
+ * XREFs of LdrpGetNtPathFromDosPath @ 0x1800927B0
  * Callers:
- *     LdrpResolveDllName @ 0x180075B50 (LdrpResolveDllName.c)
- *     LdrpMapDllRetry @ 0x1800D5ED0 (LdrpMapDllRetry.c)
+ *     LdrpResolveDllName @ 0x180092430 (LdrpResolveDllName.c)
+ *     LdrpMapDllRetry @ 0x1800D1240 (LdrpMapDllRetry.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlpDosPathNameToRelativeNtPathName @ 0x180059C40 (RtlpDosPathNameToRelativeNtPathName.c)
- *     ZwQueryAttributesFile @ 0x180162430 (ZwQueryAttributesFile.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x18006F820 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     ZwQueryAttributesFile @ 0x1801607F0 (ZwQueryAttributesFile.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpGetNtPathFromDosPath(unsigned __int16 *a1, __int64 a2)
+NTSTATUS __fastcall LdrpGetNtPathFromDosPath(unsigned __int16 *a1, _UNICODE_STRING *a2)
 {
-  __int64 result; // rax
-  __int64 v4; // rcx
-  __int128 v5; // xmm0
-  int v6; // eax
-  __int128 *v7; // [rsp+40h] [rbp-88h] BYREF
-  __int128 v8; // [rsp+48h] [rbp-80h] BYREF
-  _DWORD v9[2]; // [rsp+58h] [rbp-70h] BYREF
-  __int64 v10; // [rsp+60h] [rbp-68h]
-  __int64 v11; // [rsp+68h] [rbp-60h]
-  int v12; // [rsp+70h] [rbp-58h]
-  int v13; // [rsp+74h] [rbp-54h]
-  __int128 v14; // [rsp+78h] [rbp-50h]
-  _BYTE v15[32]; // [rsp+88h] [rbp-40h] BYREF
-  __int64 v16; // [rsp+A8h] [rbp-20h]
+  NTSTATUS result; // eax
+  _UNICODE_STRING *Buffer; // rcx
+  _UNICODE_STRING v5; // xmm0
+  ULONG v6; // eax
+  _UNICODE_STRING *v7; // [rsp+40h] [rbp-88h] BYREF
+  _UNICODE_STRING v8; // [rsp+48h] [rbp-80h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-70h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+88h] [rbp-40h] BYREF
 
-  v16 = 0LL;
   v7 = 0LL;
-  v9[1] = 0;
-  v13 = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   v8 = 0LL;
-  memset(v15, 0, sizeof(v15));
-  result = RtlpDosPathNameToRelativeNtPathName(1, a1, (unsigned __int16 *)a2, (unsigned __int16 *)&v8, &v7, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  memset(&FileInformation, 0, sizeof(FileInformation));
+  result = RtlpDosPathNameToRelativeNtPathName(1, a1, &a2->Length, &v8.Length, &v7, 0LL, 0LL);
+  if ( result >= 0 )
   {
     if ( v7 == &v8 )
     {
-      v4 = *(_QWORD *)(a2 + 8);
-      if ( a2 + 16 != v4 )
-        RtlpSysVolFree(v4);
+      Buffer = (_UNICODE_STRING *)a2->Buffer;
+      if ( &a2[1] != Buffer )
+        RtlpSysVolFree(Buffer);
       v5 = v8;
-      *(_WORD *)(a2 + 16) = 0;
-      *(_OWORD *)a2 = v5;
+      a2[1].Length = 0;
+      *a2 = v5;
     }
     v6 = 64;
-    v9[0] = 48;
-    v10 = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
     if ( !LdrpUseImpersonatedDeviceMap )
       v6 = 2112;
-    v11 = a2;
-    v12 = v6;
-    v14 = 0LL;
-    return ZwQueryAttributesFile(v9, v15);
+    ObjectAttributes.ObjectName = a2;
+    ObjectAttributes.Attributes = v6;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    return ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
   }
   return result;
 }

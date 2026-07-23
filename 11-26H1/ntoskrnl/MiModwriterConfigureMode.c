@@ -1,15 +1,15 @@
 /*
- * XREFs of MiModwriterConfigureMode @ 0x140406DD0
+ * XREFs of MiModwriterConfigureMode @ 0x1403FFEC0
  * Callers:
- *     MiGatherPagefilePages @ 0x140406D08 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1403FFDF8 (MiGatherPagefilePages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPageFileLargestBitmapsRun @ 0x140405994 (MiPageFileLargestBitmapsRun.c)
- *     MiIsStoreVirtualPagefileFull @ 0x1404D7630 (MiIsStoreVirtualPagefileFull.c)
- *     MiPageFileNoFreeSpace @ 0x140512338 (MiPageFileNoFreeSpace.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1403FEA88 (MiPageFileLargestBitmapsRun.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x1404D0E00 (MiIsStoreVirtualPagefileFull.c)
+ *     MiPageFileNoFreeSpace @ 0x14050BDA8 (MiPageFileNoFreeSpace.c)
  */
 
 __int64 __fastcall MiModwriterConfigureMode(__int64 a1)
@@ -113,15 +113,15 @@ LABEL_24:
         if ( !v8
           || (*(_BYTE *)(v3 + 175) & 1) != 0
           || (v11 = *(_DWORD *)(v3 + 104), (unsigned int)MiPageFileLargestBitmapsRun(v3) >= v11 >> 2)
-          && (v6 >= (unsigned __int64)(unsigned int)dword_140FBE21C >> 2 || v6 >= v8) )
+          && (v6 >= (unsigned __int64)(unsigned int)dword_140FBF21C >> 2 || v6 >= v8) )
         {
           *(_DWORD *)a1 |= 2u;
         }
       }
     }
   }
-  v12 = dword_140FBE21C;
-  if ( (*(_DWORD *)a1 & 2) != 0 && v6 < (unsigned int)dword_140FBE21C )
+  v12 = dword_140FBF21C;
+  if ( (*(_DWORD *)a1 & 2) != 0 && v6 < (unsigned int)dword_140FBF21C )
     v12 = v6;
   v13 = *(unsigned __int8 *)(v4 + 1140);
   if ( (_BYTE)v13 )

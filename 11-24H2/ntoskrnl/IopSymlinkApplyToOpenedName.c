@@ -1,29 +1,29 @@
 /*
- * XREFs of IopSymlinkApplyToOpenedName @ 0x14099D944
+ * XREFs of IopSymlinkApplyToOpenedName @ 0x1409C6EF4
  * Callers:
- *     IopGraftName @ 0x14099D348 (IopGraftName.c)
+ *     IopGraftName @ 0x140A2F1E8 (IopGraftName.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopSymlinkUpdateECP @ 0x14099DACC (IopSymlinkUpdateECP.c)
- *     IopReplaceSymlinkPath @ 0x14099E1C0 (IopReplaceSymlinkPath.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopSymlinkUpdateECP @ 0x1408ABA8C (IopSymlinkUpdateECP.c)
+ *     IopReplaceSymlinkPath @ 0x1409C707C (IopReplaceSymlinkPath.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSymlinkApplyToOpenedName(__int64 a1, __int64 a2, __int64 a3, IRP *a4, PVOID P, __int16 a6)
 {
   void *v6; // r13
   void *Pool2; // r14
-  _WORD *v12; // rdi
+  UNICODE_STRING *v12; // rdi
   unsigned __int64 v13; // rdx
-  __int16 v14; // dx
+  unsigned __int16 v14; // dx
   int v15; // esi
 
   v6 = *(void **)(a1 + 96);
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, *(unsigned __int16 *)(a2 + 16), 0x63466F49u);
   if ( !Pool2 )
     return 3221225626LL;
-  v12 = (_WORD *)(a1 + 88);
+  v12 = (UNICODE_STRING *)(a1 + 88);
   v13 = *(unsigned __int16 *)(a1 + 88);
   if ( (unsigned int)v13 > 2 && *(_WORD *)(*(_QWORD *)(a1 + 96) + 2 * (v13 >> 1) - 2) == 92 )
   {
@@ -32,7 +32,7 @@ __int64 __fastcall IopSymlinkApplyToOpenedName(__int64 a1, __int64 a2, __int64 a
       ExFreePoolWithTag(Pool2, 0);
       return 3221225485LL;
     }
-    *v12 = v13 - 2;
+    v12->Length = v13 - 2;
     *(_WORD *)(a3 + 6) -= 2;
   }
   memmove(P, *(const void **)(a2 + 24), *(unsigned __int16 *)(a2 + 4));
@@ -43,7 +43,7 @@ __int64 __fastcall IopSymlinkApplyToOpenedName(__int64 a1, __int64 a2, __int64 a
   *(_QWORD *)(a1 + 96) = Pool2;
   v14 = *(_WORD *)(a2 + 16) - *(_WORD *)(a2 + 4);
   *(_WORD *)(a1 + 90) = v14;
-  *v12 = v14;
+  v12->Length = v14;
   ExFreePoolWithTag(v6, 0);
   v15 = IopReplaceSymlinkPath(
           (int)P,
@@ -56,6 +56,12 @@ __int64 __fastcall IopSymlinkApplyToOpenedName(__int64 a1, __int64 a2, __int64 a
   if ( v15 < 0 )
     ExFreePoolWithTag(P, 0);
   else
-    return (unsigned int)IopSymlinkUpdateECP(a4, *(_WORD *)(a2 + 4), *(_WORD *)(a2 + 2) & 0xFFFE);
+    return (unsigned int)IopSymlinkUpdateECP(
+                           a4,
+                           (UNICODE_STRING *)a2,
+                           0,
+                           v12,
+                           *(_WORD *)(a2 + 4),
+                           *(_WORD *)(a2 + 2) & 0xFFFE);
   return (unsigned int)v15;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockOwnedProtoPage @ 0x1402DD410
+ * XREFs of MiLockOwnedProtoPage @ 0x1402DD6A0
  * Callers:
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiRelockProtoPoolPage @ 0x1402EF244 (MiRelockProtoPoolPage.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiRelockProtoPoolPage @ 0x1402EF4D4 (MiRelockProtoPoolPage.c)
  * Callees:
  *     MiWriteValidPteVolatile @ 0x140217020 (MiWriteValidPteVolatile.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiLockOwnedProtoPage(__int64 CurrentIrql, unsigned __int8 a2)
@@ -37,10 +37,10 @@ unsigned __int64 __fastcall MiLockOwnedProtoPage(__int64 CurrentIrql, unsigned _
     _InterlockedAnd64(v2, 0x7FFFFFFFFFFFFFFFuLL);
     if ( (_BYTE)i != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)CurrentIrql <= 0xFu
           && (unsigned __int8)i <= 0xFu
           && (unsigned __int8)CurrentIrql >= 2u )

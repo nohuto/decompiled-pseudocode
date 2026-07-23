@@ -11,11 +11,11 @@
  *     EtwTraceJobAssignProcess @ 0x140935E78 (EtwTraceJobAssignProcess.c)
  */
 
-__int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
+NTSTATUS __cdecl NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)
 {
   unsigned __int64 v2; // rdi
   KPROCESSOR_MODE PreviousMode; // bp
-  NTSTATUS v5; // esi
+  int v5; // esi
   struct _DMA_ADAPTER *v6; // rbx
   __int64 v7; // r8
   PVOID v8; // rdi
@@ -26,16 +26,16 @@ __int64 __fastcall NtAssignProcessToJobObject(void *a1, void *a2)
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   DmaAdapter = 0LL;
-  v5 = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  v5 = ObReferenceObjectByHandle(JobHandle, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v5 >= 0 )
   {
-    if ( a2 == (void *)-7LL )
+    if ( ProcessHandle == (HANDLE)-7LL )
     {
       v2 = KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[16];
       goto LABEL_4;
     }
     v5 = ObReferenceObjectByHandleWithTag(
-           a2,
+           ProcessHandle,
            0x101u,
            (POBJECT_TYPE)PsProcessType,
            PreviousMode,
@@ -61,5 +61,5 @@ LABEL_5:
     ObfDereferenceObjectWithTag(v8, 0x624A7350u);
   if ( v6 )
     HalPutDmaAdapter(v6);
-  return (unsigned int)v5;
+  return v5;
 }

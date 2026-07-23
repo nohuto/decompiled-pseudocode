@@ -10,97 +10,94 @@
  *     RtlIsAnyDebuggerPresent @ 0x1800FF510 (RtlIsAnyDebuggerPresent.c)
  */
 
-__int64 __fastcall RtlQueryProcessLockInformation(__int64 a1)
+__int64 __fastcall RtlQueryProcessLockInformation(_RTL_DEBUG_INFORMATION *a1)
 {
-  _DWORD *DebugInfo; // rax
-  unsigned __int64 v3; // rdx
-  unsigned __int64 v4; // r8
-  unsigned __int64 v5; // r9
-  _DWORD *v6; // r14
-  _QWORD *v8; // rdi
-  _UNKNOWN **v9; // rsi
-  _UNKNOWN **v10; // r15
-  __int64 v11; // rax
-  _QWORD *v12; // rdx
-  _QWORD *v13; // rdx
-  _UNKNOWN **v14; // [rsp+20h] [rbp-78h]
-  _QWORD *v15; // [rsp+28h] [rbp-70h]
-  bool v16; // [rsp+A8h] [rbp+10h]
-  int v17; // [rsp+B0h] [rbp+18h]
+  _RTL_PROCESS_LOCKS *DebugInfo; // rax
+  _RTL_PROCESS_LOCKS *v3; // r14
+  _QWORD *v5; // rdi
+  _UNKNOWN **v6; // rsi
+  _UNKNOWN **v7; // r15
+  _OWORD *v8; // rax
+  _QWORD *v9; // rdx
+  _QWORD *v10; // rdx
+  _UNKNOWN **v11; // [rsp+20h] [rbp-78h]
+  _QWORD *v12; // [rsp+28h] [rbp-70h]
+  bool v13; // [rsp+A8h] [rbp+10h]
+  int v14; // [rsp+B0h] [rbp+18h]
 
-  v17 = 0;
-  DebugInfo = (_DWORD *)RtlpCommitQueryDebugInfo(a1, 8LL);
-  v6 = DebugInfo;
+  v14 = 0;
+  DebugInfo = (_RTL_PROCESS_LOCKS *)RtlpCommitQueryDebugInfo(a1, 8uLL);
+  v3 = DebugInfo;
   if ( !DebugInfo )
     return 3221225495LL;
-  *DebugInfo = 0;
-  v16 = 0;
-  RtlAcquireSRWLockShared(&RtlCriticalSectionLock, v3, v4, v5);
-  v8 = RtlCriticalSectionList;
-  v15 = RtlCriticalSectionList;
-  v9 = (_UNKNOWN **)RtlCriticalSectionList;
-  v14 = (_UNKNOWN **)RtlCriticalSectionList;
-  while ( v9 != &RtlCriticalSectionList )
+  DebugInfo->NumberOfLocks = 0;
+  v13 = 0;
+  RtlAcquireSRWLockShared(&RtlCriticalSectionLock);
+  v5 = RtlCriticalSectionList;
+  v12 = RtlCriticalSectionList;
+  v6 = (_UNKNOWN **)RtlCriticalSectionList;
+  v11 = (_UNKNOWN **)RtlCriticalSectionList;
+  while ( v6 != &RtlCriticalSectionList )
   {
-    v10 = v9 - 2;
-    v11 = RtlpCommitQueryDebugInfo(a1, 48LL);
-    if ( !v11 )
+    v7 = v6 - 2;
+    v8 = RtlpCommitQueryDebugInfo(a1, 0x30uLL);
+    if ( !v8 )
     {
-      v17 = -1073741801;
+      v14 = -1073741801;
       break;
     }
-    *(_OWORD *)v11 = 0LL;
-    *(_OWORD *)(v11 + 16) = 0LL;
-    *(_OWORD *)(v11 + 32) = 0LL;
-    *(_QWORD *)v11 = v10[1];
-    *(_WORD *)(v11 + 8) = *(_WORD *)v10;
-    *(_WORD *)(v11 + 10) = *((_WORD *)v10 + 1);
-    if ( *(_WORD *)(v11 + 8) )
+    *v8 = 0LL;
+    v8[1] = 0LL;
+    v8[2] = 0LL;
+    *(_QWORD *)v8 = v7[1];
+    *((_WORD *)v8 + 4) = *(_WORD *)v7;
+    *((_WORD *)v8 + 5) = *((_WORD *)v7 + 1);
+    if ( *((_WORD *)v8 + 4) )
     {
-      if ( *(_WORD *)(v11 + 8) == 1 )
+      if ( *((_WORD *)v8 + 4) == 1 )
       {
-        v13 = v10[1];
-        *(_DWORD *)(v11 + 28) = *(_DWORD *)(v13[11] + 36LL);
-        *(_QWORD *)(v11 + 16) = v13[9];
-        *(_DWORD *)(v11 + 24) = *((_DWORD *)v13 + 17);
-        *(_DWORD *)(v11 + 40) = *((_DWORD *)v13 + 12);
-        *(_DWORD *)(v11 + 44) = *((_DWORD *)v13 + 16);
-        v9 = v14;
-        v8 = v15;
+        v10 = v7[1];
+        *((_DWORD *)v8 + 7) = *(_DWORD *)(v10[11] + 36LL);
+        *((_QWORD *)v8 + 2) = v10[9];
+        *((_DWORD *)v8 + 6) = *((_DWORD *)v10 + 17);
+        *((_DWORD *)v8 + 10) = *((_DWORD *)v10 + 12);
+        *((_DWORD *)v8 + 11) = *((_DWORD *)v10 + 16);
+        v6 = v11;
+        v5 = v12;
       }
-      else if ( (unsigned __int8)RtlIsAnyDebuggerPresent() )
+      else if ( RtlIsAnyDebuggerPresent() )
       {
         __debugbreak();
       }
     }
     else
     {
-      v12 = v10[1];
-      *(_QWORD *)(v11 + 16) = v12[2];
-      *(_DWORD *)(v11 + 24) = *((_DWORD *)v12 + 2);
-      *(_DWORD *)(v11 + 36) = *((_DWORD *)v12 + 3);
-      *(_DWORD *)(v11 + 28) = *((_DWORD *)v10 + 9);
-      *(_DWORD *)(v11 + 32) = *((_DWORD *)v10 + 8);
+      v9 = v7[1];
+      *((_QWORD *)v8 + 2) = v9[2];
+      *((_DWORD *)v8 + 6) = *((_DWORD *)v9 + 2);
+      *((_DWORD *)v8 + 9) = *((_DWORD *)v9 + 3);
+      *((_DWORD *)v8 + 7) = *((_DWORD *)v7 + 9);
+      *((_DWORD *)v8 + 8) = *((_DWORD *)v7 + 8);
     }
-    ++*v6;
-    v9 = (_UNKNOWN **)*v9;
-    v14 = v9;
-    if ( v9 == v8 )
+    ++v3->NumberOfLocks;
+    v6 = (_UNKNOWN **)*v6;
+    v11 = v6;
+    if ( v6 == v5 )
     {
-      v17 = -1073741595;
+      v14 = -1073741595;
       break;
     }
-    if ( v16 )
+    if ( v13 )
     {
-      v8 = (_QWORD *)*v8;
-      v15 = v8;
+      v5 = (_QWORD *)*v5;
+      v12 = v5;
     }
-    v16 = !v16;
+    v13 = !v13;
   }
   RtlReleaseSRWLockShared(&RtlCriticalSectionLock);
-  if ( v17 < 0 )
-    RtlpDeCommitQueryDebugInfo(a1, v6, 8LL);
+  if ( v14 < 0 )
+    RtlpDeCommitQueryDebugInfo(a1, v3, 8uLL);
   else
-    *(_QWORD *)(a1 + 120) = v6;
-  return (unsigned int)v17;
+    a1->Locks = v3;
+  return (unsigned int)v14;
 }

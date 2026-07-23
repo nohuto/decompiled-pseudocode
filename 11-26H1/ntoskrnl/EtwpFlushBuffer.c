@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpFlushBuffer @ 0x140A14C58
+ * XREFs of EtwpFlushBuffer @ 0x140A13E4C
  * Callers:
- *     EtwpBufferingModeFlush @ 0x140A13654 (EtwpBufferingModeFlush.c)
- *     EtwpFlushActiveBuffers @ 0x140A141E8 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x140A12844 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x140A133D8 (EtwpFlushActiveBuffers.c)
  * Callees:
- *     EtwpFileModeCompress @ 0x1404003A8 (EtwpFileModeCompress.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140A14E40 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpSendSessionNotification @ 0x140A1545C (EtwpSendSessionNotification.c)
- *     EtwpFlushBufferToLogfile @ 0x140A15524 (EtwpFlushBufferToLogfile.c)
- *     EtwpRealtimeSaveBuffer @ 0x140A15B24 (EtwpRealtimeSaveBuffer.c)
+ *     EtwpFileModeCompress @ 0x1403F2148 (EtwpFileModeCompress.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140A14034 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpSendSessionNotification @ 0x140A14650 (EtwpSendSessionNotification.c)
+ *     EtwpFlushBufferToLogfile @ 0x140A14718 (EtwpFlushBufferToLogfile.c)
+ *     EtwpRealtimeSaveBuffer @ 0x140A14D18 (EtwpRealtimeSaveBuffer.c)
  */
 
 __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)

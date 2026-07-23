@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRegisterPartitionPages @ 0x140601440
+ * XREFs of EtwpRegisterPartitionPages @ 0x140601990
  * Callers:
- *     EtwpAllocatePartitionMemory @ 0x1406012E4 (EtwpAllocatePartitionMemory.c)
+ *     EtwpAllocatePartitionMemory @ 0x140601834 (EtwpAllocatePartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpMdlHashTableAllocator @ 0x140601400 (EtwpMdlHashTableAllocator.c)
- *     EtwpMdlHashTableDeallocator @ 0x140601424 (EtwpMdlHashTableDeallocator.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpMdlHashTableAllocator @ 0x140601950 (EtwpMdlHashTableAllocator.c)
+ *     EtwpMdlHashTableDeallocator @ 0x140601974 (EtwpMdlHashTableDeallocator.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -47,10 +47,10 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
   Pool2[1] = a3;
   Pool2[2] = a2;
   Pool2[3] = a1;
-  v9 = ExAcquireSpinLockExclusive(&dword_140C31C30);
-  if ( EtwpMdlTable >= 2 * ((unsigned int)dword_140C31C24 >> 5) )
+  v9 = ExAcquireSpinLockExclusive(&dword_140C31BD0);
+  if ( EtwpMdlTable >= 2 * ((unsigned int)dword_140C31BC4 >> 5) )
   {
-    v10 = 2 * ((unsigned int)dword_140C31C24 >> 5);
+    v10 = 2 * ((unsigned int)dword_140C31BC4 >> 5);
     if ( (unsigned int)v10 < 4 )
       v10 = 4LL;
     v11 = (char *)EtwpMdlHashTableAllocator(8LL * (unsigned int)v10);
@@ -74,14 +74,14 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
         v13 = 0LL;
       if ( v13 )
         memset64(v11, (unsigned __int64)&EtwpMdlTable + 1, v13);
-      v14 = dword_140C31C24;
+      v14 = dword_140C31BC4;
       v15 = 0;
-      v16 = -1LL << (dword_140C31C24 & 0x1F);
-      if ( (dword_140C31C24 & 0xFFFFFFE0) != 0 )
+      v16 = -1LL << (dword_140C31BC4 & 0x1F);
+      if ( (dword_140C31BC4 & 0xFFFFFFE0) != 0 )
       {
         do
         {
-          v17 = qword_140C31C28;
+          v17 = qword_140C31BC8;
           while ( 1 )
           {
             v18 = *(_QWORD **)(v17 + 8LL * v15);
@@ -100,25 +100,25 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
             *v18 = *(_QWORD *)&v11[8 * v19];
             *(_QWORD *)&v11[8 * v19] = v18;
           }
-          v14 = dword_140C31C24;
+          v14 = dword_140C31BC4;
           ++v15;
         }
-        while ( v15 < (unsigned int)dword_140C31C24 >> 5 );
+        while ( v15 < (unsigned int)dword_140C31BC4 >> 5 );
       }
-      v20 = (void *)qword_140C31C28;
-      qword_140C31C28 = (__int64)v11;
-      dword_140C31C24 = (32 * v10) | v14 & 0x1F;
+      v20 = (void *)qword_140C31BC8;
+      qword_140C31BC8 = (__int64)v11;
+      dword_140C31BC4 = (32 * v10) | v14 & 0x1F;
       if ( v20 )
         EtwpMdlHashTableDeallocator(v20);
     }
-    else if ( (dword_140C31C24 & 0xFFFFFFE0) == 0 )
+    else if ( (dword_140C31BC4 & 0xFFFFFFE0) == 0 )
     {
       goto LABEL_25;
     }
   }
   v6 = 1;
-  v29 = v8[1] & (-1LL << (dword_140C31C24 & 0x1F));
-  v21 = qword_140C31C28;
+  v29 = v8[1] & (-1LL << (dword_140C31BC4 & 0x1F));
+  v21 = qword_140C31BC8;
   v22 = (37
        * (BYTE6(v29)
         + 37
@@ -126,16 +126,19 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
          + 37
          * (BYTE4(v29)
           + 37 * (BYTE3(v29) + 37 * (BYTE2(v29) + 37 * (BYTE1(v29) + 37 * ((unsigned __int8)v29 + 11623883)))))))
-       + HIBYTE(v29)) & (((unsigned int)dword_140C31C24 >> 5) - 1);
-  *v8 = *(_QWORD *)(qword_140C31C28 + 8 * v22);
+       + HIBYTE(v29)) & (((unsigned int)dword_140C31BC4 >> 5) - 1);
+  *v8 = *(_QWORD *)(qword_140C31BC8 + 8 * v22);
   *(_QWORD *)(v21 + 8 * v22) = v8;
   ++EtwpMdlTable;
 LABEL_25:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C31C30);
-  if ( KiIrqlFlags )
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C31BD0);
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));

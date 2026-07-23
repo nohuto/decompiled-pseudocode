@@ -1,32 +1,32 @@
 /*
- * XREFs of PipInitComputerIds @ 0x140A5B730
+ * XREFs of PipInitComputerIds @ 0x140A5C730
  * Callers:
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
- *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
- *     IopCreateRegistryKeyEx @ 0x14073FD44 (IopCreateRegistryKeyEx.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     _PnpCtxRegDeleteTree @ 0x1407AC128 (_PnpCtxRegDeleteTree.c)
- *     PipHardwareConfigOpenKey @ 0x1407AC320 (PipHardwareConfigOpenKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     PipCreateComputerId @ 0x140A5C698 (PipCreateComputerId.c)
- *     PipSmBiosGetString @ 0x140A5C8BC (PipSmBiosGetString.c)
- *     PipSmBiosFindStruct @ 0x140A5CA04 (PipSmBiosFindStruct.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PnpUnicodeStringToWstrFree @ 0x14062A5A4 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14062C36C (PnpUnicodeStringToWstr.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14066DF18 (RtlStringFromGUIDEx.c)
+ *     RtlUpcaseUnicodeString @ 0x14067B110 (RtlUpcaseUnicodeString.c)
+ *     IopCreateRegistryKeyEx @ 0x14073FF04 (IopCreateRegistryKeyEx.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     _PnpCtxRegDeleteTree @ 0x1407AC328 (_PnpCtxRegDeleteTree.c)
+ *     PipHardwareConfigOpenKey @ 0x1407AC520 (PipHardwareConfigOpenKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     PipCreateComputerId @ 0x140A5D698 (PipCreateComputerId.c)
+ *     PipSmBiosGetString @ 0x140A5D8BC (PipSmBiosGetString.c)
+ *     PipSmBiosFindStruct @ 0x140A5DA04 (PipSmBiosFindStruct.c)
  */
 
 __int64 __fastcall PipInitComputerIds(__int64 a1)
@@ -152,7 +152,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   __int128 v121; // [rsp+F8h] [rbp-10h] BYREF
   UNICODE_STRING *p_DestinationString; // [rsp+108h] [rbp+0h]
   UNICODE_STRING UnicodeString[10]; // [rsp+118h] [rbp+10h] BYREF
-  unsigned int v124[60]; // [rsp+1B8h] [rbp+B0h] BYREF
+  _OWORD v124[15]; // [rsp+1B8h] [rbp+B0h] BYREF
   wchar_t SourceString; // [rsp+2A8h] [rbp+1A0h] BYREF
   wchar_t pszDest[8]; // [rsp+2B0h] [rbp+1A8h] BYREF
 
@@ -406,7 +406,7 @@ LABEL_44:
             while ( v42 < 0xA );
             v44 = 0;
             v45 = UnicodeString;
-            v46 = (PCWSTR *)off_140008840;
+            v46 = (PCWSTR *)off_140008850;
             do
             {
               RtlInitUnicodeString(&ValueName_8, *v46);
@@ -513,7 +513,7 @@ LABEL_126:
                     }
                     if ( v7 < 0 )
                       goto LABEL_149;
-                    v7 = RtlStringFromGUIDEx(&v124[4 * v40], (__int64)&ValueName_8, 0);
+                    v7 = RtlStringFromGUIDEx((PGUID)&v124[v40], &ValueName_8, 0);
                     if ( v7 < 0 )
                       goto LABEL_149;
                     v7 = RtlUpcaseUnicodeString(&ValueName_8, &ValueName_8, 0);
@@ -586,7 +586,7 @@ LABEL_149:
               *((_QWORD *)&v120 + 1) = &UnicodeString[4];
               *(_QWORD *)&v121 = &UnicodeString[5];
               *((_QWORD *)&v121 + 1) = &DestinationString;
-              v56 = PipCreateComputerId(v50, v52, &v119, 6LL, &v124[4 * v51]);
+              v56 = PipCreateComputerId(v50, v52, &v119, 6LL, &v124[v51]);
               v57 = v51 + 1;
               v7 = v56;
               if ( v56 < 0 )
@@ -596,7 +596,7 @@ LABEL_149:
               *(_QWORD *)&v120 = &UnicodeString[4];
               *((_QWORD *)&v120 + 1) = &UnicodeString[5];
               *(_QWORD *)&v121 = &DestinationString;
-              v58 = PipCreateComputerId(v50, v52, &v119, 5LL, &v124[4 * v57]);
+              v58 = PipCreateComputerId(v50, v52, &v119, 5LL, &v124[v57]);
               v51 = v57 + 1;
               v7 = v58;
               if ( v58 < 0 )
@@ -635,7 +635,7 @@ LABEL_149:
                       --v63;
                     }
                     while ( v63 );
-                    v65 = PipCreateComputerId(v50, v52, &v119, 6LL, &v124[4 * v51++]);
+                    v65 = PipCreateComputerId(v50, v52, &v119, 6LL, &v124[v51++]);
                     v7 = v65;
                     if ( v65 < 0 )
                       goto LABEL_150;
@@ -653,7 +653,7 @@ LABEL_149:
                   --v66;
                 }
                 while ( v66 );
-                v69 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[4 * v51++]);
+                v69 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[v51++]);
                 v7 = v69;
                 if ( v69 < 0 )
                   goto LABEL_150;
@@ -661,7 +661,7 @@ LABEL_149:
               *(_QWORD *)&v119 = UnicodeString;
               *((_QWORD *)&v119 + 1) = &UnicodeString[1];
               *(_QWORD *)&v120 = &UnicodeString[2];
-              v70 = PipCreateComputerId(v50, v52, &v119, 3LL, &v124[4 * v51++]);
+              v70 = PipCreateComputerId(v50, v52, &v119, 3LL, &v124[v51++]);
               v7 = v70;
               if ( v70 < 0 )
                 goto LABEL_150;
@@ -687,7 +687,7 @@ LABEL_149:
                     --v71;
                   }
                   while ( v71 );
-                  v74 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[4 * v51++]);
+                  v74 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[v51++]);
                   v7 = v74;
                   if ( v74 < 0 )
                     goto LABEL_150;
@@ -695,7 +695,7 @@ LABEL_149:
               }
               *(_QWORD *)&v119 = UnicodeString;
               *((_QWORD *)&v119 + 1) = &UnicodeString[3];
-              v75 = PipCreateComputerId(v50, v52, &v119, 2LL, &v124[4 * v51++]);
+              v75 = PipCreateComputerId(v50, v52, &v119, 2LL, &v124[v51++]);
               v7 = v75;
               if ( v75 < 0 )
                 goto LABEL_150;
@@ -713,7 +713,7 @@ LABEL_149:
                   *((_QWORD *)&v119 + 1) = &UnicodeString[2];
                   *(_QWORD *)&v120 = &UnicodeString[6];
                   *((_QWORD *)&v120 + 1) = &UnicodeString[7];
-                  v76 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[4 * v51++]);
+                  v76 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[v51++]);
                   v7 = v76;
                   if ( v76 < 0 )
                     goto LABEL_150;
@@ -721,7 +721,7 @@ LABEL_149:
               }
               *(_QWORD *)&v119 = UnicodeString;
               *((_QWORD *)&v119 + 1) = &UnicodeString[2];
-              v77 = PipCreateComputerId(v50, v52, &v119, 2LL, &v124[4 * v51++]);
+              v77 = PipCreateComputerId(v50, v52, &v119, 2LL, &v124[v51++]);
               v7 = v77;
               if ( v77 < 0 )
                 goto LABEL_150;
@@ -747,7 +747,7 @@ LABEL_149:
                     --v78;
                   }
                   while ( v78 );
-                  v81 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[4 * v51++]);
+                  v81 = PipCreateComputerId(v50, v52, &v119, 4LL, &v124[v51++]);
                   v7 = v81;
                   if ( v81 < 0 )
                     goto LABEL_150;
@@ -755,7 +755,7 @@ LABEL_149:
               }
               *(_QWORD *)&v119 = UnicodeString;
               *((_QWORD *)&v119 + 1) = &UnicodeString[1];
-              v82 = PipCreateComputerId(v50, v52, &v119, 2LL, &v124[4 * v51++]);
+              v82 = PipCreateComputerId(v50, v52, &v119, 2LL, &v124[v51++]);
               v7 = v82;
               if ( v82 < 0 )
                 goto LABEL_150;
@@ -771,7 +771,7 @@ LABEL_149:
               RtlInitUnicodeString(&v118, &SourceString);
               *(_QWORD *)&v119 = UnicodeString;
               *((_QWORD *)&v119 + 1) = &v118;
-              v83 = PipCreateComputerId(v50, 0LL, &v119, 2LL, &v124[4 * v51++]);
+              v83 = PipCreateComputerId(v50, 0LL, &v119, 2LL, &v124[v51++]);
               v7 = v83;
               if ( v83 < 0 )
                 goto LABEL_150;
@@ -793,13 +793,13 @@ LABEL_149:
               --v84;
             }
             while ( v84 );
-            v87 = PipCreateComputerId(v50, 0LL, &v119, 3LL, &v124[4 * v51++]);
+            v87 = PipCreateComputerId(v50, 0LL, &v119, 3LL, &v124[v51++]);
             v7 = v87;
             if ( v87 >= 0 )
             {
 LABEL_191:
               *(_QWORD *)&v119 = UnicodeString;
-              v88 = PipCreateComputerId(v50, 0LL, &v119, 1LL, &v124[4 * v51++]);
+              v88 = PipCreateComputerId(v50, 0LL, &v119, 1LL, &v124[v51++]);
               v7 = v88;
               if ( v88 >= 0 )
                 goto LABEL_126;

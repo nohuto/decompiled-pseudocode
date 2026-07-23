@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfApplyCapsAndFloors @ 0x140463DEC
+ * XREFs of PpmPerfApplyCapsAndFloors @ 0x1403A3174
  * Callers:
- *     PpmPerfApplyDomainState @ 0x1403B2CE0 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyDomainState @ 0x1403A14F0 (PpmPerfApplyDomainState.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpSetupSchedulerAssist @ 0x140272EFC
+ * XREFs of HvlpSetupSchedulerAssist @ 0x1402730EC
  * Callers:
- *     HvlEnlightenProcessor @ 0x140178680 (HvlEnlightenProcessor.c)
+ *     HvlEnlightenProcessor @ 0x140178780 (HvlEnlightenProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
  */
 
 void __fastcall HvlpSetupSchedulerAssist(__int64 a1)

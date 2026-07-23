@@ -1,13 +1,13 @@
 /*
- * XREFs of PsGetNextProcessEx @ 0x1405B12D0
+ * XREFs of PsGetNextProcessEx @ 0x1405B22D0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
  */
 
 void *__fastcall PsGetNextProcessEx(PVOID Object)

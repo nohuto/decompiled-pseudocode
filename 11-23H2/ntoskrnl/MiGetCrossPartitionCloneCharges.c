@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetCrossPartitionCloneCharges @ 0x14066480C
+ * XREFs of MiGetCrossPartitionCloneCharges @ 0x140664D5C
  * Callers:
  *     MiChargeCrossPartitionSharedPage @ 0x140217824 (MiChargeCrossPartitionSharedPage.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x140664948 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x140664E98 (MiHandleForkTransitionPte.c)
  * Callees:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiGetCrossPartitionCharges @ 0x140659F78 (MiGetCrossPartitionCharges.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     MiGetCrossPartitionCharges @ 0x14065A4C8 (MiGetCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiGetCrossPartitionCloneCharges(volatile signed __int64 *a1, char a2)

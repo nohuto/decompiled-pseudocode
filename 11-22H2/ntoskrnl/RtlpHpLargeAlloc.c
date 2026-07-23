@@ -25,7 +25,7 @@ __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __int64 a3,
   __int128 v4; // xmm0
   __int64 v5; // rsi
   __int64 v8; // rax
-  unsigned __int64 v9; // r13
+  _RTL_BALANCED_NODE *v9; // r13
   char v10; // bl
   unsigned __int64 v11; // r8
   unsigned __int64 v12; // rcx
@@ -41,10 +41,10 @@ __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __int64 a3,
   unsigned __int64 v22; // rax
   unsigned __int64 v23; // r14
   unsigned __int8 v24; // al
-  unsigned __int64 *v25; // rcx
+  _RTL_RB_TREE *v25; // rcx
   unsigned __int64 v26; // rsi
   unsigned __int64 v27; // rdx
-  bool v28; // r8
+  BOOLEAN v28; // r8
   unsigned __int64 v29; // rax
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -78,7 +78,7 @@ __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __int64 a3,
   v36 = 0LL;
   v44 = v4;
   v8 = RtlpHpMetadataAlloc(40LL, 40LL, 0LL, &v44);
-  v9 = v8;
+  v9 = (_RTL_BALANCED_NODE *)v8;
   if ( !v8 )
     return v38;
   *(_OWORD *)v8 = 0LL;
@@ -162,7 +162,7 @@ __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __int64 a3,
       v5 = v36;
 LABEL_64:
       v42 = *(_OWORD *)a1;
-      RtlpHpMetadataFree(v9, &v42);
+      RtlpHpMetadataFree((__int64)v9, &v42);
       goto LABEL_40;
     }
     v10 &= ~1u;
@@ -178,11 +178,13 @@ LABEL_64:
   _BitScanForward64(&v22, v37);
   v23 = v43;
   LODWORD(v38) = v22;
-  *(_QWORD *)(v9 + 24) = v21;
-  *(_QWORD *)(v9 + 32) = *(_DWORD *)(v9 + 32) & 0xF01 | (2 * (v53 & 0xFFFFFF81 | (2 * ((v23 << 10) | v22 & 0x3F))));
-  *(_WORD *)(v9 + 24) = ((_WORD)v23 << 12) - a2;
+  v9[1].Children[0] = (_RTL_BALANCED_NODE *)v21;
+  v9[1].Children[1] = (_RTL_BALANCED_NODE *)((__int64)v9[1].Right & 0xF01 | (2
+                                                                           * (v53 & 0xFFFFFF81 | (2
+                                                                                                * ((v23 << 10) | v22 & 0x3F)))));
+  LOWORD(v9[1].Children[0]) = ((_WORD)v23 << 12) - a2;
   v24 = RtlpHpLargeLockAcquire(a1, v17);
-  v25 = (unsigned __int64 *)(a1 + 72);
+  v25 = (_RTL_RB_TREE *)(a1 + 72);
   v26 = v24;
   v27 = *(_QWORD *)(a1 + 72);
   if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v27 )
@@ -223,16 +225,19 @@ LABEL_34:
       v27 = v29;
     }
   }
-  RtlRbInsertNodeEx(v25, v27, v28, v9);
+  RtlRbInsertNodeEx(v25, (PRTL_BALANCED_NODE)v27, v28, v9);
   if ( (v17 & 1) == 0 )
   {
     if ( (*(_DWORD *)a1 & 1) != 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v26 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v26 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

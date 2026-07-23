@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReserveDriverPtes @ 0x1404CD0DC
+ * XREFs of MiReserveDriverPtes @ 0x1404B2B08
  * Callers:
- *     MiSelectSystemImageAddress @ 0x1404CD09C (MiSelectSystemImageAddress.c)
- *     MmMapLockedRestartPages @ 0x14065741C (MmMapLockedRestartPages.c)
+ *     MiSelectSystemImageAddress @ 0x1404B2AC8 (MiSelectSystemImageAddress.c)
+ *     MmMapLockedRestartPages @ 0x140657500 (MmMapLockedRestartPages.c)
  *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     MiUnlockDriverMappings @ 0x1400A28EC (MiUnlockDriverMappings.c)
- *     MiLockDriverMappings @ 0x1400A2928 (MiLockDriverMappings.c)
- *     MiObtainSystemVa @ 0x1400A3024 (MiObtainSystemVa.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeReservePrivilegedPages @ 0x1401D20B0 (KeReservePrivilegedPages.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     MiUnlockDriverMappings @ 0x1400A1214 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x1400A1250 (MiLockDriverMappings.c)
+ *     MiObtainSystemVa @ 0x1400A194C (MiObtainSystemVa.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeReservePrivilegedPages @ 0x1401D1EDC (KeReservePrivilegedPages.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiReleaseDriverPtes @ 0x140544938 (MiReleaseDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x140544E78 (MiReleaseDriverPtes.c)
  */
 
 unsigned __int64 __fastcall MiReserveDriverPtes(unsigned int a1, unsigned int a2)
@@ -26,11 +26,11 @@ unsigned __int64 __fastcall MiReserveDriverPtes(unsigned int a1, unsigned int a2
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v3; // r14
   ULONG v5; // esi
-  struct _RTL_BITMAP *i; // rbx
+  _RTL_BITMAP *i; // rbx
   ULONG ClearBitsAndSet; // eax
   unsigned __int64 v8; // rbx
   unsigned int v10; // r12d
-  struct _RTL_BITMAP *PoolWithTag; // r15
+  _RTL_BITMAP *PoolWithTag; // r15
   int v12; // ebx
   unsigned __int64 v13; // rax
   unsigned __int64 PteAddress; // rdi
@@ -41,7 +41,7 @@ unsigned __int64 __fastcall MiReserveDriverPtes(unsigned int a1, unsigned int a2
   v3 = a1;
   v5 = (a2 + 15) >> 4;
   MiLockDriverMappings((__int64)CurrentThread);
-  for ( i = (struct _RTL_BITMAP *)qword_140326850[v3]; i; i = *(struct _RTL_BITMAP **)&i->SizeOfBitMap )
+  for ( i = (_RTL_BITMAP *)qword_140326890[v3]; i; i = *(_RTL_BITMAP **)&i->SizeOfBitMap )
   {
     if ( i[1].SizeOfBitMap >= v5 )
     {
@@ -57,10 +57,10 @@ unsigned __int64 __fastcall MiReserveDriverPtes(unsigned int a1, unsigned int a2
   }
   StartingIndex = (unsigned __int8)ExGenRandom(1);
   v10 = (16 * (StartingIndex + v5) + 511) & 0xFFFFFE00;
-  PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                        (POOL_TYPE)((_DWORD)InitializationPhase != 0 ? PagedPool : NonPagedPoolNx),
-                                        ((unsigned __int64)v10 >> 7) + 40,
-                                        0x70446D4Du);
+  PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                 (POOL_TYPE)((_DWORD)InitializationPhase != 0 ? PagedPool : NonPagedPoolNx),
+                                 ((unsigned __int64)v10 >> 7) + 40,
+                                 0x70446D4Du);
   if ( !PoolWithTag )
   {
     MiUnlockDriverMappings((__int64)CurrentThread);
@@ -92,8 +92,8 @@ LABEL_16:
   RtlSetBits(PoolWithTag + 1, StartingIndex, v5);
   PoolWithTag->Buffer = (unsigned int *)PteAddress;
   PoolWithTag[2].SizeOfBitMap = StartingIndex + v5;
-  *(_QWORD *)&PoolWithTag->SizeOfBitMap = qword_140326850[v3];
-  qword_140326850[v3] = PoolWithTag;
+  *(_QWORD *)&PoolWithTag->SizeOfBitMap = qword_140326890[v3];
+  qword_140326890[v3] = PoolWithTag;
   MiUnlockDriverMappings((__int64)CurrentThread);
   v8 = PteAddress + 8 * ((unsigned __int64)(StartingIndex << 16) >> 12);
 LABEL_6:

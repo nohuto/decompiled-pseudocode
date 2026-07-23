@@ -2,14 +2,14 @@
  * XREFs of SdbReadBinaryTag @ 0x140695430
  * Callers:
  *     SdbGetDatabaseID @ 0x140695370 (SdbGetDatabaseID.c)
- *     SdbpGetExeEntryFlags @ 0x14084E24C (SdbpGetExeEntryFlags.c)
- *     SdbReadGUIDTag @ 0x1408557B4 (SdbReadGUIDTag.c)
- *     SdbReadEntryInformation @ 0x140A4F374 (SdbReadEntryInformation.c)
- *     SdbpGetMatchingTextAttributes @ 0x140A50E68 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetExeEntryFlags @ 0x14084E54C (SdbpGetExeEntryFlags.c)
+ *     SdbReadGUIDTag @ 0x140855AB4 (SdbReadGUIDTag.c)
+ *     SdbReadEntryInformation @ 0x140A4F624 (SdbReadEntryInformation.c)
+ *     SdbpGetMatchingTextAttributes @ 0x140A51118 (SdbpGetMatchingTextAttributes.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpReadTagData @ 0x14075749C (SdbpReadTagData.c)
- *     SdbGetTagFromTagID @ 0x140757C80 (SdbGetTagFromTagID.c)
+ *     SdbpReadTagData @ 0x14075768C (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x140757E70 (SdbGetTagFromTagID.c)
  */
 
 __int64 __fastcall SdbReadBinaryTag(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

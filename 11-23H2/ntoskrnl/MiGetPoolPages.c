@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetPoolPages @ 0x1402E3304
+ * XREFs of MiGetPoolPages @ 0x1402E3594
  * Callers:
- *     MiInitializePoolCommitPacket @ 0x140286900 (MiInitializePoolCommitPacket.c)
+ *     MiInitializePoolCommitPacket @ 0x140286B90 (MiInitializePoolCommitPacket.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiRetryNonPagedAllocation @ 0x1402E3508 (MiRetryNonPagedAllocation.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     MiFillPhysicalPages @ 0x140339290 (MiFillPhysicalPages.c)
- *     MiReturnPhysicalPoolPages @ 0x1403404FC (MiReturnPhysicalPoolPages.c)
- *     MiReturnPoolCharges @ 0x140340768 (MiReturnPoolCharges.c)
- *     MiObtainPoolCharges @ 0x14035A980 (MiObtainPoolCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E18C0 (MiSetPfnTbFlushStamp.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiRetryNonPagedAllocation @ 0x1402E3798 (MiRetryNonPagedAllocation.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
+ *     MiFillPhysicalPages @ 0x140339520 (MiFillPhysicalPages.c)
+ *     MiReturnPhysicalPoolPages @ 0x14034078C (MiReturnPhysicalPoolPages.c)
+ *     MiReturnPoolCharges @ 0x1403409F8 (MiReturnPoolCharges.c)
+ *     MiObtainPoolCharges @ 0x14035AB20 (MiObtainPoolCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
@@ -74,10 +74,13 @@ _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

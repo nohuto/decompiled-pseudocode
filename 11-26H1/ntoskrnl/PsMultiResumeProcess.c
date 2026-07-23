@@ -1,15 +1,15 @@
 /*
- * XREFs of PsMultiResumeProcess @ 0x140528200
+ * XREFs of PsMultiResumeProcess @ 0x14052A870
  * Callers:
- *     PsResumeProcess @ 0x140B2CDF0 (PsResumeProcess.c)
- *     NtResumeProcess @ 0x140B417B0 (NtResumeProcess.c)
+ *     PsResumeProcess @ 0x140B2EE70 (PsResumeProcess.c)
+ *     NtResumeProcess @ 0x140B437C0 (NtResumeProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResumeThread @ 0x1402C5F30 (KeResumeThread.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsGetNextProcessThread @ 0x1409573A0 (PsGetNextProcessThread.c)
- *     EtwTiLogSuspendResumeProcess @ 0x140AF12D8 (EtwTiLogSuspendResumeProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResumeThread @ 0x140310BD0 (KeResumeThread.c)
+ *     PsGetNextProcessThread @ 0x14094ADD0 (PsGetNextProcessThread.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x140AF3F18 (EtwTiLogSuspendResumeProcess.c)
  */
 
 __int64 __fastcall PsMultiResumeProcess(__int64 a1)

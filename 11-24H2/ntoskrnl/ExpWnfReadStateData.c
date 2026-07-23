@@ -1,39 +1,39 @@
 /*
- * XREFs of ExpWnfReadStateData @ 0x1408ABA3C
+ * XREFs of ExpWnfReadStateData @ 0x140901C9C
  * Callers:
- *     ExpWnfDeliverThreadNotifications @ 0x1408AB440 (ExpWnfDeliverThreadNotifications.c)
- *     NtQueryWnfStateData @ 0x1408ABBD0 (NtQueryWnfStateData.c)
- *     PopWnfSprActiveSessionChangeCallback @ 0x1408AE6C0 (PopWnfSprActiveSessionChangeCallback.c)
- *     VslpConnectedStandbyWnfCallback @ 0x140A3B470 (VslpConnectedStandbyWnfCallback.c)
- *     PopWnfFullscreenVideoCallback @ 0x140A3B590 (PopWnfFullscreenVideoCallback.c)
- *     PopNetWnfLowPowerEpochCallback @ 0x140A3B690 (PopNetWnfLowPowerEpochCallback.c)
- *     PopWnfAudioCallback @ 0x140A3B7C0 (PopWnfAudioCallback.c)
- *     PopEsInStandbyEvaluate @ 0x140A3B940 (PopEsInStandbyEvaluate.c)
- *     PopEsWnfSubscriptionOverrideCallback @ 0x140A3BAA0 (PopEsWnfSubscriptionOverrideCallback.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x1409016A0 (ExpWnfDeliverThreadNotifications.c)
+ *     NtQueryWnfStateData @ 0x140901E30 (NtQueryWnfStateData.c)
+ *     PopWnfSprActiveSessionChangeCallback @ 0x140904920 (PopWnfSprActiveSessionChangeCallback.c)
+ *     VslpConnectedStandbyWnfCallback @ 0x140A30C50 (VslpConnectedStandbyWnfCallback.c)
+ *     PopWnfFullscreenVideoCallback @ 0x140A30D70 (PopWnfFullscreenVideoCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140A30E70 (PopNetWnfLowPowerEpochCallback.c)
+ *     PopWnfAudioCallback @ 0x140A30FA0 (PopWnfAudioCallback.c)
+ *     PopEsInStandbyEvaluate @ 0x140A31120 (PopEsInStandbyEvaluate.c)
+ *     PopEsWnfSubscriptionOverrideCallback @ 0x140A31280 (PopEsWnfSubscriptionOverrideCallback.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ExpWnfReadStateData(__int64 a1, _DWORD *a2, void *a3, unsigned int a4, _DWORD *a5)
 {
   signed __int64 *v9; // rbx
-  _QWORD *v10; // rdi
+  char *v10; // rdi
   _DWORD *v11; // rdx
   unsigned int v12; // eax
   unsigned int v14; // [rsp+20h] [rbp-48h]
 
   v14 = 0;
   v9 = (signed __int64 *)(a1 + 80);
-  v10 = KeAbPreAcquire(a1 + 80, 0LL);
+  v10 = (char *)KeAbPreAcquire(a1 + 80, 0LL);
   if ( _InterlockedCompareExchange64(v9, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v9, 0, v10, (__int64)v9);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   v11 = *(_DWORD **)(a1 + 88);
   if ( !v11 )
   {

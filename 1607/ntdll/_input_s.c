@@ -3,8 +3,8 @@
  * Callers:
  *     _sinput_s @ 0x1800A4034 (_sinput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     _ungetc_nolock @ 0x1800A0AD4 (_ungetc_nolock.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     _ungetc_nolock @ 0x1800A0AD0 (_ungetc_nolock.c)
  *     ReadString_0 @ 0x1800A340C (ReadString_0.c)
  *     ReadStringDelimited_0 @ 0x1800A35C0 (ReadStringDelimited_0.c)
  *     _inc_0 @ 0x1800A3728 (_inc_0.c)

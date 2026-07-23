@@ -13,9 +13,9 @@
  *     memset @ 0x1800AAE00 (memset.c)
  */
 
-__int64 __fastcall PsspCaptureVaSpaceInformation2(
+NTSTATUS __fastcall PsspCaptureVaSpaceInformation2(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         int (__fastcall *a3)(__int64, unsigned __int64, __int64, __int128 *, __int64, __int64 *),
         __int64 a4,
         __int16 a5)
@@ -31,8 +31,8 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   __int64 v15; // rdx
   int v16; // eax
   unsigned __int64 v17; // rcx
-  __int64 result; // rax
-  int v19; // edi
+  NTSTATUS result; // eax
+  NTSTATUS v19; // edi
   unsigned int v20; // r13d
   unsigned __int64 v21; // r14
   unsigned __int16 *v22; // rdi
@@ -52,10 +52,10 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   __int128 v36; // [rsp+68h] [rbp-51h] BYREF
   __int128 v37; // [rsp+78h] [rbp-41h]
   __int128 v38; // [rsp+88h] [rbp-31h]
-  void *v39; // [rsp+98h] [rbp-21h] BYREF
-  HANDLE Handle; // [rsp+A0h] [rbp-19h] BYREF
-  __int64 v41; // [rsp+A8h] [rbp-11h] BYREF
-  __int64 v42; // [rsp+B0h] [rbp-9h] BYREF
+  PVOID BaseAddress; // [rsp+98h] [rbp-21h] BYREF
+  HANDLE SectionHandle; // [rsp+A0h] [rbp-19h] BYREF
+  ULONG_PTR ViewSize; // [rsp+A8h] [rbp-11h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+B0h] [rbp-9h] BYREF
   __int128 v43[5]; // [rsp+B8h] [rbp-1h] BYREF
 
   v7 = 0LL;
@@ -72,7 +72,7 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
       break;
     v12 = v36;
     if ( (_QWORD)v36 != v7 )
-      return 3221225793LL;
+      return -1073741503;
     if ( DWORD2(v38) != 0x1000000 )
     {
       v13 = 0;
@@ -118,17 +118,17 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   while ( v12 + *((_QWORD *)&v37 + 1) >= v12 );
   v17 = 72LL * v8;
   if ( v17 > 0xFFFFFFFF )
-    return 3221225621LL;
+    return -1073741675;
   if ( v11 )
   {
     v10 = 8LL * v9;
     if ( v10 > 0xFFFFFFFF )
-      return 3221225621LL;
+      return -1073741675;
   }
   else if ( (a5 & 0x1000) != 0 )
   {
     if ( (int)v10 + 16 < (unsigned int)v10 )
-      return 3221225621LL;
+      return -1073741675;
     LODWORD(v10) = v10 + 16;
   }
   if ( (_DWORD)v10 )
@@ -138,24 +138,41 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
       LODWORD(v17) = v17 + v10;
       goto LABEL_32;
     }
-    return 3221225621LL;
+    return -1073741675;
   }
 LABEL_32:
-  v42 = (unsigned int)v17;
-  result = NtCreateSection(&Handle, 983047LL, L"0", &v42, 4, 0x8000000, 0LL);
-  if ( (int)result < 0 )
+  MaximumSize.QuadPart = (unsigned int)v17;
+  result = NtCreateSection(
+             &SectionHandle,
+             0xF0007u,
+             (POBJECT_ATTRIBUTES)&stru_180132028,
+             &MaximumSize,
+             4u,
+             0x8000000u,
+             0LL);
+  if ( result < 0 )
     return result;
-  v39 = 0LL;
-  v41 = 0LL;
-  v19 = ZwMapViewOfSection(Handle, -1LL, &v39, 0LL, 0LL, 0LL, &v41, 1, 0, 4);
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
+  v19 = ZwMapViewOfSection(
+          SectionHandle,
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          &BaseAddress,
+          0LL,
+          0LL,
+          0LL,
+          &ViewSize,
+          ViewShare,
+          0,
+          4u);
   if ( v19 < 0 )
   {
-    NtClose(Handle);
-    return (unsigned int)v19;
+    NtClose(SectionHandle);
+    return v19;
   }
-  v20 = v41;
+  v20 = ViewSize;
   v21 = 0LL;
-  v22 = (unsigned __int16 *)v39;
+  v22 = (unsigned __int16 *)BaseAddress;
   v23 = 0;
   v34 = 0;
   v24 = 0;
@@ -171,7 +188,7 @@ LABEL_32:
     if ( a3(a4, v21, 0LL, &v36, 48LL, 0LL) < 0 )
       break;
     if ( (_QWORD)v36 != v21 )
-      return 3221225793LL;
+      return -1073741503;
     memset(v22, 0, 0x48uLL);
     v25 = 72;
     *(_OWORD *)v22 = v36;
@@ -183,7 +200,7 @@ LABEL_32:
       goto LABEL_42;
     if ( DWORD2(v38) == 0x1000000 )
     {
-      PsspCaptureImageInformation((__int64)(v22 + 24), a2, *((__int64 *)&v36 + 1));
+      PsspCaptureImageInformation((__int64)(v22 + 24), a2, *((char **)&v36 + 1));
     }
     else if ( DWORD2(v38) != 0x40000 )
     {
@@ -253,10 +270,10 @@ LABEL_42:
     v34 = v23;
   }
   while ( (_QWORD)v36 + *((_QWORD *)&v37 + 1) >= (unsigned __int64)v36 );
-  NtUnmapViewOfSection(-1LL);
-  *(_QWORD *)(a1 + 920) = Handle;
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+  *(_QWORD *)(a1 + 920) = SectionHandle;
   *(_DWORD *)(a1 + 912) = v23;
   *(_DWORD *)(a1 + 916) = v24;
   *(_QWORD *)(a1 + 928) = MEMORY[0x7FFE0014];
-  return 0LL;
+  return 0;
 }

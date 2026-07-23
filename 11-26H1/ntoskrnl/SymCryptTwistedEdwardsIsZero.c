@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptTwistedEdwardsIsZero @ 0x140565760
+ * XREFs of SymCryptTwistedEdwardsIsZero @ 0x140576630
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementIsEqual @ 0x14055C5D0 (SymCryptModElementIsEqual.c)
- *     SymCryptModElementIsZero @ 0x14055C5E8 (SymCryptModElementIsZero.c)
+ *     SymCryptModElementIsEqual @ 0x14055EAB8 (SymCryptModElementIsEqual.c)
+ *     SymCryptModElementIsZero @ 0x14055EAD0 (SymCryptModElementIsZero.c)
  */
 
 __int64 SymCryptTwistedEdwardsIsZero()

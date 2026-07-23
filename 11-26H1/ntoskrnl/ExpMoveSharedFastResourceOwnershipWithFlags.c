@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpMoveSharedFastResourceOwnershipWithFlags @ 0x14043153C
+ * XREFs of ExpMoveSharedFastResourceOwnershipWithFlags @ 0x14041E56C
  * Callers:
- *     ExMoveFastResourceOwnershipWithFlags @ 0x140431510 (ExMoveFastResourceOwnershipWithFlags.c)
+ *     ExMoveFastResourceOwnershipWithFlags @ 0x14041E540 (ExMoveFastResourceOwnershipWithFlags.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExpRemoveFastOwnerEntryFromThreadList @ 0x140431CC0 (ExpRemoveFastOwnerEntryFromThreadList.c)
- *     KeAbMarkCrossThreadReleasable @ 0x140529B94 (KeAbMarkCrossThreadReleasable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExpRemoveFastOwnerEntryFromThreadList @ 0x14041ECF0 (ExpRemoveFastOwnerEntryFromThreadList.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x14052C0B0 (KeAbMarkCrossThreadReleasable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall ExpMoveSharedFastResourceOwnershipWithFlags(

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwUnsubscribeWnfStateChange @ 0x140727010
+ * XREFs of ZwUnsubscribeWnfStateChange @ 0x14072BBE0
  * Callers:
- *     DifZwUnsubscribeWnfStateChangeWrapper @ 0x1406BEB70 (DifZwUnsubscribeWnfStateChangeWrapper.c)
+ *     DifZwUnsubscribeWnfStateChangeWrapper @ 0x1406C2750 (DifZwUnsubscribeWnfStateChangeWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwUnsubscribeWnfStateChange(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

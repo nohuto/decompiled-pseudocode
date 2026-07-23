@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbFindFirstStringIndexedTag @ 0x14067CC0C
+ * XREFs of SdbFindFirstStringIndexedTag @ 0x14067DDCC
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x14067C960 (SdbGetDatabaseMatchEx.c)
- *     SdbpSearchDB @ 0x14067D56C (SdbpSearchDB.c)
- *     KsepDbGetShimInfo @ 0x140847808 (KsepDbGetShimInfo.c)
+ *     SdbGetDatabaseMatchEx @ 0x14067DB20 (SdbGetDatabaseMatchEx.c)
+ *     SdbpSearchDB @ 0x14067E72C (SdbpSearchDB.c)
+ *     KsepDbGetShimInfo @ 0x140848A68 (KsepDbGetShimInfo.c)
  * Callees:
- *     SdbpGetFirstIndexedRecord @ 0x14067CCB0 (SdbpGetFirstIndexedRecord.c)
- *     SdbMakeIndexKeyFromStringEx @ 0x14067D440 (SdbMakeIndexKeyFromStringEx.c)
- *     SdbGetIndex @ 0x14067D704 (SdbGetIndex.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbpFindMatchingName @ 0x140721664 (SdbpFindMatchingName.c)
+ *     SdbpGetFirstIndexedRecord @ 0x14067DE70 (SdbpGetFirstIndexedRecord.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x14067E600 (SdbMakeIndexKeyFromStringEx.c)
+ *     SdbGetIndex @ 0x14067E8C4 (SdbGetIndex.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbpFindMatchingName @ 0x140722904 (SdbpFindMatchingName.c)
  */
 
 __int64 __fastcall SdbFindFirstStringIndexedTag(void *a1, __int64 a2, __int16 a3, __int64 a4, unsigned int *a5)

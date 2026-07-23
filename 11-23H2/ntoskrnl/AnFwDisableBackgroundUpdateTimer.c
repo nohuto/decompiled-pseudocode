@@ -4,10 +4,10 @@
  *     AnFwDisplayBackgroundUpdate @ 0x140AEC0B8 (AnFwDisplayBackgroundUpdate.c)
  *     BgpFwLibraryDisable @ 0x140AEC1EC (BgpFwLibraryDisable.c)
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
- *     ResFwFreeContext @ 0x140AF1ED4 (ResFwFreeContext.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140AF21E0 (AnFwpBackgroundUpdateTimer.c)
+ *     ResFwFreeContext @ 0x140AF1EE4 (ResFwFreeContext.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140AF21F0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
  */
 
 BOOLEAN AnFwDisableBackgroundUpdateTimer()

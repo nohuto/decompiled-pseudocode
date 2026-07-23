@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwSetTimer(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, DueTime);
+  return KiServiceInternal(TimerHandle);
 }

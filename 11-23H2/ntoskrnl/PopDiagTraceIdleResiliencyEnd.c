@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceIdleResiliencyEnd @ 0x140593DE8
+ * XREFs of PopDiagTraceIdleResiliencyEnd @ 0x1405942D8
  * Callers:
- *     PopDeepSleepEvaluateCallback @ 0x140598450 (PopDeepSleepEvaluateCallback.c)
+ *     PopDeepSleepEvaluateCallback @ 0x140598940 (PopDeepSleepEvaluateCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceIdleResiliencyEnd(__int64 a1, int a2)

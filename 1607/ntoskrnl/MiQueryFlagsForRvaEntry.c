@@ -1,7 +1,7 @@
 /*
- * XREFs of MiQueryFlagsForRvaEntry @ 0x1404D7EEC
+ * XREFs of MiQueryFlagsForRvaEntry @ 0x1404BB4F0
  * Callers:
- *     MiCompressRvaList @ 0x14042F860 (MiCompressRvaList.c)
+ *     MiCompressRvaList @ 0x14042E730 (MiCompressRvaList.c)
  * Callees:
  *     <none>
  */

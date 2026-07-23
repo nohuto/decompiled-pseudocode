@@ -1,7 +1,7 @@
 /*
  * XREFs of PsQueryThreadTerminationPort @ 0x1405CC384
  * Callers:
- *     sub_1405BF1D0 @ 0x1405BF1D0 (sub_1405BF1D0.c)
+ *     sub_1405BF400 @ 0x1405BF400 (sub_1405BF400.c)
  * Callees:
  *     <none>
  */

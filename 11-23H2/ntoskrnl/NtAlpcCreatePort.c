@@ -1,20 +1,29 @@
 /*
- * XREFs of NtAlpcCreatePort @ 0x1407CC2D0
+ * XREFs of NtAlpcCreatePort @ 0x1407CC5A0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     AlpcpCreateConnectionPort @ 0x1407CC318 (AlpcpCreateConnectionPort.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpCreateConnectionPort @ 0x1407CC5E8 (AlpcpCreateConnectionPort.c)
  */
 
-__int64 __fastcall NtAlpcCreatePort(int a1, int a2, int a3)
+NTSTATUS __cdecl NtAlpcCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int ConnectionPort; // ebx
+  NTSTATUS ConnectionPort; // ebx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ConnectionPort = AlpcpCreateConnectionPort(a1, a2, a3, 0, 0, 0);
+  ConnectionPort = AlpcpCreateConnectionPort(
+                     (_DWORD)PortHandle,
+                     (_DWORD)ObjectAttributes,
+                     (_DWORD)PortAttributes,
+                     0,
+                     0,
+                     0);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return ConnectionPort;
 }

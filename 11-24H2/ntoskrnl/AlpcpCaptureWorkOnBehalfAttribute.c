@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpCaptureWorkOnBehalfAttribute @ 0x1409C4310
+ * XREFs of AlpcpCaptureWorkOnBehalfAttribute @ 0x1409C1630
  * Callers:
- *     AlpcpCaptureAttributes @ 0x14088F7F0 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x140899420 (AlpcpCaptureAttributes.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsGetWorkOnBehalfThread @ 0x140432F80 (PsGetWorkOnBehalfThread.c)
- *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x1404453F0 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     PoEnergyEstimationEnabled @ 0x140448760 (PoEnergyEstimationEnabled.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsGetWorkOnBehalfThread @ 0x1404250C0 (PsGetWorkOnBehalfThread.c)
+ *     IoThreadToProcess @ 0x140438740 (IoThreadToProcess.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x14043D5A0 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     PoEnergyEstimationEnabled @ 0x140440E80 (PoEnergyEstimationEnabled.c)
  */
 
 __int64 __fastcall AlpcpCaptureWorkOnBehalfAttribute(__int64 a1)

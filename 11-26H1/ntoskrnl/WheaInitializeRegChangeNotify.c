@@ -1,35 +1,32 @@
 /*
- * XREFs of WheaInitializeRegChangeNotify @ 0x140849894
+ * XREFs of WheaInitializeRegChangeNotify @ 0x14084FBA4
  * Callers:
- *     WheapSetPolicyValue @ 0x140849D14 (WheapSetPolicyValue.c)
- *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
+ *     WheapSetPolicyValue @ 0x140850024 (WheapSetPolicyValue.c)
+ *     WheaInitialize @ 0x140CEDE58 (WheaInitialize.c)
  * Callees:
- *     NtNotifyChangeMultipleKeys @ 0x14097A180 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x14093C190 (NtNotifyChangeMultipleKeys.c)
  */
 
 void WheaInitializeRegChangeNotify()
 {
-  SIZE_T Length; // [rsp+50h] [rbp-18h]
-
-  if ( CmpCallbackListLock.WaitBlock[2].Object )
+  if ( CmpContextListLock.WaitBlock[1].Object )
   {
-    *(_QWORD *)&CmpCallbackListLock.ThreadFlags2 = 0LL;
-    LODWORD(Length) = 0;
-    CmpCallbackListLock.LastXStateSaveDebugInfo = (unsigned __int64)WheaRegChangeNotifyCallback;
-    CmpCallbackListLock.WaitBlock[3].Thread = 0LL;
-    if ( (int)NtNotifyChangeMultipleKeys(
-                *(int *)&CmpCallbackListLock.WaitBlockFill11[128],
-                0,
-                0,
-                0,
-                (__int64)&CmpCallbackListLock.WaitBlock[3].Thread,
-                1LL,
-                &CmpCallbackListLock.WaitBlockFill11[152],
-                4,
-                0,
-                0LL,
-                Length,
-                1) < 0 )
-      _InterlockedExchange((volatile __int32 *)&CmpCallbackListLock.WaitBlockFill11[136], 1);
+    CmpContextListLock.LastXStateSaveDebugInfo = 0LL;
+    CmpContextListLock.Spare18 = (unsigned __int64)WheaRegChangeNotifyCallback;
+    *(_QWORD *)&CmpContextListLock.WaitBlockFill11[160] = 0LL;
+    if ( NtNotifyChangeMultipleKeys(
+           CmpContextListLock.WaitBlock[1].Object,
+           0,
+           0LL,
+           0LL,
+           (PIO_APC_ROUTINE)&CmpContextListLock.WaitBlockFill11[160],
+           (PVOID)1,
+           (PIO_STATUS_BLOCK)&CmpContextListLock.WaitBlockFill11[128],
+           4u,
+           0,
+           0LL,
+           0,
+           1u) < 0 )
+      _InterlockedExchange((volatile __int32 *)&CmpContextListLock.WaitBlockFill11[120], 1);
   }
 }

@@ -5,11 +5,11 @@
  * Callees:
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
- *     RtlpWakeSRWLock @ 0x180075250 (RtlpWakeSRWLock.c)
- *     TppQueueRemoveHead @ 0x18008AE4C (TppQueueRemoveHead.c)
- *     TppAreNodeWorkersSteadyState @ 0x18008B06C (TppAreNodeWorkersSteadyState.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtSetInformationThread @ 0x1800A0480 (NtSetInformationThread.c)
+ *     RtlpWakeSRWLock @ 0x180075260 (RtlpWakeSRWLock.c)
+ *     TppQueueRemoveHead @ 0x18008AE5C (TppQueueRemoveHead.c)
+ *     TppAreNodeWorkersSteadyState @ 0x18008B07C (TppAreNodeWorkersSteadyState.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtSetInformationThread @ 0x1800A04A0 (NtSetInformationThread.c)
  *     TppAdjustRunningThreadGoal @ 0x180110414 (TppAdjustRunningThreadGoal.c)
  *     TppETWWorkerNodeSwitch @ 0x180111220 (TppETWWorkerNodeSwitch.c)
  */
@@ -33,9 +33,9 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 *v19; // rax
   __int64 v20; // rcx
   __int64 v21; // rax
-  volatile signed __int64 *v22; // r13
-  __int64 v23; // r12
-  volatile signed __int64 v24; // rax
+  _RTL_SRWLOCK *v22; // r13
+  __int64 Value; // r12
+  unsigned __int64 v24; // rax
   volatile signed __int64 *v25; // rcx
   signed __int64 v26; // rax
   __int64 v27; // r13
@@ -65,7 +65,7 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v52; // [rsp+58h] [rbp-21h]
   __int64 v53; // [rsp+60h] [rbp-19h]
   _QWORD *v54; // [rsp+68h] [rbp-11h]
-  _QWORD v55[2]; // [rsp+70h] [rbp-9h] BYREF
+  _QWORD ThreadInformation[2]; // [rsp+70h] [rbp-9h] BYREF
   _QWORD v56[2]; // [rsp+80h] [rbp+7h] BYREF
 
   v54 = a3;
@@ -124,7 +124,7 @@ LABEL_8:
     v38 = *(_QWORD *)(a1 + 48);
     v46 = *(_WORD *)(v38 + 16 * v16 + 8);
     v39 = *(_WORD *)(v38 + 16LL * (unsigned int)v14 + 8);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v38) )
+    if ( RtlGetCurrentServiceSessionId() )
       v40 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v40 = 2147353478LL;
@@ -132,10 +132,10 @@ LABEL_8:
       TppETWWorkerNodeSwitch(a1, v16, v14, v46, v39);
     if ( v46 != v39 )
     {
-      v55[0] = 0LL;
-      v55[1] = v39;
-      NtSetInformationThread(-2LL, 30LL, v55, 16LL);
-      NtSetInformationThread(-2LL, 13LL, &v49, 4LL);
+      ThreadInformation[0] = 0LL;
+      ThreadInformation[1] = v39;
+      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, ThreadInformation, 0x10u);
+      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v49, 4u);
     }
   }
   v17 = v14;
@@ -153,18 +153,18 @@ LABEL_8:
     {
       v21 = *v19;
       v52 = v20;
-      v22 = (volatile signed __int64 *)(v21 + 8 * v18);
+      v22 = (_RTL_SRWLOCK *)(v21 + 8 * v18);
       RtlAcquireSRWLockExclusive(v22 + 2);
-      v23 = *v22;
-      if ( *(volatile signed __int64 **)(*v22 + 8) != v22
-        || (v24 = *(_QWORD *)v23, *(_QWORD *)(*(_QWORD *)v23 + 8LL) != v23) )
+      Value = v22->Value;
+      if ( *(_RTL_SRWLOCK **)(v22->Value + 8) != v22
+        || (v24 = *(_QWORD *)Value, *(_QWORD *)(*(_QWORD *)Value + 8LL) != Value) )
       {
         __fastfail(3u);
       }
-      *v22 = v24;
-      v25 = v22 + 2;
+      v22->Value = v24;
+      v25 = (volatile signed __int64 *)&v22[2];
       *(_QWORD *)(v24 + 8) = v22;
-      v26 = _InterlockedCompareExchange64(v22 + 2, 0LL, 1LL);
+      v26 = _InterlockedCompareExchange64((volatile signed __int64 *)&v22[2], 0LL, 1LL);
       if ( v26 != 1 )
       {
         do
@@ -181,9 +181,9 @@ LABEL_8:
         if ( v42 == 2 )
           RtlpWakeSRWLock(v25, v43, 0LL);
       }
-      if ( (volatile signed __int64 *)v23 == v22 )
-        v23 = 0LL;
-      if ( v23 )
+      if ( (_RTL_SRWLOCK *)Value == v22 )
+        Value = 0LL;
+      if ( Value )
         break;
       v20 = v47 + 1;
       v18 = v53;
@@ -206,8 +206,8 @@ LABEL_32:
     v33 = v31;
     while ( 1 )
     {
-      v23 = TppQueueRemoveHead(*v33 + 24LL * v17);
-      if ( v23 )
+      Value = TppQueueRemoveHead(*v33 + 24LL * v17);
+      if ( Value )
         break;
       v33 = v48;
       v17 = v17 + 1 < TppNumberNodes ? v17 + 1 : 0;
@@ -226,9 +226,9 @@ LABEL_32:
       }
     }
   }
-  *v54 = v23 - 16;
+  *v54 = Value - 16;
   v27 = *(unsigned int *)(a2 + 344);
-  v50 = *(unsigned __int8 *)(v23 - 16 + 12);
+  v50 = *(unsigned __int8 *)(Value - 16 + 12);
   v28 = *(_DWORD *)(a1 + 428);
   if ( v17 == (_DWORD)v27 )
   {
@@ -257,7 +257,7 @@ LABEL_32:
     v35 = *(_QWORD *)(a1 + 48);
     v36 = *(_WORD *)(v35 + 16 * v34 + 8);
     v45 = *(_WORD *)(v35 + 16 * v27 + 8);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v35) )
+    if ( RtlGetCurrentServiceSessionId() )
       v37 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v37 = 2147353478LL;
@@ -267,8 +267,8 @@ LABEL_32:
     {
       v56[0] = 0LL;
       v56[1] = v36;
-      NtSetInformationThread(-2LL, 30LL, v56, 16LL);
-      NtSetInformationThread(-2LL, 13LL, &v50, 4LL);
+      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, v56, 0x10u);
+      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v50, 4u);
     }
   }
   if ( v17 == (_DWORD)v14 )

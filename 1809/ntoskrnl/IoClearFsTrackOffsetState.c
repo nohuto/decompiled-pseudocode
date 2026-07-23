@@ -1,10 +1,10 @@
 /*
- * XREFs of IoClearFsTrackOffsetState @ 0x140284F80
+ * XREFs of IoClearFsTrackOffsetState @ 0x140285170
  * Callers:
  *     <none>
  * Callees:
- *     IopFreeIrpExtension @ 0x140107850 (IopFreeIrpExtension.c)
- *     IopIrpHasExtensionType @ 0x140107C4C (IopIrpHasExtensionType.c)
+ *     IopFreeIrpExtension @ 0x1401078D0 (IopFreeIrpExtension.c)
+ *     IopIrpHasExtensionType @ 0x140107CCC (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoClearFsTrackOffsetState(__int64 a1)

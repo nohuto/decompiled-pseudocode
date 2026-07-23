@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDistributeSystemCacheVaReductions @ 0x140672220
+ * XREFs of MiDistributeSystemCacheVaReductions @ 0x1406733F0
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x1403EDB20 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
  */
 
 _QWORD *MiDistributeSystemCacheVaReductions()

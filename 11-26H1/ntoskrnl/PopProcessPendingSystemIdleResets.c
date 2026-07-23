@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessPendingSystemIdleResets @ 0x140A3BF84
+ * XREFs of PopProcessPendingSystemIdleResets @ 0x1409F79A4
  * Callers:
- *     PopSystemIdleWorker @ 0x140A3BBE0 (PopSystemIdleWorker.c)
+ *     PopSystemIdleWorker @ 0x1409F7600 (PopSystemIdleWorker.c)
  * Callees:
- *     PopPulseSystemIdleEvent @ 0x140A3C2BC (PopPulseSystemIdleEvent.c)
+ *     PopPulseSystemIdleEvent @ 0x1409F7CDC (PopPulseSystemIdleEvent.c)
  */
 
 __int64 PopProcessPendingSystemIdleResets()
@@ -13,10 +13,10 @@ __int64 PopProcessPendingSystemIdleResets()
 
   while ( 1 )
   {
-    result = LODWORD(PopWeakChargerLock.IoSelfBoostsEntry.Next);
-    if ( !_BitScanForward((unsigned int *)&v2, (unsigned int)PopWeakChargerLock.IoSelfBoostsEntry.Next) )
+    result = (unsigned int)PopPendingSystemIdleResetMask;
+    if ( !_BitScanForward((unsigned int *)&v2, PopPendingSystemIdleResetMask) )
       break;
-    _InterlockedAnd((volatile signed __int32 *)&PopWeakChargerLock.IoSelfBoostsEntry, ~(1 << v2));
+    _InterlockedAnd(&PopPendingSystemIdleResetMask, ~(1 << v2));
     if ( v2 == 2 )
       PopPulseSystemIdleEvent(2LL);
   }

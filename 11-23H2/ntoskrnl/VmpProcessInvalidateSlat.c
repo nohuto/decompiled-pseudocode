@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpProcessInvalidateSlat @ 0x1405FAA64
+ * XREFs of VmpProcessInvalidateSlat @ 0x1405FAFD4
  * Callers:
- *     VmpFlushTbVaRange @ 0x1405F9210 (VmpFlushTbVaRange.c)
- *     VmpInvalidateSlatBatched @ 0x1405F9818 (VmpInvalidateSlatBatched.c)
+ *     VmpFlushTbVaRange @ 0x1405F9780 (VmpFlushTbVaRange.c)
+ *     VmpInvalidateSlatBatched @ 0x1405F9D88 (VmpInvalidateSlatBatched.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     VmpInvalidateSingleGpaRange @ 0x140466CC8 (VmpInvalidateSingleGpaRange.c)
- *     VmpLogTbFlushSlatInvalidate @ 0x1405F9ECC (VmpLogTbFlushSlatInvalidate.c)
+ *     VmpInvalidateSingleGpaRange @ 0x1404670C8 (VmpInvalidateSingleGpaRange.c)
+ *     VmpLogTbFlushSlatInvalidate @ 0x1405FA43C (VmpLogTbFlushSlatInvalidate.c)
  */
 
 __int64 __fastcall VmpProcessInvalidateSlat(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoRemoveShareAccess @ 0x14070C884
+ * XREFs of VerifierIoRemoveShareAccess @ 0x14070C8B4
  * Callers:
  *     <none>
  * Callees:

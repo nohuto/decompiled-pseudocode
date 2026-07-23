@@ -8,25 +8,25 @@
  *     RtlpFreeHandleForAtom @ 0x18004CCD0 (RtlpFreeHandleForAtom.c)
  */
 
-__int64 __fastcall RtlpFreeAllAtom(__int64 *a1, __int64 a2, __int64 a3)
+signed int __fastcall RtlpFreeAllAtom(wchar_t *a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
-  __int64 *v5; // rdx
-  __int64 *v6; // [rsp+50h] [rbp+8h] BYREF
+  signed int result; // eax
+  PVOID v5; // rdx
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
   __int64 *v7; // [rsp+60h] [rbp+18h] BYREF
   __int64 v8; // [rsp+68h] [rbp+20h] BYREF
 
-  v6 = a1;
-  result = RtlpHashStringToAtom(a2, (wchar_t *)a1 + 9, a3, &v7, 0LL, &v8, (__int64 *)&v6);
-  if ( (int)result >= 0 )
+  BaseAddress = a1;
+  result = RtlpHashStringToAtom(a2, a1 + 9, a3, &v7, 0LL, &v8, (__int64 *)&BaseAddress);
+  if ( result >= 0 )
   {
-    v5 = v6;
-    if ( v6 )
+    v5 = BaseAddress;
+    if ( BaseAddress )
     {
       if ( v7 )
-        *v7 = *v6;
+        *v7 = *(_QWORD *)BaseAddress;
       RtlpFreeHandleForAtom(a2, (__int64)v5);
-      return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v6);
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     }
   }
   return result;

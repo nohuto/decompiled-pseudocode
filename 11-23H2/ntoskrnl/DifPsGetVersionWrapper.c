@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPsGetVersionWrapper @ 0x1405EA770
+ * XREFs of DifPsGetVersionWrapper @ 0x1405EACE0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetVersion @ 0x1403695D0 (PsGetVersion.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     PsGetVersion @ 0x140369770 (PsGetVersion.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 BOOLEAN __fastcall DifPsGetVersionWrapper(

@@ -1,17 +1,17 @@
 /*
- * XREFs of SepRmGlobalSaclFind @ 0x1408A3AB8
+ * XREFs of SepRmGlobalSaclFind @ 0x1408A4D18
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x1402FFCC8 (SepExamineGlobalSaclEx.c)
- *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
- *     SepRmGlobalSaclSetWrkr @ 0x140736E40 (SepRmGlobalSaclSetWrkr.c)
- *     SeAuditingFileOrGlobalEvents @ 0x14089FA90 (SeAuditingFileOrGlobalEvents.c)
- *     SeExamineGlobalSacl @ 0x1408A38EC (SeExamineGlobalSacl.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A00 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepExamineGlobalSaclEx @ 0x1402FFEB8 (SepExamineGlobalSaclEx.c)
+ *     NtSetSecurityObject @ 0x1405BACF0 (NtSetSecurityObject.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x140738030 (SepRmGlobalSaclSetWrkr.c)
+ *     SeAuditingFileOrGlobalEvents @ 0x1408A0CF0 (SeAuditingFileOrGlobalEvents.c)
+ *     SeExamineGlobalSacl @ 0x1408A4B4C (SeExamineGlobalSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A4C60 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall SepRmGlobalSaclFind(__int64 *a1, __int64 *a2, const UNICODE_STRING *a3, char a4)

@@ -1,26 +1,26 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryInsert @ 0x140615C54
+ * XREFs of PspJobIoRateVolumeEntryInsert @ 0x140618BE8
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x140B5A3A0 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140B5D6BC (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     PspIoRateEntryVolumeCompare @ 0x1404BCA3C (PspIoRateEntryVolumeCompare.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     PspIoRateEntryVolumeCompare @ 0x1404B621C (PspIoRateEntryVolumeCompare.c)
  */
 
-void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
+void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   KIRQL v4; // al
   unsigned __int64 v5; // r12
-  unsigned __int64 v6; // rdi
-  bool v7; // bl
+  signed __int64 v6; // rdi
+  BOOLEAN v7; // bl
   KIRQL v8; // r13
   int v9; // ebp
   unsigned __int64 v10; // rax
 
   v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1688));
-  v5 = *(_QWORD *)(a2 + 24);
+  v5 = (unsigned __int64)a2[1].Children[0];
   v6 = *(_QWORD *)(a1 + 1696);
   v7 = 0;
   v8 = v4;
@@ -67,6 +67,6 @@ LABEL_11:
       v6 = v10;
     }
   }
-  RtlRbInsertNodeEx(a1 + 1696, v6, v7, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 1696), (PRTL_BALANCED_NODE)v6, v7, a2);
   ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1688), v8);
 }

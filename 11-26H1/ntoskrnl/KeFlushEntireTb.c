@@ -1,14 +1,14 @@
 /*
- * XREFs of KeFlushEntireTb @ 0x1405F0BC0
+ * XREFs of KeFlushEntireTb @ 0x1405F3530
  * Callers:
- *     MiRebaseDynamicRelocationRegions @ 0x140CF9848 (MiRebaseDynamicRelocationRegions.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140CFFBC8 (MiRebaseDynamicRelocationRegions.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiFlushAddressSpaceTb @ 0x14024FEF8 (KiFlushAddressSpaceTb.c)
- *     KxFlushEntireTb @ 0x14025128C (KxFlushEntireTb.c)
- *     ExFlushTb @ 0x14041D5A8 (ExFlushTb.c)
- *     KiPreprocessFlushTb @ 0x140430BB0 (KiPreprocessFlushTb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiFlushAddressSpaceTb @ 0x140251858 (KiFlushAddressSpaceTb.c)
+ *     KxFlushEntireTb @ 0x140252BEC (KxFlushEntireTb.c)
+ *     ExFlushTb @ 0x140414DF8 (ExFlushTb.c)
+ *     KiPreprocessFlushTb @ 0x14041DBE0 (KiPreprocessFlushTb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 KeFlushEntireTb()

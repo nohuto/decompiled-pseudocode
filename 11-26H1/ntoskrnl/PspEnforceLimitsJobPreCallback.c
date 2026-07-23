@@ -1,11 +1,11 @@
 /*
- * XREFs of PspEnforceLimitsJobPreCallback @ 0x140A7F730
+ * XREFs of PspEnforceLimitsJobPreCallback @ 0x140A855A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsZeroMemory @ 0x1404D9FD0 (RtlIsZeroMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspQueryRateControlHistory @ 0x140A7F83C (PspQueryRateControlHistory.c)
+ *     RtlIsZeroMemory @ 0x1404D36B0 (RtlIsZeroMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspQueryRateControlHistory @ 0x140A856AC (PspQueryRateControlHistory.c)
  */
 
 __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)
 
   v2 = 0;
   *(_DWORD *)(a1 + 1464) = PspSiloMonitorLock.Timer.Header.WaitListHead.Flink;
-  if ( (*(_DWORD *)(a1 + 1056) & 6) != 0 || *(_DWORD *)(a1 + 1080) || !RtlIsZeroMemory((_BYTE *)(a1 + 1108), 8uLL) )
+  if ( (*(_DWORD *)(a1 + 1056) & 6) != 0 || *(_DWORD *)(a1 + 1080) || !RtlIsZeroMemory((PVOID)(a1 + 1108), 8uLL) )
   {
     v5 = (_DWORD)a2 + 52;
     *a2 = *(_QWORD *)(a1 + 992);

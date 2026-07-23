@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetHighestPteConsumer @ 0x1401FC6C0
+ * XREFs of MiGetHighestPteConsumer @ 0x1401FC4EC
  * Callers:
- *     MiIssueNoPtesBugcheck @ 0x1401E7418 (MiIssueNoPtesBugcheck.c)
+ *     MiIssueNoPtesBugcheck @ 0x1401E7244 (MiIssueNoPtesBugcheck.c)
  * Callees:
  *     <none>
  */
@@ -24,10 +24,10 @@ __int64 __fastcall MiGetHighestPteConsumer(unsigned __int64 *a1)
   unsigned __int64 v16; // rbp
 
   *a1 = 0LL;
-  if ( (dword_1403A913C & 1) == 0 || byte_140327564 == 1 )
+  if ( (dword_1403A913C & 1) == 0 || byte_1403275A4 == 1 )
     return 0LL;
   v3 = 0;
-  v4 = &unk_140327D90;
+  v4 = &unk_140327DD0;
   do
   {
     if ( (_QWORD *)*v4 != v4 )
@@ -44,8 +44,8 @@ __int64 __fastcall MiGetHighestPteConsumer(unsigned __int64 *a1)
   while ( (PVOID *)v5 != &PsLoadedModuleList )
   {
     v8 = 0LL;
-    v9 = (void **)&unk_140327D90;
-    v10 = (char *)&unk_140327D90;
+    v9 = (void **)&unk_140327DD0;
+    v10 = (char *)&unk_140327DD0;
     v11 = 16LL;
     do
     {

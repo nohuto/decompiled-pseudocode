@@ -10,17 +10,17 @@
 
 __int64 __fastcall sub_180004554(__int64 a1, _OWORD *a2, _DWORD *a3, _DWORD *a4)
 {
-  unsigned int v5; // eax
-  int v7; // r10d
-  unsigned int v10; // r11d
-  int v11; // eax
-  unsigned int v12; // ebp
+  ULONG v5; // eax
+  __int64 v7; // r10
+  ULONG CompressedBufferSize; // r11d
+  NTSTATUS v11; // eax
+  unsigned __int32 v12; // ebp
   __int64 v13; // rcx
   __int64 v14; // rax
-  unsigned int v15; // esi
+  ULONG v15; // esi
   int v16; // ecx
-  unsigned int v17; // ecx
-  unsigned int v18; // eax
+  ULONG v17; // ecx
+  ULONG v18; // eax
   __int64 v20; // rax
   unsigned int v21; // edx
   int v22; // eax
@@ -30,25 +30,25 @@ __int64 __fastcall sub_180004554(__int64 a1, _OWORD *a2, _DWORD *a3, _DWORD *a4)
   int v26; // eax
   bool v27; // zf
   int v28; // eax
-  char v29[16]; // [rsp+50h] [rbp-28h] BYREF
-  int v30; // [rsp+80h] [rbp+8h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-28h] BYREF
+  ULONG FinalCompressedSize; // [rsp+80h] [rbp+8h] BYREF
 
   *a4 = 0;
   v5 = *(_DWORD *)(a1 + 208);
-  v7 = *(_DWORD *)(a1 + 452);
+  v7 = *(unsigned int *)(a1 + 452);
   *a3 = 0;
-  v10 = *(_DWORD *)(a1 + 448) - v7 - 72;
-  if ( v10 >= v5 )
-    v10 = v5;
+  CompressedBufferSize = *(_DWORD *)(a1 + 448) - v7 - 72;
+  if ( CompressedBufferSize >= v5 )
+    CompressedBufferSize = v5;
   v11 = RtlCompressBuffer(
-          3,
-          (int)a2 + 72,
+          3u,
+          (PUCHAR)a2 + 72,
           *((_DWORD *)a2 + 12) - 72,
-          v7 + *(_DWORD *)(a1 + 440) + 72,
-          v10,
+          (PUCHAR)(v7 + *(_QWORD *)(a1 + 440) + 72LL),
+          CompressedBufferSize,
           0,
-          (__int64)&v30,
-          *(_QWORD *)(a1 + 432));
+          &FinalCompressedSize,
+          *(PVOID *)(a1 + 432));
   v12 = v11;
   if ( v11 == -1073741789 )
   {
@@ -70,7 +70,7 @@ __int64 __fastcall sub_180004554(__int64 a1, _OWORD *a2, _DWORD *a3, _DWORD *a4)
     *(_OWORD *)(v13 + v14 + 32) = a2[2];
     *(_OWORD *)(v13 + v14 + 48) = a2[3];
     *(_QWORD *)(v13 + v14 + 64) = *((_QWORD *)a2 + 8);
-    v15 = v30 + 72;
+    v15 = FinalCompressedSize + 72;
   }
   *(_DWORD *)(*(unsigned int *)(a1 + 452) + *(_QWORD *)(a1 + 440)) = v15;
   v16 = *(_DWORD *)(a1 + 452);
@@ -80,7 +80,16 @@ __int64 __fastcall sub_180004554(__int64 a1, _OWORD *a2, _DWORD *a3, _DWORD *a4)
   v18 = *(_DWORD *)(a1 + 208);
   if ( v17 >= v18 )
   {
-    v12 = ZwWriteFile(*(_QWORD *)(a1 + 144), 0LL, 0LL, 0LL, v29, *(_QWORD *)(a1 + 440), v18, a1 + 360, 0LL);
+    v12 = ZwWriteFile(
+            *(HANDLE *)(a1 + 144),
+            0LL,
+            0LL,
+            0LL,
+            &IoStatusBlock,
+            *(PVOID *)(a1 + 440),
+            v18,
+            (PLARGE_INTEGER)(a1 + 360),
+            0LL);
     if ( (v12 & 0x80000000) != 0 )
     {
       v26 = *(_DWORD *)(a1 + 460);

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFullPromoteHiveRootFromKeyNodeStack @ 0x14087FF18
+ * XREFs of CmpFullPromoteHiveRootFromKeyNodeStack @ 0x140880078
  * Callers:
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
  * Callees:
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1407292B0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140729760 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
  */
 
 __int64 __fastcall CmpFullPromoteHiveRootFromKeyNodeStack(__int16 *a1)

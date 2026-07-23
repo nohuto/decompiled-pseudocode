@@ -1,19 +1,19 @@
 /*
- * XREFs of ViPendingCompleteAfterWait @ 0x140AD1C1C
+ * XREFs of ViPendingCompleteAfterWait @ 0x140AD1C0C
  * Callers:
- *     ViPendingCompleteAtDPC @ 0x140AD1D60 (ViPendingCompleteAtDPC.c)
- *     ViPendingWorkerThread @ 0x140AD1FA0 (ViPendingWorkerThread.c)
+ *     ViPendingCompleteAtDPC @ 0x140AD1D50 (ViPendingCompleteAtDPC.c)
+ *     ViPendingWorkerThread @ 0x140AD1F90 (ViPendingWorkerThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2554 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D259C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2AC4 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D2B0C (ViIrpDatabaseReleaseLockExclusive.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC247C (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE191C (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC246C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140AE190C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 void __fastcall ViPendingCompleteAfterWait(char *P)

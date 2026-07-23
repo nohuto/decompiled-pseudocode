@@ -1,12 +1,12 @@
 /*
- * XREFs of DifObReferenceObjectByPointerWithTagWrapper @ 0x1405E87C0
+ * XREFs of DifObReferenceObjectByPointerWithTagWrapper @ 0x1405E8D30
  * Callers:
  *     <none>
  * Callees:
- *     ObReferenceObjectByPointerWithTag @ 0x1402B6840 (ObReferenceObjectByPointerWithTag.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x1402B6AD0 (ObReferenceObjectByPointerWithTag.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifObReferenceObjectByPointerWithTagWrapper(

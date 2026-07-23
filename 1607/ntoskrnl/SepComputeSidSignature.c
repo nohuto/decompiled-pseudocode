@@ -1,8 +1,8 @@
 /*
- * XREFs of SepComputeSidSignature @ 0x140476D50
+ * XREFs of SepComputeSidSignature @ 0x140475C20
  * Callers:
- *     SepFindMatchingLowBoxHandlesEntry @ 0x14007FA58 (SepFindMatchingLowBoxHandlesEntry.c)
- *     SepRmReferenceFindCap @ 0x14021B670 (SepRmReferenceFindCap.c)
+ *     SepFindMatchingLowBoxHandlesEntry @ 0x14007FAD8 (SepFindMatchingLowBoxHandlesEntry.c)
+ *     SepRmReferenceFindCap @ 0x14021B49C (SepRmReferenceFindCap.c)
  * Callees:
  *     <none>
  */

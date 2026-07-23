@@ -1,12 +1,12 @@
 /*
- * XREFs of CcGetRandomVacbArrayWithReference @ 0x140414840
+ * XREFs of CcGetRandomVacbArrayWithReference @ 0x140408E70
  * Callers:
- *     CcUnmapInactiveViewsInternal @ 0x140414910 (CcUnmapInactiveViewsInternal.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140408F40 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     CcReferenceVacbArray @ 0x140414F60 (CcReferenceVacbArray.c)
- *     CcRecalculateVacbArrayHighwaterMark @ 0x140414FB4 (CcRecalculateVacbArrayHighwaterMark.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     CcReferenceVacbArray @ 0x140409590 (CcReferenceVacbArray.c)
+ *     CcRecalculateVacbArrayHighwaterMark @ 0x1404095E4 (CcRecalculateVacbArrayHighwaterMark.c)
  */
 
 __int64 CcGetRandomVacbArrayWithReference()
@@ -36,7 +36,7 @@ __int64 CcGetRandomVacbArrayWithReference()
       CurrentThread[1].SchedulerApc.Reserved[0] = (PVOID)__ROL8__(v4, 37);
       v6 = HIDWORD(v3) % v5;
     }
-    while ( !*(_QWORD *)(*(_QWORD *)&EmpParseLock.AbWaitEntryCount + 8 * v6) );
+    while ( !*((_QWORD *)EmpParseLock.SchedulerSharedSystemSlot + v6) );
     v7 = KeAcquireQueuedSpinLock(4uLL);
     v8 = CcReferenceVacbArray((unsigned int)v6);
     v9 = v8;

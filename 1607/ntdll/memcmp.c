@@ -1,22 +1,22 @@
 /*
- * XREFs of memcmp @ 0x18009A6A0
+ * XREFs of memcmp @ 0x18009A690
  * Callers:
  *     RtlEqualSid @ 0x1800043F0 (RtlEqualSid.c)
- *     RtlpOwnerAcesPresent @ 0x18000D4A8 (RtlpOwnerAcesPresent.c)
- *     EtwpRegistrationCompare @ 0x18002A90C (EtwpRegistrationCompare.c)
- *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031534 (LdrpFindLoadedDllByMappingLockHeld.c)
- *     RtlpIsDuplicateAce @ 0x18003FEA0 (RtlpIsDuplicateAce.c)
- *     EtwpValidateLoggerInfo @ 0x180053920 (EtwpValidateLoggerInfo.c)
- *     RtlpCheckDynamicTimeZoneInformation @ 0x180057490 (RtlpCheckDynamicTimeZoneInformation.c)
- *     RtlSidHashLookup @ 0x180078F40 (RtlSidHashLookup.c)
- *     RtlpCompareProtectedPolicyEntry @ 0x18007AA70 (RtlpCompareProtectedPolicyEntry.c)
- *     RtlReplaceSidInSd @ 0x1800DF950 (RtlReplaceSidInSd.c)
- *     RtlpIsAttributeAceInSacl @ 0x1800E238C (RtlpIsAttributeAceInSacl.c)
+ *     RtlpOwnerAcesPresent @ 0x18000D498 (RtlpOwnerAcesPresent.c)
+ *     EtwpRegistrationCompare @ 0x18002A8FC (EtwpRegistrationCompare.c)
+ *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031524 (LdrpFindLoadedDllByMappingLockHeld.c)
+ *     RtlpIsDuplicateAce @ 0x18003FE90 (RtlpIsDuplicateAce.c)
+ *     EtwpValidateLoggerInfo @ 0x180053910 (EtwpValidateLoggerInfo.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x180057480 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlSidHashLookup @ 0x180078F30 (RtlSidHashLookup.c)
+ *     RtlpCompareProtectedPolicyEntry @ 0x18007AA60 (RtlpCompareProtectedPolicyEntry.c)
+ *     RtlReplaceSidInSd @ 0x1800DFA10 (RtlReplaceSidInSd.c)
+ *     RtlpIsAttributeAceInSacl @ 0x1800E244C (RtlpIsAttributeAceInSacl.c)
  *     RtlpIsNameInExpressionPrivate @ 0x1800F0934 (RtlpIsNameInExpressionPrivate.c)
  *     EtwpGenerateFileName @ 0x1800FDE14 (EtwpGenerateFileName.c)
- *     RtlpSparseBitmapCtxFindRunsFromRange @ 0x180100E94 (RtlpSparseBitmapCtxFindRunsFromRange.c)
- *     RtlpStackDbEntryIsEqual @ 0x18010222C (RtlpStackDbEntryIsEqual.c)
- *     RtlpStackDbSegmentComparitor @ 0x18010233C (RtlpStackDbSegmentComparitor.c)
+ *     RtlpSparseBitmapCtxFindRunsFromRange @ 0x180100DD4 (RtlpSparseBitmapCtxFindRunsFromRange.c)
+ *     RtlpStackDbEntryIsEqual @ 0x18010216C (RtlpStackDbEntryIsEqual.c)
+ *     RtlpStackDbSegmentComparitor @ 0x18010227C (RtlpStackDbSegmentComparitor.c)
  * Callees:
  *     <none>
  */

@@ -41,7 +41,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
   unsigned __int64 v17; // r14
   LARGE_INTEGER v18; // rcx
   NTSTATUS v19; // eax
-  int v20; // r14d
+  NTSTATUS v20; // r14d
   struct _KPRCB *v21; // r9
   unsigned __int64 v22; // rbx
   unsigned __int8 CurrentIrql; // al
@@ -164,7 +164,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
     if ( v20 < 0 )
     {
       KeReleaseInStackQueuedSpinLock(&v57);
-      RtlRaiseStatus((unsigned int)v20);
+      RtlRaiseStatus(v20);
     }
     SharedCacheMap = (LARGE_INTEGER *)FileObject->SectionObjectPointer->SharedCacheMap;
     if ( SharedCacheMap )

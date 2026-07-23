@@ -27,18 +27,18 @@ __int64 __fastcall sub_18010E4A8(_QWORD *a1, unsigned int a2, __int64 a3, _DWORD
   __int64 v20; // rdx
   __int64 v21; // rcx
   int v22; // eax
-  unsigned int *v24; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = 0;
-  v24 = 0LL;
+  BaseAddress = 0LL;
   v8 = 0;
   if ( a1 && (v9 = a1[3]) != 0 && a2 < *(_DWORD *)(v9 + 72) )
   {
     if ( a4 )
       *a4 = 0;
-    v10 = sub_18010E3D0((unsigned __int64 *)&v24);
-    v11 = v24;
-    if ( v10 && (unsigned int)sub_180109740(a2, v24) )
+    v10 = sub_18010E3D0(&BaseAddress);
+    v11 = (unsigned int *)BaseAddress;
+    if ( v10 && (unsigned int)sub_180109740(a2, (unsigned int *)BaseAddress) )
     {
       while ( v11 )
       {
@@ -78,12 +78,12 @@ __int64 __fastcall sub_18010E4A8(_QWORD *a1, unsigned int a2, __int64 a3, _DWORD
         v4 = 1;
     }
 LABEL_31:
-    sub_18010E460((unsigned __int64)v11);
+    sub_18010E460(v11);
     return v4;
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

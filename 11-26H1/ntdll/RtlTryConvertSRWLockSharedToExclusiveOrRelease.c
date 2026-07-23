@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x18013DF50
+ * XREFs of RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x18013DE00
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlAbPostRelease @ 0x180079680 (RtlAbPostRelease.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlAbPostRelease @ 0x180067EA0 (RtlAbPostRelease.c)
  */
 
 char __fastcall RtlTryConvertSRWLockSharedToExclusiveOrRelease(volatile signed __int64 *a1)

@@ -3,11 +3,11 @@
  * Callers:
  *     KiSetFeatureBits @ 0x1403D57C8 (KiSetFeatureBits.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiIsFbClearSupported @ 0x1401D8E6C (KiIsFbClearSupported.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401D9CAC (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsKvaShadowNeededForTsa @ 0x1401D9CFC (KiIsKvaShadowNeededForTsa.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiIsFbClearSupported @ 0x1401D8C98 (KiIsFbClearSupported.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401D9AD8 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1401D9B28 (KiIsKvaShadowNeededForTsa.c)
  */
 
 char __fastcall KiDetectKvaLeakage(__int64 a1)

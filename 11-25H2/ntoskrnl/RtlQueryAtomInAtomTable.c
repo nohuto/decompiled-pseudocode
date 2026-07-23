@@ -17,13 +17,13 @@
  *     RtlpLockAtomTable @ 0x14091EAC0 (RtlpLockAtomTable.c)
  */
 
-__int64 __fastcall RtlQueryAtomInAtomTable(
-        __int64 a1,
-        unsigned __int16 a2,
-        _DWORD *a3,
-        _DWORD *a4,
-        void *a5,
-        struct _KTHREAD *a6)
+NTSTATUS __cdecl RtlQueryAtomInAtomTable(
+        PVOID AtomTableHandle,
+        RTL_ATOM Atom,
+        PULONG AtomUsage,
+        PULONG AtomFlags,
+        PWSTR AtomName,
+        PULONG AtomNameLength)
 {
   int v8; // edi
   unsigned int *v10; // rsi
@@ -40,22 +40,22 @@ __int64 __fastcall RtlQueryAtomInAtomTable(
   unsigned int LockNV; // eax
   signed __int32 v23[8]; // [rsp+0h] [rbp-D8h] BYREF
   __int64 v24; // [rsp+20h] [rbp-B8h]
-  unsigned int v25; // [rsp+30h] [rbp-A8h]
-  _DWORD *v26; // [rsp+38h] [rbp-A0h]
+  NTSTATUS v25; // [rsp+30h] [rbp-A8h]
+  PULONG v26; // [rsp+38h] [rbp-A0h]
   __int64 v27; // [rsp+40h] [rbp-98h]
   struct _KTHREAD *v28; // [rsp+48h] [rbp-90h]
   __int64 v29; // [rsp+50h] [rbp-88h]
-  __int64 v30; // [rsp+58h] [rbp-80h]
+  PVOID v30; // [rsp+58h] [rbp-80h]
   struct _KTHREAD *CurrentThread; // [rsp+60h] [rbp-78h]
   struct _KTHREAD *v32; // [rsp+68h] [rbp-70h]
   wchar_t DstBuf[16]; // [rsp+78h] [rbp-60h] BYREF
 
-  v26 = a3;
-  v8 = a2;
-  v28 = a6;
-  v30 = a1;
+  v26 = AtomUsage;
+  v8 = Atom;
+  v28 = (struct _KTHREAD *)AtomNameLength;
+  v30 = AtomTableHandle;
   if ( !(unsigned __int8)RtlpLockAtomTable() )
-    return 3221225485LL;
+    return -1073741811;
   if ( (unsigned __int16)v8 < 0xC000u )
   {
     if ( !(_WORD)v8 )
@@ -64,11 +64,11 @@ __int64 __fastcall RtlQueryAtomInAtomTable(
       goto LABEL_41;
     }
     v25 = 0;
-    if ( a3 )
-      *a3 = 1;
-    if ( a4 )
-      *a4 = 1;
-    if ( !a5 )
+    if ( AtomUsage )
+      *AtomUsage = 1;
+    if ( AtomFlags )
+      *AtomFlags = 1;
+    if ( !AtomName )
       goto LABEL_41;
     LODWORD(v24) = v8;
     v19 = 2 * snwprintf_s(DstBuf, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", v24);
@@ -84,8 +84,8 @@ __int64 __fastcall RtlQueryAtomInAtomTable(
     }
     if ( v19 )
     {
-      memmove(a5, DstBuf, v19);
-      *((_WORD *)a5 + ((unsigned __int64)v19 >> 1)) = 0;
+      memmove(AtomName, DstBuf, v19);
+      AtomName[(unsigned __int64)v19 >> 1] = 0;
       v20->Header.LockNV = v19;
       goto LABEL_41;
     }
@@ -97,7 +97,7 @@ LABEL_38:
   v27 = 4 * (v8 & 0x3FFFu);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v10 = *(unsigned int **)(a1 + 16);
+  v10 = (unsigned int *)*((_QWORD *)AtomTableHandle + 2);
   v29 = v27;
   if ( ((4 * (v8 & 0x3FFF)) & 0x3FC) != 0 )
   {
@@ -119,7 +119,7 @@ LABEL_38:
       }
       while ( v12 != _InterlockedCompareExchange64(v11, v12 - 1, v12) );
       HandlePointer = ExGetHandlePointer(v11);
-      v14 = *(_QWORD *)(a1 + 16);
+      v14 = *((_QWORD *)AtomTableHandle + 2);
       _InterlockedIncrement64(v11);
       v15 = (_QWORD *)(v14 + 48);
       _InterlockedOr(v23, 0);
@@ -131,14 +131,14 @@ LABEL_38:
         goto LABEL_41;
       if ( *(_WORD *)(HandlePointer + 10) != (_WORD)v8 )
         goto LABEL_41;
-      if ( !RtlpLookupLowBox(a1, HandlePointer, 0) )
+      if ( !RtlpLookupLowBox((__int64)AtomTableHandle, HandlePointer, 0) )
         goto LABEL_41;
       v25 = 0;
       if ( v26 )
         *v26 = *(unsigned __int16 *)(HandlePointer + 36);
-      if ( a4 )
-        *a4 = *(unsigned __int16 *)(HandlePointer + 38);
-      if ( !a5 )
+      if ( AtomFlags )
+        *AtomFlags = *(unsigned __int16 *)(HandlePointer + 38);
+      if ( !AtomName )
         goto LABEL_41;
       v16 = 2 * *(unsigned __int8 *)(HandlePointer + 40);
       LODWORD(v26) = v16;
@@ -158,8 +158,8 @@ LABEL_27:
       }
       if ( v16 )
       {
-        memmove(a5, (const void *)(HandlePointer + 42), v16);
-        *((_WORD *)a5 + ((unsigned __int64)v16 >> 1)) = 0;
+        memmove(AtomName, (const void *)(HandlePointer + 42), v16);
+        AtomName[(unsigned __int64)v16 >> 1] = 0;
         v17->Header.LockNV = v16;
         goto LABEL_41;
       }
@@ -170,9 +170,9 @@ LABEL_25:
   v28 = KeGetCurrentThread();
   KeLeaveCriticalRegionThread((__int64)v28);
 LABEL_41:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 8));
-  KeAbPostRelease(a1 + 8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)AtomTableHandle + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)AtomTableHandle + 1);
+  KeAbPostRelease((ULONG_PTR)AtomTableHandle + 8);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v25;
 }

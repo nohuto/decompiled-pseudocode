@@ -19,24 +19,24 @@
  *     MmUnmapViewInSystemSpace @ 0x140605CC0 (MmUnmapViewInSystemSpace.c)
  */
 
-__int64 __fastcall LdrLoadAlternateResourceModuleEx(
-        unsigned __int64 a1,
-        unsigned __int16 a2,
-        _QWORD *a3,
-        __int64 *a4,
-        int a5)
+NTSTATUS __cdecl LdrLoadAlternateResourceModuleEx(
+        PVOID DllHandle,
+        LANGID LanguageId,
+        PVOID *ResourceDllBase,
+        ULONG_PTR *ResourceOffset,
+        ULONG Flags)
 {
   int v7; // r13d
   unsigned __int64 v9; // rsi
   PVOID *DataTableEntry; // rax
   __int64 v12; // rdx
-  int v13; // edi
+  ULONG v13; // edi
   const wchar_t *v14; // r8
-  int ResourceFileName; // edi
+  NTSTATUS ResourceFileName; // edi
   __int64 v16; // r8
-  __int64 v17; // rsi
+  ULONG_PTR v17; // rsi
   PVOID MappedBase; // [rsp+40h] [rbp-348h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-340h] BYREF
+  ULONG_PTR v19; // [rsp+48h] [rbp-340h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-338h] BYREF
   int v21; // [rsp+58h] [rbp-330h]
   __int128 v22; // [rsp+60h] [rbp-328h] BYREF
@@ -44,36 +44,36 @@ __int64 __fastcall LdrLoadAlternateResourceModuleEx(
   _BYTE v24[176]; // [rsp+80h] [rbp-308h] BYREF
   char v25; // [rsp+130h] [rbp-258h] BYREF
 
-  v7 = a2;
+  v7 = LanguageId;
   MappedBase = 0LL;
   Handle = 0LL;
   v22 = 0LL;
   memset(v24, 0, 0xAAuLL);
   v19 = 0LL;
-  if ( !a1 || !(_WORD)v7 || !a3 )
-    return 3221225485LL;
-  v9 = LdrpGetFromMUIMemCache(a1, (unsigned __int16)v7, &v19, 4LL);
+  if ( !DllHandle || !(_WORD)v7 || !ResourceDllBase )
+    return -1073741811;
+  v9 = LdrpGetFromMUIMemCache(DllHandle);
   if ( v9 == -1LL )
   {
-    *a3 = 0LL;
-    return 3221946374LL;
+    *ResourceDllBase = 0LL;
+    return -1073020922;
   }
   if ( v9 )
   {
-    *a3 = v9;
-    if ( a4 )
-      *a4 = v19;
+    *ResourceDllBase = (PVOID)v9;
+    if ( ResourceOffset )
+      *ResourceOffset = v19;
     v21 = 0;
-    return 0LL;
+    return 0;
   }
-  DataTableEntry = LdrpKrnGetDataTableEntry(a1);
+  DataTableEntry = LdrpKrnGetDataTableEntry((unsigned __int64)DllHandle);
   v23 = DataTableEntry;
   if ( DataTableEntry )
   {
     *((_QWORD *)&v22 + 1) = &v25;
     LODWORD(v22) = 34078720;
-    v13 = a5 & 0x1000000;
-    if ( (a5 & 0x1000000) != 0 )
+    v13 = Flags & 0x1000000;
+    if ( (Flags & 0x1000000) != 0 )
     {
 LABEL_14:
       v14 = L".mun";
@@ -84,7 +84,7 @@ LABEL_14:
       if ( ResourceFileName >= 0 )
       {
         ResourceFileName = LdrpMapResourceFile(
-                             a1,
+                             (_DWORD)DllHandle,
                              (unsigned int)&v22,
                              (unsigned int)&Handle,
                              (unsigned int)&MappedBase,
@@ -92,7 +92,12 @@ LABEL_14:
         if ( ResourceFileName >= 0 )
         {
           v9 = (unsigned __int64)MappedBase | 1;
-          if ( !(unsigned __int8)LdrpVerifyAlternateResourceModuleEx(a1, (unsigned __int64)MappedBase | 1, v16, v24, a5) )
+          if ( !(unsigned __int8)LdrpVerifyAlternateResourceModuleEx(
+                                   DllHandle,
+                                   (unsigned __int64)MappedBase | 1,
+                                   v16,
+                                   v24,
+                                   Flags) )
           {
             MmUnmapViewInSystemSpace(MappedBase);
             ZwClose(Handle);
@@ -118,7 +123,7 @@ LABEL_20:
   MappedBase = (PVOID)v9;
   v17 = v19;
   LdrpSetAlternateResourceModuleHandle(
-    a1,
+    (_DWORD)DllHandle,
     (unsigned int)&MappedBase,
     (unsigned int)&Handle,
     0,
@@ -128,14 +133,14 @@ LABEL_20:
     v19);
   if ( MappedBase == (PVOID)-1LL )
   {
-    *a3 = 0LL;
+    *ResourceDllBase = 0LL;
   }
   else
   {
-    *a3 = MappedBase;
-    if ( a4 )
-      *a4 = v17;
+    *ResourceDllBase = MappedBase;
+    if ( ResourceOffset )
+      *ResourceOffset = v17;
     return 0;
   }
-  return (unsigned int)ResourceFileName;
+  return ResourceFileName;
 }

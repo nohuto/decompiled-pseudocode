@@ -1,16 +1,16 @@
 /*
- * XREFs of PopInitializePowerButtonHold @ 0x140CD502C
+ * XREFs of PopInitializePowerButtonHold @ 0x140CDB3CC
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopInitializeWorkItem @ 0x1407C8C6C (PopInitializeWorkItem.c)
- *     PopPowerButtonBugcheckConfigure @ 0x1407DAA14 (PopPowerButtonBugcheckConfigure.c)
- *     RtlGetPersistedStateLocation @ 0x140A10D20 (RtlGetPersistedStateLocation.c)
- *     RtlIsStateSeparationEnabled @ 0x140AF47C0 (RtlIsStateSeparationEnabled.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopInitializeWorkItem @ 0x1407CBD0C (PopInitializeWorkItem.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x1407DE904 (PopPowerButtonBugcheckConfigure.c)
+ *     RtlGetPersistedStateLocation @ 0x140A0FF10 (RtlGetPersistedStateLocation.c)
+ *     RtlIsStateSeparationEnabled @ 0x140AF6E60 (RtlIsStateSeparationEnabled.c)
  */
 
 void __fastcall PopInitializePowerButtonHold(int a1)
@@ -19,10 +19,10 @@ void __fastcall PopInitializePowerButtonHold(int a1)
   struct _KLOCK_ENTRIES *v2; // r9
   struct _KLOCK_ENTRIES *v3; // r9
   __int64 v4; // [rsp+48h] [rbp-C0h] BYREF
-  HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
+  struct _LIST_ENTRY *KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES KeyHandle_8; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v8; // [rsp+98h] [rbp-70h] BYREF
+  ULONG BufferLengthOut[4]; // [rsp+98h] [rbp-70h] BYREF
   WCHAR SourceString[264]; // [rsp+A8h] [rbp-60h] BYREF
 
   KeyHandle = 0LL;
@@ -32,28 +32,35 @@ void __fastcall PopInitializePowerButtonHold(int a1)
   memset(&KeyHandle_8, 0, 44);
   if ( !a1 )
   {
-    dword_140F0C420 = 0;
-    LODWORD(stru_140F0C428.Header.WaitListHead.Flink) = 0;
-    *(_QWORD *)&stru_140F0C428.Header.Lock = 0LL;
-    memset_0(&PopModernStandbyStateNotify.Padding[2], 0, 0xE8uLL);
-    memset_0(&PopModernStandbyStateNotify.SchedulerAssistPriorityFloor, 0, 0xA0uLL);
-    PopModernStandbyStateNotify.SchedulerAssistPriorityFloor = 2;
-    PopModernStandbyStateNotify.SchedulerAssistLastYieldBoostTime = (__int64)&PopBlackBoxEntries;
-    PopModernStandbyStateNotify.AutoBoostThreadState = 0LL;
-    LOWORD(PopModernStandbyStateNotify.Spare32) = 0;
-    HIDWORD(PopModernStandbyStateNotify.UserAbEntries) = 0;
-    LOBYTE(PopModernStandbyStateNotify.KcsanThread) = 0;
-    *(unsigned __int64 *)((char *)&PopModernStandbyStateNotify.KcsanThread + 4) = 0LL;
-    LODWORD(PopModernStandbyStateNotify.Padding[0]) = 24;
-    PopModernStandbyStateNotify.Padding[1] = 0LL;
-    PopInitializeWorkItem((__int64)&unk_140F0C390, (__int64)PopPowerButtonWorkCallback, 0LL);
+    *(_DWORD *)&PopPdcDeviceListLock.ApcStateFill[40] = 0;
+    LODWORD(PopPdcDeviceListLock.WaitBlockList) = 0;
+    PopPdcDeviceListLock.WaitStatus = 0LL;
+    memset_0(&PopPdcDeviceListLock.RelativeTimerBias, 0, 0xE8uLL);
+    memset_0(&PopPdcDeviceListLock.QueueListEntry.Blink, 0, 0xA0uLL);
+    LODWORD(PopPdcDeviceListLock.QueueListEntry.Blink) = 2;
+    PopPdcDeviceListLock.SchedulerApc.ApcListEntry.Blink = (struct _LIST_ENTRY *)&PopBlackBoxEntries;
+    *(_QWORD *)&PopPdcDeviceListLock.SavedApcStateFill[40] = 0LL;
+    *(_WORD *)&PopPdcDeviceListLock.SchedulerApc.Type = 0;
+    PopPdcDeviceListLock.SchedulerApc.SpareLong0 = 0;
+    PopPdcDeviceListLock.SchedulerApcFill3[8] = 0;
+    *(_QWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[12] = 0LL;
+    *(_DWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[32] = 24;
+    PopPdcDeviceListLock.Teb = 0LL;
+    PopInitializeWorkItem((__int64)&PopPdcDeviceListLock.WaitBlockFill11[64], (__int64)PopPowerButtonWorkCallback, 0LL);
     return;
   }
   if ( a1 == 1 )
   {
     if ( RtlIsStateSeparationEnabled() )
     {
-      if ( (int)RtlGetPersistedStateLocation(L"PowerButton", 0LL, 0LL, 0, SourceString, 0x208u, (unsigned int *)&v8) >= 0 )
+      if ( RtlGetPersistedStateLocation(
+             L"PowerButton",
+             0LL,
+             0LL,
+             LocationTypeRegistry,
+             SourceString,
+             0x208u,
+             BufferLengthOut) >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);
         KeyHandle_8.Length = 48;
@@ -61,11 +68,11 @@ void __fastcall PopInitializePowerButtonHold(int a1)
         KeyHandle_8.RootDirectory = 0LL;
         KeyHandle_8.Attributes = 576;
         *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
-        if ( ZwOpenKey(&KeyHandle, 0x11u, &KeyHandle_8) >= 0 )
+        if ( ZwOpenKey((PHANDLE)&KeyHandle, 0x11u, &KeyHandle_8) >= 0 )
         {
-          qword_140F0C418 = (__int64)KeyHandle;
-          qword_140F0C410 = (__int64)PopPowerButtonBugcheckWatchCallback;
-          *(_QWORD *)qword_140F0C400 = 0LL;
+          PopPdcDeviceListLock.QueueListEntry.Flink = KeyHandle;
+          *(_QWORD *)&PopPdcDeviceListLock.ThreadFlags2 = PopPowerButtonBugcheckWatchCallback;
+          PopPdcDeviceListLock.Spare18 = 0LL;
           PopPowerButtonBugcheckConfigure(KeyHandle, 1, &v4, v2);
           if ( (_BYTE)v4 )
             return;
@@ -82,13 +89,13 @@ void __fastcall PopInitializePowerButtonHold(int a1)
     KeyHandle_8.RootDirectory = 0LL;
     KeyHandle_8.Attributes = 576;
     *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
-    if ( ZwOpenKey(&KeyHandle, 0x11u, &KeyHandle_8) >= 0 )
+    if ( ZwOpenKey((PHANDLE)&KeyHandle, 0x11u, &KeyHandle_8) >= 0 )
     {
       if ( v1 )
       {
-        qword_140F0C410 = (__int64)PopPowerButtonBugcheckWatchCallback;
-        qword_140F0C418 = (__int64)KeyHandle;
-        *(_QWORD *)qword_140F0C400 = 0LL;
+        *(_QWORD *)&PopPdcDeviceListLock.ThreadFlags2 = PopPowerButtonBugcheckWatchCallback;
+        PopPdcDeviceListLock.QueueListEntry.Flink = KeyHandle;
+        PopPdcDeviceListLock.Spare18 = 0LL;
       }
       PopPowerButtonBugcheckConfigure(KeyHandle, v1, &v4, v3);
     }

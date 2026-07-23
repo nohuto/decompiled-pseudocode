@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1406A3694
+ * XREFs of RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1406A46E4
  * Callers:
- *     RtlHotPatchSynchronizationRequired @ 0x1406A34A8 (RtlHotPatchSynchronizationRequired.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x14082ED98 (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlApplyHotPatch @ 0x140B63AD0 (RtlApplyHotPatch.c)
- *     RtlpCheckFunctionPatchApplied @ 0x140B64034 (RtlpCheckFunctionPatchApplied.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x1406A44F8 (RtlHotPatchSynchronizationRequired.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x14082F5C8 (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlApplyHotPatch @ 0x140B65BA0 (RtlApplyHotPatch.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x140B6613C (RtlpCheckFunctionPatchApplied.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpCheckFunctionPatchAppliedInOriginalImage(
 
   v5 = *a1;
   v7 = a1[1];
-  if ( v5 == -21 && v7 >= 0xEEu )
+  if ( v5 == -21 && v7 >= 0xF9u )
   {
     if ( v7 == 0xF9 && *(a1 - 5) == -23 )
     {

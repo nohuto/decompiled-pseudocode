@@ -1,10 +1,10 @@
 /*
- * XREFs of ViPacketNotificationCallback @ 0x1409E1A80
+ * XREFs of ViPacketNotificationCallback @ 0x1409E2A80
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ViPacketNotificationCallback(_QWORD *Entry, __int64 a2, int a3)

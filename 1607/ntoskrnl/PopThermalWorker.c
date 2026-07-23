@@ -1,25 +1,25 @@
 /*
- * XREFs of PopThermalWorker @ 0x140573F40
+ * XREFs of PopThermalWorker @ 0x140574480
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     PopCheckAndHandleThermalConditions @ 0x140146EF4 (PopCheckAndHandleThermalConditions.c)
- *     PopDiagTraceThermalZoneEnumeration @ 0x140146F70 (PopDiagTraceThermalZoneEnumeration.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
- *     PopFireThermalWmiEvent @ 0x140207100 (PopFireThermalWmiEvent.c)
- *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x1402095C4 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
- *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x1402096CC (PopDiagTraceThermalZoneThrottlePerfTrack.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14053283C (PopThermalUpdatePassiveTimeTracking.c)
- *     PopPrepareIoctl @ 0x140574348 (PopPrepareIoctl.c)
- *     PopCheckThermalPolicy @ 0x1405743B0 (PopCheckThermalPolicy.c)
- *     PopDiagTraceActiveCooling @ 0x1405744E0 (PopDiagTraceActiveCooling.c)
- *     PopDiagTraceThermalCoolingMode @ 0x14057455C (PopDiagTraceThermalCoolingMode.c)
- *     PopDiagTracePassiveCooling @ 0x140671844 (PopDiagTracePassiveCooling.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140147464 (PopCheckAndHandleThermalConditions.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1401474E0 (PopDiagTraceThermalZoneEnumeration.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
+ *     PopFireThermalWmiEvent @ 0x140206F2C (PopFireThermalWmiEvent.c)
+ *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x1402093F0 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
+ *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x1402094F8 (PopDiagTraceThermalZoneThrottlePerfTrack.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140532D7C (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopPrepareIoctl @ 0x140574888 (PopPrepareIoctl.c)
+ *     PopCheckThermalPolicy @ 0x1405748F0 (PopCheckThermalPolicy.c)
+ *     PopDiagTraceActiveCooling @ 0x140574A20 (PopDiagTraceActiveCooling.c)
+ *     PopDiagTraceThermalCoolingMode @ 0x140574A9C (PopDiagTraceThermalCoolingMode.c)
+ *     PopDiagTracePassiveCooling @ 0x140671928 (PopDiagTracePassiveCooling.c)
  */
 
 void __fastcall PopThermalWorker(__int64 a1)

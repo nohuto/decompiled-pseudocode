@@ -10,59 +10,62 @@
  *     _RtlpStdGetSpaceForTrace@8 @ 0x4B369414 (_RtlpStdGetSpaceForTrace@8.c)
  */
 
-int *__fastcall RtlpStdLogCapturedStackTrace(int a1, int a2, unsigned int a3)
+_RTL_SRWLOCK *__fastcall RtlpStdLogCapturedStackTrace(PRTL_SRWLOCK SRWLock, int a2, unsigned int a3)
 {
-  int v5; // edx
-  SIZE_T v6; // ecx
-  int *SpaceForTrace; // esi
-  SIZE_T v8; // eax
+  unsigned int v5; // edx
+  int v6; // ecx
+  _RTL_SRWLOCK *Value; // esi
+  int v8; // eax
   __int16 v9; // cx
-  int v10; // ecx
-  int *v12; // [esp+Ch] [ebp-8h]
-  size_t Size; // [esp+10h] [ebp-4h]
+  _RTL_SRWLOCK *v10; // ecx
+  SIZE_T v12; // [esp-4h] [ebp-18h]
+  _RTL_SRWLOCK *v13; // [esp+Ch] [ebp-8h]
+  int Size; // [esp+10h] [ebp-4h]
 
-  v5 = a3 % *(_DWORD *)(a1 + 376);
+  v5 = a3 % SRWLock[94].Value;
   v6 = 4 * *(unsigned __int16 *)(a2 + 10);
   Size = v6;
-  SpaceForTrace = (int *)(a1 + 380 + 8 * v5);
-  v12 = SpaceForTrace;
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 92));
+  Value = &SRWLock[2 * v5 + 95];
+  v13 = Value;
+  _InterlockedIncrement((volatile signed __int32 *)&SRWLock[23]);
   if ( !byte_4B3A5DA8 )
   {
-    RtlAcquireSRWLockExclusive(SpaceForTrace + 1);
+    RtlAcquireSRWLockExclusive(Value + 1);
     v6 = Size;
   }
   while ( 1 )
   {
-    SpaceForTrace = (int *)*SpaceForTrace;
-    if ( !SpaceForTrace )
+    Value = (_RTL_SRWLOCK *)Value->Value;
+    if ( !Value )
       break;
-    if ( *((_WORD *)SpaceForTrace + 5) == *(_WORD *)(a2 + 10) )
+    if ( HIWORD(Value[2].Value) == *(_WORD *)(a2 + 10) )
     {
-      v8 = RtlCompareMemory(SpaceForTrace + 3, (const void *)(a2 + 12), v6);
+      LODWORD(v12) = v6;
+      v8 = RtlCompareMemory(&Value[3], (const void *)(a2 + 12), v12);
       v6 = Size;
       if ( v8 == Size )
         goto LABEL_8;
     }
   }
-  SpaceForTrace = RtlpStdGetSpaceForTrace(a1, *(_WORD *)(a2 + 10));
-  if ( !SpaceForTrace )
+  Value = (_RTL_SRWLOCK *)RtlpStdGetSpaceForTrace(SRWLock, *(_WORD *)(a2 + 10));
+  if ( !Value )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 112));
+    _InterlockedIncrement((volatile signed __int32 *)&SRWLock[28]);
     goto LABEL_11;
   }
-  memcpy(SpaceForTrace + 3, (const void *)(a2 + 12), Size);
+  LODWORD(v12) = Size;
+  memcpy(&Value[3], (const void *)(a2 + 12), v12);
   v9 = *(_WORD *)(a2 + 10);
-  *((_WORD *)SpaceForTrace + 2) &= 0xF800u;
-  *((_WORD *)SpaceForTrace + 5) = v9;
-  v10 = a1 + 8 * (a3 % *(_DWORD *)(a1 + 376));
-  *SpaceForTrace = *(_DWORD *)(v10 + 380);
-  *(_DWORD *)(v10 + 380) = SpaceForTrace;
+  *(_WORD *)&Value[1].0 &= 0xF800u;
+  HIWORD(Value[2].Value) = v9;
+  v10 = &SRWLock[2 * (a3 % SRWLock[94].Value)];
+  Value->0 = v10[95].0;
+  v10[95].Value = (unsigned int)Value;
 LABEL_8:
-  if ( (SpaceForTrace[1] & 0x7FF) != 0x7FF )
-    *((_WORD *)SpaceForTrace + 2) ^= (*((_WORD *)SpaceForTrace + 2) ^ (*((_WORD *)SpaceForTrace + 2) + 1)) & 0x7FF;
+  if ( (*(_WORD *)&Value[1].0 & 0x7FF) != 0x7FF )
+    *(_WORD *)&Value[1].0 ^= (*(_WORD *)&Value[1].0 ^ (*(_WORD *)&Value[1].0 + 1)) & 0x7FF;
 LABEL_11:
   if ( !byte_4B3A5DA8 )
-    RtlReleaseSRWLockExclusive(v12 + 1);
-  return SpaceForTrace;
+    RtlReleaseSRWLockExclusive(v13 + 1);
+  return Value;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlinkUnusedControlArea @ 0x1402A0F98
+ * XREFs of MiUnlinkUnusedControlArea @ 0x1402A1228
  * Callers:
  *     MiRemoveUnusedSegment @ 0x140219970 (MiRemoveUnusedSegment.c)
- *     MiComputeDataFlushRange @ 0x140288E80 (MiComputeDataFlushRange.c)
- *     MiDeleteCachedSegment @ 0x140623954 (MiDeleteCachedSegment.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x140624BC8 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x140624E0C (MiProcessDeleteOnClose.c)
+ *     MiComputeDataFlushRange @ 0x140289110 (MiComputeDataFlushRange.c)
+ *     MiDeleteCachedSegment @ 0x140623EA4 (MiDeleteCachedSegment.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140625118 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x14062535C (MiProcessDeleteOnClose.c)
  * Callees:
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     MiComputePagedPoolSegmentBytes @ 0x1402A0D94 (MiComputePagedPoolSegmentBytes.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x1402A1024 (MiComputePagedPoolSegmentBytes.c)
  */
 
 _QWORD *__fastcall MiUnlinkUnusedControlArea(__int64 a1)

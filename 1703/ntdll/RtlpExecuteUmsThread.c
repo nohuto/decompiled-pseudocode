@@ -30,8 +30,11 @@ __int64 __fastcall RtlpExecuteUmsThread(__int64 a1)
     *(_QWORD *)(a1 + 1280) = v1;
     v5 = *(_QWORD *)(a1 + 168);
     v6 = *(_QWORD *)(a1 + 1248);
-    if ( qword_18016B370 && ((v5 & 7) != 0 || v5 < *(_QWORD *)(v6 + 16) || v5 >= *(_QWORD *)(v6 + 8)) )
+    if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]
+      && ((v5 & 7) != 0 || v5 < *(_QWORD *)(v6 + 16) || v5 >= *(_QWORD *)(v6 + 8)) )
+    {
       __fastfail(0xDu);
+    }
     if ( !_bittest((const signed __int32 *)(a1 + 1264), 2u) )
     {
       _mm_setcsr(*(_DWORD *)(((a1 + 1375) & 0xFFFFFFFFFFFFFFC0uLL) + 0x18));

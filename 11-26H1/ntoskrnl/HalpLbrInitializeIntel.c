@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpLbrInitializeIntel @ 0x140BEF394
+ * XREFs of HalpLbrInitializeIntel @ 0x140BF5394
  * Callers:
- *     HalpLbrInitialize @ 0x140BEF224 (HalpLbrInitialize.c)
+ *     HalpLbrInitialize @ 0x140BF5224 (HalpLbrInitialize.c)
  * Callees:
  *     <none>
  */
@@ -22,17 +22,17 @@ char __fastcall HalpLbrInitializeIntel(char a1, unsigned __int8 a2)
   __asm { cpuid }
   if ( (_RDX & 0x80000) != 0 )
   {
-    dword_140F87664 = 2;
+    dword_140F87A40 = 2;
     _RAX = 28LL;
     __asm { cpuid }
     _BitScanReverse((unsigned int *)&_RAX, (unsigned __int8)_RAX);
-    dword_140F87660 = _RBX;
-    dword_140F87654 = 8 * _RAX + 8;
+    dword_140F87A44 = _RBX;
+    dword_140F87A2C = 8 * _RAX + 8;
     goto LABEL_48;
   }
   if ( a1 != 6 )
     goto LABEL_48;
-  dword_140F87664 = 1;
+  dword_140F87A40 = 1;
   if ( v2 > 0x55 )
   {
     if ( v2 > 0x7D )
@@ -60,7 +60,7 @@ char __fastcall HalpLbrInitializeIntel(char a1, unsigned __int8 a2)
       }
     }
 LABEL_48:
-    if ( !dword_140F87654 )
+    if ( !dword_140F87A2C )
       return 0;
     goto LABEL_49;
   }
@@ -74,7 +74,7 @@ LABEL_48:
     if ( v2 != 78 )
       goto LABEL_25;
 LABEL_47:
-    dword_140F87654 = 32;
+    dword_140F87A2C = 32;
     goto LABEL_48;
   }
   switch ( v2 )
@@ -103,7 +103,7 @@ LABEL_25:
   if ( v14 != 1 )
     goto LABEL_48;
 LABEL_16:
-  dword_140F87654 = 16;
+  dword_140F87A2C = 16;
 LABEL_49:
   _RAX = 10LL;
   __asm { cpuid }

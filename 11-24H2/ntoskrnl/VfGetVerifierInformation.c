@@ -1,17 +1,17 @@
 /*
- * XREFs of VfGetVerifierInformation @ 0x1406147B4
+ * XREFs of VfGetVerifierInformation @ 0x140612D74
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfSuspectDriversGetVerifierInformation @ 0x140B9A894 (VfSuspectDriversGetVerifierInformation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x140B9C894 (VfSuspectDriversGetVerifierInformation.c)
  */
 
 __int64 __fastcall VfGetVerifierInformation(void *a1, size_t Size, unsigned int *a3, int a4)
 {
-  int v7; // eax
+  unsigned int v7; // eax
   unsigned int v8; // esi
   __int64 Pool2; // rax
   void *v10; // rbx
@@ -23,7 +23,7 @@ __int64 __fastcall VfGetVerifierInformation(void *a1, size_t Size, unsigned int 
   if ( (unsigned int)Size <= 0xA00000 )
     v7 = Size;
   v8 = v7;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, v7, 0x706D5456u);
   v10 = (void *)Pool2;
   if ( Pool2 )
   {

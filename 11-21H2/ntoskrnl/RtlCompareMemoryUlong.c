@@ -1,17 +1,17 @@
 /*
  * XREFs of RtlCompareMemoryUlong @ 0x14042A260
  * Callers:
- *     MiHashIsCommon @ 0x14020D86C (MiHashIsCommon.c)
- *     MiDeleteSystemPageTable @ 0x140228CD0 (MiDeleteSystemPageTable.c)
- *     MiEvictPageTableLock @ 0x140229100 (MiEvictPageTableLock.c)
- *     MiFreedUnusedPfnPagesWorker @ 0x1403C8AA8 (MiFreedUnusedPfnPagesWorker.c)
- *     MiDoGangAssignment @ 0x1405C00C0 (MiDoGangAssignment.c)
- *     RtlpAllocateHeap @ 0x1405E80B0 (RtlpAllocateHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x1405E8A08 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x1405E8DF8 (RtlpCreateSplitBlock.c)
- *     RtlScrubMemory @ 0x1405EFB90 (RtlScrubMemory.c)
- *     IopTrackLink @ 0x1406D3128 (IopTrackLink.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
+ *     sub_14020D86C @ 0x14020D86C (sub_14020D86C.c)
+ *     sub_140228CD0 @ 0x140228CD0 (sub_140228CD0.c)
+ *     sub_140229100 @ 0x140229100 (sub_140229100.c)
+ *     sub_1403C8AA8 @ 0x1403C8AA8 (sub_1403C8AA8.c)
+ *     sub_1405C00C0 @ 0x1405C00C0 (sub_1405C00C0.c)
+ *     sub_1405E80B0 @ 0x1405E80B0 (sub_1405E80B0.c)
+ *     sub_1405E8A08 @ 0x1405E8A08 (sub_1405E8A08.c)
+ *     sub_1405E8DF8 @ 0x1405E8DF8 (sub_1405E8DF8.c)
+ *     sub_1405EFB90 @ 0x1405EFB90 (sub_1405EFB90.c)
+ *     sub_1406D3128 @ 0x1406D3128 (sub_1406D3128.c)
+ *     sub_1407BA750 @ 0x1407BA750 (sub_1407BA750.c)
  * Callees:
  *     <none>
  */

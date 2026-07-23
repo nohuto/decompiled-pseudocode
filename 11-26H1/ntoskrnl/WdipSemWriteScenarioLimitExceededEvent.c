@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipSemWriteScenarioLimitExceededEvent @ 0x1408213FC
+ * XREFs of WdipSemWriteScenarioLimitExceededEvent @ 0x14082760C
  * Callers:
- *     WdipSemLoadNextScenario @ 0x14081FD4C (WdipSemLoadNextScenario.c)
- *     WdipSemLoadScenarioTable @ 0x140820244 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadNextScenario @ 0x140825F5C (WdipSemLoadNextScenario.c)
+ *     WdipSemLoadScenarioTable @ 0x140826454 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x140ADB3D4 (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140AD7E84 (WdipSemWriteEvent.c)
  */
 
 __int64 __fastcall WdipSemWriteScenarioLimitExceededEvent(__int64 a1, __int64 a2, __int16 a3)

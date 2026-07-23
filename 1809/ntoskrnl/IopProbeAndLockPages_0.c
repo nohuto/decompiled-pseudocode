@@ -1,12 +1,12 @@
 /*
- * XREFs of IopProbeAndLockPages_0 @ 0x14027F2E0
+ * XREFs of IopProbeAndLockPages_0 @ 0x14027F4D0
  * Callers:
- *     NtQueryEaFile @ 0x1406A95B0 (NtQueryEaFile.c)
- *     IopSetEaOrQuotaInformationFile @ 0x14081AC3C (IopSetEaOrQuotaInformationFile.c)
- *     NtSetEaFile @ 0x14081E1E0 (NtSetEaFile.c)
+ *     NtQueryEaFile @ 0x1406AA850 (NtQueryEaFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x14081BE3C (IopSetEaOrQuotaInformationFile.c)
+ *     NtSetEaFile @ 0x14081F3E0 (NtSetEaFile.c)
  * Callees:
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     MmUpdateMdlTracker @ 0x1402A8CA8 (MmUpdateMdlTracker.c)
+ *     MmUpdateMdlTracker @ 0x1402A8E98 (MmUpdateMdlTracker.c)
  */
 
 __int64 __fastcall IopProbeAndLockPages_0(__int64 a1, char a2, int a3, __int64 a4, unsigned int a5)

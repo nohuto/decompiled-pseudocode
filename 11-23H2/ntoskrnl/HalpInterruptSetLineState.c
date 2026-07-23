@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptSetLineState @ 0x14037C70C
+ * XREFs of HalpInterruptSetLineState @ 0x14037C8AC
  * Callers:
- *     HalEnableInterrupt @ 0x140320730 (HalEnableInterrupt.c)
- *     HalpInterruptEnableNmi @ 0x14037B5B4 (HalpInterruptEnableNmi.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x14037BD58 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpTimerConfigureInterrupt @ 0x14037CF94 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerEnableHypervisorTimer @ 0x14050ABAC (HalpTimerEnableHypervisorTimer.c)
+ *     HalEnableInterrupt @ 0x1403209C0 (HalEnableInterrupt.c)
+ *     HalpInterruptEnableNmi @ 0x14037B754 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x14037BEF8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpTimerConfigureInterrupt @ 0x14037D134 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x14050B0FC (HalpTimerEnableHypervisorTimer.c)
  * Callees:
- *     HalpInterruptDestinationToTarget @ 0x14031FC7C (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x14031FEE0 (HalpInterruptLookupController.c)
- *     HalpInterruptFindBestRouting @ 0x14037C524 (HalpInterruptFindBestRouting.c)
- *     HalpInterruptGetPriority @ 0x14037C650 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037CA30 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x14037CAA8 (HalpInterruptApplyOverrides.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptDestinationToTarget @ 0x14031FF0C (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140320170 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindBestRouting @ 0x14037C6C4 (HalpInterruptFindBestRouting.c)
+ *     HalpInterruptGetPriority @ 0x14037C7F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037CBD0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x14037CC48 (HalpInterruptApplyOverrides.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetLineState(

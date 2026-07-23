@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertLargePageNeedsZero @ 0x1402C57A0
+ * XREFs of MiInsertLargePageNeedsZero @ 0x1402C5990
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     <none>
  */

@@ -6,13 +6,13 @@
  *     RtlInterlockedClearBitRun @ 0x140212E00 (RtlInterlockedClearBitRun.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     MiLogPinDriverAddress @ 0x1406ACDB8 (MiLogPinDriverAddress.c)
  */
 
 char MiLogPinDriverAddressesWorker()
 {
-  unsigned int v0; // ebx
+  ULONG v0; // ebx
   __int64 *v1; // rdi
   __int64 v2; // rax
   unsigned int v3; // r15d
@@ -51,7 +51,7 @@ char MiLogPinDriverAddressesWorker()
     {
       LODWORD(v12) = v2 & 0xFFFFFFFE;
       MiPinDriverAddressLog[v0] = v12;
-      RtlInterlockedClearBitRun((__int64)&dword_140C12EA0, v0, 1u);
+      RtlInterlockedClearBitRun(&stru_140C12EA0, v0, 1u);
       LOBYTE(v2) = MiLogPinDriverAddress(&v12);
     }
     ++v0;
@@ -89,7 +89,7 @@ char MiLogPinDriverAddressesWorker()
               v15 = j == 1;
               v25 = &v15;
               v27 = &v17;
-              LOBYTE(v2) = tlgWriteAgg(v10, (unsigned __int8 *)&byte_140039C70, v8, 7u, &v18);
+              LOBYTE(v2) = tlgWriteAgg(v10, (unsigned __int8 *)&byte_140039D58, v8, 7u, &v18);
             }
           }
           *v4 = v7;

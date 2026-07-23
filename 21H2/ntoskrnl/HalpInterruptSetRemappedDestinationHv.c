@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x1404BB8C0
+ * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x1404BBB00
  * Callers:
- *     HalpInterruptSetDestination @ 0x140378990 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x1403784E0 (HalpInterruptSetDestination.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403786FC (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpInterruptFindControllerAndLineState @ 0x1404BB634 (HalpInterruptFindControllerAndLineState.c)
- *     HalpHvRetargetDeviceMsiInterrupt @ 0x1404C2A9C (HalpHvRetargetDeviceMsiInterrupt.c)
- *     HalpHvRetargetIoApicDeviceInterrupt @ 0x1404C2B18 (HalpHvRetargetIoApicDeviceInterrupt.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x1404BB874 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpHvRetargetDeviceMsiInterrupt @ 0x1404C2CDC (HalpHvRetargetDeviceMsiInterrupt.c)
+ *     HalpHvRetargetIoApicDeviceInterrupt @ 0x1404C2D58 (HalpHvRetargetIoApicDeviceInterrupt.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *a2, __int64 a3)

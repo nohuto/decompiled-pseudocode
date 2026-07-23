@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpOpenDevicesControlSet @ 0x14084CA20
+ * XREFs of CmpOpenDevicesControlSet @ 0x140852D30
  * Callers:
- *     CmpMarkCurrentProfileDirty @ 0x14084C024 (CmpMarkCurrentProfileDirty.c)
- *     CmSetAcpiHwProfile @ 0x140851648 (CmSetAcpiHwProfile.c)
- *     CmpMoveBiosAliasTable @ 0x140853680 (CmpMoveBiosAliasTable.c)
- *     CmpCreateHardwareProfiles @ 0x140CE9D78 (CmpCreateHardwareProfiles.c)
+ *     CmpMarkCurrentProfileDirty @ 0x140852334 (CmpMarkCurrentProfileDirty.c)
+ *     CmSetAcpiHwProfile @ 0x140857958 (CmSetAcpiHwProfile.c)
+ *     CmpMoveBiosAliasTable @ 0x140859990 (CmpMoveBiosAliasTable.c)
+ *     CmpCreateHardwareProfiles @ 0x140CF0118 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
  */
 
 __int64 __fastcall CmpOpenDevicesControlSet(__int64 a1, HANDLE *a2, UNICODE_STRING *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall CmpOpenDevicesControlSet(__int64 a1, HANDLE *a2, UNICODE_STRI
   ObjectAttributes.SecurityDescriptor = 0LL;
   LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
   KeyHandle = 0LL;
-  if ( !HIDWORD(WheapPfaLock.CycleTime) )
+  if ( !HIDWORD(WheapPfaLock.KernelStack) )
     v3 = &CmpSystemHiveNameString;
   *(_QWORD *)&DestinationString.Length = 0x1000000LL;
   DestinationString.Buffer = (wchar_t *)v12;
@@ -42,7 +42,7 @@ __int64 __fastcall CmpOpenDevicesControlSet(__int64 a1, HANDLE *a2, UNICODE_STRI
   v6 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v6 == -1073741772 )
   {
-    if ( !HIDWORD(WheapPfaLock.CycleTime) )
+    if ( !HIDWORD(WheapPfaLock.KernelStack) )
       goto LABEL_11;
     *(_QWORD *)&DestinationString.Length = 0x1000000LL;
     v3 = &CmpSystemHiveNameString;

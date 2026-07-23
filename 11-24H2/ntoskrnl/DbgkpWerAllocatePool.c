@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpWerAllocatePool @ 0x1406FB5D8
+ * XREFs of DbgkpWerAllocatePool @ 0x1406F9218
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x14057EAD8 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x14057BF68 (DbgkCaptureLiveKernelDump.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 DbgkpWerAllocatePool()
+__int64 __fastcall DbgkpWerAllocatePool(ULONG_PTR a1)
 {
-  return ExAllocatePool2(0x100uLL);
+  return ExAllocatePool2(0x100uLL, a1, 0x57676244u);
 }

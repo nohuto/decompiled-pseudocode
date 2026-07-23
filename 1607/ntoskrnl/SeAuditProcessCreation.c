@@ -1,24 +1,24 @@
 /*
- * XREFs of SeAuditProcessCreation @ 0x14056EDCC
+ * XREFs of SeAuditProcessCreation @ 0x14056F30C
  * Callers:
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsQueryProcessCommandLine @ 0x1400B2134 (PsQueryProcessCommandLine.c)
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsQueryProcessCommandLine @ 0x1400B0074 (PsQueryProcessCommandLine.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E6A00 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     PsLookupProcessByProcessId @ 0x140420700 (PsLookupProcessByProcessId.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E8030 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     PsLookupProcessByProcessId @ 0x14041F5C0 (PsLookupProcessByProcessId.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 void __fastcall SeAuditProcessCreation(PEPROCESS Process, unsigned __int16 *a2)
@@ -103,7 +103,7 @@ void __fastcall SeAuditProcessCreation(PEPROCESS Process, unsigned __int16 *a2)
         if ( !SepRmAuditProcessCommandLine )
         {
 LABEL_14:
-          RtlInitUnicodeString(&DestinationString, &word_140583CF0);
+          RtlInitUnicodeString(&DestinationString, &word_1405841A0);
           p_DestinationString = (unsigned __int16 *)&DestinationString;
           goto LABEL_15;
         }

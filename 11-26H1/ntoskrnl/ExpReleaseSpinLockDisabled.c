@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpReleaseSpinLockDisabled @ 0x1403DFB08
+ * XREFs of ExpReleaseSpinLockDisabled @ 0x1403E2CF8
  * Callers:
- *     ExInterlockedInsertHeadList @ 0x1403DE3D0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedAddLargeInteger @ 0x1403DFAB0 (ExInterlockedAddLargeInteger.c)
- *     ExInterlockedAddUlong @ 0x140500FC0 (ExInterlockedAddUlong.c)
- *     ExInterlockedPopEntryList @ 0x1406D09A0 (ExInterlockedPopEntryList.c)
- *     ExInterlockedPushEntryList @ 0x1406D09F0 (ExInterlockedPushEntryList.c)
+ *     ExInterlockedInsertHeadList @ 0x1403E15C0 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedAddLargeInteger @ 0x1403E2CA0 (ExInterlockedAddLargeInteger.c)
+ *     ExInterlockedAddUlong @ 0x1404FA7B0 (ExInterlockedAddUlong.c)
+ *     ExInterlockedPopEntryList @ 0x1406D49D0 (ExInterlockedPopEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x1406D4A20 (ExInterlockedPushEntryList.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ExpReleaseSpinLockDisabled(volatile signed __int64 *a1, char a2, __int64 a3, __int64 a4)

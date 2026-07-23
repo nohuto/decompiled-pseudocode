@@ -1,37 +1,36 @@
 /*
- * XREFs of EtwpUserInAdminOrLogUsersGroup @ 0x1408BC00C
+ * XREFs of EtwpUserInAdminOrLogUsersGroup @ 0x1408BD2CC
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAllocateAndInitializeSidEx @ 0x14089382C (RtlAllocateAndInitializeSidEx.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB90 (RtlCheckTokenMembership.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAllocateAndInitializeSidEx @ 0x140894A8C (RtlAllocateAndInitializeSidEx.c)
  */
 
 bool EtwpUserInAdminOrLogUsersGroup()
 {
-  __int64 v0; // rdx
-  int v1; // ebx
+  UCHAR v0; // dl
+  NTSTATUS v1; // ebx
   bool result; // al
-  char v3; // [rsp+40h] [rbp+18h]
-  int v4; // [rsp+48h] [rbp+20h] BYREF
-  __int16 v5; // [rsp+4Ch] [rbp+24h]
-  int v6; // [rsp+50h] [rbp+28h] BYREF
-  int v7; // [rsp+54h] [rbp+2Ch]
-  PVOID P; // [rsp+58h] [rbp+30h] BYREF
+  BOOLEAN IsMember; // [rsp+40h] [rbp+18h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+48h] [rbp+20h] BYREF
+  ULONG SubAuthorities; // [rsp+50h] [rbp+28h] BYREF
+  int v6; // [rsp+54h] [rbp+2Ch]
+  PSID Sid; // [rsp+58h] [rbp+30h] BYREF
 
-  v4 = 0;
-  v5 = 1280;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   result = 1;
-  if ( (int)RtlCheckTokenMembership(0LL, SeAliasAdminsSid) < 0 || !v3 )
+  if ( RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &IsMember) < 0 || !IsMember )
   {
-    v6 = 32;
-    v7 = 558;
-    if ( (int)RtlAllocateAndInitializeSidEx((__int64)&v4, v0, (char *)&v6, &P) < 0 )
+    SubAuthorities = 32;
+    v6 = 558;
+    if ( RtlAllocateAndInitializeSidEx(&IdentifierAuthority, v0, &SubAuthorities, &Sid) < 0 )
       return 0;
-    v1 = RtlCheckTokenMembership(0LL, P);
-    ExFreePoolWithTag(P, 0);
-    if ( v1 < 0 || !v3 )
+    v1 = RtlCheckTokenMembership(0LL, Sid, &IsMember);
+    ExFreePoolWithTag(Sid, 0);
+    if ( v1 < 0 || !IsMember )
       return 0;
   }
   return result;

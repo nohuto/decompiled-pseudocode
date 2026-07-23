@@ -11,12 +11,12 @@
 void KeSetForceIdle()
 {
   int v0; // edi
-  __int64 v1; // rdx
-  __int64 v2; // rbx
-  __int64 v3; // r8
-  __int64 v4; // r9
+  LARGE_INTEGER v1; // rdx
+  LARGE_INTEGER v2; // rbx
+  LARGE_INTEGER v3; // r8
+  LARGE_INTEGER v4; // r9
   int v5; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v6; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   _disable();
   v5 = 0;
@@ -29,12 +29,17 @@ void KeSetForceIdle()
   if ( !KiForceIdleDisabled )
   {
     v0 = KiForceIdleState;
-    v2 = RtlGetInterruptTimePrecise(&v6) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v2.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     if ( !v0 )
     {
-      KiSetForceIdleState(2LL, v1, v3, v4);
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))KiSetForceIdleState)(
+        2LL,
+        (LARGE_INTEGER)v1.QuadPart,
+        (LARGE_INTEGER)v3.QuadPart,
+        (LARGE_INTEGER)v4.QuadPart);
 LABEL_10:
-      KiForceIdleStartTime = v2;
+      KiForceIdleStartTime = v2.QuadPart;
       goto LABEL_11;
     }
     if ( v0 == 3 )

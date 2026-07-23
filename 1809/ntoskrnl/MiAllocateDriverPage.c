@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocateDriverPage @ 0x140653A14
+ * XREFs of MiAllocateDriverPage @ 0x140654BD4
  * Callers:
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
- *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
- *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
+ *     MiPrivateFixup @ 0x140125F10 (MiPrivateFixup.c)
+ *     MiFillPerSessionProtos @ 0x14085D65C (MiFillPerSessionProtos.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetNextPageColor @ 0x140031260 (MiGetNextPageColor.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiPreInitializeSystemImagePage @ 0x1400DBDA8 (MiPreInitializeSystemImagePage.c)
- *     MiUseSlabAllocatorForDriverPage @ 0x1400DBE30 (MiUseSlabAllocatorForDriverPage.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiPreInitializeSystemImagePage @ 0x1400DBE28 (MiPreInitializeSystemImagePage.c)
+ *     MiUseSlabAllocatorForDriverPage @ 0x1400DBEB0 (MiUseSlabAllocatorForDriverPage.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiAllocateDriverPage(ULONG_PTR *a1, char a2)
@@ -34,7 +34,7 @@ __int64 __fastcall MiAllocateDriverPage(ULONG_PTR *a1, char a2)
     if ( (int)MiFindContiguousPages(
                 (__int64)a1,
                 0LL,
-                qword_140438ED0,
+                qword_140439F90,
                 0LL,
                 1uLL,
                 1u,
@@ -44,7 +44,7 @@ __int64 __fastcall MiAllocateDriverPage(ULONG_PTR *a1, char a2)
                 0LL,
                 &SlabPage) < 0 )
     {
-      qword_140438ED0 = -1LL;
+      qword_140439F90 = -1LL;
       MiInitializePageColorBase(0LL, 0, (__int64)v9);
       NextPageColor = MiGetNextPageColor((__int64)v9);
       for ( i = NextPageColor; ; i = NextPageColor )
@@ -60,13 +60,13 @@ __int64 __fastcall MiAllocateDriverPage(ULONG_PTR *a1, char a2)
     else
     {
       Page = SlabPage;
-      v5 = ++qword_140438F18;
+      v5 = ++qword_140439FD8;
       if ( a1 == &MiSystemPartition )
       {
         if ( (v5 & 0x1FF) != 0 )
-          qword_140438ED0 = SlabPage - 1;
+          qword_140439F90 = SlabPage - 1;
         else
-          qword_140438ED0 = -1LL;
+          qword_140439F90 = -1LL;
       }
       MiPreInitializeSystemImagePage(48 * SlabPage - 0x58000000000LL);
     }

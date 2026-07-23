@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetUmsContextExtendedSize @ 0x140218540
+ * XREFs of RtlGetUmsContextExtendedSize @ 0x14021836C
  * Callers:
- *     PspAttachThreadToUmsCompletionList @ 0x14020F39C (PspAttachThreadToUmsCompletionList.c)
- *     PspBuildCreateProcessContext @ 0x1404599E8 (PspBuildCreateProcessContext.c)
- *     PspUmsInitializeContext @ 0x14067F69C (PspUmsInitializeContext.c)
+ *     PspAttachThreadToUmsCompletionList @ 0x14020F1C8 (PspAttachThreadToUmsCompletionList.c)
+ *     PspBuildCreateProcessContext @ 0x1404588B8 (PspBuildCreateProcessContext.c)
+ *     PspUmsInitializeContext @ 0x14067F780 (PspUmsInitializeContext.c)
  * Callees:
  *     <none>
  */

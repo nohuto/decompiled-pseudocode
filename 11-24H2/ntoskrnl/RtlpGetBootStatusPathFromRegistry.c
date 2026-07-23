@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x1405E97C8
+ * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x1405E6D18
  * Callers:
- *     RtlpGetBootStatusPath @ 0x1405E976C (RtlpGetBootStatusPath.c)
+ *     RtlpGetBootStatusPath @ 0x1405E6CBC (RtlpGetBootStatusPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
@@ -45,13 +45,13 @@ __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
     v2 = v3;
     if ( v3 == -1073741789 )
     {
-      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, ResultLength, 0x66647362u);
       if ( Pool2 )
       {
         v2 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Pool2, ResultLength, &v11);
         if ( v2 >= 0 )
         {
-          v5 = (void *)ExAllocatePool2(0x100uLL);
+          v5 = (void *)ExAllocatePool2(0x100uLL, Pool2[2], 0x66647362u);
           v6 = v5;
           if ( v5 )
           {

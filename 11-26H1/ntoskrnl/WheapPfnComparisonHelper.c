@@ -1,5 +1,5 @@
 /*
- * XREFs of WheapPfnComparisonHelper @ 0x1406D6550
+ * XREFs of WheapPfnComparisonHelper @ 0x1406DA630
  * Callers:
  *     <none>
  * Callees:

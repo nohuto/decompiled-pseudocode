@@ -1,11 +1,11 @@
 /*
- * XREFs of VslEnableKernelCfgTarget @ 0x1409421A4
+ * XREFs of VslEnableKernelCfgTarget @ 0x1409423A4
  * Callers:
- *     MiMarkKernelCfgTarget @ 0x1402F7A50 (MiMarkKernelCfgTarget.c)
+ *     MiMarkKernelCfgTarget @ 0x1402F7CE0 (MiMarkKernelCfgTarget.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslEnableKernelCfgTarget(__int64 a1)

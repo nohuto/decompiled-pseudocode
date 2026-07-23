@@ -1,13 +1,13 @@
 /*
- * XREFs of HvWriteLogFile @ 0x14098041C
+ * XREFs of HvWriteLogFile @ 0x140968C2C
  * Callers:
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpDoFileSetSizeEx @ 0x140980EB4 (CmpDoFileSetSizeEx.c)
- *     CmpFileFlushAndPurge @ 0x140981014 (CmpFileFlushAndPurge.c)
- *     CmpTraceHiveFlushWroteLogFile @ 0x1409811C4 (CmpTraceHiveFlushWroteLogFile.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140981264 (HvpLogTypeToLogArrayIndex.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpDoFileSetSizeEx @ 0x1409696C4 (CmpDoFileSetSizeEx.c)
+ *     CmpFileFlushAndPurge @ 0x140969824 (CmpFileFlushAndPurge.c)
+ *     CmpTraceHiveFlushWroteLogFile @ 0x1409699D4 (CmpTraceHiveFlushWroteLogFile.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140969A74 (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall HvWriteLogFile(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -52,7 +52,7 @@ __int64 __fastcall HvWriteLogFile(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4
   {
     v17 = (_DWORD *)(v7 + 24 * i);
     *v17 = *(_DWORD *)(a1 + 180);
-    result = guard_dispatch_icall_no_overrides(a1, *(unsigned int *)(a1 + 168), v17, 1LL);
+    result = guard_dispatch_icall_no_overrides(a1, *(unsigned int *)(a1 + 168));
     if ( (int)result < 0 )
       return result;
     *(_DWORD *)(a1 + 180) += v17[4];

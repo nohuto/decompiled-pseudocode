@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpFlushActiveBuffers @ 0x1406BDE18
+ * XREFs of EtwpFlushActiveBuffers @ 0x1406BDE48
  * Callers:
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
  * Callees:
- *     EtwpLockUnlockBufferList @ 0x1402278C4 (EtwpLockUnlockBufferList.c)
- *     EtwpRequestFlushTimer @ 0x140227AC0 (EtwpRequestFlushTimer.c)
- *     EtwpPrepareDirtyBuffer @ 0x140227B88 (EtwpPrepareDirtyBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x140227FA8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpQueryUsedProcessorCount @ 0x140228124 (EtwpQueryUsedProcessorCount.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpWaitForBufferReferenceCount @ 0x1406BD91C (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBuffer @ 0x1406BD950 (EtwpFlushBuffer.c)
- *     EtwpAdjustFreeBuffers @ 0x1406BDDAC (EtwpAdjustFreeBuffers.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x1407F74D0 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpLockUnlockBufferList @ 0x1402279D4 (EtwpLockUnlockBufferList.c)
+ *     EtwpRequestFlushTimer @ 0x140227BD0 (EtwpRequestFlushTimer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x140227C98 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402280B8 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140228234 (EtwpQueryUsedProcessorCount.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x1406BD94C (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFlushBuffer @ 0x1406BD980 (EtwpFlushBuffer.c)
+ *     EtwpAdjustFreeBuffers @ 0x1406BDDDC (EtwpAdjustFreeBuffers.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x1407F77A0 (EtwpRealtimeSendEmptyMarker.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)

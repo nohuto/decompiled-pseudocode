@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonRestartProfiling @ 0x140997BE0
+ * XREFs of EmonRestartProfiling @ 0x140998BE0
  * Callers:
  *     <none>
  * Callees:
- *     EmonConfigureCounter @ 0x14038B22C (EmonConfigureCounter.c)
+ *     EmonConfigureCounter @ 0x14038B37C (EmonConfigureCounter.c)
  */
 
 unsigned __int64 EmonRestartProfiling()

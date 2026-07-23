@@ -1,20 +1,20 @@
 /*
- * XREFs of SepSetTokenLowboxHandles @ 0x14007F580
+ * XREFs of SepSetTokenLowboxHandles @ 0x14007F600
  * Callers:
- *     NtCreateLowBoxToken @ 0x14047BBD8 (NtCreateLowBoxToken.c)
+ *     NtCreateLowBoxToken @ 0x14047AAA8 (NtCreateLowBoxToken.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlCreateHashTable @ 0x1400A955C (RtlCreateHashTable.c)
- *     SepReferenceLowBoxObjects @ 0x1400B1F38 (SepReferenceLowBoxObjects.c)
- *     SepDereferenceLowBoxObjects @ 0x1400B2F38 (SepDereferenceLowBoxObjects.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlCreateHashTable @ 0x1400A7ADC (RtlCreateHashTable.c)
+ *     SepReferenceLowBoxObjects @ 0x1400AFE78 (SepReferenceLowBoxObjects.c)
+ *     SepDereferenceLowBoxObjects @ 0x1400B0DB8 (SepDereferenceLowBoxObjects.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepValidateReferencedLowBoxHandles @ 0x14047513C (SepValidateReferencedLowBoxHandles.c)
- *     SepGetLowBoxHandlesEntry @ 0x140475930 (SepGetLowBoxHandlesEntry.c)
+ *     SepValidateReferencedLowBoxHandles @ 0x14047400C (SepValidateReferencedLowBoxHandles.c)
+ *     SepGetLowBoxHandlesEntry @ 0x140474800 (SepGetLowBoxHandlesEntry.c)
  */
 
 __int64 __fastcall SepSetTokenLowboxHandles(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

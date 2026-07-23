@@ -12,10 +12,10 @@ __int64 __fastcall PfLogDeleteHelper(char a1, __int64 a2, int a3, int a4)
   __int64 v8; // rdx
   int v9; // ebx
   __int64 v10; // rcx
-  struct _SLIST_ENTRY *v11; // rcx
+  _SLIST_ENTRY *v11; // rcx
   __int64 v12; // rax
   __int64 v13; // rdx
-  struct _SLIST_ENTRY *v14; // rcx
+  _SLIST_ENTRY *v14; // rcx
   __int64 v16; // [rsp+20h] [rbp-18h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+28h] [rbp-10h] BYREF
 

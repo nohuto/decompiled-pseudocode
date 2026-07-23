@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpProtectBinPartial @ 0x1408B955C
+ * XREFs of HvpProtectBinPartial @ 0x1408BFB2C
  * Callers:
- *     HvpMapHiveImage @ 0x14085D694 (HvpMapHiveImage.c)
- *     HvpSetRangeProtection @ 0x1408B8E6C (HvpSetRangeProtection.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvpAddBin @ 0x140B7EAA0 (HvpAddBin.c)
+ *     HvpMapHiveImage @ 0x140863984 (HvpMapHiveImage.c)
+ *     HvpSetRangeProtection @ 0x1408BF43C (HvpSetRangeProtection.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvpAddBin @ 0x140B87980 (HvpAddBin.c)
  * Callees:
- *     CmpProtectPoolEx @ 0x1404C9778 (CmpProtectPoolEx.c)
- *     MmSetPageProtection @ 0x1405096F0 (MmSetPageProtection.c)
+ *     CmpProtectPoolEx @ 0x1404C3198 (CmpProtectPoolEx.c)
+ *     MmSetPageProtection @ 0x1405031A0 (MmSetPageProtection.c)
  */
 
 __int64 __fastcall HvpProtectBinPartial(

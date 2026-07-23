@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAvlRemoveNode @ 0x1800DB240
+ * XREFs of RtlAvlRemoveNode @ 0x1800D8200
  * Callers:
- *     RtlDeleteGrowableFunctionTable @ 0x180082300 (RtlDeleteGrowableFunctionTable.c)
- *     RtlDeleteFunctionTable @ 0x1800DB030 (RtlDeleteFunctionTable.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x1800796A0 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlDeleteFunctionTable @ 0x1800D7FF0 (RtlDeleteFunctionTable.c)
  * Callees:
- *     RtlpTreeDoubleRotateNodes @ 0x1800DC8F8 (RtlpTreeDoubleRotateNodes.c)
- *     RtlpRbReportFatalError @ 0x1801417C8 (RtlpRbReportFatalError.c)
+ *     RtlpTreeDoubleRotateNodes @ 0x1800D9868 (RtlpTreeDoubleRotateNodes.c)
+ *     RtlpRbReportFatalError @ 0x1801416C8 (RtlpRbReportFatalError.c)
  */
 
 char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, __int64 a2)
@@ -100,23 +100,23 @@ char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, __int64 a2)
     *(_QWORD *)(v28 + 8) = v4;
     v30 = *(_QWORD *)(v2 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
     if ( v30 != a2 )
-      RtlpRbReportFatalError(v30, a2, v2);
+      RtlpRbReportFatalError(v30, a2);
     *(_QWORD *)(v2 + 16) &= 3uLL;
     *(_QWORD *)(v2 + 16) |= v28;
     v31 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
     if ( v31 != a2 )
-      RtlpRbReportFatalError(v31, a2, v4);
+      RtlpRbReportFatalError(v31, a2);
     *(_QWORD *)(v4 + 16) &= 3uLL;
     *(_QWORD *)(v4 + 16) |= v28;
     v32 = *(_QWORD *)(v28 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
     if ( v32 != v7 )
-      RtlpRbReportFatalError(v32, v7, v28);
+      RtlpRbReportFatalError(v32, v7);
     *(_QWORD *)(v7 + 8LL * v27) = v29;
     if ( v29 )
     {
       v37 = *(_QWORD **)(v29 + 16);
       if ( v37 != (_QWORD *)v28 )
-        RtlpRbReportFatalError(v37, v28, v29);
+        RtlpRbReportFatalError(v37, v28);
       *(_QWORD *)(v29 + 16) = v7;
     }
     *(_QWORD *)(v28 + 16) = *(_QWORD *)(a2 + 16);
@@ -129,13 +129,13 @@ char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, __int64 a2)
         v34 = 8LL;
       v35 = *(_QWORD *)(v34 + v33);
       if ( v35 != a2 )
-        RtlpRbReportFatalError(v35, a2, *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL);
+        RtlpRbReportFatalError(v35, a2);
       *(_QWORD *)(v34 + v33) = v28;
     }
     else
     {
       if ( *a1 != a2 )
-        RtlpRbReportFatalError(*a1, a2, a1);
+        RtlpRbReportFatalError(*a1, a2);
       *a1 = v28;
     }
     while ( 1 )
@@ -187,14 +187,14 @@ LABEL_11:
         {
           v15 = *(_QWORD *)(v14 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
           if ( v15 != v7 )
-            RtlpRbReportFatalError(v15, v7, v14);
+            RtlpRbReportFatalError(v15, v7);
           v16 = 0LL;
           if ( v9 == 1 )
             v16 = 8LL;
           v42 = v16;
           v17 = *(_QWORD *)(v16 + v7);
           if ( v17 != v14 )
-            RtlpRbReportFatalError(v17, v14, v7);
+            RtlpRbReportFatalError(v17, v14);
           v18 = *(_QWORD *)v10;
           v19 = (_QWORD *)(*(_QWORD *)v10 & 0xFFFFFFFFFFFFFFFCuLL);
           if ( v19 )
@@ -206,14 +206,14 @@ LABEL_11:
             else
             {
               if ( *v19 != v7 )
-                RtlpRbReportFatalError(*v19, v7, *(_QWORD *)v10 & 0xFFFFFFFFFFFFFFFCuLL);
+                RtlpRbReportFatalError(*v19, v7);
               *v19 = v14;
             }
           }
           else
           {
             if ( *a1 != v7 )
-              RtlpRbReportFatalError(*a1, v7, a1);
+              RtlpRbReportFatalError(*a1, v7);
             *a1 = v14;
           }
           *(_QWORD *)(v14 + 16) ^= (*(_QWORD *)(v14 + 16) ^ v18) & 0xFFFFFFFFFFFFFFFCuLL;
@@ -223,7 +223,7 @@ LABEL_11:
           {
             v22 = *(_QWORD *)(v21 + 16);
             if ( (v22 & 0xFFFFFFFFFFFFFFFCuLL) != v14 )
-              RtlpRbReportFatalError(v22 & 0xFFFFFFFFFFFFFFFCuLL, v14, *(_QWORD *)(v20 + v14));
+              RtlpRbReportFatalError(v22 & 0xFFFFFFFFFFFFFFFCuLL, v14);
             *(_QWORD *)(v21 + 16) = v7 | v22 & 3;
           }
           LOBYTE(v6) = v42;
@@ -258,7 +258,7 @@ LABEL_11:
   {
     v8 = *(_QWORD *)(v5 + 16);
     if ( v8 != a2 )
-      RtlpRbReportFatalError(v8, a2, v5);
+      RtlpRbReportFatalError(v8, a2);
     *(_QWORD *)(v5 + 16) = v7;
   }
   if ( v7 )
@@ -271,14 +271,14 @@ LABEL_11:
     else
     {
       if ( *(_QWORD *)v7 != a2 )
-        RtlpRbReportFatalError(*(_QWORD *)v7, a2, v7);
+        RtlpRbReportFatalError(*(_QWORD *)v7, a2);
       v9 = 1;
       *(_QWORD *)v7 = v5;
     }
     goto LABEL_11;
   }
   if ( *a1 != a2 )
-    RtlpRbReportFatalError(*a1, a2, a1);
+    RtlpRbReportFatalError(*a1, a2);
   *a1 = v5;
   return v6;
 }

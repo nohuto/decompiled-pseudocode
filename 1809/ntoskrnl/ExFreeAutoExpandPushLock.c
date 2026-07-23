@@ -1,10 +1,10 @@
 /*
- * XREFs of ExFreeAutoExpandPushLock @ 0x140167130
+ * XREFs of ExFreeAutoExpandPushLock @ 0x140167230
  * Callers:
  *     <none>
  * Callees:
- *     ExCleanupAutoExpandPushLock @ 0x140091860 (ExCleanupAutoExpandPushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExCleanupAutoExpandPushLock @ 0x1400917A0 (ExCleanupAutoExpandPushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExFreeAutoExpandPushLock(PVOID P)

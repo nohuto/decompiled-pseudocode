@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_memcpy @ 0x1405AC0D0
+ * XREFs of __asan_memcpy @ 0x1405A9040
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void *__fastcall _asan_memcpy(ULONG_PTR BugCheckParameter1, const void *a2, ULONG_PTR BugCheckParameter2)
@@ -18,7 +18,7 @@ void *__fastcall _asan_memcpy(ULONG_PTR BugCheckParameter1, const void *a2, ULON
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   v3 = BugCheckParameter2;
-  if ( byte_140FCDC2A && (unsigned __int64)a2 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && (unsigned __int64)a2 >= 0xFFFF800000000000uLL )
   {
     if ( BugCheckParameter2 )
     {
@@ -40,7 +40,7 @@ LABEL_12:
     if ( KcsaniValidationEnabled )
       KcsanValidateAddress((_DWORD)a2, v3, 0, 0, retaddr);
   }
-  if ( byte_140FCDC2A && BugCheckParameter1 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && BugCheckParameter1 >= 0xFFFF800000000000uLL )
   {
     if ( v3 )
     {

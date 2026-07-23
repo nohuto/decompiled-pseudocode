@@ -3,13 +3,13 @@
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KdCallPowerHandlers @ 0x14028BE58 (KdCallPowerHandlers.c)
- *     KdPowerTransitionEx @ 0x14028C200 (KdPowerTransitionEx.c)
- *     PpmExitCoordinatedIdleState @ 0x1402D3E40 (PpmExitCoordinatedIdleState.c)
- *     PpmUpdatePlatformIdleAccounting @ 0x1402D6464 (PpmUpdatePlatformIdleAccounting.c)
- *     PopDiagTraceIdleWakeSource @ 0x1402E15AC (PopDiagTraceIdleWakeSource.c)
- *     PpmEventCoordinatedIdleTransition @ 0x1402E54E8 (PpmEventCoordinatedIdleTransition.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KdCallPowerHandlers @ 0x14028C048 (KdCallPowerHandlers.c)
+ *     KdPowerTransitionEx @ 0x14028C3F0 (KdPowerTransitionEx.c)
+ *     PpmExitCoordinatedIdleState @ 0x1402D4030 (PpmExitCoordinatedIdleState.c)
+ *     PpmUpdatePlatformIdleAccounting @ 0x1402D6654 (PpmUpdatePlatformIdleAccounting.c)
+ *     PopDiagTraceIdleWakeSource @ 0x1402E179C (PopDiagTraceIdleWakeSource.c)
+ *     PpmEventCoordinatedIdleTransition @ 0x1402E56D8 (PpmEventCoordinatedIdleTransition.c)
  */
 
 __int64 __fastcall PpmExitCoordinatedIdle(

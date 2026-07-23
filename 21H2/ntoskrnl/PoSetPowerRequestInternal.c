@@ -1,22 +1,22 @@
 /*
- * XREFs of PoSetPowerRequestInternal @ 0x140282160
+ * XREFs of PoSetPowerRequestInternal @ 0x1402703A0
  * Callers:
- *     PoSetPowerRequest @ 0x140281F70 (PoSetPowerRequest.c)
- *     PpmBeginHighPerfRequest @ 0x1403A79D0 (PpmBeginHighPerfRequest.c)
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x14067C148 (PopPowerRequestActionInfo.c)
+ *     PoSetPowerRequest @ 0x1402701B0 (PoSetPowerRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1403A7B20 (PpmBeginHighPerfRequest.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x14066F888 (PopPowerRequestActionInfo.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     PopDiagTracePowerRequestChange @ 0x140282394 (PopDiagTracePowerRequestChange.c)
- *     PopQueuePowerRequestCallback @ 0x1402824B8 (PopQueuePowerRequestCallback.c)
- *     PopPowerRequestCallbackWorker @ 0x1402825A0 (PopPowerRequestCallbackWorker.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PopAcquirePowerRequestSpinLock @ 0x14056540C (PopAcquirePowerRequestSpinLock.c)
- *     PopReleasePowerRequestSpinLock @ 0x140565464 (PopReleasePowerRequestSpinLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopReleasePowerRequestPushLock @ 0x14067C12C (PopReleasePowerRequestPushLock.c)
- *     PopProcessDisplayRequiredChange @ 0x14067CD44 (PopProcessDisplayRequiredChange.c)
- *     PopNotifyUserPowerRequestAction @ 0x1408E1A68 (PopNotifyUserPowerRequestAction.c)
+ *     PopDiagTracePowerRequestChange @ 0x1402705D4 (PopDiagTracePowerRequestChange.c)
+ *     PopQueuePowerRequestCallback @ 0x1402706F8 (PopQueuePowerRequestCallback.c)
+ *     PopPowerRequestCallbackWorker @ 0x1402707E0 (PopPowerRequestCallbackWorker.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PopAcquirePowerRequestSpinLock @ 0x14056564C (PopAcquirePowerRequestSpinLock.c)
+ *     PopReleasePowerRequestSpinLock @ 0x1405656A4 (PopReleasePowerRequestSpinLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleasePowerRequestPushLock @ 0x14066F86C (PopReleasePowerRequestPushLock.c)
+ *     PopProcessDisplayRequiredChange @ 0x140670990 (PopProcessDisplayRequiredChange.c)
+ *     PopNotifyUserPowerRequestAction @ 0x1408E1BC8 (PopNotifyUserPowerRequestAction.c)
  */
 
 __int64 __fastcall PoSetPowerRequestInternal(__int64 a1, unsigned int a2)

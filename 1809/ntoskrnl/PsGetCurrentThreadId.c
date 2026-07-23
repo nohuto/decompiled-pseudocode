@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetCurrentThreadId @ 0x140119BE0
+ * XREFs of PsGetCurrentThreadId @ 0x140119C50
  * Callers:
- *     PoShutdownBugCheck @ 0x14086BEC0 (PoShutdownBugCheck.c)
- *     EtwpCovSampContextPruneModules @ 0x1408C5CD8 (EtwpCovSampContextPruneModules.c)
+ *     PoShutdownBugCheck @ 0x14086D120 (PoShutdownBugCheck.c)
+ *     EtwpCovSampContextPruneModules @ 0x1408C6F98 (EtwpCovSampContextPruneModules.c)
  * Callees:
  *     <none>
  */

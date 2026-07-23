@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpEnterStateChangeEventMessageLog @ 0x14084A598
+ * XREFs of AlpcpEnterStateChangeEventMessageLog @ 0x14084B7F8
  * Callers:
- *     AlpcpReceiveLegacyMessage @ 0x140613E70 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpReceiveMessage @ 0x1406322B0 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpDispatchReplyToWaitingThread @ 0x140634530 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     NtAlpcImpersonateClientOfPort @ 0x140637740 (NtAlpcImpersonateClientOfPort.c)
+ *     AlpcpReceiveLegacyMessage @ 0x140614E70 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpReceiveMessage @ 0x1406332D0 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140634A50 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x140635550 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406366C0 (AlpcpCompleteDispatchMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x140638760 (NtAlpcImpersonateClientOfPort.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     AlpcpAllocateSnapshotMessageLog @ 0x14084A354 (AlpcpAllocateSnapshotMessageLog.c)
- *     AlpcpLocateMessageLog @ 0x14084A744 (AlpcpLocateMessageLog.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     AlpcpAllocateSnapshotMessageLog @ 0x14084B5B4 (AlpcpAllocateSnapshotMessageLog.c)
+ *     AlpcpLocateMessageLog @ 0x14084B9A4 (AlpcpLocateMessageLog.c)
  */
 
 __int64 __fastcall AlpcpEnterStateChangeEventMessageLog(__int64 a1)
@@ -51,13 +51,13 @@ __int64 __fastcall AlpcpEnterStateChangeEventMessageLog(__int64 a1)
       v7 = SnapshotMessageLog;
       if ( !*(_DWORD *)(v3 + 44) )
       {
-        v8 = (__int64 *)qword_14041AB18;
-        if ( *(__int64 **)qword_14041AB18 == &AlpcpFreeMessageSnapshotListHead )
+        v8 = (__int64 *)qword_14041BBC8;
+        if ( *(__int64 **)qword_14041BBC8 == &AlpcpFreeMessageSnapshotListHead )
         {
           *(_QWORD *)v7 = &AlpcpFreeMessageSnapshotListHead;
           *(_QWORD *)(v7 + 8) = v8;
           *v8 = v7;
-          qword_14041AB18 = v7;
+          qword_14041BBC8 = v7;
           goto LABEL_18;
         }
 LABEL_16:

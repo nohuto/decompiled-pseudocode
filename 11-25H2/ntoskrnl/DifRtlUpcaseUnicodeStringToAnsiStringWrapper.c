@@ -11,70 +11,71 @@
  *     RtlUpcaseUnicodeStringToAnsiString @ 0x14076DEB0 (RtlUpcaseUnicodeStringToAnsiString.c)
  */
 
-__int64 __fastcall DifRtlUpcaseUnicodeStringToAnsiStringWrapper(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall DifRtlUpcaseUnicodeStringToAnsiStringWrapper(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   __int64 *APIThunkContextById; // rax
-  __int64 v7; // r8
-  __int64 *v8; // rsi
-  int v9; // eax
-  BOOLEAN v10; // r14
+  __int64 *v7; // rsi
+  int v8; // eax
+  BOOLEAN v9; // r14
   __int64 *i; // rbx
-  BOOLEAN v12; // di
-  _QWORD **v13; // rsi
+  BOOLEAN v11; // di
+  _QWORD **v12; // rsi
   _QWORD *j; // rbx
-  __int128 v16; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v17; // [rsp+30h] [rbp-20h]
-  __int64 v18; // [rsp+40h] [rbp-10h]
+  __int128 v15; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v16; // [rsp+30h] [rbp-20h]
+  __int64 v17; // [rsp+40h] [rbp-10h]
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+28h]
 
-  v18 = 0LL;
-  v16 = 0LL;
   v17 = 0LL;
+  v15 = 0LL;
+  v16 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(152);
-  v8 = APIThunkContextById;
+  v7 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v9 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v9 & 0x18) != 0 )
+    v8 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v8 & 0x18) != 0 )
     {
-      *(_QWORD *)&v16 = retaddr;
+      *(_QWORD *)&v15 = retaddr;
     }
-    else if ( (v9 & 4) != 0 )
+    else if ( (v8 & 4) != 0 )
     {
-      *(_QWORD *)&v16 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
-    v10 = 0;
-    *((_QWORD *)&v17 + 1) = a1;
-    *(_QWORD *)&v17 = a2;
-    BYTE8(v16) = a3;
+    v9 = 0;
+    *((_QWORD *)&v16 + 1) = DestinationString;
+    *(_QWORD *)&v16 = SourceString;
+    BYTE8(v15) = AllocateDestinationString;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+      || (v9 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v8[4]; i != v8 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v7[4]; i != v7 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v16);
+          guard_dispatch_icall_no_overrides(&v15);
       }
-      if ( v10 )
+      if ( v9 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v7) = a3;
-  LODWORD(v18) = RtlUpcaseUnicodeStringToAnsiString(a1, a2, v7);
-  if ( v8 )
+  LODWORD(v17) = RtlUpcaseUnicodeStringToAnsiString(DestinationString, SourceString, AllocateDestinationString);
+  if ( v7 )
   {
-    if ( (v12 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v12 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+    if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v11 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v13 = (_QWORD **)(v8 + 6);
-      for ( j = *v13; j != v13; j = (_QWORD *)*j )
+      v12 = (_QWORD **)(v7 + 6);
+      for ( j = *v12; j != v12; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v16);
+          guard_dispatch_icall_no_overrides(&v15);
       }
-      if ( v12 )
+      if ( v11 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return (unsigned int)v18;
+  return (unsigned int)v17;
 }

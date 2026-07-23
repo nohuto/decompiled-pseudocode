@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpValidAttributeAce @ 0x1409F4FA0
+ * XREFs of RtlpValidAttributeAce @ 0x1409E0CF0
  * Callers:
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlAddAce @ 0x1409F4690 (RtlAddAce.c)
- *     RtlAddAccessAllowedAce @ 0x1409F49E0 (RtlAddAccessAllowedAce.c)
- *     SepCheckAcl @ 0x1409F4DF0 (SepCheckAcl.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlAddAce @ 0x1409E03E0 (RtlAddAce.c)
+ *     RtlAddAccessAllowedAce @ 0x1409E0730 (RtlAddAccessAllowedAce.c)
+ *     SepCheckAcl @ 0x1409E0B40 (SepCheckAcl.c)
  * Callees:
- *     RtlpValidRelativeAttribute @ 0x1409F5010 (RtlpValidRelativeAttribute.c)
+ *     RtlpValidRelativeAttribute @ 0x1409E0D60 (RtlpValidRelativeAttribute.c)
  */
 
 bool __fastcall RtlpValidAttributeAce(__int64 a1)

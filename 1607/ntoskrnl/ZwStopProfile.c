@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwStopProfile @ 0x14015D140
+ * XREFs of ZwStopProfile @ 0x14015D6B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwStopProfile(HANDLE ProfileHandle)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ProfileHandle, v1, v2);
+  return KiServiceInternal(ProfileHandle);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of CcNotifyWriteBehindInternal @ 0x140536A9C
+ * XREFs of CcNotifyWriteBehindInternal @ 0x140536FEC
  * Callers:
- *     CcScheduleLazyWriteScan @ 0x1402999F8 (CcScheduleLazyWriteScan.c)
- *     CcNotifyWriteBehindEx @ 0x140536A40 (CcNotifyWriteBehindEx.c)
- *     CcNotifyWriteBehindHelper @ 0x140536A70 (CcNotifyWriteBehindHelper.c)
- *     CcExitPartition @ 0x1405393E8 (CcExitPartition.c)
+ *     CcScheduleLazyWriteScan @ 0x140299C88 (CcScheduleLazyWriteScan.c)
+ *     CcNotifyWriteBehindEx @ 0x140536F90 (CcNotifyWriteBehindEx.c)
+ *     CcNotifyWriteBehindHelper @ 0x140536FC0 (CcNotifyWriteBehindHelper.c)
+ *     CcExitPartition @ 0x140539938 (CcExitPartition.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1403D0E70 (CcForEachPrivateVolumeCacheMap.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403D1050 (CcForEachPrivateVolumeCacheMap.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall CcNotifyWriteBehindInternal(__int64 a1, int a2)

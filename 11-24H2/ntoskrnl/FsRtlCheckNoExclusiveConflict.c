@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlCheckNoExclusiveConflict @ 0x1402479FC
+ * XREFs of FsRtlCheckNoExclusiveConflict @ 0x1402E1DD0
  * Callers:
- *     FsRtlFastCheckLockForWrite @ 0x14024C900 (FsRtlFastCheckLockForWrite.c)
- *     FsRtlFastCheckLockForRead @ 0x1403DB8B0 (FsRtlFastCheckLockForRead.c)
+ *     FsRtlFastCheckLockForWrite @ 0x14027CF10 (FsRtlFastCheckLockForWrite.c)
+ *     FsRtlFastCheckLockForRead @ 0x1403CCB80 (FsRtlFastCheckLockForRead.c)
  * Callees:
- *     RtlRealSuccessor @ 0x140248410 (RtlRealSuccessor.c)
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x1402E2650 (RtlRealSuccessor.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
  */
 
 char __fastcall FsRtlCheckNoExclusiveConflict(
@@ -16,17 +16,17 @@ char __fastcall FsRtlCheckNoExclusiveConflict(
         _RTL_SPLAY_LINKS *a5,
         _RTL_SPLAY_LINKS *a6)
 {
-  RTL_SPLAY_LINKS *v6; // rax
+  _RTL_SPLAY_LINKS *v6; // rax
   PRTL_SPLAY_LINKS v8; // rcx
-  RTL_SPLAY_LINKS *v9; // r11
-  RTL_SPLAY_LINKS *v10; // rbx
+  _RTL_SPLAY_LINKS *v9; // r11
+  _RTL_SPLAY_LINKS *v10; // rbx
   char v14; // bp
   bool v15; // zf
   _RTL_SPLAY_LINKS *v16; // r9
   _RTL_SPLAY_LINKS *RightChild; // r10
   _RTL_SPLAY_LINKS *Parent; // r8
 
-  v6 = *(RTL_SPLAY_LINKS **)(a1 + 16);
+  v6 = *(_RTL_SPLAY_LINKS **)(a1 + 16);
   v8 = 0LL;
   v9 = 0LL;
   v10 = 0LL;

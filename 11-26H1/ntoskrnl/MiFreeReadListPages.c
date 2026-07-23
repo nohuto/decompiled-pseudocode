@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeReadListPages @ 0x140A525E0
+ * XREFs of MiFreeReadListPages @ 0x140A5B8D0
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiReleaseReadListResources @ 0x140A52550 (MiReleaseReadListResources.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiReleaseReadListResources @ 0x140A5B840 (MiReleaseReadListResources.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiReturnFaultCharges @ 0x140338D0C (MiReturnFaultCharges.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiReturnFaultCharges @ 0x14033AD8C (MiReturnFaultCharges.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
  */
 
 __int64 *__fastcall MiFreeReadListPages(__int64 a1)
@@ -29,7 +29,7 @@ __int64 *__fastcall MiFreeReadListPages(__int64 a1)
   for ( i = MiUnlinkPageChainHead(a1 + 40); i; i = MiUnlinkPageChainHead(a1 + 40) )
   {
     if ( !v2 )
-      v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)i[5] >> 43) & 0x3FF));
+      v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)i[5] >> 43) & 0x3FF));
     MiReleaseFreshPage((__int64)i, v4, (__int64)i);
   }
   v6 = a1 + 64;
@@ -41,8 +41,8 @@ __int64 *__fastcall MiFreeReadListPages(__int64 a1)
     {
       if ( !v2 )
       {
-        ThreadLock = stru_140E2EB88.ThreadLock;
-        v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)result[5] >> 43) & 0x3FF));
+        ThreadLock = stru_140E2ED08.ThreadLock;
+        v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)result[5] >> 43) & 0x3FF));
       }
       MiReleaseFreshPage((__int64)result, ThreadLock, v12);
     }

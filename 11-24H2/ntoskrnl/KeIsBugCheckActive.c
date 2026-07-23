@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsBugCheckActive @ 0x1404183C0
+ * XREFs of KeIsBugCheckActive @ 0x140408170
  * Callers:
- *     KiSendThawExecution @ 0x1404D8230 (KiSendThawExecution.c)
+ *     KiSendThawExecution @ 0x1404D1680 (KiSendThawExecution.c)
  * Callees:
  *     <none>
  */

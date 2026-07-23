@@ -38,7 +38,7 @@ __int64 __fastcall ObpGetObjectSecurity(__int64 a1, PVOID *a2, _BYTE *a3, char a
   unsigned int v22; // [rsp+90h] [rbp+8h] BYREF
 
   v8 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)];
-  if ( *(__int64 (__fastcall **)(__int64, int, ULONG *, void *, ULONG *, __int64 *, int, __int64))(v8 + 152) == SeDefaultObjectMethod )
+  if ( *(__int64 (__fastcall **)(__int64, int, DWORD *, void *, ULONG *, __int64 *, int, __int64))(v8 + 152) == SeDefaultObjectMethod )
   {
     _m_prefetchw((const void *)(a1 - 8));
     v9 = *(_QWORD *)(a1 - 8);

@@ -1,18 +1,18 @@
 /*
- * XREFs of KiDisconnectInterruptCommon @ 0x14016D694
+ * XREFs of KiDisconnectInterruptCommon @ 0x14016D794
  * Callers:
- *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x1402935E4 (KiDisconnectSecondaryInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14016D3C0 (KeDisconnectInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x1402937D4 (KiDisconnectSecondaryInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     KiDisconnectInterruptInternal @ 0x14016D7D4 (KiDisconnectInterruptInternal.c)
- *     KiAcquireInterruptConnectLock @ 0x14016DE38 (KiAcquireInterruptConnectLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x14029336C (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiDisconnectSecondaryInterruptInternal @ 0x1402936F4 (KiDisconnectSecondaryInterruptInternal.c)
- *     KiSignalWaitDisconnectLock @ 0x14029A0E0 (KiSignalWaitDisconnectLock.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     KiDisconnectInterruptInternal @ 0x14016D8D4 (KiDisconnectInterruptInternal.c)
+ *     KiAcquireInterruptConnectLock @ 0x14016DF38 (KiAcquireInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14029355C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiDisconnectSecondaryInterruptInternal @ 0x1402938E4 (KiDisconnectSecondaryInterruptInternal.c)
+ *     KiSignalWaitDisconnectLock @ 0x14029A2D0 (KiSignalWaitDisconnectLock.c)
  */
 
 __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)

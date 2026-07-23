@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetVirtualFaultPageInfo @ 0x14046C8EE
+ * XREFs of MiGetVirtualFaultPageInfo @ 0x14046CCEE
  * Callers:
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MiValidVirtualizationFault @ 0x14046C922 (MiValidVirtualizationFault.c)
- *     MiLargePageFault @ 0x14064646C (MiLargePageFault.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x14046CD22 (MiValidVirtualizationFault.c)
+ *     MiLargePageFault @ 0x1406469BC (MiLargePageFault.c)
  * Callees:
  *     <none>
  */

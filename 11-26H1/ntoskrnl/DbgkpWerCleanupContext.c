@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerCleanupContext @ 0x14078C108
+ * XREFs of DbgkpWerCleanupContext @ 0x14078EC38
  * Callers:
- *     DbgkpWerDeferredWriteRoutine @ 0x14078C2F0 (DbgkpWerDeferredWriteRoutine.c)
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140B41E80 (DbgkWerCaptureLiveKernelDump2.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x14078EE20 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x140B43D70 (DbgkWerCaptureLiveKernelDump2.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     IoDiscardDeferredLiveDumpData @ 0x1405CC088 (IoDiscardDeferredLiveDumpData.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     DbgkpWerFreePool @ 0x14078C400 (DbgkpWerFreePool.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     IoDiscardDeferredLiveDumpData @ 0x1405CE89C (IoDiscardDeferredLiveDumpData.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     DbgkpWerFreePool @ 0x14078EF30 (DbgkpWerFreePool.c)
  */
 
 int __fastcall DbgkpWerCleanupContext(__int64 a1)

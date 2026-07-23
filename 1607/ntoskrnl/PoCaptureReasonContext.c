@@ -1,19 +1,19 @@
 /*
- * XREFs of PoCaptureReasonContext @ 0x1400FC0BC
+ * XREFs of PoCaptureReasonContext @ 0x1400F9E3C
  * Callers:
- *     NtSetTimerEx @ 0x1400EFE6C (NtSetTimerEx.c)
- *     NtSetTimer @ 0x14010D948 (NtSetTimer.c)
- *     PoRegisterSystemState @ 0x1402057F0 (PoRegisterSystemState.c)
- *     PoCreatePowerRequest @ 0x14051E298 (PoCreatePowerRequest.c)
- *     PopPowerRequestCreateInfo @ 0x14051E69C (PopPowerRequestCreateInfo.c)
- *     NtSetThreadExecutionState @ 0x14052CD00 (NtSetThreadExecutionState.c)
- *     PoCreateThermalRequest @ 0x14056C4C8 (PoCreateThermalRequest.c)
+ *     NtSetTimerEx @ 0x1400EDCEC (NtSetTimerEx.c)
+ *     NtSetTimer @ 0x14010DEAC (NtSetTimer.c)
+ *     PoRegisterSystemState @ 0x14020561C (PoRegisterSystemState.c)
+ *     PoCreatePowerRequest @ 0x140501300 (PoCreatePowerRequest.c)
+ *     PopPowerRequestCreateInfo @ 0x140501704 (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x14052D240 (NtSetThreadExecutionState.c)
+ *     PoCreateThermalRequest @ 0x14056CA08 (PoCreateThermalRequest.c)
  *     PopInitializeHighPerfPowerRequest @ 0x1407BBC6C (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     PoGetRequester @ 0x1400FC1D4 (PoGetRequester.c)
- *     PopCaptureReasonContext @ 0x1400FC2D4 (PopCaptureReasonContext.c)
+ *     PoGetRequester @ 0x1400F9F54 (PoGetRequester.c)
+ *     PopCaptureReasonContext @ 0x1400FA054 (PopCaptureReasonContext.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PoCaptureReasonContext(unsigned __int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5, PVOID *a6)

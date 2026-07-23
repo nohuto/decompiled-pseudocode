@@ -47,11 +47,11 @@ __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
   PVOID Ace; // [rsp+48h] [rbp-80h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-78h] BYREF
   __int64 v23; // [rsp+70h] [rbp-58h]
-  __int64 v24; // [rsp+78h] [rbp-50h] BYREF
+  __int64 AclInformation; // [rsp+78h] [rbp-50h] BYREF
   int v25; // [rsp+80h] [rbp-48h]
 
   v19 = a2;
-  v24 = 0LL;
+  AclInformation = 0LL;
   v25 = 0;
   P = 0LL;
   v17[0] = 0;
@@ -83,15 +83,15 @@ LABEL_7:
         {
           if ( !RtlFindAceBySid((__int64)v10, a3, 0LL) )
           {
-            Acl = RtlQueryInformationAcl(v10, &v24, 12LL, 2LL);
+            Acl = RtlQueryInformationAcl(v10, &AclInformation, 0xCu, AclSizeInformation);
             if ( Acl >= 0 )
             {
-              Acl = RtlQueryInformationAcl(v10, &AclRevision, 4LL, 1LL);
+              Acl = RtlQueryInformationAcl(v10, &AclRevision, 4u, AclRevisionInformation);
               if ( Acl >= 0 )
               {
                 v11 = RtlLengthSid(a3);
-                v12 = HIDWORD(v24);
-                v13 = (v11 + HIDWORD(v24) + 11) & 0xFFFFFFFC;
+                v12 = HIDWORD(AclInformation);
+                v13 = (v11 + HIDWORD(AclInformation) + 11) & 0xFFFFFFFC;
                 PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v13, 0x63416553u);
                 v15 = PoolWithTag;
                 if ( PoolWithTag )
@@ -106,7 +106,7 @@ LABEL_7:
                       Acl = RtlAddAce(v15, v16, 0, Ace, v12 - 8);
                       if ( Acl >= 0 )
                       {
-                        Acl = RtlpAddKnownAce((__int64)v15, v16, 0, v19, (unsigned __int8 *)a3, 0);
+                        Acl = RtlpAddKnownAce(v15, v16, 0, v19, (unsigned __int8 *)a3, 0);
                         if ( Acl >= 0 )
                         {
                           LOBYTE(SecurityDescriptor[0]) = 1;

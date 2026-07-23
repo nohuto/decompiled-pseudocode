@@ -1,37 +1,44 @@
 /*
- * XREFs of NtOpenJobObject @ 0x140A77BE0
+ * XREFs of NtOpenJobObject @ 0x140B0FD10
  * Callers:
- *     DifNtOpenJobObjectWrapper @ 0x14067D4D0 (DifNtOpenJobObjectWrapper.c)
+ *     DifNtOpenJobObjectWrapper @ 0x1406810B0 (DifNtOpenJobObjectWrapper.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
- *     EtwTraceJob @ 0x140A77CC8 (EtwTraceJob.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
+ *     EtwTraceJob @ 0x140A07238 (EtwTraceJob.c)
  */
 
-__int64 __fastcall NtOpenJobObject(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // si
   __int64 ULong64FromUser; // rax
   int v8; // ebx
-  __int64 v10; // [rsp+48h] [rbp-10h] BYREF
+  void *v10; // [rsp+48h] [rbp-10h] BYREF
 
   v10 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(JobHandle);
+    RtlWriteULong64ToUser(JobHandle, ULong64FromUser);
   }
-  v8 = ObOpenObjectByName(a3, (__int64)PsJobType, PreviousMode, 0LL, a2, 0LL, (__int64)&v10);
+  v8 = ObOpenObjectByName(
+         (__int64)ObjectAttributes,
+         (__int64)PsJobType,
+         PreviousMode,
+         0LL,
+         DesiredAccess,
+         0LL,
+         (__int64)&v10);
   if ( v8 >= 0 )
   {
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a1, v10);
+      RtlWriteULong64ToUser(JobHandle, (__int64)v10);
     else
-      *a1 = v10;
+      *JobHandle = v10;
   }
   if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
-    EtwTraceJob(0LL, 0LL, (unsigned int)v8, 1826LL);
-  return (unsigned int)v8;
+    EtwTraceJob(0LL, 0, v8, 0x722u);
+  return v8;
 }

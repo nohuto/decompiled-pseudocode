@@ -14,9 +14,9 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-void __stdcall RtlInitializeSListHead_0(PSLIST_HEADER ListHead)
+void __cdecl RtlInitializeSListHead_0(PSLIST_HEADER ListHead)
 {
   if ( ((unsigned __int8)ListHead & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   *ListHead = 0uLL;
 }

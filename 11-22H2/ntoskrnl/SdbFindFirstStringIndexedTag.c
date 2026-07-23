@@ -13,7 +13,7 @@
  */
 
 __int64 __fastcall SdbFindFirstStringIndexedTag(
-        union _RTL_RUN_ONCE *a1,
+        _RTL_RUN_ONCE *a1,
         __int16 a2,
         __int16 a3,
         const WCHAR *a4,

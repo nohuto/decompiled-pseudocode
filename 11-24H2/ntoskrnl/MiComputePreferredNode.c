@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputePreferredNode @ 0x14036EFC8
+ * XREFs of MiComputePreferredNode @ 0x14026AF48
  * Callers:
- *     MiCommitExistingVad @ 0x140213020 (MiCommitExistingVad.c)
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
- *     MiCreateLargePfnList @ 0x14036E934 (MiCreateLargePfnList.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14069197C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiCreateLargePfnList @ 0x14026A8C0 (MiCreateLargePfnList.c)
+ *     MiCommitExistingVad @ 0x140306380 (MiCommitExistingVad.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140692A4C (MiAllocateLargeProcessPagesFromCache.c)
  * Callees:
- *     MiThreadIdealNode @ 0x14036F010 (MiThreadIdealNode.c)
+ *     MiThreadIdealNode @ 0x14026AF90 (MiThreadIdealNode.c)
  */
 
 __int64 __fastcall MiComputePreferredNode(__int64 a1, __int64 a2)

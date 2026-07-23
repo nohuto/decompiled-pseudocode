@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEndCounterAccumulation @ 0x1401D7024
+ * XREFs of KiEndCounterAccumulation @ 0x1401D6E50
  * Callers:
- *     KiRetireDpcList @ 0x140058280 (KiRetireDpcList.c)
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2750 (KiEndThreadAccountingPeriod.c)
+ *     KiRetireDpcList @ 0x140057E00 (KiRetireDpcList.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D05F0 (KiEndThreadAccountingPeriod.c)
  * Callees:
  *     <none>
  */

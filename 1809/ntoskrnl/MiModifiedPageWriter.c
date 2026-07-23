@@ -1,28 +1,28 @@
 /*
- * XREFs of MiModifiedPageWriter @ 0x140188740
+ * XREFs of MiModifiedPageWriter @ 0x140188880
  * Callers:
  *     <none>
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     KeQueryPriorityThread @ 0x1400E1760 (KeQueryPriorityThread.c)
- *     MiStoreUpdateMemoryConditions @ 0x1400EEDCC (MiStoreUpdateMemoryConditions.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x1400EEF48 (MiUseLowIoPriorityForModifiedPages.c)
- *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x140175FF8 (MiStoreCheckCompleteWriteBatch.c)
- *     MiInitializePagefileBitmapsCache @ 0x140188224 (MiInitializePagefileBitmapsCache.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeModifiedReservations @ 0x1402B8168 (MiFreeModifiedReservations.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1400E17E0 (KeQueryPriorityThread.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1400EEE4C (MiStoreUpdateMemoryConditions.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x1400EEFC8 (MiUseLowIoPriorityForModifiedPages.c)
+ *     IoBoostThreadIoPriority @ 0x1401086DC (IoBoostThreadIoPriority.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1401760F8 (MiStoreCheckCompleteWriteBatch.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140188364 (MiInitializePagefileBitmapsCache.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeModifiedReservations @ 0x1402B8358 (MiFreeModifiedReservations.c)
  */
 
 LONG __fastcall MiModifiedPageWriter(__int64 a1, __int64 a2, __int64 a3)
@@ -185,7 +185,7 @@ LABEL_2:
       if ( (v50 = *(_QWORD *)(a1 + 2688), *(_QWORD *)(a1 + 816) >= 0x800uLL)
         || v13 <= *(_QWORD *)(a1 + 7120) >> 2 && v13 <= v11 >> 2
         || (v31 = *(_DWORD *)(a1 + 832), v31 < 0x40)
-        || *(_DWORD *)(a1 + 824) / v31 >= (unsigned int)dword_14054018C >> 3 )
+        || *(_DWORD *)(a1 + 824) / v31 >= (unsigned int)dword_14054118C >> 3 )
       {
         v14 = 1;
       }
@@ -211,7 +211,7 @@ LABEL_2:
                 {
                   *(_BYTE *)(v36 + 207) = v37 | 1;
                   MiInitializePagefileBitmapsCache(v36);
-                  *(_DWORD *)(v36 + 124) = dword_14054018C;
+                  *(_DWORD *)(v36 + 124) = dword_14054118C;
                 }
                 KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
                 OldIrql = LockHandle.OldIrql;

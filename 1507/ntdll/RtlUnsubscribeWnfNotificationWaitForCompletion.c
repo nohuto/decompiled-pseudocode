@@ -15,7 +15,7 @@ __int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
   v2 = 0;
   v3 = 0;
   *(_QWORD *)(a1 + 88) = &v2;
-  RtlUnsubscribeWnfStateChangeNotification(a1);
+  RtlUnsubscribeWnfStateChangeNotification((PWNF_USER_CALLBACK)a1);
   do
   {
     if ( byte_180146208 )

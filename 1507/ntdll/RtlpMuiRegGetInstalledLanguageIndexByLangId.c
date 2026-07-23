@@ -26,7 +26,7 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   __int64 v14; // rdx
   __int16 v15; // r8
   const WCHAR *v16; // rax
-  const WCHAR *v17; // rdi
+  WCHAR *v17; // rdi
   int v18; // [rsp+20h] [rbp-38h] BYREF
   const WCHAR *v19; // [rsp+28h] [rbp-30h]
 
@@ -43,14 +43,14 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
     {
 LABEL_13:
       v16 = (const WCHAR *)MuiRegAllocArray(v12, 85LL);
-      v17 = v16;
+      v17 = (WCHAR *)v16;
       if ( v16 )
       {
         v19 = v16;
         v18 = 11141120;
         if ( a3 && (unsigned __int8)RtlpInitAndCallLcidToCultureName(&v18, v16, a2) )
           InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, v19, 0, a4);
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v17);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
         if ( v10 && InstalledLanguageIndexByName == -1073741772 )
           return 3221225659LL;
       }

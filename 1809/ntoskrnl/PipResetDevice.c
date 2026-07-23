@@ -1,17 +1,17 @@
 /*
- * XREFs of PipResetDevice @ 0x1409F5578
+ * XREFs of PipResetDevice @ 0x1409F6578
  * Callers:
- *     PipResetDevices @ 0x1409CA1C0 (PipResetDevices.c)
+ *     PipResetDevices @ 0x1409CB1C0 (PipResetDevices.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     _CmIsRootEnumeratedDevice @ 0x14059C4CC (_CmIsRootEnumeratedDevice.c)
- *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmSetDeviceRegProp @ 0x1406E2A24 (_CmSetDeviceRegProp.c)
- *     _CmDeleteDevice @ 0x1408F66A8 (_CmDeleteDevice.c)
- *     _CmDeleteDeviceRegKey @ 0x1408F6FB4 (_CmDeleteDeviceRegKey.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     _CmIsRootEnumeratedDevice @ 0x14059D4CC (_CmIsRootEnumeratedDevice.c)
+ *     _CmGetDeviceRegProp @ 0x1405C799C (_CmGetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x1406E3CC4 (_CmSetDeviceRegProp.c)
+ *     _CmDeleteDevice @ 0x1408F7968 (_CmDeleteDevice.c)
+ *     _CmDeleteDeviceRegKey @ 0x1408F8274 (_CmDeleteDeviceRegKey.c)
  */
 
 __int64 __fastcall PipResetDevice(__int64 a1, const WCHAR *a2)

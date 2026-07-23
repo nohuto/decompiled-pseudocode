@@ -1,9 +1,9 @@
 /*
- * XREFs of PiIommuSaveDeviceAtsSettings @ 0x14084D7D8
+ * XREFs of PiIommuSaveDeviceAtsSettings @ 0x14084DAD8
  * Callers:
- *     PiDmaGuardProcessPreAddDevice @ 0x1407E57C4 (PiDmaGuardProcessPreAddDevice.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x1407E5A94 (PiDmaGuardProcessPreAddDevice.c)
  * Callees:
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PiIommuSaveDeviceAtsSettings(__int64 a1, __int64 a2)

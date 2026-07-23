@@ -1,9 +1,9 @@
 /*
- * XREFs of IvmdFindDeviceEntry @ 0x1405315F8
+ * XREFs of IvmdFindDeviceEntry @ 0x140531B48
  * Callers:
- *     HsaProcessIvmd @ 0x14053095C (HsaProcessIvmd.c)
+ *     HsaProcessIvmd @ 0x140530EAC (HsaProcessIvmd.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
  */
 
 __int64 *__fastcall IvmdFindDeviceEntry(__int64 a1, __int16 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAggregateCumulativeGlobalTelemetry @ 0x140AB1508
+ * XREFs of CcAggregateCumulativeGlobalTelemetry @ 0x140AAC478
  * Callers:
- *     CcPostVolumeTelemetry @ 0x1404C405C (CcPostVolumeTelemetry.c)
+ *     CcPostVolumeTelemetry @ 0x14040C990 (CcPostVolumeTelemetry.c)
  * Callees:
  *     <none>
  */
@@ -10,23 +10,23 @@ __int64 CcAggregateCumulativeGlobalTelemetry()
 {
   __int64 result; // rax
 
-  qword_140F8E598 += qword_140F8E510;
-  qword_140F8E5A0 += qword_140F8E518;
-  qword_140F8E5A8 += qword_140F8E520;
-  qword_140F8E5B0 += qword_140F8E528;
-  qword_140F8E5B8 += qword_140F8E530;
-  qword_140F8E5C0 += qword_140F8E538;
-  qword_140F8E5C8 += qword_140F8E540;
-  qword_140F8E5D0 += qword_140F8E548;
-  qword_140F8E5D8 += qword_140F8E550;
-  qword_140F8E5E0 += qword_140F8E558;
-  qword_140F8E5E8 += qword_140F8E560;
-  qword_140F8E5F0 += qword_140F8E568;
-  qword_140F8E5F8 += qword_140F8E570;
-  qword_140F8E600 += qword_140F8E578;
-  qword_140F8E608 += qword_140F8E580;
-  qword_140F8E610 += qword_140F8E588;
-  result = qword_140F8E590;
-  qword_140F8E618 += qword_140F8E590;
+  qword_140F8E778 += qword_140F8E6F0;
+  qword_140F8E780 += qword_140F8E6F8;
+  qword_140F8E788 += qword_140F8E700;
+  qword_140F8E790 += qword_140F8E708;
+  qword_140F8E798 += qword_140F8E710;
+  qword_140F8E7A0 += qword_140F8E718;
+  qword_140F8E7A8 += qword_140F8E720;
+  qword_140F8E7B0 += qword_140F8E728;
+  qword_140F8E7B8 += qword_140F8E730;
+  qword_140F8E7C0 += qword_140F8E738;
+  qword_140F8E7C8 += qword_140F8E740;
+  qword_140F8E7D0 += qword_140F8E748;
+  qword_140F8E7D8 += qword_140F8E750;
+  qword_140F8E7E0 += qword_140F8E758;
+  qword_140F8E7E8 += qword_140F8E760;
+  qword_140F8E7F0 += qword_140F8E768;
+  result = qword_140F8E770;
+  qword_140F8E7F8 += qword_140F8E770;
   return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of pIoQueryBusDescription @ 0x14053FC30
+ * XREFs of pIoQueryBusDescription @ 0x140540170
  * Callers:
- *     IoQueryDeviceDescription @ 0x14053FB24 (IoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x14053FC30 (pIoQueryBusDescription.c)
+ *     IoQueryDeviceDescription @ 0x140540064 (IoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x140540170 (pIoQueryBusDescription.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcsncmp @ 0x14014F040 (wcsncmp.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcsncmp @ 0x14014F600 (wcsncmp.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopOpenRegistryKey @ 0x1404E6780 (IopOpenRegistryKey.c)
- *     pIoQueryDeviceDescription @ 0x14053F6C0 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x14053FC30 (pIoQueryBusDescription.c)
- *     IopGetRegistryKeyInformation @ 0x14053FF84 (IopGetRegistryKeyInformation.c)
- *     IopGetRegistryValues @ 0x140540030 (IopGetRegistryValues.c)
+ *     IopOpenRegistryKey @ 0x1404C90F0 (IopOpenRegistryKey.c)
+ *     pIoQueryDeviceDescription @ 0x14053FC00 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x140540170 (pIoQueryBusDescription.c)
+ *     IopGetRegistryKeyInformation @ 0x1405404C4 (IopGetRegistryKeyInformation.c)
+ *     IopGetRegistryValues @ 0x140540570 (IopGetRegistryValues.c)
  */
 
 __int64 __fastcall pIoQueryBusDescription(unsigned int **a1, UNICODE_STRING *a2, void *a3, unsigned int *a4, char a5)

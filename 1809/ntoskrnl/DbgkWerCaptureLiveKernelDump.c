@@ -1,26 +1,26 @@
 /*
- * XREFs of DbgkWerCaptureLiveKernelDump @ 0x1408124F0
+ * XREFs of DbgkWerCaptureLiveKernelDump @ 0x1408136F0
  * Callers:
- *     PopUserPresentSet @ 0x1401777F8 (PopUserPresentSet.c)
- *     ExpResourceTimeoutCaptureLiveDump @ 0x14031F240 (ExpResourceTimeoutCaptureLiveDump.c)
- *     MiForceCrashForInvalidAccess @ 0x14084BEA4 (MiForceCrashForInvalidAccess.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x14086E1F4 (PopDripsWatchdogCheckHwDivergence.c)
- *     PopWin32CalloutWatchdogCallbackLiveDump @ 0x140879360 (PopWin32CalloutWatchdogCallbackLiveDump.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x14087947C (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
- *     PopDripsWatchdogWorkerRoutine @ 0x140879C20 (PopDripsWatchdogWorkerRoutine.c)
- *     TtmpCalloutWatchdogCallback @ 0x14087DD70 (TtmpCalloutWatchdogCallback.c)
- *     ExpIoPoolDeadlockWorker @ 0x1408D61D0 (ExpIoPoolDeadlockWorker.c)
+ *     PopUserPresentSet @ 0x1401778F8 (PopUserPresentSet.c)
+ *     ExpResourceTimeoutCaptureLiveDump @ 0x14031F430 (ExpResourceTimeoutCaptureLiveDump.c)
+ *     MiForceCrashForInvalidAccess @ 0x14084D104 (MiForceCrashForInvalidAccess.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x14086F454 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopWin32CalloutWatchdogCallbackLiveDump @ 0x14087A5C0 (PopWin32CalloutWatchdogCallbackLiveDump.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x14087A6DC (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x14087A9E8 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x14087AE80 (PopDripsWatchdogWorkerRoutine.c)
+ *     TtmpCalloutWatchdogCallback @ 0x14087EFD0 (TtmpCalloutWatchdogCallback.c)
+ *     ExpIoPoolDeadlockWorker @ 0x1408D7490 (ExpIoPoolDeadlockWorker.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     DbgkpWerCleanupContext @ 0x140812A10 (DbgkpWerCleanupContext.c)
- *     DbgkpWerProcessPolicyResult @ 0x140812F30 (DbgkpWerProcessPolicyResult.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     DbgkpWerCleanupContext @ 0x140813C10 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerProcessPolicyResult @ 0x140814130 (DbgkpWerProcessPolicyResult.c)
  */
 
 __int64 __fastcall DbgkWerCaptureLiveKernelDump(

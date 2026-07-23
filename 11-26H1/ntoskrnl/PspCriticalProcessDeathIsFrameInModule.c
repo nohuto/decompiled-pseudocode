@@ -1,7 +1,7 @@
 /*
- * XREFs of PspCriticalProcessDeathIsFrameInModule @ 0x1407FAEC4
+ * XREFs of PspCriticalProcessDeathIsFrameInModule @ 0x1408008F4
  * Callers:
- *     PspCriticalProcessDeathUserModulesCollect @ 0x1407FAEEC (PspCriticalProcessDeathUserModulesCollect.c)
+ *     PspCriticalProcessDeathUserModulesCollect @ 0x14080091C (PspCriticalProcessDeathUserModulesCollect.c)
  * Callees:
  *     <none>
  */

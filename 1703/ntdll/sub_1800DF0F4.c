@@ -14,32 +14,44 @@
  *     ZwProtectVirtualMemory @ 0x1800A5D00 (ZwProtectVirtualMemory.c)
  */
 
-char *sub_1800DF0F4()
+int sub_1800DF0F4()
 {
-  char *result; // rax
+  _BYTE *v0; // rax
   unsigned __int64 v1; // r9
-  unsigned __int64 v2; // r8
-  char v3; // [rsp+48h] [rbp-31h] BYREF
-  __int64 v4; // [rsp+50h] [rbp-29h]
-  unsigned int v5; // [rsp+88h] [rbp+Fh]
+  ULONG_PTR v2; // r8
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-49h] BYREF
+  PVOID v5; // [rsp+38h] [rbp-41h] BYREF
+  ULONG OldProtect; // [rsp+40h] [rbp-39h] BYREF
+  _BYTE BaseAddress[8]; // [rsp+48h] [rbp-31h] BYREF
+  __int64 v8; // [rsp+50h] [rbp-29h]
+  _BYTE SystemInformation[8]; // [rsp+80h] [rbp+7h] BYREF
+  unsigned int v10; // [rsp+88h] [rbp+Fh]
 
-  result = (char *)ZwQueryVirtualMemory();
-  if ( (int)result >= 0 )
+  LODWORD(v0) = ZwQueryVirtualMemory(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  BaseAddress,
+                  MemoryBasicInformation,
+                  BaseAddress,
+                  0x30uLL,
+                  0LL);
+  if ( (int)v0 >= 0 )
   {
-    ZwQuerySystemInformation();
-    v1 = ~(unsigned __int64)(v5 - 1);
-    v2 = v1 & (*(unsigned int *)&NtCurrentTeb()->ReservedPad1 + v5 - 1LL);
+    ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+    v1 = ~(unsigned __int64)(v10 - 1);
+    v2 = v1 & (NtCurrentTeb()->GuaranteedStackBytes + v10 - 1LL);
     if ( v2 )
-      v2 += v5;
-    result = &v3;
-    if ( v2 < 3 * v5 )
-      v2 = 3 * v5;
-    if ( ((unsigned __int64)&v3 & v1) - v2 >= v4 + (unsigned __int64)(17 * v5) )
+      v2 += v10;
+    v0 = BaseAddress;
+    if ( v2 < 3 * v10 )
+      v2 = 3 * v10;
+    RegionSize = v2;
+    v5 = (PVOID)(((unsigned __int64)BaseAddress & v1) - v2);
+    if ( (unsigned __int64)v5 >= v8 + (unsigned __int64)(17 * v10) )
     {
-      result = (char *)ZwAllocateVirtualMemory();
-      if ( (int)result >= 0 )
-        return (char *)ZwProtectVirtualMemory();
+      LODWORD(v0) = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v5, 0LL, &RegionSize, 0x1000u, 4u);
+      if ( (int)v0 >= 0 )
+        LODWORD(v0) = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v5, &RegionSize, 0x104u, &OldProtect);
     }
   }
-  return result;
+  return (int)v0;
 }

@@ -1,139 +1,174 @@
 /*
- * XREFs of EtwpTraceThreadRundown @ 0x140433490
+ * XREFs of EtwpTraceThreadRundown @ 0x1404ECB50
  * Callers:
- *     EtwpThreadRundownApc @ 0x140650A30 (EtwpThreadRundownApc.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140650A6C (EtwpTraceThreadRundownWithStack.c)
- *     EtwpThreadEnumCallback @ 0x14094A5E0 (EtwpThreadEnumCallback.c)
+ *     EtwpThreadRundownApc @ 0x14064F010 (EtwpThreadRundownApc.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x14064F0A4 (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpThreadEnumCallback @ 0x1408EEB50 (EtwpThreadEnumCallback.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403274F0 (EtwpLogSystemEventUnsafe.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1402D0080 (EtwpLogSystemEventUnsafe.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PspUnlockThreadSecurityShared @ 0x14040AFC0 (PspUnlockThreadSecurityShared.c)
+ *     Feature_1224463674__private_IsEnabledDeviceUsageNoInline @ 0x14064D46C (Feature_1224463674__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceThreadRundown(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // r15d
-  __int64 v4; // rsi
-  char v5; // r14
-  unsigned __int16 v6; // di
-  __int64 v7; // rax
-  _WORD *v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // r11
-  unsigned int v11; // ecx
-  __int64 v12; // rax
-  unsigned int v13; // eax
-  unsigned int v14; // r9d
-  __int64 v15; // r10
-  __int64 v16; // r11
-  __int64 v17; // rax
-  __int16 v18; // cx
-  __int64 v19; // rax
-  unsigned __int16 *v20; // rax
-  __int64 *v22; // rcx
-  unsigned int v23; // edx
-  unsigned __int64 v24; // rax
-  char v25; // cl
-  _DWORD v26[2]; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v27; // [rsp+68h] [rbp-A0h]
-  __int64 v28; // [rsp+70h] [rbp-98h]
-  __int64 v29; // [rsp+78h] [rbp-90h]
-  __int64 v30; // [rsp+80h] [rbp-88h]
-  __int64 v31; // [rsp+88h] [rbp-80h]
-  __int64 v32; // [rsp+90h] [rbp-78h]
-  __int64 v33; // [rsp+98h] [rbp-70h]
-  int v34; // [rsp+A0h] [rbp-68h]
-  char v35; // [rsp+A4h] [rbp-64h]
-  char v36; // [rsp+A5h] [rbp-63h]
-  char IoPriorityThread; // [rsp+A6h] [rbp-62h]
-  char v38; // [rsp+A7h] [rbp-61h]
-  __int64 v39; // [rsp+A8h] [rbp-60h]
-  _QWORD v40[2]; // [rsp+B0h] [rbp-58h] BYREF
-  __int64 *v41; // [rsp+C0h] [rbp-48h]
-  __int64 v42; // [rsp+C8h] [rbp-40h]
-  __int64 *v43; // [rsp+D0h] [rbp-38h]
-  __int64 v44; // [rsp+D8h] [rbp-30h]
+  __int64 v3; // r8
+  unsigned int v4; // esi
+  __int64 v5; // rax
+  _WORD *v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rdx
+  unsigned int v9; // ecx
+  __int64 v10; // rax
+  unsigned int v11; // eax
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  int v14; // eax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  struct _KTHREAD *CurrentThread; // r13
+  char *v18; // r15
+  unsigned __int16 *v19; // rax
+  int *v20; // rcx
+  unsigned int v21; // edx
+  unsigned __int64 v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 result; // rax
+  unsigned __int16 v27; // [rsp+40h] [rbp-E8h]
+  __int64 v28; // [rsp+50h] [rbp-D8h]
+  _DWORD v29[2]; // [rsp+70h] [rbp-B8h] BYREF
+  __int64 v30; // [rsp+78h] [rbp-B0h]
+  __int64 v31; // [rsp+80h] [rbp-A8h]
+  __int64 v32; // [rsp+88h] [rbp-A0h]
+  __int64 v33; // [rsp+90h] [rbp-98h]
+  __int64 v34; // [rsp+98h] [rbp-90h]
+  __int64 v35; // [rsp+A0h] [rbp-88h]
+  __int64 v36; // [rsp+A8h] [rbp-80h]
+  int v37; // [rsp+B0h] [rbp-78h]
+  char v38; // [rsp+B4h] [rbp-74h]
+  char v39; // [rsp+B5h] [rbp-73h]
+  char v40; // [rsp+B6h] [rbp-72h]
+  unsigned __int8 v41; // [rsp+B7h] [rbp-71h]
+  __int64 v42; // [rsp+B8h] [rbp-70h]
+  _QWORD v43[2]; // [rsp+C0h] [rbp-68h] BYREF
+  int *v44; // [rsp+D0h] [rbp-58h]
+  __int64 v45; // [rsp+D8h] [rbp-50h]
+  int *v46; // [rsp+E0h] [rbp-48h]
+  __int64 v47; // [rsp+E8h] [rbp-40h]
 
-  v3 = 2;
-  v39 = 0LL;
-  v4 = *(_QWORD *)(a2 + 32);
-  v5 = *(_BYTE *)(a2 + 65);
-  v6 = 1284 - (*(_BYTE *)(a2 + 64) != 0);
-  v26[0] = *(_DWORD *)(a1 + 1288);
-  v26[1] = *(_DWORD *)(a1 + 1296);
-  v27 = *(_QWORD *)(a1 + 56);
-  v28 = *(_QWORD *)(a1 + 48);
-  v7 = *(unsigned __int16 *)(a1 + 584);
-  v8 = *(_WORD **)(a1 + 576);
-  if ( (unsigned __int16)v7 >= *v8 )
-    v9 = 0LL;
+  v42 = 0LL;
+  v28 = *(_QWORD *)(a2 + 32);
+  v3 = *(unsigned __int8 *)(a2 + 65);
+  v4 = *(_DWORD *)(a2 + 40);
+  v27 = 1284 - (*(_BYTE *)(a2 + 64) != 0);
+  if ( (struct _KTHREAD *)a1 != KeGetCurrentThread() )
+    v4 &= 0xFFFFE7FF;
+  v29[0] = *(_DWORD *)(a1 + 1288);
+  v29[1] = *(_DWORD *)(a1 + 1296);
+  v30 = *(_QWORD *)(a1 + 56);
+  v31 = *(_QWORD *)(a1 + 48);
+  v5 = *(unsigned __int16 *)(a1 + 584);
+  v6 = *(_WORD **)(a1 + 576);
+  if ( (unsigned __int16)v5 >= *v6 )
+    v7 = 0LL;
   else
-    v9 = *(_QWORD *)&v8[4 * v7 + 4];
-  v31 = v9;
-  v32 = *(_QWORD *)(a1 + 1376);
-  v10 = *(_QWORD *)(a1 + 240);
-  v29 = 0LL;
-  v30 = 0LL;
-  v33 = v10;
-  v34 = 0;
-  v35 = *(_BYTE *)(a1 + 563);
-  v11 = (*(_DWORD *)(a1 + 1440) >> 12) & 7;
-  v12 = *(_QWORD *)(*(_QWORD *)(a1 + 544) + 672LL);
-  if ( v12 )
+    v7 = *(_QWORD *)&v6[4 * v5 + 4];
+  v34 = v7;
+  v35 = *(_QWORD *)(a1 + 1376);
+  v8 = *(_QWORD *)(a1 + 240);
+  v32 = 0LL;
+  v33 = 0LL;
+  v36 = v8;
+  v37 = 0;
+  v38 = *(_BYTE *)(a1 + 563);
+  v9 = (*(_DWORD *)(a1 + 1440) >> 12) & 7;
+  v10 = *(_QWORD *)(*(_QWORD *)(a1 + 544) + 672LL);
+  if ( v10 )
   {
-    v13 = *(_DWORD *)(v12 + 1092);
-    if ( v11 >= v13 )
-      LOBYTE(v11) = v13;
+    v11 = *(_DWORD *)(v10 + 1092);
+    if ( v9 >= v11 )
+      LOBYTE(v9) = v11;
   }
-  v36 = v11;
-  IoPriorityThread = PsGetIoPriorityThread(a1);
-  v38 = 0;
-  if ( (*(_BYTE *)(v15 + 1448) & 8) != 0 )
+  v39 = v9;
+  v12 = (*(_DWORD *)(a1 + 1440) >> 9) & 7;
+  v13 = *(_QWORD *)(*(_QWORD *)(a1 + 544) + 672LL);
+  if ( v13 )
   {
-    v25 = v38;
-    if ( *(_QWORD *)(v15 + 1240) != v15 + 1240 )
-      v25 = 1;
-    v38 = v25;
+    v14 = *(_DWORD *)(v13 + 1084);
+    if ( (int)v12 >= v14 )
+      v12 = (unsigned int)v14;
   }
-  if ( v16 && v5 )
+  if ( (int)v12 < 2 && (struct _KTHREAD *)a1 == KeGetCurrentThread() && *(_DWORD *)(a1 + 1504) )
+    v12 = 2LL;
+  v40 = v12;
+  v41 = 0;
+  if ( (*(_BYTE *)(a1 + 1448) & 8) != 0 )
   {
-    v17 = *(_QWORD *)(v15 + 544);
-    if ( *(_QWORD *)(v17 + 784) && ((v18 = *(_WORD *)(v17 + 1772), v18 == 332) || v18 == 452) )
+    v12 = v41;
+    if ( *(_QWORD *)(a1 + 1240) != a1 + 1240 )
+      v12 = 1LL;
+    v41 = v12;
+  }
+  if ( v8 && (_BYTE)v3 )
+  {
+    v15 = *(_QWORD *)(a1 + 544);
+    if ( *(_QWORD *)(v15 + 784) && ((v12 = *(unsigned __int16 *)(v15 + 1772), (_WORD)v12 == 332) || (_WORD)v12 == 452) )
     {
-      v34 = *(_DWORD *)(v16 + 12128);
-      v29 = *(unsigned int *)(v16 + 8196);
-      v19 = *(unsigned int *)(v16 + 8200);
+      v37 = *(_DWORD *)(v8 + 12128);
+      v32 = *(unsigned int *)(v8 + 8196);
+      v16 = *(unsigned int *)(v8 + 8200);
     }
     else
     {
-      v34 = *(_DWORD *)(v16 + 5920);
-      v29 = *(_QWORD *)(v16 + 8);
-      v19 = *(_QWORD *)(v16 + 16);
+      v37 = *(_DWORD *)(v8 + 5920);
+      v32 = *(_QWORD *)(v8 + 8);
+      v16 = *(_QWORD *)(v8 + 16);
     }
-    v30 = v19;
+    v33 = v16;
   }
-  v40[0] = v26;
-  v40[1] = 72LL;
-  v20 = *(unsigned __int16 **)(v15 + 1696);
-  if ( v20 && (v22 = (__int64 *)*((_QWORD *)v20 + 1)) != 0LL )
+  v43[0] = v29;
+  v43[1] = 72LL;
+  CurrentThread = KeGetCurrentThread();
+  if ( (unsigned int)Feature_1224463674__private_IsEnabledDeviceUsageNoInline(v12, v8, v3) )
   {
-    v23 = *v20;
-    v24 = 2048LL;
-    if ( (unsigned __int16)v23 < 0x800u )
-      v24 = v23;
-    v41 = v22;
-    v42 = (unsigned int)v24;
-    if ( !(_DWORD)v24 || *((_WORD *)v22 + (v24 >> 1) - 1) )
+    --CurrentThread->KernelApcDisable;
+    v18 = (char *)KeAbPreAcquire(a1 + 1424, 0LL);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1424), 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 1424), 0, v18, a1 + 1424);
+    if ( v18 )
+      v18[10] = 1;
+  }
+  v19 = *(unsigned __int16 **)(a1 + 1696);
+  if ( v19 && (v20 = (int *)*((_QWORD *)v19 + 1)) != 0LL )
+  {
+    v21 = *v19;
+    v22 = 2048LL;
+    if ( (unsigned __int16)v21 < 0x800u )
+      v22 = v21;
+    v44 = v20;
+    v45 = (unsigned int)v22;
+    if ( !(_DWORD)v22 || *((_WORD *)v20 + (v22 >> 1) - 1) )
     {
-      v43 = &EtwpNull;
-      v44 = 2LL;
-      v3 = 3;
+      v46 = &EtwpNull;
+      v47 = 2LL;
+      EtwpLogSystemEventUnsafe(*(_QWORD *)(v28 + 1360), (__int64)v43, (_KTHREAD *)a1, *(_DWORD *)v28, 3u, v27, v4, 0);
+      goto LABEL_42;
     }
   }
   else
   {
-    v41 = &EtwpNull;
-    v42 = 2LL;
+    v44 = &EtwpNull;
+    v45 = 2LL;
   }
-  return EtwpLogSystemEventUnsafe(*(_QWORD *)(v4 + 1360), (__int64)v40, (_KTHREAD *)v15, *(_DWORD *)v4, v3, v6, v14, 0);
+  EtwpLogSystemEventUnsafe(*(_QWORD *)(v28 + 1360), (__int64)v43, (_KTHREAD *)a1, *(_DWORD *)v28, 2u, v27, v4, 0);
+LABEL_42:
+  result = Feature_1224463674__private_IsEnabledDeviceUsageNoInline(v24, v23, v25);
+  if ( (_DWORD)result )
+    return PspUnlockThreadSecurityShared(a1);
+  return result;
 }

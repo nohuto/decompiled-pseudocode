@@ -1,26 +1,26 @@
 /*
- * XREFs of PopThermalStandbyNotify @ 0x1405D3D30
+ * XREFs of PopThermalStandbyNotify @ 0x1405D14B0
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14049EC88 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalCsExit @ 0x1405D3C64 (PopThermalCsExit.c)
- *     PopThermalZoneRemove @ 0x140754A10 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140499AC0 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalCsExit @ 0x1405D13D8 (PopThermalCsExit.c)
+ *     PopThermalZoneRemove @ 0x140752D30 (PopThermalZoneRemove.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x14048C7B4 (PopDiagTraceEventNoPayload.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404874D4 (PopDiagTraceEventNoPayload.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PopThermalStandbyNotify(char a1)
+NTSTATUS __fastcall PopThermalStandbyNotify(char a1)
 {
-  int v2; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   if ( a1 )
   {
-    v2 = 1;
+    Buffer = 1;
     PopDiagTraceEventNoPayload(&POP_ETW_EVENT_THERMAL_STANDBY_NOTIFICATION);
   }
   else
   {
-    v2 = 0;
+    Buffer = 0;
   }
-  return ZwUpdateWnfStateData(&WNF_PO_THERMAL_STANDBY, &v2, 4LL);
+  return ZwUpdateWnfStateData(&WNF_PO_THERMAL_STANDBY, &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

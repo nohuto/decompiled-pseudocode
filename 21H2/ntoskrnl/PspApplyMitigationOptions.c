@@ -1,16 +1,16 @@
 /*
- * XREFs of PspApplyMitigationOptions @ 0x1406D8A1C
+ * XREFs of PspApplyMitigationOptions @ 0x1406AFCFC
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     PspSetRedirectionTrustPolicy @ 0x1405CF6A4 (PspSetRedirectionTrustPolicy.c)
- *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
- *     ExEnableHandleExceptions @ 0x1406B959C (ExEnableHandleExceptions.c)
- *     PspDecodeMitigationExecuteOptions @ 0x1406BDC08 (PspDecodeMitigationExecuteOptions.c)
- *     PspSetNoChildProcessRestrictedPolicy @ 0x1406C0098 (PspSetNoChildProcessRestrictedPolicy.c)
- *     KeSetCheckStackExtentsProcess @ 0x1408BAD7C (KeSetCheckStackExtentsProcess.c)
+ *     ExEnableHandleExceptions @ 0x140618C5C (ExEnableHandleExceptions.c)
+ *     PspDecodeMitigationExecuteOptions @ 0x14061CE18 (PspDecodeMitigationExecuteOptions.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x14061EFA8 (PspSetNoChildProcessRestrictedPolicy.c)
+ *     ObReferenceProcessHandleTable @ 0x1406E4F14 (ObReferenceProcessHandleTable.c)
+ *     KeSetCheckStackExtentsProcess @ 0x1408BAEDC (KeSetCheckStackExtentsProcess.c)
  */
 
 void __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, __int128 *a4, int a5)
@@ -21,7 +21,7 @@ void __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, _
   __m128i v11; // xmm2
   __int128 v12; // xmm0
   bool v13; // zf
-  unsigned __int64 v14; // rax
+  __int64 v14; // rax
   unsigned int v15; // r10d
   unsigned int v16; // r11d
   unsigned __int64 v17; // rax
@@ -91,11 +91,11 @@ LABEL_19:
     if ( (a5 & 4) == 0 )
       goto LABEL_26;
 LABEL_24:
-    v14 = ObReferenceProcessHandleTable((struct _EX_RUNDOWN_REF *)a1);
+    v14 = ObReferenceProcessHandleTable(a1);
     if ( v14 )
     {
       ExEnableHandleExceptions(v14, 1);
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1112));
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 1112));
     }
     goto LABEL_26;
   }

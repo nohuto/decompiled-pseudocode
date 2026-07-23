@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerRequestDebounceTimerWorker @ 0x140749BF0
+ * XREFs of PopPowerRequestDebounceTimerWorker @ 0x140747F20
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     PopPowerRequestHandleRequestUpdate @ 0x140A4EFCC (PopPowerRequestHandleRequestUpdate.c)
- *     PopAcquirePowerRequestPushLock @ 0x140A50600 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     PopPowerRequestHandleRequestUpdate @ 0x140A45D7C (PopPowerRequestHandleRequestUpdate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140A473B0 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PopPowerRequestDebounceTimerWorker(__int64 a1)
@@ -41,9 +41,9 @@ __int64 __fastcall PopPowerRequestDebounceTimerWorker(__int64 a1)
       KeCancelTimer2((__int64)&PopPowerRequestDebounceTimer, 0LL, v1, v2);
       v7[0] = 0LL;
       v7[1] = -1LL;
-      KeSetTimer2((__int64)&PopPowerRequestDebounceTimer, -50000000LL, 0LL, (__int64)v7);
-      return PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+      KeSetTimer2((__int64)&PopPowerRequestDebounceTimer, (LARGE_INTEGER)-50000000LL, 0LL, (__int64)v7);
+      return PopReleaseRwLock(&PopPowerRequestLock);
     }
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  return PopReleaseRwLock(&PopPowerRequestLock);
 }

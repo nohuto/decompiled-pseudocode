@@ -15,68 +15,65 @@
  *     sub_1800DD1E4 @ 0x1800DD1E4 (sub_1800DD1E4.c)
  */
 
-__int64 __fastcall RtlWow64SuspendThreadEx(int a1, __int64 a2, char a3)
+__int64 __fastcall RtlWow64SuspendThreadEx(HANDLE SourceHandle, ULONG *a2, char a3)
 {
-  int v5; // edx
-  int InformationProcess; // ebx
-  __int64 v7; // rax
-  __int64 v9; // [rsp+30h] [rbp-59h]
-  __int64 v10; // [rsp+60h] [rbp-29h] BYREF
-  __int64 v11; // [rsp+68h] [rbp-21h]
-  _QWORD v12[2]; // [rsp+70h] [rbp-19h] BYREF
-  __int64 v13; // [rsp+80h] [rbp-9h] BYREF
-  _QWORD v14[2]; // [rsp+88h] [rbp-1h] BYREF
-  int v15; // [rsp+98h] [rbp+Fh]
-  char v16; // [rsp+108h] [rbp+7Fh] BYREF
+  NTSTATUS v5; // ebx
+  void *v6; // rax
+  ULONG Options; // [rsp+30h] [rbp-59h]
+  HANDLE TargetHandle; // [rsp+68h] [rbp-21h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-19h] BYREF
+  __int64 ProcessInformation; // [rsp+78h] [rbp-11h] BYREF
+  __int64 v12[2]; // [rsp+88h] [rbp-1h] BYREF
+  int ThreadInformation[14]; // [rsp+98h] [rbp+Fh] BYREF
+  char v14; // [rsp+108h] [rbp+7Fh]
 
-  v10 = 0LL;
-  v11 = 0LL;
-  v12[0] = 0LL;
-  InformationProcess = ZwSuspendThread();
-  if ( InformationProcess >= 0 )
+  TargetHandle = 0LL;
+  Handle = 0LL;
+  v5 = ZwSuspendThread(SourceHandle, a2);
+  if ( v5 >= 0 )
   {
-    InformationProcess = sub_1800DD1E4(a1, v5, (unsigned int)&v13, (unsigned int)&v10, (__int64)v14);
-    if ( InformationProcess < 0 )
+    v5 = sub_1800DD1E4(SourceHandle, (__int64)v12);
+    if ( v5 < 0 )
       goto LABEL_15;
-    if ( (HANDLE)v14[0] != NtCurrentTeb()->ClientId.UniqueProcess
-      || (HANDLE)v14[1] != NtCurrentTeb()->ClientId.UniqueThread )
+    if ( (HANDLE)v12[0] != NtCurrentTeb()->ClientId.UniqueProcess
+      || (HANDLE)v12[1] != NtCurrentTeb()->ClientId.UniqueThread )
     {
-      InformationProcess = ZwQueryInformationProcess();
-      if ( InformationProcess < 0 )
+      v5 = ZwQueryInformationProcess(0LL, ProcessWow64Information, &ProcessInformation, 8u, 0LL);
+      if ( v5 < 0 )
         goto LABEL_15;
-      if ( !v12[1] )
+      if ( !ProcessInformation )
       {
 LABEL_7:
-        InformationProcess = 0;
+        v5 = 0;
         goto LABEL_16;
       }
-      InformationProcess = sub_1800DD168(v10, v13, &v16);
-      if ( InformationProcess < 0 )
+      v5 = sub_1800DD168(0LL);
+      if ( v5 < 0 )
         goto LABEL_15;
-      if ( !v16 )
+      if ( !v14 )
         goto LABEL_7;
-      LODWORD(v9) = 2;
-      InformationProcess = ZwDuplicateObject();
-      if ( InformationProcess < 0 )
+      v5 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, SourceHandle, 0LL, &TargetHandle, 0, 0, 2u);
+      if ( v5 < 0 )
         goto LABEL_15;
-      v7 = v11;
+      v6 = TargetHandle;
       if ( a3 )
-        v7 = v11 | 1;
-      InformationProcess = sub_180052D68(v10, 0LL, 6, 0, 0LL, 0LL, v9, (__int64)sub_1800DD2F0, v7, v12, 0LL);
-      if ( InformationProcess < 0
-        || (ZwWaitForSingleObject(), ZwQueryInformationThread(), InformationProcess = v15, v15 < 0) )
+        v6 = (void *)((unsigned __int64)TargetHandle | 1);
+      v5 = sub_180052D68(0LL, 0LL, 6, 0, 0LL, 0LL, Options, sub_1800DD2F0, v6, &Handle, 0LL);
+      if ( v5 < 0
+        || (ZwWaitForSingleObject(Handle, 0, 0LL),
+            ZwQueryInformationThread(Handle, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL),
+            v5 = ThreadInformation[0],
+            ThreadInformation[0] < 0) )
       {
 LABEL_15:
-        ZwResumeThread();
+        ZwResumeThread(SourceHandle, 0LL);
       }
     }
   }
 LABEL_16:
-  if ( v11 )
-    ZwDuplicateObject();
-  if ( v10 )
-    ZwClose();
-  if ( v12[0] )
-    ZwClose();
-  return (unsigned int)InformationProcess;
+  if ( TargetHandle )
+    ZwDuplicateObject(0LL, TargetHandle, 0LL, 0LL, 0, 0, 3u);
+  if ( Handle )
+    ZwClose(Handle);
+  return (unsigned int)v5;
 }

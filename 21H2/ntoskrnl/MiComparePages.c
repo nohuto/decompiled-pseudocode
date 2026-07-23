@@ -1,8 +1,8 @@
 /*
- * XREFs of MiComparePages @ 0x14036AA30
+ * XREFs of MiComparePages @ 0x14036ABE0
  * Callers:
- *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
- *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
+ *     MiConvertStandbyToProto @ 0x140367128 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x14036A200 (MiConvertPrivateToProto.c)
  * Callees:
  *     <none>
  */

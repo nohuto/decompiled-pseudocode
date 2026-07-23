@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpFinalizeLogFileHeader @ 0x18004C0E8 (EtwpFinalizeLogFileHeader.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 _UNKNOWN **__fastcall EtwpAddReloggedHeaderExtensionEvents(__int64 a1, __int64 a2, unsigned int a3)

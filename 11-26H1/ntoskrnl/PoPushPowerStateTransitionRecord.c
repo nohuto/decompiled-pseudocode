@@ -1,9 +1,9 @@
 /*
- * XREFs of PoPushPowerStateTransitionRecord @ 0x140607684
+ * XREFs of PoPushPowerStateTransitionRecord @ 0x14060A1E0
  * Callers:
- *     ExSwapinWorkerThreads @ 0x140956958 (ExSwapinWorkerThreads.c)
+ *     ExSwapinWorkerThreads @ 0x14094A380 (ExSwapinWorkerThreads.c)
  * Callees:
- *     PopPushPowerStateTransitionRecord @ 0x140C09EE4 (PopPushPowerStateTransitionRecord.c)
+ *     PopPushPowerStateTransitionRecord @ 0x140C100F4 (PopPushPowerStateTransitionRecord.c)
  */
 
 __int64 __fastcall PoPushPowerStateTransitionRecord(__int64 a1, __int64 a2)

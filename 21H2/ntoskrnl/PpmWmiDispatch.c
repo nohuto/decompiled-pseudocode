@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmWmiDispatch @ 0x1407C5F20
+ * XREFs of PpmWmiDispatch @ 0x1407C6240
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     PpmWmiRegisterInfo @ 0x1407C5F98 (PpmWmiRegisterInfo.c)
- *     PpmWmiGetAllData @ 0x1408F17EC (PpmWmiGetAllData.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     PpmWmiRegisterInfo @ 0x1407C62B8 (PpmWmiRegisterInfo.c)
+ *     PpmWmiGetAllData @ 0x1408F194C (PpmWmiGetAllData.c)
  */
 
 __int64 __fastcall PpmWmiDispatch(int a1, __int64 *a2, int a3, int a4, __int64 a5, _DWORD *a6)
@@ -22,8 +22,8 @@ __int64 __fastcall PpmWmiDispatch(int a1, __int64 *a2, int a3, int a4, __int64 a
   volatile signed __int32 *v14; // rcx
   __int64 v15; // rcx
   __int64 v16; // rcx
-  unsigned __int64 v17; // rcx
-  unsigned __int64 v18; // rcx
+  __int64 v17; // rcx
+  __int64 v18; // rcx
   __int64 v19; // rcx
 
   v6 = 0;
@@ -52,34 +52,34 @@ LABEL_45:
 LABEL_12:
     *a6 = 0;
     v12 = *a2;
-    v13 = PPM_PERFSTATE_CHANGE_GUID - *a2;
-    if ( PPM_PERFSTATE_CHANGE_GUID == *a2 )
-      v13 = 0xBB9EB5430E9092B8uLL - a2[1];
+    v13 = *(_QWORD *)&PPM_PERFSTATE_CHANGE_GUID.Data1 - *a2;
+    if ( *(_QWORD *)&PPM_PERFSTATE_CHANGE_GUID.Data1 == *a2 )
+      v13 = *(_QWORD *)PPM_PERFSTATE_CHANGE_GUID.Data4 - a2[1];
     if ( v13 )
     {
-      v15 = PPM_PERFSTATE_DOMAIN_CHANGE_GUID - v12;
-      if ( PPM_PERFSTATE_DOMAIN_CHANGE_GUID == v12 )
-        v15 = 0x1BF290CA33678B9LL - a2[1];
+      v15 = *(_QWORD *)&PPM_PERFSTATE_DOMAIN_CHANGE_GUID.Data1 - v12;
+      if ( *(_QWORD *)&PPM_PERFSTATE_DOMAIN_CHANGE_GUID.Data1 == v12 )
+        v15 = *(_QWORD *)PPM_PERFSTATE_DOMAIN_CHANGE_GUID.Data4 - a2[1];
       if ( v15 )
       {
-        v16 = PPM_IDLESTATE_CHANGE_GUID - v12;
-        if ( PPM_IDLESTATE_CHANGE_GUID == v12 )
-          v16 = 0x6C4CACA73084CC9ELL - a2[1];
+        v16 = *(_QWORD *)&PPM_IDLESTATE_CHANGE_GUID.Data1 - v12;
+        if ( *(_QWORD *)&PPM_IDLESTATE_CHANGE_GUID.Data1 == v12 )
+          v16 = *(_QWORD *)PPM_IDLESTATE_CHANGE_GUID.Data4 - a2[1];
         if ( v16 )
         {
-          v17 = PPM_IDLE_ACCOUNTING_EX_GUID - v12;
-          if ( PPM_IDLE_ACCOUNTING_EX_GUID == v12 )
-            v17 = 0xEE12C91EE3725281uLL - a2[1];
+          v17 = *(_QWORD *)&PPM_IDLE_ACCOUNTING_EX_GUID.Data1 - v12;
+          if ( *(_QWORD *)&PPM_IDLE_ACCOUNTING_EX_GUID.Data1 == v12 )
+            v17 = *(_QWORD *)PPM_IDLE_ACCOUNTING_EX_GUID.Data4 - a2[1];
           if ( v17 )
           {
-            v18 = PPM_THERMALCONSTRAINT_GUID - v12;
-            if ( PPM_THERMALCONSTRAINT_GUID == v12 )
-              v18 = 0x881A93820DF32C8CuLL - a2[1];
+            v18 = *(_QWORD *)&PPM_THERMALCONSTRAINT_GUID.Data1 - v12;
+            if ( *(_QWORD *)&PPM_THERMALCONSTRAINT_GUID.Data1 == v12 )
+              v18 = *(_QWORD *)PPM_THERMALCONSTRAINT_GUID.Data4 - a2[1];
             if ( v18 )
             {
-              v19 = PPM_THERMAL_POLICY_CHANGE_GUID - v12;
-              if ( PPM_THERMAL_POLICY_CHANGE_GUID == v12 )
-                v19 = 0x4D65C6760138DC8BLL - a2[1];
+              v19 = *(_QWORD *)&PPM_THERMAL_POLICY_CHANGE_GUID.Data1 - v12;
+              if ( *(_QWORD *)&PPM_THERMAL_POLICY_CHANGE_GUID.Data1 == v12 )
+                v19 = *(_QWORD *)PPM_THERMAL_POLICY_CHANGE_GUID.Data4 - a2[1];
               if ( v19 )
                 return 3221226133LL;
               v14 = &WmiThermalPolicyEventEnabled;

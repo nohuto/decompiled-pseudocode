@@ -14,7 +14,7 @@ bool __fastcall SepTokenIsOwner(__int64 a1, __int64 a2)
 {
   __int64 v3; // rax
   void *v4; // rbx
-  __int64 v5; // rax
+  PSID_AND_ATTRIBUTES v5; // rax
 
   if ( *(__int16 *)(a2 + 2) >= 0 )
   {
@@ -28,10 +28,10 @@ bool __fastcall SepTokenIsOwner(__int64 a1, __int64 a2)
     else
       v4 = 0LL;
   }
-  v5 = RtlSidHashLookup(a1 + 232, v4);
-  if ( !v5 || (v5 != *(_QWORD *)(a1 + 240) || (*(_DWORD *)(v5 + 8) & 0x10) != 0) && (*(_DWORD *)(v5 + 8) & 4) == 0 )
+  v5 = RtlSidHashLookup((PSID_AND_ATTRIBUTES_HASH)(a1 + 232), v4);
+  if ( !v5 || (v5 != *(PSID_AND_ATTRIBUTES *)(a1 + 240) || (v5->Attributes & 0x10) != 0) && (v5->Attributes & 4) == 0 )
     return 0;
   if ( *(_DWORD *)(a1 + 128) )
-    return SepSidInTokenSidHash(a1 + 504, 0LL, v4, 0, 1, 0);
+    return SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a1 + 504), 0LL, v4, 0, 1, 0);
   return 1;
 }

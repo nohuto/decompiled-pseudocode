@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpValidateComponents @ 0x140641C20
+ * XREFs of CmpValidateComponents @ 0x140642C40
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405D8CC0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

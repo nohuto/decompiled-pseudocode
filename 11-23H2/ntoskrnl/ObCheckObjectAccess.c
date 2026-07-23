@@ -1,17 +1,17 @@
 /*
- * XREFs of ObCheckObjectAccess @ 0x1407B6260
+ * XREFs of ObCheckObjectAccess @ 0x1407B6540
  * Callers:
- *     ObpGrantAccess @ 0x1407B61E4 (ObpGrantAccess.c)
- *     PspReferenceCpuPartitionByHandle @ 0x1409B1634 (PspReferenceCpuPartitionByHandle.c)
+ *     ObpGrantAccess @ 0x1407B64C4 (ObpGrantAccess.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1409B1834 (PspReferenceCpuPartitionByHandle.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     SeOpenObjectAuditAlarm @ 0x1406C04D0 (SeOpenObjectAuditAlarm.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C30B0 (ObReleaseObjectSecurityEx.c)
- *     SeUnlockSubjectContext @ 0x1406C3130 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3170 (SeLockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x140736220 (ObpGetObjectSecurity.c)
- *     SeAppendPrivileges @ 0x1407B63E0 (SeAppendPrivileges.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1406C0500 (SeOpenObjectAuditAlarm.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406C30E0 (ObReleaseObjectSecurityEx.c)
+ *     SeUnlockSubjectContext @ 0x1406C3160 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406C31A0 (SeLockSubjectContext.c)
+ *     ObpGetObjectSecurity @ 0x140736410 (ObpGetObjectSecurity.c)
+ *     SeAppendPrivileges @ 0x1407B66C0 (SeAppendPrivileges.c)
  */
 
 BOOLEAN __fastcall ObCheckObjectAccess(

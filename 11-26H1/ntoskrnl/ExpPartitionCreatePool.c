@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPartitionCreatePool @ 0x14077211C
+ * XREFs of ExpPartitionCreatePool @ 0x14077511C
  * Callers:
- *     ExAllocatePrivateWorkerPool @ 0x140772100 (ExAllocatePrivateWorkerPool.c)
+ *     ExAllocatePrivateWorkerPool @ 0x140775100 (ExAllocatePrivateWorkerPool.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     KeGetCurrentNode @ 0x1405EE978 (KeGetCurrentNode.c)
- *     ExpPartitionCreatePoolInternal @ 0x140B6C40C (ExpPartitionCreatePoolInternal.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     KeGetCurrentNode @ 0x1405F12E8 (KeGetCurrentNode.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140B6F508 (ExpPartitionCreatePoolInternal.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePool(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -59,8 +59,7 @@ __int64 __fastcall ExpPartitionCreatePool(__int64 a1, __int64 a2, __int64 a3, un
               else
                 v17 = 0LL;
               *(_QWORD *)(*(_QWORD *)(a1 + 8)
-                        + 8LL
-                        * (i + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (v7 + 8 * *v17))) = v18;
+                        + 8LL * (i + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v7 + 8 * *v17))) = v18;
               KeSetEvent((PRKEVENT)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * v15) + 16LL), 0, 0);
               v13 = *((_DWORD *)v12 + 30);
             }

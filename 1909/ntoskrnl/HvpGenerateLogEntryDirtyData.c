@@ -18,7 +18,7 @@ __int64 __fastcall HvpGenerateLogEntryDirtyData(
         __int64 a5,
         int a6)
 {
-  struct _RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   __int64 v10; // r9
   ULONG v11; // ebx
   unsigned int v12; // eax
@@ -28,7 +28,7 @@ __int64 __fastcall HvpGenerateLogEntryDirtyData(
 
   LODWORD(v16) = a3;
   a6 = 0;
-  v6 = (struct _RTL_BITMAP *)(BugCheckParameter2 + 88);
+  v6 = (_RTL_BITMAP *)(BugCheckParameter2 + 88);
   while ( (unsigned __int8)HvpFindNextDirtyBlock(BugCheckParameter2, (__int64)&v16, (__int64)&v15, 0) )
     HvpCopyDataToOffsetArray(v14, v16, a2, v10, a4);
   v11 = RtlNumberOfSetBits(v6);

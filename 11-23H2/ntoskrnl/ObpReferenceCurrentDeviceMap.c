@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpReferenceCurrentDeviceMap @ 0x1406FC8F0
+ * XREFs of ObpReferenceCurrentDeviceMap @ 0x1406FCB00
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
- *     ObQueryDeviceMapInformation @ 0x1406FC310 (ObQueryDeviceMapInformation.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
+ *     ObQueryDeviceMapInformation @ 0x1406FC520 (ObQueryDeviceMapInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsGetProcessServerSilo @ 0x14028C180 (PsGetProcessServerSilo.c)
- *     PsGetThreadServerSilo @ 0x14028C190 (PsGetThreadServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D7A0 (PsReferenceImpersonationTokenEx.c)
- *     ObpSetCurrentProcessDeviceMap @ 0x1407AF5B4 (ObpSetCurrentProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x1407AF750 (SeGetTokenDeviceMap.c)
- *     ObpSlowReferenceDeviceMap @ 0x1407AF9A8 (ObpSlowReferenceDeviceMap.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsGetProcessServerSilo @ 0x14028C410 (PsGetProcessServerSilo.c)
+ *     PsGetThreadServerSilo @ 0x14028C420 (PsGetThreadServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14071D9A0 (PsReferenceImpersonationTokenEx.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x1407AF7A4 (ObpSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1407AF940 (SeGetTokenDeviceMap.c)
+ *     ObpSlowReferenceDeviceMap @ 0x1407AFB98 (ObpSlowReferenceDeviceMap.c)
  */
 
 __int64 __fastcall ObpReferenceCurrentDeviceMap(__int16 a1, signed __int64 **a2)

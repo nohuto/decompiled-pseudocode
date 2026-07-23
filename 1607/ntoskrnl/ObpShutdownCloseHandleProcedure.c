@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpShutdownCloseHandleProcedure @ 0x140665A4C
+ * XREFs of ObpShutdownCloseHandleProcedure @ 0x140665B30
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     ExUnlockHandleTableEntry @ 0x14045EDD4 (ExUnlockHandleTableEntry.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     ExUnlockHandleTableEntry @ 0x14045DCA4 (ExUnlockHandleTableEntry.c)
  */
 
 char __fastcall ObpShutdownCloseHandleProcedure(__int64 a1, volatile signed __int64 *a2, int a3, _DWORD *a4)

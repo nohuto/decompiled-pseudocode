@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x14029E340
+ * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x1402ACE30
  * Callers:
- *     KeCheckAndApplyBamQos @ 0x14029DF30 (KeCheckAndApplyBamQos.c)
- *     PoSetProcessorQos @ 0x14029E1A0 (PoSetProcessorQos.c)
- *     PpmPerfApplyProcessorState @ 0x14029F124 (PpmPerfApplyProcessorState.c)
- *     PpmPerfSetProcessorIdle @ 0x1404C3EC0 (PpmPerfSetProcessorIdle.c)
+ *     KeCheckAndApplyBamQos @ 0x1402ACA20 (KeCheckAndApplyBamQos.c)
+ *     PoSetProcessorQos @ 0x1402ACC90 (PoSetProcessorQos.c)
+ *     PpmPerfApplyProcessorState @ 0x1402ADC20 (PpmPerfApplyProcessorState.c)
+ *     PpmPerfSetProcessorIdle @ 0x1404BF3F0 (PpmPerfSetProcessorIdle.c)
  * Callees:
- *     KiIsQosGroupingClass @ 0x14029E7C0 (KiIsQosGroupingClass.c)
- *     PpmEventProcessorPerfStateChange @ 0x14029E7D8 (PpmEventProcessorPerfStateChange.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiIsQosGroupingClass @ 0x1402AD2B0 (KiIsQosGroupingClass.c)
+ *     PpmEventProcessorPerfStateChange @ 0x1402AD2C8 (PpmEventProcessorPerfStateChange.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall PpmPerfArbitratorApplyProcessorState(__int64 a1, unsigned __int8 a2, unsigned __int8 a3)
+char __fastcall PpmPerfArbitratorApplyProcessorState(__int64 a1, unsigned __int8 a2, char a3)
 {
   __int64 v3; // r10
   char v4; // r14
@@ -108,7 +108,7 @@ LABEL_15:
     *(_OWORD *)(v3 + 80) = *(_OWORD *)(v14 + v6 + 824);
     *(_OWORD *)(v3 + 96) = *(_OWORD *)(v14 + v6 + 840);
     *(_QWORD *)(v3 + 112) = *(_QWORD *)(v14 + v6 + 856);
-    guard_dispatch_icall_no_overrides(*(_QWORD *)(v3 + 8), v3 + 64, a2, a3);
+    guard_dispatch_icall_no_overrides(*(_QWORD *)(v3 + 8), v3 + 64);
     if ( PopHeteroSystem )
     {
       v15 = *(_WORD *)(v6 + 2LL * v10 + 788);

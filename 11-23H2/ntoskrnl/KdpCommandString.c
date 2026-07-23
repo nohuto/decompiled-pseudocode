@@ -3,8 +3,8 @@
  * Callers:
  *     KdpTrap @ 0x140AB037C (KdpTrap.c)
  * Callees:
- *     KiRestoreProcessorControlState @ 0x14041ECD0 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x14041EDA0 (KiSaveProcessorControlState.c)
+ *     KiRestoreProcessorControlState @ 0x14041F060 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x14041F130 (KiSaveProcessorControlState.c)
  *     KdExitDebugger @ 0x140AB0008 (KdExitDebugger.c)
  *     KdEnterDebugger @ 0x140AB0144 (KdEnterDebugger.c)
  *     KdpCopyContext @ 0x140AB05FC (KdpCopyContext.c)

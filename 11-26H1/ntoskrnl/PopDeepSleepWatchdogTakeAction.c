@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeepSleepWatchdogTakeAction @ 0x1407E3A00
+ * XREFs of PopDeepSleepWatchdogTakeAction @ 0x1407E8D4C
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x1407DE3A0 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1407E2A20 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     PopPowerSettingPendingUpdateWatchdog @ 0x140606EA0 (PopPowerSettingPendingUpdateWatchdog.c)
- *     PopDiagTraceCsDeepSleepWatchdog @ 0x140608168 (PopDiagTraceCsDeepSleepWatchdog.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPowerSettingPendingUpdateWatchdog @ 0x1406099A0 (PopPowerSettingPendingUpdateWatchdog.c)
+ *     PopDiagTraceCsDeepSleepWatchdog @ 0x14060AD28 (PopDiagTraceCsDeepSleepWatchdog.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 char __fastcall PopDeepSleepWatchdogTakeAction(__int64 a1, char a2)

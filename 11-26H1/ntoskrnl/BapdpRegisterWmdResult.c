@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpRegisterWmdResult @ 0x140CE3920
+ * XREFs of BapdpRegisterWmdResult @ 0x140CE9CC0
  * Callers:
- *     BapdpProcessWmdResults @ 0x140CE2E38 (BapdpProcessWmdResults.c)
+ *     BapdpProcessWmdResults @ 0x140CE91D8 (BapdpProcessWmdResults.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 void __fastcall BapdpRegisterWmdResult(ULONG *Data)

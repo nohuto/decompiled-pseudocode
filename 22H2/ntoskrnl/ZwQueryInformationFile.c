@@ -36,5 +36,5 @@ NTSTATUS __stdcall ZwQueryInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

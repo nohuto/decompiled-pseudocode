@@ -1,16 +1,16 @@
 /*
- * XREFs of AslpImageRvaToVa @ 0x14088F60C
+ * XREFs of AslpImageRvaToVa @ 0x140895A08
  * Callers:
- *     AslFileMappingGetImageTypeEx @ 0x140888D50 (AslFileMappingGetImageTypeEx.c)
- *     AslpFileGetClrVersion @ 0x14088C754 (AslpFileGetClrVersion.c)
- *     AslpFileGetImageResourceDirectoryRoot @ 0x14088D570 (AslpFileGetImageResourceDirectoryRoot.c)
- *     AslpFileGetVersionBlockFromResourceRoot @ 0x14088E12C (AslpFileGetVersionBlockFromResourceRoot.c)
- *     AslpFileIsArm64XBinary @ 0x14088E8A8 (AslpFileIsArm64XBinary.c)
- *     AslpFileQueryExportName @ 0x14088EF6C (AslpFileQueryExportName.c)
+ *     AslFileMappingGetImageTypeEx @ 0x14088F14C (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersion @ 0x140892B50 (AslpFileGetClrVersion.c)
+ *     AslpFileGetImageResourceDirectoryRoot @ 0x14089396C (AslpFileGetImageResourceDirectoryRoot.c)
+ *     AslpFileGetVersionBlockFromResourceRoot @ 0x140894528 (AslpFileGetVersionBlockFromResourceRoot.c)
+ *     AslpFileIsArm64XBinary @ 0x140894CA4 (AslpFileIsArm64XBinary.c)
+ *     AslpFileQueryExportName @ 0x140895368 (AslpFileQueryExportName.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     AslpImageRvaToSectionUma @ 0x14088F534 (AslpImageRvaToSectionUma.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     AslpImageRvaToSectionUma @ 0x140895930 (AslpImageRvaToSectionUma.c)
  */
 
 __int64 __fastcall AslpImageRvaToVa(unsigned __int64 a1, __int64 a2, unsigned int a3)

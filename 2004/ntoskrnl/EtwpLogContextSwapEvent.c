@@ -163,7 +163,7 @@ LABEL_13:
     else
     {
 LABEL_24:
-      v4 = EtwpReserveTraceBuffer(v12, 40LL, (__int64)&v30, &v32, 23044);
+      v4 = EtwpReserveTraceBuffer((unsigned int *)v12, 40LL, (__int64)&v30, &v32, 23044);
       if ( !v4 )
         goto LABEL_14;
       v18 = v4 + 16;

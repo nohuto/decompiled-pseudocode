@@ -1,9 +1,9 @@
 /*
- * XREFs of TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x1408648A4
+ * XREFs of TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x140864A04
  * Callers:
- *     sub_1407ABDF4 @ 0x1407ABDF4 (sub_1407ABDF4.c)
+ *     sub_1407ABFF4 @ 0x1407ABFF4 (sub_1407ABFF4.c)
  * Callees:
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 __fastcall TraceLoggingRegister_EtwRegister_EtwSetInformation(ULONGLONG *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetUnloadEventTrace @ 0x18015C080
+ * XREFs of RtlGetUnloadEventTrace @ 0x18015BF40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_WORD *RtlGetUnloadEventTrace()
+PRTL_UNLOAD_EVENT_TRACE RtlGetUnloadEventTrace(void)
 {
-  return RtlpUnloadEventTrace;
+  return (PRTL_UNLOAD_EVENT_TRACE)RtlpUnloadEventTrace;
 }

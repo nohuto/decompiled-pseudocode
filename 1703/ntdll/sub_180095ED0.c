@@ -6,8 +6,8 @@
  *     RtlUnhandledExceptionFilter @ 0x1800F84F0 (RtlUnhandledExceptionFilter.c)
  */
 
-__int64 sub_180095ED0()
+NTSTATUS __fastcall sub_180095ED0(_EXCEPTION_POINTERS *a1)
 {
-  RtlUnhandledExceptionFilter();
-  return ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter(a1);
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

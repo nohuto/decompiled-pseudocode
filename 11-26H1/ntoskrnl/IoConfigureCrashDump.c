@@ -1,26 +1,26 @@
 /*
- * XREFs of IoConfigureCrashDump @ 0x1405C63E0
+ * XREFs of IoConfigureCrashDump @ 0x1405C8CB0
  * Callers:
- *     IopCrashDumpPolicyChangeWnfCallback @ 0x140793170 (IopCrashDumpPolicyChangeWnfCallback.c)
- *     PoShutdownBugCheck @ 0x1407D0FB0 (PoShutdownBugCheck.c)
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140CBD3BC (IopInitCrashDumpDuringSysInit.c)
+ *     IopCrashDumpPolicyChangeWnfCallback @ 0x140795CA0 (IopCrashDumpPolicyChangeWnfCallback.c)
+ *     PoShutdownBugCheck @ 0x1407D4050 (PoShutdownBugCheck.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140CC3490 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     IopDisableCrashDump @ 0x1405C8BA8 (IopDisableCrashDump.c)
- *     IopDumpTraceCrashDumpReconfiguration @ 0x1405C8FAC (IopDumpTraceCrashDumpReconfiguration.c)
- *     IopInitDumpCapsuleSupport @ 0x1405C99A8 (IopInitDumpCapsuleSupport.c)
- *     IopReadDumpRegistry @ 0x1405C9ADC (IopReadDumpRegistry.c)
- *     IopRemoveDumpCapsuleSupport @ 0x1405C9C6C (IopRemoveDumpCapsuleSupport.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IopInitializeCrashDump @ 0x140793598 (IopInitializeCrashDump.c)
- *     MmGetPageFileForCrashDump @ 0x14086CB98 (MmGetPageFileForCrashDump.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     RtlGetHostNtSystemRoot @ 0x140B46F80 (RtlGetHostNtSystemRoot.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     IopDisableCrashDump @ 0x1405CB478 (IopDisableCrashDump.c)
+ *     IopDumpTraceCrashDumpReconfiguration @ 0x1405CB87C (IopDumpTraceCrashDumpReconfiguration.c)
+ *     IopInitDumpCapsuleSupport @ 0x1405CC278 (IopInitDumpCapsuleSupport.c)
+ *     IopReadDumpRegistry @ 0x1405CC3AC (IopReadDumpRegistry.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x1405CC53C (IopRemoveDumpCapsuleSupport.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IopInitializeCrashDump @ 0x1407960C8 (IopInitializeCrashDump.c)
+ *     MmGetPageFileForCrashDump @ 0x140872F78 (MmGetPageFileForCrashDump.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     RtlGetHostNtSystemRoot @ 0x140B48FB0 (RtlGetHostNtSystemRoot.c)
  */
 
 __int64 __fastcall IoConfigureCrashDump(__int64 a1, __int64 a2)
@@ -53,7 +53,7 @@ __int64 __fastcall IoConfigureCrashDump(__int64 a1, __int64 a2)
       else
       {
         PageFileForCrashDump = (void *)MmGetPageFileForCrashDump(&String2);
-        if ( PageFileForCrashDump && RtlPrefixUnicodeString(&stru_14000BDA0, &String2, 1u) )
+        if ( PageFileForCrashDump && RtlPrefixUnicodeString(&stru_14000BF08, &String2, 1u) )
         {
           DestinationString.Buffer = String2.Buffer + 4;
           DestinationString.Length = String2.Length - 8;

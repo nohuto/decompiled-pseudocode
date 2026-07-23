@@ -8,16 +8,16 @@
 
 int __fastcall RtlpQueryInformationActivationContextBasicInformation(
         char a1,
-        int a2,
+        _ACTIVATION_CONTEXT *a2,
         int a3,
         int a4,
-        _DWORD *a5,
+        _ACTIVATION_CONTEXT **a5,
         unsigned int a6,
         _DWORD *a7)
 {
   int v8; // edi
-  _DWORD *v10; // eax
-  int v11; // ecx
+  _ACTIVATION_CONTEXT **v10; // eax
+  _ACTIVATION_CONTEXT *v11; // ecx
 
   v8 = 0;
   if ( a7 )
@@ -32,7 +32,7 @@ int __fastcall RtlpQueryInformationActivationContextBasicInformation(
   {
     v10 = a5;
     if ( a3 )
-      v11 = *(_DWORD *)(a3 + 28);
+      v11 = *(_ACTIVATION_CONTEXT **)(a3 + 28);
     else
       v11 = 0;
     a5[1] = v11;

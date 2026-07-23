@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCompareTwoCompressedNames @ 0x1407BF7D0
+ * XREFs of CmpCompareTwoCompressedNames @ 0x1407BFAA0
  * Callers:
- *     CmpDoCompareKeyName @ 0x1406DA8B0 (CmpDoCompareKeyName.c)
- *     CmpFindNameInListCellWithStatus @ 0x1406DF830 (CmpFindNameInListCellWithStatus.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x140A17380 (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpCompareKeysByName @ 0x140A1F6C4 (CmpCompareKeysByName.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A25490 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpDoCompareKeyName @ 0x1406DA8E0 (CmpDoCompareKeyName.c)
+ *     CmpFindNameInListCellWithStatus @ 0x1406DF860 (CmpFindNameInListCellWithStatus.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A17630 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpCompareKeysByName @ 0x140A1F974 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A25740 (CmpSortedValueEnumStackValueCompareFunction.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall CmpCompareTwoCompressedNames(

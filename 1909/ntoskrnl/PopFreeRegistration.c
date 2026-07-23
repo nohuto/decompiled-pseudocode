@@ -8,27 +8,27 @@
  *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PopFreeRegistration(_DWORD *P, __int64 a2, __int64 a3)
+void __fastcall PopFreeRegistration(WNF_STATE_NAME *P)
 {
-  _DWORD **v4; // rbx
-  __int64 v5; // rsi
-  _DWORD *v6; // rcx
+  WNF_STATE_NAME *v2; // rbx
+  __int64 v3; // rsi
+  _DWORD *v4; // rcx
 
-  v4 = (_DWORD **)(P + 16);
-  v5 = 3LL;
+  v2 = P + 8;
+  v3 = 3LL;
   do
   {
-    v6 = *v4;
-    if ( *v4 )
+    v4 = (_DWORD *)*v2;
+    if ( *v2 )
     {
-      if ( (*v6)-- == 1 )
-        ExFreePoolWithTag(v6, 0x74655350u);
+      if ( (*v4)-- == 1 )
+        ExFreePoolWithTag(v4, 0x74655350u);
     }
-    ++v4;
-    --v5;
+    ++v2;
+    --v3;
   }
-  while ( v5 );
-  if ( P[14] || P[15] )
-    ZwDeleteWnfStateName((__int64)(P + 14), a2, a3);
+  while ( v3 );
+  if ( P[7].Data[0] || P[7].Data[1] )
+    ZwDeleteWnfStateName(P + 7);
   ExFreePoolWithTag(P, 0x74655350u);
 }

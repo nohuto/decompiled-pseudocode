@@ -1,18 +1,18 @@
 /*
- * XREFs of ViReleaseDmaAdapter @ 0x14092E59C
+ * XREFs of ViReleaseDmaAdapter @ 0x14092F59C
  * Callers:
- *     VfGetDmaAdapter @ 0x14092B140 (VfGetDmaAdapter.c)
- *     VfPutDmaAdapter @ 0x14092BE70 (VfPutDmaAdapter.c)
- *     VfIoDeleteDevice @ 0x140934128 (VfIoDeleteDevice.c)
+ *     VfGetDmaAdapter @ 0x14092C140 (VfGetDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x14092CE70 (VfPutDmaAdapter.c)
+ *     VfIoDeleteDevice @ 0x140935128 (VfIoDeleteDevice.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmFreeContiguousMemory @ 0x140122FC0 (MmFreeContiguousMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmFreeContiguousMemory @ 0x140123090 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x14030B008 (VfReportIssueWithOptions.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ViHalPreprocessOptions @ 0x14092ED28 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
@@ -62,13 +62,13 @@ void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
   if ( *(int *)(a1 + 36) > 0 && v10 && (v10 != 1 || !*(_BYTE *)(a1 + 34)) )
   {
     ViHalPreprocessOptions(
-      byte_1404054E8,
+      byte_140406504,
       "Too many outstanding reference counts (%x) for adapter %p",
       17LL,
       v10,
       (__int64)v1,
       a1);
-    VfReportIssueWithOptions(0xE6u, 0x11uLL, v11, (ULONG_PTR)v1, a1, byte_1404054E8);
+    VfReportIssueWithOptions(0xE6u, 0x11uLL, v11, (ULONG_PTR)v1, a1, byte_140406504);
   }
   ExFreePoolWithTag((PVOID)a1, 0);
 }

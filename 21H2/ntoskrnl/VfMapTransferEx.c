@@ -1,18 +1,18 @@
 /*
- * XREFs of VfMapTransferEx @ 0x1409CCA30
+ * XREFs of VfMapTransferEx @ 0x1409CDA30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
- *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x1409C9E94 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
- *     VERIFY_BUFFER_LOCKED @ 0x1409CA060 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_MAX_IRQL @ 0x1409CA16C (VF_ASSERT_MAX_IRQL.c)
- *     ViCheckAdapterBuffers @ 0x1409CDB2C (ViCheckAdapterBuffers.c)
- *     ViCheckMdlLength @ 0x1409CDC54 (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x1409CE748 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
- *     ViHalPreprocessOptions @ 0x1409CEC60 (ViHalPreprocessOptions.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405A2024 (VfReportIssueWithOptions.c)
+ *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x1409CAE94 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x1409CB060 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x1409CB16C (VF_ASSERT_MAX_IRQL.c)
+ *     ViCheckAdapterBuffers @ 0x1409CEB2C (ViCheckAdapterBuffers.c)
+ *     ViCheckMdlLength @ 0x1409CEC54 (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CF748 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CFA50 (ViGetRealDmaOperation.c)
+ *     ViHalPreprocessOptions @ 0x1409CFC60 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall VfMapTransferEx(
@@ -46,13 +46,13 @@ __int64 __fastcall VfMapTransferEx(
     {
       v17 = v16;
       ViHalPreprocessOptions(
-        byte_140C12EA0,
+        byte_140C12E9C,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v16,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v17, 0LL, 0LL, byte_140C12EA0);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v17, 0LL, 0LL, byte_140C12E9C);
     }
   }
   RealDmaOperation = (__int64 (__fastcall *)(__int64, ULONG_PTR, __int64, __int64, int, unsigned int *, char, __int64, int, __int64, __int64))ViGetRealDmaOperation(a1);

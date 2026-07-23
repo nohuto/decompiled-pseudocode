@@ -46,7 +46,6 @@
  *     RtlpUnwindOpSlots @ 0x18008C570 (RtlpUnwindOpSlots.c)
  *     RtlConvertSRWLockExclusiveToShared @ 0x18008C5C0 (RtlConvertSRWLockExclusiveToShared.c)
  *     RtlConvertExclusiveToShared @ 0x18008CEF0 (RtlConvertExclusiveToShared.c)
- *     RtlRaiseStatus @ 0x18008FDF0 (RtlRaiseStatus.c)
  *     KiUserApcDispatcher @ 0x1800A7EC0 (KiUserApcDispatcher.c)
  *     KiUserCallbackDispatcherHandler @ 0x1800A7F50 (KiUserCallbackDispatcherHandler.c)
  *     KiUserCallbackDispatcher @ 0x1800A7FE0 (KiUserCallbackDispatcher.c)
@@ -81,35 +80,18 @@
  *     RtlpInitRandomExVector @ 0x18010EFF0 (RtlpInitRandomExVector.c)
  *     TppExceptionFilter @ 0x18012423C (TppExceptionFilter.c)
  * Callees:
- *     RtlRaiseStatus @ 0x18008FDF0 (RtlRaiseStatus.c)
  *     RtlRaiseNoncontinuableException @ 0x1800A8AA0 (RtlRaiseNoncontinuableException.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1, __int64 a2, __int64 a3)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  char v3; // bl
-  unsigned int v4; // eax
-  _DWORD v5[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-570h]
-  __int64 v7; // [rsp+30h] [rbp-568h]
-  int v8; // [rsp+38h] [rbp-560h]
-  _BYTE v9[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  v6 = 0LL;
-  v3 = 1;
-  v8 = 0;
-  v7 = -1LL;
-  v5[0] = a1;
-  v5[1] = 129;
-  do
-  {
-    LOBYTE(a3) = v3;
-    v4 = RtlRaiseNoncontinuableException(v5, v9, a3);
-    if ( NtCurrentPeb()->BeingDebugged )
-      break;
-    --v3;
-  }
-  while ( !v3 );
-  RtlRaiseStatus(v4);
-  __debugbreak();
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionAddress = (void *)-1LL;
+  ExceptionRecord.ExceptionCode = Status;
+  ExceptionRecord.ExceptionFlags = 129;
+  RtlRaiseNoncontinuableException(&ExceptionRecord, &ContextRecord);
 }

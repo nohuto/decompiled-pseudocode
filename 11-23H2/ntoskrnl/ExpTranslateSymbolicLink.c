@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpTranslateSymbolicLink @ 0x14083E8A8
+ * XREFs of ExpTranslateSymbolicLink @ 0x14083EBA8
  * Callers:
- *     ExpTranslateEfiPath @ 0x14083E520 (ExpTranslateEfiPath.c)
- *     ExpConvertArcName @ 0x1409FBA98 (ExpConvertArcName.c)
- *     ExpConvertSignatureName @ 0x1409FBC5C (ExpConvertSignatureName.c)
- *     ExpFindArcName @ 0x1409FC330 (ExpFindArcName.c)
- *     ExpTranslateNtPath @ 0x1409FE45C (ExpTranslateNtPath.c)
+ *     ExpTranslateEfiPath @ 0x14083E820 (ExpTranslateEfiPath.c)
+ *     ExpConvertArcName @ 0x1409FBD28 (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x1409FBEEC (ExpConvertSignatureName.c)
+ *     ExpFindArcName @ 0x1409FC5C0 (ExpFindArcName.c)
+ *     ExpTranslateNtPath @ 0x1409FE6EC (ExpTranslateNtPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041D420 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x14041DA80 (ZwQuerySymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14041D7B0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x14041DE10 (ZwQuerySymbolicLinkObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspGetProperty @ 0x1400EE2BC
+ * XREFs of PspGetProperty @ 0x1400EC13C
  * Callers:
- *     PspGetJobProperty @ 0x1400A91B8 (PspGetJobProperty.c)
- *     PsGetThreadProperty @ 0x1400EE530 (PsGetThreadProperty.c)
+ *     PspGetJobProperty @ 0x1400A7738 (PspGetJobProperty.c)
+ *     PsGetThreadProperty @ 0x1400EC3B0 (PsGetThreadProperty.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     PspFindPropertySetEntry @ 0x1400EE358 (PspFindPropertySetEntry.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     PspFindPropertySetEntry @ 0x1400EC1D8 (PspFindPropertySetEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PspGetProperty(__int64 a1, __int64 a2, _QWORD *a3)

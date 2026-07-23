@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetSecurityDescriptorInformation @ 0x14073C6CC
+ * XREFs of IopGetSecurityDescriptorInformation @ 0x14073C88C
  * Callers:
- *     IoCreateDeviceSecure @ 0x14073C480 (IoCreateDeviceSecure.c)
- *     IopQuerySecureDeviceClassState @ 0x14073FB9C (IopQuerySecureDeviceClassState.c)
+ *     IoCreateDeviceSecure @ 0x14073C640 (IoCreateDeviceSecure.c)
+ *     IopQuerySecureDeviceClassState @ 0x14073FD5C (IopQuerySecureDeviceClassState.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140252E50 (RtlGetDaclSecurityDescriptor.c)
- *     RtlGetSaclSecurityDescriptor @ 0x140610D70 (RtlGetSaclSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x14067FD40 (RtlGetOwnerSecurityDescriptor.c)
- *     RtlGetGroupSecurityDescriptor @ 0x14073C7B0 (RtlGetGroupSecurityDescriptor.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140285CC0 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1405DA7E0 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1406A0820 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x14073C970 (RtlGetGroupSecurityDescriptor.c)
  */
 
 __int64 __fastcall IopGetSecurityDescriptorInformation(

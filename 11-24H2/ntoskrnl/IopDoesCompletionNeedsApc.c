@@ -1,10 +1,10 @@
 /*
- * XREFs of IopDoesCompletionNeedsApc @ 0x1403DC510
+ * XREFs of IopDoesCompletionNeedsApc @ 0x1403CBC6C
  * Callers:
- *     IopCompleteIrpInFileObjectList @ 0x14031B490 (IopCompleteIrpInFileObjectList.c)
- *     IopfCompleteRequest @ 0x1403DBB10 (IopfCompleteRequest.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402C4020 (IopCompleteIrpInFileObjectList.c)
+ *     IopfCompleteRequest @ 0x1403CCDE0 (IopfCompleteRequest.c)
  * Callees:
- *     IoGetRequestorProcess @ 0x1403DBA00 (IoGetRequestorProcess.c)
+ *     IoGetRequestorProcess @ 0x1403CCCD0 (IoGetRequestorProcess.c)
  */
 
 bool __fastcall IopDoesCompletionNeedsApc(__int64 a1)

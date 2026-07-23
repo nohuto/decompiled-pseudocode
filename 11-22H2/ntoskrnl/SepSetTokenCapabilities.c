@@ -21,7 +21,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, char *a3, unsig
   __int64 result; // rax
   unsigned int v8; // ebp
   char *Pool2; // rax
-  char *v10; // rsi
+  _SID_AND_ATTRIBUTES *v10; // rsi
   int v11; // eax
   unsigned int v12; // ebp
   void *v13; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, char *a3, unsig
     v13 = *(void **)(a1 + 784);
     if ( v13 )
     {
-      if ( !(unsigned __int8)RtlIsParentOfChildAppContainer(v13, a2) )
+      if ( !RtlIsParentOfChildAppContainer(v13, a2) )
         return 3221225506LL;
     }
   }
@@ -59,7 +59,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, char *a3, unsig
       v8 = v17;
     }
     Pool2 = (char *)ExAllocatePool2(256LL, v8, 1934845267LL);
-    v10 = Pool2;
+    v10 = (_SID_AND_ATTRIBUTES *)Pool2;
     if ( Pool2 )
     {
       if ( SepTokenCapabilitySidSharingEnabled )
@@ -77,7 +77,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, char *a3, unsig
           SepFreeTokenCapabilities(a1);
         *(_QWORD *)(a1 + 792) = v10;
         *(_DWORD *)(a1 + 800) = a4;
-        RtlSidHashInitialize((__int64 *)v10, a4, (_QWORD *)(a1 + 808));
+        RtlSidHashInitialize(v10, a4, (PSID_AND_ATTRIBUTES_HASH)(a1 + 808));
       }
       return v12;
     }

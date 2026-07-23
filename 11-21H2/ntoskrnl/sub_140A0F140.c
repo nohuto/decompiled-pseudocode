@@ -4,7 +4,7 @@
  *     sub_140A0FAB0 @ 0x140A0FAB0 (sub_140A0FAB0.c)
  * Callees:
  *     memset @ 0x140435E00 (memset.c)
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
+ *     sub_1407E3010 @ 0x1407E3010 (sub_1407E3010.c)
  *     sub_140A0F1D4 @ 0x140A0F1D4 (sub_140A0F1D4.c)
  */
 
@@ -17,7 +17,7 @@ __int64 __fastcall sub_140A0F140(__int64 a1, _QWORD *a2)
 
   v2 = 0LL;
   v8 = 0LL;
-  v5 = WbAlloc(0x50u, &v8);
+  v5 = sub_1407E3010(0x50u, &v8);
   if ( v5 < 0 )
   {
     v2 = v8;

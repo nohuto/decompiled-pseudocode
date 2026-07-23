@@ -1,8 +1,8 @@
 /*
- * XREFs of KiCommitGroupSubNodeAssignments @ 0x1405BB2C4
+ * XREFs of KiCommitGroupSubNodeAssignments @ 0x1405B88F4
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1405BAF4C (KiAllocateProcessorNumber.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     KiAllocateProcessorNumber @ 0x1405B857C (KiAllocateProcessorNumber.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ void __fastcall KiCommitGroupSubNodeAssignments(__int16 a1)
   __int64 v5; // r8
   __int64 v6; // rax
 
-  v1 = word_140E66770;
-  if ( a1 != word_140E66770 && KiSubNodeCount )
+  v1 = word_140E668B0;
+  if ( a1 != word_140E668B0 && KiSubNodeCount )
   {
     v3 = (unsigned __int16)KiSubNodeCount;
     v4 = (__int16 *)(KiSubNodeConfigBlock + 6);
@@ -51,5 +51,5 @@ void __fastcall KiCommitGroupSubNodeAssignments(__int16 a1)
     }
     while ( v5 );
   }
-  word_140E66770 = v1 + 1;
+  word_140E668B0 = v1 + 1;
 }

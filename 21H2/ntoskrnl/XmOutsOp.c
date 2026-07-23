@@ -1,11 +1,11 @@
 /*
- * XREFs of XmOutsOp @ 0x1404E63B0
+ * XREFs of XmOutsOp @ 0x1404E65F0
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
- *     x86BiosWriteIoSpace @ 0x1403995A0 (x86BiosWriteIoSpace.c)
- *     XmGetStringAddress @ 0x1403C0DFC (XmGetStringAddress.c)
+ *     XmSetSourceValue @ 0x140397058 (XmSetSourceValue.c)
+ *     x86BiosWriteIoSpace @ 0x1403996F0 (x86BiosWriteIoSpace.c)
+ *     XmGetStringAddress @ 0x1403C122C (XmGetStringAddress.c)
  */
 
 char __fastcall XmOutsOp(__int64 a1)

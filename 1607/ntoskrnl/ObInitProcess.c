@@ -1,16 +1,16 @@
 /*
- * XREFs of ObInitProcess @ 0x14045F504
+ * XREFs of ObInitProcess @ 0x14045E3D4
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExEnumHandleTable @ 0x14045E4D0 (ExEnumHandleTable.c)
- *     ExDupHandleTable @ 0x14045E7E0 (ExDupHandleTable.c)
- *     ExDestroyHandleTable @ 0x14045F0FC (ExDestroyHandleTable.c)
- *     ExSweepHandleTable @ 0x14045F330 (ExSweepHandleTable.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140460524 (SeAuditingWithTokenForSubcategory.c)
- *     ExCreateHandleTable @ 0x1404C11BC (ExCreateHandleTable.c)
- *     ObReferenceProcessHandleTable @ 0x14050D150 (ObReferenceProcessHandleTable.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExEnumHandleTable @ 0x14045D3A0 (ExEnumHandleTable.c)
+ *     ExDupHandleTable @ 0x14045D6B0 (ExDupHandleTable.c)
+ *     ExDestroyHandleTable @ 0x14045DFCC (ExDestroyHandleTable.c)
+ *     ExSweepHandleTable @ 0x14045E200 (ExSweepHandleTable.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14045F3F4 (SeAuditingWithTokenForSubcategory.c)
+ *     ExCreateHandleTable @ 0x1404ACEEC (ExCreateHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x1404F00E0 (ObReferenceProcessHandleTable.c)
  */
 
 __int64 __fastcall ObInitProcess(struct _EX_RUNDOWN_REF *a1, _KPROCESS *a2, unsigned int a3, _BYTE *a4)
@@ -30,7 +30,7 @@ LABEL_5:
     if ( HandleTable )
     {
       a2[1].ActiveProcessors.Bitmap[5] = (unsigned __int64)HandleTable;
-      if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(124LL, 0LL) )
+      if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(124LL) )
       {
         v13[0] = a2;
         v13[1] = a1;

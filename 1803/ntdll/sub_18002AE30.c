@@ -19,11 +19,11 @@
  *     sub_180011A6C @ 0x180011A6C (sub_180011A6C.c)
  */
 
-__int64 __fastcall sub_18002AE30(__int64 a1, int a2)
+__int64 __fastcall sub_18002AE30(_DWORD *a1, int a2)
 {
   __int64 result; // rax
 
-  result = (*(_DWORD *)(a1 + 112) & 0x40000) != 0 ? 64 : 4;
+  result = (a1[28] & 0x40000) != 0 ? 64 : 4;
   if ( a2 )
     return sub_180011A6C(a1, result);
   return result;

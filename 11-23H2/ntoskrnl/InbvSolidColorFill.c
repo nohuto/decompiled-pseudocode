@@ -1,9 +1,9 @@
 /*
- * XREFs of InbvSolidColorFill @ 0x14054E6F0
+ * XREFs of InbvSolidColorFill @ 0x14054EDB0
  * Callers:
- *     DisplayBootBitmap @ 0x1403AA048 (DisplayBootBitmap.c)
+ *     DisplayBootBitmap @ 0x1403AA228 (DisplayBootBitmap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall InbvSolidColorFill(__int64 a1, __int64 a2, unsigned int a3))(__int64, __int64, _QWORD)

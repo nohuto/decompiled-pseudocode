@@ -1,21 +1,21 @@
 /*
- * XREFs of BcdSetSystemStore @ 0x1408910B8
+ * XREFs of BcdSetSystemStore @ 0x1408974B4
  * Callers:
- *     BcdSetBootBcdAsSystemStore @ 0x140D01EC4 (BcdSetBootBcdAsSystemStore.c)
+ *     BcdSetBootBcdAsSystemStore @ 0x140D08264 (BcdSetBootBcdAsSystemStore.c)
  * Callees:
- *     BcdMarkAsSystemStore @ 0x140891044 (BcdMarkAsSystemStore.c)
- *     BiMarkTreatAsSystemStore @ 0x1409CFFAC (BiMarkTreatAsSystemStore.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
+ *     BcdMarkAsSystemStore @ 0x140897440 (BcdMarkAsSystemStore.c)
+ *     BiMarkTreatAsSystemStore @ 0x1409A0F8C (BiMarkTreatAsSystemStore.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdSetSystemStore(__int64 a1)
+__int64 __fastcall BcdSetSystemStore(void *a1)
 {
-  int v2; // eax
+  NTSTATUS v2; // eax
   __int64 v3; // rdx
   unsigned int v4; // r8d
   __int64 result; // rax
 
-  v2 = BcdMarkAsSystemStore();
+  v2 = BcdMarkAsSystemStore(a1);
   if ( v2 >= 0 )
   {
     LOBYTE(v3) = 1;

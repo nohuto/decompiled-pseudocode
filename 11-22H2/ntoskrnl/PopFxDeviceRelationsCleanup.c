@@ -12,7 +12,7 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PopFxDeviceRelationsCleanup(__int64 a1)
+void __fastcall PopFxDeviceRelationsCleanup(__int64 a1)
 {
   volatile signed __int64 *v1; // rbp
   _QWORD **v2; // r14
@@ -26,10 +26,11 @@ __int64 __fastcall PopFxDeviceRelationsCleanup(__int64 a1)
   __int64 v10; // r8
   _QWORD *v11; // rdx
   char v12; // si
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v16; // zf
+  int v16; // eax
+  bool v17; // zf
   PVOID P; // [rsp+40h] [rbp+8h] BYREF
 
   P = 0LL;
@@ -77,24 +78,23 @@ LABEL_12:
     if ( v12 )
       ExFreePoolWithTag(v4, 0x4D584650u);
   }
-  result = KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock(v1);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v16 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+      v17 = (v16 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v16;
+      if ( v17 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v3);
-  return result;
 }

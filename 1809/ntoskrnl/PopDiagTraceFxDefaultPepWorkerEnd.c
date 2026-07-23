@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x140100524
+ * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x1401005A4
  * Callers:
- *     PopPepWork @ 0x1400FF004 (PopPepWork.c)
+ *     PopPepWork @ 0x1400FF084 (PopPepWork.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, int a4, int a5)
@@ -51,7 +51,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
         v24 = a5;
         v34 = &v24;
         v35 = 4LL;
-        LOBYTE(v5) = TlgWriteEx(&pCallbackContext, &unk_140370660, v13, v14, ActivityId, RelatedActivityId, v14, &pData);
+        LOBYTE(v5) = TlgWriteEx(&pCallbackContext, &unk_14037171B, v13, v14, ActivityId, RelatedActivityId, v14, &pData);
       }
     }
   }
@@ -65,7 +65,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
       v35 = 4LL;
       LOBYTE(v5) = TlgWriteEx(
                      &pCallbackContext,
-                     &unk_140370735,
+                     &unk_1403716DD,
                      v11,
                      cData,
                      ActivityId,

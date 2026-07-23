@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlGetDeviceNtPropertyRoutine @ 0x1407D2EE0
+ * XREFs of PiPnpRtlGetDeviceNtPropertyRoutine @ 0x1407D31B0
  * Callers:
  *     <none>
  * Callees:
- *     PlugPlayGetDeviceProperty @ 0x1407D2F20 (PlugPlayGetDeviceProperty.c)
+ *     PlugPlayGetDeviceProperty @ 0x1407D31F0 (PlugPlayGetDeviceProperty.c)
  */
 
 __int64 __fastcall PiPnpRtlGetDeviceNtPropertyRoutine(__int64 a1, int a2, int a3, int a4, int a5, __int64 a6, int a7)

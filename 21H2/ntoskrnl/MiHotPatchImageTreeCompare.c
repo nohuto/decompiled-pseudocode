@@ -1,14 +1,14 @@
 /*
- * XREFs of MiHotPatchImageTreeCompare @ 0x1408CA638
+ * XREFs of MiHotPatchImageTreeCompare @ 0x1408CA798
  * Callers:
- *     PsAdjustBasicEnclaveThreadList @ 0x1405843D4 (PsAdjustBasicEnclaveThreadList.c)
- *     PsLoadVsmEnclaveData @ 0x140584B3C (PsLoadVsmEnclaveData.c)
- *     MiDeleteImageHotPatchState @ 0x1408C9B1C (MiDeleteImageHotPatchState.c)
- *     MiGetHotPatchEntry @ 0x1408C9FEC (MiGetHotPatchEntry.c)
- *     PspProcessDynamicEHContinuationTargets @ 0x140907D04 (PspProcessDynamicEHContinuationTargets.c)
- *     PsCallEnclave @ 0x14090D1D0 (PsCallEnclave.c)
- *     RtlAddDynamicEHContinuationTarget @ 0x14091A8E8 (RtlAddDynamicEHContinuationTarget.c)
- *     RtlpFindDynamicEHContinuationTarget @ 0x14091AB88 (RtlpFindDynamicEHContinuationTarget.c)
+ *     PsAdjustBasicEnclaveThreadList @ 0x140584604 (PsAdjustBasicEnclaveThreadList.c)
+ *     PsLoadVsmEnclaveData @ 0x140584D6C (PsLoadVsmEnclaveData.c)
+ *     MiDeleteImageHotPatchState @ 0x1408C9C7C (MiDeleteImageHotPatchState.c)
+ *     MiGetHotPatchEntry @ 0x1408CA14C (MiGetHotPatchEntry.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x140907E64 (PspProcessDynamicEHContinuationTargets.c)
+ *     PsCallEnclave @ 0x14090D330 (PsCallEnclave.c)
+ *     RtlAddDynamicEHContinuationTarget @ 0x14091AA48 (RtlAddDynamicEHContinuationTarget.c)
+ *     RtlpFindDynamicEHContinuationTarget @ 0x14091ACE8 (RtlpFindDynamicEHContinuationTarget.c)
  * Callees:
  *     <none>
  */

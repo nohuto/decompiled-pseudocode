@@ -1,26 +1,26 @@
 /*
- * XREFs of _CmDeleteDeviceWorker @ 0x1409B2CB8
+ * XREFs of _CmDeleteDeviceWorker @ 0x1409AA048
  * Callers:
- *     _CmDeleteDevice @ 0x140818298 (_CmDeleteDevice.c)
+ *     _CmDeleteDevice @ 0x1408189D8 (_CmDeleteDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _CmRemoveDeviceFromContainer @ 0x14081A620 (_CmRemoveDeviceFromContainer.c)
- *     _CmRaiseDeleteEvent @ 0x14081C2C0 (_CmRaiseDeleteEvent.c)
- *     _CmRemovePanelDevice @ 0x14081DA0C (_CmRemovePanelDevice.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x140990A40 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmSetDeviceMappedProperty @ 0x140995AA0 (_CmSetDeviceMappedProperty.c)
- *     _CmGetMatchingDeviceList @ 0x1409B328C (_CmGetMatchingDeviceList.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _CmDeleteDeviceRegKey @ 0x1409B379C (_CmDeleteDeviceRegKey.c)
- *     _CmDeleteDeviceInterface @ 0x1409B3840 (_CmDeleteDeviceInterface.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x1409B44A8 (_CmGetDeviceMappedPropertyKeys.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14081AD60 (_CmRemoveDeviceFromContainer.c)
+ *     _CmRaiseDeleteEvent @ 0x14081CA00 (_CmRaiseDeleteEvent.c)
+ *     _CmRemovePanelDevice @ 0x14081E14C (_CmRemovePanelDevice.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14097BA80 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmSetDeviceMappedProperty @ 0x140980AE0 (_CmSetDeviceMappedProperty.c)
+ *     _CmGetMatchingDeviceList @ 0x1409AA61C (_CmGetMatchingDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _CmDeleteDeviceRegKey @ 0x1409AAB2C (_CmDeleteDeviceRegKey.c)
+ *     _CmDeleteDeviceInterface @ 0x1409AABD0 (_CmDeleteDeviceInterface.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1409AB838 (_CmGetDeviceMappedPropertyKeys.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDeviceWorker(_QWORD *a1, WCHAR *a2, __int16 a3)
@@ -49,48 +49,51 @@ __int64 __fastcall CmDeleteDeviceWorker(_QWORD *a1, WCHAR *a2, __int16 a3)
   int v26; // eax
   int v27; // eax
   __int64 v28; // rax
+  unsigned __int64 v30; // rbx
+  unsigned __int64 v31; // rbx
+  unsigned __int64 v32; // rbx
   unsigned int i; // eax
-  __int64 v31; // rax
-  ULONG v32; // [rsp+40h] [rbp-C0h]
-  unsigned int v33; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v34; // [rsp+64h] [rbp-9Ch] BYREF
-  unsigned int v35; // [rsp+68h] [rbp-98h] BYREF
-  unsigned int v36; // [rsp+6Ch] [rbp-94h] BYREF
+  __int64 v34; // rax
+  ULONG v35; // [rsp+40h] [rbp-C0h]
+  unsigned int v36; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v37; // [rsp+64h] [rbp-9Ch] BYREF
+  unsigned int v38; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v39; // [rsp+6Ch] [rbp-94h] BYREF
   PVOID P; // [rsp+70h] [rbp-90h]
   HANDLE Handle; // [rsp+78h] [rbp-88h] BYREF
-  int v39[2]; // [rsp+80h] [rbp-80h]
-  int v40; // [rsp+88h] [rbp-78h] BYREF
-  _DWORD v41[3]; // [rsp+8Ch] [rbp-74h] BYREF
-  _OWORD v42[2]; // [rsp+98h] [rbp-68h] BYREF
-  wchar_t v43[40]; // [rsp+C0h] [rbp-40h] BYREF
-  wchar_t v44[40]; // [rsp+110h] [rbp+10h] BYREF
+  int v42[2]; // [rsp+80h] [rbp-80h]
+  int v43; // [rsp+88h] [rbp-78h] BYREF
+  _DWORD v44[3]; // [rsp+8Ch] [rbp-74h] BYREF
+  _OWORD v45[2]; // [rsp+98h] [rbp-68h] BYREF
+  wchar_t v46[40]; // [rsp+C0h] [rbp-40h] BYREF
+  wchar_t v47[40]; // [rsp+110h] [rbp+10h] BYREF
 
-  *(_QWORD *)v39 = a2;
+  *(_QWORD *)v42 = a2;
   Handle = 0LL;
   v5 = 0LL;
   P = 0LL;
   v6 = 0LL;
-  v35 = 0;
+  v38 = 0;
   Pool2 = 0LL;
-  v36 = 0;
+  v39 = 0;
   v8 = 0;
-  v41[0] = 0;
-  v33 = 0;
-  v40 = 0;
+  v44[0] = 0;
+  v36 = 0;
+  v43 = 0;
   if ( a3 )
     return (unsigned int)-1073741811;
   DeviceContainerIdFromBase = CmOpenDeviceRegKey((__int64)a1, (__int64)a2, 16, 0, 33619970, 0, (__int64)&Handle, 0LL);
   if ( DeviceContainerIdFromBase >= 0 )
   {
-    v33 = 78;
+    v36 = 78;
     DeviceRegProp = CmGetDeviceRegProp(
                       (__int64)a1,
                       (__int64)a2,
                       (__int64)Handle,
                       0x25u,
-                      (__int64)v41,
-                      (__int64)v43,
-                      (__int64)&v33,
+                      (__int64)v44,
+                      (__int64)v46,
+                      (__int64)&v36,
                       0);
     DeviceContainerIdFromBase = DeviceRegProp;
     if ( DeviceRegProp < 0 )
@@ -99,16 +102,16 @@ __int64 __fastcall CmDeleteDeviceWorker(_QWORD *a1, WCHAR *a2, __int16 a3)
         goto LABEL_5;
       goto LABEL_41;
     }
-    DeviceContainerIdFromBase = CmGetDeviceContainerIdFromBase(a1, a2, v43, v44);
+    DeviceContainerIdFromBase = CmGetDeviceContainerIdFromBase(a1, a2, v46, v47);
     if ( DeviceContainerIdFromBase >= 0 )
     {
-      DeviceContainerIdFromBase = CmRemoveDeviceFromContainer((__int64)a1, (__int64)v44, (__int64)v43, (__int64)a2);
+      DeviceContainerIdFromBase = CmRemoveDeviceFromContainer((__int64)a1, (__int64)v47, (__int64)v46, (__int64)a2);
       if ( DeviceContainerIdFromBase >= 0 )
       {
 LABEL_5:
         while ( 1 )
         {
-          v32 = v8;
+          v35 = v8;
           v11 = (int)a2;
           ObjectProperty = PnpGetObjectProperty(
                              a1,
@@ -117,18 +120,18 @@ LABEL_5:
                              Handle,
                              0LL,
                              (__int64)&DEVPKEY_Device_PanelId,
-                             &v40,
+                             &v43,
                              Pool2,
-                             v32,
-                             (__int64)&v33,
+                             v35,
+                             (__int64)&v36,
                              0);
           DeviceContainerIdFromBase = ObjectProperty;
           if ( ObjectProperty != -1073741789 )
             break;
           if ( Pool2 )
             ExFreePoolWithTag(Pool2, 0);
-          v8 = v33;
-          Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+          v8 = v36;
+          Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v36, 0x52504E50u);
           if ( !Pool2 )
           {
             DeviceContainerIdFromBase = -1073741801;
@@ -137,7 +140,7 @@ LABEL_5:
         }
         if ( ObjectProperty >= 0 )
         {
-          if ( v40 != 18 || v33 < 2 || Pool2[((unsigned __int64)v33 >> 1) - 1] )
+          if ( v43 != 18 || v36 < 2 || Pool2[((unsigned __int64)v36 >> 1) - 1] )
           {
             DeviceContainerIdFromBase = -1073741823;
 LABEL_39:
@@ -153,7 +156,7 @@ LABEL_39:
         {
           goto LABEL_39;
         }
-        for ( i = 0; ; i = v35 )
+        for ( i = 0; ; i = v38 )
         {
           v13 = v5;
           MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(
@@ -165,19 +168,20 @@ LABEL_39:
                                                   0LL,
                                                   (__int64)v5,
                                                   i,
-                                                  (__int64)&v35,
+                                                  (__int64)&v38,
                                                   0);
           DeviceContainerIdFromBase = MatchingFilteredDeviceInterfaceList;
           if ( MatchingFilteredDeviceInterfaceList != -1073741789 )
             break;
-          if ( 2 * (unsigned __int64)v35 > 0xFFFFFFFF )
+          v30 = 2LL * v38;
+          if ( v30 > 0xFFFFFFFF )
           {
             DeviceContainerIdFromBase = -1073741811;
             goto LABEL_35;
           }
           if ( v5 )
             ExFreePoolWithTag(v5, 0);
-          v5 = (_WORD *)ExAllocatePool2(0x100uLL);
+          v5 = (_WORD *)ExAllocatePool2(0x100uLL, (unsigned int)v30, 0x52504E50u);
           if ( !v5 )
           {
             DeviceContainerIdFromBase = -1073741801;
@@ -186,7 +190,7 @@ LABEL_39:
         }
         if ( !MatchingFilteredDeviceInterfaceList )
         {
-          if ( v35 && *v5 )
+          if ( v38 && *v5 )
           {
             do
             {
@@ -207,15 +211,16 @@ LABEL_39:
             MatchingDeviceList = CmGetMatchingDeviceList(
                                    (_DWORD)a1,
                                    (unsigned int)&CmMatchLastKnownParentCallback,
-                                   v39[0],
+                                   v42[0],
                                    (_DWORD)v16,
                                    v15,
-                                   (__int64)&v36,
+                                   (__int64)&v39,
                                    0);
             DeviceContainerIdFromBase = MatchingDeviceList;
             if ( MatchingDeviceList != -1073741789 )
               break;
-            if ( 2 * (unsigned __int64)v36 > 0xFFFFFFFF )
+            v31 = 2LL * v39;
+            if ( v31 > 0xFFFFFFFF )
             {
 LABEL_90:
               DeviceContainerIdFromBase = -1073741811;
@@ -223,7 +228,7 @@ LABEL_90:
             }
             if ( v16 )
               ExFreePoolWithTag(v16, 0);
-            P = (PVOID)ExAllocatePool2(0x100uLL);
+            P = (PVOID)ExAllocatePool2(0x100uLL, (unsigned int)v31, 0x52504E50u);
             v16 = P;
             if ( !P )
             {
@@ -231,13 +236,13 @@ LABEL_96:
               DeviceContainerIdFromBase = -1073741801;
               goto LABEL_33;
             }
-            v15 = v36;
+            v15 = v39;
           }
           P = v16;
           if ( !MatchingDeviceList )
           {
             P = v16;
-            if ( v36 )
+            if ( v39 )
             {
               P = v16;
               if ( *v16 )
@@ -248,7 +253,7 @@ LABEL_96:
                   PnpSetObjectProperty(
                     (__int64)a1,
                     (__int64)v17,
-                    1u,
+                    1,
                     0LL,
                     0LL,
                     (__int64)DEVPKEY_Device_LastKnownParent,
@@ -256,22 +261,22 @@ LABEL_96:
                     0LL,
                     0,
                     0);
-                  v31 = -1LL;
+                  v34 = -1LL;
                   do
-                    ++v31;
-                  while ( v17[v31] );
-                  v17 += v31 + 1;
+                    ++v34;
+                  while ( v17[v34] );
+                  v17 += v34 + 1;
                 }
                 while ( *v17 );
               }
             }
-            v20 = (unsigned int *)v42;
+            v20 = (unsigned int *)v45;
             v21 = 0;
-            v42[0] = _mm_load_si128((const __m128i *)&_xmm);
-            v42[1] = _mm_load_si128((const __m128i *)&_xmm);
+            v45[0] = _mm_load_si128((const __m128i *)&_xmm);
+            v45[1] = _mm_load_si128((const __m128i *)&_xmm);
             while ( v21 < 8 )
             {
-              v27 = CmDeleteDeviceRegKey(a1, *(_QWORD *)v39, *v20);
+              v27 = CmDeleteDeviceRegKey(a1, *(_QWORD *)v42, *v20, 0LL);
               DeviceContainerIdFromBase = v27;
               if ( v27 && v27 != -1073741772 && v27 != -1073741811 && v27 != -1073741637 )
               {
@@ -282,10 +287,10 @@ LABEL_96:
               ++v21;
               ++v20;
             }
-            v22 = *(const WCHAR **)v39;
+            v22 = *(const WCHAR **)v42;
             v6 = 0LL;
             v23 = 0;
-            v34 = 0;
+            v37 = 0;
             while ( 1 )
             {
               LOBYTE(v19) = 1;
@@ -296,22 +301,23 @@ LABEL_96:
                                            v19,
                                            (__int64)v6,
                                            v23,
-                                           (__int64)&v34);
+                                           (__int64)&v37);
               DeviceContainerIdFromBase = DeviceMappedPropertyKeys;
               if ( DeviceMappedPropertyKeys != -1073741789 )
                 break;
-              v23 = v34;
-              if ( 20 * (unsigned __int64)v34 > 0xFFFFFFFF )
+              v23 = v37;
+              v32 = 20LL * v37;
+              if ( v32 > 0xFFFFFFFF )
                 goto LABEL_90;
               if ( v6 )
                 ExFreePoolWithTag(v6, 0);
-              v6 = (void *)ExAllocatePool2(0x100uLL);
+              v6 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v32, 0x52504E50u);
               if ( !v6 )
                 goto LABEL_96;
             }
             if ( !DeviceMappedPropertyKeys || DeviceMappedPropertyKeys == -1073741275 )
             {
-              for ( j = 0; j < v34; ++j )
+              for ( j = 0; j < v37; ++j )
               {
                 v26 = CmSetDeviceMappedProperty((__int64)a1, v22, Handle, 0LL, (__int64)v6 + 20 * j, 0, 0LL, 0);
                 DeviceContainerIdFromBase = v26;
@@ -322,7 +328,7 @@ LABEL_96:
                   break;
                 }
               }
-              DeviceContainerIdFromBase = CmDeleteDeviceRegKey(a1, v22, 16LL);
+              DeviceContainerIdFromBase = CmDeleteDeviceRegKey(a1, v22, 16LL, 0LL);
               if ( DeviceContainerIdFromBase >= 0 )
                 CmRaiseDeleteEvent((__int64)a1, (__int64)v22, 1u);
             }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCsqRemoveIrp @ 0x140399DC0
+ * XREFs of IoCsqRemoveIrp @ 0x140399F10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 PIRP __stdcall IoCsqRemoveIrp(PIO_CSQ Csq, PIO_CSQ_IRP_CONTEXT Context)

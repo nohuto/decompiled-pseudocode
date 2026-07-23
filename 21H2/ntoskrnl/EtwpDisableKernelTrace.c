@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpDisableKernelTrace @ 0x14079846C
+ * XREFs of EtwpDisableKernelTrace @ 0x14079866C
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x140797FD0 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpEnableKernelTrace @ 0x1407981D8 (EtwpEnableKernelTrace.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407981D0 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpEnableKernelTrace @ 0x1407983D8 (EtwpEnableKernelTrace.c)
  * Callees:
- *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     IoPerfReset @ 0x140507EDC (IoPerfReset.c)
- *     KeStopProfile @ 0x14051BCE0 (KeStopProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1405855E0 (DbgSetDebugPrintCallback.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1407985F8 (EtwpUpdateFileInfoDriverState.c)
- *     AlpcUnregisterLogRoutine @ 0x1408C3A8C (AlpcUnregisterLogRoutine.c)
- *     WmiSetNetworkNotify @ 0x140933548 (WmiSetNetworkNotify.c)
+ *     KeCancelTimer2 @ 0x14026DD80 (KeCancelTimer2.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     IoPerfReset @ 0x140507E5C (IoPerfReset.c)
+ *     KeStopProfile @ 0x14051BF20 (KeStopProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x140585810 (DbgSetDebugPrintCallback.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1407987F8 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcUnregisterLogRoutine @ 0x1408C3BEC (AlpcUnregisterLogRoutine.c)
+ *     WmiSetNetworkNotify @ 0x140933714 (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
@@ -62,15 +62,15 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
       v8 = *a2;
     }
     if ( (v8 & 0x400) != 0 )
-      qword_140C54760 = 0LL;
+      qword_140C547A8 = 0LL;
     v9 = a2[4];
     if ( (v9 & 1) != 0 )
     {
-      qword_140C54768 = 0LL;
+      qword_140C547B0 = 0LL;
       v9 = a2[4];
     }
     if ( (v9 & 2) != 0 )
-      qword_140C54770 = 0LL;
+      qword_140C547B8 = 0LL;
     v10 = *a2;
     if ( (*a2 & 0x200000) != 0 )
     {
@@ -104,13 +104,13 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     }
     if ( (v11 & 0x1000000) != 0 )
     {
-      qword_140C12050 = 0LL;
+      qword_140C12030 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x2000000) != 0 )
-      qword_140C12058 = 0LL;
+      qword_140C12038 = 0LL;
     if ( (a2[2] & 0x8000000) != 0 )
-      qword_140C12060 = 0LL;
+      qword_140C12040 = 0LL;
     if ( (*a2 & 0x40000) != 0 )
       DbgSetDebugPrintCallback((PDEBUG_PRINT_CALLBACK)EtwpTraceDebugPrint, 0);
     v12 = a2[1];
@@ -122,7 +122,7 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     if ( (v12 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStopProfile((ULONG_PTR)qword_140C19E88 + 248 * i);
+        KeStopProfile((ULONG_PTR)qword_140C19C78 + 248 * i);
     }
     if ( (a2[4] & 0x80u) != 0 )
     {

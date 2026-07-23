@@ -1,11 +1,11 @@
 /*
  * XREFs of KeInitializeQueue @ 0x14023E540
  * Callers:
- *     EtwpCreateUmReplyObject @ 0x1406B8E18 (EtwpCreateUmReplyObject.c)
- *     NtCreateIoCompletion @ 0x1406B8FE0 (NtCreateIoCompletion.c)
- *     FsRtlInitializeWorkerThread @ 0x140B25E30 (FsRtlInitializeWorkerThread.c)
- *     IopInitializePassiveInterruptServices @ 0x140B27838 (IopInitializePassiveInterruptServices.c)
- *     ExpWorkerFactoryInitialization @ 0x140B2DEA8 (ExpWorkerFactoryInitialization.c)
+ *     sub_1406B8E18 @ 0x1406B8E18 (sub_1406B8E18.c)
+ *     sub_1406B8FE0 @ 0x1406B8FE0 (sub_1406B8FE0.c)
+ *     sub_140B25E30 @ 0x140B25E30 (sub_140B25E30.c)
+ *     sub_140B27838 @ 0x140B27838 (sub_140B27838.c)
+ *     sub_140B2DEA8 @ 0x140B2DEA8 (sub_140B2DEA8.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
  */

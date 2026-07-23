@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAllocateWorkItem @ 0x1400DD810
+ * XREFs of IoAllocateWorkItem @ 0x1400DD890
  * Callers:
  *     <none>
  * Callees:
- *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD8DC (IopVerifierExAllocatePool_0.c)
  */
 
 PIO_WORKITEM __stdcall IoAllocateWorkItem(PDEVICE_OBJECT DeviceObject)

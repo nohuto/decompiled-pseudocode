@@ -8,9 +8,9 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 RtlRegisterThreadWithCsrss()
+NTSTATUS RtlRegisterThreadWithCsrss(void)
 {
-  unsigned int v0; // ecx
+  NTSTATUS v0; // ecx
   _CLIENT_ID ClientId; // xmm0
   _QWORD v3[6]; // [rsp+20h] [rbp-3D8h] BYREF
   int v4; // [rsp+50h] [rbp-3A8h]
@@ -27,7 +27,7 @@ __int64 RtlRegisterThreadWithCsrss()
     v5 = ClientId;
     v3[0] = 5767216LL;
     v4 = 65561;
-    return (unsigned int)((__int64 (__fastcall *)(_QWORD *, _QWORD *))CsrServerApiRoutine)(v3, v3);
+    return ((__int64 (__fastcall *)(_QWORD *, _QWORD *))CsrServerApiRoutine)(v3, v3);
   }
-  return 3221225659LL;
+  return -1073741637;
 }

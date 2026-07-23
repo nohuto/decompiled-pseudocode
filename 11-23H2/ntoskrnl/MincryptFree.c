@@ -1,7 +1,7 @@
 /*
- * XREFs of MincryptFree @ 0x140A71D30
+ * XREFs of MincryptFree @ 0x140A71FE0
  * Callers:
- *     SymCryptCallbackFree @ 0x14067DA18 (SymCryptCallbackFree.c)
+ *     SymCryptCallbackFree @ 0x14067DF68 (SymCryptCallbackFree.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

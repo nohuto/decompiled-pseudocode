@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpFlushRangeListTbEx @ 0x1401C199C
+ * XREFs of HvlpFlushRangeListTbEx @ 0x1401C1880
  * Callers:
- *     HvlFlushRangeListTb @ 0x1401C14F0 (HvlFlushRangeListTb.c)
- *     HvlFlushSingleTb @ 0x1401C1520 (HvlFlushSingleTb.c)
+ *     HvlFlushRangeListTb @ 0x1401C13D4 (HvlFlushRangeListTb.c)
+ *     HvlFlushSingleTb @ 0x1401C1404 (HvlFlushSingleTb.c)
  * Callees:
- *     HvlpAllowFastFlushList @ 0x1401C15AC (HvlpAllowFastFlushList.c)
- *     HvlpCountFlushVaList @ 0x1401C1690 (HvlpCountFlushVaList.c)
- *     HvlpFastFlushListTbEx @ 0x1401C17FC (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x1401C1C78 (HvlpSlowFlushListTbEx.c)
+ *     HvlpAllowFastFlushList @ 0x1401C1490 (HvlpAllowFastFlushList.c)
+ *     HvlpCountFlushVaList @ 0x1401C1574 (HvlpCountFlushVaList.c)
+ *     HvlpFastFlushListTbEx @ 0x1401C16E0 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x1401C1B5C (HvlpSlowFlushListTbEx.c)
  */
 
 __int64 __fastcall HvlpFlushRangeListTbEx(__int64 a1, __int64 a2, char a3, __int64 a4, unsigned int a5, __int64 *a6)

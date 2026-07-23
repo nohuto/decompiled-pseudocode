@@ -1,7 +1,7 @@
 /*
  * XREFs of VfCtxHookAndConnectInterrupt @ 0x140719A74
  * Callers:
- *     VerifierIoConnectInterrupt @ 0x14070557C (VerifierIoConnectInterrupt.c)
+ *     VerifierIoConnectInterrupt @ 0x1407055AC (VerifierIoConnectInterrupt.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ViCtxAllocateIsrContext @ 0x140719CCC (ViCtxAllocateIsrContext.c)

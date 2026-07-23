@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceFxPerfRegistration @ 0x140B44258
+ * XREFs of PopDiagTraceFxPerfRegistration @ 0x140B46148
  * Callers:
- *     PopFxTracePerfRegistration @ 0x140B44010 (PopFxTracePerfRegistration.c)
+ *     PopFxTracePerfRegistration @ 0x140B45F00 (PopFxTracePerfRegistration.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceFxPerfRegistration(PCEVENT_DESCRIPTOR EventDescriptor, __int64 a2, int a3, int a4)
@@ -27,5 +27,5 @@ NTSTATUS __fastcall PopDiagTraceFxPerfRegistration(PCEVENT_DESCRIPTOR EventDescr
   v7 = 4LL;
   v8 = &v12;
   v9 = 4LL;
-  return EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], EventDescriptor, 0LL, 3u, &v5);
+  return EtwWrite(PopDiagHandle, EventDescriptor, 0LL, 3u, &v5);
 }

@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwChangeThreadState @ 0x140724710
+ * XREFs of ZwChangeThreadState @ 0x1407292E0
  * Callers:
- *     DifZwChangeThreadStateWrapper @ 0x14069CF60 (DifZwChangeThreadStateWrapper.c)
+ *     DifZwChangeThreadStateWrapper @ 0x1406A0B40 (DifZwChangeThreadStateWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwChangeThreadState(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwChangeThreadState(
+        HANDLE ThreadStateChangeHandle,
+        HANDLE ThreadHandle,
+        THREAD_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadStateChangeHandle);
 }

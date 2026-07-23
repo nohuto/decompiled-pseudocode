@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvGetDeviceAtsCapability @ 0x14059E3A4
+ * XREFs of IommupHvGetDeviceAtsCapability @ 0x1405A0B7C
  * Callers:
- *     IommuGetAtsSettings @ 0x1404FA5C0 (IommuGetAtsSettings.c)
+ *     IommuGetAtsSettings @ 0x1404F3BD0 (IommuGetAtsSettings.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvGetDeviceAtsCapability(__int64 a1, bool *a2)

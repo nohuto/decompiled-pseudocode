@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvDbSetDriverPackageMappedProperty @ 0x14072DFA4
+ * XREFs of DrvDbSetDriverPackageMappedProperty @ 0x14072E454
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x14063BFD0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x14072DFA4 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbDispatchDriverPackage @ 0x140630DE0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x14072E454 (DrvDbSetDriverPackageMappedProperty.c)
  * Callees:
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x14063EB9C (DrvDbOpenDriverPackageRegKey.c)
- *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x14072DFA4 (DrvDbSetDriverPackageMappedProperty.c)
- *     DrvDbSetRegValueMappedProperty @ 0x14072E35C (DrvDbSetRegValueMappedProperty.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140734D40 (DrvDbGetDriverPackageSignerScore.c)
- *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
- *     DrvDbGetDriverPackageSignerName @ 0x14097DDA8 (DrvDbGetDriverPackageSignerName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x1406339AC (DrvDbOpenDriverPackageRegKey.c)
+ *     _RegRtlQueryValue @ 0x140637128 (_RegRtlQueryValue.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x14072E454 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x14072E80C (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140734F00 (DrvDbGetDriverPackageSignerScore.c)
+ *     _RegRtlSetValue @ 0x140768CB4 (_RegRtlSetValue.c)
+ *     DrvDbGetDriverPackageSignerName @ 0x14097DF88 (DrvDbGetDriverPackageSignerName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbSetDriverPackageMappedProperty(
@@ -140,7 +140,7 @@ __int64 __fastcall DrvDbSetDriverPackageMappedProperty(
       return (unsigned int)-1073741790;
   }
   v13 = 0;
-  for ( i = &off_140001A80; ; i += 5 )
+  for ( i = &off_1400040B0; ; i += 5 )
   {
     v15 = (__int64 *)*i;
     if ( LODWORD((**i)[2]) == v8 )
@@ -154,7 +154,7 @@ __int64 __fastcall DrvDbSetDriverPackageMappedProperty(
     if ( ++v13 >= 0x20 )
       return (unsigned int)-1073741802;
   }
-  v18 = &off_140001A80 + 5 * v13;
+  v18 = &off_1400040B0 + 5 * v13;
   if ( !v18 )
     return (unsigned int)-1073741802;
   v19 = a5;

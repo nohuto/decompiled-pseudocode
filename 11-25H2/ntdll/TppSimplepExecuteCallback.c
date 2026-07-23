@@ -14,10 +14,10 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall TppSimplepExecuteCallback(volatile signed __int32 *a1, __int64 a2)
+void __fastcall TppSimplepExecuteCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2)
 {
   int v2; // esi
-  _QWORD *v3; // rbx
+  __int64 v3; // rbx
   __int64 v5; // rdi
   __int64 v6; // rdx
   __int64 v7; // rcx
@@ -28,29 +28,29 @@ void __fastcall TppSimplepExecuteCallback(volatile signed __int32 *a1, __int64 a
   __int64 v12; // rax
   __int64 v13; // rdx
   _QWORD *v14; // r14
-  struct _TEB *(__fastcall *v15)(volatile signed __int32 *); // rax
-  __int64 v16; // rdx
+  void (__fastcall *v15)(PTP_CALLBACK_INSTANCE, void *); // rax
+  void *v16; // rdx
 
   v2 = a2;
-  v3 = (_QWORD *)(a2 - 200);
+  v3 = a2 - 200;
   v5 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v6 = 2147353478LL;
   if ( *(_BYTE *)v6 )
-    TppETWCallbackDequeue(v3[18], v2, v3[10], v3[11], v3[13]);
-  if ( (unsigned int)TppWorkCallbackPrologRelease((__int64)a1, (__int64)v3, 1LL) )
+    TppETWCallbackDequeue(*(_QWORD *)(v3 + 144), v2, *(_QWORD *)(v3 + 80), *(_QWORD *)(v3 + 88), *(_QWORD *)(v3 + 104));
+  if ( (unsigned int)TppWorkCallbackPrologRelease(Instance, (char *)v3, 1) )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v7 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v7 = 2147353478LL;
     if ( *(_BYTE *)v7 )
-      TppETWCallbackStart(v3[18], v2, v3[10], v3[11], v3[13]);
-    v8 = v3[13];
-    v9 = v3[11];
-    v10 = v3[10];
+      TppETWCallbackStart(*(_QWORD *)(v3 + 144), v2, *(_QWORD *)(v3 + 80), *(_QWORD *)(v3 + 88), *(_QWORD *)(v3 + 104));
+    v8 = *(_QWORD *)(v3 + 104);
+    v9 = *(_QWORD *)(v3 + 88);
+    v10 = *(_QWORD *)(v3 + 80);
     ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
     if ( ThreadPoolData )
     {
@@ -69,24 +69,24 @@ void __fastcall TppSimplepExecuteCallback(volatile signed __int32 *a1, __int64 a
     {
       v14 = 0LL;
     }
-    v15 = (struct _TEB *(__fastcall *)(volatile signed __int32 *))v3[10];
-    v16 = v3[11];
+    v15 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, void *))(v3 + 80);
+    v16 = *(void **)(v3 + 88);
     if ( (char *)v15 == (char *)TpCallbackUnloadDllOnCompletion )
     {
-      TpCallbackUnloadDllOnCompletion(a1, v16);
+      TpCallbackUnloadDllOnCompletion(Instance, v16);
     }
-    else if ( v15 == RtlAcquireSRWLockExclusive )
+    else if ( (char *)v15 == (char *)RtlAcquireSRWLockExclusive )
     {
-      RtlAcquireSRWLockExclusive(a1);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Instance);
     }
     else
     {
-      ((void (__fastcall *)(volatile signed __int32 *, __int64))v15)(a1, v16);
+      v15(Instance, v16);
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v5 = (__int64)NtCurrentPeb()->SharedData + 556;
     if ( *(_BYTE *)v5 )
-      TppETWCallbackStop(v3[18], v2, v3[10], v3[11], v3[13]);
+      TppETWCallbackStop(*(_QWORD *)(v3 + 144), v2, *(_QWORD *)(v3 + 80), *(_QWORD *)(v3 + 88), *(_QWORD *)(v3 + 104));
     TppCompleteThreadData((__int64)v14);
   }
 }

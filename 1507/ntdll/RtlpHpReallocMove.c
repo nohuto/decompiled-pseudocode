@@ -12,7 +12,7 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-void *__fastcall RtlpHpReallocMove(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
+void *__fastcall RtlpHpReallocMove(_RTL_SRWLOCK *a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned __int64 v8; // rax
   __int64 v9; // rcx

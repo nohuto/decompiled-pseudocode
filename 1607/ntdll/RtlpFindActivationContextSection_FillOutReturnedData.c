@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpFindActivationContextSection_FillOutReturnedData @ 0x180082B28
+ * XREFs of RtlpFindActivationContextSection_FillOutReturnedData @ 0x180082B18
  * Callers:
- *     RtlFindActivationContextSectionGuid @ 0x180019EF0 (RtlFindActivationContextSectionGuid.c)
- *     RtlFindActivationContextSectionString @ 0x18001AD80 (RtlFindActivationContextSectionString.c)
+ *     RtlFindActivationContextSectionGuid @ 0x180019EE0 (RtlFindActivationContextSectionGuid.c)
+ *     RtlFindActivationContextSectionString @ 0x18001AD70 (RtlFindActivationContextSectionString.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x18001B170 (RtlpLocateActivationContextSection.c)
- *     RtlpGetActivationContextData @ 0x18003E078 (RtlpGetActivationContextData.c)
- *     RtlAddRefActivationContext @ 0x18003E1A0 (RtlAddRefActivationContext.c)
+ *     RtlpLocateActivationContextSection @ 0x18001B160 (RtlpLocateActivationContextSection.c)
+ *     RtlpGetActivationContextData @ 0x18003E068 (RtlpGetActivationContextData.c)
+ *     RtlAddRefActivationContext @ 0x18003E190 (RtlAddRefActivationContext.c)
  */
 
 __int64 __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
         char a1,
         __int64 a2,
-        volatile signed __int32 *a3,
+        _ACTIVATION_CONTEXT *a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,

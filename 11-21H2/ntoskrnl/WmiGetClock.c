@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14022DB00 (RtlGetSystemTimePrecise.c)
+ *     sub_14022DB00 @ 0x14022DB00 (sub_14022DB00.c)
  *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
 __int64 WmiGetClock()
@@ -15,7 +15,7 @@ __int64 WmiGetClock()
   __int64 result; // rax
   int v3; // ecx
 
-  v1 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
+  v1 = *((_QWORD *)sub_140347DB0() + 108);
   result = 0LL;
   if ( v0 )
   {
@@ -28,7 +28,7 @@ __int64 WmiGetClock()
         if ( v0 == 5 )
           return __rdtsc();
       }
-      return RtlGetSystemTimePrecise();
+      return sub_14022DB00();
     }
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
@@ -39,5 +39,5 @@ __int64 WmiGetClock()
       return __rdtsc();
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
-  return RtlGetSystemTimePrecise();
+  return sub_14022DB00();
 }

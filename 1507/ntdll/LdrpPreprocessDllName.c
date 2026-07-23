@@ -12,7 +12,7 @@
  *     LdrpLogDbgPrint @ 0x1800BC478 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, int a3, _BYTE *a4)
+__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3, _BYTE *a4)
 {
   bool v5; // zf
   int appended; // ebx
@@ -32,7 +32,7 @@ __int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 
   v9 = 0;
   if ( v5 )
   {
-    appended = LdrpApplyFileNameRedirection(a3, (_DWORD)a1, a3, (_DWORD)a2, (__int64)&v18);
+    appended = LdrpApplyFileNameRedirection(a3, a1, a3, a2, &v18);
     if ( appended < 0 )
     {
 LABEL_30:
@@ -44,7 +44,7 @@ LABEL_30:
           2644,
           (unsigned int)"LdrpPreprocessDllName",
           0,
-          "LdrpPreprocessDllName for DLL %wZ failed with status 0x%08lx\n",
+          (__int64)"LdrpPreprocessDllName for DLL %wZ failed with status 0x%08lx\n",
           a1,
           v17);
       }
@@ -66,7 +66,7 @@ LABEL_30:
         2595,
         (unsigned int)"LdrpPreprocessDllName",
         2,
-        "DLL %wZ was redirected to %wZ by %s\n",
+        (__int64)"DLL %wZ was redirected to %wZ by %s\n",
         a1,
         a2,
         v16);
@@ -104,7 +104,7 @@ LABEL_12:
   if ( (unsigned __int64)v13 < v12 )
   {
 LABEL_18:
-    appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, L"\b\n");
+    appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, &LdrpDefaultExtension);
   }
   else
   {

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiQueuePageAccessLog @ 0x1402F54F0
+ * XREFs of MiQueuePageAccessLog @ 0x1402F5780
  * Callers:
- *     MiEmptyPageAccessLog @ 0x1402E1F40 (MiEmptyPageAccessLog.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1402F4CE8 (MiCheckAndProcessCcAccessLog.c)
- *     MiReturnCcAccessLog @ 0x1402F4D30 (MiReturnCcAccessLog.c)
- *     MiGetCcAccessLog @ 0x140748F90 (MiGetCcAccessLog.c)
+ *     MiEmptyPageAccessLog @ 0x1402E21D0 (MiEmptyPageAccessLog.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1402F4F78 (MiCheckAndProcessCcAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1402F4FC0 (MiReturnCcAccessLog.c)
+ *     MiGetCcAccessLog @ 0x140749180 (MiGetCcAccessLog.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     MmFreeAccessPfnBuffer @ 0x1402F55AC (MmFreeAccessPfnBuffer.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     MmFreeAccessPfnBuffer @ 0x1402F583C (MmFreeAccessPfnBuffer.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  */
 
-void __fastcall MiQueuePageAccessLog(struct _SLIST_ENTRY *P)
+void __fastcall MiQueuePageAccessLog(_SLIST_ENTRY *P)
 {
   unsigned int Alignment_low; // ebx
   int v3; // ebx

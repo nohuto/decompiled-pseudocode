@@ -1,9 +1,9 @@
 /*
- * XREFs of KiForegroundTimerCallback @ 0x1403D56E0
+ * XREFs of KiForegroundTimerCallback @ 0x1403D58C0
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
  */
 
 __int64 KiForegroundTimerCallback()

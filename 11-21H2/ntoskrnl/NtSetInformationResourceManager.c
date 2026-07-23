@@ -13,7 +13,7 @@ NTSTATUS __stdcall NtSetInformationResourceManager(
         PVOID ResourceManagerInformation,
         ULONG ResourceManagerInformationLength)
 {
-  return __imp_NtSetInformationResourceManager(
+  return NtSetInformationResourceManager_0(
            ResourceManagerHandle,
            ResourceManagerInformationClass,
            ResourceManagerInformation,

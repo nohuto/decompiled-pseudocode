@@ -29,7 +29,7 @@ _DWORD *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int a2)
   if ( a1 + 1 >= (2147483612 - a2 - 8 * a1) / 3 )
     return 0LL;
   v3 = (11 * a1 + a2 + 35) & 0xFFFFFFFC;
-  Heap = (_DWORD *)RtlAllocateHeap(qword_180165B50, dword_180165B58, v3);
+  Heap = RtlAllocateHeap(qword_180165B50, dword_180165B58, v3);
   v5 = Heap;
   if ( !Heap )
     return 0LL;

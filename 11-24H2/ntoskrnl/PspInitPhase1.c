@@ -1,13 +1,13 @@
 /*
- * XREFs of PspInitPhase1 @ 0x140C34EC0
+ * XREFs of PspInitPhase1 @ 0x140C37000
  * Callers:
- *     PsInitSystem @ 0x140BDE7F8 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140BE07F8 (PsInitSystem.c)
  * Callees:
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     ExRegisterHost @ 0x1407C071C (ExRegisterHost.c)
- *     ObInsertObject @ 0x140856F80 (ObInsertObject.c)
- *     PspCreateSecureSystemProcess @ 0x140C34DEC (PspCreateSecureSystemProcess.c)
- *     PspInitializeCpuPartitionsPhase1 @ 0x140C35790 (PspInitializeCpuPartitionsPhase1.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     ExRegisterHost @ 0x1407C0B6C (ExRegisterHost.c)
+ *     ObInsertObject @ 0x140853260 (ObInsertObject.c)
+ *     PspCreateSecureSystemProcess @ 0x140C36F2C (PspCreateSecureSystemProcess.c)
+ *     PspInitializeCpuPartitionsPhase1 @ 0x140C378D0 (PspInitializeCpuPartitionsPhase1.c)
  */
 
 bool PspInitPhase1()

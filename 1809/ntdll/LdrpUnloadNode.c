@@ -18,40 +18,40 @@
  *     LdrpUnloadNode @ 0x180055870 (LdrpUnloadNode.c)
  *     LdrUnloadAlternateResourceModuleEx @ 0x180055B60 (LdrUnloadAlternateResourceModuleEx.c)
  *     LdrpProcessDetachNode @ 0x180055D48 (LdrpProcessDetachNode.c)
- *     LdrpUnmapModule @ 0x180076B98 (LdrpUnmapModule.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     LdrpUnmapModule @ 0x180076BA8 (LdrpUnmapModule.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  *     AVrfDllUnloadNotification @ 0x1800DAC24 (AVrfDllUnloadNotification.c)
  */
 
-void __fastcall LdrpUnloadNode(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall LdrpUnloadNode(__int64 a1)
 {
-  struct _PEB *v4; // r14
-  void (__fastcall *v5)(_QWORD *); // rbp
+  struct _PEB *v1; // r14
+  void (__fastcall *v2)(_QWORD *); // rbp
   _QWORD *i; // rsi
+  _QWORD *v5; // rbx
+  _DWORD *v6; // rdx
+  _QWORD **v7; // rcx
   _QWORD *v8; // rbx
-  unsigned __int64 *v9; // rdx
-  _QWORD **v10; // rcx
-  _QWORD *v11; // rbx
-  __int64 v12; // rsi
-  _QWORD *v13; // rdx
-  _QWORD **v14; // rcx
-  _QWORD *v15; // r8
-  _QWORD **v16; // rax
-  _QWORD *v17; // rbx
-  _QWORD *v18; // rsi
-  __int64 v19; // rbx
-  int v20; // eax
-  __int64 v21; // rcx
-  _QWORD *v22; // rdx
-  __int64 v23; // rcx
-  _QWORD *v24; // rax
-  __int64 v25; // rdx
-  _QWORD *v26; // rcx
-  int v27; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v9; // rsi
+  _QWORD *v10; // rdx
+  _QWORD **v11; // rcx
+  _QWORD *v12; // r8
+  _QWORD **v13; // rax
+  _QWORD *v14; // rbx
+  _QWORD *v15; // rsi
+  char *v16; // rbx
+  int v17; // eax
+  __int64 v18; // rcx
+  char **v19; // rdx
+  __int64 v20; // rcx
+  char **v21; // rax
+  __int64 v22; // rdx
+  char **v23; // rcx
+  int v24; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = NtCurrentPeb();
-  v5 = 0LL;
+  v1 = NtCurrentPeb();
+  v2 = 0LL;
   if ( *(_DWORD *)(a1 + 56) == -4 )
   {
 LABEL_4:
@@ -67,20 +67,20 @@ LABEL_4:
   }
 LABEL_5:
   if ( g_ShimsEnabled )
-    v5 = (void (__fastcall *)(_QWORD *))(MEMORY[0x7FFE0330] ^ __ROR8__(
+    v2 = (void (__fastcall *)(_QWORD *))(MEMORY[0x7FFE0330] ^ __ROR8__(
                                                                 g_pfnSE_LdrEntryRemoved,
                                                                 64 - (MEMORY[0x7FFE0330] & 0x3Fu)));
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
   {
-    v8 = i - 20;
+    v5 = i - 20;
     if ( (*(_BYTE *)(i - 7) & 8) != 0 )
     {
       LdrpSendDllNotifications((__int64)(i - 20), 2u);
-      if ( v5 )
-        v5(i - 20);
-      SbUpdateSwitchContextBasedOnDll((__int64)(i - 20), v9, 1);
-      if ( (v4->NtGlobalFlag & 0x100) != 0 )
+      if ( v2 )
+        v2(i - 20);
+      SbUpdateSwitchContextBasedOnDll((__int64)(i - 20), v6, 1);
+      if ( (v1->NtGlobalFlag & 0x100) != 0 )
         AVrfDllUnloadNotification(i - 20);
     }
     if ( (LdrpDebugFlags & 5) != 0 )
@@ -90,98 +90,100 @@ LABEL_5:
         (unsigned int)"LdrpUnloadNode",
         2,
         "Unmapping DLL \"%wZ\"\n",
-        v8 + 9);
-    LdrUnloadAlternateResourceModuleEx(v8[6], 0LL);
+        v5 + 9);
+    LdrUnloadAlternateResourceModuleEx((PVOID)v5[6], 0);
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
 LABEL_18:
   while ( 1 )
   {
-    v10 = *(_QWORD ***)(a1 + 40);
-    if ( !v10 )
+    v7 = *(_QWORD ***)(a1 + 40);
+    if ( !v7 )
       break;
-    v11 = *v10;
-    if ( *v10 == v10 )
+    v8 = *v7;
+    if ( *v7 == v7 )
       *(_QWORD *)(a1 + 40) = 0LL;
     else
-      *v10 = (_QWORD *)*v11;
-    if ( !v11 )
+      *v7 = (_QWORD *)*v8;
+    if ( !v8 )
       break;
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
-    v12 = v11[1];
-    v13 = v11 + 2;
-    v14 = *(_QWORD ***)(v12 + 48);
-    v15 = *v14;
-    if ( *v14 != v11 + 2 )
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+    v9 = v8[1];
+    v10 = v8 + 2;
+    v11 = *(_QWORD ***)(v9 + 48);
+    v12 = *v11;
+    if ( *v11 != v8 + 2 )
     {
       do
       {
-        v14 = (_QWORD **)v15;
-        v15 = (_QWORD *)*v15;
+        v11 = (_QWORD **)v12;
+        v12 = (_QWORD *)*v12;
       }
-      while ( v15 != v13 );
+      while ( v12 != v10 );
     }
-    *v14 = (_QWORD *)*v13;
-    if ( *(_QWORD **)(v12 + 48) == v13 )
+    *v11 = (_QWORD *)*v10;
+    if ( *(_QWORD **)(v9 + 48) == v10 )
     {
-      v16 = 0LL;
-      if ( v14 != v13 )
-        v16 = v14;
-      *(_QWORD *)(v12 + 48) = v16;
+      v13 = 0LL;
+      if ( v11 != v10 )
+        v13 = v11;
+      *(_QWORD *)(v9 + 48) = v13;
     }
-    LdrpDecrementNodeLoadCountLockHeld(v12, 0, &v27);
+    LdrpDecrementNodeLoadCountLockHeld(v9, 0, &v24);
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-    if ( v27 )
-      LdrpUnloadNode(v12);
-    RtlFreeHeap(LdrpHeap, 0, (unsigned __int64)v11);
+    if ( v24 )
+      LdrpUnloadNode(v9);
+    RtlFreeHeap(LdrpHeap, 0, v8);
   }
-  v17 = *(_QWORD **)a1;
+  v14 = *(_QWORD **)a1;
   *(_DWORD *)(a1 + 56) = -2;
-  if ( v17 != (_QWORD *)a1 )
+  if ( v14 != (_QWORD *)a1 )
   {
     do
     {
-      v18 = (_QWORD *)*v17;
-      *((_DWORD *)v17 - 14) |= 2u;
-      v19 = (__int64)(v17 - 20);
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
-      v20 = *(_DWORD *)(v19 + 104);
-      if ( (v20 & 0x40) != 0 )
+      v15 = (_QWORD *)*v14;
+      *((_DWORD *)v14 - 14) |= 2u;
+      v16 = (char *)(v14 - 20);
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+      v17 = *((_DWORD *)v16 + 26);
+      if ( (v17 & 0x40) != 0 )
       {
-        v21 = *(_QWORD *)(v19 + 112);
-        if ( *(_QWORD *)(v21 + 8) != v19 + 112 )
+        v18 = *((_QWORD *)v16 + 14);
+        if ( *(char **)(v18 + 8) != v16 + 112 )
           goto LABEL_47;
-        v22 = *(_QWORD **)(v19 + 120);
-        if ( *v22 != v19 + 112 )
+        v19 = (char **)*((_QWORD *)v16 + 15);
+        if ( *v19 != v16 + 112 )
           goto LABEL_47;
-        *v22 = v21;
-        *(_QWORD *)(v21 + 8) = v22;
-        v23 = *(_QWORD *)v19;
-        if ( *(_QWORD *)(*(_QWORD *)v19 + 8LL) != v19
-          || (v24 = *(_QWORD **)(v19 + 8), *v24 != v19)
-          || (*v24 = v23, *(_QWORD *)(v23 + 8) = v24, v25 = *(_QWORD *)(v19 + 16), *(_QWORD *)(v25 + 8) != v19 + 16)
-          || (v26 = *(_QWORD **)(v19 + 24), *v26 != v19 + 16) )
+        *v19 = (char *)v18;
+        *(_QWORD *)(v18 + 8) = v19;
+        v20 = *(_QWORD *)v16;
+        if ( *(char **)(*(_QWORD *)v16 + 8LL) != v16
+          || (v21 = (char **)*((_QWORD *)v16 + 1), *v21 != v16)
+          || (*v21 = (char *)v20, *(_QWORD *)(v20 + 8) = v21,
+                                  v22 = *((_QWORD *)v16 + 2),
+                                  *(char **)(v22 + 8) != v16 + 16)
+          || (v23 = (char **)*((_QWORD *)v16 + 3), *v23 != v16 + 16) )
         {
 LABEL_47:
           __fastfail(3u);
         }
-        *v26 = v25;
-        *(_QWORD *)(v25 + 8) = v26;
-        *(_DWORD *)(v19 + 104) &= ~0x40u;
-        v20 = *(_DWORD *)(v19 + 104);
+        *v23 = (char *)v22;
+        *(_QWORD *)(v22 + 8) = v23;
+        *((_DWORD *)v16 + 26) &= ~0x40u;
+        v17 = *((_DWORD *)v16 + 26);
       }
-      if ( (v20 & 0x80u) != 0 )
+      if ( (v17 & 0x80u) != 0 )
       {
-        RtlRbRemoveNode((__int64)&LdrpMappingInfoIndex, v19 + 224);
-        RtlRbRemoveNode((__int64)&LdrpModuleBaseAddressIndex, v19 + 200);
-        *(_DWORD *)(v19 + 64) = 0;
+        RtlRbRemoveNode(&LdrpMappingInfoIndex, (PRTL_BALANCED_NODE)(v16 + 224));
+        RtlRbRemoveNode(&LdrpModuleBaseAddressIndex, (PRTL_BALANCED_NODE)(v16 + 200));
+        *((_DWORD *)v16 + 16) = 0;
       }
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
       if ( LdrpIsSecureProcess )
-        LdrpUnmapModule(v19);
-      LdrpDereferenceModule(v19);
-      v17 = v18;
+        LdrpUnmapModule(v16);
+      LdrpDereferenceModule(v16);
+      v14 = v15;
     }
-    while ( v18 != (_QWORD *)a1 );
+    while ( v15 != (_QWORD *)a1 );
   }
 }

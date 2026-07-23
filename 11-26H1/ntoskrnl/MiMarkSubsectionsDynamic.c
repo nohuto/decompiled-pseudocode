@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkSubsectionsDynamic @ 0x1406F80E4
+ * XREFs of MiMarkSubsectionsDynamic @ 0x1406FCDB4
  * Callers:
- *     MiFinishExtendAppend @ 0x140488E60 (MiFinishExtendAppend.c)
+ *     MiFinishExtendAppend @ 0x1404829A0 (MiFinishExtendAppend.c)
  * Callees:
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiMarkSubsectionsDynamic(__int64 a1)

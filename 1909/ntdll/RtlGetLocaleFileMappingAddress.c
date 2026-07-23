@@ -7,36 +7,40 @@
  *     NtInitializeNlsFiles @ 0x18009EDC0 (NtInitializeNlsFiles.c)
  */
 
-__int64 __fastcall RtlGetLocaleFileMappingAddress(signed __int64 *a1, int *a2, __int64 *a3)
+NTSTATUS __cdecl RtlGetLocaleFileMappingAddress(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  __int64 result; // rax
-  signed __int64 v7; // rcx
+  NTSTATUS result; // eax
+  PVOID v8; // rcx
 
-  if ( !a1 )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  if ( !a3 )
-    return 3221225713LL;
+  if ( !BaseAddress )
+    return -1073741585;
+  if ( !DefaultLocaleId )
+    return -1073741584;
+  if ( !DefaultCasingTableSize )
+    return -1073741583;
   if ( gBaseAddress )
   {
-    *a1 = gBaseAddress;
-    *a2 = gDefaultLocaleId;
-    *a3 = gDefaultCasingTableSize;
+    *BaseAddress = (PVOID)gBaseAddress;
+    *DefaultLocaleId = gDefaultLocaleId;
+    DefaultCasingTableSize->QuadPart = gDefaultCasingTableSize;
   }
   else
   {
-    result = NtInitializeNlsFiles();
-    if ( (int)result < 0 )
+    result = NtInitializeNlsFiles(BaseAddress, DefaultLocaleId, DefaultCasingTableSize, CurrentNLSVersion);
+    if ( result < 0 )
       return result;
-    v7 = *a1;
-    gDefaultLocaleId = *a2;
-    gDefaultCasingTableSize = *a3;
-    if ( _InterlockedCompareExchange64(&gBaseAddress, v7, 0LL) )
+    v8 = *BaseAddress;
+    gDefaultLocaleId = *DefaultLocaleId;
+    gDefaultCasingTableSize = DefaultCasingTableSize->QuadPart;
+    if ( _InterlockedCompareExchange64(&gBaseAddress, (signed __int64)v8, 0LL) )
     {
-      NtUnmapViewOfSection(-1LL);
-      *a1 = gBaseAddress;
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *BaseAddress);
+      *BaseAddress = (PVOID)gBaseAddress;
     }
   }
-  return 0LL;
+  return 0;
 }

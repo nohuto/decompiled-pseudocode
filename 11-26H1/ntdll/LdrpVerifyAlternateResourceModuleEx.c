@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpVerifyAlternateResourceModuleEx @ 0x1800A6EEC
+ * XREFs of LdrpVerifyAlternateResourceModuleEx @ 0x1800A601C
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x180030230 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x18001B390 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     LdrpGetRcConfig @ 0x18002DE20 (LdrpGetRcConfig.c)
- *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800707C0 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
- *     LdrResGetRCConfig @ 0x1800A77A0 (LdrResGetRCConfig.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
+ *     LdrpGetRcConfig @ 0x180018F20 (LdrpGetRcConfig.c)
+ *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x180090C10 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
+ *     LdrResGetRCConfig @ 0x1800A68D0 (LdrResGetRCConfig.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
  */
 
 char __fastcall LdrpVerifyAlternateResourceModuleEx(
-        __int64 a1,
-        __int64 a2,
+        void *a1,
+        void *a2,
         unsigned __int16 *a3,
         const wchar_t *a4,
         int a5,
@@ -24,29 +24,25 @@ char __fastcall LdrpVerifyAlternateResourceModuleEx(
   __int64 v14; // rax
   bool v15; // al
   int RCConfig; // eax
-  _DWORD *v17; // [rsp+30h] [rbp-18h] BYREF
-  _DWORD *v18; // [rsp+38h] [rbp-10h] BYREF
 
-  v17 = 0LL;
-  v18 = 0LL;
   if ( !a6 )
     return 1;
   if ( (a5 & 0x1000) != 0 )
   {
-    RCConfig = LdrResGetRCConfig(a1, 0, (unsigned int)&v17, 4096, 1);
+    RCConfig = LdrResGetRCConfig(a1, 1);
     if ( RCConfig >= 0 )
     {
-      if ( (int)LdrResGetRCConfig(a2, 0, (unsigned int)&v18, 4096, 0) < 0 )
+      if ( (int)LdrResGetRCConfig(a2, 0) < 0 )
         return 0;
-      v10 = v17;
-      v11 = v18;
+      v10 = 0LL;
+      v11 = 0LL;
       goto LABEL_5;
     }
     if ( RCConfig != -1073741686 )
       return 0;
     return (a5 & 0x1000000) != 0;
   }
-  v10 = LdrpGetRcConfig(a1, a2, 0, 1);
+  v10 = LdrpGetRcConfig(a1, (__int64)a2, 0, 1);
   if ( !v10 )
     return (a5 & 0x1000000) != 0;
   v11 = LdrpGetRcConfig(a2, v9, 0, 0);

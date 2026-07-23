@@ -1,13 +1,13 @@
 /*
- * XREFs of MD5Update_0 @ 0x1800387B0
+ * XREFs of MD5Update_0 @ 0x180022D20
  * Callers:
- *     RtlpMD5Update @ 0x18013B5A0 (RtlpMD5Update.c)
+ *     RtlpMD5Update @ 0x18013B310 (RtlpMD5Update.c)
  * Callees:
- *     ScRsa32Compat_Md5Import @ 0x180038748 (ScRsa32Compat_Md5Import.c)
- *     SymCryptHashAppendInternal @ 0x18003898C (SymCryptHashAppendInternal.c)
- *     SymCryptWipeAsm @ 0x180137990 (SymCryptWipeAsm.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     ScRsa32Compat_Md5Import @ 0x180022CB8 (ScRsa32Compat_Md5Import.c)
+ *     SymCryptHashAppendInternal @ 0x180022EFC (SymCryptHashAppendInternal.c)
+ *     SymCryptWipeAsm @ 0x180137700 (SymCryptWipeAsm.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall MD5Update_0(__int64 a1, __int64 a2, unsigned int a3)

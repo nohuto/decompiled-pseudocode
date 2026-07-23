@@ -1,7 +1,7 @@
 /*
- * XREFs of MxGetFreeDescriptorCounts @ 0x140CF6C04
+ * XREFs of MxGetFreeDescriptorCounts @ 0x140CFCF84
  * Callers:
- *     MxReducePhysicalPageCount @ 0x140CF81DC (MxReducePhysicalPageCount.c)
+ *     MxReducePhysicalPageCount @ 0x140CFE55C (MxReducePhysicalPageCount.c)
  * Callees:
  *     <none>
  */

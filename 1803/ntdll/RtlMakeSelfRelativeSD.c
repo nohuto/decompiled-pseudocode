@@ -9,12 +9,15 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall RtlMakeSelfRelativeSD(_DWORD *a1, char *a2, unsigned int *a3)
+NTSTATUS __cdecl RtlMakeSelfRelativeSD(
+        PSECURITY_DESCRIPTOR AbsoluteSecurityDescriptor,
+        PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor,
+        PULONG BufferLength)
 {
   __int64 v6; // r13
   size_t v7; // r15
   size_t v8; // r12
-  unsigned int v9; // ecx
+  ULONG v9; // ecx
   char *v10; // rsi
   int v11; // r14d
   __int64 v12; // rbx
@@ -29,7 +32,7 @@ __int64 __fastcall RtlMakeSelfRelativeSD(_DWORD *a1, char *a2, unsigned int *a3)
   size_t v22; // [rsp+D8h] [rbp+60h] BYREF
 
   sub_180070500(
-    (_DWORD)a1,
+    (_DWORD)AbsoluteSecurityDescriptor,
     (unsigned int)&v17,
     (unsigned int)&Size,
     (unsigned int)&v18,
@@ -43,55 +46,55 @@ __int64 __fastcall RtlMakeSelfRelativeSD(_DWORD *a1, char *a2, unsigned int *a3)
   v8 = (unsigned int)v22;
   LODWORD(Size) = v21;
   v9 = v21 + v20 + v6 + v22 + 20;
-  if ( v9 > *a3 )
+  if ( v9 > *BufferLength )
   {
-    *a3 = v9;
-    return 3221225507LL;
+    *BufferLength = v9;
+    return -1073741789;
   }
-  else if ( a2 )
+  else if ( SelfRelativeSecurityDescriptor )
   {
-    memset(a2, 0, v9);
-    *(_DWORD *)a2 = *a1;
-    v10 = a2 + 20;
+    memset(SelfRelativeSecurityDescriptor, 0, v9);
+    *(_DWORD *)SelfRelativeSecurityDescriptor = *(_DWORD *)AbsoluteSecurityDescriptor;
+    v10 = (char *)SelfRelativeSecurityDescriptor + 20;
     if ( (_DWORD)v8 )
     {
-      memmove(a2 + 20, v15, v8);
-      v10 = &a2[v8 + 20];
+      memmove((char *)SelfRelativeSecurityDescriptor + 20, v15, v8);
+      v10 = (char *)SelfRelativeSecurityDescriptor + v8 + 20;
       v11 = 20;
     }
     else
     {
       v11 = 0;
     }
-    *((_DWORD *)a2 + 3) = v11;
+    *((_DWORD *)SelfRelativeSecurityDescriptor + 3) = v11;
     if ( (_DWORD)Size )
     {
       v12 = (unsigned int)Size;
       memmove(v10, Src, (unsigned int)Size);
-      v13 = (_DWORD)v10 - (_DWORD)a2;
+      v13 = (_DWORD)v10 - (_DWORD)SelfRelativeSecurityDescriptor;
       v10 += v12;
     }
     else
     {
       v13 = 0;
     }
-    *((_DWORD *)a2 + 4) = v13;
+    *((_DWORD *)SelfRelativeSecurityDescriptor + 4) = v13;
     if ( (_DWORD)v6 )
     {
       memmove(v10, v17, v6);
-      *((_DWORD *)a2 + 1) = (_DWORD)v10 - (_DWORD)a2;
+      *((_DWORD *)SelfRelativeSecurityDescriptor + 1) = (_DWORD)v10 - (_DWORD)SelfRelativeSecurityDescriptor;
       v10 += v6;
     }
     if ( (_DWORD)v7 )
     {
       memmove(v10, v18, v7);
-      *((_DWORD *)a2 + 2) = (_DWORD)v10 - (_DWORD)a2;
+      *((_DWORD *)SelfRelativeSecurityDescriptor + 2) = (_DWORD)v10 - (_DWORD)SelfRelativeSecurityDescriptor;
     }
-    *((_WORD *)a2 + 1) |= 0x8000u;
-    return 0LL;
+    *((_WORD *)SelfRelativeSecurityDescriptor + 1) |= 0x8000u;
+    return 0;
   }
   else
   {
-    return 3221225485LL;
+    return -1073741811;
   }
 }

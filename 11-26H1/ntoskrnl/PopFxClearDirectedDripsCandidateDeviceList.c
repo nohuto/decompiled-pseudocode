@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxClearDirectedDripsCandidateDeviceList @ 0x1404C7D84
+ * XREFs of PopFxClearDirectedDripsCandidateDeviceList @ 0x1404C1AC4
  * Callers:
- *     PopDirectedDripsEngage @ 0x1404C7D1C (PopDirectedDripsEngage.c)
- *     PopDirectedDripsResumeDevices @ 0x140AC5364 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsEngage @ 0x1404C1A5C (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsResumeDevices @ 0x140AC6FD4 (PopDirectedDripsResumeDevices.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall PopFxClearDirectedDripsCandidateDeviceList(
@@ -27,15 +27,18 @@ void __fastcall PopFxClearDirectedDripsCandidateDeviceList(
   AutoBoost *v10; // rax
   void *v11; // rdx
   AutoBoost *v12; // rdi
-  ULONG_PTR i; // rax
+  struct _KTHREAD *i; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12420, 0LL, 0LL, a4);
-  v8 = _interlockedbittestandset64(&stru_140F12420.Header.Lock, 0LL);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock, 0LL, 0LL, a4);
+  v8 = _interlockedbittestandset64(&PopFxBlockingDeviceListLock.Header.Lock, 0LL);
   v9 = v5;
   if ( v8 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12420, v5, (__int64)&stru_140F12420);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&PopFxBlockingDeviceListLock,
+      v5,
+      (__int64)&PopFxBlockingDeviceListLock);
   if ( v9 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -43,11 +46,14 @@ void __fastcall PopFxClearDirectedDripsCandidateDeviceList(
     else
       *((_BYTE *)v9 + 10) = 1;
   }
-  v10 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F123D0, 0LL, 0LL, v7);
-  v8 = _interlockedbittestandset64(&qword_140F123D0.Header.Lock, 0LL);
+  v10 = (AutoBoost *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock.Teb, 0LL, 0LL, v7);
+  v8 = _interlockedbittestandset64((volatile signed __int32 *)&PopFxBlockingDeviceListLock.Teb, 0LL);
   v12 = v10;
   if ( v8 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F123D0, v10, (__int64)&qword_140F123D0);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&PopFxBlockingDeviceListLock.Teb,
+      v10,
+      (__int64)&PopFxBlockingDeviceListLock.Teb);
   if ( v12 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -55,13 +61,17 @@ void __fastcall PopFxClearDirectedDripsCandidateDeviceList(
     else
       *((_BYTE *)v12 + 10) = 1;
   }
-  for ( i = qword_140F123E0; (ULONG_PTR *)i != &qword_140F123E0; i = *(_QWORD *)i )
-    _InterlockedAnd((volatile signed __int32 *)(i + 864), 0xFFFFFFBF);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140F123D0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140F123D0.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&qword_140F123D0);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F12420, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F12420.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140F12420);
+  for ( i = *(struct _KTHREAD **)&PopFxBlockingDeviceListLock.ForegroundLossTime;
+        i != (struct _KTHREAD *)&PopFxBlockingDeviceListLock.ForegroundLossTime;
+        i = *(struct _KTHREAD **)&i->Header.Lock )
+  {
+    _InterlockedAnd(&i->AbCompletedIoQoSBoostCount, 0xFFFFFFBF);
+  }
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb);
+  KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock.Teb);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxBlockingDeviceListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock);
   KeLeaveCriticalRegion();
 }

@@ -1,66 +1,66 @@
 /*
- * XREFs of IopDecrementDeviceObjectRef @ 0x1402B2B50
+ * XREFs of IopDecrementDeviceObjectRef @ 0x1402FD820
  * Callers:
- *     IopCheckVpbMounted @ 0x14044A8C8 (IopCheckVpbMounted.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1405CA6E4 (IopDecrementDeviceObjectHandleCount.c)
- *     IopLoadFileSystemDriver @ 0x140795094 (IopLoadFileSystemDriver.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopDeleteFile @ 0x140A1ECD0 (IopDeleteFile.c)
- *     IoCreateStreamFileObjectEx2 @ 0x140A36470 (IoCreateStreamFileObjectEx2.c)
- *     IopMountVolume @ 0x140B1E87C (IopMountVolume.c)
- *     IopShutdownBaseFileSystems @ 0x140BF150C (IopShutdownBaseFileSystems.c)
+ *     IopCheckVpbMounted @ 0x1404429F8 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1405CCFB4 (IopDecrementDeviceObjectHandleCount.c)
+ *     IopLoadFileSystemDriver @ 0x140797BC4 (IopLoadFileSystemDriver.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x14091ABD0 (IoCreateStreamFileObjectEx2.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140A282F0 (IopDeleteFile.c)
+ *     IopMountVolume @ 0x140B208FC (IopMountVolume.c)
+ *     IopShutdownBaseFileSystems @ 0x140BF750C (IopShutdownBaseFileSystems.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1403EB6FC (KiReleaseQueuedSpinLockInstrumented.c)
- *     HalRequestIpi @ 0x1403EC520 (HalRequestIpi.c)
- *     HvlWakeVirtualProcessors @ 0x1403ECBF0 (HvlWakeVirtualProcessors.c)
- *     IopCompleteUnloadOrDelete @ 0x140437F84 (IopCompleteUnloadOrDelete.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalRequestIpi @ 0x1402F9560 (HalRequestIpi.c)
+ *     HvlWakeVirtualProcessors @ 0x1402F9C30 (HvlWakeVirtualProcessors.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402FA03C (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     IopCompleteUnloadOrDelete @ 0x140426EA4 (IopCompleteUnloadOrDelete.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
+__int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v3; // si
-  unsigned __int8 v5; // bp
+  char v4; // si
+  unsigned __int8 v6; // bp
   unsigned __int8 CurrentIrql; // di
   void *ArbitraryUserPointer; // rax
-  __int64 v8; // rcx
-  volatile __int64 *v9; // rdx
-  __int64 v10; // rax
-  volatile signed __int64 **v12; // rbx
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  unsigned __int64 v15; // r8
-  char v16; // bl
-  __int64 v17; // rsi
-  __int64 v18; // r9
-  unsigned __int64 v19; // rsi
+  __int64 v9; // rcx
+  volatile __int64 *v10; // rdx
+  __int64 v11; // rax
+  volatile signed __int64 **v13; // rbx
+  volatile signed __int64 *v14; // rax
+  __int64 v15; // rcx
+  unsigned __int64 v16; // r8
+  char v17; // bl
+  __int64 v18; // rsi
+  __int64 v19; // r9
+  unsigned __int64 v20; // rsi
   struct _KPRCB *CurrentPrcb; // rcx
   unsigned __int32 *SchedulerAssist; // r8
-  unsigned __int32 v23; // eax
-  __int64 v24; // rdx
-  unsigned __int32 v25; // ett
-  __int64 v26; // rcx
-  unsigned __int64 v27; // rdx
-  __int64 v28; // r8
-  __int64 v29; // rcx
+  unsigned __int32 v24; // eax
+  __int64 v25; // rdx
+  unsigned __int32 v26; // ett
+  __int64 v27; // rcx
+  unsigned __int64 v28; // rdx
+  __int64 v29; // r8
   __int64 v30; // rcx
-  signed __int32 v31[8]; // [rsp+0h] [rbp-178h] BYREF
-  __int64 v32; // [rsp+30h] [rbp-148h] BYREF
-  _QWORD v33[33]; // [rsp+38h] [rbp-140h] BYREF
-  void *retaddr; // [rsp+178h] [rbp+0h]
+  __int64 v31; // rcx
+  signed __int32 v32[8]; // [rsp+0h] [rbp-178h] BYREF
+  __int64 v33; // [rsp+30h] [rbp-148h] BYREF
+  _QWORD v34[33]; // [rsp+38h] [rbp-140h] BYREF
+  __int64 retaddr; // [rsp+178h] [rbp+0h]
 
-  v3 = a2;
-  v5 = 0;
+  v4 = a2;
+  v6 = 0;
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 2 )
     __writecr8(2uLL);
@@ -70,24 +70,24 @@ __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, __i
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
   ArbitraryUserPointer = KeGetPcr()->NtTib.ArbitraryUserPointer;
-  v8 = (__int64)ArbitraryUserPointer + 160;
-  v9 = (volatile __int64 *)*((_QWORD *)ArbitraryUserPointer + 21);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  v9 = (__int64)ArbitraryUserPointer + 160;
+  v10 = (volatile __int64 *)*((_QWORD *)ArbitraryUserPointer + 21);
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v10 = _InterlockedExchange64(v9, v8);
-    if ( v10 )
-      KxWaitForLockOwnerShip(v8, v10, a3);
+    v11 = _InterlockedExchange64(v10, v9);
+    if ( v11 )
+      KxWaitForLockOwnerShip(v9, v11, a3);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented(v8, v9);
+    KiAcquireQueuedSpinLockInstrumented(v9, v10);
   }
   if ( --*(_DWORD *)(BugCheckParameter2 + 4) < 0 )
   {
-    v30 = *(_QWORD *)(BugCheckParameter2 + 8);
-    if ( v30 )
+    v31 = *(_QWORD *)(BugCheckParameter2 + 8);
+    if ( v31 )
     {
-      IoAddTriageDumpDataBlock(v30, (PVOID)0x150);
+      IoAddTriageDumpDataBlock(v31, (PVOID)0x150);
       IoAddTriageDumpDataBlock(
         *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) + 64LL),
         (PVOID)*(unsigned __int16 *)(*(_QWORD *)(BugCheckParameter2 + 8) + 56LL));
@@ -95,93 +95,93 @@ __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, __i
     KeBugCheckEx(0x18u, 0LL, BugCheckParameter2, 6uLL, *(int *)(BugCheckParameter2 + 4));
   }
   if ( !*(_DWORD *)(BugCheckParameter2 + 4)
-    && (v3 || (*(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 312) + 32LL) & 7) != 0) )
+    && (v4 || (*(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 312) + 32LL) & 7) != 0) )
   {
     return (unsigned __int8)IopCompleteUnloadOrDelete(BugCheckParameter2);
   }
-  v12 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !LODWORD(stru_140F11D08.WaitStatus) )
+  v13 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
   {
-    KiReleaseQueuedSpinLockInstrumented(v12, retaddr);
+    KiReleaseQueuedSpinLockInstrumented(v13, retaddr, a3, a4);
     goto LABEL_17;
   }
-  _m_prefetchw(v12);
-  v13 = (__int64)*v12;
-  if ( !*v12 )
+  _m_prefetchw(v13);
+  v14 = *v13;
+  if ( !*v13 )
   {
-    if ( v12 == (volatile signed __int64 **)_InterlockedCompareExchange64(v12[1], 0LL, (signed __int64)v12) )
+    if ( v13 == (volatile signed __int64 **)_InterlockedCompareExchange64(v13[1], 0LL, (signed __int64)v13) )
       goto LABEL_17;
-    v13 = KxWaitForLockChainValid(v12);
+    v14 = (volatile signed __int64 *)KxWaitForLockChainValid(v13);
   }
-  *v12 = 0LL;
-  v14 = (__int64)v12[1];
-  if ( (((unsigned __int8)v14 ^ (unsigned __int8)_InterlockedExchange64((volatile __int64 *)(v13 + 8), v14)) & 4) != 0 )
+  *v13 = 0LL;
+  v15 = (__int64)v13[1];
+  if ( (((unsigned __int8)v15 ^ (unsigned __int8)_InterlockedExchange64(v14 + 1, v15)) & 4) != 0 )
   {
-    _InterlockedOr(v31, 0);
-    v16 = KeDisableInterrupts(v14, v9, v13 + 8);
-    v17 = _InterlockedExchange64(&KiHaltOnAddressHashTable[(v15 >> 5) & 0x7F], 0LL);
-    memset_0(v33, 0, 0x100uLL);
-    v19 = v17 & 0xFFFFFFFFFFFFFFFCuLL;
-    if ( !v19 )
+    _InterlockedOr(v32, 0);
+    v17 = KeDisableInterrupts(v15, v10, v14 + 1);
+    v18 = _InterlockedExchange64(&KiHaltOnAddressHashTable[(v16 >> 5) & 0x7F], 0LL);
+    memset_0(v34, 0, 0x100uLL);
+    v20 = v18 & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( !v20 )
     {
 LABEL_16:
-      if ( v16 )
+      if ( v17 )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = (unsigned __int32 *)CurrentPrcb->SchedulerAssist;
         if ( SchedulerAssist )
         {
           _m_prefetchw(SchedulerAssist);
-          v23 = *SchedulerAssist;
+          v24 = *SchedulerAssist;
           do
           {
-            v24 = v23;
-            LODWORD(v24) = v23 & 0xFFDFFFFF;
-            v25 = v23;
-            v23 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v23 & 0xFFDFFFFF, v23);
+            v25 = v24;
+            LODWORD(v25) = v24 & 0xFFDFFFFF;
+            v26 = v24;
+            v24 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v24 & 0xFFDFFFFF, v24);
           }
-          while ( v25 != v23 );
-          if ( (v23 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb, v24, SchedulerAssist, v18);
+          while ( v26 != v24 );
+          if ( (v24 & 0x200000) != 0 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb, v25, SchedulerAssist, v19);
         }
         _enable();
       }
       goto LABEL_17;
     }
-    v32 = 2097153LL;
-    memset_0(v33, 0, 0x100uLL);
+    v33 = 2097153LL;
+    memset_0(v34, 0, 0x100uLL);
     while ( 1 )
     {
-      v26 = *(_QWORD *)(v19 + 8);
-      v27 = *(_QWORD *)(v19 + 16);
-      if ( !_InterlockedExchange((volatile __int32 *)(v19 + 24), 1) )
+      v27 = *(_QWORD *)(v20 + 8);
+      v28 = *(_QWORD *)(v20 + 16);
+      if ( !_InterlockedExchange((volatile __int32 *)(v20 + 24), 1) )
       {
-        v28 = *(_QWORD *)(v26 + 200);
-        v29 = *(unsigned __int8 *)(v26 + 208);
-        if ( (unsigned __int16)v32 > (unsigned __int16)v29 )
+        v29 = *(_QWORD *)(v27 + 200);
+        v30 = *(unsigned __int8 *)(v27 + 208);
+        if ( (unsigned __int16)v33 > (unsigned __int16)v30 )
           goto LABEL_45;
-        if ( WORD1(v32) > (unsigned __int16)v29 )
+        if ( WORD1(v33) > (unsigned __int16)v30 )
           break;
       }
 LABEL_46:
-      v19 = v27;
-      if ( !v27 )
+      v20 = v28;
+      if ( !v28 )
       {
         if ( (KiHaltOnAddressFlags & 4) != 0 )
-          HvlWakeVirtualProcessors(&v32);
+          HvlWakeVirtualProcessors((__int64)&v33);
         else
-          HalRequestIpi(0LL, &v32);
+          HalRequestIpi(0, (__int64)&v33);
         goto LABEL_16;
       }
     }
-    LOWORD(v32) = v29 + 1;
+    LOWORD(v33) = v30 + 1;
 LABEL_45:
-    v33[v29] |= v28;
+    v34[v30] |= v29;
     goto LABEL_46;
   }
 LABEL_17:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  return v5;
+  return v6;
 }

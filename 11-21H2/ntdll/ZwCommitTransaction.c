@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCommitTransaction()
+NTSTATUS __cdecl ZwCommitTransaction(HANDLE TransactionHandle, BOOLEAN Wait)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 155LL;
+  result = 155;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

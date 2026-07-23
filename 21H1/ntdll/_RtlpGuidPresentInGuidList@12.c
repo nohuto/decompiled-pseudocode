@@ -9,12 +9,16 @@
 char __fastcall RtlpGuidPresentInGuidList(void *Buf1, int a2, unsigned int a3)
 {
   int v3; // esi
+  size_t v7; // [esp-4h] [ebp-10h]
 
   v3 = 0;
   if ( !a3 )
     return 0;
-  while ( memcmp(Buf1, *(const void **)(a2 + 4 * v3), 0x10u) )
+  while ( 1 )
   {
+    LODWORD(v7) = 16;
+    if ( !memcmp(Buf1, *(const void **)(a2 + 4 * v3), v7) )
+      break;
     if ( ++v3 >= a3 )
       return 0;
   }

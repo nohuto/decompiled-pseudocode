@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpCreateSectionView @ 0x140409C78
+ * XREFs of AlpcpCreateSectionView @ 0x140408B38
  * Callers:
- *     NtAlpcCreateSectionView @ 0x140409A7C (NtAlpcCreateSectionView.c)
- *     AlpcpMapLegacyPortView @ 0x1404724E8 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreateSectionView @ 0x14040893C (NtAlpcCreateSectionView.c)
+ *     AlpcpMapLegacyPortView @ 0x1404713B8 (AlpcpMapLegacyPortView.c)
  * Callees:
- *     AlpcpCreateRegion @ 0x140409D34 (AlpcpCreateRegion.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14040B470 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateView @ 0x14040D220 (AlpcpCreateView.c)
- *     AlpcpUnlockBlob @ 0x14050E530 (AlpcpUnlockBlob.c)
+ *     AlpcpCreateRegion @ 0x140408BF4 (AlpcpCreateRegion.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14040A330 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpCreateView @ 0x14040C0E0 (AlpcpCreateView.c)
+ *     AlpcpUnlockBlob @ 0x1404F14C0 (AlpcpUnlockBlob.c)
  */
 
 __int64 __fastcall AlpcpCreateSectionView(

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxDeviceIdleConstraints @ 0x140572444
+ * XREFs of PopDiagTraceFxDeviceIdleConstraints @ 0x140572684
  * Callers:
- *     PopPluginRequestDeviceIdleConstraints @ 0x14056DFE8 (PopPluginRequestDeviceIdleConstraints.c)
+ *     PopPluginRequestDeviceIdleConstraints @ 0x14056E228 (PopPluginRequestDeviceIdleConstraints.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDeviceIdleConstraints(__int64 a1, __int64 a2, int a3)

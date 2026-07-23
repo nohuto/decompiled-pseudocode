@@ -1,11 +1,11 @@
 /*
- * XREFs of SeFilterToken @ 0x14080AE00
+ * XREFs of SeFilterToken @ 0x14080B0D0
  * Callers:
- *     CmpCreateRegistryProcessToken @ 0x14080AC98 (CmpCreateRegistryProcessToken.c)
+ *     CmpCreateRegistryProcessToken @ 0x14080AF68 (CmpCreateRegistryProcessToken.c)
  * Callees:
- *     SepFinalizeTokenAcls @ 0x14071DDE0 (SepFinalizeTokenAcls.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     SepFilterToken @ 0x1407F1C00 (SepFilterToken.c)
+ *     SepFinalizeTokenAcls @ 0x14071DFE0 (SepFinalizeTokenAcls.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     SepFilterToken @ 0x1407F1ED0 (SepFilterToken.c)
  */
 
 NTSTATUS __stdcall SeFilterToken(
@@ -62,7 +62,7 @@ LABEL_6:
                  PrivilegeCount,
                  (unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL),
                  v8,
-                 Groups,
+                 &Groups->Sid,
                  0,
                  &Object);
     if ( inserted >= 0 )

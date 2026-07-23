@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCreateMcaProcessorErrorRecord @ 0x1404B9ECC
+ * XREFs of HalpCreateMcaProcessorErrorRecord @ 0x1404BA10C
  * Callers:
- *     HalpCreateMachineCheckErrorRecord @ 0x1404B9AF0 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalpCreateMachineCheckErrorRecord @ 0x1404B9D30 (HalpCreateMachineCheckErrorRecord.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpAddMcaToProcessorGenericSection @ 0x1404B9328 (HalpAddMcaToProcessorGenericSection.c)
- *     HalpAddMcaToProcessorSpecificSection @ 0x1404B94D8 (HalpAddMcaToProcessorSpecificSection.c)
- *     WheaInitializeRecordHeader @ 0x1405BCA00 (WheaInitializeRecordHeader.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpAddMcaToProcessorGenericSection @ 0x1404B9568 (HalpAddMcaToProcessorGenericSection.c)
+ *     HalpAddMcaToProcessorSpecificSection @ 0x1404B9718 (HalpAddMcaToProcessorSpecificSection.c)
+ *     WheaInitializeRecordHeader @ 0x1405BCC30 (WheaInitializeRecordHeader.c)
  */
 
 __int64 __fastcall HalpCreateMcaProcessorErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

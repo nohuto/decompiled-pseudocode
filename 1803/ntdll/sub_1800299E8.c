@@ -14,67 +14,63 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-_QWORD *__fastcall sub_1800299E8(__int64 a1)
+void __fastcall sub_1800299E8(__int64 a1)
 {
   char v2; // r14
-  _QWORD *result; // rax
-  char *v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  _QWORD *v7; // rsi
-  volatile signed __int64 *v8; // rdi
-  unsigned __int8 *v9; // rbp
-  __int64 v10; // r15
-  __int128 v11; // xmm0
-  __int64 v12; // r8
-  _QWORD v13[15]; // [rsp+20h] [rbp-A8h] BYREF
+  _RTL_SRWLOCK *v3; // rax
+  _RTL_SRWLOCK *v4; // rsi
+  _RTL_SRWLOCK *v5; // rdi
+  unsigned __int8 *v6; // rbp
+  __int64 v7; // r15
+  __int128 v8; // xmm0
+  __int64 v9; // r8
+  _QWORD v10[15]; // [rsp+20h] [rbp-A8h] BYREF
 
   v2 = 0;
-  result = sub_180024300((_QWORD *)(a1 + 32));
-  v7 = result;
-  if ( result )
+  v3 = (_RTL_SRWLOCK *)sub_180024300((_QWORD *)(a1 + 32));
+  v4 = v3;
+  if ( v3 )
   {
-    v8 = result + 5;
-    RtlAcquireSRWLockShared(result + 5, v4, v5, v6);
-    *(_QWORD *)(a1 + 248) = v7;
+    v5 = v3 + 5;
+    RtlAcquireSRWLockShared(v3 + 5);
+    *(_QWORD *)(a1 + 248) = v4;
     sub_180082104(a1);
-    v9 = (unsigned __int8 *)(a1 + 150);
-    v10 = 4LL;
+    v6 = (unsigned __int8 *)(a1 + 150);
+    v7 = 4LL;
     do
     {
-      if ( *(v9 - 2) )
+      if ( *(v6 - 2) )
       {
         if ( (*(_WORD *)(a1 + 98) & 0x3FFF) == 2 || *(__int16 *)(a1 + 98) < 0 )
-          sub_180085C54(*v9, a1);
+          sub_180085C54(*v6, a1);
         v2 = 1;
       }
-      v9 += 24;
-      --v10;
+      v6 += 24;
+      --v7;
     }
-    while ( v10 );
+    while ( v7 );
     if ( v2 )
     {
       if ( (*(_WORD *)(a1 + 98) & 0x3FFF) == 2 )
       {
-        memset(v13, 0, sizeof(v13));
-        v11 = *(_OWORD *)(v7 + 3);
-        v13[13] = v7[19];
-        LODWORD(v13[14]) = *((_DWORD *)v7 + 40);
-        *(_OWORD *)&v13[5] = v11;
-        RtlReleaseSRWLockShared(v8);
-        LOBYTE(v12) = 1;
-        return (_QWORD *)sub_180081554(v13, a1, v12);
+        memset(v10, 0, sizeof(v10));
+        v8 = *(_OWORD *)&v4[3].Ptr;
+        v10[13] = v4[19].Ptr;
+        LODWORD(v10[14]) = v4[20].Ptr;
+        *(_OWORD *)&v10[5] = v8;
+        RtlReleaseSRWLockShared(v5);
+        LOBYTE(v9) = 1;
+        sub_180081554(v10, a1, v9);
       }
       else
       {
-        RtlReleaseSRWLockShared(v8);
-        return (_QWORD *)sub_1800834BC(a1);
+        RtlReleaseSRWLockShared(v5);
+        sub_1800834BC(a1);
       }
     }
     else
     {
-      return (_QWORD *)RtlReleaseSRWLockShared(v8);
+      RtlReleaseSRWLockShared(v5);
     }
   }
-  return result;
 }

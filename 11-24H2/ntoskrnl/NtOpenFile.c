@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenFile @ 0x14096CC60
+ * XREFs of NtOpenFile @ 0x1409556C0
  * Callers:
- *     DifNtOpenFileWrapper @ 0x140635970 (DifNtOpenFileWrapper.c)
+ *     DifNtOpenFileWrapper @ 0x140633F30 (DifNtOpenFileWrapper.c)
  * Callees:
- *     IopCreateFile @ 0x14096CD60 (IopCreateFile.c)
+ *     IopCreateFile @ 0x1409557C0 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall NtOpenFile(

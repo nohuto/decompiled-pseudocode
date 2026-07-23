@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpInterruptSetIdtEntry @ 0x14055A460
+ * XREFs of HalpInterruptSetIdtEntry @ 0x140558090
  * Callers:
- *     HalpInitializeInterruptsPn @ 0x140542178 (HalpInitializeInterruptsPn.c)
- *     HalpTimerClockActivate @ 0x140546980 (HalpTimerClockActivate.c)
- *     HalpTimerInitializeClock @ 0x140546CF4 (HalpTimerInitializeClock.c)
- *     HalpTimerInitializeClockPn @ 0x140546EE4 (HalpTimerInitializeClockPn.c)
- *     HalpTimerConfigureInterrupt @ 0x140547380 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerInitializeProfiling @ 0x140549DCC (HalpTimerInitializeProfiling.c)
- *     HalpTimerTestHypervisorTimer @ 0x14054A490 (HalpTimerTestHypervisorTimer.c)
- *     HalpConnectThermalInterrupt @ 0x140555ED0 (HalpConnectThermalInterrupt.c)
- *     HalpIommuInitInterrupts @ 0x140B4DA28 (HalpIommuInitInterrupts.c)
- *     HalpInitializeInterrupts @ 0x140C0DE18 (HalpInitializeInterrupts.c)
- *     IommupHvInitializeLibrary @ 0x140C14944 (IommupHvInitializeLibrary.c)
+ *     HalpInitializeInterruptsPn @ 0x14053FAC8 (HalpInitializeInterruptsPn.c)
+ *     HalpTimerClockActivate @ 0x140544240 (HalpTimerClockActivate.c)
+ *     HalpTimerInitializeClock @ 0x1405445B4 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitializeClockPn @ 0x1405447A4 (HalpTimerInitializeClockPn.c)
+ *     HalpTimerConfigureInterrupt @ 0x140544C40 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeProfiling @ 0x14054768C (HalpTimerInitializeProfiling.c)
+ *     HalpTimerTestHypervisorTimer @ 0x140547D50 (HalpTimerTestHypervisorTimer.c)
+ *     HalpConnectThermalInterrupt @ 0x140553810 (HalpConnectThermalInterrupt.c)
+ *     HalpIommuInitInterrupts @ 0x140B4FA78 (HalpIommuInitInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140C0FE18 (HalpInitializeInterrupts.c)
+ *     IommupHvInitializeLibrary @ 0x140C16944 (IommupHvInitializeLibrary.c)
  * Callees:
- *     HalpCreateInterrupt @ 0x14055A380 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x140557FB0 (HalpCreateInterrupt.c)
  */
 
 char *__fastcall HalpInterruptSetIdtEntry(
         unsigned __int8 a1,
-        __int64 (__fastcall *a2)(struct _KINTERRUPT *a1, void *a2, __int64 a3, __int64 a4),
+        __int64 (__fastcall *a2)(struct _KINTERRUPT *a1, void *a2),
         char a3,
         __int64 a4,
         __int64 a5)

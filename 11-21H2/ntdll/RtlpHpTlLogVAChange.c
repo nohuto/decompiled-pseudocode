@@ -15,7 +15,7 @@ void __fastcall RtlpHpTlLogVAChange(int a1, __int64 a2, __int64 a3, __int64 a4)
   int v6; // [rsp+30h] [rbp-29h] BYREF
   __int64 v7; // [rsp+38h] [rbp-21h] BYREF
   _QWORD v8[2]; // [rsp+40h] [rbp-19h] BYREF
-  char v9[32]; // [rsp+50h] [rbp-9h] BYREF
+  _EVENT_DATA_DESCRIPTOR v9; // [rsp+50h] [rbp-9h] BYREF
   __int64 *v10; // [rsp+70h] [rbp+17h]
   __int64 v11; // [rsp+78h] [rbp+1Fh]
   __int64 *v12; // [rsp+80h] [rbp+27h]
@@ -30,7 +30,7 @@ void __fastcall RtlpHpTlLogVAChange(int a1, __int64 a2, __int64 a3, __int64 a4)
         return;
       v8[0] = a2;
       v12 = &v7;
-      v5 = (unsigned __int8 *)&unk_180141E7A;
+      v5 = (unsigned __int8 *)&dword_180141E7A;
       goto LABEL_13;
     case 0x2000:
       if ( (unsigned int)dword_180174430 <= 5 )
@@ -64,6 +64,6 @@ LABEL_14:
     v13 = 8LL;
     v6 = a4;
     v15 = 4LL;
-    tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_180174430, v5, a3, a4, 5, (__int64)v9);
+    tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_180174430, v5, a3, a4, 5u, &v9);
   }
 }

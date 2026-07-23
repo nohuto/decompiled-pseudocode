@@ -1,21 +1,21 @@
 /*
- * XREFs of MiMapViewOfSectionExCommon @ 0x1409F1570
+ * XREFs of MiMapViewOfSectionExCommon @ 0x1409EDD40
  * Callers:
- *     PspMapView @ 0x14040EA20 (PspMapView.c)
- *     MmMapViewOfSectionEx @ 0x1404BCA5C (MmMapViewOfSectionEx.c)
- *     NtMapViewOfSectionEx @ 0x1409F12C0 (NtMapViewOfSectionEx.c)
+ *     MmMapViewOfSectionEx @ 0x1404B623C (MmMapViewOfSectionEx.c)
+ *     PspMapView @ 0x1404F533C (PspMapView.c)
+ *     NtMapViewOfSectionEx @ 0x1409EDA90 (NtMapViewOfSectionEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MiMapViewOfSectionCommon @ 0x1409C2EC0 (MiMapViewOfSectionCommon.c)
- *     MiMapViewOfSection @ 0x1409C31E8 (MiMapViewOfSection.c)
- *     DbgkMapViewOfSection @ 0x1409C37E4 (DbgkMapViewOfSection.c)
- *     MiMapExParametersInitialize @ 0x1409F1340 (MiMapExParametersInitialize.c)
- *     MiMapParametersInitialize @ 0x1409F1900 (MiMapParametersInitialize.c)
- *     MiCaptureAllocateMapExtendedParameters @ 0x1409F2644 (MiCaptureAllocateMapExtendedParameters.c)
- *     EtwTiLogMapExecView @ 0x140AC862C (EtwTiLogMapExecView.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MiMapViewOfSectionCommon @ 0x140993EA0 (MiMapViewOfSectionCommon.c)
+ *     MiMapViewOfSection @ 0x1409941C8 (MiMapViewOfSection.c)
+ *     DbgkMapViewOfSection @ 0x1409947C4 (DbgkMapViewOfSection.c)
+ *     MiMapExParametersInitialize @ 0x1409EDB10 (MiMapExParametersInitialize.c)
+ *     MiMapParametersInitialize @ 0x1409EE0D0 (MiMapParametersInitialize.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1409EEE14 (MiCaptureAllocateMapExtendedParameters.c)
+ *     EtwTiLogMapExecView @ 0x140ACA21C (EtwTiLogMapExecView.c)
  */
 
 __int64 __fastcall MiMapViewOfSectionExCommon(
@@ -91,14 +91,21 @@ __int64 __fastcall MiMapViewOfSectionExCommon(
                                       (__int64)v28,
                                       (unsigned __int64 *)v24,
                                       0LL,
-                                      (unsigned __int64 *)&v25,
+                                      &v25,
                                       1,
                                       0);
             v27 = MapExtendedParameters;
             if ( MapExtendedParameters >= 0 )
             {
               if ( (v30 & 4) != 0 )
-                DbgkMapViewOfSection((_KPROCESS *)Object[1], (__int64)Object[0], v24[0], v21, (__int64)v23, 0, 0);
+                DbgkMapViewOfSection(
+                  (_KPROCESS *)Object[1],
+                  (__int64)Object[0],
+                  (void *)v24[0],
+                  v21,
+                  (__int64)v23,
+                  0,
+                  0);
               v22 = Object[0];
               if ( (*((_DWORD *)Object[0] + 14) & 0x20) == 0 && (BYTE8(v25) & 2) != 0 )
               {
@@ -133,9 +140,9 @@ __int64 __fastcall MiMapViewOfSectionExCommon(
       }
     }
     if ( v24[0] )
-      ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[52];
+      ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[52];
     else
-      ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[48];
+      ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[48];
     if ( !a3 )
     {
       ObfDereferenceObjectWithTag(Object[0], 0x77566D4Du);
@@ -144,8 +151,8 @@ __int64 __fastcall MiMapViewOfSectionExCommon(
     return (unsigned int)MapExtendedParameters;
   }
   if ( v24[0] )
-    ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[52];
+    ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[52];
   else
-    ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[48];
+    ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[48];
   return result;
 }

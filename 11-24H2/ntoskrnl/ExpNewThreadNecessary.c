@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpNewThreadNecessary @ 0x140430080
+ * XREFs of ExpNewThreadNecessary @ 0x140421B30
  * Callers:
- *     ExpWorkQueueManagerThread @ 0x140A21D40 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x1408F84F0 (ExpWorkQueueManagerThread.c)
  * Callees:
  *     <none>
  */

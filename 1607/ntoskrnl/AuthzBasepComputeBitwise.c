@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepComputeBitwise @ 0x140234DC8
+ * XREFs of AuthzBasepComputeBitwise @ 0x140234BF4
  * Callers:
- *     AuthzBasepComputeExpression @ 0x140234E28 (AuthzBasepComputeExpression.c)
+ *     AuthzBasepComputeExpression @ 0x140234C54 (AuthzBasepComputeExpression.c)
  * Callees:
  *     <none>
  */

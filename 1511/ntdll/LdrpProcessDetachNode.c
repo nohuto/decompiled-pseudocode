@@ -20,7 +20,7 @@ void __fastcall LdrpProcessDetachNode(_QWORD **a1)
   __int64 v4; // rax
   __int64 v5; // rdx
   _QWORD *v6; // rcx
-  __int64 v7; // r15
+  _RTL_DYNAMIC_HASH_TABLE *v7; // r15
   __int64 v8; // [rsp+60h] [rbp-68h] BYREF
   int v9; // [rsp+68h] [rbp-60h]
   _BYTE v10[56]; // [rsp+70h] [rbp-58h] BYREF
@@ -41,7 +41,7 @@ void __fastcall LdrpProcessDetachNode(_QWORD **a1)
       *(_QWORD *)(v5 + 8) = v6;
       *(_QWORD *)v4 = 1LL;
     }
-    v7 = v3[7];
+    v7 = (_RTL_DYNAMIC_HASH_TABLE *)v3[7];
     if ( v7 && (v3[13] & 0x80000) != 0 )
     {
       if ( (LdrpDebugFlags & 5) != 0 )
@@ -57,7 +57,7 @@ void __fastcall LdrpProcessDetachNode(_QWORD **a1)
       RtlActivateActivationContextUnsafeFast(&v8, v3[17]);
       if ( *((_WORD *)v3 + 55) )
         LdrpCallTlsInitializers(0LL, i - 20);
-      LdrpCallInitRoutine(v7, v3[6], 0LL, 0LL);
+      LdrpCallInitRoutine(v7);
       RtlDeactivateActivationContextUnsafeFast(&v8);
     }
   }

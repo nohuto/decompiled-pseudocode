@@ -1,22 +1,22 @@
 /*
- * XREFs of ExAcquireSharedWaitForExclusive @ 0x140165E80
+ * XREFs of ExAcquireSharedWaitForExclusive @ 0x140165F80
  * Callers:
  *     FsRtlAcquireFileForModWriteEx @ 0x14001B150 (FsRtlAcquireFileForModWriteEx.c)
- *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14031B9C0 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14031BBB0 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpApplyPrewaitBoost @ 0x1400D1BD8 (ExpApplyPrewaitBoost.c)
- *     ExpFindEmptyEntry @ 0x140108214 (ExpFindEmptyEntry.c)
- *     ExpBoostIoAfterAcquire @ 0x140108270 (ExpBoostIoAfterAcquire.c)
- *     ExpFindCurrentThread @ 0x1401083C0 (ExpFindCurrentThread.c)
- *     ExpWaitForResource @ 0x1401138F0 (ExpWaitForResource.c)
- *     ExpGetThreadResourceHint @ 0x1401143A0 (ExpGetThreadResourceHint.c)
- *     ExpPrepareToWaitForResourceShared @ 0x140137E00 (ExpPrepareToWaitForResourceShared.c)
- *     ExpTryAcquireResourceShared @ 0x140166054 (ExpTryAcquireResourceShared.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     PerfLogExecutiveResourceAcquire @ 0x140313480 (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x140313948 (PerfLogExecutiveResourceWait.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpApplyPrewaitBoost @ 0x1400D1C58 (ExpApplyPrewaitBoost.c)
+ *     ExpFindEmptyEntry @ 0x140108294 (ExpFindEmptyEntry.c)
+ *     ExpBoostIoAfterAcquire @ 0x1401082F0 (ExpBoostIoAfterAcquire.c)
+ *     ExpFindCurrentThread @ 0x140108440 (ExpFindCurrentThread.c)
+ *     ExpWaitForResource @ 0x140113960 (ExpWaitForResource.c)
+ *     ExpGetThreadResourceHint @ 0x140114410 (ExpGetThreadResourceHint.c)
+ *     ExpPrepareToWaitForResourceShared @ 0x140137F00 (ExpPrepareToWaitForResourceShared.c)
+ *     ExpTryAcquireResourceShared @ 0x140166154 (ExpTryAcquireResourceShared.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x140313670 (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x140313B38 (PerfLogExecutiveResourceWait.c)
  */
 
 BOOLEAN __stdcall ExAcquireSharedWaitForExclusive(PERESOURCE Resource, BOOLEAN Wait)

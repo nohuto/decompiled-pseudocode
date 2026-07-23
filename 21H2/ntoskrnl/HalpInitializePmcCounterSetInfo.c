@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializePmcCounterSetInfo @ 0x140A39690
+ * XREFs of HalpInitializePmcCounterSetInfo @ 0x140A3A690
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x14099B540 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x14099C540 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     HalpMmAllocatePerProcessorMemory @ 0x1403A8B44 (HalpMmAllocatePerProcessorMemory.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     HalpMmAllocatePerProcessorMemory @ 0x1403A98D4 (HalpMmAllocatePerProcessorMemory.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 void *__fastcall HalpInitializePmcCounterSetInfo(__int64 a1)

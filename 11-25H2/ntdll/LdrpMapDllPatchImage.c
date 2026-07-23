@@ -11,7 +11,7 @@
 __int64 __fastcall LdrpMapDllPatchImage(__int64 a1)
 {
   __int64 v2; // rdx
-  int v3; // edi
+  NTSTATUS v3; // edi
   _DWORD v5[6]; // [rsp+20h] [rbp-30h] BYREF
   unsigned __int64 v6; // [rsp+38h] [rbp-18h]
   HANDLE Handle; // [rsp+40h] [rbp-10h]

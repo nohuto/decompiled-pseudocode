@@ -1,22 +1,22 @@
 /*
  * XREFs of NtFreeVirtualMemory @ 0x1407B98F0
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x1409B75F8 (RtlpInitializeStackTraceDatabase.c)
+ *     sub_1409B75F8 @ 0x1409B75F8 (sub_1409B75F8.c)
  * Callees:
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
+ *     sub_1407B99C0 @ 0x1407B99C0 (sub_1407B99C0.c)
  */
 
 NTSTATUS __stdcall NtFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)
 {
-  char PreviousMode; // dl
+  char v7; // dl
   __int64 v8; // rcx
   __int64 v9; // rcx
   NTSTATUS result; // eax
   ULONG_PTR v11; // [rsp+38h] [rbp-20h]
   PVOID v12; // [rsp+40h] [rbp-18h]
 
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode )
+  v7 = *((_BYTE *)KeGetCurrentThread() + 562);
+  if ( v7 )
   {
     v8 = (__int64)BaseAddress;
     if ( (unsigned __int64)BaseAddress >= 0x7FFFFFFF0000LL )
@@ -29,7 +29,7 @@ NTSTATUS __stdcall NtFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress,
   }
   v12 = *BaseAddress;
   v11 = *RegionSize;
-  result = MmFreeVirtualMemory((ULONG_PTR)ProcessHandle, PreviousMode, 0);
+  result = sub_1407B99C0((ULONG_PTR)ProcessHandle, v7, 0);
   if ( result >= 0 )
   {
     *RegionSize = v11;

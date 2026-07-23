@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140B30C64
+ * XREFs of PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140B32E64
  * Callers:
- *     PsSetLoadImageNotifyRoutineEx @ 0x140B30BB0 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140B32DB0 (PsSetLoadImageNotifyRoutineEx.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PspLogAuditSetLoadImageNotifyRoutineEvent(__int64 a1, int a2)
@@ -18,18 +18,13 @@ NTSTATUS __fastcall PspLogAuditSetLoadImageNotifyRoutineEvent(__int64 a1, int a2
 
   v7 = a2;
   v6 = a1;
-  if ( EtwpSecurityLock.MutantListHead.Flink )
+  if ( EtwApiCallsProvRegHandle )
   {
     *(_QWORD *)&v3.Size = 8LL;
     v3.Ptr = (ULONGLONG)&v6;
     v5 = 4LL;
     v4 = &v7;
-    return EtwWrite(
-             (REGHANDLE)EtwpSecurityLock.MutantListHead.Flink,
-             &KERNEL_AUDIT_API_PSSETLOADIMAGENOTIFYROUTINE,
-             0LL,
-             2u,
-             &v3);
+    return EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_PSSETLOADIMAGENOTIFYROUTINE, 0LL, 2u, &v3);
   }
   return result;
 }

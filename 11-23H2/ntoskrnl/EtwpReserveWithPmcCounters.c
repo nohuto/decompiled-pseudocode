@@ -1,16 +1,22 @@
 /*
- * XREFs of EtwpReserveWithPmcCounters @ 0x140467EB8
+ * XREFs of EtwpReserveWithPmcCounters @ 0x1404682B8
  * Callers:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     EtwpLogContextSwapEvent @ 0x14038A430 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     EtwpLogContextSwapEvent @ 0x14038A610 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x140234100 (EtwpReserveTraceBuffer.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpReserveTraceBuffer @ 0x1402341D0 (EtwpReserveTraceBuffer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
-__int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __int64 a4, __int64 *a5, __int16 a6)
+__int64 __fastcall EtwpReserveWithPmcCounters(
+        __int64 a1,
+        __int16 a2,
+        int a3,
+        __int64 a4,
+        LARGE_INTEGER *a5,
+        __int16 a6)
 {
   int v8; // r13d
   unsigned int v9; // r14d
@@ -42,9 +48,9 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   {
     v11 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         v13 = 4;
@@ -58,7 +64,7 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   v15 = v14;
   if ( v14 )
   {
-    *(_QWORD *)(v14 + 8) = *a5;
+    *(LARGE_INTEGER *)(v14 + 8) = *a5;
     *(_WORD *)(v14 + 4) = v9;
     *(_WORD *)(v14 + 6) = a2;
     *(_DWORD *)v14 = (unsigned __int8)a6 | ((unsigned __int8)v8 << 8) | 0xC0110000;
@@ -69,10 +75,10 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
       memset((void *)(v14 + 16), 0, 8LL * (unsigned __int8)v8);
     if ( CurrentIrql < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v25 = CurrentPrcb->SchedulerAssist;
@@ -80,7 +86,7 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
           v20 = (v26 & v25[5]) == 0;
           v25[5] &= v26;
           if ( v20 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(CurrentIrql);
@@ -91,10 +97,10 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   {
     if ( CurrentIrql < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v16 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v16 - 2) <= 0xDu )
         {
           v17 = KeGetCurrentPrcb();
           v18 = v17->SchedulerAssist;
@@ -102,7 +108,7 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
           v20 = (v19 & v18[5]) == 0;
           v18[5] &= v19;
           if ( v20 )
-            KiRemoveSystemWorkPriorityKick(v17);
+            KiRemoveSystemWorkPriorityKick((__int64)v17);
         }
       }
       __writecr8(CurrentIrql);

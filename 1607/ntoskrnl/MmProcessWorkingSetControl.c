@@ -1,21 +1,21 @@
 /*
- * XREFs of MmProcessWorkingSetControl @ 0x14054BAF8
+ * XREFs of MmProcessWorkingSetControl @ 0x14054C038
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     VmpPauseResumeNotify @ 0x14069B5D4 (VmpPauseResumeNotify.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     VmpPauseResumeNotify @ 0x14069B6B8 (VmpPauseResumeNotify.c)
  * Callees:
- *     MiEmptyWorkingSet @ 0x140015ED4 (MiEmptyWorkingSet.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140133E5C (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiLogWsEmptyControl @ 0x14013402C (MiLogWsEmptyControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     SmStoreCompressionStop @ 0x14054BCFC (SmStoreCompressionStop.c)
- *     SmStoreCompressionStart @ 0x14054BD68 (SmStoreCompressionStart.c)
- *     PsSwapProcessWorkingSet @ 0x14067D48C (PsSwapProcessWorkingSet.c)
+ *     MiEmptyWorkingSet @ 0x140015A54 (MiEmptyWorkingSet.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1401343CC (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiLogWsEmptyControl @ 0x14013459C (MiLogWsEmptyControl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     SmStoreCompressionStop @ 0x14054C23C (SmStoreCompressionStop.c)
+ *     SmStoreCompressionStart @ 0x14054C2A8 (SmStoreCompressionStart.c)
+ *     PsSwapProcessWorkingSet @ 0x14067D570 (PsSwapProcessWorkingSet.c)
  */
 
 NTSTATUS __fastcall MmProcessWorkingSetControl(HANDLE Handle, __int64 *a2, unsigned int a3, KPROCESSOR_MODE a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalInitSystem @ 0x140B4B6C0
+ * XREFs of HalInitSystem @ 0x140B4D700
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpInitSystemPhase1 @ 0x140B4B7C4 (HalpInitSystemPhase1.c)
- *     __security_init_cookie @ 0x140BDEC0C (__security_init_cookie.c)
- *     HalpInitSystemPhase0 @ 0x140C0D74C (HalpInitSystemPhase0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpInitSystemPhase1 @ 0x140B4D804 (HalpInitSystemPhase1.c)
+ *     __security_init_cookie @ 0x140BE0C0C (__security_init_cookie.c)
+ *     HalpInitSystemPhase0 @ 0x140C0F74C (HalpInitSystemPhase0.c)
  */
 
 __int64 __fastcall HalInitSystem(ULONG_PTR BugCheckParameter3, __int64 a2)

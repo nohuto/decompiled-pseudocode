@@ -1,17 +1,22 @@
 /*
- * XREFs of DifZwCreateDirectoryObjectExWrapper @ 0x14069E8A0
+ * XREFs of DifZwCreateDirectoryObjectExWrapper @ 0x1406A2480
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCreateDirectoryObjectEx @ 0x140724990 (ZwCreateDirectoryObjectEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCreateDirectoryObjectEx @ 0x140729560 (ZwCreateDirectoryObjectEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwCreateDirectoryObjectExWrapper(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, int a5)
+__int64 __fastcall DifZwCreateDirectoryObjectExWrapper(
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        void *a4,
+        ULONG Flags)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -47,7 +52,7 @@ __int64 __fastcall DifZwCreateDirectoryObjectExWrapper(__int64 a1, unsigned int 
     }
     v12 = 0;
     *((_QWORD *)&v20 + 1) = a1;
-    DWORD2(v18) = a5;
+    DWORD2(v18) = Flags;
     LODWORD(v20) = a2;
     *((_QWORD *)&v19 + 1) = a3;
     *(_QWORD *)&v19 = a4;
@@ -63,7 +68,7 @@ __int64 __fastcall DifZwCreateDirectoryObjectExWrapper(__int64 a1, unsigned int 
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v21) = ZwCreateDirectoryObjectEx(a1, a2, a3, a4, a5);
+  LODWORD(v21) = ZwCreateDirectoryObjectEx(a1, a2, a3, a4, Flags);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

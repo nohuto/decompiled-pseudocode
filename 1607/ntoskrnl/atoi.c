@@ -1,9 +1,9 @@
 /*
- * XREFs of atoi @ 0x14014CFA8
+ * XREFs of atoi @ 0x14014D518
  * Callers:
  *     KiInitializeBootStructures @ 0x1403D4E7C (KiInitializeBootStructures.c)
  * Callees:
- *     strtolX @ 0x14014F810 (strtolX.c)
+ *     strtolX @ 0x14014FDD0 (strtolX.c)
  */
 
 int __cdecl atoi(const char *Str)

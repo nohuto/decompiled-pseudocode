@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockVadShared @ 0x14027EC50
+ * XREFs of MiUnlockVadShared @ 0x14027E1C0
  * Callers:
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiHotPatchProcess @ 0x140870248 (MiHotPatchProcess.c)
- *     NtAreMappedFilesTheSame @ 0x140961230 (NtAreMappedFilesTheSame.c)
- *     MmIsFileMapped @ 0x1409706E8 (MmIsFileMapped.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A7CF90 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiReferenceCfgVad @ 0x140AF0820 (MiReferenceCfgVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiHotPatchProcess @ 0x1408765A8 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x1409BCA98 (MmIsFileMapped.c)
+ *     NtAreMappedFilesTheSame @ 0x140A06AE0 (NtAreMappedFilesTheSame.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A82E00 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiReferenceCfgVad @ 0x140AF33F0 (MiReferenceCfgVad.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
  */
 
 void __fastcall MiUnlockVadShared(__int64 a1, __int64 a2)

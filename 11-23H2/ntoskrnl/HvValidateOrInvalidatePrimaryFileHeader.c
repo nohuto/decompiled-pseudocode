@@ -1,11 +1,11 @@
 /*
- * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x14074D8BC
+ * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x14074DAAC
  * Callers:
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     CmpFileFlushAndPurge @ 0x140750BC4 (CmpFileFlushAndPurge.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     CmpFileFlushAndPurge @ 0x140750DB4 (CmpFileFlushAndPurge.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     HvpHeaderCheckSum @ 0x140AF5640 (HvpHeaderCheckSum.c)

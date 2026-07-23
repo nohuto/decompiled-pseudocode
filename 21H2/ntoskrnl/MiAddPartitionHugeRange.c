@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAddPartitionHugeRange @ 0x140532798
+ * XREFs of MiAddPartitionHugeRange @ 0x1405329D8
  * Callers:
- *     MiHotAddHugeRange @ 0x1408C69B8 (MiHotAddHugeRange.c)
+ *     MiHotAddHugeRange @ 0x1408C6B18 (MiHotAddHugeRange.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnlockDynamicMemoryShared @ 0x14029BEF0 (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1402A72BC (MiLockDynamicMemoryShared.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     MiInsertHugeRangeInList @ 0x140533608 (MiInsertHugeRangeInList.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402138C0 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockDynamicMemoryShared @ 0x1402253FC (MiLockDynamicMemoryShared.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     MiInsertHugeRangeInList @ 0x140533848 (MiInsertHugeRangeInList.c)
  */
 
 __int64 __fastcall MiAddPartitionHugeRange(__int64 a1, __int64 a2, int a3)
@@ -65,18 +65,18 @@ __int64 __fastcall MiAddPartitionHugeRange(__int64 a1, __int64 a2, int a3)
   v12 = (*(_QWORD *)(a2 + 24) >> 18) & 0x3FFFFLL;
   v13 = *(_QWORD *)(a2 + 32) >> 18;
   v14 = 0x80200000C0000LL;
-  KeAcquireInStackQueuedSpinLock(&qword_140C4E680, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E6C0, &LockHandle);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4128), &v23);
   v15 = v13 & 0x3FFFF;
-  if ( v12 >= qword_140C4E660 )
+  if ( v12 >= qword_140C4E6A0 )
     goto LABEL_13;
   if ( v15 > 1 )
   {
-    if ( qword_140C4E660 - v12 < v15 )
+    if ( qword_140C4E6A0 - v12 < v15 )
       goto LABEL_13;
-    v17 = (__int64 *)(qword_140C4E668 + 8 * (v12 >> 6));
+    v17 = (__int64 *)(qword_140C4E6A8 + 8 * (v12 >> 6));
     v18 = *v17;
-    v19 = qword_140C4E668 + 8 * ((v12 + v15 - 1) >> 6);
+    v19 = qword_140C4E6A8 + 8 * ((v12 + v15 - 1) >> 6);
     if ( v17 != (__int64 *)v19 )
     {
       for ( i = (v18 & (-1LL << v12)) == 0; i; i = *v17 == 0 )
@@ -99,17 +99,17 @@ LABEL_13:
       return 3221225496LL;
     }
   }
-  else if ( v15 != 1 || _bittest64((const signed __int64 *)qword_140C4E668, v12) )
+  else if ( v15 != 1 || _bittest64((const signed __int64 *)qword_140C4E6A8, v12) )
   {
     goto LABEL_13;
   }
-  RtlSetBitsEx((__int64)&qword_140C4E660, v12, v15);
-  memset64((void *)(qword_140C4E670 + 8 * v12), 0x80200000C0000uLL, v15);
+  RtlSetBitsEx((__int64)&qword_140C4E6A0, v12, v15);
+  memset64((void *)(qword_140C4E6B0 + 8 * v12), 0x80200000C0000uLL, v15);
   KeReleaseInStackQueuedSpinLock(&v23);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( a3 == 3 )
     v14 = ((unsigned __int64)(*(_WORD *)a1 & 0x7FF) << 41) | 0xC0000;
-  v22 = (unsigned __int64 *)(qword_140C4E670 + 8 * v12);
+  v22 = (unsigned __int64 *)(qword_140C4E6B0 + 8 * v12);
   if ( a3 == 3 )
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4128), &v23);
   do

@@ -1,24 +1,24 @@
 /*
- * XREFs of IopMemInitialize @ 0x1407379B8
+ * XREFs of IopMemInitialize @ 0x140738BA8
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ArbAddMmConfigRangeAsBootReserved @ 0x140737BE0 (ArbAddMmConfigRangeAsBootReserved.c)
- *     RtlAddRange @ 0x1407386F0 (RtlAddRange.c)
- *     ArbAddInaccessibleAllocationRange @ 0x140738F40 (ArbAddInaccessibleAllocationRange.c)
- *     ArbInitializeArbiterInstance @ 0x14073911C (ArbInitializeArbiterInstance.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x140738DD0 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     RtlAddRange @ 0x1407398E0 (RtlAddRange.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x14073A130 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbInitializeArbiterInstance @ 0x14073A30C (ArbInitializeArbiterInstance.c)
  */
 
 int __fastcall IopMemInitialize(__int64 a1, int a2)
 {
   int result; // eax
 
-  qword_1404348D8 = (__int64)&IopGenericUnpackRequirement;
-  qword_1404348E0 = (__int64)IopGenericPackResource;
-  qword_1404348E8 = (__int64)IopGenericUnpackResource;
-  qword_1404348F0 = (__int64)IopGenericScoreRequirement;
-  qword_140434958 = (__int64)IopMemFindSuitableRange;
-  qword_140434928 = (__int64)IopMemQueryConflict;
+  qword_140435978 = (__int64)&IopGenericUnpackRequirement;
+  qword_140435980 = (__int64)IopGenericPackResource;
+  qword_140435988 = (__int64)IopGenericUnpackResource;
+  qword_140435990 = (__int64)IopGenericScoreRequirement;
+  qword_1404359F8 = (__int64)IopMemFindSuitableRange;
+  qword_1404359C8 = (__int64)IopMemQueryConflict;
   result = ArbInitializeArbiterInstance((unsigned int)&IopRootMemArbiter, a2, 3, (unsigned int)L"RootMemory");
   if ( result >= 0 )
   {

@@ -15,7 +15,7 @@ NTSTATUS __fastcall IopGetFileVolumeNameInformation(void *a1, __int64 a2, _DWORD
   unsigned int Length; // esi
   unsigned int v9; // ebx
   ULONG ReturnLength[4]; // [rsp+20h] [rbp-248h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-238h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-238h] BYREF
 
   ReturnLength[0] = 0;
   v6 = a4 - 4;

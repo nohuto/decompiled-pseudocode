@@ -57,7 +57,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 v39; // rax
   int v40; // edi
   int v41; // r8d
-  __int64 Heap; // rbx
+  char *Heap; // rbx
   __int64 v43; // rax
   __int64 v44; // rax
   __int64 v45; // rdx
@@ -96,7 +96,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 v78; // rdx
   __int64 v79; // rcx
   unsigned int v80; // [rsp+40h] [rbp-188h]
-  __int64 v81; // [rsp+48h] [rbp-180h]
+  char *BaseAddress; // [rsp+48h] [rbp-180h]
   unsigned __int64 v82; // [rsp+50h] [rbp-178h] BYREF
   char v83; // [rsp+58h] [rbp-170h]
   unsigned __int16 v84; // [rsp+5Ch] [rbp-16Ch]
@@ -116,7 +116,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   unsigned __int64 v98; // [rsp+B0h] [rbp-118h]
   int v99; // [rsp+B8h] [rbp-110h]
   unsigned __int64 v100; // [rsp+C0h] [rbp-108h]
-  unsigned int *v101; // [rsp+C8h] [rbp-100h]
+  char *v101; // [rsp+C8h] [rbp-100h]
   HANDLE Handle; // [rsp+D0h] [rbp-F8h]
   __int64 v103; // [rsp+D8h] [rbp-F0h]
   __int64 v104; // [rsp+E0h] [rbp-E8h]
@@ -154,14 +154,14 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   v92 = 0;
   LOWORD(v17) = 0;
   v91 = 0LL;
-  v81 = 0LL;
+  BaseAddress = 0LL;
   v90 = 0;
   v84 = 0;
   LODWORD(v115[0]) = 5636180;
   v115[1] = L"LdrpResSearchResourceInsideDirectory Enter";
   v117 = 5505106;
   v118 = L"LdrpResSearchResourceInsideDirectory Exit";
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
     v18 = (__int64)NtCurrentPeb()->SharedData + 555;
     v90 = v84;
@@ -173,7 +173,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   }
   if ( (*(_BYTE *)v18 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
       v79 = (__int64)NtCurrentPeb()->SharedData + 554;
       v90 = v84;
@@ -285,7 +285,7 @@ LABEL_177:
   }
   v31 = (char *)(v25 + 16);
   v104 = v25 + 16;
-  v101 = (unsigned int *)(v25 + 16);
+  v101 = (char *)(v25 + 16);
   if ( (v91 & 0xFFFFFFFFFFFF0000uLL) == 0 )
   {
     if ( v30 )
@@ -298,7 +298,7 @@ LABEL_177:
       }
       v31 += 8 * v30;
       v104 = (__int64)v31;
-      v101 = (unsigned int *)v31;
+      v101 = v31;
     }
     v30 = HIWORD(v119);
     if ( v23 != 34816 )
@@ -322,13 +322,13 @@ LABEL_177:
   }
   if ( v23 != 34816 )
     goto LABEL_34;
-  if ( v81 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v81);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     v30 = v87;
   }
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 8LL * v30);
-  v81 = Heap;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * v30);
+  BaseAddress = Heap;
   if ( !Heap )
   {
     v80 = -1073741801;
@@ -338,9 +338,9 @@ LABEL_177:
   result = LdrpResReadFile(Handle);
   if ( (int)result >= 0 )
   {
-    v31 = (char *)Heap;
-    v104 = Heap;
-    v101 = (unsigned int *)Heap;
+    v31 = Heap;
+    v104 = (__int64)Heap;
+    v101 = Heap;
     LOBYTE(v21) = a12;
     v85 = a12;
     v90 = v84;
@@ -374,7 +374,7 @@ LABEL_35:
     v25 = 0LL;
     v97 = 0LL;
     v33 = (unsigned int *)v31;
-    v101 = (unsigned int *)v31;
+    v101 = v31;
     v34 = (unsigned int *)&v31[8 * v30 - 8];
     v110 = v34;
     v35 = v30;
@@ -503,17 +503,17 @@ LABEL_184:
 LABEL_183:
             v80 = -1073741701;
 LABEL_52:
-            Heap = v81;
+            Heap = BaseAddress;
 LABEL_53:
             if ( Heap )
-              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v81);
-            if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+            if ( RtlGetCurrentServiceSessionId() )
               v43 = (__int64)NtCurrentPeb()->SharedData + 555;
             else
               v43 = 2147353477LL;
             if ( (*(_BYTE *)v43 & 1) != 0 )
             {
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              if ( RtlGetCurrentServiceSessionId() )
                 v44 = (__int64)NtCurrentPeb()->SharedData + 554;
               else
                 v44 = 2147353476LL;
@@ -821,7 +821,7 @@ LABEL_81:
       v13 = v98;
     }
     v33 = v49 + 2;
-    v101 = v49 + 2;
+    v101 = (char *)(v49 + 2);
     v87 = v36;
     v34 = v110;
 LABEL_80:

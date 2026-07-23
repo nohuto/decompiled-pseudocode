@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuUnmapDevice @ 0x140564BD0
+ * XREFs of IommuUnmapDevice @ 0x140562800
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDeleteDevice @ 0x14054DC10 (HalpIommuDeleteDevice.c)
- *     IommupUnmapDeviceInternal @ 0x1405651A8 (IommupUnmapDeviceInternal.c)
+ *     HalpIommuDeleteDevice @ 0x14054B4BC (HalpIommuDeleteDevice.c)
+ *     IommupUnmapDeviceInternal @ 0x140562DD8 (IommupUnmapDeviceInternal.c)
  */
 
 __int64 __fastcall IommuUnmapDevice(_QWORD *a1, __int64 *a2)

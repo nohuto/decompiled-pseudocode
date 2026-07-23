@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpMergeKeyValues @ 0x1407E1F94
+ * XREFs of CmpMergeKeyValues @ 0x1407E24E4
  * Callers:
- *     CmSaveMergedKeys @ 0x1407CE060 (CmSaveMergedKeys.c)
- *     CmpCopySyncTree2 @ 0x1408838F4 (CmpCopySyncTree2.c)
+ *     CmSaveMergedKeys @ 0x1407CE550 (CmSaveMergedKeys.c)
+ *     CmpCopySyncTree2 @ 0x1408877A4 (CmpCopySyncTree2.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpSyncKeyValues @ 0x1407E2A84 (CmpSyncKeyValues.c)
- *     CmpFindNameInListWithStatus @ 0x14086C510 (CmpFindNameInListWithStatus.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpAddValueToListEx @ 0x14088137C (CmpAddValueToListEx.c)
- *     CmpCopyValue @ 0x1408816B4 (CmpCopyValue.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpInitializeValueNameString @ 0x1409FF384 (CmpInitializeValueNameString.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpSyncKeyValues @ 0x1407E2FD4 (CmpSyncKeyValues.c)
+ *     CmpFindNameInListWithStatus @ 0x140870840 (CmpFindNameInListWithStatus.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpAddValueToListEx @ 0x14088522C (CmpAddValueToListEx.c)
+ *     CmpCopyValue @ 0x140885564 (CmpCopyValue.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpInitializeValueNameString @ 0x1409F82CC (CmpInitializeValueNameString.c)
  */
 
 __int64 __fastcall CmpMergeKeyValues(
@@ -67,7 +67,7 @@ __int64 __fastcall CmpMergeKeyValues(
     LODWORD(a6) = a3[9];
     if ( !(_DWORD)a6 )
       return 0;
-    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, 0x7FFFuLL, 0x20204D43u);
     if ( Pool )
     {
       if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )

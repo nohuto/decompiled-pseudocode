@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsSrsoMitigationEnabled @ 0x1401B46DC
+ * XREFs of KiIsSrsoMitigationEnabled @ 0x1401B481C
  * Callers:
- *     KiUpdateSpeculationControl @ 0x1400F8330 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x1400F83B0 (KiUpdateSpeculationControl.c)
  * Callees:
  *     <none>
  */

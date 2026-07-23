@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlLCIDToCultureName @ 0x140688F04
+ * XREFs of RtlLCIDToCultureName @ 0x140688FE8
  * Callers:
- *     RtlpGetNameFromLangInfoNode @ 0x140140288 (RtlpGetNameFromLangInfoNode.c)
- *     PnpGetDevicePropertyData @ 0x1404F7610 (PnpGetDevicePropertyData.c)
- *     PnpSetDevicePropertyData @ 0x14054D39C (PnpSetDevicePropertyData.c)
- *     _RtlpMuiRegValidateInstalled @ 0x140560D70 (_RtlpMuiRegValidateInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1405613F4 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     PnpSetDeviceInterfacePropertyData @ 0x1405702EC (PnpSetDeviceInterfacePropertyData.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x14062E2D4 (PnpGetDeviceInterfacePropertyData.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E688C (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x1406E70F8 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1406E7C88 (_RtlpMuiRegPopulateBaseLanguages.c)
- *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x1406E80D4 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x1401407F8 (RtlpGetNameFromLangInfoNode.c)
+ *     PnpGetDevicePropertyData @ 0x1404DA59C (PnpGetDevicePropertyData.c)
+ *     PnpSetDevicePropertyData @ 0x14054D73C (PnpSetDevicePropertyData.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x1405612B0 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140561934 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14057082C (PnpSetDeviceInterfacePropertyData.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x14062E388 (PnpGetDeviceInterfacePropertyData.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E69C4 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x1406E7230 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x1406E7DC0 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x1406E820C (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     DownLevelLangIDToLanguageName @ 0x1401323C4 (DownLevelLangIDToLanguageName.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     DownLevelLangIDToLanguageName @ 0x140132934 (DownLevelLangIDToLanguageName.c)
  */
 
-char __fastcall RtlLCIDToCultureName(int a1, UNICODE_STRING *a2)
+BOOLEAN __cdecl RtlLCIDToCultureName(LCID Lcid, PUNICODE_STRING String)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int16 v4; // di
 
   v2 = 0;
-  v4 = a1;
-  if ( a1 )
+  v4 = Lcid;
+  if ( Lcid )
   {
-    if ( a2 )
+    if ( String )
     {
-      if ( a1 != 4096 )
+      if ( Lcid != 4096 )
       {
         DbgPrint("!!! RTLMUI: Reusing LocaleBuffer !!!");
         if ( (int)DownLevelLangIDToLanguageName(v4, word_140356030, 64, 2) > 0 )
         {
-          RtlInitUnicodeString(a2, word_140356030);
+          RtlInitUnicodeString(String, word_140356030);
           return 1;
         }
       }

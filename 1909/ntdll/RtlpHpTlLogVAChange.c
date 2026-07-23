@@ -25,7 +25,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
   switch ( a1 )
   {
     case 0x1000:
-      if ( dword_18015F5C8 > 5u )
+      if ( (unsigned int)dword_18015F5C8 > 5 )
       {
         v7[0] = a2;
         v6 = a3;
@@ -40,7 +40,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
       }
       break;
     case 0x2000:
-      if ( dword_18015F5C8 > 5u )
+      if ( (unsigned int)dword_18015F5C8 > 5 )
       {
         v7[0] = a2;
         v6 = a3;
@@ -55,7 +55,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
       }
       break;
     case 0x4000:
-      if ( dword_18015F5C8 > 5u )
+      if ( (unsigned int)dword_18015F5C8 > 5 )
       {
         v7[0] = a2;
         v6 = a3;
@@ -70,7 +70,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
       }
       break;
     default:
-      if ( a1 == 0x8000 && dword_18015F5C8 > 5u )
+      if ( a1 == 0x8000 && (unsigned int)dword_18015F5C8 > 5 )
       {
         v6 = a2;
         v7[0] = a3;

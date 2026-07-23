@@ -12,14 +12,14 @@
  *     _RtlpTpIoLookup@12 @ 0x4B385A3D (_RtlpTpIoLookup@12.c)
  */
 
-int __fastcall RtlpTpIoLookup(int **a1, unsigned int a2, int a3)
+NTSTATUS __fastcall RtlpTpIoLookup(unsigned __int8 **a1, unsigned int a2, HANDLE FileHandle)
 {
-  int v4; // edi
-  int v5; // ebx
-  int *v6; // esi
-  int v7; // eax
-  int *v8; // eax
-  int *v11; // [esp+18h] [ebp-1Ch] BYREF
+  PRTL_SPLAY_LINKS v4; // edi
+  NTSTATUS v5; // ebx
+  unsigned __int8 *p_LeftChild; // esi
+  _RTL_SPLAY_LINKS *RightChild; // eax
+  unsigned __int8 *v8; // eax
+  unsigned __int8 *v11; // [esp+18h] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
   v11 = 0;
@@ -30,56 +30,56 @@ int __fastcall RtlpTpIoLookup(int **a1, unsigned int a2, int a3)
   {
     while ( 1 )
     {
-      v6 = (int *)(v4 - 56);
-      v11 = (int *)(v4 - 56);
-      if ( *(_DWORD *)(v4 - 56) == a2 )
+      p_LeftChild = (unsigned __int8 *)&v4[-5].LeftChild;
+      v11 = (unsigned __int8 *)&v4[-5].LeftChild;
+      if ( v4[-5].LeftChild == (_RTL_SPLAY_LINKS *)a2 )
         break;
-      if ( *(_DWORD *)(v4 - 56) <= a2 )
+      if ( v4[-5].LeftChild <= (_RTL_SPLAY_LINKS *)a2 )
       {
-        v7 = *(_DWORD *)(v4 + 8);
-        if ( !v7 )
+        RightChild = v4->RightChild;
+        if ( !RightChild )
         {
-          v5 = RtlpTpIoAlloc((int *)&v11, a2, a3);
-          v6 = v11;
+          v5 = RtlpTpIoAlloc(&v11, a2, FileHandle);
+          p_LeftChild = v11;
           if ( !v11 )
             goto LABEL_14;
-          v8 = v11 + 14;
-          *(_DWORD *)(v4 + 8) = v11 + 14;
+          v8 = v11 + 56;
+          v4->RightChild = (_RTL_SPLAY_LINKS *)(v11 + 56);
           goto LABEL_13;
         }
       }
       else
       {
-        v7 = *(_DWORD *)(v4 + 4);
-        if ( !v7 )
+        RightChild = v4->LeftChild;
+        if ( !RightChild )
         {
-          v5 = RtlpTpIoAlloc((int *)&v11, a2, a3);
-          v6 = v11;
+          v5 = RtlpTpIoAlloc(&v11, a2, FileHandle);
+          p_LeftChild = v11;
           if ( !v11 )
             goto LABEL_14;
-          v8 = v11 + 14;
-          *(_DWORD *)(v4 + 4) = v11 + 14;
+          v8 = v11 + 56;
+          v4->LeftChild = (_RTL_SPLAY_LINKS *)(v11 + 56);
 LABEL_13:
-          *v8 = v4;
+          *(_DWORD *)v8 = v4;
           goto LABEL_14;
         }
       }
-      v4 = v7;
+      v4 = RightChild;
     }
-    v5 = TpBindFileToDirect(a3, (int)(v6 + 1), v6[12]);
+    v5 = TpBindFileToDirect(FileHandle, (int)(p_LeftChild + 4), *((_DWORD *)p_LeftChild + 12));
     if ( v5 >= 0 )
-      ++v6[13];
+      ++*((_DWORD *)p_LeftChild + 13);
   }
   else
   {
-    v5 = RtlpTpIoAlloc((int *)&v11, a2, a3);
-    v6 = v11;
+    v5 = RtlpTpIoAlloc(&v11, a2, FileHandle);
+    p_LeftChild = v11;
   }
 LABEL_14:
   ms_exc.registration.TryLevel = -2;
-  if ( v6 && (int *)RtlpTpIoTree != v6 + 14 )
-    RtlpTpIoTree = (int)RtlSplay(v6 + 14);
+  if ( p_LeftChild && RtlpTpIoTree != (PRTL_SPLAY_LINKS)(p_LeftChild + 56) )
+    RtlpTpIoTree = RtlSplay((PRTL_SPLAY_LINKS)(p_LeftChild + 56));
   RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
-  *a1 = v6;
+  *a1 = p_LeftChild;
   return v5;
 }

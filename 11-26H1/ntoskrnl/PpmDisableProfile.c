@@ -1,21 +1,21 @@
 /*
- * XREFs of PpmDisableProfile @ 0x140A9C784
+ * XREFs of PpmDisableProfile @ 0x140AD85C4
  * Callers:
- *     PdcPoPpmResetProfile @ 0x140A9C680 (PdcPoPpmResetProfile.c)
+ *     PdcPoPpmResetProfile @ 0x140AD84C0 (PdcPoPpmResetProfile.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmPerfUpdateMultimediaPowerModel @ 0x1404DECAC (PpmPerfUpdateMultimediaPowerModel.c)
- *     PpmResetProfileSettings @ 0x1404EB680 (PpmResetProfileSettings.c)
- *     PpmEventTraceProfileEnable @ 0x140A9C864 (PpmEventTraceProfileEnable.c)
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmPerfUpdateMultimediaPowerModel @ 0x1404D838C (PpmPerfUpdateMultimediaPowerModel.c)
+ *     PpmResetProfileSettings @ 0x1404E4C60 (PpmResetProfileSettings.c)
+ *     PpmEventTraceProfileEnable @ 0x140AD86A4 (PpmEventTraceProfileEnable.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
  */
 
 LONG __fastcall PpmDisableProfile(__int64 a1, __int64 a2, unsigned int a3)
 {
   char v4; // r14
   char v5; // bp
-  __int64 **v6; // rdi
+  _QWORD **v6; // rdi
   __int64 v7; // rsi
   _QWORD *v8; // rdx
   __int64 v9; // rcx
@@ -23,12 +23,12 @@ LONG __fastcall PpmDisableProfile(__int64 a1, __int64 a2, unsigned int a3)
   __int64 v11; // rax
   int v12; // [rsp+40h] [rbp+8h] BYREF
 
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   *(_DWORD *)(a1 + 28) &= ~1u;
   v4 = *(_BYTE *)(a1 + 8);
   v5 = 1;
   PpmResetProfileSettings(a1);
-  v6 = &off_140E08188;
+  v6 = (_QWORD **)&off_140E08178;
   v7 = 6LL;
   do
   {
@@ -60,6 +60,6 @@ LONG __fastcall PpmDisableProfile(__int64 a1, __int64 a2, unsigned int a3)
   LOBYTE(v9) = v4;
   result = PpmEventTraceProfileEnable(v9, 0LL);
   if ( v5 )
-    return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   return result;
 }

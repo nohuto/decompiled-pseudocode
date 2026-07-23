@@ -1,7 +1,7 @@
 /*
- * XREFs of MiImageCfgRvaIteratorNext @ 0x140681D80
+ * XREFs of MiImageCfgRvaIteratorNext @ 0x1405DCDC0
  * Callers:
- *     MiImageCfgRvaIteratorFirst @ 0x140681D50 (MiImageCfgRvaIteratorFirst.c)
+ *     MiImageCfgRvaIteratorFirst @ 0x1405DCD90 (MiImageCfgRvaIteratorFirst.c)
  * Callees:
  *     <none>
  */
@@ -75,7 +75,7 @@ LABEL_14:
       if ( !v3 )
         goto LABEL_14;
     }
-    dword_140C4CC48 = 14;
+    dword_140C4CC88 = 14;
   }
   return result;
 }

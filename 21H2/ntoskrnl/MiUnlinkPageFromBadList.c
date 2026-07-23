@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlinkPageFromBadList @ 0x14054F540
+ * XREFs of MiUnlinkPageFromBadList @ 0x14054F780
  * Callers:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiRemoveBadPages @ 0x14052EBC8 (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x14052F0F8 (MiUnlinkBadPages.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
- *     MiTransferPartitionPageRun @ 0x140562E10 (MiTransferPartitionPageRun.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiRemoveBadPages @ 0x14052EE08 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x14052F338 (MiUnlinkBadPages.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541B30 (MiPurgeBadFileOnlyPages.c)
+ *     MiTransferPartitionPageRun @ 0x140563050 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
@@ -36,11 +36,11 @@ unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
   if ( MiIsPfnFileOnly((__int64)a1) )
   {
     v6 = &MiSystemPartition;
-    v7 = &qword_140C4CAC0;
+    v7 = &qword_140C4CB00;
   }
   else
   {
-    v6 = *(ULONG_PTR **)(qword_140C4E648 + 8 * ((a1[5] >> 39) & 0x3FFLL));
+    v6 = *(ULONG_PTR **)(qword_140C4E688 + 8 * ((a1[5] >> 39) & 0x3FFLL));
     v7 = (__int64 *)(v6 + 512);
   }
   v8 = a2 & 0x80;
@@ -61,11 +61,11 @@ unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
     v7[2] = v9;
   else
     *(_QWORD *)(48 * v10 - 0x58000000000LL) = v9 | *(_QWORD *)(48 * v10 - 0x58000000000LL) & 0xFFFFFFF000000000uLL;
-  if ( v7 != &qword_140C4CAC0 && dword_140C4E6CC == 1 )
+  if ( v7 != &qword_140C4CB00 && dword_140C4E70C == 1 )
   {
     v11 = v4 & 0x1F;
     LOBYTE(v12) = 1;
-    v13 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (v4 >> 5));
+    v13 = (volatile signed __int32 *)(qword_140C4E768 + 4 * (v4 >> 5));
     if ( v11 + 1 <= 0x20 )
     {
       v14 = 1 << v11;
@@ -102,7 +102,7 @@ LABEL_23:
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   *a1 = 0LL;
   result = MiSetPfnBlink((__int64)a1, 0LL, 1);
-  if ( v7 != &qword_140C4CAC0 )
+  if ( v7 != &qword_140C4CB00 )
     a1[1] = 0LL;
   return result;
 }

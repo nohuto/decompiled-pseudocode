@@ -1,29 +1,29 @@
 /*
- * XREFs of ExpSetTimerObject @ 0x1406CEDA8
+ * XREFs of ExpSetTimerObject @ 0x1406D2DD8
  * Callers:
- *     NtSetTimerEx @ 0x140436460 (NtSetTimerEx.c)
- *     NtSetTimer @ 0x140436D00 (NtSetTimer.c)
+ *     NtSetTimerEx @ 0x1404253F0 (NtSetTimerEx.c)
+ *     NtSetTimer @ 0x140425C90 (NtSetTimer.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     ObDereferenceObjectExWithTag2 @ 0x14047F848 (ObDereferenceObjectExWithTag2.c)
- *     PsInsertVirtualizedTimer @ 0x1404B8CC4 (PsInsertVirtualizedTimer.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExpCancelTimer @ 0x1406CECB0 (ExpCancelTimer.c)
- *     ExpCheckTestsigningEnabled @ 0x14077C8E8 (ExpCheckTestsigningEnabled.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     ExpCheckWakeTimerAccess @ 0x140ABD2E0 (ExpCheckWakeTimerAccess.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     ObDereferenceObjectExWithTag2 @ 0x1404791B8 (ObDereferenceObjectExWithTag2.c)
+ *     PsInsertVirtualizedTimer @ 0x1404B24F4 (PsInsertVirtualizedTimer.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpCancelTimer @ 0x1406D2CE0 (ExpCancelTimer.c)
+ *     ExpCheckTestsigningEnabled @ 0x14077F3DC (ExpCheckTestsigningEnabled.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     ExpCheckWakeTimerAccess @ 0x140ABF740 (ExpCheckWakeTimerAccess.c)
  */
 
 __int64 __fastcall ExpSetTimerObject(
@@ -66,7 +66,7 @@ __int64 __fastcall ExpSetTimerObject(
   _QWORD *v36; // rdi
   unsigned __int8 v37; // r13
   struct _LIST_ENTRY *v38; // rax
-  struct _LIST_ENTRY *AbWaitObject; // rcx
+  struct _LIST_ENTRY *KernelShadowStack; // rcx
   __int64 v40; // rdx
   struct _LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *Flink; // rdx
@@ -103,21 +103,19 @@ __int64 __fastcall ExpSetTimerObject(
           return result;
       }
     }
-    if ( *(int *)&stru_140F10828.WaitBlockFill11[88] >= 2 || stru_140F10828.WaitBlockFill5[43] )
+    if ( (int)qword_140F11240 >= 2 || BYTE3(PpmIdlePolicyLock.Padding[3]) )
     {
       v45 = 1;
       v52 = KeGetCurrentThread();
       --v52->KernelApcDisable;
-      v14 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime, 0LL, 0LL, a4);
+      v14 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.1008, 0LL, 0LL, a4);
       v16 = v14;
-      v17 = _interlockedbittestandset64(
-              (volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
-              0LL);
+      v17 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.1008, 0LL);
       if ( v17 )
         ExfAcquirePushLockExclusiveEx(
-          &ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+          (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.1008,
           v14,
-          (__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
+          (__int64)&ExSaPageGroupDescriptorArrayLock.1008);
       if ( v16 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -164,14 +162,14 @@ __int64 __fastcall ExpSetTimerObject(
     v45 = 1;
     v52 = KeGetCurrentThread();
     --v52->KernelApcDisable;
-    v21 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime, 0LL, 0LL, v20);
+    v21 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.1008, 0LL, 0LL, v20);
     v23 = v21;
-    v17 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime, 0LL);
+    v17 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.1008, 0LL);
     if ( v17 )
       ExfAcquirePushLockExclusiveEx(
-        &ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+        (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.1008,
         v21,
-        (__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
+        (__int64)&ExSaPageGroupDescriptorArrayLock.1008);
     if ( v23 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -326,13 +324,13 @@ LABEL_64:
   if ( a6 )
   {
     v38 = &a1[4].Header.WaitListHead;
-    AbWaitObject = (struct _LIST_ENTRY *)ExSaPageGroupDescriptorArrayLock.AbWaitObject;
-    if ( *(struct _KTHREAD **)ExSaPageGroupDescriptorArrayLock.AbWaitObject == (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssist )
+    KernelShadowStack = (struct _LIST_ENTRY *)ExSaPageGroupDescriptorArrayLock.KernelShadowStack;
+    if ( *(struct _KTHREAD **)ExSaPageGroupDescriptorArrayLock.KernelShadowStack == (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor )
     {
-      v38->Flink = (struct _LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
-      a1[4].Header.WaitListHead.Blink = AbWaitObject;
-      AbWaitObject->Flink = v38;
-      ExSaPageGroupDescriptorArrayLock.AbWaitObject = &a1[4].Header.WaitListHead;
+      v38->Flink = (struct _LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
+      a1[4].Header.WaitListHead.Blink = KernelShadowStack;
+      KernelShadowStack->Flink = v38;
+      ExSaPageGroupDescriptorArrayLock.KernelShadowStack = &a1[4].Header.WaitListHead;
       goto LABEL_80;
     }
 LABEL_95:
@@ -340,10 +338,10 @@ LABEL_95:
   }
 LABEL_80:
   if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+          (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.GlobalUpdateVpThreadPriorityListEntry.Flink,
           0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
-  KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
+    ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.1008);
+  KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.1008);
   KiLeaveCriticalRegionUnsafe((__int64)v52, v40);
   if ( v36 )
     PoDestroyReasonContext(v36);

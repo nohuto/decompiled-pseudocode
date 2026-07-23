@@ -95,20 +95,20 @@
  *     RtlValidateHeap @ 0x18006D290 (RtlValidateHeap.c)
  *     LdrpIsSecurityEtwLoggingEnabled @ 0x1800714F8 (LdrpIsSecurityEtwLoggingEnabled.c)
  *     LdrpLogError @ 0x18007168C (LdrpLogError.c)
- *     LdrLogNewDataDllLoad @ 0x1800785F0 (LdrLogNewDataDllLoad.c)
- *     RtlpSetSegmentInfo @ 0x18007D60C (RtlpSetSegmentInfo.c)
- *     RtlPublishWnfStateData @ 0x1800814A0 (RtlPublishWnfStateData.c)
- *     TpReleasePool @ 0x180082870 (TpReleasePool.c)
- *     LdrpProcessInitializationComplete @ 0x1800844F0 (LdrpProcessInitializationComplete.c)
- *     LdrFindResourceEx_U @ 0x180084740 (LdrFindResourceEx_U.c)
- *     TpSetPoolMinThreads @ 0x180085300 (TpSetPoolMinThreads.c)
- *     RtlGetActiveConsoleId @ 0x1800863D0 (RtlGetActiveConsoleId.c)
- *     TppExecuteWaitTimerCallback @ 0x180086F80 (TppExecuteWaitTimerCallback.c)
- *     LdrpLogDllRelocationEtwEvent @ 0x18008757C (LdrpLogDllRelocationEtwEvent.c)
- *     RtlTestAndPublishWnfStateData @ 0x1800877C0 (RtlTestAndPublishWnfStateData.c)
- *     TppWorkCancelPendingCallbacks @ 0x180088520 (TppWorkCancelPendingCallbacks.c)
- *     LdrResRelease @ 0x18008F6F0 (LdrResRelease.c)
- *     RtlGetSystemTimeAndBias @ 0x18009F0A0 (RtlGetSystemTimeAndBias.c)
+ *     LdrLogNewDataDllLoad @ 0x180078600 (LdrLogNewDataDllLoad.c)
+ *     RtlpSetSegmentInfo @ 0x18007D61C (RtlpSetSegmentInfo.c)
+ *     RtlPublishWnfStateData @ 0x1800814B0 (RtlPublishWnfStateData.c)
+ *     TpReleasePool @ 0x180082880 (TpReleasePool.c)
+ *     LdrpProcessInitializationComplete @ 0x180084500 (LdrpProcessInitializationComplete.c)
+ *     LdrFindResourceEx_U @ 0x180084750 (LdrFindResourceEx_U.c)
+ *     TpSetPoolMinThreads @ 0x180085310 (TpSetPoolMinThreads.c)
+ *     RtlGetActiveConsoleId @ 0x1800863E0 (RtlGetActiveConsoleId.c)
+ *     TppExecuteWaitTimerCallback @ 0x180086F90 (TppExecuteWaitTimerCallback.c)
+ *     LdrpLogDllRelocationEtwEvent @ 0x18008758C (LdrpLogDllRelocationEtwEvent.c)
+ *     RtlTestAndPublishWnfStateData @ 0x1800877D0 (RtlTestAndPublishWnfStateData.c)
+ *     TppWorkCancelPendingCallbacks @ 0x180088530 (TppWorkCancelPendingCallbacks.c)
+ *     LdrResRelease @ 0x18008F700 (LdrResRelease.c)
+ *     RtlGetSystemTimeAndBias @ 0x18009F0B0 (RtlGetSystemTimeAndBias.c)
  *     CsrpLocalSetupForSecureProcess @ 0x1800CD524 (CsrpLocalSetupForSecureProcess.c)
  *     LdrpTryAcquireLoaderLock @ 0x1800CFBF0 (LdrpTryAcquireLoaderLock.c)
  *     LdrpLogEtwDllSearchResults @ 0x1800D0F84 (LdrpLogEtwDllSearchResults.c)
@@ -178,12 +178,12 @@
  *     <none>
  */
 
-unsigned int *RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  unsigned int *result; // rax
+  _DWORD *SharedData; // rax
 
-  result = (unsigned int *)NtCurrentPeb()->SharedData;
-  if ( result )
-    return (unsigned int *)*result;
-  return result;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData )
+    LODWORD(SharedData) = *SharedData;
+  return (unsigned int)SharedData;
 }

@@ -6,42 +6,42 @@
  *     <none>
  */
 
-int __stdcall RtlNumberOfSetBitsInRange(unsigned int *a1, unsigned int a2, unsigned int a3)
+ULONG __cdecl RtlNumberOfSetBitsInRange(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  unsigned int v3; // edi
-  unsigned int v4; // ecx
+  ULONG v3; // edi
+  ULONG v4; // ecx
   char *v5; // esi
-  int v6; // ebx
-  unsigned int v8; // edi
+  ULONG v6; // ebx
+  ULONG v8; // edi
   int v9; // ecx
-  int v10; // ebx
+  ULONG v10; // ebx
   char v11; // al
   int v12; // edx
   char v13; // al
-  unsigned int i; // eax
+  ULONG i; // eax
   unsigned int v15; // ebx
-  unsigned int v16; // ecx
+  ULONG v16; // ecx
   char v17; // al
-  unsigned int v18; // [esp+Ch] [ebp-10h]
-  int v19; // [esp+10h] [ebp-Ch]
+  ULONG v18; // [esp+Ch] [ebp-10h]
+  ULONG v19; // [esp+10h] [ebp-Ch]
   int v20; // [esp+14h] [ebp-8h]
-  int v21; // [esp+18h] [ebp-4h]
+  ULONG v21; // [esp+18h] [ebp-4h]
 
-  if ( a2 >= *a1 || *a1 - a2 < a3 || !a3 )
+  if ( StartingIndex >= BitMapHeader->SizeOfBitMap || BitMapHeader->SizeOfBitMap - StartingIndex < Length || !Length )
     return -1;
-  v20 = ((_BYTE)a2 + (_BYTE)a3 - 1) & 7;
-  v3 = a2 >> 3;
-  v4 = (a2 + a3 - 1) >> 3;
-  v5 = (char *)((a2 >> 3) + a1[1]);
-  v19 = a2 & 7;
+  v20 = ((_BYTE)StartingIndex + (_BYTE)Length - 1) & 7;
+  v3 = StartingIndex >> 3;
+  v4 = (StartingIndex + Length - 1) >> 3;
+  v5 = (char *)BitMapHeader->Buffer + (StartingIndex >> 3);
+  v19 = StartingIndex & 7;
   v6 = 0;
   v18 = v4;
   v21 = 0;
-  if ( a2 >> 3 == v4 )
+  if ( StartingIndex >> 3 == v4 )
     return (unsigned __int8)RtlpBitsClearTotal[(unsigned __int8)~(*v5 & byte_4B288994[v19] & byte_4B288989[v20])];
-  if ( (((unsigned __int8)a3 | (unsigned __int8)a2) & 0x1F) != 0 )
+  if ( (((unsigned __int8)Length | (unsigned __int8)StartingIndex) & 0x1F) != 0 )
   {
-    if ( (a2 & 7) != 0 )
+    if ( (StartingIndex & 7) != 0 )
     {
       v11 = *v5++;
       ++v3;
@@ -91,7 +91,7 @@ int __stdcall RtlNumberOfSetBitsInRange(unsigned int *a1, unsigned int a2, unsig
   }
   else
   {
-    v8 = ((a3 - 1) >> 5) + 1;
+    v8 = ((Length - 1) >> 5) + 1;
     do
     {
       v9 = *(_DWORD *)v5;

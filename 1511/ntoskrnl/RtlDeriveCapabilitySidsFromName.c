@@ -13,7 +13,10 @@
  *     RtlUpcaseUnicodeString @ 0x1404D6BE0 (RtlUpcaseUnicodeString.c)
  */
 
-NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING SourceString, char *Sid, PSID a3)
+NTSTATUS __cdecl RtlDeriveCapabilitySidsFromName(
+        PUNICODE_STRING UnicodeString,
+        PSID CapabilityGroupSid,
+        PSID CapabilitySid)
 {
   NTSTATUS result; // eax
   __int128 v7; // xmm0
@@ -25,20 +28,20 @@ NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING SourceStrin
   __int128 v13; // [rsp+30h] [rbp-48h] BYREF
   __int128 v14; // [rsp+40h] [rbp-38h]
 
-  if ( !SourceString || !Sid || !a3 )
+  if ( !UnicodeString || !CapabilityGroupSid || !CapabilitySid )
     __fastfail(5u);
-  memset(a3, 0, 0x30uLL);
-  memset(Sid, 0, 0x2CuLL);
-  result = RtlUpcaseUnicodeString(&DestinationString, SourceString, 1u);
+  memset(CapabilitySid, 0, 0x30uLL);
+  memset(CapabilityGroupSid, 0, 0x2CuLL);
+  result = RtlUpcaseUnicodeString(&DestinationString, UnicodeString, 1u);
   if ( result >= 0 )
   {
     SymCryptSha256(DestinationString.Buffer, DestinationString.Length, &v13);
-    RtlInitializeSid(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 9u);
+    RtlInitializeSid(CapabilityGroupSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 9u);
     v7 = v13;
-    *((_DWORD *)Sid + 2) = 32;
+    *((_DWORD *)CapabilityGroupSid + 2) = 32;
     v8 = v14;
-    *(_OWORD *)(Sid + 12) = v7;
-    *(_OWORD *)(Sid + 28) = v8;
+    *(_OWORD *)((char *)CapabilityGroupSid + 12) = v7;
+    *(_OWORD *)((char *)CapabilityGroupSid + 28) = v8;
     v9 = 0;
     while ( !RtlEqualUnicodeString(
                &DestinationString,
@@ -48,20 +51,20 @@ NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING SourceStrin
       if ( ++v9 >= 0xC )
         goto LABEL_8;
     }
-    RtlInitializeSid(a3, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u);
-    *((_DWORD *)a3 + 2) = 3;
-    *((_DWORD *)a3 + 3) = v9 + 1;
+    RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u);
+    *((_DWORD *)CapabilitySid + 2) = 3;
+    *((_DWORD *)CapabilitySid + 3) = v9 + 1;
 LABEL_8:
     RtlFreeAnsiString(&DestinationString);
     if ( v9 == 12 )
     {
-      RtlInitializeSid(a3, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 0xAu);
+      RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 0xAu);
       v10 = v13;
-      *((_DWORD *)a3 + 2) = 3;
+      *((_DWORD *)CapabilitySid + 2) = 3;
       v11 = v14;
-      *((_DWORD *)a3 + 3) = 1024;
-      *((_OWORD *)a3 + 1) = v10;
-      *((_OWORD *)a3 + 2) = v11;
+      *((_DWORD *)CapabilitySid + 3) = 1024;
+      *((_OWORD *)CapabilitySid + 1) = v10;
+      *((_OWORD *)CapabilitySid + 2) = v11;
     }
     return 0;
   }

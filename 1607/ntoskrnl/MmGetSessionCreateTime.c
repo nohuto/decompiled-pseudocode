@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetSessionCreateTime @ 0x1404B1ED8
+ * XREFs of MmGetSessionCreateTime @ 0x14049C2B8
  * Callers:
- *     EtwQueryProcessTelemetryInfo @ 0x1404B1BB0 (EtwQueryProcessTelemetryInfo.c)
- *     EtwpWriteProcessStarted @ 0x14054C744 (EtwpWriteProcessStarted.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x14049BF90 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpWriteProcessStarted @ 0x14054CC84 (EtwpWriteProcessStarted.c)
  * Callees:
- *     PsIsSystemProcess @ 0x140072328 (PsIsSystemProcess.c)
+ *     PsIsSystemProcess @ 0x140071EA8 (PsIsSystemProcess.c)
  */
 
 __int64 __fastcall MmGetSessionCreateTime(struct _KPROCESS *a1)

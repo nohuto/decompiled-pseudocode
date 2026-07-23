@@ -1,10 +1,10 @@
 /*
- * XREFs of write_string_0 @ 0x18012FD84
+ * XREFs of write_string_0 @ 0x18012FAF4
  * Callers:
- *     _woutput_l @ 0x18012F3A0 (_woutput_l.c)
+ *     _woutput_l @ 0x18012F110 (_woutput_l.c)
  * Callees:
- *     _errno @ 0x180107440 (_errno.c)
- *     write_char_0 @ 0x18012FCD8 (write_char_0.c)
+ *     _errno @ 0x180106E40 (_errno.c)
+ *     write_char_0 @ 0x18012FA48 (write_char_0.c)
  */
 
 void __fastcall write_string_0(wchar_t *a1, int a2, __int64 a3, _DWORD *a4)

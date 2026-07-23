@@ -1,11 +1,11 @@
 /*
- * XREFs of TppJobpValidateJob @ 0x1800C98CC
+ * XREFs of TppJobpValidateJob @ 0x1800C704C
  * Callers:
- *     TpReleaseJobNotification @ 0x1800C9820 (TpReleaseJobNotification.c)
- *     TpWaitForJobNotification @ 0x1800C9890 (TpWaitForJobNotification.c)
+ *     TpReleaseJobNotification @ 0x1800C6FA0 (TpReleaseJobNotification.c)
+ *     TpWaitForJobNotification @ 0x1800C7010 (TpWaitForJobNotification.c)
  * Callees:
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     TppValidateCleanupGroupMember @ 0x1800C9A20 (TppValidateCleanupGroupMember.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     TppValidateCleanupGroupMember @ 0x1800C71A0 (TppValidateCleanupGroupMember.c)
  */
 
 __int64 __fastcall TppJobpValidateJob(__int64 a1, __int64 a2, __int64 a3)

@@ -13,7 +13,7 @@ void VslRegisterIumPowerCallbacks()
   char OutputBuffer; // [rsp+40h] [rbp+8h] BYREF
 
   OutputBuffer = 0;
-  if ( VslVsmEnabled && NtPowerInformation((POWER_INFORMATION_LEVEL)66, 0LL, 0, &OutputBuffer, 1u) >= 0 )
+  if ( VslVsmEnabled && NtPowerInformation(PlatformInformation, 0LL, 0, &OutputBuffer, 1u) >= 0 )
   {
     if ( OutputBuffer )
     {

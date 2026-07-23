@@ -1,12 +1,12 @@
 /*
- * XREFs of HdlspPutString @ 0x14094CF98
+ * XREFs of HdlspPutString @ 0x14094DF98
  * Callers:
- *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
- *     HdlspProcessDumpCommand @ 0x14094CB74 (HdlspProcessDumpCommand.c)
- *     HdlspPutMore @ 0x14094CEF8 (HdlspPutMore.c)
+ *     HdlspDispatch @ 0x14094CE50 (HdlspDispatch.c)
+ *     HdlspProcessDumpCommand @ 0x14094DB74 (HdlspProcessDumpCommand.c)
+ *     HdlspPutMore @ 0x14094DEF8 (HdlspPutMore.c)
  * Callees:
- *     HdlspUTF8Encode @ 0x140319B60 (HdlspUTF8Encode.c)
- *     HdlspSendStringAtBaud @ 0x14094D228 (HdlspSendStringAtBaud.c)
+ *     HdlspUTF8Encode @ 0x140319D50 (HdlspUTF8Encode.c)
+ *     HdlspSendStringAtBaud @ 0x14094E228 (HdlspSendStringAtBaud.c)
  */
 
 __int64 __fastcall HdlspPutString(char *a1)

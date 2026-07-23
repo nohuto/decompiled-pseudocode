@@ -1,7 +1,7 @@
 /*
- * XREFs of SmKmStoreCreatePrepare @ 0x140B32A78
+ * XREFs of SmKmStoreCreatePrepare @ 0x140B34EC8
  * Callers:
- *     SmProcessCreateRequest @ 0x140967230 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140ADC4D4 (SmProcessCreateRequest.c)
  * Callees:
  *     <none>
  */

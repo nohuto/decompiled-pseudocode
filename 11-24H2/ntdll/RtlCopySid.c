@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlCopySid @ 0x1800C8B90
+ * XREFs of RtlCopySid @ 0x1800C0750
  * Callers:
- *     RtlAddMandatoryAce @ 0x1800C89E0 (RtlAddMandatoryAce.c)
- *     RtlpGetDefaultTrustSubjectContext @ 0x1800C90B0 (RtlpGetDefaultTrustSubjectContext.c)
- *     RtlCreateAndSetSD @ 0x1800CE250 (RtlCreateAndSetSD.c)
- *     RtlAddProcessTrustLabelAce @ 0x18010C7F0 (RtlAddProcessTrustLabelAce.c)
- *     RtlCopySidAndAttributesArray @ 0x180138F60 (RtlCopySidAndAttributesArray.c)
- *     RtlAddAccessFilterAce @ 0x18013ACD0 (RtlAddAccessFilterAce.c)
- *     RtlAddCompoundAce @ 0x18013AF80 (RtlAddCompoundAce.c)
- *     RtlAddResourceAttributeAce @ 0x18013B100 (RtlAddResourceAttributeAce.c)
- *     RtlAddScopedPolicyIDAce @ 0x18013B490 (RtlAddScopedPolicyIDAce.c)
- *     RtlpAddKnownObjectAce @ 0x18013B660 (RtlpAddKnownObjectAce.c)
+ *     RtlAddMandatoryAce @ 0x1800C05A0 (RtlAddMandatoryAce.c)
+ *     RtlpGetDefaultTrustSubjectContext @ 0x1800C0C70 (RtlpGetDefaultTrustSubjectContext.c)
+ *     RtlCreateAndSetSD @ 0x1800C5E10 (RtlCreateAndSetSD.c)
+ *     RtlAddProcessTrustLabelAce @ 0x180107530 (RtlAddProcessTrustLabelAce.c)
+ *     RtlCopySidAndAttributesArray @ 0x180137190 (RtlCopySidAndAttributesArray.c)
+ *     RtlAddAccessFilterAce @ 0x180138F00 (RtlAddAccessFilterAce.c)
+ *     RtlAddCompoundAce @ 0x1801391B0 (RtlAddCompoundAce.c)
+ *     RtlAddResourceAttributeAce @ 0x180139330 (RtlAddResourceAttributeAce.c)
+ *     RtlAddScopedPolicyIDAce @ 0x1801396C0 (RtlAddScopedPolicyIDAce.c)
+ *     RtlpAddKnownObjectAce @ 0x180139890 (RtlpAddKnownObjectAce.c)
  * Callees:
- *     memmove @ 0x180167400 (memmove.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlCopySid(unsigned int a1, void *a2, unsigned __int8 *a3)
+NTSTATUS __cdecl RtlCopySid(ULONG DestinationSidLength, PSID DestinationSid, PSID SourceSid)
 {
-  unsigned int v3; // eax
+  ULONG v3; // eax
 
-  v3 = 4 * a3[1] + 8;
-  if ( v3 > a1 )
-    return 3221225507LL;
-  memmove(a2, a3, v3);
-  return 0LL;
+  v3 = 4 * *((unsigned __int8 *)SourceSid + 1) + 8;
+  if ( v3 > DestinationSidLength )
+    return -1073741789;
+  memmove(DestinationSid, SourceSid, v3);
+  return 0;
 }

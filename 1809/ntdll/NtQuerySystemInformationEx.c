@@ -1,19 +1,25 @@
 /*
- * XREFs of NtQuerySystemInformationEx @ 0x1800A2E10
+ * XREFs of NtQuerySystemInformationEx @ 0x1800A2E30
  * Callers:
  *     TppPoolUpdateNodeRelation @ 0x180030CB0 (TppPoolUpdateNodeRelation.c)
- *     RtlWow64GetProcessMachines @ 0x18007F950 (RtlWow64GetProcessMachines.c)
- *     RtlWow64IsWowGuestMachineSupported @ 0x180082F00 (RtlWow64IsWowGuestMachineSupported.c)
- *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E184 (RtlpQueryPseudoEnvironmentVariable.c)
+ *     RtlWow64GetProcessMachines @ 0x18007F960 (RtlWow64GetProcessMachines.c)
+ *     RtlWow64IsWowGuestMachineSupported @ 0x180082F10 (RtlWow64IsWowGuestMachineSupported.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E194 (RtlpQueryPseudoEnvironmentVariable.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQuerySystemInformationEx()
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 346LL;
+  result = 346;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

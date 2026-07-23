@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefIntGetValueLsbits64 @ 0x140570BCC
+ * XREFs of SymCryptFdefIntGetValueLsbits64 @ 0x14056FDAC
  * Callers:
- *     SymCryptIntGetValueLsbits64 @ 0x14055C304 (SymCryptIntGetValueLsbits64.c)
+ *     SymCryptIntGetValueLsbits64 @ 0x14055E7EC (SymCryptIntGetValueLsbits64.c)
  * Callees:
  *     <none>
  */

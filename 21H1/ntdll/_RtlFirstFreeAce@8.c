@@ -19,24 +19,24 @@
  *     <none>
  */
 
-char __stdcall RtlFirstFreeAce(int a1, unsigned int *a2)
+BOOLEAN __cdecl RtlFirstFreeAce(PACL Acl, PVOID *FirstFree)
 {
-  unsigned int v2; // ecx
+  PACL v2; // ecx
   unsigned int v3; // esi
-  unsigned int v5; // eax
+  ACL *v5; // eax
 
-  v2 = a1 + 8;
+  v2 = Acl + 1;
   v3 = 0;
-  *a2 = 0;
-  if ( *(_WORD *)(a1 + 4) )
+  *FirstFree = 0;
+  if ( Acl->AceCount )
   {
-    v5 = a1 + *(unsigned __int16 *)(a1 + 2);
+    v5 = (PACL)((char *)Acl + Acl->AclSize);
     while ( v2 < v5 )
     {
       ++v3;
-      v2 += *(unsigned __int16 *)(v2 + 2);
-      v5 = a1 + *(unsigned __int16 *)(a1 + 2);
-      if ( v3 >= *(unsigned __int16 *)(a1 + 4) )
+      v2 = (PACL)((char *)v2 + v2->AclSize);
+      v5 = (PACL)((char *)Acl + Acl->AclSize);
+      if ( v3 >= Acl->AceCount )
         goto LABEL_2;
     }
     return 0;
@@ -44,8 +44,8 @@ char __stdcall RtlFirstFreeAce(int a1, unsigned int *a2)
   else
   {
 LABEL_2:
-    if ( v2 <= a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
-      *a2 = v2;
+    if ( v2 <= (PACL)((char *)Acl + Acl->AclSize) )
+      *FirstFree = v2;
     return 1;
   }
 }

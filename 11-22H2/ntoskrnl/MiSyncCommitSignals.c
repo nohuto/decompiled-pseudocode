@@ -77,10 +77,10 @@ LABEL_8:
   {
     LODWORD(v4) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LODWORD(v4) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v4 <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)v4 >= 2u )

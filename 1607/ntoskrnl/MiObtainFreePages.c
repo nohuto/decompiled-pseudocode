@@ -1,14 +1,14 @@
 /*
- * XREFs of MiObtainFreePages @ 0x1401E9B08
+ * XREFs of MiObtainFreePages @ 0x1401E9934
  * Callers:
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     MiDecreaseAvailablePages @ 0x14008AD20 (MiDecreaseAvailablePages.c)
- *     MiWaitForFreePage @ 0x1401F41DC (MiWaitForFreePage.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiDecreaseAvailablePages @ 0x14008A420 (MiDecreaseAvailablePages.c)
+ *     MiWaitForFreePage @ 0x1401F4008 (MiWaitForFreePage.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     CcNotifyWriteBehind @ 0x1400AB9E0 (CcNotifyWriteBehind.c)
- *     MiWakeModifiedPageWriter @ 0x140113248 (MiWakeModifiedPageWriter.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     CcNotifyWriteBehind @ 0x1400A9F48 (CcNotifyWriteBehind.c)
+ *     MiWakeModifiedPageWriter @ 0x1401137B8 (MiWakeModifiedPageWriter.c)
  */
 
 LONG __fastcall MiObtainFreePages(__int64 a1)

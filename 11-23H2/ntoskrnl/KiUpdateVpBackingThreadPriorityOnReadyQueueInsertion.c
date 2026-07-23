@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x140305B08
+ * XREFs of KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x140305D98
  * Callers:
- *     KiAddThreadToScbQueue @ 0x140305A20 (KiAddThreadToScbQueue.c)
+ *     KiAddThreadToScbQueue @ 0x140305CB0 (KiAddThreadToScbQueue.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x140410388 (KiReadGuestSchedulerAssistPriority.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x140410464 (KiReadGuestSchedulerAssistPriority.c)
  */
 
 void __fastcall KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion(__int64 a1)

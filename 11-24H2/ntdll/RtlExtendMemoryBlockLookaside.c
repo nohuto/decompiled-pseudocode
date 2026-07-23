@@ -1,12 +1,13 @@
 /*
- * XREFs of RtlExtendMemoryBlockLookaside @ 0x180113F20
+ * XREFs of RtlExtendMemoryBlockLookaside @ 0x18010F220
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlExtendMemoryBlockLookaside(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlExtendMemoryBlockLookaside(PVOID MemoryBlockLookaside, ULONG Increment)
 {
-  return RtlExtendMemoryZone(*(_QWORD *)(a1 + 16), a2, a3);
+  return RtlExtendMemoryZone(*((_QWORD *)MemoryBlockLookaside + 2), *(__int64 *)&Increment);
 }

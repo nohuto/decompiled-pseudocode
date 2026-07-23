@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxArmResidentTimer @ 0x14034C4F4
+ * XREFs of PopFxArmResidentTimer @ 0x14034C694
  * Callers:
- *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
- *     PopFxResidentTimeoutRoutine @ 0x14034C3C0 (PopFxResidentTimeoutRoutine.c)
- *     PopFxResidentTimeoutDpcRoutine @ 0x140367EE0 (PopFxResidentTimeoutDpcRoutine.c)
+ *     PopFxIdleComponent @ 0x140313250 (PopFxIdleComponent.c)
+ *     PopFxResidentTimeoutRoutine @ 0x14034C560 (PopFxResidentTimeoutRoutine.c)
+ *     PopFxResidentTimeoutDpcRoutine @ 0x140368080 (PopFxResidentTimeoutDpcRoutine.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopFxArmResidentTimer(char a1)
@@ -34,10 +34,13 @@ void __fastcall PopFxArmResidentTimer(char a1)
       &PopFxResidentDpc);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&PopFxResidentTimerLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

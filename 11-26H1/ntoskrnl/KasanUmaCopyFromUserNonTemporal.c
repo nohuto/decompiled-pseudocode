@@ -1,11 +1,11 @@
 /*
- * XREFs of KasanUmaCopyFromUserNonTemporal @ 0x14071F050
+ * XREFs of KasanUmaCopyFromUserNonTemporal @ 0x140723C70
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
- *     UmapCopyFromUserNonTemporal @ 0x14077FC30 (UmapCopyFromUserNonTemporal.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
+ *     UmapCopyFromUserNonTemporal @ 0x140782730 (UmapCopyFromUserNonTemporal.c)
  */
 
 __int64 __fastcall KasanUmaCopyFromUserNonTemporal(void *Destination, void *Source, SIZE_T Length)

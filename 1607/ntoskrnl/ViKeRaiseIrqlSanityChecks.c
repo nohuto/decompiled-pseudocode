@@ -1,22 +1,22 @@
 /*
  * XREFs of ViKeRaiseIrqlSanityChecks @ 0x1407130E8
  * Callers:
- *     VerifierKeAcquireQueuedSpinLock @ 0x14070C95C (VerifierKeAcquireQueuedSpinLock.c)
+ *     VerifierKeAcquireQueuedSpinLock @ 0x14070C98C (VerifierKeAcquireQueuedSpinLock.c)
  *     VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x140711BDC (VerifierKeAcquireInStackQueuedSpinLockCommon.c)
  *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon @ 0x140711D64 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon.c)
  *     VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x140711DFC (VerifierKeAcquireQueuedSpinLockRaiseToSynch.c)
  *     VerifierKeRaiseIrqlToDpcLevel @ 0x140712198 (VerifierKeRaiseIrqlToDpcLevel.c)
- *     VerifierKeSynchronizeExecution @ 0x14071271C (VerifierKeSynchronizeExecution.c)
- *     VerifierKeTryToAcquireQueuedSpinLock @ 0x140712780 (VerifierKeTryToAcquireQueuedSpinLock.c)
- *     VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1407127F0 (VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch.c)
- *     VerifierKfRaiseIrql @ 0x140712A08 (VerifierKfRaiseIrql.c)
- *     VerifierPortKeAcquireSpinLock @ 0x140712A78 (VerifierPortKeAcquireSpinLock.c)
- *     VerifierPortKeAcquireSpinLockNoXdv @ 0x140712AF4 (VerifierPortKeAcquireSpinLockNoXdv.c)
+ *     VerifierKeSynchronizeExecution @ 0x1407126D4 (VerifierKeSynchronizeExecution.c)
+ *     VerifierKeTryToAcquireQueuedSpinLock @ 0x140712738 (VerifierKeTryToAcquireQueuedSpinLock.c)
+ *     VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1407127A8 (VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKfRaiseIrql @ 0x1407129C0 (VerifierKfRaiseIrql.c)
+ *     VerifierPortKeAcquireSpinLock @ 0x140712A30 (VerifierPortKeAcquireSpinLock.c)
+ *     VerifierPortKeAcquireSpinLockNoXdv @ 0x140712AAC (VerifierPortKeAcquireSpinLockNoXdv.c)
  *     ViKeAcquireSpinLockRaiseToDpcCommon @ 0x140712E54 (ViKeAcquireSpinLockRaiseToDpcCommon.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400516C0 (KeAreInterruptsEnabled.c)
- *     MmVerifierTrimMemory @ 0x1407018D8 (MmVerifierTrimMemory.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     KeAreInterruptsEnabled @ 0x140051240 (KeAreInterruptsEnabled.c)
+ *     MmVerifierTrimMemory @ 0x140701908 (MmVerifierTrimMemory.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  *     VfKeIrqlLogRaise @ 0x140712D1C (VfKeIrqlLogRaise.c)
  */
 

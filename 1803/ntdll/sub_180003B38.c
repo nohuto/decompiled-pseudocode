@@ -7,15 +7,15 @@
  *     RtlFreeHeap @ 0x180016DF0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_180003B38(__int64 a1)
+LOGICAL __fastcall sub_180003B38(__int64 a1)
 {
-  __int64 v1; // r8
-  __int64 result; // rax
+  void *v1; // r8
+  LOGICAL result; // eax
 
-  v1 = *(_QWORD *)(a1 + 504);
+  v1 = *(void **)(a1 + 504);
   if ( v1 )
   {
-    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v1);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
     *(_QWORD *)(a1 + 504) = 0LL;
   }
   return result;

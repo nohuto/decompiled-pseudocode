@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpCopyKernelCetChunk @ 0x1405329C8
+ * XREFs of RtlpCopyKernelCetChunk @ 0x140534E68
  * Callers:
- *     RtlpCopyExtendedContext @ 0x140417400 (RtlpCopyExtendedContext.c)
- *     RtlCopyContext @ 0x140A32A50 (RtlCopyContext.c)
+ *     RtlpCopyExtendedContext @ 0x14040BA10 (RtlpCopyExtendedContext.c)
+ *     RtlCopyContext @ 0x140A4D9B0 (RtlCopyContext.c)
  * Callees:
  *     <none>
  */

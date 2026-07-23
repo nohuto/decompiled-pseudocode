@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x1404F8FB0
+ * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x1404F8F30
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __fastcall HvlSkCrashdumpCallbackRoutine(PVOID Context, __int64 Handled)
@@ -16,8 +16,8 @@ BOOLEAN __fastcall HvlSkCrashdumpCallbackRoutine(PVOID Context, __int64 Handled)
   ULONG v6; // ecx
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-18h]
 
-  v2 = qword_140C47508;
-  if ( qword_140C47508 && (*((_DWORD *)qword_140C47508 + 1) & 1) != 0 )
+  v2 = qword_140C475A8;
+  if ( qword_140C475A8 && (*((_DWORD *)qword_140C475A8 + 1) & 1) != 0 )
   {
     HvlEnlightenments &= 0x2000u;
     ((void (__fastcall *)(PVOID, __int64))off_140C007A0[0])(Context, Handled);

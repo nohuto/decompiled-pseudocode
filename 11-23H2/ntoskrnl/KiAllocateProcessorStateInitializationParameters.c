@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAllocateProcessorStateInitializationParameters @ 0x140376A4C
+ * XREFs of KiAllocateProcessorStateInitializationParameters @ 0x140376BEC
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     KiAllocateProcessorStacks @ 0x140376FC0 (KiAllocateProcessorStacks.c)
- *     KiAllocateProcessorNumber @ 0x1403772B8 (KiAllocateProcessorNumber.c)
- *     MmAllocateIndependentPages @ 0x14086C220 (MmAllocateIndependentPages.c)
+ *     KiAllocateProcessorStacks @ 0x140377160 (KiAllocateProcessorStacks.c)
+ *     KiAllocateProcessorNumber @ 0x140377458 (KiAllocateProcessorNumber.c)
+ *     MmAllocateIndependentPages @ 0x14086C460 (MmAllocateIndependentPages.c)
  *     KiAllocateIdleThread @ 0x140A88ECC (KiAllocateIdleThread.c)
  */
 

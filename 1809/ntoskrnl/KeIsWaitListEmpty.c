@@ -1,5 +1,5 @@
 /*
- * XREFs of KeIsWaitListEmpty @ 0x140842A90
+ * XREFs of KeIsWaitListEmpty @ 0x140843CF0
  * Callers:
  *     <none>
  * Callees:

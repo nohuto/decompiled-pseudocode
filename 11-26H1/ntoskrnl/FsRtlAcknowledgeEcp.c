@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlAcknowledgeEcp @ 0x140A9F910
+ * XREFs of FsRtlAcknowledgeEcp @ 0x140A9FC40
  * Callers:
- *     FsRtlpAttachOplockKey @ 0x1402C2000 (FsRtlpAttachOplockKey.c)
+ *     FsRtlpAttachOplockKey @ 0x14030CCC0 (FsRtlpAttachOplockKey.c)
  * Callees:
  *     <none>
  */

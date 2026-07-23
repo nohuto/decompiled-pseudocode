@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptOfflineProcessor @ 0x1404D71E0
+ * XREFs of HalpInterruptOfflineProcessor @ 0x1404D7420
  * Callers:
- *     HalpDpOfflineProcessorForReplace @ 0x1409A827C (HalpDpOfflineProcessorForReplace.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x1409A91AC (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32 *a1)

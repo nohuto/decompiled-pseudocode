@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpMuiRegCreateLanguageList @ 0x180071974
+ * XREFs of RtlpMuiRegCreateLanguageList @ 0x180071964
  * Callers:
- *     RtlpSetProcUserMachineLangList @ 0x180012958 (RtlpSetProcUserMachineLangList.c)
- *     RtlpMuiRegDupLanguageList @ 0x180013BF4 (RtlpMuiRegDupLanguageList.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044194 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     InitializeUserOrMachineLangList @ 0x180070A08 (InitializeUserOrMachineLangList.c)
- *     RtlpLoadMachineUIByPolicy @ 0x180070B60 (RtlpLoadMachineUIByPolicy.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712D8 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     RtlpLoadUserUIByPolicy @ 0x180071A10 (RtlpLoadUserUIByPolicy.c)
+ *     RtlpSetProcUserMachineLangList @ 0x180012948 (RtlpSetProcUserMachineLangList.c)
+ *     RtlpMuiRegDupLanguageList @ 0x180013BE4 (RtlpMuiRegDupLanguageList.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044184 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     InitializeUserOrMachineLangList @ 0x1800709F8 (InitializeUserOrMachineLangList.c)
+ *     RtlpLoadMachineUIByPolicy @ 0x180070B50 (RtlpLoadMachineUIByPolicy.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712C8 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpLoadUserUIByPolicy @ 0x180071A00 (RtlpLoadUserUIByPolicy.c)
  * Callees:
- *     _SafeAllocBlob @ 0x1800144BC (_SafeAllocBlob.c)
+ *     _SafeAllocBlob @ 0x1800144AC (_SafeAllocBlob.c)
  */
 
-__int64 __fastcall RtlpMuiRegCreateLanguageList(int a1, char a2, __int64 a3)
+_QWORD *__fastcall RtlpMuiRegCreateLanguageList(int a1, char a2, __int64 a3)
 {
   unsigned int v3; // ebx
-  __int64 result; // rax
+  _QWORD *result; // rax
   unsigned int v7; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = a1;
@@ -26,12 +26,12 @@ __int64 __fastcall RtlpMuiRegCreateLanguageList(int a1, char a2, __int64 a3)
   if ( result )
   {
     *(_DWORD *)result = v7;
-    *(_QWORD *)(result + 24) = result + 64;
-    *(_WORD *)(result + 4) = 0;
-    *(_WORD *)(result + 6) = v3;
-    *(_BYTE *)(result + 8) = a2;
-    *(_DWORD *)(result + 40) = 0;
-    *(_QWORD *)(result + 16) = a3;
+    result[3] = result + 8;
+    *((_WORD *)result + 2) = 0;
+    *((_WORD *)result + 3) = v3;
+    *((_BYTE *)result + 8) = a2;
+    *((_DWORD *)result + 10) = 0;
+    result[2] = a3;
   }
   return result;
 }

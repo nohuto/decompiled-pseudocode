@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInheritMitigationOptions @ 0x14064DCB8
+ * XREFs of PspInheritMitigationOptions @ 0x14064EE78
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspInheritMitigationOptions(__int128 *a1, __int128 *a2, _OWORD *a3)

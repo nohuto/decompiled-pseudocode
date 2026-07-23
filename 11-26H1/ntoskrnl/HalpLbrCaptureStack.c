@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpLbrCaptureStack @ 0x1403F7BC0
+ * XREFs of HalpLbrCaptureStack @ 0x1403F1700
  * Callers:
  *     <none>
  * Callees:
@@ -27,18 +27,18 @@ __int64 __fastcall HalpLbrCaptureStack(unsigned int a1, __int64 a2, _DWORD *a3)
   *a3 = 0;
   v6 = 0LL;
   v7 = 0;
-  if ( !dword_140F87658 )
+  if ( !dword_140F87A34 )
     return 3221225659LL;
-  v8 = dword_140F87654;
-  if ( a1 < 24 * dword_140F87654 )
+  v8 = dword_140F87A2C;
+  if ( a1 < 24 * dword_140F87A2C )
     return 3221225476LL;
-  v9 = dword_140F87664;
-  if ( dword_140F87664 == 1 )
+  v9 = dword_140F87A40;
+  if ( dword_140F87A40 == 1 )
   {
     v10 = __readmsr(0x1C9u);
-    v7 = (dword_140F87654 - 1) & v10;
+    v7 = (dword_140F87A2C - 1) & v10;
   }
-  if ( dword_140F87654 )
+  if ( dword_140F87A2C )
   {
     v11 = 5632;
     v12 = -1073675519;

@@ -25,8 +25,8 @@ __int64 (__fastcall *__fastcall SMKM_STORE_MGR<SM_TRAITS>::SmReInitialize(__int6
       v3);
   SmFpCleanup(a1 + 1424);
   SmFpCleanup(a1 + 1536);
-  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((union _SLIST_HEADER *)(a1 + 1248), 1);
+  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((_SLIST_HEADER *)(a1 + 1248), 1);
   SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxCleanup((PEX_SPIN_LOCK)(a1 + 1264));
-  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((union _SLIST_HEADER *)(a1 + 1408), 1);
+  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((_SLIST_HEADER *)(a1 + 1408), 1);
   return SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(a1, &v5);
 }

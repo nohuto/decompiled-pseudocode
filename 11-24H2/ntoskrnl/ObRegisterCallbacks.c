@@ -1,15 +1,15 @@
 /*
- * XREFs of ObRegisterCallbacks @ 0x1409D5C70
+ * XREFs of ObRegisterCallbacks @ 0x1409C5AA0
  * Callers:
  *     <none>
  * Callees:
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F64C4 (MmVerifyCallbackFunctionCheckFlags.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObpInsertCallbackByAltitude @ 0x1409D5EA4 (ObpInsertCallbackByAltitude.c)
- *     ObpUnlockObjectType @ 0x1409D66BC (ObpUnlockObjectType.c)
- *     ObpLockObjectTypeExclusive @ 0x1409D6734 (ObpLockObjectTypeExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F3DC4 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObpInsertCallbackByAltitude @ 0x1409C5CD4 (ObpInsertCallbackByAltitude.c)
+ *     ObpUnlockObjectType @ 0x1409C64EC (ObpUnlockObjectType.c)
+ *     ObpLockObjectTypeExclusive @ 0x1409C6564 (ObpLockObjectTypeExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistration, PVOID *RegistrationHandle)
@@ -17,7 +17,7 @@ NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistr
   unsigned int v2; // ebx
   NTSTATUS inserted; // esi
   int OperationRegistrationCount; // eax
-  int v7; // ebp
+  unsigned int v7; // ebp
   __int64 Pool2; // rax
   _WORD *v9; // rdi
   unsigned int Length; // edx
@@ -41,7 +41,7 @@ NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistr
   if ( !(_WORD)OperationRegistrationCount )
     return -1073741811;
   v7 = (OperationRegistrationCount << 6) + CallbackRegistration->Altitude.Length + 32;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v7, 0x6C46624Fu);
   v9 = (_WORD *)Pool2;
   if ( !Pool2 )
     return -1073741670;

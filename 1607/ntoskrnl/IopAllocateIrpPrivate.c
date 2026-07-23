@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAllocateIrpPrivate @ 0x14002E250
+ * XREFs of IopAllocateIrpPrivate @ 0x14002DDD0
  * Callers:
- *     IopAllocateIrpWithExtension @ 0x14000771C (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpWithExtension @ 0x14000788C (IopAllocateIrpWithExtension.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopInitActivityIdIrp @ 0x1401C4FA8 (IopInitActivityIdIrp.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopInitActivityIdIrp @ 0x1401C4E8C (IopInitActivityIdIrp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
+_SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
 {
   char v4; // di
   struct _KPRCB *CurrentPrcb; // rsi
@@ -27,7 +27,7 @@ struct _SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char 
   char v14; // bp
   _SLIST_ENTRY **v15; // rcx
   bool v16; // zf
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
   char v18; // [rsp+80h] [rbp+8h]
   char v19; // [rsp+88h] [rbp+10h]
 
@@ -112,9 +112,9 @@ struct _SLIST_ENTRY *__fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char 
   }
 LABEL_38:
   if ( a3 )
-    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, v9, 0x20707249u);
+    result = (_SLIST_ENTRY *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, v9, 0x20707249u);
   else
-    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x20707249u);
+    result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x20707249u);
   v7 = result;
   if ( !result )
     return result;

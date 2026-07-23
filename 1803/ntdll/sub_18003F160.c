@@ -36,7 +36,7 @@ __int64 __fastcall sub_18003F160(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD
   __int64 v28; // rcx
   __int64 v29; // r9
   char *v30; // rdx
-  unsigned int v31; // r15d
+  int v31; // r15d
   __int64 v32; // rax
   char *v33; // r8
   unsigned int v34; // ebp
@@ -53,9 +53,9 @@ __int64 __fastcall sub_18003F160(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD
   if ( v7 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
+      "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v7,
       a1[1]);
@@ -69,10 +69,10 @@ __int64 __fastcall sub_18003F160(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD
     if ( !(unsigned __int8)sub_1800D9D68(v24, 1LL, 16LL, v7) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
-        (int)"SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
-        (unsigned int)v25,
+        "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
+        v25,
         v7);
       return (unsigned int)-1072365565;
     }
@@ -80,11 +80,11 @@ __int64 __fastcall sub_18003F160(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD
     if ( !(unsigned __int8)sub_1800D9D68(*(unsigned int *)((char *)a1 + v25 + 8), v27, 24LL, v26) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
-        (int)"SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds "
-             "of activation context data (%lu bytes)\n",
-        (unsigned int)v28,
+        "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of ac"
+        "tivation context data (%lu bytes)\n",
+        v28,
         v27,
         24,
         v7);
@@ -108,9 +108,9 @@ __int64 __fastcall sub_18003F160(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD
     if ( !(unsigned __int8)sub_1800D9D68(*((unsigned int *)v33 + 4), 1LL, 16LL, v29) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
-        (int)"SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
+        "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
         v31,
         v13,
         16,
@@ -139,10 +139,9 @@ __int64 __fastcall sub_18003F160(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD
     || (int)v17 + (int)v16 > v7 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context "
-           "data (%lu bytes)\n",
+      "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       v16,
       v15,
       16,
@@ -192,9 +191,12 @@ LABEL_15:
   if ( v21 + (unsigned int)v20 > v22 || v21 + (unsigned int)v20 < v21 || (unsigned int)v20 >= v22 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n");
+      "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
+      v20,
+      v21,
+      v22);
     return (unsigned int)-1072365565;
   }
   *a4 = (char *)a1 + v20;

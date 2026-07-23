@@ -1,17 +1,17 @@
 /*
- * XREFs of HvpViewMapCOWAndUnsealRange @ 0x14070B15C
+ * XREFs of HvpViewMapCOWAndUnsealRange @ 0x14070B36C
  * Callers:
- *     HvpSetRangeProtection @ 0x140709954 (HvpSetRangeProtection.c)
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
+ *     HvpSetRangeProtection @ 0x140709B64 (HvpSetRangeProtection.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
  * Callees:
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B044 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B254 (HvpViewMapMakeViewRangeCOWByCaller.c)
  */
 
-__int64 __fastcall HvpViewMapCOWAndUnsealRange(__int64 a1, int a2, unsigned int a3)
+__int64 __fastcall HvpViewMapCOWAndUnsealRange(ULONG_PTR a1, int a2, unsigned int a3)
 {
   __int64 v3; // r10
   __int64 v4; // rsi
-  __int64 v6; // rbx
+  ULONG_PTR v6; // rbx
   unsigned __int64 v7; // rdx
   unsigned __int64 v8; // rax
   __int64 v9; // rdi

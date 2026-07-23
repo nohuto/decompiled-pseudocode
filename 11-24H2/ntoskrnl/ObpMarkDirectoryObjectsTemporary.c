@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x1409E4C18
+ * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x1409DF678
  * Callers:
- *     ObpDeleteDirectoryName @ 0x1409E4BA0 (ObpDeleteDirectoryName.c)
+ *     ObpDeleteDirectoryName @ 0x1409DF600 (ObpDeleteDirectoryName.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObpUnlockDirectory @ 0x1408424A0 (ObpUnlockDirectory.c)
- *     ObpDeleteSymbolicLinkName @ 0x14084281C (ObpDeleteSymbolicLinkName.c)
- *     ObpLockDirectoryExclusive @ 0x1409E4E58 (ObpLockDirectoryExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObpUnlockDirectory @ 0x14083E760 (ObpUnlockDirectory.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14083EADC (ObpDeleteSymbolicLinkName.c)
+ *     ObpLockDirectoryExclusive @ 0x1409DF8B8 (ObpLockDirectoryExclusive.c)
  */
 
 _QWORD *__fastcall ObpMarkDirectoryObjectsTemporary(_QWORD **a1, _QWORD *a2, __int64 a3)
@@ -26,8 +26,8 @@ _QWORD *__fastcall ObpMarkDirectoryObjectsTemporary(_QWORD **a1, _QWORD *a2, __i
   __int64 v12; // r14
   signed __int64 *v13; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v15; // rax
-  _QWORD *v16; // r13
+  char *v15; // rax
+  char *v16; // r13
   signed __int64 v17; // rax
   signed __int64 v18; // rdx
   signed __int64 v19; // rtt
@@ -68,12 +68,12 @@ _QWORD *__fastcall ObpMarkDirectoryObjectsTemporary(_QWORD **a1, _QWORD *a2, __i
         v21 = (PVOID)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v11 + 24) ^ (unsigned __int64)BYTE1(v11)];
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v15 = KeAbPreAcquire(v11 + 16, 0LL);
+        v15 = (char *)KeAbPreAcquire(v11 + 16, 0LL);
         v16 = v15;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v11 + 16), 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v11 + 16), (__int64)v15, v11 + 16);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v11 + 16), v15, v11 + 16);
         if ( v16 )
-          *((_BYTE *)v16 + 10) = 1;
+          v16[10] = 1;
         *(_BYTE *)(v11 + 27) &= ~0x10u;
         if ( !*(_QWORD *)(v11 + 8) && !*(_DWORD *)(v12 + 24) )
         {

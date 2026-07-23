@@ -1,10 +1,10 @@
 /*
- * XREFs of VfUtilEqualUnicodeString @ 0x140AC269C
+ * XREFs of VfUtilEqualUnicodeString @ 0x140AC268C
  * Callers:
  *     ViDifCheckCallbackInterception @ 0x14020A524 (ViDifCheckCallbackInterception.c)
- *     ViFaultsIsAppTarget @ 0x140AD6A30 (ViFaultsIsAppTarget.c)
+ *     ViFaultsIsAppTarget @ 0x140AD6A20 (ViFaultsIsAppTarget.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
  */
 
 _BOOL8 __fastcall VfUtilEqualUnicodeString(const void **a1, __int64 a2)

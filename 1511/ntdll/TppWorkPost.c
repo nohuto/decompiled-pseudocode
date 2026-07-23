@@ -17,7 +17,7 @@ __int64 __fastcall TppWorkPost(__int64 a1)
   bool v4; // zf
   __int64 result; // rax
 
-  TppBarrierAdjust((unsigned __int64 *)(a1 + 56), 1, 0);
+  TppBarrierAdjust((_RTL_SRWLOCK *)(a1 + 56), 1, 0);
   _m_prefetchw((const void *)(a1 + 224));
   v2 = *(_DWORD *)(a1 + 224);
   do

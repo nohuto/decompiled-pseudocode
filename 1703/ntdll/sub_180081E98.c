@@ -8,21 +8,21 @@
  *     RtlFreeHeap @ 0x1800244A0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_180081E98(unsigned __int64 a1)
+LOGICAL __fastcall sub_180081E98(_QWORD *a1)
 {
   _QWORD *v1; // r8
   _QWORD *v4; // rbx
 
-  v1 = *(_QWORD **)(a1 + 16);
+  v1 = (_QWORD *)a1[2];
   if ( v1 )
   {
     do
     {
       v4 = (_QWORD *)*v1;
-      RtlFreeHeap(qword_18015B328, 0, (unsigned __int64)v1);
+      RtlFreeHeap(HeapHandle, 0, v1);
       v1 = v4;
     }
     while ( v4 );
   }
-  return RtlFreeHeap(qword_18015B328, 0, a1);
+  return RtlFreeHeap(HeapHandle, 0, a1);
 }

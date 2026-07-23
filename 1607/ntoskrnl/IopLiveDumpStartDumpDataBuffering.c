@@ -3,8 +3,8 @@
  * Callers:
  *     IopLiveDumpEndMirroringCallback @ 0x1403DABEC (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     IopLiveDumpTrace @ 0x1401CAF0C (IopLiveDumpTrace.c)
- *     KdDecodeDataBlock @ 0x1401D1358 (KdDecodeDataBlock.c)
+ *     IopLiveDumpTrace @ 0x1401CADF0 (IopLiveDumpTrace.c)
+ *     KdDecodeDataBlock @ 0x1401D1184 (KdDecodeDataBlock.c)
  *     IopLiveDumpInitiateCorralStateChange @ 0x1403DB0C0 (IopLiveDumpInitiateCorralStateChange.c)
  */
 

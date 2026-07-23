@@ -21,7 +21,7 @@ __int64 __fastcall ViThunkHookExportAddress(unsigned __int8 **a1, const UNICODE_
   int v12; // ecx
   int v13; // eax
   unsigned __int8 *v14; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
 
   *(_QWORD *)&DestinationString.Length = 0LL;
   Buffer = 0LL;

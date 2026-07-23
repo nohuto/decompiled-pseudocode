@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerRequestStatsCreate @ 0x1407A77DC
+ * XREFs of PopPowerRequestStatsCreate @ 0x1407A79CC
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14032BD78 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestCreateCommon @ 0x14032C008 (PopPowerRequestCreateCommon.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x14022CF10 (RtlLookupElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x14031EC30 (RtlInsertElementGenericTableAvl.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestStatsCleanup @ 0x1407A78C8 (PopPowerRequestStatsCleanup.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7D30 (PopPowerRequestStatsGetIdForRequest.c)
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A7FE4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     PopPowerRequestStatsGetIdForBlocker @ 0x1407A8370 (PopPowerRequestStatsGetIdForBlocker.c)
- *     PopPowerRequestStatsFreeId @ 0x1407A8504 (PopPowerRequestStatsFreeId.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14022D020 (RtlLookupElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14031EEC0 (RtlInsertElementGenericTableAvl.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestStatsCleanup @ 0x1407A7AB8 (PopPowerRequestStatsCleanup.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7F20 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A81D4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     PopPowerRequestStatsGetIdForBlocker @ 0x1407A8560 (PopPowerRequestStatsGetIdForBlocker.c)
+ *     PopPowerRequestStatsFreeId @ 0x1407A86F4 (PopPowerRequestStatsFreeId.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsCreate(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCommitPageTablesForVad @ 0x1406F9470
+ * XREFs of MiCommitPageTablesForVad @ 0x1406F9680
  * Callers:
  *     MiSplitPrivatePage @ 0x14021CE44 (MiSplitPrivatePage.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiCommitPageTableRangesForVad @ 0x1406437A4 (MiCommitPageTableRangesForVad.c)
- *     MiInsertVadCharges @ 0x1406FA8B0 (MiInsertVadCharges.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiCommitPageTableRangesForVad @ 0x140643CF4 (MiCommitPageTableRangesForVad.c)
+ *     MiInsertVadCharges @ 0x1406FAAC0 (MiInsertVadCharges.c)
  * Callees:
- *     MiMakeHyperRangeAccessible @ 0x1402776B0 (MiMakeHyperRangeAccessible.c)
- *     MiVadPureReserve @ 0x140277B70 (MiVadPureReserve.c)
- *     MiVadLeafPagesPrecharged @ 0x140277BC0 (MiVadLeafPagesPrecharged.c)
- *     MiVadPageTableChargeLevel @ 0x140277C10 (MiVadPageTableChargeLevel.c)
- *     MmGetMinWsPagePriority @ 0x1402FBDA0 (MmGetMinWsPagePriority.c)
- *     RtlAreBitsClearEx @ 0x1403513E0 (RtlAreBitsClearEx.c)
- *     MiUpdateChargedWsles @ 0x140661EC4 (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1406F7800 (MiChargeFullProcessCommitment.c)
+ *     MiMakeHyperRangeAccessible @ 0x140277940 (MiMakeHyperRangeAccessible.c)
+ *     MiVadPureReserve @ 0x140277E00 (MiVadPureReserve.c)
+ *     MiVadLeafPagesPrecharged @ 0x140277E50 (MiVadLeafPagesPrecharged.c)
+ *     MiVadPageTableChargeLevel @ 0x140277EA0 (MiVadPageTableChargeLevel.c)
+ *     MmGetMinWsPagePriority @ 0x1402FC030 (MmGetMinWsPagePriority.c)
+ *     RtlAreBitsClearEx @ 0x140351580 (RtlAreBitsClearEx.c)
+ *     MiUpdateChargedWsles @ 0x140662414 (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x1406F7A10 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

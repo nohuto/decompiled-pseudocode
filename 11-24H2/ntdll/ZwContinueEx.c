@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwContinueEx @ 0x180163120
+ * XREFs of ZwContinueEx @ 0x1801614E0
  * Callers:
- *     RtlContinueLongJump @ 0x1800E9FF0 (RtlContinueLongJump.c)
- *     KiUserApcDispatcher @ 0x180165B80 (KiUserApcDispatcher.c)
+ *     RtlContinueLongJump @ 0x1800E5780 (RtlContinueLongJump.c)
+ *     KiUserApcDispatcher @ 0x180163F40 (KiUserApcDispatcher.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwContinueEx()
+NTSTATUS __cdecl ZwContinueEx(PCONTEXT ContextRecord, PVOID ContinueArgument)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 165LL;
+  result = 165;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

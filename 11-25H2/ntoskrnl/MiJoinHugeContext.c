@@ -11,7 +11,7 @@
 
 __int64 __fastcall MiJoinHugeContext(__int64 a1, __int64 a2, int a3)
 {
-  RTL_BITMAP *v3; // r12
+  _RTL_BITMAP *v3; // r12
   int v5; // r11d
   __int64 v7; // r14
   int v9; // ecx
@@ -27,7 +27,7 @@ __int64 __fastcall MiJoinHugeContext(__int64 a1, __int64 a2, int a3)
   __int128 v20; // [rsp+20h] [rbp-20h]
   __int128 v21; // [rsp+30h] [rbp-10h] BYREF
 
-  v3 = (RTL_BITMAP *)(a1 + 344);
+  v3 = (_RTL_BITMAP *)(a1 + 344);
   v5 = *(_DWORD *)(a1 + 344);
   v7 = *(_QWORD *)(a1 + 352);
   v20 = 0LL;

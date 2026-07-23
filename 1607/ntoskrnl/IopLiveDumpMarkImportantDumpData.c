@@ -3,9 +3,9 @@
  * Callers:
  *     IopLiveDumpEndMirroringCallback @ 0x1403DABEC (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     MmAddRangeToCrashDump @ 0x1401E7A54 (MmAddRangeToCrashDump.c)
- *     ExAddPrivateDataToCrashDump @ 0x14022CC20 (ExAddPrivateDataToCrashDump.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmAddRangeToCrashDump @ 0x1401E7880 (MmAddRangeToCrashDump.c)
+ *     ExAddPrivateDataToCrashDump @ 0x14022CA4C (ExAddPrivateDataToCrashDump.c)
  *     MmAddPrivateDataToCrashDump @ 0x1403DEC90 (MmAddPrivateDataToCrashDump.c)
  */
 

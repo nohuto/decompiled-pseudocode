@@ -1,11 +1,11 @@
 /*
- * XREFs of KiResetScb @ 0x1402887DC
+ * XREFs of KiResetScb @ 0x14020597C
  * Callers:
- *     KiUpdateCpuTargetByWeight @ 0x140287FB8 (KiUpdateCpuTargetByWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x140288290 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x140205158 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x140205430 (KiUpdateCpuTargetByRate.c)
  * Callees:
- *     KiRemoveSchedulingGroupQueue @ 0x1402EB83C (KiRemoveSchedulingGroupQueue.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x14037E04C (KiMoveScbThreadsToNewReadylist.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x14029CB8C (KiRemoveSchedulingGroupQueue.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x14037DB9C (KiMoveScbThreadsToNewReadylist.c)
  */
 
 void __fastcall KiResetScb(__int64 a1, __int64 a2)

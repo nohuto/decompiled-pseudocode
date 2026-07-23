@@ -39,12 +39,12 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
   __int64 Tag; // r8
   __int64 Type; // rcx
   UNICODE_STRING Destination; // [rsp+48h] [rbp-19h] BYREF
-  UNICODE_STRING Source; // [rsp+58h] [rbp-9h] BYREF
+  UNICODE_STRING CurrentUserKeyPath; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
 
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  Source = 0LL;
+  CurrentUserKeyPath = 0LL;
   if ( (a1 & 0x40000000) != 0 )
   {
     *a4 = (HANDLE)a2;
@@ -89,10 +89,10 @@ LABEL_6:
         *(_DWORD *)&Destination.Length = 34340864;
         if ( !(_DWORD)v7 )
           goto LABEL_13;
-        if ( (_DWORD)v7 == 5 && (int)RtlFormatCurrentUserKeyPath(&Source) >= 0 )
+        if ( (_DWORD)v7 == 5 && RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(&Destination, &Source);
-          RtlFreeAnsiString(&Source);
+          appended = RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath);
+          RtlFreeAnsiString(&CurrentUserKeyPath);
         }
         else
         {

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpZeroBlockFromOffset @ 0x180029AE4
+ * XREFs of RtlpZeroBlockFromOffset @ 0x180014BB4
  * Callers:
- *     RtlpGrowBlockInPlace @ 0x180028190 (RtlpGrowBlockInPlace.c)
+ *     RtlpGrowBlockInPlace @ 0x180013260 (RtlpGrowBlockInPlace.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 unsigned __int8 __fastcall RtlpZeroBlockFromOffset(__int64 a1, __int64 a2, __int64 a3)

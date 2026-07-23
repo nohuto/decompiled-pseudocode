@@ -1,19 +1,19 @@
 /*
- * XREFs of MiRotatedToFrameBuffer @ 0x1400BDE00
+ * XREFs of MiRotatedToFrameBuffer @ 0x1400BBC90
  * Callers:
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiGetWorkingSetInfoList @ 0x1400B79E0 (MiGetWorkingSetInfoList.c)
- *     NtUnlockVirtualMemory @ 0x1400BA2E0 (NtUnlockVirtualMemory.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiGetPageProtection @ 0x1400BD710 (MiGetPageProtection.c)
- *     MiProtectPrivateMemory @ 0x1400E1040 (MiProtectPrivateMemory.c)
- *     MiRevertValidPte @ 0x1400E17F0 (MiRevertValidPte.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiCheckCommitReleaseFromVad @ 0x1401DF4E0 (MiCheckCommitReleaseFromVad.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiGetWorkingSetInfoList @ 0x1400B5870 (MiGetWorkingSetInfoList.c)
+ *     NtUnlockVirtualMemory @ 0x1400B8170 (NtUnlockVirtualMemory.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiGetPageProtection @ 0x1400BB5A0 (MiGetPageProtection.c)
+ *     MiProtectPrivateMemory @ 0x1400DEEE0 (MiProtectPrivateMemory.c)
+ *     MiRevertValidPte @ 0x1400DF690 (MiRevertValidPte.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1401DF30C (MiCheckCommitReleaseFromVad.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 _BOOL8 __fastcall MiRotatedToFrameBuffer(__int64 a1)

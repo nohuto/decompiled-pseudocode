@@ -1,19 +1,19 @@
 /*
- * XREFs of MmDeleteShadowMapping @ 0x14065BE04
+ * XREFs of MmDeleteShadowMapping @ 0x14065BEE8
  * Callers:
  *     KiShadowProcessorAllocation @ 0x1403DE0E8 (KiShadowProcessorAllocation.c)
  *     KiUnshadowProcessorAllocation @ 0x1403DE1D4 (KiUnshadowProcessorAllocation.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiInitializeTbFlushList @ 0x1400B5A30 (MiInitializeTbFlushList.c)
- *     KeStackAttachProcess @ 0x1400CD110 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1400CD1BC (KeUnstackDetachProcess.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x1401EF454 (MiReadWriteAnyLevelShadowPte.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiInitializeTbFlushList @ 0x1400B3858 (MiInitializeTbFlushList.c)
+ *     KeStackAttachProcess @ 0x1400CAFB0 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1400CB05C (KeUnstackDetachProcess.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x1401EF280 (MiReadWriteAnyLevelShadowPte.c)
  */
 
 void __fastcall MmDeleteShadowMapping(unsigned __int64 a1)

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiAllocateNewSubAllocatedRegion @ 0x14069F198
+ * XREFs of MiAllocateNewSubAllocatedRegion @ 0x1405FE4DC
  * Callers:
- *     MiAllocateFromSubAllocatedRegion @ 0x14064C180 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x140640FA0 (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
- *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316788 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14031698C (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiInsertPrivateVad @ 0x140316D84 (MiInsertPrivateVad.c)
- *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
- *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
- *     MiCreateVadEventBitmap @ 0x14069F4CC (MiCreateVadEventBitmap.c)
- *     MiGetUserReservationHighestAddress @ 0x1406EC0BC (MiGetUserReservationHighestAddress.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x1406ECF60 (MiAdvanceVadHint.c)
- *     MiFreeVadEventBitmap @ 0x1408C8758 (MiFreeVadEventBitmap.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     MiLocateVadEvent @ 0x140309104 (MiLocateVadEvent.c)
+ *     MiUnlockVad @ 0x14031F3A8 (MiUnlockVad.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1403214D8 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403216DC (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiInsertPrivateVad @ 0x140321AD4 (MiInsertPrivateVad.c)
+ *     MiCreateVadEventBitmap @ 0x1405FE810 (MiCreateVadEventBitmap.c)
+ *     MiAddSecureEntry @ 0x140689430 (MiAddSecureEntry.c)
+ *     MiSelectUserAddress @ 0x1406EA100 (MiSelectUserAddress.c)
+ *     MiGetUserReservationHighestAddress @ 0x14070349C (MiGetUserReservationHighestAddress.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x140704340 (MiAdvanceVadHint.c)
+ *     MiFreeVadEventBitmap @ 0x1408C88B8 (MiFreeVadEventBitmap.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateNewSubAllocatedRegion(int a1, unsigned __int64 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall MiAllocateNewSubAllocatedRegion(int a1, unsigned __int64 a2)
   __int64 v7; // rdx
   unsigned int v8; // ecx
   __int64 v9; // r13
-  unsigned __int64 UserReservationHighestAddress; // r14
+  int UserReservationHighestAddress; // r14d
   __int64 v11; // r15
   unsigned int v12; // eax
   unsigned __int64 v13; // r12
@@ -43,13 +43,13 @@ __int64 __fastcall MiAllocateNewSubAllocatedRegion(int a1, unsigned __int64 a2)
   __int64 v20; // rsi
   unsigned int v21; // eax
   _QWORD *v22; // r15
-  __int64 v23; // rdx
-  _DWORD *v24; // rbp
+  int v23; // edx
+  void *v24; // rbp
   __int64 *v25; // rax
   __int64 v26; // rdx
   unsigned __int64 v28; // [rsp+50h] [rbp-78h]
   struct _KTHREAD *CurrentThread; // [rsp+60h] [rbp-68h]
-  __int64 v30; // [rsp+60h] [rbp-68h]
+  int v30; // [rsp+60h] [rbp-68h]
   __int64 v31; // [rsp+68h] [rbp-60h]
   unsigned __int64 v33; // [rsp+D8h] [rbp+10h] BYREF
   __int64 v34; // [rsp+E0h] [rbp+18h]
@@ -85,15 +85,15 @@ __int64 __fastcall MiAllocateNewSubAllocatedRegion(int a1, unsigned __int64 a2)
         v34 = v11;
         VadEventBitmap = MiSelectUserAddress(
                            0,
-                           0LL,
+                           0,
                            UserReservationHighestAddress,
-                           v3 << 12,
+                           (_DWORD)v3 << 12,
                            v11,
                            0LL,
                            (v12 >> 7) & 0x1F,
                            0x80000000,
-                           &v35,
-                           &v33);
+                           (__int64)&v35,
+                           (__int64)&v33);
         if ( VadEventBitmap >= 0 )
           break;
         if ( v11 != 0x10000 )
@@ -121,7 +121,7 @@ LABEL_30:
           ExFreePoolWithTag((PVOID)v6, 0);
           return (unsigned int)VadEventBitmap;
         }
-        v20 = MiLocateVadEvent(v6, 64LL) + 8;
+        v20 = MiLocateVadEvent(v6) + 8;
         v34 = v20;
         v21 = ExGenRandom(v19 - 63);
         v22 = (_QWORD *)(v20 + 16);
@@ -132,7 +132,7 @@ LABEL_30:
         *(_QWORD *)(v20 + 24) = 0LL;
         *(_DWORD *)(v20 + 40) = 0;
         *(_DWORD *)(v20 + 44) = v3;
-        v24 = MiAddSecureEntry(v6, v23, v30, -2147483647, 0);
+        v24 = (void *)MiAddSecureEntry(v6, v23, v30, -2147483647, 0);
         if ( v24 )
         {
           VadEventBitmap = MiInsertVadCharges(v6, Process);

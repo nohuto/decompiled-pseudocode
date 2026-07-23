@@ -1,5 +1,5 @@
 /*
- * XREFs of MmConfigurePrefetchSeekThreshold @ 0x1407EAFF8
+ * XREFs of MmConfigurePrefetchSeekThreshold @ 0x1407EB2C8
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:

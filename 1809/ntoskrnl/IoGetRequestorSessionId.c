@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetRequestorSessionId @ 0x14013AEB0
+ * XREFs of IoGetRequestorSessionId @ 0x14013AFB0
  * Callers:
  *     <none>
  * Callees:

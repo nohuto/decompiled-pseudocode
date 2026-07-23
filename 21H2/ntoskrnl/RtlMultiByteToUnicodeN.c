@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMultiByteToUnicodeN @ 0x14062C730
+ * XREFs of RtlMultiByteToUnicodeN @ 0x1406638C0
  * Callers:
- *     mbstowcs @ 0x1403D2870 (mbstowcs.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     mbstowcs @ 0x1403D29E0 (mbstowcs.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x1406B6350 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x140615810 (RtlUTF8ToUnicodeN.c)
+ *     RtlpIsUtf8Process @ 0x1406DDCE0 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeN(
@@ -29,7 +29,7 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeN(
   __int64 v21; // r9
   char v22; // [rsp+30h] [rbp-18h] BYREF
 
-  if ( RtlpIsUtf8Process(0) )
+  if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
   {
     v15 = (ULONG *)&v22;
     if ( BytesInUnicodeString )

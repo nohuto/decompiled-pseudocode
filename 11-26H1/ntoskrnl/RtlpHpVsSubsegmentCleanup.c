@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVsSubsegmentCleanup @ 0x140352A74
+ * XREFs of RtlpHpVsSubsegmentCleanup @ 0x140354AF4
  * Callers:
- *     RtlpHpVsContextCleanup @ 0x1403529C8 (RtlpHpVsContextCleanup.c)
- *     RtlpHpVsChunkFree @ 0x1403532B0 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextCleanup @ 0x140354A48 (RtlpHpVsContextCleanup.c)
+ *     RtlpHpVsChunkFree @ 0x140355330 (RtlpHpVsChunkFree.c)
  * Callees:
  *     <none>
  */

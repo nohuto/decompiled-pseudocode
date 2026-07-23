@@ -1,35 +1,34 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionKernel @ 0x1402A18F4
+ * XREFs of PoTraceSystemTimerResolutionKernel @ 0x140410FE0
  * Callers:
- *     KiSetClockIntervalOneShot @ 0x14029D85C (KiSetClockIntervalOneShot.c)
- *     KiResetClockIntervalOneShot @ 0x14029EB4C (KiResetClockIntervalOneShot.c)
- *     KiSetClockInterval @ 0x14029F358 (KiSetClockInterval.c)
- *     ExpUpdateTimerConfigurationWorker @ 0x14029FDD0 (ExpUpdateTimerConfigurationWorker.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1402A0A58 (KiSetClockIntervalToMinimumRequested.c)
- *     ExSetTimerResolution @ 0x14041D420 (ExSetTimerResolution.c)
- *     KiResetClockInterval @ 0x1405BA4D4 (KiResetClockInterval.c)
+ *     KiSetClockIntervalOneShot @ 0x1402AC34C (KiSetClockIntervalOneShot.c)
+ *     KiResetClockIntervalOneShot @ 0x1402AD63C (KiResetClockIntervalOneShot.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x140317740 (ExpUpdateTimerConfigurationWorker.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1403183C8 (KiSetClockIntervalToMinimumRequested.c)
+ *     ExSetTimerResolution @ 0x140410F10 (ExSetTimerResolution.c)
+ *     KiSetClockInterval @ 0x140463DB4 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x1405B7B04 (KiResetClockInterval.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-int __fastcall PoTraceSystemTimerResolutionKernel(int a1, __int64 a2, char a3)
+char __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2, char a3)
 {
   __int64 *v3; // rax
   __int64 *v4; // r10
-  __int64 v5; // rdx
-  __int64 v6; // r9
-  const EVENT_DESCRIPTOR *v7; // r10
+  __int64 v5; // r9
+  const EVENT_DESCRIPTOR *v6; // r10
   const GUID *ActivityId; // r11
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-38h] BYREF
-  int *v11; // [rsp+50h] [rbp-28h]
-  __int64 v12; // [rsp+58h] [rbp-20h]
-  int v13; // [rsp+80h] [rbp+8h] BYREF
-  int v14; // [rsp+88h] [rbp+10h] BYREF
+  int *v10; // [rsp+50h] [rbp-28h]
+  __int64 v11; // [rsp+58h] [rbp-20h]
+  int v12; // [rsp+80h] [rbp+8h] BYREF
+  int v13; // [rsp+88h] [rbp+10h] BYREF
 
-  v14 = a2;
-  v13 = a1;
+  v13 = a2;
+  v12 = a1;
   v3 = POP_ETW_EVENT_KERNEL_STRS;
   v4 = (__int64 *)&POP_ETW_EVENT_KERNEL_STRS_INTERNAL;
   if ( !a3 )
@@ -38,21 +37,18 @@ int __fastcall PoTraceSystemTimerResolutionKernel(int a1, __int64 a2, char a3)
   {
     if ( PopDiagHandle )
     {
-      LOBYTE(a2) = *((_BYTE *)v4 + 4);
-      LODWORD(v3) = EtwpLevelKeywordEnabled(*(_QWORD *)(PopDiagHandle + 32) + 96LL, a2, v4[1], PopDiagHandle);
+      LOBYTE(v3) = EtwpLevelKeywordEnabled(*(_QWORD *)(PopDiagHandle + 32) + 96LL, *((_BYTE *)v4 + 4), v4[1]);
       if ( (_BYTE)v3
-        || *(_WORD *)(v6 + 102) != (_WORD)ActivityId
-        && (LOBYTE(v5) = v7->Level,
-            LODWORD(v3) = EtwpLevelKeywordEnabled(*(_QWORD *)(v6 + 40) + 96LL, v5, v7->Keyword, v6),
-            (_BYTE)v3) )
+        || *(_WORD *)(v5 + 102) != (_WORD)ActivityId
+        && (LOBYTE(v3) = EtwpLevelKeywordEnabled(*(_QWORD *)(v5 + 40) + 96LL, v6->Level, v6->Keyword), (_BYTE)v3) )
       {
-        UserData.Ptr = (ULONGLONG)&v13;
+        UserData.Ptr = (ULONGLONG)&v12;
         *(_QWORD *)&UserData.Size = 4LL;
-        v11 = &v14;
-        v12 = 4LL;
-        LODWORD(v3) = EtwWriteEx(PopDiagHandle, v7, 0LL, 0, ActivityId, ActivityId, 2u, &UserData);
+        v10 = &v13;
+        v11 = 4LL;
+        LOBYTE(v3) = EtwWriteEx(PopDiagHandle, v6, 0LL, 0, ActivityId, ActivityId, 2u, &UserData);
       }
     }
   }
-  return (int)v3;
+  return (char)v3;
 }

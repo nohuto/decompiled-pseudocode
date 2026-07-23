@@ -20,18 +20,18 @@
  *     BiAdjustPrivilege @ 0x14058D208 (BiAdjustPrivilege.c)
  */
 
-__int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
+NTSTATUS __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
 {
   __int64 v2; // rdi
   int v4; // esi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v6; // ebx
   char v7; // [rsp+50h] [rbp+18h] BYREF
   __int64 ThreadInformation; // [rsp+58h] [rbp+20h] BYREF
 
   v2 = a2;
   v4 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 8;
-  if ( v4 || (result = RtlImpersonateSelfEx(2, 0, 0LL), (int)result >= 0) )
+  if ( v4 || (result = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL), result >= 0) )
   {
     LOBYTE(a2) = 1;
     v6 = BiAdjustPrivilege(a1, a2, &v7);
@@ -49,7 +49,7 @@ __int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
       *(_BYTE *)(v2 + 5) = v4 != 0;
       *(_DWORD *)v2 = a1;
     }
-    return (unsigned int)v6;
+    return v6;
   }
   return result;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of SeExamineGlobalSacl @ 0x14069546C
+ * XREFs of SeExamineGlobalSacl @ 0x140695550
  * Callers:
- *     SeObjectReferenceAuditAlarm @ 0x140406A20 (SeObjectReferenceAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1404070A0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x14057FA30 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     CmpExamineSaclForAuditEvent @ 0x1406025C0 (CmpExamineSaclForAuditEvent.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x14068D508 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14069180C (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1404058E0 (SeObjectReferenceAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140405F60 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x14057FEDC (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140602674 (CmpExamineSaclForAuditEvent.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14068D5EC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1406918F0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     SepRmAcquireGlobalSaclReadLock @ 0x14021A48C (SepRmAcquireGlobalSaclReadLock.c)
- *     SeExamineSacl @ 0x140691420 (SeExamineSacl.c)
- *     SepRmGlobalSaclFind @ 0x140695604 (SepRmGlobalSaclFind.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     SepRmAcquireGlobalSaclReadLock @ 0x14021A2B8 (SepRmAcquireGlobalSaclReadLock.c)
+ *     SeExamineSacl @ 0x140691504 (SeExamineSacl.c)
+ *     SepRmGlobalSaclFind @ 0x1406956E8 (SepRmGlobalSaclFind.c)
  */
 
 void __stdcall SeExamineGlobalSacl(

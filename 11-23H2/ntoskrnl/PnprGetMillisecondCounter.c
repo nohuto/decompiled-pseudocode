@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprGetMillisecondCounter @ 0x140A9C8B4
+ * XREFs of PnprGetMillisecondCounter @ 0x140A9C724
  * Callers:
- *     PnprMirrorPhysicalMemory @ 0x140563030 (PnprMirrorPhysicalMemory.c)
- *     PnprSwapFinalize @ 0x140563700 (PnprSwapFinalize.c)
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
- *     PnprQuiesceDevices @ 0x140A9D304 (PnprQuiesceDevices.c)
- *     PnprQuiesceProcessors @ 0x140A9D904 (PnprQuiesceProcessors.c)
- *     PnprWakeDevices @ 0x140A9DF9C (PnprWakeDevices.c)
- *     PnprWakeProcessors @ 0x140A9E01C (PnprWakeProcessors.c)
+ *     PnprMirrorPhysicalMemory @ 0x1405636F0 (PnprMirrorPhysicalMemory.c)
+ *     PnprSwapFinalize @ 0x140563DC0 (PnprSwapFinalize.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceDevices @ 0x140A9D174 (PnprQuiesceDevices.c)
+ *     PnprQuiesceProcessors @ 0x140A9D774 (PnprQuiesceProcessors.c)
+ *     PnprWakeDevices @ 0x140A9DE0C (PnprWakeDevices.c)
+ *     PnprWakeProcessors @ 0x140A9DE8C (PnprWakeProcessors.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall PnprGetMillisecondCounter(char a1)

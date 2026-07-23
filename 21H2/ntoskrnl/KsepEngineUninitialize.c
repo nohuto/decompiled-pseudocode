@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepEngineUninitialize @ 0x140A921C8
+ * XREFs of KsepEngineUninitialize @ 0x140A931C8
  * Callers:
- *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
+ *     KseInitialize @ 0x140A3D89C (KseInitialize.c)
  * Callees:
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KsepCacheUninitialize @ 0x1408C1130 (KsepCacheUninitialize.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KsepCacheUninitialize @ 0x1408C1290 (KsepCacheUninitialize.c)
  */
 
 void __fastcall KsepEngineUninitialize(__int64 a1)

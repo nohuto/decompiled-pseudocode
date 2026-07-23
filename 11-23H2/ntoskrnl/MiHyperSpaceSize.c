@@ -1,12 +1,12 @@
 /*
- * XREFs of MiHyperSpaceSize @ 0x14025D514
+ * XREFs of MiHyperSpaceSize @ 0x14025D7A4
  * Callers:
- *     MiInitializeWalkBounds @ 0x14025D3EC (MiInitializeWalkBounds.c)
- *     MiSystemFault @ 0x1402611A0 (MiSystemFault.c)
- *     MiQueryLeafPte @ 0x1403318B0 (MiQueryLeafPte.c)
- *     MiRealVaToFlushType @ 0x14038CBC8 (MiRealVaToFlushType.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MiDeleteVadBitmap @ 0x140706BB4 (MiDeleteVadBitmap.c)
+ *     MiInitializeWalkBounds @ 0x14025D67C (MiInitializeWalkBounds.c)
+ *     MiSystemFault @ 0x140261430 (MiSystemFault.c)
+ *     MiQueryLeafPte @ 0x140331B40 (MiQueryLeafPte.c)
+ *     MiRealVaToFlushType @ 0x14038CDA8 (MiRealVaToFlushType.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MiDeleteVadBitmap @ 0x140706DC4 (MiDeleteVadBitmap.c)
  *     MiAssignTopLevelRanges @ 0x140B5FC2C (MiAssignTopLevelRanges.c)
  *     MiAddSubRegionEntropy @ 0x140B60128 (MiAddSubRegionEntropy.c)
  * Callees:

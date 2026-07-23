@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDeleteMutant @ 0x1403DC810
+ * XREFs of ExpDeleteMutant @ 0x1403DFA00
  * Callers:
  *     <none>
  * Callees:
- *     KeDeleteMutant @ 0x1403DC828 (KeDeleteMutant.c)
+ *     KeDeleteMutant @ 0x1403DFA18 (KeDeleteMutant.c)
  */
 
 __int64 __fastcall ExpDeleteMutant(struct _KTHREAD *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpRegisterCounterSet @ 0x1407C15BC
+ * XREFs of ExpRegisterCounterSet @ 0x1407C1A0C
  * Callers:
- *     ExpPcwHostCallback @ 0x1407C12E0 (ExpPcwHostCallback.c)
- *     EtwRegisterCounters @ 0x14082F560 (EtwRegisterCounters.c)
+ *     ExpPcwHostCallback @ 0x1407C1730 (ExpPcwHostCallback.c)
+ *     EtwRegisterCounters @ 0x14082FD58 (EtwRegisterCounters.c)
  * Callees:
- *     PcwRegister @ 0x140A4C490 (PcwRegister.c)
+ *     PcwRegister @ 0x140A43020 (PcwRegister.c)
  */
 
 NTSTATUS __fastcall ExpRegisterCounterSet(PPCW_REGISTRATION *Registration, PPCW_REGISTRATION_INFORMATION Info)

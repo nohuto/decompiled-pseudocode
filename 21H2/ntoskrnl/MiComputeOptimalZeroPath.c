@@ -1,13 +1,13 @@
 /*
- * XREFs of MiComputeOptimalZeroPath @ 0x140A548A8
+ * XREFs of MiComputeOptimalZeroPath @ 0x140A558A8
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiZeroPhysicalPage @ 0x1402E6380 (MiZeroPhysicalPage.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402976D0 (MiZeroPhysicalPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -19,7 +19,7 @@ ULONG_PTR MiComputeOptimalZeroPath()
   ULONG_PTR result; // rax
   __int64 v4; // rdx
   __int64 v5; // r8
-  _DWORD *SchedulerAssist; // r9
+  _DWORD *v6; // r9
   __int64 v7; // rdx
   __int64 v8; // rcx
   int *v9; // r15
@@ -29,13 +29,13 @@ ULONG_PTR MiComputeOptimalZeroPath()
   __int64 v13; // r12
   __int64 v14; // r13
   unsigned __int64 v15; // rbx
-  unsigned __int64 v16; // rax
-  __int64 v17; // rsi
-  unsigned __int64 *v18; // rdi
-  ULONG_PTR v19; // r15
-  unsigned __int64 v20; // r14
-  unsigned __int64 v21; // rbx
-  unsigned __int64 v22; // r9
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int64 v17; // rax
+  __int64 v18; // rsi
+  unsigned __int64 *v19; // rdi
+  ULONG_PTR v20; // r15
+  unsigned __int64 v21; // r14
+  unsigned __int64 v22; // rbx
   _DWORD *v23; // r9
   __int64 v24; // r8
   unsigned __int64 v25; // rax
@@ -82,14 +82,14 @@ ULONG_PTR MiComputeOptimalZeroPath()
     v8 = 48 * result - 0x58000000000LL;
     BugCheckParameter2[i - 2] = v8;
     if ( *(unsigned __int8 *)(v8 + 34) >> 6 != (_DWORD)v7 )
-      MiChangePageAttribute(v8, v7, 0LL, SchedulerAssist);
+      MiChangePageAttribute(v8, v7, 0LL, v6);
     ++v1;
     ++v0;
     if ( v1 >= 2 )
     {
       v43 = 2LL;
       v9 = &v48;
-      v42 = (unsigned __int64 *)&unk_140C4DFE8;
+      v42 = (unsigned __int64 *)&unk_140C4E028;
       v10 = 0LL;
       v52 = &v48;
       v51 = 0LL;
@@ -104,50 +104,50 @@ ULONG_PTR MiComputeOptimalZeroPath()
         {
           v15 = __rdtsc();
           _InterlockedOr(v41, 0);
-          MiZeroPhysicalPage(v11, 3, (unsigned int)v13, (unsigned __int64)SchedulerAssist);
+          MiZeroPhysicalPage(v11, 3, v13);
           _InterlockedOr(v41, 0);
-          v16 = __rdtsc();
-          v12 += (((unsigned __int64)HIDWORD(v16) << 32) | (unsigned int)v16) - v15;
+          v17 = __rdtsc();
+          v12 += (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v15;
           --v14;
         }
         while ( v14 );
-        v17 = *(ULONG_PTR *)((char *)&BugCheckParameter2[-2] + v10);
-        v18 = v42;
-        v19 = v44;
+        v18 = *(ULONG_PTR *)((char *)&BugCheckParameter2[-2] + v10);
+        v19 = v42;
+        v20 = v44;
         v50 = 3LL;
         v45 = v12 / 3;
-        v20 = 0LL;
+        v21 = 0LL;
         do
         {
-          v21 = __rdtsc();
+          v22 = __rdtsc();
           _InterlockedOr(v41, 0);
-          MiChangePageAttribute(v17, 1LL, 0LL, SchedulerAssist);
-          MiZeroPhysicalPage(v19, 3, (unsigned int)v13, v22);
-          MiChangePageAttribute(v17, (unsigned int)v13, 0LL, v23);
+          MiChangePageAttribute(v18, 1LL, 0LL, SchedulerAssist);
+          MiZeroPhysicalPage(v20, 3, v13);
+          MiChangePageAttribute(v18, (unsigned int)v13, 0LL, v23);
           _InterlockedOr(v41, 0);
           v25 = __rdtsc();
-          v20 += (((unsigned __int64)HIDWORD(v25) << 32) | (unsigned int)v25) - v21;
+          v21 += (((unsigned __int64)HIDWORD(v25) << 32) | (unsigned int)v25) - v22;
           --v50;
         }
         while ( v50 );
         v26 = v51;
         v27 = v52;
-        v28 = v20;
+        v28 = v21;
         v29 = v45;
         v30 = v45 / 0xA;
         if ( v28 / 3 < 9 * (v45 / 0xA) )
         {
-          v30 = (unsigned __int64)dword_140C4DF9C;
-          dword_140C4DF9C[4 * v13] = 1;
+          v30 = (unsigned __int64)dword_140C4DFDC;
+          dword_140C4DFDC[4 * v13] = 1;
         }
         v10 = v26 + 8;
-        *(v18 - 1) = v29;
+        *(v19 - 1) = v29;
         v9 = v27 + 1;
-        *v18 = v28 / 3;
+        *v19 = v28 / 3;
         v51 = v10;
         v31 = v43-- == 1;
         v52 = v9;
-        v42 = v18 + 2;
+        v42 = v19 + 2;
       }
       while ( !v31 );
       v32 = 0LL;
@@ -194,7 +194,7 @@ ULONG_PTR MiComputeOptimalZeroPath()
       --v37;
       --v1;
       v38 = BugCheckParameter2[v37 - 2];
-      v39 = (unsigned __int8)MiLockPageInline(v38, v4, v5, SchedulerAssist);
+      v39 = (unsigned __int8)MiLockPageInline(v38, v4, v5, v6);
       MiInsertPageInFreeOrZeroedList(BugCheckParameter2[v37], 2);
       _InterlockedAnd64((volatile signed __int64 *)(v38 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       result = (unsigned int)KiIrqlFlags;
@@ -207,11 +207,11 @@ ULONG_PTR MiComputeOptimalZeroPath()
           {
             v40 = KeGetCurrentPrcb();
             v4 = -1LL << ((unsigned __int8)v39 + 1);
-            SchedulerAssist = v40->SchedulerAssist;
+            v6 = v40->SchedulerAssist;
             result = ~(unsigned __int16)v4;
-            v31 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-            v5 = (unsigned int)result & SchedulerAssist[5];
-            SchedulerAssist[5] = v5;
+            v31 = ((unsigned int)result & v6[5]) == 0;
+            v5 = (unsigned int)result & v6[5];
+            v6[5] = v5;
             if ( v31 )
               result = KiRemoveSystemWorkPriorityKick((__int64)v40);
           }

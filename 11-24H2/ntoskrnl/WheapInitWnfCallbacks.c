@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapInitWnfCallbacks @ 0x1407C95A4
+ * XREFs of WheapInitWnfCallbacks @ 0x1407C9A94
  * Callers:
- *     WheaInitialize @ 0x140C440FC (WheaInitialize.c)
+ *     WheaInitialize @ 0x140C4624C (WheaInitialize.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 WheapInitWnfCallbacks()
@@ -12,7 +12,7 @@ __int64 WheapInitWnfCallbacks()
   __int64 v1; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0LL;
-  qword_140EF7888 = 0LL;
+  qword_140EF7B48 = 0LL;
   WheapOfflineChecker = 0LL;
   result = ExSubscribeWnfStateChange(
              (unsigned int)&v1,
@@ -24,7 +24,7 @@ __int64 WheapInitWnfCallbacks()
   if ( (int)result >= 0 )
   {
     result = v1;
-    qword_140EF7898 = v1;
+    qword_140EF7B58 = v1;
   }
   return result;
 }

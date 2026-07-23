@@ -1,9 +1,9 @@
 /*
- * XREFs of BiZwQueryValueKey @ 0x140373E14
+ * XREFs of BiZwQueryValueKey @ 0x140373FB4
  * Callers:
- *     BiGetRegistryValue @ 0x140805444 (BiGetRegistryValue.c)
+ *     BiGetRegistryValue @ 0x140805714 (BiGetRegistryValue.c)
  * Callees:
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  */
 
 NTSTATUS __fastcall BiZwQueryValueKey(

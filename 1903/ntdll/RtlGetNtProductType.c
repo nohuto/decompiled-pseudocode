@@ -11,27 +11,27 @@
  *     sub_180087EB8 @ 0x180087EB8 (sub_180087EB8.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  char v2; // bl
-  int v3; // eax
+  BOOLEAN v2; // bl
+  _NT_PRODUCT_TYPE v3; // eax
 
   v2 = 0;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1) )
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v3 = *((_DWORD *)NtCurrentPeb()->HotpatchInformation + 4);
+    v3 = NtCurrentPeb()->SharedData->NtProductType;
     goto LABEL_4;
   }
   if ( MEMORY[0x7FFE0268] )
   {
     v3 = MEMORY[0x7FFE0264];
 LABEL_4:
-    *a1 = v3;
+    *NtProductType = v3;
     return 1;
   }
-  if ( (int)sub_180087EB8(a1) < 0 )
+  if ( (int)sub_180087EB8(NtProductType) < 0 )
   {
-    *a1 = 1;
+    *NtProductType = NtProductWinNt;
     return v2;
   }
   return 1;

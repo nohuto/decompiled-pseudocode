@@ -1,5 +1,5 @@
 /*
- * XREFs of WheaIsLogSelHandlerInitialized @ 0x14065E050
+ * XREFs of WheaIsLogSelHandlerInitialized @ 0x14065C820
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool WheaIsLogSelHandlerInitialized()
 {
-  return (_DWORD)WheapHighIrqlLogSelHandler != 0;
+  return WheapDispatchPtr.DeviceLock.Header.LockNV != 0;
 }

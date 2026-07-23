@@ -29,7 +29,7 @@ __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
   if ( a2
     || (PnpAsyncOptions & 2) == 0
     || _bittest((const signed __int32 *)(a1 + 396), 0x17u)
-    || (_DWORD)InitSafeBootMode
+    || InitSafeBootMode
     || (v5 = PnpDeviceCompletionRequestCreate(a1, 783, 0LL)) == 0 )
   {
     if ( a3 && _bittest((const signed __int32 *)(a1 + 396), 0x17u) )

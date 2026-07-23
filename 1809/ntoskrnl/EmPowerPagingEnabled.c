@@ -1,13 +1,13 @@
 /*
- * XREFs of EmPowerPagingEnabled @ 0x1406DEF08
+ * XREFs of EmPowerPagingEnabled @ 0x1406E01A8
  * Callers:
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
  */
 
 __int64 __fastcall EmPowerPagingEnabled(char a1)
@@ -21,12 +21,12 @@ __int64 __fastcall EmPowerPagingEnabled(char a1)
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpPagingLock, 0LL);
   if ( a1 )
   {
-    dword_140437868 |= 0x80000000;
+    dword_140438928 |= 0x80000000;
   }
   else
   {
-    dword_140437868 &= ~0x80000000;
-    if ( dword_140437868 )
+    dword_140438928 &= ~0x80000000;
+    if ( dword_140438928 )
     {
       v2 = 1;
       KeInitializeEvent(&Event, SynchronizationEvent, 0);

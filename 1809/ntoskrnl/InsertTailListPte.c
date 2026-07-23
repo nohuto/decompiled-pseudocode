@@ -1,15 +1,15 @@
 /*
- * XREFs of InsertTailListPte @ 0x140079D00
+ * XREFs of InsertTailListPte @ 0x140079CF0
  * Callers:
- *     MiReleaseSystemCacheView @ 0x1400795B0 (MiReleaseSystemCacheView.c)
- *     MiExpandSystemCache @ 0x1400F61CC (MiExpandSystemCache.c)
- *     MiExpandSpecialPool @ 0x1402AC45C (MiExpandSpecialPool.c)
- *     MiRemoveSpecialPoolRange @ 0x1402AC8D0 (MiRemoveSpecialPoolRange.c)
+ *     MiReleaseSystemCacheView @ 0x1400795A0 (MiReleaseSystemCacheView.c)
+ *     MiExpandSystemCache @ 0x1400F624C (MiExpandSystemCache.c)
+ *     MiExpandSpecialPool @ 0x1402AC64C (MiExpandSpecialPool.c)
+ *     MiRemoveSpecialPoolRange @ 0x1402ACAC0 (MiRemoveSpecialPoolRange.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 struct _KTHREAD *__fastcall InsertTailListPte(struct _KTHREAD **a1)
@@ -48,7 +48,7 @@ LABEL_2:
       v5 |= 0x8000000000000000uLL;
     goto LABEL_2;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v3 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v3 & 1) != 0 )
     v5 |= 0x8000000000000000uLL;
   *v7 = v5;
   MiWritePteShadow(v7);
@@ -56,16 +56,16 @@ LABEL_3:
   v8 = a1[1];
   if ( v8 )
   {
-    if ( qword_14043A0C0 && ((unsigned __int8)v8 & 0x10) == 0 )
-      v8 = (struct _KTHREAD *)(~qword_14043A0C0 & (unsigned __int64)v8);
+    if ( qword_14043B180 && ((unsigned __int8)v8 & 0x10) == 0 )
+      v8 = (struct _KTHREAD *)(~qword_14043B180 & (unsigned __int64)v8);
     v8 = (struct _KTHREAD *)((unsigned __int64)v8 >> 28);
   }
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
     if ( (v3 & 0x10) != 0 )
       v3 &= ~0x10u;
     else
-      v3 &= ~(_DWORD)qword_14043A0C0;
+      v3 &= ~(_DWORD)qword_14043B180;
   }
   MiSwizzleInvalidPte(v3 & 0xFFFFFFF | ((_QWORD)v8 << 28));
   if ( !MiPteInShadowRange(v9 + 8) )
@@ -81,7 +81,7 @@ LABEL_12:
     *(_QWORD *)(v12 + 8) = v10;
     goto LABEL_13;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v10 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v10 & 1) != 0 )
     v10 |= 0x8000000000000000uLL;
   *(_QWORD *)(v12 + 8) = v10;
   MiWritePteShadow(v12 + 8);
@@ -96,7 +96,7 @@ LABEL_13:
     {
       if ( (unsigned int)MiPteHasShadow(v18, v17) )
       {
-        if ( !HIBYTE(word_14043A1AC) && ((unsigned __int8)v20 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && ((unsigned __int8)v20 & 1) != 0 )
           v17 |= 0x8000000000000000uLL;
         *v19 = v17;
         result = (struct _KTHREAD *)MiWritePteShadow(v19);

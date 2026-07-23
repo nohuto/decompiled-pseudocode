@@ -1,17 +1,17 @@
 /*
- * XREFs of MiHandleForkProtoPte @ 0x14030EB98
+ * XREFs of MiHandleForkProtoPte @ 0x1402F0C18
  * Callers:
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiIsVadLargePrivate @ 0x14030B6CC (MiIsVadLargePrivate.c)
- *     MiMakePerSessionProtoPte @ 0x14030B710 (MiMakePerSessionProtoPte.c)
- *     MiWriteUselessChildPte @ 0x14030D0DC (MiWriteUselessChildPte.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiIncrementCombinedPte @ 0x14036A6D8 (MiIncrementCombinedPte.c)
- *     MiReferenceExistingCloneProto @ 0x14036AC14 (MiReferenceExistingCloneProto.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiIsVadLargePrivate @ 0x1402ED74C (MiIsVadLargePrivate.c)
+ *     MiMakePerSessionProtoPte @ 0x1402ED790 (MiMakePerSessionProtoPte.c)
+ *     MiWriteUselessChildPte @ 0x1402EF15C (MiWriteUselessChildPte.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiIncrementCombinedPte @ 0x14036C478 (MiIncrementCombinedPte.c)
+ *     MiReferenceExistingCloneProto @ 0x14036C9B4 (MiReferenceExistingCloneProto.c)
  */
 
 __int64 __fastcall MiHandleForkProtoPte(__int64 a1, unsigned __int64 a2)

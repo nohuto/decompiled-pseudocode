@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaSignalHandlerOverride @ 0x1406D7DE0
+ * XREFs of WheaSignalHandlerOverride @ 0x1406DBF70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall WheaSignalHandlerOverride(unsigned int a1, __int64 a2)

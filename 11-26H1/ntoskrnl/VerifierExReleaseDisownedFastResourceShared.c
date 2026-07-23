@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExReleaseDisownedFastResourceShared @ 0x1406475E0
+ * XREFs of VerifierExReleaseDisownedFastResourceShared @ 0x14064B1C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierExReleaseDisownedFastResourceShared(__int64 a1, __int64 a2)

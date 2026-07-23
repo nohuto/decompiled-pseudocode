@@ -1,13 +1,13 @@
 /*
- * XREFs of KeWriteProtectProcessorState @ 0x140BF4178
+ * XREFs of KeWriteProtectProcessorState @ 0x140BFA178
  * Callers:
- *     MakeGdtReadOnly @ 0x1405764CC (MakeGdtReadOnly.c)
- *     KiDynamicProcessorInitialization @ 0x1405EAF74 (KiDynamicProcessorInitialization.c)
+ *     MakeGdtReadOnly @ 0x14057897C (MakeGdtReadOnly.c)
+ *     KiDynamicProcessorInitialization @ 0x1405ED8E4 (KiDynamicProcessorInitialization.c)
  * Callees:
- *     MmSetPageProtection @ 0x1405096F0 (MmSetPageProtection.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     VslFinishStartSecureProcessor @ 0x1405C2D7C (VslFinishStartSecureProcessor.c)
- *     KiShadowProcessorAllocation @ 0x140BF8350 (KiShadowProcessorAllocation.c)
+ *     MmSetPageProtection @ 0x1405031A0 (MmSetPageProtection.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     VslFinishStartSecureProcessor @ 0x1405C55EC (VslFinishStartSecureProcessor.c)
+ *     KiShadowProcessorAllocation @ 0x140BFE350 (KiShadowProcessorAllocation.c)
  */
 
 char __fastcall KeWriteProtectProcessorState(__int64 *a1)

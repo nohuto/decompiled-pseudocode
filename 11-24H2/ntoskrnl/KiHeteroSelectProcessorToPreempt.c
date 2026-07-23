@@ -1,15 +1,15 @@
 /*
- * XREFs of KiHeteroSelectProcessorToPreempt @ 0x1402949C0
+ * XREFs of KiHeteroSelectProcessorToPreempt @ 0x1402A45C0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSelectCandidateProcessor @ 0x140293300 (KiSelectCandidateProcessor.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x140293BF0 (KiIsIsolationUnitIdleByHandle.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1404CC7A8 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSelectCandidateProcessor @ 0x1402A2F00 (KiSelectCandidateProcessor.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x1402A37F0 (KiIsIsolationUnitIdleByHandle.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1402A6534 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall KiHeteroSelectProcessorToPreempt(
@@ -58,7 +58,7 @@ __int64 __fastcall KiHeteroSelectProcessorToPreempt(
   _QWORD *v42; // r8
   int v43; // edx
   unsigned __int64 v44; // r9
-  int v45; // r9d
+  __int64 v45; // r9
   unsigned int v46; // r9d
   __int64 v47; // rdx
   _BYTE *v48; // rbx
@@ -206,7 +206,7 @@ LABEL_14:
     goto LABEL_14;
   }
 LABEL_15:
-  v8 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int8 *)(v8 + 208) + v22)];
+  v8 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * *(unsigned __int8 *)(v8 + 208) + v22)];
 LABEL_16:
   v7 = v55;
   v6 = 0LL;
@@ -219,7 +219,7 @@ LABEL_17:
     _BitScanForward64(&v26, __ROR8__(v15, v25));
     v27 = *(unsigned __int8 *)(v8 + 208) << 6;
     v59 = v26;
-    v8 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (((_BYTE)v26 + v25) & 0x3Fu) + v27)];
+    v8 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + (((_BYTE)v26 + v25) & 0x3Fu) + v27)];
   }
   v28 = *(_DWORD *)(v7 + 20);
   v29 = v28;
@@ -332,7 +332,7 @@ LABEL_49:
       _InterlockedAnd64((volatile signed __int64 *)(v42[--v43] + 48LL), 0LL);
     while ( v43 );
 LABEL_58:
-    v45 = *(_DWORD *)(v7 + 20);
+    v45 = *(unsigned int *)(v7 + 20);
     v53 = 0LL;
     KiSelectCandidateProcessor(v8, v57, v15, v45, &v53);
     if ( (unsigned int)KiIsIsolationUnitIdleByHandle(&v53) )

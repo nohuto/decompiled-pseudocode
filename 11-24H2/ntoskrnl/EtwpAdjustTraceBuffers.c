@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAdjustTraceBuffers @ 0x14048EAC0
+ * XREFs of EtwpAdjustTraceBuffers @ 0x140488EF0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpAdjustStackLookasideBuffers @ 0x14048EB74 (EtwpAdjustStackLookasideBuffers.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x14048EBF0 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpAdjustLastBranchLookasideBuffers @ 0x14048ED14 (EtwpAdjustLastBranchLookasideBuffers.c)
- *     PspGetNextSilo @ 0x1408EBA34 (PspGetNextSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpAdjustStackLookasideBuffers @ 0x140488FA4 (EtwpAdjustStackLookasideBuffers.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140489020 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpAdjustLastBranchLookasideBuffers @ 0x140489144 (EtwpAdjustLastBranchLookasideBuffers.c)
+ *     PspGetNextSilo @ 0x14085D264 (PspGetNextSilo.c)
  */
 
 void EtwpAdjustTraceBuffers()

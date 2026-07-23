@@ -96,7 +96,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, int 
             {
               v19->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v19->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v18]);
+                KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v18].TreeNode);
               v25 = v19->BoostBitmap.AllFields & 0x1FFFF;
               v19->BoostBitmap.AllFields &= 0xFFFE0000;
               v19->ThreadLocalFlags &= ~1u;

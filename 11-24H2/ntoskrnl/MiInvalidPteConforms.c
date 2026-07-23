@@ -1,24 +1,24 @@
 /*
- * XREFs of MiInvalidPteConforms @ 0x140302590
+ * XREFs of MiInvalidPteConforms @ 0x1403461F0
  * Callers:
- *     MiCombineCandidate @ 0x14020C0F0 (MiCombineCandidate.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x140215E80 (MiUpdatePfnForPrefetchByPte.c)
- *     MiTradePage @ 0x14022B650 (MiTradePage.c)
- *     MiSetProtectionOnTransitionPte @ 0x1402386B4 (MiSetProtectionOnTransitionPte.c)
- *     MiCheckProtoPtePageState @ 0x14023BE50 (MiCheckProtoPtePageState.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MiGetPageProtection @ 0x1403019B0 (MiGetPageProtection.c)
- *     MiTryLockLeafPage @ 0x14030245C (MiTryLockLeafPage.c)
- *     MiOutSwapWorkingSetPte @ 0x140302690 (MiOutSwapWorkingSetPte.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiReservePageFileSpaceForPage @ 0x1403687E0 (MiReservePageFileSpaceForPage.c)
- *     MiHandleForkTransitionPte @ 0x14036D640 (MiHandleForkTransitionPte.c)
- *     MiUpdatePrefetchPriority @ 0x1403FE3E8 (MiUpdatePrefetchPriority.c)
- *     MiSetSystemCodeProtection @ 0x140435F3C (MiSetSystemCodeProtection.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
- *     MiTransferPartitionPageRun @ 0x14068B4FC (MiTransferPartitionPageRun.c)
+ *     MiSetProtectionOnTransitionPte @ 0x140212844 (MiSetProtectionOnTransitionPte.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     MiHandleForkTransitionPte @ 0x1402678C4 (MiHandleForkTransitionPte.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiTradePage @ 0x1402FEF60 (MiTradePage.c)
+ *     MiGetPageProtection @ 0x14030C130 (MiGetPageProtection.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x140334220 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiCombineCandidate @ 0x140344930 (MiCombineCandidate.c)
+ *     MiCheckProtoPtePageState @ 0x140345BB0 (MiCheckProtoPtePageState.c)
+ *     MiTryLockLeafPage @ 0x1403460BC (MiTryLockLeafPage.c)
+ *     MiOutSwapWorkingSetPte @ 0x140346260 (MiOutSwapWorkingSetPte.c)
+ *     MiUpdatePrefetchPriority @ 0x1403DCA60 (MiUpdatePrefetchPriority.c)
+ *     MiReservePageFileSpaceForPage @ 0x1403FDC68 (MiReservePageFileSpaceForPage.c)
+ *     MiSetSystemCodeProtection @ 0x1404289BC (MiSetSystemCodeProtection.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
+ *     MiTransferPartitionPageRun @ 0x14068C62C (MiTransferPartitionPageRun.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ _BOOL8 __fastcall MiInvalidPteConforms(__int64 a1)
 {
   if ( (a1 & 1) != 0 )
     return 0LL;
-  if ( a1 && qword_140E2DB80 )
-    return (qword_140E2DB80 & a1) != 0;
+  if ( a1 && qword_140E2DCC0 )
+    return (qword_140E2DCC0 & a1) != 0;
   return 1LL;
 }

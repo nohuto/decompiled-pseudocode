@@ -1,14 +1,14 @@
 /*
- * XREFs of PsGetBaseIoPriorityThread @ 0x14022C100
+ * XREFs of PsGetBaseIoPriorityThread @ 0x1402D0980
  * Callers:
- *     IopBuildDeviceIoControlRequest @ 0x14022B990 (IopBuildDeviceIoControlRequest.c)
- *     IopCallDriverReference @ 0x14022BD00 (IopCallDriverReference.c)
- *     CcCopyWriteWontFlush @ 0x14022BF00 (CcCopyWriteWontFlush.c)
- *     CcCopyWriteEx @ 0x14022BFB0 (CcCopyWriteEx.c)
- *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
- *     ExpBoostIoAfterAcquire @ 0x1402872F0 (ExpBoostIoAfterAcquire.c)
- *     KiAbSetMinimumThreadPriority @ 0x1402F1D84 (KiAbSetMinimumThreadPriority.c)
- *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
+ *     ExpBoostIoAfterAcquire @ 0x140204490 (ExpBoostIoAfterAcquire.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402D0240 (IopBuildDeviceIoControlRequest.c)
+ *     IopCallDriverReference @ 0x1402D0580 (IopCallDriverReference.c)
+ *     CcCopyWriteWontFlush @ 0x1402D0780 (CcCopyWriteWontFlush.c)
+ *     CcCopyWriteEx @ 0x1402D0830 (CcCopyWriteEx.c)
+ *     ExpApplyPriorityBoost @ 0x1402D3850 (ExpApplyPriorityBoost.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1402FCAD4 (KiAbSetMinimumThreadPriority.c)
+ *     CcMapAndCopyInToCache @ 0x14033C9C0 (CcMapAndCopyInToCache.c)
  * Callees:
  *     <none>
  */

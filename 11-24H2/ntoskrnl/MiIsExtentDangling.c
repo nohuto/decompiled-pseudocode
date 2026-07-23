@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsExtentDangling @ 0x1407F0410
+ * XREFs of MiIsExtentDangling @ 0x1407F09E0
  * Callers:
- *     FsRtlIsExtentDangling @ 0x14070CF30 (FsRtlIsExtentDangling.c)
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
+ *     FsRtlIsExtentDangling @ 0x14070AAD0 (FsRtlIsExtentDangling.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     MiIsPfn @ 0x14045A380 (MiIsPfn.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiIsPfn @ 0x14044F7D0 (MiIsPfn.c)
  */
 
 unsigned __int64 __fastcall MiIsExtentDangling(unsigned __int64 a1, __int64 a2, char a3)
@@ -21,7 +21,7 @@ unsigned __int64 __fastcall MiIsExtentDangling(unsigned __int64 a1, __int64 a2, 
   const signed __int64 *v8; // rsi
   __int64 v9; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v11; // rdi
+  char *v11; // rdi
   _QWORD *v12; // r9
   _QWORD *v13; // rdx
   unsigned __int64 v14; // r10
@@ -30,9 +30,7 @@ unsigned __int64 __fastcall MiIsExtentDangling(unsigned __int64 a1, __int64 a2, 
   _QWORD *v17; // r8
   __int64 i; // rcx
   struct _KTHREAD *v19; // rbx
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  bool v22; // zf
+  bool v20; // zf
 
   v4 = a1 + a2;
   v5 = a2;
@@ -55,12 +53,12 @@ unsigned __int64 __fastcall MiIsExtentDangling(unsigned __int64 a1, __int64 a2, 
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v11 = KeAbPreAcquire((__int64)&qword_140E2D798, 0LL);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E2D798, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140E2D798, 0, v11, (__int64)&qword_140E2D798);
+    v11 = (char *)KeAbPreAcquire((__int64)&qword_140E2D8D8, 0LL);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E2D8D8, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140E2D8D8, 0, v11, (__int64)&qword_140E2D8D8);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
-    v12 = &unk_140E2D788;
+      v11[10] = 1;
+    v12 = &unk_140E2D8C8;
     do
     {
       v13 = (_QWORD *)*v12;
@@ -119,12 +117,12 @@ unsigned __int64 __fastcall MiIsExtentDangling(unsigned __int64 a1, __int64 a2, 
     }
     while ( v9 );
     v19 = KeGetCurrentThread();
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E2D798, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&qword_140E2D798);
-    KeAbPostRelease((ULONG_PTR)&qword_140E2D798);
-    v22 = v19->SpecialApcDisable++ == -1;
-    if ( v22 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)v19->ApcState.ApcListHead[0].Flink != &v19->152 )
-      KiCheckForKernelApcDelivery(v21, v20);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E2D8D8, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&qword_140E2D8D8);
+    KeAbPostRelease((ULONG_PTR)&qword_140E2D8D8);
+    v20 = v19->SpecialApcDisable++ == -1;
+    if ( v20 && ($727077A9B6E167EAE1398C74674DC5A5 *)v19->ApcState.ApcListHead[0].Flink != &v19->152 )
+      KiCheckForKernelApcDelivery();
   }
   return v4;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwQueryProcessTelemetryCoverage @ 0x1406F8D64
+ * XREFs of EtwQueryProcessTelemetryCoverage @ 0x1406F699C
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PspIsContextAdmin @ 0x1408E917C (PspIsContextAdmin.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PspIsContextAdmin @ 0x14085A9A4 (PspIsContextAdmin.c)
  */
 
 __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, unsigned int a3, unsigned int *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rax
-  _QWORD *v8; // rdi
+  char *v7; // rax
+  char *v8; // rdi
   __int64 v9; // rdx
   unsigned int v10; // r14d
   __int64 *v11; // r12
@@ -40,12 +40,12 @@ __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, uns
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v7 = KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
+        v7 = (char *)KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
         v8 = v7;
         if ( _interlockedbittestandset64((volatile signed __int32 *)&EtwpCoverageLock, 0LL) )
-          ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, (__int64)v7, (__int64)&EtwpCoverageLock);
+          ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, v7, (__int64)&EtwpCoverageLock);
         if ( v8 )
-          *((_BYTE *)v8 + 10) = 1;
+          v8[10] = 1;
         EtwpCoverageLockOwner = (__int64)KeGetCurrentThread();
         v9 = EtwpCoverageContext;
         v10 = *(_DWORD *)(*(_QWORD *)(EtwpCoverageContext + 16) + 16LL);

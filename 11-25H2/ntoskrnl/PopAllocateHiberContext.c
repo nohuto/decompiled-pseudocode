@@ -52,8 +52,8 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int16 v17; // ax
-  __int64 v18; // rcx
-  __int64 v19; // r14
+  UNICODE_STRING *v18; // rcx
+  HANDLE v19; // r14
   __int64 v20; // rdx
   __int64 v21; // r8
   unsigned __int64 v22; // rdx
@@ -67,21 +67,21 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
   PVOID *v30; // r12
   __int64 v31; // r13
   __int64 v32; // rax
-  __int64 v33; // rcx
+  UNICODE_STRING *v33; // rcx
   PVOID *v34; // rdi
   __int64 v35; // r14
   unsigned __int64 v37; // [rsp+30h] [rbp-10h] BYREF
-  __int16 v38; // [rsp+88h] [rbp+48h] BYREF
-  __int64 **v39; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v40; // [rsp+98h] [rbp+58h] BYREF
+  __int16 SystemInformation; // [rsp+88h] [rbp+48h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+90h] [rbp+50h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+98h] [rbp+58h] BYREF
 
-  v40 = 0LL;
+  BcdStoreHandle = 0LL;
   v37 = 0LL;
-  v38 = 0;
+  SystemInformation = 0;
   if ( dword_140F0AE94 != 5 )
     return 0;
   v2 = (char *)MemoryMap;
-  v39 = 0LL;
+  BcdObjectHandle = 0LL;
   BugCheckParameter4 = (ULONG_PTR)MemoryMap;
   memset_0(MemoryMap, 0, 0x1F0uLL);
   MmLockPreChargedPagedPool((unsigned __int64)qword_140F0ADB0);
@@ -147,15 +147,15 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
       v4 = 44LL;
       goto LABEL_54;
     }
-    DumpStack = BcdOpenStore(v18, 2u, (__int64)&v40);
+    DumpStack = BcdOpenStore(v18, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle);
     if ( DumpStack < 0 )
     {
       *a1 = 13;
       v4 = 45LL;
       goto LABEL_54;
     }
-    v19 = v40;
-    DumpStack = PopBcdEstablishResumeObject(v40, (__int64 *)&v39);
+    v19 = BcdStoreHandle;
+    DumpStack = PopBcdEstablishResumeObject(BcdStoreHandle, &BcdObjectHandle);
     if ( DumpStack < 0 )
     {
       *a1 = 14;
@@ -163,8 +163,8 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
       v4 = 46LL;
       goto LABEL_54;
     }
-    DumpStack = PopBcdSetPendingResume(v19, v20, v21, (__int64)v39);
-    BcdCloseObject(v39);
+    DumpStack = PopBcdSetPendingResume(v19, v20, v21, BcdObjectHandle);
+    BcdCloseObject(BcdObjectHandle);
     if ( DumpStack < 0 )
     {
       *a1 = 15;
@@ -215,7 +215,7 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
     if ( *(_BYTE *)(*v5 + 280) )
     {
       v27 = (__int64 **)(*(_QWORD *)(*v5 + 272) + 40LL);
-      v39 = v27;
+      BcdObjectHandle = v27;
       v28 = (__int64 **)*v27;
       while ( v28 != v27 )
       {
@@ -241,7 +241,7 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
           while ( v31 );
         }
         v28 = (__int64 **)*v28;
-        v27 = v39;
+        v27 = (__int64 **)BcdObjectHandle;
       }
     }
     else
@@ -291,8 +291,8 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
     {
       v2[484] = 0;
     }
-    if ( (int)ZwQuerySystemInformation(145LL, (__int64)&v38) >= 0 )
-      v2[485] = v38;
+    if ( ZwQuerySystemInformation(SystemSecureBootInformation, &SystemInformation, 2u, 0LL) >= 0 )
+      v2[485] = SystemInformation;
     if ( (int)BgkResumePrepare(v2) >= 0 )
       PopBgkResumePrepared = 1;
     *((_DWORD *)v2 + 52) = *((_DWORD *)v2 + 72) - 1;

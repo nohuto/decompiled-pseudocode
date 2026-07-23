@@ -12,7 +12,7 @@
  *     HvlpEnableRootVirtualProcessor @ 0x1406B31E4 (HvlpEnableRootVirtualProcessor.c)
  */
 
-__int64 __fastcall HvlInitializeProcessor(union _SLIST_HEADER *a1, __int64 a2, __int64 a3)
+__int64 __fastcall HvlInitializeProcessor(_SLIST_HEADER *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
   __int64 v5; // r14

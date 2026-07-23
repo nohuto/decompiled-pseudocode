@@ -23,22 +23,22 @@ __int64 __fastcall RtlpInheritAcl(
         int a12,
         __int64 a13,
         int a14,
-        __int64 *a15,
+        PVOID *a15,
         _BYTE *a16,
         _DWORD *a17)
 {
   unsigned int v17; // edi
   int v21; // ebp
-  char *ProcessHeap; // rsi
+  void *ProcessHeap; // rsi
   unsigned int v23; // eax
   unsigned int v24; // r13d
-  __int64 *v25; // r14
-  __int64 Heap; // rax
+  PVOID *v25; // r14
+  PVOID Heap; // rax
   int v28; // [rsp+D0h] [rbp+18h] BYREF
 
   v17 = 0;
   v21 = a1;
-  ProcessHeap = (char *)NtCurrentPeb()->ProcessHeap;
+  ProcessHeap = NtCurrentPeb()->ProcessHeap;
   if ( a3 || a1 )
   {
     v23 = 200;
@@ -69,19 +69,19 @@ __int64 __fastcall RtlpInheritAcl(
               a13,
               a14,
               (__int64)&v28,
-              Heap,
+              (__int64)Heap,
               (__int64)a16,
               (__int64)a17);
       if ( (v17 & 0x80000000) == 0 )
       {
         if ( !v28 )
         {
-          RtlFreeHeap(ProcessHeap, 0LL, *v25);
+          RtlFreeHeap(ProcessHeap, 0, *v25);
           *v25 = 0LL;
         }
         return v17;
       }
-      RtlFreeHeap(ProcessHeap, 0LL, *v25);
+      RtlFreeHeap(ProcessHeap, 0, *v25);
       *v25 = 0LL;
       if ( v17 != -1073741789 )
         return v17;

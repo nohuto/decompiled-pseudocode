@@ -13,46 +13,38 @@
  *     RtlpTpETWCallbackStop @ 0x1801246BC (RtlpTpETWCallbackStop.c)
  */
 
-void __fastcall TppSimplepExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall TppSimplepExecuteCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2)
 {
-  int v4; // esi
-  _QWORD *v5; // rbx
-  __int64 v7; // rdi
-  __int64 v8; // r8
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // [rsp+58h] [rbp+10h] BYREF
+  int v2; // esi
+  _QWORD *v3; // rbx
+  __int64 v5; // rdi
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  __int64 v8; // [rsp+58h] [rbp+10h] BYREF
 
-  v4 = a2;
-  v5 = (_QWORD *)(a2 - 200);
-  v7 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 556;
+  v2 = a2;
+  v3 = (_QWORD *)(a2 - 200);
+  v5 = 2147353478LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v6 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
-    v8 = 2147353478LL;
-  if ( *(_BYTE *)v8 )
-    TppETWCallbackDequeue(v5[18], v4, v5[10], v5[11], v5[13]);
-  if ( (unsigned int)TppWorkCallbackPrologRelease(a1, v5, 1LL) )
+    v6 = 2147353478LL;
+  if ( *(_BYTE *)v6 )
+    TppETWCallbackDequeue(v3[18], v2, v3[10], v3[11], v3[13]);
+  if ( (unsigned int)TppWorkCallbackPrologRelease(Instance) )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v10, v9, v11, v12) )
-      v13 = (__int64)NtCurrentPeb()->SharedData + 556;
-    else
-      v13 = 2147353478LL;
-    if ( *(_BYTE *)v13 )
-      RtlpTpETWCallbackStart(v5[18], v4, v5[10], v5[11], v5[13]);
-    TppStartThreadData(&v18, v5[10], v5[11], v5[13]);
-    ((void (__fastcall *)(__int64, _QWORD))v5[10])(a1, v5[11]);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v15, v14, v16, v17) )
+    if ( RtlGetCurrentServiceSessionId() )
       v7 = (__int64)NtCurrentPeb()->SharedData + 556;
+    else
+      v7 = 2147353478LL;
     if ( *(_BYTE *)v7 )
-      RtlpTpETWCallbackStop(v5[18], v4, v5[10], v5[11], v5[13]);
-    TppCompleteThreadData(v18);
+      RtlpTpETWCallbackStart(v3[18], v2, v3[10], v3[11], v3[13]);
+    TppStartThreadData(&v8, v3[10], v3[11], v3[13]);
+    ((void (__fastcall *)(PTP_CALLBACK_INSTANCE, _QWORD))v3[10])(Instance, v3[11]);
+    if ( RtlGetCurrentServiceSessionId() )
+      v5 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( *(_BYTE *)v5 )
+      RtlpTpETWCallbackStop(v3[18], v2, v3[10], v3[11], v3[13]);
+    TppCompleteThreadData(v8);
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpDevCfgProcessDevice @ 0x140B4491C
+ * XREFs of PpDevCfgProcessDevice @ 0x140B466DC
  * Callers:
- *     PiConfigureDevice @ 0x1407A4F30 (PiConfigureDevice.c)
- *     PipProcessStartPhase3 @ 0x140908998 (PipProcessStartPhase3.c)
- *     IopInitializeDeviceInstanceKey @ 0x140AA0078 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiConfigureDevice @ 0x1407A7A70 (PiConfigureDevice.c)
+ *     PipProcessStartPhase3 @ 0x1409AB9E8 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140AA1A08 (IopInitializeDeviceInstanceKey.c)
  * Callees:
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDevice(__int64 a1, char *a2, char a3)

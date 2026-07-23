@@ -15,32 +15,32 @@
 __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1)
 {
   ULONG_PTR v2; // rax
-  UNICODE_STRING *v3; // r15
-  int v4; // ebx
+  UNICODE_STRING *p_UnicodeString; // r15
+  NTSTATUS v4; // ebx
   unsigned int v5; // esi
   int v6; // eax
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-19h] BYREF
-  UNICODE_STRING v9; // [rsp+50h] [rbp-9h] BYREF
+  UNICODE_STRING GuidString; // [rsp+40h] [rbp-19h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-9h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+60h] [rbp+7h] BYREF
 
-  *(_QWORD *)&v9.Length = 0LL;
-  v9.Buffer = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   if ( (PVOID)a1 == CmRmSystem )
   {
     v2 = qword_140C01170;
-    v3 = (UNICODE_STRING *)&CmpLogPath;
+    p_UnicodeString = (UNICODE_STRING *)&CmpLogPath;
   }
   else
   {
-    v4 = CmpQueryNameString(*(void **)(*(_QWORD *)(a1 + 80) + 1536LL), &v9);
+    v4 = CmpQueryNameString(*(void **)(*(_QWORD *)(a1 + 80) + 1536LL), &UnicodeString);
     if ( v4 < 0 )
       goto LABEL_16;
     v2 = *(_QWORD *)(a1 + 80);
-    v3 = &v9;
+    p_UnicodeString = &UnicodeString;
   }
-  v4 = RtlStringFromGUIDEx((unsigned int *)(*(_QWORD *)(v2 + 64) + 112LL), (__int64)&UnicodeString, 1);
+  v4 = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(v2 + 64) + 112LL), &GuidString, 1u);
   if ( v4 >= 0 )
   {
     v5 = *(_DWORD *)(a1 + 68);
@@ -63,8 +63,8 @@ LABEL_10:
       {
         v6 = CmpAddRemoveContainerToCLFSLog(
                *(PLOG_FILE_OBJECT *)(a1 + 88),
-               v3,
-               &UnicodeString,
+               p_UnicodeString,
+               &GuidString,
                &CmpLogExt,
                &CmpContainerSuffix,
                v5,
@@ -79,10 +79,10 @@ LABEL_10:
         ++*(_DWORD *)(a1 + 68);
     }
   }
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
+LABEL_16:
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-LABEL_16:
-  if ( v9.Buffer )
-    RtlFreeAnsiString(&v9);
   return (unsigned int)v4;
 }

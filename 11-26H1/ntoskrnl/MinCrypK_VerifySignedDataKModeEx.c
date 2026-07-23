@@ -1,28 +1,28 @@
 /*
- * XREFs of MinCrypK_VerifySignedDataKModeEx @ 0x1408A2AC4
+ * XREFs of MinCrypK_VerifySignedDataKModeEx @ 0x1408A8ED4
  * Callers:
- *     MinCrypK_VerifySignedDataKMode @ 0x1408A2A70 (MinCrypK_VerifySignedDataKMode.c)
+ *     MinCrypK_VerifySignedDataKMode @ 0x1408A8E80 (MinCrypK_VerifySignedDataKMode.c)
  * Callees:
- *     MinCryptHashMemory @ 0x14071C940 (MinCryptHashMemory.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A03B0 (MinCryptDecodeHashAlgorithmIdentifier.c)
- *     MinCryptVerifySignedHash2 @ 0x1408A04B0 (MinCryptVerifySignedHash2.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
- *     MincryptIsTimestampBeforeRevocation @ 0x1408A1ED4 (MincryptIsTimestampBeforeRevocation.c)
- *     I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408A2258 (I_MinCryptFindSignerCertificateByIssuerAndSerialNumber.c)
- *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x1408A2310 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
- *     I_MinCryptGetSigningTime @ 0x1408A23A4 (I_MinCryptGetSigningTime.c)
- *     I_MinCryptVerifyReturnSignerAuthenticatedAttributes @ 0x1408A2958 (I_MinCryptVerifyReturnSignerAuthenticatedAttributes.c)
- *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x1408A29D8 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
- *     MinAsn1ParseSignedData @ 0x1408A35AC (MinAsn1ParseSignedData.c)
- *     MinAsn1ParseSignedDataCertificatesEx @ 0x1408A35F0 (MinAsn1ParseSignedDataCertificatesEx.c)
- *     I_MinCryptBuildErrorPolicy @ 0x1408A3864 (I_MinCryptBuildErrorPolicy.c)
- *     I_MincryptFreeChainInfo @ 0x1408A3C58 (I_MincryptFreeChainInfo.c)
- *     MinAsn1ExtractContent @ 0x1408A46CC (MinAsn1ExtractContent.c)
- *     MinAsn1SignedDataGetContent @ 0x1408A4AB4 (MinAsn1SignedDataGetContent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MinCryptHashMemory @ 0x1407215D0 (MinCryptHashMemory.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A67C0 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCryptVerifySignedHash2 @ 0x1408A68C0 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MincryptIsTimestampBeforeRevocation @ 0x1408A82E4 (MincryptIsTimestampBeforeRevocation.c)
+ *     I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408A8668 (I_MinCryptFindSignerCertificateByIssuerAndSerialNumber.c)
+ *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x1408A8720 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
+ *     I_MinCryptGetSigningTime @ 0x1408A87B4 (I_MinCryptGetSigningTime.c)
+ *     I_MinCryptVerifyReturnSignerAuthenticatedAttributes @ 0x1408A8D68 (I_MinCryptVerifyReturnSignerAuthenticatedAttributes.c)
+ *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x1408A8DE8 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
+ *     MinAsn1ParseSignedData @ 0x1408A99BC (MinAsn1ParseSignedData.c)
+ *     MinAsn1ParseSignedDataCertificatesEx @ 0x1408A9A00 (MinAsn1ParseSignedDataCertificatesEx.c)
+ *     I_MinCryptBuildErrorPolicy @ 0x1408A9C74 (I_MinCryptBuildErrorPolicy.c)
+ *     I_MincryptFreeChainInfo @ 0x1408AA068 (I_MincryptFreeChainInfo.c)
+ *     MinAsn1ExtractContent @ 0x1408AAADC (MinAsn1ExtractContent.c)
+ *     MinAsn1SignedDataGetContent @ 0x1408AAEC4 (MinAsn1SignedDataGetContent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MinCrypK_VerifySignedDataKModeEx(
@@ -106,7 +106,7 @@ LABEL_5:
       PlatformManifestBinaryIDAttribute = -1073740760;
       goto LABEL_69;
     }
-    if ( *(_DWORD *)(v12 + 32) == 9 && RtlCompareMemory(qword_140BD9488, *(const void **)(v12 + 40), 9uLL) == 9 )
+    if ( *(_DWORD *)(v12 + 32) == 9 && RtlCompareMemory(qword_140BE0308, *(const void **)(v12 + 40), 9uLL) == 9 )
     {
       v14 = v35;
       if ( v35 )

@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpReleaseDisownedFastResourceShared @ 0x1404310D8
+ * XREFs of ExpReleaseDisownedFastResourceShared @ 0x14041E108
  * Callers:
- *     ExReleaseDisownedFastResource @ 0x140430FC0 (ExReleaseDisownedFastResource.c)
- *     ExReleaseDisownedFastResourceShared @ 0x1406CE320 (ExReleaseDisownedFastResourceShared.c)
+ *     ExReleaseDisownedFastResource @ 0x14041DFF0 (ExReleaseDisownedFastResource.c)
+ *     ExReleaseDisownedFastResourceShared @ 0x1406D2350 (ExReleaseDisownedFastResourceShared.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExpCommitWakeFastResource @ 0x140273AF0 (ExpCommitWakeFastResource.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExpPrepareToWakeFastResourceShared @ 0x140431350 (ExpPrepareToWakeFastResourceShared.c)
- *     ExpRemoveFastOwnerEntryFromThreadList @ 0x140431CC0 (ExpRemoveFastOwnerEntryFromThreadList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeAbCrossThreadRelease @ 0x1405F73A8 (KeAbCrossThreadRelease.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExpCommitWakeFastResource @ 0x140273060 (ExpCommitWakeFastResource.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExpPrepareToWakeFastResourceShared @ 0x14041E380 (ExpPrepareToWakeFastResourceShared.c)
+ *     ExpRemoveFastOwnerEntryFromThreadList @ 0x14041ECF0 (ExpRemoveFastOwnerEntryFromThreadList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeAbCrossThreadRelease @ 0x1405F9D68 (KeAbCrossThreadRelease.c)
  */
 
 LONG_PTR __fastcall ExpReleaseDisownedFastResourceShared(__int64 a1, __int64 a2)

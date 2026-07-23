@@ -1,7 +1,7 @@
 /*
- * XREFs of KiDispatchPassiveInterrupts @ 0x1401D85DC
+ * XREFs of KiDispatchPassiveInterrupts @ 0x1401D8408
  * Callers:
- *     KiScanInterruptObjectList @ 0x14015ED60 (KiScanInterruptObjectList.c)
+ *     KiScanInterruptObjectList @ 0x14015F2D0 (KiScanInterruptObjectList.c)
  * Callees:
  *     <none>
  */

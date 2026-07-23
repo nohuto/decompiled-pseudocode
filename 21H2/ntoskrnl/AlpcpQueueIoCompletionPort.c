@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpQueueIoCompletionPort @ 0x1402ACB74
+ * XREFs of AlpcpQueueIoCompletionPort @ 0x14022AED0
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     AlpcpSignal @ 0x140205730 (AlpcpSignal.c)
- *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1406930B0 (AlpcpAdjustCompletionListConcurrencyCount.c)
- *     AlpcpSignalPortAndUnlock @ 0x14069314C (AlpcpSignalPortAndUnlock.c)
- *     AlpcpAssociateIoCompletionPort @ 0x1406D1FC4 (AlpcpAssociateIoCompletionPort.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     AlpcpSignal @ 0x1402AA060 (AlpcpSignal.c)
+ *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1405F2740 (AlpcpAdjustCompletionListConcurrencyCount.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1405F27DC (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x1406A92A4 (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406D4D10 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoSetIoCompletionEx2 @ 0x1402EAA80 (IoSetIoCompletionEx2.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall AlpcpQueueIoCompletionPort(__int64 a1, char a2, char a3, unsigned __int8 a4)
+__int64 __fastcall AlpcpQueueIoCompletionPort(__int64 a1, char a2, char a3, char a4)
 {
   __int64 v4; // rdi
   unsigned int v9; // eax
@@ -80,6 +80,6 @@ __int64 __fastcall AlpcpQueueIoCompletionPort(__int64 a1, char a2, char a3, unsi
     result = KeAbPostRelease(a1 + 352);
   }
   if ( v11 )
-    return IoSetIoCompletionEx2(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 40), -(__int64)(a2 != 0), 0, 0LL, 0, v11, a4);
+    return IoSetIoCompletionEx2(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 40), -(a2 != 0), 0, 0LL, 0, v11, a4);
   return result;
 }

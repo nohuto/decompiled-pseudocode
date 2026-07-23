@@ -21,9 +21,8 @@
  *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR a1, __int64 a2, char a3, unsigned __int64 *a4)
 {
-  char v4; // bl
   ULONG_PTR v7; // r14
   char v8; // r15
   int VirtualStoreRoot; // ebx
@@ -39,17 +38,16 @@ __int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR a1, __int64 a2, __int64 a3
   PVOID P; // [rsp+58h] [rbp-21h] BYREF
   unsigned __int64 v21; // [rsp+60h] [rbp-19h] BYREF
   ULONG_PTR v22; // [rsp+68h] [rbp-11h] BYREF
-  _QWORD *v23; // [rsp+70h] [rbp-9h]
+  unsigned __int64 *v23; // [rsp+70h] [rbp-9h]
   _OWORD v24[2]; // [rsp+78h] [rbp-1h] BYREF
 
-  v23 = (_QWORD *)a4;
-  v4 = a3;
+  v23 = a4;
   v18 = 0;
   DestinationString = 0LL;
   v7 = 0LL;
   memset(v24, 0, sizeof(v24));
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v24, 0x20000LL, a3, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v24, 0x20000u);
   v21 = 0LL;
   P = 0LL;
   v17 = 0;
@@ -58,7 +56,7 @@ __int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR a1, __int64 a2, __int64 a3
   v22 = 0LL;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && a1 )
     v7 = a1;
-  if ( !v4 )
+  if ( !a3 )
   {
     v8 = CmpTryConvertRegistryExclusive();
     if ( !v8 )

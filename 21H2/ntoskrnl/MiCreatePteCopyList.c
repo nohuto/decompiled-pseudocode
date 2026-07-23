@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreatePteCopyList @ 0x140240B38
+ * XREFs of MiCreatePteCopyList @ 0x1402E5388
  * Callers:
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiAddPagesToEnclave @ 0x140549104 (MiAddPagesToEnclave.c)
- *     MiGetPteMappingPair @ 0x1405635FC (MiGetPteMappingPair.c)
- *     MmRelocatePfnList @ 0x1408D1ADC (MmRelocatePfnList.c)
- *     MiCopyPagesIntoEnclave @ 0x1408D2188 (MiCopyPagesIntoEnclave.c)
- *     MiFillPerSessionProtos @ 0x1408D7FE0 (MiFillPerSessionProtos.c)
- *     MiInitializeScrubPacket @ 0x1408DBE50 (MiInitializeScrubPacket.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiAddPagesToEnclave @ 0x140549344 (MiAddPagesToEnclave.c)
+ *     MiGetPteMappingPair @ 0x14056383C (MiGetPteMappingPair.c)
+ *     MmRelocatePfnList @ 0x1408D1C3C (MmRelocatePfnList.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D22E8 (MiCopyPagesIntoEnclave.c)
+ *     MiFillPerSessionProtos @ 0x1408D8140 (MiFillPerSessionProtos.c)
+ *     MiInitializeScrubPacket @ 0x1408DBFB0 (MiInitializeScrubPacket.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
  */
 
 ULONG_PTR __fastcall MiCreatePteCopyList(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -30,7 +30,7 @@ ULONG_PTR __fastcall MiCreatePteCopyList(unsigned __int64 a1, unsigned __int64 a
   *(_DWORD *)(a3 + 4) = v5;
   do
   {
-    result = MiReservePtes((__int64)&qword_140C4EF40, v5, a3, a4);
+    result = MiReservePtes((__int64)&qword_140C4EF80, v5, a3, a4);
     *(_QWORD *)(a3 + 16) = result;
     if ( result )
       break;

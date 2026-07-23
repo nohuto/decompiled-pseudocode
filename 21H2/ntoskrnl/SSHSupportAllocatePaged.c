@@ -1,11 +1,11 @@
 /*
- * XREFs of SSHSupportAllocatePaged @ 0x1406BA61C
+ * XREFs of SSHSupportAllocatePaged @ 0x1406197BC
  * Callers:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402CC3E0 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     SleepstudyHelperSetBlockerFriendlyName @ 0x1402CC4E0 (SleepstudyHelperSetBlockerFriendlyName.c)
- *     SshpCopyDataEntry @ 0x14057FBF0 (SshpCopyDataEntry.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x14024AA40 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperSetBlockerFriendlyName @ 0x14024AB40 (SleepstudyHelperSetBlockerFriendlyName.c)
+ *     SshpCopyDataEntry @ 0x14057FE30 (SshpCopyDataEntry.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall SSHSupportAllocatePaged(SIZE_T NumberOfBytes, ULONG Tag)

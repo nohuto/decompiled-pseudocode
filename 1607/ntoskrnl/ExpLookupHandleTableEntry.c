@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpLookupHandleTableEntry @ 0x140451390
+ * XREFs of ExpLookupHandleTableEntry @ 0x140450260
  * Callers:
- *     PspReferenceCidTableEntry @ 0x1404208A0 (PspReferenceCidTableEntry.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140425940 (RtlpAtomMapAtomToHandleEntry.c)
- *     ObpReferenceObjectByHandle @ 0x140447040 (ObpReferenceObjectByHandle.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     ObWaitForMultipleObjects @ 0x14044EDD0 (ObWaitForMultipleObjects.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     ExEnumHandleTable @ 0x14045E4D0 (ExEnumHandleTable.c)
- *     ExpGetNextHandleTableEntry @ 0x14045E6A0 (ExpGetNextHandleTableEntry.c)
- *     ExDupHandleTable @ 0x14045E7E0 (ExDupHandleTable.c)
- *     ExSweepHandleTable @ 0x14045F330 (ExSweepHandleTable.c)
- *     NtSetInformationObject @ 0x1404B0170 (NtSetInformationObject.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     ObpReferenceProcessObjectByHandle @ 0x14050D1B0 (ObpReferenceProcessObjectByHandle.c)
- *     ExMapHandleToPointer @ 0x14050DF14 (ExMapHandleToPointer.c)
- *     AlpcpLookupMessage @ 0x14050E300 (AlpcpLookupMessage.c)
- *     ExpGetHandleExtraInfo @ 0x1406AD554 (ExpGetHandleExtraInfo.c)
- *     ExpSetHandleExtraInfo @ 0x1406AD594 (ExpSetHandleExtraInfo.c)
- *     ExpSnapShotHandleTables @ 0x1406AD648 (ExpSnapShotHandleTables.c)
+ *     PspReferenceCidTableEntry @ 0x14041F760 (PspReferenceCidTableEntry.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140424810 (RtlpAtomMapAtomToHandleEntry.c)
+ *     ObpReferenceObjectByHandle @ 0x140445F10 (ObpReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     ObWaitForMultipleObjects @ 0x14044DCA0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExEnumHandleTable @ 0x14045D3A0 (ExEnumHandleTable.c)
+ *     ExpGetNextHandleTableEntry @ 0x14045D570 (ExpGetNextHandleTableEntry.c)
+ *     ExDupHandleTable @ 0x14045D6B0 (ExDupHandleTable.c)
+ *     ExSweepHandleTable @ 0x14045E200 (ExSweepHandleTable.c)
+ *     NtSetInformationObject @ 0x14049A550 (NtSetInformationObject.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x1404F0140 (ObpReferenceProcessObjectByHandle.c)
+ *     ExMapHandleToPointer @ 0x1404F0EA4 (ExMapHandleToPointer.c)
+ *     AlpcpLookupMessage @ 0x1404F1290 (AlpcpLookupMessage.c)
+ *     ExpGetHandleExtraInfo @ 0x1406AD68C (ExpGetHandleExtraInfo.c)
+ *     ExpSetHandleExtraInfo @ 0x1406AD6CC (ExpSetHandleExtraInfo.c)
+ *     ExpSnapShotHandleTables @ 0x1406AD780 (ExpSnapShotHandleTables.c)
  * Callees:
  *     <none>
  */

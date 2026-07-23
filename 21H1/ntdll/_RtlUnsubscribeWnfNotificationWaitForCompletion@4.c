@@ -9,19 +9,19 @@
  *     _RtlpWaitOnAddress@20 @ 0x4B2DF747 (_RtlpWaitOnAddress@20.c)
  */
 
-int __stdcall RtlUnsubscribeWnfNotificationWaitForCompletion(int a1)
+int __stdcall RtlUnsubscribeWnfNotificationWaitForCompletion(PVOID a1)
 {
-  _BYTE v2[4]; // [esp+0h] [ebp-Ch] BYREF
+  int v2; // [esp+0h] [ebp-Ch] BYREF
   int v3; // [esp+4h] [ebp-8h]
   int v4; // [esp+8h] [ebp-4h] BYREF
 
   v4 = 0;
   v3 = 0;
-  *(_DWORD *)(a1 + 48) = &v4;
-  RtlpRemoveUserSubFromNameSub(v2);
+  *((_DWORD *)a1 + 12) = &v4;
+  RtlpRemoveUserSubFromNameSub(*((PVOID *)a1 + 3), a1, (int)&v2);
   do
   {
-    if ( (unsigned __int8)RtlDllShutdownInProgress() )
+    if ( RtlDllShutdownInProgress() )
       break;
     RtlpWaitOnAddress(4, 0, RtlpWaitOnAddressSpinCycleCount);
     v3 = v4;

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlUShortAdd @ 0x14046B240
+ * XREFs of RtlUShortAdd @ 0x140463CC0
  * Callers:
- *     PspSiloInitializeSystemRootSymlink @ 0x1407732F8 (PspSiloInitializeSystemRootSymlink.c)
- *     RtlAddResourceAttributeAce @ 0x14077FEA0 (RtlAddResourceAttributeAce.c)
- *     CmpIsFileInSystemConfig @ 0x1407E1C10 (CmpIsFileInSystemConfig.c)
- *     CmpDeleteCorruptedLogfile @ 0x1407E6620 (CmpDeleteCorruptedLogfile.c)
- *     AslPathWildcardFindFirst @ 0x14080A0A4 (AslPathWildcardFindFirst.c)
- *     AslpPathWildcardAllocMatchNode @ 0x14080B190 (AslpPathWildcardAllocMatchNode.c)
- *     RtlpCreateServerAcl @ 0x14085A9B8 (RtlpCreateServerAcl.c)
- *     IopAllocateUnicodeString @ 0x140A0D4B0 (IopAllocateUnicodeString.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A8BE6C (_SysCtxRegOpenCurrentUserKey.c)
- *     SepAddTokenOriginClaim @ 0x140A97DE0 (SepAddTokenOriginClaim.c)
- *     VfTargetDriversAllocateFullName @ 0x140B8B234 (VfTargetDriversAllocateFullName.c)
- *     VfSuspectDriversAllocateEntry @ 0x140B9A6A0 (VfSuspectDriversAllocateEntry.c)
- *     VfSuspectDriversAllocateEntryEx @ 0x140B9A73C (VfSuspectDriversAllocateEntryEx.c)
- *     BgpBcInitializeCriticalMode @ 0x140C70D44 (BgpBcInitializeCriticalMode.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x140773518 (PspSiloInitializeSystemRootSymlink.c)
+ *     RtlAddResourceAttributeAce @ 0x14077FDD0 (RtlAddResourceAttributeAce.c)
+ *     CmpIsFileInSystemConfig @ 0x1407E2160 (CmpIsFileInSystemConfig.c)
+ *     CmpDeleteCorruptedLogfile @ 0x1407E6BF0 (CmpDeleteCorruptedLogfile.c)
+ *     AslPathWildcardFindFirst @ 0x14080A7E4 (AslPathWildcardFindFirst.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x14080B8D0 (AslpPathWildcardAllocMatchNode.c)
+ *     RtlpCreateServerAcl @ 0x140856C98 (RtlpCreateServerAcl.c)
+ *     IopAllocateUnicodeString @ 0x1409BB8B4 (IopAllocateUnicodeString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A8835C (_SysCtxRegOpenCurrentUserKey.c)
+ *     SepAddTokenOriginClaim @ 0x140A94630 (SepAddTokenOriginClaim.c)
+ *     VfTargetDriversAllocateFullName @ 0x140B8D234 (VfTargetDriversAllocateFullName.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140B9C6A0 (VfSuspectDriversAllocateEntry.c)
+ *     VfSuspectDriversAllocateEntryEx @ 0x140B9C73C (VfSuspectDriversAllocateEntryEx.c)
+ *     BgpBcInitializeCriticalMode @ 0x140C72EA4 (BgpBcInitializeCriticalMode.c)
  * Callees:
  *     <none>
  */

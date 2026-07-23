@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlQueryValidationRunlevel @ 0x14058E500
+ * XREFs of RtlQueryValidationRunlevel @ 0x14058E730
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
  */
 
-__int64 __fastcall RtlQueryValidationRunlevel(PUNICODE_STRING ValueName)
+ULONG __cdecl RtlQueryValidationRunlevel(PUNICODE_STRING ComponentName)
 {
   int v1; // ebx
-  unsigned int v3; // edi
+  int v3; // edi
   ULONG ResultLength; // [rsp+30h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-28h] BYREF
   __int128 KeyValueInformation; // [rsp+40h] [rbp-20h] BYREF
@@ -24,11 +24,17 @@ __int64 __fastcall RtlQueryValidationRunlevel(PUNICODE_STRING ValueName)
   v8 = 0;
   KeyValueInformation = 0LL;
   v3 = MEMORY[0xFFFFF78000000258];
-  if ( ValueName
+  if ( ComponentName
     && MEMORY[0xFFFFF78000000258] != -1
     && ZwOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&ObjectAttributes) >= 0 )
   {
-    if ( ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) >= 0
+    if ( ZwQueryValueKey(
+           KeyHandle,
+           ComponentName,
+           KeyValuePartialInformation,
+           &KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
       && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
     {
       v1 = HIDWORD(KeyValueInformation);

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindSpecialPurposeMemoryType @ 0x1406601C8
+ * XREFs of MiFindSpecialPurposeMemoryType @ 0x140660718
  * Callers:
- *     MiAddSpecialPurposeMemoryPrepare @ 0x140A46DC0 (MiAddSpecialPurposeMemoryPrepare.c)
- *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x140A47248 (MiFindSpecialPurposeMemoryTypeByPartition.c)
- *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4736C (MiInitializePartitionSpecialPurposeMemory.c)
+ *     MiAddSpecialPurposeMemoryPrepare @ 0x140A47070 (MiAddSpecialPurposeMemoryPrepare.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x140A474F8 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4761C (MiInitializePartitionSpecialPurposeMemory.c)
  * Callees:
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  */
 
 _QWORD *__fastcall MiFindSpecialPurposeMemoryType(__int64 a1, const void *a2)

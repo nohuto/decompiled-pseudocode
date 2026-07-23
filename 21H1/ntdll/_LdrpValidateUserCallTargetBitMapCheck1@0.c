@@ -18,13 +18,13 @@ unsigned int __usercall LdrpValidateUserCallTargetBitMapCheck1@<eax>(int a1@<eax
   {
     if ( _bittest(&v3, result) )
       return result;
-    return RtlpHandleInvalidUserCallTarget(a3);
+    return RtlpHandleInvalidUserCallTarget((PVOID)a3);
   }
   v5 = result & 0xFFFFFFFE;
   if ( !_bittest(&v3, v5) )
-    return RtlpHandleInvalidUserCallTarget(a3);
+    return RtlpHandleInvalidUserCallTarget((PVOID)a3);
   result = v5 | 1;
   if ( !_bittest(&v3, result) )
-    return RtlpHandleInvalidUserCallTarget(a3);
+    return RtlpHandleInvalidUserCallTarget((PVOID)a3);
   return result;
 }

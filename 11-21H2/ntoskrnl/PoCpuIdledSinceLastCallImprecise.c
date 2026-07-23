@@ -12,7 +12,7 @@ bool __fastcall PoCpuIdledSinceLastCallImprecise(int a1, __int64 *a2)
   __int64 v3; // rax
   __int64 v4; // rcx
 
-  v2 = KiProcessorBlock[a1];
+  v2 = qword_140D088C0[a1];
   if ( !v2 )
   {
     *a2 = 0LL;

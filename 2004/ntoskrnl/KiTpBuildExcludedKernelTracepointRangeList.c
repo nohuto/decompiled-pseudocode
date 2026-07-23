@@ -14,11 +14,11 @@ _QWORD *KiTpBuildExcludedKernelTracepointRangeList()
 {
   _QWORD *PoolWithTag; // rax
   _QWORD *v1; // rbx
-  __int64 (__fastcall *v2)(); // rdi
+  DWORD64 v2; // rdi
   __int64 v3; // rbp
   unsigned __int64 v4; // rsi
-  unsigned int *v5; // rax
-  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  PRUNTIME_FUNCTION v5; // rax
+  unsigned __int64 ImageBase; // [rsp+50h] [rbp+8h] BYREF
 
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x70727446u);
   v1 = PoolWithTag;
@@ -27,21 +27,21 @@ _QWORD *KiTpBuildExcludedKernelTracepointRangeList()
     *((_DWORD *)PoolWithTag + 4) = 0;
     *((_DWORD *)PoolWithTag + 5) = 0;
     *((_DWORD *)PoolWithTag + 6) = 0;
-    v2 = KiTpExcludedRoutines[0];
+    v2 = KiTpExcludedRoutines;
     LODWORD(v3) = 0;
     PoolWithTag[1] = PoolWithTag;
     *PoolWithTag = PoolWithTag;
     while ( 1 )
     {
-      v7 = 0LL;
-      v4 = (unsigned __int64)v2;
-      v5 = RtlLookupFunctionEntry((unsigned __int64)v2, &v7, 0LL);
+      ImageBase = 0LL;
+      v4 = v2;
+      v5 = RtlLookupFunctionEntry(v2, &ImageBase, 0LL);
       if ( v5 )
-        v4 = v7 + v5[1];
-      if ( (int)RtlAddRange((__int64)v1, (unsigned __int64)v2, v4, 0, 1, 0LL, 0LL) < 0 )
+        v4 = ImageBase + v5->EndAddress;
+      if ( (int)RtlAddRange((__int64)v1, v2, v4, 0, 1, 0LL, 0LL) < 0 )
         break;
       v3 = (unsigned int)(v3 + 1);
-      v2 = KiTpExcludedRoutines[v3];
+      v2 = *(&KiTpExcludedRoutines + v3);
       if ( !v2 )
         return v1;
     }

@@ -30,7 +30,7 @@ NTSTATUS HalpInterruptInitializeIpis()
   _DWORD *v15; // rbx
   unsigned __int64 v16; // rax
   __int64 v17; // rcx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   if ( HalpInterruptIpiLines )

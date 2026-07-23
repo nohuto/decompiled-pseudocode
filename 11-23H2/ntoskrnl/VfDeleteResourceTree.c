@@ -1,9 +1,9 @@
 /*
- * XREFs of VfDeleteResourceTree @ 0x140AE45E8
+ * XREFs of VfDeleteResourceTree @ 0x140AE45D8
  * Callers:
- *     VfMiscPluginUnload @ 0x1405D2520 (VfMiscPluginUnload.c)
+ *     VfMiscPluginUnload @ 0x1405D2A90 (VfMiscPluginUnload.c)
  * Callees:
- *     VfAvlDeleteAllTreeNodes @ 0x140ADC260 (VfAvlDeleteAllTreeNodes.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140ADC250 (VfAvlDeleteAllTreeNodes.c)
  */
 
 __int64 VfDeleteResourceTree()

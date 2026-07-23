@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlRemovePerFileObjectContext @ 0x1402A28A0
+ * XREFs of FsRtlRemovePerFileObjectContext @ 0x14021FCE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     IoGetFileObjectFilterContext @ 0x1402A2A8C (IoGetFileObjectFilterContext.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     IoGetFileObjectFilterContext @ 0x14021FECC (IoGetFileObjectFilterContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlRemovePerFileObjectContext(
@@ -74,6 +74,6 @@ LABEL_9:
     }
   }
   ExReleasePushLockEx(v7, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread(KeGetCurrentThread());
   return v6;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of CcIsFatalWriteError @ 0x14012D9B0
+ * XREFs of CcIsFatalWriteError @ 0x14012DA80
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
- *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
- *     CcNotifyOfMappedWriteComplete @ 0x140138CF8 (CcNotifyOfMappedWriteComplete.c)
- *     CcUnpinRepinnedBcb @ 0x140269DD0 (CcUnpinRepinnedBcb.c)
+ *     CcWriteBehindInternal @ 0x14007D2E0 (CcWriteBehindInternal.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x140138DF8 (CcNotifyOfMappedWriteComplete.c)
+ *     CcUnpinRepinnedBcb @ 0x140269FC0 (CcUnpinRepinnedBcb.c)
  * Callees:
  *     MmIsWriteErrorFatal @ 0x140022E5C (MmIsWriteErrorFatal.c)
  *     CcDereferenceSharedCacheMapFileObject @ 0x140022EF8 (CcDereferenceSharedCacheMapFileObject.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14007DF6C (CcReferenceSharedCacheMapFileObject.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x14007DF5C (CcReferenceSharedCacheMapFileObject.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 bool __fastcall CcIsFatalWriteError(__int64 a1, NTSTATUS a2)

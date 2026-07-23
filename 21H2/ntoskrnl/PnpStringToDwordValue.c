@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpStringToDwordValue @ 0x14038189C
+ * XREFs of PnpStringToDwordValue @ 0x1403813EC
  * Callers:
- *     PiDevCfgParsePropertyKeyName @ 0x14036CFE8 (PiDevCfgParsePropertyKeyName.c)
- *     PiDevCfgResolveVariable @ 0x14077B570 (PiDevCfgResolveVariable.c)
- *     PiDevCfgResolveVariableExpression @ 0x1408A8110 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgParsePropertyKeyName @ 0x14036D198 (PiDevCfgParsePropertyKeyName.c)
+ *     PiDevCfgResolveVariable @ 0x14077B730 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8270 (PiDevCfgResolveVariableExpression.c)
  * Callees:
- *     wcstoul @ 0x1403D4500 (wcstoul.c)
+ *     wcstoul @ 0x1403D4670 (wcstoul.c)
  */
 
 char __fastcall PnpStringToDwordValue(__int64 a1, unsigned int *a2)

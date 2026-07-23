@@ -1,13 +1,13 @@
 /*
- * XREFs of IopQueueWorkItemProlog @ 0x14029F590
+ * XREFs of IopQueueWorkItemProlog @ 0x1403AA050
  * Callers:
- *     IoTryQueueWorkItem @ 0x14029F4E0 (IoTryQueueWorkItem.c)
- *     IoQueueWorkItem @ 0x14029F560 (IoQueueWorkItem.c)
- *     IoQueueWorkItemToNode @ 0x140482FF0 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItemToNode @ 0x1403A9180 (IoQueueWorkItemToNode.c)
+ *     IoTryQueueWorkItem @ 0x1403A9FA0 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItem @ 0x1403AA020 (IoQueueWorkItem.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)

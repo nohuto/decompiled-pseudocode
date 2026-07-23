@@ -6,7 +6,7 @@
  *     RtlRunOnceExecuteOnce @ 0x1800213E0 (RtlRunOnceExecuteOnce.c)
  *     _TlgKeywordOn @ 0x18004B5F0 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 char __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
@@ -42,11 +42,7 @@ char __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, c
   v6 = NtCurrentPeb();
   if ( v6->ProcessHeap )
   {
-    LOBYTE(v6) = RtlRunOnceExecuteOnce(
-                   &RtlpCapChkTelemetryRunOnceCtx,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpCapChkTelemetryRunOnce,
-                   0LL,
-                   0LL);
+    LOBYTE(v6) = RtlRunOnceExecuteOnce(&RtlpCapChkTelemetryRunOnceCtx, RtlpCapChkTelemetryRunOnce, 0LL, 0LL);
     if ( a1 )
     {
       if ( a2 )
@@ -83,7 +79,7 @@ char __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, c
                   v30 = 1;
                   v33 = 1;
                   v36 = 1;
-                  LOBYTE(v6) = TlgWrite(v11, &unk_18012C643, v12, v13, 7u, &pData);
+                  LOBYTE(v6) = TlgWrite(v11, &unk_18012C6D3, v12, v13, 7u, &pData);
                 }
               }
             }

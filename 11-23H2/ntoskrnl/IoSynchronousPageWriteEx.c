@@ -1,23 +1,23 @@
 /*
- * XREFs of IoSynchronousPageWriteEx @ 0x140250F80
+ * XREFs of IoSynchronousPageWriteEx @ 0x140251040
  * Callers:
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     IoSynchronousPageWrite @ 0x14035CFC0 (IoSynchronousPageWrite.c)
- *     MiSynchronousPageWrite @ 0x1403C1A68 (MiSynchronousPageWrite.c)
- *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405510E4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     IoSynchronousPageWrite @ 0x14035D160 (IoSynchronousPageWrite.c)
+ *     MiSynchronousPageWrite @ 0x1403C1C48 (MiSynchronousPageWrite.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405517A4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290350 (IopSetDiskIoAttributionExtension.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1402A7C30 (IoSetDiskIoAttributionFromThread.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     IopAllocateBackpocketIrp @ 0x1405549E0 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140554C78 (IopAllocateReserveIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmIsFileObjectAPagingFile @ 0x14063BD18 (MmIsFileObjectAPagingFile.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402905E0 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1402A7EC0 (IoSetDiskIoAttributionFromThread.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAllocateBackpocketIrp @ 0x1405550A0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140555338 (IopAllocateReserveIrp.c)
+ *     MmIsFileObjectAPagingFile @ 0x14063C268 (MmIsFileObjectAPagingFile.c)
  */
 
 NTSTATUS __fastcall IoSynchronousPageWriteEx(
@@ -122,7 +122,7 @@ LABEL_5:
   p_SystemCallNumber = (struct _LIST_ENTRY *)&Thread[1].SystemCallNumber;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -140,10 +140,10 @@ LABEL_5:
   Flink->Blink = p_ThreadListEntry;
   p_SystemCallNumber->Flink = p_ThreadListEntry;
   KxReleaseSpinLock((volatile signed __int64 *)&Thread[1].WaitBlock[0].Thread);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v30 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v32 = CurrentPrcb->SchedulerAssist;

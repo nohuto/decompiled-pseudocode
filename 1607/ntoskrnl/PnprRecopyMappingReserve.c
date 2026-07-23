@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprRecopyMappingReserve @ 0x1401D06C4
+ * XREFs of PnprRecopyMappingReserve @ 0x1401D04F0
  * Callers:
- *     PnprRecopyMirrorPages @ 0x1401D07A0 (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMirrorPages @ 0x1401D05CC (PnprRecopyMirrorPages.c)
  * Callees:
- *     PnprRecopyAddress @ 0x1401D0674 (PnprRecopyAddress.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     PnprRecopyAddress @ 0x1401D04A0 (PnprRecopyAddress.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     PnprMarkOrMirrorPages @ 0x1403DC0C4 (PnprMarkOrMirrorPages.c)
  */
 

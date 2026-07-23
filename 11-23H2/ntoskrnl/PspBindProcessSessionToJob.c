@@ -4,8 +4,8 @@
  *     PspEstablishJobHierarchy @ 0x14069F8F4 (PspEstablishJobHierarchy.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
  * Callees:
- *     MmGetSessionId @ 0x1402A3C40 (MmGetSessionId.c)
- *     PspConvertJobToMixed @ 0x1409B2164 (PspConvertJobToMixed.c)
+ *     MmGetSessionId @ 0x1402A3ED0 (MmGetSessionId.c)
+ *     PspConvertJobToMixed @ 0x1409B2364 (PspConvertJobToMixed.c)
  */
 
 __int64 __fastcall PspBindProcessSessionToJob(__int64 a1, __int64 a2)

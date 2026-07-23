@@ -1,35 +1,35 @@
 /*
- * XREFs of EtwpBufferingModeFlush @ 0x140A13654
+ * XREFs of EtwpBufferingModeFlush @ 0x140A12844
  * Callers:
- *     EtwpFlushTrace @ 0x140A6F6CC (EtwpFlushTrace.c)
+ *     EtwpFlushTrace @ 0x140AB2FD0 (EtwpFlushTrace.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpPrepareDirtyBuffer @ 0x140219094 (EtwpPrepareDirtyBuffer.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     EtwpLockUnlockBufferList @ 0x140449AC0 (EtwpLockUnlockBufferList.c)
- *     EtwpGetEnableInfoIndex @ 0x14047C560 (EtwpGetEnableInfoIndex.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     EtwpBufferingModeCompressionFlush @ 0x1406C791C (EtwpBufferingModeCompressionFlush.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpSendDataBlock @ 0x1409388D8 (EtwpSendDataBlock.c)
- *     EtwpFindGuidEntryByGuid @ 0x140939130 (EtwpFindGuidEntryByGuid.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     EtwpPrepareHeader @ 0x140A13A08 (EtwpPrepareHeader.c)
- *     EtwpFindAndLockBufferForFlushing @ 0x140A13A90 (EtwpFindAndLockBufferForFlushing.c)
- *     EtwpWaitForBufferReferenceCount @ 0x140A14C24 (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBuffer @ 0x140A14C58 (EtwpFlushBuffer.c)
- *     EtwpFlushBufferToLogfile @ 0x140A15524 (EtwpFlushBufferToLogfile.c)
- *     EtwpCreateLogFile @ 0x140A15DA4 (EtwpCreateLogFile.c)
- *     EtwpFinalizeHeader @ 0x140A16CB0 (EtwpFinalizeHeader.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1402191F4 (EtwpPrepareDirtyBuffer.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     EtwpLockUnlockBufferList @ 0x140441BF0 (EtwpLockUnlockBufferList.c)
+ *     EtwpGetEnableInfoIndex @ 0x140475ED0 (EtwpGetEnableInfoIndex.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x1406CB8FC (EtwpBufferingModeCompressionFlush.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpSendDataBlock @ 0x140914478 (EtwpSendDataBlock.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140914CD0 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpPrepareHeader @ 0x140A12BF8 (EtwpPrepareHeader.c)
+ *     EtwpFindAndLockBufferForFlushing @ 0x140A12C80 (EtwpFindAndLockBufferForFlushing.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x140A13E18 (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFlushBuffer @ 0x140A13E4C (EtwpFlushBuffer.c)
+ *     EtwpFlushBufferToLogfile @ 0x140A14718 (EtwpFlushBufferToLogfile.c)
+ *     EtwpCreateLogFile @ 0x140A16128 (EtwpCreateLogFile.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     EtwpFinalizeHeader @ 0x140ABCAB0 (EtwpFinalizeHeader.c)
  */
 
 __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)
@@ -111,7 +111,7 @@ __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)
   v3 = *a1;
   v70 = 0;
   UsedProcessorCount = EtwpQueryUsedProcessorCount((__int64)a1);
-  if ( (unsigned __int8)EtwpBootPhase > 3u )
+  if ( LOBYTE(stru_140F03830.CycleTime) > 3u )
     _InterlockedOr((volatile signed __int32 *)(v5 + 816), 4u);
   if ( !*(_QWORD *)(v5 + 192) )
     return 0LL;
@@ -122,7 +122,7 @@ __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)
   {
     memset_0(v71, 0, 0x78uLL);
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    GuidEntryByGuid = EtwpFindGuidEntryByGuid((__int64)CurrentServerSiloGlobals[52].Flink, qword_1400392D8, 0);
+    GuidEntryByGuid = EtwpFindGuidEntryByGuid((__int64)CurrentServerSiloGlobals[52].Flink, qword_140039880, 0);
     v51 = (__int64)GuidEntryByGuid;
     if ( GuidEntryByGuid )
     {

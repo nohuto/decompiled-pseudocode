@@ -1,8 +1,8 @@
 /*
- * XREFs of KiHeteroIsSwapBeneficialForPerformance @ 0x140577298
+ * XREFs of KiHeteroIsSwapBeneficialForPerformance @ 0x140577788
  * Callers:
- *     KiEvaluatePreemptionSwapTarget @ 0x140577010 (KiEvaluatePreemptionSwapTarget.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057739C (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140577500 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057788C (KiHeteroScanQueueForPreemptionSwapTarget.c)
  * Callees:
  *     <none>
  */

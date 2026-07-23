@@ -8,7 +8,7 @@
  *     RtlNumberOfSetBits @ 0x14006E280 (RtlNumberOfSetBits.c)
  */
 
-ULONG __fastcall HvUpdateUnreconciledVector(struct _RTL_BITMAP *a1, char a2)
+ULONG __fastcall HvUpdateUnreconciledVector(_RTL_BITMAP *a1, char a2)
 {
   ULONG result; // eax
 

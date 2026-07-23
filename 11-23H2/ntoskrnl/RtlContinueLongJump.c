@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlContinueLongJump @ 0x1405B2010
+ * XREFs of RtlContinueLongJump @ 0x1405B2580
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     NtContinueEx @ 0x14041F190 (NtContinueEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     NtContinueEx @ 0x14041F520 (NtContinueEx.c)
  */
 
-__int64 __fastcall RtlContinueLongJump(__int64 a1)
+NTSTATUS __fastcall RtlContinueLongJump(_CONTEXT *a1)
 {
-  __int128 v2; // [rsp+20h] [rbp-28h] BYREF
+  __int128 ContinueArgument; // [rsp+20h] [rbp-28h] BYREF
   __int64 v3; // [rsp+30h] [rbp-18h]
 
-  v2 = 0LL;
-  LODWORD(v2) = 2;
+  ContinueArgument = 0LL;
+  LODWORD(ContinueArgument) = 2;
   v3 = 0LL;
-  return NtContinueEx(a1, &v2);
+  return NtContinueEx(a1, &ContinueArgument);
 }

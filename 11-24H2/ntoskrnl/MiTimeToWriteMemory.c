@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTimeToWriteMemory @ 0x140415B24
+ * XREFs of MiTimeToWriteMemory @ 0x140271984
  * Callers:
- *     MiComputeSoloZeroingTime @ 0x140415A50 (MiComputeSoloZeroingTime.c)
+ *     MiComputeSoloZeroingTime @ 0x1402718B0 (MiComputeSoloZeroingTime.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ unsigned __int64 __fastcall MiTimeToWriteMemory(unsigned int a1, int a2, int a3,
   __int64 v10; // rax
   __int64 v12; // r8
 
-  v5 = *(_QWORD *)(384LL * a1 + qword_140E2DAF8 + 376);
+  v5 = *(_QWORD *)(384LL * a1 + qword_140E2DC38 + 376);
   v6 = 1;
   if ( a3 != 3 )
     v6 = a3;

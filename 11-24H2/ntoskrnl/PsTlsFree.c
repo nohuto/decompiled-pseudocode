@@ -1,10 +1,10 @@
 /*
- * XREFs of PsTlsFree @ 0x14077A520
+ * XREFs of PsTlsFree @ 0x14077A620
  * Callers:
- *     PsTlsAlloc @ 0x14077A4C0 (PsTlsAlloc.c)
+ *     PsTlsAlloc @ 0x14077A5C0 (PsTlsAlloc.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     RtlpFlsFree @ 0x1407879CC (RtlpFlsFree.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlpFlsFree @ 0x1407878FC (RtlpFlsFree.c)
  */
 
 void __fastcall PsTlsFree(__int64 a1)

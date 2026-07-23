@@ -1,15 +1,15 @@
 /*
- * XREFs of PopRequestShutdownWait @ 0x140AF1078
+ * XREFs of PopRequestShutdownWait @ 0x140AF3CB8
  * Callers:
- *     SepRmCommandServerThread @ 0x140AF0B10 (SepRmCommandServerThread.c)
- *     PoRequestShutdownEvent @ 0x140AF1030 (PoRequestShutdownEvent.c)
+ *     SepRmCommandServerThread @ 0x140AF3750 (SepRmCommandServerThread.c)
+ *     PoRequestShutdownEvent @ 0x140AF3C70 (PoRequestShutdownEvent.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopRequestShutdownWait(PVOID Object)
@@ -25,11 +25,11 @@ __int64 __fastcall PopRequestShutdownWait(PVOID Object)
     return 3221225495LL;
   *(_QWORD *)(Pool2 + 8) = Object;
   ObfReferenceObjectWithTag(Object, 0x64536F50u);
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.PriorityFloorSummary);
-  if ( BYTE2(stru_140E66FF0.Padding[1]) )
+  ExAcquireFastMutex(&PopShutdownListMutex);
+  if ( byte_140E676F0 )
   {
-    *v4 = stru_140F11D08.OtherOperationCount;
-    stru_140F11D08.OtherOperationCount = (__int64)v4;
+    *v4 = PopShutdownThreadList;
+    PopShutdownThreadList = v4;
   }
   else
   {
@@ -37,6 +37,6 @@ __int64 __fastcall PopRequestShutdownWait(PVOID Object)
     ExFreePoolWithTag(v4, 0);
     v3 = -1073741823;
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.PriorityFloorSummary);
+  KeReleaseGuardedMutex(&PopShutdownListMutex);
   return v3;
 }

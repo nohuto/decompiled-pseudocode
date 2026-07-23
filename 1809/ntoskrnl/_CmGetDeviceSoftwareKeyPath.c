@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetDeviceSoftwareKeyPath @ 0x1406B233C
+ * XREFs of _CmGetDeviceSoftwareKeyPath @ 0x1406B35DC
  * Callers:
- *     _CmGetDeviceRegKeyPath @ 0x1405C7544 (_CmGetDeviceRegKeyPath.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1405C8544 (_CmGetDeviceRegKeyPath.c)
  * Callees:
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _CmGetDeviceSoftwareKey @ 0x1406B2464 (_CmGetDeviceSoftwareKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _CmGetDeviceSoftwareKey @ 0x1406B3704 (_CmGetDeviceSoftwareKey.c)
  */
 
 __int64 __fastcall CmGetDeviceSoftwareKeyPath(

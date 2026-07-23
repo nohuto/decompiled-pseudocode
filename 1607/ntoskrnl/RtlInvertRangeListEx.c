@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInvertRangeListEx @ 0x14055929C
+ * XREFs of RtlInvertRangeListEx @ 0x1405597DC
  * Callers:
- *     RtlInvertRangeList @ 0x140558168 (RtlInvertRangeList.c)
+ *     RtlInvertRangeList @ 0x1405586A8 (RtlInvertRangeList.c)
  * Callees:
- *     RtlAddRange @ 0x140559B40 (RtlAddRange.c)
+ *     RtlAddRange @ 0x14055A080 (RtlAddRange.c)
  */
 
 int __fastcall RtlInvertRangeListEx(PRTL_RANGE_LIST RangeList, __int64 a2, UCHAR a3, void *a4, PVOID Owner)

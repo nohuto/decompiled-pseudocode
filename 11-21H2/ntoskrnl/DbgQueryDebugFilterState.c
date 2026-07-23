@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryDebugFilterState @ 0x140369DB0 (NtQueryDebugFilterState.c)
+ *     sub_140369DB0 @ 0x140369DB0 (sub_140369DB0.c)
  */
 
 NTSTATUS __stdcall DbgQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
-  return NtQueryDebugFilterState(ComponentId, Level);
+  return sub_140369DB0(ComponentId, Level);
 }

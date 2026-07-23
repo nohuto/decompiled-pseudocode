@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlockSystemVa @ 0x1402E1BA0
+ * XREFs of MiUnlockSystemVa @ 0x1402FC650
  * Callers:
- *     MiSystemFault @ 0x140229570 (MiSystemFault.c)
- *     MiSynchronizeSystemVa @ 0x14022AD58 (MiSynchronizeSystemVa.c)
- *     MmCopyMemory @ 0x140395E40 (MmCopyMemory.c)
- *     MiTranslatePageForCopy @ 0x1403961F0 (MiTranslatePageForCopy.c)
+ *     MiSystemFault @ 0x1402FC7E0 (MiSystemFault.c)
+ *     MiSynchronizeSystemVa @ 0x1402FDFC8 (MiSynchronizeSystemVa.c)
+ *     MmCopyMemory @ 0x1403F3930 (MmCopyMemory.c)
+ *     MiTranslatePageForCopy @ 0x1403F3CE0 (MiTranslatePageForCopy.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiUnlockFaultPageTable @ 0x1402E05F0 (MiUnlockFaultPageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockFaultPageTable @ 0x140241ED0 (MiUnlockFaultPageTable.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
  */
 
 void __fastcall MiUnlockSystemVa(__int64 a1)

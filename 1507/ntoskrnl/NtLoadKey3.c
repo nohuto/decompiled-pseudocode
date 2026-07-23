@@ -7,69 +7,79 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtLoadKey3(
-        _OWORD *a1,
-        __int64 a2,
-        int a3,
-        __int64 a4,
-        int a5,
+NTSTATUS __cdecl NtLoadKey3(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        PCM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount,
         ACCESS_MASK DesiredAccess,
-        HANDLE *a7)
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
   char PreviousMode; // bl
-  __int64 v10; // r10
-  int v12; // edx
-  __int128 v13; // xmm0
-  char v15; // [rsp+38h] [rbp-50h]
-  int v16; // [rsp+50h] [rbp-38h]
-  __int64 v17; // [rsp+58h] [rbp-30h]
-  HANDLE v18; // [rsp+60h] [rbp-28h]
+  ULONG64 ULong64; // r10
+  int v13; // edx
+  __int128 v14; // xmm0
+  char v16; // [rsp+38h] [rbp-50h]
+  int v17; // [rsp+50h] [rbp-38h]
+  ULONG64 v18; // [rsp+58h] [rbp-30h]
+  HANDLE Pointer; // [rsp+60h] [rbp-28h]
   HANDLE Handle; // [rsp+68h] [rbp-20h]
 
   Handle = 0LL;
-  v18 = 0LL;
-  v16 = 0;
+  Pointer = 0LL;
+  v17 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v10 = 0LL;
-  v17 = 0LL;
-  v12 = 0;
-  while ( a5 )
+  ULong64 = 0LL;
+  v18 = 0LL;
+  v13 = 0;
+  while ( ExtendedParameterCount )
   {
     if ( PreviousMode == 1 )
     {
-      if ( (a4 & 7) != 0 )
+      if ( ((unsigned __int8)ExtendedParameters & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v12 = v16;
-      v10 = v17;
+      v13 = v17;
+      ULong64 = v18;
     }
-    v13 = *(_OWORD *)a4;
-    if ( (unsigned __int8)*(_OWORD *)a4 == 1LL )
+    v14 = *(_OWORD *)&ExtendedParameters->0;
+    if ( (unsigned __int8)*(_OWORD *)&ExtendedParameters->0 == 1LL )
     {
-      if ( (v12 & 2) != 0 )
-        return 3221225714LL;
-      v10 = *(_QWORD *)(a4 + 8);
-      v17 = v10;
-      v12 |= 2u;
+      if ( (v13 & 2) != 0 )
+        return -1073741582;
+      ULong64 = ExtendedParameters->ULong64;
+      v18 = ULong64;
+      v13 |= 2u;
     }
-    else if ( (unsigned __int8)v13 == 2LL )
+    else if ( (unsigned __int8)v14 == 2LL )
     {
-      if ( (v12 & 4) != 0 )
-        return 3221225714LL;
-      Handle = *(HANDLE *)(a4 + 8);
-      v12 |= 4u;
+      if ( (v13 & 4) != 0 )
+        return -1073741582;
+      Handle = ExtendedParameters->Pointer;
+      v13 |= 4u;
     }
     else
     {
-      if ( (unsigned __int8)v13 != 3LL )
-        return 3221225714LL;
-      if ( (v12 & 8) != 0 )
-        return 3221225714LL;
-      v18 = *(HANDLE *)(a4 + 8);
-      v12 |= 8u;
+      if ( (unsigned __int8)v14 != 3LL )
+        return -1073741582;
+      if ( (v13 & 8) != 0 )
+        return -1073741582;
+      Pointer = ExtendedParameters->Pointer;
+      v13 |= 8u;
     }
-    v16 = v12;
-    a4 += 16LL;
-    --a5;
+    v17 = v13;
+    ++ExtendedParameters;
+    --ExtendedParameterCount;
   }
-  return CmLoadKeyHelper(a1, a2, a3 | 0x8000u, v10, Handle, DesiredAccess, a7, v15, v18);
+  return CmLoadKeyHelper(
+           TargetKey,
+           (__int64)SourceFile,
+           Flags | 0x8000,
+           ULong64,
+           Handle,
+           DesiredAccess,
+           RootHandle,
+           v16,
+           Pointer);
 }

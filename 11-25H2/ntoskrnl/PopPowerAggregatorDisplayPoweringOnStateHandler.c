@@ -19,7 +19,7 @@ __int64 __fastcall PopPowerAggregatorDisplayPoweringOnStateHandler(__int64 a1)
   if ( *(_BYTE *)(a1 + 72) )
   {
     memset(v5, 0, sizeof(v5));
-    PopPowerAggregatorSetCurrentState(a1, (__int64)v5);
+    PopPowerAggregatorSetCurrentState((LARGE_INTEGER *)a1, (__int64)v5);
     v2 = *(_DWORD *)(a1 + 24);
     PopReleaseRwLock(&PopPowerAggregatorLock);
     MonitorReasonFromPowerEventId = PopGetMonitorReasonFromPowerEventId(v2);

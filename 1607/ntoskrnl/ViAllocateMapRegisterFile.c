@@ -1,22 +1,22 @@
 /*
- * XREFs of ViAllocateMapRegisterFile @ 0x1407087CC
+ * XREFs of ViAllocateMapRegisterFile @ 0x1407087FC
  * Callers:
- *     VfAllocateAdapterChannel @ 0x1407061E0 (VfAllocateAdapterChannel.c)
- *     VfBuildScatterGatherList @ 0x140706890 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x1407075F8 (VfGetScatterGatherList.c)
- *     VfHalAllocateMapRegisters @ 0x140707AB4 (VfHalAllocateMapRegisters.c)
+ *     VfAllocateAdapterChannel @ 0x140706210 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x1407068C0 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x140707628 (VfGetScatterGatherList.c)
+ *     VfHalAllocateMapRegisters @ 0x140707AE4 (VfHalAllocateMapRegisters.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x140072230 (IoFreeMdl.c)
- *     ExInterlockedInsertHeadList @ 0x1400A7B70 (ExInterlockedInsertHeadList.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x140071DB0 (IoFreeMdl.c)
+ *     ExInterlockedInsertHeadList @ 0x1400A60E8 (ExInterlockedInsertHeadList.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ViAllocateFromContiguousMemory @ 0x140708738 (ViAllocateFromContiguousMemory.c)
- *     ViFreeToContiguousMemory @ 0x140709670 (ViFreeToContiguousMemory.c)
- *     ViInitializePadding @ 0x140709DDC (ViInitializePadding.c)
+ *     ViAllocateFromContiguousMemory @ 0x140708768 (ViAllocateFromContiguousMemory.c)
+ *     ViFreeToContiguousMemory @ 0x1407096A0 (ViFreeToContiguousMemory.c)
+ *     ViInitializePadding @ 0x140709E0C (ViInitializePadding.c)
  */
 
 char *__fastcall ViAllocateMapRegisterFile(__int64 a1, unsigned int a2)

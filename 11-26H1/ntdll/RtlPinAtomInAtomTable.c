@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlPinAtomInAtomTable @ 0x18013F2F0
+ * XREFs of RtlPinAtomInAtomTable @ 0x18013F1F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLockAtomTable @ 0x180037A80 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x180037AB0 (RtlpAtomMapAtomToHandleEntry.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpLockAtomTable @ 0x180001750 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x180001780 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlPinAtomInAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
-  unsigned int v5; // ebx
+  NTSTATUS v5; // ebx
   __int64 v6; // rax
-  unsigned int v7; // r10d
+  NTSTATUS v7; // r10d
   __int64 v8; // rax
 
-  if ( !RtlpLockAtomTable((_DWORD *)a1) )
-    return 3221225485LL;
+  if ( !RtlpLockAtomTable((__int64)AtomTableHandle) )
+    return -1073741811;
   v5 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v5 = 0;
   }
   else
   {
-    v6 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
-    if ( v6 && *(_WORD *)(v6 + 10) == a2 )
+    v6 = RtlpAtomMapAtomToHandleEntry((__int64)AtomTableHandle, Atom & 0x3FFF);
+    if ( v6 && *(_WORD *)(v6 + 10) == Atom )
     {
       v8 = v6 + 12;
       if ( v8 )
@@ -36,6 +36,6 @@ __int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
       }
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
   return v5;
 }

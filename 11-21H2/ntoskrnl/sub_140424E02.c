@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140424E02 @ 0x140424E02
  * Callers:
- *     KiSetSpecCtrlNmi @ 0x140424CA0 (KiSetSpecCtrlNmi.c)
+ *     sub_140424CA0 @ 0x140424CA0 (sub_140424CA0.c)
  * Callees:
  *     sub_140424DF9 @ 0x140424DF9 (sub_140424DF9.c)
  */

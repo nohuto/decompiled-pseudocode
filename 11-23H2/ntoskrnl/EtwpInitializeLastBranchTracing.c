@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpInitializeLastBranchTracing @ 0x140864FE8
+ * XREFs of EtwpInitializeLastBranchTracing @ 0x140865228
  * Callers:
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 EtwpInitializeLastBranchTracing()

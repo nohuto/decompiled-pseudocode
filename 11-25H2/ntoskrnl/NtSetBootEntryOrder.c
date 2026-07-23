@@ -14,42 +14,42 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetBootEntryOrder(__int64 a1, unsigned int a2)
+NTSTATUS __cdecl NtSetBootEntryOrder(PULONG Ids, ULONG Count)
 {
   void *Pool2; // rdi
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   struct _KTHREAD *v7; // rax
-  unsigned int v8; // ebx
-  unsigned int v9; // esi
+  NTSTATUS v8; // ebx
+  NTSTATUS v9; // esi
   __int64 i; // rcx
 
   Pool2 = 0LL;
   if ( dword_140EFE810 != 2 )
-    return 3221225474LL;
-  if ( a2 > 0x3FFFFFFF )
-    return 3221225485LL;
+    return -1073741822;
+  if ( Count > 0x3FFFFFFF )
+    return -1073741811;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, CurrentThread->PreviousMode) )
-    return 3221225569LL;
-  if ( a2 )
+    return -1073741727;
+  if ( Count )
   {
     Pool2 = (void *)ExAllocatePool2(0x40uLL);
     if ( !Pool2 )
-      return 3221225626LL;
-    if ( PreviousMode && 4 * a2 && (a1 & 3) != 0 )
+      return -1073741670;
+    if ( PreviousMode && 4 * Count && ((unsigned __int8)Ids & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    for ( i = 0LL; (unsigned int)i < a2; i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < Count; i = (unsigned int)(i + 1) )
     {
-      if ( *(_DWORD *)(a1 + 4 * i) > 0xFFFFu )
+      if ( Ids[i] > 0xFFFF )
       {
         ExFreePoolWithTag(Pool2, 0);
-        return 3221225485LL;
+        return -1073741811;
       }
-      *((_WORD *)Pool2 + i) = *(_WORD *)(a1 + 4 * i);
+      *((_WORD *)Pool2 + i) = Ids[i];
     }
   }
   v7 = KeGetCurrentThread();
@@ -59,7 +59,7 @@ __int64 __fastcall NtSetBootEntryOrder(__int64 a1, unsigned int a2)
          (unsigned int)L"BootOrder",
          (unsigned int)&EfiBootVariablesGuid,
          (_DWORD)Pool2,
-         2 * a2,
+         2 * Count,
          1);
   ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
   KeLeaveCriticalRegion();

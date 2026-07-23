@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDisconnectSecondaryInterrupt @ 0x1402935E4
+ * XREFs of KiDisconnectSecondaryInterrupt @ 0x1402937D4
  * Callers:
- *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14016D3C0 (KeDisconnectInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KiDisconnectInterruptCommon @ 0x14016D694 (KiDisconnectInterruptCommon.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x14029336C (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1402933C4 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KiDisconnectInterruptCommon @ 0x14016D794 (KiDisconnectInterruptCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14029355C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x1402935B4 (KiAcquireSecondaryPassiveConnectLock.c)
  */
 
 __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, __int64 a2)

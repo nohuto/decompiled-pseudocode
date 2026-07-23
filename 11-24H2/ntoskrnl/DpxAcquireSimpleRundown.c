@@ -1,9 +1,9 @@
 /*
- * XREFs of DpxAcquireSimpleRundown @ 0x1405AF470
+ * XREFs of DpxAcquireSimpleRundown @ 0x1405AC3E0
  * Callers:
- *     DpxEndpointWrappedCall @ 0x140BBF010 (DpxEndpointWrappedCall.c)
+ *     DpxEndpointWrappedCall @ 0x140BC1010 (DpxEndpointWrappedCall.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 signed __int64 __fastcall DpxAcquireSimpleRundown(__int64 a1)

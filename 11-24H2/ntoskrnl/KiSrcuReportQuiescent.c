@@ -1,23 +1,23 @@
 /*
- * XREFs of KiSrcuReportQuiescent @ 0x1405C17F8
+ * XREFs of KiSrcuReportQuiescent @ 0x1405BEDC8
  * Callers:
- *     KiRcuCheckQuiescent @ 0x140206480 (KiRcuCheckQuiescent.c)
- *     KiCheckWaitNext @ 0x1402092E0 (KiCheckWaitNext.c)
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
- *     KeRemoveQueueEx @ 0x1402A49D0 (KeRemoveQueueEx.c)
- *     KeClockInterruptNotify @ 0x14033A5E0 (KeClockInterruptNotify.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiSrcuCheckQuiescent @ 0x140437860 (KiSrcuCheckQuiescent.c)
- *     KeSrcuReadUnlock @ 0x1405C0D30 (KeSrcuReadUnlock.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
+ *     KeRemoveQueueEx @ 0x1402D4100 (KeRemoveQueueEx.c)
+ *     KeClockInterruptNotify @ 0x140319AC0 (KeClockInterruptNotify.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiRcuCheckQuiescent @ 0x14032DA60 (KiRcuCheckQuiescent.c)
+ *     KiCheckWaitNext @ 0x1403308C0 (KiCheckWaitNext.c)
+ *     KiSrcuCheckQuiescent @ 0x14042A2E0 (KiSrcuCheckQuiescent.c)
+ *     KeSrcuReadUnlock @ 0x1405BE300 (KeSrcuReadUnlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x1404633C8 (KxTryToAcquireSpinLock.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D3F60 (KiSrcuCompareGraceSequence.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSrcuNotifyGracePeriodStarted @ 0x1405C124C (KiSrcuNotifyGracePeriodStarted.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140459EB8 (KxTryToAcquireSpinLock.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404CD170 (KiSrcuCompareGraceSequence.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSrcuNotifyGracePeriodStarted @ 0x1405BE81C (KiSrcuNotifyGracePeriodStarted.c)
  */
 
 __int64 __fastcall KiSrcuReportQuiescent(__int64 a1, __int64 a2)

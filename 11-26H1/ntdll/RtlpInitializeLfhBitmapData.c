@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInitializeLfhBitmapData @ 0x180075650
+ * XREFs of RtlpInitializeLfhBitmapData @ 0x180096240
  * Callers:
- *     RtlpSubSegmentDebugInitialize @ 0x1800753AC (RtlpSubSegmentDebugInitialize.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x180095F9C (RtlpSubSegmentDebugInitialize.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 unsigned __int64 __fastcall RtlpInitializeLfhBitmapData(__int64 *a1)

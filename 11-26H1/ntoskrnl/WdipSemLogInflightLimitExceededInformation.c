@@ -1,15 +1,15 @@
 /*
- * XREFs of WdipSemLogInflightLimitExceededInformation @ 0x140820978
+ * XREFs of WdipSemLogInflightLimitExceededInformation @ 0x140826B88
  * Callers:
- *     WdipSemReserveInstanceTableEntry @ 0x140ADAF30 (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemReserveInstanceTableEntry @ 0x140AD79E0 (WdipSemReserveInstanceTableEntry.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WdipSemSqmEnabled @ 0x1407757AC (WdipSemSqmEnabled.c)
- *     WdipSemUpdateFrequentScenarioTable @ 0x140820AC4 (WdipSemUpdateFrequentScenarioTable.c)
- *     WdipSemUpdateInflightScenarioTable @ 0x140820C10 (WdipSemUpdateInflightScenarioTable.c)
- *     WdipSemWriteInflightLimitExceededEvent @ 0x140821220 (WdipSemWriteInflightLimitExceededEvent.c)
- *     WdipSemFastFree @ 0x140ADB450 (WdipSemFastFree.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WdipSemSqmEnabled @ 0x1407787AC (WdipSemSqmEnabled.c)
+ *     WdipSemUpdateFrequentScenarioTable @ 0x140826CD4 (WdipSemUpdateFrequentScenarioTable.c)
+ *     WdipSemUpdateInflightScenarioTable @ 0x140826E20 (WdipSemUpdateInflightScenarioTable.c)
+ *     WdipSemWriteInflightLimitExceededEvent @ 0x140827430 (WdipSemWriteInflightLimitExceededEvent.c)
+ *     WdipSemFastFree @ 0x140AD7F00 (WdipSemFastFree.c)
  */
 
 __int64 __fastcall WdipSemLogInflightLimitExceededInformation(__int64 a1, unsigned __int16 a2, __int64 a3)
@@ -27,11 +27,11 @@ __int64 __fastcall WdipSemLogInflightLimitExceededInformation(__int64 a1, unsign
   memset_0(v10, 0, 0x3F0uLL);
   if ( a1 && a3 )
   {
-    if ( EtwEventEnabled((REGHANDLE)stru_140F03F40.Timer.TimerListEntry.Flink, &WDI_SEM_EVENT_SCENARIO_INFLIGHT_MAX)
+    if ( EtwEventEnabled((REGHANDLE)stru_140F06A28.Header.WaitListHead.Flink, &WDI_SEM_EVENT_SCENARIO_INFLIGHT_MAX)
       || WdipSemSqmEnabled() )
     {
-      for ( i = (struct _KTHREAD *)stru_140F03F40.WaitBlock[0].WaitListEntry.Flink;
-            &stru_140F03F40.320 != ($21A6EA393ADDDF0D13424531359FF08A *)i;
+      for ( i = (struct _KTHREAD *)stru_140F049E8.SListFaultAddress;
+            &stru_140F049E8.SListFaultAddress != (void **)i;
             i = *(struct _KTHREAD **)&i->Header.Lock )
       {
         updated = WdipSemUpdateInflightScenarioTable(
@@ -44,7 +44,7 @@ __int64 __fastcall WdipSemLogInflightLimitExceededInformation(__int64 a1, unsign
       }
       if ( v12 )
       {
-        if ( EtwEventEnabled((REGHANDLE)stru_140F03F40.Timer.TimerListEntry.Flink, &WDI_SEM_EVENT_SCENARIO_INFLIGHT_MAX) )
+        if ( EtwEventEnabled((REGHANDLE)stru_140F06A28.Header.WaitListHead.Flink, &WDI_SEM_EVENT_SCENARIO_INFLIGHT_MAX) )
           WdipSemWriteInflightLimitExceededEvent(a1, a2, a3, v10);
         if ( WdipSemSqmEnabled() )
           WdipSemUpdateFrequentScenarioTable(v12);

@@ -1,12 +1,12 @@
 /*
- * XREFs of AMDMicrocodeGetRecordData @ 0x140665138
+ * XREFs of AMDMicrocodeGetRecordData @ 0x140663A28
  * Callers:
- *     GetMicrocodePatchData @ 0x1406642C8 (GetMicrocodePatchData.c)
- *     MicrocodeUpdate @ 0x140664918 (MicrocodeUpdate.c)
+ *     GetMicrocodePatchData @ 0x140662BB8 (GetMicrocodePatchData.c)
+ *     MicrocodeUpdate @ 0x140663208 (MicrocodeUpdate.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     PrExtGetRecordDataLength @ 0x140664210 (PrExtGetRecordDataLength.c)
- *     AMDMicrocodeV1GetRecordData @ 0x14066536C (AMDMicrocodeV1GetRecordData.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     PrExtGetRecordDataLength @ 0x140662B00 (PrExtGetRecordDataLength.c)
+ *     AMDMicrocodeV1GetRecordData @ 0x140663C5C (AMDMicrocodeV1GetRecordData.c)
  */
 
 __int64 __fastcall AMDMicrocodeGetRecordData(_DWORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)

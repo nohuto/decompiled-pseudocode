@@ -43,11 +43,14 @@ int __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v3, retaddr);
     else
       *v3 = 0;
-    LODWORD(v5) = KiIrqlFlags;
-    if ( KiIrqlFlags )
+    LODWORD(v5) = (_DWORD)KiIrqlFlags;
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v4 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v5 = ($C71981A45BEB2B45F82C232A7085991E *)(-1LL << ((unsigned __int8)v4 + 1));

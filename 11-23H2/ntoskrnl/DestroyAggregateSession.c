@@ -1,10 +1,10 @@
 /*
- * XREFs of DestroyAggregateSession @ 0x140A6F118
+ * XREFs of DestroyAggregateSession @ 0x140A6F3C8
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x140821CA8 (TlgRegisterAggregateProviderEx.c)
- *     CreateTlgAggregateSession @ 0x140821E78 (CreateTlgAggregateSession.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140821FA8 (TlgRegisterAggregateProviderEx.c)
+ *     CreateTlgAggregateSession @ 0x140822178 (CreateTlgAggregateSession.c)
  * Callees:
- *     CancelTimerCallbacksAndDeleteTimer @ 0x140A6F094 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x140A6F344 (CancelTimerCallbacksAndDeleteTimer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

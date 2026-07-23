@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkIpiInterrupt @ 0x140C7DA00
+ * XREFs of HalpBlkIpiInterrupt @ 0x140C83A00
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkApicEndOfInterrupt @ 0x140C7C1D0 (HalpBlkApicEndOfInterrupt.c)
- *     HalpBlkHandleIpi @ 0x140C7C3E0 (HalpBlkHandleIpi.c)
+ *     HalpBlkApicEndOfInterrupt @ 0x140C821D0 (HalpBlkApicEndOfInterrupt.c)
+ *     HalpBlkHandleIpi @ 0x140C823E0 (HalpBlkHandleIpi.c)
  */
 
 void HalpBlkIpiInterrupt()

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepGetLogonSessionAccountInfo @ 0x14056B3C4
+ * XREFs of SepGetLogonSessionAccountInfo @ 0x14056B904
  * Callers:
- *     AdtpBuildLogonIdStrings @ 0x14056B31C (AdtpBuildLogonIdStrings.c)
+ *     AdtpBuildLogonIdStrings @ 0x14056B85C (AdtpBuildLogonIdStrings.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

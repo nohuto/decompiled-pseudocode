@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCompareCompressedName @ 0x140950BA0
+ * XREFs of CmpCompareCompressedName @ 0x140940E20
  * Callers:
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A285D0 (CmpSortedValueEnumStackValueCompareFunction.c)
- *     CmpCompareKeysByName @ 0x140A4D6E4 (CmpCompareKeysByName.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x140AA463C (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A1D050 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpCompareKeysByName @ 0x140A44274 (CmpCompareKeysByName.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A9F9CC (CmpFindKcbInHashEntryByCompressedName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpCompareCompressedName(__int64 a1, unsigned __int8 *a2, unsigned __int16 a3, char a4)

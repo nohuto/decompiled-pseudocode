@@ -1,18 +1,18 @@
 /*
- * XREFs of PoNotifySystemTimeSet @ 0x1403B64C8
+ * XREFs of PoNotifySystemTimeSet @ 0x1403B66A8
  * Callers:
- *     ExpRefreshSystemTime @ 0x14083EAF4 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1409F8290 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140AAAC64 (ExpSetSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x14083EDF4 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1409F8520 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140AAAAD4 (ExpSetSystemTime.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     PopGetPolicyWorker @ 0x14032CB64 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x14032CBB8 (PopCheckForWork.c)
- *     ExNotifyWithProcessing @ 0x14033BF60 (ExNotifyWithProcessing.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopSstDiagAddResumeTimestampAdjustment @ 0x140AAA654 (PopSstDiagAddResumeTimestampAdjustment.c)
- *     EtwTraceSystemTimeChange @ 0x140AAA770 (EtwTraceSystemTimeChange.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     PopGetPolicyWorker @ 0x14032CDF4 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x14032CE48 (PopCheckForWork.c)
+ *     ExNotifyWithProcessing @ 0x14033C1F0 (ExNotifyWithProcessing.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopSstDiagAddResumeTimestampAdjustment @ 0x140AAA4C4 (PopSstDiagAddResumeTimestampAdjustment.c)
+ *     EtwTraceSystemTimeChange @ 0x140AAA5E0 (EtwTraceSystemTimeChange.c)
  */
 
 __int64 __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2, int a3, int a4, int a5, int a6, unsigned __int8 a7)
@@ -52,7 +52,7 @@ __int64 __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2, int a3, int a
     EtwTraceSystemTimeChange((_DWORD)a1, (_DWORD)v11, a3, a4, a5, v8, a7);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v17 = 4;
@@ -63,10 +63,10 @@ __int64 __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2, int a3, int a
     ExNotifyWithProcessing(ExCbSetSystemTime, 0LL, 0LL, 0LL);
     PopGetPolicyWorker(16);
     PopCheckForWork();
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;

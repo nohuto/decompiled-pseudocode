@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpTransSearchAddTrans @ 0x1406FA6C8
+ * XREFs of CmpTransSearchAddTrans @ 0x1406FB968
  * Callers:
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpTransSearchAddTransFromRm @ 0x1406FA650 (CmpTransSearchAddTransFromRm.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140695010 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTransFromRm @ 0x1406FB8F0 (CmpTransSearchAddTransFromRm.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpTransReferenceTransaction @ 0x140694038 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x140694094 (CmpTransDereferenceTransaction.c)
- *     CmpTransAllocateTrans @ 0x1406940AC (CmpTransAllocateTrans.c)
- *     CmpBindHiveToTrans @ 0x14069419C (CmpBindHiveToTrans.c)
- *     CmpSearchForTrans @ 0x1406FA8E8 (CmpSearchForTrans.c)
- *     CmpTransInitializeTransaction @ 0x1406FA958 (CmpTransInitializeTransaction.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A80 (ExBlockOnAddressPushLock.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpTransReferenceTransaction @ 0x1406951F8 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x140695254 (CmpTransDereferenceTransaction.c)
+ *     CmpTransAllocateTrans @ 0x14069526C (CmpTransAllocateTrans.c)
+ *     CmpBindHiveToTrans @ 0x14069535C (CmpBindHiveToTrans.c)
+ *     CmpSearchForTrans @ 0x1406FBB88 (CmpSearchForTrans.c)
+ *     CmpTransInitializeTransaction @ 0x1406FBBF8 (CmpTransInitializeTransaction.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTrans(

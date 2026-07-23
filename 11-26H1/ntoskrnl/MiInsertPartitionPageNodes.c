@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertPartitionPageNodes @ 0x140708F28
+ * XREFs of MiInsertPartitionPageNodes @ 0x14070DBDC
  * Callers:
- *     MiInsertPartitionPages @ 0x14087C1C4 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x1408825C4 (MiInsertPartitionPages.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
- *     MiLockDynamicMemoryExclusive @ 0x1405278F0 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14052A718 (MiUnlockDynamicMemoryExclusive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
- *     MiDeletePartitionPageNode @ 0x140708AD4 (MiDeletePartitionPageNode.c)
- *     MiFreePartitionNodePages @ 0x140708C40 (MiFreePartitionNodePages.c)
- *     MiMergePageNodes @ 0x1407090F4 (MiMergePageNodes.c)
- *     MiUpdatePhysicalPages @ 0x140709FC0 (MiUpdatePhysicalPages.c)
- *     MiMakePartitionMemoryBlock @ 0x14087C5D4 (MiMakePartitionMemoryBlock.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140529F60 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14052CC38 (MiUnlockDynamicMemoryExclusive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
+ *     MiDeletePartitionPageNode @ 0x14070D788 (MiDeletePartitionPageNode.c)
+ *     MiFreePartitionNodePages @ 0x14070D8F4 (MiFreePartitionNodePages.c)
+ *     MiMergePageNodes @ 0x14070DDA8 (MiMergePageNodes.c)
+ *     MiUpdatePhysicalPages @ 0x14070EC74 (MiUpdatePhysicalPages.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408829D4 (MiMakePartitionMemoryBlock.c)
  */
 
 __int64 __fastcall MiInsertPartitionPageNodes(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

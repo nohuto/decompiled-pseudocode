@@ -1,7 +1,7 @@
 /*
- * XREFs of DbgkpWerAllocatePool @ 0x14061BD24
+ * XREFs of DbgkpWerAllocatePool @ 0x14061BDD8
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x1401B7A80 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1401B7964 (DbgkCaptureLiveKernelDump.c)
  * Callees:
  *     <none>
  */

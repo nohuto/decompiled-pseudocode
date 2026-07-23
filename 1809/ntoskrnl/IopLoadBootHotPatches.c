@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLoadBootHotPatches @ 0x1409DF290
+ * XREFs of IopLoadBootHotPatches @ 0x1409E0290
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcstoul @ 0x140197CC0 (wcstoul.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcstoul @ 0x140197E00 (wcstoul.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1401B8550 (ZwEnumerateValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmRegisterHotPatch @ 0x1409F81D0 (MmRegisterHotPatch.c)
  */
 
 __int64 IopLoadBootHotPatches()

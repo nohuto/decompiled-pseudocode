@@ -18,13 +18,13 @@
  *     _RtlpLogHeapFailure@24 @ 0x4B375E3D (_RtlpLogHeapFailure@24.c)
  */
 
-int __stdcall RtlReAllocateHeap(int a1, int a2, int a3, int a4)
+PVOID __cdecl RtlReAllocateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, SIZE_T Size)
 {
-  if ( !a1 )
-    RtlpLogHeapFailure(a3, 0, 0, 0);
-  if ( *(_DWORD *)(a1 + 8) == -571548178 )
-    return RtlpHpReAllocWithExceptionProtection(a3, a4);
+  if ( !HeapHandle )
+    RtlpLogHeapFailure(BaseAddress, 0, 0, 0);
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
+    return (PVOID)RtlpHpReAllocWithExceptionProtection(BaseAddress, Size);
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpTagReAllocateHeap(a4, a2);
-  return RtlpReAllocateHeapInternal(a3, a4, 0, 0);
+    return (PVOID)RtlpHpTagReAllocateHeap(Size, Flags);
+  return (PVOID)RtlpReAllocateHeapInternal(HeapHandle, (int)BaseAddress, Size, 0, 0);
 }

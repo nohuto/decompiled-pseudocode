@@ -7,10 +7,10 @@
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14066E7C0 (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     IopValidateQueryInformationParameters @ 0x1407B0890 (IopValidateQueryInformationParameters.c)
+ *     sub_14066E7C0 @ 0x14066E7C0 (sub_14066E7C0.c)
+ *     sub_1407B0890 @ 0x1407B0890 (sub_1407B0890.c)
  *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
- *     IopCleanupExtraCreateParameters @ 0x1407F97EC (IopCleanupExtraCreateParameters.c)
+ *     sub_1407F97EC @ 0x1407F97EC (sub_1407F97EC.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -27,7 +27,7 @@ __int64 __fastcall IoQueryInformationByName(
   unsigned int v9; // ebx
   char v10; // r12
   char v11; // r13
-  char PreviousMode; // al
+  char v12; // al
   int v13; // edi
   __int64 result; // rax
   __int64 v15; // rax
@@ -44,11 +44,11 @@ __int64 __fastcall IoQueryInformationByName(
   v9 = 0;
   v10 = 0;
   v11 = 0;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v12 = *((_BYTE *)KeGetCurrentThread() + 562);
   if ( (a6 & 0x100) == 0 )
-    v11 = PreviousMode;
+    v11 = v12;
   v13 = a5;
-  result = IopValidateQueryInformationParameters(v11, (__int64)KeGetCurrentThread(), a2, (unsigned __int64)a3, a4, a5);
+  result = sub_1407B0890(v11, (__int64)KeGetCurrentThread(), a2, (unsigned __int64)a3, a4, a5);
   if ( (int)result >= 0 )
   {
     if ( !v11 && a5 == 75 )
@@ -80,7 +80,7 @@ __int64 __fastcall IoQueryInformationByName(
       v16 = Src[1];
       if ( v16 )
       {
-        result = FsRtlpPrepareExtraCreateParametersForCreate(v16);
+        result = sub_14066E7C0(v16);
         if ( (int)result < 0 )
           return result;
       }
@@ -103,10 +103,10 @@ __int64 __fastcall IoQueryInformationByName(
       *(_QWORD *)&v23[7] = a3;
     }
     CurrentThread = KeGetCurrentThread();
-    ++CurrentThread->OtherOperationCount;
+    ++*((_QWORD *)CurrentThread + 114);
     __incgsdword(0x2EE4u);
     v19 = ObOpenObjectByNameEx(a1, (__int64)IoFileObjectType, v11, 0LL, 0x80u, (__int64)v23, *(__int64 *)&v23[12], &v24);
-    IopCleanupExtraCreateParameters(v23);
+    sub_1407F97EC(v23);
     if ( LODWORD(v23[2]) == -1096154543 )
       v19 = v23[1];
     v20 = *(void **)&v23[7];

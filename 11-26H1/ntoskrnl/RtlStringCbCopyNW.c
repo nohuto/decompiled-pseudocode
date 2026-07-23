@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCbCopyNW @ 0x140486674
+ * XREFs of RtlStringCbCopyNW @ 0x14047FFEC
  * Callers:
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405931E8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     IopCheckIfNotNativeDriver @ 0x140794428 (IopCheckIfNotNativeDriver.c)
- *     AslPathWildcardFindFirst @ 0x140889920 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x140889EE8 (AslPathWildcardFindNext.c)
- *     LocalConvertSidToStringSidW @ 0x140A633E0 (LocalConvertSidToStringSidW.c)
- *     PiUEventGetProcessImagePath @ 0x140B0C8D0 (PiUEventGetProcessImagePath.c)
- *     AuthzBasepCopyoutClaimAttributes @ 0x140B2EF30 (AuthzBasepCopyoutClaimAttributes.c)
- *     AuthzBasepCopyoutClaimAttributeValues @ 0x140B2F0A0 (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x140595968 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     IopCheckIfNotNativeDriver @ 0x140796F58 (IopCheckIfNotNativeDriver.c)
+ *     AslPathWildcardFindFirst @ 0x14088FD1C (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408902E4 (AslPathWildcardFindNext.c)
+ *     LocalConvertSidToStringSidW @ 0x140A703B0 (LocalConvertSidToStringSidW.c)
+ *     PiUEventGetProcessImagePath @ 0x140B0E020 (PiUEventGetProcessImagePath.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x140B30D10 (AuthzBasepCopyoutClaimAttributes.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x140B30E80 (AuthzBasepCopyoutClaimAttributeValues.c)
  * Callees:
  *     <none>
  */

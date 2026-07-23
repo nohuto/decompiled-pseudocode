@@ -16,13 +16,13 @@
  *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *__fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
+_SLIST_ENTRY *__fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
 {
   PSLIST_ENTRY v8; // rdi
   PSLIST_ENTRY v9; // rax
   _SLIST_ENTRY *Next; // rcx
   _SLIST_ENTRY *v11; // rbx
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
   unsigned __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 v15; // rax
@@ -65,7 +65,7 @@ LABEL_6:
     if ( v8 )
       goto LABEL_9;
   }
-  result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x79536D4Du);
+  result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x79536D4Du);
   v8 = result;
   if ( !result )
   {
@@ -128,7 +128,7 @@ LABEL_15:
     _InterlockedAnd((volatile signed __int32 *)CurrentPrcb->SchedulerAssist, 0xFFFEFFFF);
     KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
-  result = (struct _SLIST_ENTRY *)OldIrql;
+  result = (_SLIST_ENTRY *)OldIrql;
   __writecr8(OldIrql);
   return result;
 }

@@ -10,8 +10,8 @@ __int64 __fastcall RtlRetrieveNtUserPfn(_QWORD *a1, _QWORD *a2, _QWORD *a3)
 {
   if ( !byte_1801811D8 )
     return 3221225485LL;
-  *a1 = NtDllUserStubs;
-  *a2 = off_18011D940;
-  *a3 = off_18011DA00;
+  *a1 = &NtDllUserStubs;
+  *a2 = &off_18011D940;
+  *a3 = &off_18011DA00;
   return 0LL;
 }

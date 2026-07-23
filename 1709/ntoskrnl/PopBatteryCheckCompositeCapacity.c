@@ -39,18 +39,18 @@ void __fastcall PopBatteryCheckCompositeCapacity(int *a1, unsigned int a2)
   int v25; // r9d
   int v26; // eax
   unsigned int v27; // [rsp+40h] [rbp-C0h]
-  int updated; // [rsp+40h] [rbp-C0h]
+  NTSTATUS updated; // [rsp+40h] [rbp-C0h]
   unsigned int v29; // [rsp+44h] [rbp-BCh] BYREF
   int v30; // [rsp+48h] [rbp-B8h] BYREF
   int v31; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v32; // [rsp+50h] [rbp-B0h] BYREF
+  int Buffer; // [rsp+50h] [rbp-B0h] BYREF
   int v33; // [rsp+54h] [rbp-ACh] BYREF
   int v34; // [rsp+58h] [rbp-A8h] BYREF
   int v35; // [rsp+5Ch] [rbp-A4h] BYREF
   int v36; // [rsp+60h] [rbp-A0h] BYREF
   int v37; // [rsp+64h] [rbp-9Ch] BYREF
   int v38; // [rsp+68h] [rbp-98h] BYREF
-  int v39; // [rsp+6Ch] [rbp-94h] BYREF
+  NTSTATUS v39; // [rsp+6Ch] [rbp-94h] BYREF
   int v40; // [rsp+70h] [rbp-90h] BYREF
   int v41; // [rsp+74h] [rbp-8Ch] BYREF
   int v42; // [rsp+78h] [rbp-88h] BYREF
@@ -80,7 +80,7 @@ void __fastcall PopBatteryCheckCompositeCapacity(int *a1, unsigned int a2)
   __int64 v66; // [rsp+158h] [rbp+58h]
   int *v67; // [rsp+160h] [rbp+60h]
   __int64 v68; // [rsp+168h] [rbp+68h]
-  int *v69; // [rsp+170h] [rbp+70h]
+  NTSTATUS *v69; // [rsp+170h] [rbp+70h]
   __int64 v70; // [rsp+178h] [rbp+78h]
   EVENT_DATA_DESCRIPTOR v71; // [rsp+180h] [rbp+80h] BYREF
   int *v72; // [rsp+1A0h] [rbp+A0h]
@@ -192,8 +192,8 @@ LABEL_5:
   if ( byte_140365AA4 != v4 )
   {
     byte_140365AA4 = v4;
-    v32 = v4;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_WEAK_CHARGER, (__int64)&v32, 4LL);
+    Buffer = v4;
+    updated = ZwUpdateWnfStateData(&WNF_PO_WEAK_CHARGER, &Buffer, 4u, 0LL, 0LL, 0, 0);
     if ( pCallbackContext.LevelPlus1 > 5 )
     {
       if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
@@ -247,7 +247,7 @@ LABEL_5:
   {
     byte_140365A88 = v5;
     v40 = (unsigned __int8)v5;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v40, 4LL);
+    ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &v40, 4u, 0LL, 0LL, 0, 0);
     if ( pCallbackContext.LevelPlus1 > 5 )
     {
       if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )

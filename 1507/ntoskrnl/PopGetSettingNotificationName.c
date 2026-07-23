@@ -16,16 +16,16 @@
  *     PopValidateContextMembership @ 0x1405842DC (PopValidateContextMembership.c)
  */
 
-__int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+__int64 __fastcall PopGetSettingNotificationName(__int64 a1, _WNF_STATE_NAME *a2, __int64 a3, __int64 a4)
 {
-  __int64 *v4; // r13
+  _WNF_STATE_NAME *v4; // r13
   __int64 v6; // rax
   __int64 v7; // rdi
   unsigned __int8 CurrentIrql; // si
   unsigned int v9; // esi
   __int64 PowerSettingConfiguration; // rax
-  __int64 v11; // rsi
-  __int64 v12; // rax
+  _WNF_STATE_NAME *v11; // rsi
+  _WNF_STATE_NAME v12; // rax
   char v13; // si
   unsigned __int8 v14; // di
   signed __int32 v15; // eax
@@ -37,7 +37,7 @@ __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2, __int6
   unsigned int SessionId; // eax
   unsigned int v23; // r13d
   int v24; // [rsp+24h] [rbp-44h]
-  __int64 v26; // [rsp+38h] [rbp-30h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+38h] [rbp-30h] BYREF
 
   v4 = a2;
   v6 = KeAbPreAcquire((ULONG_PTR)&PopSettingLock, 0LL, 0LL, a4);
@@ -96,12 +96,12 @@ LABEL_24:
       v9 = -1;
     }
     PowerSettingConfiguration = PopFindPowerSettingConfiguration(a1, v9);
-    v11 = PowerSettingConfiguration;
+    v11 = (_WNF_STATE_NAME *)PowerSettingConfiguration;
     if ( PowerSettingConfiguration )
     {
       if ( !*(_DWORD *)(PowerSettingConfiguration + 56) && !*(_DWORD *)(PowerSettingConfiguration + 60) )
       {
-        v16 = PopCreateNotificationName(&v26);
+        v16 = PopCreateNotificationName(&StateName);
         v24 = v16;
         if ( v16 >= 0 )
         {
@@ -109,34 +109,34 @@ LABEL_24:
           if ( *(_QWORD *)a1 == *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 )
             v21 = *(_QWORD *)(a1 + 8) - *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4;
           if ( !v21 )
-            *(_DWORD *)(v11 + 52) |= 8u;
-          *(_QWORD *)(v11 + 56) = v26;
-          *(_DWORD *)(v11 + 52) |= 1u;
+            v11[6].Data[1] |= 8u;
+          v11[7] = StateName;
+          v11[6].Data[1] |= 1u;
           v13 = 1;
           goto LABEL_14;
         }
         goto LABEL_23;
       }
-      v12 = *(_QWORD *)(PowerSettingConfiguration + 56);
+      v12 = *(_WNF_STATE_NAME *)(PowerSettingConfiguration + 56);
       goto LABEL_13;
     }
     v16 = -1073741275;
     goto LABEL_22;
   }
   v12 = PopPopPowerSettingSetChangeNotification;
-  if ( PopPopPowerSettingSetChangeNotification != __PAIR64__(PopPopPowerSettingSetChangeNotification, 0) )
+  if ( PopPopPowerSettingSetChangeNotification != __PAIR64__(PopPopPowerSettingSetChangeNotification.Data[0], 0) )
   {
 LABEL_13:
     v13 = 0;
-    v26 = v12;
+    StateName = v12;
     goto LABEL_14;
   }
-  v16 = PopCreateNotificationName(&v26);
+  v16 = PopCreateNotificationName(&StateName);
   v24 = v16;
   v13 = 0;
   if ( v16 < 0 )
     goto LABEL_24;
-  PopPopPowerSettingSetChangeNotification = v26;
+  PopPopPowerSettingSetChangeNotification = StateName;
 LABEL_14:
   qword_14032EFE8 = 0LL;
   v14 = dword_14032F010;
@@ -145,7 +145,7 @@ LABEL_14:
     ExpReleaseFastMutexContended((volatile signed __int32 *)&PopSettingLock, v15);
   __writecr8(v14);
   KeAbPostRelease((ULONG_PTR)&PopSettingLock);
-  *v4 = v26;
+  *v4 = StateName;
   v16 = 0;
   v24 = 0;
   v17 = 0;

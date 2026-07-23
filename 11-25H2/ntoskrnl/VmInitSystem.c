@@ -35,7 +35,7 @@ __int64 __fastcall VmInitSystem(int a1)
       if ( (int)result < 0 )
         return result;
       ExInitializeLookasideListExInternal(
-        &VmpLargeFaultBatchLookasideList.L.ListHead,
+        &VmpLargeFaultBatchLookasideList,
         0LL,
         0LL,
         512,

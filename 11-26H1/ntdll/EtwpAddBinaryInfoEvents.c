@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpAddBinaryInfoEvents @ 0x180056860
+ * XREFs of EtwpAddBinaryInfoEvents @ 0x180040DE0
  * Callers:
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     EtwpAddProviderTrackingInfo @ 0x180078E38 (EtwpAddProviderTrackingInfo.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpAddProviderTrackingInfo @ 0x180067658 (EtwpAddProviderTrackingInfo.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3)
@@ -49,7 +49,7 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3)
     }
     while ( v5 != v3 );
   }
-  Heap_0 = (_DWORD *)RtlAllocateHeap_0();
+  Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, v8);
   if ( !Heap_0 )
     return 3221225495LL;
   v13 = (__int64 *)*v3;
@@ -87,6 +87,6 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3)
     v4 = -1073741789;
   }
 LABEL_11:
-  RtlFreeHeap_0();
+  RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
   return v4;
 }

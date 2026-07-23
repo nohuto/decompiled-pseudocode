@@ -18,7 +18,7 @@ __int64 __fastcall PC_MBR::SetPartition(PC_DISK **this, int a2, struct _SET_PART
   struct _DRIVE_LAYOUT_INFORMATION_EX *v10; // rdi
   DWORD PartitionCount; // r8d
   DWORD v12; // ecx
-  union _PARTITION_INFORMATION_EX::$41520227951B374488E85ABED149FDD2 *p_Mbr; // rdx
+  _PARTITION_INFORMATION_EX::$41520227951B374488E85ABED149FDD2 *p_Mbr; // rdx
   int v14; // r9d
   struct _DRIVE_LAYOUT_INFORMATION_EX *v16; // [rsp+68h] [rbp+20h] BYREF
 
@@ -36,7 +36,7 @@ __int64 __fastcall PC_MBR::SetPartition(PC_DISK **this, int a2, struct _SET_PART
       v12 = 0;
       if ( PartitionCount )
       {
-        p_Mbr = (union _PARTITION_INFORMATION_EX::$41520227951B374488E85ABED149FDD2 *)&v16->PartitionEntry[0].Mbr;
+        p_Mbr = (_PARTITION_INFORMATION_EX::$41520227951B374488E85ABED149FDD2 *)&v16->PartitionEntry[0].Mbr;
         do
         {
           v4 = &p_Mbr[-1].Gpt.Name[20];
@@ -46,7 +46,7 @@ __int64 __fastcall PC_MBR::SetPartition(PC_DISK **this, int a2, struct _SET_PART
               break;
           }
           ++v12;
-          p_Mbr = (union _PARTITION_INFORMATION_EX::$41520227951B374488E85ABED149FDD2 *)((char *)p_Mbr + 144);
+          p_Mbr = (_PARTITION_INFORMATION_EX::$41520227951B374488E85ABED149FDD2 *)((char *)p_Mbr + 144);
         }
         while ( v12 < PartitionCount );
       }

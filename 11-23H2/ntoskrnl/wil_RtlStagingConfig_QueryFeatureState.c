@@ -1,42 +1,41 @@
 /*
- * XREFs of wil_RtlStagingConfig_QueryFeatureState @ 0x140933784
+ * XREFs of wil_RtlStagingConfig_QueryFeatureState @ 0x140933984
  * Callers:
- *     wil_details_GetCurrentFeatureEnabledState @ 0x1405083BC (wil_details_GetCurrentFeatureEnabledState.c)
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x14050890C (wil_details_GetCurrentFeatureEnabledState.c)
  * Callees:
- *     RtlQueryFeatureConfiguration @ 0x14035D100 (RtlQueryFeatureConfiguration.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlQueryFeatureConfiguration @ 0x14035D2A0 (RtlQueryFeatureConfiguration.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(__int64 a1, unsigned int a2, int a3, _DWORD *a4)
+__int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(__int64 a1, RTL_FEATURE_ID a2, int a3, _DWORD *a4)
 {
   int v4; // edi
   unsigned int v7; // ebx
-  int v8; // edx
+  NTSTATUS v8; // edx
   unsigned int v9; // ecx
-  __int64 v11; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-30h] BYREF
-  int v13; // [rsp+30h] [rbp-28h]
+  ULONGLONG v11; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_FEATURE_CONFIGURATION v12; // [rsp+28h] [rbp-30h] BYREF
 
   v4 = 0;
   v11 = 0LL;
-  v12 = 0LL;
-  v13 = 0;
+  *(_QWORD *)&v12.FeatureId = 0LL;
+  v12.VariantPayload = 0;
   v7 = 0;
-  v8 = RtlQueryFeatureConfiguration(a2, a3 == 0, &v11, (__int64)&v12);
+  v8 = RtlQueryFeatureConfiguration(a2, (RTL_FEATURE_CONFIGURATION_TYPE)(a3 == 0), &v11, &v12);
   if ( v8 )
   {
     if ( v8 != 279 )
       goto LABEL_6;
-    v9 = HIDWORD(v12);
+    v9 = *((_DWORD *)&v12 + 1);
     v7 = 1;
   }
   else
   {
-    v9 = HIDWORD(v12);
+    v9 = *((_DWORD *)&v12 + 1);
     v7 = 1;
-    *(_DWORD *)a1 = (HIDWORD(v12) >> 4) & 3;
+    *(_DWORD *)a1 = (*((_DWORD *)&v12 + 1) >> 4) & 3;
     *(_BYTE *)(a1 + 4) = BYTE1(v9) & 0x3F;
-    *(_DWORD *)(a1 + 12) = v13;
+    *(_DWORD *)(a1 + 12) = v12.VariantPayload;
     *(_DWORD *)(a1 + 8) = (unsigned __int16)v9 >> 14;
     *(_DWORD *)(a1 + 20) = (v9 >> 6) & 1;
   }

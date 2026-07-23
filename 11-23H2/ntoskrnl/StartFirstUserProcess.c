@@ -3,16 +3,16 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     InbvIsBootDriverInstalled @ 0x1403AA140 (InbvIsBootDriverInstalled.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetInformationProcess @ 0x14041B0E0 (ZwSetInformationProcess.c)
- *     ZwResumeThread @ 0x14041B7A0 (ZwResumeThread.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     FinalizeBootLogo @ 0x14054E7BC (FinalizeBootLogo.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     InbvIsBootDriverInstalled @ 0x1403AA320 (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetInformationProcess @ 0x14041B470 (ZwSetInformationProcess.c)
+ *     ZwResumeThread @ 0x14041BB30 (ZwResumeThread.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     FinalizeBootLogo @ 0x14054EE7C (FinalizeBootLogo.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     RtlCreateUserProcessEx @ 0x140B68E40 (RtlCreateUserProcessEx.c)
@@ -30,20 +30,21 @@ void StartFirstUserProcess()
   __int64 v5; // rdi
   __int64 v6; // rbx
   __int128 v7; // xmm0
-  int v8; // r8d
-  int v9; // r9d
-  ULONG_PTR UserProcess; // rbx
-  int v11; // eax
-  int v12; // eax
+  BOOLEAN v8; // r8
+  PRTL_USER_PROCESS_EXTENDED_PARAMETERS v9; // r9
+  ULONG_PTR v10; // rbx
+  NTSTATUS v11; // eax
+  NTSTATUS v12; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-59h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-49h] BYREF
-  HANDLE v15[18]; // [rsp+50h] [rbp-39h] BYREF
+  _RTL_USER_PROCESS_INFORMATION ProcessInformation; // [rsp+50h] [rbp-39h] BYREF
+  int v16; // [rsp+F0h] [rbp+67h] BYREF
   LARGE_INTEGER Interval; // [rsp+F8h] [rbp+6Fh] BYREF
 
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
   p_UnicodeString = (UNICODE_STRING *)&NtInitialUserProcess;
   UnicodeString = 0LL;
-  memset(v15, 0, 0x64uLL);
+  memset(&ProcessInformation, 0, 0x64uLL);
   if ( (unsigned __int8)QueryRegistryHideMachine() )
     RegistryOverwriteCentralProcessor();
   v1 = ExpInitializeRunLevel0(&UnicodeString);
@@ -81,22 +82,28 @@ void StartFirstUserProcess()
   DestinationString.Length = 0;
   DestinationString.MaximumLength = MaximumLength;
   RtlCopyUnicodeString(&DestinationString, &stru_140D49DB8);
-  UserProcess = (int)RtlCreateUserProcessEx((int)v5 + 96, v5, v8, v9, (__int64)v15);
+  v10 = RtlCreateUserProcessEx(
+          (PUNICODE_STRING)(v5 + 96),
+          (PRTL_USER_PROCESS_PARAMETERS)v5,
+          v8,
+          v9,
+          &ProcessInformation);
   if ( InbvIsBootDriverInstalled() )
     FinalizeBootLogo();
-  if ( (UserProcess & 0x80000000) != 0LL )
-    KeBugCheckEx(0x6Du, UserProcess, 0LL, 1uLL, 0LL);
-  v11 = ZwSetInformationProcess((__int64)v15[1], 29LL);
+  if ( (v10 & 0x80000000) != 0LL )
+    KeBugCheckEx(0x6Du, v10, 0LL, 1uLL, 0LL);
+  v16 = 1;
+  v11 = ZwSetInformationProcess(ProcessInformation.ProcessHandle, ProcessBreakOnTermination, &v16, 4u);
   if ( v11 < 0 )
     KeBugCheckEx(0x6Du, v11, 0LL, 2uLL, 0LL);
-  v12 = ZwResumeThread((__int64)v15[2], 0LL);
+  v12 = ZwResumeThread(ProcessInformation.ThreadHandle, 0LL);
   if ( v12 < 0 )
     KeBugCheckEx(0x6Du, v12, 0LL, 3uLL, 0LL);
   byte_140C6AB4C = 1;
   Interval.QuadPart = -50000000LL;
   KeDelayExecutionThread(0, 0, &Interval);
-  ZwClose(v15[2]);
-  ZwClose(v15[1]);
+  ZwClose(ProcessInformation.ThreadHandle);
+  ZwClose(ProcessInformation.ProcessHandle);
   ExFreePoolWithTag((PVOID)v5, 0);
   RtlFreeUnicodeString(&UnicodeString);
 }

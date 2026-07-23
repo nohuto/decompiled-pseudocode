@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpPartitionLogEventCallback @ 0x14049DF70
+ * XREFs of PfpPartitionLogEventCallback @ 0x140498D70
  * Callers:
  *     <none>
  * Callees:
- *     PfLogEvent @ 0x140245398 (PfLogEvent.c)
+ *     PfLogEvent @ 0x14020DB78 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfpPartitionLogEventCallback(__int64 a1, __int64 a2)

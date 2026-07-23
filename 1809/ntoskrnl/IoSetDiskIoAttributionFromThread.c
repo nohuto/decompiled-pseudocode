@@ -1,20 +1,20 @@
 /*
- * XREFs of IoSetDiskIoAttributionFromThread @ 0x1400DEBC0
+ * XREFs of IoSetDiskIoAttributionFromThread @ 0x1400DEC40
  * Callers:
- *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
- *     IoSynchronousPageWriteEx @ 0x1400DEA20 (IoSynchronousPageWriteEx.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1400E0610 (IopBuildAsynchronousFsdRequest.c)
- *     IoAsynchronousPageWrite @ 0x140135014 (IoAsynchronousPageWrite.c)
- *     IoSetIoAttributionIrp @ 0x140283890 (IoSetIoAttributionIrp.c)
- *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
+ *     IoPageReadEx @ 0x1400DE7C0 (IoPageReadEx.c)
+ *     IoSynchronousPageWriteEx @ 0x1400DEAA0 (IoSynchronousPageWriteEx.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x1400E0690 (IopBuildAsynchronousFsdRequest.c)
+ *     IoAsynchronousPageWrite @ 0x1401350E4 (IoAsynchronousPageWrite.c)
+ *     IoSetIoAttributionIrp @ 0x140283A80 (IoSetIoAttributionIrp.c)
+ *     IopSynchronousServiceTail @ 0x14063C640 (IopSynchronousServiceTail.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     IopSetDiskIoAttributionFromProcess @ 0x1400DF0B4 (IopSetDiskIoAttributionFromProcess.c)
- *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x1400DF134 (IopSetDiskIoAttributionFromProcess.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF5F0 (IopSetDiskIoAttributionExtension.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IoSetDiskIoAttributionFromThread(__int64 a1, struct _KTHREAD *a2)

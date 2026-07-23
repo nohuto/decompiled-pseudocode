@@ -1,19 +1,19 @@
 /*
- * XREFs of PspChangeJobMemoryUsageByProcess @ 0x14068C730
+ * XREFs of PspChangeJobMemoryUsageByProcess @ 0x14068D8F0
  * Callers:
- *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiDecommitRegion @ 0x1405EC220 (MiDecommitRegion.c)
- *     MmAssignProcessToJob @ 0x140604944 (MmAssignProcessToJob.c)
- *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
+ *     MiReturnFullProcessCharges @ 0x14007FF00 (MiReturnFullProcessCharges.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
+ *     MiDecommitRegion @ 0x1405ED220 (MiDecommitRegion.c)
+ *     MmAssignProcessToJob @ 0x140605944 (MmAssignProcessToJob.c)
+ *     MmDeleteProcessAddressSpace @ 0x140609AD0 (MmDeleteProcessAddressSpace.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x140603450 (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspScheduleEnforcementWorker @ 0x14068CAA8 (PspScheduleEnforcementWorker.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PspSendJobNotification @ 0x140137EBC (PspSendJobNotification.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x140604450 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspScheduleEnforcementWorker @ 0x14068DC68 (PspScheduleEnforcementWorker.c)
  */
 
 char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3, __int64 a4)

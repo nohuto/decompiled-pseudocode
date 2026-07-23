@@ -1,9 +1,9 @@
 /*
- * XREFs of _AppendStandardOverlayFilePath @ 0x1800F7BA8
+ * XREFs of _AppendStandardOverlayFilePath @ 0x1800F2718
  * Callers:
- *     _BuildStandardOverlayFilePath @ 0x1800B2CB0 (_BuildStandardOverlayFilePath.c)
+ *     _BuildStandardOverlayFilePath @ 0x18007F550 (_BuildStandardOverlayFilePath.c)
  * Callees:
- *     wcscat_s @ 0x18012DEC0 (wcscat_s.c)
+ *     wcscat_s @ 0x18012C0F0 (wcscat_s.c)
  */
 
 __int64 __fastcall AppendStandardOverlayFilePath(wchar_t *Source, wchar_t *a2, unsigned int *a3, wchar_t *a4)

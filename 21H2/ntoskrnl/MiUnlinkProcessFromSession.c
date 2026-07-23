@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlinkProcessFromSession @ 0x1402972A4
+ * XREFs of MiUnlinkProcessFromSession @ 0x140274384
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
+ *     MiDeleteFinalPageTables @ 0x14027404C (MiDeleteFinalPageTables.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

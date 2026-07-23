@@ -1,20 +1,20 @@
 /*
- * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x1403CDFC0
+ * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x1402676E0
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
- *     MiCreateCloneChain @ 0x1403CCE38 (MiCreateCloneChain.c)
- *     MiFreeVadRange @ 0x1403CDBD8 (MiFreeVadRange.c)
- *     MiCreateAweInfoBitMap @ 0x1407F9410 (MiCreateAweInfoBitMap.c)
- *     MiInsertVadCharges @ 0x1408E2418 (MiInsertVadCharges.c)
- *     MiCreatePlaceholderStorage @ 0x1408F8210 (MiCreatePlaceholderStorage.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
- *     MiCreateVadEventBitmap @ 0x1409C3A04 (MiCreateVadEventBitmap.c)
- *     MiBuildNewCloneDescriptor @ 0x140A54400 (MiBuildNewCloneDescriptor.c)
- *     MiCreateRotateView @ 0x140A680A8 (MiCreateRotateView.c)
- *     ExEnableHandleTracing @ 0x140AB9D28 (ExEnableHandleTracing.c)
- *     ViIrpAllocateLockedPacket @ 0x140B8E0BC (ViIrpAllocateLockedPacket.c)
+ *     MiCreateCloneChain @ 0x140267008 (MiCreateCloneChain.c)
+ *     MiFreeVadRange @ 0x14026731C (MiFreeVadRange.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
+ *     MiCreateAweInfoBitMap @ 0x1407F9B80 (MiCreateAweInfoBitMap.c)
+ *     MiCreatePlaceholderStorage @ 0x1408DC630 (MiCreatePlaceholderStorage.c)
+ *     MiCreateVadEventBitmap @ 0x1408DC8AC (MiCreateVadEventBitmap.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     MiInsertVadCharges @ 0x140918FC8 (MiInsertVadCharges.c)
+ *     MiBuildNewCloneDescriptor @ 0x140A4C34C (MiBuildNewCloneDescriptor.c)
+ *     MiCreateRotateView @ 0x140A615A8 (MiCreateRotateView.c)
+ *     ExEnableHandleTracing @ 0x140AB4D44 (ExEnableHandleTracing.c)
+ *     ViIrpAllocateLockedPacket @ 0x140B900BC (ViIrpAllocateLockedPacket.c)
  * Callees:
- *     PspExpandQuota @ 0x14024B688 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x14027BC98 (PspExpandQuota.c)
  */
 
 __int64 __fastcall PsChargeProcessNonPagedPoolQuota(__int64 a1, unsigned __int64 a2)
@@ -52,19 +52,19 @@ LABEL_5:
     {
       v10 = v7 + a2;
       if ( v7 + a2 < v7 )
-        return (unsigned int)dword_140FC6344;
+        return (unsigned int)dword_140FC7394;
       if ( v10 <= v9 )
         break;
       if ( (v6 & 1) == 0 || !v5[10] )
-        return (unsigned int)dword_140FC6344;
+        return (unsigned int)dword_140FC7394;
       v17 = _InterlockedExchange64((volatile __int64 *)v5 + 9, 0LL);
       if ( v17 )
       {
         v9 = v17 + _InterlockedExchangeAdd64((volatile signed __int64 *)v5 + 8, v17);
         goto LABEL_5;
       }
-      if ( !PspExpandQuota(0, (__int64)v5, v7, a2, &i) )
-        return (unsigned int)dword_140FC6344;
+      if ( !(unsigned __int8)PspExpandQuota(0, (_DWORD)v5, v7, a2, (__int64)&i) )
+        return (unsigned int)dword_140FC7394;
     }
     v12 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, v10, v7);
     v11 = v7 == v12;

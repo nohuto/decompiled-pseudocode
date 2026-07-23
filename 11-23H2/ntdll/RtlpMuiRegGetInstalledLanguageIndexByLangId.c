@@ -6,8 +6,8 @@
  *     RtlpMuiRegGetInstalledLanguageIndex @ 0x180015A34 (RtlpMuiRegGetInstalledLanguageIndex.c)
  *     RtlLCIDToCultureName @ 0x180015AB0 (RtlLCIDToCultureName.c)
  *     RtlGetUILanguageInfo @ 0x18008A6F0 (RtlGetUILanguageInfo.c)
- *     RtlpRefreshCachedUILanguage @ 0x1801147B0 (RtlpRefreshCachedUILanguage.c)
- *     _RtlpMuiRegValidateInstalled @ 0x180115980 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpRefreshCachedUILanguage @ 0x180114780 (RtlpRefreshCachedUILanguage.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180115950 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180014788 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  *     RtlLCIDToCultureName @ 0x180015AB0 (RtlLCIDToCultureName.c)
@@ -17,7 +17,7 @@
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsigned __int16 a2, char a3, _WORD *a4)
 {
-  unsigned int v4; // ebp
+  LCID v4; // ebp
   __int64 result; // rax
   unsigned int InstalledLanguageIndexByName; // ebx
   char v10; // r15
@@ -25,10 +25,9 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   __int64 v12; // rcx
   __int64 v13; // r9
   __int64 v14; // rdx
-  const WCHAR *v15; // rax
-  const WCHAR *v16; // rdi
-  int v17; // [rsp+20h] [rbp-38h] BYREF
-  const WCHAR *v18; // [rsp+28h] [rbp-30h]
+  wchar_t *v15; // rax
+  wchar_t *v16; // rdi
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
 
   v4 = a2;
   result = 3221225524LL;
@@ -43,15 +42,15 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
     if ( !*(_WORD *)(v11 + 6) )
     {
 LABEL_13:
-      v15 = (const WCHAR *)MuiRegAllocArray(v12, 85LL);
+      v15 = (wchar_t *)MuiRegAllocArray(v12, 85LL);
       v16 = v15;
       if ( v15 )
       {
-        v18 = v15;
-        v17 = 11141120;
-        if ( a3 && RtlLCIDToCultureName(v4, (__int64)&v17) )
-          InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, v18, 0, a4);
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v16);
+        String.Buffer = v15;
+        *(_DWORD *)&String.Length = 11141120;
+        if ( a3 && RtlLCIDToCultureName(v4, &String) )
+          InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, String.Buffer, 0, a4);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v16);
         if ( v10 && InstalledLanguageIndexByName == -1073741772 )
           return 3221225659LL;
       }

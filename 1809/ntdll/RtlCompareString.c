@@ -1,70 +1,70 @@
 /*
- * XREFs of RtlCompareString @ 0x18008D430
+ * XREFs of RtlCompareString @ 0x18008D440
  * Callers:
  *     <none>
  * Callees:
- *     RtlUpperChar @ 0x180075060 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x180075070 (RtlUpperChar.c)
  */
 
-__int64 __fastcall RtlCompareString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+LONG __cdecl RtlCompareString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  unsigned int v3; // esi
+  unsigned int Length; // esi
   unsigned int v4; // r12d
   __int64 v5; // rdi
-  char *v6; // rbx
+  char *Buffer; // rbx
   char *v7; // rdi
-  __int64 v8; // r14
-  char v9; // bp
+  char *v8; // r14
+  CHAR v9; // bp
   unsigned __int8 v11; // r15
   int v12; // eax
   int v13; // ecx
-  __int64 v14; // rax
+  char *v14; // rax
   unsigned __int8 v15; // dl
 
-  v3 = *a1;
-  v4 = *a2;
-  v5 = *a1;
-  v6 = (char *)*((_QWORD *)a1 + 1);
-  if ( v3 > v4 )
-    v5 = *a2;
-  v7 = &v6[v5];
-  if ( !a3 )
+  Length = String1->Length;
+  v4 = String2->Length;
+  v5 = String1->Length;
+  Buffer = String1->Buffer;
+  if ( Length > v4 )
+    v5 = String2->Length;
+  v7 = &Buffer[v5];
+  if ( !CaseInSensitive )
   {
-    if ( v6 < v7 )
+    if ( Buffer < v7 )
     {
-      v14 = *((_QWORD *)a2 + 1) - (_QWORD)v6;
+      v14 = (char *)(String2->Buffer - Buffer);
       while ( 1 )
       {
-        LOBYTE(v13) = *v6;
-        v15 = v6[v14];
-        if ( *v6 != v15 )
+        LOBYTE(v13) = *Buffer;
+        v15 = Buffer[(_QWORD)v14];
+        if ( *Buffer != v15 )
           break;
-        if ( ++v6 >= v7 )
-          return v3 - v4;
+        if ( ++Buffer >= v7 )
+          return Length - v4;
       }
       v12 = v15;
       v13 = (unsigned __int8)v13;
-      return (unsigned int)(v13 - v12);
+      return v13 - v12;
     }
-    return v3 - v4;
+    return Length - v4;
   }
-  if ( v6 >= v7 )
-    return v3 - v4;
-  v8 = *((_QWORD *)a2 + 1) - (_QWORD)v6;
+  if ( Buffer >= v7 )
+    return Length - v4;
+  v8 = (char *)(String2->Buffer - Buffer);
   while ( 1 )
   {
-    v9 = v6[v8];
-    if ( *v6 != v9 )
+    v9 = Buffer[(_QWORD)v8];
+    if ( *Buffer != v9 )
     {
-      v11 = RtlUpperChar(*v6);
+      v11 = RtlUpperChar(*Buffer);
       LOBYTE(v12) = RtlUpperChar(v9);
       if ( v11 != (_BYTE)v12 )
         break;
     }
-    if ( ++v6 >= v7 )
-      return v3 - v4;
+    if ( ++Buffer >= v7 )
+      return Length - v4;
   }
   v12 = (unsigned __int8)v12;
   v13 = v11;
-  return (unsigned int)(v13 - v12);
+  return v13 - v12;
 }

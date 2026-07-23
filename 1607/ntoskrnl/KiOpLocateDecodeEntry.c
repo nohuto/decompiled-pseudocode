@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpLocateDecodeEntry @ 0x1400F4C70
+ * XREFs of KiOpLocateDecodeEntry @ 0x1400F2AC0
  * Callers:
- *     KiOpDecode @ 0x1400F4AA0 (KiOpDecode.c)
+ *     KiOpDecode @ 0x1400F28F0 (KiOpDecode.c)
  * Callees:
- *     KiOpFetchBytes @ 0x14009AB58 (KiOpFetchBytes.c)
+ *     KiOpFetchBytes @ 0x14009A358 (KiOpFetchBytes.c)
  */
 
 __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)
   else
   {
     v2 = (const UNICODE_STRING *)&KiOpOneByteTable;
-    v3 = &CmpTransactionTypeNameString;
+    v3 = &String2;
   }
   while ( 1 )
   {

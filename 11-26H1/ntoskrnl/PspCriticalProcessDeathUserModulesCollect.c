@@ -1,15 +1,15 @@
 /*
- * XREFs of PspCriticalProcessDeathUserModulesCollect @ 0x1407FAEEC
+ * XREFs of PspCriticalProcessDeathUserModulesCollect @ 0x14080091C
  * Callers:
- *     PspCriticalProcessDeathInfoCollectApc @ 0x1407FAD30 (PspCriticalProcessDeathInfoCollectApc.c)
+ *     PspCriticalProcessDeathInfoCollectApc @ 0x140800760 (PspCriticalProcessDeathInfoCollectApc.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspCriticalProcessDeathBufferStringTruncateCopy @ 0x1407FABD0 (PspCriticalProcessDeathBufferStringTruncateCopy.c)
- *     PspCriticalProcessDeathIsFrameInModule @ 0x1407FAEC4 (PspCriticalProcessDeathIsFrameInModule.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspCriticalProcessDeathBufferStringTruncateCopy @ 0x140800600 (PspCriticalProcessDeathBufferStringTruncateCopy.c)
+ *     PspCriticalProcessDeathIsFrameInModule @ 0x1408008F4 (PspCriticalProcessDeathIsFrameInModule.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspCriticalProcessDeathUserModulesCollect(__int64 a1, int *a2)

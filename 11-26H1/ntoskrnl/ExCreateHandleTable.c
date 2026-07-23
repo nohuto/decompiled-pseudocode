@@ -1,21 +1,21 @@
 /*
- * XREFs of ExCreateHandleTable @ 0x140971AEC
+ * XREFs of ExCreateHandleTable @ 0x1409BCDDC
  * Callers:
- *     AlpcpAllocateMessageFromExtendedTables @ 0x14077A4A0 (AlpcpAllocateMessageFromExtendedTables.c)
- *     AlpcpInitSystem @ 0x1407C1414 (AlpcpInitSystem.c)
- *     ObInitProcess @ 0x140971938 (ObInitProcess.c)
- *     ExDupHandleTable @ 0x140971D40 (ExDupHandleTable.c)
- *     PspInitializeJobStructures @ 0x140CD8FE0 (PspInitializeJobStructures.c)
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
- *     ObInitSystem @ 0x140D0936C (ObInitSystem.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14077D3D0 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     AlpcpInitSystem @ 0x1407C3E88 (AlpcpInitSystem.c)
+ *     ObInitProcess @ 0x1409BCC28 (ObInitProcess.c)
+ *     ExDupHandleTable @ 0x1409BD030 (ExDupHandleTable.c)
+ *     PspInitializeJobStructures @ 0x140CDF360 (PspInitializeJobStructures.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
+ *     ObInitSystem @ 0x140D0F63C (ObInitSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExpAllocateHandleTable @ 0x140971C08 (ExpAllocateHandleTable.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExpAllocateHandleTable @ 0x1409BCEF8 (ExpAllocateHandleTable.c)
  */
 
 __int64 __fastcall ExCreateHandleTable(ULONG_PTR a1, int a2)

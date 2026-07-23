@@ -1,21 +1,21 @@
 /*
- * XREFs of PsUnregisterSiloMonitor @ 0x1407FBE80
+ * XREFs of PsUnregisterSiloMonitor @ 0x1408018B0
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     PspGetServerSiloStatePointer @ 0x140529524 (PspGetServerSiloStatePointer.c)
- *     PspGetHostSiloStorage @ 0x140614A60 (PspGetHostSiloStorage.c)
- *     PspAcquirePushLockExclusive @ 0x1406160AC (PspAcquirePushLockExclusive.c)
- *     PspReleasePushLockExclusive @ 0x140616130 (PspReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PspStorageFreeSlot @ 0x1407FFAF4 (PspStorageFreeSlot.c)
- *     PspStorageRemoveObject @ 0x1407FFC08 (PspStorageRemoveObject.c)
- *     PspGetNextSilo @ 0x140959E18 (PspGetNextSilo.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     PspGetServerSiloStatePointer @ 0x14052B9B8 (PspGetServerSiloStatePointer.c)
+ *     PspGetHostSiloStorage @ 0x1406178A0 (PspGetHostSiloStorage.c)
+ *     PspAcquirePushLockExclusive @ 0x14061909C (PspAcquirePushLockExclusive.c)
+ *     PspReleasePushLockExclusive @ 0x140619120 (PspReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspStorageFreeSlot @ 0x140805524 (PspStorageFreeSlot.c)
+ *     PspStorageRemoveObject @ 0x140805638 (PspStorageRemoveObject.c)
+ *     PspGetNextSilo @ 0x1409FF6D8 (PspGetNextSilo.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PsUnregisterSiloMonitor(_BYTE *P, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

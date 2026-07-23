@@ -37,10 +37,13 @@ void __fastcall __noreturn CmpLazyWriteWorker(PKTIMER Timer)
     v2 = KeAcquireSpinLockRaiseToDpc(&Timer[2].DueTime.QuadPart);
     Timer[2].TimerListEntry.Blink = (struct _LIST_ENTRY *)2;
     KxReleaseSpinLock((volatile signed __int64 *)&Timer[2].DueTime);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

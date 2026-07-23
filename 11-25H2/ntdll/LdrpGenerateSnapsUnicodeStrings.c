@@ -23,17 +23,17 @@ __int64 __fastcall LdrpGenerateSnapsUnicodeStrings(
   __int64 result; // rax
   int v13; // eax
   int v14; // ecx
-  unsigned int v15; // edx
-  unsigned int v16; // ebx
-  _WORD *v17; // r10
-  __int16 v18; // ax
-  __int64 *v19; // r11
-  __int16 v20; // cx
-  __int64 v21; // r9
-  __int64 v22; // rdi
+  ULONG v15; // edx
+  ULONG UTF8StringByteCount; // ebx
+  WCHAR *v17; // r10
+  unsigned __int16 CodePage; // ax
+  unsigned __int16 **p_MultiByteTable; // r11
+  unsigned __int16 DBCSCodePage; // cx
+  unsigned __int16 *MultiByteTable; // r9
+  unsigned __int16 *DBCSOffsets; // rdi
   char *v23; // r8
-  unsigned int v24; // edx
-  unsigned int v25; // eax
+  ULONG v24; // edx
+  ULONG v25; // eax
   char *v26; // rdx
   __int64 v27; // r8
   __int64 v28; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall LdrpGenerateSnapsUnicodeStrings(
   __int64 v35; // [rsp+48h] [rbp-170h]
   char *v36; // [rsp+50h] [rbp-168h]
   __int64 v37; // [rsp+60h] [rbp-158h]
-  int v38; // [rsp+68h] [rbp-150h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+68h] [rbp-150h] BYREF
   char Buffer[256]; // [rsp+70h] [rbp-148h] BYREF
 
   v37 = 0LL;
@@ -81,67 +81,67 @@ __int64 __fastcall LdrpGenerateSnapsUnicodeStrings(
       v14 = 256 - v13;
     }
     v15 = *(unsigned __int16 *)(a3 + 2);
-    v16 = 256 - v14;
-    v17 = *(_WORD **)(a3 + 8);
+    UTF8StringByteCount = 256 - v14;
+    v17 = *(WCHAR **)(a3 + 8);
     *(_WORD *)a3 = 2 * (256 - v14);
     _InterlockedOr(v32, 0);
-    if ( word_1801CEFD0 == -535 || GlobalRtlNlsState == -535 )
+    if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
     {
-      v18 = Utf8TableInfo;
-      v19 = (__int64 *)&xmmword_1801CF070;
-      v20 = WORD6(Utf8TableInfo);
-      v21 = xmmword_1801CF070;
-      v22 = qword_1801CF088;
+      CodePage = Utf8TableInfo;
+      p_MultiByteTable = (unsigned __int16 **)&xmmword_1801CF070;
+      DBCSCodePage = WORD6(Utf8TableInfo);
+      MultiByteTable = (unsigned __int16 *)xmmword_1801CF070;
+      DBCSOffsets = (unsigned __int16 *)qword_1801CF088;
     }
     else
     {
       _InterlockedOr(v32, 0);
-      v18 = GlobalRtlNlsState;
-      v19 = &qword_1801CEFB0;
-      v20 = word_1801CEF9C;
-      v21 = qword_1801CEFB0;
-      v22 = qword_1801CEFC8;
+      CodePage = GlobalRtlNlsState.CodePage;
+      p_MultiByteTable = &GlobalRtlNlsState.MultiByteTable;
+      DBCSCodePage = GlobalRtlNlsState.DBCSCodePage;
+      MultiByteTable = GlobalRtlNlsState.MultiByteTable;
+      DBCSOffsets = GlobalRtlNlsState.DBCSOffsets;
     }
     v23 = Buffer;
-    if ( v18 == -535 )
+    if ( CodePage == 0xFDE9 )
     {
-      if ( v16 )
-        RtlUTF8ToUnicodeN(v17, v15, &v38, Buffer, v16);
+      if ( UTF8StringByteCount )
+        RtlUTF8ToUnicodeN(v17, v15, &UnicodeStringActualByteCount, Buffer, UTF8StringByteCount);
     }
     else
     {
       v24 = v15 >> 1;
       v25 = v24;
-      if ( v20 )
+      if ( DBCSCodePage )
       {
-        while ( v24 && v16 )
+        while ( v24 && UTF8StringByteCount )
         {
           --v24;
-          --v16;
-          v29 = 2LL * (unsigned __int8)*v23;
-          v30 = *(unsigned __int16 *)(v29 + v22);
+          --UTF8StringByteCount;
+          v29 = (unsigned __int8)*v23;
+          v30 = DBCSOffsets[v29];
           if ( (_WORD)v30 )
           {
-            if ( !v16 )
+            if ( !UTF8StringByteCount )
             {
               *v17 = 0;
               return 0LL;
             }
-            --v16;
-            *v17++ = *(_WORD *)(v22 + 2 * (v30 + (unsigned __int8)v23[1]));
+            --UTF8StringByteCount;
+            *v17++ = DBCSOffsets[v30 + (unsigned __int8)v23[1]];
             v23 += 2;
           }
           else
           {
-            *v17++ = *(_WORD *)(v29 + *v19);
+            *v17++ = (*p_MultiByteTable)[v29];
             ++v23;
           }
         }
       }
       else
       {
-        if ( v24 >= v16 )
-          v25 = v16;
+        if ( v24 >= UTF8StringByteCount )
+          v25 = UTF8StringByteCount;
         if ( v25 )
         {
           v26 = Buffer;
@@ -151,7 +151,7 @@ __int64 __fastcall LdrpGenerateSnapsUnicodeStrings(
             v28 = (unsigned __int8)*v26;
             ++v17;
             ++v26;
-            *(v17 - 1) = *(_WORD *)(v21 + 2 * v28);
+            *(v17 - 1) = MultiByteTable[v28];
             --v27;
           }
           while ( v27 );

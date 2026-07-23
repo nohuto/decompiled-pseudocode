@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpcGetCmosDataByType @ 0x1405201F0
+ * XREFs of HalpcGetCmosDataByType @ 0x140520740
  * Callers:
  *     <none>
  * Callees:
- *     HalpCmosRangeHandler @ 0x14051FECC (HalpCmosRangeHandler.c)
+ *     HalpCmosRangeHandler @ 0x14052041C (HalpCmosRangeHandler.c)
  */
 
 __int64 __fastcall HalpcGetCmosDataByType(int a1, unsigned int a2, __int64 a3, int a4)

@@ -37,7 +37,7 @@ void CmpSetVersionData()
   UNICODE_STRING v12; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-98h] BYREF
-  STRING SourceString; // [rsp+A0h] [rbp-68h] BYREF
+  _STRING SourceString; // [rsp+A0h] [rbp-68h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
   char DstBuf[128]; // [rsp+C8h] [rbp-40h] BYREF
   _BYTE v18[256]; // [rsp+148h] [rbp+40h] BYREF

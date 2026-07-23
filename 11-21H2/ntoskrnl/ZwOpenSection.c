@@ -1,10 +1,10 @@
 /*
  * XREFs of ZwOpenSection @ 0x14041BE40
  * Callers:
- *     DifZwOpenSectionWrapper @ 0x140622730 (DifZwOpenSectionWrapper.c)
- *     NtGetNlsSectionPtr @ 0x140784CB0 (NtGetNlsSectionPtr.c)
- *     EmpMapPhysicalAddress @ 0x140B0DAC4 (EmpMapPhysicalAddress.c)
- *     CmpInitializeMachineDependentConfiguration @ 0x140B17304 (CmpInitializeMachineDependentConfiguration.c)
+ *     sub_140622730 @ 0x140622730 (sub_140622730.c)
+ *     sub_140784CB0 @ 0x140784CB0 (sub_140784CB0.c)
+ *     sub_140B0DAC4 @ 0x140B0DAC4 (sub_140B0DAC4.c)
+ *     sub_140B17304 @ 0x140B17304 (sub_140B17304.c)
  * Callees:
  *     <none>
  */
@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwOpenSection(PHANDLE SectionHandle, ACCESS_MASK DesiredAcces
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SectionHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(SectionHandle, *(_QWORD *)&DesiredAccess);
 }

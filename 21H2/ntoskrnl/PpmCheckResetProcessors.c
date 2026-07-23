@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmCheckResetProcessors @ 0x1403C2064
+ * XREFs of PpmCheckResetProcessors @ 0x1403C2494
  * Callers:
- *     PpmCheckArmPeriod @ 0x1403C1B34 (PpmCheckArmPeriod.c)
- *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     PpmCheckArmPeriod @ 0x1403C1F64 (PpmCheckArmPeriod.c)
+ *     PpmRegisterPerfStates @ 0x1407BA470 (PpmRegisterPerfStates.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     PpmResetPerfTimes @ 0x1403C2720 (PpmResetPerfTimes.c)
  */
 
 __int64 __fastcall PpmCheckResetProcessors(__int64 a1)

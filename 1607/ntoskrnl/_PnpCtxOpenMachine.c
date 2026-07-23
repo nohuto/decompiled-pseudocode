@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxOpenMachine @ 0x140579548
+ * XREFs of _PnpCtxOpenMachine @ 0x140579A88
  * Callers:
- *     PiPnpRtlInit @ 0x1405518D0 (PiPnpRtlInit.c)
+ *     PiPnpRtlInit @ 0x140551E10 (PiPnpRtlInit.c)
  *     PipMigratePnpState @ 0x1407BBCE0 (PipMigratePnpState.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _SysCtxOpenMachine @ 0x140579704 (_SysCtxOpenMachine.c)
- *     _SysCtxCloseMachine @ 0x1406DF8EC (_SysCtxCloseMachine.c)
+ *     _SysCtxOpenMachine @ 0x140579C44 (_SysCtxOpenMachine.c)
+ *     _SysCtxCloseMachine @ 0x1406DFA24 (_SysCtxCloseMachine.c)
  */
 
 __int64 __fastcall PnpCtxOpenMachine(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6, _QWORD *a7)

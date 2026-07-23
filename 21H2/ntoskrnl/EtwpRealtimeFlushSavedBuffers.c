@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpRealtimeFlushSavedBuffers @ 0x1406B31D0
+ * XREFs of EtwpRealtimeFlushSavedBuffers @ 0x140612398
  * Callers:
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140645D0C (EtwpRealtimeDeliverBuffer.c)
- *     EtwpSendSessionNotification @ 0x1406E14E8 (EtwpSendSessionNotification.c)
- *     EtwpRealtimeRestoreBuffer @ 0x1407BE620 (EtwpRealtimeRestoreBuffer.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x1407CD2B8 (EtwpRealtimeZeroTruncateLogfile.c)
- *     EtwpRealtimeResetReferenceTime @ 0x140941C60 (EtwpRealtimeResetReferenceTime.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x14063AAF8 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpSendSessionNotification @ 0x1406B87C8 (EtwpSendSessionNotification.c)
+ *     EtwpRealtimeRestoreBuffer @ 0x1407BEDB0 (EtwpRealtimeRestoreBuffer.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x1407CD428 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x140941E30 (EtwpRealtimeResetReferenceTime.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)
 {
-  PVOID PoolWithTag; // rax
-  __int64 v4; // rsi
+  char *PoolWithTag; // rax
+  char *v4; // rsi
   int v5; // edx
   __int64 v6; // rbx
   __int64 v7; // r8
@@ -25,8 +25,8 @@ __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)
 
   if ( !*(_DWORD *)(a1 + 440) || !*(_DWORD *)(a1 + 360) )
     return 0LL;
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a1 + 4), 0x50777445u);
-  v4 = (__int64)PoolWithTag;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a1 + 4), 0x50777445u);
+  v4 = PoolWithTag;
   if ( PoolWithTag )
   {
     memset(PoolWithTag, 0, *(unsigned int *)(a1 + 4));
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)
           *(_DWORD *)(a1 + 464) = 3;
           EtwpSendSessionNotification(a1, 4LL, 3221225730LL);
           EtwpRealtimeZeroTruncateLogfile(a1);
-          ExFreePoolWithTag((PVOID)v4, 0);
+          ExFreePoolWithTag(v4, 0);
           if ( (*(_DWORD *)(a1 + 832) & 1) != 0 )
             EtwpRealtimeResetReferenceTime(a1);
           return 3221225730LL;
@@ -55,12 +55,12 @@ __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)
           *(_QWORD *)(a1 + 408) = v6;
           break;
         }
-        if ( (*(_DWORD *)(a1 + 832) & 1) != 0 && *(_WORD *)(v4 + 54) == 3 )
+        if ( (*(_DWORD *)(a1 + 832) & 1) != 0 && *((_WORD *)v4 + 27) == 3 )
           *(_OWORD *)(a1 + 448) = *(_OWORD *)(v4 + 56);
         v7 = *(_QWORD *)(a1 + 424);
         v5 = *(_DWORD *)(a1 + 440) - 1;
         *(_DWORD *)(a1 + 440) = v5;
-        v8 = v7 - *(unsigned int *)(v4 + 48);
+        v8 = v7 - *((unsigned int *)v4 + 12);
         v9 = *(int *)(a1 + 16) < 0;
         *(_QWORD *)(a1 + 424) = v8;
         if ( v9
@@ -78,7 +78,7 @@ __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)
 LABEL_14:
     EtwpRealtimeZeroTruncateLogfile(a1);
 LABEL_15:
-    ExFreePoolWithTag((PVOID)v4, 0);
+    ExFreePoolWithTag(v4, 0);
     return 0LL;
   }
   return 3221225495LL;

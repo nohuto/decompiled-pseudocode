@@ -34,7 +34,7 @@ _QWORD *IopCopyBootLogRegistryToFile()
   PUNICODE_STRING v5; // rcx
   HANDLE KeyHandle; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE TimeFields; // [rsp+60h] [rbp-A8h] BYREF
-  TIME_FIELDS TimeFields_8; // [rsp+68h] [rbp-A0h] BYREF
+  _TIME_FIELDS TimeFields_8; // [rsp+68h] [rbp-A0h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+78h] [rbp-90h] BYREF
   PVOID P; // [rsp+80h] [rbp-88h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-80h] BYREF

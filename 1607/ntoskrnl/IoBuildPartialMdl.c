@@ -1,9 +1,9 @@
 /*
- * XREFs of IoBuildPartialMdl @ 0x1400905B0
+ * XREFs of IoBuildPartialMdl @ 0x14008FD10
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall IoBuildPartialMdl(PMDL SourceMdl, PMDL TargetMdl, PVOID VirtualAddress, ULONG Length)

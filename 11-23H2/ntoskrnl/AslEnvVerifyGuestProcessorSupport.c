@@ -1,10 +1,10 @@
 /*
- * XREFs of AslEnvVerifyGuestProcessorSupport @ 0x140A576F0
+ * XREFs of AslEnvVerifyGuestProcessorSupport @ 0x140A579A0
  * Callers:
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A52384 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A52634 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslEnvGetProcessWowInfo @ 0x140A570CC (AslEnvGetProcessWowInfo.c)
+ *     AslEnvGetProcessWowInfo @ 0x140A5737C (AslEnvGetProcessWowInfo.c)
  */
 
 __int64 __fastcall AslEnvVerifyGuestProcessorSupport(__int16 *a1, __int16 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall AslEnvVerifyGuestProcessorSupport(__int16 *a1, __int16 a2)
     v3 = v7;
   }
   v5 = 0LL;
-  while ( *(_WORD *)((char *)&unk_140C09580 + v5) != v3 || *(_WORD *)((char *)&unk_140C09580 + v5 + 2) != a2 )
+  while ( *(_WORD *)((char *)&unk_140C09510 + v5) != v3 || *(_WORD *)((char *)&unk_140C09510 + v5 + 2) != a2 )
   {
     v5 += 16LL;
     if ( v5 >= 0x80 )

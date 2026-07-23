@@ -1,23 +1,28 @@
 /*
- * XREFs of RtlpHpHeapValidateProtection @ 0x180091990
+ * XREFs of RtlpHpHeapValidateProtection @ 0x18009C520
  * Callers:
- *     RtlpHpSegMgrReserve @ 0x180091724 (RtlpHpSegMgrReserve.c)
- *     RtlpHpLargeAlloc @ 0x180093F08 (RtlpHpLargeAlloc.c)
- *     RtlProtectHeap @ 0x18009C280 (RtlProtectHeap.c)
+ *     RtlProtectHeap @ 0x180028BA0 (RtlProtectHeap.c)
+ *     RtlpHpLargeAlloc @ 0x18009A714 (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrReserve @ 0x18009C2B0 (RtlpHpSegMgrReserve.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpEnvQueryVA @ 0x18009386C (RtlpHpEnvQueryVA.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpEnvQueryVA @ 0x18009E3FC (RtlpHpEnvQueryVA.c)
  */
 
-__int64 __fastcall RtlpHpHeapValidateProtection(__int64 a1, unsigned int a2)
+__int64 __fastcall RtlpHpHeapValidateProtection(void *a1, unsigned int a2)
 {
-  _OWORD v5[2]; // [rsp+30h] [rbp-38h] BYREF
+  _OWORD MemoryInformation[2]; // [rsp+30h] [rbp-38h] BYREF
   __int128 v6; // [rsp+50h] [rbp-18h]
 
-  memset(v5, 0, sizeof(v5));
+  memset(MemoryInformation, 0, sizeof(MemoryInformation));
   v6 = 0LL;
-  if ( a2 != 64 || (int)RtlpHpEnvQueryVA(a1, v5) >= 0 && (BYTE4(v6) & 0x60) != 0 && *(_QWORD *)&v5[0] == a1 )
+  if ( a2 != 64
+    || (int)RtlpHpEnvQueryVA(a1, MemoryInformation) >= 0
+    && (BYTE4(v6) & 0x60) != 0
+    && *(void **)&MemoryInformation[0] == a1 )
+  {
     return a2;
-  RtlpLogHeapFailure(0, a1, 1LL, DWORD1(v6), 0LL, 0LL);
+  }
+  RtlpLogHeapFailure(0, (__int64)a1, 1LL, DWORD1(v6), 0LL, 0LL);
   return 4LL;
 }

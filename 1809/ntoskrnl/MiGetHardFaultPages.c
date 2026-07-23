@@ -6,10 +6,10 @@
  *     MiGetAvailablePagesBelowPriority @ 0x140030FC4 (MiGetAvailablePagesBelowPriority.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
- *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiRetainSubsection @ 0x140131E88 (MiRetainSubsection.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
+ *     MiUseSlabAllocator @ 0x140065C80 (MiUseSlabAllocator.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     MiRetainSubsection @ 0x140131F58 (MiRetainSubsection.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
  */
 
 unsigned __int64 __fastcall MiGetHardFaultPages(
@@ -130,7 +130,7 @@ LABEL_34:
     result = MiGetPageChain(
                v18,
                v21,
-               (*(unsigned __int16 *)(a8 + 10) >> byte_14043A049) + 1,
+               (*(unsigned __int16 *)(a8 + 10) >> byte_14043B109) + 1,
                v16,
                0,
                -1LL,

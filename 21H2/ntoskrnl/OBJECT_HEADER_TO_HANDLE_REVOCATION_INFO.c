@@ -1,9 +1,9 @@
 /*
- * XREFs of OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14029C5BC
+ * XREFs of OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14021471C
  * Callers:
- *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
- *     ObHandleRevocationBlockAddObject @ 0x1408DC920 (ObHandleRevocationBlockAddObject.c)
+ *     ObpProcessRemoveObjectQueue @ 0x1405E2E40 (ObpProcessRemoveObjectQueue.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
+ *     ObHandleRevocationBlockAddObject @ 0x1408DCA80 (ObHandleRevocationBlockAddObject.c)
  * Callees:
  *     <none>
  */

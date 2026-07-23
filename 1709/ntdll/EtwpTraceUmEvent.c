@@ -137,15 +137,10 @@ LABEL_5:
       v45 = v17;
       v18 = &v41;
       if ( v16 )
-        LODWORD(v18) = 0;
+        v18 = 0LL;
       v19 = v31;
       v6 = v33;
-      v20 = (char *)EtwpReserveTraceBuffer(
-                      (_DWORD)v33,
-                      v31,
-                      v17->CurrentIdealProcessor.Reserved,
-                      (_DWORD)v18,
-                      (__int64)&v40);
+      v20 = (char *)EtwpReserveTraceBuffer(v33, v31, v17->CurrentIdealProcessor.Reserved, v18, &v40);
       v21 = v20;
       v44 = v20;
       if ( v20 )

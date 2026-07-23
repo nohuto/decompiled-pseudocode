@@ -1,13 +1,13 @@
 /*
- * XREFs of MiIssueHardFaultIo @ 0x1400237A4
+ * XREFs of MiIssueHardFaultIo @ 0x140023324
  * Callers:
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
- *     MiPfCoalesceAndIssueIOs @ 0x1400AA7D4 (MiPfCoalesceAndIssueIOs.c)
- *     MiPfIssueCoalesceCandidates @ 0x1401251C4 (MiPfIssueCoalesceCandidates.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x1400A8D54 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140125734 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     IoPageReadEx @ 0x1400E9F10 (IoPageReadEx.c)
- *     SmPageRead @ 0x14011E144 (SmPageRead.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x1400E7D80 (IoPageReadEx.c)
+ *     SmPageRead @ 0x14011E6B4 (SmPageRead.c)
  */
 
 __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)
@@ -51,9 +51,9 @@ __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)
     if ( (*(_BYTE *)(a1 + 191) & 2) != 0 )
       v5 |= 1u;
     if ( v6
-      || qword_140326C80
-      && (v7 = *(_QWORD *)(a1 + 216), v7 >= qword_140326C80)
-      && v7 < qword_140326C80 + (qword_140326C60 << 21)
+      || qword_140326CC0
+      && (v7 = *(_QWORD *)(a1 + 216), v7 >= qword_140326CC0)
+      && v7 < qword_140326CC0 + (qword_140326CA0 << 21)
       && !a2 )
     {
       v5 |= 2u;

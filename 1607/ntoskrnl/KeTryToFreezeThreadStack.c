@@ -1,11 +1,11 @@
 /*
- * XREFs of KeTryToFreezeThreadStack @ 0x1401D2FA4
+ * XREFs of KeTryToFreezeThreadStack @ 0x1401D2DD0
  * Callers:
- *     MiSwapStackPage @ 0x14010BCFC (MiSwapStackPage.c)
+ *     MiSwapStackPage @ 0x140109A7C (MiSwapStackPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiAcquireThreadStateLock @ 0x1400D3590 (KiAcquireThreadStateLock.c)
- *     KiIsKernelStackSwappable @ 0x1401DA968 (KiIsKernelStackSwappable.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiAcquireThreadStateLock @ 0x1400D1430 (KiAcquireThreadStateLock.c)
+ *     KiIsKernelStackSwappable @ 0x1401DA794 (KiIsKernelStackSwappable.c)
  */
 
 char __fastcall KeTryToFreezeThreadStack(__int64 a1, _QWORD *a2)

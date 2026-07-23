@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFastLockLeafPageTable @ 0x140237280
+ * XREFs of MiFastLockLeafPageTable @ 0x140237350
  * Callers:
  *     MiClearNonPagedPtes @ 0x140212458 (MiClearNonPagedPtes.c)
- *     MiResolvePageTablePage @ 0x140236020 (MiResolvePageTablePage.c)
- *     MiLockPageLeafPageTable @ 0x140236940 (MiLockPageLeafPageTable.c)
- *     MiSynchronizeSystemVa @ 0x1402619B0 (MiSynchronizeSystemVa.c)
- *     MiQueryAddressState @ 0x140271C00 (MiQueryAddressState.c)
- *     MiCountSharedPages @ 0x140273910 (MiCountSharedPages.c)
- *     MiMakeSystemAddressValid @ 0x140277430 (MiMakeSystemAddressValid.c)
- *     MiDeletePagablePteRange @ 0x14027A160 (MiDeletePagablePteRange.c)
- *     MiDecommitPages @ 0x14027F7D0 (MiDecommitPages.c)
- *     MiLockPoolCommitPageTable @ 0x14028613C (MiLockPoolCommitPageTable.c)
- *     MiCaptureDeleteHierarchy @ 0x14028ACA0 (MiCaptureDeleteHierarchy.c)
- *     MiIsCfgBitMapPageShared @ 0x1402E53F0 (MiIsCfgBitMapPageShared.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiLockStealUserVm @ 0x1403BDF18 (MiLockStealUserVm.c)
+ *     MiResolvePageTablePage @ 0x1402360F0 (MiResolvePageTablePage.c)
+ *     MiLockPageLeafPageTable @ 0x140236A10 (MiLockPageLeafPageTable.c)
+ *     MiSynchronizeSystemVa @ 0x140261C40 (MiSynchronizeSystemVa.c)
+ *     MiQueryAddressState @ 0x140271E90 (MiQueryAddressState.c)
+ *     MiCountSharedPages @ 0x140273BA0 (MiCountSharedPages.c)
+ *     MiMakeSystemAddressValid @ 0x1402776C0 (MiMakeSystemAddressValid.c)
+ *     MiDeletePagablePteRange @ 0x14027A3F0 (MiDeletePagablePteRange.c)
+ *     MiDecommitPages @ 0x14027FA60 (MiDecommitPages.c)
+ *     MiLockPoolCommitPageTable @ 0x1402863CC (MiLockPoolCommitPageTable.c)
+ *     MiCaptureDeleteHierarchy @ 0x14028AF30 (MiCaptureDeleteHierarchy.c)
+ *     MiIsCfgBitMapPageShared @ 0x1402E5680 (MiIsCfgBitMapPageShared.c)
+ *     MiGetNextPageTable @ 0x1402E5940 (MiGetNextPageTable.c)
+ *     MiLockStealUserVm @ 0x1403BE0F8 (MiLockStealUserVm.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiFastLockLeafPageTable(__int64 a1, unsigned __int64 a2, int a3)

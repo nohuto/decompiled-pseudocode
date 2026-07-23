@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializeNuma @ 0x14072B178
+ * XREFs of MiInitializeNuma @ 0x14072C368
  * Callers:
- *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14072BD18 (MiInitializePartition.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     MiInitializeSystemChannelOrdering @ 0x1409F7AD0 (MiInitializeSystemChannelOrdering.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     MiInitializeSystemChannelOrdering @ 0x1409F8AD0 (MiInitializeSystemChannelOrdering.c)
  */
 
 void __fastcall MiInitializeNuma(ULONG_PTR *a1)
 {
   ULONG_PTR v1; // rbx
-  union _SLIST_HEADER *v3; // r13
+  _SLIST_HEADER *v3; // r13
   unsigned int i; // r14d
   int v5; // edi
   int *v6; // rsi
-  union _SLIST_HEADER *v7; // rbp
+  _SLIST_HEADER *v7; // rbp
   int v8; // eax
-  union _SLIST_HEADER *v9; // rdi
+  _SLIST_HEADER *v9; // rdi
   __int64 v10; // rsi
   unsigned int v11; // edx
   _DWORD *v12; // r8
@@ -30,7 +30,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
   __int64 v20; // rcx
 
   v1 = a1[2];
-  v3 = qword_14043A058;
+  v3 = qword_14043B118;
   for ( i = 0; i < (unsigned __int16)KeNumberNodes; v3 += 25 )
   {
     *(_DWORD *)(v1 + 1820) = i;
@@ -38,7 +38,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
     *(_BYTE *)(v1 + 850) = 8;
     *(_QWORD *)(v1 + 1896) = 0LL;
     *(_QWORD *)(v1 + 1928) = 0LL;
-    *(_DWORD *)(v1 + 1816) = i << byte_14043A049;
+    *(_DWORD *)(v1 + 1816) = i << byte_14043B109;
     if ( a1 == &MiSystemPartition )
     {
       v5 = 0;
@@ -55,7 +55,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
       while ( v5 < 2 );
       InitializeSListHead(v3);
     }
-    if ( qword_14043A068 )
+    if ( qword_14043B128 )
     {
       v18 = a1[2];
       v19 = 1984LL * i;
@@ -67,8 +67,8 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
       }
       else
       {
-        v20 = qword_14043C950;
-        *(_DWORD *)(v19 + v18 + 1922) = *(_DWORD *)(v19 + qword_14043C950 + 1922);
+        v20 = qword_14043DA10;
+        *(_DWORD *)(v19 + v18 + 1922) = *(_DWORD *)(v19 + qword_14043DA10 + 1922);
         *(_DWORD *)(v19 + v18 + 1914) = *(_DWORD *)(v19 + v20 + 1914);
         *(_DWORD *)(v19 + v18 + 1918) = *(_DWORD *)(v19 + v20 + 1918);
       }
@@ -89,7 +89,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
     v12 = (_DWORD *)(v1 + 1664);
     do
     {
-      *v12 = dword_14043A088 + 1;
+      *v12 = dword_14043B148 + 1;
       v12 += 4;
       v13 = (unsigned __int64)(v11++ << 8) >> 5;
       *((_QWORD *)v12 - 1) = v1 + 4 * (v13 + 424);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExDeleteLookasideListEx @ 0x1400A87C8
+ * XREFs of ExDeleteLookasideListEx @ 0x1400A6D40
  * Callers:
  *     <none>
  * Callees:
- *     ExpRemoveGeneralLookaside @ 0x1400A8834 (ExpRemoveGeneralLookaside.c)
+ *     ExpRemoveGeneralLookaside @ 0x1400A6DAC (ExpRemoveGeneralLookaside.c)
  */
 
 void __stdcall ExDeleteLookasideListEx(PLOOKASIDE_LIST_EX Lookaside)

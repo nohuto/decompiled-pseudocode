@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetPdeAddress @ 0x14041A4F0
+ * XREFs of MiGetPdeAddress @ 0x14040A4F0
  * Callers:
- *     MiEliminateZeroPages @ 0x1408F8080 (MiEliminateZeroPages.c)
- *     MiReleaseDriverPtes @ 0x140A67CE4 (MiReleaseDriverPtes.c)
+ *     MiEliminateZeroPages @ 0x1409752C0 (MiEliminateZeroPages.c)
+ *     MiReleaseDriverPtes @ 0x140A611E4 (MiReleaseDriverPtes.c)
  * Callees:
  *     <none>
  */

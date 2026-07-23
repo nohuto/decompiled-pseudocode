@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpReAllocWithExceptionProtection @ 0x180073610
+ * XREFs of RtlpHpReAllocWithExceptionProtection @ 0x180073600
  * Callers:
- *     RtlReAllocateHeap @ 0x180020D80 (RtlReAllocateHeap.c)
+ *     RtlReAllocateHeap @ 0x180020D70 (RtlReAllocateHeap.c)
  * Callees:
- *     RtlpReAllocateHeapInternal @ 0x180020DD0 (RtlpReAllocateHeapInternal.c)
- *     RtlpHpTagReAllocateHeap @ 0x180073660 (RtlpHpTagReAllocateHeap.c)
- *     RtlpHeapFatalExceptionFilter @ 0x1800E2FB0 (RtlpHeapFatalExceptionFilter.c)
+ *     RtlpReAllocateHeapInternal @ 0x180020DC0 (RtlpReAllocateHeapInternal.c)
+ *     RtlpHpTagReAllocateHeap @ 0x180073650 (RtlpHpTagReAllocateHeap.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x1800E3070 (RtlpHeapFatalExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpReAllocWithExceptionProtection(
-        __int64 a1,
+unsigned __int64 __fastcall RtlpHpReAllocWithExceptionProtection(
+        unsigned __int16 *a1,
         unsigned int a2,
-        unsigned __int64 a3,
+        _DWORD *a3,
         unsigned __int64 a4)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateKernelStackSlow @ 0x1403D1640
+ * XREFs of MiCreateKernelStackSlow @ 0x1403D4610
  * Callers:
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiAllocateKernelStackPages @ 0x1403D1778 (MiAllocateKernelStackPages.c)
- *     KasanTrackAddressNoInline @ 0x140532270 (KasanTrackAddressNoInline.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiAllocateKernelStackPages @ 0x1403D4748 (MiAllocateKernelStackPages.c)
+ *     KasanTrackAddressNoInline @ 0x140534710 (KasanTrackAddressNoInline.c)
  */
 
 __int64 __fastcall MiCreateKernelStackSlow(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -20,12 +20,12 @@ __int64 __fastcall MiCreateKernelStackSlow(__int64 a1, __int64 a2, __int64 a3, u
   unsigned __int64 *v11; // r15
   __int64 v12; // rdi
 
-  v4 = &unk_140E34AA0;
+  v4 = &unk_140E34C20;
   v5 = *(_QWORD *)(a1 + 16) + *(unsigned int *)(a1 + 64);
   v7 = *(_DWORD *)(a1 + 16) + *(_DWORD *)(a1 + 64);
-  v8 = &unk_140E34AA0;
+  v8 = &unk_140E34C20;
   if ( *(_DWORD *)(a1 + 56) != 5 )
-    v8 = &unk_140E34B00;
+    v8 = &unk_140E34C80;
   v9 = MiReservePtes((__int64)v8, v7, a3, a4);
   v10 = (unsigned __int64 *)v9;
   if ( !v9 )
@@ -34,7 +34,7 @@ __int64 __fastcall MiCreateKernelStackSlow(__int64 a1, __int64 a2, __int64 a3, u
   v12 = (__int64)((v9 << 25) + (v5 << 28)) >> 16;
   if ( *(_DWORD *)(a1 + 56) != 5 )
     goto LABEL_8;
-  if ( !byte_140FC7BE8
+  if ( !byte_140FC8BD8
     || (int)KasanTrackAddressNoInline(
               (__int64)((v9 << 25) + 0x10000000) >> 16,
               *(_QWORD *)(a1 + 16) << 12,
@@ -50,7 +50,7 @@ LABEL_8:
       return v12;
   }
   if ( *(_DWORD *)(a1 + 56) != 5 )
-    v4 = &unk_140E34B00;
+    v4 = &unk_140E34C80;
   MiReleasePtes((__int64)v4, v10, v5);
   return 0LL;
 }

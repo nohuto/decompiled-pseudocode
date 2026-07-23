@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSubsectionUsingExtents @ 0x1400E7F14
+ * XREFs of MiSubsectionUsingExtents @ 0x1400E5DB4
  * Callers:
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
- *     MiInsertUnusedSubsection @ 0x140026DCC (MiInsertUnusedSubsection.c)
- *     MiChargeControlAreaPartition @ 0x140027BE0 (MiChargeControlAreaPartition.c)
- *     MiReleaseControlAreaPartition @ 0x140027E70 (MiReleaseControlAreaPartition.c)
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiResolveMappedFileFault @ 0x1400E68A0 (MiResolveMappedFileFault.c)
- *     MiSubsectionRequiresCharge @ 0x1400FC9C4 (MiSubsectionRequiresCharge.c)
- *     MiSectionCreated @ 0x1400FD2C8 (MiSectionCreated.c)
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
+ *     MiInsertUnusedSubsection @ 0x14002694C (MiInsertUnusedSubsection.c)
+ *     MiChargeControlAreaPartition @ 0x140027760 (MiChargeControlAreaPartition.c)
+ *     MiReleaseControlAreaPartition @ 0x1400279F0 (MiReleaseControlAreaPartition.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiResolveMappedFileFault @ 0x1400E4740 (MiResolveMappedFileFault.c)
+ *     MiSubsectionRequiresCharge @ 0x1400FA744 (MiSubsectionRequiresCharge.c)
+ *     MiSectionCreated @ 0x1400FB048 (MiSectionCreated.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
  * Callees:
  *     <none>
  */

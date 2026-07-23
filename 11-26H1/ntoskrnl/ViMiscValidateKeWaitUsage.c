@@ -1,12 +1,12 @@
 /*
- * XREFs of ViMiscValidateKeWaitUsage @ 0x140C46EAC
+ * XREFs of ViMiscValidateKeWaitUsage @ 0x140C4CEBC
  * Callers:
- *     VfMiscKeWaitForSingleObject_Entry @ 0x140C3D060 (VfMiscKeWaitForSingleObject_Entry.c)
- *     VfMiscKeWaitForMultipleObjects_Entry @ 0x140C46E80 (VfMiscKeWaitForMultipleObjects_Entry.c)
+ *     VfMiscKeWaitForSingleObject_Entry @ 0x140C43070 (VfMiscKeWaitForSingleObject_Entry.c)
+ *     VfMiscKeWaitForMultipleObjects_Entry @ 0x140C4CE90 (VfMiscKeWaitForMultipleObjects_Entry.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x140263CC0 (RtlpGetStackLimits.c)
- *     ViMiscValidateSynchronizationObject @ 0x140C20518 (ViMiscValidateSynchronizationObject.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     RtlpGetStackLimits @ 0x140263230 (RtlpGetStackLimits.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140C26524 (ViMiscValidateSynchronizationObject.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 char __fastcall ViMiscValidateKeWaitUsage(unsigned int a1, ULONG_PTR *a2, char a3, _QWORD *a4, __int64 a5)

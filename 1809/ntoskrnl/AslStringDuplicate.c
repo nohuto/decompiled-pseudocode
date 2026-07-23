@@ -1,18 +1,18 @@
 /*
- * XREFs of AslStringDuplicate @ 0x14067C4C4
+ * XREFs of AslStringDuplicate @ 0x14067D684
  * Callers:
- *     AslFileMappingCreate @ 0x14067E47C (AslFileMappingCreate.c)
- *     AslFileMappingCreateFromImageView @ 0x14071F230 (AslFileMappingCreateFromImageView.c)
- *     AslpFileMakeStringVersionAttributes @ 0x14071F4E0 (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileVerQueryBlock @ 0x14071FB38 (AslpFileVerQueryBlock.c)
- *     SdbpCheckMatchingRegistryValue @ 0x1408E6168 (SdbpCheckMatchingRegistryValue.c)
- *     AslRegWildcardFindFirst @ 0x1408EB580 (AslRegWildcardFindFirst.c)
+ *     AslFileMappingCreate @ 0x14067F63C (AslFileMappingCreate.c)
+ *     AslFileMappingCreateFromImageView @ 0x1407204D0 (AslFileMappingCreateFromImageView.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x140720780 (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileVerQueryBlock @ 0x140720DD8 (AslpFileVerQueryBlock.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x1408E7428 (SdbpCheckMatchingRegistryValue.c)
+ *     AslRegWildcardFindFirst @ 0x1408EC840 (AslRegWildcardFindFirst.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslAlloc @ 0x14067C780 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AslAlloc @ 0x14067D940 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslStringDuplicate(wchar_t **a1, const wchar_t *a2)

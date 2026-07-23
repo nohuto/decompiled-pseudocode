@@ -1,25 +1,24 @@
 /*
- * XREFs of RtlpHpSegPageRangeShrink @ 0x1402BC4B0
+ * XREFs of RtlpHpSegPageRangeShrink @ 0x140363BF0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     RtlpHpFreeHeap @ 0x1402B2660 (RtlpHpFreeHeap.c)
- *     RtlpHpSegFreeInternal @ 0x1402B33D0 (RtlpHpSegFreeInternal.c)
- *     RtlpHpSegAlloc @ 0x1402C162C (RtlpHpSegAlloc.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x14035B220 (RtlpHpFreeHeap.c)
+ *     RtlpHpSegFreeInternal @ 0x14035BF90 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpSegAlloc @ 0x14035DCCC (RtlpHpSegAlloc.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x1402B8A00 (RtlpHpSegPageRangeCoalesce.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpSegLockAcquire @ 0x1402BC9B4 (RtlpHpSegLockAcquire.c)
- *     RtlCSparseBitmapBitsClear @ 0x1402BC9D8 (RtlCSparseBitmapBitsClear.c)
- *     RtlpHpSegMgrRelease @ 0x1402BCD10 (RtlpHpSegMgrRelease.c)
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x140360140 (RtlpHpSegPageRangeCoalesce.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpSegLockAcquire @ 0x1403640F4 (RtlpHpSegLockAcquire.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140364118 (RtlCSparseBitmapBitsClear.c)
+ *     RtlpHpSegMgrRelease @ 0x140364450 (RtlpHpSegMgrRelease.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3)
@@ -48,13 +47,13 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3)
   __int64 v26; // r8
   __int64 v27; // rdx
   int v28; // r8d
-  unsigned __int8 v29; // cl
+  BOOLEAN v29; // cl
   __int64 v30; // rcx
   _QWORD *v31; // rbx
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // r11
   _KLOCK_ENTRIES *KernelAbEntries; // r8
-  __int64 j; // rdx
+  unsigned int j; // edx
   __int64 v36; // rcx
   unsigned __int64 v37; // r14
   struct _KPRCB *CurrentPrcb; // rcx
@@ -66,7 +65,7 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3)
   __int64 v45; // rcx
   _QWORD *v46; // rax
   int v47; // ett
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  __int64 retaddr; // [rsp+58h] [rbp+0h]
   int v49; // [rsp+70h] [rbp+18h] BYREF
 
   v49 = a3;
@@ -213,7 +212,7 @@ LABEL_21:
 LABEL_67:
     v29 = 0;
 LABEL_22:
-    RtlRbInsertNodeEx(a1 + 96, v27, v29, v13);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v27, v29, (PRTL_BALANCED_NODE)v13);
     _InterlockedAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
       (unsigned __int16)~*(_WORD *)(v13 + 28));
@@ -229,7 +228,7 @@ LABEL_22:
     }
     else
     {
-      result = ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(a1 + 64, retaddr);
+      result = ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(a1 + 64), retaddr);
     }
     v37 = (unsigned __int8)v49;
     if ( KiIrqlFlags )
@@ -243,15 +242,15 @@ LABEL_22:
     CurrentThread = KeGetCurrentThread();
     _disable();
     KernelAbEntries = CurrentThread->KernelAbEntries;
-    for ( j = 0LL; (unsigned int)j < KernelAbEntries->EntryCount; j = (unsigned int)(j + 1) )
+    for ( j = 0; j < KernelAbEntries->EntryCount; ++j )
     {
-      v36 = (__int64)&KernelAbEntries->Entries[(unsigned int)j];
+      v36 = (__int64)&KernelAbEntries->Entries[j];
       if ( (*(_QWORD *)v36 & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 64) & 0x7FFFFFFFFFFFFFFCLL)
         && *(_BYTE *)(v36 + 10)
         && (*(_QWORD *)v36 & 1) == 0 )
       {
         *(_BYTE *)(v36 + 10) = 0;
-        result = KiAbEntryFreeAndEnableInterrupts(v36, (ULONG_PTR)CurrentThread, a1 + 64, 1, 0LL);
+        result = KiAbEntryFreeAndEnableInterrupts(v36, (ULONG_PTR)CurrentThread, a1 + 64, 1LL, 0LL);
         goto LABEL_39;
       }
     }
@@ -266,8 +265,6 @@ LABEL_22:
       LODWORD(result) = *SchedulerAssist;
       do
       {
-        j = (unsigned int)result;
-        LODWORD(j) = result & 0xFFDFFFFF;
         v47 = result;
         result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
       }
@@ -282,14 +279,14 @@ LABEL_39:
     {
       result = (__int64)&v40->152;
       if ( *(_QWORD *)result != result )
-        result = KiCheckForKernelApcDelivery((__int64)v40, j);
+        result = KiCheckForKernelApcDelivery();
     }
   }
   if ( v31 )
   {
     RtlCSparseBitmapBitsClear(
-      &dword_140E68310,
-      2 * (((unsigned __int64)v31 - qword_140E68308) >> 20),
+      &dword_140E68510,
+      2 * (((unsigned __int64)v31 - qword_140E68508) >> 20),
       2 * ((unsigned __int64)(unsigned int)-*(_DWORD *)a1 >> 20));
     v42 = &v31[4 * *(unsigned __int8 *)(a1 + 10)];
     for ( k = &v42[4 * (256LL - *(unsigned __int8 *)(a1 + 10))]; v42 < k; v14 += v44 )

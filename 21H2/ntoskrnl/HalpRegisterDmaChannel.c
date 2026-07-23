@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpRegisterDmaChannel @ 0x1404CF3FC
+ * XREFs of HalpRegisterDmaChannel @ 0x1404CF63C
  * Callers:
- *     HalpExtRegisterResourceDescriptor @ 0x1404C4350 (HalpExtRegisterResourceDescriptor.c)
+ *     HalpExtRegisterResourceDescriptor @ 0x1404C4590 (HalpExtRegisterResourceDescriptor.c)
  * Callees:
  *     <none>
  */

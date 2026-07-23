@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapNewSession @ 0x140536994
+ * XREFs of MiMapNewSession @ 0x140536ED4
  * Callers:
- *     MiSessionCreateInternal @ 0x140536508 (MiSessionCreateInternal.c)
+ *     MiSessionCreateInternal @ 0x140536A48 (MiSessionCreateInternal.c)
  * Callees:
- *     MiMarkPageActive @ 0x1400214D4 (MiMarkPageActive.c)
- *     MiInitializePfnForOtherProcess @ 0x140021708 (MiInitializePfnForOtherProcess.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiInitializePfn @ 0x1400E7280 (MiInitializePfn.c)
- *     MiGetSystemPage @ 0x1400FDC54 (MiGetSystemPage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiMarkPageActive @ 0x140021054 (MiMarkPageActive.c)
+ *     MiInitializePfnForOtherProcess @ 0x140021288 (MiInitializePfnForOtherProcess.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiInitializePfn @ 0x1400E5120 (MiInitializePfn.c)
+ *     MiGetSystemPage @ 0x1400FB9D4 (MiGetSystemPage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiMapNewSession(unsigned __int64 a1)
@@ -69,7 +69,7 @@ __int64 __fastcall MiMapNewSession(unsigned __int64 a1)
     --v2;
   }
   while ( v2 );
-  PdeAddress = MiGetPdeAddress(qword_140326918);
+  PdeAddress = MiGetPdeAddress(qword_140326958);
   LODWORD(v5) = 3;
   v6 = v39;
   do
@@ -110,7 +110,7 @@ __int64 __fastcall MiMapNewSession(unsigned __int64 a1)
   while ( (_DWORD)v5 );
   v18 = PteAddress;
   v19 = MiMakeValidKernelPte(0LL, 4, PteAddress) | 0x42;
-  v20 = MiGetPteAddress(qword_140326918);
+  v20 = MiGetPteAddress(qword_140326958);
   v21 = 0;
   v22 = v18 - v20;
   v23 = (_QWORD *)v20;

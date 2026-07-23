@@ -1,21 +1,21 @@
 /*
- * XREFs of HvHiveStartFileBacked @ 0x140721C68
+ * XREFs of HvHiveStartFileBacked @ 0x1406F94C0
  * Callers:
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
  * Callees:
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
- *     HvpFillFileName @ 0x140721F24 (HvpFillFileName.c)
- *     CmpTraceHiveMountStop @ 0x1407226EC (CmpTraceHiveMountStop.c)
- *     HvLoadHive @ 0x140722748 (HvLoadHive.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
- *     CmpTraceHiveMountStart @ 0x1407248D8 (CmpTraceHiveMountStart.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvMarkBaseBlockDirty @ 0x14061C16C (HvMarkBaseBlockDirty.c)
+ *     CmpTraceHiveMountStart @ 0x14061D09C (CmpTraceHiveMountStart.c)
+ *     HvpFillFileName @ 0x1406F977C (HvpFillFileName.c)
+ *     CmpTraceHiveMountStop @ 0x1406FA718 (CmpTraceHiveMountStop.c)
+ *     HvLoadHive @ 0x1406FA774 (HvLoadHive.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvHiveStartFileBacked(
-        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR a1,
         __int64 a2,
         unsigned int a3,
         unsigned int a4,
@@ -41,51 +41,51 @@ __int64 __fastcall HvHiveStartFileBacked(
   int v24; // ebp
   int v25; // eax
 
-  if ( *(_DWORD *)BugCheckParameter2 != -1092567328 || (a3 & 0xFF617CEC) != 0 || a4 > 2 || (unsigned int)(a6 - 1) > 7 )
+  if ( *(_DWORD *)a1 != -1092567328 || (a3 & 0xFF617CEC) != 0 || a4 > 2 || (unsigned int)(a6 - 1) > 7 )
     __fastfail(5u);
   v14 = a3 & 0xFFFDFFFF;
   if ( !(_BYTE)a2 )
     v14 = a3;
-  *(_DWORD *)(BugCheckParameter2 + 160) = v14;
+  *(_DWORD *)(a1 + 160) = v14;
   if ( a5 )
   {
-    *(_QWORD *)(BugCheckParameter2 + 24) = *a5;
-    *(_QWORD *)(BugCheckParameter2 + 32) = a5[1];
-    *(_QWORD *)(BugCheckParameter2 + 40) = a5[3];
-    *(_QWORD *)(BugCheckParameter2 + 48) = a5[4];
+    *(_QWORD *)(a1 + 24) = *a5;
+    *(_QWORD *)(a1 + 32) = a5[1];
+    *(_QWORD *)(a1 + 40) = a5[3];
+    *(_QWORD *)(a1 + 48) = a5[4];
   }
   if ( a4 )
   {
     v15 = 4;
     if ( a4 == 1 )
       v15 = 1;
-    *(_DWORD *)(BugCheckParameter2 + 164) = v15;
+    *(_DWORD *)(a1 + 164) = v15;
   }
   else
   {
-    *(_DWORD *)(BugCheckParameter2 + 164) = 0;
+    *(_DWORD *)(a1 + 164) = 0;
   }
-  *(_DWORD *)(BugCheckParameter2 + 132) = 4096;
-  *(_QWORD *)(BugCheckParameter2 + 8) = HvpGetCellPaged;
-  *(_DWORD *)(BugCheckParameter2 + 136) = a6;
-  *(_QWORD *)(BugCheckParameter2 + 16) = HvpReleaseCellPaged;
-  *(_DWORD *)(BugCheckParameter2 + 208) = 2;
+  *(_DWORD *)(a1 + 132) = 4096;
+  *(_QWORD *)(a1 + 8) = HvpGetCellPaged;
+  *(_DWORD *)(a1 + 136) = a6;
+  *(_QWORD *)(a1 + 16) = HvpReleaseCellPaged;
+  *(_DWORD *)(a1 + 208) = 2;
   v16 = MEMORY[0xFFFFF78000000014];
   if ( (_BYTE)a2 )
   {
     LOBYTE(a2) = 1;
-    v20 = (char *)(*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(BugCheckParameter2 + 24))(
-                    *(unsigned int *)(BugCheckParameter2 + 132),
+    v20 = (char *)(*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(a1 + 24))(
+                    *(unsigned int *)(a1 + 132),
                     a2,
                     825314627LL);
     v21 = v20;
     if ( !v20 )
     {
       LODWORD(Hive) = -1073741670;
-      SetFailureLocation(a13, 0, 24, -1073741670, 16);
+      SetFailureLocation(a13, 0, 24, 0xC000009A, 0x10u);
       return (unsigned int)Hive;
     }
-    memset(v20, 0, *(unsigned int *)(BugCheckParameter2 + 132));
+    memset(v20, 0, *(unsigned int *)(a1 + 132));
     *((_DWORD *)v21 + 7) = 0;
     *((_DWORD *)v21 + 9) = -1;
     *((_DWORD *)v21 + 10) = 0;
@@ -102,7 +102,7 @@ __int64 __fastcall HvHiveStartFileBacked(
     *((_DWORD *)v21 + 5) = 1;
     v25 = v24 != 0 ? 6 : 3;
     *((_DWORD *)v21 + 6) = v25;
-    *(_DWORD *)(BugCheckParameter2 + 212) = v25;
+    *(_DWORD *)(a1 + 212) = v25;
     *((_DWORD *)v21 + 41) = 1836346738;
     *(_QWORD *)(v21 + 12) = v16;
     if ( a9 )
@@ -113,36 +113,36 @@ __int64 __fastcall HvHiveStartFileBacked(
     if ( a10 )
       *(_OWORD *)(v21 + 148) = *a10;
     *((_DWORD *)v21 + 127) = HvpHeaderCheckSum(v21, v22, v23);
-    *(_QWORD *)(BugCheckParameter2 + 64) = v21;
-    *(_DWORD *)(BugCheckParameter2 + 180) = 1;
-    *(_DWORD *)(BugCheckParameter2 + 168) = 1;
-    *(_DWORD *)(BugCheckParameter2 + 172) = 1;
-    *(_BYTE *)(BugCheckParameter2 + 190) = 1;
+    *(_QWORD *)(a1 + 64) = v21;
+    *(_DWORD *)(a1 + 180) = 1;
+    *(_DWORD *)(a1 + 168) = 1;
+    *(_DWORD *)(a1 + 172) = 1;
+    *(_BYTE *)(a1 + 190) = 1;
     if ( a12 )
       *a12 = 825314627;
   }
   else
   {
     CmpTraceHiveMountStart();
-    Hive = (unsigned int)HvLoadHive(BugCheckParameter2);
+    Hive = (unsigned int)HvLoadHive(a1);
     CmpTraceHiveMountStop(Hive);
     if ( (int)Hive < 0 )
     {
-      SetFailureLocation(a13, 0, 24, Hive, 64);
+      SetFailureLocation(a13, 0, 24, Hive, 0x40u);
       return (unsigned int)Hive;
     }
     if ( (_DWORD)Hive == 1073741833 && a11 )
       *a11 = 1;
     if ( a12 )
       *a12 = 825445699;
-    v18 = *(_QWORD *)(BugCheckParameter2 + 64);
+    v18 = *(_QWORD *)(a1 + 64);
     if ( (*(_DWORD *)(v18 + 144) & 1) != 0 )
     {
-      HvMarkBaseBlockDirty(BugCheckParameter2);
+      HvMarkBaseBlockDirty(a1);
       if ( a11 )
         *a11 = 1;
-      *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 144LL) &= ~1u;
-      v18 = *(_QWORD *)(BugCheckParameter2 + 64);
+      *(_DWORD *)(*(_QWORD *)(a1 + 64) + 144LL) &= ~1u;
+      v18 = *(_QWORD *)(a1 + 64);
     }
     HvpFillFileName(v18, a8);
   }

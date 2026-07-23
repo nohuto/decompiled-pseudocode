@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpPoolContextHeaderFromHandle @ 0x1404F5F24
+ * XREFs of ExpPoolContextHeaderFromHandle @ 0x1404F3824
  * Callers:
- *     ExpSecurePoolFromHandle @ 0x1404F5EFC (ExpSecurePoolFromHandle.c)
- *     ExDestroyPool @ 0x140654030 (ExDestroyPool.c)
+ *     ExpSecurePoolFromHandle @ 0x1404F37FC (ExpSecurePoolFromHandle.c)
+ *     ExDestroyPool @ 0x140652790 (ExDestroyPool.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ _DWORD *__fastcall ExpPoolContextHeaderFromHandle(__int64 a1)
   result = 0LL;
   if ( a1 )
   {
-    v2 = (_DWORD *)(qword_140E6BC08 ^ a1);
+    v2 = (_DWORD *)(qword_140E6BE08 ^ a1);
     if ( *v2 != -1347437123 )
       return 0LL;
     return v2;

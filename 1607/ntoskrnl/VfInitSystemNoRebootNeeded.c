@@ -1,17 +1,17 @@
 /*
- * XREFs of VfInitSystemNoRebootNeeded @ 0x1407031D4
+ * XREFs of VfInitSystemNoRebootNeeded @ 0x140703204
  * Callers:
  *     VfAddVerifierEntry @ 0x140720E78 (VfAddVerifierEntry.c)
  *     VfSetVerifierInformation @ 0x140721060 (VfSetVerifierInformation.c)
  *     ViInitSystemPhase0 @ 0x1407B9E64 (ViInitSystemPhase0.c)
  * Callees:
- *     ExSetPoolFlags @ 0x140171A58 (ExSetPoolFlags.c)
- *     ExDisableAllLookasideLists @ 0x14022E49C (ExDisableAllLookasideLists.c)
- *     MmLockPagableDataSection @ 0x1404830A8 (MmLockPagableDataSection.c)
+ *     ExSetPoolFlags @ 0x140171F58 (ExSetPoolFlags.c)
+ *     ExDisableAllLookasideLists @ 0x14022E2C8 (ExDisableAllLookasideLists.c)
+ *     MmLockPagableDataSection @ 0x140481DFC (MmLockPagableDataSection.c)
  *     IoVerifierInit @ 0x140700648 (IoVerifierInit.c)
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
- *     VfPendingInitPhase1 @ 0x14070CF24 (VfPendingInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x140710A3C (VfPoolInitPhase1.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
+ *     VfPendingInitPhase1 @ 0x14070CF54 (VfPendingInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x140710A6C (VfPoolInitPhase1.c)
  *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140716810 (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 
@@ -46,9 +46,9 @@ void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2)
       ExSetPoolFlags(8u);
       v4 = (unsigned int)MmVerifierData;
     }
-    qword_140300B68 = (__int64)&ViVerifierDriverAddedThunkListHead;
+    qword_140300B48 = (__int64)&ViVerifierDriverAddedThunkListHead;
     ViVerifierDriverAddedThunkListHead = (__int64)&ViVerifierDriverAddedThunkListHead;
-    qword_140300B08 = (__int64)&ViVerifierDriverAddedSpecialThunkListHead;
+    qword_140300AE8 = (__int64)&ViVerifierDriverAddedSpecialThunkListHead;
     ViVerifierDriverAddedSpecialThunkListHead = &ViVerifierDriverAddedSpecialThunkListHead;
     if ( !a2 )
     {

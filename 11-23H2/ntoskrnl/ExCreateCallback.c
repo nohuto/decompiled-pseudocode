@@ -1,13 +1,13 @@
 /*
- * XREFs of ExCreateCallback @ 0x1407DC330
+ * XREFs of ExCreateCallback @ 0x1407DC600
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4CA0 (HvlPhase2Initialize.c)
- *     DifExCreateCallbackWrapper @ 0x1405D8120 (DifExCreateCallbackWrapper.c)
- *     KeRegisterProcessorChangeCallback @ 0x140822690 (KeRegisterProcessorChangeCallback.c)
- *     HaliInitPowerManagement @ 0x140834A70 (HaliInitPowerManagement.c)
- *     HalpMiscInitializeKsr @ 0x140854AE0 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x140863A40 (IoRegisterBootDriverCallback.c)
- *     ExInitLicenseCallback @ 0x140865A5C (ExInitLicenseCallback.c)
+ *     HvlPhase2Initialize @ 0x1403B4E80 (HvlPhase2Initialize.c)
+ *     DifExCreateCallbackWrapper @ 0x1405D8690 (DifExCreateCallbackWrapper.c)
+ *     KeRegisterProcessorChangeCallback @ 0x140822990 (KeRegisterProcessorChangeCallback.c)
+ *     HaliInitPowerManagement @ 0x140834D70 (HaliInitPowerManagement.c)
+ *     HalpMiscInitializeKsr @ 0x140854DE0 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x140863C80 (IoRegisterBootDriverCallback.c)
+ *     ExInitLicenseCallback @ 0x140865C9C (ExInitLicenseCallback.c)
  *     KiFilterFiberContext @ 0x140B17C30 (KiFilterFiberContext.c)
  *     PiCslInitialize @ 0x140B3BC84 (PiCslInitialize.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
@@ -19,13 +19,13 @@
  *     PopSetupKsrCallbacks @ 0x140B75B90 (PopSetupKsrCallbacks.c)
  *     PiKsrNotifyInitialize @ 0x140B95390 (PiKsrNotifyInitialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExpUnlockCallbackListExclusive @ 0x140364DA0 (ExpUnlockCallbackListExclusive.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpUnlockCallbackListExclusive @ 0x140364F40 (ExpUnlockCallbackListExclusive.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall ExCreateCallback(
@@ -90,14 +90,14 @@ LABEL_3:
       *((_QWORD *)v13 + 1) = 0LL;
       --CurrentThread->SpecialApcDisable;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&ExpCallbackListLock, 0LL);
-      v14 = (_QWORD *)qword_140C2D728;
+      v14 = (_QWORD *)qword_140C2D6E8;
       v15 = v13 + 40;
-      if ( *(__int64 **)qword_140C2D728 != &ExpCallbackListHead )
+      if ( *(__int64 **)qword_140C2D6E8 != &ExpCallbackListHead )
         __fastfail(3u);
       *v15 = &ExpCallbackListHead;
       *((_QWORD *)v13 + 6) = v14;
       *v14 = v15;
-      qword_140C2D728 = (__int64)(v13 + 40);
+      qword_140C2D6E8 = (__int64)(v13 + 40);
       ExpUnlockCallbackListExclusive((__int64)CurrentThread);
       inserted = ObInsertObjectEx(v13, 0LL, 1, 0, 0, 0LL, &Handle);
       if ( inserted >= 0 )

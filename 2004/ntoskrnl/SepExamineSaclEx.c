@@ -138,7 +138,7 @@ LABEL_91:
           {
             case 2:
               LOBYTE(v16) = 1;
-              if ( !(unsigned __int8)SepSidInToken(v14, a10, (__int64)(v25 + 8), (__int64)v16, 0)
+              if ( !(unsigned __int8)SepSidInToken(v14, a10, (__int64)(v25 + 8), (__int64)v16, 0, a11, 0)
                 && (!Size || *(_WORD *)SeWorldSid != *((_WORD *)v25 + 4) || memcmp(SeWorldSid, v25 + 8, Size)) )
               {
                 goto LABEL_87;
@@ -201,7 +201,7 @@ LABEL_31:
               v36 = (_DWORD *)((unsigned __int64)(v25 + 12) & -(__int64)(v34 != 0));
               if ( v36 )
               {
-                if ( (unsigned __int8)SepSidInToken(v14, a10, (__int64)v35, (__int64)v16, 0)
+                if ( (unsigned __int8)SepSidInToken(v14, a10, (__int64)v35, (__int64)v16, 0, a11, 0)
                   || Size && *(_WORD *)SeWorldSid == *(_WORD *)v35 && !memcmp(SeWorldSid, v35, Size) )
                 {
                   v40 = a12;
@@ -228,7 +228,7 @@ LABEL_85:
                   }
                 }
               }
-              else if ( (unsigned __int8)SepSidInToken(v14, a10, (__int64)v35, (__int64)v16, 0)
+              else if ( (unsigned __int8)SepSidInToken(v14, a10, (__int64)v35, (__int64)v16, 0, a11, 0)
                      || Size && *(_WORD *)SeWorldSid == *(_WORD *)v35 && !memcmp(SeWorldSid, v35, Size) )
               {
                 v38 = 0;
@@ -305,7 +305,7 @@ LABEL_85:
               if ( v55 != 1 )
                 goto LABEL_87;
               LOBYTE(v50) = 1;
-              if ( !(unsigned __int8)SepSidInToken(a3, a10, (__int64)(v25 + 8), v50, 0)
+              if ( !(unsigned __int8)SepSidInToken(a3, a10, (__int64)(v25 + 8), v50, 0, a11, 0)
                 && (!Size || *(_WORD *)SeWorldSid != *v42 || memcmp(SeWorldSid, v25 + 8, Size)) )
               {
                 goto LABEL_87;

@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpDispatchInterfaceClass @ 0x1404F6648
+ * XREFs of _PnpDispatchInterfaceClass @ 0x1404D95D4
  * Callers:
  *     <none>
  * Callees:
- *     _CmGetInterfaceClassMappedProperty @ 0x1404F6754 (_CmGetInterfaceClassMappedProperty.c)
- *     _CmOpenInterfaceClassRegKey @ 0x1404F6E20 (_CmOpenInterfaceClassRegKey.c)
- *     _CmValidateInstallerClassName @ 0x1404F6E60 (_CmValidateInstallerClassName.c)
- *     _CmGetMatchingCommonClassList @ 0x140562260 (_CmGetMatchingCommonClassList.c)
- *     _CmCreateInterfaceClass @ 0x1406D75BC (_CmCreateInterfaceClass.c)
- *     _CmDeleteInterfaceClass @ 0x1406D91EC (_CmDeleteInterfaceClass.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x1406DE438 (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _CmGetInterfaceClassMappedPropertyLocales @ 0x1406DE638 (_CmGetInterfaceClassMappedPropertyLocales.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x1406DF618 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmGetInterfaceClassMappedProperty @ 0x1404D96E0 (_CmGetInterfaceClassMappedProperty.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1404D9DAC (_CmOpenInterfaceClassRegKey.c)
+ *     _CmValidateInstallerClassName @ 0x1404D9DEC (_CmValidateInstallerClassName.c)
+ *     _CmGetMatchingCommonClassList @ 0x1405627A0 (_CmGetMatchingCommonClassList.c)
+ *     _CmCreateInterfaceClass @ 0x1406D76F4 (_CmCreateInterfaceClass.c)
+ *     _CmDeleteInterfaceClass @ 0x1406D9324 (_CmDeleteInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x1406DE570 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmGetInterfaceClassMappedPropertyLocales @ 0x1406DE770 (_CmGetInterfaceClassMappedPropertyLocales.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x1406DF750 (_CmSetInterfaceClassMappedProperty.c)
  */
 
 __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)

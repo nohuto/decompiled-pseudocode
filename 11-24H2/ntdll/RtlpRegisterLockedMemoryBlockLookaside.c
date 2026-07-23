@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpRegisterLockedMemoryBlockLookaside @ 0x180001C88
+ * XREFs of RtlpRegisterLockedMemoryBlockLookaside @ 0x1800AA998
  * Callers:
- *     RtlLockMemoryBlockLookaside @ 0x180001A20 (RtlLockMemoryBlockLookaside.c)
+ *     RtlLockMemoryBlockLookaside @ 0x1800AA730 (RtlLockMemoryBlockLookaside.c)
  * Callees:
- *     RtlUnlockModuleSection @ 0x180001D20 (RtlUnlockModuleSection.c)
- *     RtlLockModuleSection @ 0x180001DD0 (RtlLockModuleSection.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlUnlockModuleSection @ 0x1800AAA30 (RtlUnlockModuleSection.c)
+ *     RtlLockModuleSection @ 0x1800AAAE0 (RtlLockModuleSection.c)
  */
 
 __int64 RtlpRegisterLockedMemoryBlockLookaside()
 {
-  int v0; // esi
+  NTSTATUS v0; // esi
   int v1; // eax
   __int64 i; // rbx
-  __int64 (__fastcall **v4)(); // rdi
+  PVOID *v4; // rdi
 
   v0 = 0;
   RtlAcquireSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
@@ -33,7 +33,7 @@ LABEL_2:
         v1 = RtlpLockedMemoryBlockLookasideCount;
         goto LABEL_2;
       }
-      v4 = &RtlpMemoryBlockLookasideCriticalRoutines[i];
+      v4 = (PVOID *)&RtlpMemoryBlockLookasideCriticalRoutines[i];
       v0 = RtlLockModuleSection(*v4);
       if ( v0 < 0 )
         break;

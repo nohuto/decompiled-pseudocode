@@ -1,39 +1,39 @@
 /*
- * XREFs of PipProcessStartPhase3 @ 0x1403EEA60
+ * XREFs of PipProcessStartPhase3 @ 0x140488964
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PnpSetDeviceInstanceStartedEvent @ 0x1400B2E6C (PnpSetDeviceInstanceStartedEvent.c)
- *     PpvUtilTestStartedPdoStack @ 0x1400B54F0 (PpvUtilTestStartedPdoStack.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     Template_qz @ 0x1401D0DAC (Template_qz.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PpvUtilTestStartedPdoStack @ 0x140085FD4 (PpvUtilTestStartedPdoStack.c)
+ *     PnpSetDeviceInstanceStartedEvent @ 0x140085FE4 (PnpSetDeviceInstanceStartedEvent.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     Template_qz @ 0x1401D0BD8 (Template_qz.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpSetPlugPlayEvent @ 0x1403F01EC (PnpSetPlugPlayEvent.c)
- *     PiProcessQueryDeviceState @ 0x1403F13A8 (PiProcessQueryDeviceState.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140460524 (SeAuditingWithTokenForSubcategory.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x140485DB8 (PiDcUpdateDeviceContainerMembership.c)
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x140486C30 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     _PnpSetObjectProperty @ 0x140488D1C (_PnpSetObjectProperty.c)
- *     PnpQueryID @ 0x140488E8C (PnpQueryID.c)
- *     PnpCheckDeviceIdsChanged @ 0x140489604 (PnpCheckDeviceIdsChanged.c)
- *     _CmSetDeviceRegProp @ 0x140489A34 (_CmSetDeviceRegProp.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140489B8C (PnpDeviceObjectToDeviceInstance.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x1404C4CE4 (PnpStartedDeviceNodeDependencyCheck.c)
- *     PnpGenerateDeviceIdsHash @ 0x1404E63C8 (PnpGenerateDeviceIdsHash.c)
- *     PiCreateDriverSwDevices @ 0x1404ED268 (PiCreateDriverSwDevices.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140506874 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     PpDevCfgProcessDevice @ 0x14064134C (PpDevCfgProcessDevice.c)
- *     PiAuditDeviceStart @ 0x14064CCF4 (PiAuditDeviceStart.c)
+ *     PiProcessQueryDeviceState @ 0x1403F026C (PiProcessQueryDeviceState.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14045F3F4 (SeAuditingWithTokenForSubcategory.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x1404888E8 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PnpSetPlugPlayEvent @ 0x14048A464 (PnpSetPlugPlayEvent.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1404E9804 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PnpGenerateDeviceIdsHash @ 0x14050D908 (PnpGenerateDeviceIdsHash.c)
+ *     PiCreateDriverSwDevices @ 0x14050FA08 (PiCreateDriverSwDevices.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14050FABC (PiDcUpdateDeviceContainerMembership.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14050FD98 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     _PnpSetObjectProperty @ 0x140511490 (_PnpSetObjectProperty.c)
+ *     PnpQueryID @ 0x140511600 (PnpQueryID.c)
+ *     PnpCheckDeviceIdsChanged @ 0x140511D78 (PnpCheckDeviceIdsChanged.c)
+ *     _CmSetDeviceRegProp @ 0x1405121B4 (_CmSetDeviceRegProp.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x14051230C (PnpDeviceObjectToDeviceInstance.c)
+ *     PpDevCfgProcessDevice @ 0x140641430 (PpDevCfgProcessDevice.c)
+ *     PiAuditDeviceStart @ 0x14064CDD8 (PiAuditDeviceStart.c)
  */
 
 __int64 __fastcall PipProcessStartPhase3(__int64 a1, int a2, __int64 a3)
@@ -41,7 +41,7 @@ __int64 __fastcall PipProcessStartPhase3(__int64 a1, int a2, __int64 a3)
   int v3; // esi
   int DeviceState; // ebx
   __int64 v6; // r8
-  void *v7; // r15
+  _QWORD *v7; // r15
   PVOID v8; // rcx
   PVOID v10; // rsi
   PVOID v11; // rbx
@@ -82,7 +82,7 @@ __int64 __fastcall PipProcessStartPhase3(__int64 a1, int a2, __int64 a3)
   DeviceState = PiPnpRtlBeginOperation(&v37);
   if ( DeviceState >= 0 )
   {
-    v7 = *(void **)(a1 + 32);
+    v7 = *(_QWORD **)(a1 + 32);
     if ( (*(_DWORD *)(a1 + 396) & 0x20) != 0
       || (int)PnpDeviceObjectToDeviceInstance(*(_QWORD *)(a1 + 32), &Handle, 131097LL) < 0 )
     {
@@ -94,7 +94,7 @@ LABEL_5:
       else
       {
         if ( v3 )
-          PipSetDevNodeFlags(a1, 8LL);
+          PipSetDevNodeFlags(a1, 8);
         PnpQueryAndSaveDeviceNodeCapabilities(a1);
         DeviceState = PiProcessQueryDeviceState(v7);
         PnpSetPlugPlayEvent(&GUID_DEVICE_ARRIVAL, *(_QWORD *)(a1 + 32));
@@ -105,7 +105,7 @@ LABEL_5:
           PipSetDevNodeState(a1, 776);
           PnpStartedDeviceNodeDependencyCheck(a1);
           PiCreateDriverSwDevices(a1);
-          if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(138LL, 0LL) )
+          if ( SeAuditingWithTokenForSubcategory(138, 0LL) )
             PiAuditDeviceStart(a1 + 40);
           DeviceState = 0;
         }
@@ -132,7 +132,7 @@ LABEL_39:
         0);
       RtlInitUnicodeString(&DestinationString, L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}");
       RtlGUIDFromString(&DestinationString, (GUID *)(a1 + 664));
-      PipSetDevNodeFlags(a1, 32LL);
+      PipSetDevNodeFlags(a1, 32);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpQueryKeyValueData @ 0x140875E50
+ * XREFs of CmpQueryKeyValueData @ 0x14087A180
  * Callers:
- *     CmQueryValueKey @ 0x140874900 (CmQueryValueKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x14090B974 (CmEnumerateValueFromLayeredKey.c)
- *     NtEnumerateValueKey @ 0x14090C2D0 (NtEnumerateValueKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140A66364 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmQueryValueKey @ 0x140878C30 (CmQueryValueKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1408E3094 (CmEnumerateValueFromLayeredKey.c)
+ *     NtEnumerateValueKey @ 0x1408E39F0 (NtEnumerateValueKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140A5F148 (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpGetValueData @ 0x1408765B0 (CmpGetValueData.c)
- *     CmpCopyCompressedName @ 0x14087E8A0 (CmpCopyCompressedName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpGetValueData @ 0x14087A8E0 (CmpGetValueData.c)
+ *     CmpCopyCompressedName @ 0x140882750 (CmpCopyCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpQueryKeyValueData(

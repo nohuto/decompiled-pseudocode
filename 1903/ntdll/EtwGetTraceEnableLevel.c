@@ -14,6 +14,6 @@ char __fastcall EtwGetTraceEnableLevel(__int64 a1)
   v3 = BYTE2(a1);
   if ( ((unsigned __int16)a1 < (unsigned int)sub_1800801D0() || (_WORD)a1 == 0xFFFF) && a1 )
     return v3;
-  RtlSetLastWin32Error(6u);
+  RtlSetLastWin32Error(6);
   return 0;
 }

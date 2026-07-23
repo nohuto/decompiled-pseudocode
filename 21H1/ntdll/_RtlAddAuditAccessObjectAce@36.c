@@ -7,26 +7,26 @@
  *     _RtlpAddKnownObjectAce@32 @ 0x4B34B856 (_RtlpAddKnownObjectAce@32.c)
  */
 
-int __stdcall RtlAddAuditAccessObjectAce(
-        int a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        void *Src,
-        char a8,
-        char a9)
+NTSTATUS __cdecl RtlAddAuditAccessObjectAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PGUID ObjectTypeGuid,
+        PGUID InheritedObjectTypeGuid,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  int v9; // eax
+  ULONG v9; // eax
 
-  v9 = a3;
-  if ( a8 )
-    v9 = a3 | 0x40;
-  if ( a9 )
+  v9 = AceFlags;
+  if ( AuditSuccess )
+    v9 = AceFlags | 0x40;
+  if ( AuditFailure )
     v9 |= 0x80u;
-  if ( a5 || a6 )
-    return RtlpAddKnownObjectAce(v9, a4, a5, a6, Src, 7);
+  if ( ObjectTypeGuid || InheritedObjectTypeGuid )
+    return RtlpAddKnownObjectAce(Acl, v9, AccessMask, (int)ObjectTypeGuid, (int)InheritedObjectTypeGuid, Sid, 7);
   else
-    return RtlpAddKnownAce(a1, a2, v9, a4, (unsigned __int8 *)Src, 2);
+    return RtlpAddKnownAce(Acl, AceRevision, v9, AccessMask, (unsigned __int8 *)Sid, 2);
 }

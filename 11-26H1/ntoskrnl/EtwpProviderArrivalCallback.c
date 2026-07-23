@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpProviderArrivalCallback @ 0x14093C304
+ * XREFs of EtwpProviderArrivalCallback @ 0x140917EA4
  * Callers:
- *     EtwpTrackProviderBinaryKm @ 0x1408289A8 (EtwpTrackProviderBinaryKm.c)
- *     EtwpTrackProviderBinaryOld @ 0x140828C6C (EtwpTrackProviderBinaryOld.c)
- *     EtwpTrackProviderRegistration @ 0x140936F80 (EtwpTrackProviderRegistration.c)
- *     EtwpAddRegEntryToGroup @ 0x14093B720 (EtwpAddRegEntryToGroup.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x14093C018 (EtwpTrackGuidEntryRegistrations.c)
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     EtwpTrackProviderBinaryKm @ 0x14082EBE8 (EtwpTrackProviderBinaryKm.c)
+ *     EtwpTrackProviderBinaryOld @ 0x14082EEAC (EtwpTrackProviderBinaryOld.c)
+ *     EtwpTrackProviderRegistration @ 0x140912B20 (EtwpTrackProviderRegistration.c)
+ *     EtwpAddRegEntryToGroup @ 0x1409172C0 (EtwpAddRegEntryToGroup.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x140917BB8 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     MmLockLoadedDataTableEntryShared @ 0x1404D9298 (MmLockLoadedDataTableEntryShared.c)
- *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140520D7C (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
- *     MmUnlockLoadedDataTableEntryShared @ 0x1406FD1D0 (MmUnlockLoadedDataTableEntryShared.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpEventWriteDebugLookupFailed @ 0x1408252C8 (EtwpEventWriteDebugLookupFailed.c)
- *     EtwpSendDbgId @ 0x14082C740 (EtwpSendDbgId.c)
- *     EtwpTrackBinaryForSession @ 0x14093C508 (EtwpTrackBinaryForSession.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x140942658 (EtwpLocateDbgIdForRegEntry.c)
- *     MmGetFileNameForAddress @ 0x1409FBE08 (MmGetFileNameForAddress.c)
- *     EtwpTrackDebugIdForSession @ 0x140A8465C (EtwpTrackDebugIdForSession.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     MmLockLoadedDataTableEntryShared @ 0x1404D2978 (MmLockLoadedDataTableEntryShared.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140523420 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     MmUnlockLoadedDataTableEntryShared @ 0x140701EA0 (MmUnlockLoadedDataTableEntryShared.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpEventWriteDebugLookupFailed @ 0x14082B508 (EtwpEventWriteDebugLookupFailed.c)
+ *     EtwpSendDbgId @ 0x140832980 (EtwpSendDbgId.c)
+ *     EtwpTrackBinaryForSession @ 0x1409180A8 (EtwpTrackBinaryForSession.c)
+ *     MmGetFileNameForAddress @ 0x140920A08 (MmGetFileNameForAddress.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x140A35768 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpTrackDebugIdForSession @ 0x140A899DC (EtwpTrackDebugIdForSession.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3)
@@ -92,7 +92,7 @@ LABEL_15:
     FileNameForAddress = v12;
     if ( v12 < 0 )
     {
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_DEBUG_LOOKUP_FAILED) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_DEBUG_LOOKUP_FAILED) )
         EtwpEventWriteDebugLookupFailed(v18, v17, v19, a3, a1, FileNameForAddress);
     }
     else

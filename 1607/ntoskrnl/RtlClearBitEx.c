@@ -1,16 +1,12 @@
 /*
- * XREFs of RtlClearBitEx @ 0x140212058
+ * XREFs of RtlClearBitEx @ 0x140211E84
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-signed __int64 *__fastcall RtlClearBitEx(__int64 a1, unsigned __int64 a2)
+void __cdecl RtlClearBitEx(PRTL_BITMAP_EX BitMapHeader, ULONG64 BitNumber)
 {
-  signed __int64 *result; // rax
-
-  result = *(signed __int64 **)(a1 + 8);
-  _bittestandreset64(result, a2);
-  return result;
+  _bittestandreset64((signed __int64 *)BitMapHeader->Buffer, BitNumber);
 }

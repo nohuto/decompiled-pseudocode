@@ -1,10 +1,10 @@
 /*
- * XREFs of PopReleaseUserPresentSpinLock @ 0x14058DEA0
+ * XREFs of PopReleaseUserPresentSpinLock @ 0x14058E390
  * Callers:
- *     PopSetSystemAwayMode @ 0x14098A890 (PopSetSystemAwayMode.c)
+ *     PopSetSystemAwayMode @ 0x14098AA90 (PopSetSystemAwayMode.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopReleaseUserPresentSpinLock(unsigned __int8 a1)
@@ -17,10 +17,10 @@ __int64 __fastcall PopReleaseUserPresentSpinLock(unsigned __int8 a1)
 
   v1 = a1;
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v1 <= 0xFu
       && (unsigned __int8)result >= 2u )

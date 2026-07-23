@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateAccessLog @ 0x140485ED0
+ * XREFs of MiAllocateAccessLog @ 0x1404814C0
  * Callers:
- *     MiLogPageAccess @ 0x140286F90 (MiLogPageAccess.c)
+ *     MiLogPageAccess @ 0x140296B90 (MiLogPageAccess.c)
  * Callees:
- *     MiEmptyPageAccessLog @ 0x140244260 (MiEmptyPageAccessLog.c)
- *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetVmAccessLoggingPartition @ 0x140399050 (MiGetVmAccessLoggingPartition.c)
+ *     MiEmptyPageAccessLog @ 0x14020C9F0 (MiEmptyPageAccessLog.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetVmAccessLoggingPartition @ 0x140351780 (MiGetVmAccessLoggingPartition.c)
+ *     MiSufficientAvailablePages @ 0x1403526D0 (MiSufficientAvailablePages.c)
  */
 
 _QWORD *__fastcall MiAllocateAccessLog(__int64 a1)
@@ -26,11 +26,11 @@ _QWORD *__fastcall MiAllocateAccessLog(__int64 a1)
   VmAccessLoggingPartition = MiGetVmAccessLoggingPartition(a1);
   if ( !(unsigned int)MiSufficientAvailablePages((__int64)VmAccessLoggingPartition, 0x420uLL)
     || *((_QWORD *)VmAccessLoggingPartition + 2344) < v3
-    || (v4 = 4096LL, (unsigned __int64)(*(_QWORD *)&MiState - qword_140E2CA48) < 0x800) )
+    || (v4 = 4096LL, (unsigned __int64)(*(_QWORD *)&MiState - qword_140E2CB88) < 0x800) )
   {
     v4 = 512LL;
   }
-  v5 = &unk_140E38740;
+  v5 = &unk_140E38880;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 1 )
     v5 = (void *)(a1 + 192);
   v6 = (_QWORD *)*((_QWORD *)v5 + 5);

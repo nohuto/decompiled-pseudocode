@@ -11,9 +11,9 @@
  *     __security_check_cookie @ 0x18008B0F0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall sub_180102360(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+ULONG __fastcall sub_180102360(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   __int64 v5; // [rsp+30h] [rbp-59h] BYREF
   __int64 v6; // [rsp+38h] [rbp-51h] BYREF
   __int64 v7; // [rsp+40h] [rbp-49h] BYREF
@@ -48,7 +48,13 @@ __int64 __fastcall sub_180102360(__int64 a1, __int64 *a2, __int64 a3, __int64 a4
     v16 = 8LL;
     v18 = 8LL;
     v20 = 8LL;
-    return sub_1800886A4((__int64)&dword_180156650, byte_180123C65, a3, a4, 7, (__int64)v10);
+    return sub_1800886A4(
+             (__int64)&dword_180156650,
+             (unsigned __int8 *)dword_180123C65,
+             a3,
+             a4,
+             7u,
+             (PEVENT_DATA_DESCRIPTOR)v10);
   }
   return result;
 }

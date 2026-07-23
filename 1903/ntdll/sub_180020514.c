@@ -10,7 +10,7 @@
  *     ZwProtectVirtualMemory @ 0x18009D0E0 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall sub_180020514(unsigned __int64 a1, unsigned int a2, _QWORD *a3, unsigned __int64 a4, _QWORD *a5)
+__int64 __fastcall sub_180020514(char *a1, unsigned int a2, _QWORD *a3, unsigned __int64 a4, _QWORD *a5)
 {
   _DWORD *v5; // rax
   _QWORD *v7; // rdi
@@ -19,9 +19,9 @@ __int64 __fastcall sub_180020514(unsigned __int64 a1, unsigned int a2, _QWORD *a
   unsigned __int64 v10; // rbx
   int v12; // [rsp+30h] [rbp-20h] BYREF
   _DWORD *v13; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-10h] BYREF
-  _QWORD *v15; // [rsp+48h] [rbp-8h] BYREF
-  unsigned int v16; // [rsp+80h] [rbp+30h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-8h] BYREF
+  ULONG NewProtect; // [rsp+80h] [rbp+30h] BYREF
 
   v5 = 0LL;
   v13 = 0LL;
@@ -51,12 +51,12 @@ __int64 __fastcall sub_180020514(unsigned __int64 a1, unsigned int a2, _QWORD *a
       *v7 = v10;
       return 1LL;
     }
-    v15 = v7;
-    v14 = 8LL;
-    if ( (int)ZwProtectVirtualMemory(-1LL, &v15, &v14, 4LL, &v16) >= 0 )
+    BaseAddress = v7;
+    RegionSize = 8LL;
+    if ( ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &NewProtect) >= 0 )
     {
       *v7 = v10;
-      ZwProtectVirtualMemory(-1LL, &v15, &v14, v16, &v16);
+      ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, NewProtect, &NewProtect);
       return 1LL;
     }
   }

@@ -13,34 +13,30 @@
  *     memmove @ 0x1800A3C00 (memmove.c)
  */
 
-unsigned __int64 __fastcall RtlCopyUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2)
+void __cdecl RtlCopyUnicodeString(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
-  unsigned __int64 result; // rax
-  unsigned int v4; // r8d
-  unsigned int v5; // eax
-  void *v6; // rsi
-  const void *v7; // rdx
-  unsigned __int64 v8; // rbx
+  unsigned int Length; // r8d
+  unsigned int MaximumLength; // eax
+  wchar_t *Buffer; // rsi
+  wchar_t *v6; // rdx
+  unsigned __int64 v7; // rbx
 
-  result = (unsigned __int64)a2;
-  if ( a2 )
+  if ( SourceString )
   {
-    v4 = *a2;
-    v5 = a1[1];
-    v6 = (void *)*((_QWORD *)a1 + 1);
-    v7 = (const void *)*((_QWORD *)a2 + 1);
-    if ( (unsigned __int16)v4 <= (unsigned __int16)v5 )
-      v5 = v4;
-    v8 = v5;
-    *a1 = v5;
-    memmove(v6, v7, v5);
-    result = a1[1];
-    if ( (unsigned __int64)*a1 + 2 <= result )
-      *((_WORD *)v6 + (v8 >> 1)) = 0;
+    Length = SourceString->Length;
+    MaximumLength = DestinationString->MaximumLength;
+    Buffer = DestinationString->Buffer;
+    v6 = SourceString->Buffer;
+    if ( (unsigned __int16)Length <= (unsigned __int16)MaximumLength )
+      MaximumLength = Length;
+    v7 = MaximumLength;
+    DestinationString->Length = MaximumLength;
+    memmove(Buffer, v6, MaximumLength);
+    if ( (unsigned __int64)DestinationString->Length + 2 <= DestinationString->MaximumLength )
+      Buffer[v7 >> 1] = 0;
   }
   else
   {
-    *a1 = 0;
+    DestinationString->Length = 0;
   }
-  return result;
 }

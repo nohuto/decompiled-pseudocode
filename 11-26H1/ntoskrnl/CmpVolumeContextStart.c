@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpVolumeContextStart @ 0x140906340
+ * XREFs of CmpVolumeContextStart @ 0x140A2E678
  * Callers:
- *     CmpVolumeContextCreate @ 0x1409062A8 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCreate @ 0x140A2E5E0 (CmpVolumeContextCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     IoVolumeDeviceToGuid @ 0x140907B30 (IoVolumeDeviceToGuid.c)
- *     IoVolumeDeviceToGuidPath @ 0x140907BC0 (IoVolumeDeviceToGuidPath.c)
- *     CmpUuidCreate @ 0x140A7622C (CmpUuidCreate.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     IoVolumeDeviceToGuid @ 0x140A2FC90 (IoVolumeDeviceToGuid.c)
+ *     IoVolumeDeviceToGuidPath @ 0x140A2FD20 (IoVolumeDeviceToGuidPath.c)
+ *     CmpUuidCreate @ 0x140A7EF4C (CmpUuidCreate.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpVolumeContextStart(__int64 a1, __int64 a2, struct _DEVICE_OBJECT *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall CmpVolumeContextStart(__int64 a1, __int64 a2, struct _DEVICE_
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, 44);
   RtlInitUnicodeString(&DestinationString, 0LL);
-  *(_QWORD *)(a1 + 16) = &KiSystemServiceTraceCallbackLock.1008;
+  *(_QWORD *)(a1 + 16) = &KiSystemServiceTraceCallbackLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
   if ( a3 )
   {
     v5 = IoVolumeDeviceToGuid(a3, a1 + 32);
@@ -48,7 +48,7 @@ __int64 __fastcall CmpVolumeContextStart(__int64 a1, __int64 a2, struct _DEVICE_
           v5 = ObReferenceObjectByHandle(
                  Handle,
                  0x180u,
-                 **(POBJECT_TYPE **)&CmpCallbackListLock.ApcStateFill[40],
+                 (POBJECT_TYPE)CmpContextListLock.ApcState.ApcListHead[1].Blink->Flink,
                  0,
                  &Object,
                  0LL);

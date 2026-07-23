@@ -25,41 +25,42 @@ int __thiscall RtlpMuiRegLoadPreferredUILanguages(void *this, unsigned int a2, i
   int LanguageList; // edi
   unsigned int v6; // esi
   HANDLE v7; // ecx
-  int v8; // esi
-  int v9; // eax
+  NTSTATUS v8; // esi
+  NTSTATUS v9; // eax
   const WCHAR *v10; // eax
   int v11; // ecx
-  int ValueKey; // ecx
-  void *Heap; // eax
+  int v12; // ecx
+  PVOID Heap; // eax
   int v14; // ecx
-  void *v15; // edi
+  PVOID v15; // edi
   int v16; // ebx
-  int v18; // eax
-  int v19; // eax
-  char v20; // [esp+Fh] [ebp-71h] BYREF
-  int v21; // [esp+10h] [ebp-70h] BYREF
+  NTSTATUS v18; // eax
+  NTSTATUS v19; // eax
+  SIZE_T v20; // [esp-4h] [ebp-84h]
+  char v21; // [esp+Fh] [ebp-71h] BYREF
+  int v22; // [esp+10h] [ebp-70h] BYREF
   HANDLE Handle; // [esp+14h] [ebp-6Ch] BYREF
-  HANDLE v23; // [esp+18h] [ebp-68h] BYREF
-  HANDLE v24; // [esp+1Ch] [ebp-64h] BYREF
-  int v25; // [esp+20h] [ebp-60h]
-  int v26; // [esp+24h] [ebp-5Ch] BYREF
-  int v27; // [esp+28h] [ebp-58h] BYREF
-  void *v28; // [esp+2Ch] [ebp-54h]
-  UNICODE_STRING DestinationString; // [esp+30h] [ebp-50h] BYREF
-  _DWORD v30[6]; // [esp+38h] [ebp-48h] BYREF
-  _DWORD v31[6]; // [esp+50h] [ebp-30h] BYREF
-  _DWORD v32[6]; // [esp+68h] [ebp-18h] BYREF
+  HANDLE CurrentUserKey; // [esp+18h] [ebp-68h] BYREF
+  HANDLE KeyHandle; // [esp+1Ch] [ebp-64h] BYREF
+  int v26; // [esp+20h] [ebp-60h]
+  int v27; // [esp+24h] [ebp-5Ch] BYREF
+  unsigned int v28; // [esp+28h] [ebp-58h] BYREF
+  PVOID BaseAddress; // [esp+2Ch] [ebp-54h]
+  _UNICODE_STRING DestinationString; // [esp+30h] [ebp-50h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+38h] [ebp-48h] BYREF
+  _OBJECT_ATTRIBUTES v32; // [esp+50h] [ebp-30h] BYREF
+  _OBJECT_ATTRIBUTES v33; // [esp+68h] [ebp-18h] BYREF
 
-  v25 = (int)this;
-  v23 = 0;
+  v26 = (int)this;
+  CurrentUserKey = 0;
   Handle = 0;
-  v24 = 0;
-  v26 = 7;
-  v27 = 0;
+  KeyHandle = 0;
+  v27 = 7;
   v28 = 0;
-  v20 = 0;
-  LanguageList = 0;
+  BaseAddress = 0;
   v21 = 0;
+  LanguageList = 0;
+  v22 = 0;
   if ( !this || !a4 || !a5 )
   {
     v8 = -1073741811;
@@ -70,47 +71,47 @@ int __thiscall RtlpMuiRegLoadPreferredUILanguages(void *this, unsigned int a2, i
   if ( a2 > 1 )
     return -1073741811;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-  v30[0] = 24;
-  v30[2] = &DestinationString;
-  v30[1] = 0;
-  v30[3] = 64;
-  v30[4] = 0;
-  v30[5] = 0;
-  if ( (int)ZwOpenKey(&v24, 131097, v30) >= 0 )
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    v18 = RtlpLoadMachineUIByPolicy((int)v24, v25, &v21);
-    LanguageList = v21;
+    v18 = RtlpLoadMachineUIByPolicy((int)KeyHandle, v26, &v22);
+    LanguageList = v22;
     v8 = v18;
-    if ( !v18 && v21 )
+    if ( !v18 && v22 )
       goto LABEL_24;
-    v7 = v24;
+    v7 = KeyHandle;
     v6 = a2;
   }
   else
   {
     v7 = 0;
-    v24 = 0;
+    KeyHandle = 0;
   }
-  if ( v6 == 1 && v7 && RtlpHasMachineUILock(v7, &v20) >= 0 )
-    a2 = (unsigned __int8)(v20 - 1) != 0;
-  v8 = OpenGlobalizationUserSettingsKey(&v23);
+  if ( v6 == 1 && v7 && RtlpHasMachineUILock(v7, &v21) >= 0 )
+    a2 = (unsigned __int8)(v21 - 1) != 0;
+  v8 = OpenGlobalizationUserSettingsKey(0x2000000u, &CurrentUserKey);
   if ( v8 < 0 )
     goto LABEL_52;
   if ( a2 == 1 )
   {
-    v9 = RtlpLoadUserUIByPolicy(v23, v25, &v21);
-    LanguageList = v21;
+    v9 = RtlpLoadUserUIByPolicy(CurrentUserKey, v26, &v22);
+    LanguageList = v22;
     v8 = v9;
-    if ( !v9 && v21 )
+    if ( !v9 && v22 )
       goto LABEL_31;
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop");
-    v31[1] = v23;
-    v31[2] = &DestinationString;
-    v31[4] = 0;
-    v31[5] = 0;
-    v31[0] = 24;
-    v31[3] = 64;
-    v8 = ZwOpenKey(&Handle, 131097, v31);
+    v32.RootDirectory = CurrentUserKey;
+    v32.ObjectName = &DestinationString;
+    v32.SecurityDescriptor = 0;
+    v32.SecurityQualityOfService = 0;
+    v32.Length = 24;
+    v32.Attributes = 64;
+    v8 = ZwOpenKey(&Handle, 0x20019u, &v32);
     if ( v8 >= 0 )
     {
       v10 = L"PreferredUILanguages";
@@ -124,13 +125,13 @@ LABEL_52:
   }
   RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached");
   v8 = 0;
-  v32[1] = v23;
-  v32[2] = &DestinationString;
-  v32[0] = 24;
-  v32[3] = 64;
-  v32[4] = 0;
-  v32[5] = 0;
-  if ( (int)ZwOpenKey(&Handle, 131097, v32) < 0 )
+  v33.RootDirectory = CurrentUserKey;
+  v33.ObjectName = &DestinationString;
+  v33.Length = 24;
+  v33.Attributes = 64;
+  v33.SecurityDescriptor = 0;
+  v33.SecurityQualityOfService = 0;
+  if ( ZwOpenKey(&Handle, 0x20019u, &v33) < 0 )
   {
     *a4 = 1;
     goto LABEL_24;
@@ -138,33 +139,34 @@ LABEL_52:
   v10 = L"MachinePreferredUILanguages";
 LABEL_15:
   RtlInitUnicodeString(&DestinationString, v10);
-  ValueKey = LdrpQueryValueKey((int)&v26, 0, (int)&v27, v11);
+  v12 = LdrpQueryValueKey(Handle, &DestinationString, &v27, 0, &v28, v11);
   v8 = -1073741772;
-  if ( ValueKey == -1073741772 || !v27 )
+  if ( v12 == -1073741772 || !v28 )
   {
     *a4 = 1;
     v8 = 0;
     goto LABEL_24;
   }
-  if ( ValueKey == -2147483643 )
+  if ( v12 == -2147483643 )
   {
-    Heap = (void *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v27 + 2);
+    LODWORD(v20) = v28 + 2;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v20);
     v15 = Heap;
-    v28 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      v8 = LdrpQueryValueKey((int)&v26, Heap, (int)&v27, v14);
+      v8 = LdrpQueryValueKey(Handle, &DestinationString, &v27, Heap, &v28, v14);
       if ( v8 >= 0 )
       {
-        if ( v26 != 7 && v26 != 1 )
+        if ( v27 != 7 && v27 != 1 )
         {
-          LanguageList = v21;
+          LanguageList = v22;
           v8 = 0;
           *a4 = 1;
 LABEL_24:
           if ( a2 || LanguageList && *(_WORD *)(LanguageList + 4) )
           {
-            v16 = v25;
+            v16 = v26;
 LABEL_28:
             if ( !LanguageList )
             {
@@ -174,22 +176,22 @@ LABEL_28:
             }
             goto LABEL_31;
           }
-          v16 = v25;
-          v19 = RtlpMuiRegLoadMachinePreferredUILanguages(a4, &v21);
-          LanguageList = v21;
+          v16 = v26;
+          v19 = RtlpMuiRegLoadMachinePreferredUILanguages(a4, &v22);
+          LanguageList = v22;
           v8 = v19;
           if ( !v19 )
             goto LABEL_28;
 LABEL_31:
           *a5 = LanguageList;
 LABEL_32:
-          if ( v28 )
-            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v28);
+          if ( BaseAddress )
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
           goto LABEL_34;
         }
-        v8 = RtlpMuiRegAddMultiSzToLangFallbackList(v25, v15, (unsigned int)v27 >> 1, 8, (a2 != 1) + 2, 1, &v21);
+        v8 = RtlpMuiRegAddMultiSzToLangFallbackList(v26, v15, v28 >> 1, 8, (a2 != 1) + 2, 1, &v22);
       }
-      LanguageList = v21;
+      LanguageList = v22;
 LABEL_23:
       if ( v8 )
         goto LABEL_32;
@@ -203,12 +205,12 @@ LABEL_34:
     NtClose(Handle);
     Handle = 0;
   }
-  if ( v23 )
+  if ( CurrentUserKey )
   {
-    NtClose(v23);
-    v23 = 0;
+    NtClose(CurrentUserKey);
+    CurrentUserKey = 0;
   }
-  if ( v24 )
-    NtClose(v24);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v8;
 }

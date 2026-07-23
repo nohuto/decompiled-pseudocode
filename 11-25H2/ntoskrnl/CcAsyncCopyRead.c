@@ -44,7 +44,7 @@ char __fastcall CcAsyncCopyRead(
   ULONG_PTR v21; // r9
   _QWORD *PoolWithTagFromNode; // rax
   void *v23; // rdi
-  int v24; // r15d
+  NTSTATUS v24; // r15d
   volatile signed __int64 *v25; // rcx
   __int64 v26; // rdx
   __int64 v27; // rdx

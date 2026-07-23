@@ -4,7 +4,7 @@
  *     MiHandleCollidedFault @ 0x140003C24 (MiHandleCollidedFault.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
+ *     MiTranslatePageForCopy @ 0x1400E9CB0 (MiTranslatePageForCopy.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
@@ -21,9 +21,9 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int64 a3, unsigned __int8 a4, int *a5)
@@ -35,7 +35,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
   ULONG_PTR v12; // rbp
   int v13; // eax
   __int64 v14; // r12
-  __int64 v15; // rsi
+  _RTL_BALANCED_NODE *v15; // rsi
   __int64 v17; // rax
   unsigned int v18; // ebx
   __int64 v19; // [rsp+70h] [rbp+8h] BYREF
@@ -98,8 +98,8 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
   }
   if ( *(_QWORD *)(v12 + 216) )
   {
-    v17 = KeAbPreAcquire(v12);
-    v15 = v17;
+    v17 = KeAbPreAcquire(v12, 0LL);
+    v15 = (_RTL_BALANCED_NODE *)v17;
     if ( v17 )
       KeAbPreWait(v17);
   }
@@ -110,7 +110,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
   KeWaitForSingleObject((PVOID)(v12 + 56), WrPageIn, 0, 0, 0LL);
   if ( v15 )
   {
-    KeAbPreAcquire(v12);
+    KeAbPreAcquire(v12, v15);
     KeAbPostReleaseEx(v12);
   }
   MiFreeInPageSupportBlock((PVOID)v12);

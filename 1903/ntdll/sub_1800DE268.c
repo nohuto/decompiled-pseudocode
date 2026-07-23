@@ -9,23 +9,21 @@
  *     sub_18007F040 @ 0x18007F040 (sub_18007F040.c)
  */
 
-signed __int64 sub_1800DE268()
+void sub_1800DE268()
 {
-  __int64 v0; // rsi
-  __int64 v1; // rdi
-  __int64 v2; // rbx
-  signed __int64 result; // rax
+  void *v0; // rsi
+  void *v1; // rdi
+  void *v2; // rbx
 
-  RtlAcquireSRWLockExclusive(&qword_1801664A0);
-  v0 = sub_18007F040(&qword_180164368);
-  v1 = sub_18007F040((__int64 *)&unk_180164370);
-  v2 = sub_18007F040(&qword_180164360);
-  result = RtlReleaseSRWLockExclusive(&qword_1801664A0);
+  RtlAcquireSRWLockExclusive(&stru_1801664A0);
+  v0 = (void *)sub_18007F040(&qword_180164368);
+  v1 = (void *)sub_18007F040((__int64 *)&unk_180164370);
+  v2 = (void *)sub_18007F040(&qword_180164360);
+  RtlReleaseSRWLockExclusive(&stru_1801664A0);
   if ( v0 )
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v0);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v0);
   if ( v1 )
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   if ( v2 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v2);
-  return result;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
 }

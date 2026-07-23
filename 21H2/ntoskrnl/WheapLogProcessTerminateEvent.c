@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapLogProcessTerminateEvent @ 0x1405BD708
+ * XREFs of WheapLogProcessTerminateEvent @ 0x1405BD938
  * Callers:
- *     WheaTerminateProcess @ 0x14095D514 (WheaTerminateProcess.c)
+ *     WheaTerminateProcess @ 0x14095D6F4 (WheaTerminateProcess.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapLogProcessTerminateEvent(int a1, __int64 a2, int a3)

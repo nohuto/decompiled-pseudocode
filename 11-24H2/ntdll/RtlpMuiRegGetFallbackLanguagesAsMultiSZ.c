@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x180116B00
+ * XREFs of RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x1800CB4CC
  * Callers:
- *     RtlGetUILanguageInfo @ 0x18007B9D0 (RtlGetUILanguageInfo.c)
+ *     RtlGetUILanguageInfo @ 0x1800CA620 (RtlGetUILanguageInfo.c)
  * Callees:
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180035F10 (RtlpMuiRegTryToAppendLanguageName.c)
- *     RtlpMuiRegTryToAppendLangId @ 0x1800387C0 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByIndex @ 0x1801494FC (RtlpMuiRegGetFallbackLanguageInfoByIndex.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180016190 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     RtlpMuiRegTryToAppendLangId @ 0x180018A40 (RtlpMuiRegTryToAppendLangId.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByIndex @ 0x1801478AC (RtlpMuiRegGetFallbackLanguageInfoByIndex.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetFallbackLanguagesAsMultiSZ(

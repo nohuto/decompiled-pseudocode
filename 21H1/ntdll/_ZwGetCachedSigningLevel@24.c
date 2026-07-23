@@ -6,7 +6,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwGetCachedSigningLevel(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl ZwGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
   return Wow64SystemServiceCall();
 }

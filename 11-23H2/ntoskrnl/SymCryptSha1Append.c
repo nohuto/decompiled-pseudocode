@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptSha1Append @ 0x1403FBE80
+ * XREFs of SymCryptSha1Append @ 0x1403FC060
  * Callers:
- *     HashpHashBytes @ 0x140A775E4 (HashpHashBytes.c)
+ *     HashpHashBytes @ 0x140A77894 (HashpHashBytes.c)
  * Callees:
- *     SymCryptHashAppendInternal @ 0x140402EC8 (SymCryptHashAppendInternal.c)
+ *     SymCryptHashAppendInternal @ 0x1404030A8 (SymCryptHashAppendInternal.c)
  */
 
 __int64 __fastcall SymCryptSha1Append(__int64 a1, __int64 a2, __int64 a3)

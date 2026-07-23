@@ -14,7 +14,7 @@ int __thiscall RtlpFlushHeap(int this)
 {
   int v2; // ecx
 
-  if ( (*(_BYTE *)(this + 64) & 1) == 0 && RtlTryEnterCriticalSection(*(_DWORD *)(this + 200)) )
+  if ( (*(_BYTE *)(this + 64) & 1) == 0 && RtlTryEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200)) )
   {
     if ( *(_BYTE *)(this + 234) == 2 )
       v2 = *(_DWORD *)(this + 228);
@@ -23,7 +23,7 @@ int __thiscall RtlpFlushHeap(int this)
     if ( v2 )
       RtlpLowFragHeapFlushCaches();
     RtlpCollectFreeBlocks(this);
-    RtlLeaveCriticalSection(*(_DWORD *)(this + 200));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
   }
   return 0;
 }

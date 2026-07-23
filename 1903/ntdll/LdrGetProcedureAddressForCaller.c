@@ -34,66 +34,66 @@
  *     sub_1800D89D0 @ 0x1800D89D0 (sub_1800D89D0.c)
  */
 
-__int64 __fastcall LdrGetProcedureAddressForCaller(
-        unsigned __int64 a1,
-        const void **a2,
-        unsigned int a3,
-        _QWORD *a4,
-        char a5,
-        __int64 a6)
+NTSTATUS __cdecl LdrGetProcedureAddressForCaller(
+        PVOID DllHandle,
+        PANSI_STRING ProcedureName,
+        ULONG ProcedureNumber,
+        PVOID *ProcedureAddress,
+        ULONG Flags,
+        PVOID *Callback)
 {
-  const void **v6; // rbx
+  PANSI_STRING v6; // rbx
   bool v7; // zf
   int v9; // r15d
-  size_t v10; // rsi
+  size_t Length; // rsi
   unsigned int v11; // edi
   char *Heap; // r14
-  __int64 v13; // r12
+  void *v13; // r12
   __int64 v14; // rax
-  __int64 v15; // rbx
+  _QWORD *v15; // rbx
   __int64 v16; // rsi
-  unsigned __int64 v17; // rax
+  unsigned __int64 Root; // rax
   unsigned __int64 v18; // rcx
-  int v19; // edi
+  NTSTATUS v19; // edi
   int v20; // eax
-  unsigned int v21; // r13d
-  __int64 v22; // rbx
+  ULONG v21; // r13d
+  PVOID *v22; // rbx
   __int64 v24; // rcx
-  unsigned __int64 v25; // rax
-  __int64 v26; // rbx
+  char *v25; // rax
+  char *v26; // rbx
   __int64 v27; // rcx
-  __int64 v28; // [rsp+20h] [rbp-E0h]
+  PVOID *v28; // [rsp+20h] [rbp-E0h]
   char v29; // [rsp+30h] [rbp-D0h]
   char v30[7]; // [rsp+31h] [rbp-CFh] BYREF
-  __int64 v31; // [rsp+38h] [rbp-C8h] BYREF
+  char *v31; // [rsp+38h] [rbp-C8h] BYREF
   int v32; // [rsp+40h] [rbp-C0h]
   int v33; // [rsp+44h] [rbp-BCh]
   int v34; // [rsp+48h] [rbp-B8h]
-  unsigned int v35; // [rsp+4Ch] [rbp-B4h]
+  ULONG v35; // [rsp+4Ch] [rbp-B4h]
   char v36[8]; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v37; // [rsp+58h] [rbp-A8h]
-  __int64 v38; // [rsp+60h] [rbp-A0h] BYREF
+  PVOID *v37; // [rsp+58h] [rbp-A8h]
+  char *v38; // [rsp+60h] [rbp-A0h] BYREF
   char v39[8]; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD *v40; // [rsp+70h] [rbp-90h]
+  PVOID *v40; // [rsp+70h] [rbp-90h]
   char v41; // [rsp+80h] [rbp-80h] BYREF
-  int v42; // [rsp+180h] [rbp+80h]
+  ULONG Flagsa; // [rsp+180h] [rbp+80h]
 
   v31 = 0LL;
-  v6 = a2;
-  v7 = (a5 & 1) == 0;
-  v42 = a5 & 1;
+  v6 = ProcedureName;
+  v7 = (Flags & 1) == 0;
+  Flagsa = Flags & 1;
   v9 = 9;
-  v40 = a4;
-  v35 = a3;
-  v37 = a6;
+  v40 = ProcedureAddress;
+  v35 = ProcedureNumber;
+  v37 = Callback;
   v29 = 0;
-  if ( v7 || (v34 = 6, !(unsigned int)RtlIsCriticalSectionLockedByThread(&off_18015F3F0)) )
+  if ( v7 || (v34 = 6, !RtlIsCriticalSectionLockedByThread(&stru_18015F3F0)) )
     v34 = 9;
   if ( v6 )
   {
-    v10 = *(unsigned __int16 *)v6;
-    v11 = v10 + 1;
-    if ( *((unsigned __int16 *)v6 + 1) < (unsigned int)(v10 + 1) || (Heap = (char *)v6[1], Heap[v10]) )
+    Length = v6->Length;
+    v11 = Length + 1;
+    if ( v6->MaximumLength < (unsigned int)(Length + 1) || (Heap = v6->Buffer, Heap[Length]) )
     {
       if ( v11 <= 0x80 )
       {
@@ -101,38 +101,38 @@ __int64 __fastcall LdrGetProcedureAddressForCaller(
       }
       else
       {
-        Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(dword_18016542C + 1572864), v11);
+        Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, ::Flags + 1572864, v11);
         if ( !Heap )
-          return 3221225626LL;
+          return -1073741670;
         v29 = 1;
       }
-      memmove(Heap, v6[1], v10);
-      Heap[(unsigned int)v10] = 0;
+      memmove(Heap, v6->Buffer, Length);
+      Heap[(unsigned int)Length] = 0;
     }
   }
   else
   {
     Heap = 0LL;
   }
-  LOBYTE(a2) = 1;
+  LOBYTE(ProcedureName) = 1;
   v33 = 1;
   v13 = 0LL;
-  v14 = sub_18001B2F8(a1, a2);
-  v15 = v14;
+  v14 = sub_18001B2F8(DllHandle, ProcedureName);
+  v15 = (_QWORD *)v14;
   if ( !v14 )
     goto LABEL_7;
   if ( *(_DWORD *)(v14 + 56) != 16 || *(_DWORD *)(v14 + 64) != 2 )
   {
-    RtlLeaveCriticalSection(v14 + 16);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v14 + 16));
     sub_1800CDB44(v15);
 LABEL_7:
     v9 = v32;
     while ( 1 )
     {
       v16 = 0LL;
-      if ( !a1 )
+      if ( !DllHandle )
         break;
-      if ( a1 == qword_1801653A8 )
+      if ( DllHandle == (PVOID)qword_1801653A8 )
       {
         v16 = qword_1801653A0;
         v9 = *(_DWORD *)(*(_QWORD *)(qword_1801653A0 + 152) + 56LL);
@@ -140,18 +140,18 @@ LABEL_7:
       }
       else
       {
-        RtlAcquireSRWLockExclusive(&qword_1801660B0);
-        v17 = qword_1801662C8;
-        if ( (qword_1801662D0 & 1) != 0 && qword_1801662C8 )
-          v17 = (unsigned __int64)&qword_1801662C8 ^ qword_1801662C8;
-        while ( v17 )
+        RtlAcquireSRWLockExclusive(&stru_1801660B0);
+        Root = (unsigned __int64)stru_1801662C8.Root;
+        if ( ((__int64)stru_1801662C8.Min & 1) != 0 && stru_1801662C8.Root )
+          Root = (unsigned __int64)&stru_1801662C8 ^ (unsigned __int64)stru_1801662C8.Root;
+        while ( Root )
         {
-          if ( a1 >= *(_QWORD *)(v17 - 152) )
+          if ( (unsigned __int64)DllHandle >= *(_QWORD *)(Root - 152) )
           {
-            if ( a1 <= *(_QWORD *)(v17 - 152) )
+            if ( (unsigned __int64)DllHandle <= *(_QWORD *)(Root - 152) )
             {
-              v16 = v17 - 200;
-              v24 = *(_QWORD *)(v17 - 200 + 152);
+              v16 = Root - 200;
+              v24 = *(_QWORD *)(Root - 200 + 152);
               if ( *(_DWORD *)(v24 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v24 - 56LL) & 0x20) == 0 )
               {
                 _InterlockedIncrement((volatile signed __int32 *)(v16 + 276));
@@ -161,18 +161,18 @@ LABEL_7:
               v32 = v9;
               break;
             }
-            v18 = *(_QWORD *)(v17 + 8);
+            v18 = *(_QWORD *)(Root + 8);
           }
           else
           {
-            v18 = *(_QWORD *)v17;
+            v18 = *(_QWORD *)Root;
           }
-          if ( (qword_1801662D0 & 1) != 0 && v18 )
-            v17 ^= v18;
+          if ( ((__int64)stru_1801662C8.Min & 1) != 0 && v18 )
+            Root ^= v18;
           else
-            v17 = v18;
+            Root = v18;
         }
-        RtlReleaseSRWLockExclusive(&qword_1801660B0);
+        RtlReleaseSRWLockExclusive(&stru_1801660B0);
       }
       if ( !v16 )
         break;
@@ -180,7 +180,7 @@ LABEL_7:
       v9 = v32;
       if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 || v32 >= v34 )
         goto LABEL_28;
-      sub_18001B678(v16);
+      sub_18001B678((PVOID)v16);
       if ( v32 < 0 )
       {
         v16 = 0LL;
@@ -195,8 +195,8 @@ LABEL_28:
     v20 = v33;
     goto LABEL_29;
   }
-  RtlLeaveCriticalSection(v14 + 16);
-  v16 = *(_QWORD *)(v15 + 112);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v14 + 16));
+  v16 = v15[14];
   v19 = 0;
   v13 = v15;
   v20 = 3;
@@ -208,9 +208,9 @@ LABEL_29:
     if ( v19 >= 0 )
     {
       if ( v9 == 7
-        && !v42
+        && !Flagsa
         && (NtCurrentTeb()->SameTebFlags & 0x1000) != 0
-        && !(unsigned int)RtlIsCriticalSectionLockedByThread(&off_18015F3F0) )
+        && !RtlIsCriticalSectionLockedByThread(&stru_18015F3F0) )
       {
         v27 = *(_QWORD *)(v16 + 152);
         v30[0] = 0;
@@ -224,13 +224,16 @@ LABEL_29:
       {
         v22 = v37;
         if ( byte_18017A298 )
-          sub_1800D89D0(v37, *(_QWORD *)(v16 + 48), v31, 0, (__int64)&v31);
+          sub_1800D89D0((_DWORD)v37, *(_QWORD *)(v16 + 48), (_DWORD)v31, 0, (__int64)&v31);
         if ( byte_180166014 )
         {
           v38 = 0LL;
           v28 = v22;
           v26 = v31;
-          ((void (__fastcall *)(__int64 *, __int64, __int64, _QWORD, __int64))(MEMORY[0x7FFE0330] ^ __ROR8__(qword_18017A1F0, 64 - (MEMORY[0x7FFE0330] & 0x3Fu))))(
+          ((void (__fastcall *)(char **, __int64, char *, _QWORD, PVOID *))(MEMORY[0x7FFE0330] ^ __ROR8__(
+                                                                                                   qword_18017A1F0,
+                                                                                                   64
+                                                                                                 - (MEMORY[0x7FFE0330] & 0x3Fu))))(
             &v38,
             v16,
             v31,
@@ -247,21 +250,21 @@ LABEL_29:
     if ( v13 )
       sub_1800CDB44(v13);
     else
-      sub_18001B678(v16);
+      sub_18001B678((PVOID)v16);
   }
   if ( v13 && v19 >= 0 )
     v31 += *(_QWORD *)(v16 + 184) - *(_QWORD *)(v16 + 48);
   if ( v19 == -1073741702 )
   {
-    v25 = v21;
+    v25 = (char *)v21;
     v19 = (Heap != 0LL) - 1073741512;
     if ( Heap )
-      v25 = (unsigned __int64)Heap;
-    Heap = (char *)v25;
+      v25 = Heap;
+    Heap = v25;
     sub_18006F388(0LL, v25, (unsigned int)v19);
   }
   if ( v29 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   if ( !dword_180165428
     && v19 >= 0
     && sub_18001AE58()
@@ -273,5 +276,5 @@ LABEL_29:
       __fastfail(0x2Eu);
   }
   *v40 = v31;
-  return (unsigned int)v19;
+  return v19;
 }

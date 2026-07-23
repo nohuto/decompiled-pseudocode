@@ -14,24 +14,24 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-__int64 __fastcall sub_18002BDB8(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall sub_18002BDB8(__int64 a1)
 {
-  __int64 v4; // rbp
-  bool v5; // r12
-  int v6; // r15d
-  struct _TEB *v7; // rsi
+  __int64 v2; // rbp
+  bool v3; // r12
+  int v4; // r15d
+  struct _TEB *v5; // rsi
   PVOID ArbitraryUserPointer; // rdi
-  int v9; // eax
-  int v10; // ebx
-  _QWORD *v11; // r15
-  int v12; // eax
-  __int64 v13; // rdx
-  int v14; // ebp
-  __int64 v16; // rdx
-  int v17; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v18; // [rsp+88h] [rbp+10h] BYREF
+  int v7; // eax
+  ULONG AllocationType; // ebx
+  PVOID *v9; // r15
+  NTSTATUS v10; // eax
+  __int64 v11; // rdx
+  int v12; // ebp
+  const WCHAR *v14; // rdx
+  int Buffer; // [rsp+80h] [rbp+8h] BYREF
+  PVOID ReturnedState; // [rsp+88h] [rbp+10h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 56);
+  v2 = *(_QWORD *)(a1 + 56);
   if ( (dword_180156A70 & 9) != 0 )
     sub_1800CA554(
       (unsigned int)"minkernel\\ntdll\\ldrmap.c",
@@ -39,67 +39,76 @@ __int64 __fastcall sub_18002BDB8(__int64 a1, __int64 a2, __int64 a3)
       (unsigned int)"LdrpMinimalMapModule",
       3,
       "DLL name: %wZ\n",
-      v4 + 72);
-  LOBYTE(a3) = 1;
-  v5 = (unsigned __int8)RtlEqualUnicodeString(v4 + 88, &unk_1801101B0, a3)
+      v2 + 72);
+  v3 = RtlEqualUnicodeString((PUNICODE_STRING)(v2 + 88), (PUNICODE_STRING)&String2, 1u)
     && (*(_BYTE *)(qword_18015C2A8 + 22) & 0x20) != 0;
-  v18 = 0LL;
-  v6 = 0x800000;
-  if ( !v5 )
+  ReturnedState = 0LL;
+  v4 = 0x800000;
+  if ( !v3 )
   {
     if ( qword_18015BEE0 )
     {
-      v16 = *(_QWORD *)(v4 + 96);
-      v17 = 0;
-      LdrQueryImageFileKeyOption(qword_18015BEE0, v16, 4LL, &v17, 4, 0LL);
-      if ( v17 )
+      v14 = *(const WCHAR **)(v2 + 96);
+      Buffer = 0;
+      LdrQueryImageFileKeyOption(qword_18015BEE0, v14, 4u, &Buffer, 4u, 0LL);
+      if ( Buffer )
       {
-        if ( (int)RtlAcquirePrivilege(&unk_1801257DC, 1LL, 0LL, &v18) >= 0 )
-          v6 = 0x20000000;
+        if ( RtlAcquirePrivilege((PULONG)&Privilege, 1u, 0, &ReturnedState) >= 0 )
+          v4 = 0x20000000;
       }
     }
   }
-  v7 = NtCurrentTeb();
+  v5 = NtCurrentTeb();
   *(_QWORD *)(a1 + 160) = 0LL;
-  ArbitraryUserPointer = v7->NtTib.ArbitraryUserPointer;
-  v7->NtTib.ArbitraryUserPointer = *(PVOID *)(v4 + 80);
-  v9 = *(_DWORD *)(a1 + 32) & 0x800000;
-  v10 = v6 | 0x40000;
-  if ( !v9 )
-    v10 = v6;
-  v11 = (_QWORD *)(v4 + 48);
-  v12 = ZwMapViewOfSection(*(_QWORD *)(a1 + 24), -1LL, v4 + 48, 0LL, 0LL, 0LL, a1 + 160, 1, v10, v9 != 0 ? 2 : 4);
-  v7->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
-  v14 = v12;
-  if ( v10 == 0x20000000 )
-    RtlReleasePrivilege(v18);
-  switch ( v14 )
+  ArbitraryUserPointer = v5->NtTib.ArbitraryUserPointer;
+  v5->NtTib.ArbitraryUserPointer = *(PVOID *)(v2 + 80);
+  v7 = *(_DWORD *)(a1 + 32) & 0x800000;
+  AllocationType = v4 | 0x40000;
+  if ( !v7 )
+    AllocationType = v4;
+  v9 = (PVOID *)(v2 + 48);
+  v10 = ZwMapViewOfSection(
+          *(HANDLE *)(a1 + 24),
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          (PVOID *)(v2 + 48),
+          0LL,
+          0LL,
+          0LL,
+          (PSIZE_T)(a1 + 160),
+          ViewShare,
+          AllocationType,
+          v7 != 0 ? 2 : 4);
+  v5->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
+  v12 = v10;
+  if ( AllocationType == 0x20000000 )
+    RtlReleasePrivilege(ReturnedState);
+  switch ( v12 )
   {
     case 1073741827:
       goto LABEL_36;
     case 1073741838:
-      v14 = sub_180085BEC(a1);
+      v12 = sub_180085BEC(a1);
       break;
     case 1073741878:
 LABEL_36:
       if ( !*(_QWORD *)(a1 + 168) )
       {
-        LOBYTE(v13) = 1;
-        if ( (unsigned __int8)sub_18004334C(a1, v13) )
+        LOBYTE(v11) = 1;
+        if ( (unsigned __int8)sub_18004334C(a1, v11) )
         {
-          v14 = -1073741267;
+          v12 = -1073741267;
         }
-        else if ( v5 )
+        else if ( v3 )
         {
-          v14 = -1073741800;
+          v12 = -1073741800;
         }
       }
       break;
   }
-  if ( *v11 && (v14 < 0 || v14 == 1073741838) )
+  if ( *v9 && (v12 < 0 || v12 == 1073741838) )
   {
-    ZwUnmapViewOfSection(-1LL);
-    *v11 = 0LL;
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v9);
+    *v9 = 0LL;
   }
   if ( (dword_180156A70 & 9) != 0 )
     sub_1800CA554(
@@ -108,6 +117,6 @@ LABEL_36:
       (unsigned int)"LdrpMinimalMapModule",
       4,
       "Status: 0x%08lx\n",
-      v14);
-  return (unsigned int)v14;
+      v12);
+  return (unsigned int)v12;
 }

@@ -25,8 +25,8 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
   _DWORD *v14; // r9
   int v15; // eax
   bool v16; // zf
-  struct _SLIST_ENTRY **v17; // rsi
-  struct _SLIST_ENTRY *v18; // rbx
+  _SLIST_ENTRY **v17; // rsi
+  _SLIST_ENTRY *v18; // rbx
   _OWORD v19[2]; // [rsp+20h] [rbp-68h] BYREF
 
   v3 = 0LL;
@@ -74,7 +74,7 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
         __writecr8(CurrentIrql);
         if ( (_DWORD)v8 )
         {
-          v17 = (struct _SLIST_ENTRY **)v19;
+          v17 = (_SLIST_ENTRY **)v19;
           do
           {
             v18 = *v17;

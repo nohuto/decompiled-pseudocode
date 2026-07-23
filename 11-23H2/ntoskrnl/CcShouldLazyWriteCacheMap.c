@@ -1,11 +1,11 @@
 /*
- * XREFs of CcShouldLazyWriteCacheMap @ 0x14029AE50
+ * XREFs of CcShouldLazyWriteCacheMap @ 0x14029B0E0
  * Callers:
- *     CcLazyWriteScanVolume @ 0x14029A600 (CcLazyWriteScanVolume.c)
- *     CcLazyWriteScan @ 0x140535F6C (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x14029A890 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1405364BC (CcLazyWriteScan.c)
  * Callees:
  *     CcCanIWriteStreamEx @ 0x14020FC80 (CcCanIWriteStreamEx.c)
- *     CcIsCacheMapACursorInPrivateVCM @ 0x14029AF94 (CcIsCacheMapACursorInPrivateVCM.c)
+ *     CcIsCacheMapACursorInPrivateVCM @ 0x14029B224 (CcIsCacheMapACursorInPrivateVCM.c)
  */
 
 char __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
@@ -44,8 +44,7 @@ char __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, __
       {
         v12 = *(_QWORD *)(v6 + 248);
         if ( !*(_DWORD *)(v12 + 104)
-          && MEMORY[0xFFFFF78000000320] <= (__int64)(*(_QWORD *)(v12 + 136)
-                                                   + 0x9896800uLL / (unsigned int)KeMaximumIncrement)
+          && MEMORY[0xFFFFF78000000320] <= (__int64)(*(_QWORD *)(v12 + 136) + 0x9896800uLL / KeMaximumIncrement)
           && *(_DWORD *)(v6 + 112) < 0x40u )
         {
           return 0;

@@ -12,12 +12,16 @@ _DWORD *__fastcall LdrpGetNewTlsVector(int a1)
 {
   _DWORD *Heap; // eax
   _DWORD *v3; // esi
+  SIZE_T v5; // [esp-4h] [ebp-Ch]
+  size_t v6; // [esp-4h] [ebp-Ch]
 
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, 4 * a1 + 8);
+  LODWORD(v5) = 4 * a1 + 8;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, v5);
   if ( !Heap )
     return 0;
   *Heap = a1;
   v3 = Heap + 2;
-  memset(Heap + 2, 0, 4 * a1);
+  LODWORD(v6) = 4 * a1;
+  memset(Heap + 2, 0, v6);
   return v3;
 }

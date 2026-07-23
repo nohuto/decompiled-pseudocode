@@ -1,7 +1,7 @@
 /*
- * XREFs of SeQuerySecurityAccessMask @ 0x1409EAEF8
+ * XREFs of SeQuerySecurityAccessMask @ 0x1409E57E8
  * Callers:
- *     IoCheckFunctionAccess @ 0x1409EAD50 (IoCheckFunctionAccess.c)
+ *     IoCheckFunctionAccess @ 0x1409E5640 (IoCheckFunctionAccess.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpEnumerateTraceGuids @ 0x1406D4A90
+ * XREFs of EtwpEnumerateTraceGuids @ 0x1406D5D30
  * Callers:
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
  * Callees:
- *     EtwpGetNextGuidEntry @ 0x1405C2614 (EtwpGetNextGuidEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x1405C3614 (EtwpGetNextGuidEntry.c)
  */
 
 __int64 __fastcall EtwpEnumerateTraceGuids(__int64 a1, __int64 a2, _DWORD *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall EtwpEnumerateTraceGuids(__int64 a1, __int64 a2, _DWORD *a3)
   signed __int64 *NextGuidEntry; // rax
   __int64 v11; // rcx
   unsigned int v12; // r8d
-  _UNKNOWN **v13; // rdx
+  GUID **v13; // rdx
   __int64 v14; // rsi
   __int64 v15; // r9
   int v16; // eax
@@ -65,7 +65,7 @@ LABEL_17:
         goto LABEL_17;
       if ( v5 <= v8 )
       {
-        *(_OWORD *)(v14 - 28) = *(_OWORD *)*v13;
+        *(GUID *)(v14 - 28) = **v13;
         *(_DWORD *)(v14 - 8) = *(unsigned __int8 *)(v11 + 2 * v15);
         v16 = *(unsigned __int8 *)(v11 + 2 * v15 + 1);
         *(_DWORD *)(v14 - 4) = 0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateMappedWriterMdls @ 0x14014AB7C
+ * XREFs of MiAllocateMappedWriterMdls @ 0x14014B0EC
  * Callers:
- *     MiEnablePartitionMappedWrites @ 0x14052255C (MiEnablePartitionMappedWrites.c)
+ *     MiEnablePartitionMappedWrites @ 0x1405055BC (MiEnablePartitionMappedWrites.c)
  * Callees:
- *     MiAllocateModWriterEntry @ 0x140102A50 (MiAllocateModWriterEntry.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiAllocateModWriterEntry @ 0x1401007D0 (MiAllocateModWriterEntry.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall MiAllocateMappedWriterMdls(_QWORD *a1)

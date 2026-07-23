@@ -1,11 +1,11 @@
 /*
- * XREFs of MiResolveImageImports @ 0x1407E7750
+ * XREFs of MiResolveImageImports @ 0x1407E7D20
  * Callers:
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiRestoreImportTableProtection @ 0x1407E7808 (MiRestoreImportTableProtection.c)
- *     MiResolveImageReferences @ 0x140A17C94 (MiResolveImageReferences.c)
- *     MiSetImportTableProtection @ 0x140AAB19C (MiSetImportTableProtection.c)
+ *     MiRestoreImportTableProtection @ 0x1407E7DD8 (MiRestoreImportTableProtection.c)
+ *     MiResolveImageReferences @ 0x140A10E04 (MiResolveImageReferences.c)
+ *     MiSetImportTableProtection @ 0x140AA63CC (MiSetImportTableProtection.c)
  */
 
 __int64 __fastcall MiResolveImageImports(__int64 a1, int a2, int a3, int a4, int a5, _BYTE *a6)

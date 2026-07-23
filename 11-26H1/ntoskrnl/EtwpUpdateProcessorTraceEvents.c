@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateProcessorTraceEvents @ 0x1408304D4
+ * XREFs of EtwpUpdateProcessorTraceEvents @ 0x140836714
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
  */
 
 __int64 __fastcall EtwpUpdateProcessorTraceEvents(__int64 a1, __int64 a2, unsigned int a3, char a4)

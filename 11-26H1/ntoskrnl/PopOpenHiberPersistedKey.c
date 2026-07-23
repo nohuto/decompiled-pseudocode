@@ -1,16 +1,16 @@
 /*
- * XREFs of PopOpenHiberPersistedKey @ 0x140B667A0
+ * XREFs of PopOpenHiberPersistedKey @ 0x140B6972C
  * Callers:
- *     PopQueryHiberPersistedRegValue @ 0x1407D0718 (PopQueryHiberPersistedRegValue.c)
+ *     PopQueryHiberPersistedRegValue @ 0x1407D37B8 (PopQueryHiberPersistedRegValue.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall PopOpenHiberPersistedKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, int *a3)
 {
-  struct _LIST_ENTRY *Blink; // rdx
+  const WCHAR *v6; // rdx
   NTSTATUS result; // eax
   int v8; // ecx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
@@ -19,10 +19,10 @@ NTSTATUS __fastcall PopOpenHiberPersistedKey(PHANDLE KeyHandle, ACCESS_MASK Desi
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
-  if ( KeyHandle && (Blink = stru_140F11D08.WaitListEntry.Blink) != 0LL )
+  if ( KeyHandle && (v6 = PopHibernatePersistedRegLocation) != 0LL )
   {
     *KeyHandle = (HANDLE)-1LL;
-    RtlInitUnicodeString(&DestinationString, (PCWSTR)Blink);
+    RtlInitUnicodeString(&DestinationString, v6);
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.ObjectName = &DestinationString;

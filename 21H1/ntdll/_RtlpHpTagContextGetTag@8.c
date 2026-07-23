@@ -20,20 +20,24 @@ __int16 __fastcall RtlpHpTagContextGetTag(int a1, unsigned int a2)
   int v9; // esi
   int v10; // ecx
   int v11; // edx
-  int v13; // [esp+14h] [ebp-1Ch]
+  size_t v13; // [esp-4h] [ebp-34h]
+  size_t v14; // [esp-4h] [ebp-34h]
+  int v15; // [esp+14h] [ebp-1Ch]
   _DWORD Buf1[4]; // [esp+1Ch] [ebp-14h] BYREF
 
   memset(Buf1, 0, sizeof(Buf1));
+  LODWORD(v13) = 16;
   Buf1[0] = NtCurrentTeb()->SubProcessTag;
-  if ( !memcmp(Buf1, &RtlpHpNullGUID, 0x10u) )
+  if ( !memcmp(Buf1, &RtlpHpNullGUID, v13) )
   {
     LOWORD(v3) = 0;
     return v3;
   }
   if ( word_4B3A46B8 )
   {
+    LODWORD(v14) = 16;
     v4 = *(_DWORD *)(dword_4B3A46B0 + 4 * (unsigned __int16)word_4B3A46B8 - 4);
-    if ( !memcmp((const void *)(v4 + 8), Buf1, 0x10u) )
+    if ( !memcmp((const void *)(v4 + 8), Buf1, v14) )
     {
       _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 24), a2);
       LOWORD(v3) = *(_WORD *)(v4 + 28);
@@ -52,12 +56,12 @@ __int16 __fastcall RtlpHpTagContextGetTag(int a1, unsigned int a2)
     --v3;
   }
   while ( v3 );
-  v13 = v6;
+  v15 = v6;
   v9 = 0;
   while ( 1 )
   {
     v10 = dword_4B3A46A8 & 0x1F;
-    v11 = v13 & (-1 << (dword_4B3A46A8 & 0x1F));
+    v11 = v15 & (-1 << (dword_4B3A46A8 & 0x1F));
     if ( v9 )
       goto LABEL_12;
     if ( (unsigned int)dword_4B3A46A8 < 0x20 )
@@ -92,7 +96,7 @@ LABEL_21:
 LABEL_23:
   if ( (_WORD)v3 )
     goto LABEL_26;
-  LOWORD(v3) = RtlpHpTagContextAllocateTag(v10, Buf1, v13, a2);
+  LOWORD(v3) = RtlpHpTagContextAllocateTag(v10, Buf1, v15, a2);
 LABEL_25:
   if ( (_WORD)v3 )
 LABEL_26:

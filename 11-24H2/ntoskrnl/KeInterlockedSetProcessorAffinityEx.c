@@ -1,17 +1,17 @@
 /*
- * XREFs of KeInterlockedSetProcessorAffinityEx @ 0x1403E9E20
+ * XREFs of KeInterlockedSetProcessorAffinityEx @ 0x1403D7AC0
  * Callers:
- *     KiUpdateGroupSchedulingRank @ 0x140299CB0 (KiUpdateGroupSchedulingRank.c)
- *     ?KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x14030C9D4 (-KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_.c)
- *     PpmParkReportParkedCore @ 0x1403519DC (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x1403E9474 (PpmParkReportSoftParkChange.c)
- *     KiStartProfileTarget @ 0x14049A320 (KiStartProfileTarget.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404B2F48 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
- *     KiProcessNMI @ 0x1405B7670 (KiProcessNMI.c)
- *     KeDeepSleepProcessor @ 0x1405BC774 (KeDeepSleepProcessor.c)
- *     KiStartIdleThread @ 0x1405C3210 (KiStartIdleThread.c)
- *     PpmTestAndLockProcessor @ 0x1405CF234 (PpmTestAndLockProcessor.c)
- *     PpmParkReportForceParkChange @ 0x1405DA8CC (PpmParkReportForceParkChange.c)
+ *     KiUpdateGroupSchedulingRank @ 0x1402A87A0 (KiUpdateGroupSchedulingRank.c)
+ *     PpmParkReportParkedCore @ 0x1402B0804 (PpmParkReportParkedCore.c)
+ *     ?KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x1402DBA34 (-KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_.c)
+ *     PpmParkReportSoftParkChange @ 0x1403D7120 (PpmParkReportSoftParkChange.c)
+ *     KiStartProfileTarget @ 0x140494D80 (KiStartProfileTarget.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404AD758 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     KiProcessNMI @ 0x1405B4C40 (KiProcessNMI.c)
+ *     KeDeepSleepProcessor @ 0x1405B9DA4 (KeDeepSleepProcessor.c)
+ *     KiStartIdleThread @ 0x1405C07E0 (KiStartIdleThread.c)
+ *     PpmTestAndLockProcessor @ 0x1405CC954 (PpmTestAndLockProcessor.c)
+ *     PpmParkReportForceParkChange @ 0x1405D7BEC (PpmParkReportForceParkChange.c)
  * Callees:
  *     <none>
  */

@@ -115,10 +115,13 @@ void __fastcall MiInitializeDynamicPfns(
     v12 = v11;
     byte_140C6B50C = 1;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6B5E0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v12 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -224,7 +227,7 @@ void __fastcall MiInitializeDynamicPfns(
   v30 = 0LL;
   v31 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
   {
     v32 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v31 == 2 )
@@ -270,7 +273,7 @@ LABEL_58:
       }
       else
       {
-        if ( KiIrqlFlags && (v41 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v41 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && (v41 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v41 <= 0xFu )
         {
           v42 = v52[0];
           if ( v52[0] <= 0xFu && v41 >= 2u )
@@ -292,7 +295,7 @@ LABEL_58:
         __writecr8(v42);
         v31 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
         {
           v46 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v31 == 2 )
@@ -321,10 +324,10 @@ LABEL_56:
     goto LABEL_57;
   }
 LABEL_78:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v48 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v31 <= 0xFu && v48 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v31 <= 0xFu && v48 >= 2u )
     {
       v49 = KeGetCurrentPrcb();
       v50 = v49->SchedulerAssist;

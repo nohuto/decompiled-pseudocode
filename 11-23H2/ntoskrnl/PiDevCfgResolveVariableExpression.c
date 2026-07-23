@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgResolveVariableExpression @ 0x140960150
+ * XREFs of PiDevCfgResolveVariableExpression @ 0x140960350
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     PnpMultiSzContainsString @ 0x1403CE590 (PnpMultiSzContainsString.c)
- *     PnpValidateRegistryMultiSz @ 0x1403CE7D4 (PnpValidateRegistryMultiSz.c)
- *     PnpStringToDwordValue @ 0x1403CE83C (PnpStringToDwordValue.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     PnpMultiSzContainsString @ 0x1403CE770 (PnpMultiSzContainsString.c)
+ *     PnpValidateRegistryMultiSz @ 0x1403CE9B4 (PnpValidateRegistryMultiSz.c)
+ *     PnpStringToDwordValue @ 0x1403CEA1C (PnpStringToDwordValue.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlCompareUnicodeStrings @ 0x1406D9FE0 (RtlCompareUnicodeStrings.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     PiDevCfgResolveVariable @ 0x14087EC00 (PiDevCfgResolveVariable.c)
- *     PiDevCfgCopyVariableData @ 0x14095D9AC (PiDevCfgCopyVariableData.c)
+ *     RtlCompareUnicodeStrings @ 0x1406DA010 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     PiDevCfgResolveVariable @ 0x14087EE40 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgCopyVariableData @ 0x14095DBAC (PiDevCfgCopyVariableData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -247,7 +247,7 @@ LABEL_344:
   {
     if ( !*(_WORD *)(v11 + 2) || !*(_WORD *)(v11 + 4) )
     {
-      v16 = &off_140A7D910;
+      v16 = &off_140A7DBC0;
       v17 = 1;
       while ( *(_DWORD *)v11 != *(_DWORD *)*v16 )
       {
@@ -256,7 +256,7 @@ LABEL_344:
         if ( v17 >= 0x1B )
           goto LABEL_16;
       }
-      v19 = &qword_140A7D8F0[3 * v17];
+      v19 = &qword_140A7DBA0[3 * v17];
       if ( v19 )
         break;
     }
@@ -486,7 +486,7 @@ LABEL_331:
             }
             if ( *(_DWORD *)v19 != 9 )
             {
-              v25 = qword_140A77AF8;
+              v25 = qword_140A77DA8;
               goto LABEL_128;
             }
             if ( PnpMultiSzContainsString(*(PCWSTR *)(v173 + 40), *(const WCHAR **)(*((_QWORD *)&v173 + 1) + 40LL)) )
@@ -524,7 +524,7 @@ LABEL_128:
             {
               if ( *(_DWORD *)v19 != 16 )
               {
-                v25 = qword_140A77AF8;
+                v25 = qword_140A77DA8;
                 goto LABEL_139;
               }
               if ( (_DWORD)v118 != v120 )
@@ -815,7 +815,7 @@ LABEL_98:
                       goto LABEL_37;
                     }
 LABEL_137:
-                    v25 = qword_140A77AF8;
+                    v25 = qword_140A77DA8;
                     goto LABEL_138;
                   }
                   goto LABEL_119;
@@ -921,7 +921,7 @@ LABEL_168:
               if ( v83 != v80 )
               {
 LABEL_173:
-                v25 = qword_140A77AF8;
+                v25 = qword_140A77DA8;
                 goto LABEL_114;
               }
             }
@@ -1013,10 +1013,10 @@ LABEL_263:
           goto LABEL_128;
         default:
 LABEL_84:
-          v25 = qword_140A77AF8;
+          v25 = qword_140A77DA8;
           goto LABEL_139;
       }
-      v25 = qword_140A77AF8;
+      v25 = qword_140A77DA8;
       goto LABEL_300;
     }
     if ( (_DWORD)v21 != 3 )
@@ -1148,7 +1148,7 @@ LABEL_37:
       goto LABEL_115;
     }
 LABEL_66:
-    v25 = qword_140A77AF8;
+    v25 = qword_140A77DA8;
 LABEL_139:
     LODWORD(v4) = v163;
     v15 = (__int64 *)Pool2;

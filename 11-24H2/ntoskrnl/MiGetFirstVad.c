@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetFirstVad @ 0x1404043B8
+ * XREFs of MiGetFirstVad @ 0x1403C6358
  * Callers:
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140404528 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MmOutSwapWorkingSet @ 0x140404630 (MmOutSwapWorkingSet.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x14042D608 (MiReleaseOutSwappedProcessCommit.c)
- *     MiReleaseCommitForResetPages @ 0x14066A7E8 (MiReleaseCommitForResetPages.c)
- *     MiHotPatchProcess @ 0x1407F2D08 (MiHotPatchProcess.c)
- *     MiUnlockVadRange @ 0x1408E8A30 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x1408E8B10 (MiLockVadRange.c)
- *     MiMapAllImageScpPages @ 0x1408F9404 (MiMapAllImageScpPages.c)
- *     MiCommitInitialVadMetadataBits @ 0x1408F9980 (MiCommitInitialVadMetadataBits.c)
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
+ *     MmOutSwapWorkingSet @ 0x1403C6F10 (MmOutSwapWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1403C752C (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x140424B70 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseCommitForResetPages @ 0x14066B9B8 (MiReleaseCommitForResetPages.c)
+ *     MiHotPatchProcess @ 0x1407F32D8 (MiHotPatchProcess.c)
+ *     MiUnlockVadRange @ 0x1408D9210 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1408D92F0 (MiLockVadRange.c)
+ *     MiMapAllImageScpPages @ 0x14091BCE0 (MiMapAllImageScpPages.c)
+ *     MiCommitInitialVadMetadataBits @ 0x14091C25C (MiCommitInitialVadMetadataBits.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

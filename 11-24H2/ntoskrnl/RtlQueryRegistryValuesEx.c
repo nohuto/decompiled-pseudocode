@@ -1,28 +1,33 @@
 /*
- * XREFs of RtlQueryRegistryValuesEx @ 0x1409CC2F0
+ * XREFs of RtlQueryRegistryValuesEx @ 0x1409B4D70
  * Callers:
- *     RtlCheckPortableOperatingSystem @ 0x1404962B0 (RtlCheckPortableOperatingSystem.c)
- *     RtlpFindRegTziForCurrentYear @ 0x1405E94B4 (RtlpFindRegTziForCurrentYear.c)
- *     RtlpEtcGetDwordFromRegistry @ 0x1405EF278 (RtlpEtcGetDwordFromRegistry.c)
- *     CarReadRegistry @ 0x140619968 (CarReadRegistry.c)
- *     DifRtlQueryRegistryValuesExWrapper @ 0x14063A280 (DifRtlQueryRegistryValuesExWrapper.c)
- *     DifRtlQueryRegistryValuesWrapper @ 0x14063A420 (DifRtlQueryRegistryValuesWrapper.c)
- *     EtwpGetCurrentSiloMaxLoggers @ 0x14064C80C (EtwpGetCurrentSiloMaxLoggers.c)
- *     EtwpQueryPartitionRegistryInformation @ 0x14064CC6C (EtwpQueryPartitionRegistryInformation.c)
- *     EtwpQuerySiloRegistrySettings @ 0x14064CF18 (EtwpQuerySiloRegistrySettings.c)
- *     sub_14065592C @ 0x14065592C (sub_14065592C.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140C1C8B4 (IopInitCrashDumpDuringSysInit.c)
- *     EtwpReadConfigParameters @ 0x140C3D828 (EtwpReadConfigParameters.c)
- *     CmIsLastKnownGoodBoot @ 0x140C458D8 (CmIsLastKnownGoodBoot.c)
- *     VhdAutoAttachVirtualDisks @ 0x140C5D04C (VhdAutoAttachVirtualDisks.c)
- *     SmQueryRegistry @ 0x140C66AB8 (SmQueryRegistry.c)
+ *     RtlCheckPortableOperatingSystem @ 0x140490C40 (RtlCheckPortableOperatingSystem.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1405E6A04 (RtlpFindRegTziForCurrentYear.c)
+ *     RtlpEtcGetDwordFromRegistry @ 0x1405EC858 (RtlpEtcGetDwordFromRegistry.c)
+ *     CarReadRegistry @ 0x140617F28 (CarReadRegistry.c)
+ *     DifRtlQueryRegistryValuesExWrapper @ 0x140638840 (DifRtlQueryRegistryValuesExWrapper.c)
+ *     DifRtlQueryRegistryValuesWrapper @ 0x1406389E0 (DifRtlQueryRegistryValuesWrapper.c)
+ *     EtwpGetCurrentSiloMaxLoggers @ 0x14064AE1C (EtwpGetCurrentSiloMaxLoggers.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x14064B27C (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpQuerySiloRegistrySettings @ 0x14064B528 (EtwpQuerySiloRegistrySettings.c)
+ *     sub_14065402C @ 0x14065402C (sub_14065402C.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140C1E8F4 (IopInitCrashDumpDuringSysInit.c)
+ *     EtwpReadConfigParameters @ 0x140C3F978 (EtwpReadConfigParameters.c)
+ *     CmIsLastKnownGoodBoot @ 0x140C47A28 (CmIsLastKnownGoodBoot.c)
+ *     VhdAutoAttachVirtualDisks @ 0x140C5F1A4 (VhdAutoAttachVirtualDisks.c)
+ *     SmQueryRegistry @ 0x140C68C34 (SmQueryRegistry.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValuesEx(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlQueryRegistryValuesEx(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
-  ULONG v5; // [rsp+20h] [rbp-18h]
+  ULONG v6; // [rsp+20h] [rbp-18h]
 
-  return RtlpQueryRegistryValues(a1, a2, a3, a4, v5, 1);
+  return RtlpQueryRegistryValues(RelativeTo, (int)Path, (int)QueryTable, (int)Context, v6, 1);
 }

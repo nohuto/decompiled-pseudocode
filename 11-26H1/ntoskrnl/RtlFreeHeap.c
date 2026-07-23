@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFreeHeap @ 0x14051C3A0
+ * XREFs of RtlFreeHeap @ 0x140518F90
  * Callers:
- *     RtlpAllocateNTHeapInternal @ 0x140498638 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpAllocateNTHeapInternal @ 0x140492188 (RtlpAllocateNTHeapInternal.c)
  * Callees:
- *     RtlFreeHeapExport @ 0x140619740 (RtlFreeHeapExport.c)
- *     RtlFreeHeapFull @ 0x140619770 (RtlFreeHeapFull.c)
+ *     RtlFreeHeapExport @ 0x14061C79C (RtlFreeHeapExport.c)
+ *     RtlFreeHeapFull @ 0x14061C7CC (RtlFreeHeapFull.c)
  */
 
 BOOLEAN __stdcall RtlFreeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)

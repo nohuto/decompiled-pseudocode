@@ -1,12 +1,12 @@
 /*
- * XREFs of ViMiscValidateKeWaitUsage @ 0x140AE1610
+ * XREFs of ViMiscValidateKeWaitUsage @ 0x140AE1600
  * Callers:
- *     VfMiscKeWaitForMultipleObjects_Entry @ 0x140AE0170 (VfMiscKeWaitForMultipleObjects_Entry.c)
- *     VfMiscKeWaitForSingleObject_Entry @ 0x140AE01A0 (VfMiscKeWaitForSingleObject_Entry.c)
+ *     VfMiscKeWaitForMultipleObjects_Entry @ 0x140AE0160 (VfMiscKeWaitForMultipleObjects_Entry.c)
+ *     VfMiscKeWaitForSingleObject_Entry @ 0x140AE0190 (VfMiscKeWaitForSingleObject_Entry.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14022E960 (RtlpGetStackLimits.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViMiscValidateSynchronizationObject @ 0x140AE1730 (ViMiscValidateSynchronizationObject.c)
+ *     RtlpGetStackLimits @ 0x14022EA70 (RtlpGetStackLimits.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140AE1720 (ViMiscValidateSynchronizationObject.c)
  */
 
 char __fastcall ViMiscValidateKeWaitUsage(unsigned int a1, ULONG_PTR *a2, char a3, _QWORD *a4)

@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpCancelPendingStackwalkApcs @ 0x1402C7F88
+ * XREFs of EtwpCancelPendingStackwalkApcs @ 0x1402467E8
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406146D4 (EtwpFreeLoggerContext.c)
  * Callees:
- *     KeRemoveQueueApc @ 0x1402C4D4C (KeRemoveQueueApc.c)
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpFinalizePendingApc @ 0x1405A6BAC (EtwpFinalizePendingApc.c)
+ *     KeRemoveQueueApc @ 0x1402432CC (KeRemoveQueueApc.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402A5670 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpFinalizePendingApc @ 0x1405A6DDC (EtwpFinalizePendingApc.c)
  */
 
-void __fastcall EtwpCancelPendingStackwalkApcs(unsigned int *a1, __int64 a2, __int64 a3, _DWORD *a4)
+void __fastcall EtwpCancelPendingStackwalkApcs(unsigned int *a1)
 {
   __int64 i; // rdi
-  _BYTE *v6; // rcx
+  _BYTE *v3; // rcx
 
   for ( i = 0LL; (unsigned int)i < a1[238]; i = (unsigned int)(i + 1) )
   {
-    v6 = (_BYTE *)(96 * i + *((_QWORD *)a1 + 118));
-    if ( *v6 == 18 && KeRemoveQueueApc((__int64)v6, a2, a3, a4) )
+    v3 = (_BYTE *)(96 * i + *((_QWORD *)a1 + 118));
+    if ( *v3 == 18 && KeRemoveQueueApc((__int64)v3) )
       EtwpFinalizePendingApc(a1, 96 * i + *((_QWORD *)a1 + 118));
   }
   if ( (unsigned __int8)KeRemoveQueueDpcEx(a1 + 216, 0LL) )

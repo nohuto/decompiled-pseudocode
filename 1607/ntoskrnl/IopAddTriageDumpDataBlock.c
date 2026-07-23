@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAddTriageDumpDataBlock @ 0x14014B400
+ * XREFs of IopAddTriageDumpDataBlock @ 0x14014B970
  * Callers:
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     IopAddRunTimeTriageDataBlocks @ 0x1401C6F5C (IopAddRunTimeTriageDataBlocks.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x1401C6DFC (IopAddRunTimeTriageDataBlocks.c)
  * Callees:
- *     IopIsAddressRangeValid @ 0x14014B4B0 (IopIsAddressRangeValid.c)
+ *     IopIsAddressRangeValid @ 0x14014BA20 (IopIsAddressRangeValid.c)
  */
 
 char __fastcall IopAddTriageDumpDataBlock(

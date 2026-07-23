@@ -28,7 +28,7 @@ __int64 __fastcall sub_1406F9140(__int64 a1, __int64 a2)
   v12 = 0LL;
   --CurrentThread->SpecialApcDisable;
   v5 = (unsigned __int64 *)(a1 + 224);
-  v6 = KeAbPreAcquire(a1 + 224, 0LL, 0LL);
+  v6 = KeAbPreAcquire(a1 + 224, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v5, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v5, v6, (ULONG_PTR)v5);
   if ( v6 )

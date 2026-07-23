@@ -1,18 +1,18 @@
 /*
- * XREFs of MiBuildMappedCluster @ 0x14007FF80
+ * XREFs of MiBuildMappedCluster @ 0x14007FF70
  * Callers:
- *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x14007E6A0 (MiGatherMappedPages.c)
  * Callees:
  *     MiWriteCompletePfn @ 0x14001E770 (MiWriteCompletePfn.c)
  *     MiReleaseWriteInProgressCharges @ 0x140022CC4 (MiReleaseWriteInProgressCharges.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BC04 (MiReferencePageForModifiedWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 *__fastcall MiBuildMappedCluster(_QWORD *a1, unsigned __int64 *a2, int a3)
@@ -121,9 +121,9 @@ unsigned __int64 *__fastcall MiBuildMappedCluster(_QWORD *a1, unsigned __int64 *
   v86 = v9;
   v10 = v9 & 0xFFFFFFFFFFFFF000uLL;
   v73 = v9;
-  v81 = *(_QWORD *)(qword_14043A748 + 8 * ((v7 >> 40) & 0x3FF));
-  if ( qword_14043A0C0 && (v6 & 0x10) == 0 )
-    v6 &= ~qword_14043A0C0;
+  v81 = *(_QWORD *)(qword_14043B808 + 8 * ((v7 >> 40) & 0x3FF));
+  if ( qword_14043B180 && (v6 & 0x10) == 0 )
+    v6 &= ~qword_14043B180;
   v11 = v6 >> 16;
   if ( v10 < *(_QWORD *)(v11 + 8) )
     v10 = *(_QWORD *)(v11 + 8);
@@ -148,19 +148,19 @@ unsigned __int64 *__fastcall MiBuildMappedCluster(_QWORD *a1, unsigned __int64 *
       v41 = MI_READ_PTE_LOCK_FREE(v13);
       if ( (v41 & 0xC01) != 0x800 )
         break;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (v41 & 0x10) != 0 )
           v41 &= ~0x10uLL;
         else
-          v41 &= ~qword_14043A0C0;
+          v41 &= ~qword_14043B180;
       }
       if ( (*(_QWORD *)(48 * ((v41 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0 )
         break;
       v45 = v44 + 48 * ((v41 >> 12) & 0xFFFFFFFFFLL);
       if ( (*(_BYTE *)(v45 + 34) & 0x10) == 0
         || *(_WORD *)(v45 + 32)
-        || v81 != *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v45 + 40) >> 40) & 0x3FFLL)) )
+        || v81 != *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v45 + 40) >> 40) & 0x3FFLL)) )
       {
         break;
       }
@@ -215,12 +215,12 @@ unsigned __int64 *__fastcall MiBuildMappedCluster(_QWORD *a1, unsigned __int64 *
           if ( (v30 & 0xC01) == 0x800 )
           {
             v33 = v30;
-            if ( qword_14043A0C0 )
+            if ( qword_14043B180 )
             {
               if ( (v30 & 0x10) != 0 )
                 v33 = v30 & 0xFFFFFFFFFFFFFFEFuLL;
               else
-                v33 = v30 & ~qword_14043A0C0;
+                v33 = v30 & ~qword_14043B180;
             }
             v34 = 6 * ((v33 >> 12) & 0xFFFFFFFFFLL);
             if ( (*(_QWORD *)(v32 + 48 * ((v33 >> 12) & 0xFFFFFFFFFLL)) & 0x20000000000000LL) == 0 )
@@ -249,7 +249,7 @@ unsigned __int64 *__fastcall MiBuildMappedCluster(_QWORD *a1, unsigned __int64 *
             }
             if ( (*(_BYTE *)(v35 + 34) & 0x10) != 0
               && !*(_WORD *)(v35 + 32)
-              && v81 == *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v35 + 40) >> 40) & 0x3FFLL)) )
+              && v81 == *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v35 + 40) >> 40) & 0x3FFLL)) )
             {
               if ( v22 >= v21 )
                 goto LABEL_45;
@@ -272,12 +272,12 @@ unsigned __int64 *__fastcall MiBuildMappedCluster(_QWORD *a1, unsigned __int64 *
               }
               if ( v38 )
               {
-                if ( qword_14043A0C0 )
+                if ( qword_14043B180 )
                 {
                   if ( (v30 & 0x10) != 0 )
                     v30 &= ~0x10uLL;
                   else
-                    v30 &= ~qword_14043A0C0;
+                    v30 &= ~qword_14043B180;
                 }
                 v36 = 0x7FFFFFFFFFFFFFFFLL;
                 *v80++ = (v30 >> 12) & 0xFFFFFFFFFLL;
@@ -395,12 +395,12 @@ LABEL_25:
             if ( (v53 & 0xC01) == 0x800 )
             {
               v55 = v53;
-              if ( qword_14043A0C0 )
+              if ( qword_14043B180 )
               {
                 if ( (v53 & 0x10) != 0 )
                   v55 = v53 & 0xFFFFFFFFFFFFFFEFuLL;
                 else
-                  v55 = v53 & ~qword_14043A0C0;
+                  v55 = v53 & ~qword_14043B180;
               }
               v56 = 6 * ((v55 >> 12) & 0xFFFFFFFFFLL);
               if ( (*(_QWORD *)(48 * ((v55 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0 )
@@ -421,7 +421,7 @@ LABEL_25:
               }
               if ( (*(_BYTE *)(v57 + 34) & 0x10) != 0
                 && !*(_WORD *)(v57 + 32)
-                && v81 == *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v57 + 40) >> 40) & 0x3FFLL)) )
+                && v81 == *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v57 + 40) >> 40) & 0x3FFLL)) )
               {
                 if ( v51 )
                 {
@@ -440,12 +440,12 @@ LABEL_25:
                 }
                 if ( v58 )
                 {
-                  if ( qword_14043A0C0 )
+                  if ( qword_14043B180 )
                   {
                     if ( (v53 & 0x10) != 0 )
                       v53 &= ~0x10uLL;
                     else
-                      v53 &= ~qword_14043A0C0;
+                      v53 &= ~qword_14043B180;
                   }
                   *v48 = (v53 >> 12) & 0xFFFFFFFFFLL;
                   _InterlockedAnd64((volatile signed __int64 *)(v57 + 24), 0x7FFFFFFFFFFFFFFFuLL);

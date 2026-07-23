@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPendingFinishLogging @ 0x14070CEF4
+ * XREFs of VfPendingFinishLogging @ 0x14070CF24
  * Callers:
- *     IovpCallDriver1 @ 0x14070A890 (IovpCallDriver1.c)
- *     IovpCompleteRequest1 @ 0x14070B0B0 (IovpCompleteRequest1.c)
+ *     IovpCallDriver1 @ 0x14070A8C0 (IovpCallDriver1.c)
+ *     IovpCompleteRequest1 @ 0x14070B0E0 (IovpCompleteRequest1.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
  */
 
 __int64 __fastcall VfPendingFinishLogging(__int64 a1)

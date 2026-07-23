@@ -1,22 +1,22 @@
 /*
- * XREFs of IopApplySystemPartitionProt @ 0x140CBEF34
+ * XREFs of IopApplySystemPartitionProt @ 0x140CC5004
  * Callers:
- *     IopProtectSystemPartition @ 0x140CBF198 (IopProtectSystemPartition.c)
+ *     IopProtectSystemPartition @ 0x140CC5268 (IopProtectSystemPartition.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14051055C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwSetSecurityObject @ 0x140726B30 (ZwSetSecurityObject.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x1409F49E0 (RtlAddAccessAllowedAce.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x140509FCC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwSetSecurityObject @ 0x14072B700 (ZwSetSecurityObject.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1409E0730 (RtlAddAccessAllowedAce.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
@@ -42,7 +42,7 @@ __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   v2 = *((unsigned __int8 *)SeAliasAdminsSid + 1);
   memset(&ObjectAttributes_8, 0, 44);
-  v3 = 4 * (*(unsigned __int8 *)(*(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags + 1LL) + v2) + 56;
+  v3 = 4 * (*(unsigned __int8 *)(*(_QWORD *)((char *)&RtlpBootStatHandleLock.116 + 4) + 1LL) + v2) + 56;
   Pool2 = (ACL *)ExAllocatePool2(256LL, v3, 0x63416F49u);
   v5 = Pool2;
   if ( !Pool2 )
@@ -50,7 +50,7 @@ __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
   Acl = RtlCreateAcl(Pool2, v3, 2u);
   if ( Acl >= 0 )
   {
-    Acl = RtlAddAccessAllowedAce(v5, 2u, 0x10000000u, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags);
+    Acl = RtlAddAccessAllowedAce(v5, 2u, 0x10000000u, *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4));
     if ( Acl >= 0 )
     {
       Acl = RtlAddAccessAllowedAce(v5, 2u, 0xE0020000, SeAliasAdminsSid);

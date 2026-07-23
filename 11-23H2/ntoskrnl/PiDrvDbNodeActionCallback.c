@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDrvDbNodeActionCallback @ 0x14086BA10
+ * XREFs of PiDrvDbNodeActionCallback @ 0x14086BC50
  * Callers:
  *     <none>
  * Callees:
- *     PiDrvDbUnloadNode @ 0x14086BA74 (PiDrvDbUnloadNode.c)
- *     PiDrvDbLoadNode @ 0x14086BB24 (PiDrvDbLoadNode.c)
+ *     PiDrvDbUnloadNode @ 0x14086BCB4 (PiDrvDbUnloadNode.c)
+ *     PiDrvDbLoadNode @ 0x14086BD64 (PiDrvDbLoadNode.c)
  */
 
 __int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5, __int64 a6)

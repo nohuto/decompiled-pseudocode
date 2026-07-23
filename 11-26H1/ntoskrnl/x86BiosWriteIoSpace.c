@@ -1,12 +1,12 @@
 /*
- * XREFs of x86BiosWriteIoSpace @ 0x1404A8050
+ * XREFs of x86BiosWriteIoSpace @ 0x1404A16E0
  * Callers:
- *     XmOutOp @ 0x1404A8000 (XmOutOp.c)
- *     XmOutsOp @ 0x1405AD780 (XmOutsOp.c)
+ *     XmOutOp @ 0x1404A1690 (XmOutOp.c)
+ *     XmOutsOp @ 0x1405AFF90 (XmOutsOp.c)
  * Callees:
- *     x86BiosWritePciAddressPort @ 0x1404A8E64 (x86BiosWritePciAddressPort.c)
- *     x86BiosWriteCmosPort @ 0x140580F18 (x86BiosWriteCmosPort.c)
- *     x86BiosWritePciDataPort @ 0x140581070 (x86BiosWritePciDataPort.c)
+ *     x86BiosWritePciAddressPort @ 0x1404A24F4 (x86BiosWritePciAddressPort.c)
+ *     x86BiosWriteCmosPort @ 0x140583438 (x86BiosWriteCmosPort.c)
+ *     x86BiosWritePciDataPort @ 0x140583590 (x86BiosWritePciDataPort.c)
  */
 
 char __fastcall x86BiosWriteIoSpace(__int64 a1, __int64 a2, __int16 a3)

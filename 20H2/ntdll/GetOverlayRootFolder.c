@@ -12,63 +12,65 @@
  *     QueryRegistryValue @ 0x18011A304 (QueryRegistryValue.c)
  */
 
-__int64 __fastcall GetOverlayRootFolder(_WORD *a1, unsigned int *a2, _WORD *a3)
+__int64 __fastcall GetOverlayRootFolder(PCWSTR Source, unsigned int *a2, _WORD *a3)
 {
   unsigned int v6; // r15d
-  int appended; // ebx
-  int v9; // [rsp+40h] [rbp-C0h] BYREF
-  char *v10; // [rsp+48h] [rbp-B8h]
-  int v11; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
-  int v14; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v15; // [rsp+78h] [rbp-88h]
-  int *v16; // [rsp+80h] [rbp-80h]
-  int v17; // [rsp+88h] [rbp-78h]
-  __int128 v18; // [rsp+90h] [rbp-70h]
-  _WORD v19[256]; // [rsp+A0h] [rbp-60h] BYREF
-  char v20; // [rsp+2A0h] [rbp+1A0h] BYREF
+  NTSTATUS appended; // ebx
+  _UNICODE_STRING Destination; // [rsp+40h] [rbp-C0h] BYREF
+  int v10; // [rsp+50h] [rbp-B0h]
+  HANDLE KeyHandle; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
+  WCHAR Sourcea[256]; // [rsp+A0h] [rbp-60h] BYREF
+  char v15; // [rsp+2A0h] [rbp+1A0h] BYREF
 
-  if ( !a2 || !a1 )
+  if ( !a2 || !Source )
     return 3221225485LL;
   v6 = *a2;
-  Handle = 0LL;
+  KeyHandle = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Latest");
-  v9 = 0x2000000;
-  v10 = &v20;
-  appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, L"\\Registry\\Machine\\");
+  *(_DWORD *)&Destination.Length = 0x2000000;
+  Destination.Buffer = (wchar_t *)&v15;
+  appended = RtlAppendUnicodeToString(&Destination, L"\\Registry\\Machine\\");
   if ( appended >= 0 )
   {
-    appended = RtlGetPersistedStateLocation(L"LanguageOverlayKeyName", v19, 512, 0LL);
+    appended = RtlGetPersistedStateLocation(
+                 L"LanguageOverlayKeyName",
+                 0LL,
+                 L"Software\\Microsoft\\LanguageOverlay",
+                 LocationTypeRegistry,
+                 Sourcea,
+                 0x200u,
+                 0LL);
     if ( appended >= 0 )
     {
-      appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, v19);
+      appended = RtlAppendUnicodeToString(&Destination, Sourcea);
       if ( appended >= 0 )
       {
-        appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, L"\\");
+        appended = RtlAppendUnicodeToString(&Destination, L"\\");
         if ( appended >= 0 )
         {
-          appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, L"OverlayPackages");
+          appended = RtlAppendUnicodeToString(&Destination, L"OverlayPackages");
           if ( appended >= 0 )
           {
-            appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, L"\\");
+            appended = RtlAppendUnicodeToString(&Destination, L"\\");
             if ( appended >= 0 )
             {
-              appended = RtlAppendUnicodeToString((unsigned __int16 *)&v9, a1);
+              appended = RtlAppendUnicodeToString(&Destination, Source);
               if ( appended >= 0 )
               {
-                v14 = 48;
-                v16 = &v9;
-                v15 = 0LL;
-                v17 = 64;
-                v18 = 0LL;
-                appended = NtOpenKey(&Handle, 131097LL, &v14);
+                ObjectAttributes.Length = 48;
+                ObjectAttributes.ObjectName = &Destination;
+                ObjectAttributes.RootDirectory = 0LL;
+                ObjectAttributes.Attributes = 64;
+                *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+                appended = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
                 if ( appended >= 0 )
                 {
-                  appended = QueryRegistryValue(Handle, &DestinationString, &v11, a3, a2);
+                  appended = QueryRegistryValue(KeyHandle, &DestinationString, (__int64)a2);
                   if ( appended >= 0 )
                   {
-                    if ( v11 == 1 )
+                    if ( v10 == 1 )
                     {
                       if ( *a2 > v6 )
                         appended = -1073741789;
@@ -93,7 +95,7 @@ __int64 __fastcall GetOverlayRootFolder(_WORD *a1, unsigned int *a2, _WORD *a3)
     }
   }
 LABEL_11:
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return (unsigned int)appended;
 }

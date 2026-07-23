@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRestoreFeatureBits @ 0x1401437A4
+ * XREFs of KiRestoreFeatureBits @ 0x1401438A4
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x140143744 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140143844 (KeRestoreProcessorSpecificFeatures.c)
  * Callees:
- *     KeInitializeCatRegisters @ 0x1401438E0 (KeInitializeCatRegisters.c)
- *     KiSetVirtualMitigationControl @ 0x1401B4874 (KiSetVirtualMitigationControl.c)
- *     KiApplyProcessorErrata @ 0x1401B48E8 (KiApplyProcessorErrata.c)
- *     KiCheckMicrocode @ 0x14056EFB8 (KiCheckMicrocode.c)
+ *     KeInitializeCatRegisters @ 0x1401439E0 (KeInitializeCatRegisters.c)
+ *     KiSetVirtualMitigationControl @ 0x1401B49B4 (KiSetVirtualMitigationControl.c)
+ *     KiApplyProcessorErrata @ 0x1401B4A28 (KiApplyProcessorErrata.c)
+ *     KiCheckMicrocode @ 0x14056FFB8 (KiCheckMicrocode.c)
  */
 
 unsigned int KiRestoreFeatureBits()

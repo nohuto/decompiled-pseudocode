@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMmAllocCtxInit @ 0x1403A3F4C
+ * XREFs of HalpMmAllocCtxInit @ 0x1403A412C
  * Callers:
- *     HalpMmInitSystem @ 0x140A90A90 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x140A90910 (HalpMmInitSystem.c)
  * Callees:
  *     <none>
  */

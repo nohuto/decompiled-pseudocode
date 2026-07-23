@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetAffinityInterrupt @ 0x14014C734
+ * XREFs of IoGetAffinityInterrupt @ 0x14014CCA4
  * Callers:
  *     <none>
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1400722E8 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140071E68 (KeGetProcessorNumberFromIndex.c)
  */
 
 NTSTATUS __stdcall IoGetAffinityInterrupt(PKINTERRUPT InterruptObject, PGROUP_AFFINITY GroupAffinity)
 {
   NTSTATUS result; // eax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
 
   result = KeGetProcessorNumberFromIndex(InterruptObject->Number, &ProcNumber);
   if ( result >= 0 )

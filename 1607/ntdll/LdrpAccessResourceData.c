@@ -1,66 +1,63 @@
 /*
- * XREFs of LdrpAccessResourceData @ 0x180030164
+ * XREFs of LdrpAccessResourceData @ 0x180030154
  * Callers:
- *     RtlFindMessage @ 0x18002C7A0 (RtlFindMessage.c)
- *     RtlLoadString @ 0x18002DC10 (RtlLoadString.c)
- *     LdrAccessResource @ 0x18002DE40 (LdrAccessResource.c)
+ *     RtlFindMessage @ 0x18002C790 (RtlFindMessage.c)
+ *     RtlLoadString @ 0x18002DC00 (RtlLoadString.c)
+ *     LdrAccessResource @ 0x18002DE30 (LdrAccessResource.c)
  * Callees:
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x18003122C (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     LdrpGetImageSize @ 0x180031464 (LdrpGetImageSize.c)
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1800DC374 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpTraceLoadMUIDll @ 0x1800DC874 (LdrpTraceLoadMUIDll.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x18003121C (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpGetImageSize @ 0x180031454 (LdrpGetImageSize.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1800DC434 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800DC934 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrpAccessResourceData(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall LdrpAccessResourceData(unsigned __int64 BaseOfImage, unsigned __int64 a2)
 {
-  unsigned __int64 v6; // rdi
   unsigned int ImageSize; // esi
-  unsigned __int64 v10; // r14
-  unsigned __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 AlternateResourceModuleHandle; // rax
-  __int64 v14; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v15[4]; // [rsp+28h] [rbp-20h] BYREF
-  char v16; // [rsp+50h] [rbp+8h] BYREF
+  unsigned __int64 v6; // r14
+  PVOID v7; // rax
+  __int64 v8; // rdx
+  char *AlternateResourceModuleHandle; // rax
+  __int64 v10; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v11[4]; // [rsp+28h] [rbp-20h] BYREF
+  ULONG Size; // [rsp+50h] [rbp+8h] BYREF
 
-  v15[0] = 0LL;
-  v14 = 0LL;
-  v6 = a2;
+  v11[0] = 0LL;
+  v10 = 0LL;
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(L",.", MEMORY[0x7FFE0384]);
-  if ( !a1 || !v6 )
+  if ( !BaseOfImage || !a2 )
     return 3221225485LL;
   if ( NtCurrentTeb()->ResourceRetValue
-    && *(_QWORD *)NtCurrentTeb()->ResourceRetValue == a1
-    && *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 1) == v6 )
+    && *(_QWORD *)NtCurrentTeb()->ResourceRetValue == BaseOfImage
+    && *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 1) == a2 )
   {
-    a1 = *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 2);
+    BaseOfImage = *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 2);
   }
   else
   {
-    LOBYTE(a2) = 1;
-    v10 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v11 = RtlImageDirectoryEntryToData(a1, a2, 2LL, &v16);
-    if ( !v11 )
+    v6 = BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL;
+    v7 = RtlImageDirectoryEntryToData((PVOID)BaseOfImage, 1u, 2u, &Size);
+    if ( !v7 )
     {
       ImageSize = -1073741687;
       goto LABEL_10;
     }
-    if ( v6 < v11 )
+    if ( a2 < (unsigned __int64)v7 )
       goto LABEL_21;
-    ImageSize = LdrpGetImageSize(a1, &v14);
+    ImageSize = LdrpGetImageSize(BaseOfImage, &v10);
     if ( ImageSize == -1073741701 )
       goto LABEL_10;
-    if ( v14 && (v6 < v10 || v6 >= v10 + v14) )
+    if ( v10 && (a2 < v6 || a2 >= v6 + v10) )
     {
 LABEL_21:
-      AlternateResourceModuleHandle = LdrpGetAlternateResourceModuleHandleEx(a1, v12, v6, v15);
+      AlternateResourceModuleHandle = (char *)LdrpGetAlternateResourceModuleHandleEx(BaseOfImage, v8, a2, v11);
       if ( (unsigned __int64)(AlternateResourceModuleHandle - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-        a1 = AlternateResourceModuleHandle;
+        BaseOfImage = (unsigned __int64)AlternateResourceModuleHandle;
     }
   }
-  ImageSize = LdrpAccessResourceDataNoMultipleLanguage(a1, v6, a3, a4);
+  ImageSize = LdrpAccessResourceDataNoMultipleLanguage((PVOID)BaseOfImage);
 LABEL_10:
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(L"*,", MEMORY[0x7FFE0384]);

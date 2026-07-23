@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRecheckCombineVm @ 0x14040424C
+ * XREFs of MiRecheckCombineVm @ 0x1403FD34C
  * Callers:
- *     MiCombineWithStandbyExisting @ 0x140307CC4 (MiCombineWithStandbyExisting.c)
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
+ *     MiCombineWithStandbyExisting @ 0x1402E9D44 (MiCombineWithStandbyExisting.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
  * Callees:
- *     MiCombineCandidate @ 0x1402F3F80 (MiCombineCandidate.c)
- *     MiGetTopLevelPfn @ 0x140404690 (MiGetTopLevelPfn.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiCombineCandidate @ 0x1402D6000 (MiCombineCandidate.c)
+ *     MiGetTopLevelPfn @ 0x1403FD790 (MiGetTopLevelPfn.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
  */
 
 __int64 __fastcall MiRecheckCombineVm(_QWORD *a1, char a2, const __m128i *a3, void *a4)
@@ -23,7 +23,7 @@ __int64 __fastcall MiRecheckCombineVm(_QWORD *a1, char a2, const __m128i *a3, vo
   if ( !v6 )
     return 0LL;
   if ( v6 == 2 )
-    return a4 == &unk_140E37080;
+    return a4 == &unk_140E37200;
   TopLevelPfn = MiGetTopLevelPfn((ULONG_PTR)a3);
   PageTablePfnBuddyRaw = MiGetPageTablePfnBuddyRaw(TopLevelPfn, v9, TopLevelPfn);
   if ( v11 != a3 )

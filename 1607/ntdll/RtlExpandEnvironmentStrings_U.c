@@ -1,43 +1,47 @@
 /*
- * XREFs of RtlExpandEnvironmentStrings_U @ 0x18005A8A0
+ * XREFs of RtlExpandEnvironmentStrings_U @ 0x18005A890
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x180057DE8 (RtlpCallQueryRegistryRoutine.c)
- *     _ResGetSystemWindowsDirectory @ 0x18005A6BC (_ResGetSystemWindowsDirectory.c)
- *     RtlpLookupSafeCurDirList @ 0x1800DA2C0 (RtlpLookupSafeCurDirList.c)
- *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DA6B8 (sxsisol_ExpandEnvironmentStrings_UEx.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x180057DD8 (RtlpCallQueryRegistryRoutine.c)
+ *     _ResGetSystemWindowsDirectory @ 0x18005A6AC (_ResGetSystemWindowsDirectory.c)
+ *     RtlpLookupSafeCurDirList @ 0x1800DA380 (RtlpLookupSafeCurDirList.c)
+ *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DA778 (sxsisol_ExpandEnvironmentStrings_UEx.c)
  * Callees:
- *     RtlExpandEnvironmentStrings @ 0x18005A920 (RtlExpandEnvironmentStrings.c)
+ *     RtlExpandEnvironmentStrings @ 0x18005A910 (RtlExpandEnvironmentStrings.c)
  */
 
-__int64 __fastcall RtlExpandEnvironmentStrings_U(int a1, unsigned __int16 *a2, __int64 a3, _DWORD *a4)
+NTSTATUS __cdecl RtlExpandEnvironmentStrings_U(
+        PVOID Environment,
+        PUNICODE_STRING Source,
+        PUNICODE_STRING Destination,
+        PULONG ReturnedLength)
 {
-  unsigned __int64 v4; // rax
-  unsigned __int64 v6; // r8
-  __int64 v8; // rdx
-  int v9; // eax
+  unsigned __int64 MaximumLength; // rax
+  unsigned __int64 Length; // r8
+  wchar_t *Buffer; // rdx
+  NTSTATUS v9; // eax
   int v10; // edx
-  unsigned int v11; // ecx
-  unsigned __int64 v13; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS v11; // ecx
+  ULONG_PTR v13; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = *(unsigned __int16 *)(a3 + 2);
-  v6 = *a2;
-  v8 = *((_QWORD *)a2 + 1);
+  MaximumLength = Destination->MaximumLength;
+  Length = Source->Length;
+  Buffer = Source->Buffer;
   v13 = 0LL;
-  v9 = RtlExpandEnvironmentStrings(a1, v8, v6 >> 1, *(_QWORD *)(a3 + 8), v4 >> 1, (__int64)&v13);
+  v9 = RtlExpandEnvironmentStrings(Environment, Buffer, Length >> 1, Destination->Buffer, MaximumLength >> 1, &v13);
   v10 = v13;
   v11 = v9;
   if ( v13 > 0x7FFF )
   {
     v11 = -1073741823;
-    if ( a4 )
-      *a4 = 0;
+    if ( ReturnedLength )
+      *ReturnedLength = 0;
   }
   else
   {
     if ( v9 >= 0 )
-      *(_WORD *)a3 = 2 * (v13 - 1);
-    if ( a4 )
-      *a4 = 2 * v10;
+      Destination->Length = 2 * (v13 - 1);
+    if ( ReturnedLength )
+      *ReturnedLength = 2 * v10;
   }
   return v11;
 }

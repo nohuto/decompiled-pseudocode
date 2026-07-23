@@ -1,17 +1,17 @@
 /*
- * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x1403CF40C
+ * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x1402FA444
  * Callers:
- *     AuthzBasepValueInSet @ 0x1403CDA14 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateExpression @ 0x1403CF1B4 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x1402FB070 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x1402FB3B8 (AuthzBasepEvaluateExpression.c)
  * Callees:
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403CD668 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlIsNameInExpression @ 0x1403CF800 (RtlIsNameInExpression.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     RtlCompareUnicodeString @ 0x1409E1590 (RtlCompareUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlIsNameInExpression @ 0x1402FA830 (RtlIsNameInExpression.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B1F88 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1409DE5A0 (RtlCompareUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(unsigned __int8 a1, __int64 a2, _DWORD *a3)
@@ -46,7 +46,7 @@ __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(unsigned __int8 a1, __
   WCHAR *v32; // r12
   __int64 v33; // rdi
   unsigned __int16 *v34; // rdx
-  unsigned __int8 v35; // al
+  BOOLEAN v35; // al
   LONG v36; // ecx
   wchar_t *Buffer; // rcx
   unsigned __int16 Length; // ax
@@ -255,7 +255,7 @@ LABEL_65:
   else
   {
     if ( v10 )
-      v35 = AuthzBasepEqualUnicodeStringCaseSensitive((const void **)&Name, (__int64)&Expression);
+      v35 = AuthzBasepEqualUnicodeStringCaseSensitive(&Name, &Expression);
     else
       v35 = RtlEqualUnicodeString(&Name, &Expression, 1u);
     IsNameInExpression = v35;

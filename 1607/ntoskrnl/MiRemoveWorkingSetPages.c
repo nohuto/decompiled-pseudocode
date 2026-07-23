@@ -1,23 +1,23 @@
 /*
- * XREFs of MiRemoveWorkingSetPages @ 0x1400FE750
+ * XREFs of MiRemoveWorkingSetPages @ 0x1400FC4D0
  * Callers:
- *     MiEmptyWorkingSet @ 0x140015ED4 (MiEmptyWorkingSet.c)
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
- *     MiConvertToLinkedWsles @ 0x1400A1844 (MiConvertToLinkedWsles.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiCleanWorkingSet @ 0x14010159C (MiCleanWorkingSet.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140133E5C (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiEmptyWorkingSet @ 0x140015A54 (MiEmptyWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
+ *     MiConvertToLinkedWsles @ 0x1400A016C (MiConvertToLinkedWsles.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiCleanWorkingSet @ 0x1400FF31C (MiCleanWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1401343CC (MiEmptyWorkingSetPrivatePagesByVa.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiPopFreeWsle @ 0x1400FEE10 (MiPopFreeWsle.c)
- *     MiMoveValidWsle @ 0x1400FEECC (MiMoveValidWsle.c)
- *     MiGetAggregateWorkingSetSize @ 0x1400FF208 (MiGetAggregateWorkingSetSize.c)
- *     MiDeletePteRange @ 0x1401007D0 (MiDeletePteRange.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402261BC (EtwTraceShouldYieldProcessor.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiPopFreeWsle @ 0x1400FCB90 (MiPopFreeWsle.c)
+ *     MiMoveValidWsle @ 0x1400FCC4C (MiMoveValidWsle.c)
+ *     MiGetAggregateWorkingSetSize @ 0x1400FCF88 (MiGetAggregateWorkingSetSize.c)
+ *     MiDeletePteRange @ 0x1400FE550 (MiDeletePteRange.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140225FE8 (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiRemoveWorkingSetPages(ULONG_PTR BugCheckParameter2, unsigned __int8 a2)
@@ -82,7 +82,7 @@ __int64 __fastcall MiRemoveWorkingSetPages(ULONG_PTR BugCheckParameter2, unsigne
   if ( (*(_BYTE *)(BugCheckParameter2 + 184) & 7) == 2 )
   {
     v3 = MiPartitionIdToPointer(*(_WORD *)(BugCheckParameter2 + 164));
-    v4 = &unk_140324F00;
+    v4 = &unk_140324F40;
     if ( v3 == MiSystemPartition )
       v4 = (void *)v2;
     v2 = (ULONG_PTR)v4;
@@ -117,7 +117,7 @@ LABEL_6:
     {
       if ( v9 == 17 || v14 > v17 )
         goto LABEL_44;
-      v18 = &dword_140327C80;
+      v18 = &dword_140327CC0;
       if ( (*(_BYTE *)(v2 + 184) & 7) != 2 )
         v18 = (LONG *)(v2 + 192);
       if ( (*v18 & 0x40000000) != 0 )

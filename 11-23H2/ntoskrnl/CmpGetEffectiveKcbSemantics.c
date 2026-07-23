@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetEffectiveKcbSemantics @ 0x1406D5760
+ * XREFs of CmpGetEffectiveKcbSemantics @ 0x1406D5790
  * Callers:
- *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1FE9C (CmpPopulateKeyNodeStackFromKcbStack.c)
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A2014C (CmpPopulateKeyNodeStackFromKcbStack.c)
  * Callees:
  *     <none>
  */

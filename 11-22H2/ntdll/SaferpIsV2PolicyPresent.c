@@ -12,46 +12,52 @@
 
 __int64 __fastcall SaferpIsV2PolicyPresent(_DWORD *a1)
 {
-  int v2; // eax
-  int ValueKey; // ebx
+  NTSTATUS v2; // eax
+  NTSTATUS v3; // ebx
   HANDLE v5; // rcx
-  HANDLE Handle; // [rsp+30h] [rbp-39h] BYREF
-  _BYTE v7[8]; // [rsp+38h] [rbp-31h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp-39h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-31h] BYREF
   HANDLE FileHandle; // [rsp+40h] [rbp-29h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-21h] BYREF
-  _BYTE v10[4]; // [rsp+60h] [rbp-9h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-21h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+60h] [rbp-9h] BYREF
   int v11; // [rsp+64h] [rbp-5h]
   int v12; // [rsp+68h] [rbp-1h]
   int v13; // [rsp+6Ch] [rbp+3h]
 
   *a1 = 0;
-  Handle = 0LL;
-  v2 = NtOpenKey(&Handle, 131353LL, &unk_180131620);
-  ValueKey = v2;
+  KeyHandle = 0LL;
+  v2 = NtOpenKey(&KeyHandle, 0x20119u, (POBJECT_ATTRIBUTES)&stru_180131620);
+  v3 = v2;
   if ( v2 < 0 )
   {
     if ( v2 != -1073741772 )
       goto LABEL_7;
     goto LABEL_15;
   }
-  ValueKey = NtQueryValueKey(Handle, &unk_180131610, 2LL, v10, 80, v7);
-  if ( ValueKey >= 0 && v11 == 4 && v12 == 4 )
+  v3 = NtQueryValueKey(
+         KeyHandle,
+         (PUNICODE_STRING)&stru_180131610,
+         KeyValuePartialInformation,
+         KeyValueInformation,
+         0x50u,
+         &ResultLength);
+  if ( v3 >= 0 && v11 == 4 && v12 == 4 )
     *a1 = v13 != 0;
   else
-    ValueKey = 0;
+    v3 = 0;
   if ( !*a1 )
   {
-    if ( NtOpenFile(&FileHandle, 0x100000u, (POBJECT_ATTRIBUTES)&ObjectAttributes, &IoStatusBlock, 7u, 0x4021u) >= 0 )
+    if ( NtOpenFile(&FileHandle, 0x100000u, (POBJECT_ATTRIBUTES)&stru_180132698, &IoStatusBlock, 7u, 0x4021u) >= 0 )
     {
       v5 = FileHandle;
       *a1 = 1;
       NtClose(v5);
     }
 LABEL_15:
-    ValueKey = 0;
+    v3 = 0;
   }
 LABEL_7:
-  if ( Handle )
-    NtClose(Handle);
-  return (unsigned int)ValueKey;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  return (unsigned int)v3;
 }

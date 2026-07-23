@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10SortHuffmanSymbols @ 0x14078CA54
+ * XREFs of Xp10SortHuffmanSymbols @ 0x14078C984
  * Callers:
- *     Xp10ReadAndDecodeHuffmanTables @ 0x14078BB84 (Xp10ReadAndDecodeHuffmanTables.c)
+ *     Xp10ReadAndDecodeHuffmanTables @ 0x14078BAB4 (Xp10ReadAndDecodeHuffmanTables.c)
  * Callees:
  *     <none>
  */

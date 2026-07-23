@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampCaptureApc @ 0x140469D70
+ * XREFs of EtwpCovSampCaptureApc @ 0x14046A170
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x14046A18A (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x14046A2C8 (EtwpCovSampSafeForUserAddressCapture.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampCaptureUserAddresses @ 0x1408A874C (EtwpCovSampCaptureUserAddresses.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x14046A58A (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x14046A6C8 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A899C (EtwpCovSampCaptureUserAddresses.c)
  */
 
 struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(_QWORD *a1, _QWORD *a2, __int64 *a3, __int64 *a4)
@@ -40,10 +40,13 @@ struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(_QWORD *a1, _QWORD *a2, __int6
     a1[1] = 0LL;
     v8 = v7;
     KxReleaseSpinLock((volatile signed __int64 *)(v5 + 632));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -51,12 +54,12 @@ struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(_QWORD *a1, _QWORD *a2, __int6
         v13 = (v12 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v12;
         if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v8);
   }
-  v14 = qword_140C31CC8;
+  v14 = qword_140C31C68;
   memset(a1, 0, 0x58uLL);
   v15 = *(a1 - 1);
   *((_DWORD *)a1 + 22) = 0;

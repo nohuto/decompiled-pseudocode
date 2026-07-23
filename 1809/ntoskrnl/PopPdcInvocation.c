@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPdcInvocation @ 0x1406DC080
+ * XREFs of PopPdcInvocation @ 0x1406DD320
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopPdcRegister @ 0x140760904 (PopPdcRegister.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopPdcRegister @ 0x140761AF4 (PopPdcRegister.c)
  */
 
 __int64 __fastcall PopPdcInvocation(unsigned int *a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PopPdcInvocation(unsigned int *a1, __int64 a2)
   if ( (_DWORD)v2 != 1 )
     return 3221225485LL;
   result = 3221225474LL;
-  if ( qword_14043FF80 )
-    return ((__int64 (__fastcall *)(_QWORD, _QWORD))qword_14043FF80)(*((_QWORD *)a1 + 2), *((_QWORD *)a1 + 1));
+  if ( qword_140441040 )
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140441040)(*((_QWORD *)a1 + 2), *((_QWORD *)a1 + 1));
   return result;
 }

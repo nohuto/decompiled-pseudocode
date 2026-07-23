@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpIsVerifierActivationFilterMatched @ 0x180087790
+ * XREFs of LdrpIsVerifierActivationFilterMatched @ 0x1800A3254
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x1800887A8 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800A4268 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlQueryImageFileKeyOption @ 0x180089B50 (RtlQueryImageFileKeyOption.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     LdrpIsSubstringFound @ 0x18015EE98 (LdrpIsSubstringFound.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800A5610 (RtlQueryImageFileKeyOption.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     LdrpIsSubstringFound @ 0x18015D258 (LdrpIsSubstringFound.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, void *a2, void *a3)
 {
   int ImageFileKeyOption; // eax
   int v6; // edx
@@ -21,29 +21,31 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
   WCHAR v11; // ax
   const WCHAR *v12; // rdx
   const char *v13; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-248h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-248h] BYREF
   WCHAR SourceString[256]; // [rsp+40h] [rbp-238h] BYREF
 
   SourceString[0] = 0;
   DestinationString = 0LL;
   if ( (a2
-     && ((ImageFileKeyOption = RtlQueryImageFileKeyOption(a2, L"VerifierActivationFilter", 1LL, SourceString, 512, 0LL),
+     && ((ImageFileKeyOption = RtlQueryImageFileKeyOption(a2, (wchar_t *)L"VerifierActivationFilter", 512, 0LL),
           v6 = ImageFileKeyOption,
           ((ImageFileKeyOption + 0x80000000) & 0x80000000) != 0)
       || ImageFileKeyOption == -2147483643)
      || a3
-     && ((v6 = RtlQueryImageFileKeyOption(a3, L"VerifierActivationFilter", 1LL, SourceString, 512, 0LL),
+     && ((v6 = RtlQueryImageFileKeyOption(a3, (wchar_t *)L"VerifierActivationFilter", 512, 0LL),
           ((v6 + 0x80000000) & 0x80000000) != 0)
       || v6 == -2147483643))
     && v6 >= 0 )
   {
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       9076,
       (__int64)"LdrpIsVerifierActivationFilterMatched",
       2,
       "VerifierActivationFilter found, contents = \"%ws\"\n",
-      (char)SourceString);
+      SourceString,
+      *(_QWORD *)&DestinationString.Length,
+      DestinationString.Buffer);
     v7 = 0;
     if ( SourceString[0] == 42 || !SourceString[0] )
     {
@@ -87,16 +89,16 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
         ++v8;
       }
     }
-    v13 = (const char *)&unk_180178AE6;
+    v13 = (const char *)&Flags;
     if ( !v7 )
       v13 = "not ";
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       9130,
       (__int64)"LdrpIsVerifierActivationFilterMatched",
       2,
       "VerifierActivationFilter match %sfound.\n",
-      (char)v13);
+      v13);
   }
   else
   {

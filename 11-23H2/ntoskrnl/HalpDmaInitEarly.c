@@ -1,10 +1,10 @@
 /*
  * XREFs of HalpDmaInitEarly @ 0x140B604AC
  * Callers:
- *     HalpDmaInitSystem @ 0x140A90960 (HalpDmaInitSystem.c)
+ *     HalpDmaInitSystem @ 0x140A907E0 (HalpDmaInitSystem.c)
  * Callees:
- *     HalpDmaAlwaysReserveLogicalAddressRangeInternal @ 0x14037FCDC (HalpDmaAlwaysReserveLogicalAddressRangeInternal.c)
- *     HalpDmaInitializeObjectType @ 0x14039C1EC (HalpDmaInitializeObjectType.c)
+ *     HalpDmaAlwaysReserveLogicalAddressRangeInternal @ 0x14037FE7C (HalpDmaAlwaysReserveLogicalAddressRangeInternal.c)
+ *     HalpDmaInitializeObjectType @ 0x14039C3CC (HalpDmaInitializeObjectType.c)
  *     HalpDmaInitializeDomainEarly @ 0x140B604F8 (HalpDmaInitializeDomainEarly.c)
  */
 

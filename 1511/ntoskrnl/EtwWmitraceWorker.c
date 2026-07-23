@@ -25,7 +25,7 @@ void EtwWmitraceWorker()
   int updated; // eax
   int v5; // eax
   int started; // eax
-  STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE v8[48]; // [rsp+50h] [rbp-B0h] BYREF
   int v9; // [rsp+80h] [rbp-80h]
   int v10; // [rsp+84h] [rbp-7Ch]

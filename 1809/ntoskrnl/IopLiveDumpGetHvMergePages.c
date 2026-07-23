@@ -1,7 +1,7 @@
 /*
- * XREFs of IopLiveDumpGetHvMergePages @ 0x140820164
+ * XREFs of IopLiveDumpGetHvMergePages @ 0x140821364
  * Callers:
- *     IopLiveDumpWriteDumpFileWithHvPages @ 0x1408208F8 (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x140821AF8 (IopLiveDumpWriteDumpFileWithHvPages.c)
  * Callees:
  *     <none>
  */

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     PopFxRegisterPluginEx @ 0x1405CD5BC (PopFxRegisterPluginEx.c)
+ *     sub_1405CD5BC @ 0x1405CD5BC (sub_1405CD5BC.c)
  */
 
 __int64 PoFxRegisterPluginEx()
 {
-  return PopFxRegisterPluginEx();
+  return sub_1405CD5BC();
 }

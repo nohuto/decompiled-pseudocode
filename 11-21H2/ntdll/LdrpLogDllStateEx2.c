@@ -10,47 +10,38 @@
  *     LdrpLogEtwEvent @ 0x1800DB4E4 (LdrpLogEtwEvent.c)
  */
 
-void __fastcall LdrpLogDllStateEx2(__int64 a1, void *a2, __int64 a3, __int64 a4)
+void __fastcall LdrpLogDllStateEx2(__int64 a1, const WCHAR *a2, const WCHAR *a3, unsigned __int16 a4)
 {
-  unsigned __int16 v4; // di
-  void *v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rcx
-  char *v11; // rcx
-  char v12; // bl
-  char v13; // al
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
-  UNICODE_STRING v15; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v7; // rcx
+  char *v8; // rcx
+  BOOLEAN v9; // bl
+  BOOLEAN v10; // al
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
 
-  v15 = 0LL;
-  v4 = a4;
+  DestinationString = 0LL;
   UnicodeString = 0LL;
-  v6 = a2;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
-    v10 = (__int64)NtCurrentPeb()->SharedData + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    v10 = 2147353476LL;
-  if ( *(_BYTE *)v10 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+    v7 = 2147353476LL;
+  if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v11 = (unsigned int)RtlGetCurrentServiceSessionId(v10, v7, v8, v9)
-        ? (char *)NtCurrentPeb()->SharedData + 555
-        : (char *)2147353477;
-    if ( (*v11 & 0x20) != 0 )
+    v8 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    if ( (*v8 & 0x20) != 0 )
     {
-      if ( !v6 )
-        v6 = &unk_180132BF4;
-      v12 = RtlCreateUnicodeString(&v15, v6);
-      v13 = RtlCreateUnicodeString(&UnicodeString, a3);
-      if ( v12 )
+      if ( !a2 )
+        a2 = &word_180132BF4;
+      v9 = RtlCreateUnicodeString(&DestinationString, a2);
+      v10 = RtlCreateUnicodeString(&UnicodeString, a3);
+      if ( v9 )
       {
-        if ( v13 )
+        if ( v10 )
         {
-          LdrpLogEtwEvent(v4, 0, 0, 0, (__int64)&UnicodeString, (__int64)&v15);
+          LdrpLogEtwEvent(a4, 0, 0, 0, (__int64)&UnicodeString, (__int64)&DestinationString);
           RtlFreeUnicodeString(&UnicodeString);
         }
-        RtlFreeUnicodeString(&v15);
+        RtlFreeUnicodeString(&DestinationString);
       }
     }
   }

@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlValidSecurityDescriptor @ 0x1407B4D10
+ * XREFs of RtlValidSecurityDescriptor @ 0x1407B4FF0
  * Callers:
- *     AdtpIsSDValidSelfRelative @ 0x14067116C (AdtpIsSDValidSelfRelative.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDC40 (_PnpOpenPropertiesKey.c)
- *     ObOpenObjectByNameEx @ 0x1406ECFE0 (ObOpenObjectByNameEx.c)
- *     ObpAdjustAccessMask @ 0x140715644 (ObpAdjustAccessMask.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     PnpInitializeInheritedRestrictedSd @ 0x1407DD03C (PnpInitializeInheritedRestrictedSd.c)
- *     _PnpGetEnumSecurityDescriptor @ 0x140859D98 (_PnpGetEnumSecurityDescriptor.c)
- *     _CmGetRegKeySecurityDescriptor @ 0x14086F288 (_CmGetRegKeySecurityDescriptor.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14087EB00 (PiDevCfgGetKeySecurityDescriptor.c)
- *     _PnpGetPropertiesSecurityDescriptor @ 0x140880D74 (_PnpGetPropertiesSecurityDescriptor.c)
- *     ObpSetObjectAuditInfo @ 0x1408A5602 (ObpSetObjectAuditInfo.c)
- *     PiAuGetServiceStateSecurityObject @ 0x14095B954 (PiAuGetServiceStateSecurityObject.c)
- *     PiAuGetStateDirectorySecurityObject @ 0x14095BB9C (PiAuGetStateDirectorySecurityObject.c)
- *     CMFCreateSecurityDescriptor @ 0x140A01B4C (CMFCreateSecurityDescriptor.c)
- *     DrvDbGetSecurityDescriptor @ 0x140A6DA04 (DrvDbGetSecurityDescriptor.c)
+ *     AdtpIsSDValidSelfRelative @ 0x1406716BC (AdtpIsSDValidSelfRelative.c)
+ *     _PnpOpenPropertiesKey @ 0x1406CDC70 (_PnpOpenPropertiesKey.c)
+ *     ObOpenObjectByNameEx @ 0x1406ED010 (ObOpenObjectByNameEx.c)
+ *     ObpAdjustAccessMask @ 0x140715850 (ObpAdjustAccessMask.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     PnpInitializeInheritedRestrictedSd @ 0x1407DD30C (PnpInitializeInheritedRestrictedSd.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x140859FD8 (_PnpGetEnumSecurityDescriptor.c)
+ *     _CmGetRegKeySecurityDescriptor @ 0x14086F4C8 (_CmGetRegKeySecurityDescriptor.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x14087ED40 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x140880FB4 (_PnpGetPropertiesSecurityDescriptor.c)
+ *     ObpSetObjectAuditInfo @ 0x1408A5852 (ObpSetObjectAuditInfo.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x14095BB54 (PiAuGetServiceStateSecurityObject.c)
+ *     PiAuGetStateDirectorySecurityObject @ 0x14095BD9C (PiAuGetStateDirectorySecurityObject.c)
+ *     CMFCreateSecurityDescriptor @ 0x140A01DDC (CMFCreateSecurityDescriptor.c)
+ *     DrvDbGetSecurityDescriptor @ 0x140A6DCB4 (DrvDbGetSecurityDescriptor.c)
  *     PiAuCreateLocalSystemSecurityObject @ 0x140B40310 (PiAuCreateLocalSystemSecurityObject.c)
  *     PiAuCreateStandardSecurityObject @ 0x140B406C0 (PiAuCreateStandardSecurityObject.c)
  *     PiAuGetDriverDataDirectorySecurityObject @ 0x140B6C088 (PiAuGetDriverDataDirectorySecurityObject.c)
  * Callees:
- *     RtlValidAcl @ 0x140736880 (RtlValidAcl.c)
- *     RtlValidSid @ 0x1407373A0 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140736A70 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x140737590 (RtlValidSid.c)
  */
 
 BOOLEAN __stdcall RtlValidSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)
@@ -31,11 +31,11 @@ BOOLEAN __stdcall RtlValidSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescri
   char *v4; // rcx
   __int64 v5; // rax
   __int64 v6; // rax
-  char *v7; // rcx
+  ACL *v7; // rcx
   __int16 v8; // ax
   char *v10; // rcx
   __int64 v11; // rax
-  char *v12; // rcx
+  ACL *v12; // rcx
 
   if ( *(_BYTE *)SecurityDescriptor != 1 )
     return 0;
@@ -71,15 +71,15 @@ LABEL_9:
   {
     if ( v2 >= 0 )
     {
-      v7 = (char *)*((_QWORD *)SecurityDescriptor + 4);
+      v7 = (ACL *)*((_QWORD *)SecurityDescriptor + 4);
       goto LABEL_13;
     }
     v6 = *((unsigned int *)SecurityDescriptor + 4);
     if ( (_DWORD)v6 )
     {
-      v7 = (char *)SecurityDescriptor + v6;
+      v7 = (ACL *)((char *)SecurityDescriptor + v6);
 LABEL_13:
-      if ( !v7 || RtlValidAcl((__int64)v7) )
+      if ( !v7 || RtlValidAcl(v7) )
         goto LABEL_15;
       return 0;
     }
@@ -90,16 +90,16 @@ LABEL_15:
     return 1;
   if ( v8 >= 0 )
   {
-    v12 = (char *)*((_QWORD *)SecurityDescriptor + 3);
+    v12 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
   }
   else
   {
     v11 = *((unsigned int *)SecurityDescriptor + 3);
     if ( !(_DWORD)v11 )
       return 1;
-    v12 = (char *)SecurityDescriptor + v11;
+    v12 = (ACL *)((char *)SecurityDescriptor + v11);
   }
   if ( !v12 )
     return 1;
-  return RtlValidAcl((__int64)v12) != 0;
+  return RtlValidAcl(v12) != 0;
 }

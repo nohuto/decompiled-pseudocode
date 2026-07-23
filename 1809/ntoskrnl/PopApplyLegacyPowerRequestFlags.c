@@ -1,8 +1,8 @@
 /*
  * XREFs of PopApplyLegacyPowerRequestFlags @ 0x140001D08
  * Callers:
- *     PoRegisterSystemState @ 0x1402DBBC0 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x1405872F0 (NtSetThreadExecutionState.c)
+ *     PoRegisterSystemState @ 0x1402DBDB0 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x1405882F0 (NtSetThreadExecutionState.c)
  * Callees:
  *     PoClearPowerRequest @ 0x140001ED0 (PoClearPowerRequest.c)
  *     PoSetPowerRequest @ 0x140001FD0 (PoSetPowerRequest.c)

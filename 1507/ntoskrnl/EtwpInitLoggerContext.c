@@ -97,7 +97,7 @@ LABEL_14:
         v16 = 2 * v15;
         *((_DWORD *)v9 + 60) = v16;
         *((_DWORD *)v9 + 63) = v16 + 22;
-        KeQuerySystemTimePrecise((__int64 *)v9 + 101);
+        KeQuerySystemTimePrecise((LARGE_INTEGER *)v9 + 101);
         KeInitializeMutex((PRKMUTEX)(v9 + 648), 0);
         *((_QWORD *)v9 + 88) = 0LL;
         *((_QWORD *)v9 + 44) = v9 + 344;

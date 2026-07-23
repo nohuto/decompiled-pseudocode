@@ -159,10 +159,13 @@ LABEL_87:
 LABEL_30:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)a3);
   v25 = *(unsigned __int8 *)(a3 + 16);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v25 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v25 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -178,10 +181,10 @@ LABEL_30:
   {
     KxReleaseQueuedSpinLock(LockHandle);
     v31 = *((unsigned __int8 *)LockHandle + 16);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v31 <= 0xFu && v32 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v31 <= 0xFu && v32 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v34 = v33->SchedulerAssist;
@@ -235,10 +238,10 @@ LABEL_30:
     ++CcSectionDeletionSequencePhase2;
     KxReleaseQueuedSpinLock(LockHandle);
     v42 = *((unsigned __int8 *)LockHandle + 16);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v43 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v42 <= 0xFu && v43 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v42 <= 0xFu && v43 >= 2u )
       {
         v44 = KeGetCurrentPrcb();
         v45 = v44->SchedulerAssist;

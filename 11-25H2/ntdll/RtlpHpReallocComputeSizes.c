@@ -62,7 +62,7 @@ __int64 __fastcall RtlpHpReallocComputeSizes(
   }
   else
   {
-    v18 = RtlCSparseBitmapBitmaskRead(&unk_1801D0980, 2 * ((a2 - qword_1801D0978) >> 20));
+    v18 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_1801D0978) >> 20));
     if ( !v18 || (v10 = v18 - 1, v10 == 2) )
     {
       v19 = RtlpHpLargeAllocSize(a1, a2, a5 + 2);

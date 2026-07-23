@@ -13,14 +13,14 @@
  */
 
 __int64 __fastcall DifZwAlpcSendWaitReceivePortWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8)
+        void *a1,
+        ULONG a2,
+        _PORT_MESSAGE *a3,
+        _ALPC_MESSAGE_ATTRIBUTES *a4,
+        _PORT_MESSAGE *ReceiveMessage,
+        ULONG_PTR *BufferLength,
+        _ALPC_MESSAGE_ATTRIBUTES *ReceiveMessageAttributes,
+        LARGE_INTEGER *Timeout)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v12; // rsi
@@ -32,8 +32,8 @@ __int64 __fastcall DifZwAlpcSendWaitReceivePortWrapper(
   _QWORD **v18; // rsi
   _QWORD *j; // rbx
   _QWORD v21[7]; // [rsp+48h] [rbp-39h] BYREF
-  unsigned int v22; // [rsp+80h] [rbp-1h]
-  __int64 v23; // [rsp+88h] [rbp+7h]
+  ULONG v22; // [rsp+80h] [rbp-1h]
+  void *v23; // [rsp+88h] [rbp+7h]
   unsigned int v24; // [rsp+90h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+3Fh]
 
@@ -57,10 +57,10 @@ __int64 __fastcall DifZwAlpcSendWaitReceivePortWrapper(
 LABEL_7:
   v15 = 0;
   v23 = a1;
-  v21[4] = a5;
-  v21[3] = a6;
-  v21[2] = a7;
-  v21[1] = a8;
+  v21[4] = ReceiveMessage;
+  v21[3] = BufferLength;
+  v21[2] = ReceiveMessageAttributes;
+  v21[1] = Timeout;
   v22 = a2;
   v21[6] = a3;
   v21[5] = a4;
@@ -76,7 +76,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v24 = ZwAlpcSendWaitReceivePort(a1, a2);
+  v24 = ZwAlpcSendWaitReceivePort(a1, a2, a3, a4, ReceiveMessage, BufferLength, ReceiveMessageAttributes, Timeout);
   if ( v12 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

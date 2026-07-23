@@ -1,17 +1,17 @@
 /*
- * XREFs of PspImplicitAssignProcessToJob @ 0x1404F3670
+ * XREFs of PspImplicitAssignProcessToJob @ 0x1404D65FC
  * Callers:
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     PspIsServerSilo @ 0x1400B2DF8 (PspIsServerSilo.c)
- *     MmAssignProcessToJob @ 0x1400B934C (MmAssignProcessToJob.c)
- *     PspChangeProcessExecutionState @ 0x140469960 (PspChangeProcessExecutionState.c)
- *     PspUnlockJobChain @ 0x140469E6C (PspUnlockJobChain.c)
- *     PspLockJobChain @ 0x140469EEC (PspLockJobChain.c)
- *     PspAddProcessToJobChain @ 0x14046A2B8 (PspAddProcessToJobChain.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x14046A558 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspEstablishJobHierarchy @ 0x1404F2FFC (PspEstablishJobHierarchy.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     PspIsServerSilo @ 0x1400B0D44 (PspIsServerSilo.c)
+ *     MmAssignProcessToJob @ 0x1400B71DC (MmAssignProcessToJob.c)
+ *     PspChangeProcessExecutionState @ 0x140468830 (PspChangeProcessExecutionState.c)
+ *     PspUnlockJobChain @ 0x140468D3C (PspUnlockJobChain.c)
+ *     PspLockJobChain @ 0x140468DBC (PspLockJobChain.c)
+ *     PspAddProcessToJobChain @ 0x140469188 (PspAddProcessToJobChain.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140469428 (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspEstablishJobHierarchy @ 0x1404D5F88 (PspEstablishJobHierarchy.c)
  */
 
 __int64 __fastcall PspImplicitAssignProcessToJob(_DWORD *Object, ULONG_PTR BugCheckParameter1, __int16 a3)

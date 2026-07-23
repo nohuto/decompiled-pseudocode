@@ -98,9 +98,9 @@
 
 PSLIST_ENTRY __stdcall RtlpInterlockedPushEntrySList(PSLIST_HEADER ListHead, PSLIST_ENTRY ListEntry)
 {
-  union _SLIST_HEADER v5; // rax
+  _SLIST_HEADER v5; // rax
   _SLIST_ENTRY *Region; // r8
-  union _SLIST_HEADER v7; // rt0
+  _SLIST_HEADER v7; // rt0
   unsigned __int8 v8; // tt
 
   _m_prefetchw(ListHead);

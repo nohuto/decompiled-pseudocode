@@ -1,14 +1,14 @@
 /*
- * XREFs of CmUnlockHiveSecurity @ 0x1403FD5BC
+ * XREFs of CmUnlockHiveSecurity @ 0x1403FC47C
  * Callers:
- *     CmpSetKeySecurity @ 0x14000A660 (CmpSetKeySecurity.c)
- *     CmpCreateHiveRootCell @ 0x140140F24 (CmpCreateHiveRootCell.c)
- *     CmpAssignKeySecurity @ 0x14014A9C8 (CmpAssignKeySecurity.c)
- *     CmpCreateTombstone @ 0x1401B6260 (CmpCreateTombstone.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmpUndoDeleteKeyForTransEx @ 0x14060DD60 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmpSetKeySecurity @ 0x14000A1E0 (CmpSetKeySecurity.c)
+ *     CmpCreateHiveRootCell @ 0x140141494 (CmpCreateHiveRootCell.c)
+ *     CmpAssignKeySecurity @ 0x14014AF38 (CmpAssignKeySecurity.c)
+ *     CmpCreateTombstone @ 0x1401B6144 (CmpCreateTombstone.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmpUndoDeleteKeyForTransEx @ 0x14060DE14 (CmpUndoDeleteKeyForTransEx.c)
  * Callees:
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 unsigned __int64 __fastcall CmUnlockHiveSecurity(__int64 a1)

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x1401D38F8 (KeAcquireQueuedSpinLockRaiseToSynch.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x1401D3724 (KeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x1407130E8 (ViKeRaiseIrqlSanityChecks.c)
  */
 
@@ -15,7 +15,7 @@ unsigned __int8 __fastcall VerifierKeAcquireQueuedSpinLockRaiseToSynch(__int64 a
   unsigned __int8 result; // al
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  ++dword_140307208;
+  ++dword_140307248;
   v2 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 132LL);

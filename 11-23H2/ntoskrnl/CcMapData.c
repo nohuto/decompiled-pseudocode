@@ -1,12 +1,12 @@
 /*
- * XREFs of CcMapData @ 0x1406F6010
+ * XREFs of CcMapData @ 0x1406F6220
  * Callers:
  *     <none>
  * Callees:
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     CcGetVirtualAddress @ 0x140264DF0 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x140265190 (CcMapAndRead.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x140265080 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x140265420 (CcMapAndRead.c)
  */
 
 BOOLEAN __stdcall CcMapData(

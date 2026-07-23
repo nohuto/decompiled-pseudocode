@@ -1,12 +1,12 @@
 /*
- * XREFs of MmUnmapLockedRestartPages @ 0x1407E8280
+ * XREFs of MmUnmapLockedRestartPages @ 0x1407E8850
  * Callers:
  *     <none>
  * Callees:
- *     MiUnmapMdlCommon @ 0x14040F900 (MiUnmapMdlCommon.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiReleaseDriverPtes @ 0x140A67CE4 (MiReleaseDriverPtes.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiUnmapMdlCommon @ 0x140433530 (MiUnmapMdlCommon.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiReleaseDriverPtes @ 0x140A611E4 (MiReleaseDriverPtes.c)
  */
 
 __int64 __fastcall MmUnmapLockedRestartPages(__int64 a1)

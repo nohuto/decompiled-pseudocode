@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetServerSiloActiveConsoleId @ 0x1405A38EC
+ * XREFs of PsGetServerSiloActiveConsoleId @ 0x1405A3DDC
  * Callers:
- *     IopGetThreadActiveConsoleId @ 0x140947AAC (IopGetThreadActiveConsoleId.c)
+ *     IopGetThreadActiveConsoleId @ 0x140947CAC (IopGetThreadActiveConsoleId.c)
  * Callees:
  *     <none>
  */

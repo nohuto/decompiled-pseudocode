@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdaptiveGetBootTargetSystemState @ 0x1409BA4D8
+ * XREFs of PopAdaptiveGetBootTargetSystemState @ 0x1409A0B28
  * Callers:
- *     PopSystemIdleEventHandler @ 0x1409BA480 (PopSystemIdleEventHandler.c)
+ *     PopSystemIdleEventHandler @ 0x1409A0AD0 (PopSystemIdleEventHandler.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
  */
 
 __int64 __fastcall PopAdaptiveGetBootTargetSystemState(_DWORD *a1, _DWORD *a2)
@@ -25,17 +25,17 @@ __int64 __fastcall PopAdaptiveGetBootTargetSystemState(_DWORD *a1, _DWORD *a2)
   if ( !PopAdaptiveBootContext )
     goto LABEL_2;
   *a2 = 0;
-  v5 = qword_140FD71F0 & 7;
-  v6 = (_DWORD *)((unsigned int)(qword_140FD71F0 & 7) - 1);
-  if ( (qword_140FD71F0 & 7) == 1 )
+  v5 = qword_140FD81F0 & 7;
+  v6 = (_DWORD *)((unsigned int)(qword_140FD81F0 & 7) - 1);
+  if ( (qword_140FD81F0 & 7) == 1 )
   {
     *a1 = 2;
     goto LABEL_3;
   }
-  if ( (qword_140FD71F0 & 7) == 2
-    || (qword_140FD71F0 & 7) == 3
-    || (qword_140FD71F0 & 7) == 4
-    || (v6 = (_DWORD *)((unsigned int)(qword_140FD71F0 & 7) - 5), (unsigned int)v6 <= 1) )
+  if ( (qword_140FD81F0 & 7) == 2
+    || (qword_140FD81F0 & 7) == 3
+    || (qword_140FD81F0 & 7) == 4
+    || (v6 = (_DWORD *)((unsigned int)(qword_140FD81F0 & 7) - 5), (unsigned int)v6 <= 1) )
   {
     v6 = PopAdaptiveBootstateToSystemPowerState;
     *a1 = 10;

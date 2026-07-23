@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpNumaSwapP0NodeToFront @ 0x140592750
+ * XREFs of HalpNumaSwapP0NodeToFront @ 0x140594ED0
  * Callers:
- *     HalpAcpiInitSystem @ 0x140BEB270 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x140BF1270 (HalpAcpiInitSystem.c)
  * Callees:
- *     HalpInterruptGetIdentifiers @ 0x1404FD2E0 (HalpInterruptGetIdentifiers.c)
- *     HalpGetNumaProcMemoryCount @ 0x140CB1440 (HalpGetNumaProcMemoryCount.c)
+ *     HalpInterruptGetIdentifiers @ 0x1404F6820 (HalpInterruptGetIdentifiers.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140CB7480 (HalpGetNumaProcMemoryCount.c)
  */
 
 void HalpNumaSwapP0NodeToFront()
@@ -111,21 +111,21 @@ void HalpNumaSwapP0NodeToFront()
                     }
                     while ( v18 );
                   }
-                  if ( HalpChannelMemoryRangeCount )
+                  if ( dword_140F87A80 )
                   {
                     v20 = 0LL;
-                    v21 = (unsigned int)HalpChannelMemoryRangeCount;
+                    v21 = (unsigned int)dword_140F87A80;
                     do
                     {
-                      v22 = *(_WORD *)((char *)HalpChannelMemoryRanges + v20 + 10);
+                      v22 = *(_WORD *)((char *)qword_140F87A78 + v20 + 10);
                       if ( v22 )
                       {
                         if ( v22 == (_WORD)v3 )
-                          *(_WORD *)((char *)HalpChannelMemoryRanges + v20 + 10) = 0;
+                          *(_WORD *)((char *)qword_140F87A78 + v20 + 10) = 0;
                       }
                       else
                       {
-                        *(_WORD *)((char *)HalpChannelMemoryRanges + v20 + 10) = v3;
+                        *(_WORD *)((char *)qword_140F87A78 + v20 + 10) = v3;
                       }
                       v20 += 16LL;
                       --v21;

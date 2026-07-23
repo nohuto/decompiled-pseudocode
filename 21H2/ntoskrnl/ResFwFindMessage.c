@@ -1,22 +1,22 @@
 /*
- * XREFs of ResFwFindMessage @ 0x1409F47C0
+ * XREFs of ResFwFindMessage @ 0x1409F57C0
  * Callers:
- *     BcpFindMessage @ 0x140A96E2C (BcpFindMessage.c)
+ *     BcpFindMessage @ 0x140A97E2C (BcpFindMessage.c)
  * Callees:
- *     RtlFindMessage @ 0x14068D900 (RtlFindMessage.c)
+ *     RtlFindMessage @ 0x1405ED770 (RtlFindMessage.c)
  */
 
-unsigned __int16 *__fastcall ResFwFindMessage(unsigned int a1)
+BYTE *__fastcall ResFwFindMessage(ULONG MessageId)
 {
-  unsigned __int16 *v2; // [rsp+48h] [rbp+10h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = 0LL;
+  MessageEntry = 0LL;
   if ( qword_140C135A8
     && *(_QWORD *)qword_140C135A8
-    && (int)RtlFindMessage(*(_QWORD *)qword_140C135A8, 0xBu, 0, a1, &v2) >= 0
-    && (v2[1] & 1) != 0 )
+    && RtlFindMessage(*(PVOID *)qword_140C135A8, 0xBu, 0, MessageId, &MessageEntry) >= 0
+    && (MessageEntry->Flags & 1) != 0 )
   {
-    return v2 + 2;
+    return MessageEntry->Text;
   }
   else
   {

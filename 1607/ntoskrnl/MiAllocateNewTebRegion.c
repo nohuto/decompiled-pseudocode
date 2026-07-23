@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAllocateNewTebRegion @ 0x1404BA720
+ * XREFs of MiAllocateNewTebRegion @ 0x1404A6450
  * Callers:
- *     MiCreatePebOrTeb @ 0x14050B230 (MiCreatePebOrTeb.c)
+ *     MiCreatePebOrTeb @ 0x1404EE1C0 (MiCreatePebOrTeb.c)
  * Callees:
- *     MiLocateVadEvent @ 0x140015564 (MiLocateVadEvent.c)
- *     RtlFindClearBitsAndSetEx @ 0x14001766C (RtlFindClearBitsAndSetEx.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiInsertPrivateVad @ 0x1400965F0 (MiInsertPrivateVad.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiLocateVadEvent @ 0x1400150E4 (MiLocateVadEvent.c)
+ *     RtlFindClearBitsAndSetEx @ 0x1400171EC (RtlFindClearBitsAndSetEx.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiInsertPrivateVad @ 0x140095DF0 (MiInsertPrivateVad.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiAddSecureEntry @ 0x14042AB30 (MiAddSecureEntry.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x140436BB0 (MiAdvanceVadHint.c)
- *     MiCreateVadEventBitmap @ 0x1404BA9CC (MiCreateVadEventBitmap.c)
- *     MiSelectUserAddress @ 0x1404BAA90 (MiSelectUserAddress.c)
- *     MiFreeVadEventBitmap @ 0x140659D2C (MiFreeVadEventBitmap.c)
+ *     MiAddSecureEntry @ 0x140429A00 (MiAddSecureEntry.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x140435A80 (MiAdvanceVadHint.c)
+ *     MiCreateVadEventBitmap @ 0x1404A66FC (MiCreateVadEventBitmap.c)
+ *     MiSelectUserAddress @ 0x1404A67C0 (MiSelectUserAddress.c)
+ *     MiFreeVadEventBitmap @ 0x140659E10 (MiFreeVadEventBitmap.c)
  */
 
 __int64 __fastcall MiAllocateNewTebRegion(unsigned int a1, int a2, unsigned __int64 *a3, __int64 *a4)
@@ -126,7 +126,7 @@ LABEL_27:
         MiInsertPrivateVad(v8, 0LL, (__int64)Process);
         if ( v35 == 1 )
           MiAdvanceVadHint(v17, v19, 0x80000000);
-        v23 = qword_140327F90 + 276840448;
+        v23 = qword_140327FD0 + 276840448;
         LOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, (__int64)Process);
         v24 = v11 + 2;
         v25 = v23 + 16 * (a2 + 8LL);

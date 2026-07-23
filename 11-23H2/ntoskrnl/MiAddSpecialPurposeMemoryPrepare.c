@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddSpecialPurposeMemoryPrepare @ 0x140A46DC0
+ * XREFs of MiAddSpecialPurposeMemoryPrepare @ 0x140A47070
  * Callers:
- *     MmManagePartitionInitialAddMemory @ 0x140A456CC (MmManagePartitionInitialAddMemory.c)
- *     MmManagePartitionMoveMemory @ 0x140A457B8 (MmManagePartitionMoveMemory.c)
+ *     MmManagePartitionInitialAddMemory @ 0x140A4597C (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140A45A68 (MmManagePartitionMoveMemory.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiFindSpecialPurposeMemoryType @ 0x1406601C8 (MiFindSpecialPurposeMemoryType.c)
- *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4736C (MiInitializePartitionSpecialPurposeMemory.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiFindSpecialPurposeMemoryType @ 0x140660718 (MiFindSpecialPurposeMemoryType.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4761C (MiInitializePartitionSpecialPurposeMemory.c)
  */
 
 __int64 __fastcall MiAddSpecialPurposeMemoryPrepare(__int64 a1, const void *a2, _QWORD *a3, unsigned __int64 **a4)

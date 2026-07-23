@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpPartitionCanDoNameLoggingCallback @ 0x1404642E0
+ * XREFs of PfpPartitionCanDoNameLoggingCallback @ 0x14045AA10
  * Callers:
- *     PfFileInfoNotify @ 0x140275220 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x14022A7B0 (PfFileInfoNotify.c)
  * Callees:
  *     <none>
  */

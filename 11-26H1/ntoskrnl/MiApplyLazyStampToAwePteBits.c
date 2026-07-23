@@ -1,9 +1,9 @@
 /*
- * XREFs of MiApplyLazyStampToAwePteBits @ 0x140700940
+ * XREFs of MiApplyLazyStampToAwePteBits @ 0x140705610
  * Callers:
  *     <none>
  * Callees:
- *     MiWriteAweClusterPte @ 0x14052DDF8 (MiWriteAweClusterPte.c)
+ *     MiWriteAweClusterPte @ 0x140530318 (MiWriteAweClusterPte.c)
  */
 
 __int64 __fastcall MiApplyLazyStampToAwePteBits(__int64 a1, __int64 a2, unsigned __int64 a3)

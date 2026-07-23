@@ -1,82 +1,82 @@
 /*
- * XREFs of ExFreeSvmAsid @ 0x140491AF4
+ * XREFs of ExFreeSvmAsid @ 0x14048C994
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     ExpFreeAsid @ 0x140658CEC (ExpFreeAsid.c)
- *     ExpSvmDereferenceDevice @ 0x14065967C (ExpSvmDereferenceDevice.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExpFreeAsid @ 0x14065738C (ExpFreeAsid.c)
+ *     ExpSvmDereferenceDevice @ 0x140657D1C (ExpSvmDereferenceDevice.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ExFreeSvmAsid(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall ExFreeSvmAsid(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v4; // rbp
-  unsigned __int64 v5; // r12
+  unsigned __int64 v2; // rbp
+  unsigned __int64 v3; // r12
   _KPROCESS *Process; // rbx
   __int64 result; // rax
-  unsigned int v8; // edi
-  unsigned int v9; // esi
-  __int64 *v10; // r15
-  __int64 *v11; // r14
-  _QWORD *v12; // r13
+  unsigned int v6; // edi
+  unsigned int v7; // esi
+  __int64 *v8; // r15
+  __int64 *v9; // r14
+  _QWORD *v10; // r13
   _QWORD *P; // [rsp+50h] [rbp+8h]
 
-  v4 = 0LL;
-  v5 = 0LL;
+  v2 = 0LL;
+  v3 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
   result = 0xFFFFFFFFLL;
-  v8 = Process[3].ActiveGroupPadding[0];
-  v9 = HIDWORD(Process[4].Padding[0]);
-  if ( v8 )
+  v6 = Process[3].ActiveGroupPadding[0];
+  v7 = HIDWORD(Process[4].Padding[0]);
+  if ( v6 )
   {
-    v4 = Process[3].ActiveGroupPadding[1];
-    --v8;
-    if ( !v9 )
+    v2 = Process[3].ActiveGroupPadding[1];
+    --v6;
+    if ( !v7 )
       goto LABEL_6;
   }
-  else if ( !v9 )
+  else if ( !v7 )
   {
     return result;
   }
-  v5 = Process[4].Padding[1];
-  --v9;
+  v3 = Process[4].Padding[1];
+  --v7;
 LABEL_6:
-  v10 = (__int64 *)&Process[3].Padding[1];
+  v8 = (__int64 *)&Process[3].Padding[1];
   while ( 1 )
   {
-    v11 = (__int64 *)*v10;
-    if ( *(__int64 **)(*v10 + 8) != v10 || (result = *v11, *(__int64 **)(*v11 + 8) != v11) )
+    v9 = (__int64 *)*v8;
+    if ( *(__int64 **)(*v8 + 8) != v8 || (result = *v9, *(__int64 **)(*v9 + 8) != v9) )
       __fastfail(3u);
-    *v10 = result;
-    *(_QWORD *)(result + 8) = v10;
-    if ( v11 == v10 )
+    *v8 = result;
+    *(_QWORD *)(result + 8) = v8;
+    if ( v9 == v8 )
       break;
-    P = (_QWORD *)v11[2];
-    v12 = P + 22;
-    if ( v4 )
+    P = (_QWORD *)v9[2];
+    v10 = P + 22;
+    if ( v2 )
     {
-      guard_dispatch_icall_no_overrides(v4, *v12, a3, a4);
+      guard_dispatch_icall_no_overrides(v2, *v10);
       ExpSvmDereferenceDevice(P);
     }
-    if ( v5 )
+    if ( v3 )
     {
-      guard_dispatch_icall_no_overrides(v5, *v12, a3, a4);
+      guard_dispatch_icall_no_overrides(v3, *v10);
       ExpSvmDereferenceDevice(P);
     }
-    ExFreePoolWithTag(v11, 0);
+    ExFreePoolWithTag(v9, 0);
   }
-  if ( v8 )
+  if ( v6 )
   {
-    guard_dispatch_icall_no_overrides(v4, a2, a3, a4);
+    guard_dispatch_icall_no_overrides(v2, a2);
     Process[3].ActiveGroupPadding[1] = 0LL;
-    result = ExpFreeAsid(v8, Process);
+    result = ExpFreeAsid(v6, Process);
   }
-  if ( v9 )
+  if ( v7 )
   {
-    guard_dispatch_icall_no_overrides(v5, a2, a3, a4);
+    guard_dispatch_icall_no_overrides(v3, a2);
     Process[4].Padding[1] = 0LL;
-    return ExpFreeAsid(v9, Process);
+    return ExpFreeAsid(v7, Process);
   }
   return result;
 }

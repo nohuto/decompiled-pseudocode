@@ -9,21 +9,21 @@
  *     TpSetDefaultPoolMaxThreads @ 0x1801256C0 (TpSetDefaultPoolMaxThreads.c)
  */
 
-__int64 __fastcall RtlpTpInitializeData(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall RtlpTpInitializeData(HANDLE *NewTokenHandle, unsigned int a2, void *a3)
 {
   unsigned int v3; // ebx
   __int16 v5; // di
-  int v8; // eax
+  NTSTATUS v8; // eax
 
   v3 = 0;
-  *(_DWORD *)(a1 + 8) = a2;
-  *(_QWORD *)a1 = 0LL;
+  *((_DWORD *)NewTokenHandle + 2) = a2;
+  *NewTokenHandle = 0LL;
   v5 = a2;
   if ( (a2 & 0xFFFF0000) != 0 )
     TpSetDefaultPoolMaxThreads(HIWORD(a2));
   if ( !a3 || (v5 & 0x100) == 0 )
     return 0LL;
-  v8 = NtDuplicateToken(a3, 4LL, 0LL, 0LL, 2, a1);
+  v8 = NtDuplicateToken(a3, 4u, 0LL, 0, TokenImpersonation, NewTokenHandle);
   if ( v8 < 0 )
     return (unsigned int)v8;
   return v3;

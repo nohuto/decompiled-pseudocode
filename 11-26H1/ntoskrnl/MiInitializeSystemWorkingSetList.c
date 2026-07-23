@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeSystemWorkingSetList @ 0x1408676D4
+ * XREFs of MiInitializeSystemWorkingSetList @ 0x14086DAB4
  * Callers:
- *     MiInitializeSystemCache @ 0x14086A918 (MiInitializeSystemCache.c)
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
- *     MiBuildPagedPool @ 0x140CF9A9C (MiBuildPagedPool.c)
- *     MiInitializeNonPagedPool @ 0x140CF9BA8 (MiInitializeNonPagedPool.c)
- *     MiBuildSystemDataViews @ 0x140CF9F28 (MiBuildSystemDataViews.c)
- *     MiInitializeSystemPtes @ 0x140CFF020 (MiInitializeSystemPtes.c)
+ *     MiInitializeSystemCache @ 0x140870CF8 (MiInitializeSystemCache.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
+ *     MiBuildPagedPool @ 0x140CFFE1C (MiBuildPagedPool.c)
+ *     MiInitializeNonPagedPool @ 0x140CFFF28 (MiInitializeNonPagedPool.c)
+ *     MiBuildSystemDataViews @ 0x140D002A8 (MiBuildSystemDataViews.c)
+ *     MiInitializeSystemPtes @ 0x140D053C0 (MiInitializeSystemPtes.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiTranslateWsType @ 0x1404AF4D4 (MiTranslateWsType.c)
- *     MiInitializeWorkingSetList @ 0x1404D3AF0 (MiInitializeWorkingSetList.c)
- *     MiAllowWorkingSetExpansion @ 0x1404D8040 (MiAllowWorkingSetExpansion.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiTranslateWsType @ 0x1404A8B64 (MiTranslateWsType.c)
+ *     MiInitializeWorkingSetList @ 0x1404CD360 (MiInitializeWorkingSetList.c)
+ *     MiAllowWorkingSetExpansion @ 0x1404D1810 (MiAllowWorkingSetExpansion.c)
  */
 
 __int64 __fastcall MiInitializeSystemWorkingSetList(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -42,7 +42,7 @@ __int64 __fastcall MiInitializeSystemWorkingSetList(__int64 a1, __int64 a2, int 
   }
   if ( v8 == 1 )
     *(_BYTE *)(v9 + 184) = v10 | 0x40;
-  v14 = (char *)&unk_140E2DE78 + 272 * v8;
+  v14 = (char *)&unk_140E2DFF8 + 272 * v8;
   v15 = v8;
   if ( !(unsigned int)MiChargeCommit((ULONG *)a1, 0x19uLL, 0) )
     return 3221225626LL;
@@ -54,7 +54,7 @@ __int64 __fastcall MiInitializeSystemWorkingSetList(__int64 a1, __int64 a2, int 
   if ( (ULONG *)a1 != &MiSystemPartition )
   {
     v14 = (char *)((v15 << 9) + a1 + 22784);
-    a4 = *((_QWORD *)&unk_140E36D40 + 40 * v15);
+    a4 = *((_QWORD *)&unk_140E36EC0 + 40 * v15);
   }
   *(_QWORD *)(a2 + 120) = (-(__int64)(*(_QWORD *)(a1 + 22288) < 0x4000uLL) & 0xFFFFFFFFFFFFFF20uLL) + 256;
   *(_DWORD *)a2 = 0;

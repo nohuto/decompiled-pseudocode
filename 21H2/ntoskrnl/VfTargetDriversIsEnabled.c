@@ -1,16 +1,16 @@
 /*
- * XREFs of VfTargetDriversIsEnabled @ 0x1409D6F30
+ * XREFs of VfTargetDriversIsEnabled @ 0x1409D7F30
  * Callers:
- *     PipDmgGetDriverDmarCompatLevel @ 0x14076E404 (PipDmgGetDriverDmarCompatLevel.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x1409D1888 (ViIrpCheckKernelAddressForIrp.c)
- *     VfPendingShouldForce @ 0x1409D59BC (VfPendingShouldForce.c)
- *     VfCheckUserHandle @ 0x1409DA184 (VfCheckUserHandle.c)
- *     ViWdBeforeCallDriver @ 0x1409E0D48 (ViWdBeforeCallDriver.c)
- *     VerifierExInitializeLookasideListEx @ 0x1409E11A0 (VerifierExInitializeLookasideListEx.c)
- *     VerifierExInitializeNPagedLookasideList @ 0x1409E12F0 (VerifierExInitializeNPagedLookasideList.c)
- *     VerifierExInitializePagedLookasideList @ 0x1409E1410 (VerifierExInitializePagedLookasideList.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x14076E5C4 (PipDmgGetDriverDmarCompatLevel.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x1409D2888 (ViIrpCheckKernelAddressForIrp.c)
+ *     VfPendingShouldForce @ 0x1409D69BC (VfPendingShouldForce.c)
+ *     VfCheckUserHandle @ 0x1409DB184 (VfCheckUserHandle.c)
+ *     ViWdBeforeCallDriver @ 0x1409E1D48 (ViWdBeforeCallDriver.c)
+ *     VerifierExInitializeLookasideListEx @ 0x1409E21A0 (VerifierExInitializeLookasideListEx.c)
+ *     VerifierExInitializeNPagedLookasideList @ 0x1409E22F0 (VerifierExInitializeNPagedLookasideList.c)
+ *     VerifierExInitializePagedLookasideList @ 0x1409E2410 (VerifierExInitializePagedLookasideList.c)
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x1409D6E40 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x1409D7E40 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 __fastcall VfTargetDriversIsEnabled(unsigned __int64 a1)

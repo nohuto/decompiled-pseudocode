@@ -1,72 +1,72 @@
 /*
- * XREFs of RtlInitializeCriticalSectionEx @ 0x18009BD70
+ * XREFs of RtlInitializeCriticalSectionEx @ 0x180030BC0
  * Callers:
- *     LdrpInitMuiCrits @ 0x180064024 (LdrpInitMuiCrits.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     RtlpInitMuiCriticalSection @ 0x18007CC94 (RtlpInitMuiCriticalSection.c)
- *     EtwpInitLoggerContext @ 0x18008D330 (EtwpInitLoggerContext.c)
- *     RtlInitializeResource @ 0x18009A370 (RtlInitializeResource.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
- *     LdrpInitParallelLoadingSupport @ 0x180109D48 (LdrpInitParallelLoadingSupport.c)
- *     LdrpCreateSoftwareEnclave @ 0x180111BD4 (LdrpCreateSoftwareEnclave.c)
- *     AVrfInitializeVerifier @ 0x180118960 (AVrfInitializeVerifier.c)
- *     RtlInitializeHeapManager @ 0x18011941C (RtlInitializeHeapManager.c)
- *     RtlTraceDatabaseCreate @ 0x180148140 (RtlTraceDatabaseCreate.c)
+ *     RtlpInitMuiCriticalSection @ 0x1800115D4 (RtlpInitMuiCriticalSection.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlInitializeResource @ 0x18002F1C0 (RtlInitializeResource.c)
+ *     LdrpInitMuiCrits @ 0x180079C04 (LdrpInitMuiCrits.c)
+ *     EtwpInitLoggerContext @ 0x1800A8DF0 (EtwpInitLoggerContext.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrpInitParallelLoadingSupport @ 0x180104C78 (LdrpInitParallelLoadingSupport.c)
+ *     LdrpCreateSoftwareEnclave @ 0x18010CFE4 (LdrpCreateSoftwareEnclave.c)
+ *     AVrfInitializeVerifier @ 0x180113994 (AVrfInitializeVerifier.c)
+ *     RtlInitializeHeapManager @ 0x180114300 (RtlInitializeHeapManager.c)
+ *     RtlTraceDatabaseCreate @ 0x1801464F0 (RtlTraceDatabaseCreate.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpAddDebugInfoToCriticalSection @ 0x18009AEE0 (RtlpAddDebugInfoToCriticalSection.c)
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpAddDebugInfoToCriticalSection @ 0x18002FD30 (RtlpAddDebugInfoToCriticalSection.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlInitializeCriticalSectionEx(__int64 a1, int a2, int a3)
+NTSTATUS __cdecl RtlInitializeCriticalSectionEx(PRTL_CRITICAL_SECTION CriticalSection, ULONG SpinCount, ULONG Flags)
 {
   __int64 v5; // rdi
   _DWORD *SharedData; // rcx
   __int64 v7; // rcx
-  __int64 v8; // rax
+  unsigned __int64 v8; // rax
   __int64 v9; // rcx
-  __int64 *v10; // rsi
-  _DWORD v11[2]; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 *p_SpinCount; // rsi
+  _DWORD Fields[2]; // [rsp+20h] [rbp-48h] BYREF
   __int128 v12; // [rsp+28h] [rbp-40h]
   __int64 v13; // [rsp+38h] [rbp-30h]
-  __int64 v14; // [rsp+40h] [rbp-28h]
-  __int64 v15; // [rsp+48h] [rbp-20h]
+  unsigned __int64 v14; // [rsp+40h] [rbp-28h]
+  PRTL_CRITICAL_SECTION v15; // [rsp+48h] [rbp-20h]
 
-  if ( (a3 & 0xE0000000) != 0 || (a3 & 0x11000000) == 0x11000000 )
-    return 3221225713LL;
-  if ( (a2 & 0xFF000000) != 0 )
-    return 3221225712LL;
-  if ( (a3 & 0x4000000) != 0 )
-    return 0LL;
-  *(_DWORD *)(a1 + 12) = 0;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  *(_QWORD *)(a1 + 24) = 0LL;
-  *(_DWORD *)(a1 + 8) = -1;
+  if ( (Flags & 0xE0000000) != 0 || (Flags & 0x11000000) == 0x11000000 )
+    return -1073741583;
+  if ( (SpinCount & 0xFF000000) != 0 )
+    return -1073741584;
+  if ( (Flags & 0x4000000) != 0 )
+    return 0;
+  CriticalSection->RecursionCount = 0;
+  CriticalSection->OwningThread = 0LL;
+  CriticalSection->LockSemaphore = 0LL;
+  CriticalSection->LockCount = -1;
   if ( NtCurrentPeb()->NumberOfProcessors <= 1 )
   {
     v9 = 0LL;
   }
-  else if ( (a3 & 0x2000000) != 0 || !a2 )
+  else if ( (Flags & 0x2000000) != 0 || !SpinCount )
   {
     v9 = 33556432LL;
   }
   else
   {
-    v9 = a2 & 0xFFFFFF;
+    v9 = SpinCount & 0xFFFFFF;
   }
-  v10 = (__int64 *)(a1 + 32);
-  *(_QWORD *)(a1 + 32) = v9 | a3 & 0x9000000;
-  if ( (a3 & 0x10000000) != 0 || RtlpForceCSDebugInfoCreation )
+  p_SpinCount = &CriticalSection->SpinCount;
+  CriticalSection->SpinCount = v9 | Flags & 0x9000000;
+  if ( (Flags & 0x10000000) != 0 || RtlpForceCSDebugInfoCreation )
   {
-    *(_QWORD *)a1 = -1LL;
-    RtlpAddDebugInfoToCriticalSection(a1);
-    if ( *(_QWORD *)a1 == -1LL )
-      *v10 |= 0x1000000uLL;
+    CriticalSection->DebugInfo = (_RTL_CRITICAL_SECTION_DEBUG *)-1LL;
+    RtlpAddDebugInfoToCriticalSection((__int64)CriticalSection);
+    if ( CriticalSection->DebugInfo == (_RTL_CRITICAL_SECTION_DEBUG *)-1LL )
+      *p_SpinCount |= 0x1000000uLL;
   }
   else
   {
-    *(_QWORD *)a1 = -1LL;
+    CriticalSection->DebugInfo = (_RTL_CRITICAL_SECTION_DEBUG *)-1LL;
   }
   v5 = 2147353474LL;
   SharedData = NtCurrentPeb()->SharedData;
@@ -76,16 +76,16 @@ __int64 __fastcall RtlInitializeCriticalSectionEx(__int64 a1, int a2, int a3)
     v7 = 2147353474LL;
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
   {
-    v8 = *v10;
+    v8 = *p_SpinCount;
     v12 = 0LL;
     v14 = v8;
-    v11[0] = 0;
-    v11[1] = 388169728;
+    Fields[0] = 0;
+    Fields[1] = 388169728;
     v13 = 0LL;
-    v15 = a1;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    v15 = CriticalSection;
+    if ( RtlGetCurrentServiceSessionId() )
       v5 = (__int64)NtCurrentPeb()->SharedData + 552;
-    NtTraceEvent(*(unsigned __int8 *)v5, 66562LL, 16LL, v11);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v5, 0x10402u, 0x10u, Fields);
   }
-  return 0LL;
+  return 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateNamedPipeFile @ 0x1404D8D90
+ * XREFs of NtCreateNamedPipeFile @ 0x1404BC394
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IoCreateFile @ 0x1404D8ECC (IoCreateFile.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IoCreateFile @ 0x1404BC4D0 (IoCreateFile.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtCreateNamedPipeFile(

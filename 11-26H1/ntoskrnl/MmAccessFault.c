@@ -1,60 +1,60 @@
 /*
- * XREFs of MmAccessFault @ 0x1403A2390
+ * XREFs of MmAccessFault @ 0x1403A40F0
  * Callers:
- *     MmProtectPool @ 0x14024E084 (MmProtectPool.c)
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiInPageSingleKernelStack @ 0x1402A0214 (MiInPageSingleKernelStack.c)
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
- *     MiQueryPteAttributes @ 0x1402D2E80 (MiQueryPteAttributes.c)
- *     MiWalkVaRange @ 0x1402D3560 (MiWalkVaRange.c)
- *     MiProbeLeafPteAccess @ 0x1402EF490 (MiProbeLeafPteAccess.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiDuplicateCloneLeaf @ 0x14030D374 (MiDuplicateCloneLeaf.c)
- *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
- *     MiCheckProtoPtePageState @ 0x14031BB00 (MiCheckProtoPtePageState.c)
- *     MiGetNextPageTablePte @ 0x140328700 (MiGetNextPageTablePte.c)
- *     MiResolveCachedPageHardFault @ 0x140339B7C (MiResolveCachedPageHardFault.c)
- *     MiMakeDriverPagesPrivate @ 0x14038A9E0 (MiMakeDriverPagesPrivate.c)
- *     MiFaultInProbeAddress @ 0x1403A04D0 (MiFaultInProbeAddress.c)
- *     MiReleaseOutSwapReservations @ 0x1403A062C (MiReleaseOutSwapReservations.c)
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
- *     MiLockProtoPoolPageForce @ 0x1403A10E0 (MiLockProtoPoolPageForce.c)
- *     MiAcquireCachedPageLocks @ 0x1403A17C0 (MiAcquireCachedPageLocks.c)
- *     MiMakeProtoLeafValid @ 0x1404BFB08 (MiMakeProtoLeafValid.c)
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x140514568 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
- *     MiQueryPteFaultLargeVa @ 0x1405264C4 (MiQueryPteFaultLargeVa.c)
- *     ExpSvmServicePageFault @ 0x1406D23E0 (ExpSvmServicePageFault.c)
- *     MiLockDriverPageRange @ 0x1406E57E8 (MiLockDriverPageRange.c)
- *     MiProtectDriverSectionPte @ 0x1406E5D50 (MiProtectDriverSectionPte.c)
- *     KiPageFault @ 0x140737080 (KiPageFault.c)
- *     MiInitializePrototypePtes @ 0x1409B8000 (MiInitializePrototypePtes.c)
- *     MmVirtualAccessFault @ 0x140AD6824 (MmVirtualAccessFault.c)
+ *     MmProtectPool @ 0x14024F9E4 (MmProtectPool.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiInPageSingleKernelStack @ 0x14029F764 (MiInPageSingleKernelStack.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
+ *     MiQueryPteAttributes @ 0x1402B4C40 (MiQueryPteAttributes.c)
+ *     MiWalkVaRange @ 0x1402B5320 (MiWalkVaRange.c)
+ *     MiProbeLeafPteAccess @ 0x1402D1510 (MiProbeLeafPteAccess.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiDuplicateCloneLeaf @ 0x1402EF3F4 (MiDuplicateCloneLeaf.c)
+ *     NtLockVirtualMemory @ 0x14031A630 (NtLockVirtualMemory.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
+ *     MiCheckProtoPtePageState @ 0x14031DB30 (MiCheckProtoPtePageState.c)
+ *     MiGetNextPageTablePte @ 0x14032A730 (MiGetNextPageTablePte.c)
+ *     MiResolveCachedPageHardFault @ 0x14033BBFC (MiResolveCachedPageHardFault.c)
+ *     MiMakeDriverPagesPrivate @ 0x14038C790 (MiMakeDriverPagesPrivate.c)
+ *     MiFaultInProbeAddress @ 0x1403A2230 (MiFaultInProbeAddress.c)
+ *     MiReleaseOutSwapReservations @ 0x1403A238C (MiReleaseOutSwapReservations.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
+ *     MiLockProtoPoolPageForce @ 0x1403A2E40 (MiLockProtoPoolPageForce.c)
+ *     MiAcquireCachedPageLocks @ 0x1403A3520 (MiAcquireCachedPageLocks.c)
+ *     MiMakeProtoLeafValid @ 0x1404B9358 (MiMakeProtoLeafValid.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x14050DFD8 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiQueryPteFaultLargeVa @ 0x140528B34 (MiQueryPteFaultLargeVa.c)
+ *     ExpSvmServicePageFault @ 0x1406D6410 (ExpSvmServicePageFault.c)
+ *     MiLockDriverPageRange @ 0x1406EA498 (MiLockDriverPageRange.c)
+ *     MiProtectDriverSectionPte @ 0x1406EAA00 (MiProtectDriverSectionPte.c)
+ *     KiPageFault @ 0x14073BC80 (KiPageFault.c)
+ *     MiInitializePrototypePtes @ 0x140988FE0 (MiInitializePrototypePtes.c)
+ *     MmVirtualAccessFault @ 0x140AD3530 (MmVirtualAccessFault.c)
  * Callees:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiInitializePageFaultPacket @ 0x140339350 (MiInitializePageFaultPacket.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiReleaseFaultState @ 0x14038DD90 (MiReleaseFaultState.c)
- *     MiRaisedIrqlFault @ 0x1403A2A28 (MiRaisedIrqlFault.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiConvertFaultStatus @ 0x1403A2F50 (MiConvertFaultStatus.c)
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
- *     KeInvalidAccessAllowed @ 0x1403A6D10 (KeInvalidAccessAllowed.c)
- *     MiFaultTrimBehind @ 0x140441F5C (MiFaultTrimBehind.c)
- *     MiReleaseFaultCharges @ 0x1404AC0A0 (MiReleaseFaultCharges.c)
- *     MiDelayFaultingThread @ 0x1405053C4 (MiDelayFaultingThread.c)
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
- *     MiFaultRedirectToProto @ 0x140511920 (MiFaultRedirectToProto.c)
- *     MiReplenishTransitionPageHeatList @ 0x1405124D0 (MiReplenishTransitionPageHeatList.c)
- *     MiFreeTransitionPageHeatList @ 0x140513450 (MiFreeTransitionPageHeatList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiHandleEnclaveFault @ 0x14077BFB4 (MiHandleEnclaveFault.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiInitializePageFaultPacket @ 0x14033B3D0 (MiInitializePageFaultPacket.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiReleaseFaultState @ 0x14038FB40 (MiReleaseFaultState.c)
+ *     MiRaisedIrqlFault @ 0x1403A4788 (MiRaisedIrqlFault.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiConvertFaultStatus @ 0x1403A4CB0 (MiConvertFaultStatus.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
+ *     KeInvalidAccessAllowed @ 0x1403A8A70 (KeInvalidAccessAllowed.c)
+ *     MiFaultTrimBehind @ 0x14043AA6C (MiFaultTrimBehind.c)
+ *     MiReleaseFaultCharges @ 0x1404A5730 (MiReleaseFaultCharges.c)
+ *     MiDelayFaultingThread @ 0x1404FED04 (MiDelayFaultingThread.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
+ *     MiFaultRedirectToProto @ 0x14050B390 (MiFaultRedirectToProto.c)
+ *     MiReplenishTransitionPageHeatList @ 0x14050BF40 (MiReplenishTransitionPageHeatList.c)
+ *     MiFreeTransitionPageHeatList @ 0x14050CEC0 (MiFreeTransitionPageHeatList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiHandleEnclaveFault @ 0x14077EB34 (MiHandleEnclaveFault.c)
  */
 
 __int64 __fastcall MmAccessFault(
@@ -77,50 +77,51 @@ __int64 __fastcall MmAccessFault(
   unsigned __int64 v17; // rdx
   int FileExtents; // edi
   __int64 v19; // r9
-  char v20; // al
-  unsigned __int64 v21; // rdx
-  int v22; // eax
-  char v23; // cl
-  __int64 v24; // rcx
-  __int64 v25; // rbx
-  int v26; // eax
-  __int64 v27; // rcx
-  struct _SLIST_ENTRY *v28; // rdi
+  __int64 v20; // r9
+  char v21; // al
+  unsigned __int64 v22; // rdx
+  int v23; // eax
+  char v24; // cl
+  __int64 v25; // rcx
+  __int64 v26; // rbx
+  int v27; // eax
+  __int64 v28; // rcx
+  _SLIST_ENTRY *v29; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v30; // rcx
-  char v31; // cl
-  __int64 v32; // rcx
-  __int64 v33; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v34; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v35; // [rsp+50h] [rbp-B0h]
-  __int128 v36; // [rsp+60h] [rbp-A0h]
-  _OWORD v37[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v38; // [rsp+90h] [rbp-70h]
-  __int128 v39; // [rsp+A0h] [rbp-60h]
+  unsigned __int64 v31; // rcx
+  char v32; // cl
+  __int64 v33; // rcx
+  __int64 v34; // [rsp+30h] [rbp-D0h] BYREF
+  __int128 v35; // [rsp+40h] [rbp-C0h] BYREF
+  __int128 v36; // [rsp+50h] [rbp-B0h]
+  __int128 v37; // [rsp+60h] [rbp-A0h]
+  _OWORD v38[2]; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v39; // [rsp+90h] [rbp-70h]
+  __int128 v40; // [rsp+A0h] [rbp-60h]
   PSLIST_ENTRY ListEntry[2]; // [rsp+B0h] [rbp-50h]
-  __int128 v41; // [rsp+C0h] [rbp-40h]
-  unsigned __int64 v42; // [rsp+D0h] [rbp-30h]
-  _OWORD v43[2]; // [rsp+E0h] [rbp-20h] BYREF
-  __int128 v44; // [rsp+100h] [rbp+0h]
-  __int128 v45; // [rsp+110h] [rbp+10h]
+  __int128 v42; // [rsp+C0h] [rbp-40h]
+  unsigned __int64 v43; // [rsp+D0h] [rbp-30h]
+  _OWORD v44[2]; // [rsp+E0h] [rbp-20h] BYREF
+  __int128 v45; // [rsp+100h] [rbp+0h]
+  __int128 v46; // [rsp+110h] [rbp+10h]
 
-  v42 = 0LL;
-  *(_QWORD *)&v45 = 0LL;
+  v43 = 0LL;
+  *(_QWORD *)&v46 = 0LL;
   v4 = BugCheckParameter4;
-  DWORD2(v45) = 0;
-  v33 = 0LL;
+  DWORD2(v46) = 0;
+  v34 = 0LL;
   v6 = BugCheckParameter1;
   v7 = BugCheckParameter2;
-  v34 = 0LL;
   v35 = 0LL;
   v36 = 0LL;
-  memset(v37, 0, sizeof(v37));
-  v38 = 0LL;
+  v37 = 0LL;
+  memset(v38, 0, sizeof(v38));
   v39 = 0LL;
+  v40 = 0LL;
   *(_OWORD *)ListEntry = 0LL;
-  v41 = 0LL;
-  memset(v43, 0, sizeof(v43));
-  v44 = 0LL;
+  v42 = 0LL;
+  memset(v44, 0, sizeof(v44));
+  v45 = 0LL;
   if ( (BugCheckParameter2 & 9) == 9 )
     KeBugCheckEx(0x1Au, 0x61941uLL, BugCheckParameter1, BugCheckParameter2, BugCheckParameter4);
   if ( BugCheckParameter1 >> 47 != -1 && BugCheckParameter1 >> 47 != 0 )
@@ -129,8 +130,8 @@ __int64 __fastcall MmAccessFault(
       return 3221225477LL;
     if ( (BugCheckParameter4 & 1) != 0 )
     {
-      v23 = *(_BYTE *)(BugCheckParameter4 & 0xFFFFFFFFFFFFFFFEuLL);
-      if ( v23 == 1 || v23 == 3 || v23 == 6 )
+      v24 = *(_BYTE *)(BugCheckParameter4 & 0xFFFFFFFFFFFFFFFEuLL);
+      if ( v24 == 1 || v24 == 3 || v24 == 6 )
         return 3221225477LL;
     }
     else if ( (unsigned __int8)KeInvalidAccessAllowed(BugCheckParameter4, 0LL) )
@@ -147,12 +148,12 @@ __int64 __fastcall MmAccessFault(
       return 3221226658LL;
   }
   v8 = (unsigned __int16)KeNumberNodes;
-  v9 = (unsigned __int64)v43 & 4;
-  if ( ((unsigned __int64)v43 & 4) != 0 )
-    LODWORD(v43[0]) = (unsigned __int16)KeNumberNodes;
-  v10 = v43;
+  v9 = (unsigned __int64)v44 & 4;
+  if ( ((unsigned __int64)v44 & 4) != 0 )
+    LODWORD(v44[0]) = (unsigned __int16)KeNumberNodes;
+  v10 = v44;
   if ( (_DWORD)v9 )
-    v10 = (_DWORD *)v43 + 1;
+    v10 = (_DWORD *)v44 + 1;
   memset64(v10, (unsigned __int16)KeNumberNodes | ((unsigned __int64)(unsigned __int16)KeNumberNodes << 32), 1uLL);
   if ( !(_DWORD)v9 )
     v10[2] = v8;
@@ -166,86 +167,86 @@ __int64 __fastcall MmAccessFault(
       break;
     }
   }
-  *((_QWORD *)&v44 + 1) = v11;
-  v45 = 0LL;
-  *((_QWORD *)&v35 + 1) = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  *(_QWORD *)&v36 = ((*((_QWORD *)&v35 + 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  *((_QWORD *)&v36 + 1) = (((unsigned __int64)v36 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v14 = v38;
-  *(_QWORD *)&v37[0] = ((*((_QWORD *)&v36 + 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  *(_QWORD *)&v39 = v43;
+  *((_QWORD *)&v45 + 1) = v11;
+  v46 = 0LL;
+  *((_QWORD *)&v36 + 1) = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  *(_QWORD *)&v37 = ((*((_QWORD *)&v36 + 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  *((_QWORD *)&v37 + 1) = (((unsigned __int64)v37 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v14 = v39;
+  *(_QWORD *)&v38[0] = ((*((_QWORD *)&v37 + 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  *(_QWORD *)&v40 = v44;
   if ( (v7 & 0x40) != 0 )
   {
-    v14 = v38 | 0x80;
+    v14 = v39 | 0x80;
     v7 &= ~2uLL;
   }
-  *((_QWORD *)&v34 + 1) = v7;
-  *(_QWORD *)&v34 = v6;
-  *(_QWORD *)&v35 = v4;
-  LODWORD(v38) = v14 & 0xFFFFFEFF | ((a3 & 1) << 8);
+  *((_QWORD *)&v35 + 1) = v7;
+  *(_QWORD *)&v35 = v6;
+  *(_QWORD *)&v36 = v4;
+  LODWORD(v39) = v14 & 0xFFFFFEFF | ((a3 & 1) << 8);
   if ( KeGetCurrentIrql() > 1u )
-    return MiRaisedIrqlFault(&v34);
+    return MiRaisedIrqlFault(&v35);
   while ( 1 )
   {
     v16 = 4096;
-    if ( v6 < 0xFFFF800000000000uLL || (v22 = MiSystemFault(&v34), FileExtents = v22, v22 == 192) )
+    if ( v6 < 0xFFFF800000000000uLL || (v23 = MiSystemFault(&v35), FileExtents = v23, v23 == 192) )
     {
-      FileExtents = MiUserFault(&v34);
+      FileExtents = MiUserFault(&v35);
       if ( FileExtents != -1073741802 )
         goto LABEL_63;
     }
-    else if ( v22 != -1073741802 )
+    else if ( v23 != -1073741802 )
     {
       goto LABEL_29;
     }
-    FileExtents = MiDispatchFault(&v34, 0LL, &v33);
+    FileExtents = MiDispatchFault(&v35, 0LL, &v34);
     if ( FileExtents == -1073741802 )
     {
-      FileExtents = MiFaultRedirectToProto(&v34);
+      FileExtents = MiFaultRedirectToProto(&v35);
       if ( FileExtents < 0 )
       {
-        MiReleaseFaultState((__int64)v37 + 8, 0x11u, 0LL);
+        MiReleaseFaultState((__int64)v38 + 8, 0x11u, 0LL, v20);
         goto LABEL_29;
       }
     }
     else
     {
-      if ( v33 )
+      if ( v34 )
       {
-        v16 = *(_DWORD *)(v33 + 312);
-        v24 = v33;
-        if ( (*(_DWORD *)(v33 + 188) & 0x400000) == 0 && *(_QWORD *)(v33 + 208) )
+        v16 = *(_DWORD *)(v34 + 312);
+        v25 = v34;
+        if ( (*(_DWORD *)(v34 + 188) & 0x400000) == 0 && *(_QWORD *)(v34 + 208) )
         {
-          v24 = v33;
-          if ( (*(_DWORD *)(v33 + 188) & 0x400000) != 0 )
-            v25 = 0LL;
+          v25 = v34;
+          if ( (*(_DWORD *)(v34 + 188) & 0x400000) != 0 )
+            v26 = 0LL;
           else
-            v25 = *(_QWORD *)(v33 + 208);
-          v16 = *(_DWORD *)(v25 + 40);
+            v26 = *(_QWORD *)(v34 + 208);
+          v16 = *(_DWORD *)(v26 + 40);
         }
-        v26 = *(_DWORD *)(v24 + 188);
+        v27 = *(_DWORD *)(v25 + 188);
         if ( a3 == 1 )
         {
-          v26 |= 0x80000u;
-          *(_DWORD *)(v33 + 188) = v26;
+          v27 |= 0x80000u;
+          *(_DWORD *)(v34 + 188) = v27;
         }
-        if ( (v26 & 1) != 0 )
+        if ( (v27 & 1) != 0 )
         {
-          FileExtents = MiFaultGetFileExtents(&v34, v33);
-          *((_QWORD *)&v39 + 1) = 0LL;
+          FileExtents = MiFaultGetFileExtents(&v35, v34);
+          *((_QWORD *)&v40 + 1) = 0LL;
           goto LABEL_63;
         }
-        FileExtents = MiIssueHardFault((__int64)&v34, v33);
+        FileExtents = MiIssueHardFault((__int64)&v35, v34);
       }
-      *((_QWORD *)&v39 + 1) = 0LL;
+      *((_QWORD *)&v40 + 1) = 0LL;
     }
-    MiReleaseFaultState((__int64)v37 + 8, 0x11u, 0LL);
+    MiReleaseFaultState((__int64)v38 + 8, 0x11u, 0LL, v20);
 LABEL_63:
-    if ( (v38 & 0x20) != 0 )
-      MiFaultTrimBehind(v34);
-    if ( (*(_DWORD *)(*((_QWORD *)&v37[0] + 1) + 184LL) & 0xF) != 0 )
+    if ( (v39 & 0x20) != 0 )
+      MiFaultTrimBehind(v35);
+    if ( (*(_DWORD *)(*((_QWORD *)&v38[0] + 1) + 184LL) & 0xF) != 0 )
     {
-      if ( (*(_DWORD *)(*((_QWORD *)&v37[0] + 1) + 4LL) & 0xFFF) != 0 )
+      if ( (*(_DWORD *)(*((_QWORD *)&v38[0] + 1) + 4LL) & 0xFFF) != 0 )
         goto LABEL_29;
     }
     else
@@ -255,13 +256,13 @@ LABEL_63:
         goto LABEL_29;
       if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0xE) != 0 )
         goto LABEL_29;
-      v30 = *(_QWORD *)(*((_QWORD *)&v37[0] + 1) + 136LL);
-      v17 = *(_QWORD *)(*((_QWORD *)&v37[0] + 1) + 120LL);
-      if ( v30 <= v17 || v30 - v17 <= 0x64 )
+      v31 = *(_QWORD *)(*((_QWORD *)&v38[0] + 1) + 136LL);
+      v17 = *(_QWORD *)(*((_QWORD *)&v38[0] + 1) + 120LL);
+      if ( v31 <= v17 || v31 - v17 <= 0x64 )
         goto LABEL_29;
     }
-    v27 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*((_QWORD *)&v37[0] + 1) + 174LL));
-    if ( v27 && !(unsigned int)MiSufficientAvailablePages(v27, 0x420uLL) )
+    v28 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*((_QWORD *)&v38[0] + 1) + 174LL));
+    if ( v28 && !(unsigned int)MiSufficientAvailablePages(v28, 0x420uLL) )
       MiDelayFaultingThread(65546LL);
 LABEL_29:
     if ( ListEntry[1] )
@@ -277,18 +278,18 @@ LABEL_29:
       }
       ListEntry[1] = 0LL;
     }
-    if ( (_QWORD)v41 )
+    if ( (_QWORD)v42 )
     {
-      MiReplenishSlabAllocator(v41, v42, ((BYTE1(v38) & 1) == 0) << 17, v19);
-      if ( *((_QWORD *)&v41 + 1) )
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*((_QWORD *)&v41 + 1) + 22152LL));
+      MiReplenishSlabAllocator(v42, v43, ((BYTE1(v39) & 1) == 0) << 17, v19);
+      if ( *((_QWORD *)&v42 + 1) )
+        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*((_QWORD *)&v42 + 1) + 22152LL));
       if ( FileExtents == -1073741801 )
         FileExtents = -1073740748;
     }
-    if ( (v35 & 1) != 0
-      && *(_BYTE *)(v35 & 0xFFFFFFFFFFFFFFFEuLL) == 5
-      && (v32 = *(_QWORD *)((v35 & 0xFFFFFFFFFFFFFFFEuLL) + 48)) != 0
-      && (MiReplenishSlabAllocator(v32, 1uLL, 0, v19), FileExtents == -1073741801) )
+    if ( (v36 & 1) != 0
+      && *(_BYTE *)(v36 & 0xFFFFFFFFFFFFFFFEuLL) == 5
+      && (v33 = *(_QWORD *)((v36 & 0xFFFFFFFFFFFFFFFEuLL) + 48)) != 0
+      && (MiReplenishSlabAllocator(v33, 1uLL, 0, v19), FileExtents == -1073741801) )
     {
       FileExtents = -1073740748;
     }
@@ -296,37 +297,37 @@ LABEL_29:
     {
       goto LABEL_35;
     }
-    FileExtents = MiConvertFaultStatus(&v34, v16, (unsigned int)FileExtents);
+    FileExtents = MiConvertFaultStatus(&v35, v16, (unsigned int)FileExtents);
 LABEL_35:
-    v20 = v38;
-    if ( (v38 & 1) != 0 )
+    v21 = v39;
+    if ( (v39 & 1) != 0 )
     {
-      MiCopyOnWriteCheckConditions(*((_QWORD *)&v37[0] + 1), 3221225495LL, 0LL);
-      v20 = v38;
+      MiCopyOnWriteCheckConditions(*((_QWORD *)&v38[0] + 1), 3221225495LL, 0LL);
+      v21 = v39;
     }
-    if ( (v20 & 2) != 0 )
-      MiCopyOnWriteCheckConditions(*((_QWORD *)&v37[0] + 1), 3221226548LL, 0LL);
-    v21 = *((_QWORD *)&v39 + 1);
-    if ( !*((_QWORD *)&v39 + 1) )
+    if ( (v21 & 2) != 0 )
+      MiCopyOnWriteCheckConditions(*((_QWORD *)&v38[0] + 1), 3221226548LL, 0LL);
+    v22 = *((_QWORD *)&v40 + 1);
+    if ( !*((_QWORD *)&v40 + 1) )
       break;
     if ( (v4 & 1) == 0 )
       goto LABEL_71;
-    v31 = *(_BYTE *)(v4 & 0xFFFFFFFFFFFFFFFEuLL);
-    if ( v31 == 1 || v31 == 2 )
+    v32 = *(_BYTE *)(v4 & 0xFFFFFFFFFFFFFFFEuLL);
+    if ( v32 == 1 || v32 == 2 )
     {
       *(_BYTE *)((v4 & 0xFFFFFFFFFFFFFFFEuLL) + 1) = 1;
 LABEL_71:
       v4 = 0LL;
       goto LABEL_72;
     }
-    if ( v31 == 5 || *(_BYTE *)(v4 & 0xFFFFFFFFFFFFFFFEuLL) != 6 )
+    if ( v32 == 5 || *(_BYTE *)(v4 & 0xFFFFFFFFFFFFFFFEuLL) != 6 )
       goto LABEL_71;
 LABEL_72:
-    v28 = ListEntry[0];
-    MiInitializePageFaultPacket(2uLL, v21, 0, v4, (__int64)v43, (__int64)&v34);
-    LODWORD(v38) = v38 | 0x40;
-    v6 = v34;
-    ListEntry[0] = v28;
+    v29 = ListEntry[0];
+    MiInitializePageFaultPacket(2uLL, v22, 0, v4, (__int64)v44, (__int64)&v35);
+    LODWORD(v39) = v39 | 0x40;
+    v6 = v35;
+    ListEntry[0] = v29;
   }
   if ( ListEntry[0] )
     MiReleaseFaultCharges((ULONG_PTR)ListEntry[0]);

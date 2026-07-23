@@ -1,16 +1,16 @@
 /*
- * XREFs of BgkSetVirtualFrameBuffer @ 0x1405C5690
+ * XREFs of BgkSetVirtualFrameBuffer @ 0x1405C7F00
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BgSetFrameBufferAccess @ 0x140C4F4C8 (BgSetFrameBufferAccess.c)
- *     BgAcquireSpinLock @ 0x140C4F8F8 (BgAcquireSpinLock.c)
- *     BgConvertResources @ 0x140C4F910 (BgConvertResources.c)
- *     BgGetDisplayContext @ 0x140C4FA38 (BgGetDisplayContext.c)
- *     BgGetIsColorOverridden @ 0x140C4FA48 (BgGetIsColorOverridden.c)
- *     BgReleaseSpinLock @ 0x140C4FB70 (BgReleaseSpinLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BgSetFrameBufferAccess @ 0x140C554C8 (BgSetFrameBufferAccess.c)
+ *     BgAcquireSpinLock @ 0x140C558F8 (BgAcquireSpinLock.c)
+ *     BgConvertResources @ 0x140C55910 (BgConvertResources.c)
+ *     BgGetDisplayContext @ 0x140C55A38 (BgGetDisplayContext.c)
+ *     BgGetIsColorOverridden @ 0x140C55A48 (BgGetIsColorOverridden.c)
+ *     BgReleaseSpinLock @ 0x140C55B70 (BgReleaseSpinLock.c)
  */
 
 __int64 __fastcall BgkSetVirtualFrameBuffer(__int64 a1, __int64 a2)
@@ -33,9 +33,9 @@ __int64 __fastcall BgkSetVirtualFrameBuffer(__int64 a1, __int64 a2)
   v16 = 0;
   if ( a2 )
   {
-    qword_140E65D10 = a2;
+    qword_140E65F10 = a2;
   }
-  else if ( !qword_140E65D10 )
+  else if ( !qword_140E65F10 )
   {
     return 3221225712LL;
   }
@@ -106,7 +106,7 @@ LABEL_30:
       *(_QWORD *)(DisplayContext + 32) = *(_QWORD *)a1;
       *(_OWORD *)(DisplayContext + 4) = *(_OWORD *)(a1 + 24);
       BgSetFrameBufferAccess(*(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 16) + 4LL, *(_QWORD *)(a1 + 16) + 24LL);
-      byte_140E65D08 = 1;
+      byte_140E65F40 = 1;
       BgReleaseSpinLock();
       return 0LL;
     }

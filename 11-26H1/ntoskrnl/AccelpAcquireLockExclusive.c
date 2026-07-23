@@ -1,9 +1,9 @@
 /*
- * XREFs of AccelpAcquireLockExclusive @ 0x14084ADCC
+ * XREFs of AccelpAcquireLockExclusive @ 0x1408510DC
  * Callers:
- *     AccelpGetCopyBuffer @ 0x1406DF5C0 (AccelpGetCopyBuffer.c)
+ *     AccelpGetCopyBuffer @ 0x1406E3840 (AccelpGetCopyBuffer.c)
  * Callees:
- *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x1402751C0 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
+ *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140274730 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
  */
 
 PVOID __fastcall AccelpAcquireLockExclusive(struct _ERESOURCE *a1)

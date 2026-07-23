@@ -1,23 +1,23 @@
 /*
- * XREFs of KiEnterLongDpcProcessing @ 0x140247A00
+ * XREFs of KiEnterLongDpcProcessing @ 0x140247AD0
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
  * Callees:
  *     KiCompleteRescheduleContext @ 0x140201EB0 (KiCompleteRescheduleContext.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiCommitRescheduleContextEntry @ 0x140242E90 (KiCommitRescheduleContextEntry.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KiInsertDeferredReadyList @ 0x1402B9C54 (KiInsertDeferredReadyList.c)
- *     KiIsPrcbThread @ 0x140324D00 (KiIsPrcbThread.c)
- *     KiUpdateVPBackingThreadPriority @ 0x14034E2D8 (KiUpdateVPBackingThreadPriority.c)
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EDB0 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140576D3C (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     EtwTraceLongDpcMitigationEvent @ 0x1405FCF7C (EtwTraceLongDpcMitigationEvent.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiCommitRescheduleContextEntry @ 0x140242F60 (KiCommitRescheduleContextEntry.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KiInsertDeferredReadyList @ 0x1402B9EE4 (KiInsertDeferredReadyList.c)
+ *     KiIsPrcbThread @ 0x140324F90 (KiIsPrcbThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x14034E478 (KiUpdateVPBackingThreadPriority.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EF50 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14057722C (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     EtwTraceLongDpcMitigationEvent @ 0x1405FD4EC (EtwTraceLongDpcMitigationEvent.c)
  */
 
 bool __fastcall KiEnterLongDpcProcessing(unsigned __int64 a1, unsigned __int64 a2)

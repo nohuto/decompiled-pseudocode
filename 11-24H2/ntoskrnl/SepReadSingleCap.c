@@ -1,13 +1,13 @@
 /*
- * XREFs of SepReadSingleCap @ 0x140795D64
+ * XREFs of SepReadSingleCap @ 0x140795E74
  * Callers:
- *     SepReadAndInsertCaps @ 0x1407952E0 (SepReadAndInsertCaps.c)
+ *     SepReadAndInsertCaps @ 0x1407953F0 (SepReadAndInsertCaps.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepReadSingleCap(HANDLE KeyHandle, int a2, unsigned int a3, __int64 a4, __int64 *a5)
@@ -17,7 +17,7 @@ __int64 __fastcall SepReadSingleCap(HANDLE KeyHandle, int a2, unsigned int a3, _
   NTSTATUS v8; // ebx
   __int64 v9; // r12
   int v10; // esi
-  __int64 v11; // rbx
+  ULONG_PTR v11; // rbx
   __int64 v12; // rax
   __int64 v13; // rsi
   unsigned __int64 v14; // r13
@@ -36,7 +36,7 @@ __int64 __fastcall SepReadSingleCap(HANDLE KeyHandle, int a2, unsigned int a3, _
   v24 = a3;
   ResultLength = 0;
   Length = a2 + 18;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(a2 + 18), 0x70536553u);
   if ( Pool2 )
   {
     v8 = ZwQueryValueKey(KeyHandle, &ContainedCapes, KeyValuePartialInformation, Pool2, Length, &ResultLength);
@@ -51,7 +51,7 @@ __int64 __fastcall SepReadSingleCap(HANDLE KeyHandle, int a2, unsigned int a3, _
     if ( v8 < 0 )
       goto LABEL_24;
     v11 = (unsigned int)(v10 + Pool2[2]);
-    v12 = ExAllocatePool2(0x100uLL);
+    v12 = ExAllocatePool2(0x100uLL, v11, 0x70536553u);
     v13 = v12;
     if ( v12 )
     {

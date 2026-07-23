@@ -30,8 +30,8 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(int a1, const WCHAR *a2
   int v9; // ecx
   _WORD *v10; // edx
   int v11; // eax
-  UNICODE_STRING DestinationString; // [esp+Ch] [ebp-14h] BYREF
-  int v13; // [esp+14h] [ebp-Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+Ch] [ebp-14h] BYREF
+  DWORD Lcid; // [esp+14h] [ebp-Ch] BYREF
   int v14; // [esp+18h] [ebp-8h]
   char v15; // [esp+1Fh] [ebp-1h]
 
@@ -42,8 +42,8 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(int a1, const WCHAR *a2
   v14 = *(_DWORD *)(a1 + 20);
   if ( *a2 )
   {
-    v6 = RtlpMuiRegGetOrAddStringToPool(0, &v13);
-    v13 = (unsigned __int16)v6;
+    v6 = RtlpMuiRegGetOrAddStringToPool(0, &Lcid);
+    Lcid = (unsigned __int16)v6;
     if ( v6 >= 0 )
     {
       v8 = v14;
@@ -55,7 +55,7 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(int a1, const WCHAR *a2
         do
         {
           v11 = v14;
-          if ( v10[3] == (_WORD)v13 )
+          if ( v10[3] == (_WORD)Lcid )
           {
             if ( (*v10 & 0x1020) == 0x20 )
             {
@@ -81,9 +81,9 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(int a1, const WCHAR *a2
   if ( a3 )
   {
     RtlInitUnicodeString(&DestinationString, a2);
-    if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+    if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
     {
-      if ( v13 != 4096 )
+      if ( Lcid != 4096 )
         InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(0, a4);
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of CarReadRegistry @ 0x1405D574C
+ * XREFs of CarReadRegistry @ 0x1405D5CBC
  * Callers:
- *     CarLoadConfig @ 0x1405D5694 (CarLoadConfig.c)
+ *     CarLoadConfig @ 0x1405D5C04 (CarLoadConfig.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7A60 (RtlQueryRegistryValuesEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7A90 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 CarReadRegistry()
@@ -14,7 +14,7 @@ __int64 CarReadRegistry()
   __int64 v1; // rdx
   wchar_t *Buffer; // rbx
   __int128 v4; // [rsp+30h] [rbp-D0h] BYREF
-  _QWORD v5[28]; // [rsp+40h] [rbp-C0h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[4]; // [rsp+40h] [rbp-C0h] BYREF
 
   v0 = CarDrivers;
   v4 = 0LL;
@@ -30,21 +30,21 @@ __int64 CarReadRegistry()
 LABEL_6:
   Buffer = CmRegistryMachineSystemCurrentControlSetControlSessionManagerMemoryManagement.Buffer;
   if ( CmStateSeparationEnabled )
-    Buffer = off_140C034E0;
+    Buffer = (wchar_t *)off_140C034E0;
   WORD1(v4) = 3072;
-  memset(v5, 0, sizeof(v5));
-  LODWORD(v5[4]) = 0x1000000;
-  LODWORD(v5[1]) = 288;
-  LODWORD(v5[11]) = 0x4000000;
-  v5[2] = L"VerifyDrivers";
-  LODWORD(v5[8]) = 288;
-  v5[3] = &v4;
-  LODWORD(v5[18]) = 0x4000000;
-  v5[9] = L"XdvVerifierOptions";
-  LODWORD(v5[15]) = 288;
-  v5[10] = &CarXdvOptions;
-  v5[16] = L"XdvTipTag";
-  v5[17] = &CarTipTag;
-  RtlQueryRegistryValuesEx(0LL, Buffer, v5, 0LL, 0LL);
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].DefaultType = 0x1000000;
+  QueryTable[0].Flags = 288;
+  QueryTable[1].DefaultType = 0x4000000;
+  QueryTable[0].Name = (wchar_t *)L"VerifyDrivers";
+  QueryTable[1].Flags = 288;
+  QueryTable[0].EntryContext = &v4;
+  QueryTable[2].DefaultType = 0x4000000;
+  QueryTable[1].Name = (wchar_t *)L"XdvVerifierOptions";
+  QueryTable[2].Flags = 288;
+  QueryTable[1].EntryContext = &CarXdvOptions;
+  QueryTable[2].Name = L"XdvTipTag";
+  QueryTable[2].EntryContext = &CarTipTag;
+  RtlQueryRegistryValuesEx(0, Buffer, QueryTable, 0LL, 0LL);
   return 0LL;
 }

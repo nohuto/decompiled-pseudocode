@@ -1,12 +1,12 @@
 /*
- * XREFs of TryLockShutdownShared @ 0x1407F95F0
+ * XREFs of TryLockShutdownShared @ 0x1407FA7F0
  * Callers:
- *     CmpSyncNextBackupHive @ 0x1407F4538 (CmpSyncNextBackupHive.c)
+ *     CmpSyncNextBackupHive @ 0x1407F5738 (CmpSyncNextBackupHive.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103CD0 (ExfTryAcquirePushLockShared.c)
  */
 
 char TryLockShutdownShared()

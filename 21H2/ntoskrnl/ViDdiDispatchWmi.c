@@ -1,11 +1,11 @@
 /*
- * XREFs of ViDdiDispatchWmi @ 0x1409C8010
+ * XREFs of ViDdiDispatchWmi @ 0x1409C9010
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     ViDdiDispatchWmiQueryAllData @ 0x1409C807C (ViDdiDispatchWmiQueryAllData.c)
- *     ViDdiDispatchWmiRegInfoEx @ 0x1409C8218 (ViDdiDispatchWmiRegInfoEx.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x1409C907C (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiRegInfoEx @ 0x1409C9218 (ViDdiDispatchWmiRegInfoEx.c)
  */
 
 __int64 __fastcall ViDdiDispatchWmi(__int64 a1, IRP *a2)

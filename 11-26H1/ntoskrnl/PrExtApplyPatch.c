@@ -1,12 +1,12 @@
 /*
- * XREFs of PrExtApplyPatch @ 0x14052FDA8
+ * XREFs of PrExtApplyPatch @ 0x1405322A8
  * Callers:
- *     HalpMcUpdateMicrocode @ 0x140510840 (HalpMcUpdateMicrocode.c)
- *     HalpLoadSfsUpdateEx @ 0x14059AB30 (HalpLoadSfsUpdateEx.c)
+ *     HalpMcUpdateMicrocode @ 0x14050A2B0 (HalpMcUpdateMicrocode.c)
+ *     HalpLoadSfsUpdateEx @ 0x14059D2B0 (HalpLoadSfsUpdateEx.c)
  * Callees:
- *     SfsFwpApplyPatch @ 0x1406DCDD8 (SfsFwpApplyPatch.c)
- *     SfsGetFwVersions @ 0x1406DD060 (SfsGetFwVersions.c)
- *     MicrocodeUpdate @ 0x1406DD970 (MicrocodeUpdate.c)
+ *     SfsFwpApplyPatch @ 0x1406E1078 (SfsFwpApplyPatch.c)
+ *     SfsGetFwVersions @ 0x1406E1300 (SfsGetFwVersions.c)
+ *     MicrocodeUpdate @ 0x1406E1C10 (MicrocodeUpdate.c)
  */
 
 __int64 __fastcall PrExtApplyPatch(__int64 a1, __int64 a2, __int64 a3)

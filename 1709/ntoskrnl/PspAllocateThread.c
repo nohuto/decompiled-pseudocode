@@ -84,7 +84,7 @@ __int64 __fastcall PspAllocateThread(
   volatile signed __int64 *v44; // rdi
   __int64 v45; // rax
   _QWORD *v46; // rcx
-  int v47; // ecx
+  ULONG v47; // ecx
   PVOID PoolWithTag; // rax
   SIZE_T v49; // rdx
   __int64 v50; // rcx
@@ -117,7 +117,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v77; // [rsp+88h] [rbp-100h]
   __int64 v78; // [rsp+90h] [rbp-F8h]
   int *v79; // [rsp+98h] [rbp-F0h]
-  SIZE_T NumberOfBytes; // [rsp+A0h] [rbp-E8h]
+  ULONG ContextLength; // [rsp+A0h] [rbp-E8h] BYREF
   struct _KPROCESS *v81; // [rsp+A8h] [rbp-E0h]
   __int64 v82; // [rsp+B0h] [rbp-D8h]
   __int64 v83; // [rsp+B8h] [rbp-D0h]
@@ -505,8 +505,8 @@ LABEL_39:
   v47 = 1048671;
   if ( !MEMORY[0xFFFFF780000003D8] )
     v47 = 1048607;
-  RtlGetExtendedContextLength(v47);
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x63537350u);
+  RtlGetExtendedContextLength(v47, &ContextLength);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, ContextLength, 0x63537350u);
   v25 = (char *)Object;
   *((_QWORD *)Object + 252) = PoolWithTag;
   if ( PoolWithTag )

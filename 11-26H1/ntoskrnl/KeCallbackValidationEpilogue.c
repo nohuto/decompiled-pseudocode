@@ -1,19 +1,19 @@
 /*
- * XREFs of KeCallbackValidationEpilogue @ 0x1404E07B8
+ * XREFs of KeCallbackValidationEpilogue @ 0x1404D9E98
  * Callers:
- *     ObpCallPreOperationCallbacks @ 0x1408EF644 (ObpCallPreOperationCallbacks.c)
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObpCallPostOperationCallbacks @ 0x14097183C (ObpCallPostOperationCallbacks.c)
- *     PspCallThreadNotifyRoutines @ 0x1409EB6AC (PspCallThreadNotifyRoutines.c)
- *     ExCallCallBack @ 0x140A41008 (ExCallCallBack.c)
- *     PsInvokeWin32Callout @ 0x140A41140 (PsInvokeWin32Callout.c)
- *     PspCallProcessNotifyRoutines @ 0x140A43714 (PspCallProcessNotifyRoutines.c)
- *     KeUserModeCallback @ 0x140A59280 (KeUserModeCallback.c)
- *     PsCallImageNotifyRoutines @ 0x140A791A4 (PsCallImageNotifyRoutines.c)
+ *     ObpCallPreOperationCallbacks @ 0x1408F5C04 (ObpCallPreOperationCallbacks.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     KeUserModeCallback @ 0x140923D90 (KeUserModeCallback.c)
+ *     ObpCallPostOperationCallbacks @ 0x1409BB9AC (ObpCallPostOperationCallbacks.c)
+ *     PsCallImageNotifyRoutines @ 0x1409E6750 (PsCallImageNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x1409E7E7C (PspCallThreadNotifyRoutines.c)
+ *     ExCallCallBack @ 0x1409FCA28 (ExCallCallBack.c)
+ *     PsInvokeWin32Callout @ 0x1409FCB60 (PsInvokeWin32Callout.c)
+ *     PspCallProcessNotifyRoutines @ 0x1409FE474 (PspCallProcessNotifyRoutines.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall KeCallbackValidationEpilogue(__int64 a1, ULONG_PTR a2, unsigned int a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbShareDriverExclusive @ 0x14070641C
+ * XREFs of ArbShareDriverExclusive @ 0x140703FDC
  * Callers:
- *     ArbFindSuitableRange @ 0x1407052D0 (ArbFindSuitableRange.c)
+ *     ArbFindSuitableRange @ 0x140702E90 (ArbFindSuitableRange.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     RtlGetNextRange @ 0x140A2C5C0 (RtlGetNextRange.c)
- *     RtlGetFirstRange @ 0x140A67390 (RtlGetFirstRange.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     RtlGetNextRange @ 0x140A204F0 (RtlGetNextRange.c)
+ *     RtlGetFirstRange @ 0x140A60170 (RtlGetFirstRange.c)
  */
 
 char __fastcall ArbShareDriverExclusive(__int64 a1, __int64 a2)

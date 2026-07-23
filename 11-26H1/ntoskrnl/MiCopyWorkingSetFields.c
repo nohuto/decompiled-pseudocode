@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCopyWorkingSetFields @ 0x1406E43D8
+ * XREFs of MiCopyWorkingSetFields @ 0x1406E9088
  * Callers:
- *     MmInitializeHandBuiltProcess @ 0x140963A54 (MmInitializeHandBuiltProcess.c)
+ *     MmInitializeHandBuiltProcess @ 0x140ABF810 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetCoreExclusive @ 0x1402FE650 (MiUnlockWorkingSetCoreExclusive.c)
- *     MiLockWorkingSetCoreExclusive @ 0x1402FE7B0 (MiLockWorkingSetCoreExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetCoreExclusive @ 0x1402E06D0 (MiUnlockWorkingSetCoreExclusive.c)
+ *     MiLockWorkingSetCoreExclusive @ 0x1402E0830 (MiLockWorkingSetCoreExclusive.c)
  */
 
 void __fastcall MiCopyWorkingSetFields(__int64 a1, __int64 a2, __int64 a3)
@@ -17,17 +17,19 @@ void __fastcall MiCopyWorkingSetFields(__int64 a1, __int64 a2, __int64 a3)
   _QWORD *v9; // rbp
   char v10; // r12
   __int64 v11; // rdx
-  __int64 *v12; // rcx
-  _QWORD *v13; // rdi
-  __int64 v14; // rax
-  __int64 v15; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  __int64 *v14; // rcx
+  _QWORD *v15; // rdi
+  __int64 v16; // rax
+  __int64 v17; // rdx
 
-  v3 = &unk_140E37830;
-  v4 = &unk_140E37838;
+  v3 = &unk_140E379B0;
+  v4 = &unk_140E379B8;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
   {
-    v8 = &unk_140E37830;
-    v9 = &unk_140E37838;
+    v8 = &unk_140E379B0;
+    v9 = &unk_140E379B8;
   }
   else
   {
@@ -40,27 +42,27 @@ void __fastcall MiCopyWorkingSetFields(__int64 a1, __int64 a2, __int64 a3)
     v4 = (_QWORD *)(a2 + 248);
   }
   v10 = MiLockWorkingSetShared(a2, a2, a3);
-  MiLockWorkingSetCoreExclusive(a2);
-  v11 = 8LL;
+  MiLockWorkingSetCoreExclusive(a2, v11, v12);
+  v13 = 8LL;
   *(_QWORD *)(a1 + 120) = *(_QWORD *)(a2 + 120);
   *(_QWORD *)(a1 + 128) = *(_QWORD *)(a2 + 128);
   *v8 = *v3;
   *v9 = *v4;
   *(_QWORD *)(a1 + 136) = *(_QWORD *)(a2 + 136);
   *(_QWORD *)(a1 + 144) = *(_QWORD *)(a2 + 144);
-  v12 = (__int64 *)(a2 + 56);
+  v14 = (__int64 *)(a2 + 56);
   *(_QWORD *)(a1 + 152) = *(_QWORD *)(a2 + 152);
   *(_QWORD *)(a1 + 160) = *(_QWORD *)(a2 + 160);
   *(_QWORD *)(a1 + 16) = a3;
-  v13 = (_QWORD *)(a1 + 56);
+  v15 = (_QWORD *)(a1 + 56);
   do
   {
-    v14 = *v12++;
-    *v13++ = v14;
-    --v11;
+    v16 = *v14++;
+    *v15++ = v16;
+    --v13;
   }
-  while ( v11 );
+  while ( v13 );
   MiUnlockWorkingSetCoreExclusive(a2);
-  LOBYTE(v15) = v10;
-  MiUnlockWorkingSetShared(a2, v15);
+  LOBYTE(v17) = v10;
+  MiUnlockWorkingSetShared(a2, v17);
 }

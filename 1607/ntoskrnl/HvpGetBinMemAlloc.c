@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpGetBinMemAlloc @ 0x1404EDB18
+ * XREFs of HvpGetBinMemAlloc @ 0x1404CFC3C
  * Callers:
- *     HvpEnlistFreeCell @ 0x140514E4C (HvpEnlistFreeCell.c)
+ *     HvpEnlistFreeCell @ 0x1404F823C (HvpEnlistFreeCell.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpGetBinMemAlloc(__int64 a1, __int64 a2, int a3)

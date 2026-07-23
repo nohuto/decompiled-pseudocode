@@ -1,12 +1,12 @@
 /*
- * XREFs of EnlistKeyBodyWithKCB @ 0x1404909E4
+ * XREFs of EnlistKeyBodyWithKCB @ 0x140491474
  * Callers:
- *     CmpCreateKeyBody @ 0x140490828 (CmpCreateKeyBody.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
+ *     CmpCreateKeyBody @ 0x1404912B8 (CmpCreateKeyBody.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
  *     CmpCreateRegistryRoot @ 0x1407AE4D4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
  */
 
 void __fastcall EnlistKeyBodyWithKCB(signed __int64 a1, char a2)

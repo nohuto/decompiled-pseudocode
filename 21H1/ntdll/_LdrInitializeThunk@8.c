@@ -9,15 +9,15 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __stdcall LdrInitializeThunk(int a1, int a2)
+void __cdecl LdrInitializeThunk(PCONTEXT ContextRecord, PVOID Parameter)
 {
-  int v2; // eax
+  NTSTATUS v2; // eax
 
-  LdrpInitialize(a1, a2);
+  LdrpInitialize(ContextRecord, Parameter);
   if ( !LdrDelegatedLdrInitializeThunk )
   {
-    v2 = ZwContinue(a1, 1);
+    v2 = ZwContinue(ContextRecord, 1u);
     RtlRaiseStatus(v2);
   }
-  return LdrDelegatedLdrInitializeThunk(LdrDelegatedLdrInitializeThunk, a1, LdrpDelegatedNtdllBase);
+  LdrDelegatedLdrInitializeThunk(LdrDelegatedLdrInitializeThunk, ContextRecord, LdrpDelegatedNtdllBase);
 }

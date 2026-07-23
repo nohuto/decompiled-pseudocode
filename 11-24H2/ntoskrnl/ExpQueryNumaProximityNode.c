@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryNumaProximityNode @ 0x1407B52C0
+ * XREFs of ExpQueryNumaProximityNode @ 0x1407B5710
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpQueryNumaProximityNode(unsigned int *a1, unsigned int a2, _DWORD *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall ExpQueryNumaProximityNode(unsigned int *a1, unsigned int a2, 
     v9 = 0;
     if ( PnpQueryProximityNode )
     {
-      v5 = guard_dispatch_icall_no_overrides(v6, &v9, a3, 0LL);
+      v5 = guard_dispatch_icall_no_overrides(v6, &v9);
       if ( v5 >= 0 )
       {
         for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )

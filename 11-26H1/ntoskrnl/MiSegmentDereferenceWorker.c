@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSegmentDereferenceWorker @ 0x1404A3320
+ * XREFs of MiSegmentDereferenceWorker @ 0x14049CE30
  * Callers:
- *     MiIssueSegmentDereferenceWork @ 0x1404B07E0 (MiIssueSegmentDereferenceWork.c)
+ *     MiIssueSegmentDereferenceWork @ 0x1404A9E70 (MiIssueSegmentDereferenceWork.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     CcUnmapInactiveViews @ 0x14041480C (CcUnmapInactiveViews.c)
- *     MiRemoveUnusedSegments @ 0x1404A3280 (MiRemoveUnusedSegments.c)
- *     MiDeleteZeroValueSegments @ 0x1404A33F4 (MiDeleteZeroValueSegments.c)
- *     MiDeleteControlAreaList @ 0x1404A3428 (MiDeleteControlAreaList.c)
- *     MiDeleteCachedEntries @ 0x1404A3510 (MiDeleteCachedEntries.c)
- *     MiContractPagingFiles @ 0x1404E8970 (MiContractPagingFiles.c)
- *     MiHandlePageFileSizeChanges @ 0x140524EAC (MiHandlePageFileSizeChanges.c)
- *     MiComputeProportionalSystemCacheVaReduction @ 0x1405312F8 (MiComputeProportionalSystemCacheVaReduction.c)
- *     MiDistributeSystemCacheVaReductions @ 0x1406E764C (MiDistributeSystemCacheVaReductions.c)
- *     MiProcessDeleteOnClose @ 0x1406E7900 (MiProcessDeleteOnClose.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     CcUnmapInactiveViews @ 0x140408E3C (CcUnmapInactiveViews.c)
+ *     MiRemoveUnusedSegments @ 0x14049CD9C (MiRemoveUnusedSegments.c)
+ *     MiDeleteZeroValueSegments @ 0x14049CF04 (MiDeleteZeroValueSegments.c)
+ *     MiDeleteControlAreaList @ 0x14049CF38 (MiDeleteControlAreaList.c)
+ *     MiDeleteCachedEntries @ 0x14049D020 (MiDeleteCachedEntries.c)
+ *     MiContractPagingFiles @ 0x1404E1D30 (MiContractPagingFiles.c)
+ *     MiHandlePageFileSizeChanges @ 0x14052751C (MiHandlePageFileSizeChanges.c)
+ *     MiComputeProportionalSystemCacheVaReduction @ 0x1405337F8 (MiComputeProportionalSystemCacheVaReduction.c)
+ *     MiDistributeSystemCacheVaReductions @ 0x1406EC2FC (MiDistributeSystemCacheVaReductions.c)
+ *     MiProcessDeleteOnClose @ 0x1406EC5B0 (MiProcessDeleteOnClose.c)
  */
 
 LONG __fastcall MiSegmentDereferenceWorker(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpPopulateKcbStack @ 0x1406D7D60
+ * XREFs of CmpPopulateKcbStack @ 0x1406D7D90
  * Callers:
- *     CmpQueryKeySecurity @ 0x1406D5BA0 (CmpQueryKeySecurity.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B6C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpWalkOneLevel @ 0x1406DD820 (CmpWalkOneLevel.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20398 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpPartialPromoteSubkeys @ 0x140A263A0 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x140A265AC (CmpPromoteKey.c)
+ *     CmpQueryKeySecurity @ 0x1406D5BD0 (CmpQueryKeySecurity.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B9C (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpWalkOneLevel @ 0x1406DD850 (CmpWalkOneLevel.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140A20648 (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpPartialPromoteSubkeys @ 0x140A26650 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x140A2685C (CmpPromoteKey.c)
  * Callees:
- *     CmpSetKcbAtLayerHeight @ 0x1407D4E2C (CmpSetKcbAtLayerHeight.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1407D50FC (CmpSetKcbAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpPopulateKcbStack(__int64 a1, __int64 a2)

@@ -1,51 +1,49 @@
 /*
- * XREFs of LdrpMapResourceFile @ 0x180076970
+ * XREFs of LdrpMapResourceFile @ 0x180093250
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlImageNtHeaderEx @ 0x1800590F0 (RtlImageNtHeaderEx.c)
- *     RtlpDosPathNameToRelativeNtPathName @ 0x180059C40 (RtlpDosPathNameToRelativeNtPathName.c)
- *     RtlReleaseRelativeName @ 0x180077830 (RtlReleaseRelativeName.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
- *     NtOpenFile @ 0x1801622F0 (NtOpenFile.c)
- *     NtCreateSection @ 0x1801625D0 (NtCreateSection.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlImageNtHeaderEx @ 0x18006ECD0 (RtlImageNtHeaderEx.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x18006F820 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     RtlReleaseRelativeName @ 0x180094110 (RtlReleaseRelativeName.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
+ *     NtOpenFile @ 0x1801606B0 (NtOpenFile.c)
+ *     NtCreateSection @ 0x180160990 (NtCreateSection.c)
  */
 
-__int64 __fastcall LdrpMapResourceFile(__int64 a1, __int128 *a2, char a3, HANDLE *a4, _QWORD *a5, _QWORD *a6)
+__int64 __fastcall LdrpMapResourceFile(__int64 a1, __int128 *a2, char a3, HANDLE *a4, PVOID *a5, ULONG_PTR *a6)
 {
-  _QWORD *v9; // rsi
-  int v10; // edi
-  const wchar_t *v11; // rcx
+  PVOID *v9; // rsi
+  ULONG Win32Protect; // edi
+  _IMAGE_NT_HEADERS64 *v11; // rcx
   size_t v12; // rax
   int v13; // ebx
-  unsigned __int64 v15; // r14
-  void *v16; // rax
-  _QWORD *v17; // rcx
+  PVOID v15; // r14
+  HANDLE ContainingDirectory; // rax
+  ULONG_PTR *v17; // rcx
   __int128 v18; // xmm0
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-69h] BYREF
-  HANDLE v20; // [rsp+60h] [rbp-59h] BYREF
-  unsigned __int64 v21; // [rsp+68h] [rbp-51h] BYREF
-  __int64 v22; // [rsp+70h] [rbp-49h] BYREF
-  __int128 v23; // [rsp+78h] [rbp-41h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-31h] BYREF
-  __int64 v25; // [rsp+B8h] [rbp-1h] BYREF
-  __int128 v26; // [rsp+C0h] [rbp+7h] BYREF
-  __int128 v27; // [rsp+D0h] [rbp+17h]
+  PIMAGE_NT_HEADERS OutHeaders[2]; // [rsp+50h] [rbp-69h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-59h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp-51h] BYREF
+  ULONG_PTR ViewSize; // [rsp+70h] [rbp-49h] BYREF
+  PVOID v23[2]; // [rsp+78h] [rbp-41h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-31h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+B8h] [rbp-1h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+C0h] [rbp+7h] BYREF
   HANDLE Handle; // [rsp+110h] [rbp+57h] BYREF
 
-  v25 = 0LL;
+  SectionOffset.QuadPart = 0LL;
   Handle = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
-  v22 = 0LL;
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   memset(&ObjectAttributes, 0, 44);
-  v23 = 0LL;
-  v26 = 0LL;
-  v27 = 0LL;
+  *(_OWORD *)v23 = 0LL;
+  memset(&RelativeName, 0, sizeof(RelativeName));
   if ( a1 )
   {
     if ( a2 )
@@ -53,48 +51,48 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, __int128 *a2, char a3, HANDLE
       v9 = a5;
       if ( a5 )
       {
-        IoStatusBlock.Pointer = 0LL;
-        RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &IoStatusBlock);
-        if ( !IoStatusBlock.Pointer )
+        OutHeaders[0] = 0LL;
+        RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, OutHeaders);
+        if ( !OutHeaders[0] )
         {
 LABEL_40:
           v13 = -1073741701;
           goto LABEL_12;
         }
-        v10 = 2;
-        if ( *((_WORD *)IoStatusBlock.Pointer + 36) < 6u )
-          v10 = 8;
+        Win32Protect = 2;
+        if ( OutHeaders[0]->OptionalHeader.MajorSubsystemVersion < 6u )
+          Win32Protect = 8;
         if ( a3 )
         {
           v18 = *a2;
           v15 = 0LL;
           ObjectAttributes.Length = 48;
-          v23 = v18;
+          *(_OWORD *)v23 = v18;
         }
         else
         {
-          v11 = (const wchar_t *)*((_QWORD *)a2 + 1);
-          IoStatusBlock.Pointer = 0LL;
-          IoStatusBlock.Information = (unsigned __int64)v11;
+          v11 = (_IMAGE_NT_HEADERS64 *)*((_QWORD *)a2 + 1);
+          OutHeaders[0] = 0LL;
+          OutHeaders[1] = v11;
           if ( v11 )
           {
-            v12 = wcslen(v11);
+            v12 = wcslen((const wchar_t *)v11);
             if ( v12 > 0x7FFE )
             {
               v13 = -1073741562;
               goto LABEL_12;
             }
-            LOWORD(IoStatusBlock.Status) = 2 * v12;
-            WORD1(IoStatusBlock.Pointer) = 2 * v12 + 2;
+            LOWORD(OutHeaders[0]) = 2 * v12;
+            WORD1(OutHeaders[0]) = 2 * v12 + 2;
           }
           v13 = RtlpDosPathNameToRelativeNtPathName(
                   2,
-                  (unsigned __int16 *)&IoStatusBlock,
+                  (unsigned __int16 *)OutHeaders,
                   0LL,
-                  (unsigned __int16 *)&v23,
+                  (unsigned __int16 *)v23,
                   0LL,
                   0LL,
-                  (__int64)&v26);
+                  (__int64)&RelativeName);
           if ( v13 < 0 )
           {
 LABEL_12:
@@ -103,57 +101,67 @@ LABEL_12:
               NtClose(Handle);
               Handle = 0LL;
             }
-            if ( v21 )
-              NtUnmapViewOfSection(-1LL);
+            if ( BaseAddress )
+              NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
             return (unsigned int)v13;
           }
-          v15 = *((_QWORD *)&v23 + 1);
-          if ( (_WORD)v26 )
+          v15 = v23[1];
+          if ( RelativeName.RelativeName.Length )
           {
-            v16 = (void *)v27;
-            v23 = v26;
+            ContainingDirectory = RelativeName.ContainingDirectory;
+            *(UNICODE_STRING *)v23 = RelativeName.RelativeName;
           }
           else
           {
-            v16 = 0LL;
-            *(_QWORD *)&v27 = 0LL;
+            ContainingDirectory = 0LL;
+            RelativeName.ContainingDirectory = 0LL;
           }
           ObjectAttributes.Length = 48;
           if ( v15 )
           {
-            ObjectAttributes.RootDirectory = v16;
+            ObjectAttributes.RootDirectory = ContainingDirectory;
 LABEL_21:
             ObjectAttributes.Attributes = 64;
-            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v23;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)v23;
             *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-            IoStatusBlock = 0LL;
-            v13 = NtOpenFile(&Handle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
+            *(_OWORD *)OutHeaders = 0LL;
+            v13 = NtOpenFile(&Handle, 0x100001u, &ObjectAttributes, (PIO_STATUS_BLOCK)OutHeaders, 5u, 0x60u);
             if ( v15 )
             {
-              RtlReleaseRelativeName(&v26);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v15);
+              RtlReleaseRelativeName(&RelativeName);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
             }
             if ( v13 < 0 )
               goto LABEL_12;
-            v13 = NtCreateSection(&v20, 983045LL, 0LL, 0LL);
+            v13 = NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, Win32Protect, 0x8000000u, Handle);
             if ( v13 < 0 )
               goto LABEL_12;
-            v13 = ZwMapViewOfSection(v20, -1LL, &v21, 0LL, 0LL, &v25, &v22, 1, 0, v10, IoStatusBlock.Status);
-            if ( v20 )
+            v13 = ZwMapViewOfSection(
+                    SectionHandle,
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    &BaseAddress,
+                    0LL,
+                    0LL,
+                    &SectionOffset,
+                    &ViewSize,
+                    ViewShare,
+                    0,
+                    Win32Protect);
+            if ( SectionHandle )
             {
-              NtClose(v20);
-              v20 = 0LL;
+              NtClose(SectionHandle);
+              SectionHandle = 0LL;
             }
             if ( v13 < 0 )
               goto LABEL_12;
-            IoStatusBlock.Pointer = 0LL;
-            RtlImageNtHeaderEx(1, v21, 0LL, &IoStatusBlock);
-            if ( IoStatusBlock.Pointer )
+            OutHeaders[0] = 0LL;
+            RtlImageNtHeaderEx(1u, BaseAddress, 0LL, OutHeaders);
+            if ( OutHeaders[0] )
             {
               v17 = a6;
-              *v9 = v21;
+              *v9 = BaseAddress;
               if ( v17 )
-                *v17 = v22;
+                *v17 = ViewSize;
               if ( a4 )
               {
                 *a4 = Handle;

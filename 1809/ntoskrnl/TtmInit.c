@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmInit @ 0x1407623A0
+ * XREFs of TtmInit @ 0x140763590
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
- *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
- *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PoRegisterPowerSettingCallback @ 0x14058AEE0 (PoRegisterPowerSettingCallback.c)
+ *     TraceLoggingRegisterEx @ 0x14071EED8 (TraceLoggingRegisterEx.c)
+ *     ObCreateObjectTypeEx @ 0x140729BCC (ObCreateObjectTypeEx.c)
  */
 
 TLG_STATUS TtmInit()
@@ -108,6 +108,6 @@ LABEL_20:
   {
     TtmpTerminalObjectType = 0LL;
   }
-  TraceLoggingRegisterEx(&stru_14096D820, TtmpTraceLoggingCallback, 0LL);
-  return TraceLoggingRegisterEx(&stru_14096D7E8, 0LL, 0LL);
+  TraceLoggingRegisterEx(&stru_14096E820, TtmpTraceLoggingCallback, 0LL);
+  return TraceLoggingRegisterEx(&stru_14096E7E8, 0LL, 0LL);
 }

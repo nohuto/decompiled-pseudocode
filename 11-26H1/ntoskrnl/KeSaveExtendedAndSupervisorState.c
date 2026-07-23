@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSaveExtendedAndSupervisorState @ 0x14050E5B4
+ * XREFs of KeSaveExtendedAndSupervisorState @ 0x140508024
  * Callers:
- *     PnprQuiesceProcessorDpc @ 0x140BF2260 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x140BF8260 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140C08EA0 (PopHandleNextState.c)
  * Callees:
- *     KiSaveExtendedAndSupervisorState @ 0x1403D4130 (KiSaveExtendedAndSupervisorState.c)
+ *     KiSaveExtendedAndSupervisorState @ 0x1403D7100 (KiSaveExtendedAndSupervisorState.c)
  */
 
 __int64 __fastcall KeSaveExtendedAndSupervisorState(ULONG_PTR a1, __int64 a2)

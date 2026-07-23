@@ -122,7 +122,7 @@ __int64 __fastcall MiBuildMdlForMappedFileFault(
   __int128 v100; // [rsp+F0h] [rbp-10h]
   __int128 v101; // [rsp+100h] [rbp+0h]
   __int128 v102; // [rsp+110h] [rbp+10h]
-  RTL_BITMAP BitMapHeader; // [rsp+120h] [rbp+20h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+120h] [rbp+20h] BYREF
   _OWORD v104[3]; // [rsp+130h] [rbp+30h] BYREF
   __int64 v105; // [rsp+160h] [rbp+60h]
   int v106; // [rsp+168h] [rbp+68h]

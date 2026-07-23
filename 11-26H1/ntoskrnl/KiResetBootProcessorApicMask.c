@@ -1,7 +1,7 @@
 /*
- * XREFs of KiResetBootProcessorApicMask @ 0x1407B98C8
+ * XREFs of KiResetBootProcessorApicMask @ 0x1407BC928
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x1405EA85C (KiCompleteBootProcessorContextInitialization.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405ED1CC (KiCompleteBootProcessorContextInitialization.c)
  * Callees:
  *     <none>
  */

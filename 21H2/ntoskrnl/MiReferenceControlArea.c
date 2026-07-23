@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReferenceControlArea @ 0x140356824
+ * XREFs of MiReferenceControlArea @ 0x140361574
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x14071E2F0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiControlAreaRequiresCharge @ 0x14025ACBC (MiControlAreaRequiresCharge.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     MiValidateControlAreaPartition @ 0x140357234 (MiValidateControlAreaPartition.c)
- *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
- *     MiReferenceActiveControlArea @ 0x140357348 (MiReferenceActiveControlArea.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     MiControlAreaRequiresCharge @ 0x14027C22C (MiControlAreaRequiresCharge.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     MiValidateControlAreaPartition @ 0x140361F84 (MiValidateControlAreaPartition.c)
+ *     MiReleaseControlAreaWaiters @ 0x140361FD4 (MiReleaseControlAreaWaiters.c)
+ *     MiReferenceActiveControlArea @ 0x140362098 (MiReferenceActiveControlArea.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
+ *     FsRtlReleaseFile @ 0x14071EE50 (FsRtlReleaseFile.c)
  */
 
 __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
@@ -29,9 +29,9 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
   int v11; // r15d
   int v12; // edx
   __int64 active; // rdi
-  __int64 v15; // rax
-  __int64 v16; // rax
-  ULONG_PTR v17; // r15
+  PRTL_BALANCED_NODE v15; // rax
+  PRTL_BALANCED_NODE v16; // rax
+  _RTL_BALANCED_NODE *v17; // r15
   unsigned __int8 v18; // al
   struct _KPRCB *v19; // r10
   _DWORD *v20; // r9
@@ -72,7 +72,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     SectionObjectPointer += 2;
   while ( 1 )
   {
-    v8 = ExAcquireSpinLockExclusive(&dword_140C4C980);
+    v8 = ExAcquireSpinLockExclusive(&dword_140C4C9C0);
     v9 = *SectionObjectPointer;
     v10 = v8;
     if ( !*SectionObjectPointer )
@@ -80,8 +80,8 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
       *SectionObjectPointer = a2;
       v15 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0);
       if ( v15 )
-        *(_BYTE *)(v15 + 26) |= 1u;
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+        BYTE2(v15[1].Left) |= 1u;
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -105,7 +105,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     }
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v9 + 72)) )
       break;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -125,7 +125,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     }
     __writecr8(v10);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
   v11 = MiValidateControlAreaPartition(a1, v9);
   if ( v11 < 0 )
   {
@@ -215,7 +215,7 @@ LABEL_55:
     v16 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0);
     v17 = v16;
     if ( v16 )
-      KeAbPreWait(v16);
+      KeAbPreWait((__int64)v16);
     DWORD1(v43) = 0;
     v44 = (char *)&v43 + 8;
     LOWORD(v43) = 263;
@@ -249,11 +249,11 @@ LABEL_55:
       FsRtlReleaseFile(FileObject);
       *(_DWORD *)a1 &= ~2u;
     }
-    KeWaitForGate((__int64)&v43, 18);
+    KeWaitForGate((__int64)&v43, 0x12u);
     if ( v17 )
     {
       KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, v17, 0);
-      KeAbPostReleaseEx((ULONG_PTR)SectionObjectPointer, v17);
+      KeAbPostReleaseEx((ULONG_PTR)SectionObjectPointer, (ULONG_PTR)v17);
     }
     *a3 = 0LL;
     return 3221226029LL;

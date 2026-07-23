@@ -1,21 +1,21 @@
 /*
- * XREFs of EmpParseRules @ 0x140C172EC
+ * XREFs of EmpParseRules @ 0x140C192EC
  * Callers:
- *     EmpParseInfDatabase @ 0x140C167C4 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140C187C4 (EmpParseInfDatabase.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x14045273C (EmpSearchRuleDatabase.c)
- *     strtoul @ 0x1404FD6E8 (strtoul.c)
- *     EmpSearchEntryDatabase @ 0x14057F538 (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EmpInfParseGetGuidFromName @ 0x140C16244 (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x140C162F0 (EmpInfParseGetSectionLineCount.c)
- *     EmpInfParseSearchDependencyList @ 0x140C163E8 (EmpInfParseSearchDependencyList.c)
- *     EmpParseRuleExpression @ 0x140C16900 (EmpParseRuleExpression.c)
- *     CmpGetKeyName @ 0x140C1821C (CmpGetKeyName.c)
- *     CmpGetSectionLineIndex @ 0x140C18254 (CmpGetSectionLineIndex.c)
- *     CmpGetSectionLineIndexValueCount @ 0x140C182CC (CmpGetSectionLineIndexValueCount.c)
+ *     EmpSearchRuleDatabase @ 0x1404477EC (EmpSearchRuleDatabase.c)
+ *     strtoul @ 0x1404FAFA8 (strtoul.c)
+ *     EmpSearchEntryDatabase @ 0x14057C9C8 (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140C18244 (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140C182F0 (EmpInfParseGetSectionLineCount.c)
+ *     EmpInfParseSearchDependencyList @ 0x140C183E8 (EmpInfParseSearchDependencyList.c)
+ *     EmpParseRuleExpression @ 0x140C18900 (EmpParseRuleExpression.c)
+ *     CmpGetKeyName @ 0x140C1A21C (CmpGetKeyName.c)
+ *     CmpGetSectionLineIndex @ 0x140C1A254 (CmpGetSectionLineIndex.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140C1A2CC (CmpGetSectionLineIndexValueCount.c)
  */
 
 __int64 __fastcall EmpParseRules(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall EmpParseRules(__int64 a1)
   int GuidFromName; // edi
   unsigned int SectionLineCount; // r13d
   const char *KeyName; // r12
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   __int64 v7; // rbx
   GUID *v8; // r9
   _QWORD *v9; // rax
@@ -36,7 +36,7 @@ __int64 __fastcall EmpParseRules(__int64 a1)
   unsigned int v15; // ebp
   bool v16; // zf
   unsigned int v17; // eax
-  ULONG_PTR v18; // rax
+  __int64 v18; // rax
   unsigned int i; // edi
   __int64 v20; // rax
   _QWORD *v21; // rax

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRundownNotifications @ 0x140938E90
+ * XREFs of EtwpRundownNotifications @ 0x140914A30
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x140935AA0 (EtwpDeleteRegistrationObject.c)
+ *     EtwpDeleteRegistrationObject @ 0x140911650 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     EtwpUnreferenceDataBlock @ 0x140939064 (EtwpUnreferenceDataBlock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     EtwpUnreferenceDataBlock @ 0x140914C04 (EtwpUnreferenceDataBlock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -28,10 +28,8 @@ void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2, __int64 a3, str
   signed __int64 v15; // rax
   signed __int64 v16; // rdx
   __int64 v17; // rtt
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  _QWORD *v20; // rbx
-  __int64 v21; // rax
+  _QWORD *v18; // rbx
+  __int64 v19; // rax
   PVOID P[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = *(_QWORD *)(a1 + 800);
@@ -85,23 +83,23 @@ LABEL_12:
       ExfReleasePushLock((_QWORD *)(v4 + 16));
     }
     KeAbPostRelease(v4 + 16);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     while ( 1 )
     {
-      v20 = P[0];
+      v18 = P[0];
       if ( P[0] == P )
         break;
       if ( *((PVOID **)P[0] + 1) != P )
         goto LABEL_12;
-      v21 = *(_QWORD *)P[0];
+      v19 = *(_QWORD *)P[0];
       if ( *(PVOID *)(*(_QWORD *)P[0] + 8LL) != P[0] )
         goto LABEL_12;
       P[0] = *(PVOID *)P[0];
-      *(_QWORD *)(v21 + 8) = P;
-      EtwpUnreferenceDataBlock(v20[2]);
-      _m_prefetchw((char *)v20 + 52);
-      if ( (_InterlockedAnd((volatile signed __int32 *)v20 + 13, 0xFFFFFFFE) & 0xFFFFFFFE) == 0 )
-        ExFreePoolWithTag(v20, 0);
+      *(_QWORD *)(v19 + 8) = P;
+      EtwpUnreferenceDataBlock(v18[2]);
+      _m_prefetchw((char *)v18 + 52);
+      if ( (_InterlockedAnd((volatile signed __int32 *)v18 + 13, 0xFFFFFFFE) & 0xFFFFFFFE) == 0 )
+        ExFreePoolWithTag(v18, 0);
     }
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockVadCore @ 0x140087AD0
+ * XREFs of MiLockVadCore @ 0x140087AC0
  * Callers:
- *     MiSetVadFlags @ 0x1400879E0 (MiSetVadFlags.c)
- *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1401256DC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiSetVadFlags @ 0x1400879D0 (MiSetVadFlags.c)
+ *     MiWsleFlush @ 0x1400B3250 (MiWsleFlush.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1401257AC (MiCaptureWriteWatchDirtyBit.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockVadCore(__int64 a1, __int64 a2, __int64 a3)

@@ -3,16 +3,16 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x140206F60 (RtlpGetChainHead.c)
+ *     sub_140206F60 @ 0x140206F60 (sub_140206F60.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  unsigned int TableSize; // edx
-  unsigned int Pivot; // eax
-  unsigned int DivisorMask; // eax
-  _QWORD *ChainHead; // rax
+  ULONG TableSize; // edx
+  ULONG Pivot; // eax
+  ULONG DivisorMask; // eax
+  _QWORD *v6; // rax
   _QWORD *v7; // r9
   _QWORD *v8; // r10
   _QWORD *i; // rdx
@@ -22,7 +22,7 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
   __int64 v13; // rax
   _QWORD *j; // r8
   _QWORD *v15; // rax
-  void **Directory; // rsi
+  PVOID *Directory; // rsi
   PVOID *v17; // rdi
 
   TableSize = HashTable->TableSize;
@@ -39,13 +39,13 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     DivisorMask = HashTable->DivisorMask;
   }
   HashTable->Pivot = DivisorMask;
-  RtlpGetChainHead(HashTable, TableSize - 1);
-  ChainHead = (_QWORD *)RtlpGetChainHead(HashTable, HashTable->Pivot);
+  sub_140206F60(HashTable, TableSize - 1);
+  v6 = (_QWORD *)sub_140206F60(HashTable, HashTable->Pivot);
   --HashTable->TableSize;
-  v8 = ChainHead;
-  if ( (_QWORD *)*v7 != v7 && (_QWORD *)*ChainHead != ChainHead )
+  v8 = v6;
+  if ( (_QWORD *)*v7 != v7 && (_QWORD *)*v6 != v6 )
     --HashTable->NonEmptyBuckets;
-  for ( i = ChainHead; ; *i = v10 )
+  for ( i = v6; ; *i = v10 )
   {
     v10 = (_QWORD *)*v7;
     if ( (_QWORD *)*v7 == v7 )
@@ -75,7 +75,7 @@ FatalListEntryError_3:
   _BitScanReverse((unsigned int *)&v12, v11);
   if ( 1 << v12 == v11 )
   {
-    Directory = (void **)HashTable->Directory;
+    Directory = (PVOID *)HashTable->Directory;
     v17 = &Directory[v12 - 7];
     ExFreePoolWithTag(*v17, 0);
     *v17 = 0LL;

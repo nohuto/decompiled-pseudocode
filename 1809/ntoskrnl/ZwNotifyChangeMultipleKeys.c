@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwNotifyChangeMultipleKeys @ 0x1401BA410
+ * XREFs of ZwNotifyChangeMultipleKeys @ 0x1401BA570
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwNotifyChangeMultipleKeys(
         HANDLE MasterKeyHandle,
         ULONG Count,
@@ -23,5 +22,5 @@ NTSTATUS __stdcall ZwNotifyChangeMultipleKeys(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(MasterKeyHandle, *(_QWORD *)&Count, SubordinateObjects);
+  return KiServiceInternal(MasterKeyHandle);
 }

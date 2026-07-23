@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
+ *     sub_14032AD00 @ 0x14032AD00 (sub_14032AD00.c)
  *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x14080C6EC (CcAllocateObcb.c)
+ *     sub_14080C6EC @ 0x14080C6EC (sub_14080C6EC.c)
  */
 
 BOOLEAN __stdcall CcPinRead(
@@ -23,7 +23,7 @@ BOOLEAN __stdcall CcPinRead(
   __int64 v12; // rax
   PVOID *v13; // rdi
   BOOLEAN v15; // [rsp+50h] [rbp-68h]
-  PVOID Obcb; // [rsp+58h] [rbp-60h] BYREF
+  PVOID v16; // [rsp+58h] [rbp-60h] BYREF
   PVOID *v17; // [rsp+60h] [rbp-58h]
   void *v18; // [rsp+68h] [rbp-50h] BYREF
   __int64 v19; // [rsp+C0h] [rbp+8h] BYREF
@@ -35,10 +35,10 @@ BOOLEAN __stdcall CcPinRead(
   v18 = 0LL;
   v19 = 0LL;
   QuadPart = FileOffset->QuadPart;
-  Obcb = 0LL;
-  v17 = &Obcb;
+  v16 = 0LL;
+  v17 = &v16;
   __incgsdword(4 * (Flags & 1) + 33880);
-  KeGetCurrentThread()[1].Timer.DueTime.HighPart = 0;
+  *((_DWORD *)KeGetCurrentThread() + 359) = 0;
   SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
   v10 = Buffer;
   v11 = v21;
@@ -46,13 +46,13 @@ BOOLEAN __stdcall CcPinRead(
   v13 = v17;
   do
   {
-    if ( Obcb )
+    if ( v16 )
     {
-      if ( v13 == &Obcb )
+      if ( v13 == &v16 )
       {
-        Obcb = (PVOID)CcAllocateObcb(FileOffset, v11);
-        v13 = (PVOID *)((char *)Obcb + 16);
-        v17 = (PVOID *)((char *)Obcb + 16);
+        v16 = (PVOID)sub_14080C6EC(FileOffset, v11);
+        v13 = (PVOID *)((char *)v16 + 16);
+        v17 = (PVOID *)((char *)v16 + 16);
         *v10 = v18;
         v12 = v19;
       }
@@ -61,7 +61,7 @@ BOOLEAN __stdcall CcPinRead(
       QuadPart = v12;
       v17 = ++v13;
     }
-    if ( !(unsigned __int8)CcPinFileData(
+    if ( !(unsigned __int8)sub_14032AD00(
                              (__int64)FileObject,
                              &QuadPart,
                              v11,
@@ -79,13 +79,13 @@ BOOLEAN __stdcall CcPinRead(
     v12 = v19;
   }
   while ( v19 - QuadPart < v11 );
-  *Bcb = Obcb;
-  if ( v13 == &Obcb )
+  *Bcb = v16;
+  if ( v13 == &v16 )
     *v10 = v18;
   v15 = 1;
 LABEL_12:
-  __addgsdword(0x8498u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
-  if ( !v15 && Obcb )
-    CcUnpinData(Obcb);
+  __addgsdword(0x8498u, *((_DWORD *)KeGetCurrentThread() + 359));
+  if ( !v15 && v16 )
+    CcUnpinData(v16);
   return v15;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepLocateTokenIntegrity @ 0x140012F6C
+ * XREFs of SepLocateTokenIntegrity @ 0x140012AEC
  * Callers:
- *     SepCopyTokenIntegrity @ 0x14000E110 (SepCopyTokenIntegrity.c)
- *     SepMandatorySubProcessToken @ 0x14007C05C (SepMandatorySubProcessToken.c)
- *     RtlpNewSecurityObject @ 0x14041BF40 (RtlpNewSecurityObject.c)
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x14047BBD8 (NtCreateLowBoxToken.c)
- *     SepGetDefaultsSubjectContext @ 0x140691098 (SepGetDefaultsSubjectContext.c)
+ *     SepCopyTokenIntegrity @ 0x14000DC90 (SepCopyTokenIntegrity.c)
+ *     SepMandatorySubProcessToken @ 0x14007C0DC (SepMandatorySubProcessToken.c)
+ *     RtlpNewSecurityObject @ 0x14041AE00 (RtlpNewSecurityObject.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x14047AAA8 (NtCreateLowBoxToken.c)
+ *     SepGetDefaultsSubjectContext @ 0x14069117C (SepGetDefaultsSubjectContext.c)
  * Callees:
  *     <none>
  */

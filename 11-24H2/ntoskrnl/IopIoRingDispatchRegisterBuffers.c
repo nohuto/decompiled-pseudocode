@@ -1,17 +1,17 @@
 /*
- * XREFs of IopIoRingDispatchRegisterBuffers @ 0x140716848
+ * XREFs of IopIoRingDispatchRegisterBuffers @ 0x1407143D8
  * Callers:
- *     IopProcessIoRingEntry @ 0x1406F7A58 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x1406F5A58 (IopProcessIoRingEntry.c)
  * Callees:
- *     IopCompleteIoRingEntry @ 0x1403C5F20 (IopCompleteIoRingEntry.c)
- *     IopExceptionFilter @ 0x1405962D8 (IopExceptionFilter.c)
- *     IopMcCreateBufferEntry @ 0x1405A2AEC (IopMcCreateBufferEntry.c)
- *     IopMcWaitAndCleanupBufferEntry @ 0x1405A2F44 (IopMcWaitAndCleanupBufferEntry.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopIoRingCleanupRegBufferArray @ 0x140716544 (IopIoRingCleanupRegBufferArray.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IopCompleteIoRingEntry @ 0x1403B4AE0 (IopCompleteIoRingEntry.c)
+ *     IopExceptionFilter @ 0x140593308 (IopExceptionFilter.c)
+ *     IopMcCreateBufferEntry @ 0x14059FA2C (IopMcCreateBufferEntry.c)
+ *     IopMcWaitAndCleanupBufferEntry @ 0x14059FE84 (IopMcWaitAndCleanupBufferEntry.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopIoRingCleanupRegBufferArray @ 0x1407140D4 (IopIoRingCleanupRegBufferArray.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 int __fastcall IopIoRingDispatchRegisterBuffers(__int64 a1, __int64 a2)
@@ -86,7 +86,7 @@ int __fastcall IopIoRingDispatchRegisterBuffers(__int64 a1, __int64 a2)
       }
       else
       {
-        Pool2 = (ULONG_PTR *)ExAllocatePool2(0x101uLL);
+        Pool2 = (ULONG_PTR *)ExAllocatePool2(0x101uLL, 8 * v5, 0x42527249u);
         v6 = Pool2;
         if ( !Pool2 )
         {

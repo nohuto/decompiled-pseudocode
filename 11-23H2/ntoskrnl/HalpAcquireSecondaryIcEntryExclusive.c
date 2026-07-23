@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcquireSecondaryIcEntryExclusive @ 0x140519C08
+ * XREFs of HalpAcquireSecondaryIcEntryExclusive @ 0x14051A158
  * Callers:
- *     HalpDeleteSecondaryIcEntry @ 0x140519CEC (HalpDeleteSecondaryIcEntry.c)
+ *     HalpDeleteSecondaryIcEntry @ 0x14051A23C (HalpDeleteSecondaryIcEntry.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpAcquireSecondaryIcEntryExclusive(volatile signed __int32 *a1, _BYTE *a2)
@@ -28,10 +28,13 @@ __int64 __fastcall HalpAcquireSecondaryIcEntryExclusive(volatile signed __int32 
     if ( (_DWORD)result == 1 )
       break;
     KxReleaseSpinLock((volatile signed __int64 *)&SecondaryIcListSpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v4 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -39,7 +42,7 @@ __int64 __fastcall HalpAcquireSecondaryIcEntryExclusive(volatile signed __int32 
         v10 = (v9 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v9;
         if ( v10 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v4);

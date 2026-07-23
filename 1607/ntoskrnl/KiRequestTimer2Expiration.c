@@ -1,8 +1,8 @@
 /*
- * XREFs of KiRequestTimer2Expiration @ 0x1400C9954
+ * XREFs of KiRequestTimer2Expiration @ 0x1400C77F4
  * Callers:
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x14012A824 (KiAdjustTimer2DueTimes.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14012AD94 (KiAdjustTimer2DueTimes.c)
  * Callees:
  *     <none>
  */

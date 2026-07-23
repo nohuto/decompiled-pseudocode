@@ -1,13 +1,13 @@
 /*
- * XREFs of BiGetPhysicalDriveName @ 0x1408928E0
+ * XREFs of BiGetPhysicalDriveName @ 0x140898CE0
  * Callers:
- *     BiCreatePartitionDevice @ 0x140891AB0 (BiCreatePartitionDevice.c)
- *     BiGetDriveLayoutBlock @ 0x1408922C0 (BiGetDriveLayoutBlock.c)
+ *     BiCreatePartitionDevice @ 0x140897EAC (BiCreatePartitionDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x1408986BC (BiGetDriveLayoutBlock.c)
  * Callees:
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     BiGetPhysicalDiskNumber @ 0x1408927E8 (BiGetPhysicalDiskNumber.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     BiGetPhysicalDiskNumber @ 0x140898BE8 (BiGetPhysicalDiskNumber.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetPhysicalDriveName(const WCHAR *a1, wchar_t **a2)

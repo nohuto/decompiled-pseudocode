@@ -1,5 +1,5 @@
 /*
- * XREFs of KiResetBootProcessorApicMask @ 0x140581A24
+ * XREFs of KiResetBootProcessorApicMask @ 0x140581ED4
  * Callers:
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:

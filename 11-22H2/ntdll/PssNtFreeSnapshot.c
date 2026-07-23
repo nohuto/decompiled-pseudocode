@@ -13,7 +13,7 @@
 __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // r8
+  void *v3; // r8
   void *v4; // rcx
   void *v5; // rcx
   void *v6; // rcx
@@ -22,23 +22,27 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
   void *v9; // rcx
   int v10; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
   result = PssNtValidateDescriptor(a1, retaddr);
   if ( (int)result >= 0 )
   {
     if ( (*(_BYTE *)(a1 + 4) & 2) != 0 )
     {
-      v3 = *(_QWORD *)(a1 + 904);
+      v3 = *(void **)(a1 + 904);
       if ( v3 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
         *(_QWORD *)(a1 + 904) = 0LL;
       }
       *(_DWORD *)(a1 + 4) &= ~2u;
     }
     else if ( (*(_BYTE *)(a1 + 4) & 4) != 0 && *(_QWORD *)(a1 + 904) )
     {
-      ZwFreeVirtualMemory();
+      BaseAddress = *(PVOID *)(a1 + 904);
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
       *(_DWORD *)(a1 + 4) &= ~4u;
       *(_QWORD *)(a1 + 904) = 0LL;
     }
@@ -88,7 +92,11 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
       *(_DWORD *)(a1 + 1136) = 0;
     }
     if ( (v10 & 1) != 0 )
-      ZwFreeVirtualMemory();
+    {
+      BaseAddress = (PVOID)a1;
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    }
     return 0LL;
   }
   return result;

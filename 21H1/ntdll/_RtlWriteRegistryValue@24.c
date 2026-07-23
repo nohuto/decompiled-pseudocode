@@ -10,20 +10,26 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __stdcall RtlWriteRegistryValue(int a1, const unsigned __int16 *a2, PCWSTR SourceString, int a4, int a5, int a6)
+NTSTATUS __cdecl RtlWriteRegistryValue(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PCWSTR ValueName,
+        ULONG ValueType,
+        PVOID ValueData,
+        ULONG ValueLength)
 {
-  int result; // eax
-  int v7; // esi
-  UNICODE_STRING DestinationString; // [esp+0h] [ebp-Ch] BYREF
-  HANDLE Handle; // [esp+8h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v7; // esi
+  _UNICODE_STRING DestinationString; // [esp+0h] [ebp-Ch] BYREF
+  HANDLE KeyHandle; // [esp+8h] [ebp-4h] BYREF
 
-  result = RtlpGetRegistryHandle(a1, a2, 1, (const unsigned __int16 **)&Handle);
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &KeyHandle);
   if ( result >= 0 )
   {
-    RtlInitUnicodeString(&DestinationString, SourceString);
-    v7 = ZwSetValueKey((int)Handle, (int)&DestinationString, 0, a4 & 0xFFFFFF, a5, a6);
-    if ( (a1 & 0x40000000) == 0 )
-      NtClose(Handle);
+    RtlInitUnicodeString(&DestinationString, ValueName);
+    v7 = ZwSetValueKey(KeyHandle, &DestinationString, 0, ValueType & 0xFFFFFF, ValueData, ValueLength);
+    if ( (RelativeTo & 0x40000000) == 0 )
+      NtClose(KeyHandle);
     return v7;
   }
   return result;

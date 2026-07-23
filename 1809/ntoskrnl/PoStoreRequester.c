@@ -2,14 +2,14 @@
  * XREFs of PoStoreRequester @ 0x140002BAC
  * Callers:
  *     PopUmpoSendPowerRequestOverrideQuery @ 0x140002AE4 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     PoStoreDiagnosticContext @ 0x1402D3270 (PoStoreDiagnosticContext.c)
- *     PopDiagTracePowerRequestCreate @ 0x14058928C (PopDiagTracePowerRequestCreate.c)
+ *     PoStoreDiagnosticContext @ 0x1402D3460 (PoStoreDiagnosticContext.c)
+ *     PopDiagTracePowerRequestCreate @ 0x14058A28C (PopDiagTracePowerRequestCreate.c)
  * Callees:
  *     RtlStringCbCopyUnicodeString @ 0x1400026C8 (RtlStringCbCopyUnicodeString.c)
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     IoGetDeviceProperty @ 0x1405886E0 (IoGetDeviceProperty.c)
  */
 
 __int64 __fastcall PoStoreRequester(__int64 a1, __int64 a2, unsigned __int64 *a3, char a4)

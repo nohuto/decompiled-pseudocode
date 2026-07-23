@@ -1,23 +1,23 @@
 /*
- * XREFs of SepRmDestroyCapTable @ 0x1409D237C
+ * XREFs of SepRmDestroyCapTable @ 0x1409D257C
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1403AE56C (SepBuildCapPolicyTable.c)
- *     SepRmDereferenceCapTable @ 0x1405B7EB0 (SepRmDereferenceCapTable.c)
+ *     SepBuildCapPolicyTable @ 0x1403AE74C (SepBuildCapPolicyTable.c)
+ *     SepRmDereferenceCapTable @ 0x1405B8420 (SepRmDereferenceCapTable.c)
  * Callees:
- *     RtlEnumerateEntryHashTable @ 0x14036FB60 (RtlEnumerateEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x14036FC80 (RtlRemoveEntryHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x14036FCE0 (RtlEndEnumerationHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x14036FD30 (RtlInitEnumerationHashTable.c)
- *     RtlDeleteHashTable @ 0x1403C1B10 (RtlDeleteHashTable.c)
+ *     RtlEnumerateEntryHashTable @ 0x14036FD00 (RtlEnumerateEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x14036FE20 (RtlRemoveEntryHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x14036FE80 (RtlEndEnumerationHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x14036FED0 (RtlInitEnumerationHashTable.c)
+ *     RtlDeleteHashTable @ 0x1403C1CF0 (RtlDeleteHashTable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SepRmDestroyCapTable(struct _RTL_DYNAMIC_HASH_TABLE *P)
+void __fastcall SepRmDestroyCapTable(_RTL_DYNAMIC_HASH_TABLE *P)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v2; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v3; // rdi
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v2; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v3; // rdi
   void *v4; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&Enumerator, 0, sizeof(Enumerator));
   RtlInitEnumerationHashTable(P, &Enumerator);

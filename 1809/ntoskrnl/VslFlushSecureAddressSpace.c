@@ -1,12 +1,12 @@
 /*
- * XREFs of VslFlushSecureAddressSpace @ 0x14027B128
+ * XREFs of VslFlushSecureAddressSpace @ 0x14027B318
  * Callers:
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     HvlpSlowFlushListTb @ 0x140279EAC (HvlpSlowFlushListTb.c)
- *     HvlpSlowFlushListTbEx @ 0x14027A024 (HvlpSlowFlushListTbEx.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     HvlpSlowFlushListTb @ 0x14027A09C (HvlpSlowFlushListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x14027A214 (HvlpSlowFlushListTbEx.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS VslFlushSecureAddressSpace()

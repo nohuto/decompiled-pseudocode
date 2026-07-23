@@ -1,13 +1,13 @@
 /*
- * XREFs of PopStatsScenarioStateChange @ 0x1407724B0
+ * XREFs of PopStatsScenarioStateChange @ 0x140772670
  * Callers:
- *     PopWnfAudioCallback @ 0x140772380 (PopWnfAudioCallback.c)
- *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1408E1B6C (PopPowerRequestNotifyMobileHotspotChanged.c)
+ *     PopWnfAudioCallback @ 0x140772540 (PopWnfAudioCallback.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1408E1CCC (PopPowerRequestNotifyMobileHotspotChanged.c)
  * Callees:
- *     PoStartStopWatch @ 0x140263F5C (PoStartStopWatch.c)
- *     PoPauseStopWatch @ 0x140264050 (PoPauseStopWatch.c)
- *     PopGetStopWatchByRequestType @ 0x14062BEE8 (PopGetStopWatchByRequestType.c)
- *     PopAvlFindOrMakeStatsForScenarioType @ 0x140772520 (PopAvlFindOrMakeStatsForScenarioType.c)
+ *     PoStartStopWatch @ 0x14027137C (PoStartStopWatch.c)
+ *     PoPauseStopWatch @ 0x14027149C (PoPauseStopWatch.c)
+ *     PopGetStopWatchByRequestType @ 0x140670B10 (PopGetStopWatchByRequestType.c)
+ *     PopAvlFindOrMakeStatsForScenarioType @ 0x1407726E0 (PopAvlFindOrMakeStatsForScenarioType.c)
  */
 
 __int64 __fastcall PopStatsScenarioStateChange(__int64 a1, char a2)

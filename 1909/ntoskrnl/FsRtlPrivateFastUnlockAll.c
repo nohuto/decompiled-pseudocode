@@ -33,20 +33,20 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   _RTL_SPLAY_LINKS *v7; // r13
   KSPIN_LOCK *v8; // rsi
   KIRQL v9; // al
-  struct _RTL_SPLAY_LINKS *v10; // r8
-  struct _RTL_SPLAY_LINKS *v11; // r14
+  _RTL_SPLAY_LINKS *v10; // r8
+  _RTL_SPLAY_LINKS *v11; // r14
   KIRQL v12; // r12
   unsigned int v13; // ebx
   _RTL_SPLAY_LINKS *i; // rax
   PRTL_SPLAY_LINKS v15; // rax
-  struct _RTL_SPLAY_LINKS *v16; // rcx
+  _RTL_SPLAY_LINKS *v16; // rcx
   _RTL_SPLAY_LINKS *Parent; // r15
   _RTL_SPLAY_LINKS *v18; // rdi
   _RTL_SPLAY_LINKS *v19; // rbx
-  struct _RTL_SPLAY_LINKS *v20; // r13
-  struct _RTL_SPLAY_LINKS *v21; // rdx
+  _RTL_SPLAY_LINKS *v20; // r13
+  _RTL_SPLAY_LINKS *v21; // rdx
   _RTL_SPLAY_LINKS *v22; // r9
-  struct _RTL_SPLAY_LINKS *v23; // rcx
+  _RTL_SPLAY_LINKS *v23; // rcx
   PRTL_SPLAY_LINKS v24; // rbx
   void *v25; // rdi
   void **v26; // r14
@@ -69,7 +69,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   char v44[8]; // [rsp+30h] [rbp-88h] BYREF
   __int64 v45; // [rsp+38h] [rbp-80h]
   PRTL_SPLAY_LINKS v46; // [rsp+40h] [rbp-78h]
-  struct _RTL_SPLAY_LINKS *v47; // [rsp+48h] [rbp-70h]
+  _RTL_SPLAY_LINKS *v47; // [rsp+48h] [rbp-70h]
   _RTL_SPLAY_LINKS *v48; // [rsp+50h] [rbp-68h] BYREF
   _RTL_SPLAY_LINKS *v49; // [rsp+58h] [rbp-60h] BYREF
   PVOID Entry; // [rsp+60h] [rbp-58h]
@@ -84,7 +84,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   a2[5].Parent = 0LL;
   v8 = (KSPIN_LOCK *)(v6 + 24);
   v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 24));
-  v11 = *(struct _RTL_SPLAY_LINKS **)(v6 + 32);
+  v11 = *(_RTL_SPLAY_LINKS **)(v6 + 32);
   v12 = v9;
   if ( !v11 && !*(_QWORD *)(v6 + 40) )
   {
@@ -194,7 +194,7 @@ LABEL_20:
     (*(void (__fastcall **)(__int64, char *))(v45 + 16))(a6, (char *)Entry + 8);
     v12 = KeAcquireSpinLockRaiseToDpc(v8);
     ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v34);
-    v23 = (struct _RTL_SPLAY_LINKS *)v8[1];
+    v23 = (_RTL_SPLAY_LINKS *)v8[1];
     v51 = 0;
     if ( v23 )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetSystemAffinityThreadToProcessor @ 0x140181710
+ * XREFs of KiSetSystemAffinityThreadToProcessor @ 0x140181850
  * Callers:
- *     KiExecuteDpc @ 0x1401814F0 (KiExecuteDpc.c)
- *     KiInitMachineDependent @ 0x1401815A0 (KiInitMachineDependent.c)
- *     KiDeregisterNmiSxCallback @ 0x14028F210 (KiDeregisterNmiSxCallback.c)
+ *     KiExecuteDpc @ 0x140181630 (KiExecuteDpc.c)
+ *     KiInitMachineDependent @ 0x1401816E0 (KiInitMachineDependent.c)
+ *     KiDeregisterNmiSxCallback @ 0x14028F400 (KiDeregisterNmiSxCallback.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
  */
 
 void __fastcall KiSetSystemAffinityThreadToProcessor(int a1, struct _GROUP_AFFINITY *a2)

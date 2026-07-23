@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInsertVadEvent @ 0x140014510
+ * XREFs of MiInsertVadEvent @ 0x140014090
  * Callers:
- *     MiWaitForVadDeletion @ 0x1401F7718 (MiWaitForVadDeletion.c)
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiAddSecureEntry @ 0x14042AB30 (MiAddSecureEntry.c)
- *     MiCreateVadEventBitmap @ 0x1404BA9CC (MiCreateVadEventBitmap.c)
- *     MiCreateRotateView @ 0x1404EF458 (MiCreateRotateView.c)
- *     MiCreateLargePageVad @ 0x1406624FC (MiCreateLargePageVad.c)
+ *     MiWaitForVadDeletion @ 0x1401F7544 (MiWaitForVadDeletion.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiAddSecureEntry @ 0x140429A00 (MiAddSecureEntry.c)
+ *     MiCreateVadEventBitmap @ 0x1404A66FC (MiCreateVadEventBitmap.c)
+ *     MiCreateRotateView @ 0x1404D151C (MiCreateRotateView.c)
+ *     MiCreateLargePageVad @ 0x1406625E0 (MiCreateLargePageVad.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExpAcquireSpinLockExclusive @ 0x14002EC30 (ExpAcquireSpinLockExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14002E7B0 (ExpAcquireSpinLockExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiInsertVadEvent(__int64 a1, __int64 *a2, int a3)
@@ -24,7 +24,7 @@ __int64 __fastcall MiInsertVadEvent(__int64 a1, __int64 *a2, int a3)
   {
     v5 = &KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
     if ( (v5[92] & 7) == 2 )
-      v6 = &dword_140327C80;
+      v6 = &dword_140327CC0;
     else
       v6 = (LONG *)(v5 + 96);
     CurrentIrql = KeGetCurrentIrql();

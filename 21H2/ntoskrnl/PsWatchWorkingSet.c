@@ -1,10 +1,10 @@
 /*
- * XREFs of PsWatchWorkingSet @ 0x140581550
+ * XREFs of PsWatchWorkingSet @ 0x140581800
  * Callers:
- *     KiPageFault @ 0x14040DD00 (KiPageFault.c)
+ *     KiPageFault @ 0x14040DE00 (KiPageFault.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
  */
 
 signed __int64 __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
@@ -19,12 +19,10 @@ signed __int64 __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
   int v12; // ecx
   signed __int32 v13; // ett
   unsigned __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // rcx
-  signed __int32 v18; // eax
-  signed __int64 v19; // rdx
-  bool v20; // zf
+  signed __int64 v15; // rdx
+  __int64 v16; // rcx
+  signed __int32 v17; // eax
+  bool v18; // zf
 
   CurrentThread = KeGetCurrentThread();
   result = (signed __int64)CurrentThread->ApcState.Process;
@@ -63,38 +61,38 @@ signed __int64 __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
     {
 LABEL_19:
       _m_prefetchw((const void *)(v7 + 8));
-      v19 = *(_QWORD *)(v7 + 8);
-      if ( v19 != -1 )
+      v15 = *(_QWORD *)(v7 + 8);
+      if ( v15 != -1 )
       {
         do
         {
-          result = _InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 8), v19 + 1, v19);
-          v20 = v19 == result;
-          v19 = result;
+          result = _InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 8), v15 + 1, v15);
+          v18 = v15 == result;
+          v15 = result;
         }
-        while ( !v20 && result != -1 );
+        while ( !v18 && result != -1 );
       }
     }
     else
     {
       v14 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
       v15 = (unsigned __int16)v9 >> 1;
-      v16 = a3 | 1;
+      a3 |= 1uLL;
       if ( a1 >= 276 )
-        v16 = v14;
-      v17 = 3 * v15;
-      *(_QWORD *)(v7 + 8 * v17 + 40) = a2;
-      *(_QWORD *)(v7 + 24 * v15 + 48) = v16;
-      *(_QWORD *)(v7 + 8 * v17 + 56) = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
-      v18 = _InterlockedExchangeAdd((volatile signed __int32 *)v7, 0xFFFF0000);
-      if ( (v18 & 1) != 0 && (v18 & 0x7FFF0000) == 0x10000 )
-        KeSignalGate(v7 + 16, 0LL, v16, (_DWORD *)v7);
+        a3 = v14;
+      v16 = 3 * v15;
+      *(_QWORD *)(v7 + 8 * v16 + 40) = a2;
+      *(_QWORD *)(v7 + 24 * v15 + 48) = a3;
+      *(_QWORD *)(v7 + 8 * v16 + 56) = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
+      v17 = _InterlockedExchangeAdd((volatile signed __int32 *)v7, 0xFFFF0000);
+      if ( (v17 & 1) != 0 && (v17 & 0x7FFF0000) == 0x10000 )
+        KeSignalGate(v7 + 16, 0);
       result = (signed __int64)CurrentThread->WaitBlock[0].SparePtr;
       if ( result )
         _InterlockedOr64((volatile signed __int64 *)result, v8);
     }
     if ( !CurrentIrql )
-      return (signed __int64)KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      return (signed __int64)KeLeaveCriticalRegionThread((__int64)CurrentThread, v15, a3, v7);
   }
   return result;
 }

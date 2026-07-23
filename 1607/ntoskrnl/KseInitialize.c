@@ -3,13 +3,13 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     KsepLogInfo @ 0x140084DC8 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepLogError @ 0x1401DCEA4 (KsepLogError.c)
- *     KseShimDatabaseClose @ 0x140484800 (KseShimDatabaseClose.c)
- *     KseShimDatabaseOpen @ 0x14048558C (KseShimDatabaseOpen.c)
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
- *     KseRegisterShim @ 0x140570434 (KseRegisterShim.c)
+ *     KsepLogInfo @ 0x14010B3D0 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1401DCCD0 (KsepLogError.c)
+ *     KseShimDatabaseClose @ 0x140513B88 (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x140514914 (KseShimDatabaseOpen.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
+ *     KseRegisterShim @ 0x140570974 (KseRegisterShim.c)
  *     KseDriverScopeInitialize @ 0x1407B3080 (KseDriverScopeInitialize.c)
  *     KseVersionLieInitialize @ 0x1407B30EC (KseVersionLieInitialize.c)
  *     KsepEngineInitialize @ 0x1407B315C (KsepEngineInitialize.c)
@@ -52,7 +52,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
       }
       else
       {
-        dword_140328EF8 |= 0x80u;
+        dword_140328F38 |= 0x80u;
         matched = -1073741637;
       }
       if ( matched >= 0 )
@@ -62,7 +62,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v10 < 0 )
         {
           v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140307424[2 * v11] = v10;
+          dword_140307464[2 * v11] = v10;
           v12 = KsepDebugFlag;
           KsepHistoryErrors[2 * v11] = 852115;
           if ( (v12 & 2) != 0 )
@@ -86,7 +86,7 @@ LABEL_33:
       return (unsigned int)matched;
     goto LABEL_38;
   }
-  v5 = _InterlockedCompareExchange(&dword_140328EF4, 1, 0);
+  v5 = _InterlockedCompareExchange(&dword_140328F34, 1, 0);
   if ( v5 == 2 )
     return 0LL;
   if ( v5 == 1 )
@@ -103,7 +103,7 @@ LABEL_33:
       matched = KsepMatchInitMachineInfo(a1);
       if ( matched >= 0 )
       {
-        dword_140328EF4 = 2;
+        dword_140328F34 = 2;
         KseDriverScopeInitialize();
         goto LABEL_33;
       }
@@ -111,31 +111,31 @@ LABEL_33:
   }
   else
   {
-    v8 = dword_140328EF8;
+    v8 = dword_140328F38;
     if ( ViVerifierEnabled )
     {
-      v8 = dword_140328EF8 | 0x40;
-      dword_140328EF8 |= 0x40u;
+      v8 = dword_140328F38 | 0x40;
+      dword_140328F38 |= 0x40u;
     }
     if ( InitSafeBootMode )
     {
       v8 |= 0x100u;
-      dword_140328EF8 = v8;
+      dword_140328F38 = v8;
     }
     v9 = *(_QWORD *)(a1 + 240);
     if ( !*(_QWORD *)(v9 + 64) || !*(_DWORD *)(v9 + 72) )
-      dword_140328EF8 = v8 | 0x80;
+      dword_140328F38 = v8 | 0x80;
     matched = -1073741637;
   }
 LABEL_38:
-  dword_140328EF4 = 0;
+  dword_140328F34 = 0;
   KsepEngineUninitialize(&KseEngine);
   v15 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
   if ( matched == -1073741637 )
   {
     v16 = v15;
     v17 = KsepDebugFlag;
-    dword_140307424[2 * v16] = -1073741637;
+    dword_140307464[2 * v16] = -1073741637;
     KsepHistoryErrors[2 * v16] = 327935;
     if ( (v17 & 2) != 0 )
       KsepDebugPrint(
@@ -149,7 +149,7 @@ LABEL_38:
   {
     v18 = v15;
     v19 = KsepDebugFlag;
-    dword_140307424[2 * v18] = matched;
+    dword_140307464[2 * v18] = matched;
     KsepHistoryErrors[2 * v18] = 327939;
     if ( (v19 & 2) != 0 )
       KsepDebugPrint(1LL, "KSE: Initialization failed: 0x%x\n", matched);

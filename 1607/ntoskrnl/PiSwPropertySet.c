@@ -1,17 +1,17 @@
 /*
- * XREFs of PiSwPropertySet @ 0x140487AA0
+ * XREFs of PiSwPropertySet @ 0x140510214
  * Callers:
- *     PiSwIrpInterfaceRegister @ 0x1404C648C (PiSwIrpInterfaceRegister.c)
- *     PiSwCompleteCreate @ 0x1404C6A1C (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
- *     PiSwIrpPropertySet @ 0x140543704 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfacePropertySet @ 0x140576830 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x140487098 (PiSwIrpInterfaceRegister.c)
+ *     PiSwCompleteCreate @ 0x140487650 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpPropertySet @ 0x140543C44 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfacePropertySet @ 0x140576D70 (PiSwIrpInterfacePropertySet.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     PiPnpRtlSetObjectProperty @ 0x140488870 (PiPnpRtlSetObjectProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1404FC340 (_PnpOpenObjectRegKey.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x1404DF2D0 (_PnpOpenObjectRegKey.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140510FE4 (PiPnpRtlSetObjectProperty.c)
  */
 
 __int64 __fastcall PiSwPropertySet(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
@@ -24,10 +24,10 @@ __int64 __fastcall PiSwPropertySet(__int64 a1, unsigned int a2, __int64 a3, unsi
 
   P = 0LL;
   Handle = 0LL;
-  v8 = PiPnpRtlBeginOperation(&P);
+  v8 = PiPnpRtlBeginOperation((__int64 **)&P);
   if ( v8 >= 0 )
   {
-    v8 = PnpOpenObjectRegKey(PiPnpRtlCtx, a1, a2, 7, 0, (__int64)&Handle, 0LL, 0);
+    v8 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, a1, a2, 7, 0, (__int64)&Handle, 0LL, 0);
     if ( v8 >= 0 )
     {
       v9 = 0;
@@ -65,6 +65,6 @@ __int64 __fastcall PiSwPropertySet(__int64 a1, unsigned int a2, __int64 a3, unsi
   if ( Handle )
     ZwClose(Handle);
   if ( P )
-    PiPnpRtlEndOperation(P);
+    PiPnpRtlEndOperation((char *)P);
   return (unsigned int)v8;
 }

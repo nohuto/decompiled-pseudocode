@@ -1,38 +1,38 @@
 /*
- * XREFs of PopPepProcessEvent @ 0x1403AFCF0
+ * XREFs of PopPepProcessEvent @ 0x1403B9A00
  * Callers:
- *     PopFxActivateComponentWorker @ 0x14037AE70 (PopFxActivateComponentWorker.c)
- *     PopPluginComponentActive @ 0x1403AED90 (PopPluginComponentActive.c)
- *     PopFxProcessWork @ 0x1403AEEC0 (PopFxProcessWork.c)
- *     PopFxActivateComponentDependents @ 0x1403B25D0 (PopFxActivateComponentDependents.c)
- *     PopPluginDevicePower @ 0x1403B2DAC (PopPluginDevicePower.c)
- *     PopPluginComponentIdleState @ 0x1404799F0 (PopPluginComponentIdleState.c)
- *     PopPepCompleteComponentIdleState @ 0x140506C08 (PopPepCompleteComponentIdleState.c)
- *     PopPepUnregisterDevice @ 0x140B06800 (PopPepUnregisterDevice.c)
+ *     PopFxActivateComponentWorker @ 0x14037CC20 (PopFxActivateComponentWorker.c)
+ *     PopPluginComponentActive @ 0x1403B8AA0 (PopPluginComponentActive.c)
+ *     PopFxProcessWork @ 0x1403B8BD0 (PopFxProcessWork.c)
+ *     PopFxActivateComponentDependents @ 0x1403BC2E0 (PopFxActivateComponentDependents.c)
+ *     PopPluginDevicePower @ 0x1403BCABC (PopPluginDevicePower.c)
+ *     PopPluginComponentIdleState @ 0x140473350 (PopPluginComponentIdleState.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405005E4 (PopPepCompleteComponentIdleState.c)
+ *     PopPepUnregisterDevice @ 0x140B08930 (PopPepUnregisterDevice.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExTryQueueWorkItem @ 0x140382070 (ExTryQueueWorkItem.c)
- *     PopPepTriggerActivity @ 0x1403AFA10 (PopPepTriggerActivity.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopPepReleaseActivityLink @ 0x1403B0E80 (PopPepReleaseActivityLink.c)
- *     PopPepPromoteActivities @ 0x1403B0F90 (PopPepPromoteActivities.c)
- *     PopPepStartDevicePowerOffActivity @ 0x1403B1490 (PopPepStartDevicePowerOffActivity.c)
- *     PopPepRequestWork @ 0x1403B14B8 (PopPepRequestWork.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     PopPepStartActivity @ 0x14045D68C (PopPepStartActivity.c)
- *     PopPepGetReadyActivityType @ 0x14045D6E8 (PopPepGetReadyActivityType.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExTryQueueWorkItem @ 0x140383E20 (ExTryQueueWorkItem.c)
+ *     PopPepTriggerActivity @ 0x1403B9720 (PopPepTriggerActivity.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopPepReleaseActivityLink @ 0x1403BAB90 (PopPepReleaseActivityLink.c)
+ *     PopPepPromoteActivities @ 0x1403BACA0 (PopPepPromoteActivities.c)
+ *     PopPepStartDevicePowerOffActivity @ 0x1403BB1A0 (PopPepStartDevicePowerOffActivity.c)
+ *     PopPepRequestWork @ 0x1403BB1C8 (PopPepRequestWork.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     PopPepStartActivity @ 0x14045722C (PopPepStartActivity.c)
+ *     PopPepGetReadyActivityType @ 0x140457288 (PopPepGetReadyActivityType.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPepProcessEvent(
@@ -143,7 +143,7 @@ __int64 __fastcall PopPepProcessEvent(
   int ReadyActivityType; // eax
   unsigned int v106; // eax
   __int64 v107; // r14
-  struct _KSEMAPHORE *p_Process; // rdi
+  _ULARGE_INTEGER *p_ReadTransferCount; // rdi
   unsigned int v109; // esi
   __int64 v110; // rax
   int v111; // ecx
@@ -221,7 +221,7 @@ LABEL_3:
     LOBYTE(a2) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v12 = 0;
     if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 64), 0x1Fu) )
@@ -355,7 +355,7 @@ LABEL_52:
         if ( v111 )
         {
           v117 = **(_DWORD **)(a1 + 72);
-          if ( (v117 & v111) != 0 )
+          if ( (v111 & v117) != 0 )
           {
             if ( (v117 & 2) != 0 )
               _InterlockedDecrement((volatile signed __int32 *)(a1 + 120));
@@ -469,10 +469,10 @@ LABEL_67:
   if ( (*v32 & 1) != 0 )
   {
     v35 = *((_BYTE *)v32 + 16);
-    v36 = qword_140001D58;
+    v36 = qword_140001AA8;
     v37 = 0;
     if ( !v35 )
-      v36 = qword_140001D40;
+      v36 = qword_140001A90;
     while ( v37 <= 0 )
     {
       if ( *(_DWORD *)v36 && (*(_DWORD *)v36 & **v33) != 0 )
@@ -485,11 +485,11 @@ LABEL_67:
     v144 = v18;
     while ( !v38 )
     {
-      v39 = qword_140001D58;
+      v39 = qword_140001AA8;
       v40 = 1;
       v41 = 1LL;
       if ( !v35 )
-        v39 = qword_140001D40;
+        v39 = qword_140001A90;
       while ( v40 <= 3 )
       {
         v42 = *((_DWORD *)v39 + v41);
@@ -500,10 +500,10 @@ LABEL_67:
       }
       v38 = 1;
     }
-    v43 = &qword_140001D68;
+    v43 = &qword_140001AB8;
     v44 = 4;
     if ( !v35 )
-      v43 = &qword_140001D50;
+      v43 = &qword_140001AA0;
     v45 = (_DWORD **)(a1 + 104);
     while ( v44 <= 5 )
     {
@@ -542,9 +542,9 @@ LABEL_91:
   }
   do
   {
-    v47 = qword_140001D90;
+    v47 = qword_140001AE0;
     v48 = 3LL;
-    v138 = qword_140001D90;
+    v138 = qword_140001AE0;
     v139 = 3LL;
     v49 = a1 + 208LL * (unsigned int)n + 192;
     v50 = 17LL;
@@ -559,10 +559,10 @@ LABEL_91:
         if ( *(_DWORD *)v47 )
         {
           v55 = *((_BYTE *)v52 + 16);
-          v56 = qword_140001D58;
+          v56 = qword_140001AA8;
           v57 = 0;
           if ( !v55 )
-            v56 = qword_140001D40;
+            v56 = qword_140001A90;
           v58 = &v56[v50];
           while ( v57 <= 0 )
           {
@@ -660,11 +660,11 @@ LABEL_126:
   if ( (*(_DWORD *)v71 & 1) != 0 )
   {
     v72 = *(_BYTE *)(v71 + 16);
-    v73 = qword_140002000;
-    v74 = qword_140002000;
+    v73 = qword_140001D50;
+    v74 = qword_140001D50;
     v75 = (_DWORD **)(a1 + 72);
     if ( !v72 )
-      v74 = qword_140001FE8;
+      v74 = qword_140001D38;
     n = 0LL;
     while ( (int)n <= 0 )
     {
@@ -676,7 +676,7 @@ LABEL_126:
     }
     v76 = 0;
     if ( !v72 )
-      v73 = qword_140001FE8;
+      v73 = qword_140001D38;
     while ( v76 <= *(_DWORD *)(a1 + 180) - 1 )
     {
       n = 1LL;
@@ -691,10 +691,10 @@ LABEL_126:
       }
       ++v76;
     }
-    v79 = &qword_140002010;
+    v79 = &qword_140001D60;
     n = 4LL;
     if ( !v72 )
-      v79 = &qword_140001FF8;
+      v79 = &qword_140001D48;
     v80 = (_DWORD **)(a1 + 104);
     while ( (int)n <= 5 )
     {
@@ -832,21 +832,21 @@ LABEL_157:
     if ( v106 )
     {
       v107 = v106;
-      p_Process = (struct _KSEMAPHORE *)&unk_140F12260;
+      p_ReadTransferCount = (_ULARGE_INTEGER *)&PopFxBlockingDeviceListLock.ReadTransferCount;
       if ( (*(_QWORD *)(a1 + 24) & 0x20LL) != 0 )
-        p_Process = (struct _KSEMAPHORE *)&stru_140F12420.Process;
+        p_ReadTransferCount = &PopFxBlockingDeviceListLock.Timer.DueTime;
       do
       {
-        KeReleaseSemaphore(p_Process + 2, 0, 1, 0);
+        KeReleaseSemaphore((PRKSEMAPHORE)&p_ReadTransferCount[8], 0, 1, 0);
         v109 = 1;
         do
         {
-          _m_prefetchw(&p_Process[3]);
-          if ( (_InterlockedOr(&p_Process[3].Header.Lock, v109) & v109) == 0 )
+          _m_prefetchw(&p_ReadTransferCount[12]);
+          if ( (_InterlockedOr((volatile signed __int32 *)&p_ReadTransferCount[12], v109) & v109) == 0 )
           {
-            if ( ExTryQueueWorkItem((_QWORD *)&p_Process[v6 + 3].Header.WaitListHead.Blink + v6, 48LL) )
+            if ( ExTryQueueWorkItem((_ULARGE_INTEGER *)&p_ReadTransferCount[4 * v6 + 14 + v6].QuadPart, 48LL) )
               break;
-            _InterlockedAnd(&p_Process[3].Header.Lock, ~v109);
+            _InterlockedAnd((volatile signed __int32 *)&p_ReadTransferCount[12], ~v109);
           }
           ++v6;
           v109 = __ROL4__(v109, 1);
@@ -875,7 +875,7 @@ LABEL_157:
     if ( *(_BYTE *)(a1 + 136) )
       *(_BYTE *)(a1 + 125) = 0;
     v87 = (volatile signed __int32 *)(a1 + 64);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v87 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(a1 + 64), retaddr);
@@ -883,7 +883,7 @@ LABEL_157:
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       v85 = 0;
       *v142 = 0;
@@ -894,7 +894,7 @@ LABEL_157:
       v85 = 0;
     }
     v87 = (volatile signed __int32 *)(a1 + 64);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v87, 0xBFFFFFFF);
       _InterlockedDecrement(v87);
@@ -924,7 +924,7 @@ LABEL_181:
       LOBYTE(v84) = 2;
       KiRaiseIrqlProcessIrqlFlags(v89, v84);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset(v87, 0x1Fu) )
         v85 = ExpWaitForSpinLockExclusiveAndAcquire((int *)v87, v89);

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopUpdateMinidumpContext @ 0x140553AE4
+ * XREFs of IopUpdateMinidumpContext @ 0x1405541A4
  * Callers:
- *     IopCollectTriageDumpData @ 0x1405522F0 (IopCollectTriageDumpData.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x140553E98 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055CB68 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopCollectTriageDumpData @ 0x1405529B0 (IopCollectTriageDumpData.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140554558 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055D228 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x14038840C (KiIsAddressRangeValid.c)
- *     IopAddBugcheckTriageDataFromParameters @ 0x140551A74 (IopAddBugcheckTriageDataFromParameters.c)
- *     IopGetMaxValidMemorySize @ 0x140553280 (IopGetMaxValidMemorySize.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403885EC (KiIsAddressRangeValid.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x140552134 (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopGetMaxValidMemorySize @ 0x140553940 (IopGetMaxValidMemorySize.c)
  */
 
 char __fastcall IopUpdateMinidumpContext(

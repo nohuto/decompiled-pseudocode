@@ -1,25 +1,25 @@
 /*
- * XREFs of MiCombineAllPhysicalMemory @ 0x1407272B0
+ * XREFs of MiCombineAllPhysicalMemory @ 0x140727760
  * Callers:
- *     MiCombineIdenticalPages @ 0x1407266AC (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140726B60 (MiCombineIdenticalPages.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     KeQueryAffinityThread @ 0x1402D2120 (KeQueryAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiMapArbitraryPage @ 0x140369610 (MiMapArbitraryPage.c)
- *     MiCombineCandidate @ 0x1403697A0 (MiCombineCandidate.c)
- *     MiReleaseArbitraryPage @ 0x140369BA0 (MiReleaseArbitraryPage.c)
- *     MiPerformCombineScan @ 0x140369C80 (MiPerformCombineScan.c)
- *     KeQueryNodeActiveDpcGangAffinity @ 0x14036BB4C (KeQueryNodeActiveDpcGangAffinity.c)
- *     MiDereferencePageRuns @ 0x14037EFC0 (MiDereferencePageRuns.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeQueryAffinityThread @ 0x1402504F0 (KeQueryAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     MiReferencePageRuns @ 0x1402D43E0 (MiReferencePageRuns.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiMapArbitraryPage @ 0x1403697C0 (MiMapArbitraryPage.c)
+ *     MiCombineCandidate @ 0x140369950 (MiCombineCandidate.c)
+ *     MiReleaseArbitraryPage @ 0x140369D50 (MiReleaseArbitraryPage.c)
+ *     MiPerformCombineScan @ 0x140369E30 (MiPerformCombineScan.c)
+ *     KeQueryNodeActiveDpcGangAffinity @ 0x14036BCFC (KeQueryNodeActiveDpcGangAffinity.c)
+ *     MiDereferencePageRuns @ 0x14037EB10 (MiDereferencePageRuns.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6B08 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
- *     MiAllocateCrcList @ 0x1407278B8 (MiAllocateCrcList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiProcessCrcList @ 0x140726FD0 (MiProcessCrcList.c)
+ *     MiAllocateCrcList @ 0x140727D68 (MiAllocateCrcList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -31,58 +31,56 @@ __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1, __int64 a2, __int64 a3
   __int64 v8; // r14
   unsigned int v9; // ebp
   __int64 v10; // r13
-  __int64 v11; // r8
-  _DWORD *v12; // r9
-  unsigned int v13; // ebx
-  unsigned __int64 v14; // rdx
-  __int64 *v15; // rax
-  __int64 *v16; // r14
-  __int64 *v17; // r15
+  unsigned int v11; // ebx
+  unsigned __int64 v12; // rdx
+  __int64 *v13; // rax
+  __int64 *v14; // r14
+  __int64 *v15; // r15
   unsigned __int64 Mask; // rcx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
-  _DWORD *v20; // r9
-  unsigned int v21; // r8d
-  unsigned int *v22; // rdx
-  unsigned int *v23; // rcx
-  unsigned __int64 v24; // rbp
-  __int64 v25; // r14
-  __int64 v26; // rsi
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _DWORD *v18; // r9
+  unsigned int v19; // r8d
+  unsigned int *v20; // rdx
+  unsigned int *v21; // rcx
+  unsigned __int64 v22; // rbp
+  __int64 v23; // r14
+  __int64 v24; // rsi
   __int64 PteAddress; // r12
-  int v28; // ecx
-  __int64 v29; // rdi
+  int v26; // ecx
+  __int64 v27; // rdi
   int PfnPageSizeIndexUnsynchronized; // eax
-  unsigned __int64 v31; // rdi
+  unsigned __int64 v29; // rdi
   unsigned __int64 UltraMapping; // rax
-  __int64 v33; // rdi
-  _QWORD *v34; // rdx
-  __int64 *v35; // rcx
-  BOOL v36; // edi
-  __int64 v37; // rdx
-  __int64 v38; // r8
-  _DWORD *v39; // r9
-  bool v40; // zf
-  int v42; // [rsp+30h] [rbp-F8h]
-  unsigned int v43; // [rsp+34h] [rbp-F4h]
-  unsigned int v44; // [rsp+38h] [rbp-F0h]
-  int v46; // [rsp+48h] [rbp-E0h]
-  int v47; // [rsp+4Ch] [rbp-DCh] BYREF
-  unsigned __int64 v48; // [rsp+50h] [rbp-D8h]
-  unsigned int *v49; // [rsp+58h] [rbp-D0h]
-  unsigned int *v50; // [rsp+60h] [rbp-C8h]
-  __int64 *v51; // [rsp+68h] [rbp-C0h]
-  int v52; // [rsp+70h] [rbp-B8h] BYREF
-  __int64 *v53; // [rsp+78h] [rbp-B0h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+80h] [rbp-A8h] BYREF
-  unsigned __int64 v55; // [rsp+90h] [rbp-98h] BYREF
-  _QWORD *v56; // [rsp+98h] [rbp-90h]
-  unsigned int *v57; // [rsp+A0h] [rbp-88h]
-  unsigned int *v58; // [rsp+A8h] [rbp-80h]
-  __int64 v59; // [rsp+B0h] [rbp-78h]
+  __int64 v31; // rdi
+  _QWORD *v32; // rdx
+  __int64 *v33; // rcx
+  BOOL v34; // edi
+  __int64 v35; // rdx
+  __int64 v36; // r8
+  _DWORD *v37; // r9
+  bool v38; // zf
+  int v40; // [rsp+30h] [rbp-F8h]
+  unsigned int v41; // [rsp+34h] [rbp-F4h]
+  unsigned int v42; // [rsp+38h] [rbp-F0h]
+  int v44; // [rsp+48h] [rbp-E0h]
+  int v45; // [rsp+4Ch] [rbp-DCh] BYREF
+  unsigned __int64 v46; // [rsp+50h] [rbp-D8h]
+  unsigned int *v47; // [rsp+58h] [rbp-D0h]
+  unsigned int *v48; // [rsp+60h] [rbp-C8h]
+  __int64 *v49; // [rsp+68h] [rbp-C0h]
+  int v50; // [rsp+70h] [rbp-B8h] BYREF
+  __int64 *v51; // [rsp+78h] [rbp-B0h]
+  _GROUP_AFFINITY Affinity; // [rsp+80h] [rbp-A8h] BYREF
+  unsigned __int64 v53; // [rsp+90h] [rbp-98h] BYREF
+  _QWORD *v54; // [rsp+98h] [rbp-90h]
+  unsigned int *v55; // [rsp+A0h] [rbp-88h]
+  unsigned int *v56; // [rsp+A8h] [rbp-80h]
+  __int64 v57; // [rsp+B0h] [rbp-78h]
   struct _KTHREAD *CurrentThread; // [rsp+B8h] [rbp-70h]
-  __int64 *v61; // [rsp+C0h] [rbp-68h]
-  __int64 v62; // [rsp+C8h] [rbp-60h]
-  __int128 v63; // [rsp+D0h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+E0h] [rbp-48h] BYREF
+  __int64 *v59; // [rsp+C0h] [rbp-68h]
+  __int64 v60; // [rsp+C8h] [rbp-60h]
+  __int128 v61; // [rsp+D0h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+E0h] [rbp-48h] BYREF
 
   v4 = *(__int64 **)a1;
   v5 = a1;
@@ -91,100 +89,100 @@ __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1, __int64 a2, __int64 a3
   v8 = **(_QWORD **)a1;
   v9 = *(_DWORD *)(a1 + 60);
   v10 = *(_QWORD *)(a1 + 24);
-  v56 = *(_QWORD **)(a1 + 16);
+  v54 = *(_QWORD **)(a1 + 16);
   Affinity = 0LL;
-  v51 = v4;
+  v49 = v4;
   PreviousAffinity = 0LL;
-  v59 = v6;
-  v63 = 0LL;
-  v44 = v9;
-  v42 = 0;
+  v57 = v6;
+  v61 = 0LL;
+  v42 = v9;
+  v40 = 0;
   CurrentThread = KeGetCurrentThread();
-  v62 = v8;
-  v57 = (unsigned int *)MiReferencePageRuns(v8, 1u, a3, a4);
-  v46 = 0;
-  v48 = *v57;
-  v58 = &v57[4 * v48 + 4];
-  KeQueryAffinityThread((__int64)CurrentThread, (__int64)&v63, v11, v12);
-  v13 = 0;
+  v60 = v8;
+  v55 = (unsigned int *)MiReferencePageRuns(v8, 1u, a3, a4);
+  v44 = 0;
+  v46 = *v55;
+  v56 = &v55[4 * v46 + 4];
+  KeQueryAffinityThread((__int64)CurrentThread, (__int64)&v61);
+  v11 = 0;
   if ( !KeNumberNodes )
     goto LABEL_59;
   while ( 1 )
   {
-    v14 = *(_QWORD *)(4544LL * v13 + *(_QWORD *)(v8 + 16) + 4176);
-    if ( v14 < 0x10 )
+    v12 = *(_QWORD *)(4544LL * v11 + *(_QWORD *)(v8 + 16) + 4176);
+    if ( v12 < 0x10 )
       goto LABEL_53;
-    v55 = (40 * v14 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    v15 = (__int64 *)MiAllocateCrcList(v4, v9, &v55);
-    v53 = v15;
-    v16 = v15;
-    if ( !v15 )
+    v53 = (40 * v12 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+    v13 = (__int64 *)MiAllocateCrcList(v4, v9, &v53);
+    v51 = v13;
+    v14 = v13;
+    if ( !v13 )
       break;
-    v17 = v15;
-    v61 = &v15[5 * (v55 / 0x28)];
-    KeQueryNodeActiveDpcGangAffinity(v13, &Affinity, 0LL);
+    v15 = v13;
+    v59 = &v13[5 * (v53 / 0x28)];
+    KeQueryNodeActiveDpcGangAffinity(v11, &Affinity, 0LL);
     Mask = Affinity.Mask;
-    if ( Affinity.Group == WORD4(v63) )
+    if ( Affinity.Group == WORD4(v61) )
     {
-      if ( (Affinity.Mask & (unsigned __int64)v63) != 0 )
-        Mask = Affinity.Mask & v63;
+      if ( (Affinity.Mask & (unsigned __int64)v61) != 0 )
+        Mask = Affinity.Mask & v61;
       Affinity.Mask = Mask;
     }
     if ( Mask )
     {
-      if ( v46 )
+      if ( v44 )
       {
         p_PreviousAffinity = 0LL;
       }
       else
       {
-        v46 = 1;
+        v44 = 1;
         p_PreviousAffinity = &PreviousAffinity;
       }
       KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
     }
-    v20 = (_DWORD *)v48;
-    v43 = 0;
-    v21 = 0;
-    if ( !(_DWORD)v48 )
+    v18 = (_DWORD *)v46;
+    v41 = 0;
+    v19 = 0;
+    if ( !(_DWORD)v46 )
       goto LABEL_51;
-    v22 = v58;
-    v23 = v57 + 6;
-    v50 = v57 + 6;
-    v49 = v58;
+    v20 = v56;
+    v21 = v55 + 6;
+    v48 = v55 + 6;
+    v47 = v56;
 LABEL_15:
-    if ( *v22 != v13 )
+    if ( *v20 != v11 )
       goto LABEL_46;
-    v24 = *(_QWORD *)v23;
-    v25 = *((_QWORD *)v23 - 1) - 1LL;
-    v26 = 48 * v25 - 0x58000000000LL;
-    if ( !*(_QWORD *)v23 )
+    v22 = *(_QWORD *)v21;
+    v23 = *((_QWORD *)v21 - 1) - 1LL;
+    v24 = 48 * v23 - 0x58000000000LL;
+    if ( !*(_QWORD *)v21 )
       goto LABEL_45;
     PteAddress = 0LL;
 LABEL_18:
-    if ( (!v59 || !*(_DWORD *)(v59 + 4)) && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
+    if ( (!v57 || !*(_DWORD *)(v57 + 4)) && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
     {
-      v26 += 48LL;
-      ++v25;
+      v24 += 48LL;
+      ++v23;
       while ( 1 )
       {
-        v28 = *(_BYTE *)(v26 + 34) & 7;
-        v52 = 0;
-        v29 = 1LL;
-        v47 = v28;
-        if ( (*(_QWORD *)(v26 + 40) & 0x1000000000LL) != 0 )
+        v26 = *(_BYTE *)(v24 + 34) & 7;
+        v50 = 0;
+        v27 = 1LL;
+        v45 = v26;
+        if ( (*(_QWORD *)(v24 + 40) & 0x1000000000LL) != 0 )
         {
-          PfnPageSizeIndexUnsynchronized = MiGetPfnPageSizeIndexUnsynchronized(v26, &v47, &v52, v20);
+          PfnPageSizeIndexUnsynchronized = MiGetPfnPageSizeIndexUnsynchronized(v24, &v45, &v50, v18);
           if ( PfnPageSizeIndexUnsynchronized != -1 )
           {
-            v29 = MiLargePageSizes[PfnPageSizeIndexUnsynchronized];
+            v27 = MiLargePageSizes[PfnPageSizeIndexUnsynchronized];
             goto LABEL_27;
           }
-          v28 = v47;
+          v26 = v45;
         }
-        if ( v28 > 1 )
+        if ( v26 > 1 )
         {
-          if ( !(unsigned int)MiCombineCandidate(v51, v44, (__int128 *)v26) )
+          if ( !(unsigned int)MiCombineCandidate(v49, v42, (__int128 *)v24) )
             goto LABEL_39;
           if ( !PteAddress )
           {
@@ -193,36 +191,36 @@ LABEL_18:
             PteAddress = MiGetPteAddress(UltraMapping);
             if ( !PteAddress )
             {
-              v42 = -1073741670;
+              v40 = -1073741670;
               goto LABEL_44;
             }
           }
-          v33 = (__int64)v56;
-          v34 = v56;
-          v35 = v51;
-          v56[9] = PteAddress;
-          v34[8] = v26;
-          if ( (unsigned int)MiMapArbitraryPage((__int64)v35, v34, v44, 0LL, 0) )
+          v31 = (__int64)v54;
+          v32 = v54;
+          v33 = v49;
+          v54[9] = PteAddress;
+          v32[8] = v24;
+          if ( (unsigned int)MiMapArbitraryPage((__int64)v33, v32, v42, 0LL, 0) )
           {
-            if ( (*(_BYTE *)(v26 + 34) & 7) == 6 )
+            if ( (*(_BYTE *)(v24 + 34) & 7) == 6 )
               ++*(_QWORD *)(v10 + 16);
             else
               ++*(_QWORD *)(v10 + 24);
-            v36 = MiPerformCombineScan(a1, v33, 0LL, v17);
-            MiReleaseArbitraryPage((__int64)v56, v37, v38, v39);
-            v40 = v36;
+            v34 = MiPerformCombineScan(a1, v31, 0LL, v15);
+            MiReleaseArbitraryPage((__int64)v54, v35, v36, v37);
+            v38 = v34;
             PteAddress = 0LL;
             v5 = a1;
-            if ( v40 )
+            if ( v38 )
             {
-              v17[1] = v25;
-              v17[2] = 0LL;
-              v17[4] = 0LL;
-              v17 += 5;
-              if ( v17 == v61 )
+              v15[1] = v23;
+              v15[2] = 0LL;
+              v15[4] = 0LL;
+              v15 += 5;
+              if ( v15 == v59 )
               {
-                MiProcessCrcList(a1, v53, ((char *)v17 - (char *)v53) / 40, v13);
-                v17 = v53;
+                MiProcessCrcList(a1, v51, ((char *)v15 - (char *)v51) / 40, v11);
+                v15 = v51;
               }
             }
           }
@@ -231,65 +229,65 @@ LABEL_18:
 LABEL_39:
             v5 = a1;
           }
-          if ( --v24 )
+          if ( --v22 )
             goto LABEL_18;
 LABEL_44:
-          v23 = v50;
-          v22 = v49;
-          v21 = v43;
-          v20 = (_DWORD *)v48;
+          v21 = v48;
+          v20 = v47;
+          v19 = v41;
+          v18 = (_DWORD *)v46;
 LABEL_45:
-          if ( v42 < 0 )
+          if ( v40 < 0 )
           {
 LABEL_47:
-            v7 = v42;
+            v7 = v40;
             goto LABEL_48;
           }
 LABEL_46:
-          ++v21;
-          v22 += 2;
-          v23 += 4;
-          v43 = v21;
-          v49 = v22;
-          v50 = v23;
-          if ( v21 >= (unsigned int)v20 )
+          ++v19;
+          v20 += 2;
+          v21 += 4;
+          v41 = v19;
+          v47 = v20;
+          v48 = v21;
+          if ( v19 >= (unsigned int)v18 )
             goto LABEL_47;
           goto LABEL_15;
         }
 LABEL_27:
-        v31 = v29 - (v25 & (v29 - 1));
-        if ( v31 >= v24 )
+        v29 = v27 - (v23 & (v27 - 1));
+        if ( v29 >= v22 )
         {
           v5 = a1;
           goto LABEL_44;
         }
-        v25 += v31;
-        v24 -= v31;
-        v26 += 48 * v31;
+        v23 += v29;
+        v22 -= v29;
+        v24 += 48 * v29;
       }
     }
     v7 = -1073741248;
-    v42 = -1073741248;
+    v40 = -1073741248;
 LABEL_48:
-    v16 = v53;
-    if ( v17 != v53 )
-      MiProcessCrcList(v5, v53, ((char *)v17 - (char *)v53) / 40, v13);
-    v9 = v44;
-    v4 = v51;
+    v14 = v51;
+    if ( v15 != v51 )
+      MiProcessCrcList(v5, v51, ((char *)v15 - (char *)v51) / 40, v11);
+    v9 = v42;
+    v4 = v49;
 LABEL_51:
-    ExFreePoolWithTag(v16, 0);
+    ExFreePoolWithTag(v14, 0);
     if ( v7 < 0 )
       goto LABEL_57;
-    v8 = v62;
+    v8 = v60;
 LABEL_53:
-    if ( ++v13 == (unsigned __int16)KeNumberNodes )
+    if ( ++v11 == (unsigned __int16)KeNumberNodes )
       goto LABEL_57;
   }
   v7 = -1073741670;
 LABEL_57:
-  if ( v46 == 1 )
+  if ( v44 == 1 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
 LABEL_59:
-  MiDereferencePageRuns((__int64)v57);
+  MiDereferencePageRuns((__int64)v55);
   return (unsigned int)v7;
 }

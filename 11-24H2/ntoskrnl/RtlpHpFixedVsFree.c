@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpFixedVsFree @ 0x14049D650
+ * XREFs of RtlpHpFixedVsFree @ 0x140498450
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14020D790 (RtlpHpAcquireLockExclusive.c)
- *     RtlClearBitsEx @ 0x140261AD0 (RtlClearBitsEx.c)
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
+ *     RtlClearBitsEx @ 0x1402920E0 (RtlClearBitsEx.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140336AF0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
  */
 
-void __fastcall RtlpHpFixedVsFree(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
+void __fastcall RtlpHpFixedVsFree(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3)
 {
   unsigned __int64 v3; // rsi
   unsigned __int64 v4; // rdi
@@ -25,13 +25,13 @@ void __fastcall RtlpHpFixedVsFree(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
   unsigned __int64 v16; // [rsp+30h] [rbp-28h] BYREF
   ULONG_PTR v17; // [rsp+38h] [rbp-20h]
 
-  v3 = (unsigned __int64)(unsigned int)a3 >> 12;
+  v3 = (unsigned __int64)a3 >> 12;
   v4 = (a2 - a1) >> 12;
-  v7 = (unsigned int)a3;
+  v7 = a3;
   if ( (*(_DWORD *)(a1 + 20) & 0x8000000) != 0 )
     v8 = -1;
   else
-    v8 = RtlpHpAcquireLockExclusive((int *)(a1 + 24), *(unsigned __int8 *)(a1 + 32), a3);
+    v8 = RtlpHpAcquireLockExclusive((int *)(a1 + 24), *(unsigned __int8 *)(a1 + 32));
   v9 = a1 ^ *(_QWORD *)(a1 + 56);
   v16 = *(_QWORD *)(a1 + 48);
   v17 = v9;

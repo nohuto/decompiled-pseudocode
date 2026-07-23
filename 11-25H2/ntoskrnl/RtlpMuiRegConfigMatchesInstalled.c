@@ -41,13 +41,13 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   const wchar_t *v24; // rdx
   __int64 v25; // r8
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v28; // [rsp+88h] [rbp+48h] BYREF
+  DWORD Lcid; // [rsp+88h] [rbp+48h] BYREF
   __int16 v29; // [rsp+98h] [rbp+58h] BYREF
 
   v7 = 0LL;
   v8 = a2;
   v9 = (__int16)a3;
-  v28 = 0;
+  Lcid = 0;
   v29 = 0;
   v11 = 0LL;
   DestinationString = 0LL;
@@ -97,9 +97,9 @@ LABEL_3:
             if ( v21 )
             {
               RtlInitUnicodeString(&DestinationString, v21);
-              if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v28) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                v12 = (_WORD)v9 == (unsigned __int16)v28;
+                v12 = (_WORD)v9 == (unsigned __int16)Lcid;
                 goto LABEL_3;
               }
             }
@@ -115,7 +115,7 @@ LABEL_3:
       {
         DestinationString.Buffer = v22;
         *(_DWORD *)&DestinationString.Length = 11141120;
-        if ( (unsigned __int8)RtlLCIDToCultureName((unsigned int)(__int16)a5, &DestinationString) )
+        if ( RtlLCIDToCultureName((__int16)a5, &DestinationString) )
         {
           v23 = *(_QWORD *)(a1 + 32);
           if ( !v23

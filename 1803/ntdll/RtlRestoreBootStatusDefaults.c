@@ -10,28 +10,31 @@
  *     sub_1800E71DC @ 0x1800E71DC (sub_1800E71DC.c)
  */
 
-__int64 RtlRestoreBootStatusDefaults()
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  _BYTE *v0; // rax
-  char v1; // cl
-  __int64 v2; // rdx
-  _DWORD v4[36]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE *v2; // rax
+  char v3; // cl
+  __int64 v4; // rdx
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
+  _DWORD Buffer[36]; // [rsp+70h] [rbp-90h] BYREF
 
-  memset(v4, 0, 0x88uLL);
-  v4[0] = 136;
-  RtlGetNtProductType(&v4[1]);
-  v0 = v4;
-  v1 = 0;
-  *(_WORD *)((char *)&v4[2] + 1) = 286;
-  BYTE1(v4[12]) = 1;
-  v2 = 136LL;
+  memset(Buffer, 0, 0x88uLL);
+  Buffer[0] = 136;
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&Buffer[1]);
+  ByteOffset.QuadPart = 0LL;
+  v2 = Buffer;
+  v3 = 0;
+  *(_WORD *)((char *)&Buffer[2] + 1) = 286;
+  BYTE1(Buffer[12]) = 1;
+  v4 = 136LL;
   do
   {
-    v1 -= *v0++;
-    --v2;
+    v3 -= *v2++;
+    --v4;
   }
-  while ( v2 );
-  BYTE2(v4[12]) = v1;
-  sub_1800E71DC(0LL, v4, 0LL, 136LL);
-  return ZwWriteFile();
+  while ( v4 );
+  BYTE2(Buffer[12]) = v3;
+  sub_1800E71DC(0LL, Buffer, 0LL, 136LL);
+  return ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x88u, &ByteOffset, 0LL);
 }

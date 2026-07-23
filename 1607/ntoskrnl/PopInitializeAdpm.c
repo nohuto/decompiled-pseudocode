@@ -3,8 +3,8 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 PVOID PopInitializeAdpm()
@@ -14,6 +14,6 @@ PVOID PopInitializeAdpm()
   PopConsoleContext = -1;
   PopMaximumConnectionSessions = 0;
   PopConnectionState = 0LL;
-  dword_1403023E0 = 3;
+  dword_140302400 = 3;
   return PopExtendConnectionState(0);
 }

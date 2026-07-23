@@ -1,15 +1,16 @@
 /*
- * XREFs of RtlGetCurrentProcessorNumber @ 0x1800A4C50
+ * XREFs of RtlGetCurrentProcessorNumber @ 0x1800A4C70
  * Callers:
  *     RtlpLowFragHeapAllocFromContext @ 0x18000FEB0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x18007E914 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x18007E924 (RtlpHpLfhBucketUpdateAffinityMapping.c)
  *     RtlpHeapTrkInterceptor @ 0x1800FA490 (RtlpHeapTrkInterceptor.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetCurrentProcessorNumber(unsigned __int8 a1)
+ULONG RtlGetCurrentProcessorNumber(void)
 {
+  unsigned __int8 v0; // cl
   char v3; // zf
   unsigned __int32 v4; // eax
 
@@ -21,7 +22,7 @@ __int64 __fastcall RtlGetCurrentProcessorNumber(unsigned __int8 a1)
   else if ( MEMORY[0x7FFE0294] )
   {
     __asm { rdtscp }
-    return a1;
+    return v0;
   }
   else
   {

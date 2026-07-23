@@ -1,8 +1,8 @@
 /*
- * XREFs of SepConstrainByConstraintMask @ 0x1402294C4
+ * XREFs of SepConstrainByConstraintMask @ 0x1402295D4
  * Callers:
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C1070 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406C10A0 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
  *     <none>
  */

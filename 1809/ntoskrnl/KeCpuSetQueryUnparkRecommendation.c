@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCpuSetQueryUnparkRecommendation @ 0x140296520
+ * XREFs of KeCpuSetQueryUnparkRecommendation @ 0x140296710
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1401222B0 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x140122380 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x14008A5E4 (RtlBeginReadTickLock.c)
+ *     RtlBeginReadTickLock @ 0x14008A5D4 (RtlBeginReadTickLock.c)
  */
 
 char KeCpuSetQueryUnparkRecommendation()

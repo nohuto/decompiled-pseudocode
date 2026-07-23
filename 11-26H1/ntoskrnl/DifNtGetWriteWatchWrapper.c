@@ -1,25 +1,25 @@
 /*
- * XREFs of DifNtGetWriteWatchWrapper @ 0x140679980
+ * XREFs of DifNtGetWriteWatchWrapper @ 0x14067D560
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtGetWriteWatch @ 0x140A8DAE0 (NtGetWriteWatch.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtGetWriteWatch @ 0x140A927B0 (NtGetWriteWatch.c)
  */
 
 __int64 __fastcall DifNtGetWriteWatchWrapper(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7)
+        void *a1,
+        ULONG a2,
+        void *a3,
+        SIZE_T a4,
+        PVOID *UserAddressArray,
+        unsigned __int64 *EntriesInUserAddressArray,
+        ULONG *Granularity)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v11; // rdx
@@ -32,8 +32,8 @@ __int64 __fastcall DifNtGetWriteWatchWrapper(
   BOOLEAN v18; // di
   __int128 *j; // rbx
   _QWORD v21[6]; // [rsp+48h] [rbp-31h] BYREF
-  int v22; // [rsp+78h] [rbp-1h]
-  __int64 v23; // [rsp+80h] [rbp+7h]
+  ULONG v22; // [rsp+78h] [rbp-1h]
+  void *v23; // [rsp+80h] [rbp+7h]
   unsigned int v24; // [rsp+88h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+47h]
 
@@ -57,9 +57,9 @@ __int64 __fastcall DifNtGetWriteWatchWrapper(
 LABEL_7:
   v15 = 0;
   v23 = a1;
-  v21[3] = a5;
-  v21[2] = a6;
-  v21[1] = a7;
+  v21[3] = UserAddressArray;
+  v21[2] = EntriesInUserAddressArray;
+  v21[1] = Granularity;
   v22 = a2;
   v21[5] = a3;
   v21[4] = a4;
@@ -75,7 +75,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v24 = NtGetWriteWatch(a1, a2, a3, a4, a5, a6, a7);
+  v24 = NtGetWriteWatch(a1, a2, a3, a4, UserAddressArray, EntriesInUserAddressArray, Granularity);
   if ( v12 )
   {
     if ( (v18 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

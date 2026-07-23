@@ -1,19 +1,19 @@
 /*
- * XREFs of KsepDbGetShimInfo @ 0x14073E5B4
+ * XREFs of KsepDbGetShimInfo @ 0x14073C4E4
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x14095A578 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140942038 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1404A03F0 (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     KsepDbGetSdbString @ 0x14073E580 (KsepDbGetSdbString.c)
- *     SdbGetKShimTagRef @ 0x140802270 (SdbGetKShimTagRef.c)
- *     SdbReadGUIDTag @ 0x140805B70 (SdbReadGUIDTag.c)
- *     SdbTagRefToTagID @ 0x140805CEC (SdbTagRefToTagID.c)
- *     KsepDbFreeDriverShims @ 0x140959C50 (KsepDbFreeDriverShims.c)
- *     KseShimDatabaseClose @ 0x14095C27C (KseShimDatabaseClose.c)
- *     KseShimDatabaseOpen @ 0x14095C42C (KseShimDatabaseOpen.c)
- *     SdbReadDWORDTag @ 0x14095F0F8 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
+ *     KsepPoolAllocatePaged @ 0x14049AA70 (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     KsepDbGetSdbString @ 0x14073C4B0 (KsepDbGetSdbString.c)
+ *     SdbGetKShimTagRef @ 0x1408029B0 (SdbGetKShimTagRef.c)
+ *     SdbReadGUIDTag @ 0x1408062B0 (SdbReadGUIDTag.c)
+ *     SdbTagRefToTagID @ 0x14080642C (SdbTagRefToTagID.c)
+ *     KsepDbFreeDriverShims @ 0x140941710 (KsepDbFreeDriverShims.c)
+ *     KseShimDatabaseClose @ 0x140943D3C (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x140943EEC (KseShimDatabaseOpen.c)
+ *     SdbReadDWORDTag @ 0x140946BB8 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall KsepDbGetShimInfo(__int64 a1, unsigned int a2)

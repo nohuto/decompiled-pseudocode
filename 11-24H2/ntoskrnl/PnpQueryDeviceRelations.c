@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpQueryDeviceRelations @ 0x1408BB608
+ * XREFs of PnpQueryDeviceRelations @ 0x1408B8FB8
  * Callers:
- *     PipEnumerateDevice @ 0x1408BAFAC (PipEnumerateDevice.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1409EEF24 (PiDcHandleCustomDeviceEvent.c)
- *     PnpProcessRelation @ 0x140A0C664 (PnpProcessRelation.c)
- *     PiQueryDeviceRelations @ 0x140A3E9EC (PiQueryDeviceRelations.c)
- *     PiQueryPowerRelations @ 0x140A8C2C8 (PiQueryPowerRelations.c)
+ *     PipEnumerateDevice @ 0x1408B895C (PipEnumerateDevice.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1409EC964 (PiDcHandleCustomDeviceEvent.c)
+ *     PiQueryDeviceRelations @ 0x140A3435C (PiQueryDeviceRelations.c)
+ *     PnpProcessRelation @ 0x140A54854 (PnpProcessRelation.c)
+ *     PiQueryPowerRelations @ 0x140A887F8 (PiQueryPowerRelations.c)
  * Callees:
- *     PnpSendIrp @ 0x14037529C (PnpSendIrp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     PnpSendIrp @ 0x14025DB5C (PnpSendIrp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PnpQueryDeviceRelations(__int64 a1, int a2, __int64 a3, __int64 a4)

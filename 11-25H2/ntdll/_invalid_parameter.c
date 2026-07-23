@@ -85,7 +85,7 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 invalid_parameter()
+ULONG invalid_parameter()
 {
   ULONG64 Rip; // rbx
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v1; // rax

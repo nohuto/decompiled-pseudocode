@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAcquireTransitionLock @ 0x14071E6A8
+ * XREFs of PopAcquireTransitionLock @ 0x14071F948
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PopNotifyPolicyDevice @ 0x140740E10 (PopNotifyPolicyDevice.c)
- *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
- *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     PopNotifyPolicyDevice @ 0x140742000 (PopNotifyPolicyDevice.c)
+ *     PoInitHiberServices @ 0x140746E80 (PoInitHiberServices.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x1408693B8 (PopDirectedDripsNotifyDrivers.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
  */
 
 int __fastcall PopAcquireTransitionLock(int a1)

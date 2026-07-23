@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInvalidTssFault @ 0x14040CF80
+ * XREFs of KiInvalidTssFault @ 0x14040D080
  * Callers:
- *     KiInvalidTssFaultShadow @ 0x140A14640 (KiInvalidTssFaultShadow.c)
+ *     KiInvalidTssFaultShadow @ 0x140A15640 (KiInvalidTssFaultShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
- *     KiInvalidTssFault @ 0x14040CF80 (KiInvalidTssFault.c)
- *     KiBugCheckDispatch @ 0x140412740 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413B80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE620 (KiSaveDebugRegisterState.c)
+ *     KiInvalidTssFault @ 0x14040D080 (KiInvalidTssFault.c)
+ *     KiBugCheckDispatch @ 0x140412840 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413C80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiInvalidTssFault()
@@ -47,7 +47,7 @@ void __noreturn KiInvalidTssFault()
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x14040D1B1LL);
+      JUMPOUT(0x14040D2B1LL);
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(v1);
     _mm_lfence();

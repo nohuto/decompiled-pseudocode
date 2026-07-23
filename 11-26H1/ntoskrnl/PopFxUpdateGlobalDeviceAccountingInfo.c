@@ -1,25 +1,25 @@
 /*
- * XREFs of PopFxUpdateGlobalDeviceAccountingInfo @ 0x1404AFACC
+ * XREFs of PopFxUpdateGlobalDeviceAccountingInfo @ 0x1404A915C
  * Callers:
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x14042C978 (PopFxSetDripsBlockedByDeviceActivity.c)
- *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1404AFA54 (PopFxSetGlobalDeviceAccountingEnabled.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x140421048 (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1404A90E4 (PopFxSetGlobalDeviceAccountingEnabled.c)
  * Callees:
  *     <none>
  */
 
-PVOID __fastcall PopFxUpdateGlobalDeviceAccountingInfo(_BYTE *a1, unsigned __int64 a2)
+struct _LIST_ENTRY *__fastcall PopFxUpdateGlobalDeviceAccountingInfo(struct _LIST_ENTRY *a1, unsigned __int64 a2)
 {
-  PVOID result; // rax
+  struct _LIST_ENTRY *result; // rax
   unsigned __int64 v3; // rcx
   __int64 v4; // rdx
   __int64 v5; // r8
 
-  result = stru_140F12420.WaitBlock[0].SparePtr;
-  if ( stru_140F12420.WaitBlock[0].SparePtr < a1 )
+  result = PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[0].Blink;
+  if ( PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[0].Blink < a1 )
   {
-    v3 = a1 - (char *)stru_140F12420.WaitBlock[0].SparePtr;
-    stru_140F12420.WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)((char *)stru_140F12420.WaitBlock[1].WaitListEntry.Flink
-                                                                           + v3);
+    v3 = (char *)a1 - (char *)PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[0].Blink;
+    PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)((char *)PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[1].Flink
+                                                                                          + v3);
     if ( v3 >= a2 )
     {
       LODWORD(v4) = 0;
@@ -29,16 +29,16 @@ PVOID __fastcall PopFxUpdateGlobalDeviceAccountingInfo(_BYTE *a1, unsigned __int
         v4 = (unsigned int)(v4 + 1);
         if ( v3 >= PopFxAccountingBucketLimits[v5] && v3 < PopFxAccountingBucketLimits[v4] )
         {
-          ++*(_QWORD *)&stru_140F12420.WaitBlockFill11[8 * v5 + 64];
-          *((_QWORD *)&stru_140F12420.WaitBlock[2].WaitListEntry.Blink + v5) += v3;
+          ++*((_QWORD *)&PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[2].Flink + v5);
+          *((_QWORD *)&PopFxBlockingDeviceListLock.SchedulerApc.ApcListEntry.Blink + v5) += v3;
           return result;
         }
       }
     }
     else
     {
-      stru_140F12420.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)((char *)stru_140F12420.WaitBlock[1].WaitListEntry.Blink
-                                                                             + v3);
+      PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)((char *)PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[1].Blink
+                                                                                            + v3);
     }
   }
   return result;

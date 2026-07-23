@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32ParseProcedure @ 0x1406AD190
+ * XREFs of ExpWin32ParseProcedure @ 0x14060B880
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall ExpWin32ParseProcedure(
@@ -43,5 +43,5 @@ __int64 __fastcall ExpWin32ParseProcedure(
   v11[1] = a2;
   v12 = a4;
   v20 = a10;
-  return PsInvokeWin32Callout(15, (__int64)v11, 1, (__int64)&v21);
+  return PsInvokeWin32Callout(15LL, v11, 1LL, &v21);
 }

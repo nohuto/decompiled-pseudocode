@@ -1,12 +1,12 @@
 /*
- * XREFs of PopQueryPowerButtonConfiguration @ 0x1402C9F64
+ * XREFs of PopQueryPowerButtonConfiguration @ 0x1404B9FDC
  * Callers:
- *     PopPowerButtonBugcheckConfigure @ 0x14075CBAC (PopPowerButtonBugcheckConfigure.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x14075BB4C (PopPowerButtonBugcheckConfigure.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     wcslen @ 0x1404FFED0 (wcslen.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     wcslen @ 0x1404FD790 (wcslen.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
  */
 
 __int64 __fastcall PopQueryPowerButtonConfiguration(HANDLE KeyHandle, _BYTE *a2)
@@ -61,11 +61,11 @@ __int64 __fastcall PopQueryPowerButtonConfiguration(HANDLE KeyHandle, _BYTE *a2)
   v9 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength);
   if ( v9 < 0 || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
   {
-    LODWORD(qword_140F07790) = 0;
+    LODWORD(qword_140F07BB0) = 0;
     v9 = ZwQueryValueKey(KeyHandle, &v14, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength);
     if ( v9 < 0 || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
     {
-      HIDWORD(qword_140F07790) = 0;
+      HIDWORD(qword_140F07BB0) = 0;
       v9 = -1073741823;
       PopPowerButtonBugcheckConfig = 0;
       goto LABEL_22;
@@ -73,10 +73,10 @@ __int64 __fastcall PopQueryPowerButtonConfiguration(HANDLE KeyHandle, _BYTE *a2)
     *a2 = 1;
     if ( HIDWORD(KeyValueInformation) )
     {
-      HIDWORD(qword_140F07790) = 2;
+      HIDWORD(qword_140F07BB0) = 2;
       goto LABEL_18;
     }
-    HIDWORD(qword_140F07790) = 1;
+    HIDWORD(qword_140F07BB0) = 1;
 LABEL_20:
     PopPowerButtonBugcheckConfig = 1;
     goto LABEL_22;
@@ -84,10 +84,10 @@ LABEL_20:
   *a2 = 1;
   if ( !HIDWORD(KeyValueInformation) )
   {
-    LODWORD(qword_140F07790) = 1;
+    LODWORD(qword_140F07BB0) = 1;
     goto LABEL_20;
   }
-  LODWORD(qword_140F07790) = 2;
+  LODWORD(qword_140F07BB0) = 2;
 LABEL_18:
   PopPowerButtonBugcheckConfig = 2;
 LABEL_22:
@@ -97,30 +97,30 @@ LABEL_22:
     "%s (Bugcheck) completed with Status: %08x, ManualBugcheckConfig: %08x, OneSettingBugcheckConfig: %08x\n",
     "PopQueryPowerButtonConfiguration",
     v9,
-    qword_140F07790,
-    HIDWORD(qword_140F07790));
+    qword_140F07BB0,
+    HIDWORD(qword_140F07BB0));
   v10 = ZwQueryValueKey(KeyHandle, &v15, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength);
   if ( v10 >= 0 && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
   {
     v4 = WORD6(KeyValueInformation) & 0x1FF;
-    HIBYTE(word_140F07798) = 1;
-    dword_140F0779C = v4;
+    HIBYTE(word_140F07BB8) = 1;
+    dword_140F07BBC = v4;
   }
   else
   {
-    HIBYTE(word_140F07798) = 0;
-    dword_140F0779C = 0;
+    HIBYTE(word_140F07BB8) = 0;
+    dword_140F07BBC = 0;
     v10 = ZwQueryValueKey(KeyHandle, &v16, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength);
     if ( v10 < 0 || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
     {
-      byte_140F077A0 = 0;
+      byte_140F07BC0 = 0;
       v10 = -1073741823;
-      LODWORD(qword_140F077A4) = 0;
+      LODWORD(qword_140F07BC4) = 0;
       goto LABEL_30;
     }
     v4 = WORD6(KeyValueInformation) & 0x1FF;
-    byte_140F077A0 = 1;
-    LODWORD(qword_140F077A4) = v4;
+    byte_140F07BC0 = 1;
+    LODWORD(qword_140F07BC4) = v4;
   }
   *a2 = 1;
 LABEL_30:
@@ -131,9 +131,9 @@ LABEL_30:
     "%s (LiveDump) completed with Status: %08x, ManualLiveDumpConfig %08x, OneSettingLiveDumpConfig: %08x\n",
     "PopQueryPowerButtonConfiguration",
     v10,
-    dword_140F0779C,
-    qword_140F077A4);
-  if ( (dword_140F0779C & 1) != 0 && !(_DWORD)qword_140F07790 && PopPowerButtonBugcheckConfig == 2 )
+    dword_140F07BBC,
+    qword_140F07BC4);
+  if ( (dword_140F07BBC & 1) != 0 && !(_DWORD)qword_140F07BB0 && PopPowerButtonBugcheckConfig == 2 )
     PopPowerButtonBugcheckConfig = 1;
   DbgPrintEx(
     0x92u,

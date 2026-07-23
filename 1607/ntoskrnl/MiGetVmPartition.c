@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetVmPartition @ 0x1401E8344
+ * XREFs of MiGetVmPartition @ 0x1401E8170
  * Callers:
- *     MiCommitEnclavePages @ 0x14065E734 (MiCommitEnclavePages.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
+ *     MiCommitEnclavePages @ 0x14065E818 (MiCommitEnclavePages.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
  * Callees:
  *     <none>
  */

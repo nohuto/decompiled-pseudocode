@@ -4,7 +4,7 @@
  *     LdrpCodeAuthzInitialize @ 0x180009B8C (LdrpCodeAuthzInitialize.c)
  *     LdrpInitializeProcess @ 0x1800DDBD0 (LdrpInitializeProcess.c)
  *     RtlWow64LogMessageInEventLogger @ 0x1800E2D10 (RtlWow64LogMessageInEventLogger.c)
- *     SbpResolveBasedOnName @ 0x1801286EC (SbpResolveBasedOnName.c)
+ *     SbpResolveBasedOnName @ 0x1801286BC (SbpResolveBasedOnName.c)
  * Callees:
  *     LdrpLoadDll @ 0x18001906C (LdrpLoadDll.c)
  *     LdrpDereferenceModule @ 0x18002251C (LdrpDereferenceModule.c)
@@ -14,24 +14,24 @@
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl LdrLoadDll(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  int v7; // eax
-  int v8; // ecx
+  signed int v7; // eax
+  ULONG v8; // ecx
   int v9; // edx
   int v10; // r8d
   int v11; // ecx
   int v12; // ebx
-  int Dll; // ebx
-  __int64 v14; // rcx
-  __int64 v16; // [rsp+30h] [rbp-B8h] BYREF
-  _QWORD v17[15]; // [rsp+40h] [rbp-A8h] BYREF
+  NTSTATUS Dll; // ebx
+  char *v14; // rcx
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-B8h] BYREF
+  PWSTR Path[15]; // [rsp+40h] [rbp-A8h] BYREF
   char v18; // [rsp+BCh] [rbp-2Ch]
 
-  if ( a2 )
+  if ( DllCharacteristics )
   {
-    v7 = *a2;
-    v8 = 2 * (*a2 & 4);
+    v7 = *DllCharacteristics;
+    v8 = 2 * (*DllCharacteristics & 4);
     v9 = v8 | 0x40;
     if ( (v7 & 2) == 0 )
       v9 = v8;
@@ -49,9 +49,15 @@ __int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
   {
     v12 = 0;
   }
-  LdrpLogInternal((unsigned int)"minkernel\\ntdll\\ldrapi.c", 580LL, (__int64)"LdrLoadDll", 3LL, "DLL name: %wZ\n", a3);
-  if ( (LdrpPolicyBits & 4) == 0 && (a1 & 0x401) == 0x401 )
-    return 3221225485LL;
+  LdrpLogInternal(
+    (unsigned int)"minkernel\\ntdll\\ldrapi.c",
+    580,
+    (__int64)"LdrLoadDll",
+    3u,
+    "DLL name: %wZ\n",
+    DllName);
+  if ( (LdrpPolicyBits & 4) == 0 && ((unsigned __int16)DllPath & 0x401) == 0x401LL )
+    return -1073741811;
   if ( (v12 & 8) == 0 || (LdrpPolicyBits & 8) != 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x2000) != 0 )
@@ -60,14 +66,14 @@ __int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
     }
     else
     {
-      LdrpInitializeDllPath(*(_QWORD *)(a3 + 8), a1, v17);
-      Dll = LdrpLoadDll(a3, (int)v17, v12, (__int64)&v16);
+      LdrpInitializeDllPath(DllName->Buffer, DllPath, Path);
+      Dll = LdrpLoadDll((__int64)DllName, (int)Path, v12, (__int64)BaseAddress);
       if ( v18 )
-        RtlReleasePath(v17[0]);
+        RtlReleasePath(Path[0]);
       if ( Dll >= 0 )
       {
-        v14 = v16;
-        *a4 = *(_QWORD *)(v16 + 48);
+        v14 = (char *)BaseAddress[0];
+        *DllHandle = (PVOID)*((_QWORD *)BaseAddress[0] + 6);
         LdrpDereferenceModule(v14);
       }
     }
@@ -76,18 +82,12 @@ __int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",
-      601LL,
+      601,
       (__int64)"LdrLoadDll",
-      0LL,
+      0,
       "Nonpackaged process attempted to load a packaged DLL.\n");
     Dll = -1073741398;
   }
-  LdrpLogInternal(
-    (unsigned int)"minkernel\\ntdll\\ldrapi.c",
-    633LL,
-    (__int64)"LdrLoadDll",
-    4LL,
-    "Status: 0x%08lx\n",
-    Dll);
-  return (unsigned int)Dll;
+  LdrpLogInternal((unsigned int)"minkernel\\ntdll\\ldrapi.c", 633, (__int64)"LdrLoadDll", 4u, "Status: 0x%08lx\n", Dll);
+  return Dll;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFillNoReservationCluster @ 0x140639468
+ * XREFs of MiFillNoReservationCluster @ 0x1406399B8
  * Callers:
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReservePageFileSpace @ 0x1402849A0 (MiReservePageFileSpace.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiReferencePageForModifiedWrite @ 0x140349DE8 (MiReferencePageForModifiedWrite.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiIsStoreVirtualPagefileFull @ 0x14065BFCC (MiIsStoreVirtualPagefileFull.c)
+ *     MiReservePageFileSpace @ 0x140284C30 (MiReservePageFileSpace.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiReferencePageForModifiedWrite @ 0x140349F80 (MiReferencePageForModifiedWrite.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x14065C51C (MiIsStoreVirtualPagefileFull.c)
  */
 
 __int64 __fastcall MiFillNoReservationCluster(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4)
@@ -77,10 +77,13 @@ __int64 __fastcall MiFillNoReservationCluster(__int64 a1, __int64 a2, _QWORD *a3
       goto LABEL_34;
     v18 = *(_QWORD *)(v10 + 8) | 0x8000000000000000uLL;
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -98,10 +101,10 @@ __int64 __fastcall MiFillNoReservationCluster(__int64 a1, __int64 a2, _QWORD *a3
     {
 LABEL_13:
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v12 >= 2u )
         {
           v13 = KeGetCurrentPrcb();
           v14 = v13->SchedulerAssist;
@@ -119,10 +122,10 @@ LABEL_13:
 LABEL_34:
       v23 = MiReferencePageForModifiedWrite(48 * v9 - 0x220000000000LL, v29);
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspGetMemoryPartitionImplicit @ 0x1407E6EE4
+ * XREFs of PspGetMemoryPartitionImplicit @ 0x1407E71B4
  * Callers:
- *     PspGetMemoryPartitionContext @ 0x1406B9120 (PspGetMemoryPartitionContext.c)
+ *     PspGetMemoryPartitionContext @ 0x1406B9150 (PspGetMemoryPartitionContext.c)
  * Callees:
  *     PsGetEffectiveServerSilo @ 0x14020BFF0 (PsGetEffectiveServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
  *     PspUnlockJobChain @ 0x1406A0C10 (PspUnlockJobChain.c)
  *     PspLockJobChain @ 0x1406A0CC8 (PspLockJobChain.c)
  */

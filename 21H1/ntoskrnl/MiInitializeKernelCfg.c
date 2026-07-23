@@ -23,8 +23,8 @@ NTSTATUS MiInitializeKernelCfg()
   ULONG_PTR v2; // rax
   struct _KTHREAD *CurrentThread; // rdi
   PVOID *i; // rbx
-  __int64 v5; // rcx
-  __int64 v6; // rax
+  PVOID v5; // rcx
+  PIMAGE_NT_HEADERS v6; // rax
   __int64 v7; // rdx
   __int64 v8; // r8
   __int64 v9; // r9
@@ -55,11 +55,11 @@ NTSTATUS MiInitializeKernelCfg()
       {
         if ( ((_DWORD)i[13] & 0x2000) == 0 )
         {
-          v5 = (__int64)i[6];
+          v5 = i[6];
           if ( v5 == PsNtosImageBase )
           {
             v6 = RtlImageNtHeader(v5);
-            MiMarkKernelImageCfgBits((__int64)i, v6);
+            MiMarkKernelImageCfgBits((__int64)i, (__int64)v6);
             *((_DWORD *)i + 26) |= 0x2000u;
           }
           else

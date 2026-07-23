@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWnfGetNameStoreRegistryRoot @ 0x14094D70C
+ * XREFs of ExpWnfGetNameStoreRegistryRoot @ 0x1409C907C
  * Callers:
- *     ExpWnfDeletePermanentName @ 0x140947D84 (ExpWnfDeletePermanentName.c)
- *     ExpWnfLookupPermanentName @ 0x14094D528 (ExpWnfLookupPermanentName.c)
- *     ExpWnfAllocateNextPersistentNameSequence @ 0x14094F838 (ExpWnfAllocateNextPersistentNameSequence.c)
- *     ExpWnfRegisterPermanentName @ 0x14095027C (ExpWnfRegisterPermanentName.c)
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140B66BE8 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfDeletePermanentName @ 0x1409C36F4 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfLookupPermanentName @ 0x1409C8E98 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfAllocateNextPersistentNameSequence @ 0x1409CB178 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     ExpWnfRegisterPermanentName @ 0x1409CBBBC (ExpWnfRegisterPermanentName.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140B69B74 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall ExpWnfGetNameStoreRegistryRoot(int a1, volatile signed __int64 *a2)
@@ -51,7 +51,7 @@ NTSTATUS __fastcall ExpWnfGetNameStoreRegistryRoot(int a1, volatile signed __int
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
-  if ( !HIDWORD(WheapPfaLock.CycleTime) )
+  if ( !HIDWORD(WheapPfaLock.KernelStack) )
     v6 = &ExpWnfNameStoreDescriptors[1];
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&v6[v3];
   CreateOptions = HIDWORD(ExpWnfNameStoreDescriptors[v3 + 5]) != 0;
@@ -62,7 +62,7 @@ NTSTATUS __fastcall ExpWnfGetNameStoreRegistryRoot(int a1, volatile signed __int
   {
     if ( Disposition == 1 )
     {
-      LOBYTE(v8) = HIDWORD(WheapPfaLock.CycleTime) != 0;
+      LOBYTE(v8) = HIDWORD(WheapPfaLock.KernelStack) != 0;
       v9 = ExpInitializeStateSeparationPhase2(
              v8,
              &ExpWnfNameStoreDescriptors[v3 + 1],

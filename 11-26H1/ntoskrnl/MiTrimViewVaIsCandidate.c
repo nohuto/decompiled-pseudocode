@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimViewVaIsCandidate @ 0x14046C408
+ * XREFs of MiTrimViewVaIsCandidate @ 0x140465B88
  * Callers:
- *     MiTrimSharedPageFromView @ 0x14046BEB4 (MiTrimSharedPageFromView.c)
+ *     MiTrimSharedPageFromView @ 0x140465634 (MiTrimSharedPageFromView.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiGetSystemCacheReverseMap @ 0x1402E46F0 (MiGetSystemCacheReverseMap.c)
- *     MiGetMultiplexedVm @ 0x1402E47B0 (MiGetMultiplexedVm.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402C6730 (MiGetSystemCacheReverseMap.c)
+ *     MiGetMultiplexedVm @ 0x1402C67F0 (MiGetMultiplexedVm.c)
  */
 
 __int64 __fastcall MiTrimViewVaIsCandidate(_QWORD *a1)

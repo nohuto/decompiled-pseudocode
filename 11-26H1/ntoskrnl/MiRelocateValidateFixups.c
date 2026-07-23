@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRelocateValidateFixups @ 0x1409CB26C
+ * XREFs of MiRelocateValidateFixups @ 0x14099C24C
  * Callers:
- *     MiRelocateImage @ 0x1409CA7A4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14099B784 (MiRelocateImage.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     PsRevertToUserPagePriorityThread @ 0x140487F60 (PsRevertToUserPagePriorityThread.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiScanRelocationPage @ 0x14087B644 (MiScanRelocationPage.c)
- *     MiLogRelocationFaults @ 0x1409CC690 (MiLogRelocationFaults.c)
- *     MiCompressRelocations @ 0x140A05450 (MiCompressRelocations.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     PsRevertToUserPagePriorityThread @ 0x140481AA0 (PsRevertToUserPagePriorityThread.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiScanRelocationPage @ 0x140881A44 (MiScanRelocationPage.c)
+ *     MiLogRelocationFaults @ 0x14099D670 (MiLogRelocationFaults.c)
+ *     MiCompressRelocations @ 0x1409F0C40 (MiCompressRelocations.c)
  */
 
 __int64 __fastcall MiRelocateValidateFixups(__int64 a1)
@@ -141,10 +141,10 @@ LABEL_7:
           v13 = v32;
           v11 = v34;
         }
-        v3 = v28 + v13;
         if ( !v10 )
           goto LABEL_34;
-        v28 += v13;
+        v3 = v28 + v13;
+        v28 = v3;
         if ( v10 < 0xA )
           goto LABEL_32;
       }

@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpUnlinkDeviceRemovalRelations @ 0x14091129C
+ * XREFs of PnpUnlinkDeviceRemovalRelations @ 0x1409B337C
  * Callers:
- *     PiEventRemovalPostSurpriseRemove @ 0x140911010 (PiEventRemovalPostSurpriseRemove.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
- *     PipRemoveDevicesInRelationList @ 0x140913948 (PipRemoveDevicesInRelationList.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x1409B30F0 (PiEventRemovalPostSurpriseRemove.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
+ *     PipRemoveDevicesInRelationList @ 0x1409B5A28 (PipRemoveDevicesInRelationList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExConvertExclusiveToSharedLite @ 0x140431900 (ExConvertExclusiveToSharedLite.c)
- *     ExIsResourceAcquiredSharedLite @ 0x14043CCB0 (ExIsResourceAcquiredSharedLite.c)
- *     PpDevNodeRemoveFromTree @ 0x1404DACE8 (PpDevNodeRemoveFromTree.c)
- *     PnpSetDeviceInstanceRemovalEvent @ 0x1404E42C0 (PnpSetDeviceInstanceRemovalEvent.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x14090D4E8 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     IopIsDescendantNode @ 0x140911550 (IopIsDescendantNode.c)
- *     PnpCleanupDeviceRegistryValues @ 0x140912C40 (PnpCleanupDeviceRegistryValues.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     IopRemoveCurrentRelationFromList @ 0x140B5A038 (IopRemoveCurrentRelationFromList.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExConvertExclusiveToSharedLite @ 0x14041E930 (ExConvertExclusiveToSharedLite.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14042F560 (ExIsResourceAcquiredSharedLite.c)
+ *     PpDevNodeRemoveFromTree @ 0x1404D43C8 (PpDevNodeRemoveFromTree.c)
+ *     PnpSetDeviceInstanceRemovalEvent @ 0x1404DD860 (PnpSetDeviceInstanceRemovalEvent.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1409AF618 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     IopIsDescendantNode @ 0x1409B3630 (IopIsDescendantNode.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x1409B4D20 (PnpCleanupDeviceRegistryValues.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
+ *     IopRemoveCurrentRelationFromList @ 0x140B5D354 (IopRemoveCurrentRelationFromList.c)
  */
 
 void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
@@ -40,14 +40,13 @@ void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
   struct _KTHREAD *v16; // rax
   __int64 v17; // r13
   char v18; // bl
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // [rsp+90h] [rbp+40h] BYREF
+  __int64 v19; // rcx
+  __int64 v20; // [rsp+90h] [rbp+40h] BYREF
   PVOID P; // [rsp+98h] [rbp+48h] BYREF
-  __int64 v23; // [rsp+A8h] [rbp+58h] BYREF
+  __int64 v22; // [rsp+A8h] [rbp+58h] BYREF
 
-  v21 = a1;
-  v23 = 0LL;
+  v20 = a1;
+  v22 = 0LL;
   CurrentThread = KeGetCurrentThread();
   P = 0LL;
   --CurrentThread->KernelApcDisable;
@@ -72,7 +71,7 @@ void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
   {
     v6 = 1;
     v7 = 0;
-    LODWORD(v21) = 1;
+    LODWORD(v20) = 1;
     while ( 1 )
     {
       v8 = 0LL;
@@ -106,7 +105,7 @@ void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
       {
         v13 = 0;
       }
-      HIDWORD(v21) = ++v7;
+      HIDWORD(v20) = ++v7;
       if ( !v13 )
         break;
       v14 = *(_QWORD *)(v8[39] + 40LL);
@@ -127,33 +126,32 @@ void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
           *(_QWORD *)(v14 + 648) = v17;
           if ( *(_QWORD *)(v14 + 48) )
           {
-            PiPnpRtlBeginOperation(&P, v19);
-            v23 = MEMORY[0xFFFFF78000000014];
+            PiPnpRtlBeginOperation(&P);
+            v22 = MEMORY[0xFFFFF78000000014];
             PnpSetObjectProperty(
               PiPnpRtlCtx,
               *(_QWORD *)(v14 + 48),
               1,
-              0,
               0LL,
               (__int64)&DEVPKEY_Device_LastRemovalDate,
               16,
-              (__int64)&v23,
+              (__int64)&v22,
               8,
               0);
-            PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v20, *(_QWORD *)(v14 + 48), 1);
+            PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v19, *(_QWORD *)(v14 + 48), 1);
             PnpSetDeviceInstanceRemovalEvent(v14);
             if ( P )
             {
-              PiPnpRtlEndOperation(P);
+              PiPnpRtlEndOperation((char *)P);
               P = 0LL;
             }
           }
           if ( *(_DWORD *)(v14 + 300) == 790 )
           {
-            IopRemoveCurrentRelationFromList(a2, v8, &v21);
+            IopRemoveCurrentRelationFromList(a2, v8, &v20);
             ObfDereferenceObject(v8);
-            v7 = HIDWORD(v21);
-            v6 = v21;
+            v7 = HIDWORD(v20);
+            v6 = v20;
           }
           else
           {

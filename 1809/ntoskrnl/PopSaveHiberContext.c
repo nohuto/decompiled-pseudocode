@@ -1,43 +1,43 @@
 /*
- * XREFs of PopSaveHiberContext @ 0x14056A060
+ * XREFs of PopSaveHiberContext @ 0x14056B060
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x1401C51E0 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x1401C5340 (PopSaveHiberContextWrapper.c)
  * Callees:
  *     RtlNumberOfClearBits @ 0x14000F420 (RtlNumberOfClearBits.c)
  *     RtlCopyBitMap @ 0x14000F710 (RtlCopyBitMap.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     PopResetRangeEnum @ 0x14013BBA4 (PopResetRangeEnum.c)
- *     IoNotifyDump @ 0x1401445FC (IoNotifyDump.c)
- *     IoInitializeDumpStack @ 0x1401446A4 (IoInitializeDumpStack.c)
- *     IoGetDumpHiberRanges @ 0x1401446D8 (IoGetDumpHiberRanges.c)
- *     IoDumpStackResumeCapable @ 0x1401599E0 (IoDumpStackResumeCapable.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x140270BA8 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlDisableEnlightenment @ 0x140270BD4 (HvlDisableEnlightenment.c)
- *     HvlDiscardPagesFromHibernation @ 0x14027693C (HvlDiscardPagesFromHibernation.c)
- *     HvlDiscardSecurePagesFromHibernation @ 0x14027699C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlPrepareForHibernate @ 0x140276CE0 (HvlPrepareForHibernate.c)
- *     HvlPrepareForSecureHibernate @ 0x140276DF8 (HvlPrepareForSecureHibernate.c)
- *     VslNotifyShutdown @ 0x14027B8DC (VslNotifyShutdown.c)
- *     KdPowerTransition @ 0x14028C1E0 (KdPowerTransition.c)
- *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
- *     _PopInternalError @ 0x1402D3738 (_PopInternalError.c)
- *     PopWriteSecurePages @ 0x1402DC0BC (PopWriteSecurePages.c)
- *     DbgUnLoadImageSymbols @ 0x1402ECA1C (DbgUnLoadImageSymbols.c)
- *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
- *     PopWriteHeaderPages @ 0x140569A20 (PopWriteHeaderPages.c)
- *     PopCreateDumpMdl @ 0x14056A410 (PopCreateDumpMdl.c)
- *     PopWriteHiberImage @ 0x14056A4C8 (PopWriteHiberImage.c)
- *     PopCompressHiberBlocks @ 0x14056AB70 (PopCompressHiberBlocks.c)
- *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x14057C8FC (PopSetMemoryOverwriteRequestAction.c)
- *     PopWriteChecksumPages @ 0x14057D6A8 (PopWriteChecksumPages.c)
- *     PopWriteImageHeader @ 0x14057D740 (PopWriteImageHeader.c)
- *     PopNotifyShutdownListener @ 0x14057DFB4 (PopNotifyShutdownListener.c)
+ *     PopResetRangeEnum @ 0x14013BCA4 (PopResetRangeEnum.c)
+ *     IoNotifyDump @ 0x1401446FC (IoNotifyDump.c)
+ *     IoInitializeDumpStack @ 0x1401447A4 (IoInitializeDumpStack.c)
+ *     IoGetDumpHiberRanges @ 0x1401447D8 (IoGetDumpHiberRanges.c)
+ *     IoDumpStackResumeCapable @ 0x140159AE0 (IoDumpStackResumeCapable.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x140270D98 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlDisableEnlightenment @ 0x140270DC4 (HvlDisableEnlightenment.c)
+ *     HvlDiscardPagesFromHibernation @ 0x140276B2C (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140276B8C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlPrepareForHibernate @ 0x140276ED0 (HvlPrepareForHibernate.c)
+ *     HvlPrepareForSecureHibernate @ 0x140276FE8 (HvlPrepareForSecureHibernate.c)
+ *     VslNotifyShutdown @ 0x14027BACC (VslNotifyShutdown.c)
+ *     KdPowerTransition @ 0x14028C3D0 (KdPowerTransition.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3514 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x1402D3928 (_PopInternalError.c)
+ *     PopWriteSecurePages @ 0x1402DC2AC (PopWriteSecurePages.c)
+ *     DbgUnLoadImageSymbols @ 0x1402ECC0C (DbgUnLoadImageSymbols.c)
+ *     PopCheckpointSystemSleep @ 0x14056A714 (PopCheckpointSystemSleep.c)
+ *     PopWriteHeaderPages @ 0x14056AA20 (PopWriteHeaderPages.c)
+ *     PopCreateDumpMdl @ 0x14056B410 (PopCreateDumpMdl.c)
+ *     PopWriteHiberImage @ 0x14056B4C8 (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x14056BB70 (PopCompressHiberBlocks.c)
+ *     PopMarkComponentsBootPhase @ 0x14056C53C (PopMarkComponentsBootPhase.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x14057D8FC (PopSetMemoryOverwriteRequestAction.c)
+ *     PopWriteChecksumPages @ 0x14057E6A8 (PopWriteChecksumPages.c)
+ *     PopWriteImageHeader @ 0x14057E740 (PopWriteImageHeader.c)
+ *     PopNotifyShutdownListener @ 0x14057EFB4 (PopNotifyShutdownListener.c)
  */
 
 __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3)
@@ -46,11 +46,11 @@ __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3, __int64 a2,
   __int64 v5; // rdi
   bool v6; // zf
   __int64 v7; // r13
-  struct _RTL_BITMAP *v8; // rsi
+  _RTL_BITMAP *v8; // rsi
   unsigned int v9; // r8d
   _DWORD *v10; // rcx
   _DWORD *v11; // rdx
-  struct _RTL_BITMAP *v12; // rcx
+  _RTL_BITMAP *v12; // rcx
   __int64 v13; // rdx
   __int64 v14; // rcx
   unsigned __int64 v15; // rdi
@@ -133,18 +133,18 @@ __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3, __int64 a2,
       if ( v46 )
         goto LABEL_12;
     }
-    dword_1404178E8 |= 4u;
-    byte_140417861 = 1;
+    dword_140418988 |= 4u;
+    byte_140418901 = 1;
 LABEL_12:
     if ( (unsigned int)PshedArePluginsPresent() )
     {
-      dword_1404178E8 |= 8u;
-      byte_140417861 = 1;
+      dword_140418988 |= 8u;
+      byte_140418901 = 1;
     }
-    if ( !(unsigned __int8)off_1403FE590[0]() )
+    if ( !(unsigned __int8)off_1403FF590[0]() )
     {
-      dword_1404178E8 |= 1u;
-      byte_140417861 = 1;
+      dword_140418988 |= 1u;
+      byte_140418901 = 1;
     }
     v6 = HvlHypervisorConnected == 0;
     v7 = *(_QWORD *)(BugCheckParameter3 + 200);
@@ -154,25 +154,25 @@ LABEL_12:
     if ( !v6 )
     {
       HvlDisableEnlightenment(0);
-      off_1403FE4E0[0]();
+      off_1403FF4E0[0]();
       if ( (HvlpFlags & 2) != 0 )
       {
         _InterlockedIncrement((volatile signed __int32 *)(BugCheckParameter3 + 20));
         while ( *(_DWORD *)(BugCheckParameter3 + 20) != (_DWORD)KeNumberProcessors_0 )
           _mm_pause();
-        *(_QWORD *)&v48 = qword_1404DA298;
-        *((_QWORD *)&v48 + 1) = qword_1404DA238;
-        *(_QWORD *)&v49 = qword_1404DA240;
-        *((_QWORD *)&v49 + 1) = qword_1404DA230;
-        *(_QWORD *)&v50 = qword_1404DA250;
-        *((_QWORD *)&v50 + 1) = qword_1404DA248;
+        *(_QWORD *)&v48 = qword_1404DB358;
+        *((_QWORD *)&v48 + 1) = qword_1404DB2F8;
+        *(_QWORD *)&v49 = qword_1404DB300;
+        *((_QWORD *)&v49 + 1) = qword_1404DB2F0;
+        *(_QWORD *)&v50 = qword_1404DB310;
+        *((_QWORD *)&v50 + 1) = qword_1404DB308;
         if ( *(_BYTE *)(BugCheckParameter3 + 452) )
         {
           v51[0] = v48;
           v51[2] = v50;
           v51[1] = v49;
-          v51[4] = xmmword_1404DA288;
-          v51[3] = xmmword_1404DA278;
+          v51[4] = xmmword_1404DB348;
+          v51[3] = xmmword_1404DB338;
           v33 = HvlPrepareForSecureHibernate(v51);
         }
         else
@@ -180,8 +180,8 @@ LABEL_12:
           v52[0] = v48;
           v52[2] = v50;
           v52[1] = v49;
-          v52[4] = xmmword_1404DA288;
-          v52[3] = xmmword_1404DA278;
+          v52[4] = xmmword_1404DB348;
+          v52[3] = xmmword_1404DB338;
           v33 = HvlPrepareForHibernate(
                   v52,
                   (_QWORD *)(v7 + 872),
@@ -208,7 +208,7 @@ LABEL_12:
         HvlDiscardPagesFromHibernation((PVOID)BugCheckParameter3);
     }
     ++*(_DWORD *)v7;
-    v8 = (struct _RTL_BITMAP *)(BugCheckParameter3 + 48);
+    v8 = (_RTL_BITMAP *)(BugCheckParameter3 + 48);
     v9 = 0;
     v10 = *(_DWORD **)(BugCheckParameter3 + 56);
     v11 = *(_DWORD **)(BugCheckParameter3 + 40);
@@ -221,25 +221,25 @@ LABEL_12:
       }
       while ( v9 < v8->SizeOfBitMap >> 5 );
     }
-    if ( byte_140417861 )
+    if ( byte_140418901 )
     {
-      v12 = (struct _RTL_BITMAP *)(BugCheckParameter3 + 32);
+      v12 = (_RTL_BITMAP *)(BugCheckParameter3 + 32);
     }
     else
     {
-      RtlCopyBitMap((unsigned int *)(BugCheckParameter3 + 48), BugCheckParameter3 + 32, 0);
-      v12 = (struct _RTL_BITMAP *)(BugCheckParameter3 + 48);
+      RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter3 + 48), (PRTL_BITMAP)(BugCheckParameter3 + 32), 0);
+      v12 = (_RTL_BITMAP *)(BugCheckParameter3 + 48);
     }
     RtlSetAllBits(v12);
     v13 = *(_QWORD *)(BugCheckParameter3 + 168);
     *(_DWORD *)(BugCheckParameter3 + 184) = 8;
     IoGetDumpHiberRanges(v14, v13);
-    if ( !byte_140417861 )
+    if ( !byte_140418901 )
       IoNotifyDump(1);
     v15 = __rdtsc();
     v16 = (int)IoInitializeDumpStack(*(_QWORD *)(BugCheckParameter3 + 168));
     v17 = __rdtsc();
-    qword_140417BA8 += (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v15;
+    qword_140418C48 += (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v15;
     if ( (v16 & 0x80000000) != 0LL || PopSimulateHiberBugcheck == 1 )
     {
       PopCheckpointSystemSleep(0x14u);
@@ -267,12 +267,12 @@ LABEL_12:
         }
       }
       while ( v18 != (_QWORD *)(BugCheckParameter3 + 64) );
-      v8 = (struct _RTL_BITMAP *)(BugCheckParameter3 + 48);
+      v8 = (_RTL_BITMAP *)(BugCheckParameter3 + 48);
     }
     PopResetRangeEnum((_QWORD *)BugCheckParameter3);
     v22 = *(_QWORD **)(BugCheckParameter3 + 160);
-    v23 = qword_140417838;
-    *v22 = qword_140417838;
+    v23 = qword_1404188D8;
+    *v22 = qword_1404188D8;
     v22[1] = v23;
     v22[2] = 0LL;
     v47 = __rdtsc();
@@ -287,22 +287,22 @@ LABEL_12:
         *(_DWORD *)(BugCheckParameter3 + 184) = 3;
         *(_QWORD *)(v7 + 96) = v36 + ((unsigned __int64)(4 * v35 + 4095) >> 12);
         PopWriteSecurePages(BugCheckParameter3);
-        qword_140417D30 = *(unsigned int *)(BugCheckParameter3 + 252);
+        qword_140418DD0 = *(unsigned int *)(BugCheckParameter3 + 252);
       }
       *(_DWORD *)(BugCheckParameter3 + 184) = 4;
       *(_QWORD *)(BugCheckParameter3 + 96) = v8;
       v27 = RtlNumberOfClearBits(v8);
-      v28 = qword_1404178B8;
+      v28 = qword_140418958;
       v29 = *(_DWORD *)(BugCheckParameter3 + 280);
       v30 = *(_QWORD *)(BugCheckParameter3 + 272);
       v31 = (v27 + *(_QWORD *)(BugCheckParameter3 + 88)) << 12;
-      memset(qword_1404178B8, 0, 0x40uLL);
+      memset(qword_140418958, 0, 0x40uLL);
       v28[6] = 0;
       *(_QWORD *)v28 = v30;
       v28[2] = v29;
       *((_QWORD *)v28 + 2) = v31;
-      qword_140417D38 = 0LL;
-      qword_140417D40 = 0LL;
+      qword_140418DD8 = 0LL;
+      qword_140418DE0 = 0LL;
       *(_DWORD *)(BugCheckParameter3 + 328) = 0;
       *(_QWORD *)(BugCheckParameter3 + 344) = 0LL;
       if ( v46 && *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 168) + 128LL) )
@@ -329,24 +329,24 @@ LABEL_12:
         {
           v39 = v38++;
           v39 <<= 7;
-          qword_140417D38 += *(_QWORD *)(v39 + *(_QWORD *)(BugCheckParameter3 + 264) + 56);
+          qword_140418DD8 += *(_QWORD *)(v39 + *(_QWORD *)(BugCheckParameter3 + 264) + 56);
           *(_QWORD *)(v39 + *(_QWORD *)(BugCheckParameter3 + 264) + 56) = 0LL;
         }
         while ( v38 < *(_DWORD *)(BugCheckParameter3 + 256) );
       }
-      qword_140417D48 = qword_140417D68;
-      qword_140417D58 = (unsigned int)dword_140417D70;
-      qword_140417D68 = 0LL;
-      dword_140417D70 = 0;
+      qword_140418DE8 = qword_140418E08;
+      qword_140418DF8 = (unsigned int)dword_140418E10;
+      qword_140418E08 = 0LL;
+      dword_140418E10 = 0;
       *(_DWORD *)(BugCheckParameter3 + 184) = 5;
       *(_QWORD *)(BugCheckParameter3 + 96) = BugCheckParameter3 + 32;
       *(_QWORD *)(BugCheckParameter3 + 112) = 0LL;
       v40 = RtlNumberOfClearBits((PRTL_BITMAP)(BugCheckParameter3 + 32));
-      v41 = qword_1404178B8;
+      v41 = qword_140418958;
       v42 = *(_DWORD *)(BugCheckParameter3 + 280);
       v43 = *(_QWORD *)(BugCheckParameter3 + 272);
       v44 = (unsigned __int64)v40 << 12;
-      memset(qword_1404178B8, 0, 0x40uLL);
+      memset(qword_140418958, 0, 0x40uLL);
       v41[6] = 0;
       *(_QWORD *)v41 = v43;
       v41[2] = v42;
@@ -362,7 +362,7 @@ LABEL_12:
       v25 = *(_DWORD *)(BugCheckParameter3 + 188);
       if ( v25 >= 0 )
       {
-        if ( dword_140417720 == dword_140417728 )
+        if ( dword_1404187C0 == dword_1404187C8 )
         {
           if ( (PopSimulate & 0x8000) == 0 )
             DbgUnLoadImageSymbols(0LL, (PVOID)0xFFFFFFFFFFFFFFFELL, 0LL);
@@ -380,14 +380,14 @@ LABEL_12:
             v25 = 1073742484;
 LABEL_85:
             PopCheckpointSystemSleep(0x18u);
-            off_1403FE608[0]();
+            off_1403FF608[0]();
             return (unsigned int)v25;
           }
         }
       }
     }
     KdPowerTransition(4LL, v24);
-    if ( v25 >= 0 && dword_140417720 == 5 )
+    if ( v25 >= 0 && dword_1404187C0 == 5 )
     {
       PopNotifyShutdownListener();
       HvlConfigureMemoryZeroingOnReset(0);

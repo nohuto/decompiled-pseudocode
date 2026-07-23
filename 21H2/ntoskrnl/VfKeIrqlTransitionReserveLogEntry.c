@@ -1,12 +1,12 @@
 /*
- * XREFs of VfKeIrqlTransitionReserveLogEntry @ 0x1409DBE50
+ * XREFs of VfKeIrqlTransitionReserveLogEntry @ 0x1409DCE50
  * Callers:
- *     ViKeLowerIrqlSanityChecks @ 0x1409DC138 (ViKeLowerIrqlSanityChecks.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
- *     VerifierExAcquireFastMutex @ 0x1409E4710 (VerifierExAcquireFastMutex.c)
- *     VerifierExAcquireFastMutexNoReboot @ 0x1409E47C0 (VerifierExAcquireFastMutexNoReboot.c)
- *     ViExReleaseFastMutexCommon @ 0x1409E4E30 (ViExReleaseFastMutexCommon.c)
- *     ViExTryToAcquireFastMutexCommon @ 0x1409E4E70 (ViExTryToAcquireFastMutexCommon.c)
+ *     ViKeLowerIrqlSanityChecks @ 0x1409DD138 (ViKeLowerIrqlSanityChecks.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
+ *     VerifierExAcquireFastMutex @ 0x1409E5710 (VerifierExAcquireFastMutex.c)
+ *     VerifierExAcquireFastMutexNoReboot @ 0x1409E57C0 (VerifierExAcquireFastMutexNoReboot.c)
+ *     ViExReleaseFastMutexCommon @ 0x1409E5E30 (ViExReleaseFastMutexCommon.c)
+ *     ViExTryToAcquireFastMutexCommon @ 0x1409E5E70 (ViExTryToAcquireFastMutexCommon.c)
  * Callees:
  *     <none>
  */

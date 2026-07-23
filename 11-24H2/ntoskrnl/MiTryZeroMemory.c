@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTryZeroMemory @ 0x14020BD20
+ * XREFs of MiTryZeroMemory @ 0x140331A60
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
  * Callees:
- *     AccelFillMemory @ 0x14040A67C (AccelFillMemory.c)
- *     MiGetZeroExceptionInfo @ 0x14042DBA8 (MiGetZeroExceptionInfo.c)
- *     MiZeroVaToActiveEntry @ 0x14042DC28 (MiZeroVaToActiveEntry.c)
- *     MiGetZeroingContext @ 0x14042DCB0 (MiGetZeroingContext.c)
- *     MiAllocateHardwareDescriptor @ 0x1404AE4C8 (MiAllocateHardwareDescriptor.c)
- *     KeZeroPages @ 0x1406B3390 (KeZeroPages.c)
+ *     AccelFillMemory @ 0x140402B5C (AccelFillMemory.c)
+ *     MiGetZeroExceptionInfo @ 0x14041F8D8 (MiGetZeroExceptionInfo.c)
+ *     MiZeroVaToActiveEntry @ 0x14041F958 (MiZeroVaToActiveEntry.c)
+ *     MiGetZeroingContext @ 0x14041F9E0 (MiGetZeroingContext.c)
+ *     MiAllocateHardwareDescriptor @ 0x1404A8DD8 (MiAllocateHardwareDescriptor.c)
+ *     KeZeroPages @ 0x1406B4330 (KeZeroPages.c)
  */
 
 __int64 __fastcall MiTryZeroMemory(__int64 a1)
@@ -55,7 +55,7 @@ __int64 __fastcall MiTryZeroMemory(__int64 a1)
     goto LABEL_7;
   if ( (int)AccelFillMemory(v7, v3, v6, 0, 3LL) < 0 )
   {
-    ++dword_140EF4CAC;
+    ++dword_140EF4ECC;
 LABEL_7:
     KeZeroPages(v3, v6);
   }

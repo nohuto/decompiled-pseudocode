@@ -1,20 +1,20 @@
 /*
- * XREFs of RawInitiateDeleteVolume @ 0x1404BD434
+ * XREFs of RawInitiateDeleteVolume @ 0x1404B6C14
  * Callers:
- *     RawCompletionRoutine @ 0x1402576D0 (RawCompletionRoutine.c)
- *     RawVerifyVolume @ 0x14061753C (RawVerifyVolume.c)
- *     RawCleanup @ 0x140A35394 (RawCleanup.c)
- *     RawClose @ 0x140A3552C (RawClose.c)
- *     RawReadWriteDeviceControl @ 0x140A355B4 (RawReadWriteDeviceControl.c)
- *     RawCreate @ 0x140A356CC (RawCreate.c)
+ *     RawCompletionRoutine @ 0x140258EB0 (RawCompletionRoutine.c)
+ *     RawVerifyVolume @ 0x14061A588 (RawVerifyVolume.c)
+ *     RawCleanup @ 0x14091A0A4 (RawCleanup.c)
+ *     RawClose @ 0x14091A23C (RawClose.c)
+ *     RawReadWriteDeviceControl @ 0x14091A2C4 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x14091A3DC (RawCreate.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RawCleanupVcb @ 0x140A36A0C (RawCleanupVcb.c)
- *     RawDeleteVcb @ 0x140B09F94 (RawDeleteVcb.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RawCleanupVcb @ 0x140919A0C (RawCleanupVcb.c)
+ *     RawDeleteVcb @ 0x140B0BD54 (RawDeleteVcb.c)
  */
 
 char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, int a2, int a3)
@@ -44,7 +44,7 @@ char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeade
     if ( *((_DWORD *)AdvancedHeader[1].FileContextSupportPointer + 7) )
       goto LABEL_5;
     KeReleaseQueuedSpinLock(9uLL, v18);
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
+    ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
     Flink = AdvancedHeader[1].FilterContexts.Flink;
     if ( Flink->Blink == &AdvancedHeader[1].FilterContexts )
     {
@@ -53,7 +53,7 @@ char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeade
       {
         Blink->Flink = Flink;
         Flink->Blink = Blink;
-        KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
+        KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
         goto LABEL_11;
       }
     }
@@ -79,7 +79,7 @@ LABEL_17:
       *((_WORD *)v14 + 2) |= 4u;
       *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 8u;
       KeReleaseQueuedSpinLock(9uLL, v8);
-      ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
+      ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
       v15 = *(struct _LIST_ENTRY **)p_FilterContexts;
       if ( *(char **)(*(_QWORD *)p_FilterContexts + 8LL) == p_FilterContexts )
       {
@@ -89,14 +89,14 @@ LABEL_17:
           v16->Flink = v15;
           v15->Blink = v16;
           *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 6u;
-          v17 = NormalizationListLock.Timer.TimerListEntry.Flink;
-          if ( NormalizationListLock.Timer.TimerListEntry.Flink->Flink == (struct _LIST_ENTRY *)&NormalizationListLock.Timer.DueTime )
+          v17 = *(struct _LIST_ENTRY **)&NormalizationListLock.Timer.Header.Lock;
+          if ( **(struct _KTHREAD ***)&NormalizationListLock.Timer.Header.Lock == (struct _KTHREAD *)&NormalizationListLock.RelativeTimerBias )
           {
-            *(_QWORD *)p_FilterContexts = &NormalizationListLock.Timer.DueTime;
+            *(_QWORD *)p_FilterContexts = &NormalizationListLock.RelativeTimerBias;
             AdvancedHeader[1].FilterContexts.Blink = v17;
             v17->Flink = (struct _LIST_ENTRY *)p_FilterContexts;
-            NormalizationListLock.Timer.TimerListEntry.Flink = &AdvancedHeader[1].FilterContexts;
-            KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
+            *(_QWORD *)&NormalizationListLock.Timer.Header.Lock = (char *)AdvancedHeader + 176;
+            KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
             return v3;
           }
         }
@@ -107,7 +107,7 @@ LABEL_17:
       *((_WORD *)*p_FileContextSupportPointer + 2) &= ~1u;
       (*p_FileContextSupportPointer)[1] = 0LL;
       KeReleaseQueuedSpinLock(9uLL, v8);
-      ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
+      ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
       v12 = *(struct _LIST_ENTRY **)p_FilterContexts;
       if ( *(char **)(*(_QWORD *)p_FilterContexts + 8LL) == p_FilterContexts )
       {
@@ -116,7 +116,7 @@ LABEL_17:
         {
           v13->Flink = v12;
           v12->Blink = v13;
-          KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
+          KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
           *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 2u;
 LABEL_11:
           KeReleaseGuardedMutex((PKGUARDED_MUTEX)&AdvancedHeader[2]);

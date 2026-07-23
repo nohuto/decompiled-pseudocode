@@ -20,7 +20,7 @@ __int64 __fastcall LdrpFindExistingModule(
   int LoadedDllByNameLockHeld; // ebx
 
   *a5 = 0LL;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v9 = 0LL;
   if ( (a3 & 0x20) == 0 )
     v9 = a2;

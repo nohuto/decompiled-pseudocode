@@ -26,7 +26,7 @@ __int64 __fastcall RtlpSparseBitmapCtxUpdateBitRanges(
   unsigned __int64 v13; // r10
   __int64 v14; // r14
   unsigned __int64 v15; // rdi
-  int v16; // r10d
+  unsigned int v16; // r10d
   __int64 v17; // rdx
   char v19; // [rsp+70h] [rbp+8h] BYREF
 
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpSparseBitmapCtxUpdateBitRanges(
           {
             v17 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * (unsigned int)v9);
             if ( v17 )
-              RtlpSparseBitmapCtxUpdateBits(a1, v17, v16, v15, a4, v14, v7, 0LL);
+              RtlpSparseBitmapCtxUpdateBits(a1, v17, v16, (unsigned int)v15, a4, v14, v7, 0LL);
           }
         }
         LODWORD(v13) = 0;

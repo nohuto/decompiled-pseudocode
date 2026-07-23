@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockDynamicMemoryNestedExclusive @ 0x1406EA20C
+ * XREFs of MiUnlockDynamicMemoryNestedExclusive @ 0x1406EEEAC
  * Callers:
- *     MiReleaseAddMemoryLocks @ 0x140866D0C (MiReleaseAddMemoryLocks.c)
- *     MiNodeZeroConductor @ 0x140B27510 (MiNodeZeroConductor.c)
+ *     MiReleaseAddMemoryLocks @ 0x14086D0EC (MiReleaseAddMemoryLocks.c)
+ *     MiNodeZeroConductor @ 0x140B29DD0 (MiNodeZeroConductor.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void MiUnlockDynamicMemoryNestedExclusive()
 {
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E37DC8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E37DC8.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140E37DC8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E37F48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E37F48.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140E37F48);
 }

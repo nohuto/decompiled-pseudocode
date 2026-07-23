@@ -1,7 +1,7 @@
 /*
- * XREFs of PopBatteryRefreshStatus @ 0x140126CA0
+ * XREFs of PopBatteryRefreshStatus @ 0x140127210
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x14066F9BC (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x14066FAA0 (PdcPoCurrentPdcPhase.c)
  * Callees:
  *     <none>
  */

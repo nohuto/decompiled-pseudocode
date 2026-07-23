@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlResetRtlTranslations @ 0x14075F504
+ * XREFs of RtlResetRtlTranslations @ 0x1407606F4
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __stdcall RtlResetRtlTranslations(PNLSTABLEINFO NlsTable)
@@ -111,7 +111,7 @@ void __stdcall RtlResetRtlTranslations(PNLSTABLEINFO NlsTable)
   NlsUnicodeToMbOemData = (__int64)WideCharTable;
   OemDefaultChar = InitTableInfo.DefaultChar;
   OemTransUniDefaultChar = InitTableInfo.TransDefaultChar;
-  *(BOOLEAN **)((char *)&NlsMbCodePageTag + 6) = (BOOLEAN *)qword_140A0A780;
+  *(BOOLEAN **)((char *)&NlsMbCodePageTag + 6) = (BOOLEAN *)qword_140A0B780;
   LOBYTE(NlsMbOemCodePageTag) = v8;
-  Nls844UnicodeLowercaseTable = qword_140A0A788;
+  Nls844UnicodeLowercaseTable = qword_140A0B788;
 }

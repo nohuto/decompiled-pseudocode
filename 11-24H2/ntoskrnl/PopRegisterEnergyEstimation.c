@@ -1,10 +1,10 @@
 /*
- * XREFs of PopRegisterEnergyEstimation @ 0x1405CD820
+ * XREFs of PopRegisterEnergyEstimation @ 0x1405CAF90
  * Callers:
  *     <none>
  * Callees:
- *     PopDetermineBucketFrequencies @ 0x1405CD468 (PopDetermineBucketFrequencies.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PopDetermineBucketFrequencies @ 0x1405CABD8 (PopDetermineBucketFrequencies.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall PopRegisterEnergyEstimation(__int64 a1, __int64 a2, char a3)
@@ -22,7 +22,7 @@ void __fastcall PopRegisterEnergyEstimation(__int64 a1, __int64 a2, char a3)
   v3 = 2 - (a3 != 0);
   if ( !PpmComputeEnergyData )
   {
-    Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL);
+    Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL, 56 * v3 + 8, 0x704D5050u);
     PpmComputeEnergyData = (__int64)Pool2;
     if ( Pool2 )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of KxTryToAcquireQueuedSpinLock @ 0x140349138
+ * XREFs of KxTryToAcquireQueuedSpinLock @ 0x1403493C8
  * Callers:
- *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140349110 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeTryToAcquireQueuedSpinLock @ 0x140571330 (KeTryToAcquireQueuedSpinLock.c)
- *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x140571440 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
+ *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1403493A0 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeTryToAcquireQueuedSpinLock @ 0x140571870 (KeTryToAcquireQueuedSpinLock.c)
+ *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x140571980 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
- *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x14046024E (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x14046064E (KiTryToAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall KxTryToAcquireQueuedSpinLock(signed __int64 a1, _DWORD *a2)

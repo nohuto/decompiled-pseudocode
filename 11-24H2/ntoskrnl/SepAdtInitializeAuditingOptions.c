@@ -1,33 +1,33 @@
 /*
- * XREFs of SepAdtInitializeAuditingOptions @ 0x140C3B150
+ * XREFs of SepAdtInitializeAuditingOptions @ 0x140C3D2A8
  * Callers:
- *     SeRmInitPhase1 @ 0x140C6024C (SeRmInitPhase1.c)
+ *     SeRmInitPhase1 @ 0x140C6239C (SeRmInitPhase1.c)
  * Callees:
- *     SepAdtInitializeBounds @ 0x1407962BC (SepAdtInitializeBounds.c)
- *     SepAdtInitializeCrashOnFail @ 0x140796340 (SepAdtInitializeCrashOnFail.c)
- *     SepAdtInitializePrivilegeAuditing @ 0x1407963A0 (SepAdtInitializePrivilegeAuditing.c)
- *     SepAdtOpenRegAndSetupNotification @ 0x140796400 (SepAdtOpenRegAndSetupNotification.c)
- *     AdtpInitializeAuditingCommon @ 0x1408119A0 (AdtpInitializeAuditingCommon.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     NtSetEvent @ 0x14098A760 (NtSetEvent.c)
- *     SepAdtOpenEtwReadyEvent @ 0x140AAC2F4 (SepAdtOpenEtwReadyEvent.c)
+ *     SepAdtInitializeBounds @ 0x1407963CC (SepAdtInitializeBounds.c)
+ *     SepAdtInitializeCrashOnFail @ 0x140796450 (SepAdtInitializeCrashOnFail.c)
+ *     SepAdtInitializePrivilegeAuditing @ 0x1407964B0 (SepAdtInitializePrivilegeAuditing.c)
+ *     SepAdtOpenRegAndSetupNotification @ 0x140796510 (SepAdtOpenRegAndSetupNotification.c)
+ *     AdtpInitializeAuditingCommon @ 0x1408120E0 (AdtpInitializeAuditingCommon.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     NtSetEvent @ 0x140973E50 (NtSetEvent.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x140AA732C (SepAdtOpenEtwReadyEvent.c)
  */
 
-int SepAdtInitializeAuditingOptions()
+NTSTATUS SepAdtInitializeAuditingOptions()
 {
-  int result; // eax
-  int v1; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v1; // ebx
+  HANDLE EventHandle; // [rsp+30h] [rbp+8h] BYREF
 
-  Handle = 0LL;
+  EventHandle = 0LL;
   result = AdtpInitializeAuditingCommon();
   if ( result >= 0 )
   {
-    result = SepAdtOpenEtwReadyEvent((unsigned __int64)&Handle);
+    result = SepAdtOpenEtwReadyEvent(&EventHandle);
     if ( result >= 0 )
     {
-      v1 = NtSetEvent(Handle);
-      NtClose(Handle);
+      v1 = NtSetEvent(EventHandle, 0LL);
+      NtClose(EventHandle);
       if ( v1 >= 0 )
       {
         result = SepAdtOpenRegAndSetupNotification();

@@ -1,51 +1,65 @@
 /*
- * XREFs of SpRegOpenRedirectedKey @ 0x1407BB144
+ * XREFs of SpRegOpenRedirectedKey @ 0x1407BB594
  * Callers:
- *     ExpOsProductCacheProviderHelper @ 0x1407B9058 (ExpOsProductCacheProviderHelper.c)
- *     sub_1407B935C @ 0x1407B935C (sub_1407B935C.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1407B94A8 (ExpOsProductCacheProviderHelper.c)
+ *     sub_1407B97AC @ 0x1407B97AC (sub_1407B97AC.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     SpRegOpenKey @ 0x1407BB0A4 (SpRegOpenKey.c)
- *     RtlGetPersistedStateLocation @ 0x1409CC0E0 (RtlGetPersistedStateLocation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     SpRegOpenKey @ 0x1407BB4F4 (SpRegOpenKey.c)
+ *     RtlGetPersistedStateLocation @ 0x1409B4B60 (RtlGetPersistedStateLocation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SpRegOpenRedirectedKey(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  void *Pool2; // rdi
-  int PersistedStateLocation; // eax
+  WCHAR *TargetPath; // rdi
+  NTSTATUS PersistedStateLocation; // eax
   int v6; // ebx
-  int v7; // ebx
+  ULONG BufferLengthIn; // ebx
   UNICODE_STRING *p_DestinationString; // rcx
   HANDLE v9; // rcx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   HANDLE v12; // [rsp+70h] [rbp+20h] BYREF
-  int v13; // [rsp+78h] [rbp+28h] BYREF
+  ULONG BufferLengthOut; // [rsp+78h] [rbp+28h] BYREF
   int v14; // [rsp+7Ch] [rbp+2Ch]
 
   v14 = HIDWORD(a2);
   v12 = 0LL;
-  Pool2 = 0LL;
-  v13 = 0;
+  TargetPath = 0LL;
+  BufferLengthOut = 0;
   DestinationString = 0LL;
-  PersistedStateLocation = RtlGetPersistedStateLocation(off_140FD75F8, 0LL, 0, (__int64)&v13);
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             off_140FD8610,
+                             L"TargetNtPath",
+                             0LL,
+                             LocationTypeRegistry,
+                             0LL,
+                             0,
+                             &BufferLengthOut);
   v6 = PersistedStateLocation;
   if ( PersistedStateLocation == -2147483643 )
   {
-    v7 = v13;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
-    if ( !Pool2 )
+    BufferLengthIn = BufferLengthOut;
+    TargetPath = (WCHAR *)ExAllocatePool2(0x100uLL, BufferLengthOut, 0x20534C53u);
+    if ( !TargetPath )
       return (unsigned int)-1073741801;
-    v6 = RtlGetPersistedStateLocation(off_140FD75F8, Pool2, v7, (__int64)&v13);
+    v6 = RtlGetPersistedStateLocation(
+           off_140FD8610,
+           L"TargetNtPath",
+           0LL,
+           LocationTypeRegistry,
+           TargetPath,
+           BufferLengthIn,
+           &BufferLengthOut);
     if ( v6 < 0 )
     {
 LABEL_15:
-      ExFreePoolWithTag(Pool2, 0x20534C53u);
+      ExFreePoolWithTag(TargetPath, 0x20534C53u);
       return (unsigned int)v6;
     }
-    RtlInitUnicodeString(&DestinationString, (PCWSTR)Pool2);
+    RtlInitUnicodeString(&DestinationString, TargetPath);
     p_DestinationString = &DestinationString;
   }
   else
@@ -56,7 +70,7 @@ LABEL_15:
         return (unsigned int)v6;
       goto LABEL_11;
     }
-    p_DestinationString = (UNICODE_STRING *)&unk_140FD75E0;
+    p_DestinationString = (UNICODE_STRING *)&unk_140FD85F8;
   }
   v6 = SpRegOpenKey(p_DestinationString, &v12);
   if ( v6 < 0 )
@@ -70,7 +84,7 @@ LABEL_11:
 LABEL_12:
   if ( v9 )
     ZwClose(v9);
-  if ( Pool2 )
+  if ( TargetPath )
     goto LABEL_15;
   return (unsigned int)v6;
 }

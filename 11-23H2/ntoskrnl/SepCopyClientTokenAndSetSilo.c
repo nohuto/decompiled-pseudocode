@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCopyClientTokenAndSetSilo @ 0x1409C9510
+ * XREFs of SepCopyClientTokenAndSetSilo @ 0x1409C9710
  * Callers:
- *     SepCreateClientSecurityEx @ 0x14071D8F0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1409CEF58 (SepUpdateSiloInClientSecurity.c)
+ *     SepCreateClientSecurityEx @ 0x14071DAF0 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x1409CF158 (SepUpdateSiloInClientSecurity.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402C0880 (PsGetServerSiloServiceSessionId.c)
- *     SeCopyClientToken @ 0x14071DCC0 (SeCopyClientToken.c)
- *     SeSetSessionIdToken @ 0x1407F1174 (SeSetSessionIdToken.c)
- *     SepSetServerSiloToken @ 0x1409C9A20 (SepSetServerSiloToken.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402C0B10 (PsGetServerSiloServiceSessionId.c)
+ *     SeCopyClientToken @ 0x14071DEC0 (SeCopyClientToken.c)
+ *     SeSetSessionIdToken @ 0x1407F1444 (SeSetSessionIdToken.c)
+ *     SepSetServerSiloToken @ 0x1409C9C20 (SepSetServerSiloToken.c)
  */
 
 __int64 __fastcall SepCopyClientTokenAndSetSilo(int a1, int a2, __int64 a3, PVOID *a4)

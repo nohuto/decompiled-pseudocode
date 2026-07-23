@@ -8,12 +8,13 @@
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned __int64 a2, int a3, char *a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlLargeIntegerToChar(PLARGE_INTEGER Value, ULONG Base, LONG OutputLength, PSTR String)
 {
   int v7; // r9d
   int v8; // r10d
   char *v9; // r14
-  unsigned __int64 v10; // r8
+  unsigned __int64 QuadPart; // r8
   int v11; // eax
   unsigned __int64 v12; // r9
   int v13; // esp
@@ -22,24 +23,24 @@ __int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned __int64 
   size_t v16; // rbx
   char v17; // [rsp+61h] [rbp-37h] BYREF
 
-  switch ( (_DWORD)a2 )
+  switch ( Base )
   {
-    case 0:
-      LODWORD(a2) = 10;
+    case 0u:
+      Base = 10;
       goto LABEL_12;
-    case 2:
+    case 2u:
       v7 = 1;
       goto LABEL_10;
-    case 8:
+    case 8u:
       v7 = 3;
 LABEL_10:
       v8 = (1 << v7) - 1;
       goto LABEL_13;
   }
-  if ( (_DWORD)a2 != 10 )
+  if ( Base != 10 )
   {
-    if ( (_DWORD)a2 != 16 )
-      return 3221225485LL;
+    if ( Base != 16 )
+      return -1073741811;
     v7 = 4;
     goto LABEL_10;
   }
@@ -48,47 +49,47 @@ LABEL_12:
   v8 = 0;
 LABEL_13:
   v9 = &v17;
-  v10 = *a1;
+  QuadPart = Value->QuadPart;
   if ( v7 )
   {
     do
     {
-      v11 = v10;
-      v10 >>= v7;
+      v11 = QuadPart;
+      QuadPart >>= v7;
       *--v9 = RtlpIntegerChars[v8 & v11];
     }
-    while ( v10 );
+    while ( QuadPart );
   }
   else
   {
-    v12 = (unsigned int)a2;
+    v12 = Base;
     do
     {
-      a2 = v10 % v12;
-      v10 /= v12;
-      *--v9 = RtlpIntegerChars[(unsigned int)a2];
+      *(_QWORD *)&Base = QuadPart % v12;
+      QuadPart /= v12;
+      *--v9 = RtlpIntegerChars[Base];
     }
-    while ( v10 );
+    while ( QuadPart );
   }
   v14 = (unsigned int)(v13 + 97 - (_DWORD)v9);
-  if ( a3 < 0 )
+  if ( OutputLength < 0 )
   {
-    a3 = -a3;
-    v15 = (int)v14 <= a3;
-    if ( (int)v14 >= a3 )
+    OutputLength = -OutputLength;
+    v15 = (int)v14 <= OutputLength;
+    if ( (int)v14 >= OutputLength )
       goto LABEL_22;
-    v16 = (unsigned int)(a3 - v14);
-    LOBYTE(a2) = 48;
-    memset_thunk_772440563353939046(a4, a2, v16);
-    a3 = v14;
-    a4 += v16;
+    v16 = (unsigned int)(OutputLength - v14);
+    LOBYTE(Base) = 48;
+    memset_thunk_772440563353939046(String, Base, v16);
+    OutputLength = v14;
+    String += v16;
   }
-  v15 = (int)v14 <= a3;
+  v15 = (int)v14 <= OutputLength;
 LABEL_22:
   if ( !v15 )
-    return 2147483653LL;
-  memmove(a4, v9, (unsigned int)v14);
-  if ( (int)v14 < a3 )
-    a4[v14] = 0;
-  return 0LL;
+    return -2147483643;
+  memmove(String, v9, (unsigned int)v14);
+  if ( (int)v14 < OutputLength )
+    String[v14] = 0;
+  return 0;
 }

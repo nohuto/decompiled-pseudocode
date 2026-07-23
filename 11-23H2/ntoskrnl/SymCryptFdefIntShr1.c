@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefIntShr1 @ 0x1404035F0
+ * XREFs of SymCryptFdefIntShr1 @ 0x1404037D0
  * Callers:
- *     SymCryptIntShr1 @ 0x1403F94E4 (SymCryptIntShr1.c)
+ *     SymCryptIntShr1 @ 0x1403F96C4 (SymCryptIntShr1.c)
  * Callees:
  *     <none>
  */

@@ -20,24 +20,24 @@
 
 int __fastcall LdrpMergeLangFallbackLists(
         int a1,
-        _DWORD *a2,
-        _DWORD *a3,
+        DWORD *a2,
+        PVOID *a3,
         int a4,
         int a5,
         int a6,
         int a7,
-        int a8,
+        DWORD a8,
         char a9)
 {
   int v10; // ebx
   int v11; // eax
   unsigned int v12; // eax
-  int appended; // esi
+  NTSTATUS appended; // esi
   int v14; // esi
   char v15; // bl
   int v16; // eax
   bool v17; // zf
-  int v18; // ebx
+  DWORD v18; // ebx
   int v19; // esi
   _WORD *v20; // edx
   int v21; // ecx
@@ -59,41 +59,41 @@ int __fastcall LdrpMergeLangFallbackLists(
   int v38; // ecx
   int v39; // ecx
   unsigned int v40; // eax
-  int v41; // eax
-  int v42; // eax
-  int v43; // [esp+10h] [ebp-54h] BYREF
-  PCWSTR v44; // [esp+14h] [ebp-50h]
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-4Ch] BYREF
+  DWORD v41; // eax
+  DWORD v42; // eax
+  SIZE_T v43; // [esp-4h] [ebp-68h]
+  _UNICODE_STRING String; // [esp+10h] [ebp-54h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-4Ch] BYREF
   unsigned int v46; // [esp+20h] [ebp-44h]
   unsigned int v47; // [esp+24h] [ebp-40h]
-  _BYTE *v48; // [esp+28h] [ebp-3Ch] BYREF
+  PVOID v48; // [esp+28h] [ebp-3Ch] BYREF
   int v49; // [esp+2Ch] [ebp-38h]
   unsigned int v50; // [esp+30h] [ebp-34h]
   int v51; // [esp+34h] [ebp-30h]
-  int v52; // [esp+38h] [ebp-2Ch]
+  DWORD v52; // [esp+38h] [ebp-2Ch]
   int v53; // [esp+3Ch] [ebp-28h]
-  int Heap; // [esp+40h] [ebp-24h]
+  PVOID BaseAddress; // [esp+40h] [ebp-24h]
   int v55; // [esp+44h] [ebp-20h]
-  _DWORD *v56; // [esp+48h] [ebp-1Ch]
-  unsigned __int16 v57; // [esp+4Ch] [ebp-18h] BYREF
-  __int16 v58; // [esp+50h] [ebp-14h] BYREF
+  PVOID *v56; // [esp+48h] [ebp-1Ch]
+  LANGID DefaultUILanguageId; // [esp+4Ch] [ebp-18h] BYREF
+  int v58; // [esp+50h] [ebp-14h] BYREF
   __int16 v59; // [esp+54h] [ebp-10h] BYREF
-  _WORD v60[3]; // [esp+58h] [ebp-Ch] BYREF
+  int v60; // [esp+58h] [ebp-Ch] BYREF
   char v61; // [esp+5Fh] [ebp-5h]
 
   v53 = a1;
-  v43 = 0;
-  v44 = 0;
+  *(_DWORD *)&String.Length = 0;
+  String.Buffer = 0;
   v47 = 0;
   v49 = 0;
-  v60[0] = -1;
-  v58 = -1;
+  LOWORD(v60) = -1;
+  LOWORD(v58) = -1;
   v59 = -1;
   v48 = 0;
   v61 = 0;
-  Heap = 0;
+  BaseAddress = 0;
   v52 = 0;
-  if ( !a3 || !*a3 || !a2 || *(_WORD *)(*a3 + 4) )
+  if ( !a3 || !*a3 || !a2 || *((_WORD *)*a3 + 2) )
     return -1073741811;
   v10 = a1 & 0x10000;
   if ( NtCurrentTeb()->UserPrefLanguages )
@@ -114,9 +114,10 @@ int __fastcall LdrpMergeLangFallbackLists(
         appended = LdrpCreateLangFallbackList(&v48, (int)a2, 25, 0),
         appended >= 0) )
   {
+    LODWORD(v43) = 340;
     v55 = 0;
-    Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 340);
-    if ( !Heap )
+    BaseAddress = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v43);
+    if ( !BaseAddress )
       return -1073741801;
     if ( !v10 )
     {
@@ -134,14 +135,14 @@ int __fastcall LdrpMergeLangFallbackLists(
             v31 = v51;
             if ( *v30 )
             {
-              DestinationString.Buffer = (wchar_t *)Heap;
+              DestinationString.Buffer = (wchar_t *)BaseAddress;
               v32 = *(_DWORD *)(v14 + 12);
               *(_DWORD *)&DestinationString.Length = 11141120;
               if ( !v32 )
                 v32 = (int)a2;
               if ( GetNameFromLangListNode(v32, v30, &DestinationString) >= 0 )
               {
-                appended = LdrpLangFallbackListAppendNode(0, v60, DestinationString.Buffer, v33);
+                appended = LdrpLangFallbackListAppendNode(0, (int)&v60, (PCWSTR)DestinationString.Buffer, v33);
                 if ( appended < 0 )
                   goto LABEL_50;
                 v14 = a4;
@@ -174,13 +175,13 @@ int __fastcall LdrpMergeLangFallbackLists(
             if ( *v37 )
             {
               v38 = *(_DWORD *)(a5 + 12);
-              DestinationString.Buffer = (wchar_t *)Heap;
+              DestinationString.Buffer = (wchar_t *)BaseAddress;
               *(_DWORD *)&DestinationString.Length = 11141120;
               if ( !v38 )
                 v38 = (int)a2;
               if ( GetNameFromLangListNode(v38, v37, &DestinationString) >= 0 )
               {
-                appended = LdrpLangFallbackListAppendNode(0, v60, DestinationString.Buffer, v39);
+                appended = LdrpLangFallbackListAppendNode(0, (int)&v60, (PCWSTR)DestinationString.Buffer, v39);
                 if ( appended < 0 )
                   goto LABEL_50;
                 v36 = v51;
@@ -233,10 +234,10 @@ LABEL_24:
         v20 = (_WORD *)(v19 + *(_DWORD *)(v16 + 16));
         if ( *v20 )
         {
-          DestinationString.Buffer = (wchar_t *)Heap;
+          DestinationString.Buffer = (wchar_t *)BaseAddress;
           *(_DWORD *)&DestinationString.Length = 11141120;
           if ( GetNameFromLangListNode((int)a2, v20, &DestinationString) >= 0
-            && (int)LdrpLangFallbackListAppendNode(1, v60, DestinationString.Buffer, v21) >= 0
+            && LdrpLangFallbackListAppendNode(1, (int)&v60, (PCWSTR)DestinationString.Buffer, v21) >= 0
             && (v53 & 0x10) != 0 )
           {
             v22 = *(_DWORD *)(v55 + 16);
@@ -257,12 +258,12 @@ LABEL_24:
     }
     v15 = v53;
 LABEL_36:
-    v43 = 11141120;
-    v44 = (PCWSTR)(Heap + 170);
-    appended = RtlpGetSystemDefaultUILanguage(&v57, a2);
+    *(_DWORD *)&String.Length = 11141120;
+    String.Buffer = (wchar_t *)((char *)BaseAddress + 170);
+    appended = RtlpGetSystemDefaultUILanguage((LANGID)&DefaultUILanguageId, a2);
     if ( appended >= 0 )
     {
-      if ( (unsigned __int8)RtlLCIDToCultureName(v57, &v43) )
+      if ( RtlLCIDToCultureName(DefaultUILanguageId, &String) )
       {
         appended = RtlpMuiRegGetInstalledLanguageIndexByLangId(1, &v59);
         if ( appended >= 0 )
@@ -271,7 +272,7 @@ LABEL_36:
           v26 = v59;
           if ( !v17 || a9 && v49 )
             goto LABEL_49;
-          appended = LdrpLangFallbackListAppendNode(0, &v58, v44, v25);
+          appended = LdrpLangFallbackListAppendNode(0, (int)&v58, (PCWSTR)String.Buffer, v25);
           if ( appended < 0 || !v51 || (*(_BYTE *)(28 * v26 + *(_DWORD *)(a2[5] + 12)) & 6) == 0 )
             goto LABEL_49;
           if ( !v55 || (v41 = v52) == 0 )
@@ -287,7 +288,7 @@ LABEL_49:
                 appended = RtlpFilterandReplaceConsoleLanguages(*v56, a2, (v46 & 4) != 0, v47, a3);
                 if ( appended >= 0 && (v53 & 0x30) == 0x30 )
                 {
-                  appended = LdrpLangFallbackListAppendNode(0, &v58, v44, v27);
+                  appended = LdrpLangFallbackListAppendNode(0, (int)&v58, (PCWSTR)String.Buffer, v27);
                   if ( appended >= 0 && (*(_BYTE *)(28 * v26 + *(_DWORD *)(a2[5] + 12)) & 6) != 0 )
                   {
                     if ( !v55 || (v42 = v52) == 0 )
@@ -309,7 +310,7 @@ LABEL_49:
 LABEL_50:
   if ( v48 )
     RtlpMuiRegFreeLanguageList(v48);
-  if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+  if ( BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return appended;
 }

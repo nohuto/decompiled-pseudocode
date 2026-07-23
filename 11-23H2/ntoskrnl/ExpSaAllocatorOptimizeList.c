@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSaAllocatorOptimizeList @ 0x1403D5AB8
+ * XREFs of ExpSaAllocatorOptimizeList @ 0x1403D5C98
  * Callers:
  *     ExpSaAllocatorAllocate @ 0x1402236D0 (ExpSaAllocatorAllocate.c)
- *     ExpSaAllocatorFree @ 0x14035C974 (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorFree @ 0x14035CB14 (ExpSaAllocatorFree.c)
  * Callees:
- *     ExpSaPageGroupDescriptorFree @ 0x1403D5B44 (ExpSaPageGroupDescriptorFree.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1403D5D24 (ExpSaPageGroupDescriptorFree.c)
  */
 
 void __fastcall ExpSaAllocatorOptimizeList(__int64 a1)

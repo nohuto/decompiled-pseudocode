@@ -15,7 +15,7 @@
 
 bool LdrpSetThreadPreferredLangList()
 {
-  __int64 v0; // rax
+  _DWORD *v0; // rax
   int RegistryInfo; // ebx
   struct _TEB *v2; // rdx
   int WowTebOffset; // eax
@@ -25,22 +25,22 @@ bool LdrpSetThreadPreferredLangList()
   __int64 v7; // rax
   unsigned int MuiImpersonation; // eax
   _DWORD *MergedPrefLanguages; // rcx
-  int ThreadPreferredUILanguages; // eax
-  int v12; // [rsp+30h] [rbp+8h] BYREF
-  int v13; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS ThreadPreferredUILanguages; // eax
+  ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
+  ULONG NumberOfLanguages; // [rsp+38h] [rbp+10h] BYREF
 
-  v13 = 0;
+  NumberOfLanguages = 0;
   if ( NtCurrentTeb()->MergedPrefLanguages && *((char *)NtCurrentTeb()->MergedPrefLanguages + 40) >= 0 )
   {
     v0 = g_RegInfo;
     if ( !g_RegInfo )
     {
       RtlpInitMuiCriticalSection();
-      RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+      RtlEnterCriticalSection(&RegistryInfoCritSect);
       RegistryInfo = 0;
       if ( !g_RegInfo )
         RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
-      RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+      RtlLeaveCriticalSection(&RegistryInfoCritSect);
       if ( RegistryInfo < 0 )
         return 0;
       v0 = g_RegInfo;
@@ -49,7 +49,7 @@ bool LdrpSetThreadPreferredLangList()
     }
     if ( !*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2)
       || *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2) + 12LL) == MEMORY[0x7FFE03A4]
-      && NtCurrentTeb()->MuiGeneration == *(_DWORD *)(v0 + 16) )
+      && NtCurrentTeb()->MuiGeneration == v0[4] )
     {
       v2 = NtCurrentTeb();
       WowTebOffset = v2->WowTebOffset;
@@ -82,8 +82,8 @@ bool LdrpSetThreadPreferredLangList()
       MergedPrefLanguages[10] |= 0x80u;
     }
   }
-  v12 = 0;
-  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(0x30u, &v13, 0LL, &v12);
+  ReturnLength = 0;
+  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, &ReturnLength);
   return ((int)(ThreadPreferredUILanguages + 0x80000000) < 0 || ThreadPreferredUILanguages == -1073741789)
       && NtCurrentTeb()->MergedPrefLanguages;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaExtendedLogInitialize @ 0x14053FA0C
+ * XREFs of HalpMcaExtendedLogInitialize @ 0x14053D30C
  * Callers:
- *     HalpInitializeMce @ 0x140B4BBE4 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x140B4DC24 (HalpInitializeMce.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x14053F900 (HalpMcaExtendedLogGetL1DirectoryBase.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x14053D200 (HalpMcaExtendedLogGetL1DirectoryBase.c)
  */
 
 __int64 HalpMcaExtendedLogInitialize()
@@ -26,7 +26,7 @@ __int64 HalpMcaExtendedLogInitialize()
     v4 = -1073741637;
     goto LABEL_18;
   }
-  v2 = MmMapIoSpaceEx(v8, 4096LL, 0x204u);
+  v2 = MmMapIoSpaceEx(v8, 4096LL, 516LL);
   v3 = v2;
   if ( !v2 )
   {
@@ -35,7 +35,7 @@ LABEL_4:
 LABEL_18:
     HalpMcaExtendedLoggingSupported = 0;
 LABEL_19:
-    memset(&qword_140E3EAF0, 0, 0x30uLL);
+    memset(&qword_140E3EC30, 0, 0x30uLL);
     return v4;
   }
   if ( *(_DWORD *)v2 != 256 )
@@ -47,32 +47,32 @@ LABEL_19:
     goto LABEL_6;
   v0 = v5;
   MiUnmapContiguousMemory(v3, 0x1000uLL, 1);
-  v6 = MmMapIoSpaceEx(v1, v0, 0x204u);
+  v6 = MmMapIoSpaceEx(v1, v0, 516LL);
   v3 = v6;
   if ( !v6 )
     goto LABEL_4;
-  qword_140E3EAF0 = v6;
-  dword_140E3EB00 = *(_DWORD *)(v6 + 48);
-  qword_140E3EAF8 = (*(_QWORD *)(v6 + 8) - (unsigned __int64)*(unsigned int *)(v6 + 4)) >> 3;
-  if ( qword_140E3EAF8 < (unsigned __int64)(unsigned int)dword_140E3EB00 )
+  qword_140E3EC30 = v6;
+  dword_140E3EC40 = *(_DWORD *)(v6 + 48);
+  qword_140E3EC38 = (*(_QWORD *)(v6 + 8) - (unsigned __int64)*(unsigned int *)(v6 + 4)) >> 3;
+  if ( qword_140E3EC38 < (unsigned __int64)(unsigned int)dword_140E3EC40 )
   {
 LABEL_6:
     v4 = -1073741637;
 LABEL_13:
     HalpMcaExtendedLoggingSupported = 0;
-    if ( qword_140E3EB10 )
-      MiUnmapContiguousMemory(qword_140E3EB10, *(_QWORD *)(v3 + 24), 1);
+    if ( qword_140E3EC50 )
+      MiUnmapContiguousMemory(qword_140E3EC50, *(_QWORD *)(v3 + 24), 1);
     MiUnmapContiguousMemory(v3, v0, 1);
     goto LABEL_19;
   }
-  qword_140E3EB10 = MmMapIoSpaceEx(*(_QWORD *)(v6 + 16), *(_QWORD *)(v6 + 24), 0x204u);
-  if ( !qword_140E3EB10 )
+  qword_140E3EC50 = MmMapIoSpaceEx(*(_QWORD *)(v6 + 16), *(_QWORD *)(v6 + 24), 516LL);
+  if ( !qword_140E3EC50 )
   {
     v4 = -1073741670;
     goto LABEL_13;
   }
-  qword_140E3EB08 = *(_QWORD *)(v3 + 16);
-  qword_140E3EB18 = *(_QWORD *)(v3 + 24);
+  qword_140E3EC48 = *(_QWORD *)(v3 + 16);
+  qword_140E3EC58 = *(_QWORD *)(v3 + 24);
   *(_DWORD *)(v3 + 32) |= 1u;
   return 0;
 }

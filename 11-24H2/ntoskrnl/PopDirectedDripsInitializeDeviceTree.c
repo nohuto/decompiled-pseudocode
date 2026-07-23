@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDirectedDripsInitializeDeviceTree @ 0x140A40420
+ * XREFs of PopDirectedDripsInitializeDeviceTree @ 0x140A35D00
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140A401F4 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140A35AD4 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of SepDereferenceLowBoxNumberEntry @ 0x1406E7EBC
+ * XREFs of SepDereferenceLowBoxNumberEntry @ 0x1406FF29C
  * Callers:
- *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
- *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
- *     SeSetSessionIdToken @ 0x1406BA010 (SeSetSessionIdToken.c)
- *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
- *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
+ *     SeSetSessionIdToken @ 0x140619180 (SeSetSessionIdToken.c)
+ *     NtSetInformationToken @ 0x140694530 (NtSetInformationToken.c)
+ *     SeSubProcessToken @ 0x1406F328C (SeSubProcessToken.c)
+ *     SepTokenDeleteMethod @ 0x1406FF0D0 (SepTokenDeleteMethod.c)
+ *     SeExchangePrimaryToken @ 0x1407BC3D4 (SeExchangePrimaryToken.c)
  * Callees:
- *     RtlRemoveEntryHashTable @ 0x140251CC0 (RtlRemoveEntryHashTable.c)
- *     ExRemoveLowBoxAtomReferences @ 0x1402BC5D4 (ExRemoveLowBoxAtomReferences.c)
- *     RtlDereferenceAtomTable @ 0x1402BC5EC (RtlDereferenceAtomTable.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     SepGetTokenSessionMapEntry @ 0x140597B98 (SepGetTokenSessionMapEntry.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExRemoveLowBoxAtomReferences @ 0x14023AB64 (ExRemoveLowBoxAtomReferences.c)
+ *     RtlDereferenceAtomTable @ 0x14023AB7C (RtlDereferenceAtomTable.c)
+ *     RtlRemoveEntryHashTable @ 0x1402F64D0 (RtlRemoveEntryHashTable.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     SepGetTokenSessionMapEntry @ 0x140597DC8 (SepGetTokenSessionMapEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceLowBoxNumberEntry(unsigned int a1, __int64 a2)
@@ -71,7 +71,7 @@ __int64 __fastcall SepDereferenceLowBoxNumberEntry(unsigned int a1, __int64 a2)
     if ( v9 && *(_QWORD *)(a2 + 48) )
     {
       ExRemoveLowBoxAtomReferences();
-      RtlDereferenceAtomTable();
+      RtlDereferenceAtomTable(*(void **)(a2 + 48));
       ExFreePoolWithTag((PVOID)a2, 0);
     }
     return TokenSessionMapEntry;

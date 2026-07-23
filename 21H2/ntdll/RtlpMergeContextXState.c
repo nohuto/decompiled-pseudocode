@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpMergeContextXState @ 0x180072570
  * Callers:
- *     RtlCaptureContext2 @ 0x1800A18E0 (RtlCaptureContext2.c)
+ *     RtlCaptureContext2 @ 0x1800A18A0 (RtlCaptureContext2.c)
  * Callees:
  *     RtlLocateExtendedFeature2 @ 0x1800725D0 (RtlLocateExtendedFeature2.c)
  */

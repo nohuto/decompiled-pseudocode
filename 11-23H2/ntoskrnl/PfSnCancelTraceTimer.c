@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnCancelTraceTimer @ 0x1402F53A8
+ * XREFs of PfSnCancelTraceTimer @ 0x1402F5638
  * Callers:
- *     PfSnDeactivateTrace @ 0x1402F521C (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x1402F54AC (PfSnDeactivateTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnCancelTraceTimer(__int64 a1)
@@ -28,10 +28,13 @@ __int64 __fastcall PfSnCancelTraceTimer(__int64 a1)
   v4 = v3;
   v5 = KeCancelTimer((PKTIMER)(a1 + 136)) != 0;
   KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

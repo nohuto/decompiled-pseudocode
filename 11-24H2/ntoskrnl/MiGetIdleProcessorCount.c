@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetIdleProcessorCount @ 0x140471718
+ * XREFs of MiGetIdleProcessorCount @ 0x14046C2E8
  * Callers:
- *     MiMoveZeroThreadsToOtherCores @ 0x140471550 (MiMoveZeroThreadsToOtherCores.c)
+ *     MiMoveZeroThreadsToOtherCores @ 0x14046C120 (MiMoveZeroThreadsToOtherCores.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __int64 __fastcall MiGetIdleProcessorCount(__int64 a1, unsigned int a2)
       while ( v6 )
       {
         _BitScanForward64(&v10, v6);
-        v11 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v3[1] + (int)v10);
+        v11 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v3[1] + (int)v10);
         v8 = 1;
         v12 = *(_QWORD *)(KiProcessorBlock[v11] + 200) | v6 & *(_QWORD *)(KiProcessorBlock[v11] + 36448);
         v6 &= ~v12;

@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrRscIsTypeExist @ 0x18002C2A0
+ * XREFs of LdrRscIsTypeExist @ 0x1800173A0
  * Callers:
- *     LdrIsResItemExist @ 0x18002C970 (LdrIsResItemExist.c)
- *     LdrpSearchResourceSection_U @ 0x18002E860 (LdrpSearchResourceSection_U.c)
+ *     LdrIsResItemExist @ 0x180017A70 (LdrIsResItemExist.c)
+ *     LdrpSearchResourceSection_U @ 0x180019960 (LdrpSearchResourceSection_U.c)
  * Callees:
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
  */
 
 __int64 __fastcall LdrRscIsTypeExist(unsigned int *a1, const wchar_t *a2, __int64 a3, _DWORD *a4)

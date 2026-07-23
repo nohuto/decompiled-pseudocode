@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetControlAreaPartition @ 0x14039D20C
+ * XREFs of MmGetControlAreaPartition @ 0x14039EF6C
  * Callers:
- *     CcGetPartitionForSectionObject @ 0x14039D1F0 (CcGetPartitionForSectionObject.c)
- *     CcDeleteSectionsForPartition @ 0x1405B2470 (CcDeleteSectionsForPartition.c)
+ *     CcGetPartitionForSectionObject @ 0x14039EF50 (CcGetPartitionForSectionObject.c)
+ *     CcDeleteSectionsForPartition @ 0x1405B4C80 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MmGetControlAreaPartition(__int64 a1)
@@ -18,19 +18,19 @@ __int64 __fastcall MmGetControlAreaPartition(__int64 a1)
   if ( KeGetCurrentIrql() == 2 )
   {
     v2 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2C7C0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2C940);
   }
   else
   {
-    v2 = ExAcquireSpinLockExclusive(&dword_140E2C7C0);
+    v2 = ExAcquireSpinLockExclusive(&dword_140E2C940);
   }
   if ( *(_QWORD *)a1 )
-    v3 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+    v3 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
   else
     v3 = &MiSystemPartition;
   if ( v2 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2C7C0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2C940);
   else
-    ExReleaseSpinLockExclusive(&dword_140E2C7C0, v2);
+    ExReleaseSpinLockExclusive(&dword_140E2C940, v2);
   return *((_QWORD *)v3 + 32);
 }

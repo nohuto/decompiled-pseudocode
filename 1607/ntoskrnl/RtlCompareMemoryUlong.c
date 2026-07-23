@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCompareMemoryUlong @ 0x1401674E0
+ * XREFs of RtlCompareMemoryUlong @ 0x140167A50
  * Callers:
- *     RtlpCreateSplitBlock @ 0x1400932DC (RtlpCreateSplitBlock.c)
- *     RtlpCoalesceFreeBlocks @ 0x140093C54 (RtlpCoalesceFreeBlocks.c)
- *     RtlpAllocateHeap @ 0x14009409C (RtlpAllocateHeap.c)
- *     MiFreeUnusedPfnPages @ 0x14013E234 (MiFreeUnusedPfnPages.c)
- *     RtlScrubMemory @ 0x140216774 (RtlScrubMemory.c)
- *     IopTrackLink @ 0x1404CB08C (IopTrackLink.c)
+ *     RtlpCreateSplitBlock @ 0x140092ADC (RtlpCreateSplitBlock.c)
+ *     RtlpCoalesceFreeBlocks @ 0x140093454 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpAllocateHeap @ 0x14009389C (RtlpAllocateHeap.c)
+ *     MiFreeUnusedPfnPages @ 0x14013E7A4 (MiFreeUnusedPfnPages.c)
+ *     RtlScrubMemory @ 0x1402165A0 (RtlScrubMemory.c)
+ *     IopTrackLink @ 0x1404B0AB8 (IopTrackLink.c)
  *     MiSwitchToPfns @ 0x1407965E0 (MiSwitchToPfns.c)
  * Callees:
  *     <none>

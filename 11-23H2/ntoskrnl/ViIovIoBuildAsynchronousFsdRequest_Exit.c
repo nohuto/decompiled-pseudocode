@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIovIoBuildAsynchronousFsdRequest_Exit @ 0x140ADC760
+ * XREFs of ViIovIoBuildAsynchronousFsdRequest_Exit @ 0x140ADC750
  * Callers:
  *     <none>
  * Callees:
- *     ViSetIoBuildRequestFlag @ 0x1405D1F30 (ViSetIoBuildRequestFlag.c)
+ *     ViSetIoBuildRequestFlag @ 0x1405D24A0 (ViSetIoBuildRequestFlag.c)
  */
 
 __int64 __fastcall ViIovIoBuildAsynchronousFsdRequest_Exit(__int64 a1)

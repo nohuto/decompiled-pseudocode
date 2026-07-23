@@ -1,12 +1,12 @@
 /*
- * XREFs of ViPtAllocPoolInfoCallback @ 0x140B8C6D0
+ * XREFs of ViPtAllocPoolInfoCallback @ 0x140B8E6D0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR __fastcall ViPtAllocPoolInfoCallback(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+__int64 __fastcall ViPtAllocPoolInfoCallback(_RTL_AVL_TABLE *a1, unsigned int a2)
 {
-  return ExAllocatePool2(0x40uLL, ByteSize, 0x6E496956uLL);
+  return ExAllocatePool2(0x40uLL, a2, 0x6E496956uLL);
 }

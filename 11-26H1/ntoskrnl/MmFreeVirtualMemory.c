@@ -1,25 +1,25 @@
 /*
- * XREFs of MmFreeVirtualMemory @ 0x14095F3F0
+ * XREFs of MmFreeVirtualMemory @ 0x140A04CB0
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     PspFreeUserFiberShadowStack @ 0x14095ED2C (PspFreeUserFiberShadowStack.c)
- *     PspDeleteUserStack @ 0x14095EE54 (PspDeleteUserStack.c)
- *     PspFreeCurrentThreadUserShadowStack @ 0x14095EF5C (PspFreeCurrentThreadUserShadowStack.c)
- *     NtFreeVirtualMemory @ 0x14095F2D0 (NtFreeVirtualMemory.c)
- *     PspSetupUserShadowStack @ 0x1409F1C84 (PspSetupUserShadowStack.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409F1E60 (PspReserveAndCommitUserShadowStack.c)
- *     PspSetupUserFiberShadowStack @ 0x140B31688 (PspSetupUserFiberShadowStack.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     PspSetupUserShadowStack @ 0x1409EE454 (PspSetupUserShadowStack.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409EE630 (PspReserveAndCommitUserShadowStack.c)
+ *     PspFreeUserFiberShadowStack @ 0x140A045EC (PspFreeUserFiberShadowStack.c)
+ *     PspDeleteUserStack @ 0x140A04714 (PspDeleteUserStack.c)
+ *     PspFreeCurrentThreadUserShadowStack @ 0x140A0481C (PspFreeCurrentThreadUserShadowStack.c)
+ *     NtFreeVirtualMemory @ 0x140A04B90 (NtFreeVirtualMemory.c)
+ *     PspSetupUserFiberShadowStack @ 0x140B33888 (PspSetupUserFiberShadowStack.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiDereferenceEnclaveModule @ 0x140876560 (MiDereferenceEnclaveModule.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     MiFreeVirtualMemory @ 0x14095F790 (MiFreeVirtualMemory.c)
- *     MiCoalescePlaceholderAllocations @ 0x14095FF68 (MiCoalescePlaceholderAllocations.c)
- *     DbgkUnMapViewOfSection @ 0x1409C4448 (DbgkUnMapViewOfSection.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiDereferenceEnclaveModule @ 0x14087C944 (MiDereferenceEnclaveModule.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     DbgkUnMapViewOfSection @ 0x140995428 (DbgkUnMapViewOfSection.c)
+ *     MiFreeVirtualMemory @ 0x140A05050 (MiFreeVirtualMemory.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A05828 (MiCoalescePlaceholderAllocations.c)
  */
 
 __int64 __fastcall MmFreeVirtualMemory(
@@ -124,8 +124,8 @@ LABEL_17:
   {
     result = ObpReferenceObjectByHandleWithTag(
                BugCheckParameter1,
-               8LL,
-               PsProcessType,
+               8,
+               (__int64)PsProcessType,
                a5,
                0x6D566D4Du,
                &PROCESS,
@@ -174,7 +174,7 @@ LABEL_17:
     while ( v21 != (volatile signed __int32 *)v28 )
     {
       if ( v18 )
-        DbgkUnMapViewOfSection(v18, *((_QWORD *)v21 + 2));
+        DbgkUnMapViewOfSection(v18);
       v22 = *(_QWORD *)v21;
       if ( *(volatile signed __int32 **)(*(_QWORD *)v21 + 8LL) != v21
         || (v23 = (volatile signed __int32 **)*((_QWORD *)v21 + 1), *v23 != v21) )

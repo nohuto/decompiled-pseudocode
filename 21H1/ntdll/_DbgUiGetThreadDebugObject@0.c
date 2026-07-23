@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *__stdcall DbgUiGetThreadDebugObject()
+HANDLE DbgUiGetThreadDebugObject(void)
 {
   return NtCurrentTeb()->DbgSsReserved[1];
 }

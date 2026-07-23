@@ -8,7 +8,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 ExDisableAllLookasideLists()
+void ExDisableAllLookasideLists()
 {
   KIRQL v0; // al
   __int64 *v1; // rdx
@@ -21,9 +21,10 @@ __int64 ExDisableAllLookasideLists()
   KIRQL v8; // al
   __int64 *v9; // rdx
   unsigned __int64 v10; // rbx
-  __int64 result; // rax
+  unsigned __int8 v11; // al
   struct _KPRCB *v12; // r9
-  _DWORD *v13; // r8
+  int v13; // eax
+  _DWORD *v14; // r8
 
   ExMinimumLookasideDepth = 0;
   v0 = KeAcquireSpinLockRaiseToDpc(&ExNPagedLookasideLock);
@@ -35,10 +36,13 @@ __int64 ExDisableAllLookasideLists()
     v1 = (__int64 *)*v1;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&ExNPagedLookasideLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -58,24 +62,20 @@ __int64 ExDisableAllLookasideLists()
     *((_DWORD *)v9 - 12) = -65536;
     v9 = (__int64 *)*v9;
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&ExPagedLookasideLock);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&ExPagedLookasideLock);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v10 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    v11 = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v11 >= 2u )
     {
       v12 = KeGetCurrentPrcb();
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v13 = v12->SchedulerAssist;
-      v7 = ((unsigned int)result & v13[5]) == 0;
-      v13[5] &= result;
+      v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+      v14 = v12->SchedulerAssist;
+      v7 = (v13 & v14[5]) == 0;
+      v14[5] &= v13;
       if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v12);
+        KiRemoveSystemWorkPriorityKick((__int64)v12);
     }
   }
   __writecr8(v10);
-  return result;
 }

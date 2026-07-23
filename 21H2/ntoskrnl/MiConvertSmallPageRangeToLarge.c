@@ -1,13 +1,13 @@
 /*
  * XREFs of MiConvertSmallPageRangeToLarge @ 0x1403F6180
  * Callers:
- *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
+ *     MiFreeLargePageMemory @ 0x1403093A4 (MiFreeLargePageMemory.c)
  *     MiDeleteSubsectionLargePages @ 0x1403F6534 (MiDeleteSubsectionLargePages.c)
- *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiRebuildLargePage @ 0x140552918 (MiRebuildLargePage.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiConvertLockedSmallPageToLarge @ 0x1403F606C (MiConvertLockedSmallPageToLarge.c)
  */

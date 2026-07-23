@@ -3,8 +3,8 @@
  * Callers:
  *     KiCompleteKernelInit @ 0x140A8CAE0 (KiCompleteKernelInit.c)
  * Callees:
- *     KeGetProcessorNodeNumber @ 0x140368180 (KeGetProcessorNodeNumber.c)
- *     KeGetThreadWorkloadClassCount @ 0x14036F0B4 (KeGetThreadWorkloadClassCount.c)
+ *     KeGetProcessorNodeNumber @ 0x140368320 (KeGetProcessorNodeNumber.c)
+ *     KeGetThreadWorkloadClassCount @ 0x14036F254 (KeGetThreadWorkloadClassCount.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  */
 

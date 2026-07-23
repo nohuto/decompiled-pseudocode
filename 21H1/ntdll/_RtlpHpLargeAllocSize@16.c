@@ -16,7 +16,7 @@ int __fastcall RtlpHpLargeAllocSize(int a1, unsigned int a2, char a3, int a4)
   int v9; // esi
 
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int32 *)(a1 + 64));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
   v6 = *(_DWORD *)(a1 + 68);
   if ( (*(_BYTE *)(a1 + 72) & 1) != 0 )
   {
@@ -48,6 +48,6 @@ int __fastcall RtlpHpLargeAllocSize(int a1, unsigned int a2, char a3, int a4)
   else
     v9 = -1;
   if ( (a3 & 1) == 0 )
-    RtlReleaseSRWLockShared((volatile signed __int32 *)(a1 + 64));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
   return v9;
 }

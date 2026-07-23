@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExEnterCriticalRegionAndAcquireSharedWaitForExclusiveWrapper @ 0x1405D8890
+ * XREFs of DifExEnterCriticalRegionAndAcquireSharedWaitForExclusiveWrapper @ 0x1405D8E00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14046B360 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14046B760 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 PVOID __fastcall DifExEnterCriticalRegionAndAcquireSharedWaitForExclusiveWrapper(PERESOURCE Resource)

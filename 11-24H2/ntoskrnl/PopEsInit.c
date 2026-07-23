@@ -1,20 +1,20 @@
 /*
- * XREFs of PopEsInit @ 0x140C32A6C
+ * XREFs of PopEsInit @ 0x140C34BAC
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     PopEsWorkItemSchedule @ 0x140A3BCA4 (PopEsWorkItemSchedule.c)
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     PopEsWorkItemSchedule @ 0x140A31484 (PopEsWorkItemSchedule.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
  */
 
 void __fastcall PopEsInit(int a1)
 {
   if ( a1 == 1 )
   {
-    qword_140F07608 = 0LL;
+    qword_140F07918 = 0LL;
     PopEsLock = 0LL;
     PopEsWorkItem.Parameter = 0LL;
     PopEsWorkItem.List.Flink = 0LL;
@@ -25,7 +25,7 @@ void __fastcall PopEsInit(int a1)
   {
     if ( PopPlatformAoAc )
     {
-      PopAcquireRwLockExclusive(&PopEsLock);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock);
       PoRegisterPowerSettingCallback(
         0LL,
         &GUID_ACDC_POWER_SOURCE,
@@ -39,7 +39,7 @@ void __fastcall PopEsInit(int a1)
         0LL,
         0LL);
       ExSubscribeWnfStateChange((__int64)&PopEsWnfSubscriptionOpportunisticCs, (__int64)&WNF_PO_OPPORTUNISTIC_CS);
-      PopReleaseRwLock((signed __int64 *)&PopEsLock);
+      PopReleaseRwLock(&PopEsLock);
     }
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopQueryDeviceResetRegistrySettings @ 0x1409C636C
+ * XREFs of IopQueryDeviceResetRegistrySettings @ 0x1409C736C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall IopQueryDeviceResetRegistrySettings(HANDLE KeyHandle)

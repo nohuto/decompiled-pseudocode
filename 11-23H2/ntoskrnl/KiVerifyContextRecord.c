@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyContextRecord @ 0x14030DE10
+ * XREFs of KiVerifyContextRecord @ 0x14030E0A0
  * Callers:
- *     KeVerifyContextRecord @ 0x14030DD74 (KeVerifyContextRecord.c)
+ *     KeVerifyContextRecord @ 0x14030E004 (KeVerifyContextRecord.c)
  * Callees:
- *     KeVerifyContextIpForUserCet @ 0x14030DEBC (KeVerifyContextIpForUserCet.c)
- *     PsWow64GetProcessMachine @ 0x140770CA0 (PsWow64GetProcessMachine.c)
+ *     KeVerifyContextIpForUserCet @ 0x14030E14C (KeVerifyContextIpForUserCet.c)
+ *     PsWow64GetProcessMachine @ 0x140770E90 (PsWow64GetProcessMachine.c)
  */
 
 __int64 __fastcall KiVerifyContextRecord(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

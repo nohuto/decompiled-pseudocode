@@ -13,55 +13,65 @@
  *     memset @ 0x1800A6C80 (memset.c)
  */
 
-__int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __int64 a3, unsigned int a4, int *a5)
+__int64 __fastcall RtlpHpAllocateHeapInternal(
+        _RTL_SRWLOCK *BaseAddress,
+        size_t Size,
+        unsigned __int64 a3,
+        unsigned int a4,
+        int *a5)
 {
   int v9; // r12d
-  unsigned __int64 v10; // rbx
+  _RTL_SRWLOCK *v10; // rbx
   __int64 v11; // rdx
   __int64 v12; // r15
-  __int64 v13; // r15
+  unsigned __int64 Value; // r15
   unsigned __int8 v14; // al
   void *v15; // rax
   __int64 v16; // rbx
   void *v18; // rax
   char CurrentProcessorNumber; // al
-  unsigned int v20; // ecx
+  unsigned int Value_low; // ecx
   unsigned int v21; // eax
-  __int64 v22; // rcx
+  _RTL_SRWLOCK *v22; // rcx
 
   v9 = 3;
   if ( a3 > 0x3FF0 )
     goto LABEL_14;
-  v10 = a1 + 480;
+  v10 = BaseAddress + 60;
   v11 = (unsigned int)(a3 + 2);
-  if ( (_DWORD)a2 == (_DWORD)a3 )
+  if ( (_DWORD)Size == (_DWORD)a3 )
     v11 = (unsigned int)a3;
   v12 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(v11 + 15) >> 4];
-  if ( (*(_QWORD *)(v10 + 8 * v12 + 208) & 1) == 0 || (unsigned int)RtlpHpLfhBucketUpdateStats(v10, v11, 1LL) )
+  if ( (v10[v12 + 26].Value & 1) == 0 || (unsigned int)RtlpHpLfhBucketUpdateStats(v10, v11, 1LL) )
   {
-    v13 = *(_QWORD *)(v10 + 8 * v12 + 208);
-    if ( (RtlpHpLfhPerfFlags & 0x10) != 0 && *(_BYTE *)(v13 + 2) == 1 )
+    Value = v10[v12 + 26].Value;
+    if ( (RtlpHpLfhPerfFlags & 0x10) != 0 && *(_BYTE *)(Value + 2) == 1 )
     {
       v14 = 0;
     }
     else
     {
       CurrentProcessorNumber = RtlGetCurrentProcessorNumber();
-      v20 = *(unsigned __int8 *)(v10 + 48);
+      Value_low = LOBYTE(v10[6].Value);
       v21 = CurrentProcessorNumber & 0x3F;
-      if ( v21 >= v20 )
+      if ( v21 >= Value_low )
       {
-        if ( v21 == v20 || (_BYTE)v20 == 1 )
+        if ( v21 == Value_low || (_BYTE)Value_low == 1 )
           v21 = 0;
         else
-          v21 = *(unsigned __int8 *)(v21 - v20 - 1 + *(_QWORD *)(v10 + 56));
+          v21 = *(unsigned __int8 *)(v21 - Value_low - 1 + v10[7].Value);
       }
-      v14 = *(_BYTE *)(v21 + *(_QWORD *)(v13 + 88));
+      v14 = *(_BYTE *)(v21 + *(_QWORD *)(Value + 88));
     }
-    v15 = (void *)RtlpHpLfhSlotAllocate(v10, v13, *(_QWORD *)(*(_QWORD *)(v13 + 96) + 8LL * v14), a2, a4);
+    v15 = (void *)RtlpHpLfhSlotAllocate(
+                    (unsigned __int64)v10,
+                    (_RTL_SRWLOCK *)Value,
+                    *(_QWORD *)(*(_QWORD *)(Value + 96) + 8LL * v14),
+                    Size,
+                    a4);
     v16 = (__int64)v15;
     if ( v15 && (a4 & 2) != 0 )
-      memset(v15, 0, (unsigned int)a2);
+      memset(v15, 0, (unsigned int)Size);
   }
   else
   {
@@ -72,24 +82,24 @@ __int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __
 LABEL_14:
     if ( a3 > 0x20000 )
     {
-      if ( a3 <= *(unsigned int *)(a1 + 128) )
+      if ( a3 <= LODWORD(BaseAddress[16].Value) )
       {
-        v22 = a1 + 112;
+        v22 = BaseAddress + 14;
       }
       else
       {
-        if ( a3 > *(unsigned int *)(a1 + 232) )
+        if ( a3 > LODWORD(BaseAddress[29].Value) )
         {
-          v18 = (void *)RtlpHpLargeAlloc(a1, a2, a3, a4);
+          v18 = (void *)RtlpHpLargeAlloc(BaseAddress);
           goto LABEL_16;
         }
-        v22 = a1 + 216;
+        v22 = BaseAddress + 27;
       }
-      v18 = RtlpHpSegAlloc(v22, a2, a3, a4);
+      v18 = RtlpHpSegAlloc((__int64)v22, Size, a3, a4);
     }
     else
     {
-      v18 = (void *)RtlpHpVsContextAllocate(a1 + 360, (unsigned int)a2, (unsigned int)a3, a4);
+      v18 = (void *)RtlpHpVsContextAllocate(BaseAddress + 45, (unsigned int)Size);
     }
 LABEL_16:
     v16 = (__int64)v18;

@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlCanonicalizeDomainName @ 0x1800BA3D0
+ * XREFs of RtlCanonicalizeDomainName @ 0x1800B2190
  * Callers:
- *     RtlEqualDomainName @ 0x1800B9C10 (RtlEqualDomainName.c)
+ *     RtlEqualDomainName @ 0x1800B19D0 (RtlEqualDomainName.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlCreateUnicodeString @ 0x180028050 (RtlCreateUnicodeString.c)
- *     RtlIpv4AddressToStringW @ 0x1800B9DB0 (RtlIpv4AddressToStringW.c)
- *     RtlIpv6AddressToStringW @ 0x1800B9E10 (RtlIpv6AddressToStringW.c)
- *     RtlIpv6StringToAddressExW @ 0x1800BA9B0 (RtlIpv6StringToAddressExW.c)
- *     RtlpNameprepAsciiRealWorker @ 0x1800BB090 (RtlpNameprepAsciiRealWorker.c)
- *     RtlpIdnToUnicodeWorker @ 0x1800BB490 (RtlpIdnToUnicodeWorker.c)
- *     RtlIpv4StringToAddressW @ 0x1800BBF50 (RtlIpv4StringToAddressW.c)
- *     __report_rangecheckfailure @ 0x180120A2C (__report_rangecheckfailure.c)
- *     iswctype @ 0x180124B20 (iswctype.c)
- *     towlower @ 0x1801275E0 (towlower.c)
- *     swprintf_s @ 0x18012DDD0 (swprintf_s.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlCreateUnicodeString @ 0x180054A50 (RtlCreateUnicodeString.c)
+ *     RtlIpv4AddressToStringW @ 0x1800B1B70 (RtlIpv4AddressToStringW.c)
+ *     RtlIpv6AddressToStringW @ 0x1800B1BD0 (RtlIpv6AddressToStringW.c)
+ *     RtlIpv6StringToAddressExW @ 0x1800B2770 (RtlIpv6StringToAddressExW.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1800B2E50 (RtlpNameprepAsciiRealWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1800B3250 (RtlpIdnToUnicodeWorker.c)
+ *     RtlIpv4StringToAddressW @ 0x1800B3D10 (RtlIpv4StringToAddressW.c)
+ *     __report_rangecheckfailure @ 0x18011EC5C (__report_rangecheckfailure.c)
+ *     iswctype @ 0x180122D50 (iswctype.c)
+ *     towlower @ 0x180125810 (towlower.c)
+ *     swprintf_s @ 0x18012C000 (swprintf_s.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlCanonicalizeDomainName(__int64 a1, unsigned __int16 *a2, BOOLEAN a3)
+__int64 __fastcall RtlCanonicalizeDomainName(PUNICODE_STRING DestinationString, unsigned __int16 *a2, BOOLEAN a3)
 {
   unsigned int v3; // ebx
-  __int64 v6; // rsi
+  _UNICODE_STRING *v6; // rsi
   unsigned int v7; // eax
   const void *v8; // rdx
   __int64 v9; // rsi
@@ -43,41 +43,41 @@ __int64 __fastcall RtlCanonicalizeDomainName(__int64 a1, unsigned __int16 *a2, B
   unsigned int v23; // ebx
   __int64 v25; // r12
   unsigned int v26; // r15d
-  __int64 Heap; // rdi
-  __int64 v28; // rax
-  __int64 v29; // r14
+  PVOID Heap; // rdi
+  PVOID v28; // rax
+  void *v29; // r14
   int v30; // r15d
-  __int64 v31; // rax
-  __int64 v32; // rdi
+  PVOID v31; // rax
+  void *v32; // rdi
   int v33; // r14d
   __int64 v34; // rcx
   wint_t *v35; // rdi
   __int64 v36; // r14
-  __int64 v37; // rcx
+  _UNICODE_STRING *v37; // rcx
   unsigned int v38; // ebx
   USHORT Port[2]; // [rsp+50h] [rbp-B0h] BYREF
-  in_addr Addr; // [rsp+54h] [rbp-ACh] BYREF
+  int v40; // [rsp+54h] [rbp-ACh] BYREF
   unsigned int v41; // [rsp+58h] [rbp-A8h] BYREF
   ULONG ScopeId[2]; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v43; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v44; // [rsp+70h] [rbp-90h]
-  in6_addr Address; // [rsp+78h] [rbp-88h] BYREF
+  PUNICODE_STRING DestinationStringa; // [rsp+70h] [rbp-90h]
+  __int128 v45; // [rsp+78h] [rbp-88h] BYREF
   WCHAR Src[22]; // [rsp+88h] [rbp-78h] BYREF
   WCHAR S[65]; // [rsp+C0h] [rbp-40h] BYREF
   char v48; // [rsp+142h] [rbp+42h] BYREF
-  wchar_t v49[256]; // [rsp+150h] [rbp+50h] BYREF
+  WCHAR SourceString[256]; // [rsp+150h] [rbp+50h] BYREF
   WCHAR AddressString[256]; // [rsp+350h] [rbp+250h] BYREF
   _BYTE v51[512]; // [rsp+550h] [rbp+450h] BYREF
 
   v3 = 0;
-  v44 = a1;
-  Addr = 0;
+  DestinationStringa = DestinationString;
+  v40 = 0;
   ScopeId[0] = 0;
   Port[0] = 0;
   v43 = 256;
-  v6 = a1;
+  v6 = DestinationString;
   v41 = 256;
-  Address = 0LL;
+  v45 = 0LL;
   if ( a2 )
   {
     v7 = *a2;
@@ -91,14 +91,14 @@ __int64 __fastcall RtlCanonicalizeDomainName(__int64 a1, unsigned __int16 *a2, B
       AddressString[v10 >> 1] = 0;
     if ( (_WORD)v9 == 512 )
       return 3221227286LL;
-    v6 = v44;
+    v6 = DestinationStringa;
   }
-  if ( RtlIpv6StringToAddressExW(AddressString, &Address, ScopeId, Port) >= 0 && !Port[0] )
+  if ( RtlIpv6StringToAddressExW(AddressString, (struct in6_addr *)&v45, ScopeId, Port) >= 0 && !Port[0] )
   {
-    if ( Address.u.Word[0]
-      || __PAIR32__(Address.u.Word[1], 0) != Address.u.Word[2]
-      || __PAIR32__(Address.u.Word[3], 0) != Address.u.Word[4]
-      || Address.u.Word[5] != 0xFFFF )
+    if ( (_WORD)v45
+      || __PAIR32__(WORD1(v45), 0) != WORD2(v45)
+      || __PAIR32__(WORD3(v45), 0) != WORD4(v45)
+      || WORD5(v45) != 0xFFFF )
     {
       v20 = ScopeId[0];
       goto LABEL_32;
@@ -107,34 +107,34 @@ __int64 __fastcall RtlCanonicalizeDomainName(__int64 a1, unsigned __int16 *a2, B
     if ( ScopeId[0] )
     {
 LABEL_32:
-      v21 = RtlIpv6AddressToStringW(&Address, S);
+      v21 = RtlIpv6AddressToStringW((const struct in6_addr *)&v45, S);
       v22 = v21;
       if ( v20 )
         v22 = &v21[swprintf_s(v21, (&v48 - (char *)v21) >> 1, L"%%%u", v20)];
       v23 = v22 - S + 1;
       if ( v23 <= 0x100 )
       {
-        memmove(v49, S, 2LL * v23);
-        if ( !RtlCreateUnicodeString(v6, v49) )
+        memmove(SourceString, S, 2LL * v23);
+        if ( !RtlCreateUnicodeString(v6, SourceString) )
           return 3221225495LL;
         return 0LL;
       }
       return 3221225485LL;
     }
-    Addr = *(in_addr *)&Address.u.Word[6];
+    v40 = HIDWORD(v45);
 LABEL_75:
-    v38 = RtlIpv4AddressToStringW(&Addr, Src) - Src + 1;
+    v38 = RtlIpv4AddressToStringW((const struct in_addr *)&v40, Src) - Src + 1;
     if ( v38 <= 0x100 )
     {
-      memmove(v49, Src, 2LL * v38);
-      if ( !RtlCreateUnicodeString(v44, v49) )
+      memmove(SourceString, Src, 2LL * v38);
+      if ( !RtlCreateUnicodeString(DestinationStringa, SourceString) )
         return 3221225495LL;
       return 0LL;
     }
     return 3221225485LL;
   }
   *(_QWORD *)ScopeId = 0LL;
-  if ( RtlIpv4StringToAddressW(AddressString, a3, (LPCWSTR *)ScopeId, &Addr) >= 0 )
+  if ( RtlIpv4StringToAddressW(AddressString, a3, (LPCWSTR *)ScopeId, (struct in_addr *)&v40) >= 0 )
   {
     if ( **(_WORD **)ScopeId == 58 )
     {
@@ -196,8 +196,8 @@ LABEL_75:
 LABEL_40:
   v25 = *((_QWORD *)a2 + 1);
   v26 = *a2 >> 1;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
-  v28 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x406uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
+  v28 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x406uLL);
   v29 = v28;
   if ( Heap && v28 )
   {
@@ -226,11 +226,11 @@ LABEL_44:
     }
     while ( v36 );
   }
-  v31 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
+  v31 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
   v32 = v31;
   if ( !v31 )
     return (unsigned int)-1073741801;
-  v33 = RtlpIdnToUnicodeWorker(0LL, v51, v41, v49, &v43, v31);
+  v33 = RtlpIdnToUnicodeWorker(0LL, v51, v41, SourceString, &v43, v31);
   RtlpSysVolFree(v32);
   if ( v33 < 0 )
     return (unsigned int)v33;
@@ -238,9 +238,9 @@ LABEL_44:
     return 3221227286LL;
   if ( 2 * (unsigned __int64)v43 >= 0x200 )
     _report_rangecheckfailure(v34);
-  v37 = v44;
-  v49[v43] = 0;
-  if ( !RtlCreateUnicodeString(v37, v49) )
+  v37 = DestinationStringa;
+  SourceString[v43] = 0;
+  if ( !RtlCreateUnicodeString(v37, SourceString) )
     return (unsigned int)-1073741801;
   return v3;
 }

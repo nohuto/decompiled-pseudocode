@@ -23,7 +23,7 @@ __int64 __fastcall IoCreateDeviceSecure(
         ULONG a5,
         BOOLEAN a6,
         const void **a7,
-        unsigned int *a8,
+        PGUID Guid,
         PDEVICE_OBJECT DeviceObject)
 {
   PDEVICE_OBJECT v9; // r13
@@ -39,7 +39,7 @@ __int64 __fastcall IoCreateDeviceSecure(
   NTSTATUS v20; // eax
   _WORD *Pool2; // rax
   BOOLEAN v23[4]; // [rsp+40h] [rbp-40h] BYREF
-  ULONG v24; // [rsp+44h] [rbp-3Ch] BYREF
+  DWORD v24; // [rsp+44h] [rbp-3Ch] BYREF
   __int64 v25; // [rsp+48h] [rbp-38h] BYREF
   ULONG DeviceType[4]; // [rsp+50h] [rbp-30h] BYREF
   ULONG v27[2]; // [rsp+60h] [rbp-20h]
@@ -62,9 +62,9 @@ LABEL_23:
     v12 = DeviceType[0];
     goto LABEL_15;
   }
-  if ( a8 )
+  if ( Guid )
   {
-    SecureDeviceClassSettings = IopCreateSecureDeviceClassSettings(a8, (__int64)a1, DeviceType);
+    SecureDeviceClassSettings = IopCreateSecureDeviceClassSettings(Guid, (__int64)a1, DeviceType);
     if ( SecureDeviceClassSettings < 0 )
       goto LABEL_23;
   }
@@ -92,11 +92,11 @@ LABEL_23:
     v12 = 2;
     *(_QWORD *)&DeviceType[2] = v25;
     *(_WORD *)(v25 + 2) |= 8u;
-    if ( !a8
+    if ( !Guid
       || (v28[0] = 2LL,
           v28[2] = 0LL,
           v28[1] = v16,
-          SecureDeviceClassSettings = IopUpdateSecureDeviceClassState(a8, (__int64)v28),
+          SecureDeviceClassSettings = IopUpdateSecureDeviceClassState(Guid, (__int64)v28),
           SecureDeviceClassSettings >= 0) )
     {
 LABEL_8:

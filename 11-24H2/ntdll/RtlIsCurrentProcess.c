@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIsCurrentProcess @ 0x1800E60F0
+ * XREFs of RtlIsCurrentProcess @ 0x1800E15A0
  * Callers:
- *     RtlOpenCrossProcessEmulatorWorkConnection @ 0x1800E5F80 (RtlOpenCrossProcessEmulatorWorkConnection.c)
- *     RtlpWow64SuspendProcess @ 0x1801323E8 (RtlpWow64SuspendProcess.c)
+ *     RtlOpenCrossProcessEmulatorWorkConnection @ 0x1800E1430 (RtlOpenCrossProcessEmulatorWorkConnection.c)
+ *     RtlpWow64SuspendProcess @ 0x180130618 (RtlpWow64SuspendProcess.c)
  * Callees:
- *     NtCompareObjects @ 0x180163060 (NtCompareObjects.c)
+ *     NtCompareObjects @ 0x180161420 (NtCompareObjects.c)
  */
 
-bool __fastcall RtlIsCurrentProcess(__int64 a1)
+BOOLEAN __cdecl RtlIsCurrentProcess(HANDLE ProcessHandle)
 {
-  return a1 == -1 || (int)NtCompareObjects(-1LL, a1) >= 0;
+  return ProcessHandle == (HANDLE)-1LL || NtCompareObjects((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessHandle) >= 0;
 }

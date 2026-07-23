@@ -1,20 +1,20 @@
 /*
- * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x14040C688
+ * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x14040B548
  * Callers:
- *     AlpcpPrepareViewForDelivery @ 0x14040B998 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpReceiveView @ 0x14040CD88 (AlpcpReceiveView.c)
+ *     AlpcpPrepareViewForDelivery @ 0x14040A858 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpReceiveView @ 0x14040BC48 (AlpcpReceiveView.c)
  * Callees:
- *     MiSetReadOnlyOnSectionView @ 0x14000CE40 (MiSetReadOnlyOnSectionView.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiVadMapsLargeImage @ 0x14002C410 (MiVadMapsLargeImage.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiCheckSecuredVad @ 0x14040C3EC (MiCheckSecuredVad.c)
- *     MiIsRangeFullyCommitted @ 0x14040C55C (MiIsRangeFullyCommitted.c)
- *     MiAddSecureEntry @ 0x14042AB30 (MiAddSecureEntry.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1404D0D0C (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     MiSetReadOnlyOnSectionView @ 0x14000C9C0 (MiSetReadOnlyOnSectionView.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiVadMapsLargeImage @ 0x14002BF90 (MiVadMapsLargeImage.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiCheckSecuredVad @ 0x14040B2AC (MiCheckSecuredVad.c)
+ *     MiIsRangeFullyCommitted @ 0x14040B41C (MiIsRangeFullyCommitted.c)
+ *     MiAddSecureEntry @ 0x140429A00 (MiAddSecureEntry.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1404B47AC (MiUnsecureVirtualMemoryAgainstWrites.c)
  */
 
 __int64 __fastcall MmSecureVirtualMemoryAgainstWrites(_KPROCESS *a1, unsigned __int64 a2, __int64 a3)

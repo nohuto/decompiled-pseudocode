@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogNotificationRegister @ 0x1407D65B0
+ * XREFs of CmpLogNotificationRegister @ 0x1407D6B24
  * Callers:
- *     CmpNotifyChangeKey @ 0x140AE4A64 (CmpNotifyChangeKey.c)
+ *     CmpNotifyChangeKey @ 0x140AE6344 (CmpNotifyChangeKey.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CmpLogNotificationRegister(__int64 a1, __int64 a2, char a3, char a4, char a5)

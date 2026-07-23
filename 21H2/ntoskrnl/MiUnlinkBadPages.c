@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlinkBadPages @ 0x14052F0F8
+ * XREFs of MiUnlinkBadPages @ 0x14052F338
  * Callers:
- *     MmMarkPhysicalMemoryAsGood @ 0x140530460 (MmMarkPhysicalMemoryAsGood.c)
+ *     MmMarkPhysicalMemoryAsGood @ 0x1405306A0 (MmMarkPhysicalMemoryAsGood.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiIsPageOnBadList @ 0x14030E2BC (MiIsPageOnBadList.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiIsPageInHugePfn @ 0x1403F391C (MiIsPageInHugePfn.c)
  *     MiMarkHugePfnGood @ 0x1403F3DA8 (MiMarkHugePfnGood.c)
- *     MiSetPfnRemovalRequested @ 0x14054F428 (MiSetPfnRemovalRequested.c)
- *     MiUnlinkPageFromBadList @ 0x14054F540 (MiUnlinkPageFromBadList.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F668 (MiSetPfnRemovalRequested.c)
+ *     MiUnlinkPageFromBadList @ 0x14054F780 (MiUnlinkPageFromBadList.c)
  */
 
 __int64 __fastcall MiUnlinkBadPages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
@@ -121,7 +121,7 @@ __int64 __fastcall MiUnlinkBadPages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
           KeYieldProcessorEx(&v37, v9, v10, v11);
         while ( *(__int64 *)v7 < 0 );
       }
-      v20 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v4 + 40) >> 39) & 0x3FFLL));
+      v20 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v4 + 40) >> 39) & 0x3FFLL));
       if ( (*(_BYTE *)(v4 + 35) & 0x40) != 0 )
       {
         MiSetPfnRemovalRequested(v4, 0LL);

@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwWaitForWorkViaWorkerFactory @ 0x1800A3C50
+ * XREFs of ZwWaitForWorkViaWorkerFactory @ 0x1800A3C70
  * Callers:
  *     TppWorkerThread @ 0x180016320 (TppWorkerThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwWaitForWorkViaWorkerFactory()
+NTSTATUS __cdecl ZwWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 460LL;
+  result = 460;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

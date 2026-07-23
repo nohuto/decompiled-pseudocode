@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x14034B4F0
+ * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x14034D570
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x14051C628 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1405194B4 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     RtlpHpInitializeLock @ 0x14034B490 (RtlpHpInitializeLock.c)
- *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x14034B4AC (RtlpHpLfhSubsegmentComputeCommitUnit.c)
- *     RtlpHpLfhSubsegmentPrefetchRange @ 0x14034B864 (RtlpHpLfhSubsegmentPrefetchRange.c)
- *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x14034BAC8 (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
- *     RtlpHpLfhBlockBitmapInitialize @ 0x14034BB58 (RtlpHpLfhBlockBitmapInitialize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpHpInitializeLock @ 0x14034D510 (RtlpHpInitializeLock.c)
+ *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x14034D52C (RtlpHpLfhSubsegmentComputeCommitUnit.c)
+ *     RtlpHpLfhSubsegmentPrefetchRange @ 0x14034D8E4 (RtlpHpLfhSubsegmentPrefetchRange.c)
+ *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x14034DB48 (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
+ *     RtlpHpLfhBlockBitmapInitialize @ 0x14034DBD8 (RtlpHpLfhBlockBitmapInitialize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall RtlpHpLfhSubsegmentInitialize(

@@ -1,37 +1,29 @@
 /*
- * XREFs of TppStopWaitCallbackGeneration @ 0x18010D3F0
+ * XREFs of TppStopWaitCallbackGeneration @ 0x18010CF40
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     TppCancelWait @ 0x180067A40 (TppCancelWait.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     TppCancelWait @ 0x180087E90 (TppCancelWait.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-struct _TEB *__fastcall TppStopWaitCallbackGeneration(__int64 a1, __int64 a2)
+void __fastcall TppStopWaitCallbackGeneration(__int64 a1, int a2)
 {
   __int64 v2; // rbx
-  volatile signed __int64 *v3; // rsi
-  int v5; // edi
-  struct _TEB *result; // rax
-  unsigned int v7; // ecx
-  signed int v8; // [rsp+38h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v3; // rsi
+  signed int v6; // ecx
+  signed int v7; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)(a1 + 144);
-  v3 = (volatile signed __int64 *)(a1 + 240);
-  v8 = 0;
-  v5 = a2;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240), a2);
-  TppCancelWait(a1, v2 + 112, v5 != 0 ? 2 : 0, &v8);
+  v3 = (_RTL_SRWLOCK *)(a1 + 240);
+  v7 = 0;
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  TppCancelWait(a1, v2 + 112, a2 != 0 ? 2 : 0, &v7);
   ++*(_BYTE *)(a1 + 355);
-  result = RtlReleaseSRWLockExclusive(v3);
-  if ( v8 < 0 )
-  {
-    v7 = -v8;
-    result = (struct _TEB *)(unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, v8);
-    if ( (_DWORD)result == v7 )
-      return (struct _TEB *)(**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
-  }
-  return result;
+  RtlReleaseSRWLockExclusive(v3);
+  v6 = v7;
+  if ( v7 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a1, v7) == -v6 )
+    (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
 }

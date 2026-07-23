@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlIsMultiSessionSku @ 0x1405037BC
+ * XREFs of RtlIsMultiSessionSku @ 0x1404E674C
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x140132358 (OpenGlobalizationUserSettingsKey.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x1405037E4 (SepIsImpersonationAllowedDueToCapability.c)
- *     PopPowerInformationInternal @ 0x14051D314 (PopPowerInformationInternal.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14056F854 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     RtlCapabilityCheck @ 0x1406836A4 (RtlCapabilityCheck.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1401328C8 (OpenGlobalizationUserSettingsKey.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x1404E6774 (SepIsImpersonationAllowedDueToCapability.c)
+ *     PopPowerInformationInternal @ 0x140500704 (PopPowerInformationInternal.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14056FD94 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     RtlCapabilityCheck @ 0x140683788 (RtlCapabilityCheck.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   int v0; // eax
 

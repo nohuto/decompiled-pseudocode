@@ -1,16 +1,16 @@
 /*
- * XREFs of PopIdleWakeGenerateInterruptDescriptionString @ 0x140A8190C
+ * XREFs of PopIdleWakeGenerateInterruptDescriptionString @ 0x140A7C204
  * Callers:
- *     PopIdleWakeGenerateDescriptionString @ 0x140AA4F28 (PopIdleWakeGenerateDescriptionString.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x140AA0228 (PopIdleWakeGenerateDescriptionString.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403EA5B0 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x14041C568 (RtlUnicodeStringCatString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringCopyString @ 0x140465D3C (RtlUnicodeStringCopyString.c)
- *     MmEnumerateSystemImages @ 0x1404FAB30 (MmEnumerateSystemImages.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopGenerateDeviceFriendlyName @ 0x140A81B2C (PopGenerateDeviceFriendlyName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlUnicodeStringCat @ 0x1403DA240 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x1404105C0 (RtlUnicodeStringCatString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCopyString @ 0x14045D760 (RtlUnicodeStringCopyString.c)
+ *     MmEnumerateSystemImages @ 0x1404F8410 (MmEnumerateSystemImages.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140A7C424 (PopGenerateDeviceFriendlyName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopIdleWakeGenerateInterruptDescriptionString(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall PopIdleWakeGenerateInterruptDescriptionString(__int64 a1, __i
   unsigned int v15; // edx
   unsigned __int16 *v16; // r9
   __int64 v17; // rcx
-  unsigned __int64 v18; // rdi
+  ULONG_PTR v18; // rdi
   __int64 Pool2; // rax
   unsigned int k; // edi
   PCWSTR SourceString[2]; // [rsp+20h] [rbp-68h]
@@ -100,7 +100,7 @@ LABEL_14:
     v18 = v14 + 24;
     if ( v18 <= 0xFFFF )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, v18, 0x67696450u);
       v3->Buffer = (wchar_t *)Pool2;
       if ( Pool2 )
       {

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQueryChannelTopologyInformation @ 0x140CB5078
+ * XREFs of HalpQueryChannelTopologyInformation @ 0x140CBB0B8
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall HalpQueryChannelTopologyInformation(_QWORD *a1, unsigned int 
   }
   else
   {
-    *a1 = HalpChannelMemoryRanges;
+    *a1 = qword_140F87A78;
     result = 0LL;
   }
   *a3 = v3;

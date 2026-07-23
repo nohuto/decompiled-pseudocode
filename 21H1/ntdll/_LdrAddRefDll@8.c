@@ -14,26 +14,29 @@
  *     _LdrpPinModule@4 @ 0x4B2E7DC6 (_LdrpPinModule@4.c)
  */
 
-int __stdcall LdrAddRefDll(int a1, unsigned int a2)
+NTSTATUS __cdecl LdrAddRefDll(ULONG Flags, PVOID DllHandle)
 {
-  int LoadedDllByHandle; // esi
-  _DWORD *v3; // edi
+  NTSTATUS LoadedDllByHandle; // esi
+  char *v3; // edi
   int Count; // eax
   int v6; // [esp+8h] [ebp-8h] BYREF
-  _DWORD *v7; // [esp+Ch] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+Ch] [ebp-4h] BYREF
 
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
     return -1073741811;
-  LoadedDllByHandle = LdrpFindLoadedDllByHandle(a2, (int *)&v7, &v6);
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle(
+                        (_RTL_BALANCED_NODE *)DllHandle,
+                        (volatile signed __int32 **)&BaseAddress,
+                        &v6);
   if ( LoadedDllByHandle >= 0 )
   {
-    v3 = v7;
-    if ( (a1 & 1) != 0 )
-      Count = LdrpPinModule(v7);
+    v3 = (char *)BaseAddress;
+    if ( (Flags & 1) != 0 )
+      Count = LdrpPinModule(BaseAddress);
     else
-      Count = LdrpIncrementModuleLoadCount(v7);
+      Count = LdrpIncrementModuleLoadCount(BaseAddress);
     LoadedDllByHandle = Count;
-    LdrpDereferenceModule((int)v3);
+    LdrpDereferenceModule(v3);
   }
   return LoadedDllByHandle;
 }

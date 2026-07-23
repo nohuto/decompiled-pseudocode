@@ -1,58 +1,58 @@
 /*
- * XREFs of MiCreateSection @ 0x14042CD40
+ * XREFs of MiCreateSection @ 0x14042BC10
  * Callers:
- *     MmCreateSystemSection @ 0x1400821E0 (MmCreateSystemSection.c)
- *     MmCreateSection @ 0x14042CC10 (MmCreateSection.c)
- *     MmCreateSpecialImageSection @ 0x14045DF70 (MmCreateSpecialImageSection.c)
- *     MmCreateSectionEx @ 0x140471464 (MmCreateSectionEx.c)
- *     MmCreateCacheManagerSection @ 0x140471580 (MmCreateCacheManagerSection.c)
+ *     MmCreateSystemSection @ 0x140082E5C (MmCreateSystemSection.c)
+ *     MmCreateSection @ 0x14042BAE0 (MmCreateSection.c)
+ *     MmCreateSpecialImageSection @ 0x14045CE40 (MmCreateSpecialImageSection.c)
+ *     MmCreateSectionEx @ 0x140470334 (MmCreateSectionEx.c)
+ *     MmCreateCacheManagerSection @ 0x140470450 (MmCreateCacheManagerSection.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiReferenceControlAreaForCacheManager @ 0x140021518 (MiReferenceControlAreaForCacheManager.c)
- *     CcWaitForUninitializeCacheMap @ 0x140022280 (CcWaitForUninitializeCacheMap.c)
- *     IoSetTopLevelIrp @ 0x140024F90 (IoSetTopLevelIrp.c)
- *     MiReferenceControlArea @ 0x140026064 (MiReferenceControlArea.c)
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     MiDereferenceControlAreaBySection @ 0x1400275AC (MiDereferenceControlAreaBySection.c)
- *     MiMakeProtectionMask @ 0x14002BD00 (MiMakeProtectionMask.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ObDereferenceObjectEx @ 0x140074E7C (ObDereferenceObjectEx.c)
- *     ObReferenceObjectExWithTag @ 0x140096540 (ObReferenceObjectExWithTag.c)
- *     MiZeroSectionObjectPointer @ 0x1400B5188 (MiZeroSectionObjectPointer.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ObFastReplaceObject @ 0x1400CCF54 (ObFastReplaceObject.c)
- *     IoAllowExecution @ 0x1400FB67C (IoAllowExecution.c)
- *     MmChangeSectionBackingFile @ 0x1400FCFC0 (MmChangeSectionBackingFile.c)
- *     PsIsCurrentThreadPrefetching @ 0x1400FD4A0 (PsIsCurrentThreadPrefetching.c)
- *     KeEnterCriticalRegionThread @ 0x140133CDC (KeEnterCriticalRegionThread.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ObCreateObjectEx @ 0x14041D970 (ObCreateObjectEx.c)
- *     MiRelocateImageAgain @ 0x14042C2BC (MiRelocateImageAgain.c)
- *     FsRtlGetFileSize @ 0x14042C454 (FsRtlGetFileSize.c)
- *     FsRtlAcquireToCreateMappedSection @ 0x14042DD98 (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlReleaseFile @ 0x14042DE60 (FsRtlReleaseFile.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeCompareSigningLevels @ 0x14045D1E0 (SeCompareSigningLevels.c)
- *     MiCreatePagingFileMap @ 0x1404B8370 (MiCreatePagingFileMap.c)
- *     MiFindEmptyAddressRangeDownTree @ 0x1404BAC5C (MiFindEmptyAddressRangeDownTree.c)
- *     ObCheckActiveHandles @ 0x1404DB434 (ObCheckActiveHandles.c)
- *     SeGetImageRequiredSigningLevel @ 0x140520A4C (SeGetImageRequiredSigningLevel.c)
- *     SeCompareSigningLevelsForAuditableProcess @ 0x1405218BC (SeCompareSigningLevelsForAuditableProcess.c)
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
- *     MiLogSectionCreate @ 0x140659210 (MiLogSectionCreate.c)
- *     MiLogSectionObjectEvent @ 0x14065930C (MiLogSectionObjectEvent.c)
- *     MiCreatePerSessionProtos @ 0x140661B60 (MiCreatePerSessionProtos.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
- *     SeRevalidateImage @ 0x14068C990 (SeRevalidateImage.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiReferenceControlAreaForCacheManager @ 0x140021098 (MiReferenceControlAreaForCacheManager.c)
+ *     CcWaitForUninitializeCacheMap @ 0x140021E00 (CcWaitForUninitializeCacheMap.c)
+ *     IoSetTopLevelIrp @ 0x140024B10 (IoSetTopLevelIrp.c)
+ *     MiReferenceControlArea @ 0x140025BE4 (MiReferenceControlArea.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     MiDereferenceControlAreaBySection @ 0x14002712C (MiDereferenceControlAreaBySection.c)
+ *     MiMakeProtectionMask @ 0x14002B880 (MiMakeProtectionMask.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ObDereferenceObjectEx @ 0x140074EFC (ObDereferenceObjectEx.c)
+ *     ObReferenceObjectExWithTag @ 0x140095D40 (ObReferenceObjectExWithTag.c)
+ *     MiZeroSectionObjectPointer @ 0x1400B2FC0 (MiZeroSectionObjectPointer.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ObFastReplaceObject @ 0x1400CADF4 (ObFastReplaceObject.c)
+ *     IoAllowExecution @ 0x1400F9408 (IoAllowExecution.c)
+ *     MmChangeSectionBackingFile @ 0x1400FAD40 (MmChangeSectionBackingFile.c)
+ *     PsIsCurrentThreadPrefetching @ 0x1400FB220 (PsIsCurrentThreadPrefetching.c)
+ *     KeEnterCriticalRegionThread @ 0x14013424C (KeEnterCriticalRegionThread.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ObCreateObjectEx @ 0x14041C830 (ObCreateObjectEx.c)
+ *     MiRelocateImageAgain @ 0x14042B18C (MiRelocateImageAgain.c)
+ *     FsRtlGetFileSize @ 0x14042B324 (FsRtlGetFileSize.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x14042CC68 (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlReleaseFile @ 0x14042CD30 (FsRtlReleaseFile.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeCompareSigningLevels @ 0x14045C0B0 (SeCompareSigningLevels.c)
+ *     MiCreatePagingFileMap @ 0x1404A2750 (MiCreatePagingFileMap.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x1404A698C (MiFindEmptyAddressRangeDownTree.c)
+ *     ObCheckActiveHandles @ 0x1404BEA38 (ObCheckActiveHandles.c)
+ *     SeGetImageRequiredSigningLevel @ 0x140503AB4 (SeGetImageRequiredSigningLevel.c)
+ *     SeCompareSigningLevelsForAuditableProcess @ 0x14050491C (SeCompareSigningLevelsForAuditableProcess.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
+ *     MiLogSectionCreate @ 0x1406592F4 (MiLogSectionCreate.c)
+ *     MiLogSectionObjectEvent @ 0x1406593F0 (MiLogSectionObjectEvent.c)
+ *     MiCreatePerSessionProtos @ 0x140661C44 (MiCreatePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
+ *     SeRevalidateImage @ 0x14068CA74 (SeRevalidateImage.c)
  */
 
 NTSTATUS __fastcall MiCreateSection(
@@ -149,7 +149,7 @@ NTSTATUS __fastcall MiCreateSection(
   PVOID *Object; // [rsp+20h] [rbp-E0h]
   __int64 v91; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v92; // [rsp+68h] [rbp-98h] BYREF
-  unsigned __int8 v93[8]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v93; // [rsp+70h] [rbp-90h] BYREF
   PVOID v94; // [rsp+78h] [rbp-88h]
   __int64 v95; // [rsp+80h] [rbp-80h] BYREF
   int v96; // [rsp+88h] [rbp-78h]
@@ -323,7 +323,7 @@ LABEL_36:
       result = MiCreatePagingFileMap((unsigned int)&v95, (_DWORD)i, v25, a6, v18);
       if ( result < 0 )
         return result;
-      _InterlockedIncrement64(&qword_140323BC8);
+      _InterlockedIncrement64(&qword_140323C08);
       v42 = _InterlockedCompareExchange64((volatile signed __int64 *)(v95 + 24), -1LL, -1LL);
       v43 = v95;
       LODWORD(v44) = v91 | 4;
@@ -438,25 +438,25 @@ LABEL_187:
           goto LABEL_254;
         *((_DWORD *)v70 + 14) |= 0x40u;
         v77 = *((_QWORD *)v70 + 6);
-        if ( v77 > qword_140326578 )
+        if ( v77 > qword_1403265B8 )
         {
           ObfDereferenceObject(v70);
           return -1073741801;
         }
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->SpecialApcDisable;
-        v79 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326560, 0LL, 0);
+        v79 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1403265A0, 0LL, 0);
         v80 = v79;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326560, 0LL) )
-          ExfAcquirePushLockExclusiveEx(&qword_140326560, v79, (ULONG_PTR)&qword_140326560);
+        if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_1403265A0, 0LL) )
+          ExfAcquirePushLockExclusiveEx(&qword_1403265A0, v79, (ULONG_PTR)&qword_1403265A0);
         if ( v80 )
           v80[26] |= 1u;
         EmptyAddressRangeDownTree = MiFindEmptyAddressRangeDownTree(
-                                      (unsigned int)&qword_140326558,
+                                      (unsigned int)&qword_140326598,
                                       v77,
                                       0x10000,
                                       0x10000,
-                                      qword_140326578,
+                                      qword_1403265B8,
                                       (__int64)&v108);
         if ( EmptyAddressRangeDownTree >= 0 )
         {
@@ -465,9 +465,9 @@ LABEL_187:
           *((_QWORD *)v70 + 3) = v108 >> 12;
           LOBYTE(v84) = 0;
           v82[4] = ((v77 + 4095) >> 12) + v83 - 1;
-          v85 = qword_140326558;
+          v85 = qword_140326598;
           v86 = *((_QWORD *)v70 + 3);
-          if ( !qword_140326558 )
+          if ( !qword_140326598 )
             goto LABEL_251;
           while ( 1 )
           {
@@ -479,10 +479,10 @@ LABEL_187:
               {
                 LOBYTE(v84) = 1;
 LABEL_251:
-                RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140326558, v85, v84, (unsigned __int64)v82);
-                if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326560, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-                  ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326560);
-                KeAbPostRelease((ULONG_PTR)&qword_140326560);
+                RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140326598, v85, v84, (unsigned __int64)v82);
+                if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403265A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+                  ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403265A0);
+                KeAbPostRelease((ULONG_PTR)&qword_1403265A0);
                 KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
                 v43 = v95;
 LABEL_254:
@@ -518,9 +518,9 @@ LABEL_254:
             v85 = v84;
           }
         }
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326560, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326560);
-        KeAbPostRelease((ULONG_PTR)&qword_140326560);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403265A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403265A0);
+        KeAbPostRelease((ULONG_PTR)&qword_1403265A0);
         KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
         ObfDereferenceObject(v97);
         return EmptyAddressRangeDownTree;
@@ -660,8 +660,8 @@ LABEL_117:
           if ( ((v99[0] - 1) & v99[0]) == 0 )
           {
             v35 |= 0x2000u;
-            if ( v99[0] < (unsigned int)dword_14032766C )
-              dword_14032766C = v99[0];
+            if ( v99[0] < (unsigned int)dword_1403276AC )
+              dword_1403276AC = v99[0];
           }
         }
         if ( v36 == 299 )
@@ -742,7 +742,7 @@ LABEL_117:
       goto LABEL_176;
     if ( (*(_DWORD *)(v38 + 56) & 0x800) != 0 && ((unsigned int)v44 & 0x20000) != 0 )
     {
-      dword_140326780 = 81;
+      dword_1403267C0 = 81;
       PerSessionProtos = -1073740749;
       v49 = v30;
 LABEL_221:
@@ -780,10 +780,7 @@ LABEL_221:
     v114 = v53;
     v54 = ((unsigned int)v44 >> 11) & 1;
     if ( v54 )
-    {
-      v53 |= 0x10u;
-      v114 = v53;
-    }
+      v114 = v53 | 0x10;
     if ( (((unsigned int)v44 >> 10) & 1) == 0 || ((unsigned __int8)v44 & 0x10) != 0 || v54 )
     {
       v55 = a8;
@@ -847,7 +844,7 @@ LABEL_177:
       PerSessionProtos = MiValidateSectionCreate(v94, v38, a12, a7);
       if ( PerSessionProtos < 0 )
       {
-        dword_140326780 = 60;
+        dword_1403267C0 = 60;
         v49 = v30;
         goto LABEL_221;
       }
@@ -869,11 +866,11 @@ LABEL_177:
     v55 = a8;
     if ( !a8 )
       goto LABEL_160;
-    PerSessionProtos = SeGetImageRequiredSigningLevel((_DWORD)v94, v53, a8, *(_BYTE *)(v43 + 15) >> 4, (__int64)v93);
+    PerSessionProtos = SeGetImageRequiredSigningLevel(v94, (__int64)&v93);
     if ( PerSessionProtos >= 0 )
     {
-      v55 = v93[0];
-      a8 = v93[0];
+      v55 = v93;
+      a8 = v93;
       goto LABEL_160;
     }
 LABEL_220:

@@ -23,7 +23,7 @@ NTSTATUS __stdcall IoReadPartitionTable(
   struct _DEVICE_OBJECT *v7; // r10
   NTSTATUS v8; // edi
   int PartitionTable; // eax
-  ULONG *v10; // rbx
+  DWORD *v10; // rbx
   SIZE_T v11; // rbp
   struct _DRIVE_LAYOUT_INFORMATION *PoolWithTag; // rax
   __int64 v13; // r8
@@ -43,7 +43,7 @@ NTSTATUS __stdcall IoReadPartitionTable(
   if ( v8 >= 0 )
   {
     PartitionTable = SC_DISK::ReadPartitionTable((SC_DISK *)v20, (struct SC_DISK_LAYOUT **)&P);
-    v10 = (ULONG *)P;
+    v10 = (DWORD *)P;
     v8 = PartitionTable;
     if ( PartitionTable >= 0 )
     {

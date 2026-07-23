@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateIrpMustSucceed @ 0x1400B92A0
+ * XREFs of IopAllocateIrpMustSucceed @ 0x1400B91E0
  * Callers:
- *     IopCloseFile @ 0x140639B10 (IopCloseFile.c)
- *     IopDeleteFile @ 0x14063B3C0 (IopDeleteFile.c)
- *     IoCancelFileOpen @ 0x14081BDC0 (IoCancelFileOpen.c)
- *     IopFreeBandwidthContract @ 0x1408228FC (IopFreeBandwidthContract.c)
+ *     IopCloseFile @ 0x14063AB30 (IopCloseFile.c)
+ *     IopDeleteFile @ 0x14063C3E0 (IopDeleteFile.c)
+ *     IoCancelFileOpen @ 0x14081CFC0 (IoCancelFileOpen.c)
+ *     IopFreeBandwidthContract @ 0x140823AFC (IopFreeBandwidthContract.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IopAllocateReserveIrp @ 0x14027E700 (IopAllocateReserveIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IopAllocateReserveIrp @ 0x14027E8F0 (IopAllocateReserveIrp.c)
  */
 
 __int64 __fastcall IopAllocateIrpMustSucceed(__int64 a1, __int64 a2)

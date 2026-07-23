@@ -1,25 +1,25 @@
 /*
  * XREFs of MiMarkHugePfnBad @ 0x1403F39F4
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x14052F930 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052FB70 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x1402AC034 (MiUnlockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryExclusive @ 0x1402AC3F4 (MiLockDynamicMemoryExclusive.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1402745E0 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x1402749A0 (MiLockDynamicMemoryExclusive.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     MiHugePfnPartition @ 0x1403F38E8 (MiHugePfnPartition.c)
  *     MiIsPageInHugePfn @ 0x1403F391C (MiIsPageInHugePfn.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiInsertHugeRangeInList @ 0x140533608 (MiInsertHugeRangeInList.c)
- *     MiUnlinkHugeRange @ 0x140533B5C (MiUnlinkHugeRange.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiInsertHugeRangeInList @ 0x140533848 (MiInsertHugeRangeInList.c)
+ *     MiUnlinkHugeRange @ 0x140533D9C (MiUnlinkHugeRange.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MiMarkHugePfnBad(unsigned __int64 a1, int a2)
@@ -57,17 +57,17 @@ __int64 __fastcall MiMarkHugePfnBad(unsigned __int64 a1, int a2)
   P = 0LL;
   v28 = (__int64)CurrentThread;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E608, 0LL);
-  v7 = (_QWORD *)(qword_140C4E670 + 8 * v5);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E648, 0LL);
+  v7 = (_QWORD *)(qword_140C4E6B0 + 8 * v5);
   while ( 1 )
   {
     v8 = MiHugePfnPartition(v7);
     v9 = v8;
     if ( !v8 )
     {
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(&qword_140C4E608);
-      KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E648, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&qword_140C4E648);
+      KeAbPostRelease((ULONG_PTR)&qword_140C4E648);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       return 3221226548LL;
     }
@@ -85,7 +85,7 @@ LABEL_15:
   }
   while ( 1 )
   {
-    v11 = (_QWORD *)(qword_140C4E670 + 8 * v5);
+    v11 = (_QWORD *)(qword_140C4E6B0 + 8 * v5);
     v27 = v11;
     if ( (*v11 & 0x10000000000LL) != 0 )
     {
@@ -183,9 +183,9 @@ LABEL_17:
   v15 = P;
 LABEL_18:
   MiUnlockDynamicMemoryExclusive(v9, v28);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140C4E608);
-  KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E648, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C4E648);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4E648);
   KiLeaveGuardedRegionUnsafe(v28);
   if ( v15 )
     ExFreePoolWithTag(v15, 0);

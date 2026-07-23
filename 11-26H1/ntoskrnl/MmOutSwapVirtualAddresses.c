@@ -1,27 +1,27 @@
 /*
- * XREFs of MmOutSwapVirtualAddresses @ 0x140405328
+ * XREFs of MmOutSwapVirtualAddresses @ 0x1403FE41C
  * Callers:
- *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403F1014 (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403EA9E4 (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
  * Callees:
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiUnlockWsSwapExclusive @ 0x1404051D4 (MiUnlockWsSwapExclusive.c)
- *     MiOutSwapWorkingSet @ 0x1404055EC (MiOutSwapWorkingSet.c)
- *     MiFindBestOutswapPagefile @ 0x1404056BC (MiFindBestOutswapPagefile.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404057B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140405820 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockWsSwapExclusive @ 0x1404058B0 (MiLockWsSwapExclusive.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x140405C04 (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x140405C5C (MiAllocateWorkingSetSwapSupport.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiValidateMemoryRangeEntries @ 0x140A84554 (MiValidateMemoryRangeEntries.c)
- *     MiReserveWorkingSetSwapSpace @ 0x140AC1BB4 (MiReserveWorkingSetSwapSpace.c)
- *     MiFreeReservationRuns @ 0x140AC1DB0 (MiFreeReservationRuns.c)
- *     EtwTraceWorkingSetSwap @ 0x140AF3D1C (EtwTraceWorkingSetSwap.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x140B6C054 (MiExtendWorkingSetSwapPagefile.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiUnlockWsSwapExclusive @ 0x1403FE2C8 (MiUnlockWsSwapExclusive.c)
+ *     MiOutSwapWorkingSet @ 0x1403FE6E0 (MiOutSwapWorkingSet.c)
+ *     MiFindBestOutswapPagefile @ 0x1403FE7B0 (MiFindBestOutswapPagefile.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403FE8A4 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403FE914 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockWsSwapExclusive @ 0x1403FE9A4 (MiLockWsSwapExclusive.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1403FECF8 (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1403FED50 (MiAllocateWorkingSetSwapSupport.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiValidateMemoryRangeEntries @ 0x140A898A8 (MiValidateMemoryRangeEntries.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x140AC3C54 (MiReserveWorkingSetSwapSpace.c)
+ *     MiFreeReservationRuns @ 0x140AC3E50 (MiFreeReservationRuns.c)
+ *     EtwTraceWorkingSetSwap @ 0x140AF673C (EtwTraceWorkingSetSwap.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140B6F150 (MiExtendWorkingSetSwapPagefile.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64 *a2, __int64 a3, _QWORD *a4)
@@ -67,7 +67,7 @@ __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64
   Blink_high = HIWORD(Process[2].ProcessListEntry.Blink);
   v27 = 0;
   v29 = CurrentThread;
-  v9 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high);
+  v9 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high);
   BestOutswapPagefile = MiFindBestOutswapPagefile(v9, &v27);
   if ( BestOutswapPagefile == 16 )
     return 3221225799LL;

@@ -1,28 +1,28 @@
 /*
- * XREFs of MiTradePageMarkedActive @ 0x1402931C0
+ * XREFs of MiTradePageMarkedActive @ 0x140292720
  * Callers:
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiInitializePageTradePacket @ 0x140293510 (MiInitializePageTradePacket.c)
- *     MiMakeTradeVaReadOnly @ 0x140293834 (MiMakeTradeVaReadOnly.c)
- *     MiCopyTradePageMetaData @ 0x1402938DC (MiCopyTradePageMetaData.c)
- *     MiTradeForLeafPage @ 0x140293AE4 (MiTradeForLeafPage.c)
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     MiGetPageToTrade @ 0x1402951E0 (MiGetPageToTrade.c)
- *     MiLockTargetPageForTrade @ 0x140295360 (MiLockTargetPageForTrade.c)
- *     MiTradePageWritePte @ 0x14029F8EC (MiTradePageWritePte.c)
- *     MiReturnFreeZeroPage @ 0x1402AA690 (MiReturnFreeZeroPage.c)
- *     MiTradeForPageTablePage @ 0x14033B46C (MiTradeForPageTablePage.c)
- *     MiPfnIsActivePageTable @ 0x1403A77A8 (MiPfnIsActivePageTable.c)
- *     MiRevertPfnActivePageTable @ 0x140468A80 (MiRevertPfnActivePageTable.c)
- *     MiTradePageReleaseLocks @ 0x14046F85C (MiTradePageReleaseLocks.c)
- *     MiUpdateTradePagePreCopy @ 0x1404870B0 (MiUpdateTradePagePreCopy.c)
- *     MiTrimPoisonedPage @ 0x1406FFBBC (MiTrimPoisonedPage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiInitializePageTradePacket @ 0x140292A70 (MiInitializePageTradePacket.c)
+ *     MiMakeTradeVaReadOnly @ 0x140292D94 (MiMakeTradeVaReadOnly.c)
+ *     MiCopyTradePageMetaData @ 0x140292E3C (MiCopyTradePageMetaData.c)
+ *     MiTradeForLeafPage @ 0x140293044 (MiTradeForLeafPage.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     MiGetPageToTrade @ 0x140294740 (MiGetPageToTrade.c)
+ *     MiLockTargetPageForTrade @ 0x1402948C0 (MiLockTargetPageForTrade.c)
+ *     MiTradePageWritePte @ 0x14029EE3C (MiTradePageWritePte.c)
+ *     MiReturnFreeZeroPage @ 0x1402A9A90 (MiReturnFreeZeroPage.c)
+ *     MiTradeForPageTablePage @ 0x14033D4EC (MiTradeForPageTablePage.c)
+ *     MiPfnIsActivePageTable @ 0x1403A9508 (MiPfnIsActivePageTable.c)
+ *     MiRevertPfnActivePageTable @ 0x140462130 (MiRevertPfnActivePageTable.c)
+ *     MiTradePageReleaseLocks @ 0x140468FDC (MiTradePageReleaseLocks.c)
+ *     MiUpdateTradePagePreCopy @ 0x140480A80 (MiUpdateTradePagePreCopy.c)
+ *     MiTrimPoisonedPage @ 0x14070488C (MiTrimPoisonedPage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiTradePageMarkedActive(__int64 *a1, __int64 a2, __int64 a3)
@@ -158,7 +158,7 @@ LABEL_16:
   {
     if ( v29 )
       *v29 = v32;
-    _InterlockedIncrement(&dword_140EF8C84);
+    _InterlockedIncrement(&dword_140EF8FE4);
     goto LABEL_21;
   }
   if ( (*(_BYTE *)(v33 + 34) & 7) == 6 )
@@ -173,7 +173,7 @@ LABEL_16:
   if ( (*(_QWORD *)(v33 + 24) & 0x4000000000000000LL) != 0 )
     v15 = 1;
   else
-    _InterlockedIncrement(&dword_140EF8C88);
+    _InterlockedIncrement(&dword_140EF8FE8);
 LABEL_21:
   MiUnlockStealVm(v26);
   if ( v30 )

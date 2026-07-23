@@ -1,10 +1,10 @@
 /*
- * XREFs of HvTruncateAllLogFilesIfRequired @ 0x140AAB3EC
+ * XREFs of HvTruncateAllLogFilesIfRequired @ 0x140AA89CC
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     CmpDoFileSetSizeEx @ 0x140AAA978 (CmpDoFileSetSizeEx.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140AAB6F8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     CmpDoFileSetSizeEx @ 0x140AA7F58 (CmpDoFileSetSizeEx.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140AA8CA4 (HvGetEffectiveLogSizeCapForHive.c)
  */
 
 __int64 __fastcall HvTruncateAllLogFilesIfRequired(__int64 a1)

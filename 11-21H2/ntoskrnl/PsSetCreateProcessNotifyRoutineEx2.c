@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     PspSetCreateProcessNotifyRoutine @ 0x140832928 (PspSetCreateProcessNotifyRoutine.c)
+ *     sub_140832928 @ 0x140832928 (sub_140832928.c)
  */
 
 __int64 __fastcall PsSetCreateProcessNotifyRoutineEx2(int a1, __int64 a2, char a3)
@@ -11,5 +11,5 @@ __int64 __fastcall PsSetCreateProcessNotifyRoutineEx2(int a1, __int64 a2, char a
   if ( a1 )
     return 3221225485LL;
   else
-    return PspSetCreateProcessNotifyRoutine(a2, (unsigned int)(a3 != 0) + 6);
+    return sub_140832928(a2, (unsigned int)(a3 != 0) + 6);
 }

@@ -1,13 +1,12 @@
 /*
- * XREFs of ZwOpenEnlistment @ 0x14041D200
+ * XREFs of ZwOpenEnlistment @ 0x14041D590
  * Callers:
- *     DifZwOpenEnlistmentWrapper @ 0x1405F1620 (DifZwOpenEnlistmentWrapper.c)
- *     CmpRecoverEnlistment @ 0x1408010F8 (CmpRecoverEnlistment.c)
+ *     DifZwOpenEnlistmentWrapper @ 0x1405F1B90 (DifZwOpenEnlistmentWrapper.c)
+ *     CmpRecoverEnlistment @ 0x1408013C8 (CmpRecoverEnlistment.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenEnlistment(
         PHANDLE EnlistmentHandle,
         ACCESS_MASK DesiredAccess,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwOpenEnlistment(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(EnlistmentHandle);
 }

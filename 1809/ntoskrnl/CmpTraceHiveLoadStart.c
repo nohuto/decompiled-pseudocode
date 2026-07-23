@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveLoadStart @ 0x1405B7744
+ * XREFs of CmpTraceHiveLoadStart @ 0x1405B8744
  * Callers:
- *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x1405B5DBC (CmLoadDifferencingKey.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveLoadStart(unsigned __int16 *a1, int a2)

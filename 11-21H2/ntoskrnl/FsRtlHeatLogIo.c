@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x140542DA0 (McTemplateK0xxxqq_EtwWriteTransfer.c)
+ *     sub_140542DA0 @ 0x140542DA0 (sub_140542DA0.c)
  */
 
 __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4, const GUID *a5)
@@ -16,10 +16,10 @@ __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4
   switch ( *(_BYTE *)v5 )
   {
     case 3:
-      if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 2) != 0 )
-        McTemplateK0xxxqq_EtwWriteTransfer(
+      if ( (byte_140C48A78 & 2) != 0 )
+        sub_140542DA0(
           a3[1],
-          (const EVENT_DESCRIPTOR *)TieredStorage_HeatRead,
+          (const EVENT_DESCRIPTOR *)qword_14003ACC8,
           a5,
           *a3,
           a3[1],
@@ -28,10 +28,10 @@ __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4
           *a1);
       break;
     case 4:
-      if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 4) != 0 )
-        McTemplateK0xxxqq_EtwWriteTransfer(
+      if ( (byte_140C48A78 & 4) != 0 )
+        sub_140542DA0(
           (__int64)a1,
-          (const EVENT_DESCRIPTOR *)TieredStorage_HeatWrite,
+          (const EVENT_DESCRIPTOR *)qword_14003ACD8,
           a5,
           *a3,
           a3[1],
@@ -40,16 +40,8 @@ __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4
           *a1);
       break;
     case 0x12:
-      if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 8) != 0 )
-        McTemplateK0xxxqq_EtwWriteTransfer(
-          (__int64)a1,
-          (const EVENT_DESCRIPTOR *)TieredStorage_HeatDelete,
-          a5,
-          *a3,
-          a3[1],
-          0LL,
-          0,
-          *a1);
+      if ( (byte_140C48A78 & 8) != 0 )
+        sub_140542DA0((__int64)a1, (const EVENT_DESCRIPTOR *)qword_14003ACA8, a5, *a3, a3[1], 0LL, 0, *a1);
       break;
     default:
       return (unsigned int)-1073741584;

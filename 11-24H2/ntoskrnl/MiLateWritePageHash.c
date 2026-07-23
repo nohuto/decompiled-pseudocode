@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLateWritePageHash @ 0x1404C9F30
+ * XREFs of MiLateWritePageHash @ 0x1404C3280
  * Callers:
- *     MiArePagefileContentsCorrupted @ 0x1402E5A94 (MiArePagefileContentsCorrupted.c)
+ *     MiArePagefileContentsCorrupted @ 0x140341C34 (MiArePagefileContentsCorrupted.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiWriteEntirePageHashEntry @ 0x14039E750 (MiWriteEntirePageHashEntry.c)
- *     MiReadEntirePageHashEntry @ 0x140461DDC (MiReadEntirePageHashEntry.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWriteEntirePageHashEntry @ 0x140426940 (MiWriteEntirePageHashEntry.c)
+ *     MiReadEntirePageHashEntry @ 0x1404573EC (MiReadEntirePageHashEntry.c)
  */
 
 __int64 __fastcall MiLateWritePageHash(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -22,14 +22,14 @@ __int64 __fastcall MiLateWritePageHash(__int64 a1, int a2, __int64 a3, __int64 a
   v9 = 0;
   v14[0] = 0LL;
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 200));
-  v10 = dword_140E3728C * a2;
+  v10 = dword_140E373CC * a2;
   if ( (*(_QWORD *)((((*(_QWORD *)(a1 + 184) + (unsigned __int64)v10) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 1) != 0 )
   {
     MiReadEntirePageHashEntry(*(_QWORD *)(a1 + 184) + v10, (__int64)v14);
     if ( LODWORD(v14[0]) == *(_DWORD *)a4 )
     {
       MiWriteEntirePageHashEntry(a3, (unsigned int *)v14);
-      if ( dword_140E37290 )
+      if ( dword_140E373D0 )
       {
         if ( *((_QWORD *)&v14[0] + 1) != *(_QWORD *)(a4 + 8) )
           v9 = 59;
@@ -39,7 +39,7 @@ __int64 __fastcall MiLateWritePageHash(__int64 a1, int a2, __int64 a3, __int64 a
     }
     else if ( (*(_BYTE *)(48 * ((v11 >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFDELL) & 0x10) != 0 )
     {
-      if ( !byte_140E301C8 )
+      if ( !byte_140E30308 )
         v9 = 58;
     }
     else

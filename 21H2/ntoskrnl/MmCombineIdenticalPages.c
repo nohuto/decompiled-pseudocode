@@ -1,10 +1,10 @@
 /*
- * XREFs of MmCombineIdenticalPages @ 0x14072665C
+ * XREFs of MmCombineIdenticalPages @ 0x140726B10
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     MiGetThreadPartition @ 0x140364C48 (MiGetThreadPartition.c)
- *     MiCombineIdenticalPages @ 0x1407266AC (MiCombineIdenticalPages.c)
+ *     MiGetThreadPartition @ 0x140364DF8 (MiGetThreadPartition.c)
+ *     MiCombineIdenticalPages @ 0x140726B60 (MiCombineIdenticalPages.c)
  */
 
 __int64 __fastcall MmCombineIdenticalPages(__int64 a1)

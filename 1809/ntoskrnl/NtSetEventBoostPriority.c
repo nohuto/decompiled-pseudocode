@@ -1,11 +1,11 @@
 /*
- * XREFs of NtSetEventBoostPriority @ 0x1408CFAE0
+ * XREFs of NtSetEventBoostPriority @ 0x1408D0DA0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeSetEventBoostPriority @ 0x140293180 (KeSetEventBoostPriority.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KeSetEventBoostPriority @ 0x140293370 (KeSetEventBoostPriority.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtSetEventBoostPriority(HANDLE EventHandle)

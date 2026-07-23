@@ -7,35 +7,38 @@
  *     _RtlUTF8ToUnicodeN@20 @ 0x4B2DD1E0 (_RtlUTF8ToUnicodeN@20.c)
  */
 
-int __stdcall RtlMultiByteToUnicodeSize(int *a1, unsigned __int8 *a2, int a3)
+NTSTATUS __cdecl RtlMultiByteToUnicodeSize(
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  int v3; // ecx
-  int v5; // edx
-  unsigned __int8 *v6; // esi
+  ULONG v3; // ecx
+  ULONG v5; // edx
+  PCSTR v6; // esi
   int v7; // eax
 
   v3 = 0;
   if ( NlsActiveCodePageIsUTF8 )
   {
-    if ( a3 )
-      RtlUTF8ToUnicodeN(0, 0, a1, a2, a3);
+    if ( BytesInMultiByteString )
+      RtlUTF8ToUnicodeN(0, 0, BytesInUnicodeString, MultiByteString, BytesInMultiByteString);
     else
-      *a1 = 0;
+      *BytesInUnicodeString = 0;
   }
   else
   {
     if ( !NlsMbCodePageTag )
     {
-      v3 = 2 * a3;
+      v3 = 2 * BytesInMultiByteString;
       goto LABEL_4;
     }
-    v5 = a3;
-    if ( a3 )
+    v5 = BytesInMultiByteString;
+    if ( BytesInMultiByteString )
     {
-      v6 = a2;
+      v6 = MultiByteString;
       do
       {
-        v7 = *v6;
+        v7 = *(unsigned __int8 *)v6;
         --v5;
         ++v6;
         if ( NlsLeadByteInfoTable[v7] )
@@ -53,7 +56,7 @@ int __stdcall RtlMultiByteToUnicodeSize(int *a1, unsigned __int8 *a2, int a3)
       while ( v5 );
     }
 LABEL_4:
-    *a1 = v3;
+    *BytesInUnicodeString = v3;
   }
   return 0;
 }

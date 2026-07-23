@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDqQueryAppendActionEntry @ 0x14062FC34
+ * XREFs of PiDqQueryAppendActionEntry @ 0x140624CB4
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqQueryEnumObject @ 0x140633B34 (PiDqQueryEnumObject.c)
- *     PiDqQueryApplyObjectEvent @ 0x1407634C4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140623900 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryEnumObject @ 0x1406286F4 (PiDqQueryEnumObject.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140763684 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     PiDqQueryFreeActiveData @ 0x14062E710 (PiDqQueryFreeActiveData.c)
- *     PiDqGetPnpObjectType @ 0x1406386A0 (PiDqGetPnpObjectType.c)
- *     PiDmGetObjectCount @ 0x1408A348C (PiDmGetObjectCount.c)
+ *     PiDqQueryFreeActiveData @ 0x140623798 (PiDqQueryFreeActiveData.c)
+ *     PiDqGetPnpObjectType @ 0x14062D4B0 (PiDqGetPnpObjectType.c)
+ *     PiDmGetObjectCount @ 0x1408A35EC (PiDmGetObjectCount.c)
  */
 
 char __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)

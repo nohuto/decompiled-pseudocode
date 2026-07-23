@@ -12,11 +12,11 @@
  *     RtlSetProcessPreferredUILanguages @ 0x180089D80 (RtlSetProcessPreferredUILanguages.c)
  *     RtlGetProcessPreferredUILanguages @ 0x18008AB40 (RtlGetProcessPreferredUILanguages.c)
  *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008BF50 (RtlpVerifyAndCommitUILanguageSettings.c)
- *     RtlGetUILanguageInfo @ 0x1800EF0E0 (RtlGetUILanguageInfo.c)
- *     RtlpCleanupRegistryKeys @ 0x1800EFC70 (RtlpCleanupRegistryKeys.c)
- *     RtlpSetInstallLanguage @ 0x1800F0BC0 (RtlpSetInstallLanguage.c)
- *     RtlpSetPreferredUILanguages @ 0x1800F1270 (RtlpSetPreferredUILanguages.c)
- *     RtlpRefreshCachedUILanguage @ 0x180106130 (RtlpRefreshCachedUILanguage.c)
+ *     RtlGetUILanguageInfo @ 0x1800EF0A0 (RtlGetUILanguageInfo.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800EFC30 (RtlpCleanupRegistryKeys.c)
+ *     RtlpSetInstallLanguage @ 0x1800F0B80 (RtlpSetInstallLanguage.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800F1230 (RtlpSetPreferredUILanguages.c)
+ *     RtlpRefreshCachedUILanguage @ 0x1801060F0 (RtlpRefreshCachedUILanguage.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
@@ -24,13 +24,11 @@
  *     RtlpInitMuiCriticalSection @ 0x1800709D8 (RtlpInitMuiCriticalSection.c)
  */
 
-__int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpCreateProcessRegistryInfo(_QWORD *a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rbx
+  PVOID v1; // rax
+  PVOID v2; // rbx
   int RegistryInfo; // edi
-  __int64 v6; // rdx
-  __int64 v7; // r8
 
   v1 = g_RegInfo;
   v2 = 0LL;
@@ -38,10 +36,10 @@ __int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
   if ( !g_RegInfo )
   {
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     if ( !g_RegInfo )
       RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect, v6, v7);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     v1 = g_RegInfo;
   }
   if ( a1 )

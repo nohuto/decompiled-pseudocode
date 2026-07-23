@@ -1,64 +1,65 @@
 /*
- * XREFs of TppWorkCallbackPrologRelease @ 0x1800222C0
+ * XREFs of TppWorkCallbackPrologRelease @ 0x18004ECC0
  * Callers:
- *     TppExecuteWaitCallback @ 0x18001F480 (TppExecuteWaitCallback.c)
- *     TppTimerpExecuteCallback @ 0x180020920 (TppTimerpExecuteCallback.c)
- *     TppWorkpExecuteCallback @ 0x180022BB0 (TppWorkpExecuteCallback.c)
- *     TppSimplepExecuteCallback @ 0x180069230 (TppSimplepExecuteCallback.c)
+ *     TppExecuteWaitCallback @ 0x18004BE80 (TppExecuteWaitCallback.c)
+ *     TppTimerpExecuteCallback @ 0x18004D320 (TppTimerpExecuteCallback.c)
+ *     TppWorkpExecuteCallback @ 0x18004F5B0 (TppWorkpExecuteCallback.c)
+ *     TppSimplepExecuteCallback @ 0x180084DC0 (TppSimplepExecuteCallback.c)
  * Callees:
- *     LdrUnlockLoaderLock @ 0x180003D60 (LdrUnlockLoaderLock.c)
- *     TppWorkpFree @ 0x180020C20 (TppWorkpFree.c)
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
- *     TpCallbackMayRunLong @ 0x180022040 (TpCallbackMayRunLong.c)
- *     RtlSetThreadSubProcessTag @ 0x180022160 (RtlSetThreadSubProcessTag.c)
- *     TppWorkCancelPendingCallbacks @ 0x180022AB0 (TppWorkCancelPendingCallbacks.c)
- *     TppAdjustRunningThreadGoalWithLock @ 0x1800252B4 (TppAdjustRunningThreadGoalWithLock.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppAlpcpFree @ 0x18006C970 (TppAlpcpFree.c)
- *     LdrAddRefDll @ 0x18006F1D0 (LdrAddRefDll.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x1800703A0 (RtlActivateActivationContextUnsafeFast.c)
- *     LdrLockLoaderLock @ 0x1800F3720 (LdrLockLoaderLock.c)
- *     NtSetInformationThread @ 0x180161E30 (NtSetInformationThread.c)
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     ZwAlertThreadByThreadId @ 0x180162AA0 (ZwAlertThreadByThreadId.c)
- *     NtReleaseWorkerFactoryWorker @ 0x180164C40 (NtReleaseWorkerFactoryWorker.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppWorkpFree @ 0x18004D620 (TppWorkpFree.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
+ *     TpCallbackMayRunLong @ 0x18004EA40 (TpCallbackMayRunLong.c)
+ *     RtlSetThreadSubProcessTag @ 0x18004EB60 (RtlSetThreadSubProcessTag.c)
+ *     TppWorkCancelPendingCallbacks @ 0x18004F4B0 (TppWorkCancelPendingCallbacks.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180051CB4 (TppAdjustRunningThreadGoalWithLock.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppAlpcpFree @ 0x180089250 (TppAlpcpFree.c)
+ *     LdrAddRefDll @ 0x18008BAB0 (LdrAddRefDll.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x18008CC80 (RtlActivateActivationContextUnsafeFast.c)
+ *     LdrLockLoaderLock @ 0x1800A0610 (LdrLockLoaderLock.c)
+ *     LdrUnlockLoaderLock @ 0x1800F22A0 (LdrUnlockLoaderLock.c)
+ *     NtSetInformationThread @ 0x1801601F0 (NtSetInformationThread.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     ZwAlertThreadByThreadId @ 0x180160E60 (ZwAlertThreadByThreadId.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x180163000 (NtReleaseWorkerFactoryWorker.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TppWorkCallbackPrologRelease(PTP_CALLBACK_INSTANCE Instance, _QWORD *BaseAddress, int a3)
 {
-  __int64 v4; // rbx
-  __int64 v6; // r15
-  unsigned __int32 v7; // ecx
-  signed __int32 v8; // eax
-  int v9; // r13d
-  int v10; // r14d
-  unsigned __int32 v11; // ecx
-  __int64 (__fastcall *v12)(__int64); // rdx
-  void *v13; // rcx
-  _QWORD *v14; // rsi
-  __int64 (__fastcall *v16)(__int64); // rax
-  __int64 v17; // rcx
+  void *v3; // rbx
+  PTP_CALLBACK_INSTANCE v5; // r15
+  unsigned __int32 v6; // ecx
+  signed __int32 v7; // eax
+  int v8; // r13d
+  int v9; // r14d
+  unsigned __int32 v10; // ecx
+  LOGICAL (__fastcall *v11)(void *); // rdx
+  void *v12; // rcx
+  unsigned __int64 *v13; // rsi
+  LOGICAL (__fastcall *v15)(void *); // rax
+  __int64 v16; // rcx
   _DWORD *SharedData; // rdx
-  __int64 v19; // rdx
-  _DWORD *v20; // rdx
-  __int64 v21; // rdi
-  int v22; // ecx
-  __int64 v23; // r8
-  signed __int32 v24; // eax
-  __int64 *v25; // rbx
-  __int64 v26; // r14
-  __int64 **v27; // rax
-  signed __int32 v28; // edx
-  signed __int32 v29; // ett
-  signed __int32 v30; // eax
-  signed __int32 v31; // ett
-  __int64 (__fastcall *v32)(__int64); // rax
-  int v33; // eax
+  __int64 v18; // rdx
+  _DWORD *v19; // rdx
+  __int64 v20; // rdi
+  int v21; // ecx
+  __int64 v22; // r8
+  signed __int32 v23; // eax
+  _RTL_SRWLOCK **v24; // rbx
+  _RTL_SRWLOCK *v25; // r14
+  _RTL_SRWLOCK **Value; // rax
+  signed __int32 v27; // edx
+  signed __int32 v28; // ett
+  signed __int32 v29; // eax
+  signed __int32 v30; // ett
+  LOGICAL (__fastcall *v31)(void *); // rax
+  int v32; // eax
+  __int64 v33; // r8
   __int64 *ThreadPoolData; // rax
   __int64 v35; // rax
   signed __int64 v36; // rax
@@ -75,87 +76,84 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, __int64 
   volatile signed __int32 **v47; // rdx
   bool v48; // zf
   signed __int64 v49; // rax
-  _QWORD *v50; // rbx
-  __int64 v51; // rdx
-  __int64 v52; // r8
-  __int64 v53; // r9
-  _QWORD *v54; // rdi
-  int v55; // eax
-  unsigned __int64 v56; // rdx
-  signed __int64 v57; // [rsp+20h] [rbp-C8h]
-  unsigned __int64 v58; // [rsp+28h] [rbp-C0h] BYREF
-  int v59; // [rsp+34h] [rbp-B4h]
-  __int64 v60; // [rsp+38h] [rbp-B0h]
-  __int128 v61; // [rsp+40h] [rbp-A8h]
-  _DWORD v62[2]; // [rsp+50h] [rbp-98h] BYREF
-  __int64 v63; // [rsp+58h] [rbp-90h]
-  __int128 v64; // [rsp+60h] [rbp-88h]
-  __int64 v65; // [rsp+70h] [rbp-78h]
-  __int64 v66; // [rsp+78h] [rbp-70h]
-  __int64 v67; // [rsp+80h] [rbp-68h]
-  __int64 v68; // [rsp+88h] [rbp-60h]
-  __int64 v69; // [rsp+90h] [rbp-58h]
+  __int64 **v50; // rbx
+  __int64 *v51; // rdi
+  NTSTATUS v52; // eax
+  PVOID v53; // rdx
+  signed __int64 v54; // [rsp+20h] [rbp-C8h]
+  PVOID Cookie; // [rsp+28h] [rbp-C0h] BYREF
+  int v56; // [rsp+34h] [rbp-B4h]
+  PTP_CALLBACK_INSTANCE v57; // [rsp+38h] [rbp-B0h]
+  __int128 v58; // [rsp+40h] [rbp-A8h]
+  _DWORD Fields[2]; // [rsp+50h] [rbp-98h] BYREF
+  __int64 v60; // [rsp+58h] [rbp-90h]
+  __int128 v61; // [rsp+60h] [rbp-88h]
+  __int64 v62; // [rsp+70h] [rbp-78h]
+  char *v63; // [rsp+78h] [rbp-70h]
+  __int64 v64; // [rsp+80h] [rbp-68h]
+  __int64 v65; // [rsp+88h] [rbp-60h]
+  __int64 v66; // [rsp+90h] [rbp-58h]
   _UNKNOWN *retaddr; // [rsp+E8h] [rbp+0h]
 
-  v4 = *(_QWORD *)(a2 + 136);
-  v59 = a3;
-  v60 = a1;
-  v6 = a1;
-  v58 = 0LL;
-  if ( v4 )
-    LdrLockLoaderLock(0LL, 0LL, &v58);
-  _m_prefetchw((const void *)(a2 + 232));
-  v7 = *(_DWORD *)(a2 + 232);
+  v3 = (void *)BaseAddress[17];
+  v56 = a3;
+  v57 = Instance;
+  v5 = Instance;
+  Cookie = 0LL;
+  if ( v3 )
+    LdrLockLoaderLock(0, 0LL, &Cookie);
+  _m_prefetchw(BaseAddress + 29);
+  v6 = *((_DWORD *)BaseAddress + 58);
   do
   {
-    v8 = v7;
-    if ( v7 >> 1 )
+    v7 = v6;
+    if ( v6 >> 1 )
     {
+      v8 = 1;
       v9 = 1;
-      v10 = 1;
-      v11 = v7 & 1 | (2 * (v7 >> 1) - 2);
-      if ( v11 >= 2 )
+      v10 = v6 & 1 | (2 * (v6 >> 1) - 2);
+      if ( v10 >= 2 )
         goto LABEL_8;
-      v11 |= 1u;
+      v10 |= 1u;
     }
     else
     {
-      v9 = 0;
-      v11 = v7 | 1;
+      v8 = 0;
+      v10 = v6 | 1;
     }
-    v10 = 0;
+    v9 = 0;
 LABEL_8:
-    v7 = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 232), v11, v8);
+    v6 = _InterlockedCompareExchange((volatile signed __int32 *)BaseAddress + 58, v10, v7);
   }
-  while ( v8 != v7 );
-  if ( !v4 )
+  while ( v7 != v6 );
+  if ( !v3 )
     goto LABEL_10;
-  if ( v9 )
+  if ( v8 )
   {
-    v55 = LdrAddRefDll(0LL, v4);
-    v56 = v58;
-    if ( v55 >= 0 )
+    v52 = LdrAddRefDll(0, v3);
+    v53 = Cookie;
+    if ( v52 >= 0 )
     {
-      *(_DWORD *)(v6 + 144) |= 0x100u;
-      *(_QWORD *)(v6 + 168) = v4;
+      v5->CallbackEpilogFlags |= 0x100u;
+      v5->RaceDll = v3;
       goto LABEL_117;
     }
-    LdrUnlockLoaderLock(0, v58);
+    LdrUnlockLoaderLock(0, Cookie);
     v41 = 0;
-    v61 = 0LL;
-    _m_prefetchw((const void *)(a2 + 56));
-    v42 = *(_QWORD *)(a2 + 56);
+    v58 = 0LL;
+    _m_prefetchw(BaseAddress + 7);
+    v42 = BaseAddress[7];
     do
     {
       if ( v41 )
       {
-        RtlReleaseSRWLockExclusive(a2 + 64);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
         v41 = 0;
       }
       v43 = (v42 - 1) ^ (v42 ^ (v42 - 1)) & 0xF000000000000000uLL;
       if ( ((v42 - 1) & 0xFFFFFFFFFFFFFFFLL) == 0 && ((v42 >> 60) & 8) != 0 )
       {
-        v44 = (volatile signed __int32 *)(a2 + 64);
+        v44 = (volatile signed __int32 *)(BaseAddress + 8);
         v43 &= ~0x8000000000000000uLL;
         v41 = 1;
         SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -173,267 +171,267 @@ LABEL_8:
           }
         }
         if ( _interlockedbittestandset64(v44, 0LL) )
-          RtlpAcquireSRWLockExclusiveContended(a2 + 64);
+          RtlpAcquireSRWLockExclusiveContended(BaseAddress + 8);
       }
-      v49 = _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 56), v43, v42);
+      v49 = _InterlockedCompareExchange64(BaseAddress + 7, v43, v42);
       v48 = v42 == v49;
       v42 = v49;
     }
     while ( !v48 );
-    v6 = v60;
-    v10 = 0;
+    v5 = v57;
     v9 = 0;
+    v8 = 0;
     if ( v41 )
     {
-      v50 = *(_QWORD **)(a2 + 72);
-      *(_QWORD *)(a2 + 72) = 0LL;
-      RtlReleaseSRWLockExclusive(a2 + 64);
+      v50 = (__int64 **)BaseAddress[9];
+      BaseAddress[9] = 0LL;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
       if ( v50 )
       {
         do
         {
-          v54 = (_QWORD *)*v50;
-          ZwAlertThreadByThreadId(v50[1], v51, v52, v53);
-          v50 = v54;
+          v51 = *v50;
+          ZwAlertThreadByThreadId(v50[1]);
+          v50 = (__int64 **)v51;
         }
-        while ( v54 );
+        while ( v51 );
       }
     }
-    TppWorkCancelPendingCallbacks(a2);
+    TppWorkCancelPendingCallbacks(BaseAddress);
   }
   else
   {
-    v56 = v58;
+    v53 = Cookie;
 LABEL_117:
-    LdrUnlockLoaderLock(0, v56);
+    LdrUnlockLoaderLock(0, v53);
   }
 LABEL_10:
-  v12 = TppWorkpFree;
-  if ( !v10 )
+  v11 = TppWorkpFree;
+  if ( !v9 )
     goto LABEL_11;
-  _InterlockedAdd((volatile signed __int32 *)a2, 2u);
-  v17 = 2147353478LL;
+  _InterlockedAdd((volatile signed __int32 *)BaseAddress, 2u);
+  v16 = 2147353478LL;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v19 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v18 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
-    v19 = 2147353478LL;
-  if ( *(_BYTE *)v19 )
+    v18 = 2147353478LL;
+  if ( *(_BYTE *)v18 )
   {
-    v65 = *(_QWORD *)(a2 + 144);
-    v66 = a2 + 200;
-    v67 = *(_QWORD *)(a2 + 80);
-    v68 = *(_QWORD *)(a2 + 88);
-    v69 = *(_QWORD *)(a2 + 104);
-    v62[0] = 0;
-    v62[1] = 471859200;
-    v63 = 0LL;
-    v64 = 0LL;
-    v20 = NtCurrentPeb()->SharedData;
-    if ( v20 && *v20 )
-      v17 = (__int64)NtCurrentPeb()->SharedData + 556;
-    NtTraceEvent(*(unsigned __int8 *)v17, 132098LL, 40LL, v62);
+    v62 = BaseAddress[18];
+    v63 = (char *)(BaseAddress + 25);
+    v64 = BaseAddress[10];
+    v65 = BaseAddress[11];
+    v66 = BaseAddress[13];
+    Fields[0] = 0;
+    Fields[1] = 471859200;
+    v60 = 0LL;
+    v61 = 0LL;
+    v19 = NtCurrentPeb()->SharedData;
+    if ( v19 && *v19 )
+      v16 = (__int64)NtCurrentPeb()->SharedData + 556;
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v16, 0x20402u, 0x28u, Fields);
   }
-  v21 = *(_QWORD *)(a2 + 144);
-  v22 = *(_DWORD *)(a2 + 192);
-  if ( !v21 )
-    v21 = TppPoolpGlobalPool;
-  if ( v21 == TppPoolpSerializedPool )
-    v22 = 1;
-  v23 = *(unsigned int *)(a2 + 208);
-  _m_prefetchw((const void *)(v21 + 428));
-  v24 = *(_DWORD *)(v21 + 428);
+  v20 = BaseAddress[18];
+  v21 = *((_DWORD *)BaseAddress + 48);
+  if ( !v20 )
+    v20 = TppPoolpGlobalPool;
+  if ( (PVOID)v20 == TppPoolpSerializedPool )
+    v21 = 1;
+  v22 = *((unsigned int *)BaseAddress + 52);
+  _m_prefetchw((const void *)(v20 + 428));
+  v23 = *(_DWORD *)(v20 + 428);
   while ( 2 )
   {
-    if ( v24 == -2 )
+    if ( v23 == -2 )
     {
-      v28 = v23;
+      v27 = v22;
 LABEL_50:
-      v29 = v24;
-      v24 = _InterlockedCompareExchange((volatile signed __int32 *)(v21 + 428), v28, v24);
-      if ( v29 == v24 )
+      v28 = v23;
+      v23 = _InterlockedCompareExchange((volatile signed __int32 *)(v20 + 428), v27, v23);
+      if ( v28 == v23 )
         goto LABEL_44;
       continue;
     }
     break;
   }
-  if ( v24 != (_DWORD)v23 && v24 != -1 )
+  if ( v23 != (_DWORD)v22 && v23 != -1 )
   {
-    v28 = -1;
+    v27 = -1;
     goto LABEL_50;
   }
 LABEL_44:
-  v25 = (__int64 *)(a2 + 216);
-  v26 = *(_QWORD *)(v21 + 8LL * v22 + 16) + 24 * v23;
-  RtlAcquireSRWLockExclusive(v26 + 16);
-  v27 = *(__int64 ***)(v26 + 8);
-  if ( *v27 != (__int64 *)v26 )
+  v24 = (_RTL_SRWLOCK **)(BaseAddress + 27);
+  v25 = (_RTL_SRWLOCK *)(*(_QWORD *)(v20 + 8LL * v21 + 16) + 24 * v22);
+  RtlAcquireSRWLockExclusive(v25 + 2);
+  Value = (_RTL_SRWLOCK **)v25[1].Value;
+  if ( *Value != v25 )
     __fastfail(3u);
-  *v25 = v26;
-  *(_QWORD *)(a2 + 224) = v27;
-  *v27 = v25;
-  *(_QWORD *)(v26 + 8) = v25;
-  RtlReleaseSRWLockExclusive(v26 + 16);
-  if ( !v21 || (v33 = *(_DWORD *)(v21 + 440)) == 0 )
-    v33 = MEMORY[0x7FFE03C0];
-  if ( *(_DWORD *)(v21 + 424) != v33 )
+  *v24 = v25;
+  BaseAddress[28] = Value;
+  *Value = (_RTL_SRWLOCK *)v24;
+  v25[1].Value = (unsigned __int64)v24;
+  RtlReleaseSRWLockExclusive(v25 + 2);
+  if ( !v20 || (v32 = *(_DWORD *)(v20 + 440)) == 0 )
+    v32 = MEMORY[0x7FFE03C0];
+  if ( *(_DWORD *)(v20 + 424) != v32 )
   {
-    RtlAcquireSRWLockExclusive(v21 + 72);
-    TppAdjustRunningThreadGoalWithLock(v21);
-    RtlReleaseSRWLockExclusive(v21 + 72);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v20 + 72));
+    TppAdjustRunningThreadGoalWithLock(v20);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v20 + 72));
   }
-  a3 = 0LL;
+  v33 = 0LL;
   ThreadPoolData = (__int64 *)NtCurrentTeb()->ThreadPoolData;
   if ( ThreadPoolData )
   {
     v35 = *ThreadPoolData;
-    if ( *(_QWORD *)(v35 + 48) == v21 && *(_DWORD *)(v35 + 128) == 3 )
+    if ( *(_QWORD *)(v35 + 48) == v20 && *(_DWORD *)(v35 + 128) == 3 )
     {
       *(_DWORD *)(v35 + 128) = 4;
-      a3 = 1LL;
+      v33 = 1LL;
     }
   }
-  _m_prefetchw((const void *)(v21 + 8));
-  v36 = *(_QWORD *)(v21 + 8);
-  LODWORD(v57) = v36;
+  _m_prefetchw((const void *)(v20 + 8));
+  v36 = *(_QWORD *)(v20 + 8);
+  LODWORD(v54) = v36;
   do
   {
-    HIDWORD(v57) = HIDWORD(v36) + 1;
-    if ( (v57 & 0xFFFF0000) != 0 || (_DWORD)a3 )
+    HIDWORD(v54) = HIDWORD(v36) + 1;
+    if ( (v54 & 0xFFFF0000) != 0 || (_DWORD)v33 )
     {
       v37 = 0;
     }
     else
     {
       v37 = 1;
-      LODWORD(v57) = (unsigned __int16)v57 | ((v57 & 0xFFFF0000) + 0x10000);
+      LODWORD(v54) = (unsigned __int16)v54 | ((v54 & 0xFFFF0000) + 0x10000);
     }
-    v38 = v57;
+    v38 = v54;
     v39 = v36;
-    v36 = _InterlockedCompareExchange64((volatile signed __int64 *)(v21 + 8), v57, v36);
-    LODWORD(v57) = v36;
+    v36 = _InterlockedCompareExchange64((volatile signed __int64 *)(v20 + 8), v54, v36);
+    LODWORD(v54) = v36;
   }
   while ( v39 != v36 );
   if ( v37 )
-    NtReleaseWorkerFactoryWorker(*(_QWORD *)(v21 + 56), v38, a3);
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2, 0xFFFFFFFF) != 1 )
+    NtReleaseWorkerFactoryWorker(*(HANDLE *)(v20 + 56));
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress, 0xFFFFFFFF) != 1 )
   {
 LABEL_84:
-    v12 = TppWorkpFree;
+    v11 = TppWorkpFree;
     goto LABEL_11;
   }
-  v40 = **(__int64 (__fastcall ***)())(a2 + 8);
+  v40 = *(__int64 (__fastcall **)())BaseAddress[1];
   if ( v40 == TppSimplepFree )
   {
-    TppCleanupGroupMemberDestroy((_QWORD *)a2);
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a2);
+    TppCleanupGroupMemberDestroy(BaseAddress);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
     goto LABEL_84;
   }
   if ( (char *)v40 == (char *)TppAlpcpFree )
   {
-    TppAlpcpFree(a2);
-    v12 = TppWorkpFree;
+    TppAlpcpFree(BaseAddress);
+    v11 = TppWorkpFree;
   }
   else
   {
     if ( (char *)v40 == (char *)TppWorkpFree )
-      TppWorkpFree(a2);
+      TppWorkpFree(BaseAddress);
     else
-      ((void (__fastcall *)(__int64, signed __int64, __int64))v40)(a2, v38, a3);
-    v12 = TppWorkpFree;
+      ((void (__fastcall *)(_QWORD *, signed __int64, __int64))v40)(BaseAddress, v38, v33);
+    v11 = TppWorkpFree;
   }
 LABEL_11:
-  if ( v59 )
+  if ( v56 )
   {
-    _m_prefetchw((const void *)(a2 + 168));
-    v30 = *(_DWORD *)(a2 + 168);
+    _m_prefetchw(BaseAddress + 21);
+    v29 = *((_DWORD *)BaseAddress + 42);
     do
     {
-      v31 = v30;
-      v30 = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 168), v30 | 0x10000, v30);
+      v30 = v29;
+      v29 = _InterlockedCompareExchange((volatile signed __int32 *)BaseAddress + 42, v29 | 0x10000, v29);
     }
-    while ( v31 != v30 );
-    if ( (v30 & 0x30000) == 0 )
+    while ( v30 != v29 );
+    if ( (v29 & 0x30000) == 0 )
     {
-      *(_QWORD *)(a2 + 184) = retaddr;
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2, 0xFFFFFFFF) == 1 )
+      BaseAddress[23] = retaddr;
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress, 0xFFFFFFFF) == 1 )
       {
-        v32 = **(__int64 (__fastcall ***)(__int64))(a2 + 8);
-        if ( (char *)v32 == (char *)TppSimplepFree )
+        v31 = *(LOGICAL (__fastcall **)(void *))BaseAddress[1];
+        if ( (char *)v31 == (char *)TppSimplepFree )
         {
-          TppCleanupGroupMemberDestroy((_QWORD *)a2);
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a2);
+          TppCleanupGroupMemberDestroy(BaseAddress);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
         }
-        else if ( v32 == TppAlpcpFree )
+        else if ( (char *)v31 == (char *)TppAlpcpFree )
         {
-          TppAlpcpFree(a2);
+          TppAlpcpFree(BaseAddress);
         }
-        else if ( v32 == TppWorkpFree )
+        else if ( v31 == TppWorkpFree )
         {
-          TppWorkpFree(a2);
+          TppWorkpFree(BaseAddress);
         }
         else
         {
-          ((void (__fastcall *)(__int64, __int64 (__fastcall *)(__int64)))v32)(a2, TppWorkpFree);
+          ((void (__fastcall *)(_QWORD *, LOGICAL (__fastcall *)(void *)))v31)(BaseAddress, TppWorkpFree);
         }
       }
     }
   }
-  if ( v9 )
+  if ( v8 )
   {
-    if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
+    if ( (unsigned __int64)(BaseAddress[12] - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      *(_QWORD *)v6 = 72LL;
-      *(_DWORD *)(v6 + 8) = 1;
-      RtlActivateActivationContextUnsafeFast(v6, *(_QWORD *)(a2 + 96));
-      *(_BYTE *)(v6 + 76) |= 1u;
+      v5->ActivationFrame.Size = 72LL;
+      v5->ActivationFrame.Format = 1;
+      RtlActivateActivationContextUnsafeFast(v5, BaseAddress[12]);
+      *((_BYTE *)v5 + 76) |= 1u;
     }
-    *(_DWORD *)(v6 + 144) |= 0x240u;
-    *(_QWORD *)(v6 + 184) = a2;
-    if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
-      TpCallbackMayRunLong(v6);
-    v13 = *(void **)(a2 + 104);
+    v5->CallbackEpilogFlags |= 0x240u;
+    v5->CleanupGroupMember = (_TPP_CLEANUP_GROUP_MEMBER *)BaseAddress;
+    if ( (BaseAddress[21] & 3) == 1 )
+      TpCallbackMayRunLong(v5);
+    v12 = (void *)BaseAddress[13];
+    if ( v12 )
+    {
+      v5->SubProcessTag = v12;
+      RtlSetThreadSubProcessTag(v12);
+    }
+    NtCurrentTeb()->ActivityId = (_GUID)*((_OWORD *)BaseAddress + 7);
+    v13 = BaseAddress + 16;
     if ( v13 )
     {
-      *(_QWORD *)(v6 + 80) = v13;
-      RtlSetThreadSubProcessTag(v13, (__int64)v12, a3, a4);
-    }
-    NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 112);
-    v14 = (_QWORD *)(a2 + 128);
-    if ( v14 )
-    {
-      if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket == *v14 )
+      if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket == *v13 )
         goto LABEL_23;
-      if ( (int)NtSetInformationThread(-2LL, 44LL, v14) >= 0 )
+      if ( NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v13, 8u) >= 0 )
       {
-        *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v14;
+        *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v13;
 LABEL_23:
-        *(_QWORD *)(v6 + 248) = *v14;
+        v5->WorkOnBehalf = *v13;
       }
     }
     return 1LL;
   }
   else
   {
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2, 0xFFFFFFFF) == 1 )
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress, 0xFFFFFFFF) == 1 )
     {
-      v16 = **(__int64 (__fastcall ***)(__int64))(a2 + 8);
-      if ( (char *)v16 == (char *)TppSimplepFree )
+      v15 = *(LOGICAL (__fastcall **)(void *))BaseAddress[1];
+      if ( (char *)v15 == (char *)TppSimplepFree )
       {
-        TppCleanupGroupMemberDestroy((_QWORD *)a2);
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a2);
+        TppCleanupGroupMemberDestroy(BaseAddress);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
       }
-      else if ( v16 == TppAlpcpFree )
+      else if ( (char *)v15 == (char *)TppAlpcpFree )
       {
-        TppAlpcpFree(a2);
+        TppAlpcpFree(BaseAddress);
       }
-      else if ( v16 == TppWorkpFree )
+      else if ( v15 == TppWorkpFree )
       {
-        TppWorkpFree(a2);
+        TppWorkpFree(BaseAddress);
       }
       else
       {
-        ((void (__fastcall *)(__int64, __int64 (__fastcall *)(__int64)))v16)(a2, v12);
+        ((void (__fastcall *)(_QWORD *, LOGICAL (__fastcall *)(void *)))v15)(BaseAddress, v11);
       }
     }
     return 0LL;

@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlpModifyThreadPriorities @ 0x140379E74
+ * XREFs of FsRtlpModifyThreadPriorities @ 0x1403799C4
  * Callers:
- *     FsRtlpOplockCleanup @ 0x1402AD5D0 (FsRtlpOplockCleanup.c)
- *     FsRtlUninitializeOplock @ 0x1402AEF00 (FsRtlUninitializeOplock.c)
- *     FsRtlpOplockBreakToII @ 0x1402C4AAC (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpCancelExclusiveIrp @ 0x14036CC40 (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpOplockBreakToNone @ 0x14036D3C8 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403930CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x1404F04C4 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14088BE5C (FsRtlpOpBatchBreakClosePending.c)
- *     FsRtlpOplockBreakNotify @ 0x14088BF98 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockCleanup @ 0x14022B930 (FsRtlpOplockCleanup.c)
+ *     FsRtlUninitializeOplock @ 0x14022D260 (FsRtlUninitializeOplock.c)
+ *     FsRtlpOplockBreakToII @ 0x14024302C (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14035FB50 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14036CDF0 (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpOplockBreakToNone @ 0x14036D578 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x14039321C (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0A78 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1404F0444 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14088BFBC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x14088C0F8 (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     FsRtlpDoBoost @ 0x1402CA830 (FsRtlpDoBoost.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     FsRtlpDoBoost @ 0x140249120 (FsRtlpDoBoost.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
  */
 
 void __fastcall FsRtlpModifyThreadPriorities(__int64 a1, __int64 a2, char a3)
@@ -55,13 +55,13 @@ LABEL_13:
   {
     if ( (*(_DWORD *)(a2 + 48) & 0x20) != 0 )
     {
-      PsBoostThreadIoEx(*(_QWORD *)(a2 + 40), 1, 1, (_DWORD *)a1);
+      PsBoostThreadIoEx(*(_QWORD *)(a2 + 40), 1, 1, (void *)a1);
       *(_DWORD *)(a2 + 48) &= ~0x20u;
     }
   }
   else if ( (*(_DWORD *)(a1 + 144) & 0x20) != 0 )
   {
-    PsBoostThreadIoEx(*(_QWORD *)(a1 + 24), 1, 1, (_DWORD *)a1);
+    PsBoostThreadIoEx(*(_QWORD *)(a1 + 24), 1, 1, (void *)a1);
     *(_DWORD *)(a1 + 144) &= ~0x20u;
   }
 }

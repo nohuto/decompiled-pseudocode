@@ -7,12 +7,12 @@
  *     ZwTraceEvent @ 0x18009B670 (ZwTraceEvent.c)
  */
 
-ULONG __fastcall EtwSetMark(__int64 a1, __int64 a2, __int64 a3)
+ULONG __cdecl EtwSetMark(TRACEHANDLE TraceHandle, PETW_SET_MARK_INFORMATION MarkInfo, ULONG Size)
 {
   NTSTATUS v3; // ecx
   ULONG result; // eax
 
-  v3 = ZwTraceEvent(a1, 1536LL, a3, a2);
+  v3 = ZwTraceEvent((HANDLE)TraceHandle, 0x600u, Size, MarkInfo);
   result = 0;
   if ( v3 )
     return RtlNtStatusToDosError(v3);

@@ -1,32 +1,39 @@
 /*
- * XREFs of NtOpenPartition @ 0x140761070
+ * XREFs of NtOpenPartition @ 0x140762260
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
+ *     ObOpenObjectByName @ 0x1405BA290 (ObOpenObjectByName.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
  */
 
-__int64 __fastcall NtOpenPartition(HANDLE *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // di
   __int64 v7; // rdx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   HANDLE Handle[4]; // [rsp+48h] [rbp-20h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)PartitionHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)PartitionHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  result = ObOpenObjectByName(a3, PsPartitionType, PreviousMode, 0LL, a2, 0LL, (__int64)Handle);
-  if ( (int)result >= 0 )
-  {
-    *a1 = Handle[0];
-    return (unsigned int)result;
-  }
+  result = ObOpenObjectByName(
+             (__int64)ObjectAttributes,
+             PsPartitionType,
+             PreviousMode,
+             0LL,
+             DesiredAccess,
+             0LL,
+             (__int64)Handle);
+  if ( result >= 0 )
+    *PartitionHandle = Handle[0];
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140739D70
+ * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140739F60
  * Callers:
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1407CD8CC (IopSymlinkAllocateAndAddECP.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1407CDB9C (IopSymlinkAllocateAndAddECP.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlAllocateExtraCreateParameter @ 0x1407429D0 (FsRtlAllocateExtraCreateParameter.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlAllocateExtraCreateParameter @ 0x140742BC0 (FsRtlAllocateExtraCreateParameter.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterFromLookasideList(

@@ -8,24 +8,24 @@
  *     _ZwProtectVirtualMemory@20 @ 0x4B2F2E80 (_ZwProtectVirtualMemory@20.c)
  */
 
-int __fastcall RtlpProtectHeap(int a1, int a2)
+NTSTATUS __fastcall RtlpProtectHeap(int a1, int a2)
 {
   _DWORD *v2; // ebx
   _DWORD *v3; // eax
-  unsigned int v4; // esi
-  int VirtualMemory; // edi
-  _BYTE v7[12]; // [esp+10h] [ebp-30h] BYREF
-  int v8; // [esp+1Ch] [ebp-24h]
-  int v9; // [esp+20h] [ebp-20h]
-  _BYTE v10[4]; // [esp+2Ch] [ebp-14h] BYREF
-  _DWORD *v11; // [esp+30h] [ebp-10h]
-  unsigned int v12; // [esp+34h] [ebp-Ch] BYREF
-  int v13; // [esp+38h] [ebp-8h] BYREF
-  int v14; // [esp+3Ch] [ebp-4h]
+  char *v4; // esi
+  NTSTATUS VirtualMemory; // edi
+  ULONG_PTR *v7; // [esp+0h] [ebp-40h]
+  char MemoryInformation[12]; // [esp+10h] [ebp-30h] BYREF
+  int v9; // [esp+1Ch] [ebp-24h]
+  int v10; // [esp+20h] [ebp-20h]
+  ULONG OldProtect; // [esp+2Ch] [ebp-14h] BYREF
+  _DWORD *v12; // [esp+30h] [ebp-10h]
+  PVOID BaseAddress; // [esp+34h] [ebp-Ch] BYREF
+  ULONG_PTR RegionSize; // [esp+38h] [ebp-8h] BYREF
 
-  v14 = a2;
+  HIDWORD(RegionSize) = a2;
   v2 = *(_DWORD **)(a1 + 164);
-  v11 = (_DWORD *)(a1 + 164);
+  v12 = (_DWORD *)(a1 + 164);
   if ( v2 == (_DWORD *)(a1 + 164) )
     return 0;
   while ( 1 )
@@ -33,25 +33,30 @@ int __fastcall RtlpProtectHeap(int a1, int a2)
     v3 = v2 - 4;
     if ( v2 != (_DWORD *)16 )
     {
-      v4 = v3[7];
-      if ( v4 < v3[10] )
+      v4 = (char *)v3[7];
+      if ( (unsigned int)v4 < v3[10] )
         break;
     }
 LABEL_8:
     v2 = (_DWORD *)*v2;
-    if ( v2 == v11 )
+    if ( v2 == v12 )
       return 0;
   }
   while ( 1 )
   {
-    VirtualMemory = NtQueryVirtualMemory(-1, v4, 0, v7, 28, 0);
+    VirtualMemory = NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, v4, MemoryBasicInformation, MemoryInformation, 0x1CuLL, v7);
     if ( VirtualMemory < 0 )
       break;
-    if ( v9 == 4096 )
+    if ( v10 == 4096 )
     {
-      v13 = v8;
-      v12 = v4;
-      VirtualMemory = ZwProtectVirtualMemory(-1, &v12, &v13, v14, v10);
+      LODWORD(RegionSize) = v9;
+      BaseAddress = v4;
+      VirtualMemory = ZwProtectVirtualMemory(
+                        (HANDLE)0xFFFFFFFF,
+                        &BaseAddress,
+                        &RegionSize,
+                        HIDWORD(RegionSize),
+                        &OldProtect);
       if ( VirtualMemory < 0 )
       {
         if ( NtCurrentPeb()->Ldr )
@@ -62,8 +67,8 @@ LABEL_8:
         return VirtualMemory;
       }
     }
-    v4 += v8;
-    if ( v4 >= v2[6] )
+    v4 += v9;
+    if ( (unsigned int)v4 >= v2[6] )
       goto LABEL_8;
   }
   if ( NtCurrentPeb()->Ldr )

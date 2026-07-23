@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpMapGhcb @ 0x1405BFCAC
+ * XREFs of HvlpMapGhcb @ 0x1405C251C
  * Callers:
- *     HvlEnlightenProcessor @ 0x140530860 (HvlEnlightenProcessor.c)
- *     HvlPhase1Initialize @ 0x1405B89CC (HvlPhase1Initialize.c)
+ *     HvlEnlightenProcessor @ 0x140532D60 (HvlEnlightenProcessor.c)
+ *     HvlPhase1Initialize @ 0x1405BB23C (HvlPhase1Initialize.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
  */
 
 __int64 HvlpMapGhcb()

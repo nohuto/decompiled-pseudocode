@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceThread @ 0x14045A914
+ * XREFs of EtwTraceThread @ 0x1404597E4
  * Callers:
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     PsGetCurrentThreadTeb @ 0x1400AB8EC (PsGetCurrentThreadTeb.c)
- *     PsGetPagePriorityThread @ 0x1400E7E00 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpPsProvTraceThread @ 0x14054B1D0 (EtwpPsProvTraceThread.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     PsGetCurrentThreadTeb @ 0x1400A9E54 (PsGetCurrentThreadTeb.c)
+ *     PsGetPagePriorityThread @ 0x1400E5CA0 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpPsProvTraceThread @ 0x14054B710 (EtwpPsProvTraceThread.c)
  */
 
 __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, __int64 a3)
@@ -40,7 +40,7 @@ __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, __int64 a3)
 
   v3 = a3;
   v12 = 5249283;
-  if ( (dword_1402FD540 & 2) != 0 )
+  if ( (dword_1402FD520 & 2) != 0 )
     EtwpPsProvTraceThread(a1, a2, a3);
   v13[0] = *(_DWORD *)(a1 + 1584);
   v13[1] = *(_DWORD *)(a1 + 1592);

@@ -1,9 +1,9 @@
 /*
  * XREFs of PoRequestPowerIrp @ 0x1403A3C60
  * Callers:
- *     PopScanIdleList @ 0x1402D6330 (PopScanIdleList.c)
+ *     sub_1402D6330 @ 0x1402D6330 (sub_1402D6330.c)
  * Callees:
- *     PopRequestPowerIrp @ 0x1403A3C90 (PopRequestPowerIrp.c)
+ *     sub_1403A3C90 @ 0x1403A3C90 (sub_1403A3C90.c)
  */
 
 NTSTATUS __stdcall PoRequestPowerIrp(
@@ -14,7 +14,7 @@ NTSTATUS __stdcall PoRequestPowerIrp(
         PVOID Context,
         PIRP *Irp)
 {
-  return ((__int64 (__fastcall *)(_DWORD, _BYTE, _DWORD, _DWORD, __int64, char, PIRP))PopRequestPowerIrp)(
+  return ((__int64 (__fastcall *)(_DWORD, _BYTE, _DWORD, _DWORD, __int64, char, PIRP))sub_1403A3C90)(
            (_DWORD)DeviceObject,
            MinorFunction,
            (POWER_STATE)PowerState.SystemState,

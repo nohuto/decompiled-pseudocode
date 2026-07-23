@@ -1,36 +1,36 @@
 /*
- * XREFs of MiDemoteCombinedPte @ 0x1402FE120
+ * XREFs of MiDemoteCombinedPte @ 0x1402E01A0
  * Callers:
- *     MiActOnValidPte @ 0x140297138 (MiActOnValidPte.c)
- *     MiResetAccessBitPte @ 0x14029C890 (MiResetAccessBitPte.c)
- *     MiUpdateOldPte @ 0x1402FDD30 (MiUpdateOldPte.c)
- *     MiAgePte @ 0x1402FE880 (MiAgePte.c)
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
- *     MiTrimPte @ 0x140321400 (MiTrimPte.c)
- *     MiTrimUnlockedVirtualAddreses @ 0x14035CA40 (MiTrimUnlockedVirtualAddreses.c)
- *     MiWalkVaCheckCommon @ 0x14035D970 (MiWalkVaCheckCommon.c)
- *     MiDeprioritizeVirtualAddresses @ 0x140442198 (MiDeprioritizeVirtualAddresses.c)
+ *     MiActOnValidPte @ 0x140296698 (MiActOnValidPte.c)
+ *     MiResetAccessBitPte @ 0x14029BDF0 (MiResetAccessBitPte.c)
+ *     MiUpdateOldPte @ 0x1402DFDB0 (MiUpdateOldPte.c)
+ *     MiAgePte @ 0x1402E0900 (MiAgePte.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
+ *     MiTrimPte @ 0x140323430 (MiTrimPte.c)
+ *     MiTrimUnlockedVirtualAddreses @ 0x14035E7E0 (MiTrimUnlockedVirtualAddreses.c)
+ *     MiWalkVaCheckCommon @ 0x14035F710 (MiWalkVaCheckCommon.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14043ACA8 (MiDeprioritizeVirtualAddresses.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFreeCombineBlock @ 0x1402C67C4 (MiFreeCombineBlock.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x1402EE150 (MiUpdateWorkingSetPrivateSize.c)
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiUpdatePageFileBlockOwner @ 0x14030D080 (MiUpdatePageFileBlockOwner.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiDecrementCloneBlock @ 0x14036A250 (MiDecrementCloneBlock.c)
- *     MiLogCombinedPteDelete @ 0x1407049B0 (MiLogCombinedPteDelete.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x1402D01D0 (MiUpdateWorkingSetPrivateSize.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1402EF100 (MiUpdatePageFileBlockOwner.c)
+ *     MiFreeCombineBlock @ 0x140311464 (MiFreeCombineBlock.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiDecrementCloneBlock @ 0x14036BFF0 (MiDecrementCloneBlock.c)
+ *     MiLogCombinedPteDelete @ 0x140709680 (MiLogCombinedPteDelete.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiDemoteCombinedPte(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   ULONG_PTR v4; // r8
-  unsigned __int64 v5; // r13
+  __int64 v5; // r13
   unsigned __int64 v6; // rdi
   unsigned __int64 v7; // rax
   __int64 v8; // r14
@@ -98,8 +98,8 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, ULONG_PTR a2, __int64 a3)
   v48 = (v6 >> 12) & 0xFFFFFFFFFFLL;
   v9 = 48 * v48 - 0x220000000000LL;
   v10 = *(unsigned __int16 *)(a1 + 174);
-  v47 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
-  if ( *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v10) != v47 )
+  v47 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
+  if ( *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v10) != v47 )
     return 0LL;
   v51[0] = (__int64)(a2 << 25) >> 16;
   v11 = (unsigned __int64 *)(((v51[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
@@ -155,7 +155,7 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, ULONG_PTR a2, __int64 a3)
   {
     if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
       MiLogCombinedPteDelete(v43);
-    MiFreeCombineBlock(v5, 1);
+    MiFreeCombineBlock(v5, 1LL);
   }
   if ( v23 == 2 )
     return 0LL;
@@ -193,8 +193,8 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, ULONG_PTR a2, __int64 a3)
   if ( ((v34 >> 3) & 1) != 0 )
   {
     v39 = v34;
-    if ( qword_140E2D740 && (v34 & 0x10) == 0 )
-      v39 = qword_140E2D748 & v34;
+    if ( qword_140E2D8C0 && (v34 & 0x10) == 0 )
+      v39 = qword_140E2D8C8 & v34;
     v36 = HIDWORD(v39);
   }
   else

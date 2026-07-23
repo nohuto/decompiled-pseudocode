@@ -11,19 +11,19 @@
  *     ZwDelayExecution @ 0x180093C40 (ZwDelayExecution.c)
  */
 
-__int64 __fastcall LdrpInitMuiCrits(volatile signed __int32 *a1, __int64 a2)
+NTSTATUS __fastcall LdrpInitMuiCrits(volatile signed __int32 *a1, _RTL_CRITICAL_SECTION *a2)
 {
-  __int64 result; // rax
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   while ( 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(a1, 1, 0);
-    if ( !(_DWORD)result )
+    result = _InterlockedCompareExchange(a1, 1, 0);
+    if ( !result )
       break;
     if ( *a1 == 1 )
-      result = ZwDelayExecution(0LL, &v5);
+      result = ZwDelayExecution(0, &DelayInterval);
     if ( *a1 == 2 )
       return result;
   }

@@ -3,11 +3,11 @@
  * Callers:
  *     SdbInitDatabaseInMemory @ 0x1406951D8 (SdbInitDatabaseInMemory.c)
  *     SdbReleaseDatabase @ 0x140695574 (SdbReleaseDatabase.c)
- *     SdbpCloseLocalDatabaseEx @ 0x140A52434 (SdbpCloseLocalDatabaseEx.c)
- *     SdbpOpenCompressedDatabase @ 0x140A53208 (SdbpOpenCompressedDatabase.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x140A526E4 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbpOpenCompressedDatabase @ 0x140A534B8 (SdbpOpenCompressedDatabase.c)
  * Callees:
- *     AslFileMappingDelete @ 0x140756FB8 (AslFileMappingDelete.c)
- *     AslHashFree @ 0x140A56C50 (AslHashFree.c)
+ *     AslFileMappingDelete @ 0x1407571A8 (AslFileMappingDelete.c)
+ *     AslHashFree @ 0x140A56F00 (AslHashFree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

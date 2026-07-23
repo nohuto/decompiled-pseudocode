@@ -14,32 +14,34 @@
  *     TppAdjustRunningThreadGoalWithLock @ 0x18007F694 (TppAdjustRunningThreadGoalWithLock.c)
  */
 
-__int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, int *a2, _BYTE *a3, _WORD *a4)
+void __fastcall TppGetCurrentThreadNumaNode(__int64 a1, int *a2, _BYTE *a3, _WORD *a4)
 {
   unsigned __int64 Number; // r12
   int v7; // ebp
   int Group; // r15d
-  __int64 result; // rax
+  int v11; // eax
   unsigned int i; // edx
+  __int64 v13; // rax
+  __int64 v14; // rax
 
   Number = NtCurrentTeb()->CurrentIdealProcessor.Number;
   v7 = TppNumberNodes;
   Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
-  if ( !a1 || (result = *(unsigned int *)(a1 + 440), !(_DWORD)result) )
-    result = MEMORY[0x7FFE03C0];
-  if ( *(_DWORD *)(a1 + 424) != (_DWORD)result )
+  if ( !a1 || (v11 = *(_DWORD *)(a1 + 440)) == 0 )
+    v11 = MEMORY[0x7FFE03C0];
+  if ( *(_DWORD *)(a1 + 424) != v11 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 72));
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   }
   for ( i = 0; i < TppNumberNodes; ++i )
   {
-    result = *(_QWORD *)(a1 + 48) + 16LL * (Group + TppMaximumGroups * i);
-    if ( *(_WORD *)(result + 8) == (_WORD)Group )
+    v13 = *(_QWORD *)(a1 + 48) + 16LL * (Group + TppMaximumGroups * i);
+    if ( *(_WORD *)(v13 + 8) == (_WORD)Group )
     {
-      result = *(_QWORD *)result;
-      if ( _bittest64(&result, Number) )
+      v14 = *(_QWORD *)v13;
+      if ( _bittest64(&v14, Number) )
       {
         v7 = i;
         break;
@@ -51,5 +53,4 @@ __int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, int *a2, _BYTE *a3, _
     *a3 = Number;
   if ( a4 )
     *a4 = Group;
-  return result;
 }

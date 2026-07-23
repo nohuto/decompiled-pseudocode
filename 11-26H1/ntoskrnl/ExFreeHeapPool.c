@@ -1,49 +1,49 @@
 /*
- * XREFs of ExFreeHeapPool @ 0x1403A7BB0
+ * XREFs of ExFreeHeapPool @ 0x1403A9910
  * Callers:
- *     ExAllocateContiguousHeapPool @ 0x14034AA60 (ExAllocateContiguousHeapPool.c)
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocateContiguousHeapPool @ 0x14034CAE0 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpFreePoolChecks @ 0x140344A90 (ExpFreePoolChecks.c)
- *     ExpCheckForResource @ 0x140344B48 (ExpCheckForResource.c)
- *     ExpCheckForWorker @ 0x140344BD8 (ExpCheckForWorker.c)
- *     KeCheckForTimer @ 0x140344DA0 (KeCheckForTimer.c)
- *     ExpCheckForLookaside @ 0x140344F78 (ExpCheckForLookaside.c)
- *     ExpPoolTrackerReturnLimit @ 0x140344FF0 (ExpPoolTrackerReturnLimit.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1403450B0 (ExpRemovePoolTrackerExpansion.c)
- *     RtlpHpFreeHeap @ 0x140347010 (RtlpHpFreeHeap.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpSegFreeInternal @ 0x140352AC8 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLargeFree @ 0x1403546B4 (RtlpHpLargeFree.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     PspReturnResourceQuota @ 0x1403BD4F0 (PspReturnResourceQuota.c)
- *     PspUnlockQuotaExpansion @ 0x1403BDC0C (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x1403BDC84 (PspLockQuotaExpansion.c)
- *     EtwTracePool @ 0x1403C0B34 (EtwTracePool.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     ExIsSpecialPoolAddress @ 0x140485074 (ExIsSpecialPoolAddress.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x14052769C (RtlpHpLfhThreadDataInitializeSet.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpPoolFlagsToPoolType @ 0x140C10F50 (ExpPoolFlagsToPoolType.c)
- *     VfPtFreePoolNotification @ 0x140C44F7C (VfPtFreePoolNotification.c)
- *     ViFreeTrackedPool @ 0x140C469AC (ViFreeTrackedPool.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpFreePoolChecks @ 0x140346B10 (ExpFreePoolChecks.c)
+ *     ExpCheckForResource @ 0x140346BC8 (ExpCheckForResource.c)
+ *     ExpCheckForWorker @ 0x140346C58 (ExpCheckForWorker.c)
+ *     KeCheckForTimer @ 0x140346E20 (KeCheckForTimer.c)
+ *     ExpCheckForLookaside @ 0x140346FF8 (ExpCheckForLookaside.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140347070 (ExpPoolTrackerReturnLimit.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140347130 (ExpRemovePoolTrackerExpansion.c)
+ *     RtlpHpFreeHeap @ 0x140349090 (RtlpHpFreeHeap.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegFreeInternal @ 0x140354B48 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLargeFree @ 0x14035645C (RtlpHpLargeFree.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     PspReturnResourceQuota @ 0x1403C7360 (PspReturnResourceQuota.c)
+ *     PspUnlockQuotaExpansion @ 0x1403C7A7C (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x1403C7AF4 (PspLockQuotaExpansion.c)
+ *     EtwTracePool @ 0x1403CAA34 (EtwTracePool.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     ExIsSpecialPoolAddress @ 0x14047E9E4 (ExIsSpecialPoolAddress.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x140529D0C (RtlpHpLfhThreadDataInitializeSet.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpPoolFlagsToPoolType @ 0x140C16F50 (ExpPoolFlagsToPoolType.c)
+ *     VfPtFreePoolNotification @ 0x140C4AF8C (VfPtFreePoolNotification.c)
+ *     ViFreeTrackedPool @ 0x140C4C9BC (ViFreeTrackedPool.c)
  */
 
 __int64 __fastcall ExFreeHeapPool(ULONG_PTR BugCheckParameter3)
@@ -126,7 +126,7 @@ __int64 __fastcall ExFreeHeapPool(ULONG_PTR BugCheckParameter3)
   __int64 v77; // r9
   unsigned __int64 v78; // rdx
   unsigned __int64 v79; // rtt
-  unsigned __int8 *v80; // rbx
+  char *v80; // rbx
   __int64 v81; // r8
   ULONG_PTR v82; // r9
   unsigned __int64 j; // rbx
@@ -163,12 +163,12 @@ __int64 __fastcall ExFreeHeapPool(ULONG_PTR BugCheckParameter3)
   unsigned __int64 v114; // rcx
   __int64 v115; // rax
   __int64 v116; // rdx
-  unsigned __int64 v117; // r10
+  ULONG_PTR v117; // r10
   int v118; // r15d
   volatile signed __int64 *v119; // r11
   volatile signed __int64 *v120; // rax
   signed __int64 v121; // rbx
-  unsigned __int64 v122; // r8
+  ULONG_PTR v122; // r8
   signed __int64 v123; // rcx
   unsigned __int64 v124; // r9
   signed __int64 v125; // rdx
@@ -248,8 +248,8 @@ LABEL_6:
     goto LABEL_7;
   }
   v2 = RtlCSparseBitmapBitmaskRead(
-         (__int64)&ExpUuidLock.ThreadLock,
-         2 * ((BugCheckParameter3 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+         (__int64)&ExpUuidLock.CycleTime,
+         2 * ((BugCheckParameter3 - ExpUuidLock.ThreadLock) >> 20));
   if ( v2 )
   {
     v3 = v2 - 1;
@@ -257,27 +257,27 @@ LABEL_6:
       goto LABEL_6;
   }
   memset(&LockHandle, 0, 32);
-  RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.FirstArgument, BugCheckParameter3, (__int64)&LockHandle);
+  RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.TrapFrame, BugCheckParameter3, (__int64)&LockHandle);
   v4 = **(_QWORD **)&LockHandle.OldIrql;
 LABEL_7:
   v176 = v4;
   if ( !v4 )
     KeBugCheckEx(0xC2u, 0LL, 0LL, BugCheckParameter3, 0LL);
-  if ( ExpSpecialAllocations )
+  if ( LODWORD(stru_140EFF2C0.InitialStack) )
   {
-    v6 = &qword_140EEED00;
+    v6 = &qword_140EEF000;
     do
     {
       if ( v4 == *v6 )
       {
-        _InterlockedDecrement(&ExpSpecialAllocations);
+        _InterlockedDecrement((volatile signed __int32 *)&stru_140EFF2C0.InitialStack);
         v11 = 16;
         v12 = (_WORD *)(BugCheckParameter3 & 0xFFFFFFFFFFFFF000uLL);
         v13 = MmDeterminePoolType(BugCheckParameter3);
         if ( (*(_DWORD *)(BugCheckParameter3 & 0xFFFFFFFFFFFFF000uLL) & 0x2000) != 0 )
           v11 = ExpCacheLineSize;
         v14 = 4096 - (unsigned int)(BugCheckParameter3 & 0xFFF);
-        if ( byte_140FC7BE8 )
+        if ( byte_140FC8BD8 )
           KasanMarkAddressValidNoInline(BugCheckParameter3 & 0xFFFFFFFFFFFFF000uLL, 0x1000uLL);
         ExpFreePoolChecks(
           BugCheckParameter3,
@@ -333,14 +333,14 @@ LABEL_7:
           EtwTracePool(3618, v21, v20, BugCheckParameter3, v14);
         }
         v22 = v13 & 0xFFFFFFFFFFFFFFFBuLL;
-        StackBase = (int)stru_140EFEF90.StackBase;
-        v24 = *((_QWORD *)&stru_140EFEF90.CurrentRunTime + KeGetPcr()->Prcb.Number);
-        v25 = (unsigned __int64)stru_140EFEF90.StackBase & ((40543 * (int)v20) ^ ((unsigned __int64)(40543 * v20) >> 32));
-        v26 = LODWORD(stru_140EFEF90.StackBase) & ((40543 * v20) ^ ((unsigned __int64)(40543 * v20) >> 32));
+        StackBase = (int)stru_140EFF2C0.StackBase;
+        v24 = *(&stru_140EFF2C0.ThreadLock + KeGetPcr()->Prcb.Number);
+        v25 = (unsigned __int64)stru_140EFF2C0.StackBase & ((40543 * (int)v20) ^ ((unsigned __int64)(40543 * v20) >> 32));
+        v26 = LODWORD(stru_140EFF2C0.StackBase) & ((40543 * v20) ^ ((unsigned __int64)(40543 * v20) >> 32));
         v27 = v24 + 80 * v25;
         for ( i = *(_DWORD *)v27; *(_DWORD *)v27 != (_DWORD)v20; i = *(_DWORD *)v27 )
         {
-          if ( i || (v29 = *(_DWORD *)(PoolTrackTable + 80LL * (unsigned int)v25)) == 0 )
+          if ( i || (v29 = *(_DWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * (unsigned int)v25)) == 0 )
           {
             LODWORD(v25) = StackBase & (v25 + 1);
             if ( (_DWORD)v25 == v26 )
@@ -352,7 +352,7 @@ LABEL_7:
           else
           {
             *(_DWORD *)v27 = v29;
-            v30 = *(_QWORD *)(PoolTrackTable + 80LL * (unsigned int)v25 + 72);
+            v30 = *(_QWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * (unsigned int)v25 + 72);
             if ( v30 )
               *(_QWORD *)(v27 + 72) = v30;
           }
@@ -363,7 +363,7 @@ LABEL_7:
       }
       ++v6;
     }
-    while ( (__int64)v6 < (__int64)qword_140EEED20 );
+    while ( (__int64)v6 < (__int64)qword_140EEF020 );
   }
   v7 = 128LL;
   if ( (BugCheckParameter3 & 0xFFF) != 0 )
@@ -376,10 +376,10 @@ LABEL_7:
       v63 = BugCheckParameter3 - 16;
       if ( (v62 & 4) != 0 )
         v63 = v59 - 16LL * (unsigned __int8)*(_WORD *)v59;
-      v64 = (ULONG_PTR)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ *(_QWORD *)(v63 + 8) ^ v63;
+      v64 = (ULONG_PTR)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ *(_QWORD *)(v63 + 8) ^ v63;
       if ( v64 && v64 != -1 )
       {
-        if ( !ExpSpecialAllocations || !(unsigned int)ExIsSpecialPoolAddress(BugCheckParameter3) )
+        if ( !LODWORD(stru_140EFF2C0.InitialStack) || !(unsigned int)ExIsSpecialPoolAddress(BugCheckParameter3) )
         {
           v65 = 64;
           if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter3) == 5 )
@@ -394,8 +394,8 @@ LABEL_7:
           LODWORD(BugCheckParameter3a) = v68;
           if ( (v67 & 0x800) != 0 )
           {
-            v70 = *(_QWORD *)(v66 + 8) ^ (ULONG_PTR)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ v66;
-            *(_QWORD *)(v66 + 8) = (ULONG_PTR)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ v66;
+            v70 = *(_QWORD *)(v66 + 8) ^ (ULONG_PTR)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ v66;
+            *(_QWORD *)(v66 + 8) = (ULONG_PTR)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ v66;
           }
           else
           {
@@ -419,7 +419,7 @@ LABEL_7:
               v73 = v71 != 0;
               v174 = v71 != 0;
               v74 = (unsigned __int64 *)&Next[8 * v73];
-              LOBYTE(v182) = stru_140FC01F0.SchedulerApcFill3[8 * v73 + 48];
+              LOBYTE(v182) = stru_140FC11F0.SchedulerApcFill3[8 * v73 + 40];
               _m_prefetchw(v74);
               v75 = *v74;
               v76 = v74[8];
@@ -428,22 +428,21 @@ LABEL_7:
                 v77 = 56 * v73;
                 if ( v76 > v75 )
                 {
-                  v78 = *(unsigned __int64 *)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink
-                                            + v77);
+                  v78 = *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v77);
                   if ( v76 - v75 > v78 )
                   {
                     if ( v78 > v69 )
                       v78 = v69;
                     v79 = v74[8];
                     if ( v79 == _InterlockedCompareExchange64((volatile signed __int64 *)v74 + 8, v76 - v78, v76)
-                      && (struct _LIST_ENTRY *)(v78 + _InterlockedExchangeAdd64((volatile signed __int64 *)v74 + 9, v78)) > *(struct _LIST_ENTRY **)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink + v77) )
+                      && v78 + _InterlockedExchangeAdd64((volatile signed __int64 *)v74 + 9, v78) > *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v77) )
                     {
                       v178 = _InterlockedExchange64((volatile __int64 *)v74 + 9, 0LL);
                       if ( v178 )
                       {
                         LOBYTE(v181) = 0;
-                        v80 = &PsAltSystemCallRegistrationLock.ApcStateFill[v77 + 16];
-                        PspLockQuotaExpansion(&PsAltSystemCallRegistrationLock.ApcStateFill[v77 + 16], &v181);
+                        v80 = (char *)&PsAltSystemCallRegistrationLock.Timer.Dpc + v77;
+                        PspLockQuotaExpansion((char *)&PsAltSystemCallRegistrationLock.Timer.Dpc + v77, &v181);
                         guard_dispatch_icall_no_overrides(v174, v178, v81);
                         PspUnlockQuotaExpansion(v80, (unsigned __int8)v181);
                         Next = LockHandle.LockQueue.Next;
@@ -549,39 +548,39 @@ LABEL_7:
       __writecr8(2uLL);
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(v10, 2LL);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      _m_prefetchw((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4);
-      v33 = HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) & 0x7FFFFFFF;
+      _m_prefetchw(&ExpLargePoolTableLock);
+      v33 = ExpLargePoolTableLock & 0x7FFFFFFF;
       v32 = _InterlockedCompareExchange(
-              (_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1,
-              (HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) & 0x7FFFFFFF) + 1,
-              HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) & 0x7FFFFFFF);
+              &ExpLargePoolTableLock,
+              (ExpLargePoolTableLock & 0x7FFFFFFF) + 1,
+              ExpLargePoolTableLock & 0x7FFFFFFF);
       if ( v33 != v32 )
       {
         while ( v32 >= 0 )
         {
           v34 = v32;
-          v32 = _InterlockedCompareExchange((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v32 + 1, v32);
+          v32 = _InterlockedCompareExchange(&ExpLargePoolTableLock, v32 + 1, v32);
           if ( v32 == v34 )
             goto LABEL_59;
         }
-        ExpWaitForSpinLockSharedAndAcquire((signed __int32 *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v10, v8);
+        ExpWaitForSpinLockSharedAndAcquire(&ExpLargePoolTableLock, v10, v8);
       }
     }
     else
     {
-      ExpAcquireSpinLockSharedAtDpcLevelInstrumented((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v10);
+      ExpAcquireSpinLockSharedAtDpcLevelInstrumented(&ExpLargePoolTableLock, v10);
     }
 LABEL_59:
     v35 = 1;
-    v36 = (LODWORD(stru_140EFEF90.SListFaultAddress) - 1) & ((40543 * (BugCheckParameter3 >> 12)) ^ ((40543 * (BugCheckParameter3 >> 12)) >> 32));
+    v36 = (PoolBigPageTableSize - 1) & ((40543 * (BugCheckParameter3 >> 12)) ^ ((40543 * (BugCheckParameter3 >> 12)) >> 32));
     while ( 1 )
     {
-      v37 = (char *)stru_140EFEF90.StackLimit + 32 * v36;
+      v37 = (char *)PoolBigPageTable + 32 * v36;
       if ( *(_QWORD *)v37 == BugCheckParameter3 )
         break;
-      if ( (void *)++v36 >= stru_140EFEF90.SListFaultAddress )
+      if ( ++v36 >= (unsigned __int64)PoolBigPageTableSize )
       {
         if ( !v35 )
           goto LABEL_298;
@@ -598,22 +597,20 @@ LABEL_298:
     LODWORD(v39) = (v38 >> 8) & 0xFFF;
     BugCheckParameter3a = v7;
     if ( (v38 & 0x100) != 0 )
-      v40 = BugCheckParameter3 ^ (__int64)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ *((_QWORD *)v37 + 3);
+      v40 = BugCheckParameter3 ^ (__int64)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ *((_QWORD *)v37 + 3);
     else
       v40 = -1LL;
     _InterlockedDecrement(&ExpPoolBigEntriesInUse);
     *((_QWORD *)v37 + 3) = 0LL;
     _InterlockedIncrement64((volatile signed __int64 *)v37);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
-      _InterlockedAnd((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, 0xBFFFFFFF);
-      _InterlockedDecrement((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
+      _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
+      _InterlockedDecrement(&ExpLargePoolTableLock);
     }
     else
     {
-      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(
-        (volatile signed __int32 *)&stru_140EFEF90.Header.WaitListHead.Flink + 1,
-        retaddr);
+      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&ExpLargePoolTableLock, retaddr);
     }
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v10);
@@ -627,7 +624,7 @@ LABEL_298:
         v42 = (v39 & 0x100) != 0;
         BugCheckParameter2 = v42;
         v43 = (unsigned __int64 *)&v41[16 * v42];
-        LOBYTE(v181) = stru_140FC01F0.SchedulerApcFill3[8 * v42 + 48];
+        LOBYTE(v181) = stru_140FC11F0.SchedulerApcFill3[8 * v42 + 40];
         _m_prefetchw(v43);
         v44 = *v43;
         v45 = v43[8];
@@ -636,14 +633,14 @@ LABEL_298:
           v46 = 56 * v42;
           if ( v45 > v44 )
           {
-            v47 = *(ULONG_PTR *)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink + v46);
+            v47 = *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v46);
             if ( v45 - v44 > v47 )
             {
               if ( v47 > BugCheckParameter3a )
                 v47 = BugCheckParameter3a;
               v48 = v43[8];
               if ( v48 == _InterlockedCompareExchange64((volatile signed __int64 *)v43 + 8, v45 - v47, v45)
-                && (struct _LIST_ENTRY *)(v47 + _InterlockedExchangeAdd64((volatile signed __int64 *)v43 + 9, v47)) > *(struct _LIST_ENTRY **)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink + v46) )
+                && v47 + _InterlockedExchangeAdd64((volatile signed __int64 *)v43 + 9, v47) > *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v46) )
               {
                 v49 = _InterlockedExchange64((volatile __int64 *)v43 + 9, 0LL);
                 if ( v49 )
@@ -740,10 +737,10 @@ LABEL_298:
       v94 = BugCheckParameter3a | 8;
     EtwTracePool(3618, v94, v60, v61, v58);
   }
-  v95 = (int)stru_140EFEF90.StackBase;
-  v96 = *((_QWORD *)&stru_140EFEF90.CurrentRunTime + KeGetPcr()->Prcb.Number);
-  v97 = (unsigned __int64)stru_140EFEF90.StackBase & ((40543 * v60) ^ ((40543 * (unsigned __int64)v60) >> 32));
-  v98 = (unsigned __int64)stru_140EFEF90.StackBase & ((40543 * v60) ^ ((40543 * (unsigned __int64)v60) >> 32));
+  v95 = (int)stru_140EFF2C0.StackBase;
+  v96 = *(&stru_140EFF2C0.ThreadLock + KeGetPcr()->Prcb.Number);
+  v97 = (unsigned __int64)stru_140EFF2C0.StackBase & ((40543 * v60) ^ ((40543 * (unsigned __int64)v60) >> 32));
+  v98 = (unsigned __int64)stru_140EFF2C0.StackBase & ((40543 * v60) ^ ((40543 * (unsigned __int64)v60) >> 32));
   v99 = (int *)(v96 + 80 * v97);
   v100 = *v99;
   if ( *v99 == v60 )
@@ -810,11 +807,11 @@ LABEL_194:
     if ( !v100 )
     {
       v7 = 10LL * (unsigned int)v97;
-      v101 = *(_DWORD *)(PoolTrackTable + 80LL * (unsigned int)v97);
+      v101 = *(_DWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * (unsigned int)v97);
       if ( v101 )
       {
         *v99 = v101;
-        v102 = *(_QWORD *)(PoolTrackTable + 80LL * (unsigned int)v97 + 72);
+        v102 = *(_QWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * (unsigned int)v97 + 72);
         if ( v102 )
           *((_QWORD *)v99 + 9) = v102;
         goto LABEL_193;
@@ -831,7 +828,7 @@ LABEL_193:
       goto LABEL_194;
   }
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
-  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&stru_140EFEF90.Header.WaitListHead.Blink;
+  LockHandle.LockQueue.Lock = &ExpTaggedPoolLock;
   LockHandle.LockQueue.Next = 0LL;
   v109 = KeGetCurrentIrql();
   if ( v109 != 2 )
@@ -842,37 +839,35 @@ LABEL_193:
     KiRaiseIrqlProcessIrqlFlags(v109, v7);
   }
   LockHandle.OldIrql = v109;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v110 = _InterlockedExchange64((volatile __int64 *)&stru_140EFEF90.Header.WaitListHead.Blink, (__int64)&LockHandle);
+    v110 = _InterlockedExchange64((volatile __int64 *)&ExpTaggedPoolLock, (__int64)&LockHandle);
     if ( v110 )
       KxWaitForLockOwnerShip((volatile signed __int64)&LockHandle, v110, v97);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented(
-      (__int64)&LockHandle,
-      (volatile __int64 *)&stru_140EFEF90.Header.WaitListHead.Blink);
+    KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)&ExpTaggedPoolLock);
   }
   v111 = 0LL;
-  if ( stru_140EFEF90.InitialStack )
+  if ( PoolTrackTableExpansionSize )
   {
     v112 = 0LL;
     while ( 1 )
     {
-      v113 = *(_DWORD *)(stru_140EFEF90.ThreadLock + 80 * v112);
+      v113 = *(_DWORD *)(PoolTrackTableExpansion + 80 * v112);
       if ( v113 == v60 )
         break;
       if ( v113 )
       {
         v111 = (unsigned int)(v111 + 1);
         v112 = (unsigned int)v111;
-        if ( (void *)(unsigned int)v111 < stru_140EFEF90.InitialStack )
+        if ( (unsigned int)v111 < (unsigned __int64)PoolTrackTableExpansionSize )
           continue;
       }
       goto LABEL_210;
     }
-    v117 = stru_140EFEF90.ThreadLock + 80 * v111;
+    v117 = PoolTrackTableExpansion + 80 * v111;
     if ( (v39 & 0x100) != 0 )
     {
       v118 = 0;
@@ -929,8 +924,8 @@ LABEL_193:
 LABEL_210:
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     v114 = -v58;
-    v115 = *((_QWORD *)&stru_140EFEF90.CurrentRunTime + KeGetPcr()->Prcb.Number);
-    v116 = 80LL * (unsigned int)(PoolTrackTableSize - 1);
+    v115 = *(&stru_140EFF2C0.ThreadLock + KeGetPcr()->Prcb.Number);
+    v116 = 80LL * (unsigned int)(LODWORD(stru_140EFF2C0.StackLimit) - 1);
     if ( (v39 & 0x100) != 0 )
     {
       _InterlockedIncrement64((volatile signed __int64 *)(v115 + v116 + 48));
@@ -945,7 +940,7 @@ LABEL_210:
 LABEL_246:
   if ( (v39 & 0x400) != 0 )
     ViFreeTrackedPool(BugCheckParameter3, v58 - v177);
-  if ( byte_140FC7BE8 )
+  if ( byte_140FC8BD8 )
     KasanMarkAddressValidNoInline(v59, v58);
   v139 = *(_QWORD *)(v176 + 56);
   if ( (unsigned __int64)(v58 - 513) > 0xD7F
@@ -967,14 +962,12 @@ LABEL_246:
       v144 = v176 + 320;
       goto LABEL_263;
     }
-    v142 = RtlCSparseBitmapBitmaskRead(
-             (__int64)&ExpUuidLock.ThreadLock,
-             2 * ((v59 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+    v142 = RtlCSparseBitmapBitmaskRead((__int64)&ExpUuidLock.CycleTime, 2 * ((v59 - ExpUuidLock.ThreadLock) >> 20));
     if ( !v142 )
-      return RtlpHpLargeFree((volatile signed __int64 *)v176, v59);
+      return RtlpHpLargeFree((__int128 *)v176, v59);
     v143 = v142 - 1;
     if ( v143 == 2 )
-      return RtlpHpLargeFree((volatile signed __int64 *)v176, v59);
+      return RtlpHpLargeFree((__int128 *)v176, v59);
     v144 = v176 + 320;
     if ( v143 == 1 )
       v144 = v176 + 512;
@@ -1040,8 +1033,8 @@ LABEL_263:
           {
             *(_BYTE *)(v166 + v149 + 92) = 1;
             result = BYTE1(**(_QWORD **)(*(_QWORD *)v149 + 56LL)) == 1
-                   ? *(unsigned int *)&ExSaPageGroupDescriptorArrayLock.Tag
-                   : ExSaPageGroupDescriptorArrayLock.SystemCallNumber;
+                   ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+                   : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock);
             if ( !(_DWORD)result )
               result = RtlpHpEnvCompactionSchedule(*(_QWORD **)(*(_QWORD *)v149 + 56LL));
           }

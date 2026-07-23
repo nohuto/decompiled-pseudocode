@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpRaiseFatalLimitError @ 0x1801170BC
+ * XREFs of RtlpHpRaiseFatalLimitError @ 0x1801120AC
  * Callers:
- *     RtlpHpHeapHandleError @ 0x18011D8C0 (RtlpHpHeapHandleError.c)
- *     HeapCommitFailAvoidTriageRules @ 0x18014B760 (HeapCommitFailAvoidTriageRules.c)
+ *     RtlpHpHeapHandleError @ 0x18011BAF0 (RtlpHpHeapHandleError.c)
+ *     HeapCommitFailAvoidTriageRules @ 0x180149B10 (HeapCommitFailAvoidTriageRules.c)
  * Callees:
- *     RtlReportFatalFailure @ 0x18011716C (RtlReportFatalFailure.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlReportFatalFailure @ 0x18011215C (RtlReportFatalFailure.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpRaiseFatalLimitError(__int64 a1)
@@ -22,11 +22,11 @@ __int64 __fastcall RtlpHpRaiseFatalLimitError(__int64 a1)
 
   memset_thunk_772440563353939046(v3, 0, 0x98uLL);
   v4 = 0LL;
-  v3[0] = qword_1801CD100;
-  v7 = dword_1801CD0E8;
-  v8 = qword_1801CD0F0;
-  v9 = qword_1801CD108;
-  v10 = qword_1801CD110;
+  v3[0] = qword_1801CC100;
+  v7 = dword_1801CC0E8;
+  v8 = qword_1801CC0F0;
+  v9 = qword_1801CC108;
+  v10 = qword_1801CC110;
   v3[1] = 1;
   v5 = a1;
   v6 = 4;

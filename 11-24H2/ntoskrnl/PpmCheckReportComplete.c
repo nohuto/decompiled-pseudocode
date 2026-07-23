@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmCheckReportComplete @ 0x140462F80
+ * XREFs of PpmCheckReportComplete @ 0x140458590
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall PpmCheckReportComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char PpmCheckReportComplete()
 {
   if ( PpmCheckCompleteHandler )
-    guard_dispatch_icall_no_overrides(PpmPerfGlobalContext, PpmCheckTime, a3, a4);
+    guard_dispatch_icall_no_overrides(PpmPerfGlobalContext, PpmCheckTime);
   return 1;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of VrpPreOpenOrCreate @ 0x140975760
+ * XREFs of VrpPreOpenOrCreate @ 0x140937770
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteTransfer @ 0x140212F30 (EtwWriteTransfer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     NLS_UPCASE @ 0x14042F430 (NLS_UPCASE.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     CmpFreeExtraParameter @ 0x140975FD0 (CmpFreeExtraParameter.c)
- *     VrpTranslatePath @ 0x140976010 (VrpTranslatePath.c)
- *     CmAllocateExtraParameter @ 0x140977AA4 (CmAllocateExtraParameter.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteTransfer @ 0x140213010 (EtwWriteTransfer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     NLS_UPCASE @ 0x14041C340 (NLS_UPCASE.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     CmpFreeExtraParameter @ 0x140937FE0 (CmpFreeExtraParameter.c)
+ *     VrpTranslatePath @ 0x140938020 (VrpTranslatePath.c)
+ *     CmAllocateExtraParameter @ 0x140939AB4 (CmAllocateExtraParameter.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpPreOpenOrCreate(__int64 ***a1, void *a2)
@@ -107,7 +107,7 @@ __int64 __fastcall VrpPreOpenOrCreate(__int64 ***a1, void *a2)
   __int64 v82[2]; // [rsp+C8h] [rbp-38h] BYREF
   GUID ActivityId; // [rsp+D8h] [rbp-28h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+F0h] [rbp-10h] BYREF
-  int *v85; // [rsp+100h] [rbp+0h]
+  char *v85; // [rsp+100h] [rbp+0h]
   int v86; // [rsp+108h] [rbp+8h]
   int v87; // [rsp+10Ch] [rbp+Ch]
   int *v88; // [rsp+110h] [rbp+10h]
@@ -454,7 +454,7 @@ LABEL_29:
       LODWORD(v72) = v23;
       v94 = 4LL;
       UserData.Size = *(unsigned __int16 *)off_140E0A5C8;
-      v85 = &dword_14005AA5C;
+      v85 = byte_14005B9D9;
       UserData.Reserved = 2;
       v86 = 40;
       v87 = 1;
@@ -484,7 +484,7 @@ LABEL_90:
     v94 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E0A5C0,
-      (unsigned __int8 *)byte_14005AB95,
+      (unsigned __int8 *)byte_14005B8B9,
       &ActivityId,
       0LL,
       5u,

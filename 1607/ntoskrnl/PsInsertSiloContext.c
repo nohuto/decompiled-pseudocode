@@ -1,9 +1,9 @@
 /*
- * XREFs of PsInsertSiloContext @ 0x14067DF24
+ * XREFs of PsInsertSiloContext @ 0x14067E008
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140613754 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140613808 (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     PspIsSiloContext @ 0x14055FBC8 (PspIsSiloContext.c)
+ *     PspIsSiloContext @ 0x140560108 (PspIsSiloContext.c)
  */
 
 __int64 __fastcall PsInsertSiloContext(__int64 a1, unsigned int a2, __int64 a3)

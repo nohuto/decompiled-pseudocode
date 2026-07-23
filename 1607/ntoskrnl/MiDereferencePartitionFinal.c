@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDereferencePartitionFinal @ 0x1401F196C
+ * XREFs of MiDereferencePartitionFinal @ 0x1401F1798
  * Callers:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     MiDeletePartitionResources @ 0x1401F13D0 (MiDeletePartitionResources.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     MiDeletePartitionResources @ 0x1401F11FC (MiDeletePartitionResources.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiFreePartitionId @ 0x140659A70 (MiFreePartitionId.c)
+ *     MiFreePartitionId @ 0x140659B54 (MiFreePartitionId.c)
  */
 
 void __fastcall MiDereferencePartitionFinal(_QWORD *P)

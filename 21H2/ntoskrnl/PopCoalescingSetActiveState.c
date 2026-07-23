@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCoalescingSetActiveState @ 0x14056EBC4
+ * XREFs of PopCoalescingSetActiveState @ 0x14056EE04
  * Callers:
- *     PopCoalescingCallbackWorker @ 0x1408E6820 (PopCoalescingCallbackWorker.c)
+ *     PopCoalescingCallbackWorker @ 0x1408E6980 (PopCoalescingCallbackWorker.c)
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     PopCoalescingSetTimer @ 0x14056EC64 (PopCoalescingSetTimer.c)
- *     PopCheckResiliencyScenarios @ 0x140679DA0 (PopCheckResiliencyScenarios.c)
- *     PopUpdateDiskIdleTimeoutSetting @ 0x14078FAAC (PopUpdateDiskIdleTimeoutSetting.c)
- *     PopDiagTraceIoCoalescingOff @ 0x1408EA92C (PopDiagTraceIoCoalescingOff.c)
- *     PopDiagTraceIoCoalescingOn @ 0x1408EA95C (PopDiagTraceIoCoalescingOn.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     PopCoalescingSetTimer @ 0x14056EEA4 (PopCoalescingSetTimer.c)
+ *     PopCheckResiliencyScenarios @ 0x14066D4E0 (PopCheckResiliencyScenarios.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x14079105C (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PopDiagTraceIoCoalescingOff @ 0x1408EAA8C (PopDiagTraceIoCoalescingOff.c)
+ *     PopDiagTraceIoCoalescingOn @ 0x1408EAABC (PopDiagTraceIoCoalescingOn.c)
  */
 
 __int64 __fastcall PopCoalescingSetActiveState(char a1)

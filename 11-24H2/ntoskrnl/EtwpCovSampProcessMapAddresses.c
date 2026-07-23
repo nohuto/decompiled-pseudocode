@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampProcessMapAddresses @ 0x1409005D0
+ * XREFs of EtwpCovSampProcessMapAddresses @ 0x140922EB0
  * Callers:
- *     EtwpCovSampContextAddAddresses @ 0x140900100 (EtwpCovSampContextAddAddresses.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x140900208 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140900430 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampContextAddAddresses @ 0x1409229E0 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x140922AE8 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140922D10 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessMapAddresses(
@@ -26,8 +26,8 @@ __int64 __fastcall EtwpCovSampProcessMapAddresses(
   __int64 v10; // r14
   unsigned int v11; // esi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v13; // rax
-  _QWORD *v14; // rbx
+  char *v13; // rax
+  char *v14; // rbx
   struct _KTHREAD **v15; // rdx
   unsigned int v16; // r9d
   unsigned __int64 *v17; // rbx
@@ -45,26 +45,23 @@ __int64 __fastcall EtwpCovSampProcessMapAddresses(
   bool v29; // zf
   __int64 v30; // rdx
   unsigned int *v31; // rbx
-  __int64 v32; // rdx
-  __int64 v33; // r8
-  __int64 v34; // r9
   __int64 result; // rax
-  int v36; // [rsp+70h] [rbp+8h]
+  int v33; // [rsp+70h] [rbp+8h]
 
   v7 = a2;
   v9 = (unsigned __int64 *)(a1 + 8);
   *a7 = 0;
   v10 = a3;
   v11 = a4;
-  v36 = MEMORY[0xFFFFF78000000320];
+  v33 = MEMORY[0xFFFFF78000000320];
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v13 = KeAbPreAcquire(a1 + 8, 0LL);
+  v13 = (char *)KeAbPreAcquire(a1 + 8, 0LL);
   v14 = v13;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v9, (__int64)v13, (__int64)v9);
+    ExfAcquirePushLockExclusiveEx(v9, v13, (__int64)v9);
   if ( v14 )
-    *((_BYTE *)v14 + 10) = 1;
+    v14[10] = 1;
   v15 = (struct _KTHREAD **)(a1 + 16);
   *(_QWORD *)(a1 + 16) = KeGetCurrentThread();
   if ( v7 != *(volatile signed __int32 **)a1 || (v16 = a6) == 0 )
@@ -133,7 +130,7 @@ LABEL_27:
   v17 = v28;
 LABEL_22:
   v29 = *(_DWORD *)(v22 + 132) == 0;
-  *(_DWORD *)(v22 + 136) = v36;
+  *(_DWORD *)(v22 + 136) = v33;
   if ( v29 )
     _InterlockedExchange((volatile __int32 *)(v22 + 132), 1);
   v30 = 8 * v18;
@@ -156,7 +153,7 @@ LABEL_31:
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v9);
     KeAbPostRelease((ULONG_PTR)v9);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v32, v33, v34);
+    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
   if ( (volatile signed __int32 *)a1 == v7 + 312 )
   {

@@ -1,23 +1,23 @@
 /*
  * XREFs of DifRegisterPlugin @ 0x140604970
  * Callers:
- *     VfSecurityEntry @ 0x1405FFDD0 (VfSecurityEntry.c)
- *     VfIovPluginEntry @ 0x1406019A0 (VfIovPluginEntry.c)
- *     VfPoolTrackingEntry @ 0x140601DB0 (VfPoolTrackingEntry.c)
- *     VfLwSPEntry @ 0x140628A6C (VfLwSPEntry.c)
- *     VfSpecialPoolEntry @ 0x14065521C (VfSpecialPoolEntry.c)
- *     VfMiscPluginEntry @ 0x140AA4854 (VfMiscPluginEntry.c)
+ *     sub_1405FFDD0 @ 0x1405FFDD0 (sub_1405FFDD0.c)
+ *     sub_1406019A0 @ 0x1406019A0 (sub_1406019A0.c)
+ *     sub_140601DB0 @ 0x140601DB0 (sub_140601DB0.c)
+ *     sub_140628A6C @ 0x140628A6C (sub_140628A6C.c)
+ *     sub_14065521C @ 0x14065521C (sub_14065521C.c)
+ *     sub_140AA4854 @ 0x140AA4854 (sub_140AA4854.c)
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     DifCreateAPIThunkContext @ 0x14060455C (DifCreateAPIThunkContext.c)
- *     DifDeregisterPlugin @ 0x140604620 (DifDeregisterPlugin.c)
- *     DifGetAPIThunkContextById @ 0x140604844 (DifGetAPIThunkContextById.c)
- *     DifiDbgPrint @ 0x140605160 (DifiDbgPrint.c)
+ *     sub_14060455C @ 0x14060455C (sub_14060455C.c)
+ *     sub_140604620 @ 0x140604620 (sub_140604620.c)
+ *     sub_140604844 @ 0x140604844 (sub_140604844.c)
+ *     sub_140605160 @ 0x140605160 (sub_140605160.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     VfBindDifCallbackWrappers @ 0x140A897D8 (VfBindDifCallbackWrappers.c)
- *     VfBindDifDDIWrappers @ 0x140A89818 (VfBindDifDDIWrappers.c)
- *     VfCheckDifDdiExist @ 0x140A89888 (VfCheckDifDdiExist.c)
+ *     sub_140A897D8 @ 0x140A897D8 (sub_140A897D8.c)
+ *     sub_140A89818 @ 0x140A89818 (sub_140A89818.c)
+ *     sub_140A89888 @ 0x140A89888 (sub_140A89888.c)
  */
 
 __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a3, _OWORD *a4)
@@ -30,7 +30,7 @@ __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a
   unsigned int v9; // r10d
   __int64 v10; // rdi
   int v11; // r9d
-  __int64 *APIThunkContextById; // rsi
+  __int64 *v12; // rsi
   __int64 v13; // r10
   __int64 v14; // rsi
   void *Pool2; // rax
@@ -50,7 +50,7 @@ __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a
   _QWORD *v29; // rax
   __int64 v30; // rcx
   char v31; // al
-  __int64 APIThunkContext; // rax
+  __int64 v32; // rax
   __int64 *v33; // rax
   __int64 **v34; // rdx
   __int64 v35; // rax
@@ -68,10 +68,10 @@ __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a
   v7 = a2;
   if ( a3 < 0x40 )
   {
-    v8 = *((_DWORD *)&VfRuleClasses + ((unsigned __int64)a3 >> 5));
+    v8 = *((_DWORD *)&qword_140D01450 + ((unsigned __int64)a3 >> 5));
     if ( _bittest(&v8, a3 & 0x1F) )
     {
-      if ( !DifPluginStates[a3] )
+      if ( !byte_140D04BC0[a3] )
       {
         v43 = 0;
         v9 = 0;
@@ -82,35 +82,35 @@ __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a
             v10 = a1 + 32LL * v9;
             if ( !*(_QWORD *)(v10 + 16) && !*(_QWORD *)(v10 + 24) )
               goto LABEL_38;
-            if ( (unsigned __int8)VfCheckDifDdiExist(*(unsigned int *)(v10 + 8)) )
+            if ( (unsigned __int8)sub_140A89888(*(unsigned int *)(v10 + 8)) )
             {
-              APIThunkContextById = DifGetAPIThunkContextById(v11);
-              if ( APIThunkContextById )
+              v12 = sub_140604844(v11);
+              if ( v12 )
               {
                 if ( v13 )
                 {
-                  APIThunkContext = DifCreateAPIThunkContext(v10, 1, v5);
-                  if ( !APIThunkContext )
+                  v32 = sub_14060455C(v10, 1, v5);
+                  if ( !v32 )
                     goto LABEL_47;
-                  v33 = (__int64 *)(APIThunkContext + 16);
-                  v34 = (__int64 **)APIThunkContextById[5];
-                  if ( *v34 != APIThunkContextById + 4 )
+                  v33 = (__int64 *)(v32 + 16);
+                  v34 = (__int64 **)v12[5];
+                  if ( *v34 != v12 + 4 )
                     goto LABEL_45;
                   v7 = a2;
-                  *v33 = (__int64)(APIThunkContextById + 4);
+                  *v33 = (__int64)(v12 + 4);
                   v33[1] = (__int64)v34;
                   *v34 = v33;
-                  APIThunkContextById[5] = (__int64)v33;
+                  v12[5] = (__int64)v33;
                 }
                 if ( !*(_QWORD *)(v10 + 24) )
                   goto LABEL_37;
-                v35 = DifCreateAPIThunkContext(v10, 0, v5);
+                v35 = sub_14060455C(v10, 0, v5);
                 if ( !v35 )
                   goto LABEL_47;
-                v36 = (__int64 **)(APIThunkContextById + 6);
+                v36 = (__int64 **)(v12 + 6);
                 v37 = (__int64 *)(v35 + 16);
-                v38 = APIThunkContextById[6];
-                if ( *(__int64 **)(v38 + 8) != APIThunkContextById + 6 )
+                v38 = v12[6];
+                if ( *(__int64 **)(v38 + 8) != v12 + 6 )
 LABEL_45:
                   __fastfail(3u);
                 *v37 = v38;
@@ -147,7 +147,7 @@ LABEL_45:
                 *(_QWORD *)(v18 + 48) = v18 + 48;
                 if ( *(_QWORD *)(v10 + 16) )
                 {
-                  v22 = DifCreateAPIThunkContext(v10, 1, v5);
+                  v22 = sub_14060455C(v10, 1, v5);
                   if ( !v22 )
                     goto LABEL_42;
                   v23 = *(__int64 ***)(v20 + 8);
@@ -161,7 +161,7 @@ LABEL_45:
                 }
                 if ( *(_QWORD *)(v10 + 24) )
                 {
-                  v25 = DifCreateAPIThunkContext(v10, 0, v5);
+                  v25 = sub_14060455C(v10, 0, v5);
                   if ( !v25 )
                   {
 LABEL_42:
@@ -180,20 +180,20 @@ LABEL_42:
                 }
                 v28 = (_QWORD *)qword_140C1A8B8;
                 v29 = (_QWORD *)(v19 + 16);
-                if ( *(__int64 **)qword_140C1A8B8 != &DifAPIThunkContextHead )
+                if ( *(__int64 **)qword_140C1A8B8 != &qword_140C1A8B0 )
                   goto LABEL_45;
-                *v29 = &DifAPIThunkContextHead;
+                *v29 = &qword_140C1A8B0;
                 *(_QWORD *)(v19 + 24) = v28;
                 *v28 = v29;
                 qword_140C1A8B8 = v19 + 16;
                 v30 = *(unsigned int *)(v19 + 8);
                 if ( (unsigned int)v30 >= 0x10000000 )
-                  v31 = VfBindDifCallbackWrappers(v30, off_140C073E8[(unsigned int)(v30 - 0x10000000)], v19);
+                  v31 = sub_140A897D8(v30, off_140C073E8[(unsigned int)(v30 - 0x10000000)], v19);
                 else
-                  v31 = VfBindDifDDIWrappers(v30, *(&off_140C074F8 + v30), v19);
+                  v31 = sub_140A89818(v30, *(&off_140C074F8 + v30), v19);
                 if ( !v31 )
                 {
-                  DifiDbgPrint("Binding failure for 0x%x\n", *(_DWORD *)(v19 + 8));
+                  sub_140605160("Binding failure for 0x%x\n", *(_DWORD *)(v19 + 8));
                   v4 = -1073738625;
                   goto LABEL_48;
                 }
@@ -201,7 +201,7 @@ LABEL_42:
             }
             else
             {
-              DifiDbgPrint("API %d is not available for the plugin %d.\n", v11, v5);
+              sub_140605160("API %d is not available for the plugin %d.\n", v11, v5);
             }
             v7 = a2;
 LABEL_37:
@@ -220,8 +220,8 @@ LABEL_38:
         {
           v39 = 0LL;
 LABEL_50:
-          DifPluginSettings[v5] = (__int64)v39;
-          DifPluginStates[v5] = 1;
+          qword_140D049C0[v5] = (__int64)v39;
+          byte_140D04BC0[v5] = 1;
           return v4;
         }
         v39 = (_OWORD *)ExAllocatePool2(64LL, 16LL, 1315334468LL);
@@ -233,8 +233,8 @@ LABEL_50:
 LABEL_47:
         v4 = -1073741801;
 LABEL_48:
-        DifiDbgPrint("Loading plugin %d failed!!!\n", v16);
-        DifDeregisterPlugin(v5);
+        sub_140605160("Loading plugin %d failed!!!\n", v16);
+        sub_140604620((_DWORD *)(unsigned int)v5);
       }
     }
   }

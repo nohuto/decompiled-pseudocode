@@ -1,21 +1,21 @@
 /*
- * XREFs of VrpPreOpenOrCreate @ 0x1406163E4
+ * XREFs of VrpPreOpenOrCreate @ 0x140616498
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RegistryCallback @ 0x140464700 (RegistryCallback.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RegistryCallback @ 0x1404635D0 (RegistryCallback.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     VrpLockJobContextShared @ 0x140612F80 (VrpLockJobContextShared.c)
- *     VrpUnlockJobContextShared @ 0x14061309C (VrpUnlockJobContextShared.c)
- *     VrpTranslatePath @ 0x1406169B8 (VrpTranslatePath.c)
- *     VrpBuildKeyPath @ 0x140617AE4 (VrpBuildKeyPath.c)
- *     VrpGetNextToken @ 0x140617CCC (VrpGetNextToken.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     VrpLockJobContextShared @ 0x140613034 (VrpLockJobContextShared.c)
+ *     VrpUnlockJobContextShared @ 0x140613150 (VrpUnlockJobContextShared.c)
+ *     VrpTranslatePath @ 0x140616A6C (VrpTranslatePath.c)
+ *     VrpBuildKeyPath @ 0x140617B98 (VrpBuildKeyPath.c)
+ *     VrpGetNextToken @ 0x140617D80 (VrpGetNextToken.c)
  */
 
 __int64 __fastcall VrpPreOpenOrCreate(PCUNICODE_STRING *a1, __int64 a2)
@@ -161,7 +161,7 @@ LABEL_21:
     v34[0] = v20;
     v34[1] = 0;
     v36 = 4LL;
-    TlgWrite(&stru_1402F3520, &unk_14027B53B, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B63B, &ActivityId, 0LL, 5u, &pData);
   }
   if ( v5 )
     ExFreePoolWithTag(v5, 0x67655256u);

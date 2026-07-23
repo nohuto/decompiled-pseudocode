@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiSessionTerminalListWorker @ 0x14087EBEC
+ * XREFs of TtmiSessionTerminalListWorker @ 0x14087FE4C
  * Callers:
- *     TtmpSessionWorker @ 0x1408810C0 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x140882320 (TtmpSessionWorker.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     TtmiEvacuateDevices @ 0x14087D620 (TtmiEvacuateDevices.c)
- *     TtmpUpdateTerminalState @ 0x14087F530 (TtmpUpdateTerminalState.c)
- *     TtmpWriteDisplayStateChangedEvent @ 0x14087F6A8 (TtmpWriteDisplayStateChangedEvent.c)
- *     TtmiUpdateActiveTerminalCount @ 0x14088056C (TtmiUpdateActiveTerminalCount.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x140880950 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogTerminalCleanup @ 0x1408858D8 (TtmiLogTerminalCleanup.c)
+ *     TtmiEvacuateDevices @ 0x14087E880 (TtmiEvacuateDevices.c)
+ *     TtmpUpdateTerminalState @ 0x140880790 (TtmpUpdateTerminalState.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x140880908 (TtmpWriteDisplayStateChangedEvent.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1408817CC (TtmiUpdateActiveTerminalCount.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x140881BB0 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogTerminalCleanup @ 0x140886B38 (TtmiLogTerminalCleanup.c)
  */
 
 void __fastcall TtmiSessionTerminalListWorker(unsigned int *a1, _BYTE *a2, _BYTE *a3)

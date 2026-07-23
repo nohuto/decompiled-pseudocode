@@ -1,23 +1,23 @@
 /*
- * XREFs of IovFreeIrpPrivate @ 0x140C459C0
+ * XREFs of IovFreeIrpPrivate @ 0x140C4B9D0
  * Callers:
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopFreeIrp @ 0x140268590 (IopFreeIrp.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     VfEnabledOnKernel @ 0x14047EA30 (VfEnabledOnKernel.c)
- *     IovLogIrpMdlEvent @ 0x140530E84 (IovLogIrpMdlEvent.c)
- *     IovAiRemoveIrp @ 0x140642274 (IovAiRemoveIrp.c)
- *     ViErrorReport1 @ 0x14064569C (ViErrorReport1.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x140647E5C (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x140647EA4 (ViIrpDatabaseReleaseLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140C216B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140C39D70 (VfIrpDatabaseEntryReleaseLock.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140C45F84 (VfIrpDatabaseEntryFindAndLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopFreeIrp @ 0x140267B00 (IopFreeIrp.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     VfEnabledOnKernel @ 0x1404783A0 (VfEnabledOnKernel.c)
+ *     IovLogIrpMdlEvent @ 0x140533384 (IovLogIrpMdlEvent.c)
+ *     IovAiRemoveIrp @ 0x140645E54 (IovAiRemoveIrp.c)
+ *     ViErrorReport1 @ 0x14064927C (ViErrorReport1.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x14064BA3C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x14064BA84 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140C276C8 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140C3FD80 (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140C4BF94 (VfIrpDatabaseEntryFindAndLock.c)
  */
 
 void __fastcall IovFreeIrpPrivate(_BYTE *BugCheckParameter2, __int64 a2, __int64 a3)

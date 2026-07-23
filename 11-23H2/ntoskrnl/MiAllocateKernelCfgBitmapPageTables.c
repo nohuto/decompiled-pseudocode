@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocateKernelCfgBitmapPageTables @ 0x140A43E4C
+ * XREFs of MiAllocateKernelCfgBitmapPageTables @ 0x140A440FC
  * Callers:
  *     MiMarkKernelImageCfgBits @ 0x1406970A4 (MiMarkKernelImageCfgBits.c)
- *     MiApplyDriverHotPatch @ 0x140A34878 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140A34B28 (MiApplyDriverHotPatch.c)
  *     MiInitializeDriverImages @ 0x140B460A0 (MiInitializeDriverImages.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x14020B280 (MiMakeZeroedPageTables.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAcquireKernelCfgLock @ 0x140A43DE8 (MiAcquireKernelCfgLock.c)
- *     MiReleaseKernelCfgLock @ 0x140A440B4 (MiReleaseKernelCfgLock.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiAcquireKernelCfgLock @ 0x140A44098 (MiAcquireKernelCfgLock.c)
+ *     MiReleaseKernelCfgLock @ 0x140A44364 (MiReleaseKernelCfgLock.c)
  */
 
 __int64 __fastcall MiAllocateKernelCfgBitmapPageTables(__int64 a1, int a2, int a3)

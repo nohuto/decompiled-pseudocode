@@ -1,25 +1,31 @@
 /*
- * XREFs of RtlCaptureImageExceptionValues @ 0x140192FD0
+ * XREFs of RtlCaptureImageExceptionValues @ 0x140193110
  * Callers:
- *     KiLockExtendedServiceTable @ 0x14019F868 (KiLockExtendedServiceTable.c)
- *     KiVerifyXcpt15 @ 0x14098E2F0 (KiVerifyXcpt15.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     KiLockExtendedServiceTable @ 0x14019F9A8 (KiLockExtendedServiceTable.c)
+ *     KiVerifyXcpt15 @ 0x14098F2F0 (KiVerifyXcpt15.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2CF0 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
-__int64 __fastcall RtlCaptureImageExceptionValues(unsigned __int64 a1, __int64 *a2, int a3)
+__int64 __fastcall RtlCaptureImageExceptionValues(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
-  NTSTATUS v4; // eax
-  __int64 v5; // rcx
+  _QWORD *v3; // rbx
+  __int64 v4; // r9
+  NTSTATUS v5; // eax
+  __int64 v6; // rcx
   __int64 result; // rax
-  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = RtlpImageDirectoryEntryToDataEx(a1, 1, 3u, a3, &v7);
-  v5 = v7;
-  if ( v4 < 0 )
-    v5 = 0LL;
+  v3 = (_QWORD *)a2;
+  v4 = a3;
+  LOWORD(a3) = 3;
+  LOBYTE(a2) = 1;
+  v5 = RtlpImageDirectoryEntryToDataEx(a1, a2, a3, v4, &v8);
+  v6 = v8;
+  if ( v5 < 0 )
+    v6 = 0LL;
   result = 0LL;
-  *a2 = v5;
+  *v3 = v6;
   return result;
 }

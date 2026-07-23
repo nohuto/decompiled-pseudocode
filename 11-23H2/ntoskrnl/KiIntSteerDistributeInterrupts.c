@@ -3,8 +3,8 @@
  * Callers:
  *     KeIntSteerPeriodic @ 0x140221440 (KeIntSteerPeriodic.c)
  * Callees:
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x14031FFF0 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     KiIntSteerSetDestination @ 0x1403200A0 (KiIntSteerSetDestination.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x140320280 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KiIntSteerSetDestination @ 0x140320330 (KiIntSteerSetDestination.c)
  */
 
 __int64 KiIntSteerDistributeInterrupts()

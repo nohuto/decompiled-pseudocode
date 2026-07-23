@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleWakeNotifyWakeSource @ 0x1405DACA4
+ * XREFs of PopIdleWakeNotifyWakeSource @ 0x1405D7FC4
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1403B6A20 (PpmExitCoordinatedIdle.c)
+ *     PpmExitCoordinatedIdle @ 0x140371BCC (PpmExitCoordinatedIdle.c)
  * Callees:
- *     KeGetCurrentProcessorNumberEx @ 0x1404015D0 (KeGetCurrentProcessorNumberEx.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     PopIdleWakeStopActiveIntervalAccounting @ 0x1404AA430 (PopIdleWakeStopActiveIntervalAccounting.c)
- *     PopIdleWakeFindOrAllocateWakeSource @ 0x1405DAB88 (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1403FBF40 (KeGetCurrentProcessorNumberEx.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x1404A462C (PopIdleWakeStopActiveIntervalAccounting.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x1405D7EA8 (PopIdleWakeFindOrAllocateWakeSource.c)
  */
 
 int *__fastcall PopIdleWakeNotifyWakeSource(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, int *a6)

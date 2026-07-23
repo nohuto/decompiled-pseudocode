@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAllocateHeteroConfigBuffer @ 0x140B5599C
+ * XREFs of KiAllocateHeteroConfigBuffer @ 0x140B579EC
  * Callers:
- *     PoInitHeteroDetection @ 0x140C2D09C (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140C2F1BC (PoInitHeteroDetection.c)
  * Callees:
- *     KeGetThreadWorkloadClassCount @ 0x1404F78B4 (KeGetThreadWorkloadClassCount.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeGetThreadWorkloadClassCount @ 0x1404F5194 (KeGetThreadWorkloadClassCount.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 KiAllocateHeteroConfigBuffer()
@@ -26,7 +26,7 @@ __int64 KiAllocateHeteroConfigBuffer()
   ThreadWorkloadClassCount = KeGetThreadWorkloadClassCount();
   v1 = ThreadWorkloadClassCount;
   v10 = ThreadWorkloadClassCount;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 16368 * ThreadWorkloadClassCount + 32, 0x6548654Bu);
   v11 = Pool2;
   v3 = Pool2;
   if ( !Pool2 )

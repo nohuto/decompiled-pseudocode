@@ -109,7 +109,7 @@ LABEL_13:
   *a4 = MEMORY[0xFFFFF78000000320];
   if ( v22 <= 0 )
   {
-    v22 += (unsigned int)KeMaximumIncrement;
+    v22 += KeMaximumIncrement;
     if ( v22 <= 0 )
     {
       v9 = ((unsigned __int64)(((unsigned __int64)-v22

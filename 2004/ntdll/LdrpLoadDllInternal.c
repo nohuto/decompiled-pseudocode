@@ -24,26 +24,26 @@
  */
 
 __int64 __fastcall LdrpLoadDllInternal(
-        __int64 a1,
-        int a2,
-        unsigned int a3,
-        int a4,
+        PUNICODE_STRING a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
         __int64 a5,
         __int64 a6,
-        __int64 *a7,
+        PVOID *a7,
         int *a8)
 {
   __int64 result; // rax
-  int *v12; // rbx
-  char v13; // di
-  int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  int v19; // eax
-  int v20; // eax
-  __int64 v21; // [rsp+48h] [rbp-30h] BYREF
+  int *v10; // rbx
+  char v11; // di
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  PVOID v15; // rcx
+  PVOID v16; // rax
+  int v17; // eax
+  int v18; // eax
+  PVOID BaseAddress; // [rsp+48h] [rbp-30h] BYREF
 
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -54,82 +54,82 @@ __int64 __fastcall LdrpLoadDllInternal(
       (__int64)"DLL name: %wZ\n",
       a1);
   *a7 = 0LL;
-  v21 = 0LL;
-  result = LdrpFastpthReloadedDll(a1, a3, a6, a7);
+  BaseAddress = 0LL;
+  result = LdrpFastpthReloadedDll(a1);
   if ( (int)result < 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
-      v13 = 1;
+      v11 = 1;
     }
     else
     {
-      v13 = 0;
+      v11 = 0;
       LdrpDrainWorkQueue(0LL);
     }
-    if ( !a6 || v13 || *(_DWORD *)(*(_QWORD *)(a6 + 152) + 24LL) )
+    if ( !a6 || v11 || *(_DWORD *)(*(_QWORD *)(a6 + 152) + 24LL) )
     {
       LdrpDetectDetour();
-      v12 = a8;
-      v14 = LdrpFindOrPrepareLoadingModule(a1, a2, a3, a4, a5, (__int64)&v21, (__int64)a8);
-      if ( v14 == -1073741515 )
+      v10 = a8;
+      v12 = LdrpFindOrPrepareLoadingModule(a1, a5, (__int64)&BaseAddress, (__int64)a8);
+      if ( v12 == -1073741515 )
       {
-        LOBYTE(v15) = 1;
-        LdrpProcessWork(*(_QWORD *)(v21 + 176), v15);
+        LOBYTE(v13) = 1;
+        LdrpProcessWork(*((_QWORD *)BaseAddress + 22), v13);
       }
-      else if ( v14 != -1073741267 && v14 < 0 )
+      else if ( v12 != -1073741267 && v12 < 0 )
       {
-        *a8 = v14;
+        *a8 = v12;
       }
     }
     else
     {
-      v12 = a8;
+      v10 = a8;
       *a8 = -1073741515;
     }
     result = LdrpDrainWorkQueue(1LL);
-    v17 = v21;
-    if ( v21 )
+    v15 = BaseAddress;
+    if ( BaseAddress )
     {
-      v18 = LdrpHandleReplacedModule();
-      *a7 = v18;
-      if ( v21 != v18 )
+      v16 = (PVOID)LdrpHandleReplacedModule();
+      *a7 = v16;
+      if ( BaseAddress != v16 )
       {
-        LdrpFreeReplacedModule();
-        v21 = *a7;
+        LdrpFreeReplacedModule(BaseAddress);
+        BaseAddress = *a7;
       }
-      if ( *(_QWORD *)(v21 + 176) )
-        LdrpCondenseGraph(*(_QWORD *)(v21 + 152));
-      if ( *v12 >= 0 )
+      if ( *((_QWORD *)BaseAddress + 22) )
+        LdrpCondenseGraph(*((_QWORD *)BaseAddress + 19));
+      if ( *v10 >= 0 )
       {
-        v19 = LdrpPrepareModuleForExecution(v21, v12);
-        *v12 = v19;
-        if ( v19 >= 0 )
+        v17 = LdrpPrepareModuleForExecution(BaseAddress, v10);
+        *v10 = v17;
+        if ( v17 >= 0 )
         {
-          v20 = LdrpBuildForwarderLink(a6, v21);
-          *v12 = v20;
-          if ( v20 >= 0 && !LdrInitState )
-            LdrpPinModule(v21);
+          v18 = LdrpBuildForwarderLink(a6, (__int64)BaseAddress);
+          *v10 = v18;
+          if ( v18 >= 0 && !LdrInitState )
+            LdrpPinModule((__int64)BaseAddress);
         }
       }
-      result = LdrpFreeLoadContextOfNode(*(_QWORD *)(v21 + 152), v12);
-      if ( *v12 < 0 )
+      result = LdrpFreeLoadContextOfNode(*((_QWORD *)BaseAddress + 19), v10);
+      if ( *v10 < 0 )
       {
         *a7 = 0LL;
-        LdrpDecrementModuleLoadCountEx(v21, 0);
-        result = LdrpDereferenceModule(v21);
+        LdrpDecrementModuleLoadCountEx((__int64)BaseAddress, 0);
+        result = LdrpDereferenceModule(BaseAddress);
       }
     }
     else
     {
-      *v12 = -1073741801;
+      *v10 = -1073741801;
     }
-    if ( !v13 )
-      result = LdrpDropLastInProgressCount(v17, v16);
+    if ( !v11 )
+      result = LdrpDropLastInProgressCount(v15, v14);
   }
   else
   {
-    v12 = a8;
+    v10 = a8;
     *a8 = result;
   }
   if ( (LdrpDebugFlags & 9) != 0 )
@@ -139,6 +139,6 @@ __int64 __fastcall LdrpLoadDllInternal(
              (unsigned int)"LdrpLoadDllInternal",
              4,
              (__int64)"Status: 0x%08lx\n",
-             *v12);
+             *v10);
   return result;
 }

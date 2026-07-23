@@ -1,11 +1,11 @@
 /*
- * XREFs of PiLookupInDDB @ 0x14077E1FC
+ * XREFs of PiLookupInDDB @ 0x14077E3BC
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14073DAC0 (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14073DC80 (PpCheckInDriverDatabase.c)
  * Callees:
- *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
- *     PiInitializeDDB @ 0x14077E964 (PiInitializeDDB.c)
- *     PiReleaseDDB @ 0x14077EB38 (PiReleaseDDB.c)
+ *     PiIsDriverBlocked @ 0x14077E4C4 (PiIsDriverBlocked.c)
+ *     PiInitializeDDB @ 0x14077EB24 (PiInitializeDDB.c)
+ *     PiReleaseDDB @ 0x14077ECF8 (PiReleaseDDB.c)
  */
 
 __int64 __fastcall PiLookupInDDB(int a1, int a2, int a3, __int64 a4)

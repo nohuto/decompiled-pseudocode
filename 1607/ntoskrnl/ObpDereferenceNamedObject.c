@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpDereferenceNamedObject @ 0x14000C074
+ * XREFs of ObpDereferenceNamedObject @ 0x14000BBF4
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x140405EE0 (ObpInsertOrLocateNamedObject.c)
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140404DA0 (ObpInsertOrLocateNamedObject.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
  * Callees:
- *     ObpDeleteNameCheck @ 0x140406620 (ObpDeleteNameCheck.c)
+ *     ObpDeleteNameCheck @ 0x1404054E0 (ObpDeleteNameCheck.c)
  */
 
 LONG_PTR __fastcall ObpDereferenceNamedObject(__int64 a1)

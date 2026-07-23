@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRemoveDeviceActionRequests @ 0x14037EFDC
+ * XREFs of PnpRemoveDeviceActionRequests @ 0x14037EB2C
  * Callers:
- *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     PipSetDevNodeState @ 0x14036FB98 (PipSetDevNodeState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14037A4DC (PopDirectedDripsClearDisengageReason.c)
- *     PnpDeleteDeviceActionRequest @ 0x14037F174 (PnpDeleteDeviceActionRequest.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14037A02C (PopDirectedDripsClearDisengageReason.c)
+ *     PnpDeleteDeviceActionRequest @ 0x14037ECC4 (PnpDeleteDeviceActionRequest.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -60,12 +60,12 @@ __int64 __fastcall PnpRemoveDeviceActionRequests(__int64 a1)
         if ( v9 )
           KeSetEvent(v9, 0, 0);
         v10 = *(unsigned int *)(v3 + 24);
-        v11 = KeAcquireSpinLockRaiseToDpc(&qword_140C24E48);
-        v12 = dword_140C24E50-- == 1;
+        v11 = KeAcquireSpinLockRaiseToDpc(&qword_140C24EA8);
+        v12 = dword_140C24EB0-- == 1;
         v13 = v11;
         if ( v12 )
           PopDirectedDripsClearDisengageReason(4);
-        KxReleaseSpinLock(&qword_140C24E48);
+        KxReleaseSpinLock(&qword_140C24EA8);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
@@ -84,14 +84,14 @@ __int64 __fastcall PnpRemoveDeviceActionRequests(__int64 a1)
           }
         }
         __writecr8(v13);
-        v14 = KeAcquireSpinLockRaiseToDpc(&qword_140C1EBB0);
-        if ( !--dword_140C1EBB8 && byte_140C1EC28 )
+        v14 = KeAcquireSpinLockRaiseToDpc(&qword_140C1E9F0);
+        if ( !--dword_140C1E9F8 && byte_140C1EA68 )
         {
-          qword_140C1EC30 += MEMORY[0xFFFFF78000000008] - qword_140C1EC38;
-          qword_140C1EC38 = 0LL;
+          qword_140C1EA70 += MEMORY[0xFFFFF78000000008] - qword_140C1EA78;
+          qword_140C1EA78 = 0LL;
         }
-        --dword_140C1EBC0[v10];
-        KxReleaseSpinLock(&qword_140C1EBB0);
+        --dword_140C1EA00[v10];
+        KxReleaseSpinLock(&qword_140C1E9F0);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )

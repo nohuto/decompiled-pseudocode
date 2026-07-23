@@ -1,19 +1,19 @@
 /*
- * XREFs of PspRevertContainerImpersonation @ 0x140259E3C
+ * XREFs of PspRevertContainerImpersonation @ 0x14025A0CC
  * Callers:
- *     PsImpersonateContainerOfThread @ 0x140259EE0 (PsImpersonateContainerOfThread.c)
- *     IopProcessWorkItem @ 0x14031E6B0 (IopProcessWorkItem.c)
- *     NtRevertContainerImpersonation @ 0x1405A40E0 (NtRevertContainerImpersonation.c)
- *     NtSetInformationThread @ 0x1407335B0 (NtSetInformationThread.c)
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PsImpersonateContainerOfThread @ 0x14025A170 (PsImpersonateContainerOfThread.c)
+ *     IopProcessWorkItem @ 0x14031E940 (IopProcessWorkItem.c)
+ *     NtRevertContainerImpersonation @ 0x1405A4650 (NtRevertContainerImpersonation.c)
+ *     NtSetInformationThread @ 0x1407337A0 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1402584B0 (EtwTraceThreadWorkOnBehalfUpdate.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1403495E0 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x140258570 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x140349CFC (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspRevertContainerImpersonation(ULONG_PTR BugCheckParameter1)
@@ -36,10 +36,13 @@ __int64 __fastcall PspRevertContainerImpersonation(ULONG_PTR BugCheckParameter1)
   v5 = v4;
   KiClearSystemPriority(BugCheckParameter1);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PspThreadWorkOnBehalfLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

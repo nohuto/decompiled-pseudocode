@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv6AddressToStringExW @ 0x18005C000
+ * XREFs of RtlIpv6AddressToStringExW @ 0x18005BFF0
  * Callers:
- *     RtlCanonicalizeDomainName @ 0x180055610 (RtlCanonicalizeDomainName.c)
+ *     RtlCanonicalizeDomainName @ 0x180055600 (RtlCanonicalizeDomainName.c)
  * Callees:
- *     RtlIpv6AddressToStringW @ 0x18005C150 (RtlIpv6AddressToStringW.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlIpv6AddressToStringW @ 0x18005C140 (RtlIpv6AddressToStringW.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     swprintf_s @ 0x1800A2340 (swprintf_s.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */

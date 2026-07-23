@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptOfflineProcessor @ 0x140520EC0
+ * XREFs of HalpInterruptOfflineProcessor @ 0x140521410
  * Callers:
- *     HalpDpOfflineProcessorForReplace @ 0x140A97398 (HalpDpOfflineProcessorForReplace.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140A97208 (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32 *a1)
@@ -22,7 +22,7 @@ void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32
   LODWORD(v9) = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )

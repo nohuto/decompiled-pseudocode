@@ -1,18 +1,18 @@
 /*
- * XREFs of BiAddBootEntryToNvramDisplayOrder @ 0x140893778
+ * XREFs of BiAddBootEntryToNvramDisplayOrder @ 0x140899B78
  * Callers:
- *     BiBindEfiEntries @ 0x1409CFCA8 (BiBindEfiEntries.c)
+ *     BiBindEfiEntries @ 0x1409A0C88 (BiBindEfiEntries.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     BiSetBootEntryOrder @ 0x1409D1A04 (BiSetBootEntryOrder.c)
- *     BiQueryBootEntryOrder @ 0x1409D2430 (BiQueryBootEntryOrder.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     BiSetBootEntryOrder @ 0x1409A29E4 (BiSetBootEntryOrder.c)
+ *     BiQueryBootEntryOrder @ 0x1409A3410 (BiQueryBootEntryOrder.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiAddBootEntryToNvramDisplayOrder(__int64 a1)
 {
-  _DWORD *v2; // rdi
+  ULONG *v2; // rdi
   int v3; // eax
   void *v4; // rbp
   unsigned int v5; // esi
@@ -35,13 +35,13 @@ __int64 __fastcall BiAddBootEntryToNvramDisplayOrder(__int64 a1)
         goto LABEL_11;
     }
     Pool2 = ExAllocatePool2(0x102uLL);
-    v2 = (_DWORD *)Pool2;
+    v2 = (ULONG *)Pool2;
     if ( Pool2 )
     {
       if ( (_DWORD)i )
         memmove((void *)(Pool2 + 4), v4, 4LL * (unsigned int)i);
       *v2 = *(_DWORD *)(*(_QWORD *)(a1 + 40) + 8LL);
-      v5 = BiSetBootEntryOrder(v2, (unsigned int)(i + 1));
+      v5 = BiSetBootEntryOrder(v2, (int)i + 1);
     }
     else
     {

@@ -1,7 +1,7 @@
 /*
- * XREFs of ComputeEventEntryHash @ 0x14045A1D0
+ * XREFs of ComputeEventEntryHash @ 0x140451A50
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x140459DC4 (InsertEventEntryInLookUpTable.c)
+ *     InsertEventEntryInLookUpTable @ 0x140451644 (InsertEventEntryInLookUpTable.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of ExUnlockHandleTableEntry @ 0x140A33080
+ * XREFs of ExUnlockHandleTableEntry @ 0x140A4DFE0
  * Callers:
- *     IopCheckHandleForRevocation @ 0x1405CBAB0 (IopCheckHandleForRevocation.c)
- *     ObAuditInheritedHandleProcedure @ 0x1407C20D0 (ObAuditInheritedHandleProcedure.c)
- *     ObpShutdownCloseHandleProcedure @ 0x1407C31F0 (ObpShutdownCloseHandleProcedure.c)
- *     EtwpObjectHandleEnumCallback @ 0x14082F620 (EtwpObjectHandleEnumCallback.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     ObCloseHandleTableEntry2 @ 0x1408FAF70 (ObCloseHandleTableEntry2.c)
- *     ExDupHandleTable @ 0x140971D40 (ExDupHandleTable.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     AlpcpLookupMessage @ 0x1409BEA70 (AlpcpLookupMessage.c)
- *     NtAlpcImpersonateClientOfPort @ 0x1409C1390 (NtAlpcImpersonateClientOfPort.c)
- *     PsLookupThreadByThreadId @ 0x140A10B70 (PsLookupThreadByThreadId.c)
- *     PspThreadFromTicket @ 0x140A191C0 (PspThreadFromTicket.c)
- *     ExQueryProcessHandleInformation @ 0x140A32DCC (ExQueryProcessHandleInformation.c)
- *     NtAlertThreadByThreadIdEx @ 0x140A33250 (NtAlertThreadByThreadIdEx.c)
- *     NtAlertThreadByThreadId @ 0x140A5D8F0 (NtAlertThreadByThreadId.c)
+ *     IopCheckHandleForRevocation @ 0x1405CE320 (IopCheckHandleForRevocation.c)
+ *     ObAuditInheritedHandleProcedure @ 0x1407C5130 (ObAuditInheritedHandleProcedure.c)
+ *     ObpShutdownCloseHandleProcedure @ 0x1407C6250 (ObpShutdownCloseHandleProcedure.c)
+ *     EtwpObjectHandleEnumCallback @ 0x140835860 (EtwpObjectHandleEnumCallback.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     ObCloseHandleTableEntry2 @ 0x14092AF00 (ObCloseHandleTableEntry2.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     AlpcpLookupMessage @ 0x14098FA50 (AlpcpLookupMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x140992370 (NtAlpcImpersonateClientOfPort.c)
+ *     ExDupHandleTable @ 0x1409BD030 (ExDupHandleTable.c)
+ *     PsLookupThreadByThreadId @ 0x140A0FD60 (PsLookupThreadByThreadId.c)
+ *     PspThreadFromTicket @ 0x140A227F0 (PspThreadFromTicket.c)
+ *     ExQueryProcessHandleInformation @ 0x140A4DD2C (ExQueryProcessHandleInformation.c)
+ *     NtAlertThreadByThreadIdEx @ 0x140A4E1B0 (NtAlertThreadByThreadIdEx.c)
+ *     NtAlertThreadByThreadId @ 0x140A6A8B0 (NtAlertThreadByThreadId.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
  */
 
 int __fastcall ExUnlockHandleTableEntry(__int64 a1, volatile signed __int64 *a2)

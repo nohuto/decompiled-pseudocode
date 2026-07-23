@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInitializeSecondaryInterruptServices @ 0x1408BB870
+ * XREFs of KeInitializeSecondaryInterruptServices @ 0x1408BB9D0
  * Callers:
- *     HalpAllocateGsivForSecondaryInterrupt @ 0x1404D0910 (HalpAllocateGsivForSecondaryInterrupt.c)
+ *     HalpAllocateGsivForSecondaryInterrupt @ 0x1404D0B50 (HalpAllocateGsivForSecondaryInterrupt.c)
  * Callees:
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 KeInitializeSecondaryInterruptServices()
@@ -35,7 +35,7 @@ __int64 KeInitializeSecondaryInterruptServices()
       --v4;
     }
     while ( v4 );
-    qword_140C2B478 = (__int64)&KiSecondarySignalList;
+    qword_140C2B4E8 = (__int64)&KiSecondarySignalList;
     KiSecondarySignalList = (__int64)&KiSecondarySignalList;
     KeInitializeDpc((PRKDPC)&KiSecondarySignalDpc, (PKDEFERRED_ROUTINE)KiProcessSecondarySignalList, 0LL);
     KiSecondarySignalListLock = 0LL;

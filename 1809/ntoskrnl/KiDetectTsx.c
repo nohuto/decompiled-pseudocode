@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDetectTsx @ 0x1401B4294
+ * XREFs of KiDetectTsx @ 0x1401B43D4
  * Callers:
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 _BOOL8 KiDetectTsx()

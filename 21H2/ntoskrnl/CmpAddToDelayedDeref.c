@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpAddToDelayedDeref @ 0x14069C0C8
+ * XREFs of CmpAddToDelayedDeref @ 0x1405FB288
  * Callers:
- *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
- *     CmpCancelSubordinatePost @ 0x14069C07C (CmpCancelSubordinatePost.c)
+ *     CmpCancelSubordinatePost @ 0x1405FB23C (CmpCancelSubordinatePost.c)
+ *     CmpPostNotify @ 0x1406DC820 (CmpPostNotify.c)
  * Callees:
  *     <none>
  */

@@ -50,8 +50,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v5 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v5,
@@ -87,8 +87,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
         if ( (unsigned __int8)ARRAY_FITS(*((unsigned int *)v34 + 4), 1LL, 16LL, v29) )
           goto LABEL_5;
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
           v32,
           v11,
@@ -98,8 +98,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
       else
       {
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of "
           "activation context data (%lu bytes)\n",
           v28,
@@ -111,8 +111,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     else
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
         v24,
         v26);
@@ -137,8 +137,8 @@ LABEL_5:
     || (int)v15 + (int)v14 > v5 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       v14,
       v13,
@@ -186,8 +186,8 @@ LABEL_15:
   if ( v20 + (unsigned int)v19 < v20 || (unsigned int)v19 >= v21 || v20 + (unsigned int)v19 > v21 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
       v19,
       v20,

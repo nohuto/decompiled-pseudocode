@@ -11,33 +11,33 @@
  *     ZwProtectVirtualMemory @ 0x1800A18B0 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall LdrpPrepareImportAddressTableForSnap(__int64 a1)
+NTSTATUS __fastcall LdrpPrepareImportAddressTableForSnap(__int64 a1)
 {
   __int64 v1; // rsi
-  __int64 *v2; // rdi
-  int v4; // eax
+  ULONG_PTR *v2; // rdi
+  NTSTATUS v4; // eax
   __int64 v5; // rcx
   bool v6; // zf
   __int64 Config; // rax
-  __int64 v8; // rcx
+  PIMAGE_NT_HEADERS v8; // rcx
   _QWORD *v9; // rax
-  _QWORD *v10; // rcx
-  __int64 result; // rax
-  _QWORD *v12; // rcx
-  unsigned __int64 v13; // rdx
-  unsigned int v14; // r10d
+  void *v10; // rcx
+  NTSTATUS result; // eax
+  char *v12; // rcx
+  char *v13; // rdx
+  unsigned int VirtualAddress; // r10d
   unsigned int *v15; // rdx
   unsigned int v16; // r8d
   unsigned int v17; // r9d
-  __int64 v18; // rax
-  __int64 v19; // [rsp+60h] [rbp+30h] BYREF
+  ULONG_PTR v18; // rax
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp+30h] BYREF
   __int64 v20; // [rsp+68h] [rbp+38h] BYREF
-  _QWORD *v21; // [rsp+70h] [rbp+40h] BYREF
-  __int64 v22; // [rsp+78h] [rbp+48h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp+40h] BYREF
+  ULONG_PTR RegionSize; // [rsp+78h] [rbp+48h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
-  v2 = (__int64 *)(a1 + 120);
-  v4 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(v1 + 48), 1, 0xCu, (_DWORD *)(a1 + 120), &v20);
+  v2 = (ULONG_PTR *)(a1 + 120);
+  v4 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(v1 + 48), 1, 0xCu, (unsigned int *)(a1 + 120), &v20);
   v5 = v20;
   if ( v4 < 0 )
     v5 = 0LL;
@@ -45,13 +45,13 @@ __int64 __fastcall LdrpPrepareImportAddressTableForSnap(__int64 a1)
   v20 = v5;
   *(_QWORD *)(a1 + 112) = v5;
   if ( !v6 )
-    return 0LL;
-  RtlImageNtHeaderEx(3, *(_QWORD *)(v1 + 48), 0LL, &v19);
-  Config = LdrImageDirectoryEntryToLoadConfig(*(_QWORD *)(v1 + 48));
+    return 0;
+  RtlImageNtHeaderEx(3u, *(PVOID *)(v1 + 48), 0LL, &OutHeaders);
+  Config = LdrImageDirectoryEntryToLoadConfig(*(PVOID *)(v1 + 48));
   if ( !Config || *(_DWORD *)Config < 0x94u )
     goto LABEL_10;
-  v8 = v19;
-  if ( (*(_WORD *)(v19 + 94) & 0x4000) != 0 && (*(_DWORD *)(Config + 144) & 0x100) != 0 )
+  v8 = OutHeaders;
+  if ( (OutHeaders->OptionalHeader.DllCharacteristics & 0x4000) != 0 && (*(_DWORD *)(Config + 144) & 0x100) != 0 )
   {
     v9 = *(_QWORD **)(Config + 112);
     *(_QWORD *)(a1 + 160) = v9;
@@ -59,26 +59,26 @@ __int64 __fastcall LdrpPrepareImportAddressTableForSnap(__int64 a1)
     {
       *(_QWORD *)(a1 + 152) = *v9;
 LABEL_10:
-      v8 = v19;
+      v8 = OutHeaders;
     }
   }
   if ( !*(_QWORD *)(a1 + 112) )
   {
-    v14 = *(_DWORD *)(v8 + 144);
-    v15 = (unsigned int *)(*(unsigned __int16 *)(v8 + 20) + v8 + 24);
-    if ( v14 )
+    VirtualAddress = v8->OptionalHeader.DataDirectory[1].VirtualAddress;
+    v15 = (unsigned int *)((char *)&v8->OptionalHeader.Magic + v8->FileHeader.SizeOfOptionalHeader);
+    if ( VirtualAddress )
     {
       v16 = 0;
-      if ( *(_WORD *)(v8 + 6) )
+      if ( v8->FileHeader.NumberOfSections )
       {
         while ( 1 )
         {
           v17 = v15[3];
-          if ( v14 >= v17 && v14 < v17 + v15[4] )
+          if ( VirtualAddress >= v17 && VirtualAddress < v17 + v15[4] )
             break;
           ++v16;
           v15 += 10;
-          if ( v16 >= *(unsigned __int16 *)(v8 + 6) )
+          if ( v16 >= v8->FileHeader.NumberOfSections )
             goto LABEL_12;
         }
         *(_QWORD *)(a1 + 112) = *(_QWORD *)(v1 + 48) + v17;
@@ -90,22 +90,22 @@ LABEL_10:
     }
   }
 LABEL_12:
-  v10 = *(_QWORD **)(a1 + 112);
+  v10 = *(void **)(a1 + 112);
   if ( v10 && *v2 )
   {
-    v22 = *v2;
-    v21 = v10;
-    result = ZwProtectVirtualMemory(-1LL, &v21, &v22, 4LL, a1 + 144);
-    if ( (int)result < 0 )
+    RegionSize = *v2;
+    BaseAddress = v10;
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, (PULONG)(a1 + 144));
+    if ( result < 0 )
       return result;
-    v12 = v21;
-    v13 = (unsigned __int64)v21 + v22;
+    v12 = (char *)BaseAddress;
+    v13 = (char *)BaseAddress + RegionSize;
     do
     {
-      *v12 = *v12;
-      v12 += 512;
+      *(_QWORD *)v12 = *(_QWORD *)v12;
+      v12 += 4096;
     }
-    while ( (unsigned __int64)v12 < v13 );
+    while ( v12 < v13 );
   }
-  return 0LL;
+  return 0;
 }

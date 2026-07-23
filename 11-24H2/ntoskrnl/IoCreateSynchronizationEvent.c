@@ -1,11 +1,11 @@
 /*
- * XREFs of IoCreateSynchronizationEvent @ 0x140713EF0
+ * XREFs of IoCreateSynchronizationEvent @ 0x140711A80
  * Callers:
- *     DifIoCreateSynchronizationEventWrapper @ 0x1406277D0 (DifIoCreateSynchronizationEventWrapper.c)
+ *     DifIoCreateSynchronizationEventWrapper @ 0x140625D90 (DifIoCreateSynchronizationEventWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 PKEVENT __stdcall IoCreateSynchronizationEvent(PUNICODE_STRING EventName, PHANDLE EventHandle)

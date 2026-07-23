@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_GetCurrentFeatureEnabledState @ 0x1405083BC
+ * XREFs of wil_details_GetCurrentFeatureEnabledState @ 0x14050890C
  * Callers:
- *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1405082BC (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x14050880C (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
  * Callees:
- *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x1403333D0 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
- *     wil_RtlStagingConfig_QueryFeatureState @ 0x140933784 (wil_RtlStagingConfig_QueryFeatureState.c)
+ *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x140333660 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
+ *     wil_RtlStagingConfig_QueryFeatureState @ 0x140933984 (wil_RtlStagingConfig_QueryFeatureState.c)
  */
 
 __int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD *a2)

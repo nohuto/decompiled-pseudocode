@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapAcquireLockExclusive @ 0x1401B6764
+ * XREFs of HvpViewMapAcquireLockExclusive @ 0x1401B6648
  * Callers:
- *     HvViewMapPinFile @ 0x1401B6704 (HvViewMapPinFile.c)
- *     HvViewMapUnpinFile @ 0x1401B673C (HvViewMapUnpinFile.c)
- *     HvViewMapChangeFileSize @ 0x14060FAD0 (HvViewMapChangeFileSize.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
- *     HvViewMapUnpinForFileOffset @ 0x14060FE80 (HvViewMapUnpinForFileOffset.c)
+ *     HvViewMapPinFile @ 0x1401B65E8 (HvViewMapPinFile.c)
+ *     HvViewMapUnpinFile @ 0x1401B6620 (HvViewMapUnpinFile.c)
+ *     HvViewMapChangeFileSize @ 0x14060FB84 (HvViewMapChangeFileSize.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
+ *     HvViewMapUnpinForFileOffset @ 0x14060FF34 (HvViewMapUnpinForFileOffset.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall HvpViewMapAcquireLockExclusive(__int64 a1)

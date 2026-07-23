@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlGetFileExtents @ 0x14057F7E0
+ * XREFs of FsRtlGetFileExtents @ 0x14057CC20
  * Callers:
- *     MiAllocateEntireImageFileExtents @ 0x1407EFC4C (MiAllocateEntireImageFileExtents.c)
- *     MiComputeIdealFirstSubsection @ 0x1407EFE7C (MiComputeIdealFirstSubsection.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1407F021C (MiAllocateEntireImageFileExtents.c)
+ *     MiComputeIdealFirstSubsection @ 0x1407F044C (MiComputeIdealFirstSubsection.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     IoAllocateIrpEx @ 0x140253BB0 (IoAllocateIrpEx.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IoSynchronousCallDriver @ 0x140374C50 (IoSynchronousCallDriver.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IoSynchronousCallDriver @ 0x14025D510 (IoSynchronousCallDriver.c)
+ *     IoAllocateIrpEx @ 0x1402841C0 (IoAllocateIrpEx.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FsRtlGetFileExtents(struct _FILE_OBJECT *a1, int a2, __int64 a3, __int64 a4, _DWORD *a5)

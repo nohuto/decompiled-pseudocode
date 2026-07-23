@@ -4,9 +4,9 @@
  *     RtlpFcUpdateLocalConfiguration @ 0x18005DD5C (RtlpFcUpdateLocalConfiguration.c)
  *     RtlQueryFeatureConfiguration @ 0x18005E0F0 (RtlQueryFeatureConfiguration.c)
  *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005E1AC (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlNotifyFeatureUsage @ 0x180101B40 (RtlNotifyFeatureUsage.c)
- *     RtlQueryAllFeatureConfigurations @ 0x180101BD0 (RtlQueryAllFeatureConfigurations.c)
- *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x180101C90 (RtlQueryFeatureUsageNotificationSubscriptions.c)
+ *     RtlNotifyFeatureUsage @ 0x180101B00 (RtlNotifyFeatureUsage.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x180101B90 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x180101C50 (RtlQueryFeatureUsageNotificationSubscriptions.c)
  * Callees:
  *     RtlBackoff @ 0x18005E2E8 (RtlBackoff.c)
  */

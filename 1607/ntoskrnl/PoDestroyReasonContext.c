@@ -1,21 +1,21 @@
 /*
- * XREFs of PoDestroyReasonContext @ 0x1400FB8C8
+ * XREFs of PoDestroyReasonContext @ 0x1400F9654
  * Callers:
- *     ExpDeleteTimer @ 0x1400C3408 (ExpDeleteTimer.c)
- *     NtCancelTimer @ 0x1400EDFA0 (NtCancelTimer.c)
- *     ExpSetTimer @ 0x1400EF85C (ExpSetTimer.c)
- *     NtSetTimerEx @ 0x1400EFE6C (NtSetTimerEx.c)
- *     PopPowerRequestCleanUp @ 0x1400FB1B4 (PopPowerRequestCleanUp.c)
- *     NtSetTimer @ 0x14010D948 (NtSetTimer.c)
- *     PoRegisterSystemState @ 0x1402057F0 (PoRegisterSystemState.c)
- *     PoCreatePowerRequest @ 0x14051E298 (PoCreatePowerRequest.c)
- *     PopPowerRequestCreateInfo @ 0x14051E69C (PopPowerRequestCreateInfo.c)
- *     NtSetThreadExecutionState @ 0x14052CD00 (NtSetThreadExecutionState.c)
- *     PoCreateThermalRequest @ 0x14056C4C8 (PoCreateThermalRequest.c)
- *     PoDeleteThermalRequest @ 0x14066B788 (PoDeleteThermalRequest.c)
+ *     ExpDeleteTimer @ 0x1400C1298 (ExpDeleteTimer.c)
+ *     NtCancelTimer @ 0x1400EBE20 (NtCancelTimer.c)
+ *     ExpSetTimer @ 0x1400ED6DC (ExpSetTimer.c)
+ *     NtSetTimerEx @ 0x1400EDCEC (NtSetTimerEx.c)
+ *     PopPowerRequestCleanUp @ 0x1400F8F40 (PopPowerRequestCleanUp.c)
+ *     NtSetTimer @ 0x14010DEAC (NtSetTimer.c)
+ *     PoRegisterSystemState @ 0x14020561C (PoRegisterSystemState.c)
+ *     PoCreatePowerRequest @ 0x140501300 (PoCreatePowerRequest.c)
+ *     PopPowerRequestCreateInfo @ 0x140501704 (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x14052D240 (NtSetThreadExecutionState.c)
+ *     PoCreateThermalRequest @ 0x14056CA08 (PoCreateThermalRequest.c)
+ *     PoDeleteThermalRequest @ 0x14066B86C (PoDeleteThermalRequest.c)
  *     PopInitializeHighPerfPowerRequest @ 0x1407BBC6C (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

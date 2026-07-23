@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetSystemTime @ 0x1401433EC
+ * XREFs of KeSetSystemTime @ 0x1401434EC
  * Callers:
- *     ExpSetSystemTime @ 0x140566AC8 (ExpSetSystemTime.c)
- *     ExpRefreshSystemTime @ 0x1407341A0 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1408CD2B0 (NtSetSystemTime.c)
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     ExpSetSystemTime @ 0x140567AC8 (ExpSetSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x140735390 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1408CE570 (NtSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
  */
 
 char __fastcall KeSetSystemTime(struct _SINGLE_LIST_ENTRY *a1, struct _SINGLE_LIST_ENTRY *a2, int a3)

@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpHpEnvAllocVA @ 0x1402EAA50
+ * XREFs of RtlpHpEnvAllocVA @ 0x14034C090
  * Callers:
- *     RtlpCSparseBitmapPageCommit @ 0x1402477C4 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpHpAllocVA @ 0x1402E98A8 (RtlpHpAllocVA.c)
- *     RtlpHpVaMgrAllocAligned @ 0x140421ACC (RtlpHpVaMgrAllocAligned.c)
- *     RtlpHpVaMgrRangeCommit @ 0x140605C28 (RtlpHpVaMgrRangeCommit.c)
- *     RtlCSparseBitmapStart @ 0x140607074 (RtlCSparseBitmapStart.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1402197E0 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpHpVaMgrAllocAligned @ 0x14021BB5C (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpHpAllocVA @ 0x14034AEE8 (RtlpHpAllocVA.c)
+ *     RtlpHpVaMgrRangeCommit @ 0x140603268 (RtlpHpVaMgrRangeCommit.c)
+ *     RtlCSparseBitmapStart @ 0x140604674 (RtlCSparseBitmapStart.c)
  * Callees:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
- *     RtlpHpEnvFreeVA @ 0x14024421C (RtlpHpEnvFreeVA.c)
- *     MiGetPoolPages @ 0x1402E9F58 (MiGetPoolPages.c)
- *     MiGetLargePoolPages @ 0x1402EA218 (MiGetLargePoolPages.c)
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
- *     MiCommitPoolMemory @ 0x1402EB010 (MiCommitPoolMemory.c)
- *     MiReservePoolMemory @ 0x1403A5398 (MiReservePoolMemory.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MmKasanCommitRegion @ 0x140679BA8 (MmKasanCommitRegion.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
+ *     RtlpHpEnvFreeVA @ 0x14020C9AC (RtlpHpEnvFreeVA.c)
+ *     MiReservePoolMemory @ 0x14026C688 (MiReservePoolMemory.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     MiGetPoolPages @ 0x14034B598 (MiGetPoolPages.c)
+ *     MiGetLargePoolPages @ 0x14034B858 (MiGetLargePoolPages.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
+ *     MiCommitPoolMemory @ 0x14034C650 (MiCommitPoolMemory.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MmKasanCommitRegion @ 0x14067AD88 (MmKasanCommitRegion.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpEnvAllocVA(
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpEnvAllocVA(
   __int64 v9; // r12
   unsigned __int64 v12; // rcx
   int v13; // edx
-  ULONG_PTR v14; // rdi
+  unsigned __int64 v14; // rdi
   ULONG_PTR BugCheckParameter4; // r15
   unsigned __int64 v16; // r14
   ULONG_PTR v17; // r13
@@ -59,7 +59,7 @@ __int64 __fastcall RtlpHpEnvAllocVA(
   bool v37; // zf
   int v38; // eax
   ULONG_PTR v39; // rdx
-  ULONG_PTR v40; // rdi
+  unsigned __int64 v40; // rdi
   signed __int64 v41; // [rsp+30h] [rbp-89h] BYREF
   __int64 v42; // [rsp+38h] [rbp-81h] BYREF
   __int64 v43; // [rsp+40h] [rbp-79h]
@@ -141,7 +141,7 @@ __int64 __fastcall RtlpHpEnvAllocVA(
     v49 = 0LL;
     v44[1] = ((__int64)((((v19 + v14 - 1) >> 9) & 0x7FFFFFFFF8LL) - ((v19 >> 9) & 0x7FFFFFFFF8LL)) >> 3) + 1;
     v47 = 0LL;
-    ProtectionMask = MiMakeProtectionMask((unsigned int)BugCheckParameter4);
+    ProtectionMask = MiMakeProtectionMask((unsigned int)BugCheckParameter4, 0xFFFFF68000000000uLL, v19);
     if ( ProtectionMask > 0x18 || (v25 = 16777298, !_bittest(&v25, ProtectionMask)) )
       KeBugCheckEx(0x1Au, 0x5300uLL, v23, v14, BugCheckParameter4);
     v26 = 8 * (ProtectionMask & 0x1F);
@@ -153,14 +153,14 @@ __int64 __fastcall RtlpHpEnvAllocVA(
     }
     v50 = 4LL;
     v46 = 0LL;
-    v27 = (unsigned __int16 *)&unk_140E38380;
-    v51 = &unk_140E38380;
+    v27 = (unsigned __int16 *)&unk_140E384C0;
+    v51 = &unk_140E384C0;
     v45 = 0LL;
     if ( (v16 & 0x100) != 0 )
     {
-      v27 = (unsigned __int16 *)&unk_140E37FC0;
+      v27 = (unsigned __int16 *)&unk_140E38100;
       LODWORD(v50) = 5;
-      v51 = &unk_140E37FC0;
+      v51 = &unk_140E38100;
       v28 = v26 | 2;
     }
     else
@@ -174,7 +174,7 @@ LABEL_21:
     if ( (v55 & 2) != 0 )
     {
       v20 = -1073741670;
-      if ( (unsigned int)MiChargeCommit(*((_QWORD *)qword_140E2FF88 + v27[87]), v24, 1) )
+      if ( (unsigned int)MiChargeCommit(*((_QWORD *)qword_140E300C8 + v27[87]), v24, 1) )
         v20 = 0;
     }
     else
@@ -244,7 +244,7 @@ LABEL_29:
     }
     if ( (a4 & 0x1000) == 0 )
       goto LABEL_34;
-    if ( !byte_140FCDC28 || !v9 )
+    if ( !byte_140FCECA8 || !v9 )
     {
       v29 = 0;
 LABEL_34:

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiReleaseSessionVa @ 0x140138084
+ * XREFs of MiReleaseSessionVa @ 0x140138184
  * Callers:
  *     MiMakeSystemRangeAvailable @ 0x1400280B0 (MiMakeSystemRangeAvailable.c)
  * Callees:
@@ -11,8 +11,8 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
@@ -35,7 +35,7 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
   int v19; // [rsp+68h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (unsigned __int64)(a1 - qword_140438F80) >> 21;
+  v3 = (unsigned __int64)(a1 - qword_14043A040) >> 21;
   v5 = CurrentThread->ApcState.Process[1].ActiveProcessors.Bitmap[2];
   --CurrentThread->SpecialApcDisable;
   ExAcquirePushLockExclusiveEx(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 8016, 0LL);
@@ -76,7 +76,7 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
         {
           v15->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v15->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v7->LockEntries[v14], SessionId);
+            KiAbEntryRemoveFromTree(&v7->LockEntries[v14].TreeNode, SessionId);
           v19 = 0;
           v19 = v15->BoostBitmap.AllFields & 0x1FFFF;
           v15->BoostBitmap.AllFields &= 0xFFFE0000;

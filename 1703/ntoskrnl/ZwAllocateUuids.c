@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Time, Range, Sequence);
+  return KiServiceInternal(Time);
 }

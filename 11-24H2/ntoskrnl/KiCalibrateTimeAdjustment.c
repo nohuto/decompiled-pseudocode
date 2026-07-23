@@ -1,22 +1,22 @@
 /*
- * XREFs of KiCalibrateTimeAdjustment @ 0x140B6B5B0
+ * XREFs of KiCalibrateTimeAdjustment @ 0x140B6BCD0
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlWriteAcquireTickLock @ 0x14029D4E4 (RtlWriteAcquireTickLock.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     RtlWriteReleaseTickLock @ 0x140455770 (RtlWriteReleaseTickLock.c)
- *     KeRemoveQueueDpc @ 0x140464070 (KeRemoveQueueDpc.c)
- *     KiUpdateSystemTime @ 0x1404A7710 (KiUpdateSystemTime.c)
- *     KeRebaselineInterruptTime @ 0x1404D8E4C (KeRebaselineInterruptTime.c)
- *     KiPollFreezeExecution @ 0x1404FA5E0 (KiPollFreezeExecution.c)
- *     HalCalibratePerformanceCounter @ 0x14053A440 (HalCalibratePerformanceCounter.c)
- *     KiRebaselineProcessorStartCycles @ 0x1405B109C (KiRebaselineProcessorStartCycles.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlWriteAcquireTickLock @ 0x1402ABFD4 (RtlWriteAcquireTickLock.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     RtlWriteReleaseTickLock @ 0x14044A520 (RtlWriteReleaseTickLock.c)
+ *     KeRemoveQueueDpc @ 0x14045A7A0 (KeRemoveQueueDpc.c)
+ *     KiUpdateSystemTime @ 0x1404A2140 (KiUpdateSystemTime.c)
+ *     KeRebaselineInterruptTime @ 0x1404D229C (KeRebaselineInterruptTime.c)
+ *     KiPollFreezeExecution @ 0x1404F7EC0 (KiPollFreezeExecution.c)
+ *     HalCalibratePerformanceCounter @ 0x140537C80 (HalCalibratePerformanceCounter.c)
+ *     KiRebaselineProcessorStartCycles @ 0x1405AE00C (KiRebaselineProcessorStartCycles.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
@@ -74,7 +74,7 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       *(_QWORD *)(Argument + 16) += v16.QuadPart;
     }
     v18 = *(_QWORD *)(Argument + 8);
-    KiTickOffset = KeMaximumIncrement - v15 % (unsigned int)KeMaximumIncrement;
+    KiTickOffset = KeMaximumIncrement - v15 % KeMaximumIncrement;
     *(_QWORD *)(MmWriteableSharedUserData + 944) += v18;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )
       __fastfail(5u);
@@ -121,7 +121,7 @@ LABEL_9:
     result = KeRebaselineInterruptTime().QuadPart;
     if ( CurrentPrcb->CycleAccumulationInitialized )
       result = KiRebaselineProcessorStartCycles((__int64)CurrentPrcb);
-    if ( (xmmword_140FC5B10 & 0x8000) != 0 )
+    if ( (xmmword_140FC6B50 & 0x8000) != 0 )
     {
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
       v25[1] = 8LL;

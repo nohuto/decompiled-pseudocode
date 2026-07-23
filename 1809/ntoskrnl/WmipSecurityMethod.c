@@ -1,19 +1,19 @@
 /*
- * XREFs of WmipSecurityMethod @ 0x1406AAA80
+ * XREFs of WmipSecurityMethod @ 0x1406ABD20
  * Callers:
  *     <none>
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1405C833C (ObQuerySecurityDescriptorInfo.c)
- *     ObSetSecurityDescriptorInfo @ 0x1405C8A30 (ObSetSecurityDescriptorInfo.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1406AAC48 (ObAssignObjectSecurityDescriptor.c)
- *     ObDeassignSecurity @ 0x1406AACC0 (ObDeassignSecurity.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x140762790 (WmipSaveGuidSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1405C933C (ObQuerySecurityDescriptorInfo.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1405C9A30 (ObSetSecurityDescriptorInfo.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x1406ABEE8 (ObAssignObjectSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x1406ABF60 (ObDeassignSecurity.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x140763980 (WmipSaveGuidSecurityDescriptor.c)
  */
 
 __int64 __fastcall WmipSecurityMethod(

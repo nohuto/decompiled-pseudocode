@@ -106,7 +106,7 @@ LABEL_8:
           ++*(_DWORD *)(v1 + 4500);
           *(_DWORD *)(v1 + 4496) = v17;
         }
-        ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)v1);
+        ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)v1);
         *(_QWORD *)(v1 + 4384) += *(_QWORD *)(v1 + 4376);
         UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
         ST_STORE<SM_TRAITS>::StLazyWorkMgrRunExpiredWork(v1 + 4224, UnbiasedInterruptTime);

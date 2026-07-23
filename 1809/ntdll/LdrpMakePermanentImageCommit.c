@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpMakePermanentImageCommit @ 0x180078CA4
+ * XREFs of LdrpMakePermanentImageCommit @ 0x180078CB4
  * Callers:
  *     LdrpCfgProcessLoadConfig @ 0x180041A48 (LdrpCfgProcessLoadConfig.c)
  *     LdrpLocateMrdata @ 0x1800D7BB0 (LdrpLocateMrdata.c)

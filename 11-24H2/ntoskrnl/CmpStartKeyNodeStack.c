@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpStartKeyNodeStack @ 0x1409155E4
+ * XREFs of CmpStartKeyNodeStack @ 0x140909054
  * Callers:
- *     CmSaveKey @ 0x1407CDBFC (CmSaveKey.c)
- *     CmpGetSubKeyCountForKcbStack @ 0x140913D68 (CmpGetSubKeyCountForKcbStack.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140914330 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x1409145DC (CmpValueEnumStackStartFromKcbStack.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140915178 (CmpKeyEnumStackStartFromKcbStack.c)
- *     CmpSubtreeEnumeratorStart @ 0x140915340 (CmpSubtreeEnumeratorStart.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x140915444 (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpKeyEnumStackStart @ 0x14091554C (CmpKeyEnumStackStart.c)
+ *     CmSaveKey @ 0x1407CE0EC (CmSaveKey.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x1409077DC (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140907DA0 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x14090804C (CmpValueEnumStackStartFromKcbStack.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x140908BE8 (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x140908DB0 (CmpSubtreeEnumeratorStart.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x140908EB4 (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpKeyEnumStackStart @ 0x140908FBC (CmpKeyEnumStackStart.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpKeyNodeStackEntryInitialize @ 0x140916A3C (CmpKeyNodeStackEntryInitialize.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpKeyNodeStackEntryInitialize @ 0x14090A4AC (CmpKeyNodeStackEntryInitialize.c)
  */
 
 __int64 __fastcall CmpStartKeyNodeStack(__int64 a1, __int16 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall CmpStartKeyNodeStack(__int64 a1, __int16 a2)
   v3 = 0;
   if ( a2 >= 2 )
   {
-    Pool = CmpAllocatePool(0x100uLL);
+    Pool = CmpAllocatePool(0x100uLL, 32LL * a2 - 32, 0x39364D43u);
     *(_QWORD *)(a1 + 72) = Pool;
     if ( !Pool )
       return (unsigned int)-1073741670;

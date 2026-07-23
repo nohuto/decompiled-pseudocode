@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetClockTimerResolution @ 0x1405B8F70
+ * XREFs of KeGetClockTimerResolution @ 0x1405B65B0
  * Callers:
- *     HalpTimerSwitchToNormalClock @ 0x1405470E4 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1405449A4 (HalpTimerSwitchToNormalClock.c)
  * Callees:
  *     <none>
  */

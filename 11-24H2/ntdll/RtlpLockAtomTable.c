@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpLockAtomTable @ 0x1800AEA00
+ * XREFs of RtlpLockAtomTable @ 0x18007B1E0
  * Callers:
- *     RtlEmptyAtomTable @ 0x1800ADAF0 (RtlEmptyAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1800AE4B0 (RtlDeleteAtomFromAtomTable.c)
- *     RtlAddAtomToAtomTableEx @ 0x1800AE554 (RtlAddAtomToAtomTableEx.c)
- *     RtlDestroyAtomTable @ 0x180114540 (RtlDestroyAtomTable.c)
- *     RtlQueryAtomInAtomTable @ 0x1801191C0 (RtlQueryAtomInAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x18013C0C0 (RtlPinAtomInAtomTable.c)
+ *     RtlQueryAtomInAtomTable @ 0x18007AA70 (RtlQueryAtomInAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x18007AC90 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x18007AD34 (RtlAddAtomToAtomTableEx.c)
+ *     RtlEmptyAtomTable @ 0x18010E600 (RtlEmptyAtomTable.c)
+ *     RtlDestroyAtomTable @ 0x18010F790 (RtlDestroyAtomTable.c)
+ *     RtlPinAtomInAtomTable @ 0x18013A2B0 (RtlPinAtomInAtomTable.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpLockAtomTable(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+char __fastcall RtlpLockAtomTable(__int64 a1)
 {
   if ( !a1 || *(_DWORD *)a1 != 1836020801 )
     return 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 8), a2, a3);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   return 1;
 }

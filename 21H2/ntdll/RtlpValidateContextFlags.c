@@ -7,7 +7,7 @@
  *     RtlpSanitizeContextFlags @ 0x180052E10 (RtlpSanitizeContextFlags.c)
  *     RtlGetExtendedContextLength2 @ 0x180052E60 (RtlGetExtendedContextLength2.c)
  *     RtlInitializeExtendedContext2 @ 0x180053090 (RtlInitializeExtendedContext2.c)
- *     RtlpCopyExtendedContext @ 0x1800F5E04 (RtlpCopyExtendedContext.c)
+ *     RtlpCopyExtendedContext @ 0x1800F5DC4 (RtlpCopyExtendedContext.c)
  * Callees:
  *     <none>
  */

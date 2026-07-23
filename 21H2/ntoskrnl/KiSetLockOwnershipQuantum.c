@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSetLockOwnershipQuantum @ 0x1402BCC58
+ * XREFs of KiSetLockOwnershipQuantum @ 0x14023B308
  * Callers:
- *     KiSetPriorityBoost @ 0x1402BCC00 (KiSetPriorityBoost.c)
+ *     KiSetPriorityBoost @ 0x14023B2B0 (KiSetPriorityBoost.c)
  * Callees:
  *     <none>
  */

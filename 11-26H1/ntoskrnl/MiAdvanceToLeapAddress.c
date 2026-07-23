@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAdvanceToLeapAddress @ 0x14043E080
+ * XREFs of MiAdvanceToLeapAddress @ 0x140436B90
  * Callers:
- *     MiWalkPageTablesEvaluatePte @ 0x140327B30 (MiWalkPageTablesEvaluatePte.c)
+ *     MiWalkPageTablesEvaluatePte @ 0x140329B60 (MiWalkPageTablesEvaluatePte.c)
  * Callees:
  *     <none>
  */

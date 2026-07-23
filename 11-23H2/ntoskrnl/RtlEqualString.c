@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlEqualString @ 0x14034C590
+ * XREFs of RtlEqualString @ 0x14034C730
  * Callers:
- *     HalMatchAcpiOemId @ 0x140398D90 (HalMatchAcpiOemId.c)
+ *     HalMatchAcpiOemId @ 0x140398F70 (HalMatchAcpiOemId.c)
  *     IopInitializeBuiltinDriver @ 0x140B3DB64 (IopInitializeBuiltinDriver.c)
  *     IopGetBootDiskInformation @ 0x140B93A0C (IopGetBootDiskInformation.c)
  * Callees:
- *     RtlUpperChar @ 0x1406D84E0 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x1406D8510 (RtlUpperChar.c)
  */
 
 BOOLEAN __stdcall RtlEqualString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)

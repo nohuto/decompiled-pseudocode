@@ -19,7 +19,7 @@
 _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
 {
   _QWORD *v4; // rsi
-  union _SLIST_HEADER *v5; // r14
+  _SLIST_HEADER *v5; // r14
   unsigned __int64 Region; // rdx
   unsigned __int64 v9; // rax
   _QWORD *v10; // rcx

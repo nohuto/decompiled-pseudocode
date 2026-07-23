@@ -1,10 +1,10 @@
 /*
- * XREFs of WbValidateHeapExecuteCallArguments @ 0x1408FBB30
+ * XREFs of WbValidateHeapExecuteCallArguments @ 0x14091E410
  * Callers:
- *     sub_1408FB650 @ 0x1408FB650 (sub_1408FB650.c)
+ *     sub_14091DF30 @ 0x14091DF30 (sub_14091DF30.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsWow64GetProcessMachine @ 0x1408FB0E0 (PsWow64GetProcessMachine.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsWow64GetProcessMachine @ 0x14091D9C0 (PsWow64GetProcessMachine.c)
  */
 
 __int64 __fastcall WbValidateHeapExecuteCallArguments(__int64 a1, unsigned int a2, int *a3)

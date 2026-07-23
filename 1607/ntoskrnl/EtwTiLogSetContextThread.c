@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTiLogSetContextThread @ 0x1406A5D34
+ * XREFs of EtwTiLogSetContextThread @ 0x1406A5E6C
  * Callers:
- *     PspSetContextThreadInternal @ 0x140517374 (PspSetContextThreadInternal.c)
- *     PspWow64SetContextThread @ 0x140518F20 (PspWow64SetContextThread.c)
+ *     PspSetContextThreadInternal @ 0x1404FA764 (PspSetContextThreadInternal.c)
+ *     PspWow64SetContextThread @ 0x1404FC310 (PspWow64SetContextThread.c)
  * Callees:
- *     EtwProviderEnabled @ 0x1400B7664 (EtwProviderEnabled.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpTiFillProcessIdentity @ 0x14017196C (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x140171A18 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiVadQueryEventWrite @ 0x140228F94 (EtwpTiVadQueryEventWrite.c)
- *     EtwpTiParseContextRecord @ 0x1406A6268 (EtwpTiParseContextRecord.c)
+ *     EtwProviderEnabled @ 0x1400B54FC (EtwProviderEnabled.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpTiFillProcessIdentity @ 0x140171E6C (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x140171F18 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiVadQueryEventWrite @ 0x140228DC0 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiParseContextRecord @ 0x1406A63A0 (EtwpTiParseContextRecord.c)
  */
 
 void __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -97,13 +97,13 @@ void __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsign
           LOWORD(v29) = 0;
           v23 = v16 + 1;
           v27 = 12LL;
-          v32[v26].Ptr = (ULONGLONG)&unk_140261F60;
+          v32[v26].Ptr = (ULONGLONG)&unk_140261F70;
           *(_QWORD *)&v32[v26].Size = 2LL;
           do
           {
             v28 = v23++;
             v28 *= 2LL;
-            *(&v32[0].Ptr + v28) = (ULONGLONG)&unk_140261F60;
+            *(&v32[0].Ptr + v28) = (ULONGLONG)&unk_140261F70;
             *((_QWORD *)&v32[0].Size + v28) = 8LL;
             --v27;
           }

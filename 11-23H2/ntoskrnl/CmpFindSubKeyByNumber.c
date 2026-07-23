@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpFindSubKeyByNumber @ 0x1406DAF00
+ * XREFs of CmpFindSubKeyByNumber @ 0x1406DAF30
  * Callers:
- *     CmDeleteLayeredKey @ 0x1406168EC (CmDeleteLayeredKey.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DAFD0 (CmpFindSubKeyByNumberEx.c)
- *     CmpClearKeyAccessBits @ 0x1408859EC (CmpClearKeyAccessBits.c)
- *     CmpEnumerateLayeredKey @ 0x140A16414 (CmpEnumerateLayeredKey.c)
- *     CmpCopySyncTree2 @ 0x140A214A8 (CmpCopySyncTree2.c)
- *     CmpPreserveSystemHiveData @ 0x140A224FC (CmpPreserveSystemHiveData.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140A2309C (CmpSyncSubKeysAfterDelete.c)
- *     CmpMarkAllChildrenDirty @ 0x140A2444C (CmpMarkAllChildrenDirty.c)
- *     CmpUpdateParentForEachSon @ 0x140A24D34 (CmpUpdateParentForEachSon.c)
- *     CmpDeleteTree @ 0x140A25BC0 (CmpDeleteTree.c)
+ *     CmDeleteLayeredKey @ 0x140616E3C (CmDeleteLayeredKey.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406DB000 (CmpFindSubKeyByNumberEx.c)
+ *     CmpClearKeyAccessBits @ 0x140885C2C (CmpClearKeyAccessBits.c)
+ *     CmpEnumerateLayeredKey @ 0x140A166C4 (CmpEnumerateLayeredKey.c)
+ *     CmpCopySyncTree2 @ 0x140A21758 (CmpCopySyncTree2.c)
+ *     CmpPreserveSystemHiveData @ 0x140A227AC (CmpPreserveSystemHiveData.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140A2334C (CmpSyncSubKeysAfterDelete.c)
+ *     CmpMarkAllChildrenDirty @ 0x140A246FC (CmpMarkAllChildrenDirty.c)
+ *     CmpUpdateParentForEachSon @ 0x140A24FE4 (CmpUpdateParentForEachSon.c)
+ *     CmpDeleteTree @ 0x140A25E70 (CmpDeleteTree.c)
  *     CmpDoAccessCheckOnSubtree @ 0x140AF5B2C (CmpDoAccessCheckOnSubtree.c)
  *     CmSelectQualifiedInstallLanguage @ 0x140B5952C (CmSelectQualifiedInstallLanguage.c)
  *     CmpFindDrivers @ 0x140B5A8DC (CmpFindDrivers.c)
  * Callees:
- *     CmpDoFindSubKeyByNumber @ 0x1406DADDC (CmpDoFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1406DAE0C (CmpDoFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumber(ULONG_PTR BugCheckParameter3, _DWORD *a2, unsigned int a3, _DWORD *a4)

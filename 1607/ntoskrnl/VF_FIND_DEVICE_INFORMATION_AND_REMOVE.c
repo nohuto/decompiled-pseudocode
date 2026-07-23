@@ -1,33 +1,33 @@
 /*
- * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140706058
+ * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140706088
  * Callers:
- *     VfIoDeleteDevice @ 0x14070D810 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x14070D840 (VfIoDeleteDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-ULONG_PTR *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(__int64 a1)
+_LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  ULONG_PTR *v2; // rbx
+  _LIST_ENTRY *v2; // rbx
   KIRQL v3; // r8
-  ULONG_PTR *i; // rax
-  ULONG_PTR v6; // rdx
-  ULONG_PTR **v7; // rcx
+  _LIST_ENTRY *i; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  struct _LIST_ENTRY *Blink; // rcx
 
   v2 = 0LL;
   v3 = KeAcquireSpinLockRaiseToDpc(&Lock);
-  for ( i = (ULONG_PTR *)ViAdapterList; &ViAdapterList != i; i = (ULONG_PTR *)*i )
+  for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
-    if ( i[3] == a1 )
+    if ( i[1].Blink == a1 )
     {
-      v6 = *i;
+      Flink = i->Flink;
       v2 = i;
-      v7 = (ULONG_PTR **)i[1];
-      if ( *(ULONG_PTR **)(*i + 8) != i || *v7 != i )
+      Blink = i->Blink;
+      if ( i->Flink->Blink != i || Blink->Flink != i )
         __fastfail(3u);
-      *v7 = (ULONG_PTR *)v6;
-      *(_QWORD *)(v6 + 8) = v7;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
       break;
     }
   }

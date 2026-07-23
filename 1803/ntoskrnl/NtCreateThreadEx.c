@@ -10,22 +10,22 @@
  *     PspBuildCreateProcessContext @ 0x1404BA110 (PspBuildCreateProcessContext.c)
  */
 
-__int64 __fastcall NtCreateThreadEx(
-        unsigned __int64 a1,
-        int a2,
-        __int64 a3,
-        ULONG_PTR a4,
-        __int64 a5,
-        __int64 a6,
-        unsigned int a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+NTSTATUS __cdecl NtCreateThreadEx(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PUSER_THREAD_START_ROUTINE StartRoutine,
+        PVOID Argument,
+        ULONG CreateFlags,
+        SIZE_T ZeroBits,
+        SIZE_T StackSize,
+        SIZE_T MaximumStackSize,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
   __int64 v15; // rdx
-  __int64 result; // rax
-  unsigned int Thread; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS Thread; // ebx
   __int64 v18; // rcx
   __int64 v19[4]; // [rsp+70h] [rbp-758h] BYREF
   __int64 v20[8]; // [rsp+90h] [rbp-738h] BYREF
@@ -34,29 +34,29 @@ __int64 __fastcall NtCreateThreadEx(
 
   memset(v20, 0, sizeof(v20));
   memset(v22, 0, sizeof(v22));
-  if ( (a7 & 0xFFFFFFC0) != 0 )
-    return 3221225717LL;
+  if ( (CreateFlags & 0xFFFFFFC0) != 0 )
+    return -1073741579;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    v18 = a1;
-    if ( a1 >= 0x7FFFFFFF0000LL )
+    v18 = (__int64)ThreadHandle;
+    if ( (unsigned __int64)ThreadHandle >= 0x7FFFFFFF0000LL )
       v18 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v18 = *(_QWORD *)v18;
   }
   LOBYTE(v19[0]) = 0;
-  v19[2] = a9;
-  v19[3] = a10;
-  v19[1] = a8;
+  v19[2] = StackSize;
+  v19[3] = MaximumStackSize;
+  v19[1] = ZeroBits;
   memset(v21, 0, 0x1E8uLL);
-  if ( !a11
+  if ( !AttributeList
     || (LOBYTE(v15) = KeGetCurrentThread()->PreviousMode,
-        result = PspBuildCreateProcessContext(a11, v15, 1LL, v21),
-        (int)result >= 0) )
+        result = PspBuildCreateProcessContext(AttributeList, v15, 1LL, v21),
+        result >= 0) )
   {
     v22[6] = 0x1F800010000BLL;
     v22[31] = PspUserThreadStart;
-    v22[16] = a5;
-    v22[17] = a6;
+    v22[16] = (__int64)StartRoutine;
+    v22[17] = (__int64)Argument;
     *(_DWORD *)((char *)&v22[7] + 2) = 2818091;
     *(_DWORD *)((char *)&v22[7] + 6) = 2818131;
     WORD1(v22[8]) = 43;
@@ -64,18 +64,18 @@ __int64 __fastcall NtCreateThreadEx(
     LOWORD(v22[32]) = 639;
     LODWORD(v22[35]) = 8064;
     Thread = PspCreateThread(
-               a1,
-               a2,
-               a3,
-               a4,
+               (__int64)ThreadHandle,
+               DesiredAccess,
+               (__int64)ObjectAttributes,
+               (ULONG_PTR)ProcessHandle,
                0LL,
                (__int64)v21,
                v21[2],
                (__int64)v22,
                (__int64)v20,
-               a7,
-               a5,
-               a6,
+               CreateFlags,
+               (__int64)StartRoutine,
+               (__int64)Argument,
                (__int64)v19);
     PspDeleteCreateProcessContext(v21);
     return Thread;

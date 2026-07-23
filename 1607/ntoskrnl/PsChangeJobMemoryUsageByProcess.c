@@ -1,7 +1,7 @@
 /*
- * XREFs of PsChangeJobMemoryUsageByProcess @ 0x14068008C
+ * XREFs of PsChangeJobMemoryUsageByProcess @ 0x140680170
  * Callers:
- *     MiChargeFullProcessCommitment @ 0x140430960 (MiChargeFullProcessCommitment.c)
+ *     MiChargeFullProcessCommitment @ 0x14042F830 (MiChargeFullProcessCommitment.c)
  * Callees:
  *     <none>
  */

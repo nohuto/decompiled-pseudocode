@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpLockTableRemove @ 0x1401B5334
+ * XREFs of CmpLockTableRemove @ 0x1401B5218
  * Callers:
- *     CmpUnlockKcbStack @ 0x140404820 (CmpUnlockKcbStack.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpUnlockTwoKcbs @ 0x140438FD0 (CmpUnlockTwoKcbs.c)
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
- *     CmQueryValueKey @ 0x14043F420 (CmQueryValueKey.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpUnlockKcbStack @ 0x1404036E0 (CmpUnlockKcbStack.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpUnlockTwoKcbs @ 0x140437EA0 (CmpUnlockTwoKcbs.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
+ *     CmQueryValueKey @ 0x14043E2F0 (CmQueryValueKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */
 
 PSLIST_ENTRY __fastcall CmpLockTableRemove(__int64 a1, int a2)
 {
-  union _SLIST_HEADER *v4; // rcx
+  _SLIST_HEADER *v4; // rcx
   __int64 v5; // r11
   int v6; // r10d
   __int64 v7; // rdi
@@ -21,7 +21,7 @@ PSLIST_ENTRY __fastcall CmpLockTableRemove(__int64 a1, int a2)
   int v9; // edx
   __int64 v10; // r8
   unsigned __int64 *p_Region; // rcx
-  struct _SLIST_ENTRY *v12; // rdx
+  _SLIST_ENTRY *v12; // rdx
 
   v4 = CmpLockTable;
   v5 = a1 | 1;
@@ -49,7 +49,7 @@ LABEL_13:
       v4 = CmpLockTable;
     }
   }
-  v12 = (struct _SLIST_ENTRY *)&v4[v6 + 2];
+  v12 = (_SLIST_ENTRY *)&v4[v6 + 2];
   v4[v6 + 2].Region = 0LL;
   v12->Next = 0LL;
   return RtlpInterlockedPushEntrySList(v4, v12);

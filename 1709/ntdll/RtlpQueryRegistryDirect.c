@@ -12,7 +12,7 @@ __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, si
   unsigned __int16 v4; // bx
   void *v8; // rcx
   unsigned __int64 v10; // rax
-  __int64 StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v4 = a3;
   if ( a1 - 1 > 1 && a1 != 7 )

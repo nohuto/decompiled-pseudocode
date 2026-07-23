@@ -1,18 +1,18 @@
 /*
- * XREFs of WheapEtwEnableCallback @ 0x14057F424
+ * XREFs of WheapEtwEnableCallback @ 0x14057F8D0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     WheapFreeErrorRecord @ 0x140230884 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x1402310E8 (WheapGenerateETWEvents.c)
- *     WheapSqmWaitWorkerRoutine @ 0x1406BBE58 (WheapSqmWaitWorkerRoutine.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     WheapFreeErrorRecord @ 0x1402306B0 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x140230F14 (WheapGenerateETWEvents.c)
+ *     WheapSqmWaitWorkerRoutine @ 0x1406BBF90 (WheapSqmWaitWorkerRoutine.c)
  */
 
 void __fastcall WheapEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)

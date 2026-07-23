@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpCleanupTransactionState @ 0x1404DA1C8
+ * XREFs of CmpCleanupTransactionState @ 0x1404BD7CC
  * Callers:
- *     CmpRunDownCmRM @ 0x1404D98D8 (CmpRunDownCmRM.c)
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
- *     CmObliterateRMTxArray @ 0x140603200 (CmObliterateRMTxArray.c)
- *     CmpLazyCommitWorker @ 0x140603320 (CmpLazyCommitWorker.c)
+ *     CmpRunDownCmRM @ 0x1404BCEDC (CmpRunDownCmRM.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
+ *     CmObliterateRMTxArray @ 0x1406032B4 (CmObliterateRMTxArray.c)
+ *     CmpLazyCommitWorker @ 0x1406033D4 (CmpLazyCommitWorker.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpTransMgrFreeVolatileData @ 0x1403FD614 (CmpTransMgrFreeVolatileData.c)
- *     CmpLockRegistryExclusive @ 0x1403FD9E8 (CmpLockRegistryExclusive.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     LockRMLog @ 0x1404A1D3C (LockRMLog.c)
- *     CmpLogCheckpoint @ 0x1404DA2D4 (CmpLogCheckpoint.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1403FC4D4 (CmpTransMgrFreeVolatileData.c)
+ *     CmpLockRegistryExclusive @ 0x1403FC8A8 (CmpLockRegistryExclusive.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpLogCheckpoint @ 0x1404BD8D8 (CmpLogCheckpoint.c)
+ *     LockRMLog @ 0x14051A148 (LockRMLog.c)
  */
 
 void __fastcall CmpCleanupTransactionState(__int64 a1, _QWORD *a2, int a3, char a4)

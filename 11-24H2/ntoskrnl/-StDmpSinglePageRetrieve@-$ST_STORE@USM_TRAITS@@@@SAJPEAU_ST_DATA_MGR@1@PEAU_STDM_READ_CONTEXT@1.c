@@ -1,19 +1,19 @@
 /*
- * XREFs of ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x14039AB00
+ * XREFs of ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x1402F7E00
  * Callers:
- *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14039A7B0 (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
- *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x14060C47C (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
+ *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402F7AB0 (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x14060AA3C (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     ?NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z @ 0x14037F8D4 (-NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z.c)
- *     ?BTreeFindLeafSiblingEx@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAPEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x14038022C (-BTreeFindLeafSiblingEx@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@.c)
- *     SmArrayGrow @ 0x140380C70 (SmArrayGrow.c)
- *     ?BTreeSearchResultDeref@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x140383550 (-BTreeSearchResultDeref@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@.c)
- *     ?StDmIsCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z @ 0x1403999E8 (-StDmIsCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StDmFinishPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@J@Z @ 0x14039B140 (-StDmFinishPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@P.c)
- *     ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14039B624 (-StDmSinglePageCopy@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATIO.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14039B930 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14060A92C (-SmStMapPhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     ?StDmIsCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z @ 0x1402F6CE8 (-StDmIsCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StDmFinishPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@J@Z @ 0x1402F8440 (-StDmFinishPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@P.c)
+ *     ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1402F8924 (-StDmSinglePageCopy@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATIO.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402F8C30 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z @ 0x140379214 (-NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z.c)
+ *     ?BTreeFindLeafSiblingEx@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAPEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x140379B6C (-BTreeFindLeafSiblingEx@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@.c)
+ *     SmArrayGrow @ 0x14037A5B0 (SmArrayGrow.c)
+ *     ?BTreeSearchResultDeref@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x14037CE90 (-BTreeSearchResultDeref@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@.c)
+ *     ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x140608EEC (-SmStMapPhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageRetrieve(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
@@ -32,13 +32,13 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageRetrieve(__int64 a1, _QWO
   unsigned int v17; // ebx
   __int64 v18; // rdx
   int v19; // r11d
-  unsigned int v20; // ecx
-  struct NP_CONTEXT **v21; // rsi
-  struct NP_CONTEXT *v22; // r10
+  __int64 v20; // rcx
+  _QWORD *v21; // rsi
+  char *v22; // r10
   unsigned int v23; // edx
   unsigned int v24; // eax
   void **v25; // rcx
-  struct NP_CONTEXT *v26; // r8
+  char *v26; // r8
   int v27; // eax
   __int64 v28; // r8
   unsigned int v29; // eax
@@ -90,17 +90,17 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageRetrieve(__int64 a1, _QWO
     {
       if ( (*(_DWORD *)(v10 + 32) & 1) == 0 )
         B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchResultDeref(
-          (struct NP_CONTEXT **)a1,
+          a1,
           a2[53]);
       *(_DWORD *)(v10 + 32) |= 1u;
       v17 = *(_DWORD *)(v4 + 16);
       B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchResultDeref(
-        (struct NP_CONTEXT **)a1,
+        a1,
         v10);
       if ( *(_DWORD *)(v10 + 24) == -1 )
       {
         v19 = 0;
-        v21 = (struct NP_CONTEXT **)(v10 + 8);
+        v21 = (_QWORD *)(v10 + 8);
         v58 = 0;
       }
       else
@@ -110,19 +110,19 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageRetrieve(__int64 a1, _QWO
         if ( *(_QWORD *)a1 )
           v20 = *(unsigned __int8 *)(*(_QWORD *)a1 + 2LL);
         else
-          v20 = 0;
-        if ( *(_DWORD *)(v10 + 28) < v20 )
+          v20 = 0LL;
+        if ( *(_DWORD *)(v10 + 28) < (unsigned int)v20 )
         {
-          if ( !(unsigned int)SmArrayGrow(v20, v18, (unsigned int *)(v10 + 28), (const void **)v10) )
+          if ( !(unsigned int)SmArrayGrow(v20, v18, v10 + 28, v10) )
           {
             result = 3221225626LL;
             goto LABEL_11;
           }
           v19 = 1;
         }
-        v21 = *(struct NP_CONTEXT ***)v10;
+        v21 = *(_QWORD **)v10;
       }
-      v22 = *(struct NP_CONTEXT **)a1;
+      v22 = *(char **)a1;
       if ( !*(_QWORD *)a1 )
       {
         if ( !v19 )
@@ -142,7 +142,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageRetrieve(__int64 a1, _QWO
           {
             do
             {
-              if ( *((_DWORD *)v22 + 2 * ((v24 + v23) >> 1) + 4) < v17 )
+              if ( *(_DWORD *)&v22[8 * ((v24 + v23) >> 1) + 16] < v17 )
                 v23 = (v24 + v23) >> 1;
               else
                 v24 = (v24 + v23) >> 1;
@@ -154,39 +154,42 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageRetrieve(__int64 a1, _QWO
         {
           do
           {
-            if ( *((_DWORD *)v22 + 4 * ((v24 + v23) >> 1) + 4) > v17 )
+            if ( *(_DWORD *)&v22[16 * ((v24 + v23) >> 1) + 16] > v17 )
               v24 = (v24 + v23) >> 1;
             else
               v23 = (v24 + v23) >> 1;
           }
           while ( v23 + 1 != v24 );
         }
-        if ( *((_BYTE *)v22 + 3) )
+        if ( v22[3] )
           break;
         if ( v19 )
         {
           *v21 = v22;
-          v21[1] = (struct NP_CONTEXT *)((char *)v22 + 16 * v24 + 16);
+          v21[1] = &v22[16 * v24 + 16];
           v21 += 2;
         }
         if ( v24 )
-          v25 = (void **)((char *)v22 + 16 * v24 + 8);
+          v25 = (void **)&v22[16 * v24 + 8];
         else
-          v25 = (void **)((char *)v22 + 8);
-        if ( **(_DWORD **)(a1 + 16) == -1 || *((_BYTE *)v22 + 2) != 2 )
+          v25 = (void **)(v22 + 8);
+        if ( **(_DWORD **)(a1 + 16) == -1 || v22[2] != 2 )
         {
-          v22 = (struct NP_CONTEXT *)*v25;
+          v22 = (char *)*v25;
         }
         else
         {
-          v22 = NP_CONTEXT::NpLeafRefInternal((struct NP_CONTEXT **)(a1 + 16), v25, 2 * (*(_BYTE *)(v10 + 32) & 1u));
+          v22 = (char *)NP_CONTEXT::NpLeafRefInternal(
+                          (struct NP_CONTEXT::NP_CTX *)(a1 + 16),
+                          v25,
+                          2 * (*(_BYTE *)(v10 + 32) & 1u));
           if ( !v22 )
             goto LABEL_85;
           v19 = v58;
         }
       }
       *v21 = v22;
-      v26 = (struct NP_CONTEXT *)((char *)v22 + 8 * v24 + 16);
+      v26 = &v22[8 * v24 + 16];
       v21[1] = v26;
       if ( v19 )
         *(_DWORD *)(v10 + 24) = (((__int64)v21 - *(_QWORD *)v10) >> 4) + 1;

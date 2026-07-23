@@ -9,6 +9,6 @@
 
 void PfSnDetermineEnablePrefetcher()
 {
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     qword_140C50120 = 0LL;
 }

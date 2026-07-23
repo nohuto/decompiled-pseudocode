@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCtInitializeNotificationEvent @ 0x1409195BC
+ * XREFs of RtlpCtInitializeNotificationEvent @ 0x14091971C
  * Callers:
- *     RtlpCtContextInit @ 0x1409194D8 (RtlpCtContextInit.c)
+ *     RtlpCtContextInit @ 0x140919638 (RtlpCtContextInit.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpCtInitializeNotificationEvent(struct _KEVENT **a1)

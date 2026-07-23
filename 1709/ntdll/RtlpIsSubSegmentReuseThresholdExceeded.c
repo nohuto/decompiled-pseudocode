@@ -10,41 +10,28 @@
 
 bool __fastcall RtlpIsSubSegmentReuseThresholdExceeded(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdi
   bool v4; // bl
-  __int64 v5; // rdx
+  __int64 v5; // rcx
   __int64 v6; // rcx
-  __int64 v7; // rcx
-  unsigned __int16 v9; // ax
+  unsigned __int16 v8; // ax
 
-  v3 = a1;
-  if ( (RtlpLowFragHeapGlobalFlags & 4) != 0
-    || (v9 = *(_WORD *)(a1 + 172), v9 > 0x70u)
-    || (a1 = 16 * (unsigned int)(unsigned __int16)RtlpBucketSizeIndexReuseThreshold[v9],
-        *(_DWORD *)(v3 + 160) < (unsigned int)a1) )
-  {
-    v4 = 0;
-  }
+  v4 = (RtlpLowFragHeapGlobalFlags & 4) == 0
+    && (v8 = *(_WORD *)(a1 + 172), v8 <= 0x70u)
+    && *(_DWORD *)(a1 + 160) >= 16 * (unsigned int)(unsigned __int16)RtlpBucketSizeIndexReuseThreshold[v8]
+    && *(_WORD *)(a2 + 32) < (unsigned int)(*(_WORD *)(a2 + 40) >> 2);
+  if ( RtlGetCurrentServiceSessionId() )
+    v5 = (__int64)NtCurrentPeb()->SharedData + 560;
   else
-  {
-    a1 = *(unsigned __int16 *)(a2 + 32);
-    v4 = (unsigned __int16)a1 < (unsigned __int16)(*(_WORD *)(a2 + 40) >> 2);
-  }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
-    v6 = (__int64)NtCurrentPeb()->SharedData + 560;
-  else
-    v6 = 2147353482LL;
-  if ( *(_BYTE *)v6
-    || ((unsigned int)RtlGetCurrentServiceSessionId(v6, v5)
-      ? (v7 = (__int64)NtCurrentPeb()->SharedData + 550)
-      : (v7 = 2147353472LL),
-        *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 1) != 0) )
+    v5 = 2147353482LL;
+  if ( *(_BYTE *)v5
+    || (RtlGetCurrentServiceSessionId() ? (v6 = (__int64)NtCurrentPeb()->SharedData + 550) : (v6 = 2147353472LL),
+        *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 1) != 0) )
   {
     if ( v4 )
       RtlpLogHeapReuseThresholdActivate(
-        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v3 + 24LL) + 24LL),
+        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 24LL) + 24LL),
         *(_QWORD *)(a2 + 8),
-        *(unsigned __int16 *)(v3 + 172));
+        *(unsigned __int16 *)(a1 + 172));
   }
   return v4;
 }

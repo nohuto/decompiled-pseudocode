@@ -27,9 +27,9 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
   char *v13; // rcx
   unsigned __int64 v14; // rax
   PVOID PoolWithTag; // rax
-  char v17; // [rsp+50h] [rbp+8h]
+  char v16; // [rsp+50h] [rbp+8h]
 
-  v17 = 0;
+  v16 = 0;
   v3 = *((int *)a1 + 6);
   if ( (unsigned int)v3 > 1 )
   {
@@ -47,14 +47,16 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     if ( ((_DWORD)v4[2] & 1) != 0
-      && !RtlTestProtectedAccess(BYTE2(KeGetCurrentThread()->Process[2].ActiveProcessors.Bitmap[0]), 0x61u) )
+      && !RtlTestProtectedAccess(
+            (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->Process[2].ActiveProcessors.Bitmap[0]),
+            (PS_PROTECTION)97) )
     {
       v10 = -1073741790;
       goto LABEL_16;
     }
   }
   v5 = *((_DWORD *)a1 + 7);
-  v17 = 1;
+  v16 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopBlackBoxLock, 0LL);
@@ -111,7 +113,7 @@ LABEL_12:
     goto LABEL_27;
   }
 LABEL_16:
-  if ( v17 )
+  if ( v16 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopBlackBoxLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&PopBlackBoxLock);

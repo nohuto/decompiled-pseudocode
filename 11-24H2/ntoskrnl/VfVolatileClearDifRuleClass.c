@@ -1,15 +1,15 @@
 /*
- * XREFs of VfVolatileClearDifRuleClass @ 0x1406148D0
+ * XREFs of VfVolatileClearDifRuleClass @ 0x140612E90
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
- *     VfDriverUnloadImage @ 0x140B8A5C0 (VfDriverUnloadImage.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
+ *     VfDriverUnloadImage @ 0x140B8C5C0 (VfDriverUnloadImage.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     CarCleanup @ 0x1406164FC (CarCleanup.c)
- *     CarDeregisterRuleClassConfiguration @ 0x140616860 (CarDeregisterRuleClassConfiguration.c)
- *     DifDeregisterPlugin @ 0x1406186B8 (DifDeregisterPlugin.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfClearDifWithoutReboot @ 0x140B83890 (VfClearDifWithoutReboot.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     CarCleanup @ 0x140614ABC (CarCleanup.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x140614E20 (CarDeregisterRuleClassConfiguration.c)
+ *     DifDeregisterPlugin @ 0x140616C78 (DifDeregisterPlugin.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfClearDifWithoutReboot @ 0x140B85890 (VfClearDifWithoutReboot.c)
  */
 
 __int64 VfVolatileClearDifRuleClass()
@@ -50,8 +50,8 @@ __int64 VfVolatileClearDifRuleClass()
     VfDifRunningWithoutReboot = 0;
     DifIsVolatileMode = 0;
     DifpPoolTags = 0LL;
-    qword_140E67F40 = 0LL;
-    xmmword_140E67F30 = 0LL;
+    qword_140E68110 = 0LL;
+    xmmword_140E68100 = 0LL;
     VfAllowedVolatileRC = 0LL;
     VfRuleClasses = 0LL;
     DifpPoolTagsSize = 0;

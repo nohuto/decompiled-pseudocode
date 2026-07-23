@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x140AEFC6C
+ * XREFs of PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x140AF2830
  * Callers:
- *     PnpRecordBlackbox @ 0x1409DE16C (PnpRecordBlackbox.c)
+ *     PnpRecordBlackbox @ 0x140A1B298 (PnpRecordBlackbox.c)
  * Callees:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpRecordBlackboxDeviceCompletionQueueInformation(__int64 a1)

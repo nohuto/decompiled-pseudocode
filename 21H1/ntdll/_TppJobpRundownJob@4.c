@@ -15,7 +15,7 @@
 
 void __thiscall TppJobpRundownJob(int this)
 {
-  int v2; // eax
+  void *v2; // eax
   int v3; // ecx
   signed __int64 *v4; // ecx
   __int64 v5; // rdi
@@ -24,18 +24,18 @@ void __thiscall TppJobpRundownJob(int this)
   unsigned int v8; // [esp+10h] [ebp-20h]
   signed __int64 v9; // [esp+14h] [ebp-1Ch]
   unsigned __int64 v11; // [esp+20h] [ebp-10h] BYREF
-  _DWORD v12[2]; // [esp+28h] [ebp-8h] BYREF
+  _DWORD JobObjectInformation[2]; // [esp+28h] [ebp-8h] BYREF
 
   if ( *(_DWORD *)(this + 168) )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(this + 184));
-    v2 = *(_DWORD *)(this + 168);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(this + 184));
+    v2 = *(void **)(this + 168);
     if ( v2 )
     {
-      v12[0] = 0;
-      v12[1] = 0;
-      if ( ZwSetInformationJobObject(v2, 7, (int)v12, 8) < 0
-        || ZwQueryInformationJobObject(*(_DWORD *)(this + 168), 17, (int)&v11, 8, 0) < 0 )
+      JobObjectInformation[0] = 0;
+      JobObjectInformation[1] = 0;
+      if ( ZwSetInformationJobObject(v2, JobObjectAssociateCompletionPortInformation, JobObjectInformation, 8u) < 0
+        || ZwQueryInformationJobObject(*(HANDLE *)(this + 168), JobObjectCompletionCounter, &v11, 8u, 0) < 0 )
       {
         TppRaiseHandleStatus(0, v3);
       }
@@ -54,13 +54,13 @@ void __thiscall TppJobpRundownJob(int this)
       }
       while ( v6 != v9 );
       *(_DWORD *)(this + 168) = 0;
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(this + 184));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(this + 184));
       if ( v9 + __PAIR64__(v8, v5) == 1 && !_InterlockedExchangeAdd((volatile signed __int32 *)(this + 48), 0xFFFFFFFF) )
         (**(void (__thiscall ***)(_DWORD, int))(this + 52))(**(_DWORD **)(this + 52), this + 48);
     }
     else
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(this + 184));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(this + 184));
     }
   }
 }

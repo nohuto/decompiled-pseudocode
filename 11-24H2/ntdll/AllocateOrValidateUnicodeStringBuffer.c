@@ -1,9 +1,9 @@
 /*
- * XREFs of AllocateOrValidateUnicodeStringBuffer @ 0x18000CEE0
+ * XREFs of AllocateOrValidateUnicodeStringBuffer @ 0x1800398E0
  * Callers:
- *     RtlOemStringToUnicodeString @ 0x1800D40E0 (RtlOemStringToUnicodeString.c)
+ *     RtlOemStringToUnicodeString @ 0x1800CF450 (RtlOemStringToUnicodeString.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
  */
 
 __int64 __fastcall AllocateOrValidateUnicodeStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)

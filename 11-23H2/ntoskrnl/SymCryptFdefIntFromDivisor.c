@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefIntFromDivisor @ 0x1404033D0
+ * XREFs of SymCryptFdefIntFromDivisor @ 0x1404035B0
  * Callers:
- *     SymCryptIntFromDivisor @ 0x1403F93A4 (SymCryptIntFromDivisor.c)
- *     SymCryptFdefIntFromModulus @ 0x140403E48 (SymCryptFdefIntFromModulus.c)
+ *     SymCryptIntFromDivisor @ 0x1403F9584 (SymCryptIntFromDivisor.c)
+ *     SymCryptFdefIntFromModulus @ 0x140404028 (SymCryptFdefIntFromModulus.c)
  * Callees:
  *     <none>
  */

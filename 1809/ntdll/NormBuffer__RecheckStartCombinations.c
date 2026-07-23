@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__RecheckStartCombinations @ 0x1800FC1C0
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     NormBuffer__GetCurrentOutputChar @ 0x1800FBEEC (NormBuffer__GetCurrentOutputChar.c)
  *     Normalization__CanCombinableCharactersCombine @ 0x1800FC694 (Normalization__CanCombinableCharactersCombine.c)

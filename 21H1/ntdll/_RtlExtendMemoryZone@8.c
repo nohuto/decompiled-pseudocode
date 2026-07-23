@@ -11,37 +11,40 @@
  *     _ZwLockVirtualMemory@16 @ 0x4B2F3A50 (_ZwLockVirtualMemory@16.c)
  */
 
-int __stdcall RtlExtendMemoryZone(int a1, int a2)
+int __userpurge RtlExtendMemoryZone@<eax>(ULONG a1@<edi>, _RTL_SRWLOCK *a2, int a3)
 {
-  int VirtualMemory; // esi
-  _DWORD *v4; // ecx
-  signed __int32 v5; // [esp+4h] [ebp-Ch] BYREF
-  _DWORD *v6; // [esp+8h] [ebp-8h] BYREF
-  unsigned int v7; // [esp+Ch] [ebp-4h] BYREF
+  NTSTATUS v4; // esi
+  _DWORD *v5; // ecx
+  ULONG_PTR v6; // [esp-18h] [ebp-28h]
+  signed __int32 v7; // [esp+4h] [ebp-Ch] BYREF
+  PVOID BaseAddress; // [esp+8h] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+Ch] [ebp-4h] BYREF
 
-  if ( !a2 )
+  if ( !a3 )
     return -1073741811;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 16));
-  v6 = 0;
-  v7 = (a2 + 4095) & 0xFFFFF000;
-  VirtualMemory = NtAllocateVirtualMemory(-1, (int)&v6, 0, (int)&v7, 12288, 4);
-  if ( VirtualMemory >= 0 )
+  RtlAcquireSRWLockExclusive(a2 + 4);
+  BaseAddress = 0;
+  LODWORD(RegionSize) = (a3 + 4095) & 0xFFFFF000;
+  HIDWORD(v6) = &RegionSize;
+  LODWORD(v6) = 0;
+  v4 = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v6, (PSIZE_T)0x3000, 4u, a1);
+  if ( v4 >= 0 )
   {
-    if ( *(_DWORD *)(a1 + 20) && (VirtualMemory = ZwLockVirtualMemory(-1, (int)&v6, (int)&v7, 1), VirtualMemory < 0) )
+    if ( a2[5].Value && (v4 = ZwLockVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 1u), v4 < 0) )
     {
-      NtFreeVirtualMemory(-1, (int)&v6, (int)&v7, 0x8000);
+      NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
     }
     else
     {
-      v4 = v6;
-      v6[1] = v7;
-      v4[2] = v4 + 4;
-      v4[3] = (char *)v4 + v7;
-      *v4 = *(_DWORD *)(a1 + 24);
-      _InterlockedOr(&v5, 0);
-      *(_DWORD *)(a1 + 24) = v4;
+      v5 = BaseAddress;
+      *((_DWORD *)BaseAddress + 1) = RegionSize;
+      v5[2] = v5 + 4;
+      v5[3] = (char *)v5 + RegionSize;
+      *v5 = a2[6].Value;
+      _InterlockedOr(&v7, 0);
+      a2[6].Value = (unsigned int)v5;
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 16));
-  return VirtualMemory;
+  RtlReleaseSRWLockExclusive(a2 + 4);
+  return v4;
 }

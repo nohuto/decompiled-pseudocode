@@ -11,104 +11,98 @@
  *     LdrpMergeNodes @ 0x18006F638 (LdrpMergeNodes.c)
  */
 
-signed __int64 __fastcall LdrpCondenseGraphRecurse(__int64 a1, int *a2, signed __int64 **a3, unsigned __int64 a4)
+void __fastcall LdrpCondenseGraphRecurse(__int64 a1, int *a2, _QWORD *a3)
 {
-  signed __int64 *v4; // r15
-  int v5; // eax
-  _QWORD *v9; // r14
-  signed __int64 result; // rax
-  signed __int64 *v11; // rdx
-  __int64 v12; // rsi
-  unsigned int v13; // eax
-  signed __int64 *v14; // r8
-  signed __int64 *v15; // rcx
-  _QWORD *v16; // rbx
-  _QWORD *v17; // rcx
-  _QWORD *v18; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD *v3; // r15
+  int v4; // eax
+  _QWORD *v8; // r14
+  _QWORD *v9; // rdx
+  _QWORD *v10; // rax
+  __int64 v11; // rsi
+  unsigned int v12; // eax
+  _QWORD *v13; // r8
+  _QWORD *v14; // rcx
+  _QWORD *v15; // rbx
+  _QWORD *v16; // rcx
+  _QWORD *v17; // [rsp+40h] [rbp+8h] BYREF
 
   ++*a2;
-  v4 = (signed __int64 *)(a1 + 64);
-  v5 = *a2;
+  v3 = (_QWORD *)(a1 + 64);
+  v4 = *a2;
   *(_DWORD *)(a1 + 72) = *a2;
-  *(_DWORD *)(a1 + 32) = v5;
+  *(_DWORD *)(a1 + 32) = v4;
   *(_QWORD *)(a1 + 64) = *a3;
-  v9 = *(_QWORD **)(a1 + 40);
-  *a3 = (signed __int64 *)(a1 + 64);
-  if ( v9 )
+  v8 = *(_QWORD **)(a1 + 40);
+  *a3 = a1 + 64;
+  if ( v8 )
   {
     while ( 1 )
     {
-      v9 = (_QWORD *)*v9;
-      v12 = v9[1];
-      if ( *(int *)(v12 + 56) <= 5 )
+      v8 = (_QWORD *)*v8;
+      v11 = v8[1];
+      if ( *(int *)(v11 + 56) <= 5 )
         break;
 LABEL_10:
-      if ( v9 == *(_QWORD **)(a1 + 40) )
+      if ( v8 == *(_QWORD **)(a1 + 40) )
         goto LABEL_2;
     }
-    v13 = *(_DWORD *)(v12 + 72);
-    if ( v13 )
+    v12 = *(_DWORD *)(v11 + 72);
+    if ( v12 )
     {
-      if ( !*(_QWORD *)(v12 + 64) )
+      if ( !*(_QWORD *)(v11 + 64) )
       {
 LABEL_16:
-        if ( *(_DWORD *)(v12 + 56) == -3 )
+        if ( *(_DWORD *)(v11 + 56) == -3 )
           *(_DWORD *)(a1 + 56) = -3;
         goto LABEL_10;
       }
     }
     else
     {
-      LdrpCondenseGraphRecurse(v9[1], a2, a3);
-      v13 = *(_DWORD *)(v12 + 32);
+      LdrpCondenseGraphRecurse(v8[1], a2, a3);
+      v12 = *(_DWORD *)(v11 + 32);
     }
-    if ( *(_DWORD *)(a1 + 32) > v13 )
-      *(_DWORD *)(a1 + 32) = v13;
+    if ( *(_DWORD *)(a1 + 32) > v12 )
+      *(_DWORD *)(a1 + 32) = v12;
     goto LABEL_16;
   }
 LABEL_2:
-  result = *(unsigned int *)(a1 + 72);
-  if ( *(_DWORD *)(a1 + 32) == (_DWORD)result )
+  if ( *(_DWORD *)(a1 + 32) == *(_DWORD *)(a1 + 72) )
   {
-    v11 = *a3;
+    v9 = (_QWORD *)*a3;
     if ( *a3 )
-      *a3 = (signed __int64 *)*v11;
-    result = 0LL;
-    if ( v4 != v11 )
+      *a3 = *v9;
+    v10 = 0LL;
+    if ( v3 != v9 )
     {
       do
       {
-        v14 = *a3;
-        *v11 = result;
-        result = (signed __int64)v11;
-        if ( v14 )
-          *a3 = (signed __int64 *)*v14;
-        v15 = v11;
-        v11 = v14;
+        v13 = (_QWORD *)*a3;
+        *v9 = v10;
+        v10 = v9;
+        if ( v13 )
+          *a3 = *v13;
+        v14 = v9;
+        v9 = v13;
       }
-      while ( v4 != v14 );
-      v18 = (_QWORD *)result;
-      if ( v15 )
+      while ( v3 != v13 );
+      v17 = v10;
+      if ( v14 )
       {
-        RtlAcquireSRWLockExclusive(
-          (unsigned __int64)&LdrpModuleDatatableLock,
-          (unsigned __int64)v14,
-          (unsigned __int64)v14,
-          a4);
-        LdrpMergeNodes(a1, &v18);
-        result = RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        v16 = v18;
-        while ( v16 )
+        RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+        LdrpMergeNodes(a1, &v17);
+        RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+        v15 = v17;
+        while ( v15 )
         {
-          v17 = v16;
-          v16 = (_QWORD *)*v16;
-          result = LdrpDestroyNode(v17 - 8);
+          v16 = v15;
+          v15 = (_QWORD *)*v15;
+          LdrpDestroyNode(v16 - 8);
         }
       }
     }
-    *v4 = 0LL;
+    *v3 = 0LL;
     if ( *(_DWORD *)(a1 + 56) == 5 )
       *(_DWORD *)(a1 + 56) = 6;
   }
-  return result;
 }

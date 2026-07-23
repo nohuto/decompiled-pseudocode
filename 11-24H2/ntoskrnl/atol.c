@@ -1,14 +1,14 @@
 /*
- * XREFs of atol @ 0x1404FDC00
+ * XREFs of atol @ 0x1404FB4C0
  * Callers:
- *     atoi @ 0x1404FDBE0 (atoi.c)
- *     HvlDebuggerSupportInitialize @ 0x140582420 (HvlDebuggerSupportInitialize.c)
- *     KdInitSystem @ 0x140B75E30 (KdInitSystem.c)
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
- *     RamdiskStart @ 0x140C5E688 (RamdiskStart.c)
+ *     atoi @ 0x1404FB4A0 (atoi.c)
+ *     HvlDebuggerSupportInitialize @ 0x14057F7A0 (HvlDebuggerSupportInitialize.c)
+ *     KdInitSystem @ 0x140B77E30 (KdInitSystem.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
+ *     RamdiskStart @ 0x140C607D8 (RamdiskStart.c)
  * Callees:
- *     strtolX @ 0x1404FD6B8 (strtolX.c)
+ *     strtolX @ 0x1404FAF78 (strtolX.c)
  */
 
 int __cdecl atol(const char *Str)

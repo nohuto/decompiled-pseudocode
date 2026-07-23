@@ -67,7 +67,7 @@ void __fastcall CcPostDeferredWrites(__int64 a1, __int64 a2)
           && (!*((_BYTE *)v7 + 88)
            || MEMORY[0xFFFFF78000000320] >= (__int64)(v7[12]
                                                     + (unsigned int)(10000 * CcSoftThrottleDelay)
-                                                    / (unsigned __int64)(unsigned int)KeMaximumIncrement)) )
+                                                    / (unsigned __int64)KeMaximumIncrement)) )
         {
           v2 = v12;
 LABEL_16:

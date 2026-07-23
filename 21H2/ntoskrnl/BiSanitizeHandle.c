@@ -1,16 +1,16 @@
 /*
- * XREFs of BiSanitizeHandle @ 0x1402D333C
+ * XREFs of BiSanitizeHandle @ 0x14025166C
  * Callers:
- *     BiDeleteKey @ 0x140779960 (BiDeleteKey.c)
- *     BcdFlushStore @ 0x14077A294 (BcdFlushStore.c)
- *     BiCloseStore @ 0x140781D00 (BiCloseStore.c)
- *     BiDeleteRegistryValue @ 0x1407821E4 (BiDeleteRegistryValue.c)
- *     BiEnumerateSubKeys @ 0x140783528 (BiEnumerateSubKeys.c)
- *     BiCreateKey @ 0x140783C10 (BiCreateKey.c)
- *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
- *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
- *     BiGetKeyName @ 0x140784800 (BiGetKeyName.c)
- *     BiSetRegistryValue @ 0x140784A64 (BiSetRegistryValue.c)
+ *     BiDeleteKey @ 0x140779B20 (BiDeleteKey.c)
+ *     BcdFlushStore @ 0x14077A454 (BcdFlushStore.c)
+ *     BiCloseStore @ 0x140781EC0 (BiCloseStore.c)
+ *     BiDeleteRegistryValue @ 0x1407823A4 (BiDeleteRegistryValue.c)
+ *     BiEnumerateSubKeys @ 0x1407836E8 (BiEnumerateSubKeys.c)
+ *     BiCreateKey @ 0x140783DD0 (BiCreateKey.c)
+ *     BiGetRegistryValue @ 0x140783FB8 (BiGetRegistryValue.c)
+ *     BiOpenKey @ 0x1407845C4 (BiOpenKey.c)
+ *     BiGetKeyName @ 0x1407849C0 (BiGetKeyName.c)
+ *     BiSetRegistryValue @ 0x140784C24 (BiSetRegistryValue.c)
  * Callees:
  *     <none>
  */

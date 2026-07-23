@@ -3,12 +3,12 @@
  * Callers:
  *     RtlpFlushHeapsCallback @ 0x180068950 (RtlpFlushHeapsCallback.c)
  *     RtlpHpGCFlushCallback @ 0x1800689D0 (RtlpHpGCFlushCallback.c)
- *     RtlCompactHeap @ 0x18008C090 (RtlCompactHeap.c)
+ *     RtlCompactHeap @ 0x18008C0A0 (RtlCompactHeap.c)
  * Callees:
  *     RtlpHpLfhContextCompact @ 0x1800208FC (RtlpHpLfhContextCompact.c)
  *     RtlpHpSegContextCompact @ 0x180068ADC (RtlpHpSegContextCompact.c)
- *     RtlpHpVsContextFreeList @ 0x18009FD74 (RtlpHpVsContextFreeList.c)
- *     RtlpHpVsDelayFreeContextFlush @ 0x18009FDF8 (RtlpHpVsDelayFreeContextFlush.c)
+ *     RtlpHpVsContextFreeList @ 0x18009FD94 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsDelayFreeContextFlush @ 0x18009FE18 (RtlpHpVsDelayFreeContextFlush.c)
  */
 
 __int64 __fastcall RtlpHpHeapCompact(__int64 a1, int a2)
@@ -17,9 +17,6 @@ __int64 __fastcall RtlpHpHeapCompact(__int64 a1, int a2)
   int v4; // edx
   int v5; // r8d
   unsigned int v6; // ebx
-  PSLIST_ENTRY v7; // rax
-  __int64 v8; // r8
-  __int64 v9; // r9
 
   v3 = a2 | *(_DWORD *)(a1 + 20) & 0x13000003;
   v4 = 0;
@@ -29,10 +26,9 @@ __int64 __fastcall RtlpHpHeapCompact(__int64 a1, int a2)
   v6 = v3 | 1;
   if ( !v4 )
     v6 = v3;
-  v7 = RtlpHpVsDelayFreeContextFlush((PSLIST_HEADER)(a1 + 704));
-  if ( v7 )
-    RtlpHpVsContextFreeList(a1 + 640, v6, v7, v9);
-  RtlpHpLfhContextCompact(a1 + 832, (char *)v6, v8, v9);
+  if ( RtlpHpVsDelayFreeContextFlush((PSLIST_HEADER)(a1 + 704)) )
+    RtlpHpVsContextFreeList((PRTL_SRWLOCK)(a1 + 640));
+  RtlpHpLfhContextCompact((_RTL_SRWLOCK *)(a1 + 832), v6);
   RtlpHpSegContextCompact(a1 + 256, v6);
   RtlpHpSegContextCompact(a1 + 448, v6);
   return 0LL;

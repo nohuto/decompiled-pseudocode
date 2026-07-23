@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtClearEvent()
+NTSTATUS __cdecl NtClearEvent(HANDLE EventHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 62LL;
+  result = 62;
   __asm { syscall; Low latency system call }
   return result;
 }

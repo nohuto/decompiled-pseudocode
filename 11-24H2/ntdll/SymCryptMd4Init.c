@@ -1,5 +1,5 @@
 /*
- * XREFs of SymCryptMd4Init @ 0x180161700
+ * XREFs of SymCryptMd4Init @ 0x18015FAC0
  * Callers:
  *     <none>
  * Callees:
@@ -14,6 +14,6 @@ __int64 __fastcall SymCryptMd4Init(__int64 a1)
   *(_QWORD *)(a1 + 16) = 0LL;
   *(_QWORD *)(a1 + 24) = 0LL;
   *(_DWORD *)a1 = 0;
-  *(_OWORD *)(a1 + 96) = xmmword_18019C758;
+  *(_OWORD *)(a1 + 96) = xmmword_18019B858;
   return result;
 }

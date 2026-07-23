@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitializePoolTracker @ 0x140CE5CA8
+ * XREFs of ExInitializePoolTracker @ 0x140CEC048
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x1406D2B44 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x1406D6B74 (ExInitializePoolHeapManagement.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     ExpInsertPoolTracker @ 0x14034AEA4 (ExpInsertPoolTracker.c)
- *     ExpInitializePoolTrackerTable @ 0x1406CC10C (ExpInitializePoolTrackerTable.c)
- *     ExpSeedHotTags @ 0x140CE5DF4 (ExpSeedHotTags.c)
+ *     ExpInsertPoolTracker @ 0x14034CF24 (ExpInsertPoolTracker.c)
+ *     ExpInitializePoolTrackerTable @ 0x1406D013C (ExpInitializePoolTrackerTable.c)
+ *     ExpSeedHotTags @ 0x140CEC194 (ExpSeedHotTags.c)
  */
 
 __int64 ExInitializePoolTracker()
@@ -30,7 +30,7 @@ __int64 ExInitializePoolTracker()
   v5 = v2 ^ (v3 | (unsigned int)ExGenRandom(0, v4));
   if ( !v5 )
     v5 = 1LL;
-  stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)v5;
+  stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)v5;
   v6 = KeLargestCacheLine;
   if ( _BitScanReverse((unsigned int *)&v8, KeLargestCacheLine) )
     v6 = 1 << v8;
@@ -59,10 +59,14 @@ LABEL_8:
   result = ExpInitializePoolTrackerTable();
   if ( (int)result >= 0 )
   {
-    *(_QWORD *)&stru_140EFEF90.CurrentRunTime = PoolTrackTable;
+    stru_140EFF2C0.ThreadLock = stru_140EFF2C0.QuantumTarget;
     ExpSeedHotTags();
-    stru_140EFEF90.Header.WaitListHead.Blink = 0LL;
-    ExpInsertPoolTracker(0x6C6F6F50u, (80 * PoolTrackTableSize + 4095) & 0xFFFFFFFFFFFFF000uLL, 64LL, PoolTrackTable);
+    ExpTaggedPoolLock = 0LL;
+    ExpInsertPoolTracker(
+      0x6C6F6F50u,
+      (80 * (__int64)stru_140EFF2C0.StackLimit + 4095) & 0xFFFFFFFFFFFFF000uLL,
+      64LL,
+      stru_140EFF2C0.QuantumTarget);
     return 0LL;
   }
   return result;

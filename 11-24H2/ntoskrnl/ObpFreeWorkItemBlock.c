@@ -1,33 +1,33 @@
 /*
- * XREFs of ObpFreeWorkItemBlock @ 0x140744CA4
+ * XREFs of ObpFreeWorkItemBlock @ 0x140742F94
  * Callers:
- *     ObpPushStackInfoQueue @ 0x140745410 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfoQueue @ 0x140743700 (ObpPushStackInfoQueue.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall ObpFreeWorkItemBlock(struct _SLIST_ENTRY *P)
+void __fastcall ObpFreeWorkItemBlock(_SLIST_ENTRY *P)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
+  char *v5; // rdi
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v3 = KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, (__int64)v3, (__int64)&ObpStackTraceLock);
+    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, v3, (__int64)&ObpStackTraceLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   if ( (ObpTraceFlags & 0x73) != 0 && LOWORD(ObpWorkItemFreeList.Alignment) < 0x1F4u )
     RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, P);
   else

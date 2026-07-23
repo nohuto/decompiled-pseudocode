@@ -115,7 +115,7 @@ LABEL_23:
     InputBuffer[1] = (unsigned int)v3;
     LODWORD(InputBuffer[3]) = 4;
     InputBuffer[0] = v2;
-    NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
   }
   if ( v2 )
     ExFreePoolWithTag(v2, 0x42424F50u);

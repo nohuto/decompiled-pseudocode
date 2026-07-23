@@ -8,28 +8,33 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall RtlpExtendFrontEndUsageArray(int a1, unsigned __int16 a2)
+int __usercall RtlpExtendFrontEndUsageArray@<eax>(PVOID *HeapHandle@<ecx>, unsigned __int16 a2@<dx>, int a3@<edi>)
 {
   char *Heap; // eax
-  char *v5; // edi
-  const void *v6; // ecx
+  char *v6; // edi
+  PVOID v7; // ecx
   int result; // eax
+  SIZE_T v9; // [esp-8h] [ebp-10h]
+  size_t v10; // [esp-8h] [ebp-10h]
 
-  if ( a2 <= *(_WORD *)(a1 + 240) )
+  if ( a2 <= *((_WORD *)HeapHandle + 120) )
     return 0;
-  Heap = (char *)RtlAllocateHeap(a1, 8388618, 2 * a2);
-  v5 = Heap;
+  HIDWORD(v9) = a3;
+  LODWORD(v9) = 2 * a2;
+  Heap = (char *)RtlAllocateHeap(HeapHandle, 0x80000Au, v9);
+  v6 = Heap;
   if ( !Heap )
     return -1073741801;
   *(Heap - 1) = 1;
-  v6 = *(const void **)(a1 + 236);
-  if ( v6 )
+  v7 = HeapHandle[59];
+  if ( v7 )
   {
-    memcpy(Heap, v6, 2 * *(unsigned __int16 *)(a1 + 240));
-    RtlFreeHeap(a1, 2, *(_DWORD *)(a1 + 236));
+    LODWORD(v10) = 2 * *((unsigned __int16 *)HeapHandle + 120);
+    memcpy(Heap, v7, v10);
+    RtlFreeHeap(HeapHandle, 2u, HeapHandle[59]);
   }
-  *(_DWORD *)(a1 + 236) = v5;
+  HeapHandle[59] = v6;
   result = 0;
-  *(_WORD *)(a1 + 240) = a2;
+  *((_WORD *)HeapHandle + 120) = a2;
   return result;
 }

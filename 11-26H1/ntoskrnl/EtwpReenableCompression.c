@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpReenableCompression @ 0x140532448
+ * XREFs of EtwpReenableCompression @ 0x1405348E8
  * Callers:
- *     EtwpPrepareDirtyBuffer @ 0x140219094 (EtwpPrepareDirtyBuffer.c)
- *     EtwpSwitchBuffer @ 0x140219160 (EtwpSwitchBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1402191F4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpSwitchBuffer @ 0x1402192C0 (EtwpSwitchBuffer.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x140219C44 (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140219CD0 (EtwpLockBufferList.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpUnlockBufferList @ 0x14021A2DC (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x14021B348 (EtwpLockBufferList.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
  */
 
 void __fastcall EtwpReenableCompression(__int64 a1)

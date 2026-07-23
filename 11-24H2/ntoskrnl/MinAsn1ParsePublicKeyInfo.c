@@ -1,11 +1,11 @@
 /*
- * XREFs of MinAsn1ParsePublicKeyInfo @ 0x14082719C
+ * XREFs of MinAsn1ParsePublicKeyInfo @ 0x14082796C
  * Callers:
- *     SecureDump_ConvertToRsaBlob @ 0x1405A16E0 (SecureDump_ConvertToRsaBlob.c)
- *     MinCryptIsKeyPresent @ 0x14069F57C (MinCryptIsKeyPresent.c)
- *     MinCryptVerifySignedHash2 @ 0x140824950 (MinCryptVerifySignedHash2.c)
+ *     SecureDump_ConvertToRsaBlob @ 0x14059E620 (SecureDump_ConvertToRsaBlob.c)
+ *     MinCryptIsKeyPresent @ 0x1406A0680 (MinCryptIsKeyPresent.c)
+ *     MinCryptVerifySignedHash2 @ 0x140825124 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     MinAsn1ExtractValues @ 0x140828414 (MinAsn1ExtractValues.c)
+ *     MinAsn1ExtractValues @ 0x140828BE4 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall MinAsn1ParsePublicKeyInfo(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall MinAsn1ParsePublicKeyInfo(__int64 a1, __int64 a2)
              *(_QWORD *)(a1 + 8),
              *(_DWORD *)a1,
              (unsigned int)&v4,
-             (unsigned int)&qword_14000CE80,
+             (unsigned int)&qword_14000CF60,
              4,
              a2);
   if ( (int)result > 0 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpStopLoggerInstance @ 0x18008DE70
+ * XREFs of EtwpStopLoggerInstance @ 0x1800A9930
  * Callers:
- *     EtwpStopUmLogger @ 0x18008C4B4 (EtwpStopUmLogger.c)
- *     EtwpLogger @ 0x18008DC40 (EtwpLogger.c)
+ *     EtwpStopUmLogger @ 0x1800A7F74 (EtwpStopUmLogger.c)
+ *     EtwpLogger @ 0x1800A9700 (EtwpLogger.c)
  * Callees:
- *     EtwpDisableTraceProviders @ 0x18008BE84 (EtwpDisableTraceProviders.c)
- *     EtwpSendSessionNotification @ 0x18008C158 (EtwpSendSessionNotification.c)
- *     RtlWakeAllConditionVariable @ 0x18008E480 (RtlWakeAllConditionVariable.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
+ *     EtwpDisableTraceProviders @ 0x1800A7944 (EtwpDisableTraceProviders.c)
+ *     EtwpSendSessionNotification @ 0x1800A7C18 (EtwpSendSessionNotification.c)
+ *     RtlWakeAllConditionVariable @ 0x1800A9F40 (RtlWakeAllConditionVariable.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
  */
 
 __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)
     *(_QWORD *)(a1 + 544) = 0LL;
   }
   _InterlockedExchange64((volatile __int64 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(a1 + 20)), 3LL);
-  RtlWakeAllConditionVariable(a1 + 64);
+  RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 64));
   EtwpSendSessionNotification(a1, 2, *(_DWORD *)(a1 + 40));
   return 0LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfIrpLogInit @ 0x140B9B63C
+ * XREFs of VfIrpLogInit @ 0x140B9D63C
  * Callers:
- *     VfIrpTrackingPluginEntry @ 0x1406A4140 (VfIrpTrackingPluginEntry.c)
+ *     VfIrpTrackingPluginEntry @ 0x1406A5140 (VfIrpTrackingPluginEntry.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR VfIrpLogInit()
+__int64 VfIrpLogInit()
 {
-  ULONG_PTR result; // rax
+  __int64 result; // rax
 
   ViIrpLogDatabaseLock = 0LL;
   result = ExAllocatePool2(0x40uLL, 0x18uLL, 0x64496656uLL);

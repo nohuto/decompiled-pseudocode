@@ -3,12 +3,12 @@
  * Callers:
  *     KdpTrap @ 0x1406F312C (KdpTrap.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     KdLogDbgPrint @ 0x1406F2230 (KdLogDbgPrint.c)
- *     KdpQuickMoveMemory @ 0x1406F2720 (KdpQuickMoveMemory.c)
- *     KdEnterDebugger @ 0x1406F2738 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x1406F2838 (KdExitDebugger.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     KdpQuickMoveMemory @ 0x1406F23B8 (KdpQuickMoveMemory.c)
+ *     KdEnterDebugger @ 0x1406F23D0 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1406F24D0 (KdExitDebugger.c)
+ *     KdLogDbgPrint @ 0x1406F2CFC (KdLogDbgPrint.c)
  *     KdpPromptString @ 0x1406F65C4 (KdpPromptString.c)
  */
 

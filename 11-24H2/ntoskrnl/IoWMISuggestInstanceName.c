@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWMISuggestInstanceName @ 0x1407A3D50
+ * XREFs of IoWMISuggestInstanceName @ 0x1407A3E60
  * Callers:
  *     <none>
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140AADBF0 (IoOpenDeviceInterfaceRegistryKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x140AA8C70 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMISuggestInstanceName(
@@ -48,7 +48,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
     DeviceProperty = result;
     if ( result == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, BufferLength, 0x70696D57u);
       if ( !Pool2 )
         return -1073741670;
       DeviceProperty = IoGetDeviceProperty(
@@ -88,7 +88,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
     DeviceProperty = v12;
     if ( v12 == -2147483643 || v12 == -1073741789 )
     {
-      v13 = ExAllocatePool2(0x100uLL);
+      v13 = ExAllocatePool2(0x100uLL, Length, 0x70696D57u);
       if ( v13 )
       {
         DeviceProperty = ZwQueryValueKey(
@@ -104,7 +104,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
           if ( CombineNames )
           {
             v15 = *(_DWORD *)(v13 + 12) + BufferLength + 2;
-            v16 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            v16 = (wchar_t *)ExAllocatePool2(0x100uLL, v15, 0x70696D57u);
             if ( v16 )
             {
               SuggestedInstanceName->Buffer = v16;
@@ -132,7 +132,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
               ExFreePoolWithTag(Pool2, 0);
               Pool2 = 0LL;
             }
-            v17 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            v17 = (wchar_t *)ExAllocatePool2(0x100uLL, *(unsigned int *)(v13 + 12), 0x70696D57u);
             if ( v17 )
             {
               SuggestedInstanceName->Buffer = v17;

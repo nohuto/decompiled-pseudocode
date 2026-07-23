@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCrimsonProvEnableCallback @ 0x140B026F0
+ * XREFs of EtwpCrimsonProvEnableCallback @ 0x140B04420
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     EtwpPsProvCaptureState @ 0x14082FE4C (EtwpPsProvCaptureState.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     EtwpPsProvCaptureState @ 0x14083608C (EtwpPsProvCaptureState.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall EtwpCrimsonProvEnableCallback(
@@ -45,17 +45,19 @@ void __fastcall EtwpCrimsonProvEnableCallback(
   int v30; // [rsp+40h] [rbp-30h]
   int v31; // [rsp+44h] [rbp-2Ch]
 
-  KeWaitForSingleObject(&EtwpSecurityLock.Header.WaitListHead.Blink, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&stru_140F03830.QueuedScb, Executive, 0, 0, 0LL);
   if ( (_DWORD)CallbackContext != 1 )
   {
     if ( (_DWORD)CallbackContext == 0x2000000 )
     {
-      v23 = EtwProviderEnabled(EtwpFileProvRegHandle, 0, 0x10uLL) != 0 ? 0x200 : 0;
+      v23 = EtwProviderEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Flink, 0, 0x10uLL) != 0
+          ? 0x200
+          : 0;
       v24 = v23 | 0x2000000;
       v26 = 100663808;
-      if ( !EtwProviderEnabled(EtwpFileProvRegHandle, 0, 0x60uLL) )
+      if ( !EtwProviderEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Flink, 0, 0x60uLL) )
         v24 = v23;
-      v25 = EtwProviderEnabled(EtwpFileProvRegHandle, 0, 0x1FA0uLL);
+      v25 = EtwProviderEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Flink, 0, 0x1FA0uLL);
       v22 = v24 | 0x4000000;
       if ( !v25 )
         v22 = v24;
@@ -71,8 +73,10 @@ LABEL_20:
         goto LABEL_13;
       }
       v26 = 545783808;
-      v20 = EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x420uLL) != 0 ? 0x20080000 : 0;
-      v21 = EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x40uLL);
+      v20 = EtwProviderEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink, 0, 0x420uLL) != 0
+          ? 0x20080000
+          : 0;
+      v21 = EtwProviderEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink, 0, 0x40uLL);
       v22 = v20 | 0x20800000;
       if ( !v21 )
         v22 = v20;
@@ -81,27 +85,27 @@ LABEL_20:
     goto LABEL_20;
   }
   v9 = 0;
-  if ( EtwEventEnabled(EtwpPsProvRegHandle, &ProcessStart)
-    || EtwEventEnabled(EtwpPsProvRegHandle, &EnableProcessTracingCallbacks) )
+  if ( EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, &ProcessStart)
+    || EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, &EnableProcessTracingCallbacks) )
   {
     v9 = 1;
   }
   v10 = v9 | 2;
-  if ( !EtwEventEnabled(EtwpPsProvRegHandle, &ThreadStart) )
+  if ( !EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, &ThreadStart) )
     v10 = v9;
   v26 = 524295;
   v11 = v10 | 4;
-  if ( !EtwEventEnabled(EtwpPsProvRegHandle, &ImageLoad) )
+  if ( !EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, &ImageLoad) )
     v11 = v10;
-  v12 = EtwEventEnabled(EtwpPsProvRegHandle, &JobStart);
+  v12 = EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, &JobStart);
   v13 = v11 | 0x80000;
   v28 = 536879104;
   if ( !v12 )
     v13 = v11;
   v27 = v13;
-  v29 = EtwProviderEnabled(EtwpPsProvRegHandle, 0, 0x180uLL) != 0 ? 0x20002000 : 0;
+  v29 = EtwProviderEnabled((REGHANDLE)stru_140F03830.Affinity, 0, 0x180uLL) != 0 ? 0x20002000 : 0;
   v30 = 1073741826;
-  v31 = EtwProviderEnabled(EtwpPsProvRegHandle, 0, 0x200uLL) != 0 ? 0x40000002 : 0;
+  v31 = EtwProviderEnabled((REGHANDLE)stru_140F03830.Affinity, 0, 0x200uLL) != 0 ? 0x40000002 : 0;
   if ( ControlCode == 2 )
     EtwpPsProvCaptureState((__int64 *)&PsProvGuid, MatchAnyKeyword);
   v14 = 3LL;
@@ -118,7 +122,7 @@ LABEL_13:
     --v14;
   }
   while ( v14 );
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.Header.WaitListHead.Blink, 0);
+  KeReleaseMutex((PRKMUTEX)&stru_140F03830.QueuedScb, 0);
   Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
   if ( Pool2 )
   {

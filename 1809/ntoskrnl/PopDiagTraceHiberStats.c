@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagTraceHiberStats @ 0x1406DD610
+ * XREFs of PopDiagTraceHiberStats @ 0x1406DE8B0
  * Callers:
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     PopOpenPowerKey @ 0x140178B30 (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     PopQpcTimeInMs @ 0x140566420 (PopQpcTimeInMs.c)
- *     PopCaptureTimeOnProcZero @ 0x140566454 (PopCaptureTimeOnProcZero.c)
- *     PopComputeDerivedHiberStats @ 0x1406DD9DC (PopComputeDerivedHiberStats.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     PopOpenPowerKey @ 0x140178C30 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     PopQpcTimeInMs @ 0x140567420 (PopQpcTimeInMs.c)
+ *     PopCaptureTimeOnProcZero @ 0x140567454 (PopCaptureTimeOnProcZero.c)
+ *     PopComputeDerivedHiberStats @ 0x1406DEC7C (PopComputeDerivedHiberStats.c)
  */
 
 char PopDiagTraceHiberStats()
@@ -48,27 +48,27 @@ char PopDiagTraceHiberStats()
     v1 = 0LL;
   KeyHandle = v1;
   v2 = PopCaptureTimeOnProcZero();
-  v3 = qword_140417C70;
-  qword_140417CB0 -= qword_140417C98 + qword_140417C90;
-  qword_140417C78 = v2 - (qword_140417C98 + qword_140417C90);
-  dword_140417D7C = dword_140417864;
-  dword_140417D78 = dword_1404178E8;
-  v21 = qword_140417C70;
-  dword_140417D28 = PopQpcTimeInMs(&qword_140417B58, &qword_140417B60);
-  qword_140417BD8 = (unsigned int)PopQpcTimeInMs(&qword_140417B28, &qword_140417BE0);
-  PopComputeDerivedHiberStats(&qword_140417B98, v3, v22);
+  v3 = qword_140418D10;
+  qword_140418D50 -= qword_140418D38 + qword_140418D30;
+  qword_140418D18 = v2 - (qword_140418D38 + qword_140418D30);
+  dword_140418E1C = dword_140418904;
+  dword_140418E18 = dword_140418988;
+  v21 = qword_140418D10;
+  dword_140418DC8 = PopQpcTimeInMs(&qword_140418BF8, &qword_140418C00);
+  qword_140418C78 = (unsigned int)PopQpcTimeInMs(&qword_140418BC8, &qword_140418C80);
+  PopComputeDerivedHiberStats(&qword_140418C38, v3, v22);
   v4 = 47LL;
   v5 = (unsigned __int64 *)v23;
   v20 = 47LL;
   p_Reserved = (union _EVENT_DATA_DESCRIPTOR::$535316677C6A15A6ECBA40D88E1D787B *)&UserData.Reserved;
   Data = v23;
-  v8 = qword_14090DD38;
+  v8 = qword_14090EFF8;
   do
   {
     v9 = *((_DWORD *)v8 + 2);
     v10 = (__int64 *)v22;
     if ( (v9 & 0x40000000) == 0 )
-      v10 = &qword_140417B98;
+      v10 = &qword_140418C38;
     v11 = (unsigned int *)((char *)v10 + *v8);
     if ( (v9 & 2) != 0 )
       v12 = *(_QWORD *)v11;
@@ -96,26 +96,26 @@ char PopDiagTraceHiberStats()
     v20 = --v4;
   }
   while ( v4 );
-  qword_140417CF0 /= v3;
-  qword_140417BA0 /= v3;
-  v15 = qword_140417C78 / v3 - (unsigned int)qword_140417BE8 - (unsigned int)dword_140417BF0;
-  qword_140417D80 = v15;
+  qword_140418D90 /= v3;
+  qword_140418C40 /= v3;
+  v15 = qword_140418D18 / v3 - (unsigned int)qword_140418C88 - (unsigned int)dword_140418C90;
+  qword_140418E20 = v15;
   if ( v1 )
   {
     RtlInitUnicodeString(&DestinationString, L"KernelResumeIoCpuTime");
-    ZwSetValueKey(v1, &DestinationString, 0, 4u, &qword_140417CF0, 4u);
+    ZwSetValueKey(v1, &DestinationString, 0, 4u, &qword_140418D90, 4u);
     RtlInitUnicodeString(&DestinationString, L"HiberIoCpuTime");
-    ZwSetValueKey(v1, &DestinationString, 0, 4u, &qword_140417BA0, 4u);
-    if ( qword_140417D18 )
+    ZwSetValueKey(v1, &DestinationString, 0, 4u, &qword_140418C40, 4u);
+    if ( qword_140418DB8 )
     {
-      dword_140417844 += PopQpcTimeInMs(&qword_140417B48, &qword_140417D20);
+      dword_1404188E4 += PopQpcTimeInMs(&qword_140418BE8, &qword_140418DC0);
       RtlInitUnicodeString(&DestinationString, L"HybridBootAnimationTime");
-      ZwSetValueKey(v1, &DestinationString, 0, 4u, &dword_140417844, 4u);
+      ZwSetValueKey(v1, &DestinationString, 0, 4u, &dword_1404188E4, 4u);
     }
-    qword_140417D88 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+    qword_140418E28 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
                      * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
     RtlInitUnicodeString(&DestinationString, L"ResumeCompleteTimestamp");
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 0xBu, &qword_140417D88, 8u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 0xBu, &qword_140418E28, 8u);
     LOBYTE(v15) = ZwClose(KeyHandle);
   }
   if ( PopDiagHandleRegistered )

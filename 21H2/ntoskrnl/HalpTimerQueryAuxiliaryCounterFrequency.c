@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpTimerQueryAuxiliaryCounterFrequency @ 0x1404B6A10
+ * XREFs of HalpTimerQueryAuxiliaryCounterFrequency @ 0x1404B6C50
  * Callers:
  *     <none>
  * Callees:

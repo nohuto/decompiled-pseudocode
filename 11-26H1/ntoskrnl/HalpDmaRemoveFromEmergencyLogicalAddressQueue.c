@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x140578F2C
+ * XREFs of HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x14057B45C
  * Callers:
- *     HalpAllocateDmaResourcesInternal @ 0x14043E70C (HalpAllocateDmaResourcesInternal.c)
- *     HalCancelAdapterChannelDmaThin @ 0x1404DEC50 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x140512EF0 (HalCancelAdapterChannelDmarThin.c)
- *     HalCancelAdapterChannel @ 0x1405888B0 (HalCancelAdapterChannel.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14043721C (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannelDmaThin @ 0x1404D8330 (HalCancelAdapterChannelDmaThin.c)
+ *     HalCancelAdapterChannelDmarThin @ 0x14050C960 (HalCancelAdapterChannelDmarThin.c)
+ *     HalCancelAdapterChannel @ 0x14058AF80 (HalCancelAdapterChannel.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 char __fastcall HalpDmaRemoveFromEmergencyLogicalAddressQueue(__int64 a1, _QWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPopulateCombineMdls @ 0x14072696C
+ * XREFs of MiPopulateCombineMdls @ 0x140726E20
  * Callers:
- *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140726FD0 (MiProcessCrcList.c)
  * Callees:
- *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140294744 (MiAllocatePagesForMdl.c)
  */
 
 __int64 __fastcall MiPopulateCombineMdls(char *a1, int a2, __int64 a3)

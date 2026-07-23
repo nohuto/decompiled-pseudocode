@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpDeleteRegistrationObject @ 0x14040E9E0
+ * XREFs of EtwpDeleteRegistrationObject @ 0x14040D8A0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeRundownQueueEx @ 0x1400F6B68 (KeRundownQueueEx.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeRundownQueueEx @ 0x1400F49A8 (KeRundownQueueEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     EtwpRundownNotifications @ 0x14040D8C8 (EtwpRundownNotifications.c)
- *     EtwpReleaseProviderTraitsReference @ 0x14040DA54 (EtwpReleaseProviderTraitsReference.c)
- *     EtwpUnreferenceGuidEntry @ 0x14040ED4C (EtwpUnreferenceGuidEntry.c)
- *     EtwpReleaseQueueEntry @ 0x14048E35C (EtwpReleaseQueueEntry.c)
- *     EtwpUnreferenceDataBlock @ 0x14048E3BC (EtwpUnreferenceDataBlock.c)
- *     EtwpQueueReply @ 0x140494EB8 (EtwpQueueReply.c)
+ *     EtwpRundownNotifications @ 0x14040C788 (EtwpRundownNotifications.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x14040C914 (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpUnreferenceGuidEntry @ 0x14040DC0C (EtwpUnreferenceGuidEntry.c)
+ *     EtwpReleaseQueueEntry @ 0x14048EDEC (EtwpReleaseQueueEntry.c)
+ *     EtwpUnreferenceDataBlock @ 0x14048EE4C (EtwpUnreferenceDataBlock.c)
+ *     EtwpQueueReply @ 0x140495948 (EtwpQueueReply.c)
  */
 
 __int64 __fastcall EtwpDeleteRegistrationObject(__int64 *BugCheckParameter2)

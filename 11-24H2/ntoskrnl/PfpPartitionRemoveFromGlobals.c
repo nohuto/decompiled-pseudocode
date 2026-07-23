@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPartitionRemoveFromGlobals @ 0x1405CCA9C
+ * XREFs of PfpPartitionRemoveFromGlobals @ 0x1405CA20C
  * Callers:
- *     PfDeletePartition @ 0x140747214 (PfDeletePartition.c)
+ *     PfDeletePartition @ 0x140745504 (PfDeletePartition.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall PfpPartitionRemoveFromGlobals(__int64 a1)

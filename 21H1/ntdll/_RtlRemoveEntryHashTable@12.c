@@ -6,27 +6,30 @@
  *     _RtlpPopulateContext@12 @ 0x4B35B59E (_RtlpPopulateContext@12.c)
  */
 
-char __stdcall RtlRemoveEntryHashTable(int a1, _DWORD *a2, _DWORD *a3)
+BOOLEAN __cdecl RtlRemoveEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  int v3; // edi
-  _DWORD *v4; // edx
-  _DWORD *v5; // ecx
+  unsigned int Signature; // edi
+  _LIST_ENTRY *Flink; // edx
+  _LIST_ENTRY *Blink; // ecx
 
-  v3 = a2[2];
-  --*(_DWORD *)(a1 + 20);
-  v4 = (_DWORD *)*a2;
-  v5 = (_DWORD *)a2[1];
-  if ( (_DWORD *)*a2 == v5 )
+  Signature = Entry->Signature;
+  --HashTable->NumEntries;
+  Flink = Entry->Linkage.Flink;
+  Blink = Entry->Linkage.Blink;
+  if ( Entry->Linkage.Flink == Blink )
   {
-    --*(_DWORD *)(a1 + 24);
-    v5 = (_DWORD *)a2[1];
-    v4 = (_DWORD *)*a2;
+    --HashTable->NonEmptyBuckets;
+    Blink = Entry->Linkage.Blink;
+    Flink = Entry->Linkage.Flink;
   }
-  if ( (_DWORD *)v4[1] != a2 || (_DWORD *)*v5 != a2 )
+  if ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Flink->Blink != Entry || (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Blink->Flink != Entry )
     __fastfail(3u);
-  *v5 = v4;
-  v4[1] = v5;
-  if ( a3 && !*a3 )
-    RtlpPopulateContext(v3);
+  Blink->Flink = Flink;
+  Flink->Blink = Blink;
+  if ( Context && !Context->ChainHead )
+    RtlpPopulateContext(Signature);
   return 1;
 }

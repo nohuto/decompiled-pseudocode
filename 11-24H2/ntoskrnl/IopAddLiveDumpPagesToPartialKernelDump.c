@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x1405A03BC
+ * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x14059D2EC
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x14059FF50 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14059CE74 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     IoSaveBugCheckProgress @ 0x140591F10 (IoSaveBugCheckProgress.c)
- *     IopDumpCallAddPagesCallbacks @ 0x140593AAC (IopDumpCallAddPagesCallbacks.c)
- *     IopLiveDumpMarkDeviceNode @ 0x14059BB84 (IopLiveDumpMarkDeviceNode.c)
- *     IoAddProcessesToDump @ 0x1405A0164 (IoAddProcessesToDump.c)
- *     IopMarkPagesForProcessorData @ 0x1405A11D0 (IopMarkPagesForProcessorData.c)
- *     ExAddPrivateDataToCrashDump @ 0x140653D7C (ExAddPrivateDataToCrashDump.c)
- *     MmAddPrivateDataToCrashDump @ 0x140677874 (MmAddPrivateDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
- *     MmGetDumpRange @ 0x140677B48 (MmGetDumpRange.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     IoSaveBugCheckProgress @ 0x14058EF30 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140590AD0 (IopDumpCallAddPagesCallbacks.c)
+ *     IopLiveDumpMarkDeviceNode @ 0x140598B04 (IopLiveDumpMarkDeviceNode.c)
+ *     IoAddProcessesToDump @ 0x14059D088 (IoAddProcessesToDump.c)
+ *     IopMarkPagesForProcessorData @ 0x14059E108 (IopMarkPagesForProcessorData.c)
+ *     ExAddPrivateDataToCrashDump @ 0x1406524DC (ExAddPrivateDataToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x140678A54 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
+ *     MmGetDumpRange @ 0x140678D28 (MmGetDumpRange.c)
  */
 
 __int64 __fastcall IopAddLiveDumpPagesToPartialKernelDump(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -112,7 +112,7 @@ LABEL_34:
                       result = ExAddPrivateDataToCrashDump(v13);
                       if ( (int)result >= 0 )
                       {
-                        result = IoAddProcessesToDump((__int64)v13, (__int64)IopPartialDumpAddProcessesCallback, 0LL);
+                        result = IoAddProcessesToDump((__int64)v13, (__int64)IopPartialDumpAddProcessesCallback);
                         if ( (int)result >= 0 )
                         {
                           IopDumpCallAddPagesCallbacks(a1);

@@ -1,38 +1,38 @@
 /*
- * XREFs of RtlLocaleNameToLcid @ 0x1800045B0
+ * XREFs of RtlLocaleNameToLcid @ 0x18004FCE0
  * Callers:
- *     LdrpGetParentLangId @ 0x180002608 (LdrpGetParentLangId.c)
- *     RtlLoadString @ 0x1800AAE90 (RtlLoadString.c)
+ *     LdrpGetParentLangId @ 0x18004DD38 (LdrpGetParentLangId.c)
+ *     RtlLoadString @ 0x1800A9FC0 (RtlLoadString.c)
  * Callees:
- *     RtlpIsCustomLocale @ 0x180001008 (RtlpIsCustomLocale.c)
- *     RtlpMatchUserLanguage @ 0x18000113C (RtlpMatchUserLanguage.c)
- *     RtlpNlsGetNameIndex @ 0x180004930 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x180004A18 (RtlpLoadNlsData.c)
- *     RtlpMatchUILanguage @ 0x180112DD4 (RtlpMatchUILanguage.c)
- *     RtlpGetCustomCultureData @ 0x180113878 (RtlpGetCustomCultureData.c)
+ *     RtlpIsCustomLocale @ 0x18004C740 (RtlpIsCustomLocale.c)
+ *     RtlpMatchUserLanguage @ 0x18004C874 (RtlpMatchUserLanguage.c)
+ *     RtlpNlsGetNameIndex @ 0x180050060 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x180050148 (RtlpLoadNlsData.c)
+ *     RtlpMatchUILanguage @ 0x180112884 (RtlpMatchUILanguage.c)
+ *     RtlpGetCustomCultureData @ 0x180113110 (RtlpGetCustomCultureData.c)
  */
 
-__int64 __fastcall RtlLocaleNameToLcid(wchar_t *String, int *a2, int a3)
+NTSTATUS __cdecl RtlLocaleNameToLcid(PCWSTR LocaleName, PLCID lcid, ULONG Flags)
 {
   char v3; // si
   __int64 v6; // rbx
   int NameIndex; // eax
 
-  v3 = a3;
-  if ( !String )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  if ( (a3 & 0xFFFFFFFC) != 0 )
-    return 3221225713LL;
+  v3 = Flags;
+  if ( !LocaleName )
+    return -1073741585;
+  if ( !lcid )
+    return -1073741584;
+  if ( (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741583;
   v6 = pTblPtrs;
   if ( !pTblPtrs )
   {
-    if ( !(unsigned __int8)RtlpLoadNlsData(String, a2) )
-      return 3221225473LL;
+    if ( !(unsigned __int8)RtlpLoadNlsData(LocaleName, lcid) )
+      return -1073741823;
     v6 = pTblPtrs;
   }
-  NameIndex = RtlpNlsGetNameIndex(String);
+  NameIndex = RtlpNlsGetNameIndex(LocaleName);
   if ( NameIndex >= 0 )
   {
     if ( (v3 & 2) != 0
@@ -43,27 +43,27 @@ __int64 __fastcall RtlLocaleNameToLcid(wchar_t *String, int *a2, int a3)
                     + *(_QWORD *)(pTblPtrs + 8)
                     + 24LL) & 1) != 0) )
     {
-      *a2 = *(_DWORD *)(*(_QWORD *)(v6 + 24) + 8LL * NameIndex + 4) & 0x7FFFFFFF;
-      return 0LL;
+      *lcid = *(_DWORD *)(*(_QWORD *)(v6 + 24) + 8LL * NameIndex + 4) & 0x7FFFFFFF;
+      return 0;
     }
-    return 3221225711LL;
+    return -1073741585;
   }
-  if ( !RtlpIsCustomLocale(String) )
-    return 3221225711LL;
-  if ( (v3 & 1) != 0 && (unsigned __int8)RtlpMatchUILanguage(String) )
+  if ( !RtlpIsCustomLocale((wchar_t *)LocaleName) )
+    return -1073741585;
+  if ( (v3 & 1) != 0 && (unsigned __int8)RtlpMatchUILanguage(LocaleName) )
   {
-    *a2 = 5120;
-    return 0LL;
+    *lcid = 5120;
+    return 0;
   }
-  if ( !RtlpMatchUserLanguage(String) )
+  if ( !RtlpMatchUserLanguage((wchar_t *)LocaleName) )
   {
-    if ( (v3 & 2) != 0 || (int)RtlpGetCustomCultureData(String, 0LL, 0LL, 0LL) >= 0 )
+    if ( (v3 & 2) != 0 || (int)RtlpGetCustomCultureData(LocaleName, 0LL, 0LL, 0LL) >= 0 )
     {
-      *a2 = 4096;
-      return 0LL;
+      *lcid = 4096;
+      return 0;
     }
-    return 3221225473LL;
+    return -1073741823;
   }
-  *a2 = 3072;
-  return 0LL;
+  *lcid = 3072;
+  return 0;
 }

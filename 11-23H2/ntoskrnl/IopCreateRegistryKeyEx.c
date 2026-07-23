@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCreateRegistryKeyEx @ 0x1407DA498
+ * XREFs of IopCreateRegistryKeyEx @ 0x1407DA768
  * Callers:
  *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     PnpBuildCmResourceList @ 0x1408173BC (PnpBuildCmResourceList.c)
- *     IopWriteResourceList @ 0x140818978 (IopWriteResourceList.c)
- *     IopUpdateSecureDeviceClassState @ 0x14083A8F8 (IopUpdateSecureDeviceClassState.c)
- *     IopCreateSecureDeviceClassSettings @ 0x14083AB94 (IopCreateSecureDeviceClassSettings.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x14087CCF4 (PiDevCfgConfigureSoftwareDevices.c)
- *     NtDisableLastKnownGood @ 0x140884EB0 (NtDisableLastKnownGood.c)
- *     IoSetSystemPartition @ 0x140947440 (IoSetSystemPartition.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x140951FE0 (PipHardwareConfigTriggerRespecialize.c)
+ *     PnpBuildCmResourceList @ 0x14081768C (PnpBuildCmResourceList.c)
+ *     IopWriteResourceList @ 0x140818C48 (IopWriteResourceList.c)
+ *     IopUpdateSecureDeviceClassState @ 0x14083ABF8 (IopUpdateSecureDeviceClassState.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x14083AE94 (IopCreateSecureDeviceClassSettings.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x14087CF34 (PiDevCfgConfigureSoftwareDevices.c)
+ *     NtDisableLastKnownGood @ 0x1408850F0 (NtDisableLastKnownGood.c)
+ *     IoSetSystemPartition @ 0x140947640 (IoSetSystemPartition.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x1409521E0 (PipHardwareConfigTriggerRespecialize.c)
  *     PipInitComputerIds @ 0x140B3A22C (PipInitComputerIds.c)
  *     IopStoreSystemPartitionInformation @ 0x140B3BE74 (IopStoreSystemPartitionInformation.c)
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
@@ -19,8 +19,8 @@
  *     PipHardwareConfigInit @ 0x140B6C43C (PipHardwareConfigInit.c)
  *     PiInitFirmwareResources @ 0x140B6EC94 (PiInitFirmwareResources.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
  */
 
 __int64 __fastcall IopCreateRegistryKeyEx(

@@ -1,7 +1,7 @@
 /*
- * XREFs of strncpy @ 0x1406C0760
+ * XREFs of strncpy @ 0x1406C1660
  * Callers:
- *     __asan_wrap_strncpy @ 0x1405ADF60 (__asan_wrap_strncpy.c)
+ *     __asan_wrap_strncpy @ 0x1405AAED0 (__asan_wrap_strncpy.c)
  * Callees:
  *     <none>
  */

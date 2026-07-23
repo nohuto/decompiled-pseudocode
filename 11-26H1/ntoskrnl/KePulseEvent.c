@@ -1,20 +1,20 @@
 /*
- * XREFs of KePulseEvent @ 0x1404C7410
+ * XREFs of KePulseEvent @ 0x1404C0CC0
  * Callers:
- *     MmResourcesAvailable @ 0x14047FC6C (MmResourcesAvailable.c)
- *     MiPulseLowAvailableEvent @ 0x1404C73A4 (MiPulseLowAvailableEvent.c)
- *     MiPulseCommitSignal @ 0x1405098B4 (MiPulseCommitSignal.c)
- *     KeBalanceSetManager @ 0x1405F79E0 (KeBalanceSetManager.c)
- *     DifKePulseEventWrapper @ 0x140662380 (DifKePulseEventWrapper.c)
- *     MiNotifyMemoryChange @ 0x140866CA4 (MiNotifyMemoryChange.c)
- *     NtPulseEvent @ 0x140A90D30 (NtPulseEvent.c)
+ *     MmResourcesAvailable @ 0x1404795B4 (MmResourcesAvailable.c)
+ *     MiPulseLowAvailableEvent @ 0x1404C0C58 (MiPulseLowAvailableEvent.c)
+ *     MiPulseCommitSignal @ 0x140503364 (MiPulseCommitSignal.c)
+ *     KeBalanceSetManager @ 0x1405FA400 (KeBalanceSetManager.c)
+ *     DifKePulseEventWrapper @ 0x140665F60 (DifKePulseEventWrapper.c)
+ *     MiNotifyMemoryChange @ 0x14086D084 (MiNotifyMemoryChange.c)
+ *     NtPulseEvent @ 0x140A95880 (NtPulseEvent.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

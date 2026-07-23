@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpSimpleCheck @ 0x1409A81BC
+ * XREFs of HalpSimpleCheck @ 0x1409A90EC
  * Callers:
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
- *     HalpCheckLowMemoryPreSleep @ 0x1409A809C (HalpCheckLowMemoryPreSleep.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x1409A8FCC (HalpCheckLowMemoryPreSleep.c)
  * Callees:
  *     <none>
  */

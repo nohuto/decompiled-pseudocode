@@ -1,9 +1,9 @@
 /*
- * XREFs of sqrtf @ 0x140537900
+ * XREFs of sqrtf @ 0x140539D80
  * Callers:
  *     <none>
  * Callees:
- *     _handle_errorf @ 0x14053A720 (_handle_errorf.c)
+ *     _handle_errorf @ 0x14053CBA0 (_handle_errorf.c)
  */
 
 float __cdecl sqrtf(float X)

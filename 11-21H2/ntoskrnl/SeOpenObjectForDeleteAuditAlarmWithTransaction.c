@@ -4,15 +4,15 @@
  *     SeOpenObjectForDeleteAuditAlarm @ 0x1409CB1D0 (SeOpenObjectForDeleteAuditAlarm.c)
  * Callees:
  *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     SepQueryNameString @ 0x140696CCC (SepQueryNameString.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140723F80 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x14072427C (SepAdtAuditPrivilegeUseWithContext.c)
- *     SeExamineGlobalSacl @ 0x140882A70 (SeExamineGlobalSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409C8EE8 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x1409C9784 (SepAdtOpenObjectForDeleteAuditAlarm.c)
- *     SepQueryTypeString @ 0x1409CA168 (SepQueryTypeString.c)
+ *     sub_140696CCC @ 0x140696CCC (sub_140696CCC.c)
+ *     sub_140723F80 @ 0x140723F80 (sub_140723F80.c)
+ *     sub_14072427C @ 0x14072427C (sub_14072427C.c)
+ *     sub_140882A70 @ 0x140882A70 (sub_140882A70.c)
+ *     sub_1409C8EE8 @ 0x1409C8EE8 (sub_1409C8EE8.c)
+ *     sub_1409C9784 @ 0x1409C9784 (sub_1409C9784.c)
+ *     sub_1409CA168 @ 0x1409CA168 (sub_1409CA168.c)
  *     SeExamineSacl @ 0x1409CAE50 (SeExamineSacl.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
+ *     sub_1409CF1A0 @ 0x1409CF1A0 (sub_1409CF1A0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -93,7 +93,7 @@ void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
     }
     else if ( v12 )
     {
-      v19 = SepQueryTypeString((__int64)v12, &v45);
+      v19 = sub_1409CA168((__int64)v12, &v45);
       v15 = v45;
       v43 = v19;
       if ( v19 < 0 )
@@ -105,7 +105,7 @@ void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
         v17 = (UNICODE_STRING *)v45;
     }
     if ( !SecurityDescriptor
-      || !(unsigned __int8)SepAdtAuditObjectAccessWithContext(
+      || !(unsigned __int8)sub_140723F80(
                              (__int64)v12,
                              v11,
                              AccessGranted,
@@ -167,7 +167,14 @@ LABEL_25:
 LABEL_26:
       v28 = 0LL;
 LABEL_31:
-    SeExamineGlobalSacl(ObjectTypeName, v28, Token, v20, AccessGranted, &GenerateAudit, GenerateAlarm);
+    sub_140882A70(
+      (__int64)ObjectTypeName,
+      v28,
+      Token,
+      v20,
+      AccessGranted,
+      (__int64)&GenerateAudit,
+      (char *)GenerateAlarm);
     v13 = GenerateAudit;
     if ( GenerateAudit )
     {
@@ -185,7 +192,7 @@ LABEL_49:
         if ( v26 )
         {
           v33 = (GUID *)AuxData;
-          SepAdtOpenObjectForDeleteAuditAlarm(
+          sub_1409C9784(
             v42[0],
             (__int64)p_SubjectSecurityContext,
             (__int64)AbsoluteObjectName,
@@ -242,9 +249,9 @@ LABEL_49:
           v32 = (__int128 *)TransactionId;
           if ( !TransactionId )
             v32 = (__int128 *)(AuxData + 4);
-          SepAdtOpenObjectAuditAlarm(
+          sub_1409C8EE8(
             v42[0],
-            &SeSubsystemName,
+            &qword_140001B08,
             0LL,
             &v17->Length,
             &v16->Length,
@@ -265,7 +272,7 @@ LABEL_49:
         }
         goto LABEL_66;
       }
-      v43 = SepQueryNameString((__int64)Object, &P);
+      v43 = sub_140696CCC((__int64)Object, &P);
       if ( v43 >= 0 )
       {
         if ( P )
@@ -279,7 +286,7 @@ LABEL_66:
         ExFreePoolWithTag(v15, 0);
 LABEL_70:
       if ( v43 < 0 )
-        SepAuditFailed((unsigned int)v43);
+        sub_1409CF1A0((unsigned int)v43);
       return;
     }
     v14 = GenerateAlarm[0];
@@ -293,12 +300,7 @@ LABEL_34:
         {
           v31 = v42;
           LOBYTE(v31) = AccessGranted;
-          if ( SepAdtAuditPrivilegeUseWithContext(
-                 (unsigned int *)v30,
-                 (__int64)v31,
-                 0LL,
-                 (__int64)&AccessState->SubjectSecurityContext,
-                 v42) )
+          if ( sub_14072427C((unsigned int *)v30, (__int64)v31, 0LL, (__int64)&AccessState->SubjectSecurityContext, v42) )
           {
             v13 = 1;
             AccessState->AuditPrivileges = 1;

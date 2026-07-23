@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimWorkingSetBuildup @ 0x14037D1A0
+ * XREFs of MiTrimWorkingSetBuildup @ 0x1402EA6B0
  * Callers:
- *     MiTrimPteWorker @ 0x140242AA4 (MiTrimPteWorker.c)
- *     MiTrimPte @ 0x140242BA0 (MiTrimPte.c)
- *     MiTrimWorkingSetTailHelper @ 0x1402E3BD0 (MiTrimWorkingSetTailHelper.c)
+ *     MiTrimWorkingSetTailHelper @ 0x14020D060 (MiTrimWorkingSetTailHelper.c)
+ *     MiTrimPteWorker @ 0x140212FB0 (MiTrimPteWorker.c)
+ *     MiTrimPte @ 0x1402130B0 (MiTrimPte.c)
  * Callees:
- *     MiSetVaAgeList @ 0x140230FB0 (MiSetVaAgeList.c)
- *     MiFreeWsleList @ 0x140287894 (MiFreeWsleList.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
+ *     MiFreeWsleList @ 0x140297494 (MiFreeWsleList.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     MiSetVaAgeList @ 0x140304F30 (MiSetVaAgeList.c)
  */
 
 void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
   __int64 v8; // r12
   int v9; // r13d
   __int64 v10; // rsi
-  unsigned int v11; // r9d
+  unsigned __int64 v11; // r9
   unsigned int v12; // eax
   ULONG v13; // r11d
   unsigned int v14; // ecx
@@ -29,25 +29,24 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
   unsigned __int64 v17; // rax
   ULONG v18; // ebx
   unsigned int v19; // esi
-  unsigned __int64 v20; // r9
-  _DWORD *v21; // rdx
-  int v22; // r8d
+  _DWORD *v20; // rdx
+  int v21; // r8d
   _DWORD *j; // rax
-  unsigned int v24; // r8d
-  __int64 v25; // rcx
-  unsigned int v26; // edi
+  unsigned int v23; // r8d
+  __int64 v24; // rcx
+  unsigned int v25; // edi
   unsigned __int64 k; // rax
-  unsigned int *v28; // rax
-  unsigned int v29; // esi
-  unsigned int v30; // edi
+  unsigned int *v27; // rax
+  unsigned int v28; // esi
+  ULONG v29; // edi
   unsigned int SizeOfBitMap; // eax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v33; // [rsp+90h] [rbp+18h]
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v32; // [rsp+90h] [rbp+18h]
 
   LODWORD(BitMapHeader.Buffer) = 0;
   v3 = 0;
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 0LL;
-  v33 = *(_QWORD *)(a1 + 32);
+  v32 = *(_QWORD *)(a1 + 32);
   while ( v3 != 2 )
   {
     v4 = a2 + 80LL * v3 + 88;
@@ -68,7 +67,7 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
       {
         v13 = v12 + v9;
         v14 = v11 + v9;
-        if ( v12 - v11 != -1 )
+        if ( v12 - (_DWORD)v11 != -1 )
         {
           v15 = (_QWORD *)(v10 + 8 * ((unsigned __int64)v14 >> 6));
           for ( i = ~*v15 | ((1LL << (v14 & 0x3F)) - 1); i == -1; i = ~*v15 )
@@ -84,13 +83,13 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
 LABEL_39:
         v18 = -1;
 LABEL_40:
-        if ( !v11 )
+        if ( !(_DWORD)v11 )
           goto LABEL_19;
         SizeOfBitMap = v6 + 1;
         if ( v6 + 1 > BitMapHeader.SizeOfBitMap )
           SizeOfBitMap = BitMapHeader.SizeOfBitMap;
         v12 = SizeOfBitMap - 1;
-        v11 = 0;
+        v11 = 0LL;
       }
       if ( v18 == -1 )
         goto LABEL_40;
@@ -101,54 +100,55 @@ LABEL_19:
       v19 = 0;
       if ( v18 < 0x200 )
       {
-        v20 = v4 + 60;
-        v21 = (_DWORD *)(v4 + 4 * ((unsigned __int64)v18 >> 5));
-        v22 = ((1 << (v18 & 0x1F)) - 1) | *v21;
-        for ( j = v21 + 1; ; ++j )
+        v11 = v4 + 60;
+        v20 = (_DWORD *)(v4 + 4 * ((unsigned __int64)v18 >> 5));
+        v21 = ((1 << (v18 & 0x1F)) - 1) | *v20;
+        for ( j = v20 + 1; ; ++j )
         {
-          v24 = ~v22;
-          if ( v24 )
+          v23 = ~v21;
+          if ( v23 )
             break;
-          if ( (unsigned __int64)j > v20 )
+          if ( (unsigned __int64)j > v11 )
             goto LABEL_44;
-          v22 = *++v21;
+          v21 = *++v20;
         }
-        _BitScanForward64((unsigned __int64 *)&v25, v24);
-        v26 = v25 + 32 * (((__int64)v21 - v4) >> 2);
-        if ( v26 > 0x200 )
+        _BitScanForward64((unsigned __int64 *)&v24, v23);
+        v25 = v24 + 32 * (((__int64)v20 - v4) >> 2);
+        if ( v25 > 0x200 )
         {
 LABEL_44:
-          v26 = 512;
+          v25 = 512;
           goto LABEL_35;
         }
-        for ( k = ~(v24 | ((1 << v25) - 1)); ; k = *v28 )
+        for ( k = ~(v23 | ((1 << v24) - 1)); ; k = *v27 )
         {
           if ( (_DWORD)k )
           {
             _BitScanForward64(&k, k);
             goto LABEL_32;
           }
-          v28 = v21 + 1;
-          if ( (unsigned __int64)(v21 + 1) > v20 )
+          v27 = v20 + 1;
+          if ( (unsigned __int64)(v20 + 1) > v11 )
             break;
-          ++v21;
+          ++v20;
         }
         LODWORD(k) = 32;
 LABEL_32:
-        v29 = k + 32 * (((__int64)v21 - v4) >> 2);
-        if ( v29 > 0x200 )
-          v29 = 512;
-        v19 = v29 - v26;
+        v28 = k + 32 * (((__int64)v20 - v4) >> 2);
+        if ( v28 > 0x200 )
+          v28 = 512;
+        v19 = v28 - v25;
 LABEL_35:
         if ( v19 )
           goto LABEL_49;
       }
-      v26 = 512;
+      v25 = 512;
 LABEL_49:
-      v30 = v26 - v18;
-      MiSetVaAgeList(v33, v8 + (v18 << 12), v30, v3 != 0 ? 6 : 0);
-      RtlClearBits(&BitMapHeader, v18, v30);
-      v6 = v30 + v19 + v18;
+      LOBYTE(v11) = v3 != 0 ? 6 : 0;
+      v29 = v25 - v18;
+      MiSetVaAgeList(v32, v8 + (v18 << 12), v29, v11);
+      RtlClearBits(&BitMapHeader, v18, v29);
+      v6 = v29 + v19 + v18;
       if ( !v19 )
         break;
       v10 = v4 - ((v4 & 4) != 0 ? 4 : 0);
@@ -160,5 +160,5 @@ LABEL_4:
   }
   v5 = *(_QWORD *)(a2 + 72);
   if ( v5 && *(_DWORD *)(v5 + 28) )
-    *(_QWORD *)(a2 + 16) -= MiFreeWsleList(v33, v5, (*(_DWORD *)a2 & 0x1000) != 0);
+    *(_QWORD *)(a2 + 16) -= MiFreeWsleList(v32, v5, (*(_DWORD *)a2 >> 12) & 1);
 }

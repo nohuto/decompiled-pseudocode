@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateAvailableEvents @ 0x140704D10
+ * XREFs of MiUpdateAvailableEvents @ 0x1407099E0
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14087F860 (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x140885C60 (MiInitializeMemoryEvents.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUpdateAvailableEventsAtDpc @ 0x1403E5C00 (MiUpdateAvailableEventsAtDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUpdateAvailableEventsAtDpc @ 0x1403E8DF0 (MiUpdateAvailableEventsAtDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUpdateAvailableEvents(__int64 a1)

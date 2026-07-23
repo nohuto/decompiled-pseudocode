@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpReAllocateHeap @ 0x180041D6C (RtlpHpReAllocateHeap.c)
  *     RtlpHpSizeHeapInternal @ 0x180045A84 (RtlpHpSizeHeapInternal.c)
- *     RtlpHpSegReportPageRange @ 0x180123F1C (RtlpHpSegReportPageRange.c)
+ *     RtlpHpSegReportPageRange @ 0x180123EEC (RtlpHpSegReportPageRange.c)
  * Callees:
  *     RtlpHpVsChunkSize @ 0x1800632A4 (RtlpHpVsChunkSize.c)
  */

@@ -1,15 +1,20 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValueEx @ 0x140726B70
+ * XREFs of ZwSetSystemEnvironmentValueEx @ 0x14072B740
  * Callers:
- *     DifZwSetSystemEnvironmentValueExWrapper @ 0x1406BBAA0 (DifZwSetSystemEnvironmentValueExWrapper.c)
- *     BiDeleteEfiVariable @ 0x1409D1B5C (BiDeleteEfiVariable.c)
+ *     DifZwSetSystemEnvironmentValueExWrapper @ 0x1406BF680 (DifZwSetSystemEnvironmentValueExWrapper.c)
+ *     BiDeleteEfiVariable @ 0x1409A2B3C (BiDeleteEfiVariable.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetSystemEnvironmentValueEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetSystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        ULONG ValueLength,
+        ULONG Attributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(VariableName);
 }

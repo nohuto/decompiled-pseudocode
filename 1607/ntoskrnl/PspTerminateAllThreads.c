@@ -1,22 +1,22 @@
 /*
- * XREFs of PspTerminateAllThreads @ 0x1405096F0
+ * XREFs of PspTerminateAllThreads @ 0x1404EC680
  * Callers:
- *     NtTerminateProcess @ 0x140507D84 (NtTerminateProcess.c)
- *     PspTerminateProcess @ 0x140507F68 (PspTerminateProcess.c)
+ *     NtTerminateProcess @ 0x1404EAD14 (NtTerminateProcess.c)
+ *     PspTerminateProcess @ 0x1404EAEF8 (PspTerminateProcess.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
- *     DbgkClearProcessDebugObject @ 0x1404F0FB8 (DbgkClearProcessDebugObject.c)
- *     PspGetPreviousProcessThread @ 0x140509940 (PspGetPreviousProcessThread.c)
- *     PspTerminateThreadByPointer @ 0x140509A30 (PspTerminateThreadByPointer.c)
- *     PsGetNextProcessThread @ 0x140510350 (PsGetNextProcessThread.c)
- *     PspCatchCriticalBreak @ 0x14067FBF8 (PspCatchCriticalBreak.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
+ *     DbgkClearProcessDebugObject @ 0x1404D30AC (DbgkClearProcessDebugObject.c)
+ *     PspGetPreviousProcessThread @ 0x1404EC8D0 (PspGetPreviousProcessThread.c)
+ *     PspTerminateThreadByPointer @ 0x1404EC9C0 (PspTerminateThreadByPointer.c)
+ *     PsGetNextProcessThread @ 0x1404F32E0 (PsGetNextProcessThread.c)
+ *     PspCatchCriticalBreak @ 0x14067FCDC (PspCatchCriticalBreak.c)
  */
 
 __int64 __fastcall PspTerminateAllThreads(

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeleteClusterSection @ 0x140081F00
+ * XREFs of MiDeleteClusterSection @ 0x140081EF0
  * Callers:
- *     MiDeleteSubsectionPages @ 0x140094F80 (MiDeleteSubsectionPages.c)
+ *     MiDeleteSubsectionPages @ 0x140094EC0 (MiDeleteSubsectionPages.c)
  * Callees:
  *     MiInsertLargePageInNodeList @ 0x140028C1C (MiInsertLargePageInNodeList.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiTryLockLeafPage @ 0x140082A0C (MiTryLockLeafPage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiAbortCombineScan @ 0x140082658 (MiAbortCombineScan.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiTryLockLeafPage @ 0x1400829FC (MiTryLockLeafPage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _BOOL8 __fastcall MiDeleteClusterSection(__int64 a1, __int64 a2)
@@ -55,19 +55,19 @@ _BOOL8 __fastcall MiDeleteClusterSection(__int64 a1, __int64 a2)
   v2 = 0;
   v4 = 0LL;
   v5 = 0;
-  v34 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
+  v34 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
   do
   {
     v6 = MI_READ_PTE_LOCK_FREE(a2 + 8LL * v5);
     v10 = v6;
     if ( !v6 || (v6 & 0x800) == 0 )
       return 0LL;
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v6 & 0x10) != 0 )
         v10 = v6 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v10 = ~qword_14043A0C0 & v6;
+        v10 = ~qword_14043B180 & v6;
     }
     v11 = (v10 >> 12) & 0xFFFFFFFFFLL;
     if ( (*(_QWORD *)(48 * v11 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0 || v7 && v11 != v8 )
@@ -154,7 +154,7 @@ _BOOL8 __fastcall MiDeleteClusterSection(__int64 a1, __int64 a2)
     {
       if ( (unsigned int)MiPteHasShadow(v28, v27) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v27 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v27 & 1) != 0 )
           v27 |= v15;
         *v16 = v27;
         MiWritePteShadow(v16);

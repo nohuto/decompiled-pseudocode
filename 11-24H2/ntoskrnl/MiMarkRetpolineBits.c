@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMarkRetpolineBits @ 0x140A88520
+ * XREFs of MiMarkRetpolineBits @ 0x140A84A10
  * Callers:
- *     HvlPhase1Initialize @ 0x140582A60 (HvlPhase1Initialize.c)
- *     MiMarkKernelImageRetpolineBits @ 0x140A884D4 (MiMarkKernelImageRetpolineBits.c)
- *     MiApplyRetpolineToBootDriver @ 0x140C5560C (MiApplyRetpolineToBootDriver.c)
- *     MiInitializeRetpoline @ 0x140C558EC (MiInitializeRetpoline.c)
+ *     HvlPhase1Initialize @ 0x14057FDE0 (HvlPhase1Initialize.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x140A849C4 (MiMarkKernelImageRetpolineBits.c)
+ *     MiApplyRetpolineToBootDriver @ 0x140C5779C (MiApplyRetpolineToBootDriver.c)
+ *     MiInitializeRetpoline @ 0x140C57A7C (MiInitializeRetpoline.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140261AD0 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x1403A4600 (RtlSetBitsEx.c)
- *     MiSplitBitmapPages @ 0x1403A52F4 (MiSplitBitmapPages.c)
- *     RtlAreBitsClearEx @ 0x14041D1F0 (RtlAreBitsClearEx.c)
- *     MiAddressToRetpolineBit @ 0x1404C7F08 (MiAddressToRetpolineBit.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404D2990 (MmAcquireLoadLock.c)
+ *     MiSplitBitmapPages @ 0x14026C5E4 (MiSplitBitmapPages.c)
+ *     RtlSetBitsEx @ 0x14026E120 (RtlSetBitsEx.c)
+ *     RtlClearBitsEx @ 0x1402920E0 (RtlClearBitsEx.c)
+ *     RtlAreBitsClearEx @ 0x140411AE0 (RtlAreBitsClearEx.c)
+ *     MiAddressToRetpolineBit @ 0x1404C163C (MiAddressToRetpolineBit.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404CBB50 (MmAcquireLoadLock.c)
  */
 
 __int64 __fastcall MiMarkRetpolineBits(__int64 a1, __int64 a2, int a3)
@@ -36,14 +36,14 @@ __int64 __fastcall MiMarkRetpolineBits(__int64 a1, __int64 a2, int a3)
   else
   {
     v10 = v7 - v5;
-    if ( !RtlAreBitsClearEx((unsigned __int64 *)&qword_140E2D758, v5, v7 - v5) )
+    if ( !RtlAreBitsClearEx((unsigned __int64 *)&qword_140E2D898, v5, v7 - v5) )
     {
-      RtlClearBitsEx((__int64)&qword_140E2D758, v5, v10);
+      RtlClearBitsEx((__int64)&qword_140E2D898, v5, v10);
       goto LABEL_8;
     }
   }
   if ( (unsigned int)MiSplitBitmapPages(4LL) )
-    RtlSetBitsEx((__int64)&qword_140E2D758, v5, v10);
+    RtlSetBitsEx((__int64)&qword_140E2D898, v5, v10);
   else
     v8 = -1073741801;
 LABEL_8:

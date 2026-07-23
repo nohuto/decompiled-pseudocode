@@ -1,8 +1,8 @@
 /*
- * XREFs of _PnpContainerRaiseDevicesChangedEvent @ 0x1406DBFCC
+ * XREFs of _PnpContainerRaiseDevicesChangedEvent @ 0x1406DC104
  * Callers:
- *     _CmAddDeviceToContainer @ 0x140485F54 (_CmAddDeviceToContainer.c)
- *     _CmRemoveDeviceFromContainer @ 0x1406DA88C (_CmRemoveDeviceFromContainer.c)
+ *     _CmAddDeviceToContainer @ 0x14050FC58 (_CmAddDeviceToContainer.c)
+ *     _CmRemoveDeviceFromContainer @ 0x1406DA9C4 (_CmRemoveDeviceFromContainer.c)
  * Callees:
  *     <none>
  */

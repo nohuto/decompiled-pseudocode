@@ -46,10 +46,10 @@ void __stdcall ExUnregisterCallback(PVOID CallbackRegistration)
     *((_BYTE *)CallbackRegistration + 44) = 1;
     KeResetEvent(&ExpCallbackEvent);
     KxReleaseSpinLock((volatile signed __int64 *)v1 + 1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -70,10 +70,10 @@ void __stdcall ExUnregisterCallback(PVOID CallbackRegistration)
   *v6 = v5;
   v5[1] = v6;
   KxReleaseSpinLock((volatile signed __int64 *)v1 + 1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && v4 <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && v4 <= 0xFu && v12 >= 2u )
     {
       v13 = KeGetCurrentPrcb();
       v14 = v13->SchedulerAssist;

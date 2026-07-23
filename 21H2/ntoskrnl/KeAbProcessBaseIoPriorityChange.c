@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAbProcessBaseIoPriorityChange @ 0x1402F7370
+ * XREFs of KeAbProcessBaseIoPriorityChange @ 0x1403020C0
  * Callers:
- *     PspNotifyProcessBackgroundTransition @ 0x1402F0C14 (PspNotifyProcessBackgroundTransition.c)
- *     PsSetIoPriorityThread @ 0x1402F72F0 (PsSetIoPriorityThread.c)
+ *     PspNotifyProcessBackgroundTransition @ 0x1402FB964 (PspNotifyProcessBackgroundTransition.c)
+ *     PsSetIoPriorityThread @ 0x140302040 (PsSetIoPriorityThread.c)
  * Callees:
- *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1402F73AC (KeAbProcessBaseIoPriorityChangeInternal.c)
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1403020FC (KeAbProcessBaseIoPriorityChangeInternal.c)
  */
 
 void __fastcall KeAbProcessBaseIoPriorityChange(__int64 a1, int a2, int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeIdleThread @ 0x140571E48
+ * XREFs of KiInitializeIdleThread @ 0x140572E48
  * Callers:
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
  * Callees:
- *     KeStartThread @ 0x1400D39B4 (KeStartThread.c)
- *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
+ *     KeStartThread @ 0x1400D3A34 (KeStartThread.c)
+ *     KeInitThread @ 0x1405666E0 (KeInitThread.c)
  */
 
 unsigned __int64 __fastcall KiInitializeIdleThread(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -41,10 +41,10 @@ unsigned __int64 __fastcall KiInitializeIdleThread(unsigned __int64 a1, __int64 
   }
   else
   {
-    qword_14055BED0 = (__int64)&qword_14055BEC8;
-    qword_14055BEC8 = (__int64)&qword_14055BEC8;
-    _InterlockedOr(dword_14055BD40, 0x8000u);
-    _InterlockedOr(dword_14055C10C, 0x400000u);
+    qword_14055CED0 = (__int64)&qword_14055CEC8;
+    qword_14055CEC8 = (__int64)&qword_14055CEC8;
+    _InterlockedOr(dword_14055CD40, 0x8000u);
+    _InterlockedOr(dword_14055D10C, 0x400000u);
   }
   *(_QWORD *)(a1 + 1824) = a1 + 1816;
   *(_QWORD *)(a1 + 1816) = a1 + 1816;
@@ -52,13 +52,13 @@ unsigned __int64 __fastcall KiInitializeIdleThread(unsigned __int64 a1, __int64 
   *(_QWORD *)(a1 + 1832) = a1 + 1832;
   *(_QWORD *)(a1 + 1848) = 0LL;
   v8 = (_QWORD *)(a1 + 1704);
-  v9 = (_QWORD *)qword_14055BED0;
-  if ( *(__int64 **)qword_14055BED0 != &qword_14055BEC8 )
+  v9 = (_QWORD *)qword_14055CED0;
+  if ( *(__int64 **)qword_14055CED0 != &qword_14055CEC8 )
     __fastfail(3u);
-  *v8 = &qword_14055BEC8;
+  *v8 = &qword_14055CEC8;
   v8[1] = v9;
   *v9 = v8;
-  qword_14055BED0 = (__int64)v8;
+  qword_14055CED0 = (__int64)v8;
   result = (unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a4 + 36)] >> 6;
   _InterlockedOr64(
     (volatile signed __int64 *)(a3 + 8 * result + 280),

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpValueToData @ 0x140826228
+ * XREFs of CmpValueToData @ 0x140826528
  * Callers:
- *     CmpFindControlSet @ 0x140825D40 (CmpFindControlSet.c)
+ *     CmpFindControlSet @ 0x140826040 (CmpFindControlSet.c)
  *     CmpSortDriverList @ 0x140B59238 (CmpSortDriverList.c)
  *     CmSelectQualifiedInstallLanguage @ 0x140B5952C (CmSelectQualifiedInstallLanguage.c)
  *     CmpFindTagIndex @ 0x140B5A060 (CmpFindTagIndex.c)
@@ -9,8 +9,8 @@
  *     CmpIsLoadType @ 0x140B5AAC0 (CmpIsLoadType.c)
  *     CmpGetStateSepKeysRedirectionPathValue @ 0x140B5AD9C (CmpGetStateSepKeysRedirectionPathValue.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CmpGetValueData @ 0x1406DC820 (CmpGetValueData.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CmpGetValueData @ 0x1406DC850 (CmpGetValueData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

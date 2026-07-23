@@ -7,20 +7,22 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __fastcall RtlpAllocateAtomTableEntry(int a1, _DWORD *a2, int a3)
+_WORD *__fastcall RtlpAllocateAtomTableEntry(int a1, _DWORD *a2, int a3)
 {
-  int result; // eax
-  int v5; // [esp+4h] [ebp-4h] BYREF
+  _WORD *result; // eax
+  SIZE_T v5; // [esp-4h] [ebp-Ch]
+  SIZE_T Size; // [esp+4h] [ebp-4h] BYREF
 
-  v5 = 16;
-  if ( (RtlULongPtrAdd(0x10u, a1, &v5) & 0x80000000) != 0 )
+  LODWORD(Size) = 16;
+  if ( (RtlULongPtrAdd(0x10u, a1, (int *)&Size) & 0x80000000) != 0 )
     return 0;
-  result = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v5);
+  LODWORD(v5) = Size;
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   if ( !result )
     return 0;
   *(_DWORD *)result = 0;
-  *(_WORD *)(result + 8) = 1;
-  *(_WORD *)(result + 10) = 0;
-  *a2 = result + 8;
+  result[4] = 1;
+  result[5] = 0;
+  *a2 = result + 4;
   return result;
 }

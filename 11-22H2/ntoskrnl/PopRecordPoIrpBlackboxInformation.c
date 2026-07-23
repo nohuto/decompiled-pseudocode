@@ -78,8 +78,8 @@ void PopRecordPoIrpBlackboxInformation()
     }
     *(_QWORD *)(v1 + 304) = v6;
     KxReleaseSpinLock((volatile signed __int64 *)(v1 + 288));
-    if ( KiIrqlFlags
-      && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0)
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
       && CurrentIrql <= 0xFu
       && (unsigned __int8)v5 <= 0xFu )
     {
@@ -176,10 +176,10 @@ LABEL_33:
   PopIrpLockThread = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
   v21 = (unsigned __int8)InputBuffer;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)InputBuffer <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)InputBuffer <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

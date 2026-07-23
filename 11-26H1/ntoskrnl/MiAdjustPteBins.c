@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAdjustPteBins @ 0x1402A5DF8
+ * XREFs of MiAdjustPteBins @ 0x1402A51F0
  * Callers:
- *     MiSystemPeriodicTick @ 0x1402A6FA0 (MiSystemPeriodicTick.c)
+ *     MiSystemPeriodicTick @ 0x1402A63BC (MiSystemPeriodicTick.c)
  * Callees:
- *     MiAttemptCoalesce @ 0x1402A42E8 (MiAttemptCoalesce.c)
- *     MiPteBinsNeedTrimming @ 0x1402A5EF8 (MiPteBinsNeedTrimming.c)
- *     MiEmptyPteBins @ 0x14035F190 (MiEmptyPteBins.c)
+ *     MiAttemptCoalesce @ 0x1402A3838 (MiAttemptCoalesce.c)
+ *     MiPteBinsNeedTrimming @ 0x1402A52F0 (MiPteBinsNeedTrimming.c)
+ *     MiEmptyPteBins @ 0x140360F30 (MiEmptyPteBins.c)
  */
 
 char MiAdjustPteBins()
@@ -20,13 +20,13 @@ char MiAdjustPteBins()
   _QWORD v8[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v0 = 5LL;
-  v8[0] = &stru_140E36558.WaitBlockList;
+  v8[0] = &stru_140E366D8.WaitBlockList;
   v1 = v8;
   v2 = 5LL;
-  v8[1] = &unk_140E34AA0;
-  v8[2] = &unk_140E34B00;
-  v8[3] = &unk_140E34A40;
-  v8[4] = &unk_140E349E0;
+  v8[1] = &unk_140E34C20;
+  v8[2] = &unk_140E34C80;
+  v8[3] = &unk_140E34BC0;
+  v8[4] = &unk_140E34B60;
   do
   {
     v3 = *v1;
@@ -37,8 +37,8 @@ char MiAdjustPteBins()
     --v2;
   }
   while ( v2 );
-  LOBYTE(v4) = byte_140E34B66 + 1;
-  byte_140E34B66 = v4;
+  LOBYTE(v4) = byte_140E34CE6 + 1;
+  byte_140E34CE6 = v4;
   if ( (v4 & 0xF) == 0 )
   {
     v5 = v8;

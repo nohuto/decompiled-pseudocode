@@ -21,10 +21,10 @@ __int64 __fastcall ResCGetIndexedName(__int64 a1, __int64 a2, int a3, wchar_t *a
   const wchar_t *v13; // rax
   int v14; // eax
   const wchar_t *v15; // rax
-  __int64 v16; // rax
-  unsigned __int64 v17; // r13
+  PVOID v16; // rax
+  void *v17; // r13
   const wchar_t *v18; // rax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   int v20; // eax
   __int64 v21; // [rsp+28h] [rbp-40h]
   const wchar_t *v22; // [rsp+30h] [rbp-38h]
@@ -109,7 +109,7 @@ LABEL_43:
   {
     if ( v5 != 1024 )
       goto LABEL_46;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
     v17 = Heap;
     if ( Heap )
     {
@@ -120,20 +120,20 @@ LABEL_43:
     }
     return 0LL;
   }
-  v16 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+  v16 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
   v17 = v16;
   if ( !v16 )
     return 0LL;
   if ( !(unsigned int)CopyLowerCaseAndSubstitute(a1, v16) )
   {
 LABEL_34:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
     return 0LL;
   }
   v18 = L".init";
 LABEL_37:
   v11 = StringCchPrintfW(a4, 0x103uLL, L"Global\\%s/%s%04d%s", v17, L"rc", a3, v18);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
 LABEL_44:
   if ( v11 >= 0 )
     goto LABEL_63;

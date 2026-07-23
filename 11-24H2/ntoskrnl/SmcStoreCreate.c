@@ -1,19 +1,19 @@
 /*
- * XREFs of SmcStoreCreate @ 0x14079D7E4
+ * XREFs of SmcStoreCreate @ 0x14079D8F4
  * Callers:
- *     SmcProcessStoreCreateRequest @ 0x140799644 (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x140799754 (SmcProcessStoreCreateRequest.c)
  * Callees:
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SmStoreCreate @ 0x1407989C8 (SmStoreCreate.c)
- *     SmKmKeyGenGenerate @ 0x140799E00 (SmKmKeyGenGenerate.c)
- *     SmKmRegParamsLoad @ 0x14079A498 (SmKmRegParamsLoad.c)
- *     SmcCacheDereference @ 0x14079D0D8 (SmcCacheDereference.c)
- *     SmcCacheReference @ 0x14079D328 (SmcCacheReference.c)
- *     SmcStoreSlotAbort @ 0x14079E00C (SmcStoreSlotAbort.c)
- *     SmcStoreSlotCommit @ 0x14079E0D8 (SmcStoreSlotCommit.c)
- *     SmcStoreSlotReserve @ 0x14079E1A8 (SmcStoreSlotReserve.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SmStoreCreate @ 0x140798AD8 (SmStoreCreate.c)
+ *     SmKmKeyGenGenerate @ 0x140799F10 (SmKmKeyGenGenerate.c)
+ *     SmKmRegParamsLoad @ 0x14079A5A8 (SmKmRegParamsLoad.c)
+ *     SmcCacheDereference @ 0x14079D1E8 (SmcCacheDereference.c)
+ *     SmcCacheReference @ 0x14079D438 (SmcCacheReference.c)
+ *     SmcStoreSlotAbort @ 0x14079E11C (SmcStoreSlotAbort.c)
+ *     SmcStoreSlotCommit @ 0x14079E1E8 (SmcStoreSlotCommit.c)
+ *     SmcStoreSlotReserve @ 0x14079E2B8 (SmcStoreSlotReserve.c)
  */
 
 __int64 __fastcall SmcStoreCreate(__int64 a1, unsigned int a2, _DWORD *a3, unsigned int a4, unsigned int *a5)
@@ -108,7 +108,7 @@ __int64 __fastcall SmcStoreCreate(__int64 a1, unsigned int a2, _DWORD *a3, unsig
     }
   }
   v19 = v24;
-  v20 = (struct _PRIVILEGE_SET *)SmAllocEx((unsigned int)v24, 1262841203LL, -1);
+  v20 = (struct _PRIVILEGE_SET *)SmAllocEx((unsigned int)v24, 0x4B456D73u, -1);
   v9 = v20;
   if ( !v20 )
   {

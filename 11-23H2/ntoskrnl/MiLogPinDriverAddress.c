@@ -6,11 +6,11 @@
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 _QWORD *__fastcall MiLogPinDriverAddress(__int64 *a1)
@@ -129,7 +129,7 @@ _QWORD *__fastcall MiLogPinDriverAddress(__int64 *a1)
     v21 = v6;
     v50 = 4LL;
     v52 = 8LL;
-    tlgWriteAgg(v9, (unsigned __int8 *)&word_140039CE6, v8, 0x10u, &v24);
+    tlgWriteAgg(v9, (unsigned __int8 *)&word_140039DCE, v8, 0x10u, &v24);
   }
   ExReleaseResourceLite(&PsLoadedModuleResource);
   return KeLeaveCriticalRegionThread((__int64)CurrentThread);

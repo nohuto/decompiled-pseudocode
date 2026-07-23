@@ -9,20 +9,20 @@
  *     NtWaitForSingleObject @ 0x1801632A0 (NtWaitForSingleObject.c)
  */
 
-char __fastcall RtlAcquireResourceExclusive(unsigned __int64 a1, char a2)
+BOOLEAN __cdecl RtlAcquireResourceExclusive(PRTL_RESOURCE Resource, BOOLEAN Wait)
 {
-  int v2; // r8d
-  char result; // al
+  LONG NumberOfActive; // r8d
+  BOOLEAN result; // al
   int v6; // ebp
   LARGE_INTEGER *v7; // rsi
-  NTSTATUS v8; // eax
-  signed __int32 v9; // eax
-  signed __int32 v10; // ett
+  int v8; // eax
+  signed int NumberOfWaitingExclusive; // eax
+  signed int v10; // ett
 
-  v2 = *(_DWORD *)(a1 + 68);
-  if ( v2 < 0 && *(void **)(a1 + 72) == NtCurrentTeb()->ClientId.UniqueThread )
+  NumberOfActive = Resource->NumberOfActive;
+  if ( NumberOfActive < 0 && Resource->ExclusiveOwnerThread == NtCurrentTeb()->ClientId.UniqueThread )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(a1 + 68));
+    _InterlockedDecrement(&Resource->NumberOfActive);
     return 1;
   }
   else
@@ -30,58 +30,61 @@ char __fastcall RtlAcquireResourceExclusive(unsigned __int64 a1, char a2)
     while ( 1 )
     {
 LABEL_2:
-      while ( !v2 )
+      while ( !NumberOfActive )
       {
-        v2 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 68), -1, 0);
-        if ( !v2 )
+        NumberOfActive = _InterlockedCompareExchange(&Resource->NumberOfActive, -1, 0);
+        if ( !NumberOfActive )
         {
           result = 1;
-          *(_QWORD *)(a1 + 72) = NtCurrentTeb()->ClientId.UniqueThread;
+          Resource->ExclusiveOwnerThread = NtCurrentTeb()->ClientId.UniqueThread;
           return result;
         }
       }
-      if ( !a2 )
+      if ( !Wait )
         return 0;
-      ++*(_DWORD *)(*(_QWORD *)(a1 + 88) + 36LL);
-      _InterlockedIncrement((volatile signed __int32 *)(a1 + 64));
-      v2 = *(_DWORD *)(a1 + 68);
-      if ( !v2 )
+      ++Resource->DebugInfo->ContentionCount;
+      _InterlockedIncrement((volatile signed __int32 *)&Resource->NumberOfWaitingExclusive);
+      NumberOfActive = Resource->NumberOfActive;
+      if ( !NumberOfActive )
       {
-        v9 = *(_DWORD *)(a1 + 64);
-        while ( v9 > 0 )
+        NumberOfWaitingExclusive = Resource->NumberOfWaitingExclusive;
+        while ( NumberOfWaitingExclusive > 0 )
         {
-          v10 = v9;
-          v9 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 64), v9 - 1, v9);
-          if ( v10 == v9 )
+          v10 = NumberOfWaitingExclusive;
+          NumberOfWaitingExclusive = _InterlockedCompareExchange(
+                                       (volatile signed __int32 *)&Resource->NumberOfWaitingExclusive,
+                                       NumberOfWaitingExclusive - 1,
+                                       NumberOfWaitingExclusive);
+          if ( v10 == NumberOfWaitingExclusive )
             goto LABEL_2;
         }
-        if ( v9 )
+        if ( NumberOfWaitingExclusive )
           continue;
       }
       v6 = 0;
       while ( 1 )
       {
         v7 = 0LL;
-        if ( (*(_BYTE *)(a1 + 80) & 1) == 0 )
+        if ( (Resource->Flags & 1) == 0 )
           v7 = &RtlpTimeout;
-        v8 = NtWaitForSingleObject(*(HANDLE *)(a1 + 56), 0, v7);
+        v8 = NtWaitForSingleObject(Resource->ExclusiveSemaphore, 0, v7);
         if ( v8 != 258 )
           break;
         DbgPrintEx(
-          101,
+          0x65u,
           0,
           "RTL: Acquire Exclusive Sem Timeout %d (%I64u secs)\n",
           v6,
           ((unsigned __int64)(((unsigned __int128)(v7->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v7->QuadPart) >> 63)
         + ((__int64)(((unsigned __int128)(v7->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v7->QuadPart) >> 23));
-        DbgPrintEx(101, 0, "RTL: Resource at %p\n", (const void *)a1);
+        DbgPrintEx(0x65u, 0, "RTL: Resource at %p\n", Resource);
         if ( (unsigned int)++v6 > 2 )
-          RtlpPossibleDeadlock(a1);
-        DbgPrintEx(101, 0, "RTL: Re-Waiting\n");
+          RtlpPossibleDeadlock((unsigned __int64)Resource);
+        DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
       }
       if ( v8 < 0 )
         RtlRaiseStatus(v8);
-      v2 = *(_DWORD *)(a1 + 68);
+      NumberOfActive = Resource->NumberOfActive;
     }
   }
 }

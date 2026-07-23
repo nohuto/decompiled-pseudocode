@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSetOwner @ 0x1402B1450
+ * XREFs of RtlpHpLfhSubsegmentSetOwner @ 0x14022F7B0
  * Callers:
- *     RtlpHpLfhBucketAddSubsegment @ 0x1402B1104 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhSlotAddSubsegment @ 0x1402B1400 (RtlpHpLfhSlotAddSubsegment.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14022F464 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhSlotAddSubsegment @ 0x14022F760 (RtlpHpLfhSlotAddSubsegment.c)
  * Callees:
  *     <none>
  */

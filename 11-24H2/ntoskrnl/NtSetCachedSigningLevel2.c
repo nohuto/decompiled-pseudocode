@@ -1,239 +1,217 @@
 /*
- * XREFs of NtSetCachedSigningLevel2 @ 0x140889860
+ * XREFs of NtSetCachedSigningLevel2 @ 0x14088D710
  * Callers:
- *     NtSetCachedSigningLevel @ 0x140889830 (NtSetCachedSigningLevel.c)
+ *     NtSetCachedSigningLevel @ 0x14088D6E0 (NtSetCachedSigningLevel.c)
  * Callees:
- *     RtlUnicodeStringValidateEx @ 0x14044AF84 (RtlUnicodeStringValidateEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SepCaptureUnicodeStringArray @ 0x1408890B0 (SepCaptureUnicodeStringArray.c)
- *     SepReleaseUnicodeStringArray @ 0x1408894A0 (SepReleaseUnicodeStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     SeCompareSigningLevels @ 0x1409354F0 (SeCompareSigningLevels.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringValidateEx @ 0x1404420C4 (RtlUnicodeStringValidateEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SepCaptureUnicodeStringArray @ 0x14088CF60 (SepCaptureUnicodeStringArray.c)
+ *     SepReleaseUnicodeStringArray @ 0x14088D350 (SepReleaseUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     SeCompareSigningLevels @ 0x1409FA8D0 (SeCompareSigningLevels.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetCachedSigningLevel2(
-        __int64 a1,
-        __int64 a2,
-        const void *a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtSetCachedSigningLevel2(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile,
+        SE_SET_FILE_CACHE_INFORMATION *CacheInformation)
 {
   __int64 v6; // r12
   __int16 v8; // r14
   UNICODE_STRING *Pool2; // rdi
   char PreviousMode; // r15
-  size_t v11; // r12
-  int v12; // ebx
-  __int64 v14; // rbx
+  ULONG_PTR v11; // r12
+  NTSTATUS v12; // ebx
+  SE_SET_FILE_CACHE_INFORMATION *v14; // rbx
   __int64 v15; // r8
-  __int64 v16; // r9
-  ULONG v17; // edx
-  __int64 v18; // rdx
-  int v19; // eax
-  __int128 v20; // xmm0
-  void *v21; // rbx
+  ULONG v16; // edx
+  __int64 v17; // rdx
+  NTSTATUS v18; // eax
+  UNICODE_STRING CatalogDirectoryPath; // xmm0
+  void *v20; // rbx
   _KPROCESS *Process; // rcx
-  char v23; // di
-  char v24; // bl
-  int v25; // eax
-  char v26; // cl
-  char v27; // [rsp+58h] [rbp-80h]
-  PVOID P; // [rsp+60h] [rbp-78h]
+  char v22; // dl
+  wchar_t *P; // [rsp+60h] [rbp-78h]
   PCUNICODE_STRING SourceString[2]; // [rsp+68h] [rbp-70h] BYREF
   void *Src[2]; // [rsp+78h] [rbp-60h]
-  void *v31; // [rsp+98h] [rbp-40h]
-  char v32; // [rsp+E8h] [rbp+10h]
+  void *v26; // [rsp+98h] [rbp-40h]
 
-  v32 = a2;
-  v6 = a4;
-  v8 = a1;
+  v6 = SourceFileCount;
+  v8 = Flags;
   Pool2 = 0LL;
-  v27 = 0;
   SourceString[0] = 0LL;
   P = 0LL;
   *(_OWORD *)Src = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a1 & 0x2000) != 0 )
+  if ( (Flags & 0x2000) != 0 )
   {
-    if ( qword_140F04968 )
+    if ( qword_140F04C08 )
     {
-      if ( !a6 || !a5 )
+      if ( !CacheInformation || !TargetFile )
       {
         v12 = -1073741811;
-        goto LABEL_12;
+        goto LABEL_11;
       }
       if ( PreviousMode == 1 )
       {
         if ( (BYTE2(KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1]) & 7) != 1 )
-          goto LABEL_69;
-        if ( (a6 & 3) != 0 )
+          goto LABEL_68;
+        if ( ((unsigned __int8)CacheInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v20 = *(_OWORD *)(a6 + 8);
-        *(_OWORD *)Src = v20;
-        v21 = (void *)v20;
-        if ( (_QWORD)v20 )
+        CatalogDirectoryPath = CacheInformation->CatalogDirectoryPath;
+        *(UNICODE_STRING *)Src = CatalogDirectoryPath;
+        v20 = *(void **)&CatalogDirectoryPath.Length;
+        if ( *(_QWORD *)&CatalogDirectoryPath.Length )
         {
           if ( ((__int64)Src[1] & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          if ( (char *)Src[1] + (unsigned __int64)v20 > (void *)0x7FFFFFFF0000LL
-            || (char *)Src[1] + (unsigned __int64)v20 < Src[1] )
+          if ( (char *)Src[1] + *(_QWORD *)&CatalogDirectoryPath.Length > (void *)0x7FFFFFFF0000LL
+            || (char *)Src[1] + *(_QWORD *)&CatalogDirectoryPath.Length < Src[1] )
           {
-            v21 = Src[0];
+            v20 = Src[0];
           }
         }
-        v31 = v21;
-        if ( !Src[1] || !v21 )
+        v26 = v20;
+        if ( !Src[1] || !v20 )
         {
           v12 = -1073741811;
-          goto LABEL_12;
+          goto LABEL_11;
         }
-        if ( (unsigned __int64)v21 > 0xFFFF )
+        if ( (unsigned __int64)v20 > 0xFFFF )
         {
           v12 = -1073741811;
-          goto LABEL_12;
+          goto LABEL_11;
         }
-        P = (PVOID)ExAllocatePool2(0x103uLL);
+        P = (wchar_t *)ExAllocatePool2(0x103uLL, (ULONG_PTR)v20, 0x63734943u);
         if ( !P )
         {
           v12 = -1073741670;
-          goto LABEL_12;
+          goto LABEL_11;
         }
-        memmove(P, Src[1], (size_t)v21);
+        memmove(P, Src[1], (size_t)v20);
       }
       else
       {
-        v21 = *(void **)(a6 + 8);
-        P = *(PVOID *)(a6 + 16);
+        P = CacheInformation->CatalogDirectoryPath.Buffer;
       }
-      LOBYTE(a1) = PreviousMode;
-      v19 = guard_dispatch_icall_no_overrides(a1, a5, v21, P);
-      goto LABEL_37;
+      LOBYTE(Flags) = PreviousMode;
+      v18 = guard_dispatch_icall_no_overrides(*(_QWORD *)&Flags, TargetFile);
+      goto LABEL_36;
     }
-LABEL_39:
+LABEL_38:
     v12 = -1073741822;
-    goto LABEL_12;
+    goto LABEL_11;
   }
-  if ( !qword_140F04888 )
-    goto LABEL_39;
-  if ( (a2 & 0x30) != 0 )
-    goto LABEL_43;
-  if ( a4 - 1 > 0xFFF )
+  if ( !qword_140F04B28 )
+    goto LABEL_38;
+  if ( (InputSigningLevel & 0x30) != 0 )
     goto LABEL_42;
-  if ( (a1 & 6) == 0 && (_BYTE)a2 )
+  if ( SourceFileCount - 1 > 0xFFF )
+    goto LABEL_41;
+  if ( (Flags & 6) == 0 && InputSigningLevel )
   {
-LABEL_43:
+LABEL_42:
     v12 = -1073741584;
-    goto LABEL_12;
+    goto LABEL_11;
   }
-  if ( (a1 & 3) == 3 )
-    goto LABEL_16;
-  if ( PreviousMode == 1 )
+  if ( (Flags & 3) == 3 )
+    goto LABEL_15;
+  if ( PreviousMode != 1 )
   {
-    if ( (a1 & 2) != 0 )
-      goto LABEL_16;
-    v8 = a1 | 1;
-    if ( (a1 & 4) != 0 )
-      goto LABEL_10;
+    if ( (Flags & 1) != 0 || (Flags & 2) != 0 )
+      goto LABEL_9;
+LABEL_15:
+    v12 = -1073741585;
+    goto LABEL_11;
+  }
+  if ( (Flags & 2) != 0 )
+    goto LABEL_15;
+  v8 = Flags | 1;
+  if ( (Flags & 4) == 0 )
+  {
     Process = KeGetCurrentThread()->ApcState.Process;
     if ( (BYTE2(Process[3].ActiveGroupsMask.Masks[1]) & 7) == 1 )
     {
-      v23 = Process[3].ActiveGroupsMask.Masks[1] & 0xF;
-      v24 = BYTE1(Process[3].ActiveGroupsMask.Masks[1]) & 0xF;
-      LOBYTE(a2) = v23;
-      LOBYTE(Process) = v24;
-      v25 = SeCompareSigningLevels(Process, a2);
-      v26 = v23;
-      if ( !v25 )
-        v26 = v24;
-      v27 = v26;
-      goto LABEL_10;
+      v22 = Process[3].ActiveGroupsMask.Masks[1] & 0xF;
+      LOBYTE(Process) = BYTE1(Process[3].ActiveGroupsMask.Masks[1]) & 0xF;
+      SeCompareSigningLevels(Process, v22);
+      goto LABEL_9;
     }
-LABEL_69:
+LABEL_68:
     v12 = -1073741790;
-    goto LABEL_12;
+    goto LABEL_11;
   }
-  if ( (a1 & 1) == 0 )
-  {
-    if ( (a1 & 2) != 0 )
-    {
-      v27 = 8;
-      goto LABEL_10;
-    }
-LABEL_16:
-    v12 = -1073741585;
-    goto LABEL_12;
-  }
-  v27 = 15;
-LABEL_10:
+LABEL_9:
   v11 = 8 * v6;
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
+  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL, v11, 0x63734943u);
   SourceString[1] = Pool2;
   if ( !Pool2 )
   {
     v12 = -1073741670;
-    goto LABEL_12;
+    goto LABEL_11;
   }
   if ( PreviousMode == 1 )
   {
-    if ( v11 && ((unsigned __int8)a3 & 7) != 0 )
+    if ( v11 && ((unsigned __int8)SourceFiles & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    v14 = a6;
-    if ( a6 && (a6 & 3) != 0 )
+    v14 = CacheInformation;
+    if ( CacheInformation && ((unsigned __int8)CacheInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
   }
   else
   {
-    v14 = a6;
+    v14 = CacheInformation;
   }
-  memmove(Pool2, a3, v11);
+  memmove(Pool2, SourceFiles, v11);
   if ( v14 )
   {
-    if ( *(_DWORD *)v14 < 0x18u )
+    if ( v14->Size < 0x18 )
     {
       v12 = -1073741580;
-      goto LABEL_12;
+      goto LABEL_11;
     }
-    if ( *(_WORD *)(v14 + 8) )
+    if ( v14->CatalogDirectoryPath.Length )
     {
       LOBYTE(v15) = PreviousMode;
-      v12 = SepCaptureUnicodeStringArray(v14 + 8, 1u, v15, SourceString);
+      v12 = SepCaptureUnicodeStringArray((__int64)&v14->CatalogDirectoryPath, 1u, v15, SourceString);
       if ( v12 < 0 )
-        goto LABEL_12;
-      v12 = RtlUnicodeStringValidateEx(SourceString[0], v17);
+        goto LABEL_11;
+      v12 = RtlUnicodeStringValidateEx(SourceString[0], v16);
       if ( v12 < 0 )
-        goto LABEL_12;
+        goto LABEL_11;
     }
   }
-  v18 = a4;
+  v17 = SourceFileCount;
   if ( (v8 & 6) == 0 )
   {
+LABEL_35:
+    LOBYTE(v17) = PreviousMode;
+    v18 = guard_dispatch_icall_no_overrides(v8 & 0x807, v17);
 LABEL_36:
-    LOBYTE(v16) = v27;
-    LOBYTE(v15) = v32;
-    LOBYTE(v18) = PreviousMode;
-    v19 = guard_dispatch_icall_no_overrides(v8 & 0x807, v18, v15, v16);
-LABEL_37:
-    v12 = v19;
-    goto LABEL_12;
+    v12 = v18;
+    goto LABEL_11;
   }
-  if ( a4 != 1 )
+  if ( SourceFileCount != 1 )
   {
-LABEL_42:
+LABEL_41:
     v12 = -1073741582;
-    goto LABEL_12;
+    goto LABEL_11;
   }
-  if ( a5 == *(_QWORD *)&Pool2->Length )
-    goto LABEL_36;
+  if ( TargetFile == *(HANDLE *)&Pool2->Length )
+    goto LABEL_35;
   v12 = -1073741581;
-LABEL_12:
+LABEL_11:
   SepReleaseUnicodeStringArray((void *)SourceString[0], PreviousMode);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x63734943u);
   if ( P && PreviousMode == 1 )
     ExFreePoolWithTag(P, 0x63734943u);
-  return (unsigned int)v12;
+  return v12;
 }

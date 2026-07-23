@@ -1,10 +1,10 @@
 /*
- * XREFs of CcInitializeProcessor @ 0x14081F03C
+ * XREFs of CcInitializeProcessor @ 0x14081F33C
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x1402908F0 (MmIsThisAnNtAsSystem.c)
+ *     MmIsThisAnNtAsSystem @ 0x140290B80 (MmIsThisAnNtAsSystem.c)
  *     ExInitializeSystemLookasideList @ 0x140A8B4A8 (ExInitializeSystemLookasideList.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

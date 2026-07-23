@@ -1,7 +1,7 @@
 /*
- * XREFs of KdGetDebugDevice @ 0x1405AF710
+ * XREFs of KdGetDebugDevice @ 0x1405AC680
  * Callers:
- *     HalpDbgInitSystem @ 0x140B4D480 (HalpDbgInitSystem.c)
+ *     HalpDbgInitSystem @ 0x140B4F4D0 (HalpDbgInitSystem.c)
  * Callees:
  *     <none>
  */

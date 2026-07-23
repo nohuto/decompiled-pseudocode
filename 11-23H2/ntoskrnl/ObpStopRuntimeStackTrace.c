@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpStopRuntimeStackTrace @ 0x14097DA20
+ * XREFs of ObpStopRuntimeStackTrace @ 0x14097DC20
  * Callers:
- *     ObSetRefTraceInformation @ 0x14097C8A0 (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x14097CAA0 (ObSetRefTraceInformation.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpDestroyStackAndObjectTables @ 0x14097CAD4 (ObpDestroyStackAndObjectTables.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpDestroyStackAndObjectTables @ 0x14097CCD4 (ObpDestroyStackAndObjectTables.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

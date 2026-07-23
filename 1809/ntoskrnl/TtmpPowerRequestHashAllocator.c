@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpPowerRequestHashAllocator @ 0x140880F0C
+ * XREFs of TtmpPowerRequestHashAllocator @ 0x14088216C
  * Callers:
- *     TtmpInsertPowerRequestToSession @ 0x140880B98 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpInsertPowerRequestToSession @ 0x140881DF8 (TtmpInsertPowerRequestToSession.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall TtmpPowerRequestHashAllocator(SIZE_T NumberOfBytes)

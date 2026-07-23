@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpGetSubKeyCountForKeyNodeStack @ 0x140A235B4
+ * XREFs of CmpGetSubKeyCountForKeyNodeStack @ 0x140A23864
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x1406172CC (CmpQueryKeyDataFromKeyNodeStack.c)
- *     CmpGetSubKeyCountForKcbStack @ 0x140A23510 (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x14061781C (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x140A237C0 (CmpGetSubKeyCountForKcbStack.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1D10 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackAdvance @ 0x140A23698 (CmpKeyEnumStackAdvance.c)
- *     CmpKeyEnumStackCleanup @ 0x140A23980 (CmpKeyEnumStackCleanup.c)
- *     CmpKeyEnumStackInitialize @ 0x140A240D4 (CmpKeyEnumStackInitialize.c)
- *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x140A2439C (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1FE0 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackAdvance @ 0x140A23948 (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackCleanup @ 0x140A23C30 (CmpKeyEnumStackCleanup.c)
+ *     CmpKeyEnumStackInitialize @ 0x140A24384 (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x140A2464C (CmpKeyEnumStackStartFromKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpGetSubKeyCountForKeyNodeStack(__int16 *a1, int *a2)

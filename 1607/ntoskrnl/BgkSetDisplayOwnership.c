@@ -1,5 +1,5 @@
 /*
- * XREFs of BgkSetDisplayOwnership @ 0x140141248
+ * XREFs of BgkSetDisplayOwnership @ 0x1401417B8
  * Callers:
  *     <none>
  * Callees:

@@ -3,27 +3,31 @@
  * Callers:
  *     sub_1405D7AAC @ 0x1405D7AAC (sub_1405D7AAC.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     ZwProtectVirtualMemory @ 0x1403FADA0 (ZwProtectVirtualMemory.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     ZwProtectVirtualMemory @ 0x1403FAF80 (ZwProtectVirtualMemory.c)
  */
 
 __int64 __fastcall WbMakeUserDataPagesKernelWritable(PVOID VirtualAddress, ULONG Length, struct _MDL **a3, _QWORD *a4)
 {
   struct _MDL *v8; // rbx
   int v9; // esi
-  int v10; // edi
+  NTSTATUS v10; // edi
   struct _MDL *Mdl; // rax
   PVOID MappedSystemVa; // rax
-  _QWORD v14[3]; // [rsp+48h] [rbp-40h] BYREF
+  PVOID v14[3]; // [rsp+48h] [rbp-40h] BYREF
+  ULONG_PTR v15; // [rsp+90h] [rbp+8h] BYREF
+  ULONG v16; // [rsp+98h] [rbp+10h] BYREF
 
   v8 = 0LL;
   v9 = 0;
+  v16 = 0;
   v14[0] = VirtualAddress;
-  v10 = ZwProtectVirtualMemory(-1LL, (__int64)v14);
+  v15 = Length;
+  v10 = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v14, &v15, 4u, &v16);
   if ( v10 >= 0 )
   {
     Mdl = IoAllocateMdl(VirtualAddress, Length, 0, 0, 0LL);

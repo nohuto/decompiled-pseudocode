@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetProductInfo @ 0x1800DC180
+ * XREFs of RtlGetProductInfo @ 0x1800D90F0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryLicenseValue @ 0x180161B50 (ZwQueryLicenseValue.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x180161A50 (ZwQueryLicenseValue.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 BOOLEAN __stdcall RtlGetProductInfo(
@@ -23,34 +23,36 @@ BOOLEAN __stdcall RtlGetProductInfo(
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rax
   unsigned __int64 v17; // xmm0_8
-  int v19; // [rsp+30h] [rbp-108h] BYREF
-  DWORD v20; // [rsp+34h] [rbp-104h] BYREF
-  unsigned int v21; // [rsp+38h] [rbp-100h] BYREF
+  ULONG Type; // [rsp+30h] [rbp-108h] BYREF
+  DWORD Data; // [rsp+34h] [rbp-104h] BYREF
+  ULONG ResultDataSize; // [rsp+38h] [rbp-100h] BYREF
   _OWORD v22[13]; // [rsp+40h] [rbp-F8h] BYREF
 
   v5 = 0;
-  v19 = 0;
-  v21 = 0;
-  v20 = 0;
+  Type = 0;
+  ResultDataSize = 0;
+  Data = 0;
   if ( !ReturnedProductType )
     return 0;
   *ReturnedProductType = 0;
   if ( OSMajorVersion <= 5 )
     return 0;
-  if ( (int)ZwQueryLicenseValue(L"$&", &v19, &v20, 4LL, &v21) < 0 || v19 != 4 || v21 != 4 )
+  if ( ZwQueryLicenseValue((PUNICODE_STRING)&stru_180170E98, &Type, &Data, 4u, &ResultDataSize) < 0
+    || Type != 4
+    || ResultDataSize != 4 )
   {
     *ReturnedProductType = -1412584499;
     return 1;
   }
-  if ( (int)ZwQueryLicenseValue(L">@", &v19, v22, 200LL, &v21) < 0 )
+  if ( ZwQueryLicenseValue((PUNICODE_STRING)&stru_180170EA8, &Type, v22, 0xC8u, &ResultDataSize) < 0 )
   {
-    *ReturnedProductType = v20;
+    *ReturnedProductType = Data;
     return 1;
   }
-  if ( v19 == 3 && v21 >= 0x14 )
+  if ( Type == 3 && ResultDataSize >= 0x14 )
   {
-    v10 = v21 / 0x14uLL;
-    if ( v21 == 20 * v10 )
+    v10 = ResultDataSize / 0x14uLL;
+    if ( ResultDataSize == 20 * v10 )
     {
       v11 = 0;
       if ( !v10 )
@@ -79,7 +81,7 @@ BOOLEAN __stdcall RtlGetProductInfo(
         *ReturnedProductType = v5;
       else
 LABEL_21:
-        *ReturnedProductType = v20;
+        *ReturnedProductType = Data;
       return 1;
     }
   }

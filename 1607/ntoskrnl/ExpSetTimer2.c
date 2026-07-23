@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpSetTimer2 @ 0x1400EE640
+ * XREFs of ExpSetTimer2 @ 0x1400EC4C0
  * Callers:
- *     NtCancelTimer2 @ 0x1400B2DEC (NtCancelTimer2.c)
- *     NtSetIRTimer @ 0x1400B5B34 (NtSetIRTimer.c)
- *     NtSetTimer2 @ 0x1400EE798 (NtSetTimer2.c)
+ *     NtCancelTimer2 @ 0x1400B0D38 (NtCancelTimer2.c)
+ *     NtSetIRTimer @ 0x1400B395C (NtSetIRTimer.c)
+ *     NtSetTimer2 @ 0x1400EC618 (NtSetTimer2.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     ExpTimerSetParametersAreValid @ 0x1400EE7AC (ExpTimerSetParametersAreValid.c)
- *     KeCancelTimer2 @ 0x1400F97C0 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     ExpTimerSetParametersAreValid @ 0x1400EC62C (ExpTimerSetParametersAreValid.c)
+ *     KeCancelTimer2 @ 0x1400F7600 (KeCancelTimer2.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer2(HANDLE Handle, unsigned __int64 a2, unsigned __int64 a3)

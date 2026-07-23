@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsDisengageTimerCallback @ 0x140603B10
+ * XREFs of PopDirectedDripsDisengageTimerCallback @ 0x1406065C0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDirectedDripsClearDisengageReason @ 0x140483348 (PopDirectedDripsClearDisengageReason.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14047CCB8 (PopDirectedDripsClearDisengageReason.c)
  */
 
 void __fastcall PopDirectedDripsDisengageTimerCallback(__int64 a1, __int64 a2)

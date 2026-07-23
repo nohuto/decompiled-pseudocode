@@ -1,8 +1,8 @@
 /*
- * XREFs of MiTimeToWriteMemory @ 0x14048C810
+ * XREFs of MiTimeToWriteMemory @ 0x140486350
  * Callers:
- *     MiComputeSoloZeroingTime @ 0x14050130C (MiComputeSoloZeroingTime.c)
- *     MiEstimateTimeToFillPfns @ 0x1406E884C (MiEstimateTimeToFillPfns.c)
+ *     MiComputeSoloZeroingTime @ 0x1404FAAFC (MiComputeSoloZeroingTime.c)
+ *     MiEstimateTimeToFillPfns @ 0x1406ED4E8 (MiEstimateTimeToFillPfns.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ unsigned __int64 __fastcall MiTimeToWriteMemory(unsigned int a1, int a2, int a3,
   __int64 v9; // rax
   unsigned __int64 v10; // r8
 
-  v5 = *(_QWORD *)(384LL * a1 + qword_140E2D6B8 + 376);
+  v5 = *(_QWORD *)(384LL * a1 + qword_140E2D838 + 376);
   if ( v5 )
   {
     if ( a2 == 3 )

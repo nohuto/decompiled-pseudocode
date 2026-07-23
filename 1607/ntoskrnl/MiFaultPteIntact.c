@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFaultPteIntact @ 0x1400A44BC
+ * XREFs of MiFaultPteIntact @ 0x1400A2DE4
  * Callers:
- *     MiProtoFault @ 0x1400A3E68 (MiProtoFault.c)
- *     MiAcquireProperVm @ 0x1400A4200 (MiAcquireProperVm.c)
+ *     MiProtoFault @ 0x1400A2790 (MiProtoFault.c)
+ *     MiAcquireProperVm @ 0x1400A2B28 (MiAcquireProperVm.c)
  * Callees:
  *     <none>
  */

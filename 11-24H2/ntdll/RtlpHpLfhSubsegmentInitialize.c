@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x180050038
+ * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x180065C18
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x180050DD0 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1800669B0 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     RtlpHpLfhBlockBitmapInitialize @ 0x18004E3F0 (RtlpHpLfhBlockBitmapInitialize.c)
- *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1800E2320 (RtlpHpLfhSubsegmentPrefetchRange.c)
- *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1800E2500 (RtlpHpLfhSubsegmentComputeCommitUnit.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpHpLfhBlockBitmapInitialize @ 0x180063FD0 (RtlpHpLfhBlockBitmapInitialize.c)
+ *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1800DD8F0 (RtlpHpLfhSubsegmentPrefetchRange.c)
+ *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1800DDAD0 (RtlpHpLfhSubsegmentComputeCommitUnit.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 char __fastcall RtlpHpLfhSubsegmentInitialize(
@@ -87,7 +87,7 @@ char __fastcall RtlpHpLfhSubsegmentInitialize(
   memset_thunk_772440563353939046((void *)a1, 0, 0x40uLL);
   HIWORD(v41) = v20;
   LOWORD(v41) = v10;
-  *(_DWORD *)(a1 + 40) = v41 ^ qword_1801CDEC8 ^ (a1 >> 12);
+  *(_DWORD *)(a1 + 40) = v41 ^ qword_1801CCEC8 ^ (a1 >> 12);
   *(_WORD *)(a1 + 44) = (unsigned __int64)&a5[-a6] >> 6;
   _BitScanForward(&v24, a3 >> 12);
   *(_WORD *)(a1 + 32) = v22;
@@ -141,7 +141,7 @@ char __fastcall RtlpHpLfhSubsegmentInitialize(
     if ( v20 + v10 * v22 != a2 )
       NT_ASSERT("FirstBlockOffset + BlockSize * BlockCount == SubsegmentSize");
     HIWORD(v41) = v20;
-    *(_DWORD *)(a1 + 40) = v41 ^ qword_1801CDEC8 ^ (a1 >> 12);
+    *(_DWORD *)(a1 + 40) = v41 ^ qword_1801CCEC8 ^ (a1 >> 12);
   }
   LOBYTE(v35) = a6;
   if ( (*(_BYTE *)(a6 + 70) & 1) != 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopIdleWakeGenerateDescriptionString @ 0x14099A39C
+ * XREFs of PopIdleWakeGenerateDescriptionString @ 0x14099A59C
  * Callers:
- *     PopIdleWakeSourceAccountingToDiagnostic @ 0x14099B254 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x14099B454 (PopIdleWakeSourceAccountingToDiagnostic.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BEE0 (RtlStringCbLengthW.c)
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A5B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     RtlStringCbLengthW @ 0x14022BFF0 (RtlStringCbLengthW.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A7B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

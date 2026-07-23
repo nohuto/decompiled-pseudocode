@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVadShouldBeForked @ 0x1406656E4
+ * XREFs of MiVadShouldBeForked @ 0x140665C34
  * Callers:
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
  * Callees:
  *     <none>
  */

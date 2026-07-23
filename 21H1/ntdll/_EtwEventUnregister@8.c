@@ -6,7 +6,7 @@
  *     _EtwNotificationUnregister@12 @ 0x4B2D99D0 (_EtwNotificationUnregister@12.c)
  */
 
-int __stdcall EtwEventUnregister(int a1, __int16 a2)
+ULONG __cdecl EtwEventUnregister(REGHANDLE RegHandle)
 {
-  return EtwNotificationUnregister(a1, a2, 0);
+  return EtwNotificationUnregister(RegHandle, 0);
 }

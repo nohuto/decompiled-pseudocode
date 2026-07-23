@@ -1,15 +1,15 @@
 /*
- * XREFs of WheaRemoveErrorSourceDeviceDriver @ 0x1407C6FD0
+ * XREFs of WheaRemoveErrorSourceDeviceDriver @ 0x1407C7470
  * Callers:
  *     <none>
  * Callees:
- *     WheaGetErrorSource @ 0x14042E2D0 (WheaGetErrorSource.c)
- *     RtlStringCchCopyA @ 0x140458158 (RtlStringCchCopyA.c)
- *     WheapErrDescIsDeviceDriver @ 0x14065C6E4 (WheapErrDescIsDeviceDriver.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WheaRemoveErrorSource @ 0x1407C6C00 (WheaRemoveErrorSource.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WheaGetErrorSource @ 0x140420000 (WheaGetErrorSource.c)
+ *     RtlStringCchCopyA @ 0x14044D468 (RtlStringCchCopyA.c)
+ *     WheapErrDescIsDeviceDriver @ 0x14065AE04 (WheapErrDescIsDeviceDriver.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WheaRemoveErrorSource @ 0x1407C7080 (WheaRemoveErrorSource.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheaRemoveErrorSourceDeviceDriver(unsigned int a1)
@@ -17,13 +17,14 @@ __int64 __fastcall WheaRemoveErrorSourceDeviceDriver(unsigned int a1)
   unsigned int v2; // ebx
   __int64 ErrorSource; // rdi
   signed __int32 v4; // eax
-  void *v5; // rcx
+  __int64 v5; // rdx
+  void *v6; // rcx
   _DWORD Src[8]; // [rsp+20h] [rbp-50h] BYREF
   char pszDest[16]; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v9; // [rsp+50h] [rbp-20h]
+  __int128 v10; // [rsp+50h] [rbp-20h]
 
   *(_OWORD *)pszDest = 0LL;
-  v9 = 0LL;
+  v10 = 0LL;
   v2 = 0;
   ErrorSource = WheaGetErrorSource(a1);
   if ( WheapErrDescIsDeviceDriver(ErrorSource) )
@@ -42,15 +43,15 @@ __int64 __fastcall WheaRemoveErrorSourceDeviceDriver(unsigned int a1)
         Src[4] = 1280201291;
         Src[6] = 2;
         RtlStringCchCopyA(pszDest, 0x20uLL, "RemoveErrorSourceDeviceDriver");
-        WheaLogInternalEvent(Src);
+        WheaLogInternalEvent(Src, v5);
         return (unsigned int)-1073740024;
       }
       else
       {
-        v5 = *(void **)(ErrorSource + 72);
-        if ( v5 )
+        v6 = *(void **)(ErrorSource + 72);
+        if ( v6 )
         {
-          ExFreePoolWithTag(v5, 0x41454857u);
+          ExFreePoolWithTag(v6, 0x41454857u);
           ExFreePoolWithTag(*(PVOID *)(ErrorSource + 144), 0x41454857u);
           *(_QWORD *)(ErrorSource + 72) = 0LL;
           *(_QWORD *)(ErrorSource + 144) = 0LL;

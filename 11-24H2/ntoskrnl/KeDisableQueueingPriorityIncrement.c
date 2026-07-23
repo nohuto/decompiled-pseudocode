@@ -1,7 +1,7 @@
 /*
- * XREFs of KeDisableQueueingPriorityIncrement @ 0x14048E83C
+ * XREFs of KeDisableQueueingPriorityIncrement @ 0x140488C6C
  * Callers:
- *     NtCreateWorkerFactory @ 0x1409A6CF0 (NtCreateWorkerFactory.c)
+ *     NtCreateWorkerFactory @ 0x1409901C0 (NtCreateWorkerFactory.c)
  * Callees:
  *     <none>
  */

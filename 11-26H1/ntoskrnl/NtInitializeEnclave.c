@@ -1,58 +1,58 @@
 /*
- * XREFs of NtInitializeEnclave @ 0x140877100
+ * XREFs of NtInitializeEnclave @ 0x14087D4E0
  * Callers:
- *     DifNtInitializeEnclaveWrapper @ 0x140679E40 (DifNtInitializeEnclaveWrapper.c)
+ *     DifNtInitializeEnclaveWrapper @ 0x14067DA20 (DifNtInitializeEnclaveWrapper.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     MiInitializeEnclave @ 0x140AB757C (MiInitializeEnclave.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiInitializeEnclave @ 0x140AB8BBC (MiInitializeEnclave.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtInitializeEnclave(
-        ULONG_PTR BugCheckParameter1,
-        __int64 a2,
-        void *a3,
-        unsigned int a4,
-        unsigned int *a5)
+NTSTATUS __cdecl NtInitializeEnclave(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
   ULONG_PTR v5; // r13
-  ULONG_PTR v7; // rbx
-  int v8; // r12d
+  HANDLE v7; // rbx
+  ULONG v8; // r12d
   void *v9; // rdi
   char PreviousMode; // r15
   int ULongFromUser; // eax
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   int CurrentProcessorColor; // eax
   void *PoolMm; // rax
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // r14
   PVOID v17; // r14
-  int v19; // [rsp+48h] [rbp-B0h] BYREF
-  ULONG_PTR v20; // [rsp+50h] [rbp-A8h]
+  ULONG v19; // [rsp+48h] [rbp-B0h] BYREF
+  HANDLE v20; // [rsp+50h] [rbp-A8h]
   PVOID Object; // [rsp+58h] [rbp-A0h] BYREF
   PVOID P; // [rsp+60h] [rbp-98h]
-  ULONG_PTR v23; // [rsp+68h] [rbp-90h]
-  unsigned int *v24; // [rsp+70h] [rbp-88h]
-  __int64 v25; // [rsp+78h] [rbp-80h]
+  HANDLE v23; // [rsp+68h] [rbp-90h]
+  PULONG v24; // [rsp+70h] [rbp-88h]
+  PVOID v25; // [rsp+78h] [rbp-80h]
   _BYTE v26[48]; // [rsp+80h] [rbp-78h] BYREF
 
-  v5 = a4;
-  v25 = a2;
-  v7 = BugCheckParameter1;
-  v20 = BugCheckParameter1;
-  v23 = BugCheckParameter1;
-  v24 = a5;
+  v5 = EnclaveInformationLength;
+  v25 = BaseAddress;
+  v7 = ProcessHandle;
+  v20 = ProcessHandle;
+  v23 = ProcessHandle;
+  v24 = EnclaveError;
   memset(v26, 0, sizeof(v26));
   Object = 0LL;
   v8 = 0;
@@ -60,10 +60,10 @@ __int64 __fastcall NtInitializeEnclave(
   v9 = 0LL;
   P = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a5 && PreviousMode == 1 )
+  if ( EnclaveError && PreviousMode == 1 )
   {
-    ULongFromUser = RtlReadULongFromUser(a5);
-    RtlWriteULongToUser(a5, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser(EnclaveError);
+    RtlWriteULongToUser(EnclaveError, ULongFromUser);
   }
   if ( !(_DWORD)v5 )
     goto LABEL_13;
@@ -79,44 +79,44 @@ __int64 __fastcall NtInitializeEnclave(
       goto LABEL_18;
     }
     if ( PreviousMode )
-      RtlCopyFromUser(PoolMm, a3, v5);
+      RtlCopyFromUser(PoolMm, EnclaveInformation, v5);
     else
-      RtlCopyVolatileMemory(PoolMm, a3, v5);
+      RtlCopyVolatileMemory(PoolMm, EnclaveInformation, v5);
     v7 = v20;
 LABEL_13:
     CurrentThread = KeGetCurrentThread();
     Process = CurrentThread->ApcState.Process;
-    if ( v7 == -1LL )
+    if ( v7 == (HANDLE)-1LL )
     {
       Object = CurrentThread->ApcState.Process;
     }
     else
     {
-      v12 = ObpReferenceObjectByHandleWithTag(v7, 0x6D566D4Du, (__int64)&Object, 0LL, 0LL);
+      v12 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)v7, 0x6D566D4Du, (__int64)&Object, 0LL, 0LL);
       if ( v12 < 0 )
         goto LABEL_18;
       KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)v26);
     }
-    v12 = MiInitializeEnclave((_DWORD)Process, v25, (_DWORD)v9, v5, (__int64)&v19);
+    v12 = MiInitializeEnclave((_DWORD)Process, (_DWORD)v25, (_DWORD)v9, v5, (__int64)&v19);
     v8 = v19;
     goto LABEL_18;
   }
   v12 = -1073741820;
 LABEL_18:
   v17 = Object;
-  if ( Object && v20 != -1LL )
+  if ( Object && v20 != (HANDLE)-1LL )
   {
     KiUnstackDetachProcess((__int64)v26, 0);
     ObfDereferenceObjectWithTag(v17, 0x6D566D4Du);
   }
-  if ( a5 )
+  if ( EnclaveError )
   {
     if ( PreviousMode )
-      RtlWriteULongToUser(a5, v8);
+      RtlWriteULongToUser(EnclaveError, v8);
     else
-      *a5 = v8;
+      *EnclaveError = v8;
   }
   if ( v9 )
     ExFreePoolWithTag(v9, 0);
-  return (unsigned int)v12;
+  return v12;
 }

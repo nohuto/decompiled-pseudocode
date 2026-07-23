@@ -280,7 +280,9 @@ LABEL_42:
         v38 = v61;
         goto LABEL_43;
       }
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v38 = v61;
         if ( (unsigned __int8)v61 <= 0xFu && CurrentIrql >= 2u )
@@ -346,10 +348,10 @@ LABEL_51:
     for ( i = v30 + v5 * (48LL * v32 - 48); i != v41; i -= v40 )
       _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL);
     _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v56 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v56 <= 0xFu && v38 <= 0xFu && v56 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu && v38 <= 0xFu && v56 >= 2u )
       {
         v57 = KeGetCurrentPrcb();
         v58 = v57->SchedulerAssist;

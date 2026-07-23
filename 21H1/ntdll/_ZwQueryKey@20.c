@@ -7,7 +7,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwQueryKey(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl ZwQueryKey(
+        HANDLE KeyHandle,
+        KEY_INFORMATION_CLASS KeyInformationClass,
+        PVOID KeyInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
   return Wow64SystemServiceCall();
 }

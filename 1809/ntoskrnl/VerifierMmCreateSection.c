@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmCreateSection @ 0x140944690
+ * XREFs of VerifierMmCreateSection @ 0x140945690
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfCheckPageProtection @ 0x140927548 (VfCheckPageProtection.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfCheckPageProtection @ 0x140928548 (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VerifierMmCreateSection(

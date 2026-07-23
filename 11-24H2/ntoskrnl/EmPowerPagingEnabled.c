@@ -1,44 +1,44 @@
 /*
- * XREFs of EmPowerPagingEnabled @ 0x140AB6218
+ * XREFs of EmPowerPagingEnabled @ 0x140AB04E0
  * Callers:
- *     PoBroadcastSystemState @ 0x140B64C6C (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140B66DA4 (PoBroadcastSystemState.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
  */
 
 __int64 __fastcall EmPowerPagingEnabled(char a1)
 {
   char v2; // di
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rbx
+  char *v5; // rbx
   __int64 result; // rax
-  _QWORD *v7; // rax
-  _QWORD *v8; // rdi
+  char *v7; // rax
+  char *v8; // rdi
   struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
 
   memset(&Event, 0, sizeof(Event));
   v2 = 0;
-  v3 = KeAbPreAcquire((__int64)&EmpPagingLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&EmpPagingLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&EmpPagingLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&EmpPagingLock, (__int64)v3, (__int64)&EmpPagingLock);
+    ExfAcquirePushLockExclusiveEx(&EmpPagingLock, v3, (__int64)&EmpPagingLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   if ( a1 )
   {
-    dword_140F8E458 |= 0x80000000;
+    dword_140F8E628 |= 0x80000000;
   }
   else
   {
-    dword_140F8E458 &= ~0x80000000;
-    if ( dword_140F8E458 )
+    dword_140F8E628 &= ~0x80000000;
+    if ( dword_140F8E628 )
     {
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
       v2 = 1;
@@ -51,13 +51,13 @@ __int64 __fastcall EmPowerPagingEnabled(char a1)
   if ( v2 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    v7 = KeAbPreAcquire((__int64)&EmpPagingLock, 0LL);
+    v7 = (char *)KeAbPreAcquire((__int64)&EmpPagingLock, 0LL);
     v4 = _interlockedbittestandset64((volatile signed __int32 *)&EmpPagingLock, 0LL);
     v8 = v7;
     if ( v4 )
-      ExfAcquirePushLockExclusiveEx(&EmpPagingLock, (__int64)v7, (__int64)&EmpPagingLock);
+      ExfAcquirePushLockExclusiveEx(&EmpPagingLock, v7, (__int64)&EmpPagingLock);
     if ( v8 )
-      *((_BYTE *)v8 + 10) = 1;
+      v8[10] = 1;
     EmpPagingStatus = 0LL;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpPagingLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&EmpPagingLock);

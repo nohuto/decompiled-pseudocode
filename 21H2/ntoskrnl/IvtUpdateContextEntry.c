@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtUpdateContextEntry @ 0x1404E0BBC
+ * XREFs of IvtUpdateContextEntry @ 0x1404E0DFC
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x1404DF5C8 (IvtAttachDeviceDomainInternal.c)
- *     IvtProcessDeviceExceptions @ 0x1409AA188 (IvtProcessDeviceExceptions.c)
- *     HalpIvtpInitializeReservedDomain @ 0x1409AACA8 (HalpIvtpInitializeReservedDomain.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF808 (IvtAttachDeviceDomainInternal.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AB0B8 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x1409ABBD8 (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     IvtGetBlockedDomain @ 0x1404DFF1C (IvtGetBlockedDomain.c)
- *     IvtGetContextEntryType @ 0x1404DFF70 (IvtGetContextEntryType.c)
- *     IvtInvalidateContextEntry @ 0x1404E06A0 (IvtInvalidateContextEntry.c)
+ *     IvtGetBlockedDomain @ 0x1404E015C (IvtGetBlockedDomain.c)
+ *     IvtGetContextEntryType @ 0x1404E01B0 (IvtGetContextEntryType.c)
+ *     IvtInvalidateContextEntry @ 0x1404E08E0 (IvtInvalidateContextEntry.c)
  */
 
 __int64 *__fastcall IvtUpdateContextEntry(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4, int a5, __int64 *a6)

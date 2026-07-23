@@ -174,7 +174,7 @@ LABEL_77:
           if ( (_DWORD *)v20[7] == v19 + 2 )
             v20[7] = v40 != v23 ? v23 : 0;
           --v20[3];
-          RtlFreeHeap(LdrpHeap, 0, (int)v19);
+          RtlFreeHeap(LdrpHeap, 0, v19);
         }
         else
         {
@@ -206,7 +206,7 @@ LABEL_33:
       if ( (_DWORD *)v3[7] == j )
         v3[7] = j != v27 ? v27 : 0;
       --v3[3];
-      RtlFreeHeap(LdrpHeap, 0, (int)(j - 2));
+      RtlFreeHeap(LdrpHeap, 0, j - 2);
       v26 = v38;
     }
     else
@@ -269,7 +269,7 @@ LABEL_33:
           v34[6] = v33 != v36 ? v36 : 0;
 LABEL_59:
         --v3[3];
-        result = (_DWORD *)RtlFreeHeap(LdrpHeap, 0, (int)v33);
+        result = (_DWORD *)RtlFreeHeap(LdrpHeap, 0, v33);
       }
       else
       {

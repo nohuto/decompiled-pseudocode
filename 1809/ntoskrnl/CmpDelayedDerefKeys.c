@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDelayedDerefKeys @ 0x1405DC0C4
+ * XREFs of CmpDelayedDerefKeys @ 0x1405DD0C4
  * Callers:
- *     CmpReportNotifyHelper @ 0x1405DBEE0 (CmpReportNotifyHelper.c)
- *     CmpPostNotify @ 0x1405DC29C (CmpPostNotify.c)
- *     CmpCloseKeyObject @ 0x140694D80 (CmpCloseKeyObject.c)
+ *     CmpReportNotifyHelper @ 0x1405DCEE0 (CmpReportNotifyHelper.c)
+ *     CmpPostNotify @ 0x1405DD29C (CmpPostNotify.c)
+ *     CmpCloseKeyObject @ 0x140695F40 (CmpCloseKeyObject.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpDelayedDerefKeys(void **a1)

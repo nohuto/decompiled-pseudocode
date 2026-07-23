@@ -1,27 +1,27 @@
 /*
- * XREFs of PfTStart @ 0x140746B0C
+ * XREFs of PfTStart @ 0x140744DFC
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PfpPartitionToParent @ 0x1404BCA40 (PfpPartitionToParent.c)
- *     PfpTraceLogPfPartitionId @ 0x1405CCB4C (PfpTraceLogPfPartitionId.c)
- *     PfFbBufferListAllocate @ 0x1405CCB6C (PfFbBufferListAllocate.c)
- *     PfFbBufferListUpdateMax @ 0x1405CCC64 (PfFbBufferListUpdateMax.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PfTAllocateBuffers @ 0x14074646C (PfTAllocateBuffers.c)
- *     PfTCleanup @ 0x140746568 (PfTCleanup.c)
- *     PfTInitialize @ 0x1407468B4 (PfTInitialize.c)
- *     PfpCreateEventInternal @ 0x1407487E0 (PfpCreateEventInternal.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsEnumProcesses @ 0x1408EE0F4 (PsEnumProcesses.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
- *     PfTAccessTracingStart @ 0x140B5B5B0 (PfTAccessTracingStart.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PfpPartitionToParent @ 0x1404B7BB0 (PfpPartitionToParent.c)
+ *     PfpTraceLogPfPartitionId @ 0x1405CA2BC (PfpTraceLogPfPartitionId.c)
+ *     PfFbBufferListAllocate @ 0x1405CA2DC (PfFbBufferListAllocate.c)
+ *     PfFbBufferListUpdateMax @ 0x1405CA3D4 (PfFbBufferListUpdateMax.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PfTAllocateBuffers @ 0x14074475C (PfTAllocateBuffers.c)
+ *     PfTCleanup @ 0x140744858 (PfTCleanup.c)
+ *     PfTInitialize @ 0x140744BA4 (PfTInitialize.c)
+ *     PfpCreateEventInternal @ 0x140746AD0 (PfpCreateEventInternal.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     PsEnumProcesses @ 0x14085F924 (PsEnumProcesses.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
+ *     PfTAccessTracingStart @ 0x140B5D620 (PfTAccessTracingStart.c)
  */
 
 __int64 __fastcall PfTStart(__int64 a1, int a2, KPROCESSOR_MODE a3, HANDLE *a4)
@@ -52,19 +52,19 @@ __int64 __fastcall PfTStart(__int64 a1, int a2, KPROCESSOR_MODE a3, HANDLE *a4)
     v17 = PfpTraceLogPfPartitionId((__int64 *)a1);
     v23 = 4LL;
     v22 = &v17;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)byte_140047FED, 0LL, 0LL, 3u, v21);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)qword_140048428, 0LL, 0LL, 3u, v21);
   }
   v18 = 0LL;
-  if ( (a2 & 1) != 0 && (xmmword_140E66CA4 & 1) == 0 )
+  if ( (a2 & 1) != 0 && (xmmword_140E66DF4 & 1) == 0 )
     a2 &= ~1u;
-  if ( (a2 & 2) != 0 && (xmmword_140E66CA4 & 1) == 0 && dword_140E66CC0 != 1 && dword_140E66CC4 != 1 )
+  if ( (a2 & 2) != 0 && (xmmword_140E66DF4 & 1) == 0 && dword_140E66E10 != 1 && dword_140E66E14 != 1 )
     a2 &= ~2u;
   if ( (a2 & 1) != 0 )
   {
-    EventInternal = PfTAllocateBuffers(a1 + 88, 0x8000u, 8u);
+    EventInternal = PfTAllocateBuffers(a1 + 88, 0x8000u, 8u, 0x424C6650u);
     if ( EventInternal < 0 )
       goto LABEL_22;
-    EventInternal = PfTAllocateBuffers(a1 + 128, 0x14028u, 2u);
+    EventInternal = PfTAllocateBuffers(a1 + 128, 0x14028u, 2u, 0x54456650u);
     if ( EventInternal < 0 )
       goto LABEL_22;
     v9 = PfpPartitionToParent(a1);
@@ -120,12 +120,12 @@ LABEL_22:
   ExAcquireFastMutex((PKGUARDED_MUTEX)(a1 + 624));
   if ( (a2 & 1) != 0 )
   {
-    *(_DWORD *)(a1 + 604) = HIDWORD(xmmword_140E66CA4);
-    if ( *(_DWORD *)(a1 + 600) < HIDWORD(xmmword_140E66CA4) )
+    *(_DWORD *)(a1 + 604) = HIDWORD(xmmword_140E66DF4);
+    if ( *(_DWORD *)(a1 + 600) < HIDWORD(xmmword_140E66DF4) )
       PfTAccessTracingStart(a1, 2LL);
   }
   if ( (a2 & 2) != 0 )
-    *(_DWORD *)(a1 + 612) = DWORD2(xmmword_140E66CA4);
+    *(_DWORD *)(a1 + 612) = DWORD2(xmmword_140E66DF4);
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 624));
   *(_DWORD *)(a1 + 72) |= a2;
   if ( (a2 & 1) != 0 )
@@ -148,7 +148,7 @@ LABEL_36:
     v26 = &v18;
     LODWORD(Object) = a2;
     LODWORD(v18) = EventInternal;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&word_14004809E, 0LL, 0LL, 5u, v21);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&word_14004849E, 0LL, 0LL, 5u, v21);
   }
   return (unsigned int)EventInternal;
 }

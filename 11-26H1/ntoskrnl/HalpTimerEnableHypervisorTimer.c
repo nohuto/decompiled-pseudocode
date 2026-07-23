@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerEnableHypervisorTimer @ 0x14050827C
+ * XREFs of HalpTimerEnableHypervisorTimer @ 0x140501D24
  * Callers:
- *     HalpTimerInitializeHypervisorTimer @ 0x140584840 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x140586D60 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x14042638C (HalpInterruptGsiToLine.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetLineState @ 0x1404294DC (HalpInterruptSetLineState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x14043349C (HalpInterruptGsiToLine.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptSetLineState @ 0x140435168 (HalpInterruptSetLineState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpTimerEnableHypervisorTimer(__int64 a1, __int64 a2)
@@ -69,7 +69,7 @@ void __fastcall HalpTimerEnableHypervisorTimer(__int64 a1, __int64 a2)
       v16 = &v17;
       v12[0] = -1;
       v12[1] = 1;
-      v9 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+      v9 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
       v10 = HalpInterruptSetLineState(
               &v11,
               0xD4u,
@@ -78,7 +78,7 @@ void __fastcall HalpTimerEnableHypervisorTimer(__int64 a1, __int64 a2)
               *(_DWORD *)(v2 + 92),
               (__int64)&v13,
               (__int64)v12);
-      HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v9);
+      HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v9);
       v4 = v10 < 0;
     }
     if ( !v4 )

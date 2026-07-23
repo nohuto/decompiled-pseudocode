@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetTimerResolution @ 0x14015D020
+ * XREFs of ZwSetTimerResolution @ 0x14015D590
  * Callers:
- *     ExCleanTimerResolutionRequest @ 0x1400A4C58 (ExCleanTimerResolutionRequest.c)
+ *     ExCleanTimerResolutionRequest @ 0x1400A31D0 (ExCleanTimerResolutionRequest.c)
  * Callees:
  *     <none>
  */
@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwSetTimerResolution(ULONG RequestedResolution, BOOLEAN SetOr
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&RequestedResolution, SetOrUnset, ActualResolution);
+  return KiServiceInternal(*(_QWORD *)&RequestedResolution);
 }

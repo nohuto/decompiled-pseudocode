@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpScanForProfilingCorruption @ 0x1404682D4
+ * XREFs of HalpScanForProfilingCorruption @ 0x140461914
  * Callers:
- *     HalpTimerClockInterrupt @ 0x140220450 (HalpTimerClockInterrupt.c)
- *     HalpTimerClockIpiRoutine @ 0x1404681D0 (HalpTimerClockIpiRoutine.c)
+ *     HalpTimerClockInterrupt @ 0x140221DE0 (HalpTimerClockInterrupt.c)
+ *     HalpTimerClockIpiRoutine @ 0x140461810 (HalpTimerClockIpiRoutine.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     HalpScanForProfilingCorruptionInternal @ 0x140468338 (HalpScanForProfilingCorruptionInternal.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     HalpScanForProfilingCorruptionInternal @ 0x140461978 (HalpScanForProfilingCorruptionInternal.c)
  */
 
 __int64 __fastcall HalpScanForProfilingCorruption(unsigned int a1)

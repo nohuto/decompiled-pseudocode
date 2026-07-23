@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventLPICoreParking @ 0x14020C140
+ * XREFs of PpmEventLPICoreParking @ 0x14020BF6C
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1400D4BCC (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1400D2A6C (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventLPICoreParking(__int64 a1, int a2)

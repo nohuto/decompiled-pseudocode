@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x140AB012C
+ * XREFs of _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x140AADD7C
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x14041AA40 (RtlUnalignedStringCchLengthW.c)
- *     RtlTimeToTimeFields @ 0x140451D20 (RtlTimeToTimeFields.c)
- *     RtlStringCchPrintfW @ 0x1404B0AA4 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140412290 (RtlUnalignedStringCchLengthW.c)
+ *     RtlTimeToTimeFields @ 0x140449E50 (RtlTimeToTimeFields.c)
+ *     RtlStringCchPrintfW @ 0x1404AA134 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
@@ -35,18 +35,18 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
   __int64 v22; // [rsp+28h] [rbp-58h]
   HANDLE Handle; // [rsp+40h] [rbp-40h] BYREF
   size_t pcchLength; // [rsp+48h] [rbp-38h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+50h] [rbp-30h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+50h] [rbp-30h] BYREF
   wchar_t pszDest[12]; // [rsp+60h] [rbp-20h] BYREF
 
   v6 = *(_DWORD *)(a3 + 16);
   Handle = 0LL;
   TimeFields = 0LL;
-  v8 = &off_140BDC330;
+  v8 = &off_140BE31E0;
   pcchLength = 0LL;
   for ( i = 0; i < 0xD; ++i )
   {
     v12 = *v8;
-    v13 = &off_140BDC330 + 4 * i;
+    v13 = &off_140BE31E0 + 4 * i;
     if ( v6 == (*v8)->pid )
     {
       v18 = *(_QWORD *)a3 - *(_QWORD *)&v12->fmtid.Data1;
@@ -55,8 +55,8 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
       if ( !v18 )
         break;
     }
-    v8 += 4;
     v13 = 0LL;
+    v8 += 4;
   }
   if ( !v13 )
     return (unsigned int)-1073741802;

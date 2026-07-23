@@ -15,38 +15,38 @@
 
 __int64 __fastcall SmStoreDecompressBuffer(
         __int64 a1,
-        __int64 a2,
+        UCHAR *a2,
         __int64 a3,
         __int64 a4,
-        unsigned int a5,
-        __int64 a6,
+        ULONG a5,
+        PVOID a6,
         _QWORD *a7)
 {
   __int64 v7; // r10
-  __int64 v8; // r15
-  unsigned int v9; // r14d
+  UCHAR *v8; // r15
+  ULONG v9; // r14d
   unsigned int v10; // ebx
   __int64 v11; // r13
   int v12; // edi
   unsigned int v14; // edi
   __int64 v15; // r8
-  unsigned int v16; // r12d
-  __int64 v17; // r8
+  ULONG v16; // r12d
+  PVOID WorkSpace; // r8
   unsigned __int64 v18; // rax
   unsigned __int64 v19; // rcx
   int v20; // edx
-  int v21; // ecx
-  __int64 v22; // r9
-  unsigned int v23; // r13d
+  NTSTATUS v21; // ecx
+  UCHAR *v22; // r9
+  ULONG v23; // r13d
   unsigned int v24; // r14d
-  unsigned int v25; // eax
+  ULONG CompressedBufferSize; // eax
   int v26; // r8d
   int v27; // r13d
   int v28; // r8d
-  unsigned int v29; // [rsp+40h] [rbp-B8h] BYREF
-  unsigned int v30; // [rsp+44h] [rbp-B4h]
+  ULONG v29; // [rsp+40h] [rbp-B8h] BYREF
+  ULONG v30; // [rsp+44h] [rbp-B4h]
   int v31; // [rsp+48h] [rbp-B0h]
-  unsigned int v32; // [rsp+4Ch] [rbp-ACh]
+  ULONG v32; // [rsp+4Ch] [rbp-ACh]
   int v33; // [rsp+50h] [rbp-A8h]
   __int128 v34; // [rsp+58h] [rbp-A0h]
   __int128 v35; // [rsp+68h] [rbp-90h]
@@ -54,12 +54,12 @@ __int64 __fastcall SmStoreDecompressBuffer(
   unsigned int v37; // [rsp+88h] [rbp-70h]
   int v38; // [rsp+8Ch] [rbp-6Ch]
   __int64 v39; // [rsp+90h] [rbp-68h]
-  __int64 v40; // [rsp+98h] [rbp-60h]
-  __int64 v41; // [rsp+A0h] [rbp-58h]
+  UCHAR *v40; // [rsp+98h] [rbp-60h]
+  PVOID v41; // [rsp+A0h] [rbp-58h]
   unsigned __int64 v42; // [rsp+A8h] [rbp-50h]
   __int64 v43; // [rsp+B0h] [rbp-48h]
   unsigned __int64 v44; // [rsp+B8h] [rbp-40h]
-  int v45; // [rsp+100h] [rbp+8h] BYREF
+  ULONG FinalUncompressedSize; // [rsp+100h] [rbp+8h] BYREF
   int v46; // [rsp+110h] [rbp+18h] BYREF
   __int64 v47; // [rsp+118h] [rbp+20h]
 
@@ -78,7 +78,7 @@ __int64 __fastcall SmStoreDecompressBuffer(
   DWORD2(v36) = *(_DWORD *)(a1 + 4832);
   if ( !DWORD2(v36) )
   {
-    v12 = RtlDecompressBufferLz4(a2, 4096, a4, a5, 0, (__int64)&v46);
+    v12 = RtlDecompressBufferLz4((_DWORD)a2, 4096, a4, a5, 0, (__int64)&v46);
     if ( v12 >= 0 && v46 != 4096 )
       v12 = -1073741566;
     goto LABEL_5;
@@ -104,7 +104,7 @@ __int64 __fastcall SmStoreDecompressBuffer(
     v16 = 2048;
   LODWORD(v36) = v16;
   *(_QWORD *)&v35 = v8;
-  v17 = a6;
+  WorkSpace = a6;
   v41 = a6;
   *((_QWORD *)&v35 + 1) = a6;
   if ( *((_QWORD *)&v34 + 1) )
@@ -119,9 +119,9 @@ __int64 __fastcall SmStoreDecompressBuffer(
       v42 += 4096LL;
       v19 = v44;
       v16 = v36;
-      v17 = *((_QWORD *)&v35 + 1);
-      v41 = *((_QWORD *)&v35 + 1);
-      v8 = v35;
+      WorkSpace = (PVOID)*((_QWORD *)&v35 + 1);
+      v41 = (PVOID)*((_QWORD *)&v35 + 1);
+      v8 = (UCHAR *)v35;
       v39 = v34;
     }
   }
@@ -129,8 +129,8 @@ __int64 __fastcall SmStoreDecompressBuffer(
   v21 = HIDWORD(v36);
   if ( DWORD2(v36) == 2 )
   {
-    v22 = v7 + 2;
-    v40 = v7 + 2;
+    v22 = (UCHAR *)(v7 + 2);
+    v40 = (UCHAR *)(v7 + 2);
     v23 = v9 - 2;
     v30 = v9 - 2;
     v31 = 0;
@@ -141,32 +141,32 @@ __int64 __fastcall SmStoreDecompressBuffer(
       if ( v24 >= 2 )
         goto LABEL_53;
       if ( v24 == 1 )
-        v25 = v23;
+        CompressedBufferSize = v23;
       else
-        v25 = *(unsigned __int16 *)(v7 + 2LL * v24);
-      v29 = v25;
-      if ( !v23 || v25 > v23 )
+        CompressedBufferSize = *(unsigned __int16 *)(v7 + 2LL * v24);
+      v29 = CompressedBufferSize;
+      if ( !v23 || CompressedBufferSize > v23 )
       {
         v20 = -1073741566;
         v31 = -1073741566;
         goto LABEL_53;
       }
-      v45 = 0;
+      FinalUncompressedSize = 0;
       if ( *((_QWORD *)&v34 + 1) )
         break;
       v21 = RtlDecompressBufferEx(
-              *((unsigned __int16 *)qword_140011220 + SDWORD2(v36)),
+              *((_WORD *)qword_140011220 + SDWORD2(v36)),
               v8,
               v16,
               v22,
-              v25,
-              (__int64)&v45,
-              v17);
+              CompressedBufferSize,
+              &FinalUncompressedSize,
+              WorkSpace);
       v26 = v21;
       HIDWORD(v36) = v21;
       if ( v21 >= 0 )
       {
-        if ( v45 == v16 )
+        if ( FinalUncompressedSize == v16 )
           goto LABEL_33;
         v21 = -1073741566;
         HIDWORD(v36) = -1073741566;
@@ -177,15 +177,15 @@ LABEL_34:
       v31 = v21;
       if ( v26 < 0 )
         goto LABEL_53;
-      v22 = v29 + v40;
+      v22 = &v40[v29];
       v40 = v22;
       v23 -= v29;
       v30 = v23;
       v37 = ++v24;
       v7 = v47;
-      v17 = v41;
+      WorkSpace = v41;
     }
-    v21 = SmHwAcceleratorIssueRequest(DWORD2(v34), v24, 1, v8, v16, v22, v25);
+    v21 = SmHwAcceleratorIssueRequest(DWORD2(v34), v24, 1, (_DWORD)v8, v16, (__int64)v22, CompressedBufferSize);
     HIDWORD(v36) = v21;
     v26 = v21;
     if ( v21 < 0 )
@@ -212,7 +212,7 @@ LABEL_33:
     v29 = 0;
     if ( *((_QWORD *)&v34 + 1) )
     {
-      v21 = SmHwAcceleratorIssueRequest(DWORD2(v34), 0, 1, v8, v16, v7, v9);
+      v21 = SmHwAcceleratorIssueRequest(DWORD2(v34), 0, 1, (_DWORD)v8, v16, v7, v9);
       HIDWORD(v36) = v21;
       v28 = v21;
       if ( v21 < 0 )
@@ -223,14 +223,7 @@ LABEL_46:
       *(_QWORD *)&v35 = v8;
       goto LABEL_47;
     }
-    v21 = RtlDecompressBufferEx(
-            *((unsigned __int16 *)qword_140011220 + SDWORD2(v36)),
-            v8,
-            v16,
-            v7,
-            v9,
-            (__int64)&v29,
-            v17);
+    v21 = RtlDecompressBufferEx(*((_WORD *)qword_140011220 + SDWORD2(v36)), v8, v16, (PUCHAR)v7, v9, &v29, WorkSpace);
     v28 = v21;
     HIDWORD(v36) = v21;
     if ( v21 >= 0 )
@@ -253,7 +246,7 @@ LABEL_47:
     v32 = 0;
     v27 = 1;
     v38 = 1;
-    v17 = v41;
+    WorkSpace = v41;
   }
 LABEL_53:
   v12 = v20;
@@ -274,7 +267,7 @@ LABEL_5:
     if ( DWORD1(v36) )
     {
       do
-        SmHwAcceleratorWaitForRequest(DWORD2(v34), v10++, 0, (unsigned int)&v29, (__int64)&v45);
+        SmHwAcceleratorWaitForRequest(DWORD2(v34), v10++, 0, (unsigned int)&v29, (__int64)&FinalUncompressedSize);
       while ( v10 < DWORD1(v36) );
     }
     SmHwAcceleratorPartitionMgrFreeDescriptor(v11, *((_QWORD *)&v34 + 1));

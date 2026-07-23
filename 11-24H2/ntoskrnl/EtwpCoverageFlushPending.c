@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCoverageFlushPending @ 0x140A9F020
+ * XREFs of EtwpCoverageFlushPending @ 0x140A9A3F0
  * Callers:
- *     EtwpCoverageFlushWorkItemCallback @ 0x1407AAC60 (EtwpCoverageFlushWorkItemCallback.c)
- *     EtwpCoverageReset @ 0x1407AAE1C (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1407AB024 (EtwpCoverageResetCP.c)
- *     EtwpFlushCoverage @ 0x1407AB348 (EtwpFlushCoverage.c)
- *     EtwpCoverageRecord @ 0x140904574 (EtwpCoverageRecord.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x1407AB130 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpCoverageReset @ 0x1407AB2EC (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1407AB4F4 (EtwpCoverageResetCP.c)
+ *     EtwpFlushCoverage @ 0x1407AB818 (EtwpFlushCoverage.c)
+ *     EtwpCoverageRecord @ 0x1408DC9D4 (EtwpCoverageRecord.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int *__fastcall EtwpCoverageFlushPending(int **a1, __int64 a2, __int64 a3, __int64 a4)
@@ -58,7 +58,7 @@ int *__fastcall EtwpCoverageFlushPending(int **a1, __int64 a2, __int64 a3, __int
     v6 = a1[5];
     v7 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
     v16 = *((_WORD *)a1 + 32);
-    if ( (unsigned int)dword_140E091A8 > 5 && tlgKeywordOn((__int64)&dword_140E091A8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E09218 > 5 && tlgKeywordOn((__int64)&dword_140E09218, 0x400000000000LL) )
     {
       v8 = *a1;
       v9 = **a1;
@@ -90,8 +90,8 @@ int *__fastcall EtwpCoverageFlushPending(int **a1, __int64 a2, __int64 a3, __int
       v38 = v14;
       v35 = 2;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E091A8,
-        (unsigned __int8 *)&dword_140053104,
+        (__int64)&dword_140E09218,
+        (unsigned __int8 *)&word_140053BFE,
         0LL,
         0LL,
         8u,

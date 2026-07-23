@@ -30,7 +30,7 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
   __int64 v13; // [rsp+A0h] [rbp-88h] BYREF
   int v14; // [rsp+A8h] [rbp-80h]
   _BYTE v15[56]; // [rsp+B0h] [rbp-78h] BYREF
-  __int64 (__fastcall *v16)(__int64, _QWORD, __int64); // [rsp+148h] [rbp+20h]
+  _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+148h] [rbp+20h]
 
   v1 = a1;
   *(_DWORD *)(a1 + 56) = 8;
@@ -62,14 +62,14 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
     {
       v7 = LdrpCurrentDllInitializer;
       LdrpCurrentDllInitializer = i - 160;
-      v16 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v6 + 56);
+      HashTable = *(_RTL_DYNAMIC_HASH_TABLE **)(v6 + 56);
       if ( (LdrpDebugFlags & 5) != 0 )
         LdrpLogDbgPrint(
           (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
           796,
           (unsigned int)"LdrpInitializeNode",
           2,
-          "Calling init routine %p for DLL \"%wZ\"\n",
+          (__int64)"Calling init routine %p for DLL \"%wZ\"\n",
           *(_QWORD *)(v6 + 56),
           v6 + 72);
       v8 = 1;
@@ -79,12 +79,12 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
       RtlActivateActivationContextUnsafeFast((__int64)&v13, *(_QWORD *)(v6 + 136));
       if ( *(_WORD *)(v6 + 110) )
         LdrpCallTlsInitializers(1LL, i - 160);
-      if ( v16 )
+      if ( HashTable )
       {
         v9 = 0LL;
         if ( (*(_BYTE *)(v6 + 104) & 0x20) != 0 )
           v9 = LdrpProcessInitContextRecord;
-        v8 = LdrpCallInitRoutine(v16, *(_QWORD *)(v6 + 48), 1u, v9);
+        v8 = LdrpCallInitRoutine(HashTable, *(_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR **)(v6 + 48), 1u, v9);
       }
       RtlDeactivateActivationContextUnsafeFast((__int64)&v13);
       v10 = LdrpDebugFlags;
@@ -99,8 +99,8 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
             848,
             (unsigned int)"LdrpInitializeNode",
             0,
-            "Init routine %p for DLL \"%wZ\" failed during DLL_PROCESS_ATTACH\n",
-            v16,
+            (__int64)"Init routine %p for DLL \"%wZ\" failed during DLL_PROCESS_ATTACH\n",
+            HashTable,
             v6 + 72);
           v10 = LdrpDebugFlags;
         }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpWaitOnAddressRemoveWaitBlock @ 0x18007B880
+ * XREFs of RtlpWaitOnAddressRemoveWaitBlock @ 0x18006A0A0
  * Callers:
- *     RtlpWaitOnCriticalSection @ 0x18007A720 (RtlpWaitOnCriticalSection.c)
- *     RtlWaitOnAddress @ 0x18007B2E0 (RtlWaitOnAddress.c)
- *     RtlpWaitOnAddress @ 0x18007B580 (RtlpWaitOnAddress.c)
- *     RtlpWaitOnAddressWithTimeout @ 0x18007BDC0 (RtlpWaitOnAddressWithTimeout.c)
+ *     RtlpWaitOnCriticalSection @ 0x180068F40 (RtlpWaitOnCriticalSection.c)
+ *     RtlWaitOnAddress @ 0x180069B00 (RtlWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x180069DA0 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddressWithTimeout @ 0x18006A5E0 (RtlpWaitOnAddressWithTimeout.c)
  * Callees:
- *     RtlpWaitOnAddressWakeEntireList @ 0x18007BA14 (RtlpWaitOnAddressWakeEntireList.c)
- *     RtlpWaitOnAddressWithTimeout @ 0x18007BDC0 (RtlpWaitOnAddressWithTimeout.c)
- *     NtWaitForAlertByThreadId @ 0x180162BB0 (NtWaitForAlertByThreadId.c)
+ *     RtlpWaitOnAddressWakeEntireList @ 0x18006A234 (RtlpWaitOnAddressWakeEntireList.c)
+ *     RtlpWaitOnAddressWithTimeout @ 0x18006A5E0 (RtlpWaitOnAddressWithTimeout.c)
+ *     NtWaitForAlertByThreadId @ 0x180162AB0 (NtWaitForAlertByThreadId.c)
  */
 
 __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, __int64 a2)
 LABEL_11:
         result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a2 + 40), 1);
         if ( (_DWORD)result != 2 )
-          return RtlpWaitOnAddressWithTimeout(a1, a2, 0, RtlpWaitOnAddressSpinCycleCount, 0LL);
+          return RtlpWaitOnAddressWithTimeout(a1, a2, 0LL, (unsigned int)RtlpWaitOnAddressSpinCycleCount, 0LL);
         return result;
       }
       if ( (v4 & 2) == 0 )
@@ -102,7 +102,7 @@ LABEL_6:
     }
   }
   if ( !v8 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
-    NtWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+    NtWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
   *(_QWORD *)(v10 + 32) = v9;
   do
   {

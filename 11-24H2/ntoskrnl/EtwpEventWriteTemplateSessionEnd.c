@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateSessionEnd @ 0x140AB6B68
+ * XREFs of EtwpEventWriteTemplateSessionEnd @ 0x140AB0E40
  * Callers:
- *     EtwpLogger @ 0x1409D88E0 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1409D33F0 (EtwpLogger.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSessionEnd(
@@ -18,12 +18,12 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSessionEnd(
         char a8)
 {
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-49h] BYREF
-  __int64 *v10; // [rsp+40h] [rbp-39h]
+  int *v10; // [rsp+40h] [rbp-39h]
   __int64 v11; // [rsp+48h] [rbp-31h]
   __int64 v12; // [rsp+50h] [rbp-29h]
   int v13; // [rsp+58h] [rbp-21h]
   int v14; // [rsp+5Ch] [rbp-1Dh]
-  __int64 *v15; // [rsp+60h] [rbp-19h]
+  int *v15; // [rsp+60h] [rbp-19h]
   __int64 v16; // [rsp+68h] [rbp-11h]
   char *v17; // [rsp+70h] [rbp-9h]
   __int64 v18; // [rsp+78h] [rbp-1h]

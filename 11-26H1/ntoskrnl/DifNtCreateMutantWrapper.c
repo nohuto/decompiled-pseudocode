@@ -1,93 +1,81 @@
 /*
- * XREFs of DifNtCreateMutantWrapper @ 0x140671F20
+ * XREFs of DifNtCreateMutantWrapper @ 0x140675B00
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtCreateMutant @ 0x140A9B880 (NtCreateMutant.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtCreateMutant @ 0x140A9E470 (NtCreateMutant.c)
  */
 
-__int64 __fastcall DifNtCreateMutantWrapper(__int64 a1, unsigned int a2, __int64 a3, char a4)
+__int64 __fastcall DifNtCreateMutantWrapper(HANDLE *a1, ACCESS_MASK a2, OBJECT_ATTRIBUTES *a3, BOOLEAN a4)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v8; // rdx
-  __int64 v9; // r9
-  __int128 *v10; // rsi
-  int v11; // eax
-  BOOLEAN v12; // r14
+  __int128 *v9; // rsi
+  int v10; // eax
+  BOOLEAN v11; // r14
   __int128 *i; // rbx
-  __int64 v14; // rdx
-  BOOLEAN v15; // di
-  _QWORD **v16; // rsi
+  __int64 v13; // rdx
+  BOOLEAN v14; // di
+  _QWORD **v15; // rsi
   _QWORD *j; // rbx
-  __int128 v19; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v20; // [rsp+30h] [rbp-20h]
-  __int128 v21; // [rsp+40h] [rbp-10h]
+  __int128 v18; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v19; // [rsp+30h] [rbp-20h]
+  __int128 v20; // [rsp+40h] [rbp-10h]
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+28h]
 
+  v18 = 0LL;
   v19 = 0LL;
   v20 = 0LL;
-  v21 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(686);
-  v10 = APIThunkContextById;
+  v9 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v11 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v11 & 0x18) != 0 )
+    v10 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v10 & 0x18) != 0 )
     {
-      *(_QWORD *)&v19 = retaddr;
+      *(_QWORD *)&v18 = retaddr;
     }
-    else if ( (v11 & 4) != 0 )
+    else if ( (v10 & 4) != 0 )
     {
-      *(_QWORD *)&v19 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v18 = DifGetReturnAddressForWrappers();
     }
-    v12 = 0;
-    *(_QWORD *)&v21 = a1;
-    DWORD2(v20) = a2;
-    *(_QWORD *)&v20 = a3;
-    BYTE8(v19) = a4;
+    v11 = 0;
+    *(_QWORD *)&v20 = a1;
+    DWORD2(v19) = a2;
+    *(_QWORD *)&v19 = a3;
+    BYTE8(v18) = a4;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v12 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+      || (v11 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int128 *)*((_QWORD *)v10 + 4); i != v10 + 2; i = *(__int128 **)i )
+      for ( i = (__int128 *)*((_QWORD *)v9 + 4); i != v9 + 2; i = *(__int128 **)i )
       {
         if ( i != (__int128 *)16 )
-          guard_dispatch_icall_no_overrides(&v19, v8);
+          guard_dispatch_icall_no_overrides(&v18, v8);
       }
-      if ( v12 )
+      if ( v11 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v9) = a4;
-  DWORD2(v21) = NtCreateMutant(
-                  a1,
-                  a2,
-                  a3,
-                  v9,
-                  v19,
-                  *((_QWORD *)&v19 + 1),
-                  v20,
-                  *((_QWORD *)&v20 + 1),
-                  v21,
-                  *((_QWORD *)&v21 + 1));
-  if ( v10 )
+  DWORD2(v20) = NtCreateMutant(a1, a2, a3, a4);
+  if ( v9 )
   {
-    if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v15 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+    if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v14 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v16 = (_QWORD **)(v10 + 3);
-      for ( j = *v16; j != v16; j = (_QWORD *)*j )
+      v15 = (_QWORD **)(v9 + 3);
+      for ( j = *v15; j != v15; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v19, v14);
+          guard_dispatch_icall_no_overrides(&v18, v13);
       }
-      if ( v15 )
+      if ( v14 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return DWORD2(v21);
+  return DWORD2(v20);
 }

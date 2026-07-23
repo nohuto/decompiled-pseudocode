@@ -92,10 +92,13 @@ LABEL_23:
   *v16 = v14;
   qword_140C604F8 = (__int64)v14;
   KxReleaseSpinLock((volatile signed __int64 *)&EmonReservedResourcesLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v15 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiUnmapViewOfSection @ 0x14042E400
+ * XREFs of MiUnmapViewOfSection @ 0x14042D2D0
  * Callers:
- *     AlpcViewDestroyProcedure @ 0x14042B168 (AlpcViewDestroyProcedure.c)
- *     NtUnmapViewOfSectionEx @ 0x14042E300 (NtUnmapViewOfSectionEx.c)
- *     MiMapViewOfSection @ 0x140433010 (MiMapViewOfSection.c)
- *     NtMapCMFModule @ 0x1404D014C (NtMapCMFModule.c)
- *     MmUnmapViewOfSection @ 0x1404D8C8C (MmUnmapViewOfSection.c)
- *     MiUnmapImageInSystemSpace @ 0x140525DFC (MiUnmapImageInSystemSpace.c)
- *     PsShutdownSystem @ 0x14067F844 (PsShutdownSystem.c)
+ *     AlpcViewDestroyProcedure @ 0x14042A038 (AlpcViewDestroyProcedure.c)
+ *     NtUnmapViewOfSectionEx @ 0x14042D1D0 (NtUnmapViewOfSectionEx.c)
+ *     MiMapViewOfSection @ 0x140431EE0 (MiMapViewOfSection.c)
+ *     NtMapCMFModule @ 0x1404B3BEC (NtMapCMFModule.c)
+ *     MmUnmapViewOfSection @ 0x1404BC290 (MmUnmapViewOfSection.c)
+ *     MiUnmapImageInSystemSpace @ 0x140508E5C (MiUnmapImageInSystemSpace.c)
+ *     PsShutdownSystem @ 0x14067F928 (PsShutdownSystem.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiCheckSecuredVad @ 0x14040C3EC (MiCheckSecuredVad.c)
- *     PerfLogImageUnload @ 0x14042AC2C (PerfLogImageUnload.c)
- *     MiUnmapVad @ 0x14042EEF0 (MiUnmapVad.c)
- *     DbgkUnMapViewOfSection @ 0x1404D138C (DbgkUnMapViewOfSection.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiCheckSecuredVad @ 0x14040B2AC (MiCheckSecuredVad.c)
+ *     PerfLogImageUnload @ 0x140429AFC (PerfLogImageUnload.c)
+ *     MiUnmapVad @ 0x14042DDC0 (MiUnmapVad.c)
+ *     DbgkUnMapViewOfSection @ 0x1404B4E2C (DbgkUnMapViewOfSection.c)
  */
 
 __int64 __fastcall MiUnmapViewOfSection(_KPROCESS *a1, __int64 a2, unsigned int a3)
@@ -139,6 +139,6 @@ LABEL_11:
   if ( v6 == 1 )
     KiUnstackDetachProcess((struct _KTHREAD *)v26, 0);
   if ( v3 )
-    DbgkUnMapViewOfSection((ULONG_PTR)a1);
+    DbgkUnMapViewOfSection(a1);
   return (unsigned int)v17;
 }

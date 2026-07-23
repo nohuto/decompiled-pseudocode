@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpLoadMachineUIByPolicy @ 0x1800EBF50
+ * XREFs of RtlpLoadMachineUIByPolicy @ 0x1800EB120
  * Callers:
  *     <none>
  * Callees:
- *     RtlpMuiRegCreateLanguageList @ 0x18000AF40 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x18000CFC4 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegGrowLanguageList @ 0x1800DBADC (RtlpMuiRegGrowLanguageList.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenKey @ 0x18015F180 (NtOpenKey.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x180056670 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1800586F4 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegGrowLanguageList @ 0x1800D89BC (RtlpMuiRegGrowLanguageList.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenKey @ 0x18015F080 (NtOpenKey.c)
  */
 
 __int64 __fastcall RtlpLoadMachineUIByPolicy(HANDLE a1, __int64 a2, __int64 *a3)
@@ -18,17 +18,16 @@ __int64 __fastcall RtlpLoadMachineUIByPolicy(HANDLE a1, __int64 a2, __int64 *a3)
   int v6; // ebx
   __int64 v7; // r8
   __int64 LanguageList; // rax
-  HANDLE Handle; // [rsp+20h] [rbp-50h] BYREF
+  HANDLE KeyHandle; // [rsp+20h] [rbp-50h] BYREF
   __int128 v11; // [rsp+28h] [rbp-48h] BYREF
-  _QWORD v12[4]; // [rsp+38h] [rbp-38h] BYREF
-  __int128 v13; // [rsp+58h] [rbp-18h]
-  unsigned __int8 v14; // [rsp+A8h] [rbp+38h] BYREF
-  __int16 v15; // [rsp+B8h] [rbp+48h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-38h] BYREF
+  unsigned __int8 v13; // [rsp+A8h] [rbp+38h] BYREF
+  __int16 v14; // [rsp+B8h] [rbp+48h] BYREF
 
-  Handle = 0LL;
-  v14 = 0;
+  KeyHandle = 0LL;
+  v13 = 0;
   v4 = a2;
-  v15 = 0;
+  v14 = 0;
   v11 = 0LL;
   if ( a2 && a3 )
   {
@@ -36,22 +35,22 @@ __int64 __fastcall RtlpLoadMachineUIByPolicy(HANDLE a1, __int64 a2, __int64 *a3)
       goto LABEL_8;
     *((_QWORD *)&v11 + 1) = L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings";
     v5 = 2 * wcslen(L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-    v12[0] = 48LL;
-    v12[3] = 64LL;
-    v12[1] = 0LL;
+    *(_QWORD *)&ObjectAttributes.Length = 48LL;
+    *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+    ObjectAttributes.RootDirectory = 0LL;
     if ( v5 >= 0xFFFE )
       LOWORD(v5) = -4;
     LOWORD(v11) = v5;
     WORD1(v11) = v5 + 2;
-    v12[2] = &v11;
-    v13 = 0LL;
-    v6 = NtOpenKey(&Handle, 131097LL, v12);
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v11;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v6 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     if ( v6 >= 0 )
     {
-      a1 = Handle;
+      a1 = KeyHandle;
       a2 = v4;
 LABEL_8:
-      v6 = RtlpLoadPolicyLanguageSpec((__int64)a1, a2, &v14, &v15);
+      v6 = RtlpLoadPolicyLanguageSpec(a1, a2, &v13, &v14);
       if ( v6 )
         goto LABEL_15;
       v7 = *a3;
@@ -60,15 +59,15 @@ LABEL_8:
         if ( *(_WORD *)(v7 + 4) < *(_WORD *)(v7 + 6) )
         {
 LABEL_14:
-          *(_WORD *)(*(_QWORD *)(v7 + 24) + 6LL * *(unsigned __int16 *)(v7 + 4)) = v14;
-          *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = v15;
+          *(_WORD *)(*(_QWORD *)(v7 + 24) + 6LL * *(unsigned __int16 *)(v7 + 4)) = v13;
+          *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = v14;
           goto LABEL_15;
         }
         LanguageList = RtlpMuiRegGrowLanguageList(*a3);
       }
       else
       {
-        LanguageList = RtlpMuiRegCreateLanguageList(1, 1, v4);
+        LanguageList = (__int64)RtlpMuiRegCreateLanguageList(1, 1, v4);
       }
       *a3 = LanguageList;
       v7 = LanguageList;
@@ -85,7 +84,7 @@ LABEL_14:
     v6 = -1073741811;
   }
 LABEL_15:
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return (unsigned int)v6;
 }

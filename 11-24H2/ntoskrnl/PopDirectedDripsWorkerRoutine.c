@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsWorkerRoutine @ 0x14074CB80
+ * XREFs of PopDirectedDripsWorkerRoutine @ 0x14074AEB0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403CB4D8 (PopDeepSleepClearDisengageReason.c)
- *     PopDirectedDripsSuspendDevices @ 0x140A40034 (PopDirectedDripsSuspendDevices.c)
- *     PopDirectedDripsRefreshDisengageState @ 0x140A40570 (PopDirectedDripsRefreshDisengageState.c)
- *     PopDirectedDripsResumeDevices @ 0x140A406D0 (PopDirectedDripsResumeDevices.c)
- *     PopDirectedDripsHandleResiliencyNotification @ 0x140A407D8 (PopDirectedDripsHandleResiliencyNotification.c)
- *     PopDiagTraceDirectedDripsWorker @ 0x140A5ADE4 (PopDiagTraceDirectedDripsWorker.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402B9FF0 (PopDeepSleepClearDisengageReason.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140A35914 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsRefreshDisengageState @ 0x140A35E50 (PopDirectedDripsRefreshDisengageState.c)
+ *     PopDirectedDripsResumeDevices @ 0x140A35FB0 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140A360B8 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDiagTraceDirectedDripsWorker @ 0x140A526A4 (PopDiagTraceDirectedDripsWorker.c)
  */
 
 void __fastcall __noreturn PopDirectedDripsWorkerRoutine(volatile __int64 *StartContext)

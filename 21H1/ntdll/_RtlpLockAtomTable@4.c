@@ -12,9 +12,9 @@
  *     _RtlAcquireSRWLockExclusive@4 @ 0x4B2C22E0 (_RtlAcquireSRWLockExclusive@4.c)
  */
 
-char __thiscall RtlpLockAtomTable(volatile signed __int32 *this)
+char __thiscall RtlpLockAtomTable(_RTL_SRWLOCK *this)
 {
-  if ( !this || *this != 1836020801 )
+  if ( !this || this->Value != 1836020801 )
     return 0;
   RtlAcquireSRWLockExclusive(this + 2);
   return 1;

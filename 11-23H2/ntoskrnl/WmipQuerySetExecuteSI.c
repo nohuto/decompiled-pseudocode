@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipQuerySetExecuteSI @ 0x1406C6D3C
+ * XREFs of WmipQuerySetExecuteSI @ 0x1406C6D6C
  * Callers:
- *     IoWMIQuerySingleInstance @ 0x1406C76B0 (IoWMIQuerySingleInstance.c)
- *     WmipIoControl @ 0x1407D6170 (WmipIoControl.c)
- *     IoWMIExecuteMethod @ 0x1409DEC30 (IoWMIExecuteMethod.c)
- *     IoWMISetSingleInstance @ 0x1409DEFA0 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x1409DF0D0 (IoWMISetSingleItem.c)
- *     WmipQuerySingleMultiple @ 0x1409E0F34 (WmipQuerySingleMultiple.c)
+ *     IoWMIQuerySingleInstance @ 0x1406C76E0 (IoWMIQuerySingleInstance.c)
+ *     WmipIoControl @ 0x1407D6440 (WmipIoControl.c)
+ *     IoWMIExecuteMethod @ 0x1409DEE30 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x1409DF1A0 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x1409DF2D0 (IoWMISetSingleItem.c)
+ *     WmipQuerySingleMultiple @ 0x1409E117C (WmipQuerySingleMultiple.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A980 (ObReferenceObjectByPointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WmipPrepareWnodeSI @ 0x1406C64E4 (WmipPrepareWnodeSI.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1406C7398 (WmipSendWmiIrp.c)
- *     WmipForwardWmiIrp @ 0x1406C7480 (WmipForwardWmiIrp.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByPointer @ 0x14022AA90 (ObReferenceObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WmipPrepareWnodeSI @ 0x1406C6514 (WmipPrepareWnodeSI.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x1406C73C8 (WmipSendWmiIrp.c)
+ *     WmipForwardWmiIrp @ 0x1406C74B0 (WmipForwardWmiIrp.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

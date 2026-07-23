@@ -1,12 +1,12 @@
 /*
- * XREFs of SmHwAcceleratorIssueRequest @ 0x14063FA78
+ * XREFs of SmHwAcceleratorIssueRequest @ 0x140643658
  * Callers:
- *     SmStoreCompressBuffer @ 0x14024B590 (SmStoreCompressBuffer.c)
- *     SmStoreDecompressBuffer @ 0x1403905E0 (SmStoreDecompressBuffer.c)
+ *     SmStoreCompressBuffer @ 0x14024CEF0 (SmStoreCompressBuffer.c)
+ *     SmStoreDecompressBuffer @ 0x140392390 (SmStoreDecompressBuffer.c)
  * Callees:
- *     AccelCompressBuffer @ 0x1406DEB60 (AccelCompressBuffer.c)
- *     AccelDecompressBuffer @ 0x1406DED18 (AccelDecompressBuffer.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelCompressBuffer @ 0x1406E2E00 (AccelCompressBuffer.c)
+ *     AccelDecompressBuffer @ 0x1406E2FB8 (AccelDecompressBuffer.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SmHwAcceleratorIssueRequest(__int64 a1, int a2, int a3, __int64 a4, int a5, __int64 a6, int a7)

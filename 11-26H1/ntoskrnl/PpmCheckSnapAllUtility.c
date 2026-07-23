@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmCheckSnapAllUtility @ 0x14041FA00
+ * XREFs of PpmCheckSnapAllUtility @ 0x140417240
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     PpmPerfSnapUtility @ 0x14041FB20 (PpmPerfSnapUtility.c)
- *     PpmParkSnapNodeStatistics @ 0x14041FFA4 (PpmParkSnapNodeStatistics.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     PpmPerfSnapUtility @ 0x140417360 (PpmPerfSnapUtility.c)
+ *     PpmParkSnapNodeStatistics @ 0x1404177E4 (PpmParkSnapNodeStatistics.c)
  */
 
 __int64 PpmCheckSnapAllUtility()
@@ -21,15 +21,14 @@ __int64 PpmCheckSnapAllUtility()
   unsigned int k; // edi
 
   PpmParkSnapNodeStatistics();
-  v0 = qword_140E0B638[0];
-  for ( i = 0; ; v0 = qword_140E0B638[i] )
+  v0 = PpmCheckRegistered.Bitmap[0];
+  for ( i = 0; ; v0 = PpmCheckRegistered.Bitmap[i] )
   {
     while ( v0 )
     {
       _BitScanForward64(&v2, v0);
       v0 &= ~(1LL << v2);
-      v3 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-           + 64 * i
+      v3 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
            + (unsigned __int8)v2);
       if ( (unsigned int)v3 >= KeQueryActiveProcessorCountEx(0xFFFFu) )
         v4 = 0LL;
@@ -38,7 +37,7 @@ __int64 PpmCheckSnapAllUtility()
       PpmPerfSnapUtility(v4 + 35264);
     }
     result = ++i;
-    if ( i >= (unsigned int)LOWORD(PpmCheckRegistered[0]) )
+    if ( i >= (unsigned int)PpmCheckRegistered.Count )
       break;
   }
   for ( j = *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2);

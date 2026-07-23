@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEnumerateEntryHashTable @ 0x1403D8330
+ * XREFs of RtlEnumerateEntryHashTable @ 0x1403DB300
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x1405240DC (SepCleanupMarkedForDeletionEntries.c)
- *     SepRmDestroyCapTable @ 0x140773F58 (SepRmDestroyCapTable.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1408169E0 (SepFindMatchingLowBoxNumberEntries.c)
- *     SepDeleteCachedHandlesTable @ 0x140AFE698 (SepDeleteCachedHandlesTable.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x14052674C (SepCleanupMarkedForDeletionEntries.c)
+ *     SepRmDestroyCapTable @ 0x140776F58 (SepRmDestroyCapTable.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x14081CBF0 (SepFindMatchingLowBoxNumberEntries.c)
+ *     SepDeleteCachedHandlesTable @ 0x140B00708 (SepDeleteCachedHandlesTable.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlEnumerateEntryHashTable(
   unsigned int v7; // edi
   _LIST_ENTRY *ChainHead; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v9; // r9
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *Flink; // rcx
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *Flink; // rcx
   struct _LIST_ENTRY *v11; // rcx
   struct _LIST_ENTRY *Blink; // r10
   _LIST_ENTRY *v13; // rcx
@@ -59,9 +59,9 @@ LABEL_2:
   }
   do
   {
-    Flink = (struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)v9->HashEntry.Linkage.Flink;
+    Flink = (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)v9->HashEntry.Linkage.Flink;
     v9 = Flink;
-    if ( Flink == (struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)ChainHead )
+    if ( Flink == (_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *)ChainHead )
     {
       ++v6;
       ++v7;

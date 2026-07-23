@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagAreIdenticalWakeSources @ 0x1402DF568
+ * XREFs of PopDiagAreIdenticalWakeSources @ 0x1402DF758
  * Callers:
- *     PopDiagTraceIdleWakeSource @ 0x1402E15AC (PopDiagTraceIdleWakeSource.c)
+ *     PopDiagTraceIdleWakeSource @ 0x1402E179C (PopDiagTraceIdleWakeSource.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
  */
 
 bool __fastcall PopDiagAreIdenticalWakeSources(int a1, _BYTE *a2, _QWORD *a3)

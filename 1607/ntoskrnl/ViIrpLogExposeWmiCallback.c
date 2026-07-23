@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IoCreateDriver @ 0x140551384 (IoCreateDriver.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IoCreateDriver @ 0x1405518C4 (IoCreateDriver.c)
  */
 
 void __fastcall ViIrpLogExposeWmiCallback(void *a1)

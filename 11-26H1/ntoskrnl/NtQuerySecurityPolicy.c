@@ -1,18 +1,18 @@
 /*
- * XREFs of NtQuerySecurityPolicy @ 0x14080F970
+ * XREFs of NtQuerySecurityPolicy @ 0x140815400
  * Callers:
- *     DifNtQuerySecurityPolicyWrapper @ 0x1406856B0 (DifNtQuerySecurityPolicyWrapper.c)
+ *     DifNtQuerySecurityPolicyWrapper @ 0x140689290 (DifNtQuerySecurityPolicyWrapper.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     SepCaptureUnicodeStringArray @ 0x1408F58A4 (SepCaptureUnicodeStringArray.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     SepReleaseUnicodeStringArray @ 0x140A86A9C (SepReleaseUnicodeStringArray.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     SepCaptureUnicodeStringArray @ 0x140925834 (SepCaptureUnicodeStringArray.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     SepReleaseUnicodeStringArray @ 0x140A8BA1C (SepReleaseUnicodeStringArray.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtQuerySecurityPolicy(
@@ -90,7 +90,7 @@ __int64 __fastcall NtQuerySecurityPolicy(
           v15 = Address;
           Length = *Address;
         }
-        if ( SepRmCapTableLock.UserWaitTime )
+        if ( SepRmCapTableLock.KernelShadowStack )
         {
           if ( !Pool2 || Length )
             v12 = guard_dispatch_icall_no_overrides(v23, v24);

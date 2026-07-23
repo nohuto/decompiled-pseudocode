@@ -24,7 +24,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
 {
   char *v7; // r12
   char *PoolWithTag; // rsi
-  struct _REPARSE_DATA_BUFFER *PoolWithQuota_1; // r15
+  _REPARSE_DATA_BUFFER *PoolWithQuota_1; // r15
   int appended; // ebx
   _DWORD *v11; // r14
   char v12; // r13
@@ -39,7 +39,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   PVOID Object; // [rsp+50h] [rbp-F8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-E8h] BYREF
   UNICODE_STRING String1; // [rsp+70h] [rbp-D8h] BYREF
-  struct _REPARSE_DATA_BUFFER *v25; // [rsp+80h] [rbp-C8h]
+  _REPARSE_DATA_BUFFER *v25; // [rsp+80h] [rbp-C8h]
   char *v26; // [rsp+88h] [rbp-C0h]
   HANDLE FileHandle; // [rsp+90h] [rbp-B8h] BYREF
   UNICODE_STRING String2; // [rsp+98h] [rbp-B0h] BYREF
@@ -62,7 +62,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   Object = 0LL;
   PoolWithTag = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  PoolWithQuota_1 = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_1(NonPagedPoolNx, BufferLength);
+  PoolWithQuota_1 = (_REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_1(NonPagedPoolNx, BufferLength);
   v25 = PoolWithQuota_1;
   memmove(PoolWithQuota_1, Src, BufferLength);
   appended = FsRtlValidateReparsePointBuffer(BufferLength, PoolWithQuota_1);

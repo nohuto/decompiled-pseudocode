@@ -1,11 +1,11 @@
 /*
- * XREFs of VslLiveDumpQuerySecondaryDataSize @ 0x1404FCDB0
+ * XREFs of VslLiveDumpQuerySecondaryDataSize @ 0x1404FCD30
  * Callers:
- *     HvlCalculateLivedumpSize @ 0x1404F8B60 (HvlCalculateLivedumpSize.c)
+ *     HvlCalculateLivedumpSize @ 0x1404F8AE0 (HvlCalculateLivedumpSize.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall VslLiveDumpQuerySecondaryDataSize(_QWORD *a1, _QWORD *a2)

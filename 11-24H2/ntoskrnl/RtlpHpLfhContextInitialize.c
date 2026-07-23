@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhContextInitialize @ 0x1406065C4
+ * XREFs of RtlpHpLfhContextInitialize @ 0x140603C04
  * Callers:
- *     RtlpHpHeapCreate @ 0x140604D0C (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14060234C (RtlpHpHeapCreate.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
@@ -48,12 +48,12 @@ unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
   v14 = *(_QWORD *)(a1 + 48);
   if ( v14 )
     *(_QWORD *)(a1 + 48) = a1 ^ RtlpHpHeapGlobals ^ v14;
-  v15 = qword_140E28240;
+  v15 = qword_140E28380;
   do
   {
     v16 = ((((v15 ^ (v15 >> 12)) << 25) ^ v15 ^ (v15 >> 12)) >> 27) ^ ((v15 ^ (v15 >> 12)) << 25) ^ v15 ^ (v15 >> 12);
     v17 = v15;
-    v15 = _InterlockedCompareExchange64(&qword_140E28240, v16, v15);
+    v15 = _InterlockedCompareExchange64(&qword_140E28380, v16, v15);
   }
   while ( v17 != v15 );
   *(_QWORD *)(a1 + 80) = 0x2545F4914F6CDD1DLL * v16;
@@ -62,7 +62,7 @@ unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
     v18 = a3;
   *(_BYTE *)(a1 + 64) = v18;
   if ( v18 > 1u )
-    *(_QWORD *)(a1 + 56) = (char *)qword_140035DC0
+    *(_QWORD *)(a1 + 56) = (char *)qword_140036230
                          + ((unsigned __int64)((62 - (64 - v18)) * (64 - (unsigned int)v18 + 61)) >> 1);
   memset64((void *)(a1 + 448), 1uLL, 0x80uLL);
   *(_WORD *)(a1 + 68) = 0;
@@ -70,12 +70,12 @@ unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
   v20 = 32LL;
   do
   {
-    result = qword_140E28240;
+    result = qword_140E28380;
     do
     {
       v22 = ((((result ^ (result >> 12)) << 25) ^ result ^ (result >> 12)) >> 27) ^ ((result ^ (result >> 12)) << 25) ^ result ^ (result >> 12);
       v23 = result;
-      result = _InterlockedCompareExchange64(&qword_140E28240, v22, result);
+      result = _InterlockedCompareExchange64(&qword_140E28380, v22, result);
     }
     while ( v23 != result );
     *v19++ = 0x2545F4914F6CDD1DLL * v22;

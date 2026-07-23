@@ -1,16 +1,16 @@
 /*
- * XREFs of KiProcessControlProtection @ 0x14043E670
+ * XREFs of KiProcessControlProtection @ 0x140434290
  * Callers:
- *     KiControlProtectionFault @ 0x1406BC440 (KiControlProtectionFault.c)
+ *     KiControlProtectionFault @ 0x1406BD340 (KiControlProtectionFault.c)
  * Callees:
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x14043E9F0 (KiLogControlProtectionUserModeReturnMismatch.c)
- *     KiProcessControlProtectionFromKernelMode @ 0x14043EA4C (KiProcessControlProtectionFromKernelMode.c)
- *     KiFixupControlProtectionUserModeReturnMismatch @ 0x1404834E8 (KiFixupControlProtectionUserModeReturnMismatch.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiCheckUserAddressCetCompat @ 0x140837728 (KiCheckUserAddressCetCompat.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x140434610 (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14043466C (KiProcessControlProtectionFromKernelMode.c)
+ *     KiFixupControlProtectionUserModeReturnMismatch @ 0x14047E9B4 (KiFixupControlProtectionUserModeReturnMismatch.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     KiCheckUserAddressCetCompat @ 0x1409F92F4 (KiCheckUserAddressCetCompat.c)
  */
 
 __int64 __fastcall KiProcessControlProtection(__int64 a1)
@@ -48,7 +48,7 @@ __int64 __fastcall KiProcessControlProtection(__int64 a1)
       v9 = *v8;
       if ( (unsigned __int64)(v9 - 0x10000) <= 0x7FFFFFFDFFFFLL && (unsigned __int64)(v2 - 0x10000) <= 0x7FFFFFFDFFFFLL )
       {
-        if ( v9 == qword_140FC64C0 )
+        if ( v9 == qword_140FC7540 )
         {
           *v8 = *(_QWORD *)v7;
           v3 = 3;

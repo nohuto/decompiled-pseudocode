@@ -1,9 +1,9 @@
 /*
- * XREFs of PopRecorderInit @ 0x140CD52A4
+ * XREFs of PopRecorderInit @ 0x140CDB644
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024D7A0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14024F100 (KeRegisterBugCheckReasonCallback.c)
  */
 
 BOOLEAN PopRecorderInit()
@@ -12,8 +12,7 @@ BOOLEAN PopRecorderInit()
   UCHAR *v1; // r9
   BOOLEAN result; // al
 
-  PopModernStandbyStateNotify.SchedulerAssist = 0LL;
-  PopModernStandbyStateNotify.AbWaitObject = 0LL;
+  PopPdcDeviceListLock.ApcState.ApcListHead[0] = 0uLL;
   for ( i = 0LL; i < 0x9C0; i += 104LL )
   {
     v1 = *(UCHAR **)((char *)&PopBlackBoxEntries + i + 8);

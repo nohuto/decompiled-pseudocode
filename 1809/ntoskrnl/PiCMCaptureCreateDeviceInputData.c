@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMCaptureCreateDeviceInputData @ 0x14083602C
+ * XREFs of PiCMCaptureCreateDeviceInputData @ 0x14083728C
  * Callers:
- *     PiCMCreateDevice @ 0x1408367B4 (PiCMCreateDevice.c)
+ *     PiCMCreateDevice @ 0x140837A14 (PiCMCreateDevice.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x140598F3C (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureCreateDeviceInputData(unsigned __int64 a1, unsigned int a2, int a3, char *a4)

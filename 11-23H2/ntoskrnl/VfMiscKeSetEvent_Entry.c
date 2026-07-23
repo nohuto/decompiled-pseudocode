@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeSetEvent_Entry @ 0x140AE00D0
+ * XREFs of VfMiscKeSetEvent_Entry @ 0x140AE00C0
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1405D2498 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D2A08 (VfMiscCheckKernelAddress.c)
  */
 
 unsigned __int64 __fastcall VfMiscKeSetEvent_Entry(__int64 a1)

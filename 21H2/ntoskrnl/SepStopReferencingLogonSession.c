@@ -1,12 +1,12 @@
 /*
- * XREFs of SepStopReferencingLogonSession @ 0x1406774A0
+ * XREFs of SepStopReferencingLogonSession @ 0x140612358
  * Callers:
- *     SepLinkLogonSessions @ 0x1402D2FE4 (SepLinkLogonSessions.c)
- *     SepSetLogonSessionToken @ 0x1405D9EE0 (SepSetLogonSessionToken.c)
- *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
+ *     SepLinkLogonSessions @ 0x1402438E4 (SepLinkLogonSessions.c)
+ *     SepSetLogonSessionToken @ 0x140612290 (SepSetLogonSessionToken.c)
+ *     NtSetInformationToken @ 0x140694530 (NtSetInformationToken.c)
  * Callees:
- *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
- *     SepConvertToOwnTokenClaims @ 0x14027F84C (SepConvertToOwnTokenClaims.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140243B50 (SepDeReferenceLogonSessionDirect.c)
+ *     SepConvertToOwnTokenClaims @ 0x140243B88 (SepConvertToOwnTokenClaims.c)
  */
 
 __int64 __fastcall SepStopReferencingLogonSession(__int64 a1)

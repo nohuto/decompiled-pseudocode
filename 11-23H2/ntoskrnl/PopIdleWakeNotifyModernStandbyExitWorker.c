@@ -1,19 +1,19 @@
 /*
- * XREFs of PopIdleWakeNotifyModernStandbyExitWorker @ 0x14099A860
+ * XREFs of PopIdleWakeNotifyModernStandbyExitWorker @ 0x14099AA60
  * Callers:
  *     <none>
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PpmConvertTimeTo @ 0x1403A7204 (PpmConvertTimeTo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopIdleWakeConvertIntervalBucketsTo @ 0x14099A348 (PopIdleWakeConvertIntervalBucketsTo.c)
- *     PopIdleWakeSourceAccountingToDiagnostic @ 0x14099B254 (PopIdleWakeSourceAccountingToDiagnostic.c)
- *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x14099B420 (PopIdleWakeTraceWakeSourceDiagnostic.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PpmConvertTimeTo @ 0x1403A73E4 (PpmConvertTimeTo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopIdleWakeConvertIntervalBucketsTo @ 0x14099A548 (PopIdleWakeConvertIntervalBucketsTo.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x14099B454 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x14099B620 (PopIdleWakeTraceWakeSourceDiagnostic.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -29,7 +29,7 @@ void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
   LARGE_INTEGER v9; // rcx
   __int16 v10; // [rsp+38h] [rbp-D0h] BYREF
   __int16 v11; // [rsp+3Ch] [rbp-CCh] BYREF
-  LARGE_INTEGER v12; // [rsp+40h] [rbp-C8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp-C8h] BYREF
   LARGE_INTEGER v13; // [rsp+48h] [rbp-C0h] BYREF
   LARGE_INTEGER v14; // [rsp+50h] [rbp-B8h] BYREF
   _QWORD v15[2]; // [rsp+58h] [rbp-B0h] BYREF
@@ -41,7 +41,7 @@ void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
   __int64 v21; // [rsp+530h] [rbp+428h]
   LARGE_INTEGER *v22; // [rsp+538h] [rbp+430h]
   __int64 v23; // [rsp+540h] [rbp+438h]
-  __int16 *v24; // [rsp+548h] [rbp+440h]
+  LARGE_INTEGER *p_PerformanceCounter; // [rsp+548h] [rbp+440h]
   __int64 v25; // [rsp+550h] [rbp+448h]
   _QWORD *v26; // [rsp+558h] [rbp+450h]
   __int64 v27; // [rsp+560h] [rbp+458h]
@@ -50,10 +50,10 @@ void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
   _QWORD v30[6]; // [rsp+578h] [rbp+470h] BYREF
 
   memset(v16, 0, sizeof(v16));
-  v12.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v13.QuadPart = 0LL;
   KeWaitForSingleObject(&P[4768], Executive, 0, 0, 0LL);
-  RtlGetInterruptTimePrecise(&v12);
+  RtlGetInterruptTimePrecise(&PerformanceCounter);
   PopIdleWakeConvertIntervalBucketsTo(6u, (__int64)&P[12], v30, 0x3E8uLL);
   if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
   {
@@ -64,7 +64,7 @@ void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
     v20 = &v10;
     v21 = 2LL;
     v22 = P + 9;
-    v24 = &v11;
+    p_PerformanceCounter = (LARGE_INTEGER *)&v11;
     v26 = v30;
     v28 = v15;
     v23 = 24LL;
@@ -73,7 +73,7 @@ void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
     v27 = 48LL;
     v15[0] = 0x1000000LL;
     v29 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_140031C28, 0LL, 0LL, 8u, v17);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_140031D10, 0LL, 0LL, 8u, v17);
   }
   v2 = P + 118;
   v3 = 32LL;
@@ -112,8 +112,8 @@ void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
   }
   while ( v3 );
   RtlGetInterruptTimePrecise(&v13);
-  PpmConvertTimeTo(v12.QuadPart - P[4759].QuadPart, 0x3E8uLL);
-  PpmConvertTimeTo(v13.QuadPart - v12.QuadPart, 0x3E8uLL);
+  PpmConvertTimeTo(PerformanceCounter.QuadPart - P[4759].QuadPart, 0x3E8uLL);
+  PpmConvertTimeTo(v13.QuadPart - PerformanceCounter.QuadPart, 0x3E8uLL);
   if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x200000000000LL) )
   {
     v9 = P[4758];
@@ -123,13 +123,13 @@ void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
     v13 = v7;
     v22 = &v13;
     v19 = 8LL;
-    v24 = (__int16 *)&v12;
+    p_PerformanceCounter = &PerformanceCounter;
     v14 = v8;
     v21 = 8LL;
     v23 = 8LL;
-    v12.QuadPart = 0x1000000LL;
+    PerformanceCounter.QuadPart = 0x1000000LL;
     v25 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)&word_140031CA6, 0LL, 0LL, 6u, v17);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)&word_140031D8E, 0LL, 0LL, 6u, v17);
   }
   ExFreePoolWithTag(P, 0x67696450u);
 }

@@ -1,25 +1,22 @@
 /*
- * XREFs of RtlCopyString @ 0x1800880B0
+ * XREFs of RtlCopyString @ 0x1800880A0
  * Callers:
  *     <none>
  * Callees:
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-void *__fastcall RtlCopyString(__int64 a1, const void **a2)
+void __cdecl RtlCopyString(PSTRING DestinationString, PSTRING SourceString)
 {
-  void *result; // rax
-  size_t v3; // r8
+  unsigned __int64 Length; // r8
 
-  result = 0LL;
-  *(_WORD *)a1 = 0;
-  if ( a2 )
+  DestinationString->Length = 0;
+  if ( SourceString )
   {
-    v3 = *(unsigned __int16 *)a2;
-    if ( v3 > *(unsigned __int16 *)(a1 + 2) )
-      v3 = *(unsigned __int16 *)(a1 + 2);
-    *(_WORD *)a1 = v3;
-    return memmove(*(void **)(a1 + 8), a2[1], v3);
+    Length = SourceString->Length;
+    if ( Length > DestinationString->MaximumLength )
+      Length = DestinationString->MaximumLength;
+    DestinationString->Length = Length;
+    memmove(DestinationString->Buffer, SourceString->Buffer, Length);
   }
-  return result;
 }

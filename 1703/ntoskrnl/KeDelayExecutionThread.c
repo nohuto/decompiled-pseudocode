@@ -95,7 +95,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
   NTSTATUS result; // eax
   unsigned __int8 v10; // al
   int v11; // r12d
-  __int64 v12; // r13
+  LARGE_INTEGER v12; // r13
   __int64 v13; // rcx
   struct _KTHREAD *v14; // r14
   unsigned __int8 CurrentIrql; // r12
@@ -115,7 +115,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
   int v29; // [rsp+30h] [rbp-58h] BYREF
   int v30; // [rsp+34h] [rbp-54h] BYREF
   NTSTATUS v31; // [rsp+38h] [rbp-50h]
-  __int64 v32[9]; // [rsp+40h] [rbp-48h] BYREF
+  LARGE_INTEGER v32[9]; // [rsp+40h] [rbp-48h] BYREF
   unsigned __int8 v33; // [rsp+A0h] [rbp+18h]
   int v34; // [rsp+A8h] [rbp+20h] BYREF
 
@@ -227,7 +227,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
     __writecr8(CurrentIrql);
     return v8;
   }
-  v10 = KiCheckWaitNext((__int64)CurrentThread, (__int64)Interval, 1, v32, &v30);
+  v10 = KiCheckWaitNext((__int64)CurrentThread, Interval, 1, v32, &v30);
   v11 = v30;
   v12 = v32[0];
   v33 = v10;
@@ -237,7 +237,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
     v31 = result;
     if ( result )
       break;
-    if ( (unsigned int)KiCheckDueTimeExpired((__int64)CurrentThread, v11, v12) )
+    if ( (unsigned int)KiCheckDueTimeExpired((__int64)CurrentThread, v11, v12.QuadPart) )
     {
       KiFastExitThreadWait((__int64)KeGetCurrentPrcb(), (__int64)CurrentThread, v33);
       if ( Interval->QuadPart )
@@ -248,7 +248,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
     CurrentThread->WaitBlock[0].Object = (PVOID)-1LL;
     CurrentThread->WaitBlockFill4[17] = 5;
     CurrentThread->WaitBlockCount = 1;
-    result = KiCommitThreadWait(v13, (__int64 *)&CurrentThread->320, v11, v12);
+    result = KiCommitThreadWait(v13, (__int64 *)&CurrentThread->320, v11, v12.QuadPart);
     if ( result != 256 )
     {
       if ( result == 258 )

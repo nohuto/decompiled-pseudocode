@@ -29,7 +29,7 @@ void __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
     if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3) )
     {
       v5 = ((unsigned __int64)*((unsigned int *)i + 16) + 4095) >> 12;
-      if ( v3 != PsNtosImageBase && (PVOID)v3 != PsHalImageBase )
+      if ( (PVOID)v3 != PsNtosImageBase && (PVOID)v3 != PsHalImageBase )
       {
         _InterlockedExchangeAdd(&dword_1403CC678, v5);
         qword_1403CC650 -= (unsigned int)v5;

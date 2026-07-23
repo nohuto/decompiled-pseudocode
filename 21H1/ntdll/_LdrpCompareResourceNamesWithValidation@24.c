@@ -18,11 +18,12 @@ int __fastcall LdrpCompareResourceNamesWithValidation(int a1, int a2, wchar_t *S
   unsigned int v13; // ebx
   unsigned int v14; // edi
   int v15; // ecx
-  int v18; // [esp+10h] [ebp-8h] BYREF
-  int v19; // [esp+14h] [ebp-4h] BYREF
+  size_t v17; // [esp-4h] [ebp-1Ch]
+  int v19; // [esp+10h] [ebp-8h] BYREF
+  int v20; // [esp+14h] [ebp-4h] BYREF
 
+  v20 = 0;
   v19 = 0;
-  v18 = 0;
   if ( !a1 || (v8 = 1, !a2) )
     v8 = 0;
   v9 = String1;
@@ -37,16 +38,17 @@ int __fastcall LdrpCompareResourceNamesWithValidation(int a1, int a2, wchar_t *S
     if ( v8 && a4 + (v10 & 0x7FFFFFFFu) > v13
       || (v14 = v10 & 0x7FFFFFFF, v8)
       && (RtlULongLongToUInt(
-            &v19,
+            &v20,
             2 * *(unsigned __int16 *)(v14 + a4),
             (unsigned __int64)*(unsigned __int16 *)(v14 + a4) >> 31) < 0
-       || (RtlULongPtrAdd(v14, v19, &v18) & 0x80000000) != 0
-       || (v12 = a4, a4 + v18 > v13)) )
+       || (RtlULongPtrAdd(v14, v20, &v19) & 0x80000000) != 0
+       || (v12 = a4, a4 + v19 > v13)) )
     {
       *a6 = 0;
       return -1;
     }
-    v15 = wcsncmp(String1, (const wchar_t *)(v12 + v14 + 2), *(unsigned __int16 *)(v14 + v12));
+    LODWORD(v17) = *(unsigned __int16 *)(v14 + v12);
+    v15 = wcsncmp(String1, (const wchar_t *)(v12 + v14 + 2), v17);
     if ( v15 )
       return v15;
     while ( *v9++ )

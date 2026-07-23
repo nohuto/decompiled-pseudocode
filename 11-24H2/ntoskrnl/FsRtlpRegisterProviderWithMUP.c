@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpRegisterProviderWithMUP @ 0x14070ACD4
+ * XREFs of FsRtlpRegisterProviderWithMUP @ 0x140708894
  * Callers:
- *     FsRtlpRegisterUncProvider @ 0x14070ADD0 (FsRtlpRegisterUncProvider.c)
+ *     FsRtlpRegisterUncProvider @ 0x140708990 (FsRtlpRegisterUncProvider.c)
  * Callees:
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
- *     ZwFsControlFile @ 0x1406A6B30 (ZwFsControlFile.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
+ *     ZwFsControlFile @ 0x1406A7AD0 (ZwFsControlFile.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlpRegisterProviderWithMUP(HANDLE Handle, const void **a2, __int64 a3, __int64 a4)
@@ -20,7 +20,7 @@ __int64 __fastcall FsRtlpRegisterProviderWithMUP(HANDLE Handle, const void **a2,
 
   InputBufferLength = *(unsigned __int16 *)a2 + 32;
   IoStatusBlock = 0LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, InputBufferLength, 0x6E755346u);
   InputBuffer = (void *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;

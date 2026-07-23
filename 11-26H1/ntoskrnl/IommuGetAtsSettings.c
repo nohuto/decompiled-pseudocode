@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuGetAtsSettings @ 0x1404FA5C0
+ * XREFs of IommuGetAtsSettings @ 0x1404F3BD0
  * Callers:
  *     <none>
  * Callees:
- *     IommupHvGetDeviceAtsCapability @ 0x14059E3A4 (IommupHvGetDeviceAtsCapability.c)
+ *     IommupHvGetDeviceAtsCapability @ 0x1405A0B7C (IommupHvGetDeviceAtsCapability.c)
  */
 
 __int64 __fastcall IommuGetAtsSettings(__int64 a1, _BYTE *a2)

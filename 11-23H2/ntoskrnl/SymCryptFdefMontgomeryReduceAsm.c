@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefMontgomeryReduceAsm @ 0x140406430
+ * XREFs of SymCryptFdefMontgomeryReduceAsm @ 0x140406610
  * Callers:
- *     SymCryptFdefMontgomeryReduce @ 0x140405444 (SymCryptFdefMontgomeryReduce.c)
+ *     SymCryptFdefMontgomeryReduce @ 0x140405624 (SymCryptFdefMontgomeryReduce.c)
  * Callees:
  *     <none>
  */

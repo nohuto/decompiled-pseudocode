@@ -1,17 +1,17 @@
 /*
- * XREFs of IoReleaseRemoveLockEx @ 0x140341430
+ * XREFs of IoReleaseRemoveLockEx @ 0x1403416C0
  * Callers:
- *     DifIoReleaseRemoveLockExWrapper @ 0x1405E0E90 (DifIoReleaseRemoveLockExWrapper.c)
- *     ViFilterDeviceUsageNotificationCompletion @ 0x140ADF410 (ViFilterDeviceUsageNotificationCompletion.c)
- *     ViFilterGenericCompletionRoutine @ 0x140ADF9E0 (ViFilterGenericCompletionRoutine.c)
- *     ViFilterStartCompletionRoutine @ 0x140ADFA50 (ViFilterStartCompletionRoutine.c)
+ *     DifIoReleaseRemoveLockExWrapper @ 0x1405E1400 (DifIoReleaseRemoveLockExWrapper.c)
+ *     ViFilterDeviceUsageNotificationCompletion @ 0x140ADF400 (ViFilterDeviceUsageNotificationCompletion.c)
+ *     ViFilterGenericCompletionRoutine @ 0x140ADF9D0 (ViFilterGenericCompletionRoutine.c)
+ *     ViFilterStartCompletionRoutine @ 0x140ADFA40 (ViFilterStartCompletionRoutine.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfRemLockReportBadReleaseTag @ 0x140AD28CC (VfRemLockReportBadReleaseTag.c)
+ *     VfRemLockReportBadReleaseTag @ 0x140AD28BC (VfRemLockReportBadReleaseTag.c)
  */
 
 void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)
@@ -66,10 +66,13 @@ void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULON
       while ( p_Flink );
     }
     KxReleaseSpinLock((volatile signed __int64 *)&RemoveLock[2].Common.RemoveEvent.Header.Lock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

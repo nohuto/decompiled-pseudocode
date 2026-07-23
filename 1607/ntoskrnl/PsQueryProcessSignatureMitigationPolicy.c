@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x14067D3C4
+ * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x14067D4A8
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
  * Callees:
- *     SeCompareSigningLevels @ 0x14045D1E0 (SeCompareSigningLevels.c)
+ *     SeCompareSigningLevels @ 0x14045C0B0 (SeCompareSigningLevels.c)
  */
 
 void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)

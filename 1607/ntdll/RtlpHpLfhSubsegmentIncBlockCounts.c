@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x18003F8CC
+ * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x18003F8BC
  * Callers:
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7D0 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7C0 (RtlpHpLfhSubsegmentCommitBlock.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2, int a3, _DWORD *a4)
 {
   char v5; // cl
   __int64 v7; // r10
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2
   _m_prefetchw(v9);
   v10 = -1;
   LODWORD(v11) = 0;
-  v12 = &v9[(((unsigned int)a3 + a2 - 1) >> v5) - (unsigned int)v7 + 1];
+  v12 = &v9[((a3 + a2 - 1) >> v5) - (unsigned int)v7 + 1];
   if ( v9 < v12 )
   {
     v13 = 2 * v7;
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2
         if ( v8 )
           break;
         v8 = 1;
-        RtlAcquireSRWLockExclusive(a1 + 24, (char *)1, a3, 0LL);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
       }
       if ( v14 == -1 )
       {
@@ -66,7 +66,7 @@ LABEL_6:
       *a4 = v11 - v10 + 1;
     }
     if ( v8 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 24));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   }
   return v10;
 }

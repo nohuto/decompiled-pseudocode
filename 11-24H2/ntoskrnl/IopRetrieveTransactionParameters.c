@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRetrieveTransactionParameters @ 0x140899830
+ * XREFs of IopRetrieveTransactionParameters @ 0x1408A1ED0
  * Callers:
- *     IopAllocRealFileObject @ 0x14089A9B0 (IopAllocRealFileObject.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ *     IopAllocRealFileObject @ 0x1408A3050 (IopAllocRealFileObject.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IopGetSetSpecificExtension @ 0x140426ED0 (IopGetSetSpecificExtension.c)
- *     IopCheckStackForTransactionSupport @ 0x1404B365C (IopCheckStackForTransactionSupport.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IopGetSetSpecificExtension @ 0x14041AD50 (IopGetSetSpecificExtension.c)
+ *     IopCheckStackForTransactionSupport @ 0x1404ADECC (IopCheckStackForTransactionSupport.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall IopRetrieveTransactionParameters(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -66,7 +66,7 @@ __int64 __fastcall IopRetrieveTransactionParameters(__int64 a1, __int64 a2, int 
     }
     else
     {
-      SetSpecificExtension = IopGetSetSpecificExtension(a4, 0, 16LL, 1, &v17, 0LL);
+      SetSpecificExtension = IopGetSetSpecificExtension(a4, 0, 0x10u, 1, &v17, 0LL);
       if ( SetSpecificExtension >= 0 )
       {
         v12 = v17;

@@ -1,51 +1,51 @@
 /*
- * XREFs of NtQueryInformationToken @ 0x140B79CE0
+ * XREFs of NtQueryInformationToken @ 0x140B81F50
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x140619880 (RtlGetAppContainerNamedObjectPath.c)
- *     DifNtQueryInformationTokenWrapper @ 0x140683620 (DifNtQueryInformationTokenWrapper.c)
- *     RtlpGetTokenNamedObjectPath @ 0x14077E4E0 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x14061C8D0 (RtlGetAppContainerNamedObjectPath.c)
+ *     DifNtQueryInformationTokenWrapper @ 0x140687200 (DifNtQueryInformationTokenWrapper.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140780FE0 (RtlpGetTokenNamedObjectPath.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     SepReferenceTokenByHandle @ 0x1402AC430 (SepReferenceTokenByHandle.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     SepSidInTokenSidHash @ 0x1403C06B0 (SepSidInTokenSidHash.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403CC2F0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1403CC900 (AuthzBasepQuerySecurityAttributesToken.c)
- *     SepCopyTokenIntegrity @ 0x140441970 (SepCopyTokenIntegrity.c)
- *     SeQueryMandatoryPolicyToken @ 0x14045D270 (SeQueryMandatoryPolicyToken.c)
- *     SepDeReferenceLogonSessionDirect @ 0x140476B90 (SepDeReferenceLogonSessionDirect.c)
- *     SepGetTokenElevation @ 0x140477040 (SepGetTokenElevation.c)
- *     SepConvertTokenPrivileges @ 0x14047C32C (SepConvertTokenPrivileges.c)
- *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x14047C350 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
- *     SepTokenPrivilegeCount @ 0x14047DD34 (SepTokenPrivilegeCount.c)
- *     SepIsSandboxedToken @ 0x140483538 (SepIsSandboxedToken.c)
- *     SepGetTokenElevationType @ 0x1404AB5E8 (SepGetTokenElevationType.c)
- *     Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline @ 0x1404DF174 (Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063AE30 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     RtlCopySid @ 0x140A2AE10 (RtlCopySid.c)
- *     SepCopyTokenAccessInformation @ 0x140A33488 (SepCopyTokenAccessInformation.c)
- *     RtlCopySidAndAttributesArray @ 0x140A33F00 (RtlCopySidAndAttributesArray.c)
- *     SepGetTokenAccessInformationBufferSize @ 0x140A34000 (SepGetTokenAccessInformationBufferSize.c)
- *     SeQuerySessionIdToken @ 0x140A820F0 (SeQuerySessionIdToken.c)
- *     AuthzBasepQueryClaimAttributesToken @ 0x140A8E03C (AuthzBasepQueryClaimAttributesToken.c)
- *     RtlQueryElevationFlags @ 0x140AB0350 (RtlQueryElevationFlags.c)
- *     SepReferenceLogonSession @ 0x140AB6FB0 (SepReferenceLogonSession.c)
- *     SepReferenceLogonSessionSilo @ 0x140AB6FE8 (SepReferenceLogonSessionSilo.c)
- *     SeSetSessionIdToken @ 0x140AE7F2C (SeSetSessionIdToken.c)
- *     SepLogonSystemManagedAdmin @ 0x140B50F90 (SepLogonSystemManagedAdmin.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SepReferenceTokenByHandle @ 0x1403ABB50 (SepReferenceTokenByHandle.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B0C10 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1403B1220 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     SepSidInTokenSidHash @ 0x1403CA5B0 (SepSidInTokenSidHash.c)
+ *     SepCopyTokenIntegrity @ 0x14043A480 (SepCopyTokenIntegrity.c)
+ *     SeQueryMandatoryPolicyToken @ 0x140456C70 (SeQueryMandatoryPolicyToken.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140470310 (SepDeReferenceLogonSessionDirect.c)
+ *     SepGetTokenElevation @ 0x1404707C0 (SepGetTokenElevation.c)
+ *     SepConvertTokenPrivileges @ 0x140475C9C (SepConvertTokenPrivileges.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140475CC0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     SepTokenPrivilegeCount @ 0x1404776A4 (SepTokenPrivilegeCount.c)
+ *     SepIsSandboxedToken @ 0x14047CE68 (SepIsSandboxedToken.c)
+ *     SepGetTokenElevationType @ 0x1404A4C78 (SepGetTokenElevationType.c)
+ *     Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline @ 0x1404D8854 (Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063DEF8 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     RtlCopySid @ 0x140A3DEA0 (RtlCopySid.c)
+ *     SepCopyTokenAccessInformation @ 0x140A4E3E8 (SepCopyTokenAccessInformation.c)
+ *     RtlCopySidAndAttributesArray @ 0x140A4EE60 (RtlCopySidAndAttributesArray.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x140A4EF60 (SepGetTokenAccessInformationBufferSize.c)
+ *     SeQuerySessionIdToken @ 0x140A87F60 (SeQuerySessionIdToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x140A92D0C (AuthzBasepQueryClaimAttributesToken.c)
+ *     RtlQueryElevationFlags @ 0x140AADFA0 (RtlQueryElevationFlags.c)
+ *     SepReferenceLogonSession @ 0x140AB85F0 (SepReferenceLogonSession.c)
+ *     SepReferenceLogonSessionSilo @ 0x140AB8628 (SepReferenceLogonSessionSilo.c)
+ *     SeSetSessionIdToken @ 0x140AE5DDC (SeSetSessionIdToken.c)
+ *     SepLogonSystemManagedAdmin @ 0x140B53828 (SepLogonSystemManagedAdmin.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -121,8 +121,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v70; // rdx
   __int64 v71; // r9
   ULONG v72; // ecx
-  __int64 v73; // r9
-  __int64 v74; // r12
+  _SID_AND_ATTRIBUTES *v73; // r9
+  _SID_AND_ATTRIBUTES *v74; // r12
   __int64 v75; // rbx
   struct _KTHREAD *v76; // rax
   unsigned int v77; // ecx
@@ -142,13 +142,13 @@ NTSTATUS __stdcall NtQueryInformationToken(
   int v91; // r12d
   _QWORD *v92; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int8 *Src; // rdi
+  unsigned __int8 *v94; // rdi
   char v95; // si
   ULONG TokenAccessInformationBufferSize; // eax
   void *v97; // rcx
   NTSTATUS MandatoryPolicyToken; // ebx
   struct _KTHREAD *v99; // rax
-  __int64 v100; // r9
+  unsigned __int8 *Sid; // r9
   ULONG v101; // eax
   struct _KTHREAD *v102; // rax
   __int64 v103; // r9
@@ -170,7 +170,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v119; // r9
   ULONG v120; // esi
   struct _KTHREAD *v121; // rax
-  HANDLE v122; // r8
+  PSID v122; // r8
   unsigned __int8 *v123; // rcx
   void *v124; // rdx
   struct _KTHREAD *v125; // rax
@@ -179,7 +179,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   struct _KTHREAD *v128; // rax
   PVOID v129; // r15
   __int64 v130; // rax
-  unsigned int v131; // r11d
+  ULONG v131; // r11d
   ULONG v132; // r8d
   __int64 v133; // rdx
   __int64 v134; // r9
@@ -196,47 +196,49 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v145; // rax
   struct _KTHREAD *v146; // rax
   PERESOURCE *v147; // rbx
-  size_t Size; // [rsp+20h] [rbp-158h]
-  size_t v149; // [rsp+30h] [rbp-148h]
+  PSID SidArea; // [rsp+20h] [rbp-158h]
+  PULONG RemainingSidAreaSize; // [rsp+30h] [rbp-148h]
   char v150[8]; // [rsp+80h] [rbp-F8h] BYREF
   PVOID Object; // [rsp+88h] [rbp-F0h] BYREF
-  HANDLE DestinationSid; // [rsp+90h] [rbp-E8h] BYREF
-  __int64 v153; // [rsp+98h] [rbp-E0h] BYREF
+  PSID DestinationSid; // [rsp+90h] [rbp-E8h] BYREF
+  _RTL_ELEVATION_FLAGS Flags; // [rsp+98h] [rbp-E0h] BYREF
+  ULONG SessionId; // [rsp+9Ch] [rbp-DCh] BYREF
   HANDLE Handle; // [rsp+A0h] [rbp-D8h] BYREF
-  PVOID v155; // [rsp+A8h] [rbp-D0h] BYREF
-  HANDLE v156; // [rsp+B0h] [rbp-C8h] BYREF
-  NTSTATUS v157; // [rsp+B8h] [rbp-C0h]
-  int v158; // [rsp+BCh] [rbp-BCh]
-  int v159; // [rsp+C0h] [rbp-B8h] BYREF
-  int v160; // [rsp+C4h] [rbp-B4h] BYREF
-  int v161; // [rsp+C8h] [rbp-B0h] BYREF
-  int v162[2]; // [rsp+D0h] [rbp-A8h] BYREF
-  PVOID v163; // [rsp+D8h] [rbp-A0h] BYREF
-  int v164; // [rsp+E0h] [rbp-98h] BYREF
-  int v165; // [rsp+E4h] [rbp-94h]
-  __int64 v166; // [rsp+E8h] [rbp-90h]
-  __int64 v167; // [rsp+F0h] [rbp-88h]
-  int v168; // [rsp+F8h] [rbp-80h]
-  int v169; // [rsp+FCh] [rbp-7Ch]
-  __int128 v170; // [rsp+100h] [rbp-78h]
-  __int128 v171; // [rsp+110h] [rbp-68h] BYREF
-  __int128 v172; // [rsp+120h] [rbp-58h]
-  __int128 v173; // [rsp+130h] [rbp-48h] BYREF
-  __int128 v174; // [rsp+140h] [rbp-38h] BYREF
+  PVOID v156; // [rsp+A8h] [rbp-D0h] BYREF
+  HANDLE v157; // [rsp+B0h] [rbp-C8h] BYREF
+  NTSTATUS v158; // [rsp+B8h] [rbp-C0h]
+  int v159; // [rsp+BCh] [rbp-BCh]
+  int v160; // [rsp+C0h] [rbp-B8h] BYREF
+  int v161; // [rsp+C4h] [rbp-B4h] BYREF
+  int v162; // [rsp+C8h] [rbp-B0h] BYREF
+  int v163[2]; // [rsp+D0h] [rbp-A8h] BYREF
+  PVOID v164; // [rsp+D8h] [rbp-A0h] BYREF
+  int v165; // [rsp+E0h] [rbp-98h] BYREF
+  int v166; // [rsp+E4h] [rbp-94h]
+  __int64 v167; // [rsp+E8h] [rbp-90h]
+  __int64 v168; // [rsp+F0h] [rbp-88h]
+  int v169; // [rsp+F8h] [rbp-80h]
+  int v170; // [rsp+FCh] [rbp-7Ch]
+  __int128 v171; // [rsp+100h] [rbp-78h]
+  __int128 v172; // [rsp+110h] [rbp-68h] BYREF
+  __int128 v173; // [rsp+120h] [rbp-58h]
+  __int128 v174; // [rsp+130h] [rbp-48h] BYREF
+  _SID_AND_ATTRIBUTES Src; // [rsp+140h] [rbp-38h] BYREF
 
   v6 = TokenInformation;
   SecurityAttributesToken = 0;
   Object = 0LL;
-  v153 = 0LL;
+  Flags.Flags = 0;
   LODWORD(Handle) = 0;
-  LODWORD(v163) = 0;
+  LODWORD(v164) = 0;
+  LODWORD(v157) = 0;
+  v163[0] = 0;
   LODWORD(v156) = 0;
-  v162[0] = 0;
-  LODWORD(v155) = 0;
-  v174 = 0LL;
-  v171 = 0LL;
+  Src = 0LL;
+  SessionId = 0;
   v172 = 0LL;
   v173 = 0LL;
+  v174 = 0LL;
   v150[0] = 0;
   DestinationSid = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -255,10 +257,11 @@ NTSTATUS __stdcall NtQueryInformationToken(
   {
     if ( TokenInformationClass == TokenAccessInformation )
     {
+      v162 = 0;
       v161 = 0;
       v160 = 0;
-      v159 = 0;
-      v153 = 0LL;
+      SessionId = 0;
+      Flags.Flags = 0;
       LOBYTE(TokenInformation) = PreviousMode;
       result = SepReferenceTokenByHandle(
                  TokenHandle,
@@ -267,29 +270,29 @@ NTSTATUS __stdcall NtQueryInformationToken(
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result >= 0 )
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         v15 = (unsigned int *)Object;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        Src = (unsigned __int8 *)DestinationSid;
+        v94 = (unsigned __int8 *)DestinationSid;
         v95 = v150[0];
         TokenAccessInformationBufferSize = SepGetTokenAccessInformationBufferSize(
                                              (__int64)v15,
                                              v150[0],
                                              (__int64)DestinationSid,
-                                             &v155,
+                                             &v156,
                                              (int *)&Handle,
-                                             (int *)&v156,
-                                             (int *)&v163,
-                                             v162,
-                                             (unsigned int *)&v161,
+                                             (int *)&v157,
+                                             (int *)&v164,
+                                             v163,
+                                             (unsigned int *)&v162,
+                                             &v161,
                                              &v160,
-                                             &v159,
-                                             (unsigned int *)&v153 + 1,
-                                             (unsigned int *)&v153);
+                                             &SessionId,
+                                             &Flags.Flags);
         *v11 = TokenAccessInformationBufferSize;
         if ( TokenInformationLength >= TokenAccessInformationBufferSize )
         {
@@ -297,18 +300,18 @@ NTSTATUS __stdcall NtQueryInformationToken(
             (__int64)v15,
             (__int64)v6,
             TokenInformationLength,
-            (int)v155,
-            (unsigned int)Handle,
             (int)v156,
-            (unsigned int)v163,
-            v162[0],
+            (unsigned int)Handle,
+            (int)v157,
+            (unsigned int)v164,
+            v163[0],
+            v162,
             v161,
             v160,
-            v159,
-            HIDWORD(v153),
-            v153,
+            SessionId,
+            Flags.Flags,
             v95,
-            Src);
+            v94);
           goto LABEL_39;
         }
         goto LABEL_35;
@@ -327,7 +330,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result < 0 )
           return result;
         *v11 = 56;
@@ -337,7 +340,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
           --v48->KernelApcDisable;
           v15 = (unsigned int *)Object;
           ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v158 = 0;
+          v159 = 0;
           *(_QWORD *)v6 = *((_QWORD *)v15 + 2);
           *((_QWORD *)v6 + 1) = *((_QWORD *)v15 + 3);
           *((_QWORD *)v6 + 2) = *((_QWORD *)v15 + 5);
@@ -345,12 +348,12 @@ NTSTATUS __stdcall NtQueryInformationToken(
           v6[7] = v15[49];
           v6[8] = v15[34];
           v49 = v15[34] - 4 * *(unsigned __int8 *)(*((_QWORD *)v15 + 21) + 1LL) - 8;
-          v158 = v49;
+          v159 = v49;
           v50 = *((_QWORD *)v15 + 23);
           if ( v50 )
           {
             v49 -= *(unsigned __int16 *)(v50 + 2);
-            v158 = v49;
+            v159 = v49;
           }
           v6[9] = v49;
           v6[10] = v15[31] - 1;
@@ -378,7 +381,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
                              *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                              &Object,
                              v150,
-                             (unsigned __int64 *)&DestinationSid);
+                             &DestinationSid);
                   if ( result < 0 )
                     return result;
                   v28 = KeGetCurrentThread();
@@ -391,12 +394,12 @@ NTSTATUS __stdcall NtQueryInformationToken(
                   {
                     RtlCopySidAndAttributesArray(
                       1u,
-                      *((_QWORD *)v15 + 19),
+                      *((PSID_AND_ATTRIBUTES *)v15 + 19),
                       v29,
-                      (__int64)v6,
-                      (char *)v6 + 16,
+                      (PSID_AND_ATTRIBUTES)v6,
+                      v6 + 4,
                       &DestinationSid,
-                      (unsigned int *)&DestinationSid);
+                      (PULONG)&DestinationSid);
                     goto LABEL_39;
                   }
                   goto LABEL_35;
@@ -409,7 +412,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
                              *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                              &Object,
                              v150,
-                             (unsigned __int64 *)&DestinationSid);
+                             &DestinationSid);
                   if ( result < 0 )
                     return result;
                   v23 = KeGetCurrentThread();
@@ -436,12 +439,12 @@ NTSTATUS __stdcall NtQueryInformationToken(
                   *v6 = *((_DWORD *)v18 + 31) - 1;
                   RtlCopySidAndAttributesArray(
                     *((_DWORD *)v18 + 31) - 1,
-                    *((_QWORD *)v18 + 19) + 16LL,
+                    (PSID_AND_ATTRIBUTES)(*((_QWORD *)v18 + 19) + 16LL),
                     v25,
-                    (__int64)(v6 + 2),
+                    (PSID_AND_ATTRIBUTES)(v6 + 2),
                     (char *)v6 + (unsigned int)(16 * *((_DWORD *)v18 + 31) - 32) + 24,
                     &DestinationSid,
-                    (unsigned int *)&DestinationSid);
+                    (PULONG)&DestinationSid);
                   break;
                 case TokenPrivileges:
                   LOBYTE(TokenInformation) = PreviousMode;
@@ -452,7 +455,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
                              *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                              &Object,
                              v150,
-                             (unsigned __int64 *)&DestinationSid);
+                             &DestinationSid);
                   if ( result < 0 )
                     return result;
                   v17 = KeGetCurrentThread();
@@ -486,7 +489,7 @@ LABEL_36:
                              *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                              &Object,
                              v150,
-                             (unsigned __int64 *)&DestinationSid);
+                             &DestinationSid);
                   if ( result < 0 )
                     return result;
                   v14 = KeGetCurrentThread();
@@ -520,22 +523,15 @@ LABEL_41:
             }
             if ( !(unsigned int)Feature_295645497__private_IsEnabledDeviceUsageNoInline() )
               return -1073741821;
-            v156 = 0LL;
+            v157 = 0LL;
             Handle = 0LL;
-            v155 = 0LL;
-            v165 = 0;
-            v169 = 0;
+            v156 = 0LL;
+            v166 = 0;
+            v170 = 0;
             if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
               return -1073741821;
             LOBYTE(v30) = PreviousMode;
-            result = SepReferenceTokenByHandle(
-                       TokenHandle,
-                       8u,
-                       v30,
-                       v31,
-                       &Object,
-                       v150,
-                       (unsigned __int64 *)&DestinationSid);
+            result = SepReferenceTokenByHandle(TokenHandle, 8u, v30, v31, &Object, v150, &DestinationSid);
             if ( result < 0 )
               return result;
             *v11 = 8;
@@ -550,9 +546,9 @@ LABEL_177:
                 ObfDereferenceObjectWithTag(v37, 0x74726853u);
                 return SecurityAttributesToken;
               }
-              LODWORD(v153) = 0;
-              RtlQueryElevationFlags((int *)&v153);
-              if ( (v153 & 0x18) == 0x10 && (unsigned int)SepGetTokenElevationType((__int64)Object) == 2 )
+              Flags.Flags = 0;
+              RtlQueryElevationFlags(&Flags);
+              if ( (Flags.Flags & 0x18) == 0x10 && (unsigned int)SepGetTokenElevationType((__int64)Object) == 2 )
               {
                 v33 = *(_QWORD *)(v32 + 216);
                 if ( *(_QWORD *)(v33 + 24) )
@@ -560,17 +556,17 @@ LABEL_177:
                   inserted = SepReferenceLogonSessionSilo(
                                (_DWORD *)(v33 + 24),
                                *(_QWORD *)(v33 + 168),
-                               (__int64 *)&v156);
+                               (__int64 *)&v157);
                   if ( inserted < 0 )
                     goto LABEL_171;
-                  v164 = 48;
-                  v166 = 0LL;
-                  v168 = PreviousMode == 0 ? 0x200 : 0;
+                  v165 = 48;
                   v167 = 0LL;
-                  v170 = 0LL;
-                  SeQuerySessionIdToken(Object, (PULONG)&v153 + 1);
-                  v35 = v156;
-                  inserted = SeSetSessionIdToken(*((PACCESS_TOKEN *)v156 + 7), HIDWORD(v153));
+                  v169 = PreviousMode == 0 ? 0x200 : 0;
+                  v168 = 0LL;
+                  v171 = 0LL;
+                  SeQuerySessionIdToken(Object, &SessionId);
+                  v35 = v157;
+                  inserted = SeSetSessionIdToken(*((PACCESS_TOKEN *)v157 + 7), SessionId);
                   if ( inserted < 0 )
                   {
                     v36 = v35;
@@ -578,7 +574,7 @@ LABEL_165:
                     SepDeReferenceLogonSessionDirect(v36);
                     goto LABEL_171;
                   }
-                  inserted = SepDuplicateToken(v35[7], (__int64)&v164, 0, 1, 1u, 0, 0, (char **)&v155);
+                  inserted = SepDuplicateToken(v35[7], (int)&v165, 0, 1, 1u, 0, 0, (char **)&v156);
                   SepDeReferenceLogonSessionDirect(v35);
                   if ( inserted < 0 )
                   {
@@ -586,13 +582,13 @@ LABEL_171:
                     ObfDereferenceObjectWithTag(Object, 0x74726853u);
                     return inserted;
                   }
-                  inserted = SepReferenceLogonSession(*((_QWORD *)v155 + 27) + 16LL, (__int64)&DestinationSid);
+                  inserted = SepReferenceLogonSession(*((_QWORD *)v156 + 27) + 16LL, (__int64)&DestinationSid);
                   if ( inserted < 0
-                    || (*((_DWORD *)v155 + 50) |= 0x10000000u,
-                        inserted = ObInsertObjectEx((char *)v155, 0LL, 0xF01FFu, 0, 0, 0LL, &Handle),
+                    || (*((_DWORD *)v156 + 50) |= 0x10000000u,
+                        inserted = ObInsertObjectEx((char *)v156, 0LL, 983551, 0, 0, 0LL, &Handle),
                         inserted < 0) )
                   {
-                    ObfDereferenceObject(v155);
+                    ObfDereferenceObject(v156);
                     goto LABEL_171;
                   }
                   *(_QWORD *)v6 = Handle;
@@ -615,7 +611,7 @@ LABEL_151:
                      *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                      &Object,
                      v150,
-                     (unsigned __int64 *)&DestinationSid);
+                     &DestinationSid);
           if ( result < 0 )
             return result;
           v38 = KeGetCurrentThread();
@@ -648,7 +644,7 @@ LABEL_35:
                      *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                      &Object,
                      v150,
-                     (unsigned __int64 *)&DestinationSid);
+                     &DestinationSid);
           if ( result < 0 )
             return result;
           v45 = KeGetCurrentThread();
@@ -691,7 +687,7 @@ LABEL_35:
                        *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                        &Object,
                        v150,
-                       (unsigned __int64 *)&DestinationSid);
+                       &DestinationSid);
             if ( result < 0 )
               return result;
             v43 = Object;
@@ -720,7 +716,7 @@ LABEL_176:
                      *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                      &Object,
                      v150,
-                     (unsigned __int64 *)&DestinationSid);
+                     &DestinationSid);
           if ( result < 0 )
             return result;
           *v11 = 4;
@@ -741,7 +737,7 @@ LABEL_176:
                      *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                      &Object,
                      v150,
-                     (unsigned __int64 *)&DestinationSid);
+                     &DestinationSid);
           if ( result < 0 )
             return result;
           *v11 = 16;
@@ -767,7 +763,7 @@ LABEL_176:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result < 0 )
           return result;
         *v11 = 8;
@@ -796,14 +792,7 @@ LABEL_176:
               if ( !SeSinglePrivilegeCheck(SeSecurityPrivilege, PreviousMode) )
                 return -1073741727;
               LOBYTE(v55) = PreviousMode;
-              result = SepReferenceTokenByHandle(
-                         TokenHandle,
-                         8u,
-                         v55,
-                         v56,
-                         &Object,
-                         v150,
-                         (unsigned __int64 *)&DestinationSid);
+              result = SepReferenceTokenByHandle(TokenHandle, 8u, v55, v56, &Object, v150, &DestinationSid);
               if ( result >= 0 )
               {
                 *v11 = 31;
@@ -833,7 +822,7 @@ LABEL_176:
                          *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                          &Object,
                          v150,
-                         (unsigned __int64 *)&DestinationSid);
+                         &DestinationSid);
               if ( result >= 0 )
               {
                 *v11 = 4;
@@ -856,17 +845,17 @@ LABEL_176:
                      *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                      &Object,
                      v150,
-                     (unsigned __int64 *)&DestinationSid);
+                     &DestinationSid);
           if ( result < 0 )
             return result;
           v58 = KeGetCurrentThread();
           --v58->KernelApcDisable;
           v59 = Object;
           ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          LODWORD(v155) = SepTokenPrivilegeCount((__int64)v59);
-          v60 = 12 * (_DWORD)v155;
+          LODWORD(v156) = SepTokenPrivilegeCount((__int64)v59);
+          v60 = 12 * (_DWORD)v156;
           v61 = *((_DWORD *)v59 + 31);
-          v62 = 16 * v61;
+          v62 = v61;
           v63 = 16 * v61;
           if ( v61 )
           {
@@ -881,7 +870,7 @@ LABEL_176:
             while ( v65 );
           }
           v66 = *((_DWORD *)v59 + 32);
-          v67 = 16 * v66;
+          v67 = v66;
           v68 = 16 * v66;
           v69 = 16 * v66;
           if ( v66 )
@@ -904,13 +893,13 @@ LABEL_176:
             *((_QWORD *)v6 + 6) = v59[3];
             v6[1] = v63;
             *v6 = *((_DWORD *)v59 + 31);
-            v73 = (__int64)(v6 + 14);
+            v73 = (_SID_AND_ATTRIBUTES *)(v6 + 14);
             *((_QWORD *)v6 + 1) = v6 + 14;
             v6[5] = v68;
             v6[4] = *((_DWORD *)v59 + 32);
             if ( *((_DWORD *)v59 + 32) )
             {
-              v74 = v73 + ((v63 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL);
+              v74 = (_SID_AND_ATTRIBUTES *)((char *)v73 + ((v63 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
               *((_QWORD *)v6 + 3) = v74;
             }
             else
@@ -919,26 +908,26 @@ LABEL_176:
               v74 = 0LL;
             }
             v6[9] = v60;
-            v6[8] = (_DWORD)v155;
-            v75 = v73 + v68 + v63;
+            v6[8] = (_DWORD)v156;
+            v75 = (__int64)v73 + v68 + v63;
             *((_QWORD *)v6 + 5) = v75;
             RtlCopySidAndAttributesArray(
               *((_DWORD *)v59 + 31),
-              v59[19],
-              v63 - v62,
+              (PSID_AND_ATTRIBUTES)v59[19],
+              v63 - v62 * 16,
               v73,
-              (char *)(v73 + v62),
+              &v73[v62],
               &DestinationSid,
-              (unsigned int *)&DestinationSid);
+              (PULONG)&DestinationSid);
             if ( v74 )
               RtlCopySidAndAttributesArray(
                 *((_DWORD *)v59 + 32),
-                v59[20],
-                v68 - v67,
+                (PSID_AND_ATTRIBUTES)v59[20],
+                v68 - v67 * 16,
                 v74,
-                (char *)(v74 + v67),
+                &v74[v67],
                 &DestinationSid,
-                (unsigned int *)&DestinationSid);
+                (PULONG)&DestinationSid);
             SepConvertTokenPrivilegesToLuidAndAttributes(v59, v75);
             goto LABEL_134;
           }
@@ -956,15 +945,15 @@ LABEL_132:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result < 0 )
           return result;
         *v11 = 4;
         v21 = Object;
         if ( TokenInformationLength < 4 )
           goto LABEL_36;
-        SeQuerySessionIdToken(Object, (PULONG)&v153 + 1);
-        *v6 = HIDWORD(v153);
+        SeQuerySessionIdToken(Object, &SessionId);
+        *v6 = SessionId;
         *v11 = 4;
 LABEL_126:
         v22 = Object;
@@ -978,7 +967,7 @@ LABEL_126:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result < 0 )
         return result;
       v76 = KeGetCurrentThread();
@@ -1005,12 +994,12 @@ LABEL_126:
       *v6 = *((_DWORD *)v59 + 32);
       RtlCopySidAndAttributesArray(
         *((_DWORD *)v59 + 32),
-        v59[20],
+        (PSID_AND_ATTRIBUTES)v59[20],
         v78,
-        (__int64)(v6 + 2),
+        (PSID_AND_ATTRIBUTES)(v6 + 2),
         (char *)v6 + (unsigned int)(16 * *((_DWORD *)v59 + 32)) + 8,
         &DestinationSid,
-        (unsigned int *)&DestinationSid);
+        (PULONG)&DestinationSid);
 LABEL_134:
       ExReleaseResourceLite((PERESOURCE)v59[6]);
       KeLeaveCriticalRegion();
@@ -1028,7 +1017,7 @@ LABEL_134:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result < 0 )
         return result;
       *v11 = 4;
@@ -1057,7 +1046,7 @@ LABEL_80:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result < 0 )
           return result;
         *v11 = 1;
@@ -1080,7 +1069,7 @@ LABEL_80:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result >= 0 )
       {
         v84 = KeGetCurrentThread();
@@ -1096,10 +1085,10 @@ LABEL_80:
       return result;
     }
     Handle = 0LL;
-    v156 = 0LL;
-    *(_QWORD *)v162 = 0LL;
-    v165 = 0;
-    v169 = 0;
+    v157 = 0LL;
+    *(_QWORD *)v163 = 0LL;
+    v166 = 0;
+    v170 = 0;
     LOBYTE(TokenInformation) = PreviousMode;
     result = SepReferenceTokenByHandle(
                TokenHandle,
@@ -1108,15 +1097,15 @@ LABEL_80:
                *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                &Object,
                v150,
-               (unsigned __int64 *)&DestinationSid);
+               &DestinationSid);
     if ( result < 0 )
       return result;
     *v11 = 8;
     if ( TokenInformationLength != 8 )
       goto LABEL_151;
-    LODWORD(v155) = 2 - (SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) != 0);
+    LODWORD(v156) = 2 - (SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) != 0);
     if ( (unsigned int)Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline()
-      && (LODWORD(v153) = 0, RtlQueryElevationFlags((int *)&v153), (v153 & 0x18) == 0x10)
+      && (Flags.Flags = 0, RtlQueryElevationFlags(&Flags), (Flags.Flags & 0x18) == 0x10)
       && (v86 = Object, (unsigned int)SepGetTokenElevationType((__int64)Object) == 3)
       && (v87 = v86[27], !*(_QWORD *)(v87 + 16)) )
     {
@@ -1124,16 +1113,16 @@ LABEL_80:
       v88 = SepLogonSystemManagedAdmin(*(_QWORD *)(v87 + 8), (__int64)&DestinationSid);
       if ( v88 < 0 )
         goto LABEL_170;
-      v163 = 0LL;
-      v89 = ObReferenceObjectByHandle(DestinationSid, 8u, (POBJECT_TYPE)SeTokenObjectType, 0, &v163, 0LL);
+      v164 = 0LL;
+      v89 = ObReferenceObjectByHandle(DestinationSid, 8u, (POBJECT_TYPE)SeTokenObjectType, 0, &v164, 0LL);
       ObCloseHandle(DestinationSid, 0);
       if ( v89 < 0 )
       {
         inserted = v89;
         goto LABEL_171;
       }
-      v90 = v163;
-      v91 = SepReferenceLogonSessionSilo((_DWORD *)v163 + 6, *(_QWORD *)(v86[27] + 168LL), (__int64 *)&Handle);
+      v90 = v164;
+      v91 = SepReferenceLogonSessionSilo((_DWORD *)v164 + 6, *(_QWORD *)(v86[27] + 168LL), (__int64 *)&Handle);
       ObfDereferenceObject(v90);
       if ( v91 < 0 )
       {
@@ -1141,9 +1130,9 @@ LABEL_160:
         inserted = v91;
         goto LABEL_171;
       }
-      SeQuerySessionIdToken(Object, (PULONG)&v153 + 1);
+      SeQuerySessionIdToken(Object, &SessionId);
       v92 = Handle;
-      v91 = SeSetSessionIdToken(*((PACCESS_TOKEN *)Handle + 7), HIDWORD(v153));
+      v91 = SeSetSessionIdToken(*((PACCESS_TOKEN *)Handle + 7), SessionId);
       if ( v91 < 0 )
       {
         SepDeReferenceLogonSessionDirect(v92);
@@ -1167,19 +1156,19 @@ LABEL_160:
         goto LABEL_170;
       v92 = Handle;
     }
-    v164 = 48;
-    v166 = 0LL;
-    v168 = PreviousMode == 0 ? 0x200 : 0;
+    v165 = 48;
     v167 = 0LL;
-    v170 = 0LL;
-    inserted = SepDuplicateToken(v92[7], (__int64)&v164, 0, (int)v155, 1u, 0, 0, (char **)v162);
+    v169 = PreviousMode == 0 ? 0x200 : 0;
+    v168 = 0LL;
+    v171 = 0LL;
+    inserted = SepDuplicateToken(v92[7], (int)&v165, 0, (int)v156, 1u, 0, 0, (char **)v163);
     SepDeReferenceLogonSessionDirect(v92);
     if ( inserted < 0 )
       goto LABEL_171;
-    v88 = ObInsertObjectEx(*(char **)v162, 0LL, 0xF01FFu, 0, 0, 0LL, &v156);
+    v88 = ObInsertObjectEx(*(char **)v163, 0LL, 983551, 0, 0, 0LL, &v157);
     if ( v88 >= 0 )
     {
-      *(_QWORD *)v6 = v156;
+      *(_QWORD *)v6 = v157;
       goto LABEL_126;
     }
 LABEL_170:
@@ -1200,14 +1189,14 @@ LABEL_170:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result >= 0 )
         {
           v146 = KeGetCurrentThread();
           --v146->KernelApcDisable;
           v147 = (PERESOURCE *)Object;
           ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          LODWORD(v149) = TokenInformationLength;
+          LODWORD(RemainingSidAreaSize) = TokenInformationLength;
           SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx(
                                       (__int64)v147,
                                       PreviousMode,
@@ -1215,9 +1204,9 @@ LABEL_170:
                                       0,
                                       1,
                                       v6,
-                                      v149,
+                                      (size_t)RemainingSidAreaSize,
                                       (__int64)v11);
-          v157 = SecurityAttributesToken;
+          v158 = SecurityAttributesToken;
           ExReleaseResourceLite(v147[6]);
           KeLeaveCriticalRegion();
           v37 = v147;
@@ -1235,7 +1224,7 @@ LABEL_170:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result < 0 )
           return result;
         v143 = KeGetCurrentThread();
@@ -1280,7 +1269,7 @@ LABEL_170:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result >= 0 )
         {
           v128 = KeGetCurrentThread();
@@ -1318,12 +1307,12 @@ LABEL_170:
             if ( v131 )
               RtlCopySidAndAttributesArray(
                 v131,
-                *(_QWORD *)(*((_QWORD *)v129 + 137) + 8LL),
+                *(PSID_AND_ATTRIBUTES *)(*((_QWORD *)v129 + 137) + 8LL),
                 v132,
-                (__int64)(v6 + 2),
-                (char *)&v6[4 * v131 + 2],
+                (PSID_AND_ATTRIBUTES)(v6 + 2),
+                &v6[4 * v131 + 2],
                 &DestinationSid,
-                (unsigned int *)&DestinationSid);
+                (PULONG)&DestinationSid);
             ExReleaseResourceLite(*((PERESOURCE *)v129 + 6));
             KeLeaveCriticalRegion();
             v22 = v129;
@@ -1351,7 +1340,7 @@ LABEL_170:
                      *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                      &Object,
                      v150,
-                     (unsigned __int64 *)&DestinationSid);
+                     &DestinationSid);
           if ( result >= 0 )
           {
             v121 = KeGetCurrentThread();
@@ -1374,7 +1363,7 @@ LABEL_170:
               if ( v124 )
               {
                 if ( !v150[0] )
-                  v122 = (HANDLE)*((_QWORD *)v15 + 138);
+                  v122 = (PSID)*((_QWORD *)v15 + 138);
                 RtlCopySid(v120 - 8, v124, v122);
               }
               goto LABEL_39;
@@ -1393,7 +1382,7 @@ LABEL_170:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result < 0 )
         return result;
       v125 = KeGetCurrentThread();
@@ -1403,9 +1392,9 @@ LABEL_170:
       v126 = (unsigned int *)v59[97];
       if ( v126 )
       {
-        LODWORD(Size) = 0;
-        AuthzBasepQuerySecurityAttributesToken(v126, 0LL, 0, 0LL, Size, &v153);
-        v127 = v153;
+        LODWORD(SidArea) = 0;
+        AuthzBasepQuerySecurityAttributesToken(v126, 0LL, 0, 0LL, (size_t)SidArea, &Flags);
+        v127 = Flags.Flags;
       }
       else
       {
@@ -1414,9 +1403,15 @@ LABEL_170:
       *v11 = v127;
       if ( TokenInformationLength < v127 )
         goto LABEL_132;
-      LODWORD(Size) = TokenInformationLength;
-      MandatoryPolicyToken = AuthzBasepQuerySecurityAttributesToken((unsigned int *)v59[97], 0LL, 0, v6, Size, &v153);
-      v157 = MandatoryPolicyToken;
+      LODWORD(SidArea) = TokenInformationLength;
+      MandatoryPolicyToken = AuthzBasepQuerySecurityAttributesToken(
+                               (unsigned int *)v59[97],
+                               0LL,
+                               0,
+                               v6,
+                               (size_t)SidArea,
+                               &Flags);
+      v158 = MandatoryPolicyToken;
 LABEL_281:
       ExReleaseResourceLite((PERESOURCE)v59[6]);
       KeLeaveCriticalRegion();
@@ -1434,7 +1429,7 @@ LABEL_269:
                *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                &Object,
                v150,
-               (unsigned __int64 *)&DestinationSid);
+               &DestinationSid);
     if ( result < 0 )
       return result;
     v135 = KeGetCurrentThread();
@@ -1448,24 +1443,24 @@ LABEL_269:
     {
       if ( TokenInformationClass == TokenUserClaimAttributes )
         v138 = v137;
-      AuthzBasepQueryClaimAttributesToken(v138, 0LL, 0, &v153);
-      v139 = v153;
+      AuthzBasepQueryClaimAttributesToken(v138, 0LL, 0, &Flags);
+      v139 = Flags.Flags;
     }
     else
     {
       v139 = 16;
-      *(_QWORD *)&v172 = (char *)&v171 + 8;
-      *((_QWORD *)&v171 + 1) = (char *)&v171 + 8;
-      DWORD2(v172) = 0;
-      *((_QWORD *)&v173 + 1) = &v173;
-      *(_QWORD *)&v173 = &v173;
-      v138 = &v171;
+      *(_QWORD *)&v173 = (char *)&v172 + 8;
+      *((_QWORD *)&v172 + 1) = (char *)&v172 + 8;
+      DWORD2(v173) = 0;
+      *((_QWORD *)&v174 + 1) = &v174;
+      *(_QWORD *)&v174 = &v174;
+      v138 = &v172;
     }
     *v11 = v139;
     if ( TokenInformationLength < v139 )
       goto LABEL_132;
-    MandatoryPolicyToken = AuthzBasepQueryClaimAttributesToken(v138, v6, TokenInformationLength, &v153);
-    v157 = MandatoryPolicyToken;
+    MandatoryPolicyToken = AuthzBasepQueryClaimAttributesToken(v138, v6, TokenInformationLength, &Flags);
+    v158 = MandatoryPolicyToken;
     goto LABEL_281;
   }
   if ( TokenInformationClass == TokenUserClaimAttributes )
@@ -1482,7 +1477,7 @@ LABEL_269:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result >= 0 )
       {
         v102 = KeGetCurrentThread();
@@ -1513,12 +1508,12 @@ LABEL_203:
             *v6 = 1;
             RtlCopySidAndAttributesArray(
               1u,
-              v107 + *((_QWORD *)v15 + 19),
+              (PSID_AND_ATTRIBUTES)(v107 + *((_QWORD *)v15 + 19)),
               4 * *(unsigned __int8 *)(*(_QWORD *)(v107 + *((_QWORD *)v15 + 19)) + 1LL) + 8,
-              (__int64)(v6 + 2),
-              (char *)v6 + 24,
+              (PSID_AND_ATTRIBUTES)(v6 + 2),
+              v6 + 6,
               &DestinationSid,
-              (unsigned int *)&DestinationSid);
+              (PULONG)&DestinationSid);
             goto LABEL_39;
           }
           goto LABEL_35;
@@ -1542,27 +1537,27 @@ LABEL_203:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result >= 0 )
         {
           v99 = KeGetCurrentThread();
           --v99->KernelApcDisable;
           v15 = (unsigned int *)Object;
           ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          SepCopyTokenIntegrity((__int64)v15, (__int64)&v174);
-          v100 = v174;
-          v101 = 4 * *(unsigned __int8 *)(v174 + 1) + 24;
+          SepCopyTokenIntegrity((__int64)v15, (__int64)&Src);
+          Sid = (unsigned __int8 *)Src.Sid;
+          v101 = 4 * *((unsigned __int8 *)Src.Sid + 1) + 24;
           *v11 = v101;
           if ( TokenInformationLength >= v101 )
           {
             RtlCopySidAndAttributesArray(
               1u,
-              (__int64)&v174,
-              4 * *(unsigned __int8 *)(v100 + 1) + 8,
-              (__int64)v6,
-              (char *)v6 + 16,
+              &Src,
+              4 * Sid[1] + 8,
+              (PSID_AND_ATTRIBUTES)v6,
+              v6 + 4,
               &DestinationSid,
-              (unsigned int *)&DestinationSid);
+              (PULONG)&DestinationSid);
             goto LABEL_39;
           }
           goto LABEL_35;
@@ -1579,14 +1574,14 @@ LABEL_203:
                    *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                    &Object,
                    v150,
-                   (unsigned __int64 *)&DestinationSid);
+                   &DestinationSid);
         if ( result < 0 )
           return result;
         *v11 = 4;
         if ( TokenInformationLength < 4 )
           goto LABEL_80;
         MandatoryPolicyToken = SeQueryMandatoryPolicyToken((__int64)Object, v6);
-        v157 = MandatoryPolicyToken;
+        v158 = MandatoryPolicyToken;
         goto LABEL_192;
       }
     }
@@ -1599,7 +1594,7 @@ LABEL_285:
                *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                &Object,
                v150,
-               (unsigned __int64 *)&DestinationSid);
+               &DestinationSid);
     if ( result < 0 )
       return result;
     *v11 = 4;
@@ -1632,14 +1627,14 @@ LABEL_285:
             LOWORD(v140) = *((_WORD *)Object + 101);
             goto LABEL_303;
           }
-          if ( TokenInformationClass == MaxTokenInfoClass )
+          if ( TokenInformationClass == TokenIsSandboxed )
           {
             v15 = (unsigned int *)Object;
             IsSandboxedToken = SepIsSandboxedToken(Object, PreviousMode);
           }
           else
           {
-            v142 = TokenInformationClass == (TokenAppContainerNumber|TokenAuditPolicy);
+            v142 = TokenInformationClass == TokenIsAppSilo;
             v15 = (unsigned int *)Object;
             if ( !v142 )
             {
@@ -1649,7 +1644,7 @@ LABEL_285:
             IsSandboxedToken = SepSidInTokenSidHash(
                                  (__int64)Object + 808,
                                  0LL,
-                                 (unsigned __int8 *)RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink,
+                                 *(unsigned __int8 **)&RtlpBootStatHandleLock.ApcStateFill[40],
                                  0,
                                  1,
                                  0);
@@ -1680,7 +1675,7 @@ LABEL_303:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result < 0 )
         return result;
       v115 = KeGetCurrentThread();
@@ -1707,12 +1702,12 @@ LABEL_303:
       *v6 = *((_DWORD *)v59 + 200);
       RtlCopySidAndAttributesArray(
         *((_DWORD *)v59 + 200),
-        v59[99],
+        (PSID_AND_ATTRIBUTES)v59[99],
         v117,
-        (__int64)(v6 + 2),
+        (PSID_AND_ATTRIBUTES)(v6 + 2),
         (char *)v6 + (unsigned int)(16 * *((_DWORD *)v59 + 200)) + 8,
         &DestinationSid,
-        (unsigned int *)&DestinationSid);
+        (PULONG)&DestinationSid);
       goto LABEL_134;
     case TokenAppContainerSid:
       LOBYTE(TokenInformation) = PreviousMode;
@@ -1724,7 +1719,7 @@ LABEL_303:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result >= 0 )
       {
         v112 = KeGetCurrentThread();
@@ -1757,7 +1752,7 @@ LABEL_303:
                  *(struct _KLOCK_ENTRIES **)&TokenInformationLength,
                  &Object,
                  v150,
-                 (unsigned __int64 *)&DestinationSid);
+                 &DestinationSid);
       if ( result >= 0 )
       {
         *v11 = 4;

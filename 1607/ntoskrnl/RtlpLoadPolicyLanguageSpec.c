@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpLoadPolicyLanguageSpec @ 0x1406E6564
+ * XREFs of RtlpLoadPolicyLanguageSpec @ 0x1406E669C
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x140560338 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x140560878 (RtlpLoadLanguageConfigList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     LdrpQueryValueKey @ 0x140560C34 (LdrpQueryValueKey.c)
- *     RtlpMuiRegGetOrAddString @ 0x1405615A4 (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x1405617C8 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6DD0 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     LdrpQueryValueKey @ 0x140561174 (LdrpQueryValueKey.c)
+ *     RtlpMuiRegGetOrAddString @ 0x140561AE4 (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x140561D08 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6F08 (RtlpMuiRegGetInstalledLanguageIndex.c)
  */
 
 __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYTE *a3, __int16 *a4)
@@ -58,7 +58,7 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
     {
       if ( HIDWORD(NumberOfBytes) == 1
         && (RtlInitUnicodeString(&DestinationString, (PCWSTR)v8),
-            RtlCultureNameToLCID(&DestinationString.Length, (_DWORD *)&NumberOfBytes + 1)) )
+            RtlCultureNameToLCID(&DestinationString, (PLCID)&NumberOfBytes + 1)) )
       {
         v14 = WORD2(NumberOfBytes);
         if ( ((HIDWORD(NumberOfBytes) - 4096) & 0xFFFFFBFF) != 0 )

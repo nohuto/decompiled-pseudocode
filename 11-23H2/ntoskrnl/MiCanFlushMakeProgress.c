@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCanFlushMakeProgress @ 0x140638B9C
+ * XREFs of MiCanFlushMakeProgress @ 0x1406390EC
  * Callers:
- *     MiFlushAllPagesWorker @ 0x140639CE4 (MiFlushAllPagesWorker.c)
- *     MiFlushAllStoreSwapPages @ 0x140639DEC (MiFlushAllStoreSwapPages.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
+ *     MiFlushAllPagesWorker @ 0x14063A234 (MiFlushAllPagesWorker.c)
+ *     MiFlushAllStoreSwapPages @ 0x14063A33C (MiFlushAllStoreSwapPages.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_180030888 @ 0x180030888
  * Callers:
- *     sub_18002EA00 @ 0x18002EA00 (sub_18002EA00.c)
+ *     Callback @ 0x18002EA00 (Callback.c)
  *     sub_18002F4F0 @ 0x18002F4F0 (sub_18002F4F0.c)
  *     sub_180030488 @ 0x180030488 (sub_180030488.c)
  *     sub_1800305A0 @ 0x1800305A0 (sub_1800305A0.c)

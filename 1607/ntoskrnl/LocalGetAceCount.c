@@ -1,9 +1,9 @@
 /*
- * XREFs of LocalGetAceCount @ 0x1404D761C
+ * XREFs of LocalGetAceCount @ 0x1404BAC20
  * Callers:
- *     LocalGetAclForString @ 0x1404D6D44 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1404BA348 (LocalGetAclForString.c)
  * Callees:
- *     FContainCallBackAce @ 0x1404D76E4 (FContainCallBackAce.c)
+ *     FContainCallBackAce @ 0x1404BACE8 (FContainCallBackAce.c)
  */
 
 __int64 __fastcall LocalGetAceCount(wchar_t *a1, wchar_t *a2, unsigned int *a3)

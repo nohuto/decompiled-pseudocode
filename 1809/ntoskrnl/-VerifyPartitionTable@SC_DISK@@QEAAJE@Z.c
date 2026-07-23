@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x140168764
+ * XREFs of ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x140168864
  * Callers:
- *     IoVerifyPartitionTable @ 0x140704E50 (IoVerifyPartitionTable.c)
+ *     IoVerifyPartitionTable @ 0x1407060F0 (IoVerifyPartitionTable.c)
  * Callees:
- *     ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14032A450 (-VerifyPartitionTable@SC_GPT@@QEAAJE@Z.c)
+ *     ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14032A640 (-VerifyPartitionTable@SC_GPT@@QEAAJE@Z.c)
  */
 
 __int64 __fastcall SC_DISK::VerifyPartitionTable(SC_DISK *this, unsigned __int8 a2)

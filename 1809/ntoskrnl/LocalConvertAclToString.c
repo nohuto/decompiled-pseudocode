@@ -1,20 +1,20 @@
 /*
- * XREFs of LocalConvertAclToString @ 0x1408A4F50
+ * XREFs of LocalConvertAclToString @ 0x1408A61B0
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x1408A59C0 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408A6C20 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     _ultow_s @ 0x14019A770 (_ultow_s.c)
- *     wcscpy_s @ 0x14019BCC0 (wcscpy_s.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlNtStatusToDosError @ 0x140623EE0 (RtlNtStatusToDosError.c)
- *     LookupAccessMaskInTable @ 0x1406B0214 (LookupAccessMaskInTable.c)
- *     LookupSidInTable @ 0x1406B03A0 (LookupSidInTable.c)
- *     LookupAceTypeInTable @ 0x1406B04DC (LookupAceTypeInTable.c)
- *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
- *     LocalConvertSidToStringSidW @ 0x1408A5F94 (LocalConvertSidToStringSidW.c)
- *     LocalGetAceCondition @ 0x1408A6038 (LocalGetAceCondition.c)
- *     LookupAceFlagsInTable @ 0x1408A6398 (LookupAceFlagsInTable.c)
- *     SddlpUuidToString @ 0x1408A6DD8 (SddlpUuidToString.c)
+ *     _ultow_s @ 0x14019A8B0 (_ultow_s.c)
+ *     wcscpy_s @ 0x14019BE00 (wcscpy_s.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlNtStatusToDosError @ 0x140624F00 (RtlNtStatusToDosError.c)
+ *     LookupAccessMaskInTable @ 0x1406B14B4 (LookupAccessMaskInTable.c)
+ *     LookupSidInTable @ 0x1406B1640 (LookupSidInTable.c)
+ *     LookupAceTypeInTable @ 0x1406B177C (LookupAceTypeInTable.c)
+ *     SddlpAlloc @ 0x1406B1814 (SddlpAlloc.c)
+ *     LocalConvertSidToStringSidW @ 0x1408A71F4 (LocalConvertSidToStringSidW.c)
+ *     LocalGetAceCondition @ 0x1408A7298 (LocalGetAceCondition.c)
+ *     LookupAceFlagsInTable @ 0x1408A75F8 (LookupAceFlagsInTable.c)
+ *     SddlpUuidToString @ 0x1408A8038 (SddlpUuidToString.c)
  */
 
 __int64 __fastcall LocalConvertAclToString(

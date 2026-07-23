@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpDmaFreeMapRegisters @ 0x140359820
+ * XREFs of HalpDmaFreeMapRegisters @ 0x14035B5C0
  * Callers:
- *     IoFreeMapRegistersV2 @ 0x140359AC0 (IoFreeMapRegistersV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x140359B80 (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalPutScatterGatherListV2 @ 0x14035B580 (HalPutScatterGatherListV2.c)
- *     IoFreeMapRegistersV3 @ 0x14043EBE0 (IoFreeMapRegistersV3.c)
- *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404EFF74 (HalpDmaFreeCrashdumpRegistersInternal.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x140579DA0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalpDmaFreeCrashDumpRegisters @ 0x14057A4E0 (HalpDmaFreeCrashDumpRegisters.c)
+ *     IoFreeMapRegistersV2 @ 0x14035B860 (IoFreeMapRegistersV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14035B920 (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalPutScatterGatherListV2 @ 0x14035D320 (HalPutScatterGatherListV2.c)
+ *     IoFreeMapRegistersV3 @ 0x1404376F0 (IoFreeMapRegistersV3.c)
+ *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404E9554 (HalpDmaFreeCrashdumpRegistersInternal.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x14057C2D0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalpDmaFreeCrashDumpRegisters @ 0x14057CA10 (HalpDmaFreeCrashDumpRegisters.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalpDmaReturnToContiguousPool @ 0x1403595BC (HalpDmaReturnToContiguousPool.c)
- *     HalpDmaReturnToScatterPool @ 0x1403596B4 (HalpDmaReturnToScatterPool.c)
- *     HalpDmaAcquireBufferMappings @ 0x14035C1E8 (HalpDmaAcquireBufferMappings.c)
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalpDmaReturnToContiguousPool @ 0x14035B35C (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaReturnToScatterPool @ 0x14035B454 (HalpDmaReturnToScatterPool.c)
+ *     HalpDmaAcquireBufferMappings @ 0x14035DF88 (HalpDmaAcquireBufferMappings.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, __int64 a2, unsigned int a3)
@@ -102,14 +102,14 @@ __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, __int64 a2, unsigned int 
         if ( (_BYTE)v22 )
         {
           MmUnmapReservedMapping(MemoryDescriptorList[1], 0x446C6148u, MemoryDescriptorList[0]);
-          if ( !stru_140E3E928.WaitBlockFill7[144] )
+          if ( !stru_140E3EAA8.WaitBlockFill7[144] )
           {
             KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)&v21[1]);
             v18 = v21[0];
             if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v21[0] + 24LL), 0xFFFFFFFF) == 1
               && !_InterlockedCompareExchange((volatile signed __int32 *)(v18 + 28), 1, 0) )
             {
-              RtlpInterlockedPushEntrySList((PSLIST_HEADER)&stru_140E3E928.WaitBlockFill11[152], (PSLIST_ENTRY)v18);
+              RtlpInterlockedPushEntrySList((PSLIST_HEADER)&stru_140E3EAA8.WaitBlockFill11[152], (PSLIST_ENTRY)v18);
             }
           }
         }
@@ -165,7 +165,7 @@ LABEL_24:
         KiRaiseIrqlProcessIrqlFlags(v4, a2);
       }
       LockHandle.OldIrql = v13;
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         a2 = _InterlockedExchange64(v12, (__int64)&LockHandle);
         if ( a2 )

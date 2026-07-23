@@ -1,33 +1,33 @@
 /*
- * XREFs of CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0
+ * XREFs of CmpCheckOpenAccessOnKeyBody @ 0x1406DBF40
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
- *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     memset @ 0x140414200 (memset.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     PsGetCurrentThreadProcess @ 0x14023C620 (PsGetCurrentThreadProcess.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14027E130 (PsGetServerSiloServiceSessionId.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     memset @ 0x140414300 (memset.c)
  *     CmpSetKcbAtLayerHeight @ 0x1405D6C8C (CmpSetKcbAtLayerHeight.c)
- *     CmpVEPerformOpenAccessCheck @ 0x1405D94F8 (CmpVEPerformOpenAccessCheck.c)
- *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpCheckKeyOwnerForPca @ 0x14067FCD8 (CmpCheckKeyOwnerForPca.c)
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmpIsKeyStackDeleted @ 0x1406FB540 (CmpIsKeyStackDeleted.c)
- *     CmRmIsKCBVisible @ 0x1406FC5D0 (CmRmIsKCBVisible.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
- *     CmListGetPrevElement @ 0x140768A88 (CmListGetPrevElement.c)
- *     CmpSetAccessStateForBackupRestore @ 0x14076EEF4 (CmpSetAccessStateForBackupRestore.c)
+ *     CmpCheckKeyOwnerForPca @ 0x1405DA778 (CmpCheckKeyOwnerForPca.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1405EA280 (CmpVEPerformOpenAccessCheck.c)
+ *     SeAppendPrivileges @ 0x1405EA7C0 (SeAppendPrivileges.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x14065AB50 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406DC580 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406DEBC0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406DECB0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpIsKeyStackDeleted @ 0x140712920 (CmpIsKeyStackDeleted.c)
+ *     CmRmIsKCBVisible @ 0x1407139B0 (CmRmIsKCBVisible.c)
+ *     CmListGetPrevElement @ 0x140768C48 (CmListGetPrevElement.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14076F0B4 (CmpSetAccessStateForBackupRestore.c)
  */
 
 __int64 __fastcall CmpCheckOpenAccessOnKeyBody(
@@ -45,7 +45,7 @@ __int64 __fastcall CmpCheckOpenAccessOnKeyBody(
   _DWORD *v10; // r14
   __int64 SecurityCacheEntryForKcbStack; // rax
   __int64 v14; // r8
-  __int64 v15; // r9
+  struct _LOOKASIDE_LIST_EX *v15; // r9
   char v16; // bl
   unsigned __int8 v17; // dl
   ACCESS_MASK OriginalDesiredAccess; // ecx
@@ -56,9 +56,9 @@ __int64 __fastcall CmpCheckOpenAccessOnKeyBody(
   __int64 KcbAtLayerHeight; // rax
   __int64 v24; // r14
   ACCESS_MASK v25; // ecx
-  struct _LOOKASIDE_LIST_EX *v26; // r9
+  __int64 v26; // r9
   int v27; // eax
-  __int64 NextElement; // rax
+  char *NextElement; // rax
   int v29; // ecx
   __int64 v30; // rsi
   struct _PRIVILEGE_SET *v31; // r14
@@ -87,7 +87,7 @@ __int64 __fastcall CmpCheckOpenAccessOnKeyBody(
   bool v55; // [rsp+50h] [rbp-61h]
   ACCESS_MASK GrantedAccess; // [rsp+54h] [rbp-5Dh] BYREF
   PPRIVILEGE_SET v57; // [rsp+58h] [rbp-59h] BYREF
-  __int64 v58; // [rsp+60h] [rbp-51h] BYREF
+  _QWORD *v58; // [rsp+60h] [rbp-51h] BYREF
   __int64 v59; // [rsp+68h] [rbp-49h] BYREF
   __int128 v60; // [rsp+70h] [rbp-41h] BYREF
   PPRIVILEGE_SET v61[2]; // [rsp+80h] [rbp-31h]
@@ -130,7 +130,7 @@ __int64 __fastcall CmpCheckOpenAccessOnKeyBody(
           }
           else
           {
-            started = CmpStartKcbStackForTopLayerKcb(&v62, v19);
+            started = CmpStartKcbStackForTopLayerKcb((__int64)&v62, v19, v14, v15);
             if ( started >= 0 )
             {
               v22 = *(_WORD *)(v19 + 66) - 1;
@@ -185,7 +185,7 @@ LABEL_24:
     }
     if ( v16 && !a4->RemainingDesiredAccess || !v25 && (*v10 & 0x1000) != 0 )
       goto LABEL_89;
-    v26 = (struct _LOOKASIDE_LIST_EX *)Object[1];
+    v26 = Object[1];
     GrantedAccess = 0;
     v60 = 0LL;
     WORD1(v60) = -1;
@@ -197,19 +197,19 @@ LABEL_24:
     {
       if ( !v9 )
         goto LABEL_43;
-      NextElement = CmListGetNextElement(&v26[2].L.Depth, &v58, 32LL);
+      NextElement = CmListGetNextElement((_QWORD **)(v26 + 208), &v58, 32);
       if ( !NextElement )
         goto LABEL_43;
       while ( 1 )
       {
-        v29 = *(_DWORD *)(NextElement + 68);
+        v29 = *((_DWORD *)NextElement + 17);
         if ( v29 == 2 || v29 == 11 )
           break;
-        NextElement = CmListGetNextElement(&v26[2].L.Depth, &v58, 32LL);
+        NextElement = CmListGetNextElement((_QWORD **)(v26 + 208), &v58, 32);
         if ( !NextElement )
           goto LABEL_43;
       }
-      if ( !(unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), v9) )
+      if ( !CmEqualTrans(*((_QWORD *)NextElement + 7), v9) )
       {
 LABEL_43:
         v30 = Object[1];
@@ -223,7 +223,7 @@ LABEL_43:
                                                             PagedPool,
                                                             v34,
                                                             0x35364D43u,
-                                                            v26);
+                                                            (PLOOKASIDE_LIST_EX)v26);
           v31 = TransientPoolWithTag;
           if ( !TransientPoolWithTag )
           {
@@ -253,7 +253,7 @@ LABEL_89:
                 if ( (unsigned int)MmGetSessionIdEx((__int64)CurrentThreadProcess) != ServerSiloServiceSessionId
                   && (a4->RemainingDesiredAccess & 0xD0026) != 0 )
                 {
-                  v55 = (unsigned __int8)CmpCheckKeyOwnerForPca(v65, v9) != 0;
+                  v55 = CmpCheckKeyOwnerForPca(v65, v9) != 0;
                 }
               }
             }
@@ -317,8 +317,7 @@ LABEL_95:
           PrevElement = CmListGetPrevElement(v38[10].Privilege, &v59, v14, v26);
           if ( PrevElement )
           {
-            while ( !(unsigned __int8)CmEqualTrans(*(_QWORD *)(PrevElement + 56), v9)
-                 || *(_DWORD *)(PrevElement + 68) != 9 )
+            while ( !CmEqualTrans(*(_QWORD *)(PrevElement + 56), v9) || *(_DWORD *)(PrevElement + 68) != 9 )
             {
               PrevElement = CmListGetPrevElement(v38[10].Privilege, &v59, v42, v43);
               if ( !PrevElement )

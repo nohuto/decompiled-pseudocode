@@ -1,10 +1,10 @@
 /*
- * XREFs of PopGetCurrentHiberActionSource @ 0x14010E88C
+ * XREFs of PopGetCurrentHiberActionSource @ 0x14010EDF0
  * Callers:
- *     PopWnfAudioCallback @ 0x14052925C (PopWnfAudioCallback.c)
+ *     PopWnfAudioCallback @ 0x14052979C (PopWnfAudioCallback.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 PopGetCurrentHiberActionSource()
@@ -14,8 +14,8 @@ __int64 PopGetCurrentHiberActionSource()
 
   v0 = 0;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  if ( byte_1403033C4 )
-    v0 = dword_1403033C8;
+  if ( byte_140303304 )
+    v0 = dword_140303308;
   KeReleaseSpinLock(&PopIdleAoAcDozeS4Lock, v1);
   return v0;
 }

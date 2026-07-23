@@ -1,17 +1,17 @@
 /*
- * XREFs of MmRelocatePfnList @ 0x1408D1ADC
+ * XREFs of MmRelocatePfnList @ 0x1408D1C3C
  * Callers:
- *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x140709F90 (PfpPfnPrioRequest.c)
  * Callees:
- *     MiCreatePteCopyList @ 0x140240B38 (MiCreatePteCopyList.c)
- *     MiUnlockDynamicMemoryShared @ 0x14029BEF0 (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1402A72BC (MiLockDynamicMemoryShared.c)
- *     MiReleasePteCopyList @ 0x1402CAA24 (MiReleasePteCopyList.c)
- *     MiClaimPhysicalRun @ 0x140300A2C (MiClaimPhysicalRun.c)
- *     MiPfnsWorthTrying @ 0x140302130 (MiPfnsWorthTrying.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     MiIdentifyPfnWrapper @ 0x140349190 (MiIdentifyPfnWrapper.c)
- *     MiEmptyKernelStackCache @ 0x1403D02A4 (MiEmptyKernelStackCache.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402138C0 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockDynamicMemoryShared @ 0x1402253FC (MiLockDynamicMemoryShared.c)
+ *     MiReleasePteCopyList @ 0x140249314 (MiReleasePteCopyList.c)
+ *     MiCreatePteCopyList @ 0x1402E5388 (MiCreatePteCopyList.c)
+ *     MiClaimPhysicalRun @ 0x14030B77C (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x14030CE80 (MiPfnsWorthTrying.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     MiIdentifyPfnWrapper @ 0x140353EE0 (MiIdentifyPfnWrapper.c)
+ *     MiEmptyKernelStackCache @ 0x1403D0414 (MiEmptyKernelStackCache.c)
  */
 
 __int64 __fastcall MmRelocatePfnList(unsigned __int64 a1, _QWORD *a2, unsigned int a3, unsigned __int64 a4)
@@ -41,7 +41,7 @@ __int64 __fastcall MmRelocatePfnList(unsigned __int64 a1, _QWORD *a2, unsigned i
     return 3221225712LL;
   if ( (unsigned int)a4 >= MmNumberOfChannels )
     return 3221225713LL;
-  v7 = (a3 << byte_140C4DE8C) | ((_DWORD)a4 << byte_140C4DE8D);
+  v7 = (a3 << byte_140C4DECC) | ((_DWORD)a4 << byte_140C4DECD);
   MiCreatePteCopyList(a1, 0x100uLL, (__int64)&v18, a4);
   CurrentThread = KeGetCurrentThread();
   v9 = &a2[3 * a1];

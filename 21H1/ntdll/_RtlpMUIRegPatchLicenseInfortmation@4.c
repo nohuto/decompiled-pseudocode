@@ -18,63 +18,65 @@ int __thiscall RtlpMUIRegPatchLicenseInfortmation(int this)
   int v3; // edi
   _WORD *v4; // edx
   signed int InstalledLanguageIndexByName; // eax
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-18h] BYREF
-  int v8; // [esp+18h] [ebp-10h]
-  int v9; // [esp+1Ch] [ebp-Ch]
-  int v10; // [esp+20h] [ebp-8h]
-  __int16 v11; // [esp+24h] [ebp-4h] BYREF
+  SIZE_T v7; // [esp-4h] [ebp-2Ch]
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-18h] BYREF
+  int v9; // [esp+18h] [ebp-10h]
+  int v10; // [esp+1Ch] [ebp-Ch]
+  int v11; // [esp+20h] [ebp-8h]
+  __int16 v12; // [esp+24h] [ebp-4h] BYREF
 
-  v11 = 0;
+  v12 = 0;
   if ( !this )
     return -1073741823;
   *(_DWORD *)(this + 24) = 0;
   *(_DWORD *)(this + 28) = 0;
   if ( *(_WORD *)(this + 4) > 0x40u )
     return -1073741823;
-  Heap = (wchar_t *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 170);
+  LODWORD(v7) = 170;
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
   if ( !Heap )
     return -1073741801;
   v3 = *(unsigned __int16 *)(this + 4) - 1;
   if ( v3 >= 0 )
   {
-    v10 = 6 * v3;
+    v11 = 6 * v3;
     do
     {
-      v8 = (unsigned __int64)(1LL << v3) >> 32;
-      v4 = (_WORD *)(*(_DWORD *)(this + 16) + v10);
-      v9 = 1LL << v3;
+      v9 = (unsigned __int64)(1LL << v3) >> 32;
+      v4 = (_WORD *)(*(_DWORD *)(this + 16) + v11);
+      v10 = 1LL << v3;
       if ( !*v4 )
         goto LABEL_13;
       DestinationString.Buffer = Heap;
       *(_DWORD *)&DestinationString.Length = 11141120;
       if ( GetNameFromLangListNode(&DestinationString) < 0 )
         goto LABEL_13;
-      if ( *(_DWORD *)(g_RegInfo + 72) < 0x3E8u )
+      if ( *((_DWORD *)g_RegInfo + 18) < 0x3E8u )
       {
         InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(
                                          g_RegInfo,
                                          DestinationString.Buffer,
                                          1,
-                                         &v11);
+                                         &v12);
       }
       else
       {
         if ( RtlpIsALicensedRegularLanguage(g_RegInfo, DestinationString.Buffer) >= 0 )
           goto LABEL_12;
-        InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage(g_RegInfo, DestinationString.Buffer);
+        InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage((int)g_RegInfo, DestinationString.Buffer);
       }
       if ( InstalledLanguageIndexByName >= 0 )
       {
 LABEL_12:
-        *(_DWORD *)(this + 24) |= v9;
-        *(_DWORD *)(this + 28) |= v8;
+        *(_DWORD *)(this + 24) |= v10;
+        *(_DWORD *)(this + 28) |= v9;
       }
 LABEL_13:
-      v10 -= 6;
+      v11 -= 6;
       --v3;
     }
     while ( v3 >= 0 );
   }
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return 0;
 }

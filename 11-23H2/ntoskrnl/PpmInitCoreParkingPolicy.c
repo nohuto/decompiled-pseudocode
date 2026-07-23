@@ -12,9 +12,9 @@ _BYTE *PpmInitCoreParkingPolicy()
   _BYTE *result; // rax
 
   v0 = 2LL;
-  byte_140C39554 = 100;
-  byte_140C3970C = 100;
-  result = &unk_140C3970E;
+  byte_140C394D4 = 100;
+  byte_140C3968C = 100;
+  result = &unk_140C3968E;
   do
   {
     *(result - 440) = 100;
@@ -25,19 +25,19 @@ _BYTE *PpmInitCoreParkingPolicy()
     --v0;
   }
   while ( v0 );
-  word_140C39548 = 0;
-  word_140C39700 = 0;
-  dword_140C39550 = 1;
-  dword_140C39708 = 1;
-  dword_140C3954C = 1;
-  dword_140C39704 = 1;
-  word_140C39544 = 24902;
-  word_140C396FC = 24902;
-  byte_140C39546 = 20;
-  byte_140C396FE = 20;
-  word_140C3967C = 0;
-  word_140C39834 = 0;
-  byte_140C3967E = 0;
-  byte_140C39836 = 0;
+  word_140C394C8 = 0;
+  word_140C39680 = 0;
+  dword_140C394D0 = 1;
+  dword_140C39688 = 1;
+  dword_140C394CC = 1;
+  dword_140C39684 = 1;
+  word_140C394C4 = 24902;
+  word_140C3967C = 24902;
+  byte_140C394C6 = 20;
+  byte_140C3967E = 20;
+  word_140C395FC = 0;
+  word_140C397B4 = 0;
+  byte_140C395FE = 0;
+  byte_140C397B6 = 0;
   return result;
 }

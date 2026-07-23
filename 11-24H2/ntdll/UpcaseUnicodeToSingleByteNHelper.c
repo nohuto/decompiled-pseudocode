@@ -1,8 +1,8 @@
 /*
- * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x1800D45B0
+ * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x1800CF920
  * Callers:
- *     RtlDnsHostNameToComputerName @ 0x1800D3E90 (RtlDnsHostNameToComputerName.c)
- *     RtlUpcaseUnicodeToOemN @ 0x1800D4410 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlDnsHostNameToComputerName @ 0x1800CF200 (RtlDnsHostNameToComputerName.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x1800CF780 (RtlUpcaseUnicodeToOemN.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall UpcaseUnicodeToSingleByteNHelper(
   __int64 v10; // rbx
   unsigned __int64 v11; // rax
 
-  v7 = qword_1801CD038;
+  v7 = qword_1801CC038;
   v8 = a5;
   if ( a5 >= a2 )
     v8 = a2;

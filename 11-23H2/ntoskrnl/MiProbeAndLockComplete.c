@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProbeAndLockComplete @ 0x140238870
+ * XREFs of MiProbeAndLockComplete @ 0x140238940
  * Callers:
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x1403D53C0 (MmProbeAndLockSelectedPages.c)
- *     MmLockPhysicalPagesByVa @ 0x140A2D6F4 (MmLockPhysicalPagesByVa.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403D55A0 (MmProbeAndLockSelectedPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x140A2D9A4 (MmLockPhysicalPagesByVa.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiAddMdlTracker @ 0x14061C4EC (MiAddMdlTracker.c)
- *     MmUnlockPhysicalPagesByVa @ 0x140A2D800 (MmUnlockPhysicalPagesByVa.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiAddMdlTracker @ 0x14061CA3C (MiAddMdlTracker.c)
+ *     MmUnlockPhysicalPagesByVa @ 0x140A2DAB0 (MmUnlockPhysicalPagesByVa.c)
  */
 
 __int64 __fastcall MiProbeAndLockComplete(__int64 a1, int a2)

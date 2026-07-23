@@ -1,24 +1,23 @@
 /*
- * XREFs of KePulseEvent @ 0x1404674D0
+ * XREFs of KePulseEvent @ 0x14045EF70
  * Callers:
- *     MiPulseLowAvailableEvent @ 0x1402CF65C (MiPulseLowAvailableEvent.c)
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
- *     MmResourcesAvailable @ 0x14042DCF0 (MmResourcesAvailable.c)
- *     MiPulseCommitSignal @ 0x1404D4F60 (MiPulseCommitSignal.c)
- *     KeBalanceSetManager @ 0x1405C45C0 (KeBalanceSetManager.c)
- *     DifKePulseEventWrapper @ 0x14062E970 (DifKePulseEventWrapper.c)
- *     MiNotifyMemoryChange @ 0x1407E9CFC (MiNotifyMemoryChange.c)
- *     NtPulseEvent @ 0x1409E7FB0 (NtPulseEvent.c)
+ *     MiPulseLowAvailableEvent @ 0x1402F2C10 (MiPulseLowAvailableEvent.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
+ *     MmResourcesAvailable @ 0x14041FA20 (MmResourcesAvailable.c)
+ *     MiPulseCommitSignal @ 0x1404CE238 (MiPulseCommitSignal.c)
+ *     KeBalanceSetManager @ 0x1405C1BE0 (KeBalanceSetManager.c)
+ *     DifKePulseEventWrapper @ 0x14062CF30 (DifKePulseEventWrapper.c)
+ *     MiNotifyMemoryChange @ 0x1407EA2CC (MiNotifyMemoryChange.c)
+ *     NtPulseEvent @ 0x1409E2F70 (NtPulseEvent.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
 {
   char v4; // di
@@ -46,7 +45,7 @@ LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
   {
     LOBYTE(Increment) = 2;
     LOBYTE(Event) = CurrentIrql;
-    KiRaiseIrqlProcessIrqlFlags(Event, *(_QWORD *)&Increment);
+    KiRaiseIrqlProcessIrqlFlags(Event, Increment);
   }
   CurrentPrcb = KeGetCurrentPrcb();
   KiAcquireKobjectLockSafe(&v5->Header.Lock);

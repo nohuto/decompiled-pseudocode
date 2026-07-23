@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateSectionForDriver @ 0x1406822A0
+ * XREFs of MiCreateSectionForDriver @ 0x140683460
  * Callers:
- *     MiObtainSectionForDriver @ 0x1406818F0 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x140682AB0 (MiObtainSectionForDriver.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MiCreateSystemSection @ 0x1400F591C (MiCreateSystemSection.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     MiLogFailedDriverLoad @ 0x14084E968 (MiLogFailedDriverLoad.c)
- *     KdPullRemoteFile @ 0x14091967C (KdPullRemoteFile.c)
+ *     MiCreateSystemSection @ 0x1400F599C (MiCreateSystemSection.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     MiLogFailedDriverLoad @ 0x14084FBC8 (MiLogFailedDriverLoad.c)
+ *     KdPullRemoteFile @ 0x14091A67C (KdPullRemoteFile.c)
  */
 
 NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, char a3, _QWORD *a4)
@@ -23,7 +23,7 @@ NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, cha
 
   *a4 = 0LL;
   FileHandle = 0LL;
-  byte_140438ECC = 1;
+  byte_140439F8C = 1;
   if ( a2 )
     goto LABEL_4;
   if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent && (int)KdPullRemoteFile() >= 0 )

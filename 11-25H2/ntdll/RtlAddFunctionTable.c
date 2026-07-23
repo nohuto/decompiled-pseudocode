@@ -16,185 +16,193 @@
 
 BOOLEAN __cdecl RtlAddFunctionTable(PRUNTIME_FUNCTION FunctionTable, ULONG EntryCount, ULONG64 BaseAddress)
 {
-  int v6; // ebx
-  char *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  __int64 v9; // rbx
+  int v6; // eax
+  int v7; // ebx
+  int v8; // eax
+  PVOID ProcessHeap; // rcx
+  LARGE_INTEGER *Heap; // rax
+  __int64 v11; // rbx
   unsigned __int64 BeginAddress; // rax
-  PRUNTIME_FUNCTION v11; // r9
-  ULONG v12; // r11d
+  PRUNTIME_FUNCTION v13; // r9
+  ULONG v14; // r11d
   unsigned __int64 EndAddress; // rcx
-  int v14; // edx
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // r10
-  unsigned __int64 v17; // rcx
-  unsigned __int64 v18; // r8
-  _QWORD *v19; // rdx
-  bool v20; // r8
-  _QWORD *v21; // rax
-  _QWORD *v22; // rdx
-  bool v23; // r8
-  _QWORD *v24; // rax
-  __int64 *v25; // rax
-  int v26; // ecx
-  int v28; // r8d
+  int v16; // edx
+  unsigned __int64 v17; // r8
+  unsigned __int64 v18; // r10
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // r8
+  _QWORD *v21; // rdx
+  bool v22; // r8
+  _QWORD *v23; // rax
+  _QWORD *v24; // rdx
+  bool v25; // r8
+  _QWORD *v26; // rax
+  __int64 *v27; // rax
+  int v28; // eax
+  int v29; // ecx
+  int v31; // eax
+  int v32; // r8d
 
-  if ( (int)LdrEnsureMrdataHeapExists() < 0 )
+  if ( LdrEnsureMrdataHeapExists() < 0 )
     return 0;
-  if ( LdrControlFlowGuardEnforced() )
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( v6 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-    v6 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v7 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      if ( v6 == -1 )
+      if ( v7 == -1 )
         goto LABEL_41;
     }
     else
     {
-      RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 0);
+      RtlProtectHeap(LdrpMrdataHeap, 0);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v6 + 1;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v7 + 1;
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  if ( LdrControlFlowGuardEnforced() )
-    ProcessHeap = (char *)LdrpMrdataHeap;
+  LOBYTE(v8) = LdrControlFlowGuardEnforced();
+  if ( v8 )
+    ProcessHeap = LdrpMrdataHeap;
   else
-    ProcessHeap = (char *)NtCurrentPeb()->ProcessHeap;
-  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x88uLL);
-  v9 = Heap;
+    ProcessHeap = NtCurrentPeb()->ProcessHeap;
+  Heap = (LARGE_INTEGER *)RtlAllocateHeap(ProcessHeap, 0, 0x88uLL);
+  v11 = (__int64)Heap;
   if ( !Heap )
   {
-    if ( LdrControlFlowGuardEnforced() )
+    LOBYTE(v31) = LdrControlFlowGuardEnforced();
+    if ( v31 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-      v28 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+      v32 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
         goto LABEL_41;
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v28 - 1;
-      if ( v28 == 1 )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v32 - 1;
+      if ( v32 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
     return 0;
   }
-  *(_QWORD *)(Heap + 16) = FunctionTable;
-  *(_DWORD *)(Heap + 84) = EntryCount;
-  ZwQuerySystemTime(Heap + 24);
+  Heap[2].QuadPart = (__int64)FunctionTable;
+  Heap[10].HighPart = EntryCount;
+  ZwQuerySystemTime(Heap + 3);
   BeginAddress = FunctionTable->BeginAddress;
-  v11 = FunctionTable + 1;
-  *(_QWORD *)(v9 + 32) = BeginAddress;
-  v12 = 1;
+  v13 = FunctionTable + 1;
+  *(_QWORD *)(v11 + 32) = BeginAddress;
+  v14 = 1;
   EndAddress = FunctionTable->EndAddress;
-  *(_DWORD *)(v9 + 80) = 0;
-  *(_QWORD *)(v9 + 40) = EndAddress;
-  *(_QWORD *)(v9 + 48) = BaseAddress;
+  *(_DWORD *)(v11 + 80) = 0;
+  *(_QWORD *)(v11 + 40) = EndAddress;
+  *(_QWORD *)(v11 + 48) = BaseAddress;
   if ( EntryCount > 1 )
   {
-    v14 = 0;
-    v15 = (unsigned int)BeginAddress;
-    v16 = (unsigned int)EndAddress;
+    v16 = 0;
+    v17 = (unsigned int)BeginAddress;
+    v18 = (unsigned int)EndAddress;
     do
     {
-      if ( !v14 && v11->BeginAddress < FunctionTable[v12 - 1].BeginAddress )
+      if ( !v16 && v13->BeginAddress < FunctionTable[v14 - 1].BeginAddress )
       {
-        *(_DWORD *)(v9 + 80) = 1;
-        v14 = 1;
+        *(_DWORD *)(v11 + 80) = 1;
+        v16 = 1;
       }
-      v17 = v11->BeginAddress;
-      BeginAddress = v15;
-      if ( v17 < v15 )
+      v19 = v13->BeginAddress;
+      BeginAddress = v17;
+      if ( v19 < v17 )
       {
-        *(_QWORD *)(v9 + 32) = v17;
-        BeginAddress = (unsigned int)v17;
+        *(_QWORD *)(v11 + 32) = v19;
+        BeginAddress = (unsigned int)v19;
       }
-      v18 = v11->EndAddress;
-      EndAddress = v16;
-      if ( v18 > v16 )
+      v20 = v13->EndAddress;
+      EndAddress = v18;
+      if ( v20 > v18 )
       {
-        *(_QWORD *)(v9 + 40) = v18;
-        EndAddress = (unsigned int)v18;
+        *(_QWORD *)(v11 + 40) = v20;
+        EndAddress = (unsigned int)v20;
       }
-      ++v11;
-      ++v12;
-      v15 = BeginAddress;
-      v16 = EndAddress;
+      ++v13;
+      ++v14;
+      v17 = BeginAddress;
+      v18 = EndAddress;
     }
-    while ( v12 < EntryCount );
+    while ( v14 < EntryCount );
   }
-  *(_QWORD *)(v9 + 32) = BaseAddress + BeginAddress;
-  *(_QWORD *)(v9 + 40) = EndAddress + BaseAddress;
+  *(_QWORD *)(v11 + 32) = BaseAddress + BeginAddress;
+  *(_QWORD *)(v11 + 40) = EndAddress + BaseAddress;
   LdrProtectMrdata(0);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpDynamicFunctionTableLock);
-  v19 = (_QWORD *)RtlpDynamicFunctionTableTreeMin;
-  v20 = 0;
+  RtlAcquireSRWLockExclusive(&RtlpDynamicFunctionTableLock);
+  v21 = (_QWORD *)RtlpDynamicFunctionTableTreeMin;
+  v22 = 0;
   if ( !RtlpDynamicFunctionTableTreeMin )
     goto LABEL_23;
-  while ( *(_QWORD *)(v9 + 32) < *(v19 - 7) )
+  while ( *(_QWORD *)(v11 + 32) < *(v21 - 7) )
   {
-    v21 = (_QWORD *)*v19;
-    if ( !*v19 )
+    v23 = (_QWORD *)*v21;
+    if ( !*v21 )
       goto LABEL_23;
 LABEL_33:
-    v19 = v21;
+    v21 = v23;
   }
-  v21 = (_QWORD *)v19[1];
-  if ( v21 )
+  v23 = (_QWORD *)v21[1];
+  if ( v23 )
     goto LABEL_33;
-  v20 = 1;
+  v22 = 1;
 LABEL_23:
   RtlAvlInsertNodeEx(
     (unsigned __int64 *)&RtlpDynamicFunctionTableTreeMin,
-    (unsigned __int64)v19,
-    v20,
-    (_QWORD *)(v9 + 88));
-  v22 = (_QWORD *)RtlpDynamicFunctionTableTreeMax;
-  v23 = 0;
+    (unsigned __int64)v21,
+    v22,
+    (_QWORD *)(v11 + 88));
+  v24 = (_QWORD *)RtlpDynamicFunctionTableTreeMax;
+  v25 = 0;
   if ( !RtlpDynamicFunctionTableTreeMax )
     goto LABEL_29;
   while ( 2 )
   {
-    if ( *(_QWORD *)(v9 + 40) < *(v22 - 10) )
+    if ( *(_QWORD *)(v11 + 40) < *(v24 - 10) )
     {
-      v24 = (_QWORD *)*v22;
-      if ( !*v22 )
+      v26 = (_QWORD *)*v24;
+      if ( !*v24 )
         goto LABEL_29;
       goto LABEL_26;
     }
-    v24 = (_QWORD *)v22[1];
-    if ( v24 )
+    v26 = (_QWORD *)v24[1];
+    if ( v26 )
     {
 LABEL_26:
-      v22 = v24;
+      v24 = v26;
       continue;
     }
     break;
   }
-  v23 = 1;
+  v25 = 1;
 LABEL_29:
   RtlAvlInsertNodeEx(
     (unsigned __int64 *)&RtlpDynamicFunctionTableTreeMax,
-    (unsigned __int64)v22,
-    v23,
-    (_QWORD *)(v9 + 112));
-  v25 = (__int64 *)qword_1801E9278;
-  if ( *(__int64 **)qword_1801E9278 != &RtlpDynamicFunctionTable )
+    (unsigned __int64)v24,
+    v25,
+    (_QWORD *)(v11 + 112));
+  v27 = (__int64 *)qword_1801E9278;
+  if ( *(PVOID **)qword_1801E9278 != &RtlpDynamicFunctionTable )
     __fastfail(3u);
-  *(_QWORD *)v9 = &RtlpDynamicFunctionTable;
-  *(_QWORD *)(v9 + 8) = v25;
-  *v25 = v9;
-  qword_1801E9278 = v9;
+  *(_QWORD *)v11 = &RtlpDynamicFunctionTable;
+  *(_QWORD *)(v11 + 8) = v27;
+  *v27 = v11;
+  qword_1801E9278 = v11;
   RtlReleaseSRWLockExclusive(&RtlpDynamicFunctionTableLock);
   LdrProtectMrdata(1);
-  if ( LdrControlFlowGuardEnforced() )
+  LOBYTE(v28) = LdrControlFlowGuardEnforced();
+  if ( v28 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-    v26 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v29 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v26 - 1;
-      if ( v26 == 1 )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v29 - 1;
+      if ( v29 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       return 1;
     }

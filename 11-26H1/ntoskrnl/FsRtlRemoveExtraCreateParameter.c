@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlRemoveExtraCreateParameter @ 0x140A34C60
+ * XREFs of FsRtlRemoveExtraCreateParameter @ 0x140A4FBC0
  * Callers:
- *     FsRtlpAttachOplockKey @ 0x1402C2000 (FsRtlpAttachOplockKey.c)
- *     IopSymlinkRemoveECP @ 0x1404728E0 (IopSymlinkRemoveECP.c)
+ *     FsRtlpAttachOplockKey @ 0x14030CCC0 (FsRtlpAttachOplockKey.c)
+ *     IopSymlinkRemoveECP @ 0x14046C060 (IopSymlinkRemoveECP.c)
  * Callees:
  *     <none>
  */

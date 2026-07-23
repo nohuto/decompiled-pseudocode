@@ -77,7 +77,7 @@ __int64 __fastcall EtwpWriteUserEvent(
   ULONG_PTR v35; // r8
   __int64 v36; // rcx
   __int64 v37; // rcx
-  union _SLIST_HEADER *v38; // rcx
+  _SLIST_HEADER *v38; // rcx
   unsigned int v40; // ebx
   __int64 v41; // rax
   __int64 v42; // rbx
@@ -525,7 +525,7 @@ LABEL_61:
             v118 = -2147483643;
             v115 |= 1 << i;
             if ( ListEntry )
-              EtwpDereferenceStackEntry(ListEntry, *(union _SLIST_HEADER **)(v44 + 1056));
+              EtwpDereferenceStackEntry(ListEntry, *(_SLIST_HEADER **)(v44 + 1056));
             v33 = v131;
             ExReleaseRundownProtectionCacheAwareEx(
               *(PEX_RUNDOWN_REF_CACHE_AWARE *)((char *)v120 + *(_QWORD *)(v131 + 448)),
@@ -562,7 +562,7 @@ LABEL_61:
             v118 = -2147483643;
             v115 |= 1 << i;
             if ( ListEntry )
-              EtwpDereferenceStackEntry(ListEntry, *(union _SLIST_HEADER **)(v44 + 1056));
+              EtwpDereferenceStackEntry(ListEntry, *(_SLIST_HEADER **)(v44 + 1056));
             v33 = v131;
             ExReleaseRundownProtectionCacheAwareEx(
               *(PEX_RUNDOWN_REF_CACHE_AWARE *)((char *)v120 + *(_QWORD *)(v131 + 448)),
@@ -589,7 +589,7 @@ LABEL_61:
       v53 = EtwpReserveTraceBuffer((unsigned int *)v44, v46, (unsigned __int64 *)&v162, &v136, 0);
       v149 = v53;
       if ( ListEntry )
-        EtwpDereferenceStackEntry(ListEntry, *(union _SLIST_HEADER **)(v126 + 1056));
+        EtwpDereferenceStackEntry(ListEntry, *(_SLIST_HEADER **)(v126 + 1056));
       if ( v53 )
       {
         *(_QWORD *)v48 = v126;
@@ -1035,7 +1035,7 @@ LABEL_22:
         _mm_lfence();
         v37 = *(_QWORD *)(v24 + 8 * v36 + 16546880);
       }
-      v38 = (union _SLIST_HEADER *)(*(_QWORD *)(v37 + 35752) + 384LL);
+      v38 = (_SLIST_HEADER *)(*(_QWORD *)(v37 + 35752) + 384LL);
     }
     RtlpInterlockedPushEntrySList(v38, (PSLIST_ENTRY)v21);
   }

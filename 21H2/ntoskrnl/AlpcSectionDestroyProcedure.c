@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcSectionDestroyProcedure @ 0x1406AD4B0
+ * XREFs of AlpcSectionDestroyProcedure @ 0x14060BBA0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     AlpcpRemoveResourcePort @ 0x14061E510 (AlpcpRemoveResourcePort.c)
- *     AlpcDeleteBlobByHandle @ 0x14061FB7C (AlpcDeleteBlobByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     AlpcpRemoveResourcePort @ 0x140688180 (AlpcpRemoveResourcePort.c)
+ *     AlpcDeleteBlobByHandle @ 0x1406897EC (AlpcDeleteBlobByHandle.c)
  */
 
 __int64 __fastcall AlpcSectionDestroyProcedure(__int64 a1)
 {
-  _QWORD *v2; // rcx
+  __int64 v2; // rcx
   __int64 v3; // rcx
 
-  v2 = *(_QWORD **)(a1 + 16);
+  v2 = *(_QWORD *)(a1 + 16);
   if ( v2 )
   {
     AlpcDeleteBlobByHandle(v2, *(_QWORD *)(a1 + 24), a1);

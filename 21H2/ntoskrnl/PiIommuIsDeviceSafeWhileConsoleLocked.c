@@ -1,7 +1,7 @@
 /*
- * XREFs of PiIommuIsDeviceSafeWhileConsoleLocked @ 0x1408B4440
+ * XREFs of PiIommuIsDeviceSafeWhileConsoleLocked @ 0x1408B45A0
  * Callers:
- *     PipDmgEnforceEnumerationPolicy @ 0x1408B13E4 (PipDmgEnforceEnumerationPolicy.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x1408B1544 (PipDmgEnforceEnumerationPolicy.c)
  * Callees:
  *     <none>
  */

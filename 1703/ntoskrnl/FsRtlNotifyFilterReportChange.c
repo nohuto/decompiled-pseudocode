@@ -87,11 +87,11 @@ void __stdcall FsRtlNotifyFilterReportChange(
   unsigned __int16 v63; // [rsp+50h] [rbp-E8h]
   int v64; // [rsp+54h] [rbp-E4h]
   _QWORD *v65; // [rsp+60h] [rbp-D8h]
-  STRING OemString; // [rsp+78h] [rbp-C0h] BYREF
+  OEM_STRING OemString; // [rsp+78h] [rbp-C0h] BYREF
   int v68; // [rsp+88h] [rbp-B0h]
   unsigned int v69; // [rsp+8Ch] [rbp-ACh]
   int v70; // [rsp+90h] [rbp-A8h]
-  STRING v71; // [rsp+98h] [rbp-A0h] BYREF
+  OEM_STRING v71; // [rsp+98h] [rbp-A0h] BYREF
   __int64 v72; // [rsp+A8h] [rbp-90h]
   char *v73; // [rsp+B0h] [rbp-88h]
   unsigned int v74; // [rsp+B8h] [rbp-80h]

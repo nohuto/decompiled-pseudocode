@@ -1,10 +1,10 @@
 /*
- * XREFs of IopGetThreadActiveConsoleId @ 0x14081CF64
+ * XREFs of IopGetThreadActiveConsoleId @ 0x14081E164
  * Callers:
- *     IoRaiseHardError @ 0x140283250 (IoRaiseHardError.c)
+ *     IoRaiseHardError @ 0x140283440 (IoRaiseHardError.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
- *     PsGetServerSiloActiveConsoleId @ 0x1402E95C4 (PsGetServerSiloActiveConsoleId.c)
+ *     PsGetThreadServerSilo @ 0x14007E5D0 (PsGetThreadServerSilo.c)
+ *     PsGetServerSiloActiveConsoleId @ 0x1402E97B4 (PsGetServerSiloActiveConsoleId.c)
  */
 
 __int64 __fastcall IopGetThreadActiveConsoleId(__int64 a1)

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiGetSharedProtos @ 0x140372BD8
+ * XREFs of MiGetSharedProtos @ 0x140374988
  * Callers:
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiIdentifyProtoPage @ 0x1402F1EE0 (MiIdentifyProtoPage.c)
- *     MiMakePerSessionProtoPte @ 0x14030B710 (MiMakePerSessionProtoPte.c)
- *     MiAddMappedPtes @ 0x14033FE10 (MiAddMappedPtes.c)
- *     MiResolveMappedFileFaultInitialize @ 0x14036F9B8 (MiResolveMappedFileFaultInitialize.c)
- *     MiCompleteRestrictedImageFault @ 0x1403744A0 (MiCompleteRestrictedImageFault.c)
- *     MiComputeImagePteIndex @ 0x14038CEF4 (MiComputeImagePteIndex.c)
- *     MiGetImageProtoProtection @ 0x14043C1D0 (MiGetImageProtoProtection.c)
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfAllocateMdls @ 0x140A526F0 (MiPfAllocateMdls.c)
- *     MiGetImageSubsectionBounds @ 0x140AB8908 (MiGetImageSubsectionBounds.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiIdentifyProtoPage @ 0x1402D3F60 (MiIdentifyProtoPage.c)
+ *     MiMakePerSessionProtoPte @ 0x1402ED790 (MiMakePerSessionProtoPte.c)
+ *     MiAddMappedPtes @ 0x140341E90 (MiAddMappedPtes.c)
+ *     MiResolveMappedFileFaultInitialize @ 0x140371768 (MiResolveMappedFileFaultInitialize.c)
+ *     MiCompleteRestrictedImageFault @ 0x140376250 (MiCompleteRestrictedImageFault.c)
+ *     MiComputeImagePteIndex @ 0x14038ECA0 (MiComputeImagePteIndex.c)
+ *     MiGetImageProtoProtection @ 0x14042EA80 (MiGetImageProtoProtection.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfAllocateMdls @ 0x140A5B9E0 (MiPfAllocateMdls.c)
+ *     MiGetImageSubsectionBounds @ 0x140AB9F48 (MiGetImageSubsectionBounds.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSharedProtosAtDpc @ 0x14046A430 (MiGetSharedProtosAtDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSharedProtosAtDpc @ 0x140463BB0 (MiGetSharedProtosAtDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)

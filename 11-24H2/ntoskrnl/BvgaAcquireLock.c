@@ -1,16 +1,16 @@
 /*
- * XREFs of BvgaAcquireLock @ 0x1405904A0
+ * XREFs of BvgaAcquireLock @ 0x14058D4C0
  * Callers:
- *     BvgaBitBlt @ 0x140590510 (BvgaBitBlt.c)
- *     BvgaDisplayString @ 0x140590590 (BvgaDisplayString.c)
- *     BvgaEnableBootDriver @ 0x140590600 (BvgaEnableBootDriver.c)
- *     BvgaNotifyDisplayOwnershipLost @ 0x140590720 (BvgaNotifyDisplayOwnershipLost.c)
- *     BvgaSolidColorFill @ 0x140590970 (BvgaSolidColorFill.c)
- *     BvgaUpdateProgressBar @ 0x140590A30 (BvgaUpdateProgressBar.c)
+ *     BvgaBitBlt @ 0x14058D530 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x14058D5B0 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x14058D620 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14058D740 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x14058D990 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x14058DA50 (BvgaUpdateProgressBar.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeTestSpinLock @ 0x140418A40 (KeTestSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeTestSpinLock @ 0x1404087F0 (KeTestSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void BvgaAcquireLock()

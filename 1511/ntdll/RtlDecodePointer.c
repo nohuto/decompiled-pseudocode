@@ -12,13 +12,13 @@
  *     NtQueryInformationProcess @ 0x1800A53E0 (NtQueryInformationProcess.c)
  */
 
-__int64 __fastcall RtlDecodePointer(__int64 a1)
+PVOID __cdecl RtlDecodePointer(PVOID Ptr)
 {
-  NTSTATUS v2; // eax
+  int v2; // eax
   unsigned int ProcessInformation; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+  v2 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
   if ( v2 < 0 )
-    RtlRaiseStatus((unsigned int)v2);
-  return __ROR8__(a1, 64 - (ProcessInformation & 0x3F)) ^ ProcessInformation;
+    RtlRaiseStatus(v2);
+  return (PVOID)(__ROR8__(Ptr, 64 - (ProcessInformation & 0x3F)) ^ ProcessInformation);
 }

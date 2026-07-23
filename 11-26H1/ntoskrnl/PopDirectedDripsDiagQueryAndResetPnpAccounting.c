@@ -1,63 +1,63 @@
 /*
- * XREFs of PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x1404E37D0
+ * XREFs of PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x1404DCD70
  * Callers:
- *     PopDirectedDripsDiagNotifySessionStop @ 0x140B08A3C (PopDirectedDripsDiagNotifySessionStop.c)
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x140B0A9B8 (PopDirectedDripsDiagNotifySessionStop.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1404D03DC (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1404C9E0C (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall PopDirectedDripsDiagQueryAndResetPnpAccounting(
         __int64 a1,
         struct _LIST_ENTRY **a2,
         __int64 a3,
-        _LIST_ENTRY *a4)
+        __int64 a4)
 {
   KIRQL v7; // al
   __int64 v8; // rcx
-  unsigned __int8 v9; // di
+  char WaitBlockList; // di
   KIRQL v10; // si
   __int128 v11; // xmm0
-  _LIST_ENTRY *v12; // rbx
+  _OWORD *v12; // rbx
   __int64 v13; // rcx
 
-  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink);
-  v9 = PopDirectedDripsUmLock.WaitBlockFill5[40];
+  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime);
+  WaitBlockList = (char)PopDirectedDripsDiagLock.WaitBlockList;
   v10 = v7;
-  if ( PopDirectedDripsUmLock.WaitBlockFill5[40] )
+  if ( LOBYTE(PopDirectedDripsDiagLock.WaitBlockList) )
     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(v8, 0);
-  v11 = *(_OWORD *)&PopDirectedDripsUmLock.SavedApcStateFill[32];
-  *a2 = PopDirectedDripsUmLock.WaitBlock[1].WaitListEntry.Flink;
+  v11 = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[160];
+  *a2 = PopDirectedDripsDiagLock.WaitListEntry.Flink;
   *(_OWORD *)a3 = v11;
-  *(_OWORD *)(a3 + 16) = *(_OWORD *)&PopDirectedDripsUmLock.SchedulerApc.Type;
-  *(_OWORD *)(a3 + 32) = *(_OWORD *)&PopDirectedDripsUmLock.SchedulerApcFill5[16];
-  *(_OWORD *)(a3 + 48) = *(_OWORD *)&PopDirectedDripsUmLock.SchedulerApcFill5[32];
-  *(_OWORD *)(a3 + 64) = *(_OWORD *)&PopDirectedDripsUmLock.SchedulerApcFill5[48];
-  *(_OWORD *)(a3 + 80) = *(_OWORD *)&PopDirectedDripsUmLock.SchedulerApcFill5[64];
-  *(_OWORD *)(a3 + 96) = *(_OWORD *)&PopDirectedDripsUmLock.SchedulerApcFill5[80];
-  *(_QWORD *)(a3 + 112) = PopDirectedDripsUmLock.SuspendEvent.Header.WaitListHead.Flink;
-  *a4 = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.WaitBlockFill11[72];
-  a4[1] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.WaitBlockFill11[88];
-  a4[2] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.WaitBlockFill11[104];
-  a4[3] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.WaitBlockFill11[120];
-  a4[4] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.WaitBlockFill11[136];
-  a4[5] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.WaitBlockFill11[152];
-  a4[6] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.WaitBlockFill11[168];
-  v12 = a4 + 8;
-  v12[-1] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.LastXStateSaveDebugInfo;
-  *v12 = PopDirectedDripsUmLock.QueueListEntry;
-  v12[1] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.NextProcessor;
-  v12[2] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.UserAffinity;
-  v12[3] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.AffinityVersion;
-  v12[4] = *(_LIST_ENTRY *)&PopDirectedDripsUmLock.AffinityPrimaryGroup;
-  v12[5] = PopDirectedDripsUmLock.SavedApcState.ApcListHead[0];
-  v12[6] = PopDirectedDripsUmLock.SavedApcState.ApcListHead[1];
-  PopDirectedDripsUmLock.WaitBlock[1].WaitListEntry.Flink = 0LL;
-  memset_0(&PopDirectedDripsUmLock.SavedApcStateFill[32], 0, 0x78uLL);
-  memset_0(&PopDirectedDripsUmLock.WaitBlockFill11[72], 0, 0xF0uLL);
-  if ( v9 )
-    PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(v13, 1u);
-  KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink, v10);
+  *(_OWORD *)(a3 + 16) = *(_OWORD *)&PopDirectedDripsDiagLock.Spare18;
+  *(_OWORD *)(a3 + 32) = *(_OWORD *)&PopDirectedDripsDiagLock.ThreadFlags2;
+  *(_OWORD *)(a3 + 48) = *(_OWORD *)&PopDirectedDripsDiagLock.QueueListEntry.Blink;
+  *(_OWORD *)(a3 + 64) = *(_OWORD *)&PopDirectedDripsDiagLock.Process;
+  *(_OWORD *)(a3 + 80) = *(_OWORD *)&PopDirectedDripsDiagLock.UserAffinityPrimaryGroup;
+  *(_OWORD *)(a3 + 96) = *(_OWORD *)&PopDirectedDripsDiagLock.Affinity;
+  *(_QWORD *)(a3 + 112) = PopDirectedDripsDiagLock.NpxState;
+  *(_OWORD *)a4 = *(_OWORD *)&PopDirectedDripsDiagLock.Teb;
+  *(_OWORD *)(a4 + 16) = *(_OWORD *)&PopDirectedDripsDiagLock.Timer.Header.Lock;
+  *(_OWORD *)(a4 + 32) = *(_OWORD *)&PopDirectedDripsDiagLock.Timer.Header.WaitListHead.Blink;
+  *(_LIST_ENTRY *)(a4 + 48) = PopDirectedDripsDiagLock.Timer.TimerListEntry;
+  *(_OWORD *)(a4 + 64) = *(_OWORD *)&PopDirectedDripsDiagLock.Timer.Dpc;
+  *(LIST_ENTRY *)(a4 + 80) = PopDirectedDripsDiagLock.WaitBlock[0].WaitListEntry;
+  *(_OWORD *)(a4 + 96) = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[16];
+  v12 = (_OWORD *)(a4 + 128);
+  *(v12 - 1) = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[32];
+  *v12 = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[48];
+  v12[1] = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[64];
+  v12[2] = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[80];
+  v12[3] = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[96];
+  v12[4] = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[112];
+  v12[5] = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[128];
+  v12[6] = *(_OWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[144];
+  PopDirectedDripsDiagLock.WaitListEntry.Flink = 0LL;
+  memset_0(&PopDirectedDripsDiagLock.WaitBlockFill11[160], 0, 0x78uLL);
+  memset_0(&PopDirectedDripsDiagLock.Teb, 0, 0xF0uLL);
+  if ( WaitBlockList )
+    PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(v13, 1);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime, v10);
 }

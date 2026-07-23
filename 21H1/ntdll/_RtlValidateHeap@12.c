@@ -21,31 +21,31 @@
  *     _RtlpHpSizeHeap@12 @ 0x4B37999D (_RtlpHpSizeHeap@12.c)
  */
 
-bool __stdcall RtlValidateHeap(int a1, int a2, int a3)
+BOOLEAN __cdecl RtlValidateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  char v3; // al
+  BOOLEAN v3; // al
   int v4; // eax
-  bool v6; // bl
+  BOOLEAN v6; // bl
   void *v7; // ecx
   int v8; // [esp+18h] [ebp-20h]
   char v9; // [esp+1Eh] [ebp-1Ah]
-  char v10; // [esp+1Fh] [ebp-19h]
+  BOOLEAN v10; // [esp+1Fh] [ebp-19h]
 
   v9 = 0;
-  if ( *(_DWORD *)(a1 + 8) != -571548178 )
+  if ( *((_DWORD *)HeapHandle + 2) != -571548178 )
   {
     v10 = 0;
-    if ( (*(_DWORD *)(a1 + 68) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 17) & 0x1000000) != 0 )
     {
-      v3 = dword_4B3A3774(dword_4B3A3774, a1, a2, a3);
+      v3 = dword_4B3A3774(dword_4B3A3774, HeapHandle, Flags, BaseAddress);
     }
     else
     {
-      if ( !(unsigned __int8)RtlpCheckHeapSignature(a1, "RtlValidateHeap") )
+      if ( !(unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlValidateHeap") )
       {
 LABEL_14:
         if ( v9 )
-          RtlLeaveCriticalSection(*(_DWORD *)(a1 + 200));
+          RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 50));
         if ( RtlGetCurrentServiceSessionId() )
           v4 = (int)NtCurrentPeb()->SharedData + 550;
         else
@@ -53,33 +53,33 @@ LABEL_14:
         if ( *(_BYTE *)v4 )
         {
           if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-            RtlpLogHeapValidateEvent(a1);
+            RtlpLogHeapValidateEvent(HeapHandle);
         }
         return v10;
       }
-      if ( ((*(_BYTE *)(a1 + 68) | (unsigned __int8)a2) & 1) == 0 )
+      if ( ((*((_BYTE *)HeapHandle + 68) | (unsigned __int8)Flags) & 1) == 0 )
       {
-        RtlEnterCriticalSection(*(_DWORD *)(a1 + 200));
+        RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 50));
         v9 = 1;
       }
-      if ( a3 )
+      if ( BaseAddress )
         v3 = RtlpValidateHeapEntry("RtlValidateHeap");
       else
-        v3 = RtlpValidateHeap(a1, 1);
+        v3 = RtlpValidateHeap(HeapHandle);
     }
     v10 = v3;
     goto LABEL_14;
   }
   v6 = 1;
-  if ( (a2 & 1) == 0 )
-    RtlLockHeap(a1);
-  v8 = RtlpHpConvertFlagsToSegmentFlags(a2);
-  v7 = *(void **)(a1 + 176);
+  if ( (Flags & 1) == 0 )
+    RtlLockHeap(HeapHandle);
+  v8 = RtlpHpConvertFlagsToSegmentFlags(Flags);
+  v7 = (void *)*((_DWORD *)HeapHandle + 44);
   if ( v7 && v7 == NtCurrentTeb()->ClientId.UniqueThread )
     v8 |= 1u;
-  if ( a3 )
+  if ( BaseAddress )
     v6 = RtlpHpSizeHeap(v8) != -1;
-  if ( (a2 & 1) == 0 )
-    RtlUnlockHeap(a1);
+  if ( (Flags & 1) == 0 )
+    RtlUnlockHeap(HeapHandle);
   return v6;
 }

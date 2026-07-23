@@ -1,32 +1,32 @@
 /*
- * XREFs of BgpFwAllocateMemory @ 0x14016F4D8
+ * XREFs of BgpFwAllocateMemory @ 0x14016F5D8
  * Callers:
- *     BgpFwQueryBootGraphicsInformation @ 0x14016F2C0 (BgpFwQueryBootGraphicsInformation.c)
- *     BgpRasPrintGlyph @ 0x14017A1D4 (BgpRasPrintGlyph.c)
- *     RaspAllocateMemory @ 0x14017C064 (RaspAllocateMemory.c)
- *     BcpGetProgressMessages @ 0x1401867D8 (BcpGetProgressMessages.c)
- *     BgpTxtGetRegionContext @ 0x14094F8BC (BgpTxtGetRegionContext.c)
- *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
- *     BgpTxtCreateRegion @ 0x14095003C (BgpTxtCreateRegion.c)
- *     BgpGxRectangleCreate @ 0x14095021C (BgpGxRectangleCreate.c)
- *     ResFwpPageInBackground @ 0x1409503A4 (ResFwpPageInBackground.c)
- *     TxtpAddCacheEntry @ 0x140951524 (TxtpAddCacheEntry.c)
- *     BgpConsoleInitialize @ 0x140951730 (BgpConsoleInitialize.c)
- *     BgpDisplayCharacterGetContext @ 0x140951948 (BgpDisplayCharacterGetContext.c)
- *     BgpFoInitialize @ 0x1409FA898 (BgpFoInitialize.c)
- *     FopInitializeFonts @ 0x1409FA994 (FopInitializeFonts.c)
- *     FopReadMappingTable @ 0x1409FAABC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x1409FAC8C (FopValidateFontNameTable.c)
- *     FopReadCmapTable @ 0x1409FAE20 (FopReadCmapTable.c)
- *     FopReadNamingTable @ 0x1409FB154 (FopReadNamingTable.c)
- *     BgpBcInitializeCriticalMode @ 0x1409FB420 (BgpBcInitializeCriticalMode.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14016F3C0 (BgpFwQueryBootGraphicsInformation.c)
+ *     BgpRasPrintGlyph @ 0x14017A2D4 (BgpRasPrintGlyph.c)
+ *     RaspAllocateMemory @ 0x14017C164 (RaspAllocateMemory.c)
+ *     BcpGetProgressMessages @ 0x140186918 (BcpGetProgressMessages.c)
+ *     BgpTxtGetRegionContext @ 0x1409508BC (BgpTxtGetRegionContext.c)
+ *     BgpFwLibraryInitialize @ 0x14095095C (BgpFwLibraryInitialize.c)
+ *     BgpTxtCreateRegion @ 0x14095103C (BgpTxtCreateRegion.c)
+ *     BgpGxRectangleCreate @ 0x14095121C (BgpGxRectangleCreate.c)
+ *     ResFwpPageInBackground @ 0x1409513A4 (ResFwpPageInBackground.c)
+ *     TxtpAddCacheEntry @ 0x140952524 (TxtpAddCacheEntry.c)
+ *     BgpConsoleInitialize @ 0x140952730 (BgpConsoleInitialize.c)
+ *     BgpDisplayCharacterGetContext @ 0x140952948 (BgpDisplayCharacterGetContext.c)
+ *     BgpFoInitialize @ 0x1409FB898 (BgpFoInitialize.c)
+ *     FopInitializeFonts @ 0x1409FB994 (FopInitializeFonts.c)
+ *     FopReadMappingTable @ 0x1409FBABC (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x1409FBC8C (FopValidateFontNameTable.c)
+ *     FopReadCmapTable @ 0x1409FBE20 (FopReadCmapTable.c)
+ *     FopReadNamingTable @ 0x1409FC154 (FopReadNamingTable.c)
+ *     BgpBcInitializeCriticalMode @ 0x1409FC420 (BgpBcInitializeCriticalMode.c)
  * Callees:
  *     MmAllocatePagesForMdlEx @ 0x140010EE0 (MmAllocatePagesForMdlEx.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     BgpFwReserveAllocate @ 0x14016F664 (BgpFwReserveAllocate.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     BgpFwReserveAllocate @ 0x14016F764 (BgpFwReserveAllocate.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BgpFwAllocateMemory(unsigned __int64 a1)
@@ -44,9 +44,9 @@ __int64 __fastcall BgpFwAllocateMemory(unsigned __int64 a1)
 
   if ( !a1 )
     return 0LL;
-  if ( (dword_140405AD0 & 0x800) == 0 )
+  if ( (dword_140406AD0 & 0x800) == 0 )
   {
-    v1 = dword_140405AD0 & 0x8000;
+    v1 = dword_140406AD0 & 0x8000;
     v2 = 0LL;
     v3 = 0LL;
     v4 = v1 != 0 ? 1262634818 : 1263093570;
@@ -65,14 +65,14 @@ LABEL_7:
           v2 = &PoolWithTag[v5];
           if ( v1 )
           {
-            v8 = qword_140405BA0;
+            v8 = qword_140406BA0;
             v9 = v2 - 40;
-            if ( *(__int64 **)(qword_140405BA0 + 8) != &qword_140405BA0 )
+            if ( *(__int64 **)(qword_140406BA0 + 8) != &qword_140406BA0 )
               __fastfail(3u);
-            *(_QWORD *)v9 = qword_140405BA0;
-            *((_QWORD *)v9 + 1) = &qword_140405BA0;
+            *(_QWORD *)v9 = qword_140406BA0;
+            *((_QWORD *)v9 + 1) = &qword_140406BA0;
             *(_QWORD *)(v8 + 8) = v9;
-            qword_140405BA0 = (__int64)(v2 - 40);
+            qword_140406BA0 = (__int64)(v2 - 40);
           }
           *((_DWORD *)v2 - 6) = v4;
           *((_QWORD *)v2 - 2) = v6;

@@ -34,12 +34,12 @@ __int64 __fastcall MiConstructLoaderEntry(
   unsigned int *v11; // rdi
   _WORD *Pool; // rax
   _WORD *v13; // r14
-  __int64 v14; // r12
-  __int64 v15; // rax
+  unsigned __int64 v14; // r12
+  PIMAGE_NT_HEADERS v15; // rax
   int v16; // r8d
-  __int64 v17; // rsi
-  unsigned __int64 v18; // r10
-  unsigned int *v19; // r15
+  PIMAGE_NT_HEADERS v17; // rsi
+  unsigned __int64 NumberOfSections; // r10
+  char *v19; // r15
   unsigned int v20; // ebp
   unsigned int v21; // edx
   __int64 v22; // rcx
@@ -60,11 +60,11 @@ __int64 __fastcall MiConstructLoaderEntry(
   __int16 v37; // r8
   unsigned __int64 v38; // rsi
   __int64 SectionInfo; // rax
-  __int64 v41; // rax
-  unsigned __int64 v42; // rcx
-  unsigned int v43; // r9d
+  __int64 VirtualAddress; // rax
+  unsigned __int64 Size; // rcx
+  unsigned int SizeOfImage; // r9d
   unsigned int v44; // r8d
-  __int64 v45; // r15
+  char *v45; // r15
   unsigned __int64 v46; // rcx
   unsigned int v47; // eax
   int v48; // edx
@@ -84,7 +84,7 @@ __int64 __fastcall MiConstructLoaderEntry(
   int v62; // [rsp+28h] [rbp-110h]
   __int64 v63; // [rsp+30h] [rbp-108h]
   __int64 v64; // [rsp+30h] [rbp-108h]
-  __int64 v65; // [rsp+38h] [rbp-100h]
+  _IMAGE_DATA_DIRECTORY *v65; // [rsp+38h] [rbp-100h]
   __int128 v66; // [rsp+40h] [rbp-F8h]
   char *v67; // [rsp+50h] [rbp-E8h]
   __int64 v68; // [rsp+58h] [rbp-E0h]
@@ -110,20 +110,20 @@ __int64 __fastcall MiConstructLoaderEntry(
   memmove(Pool, a3[1], *(unsigned __int16 *)a3);
   v13[(unsigned __int64)*(unsigned __int16 *)a3 >> 1] = 0;
   v14 = *(_QWORD *)(a1 + 48);
-  v15 = RtlImageNtHeader(v14);
+  v15 = RtlImageNtHeader((PVOID)v14);
   v16 = v9 & 1;
   v17 = v15;
   v62 = v16;
   if ( (v9 & 1) != 0 )
   {
-    LODWORD(v18) = 0;
+    LODWORD(NumberOfSections) = 0;
     v72 = 0;
   }
   else
   {
-    v18 = *(unsigned __int16 *)(v15 + 6);
-    v72 = *(unsigned __int16 *)(v15 + 6);
-    if ( 0xFFFFFFFFFFFFFFFFuLL / v18 < 4 )
+    NumberOfSections = v15->FileHeader.NumberOfSections;
+    v72 = v15->FileHeader.NumberOfSections;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / NumberOfSections < 4 )
     {
       v59 = -1073741520;
       goto LABEL_78;
@@ -135,44 +135,44 @@ __int64 __fastcall MiConstructLoaderEntry(
   if ( v16 )
   {
     v20 = 32;
-    if ( *(_DWORD *)(v15 + 132) > 6u )
+    if ( v15->OptionalHeader.NumberOfRvaAndSizes > 6 )
     {
-      v41 = *(unsigned int *)(v15 + 184);
-      v65 = v17 + 184;
-      if ( (_DWORD)v41 )
+      VirtualAddress = v15->OptionalHeader.DataDirectory[6].VirtualAddress;
+      v65 = &v17->OptionalHeader.DataDirectory[6];
+      if ( (_DWORD)VirtualAddress )
       {
-        v42 = *(unsigned int *)(v17 + 188);
-        if ( (_DWORD)v42 )
+        Size = v17->OptionalHeader.DataDirectory[6].Size;
+        if ( (_DWORD)Size )
         {
-          if ( (int)v42 + (int)v41 > (unsigned int)v41 )
+          if ( (int)Size + (int)VirtualAddress > (unsigned int)VirtualAddress )
           {
-            v43 = *(_DWORD *)(v17 + 80);
-            if ( (int)v42 + (int)v41 < v43 )
+            SizeOfImage = v17->OptionalHeader.SizeOfImage;
+            if ( (int)Size + (int)VirtualAddress < SizeOfImage )
             {
-              v20 = v42 + 32;
+              v20 = Size + 32;
               v44 = 0;
-              v45 = v14 + v41;
-              v46 = v42 / 0x1C;
+              v45 = (char *)(v14 + VirtualAddress);
+              v46 = Size / 0x1C;
               if ( v46 )
               {
                 do
                 {
-                  v47 = *(_DWORD *)(v45 + 20);
+                  v47 = *((_DWORD *)v45 + 5);
                   if ( v47 )
                   {
-                    if ( v47 < v43 )
+                    if ( v47 < SizeOfImage )
                     {
-                      v48 = *(_DWORD *)(v45 + 16);
-                      if ( v48 + v47 < v43 )
+                      v48 = *((_DWORD *)v45 + 4);
+                      if ( v48 + v47 < SizeOfImage )
                         v20 += v48;
                     }
                   }
                   ++v44;
-                  v45 += 28LL;
+                  v45 += 28;
                 }
                 while ( v44 < v46 );
               }
-              v19 = (unsigned int *)(-28LL * v44 + v45);
+              v19 = &v45[-28 * v44];
             }
           }
         }
@@ -180,7 +180,7 @@ __int64 __fastcall MiConstructLoaderEntry(
       v20 = (v20 + 7) & 0xFFFFFFF8;
     }
   }
-  v21 = (*(_DWORD *)(v17 + 80) >> 12) + ((*(_DWORD *)(v17 + 80) & 0xFFF) != 0);
+  v21 = (v17->OptionalHeader.SizeOfImage >> 12) + ((v17->OptionalHeader.SizeOfImage & 0xFFF) != 0);
   v22 = 8 * ((v21 >> 6) + ((v21 & 0x3F) != 0) + 2);
   v23 = (unsigned int)v22;
   v24 = v22 + 306;
@@ -201,11 +201,11 @@ LABEL_76:
     v59 = -1073741701;
     goto LABEL_78;
   }
-  if ( (_DWORD)v18 )
+  if ( (_DWORD)NumberOfSections )
   {
-    if ( v26 + 4LL * (unsigned int)v18 > v26 )
+    if ( v26 + 4LL * (unsigned int)NumberOfSections > v26 )
     {
-      v26 += 4LL * (unsigned int)v18;
+      v26 += 4LL * (unsigned int)NumberOfSections;
       goto LABEL_11;
     }
     goto LABEL_76;
@@ -254,9 +254,9 @@ LABEL_15:
   *((_OWORD *)v67 + 7) = v27[7];
   *((_OWORD *)v67 + 8) = v27[8];
   *((_OWORD *)v67 + 9) = v27[9];
-  if ( *(_WORD *)(v17 + 64) >= 5u && *(_WORD *)(v17 + 68) >= 5u )
+  if ( v17->OptionalHeader.MajorOperatingSystemVersion >= 5u && v17->OptionalHeader.MajorImageVersion >= 5u )
     *((_DWORD *)v67 + 26) |= 0x8000000u;
-  if ( (*(_BYTE *)(v17 + 94) & 0x80) != 0 )
+  if ( (v17->OptionalHeader.DllCharacteristics & 0x80) != 0 )
     *((_DWORD *)v67 + 26) |= 0x20u;
   *((_QWORD *)v67 + 12) = v33;
   *((_WORD *)v67 + 44) = *(_WORD *)a2;
@@ -272,30 +272,30 @@ LABEL_15:
     *((_QWORD *)v67 + 5) = v32;
     *(_DWORD *)v32 = 84302;
     *((_DWORD *)v32 + 1) = v20;
-    *((_WORD *)v32 + 4) = *(_WORD *)(v17 + 4);
-    *((_WORD *)v32 + 5) = *(_WORD *)(v17 + 22);
-    *((_DWORD *)v32 + 3) = *(_DWORD *)(v17 + 8);
-    *((_DWORD *)v32 + 4) = *(_DWORD *)(v17 + 88);
-    *((_DWORD *)v32 + 5) = *(_DWORD *)(v17 + 80);
+    *((_WORD *)v32 + 4) = v17->FileHeader.Machine;
+    *((_WORD *)v32 + 5) = v17->FileHeader.Characteristics;
+    *((_DWORD *)v32 + 3) = v17->FileHeader.TimeDateStamp;
+    *((_DWORD *)v32 + 4) = v17->OptionalHeader.CheckSum;
+    *((_DWORD *)v32 + 5) = v17->OptionalHeader.SizeOfImage;
     *((_QWORD *)v32 + 3) = v14;
     if ( v19 )
     {
-      memmove(v32 + 32, v19, *(unsigned int *)(v65 + 4));
-      v49 = *(unsigned int *)(v65 + 4);
+      memmove(v32 + 32, v19, v65->Size);
+      v49 = v65->Size;
       v61 = 0;
       v50 = 0;
       if ( v49 / 0x1C )
       {
         v51 = 0LL;
         v64 = 0LL;
-        v52 = v19 + 4;
+        v52 = (unsigned int *)(v19 + 16);
         do
         {
           v53 = v52[1];
           v54 = *v52;
           v72 = v49;
           if ( (_DWORD)v53
-            && (v55 = *(_DWORD *)(v17 + 80), (unsigned int)v53 < v55)
+            && (v55 = v17->OptionalHeader.SizeOfImage, (unsigned int)v53 < v55)
             && (unsigned int)v53 + v54 > (unsigned int)v53
             && (unsigned int)v53 + v54 < v55 )
           {
@@ -315,18 +315,17 @@ LABEL_15:
           v61 = v50;
           v64 = v50;
           *(_DWORD *)&v32[v56 + 52] = v72;
-          v57 = *(unsigned int *)(v65 + 4) * (unsigned __int128)0x2492492492492493uLL;
+          v57 = v65->Size * (unsigned __int128)0x2492492492492493uLL;
         }
-        while ( v50 < (*((_QWORD *)&v57 + 1)
-                     + (((unsigned __int64)*(unsigned int *)(v65 + 4) - *((_QWORD *)&v57 + 1)) >> 1)) >> 4 );
+        while ( v50 < (*((_QWORD *)&v57 + 1) + (((unsigned __int64)v65->Size - *((_QWORD *)&v57 + 1)) >> 1)) >> 4 );
         v11 = (unsigned int *)v67;
         v35 = v62;
         v31 = v67 + 160;
       }
     }
   }
-  *((_QWORD *)v11 + 7) = v14 + *(unsigned int *)(v17 + 40);
-  v11[30] = *(_DWORD *)(v17 + 88);
+  *((_QWORD *)v11 + 7) = v14 + v17->OptionalHeader.AddressOfEntryPoint;
+  v11[30] = v17->OptionalHeader.CheckSum;
   if ( v68 )
   {
     v36 = MiSectionControlArea(v68);
@@ -338,8 +337,8 @@ LABEL_15:
   {
     v36 = 0LL;
   }
-  v11[38] = *(_DWORD *)(v17 + 80);
-  v11[39] = *(_DWORD *)(v17 + 8);
+  v11[38] = v17->OptionalHeader.SizeOfImage;
+  v11[39] = v17->FileHeader.TimeDateStamp;
   MiCaptureImageExceptionValues(v11);
   MiLockdownSections(v11);
   if ( v68 )
@@ -350,11 +349,11 @@ LABEL_15:
     goto LABEL_30;
   *((_QWORD *)v31 + 5) = v38;
   *((_QWORD *)v31 + 6) = v38;
-  if ( v14 == PsNtosImageBase )
+  if ( (PVOID)v14 == PsNtosImageBase )
     goto LABEL_70;
-  if ( v14 == PsHalImageBase )
+  if ( (PVOID)v14 == PsHalImageBase )
   {
-    if ( v14 != PsNtosImageBase )
+    if ( (PVOID)v14 != PsNtosImageBase )
     {
       v58 = v38 - MxHalFreedGapCharges;
       goto LABEL_71;

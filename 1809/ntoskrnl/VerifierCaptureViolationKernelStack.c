@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierCaptureViolationKernelStack @ 0x140930960
+ * XREFs of VerifierCaptureViolationKernelStack @ 0x140931960
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
- *     RtlCaptureContext @ 0x1401C54F0 (RtlCaptureContext.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAC30 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC400 (KeGetCurrentStackPointer.c)
+ *     RtlCaptureContext @ 0x1401C5650 (RtlCaptureContext.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 bool __fastcall VerifierCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD *a2)

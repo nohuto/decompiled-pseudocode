@@ -1,10 +1,10 @@
 /*
  * XREFs of ExfReleasePushLockExclusive @ 0x140359EF0
  * Callers:
- *     ExfAcquireReleasePushLockExclusive @ 0x14024BA7C (ExfAcquireReleasePushLockExclusive.c)
+ *     sub_14024BA7C @ 0x14024BA7C (sub_14024BA7C.c)
  *     ExfReleasePushLock @ 0x140359E10 (ExfReleasePushLock.c)
  * Callees:
- *     ExpWakePushLock @ 0x140359F70 (ExpWakePushLock.c)
+ *     sub_140359F70 @ 0x140359F70 (sub_140359F70.c)
  */
 
 /*
@@ -30,6 +30,6 @@
  * 0000000140359F26: jnz     short loc_140359F06
  * 0000000140359F28: cmp     r8, 2
  * 0000000140359F2C: jnz     short loc_140359F00
- * 0000000140359F2E: call    ExpWakePushLock
+ * 0000000140359F2E: call    sub_140359F70
  * 0000000140359F33: jmp     short loc_140359F00
  */

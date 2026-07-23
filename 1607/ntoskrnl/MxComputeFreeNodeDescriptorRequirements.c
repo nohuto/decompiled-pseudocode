@@ -3,9 +3,9 @@
  * Callers:
  *     MiFindLargestLoaderDescriptor @ 0x14078E83C (MiFindLargestLoaderDescriptor.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x14013B608 (MiRestrictRangeToNode.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x14013BB78 (MiRestrictRangeToNode.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     MxComputePfnPagesNeeded @ 0x14078EBD8 (MxComputePfnPagesNeeded.c)
  */
 

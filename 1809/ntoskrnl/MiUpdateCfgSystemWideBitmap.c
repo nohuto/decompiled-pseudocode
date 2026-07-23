@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmap @ 0x14064F744
+ * XREFs of MiUpdateCfgSystemWideBitmap @ 0x140650904
  * Callers:
- *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
- *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiRelocateImageAgain @ 0x140650760 (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x140651084 (MiRelocateImage.c)
  * Callees:
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiSelectBitMapForImage @ 0x14064FA98 (MiSelectBitMapForImage.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F4130 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiSelectBitMapForImage @ 0x140650C58 (MiSelectBitMapForImage.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2, __int64 a3)
@@ -25,9 +25,9 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2,
   v7 = 0;
   do
   {
-    v8 = qword_140438E08;
+    v8 = qword_140439EC8;
     if ( !v7 && !(unsigned int)MiSelectBitMapForImage(v4) )
-      v8 = qword_140438DF8;
+      v8 = qword_140439EB8;
     result = MiUpdateCfgSystemWideBitmapWorker(v8, a3, v5, v6);
     if ( (int)result < 0 )
       break;

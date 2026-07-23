@@ -134,7 +134,7 @@ LABEL_10:
   {
     v25 = v9 & 0x1F;
     LOBYTE(v26) = 1;
-    v11 = (volatile signed __int32 *)(qword_1402FECB0 + 4 * (v9 >> 5));
+    v11 = (volatile signed __int32 *)stru_1402FECA8.Buffer + (v9 >> 5);
     if ( v25 + 1 > 0x20 )
     {
       if ( (v9 & 0x1F) != 0 )

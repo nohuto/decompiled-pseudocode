@@ -1,21 +1,21 @@
 /*
- * XREFs of IopAllocateFileObjectExtension @ 0x140250D50
+ * XREFs of IopAllocateFileObjectExtension @ 0x140250E10
  * Callers:
- *     NtSetInformationFile @ 0x1402A6BF0 (NtSetInformationFile.c)
- *     IoGetFileObjectFilterContext @ 0x1402FD5C0 (IoGetFileObjectFilterContext.c)
- *     IopGetSetSpecificExtension @ 0x140301568 (IopGetSetSpecificExtension.c)
- *     IoSetOplockPrivateFoExt @ 0x1403024C8 (IoSetOplockPrivateFoExt.c)
- *     IopSetFileObjectExtensionFlag @ 0x140302B0C (IopSetFileObjectExtensionFlag.c)
- *     IoSetOplockKeyContext @ 0x1403CF138 (IoSetOplockKeyContext.c)
- *     IoSetIoPriorityHintIntoFileObject @ 0x140557130 (IoSetIoPriorityHintIntoFileObject.c)
- *     IoSetShadowFileInformation @ 0x140557170 (IoSetShadowFileInformation.c)
- *     IopSymlinkSetFoExtension @ 0x140881350 (IopSymlinkSetFoExtension.c)
- *     IopSetFileObjectIosbRange @ 0x140945F38 (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140947ACC (IopSetFileMemoryPartitionInformation.c)
+ *     NtSetInformationFile @ 0x1402A6E80 (NtSetInformationFile.c)
+ *     IoGetFileObjectFilterContext @ 0x1402FD850 (IoGetFileObjectFilterContext.c)
+ *     IopGetSetSpecificExtension @ 0x1403017F8 (IopGetSetSpecificExtension.c)
+ *     IoSetOplockPrivateFoExt @ 0x140302758 (IoSetOplockPrivateFoExt.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140302D9C (IopSetFileObjectExtensionFlag.c)
+ *     IoSetOplockKeyContext @ 0x1403CF318 (IoSetOplockKeyContext.c)
+ *     IoSetIoPriorityHintIntoFileObject @ 0x1405577F0 (IoSetIoPriorityHintIntoFileObject.c)
+ *     IoSetShadowFileInformation @ 0x140557830 (IoSetShadowFileInformation.c)
+ *     IopSymlinkSetFoExtension @ 0x140881590 (IopSymlinkSetFoExtension.c)
+ *     IopSetFileObjectIosbRange @ 0x140946138 (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x140947CCC (IopSetFileMemoryPartitionInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -61,10 +61,13 @@ LABEL_7:
       if ( a2 )
         *a2 = Pool2;
       KxReleaseSpinLock(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -81,10 +84,10 @@ LABEL_7:
       return 0LL;
     }
     KxReleaseSpinLock(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v11 >= 2u )
       {
         v12 = KeGetCurrentPrcb();
         v13 = v12->SchedulerAssist;

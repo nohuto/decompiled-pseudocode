@@ -1,271 +1,271 @@
 /*
- * XREFs of KiInitializeTopologyStructures @ 0x140B59298
+ * XREFs of KiInitializeTopologyStructures @ 0x140B5B318
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B5004 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
- *     KeGetProcessorNode @ 0x1405BA92C (KeGetProcessorNode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B2278 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
+ *     KeGetProcessorNode @ 0x1405B7F5C (KeGetProcessorNode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-__int64 __fastcall KiInitializeTopologyStructures(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiInitializeTopologyStructures(ULONG_PTR BugCheckParameter1)
 {
-  unsigned int v4; // r12d
+  unsigned int v1; // r12d
   int IsEnabledNoReportingNoInline; // eax
-  __int64 v7; // r11
-  bool v8; // r14
-  int v9; // ecx
-  __int64 v10; // r10
-  __int64 v11; // rax
-  int v12; // eax
-  int v13; // ecx
-  __int64 v14; // r15
-  __int64 v15; // r8
-  _DWORD *v16; // rdx
-  int v17; // ecx
-  int v18; // eax
-  __int64 v19; // rbx
-  _QWORD *v20; // rcx
-  unsigned __int16 *v21; // rsi
-  unsigned int v22; // r8d
-  _DWORD *v23; // r13
-  unsigned int v24; // r13d
-  ULONG_PTR *v25; // rcx
-  ULONG_PTR v26; // rsi
-  int v27; // edx
-  bool v28; // zf
-  int v29; // r12d
-  __int64 v30; // r14
-  int v31; // r9d
+  __int64 v4; // r11
+  bool v5; // r14
+  int v6; // ecx
+  __int64 v7; // r10
+  __int64 v8; // rax
+  int v9; // eax
+  int v10; // ecx
+  __int64 v11; // r15
+  __int64 v12; // r8
+  _DWORD *v13; // rdx
+  int v14; // ecx
+  int v15; // eax
+  __int64 v16; // rbx
+  _QWORD *v17; // rcx
+  unsigned __int16 *v18; // rsi
+  unsigned int v19; // r8d
+  _DWORD *v20; // r13
+  unsigned int v21; // r13d
+  ULONG_PTR *v22; // rcx
+  ULONG_PTR v23; // rsi
+  int v24; // edx
+  bool v25; // zf
+  int v26; // r12d
+  __int64 v27; // r14
+  int v28; // r9d
   __int64 ProcessorNode; // rax
-  __int64 v33; // rdx
-  unsigned __int16 *v34; // rcx
-  unsigned __int16 *v35; // rbx
-  unsigned int v36; // eax
-  _QWORD *v37; // rcx
-  int v38; // esi
-  __int64 v39; // rbx
-  unsigned __int16 *v40; // rcx
-  unsigned int v41; // eax
+  __int64 v30; // rdx
+  unsigned __int16 *v31; // rcx
+  unsigned __int16 *v32; // rbx
+  unsigned int v33; // eax
+  _QWORD *v34; // rcx
+  int v35; // esi
+  __int64 v36; // rbx
+  unsigned __int16 *v37; // rcx
+  unsigned int v38; // eax
   __int64 result; // rax
-  __int64 v43; // r10
-  __int64 v44; // r11
-  ULONG_PTR v45; // rdi
-  __int64 v46; // r8
-  __int64 v47; // r9
-  _DWORD *v48; // rdx
-  __int64 v49; // rcx
-  bool v50; // [rsp+38h] [rbp-D0h]
-  int v51; // [rsp+3Ch] [rbp-CCh]
-  int v52; // [rsp+40h] [rbp-C8h]
-  unsigned int v53; // [rsp+44h] [rbp-C4h]
-  unsigned int v54; // [rsp+48h] [rbp-C0h]
-  _DWORD *v55; // [rsp+50h] [rbp-B8h]
-  __int64 *v56; // [rsp+58h] [rbp-B0h]
+  __int64 v40; // r10
+  __int64 v41; // r11
+  ULONG_PTR v42; // rdi
+  __int64 v43; // r8
+  __int64 v44; // r9
+  _DWORD *v45; // rdx
+  __int64 v46; // rcx
+  bool v47; // [rsp+38h] [rbp-D0h]
+  int v48; // [rsp+3Ch] [rbp-CCh]
+  int v49; // [rsp+40h] [rbp-C8h]
+  unsigned int v50; // [rsp+44h] [rbp-C4h]
+  unsigned int v51; // [rsp+48h] [rbp-C0h]
+  _DWORD *v52; // [rsp+50h] [rbp-B8h]
+  __int64 *v53; // [rsp+58h] [rbp-B0h]
   _DWORD BugCheckParameter3[6]; // [rsp+60h] [rbp-A8h] BYREF
-  __int128 v58; // [rsp+78h] [rbp-90h]
-  ULONG_PTR v59; // [rsp+88h] [rbp-80h]
-  ULONG_PTR v60; // [rsp+90h] [rbp-78h]
-  __int128 v61; // [rsp+98h] [rbp-70h]
-  _OWORD v62[3]; // [rsp+A8h] [rbp-60h] BYREF
-  __int128 v63; // [rsp+D8h] [rbp-30h]
-  __int128 v64; // [rsp+E8h] [rbp-20h]
-  __int128 v65; // [rsp+F8h] [rbp-10h]
-  _OWORD v66[4]; // [rsp+108h] [rbp+0h] BYREF
-  _OWORD v67[6]; // [rsp+150h] [rbp+48h] BYREF
+  __int128 v55; // [rsp+78h] [rbp-90h]
+  ULONG_PTR v56; // [rsp+88h] [rbp-80h]
+  ULONG_PTR v57; // [rsp+90h] [rbp-78h]
+  __int128 v58; // [rsp+98h] [rbp-70h]
+  _OWORD v59[3]; // [rsp+A8h] [rbp-60h] BYREF
+  __int128 v60; // [rsp+D8h] [rbp-30h]
+  __int128 v61; // [rsp+E8h] [rbp-20h]
+  __int128 v62; // [rsp+F8h] [rbp-10h]
+  _OWORD v63[4]; // [rsp+108h] [rbp+0h] BYREF
+  _OWORD v64[6]; // [rsp+150h] [rbp+48h] BYREF
 
-  v4 = *(_DWORD *)(BugCheckParameter1 + 36);
-  v54 = v4;
-  v52 = *(_DWORD *)(BugCheckParameter1 + 212);
-  v55 = (_DWORD *)(BugCheckParameter1 + 36);
-  v61 = 0LL;
-  memset(v62, 0, sizeof(v62));
-  v63 = 0LL;
-  v64 = 0LL;
-  v65 = 0LL;
-  memset(v66, 0, 48);
-  IsEnabledNoReportingNoInline = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline(BugCheckParameter1, a2, a3, a4);
-  v7 = 0LL;
-  v59 = BugCheckParameter1 + 40720;
-  v8 = IsEnabledNoReportingNoInline != 0;
-  v60 = BugCheckParameter1 + 40128;
-  v50 = IsEnabledNoReportingNoInline != 0;
-  *(_QWORD *)&v61 = BugCheckParameter1 + 35856;
+  v1 = *(_DWORD *)(BugCheckParameter1 + 36);
+  v51 = v1;
+  v49 = *(_DWORD *)(BugCheckParameter1 + 212);
+  v52 = (_DWORD *)(BugCheckParameter1 + 36);
   v58 = 0LL;
+  memset(v59, 0, sizeof(v59));
+  v60 = 0LL;
+  v61 = 0LL;
+  v62 = 0LL;
+  memset(v63, 0, 48);
+  IsEnabledNoReportingNoInline = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline();
+  v4 = 0LL;
+  v56 = BugCheckParameter1 + 40720;
+  v5 = IsEnabledNoReportingNoInline != 0;
+  v57 = BugCheckParameter1 + 40128;
+  v47 = IsEnabledNoReportingNoInline != 0;
+  *(_QWORD *)&v58 = BugCheckParameter1 + 35856;
+  v55 = 0LL;
   if ( IsEnabledNoReportingNoInline )
-    *((_QWORD *)&v61 + 1) = BugCheckParameter1 + 47424;
-  v9 = *(_DWORD *)(BugCheckParameter1 + 164);
-  *((_QWORD *)&v62[0] + 1) = BugCheckParameter1 + 36448;
-  BugCheckParameter3[1] = v9;
-  *(_QWORD *)&v62[1] = BugCheckParameter1 + 36472;
-  v10 = 1LL;
-  v11 = *((_QWORD *)&v62[2] + 1);
-  if ( v8 )
-    v11 = 0LL;
+    *((_QWORD *)&v58 + 1) = BugCheckParameter1 + 47424;
+  v6 = *(_DWORD *)(BugCheckParameter1 + 164);
+  *((_QWORD *)&v59[0] + 1) = BugCheckParameter1 + 36448;
+  BugCheckParameter3[1] = v6;
+  *(_QWORD *)&v59[1] = BugCheckParameter1 + 36472;
+  v7 = 1LL;
+  v8 = *((_QWORD *)&v59[2] + 1);
+  if ( v5 )
+    v8 = 0LL;
   BugCheckParameter3[0] = 1;
-  *((_QWORD *)&v62[2] + 1) = v11;
+  *((_QWORD *)&v59[2] + 1) = v8;
   BugCheckParameter3[2] = *(_DWORD *)(BugCheckParameter1 + 40652);
-  v12 = *(_DWORD *)(BugCheckParameter1 + 40648) * v9;
-  v13 = *(_DWORD *)(BugCheckParameter1 + 160) * v9;
-  *(_OWORD *)((char *)&v62[1] + 8) = 0LL;
-  BugCheckParameter3[3] = v12;
-  BugCheckParameter3[4] = v13;
-  if ( v8 )
+  v9 = *(_DWORD *)(BugCheckParameter1 + 40648) * v6;
+  v10 = *(_DWORD *)(BugCheckParameter1 + 160) * v6;
+  *(_OWORD *)((char *)&v59[1] + 8) = 0LL;
+  BugCheckParameter3[3] = v9;
+  BugCheckParameter3[4] = v10;
+  if ( v5 )
     BugCheckParameter3[5] = *(_DWORD *)(BugCheckParameter1 + 47944);
-  v14 = v8 + 5LL;
-  v15 = 0LL;
+  v11 = v5 + 5LL;
+  v12 = 0LL;
   do
   {
-    v16 = &BugCheckParameter3[v15];
-    v17 = ~(*v16 - 1);
-    v18 = v17 & *(_DWORD *)(BugCheckParameter1 + 212);
-    *((_DWORD *)&v66[3] + v15++) = v17;
-    *(_DWORD *)((char *)v16 + BugCheckParameter1 - (_QWORD)BugCheckParameter3 + 36376) = v18;
+    v13 = &BugCheckParameter3[v12];
+    v14 = ~(*v13 - 1);
+    v15 = v14 & *(_DWORD *)(BugCheckParameter1 + 212);
+    *((_DWORD *)&v63[3] + v12++) = v14;
+    *(_DWORD *)((char *)v13 + BugCheckParameter1 - (_QWORD)BugCheckParameter3 + 36376) = v15;
   }
-  while ( v15 < v14 );
-  v19 = 1LL;
+  while ( v12 < v11 );
+  v16 = 1LL;
   do
   {
-    v20 = (_QWORD *)*((_QWORD *)v62 + v19);
-    if ( v20 )
-      *v20 = *(_QWORD *)(BugCheckParameter1 + 200);
-    v21 = (unsigned __int16 *)*((_QWORD *)&v58 + v19);
-    if ( v21 )
+    v17 = (_QWORD *)*((_QWORD *)v59 + v16);
+    if ( v17 )
+      *v17 = *(_QWORD *)(BugCheckParameter1 + 200);
+    v18 = (unsigned __int16 *)*((_QWORD *)&v55 + v16);
+    if ( v18 )
     {
-      *(_QWORD *)v21 = 2097153LL;
-      memset_0(v21 + 4, 0, 0x100uLL);
-      KeAddProcessorAffinityEx(v21, v4);
-      v10 = 1LL;
-      v7 = 0LL;
+      *(_QWORD *)v18 = 2097153LL;
+      memset_0(v18 + 4, 0, 0x100uLL);
+      KeAddProcessorAffinityEx(v18, v1);
+      v7 = 1LL;
+      v4 = 0LL;
     }
-    ++v19;
+    ++v16;
   }
-  while ( v19 < v14 );
-  v22 = KeNumberProcessors_0;
-  v23 = v55;
-  v53 = KeNumberProcessors_0;
-  memset(v67, 0, 48);
-  if ( v4 )
+  while ( v16 < v11 );
+  v19 = KeNumberProcessors_0;
+  v20 = v52;
+  v50 = KeNumberProcessors_0;
+  memset(v64, 0, 48);
+  if ( v1 )
   {
-    v24 = 0;
+    v21 = 0;
     if ( (_DWORD)KeNumberProcessors_0 )
     {
-      v25 = (ULONG_PTR *)KiProcessorBlock;
-      v56 = KiProcessorBlock;
+      v22 = (ULONG_PTR *)KiProcessorBlock;
+      v53 = KiProcessorBlock;
       while ( 1 )
       {
-        v26 = *v25;
-        v63 = 0LL;
-        v27 = *(_DWORD *)(v26 + 212);
-        *(_QWORD *)&v64 = v26 + 40720;
-        *((_QWORD *)&v64 + 1) = v26 + 40128;
-        *(_QWORD *)&v65 = v26 + 35856;
-        v51 = v27;
-        if ( v8 )
-          *((_QWORD *)&v65 + 1) = v26 + 47424;
-        *(_QWORD *)&v66[0] = v7;
-        *((_QWORD *)&v66[0] + 1) = v26 + 36448;
-        v28 = !v8;
-        v29 = v10;
-        *(_QWORD *)&v66[1] = v26 + 36472;
-        v30 = v10;
-        *(_OWORD *)((char *)&v66[1] + 8) = 0LL;
-        if ( !v28 )
-          *((_QWORD *)&v66[2] + 1) = v7;
-        v31 = v52;
+        v23 = *v22;
+        v60 = 0LL;
+        v24 = *(_DWORD *)(v23 + 212);
+        *(_QWORD *)&v61 = v23 + 40720;
+        *((_QWORD *)&v61 + 1) = v23 + 40128;
+        *(_QWORD *)&v62 = v23 + 35856;
+        v48 = v24;
+        if ( v5 )
+          *((_QWORD *)&v62 + 1) = v23 + 47424;
+        *(_QWORD *)&v63[0] = v4;
+        *((_QWORD *)&v63[0] + 1) = v23 + 36448;
+        v25 = !v5;
+        v26 = v7;
+        *(_QWORD *)&v63[1] = v23 + 36472;
+        v27 = v7;
+        *(_OWORD *)((char *)&v63[1] + 8) = 0LL;
+        if ( !v25 )
+          *((_QWORD *)&v63[2] + 1) = v4;
+        v28 = v49;
         do
         {
-          if ( (v27 & *((_DWORD *)&v66[3] + v30)) == (v31 & *((_DWORD *)&v66[3] + v30)) )
+          if ( (v24 & *((_DWORD *)&v63[3] + v27)) == (v28 & *((_DWORD *)&v63[3] + v27)) )
           {
-            if ( *((_QWORD *)v67 + v30) == v7 )
+            if ( *((_QWORD *)v64 + v27) == v4 )
             {
-              KeGetProcessorNode(v26);
+              KeGetProcessorNode(v23);
               ProcessorNode = KeGetProcessorNode(BugCheckParameter1);
-              if ( v33 == ProcessorNode )
-                *((_QWORD *)v67 + v30) = v26;
+              if ( v30 == ProcessorNode )
+                *((_QWORD *)v64 + v27) = v23;
             }
-            v34 = (unsigned __int16 *)*((_QWORD *)&v58 + v30);
-            if ( v34 )
+            v31 = (unsigned __int16 *)*((_QWORD *)&v55 + v27);
+            if ( v31 )
             {
-              KeAddProcessorAffinityEx(v34, v24);
-              v35 = (unsigned __int16 *)*((_QWORD *)&v63 + v30);
-              KeAddProcessorAffinityEx(v35, v54);
-              v36 = KeCountSetBitsAffinityEx(v35);
-              if ( v36 > BugCheckParameter3[v30] )
-                KeBugCheckEx(0x3Eu, v26, v36, (unsigned int)BugCheckParameter3[v30], v29);
-              v22 = v53;
-              v10 = 1LL;
-              v31 = v52;
-              v7 = 0LL;
+              KeAddProcessorAffinityEx(v31, v21);
+              v32 = (unsigned __int16 *)*((_QWORD *)&v60 + v27);
+              KeAddProcessorAffinityEx(v32, v51);
+              v33 = KeCountSetBitsAffinityEx(v32);
+              if ( v33 > BugCheckParameter3[v27] )
+                KeBugCheckEx(0x3Eu, v23, v33, (unsigned int)BugCheckParameter3[v27], v26);
+              v19 = v50;
+              v7 = 1LL;
+              v28 = v49;
+              v4 = 0LL;
             }
-            v37 = (_QWORD *)*((_QWORD *)v62 + v30);
-            v27 = v51;
-            if ( v37 && *(_QWORD *)(BugCheckParameter1 + 192) == *(_QWORD *)(v26 + 192) )
+            v34 = (_QWORD *)*((_QWORD *)v59 + v27);
+            v24 = v48;
+            if ( v34 && *(_QWORD *)(BugCheckParameter1 + 192) == *(_QWORD *)(v23 + 192) )
             {
-              *v37 |= *(_QWORD *)(v26 + 200);
-              **((_QWORD **)v66 + v30) |= *(_QWORD *)(BugCheckParameter1 + 200);
+              *v34 |= *(_QWORD *)(v23 + 200);
+              **((_QWORD **)v63 + v27) |= *(_QWORD *)(BugCheckParameter1 + 200);
             }
           }
-          v29 += v10;
-          v30 += v10;
+          v26 += v7;
+          v27 += v7;
         }
-        while ( v30 < v14 );
-        v24 += v10;
-        v25 = (ULONG_PTR *)(v56 + 1);
-        v53 = v22;
-        ++v56;
-        if ( v24 >= v22 )
+        while ( v27 < v11 );
+        v21 += v7;
+        v22 = (ULONG_PTR *)(v53 + 1);
+        v50 = v19;
+        ++v53;
+        if ( v21 >= v19 )
           break;
-        v8 = v50;
+        v5 = v47;
       }
     }
-    v23 = v55;
+    v20 = v52;
   }
-  v38 = v10;
-  v39 = v10;
+  v35 = v7;
+  v36 = v7;
   do
   {
-    v40 = (unsigned __int16 *)*((_QWORD *)&v58 + v39);
-    if ( v40 )
+    v37 = (unsigned __int16 *)*((_QWORD *)&v55 + v36);
+    if ( v37 )
     {
-      v41 = KeCountSetBitsAffinityEx(v40);
-      if ( v41 > BugCheckParameter3[v39] )
-        KeBugCheckEx(0x3Eu, BugCheckParameter1, v41, (unsigned int)BugCheckParameter3[v39], v38);
-      v10 = 1LL;
+      v38 = KeCountSetBitsAffinityEx(v37);
+      if ( v38 > BugCheckParameter3[v36] )
+        KeBugCheckEx(0x3Eu, BugCheckParameter1, v38, (unsigned int)BugCheckParameter3[v36], v35);
+      v7 = 1LL;
     }
-    v38 += v10;
-    v39 += v10;
+    v35 += v7;
+    v36 += v7;
   }
-  while ( v39 < v14 );
+  while ( v36 < v11 );
   result = KeGetProcessorNode(BugCheckParameter1);
-  v45 = BugCheckParameter1 - result + 47112;
-  v46 = v44;
-  v47 = 47112 - result;
-  v48 = (_DWORD *)(result + 288);
+  v42 = BugCheckParameter1 - result + 47112;
+  v43 = v41;
+  v44 = 47112 - result;
+  v45 = (_DWORD *)(result + 288);
   do
   {
-    v49 = *((_QWORD *)v67 + v46);
-    if ( *v23 != (_DWORD)v44 )
+    v46 = *((_QWORD *)v64 + v43);
+    if ( *v20 != (_DWORD)v41 )
     {
-      if ( v49 )
+      if ( v46 )
       {
-        result = (__int64)v48 + v47;
-        *(_DWORD *)((char *)v48 + v45) = *(_DWORD *)((char *)v48 + v47 + v49);
+        result = (__int64)v45 + v44;
+        *(_DWORD *)((char *)v45 + v42) = *(_DWORD *)((char *)v45 + v44 + v46);
       }
       else
       {
-        result = (unsigned int)*v48;
-        *(_DWORD *)((char *)v48 + v45) = result;
-        *v48 += v43;
+        result = (unsigned int)*v45;
+        *(_DWORD *)((char *)v45 + v42) = result;
+        *v45 += v40;
       }
     }
-    v46 += v43;
-    ++v48;
+    v43 += v40;
+    ++v45;
   }
-  while ( v46 < v14 );
+  while ( v43 < v11 );
   return result;
 }

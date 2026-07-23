@@ -5,42 +5,33 @@
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
  *     TppIopValidateIo @ 0x1800311F0 (TppIopValidateIo.c)
- *     TppBarrierAdjust @ 0x180073CB8 (TppBarrierAdjust.c)
+ *     TppBarrierAdjust @ 0x180073CC8 (TppBarrierAdjust.c)
  *     TppETWCallbackCancel @ 0x1801109C0 (TppETWCallbackCancel.c)
  */
 
-struct _PEB *__fastcall TpWaitForIoCompletion(__int64 a1, __int32 a2)
+void __cdecl TpWaitForIoCompletion(PTP_IO Io, LOGICAL CancelPendingCallbacks)
 {
-  struct _PEB *result; // rax
-  __int64 v5; // rcx
+  __int64 v4; // rcx
 
-  result = (struct _PEB *)TppIopValidateIo((_PEB_LDR_DATA *)a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo((_PEB_LDR_DATA *)Io, 0LL, 0LL) )
   {
-    if ( a2 )
-      a2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
-    result = (struct _PEB *)TppBarrierAdjust(a1 + 56, (unsigned int)-a2);
-    if ( a2 )
+    if ( CancelPendingCallbacks )
+      CancelPendingCallbacks = _InterlockedExchange((volatile __int32 *)Io + 70, 0);
+    TppBarrierAdjust((char *)Io + 56, -CancelPendingCallbacks);
+    if ( CancelPendingCallbacks )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
-      {
-        result = NtCurrentPeb();
-        v5 = (__int64)result->SharedData + 556;
-      }
+      if ( RtlGetCurrentServiceSessionId() )
+        v4 = (__int64)NtCurrentPeb()->SharedData + 556;
       else
-      {
-        v5 = 2147353478LL;
-      }
-      if ( *(_BYTE *)v5 )
-        return (struct _PEB *)TppETWCallbackCancel(
-                                *(_QWORD *)(a1 + 144),
-                                (int)a1 + 200,
-                                (int)a1 + 80,
-                                *(_QWORD *)(a1 + 88),
-                                *(_QWORD *)(a1 + 104),
-                                a2);
+        v4 = 2147353478LL;
+      if ( *(_BYTE *)v4 )
+        TppETWCallbackCancel(
+          *((_QWORD *)Io + 18),
+          (_DWORD)Io + 200,
+          (_DWORD)Io + 80,
+          *((_QWORD *)Io + 11),
+          *((_QWORD *)Io + 13),
+          CancelPendingCallbacks);
     }
   }
-  return result;
 }

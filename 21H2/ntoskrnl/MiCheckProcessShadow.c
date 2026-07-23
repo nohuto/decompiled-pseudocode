@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCheckProcessShadow @ 0x14020F880
+ * XREFs of MiCheckProcessShadow @ 0x1402B4180
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     MmCheckProcessShadow @ 0x1402CA700 (MmCheckProcessShadow.c)
- *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
- *     MmRemoveSystemCacheFromDump @ 0x140538B8C (MmRemoveSystemCacheFromDump.c)
+ *     MmCheckProcessShadow @ 0x140248FF0 (MmCheckProcessShadow.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1403221E0 (MiMoveDirtyBitsToPfns.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
+ *     MmRemoveSystemCacheFromDump @ 0x140538DCC (MmRemoveSystemCacheFromDump.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiCheckRelevantKernelShadows @ 0x1402A84C0 (MiCheckRelevantKernelShadows.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiCheckRelevantKernelShadows @ 0x140226600 (MiCheckRelevantKernelShadows.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2)
@@ -25,22 +25,24 @@ __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2)
   __int64 v9; // rbp
   ULONG_PTR v10; // r10
   int v11; // r11d
-  unsigned __int64 Process; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  __int64 v12; // r9
+  ULONG_PTR v13; // rcx
+  ULONG_PTR v14; // r9
   ULONG_PTR v15; // rcx
   ULONG_PTR v16; // r9
-  ULONG_PTR v17; // rcx
-  ULONG_PTR v18; // r9
   ULONG_PTR BugCheckParameter4; // rcx
   struct _LIST_ENTRY *Flink; // rdx
-  __int64 v21; // rax
-  __int64 v22; // rdx
-  struct _LIST_ENTRY *v23; // r8
-  __int64 v24; // rax
-  __int64 v25; // r8
-  __int64 v26; // rax
-  __int64 v27; // rax
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  struct _LIST_ENTRY *v21; // r8
+  __int64 v22; // rax
+  __int64 v23; // r8
+  struct _LIST_ENTRY *v24; // rdx
+  __int64 v25; // rax
+  __int64 v26; // rdx
+  struct _LIST_ENTRY *v27; // r8
+  __int64 v28; // rax
+  __int64 v29; // r8
 
   if ( (MiFlags & 0xC00000) == 0
     || (*(_BYTE *)(a1 + 184) & 7) != 0
@@ -58,82 +60,77 @@ __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2)
     if ( !(unsigned int)MiWorkingSetIsContended(a1) )
     {
       v8 = a2 & 1;
-      if ( (a2 & 1) == 0 || (unsigned int)MiLockPageTableInternal(a1, v7, 1LL) )
+      if ( (a2 & 1) == 0 || (unsigned int)MiLockPageTableInternal(a1, v7, 1) )
         goto LABEL_16;
     }
     return 0xFFFFFFFFLL;
   }
   v8 = a2 & 1;
   if ( (a2 & 1) != 0 )
-    MiLockPageTableInternal(a1, 0xFFFFF6FB7DBEDF68uLL, 0LL);
+    MiLockPageTableInternal(a1, 0xFFFFF6FB7DBEDF68uLL, 0);
 LABEL_16:
   v9 = 0LL;
   v10 = 0xFFFFF6FB7DBED000uLL;
   v11 = 256;
-  Process = 0x8000000000000000uLL;
-  v13 = 0xCFFFFFFFFFFFFFFFuLL;
   do
   {
-    v14 = *(_QWORD *)v10;
+    v12 = *(_QWORD *)v10;
     if ( v10 >= 0xFFFFF6FB7DBED000uLL
       && v10 <= 0xFFFFF6FB7DBED7F8uLL
       && (MiFlags & 0xC00000) != 0
       && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-      && (v14 & 1) != 0
-      && ((v14 & 0x20) == 0 || (v14 & 0x42) == 0) )
+      && (v12 & 1) != 0
+      && ((v12 & 0x20) == 0 || (v12 & 0x42) == 0) )
     {
       Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
       if ( Flink )
       {
-        v21 = *((_QWORD *)&Flink->Flink + ((v10 >> 3) & 0x1FF));
-        v22 = v14 | 0x20;
-        if ( (v21 & 0x20) == 0 )
-          v22 = *(_QWORD *)v10;
-        v14 = v22;
-        if ( (v21 & 0x42) != 0 )
-          v14 = v22 | 0x42;
+        v19 = *((_QWORD *)&Flink->Flink + ((v10 >> 3) & 0x1FF));
+        v20 = v12 | 0x20;
+        if ( (v19 & 0x20) == 0 )
+          v20 = *(_QWORD *)v10;
+        v12 = v20;
+        if ( (v19 & 0x42) != 0 )
+          v12 = v20 | 0x42;
       }
-      Process = 0x8000000000000000uLL;
     }
-    v15 = *(_QWORD *)v5;
-    if ( v5 >= 0xFFFFF6FB7DBED000uLL && v5 <= 0xFFFFF6FB7DBED7F8uLL && (MiFlags & 0xC00000) != 0 )
+    v13 = *(_QWORD *)v5;
+    if ( v5 >= 0xFFFFF6FB7DBED000uLL
+      && v5 <= 0xFFFFF6FB7DBED7F8uLL
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v13 & 1) != 0
+      && ((v13 & 0x20) == 0 || (v13 & 0x42) == 0) )
     {
-      if ( KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-        && (v15 & 1) != 0
-        && ((v15 & 0x20) == 0 || (v15 & 0x42) == 0) )
+      v21 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v21 )
       {
-        v23 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-        if ( v23 )
-        {
-          v24 = *((_QWORD *)&v23->Flink + ((v5 >> 3) & 0x1FF));
-          v25 = v15 | 0x20;
-          if ( (v24 & 0x20) == 0 )
-            v25 = *(_QWORD *)v5;
-          v15 = v25;
-          if ( (v24 & 0x42) != 0 )
-            v15 = v25 | 0x42;
-        }
-        v13 = 0xCFFFFFFFFFFFFFFFuLL;
+        v22 = *((_QWORD *)&v21->Flink + ((v5 >> 3) & 0x1FF));
+        v23 = v13 | 0x20;
+        if ( (v22 & 0x20) == 0 )
+          v23 = *(_QWORD *)v5;
+        v13 = v23;
+        if ( (v22 & 0x42) != 0 )
+          v13 = v23 | 0x42;
       }
-      Process = 0x8000000000000000uLL;
     }
-    if ( (v14 & 1) != 0 )
+    if ( (v12 & 1) != 0 )
     {
-      v18 = v14 & 0xCFFFFFFFFFFFFFDFuLL | 0x20;
-      if ( !HIBYTE(word_140C4E008) )
-        v15 |= 0x8000000000000000uLL;
-      BugCheckParameter4 = v15 | 0x20;
-      if ( v18 != BugCheckParameter4 )
+      v16 = v12 & 0xCFFFFFFFFFFFFFDFuLL | 0x20;
+      if ( !HIBYTE(word_140C4E048) )
+        v13 |= 0x8000000000000000uLL;
+      BugCheckParameter4 = v13 | 0x20;
+      if ( v16 != BugCheckParameter4 )
       {
         if ( (a2 & 8) == 0 )
-          KeBugCheckEx(0x1Au, 0x3600uLL, v10, v18, BugCheckParameter4);
+          KeBugCheckEx(0x1Au, 0x3600uLL, v10, v16, BugCheckParameter4);
         goto LABEL_38;
       }
     }
-    else if ( v15 )
+    else if ( v13 )
     {
       if ( (a2 & 8) == 0 )
-        KeBugCheckEx(0x1Au, 0x3601uLL, v10, v15, v15);
+        KeBugCheckEx(0x1Au, 0x3601uLL, v10, v13, v13);
       goto LABEL_38;
     }
     v10 += 8LL;
@@ -146,55 +143,53 @@ LABEL_16:
     goto LABEL_37;
   while ( 1 )
   {
-    v16 = *(_QWORD *)v10;
+    v14 = *(_QWORD *)v10;
     if ( v10 >= 0xFFFFF6FB7DBED000uLL
       && v10 <= 0xFFFFF6FB7DBED7F8uLL
       && (MiFlags & 0xC00000) != 0
       && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-      && (v16 & 1) != 0
-      && ((v16 & 0x20) == 0 || (v16 & 0x42) == 0) )
+      && (v14 & 1) != 0
+      && ((v14 & 0x20) == 0 || (v14 & 0x42) == 0) )
     {
-      Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-      if ( Process )
+      v24 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v24 )
       {
-        v26 = *(_QWORD *)(Process + 8 * ((v10 >> 3) & 0x1FF));
-        Process = v16 | 0x20;
-        if ( (v26 & 0x20) == 0 )
-          Process = *(_QWORD *)v10;
-        v16 = Process;
-        if ( (v26 & 0x42) != 0 )
-          v16 = Process | 0x42;
+        v25 = *((_QWORD *)&v24->Flink + ((v10 >> 3) & 0x1FF));
+        v26 = v14 | 0x20;
+        if ( (v25 & 0x20) == 0 )
+          v26 = *(_QWORD *)v10;
+        v14 = v26;
+        if ( (v25 & 0x42) != 0 )
+          v14 = v26 | 0x42;
       }
     }
-    v17 = *(_QWORD *)v5;
-    if ( v5 >= 0xFFFFF6FB7DBED000uLL && v5 <= 0xFFFFF6FB7DBED7F8uLL && (MiFlags & 0xC00000) != 0 )
+    v15 = *(_QWORD *)v5;
+    if ( v5 >= 0xFFFFF6FB7DBED000uLL
+      && v5 <= 0xFFFFF6FB7DBED7F8uLL
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v15 & 1) != 0
+      && ((v15 & 0x20) == 0 || (v15 & 0x42) == 0) )
     {
-      Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-      if ( *(_BYTE *)(Process + 912) != 1 && (v17 & 1) != 0 && ((v17 & 0x20) == 0 || (v17 & 0x42) == 0) )
+      v27 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v27 )
       {
-        Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-        v13 = *(_QWORD *)(Process + 1928);
-        if ( v13 )
-        {
-          v27 = *(_QWORD *)(v13 + 8 * ((v5 >> 3) & 0x1FF));
-          v13 = v17 | 0x20;
-          Process = (unsigned __int8)v27;
-          LOBYTE(Process) = v27 & 0x20;
-          if ( (v27 & 0x20) == 0 )
-            v13 = *(_QWORD *)v5;
-          v17 = v13;
-          if ( (v27 & 0x42) != 0 )
-            v17 = v13 | 0x42;
-        }
+        v28 = *((_QWORD *)&v27->Flink + ((v5 >> 3) & 0x1FF));
+        v29 = v15 | 0x20;
+        if ( (v28 & 0x20) == 0 )
+          v29 = *(_QWORD *)v5;
+        v15 = v29;
+        if ( (v28 & 0x42) != 0 )
+          v15 = v29 | 0x42;
       }
     }
-    if ( (v16 & 1) != 0 && (v16 & 4) != 0 )
+    if ( (v14 & 1) != 0 && (v14 & 4) != 0 )
     {
       if ( (a2 & 8) == 0 )
-        KeBugCheckEx(0x1Au, 0x3604uLL, v10, v16, v17);
+        KeBugCheckEx(0x1Au, 0x3604uLL, v10, v14, v15);
       goto LABEL_36;
     }
-    if ( (v17 & 1) != 0 && (v17 & 4) != 0 )
+    if ( (v15 & 1) != 0 && (v15 & 4) != 0 )
       break;
     v10 += 8LL;
     v5 += 8LL;
@@ -203,7 +198,7 @@ LABEL_16:
       goto LABEL_36;
   }
   if ( (a2 & 8) == 0 )
-    KeBugCheckEx(0x1Au, 0x3605uLL, v10, v16, v17);
+    KeBugCheckEx(0x1Au, 0x3605uLL, v10, v14, v15);
 LABEL_36:
   if ( (v10 & 0xFFF) == 0 )
 LABEL_37:
@@ -212,6 +207,6 @@ LABEL_38:
   if ( v8 )
     MiUnlockPageTableInternal(a1, 0xFFFFF6FB7DBEDF68uLL);
   if ( v9 == 0xFFFFFFFFLL && (a2 & 0x10) != 0 )
-    return MiCheckRelevantKernelShadows(a2, Process, v13);
+    return MiCheckRelevantKernelShadows(a2);
   return v9;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogTerminalStateMachine @ 0x140905100
+ * XREFs of TtmiLogTerminalStateMachine @ 0x140905260
  * Callers:
- *     TtmpUpdateTerminalState @ 0x1408FE2DC (TtmpUpdateTerminalState.c)
+ *     TtmpUpdateTerminalState @ 0x1408FE43C (TtmpUpdateTerminalState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogTerminalStateMachine(int a1, int *a2, int *a3)
@@ -119,7 +119,7 @@ char __fastcall TtmiLogTerminalStateMachine(int a1, int *a2, int *a3)
       v56 = 8LL;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D2D8C8,
-                     (unsigned __int8 *)&dword_14002B0CC,
+                     (unsigned __int8 *)byte_14002B473,
                      0LL,
                      0LL,
                      0x12u,

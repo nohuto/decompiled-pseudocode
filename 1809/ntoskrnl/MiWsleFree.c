@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWsleFree @ 0x1400B2C70
+ * XREFs of MiWsleFree @ 0x1400B2BB0
  * Callers:
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
@@ -10,16 +10,16 @@
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14011AAEC (MiRewriteTrimPteAsDemandZero.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiGetPagePrivilege @ 0x1400B29B0 (MiGetPagePrivilege.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x14011AB5C (MiRewriteTrimPteAsDemandZero.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 MiWsleFree(__int64 a1, unsigned __int64 a2, char a3, ...)
@@ -185,7 +185,7 @@ LABEL_24:
         {
           if ( (unsigned int)MiPteHasShadow(v18, 0xFFFFF68000000000uLL) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (ValidPte & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (ValidPte & 1) != 0 )
               ValidPte |= 0x8000000000000000uLL;
             *v23 = ValidPte;
             MiWritePteShadow(v23);
@@ -242,7 +242,7 @@ LABEL_31:
     *(_BYTE *)(v9 + 35) = v40 & 0xDF;
     v28 = MiCapturePageFileInfoInline(v9 + 16, 0LL);
     if ( v28 )
-      v54 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL));
+      v54 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL));
     if ( (v27 & 4) != 0 )
       v41 = 2;
     else
@@ -275,7 +275,7 @@ LABEL_31:
         *(_BYTE *)(v9 + 34) = v33 | 0x10;
       }
       if ( v28 )
-        v54 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL));
+        v54 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL));
     }
     if ( v11 )
     {

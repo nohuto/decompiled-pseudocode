@@ -1,28 +1,28 @@
 /*
- * XREFs of PopCalculateCsSummary @ 0x140591334
+ * XREFs of PopCalculateCsSummary @ 0x140591824
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     PopCalculateIdleInformation @ 0x1403C7D40 (PopCalculateIdleInformation.c)
- *     PopGetModernStandbyTransitionReason @ 0x1403C84BC (PopGetModernStandbyTransitionReason.c)
- *     PpmGetPlatformSelectionVetoCounts @ 0x1403C8524 (PpmGetPlatformSelectionVetoCounts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCalculateTotalHwDripsResidency @ 0x140591890 (PopCalculateTotalHwDripsResidency.c)
- *     PopBatteryCapacityToRate @ 0x140598BDC (PopBatteryCapacityToRate.c)
- *     PopBatteryGetEnergyDrainFromDischage @ 0x140598C00 (PopBatteryGetEnergyDrainFromDischage.c)
- *     PopCurrentPowerState @ 0x1407A6D48 (PopCurrentPowerState.c)
- *     PopQueryInputSuppressionCount @ 0x1407EAF7C (PopQueryInputSuppressionCount.c)
- *     PopMeasureEnergyChange @ 0x140859608 (PopMeasureEnergyChange.c)
- *     PopQueryPowerButtonSuppressionCount @ 0x14087895C (PopQueryPowerButtonSuppressionCount.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     PopCalculateIdleInformation @ 0x1403C7F20 (PopCalculateIdleInformation.c)
+ *     PopGetModernStandbyTransitionReason @ 0x1403C869C (PopGetModernStandbyTransitionReason.c)
+ *     PpmGetPlatformSelectionVetoCounts @ 0x1403C8704 (PpmGetPlatformSelectionVetoCounts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x140591D80 (PopCalculateTotalHwDripsResidency.c)
+ *     PopBatteryCapacityToRate @ 0x1405990CC (PopBatteryCapacityToRate.c)
+ *     PopBatteryGetEnergyDrainFromDischage @ 0x1405990F0 (PopBatteryGetEnergyDrainFromDischage.c)
+ *     PopCurrentPowerState @ 0x1407A6F38 (PopCurrentPowerState.c)
+ *     PopQueryInputSuppressionCount @ 0x1407EB24C (PopQueryInputSuppressionCount.c)
+ *     PopMeasureEnergyChange @ 0x140859848 (PopMeasureEnergyChange.c)
+ *     PopQueryPowerButtonSuppressionCount @ 0x140878B9C (PopQueryPowerButtonSuppressionCount.c)
  */
 
 __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 {
-  __int64 InterruptTimePrecise; // rsi
+  LARGE_INTEGER InterruptTimePrecise; // rsi
   unsigned __int64 v5; // r14
   unsigned int EnergyDrainFromDischage; // eax
   __int64 v7; // rax
@@ -34,7 +34,7 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // rcx
   __int64 v15; // r11
-  __int64 v16; // rsi
+  LONGLONG v16; // rsi
   unsigned __int64 v17; // rsi
   unsigned int v18; // r11d
   int v19; // edx
@@ -60,7 +60,7 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   __int64 v39; // [rsp+30h] [rbp-89h] BYREF
   __int64 v40; // [rsp+38h] [rbp-81h] BYREF
   unsigned __int64 v41; // [rsp+40h] [rbp-79h]
-  LARGE_INTEGER v42; // [rsp+48h] [rbp-71h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-71h] BYREF
   __int64 v43; // [rsp+50h] [rbp-69h]
   __int64 v44; // [rsp+58h] [rbp-61h]
   unsigned __int64 v45; // [rsp+60h] [rbp-59h]
@@ -78,14 +78,14 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 
   *(_QWORD *)&v49 = 0LL;
   DWORD2(v49) = 0;
-  v42.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   memset(v52, 0, 32);
   LOBYTE(v41) = 0;
   v50 = 0LL;
   v51 = 0LL;
   PopCalculateIdleInformation((__int64)&v50);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v42);
-  v5 = (InterruptTimePrecise - qword_140CF7C08) / 0xAuLL;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v5 = (InterruptTimePrecise.QuadPart - qword_140CF7C08) / 0xAuLL;
   PopCurrentPowerState(v52);
   if ( v5 )
   {
@@ -97,14 +97,14 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
     v55 = 0;
   }
   v7 = PopMeasureEnergyChange(&v49, &CsSessionEnergyCounter);
-  v8 = HIDWORD(xmmword_140C3CEF4);
-  if ( HIDWORD(xmmword_140C3CEF4) )
-    LODWORD(v7) = (unsigned int)(100 * xmmword_140C3CF04) / HIDWORD(xmmword_140C3CEF4);
+  v8 = HIDWORD(xmmword_140C3D094);
+  if ( HIDWORD(xmmword_140C3D094) )
+    LODWORD(v7) = (unsigned int)(100 * xmmword_140C3D0A4) / HIDWORD(xmmword_140C3D094);
   else
     LOBYTE(v7) = 0;
   v9 = 0;
-  if ( (xmmword_140C3CEF4 & 0x40000000) == 0 )
-    v9 = xmmword_140C3CF04;
+  if ( (xmmword_140C3D094 & 0x40000000) == 0 )
+    v9 = xmmword_140C3D0A4;
   v56 = v7;
   v43 = *((_QWORD *)&v50 + 1) - qword_140CF7C10;
   v36 = v9;
@@ -122,9 +122,9 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   if ( qword_140CF7C58 )
   {
     if ( qword_140CF7C08 <= (unsigned __int64)qword_140CF7C58 )
-      v16 = InterruptTimePrecise - qword_140CF7C58;
+      v16 = InterruptTimePrecise.QuadPart - qword_140CF7C58;
     else
-      v16 = InterruptTimePrecise - qword_140CF7C08;
+      v16 = InterruptTimePrecise.QuadPart - qword_140CF7C08;
     v14 = v16 + qword_140CF7C60;
   }
   v17 = v14 / 0xA;
@@ -196,16 +196,16 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   *(_QWORD *)(a1 + 232) = qword_140CF7C88;
   *(_QWORD *)(a1 + 240) = qword_140CF7C90;
   *(_DWORD *)(a1 + 224) = dword_140CF7D08;
-  v30 = KeAcquireSpinLockRaiseToDpc(&qword_140C3C9B8);
-  *(_QWORD *)(a1 + 256) = qword_140C3C9A8;
-  *(_QWORD *)(a1 + 248) = qword_140C3C9B0;
+  v30 = KeAcquireSpinLockRaiseToDpc(&qword_140C3C938);
+  *(_QWORD *)(a1 + 256) = qword_140C3C928;
+  *(_QWORD *)(a1 + 248) = qword_140C3C930;
   *(_QWORD *)(a1 + 264) = PopDisplayOnPerformance;
   v31 = v30;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C9B8);
-  if ( KiIrqlFlags )
+  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C938);
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v31 <= 0xFu
       && (unsigned __int8)result >= 2u )

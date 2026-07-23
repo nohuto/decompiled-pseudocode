@@ -1,12 +1,12 @@
 /*
- * XREFs of MincryptAlloc @ 0x14082897C
+ * XREFs of MincryptAlloc @ 0x14082914C
  * Callers:
- *     SymCryptCallbackAlloc @ 0x1406A5810 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackAlloc @ 0x1406A6810 (SymCryptCallbackAlloc.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 MincryptAlloc()
+__int64 __fastcall MincryptAlloc(ULONG_PTR a1)
 {
-  return ExAllocatePool2(0x102uLL);
+  return ExAllocatePool2(0x102uLL, a1, 0x72634943u);
 }

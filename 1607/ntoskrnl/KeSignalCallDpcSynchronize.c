@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSignalCallDpcSynchronize @ 0x1401D6450
+ * XREFs of KeSignalCallDpcSynchronize @ 0x1401D627C
  * Callers:
  *     KiConfigureHeteroProcessorsTarget @ 0x1403DD1E8 (KiConfigureHeteroProcessorsTarget.c)
  *     KiInitializeDynamicProcessorDpc @ 0x1403DD5DC (KiInitializeDynamicProcessorDpc.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KeSignalCallDpcSynchronize(__int64 a1)

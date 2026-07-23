@@ -1,12 +1,12 @@
 /*
- * XREFs of ExQuerySystemLockInformation @ 0x140BFF388
+ * XREFs of ExQuerySystemLockInformation @ 0x140C05598
  * Callers:
- *     ExpGetLockInformation @ 0x140775318 (ExpGetLockInformation.c)
+ *     ExpGetLockInformation @ 0x140778318 (ExpGetLockInformation.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
  */
 
 __int64 __fastcall ExQuerySystemLockInformation(int a1, _DWORD *a2, unsigned int a3, unsigned int *a4)
@@ -16,9 +16,9 @@ __int64 __fastcall ExQuerySystemLockInformation(int a1, _DWORD *a2, unsigned int
   PVOID v10; // rcx
   _DWORD *v11; // rsi
   KIRQL v12; // al
-  unsigned int *v13; // rdx
+  unsigned __int8 *v13; // rdx
   KIRQL v14; // r8
-  unsigned int *v15; // rax
+  unsigned __int8 *v15; // rax
   __int64 v16; // rcx
   __int64 v17; // rax
 
@@ -34,9 +34,9 @@ __int64 __fastcall ExQuerySystemLockInformation(int a1, _DWORD *a2, unsigned int
   *a2 = 0;
   MmLockPagableSectionByHandle(v10);
   v12 = ExAcquireSpinLockShared(&ExpResourceSpinLock);
-  v13 = *(unsigned int **)&ExSaPageGroupDescriptorArrayLock.Spare36;
+  v13 = *(unsigned __int8 **)&ExSaPageGroupDescriptorArrayLock.ResourceIndex;
   v14 = v12;
-  while ( v13 != &ExSaPageGroupDescriptorArrayLock.Spare36 )
+  while ( v13 != &ExSaPageGroupDescriptorArrayLock.ResourceIndex )
   {
     ++*a2;
     v4 += 48;
@@ -56,7 +56,7 @@ __int64 __fastcall ExQuerySystemLockInformation(int a1, _DWORD *a2, unsigned int
       v15 = v13;
     *(_QWORD *)v11 = v15;
     v16 = *((_QWORD *)v13 + 6);
-    if ( (v13[14] & 2) != 0 )
+    if ( (*((_DWORD *)v13 + 14) & 2) != 0 )
     {
       v16 &= 0xFFFFFFFFFFFFFFFCuLL;
     }
@@ -73,13 +73,13 @@ LABEL_15:
     v17 = *(_QWORD *)(v16 + 1296);
 LABEL_16:
     *((_QWORD *)v11 + 2) = v17;
-    v11[6] = v13[16];
-    v11[7] = v13[17];
-    v11[10] = v13[18];
-    v11[11] = v13[19];
+    v11[6] = *((_DWORD *)v13 + 16);
+    v11[7] = *((_DWORD *)v13 + 17);
+    v11[10] = *((_DWORD *)v13 + 18);
+    v11[11] = *((_DWORD *)v13 + 19);
     v11 += 12;
 LABEL_17:
-    v13 = *(unsigned int **)v13;
+    v13 = *(unsigned __int8 **)v13;
   }
   ExReleaseSpinLockShared(&ExpResourceSpinLock, v14);
   MmUnlockPagableImageSection(ExPageLockHandle);

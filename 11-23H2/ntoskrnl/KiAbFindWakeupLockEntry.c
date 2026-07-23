@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbFindWakeupLockEntry @ 0x1402BC1F8
+ * XREFs of KiAbFindWakeupLockEntry @ 0x1402BC488
  * Callers:
- *     KeAbPreWakeupThread @ 0x1402BC1BC (KeAbPreWakeupThread.c)
+ *     KeAbPreWakeupThread @ 0x1402BC44C (KeAbPreWakeupThread.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
  */
 
 __int64 __fastcall KiAbFindWakeupLockEntry(__int64 a1, __int64 a2)

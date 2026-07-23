@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpDetermineResourceListSize @ 0x1404C8F50
+ * XREFs of PnpDetermineResourceListSize @ 0x14050F344
  * Callers:
- *     IopQueryDeviceResources @ 0x1404C89E8 (IopQueryDeviceResources.c)
- *     IoGetDeviceProperty @ 0x1404F936C (IoGetDeviceProperty.c)
- *     IopLegacyResourceAllocation @ 0x1405549AC (IopLegacyResourceAllocation.c)
- *     IopCombineCmResourceList @ 0x140554C6C (IopCombineCmResourceList.c)
- *     IoReportDetectedDevice @ 0x140554CFC (IoReportDetectedDevice.c)
- *     PnpBuildCmResourceLists @ 0x140555BD8 (PnpBuildCmResourceLists.c)
- *     IopChangeInterfaceType @ 0x14062C3B0 (IopChangeInterfaceType.c)
- *     PnpSetRegistryResourceList @ 0x14062D2C8 (PnpSetRegistryResourceList.c)
- *     IopCombineLegacyResources @ 0x14062E680 (IopCombineLegacyResources.c)
- *     PnpRestoreResourcesInternal @ 0x14064BE48 (PnpRestoreResourcesInternal.c)
+ *     IoGetDeviceProperty @ 0x1404DC2F8 (IoGetDeviceProperty.c)
+ *     IopQueryDeviceResources @ 0x14050EDDC (IopQueryDeviceResources.c)
+ *     IopLegacyResourceAllocation @ 0x140554EEC (IopLegacyResourceAllocation.c)
+ *     IopCombineCmResourceList @ 0x1405551AC (IopCombineCmResourceList.c)
+ *     IoReportDetectedDevice @ 0x14055523C (IoReportDetectedDevice.c)
+ *     PnpBuildCmResourceLists @ 0x140556118 (PnpBuildCmResourceLists.c)
+ *     IopChangeInterfaceType @ 0x14062C464 (IopChangeInterfaceType.c)
+ *     PnpSetRegistryResourceList @ 0x14062D37C (PnpSetRegistryResourceList.c)
+ *     IopCombineLegacyResources @ 0x14062E734 (IopCombineLegacyResources.c)
+ *     PnpRestoreResourcesInternal @ 0x14064BF2C (PnpRestoreResourcesInternal.c)
  *     IopReportBootResources @ 0x1407ABA34 (IopReportBootResources.c)
  * Callees:
  *     <none>

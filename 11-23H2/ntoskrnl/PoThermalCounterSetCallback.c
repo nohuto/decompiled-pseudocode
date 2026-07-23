@@ -1,16 +1,16 @@
 /*
- * XREFs of PoThermalCounterSetCallback @ 0x14098ABE0
+ * XREFs of PoThermalCounterSetCallback @ 0x14098ADE0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcspbrk @ 0x1403DC040 (wcspbrk.c)
- *     PcwAddInstance @ 0x14086D6E0 (PcwAddInstance.c)
- *     PopThermalReadCounters @ 0x14098AEB4 (PopThermalReadCounters.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcspbrk @ 0x1403DC220 (wcspbrk.c)
+ *     PcwAddInstance @ 0x14086D920 (PcwAddInstance.c)
+ *     PopThermalReadCounters @ 0x14098B0B4 (PopThermalReadCounters.c)
  */
 
 __int64 __fastcall PoThermalCounterSetCallback(int a1, _QWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalStartProfileInterrupt @ 0x14057FD70
+ * XREFs of HalStartProfileInterrupt @ 0x140582290
  * Callers:
  *     <none>
  * Callees:
- *     HalpStartProfileInterruptEx @ 0x140580840 (HalpStartProfileInterruptEx.c)
+ *     HalpStartProfileInterruptEx @ 0x140582D60 (HalpStartProfileInterruptEx.c)
  */
 
 __int64 __fastcall HalStartProfileInterrupt(int a1)

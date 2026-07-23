@@ -1,12 +1,12 @@
 /*
- * XREFs of MmChargeResources @ 0x140394570
+ * XREFs of MmChargeResources @ 0x1403962F0
  * Callers:
- *     SmFpAllocate @ 0x14035D180 (SmFpAllocate.c)
- *     SmKmAllocateMdlForLock @ 0x1403944B0 (SmKmAllocateMdlForLock.c)
+ *     SmFpAllocate @ 0x14035EF20 (SmFpAllocate.c)
+ *     SmKmAllocateMdlForLock @ 0x140396230 (SmKmAllocateMdlForLock.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
  */
 
 __int64 __fastcall MmChargeResources(ULONG **a1, unsigned __int64 a2, char a3)

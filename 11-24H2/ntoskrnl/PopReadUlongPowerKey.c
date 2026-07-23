@@ -1,10 +1,10 @@
 /*
- * XREFs of PopReadUlongPowerKey @ 0x1405CD3CC
+ * XREFs of PopReadUlongPowerKey @ 0x1405CAB3C
  * Callers:
- *     PopQueryHiberPersistedRegValue @ 0x140752CB0 (PopQueryHiberPersistedRegValue.c)
- *     PopBatteryInitPhaseTwo @ 0x140C31D4C (PopBatteryInitPhaseTwo.c)
+ *     PopQueryHiberPersistedRegValue @ 0x140750FD0 (PopQueryHiberPersistedRegValue.c)
+ *     PopBatteryInitPhaseTwo @ 0x140C33E6C (PopBatteryInitPhaseTwo.c)
  * Callees:
- *     PopReadRegKeyValue @ 0x1404AC224 (PopReadRegKeyValue.c)
+ *     PopReadRegKeyValue @ 0x1404A667C (PopReadRegKeyValue.c)
  */
 
 __int64 __fastcall PopReadUlongPowerKey(

@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpQueryTrace @ 0x1408347C0
+ * XREFs of EtwpQueryTrace @ 0x1408360C0
  * Callers:
- *     EtwWmitraceWorker @ 0x1407AC83C (EtwWmitraceWorker.c)
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     EtwWmitraceWorker @ 0x1407ACD0C (EtwWmitraceWorker.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1408343FC (EtwpGetLoggerInfoFromContext.c)
- *     EtwpValidateLoggerInfo @ 0x140836450 (EtwpValidateLoggerInfo.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     EtwpAcquireLoggerContext @ 0x140926CDC (EtwpAcquireLoggerContext.c)
- *     EtwCheckSecurityLoggerAccess @ 0x14094A508 (EtwCheckSecurityLoggerAccess.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x140835798 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1408361C0 (EtwpValidateLoggerInfo.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     EtwCheckSecurityLoggerAccess @ 0x1408EEA78 (EtwCheckSecurityLoggerAccess.c)
+ *     EtwpAcquireLoggerContext @ 0x140928E1C (EtwpAcquireLoggerContext.c)
  */
 
 __int64 __fastcall EtwpQueryTrace(__int64 a1, __int64 a2, __int64 a3)

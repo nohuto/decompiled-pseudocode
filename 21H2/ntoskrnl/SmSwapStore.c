@@ -1,13 +1,13 @@
 /*
- * XREFs of SmSwapStore @ 0x14071059C
+ * XREFs of SmSwapStore @ 0x1406BEBEC
  * Callers:
- *     SmStoreCompressionStop @ 0x14070F040 (SmStoreCompressionStop.c)
- *     SmStoreCompressionStart @ 0x14070F13C (SmStoreCompressionStart.c)
- *     MiInSwapStoreWorker @ 0x1407104D0 (MiInSwapStoreWorker.c)
+ *     SmStoreCompressionStop @ 0x1406BD690 (SmStoreCompressionStop.c)
+ *     SmStoreCompressionStart @ 0x1406BD78C (SmStoreCompressionStart.c)
+ *     MiInSwapStoreWorker @ 0x1406BEB20 (MiInSwapStoreWorker.c)
  * Callees:
- *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmSwapStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14035C154 (-SmSwapStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_.c)
+ *     SmpKeyedStoreEntryGet @ 0x140287698 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmSwapStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1402A1084 (-SmSwapStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_.c)
  */
 
 __int64 __fastcall SmSwapStore(int a1)

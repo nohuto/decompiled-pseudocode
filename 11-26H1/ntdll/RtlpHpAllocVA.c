@@ -1,99 +1,108 @@
 /*
- * XREFs of RtlpHpAllocVA @ 0x18008BB10
+ * XREFs of RtlpHpAllocVA @ 0x18006EF50
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x180069E10 (RtlpHpSegMgrCommit.c)
- *     RtlpHpLargeAlloc @ 0x18008A18C (RtlpHpLargeAlloc.c)
- *     RtlpHpSegMgrReserve @ 0x18008B664 (RtlpHpSegMgrReserve.c)
- *     RtlpHpHeapAllocate @ 0x18008D814 (RtlpHpHeapAllocate.c)
- *     RtlpHpHeapExtendContext @ 0x18008E320 (RtlpHpHeapExtendContext.c)
+ *     RtlpHpSegMgrReserve @ 0x18006EA9C (RtlpHpSegMgrReserve.c)
+ *     RtlpHpLargeAlloc @ 0x18006FE4C (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrCommit @ 0x18008A260 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpHeapExtendContext @ 0x1800E6C10 (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x1800E6ECC (RtlpHpHeapAllocate.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpTlLogVAChange @ 0x18008BD58 (RtlpHpTlLogVAChange.c)
- *     RtlpHpEnvAllocVA @ 0x18008BE90 (RtlpHpEnvAllocVA.c)
- *     RtlpHpVaMgrAlloc @ 0x18008C3AC (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrCtxAllocatorFind @ 0x18008CC50 (RtlpHpVaMgrCtxAllocatorFind.c)
- *     RtlpHpVaMgrCtxCommit @ 0x18011D560 (RtlpHpVaMgrCtxCommit.c)
- *     RtlHeapZero @ 0x1801642D0 (RtlHeapZero.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpTlLogVAChange @ 0x18006F198 (RtlpHpTlLogVAChange.c)
+ *     RtlpHpEnvAllocVA @ 0x18006F2D0 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpVaMgrAlloc @ 0x18006F7E8 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x1800705AC (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     RtlpHpVaMgrCtxCommit @ 0x18011D310 (RtlpHpVaMgrCtxCommit.c)
+ *     RtlHeapZero @ 0x1801641D0 (RtlHeapZero.c)
  */
 
-__int64 __fastcall RtlpHpAllocVA(__int64 *a1, __m128i **a2, __int64 a3, unsigned int a4, unsigned int a5, __m128i *a6)
+__int64 __fastcall RtlpHpAllocVA(
+        PVOID *BaseAddress,
+        __m128i **a2,
+        __int64 a3,
+        unsigned int a4,
+        ULONG a5,
+        __m128i *RegionSize)
 {
-  __m128i v10; // xmm1
-  __int64 v11; // r9
-  unsigned int v12; // ecx
-  __m128i *v13; // r8
+  __m128i v9; // xmm1
+  __int64 v10; // r9
+  unsigned int v11; // ecx
+  __m128i *v12; // r8
+  __int64 v13; // xmm0_8
   int v14; // eax
   __m128i *v15; // r8
   int v16; // ebx
-  char *v18; // rbp
-  __int64 v19; // rcx
-  _DWORD v20[3]; // [rsp+50h] [rbp-28h] BYREF
-  int v21; // [rsp+5Ch] [rbp-1Ch]
-  unsigned __int64 v22; // [rsp+60h] [rbp-18h]
+  _RTL_SRWLOCK *v18; // rbp
+  void *v19; // rcx
+  int v20; // [rsp+28h] [rbp-50h]
+  _DWORD v21[3]; // [rsp+50h] [rbp-28h] BYREF
+  int v22; // [rsp+5Ch] [rbp-1Ch]
+  __int64 v23; // [rsp+60h] [rbp-18h]
 
-  v20[0] = 0;
-  v21 = 0;
-  v10 = *a6;
-  v11 = a6->m128i_i64[0];
-  if ( HIBYTE(a6->m128i_u32[0]) )
-    v12 = BYTE3(a6->m128i_i64[0]) - 1;
+  v21[0] = 0;
+  v22 = 0;
+  v9 = *RegionSize;
+  v10 = RegionSize->m128i_i64[0];
+  if ( HIBYTE(RegionSize->m128i_u32[0]) )
+    v11 = BYTE3(RegionSize->m128i_i64[0]) - 1;
   else
-    v12 = -1;
-  v20[0] = v12;
-  v20[2] = BYTE2(v11);
-  v20[1] = BYTE1(v11);
-  if ( (v11 & 8) != 0 )
-    v21 = 1;
-  v13 = *a2;
-  v22 = _mm_srli_si128(v10, 8).m128i_u64[0];
-  v14 = (_DWORD)v13 - 1;
+    v11 = -1;
+  v21[0] = v11;
+  v21[2] = BYTE2(v10);
+  v21[1] = BYTE1(v10);
+  if ( (v10 & 8) != 0 )
+    v22 = 1;
+  v12 = *a2;
+  v13 = _mm_srli_si128(v9, 8).m128i_u64[0];
+  v23 = v13;
+  v14 = (_DWORD)v12 - 1;
   if ( a4 == 0x2000 )
   {
-    a6 = (__m128i *)((char *)v13 - (v14 & 0xFFFFF) + 0xFFFFF);
-    if ( v12 == -1 )
+    RegionSize = (__m128i *)((char *)v12 - (v14 & 0xFFFFF) + 0xFFFFF);
+    if ( v11 == -1 )
     {
-      RtlAcquireSRWLockShared((volatile signed __int64 *)&unk_1801C8168);
-      v18 = (char *)RtlpHpVaMgrCtxAllocatorFind(&unk_1801C7908, v20, 0LL, 0LL);
-      RtlReleaseSRWLockShared((volatile signed __int64 *)&unk_1801C8168);
+      RtlAcquireSRWLockShared(&stru_1801C71B8);
+      v18 = (_RTL_SRWLOCK *)RtlpHpVaMgrCtxAllocatorFind(&unk_1801C6958, v21, 0LL, 0LL);
+      RtlReleaseSRWLockShared(&stru_1801C71B8);
     }
     else
     {
-      v18 = (char *)&unk_1801C8178 + 48 * v12;
+      v18 = (_RTL_SRWLOCK *)((char *)&unk_1801C71C8 + 48 * v11);
     }
-    v19 = RtlpHpVaMgrAlloc(v18, &a6, a3);
+    v19 = (void *)RtlpHpVaMgrAlloc(v18);
     if ( v19 )
     {
-      *a2 = a6;
-      *a1 = v19;
+      *a2 = RegionSize;
+      *BaseAddress = v19;
       goto LABEL_9;
     }
     v16 = -1073741670;
   }
   else
   {
-    v15 = (__m128i *)((char *)v13 - (v14 & 0xFFF) + 4095);
-    a6 = v15;
-    if ( (unsigned __int8)(_mm_cvtsi128_si32(_mm_srli_si128(v10, 1)) - 2) > 2u )
+    v15 = (__m128i *)((char *)v12 - (v14 & 0xFFF) + 4095);
+    RegionSize = v15;
+    if ( (unsigned __int8)(_mm_cvtsi128_si32(_mm_srli_si128(v9, 1)) - 2) > 2u )
     {
-      v16 = RtlpHpEnvAllocVA((_DWORD)a1, (unsigned int)&a6, a3, a4, a5);
+      v16 = RtlpHpEnvAllocVA(BaseAddress, (PSIZE_T)&RegionSize, a5, v20, BYTE1(v10), v13);
       if ( v16 < 0 )
         goto LABEL_10;
       goto LABEL_8;
     }
-    v16 = RtlpHpVaMgrCtxCommit(&unk_1801C7908, *a1, v15, a5);
+    v16 = RtlpHpVaMgrCtxCommit(&unk_1801C6958, *BaseAddress, v15, a5);
     if ( v16 >= 0 )
     {
       if ( (a4 & 0x40000000) != 0 )
-        RtlHeapZero(*a1, a6);
+        RtlHeapZero(*BaseAddress, RegionSize);
 LABEL_8:
-      *a2 = a6;
+      *a2 = RegionSize;
 LABEL_9:
       v16 = 0;
     }
   }
 LABEL_10:
   if ( (RtlpHpHeapFeatures & 0x10) != 0 )
-    RtlpHpTlLogVAChange(a4, *a2, *a1, (unsigned int)v16);
+    RtlpHpTlLogVAChange(a4, *a2, *BaseAddress, (unsigned int)v16);
   return (unsigned int)v16;
 }

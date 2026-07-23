@@ -1,19 +1,19 @@
 /*
- * XREFs of IoWriteDeferredLiveDumpData @ 0x14094C2C4
+ * XREFs of IoWriteDeferredLiveDumpData @ 0x14094C4C4
  * Callers:
- *     DbgkpWerDeferredWriteRoutine @ 0x14093B9F0 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x14093BBF0 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
  *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTrace @ 0x14055A08C (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14055A99C (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x14055ACB0 (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x14055AEB4 (IopLiveDumpTraceInterfaceStart.c)
- *     IopLiveDumpReleaseResources @ 0x14094EE18 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x14094F484 (IopLiveDumpWriteDumpFile.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTrace @ 0x14055A74C (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14055B05C (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x14055B370 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x14055B574 (IopLiveDumpTraceInterfaceStart.c)
+ *     IopLiveDumpReleaseResources @ 0x14094F018 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094F684 (IopLiveDumpWriteDumpFile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -59,7 +59,7 @@ __int64 __fastcall IoWriteDeferredLiveDumpData(char *P)
     v17 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C03870,
-      (unsigned __int8 *)&byte_14002BC07,
+      (unsigned __int8 *)&byte_14002BCEF,
       (const GUID *)(P + 968),
       (const GUID *)(P + 952),
       5u,

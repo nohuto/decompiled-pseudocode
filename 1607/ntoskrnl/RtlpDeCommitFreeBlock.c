@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpDeCommitFreeBlock @ 0x140093070
+ * XREFs of RtlpDeCommitFreeBlock @ 0x140092870
  * Callers:
- *     RtlpFreeHeap @ 0x1400936CC (RtlpFreeHeap.c)
+ *     RtlpFreeHeap @ 0x140092ECC (RtlpFreeHeap.c)
  * Callees:
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     RtlpInsertFreeBlock @ 0x1400930CC (RtlpInsertFreeBlock.c)
- *     RtlpCoalesceFreeBlocks @ 0x140093C54 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateUCREntry @ 0x140094EF8 (RtlpCreateUCREntry.c)
- *     RtlpInsertUCRBlock @ 0x140094FF0 (RtlpInsertUCRBlock.c)
- *     RtlpRemoveUCRBlock @ 0x1400950BC (RtlpRemoveUCRBlock.c)
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     ZwFreeVirtualMemory @ 0x14015A040 (ZwFreeVirtualMemory.c)
- *     RtlpUpdateHeapRates @ 0x140213C08 (RtlpUpdateHeapRates.c)
- *     RtlpHeapHandleError @ 0x1402188DC (RtlpHeapHandleError.c)
- *     RtlpLogHeapContractEvent @ 0x140218F1C (RtlpLogHeapContractEvent.c)
- *     RtlpLogHeapDecommit @ 0x140219074 (RtlpLogHeapDecommit.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     RtlpInsertFreeBlock @ 0x1400928CC (RtlpInsertFreeBlock.c)
+ *     RtlpCoalesceFreeBlocks @ 0x140093454 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateUCREntry @ 0x1400946F8 (RtlpCreateUCREntry.c)
+ *     RtlpInsertUCRBlock @ 0x1400947F0 (RtlpInsertUCRBlock.c)
+ *     RtlpRemoveUCRBlock @ 0x1400948BC (RtlpRemoveUCRBlock.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     ZwFreeVirtualMemory @ 0x14015A5B0 (ZwFreeVirtualMemory.c)
+ *     RtlpUpdateHeapRates @ 0x140213A34 (RtlpUpdateHeapRates.c)
+ *     RtlpHeapHandleError @ 0x140218708 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapContractEvent @ 0x140218D48 (RtlpLogHeapContractEvent.c)
+ *     RtlpLogHeapDecommit @ 0x140218EA0 (RtlpLogHeapDecommit.c)
  */
 
 __int64 __fastcall RtlpDeCommitFreeBlock(unsigned __int64 a1, _WORD *a2, unsigned __int64 a3)

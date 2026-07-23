@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwWriteEndScenario @ 0x1405485B4
+ * XREFs of EtwWriteEndScenario @ 0x140548AF4
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x140145238 (PnpCompleteSystemStartProcess.c)
+ *     PnpCompleteSystemStartProcess @ 0x1401457A8 (PnpCompleteSystemStartProcess.c)
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
- *     PopDiagTracePowerTransitionEnd @ 0x140530CF8 (PopDiagTracePowerTransitionEnd.c)
+ *     PopDiagTracePowerTransitionEnd @ 0x140531238 (PopDiagTracePowerTransitionEnd.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwGetProviderIdFromHandle @ 0x1400AFE9C (EtwGetProviderIdFromHandle.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     WdipStartEndScenario @ 0x1404E3D3C (WdipStartEndScenario.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwGetProviderIdFromHandle @ 0x1400AE054 (EtwGetProviderIdFromHandle.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     WdipStartEndScenario @ 0x1404C69F4 (WdipStartEndScenario.c)
  */
 
 NTSTATUS __fastcall EtwWriteEndScenario(

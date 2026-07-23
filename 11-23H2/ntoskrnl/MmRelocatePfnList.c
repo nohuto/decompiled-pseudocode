@@ -1,20 +1,20 @@
 /*
- * XREFs of MmRelocatePfnList @ 0x140A3C988
+ * XREFs of MmRelocatePfnList @ 0x140A3CC38
  * Callers:
- *     PfpPfnPrioRequest @ 0x14075DD48 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x14075DF38 (PfpPfnPrioRequest.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x14023CC40 (MiIdentifyPfnWrapper.c)
- *     MiIsPfn @ 0x14023F0C0 (MiIsPfn.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiLockDynamicMemoryShared @ 0x1403463D4 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x140346780 (MiUnlockDynamicMemoryShared.c)
- *     MiClaimPhysicalRun @ 0x1403BA77C (MiClaimPhysicalRun.c)
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiEmptyKernelStackCache @ 0x140644790 (MiEmptyKernelStackCache.c)
+ *     MiIdentifyPfnWrapper @ 0x14023CD10 (MiIdentifyPfnWrapper.c)
+ *     MiIsPfn @ 0x14023F190 (MiIsPfn.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x1402EC680 (MiCreateUltraThreadContext.c)
+ *     MiLockDynamicMemoryShared @ 0x140346664 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140346A10 (MiUnlockDynamicMemoryShared.c)
+ *     MiClaimPhysicalRun @ 0x1403BA95C (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiEmptyKernelStackCache @ 0x140644CE0 (MiEmptyKernelStackCache.c)
  */
 
 __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -68,7 +68,7 @@ __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, un
         if ( !MiPfnsWorthTrying((__int64)MiSystemPartition, 48 * v12 - 0x220000000000LL, 1LL, 0, &v15) )
         {
           if ( (v15 & 1) != 0 )
-            MiEmptyKernelStackCache((union _SLIST_HEADER *)MiSystemPartition, 0);
+            MiEmptyKernelStackCache((_SLIST_HEADER *)MiSystemPartition, 0);
           if ( !MiClaimPhysicalRun(
                   (__int64)MiSystemPartition,
                   v12,

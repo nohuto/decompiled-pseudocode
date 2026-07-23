@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpGetCurrentUserUILanguage @ 0x14071AEB0
+ * XREFs of ExpGetCurrentUserUILanguage @ 0x14071C150
  * Callers:
- *     NtQueryDefaultUILanguage @ 0x14071AE40 (NtQueryDefaultUILanguage.c)
+ *     NtQueryDefaultUILanguage @ 0x14071C0E0 (NtQueryDefaultUILanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     CloseGlobalizationUserSettingsKey @ 0x140174AB0 (CloseGlobalizationUserSettingsKey.c)
- *     OpenGlobalizationUserSettingsKey @ 0x140174AD4 (OpenGlobalizationUserSettingsKey.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
- *     ExpGetUILanguagePolicy @ 0x14071AFE0 (ExpGetUILanguagePolicy.c)
- *     ExpIsValidUILanguage @ 0x1408CBA9C (ExpIsValidUILanguage.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     CloseGlobalizationUserSettingsKey @ 0x140174BB0 (CloseGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x140174BD4 (OpenGlobalizationUserSettingsKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140696B10 (RtlUnicodeStringToInteger.c)
+ *     ExpGetUILanguagePolicy @ 0x14071C280 (ExpGetUILanguagePolicy.c)
+ *     ExpIsValidUILanguage @ 0x1408CCD5C (ExpIsValidUILanguage.c)
  */
 
 NTSTATUS __fastcall ExpGetCurrentUserUILanguage(__int64 a1, _WORD *a2, __int64 a3, __int64 a4)

@@ -1,24 +1,24 @@
 /*
- * XREFs of SdbpCheckApplicationTypeAttributes @ 0x140696028
+ * XREFs of SdbpCheckApplicationTypeAttributes @ 0x1406970F8
  * Callers:
- *     SdbpCheckBackupApplicationAttributes @ 0x140802990 (SdbpCheckBackupApplicationAttributes.c)
- *     SdbpCheckPackageAttributes @ 0x140804080 (SdbpCheckPackageAttributes.c)
+ *     SdbpCheckBackupApplicationAttributes @ 0x1408030D0 (SdbpCheckBackupApplicationAttributes.c)
+ *     SdbpCheckPackageAttributes @ 0x1408047C0 (SdbpCheckPackageAttributes.c)
  * Callees:
- *     ULongLongMult @ 0x140441690 (ULongLongMult.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     SdbReadQWORDTag @ 0x140805BDC (SdbReadQWORDTag.c)
- *     SdbpCheckFromStringVersion @ 0x1408078F4 (SdbpCheckFromStringVersion.c)
- *     SdbpCheckFromVersion @ 0x140807A84 (SdbpCheckFromVersion.c)
- *     SdbpCheckUptoStringVersion @ 0x140807ACC (SdbpCheckUptoStringVersion.c)
- *     SdbpCheckUptoVersion @ 0x140807C40 (SdbpCheckUptoVersion.c)
- *     SdbpCheckVersion @ 0x140807C88 (SdbpCheckVersion.c)
- *     SdbReadDWORDTag @ 0x14095F0F8 (SdbReadDWORDTag.c)
- *     AslStringPatternMatchW @ 0x14095F194 (AslStringPatternMatchW.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x1409600B0 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     ULongLongMult @ 0x140437FD0 (ULongLongMult.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     SdbReadQWORDTag @ 0x14080631C (SdbReadQWORDTag.c)
+ *     SdbpCheckFromStringVersion @ 0x140808034 (SdbpCheckFromStringVersion.c)
+ *     SdbpCheckFromVersion @ 0x1408081C4 (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoStringVersion @ 0x14080820C (SdbpCheckUptoStringVersion.c)
+ *     SdbpCheckUptoVersion @ 0x140808380 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckVersion @ 0x1408083C8 (SdbpCheckVersion.c)
+ *     SdbReadDWORDTag @ 0x140946BB8 (SdbReadDWORDTag.c)
+ *     AslStringPatternMatchW @ 0x140946C54 (AslStringPatternMatchW.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x140947B70 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsigned int a3, _QWORD *a4)
@@ -76,7 +76,7 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
   }
   for ( i = 0LL; i < 0x40; i += 4LL )
   {
-    FirstTag = SdbFindFirstTag(a2, a3, *(unsigned __int16 *)((char *)&unk_140E0EC80 + i));
+    FirstTag = SdbFindFirstTag(a2, a3, *(unsigned __int16 *)((char *)&unk_140E0ED50 + i));
     if ( !FirstTag )
       continue;
     v13 = a4[2];
@@ -93,7 +93,7 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
         if ( ULongLongMult(v16, v14, &pullResult) < 0 || (v17 = a4[5], v15 = v17 + pullResult, v17 + pullResult < v17) )
           v15 = 0LL;
       }
-      if ( *(_WORD *)v15 == *(_WORD *)((char *)&unk_140E0EC80 + i + 2) )
+      if ( *(_WORD *)v15 == *(_WORD *)((char *)&unk_140E0ED50 + i + 2) )
         break;
       v13 = a4[2];
       if ( ++v14 >= v13 )
@@ -102,7 +102,7 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
     if ( !v15 )
     {
 LABEL_13:
-      if ( *(_WORD *)((char *)&unk_140E0EC80 + i) == 24577 )
+      if ( *(_WORD *)((char *)&unk_140E0ED50 + i) == 24577 )
         continue;
       if ( (unsigned __int16)SdbGetTagFromTagID(a2, a3, v11, v14) != 28768 )
       {
@@ -117,7 +117,7 @@ LABEL_15:
       v9 = 0;
       continue;
     }
-    v18 = *(unsigned __int16 *)((char *)&unk_140E0EC80 + i);
+    v18 = *(unsigned __int16 *)((char *)&unk_140E0ED50 + i);
     if ( v18 > 0x6011 )
     {
       v33 = v18 - 24617;

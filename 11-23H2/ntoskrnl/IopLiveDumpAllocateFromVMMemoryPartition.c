@@ -1,15 +1,15 @@
 /*
- * XREFs of IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094D824
+ * XREFs of IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094DA24
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14094CBF4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x14094CDF4 (IopLiveDumpAllocateDumpBuffers.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure @ 0x14055A0D0 (IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmFreePagesFromMdl @ 0x1402EC240 (MmFreePagesFromMdl.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F8A30 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure @ 0x14055A790 (IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -83,7 +83,7 @@ PVOID __fastcall IopLiveDumpAllocateFromVMMemoryPartition(__int64 a1, unsigned _
           v22 = 4;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C03870,
-            (unsigned __int8 *)byte_14002BB95,
+            (unsigned __int8 *)byte_14002BC7D,
             (const GUID *)(a1 + 968),
             (const GUID *)(a1 + 952),
             5u,

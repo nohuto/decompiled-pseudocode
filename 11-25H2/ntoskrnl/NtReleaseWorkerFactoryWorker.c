@@ -26,7 +26,7 @@
  *     IopAllocateMiniCompletionPacket @ 0x1409D26C0 (IopAllocateMiniCompletionPacket.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   unsigned __int64 *v2; // rbx
@@ -35,7 +35,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   ULONG_PTR v5; // rdi
   __int64 v6; // rcx
   int v7; // eax
-  int v8; // ebp
+  NTSTATUS v8; // ebp
   __int64 v9; // rax
   __int64 v10; // rcx
   __int64 v11; // rax
@@ -61,7 +61,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   BugCheckParameter2 = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,

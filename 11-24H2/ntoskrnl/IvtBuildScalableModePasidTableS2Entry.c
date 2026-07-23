@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtBuildScalableModePasidTableS2Entry @ 0x1404D4D10
+ * XREFs of IvtBuildScalableModePasidTableS2Entry @ 0x1404CDEEC
  * Callers:
- *     IvtUpdateScalableModePasidTablesForPasid @ 0x1404F5314 (IvtUpdateScalableModePasidTablesForPasid.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x1404F2C14 (IvtUpdateScalableModePasidTablesForPasid.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IvtBuildScalableModePasidTableS2Entry(

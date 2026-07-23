@@ -6,24 +6,21 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-void *__fastcall RtlCopyString(__int64 a1, const void **a2)
+void __cdecl RtlCopyString(PSTRING DestinationString, PSTRING SourceString)
 {
-  void *result; // rax
-  size_t v3; // r8
-  __int16 v4; // ax
+  size_t MaximumLength; // r8
+  unsigned __int16 Length; // ax
 
-  result = 0LL;
-  *(_WORD *)a1 = 0;
-  if ( a2 )
+  DestinationString->Length = 0;
+  if ( SourceString )
   {
-    v3 = *(unsigned __int16 *)(a1 + 2);
-    v4 = *(_WORD *)a2;
-    if ( *(unsigned __int16 *)a2 <= v3 )
-      v3 = *(unsigned __int16 *)a2;
+    MaximumLength = DestinationString->MaximumLength;
+    Length = SourceString->Length;
+    if ( SourceString->Length <= MaximumLength )
+      MaximumLength = SourceString->Length;
     else
-      v4 = *(_WORD *)(a1 + 2);
-    *(_WORD *)a1 = v4;
-    return memmove(*(void **)(a1 + 8), a2[1], v3);
+      Length = DestinationString->MaximumLength;
+    DestinationString->Length = Length;
+    memmove(DestinationString->Buffer, SourceString->Buffer, MaximumLength);
   }
-  return result;
 }

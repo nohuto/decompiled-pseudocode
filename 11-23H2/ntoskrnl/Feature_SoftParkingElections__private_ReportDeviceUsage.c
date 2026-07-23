@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_SoftParkingElections__private_ReportDeviceUsage @ 0x140410F30
+ * XREFs of Feature_SoftParkingElections__private_ReportDeviceUsage @ 0x14041113C
  * Callers:
- *     KiAreSoftUnparkingElectionsEnabled @ 0x14057DAFC (KiAreSoftUnparkingElectionsEnabled.c)
+ *     KiAreSoftUnparkingElectionsEnabled @ 0x14057DFEC (KiAreSoftUnparkingElectionsEnabled.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_SoftParkingElections__private_ReportDeviceUsage()

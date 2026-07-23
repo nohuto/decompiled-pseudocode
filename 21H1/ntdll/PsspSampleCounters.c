@@ -8,15 +8,15 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall PsspSampleCounters(_DWORD *a1, _DWORD *a2)
+int __fastcall PsspSampleCounters(PLARGE_INTEGER PerformanceCounter, _DWORD *a2)
 {
   int v3; // esi
   int result; // eax
   _DWORD ThreadInformation[4]; // [esp+8h] [ebp-14h] BYREF
 
-  RtlQueryPerformanceCounter(a1);
+  RtlQueryPerformanceCounter(PerformanceCounter);
   v3 = 0;
-  if ( NtQueryInformationThread((HANDLE)0xFFFFFFFE, (THREADINFOCLASS)23, ThreadInformation, 0x10u, 0) < 0 )
+  if ( NtQueryInformationThread((HANDLE)0xFFFFFFFE, ThreadCycleTime, ThreadInformation, 0x10u, 0) < 0 )
   {
     result = 0;
   }

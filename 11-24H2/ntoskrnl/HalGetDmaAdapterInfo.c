@@ -1,5 +1,5 @@
 /*
- * XREFs of HalGetDmaAdapterInfo @ 0x1404C1560
+ * XREFs of HalGetDmaAdapterInfo @ 0x1404BCB50
  * Callers:
  *     <none>
  * Callees:

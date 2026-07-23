@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmNotifySessionPowerStateChange @ 0x140678B38
+ * XREFs of TtmNotifySessionPowerStateChange @ 0x140678C1C
  * Callers:
- *     PopPowerInformationInternal @ 0x14051D314 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140500704 (PopPowerInformationInternal.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x140546B74 (TtmpAcquireSessionById.c)
- *     TtmiScheduleSessionWorker @ 0x140678D08 (TtmiScheduleSessionWorker.c)
- *     TtmiLogSessionPowerStateChange @ 0x14067BD7C (TtmiLogSessionPowerStateChange.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1405470B4 (TtmpAcquireSessionById.c)
+ *     TtmiScheduleSessionWorker @ 0x140678DEC (TtmiScheduleSessionWorker.c)
+ *     TtmiLogSessionPowerStateChange @ 0x14067BE60 (TtmiLogSessionPowerStateChange.c)
  */
 
 void __fastcall TtmNotifySessionPowerStateChange(int a1, char a2)

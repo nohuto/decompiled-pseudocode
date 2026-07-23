@@ -14,33 +14,36 @@
 
 char __stdcall RtlpLoadNlsData()
 {
-  int Heap; // esi
+  _WORD *Heap; // esi
   _DWORD *v1; // edx
   char *v2; // ecx
-  int v4; // [esp+4h] [ebp-4h] BYREF
+  SIZE_T v4; // [esp-4h] [ebp-Ch]
+  ULONG *v5; // [esp+0h] [ebp-8h]
+  PVOID BaseAddress; // [esp+4h] [ebp-4h] BYREF
 
   if ( pTblPtrs )
     return 1;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 32);
+  LODWORD(v4) = 32;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v4);
   if ( Heap )
   {
-    if ( (int)RtlGetLocaleFileMappingAddress(&v4, &gSystemLocale, 0) >= 0 )
+    if ( RtlGetLocaleFileMappingAddress(&BaseAddress, &gSystemLocale, 0, v5) >= 0 )
     {
-      v1 = (_DWORD *)(v4 + *(_DWORD *)(v4 + 16));
+      v1 = (char *)BaseAddress + *((_DWORD *)BaseAddress + 4);
       v2 = (char *)v1 + *v1;
-      *(_WORD *)Heap = *((_WORD *)v2 + 12);
-      *(_WORD *)(Heap + 4) = *((_WORD *)v2 + 11);
-      *(_WORD *)(Heap + 2) = *((_WORD *)v2 + 16);
-      *(_WORD *)(Heap + 28) = *((_WORD *)v2 + 13);
-      *(_DWORD *)(Heap + 8) = (char *)v1 + *((_DWORD *)v2 + 7);
-      *(_DWORD *)(Heap + 12) = (char *)v1 + *((_DWORD *)v2 + 9);
-      *(_DWORD *)(Heap + 16) = (char *)v1 + *((_DWORD *)v2 + 10);
-      *(_DWORD *)(Heap + 20) = (char *)v1 + *((_DWORD *)v2 + 14);
-      if ( _InterlockedCompareExchange(&pTblPtrs, Heap, 0) )
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      *Heap = *((_WORD *)v2 + 12);
+      Heap[2] = *((_WORD *)v2 + 11);
+      Heap[1] = *((_WORD *)v2 + 16);
+      Heap[14] = *((_WORD *)v2 + 13);
+      *((_DWORD *)Heap + 2) = (char *)v1 + *((_DWORD *)v2 + 7);
+      *((_DWORD *)Heap + 3) = (char *)v1 + *((_DWORD *)v2 + 9);
+      *((_DWORD *)Heap + 4) = (char *)v1 + *((_DWORD *)v2 + 10);
+      *((_DWORD *)Heap + 5) = (char *)v1 + *((_DWORD *)v2 + 14);
+      if ( _InterlockedCompareExchange(&pTblPtrs, (signed __int32)Heap, 0) )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return 1;
     }
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
   return 0;
 }

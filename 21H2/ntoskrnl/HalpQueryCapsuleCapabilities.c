@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryCapsuleCapabilities @ 0x1404D75C0
+ * XREFs of HalpQueryCapsuleCapabilities @ 0x1404D7800
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalEfiQueryCapsuleCapabilities @ 0x1404C3AA8 (HalEfiQueryCapsuleCapabilities.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalEfiQueryCapsuleCapabilities @ 0x1404C3CE8 (HalEfiQueryCapsuleCapabilities.c)
  */
 
 __int64 __fastcall HalpQueryCapsuleCapabilities(__int64 a1)
@@ -14,8 +14,8 @@ __int64 __fastcall HalpQueryCapsuleCapabilities(__int64 a1)
   char v3; // bl
   unsigned int v4; // edx
   unsigned int CapsuleCapabilities; // edi
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitBackupHive @ 0x1407DC6A4
+ * XREFs of CmpInitBackupHive @ 0x1407DCBF4
  * Callers:
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
- *     CmpFlushBackupHive @ 0x1407DC2B8 (CmpFlushBackupHive.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
+ *     CmpFlushBackupHive @ 0x1407DC808 (CmpFlushBackupHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     RtlAppendStringToString @ 0x140A80710 (RtlAppendStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x140A7B170 (RtlAppendStringToString.c)
  */
 
 NTSTATUS __fastcall CmpInitBackupHive(__int64 a1, const WCHAR *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDetachThreadFromUmsCompletionList @ 0x14058184C
+ * XREFs of PspDetachThreadFromUmsCompletionList @ 0x140581AFC
  * Callers:
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
  * Callees:
- *     KeUnInitializeUmsThread @ 0x1408BD6E8 (KeUnInitializeUmsThread.c)
+ *     KeUnInitializeUmsThread @ 0x1408BD848 (KeUnInitializeUmsThread.c)
  */
 
 __int64 __fastcall PspDetachThreadFromUmsCompletionList(struct _KTHREAD *a1)

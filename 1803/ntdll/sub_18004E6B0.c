@@ -15,168 +15,156 @@
  *     sub_1800DA360 @ 0x1800DA360 (sub_1800DA360.c)
  */
 
-unsigned __int64 __fastcall sub_18004E6B0(int a1, __int64 *a2, _DWORD *a3)
+int __fastcall sub_18004E6B0(int a1, __int64 a2, _DWORD *a3)
 {
   int v5; // ecx
   int v6; // ecx
-  unsigned __int64 result; // rax
+  unsigned __int64 v7; // rax
   const WCHAR *NtSystemRoot; // rax
-  int Length; // r14d
+  int v9; // r14d
   unsigned int v10; // ecx
   size_t v11; // r15
-  wchar_t *Buffer; // rdx
+  PWCH Buffer; // rdx
   char *v13; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  int v16; // eax
-  int v17; // r14d
-  __int64 v18; // r15
-  unsigned int v19; // r12d
-  __int64 v20; // [rsp+20h] [rbp-E0h]
-  int v21; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int64 v22; // [rsp+38h] [rbp-C8h] BYREF
+  const WCHAR *v14; // rcx
+  NTSTATUS v15; // eax
+  int v16; // r14d
+  HANDLE v17; // r15
+  ULONG v18; // r12d
+  __int64 Length; // [rsp+20h] [rbp-E0h]
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
   _WORD v23[4]; // [rsp+40h] [rbp-C0h] BYREF
   char *v24; // [rsp+48h] [rbp-B8h]
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
-  int v26; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v27; // [rsp+68h] [rbp-98h]
-  void *v28; // [rsp+70h] [rbp-90h]
-  int v29; // [rsp+78h] [rbp-88h]
-  __int128 v30; // [rsp+80h] [rbp-80h]
-  _BYTE v31[12]; // [rsp+90h] [rbp-70h] BYREF
-  unsigned int v32; // [rsp+9Ch] [rbp-64h]
-  char v33; // [rsp+A0h] [rbp-60h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE KeyInformation[12]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int v28; // [rsp+9Ch] [rbp-64h]
+  char v29; // [rsp+A0h] [rbp-60h] BYREF
 
   v5 = a1 - 1;
   if ( !v5 )
   {
-    v26 = 48;
-    v22 = 0LL;
-    v27 = 0LL;
-    v29 = 64;
-    v28 = &unk_180110620;
-    v30 = 0LL;
-    v16 = ZwOpenKey(&v22, 8LL, &v26);
-    v17 = v16;
-    if ( v16 >= 0 || v16 == -1073741772 || v16 == -1073741431 )
+    ObjectAttributes.Length = 48;
+    KeyHandle = 0LL;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180110620;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v15 = ZwOpenKey(&KeyHandle, 8u, &ObjectAttributes);
+    v16 = v15;
+    if ( v15 >= 0 || v15 == -1073741772 || v15 == -1073741431 )
     {
-      result = v22;
-      a2[6] = -1LL;
-      a2[2] = result;
-      return result;
+      v7 = (unsigned __int64)KeyHandle;
+      *(_QWORD *)(a2 + 48) = -1LL;
+      *(_QWORD *)(a2 + 16) = v7;
+      return v7;
     }
-    result = DbgPrintEx(51, 0, (int)"SXS: Unable to open registry key %wZ Status = 0x%08lx\n", &unk_180110620, v16);
-    *((_BYTE *)a2 + 56) = 1;
+    LODWORD(v7) = DbgPrintEx(0x33u, 0, "SXS: Unable to open registry key %wZ Status = 0x%08lx\n", &unk_180110620, v15);
+    *(_BYTE *)(a2 + 56) = 1;
     goto LABEL_41;
   }
   v6 = v5 - 1;
   if ( v6 )
   {
-    result = 2LL;
-    if ( v6 == 2 && *a2 )
-      return ZwClose(*a2);
+    LODWORD(v7) = 2;
+    if ( v6 == 2 && *(_QWORD *)a2 )
+      LODWORD(v7) = ZwClose(*(HANDLE *)a2);
   }
   else
   {
-    result = a2[1];
-    if ( result )
+    v7 = *(_QWORD *)(a2 + 8);
+    if ( v7 )
     {
-      if ( result == 1 )
+      if ( v7 == 1 )
       {
-        NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+        NtSystemRoot = RtlGetNtSystemRoot();
         RtlInitUnicodeString(&DestinationString, NtSystemRoot);
-        Length = DestinationString.Length;
-        v10 = *((unsigned __int16 *)a2 + 13);
-        *((_WORD *)a2 + 12) = 0;
-        result = (unsigned int)(Length + 16);
-        if ( (unsigned int)result > v10 )
+        v9 = DestinationString.Length;
+        v10 = *(unsigned __int16 *)(a2 + 26);
+        *(_WORD *)(a2 + 24) = 0;
+        LODWORD(v7) = v9 + 16;
+        if ( v9 + 16 > v10 )
         {
-          *((_BYTE *)a2 + 16) = 1;
+          *(_BYTE *)(a2 + 16) = 1;
           if ( a3 )
             *a3 = -1073741789;
         }
         else
         {
-          memmove((void *)a2[4], DestinationString.Buffer, (unsigned __int16)Length);
-          result = a2[4];
-          *(_OWORD *)((unsigned __int16)Length + result) = xmmword_1801148A8;
-          *((_WORD *)a2 + 12) = Length + 16;
+          memmove(*(void **)(a2 + 32), DestinationString.Buffer, (unsigned __int16)v9);
+          v7 = *(_QWORD *)(a2 + 32);
+          *(_OWORD *)((unsigned __int16)v9 + v7) = xmmword_1801148A8;
+          *(_WORD *)(a2 + 24) = v9 + 16;
         }
-        return result;
+        return v7;
       }
-      if ( result > 0xFFFFFFFF || (v18 = *a2, v19 = result - 2, v21 = 0, !v18) )
+      if ( v7 > 0xFFFFFFFF || (v17 = *(HANDLE *)a2, v18 = v7 - 2, ResultLength = 0, !v17) )
       {
-        *((_BYTE *)a2 + 17) = 1;
-        return result;
+        *(_BYTE *)(a2 + 17) = 1;
+        return v7;
       }
-      result = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, _BYTE *, int, int *))ZwEnumerateKey)(
-                 v18,
-                 v19,
-                 0LL,
-                 v31,
-                 544,
-                 &v21);
-      v17 = result;
-      if ( (result & 0x80000000) != 0LL )
+      LODWORD(v7) = ZwEnumerateKey(v17, v18, KeyBasicInformation, KeyInformation, 0x220u, &ResultLength);
+      v16 = v7;
+      if ( (v7 & 0x80000000) != 0LL )
       {
-        if ( (_DWORD)result == -2147483622 )
+        if ( (_DWORD)v7 == -2147483622 )
         {
-          *((_BYTE *)a2 + 17) = 1;
-          return result;
+          *(_BYTE *)(a2 + 17) = 1;
+          return v7;
         }
-        LODWORD(v20) = result;
-        result = DbgPrintEx(
-                   51,
-                   0,
-                   (int)"SXS: Unable to enumerate assembly storage subkey #%lu Status = 0x%08lx\n",
-                   v19,
-                   v20);
-LABEL_33:
-        *((_BYTE *)a2 + 16) = 1;
-LABEL_41:
-        if ( a3 )
-          *a3 = v17;
-        return result;
-      }
-      result = v32;
-      if ( v32 <= 0xFFFE )
-      {
-        v23[0] = v32;
-        v23[1] = v32;
-        v24 = &v33;
-        result = sub_1800DA360(v18, v23, a2 + 3);
-        v17 = result;
-        if ( (result & 0x80000000) == 0LL )
-          return result;
-        LODWORD(v20) = result;
-        result = DbgPrintEx(
-                   51,
-                   0,
-                   (int)"SXS: Attempt to get storage location from subkey %wZ failed; Status = 0x%08lx\n",
-                   v23,
-                   v20);
+        LODWORD(v7) = DbgPrintEx(
+                        0x33u,
+                        0,
+                        "SXS: Unable to enumerate assembly storage subkey #%lu Status = 0x%08lx\n",
+                        v18,
+                        v7);
         goto LABEL_33;
       }
-      *((_BYTE *)a2 + 16) = 1;
+      LODWORD(v7) = v28;
+      if ( v28 <= 0xFFFE )
+      {
+        v23[0] = v28;
+        v23[1] = v28;
+        v24 = &v29;
+        LODWORD(v7) = sub_1800DA360(v17, v23, a2 + 24);
+        v16 = v7;
+        if ( (v7 & 0x80000000) == 0LL )
+          return v7;
+        LODWORD(Length) = v7;
+        LODWORD(v7) = DbgPrintEx(
+                        0x33u,
+                        0,
+                        "SXS: Attempt to get storage location from subkey %wZ failed; Status = 0x%08lx\n",
+                        v23,
+                        Length);
+LABEL_33:
+        *(_BYTE *)(a2 + 16) = 1;
+LABEL_41:
+        if ( a3 )
+          *a3 = v16;
+        return v7;
+      }
+      *(_BYTE *)(a2 + 16) = 1;
       if ( a3 )
         *a3 = -1073741562;
     }
     else
     {
-      result = (unsigned __int64)NtCurrentPeb();
-      v11 = *(unsigned __int16 *)(*(_QWORD *)(result + 32) + 96LL);
+      v7 = (unsigned __int64)NtCurrentPeb();
+      v11 = *(unsigned __int16 *)(*(_QWORD *)(v7 + 32) + 96LL);
       if ( v11 + 16 > 0xFFFE )
       {
-        *((_BYTE *)a2 + 16) = 1;
+        *(_BYTE *)(a2 + 16) = 1;
         if ( a3 )
           *a3 = -1073741562;
       }
       else
       {
-        result = *((unsigned __int16 *)a2 + 13);
-        if ( v11 + 16 > result )
+        v7 = *(unsigned __int16 *)(a2 + 26);
+        if ( v11 + 16 > v7 )
         {
-          *((_BYTE *)a2 + 16) = 1;
+          *(_BYTE *)(a2 + 16) = 1;
           if ( a3 )
             *a3 = -1073741789;
         }
@@ -184,19 +172,18 @@ LABEL_41:
         {
           Buffer = NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer;
           if ( (NtCurrentPeb()->ProcessParameters->Flags & 1) == 0 )
-            Buffer = (wchar_t *)((char *)Buffer + (unsigned __int64)NtCurrentPeb()->ProcessParameters);
-          v13 = (char *)a2[4];
+            Buffer = (PWCH)((char *)Buffer + (unsigned __int64)NtCurrentPeb()->ProcessParameters);
+          v13 = *(char **)(a2 + 32);
           memmove(v13, Buffer, v11);
-          LOBYTE(v14) = 1;
           *(_OWORD *)&v13[v11] = xmmword_1801198C8;
-          v15 = a2[4];
-          *((_WORD *)a2 + 12) = v11 + 14;
-          result = sub_18004F794(v15, v14);
-          if ( !(_BYTE)result )
-            *((_WORD *)a2 + 12) = 0;
+          v14 = *(const WCHAR **)(a2 + 32);
+          *(_WORD *)(a2 + 24) = v11 + 14;
+          LODWORD(v7) = sub_18004F794(v14);
+          if ( !(_BYTE)v7 )
+            *(_WORD *)(a2 + 24) = 0;
         }
       }
     }
   }
-  return result;
+  return v7;
 }

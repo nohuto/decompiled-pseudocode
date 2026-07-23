@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUpdateWatchdogNoWorkersEvent @ 0x14020B780
+ * XREFs of PopUpdateWatchdogNoWorkersEvent @ 0x14020B5AC
  * Callers:
- *     PopSetWatchdog @ 0x14020B4CC (PopSetWatchdog.c)
- *     PopWatchdogDpc @ 0x14020B7A4 (PopWatchdogDpc.c)
- *     PopWatchdogWorker @ 0x14020B81C (PopWatchdogWorker.c)
+ *     PopSetWatchdog @ 0x14020B2F8 (PopSetWatchdog.c)
+ *     PopWatchdogDpc @ 0x14020B5D0 (PopWatchdogDpc.c)
+ *     PopWatchdogWorker @ 0x14020B648 (PopWatchdogWorker.c)
  * Callees:
  *     <none>
  */

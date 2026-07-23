@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReferenceTokenForNewProcess @ 0x140ADCE18
+ * XREFs of PspReferenceTokenForNewProcess @ 0x140ADA368
  * Callers:
- *     PspCreateProcess @ 0x140ADC7C0 (PspCreateProcess.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x140AD9D10 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall PspReferenceTokenForNewProcess(__int64 a1, void *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

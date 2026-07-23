@@ -1,17 +1,17 @@
 /*
- * XREFs of SiTranslateSymbolicLink @ 0x140A2DCB4
+ * XREFs of SiTranslateSymbolicLink @ 0x140A226F4
  * Callers:
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140816EE8 (SiIsWinPeHardDiskZeroUfdBoot.c)
- *     SiGetSystemDisk @ 0x140A2D7C0 (SiGetSystemDisk.c)
- *     SiGetFirmwareSystemPartition @ 0x140A2D870 (SiGetFirmwareSystemPartition.c)
- *     SiGetBootDeviceName @ 0x140A2D9CC (SiGetBootDeviceName.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140817628 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiGetSystemDisk @ 0x140A22200 (SiGetSystemDisk.c)
+ *     SiGetFirmwareSystemPartition @ 0x140A222B0 (SiGetFirmwareSystemPartition.c)
+ *     SiGetBootDeviceName @ 0x140A2240C (SiGetBootDeviceName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x1406A8B10 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x1406A9170 (ZwQuerySymbolicLinkObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1406A9AB0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1406AA110 (ZwQuerySymbolicLinkObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall SiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
@@ -75,7 +75,7 @@ NTSTATUS __fastcall SiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
         ExFreePoolWithTag(LinkTarget.Buffer, 0);
       LinkTarget.MaximumLength = ReturnedLength;
       v4 = ReturnedLength + 2;
-      Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, ReturnedLength + 2, 0x4B505953u);
       LinkTarget.Buffer = Buffer;
     }
     while ( Buffer );

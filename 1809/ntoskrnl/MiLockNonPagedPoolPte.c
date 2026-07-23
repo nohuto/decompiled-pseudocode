@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockNonPagedPoolPte @ 0x140162470
+ * XREFs of MiLockNonPagedPoolPte @ 0x140162570
  * Callers:
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
- *     MiInsertNonPagedPoolOnSlist @ 0x140161260 (MiInsertNonPagedPoolOnSlist.c)
+ *     MiInsertNonPagedPoolOnSlist @ 0x140161360 (MiInsertNonPagedPoolOnSlist.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiLockNonPagedPoolPte(ULONG_PTR BugCheckParameter3, unsigned __int8 *a2)

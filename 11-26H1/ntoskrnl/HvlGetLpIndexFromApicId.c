@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetLpIndexFromApicId @ 0x1405B9260
+ * XREFs of HvlGetLpIndexFromApicId @ 0x1405BBAD0
  * Callers:
- *     PpmIdleUpdateHvStates @ 0x1407E1D10 (PpmIdleUpdateHvStates.c)
+ *     PpmIdleUpdateHvStates @ 0x1407E6DA0 (PpmIdleUpdateHvStates.c)
  * Callees:
- *     HvlpGetLpcbByApicId @ 0x1405BA1DC (HvlpGetLpcbByApicId.c)
+ *     HvlpGetLpcbByApicId @ 0x1405BCA4C (HvlpGetLpcbByApicId.c)
  */
 
 __int64 HvlGetLpIndexFromApicId()

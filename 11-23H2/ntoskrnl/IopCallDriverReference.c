@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCallDriverReference @ 0x1402A7940
+ * XREFs of IopCallDriverReference @ 0x1402A7BD0
  * Callers:
- *     NtSetInformationFile @ 0x1402A6BF0 (NtSetInformationFile.c)
- *     IopSynchronousServiceTail @ 0x1406E3E90 (IopSynchronousServiceTail.c)
+ *     NtSetInformationFile @ 0x1402A6E80 (NtSetInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x1406E3EC0 (IopSynchronousServiceTail.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     IoGetIoPriorityHint @ 0x1402A7A60 (IoGetIoPriorityHint.c)
- *     IopSetIrpPriorityHintFromFileObject @ 0x1402A7AA0 (IopSetIrpPriorityHintFromFileObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     IoGetIoPriorityHint @ 0x1402A7CF0 (IoGetIoPriorityHint.c)
+ *     IopSetIrpPriorityHintFromFileObject @ 0x1402A7D30 (IopSetIrpPriorityHintFromFileObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, void *a4, int a5)

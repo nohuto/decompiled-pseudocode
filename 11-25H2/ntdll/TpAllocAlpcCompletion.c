@@ -6,7 +6,18 @@
  *     TppAllocAlpcCompletion @ 0x18003A624 (TppAllocAlpcCompletion.c)
  */
 
-__int64 __fastcall TpAllocAlpcCompletion(_PEB_LDR_DATA *a1, __int64 a2, __int64 a3, int a4, __int64 a5)
+NTSTATUS __cdecl TpAllocAlpcCompletion(
+        PTP_ALPC *AlpcReturn,
+        HANDLE AlpcPort,
+        PTP_ALPC_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  return TppAllocAlpcCompletion(a1, a2, a3, a4, a5, 0);
+  return TppAllocAlpcCompletion(
+           (_PEB_LDR_DATA *)AlpcReturn,
+           AlpcPort,
+           (__int64)Callback,
+           (int)Context,
+           (__int64)CallbackEnviron,
+           0);
 }

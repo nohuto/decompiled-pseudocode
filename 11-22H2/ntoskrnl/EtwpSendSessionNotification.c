@@ -26,7 +26,7 @@ __int64 __fastcall EtwpSendSessionNotification(__int64 a1, unsigned int a2, unsi
   memset(v10, 0, sizeof(v10));
   v7 = *(_QWORD *)(a1 + 1096);
   v8 = *(_OWORD *)(a1 + 276);
-  *(_OWORD *)&v10[5] = SessionNotificationGuid;
+  *(GUID *)&v10[5] = SessionNotificationGuid;
   *(_OWORD *)&v10[7] = v8;
   v10[0] = 0x6000000007LL;
   v10[10] = v3;

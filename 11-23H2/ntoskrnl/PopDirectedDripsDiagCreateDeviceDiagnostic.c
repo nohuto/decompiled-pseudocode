@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E0CC
+ * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E2CC
  * Callers:
- *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099DCC0 (PopDirectedDripsDiagBroadcastTreeBegin.c)
- *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x14099F170 (PopDirectedDripsDiagTraceBroadcastVisit.c)
- *     PopDirectedDripsDiagTraceMarkDevice @ 0x14099F338 (PopDirectedDripsDiagTraceMarkDevice.c)
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099DEC0 (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x14099F370 (PopDirectedDripsDiagTraceBroadcastVisit.c)
+ *     PopDirectedDripsDiagTraceMarkDevice @ 0x14099F538 (PopDirectedDripsDiagTraceMarkDevice.c)
  * Callees:
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099DFA8 (PopDirectedDripsDiagCreateDeviceDescription.c)
- *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099E170 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099E1A8 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099E370 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -21,7 +21,7 @@ _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1)
   if ( Pool2 )
   {
     *(_QWORD *)(Pool2 + 16) = a1;
-    *(_DWORD *)(Pool2 + 24) = dword_140C390C0++;
+    *(_DWORD *)(Pool2 + 24) = dword_140C391E0++;
     *(_DWORD *)(Pool2 + 148) = -1;
     if ( (int)PopDirectedDripsDiagCreateDeviceDescription(a1, Pool2) < 0 )
     {
@@ -31,13 +31,13 @@ _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1)
     else
     {
       *(_QWORD *)(a1 + 776) = v3;
-      v4 = (_QWORD *)qword_140C38EB8;
-      if ( *(PVOID **)qword_140C38EB8 != &qword_140C38EB0 )
+      v4 = (_QWORD *)qword_140C38FD8;
+      if ( *(PVOID **)qword_140C38FD8 != &qword_140C38FD0 )
         __fastfail(3u);
-      *v3 = &qword_140C38EB0;
+      *v3 = &qword_140C38FD0;
       v3[1] = v4;
       *v4 = v3;
-      qword_140C38EB8 = (__int64)v3;
+      qword_140C38FD8 = (__int64)v3;
     }
   }
   return v3;

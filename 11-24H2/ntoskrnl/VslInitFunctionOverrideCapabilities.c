@@ -1,13 +1,13 @@
 /*
- * XREFs of VslInitFunctionOverrideCapabilities @ 0x14058F0A8
+ * XREFs of VslInitFunctionOverrideCapabilities @ 0x14058C0C8
  * Callers:
- *     MiInitializeFunctionOverrides @ 0x140C4F99C (MiInitializeFunctionOverrides.c)
+ *     MiInitializeFunctionOverrides @ 0x140C51B2C (MiInitializeFunctionOverrides.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslInitFunctionOverrideCapabilities(struct _MDL *a1)
@@ -26,7 +26,7 @@ __int64 __fastcall VslInitFunctionOverrideCapabilities(struct _MDL *a1)
   {
     v6 = v4[0];
     v7 = v4[7];
-    v3 = VslpEnterIumSecureMode(2u, 227LL, 0, (__int64)v5);
+    v3 = VslpEnterIumSecureMode(2u, 0xE3u, 0, (__int64)v5);
     VslpUnlockPagesForTransfer(v4);
     return v3;
   }

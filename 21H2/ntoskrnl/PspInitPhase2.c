@@ -1,14 +1,14 @@
 /*
- * XREFs of PspInitPhase2 @ 0x140A4B134
+ * XREFs of PspInitPhase2 @ 0x140A4C134
  * Callers:
- *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140A4D2F8 (PsInitSystem.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     RtlGetSystemTimePrecise @ 0x140278F20 (RtlGetSystemTimePrecise.c)
- *     RtlRandom @ 0x1406BD150 (RtlRandom.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PspInitializeProtectedProcessParameters @ 0x14079DF18 (PspInitializeProtectedProcessParameters.c)
- *     PspInitializeSystemDlls @ 0x140A4B284 (PspInitializeSystemDlls.c)
+ *     RtlGetSystemTimePrecise @ 0x140266EC0 (RtlGetSystemTimePrecise.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlRandom @ 0x14061C280 (RtlRandom.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PspInitializeProtectedProcessParameters @ 0x14079E118 (PspInitializeProtectedProcessParameters.c)
+ *     PspInitializeSystemDlls @ 0x140A4C284 (PspInitializeSystemDlls.c)
  */
 
 bool PspInitPhase2()
@@ -22,7 +22,7 @@ bool PspInitPhase2()
 
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C01AB0, 0LL, 0LL);
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[2].Affinity.Bitmap[7] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

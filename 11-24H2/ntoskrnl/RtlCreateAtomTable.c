@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCreateAtomTable @ 0x140A7FAD0
+ * XREFs of RtlCreateAtomTable @ 0x140A79800
  * Callers:
  *     <none>
  * Callees:
- *     RtlCreateAtomTableEx @ 0x1404959E0 (RtlCreateAtomTableEx.c)
+ *     RtlCreateAtomTableEx @ 0x1404902A0 (RtlCreateAtomTableEx.c)
  */
 
-__int64 __fastcall RtlCreateAtomTable(unsigned int a1, _QWORD *a2)
+NTSTATUS __cdecl RtlCreateAtomTable(ULONG NumberOfBuckets, PVOID *AtomTableHandle)
 {
-  return RtlCreateAtomTableEx(a1, 0, a2);
+  return RtlCreateAtomTableEx(NumberOfBuckets, 0, AtomTableHandle);
 }

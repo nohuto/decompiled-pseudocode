@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpGxDrawBitmapImage @ 0x140AF2720
+ * XREFs of BgpGxDrawBitmapImage @ 0x140AF2730
  * Callers:
  *     AnFwDisplayBackgroundUpdate @ 0x140AEC0B8 (AnFwDisplayBackgroundUpdate.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140AF21E0 (AnFwpBackgroundUpdateTimer.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140AF21F0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14038524C (BgpGxDrawRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14038542C (BgpGxDrawRectangle.c)
  *     BgpGxParseBitmap @ 0x140AEC42C (BgpGxParseBitmap.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  */

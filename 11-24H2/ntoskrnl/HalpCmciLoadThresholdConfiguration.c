@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCmciLoadThresholdConfiguration @ 0x1404D66BC
+ * XREFs of HalpCmciLoadThresholdConfiguration @ 0x1404CFB0C
  * Callers:
- *     HalpCmciInit @ 0x140B6C938 (HalpCmciInit.c)
+ *     HalpCmciInit @ 0x140B6E1D8 (HalpCmciInit.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x1408B0D70 (MmGetSystemRoutineAddress.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140906FD0 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 HalpCmciLoadThresholdConfiguration()
@@ -77,7 +77,7 @@ __int64 HalpCmciLoadThresholdConfiguration()
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");
     MmGetSystemRoutineAddress(&DestinationString);
-    if ( (int)guard_dispatch_icall_no_overrides(2147483650LL, L"Session Manager", v11, 0LL) >= 0 )
+    if ( (int)guard_dispatch_icall_no_overrides(2147483650LL, L"Session Manager") >= 0 )
     {
       v1 = v3;
     }

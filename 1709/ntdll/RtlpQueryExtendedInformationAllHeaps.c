@@ -21,7 +21,7 @@ __int64 __fastcall RtlpQueryExtendedInformationAllHeaps(__int64 a1)
 
   if ( *(_DWORD *)a1 == 0x80000000 || (unsigned int)(*(_DWORD *)a1 - 1) <= 4 )
   {
-    RtlpEnumProcessHeaps(RtlpLockUlockAllHeapsCallback, 1LL, 1);
+    RtlpEnumProcessHeaps((__int64 (__fastcall *)(_QWORD, _QWORD))RtlpLockUlockAllHeapsCallback, 1LL, 1);
     if ( *(_DWORD *)a1 == 0x80000000 )
       goto LABEL_3;
     v7 = 0LL;
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpQueryExtendedInformationAllHeaps(__int64 a1)
 LABEL_3:
         v2 = RtlpEnumProcessHeaps(RtlpQueryExtendedInformationHeap, a1, 3);
     }
-    RtlpEnumProcessHeaps(RtlpLockUlockAllHeapsCallback, 0LL, 1);
+    RtlpEnumProcessHeaps((__int64 (__fastcall *)(_QWORD, _QWORD))RtlpLockUlockAllHeapsCallback, 0LL, 1);
   }
   else
   {

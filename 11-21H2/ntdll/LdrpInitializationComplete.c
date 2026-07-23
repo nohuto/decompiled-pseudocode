@@ -10,19 +10,19 @@
  *     LdrpLogEtwEvent @ 0x1800DB4E4 (LdrpLogEtwEvent.c)
  */
 
-unsigned int *__fastcall LdrpInitializationComplete(volatile signed __int32 *a1, _QWORD *a2, unsigned __int16 a3)
+int __fastcall LdrpInitializationComplete(volatile signed __int32 *a1, HANDLE *a2, unsigned __int16 a3)
 {
-  unsigned int *result; // rax
+  struct _PEB *v6; // rax
   __int64 v7; // r9
   int v8; // r8d
   int v9; // r9d
   __int64 v10; // rcx
 
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v6) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v6 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v7 = *((_QWORD *)result + 18) + 554LL;
+    v6 = NtCurrentPeb();
+    v7 = (__int64)v6->SharedData + 554;
   }
   else
   {
@@ -30,14 +30,14 @@ unsigned int *__fastcall LdrpInitializationComplete(volatile signed __int32 *a1,
   }
   if ( *(_BYTE *)v7 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 4) != 0 )
+    v6 = NtCurrentPeb();
+    if ( (v6->TracingFlags & 4) != 0 )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v6) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v6 )
       {
-        result = (unsigned int *)NtCurrentPeb();
-        v10 = *((_QWORD *)result + 18) + 555LL;
+        v6 = NtCurrentPeb();
+        v10 = (__int64)v6->SharedData + 555;
       }
       else
       {
@@ -47,12 +47,12 @@ unsigned int *__fastcall LdrpInitializationComplete(volatile signed __int32 *a1,
       {
         LOBYTE(v9) = -1;
         LOBYTE(v8) = -1;
-        result = (unsigned int *)LdrpLogEtwEvent(a3, -1, v8, v9, 0LL, 0LL);
+        LODWORD(v6) = LdrpLogEtwEvent(a3, -1, v8, v9, 0LL, 0LL);
       }
     }
   }
   _InterlockedIncrement(a1);
   if ( *a2 )
-    return (unsigned int *)ZwSetEvent(*a2, 0LL);
-  return result;
+    LODWORD(v6) = ZwSetEvent(*a2, 0LL);
+  return (int)v6;
 }

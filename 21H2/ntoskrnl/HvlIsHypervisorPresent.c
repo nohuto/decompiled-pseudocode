@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlIsHypervisorPresent @ 0x1403A7BF0
+ * XREFs of HvlIsHypervisorPresent @ 0x1403A7D40
  * Callers:
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
  * Callees:
  *     <none>
  */

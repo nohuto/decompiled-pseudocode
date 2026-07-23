@@ -1,11 +1,11 @@
 /*
- * XREFs of MmMarkHiberRange @ 0x14052F584
+ * XREFs of MmMarkHiberRange @ 0x14052FAC4
  * Callers:
- *     PopHiberInitializeResources @ 0x14052F2C4 (PopHiberInitializeResources.c)
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
+ *     PopHiberInitializeResources @ 0x14052F804 (PopHiberInitializeResources.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
  */
 
 void __fastcall MmMarkHiberRange(__int64 a1, unsigned __int64 a2)

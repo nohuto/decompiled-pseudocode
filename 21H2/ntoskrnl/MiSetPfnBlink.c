@@ -1,23 +1,23 @@
 /*
- * XREFs of MiSetPfnBlink @ 0x140318130
+ * XREFs of MiSetPfnBlink @ 0x140322E80
  * Callers:
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiBuildMdlForMappedFileFault @ 0x14023DDD0 (MiBuildMdlForMappedFileFault.c)
- *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiGetHardFaultPages @ 0x1402E7D84 (MiGetHardFaultPages.c)
- *     MiReplenishPageSlist @ 0x140318700 (MiReplenishPageSlist.c)
- *     MiReInitializeFreeSlabPfn @ 0x1403759EC (MiReInitializeFreeSlabPfn.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140385120 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiDiscardTransitionPteEx @ 0x140388E94 (MiDiscardTransitionPteEx.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiReplaceTransitionPage @ 0x14025B310 (MiReplaceTransitionPage.c)
+ *     MiGetHardFaultPages @ 0x1402990D4 (MiGetHardFaultPages.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiBuildMdlForMappedFileFault @ 0x1402E2620 (MiBuildMdlForMappedFileFault.c)
+ *     MiReplenishPageSlist @ 0x140323450 (MiReplenishPageSlist.c)
+ *     MiReInitializeFreeSlabPfn @ 0x14037553C (MiReInitializeFreeSlabPfn.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140385270 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiDiscardTransitionPteEx @ 0x140388FE4 (MiDiscardTransitionPteEx.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
- *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
- *     MiGetEnclavePage @ 0x14054A6D8 (MiGetEnclavePage.c)
- *     MiReturnEnclavePage @ 0x14054B420 (MiReturnEnclavePage.c)
- *     MiUnlinkPageFromBadList @ 0x14054F540 (MiUnlinkPageFromBadList.c)
- *     MiSwapNumaStandbyPage @ 0x1405513D0 (MiSwapNumaStandbyPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
+ *     MiSwitchToTransition @ 0x14053A154 (MiSwitchToTransition.c)
+ *     MiGetEnclavePage @ 0x14054A918 (MiGetEnclavePage.c)
+ *     MiReturnEnclavePage @ 0x14054B660 (MiReturnEnclavePage.c)
+ *     MiUnlinkPageFromBadList @ 0x14054F780 (MiUnlinkPageFromBadList.c)
+ *     MiSwapNumaStandbyPage @ 0x140551610 (MiSwapNumaStandbyPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWakePushLock @ 0x140433394
+ * XREFs of ExpWakePushLock @ 0x140428464
  * Callers:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLockExclusive @ 0x1402E3150 (ExfReleasePushLockExclusive.c)
- *     ExfReleasePushLockSharedEx @ 0x14043326C (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockExclusive @ 0x14021B250 (ExfReleasePushLockExclusive.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLockSharedEx @ 0x14042833C (ExfReleasePushLockSharedEx.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPreWakeupHandle @ 0x1402736A4 (KeAbPreWakeupHandle.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPreWakeupHandle @ 0x140272C14 (KeAbPreWakeupHandle.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)

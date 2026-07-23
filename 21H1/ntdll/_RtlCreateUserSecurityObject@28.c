@@ -8,19 +8,36 @@
  *     _RtlCreateAndSetSD@20 @ 0x4B335C50 (_RtlCreateAndSetSD@20.c)
  */
 
-int __stdcall RtlCreateUserSecurityObject(int a1, unsigned int a2, int a3, int a4, int a5, int a6, _DWORD *a7)
+NTSTATUS __cdecl RtlCreateUserSecurityObject(
+        PRTL_ACE_DATA AceData,
+        ULONG AceCount,
+        PSID OwnerSid,
+        PSID GroupSid,
+        BOOLEAN IsDirectoryObject,
+        PGENERIC_MAPPING GenericMapping,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor)
 {
   void *ProcessHeap; // edi
-  int result; // eax
-  int v9; // esi
-  _BYTE *v10; // [esp+4h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v9; // esi
+  PSECURITY_DESCRIPTOR BaseAddress; // [esp+4h] [ebp-4h] BYREF
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  result = RtlCreateAndSetSD(a1, a2, a3, a4, &v10);
+  result = RtlCreateAndSetSD(AceData, AceCount, OwnerSid, GroupSid, &BaseAddress);
   if ( result >= 0 )
   {
-    v9 = RtlpNewSecurityObject(0, v10, a7, 0, 0, a5, 0, (void *)0xFFFFFFFC, a6, 0);
-    RtlFreeHeap((int)ProcessHeap, 0, (int)v10);
+    v9 = RtlpNewSecurityObject(
+           0,
+           BaseAddress,
+           NewSecurityDescriptor,
+           0,
+           0,
+           IsDirectoryObject,
+           0,
+           (HANDLE)0xFFFFFFFC,
+           GenericMapping,
+           0);
+    RtlFreeHeap(ProcessHeap, 0, BaseAddress);
     return v9;
   }
   return result;

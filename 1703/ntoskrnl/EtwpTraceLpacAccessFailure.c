@@ -10,7 +10,7 @@
 
 void __fastcall EtwpTraceLpacAccessFailure(int a1)
 {
-  __int64 SystemTimePrecise; // [rsp+30h] [rbp-48h] BYREF
+  LARGE_INTEGER SystemTimePrecise; // [rsp+30h] [rbp-48h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-40h] BYREF
   int *v3; // [rsp+48h] [rbp-30h]
   int v4; // [rsp+50h] [rbp-28h]

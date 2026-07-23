@@ -14,33 +14,36 @@
  *     _RtlValidateUserCallTarget@8 @ 0x4B363B20 (_RtlValidateUserCallTarget@8.c)
  */
 
-int __fastcall LdrpUnsuppressAddressTakenIat(char *a1, unsigned int a2, unsigned int a3)
+int __fastcall LdrpUnsuppressAddressTakenIat(PVOID BaseOfImage, unsigned int a2, PIMAGE_NT_HEADERS a3)
 {
   int v3; // ebx
   _DWORD *Config; // eax
-  rsize_t v6; // edx
+  unsigned int v6; // edx
   unsigned int v7; // ecx
   unsigned int *v8; // edi
-  rsize_t v9; // ecx
-  unsigned int v10; // eax
+  int v9; // ecx
+  PIMAGE_NT_HEADERS v10; // eax
   bool v11; // zf
   unsigned int v12; // esi
   unsigned int v13; // eax
-  unsigned int v15; // [esp+10h] [ebp-30h] BYREF
-  unsigned int *Context; // [esp+14h] [ebp-2Ch] BYREF
-  char *v17; // [esp+18h] [ebp-28h]
-  _BYTE v18[4]; // [esp+1Ch] [ebp-24h] BYREF
-  int v19; // [esp+20h] [ebp-20h]
-  rsize_t v20; // [esp+24h] [ebp-1Ch]
-  _BYTE v21[4]; // [esp+28h] [ebp-18h] BYREF
+  rsize_t v15; // [esp-8h] [ebp-48h]
+  int (__cdecl *v16)(void *, const void *, const void *); // [esp+0h] [ebp-40h]
+  void *v17; // [esp+4h] [ebp-3Ch]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+10h] [ebp-30h] BYREF
+  unsigned int *v19; // [esp+14h] [ebp-2Ch] BYREF
+  PVOID BaseOfImagea; // [esp+18h] [ebp-28h]
+  _BYTE v21[4]; // [esp+1Ch] [ebp-24h] BYREF
+  int v22; // [esp+20h] [ebp-20h]
+  int v23; // [esp+24h] [ebp-1Ch]
+  _BYTE v24[4]; // [esp+28h] [ebp-18h] BYREF
   _DWORD Key[4]; // [esp+2Ch] [ebp-14h] BYREF
 
-  v17 = a1;
+  BaseOfImagea = BaseOfImage;
   v3 = 0;
   memset(Key, 0, sizeof(Key));
-  Context = 0;
-  RtlImageNtHeaderEx(3, (unsigned int)a1, 0, 0, &v15);
-  Config = LdrImageDirectoryEntryToLoadConfig(v17);
+  v19 = 0;
+  RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
+  Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImagea);
   if ( !Config )
     return v3;
   if ( *Config < 0x70u )
@@ -48,50 +51,52 @@ int __fastcall LdrpUnsuppressAddressTakenIat(char *a1, unsigned int a2, unsigned
   v6 = Config[27];
   if ( !v6 )
     return v3;
-  if ( (*(_WORD *)(v15 + 94) & 0x4000) == 0 )
+  if ( (OutHeaders->OptionalHeader.DllCharacteristics & 0x4000) == 0 )
     return v3;
   v7 = Config[22];
   if ( (v7 & 0x4000) == 0 )
     return v3;
   v8 = (unsigned int *)Config[26];
   v9 = (v7 >> 28) + 4;
-  v20 = v9;
-  v15 = *(unsigned int *)((char *)v8 + v9 * (v6 - 1));
+  v23 = v9;
+  OutHeaders = *(PIMAGE_NT_HEADERS *)((char *)v8 + v9 * (v6 - 1));
   if ( !a2 )
     a2 = *v8;
   v10 = a3;
   if ( !a3 )
   {
-    v10 = v15;
-    a3 = v15;
+    v10 = OutHeaders;
+    a3 = OutHeaders;
   }
-  if ( *v8 <= v10 && a2 <= v15 && v10 >= a2 )
+  if ( *v8 <= (unsigned int)v10 && a2 <= (unsigned int)OutHeaders && (unsigned int)v10 >= a2 )
   {
     if ( *v8 >= a2 )
       goto LABEL_17;
     Key[0] = a2;
-    Context = v8;
-    v11 = bsearch_s(Key, v8, v6, v9, (_CoreCrtSecureSearchSortCompareFunction)LdrpTargetCompare, &Context) == 0;
+    HIDWORD(v15) = &v19;
+    LODWORD(v15) = LdrpTargetCompare;
+    v19 = v8;
+    v11 = bsearch_s(Key, v8, __PAIR64__(v9, v6), v15, v16, v17) == 0;
     v10 = a3;
-    if ( !v11 || a2 != a3 )
+    if ( !v11 || (PIMAGE_NT_HEADERS)a2 != a3 )
     {
-      v8 = Context;
+      v8 = v19;
 LABEL_17:
       v12 = 0;
-      while ( v12 < v10 && v12 < v15 )
+      while ( v12 < (unsigned int)v10 && v12 < (unsigned int)OutHeaders )
       {
         v13 = v12;
         v12 = *v8;
         if ( v13 >= *v8 )
           return -1073741701;
-        v19 = *(_DWORD *)&v17[v12];
-        if ( RtlValidateUserCallTarget(v19, v18) != 1 && (v18[0] & 0x10) != 0 )
+        v22 = *(_DWORD *)((char *)BaseOfImagea + v12);
+        if ( RtlValidateUserCallTarget(v22, v21) != 1 && (v21[0] & 0x10) != 0 )
         {
-          v3 = RtlGuardGrantSuppressedCallAccess(v21);
+          v3 = RtlGuardGrantSuppressedCallAccess(v24);
           if ( v3 < 0 )
             return v3;
         }
-        v8 = (unsigned int *)((char *)v8 + v20);
+        v8 = (unsigned int *)((char *)v8 + v23);
         v10 = a3;
       }
       return v3;

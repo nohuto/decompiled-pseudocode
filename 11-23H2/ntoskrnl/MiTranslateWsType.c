@@ -2,7 +2,7 @@
  * XREFs of MiTranslateWsType @ 0x14021DB44
  * Callers:
  *     MmGetWorkingSetLeafSize @ 0x14021DAC0 (MmGetWorkingSetLeafSize.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407A9BC8 (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407A9DB8 (MiInitializeSystemWorkingSetList.c)
  * Callees:
  *     <none>
  */

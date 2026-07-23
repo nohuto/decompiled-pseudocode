@@ -1,11 +1,11 @@
 /*
- * XREFs of VslSetCodeIntegrityPolicy @ 0x1409439B0
+ * XREFs of VslSetCodeIntegrityPolicy @ 0x140943BB0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslSetCodeIntegrityPolicy(int a1, __int64 a2)

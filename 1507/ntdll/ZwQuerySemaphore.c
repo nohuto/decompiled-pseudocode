@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQuerySemaphore()
+NTSTATUS __cdecl ZwQuerySemaphore(
+        HANDLE SemaphoreHandle,
+        SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
+        PVOID SemaphoreInformation,
+        ULONG SemaphoreInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 323LL;
+  result = 323;
   __asm { syscall; Low latency system call }
   return result;
 }

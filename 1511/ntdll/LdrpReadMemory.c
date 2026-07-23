@@ -16,22 +16,22 @@
 
 __int64 __fastcall LdrpReadMemory(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 (__fastcall *v4)(int, int, int, int, __int64); // rdi
+  __int64 (__fastcall *v4)(int, int, int, int, PSIZE_T); // rdi
   __int64 result; // rax
-  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR v7; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = (__int64 (__fastcall *)(int, int, int, int, __int64))a1[1];
+  v4 = (__int64 (__fastcall *)(int, int, int, int, PSIZE_T))a1[1];
   if ( (char *)v4 == (char *)LdrpProtectedCopyMemory )
   {
     result = LdrpProtectedCopyMemory(*a1);
   }
   else if ( v4 == RtlpQueryReadVirtualMemory )
   {
-    result = RtlpQueryReadVirtualMemory(*a1, a2, a3, a4, (__int64)&v7);
+    result = RtlpQueryReadVirtualMemory(*a1, a2, a3, a4, &v7);
   }
   else
   {
-    result = v4(*a1, a2, a3, a4, (__int64)&v7);
+    result = v4(*a1, a2, a3, a4, &v7);
   }
   if ( (int)result >= 0 )
     return a4 != v7 ? 0x8000000D : 0;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHaltDeviceIdle @ 0x140155E38
+ * XREFs of PopHaltDeviceIdle @ 0x140155F38
  * Callers:
- *     PoInitializeBroadcast @ 0x1406E0AA4 (PoInitializeBroadcast.c)
+ *     PoInitializeBroadcast @ 0x1406E1D44 (PoInitializeBroadcast.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS PopHaltDeviceIdle()
@@ -22,8 +22,8 @@ NTSTATUS PopHaltDeviceIdle()
 
   v0 = 0LL;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  byte_14043C524 = 1;
-  if ( dword_14043C520 )
+  byte_14043D5E4 = 1;
+  if ( dword_14043D5E0 )
   {
     v6 = 0;
     v7[1] = v7;

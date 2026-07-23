@@ -1,16 +1,16 @@
 /*
- * XREFs of PfSnLogScenarioDecision @ 0x14096F6B4
+ * XREFs of PfSnLogScenarioDecision @ 0x1409D199C
  * Callers:
- *     PfSnBeginScenario @ 0x14096F3B8 (PfSnBeginScenario.c)
- *     PfSnBeginAppLaunch @ 0x1409E9DD0 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x1409D1320 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginScenario @ 0x1409D16A0 (PfSnBeginScenario.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwQueryProcessTelemetryInfo @ 0x14096F92C (EtwQueryProcessTelemetryInfo.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1409D1C14 (EtwQueryProcessTelemetryInfo.c)
  */
 
 NTSTATUS __fastcall PfSnLogScenarioDecision(
@@ -95,8 +95,8 @@ NTSTATUS __fastcall PfSnLogScenarioDecision(
   v20 = 0;
   v21 = 0;
   v27 = 0;
-  if ( stru_140E66FF0.WaitBlock[0].Thread
-    && EtwEventEnabled((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_ScenarioDecision_Info) )
+  if ( stru_140E67200.WaitBlock[0].Thread
+    && EtwEventEnabled((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_ScenarioDecision_Info) )
   {
     v16 = -1LL;
     do
@@ -130,7 +130,7 @@ NTSTATUS __fastcall PfSnLogScenarioDecision(
     v27 = v17;
     v54 = 4LL;
     v53 = &v27;
-    EtwWrite((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_ScenarioDecision_Info, 0LL, 9u, &UserData);
+    EtwWrite((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_ScenarioDecision_Info, 0LL, 9u, &UserData);
   }
   result = EtwQueryProcessTelemetryInfo(BugCheckParameter1, v32, 0x60uLL, 0LL);
   v15 = 0;
@@ -173,7 +173,7 @@ NTSTATUS __fastcall PfSnLogScenarioDecision(
       v70 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E07398,
-               (unsigned __int8 *)byte_140049753,
+               (unsigned __int8 *)byte_140049D53,
                0LL,
                0LL,
                0xAu,

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateDebugObject @ 0x14015AFE0
+ * XREFs of ZwCreateDebugObject @ 0x14015B550
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateDebugObject(
         PHANDLE DebugHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwCreateDebugObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DebugHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(DebugHandle);
 }

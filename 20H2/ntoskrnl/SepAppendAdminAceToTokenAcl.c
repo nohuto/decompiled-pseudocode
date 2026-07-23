@@ -9,5 +9,5 @@
 
 __int64 __fastcall SepAppendAdminAceToTokenAcl(__int64 a1)
 {
-  return SepAppendAceToTokenObjectAcl(a1, 8, SeAliasAdminsSid);
+  return SepAppendAceToTokenObjectAcl(a1, 8u, SeAliasAdminsSid);
 }

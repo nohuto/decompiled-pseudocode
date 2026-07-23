@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetSystemTime @ 0x1800A3770
+ * XREFs of ZwSetSystemTime @ 0x1800A3790
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetSystemTime()
+NTSTATUS __cdecl ZwSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER PreviousTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 421LL;
+  result = 421;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

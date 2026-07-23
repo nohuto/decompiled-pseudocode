@@ -1,11 +1,11 @@
 /*
- * XREFs of MmObtainChargesToLockPagedPool @ 0x1408609D0
+ * XREFs of MmObtainChargesToLockPagedPool @ 0x140860C10
  * Callers:
- *     MiCreatePagingFileMap @ 0x140747994 (MiCreatePagingFileMap.c)
- *     PopPreallocateHibernateMemory @ 0x140800DF4 (PopPreallocateHibernateMemory.c)
- *     HalpMcExportAndChargeNeededData @ 0x1408608B0 (HalpMcExportAndChargeNeededData.c)
+ *     MiCreatePagingFileMap @ 0x140747B84 (MiCreatePagingFileMap.c)
+ *     PopPreallocateHibernateMemory @ 0x1408010C4 (PopPreallocateHibernateMemory.c)
+ *     HalpMcExportAndChargeNeededData @ 0x140860AF0 (HalpMcExportAndChargeNeededData.c)
  * Callees:
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
  */
 
 _BOOL8 __fastcall MmObtainChargesToLockPagedPool(__int16 a1, __int64 a2)

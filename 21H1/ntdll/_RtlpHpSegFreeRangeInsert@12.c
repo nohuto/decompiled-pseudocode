@@ -37,7 +37,7 @@ int __fastcall RtlpHpSegFreeRangeInsert(int a1, int a2, int a3)
   if ( !v7 )
   {
 LABEL_21:
-    RtlRbInsertNodeEx((int *)(a1 + 80), v7, 0, a2);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 80), (PRTL_BALANCED_NODE)v7, 0, (PRTL_BALANCED_NODE)a2);
     goto LABEL_22;
   }
   while ( 1 )
@@ -67,7 +67,7 @@ LABEL_21:
 LABEL_20:
     v7 = v8;
   }
-  RtlRbInsertNodeEx((int *)(a1 + 80), v7, 1, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 80), (PRTL_BALANCED_NODE)v7, 1u, (PRTL_BALANCED_NODE)a2);
 LABEL_22:
   _InterlockedExchangeAdd(
     (volatile signed __int32 *)(a1 + *(__int16 *)(a1 + 18) + 8),

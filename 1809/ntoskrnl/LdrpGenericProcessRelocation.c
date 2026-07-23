@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpGenericProcessRelocation @ 0x14017ED50
+ * XREFs of LdrpGenericProcessRelocation @ 0x14017EE90
  * Callers:
- *     LdrProcessRelocationBlockLongLong @ 0x14072A838 (LdrProcessRelocationBlockLongLong.c)
+ *     LdrProcessRelocationBlockLongLong @ 0x14072BA28 (LdrProcessRelocationBlockLongLong.c)
  * Callees:
  *     <none>
  */

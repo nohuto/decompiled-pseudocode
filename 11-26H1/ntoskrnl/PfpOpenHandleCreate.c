@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpOpenHandleCreate @ 0x1409BAE10
+ * XREFs of PfpOpenHandleCreate @ 0x14098BDF0
  * Callers:
- *     PfpQueryFileExtentsRequest @ 0x1407C589C (PfpQueryFileExtentsRequest.c)
- *     PfpPrefetchDirectoryStream @ 0x1409AE4F8 (PfpPrefetchDirectoryStream.c)
- *     PfpVolumeOpenAndVerify @ 0x1409AF914 (PfpVolumeOpenAndVerify.c)
- *     PfSnQueryVolumeInfo @ 0x1409B1250 (PfSnQueryVolumeInfo.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1409B2A78 (PfSnOpenVolumesForPrefetch.c)
- *     PfSnGetSectionObject @ 0x1409B9738 (PfSnGetSectionObject.c)
- *     PfpPrefetchEntireDirectory @ 0x140A4F588 (PfpPrefetchEntireDirectory.c)
- *     PfpFileBuildReadSupport @ 0x140A4F6FC (PfpFileBuildReadSupport.c)
+ *     PfpQueryFileExtentsRequest @ 0x1407C88FC (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchDirectoryStream @ 0x14097F5AC (PfpPrefetchDirectoryStream.c)
+ *     PfpVolumeOpenAndVerify @ 0x1409809C8 (PfpVolumeOpenAndVerify.c)
+ *     PfSnQueryVolumeInfo @ 0x140982310 (PfSnQueryVolumeInfo.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140983B38 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnGetSectionObject @ 0x14098A718 (PfSnGetSectionObject.c)
+ *     PfpPrefetchEntireDirectory @ 0x140A58878 (PfpPrefetchEntireDirectory.c)
+ *     PfpFileBuildReadSupport @ 0x140A589EC (PfpFileBuildReadSupport.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     PfpCheckPrefetchAbort @ 0x1404BEB30 (PfpCheckPrefetchAbort.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     PfpCheckPrefetchAbort @ 0x1404B8380 (PfpCheckPrefetchAbort.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PfpOpenHandleCreate(

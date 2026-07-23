@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpValueToData @ 0x1407ACEF4
+ * XREFs of CmpValueToData @ 0x1407AD0F4
  * Callers:
- *     CmpFindControlSet @ 0x1407ACB40 (CmpFindControlSet.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
- *     CmpSortDriverList @ 0x140A60418 (CmpSortDriverList.c)
- *     CmpFindTagIndex @ 0x140A607B0 (CmpFindTagIndex.c)
- *     CmpAddDriverToList @ 0x140A6097C (CmpAddDriverToList.c)
- *     CmpIsLoadType @ 0x140A6112C (CmpIsLoadType.c)
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140A61390 (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpFindControlSet @ 0x1407ACD40 (CmpFindControlSet.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A607C0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpSortDriverList @ 0x140A61418 (CmpSortDriverList.c)
+ *     CmpFindTagIndex @ 0x140A617B0 (CmpFindTagIndex.c)
+ *     CmpAddDriverToList @ 0x140A6197C (CmpAddDriverToList.c)
+ *     CmpIsLoadType @ 0x140A6212C (CmpIsLoadType.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140A62390 (CmpGetStateSepKeysRedirectionPathValue.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpGetValueData @ 0x1406E7B70 (CmpGetValueData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall CmpValueToData(ULONG_PTR BugCheckParameter3, __int64 a2, ULONG_PTR a3, unsigned int *a4, __int64 a5)

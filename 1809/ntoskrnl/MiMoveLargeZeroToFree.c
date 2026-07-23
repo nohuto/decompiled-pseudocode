@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMoveLargeZeroToFree @ 0x140151CC8
+ * XREFs of MiMoveLargeZeroToFree @ 0x140151DC8
  * Callers:
- *     MiPurgeLargeZeroNodePages @ 0x140151AF8 (MiPurgeLargeZeroNodePages.c)
+ *     MiPurgeLargeZeroNodePages @ 0x140151BF8 (MiPurgeLargeZeroNodePages.c)
  * Callees:
  *     <none>
  */

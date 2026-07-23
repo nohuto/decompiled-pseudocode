@@ -50,7 +50,7 @@ LABEL_2:
   if ( v6 >= 0x200000 )
     goto LABEL_10;
   if ( a3 > 0 )
-    RtlpHpSegMgrCommit((_DWORD)a1, a2, 0, (unsigned int)v6 >> 12, -a3, 0x4000, 0);
+    RtlpHpSegMgrCommit((int)a1, -a3, 0x4000, 0);
   v5 = RtlpHpSegMgrVaCtxFree(a1, a2, &v13);
   v12 = v5;
   a2 = v5;
@@ -69,7 +69,7 @@ LABEL_10:
       {
         LOWORD(v5) = *v8;
         if ( (*v8 & 0x7FF) != 0 )
-          LOBYTE(v5) = RtlpHpSegMgrCommit((_DWORD)a1, v12, v9, 512, -(v5 & 0x7FF), 0x4000, 0);
+          LOBYTE(v5) = RtlpHpSegMgrCommit((int)a1, -(v5 & 0x7FF), 0x4000, 0);
         ++v8;
         v9 += 512;
       }

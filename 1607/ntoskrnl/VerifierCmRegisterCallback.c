@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierCmRegisterCallback @ 0x14070C388
+ * XREFs of VerifierCmRegisterCallback @ 0x14070C3B8
  * Callers:
  *     <none>
  * Callees:

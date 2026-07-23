@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpValidateHeapEntry @ 0x1800769B8
+ * XREFs of RtlpValidateHeapEntry @ 0x1800769A8
  * Callers:
- *     RtlValidateHeap @ 0x180076860 (RtlValidateHeap.c)
- *     RtlDebugFreeHeap @ 0x180091B60 (RtlDebugFreeHeap.c)
+ *     RtlValidateHeap @ 0x180076850 (RtlValidateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180091B50 (RtlDebugFreeHeap.c)
  *     RtlDebugGetUserInfoHeap @ 0x1800FA794 (RtlDebugGetUserInfoHeap.c)
  *     RtlDebugReAllocateHeap @ 0x1800FAA84 (RtlDebugReAllocateHeap.c)
  *     RtlDebugSetUserFlagsHeap @ 0x1800FAFE4 (RtlDebugSetUserFlagsHeap.c)
  *     RtlDebugSetUserValueHeap @ 0x1800FB1B0 (RtlDebugSetUserValueHeap.c)
  *     RtlDebugSizeHeap @ 0x1800FB344 (RtlDebugSizeHeap.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
- *     RtlpCheckBusyBlockTail @ 0x18005D4CC (RtlpCheckBusyBlockTail.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
+ *     RtlpCheckBusyBlockTail @ 0x18005D4BC (RtlpCheckBusyBlockTail.c)
  *     RtlpBreakPointHeap @ 0x1800FB678 (RtlpBreakPointHeap.c)
  */
 

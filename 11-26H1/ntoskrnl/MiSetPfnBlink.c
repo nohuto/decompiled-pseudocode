@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetPfnBlink @ 0x1402C8380
+ * XREFs of MiSetPfnBlink @ 0x1402AA140
  * Callers:
- *     MiUnlinkPageFromBadList @ 0x1402C8074 (MiUnlinkPageFromBadList.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiManageUltraSpacePageTable @ 0x14049504C (MiManageUltraSpacePageTable.c)
+ *     MiUnlinkPageFromBadList @ 0x1402A9E2C (MiUnlinkPageFromBadList.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiManageUltraSpacePageTable @ 0x14048EB9C (MiManageUltraSpacePageTable.c)
  * Callees:
  *     <none>
  */

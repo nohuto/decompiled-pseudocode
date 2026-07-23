@@ -18,19 +18,18 @@ __int64 __fastcall sub_18005A768(int *a1)
   struct _PEB *v3; // rsi
   __int64 (*v4)(void); // rax
   int v5; // edi
-  wchar_t *Buffer; // r8
+  PWCH Buffer; // r8
   int v7; // edi
-  __int64 v8; // rcx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v11; // [rsp+70h] [rbp+30h] BYREF
-  char v12; // [rsp+78h] [rbp+38h] BYREF
-  int v13; // [rsp+80h] [rbp+40h] BYREF
-  int v14; // [rsp+88h] [rbp+48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  int Data; // [rsp+70h] [rbp+30h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+78h] [rbp+38h] BYREF
+  ULONG Type; // [rsp+80h] [rbp+40h] BYREF
+  ULONG ResultDataSize; // [rsp+88h] [rbp+48h] BYREF
 
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
   v2 = 0;
-  v11 = 0;
+  Data = 0;
   v3 = NtCurrentPeb();
   a1[1] = v3->OSMajorVersion;
   a1[2] = v3->OSMinorVersion;
@@ -67,14 +66,15 @@ LABEL_5:
   {
     *((_WORD *)a1 + 138) = HIBYTE(v3->OSCSDVersion);
     *((_WORD *)a1 + 139) = (unsigned __int8)v3->OSCSDVersion;
-    *((_WORD *)a1 + 140) = RtlGetSuiteMask(255LL);
+    *((_WORD *)a1 + 140) = RtlGetSuiteMask();
     if ( v7 == 292 )
-      a1[71] = RtlGetSuiteMask(v8) & 0x1FFFF;
+      a1[71] = RtlGetSuiteMask() & 0x1FFFF;
     *((_BYTE *)a1 + 282) = 0;
-    if ( (unsigned __int8)RtlGetNtProductType(&v12) )
-      *((_BYTE *)a1 + 282) = v12;
+    if ( RtlGetNtProductType(&NtProductType) )
+      *((_BYTE *)a1 + 282) = NtProductType;
     RtlInitUnicodeString(&DestinationString, L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
-    if ( (int)ZwQueryLicenseValue(&DestinationString, &v13, &v11, 4LL, &v14) >= 0 && (v11 != 1 || v13 != 4 || v14 != 4) )
+    if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+      && (Data != 1 || Type != 4 || ResultDataSize != 4) )
     {
       *((_WORD *)a1 + 140) &= ~0x10u;
       if ( *a1 == 292 )

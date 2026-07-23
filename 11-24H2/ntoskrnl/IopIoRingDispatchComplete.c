@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIoRingDispatchComplete @ 0x1406F7B84
+ * XREFs of IopIoRingDispatchComplete @ 0x1406F5B84
  * Callers:
- *     IopProcessIoRingEntry @ 0x1406F7A58 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x1406F5A58 (IopProcessIoRingEntry.c)
  * Callees:
- *     IopCompleteIoRingEntry @ 0x1403C5F20 (IopCompleteIoRingEntry.c)
+ *     IopCompleteIoRingEntry @ 0x1403B4AE0 (IopCompleteIoRingEntry.c)
  */
 
 int __fastcall IopIoRingDispatchComplete(__int64 a1, __int64 a2, unsigned int a3)

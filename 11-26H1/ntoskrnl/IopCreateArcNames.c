@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCreateArcNames @ 0x140CBC528
+ * XREFs of IopCreateArcNames @ 0x140CC25A0
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14051055C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     IopCreateArcNamesCd @ 0x140CBC66C (IopCreateArcNamesCd.c)
- *     IopCreateArcNamesDisk @ 0x140CBCBA4 (IopCreateArcNamesDisk.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x140509FCC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     IopCreateArcNamesCd @ 0x140CC26E4 (IopCreateArcNamesCd.c)
+ *     IopCreateArcNamesDisk @ 0x140CC2C1C (IopCreateArcNamesDisk.c)
  */
 
 __int64 __fastcall IopCreateArcNames(__int64 a1)
@@ -29,10 +29,7 @@ __int64 __fastcall IopCreateArcNames(__int64 a1)
   v8 = 0LL;
   RtlStringCchPrintfA(pszDest, 0x80uLL, "\\ArcName\\%s", v1);
   RtlInitAnsiString(&DestinationString, pszDest);
-  RtlAnsiStringToUnicodeString(
-    (PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.KernelWaitTime,
-    &DestinationString,
-    1u);
+  RtlAnsiStringToUnicodeString((PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.UserWaitTime, &DestinationString, 1u);
   RtlStringCchPrintfA(pszDest, 0x80uLL, "\\ArcName\\%s", *(const char **)(a1 + 184));
   RtlInitAnsiString(&DestinationString, pszDest);
   RtlAnsiStringToUnicodeString(

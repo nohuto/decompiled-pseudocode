@@ -12,22 +12,26 @@
 
 int __stdcall RtlpNameprepAsciiWorker(int a1, void *a2, int a3, char a4)
 {
-  void *Heap; // edi
-  int v5; // eax
+  WCHAR *Heap; // edi
+  PVOID v5; // eax
   int v6; // ecx
-  int v7; // esi
+  void *v7; // esi
   int v8; // ebx
+  SIZE_T v10; // [esp-4h] [ebp-14h]
+  SIZE_T v11; // [esp-4h] [ebp-14h]
 
-  Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 1022);
-  v5 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 1030);
+  LODWORD(v10) = 1022;
+  Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
+  LODWORD(v11) = 1030;
+  v5 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v11);
   v7 = v5;
   if ( Heap && v5 )
-    v8 = RtlpNameprepAsciiRealWorker(a1, a2, a3, a4, Heap, v6, v5, v6);
+    v8 = RtlpNameprepAsciiRealWorker(a1, a2, a3, a4, Heap, v6, (int)v5, v6);
   else
     v8 = -1073741801;
   if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   if ( v7 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   return v8;
 }

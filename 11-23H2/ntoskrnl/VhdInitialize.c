@@ -3,16 +3,16 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlStringCbCatW @ 0x140371614 (RtlStringCbCatW.c)
- *     PnpBootDeviceWait @ 0x140374B4C (PnpBootDeviceWait.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlStringCbCatW @ 0x1403717B4 (RtlStringCbCatW.c)
+ *     PnpBootDeviceWait @ 0x140374CEC (PnpBootDeviceWait.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     VhdiMountVhdFile @ 0x140A7321C (VhdiMountVhdFile.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     VhdiMountVhdFile @ 0x140A734CC (VhdiMountVhdFile.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     VhdiGetDiskParameters @ 0x140B9A9B4 (VhdiGetDiskParameters.c)
  */
@@ -159,7 +159,7 @@ LABEL_37:
   v20[1] = v21;
   memmove((char *)v20 + v21, v11, 2LL * (unsigned int)(v13 + 1));
   LODWORD(dword_140C0CFD4) = v26;
-  off_140C073E0 = v20;
+  off_140C073D0 = v20;
   *(_BYTE *)v20 = 1;
   return (unsigned int)v3;
 }

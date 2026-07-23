@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPreviousVad @ 0x140261500
+ * XREFs of MiGetPreviousVad @ 0x140291B10
  * Callers:
- *     MiRemoveVad @ 0x1402601E8 (MiRemoveVad.c)
- *     MiLocateLowestConflictingVad @ 0x140445494 (MiLocateLowestConflictingVad.c)
- *     MiDeleteEmptyPageTableCommit @ 0x140477174 (MiDeleteEmptyPageTableCommit.c)
- *     MiReturnPageTablePageCommitment @ 0x1409DE1C0 (MiReturnPageTablePageCommitment.c)
+ *     MiRemoveVad @ 0x1402907F8 (MiRemoveVad.c)
+ *     MiLocateLowestConflictingVad @ 0x14043D644 (MiLocateLowestConflictingVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x140473714 (MiDeleteEmptyPageTableCommit.c)
+ *     MiReturnPageTablePageCommitment @ 0x1409D7D90 (MiReturnPageTablePageCommitment.c)
  * Callees:
  *     <none>
  */

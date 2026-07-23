@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiQuerySubNodeActiveAffinity @ 0x14026428C (KiQuerySubNodeActiveAffinity.c)
+ *     sub_14026428C @ 0x14026428C (sub_14026428C.c)
  */
 
 __int64 __fastcall KeQueryNodeActiveAffinity2(unsigned __int16 a1, __int64 a2, unsigned __int16 a3, _WORD *a4)
@@ -16,10 +16,10 @@ __int64 __fastcall KeQueryNodeActiveAffinity2(unsigned __int16 a1, __int64 a2, u
   __int64 v11; // rsi
   unsigned int v12; // ecx
 
-  if ( a1 < (unsigned __int16)KeNumberNodes )
+  if ( a1 < (unsigned __int16)word_140D05000 )
   {
     _mm_lfence();
-    v7 = KeNodeBlock[a1];
+    v7 = qword_140D31700[a1];
     v8 = *(_DWORD *)(v7 + 16);
     v9 = v8 - (((unsigned __int64)v8 >> 1) & 0x5555555555555555LL);
     v10 = (0x101010101010101LL
@@ -36,7 +36,7 @@ __int64 __fastcall KeQueryNodeActiveAffinity2(unsigned __int16 a1, __int64 a2, u
         {
           _BitScanForward(&v12, v8);
           _bittestandreset((int *)&v8, (unsigned __int16)v12);
-          KiQuerySubNodeActiveAffinity(*(_QWORD *)(v7 + 8LL * (unsigned __int16)v12 + 24), a2, 0LL);
+          sub_14026428C(*(_QWORD *)(v7 + 8LL * (unsigned __int16)v12 + 24), a2, 0LL);
           a2 += 16LL;
           --v11;
         }

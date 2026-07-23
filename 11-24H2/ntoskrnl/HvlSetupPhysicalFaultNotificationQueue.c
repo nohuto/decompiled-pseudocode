@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlSetupPhysicalFaultNotificationQueue @ 0x1405839A0
+ * XREFs of HvlSetupPhysicalFaultNotificationQueue @ 0x140580D20
  * Callers:
- *     KiEpfInitialize @ 0x140C29DF0 (KiEpfInitialize.c)
+ *     KiEpfInitialize @ 0x140C2BF10 (KiEpfInitialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MmFreeContiguousMemory @ 0x1403A93D0 (MmFreeContiguousMemory.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     HvlpAllocateOverlayPages @ 0x14058C158 (HvlpAllocateOverlayPages.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmFreeContiguousMemory @ 0x140398060 (MmFreeContiguousMemory.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     HvlpAllocateOverlayPages @ 0x140589448 (HvlpAllocateOverlayPages.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HvlSetupPhysicalFaultNotificationQueue(_QWORD *a1, _DWORD *a2, __int64 a3, __int64 a4)

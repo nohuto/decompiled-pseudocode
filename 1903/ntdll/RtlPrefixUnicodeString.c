@@ -10,48 +10,46 @@
  *     sub_18001A234 @ 0x18001A234 (sub_18001A234.c)
  */
 
-char __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlPrefixUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  char *v3; // r10
-  char *v4; // r11
-  __int64 v5; // rbx
+  PWCH Buffer; // r10
+  WCHAR *v4; // r11
+  char *v5; // rbx
   __int64 v6; // rcx
   unsigned __int16 *v8; // r10
   __int16 v9; // ax
   __int16 v10; // r9
-  __int64 v11; // rcx
+  char *v11; // rcx
 
-  v3 = (char *)*((_QWORD *)a1 + 1);
-  if ( *(_WORD *)a2 >= *a1 )
+  Buffer = String1->Buffer;
+  if ( String2->Length >= String1->Length )
   {
-    v4 = &v3[*a1];
-    if ( v3 >= v4 )
+    v4 = (PWCH)((char *)Buffer + String1->Length);
+    if ( Buffer >= v4 )
       return 1;
-    if ( a3 )
+    if ( CaseInSensitive )
     {
-      v5 = *(_QWORD *)(a2 + 8) - (_QWORD)v3;
+      v5 = (char *)((char *)String2->Buffer - (char *)Buffer);
       while ( 1 )
       {
-        v6 = *(unsigned __int16 *)&v3[v5];
-        if ( *(_WORD *)v3 != (_WORD)v6 )
+        v6 = *(unsigned __int16 *)((char *)Buffer + (_QWORD)v5);
+        if ( *Buffer != (_WORD)v6 )
         {
           sub_18001A234(v6);
           v9 = sub_18001A234(*v8);
           if ( v9 != v10 )
             break;
         }
-        v3 += 2;
-        if ( v3 >= v4 )
+        if ( ++Buffer >= v4 )
           return 1;
       }
     }
     else
     {
-      v11 = *(_QWORD *)(a2 + 8) - (_QWORD)v3;
-      while ( *(_WORD *)v3 == *(_WORD *)&v3[v11] )
+      v11 = (char *)((char *)String2->Buffer - (char *)Buffer);
+      while ( *Buffer == *(PWCH)((char *)Buffer + (_QWORD)v11) )
       {
-        v3 += 2;
-        if ( v3 >= v4 )
+        if ( ++Buffer >= v4 )
           return 1;
       }
     }

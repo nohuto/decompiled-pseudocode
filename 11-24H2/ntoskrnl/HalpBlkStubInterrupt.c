@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkStubInterrupt @ 0x140BDC880
+ * XREFs of HalpBlkStubInterrupt @ 0x140BDE880
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkApicEndOfInterrupt @ 0x140BDB1D0 (HalpBlkApicEndOfInterrupt.c)
+ *     HalpBlkApicEndOfInterrupt @ 0x140BDD1D0 (HalpBlkApicEndOfInterrupt.c)
  */
 
 void HalpBlkStubInterrupt()

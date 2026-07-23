@@ -8,13 +8,13 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_180082BF0(_QWORD *a1)
+LOGICAL __fastcall sub_180082BF0(_QWORD *a1)
 {
-  __int64 v2; // rdi
+  _QWORD *v2; // rdi
 
-  v2 = (__int64)(a1 - 9);
+  v2 = a1 - 9;
   sub_180031B40(a1[18], 0xFFFFFFFF);
-  *(_QWORD *)(v2 + 56) = 0LL;
+  v2[7] = 0LL;
   sub_18003741C(a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_180166080 + 0x80000, v2);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_180166080 + 0x80000, v2);
 }

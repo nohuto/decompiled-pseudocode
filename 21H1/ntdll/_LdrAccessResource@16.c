@@ -6,7 +6,15 @@
  *     _LdrpAccessResourceData@16 @ 0x4B2BD414 (_LdrpAccessResourceData@16.c)
  */
 
-int __stdcall LdrAccessResource(int a1, unsigned int a2, int a3, int a4)
+NTSTATUS __cdecl LdrAccessResource(
+        PVOID DllHandle,
+        PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry,
+        PVOID *ResourceBuffer,
+        ULONG *ResourceLength)
 {
-  return LdrpAccessResourceData(a1, a2, a3, a4);
+  return LdrpAccessResourceData(
+           (unsigned int)DllHandle,
+           (unsigned int)ResourceDataEntry,
+           (int)ResourceBuffer,
+           (int)ResourceLength);
 }

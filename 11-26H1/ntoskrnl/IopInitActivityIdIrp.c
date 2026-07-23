@@ -1,19 +1,19 @@
 /*
- * XREFs of IopInitActivityIdIrp @ 0x140481F80
+ * XREFs of IopInitActivityIdIrp @ 0x14047B8F0
  * Callers:
- *     IopAllocateIrpPrivate @ 0x14026C684 (IopAllocateIrpPrivate.c)
- *     IopAllocateReserveIrp @ 0x14027006C (IopAllocateReserveIrp.c)
- *     IopAllocateIrpWithExtension @ 0x14045DC8C (IopAllocateIrpWithExtension.c)
- *     IopAllocateBackpocketIrp @ 0x140531A0C (IopAllocateBackpocketIrp.c)
- *     IovAllocateIrp @ 0x140C48150 (IovAllocateIrp.c)
+ *     IopAllocateIrpPrivate @ 0x14026BBF4 (IopAllocateIrpPrivate.c)
+ *     IopAllocateReserveIrp @ 0x14026F5DC (IopAllocateReserveIrp.c)
+ *     IopAllocateIrpWithExtension @ 0x14045782C (IopAllocateIrpWithExtension.c)
+ *     IopAllocateBackpocketIrp @ 0x140533EB4 (IopAllocateBackpocketIrp.c)
+ *     IovAllocateIrp @ 0x140C4E160 (IovAllocateIrp.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     IoSetActivityIdIrp @ 0x140482190 (IoSetActivityIdIrp.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x140482A30 (PnpIsSafeToExamineUserModeTeb.c)
- *     IopIsActivityTracingEventEnabled @ 0x1404EBB28 (IopIsActivityTracingEventEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     IoSetActivityIdIrp @ 0x14047BB00 (IoSetActivityIdIrp.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x14047C3A0 (PnpIsSafeToExamineUserModeTeb.c)
+ *     IopIsActivityTracingEventEnabled @ 0x1404E5108 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 int __fastcall IopInitActivityIdIrp(__int64 a1)
@@ -50,9 +50,9 @@ int __fastcall IopInitActivityIdIrp(__int64 a1)
     else if ( (unsigned __int8)PnpIsSafeToExamineUserModeTeb() && (*(_BYTE *)(a1 + 71) & 0x21) != 0x21 )
     {
       v8 = 0;
-      if ( KeGetPcr()->NtTib.$1A4E1036E6CD9573DBF0CCD06E827B69::$8A7F5B5E2BB4B7163F26170312D282BB::Self )
+      if ( KeGetPcr()->NtTib.$52D3C1DA33407D154F0BDE5002546D79::$6F04B0361B22895021FCD2048B05DFAB::Self )
       {
-        Buf2 = *(GUID *)&KeGetPcr()->NtTib.$1A4E1036E6CD9573DBF0CCD06E827B69::$8A7F5B5E2BB4B7163F26170312D282BB::Self[105].SubSystemTib;
+        Buf2 = *(GUID *)&KeGetPcr()->NtTib.$52D3C1DA33407D154F0BDE5002546D79::$6F04B0361B22895021FCD2048B05DFAB::Self[105].SubSystemTib;
         v8 = 1;
       }
       if ( v8 && memcmp(&NullGuid, &Buf2, 0x10uLL) )
@@ -78,7 +78,7 @@ int __fastcall IopInitActivityIdIrp(__int64 a1)
     v9 = *(_WORD **)(a1 + 200);
     *v9 |= 2u;
     if ( RelatedActivityId )
-      LODWORD(v9) = EtwWriteEx(IoTraceHandle, v4, 0LL, 0, &ActivityId, RelatedActivityId, 0, 0LL);
+      LODWORD(v9) = EtwWriteEx(IopPerfIoTrackingLock.NpxState, v4, 0LL, 0, &ActivityId, RelatedActivityId, 0, 0LL);
   }
   return (int)v9;
 }

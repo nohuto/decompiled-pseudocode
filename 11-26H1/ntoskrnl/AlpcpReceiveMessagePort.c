@@ -1,29 +1,29 @@
 /*
- * XREFs of AlpcpReceiveMessagePort @ 0x140ACC1E4
+ * XREFs of AlpcpReceiveMessagePort @ 0x140ACE424
  * Callers:
- *     AlpcpReceiveMessage @ 0x1408F806C (AlpcpReceiveMessage.c)
- *     AlpcpReceiveLegacyMessage @ 0x140ACBE7C (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpReceiveMessage @ 0x140927FFC (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x140ACE0BC (AlpcpReceiveLegacyMessage.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     AlpcpWaitForSingleObject @ 0x140466280 (AlpcpWaitForSingleObject.c)
- *     AlpcpLogWaitForNewMessage @ 0x140770AC0 (AlpcpLogWaitForNewMessage.c)
- *     AlpcpReferenceBlob @ 0x1409BEEB8 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1409BEF10 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x140A4A040 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x140A5CAB0 (AlpcpTryLockForCachedReferenceBlob.c)
- *     AlpcpQueryHeadLargeQueue @ 0x140A78AD0 (AlpcpQueryHeadLargeQueue.c)
- *     AlpcpQueryHeadMainQueue @ 0x140A79BE4 (AlpcpQueryHeadMainQueue.c)
- *     AlpcpCompleteDeferSignalRequestAndWait @ 0x140A87DC4 (AlpcpCompleteDeferSignalRequestAndWait.c)
- *     AlpcpRemoveMessagePort @ 0x140A8BE90 (AlpcpRemoveMessagePort.c)
- *     AlpcpRemoveMessageCanceledQueue @ 0x140A9F428 (AlpcpRemoveMessageCanceledQueue.c)
- *     AlpcpLogReceiveMessage @ 0x140B4854C (AlpcpLogReceiveMessage.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     AlpcpWaitForSingleObject @ 0x14045F3E0 (AlpcpWaitForSingleObject.c)
+ *     AlpcpLogWaitForNewMessage @ 0x140773AC0 (AlpcpLogWaitForNewMessage.c)
+ *     AlpcpReferenceBlob @ 0x14098FE98 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14098FEF0 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x140A53330 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x140A69A70 (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpQueryHeadLargeQueue @ 0x140A81570 (AlpcpQueryHeadLargeQueue.c)
+ *     AlpcpQueryHeadMainQueue @ 0x140A81B24 (AlpcpQueryHeadMainQueue.c)
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x140A8EEF4 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpRemoveMessagePort @ 0x140A91160 (AlpcpRemoveMessagePort.c)
+ *     AlpcpRemoveMessageCanceledQueue @ 0x140A9F750 (AlpcpRemoveMessageCanceledQueue.c)
+ *     AlpcpLogReceiveMessage @ 0x140B4A2DC (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveMessagePort(
@@ -379,7 +379,7 @@ LABEL_183:
         if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock(v8);
         KeAbPostRelease((unsigned __int64)v8);
-        if ( BYTE4(stru_140E66B30.StackBase) )
+        if ( LOBYTE(stru_140E66D40.CycleTime) )
           AlpcpLogWaitForNewMessage(v6);
         if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x20) != 0 )
           NT_ASSERT("!CurrentThread->KeyedEventInUse");
@@ -420,7 +420,7 @@ LABEL_156:
           KeAbPostRelease((unsigned __int64)v33);
           if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x20) != 0 )
             NT_ASSERT("!CurrentThread->KeyedEventInUse");
-          AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, 16LL, 0LL, 0, 0LL);
+          AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, WrLpcReceive, 0, 0, 0LL);
           HeadLargeQueue = *(_QWORD *)&CurrentThread[1].Timer.Header.Lock;
           *(_QWORD *)&CurrentThread[1].Timer.Header.Lock = 0LL;
           if ( !HeadLargeQueue )
@@ -432,7 +432,7 @@ LABEL_156:
           --*(_WORD *)(HeadLargeQueue - 30);
           *(_DWORD *)(HeadLargeQueue + 40) = v70 & 0xFFFFDFFF;
 LABEL_179:
-          if ( BYTE4(stru_140E66B30.StackBase) )
+          if ( LOBYTE(stru_140E66D40.CycleTime) )
             AlpcpLogReceiveMessage(HeadLargeQueue);
 LABEL_128:
           a4->Thread = (_KTHREAD *)HeadLargeQueue;
@@ -489,7 +489,7 @@ LABEL_158:
       ExfReleasePushLockShared(v8);
     }
     KeAbPostRelease((unsigned __int64)v8);
-    if ( BYTE4(stru_140E66B30.StackBase) )
+    if ( LOBYTE(stru_140E66D40.CycleTime) )
       AlpcpLogWaitForNewMessage(v6);
     result = AlpcpCompleteDeferSignalRequestAndWait(v7, *(void **)(v6 + 248), v42, a2, a3);
   }

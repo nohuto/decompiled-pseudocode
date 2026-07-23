@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWaitForPageMoveComplete @ 0x1403C8610
+ * XREFs of MiWaitForPageMoveComplete @ 0x1403D2500
  * Callers:
- *     MiTradePageMarkedBad @ 0x14028E820 (MiTradePageMarkedBad.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1403C7FF0 (MiGetLargePageDemoteAsNeeded.c)
- *     MiGetPartitionNodePageCounts @ 0x1403C84E0 (MiGetPartitionNodePageCounts.c)
- *     MiTryUnlinkNodeLargePages @ 0x14051E74C (MiTryUnlinkNodeLargePages.c)
- *     MiGetHugeRange @ 0x1406EB880 (MiGetHugeRange.c)
+ *     MiTradePageMarkedBad @ 0x14028DD80 (MiTradePageMarkedBad.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1403D1EE0 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiGetPartitionNodePageCounts @ 0x1403D23D0 (MiGetPartitionNodePageCounts.c)
+ *     MiTryUnlinkNodeLargePages @ 0x140520D5C (MiTryUnlinkNodeLargePages.c)
+ *     MiGetHugeRange @ 0x1406F0520 (MiGetHugeRange.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiWaitForPageMoveComplete(__int64 a1, char a2)

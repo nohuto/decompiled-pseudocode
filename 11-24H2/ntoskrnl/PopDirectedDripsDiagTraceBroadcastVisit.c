@@ -1,23 +1,23 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceBroadcastVisit @ 0x140AB287C
+ * XREFs of PopDirectedDripsDiagTraceBroadcastVisit @ 0x140AAD7EC
  * Callers:
- *     PopDirectedDripsVisitDevice @ 0x1406F99CC (PopDirectedDripsVisitDevice.c)
+ *     PopDirectedDripsVisitDevice @ 0x1406F760C (PopDirectedDripsVisitDevice.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x1406FB9DC (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x1406F961C (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagTraceBroadcastVisit(__int64 a1, __int64 a2, int a3)
 {
-  _QWORD *v5; // rax
+  char *v5; // rax
   signed __int8 v6; // cf
-  _QWORD *v7; // rbx
+  char *v7; // rbx
   int v8; // eax
   __int64 DeviceDiagnostic; // rax
   __int64 v10; // rbx
@@ -51,13 +51,13 @@ __int64 __fastcall PopDirectedDripsDiagTraceBroadcastVisit(__int64 a1, __int64 a
   v17 = 0;
   v19 = 0;
   v20 = a1;
-  v5 = KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
   v6 = _interlockedbittestandset64((volatile signed __int32 *)&PopDirectedDripsDiagLock, 0LL);
   v7 = v5;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, (__int64)v5, (__int64)&PopDirectedDripsDiagLock);
+    ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, v5, (__int64)&PopDirectedDripsDiagLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   if ( a2 )
     v8 = *(_DWORD *)(a2 + 32);
   else

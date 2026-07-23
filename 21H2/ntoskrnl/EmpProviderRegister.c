@@ -1,21 +1,21 @@
 /*
- * XREFs of EmpProviderRegister @ 0x14079CFE0
+ * XREFs of EmpProviderRegister @ 0x14079D1E0
  * Callers:
- *     EmProviderRegister @ 0x14079CF70 (EmProviderRegister.c)
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
- *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
- *     HalRegisterErrataCallbacks @ 0x140A455B0 (HalRegisterErrataCallbacks.c)
+ *     EmProviderRegister @ 0x14079D170 (EmProviderRegister.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
+ *     EmInitSystem @ 0x140A4628C (EmInitSystem.c)
+ *     HalRegisterErrataCallbacks @ 0x140A465B0 (HalRegisterErrataCallbacks.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     EmpQueueRuleUpdateState @ 0x1403B41C8 (EmpQueueRuleUpdateState.c)
- *     EmpSearchCallbackDatabase @ 0x1403B44E4 (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x1403B451C (EmpSearchEntryDatabase.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     EmpQueueRuleUpdateState @ 0x1403B4338 (EmpQueueRuleUpdateState.c)
+ *     EmpSearchCallbackDatabase @ 0x1403B4654 (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x1403B468C (EmpSearchEntryDatabase.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EmpProviderRegister(

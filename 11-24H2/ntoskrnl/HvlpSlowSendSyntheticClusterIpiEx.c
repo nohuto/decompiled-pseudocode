@@ -1,17 +1,17 @@
 /*
- * XREFs of HvlpSlowSendSyntheticClusterIpiEx @ 0x1403C6780
+ * XREFs of HvlpSlowSendSyntheticClusterIpiEx @ 0x1404BB764
  * Callers:
- *     HvlSendSyntheticClusterIpi @ 0x1403C8710 (HvlSendSyntheticClusterIpi.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1403A4B40 (HvlSendSyntheticClusterIpi.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1403C9CC4 (HvlpAffinityToHvProcessorSet.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1403A4864 (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall HvlpSlowSendSyntheticClusterIpiEx(__int64 a1, int a2)
@@ -79,12 +79,12 @@ __int64 __fastcall HvlpSlowSendSyntheticClusterIpiEx(__int64 a1, int a2)
     HypercallCachedPages = KeGetCurrentPrcb()->HypercallCachedPages;
     Next = *(PHYSICAL_ADDRESS *)(HypercallCachedPages + 4);
   }
-  v10 = HvlpAffinityToHvProcessorSet(a1, HypercallCachedPages + 2, (v4 & 2) != 0 ? 64 : 4072);
+  v10 = HvlpAffinityToHvProcessorSet(a1, (_QWORD *)HypercallCachedPages + 1, (v4 & 2) != 0 ? 64 : 4072);
   if ( v10 == -1 )
   {
     HvlpReleaseHypercallPage((unsigned int *)&v13);
-    HypercallCachedPages = (_DWORD *)HvlpAcquireHypercallPage(&v13, 1LL, 0LL);
-    v10 = HvlpAffinityToHvProcessorSet(a1, HypercallCachedPages + 2, 4072LL);
+    HypercallCachedPages = HvlpAcquireHypercallPage((__int64)&v13, 1, 0LL, 0LL);
+    v10 = HvlpAffinityToHvProcessorSet(a1, (_QWORD *)HypercallCachedPages + 1, 0xFE8u);
   }
   v17 = 0;
   HypercallCachedPages[1] = 0;

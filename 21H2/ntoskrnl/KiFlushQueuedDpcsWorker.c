@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushQueuedDpcsWorker @ 0x1402C93C0
+ * XREFs of KiFlushQueuedDpcsWorker @ 0x140247CA0
  * Callers:
  *     <none>
  * Callees:
- *     KiRequestSoftwareInterrupt @ 0x140293E54 (KiRequestSoftwareInterrupt.c)
+ *     KiRequestSoftwareInterrupt @ 0x140211DC4 (KiRequestSoftwareInterrupt.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

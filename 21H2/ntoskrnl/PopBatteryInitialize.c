@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryInitialize @ 0x1408ED1E0
+ * XREFs of PopBatteryInitialize @ 0x1408ED340
  * Callers:
- *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14077F9D0 (PopBatteryWorker.c)
  * Callees:
- *     IoSynchronousCallDriver @ 0x1402BECC0 (IoSynchronousCallDriver.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopPrepareIoctl @ 0x1407C06A4 (PopPrepareIoctl.c)
+ *     IoSynchronousCallDriver @ 0x14023D110 (IoSynchronousCallDriver.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopPrepareIoctl @ 0x1407C0BC4 (PopPrepareIoctl.c)
  */
 
 NTSTATUS __fastcall PopBatteryInitialize(__int64 a1)
@@ -77,17 +77,17 @@ NTSTATUS __fastcall PopBatteryInitialize(__int64 a1)
       *(_DWORD *)(a1 + 144));
     *(_DWORD *)(a1 + 104) = 3;
     v9 = (_QWORD *)(a1 + 64);
-    v10 = (_QWORD *)qword_140C23658;
-    if ( *(__int64 **)qword_140C23658 != &qword_140C23650 )
+    v10 = (_QWORD *)qword_140C23C78;
+    if ( *(__int64 **)qword_140C23C78 != &qword_140C23C70 )
       __fastfail(3u);
-    v9[1] = qword_140C23658;
-    *v9 = &qword_140C23650;
+    v9[1] = qword_140C23C78;
+    *v9 = &qword_140C23C70;
     *v10 = v9;
-    ++dword_140C23634;
-    ++dword_140C23698;
+    ++dword_140C23C54;
+    ++dword_140C23CB8;
     result = 0;
-    qword_140C23658 = (__int64)v9;
-    byte_140C23638 = 1;
+    qword_140C23C78 = (__int64)v9;
+    byte_140C23C58 = 1;
   }
   return result;
 }

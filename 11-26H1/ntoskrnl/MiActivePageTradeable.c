@@ -1,10 +1,10 @@
 /*
- * XREFs of MiActivePageTradeable @ 0x140295EB4
+ * XREFs of MiActivePageTradeable @ 0x140295414
  * Callers:
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
  * Callees:
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
  */
 
 _BOOL8 __fastcall MiActivePageTradeable(ULONG_PTR a1, unsigned __int64 a2, int a3, char a4)

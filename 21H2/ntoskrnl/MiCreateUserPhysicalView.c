@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateUserPhysicalView @ 0x1408D5BA8
+ * XREFs of MiCreateUserPhysicalView @ 0x1408D5D08
  * Callers:
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x14025B9BC (MiInsertVadEvent.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140315FB0 (MiCheckPurgeAndUpMapCount.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ExGetCallBackBlockRoutine @ 0x140382160 (ExGetCallBackBlockRoutine.c)
- *     MiGetAweInfoPartition @ 0x14054C394 (MiGetAweInfoPartition.c)
- *     MiReferenceAweHandle @ 0x14054DC4C (MiReferenceAweHandle.c)
- *     MiCreateProcessDefaultAweInfo @ 0x1408D5AC0 (MiCreateProcessDefaultAweInfo.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x14027CF2C (MiInsertVadEvent.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140320D00 (MiCheckPurgeAndUpMapCount.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381CB0 (ExGetCallBackBlockRoutine.c)
+ *     MiGetAweInfoPartition @ 0x14054C5D4 (MiGetAweInfoPartition.c)
+ *     MiReferenceAweHandle @ 0x14054DE8C (MiReferenceAweHandle.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x1408D5C20 (MiCreateProcessDefaultAweInfo.c)
  */
 
 int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a4)
@@ -31,8 +31,8 @@ int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a
   __int64 v19; // rsi
   __int64 v20; // rax
   __int64 v21; // rdx
-  _QWORD *Pool; // rax
-  _QWORD *v23; // rdi
+  __int64 *Pool; // rax
+  __int64 *v23; // rdi
   int v24; // eax
   unsigned int v25; // eax
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
@@ -109,7 +109,7 @@ LABEL_10:
       v18 = 1LL;
       v19 = 1LL;
 LABEL_27:
-      Pool = MiAllocatePool(64, 0x48uLL, 0x76706D4Du);
+      Pool = (__int64 *)MiAllocatePool(64, 0x48uLL, 0x76706D4Du);
       v23 = Pool;
       if ( Pool )
       {

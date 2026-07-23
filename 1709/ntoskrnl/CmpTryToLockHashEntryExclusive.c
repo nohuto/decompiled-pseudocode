@@ -14,7 +14,7 @@ char __fastcall CmpTryToLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULO
   ULONG_PTR v2; // rbx
   char v4; // di
   ULONG_PTR v5; // rsi
-  unsigned __int64 v6; // rax
+  PRTL_BALANCED_NODE v6; // rax
 
   v2 = (unsigned int)BugCheckParameter4;
   v4 = 1;
@@ -26,13 +26,13 @@ char __fastcall CmpTryToLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULO
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
   {
     if ( v6 )
-      KeAbPostReleaseEx(v5, v6);
+      KeAbPostReleaseEx(v5, (unsigned __int64)v6);
     return 0;
   }
   else
   {
     if ( v6 )
-      *(_BYTE *)(v6 + 26) |= 1u;
+      BYTE2(v6[1].Left) |= 1u;
     *(_QWORD *)(v5 + 8) = KeGetCurrentThread();
     if ( !CmpReferenceHive(BugCheckParameter2) )
       KeBugCheckEx(0x51u, 0x17uLL, BugCheckParameter2, 0xDuLL, v2);

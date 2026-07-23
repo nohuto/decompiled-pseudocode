@@ -1,11 +1,11 @@
 /*
- * XREFs of HvApplyLogFiles @ 0x140AEB7E4
+ * XREFs of HvApplyLogFiles @ 0x140AEE6F0
  * Callers:
- *     HvpPerformLogFileRecovery @ 0x140AEB2A8 (HvpPerformLogFileRecovery.c)
+ *     HvpPerformLogFileRecovery @ 0x140AEE1B4 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     HvpApplyLegacyLogFile @ 0x140862838 (HvpApplyLegacyLogFile.c)
- *     HvpApplyIncrementalLogFile @ 0x140AE00FC (HvpApplyIncrementalLogFile.c)
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     HvpApplyLegacyLogFile @ 0x140868C18 (HvpApplyLegacyLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140ADD93C (HvpApplyIncrementalLogFile.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvApplyLogFiles(

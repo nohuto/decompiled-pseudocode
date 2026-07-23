@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuNotifyGracePeriodStartedOnCpu @ 0x1405C1378
+ * XREFs of KiSrcuNotifyGracePeriodStartedOnCpu @ 0x1405BE948
  * Callers:
- *     KiSrcuProcessorInitialize @ 0x1404F9238 (KiSrcuProcessorInitialize.c)
- *     KiSrcuNotifyWorkerDpcRoutine @ 0x1405C14C0 (KiSrcuNotifyWorkerDpcRoutine.c)
+ *     KiSrcuProcessorInitialize @ 0x1404F6B18 (KiSrcuProcessorInitialize.c)
+ *     KiSrcuNotifyWorkerDpcRoutine @ 0x1405BEA90 (KiSrcuNotifyWorkerDpcRoutine.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiSrcuCheckQuiescent @ 0x140437860 (KiSrcuCheckQuiescent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiSrcuCheckQuiescent @ 0x14042A2E0 (KiSrcuCheckQuiescent.c)
  */
 
 void __fastcall KiSrcuNotifyGracePeriodStartedOnCpu(__int64 a1, __int64 a2)

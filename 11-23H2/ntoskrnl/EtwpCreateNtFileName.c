@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCreateNtFileName @ 0x1407F6B7C
+ * XREFs of EtwpCreateNtFileName @ 0x1407F6E4C
  * Callers:
- *     EtwpDelayCreate @ 0x1407F6A54 (EtwpDelayCreate.c)
+ *     EtwpDelayCreate @ 0x1407F6D24 (EtwpDelayCreate.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

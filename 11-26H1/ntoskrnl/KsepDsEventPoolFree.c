@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDsEventPoolFree @ 0x1405FF4AC
+ * XREFs of KsepDsEventPoolFree @ 0x140601EFC
  * Callers:
- *     KseDsHookExFreePool @ 0x1405FE940 (KseDsHookExFreePool.c)
- *     KseDsHookExFreePoolWithTag @ 0x1405FE980 (KseDsHookExFreePoolWithTag.c)
+ *     KseDsHookExFreePool @ 0x140601390 (KseDsHookExFreePool.c)
+ *     KseDsHookExFreePoolWithTag @ 0x1406013D0 (KseDsHookExFreePoolWithTag.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall KsepDsEventPoolFree(__int64 a1, __int64 a2, int a3)
@@ -23,9 +23,9 @@ void __fastcall KsepDsEventPoolFree(__int64 a1, __int64 a2, int a3)
   v10 = a3;
   v9 = a2;
   v8 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    if ( EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventPoolFree) )
+    if ( EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventPoolFree) )
     {
       UserData.Ptr = (ULONGLONG)&v8;
       *(_QWORD *)&UserData.Size = 8LL;
@@ -33,7 +33,7 @@ void __fastcall KsepDsEventPoolFree(__int64 a1, __int64 a2, int a3)
       v5 = 8LL;
       v6 = &v10;
       v7 = 4LL;
-      EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventPoolFree, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+      EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventPoolFree, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
 }

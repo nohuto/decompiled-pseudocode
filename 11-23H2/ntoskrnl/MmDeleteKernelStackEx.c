@@ -1,27 +1,27 @@
 /*
- * XREFs of MmDeleteKernelStackEx @ 0x14026F8D0
+ * XREFs of MmDeleteKernelStackEx @ 0x14026FB60
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271390 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     PspDeleteKernelStack @ 0x14035A910 (PspDeleteKernelStack.c)
- *     MmDeleteKernelStack @ 0x1403D6640 (MmDeleteKernelStack.c)
- *     KiFreeProcessorStacks @ 0x14056BD4C (KiFreeProcessorStacks.c)
- *     KeEnableOptionalXStateFeaturesApc @ 0x1405725D0 (KeEnableOptionalXStateFeaturesApc.c)
- *     KiEnableOptionalXStateFeatures @ 0x14057291C (KiEnableOptionalXStateFeatures.c)
- *     KeUserModeCallback @ 0x14076E880 (KeUserModeCallback.c)
- *     KeUninitThread @ 0x1407E9B3C (KeUninitThread.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x1409AE908 (PspEnableProcessOptionalXStateFeatures.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271620 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     PspDeleteKernelStack @ 0x14035AAB0 (PspDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1403D6820 (MmDeleteKernelStack.c)
+ *     KiFreeProcessorStacks @ 0x14056C40C (KiFreeProcessorStacks.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x140572B10 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KiEnableOptionalXStateFeatures @ 0x140572E5C (KiEnableOptionalXStateFeatures.c)
+ *     KeUserModeCallback @ 0x14076EA70 (KeUserModeCallback.c)
+ *     KeUninitThread @ 0x1407E9E0C (KeUninitThread.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AEB08 (PspEnableProcessOptionalXStateFeatures.c)
  *     KeInitThread @ 0x140A875D0 (KeInitThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDeleteKernelStack @ 0x140283990 (MiDeleteKernelStack.c)
- *     MiClearStackOwners @ 0x14033D61C (MiClearStackOwners.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogKernelStackEvent @ 0x140644F04 (MiLogKernelStackEvent.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDeleteKernelStack @ 0x140283C20 (MiDeleteKernelStack.c)
+ *     MiClearStackOwners @ 0x14033D8AC (MiClearStackOwners.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiLogKernelStackEvent @ 0x140645454 (MiLogKernelStackEvent.c)
  */
 
 signed __int64 __fastcall MmDeleteKernelStackEx(ULONG_PTR a1, unsigned int a2, __int64 a3)
@@ -166,7 +166,7 @@ LABEL_32:
       return (signed __int64)RtlpInterlockedPushEntrySList((PSLIST_HEADER)v28, (PSLIST_ENTRY)(v29 + 4080));
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql != 2 )
@@ -176,10 +176,10 @@ LABEL_32:
     if ( (unsigned int)MiClearStackOwners(v10, v4, SchedulerAssist, v25) )
     {
       RtlpInterlockedPushEntrySList((PSLIST_HEADER)v28, (PSLIST_ENTRY)(v29 + 4080));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v48 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && CurrentIrql <= 0xFu && v48 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu && CurrentIrql <= 0xFu && v48 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v50 = CurrentPrcb->SchedulerAssist;
@@ -194,10 +194,10 @@ LABEL_32:
       __writecr8(CurrentIrql);
       return result;
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v44 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
       {
         v45 = KeGetCurrentPrcb();
         v46 = v45->SchedulerAssist;
@@ -216,7 +216,7 @@ LABEL_32:
   {
     v17 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
     {
       v23 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v17 == 2 )
@@ -236,10 +236,10 @@ LABEL_32:
     if ( v52 == v18 )
       break;
     _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v34 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v17 <= 0xFu && v34 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v17 <= 0xFu && v34 >= 2u )
       {
         v35 = KeGetCurrentPrcb();
         v36 = v35->SchedulerAssist;
@@ -264,10 +264,10 @@ LABEL_32:
   v4 = v56;
   LODWORD(v15) = v54;
   v11 = v53;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v40 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v17 <= 0xFu && v40 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v17 <= 0xFu && v40 >= 2u )
     {
       v41 = KeGetCurrentPrcb();
       v42 = v41->SchedulerAssist;

@@ -249,10 +249,13 @@ LABEL_25:
         CommittedPages = MiGetCommittedPages((_QWORD *)v5);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
       v11 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v15 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           v41 = KeGetCurrentPrcb();
           v11 = (unsigned int)(v15 + 1);
@@ -305,10 +308,10 @@ LABEL_77:
     if ( v16 == 1 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v46 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v46 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v46 >= 2u )
         {
           v47 = KeGetCurrentPrcb();
           v48 = v47->SchedulerAssist;
@@ -331,10 +334,10 @@ LABEL_77:
     {
       v19 = 1;
       ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v50 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v50 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v50 >= 2u )
         {
           v51 = KeGetCurrentPrcb();
           v52 = v51->SchedulerAssist;
@@ -370,10 +373,10 @@ LABEL_77:
         MiUpdateSystemProtoPtesTree(BugCheckParameter2 + ((unsigned __int64)v72 << 6) + 56, 1LL);
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v58 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v58 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v58 >= 2u )
         {
           v59 = KeGetCurrentPrcb();
           v60 = v59->SchedulerAssist;
@@ -392,10 +395,10 @@ LABEL_77:
     SubsectionCharges = -1073741302;
     v34 = MiDecrementSubsectionViewCount(BugCheckParameter2);
     ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v54 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v54 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v54 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v54 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v54 >= 2u )
       {
         v55 = KeGetCurrentPrcb();
         v56 = v55->SchedulerAssist;

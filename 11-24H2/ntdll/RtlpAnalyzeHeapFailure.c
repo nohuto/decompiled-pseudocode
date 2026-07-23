@@ -1,39 +1,38 @@
 /*
- * XREFs of RtlpAnalyzeHeapFailure @ 0x18002F740
+ * XREFs of RtlpAnalyzeHeapFailure @ 0x18000F2D0
  * Callers:
- *     RtlpAllocateNTHeapInternal @ 0x1800283A0 (RtlpAllocateNTHeapInternal.c)
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x18002EF80 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x18002FC50 (RtlpCreateSplitBlock.c)
- *     RtlpGrowBlockInPlace @ 0x180030A60 (RtlpGrowBlockInPlace.c)
- *     RtlpCollectFreeBlocks @ 0x180031150 (RtlpCollectFreeBlocks.c)
- *     RtlpValidateHeap @ 0x180040D80 (RtlpValidateHeap.c)
- *     RtlDebugFreeHeap @ 0x18004178C (RtlDebugFreeHeap.c)
- *     RtlpValidateHeapSegment @ 0x180041A64 (RtlpValidateHeapSegment.c)
- *     RtlGetUserInfoHeap @ 0x1800423E0 (RtlGetUserInfoHeap.c)
- *     RtlpDeCommitFreeBlock @ 0x180042E70 (RtlpDeCommitFreeBlock.c)
- *     RtlpCoalesceHeap @ 0x180044000 (RtlpCoalesceHeap.c)
- *     RtlSetUserValueHeap @ 0x18009BF90 (RtlSetUserValueHeap.c)
- *     RtlDebugAllocateHeap @ 0x18009CC30 (RtlDebugAllocateHeap.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpExtendHeap @ 0x18009FC30 (RtlpExtendHeap.c)
- *     RtlpFindAndCommitPages @ 0x1800A03B0 (RtlpFindAndCommitPages.c)
- *     RtlpReAllocateHeapInternal @ 0x1800A1040 (RtlpReAllocateHeapInternal.c)
- *     RtlpReAllocateHeap @ 0x1800A18B0 (RtlpReAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800A2A3C (RtlDebugReAllocateHeap.c)
- *     RtlpPopulateListIndex @ 0x1800A9058 (RtlpPopulateListIndex.c)
- *     RtlpSetupExtendedBlock @ 0x1800DF090 (RtlpSetupExtendedBlock.c)
- *     RtlSetUserFlagsHeap @ 0x18010E270 (RtlSetUserFlagsHeap.c)
- *     RtlZeroHeap @ 0x180143F70 (RtlZeroHeap.c)
+ *     RtlpPopulateListIndex @ 0x18000C23C (RtlpPopulateListIndex.c)
+ *     RtlpExtendHeap @ 0x18000CB60 (RtlpExtendHeap.c)
+ *     RtlpFindAndCommitPages @ 0x18000D030 (RtlpFindAndCommitPages.c)
+ *     RtlpGrowBlockInPlace @ 0x18000D610 (RtlpGrowBlockInPlace.c)
+ *     RtlpCreateSplitBlock @ 0x18000DD00 (RtlpCreateSplitBlock.c)
+ *     RtlpCoalesceFreeBlocks @ 0x18000EB10 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCollectFreeBlocks @ 0x18000F7E0 (RtlpCollectFreeBlocks.c)
+ *     RtlDebugAllocateHeap @ 0x18001F7A4 (RtlDebugAllocateHeap.c)
+ *     RtlSetUserValueHeap @ 0x18001FB40 (RtlSetUserValueHeap.c)
+ *     RtlpValidateHeap @ 0x1800216B0 (RtlpValidateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180022020 (RtlDebugFreeHeap.c)
+ *     RtlpValidateHeapSegment @ 0x1800222F8 (RtlpValidateHeapSegment.c)
+ *     RtlpAllocateNTHeapInternal @ 0x180054DA0 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpFreeHeap @ 0x18005A020 (RtlpFreeHeap.c)
+ *     RtlpReAllocateHeapInternal @ 0x18005AF10 (RtlpReAllocateHeapInternal.c)
+ *     RtlpReAllocateHeap @ 0x18005B780 (RtlpReAllocateHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18005C7E8 (RtlDebugReAllocateHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1800DA200 (RtlpSetupExtendedBlock.c)
+ *     RtlGetUserInfoHeap @ 0x1800E63B0 (RtlGetUserInfoHeap.c)
+ *     RtlpCoalesceHeap @ 0x180106F80 (RtlpCoalesceHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x180109150 (RtlSetUserFlagsHeap.c)
+ *     RtlpAllocateHeap @ 0x1801159A0 (RtlpAllocateHeap.c)
+ *     RtlZeroHeap @ 0x180142320 (RtlZeroHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHeapExceptionFilter @ 0x18010A4D0 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHeapExceptionFilter @ 0x180105400 (RtlpHeapExceptionFilter.c)
  */
 
-char __fastcall RtlpAnalyzeHeapFailure(__int64 a1, unsigned __int64 a2)
+char __fastcall RtlpAnalyzeHeapFailure(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v4; // r9
-  unsigned int v5; // r8d
+  int v5; // r8d
   char result; // al
   int v7; // edx
   __int64 v8; // rax
@@ -53,8 +52,8 @@ char __fastcall RtlpAnalyzeHeapFailure(__int64 a1, unsigned __int64 a2)
 
   v4 = 0LL;
   v5 = 0;
-  result = byte_1801D2908 != 0;
-  if ( byte_1801D2908 )
+  result = byte_1801D1908 != 0;
+  if ( byte_1801D1908 )
     return result;
   v7 = *(_DWORD *)(a2 + 8);
   if ( (v7 & *(_DWORD *)(a1 + 124)) == 0 )
@@ -147,31 +146,31 @@ LABEL_34:
   }
   switch ( v5 )
   {
-    case 0u:
-    case 1u:
-    case 6u:
-    case 7u:
-    case 0xAu:
+    case 0:
+    case 1:
+    case 6:
+    case 7:
+    case 10:
       v20 = 3;
       goto LABEL_43;
-    case 2u:
+    case 2:
       v19 = *(_QWORD *)(v4 + 40);
       v20 = 12;
       goto LABEL_44;
-    case 3u:
+    case 3:
       v20 = 0;
       goto LABEL_43;
-    case 4u:
-    case 5u:
+    case 4:
+    case 5:
       v20 = 14;
       goto LABEL_43;
-    case 8u:
+    case 8:
       v20 = 13;
       goto LABEL_43;
     default:
       v20 = 2;
 LABEL_43:
-      v19 = v5;
+      LODWORD(v19) = v5;
 LABEL_44:
       result = RtlpLogHeapFailure(v20, a1, a2, v19, 0LL, 0LL);
       break;

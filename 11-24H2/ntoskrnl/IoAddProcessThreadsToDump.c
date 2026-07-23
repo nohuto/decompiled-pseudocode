@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAddProcessThreadsToDump @ 0x1405A00C0
+ * XREFs of IoAddProcessThreadsToDump @ 0x14059CFE4
  * Callers:
- *     IopLiveDumpAddProcessesCallback @ 0x140598090 (IopLiveDumpAddProcessesCallback.c)
- *     IopPartialDumpAddProcessesCallback @ 0x1405A1460 (IopPartialDumpAddProcessesCallback.c)
+ *     IopLiveDumpAddProcessesCallback @ 0x140595010 (IopLiveDumpAddProcessesCallback.c)
+ *     IopPartialDumpAddProcessesCallback @ 0x14059E3A0 (IopPartialDumpAddProcessesCallback.c)
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x140269F48 (KeEnumerateKernelStackSegments.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     KeEnumerateKernelStackSegments @ 0x14021F4D8 (KeEnumerateKernelStackSegments.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IoAddProcessThreadsToDump(__int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall IoAddProcessThreadsToDump(__int64 a1, __int64 a2)
       DWORD2(v9) = v6;
       KeEnumerateKernelStackSegments(
         (__int64)(v4 - 95),
-        (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))IoAddThreadStackToDump,
+        (void (__fastcall *)(__int64, _QWORD *, __int64))IoAddThreadStackToDump,
         (__int64)&v9,
         v7);
       v5 = DWORD2(v9);

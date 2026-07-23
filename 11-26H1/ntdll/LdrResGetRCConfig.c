@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrResGetRCConfig @ 0x1800A77A0
+ * XREFs of LdrResGetRCConfig @ 0x1800A68D0
  * Callers:
- *     LdrpVerifyAlternateResourceModuleEx @ 0x1800A6EEC (LdrpVerifyAlternateResourceModuleEx.c)
- *     RtlpResUltimateFallbackInfo @ 0x1800A7430 (RtlpResUltimateFallbackInfo.c)
- *     LdrpResSearchResourceMappedFile @ 0x1800A80C0 (LdrpResSearchResourceMappedFile.c)
- *     LdrpResCompareServiceChecksum @ 0x1800AA28C (LdrpResCompareServiceChecksum.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x1800A601C (LdrpVerifyAlternateResourceModuleEx.c)
+ *     RtlpResUltimateFallbackInfo @ 0x1800A6560 (RtlpResUltimateFallbackInfo.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1800A71F0 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResCompareServiceChecksum @ 0x1800A93BC (LdrpResCompareServiceChecksum.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x18002C4C0 (LdrpSetAlternateResourceModuleHandle.c)
- *     LdrpGetFromMUIMemCache @ 0x18002DC20 (LdrpGetFromMUIMemCache.c)
- *     LdrpTraceLoadMUIDll @ 0x1800A7CD0 (LdrpTraceLoadMUIDll.c)
- *     LdrpResGetMappingSize @ 0x1800A7DC0 (LdrpResGetMappingSize.c)
- *     LdrpResSearchResourceMappedFile @ 0x1800A80C0 (LdrpResSearchResourceMappedFile.c)
- *     CheckOneBitValidFlag @ 0x1800E9788 (CheckOneBitValidFlag.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x1800175C0 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpGetFromMUIMemCache @ 0x180018D20 (LdrpGetFromMUIMemCache.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800A6E00 (LdrpTraceLoadMUIDll.c)
+ *     LdrpResGetMappingSize @ 0x1800A6EF0 (LdrpResGetMappingSize.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1800A71F0 (LdrpResSearchResourceMappedFile.c)
+ *     CheckOneBitValidFlag @ 0x1800E8998 (CheckOneBitValidFlag.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4, char a5)
+__int64 __fastcall LdrResGetRCConfig(__int64 DllHandle, __int64 a2, _QWORD *a3, unsigned int a4, char a5)
 {
   int v6; // r13d
   int v7; // edi
@@ -67,7 +67,7 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, unsigne
   v44 = a4;
   v47 = a3;
   v43 = a2;
-  v49[2] = a1;
+  v49[2] = DllHandle;
   v50[0] = L"MUI";
   v50[1] = 1LL;
   v50[2] = 0LL;
@@ -96,7 +96,7 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, unsigne
   if ( (*(_BYTE *)v9 & 1) != 0 )
   {
     v11 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v16 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v16 = 2147353476LL;
@@ -107,11 +107,11 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, unsigne
   {
     v11 = 2147353476LL;
   }
-  if ( a1 )
+  if ( DllHandle )
   {
     if ( a5 )
     {
-      v12 = LdrpGetFromMUIMemCache(a1, 0, 0LL, 8);
+      v12 = LdrpGetFromMUIMemCache(DllHandle, 0, 0LL, 8);
       v42 = v12;
       if ( v12 == (_DWORD *)-1LL )
       {
@@ -129,13 +129,22 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, unsigne
     }
     if ( !a2 && !v6 )
     {
-      result = LdrpResGetMappingSize(a1, &v45, v44, 0LL);
+      result = LdrpResGetMappingSize(DllHandle, &v45, v44, 0LL);
       if ( (int)result < 0 )
         return result;
       LODWORD(a2) = v45;
       v43 = v45;
     }
-    v17 = LdrpResSearchResourceMappedFile(a1, a2, v7, (unsigned int)v50, 3, (__int64)&v42, (__int64)&v46, 0LL, 0LL);
+    v17 = LdrpResSearchResourceMappedFile(
+            DllHandle,
+            a2,
+            v7,
+            (unsigned int)v50,
+            3,
+            (__int64)&v42,
+            (__int64)&v46,
+            0LL,
+            0LL);
     v13 = v17;
     if ( v17 < 0 )
     {
@@ -151,7 +160,7 @@ LABEL_78:
           v41 = -1LL;
           if ( v18 )
             v41 = (__int64)v18;
-          LdrpSetAlternateResourceModuleHandle(a1, 0LL, 0LL, v41, 0, 2, v13, 0LL);
+          LdrpSetAlternateResourceModuleHandle(DllHandle, 0LL, 0LL, v41, 0, 2, v13, 0LL);
         }
         goto LABEL_12;
       }
@@ -163,7 +172,7 @@ LABEL_78:
       if ( v6 )
         goto LABEL_82;
       v19 = (unsigned int)v42[1];
-      if ( (unsigned __int64)v42 + v19 > v43 + (a1 & 0xFFFFFFFFFFFFFFFCuLL) )
+      if ( (unsigned __int64)v42 + v19 > v43 + (DllHandle & 0xFFFFFFFFFFFFFFFCuLL) )
       {
         v13 = -1073741701;
         goto LABEL_76;
@@ -243,7 +252,7 @@ LABEL_12:
     v10 = (__int64)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v10 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v11 = (__int64)NtCurrentPeb()->SharedData + 554;
     LdrpTraceLoadMUIDll(v49, *(unsigned __int8 *)v11);
   }

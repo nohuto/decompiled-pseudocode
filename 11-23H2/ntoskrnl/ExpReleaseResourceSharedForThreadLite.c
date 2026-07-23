@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpReleaseResourceSharedForThreadLite @ 0x14023D880
+ * XREFs of ExpReleaseResourceSharedForThreadLite @ 0x14023D950
  * Callers:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x140260600 (ExpReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140260890 (ExpReleaseResourceForThreadLite.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiRemoveBoostThread @ 0x1402BB250 (KiRemoveBoostThread.c)
- *     KeCaptureWaitChainHeadEx @ 0x1402BB79C (KeCaptureWaitChainHeadEx.c)
- *     KeAbPreWakeupHandle @ 0x1402BDD98 (KeAbPreWakeupHandle.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
- *     PerfLogExecutiveResourceRelease @ 0x140600874 (PerfLogExecutiveResourceRelease.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiRemoveBoostThread @ 0x1402BB4E0 (KiRemoveBoostThread.c)
+ *     KeCaptureWaitChainHeadEx @ 0x1402BBA2C (KeCaptureWaitChainHeadEx.c)
+ *     KeAbPreWakeupHandle @ 0x1402BE028 (KeAbPreWakeupHandle.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
+ *     PerfLogExecutiveResourceRelease @ 0x140600DC4 (PerfLogExecutiveResourceRelease.c)
  */
 
 __int64 __fastcall ExpReleaseResourceSharedForThreadLite(
@@ -36,7 +36,7 @@ __int64 __fastcall ExpReleaseResourceSharedForThreadLite(
   unsigned int v8; // eax
   unsigned int v9; // ebp
   signed __int64 v10; // rbp
-  struct _PROCESSOR_NUMBER v11; // ebp
+  _PROCESSOR_NUMBER v11; // ebp
   _DWORD *v12; // rsi
   int v13; // ecx
   bool v14; // zf
@@ -179,7 +179,7 @@ LABEL_85:
     }
 LABEL_14:
     *(_QWORD *)v7 = 0LL;
-    v11 = (struct _PROCESSOR_NUMBER)1;
+    v11 = (_PROCESSOR_NUMBER)1;
     v12 = (_DWORD *)(BugCheckParameter1 + 76);
     v82 = *(_DWORD *)(BugCheckParameter1 + 68);
     v73 = 0LL;
@@ -237,10 +237,13 @@ LABEL_18:
       }
 LABEL_28:
       v17 = *((unsigned __int8 *)a3 + 16);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v17 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -261,7 +264,7 @@ LABEL_28:
       v31 = KeGetCurrentIrql();
       v79 = v31;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v31 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v31 <= 0xFu )
       {
         v42 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)v31 == 2 )
@@ -299,7 +302,7 @@ LABEL_71:
           v45 = KiRemoveBoostThread(v32, v32->CurrentThread);
           if ( v15 )
           {
-            v11 = (struct _PROCESSOR_NUMBER)2;
+            v11 = (_PROCESSOR_NUMBER)2;
             if ( v45 > (char)v15 )
               v15 = v45;
           }
@@ -348,7 +351,7 @@ LABEL_61:
             *(_QWORD *)v39 = 0LL;
             v55 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v55 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu )
             {
               v56 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v55 == 2 )
@@ -451,10 +454,10 @@ LABEL_17:
 LABEL_53:
   result = (unsigned int)KiIrqlFlags;
   v30 = *((unsigned __int8 *)a3 + 16);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v47 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v47 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v47 >= 2u )
     {
       v48 = KeGetCurrentPrcb();
       v49 = v48->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlNotifyVolumeEventEx @ 0x140AE63A0
+ * XREFs of FsRtlNotifyVolumeEventEx @ 0x140AE4160
  * Callers:
- *     FsRtlNotifyVolumeEvent @ 0x140790A70 (FsRtlNotifyVolumeEvent.c)
+ *     FsRtlNotifyVolumeEvent @ 0x1407935A0 (FsRtlNotifyVolumeEvent.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PnpGetRelatedTargetDevice @ 0x1404A15E4 (PnpGetRelatedTargetDevice.c)
- *     IoReportTargetDeviceChangeAsynchronous @ 0x1404A4820 (IoReportTargetDeviceChangeAsynchronous.c)
- *     IoReportTargetDeviceChange @ 0x140AE6500 (IoReportTargetDeviceChange.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PnpGetRelatedTargetDevice @ 0x14049B114 (PnpGetRelatedTargetDevice.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x14049DEB0 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     IoReportTargetDeviceChange @ 0x140AE42C0 (IoReportTargetDeviceChange.c)
  */
 
 NTSTATUS __stdcall FsRtlNotifyVolumeEventEx(

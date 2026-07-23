@@ -15,19 +15,19 @@
  *     TraitsCompare @ 0x1404D3130 (TraitsCompare.c)
  */
 
-__int64 __fastcall EtwpSetProviderTraitsCommon(__int64 a1, __int64 a2, ULONG_PTR a3, unsigned __int64 *a4)
+__int64 __fastcall EtwpSetProviderTraitsCommon(__int64 a1, __int64 a2, ULONG_PTR a3, _RTL_RB_TREE *a4)
 {
   ULONG *v4; // r14
-  unsigned __int64 *v6; // rbp
-  unsigned __int64 *v7; // rsi
+  _RTL_BALANCED_NODE *v6; // rbp
+  _RTL_BALANCED_NODE *v7; // rsi
   __int64 v10; // rax
   __int64 v11; // rdi
   unsigned __int8 CurrentIrql; // r15
-  unsigned __int64 v13; // rdi
-  bool v14; // r8
+  _RTL_BALANCED_NODE *Root; // rdi
+  BOOLEAN v14; // r8
   char v15; // r15
   int v16; // eax
-  unsigned __int64 v17; // rax
+  _RTL_BALANCED_NODE *v17; // rax
   NTSTATUS v18; // edi
   signed __int32 v19; // r9d
   unsigned __int8 v20; // si
@@ -40,7 +40,7 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(__int64 a1, __int64 a2, ULONG_PTR
   *(_QWORD *)(a2 + 8) = 0LL;
   v6 = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;
-  v7 = (unsigned __int64 *)a2;
+  v7 = (_RTL_BALANCED_NODE *)a2;
   *(_DWORD *)(a2 + 24) = 1;
   v10 = KeAbPreAcquire(a3, 0LL, 0LL, (__int64)a4);
   v11 = v10;
@@ -52,22 +52,22 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(__int64 a1, __int64 a2, ULONG_PTR
     *(_BYTE *)(v11 + 26) |= 1u;
   *(_QWORD *)(a3 + 8) = KeGetCurrentThread();
   *(_DWORD *)(a3 + 48) = CurrentIrql;
-  v13 = *a4;
-  if ( !*a4 )
+  Root = a4->Root;
+  if ( !a4->Root )
   {
     v14 = 0;
     v15 = 0;
 LABEL_15:
-    RtlRbInsertNodeEx(a4, v13, v14, (unsigned __int64)v7);
+    RtlRbInsertNodeEx(a4, Root, v14, v7);
     goto LABEL_21;
   }
   v15 = 0;
   while ( 1 )
   {
-    v16 = TraitsCompare(v7, v13);
+    v16 = TraitsCompare(v7, Root);
     if ( v16 > 0 )
     {
-      v17 = *(_QWORD *)(v13 + 8);
+      v17 = Root->Children[1];
       if ( !v17 )
       {
         v14 = 1;
@@ -77,20 +77,20 @@ LABEL_15:
     }
     if ( v16 >= 0 )
       break;
-    v17 = *(_QWORD *)v13;
-    if ( !*(_QWORD *)v13 )
+    v17 = Root->Children[0];
+    if ( !Root->Children[0] )
     {
       v14 = 0;
       goto LABEL_15;
     }
 LABEL_13:
-    v13 = v17;
+    Root = v17;
   }
-  v4 = (ULONG *)(v13 + 24);
+  v4 = (ULONG *)&Root[1];
   v6 = v7;
   v15 = 1;
-  v7 = (unsigned __int64 *)v13;
-  v18 = RtlULongAdd(*(_DWORD *)(v13 + 24), 1u, &pulResult);
+  v7 = Root;
+  v18 = RtlULongAdd((ULONG)Root[1].Children[0], 1u, &pulResult);
   if ( v18 >= 0 )
   {
     *v4 = pulResult;

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpExtendedHeapInformationGenerator @ 0x1800E9BF0
+ * XREFs of RtlpExtendedHeapInformationGenerator @ 0x1800E9CB0
  * Callers:
  *     <none>
  * Callees:

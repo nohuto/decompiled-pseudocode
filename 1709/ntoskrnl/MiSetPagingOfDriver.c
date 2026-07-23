@@ -119,7 +119,7 @@ PVOID __fastcall MiSetPagingOfDriver(__int64 a1, __int64 *a2, unsigned __int64 a
   if ( v8 )
   {
     result = *(PVOID *)(a1 + 48);
-    if ( result == (PVOID)PsNtosImageBase || result == PsHalImageBase )
+    if ( result == PsNtosImageBase || result == PsHalImageBase )
       _InterlockedExchangeAdd((_DWORD *)&xmmword_140388420 + 2, v8);
     else
       _InterlockedExchangeAdd((_DWORD *)&xmmword_140388420 + 3, v8);

@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlIsElevatedRid @ 0x1406744C0
+ * XREFs of RtlIsElevatedRid @ 0x1406696F0
  * Callers:
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x1405DA360 (SepRemoveDisabledGroupsAndPrivileges.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x1406C8250 (SepRemoveDisabledGroupsAndPrivileges.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x14027F280 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     RtlSubAuthorityCountSid @ 0x14026D6B0 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
  */
 
-char __fastcall RtlIsElevatedRid(__int64 a1)
+BOOLEAN __cdecl RtlIsElevatedRid(PSID_AND_ATTRIBUTES SidAttr)
 {
-  PSID v1; // rbx
+  PSID Sid; // rbx
   int v2; // edi
   PULONG v3; // rax
   int v4; // ecx
   ULONG v5; // edx
   __int64 *i; // rax
 
-  if ( !a1 )
+  if ( !SidAttr )
     return 0;
-  if ( (*(_DWORD *)(a1 + 8) & 0x30) != 0 )
+  if ( (SidAttr->Attributes & 0x30) != 0 )
     return 0;
-  v1 = *(PSID *)a1;
-  v2 = *RtlSubAuthorityCountSid(*(PSID *)a1);
-  if ( !(_BYTE)v2 || *RtlSubAuthoritySid(v1, 0) - 80 <= 0x1F )
+  Sid = SidAttr->Sid;
+  v2 = *RtlSubAuthorityCountSid(SidAttr->Sid);
+  if ( !(_BYTE)v2 || *RtlSubAuthoritySid(Sid, 0) - 80 <= 0x1F )
     return 0;
-  v3 = RtlSubAuthoritySid(v1, v2 - 1);
+  v3 = RtlSubAuthoritySid(Sid, v2 - 1);
   v4 = 0;
   v5 = *v3;
-  for ( i = qword_140018570; v5 != *(_DWORD *)i; i = (__int64 *)((char *)i + 4) )
+  for ( i = qword_140018590; v5 != *(_DWORD *)i; i = (__int64 *)((char *)i + 4) )
   {
     if ( (unsigned int)++v4 >= 0x13 )
       return 0;

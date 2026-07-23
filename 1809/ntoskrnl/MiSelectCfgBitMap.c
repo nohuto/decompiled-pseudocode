@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSelectCfgBitMap @ 0x1405F482C
+ * XREFs of MiSelectCfgBitMap @ 0x1405F582C
  * Callers:
- *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
- *     MiCfgMarkValidEntries @ 0x1405F631C (MiCfgMarkValidEntries.c)
+ *     MiCommitVadCfgBits @ 0x1405F55BC (MiCommitVadCfgBits.c)
+ *     MiCfgMarkValidEntries @ 0x1405F731C (MiCfgMarkValidEntries.c)
  * Callees:
- *     MiSelectBitMapForImage @ 0x14064FA98 (MiSelectBitMapForImage.c)
+ *     MiSelectBitMapForImage @ 0x140650C58 (MiSelectBitMapForImage.c)
  */
 
 __int64 __fastcall MiSelectCfgBitMap(__int64 a1, unsigned __int64 a2, __int64 a3)

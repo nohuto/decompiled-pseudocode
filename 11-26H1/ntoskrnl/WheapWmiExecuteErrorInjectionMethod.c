@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapWmiExecuteErrorInjectionMethod @ 0x1406D8120
+ * XREFs of WheapWmiExecuteErrorInjectionMethod @ 0x1406DC2B0
  * Callers:
- *     WheapWmiExecuteMethod @ 0x1406D8758 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1406DC8E8 (WheapWmiExecuteMethod.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall WheapWmiExecuteErrorInjectionMethod(

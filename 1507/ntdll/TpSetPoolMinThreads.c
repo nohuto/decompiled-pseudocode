@@ -8,27 +8,30 @@
  *     TppETWPoolThreadMin @ 0x1800F5DEC (TppETWPoolThreadMin.c)
  */
 
-__int64 __fastcall TpSetPoolMinThreads(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl TpSetPoolMinThreads(PTP_POOL Pool, ULONG MinThreads)
 {
-  int v4; // eax
-  unsigned int v5; // edi
-  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS v3; // eax
+  NTSTATUS v4; // edi
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = (unsigned int)Ldr;
-  if ( !a1 || (int)Ldr < 0 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  WorkerFactoryInformation = MinThreads;
+  if ( !Pool
+    || (MinThreads & 0x80000000) != 0
+    || (*(_QWORD *)&MinThreads = NtCurrentPeb()->Ldr, *(_BYTE *)(*(_QWORD *)&MinThreads + 72LL)) )
   {
-    TppRaiseInvalidParameter(a1, Ldr, a3);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(Pool, *(_QWORD *)&MinThreads);
+    return -1073741811;
   }
   else
   {
-    v4 = NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 4LL, &v7, 4LL);
-    v5 = v4;
+    v3 = NtSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMinimum, &WorkerFactoryInformation, 4u);
+    v4 = v3;
     if ( MEMORY[0x7FFE0386] )
     {
-      if ( v4 >= 0 )
-        TppETWPoolThreadMin(a1, v7);
+      if ( v3 >= 0 )
+        TppETWPoolThreadMin(Pool, WorkerFactoryInformation);
     }
-    return v5;
+    return v4;
   }
 }

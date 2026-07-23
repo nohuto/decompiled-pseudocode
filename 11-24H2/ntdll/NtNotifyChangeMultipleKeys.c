@@ -1,5 +1,5 @@
 /*
- * XREFs of NtNotifyChangeMultipleKeys @ 0x180164100
+ * XREFs of NtNotifyChangeMultipleKeys @ 0x1801624C0
  * Callers:
  *     <none>
  * Callees:

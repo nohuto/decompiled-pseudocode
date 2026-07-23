@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSetValueKeyNew @ 0x140401B10
+ * XREFs of CmpSetValueKeyNew @ 0x1404009D0
  * Callers:
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
  * Callees:
- *     CmpAddValueToListEx @ 0x1403FFCDC (CmpAddValueToListEx.c)
- *     CmpFreeValue @ 0x140401680 (CmpFreeValue.c)
- *     CmpAddValueKeyNew @ 0x140401BC8 (CmpAddValueKeyNew.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     CmpAddValueToListEx @ 0x1403FEB9C (CmpAddValueToListEx.c)
+ *     CmpFreeValue @ 0x140400540 (CmpFreeValue.c)
+ *     CmpAddValueKeyNew @ 0x140400A88 (CmpAddValueKeyNew.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpSetValueKeyNew(

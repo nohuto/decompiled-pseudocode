@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTimeProfileStart @ 0x1406F655C
+ * XREFs of EtwpTimeProfileStart @ 0x1406F455C
  * Callers:
- *     EtwTimeProfileReset @ 0x1407A95AC (EtwTimeProfileReset.c)
- *     EtwpEnableKernelTrace @ 0x1408E95BC (EtwpEnableKernelTrace.c)
+ *     EtwTimeProfileReset @ 0x1407A96EC (EtwTimeProfileReset.c)
+ *     EtwpEnableKernelTrace @ 0x14085ADEC (EtwpEnableKernelTrace.c)
  * Callees:
- *     KeStartProfile @ 0x1404D6890 (KeStartProfile.c)
- *     KeInitializeProfileCallback @ 0x1406F65A0 (KeInitializeProfileCallback.c)
- *     KeSetIntervalProfile @ 0x140AC23D4 (KeSetIntervalProfile.c)
+ *     KeStartProfile @ 0x1404CFCE0 (KeStartProfile.c)
+ *     KeInitializeProfileCallback @ 0x1406F45A0 (KeInitializeProfileCallback.c)
+ *     KeSetIntervalProfile @ 0x140ABD6BC (KeSetIntervalProfile.c)
  */
 
 __int64 EtwpTimeProfileStart()

@@ -1,24 +1,24 @@
 /*
- * XREFs of CmObReferenceObjectByHandle @ 0x14040370C
+ * XREFs of CmObReferenceObjectByHandle @ 0x1404025CC
  * Callers:
- *     NtDeleteValueKey @ 0x1403FA9B8 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x1403FBA58 (NtDeleteKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x1404009C4 (NtNotifyChangeMultipleKeys.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     CmLoadDifferencingKey @ 0x14049B648 (CmLoadDifferencingKey.c)
- *     NtQueryMultipleValueKey @ 0x1404DD5F8 (NtQueryMultipleValueKey.c)
- *     NtFlushKey @ 0x1404E88CC (NtFlushKey.c)
- *     NtCompactKeys @ 0x1405F9400 (NtCompactKeys.c)
- *     NtCompressKey @ 0x1405F964C (NtCompressKey.c)
- *     NtRenameKey @ 0x1405F9DF0 (NtRenameKey.c)
- *     NtReplaceKey @ 0x1405FA30C (NtReplaceKey.c)
- *     NtRestoreKey @ 0x1405FA570 (NtRestoreKey.c)
- *     NtSaveKey @ 0x1405FA800 (NtSaveKey.c)
- *     NtSaveKeyEx @ 0x1405FAA3C (NtSaveKeyEx.c)
- *     NtSaveMergedKeys @ 0x1405FACD4 (NtSaveMergedKeys.c)
+ *     NtDeleteValueKey @ 0x1403F9878 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x1403FA918 (NtDeleteKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1403FF884 (NtNotifyChangeMultipleKeys.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     CmLoadDifferencingKey @ 0x1404A37E0 (CmLoadDifferencingKey.c)
+ *     NtQueryMultipleValueKey @ 0x1404C0BFC (NtQueryMultipleValueKey.c)
+ *     NtFlushKey @ 0x1404CAC58 (NtFlushKey.c)
+ *     NtCompactKeys @ 0x1405F94B4 (NtCompactKeys.c)
+ *     NtCompressKey @ 0x1405F9700 (NtCompressKey.c)
+ *     NtRenameKey @ 0x1405F9EA4 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x1405FA3C0 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x1405FA624 (NtRestoreKey.c)
+ *     NtSaveKey @ 0x1405FA8B4 (NtSaveKey.c)
+ *     NtSaveKeyEx @ 0x1405FAAF0 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x1405FAD88 (NtSaveMergedKeys.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmObReferenceObjectByHandle(

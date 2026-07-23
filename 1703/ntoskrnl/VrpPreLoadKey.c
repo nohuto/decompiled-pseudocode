@@ -49,57 +49,56 @@ __int64 __fastcall VrpPreLoadKey(__int64 a1, __int64 a2)
   int v20; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING Destination; // [rsp+48h] [rbp-B8h] BYREF
   PVOID P[2]; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING Source; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING v24; // [rsp+78h] [rbp-88h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING Source; // [rsp+78h] [rbp-88h] BYREF
   int v25; // [rsp+88h] [rbp-78h] BYREF
   __int64 v26; // [rsp+90h] [rbp-70h] BYREF
   __int64 v27; // [rsp+98h] [rbp-68h] BYREF
   HANDLE Handle; // [rsp+A0h] [rbp-60h] BYREF
   UNICODE_STRING String1; // [rsp+A8h] [rbp-58h] BYREF
-  char v30; // [rsp+B8h] [rbp-48h]
-  HANDLE v31; // [rsp+C0h] [rbp-40h]
-  _OWORD v32[3]; // [rsp+C8h] [rbp-38h] BYREF
-  _OWORD v33[3]; // [rsp+F8h] [rbp-8h] BYREF
+  _CM_EXTENDED_PARAMETER ExtendedParameters; // [rsp+B8h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES SourceFile; // [rsp+C8h] [rbp-38h] BYREF
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+F8h] [rbp-8h] BYREF
   GUID ActivityId; // [rsp+128h] [rbp+28h] BYREF
-  EVENT_DATA_DESCRIPTOR v35; // [rsp+140h] [rbp+40h] BYREF
-  _DWORD *v36; // [rsp+160h] [rbp+60h]
-  __int64 v37; // [rsp+168h] [rbp+68h]
-  PVOID v38; // [rsp+170h] [rbp+70h]
-  _DWORD v39[2]; // [rsp+178h] [rbp+78h] BYREF
-  _DWORD *v40; // [rsp+180h] [rbp+80h]
-  __int64 v41; // [rsp+188h] [rbp+88h]
-  wchar_t *v42; // [rsp+190h] [rbp+90h]
-  _DWORD v43[2]; // [rsp+198h] [rbp+98h] BYREF
-  int *v44; // [rsp+1A0h] [rbp+A0h]
-  __int64 v45; // [rsp+1A8h] [rbp+A8h]
+  EVENT_DATA_DESCRIPTOR v34; // [rsp+140h] [rbp+40h] BYREF
+  _DWORD *v35; // [rsp+160h] [rbp+60h]
+  __int64 v36; // [rsp+168h] [rbp+68h]
+  PVOID v37; // [rsp+170h] [rbp+70h]
+  _DWORD v38[2]; // [rsp+178h] [rbp+78h] BYREF
+  _DWORD *v39; // [rsp+180h] [rbp+80h]
+  __int64 v40; // [rsp+188h] [rbp+88h]
+  wchar_t *v41; // [rsp+190h] [rbp+90h]
+  _DWORD v42[2]; // [rsp+198h] [rbp+98h] BYREF
+  int *v43; // [rsp+1A0h] [rbp+A0h]
+  __int64 v44; // [rsp+1A8h] [rbp+A8h]
   EVENT_DATA_DESCRIPTOR pData; // [rsp+1C0h] [rbp+C0h] BYREF
-  _DWORD *v47; // [rsp+1E0h] [rbp+E0h]
-  __int64 v48; // [rsp+1E8h] [rbp+E8h]
-  PVOID v49; // [rsp+1F0h] [rbp+F0h]
-  _DWORD v50[6]; // [rsp+1F8h] [rbp+F8h] BYREF
-  EVENT_DATA_DESCRIPTOR v51; // [rsp+210h] [rbp+110h] BYREF
-  int *v52; // [rsp+230h] [rbp+130h]
-  __int64 v53; // [rsp+238h] [rbp+138h]
-  char v54; // [rsp+250h] [rbp+150h] BYREF
+  _DWORD *v46; // [rsp+1E0h] [rbp+E0h]
+  __int64 v47; // [rsp+1E8h] [rbp+E8h]
+  PVOID v48; // [rsp+1F0h] [rbp+F0h]
+  _DWORD v49[6]; // [rsp+1F8h] [rbp+F8h] BYREF
+  EVENT_DATA_DESCRIPTOR v50; // [rsp+210h] [rbp+110h] BYREF
+  int *v51; // [rsp+230h] [rbp+130h]
+  __int64 v52; // [rsp+238h] [rbp+138h]
+  char v53; // [rsp+250h] [rbp+150h] BYREF
 
   P[0] = 0LL;
   P[1] = 0LL;
-  LODWORD(v32[0]) = 0;
-  memset((char *)v32 + 8, 0, 0x28uLL);
-  LODWORD(v33[0]) = 0;
+  SourceFile.Length = 0;
+  memset(&SourceFile.RootDirectory, 0, 0x28uLL);
+  TargetKey.Length = 0;
   *(_QWORD *)&Destination.Length = 0LL;
   Destination.Buffer = 0LL;
-  memset((char *)v33 + 8, 0, 0x28uLL);
-  *(_QWORD *)&v24.Length = 0LL;
-  v24.Buffer = 0LL;
+  memset(&TargetKey.RootDirectory, 0, 0x28uLL);
+  *(_QWORD *)&Source.Length = 0LL;
+  Source.Buffer = 0LL;
   *(_QWORD *)&String1.Length = 0LL;
   String1.Buffer = 0LL;
   *(_QWORD *)&ActivityId.Data1 = 0LL;
   *(_QWORD *)ActivityId.Data4 = 0LL;
   EtwActivityIdControl(3u, &ActivityId);
   v4 = *(const UNICODE_STRING **)(a1 + 72);
-  Source.Buffer = (wchar_t *)&v54;
-  *(_DWORD *)&Source.Length = 5111808;
+  GuidString.Buffer = (wchar_t *)&v53;
+  *(_DWORD *)&GuidString.Length = 5111808;
   v27 = 0LL;
   v5 = 0;
   v26 = 0LL;
@@ -120,13 +119,13 @@ __int64 __fastcall VrpPreLoadKey(__int64 a1, __int64 a2)
   if ( stru_14033C400.LevelPlus1 > 5 )
   {
     v9 = P;
-    v48 = 2LL;
+    v47 = 2LL;
     if ( !P[1] )
       v9 = (PVOID *)&EmptyUnicodeString;
-    v50[1] = 0;
-    v47 = v50;
-    v49 = v9[1];
-    v50[0] = *(unsigned __int16 *)v9;
+    v49[1] = 0;
+    v46 = v49;
+    v48 = v9[1];
+    v49[0] = *(unsigned __int16 *)v9;
     TlgWrite(&stru_14033C400, &unk_1402AB76A, &ActivityId, 0LL, 4u, &pData);
   }
   VrpGetNextToken(P, &v26, &String1);
@@ -153,35 +152,35 @@ LABEL_10:
       goto LABEL_38;
     }
   }
-  v24.Buffer = (wchar_t *)((char *)P[1] + 2 * v26);
-  v24.Length = LOWORD(P[0]) - 2 * v26;
-  v24.MaximumLength = v24.Length;
-  VrpStripTrailingCharacters(&v24);
+  Source.Buffer = (wchar_t *)((char *)P[1] + 2 * v26);
+  Source.Length = LOWORD(P[0]) - 2 * v26;
+  Source.MaximumLength = Source.Length;
+  VrpStripTrailingCharacters(&Source);
   v11 = 0;
-  if ( v24.Length )
+  if ( Source.Length )
   {
-    Buffer = v24.Buffer;
+    Buffer = Source.Buffer;
     while ( *Buffer != 92 )
     {
       ++v11;
       ++Buffer;
-      if ( 2LL * v11 >= (unsigned __int64)v24.Length )
+      if ( 2LL * v11 >= (unsigned __int64)Source.Length )
         goto LABEL_20;
     }
     goto LABEL_10;
   }
 LABEL_20:
-  NamespaceNodePlaceholderKey = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&Source, 0);
+  NamespaceNodePlaceholderKey = RtlStringFromGUIDEx((PGUID)a2, &GuidString, 0);
   if ( NamespaceNodePlaceholderKey < 0 )
   {
     v6 = 0;
     goto LABEL_38;
   }
-  Source.MaximumLength -= 4;
-  ++Source.Buffer;
-  Source.Length -= 4;
+  GuidString.MaximumLength -= 4;
+  ++GuidString.Buffer;
+  GuidString.Length -= 4;
   Destination.Length = 0;
-  Destination.MaximumLength = v10->Length + v24.Length + Source.Length + 40;
+  Destination.MaximumLength = v10->Length + Source.Length + GuidString.Length + 40;
   Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, Destination.MaximumLength, 0x67655256u);
   if ( Destination.Buffer )
   {
@@ -189,11 +188,11 @@ LABEL_20:
     RtlAppendUnicodeToString(&Destination, L"\\");
     RtlAppendUnicodeToString(&Destination, L"Silo");
     RtlAppendUnicodeToString(&Destination, L"_");
-    RtlAppendUnicodeStringToString(&Destination, &Source);
+    RtlAppendUnicodeStringToString(&Destination, &GuidString);
     RtlAppendUnicodeToString(&Destination, L"_");
     RtlAppendUnicodeStringToString(&Destination, v10);
     RtlAppendUnicodeToString(&Destination, L"_");
-    RtlAppendUnicodeStringToString(&Destination, &v24);
+    RtlAppendUnicodeStringToString(&Destination, &Source);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockExclusiveEx(a2 + 16, 0LL);
@@ -210,16 +209,16 @@ LABEL_20:
         if ( NamespaceNodePlaceholderKey >= 0 )
         {
           v15 = *(_QWORD *)(a1 + 80) == 2LL;
-          *(_QWORD *)&v32[1] = *(_QWORD *)(a1 + 16);
-          LODWORD(v32[0]) = 48;
-          *(_QWORD *)&v33[1] = &Destination;
-          *((_QWORD *)&v32[0] + 1) = 0LL;
-          DWORD2(v32[1]) = 576;
-          v32[2] = 0LL;
-          LODWORD(v33[0]) = 48;
-          *((_QWORD *)&v33[0] + 1) = 0LL;
-          DWORD2(v33[1]) = 576;
-          v33[2] = 0LL;
+          SourceFile.ObjectName = *(PUNICODE_STRING *)(a1 + 16);
+          SourceFile.Length = 48;
+          TargetKey.ObjectName = &Destination;
+          SourceFile.RootDirectory = 0LL;
+          SourceFile.Attributes = 576;
+          *(_OWORD *)&SourceFile.SecurityDescriptor = 0LL;
+          TargetKey.Length = 48;
+          TargetKey.RootDirectory = 0LL;
+          TargetKey.Attributes = 576;
+          *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
           if ( !v15
             || (v16 = *(void **)(a1 + 88)) == 0LL
             || (NamespaceNodePlaceholderKey = ObOpenObjectByPointer(
@@ -232,9 +231,9 @@ LABEL_20:
                                                 &Handle),
                 NamespaceNodePlaceholderKey >= 0) )
           {
-            v30 = 3;
-            v31 = Handle;
-            NamespaceNodePlaceholderKey = ZwLoadKey3((__int64)v33, (__int64)v32, 0LL);
+            *(_BYTE *)&ExtendedParameters.0 = 3;
+            ExtendedParameters.ULong64 = (ULONG64)Handle;
+            NamespaceNodePlaceholderKey = ZwLoadKey3(&TargetKey, &SourceFile, 0, &ExtendedParameters, 1u, 0, 0LL, 0LL);
             if ( NamespaceNodePlaceholderKey >= 0 )
             {
               NamespaceNodePlaceholderKey = -1073740541;
@@ -244,22 +243,22 @@ LABEL_20:
                 v20 = -1073740541;
                 if ( !P[1] )
                   v17 = (PVOID *)&EmptyUnicodeString;
-                v37 = 2LL;
+                v36 = 2LL;
                 p_Destination = &Destination;
-                v39[1] = 0;
+                v38[1] = 0;
                 if ( !Destination.Buffer )
                   p_Destination = (UNICODE_STRING *)&EmptyUnicodeString;
-                v41 = 2LL;
-                v43[1] = 0;
-                v36 = v39;
-                v38 = v17[1];
-                v39[0] = *(unsigned __int16 *)v17;
-                v40 = v43;
-                v42 = p_Destination->Buffer;
-                v43[0] = p_Destination->Length;
-                v44 = &v20;
-                v45 = 4LL;
-                TlgWrite(&stru_14033C400, &unk_1402AB6E4, &ActivityId, 0LL, 7u, &v35);
+                v40 = 2LL;
+                v42[1] = 0;
+                v35 = v38;
+                v37 = v17[1];
+                v38[0] = *(unsigned __int16 *)v17;
+                v39 = v42;
+                v41 = p_Destination->Buffer;
+                v42[0] = p_Destination->Length;
+                v43 = &v20;
+                v44 = 4LL;
+                TlgWrite(&stru_14033C400, &unk_1402AB6E4, &ActivityId, 0LL, 7u, &v34);
               }
               goto LABEL_42;
             }
@@ -289,9 +288,9 @@ LABEL_47:
   if ( stru_14033C400.LevelPlus1 > 2 )
   {
     v25 = NamespaceNodePlaceholderKey;
-    v52 = &v25;
-    v53 = 4LL;
-    TlgWrite(&stru_14033C400, &unk_1402ABA07, &ActivityId, 0LL, 3u, &v51);
+    v51 = &v25;
+    v52 = 4LL;
+    TlgWrite(&stru_14033C400, &unk_1402ABA07, &ActivityId, 0LL, 3u, &v50);
   }
 LABEL_49:
   if ( Handle )

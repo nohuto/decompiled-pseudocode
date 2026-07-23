@@ -16,7 +16,7 @@ __int64 RtlpHpScheduleCompaction()
   {
     if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
     {
-      TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0LL, 5000LL);
+      TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 0x1388u);
       if ( (RtlpHpHeapFeatures & 8) != 0 )
         RtlpHpTlLogGCScheduled();
     }

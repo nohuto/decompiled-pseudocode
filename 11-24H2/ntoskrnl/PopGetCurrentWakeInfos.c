@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetCurrentWakeInfos @ 0x1404BCFE4
+ * XREFs of PopGetCurrentWakeInfos @ 0x1404B8154
  * Callers:
- *     PopGetWakeSource @ 0x140AA5798 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x140AA0808 (PopGetWakeSource.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopGetCurrentWakeInfos(__int64 *a1)
@@ -24,7 +24,7 @@ __int64 __fastcall PopGetCurrentWakeInfos(__int64 *a1)
   v4 = PopWakeInfoCount;
   if ( PopWakeInfoCount )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 8LL * (unsigned int)PopWakeInfoCount, 0x206D654Du);
     if ( Pool2 )
     {
       v5 = PopWakeInfoList;

@@ -11,25 +11,25 @@
 
 __int64 sub_1800DBD68()
 {
-  void *ProcessHeap; // rbp
-  void *Heap; // rax
+  PVOID ProcessHeap; // rbp
+  PVOID Heap; // rax
   __int64 v2; // rbx
   __int64 *v4; // rax
   bool v5; // zf
   wchar_t *v6; // rbx
   wchar_t v7; // ax
   const WCHAR *v8; // rsi
-  void *v9; // rax
+  PVOID v9; // rax
   __int64 v10; // rdi
   __int64 *v11; // rax
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
   v2 = (__int64)Heap;
   if ( !Heap )
     return 3221225495LL;
   memset(Heap, 0, 0x48uLL);
-  *(_OWORD *)(v2 + 16) = unk_180111408;
+  *(UNICODE_STRING *)(v2 + 16) = stru_180111408;
   v4 = (__int64 *)qword_18015A578;
   if ( *(__int64 **)qword_18015A578 != &qword_18015A570 )
     __fastfail(3u);
@@ -40,8 +40,8 @@ __int64 sub_1800DBD68()
   qword_18015A578 = v2;
   if ( v5 )
   {
-    v6 = &String1;
-    if ( String1 )
+    v6 = &word_18015A300;
+    if ( word_18015A300 )
     {
       do
       {
@@ -65,7 +65,7 @@ __int64 sub_1800DBD68()
         *v6 = 0;
         if ( wcsicmp(v8, L"verifier.dll") )
         {
-          v9 = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+          v9 = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
           v10 = (__int64)v9;
           if ( !v9 )
             return 3221225495LL;

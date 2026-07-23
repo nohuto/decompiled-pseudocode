@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpCloseDirectoryObject @ 0x1406A7F10
+ * XREFs of ObpCloseDirectoryObject @ 0x140605990
  * Callers:
  *     <none>
  * Callees:
- *     ObpRemoveNamespaceFromTable @ 0x1406A7F3C (ObpRemoveNamespaceFromTable.c)
+ *     ObpRemoveNamespaceFromTable @ 0x1406059BC (ObpRemoveNamespaceFromTable.c)
  */
 
 __int64 __fastcall ObpCloseDirectoryObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

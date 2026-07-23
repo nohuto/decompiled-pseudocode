@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpAllocatePostBlock @ 0x140401138
+ * XREFs of CmpAllocatePostBlock @ 0x1403FFFF8
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x1404009C4 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1403FF884 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopIoRingCleanupRegBufferArray @ 0x140949224
+ * XREFs of IopIoRingCleanupRegBufferArray @ 0x140949424
  * Callers:
- *     IopDeleteIoRing @ 0x1409491B0 (IopDeleteIoRing.c)
- *     IopIoRingDispatchRegisterBuffers @ 0x140949590 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopDeleteIoRing @ 0x1409493B0 (IopDeleteIoRing.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140949790 (IopIoRingDispatchRegisterBuffers.c)
  * Callees:
- *     IopMcWaitAndCleanupBufferEntry @ 0x14055F468 (IopMcWaitAndCleanupBufferEntry.c)
+ *     IopMcWaitAndCleanupBufferEntry @ 0x14055FB28 (IopMcWaitAndCleanupBufferEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

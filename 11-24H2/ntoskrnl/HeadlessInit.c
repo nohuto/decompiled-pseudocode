@@ -1,22 +1,22 @@
 /*
- * XREFs of HeadlessInit @ 0x140C42184
+ * XREFs of HeadlessInit @ 0x140C442D4
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmLockPagableDataSection @ 0x140A5CF50 (MmLockPagableDataSection.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     HdlspEnableTerminal @ 0x140BAD9D4 (HdlspEnableTerminal.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmLockPagableDataSection @ 0x140A54770 (MmLockPagableDataSection.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     HdlspEnableTerminal @ 0x140BAF9D4 (HdlspEnableTerminal.c)
  */
 
 void __fastcall HeadlessInit(__int64 a1)
 {
   char *v2; // rdi
-  ULONG_PTR Pool2; // rax
-  ULONG_PTR v4; // rbx
+  __int64 Pool2; // rax
+  __int64 v4; // rbx
   int v5; // ecx
   int v6; // edx
   int v7; // eax
@@ -25,22 +25,20 @@ void __fastcall HeadlessInit(__int64 a1)
   char v10; // al
   char v11; // dl
   int v12; // edx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  ULONG_PTR v15; // rax
-  ULONG_PTR v16; // rax
-  ULONG_PTR v17; // rax
-  PVOID v18; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
+  PVOID v16; // rax
+  void *v17; // rcx
+  void *v18; // rcx
   void *v19; // rcx
-  void *v20; // rcx
-  void *v21; // rcx
-  _DWORD v22[2]; // [rsp+20h] [rbp-128h] BYREF
-  __int16 v23; // [rsp+28h] [rbp-120h]
-  __int16 v24; // [rsp+2Ah] [rbp-11Eh]
-  __int16 v25; // [rsp+2Ch] [rbp-11Ch]
-  __int16 v26; // [rsp+2Eh] [rbp-11Ah]
-  char v27; // [rsp+30h] [rbp-118h]
-  char v28; // [rsp+33h] [rbp-115h]
+  _DWORD v20[2]; // [rsp+20h] [rbp-128h] BYREF
+  __int16 v21; // [rsp+28h] [rbp-120h]
+  __int16 v22; // [rsp+2Ah] [rbp-11Eh]
+  __int16 v23; // [rsp+2Ch] [rbp-11Ch]
+  __int16 v24; // [rsp+2Eh] [rbp-11Ah]
+  char v25; // [rsp+30h] [rbp-118h]
+  char v26; // [rsp+33h] [rbp-115h]
 
   v2 = *(char **)(*(_QWORD *)(a1 + 240) + 48LL);
   if ( v2 && (*((_DWORD *)v2 + 2) <= 4u || *v2) )
@@ -88,29 +86,29 @@ void __fastcall HeadlessInit(__int64 a1)
         *(_DWORD *)(v4 + 48) = v9 | 0x1000;
         if ( (*((_DWORD *)v2 + 9) & 1) == 0 )
         {
-          memset_0(v22, 0, 0x110uLL);
+          memset_0(v20, 0, 0x110uLL);
           v10 = *v2;
           v11 = v2[33];
-          v26 = -1;
-          v28 = v10;
-          v25 = *((_WORD *)v2 + 12);
-          v24 = *((_WORD *)v2 + 13);
-          v22[0] = (unsigned __int8)v2[28];
-          v23 = *((_WORD *)v2 + 15);
+          v24 = -1;
+          v26 = v10;
+          v23 = *((_WORD *)v2 + 12);
+          v22 = *((_WORD *)v2 + 13);
+          v20[0] = (unsigned __int8)v2[28];
+          v21 = *((_WORD *)v2 + 15);
           v12 = v2[32] & 0x1F | (32 * (v11 & 7));
-          v27 = -1;
-          v22[1] = v12;
-          guard_dispatch_icall_no_overrides(a1, v22, v13, v14);
+          v25 = -1;
+          v20[1] = v12;
+          guard_dispatch_icall_no_overrides(a1, v20);
         }
       }
-      v15 = ExAllocatePool2(0x40uLL, 0x3800uLL, 0x736C6448uLL);
-      *(_QWORD *)(v4 + 16) = v15;
-      if ( v15
+      v13 = ExAllocatePool2(0x40uLL, 0x3800uLL, 0x736C6448uLL);
+      *(_QWORD *)(v4 + 16) = v13;
+      if ( v13
         && (*(_DWORD *)(v4 + 96) = -1,
-            v16 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x736C6448uLL),
-            (*(_QWORD *)(v4 + 24) = v16) != 0LL)
-        && (v17 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x736C6448uLL), (*(_QWORD *)(v4 + 32) = v17) != 0LL)
-        && (v18 = MmLockPagableDataSection(HdlspDispatch), (*(_QWORD *)(v4 + 8) = v18) != 0LL) )
+            v14 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x736C6448uLL),
+            (*(_QWORD *)(v4 + 24) = v14) != 0LL)
+        && (v15 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x736C6448uLL), (*(_QWORD *)(v4 + 32) = v15) != 0LL)
+        && (v16 = MmLockPagableDataSection(HdlspDispatch), (*(_QWORD *)(v4 + 8) = v16) != 0LL) )
       {
         if ( *(_DWORD *)(v4 + 52) == 9600 )
         {
@@ -123,15 +121,15 @@ void __fastcall HeadlessInit(__int64 a1)
       }
       else
       {
-        v19 = *(void **)(v4 + 16);
+        v17 = *(void **)(v4 + 16);
+        if ( v17 )
+          ExFreePoolWithTag(v17, 0);
+        v18 = *(void **)(v4 + 24);
+        if ( v18 )
+          ExFreePoolWithTag(v18, 0);
+        v19 = *(void **)(v4 + 32);
         if ( v19 )
           ExFreePoolWithTag(v19, 0);
-        v20 = *(void **)(v4 + 24);
-        if ( v20 )
-          ExFreePoolWithTag(v20, 0);
-        v21 = *(void **)(v4 + 32);
-        if ( v21 )
-          ExFreePoolWithTag(v21, 0);
         ExFreePoolWithTag((PVOID)v4, 0);
       }
     }

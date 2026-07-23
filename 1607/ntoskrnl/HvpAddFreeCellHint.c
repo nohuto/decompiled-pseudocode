@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpAddFreeCellHint @ 0x1405151F8
+ * XREFs of HvpAddFreeCellHint @ 0x1404F85E8
  * Callers:
- *     HvpEnlistFreeCell @ 0x140514E4C (HvpEnlistFreeCell.c)
+ *     HvpEnlistFreeCell @ 0x1404F823C (HvpEnlistFreeCell.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpAddFreeCellHint(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3, int a4)

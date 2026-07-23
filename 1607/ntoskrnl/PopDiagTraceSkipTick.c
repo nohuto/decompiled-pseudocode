@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSkipTick @ 0x140671AA0
+ * XREFs of PopDiagTraceSkipTick @ 0x140671B84
  * Callers:
- *     PopNewProcessorCallback @ 0x14066A134 (PopNewProcessorCallback.c)
+ *     PopNewProcessorCallback @ 0x14066A218 (PopNewProcessorCallback.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSkipTick(unsigned __int8 a1, unsigned __int8 a2)

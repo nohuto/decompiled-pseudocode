@@ -1,84 +1,84 @@
 /*
- * XREFs of MiNodeZeroConductor @ 0x1407FF7C0
+ * XREFs of MiNodeZeroConductor @ 0x1407FFF00
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     MiLockDynamicMemoryExclusive @ 0x14066DDE4 (MiLockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryNestedExclusive @ 0x14066DE40 (MiLockDynamicMemoryNestedExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14066E948 (MiUnlockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryNestedExclusive @ 0x14066E9AC (MiUnlockDynamicMemoryNestedExclusive.c)
- *     MiPreserveBootDecisions @ 0x14068FB78 (MiPreserveBootDecisions.c)
- *     MiZeroNodeConductorWait @ 0x1406900D8 (MiZeroNodeConductorWait.c)
- *     MiZeroNodeExiting @ 0x1406901F4 (MiZeroNodeExiting.c)
- *     MiInitializeZeroEngines @ 0x1407FF3F0 (MiInitializeZeroEngines.c)
- *     MiStartZeroEngineThreads @ 0x1407FF9CC (MiStartZeroEngineThreads.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     MiLockDynamicMemoryExclusive @ 0x14066EFB8 (MiLockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryNestedExclusive @ 0x14066F014 (MiLockDynamicMemoryNestedExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14066FB1C (MiUnlockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryNestedExclusive @ 0x14066FB80 (MiUnlockDynamicMemoryNestedExclusive.c)
+ *     MiPreserveBootDecisions @ 0x140690C48 (MiPreserveBootDecisions.c)
+ *     MiZeroNodeConductorWait @ 0x1406911A8 (MiZeroNodeConductorWait.c)
+ *     MiZeroNodeExiting @ 0x1406912C4 (MiZeroNodeExiting.c)
+ *     MiInitializeZeroEngines @ 0x1407FFB34 (MiInitializeZeroEngines.c)
+ *     MiStartZeroEngineThreads @ 0x14080010C (MiStartZeroEngineThreads.c)
  */
 
-void __fastcall MiNodeZeroConductor(unsigned int *P, __int64 a2, __int64 a3)
+void __fastcall MiNodeZeroConductor(unsigned int *P)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 v5; // rbx
-  __int64 v6; // rbp
-  LARGE_INTEGER v7; // rbx
-  const LARGE_INTEGER *v8; // rdi
+  __int64 v3; // rbx
+  __int64 v4; // rbp
+  LARGE_INTEGER v5; // rbx
+  const LARGE_INTEGER *v6; // rdi
   int started; // eax
-  LARGE_INTEGER *v10; // rdx
-  int v11; // eax
-  LARGE_INTEGER v12; // rax
-  LARGE_INTEGER v13; // rcx
-  signed __int32 v14[14]; // [rsp+0h] [rbp-38h] BYREF
+  LARGE_INTEGER *v8; // rdx
+  int v9; // eax
+  LARGE_INTEGER v10; // rax
+  LARGE_INTEGER v11; // rcx
+  signed __int32 v12[14]; // [rsp+0h] [rbp-38h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp+8h] BYREF
-  LARGE_INTEGER v16; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER v14; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, 12, a3);
-  v5 = *((_QWORD *)P + 6);
-  v6 = *(_QWORD *)(v5 + 16) + 57216LL * P[14];
-  MiLockDynamicMemoryExclusive(v5, (__int64)CurrentThread);
-  if ( (ULONG *)v5 != &MiSystemPartition )
+  KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, 12);
+  v3 = *((_QWORD *)P + 6);
+  v4 = *(_QWORD *)(v3 + 16) + 57216LL * P[14];
+  MiLockDynamicMemoryExclusive(v3, (__int64)CurrentThread);
+  if ( (ULONG *)v3 != &MiSystemPartition )
     MiLockDynamicMemoryNestedExclusive();
-  *(_QWORD *)(v6 + 15272) = P;
-  if ( (ULONG *)v5 != &MiSystemPartition )
+  *(_QWORD *)(v4 + 15272) = P;
+  if ( (ULONG *)v3 != &MiSystemPartition )
     MiUnlockDynamicMemoryNestedExclusive();
-  MiUnlockDynamicMemoryExclusive(v5, (__int64)CurrentThread);
+  MiUnlockDynamicMemoryExclusive(v3, (__int64)CurrentThread);
   *((_QWORD *)P + 5) = P + 8;
   *((_QWORD *)P + 4) = P + 8;
   KeInitializeEvent((PRKEVENT)P, SynchronizationEvent, 0);
   KeInitializeEvent((PRKEVENT)(P + 22), SynchronizationEvent, 0);
   _InterlockedAdd((volatile signed __int32 *)P + 32, 3u);
   PerformanceFrequency.QuadPart = 0LL;
-  v7 = KeQueryPerformanceCounter(&PerformanceFrequency);
+  v5 = KeQueryPerformanceCounter(&PerformanceFrequency);
   if ( PerformanceFrequency.QuadPart != 10000000 )
-    v7.QuadPart = 10000000 * v7.QuadPart / PerformanceFrequency.QuadPart;
-  _InterlockedOr(v14, 0);
+    v5.QuadPart = 10000000 * v5.QuadPart / PerformanceFrequency.QuadPart;
+  _InterlockedOr(v12, 0);
   while ( 1 )
   {
-    v8 = &MiFiveSeconds;
+    v6 = &MiFiveSeconds;
     if ( (unsigned int)MiInitializeZeroEngines((__int64)P) )
-      v8 = 0LL;
+      v6 = 0LL;
     started = MiStartZeroEngineThreads(P);
-    v10 = (LARGE_INTEGER *)&MiFiveSeconds;
+    v8 = (LARGE_INTEGER *)&MiFiveSeconds;
     if ( started )
-      v10 = (LARGE_INTEGER *)v8;
-    v11 = MiZeroNodeConductorWait((__int64)P, v10);
-    if ( !v11 )
+      v8 = (LARGE_INTEGER *)v6;
+    v9 = MiZeroNodeConductorWait((__int64)P, v8);
+    if ( !v9 )
       break;
-    if ( v11 == 2 && *((_BYTE *)P + 80) )
+    if ( v9 == 2 && *((_BYTE *)P + 80) )
     {
-      _InterlockedOr(v14, 0);
-      v16.QuadPart = 0LL;
-      v12 = KeQueryPerformanceCounter(&v16);
-      if ( v16.QuadPart != 10000000 )
-        v12.QuadPart = 10000000 * v12.QuadPart / v16.QuadPart;
+      _InterlockedOr(v12, 0);
+      v14.QuadPart = 0LL;
+      v10 = KeQueryPerformanceCounter(&v14);
+      if ( v14.QuadPart != 10000000 )
+        v10.QuadPart = 10000000 * v10.QuadPart / v14.QuadPart;
       *((_BYTE *)P + 80) = 0;
-      v13 = v7;
-      if ( v12.QuadPart >= (unsigned __int64)v7.QuadPart )
-        v13 = v12;
-      *((_QWORD *)P + 3) = v13.QuadPart - v7.QuadPart;
-      MiPreserveBootDecisions(v6, P);
+      v11 = v5;
+      if ( v10.QuadPart >= (unsigned __int64)v5.QuadPart )
+        v11 = v10;
+      *((_QWORD *)P + 3) = v11.QuadPart - v5.QuadPart;
+      MiPreserveBootDecisions(v4, P);
     }
   }
   MiZeroNodeExiting(P);

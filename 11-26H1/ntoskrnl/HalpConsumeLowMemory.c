@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpConsumeLowMemory @ 0x140CAE2D8
+ * XREFs of HalpConsumeLowMemory @ 0x140CB4318
  * Callers:
- *     HalpMmInitSystem @ 0x140BEB980 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x140BF1980 (HalpMmInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -34,8 +34,8 @@ void __fastcall HalpConsumeLowMemory(__int64 a1)
             v6 = v5 + v2[5];
             if ( v6 > 0x100 )
             {
-              v7 = (char *)HalpAllocationDescriptorArray + 48 * LODWORD(HalpPmuArbiter.WaitBlockList);
-              ++LODWORD(HalpPmuArbiter.WaitBlockList);
+              v7 = (char *)HalpAllocationDescriptorArray + 48 * *(unsigned int *)&HalpPmuArbiter.ApcStateFill[40];
+              ++*(_DWORD *)&HalpPmuArbiter.ApcStateFill[40];
               *((_QWORD *)v7 + 5) = v6 - 256;
               *((_QWORD *)v7 + 4) = 256LL;
               *((_DWORD *)v7 + 6) = *((_DWORD *)v2 + 6);

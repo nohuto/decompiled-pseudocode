@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAddMdlPageToTradeBlock @ 0x1402FF488
+ * XREFs of MiAddMdlPageToTradeBlock @ 0x14030A1D8
  * Callers:
- *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
+ *     MiTradePage @ 0x14030B930 (MiTradePage.c)
  * Callees:
- *     MiPfnZeroingNeeded @ 0x140238B60 (MiPfnZeroingNeeded.c)
+ *     MiPfnZeroingNeeded @ 0x1402DD3B0 (MiPfnZeroingNeeded.c)
  */
 
 void __fastcall MiAddMdlPageToTradeBlock(__int64 a1, __int64 a2, int a3)

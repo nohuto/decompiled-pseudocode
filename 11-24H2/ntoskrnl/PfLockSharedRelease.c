@@ -1,22 +1,22 @@
 /*
- * XREFs of PfLockSharedRelease @ 0x140482C98
+ * XREFs of PfLockSharedRelease @ 0x14047DE88
  * Callers:
- *     VmPinMemoryRange @ 0x14079EC80 (VmPinMemoryRange.c)
- *     VmUnpinMemoryRange @ 0x14079EF60 (VmUnpinMemoryRange.c)
- *     VmpUnpinMemoryRange @ 0x14079F79C (VmpUnpinMemoryRange.c)
- *     PfCheckDeprioritizeFile @ 0x1408E5C40 (PfCheckDeprioritizeFile.c)
- *     PfCheckDeprioritizeImage @ 0x1408E6188 (PfCheckDeprioritizeImage.c)
- *     PfQuerySuperfetchInformation @ 0x140933148 (PfQuerySuperfetchInformation.c)
- *     PfSnBeginAppLaunch @ 0x140960934 (PfSnBeginAppLaunch.c)
- *     PfSnIsHostingApplication @ 0x140961C24 (PfSnIsHostingApplication.c)
- *     PfSnGetPrefetchInstructions @ 0x140970C24 (PfSnGetPrefetchInstructions.c)
- *     PfpRpCHashDeleteEntries @ 0x140A289F4 (PfpRpCHashDeleteEntries.c)
- *     PfSnQueryPrefetcherInformation @ 0x140A43C78 (PfSnQueryPrefetcherInformation.c)
- *     VmpTracingEnabledCallback @ 0x140A840D0 (VmpTracingEnabledCallback.c)
+ *     VmPinMemoryRange @ 0x14079ED90 (VmPinMemoryRange.c)
+ *     VmUnpinMemoryRange @ 0x14079F070 (VmUnpinMemoryRange.c)
+ *     VmpUnpinMemoryRange @ 0x14079F8AC (VmpUnpinMemoryRange.c)
+ *     PfQuerySuperfetchInformation @ 0x1408F5C60 (PfQuerySuperfetchInformation.c)
+ *     PfSnBeginAppLaunch @ 0x1409483F4 (PfSnBeginAppLaunch.c)
+ *     PfSnIsHostingApplication @ 0x1409496E4 (PfSnIsHostingApplication.c)
+ *     PfSnGetPrefetchInstructions @ 0x140959434 (PfSnGetPrefetchInstructions.c)
+ *     PfCheckDeprioritizeImage @ 0x1409DC928 (PfCheckDeprioritizeImage.c)
+ *     PfCheckDeprioritizeFile @ 0x1409DCA6C (PfCheckDeprioritizeFile.c)
+ *     PfpRpCHashDeleteEntries @ 0x140A1D3B8 (PfpRpCHashDeleteEntries.c)
+ *     PfSnQueryPrefetcherInformation @ 0x140A39508 (PfSnQueryPrefetcherInformation.c)
+ *     VmpTracingEnabledCallback @ 0x140A7EBF0 (VmpTracingEnabledCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __fastcall PfLockSharedRelease(signed __int64 *BugCheckParameter2)

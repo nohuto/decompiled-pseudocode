@@ -14,27 +14,27 @@
  *     LdrAddRefDll @ 0x18007CCA0 (LdrAddRefDll.c)
  */
 
-__int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TppIopExecuteCallback(_QWORD *Instance, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v7; // rdi
-  __int64 v8; // r15
+  void *v8; // r15
   int v9; // ebx
   int v10; // esi
   signed __int32 v11; // ecx
   bool v12; // zf
   signed __int32 v13; // eax
   __int64 result; // rax
-  unsigned __int64 v15; // [rsp+38h] [rbp-40h] BYREF
+  PVOID Cookie; // [rsp+38h] [rbp-40h] BYREF
   __int64 v16; // [rsp+40h] [rbp-38h] BYREF
 
-  v15 = 0LL;
+  Cookie = 0LL;
   v7 = a2 - 192;
-  v8 = *(_QWORD *)(a2 - 192 + 128);
+  v8 = *(void **)(a2 - 192 + 128);
   v9 = 1;
   if ( v8 )
   {
     v10 = 1;
-    LdrLockLoaderLock(0, 0LL, &v15);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   }
   else
   {
@@ -54,10 +54,10 @@ __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __i
 LABEL_6:
   if ( v10 && v9 )
   {
-    if ( (int)LdrAddRefDll(0LL, v8) >= 0 )
+    if ( LdrAddRefDll(0, v8) >= 0 )
     {
-      *(_QWORD *)(a1 + 168) = v8;
-      *(_DWORD *)(a1 + 144) |= 0x100u;
+      Instance[21] = v8;
+      *((_DWORD *)Instance + 36) |= 0x100u;
     }
     else
     {
@@ -65,10 +65,10 @@ LABEL_6:
     }
   }
   if ( v10 )
-    LdrUnlockLoaderLock(0LL, v15);
+    LdrUnlockLoaderLock(0, Cookie);
   if ( v9 )
   {
-    TppCleanupGroupMemberCallbackProlog(a1, v7);
+    TppCleanupGroupMemberCallbackProlog((PTP_CALLBACK_INSTANCE)Instance);
     if ( MEMORY[0x7FFE0386] )
       RtlpTpETWCallbackStart(
         *(_QWORD *)(v7 + 136),
@@ -77,9 +77,14 @@ LABEL_6:
         *(_QWORD *)(v7 + 88),
         *(_QWORD *)(v7 + 104));
     TppStartThreadData(&v16, *(_QWORD *)(v7 + 80), *(_QWORD *)(v7 + 88), *(_QWORD *)(v7 + 104));
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(v7 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(v7 + 88);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64, __int64))(v7 + 80))(a1, *(_QWORD *)(v7 + 88), a3, a4, v7);
+    Instance[11] = *(_QWORD *)(v7 + 80);
+    Instance[12] = *(_QWORD *)(v7 + 88);
+    (*(void (__fastcall **)(_QWORD *, _QWORD, __int64, __int64, __int64))(v7 + 80))(
+      Instance,
+      *(_QWORD *)(v7 + 88),
+      a3,
+      a4,
+      v7);
     if ( MEMORY[0x7FFE0386] )
       RtlpTpETWCallbackStop(
         *(_QWORD *)(v7 + 136),

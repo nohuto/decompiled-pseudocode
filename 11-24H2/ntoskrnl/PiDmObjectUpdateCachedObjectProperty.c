@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDmObjectUpdateCachedObjectProperty @ 0x1408BB2BC
+ * XREFs of PiDmObjectUpdateCachedObjectProperty @ 0x1408B8C6C
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiDmObjectUpdateCachedCmProperty @ 0x1409D4040 (PiDmObjectUpdateCachedCmProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectUpdateCachedCmProperty @ 0x1409C3E70 (PiDmObjectUpdateCachedCmProperty.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     PiDmCacheDataFree @ 0x1408BB270 (PiDmCacheDataFree.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
- *     PiDmCacheDataEncode @ 0x140A50FFC (PiDmCacheDataEncode.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     PiDmCacheDataFree @ 0x1408B8C20 (PiDmCacheDataFree.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
+ *     PiDmCacheDataEncode @ 0x140A483AC (PiDmCacheDataEncode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDmObjectUpdateCachedObjectProperty(

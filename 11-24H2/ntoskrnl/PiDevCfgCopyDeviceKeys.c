@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgCopyDeviceKeys @ 0x14099B878
+ * XREFs of PiDevCfgCopyDeviceKeys @ 0x1409CDFE8
  * Callers:
- *     PiDevCfgResetDeviceKeyCallback @ 0x14072B580 (PiDevCfgResetDeviceKeyCallback.c)
- *     PiDevCfgConfigureDeviceKeyCallback @ 0x14099A1E0 (PiDevCfgConfigureDeviceKeyCallback.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14099A464 (PiDevCfgConfigureDeviceInterface.c)
- *     PipCommitPendingOsExtensionResource @ 0x140C25740 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140C25950 (PipCommitPendingService.c)
+ *     PiDevCfgResetDeviceKeyCallback @ 0x140729570 (PiDevCfgResetDeviceKeyCallback.c)
+ *     PiDevCfgConfigureDeviceKeyCallback @ 0x1409CC950 (PiDevCfgConfigureDeviceKeyCallback.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x1409CCBD4 (PiDevCfgConfigureDeviceInterface.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140C27790 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140C279A0 (PipCommitPendingService.c)
  * Callees:
- *     PiDevCfgPushCopyKeyEntry @ 0x1404A58D4 (PiDevCfgPushCopyKeyEntry.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetSecurityObject @ 0x1406A9B30 (ZwSetSecurityObject.c)
- *     PiDevCfgCopyDeviceKey @ 0x14099BA04 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14099C6D0 (PiDevCfgGetKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiDevCfgPushCopyKeyEntry @ 0x1404A0664 (PiDevCfgPushCopyKeyEntry.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetSecurityObject @ 0x1406AAAD0 (ZwSetSecurityObject.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1409CE174 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x1409CEE40 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgCopyDeviceKeys(void *a1, void *a2, __int64 a3, __int64 a4)

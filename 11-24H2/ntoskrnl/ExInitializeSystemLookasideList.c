@@ -1,20 +1,20 @@
 /*
- * XREFs of ExInitializeSystemLookasideList @ 0x140B6E3BC
+ * XREFs of ExInitializeSystemLookasideList @ 0x140B6FF6C
  * Callers:
- *     KiInitializeProcessorXSaveStructures @ 0x1405B8BB4 (KiInitializeProcessorXSaveStructures.c)
- *     ExInitializeProcessor @ 0x140653874 (ExInitializeProcessor.c)
- *     CcInitializeProcessor @ 0x140706B20 (CcInitializeProcessor.c)
- *     IoInitializeProcessor @ 0x1407115FC (IoInitializeProcessor.c)
- *     ObInitializeProcessor @ 0x1407431B8 (ObInitializeProcessor.c)
- *     CmInitializeProcessorCallbacks @ 0x1407D145C (CmInitializeProcessorCallbacks.c)
- *     CmpInitCallbacks @ 0x1407D19C0 (CmpInitCallbacks.c)
- *     KeInitializeXSaveStructures @ 0x140B568AC (KeInitializeXSaveStructures.c)
- *     ExInitPoolLookasidePointers @ 0x140B61340 (ExInitPoolLookasidePointers.c)
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     KiInitializeProcessorXSaveStructures @ 0x1405B61F4 (KiInitializeProcessorXSaveStructures.c)
+ *     ExInitializeProcessor @ 0x140651FD4 (ExInitializeProcessor.c)
+ *     CcInitializeProcessor @ 0x1407046E0 (CcInitializeProcessor.c)
+ *     IoInitializeProcessor @ 0x14070F18C (IoInitializeProcessor.c)
+ *     ObInitializeProcessor @ 0x1407410E8 (ObInitializeProcessor.c)
+ *     CmInitializeProcessorCallbacks @ 0x1407D194C (CmInitializeProcessorCallbacks.c)
+ *     CmpInitCallbacks @ 0x1407D1EB0 (CmpInitCallbacks.c)
+ *     KeInitializeXSaveStructures @ 0x140B588FC (KeInitializeXSaveStructures.c)
+ *     ExInitPoolLookasidePointers @ 0x140B63410 (ExInitPoolLookasidePointers.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
  */
 
 __int64 __fastcall ExInitializeSystemLookasideList(__int64 a1, int a2, int a3, int a4, __int16 a5, __int64 a6)

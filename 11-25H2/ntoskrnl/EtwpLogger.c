@@ -70,15 +70,11 @@ NTSTATUS __fastcall EtwpLogger(__int64 a1)
   ThreadInformation[1] = 1;
   ThreadInformation[2] = 1;
   ThreadInformation[0] = 1;
-  NtSetInformationThread(
-    (HANDLE)0xFFFFFFFFFFFFFFFELL,
-    ThreadIdealProcessorEx|ThreadIsIoPending,
-    ThreadInformation,
-    0xCu);
+  NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadPowerThrottlingState, ThreadInformation, 0xCu);
   if ( *(_WORD *)(v1 + 136) )
   {
     v25 = *(_OWORD *)(v1 + 136);
-    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadCpuAccountingInformation|ThreadAffinityMask, &v25, 0x10u);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadNameInformation, &v25, 0x10u);
   }
   KeSetEvent((PRKEVENT)(v1 + 456), 0, 0);
   v3 = (struct _KEVENT *)(v1 + 480);

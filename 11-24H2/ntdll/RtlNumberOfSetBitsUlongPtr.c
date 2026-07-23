@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlNumberOfSetBitsUlongPtr @ 0x1800E1470
+ * XREFs of RtlNumberOfSetBitsUlongPtr @ 0x1800DC9C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlNumberOfSetBitsUlongPtr(unsigned __int64 a1)
+ULONG __cdecl RtlNumberOfSetBitsUlongPtr(ULONG_PTR Target)
 {
-  return __popcnt(a1);
+  return __popcnt(Target);
 }

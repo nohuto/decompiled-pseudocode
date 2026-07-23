@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlQueryProcessorTopologyHighestId @ 0x140540430
+ * XREFs of HvlQueryProcessorTopologyHighestId @ 0x140540AF0
  * Callers:
  *     <none>
  * Callees:

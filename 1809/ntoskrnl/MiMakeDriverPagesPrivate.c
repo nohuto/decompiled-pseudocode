@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMakeDriverPagesPrivate @ 0x1400DB410
+ * XREFs of MiMakeDriverPagesPrivate @ 0x1400DB490
  * Callers:
- *     MiSetSystemCodeProtection @ 0x1400862E0 (MiSetSystemCodeProtection.c)
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiLockHotPatchPageRange @ 0x1402B96B4 (MiLockHotPatchPageRange.c)
- *     MiBackSingleImageWithPagefile @ 0x14070D460 (MiBackSingleImageWithPagefile.c)
- *     MiSplitDriverPage @ 0x14084C878 (MiSplitDriverPage.c)
+ *     MiSetSystemCodeProtection @ 0x1400862D0 (MiSetSystemCodeProtection.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     MiLockHotPatchPageRange @ 0x1402B98A4 (MiLockHotPatchPageRange.c)
+ *     MiBackSingleImageWithPagefile @ 0x14070E700 (MiBackSingleImageWithPagefile.c)
+ *     MiSplitDriverPage @ 0x14084DAD8 (MiSplitDriverPage.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -21,23 +21,23 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiDriverPageMustStayResident @ 0x1400DB118 (MiDriverPageMustStayResident.c)
- *     MiUnlockLoaderEntry @ 0x1400DBB2C (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1400DBD64 (MiLockLoaderEntry.c)
- *     MiUseSlabAllocatorForDriverPage @ 0x1400DBE30 (MiUseSlabAllocatorForDriverPage.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiRemoveSystemImagePage @ 0x14012C0BC (MiRemoveSystemImagePage.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiSessionLookupImage @ 0x14009DB08 (MiSessionLookupImage.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiDriverPageMustStayResident @ 0x1400DB198 (MiDriverPageMustStayResident.c)
+ *     MiUnlockLoaderEntry @ 0x1400DBBAC (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1400DBDE4 (MiLockLoaderEntry.c)
+ *     MiUseSlabAllocatorForDriverPage @ 0x1400DBEB0 (MiUseSlabAllocatorForDriverPage.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiRemoveSystemImagePage @ 0x14012C18C (MiRemoveSystemImagePage.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiAllocateDriverPage @ 0x140654BD4 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
@@ -131,13 +131,13 @@ __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, unsigned __int64 a2, uns
   else
   {
     v73 = v7;
-    SessionVm = (unsigned __int16 *)&unk_14043B190;
+    SessionVm = (unsigned __int16 *)&unk_14043C250;
   }
   v11 = SessionVm[87];
   v12 = v6 + 160;
   v13 = *(_QWORD *)(v6 + 48) >> 9;
   v65 = v6 + 160;
-  v76 = *(_QWORD *)(qword_14043A748 + 8 * v11);
+  v76 = *(_QWORD *)(qword_14043B808 + 8 * v11);
   v14 = v9 + (v13 & 0x7FFFFFFFF8LL);
   v15 = v7;
   if ( (v8 & 3) == 0 && (MiFlags & 0x10000) != 0 && (MiFlags & 0x8000) != 0 )
@@ -374,7 +374,7 @@ LABEL_45:
   {
     v36->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v36->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v28->LockEntries[v35], v31);
+      KiAbEntryRemoveFromTree(&v28->LockEntries[v35].TreeNode, v31);
     v64 = 0;
     v64 = v36->BoostBitmap.AllFields & 0x1FFFF;
     v36->BoostBitmap.AllFields &= 0xFFFE0000;

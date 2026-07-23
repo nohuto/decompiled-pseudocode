@@ -12,9 +12,9 @@ __int64 __fastcall RtlCreateAtomTableEx(unsigned int a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // ebx
   int v5; // ebp
-  __int64 v6; // rsi
-  _DWORD *Heap; // rax
-  _DWORD *v8; // rdi
+  SIZE_T v6; // rsi
+  char *Heap; // rax
+  char *v8; // rdi
 
   v3 = 0;
   if ( *a3 )
@@ -32,19 +32,19 @@ __int64 __fastcall RtlCreateAtomTableEx(unsigned int a1, __int64 a2, _QWORD *a3)
        : 0;
     if ( 24 * (unsigned __int64)(unsigned int)(v5 - 1) + 80 >= 24 * (unsigned __int64)(unsigned int)(v5 - 1) )
     {
-      Heap = (_DWORD *)RtlAllocateHeap(
-                         (__int64)NtCurrentPeb()->ProcessHeap,
-                         (0x18 * (unsigned __int128)(unsigned int)(v5 - 1)) >> 64,
-                         v6);
+      Heap = (char *)RtlAllocateHeap(
+                       NtCurrentPeb()->ProcessHeap,
+                       (0x18 * (unsigned __int128)(unsigned int)(v5 - 1)) >> 64,
+                       v6);
       v8 = Heap;
       if ( Heap )
       {
         memset(Heap, 0, v6);
-        v8[16] = v5;
-        RtlInitializeHandleTable(0x3FFFLL, 2147483664LL, v8 + 4);
+        *((_DWORD *)v8 + 16) = v5;
+        RtlInitializeHandleTable(0x3FFFu, 0x80000010, (PRTL_HANDLE_TABLE)(v8 + 16));
         *((_QWORD *)v8 + 1) = 0LL;
-        *v8 = 1836020801;
-        v8[1] = 1;
+        *(_DWORD *)v8 = 1836020801;
+        *((_DWORD *)v8 + 1) = 1;
         *a3 = v8;
       }
       else

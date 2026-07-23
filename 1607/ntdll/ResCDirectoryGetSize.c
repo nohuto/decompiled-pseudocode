@@ -1,9 +1,9 @@
 /*
- * XREFs of ResCDirectoryGetSize @ 0x180105CB8
+ * XREFs of ResCDirectoryGetSize @ 0x180105CC0
  * Callers:
- *     ResCDirectoryValidateHeader @ 0x18005D0A0 (ResCDirectoryValidateHeader.c)
+ *     ResCDirectoryValidateHeader @ 0x18005D090 (ResCDirectoryValidateHeader.c)
  * Callees:
- *     ResCDirectoryValidateHeader @ 0x18005D0A0 (ResCDirectoryValidateHeader.c)
+ *     ResCDirectoryValidateHeader @ 0x18005D090 (ResCDirectoryValidateHeader.c)
  */
 
 __int64 __fastcall ResCDirectoryGetSize(_DWORD *a1)

@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwReleaseMutant(HANDLE MutantHandle, PLONG ReleaseCount)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(MutantHandle, ReleaseCount, v2);
+  return KiServiceInternal(MutantHandle);
 }

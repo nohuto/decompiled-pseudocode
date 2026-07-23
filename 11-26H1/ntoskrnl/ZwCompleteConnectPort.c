@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCompleteConnectPort @ 0x140724830
+ * XREFs of ZwCompleteConnectPort @ 0x140729400
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCompleteConnectPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCompleteConnectPort(HANDLE PortHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

@@ -12,14 +12,14 @@
  *     AlpcpCancelMessage @ 0x1408AC700 (AlpcpCancelMessage.c)
  */
 
-__int64 __fastcall NtAlpcCancelMessage(void *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtAlpcCancelMessage(HANDLE PortHandle, ULONG Flags, PALPC_CONTEXT_ATTR MessageContext)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r9
-  unsigned int v6; // edi
-  int v7; // r15d
-  void *v8; // rsi
-  int v9; // ebx
+  ULONG MessageId; // edi
+  ULONG CallbackId; // r15d
+  PVOID PortContext_high; // rsi
+  NTSTATUS v9; // ebx
   __int64 v10; // r9
   __int64 v11; // rdx
   _DWORD *v12; // rdi
@@ -29,7 +29,7 @@ __int64 __fastcall NtAlpcCancelMessage(void *a1, int a2, __int64 a3)
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (a2 & 0xFFFFFFF0) != 0 )
+  if ( (Flags & 0xFFFFFFF0) != 0 )
   {
     v9 = -1073741811;
     goto LABEL_11;
@@ -37,49 +37,49 @@ __int64 __fastcall NtAlpcCancelMessage(void *a1, int a2, __int64 a3)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode )
   {
-    v6 = *(_DWORD *)(a3 + 20);
-    v7 = *(_DWORD *)(a3 + 24);
-    v8 = *(void **)(a3 + 8);
+    MessageId = MessageContext->MessageId;
+    CallbackId = MessageContext->CallbackId;
+    PortContext_high = MessageContext->MessageContext;
     goto LABEL_4;
   }
-  if ( (a2 & 4) != 0 )
+  if ( (Flags & 4) != 0 )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)MessageContext & 3) != 0 )
       goto LABEL_14;
-    v6 = *(_DWORD *)(a3 + 12);
-    v7 = *(_DWORD *)(a3 + 16);
-    v8 = (void *)*(unsigned int *)(a3 + 4);
+    MessageId = HIDWORD(MessageContext->MessageContext);
+    CallbackId = MessageContext->Sequence;
+    PortContext_high = (PVOID)HIDWORD(MessageContext->PortContext);
   }
   else
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)MessageContext & 3) != 0 )
 LABEL_14:
       ExRaiseDatatypeMisalignment();
-    v6 = *(_DWORD *)(a3 + 20);
-    v7 = *(_DWORD *)(a3 + 24);
-    v8 = *(void **)(a3 + 8);
+    MessageId = MessageContext->MessageId;
+    CallbackId = MessageContext->CallbackId;
+    PortContext_high = MessageContext->MessageContext;
   }
-  Object[1] = v8;
+  Object[1] = PortContext_high;
 LABEL_4:
-  if ( !v6 )
+  if ( !MessageId )
   {
     v9 = -1073741559;
     goto LABEL_11;
   }
   Object[0] = 0LL;
-  v9 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, PreviousMode, Object, 0LL);
+  v9 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, Object, 0LL);
   if ( v9 >= 0 )
   {
-    v11 = v6;
+    v11 = MessageId;
     v12 = Object[0];
-    v9 = AlpcpLookupMessage((__int64)Object[0], v11, v7, v10, &BugCheckParameter2);
+    v9 = AlpcpLookupMessage((__int64)Object[0], v11, CallbackId, v10, &BugCheckParameter2);
     if ( v9 >= 0 )
     {
-      if ( (a2 & 8) == 0 )
+      if ( (Flags & 8) == 0 )
         goto LABEL_8;
       if ( (v12[104] & 6) == 4 )
       {
-        if ( v8 == *(void **)(BugCheckParameter2 + 104) )
+        if ( PortContext_high == *(PVOID *)(BugCheckParameter2 + 104) )
         {
 LABEL_8:
           if ( (*(_DWORD *)(BugCheckParameter2 + 40) & 0x80u) != 0 )
@@ -89,12 +89,12 @@ LABEL_8:
           }
           else
           {
-            v9 = AlpcpCancelMessage((__int64)v12, BugCheckParameter2, a2);
+            v9 = AlpcpCancelMessage((__int64)v12, BugCheckParameter2, Flags);
           }
           goto LABEL_10;
         }
       }
-      else if ( v8 == *(void **)(BugCheckParameter2 + 112) )
+      else if ( PortContext_high == *(PVOID *)(BugCheckParameter2 + 112) )
       {
         goto LABEL_8;
       }
@@ -106,5 +106,5 @@ LABEL_10:
   }
 LABEL_11:
   KeLeaveCriticalRegion();
-  return (unsigned int)v9;
+  return v9;
 }

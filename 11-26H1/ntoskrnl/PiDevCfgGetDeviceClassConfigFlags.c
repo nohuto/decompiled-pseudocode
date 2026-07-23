@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDevCfgGetDeviceClassConfigFlags @ 0x140B3AAC0
+ * XREFs of PiDevCfgGetDeviceClassConfigFlags @ 0x140B3CD40
  * Callers:
- *     PpDevCfgProcessDeviceClass @ 0x1407ABE10 (PpDevCfgProcessDeviceClass.c)
- *     PiDevCfgConfigureDevice @ 0x1409894D0 (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceClass @ 0x1407AEE54 (PpDevCfgProcessDeviceClass.c)
+ *     PiDevCfgConfigureDevice @ 0x140A43BF0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDevCfgGetDeviceClassConfigFlags(__int64 a1, char *a2, _DWORD *a3)

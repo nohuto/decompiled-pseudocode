@@ -1,37 +1,37 @@
 /*
- * XREFs of NtDeleteKey @ 0x1408697B0
+ * XREFs of NtDeleteKey @ 0x14086DAE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     CmDoVirtualTest @ 0x1404A1900 (CmDoVirtualTest.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140879368 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x14097A13C (CmKeyBodyNeedsVirtualImage.c)
- *     CmKeyBodyRemapToVirtual @ 0x14097A7E4 (CmKeyBodyRemapToVirtual.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x140A98130 (SeDeleteObjectAuditAlarmWithTransaction.c)
- *     CmObReferenceObjectByHandle @ 0x140BB9350 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     CmDoVirtualTest @ 0x14049C88C (CmDoVirtualTest.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x140863C20 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14087D698 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x14096294C (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyRemapToVirtual @ 0x140962FF4 (CmKeyBodyRemapToVirtual.c)
+ *     CmObReferenceObjectByHandle @ 0x140BBB350 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtDeleteKey(HANDLE Handle)
+NTSTATUS __cdecl NtDeleteKey(HANDLE KeyHandle)
 {
   char v2; // r12
   char v3; // r13
@@ -45,12 +45,12 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
   int v11; // r9d
   char v12; // di
   int v13; // eax
-  int v14; // ebx
+  NTSTATUS v14; // ebx
   char v15; // si
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v17; // rdi
   int v18; // eax
-  _QWORD *v19; // rbx
+  char *v19; // rbx
   int v20; // edx
   __int64 v21; // rax
   int v23; // r8d
@@ -101,7 +101,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
     goto LABEL_38;
   }
   LOBYTE(v11) = PreviousMode;
-  v13 = CmObReferenceObjectByHandle((_DWORD)Handle, 0x10000, v10, v11, (__int64)&Object, (__int64)&v30);
+  v13 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 0x10000, v10, v11, (__int64)&Object, (__int64)&v30);
   v14 = v13;
   if ( v13 == -1073741790 )
   {
@@ -109,7 +109,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
     if ( CmDoVirtualTest() )
     {
       LOBYTE(v24) = PreviousMode;
-      v14 = CmObReferenceObjectByHandle((_DWORD)Handle, 131097, v23, v24, (__int64)&Object, (__int64)&v30);
+      v14 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 131097, v23, v24, (__int64)&Object, (__int64)&v30);
       if ( v14 < 0 )
         goto LABEL_68;
       v17 = Object;
@@ -149,14 +149,14 @@ LABEL_6:
     }
     if ( CmpTraceRoutine && v17 )
       v31 = v17[1];
-    v19 = KeAbPreAcquire((__int64)&ExpKeyManipLock, 0LL);
+    v19 = (char *)KeAbPreAcquire((__int64)&ExpKeyManipLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpKeyManipLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&ExpKeyManipLock, 0, v19, (__int64)&ExpKeyManipLock);
     if ( v19 )
-      *((_BYTE *)v19 + 10) = 1;
+      v19[10] = 1;
     v14 = 0;
     if ( ExpControlKey && *((_QWORD *)Object + 1) == *((_QWORD *)ExpControlKey + 1)
-      || qword_140EFE8A8 && *((_QWORD *)Object + 1) == *((_QWORD *)qword_140EFE8A8 + 1) )
+      || qword_140EFEBD8 && *((_QWORD *)Object + 1) == *((_QWORD *)qword_140EFEBD8 + 1) )
     {
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpKeyManipLock, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)&ExpKeyManipLock);
@@ -183,7 +183,7 @@ LABEL_25:
         if ( v17[7] || v17[8] )
         {
           TransactionId = 0LL;
-          CmpLockRegistry();
+          CmpLockRegistry(v9);
           if ( (int)CmpTransSearchAddTransFromKeyBody(v17, &v33) < 0 )
           {
             CmpUnlockRegistry(v26);
@@ -197,7 +197,7 @@ LABEL_25:
         {
           p_TransactionId = 0LL;
         }
-        SeDeleteObjectAuditAlarmWithTransaction(v17, Handle, p_TransactionId);
+        SeDeleteObjectAuditAlarmWithTransaction(v17, KeyHandle, p_TransactionId);
       }
 LABEL_27:
       if ( !v15 )
@@ -243,10 +243,10 @@ LABEL_38:
   if ( CmpTraceRoutine )
   {
     LOBYTE(v9) = 12;
-    guard_dispatch_icall_no_overrides(v9, v43, (unsigned int)v14, 0LL);
+    guard_dispatch_icall_no_overrides(v9, v43);
   }
   if ( v12 )
     CmpReleaseShutdownRundown(v9);
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v39);
-  return (unsigned int)v14;
+  return v14;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTrimSharedPageFromView @ 0x14046BEB4
+ * XREFs of MiTrimSharedPageFromView @ 0x140465634
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x140A84144 (MiTrimSharedPageFromViews.c)
+ *     MiTrimSharedPageFromViews @ 0x140A89498 (MiTrimSharedPageFromViews.c)
  * Callees:
- *     MiReleaseTrimViewResources @ 0x140360084 (MiReleaseTrimViewResources.c)
- *     MiTrimViewLockSystemPte @ 0x1403A6720 (MiTrimViewLockSystemPte.c)
- *     MiDeleteActiveTrimView @ 0x14046C034 (MiDeleteActiveTrimView.c)
- *     MiTrimViewLeafPte @ 0x14046C164 (MiTrimViewLeafPte.c)
- *     MiTrimViewVaIsCandidate @ 0x14046C408 (MiTrimViewVaIsCandidate.c)
- *     MiTrimViewPrepare @ 0x14046C4BC (MiTrimViewPrepare.c)
- *     MiTrimViewLockProcessPte @ 0x14046C720 (MiTrimViewLockProcessPte.c)
+ *     MiReleaseTrimViewResources @ 0x140361E24 (MiReleaseTrimViewResources.c)
+ *     MiTrimViewLockSystemPte @ 0x1403A8480 (MiTrimViewLockSystemPte.c)
+ *     MiDeleteActiveTrimView @ 0x1404657B4 (MiDeleteActiveTrimView.c)
+ *     MiTrimViewLeafPte @ 0x1404658E4 (MiTrimViewLeafPte.c)
+ *     MiTrimViewVaIsCandidate @ 0x140465B88 (MiTrimViewVaIsCandidate.c)
+ *     MiTrimViewPrepare @ 0x140465C3C (MiTrimViewPrepare.c)
+ *     MiTrimViewLockProcessPte @ 0x140465EA0 (MiTrimViewLockProcessPte.c)
  */
 
 __int64 __fastcall MiTrimSharedPageFromView(unsigned int *a1, __int64 a2)

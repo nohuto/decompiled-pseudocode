@@ -1,10 +1,10 @@
 /*
- * XREFs of _handle_exc @ 0x18012A9B0
+ * XREFs of _handle_exc @ 0x180128BE0
  * Callers:
- *     _except1 @ 0x18012A820 (_except1.c)
+ *     _except1 @ 0x180128A50 (_except1.c)
  * Callees:
- *     _decomp @ 0x18012B1A0 (_decomp.c)
- *     _set_statfp @ 0x18012B420 (_set_statfp.c)
+ *     _decomp @ 0x1801293D0 (_decomp.c)
+ *     _set_statfp @ 0x180129650 (_set_statfp.c)
  */
 
 __int64 __fastcall handle_exc(__int64 a1, double *a2, __int16 a3)

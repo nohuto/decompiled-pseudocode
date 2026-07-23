@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpOriginalKeyNameParameterCleanup @ 0x14036A820
+ * XREFs of VrpOriginalKeyNameParameterCleanup @ 0x14036A9C0
  * Callers:
  *     <none>
  * Callees:
- *     VrpDereferenceJobContext @ 0x1407E674C (VrpDereferenceJobContext.c)
+ *     VrpDereferenceJobContext @ 0x1407E6A1C (VrpDereferenceJobContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

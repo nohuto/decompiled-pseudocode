@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoLidReliabilityUpdateCallback @ 0x1407D14E0
+ * XREFs of PdcPoLidReliabilityUpdateCallback @ 0x1407D4580
  * Callers:
- *     PopLidReliabilityInit @ 0x14060799C (PopLidReliabilityInit.c)
+ *     PopLidReliabilityInit @ 0x14060A4FC (PopLidReliabilityInit.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1404E5A30 (PopBsdHandleRequest.c)
- *     PopSetPowerSettingValueAcDc @ 0x140A3E450 (PopSetPowerSettingValueAcDc.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1404DEFD0 (PopBsdHandleRequest.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1409F9E70 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 __fastcall PdcPoLidReliabilityUpdateCallback(char a1)
@@ -20,12 +20,12 @@ __int64 __fastcall PdcPoLidReliabilityUpdateCallback(char a1)
   v6 = a1 != 0;
   _InterlockedExchange(&PopLidStateIsReliable, v6);
   result = PopSetPowerSettingValueAcDc(&GUID_LIDSWITCH_STATE_RELIABILITY, 4LL, &v6);
-  if ( !LOBYTE(stru_140F12D20.SchedulerAssist) )
+  if ( !PopBsdSkipLogging )
   {
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20.AbWaitObject, v3, v4, v5);
-    stru_140E66FF0.PriorityFloorCounts[25] = stru_140E66FF0.PriorityFloorCounts[25] & 0xEF | (16 * (a1 & 1));
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock, v3, v4, v5);
+    BYTE1(stru_140E67200.Spare35[0]) = BYTE1(stru_140E67200.Spare35[0]) & 0xEF | (16 * (a1 & 1));
     PopBsdHandleRequest(2u);
-    return PopReleaseRwLock((struct _KTHREAD *)&stru_140F12D20.AbWaitObject);
+    return PopReleaseRwLock((struct _KTHREAD *)&PopBsdUpdateLock);
   }
   return result;
 }

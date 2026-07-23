@@ -74,7 +74,7 @@ __int64 __fastcall PrExtControlOperations(int a1, __int64 a2, int a3)
       if ( v9 == 1 )
       {
         ExportedRoutineByName = (unsigned int (__fastcall *)(__int64))RtlFindExportedRoutineByName(
-                                                                        a2,
+                                                                        (PVOID)a2,
                                                                         "UcpUpdateControls");
         if ( ExportedRoutineByName )
         {
@@ -98,7 +98,9 @@ __int64 __fastcall PrExtControlOperations(int a1, __int64 a2, int a3)
     v17[1] = v14;
     MicrocodeSetProcMcLog(v17, v15, v13);
   }
-  ExportedRoutineByName = (unsigned int (__fastcall *)(__int64))RtlFindExportedRoutineByName(a2, "UcpUpdateControls");
+  ExportedRoutineByName = (unsigned int (__fastcall *)(__int64))RtlFindExportedRoutineByName(
+                                                                  (PVOID)a2,
+                                                                  "UcpUpdateControls");
   if ( ExportedRoutineByName )
   {
     v11 = 0LL;

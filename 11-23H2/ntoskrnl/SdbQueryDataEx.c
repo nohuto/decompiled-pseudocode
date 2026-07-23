@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbQueryDataEx @ 0x140A4EEE4
+ * XREFs of SdbQueryDataEx @ 0x140A4F194
  * Callers:
  *     PiIsDriverBlocked @ 0x140692F18 (PiIsDriverBlocked.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbTagRefToTagID @ 0x140808DE8 (SdbTagRefToTagID.c)
- *     SdbQueryDataExTagID @ 0x140A4EF88 (SdbQueryDataExTagID.c)
+ *     SdbTagRefToTagID @ 0x1408090B8 (SdbTagRefToTagID.c)
+ *     SdbQueryDataExTagID @ 0x140A4F238 (SdbQueryDataExTagID.c)
  */
 
 __int64 __fastcall SdbQueryDataEx(__int64 a1, unsigned int a2, __int64 a3, int a4, void *a5, __int64 a6, __int64 a7)

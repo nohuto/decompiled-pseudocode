@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateLargePagePfns @ 0x1401F5E58
+ * XREFs of MiUpdateLargePagePfns @ 0x1401F5C84
  * Callers:
- *     MiFindLargePageMemory @ 0x1406626E4 (MiFindLargePageMemory.c)
+ *     MiFindLargePageMemory @ 0x1406627C8 (MiFindLargePageMemory.c)
  * Callees:
- *     MiLockPageAtDpc @ 0x1401593E0 (MiLockPageAtDpc.c)
- *     MiShouldYieldProcessor @ 0x1401E68A0 (MiShouldYieldProcessor.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiLockPageAtDpc @ 0x140159950 (MiLockPageAtDpc.c)
+ *     MiShouldYieldProcessor @ 0x1401E66CC (MiShouldYieldProcessor.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiUpdateLargePagePfns(__int64 a1, int a2)
@@ -35,7 +35,7 @@ __int64 __fastcall MiUpdateLargePagePfns(__int64 a1, int a2)
     if ( *(_QWORD *)(v7 + 16) == DemandZeroPte )
     {
       v8 = 1;
-      v11 = a2 & (unsigned int)dword_1403269F8 | (((unsigned int)(*(_QWORD *)(v7 + 40) >> 36) & 3) << byte_1403269D8) | (unsigned __int64)((unsigned __int8)((*(_QWORD *)(v7 + 40) >> 58) & 0x3F) << byte_1403269C9);
+      v11 = a2 & (unsigned int)dword_140326A38 | (((unsigned int)(*(_QWORD *)(v7 + 40) >> 36) & 3) << byte_140326A18) | (unsigned __int64)((unsigned __int8)((*(_QWORD *)(v7 + 40) >> 58) & 0x3F) << byte_140326A09);
       v12 = 3 * v11;
       *(_QWORD *)v7 = *(_QWORD *)(a1 + 24 * v11 + 16);
       ++*(_QWORD *)(a1 + 8 * v12 + 8);

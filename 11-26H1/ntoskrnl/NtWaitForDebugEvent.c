@@ -1,27 +1,31 @@
 /*
- * XREFs of NtWaitForDebugEvent @ 0x140AE94E0
+ * XREFs of NtWaitForDebugEvent @ 0x140AEBFD0
  * Callers:
- *     DifNtWaitForDebugEventWrapper @ 0x140690FF0 (DifNtWaitForDebugEventWrapper.c)
+ *     DifNtWaitForDebugEventWrapper @ 0x140694BD0 (DifNtWaitForDebugEventWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     DbgkpOpenHandles @ 0x140AE97C4 (DbgkpOpenHandles.c)
- *     DbgkpConvertKernelToUserStateChange @ 0x140AE9888 (DbgkpConvertKernelToUserStateChange.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     DbgkpOpenHandles @ 0x140AEC2B4 (DbgkpOpenHandles.c)
+ *     DbgkpConvertKernelToUserStateChange @ 0x140AEC378 (DbgkpConvertKernelToUserStateChange.c)
  */
 
-NTSTATUS __fastcall NtWaitForDebugEvent(HANDLE Handle, BOOLEAN a2, LARGE_INTEGER *a3, void *a4)
+NTSTATUS __cdecl NtWaitForDebugEvent(
+        HANDLE DebugObjectHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout,
+        PDBGUI_WAIT_STATE_CHANGE WaitStateChange)
 {
   __int64 v7; // rbx
   KPROCESSOR_MODE PreviousMode; // r12
@@ -30,7 +34,7 @@ NTSTATUS __fastcall NtWaitForDebugEvent(HANDLE Handle, BOOLEAN a2, LARGE_INTEGER
   void *v11; // r13
   char *v12; // rsi
   NTSTATUS v13; // eax
-  int v14; // edi
+  NTSTATUS v14; // edi
   char v15; // r15
   __int64 **v16; // r8
   __int64 *i; // rcx
@@ -46,28 +50,28 @@ NTSTATUS __fastcall NtWaitForDebugEvent(HANDLE Handle, BOOLEAN a2, LARGE_INTEGER
   _BYTE Src[4]; // [rsp+70h] [rbp-108h] BYREF
   int v29; // [rsp+74h] [rbp-104h]
 
-  v25 = a4;
+  v25 = WaitStateChange;
   v22[0] = 0LL;
   v7 = 0LL;
   v29 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   memset_0(Src, 0, 0xB8uLL);
-  if ( a3 )
+  if ( Timeout )
   {
     if ( PreviousMode )
-      ULong64FromUser = RtlReadULong64FromUser(a3);
+      ULong64FromUser = RtlReadULong64FromUser(Timeout);
     else
-      ULong64FromUser = a3->QuadPart;
+      ULong64FromUser = Timeout->QuadPart;
     v22[0] = ULong64FromUser;
-    a3 = (LARGE_INTEGER *)v22;
+    Timeout = (PLARGE_INTEGER)v22;
     v26 = v22;
     v7 = MEMORY[0xFFFFF78000000014];
     v27 = MEMORY[0xFFFFF78000000014];
   }
   if ( PreviousMode )
-    ProbeForWrite(a4, 0xB8uLL, 1u);
+    ProbeForWrite(WaitStateChange, 0xB8uLL, 1u);
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(DebugObjectHandle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v11 = 0LL;
@@ -75,7 +79,7 @@ NTSTATUS __fastcall NtWaitForDebugEvent(HANDLE Handle, BOOLEAN a2, LARGE_INTEGER
     v12 = (char *)Object;
     while ( 1 )
     {
-      v13 = KeWaitForSingleObject(v12, Executive, PreviousMode, a2, a3);
+      v13 = KeWaitForSingleObject(v12, Executive, PreviousMode, Alertable, Timeout);
       v14 = v13;
       if ( v13 <= -1 || v13 == 192 || (unsigned int)(v13 - 257) <= 1 )
         break;

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmCheckMakeupSkippedChecks @ 0x1402AE280
+ * XREFs of PpmCheckMakeupSkippedChecks @ 0x14022C5E0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     PpmPerfCompleteMakeup @ 0x1402AE3A4 (PpmPerfCompleteMakeup.c)
- *     PpmPerfMinimumPerfReached @ 0x1402AE3C4 (PpmPerfMinimumPerfReached.c)
- *     PpmParkMaximumCoresParked @ 0x1402AE42C (PpmParkMaximumCoresParked.c)
- *     PpmEventTraceMakeupPerfCheck @ 0x14057AB04 (PpmEventTraceMakeupPerfCheck.c)
+ *     PpmPerfCompleteMakeup @ 0x14022C704 (PpmPerfCompleteMakeup.c)
+ *     PpmPerfMinimumPerfReached @ 0x14022C724 (PpmPerfMinimumPerfReached.c)
+ *     PpmParkMaximumCoresParked @ 0x14022C78C (PpmParkMaximumCoresParked.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     PpmEventTraceMakeupPerfCheck @ 0x14057AD44 (PpmEventTraceMakeupPerfCheck.c)
  */
 
 char PpmCheckMakeupSkippedChecks()
@@ -21,7 +21,7 @@ char PpmCheckMakeupSkippedChecks()
   unsigned int v6; // r8d
   unsigned __int16 i; // dx
   __int64 v8; // rax
-  unsigned __int16 *v9[2]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v9[2]; // [rsp+20h] [rbp-28h] BYREF
   __int16 v10; // [rsp+30h] [rbp-18h]
   int v11; // [rsp+32h] [rbp-16h]
   __int16 v12; // [rsp+36h] [rbp-12h]
@@ -34,8 +34,8 @@ char PpmCheckMakeupSkippedChecks()
   {
     if ( (unsigned __int8)PpmParkMaximumCoresParked() && (unsigned __int8)PpmPerfMinimumPerfReached() )
     {
-      v9[1] = (unsigned __int16 *)qword_140C113E8[0];
-      v9[0] = (unsigned __int16 *)&PpmCheckRegistered;
+      v9[1] = qword_140C113C8[0];
+      v9[0] = &PpmCheckRegistered;
       v10 = 0;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v13, v9) )
       {

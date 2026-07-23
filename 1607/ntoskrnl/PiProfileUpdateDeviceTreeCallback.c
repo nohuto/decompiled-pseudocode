@@ -1,14 +1,14 @@
 /*
- * XREFs of PiProfileUpdateDeviceTreeCallback @ 0x140641FDC
+ * XREFs of PiProfileUpdateDeviceTreeCallback @ 0x1406420C0
  * Callers:
  *     <none>
  * Callees:
- *     IoInvalidateDeviceRelations @ 0x14009ECD4 (IoInvalidateDeviceRelations.c)
- *     PnpRequestDeviceRemoval @ 0x1404C3E90 (PnpRequestDeviceRemoval.c)
- *     PipSetDevNodeProblem @ 0x1404C5BDC (PipSetDevNodeProblem.c)
- *     PipClearDevNodeProblem @ 0x1404C5E0C (PipClearDevNodeProblem.c)
- *     PnpIsDeviceInstanceEnabled @ 0x1404E7734 (PnpIsDeviceInstanceEnabled.c)
- *     PnpRestartDeviceNode @ 0x14062DC88 (PnpRestartDeviceNode.c)
+ *     IoInvalidateDeviceRelations @ 0x140085F2C (IoInvalidateDeviceRelations.c)
+ *     PipSetDevNodeProblem @ 0x140484270 (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x1404844A0 (PipClearDevNodeProblem.c)
+ *     PnpRequestDeviceRemoval @ 0x140484BC8 (PnpRequestDeviceRemoval.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x14050EA28 (PnpIsDeviceInstanceEnabled.c)
+ *     PnpRestartDeviceNode @ 0x14062DD3C (PnpRestartDeviceNode.c)
  */
 
 __int64 __fastcall PiProfileUpdateDeviceTreeCallback(__int64 a1)
@@ -18,13 +18,13 @@ __int64 __fastcall PiProfileUpdateDeviceTreeCallback(__int64 a1)
   v1 = *(_DWORD *)(a1 + 300);
   if ( v1 == 776 )
   {
-    if ( !(unsigned int)PnpIsDeviceInstanceEnabled(0LL, a1 + 40, 0) )
+    if ( !(unsigned int)PnpIsDeviceInstanceEnabled(0LL, (unsigned __int16 *)(a1 + 40), 0) )
       PnpRequestDeviceRemoval(a1, 0, 22, 0);
   }
   else if ( ((v1 - 770) & 0xFFFFFFEF) == 0 && (*(_DWORD *)(a1 + 396) & 0x2000) != 0 && *(_DWORD *)(a1 + 404) == 22 )
   {
     PipClearDevNodeProblem(a1);
-    if ( (unsigned int)PnpIsDeviceInstanceEnabled(0LL, a1 + 40, 0) )
+    if ( (unsigned int)PnpIsDeviceInstanceEnabled(0LL, (unsigned __int16 *)(a1 + 40), 0) )
     {
       PnpRestartDeviceNode(a1);
       IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(*(_QWORD *)(a1 + 16) + 32LL), BusRelations);

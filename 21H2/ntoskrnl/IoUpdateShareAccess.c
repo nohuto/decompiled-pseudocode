@@ -1,9 +1,9 @@
 /*
- * XREFs of IoUpdateShareAccess @ 0x140773700
+ * XREFs of IoUpdateShareAccess @ 0x1407738C0
  * Callers:
  *     <none>
  * Callees:
- *     IoUpdateLinkShareAccessEx @ 0x140650830 (IoUpdateLinkShareAccessEx.c)
+ *     IoUpdateLinkShareAccessEx @ 0x140645650 (IoUpdateLinkShareAccessEx.c)
  */
 
 void __stdcall IoUpdateShareAccess(PFILE_OBJECT FileObject, PSHARE_ACCESS ShareAccess)

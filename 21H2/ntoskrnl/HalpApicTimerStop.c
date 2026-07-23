@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicTimerStop @ 0x1402C9040
+ * XREFs of HalpApicTimerStop @ 0x140247920
  * Callers:
  *     <none>
  * Callees:
- *     HalpApicTimerInitialize @ 0x1402C9070 (HalpApicTimerInitialize.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpApicTimerInitialize @ 0x140247950 (HalpApicTimerInitialize.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpApicTimerStop()

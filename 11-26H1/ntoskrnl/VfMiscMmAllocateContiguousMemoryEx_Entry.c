@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscMmAllocateContiguousMemoryEx_Entry @ 0x140C3D090
+ * XREFs of VfMiscMmAllocateContiguousMemoryEx_Entry @ 0x140C430A0
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscEnforceRule @ 0x140C3E430 (ViMiscEnforceRule.c)
+ *     ViMiscEnforceRule @ 0x140C44440 (ViMiscEnforceRule.c)
  */
 
 __int64 __fastcall VfMiscMmAllocateContiguousMemoryEx_Entry(_QWORD *a1, __int64 a2, __int64 a3)

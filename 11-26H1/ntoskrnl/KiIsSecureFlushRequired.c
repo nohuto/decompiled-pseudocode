@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsSecureFlushRequired @ 0x14041D708
+ * XREFs of KiIsSecureFlushRequired @ 0x140414F58
  * Callers:
- *     KeFlushSingleCurrentTb @ 0x1405F0C70 (KeFlushSingleCurrentTb.c)
- *     KeFlushSingleTb @ 0x1405F0DF4 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x1405F35E0 (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1405F3764 (KeFlushSingleTb.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14041D934 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140415184 (VslGetNestedPageProtectionFlags.c)
  */
 
 __int64 __fastcall KiIsSecureFlushRequired(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)

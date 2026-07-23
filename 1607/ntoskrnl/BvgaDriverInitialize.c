@@ -3,8 +3,8 @@
  * Callers:
  *     InbvDriverInitialize @ 0x1407B1F00 (InbvDriverInitialize.c)
  * Callees:
- *     _strupr @ 0x14014CC70 (_strupr.c)
- *     strstr @ 0x14014CF38 (strstr.c)
+ *     _strupr @ 0x14014D1E0 (_strupr.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
  *     FindBitmapResource @ 0x1407B2098 (FindBitmapResource.c)
  *     BvgaSaveResources @ 0x1407B2128 (BvgaSaveResources.c)
  */
@@ -63,8 +63,8 @@ char __fastcall BvgaDriverInitialize(unsigned int a1, __int64 a2, unsigned int a
     BvgaSaveResources();
     BvgaProgressState = 0;
     result = BvgaBootDriverInstalled;
-    dword_140321EF4 = 10000;
-    dword_140321EF8 = 100;
+    dword_140321F14 = 10000;
+    dword_140321F18 = 100;
   }
   return result;
 }

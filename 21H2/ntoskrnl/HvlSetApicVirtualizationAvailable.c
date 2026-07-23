@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlSetApicVirtualizationAvailable @ 0x1404F1ED8
+ * XREFs of HvlSetApicVirtualizationAvailable @ 0x1404F1E58
  * Callers:
- *     KiSetFeatureBits @ 0x14099CB6C (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x14099DB6C (KiSetFeatureBits.c)
  * Callees:
  *     <none>
  */

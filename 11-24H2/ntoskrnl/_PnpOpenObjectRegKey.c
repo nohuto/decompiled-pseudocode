@@ -1,38 +1,38 @@
 /*
- * XREFs of _PnpOpenObjectRegKey @ 0x1408CD438
+ * XREFs of _PnpOpenObjectRegKey @ 0x1408CAE28
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgInitDeviceCallback @ 0x14072A1C0 (PiDevCfgInitDeviceCallback.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14072AC78 (PiDevCfgQueryIncludedDriverNode.c)
- *     PpDevCfgProcessDeviceClass @ 0x14072C4F4 (PpDevCfgProcessDeviceClass.c)
- *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140819D68 (_CmEnumDevicesInContainerWithCallbackWorker.c)
- *     PiSwPropertySet @ 0x1408B80F0 (PiSwPropertySet.c)
- *     _PnpSetObjectPropertyWorker @ 0x1408B8BB0 (_PnpSetObjectPropertyWorker.c)
- *     PiCMValidateDeviceInstance @ 0x1408BE2FC (PiCMValidateDeviceInstance.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x1408CC2D0 (PiPnpRtlCacheObjectBaseKey.c)
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140908E70 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
- *     PiDqOpenObjectRegKey @ 0x140909DAC (PiDqOpenObjectRegKey.c)
- *     PiCMOpenObjectKey @ 0x140963AF8 (PiCMOpenObjectKey.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x140991E90 (_PnpGetObjectPropertyKeysWorker.c)
- *     _PnpGetObjectPropertyLocalesWorker @ 0x1409952A8 (_PnpGetObjectPropertyLocalesWorker.c)
- *     PiDevCfgQueryDriverNode @ 0x140996564 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgGetDriverPackageId @ 0x1409977D8 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgCopyObjectProperties @ 0x14099AE24 (PiDevCfgCopyObjectProperties.c)
- *     PiDqIrpPropertySet @ 0x1409FA620 (PiDqIrpPropertySet.c)
- *     PpDevCfgProcessDeviceReset @ 0x140A84170 (PpDevCfgProcessDeviceReset.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x140A847DC (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072650C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgInitDeviceCallback @ 0x140727E10 (PiDevCfgInitDeviceCallback.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x140728A48 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072A508 (PpDevCfgProcessDeviceClass.c)
+ *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x14081A4A8 (_CmEnumDevicesInContainerWithCallbackWorker.c)
+ *     PiSwPropertySet @ 0x1408B5A60 (PiSwPropertySet.c)
+ *     _PnpSetObjectPropertyWorker @ 0x1408B6520 (_PnpSetObjectPropertyWorker.c)
+ *     PiCMValidateDeviceInstance @ 0x1408BBC4C (PiCMValidateDeviceInstance.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1408C9D00 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408E0590 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqOpenObjectRegKey @ 0x1408E14CC (PiDqOpenObjectRegKey.c)
+ *     PiCMOpenObjectKey @ 0x14094B5B8 (PiCMOpenObjectKey.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x14097CED0 (_PnpGetObjectPropertyKeysWorker.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x1409802E8 (_PnpGetObjectPropertyLocalesWorker.c)
+ *     PiDevCfgGetDriverPackageId @ 0x1409C9F54 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1409CD594 (PiDevCfgCopyObjectProperties.c)
+ *     PiDqIrpPropertySet @ 0x1409F2F90 (PiDqIrpPropertySet.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140A7EC90 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x140A7F31C (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgQueryDriverNode @ 0x140AC0A0C (PiDevCfgQueryDriverNode.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     DrvDbDispatchDriverPackage @ 0x1409240F0 (DrvDbDispatchDriverPackage.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     DrvDbDispatchDriverPackage @ 0x140926230 (DrvDbDispatchDriverPackage.c)
  */
 
 __int64 __fastcall PnpOpenObjectRegKey(_QWORD *a1, WCHAR *a2, int a3, int a4, char a5, __int64 a6)
@@ -72,7 +72,7 @@ __int64 __fastcall PnpOpenObjectRegKey(_QWORD *a1, WCHAR *a2, int a3, int a4, ch
     if ( v10 == PiPnpRtlObjectActionCallback )
       v12 = PiPnpRtlObjectActionCallback(a1, a2, (unsigned int)v7, 2LL, 1, v20);
     else
-      v12 = guard_dispatch_icall_no_overrides(a1, a2, (unsigned int)v7, 2LL);
+      v12 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v12 == -1073741822 )
     {
       v10 = 0LL;
@@ -114,7 +114,7 @@ __int64 __fastcall PnpOpenObjectRegKey(_QWORD *a1, WCHAR *a2, int a3, int a4, ch
       }
       else
       {
-        v14 = guard_dispatch_icall_no_overrides(a1, a2, (unsigned int)v7, 2LL);
+        v14 = guard_dispatch_icall_no_overrides(a1, a2);
       }
       v15 = v14;
       v16 = v24;
@@ -130,7 +130,7 @@ __int64 __fastcall PnpOpenObjectRegKey(_QWORD *a1, WCHAR *a2, int a3, int a4, ch
   if ( v10 )
   {
     v20[0] = v15;
-    v18 = guard_dispatch_icall_no_overrides(a1, a2, (unsigned int)v7, 2LL);
+    v18 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v18 != -1073741822 )
     {
       if ( v18 != -1073741536 )

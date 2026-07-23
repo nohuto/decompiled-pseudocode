@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpStartRuntimeStackTrace @ 0x140745494
+ * XREFs of ObpStartRuntimeStackTrace @ 0x140743784
  * Callers:
- *     ObSetRefTraceInformation @ 0x140744B14 (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x140742E04 (ObSetRefTraceInformation.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObpInitStackAndObjectTables @ 0x140745058 (ObpInitStackAndObjectTables.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObpInitStackAndObjectTables @ 0x140743348 (ObpInitStackAndObjectTables.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
@@ -28,8 +28,8 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
   unsigned __int16 v8; // bx
   void *Pool2; // r15
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v12; // rax
-  _QWORD *v13; // rsi
+  char *v12; // rax
+  char *v13; // rsi
   wchar_t *Buffer; // rsi
   char v16; // cl
   wchar_t *v17; // rcx
@@ -80,7 +80,7 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     else
       v8 = (unsigned __int16)Src[0];
     LOWORD(P[0]) = v8;
-    Pool2 = (void *)ExAllocatePool2(0x40uLL);
+    Pool2 = (void *)ExAllocatePool2(0x40uLL, v8 + 2LL, 0x7452624Fu);
     P[1] = Pool2;
     if ( !Pool2 )
       return 3221225495LL;
@@ -98,12 +98,12 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     v4 |= 0x40u;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v12 = KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
+  v12 = (char *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
   v13 = v12;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, (__int64)v12, (__int64)&ObpStackTraceLock);
+    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, v12, (__int64)&ObpStackTraceLock);
   if ( v13 )
-    *((_BYTE *)v13 + 10) = 1;
+    v13[10] = 1;
   if ( (ObpTraceFlags & 0x73) == 0 )
     inited = ObpInitStackAndObjectTables();
   if ( (inited & 0x80000000) != 0 )
@@ -121,9 +121,9 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     Buffer = ObpRuntimeTraceProcessName.Buffer;
     ObpRuntimeTraceProcessName = *(UNICODE_STRING *)P;
     ObpRuntimeTracePoolTags = v23[0];
-    xmmword_140F0E570 = v23[1];
-    xmmword_140F0E580 = v23[2];
-    xmmword_140F0E590 = v23[3];
+    xmmword_140F0E9F0 = v23[1];
+    xmmword_140F0EA00 = v23[2];
+    xmmword_140F0EA10 = v23[3];
     v16 = v4 | ObpTraceFlags & 0x8E;
     ObpRuntimeTraceFlags = v4 | ObpTraceFlags & 0xFFFFFF8E | 2;
     ObpTraceFlags = v4 | ObpTraceFlags & 0xFFFFFF8E | 2;

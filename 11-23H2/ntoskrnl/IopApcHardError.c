@@ -1,9 +1,9 @@
 /*
- * XREFs of IopApcHardError @ 0x140944180
+ * XREFs of IopApcHardError @ 0x140944380
  * Callers:
  *     <none>
  * Callees:
- *     IopRaiseHardError @ 0x140945320 (IopRaiseHardError.c)
+ *     IopRaiseHardError @ 0x140945520 (IopRaiseHardError.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

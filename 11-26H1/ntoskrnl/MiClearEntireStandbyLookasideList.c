@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearEntireStandbyLookasideList @ 0x1402CB8A0
+ * XREFs of MiClearEntireStandbyLookasideList @ 0x1402AD660
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x1402CB3C4 (MiRebuildStandbyLookasideList.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402AD184 (MiRebuildStandbyLookasideList.c)
  * Callees:
- *     MiWriteStandbyLookasideEntry @ 0x1402CB970 (MiWriteStandbyLookasideEntry.c)
+ *     MiWriteStandbyLookasideEntry @ 0x1402AD730 (MiWriteStandbyLookasideEntry.c)
  */
 
 __int64 __fastcall MiClearEntireStandbyLookasideList(__int64 a1, _QWORD *a2, unsigned int a3)

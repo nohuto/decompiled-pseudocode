@@ -33,14 +33,14 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   __int16 v13; // ax
   int ClearBitAndSet; // eax
   __int64 v15; // r8
-  struct _SLIST_ENTRY *v17; // rdi
+  _SLIST_ENTRY *v17; // rdi
   __int64 *v18; // rax
   unsigned int v19; // r14d
   volatile signed __int64 *v20; // rbp
   __int64 *v21; // r15
   __int64 v22; // rbx
   unsigned int v23; // r12d
-  union _SLIST_HEADER *v24; // r14
+  _SLIST_HEADER *v24; // r14
   __int64 v25; // rcx
   PSLIST_ENTRY v26; // rax
   _QWORD **v27; // rbx
@@ -51,7 +51,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   unsigned int v32; // ebp
   _SLIST_ENTRY *v33; // rbx
   PSLIST_ENTRY v34; // r15
-  union _SLIST_HEADER *v35; // r12
+  _SLIST_HEADER *v35; // r12
   PSLIST_ENTRY v36; // r14
   __int16 RandomValue32; // ax
   __int64 v38; // rbx
@@ -64,7 +64,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   __int64 v45; // rcx
   _QWORD **v46; // rdx
   __int64 v47; // rcx
-  struct _SLIST_ENTRY *v48; // rdx
+  _SLIST_ENTRY *v48; // rdx
   signed __int32 v49; // eax
   _SLIST_ENTRY *v50; // r8
   int v51; // r9d
@@ -87,9 +87,7 @@ LABEL_2:
         && (int)RtlpAffinitizeSegmentInfoForBucket(v5, *(unsigned __int8 *)(v5 + 4 * v38 + 678)) >= 0 )
       {
         *(_BYTE *)(v5 + 4 * v38 + 679) |= 1u;
-        v39 = (unsigned int)RtlGetCurrentServiceSessionId()
-            ? (char *)NtCurrentPeb()->SharedData + 550
-            : (char *)2147353472;
+        v39 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 550 : (char *)2147353472;
         if ( *v39 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
           RtlpLogHeapAffinityManagerEnable(*(_QWORD *)(v5 + 24), *(unsigned __int8 *)(v5 + 4 * v38 + 678));
       }
@@ -183,7 +181,7 @@ LABEL_23:
         v23 = *(unsigned __int16 *)(v22 + 32);
         if ( v23 > v2 && !RtlpIsSubSegmentReuseThresholdExceeded(a1, *v21) )
         {
-          v17 = (struct _SLIST_ENTRY *)v22;
+          v17 = (_SLIST_ENTRY *)v22;
           v2 = v23;
           v20 = (volatile signed __int64 *)(a1 + 8 * (v19 + 2LL));
         }
@@ -195,8 +193,7 @@ LABEL_23:
     v2 = 0;
     if ( !v20 )
       break;
-    v24 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v54 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192)
-                                + 144LL);
+    v24 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v54 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
     while ( 1 )
     {
       v26 = RtlpInterlockedPopEntrySList(v24);
@@ -222,7 +219,7 @@ LABEL_23:
         RtlpInterlockedPushEntrySList(v25, v26);
       }
     }
-    if ( v17 == (struct _SLIST_ENTRY *)_InterlockedCompareExchange64(v20, (signed __int64)v27, (signed __int64)v17) )
+    if ( v17 == (_SLIST_ENTRY *)_InterlockedCompareExchange64(v20, (signed __int64)v27, (signed __int64)v17) )
     {
       if ( !v27 )
         *(_WORD *)(a1 + 174) = (unsigned __int8)(((__int64)v20 - a1 - 16) >> 3);
@@ -248,7 +245,7 @@ LABEL_45:
       v30 = v17->Next;
       if ( v17->Next == (_SLIST_ENTRY *)a1 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v31 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
           v31 = 2147353472LL;
@@ -256,7 +253,7 @@ LABEL_45:
           RtlpLogHeapSubSegmentActivate(
             *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 24LL) + 24LL),
             *((_QWORD *)&v17->Next + 1));
-        v17 = (struct _SLIST_ENTRY *)_InterlockedExchange64((volatile __int64 *)(a1 + 8), (__int64)v17);
+        v17 = (_SLIST_ENTRY *)_InterlockedExchange64((volatile __int64 *)(a1 + 8), (__int64)v17);
         if ( !v17 )
           goto LABEL_2;
         _m_prefetchw((char *)&v17[2].Next + 12);
@@ -346,7 +343,7 @@ LABEL_118:
             {
               v47 = **v46;
               *v46 = 0LL;
-              v48 = (struct _SLIST_ENTRY *)(v46 + 6);
+              v48 = (_SLIST_ENTRY *)(v46 + 6);
               goto LABEL_98;
             }
             goto LABEL_2;
@@ -380,7 +377,7 @@ LABEL_96:
   v32 = 0;
   v33 = 0LL;
   v34 = 0LL;
-  v35 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v54 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
+  v35 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v54 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
   v36 = RtlpInterlockedPopEntrySList(v35);
   if ( !v36 )
     return 0LL;

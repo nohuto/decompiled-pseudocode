@@ -21,7 +21,7 @@ bool __fastcall MiIsPageInHugePfn(unsigned __int64 a1)
   bool result; // al
 
   result = 0;
-  if ( qword_140C67EE8 )
-    return _bittest64((const signed __int64 *)qword_140C67EE8, (a1 >> 18) & 0x3FFFFF) != 0;
+  if ( stru_140C67EE0.Buffer )
+    return _bittest64((const signed __int64 *)stru_140C67EE0.Buffer, (a1 >> 18) & 0x3FFFFF) != 0;
   return result;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of Amd64AddProfileSource @ 0x1404DD4C0
+ * XREFs of Amd64AddProfileSource @ 0x1404DD700
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeOrAffinityEx @ 0x14022B850 (KeOrAffinityEx.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     wcsnlen @ 0x1403D40D0 (wcsnlen.c)
- *     wcsncpy_s @ 0x1403D8420 (wcsncpy_s.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeOrAffinityEx @ 0x1402D0100 (KeOrAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     wcsnlen @ 0x1403D4240 (wcsnlen.c)
+ *     wcsncpy_s @ 0x1403D8590 (wcsncpy_s.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpInsertProfileSource @ 0x1404BEE10 (HalpInsertProfileSource.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpInsertProfileSource @ 0x1404BF050 (HalpInsertProfileSource.c)
  */
 
 __int64 __fastcall Amd64AddProfileSource(unsigned __int8 *a1, _DWORD *a2)

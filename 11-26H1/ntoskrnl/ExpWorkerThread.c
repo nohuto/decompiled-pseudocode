@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpWorkerThread @ 0x1403F5680
+ * XREFs of ExpWorkerThread @ 0x1403EF030
  * Callers:
  *     <none>
  * Callees:
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExpPartitionCreateThreadIfNecessary @ 0x1402DF350 (ExpPartitionCreateThreadIfNecessary.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     KeSetUserAffinityThread @ 0x1403F7154 (KeSetUserAffinityThread.c)
- *     EtwTraceThreadWorkItem @ 0x1403F7300 (EtwTraceThreadWorkItem.c)
- *     KxReenterRetpolinedCode @ 0x1403F73A4 (KxReenterRetpolinedCode.c)
- *     KeSetKernelStackSwapEnable @ 0x14047EA50 (KeSetKernelStackSwapEnable.c)
- *     ExpWorkQueueHealthMetricsEnabled @ 0x14051FCC8 (ExpWorkQueueHealthMetricsEnabled.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D0E94 (ExpWorkQueueUpdateHealthMetricsOnRemove.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x1402C1160 (ExpPartitionCreateThreadIfNecessary.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     KeSetUserAffinityThread @ 0x1403F0B04 (KeSetUserAffinityThread.c)
+ *     EtwTraceThreadWorkItem @ 0x1403F0CB0 (EtwTraceThreadWorkItem.c)
+ *     KxReenterRetpolinedCode @ 0x1403F0D54 (KxReenterRetpolinedCode.c)
+ *     KeSetKernelStackSwapEnable @ 0x1404783C0 (KeSetKernelStackSwapEnable.c)
+ *     ExpWorkQueueHealthMetricsEnabled @ 0x14052236C (ExpWorkQueueHealthMetricsEnabled.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D4EC4 (ExpWorkQueueUpdateHealthMetricsOnRemove.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 LONG __fastcall ExpWorkerThread(__int64 a1)
@@ -63,7 +63,7 @@ LONG __fastcall ExpWorkerThread(__int64 a1)
   unsigned __int16 *v37; // [rsp+38h] [rbp-C8h]
   __int64 v38; // [rsp+40h] [rbp-C0h] BYREF
   __int64 v39; // [rsp+48h] [rbp-B8h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-B0h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v41; // [rsp+60h] [rbp-A0h] BYREF
   _QWORD v42[33]; // [rsp+68h] [rbp-98h] BYREF
 
@@ -83,7 +83,7 @@ LONG __fastcall ExpWorkerThread(__int64 a1)
     __fastfail(0x38u);
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) = v7 | 1;
   _InterlockedOr(v35, 0);
-  if ( !ExSaPageGroupDescriptorArrayLock.WaitBlockFill6[80] )
+  if ( !LOBYTE(ExSaPageGroupDescriptorArrayLock.AffinityVersion) )
   {
     KeSetKernelStackSwapEnable(0);
     v3 = &v38;

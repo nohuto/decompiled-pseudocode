@@ -6,15 +6,20 @@
  *     NtQueryInformationJobObject @ 0x1800A7730 (NtQueryInformationJobObject.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  unsigned int v0; // ecx
-  int InformationJobObject; // eax
+  ULONG v0; // ecx
+  NTSTATUS InformationJobObject; // eax
 
   v0 = dword_180142060;
   if ( dword_180142060 == -1 )
   {
-    InformationJobObject = NtQueryInformationJobObject(0LL, 39LL, &dword_180142060, 4LL, 0LL);
+    InformationJobObject = NtQueryInformationJobObject(
+                             0LL,
+                             JobObjectServerSiloServiceSessionId,
+                             &dword_180142060,
+                             4u,
+                             0LL);
     v0 = dword_180142060;
     if ( InformationJobObject < 0 )
       v0 = 0;

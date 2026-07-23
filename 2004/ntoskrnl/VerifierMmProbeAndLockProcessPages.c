@@ -34,7 +34,7 @@ char __fastcall VerifierMmProbeAndLockProcessPages(ULONG_PTR BugCheckParameter2,
       *(__int16 *)(BugCheckParameter2 + 10),
       (unsigned __int16)(v10 & v9));
   if ( (unsigned int)VfFaultsInjectResourceFailure(0) == 1 )
-    RtlRaiseStatus(0xC00000A1);
+    RtlRaiseStatus(-1073741663);
   LOBYTE(v11) = a3;
   result = ((__int64 (__fastcall *)(ULONG_PTR, __int64, __int64, _QWORD))pXdvMmProbeAndLockProcessPages)(
              BugCheckParameter2,

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDeferDpcWatchdogViolation @ 0x140515FE8
+ * XREFs of KiDeferDpcWatchdogViolation @ 0x14050FA58
  * Callers:
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
  * Callees:
- *     KeRelaxTimingConstraints @ 0x1405E8DE0 (KeRelaxTimingConstraints.c)
+ *     KeRelaxTimingConstraints @ 0x1405EB750 (KeRelaxTimingConstraints.c)
  */
 
 signed __int64 KiDeferDpcWatchdogViolation()
@@ -13,15 +13,15 @@ signed __int64 KiDeferDpcWatchdogViolation()
 
   CurrentPrcb = KeGetCurrentPrcb();
   result = _InterlockedCompareExchange64(
-             (volatile signed __int64 *)&KsepShimDbLock.MutantListHead.Blink,
+             (volatile signed __int64 *)&KsepShimDbLock.PriorityFloorCounts[16],
              (signed __int64)CurrentPrcb,
              0LL);
   if ( !result )
   {
     KeRelaxTimingConstraints(1LL);
-    HIDWORD(KsepShimDbLock.MutantListHead.Flink) = CurrentPrcb->DpcTimeCount;
+    KsepShimDbLock.PriorityFloorSummary = CurrentPrcb->DpcTimeCount;
     result = CurrentPrcb->DpcTimeLimitTicks;
-    LODWORD(KsepShimDbLock.MutantListHead.Flink) = CurrentPrcb->DpcTimeLimitTicks;
+    *(_DWORD *)&KsepShimDbLock.PriorityFloorCounts[28] = CurrentPrcb->DpcTimeLimitTicks;
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDescribePageRun @ 0x140866208
+ * XREFs of MiDescribePageRun @ 0x14086C5E8
  * Callers:
- *     MiAllocateInitialMemoryBlocks @ 0x1408659F8 (MiAllocateInitialMemoryBlocks.c)
- *     MiCreateNodeLists @ 0x140866094 (MiCreateNodeLists.c)
+ *     MiAllocateInitialMemoryBlocks @ 0x14086BDD8 (MiAllocateInitialMemoryBlocks.c)
+ *     MiCreateNodeLists @ 0x14086C474 (MiCreateNodeLists.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiPageToChannel @ 0x140295870 (MiPageToChannel.c)
- *     MiRestrictRangeToNode @ 0x1402CABF0 (MiRestrictRangeToNode.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiPageToChannel @ 0x140294DD0 (MiPageToChannel.c)
+ *     MiRestrictRangeToNode @ 0x1402AC9B0 (MiRestrictRangeToNode.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiDescribePageRun(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

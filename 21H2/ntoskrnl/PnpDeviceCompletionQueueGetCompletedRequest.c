@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionQueueGetCompletedRequest @ 0x14037FB98
+ * XREFs of PnpDeviceCompletionQueueGetCompletedRequest @ 0x14037F6E8
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x14074181C (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1407419DC (PnpDeviceCompletionProcessCompletedRequests.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -21,16 +21,16 @@ __int64 PnpDeviceCompletionQueueGetCompletedRequest()
   int v8; // edx
   bool v9; // zf
 
-  KeWaitForSingleObject(&byte_140C44B88, Executive, 0, 0, 0LL);
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C44BA8);
-  v1 = qword_140C44B78;
+  KeWaitForSingleObject(&byte_140C44B48, Executive, 0, 0, 0LL);
+  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C44B68);
+  v1 = qword_140C44B38;
   v2 = v0;
-  v3 = *(_QWORD *)qword_140C44B78;
-  if ( *(__int64 **)(qword_140C44B78 + 8) != &qword_140C44B78 || *(_QWORD *)(v3 + 8) != qword_140C44B78 )
+  v3 = *(_QWORD *)qword_140C44B38;
+  if ( *(__int64 **)(qword_140C44B38 + 8) != &qword_140C44B38 || *(_QWORD *)(v3 + 8) != qword_140C44B38 )
     __fastfail(3u);
-  qword_140C44B78 = *(_QWORD *)qword_140C44B78;
-  *(_QWORD *)(v3 + 8) = &qword_140C44B78;
-  KxReleaseSpinLock(&qword_140C44BA8);
+  qword_140C44B38 = *(_QWORD *)qword_140C44B38;
+  *(_QWORD *)(v3 + 8) = &qword_140C44B38;
+  KxReleaseSpinLock(&qword_140C44B68);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

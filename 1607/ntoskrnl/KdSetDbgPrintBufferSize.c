@@ -1,11 +1,11 @@
 /*
- * XREFs of KdSetDbgPrintBufferSize @ 0x1401D194C
+ * XREFs of KdSetDbgPrintBufferSize @ 0x1401D1778
  * Callers:
- *     NtSystemDebugControl @ 0x1404DE844 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1404C1E48 (NtSystemDebugControl.c)
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -41,7 +41,7 @@ LABEL_9:
         {
           v5 = 0LL;
           v6 = KdPrintCircularBuffer;
-          qword_140329B18 = (__int64)KeGetCurrentPrcb();
+          qword_140329B58 = (__int64)KeGetCurrentPrcb();
           if ( v1 > (unsigned __int64)(unsigned int)KdPrintBufferSize )
           {
             v7 = KdPrintWritePointer - (_UNKNOWN *)KdPrintCircularBuffer;
@@ -80,7 +80,7 @@ LABEL_9:
           }
           memset(&PoolWithTag[v5], 0, v1 - v5);
           ++KdPrintBufferChanges;
-          qword_140329B18 = 0LL;
+          qword_140329B58 = 0LL;
           KdPrintCircularBuffer = PoolWithTag;
           KdPrintBufferSize = v1;
           KdPrintWritePointer = &PoolWithTag[v5];

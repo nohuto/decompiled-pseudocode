@@ -1,14 +1,14 @@
 /*
- * XREFs of HalCancelAdapterChannel @ 0x1404C5EC0
+ * XREFs of HalCancelAdapterChannel @ 0x1404C6100
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaRemoveAdapterFromMasterQueue @ 0x1404B8040 (HalpDmaRemoveAdapterFromMasterQueue.c)
- *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B8160 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
- *     HalpDmaRemoveWcb @ 0x1404B8264 (HalpDmaRemoveWcb.c)
- *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
- *     HalpDmaRemoveAdapterFromChannelQueue @ 0x1404CEF04 (HalpDmaRemoveAdapterFromChannelQueue.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalpDmaRemoveAdapterFromMasterQueue @ 0x1404B8280 (HalpDmaRemoveAdapterFromMasterQueue.c)
+ *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B83A0 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
+ *     HalpDmaRemoveWcb @ 0x1404B84A4 (HalpDmaRemoveWcb.c)
+ *     IoFreeAdapterChannel @ 0x1404B8F50 (IoFreeAdapterChannel.c)
+ *     HalpDmaRemoveAdapterFromChannelQueue @ 0x1404CF144 (HalpDmaRemoveAdapterFromChannelQueue.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall HalCancelAdapterChannel(PDMA_ADAPTER DmaAdapter, __int64 a2, volatile signed __int32 *a3)

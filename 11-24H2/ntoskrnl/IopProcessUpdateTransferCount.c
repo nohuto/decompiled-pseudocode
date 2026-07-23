@@ -1,10 +1,10 @@
 /*
- * XREFs of IopProcessUpdateTransferCount @ 0x1403C4620
+ * XREFs of IopProcessUpdateTransferCount @ 0x1403B31E0
  * Callers:
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     IopUpdateIrpTransferCount @ 0x1403C4580 (IopUpdateIrpTransferCount.c)
- *     IopReadFile @ 0x1408C0610 (IopReadFile.c)
- *     IopWriteFile @ 0x1408C1630 (IopWriteFile.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     IopUpdateIrpTransferCount @ 0x1403B3140 (IopUpdateIrpTransferCount.c)
+ *     IopReadFile @ 0x1408BDFD0 (IopReadFile.c)
+ *     IopWriteFile @ 0x1408BEFF0 (IopWriteFile.c)
  * Callees:
  *     <none>
  */

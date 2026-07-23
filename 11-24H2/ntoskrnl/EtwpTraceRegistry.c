@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpTraceRegistry @ 0x140870F40
+ * XREFs of EtwpTraceRegistry @ 0x140875270
  * Callers:
- *     CmpCloseKeyObject @ 0x140841890 (CmpCloseKeyObject.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     NtQueryKey @ 0x140849760 (NtQueryKey.c)
- *     CmpSecurityMethod @ 0x140852E10 (CmpSecurityMethod.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408704E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14087DE20 (CmpDereferenceKeyControlBlockWithLock.c)
- *     NtEnumerateValueKey @ 0x14090C2D0 (NtEnumerateValueKey.c)
- *     CmpEtwDumpKcb @ 0x14092C050 (CmpEtwDumpKcb.c)
- *     NtSetInformationKey @ 0x1409785A0 (NtSetInformationKey.c)
+ *     CmpCloseKeyObject @ 0x14083DB50 (CmpCloseKeyObject.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     NtQueryKey @ 0x140845A20 (NtQueryKey.c)
+ *     CmpSecurityMethod @ 0x14084F0D0 (CmpSecurityMethod.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140874810 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140881CD0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     NtEnumerateValueKey @ 0x1408E39F0 (NtEnumerateValueKey.c)
+ *     CmpEtwDumpKcb @ 0x14092E190 (CmpEtwDumpKcb.c)
+ *     NtSetInformationKey @ 0x140960DB0 (NtSetInformationKey.c)
  * Callees:
- *     EtwpLogSystemEventUnsafe @ 0x1403274F0 (EtwpLogSystemEventUnsafe.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1402D0080 (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpTraceRegistry(unsigned __int8 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)

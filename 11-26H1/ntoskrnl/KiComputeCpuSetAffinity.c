@@ -1,17 +1,17 @@
 /*
- * XREFs of KiComputeCpuSetAffinity @ 0x140229FB8
+ * XREFs of KiComputeCpuSetAffinity @ 0x14022B948
  * Callers:
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14025234C (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     KiCopyGroupMasksToAffinityEx @ 0x140447360 (KiCopyGroupMasksToAffinityEx.c)
- *     KiGetSystemAllowedSetsAffinityEx @ 0x140447B50 (KiGetSystemAllowedSetsAffinityEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140253CAC (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     KiCopyGroupMasksToAffinityEx @ 0x14043FE50 (KiCopyGroupMasksToAffinityEx.c)
+ *     KiGetSystemAllowedSetsAffinityEx @ 0x140440640 (KiGetSystemAllowedSetsAffinityEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiComputeCpuSetAffinity(__int64 a1, struct _KAFFINITY_EX *a2)

@@ -194,7 +194,7 @@ LABEL_44:
     {
       v45 = v35 ^ 0x41C64E6DA3BC0074LL;
       v26 = v33 + 10;
-      v27 = KeAbPreAcquire((ULONG_PTR)&v33[10], 0LL, 0LL);
+      v27 = KeAbPreAcquire((ULONG_PTR)&v33[10], 0LL, 0);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)v26, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(&v26->Count, v27, (ULONG_PTR)v26);
       if ( v27 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteNewlyCreatedPartialVads @ 0x14087EFD4
+ * XREFs of MiDeleteNewlyCreatedPartialVads @ 0x1408853D4
  * Callers:
- *     MiAllocateSplitVads @ 0x140AC04EC (MiAllocateSplitVads.c)
+ *     MiAllocateSplitVads @ 0x140AC258C (MiAllocateSplitVads.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiComputeVadCharges @ 0x1404C4640 (MiComputeVadCharges.c)
- *     MiUpControlAreaRefs @ 0x1404DE558 (MiUpControlAreaRefs.c)
- *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x14070D064 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline.c)
- *     MiReleaseVadEventBlocks @ 0x14095C4CC (MiReleaseVadEventBlocks.c)
- *     MiReturnVadCharges @ 0x1409C6974 (MiReturnVadCharges.c)
- *     MiRemoveSharedCommitNode @ 0x1409C7C70 (MiRemoveSharedCommitNode.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiComputeVadCharges @ 0x1404BDF20 (MiComputeVadCharges.c)
+ *     MiUpControlAreaRefs @ 0x1404D7C38 (MiUpControlAreaRefs.c)
+ *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x140711D14 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline.c)
+ *     MiReturnVadCharges @ 0x140997954 (MiReturnVadCharges.c)
+ *     MiRemoveSharedCommitNode @ 0x140998C50 (MiRemoveSharedCommitNode.c)
+ *     MiReleaseVadEventBlocks @ 0x140A01D8C (MiReleaseVadEventBlocks.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteNewlyCreatedPartialVads(__int64 a1)

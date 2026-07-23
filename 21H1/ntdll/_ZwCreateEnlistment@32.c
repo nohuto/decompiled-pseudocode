@@ -6,7 +6,15 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwCreateEnlistment(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+NTSTATUS __cdecl ZwCreateEnlistment(
+        PHANDLE EnlistmentHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE ResourceManagerHandle,
+        HANDLE TransactionHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG CreateOptions,
+        NOTIFICATION_MASK NotificationMask,
+        PVOID EnlistmentKey)
 {
   return Wow64SystemServiceCall();
 }

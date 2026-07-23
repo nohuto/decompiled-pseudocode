@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryPerformanceCounter @ 0x1800A0900
+ * XREFs of NtQueryPerformanceCounter @ 0x1800A0920
  * Callers:
  *     LdrpGenSecurityCookie @ 0x180028720 (LdrpGenSecurityCookie.c)
  *     RtlQueryPerformanceCounter @ 0x180048890 (RtlQueryPerformanceCounter.c)
@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 NtQueryPerformanceCounter()
+NTSTATUS __cdecl NtQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter, PLARGE_INTEGER PerformanceFrequency)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 49LL;
+  result = 49;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

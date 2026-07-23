@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsInitializeDisengageTimer @ 0x140860B94
+ * XREFs of PopDirectedDripsInitializeDisengageTimer @ 0x140860DD4
  * Callers:
  *     PopDirectedDripsInitializePhase0 @ 0x140B71C9C (PopDirectedDripsInitializePhase0.c)
  * Callees:
- *     KeInitializeTimer2 @ 0x14031E500 (KeInitializeTimer2.c)
+ *     KeInitializeTimer2 @ 0x14031E790 (KeInitializeTimer2.c)
  */
 
 __int64 __fastcall PopDirectedDripsInitializeDisengageTimer(__int64 a1, int a2, int a3)

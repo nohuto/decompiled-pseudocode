@@ -10,12 +10,12 @@
 
 __int64 RtlpRegisterLockedMemoryZone()
 {
-  int v0; // edi
+  NTSTATUS v0; // edi
   int v1; // eax
   __int64 i; // rbx
 
   v0 = 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpMemoryZoneLock);
+  RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
   v1 = RtlpLockedMemoryZoneCount;
   if ( !RtlpLockedMemoryZoneCount )
   {

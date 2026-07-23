@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetPfnOriginalPte @ 0x1402BFDF4
+ * XREFs of MiSetPfnOriginalPte @ 0x1402BFFE4
  * Callers:
- *     MmFreeNonCachedMemory @ 0x14084DE20 (MmFreeNonCachedMemory.c)
- *     MiGetFastLargePage @ 0x14085D42C (MiGetFastLargePage.c)
+ *     MmFreeNonCachedMemory @ 0x14084F080 (MmFreeNonCachedMemory.c)
+ *     MiGetFastLargePage @ 0x14085E68C (MiGetFastLargePage.c)
  * Callees:
  *     <none>
  */

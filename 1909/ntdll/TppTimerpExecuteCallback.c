@@ -13,7 +13,7 @@
  *     RtlpTpETWCallbackStop @ 0x18010F42C (RtlpTpETWCallbackStop.c)
  */
 
-__int64 __fastcall TppTimerpExecuteCallback(__int64 a1, __int64 a2)
+__int64 __fastcall TppTimerpExecuteCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2)
 {
   int v2; // esi
   _QWORD *v3; // rbx
@@ -21,37 +21,35 @@ __int64 __fastcall TppTimerpExecuteCallback(__int64 a1, __int64 a2)
   __int64 v6; // r8
   __int64 result; // rax
   __int64 v8; // rcx
-  __int64 v9; // rcx
-  __int64 v10; // rcx
-  __int64 v11; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = a2;
   v3 = (_QWORD *)(a2 - 200);
   v5 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1) )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v6 = 2147353478LL;
   if ( *(_BYTE *)v6 )
     TppETWCallbackDequeue(v3[18], v2, v3[10], v3[11], v3[13]);
-  result = TppWorkCallbackPrologRelease(a1, v3, 0LL);
+  result = TppWorkCallbackPrologRelease(Instance);
   if ( (_DWORD)result )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8) )
-      v9 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v9 = 2147353478LL;
-    if ( *(_BYTE *)v9 )
+      v8 = 2147353478LL;
+    if ( *(_BYTE *)v8 )
       RtlpTpETWCallbackStart(v3[18], v2, v3[10], v3[11], v3[13]);
-    TppStartThreadData(&v11, v3[10], v3[11], v3[13]);
-    *(_QWORD *)(a1 + 88) = v3[10];
-    *(_QWORD *)(a1 + 96) = v3[11];
-    ((void (__fastcall *)(__int64, _QWORD, _QWORD *))v3[10])(a1, v3[11], v3);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v10) )
+    TppStartThreadData(&v9, v3[10], v3[11], v3[13]);
+    *((_QWORD *)Instance + 11) = v3[10];
+    *((_QWORD *)Instance + 12) = v3[11];
+    ((void (__fastcall *)(PTP_CALLBACK_INSTANCE, _QWORD, _QWORD *))v3[10])(Instance, v3[11], v3);
+    if ( RtlGetCurrentServiceSessionId() )
       v5 = (__int64)NtCurrentPeb()->SharedData + 556;
     if ( *(_BYTE *)v5 )
       RtlpTpETWCallbackStop(v3[18], v2, v3[10], v3[11], v3[13]);
-    return TppCompleteThreadData(v11);
+    return TppCompleteThreadData(v9);
   }
   return result;
 }

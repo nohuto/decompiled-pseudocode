@@ -1,14 +1,14 @@
 /*
- * XREFs of PopRecordLidStateWorker @ 0x140B544B0
+ * XREFs of PopRecordLidStateWorker @ 0x140B56D50
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404DE3B8 (PopOkayToQueueNextWorkItem.c)
- *     PopBsdHandleRequest @ 0x1404E5A30 (PopBsdHandleRequest.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1404D7A98 (PopOkayToQueueNextWorkItem.c)
+ *     PopBsdHandleRequest @ 0x1404DEFD0 (PopBsdHandleRequest.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 PopRecordLidStateWorker()
@@ -26,17 +26,17 @@ __int64 PopRecordLidStateWorker()
   struct _KLOCK_ENTRIES *v10; // r9
   __int64 v11; // [rsp+20h] [rbp-8h]
 
-  result = PopOkayToQueueNextWorkItem((__int64)&stru_140F12420.ReadOperationCount);
+  result = PopOkayToQueueNextWorkItem((__int64)&PopRecordLidStateWorkItem);
   if ( !PopErrataReportingIncorrectLidState )
   {
     PopAcquirePolicyLock(v2, v1);
     v3 = PopLidOpened != 0 ? 0x40 : 0;
     PopReleasePolicyLock(v5, v4, v6, v7, v11);
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20.AbWaitObject, v8, v9, v10);
-    stru_140E66FF0.SavedApcStateFill[35] = v3 | stru_140E66FF0.SavedApcStateFill[35] & 0x3F;
-    HIDWORD(PopModernStandbyStateNotify.SchedulerSharedSwappablePage) = stru_140E66FF0.SavedApcStateFill[35] >> 6;
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock, v8, v9, v10);
+    HIBYTE(stru_140E67200.ReservedPreviousReadyTimeValue) = v3 | HIBYTE(stru_140E67200.ReservedPreviousReadyTimeValue) & 0x3F;
+    *(_DWORD *)&PopPdcDeviceListLock.SavedApcStateFill[36] = HIBYTE(stru_140E67200.ReservedPreviousReadyTimeValue) >> 6;
     PopBsdHandleRequest(1u);
-    return PopReleaseRwLock((struct _KTHREAD *)&stru_140F12D20.AbWaitObject);
+    return PopReleaseRwLock((struct _KTHREAD *)&PopBsdUpdateLock);
   }
   return result;
 }

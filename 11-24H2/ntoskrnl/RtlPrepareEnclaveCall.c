@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlPrepareEnclaveCall @ 0x140464FAC
+ * XREFs of RtlPrepareEnclaveCall @ 0x14045B888
  * Callers:
- *     PsCallEnclave @ 0x140AD1D10 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x140AD0080 (PsCallEnclave.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of CarCreateViolationHashString @ 0x1405D555C
+ * XREFs of CarCreateViolationHashString @ 0x1405D5ACC
  * Callers:
- *     CarInitializeTelemetryData @ 0x1405D3D90 (CarInitializeTelemetryData.c)
+ *     CarInitializeTelemetryData @ 0x1405D4300 (CarInitializeTelemetryData.c)
  * Callees:
- *     AppendUlongAsHexadecimalW @ 0x1405D5498 (AppendUlongAsHexadecimalW.c)
- *     CarEtwCopyDriverName @ 0x1405D55DC (CarEtwCopyDriverName.c)
+ *     AppendUlongAsHexadecimalW @ 0x1405D5A08 (AppendUlongAsHexadecimalW.c)
+ *     CarEtwCopyDriverName @ 0x1405D5B4C (CarEtwCopyDriverName.c)
  */
 
 __int64 __fastcall CarCreateViolationHashString(__int64 a1, int a2, int a3)

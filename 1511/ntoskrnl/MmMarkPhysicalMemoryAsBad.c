@@ -189,7 +189,7 @@ LABEL_41:
   v5 = v20;
 LABEL_42:
   if ( v18 == 1 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   *a2 = (v3 + v4 - v5) << 12;
   if ( v4 == 1 )
     return v7;

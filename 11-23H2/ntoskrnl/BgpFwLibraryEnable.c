@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpFwLibraryEnable @ 0x140387E44
+ * XREFs of BgpFwLibraryEnable @ 0x140388024
  * Callers:
- *     BgLibraryEnable @ 0x140671A78 (BgLibraryEnable.c)
+ *     BgLibraryEnable @ 0x140671FC8 (BgLibraryEnable.c)
  *     BgpFwLibraryInitialize @ 0x140AEDC78 (BgpFwLibraryInitialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
  *     ResFwBackgroundTransition @ 0x140AEEAF8 (ResFwBackgroundTransition.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCacheAttributeHasValue @ 0x1402F5FFC
+ * XREFs of MiCacheAttributeHasValue @ 0x14033DD8C
  * Callers:
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     MiDemoteLocalLargePage @ 0x1402F6020 (MiDemoteLocalLargePage.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiDemoteLocalLargePage @ 0x14033E130 (MiDemoteLocalLargePage.c)
  * Callees:
  *     <none>
  */

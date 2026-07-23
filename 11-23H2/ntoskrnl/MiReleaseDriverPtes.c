@@ -3,16 +3,16 @@
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  *     MiReturnSystemImageAddress @ 0x140698C68 (MiReturnSystemImageAddress.c)
- *     MmUnmapLockedRestartPages @ 0x140A2B4A0 (MmUnmapLockedRestartPages.c)
+ *     MmUnmapLockedRestartPages @ 0x140A2B750 (MmUnmapLockedRestartPages.c)
  *     MiReleaseSystemImageVa @ 0x140B9A7DC (MiReleaseSystemImageVa.c)
  * Callees:
  *     MiUnlockDriverMappings @ 0x14020B474 (MiUnlockDriverMappings.c)
  *     MiLockDriverMappings @ 0x14020B4D8 (MiLockDriverMappings.c)
  *     MiReturnSystemVa @ 0x140213B54 (MiReturnSystemVa.c)
  *     RtlAreBitsSet @ 0x140220810 (RtlAreBitsSet.c)
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     RtlNumberOfSetBits @ 0x140293570 (RtlNumberOfSetBits.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140293800 (RtlNumberOfSetBits.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -21,10 +21,10 @@ void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, unsign
   __int64 v3; // rsi
   __int64 v5; // rbx
   struct _KTHREAD *CurrentThread; // r15
-  RTL_BITMAP *v7; // r12
+  _RTL_BITMAP *v7; // r12
   unsigned __int64 v8; // rdi
   ULONG_PTR v9; // rbp
-  RTL_BITMAP *i; // rbx
+  _RTL_BITMAP *i; // rbx
   unsigned __int64 Buffer; // rcx
   void *v12; // rax
   __int64 v13; // [rsp+30h] [rbp-48h]
@@ -39,7 +39,7 @@ void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, unsign
   v9 = (__int64)(a2 << 25) >> 16;
   MiLockDriverMappings((__int64)CurrentThread);
   v13 = v5;
-  for ( i = (RTL_BITMAP *)*(&qword_140C65940 + v5); i; i = *(RTL_BITMAP **)&i->SizeOfBitMap )
+  for ( i = (_RTL_BITMAP *)*(&qword_140C65940 + v5); i; i = *(_RTL_BITMAP **)&i->SizeOfBitMap )
   {
     Buffer = (unsigned __int64)i->Buffer;
     if ( a2 >= Buffer )

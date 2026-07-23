@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVadPagesTradable @ 0x1402BBEC0
+ * XREFs of MiVadPagesTradable @ 0x14023A0D0
  * Callers:
- *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
- *     MiProcessVaContiguityInformation @ 0x1405522C0 (MiProcessVaContiguityInformation.c)
+ *     MiLockStealUserVm @ 0x140258F74 (MiLockStealUserVm.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x140338C80 (NtUnlockVirtualMemory.c)
+ *     MiProcessVaContiguityInformation @ 0x140552500 (MiProcessVaContiguityInformation.c)
  * Callees:
  *     <none>
  */

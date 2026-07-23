@@ -1,15 +1,15 @@
 /*
- * XREFs of AccelCompressBuffer @ 0x1406DEB60
+ * XREFs of AccelCompressBuffer @ 0x1406E2E00
  * Callers:
- *     SmHwAcceleratorIssueRequest @ 0x14063FA78 (SmHwAcceleratorIssueRequest.c)
+ *     SmHwAcceleratorIssueRequest @ 0x140643658 (SmHwAcceleratorIssueRequest.c)
  * Callees:
- *     AccelpSubmitWork @ 0x1402A1EE4 (AccelpSubmitWork.c)
- *     AccelBuildDescriptorMemoryCompress @ 0x1406DE714 (AccelBuildDescriptorMemoryCompress.c)
- *     AccelQueryCompletionInformation @ 0x1406DF030 (AccelQueryCompletionInformation.c)
- *     AccelpBuildHuffmanEncoding @ 0x1406DF2C0 (AccelpBuildHuffmanEncoding.c)
- *     AccelpComputeHistogram @ 0x1406DF580 (AccelpComputeHistogram.c)
- *     AccelpWriteCompressionHeaderFormat @ 0x1406E0FB4 (AccelpWriteCompressionHeaderFormat.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpSubmitWork @ 0x1402A1434 (AccelpSubmitWork.c)
+ *     AccelBuildDescriptorMemoryCompress @ 0x1406E29B4 (AccelBuildDescriptorMemoryCompress.c)
+ *     AccelQueryCompletionInformation @ 0x1406E32D0 (AccelQueryCompletionInformation.c)
+ *     AccelpBuildHuffmanEncoding @ 0x1406E3560 (AccelpBuildHuffmanEncoding.c)
+ *     AccelpComputeHistogram @ 0x1406E3800 (AccelpComputeHistogram.c)
+ *     AccelpWriteCompressionHeaderFormat @ 0x1406E5234 (AccelpWriteCompressionHeaderFormat.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelCompressBuffer(__int64 a1)

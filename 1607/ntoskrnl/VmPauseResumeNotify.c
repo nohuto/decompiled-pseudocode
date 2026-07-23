@@ -1,5 +1,5 @@
 /*
- * XREFs of VmPauseResumeNotify @ 0x14069B52C
+ * XREFs of VmPauseResumeNotify @ 0x14069B610
  * Callers:
  *     <none>
  * Callees:

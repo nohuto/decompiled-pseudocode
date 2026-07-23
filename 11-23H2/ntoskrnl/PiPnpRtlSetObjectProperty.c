@@ -1,27 +1,27 @@
 /*
- * XREFs of PiPnpRtlSetObjectProperty @ 0x140796788
+ * XREFs of PiPnpRtlSetObjectProperty @ 0x140796978
  * Callers:
- *     PiCMSetObjectProperty @ 0x14079BE44 (PiCMSetObjectProperty.c)
- *     PiSwPropertySet @ 0x14079CA60 (PiSwPropertySet.c)
- *     PiDqIrpPropertySet @ 0x1407FFDD4 (PiDqIrpPropertySet.c)
- *     PnpSetDevicePropertyData @ 0x1408666A8 (PnpSetDevicePropertyData.c)
- *     PnpSetDeviceInterfacePropertyData @ 0x14086D8A8 (PnpSetDeviceInterfacePropertyData.c)
- *     PiDevCfgSetObjectProperty @ 0x14087B740 (PiDevCfgSetObjectProperty.c)
+ *     PiCMSetObjectProperty @ 0x14079C034 (PiCMSetObjectProperty.c)
+ *     PiSwPropertySet @ 0x14079CC50 (PiSwPropertySet.c)
+ *     PiDqIrpPropertySet @ 0x1408000A4 (PiDqIrpPropertySet.c)
+ *     PnpSetDevicePropertyData @ 0x1408668E8 (PnpSetDevicePropertyData.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14086DAE8 (PnpSetDeviceInterfacePropertyData.c)
+ *     PiDevCfgSetObjectProperty @ 0x14087B980 (PiDevCfgSetObjectProperty.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     _CmIsRootEnumeratedDevice @ 0x1406CC080 (_CmIsRootEnumeratedDevice.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
- *     _CmSplitDevicePanelId @ 0x14082B5BC (_CmSplitDevicePanelId.c)
- *     _CmUpdateDevicePanelInterface @ 0x140885CB0 (_CmUpdateDevicePanelInterface.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14096F6D4 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceOperation @ 0x14096F718 (PiAuditDeviceOperation.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406BB280 (SeAuditingWithTokenForSubcategory.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1406CC0B0 (_CmIsRootEnumeratedDevice.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
+ *     _CmSplitDevicePanelId @ 0x14082B8BC (_CmSplitDevicePanelId.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140885EF0 (_CmUpdateDevicePanelInterface.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14096F8D4 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceOperation @ 0x14096F918 (PiAuditDeviceOperation.c)
  */
 
 __int64 __fastcall PiPnpRtlSetObjectProperty(

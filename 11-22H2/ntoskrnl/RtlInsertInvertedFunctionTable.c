@@ -33,7 +33,9 @@ __int64 __fastcall RtlInsertInvertedFunctionTable(__int64 a1, int a2)
   MmLockLoadedModuleListExclusive(&v13);
   RtlpInsertInvertedFunctionTableEntry(v4, v3, v12[0], a2, v14);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v5 = v13;
     if ( v13 <= 0xFu && CurrentIrql >= 2u )

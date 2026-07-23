@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetUserContextThread @ 0x1409EBE78
+ * XREFs of PsGetUserContextThread @ 0x1409E8648
  * Callers:
- *     EtwpTraceContextRegisters @ 0x1406C4208 (EtwpTraceContextRegisters.c)
+ *     EtwpTraceContextRegisters @ 0x1406C7E48 (EtwpTraceContextRegisters.c)
  * Callees:
- *     PspGetContextThreadInternal @ 0x1409EC6B0 (PspGetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1409E8E80 (PspGetContextThreadInternal.c)
  */
 
 __int64 __fastcall PsGetUserContextThread(int a1, int a2)

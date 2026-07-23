@@ -62,7 +62,7 @@ __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __
   int v29; // edx
   unsigned int v30; // edx
   __int64 v31; // rcx
-  __int64 v32; // rcx
+  _KLOCK_ENTRY *v32; // rcx
   __int64 v33; // rdx
   signed __int32 v34; // eax
   unsigned __int64 v35; // rdi
@@ -95,7 +95,7 @@ __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __
   unsigned int v62; // [rsp+84h] [rbp-25h]
   int v63; // [rsp+8Ch] [rbp-1Dh]
   int v64; // [rsp+90h] [rbp-19h]
-  __int64 v65; // [rsp+98h] [rbp-11h]
+  _KLOCK_ENTRY *v65; // [rsp+98h] [rbp-11h]
   __int64 v66; // [rsp+A0h] [rbp-9h]
   ULONG_PTR v67; // [rsp+A8h] [rbp-1h]
   ULONG_PTR v68; // [rsp+B0h] [rbp+7h]
@@ -258,7 +258,7 @@ LABEL_127:
             }
             v43->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v43->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v36->LockEntries[v42]);
+              KiAbEntryRemoveFromTree(&v36->LockEntries[v42].TreeNode);
             v54 = 0;
             v54 = v43->BoostBitmap.AllFields & 0x1FFFF;
             v43->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -342,15 +342,15 @@ LABEL_120:
         while ( 1 )
         {
           v30 &= ~(1 << v31);
-          v32 = (__int64)&BugCheckParameter1->LockEntries[v31];
+          v32 = &BugCheckParameter1->LockEntries[v31];
           v65 = v32;
-          if ( (*(_BYTE *)(v32 + 26) & 1) != 0
-            && (*(_DWORD *)(v32 + 32) & 1) == 0
-            && (v66 & *(_QWORD *)(v32 + 32)) == v67
-            && *(_DWORD *)(v32 + 40) == (_DWORD)v26 )
+          if ( (v32->AcquiredByte & 1) != 0
+            && (*(_DWORD *)&v32->LockState.0 & 1) == 0
+            && (v66 & *(_QWORD *)&v32->LockState.0) == v67
+            && v32->LockState.SessionId == (_DWORD)v26 )
           {
-            *(_BYTE *)(v32 + 26) &= ~1u;
-            if ( *(_QWORD *)(v32 + 32) )
+            v32->AcquiredByte &= ~1u;
+            if ( v32->LockState.0 )
               break;
           }
           v19 = !_BitScanReverse((unsigned int *)&v31, v30);
@@ -366,20 +366,20 @@ LABEL_85:
         }
         else
         {
-          *(_BYTE *)(v32 + 32) |= 2u;
-          if ( *(__int64 *)(v32 + 32) < 0 )
+          v32->CrossThreadReleasableAndBusyByte |= 2u;
+          if ( (__int64)v32->LockState.LockState < 0 )
           {
-            KiAbEntryRemoveFromTree(v32);
+            KiAbEntryRemoveFromTree(&v32->TreeNode);
             v32 = v65;
             v27 = (ULONG_PTR)BugCheckParameter1;
             v28 = BugCheckParameter2a;
           }
           v53 = 0;
-          v53 = *(_DWORD *)(v32 + 88) & 0x1FFFF;
-          *(_DWORD *)(v32 + 88) &= 0xFFFE0000;
-          *(_BYTE *)(v32 + 25) &= ~1u;
-          *(_QWORD *)(v32 + 32) = 0LL;
-          v33 = (__int64)(v32 - v27 - 800) / 96;
+          v53 = v32->BoostBitmap.AllFields & 0x1FFFF;
+          v32->BoostBitmap.AllFields &= 0xFFFE0000;
+          v32->ThreadLocalFlags &= ~1u;
+          v32->LockState.0 = 0LL;
+          v33 = (__int64)((__int64)&v32[-8] - v27 - 32) / 96;
           if ( v72 )
             *(_BYTE *)(v27 + 792) |= 1 << v33;
           else
@@ -472,7 +472,7 @@ LABEL_51:
     {
       v23->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v23->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v15->LockEntries[v22]);
+        KiAbEntryRemoveFromTree(&v15->LockEntries[v22].TreeNode);
       v55 = 0;
       v55 = v23->BoostBitmap.AllFields & 0x1FFFF;
       v23->BoostBitmap.AllFields &= 0xFFFE0000;

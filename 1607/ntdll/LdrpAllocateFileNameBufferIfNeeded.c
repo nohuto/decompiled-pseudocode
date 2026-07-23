@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpAllocateFileNameBufferIfNeeded @ 0x1800132BC
+ * XREFs of LdrpAllocateFileNameBufferIfNeeded @ 0x1800132AC
  * Callers:
- *     LdrpAppendAnsiStringToFilenameBuffer @ 0x180013218 (LdrpAppendAnsiStringToFilenameBuffer.c)
+ *     LdrpAppendAnsiStringToFilenameBuffer @ 0x180013208 (LdrpAppendAnsiStringToFilenameBuffer.c)
  * Callees:
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
  *     memmove @ 0x1800AC980 (memmove.c)
- *     NtdllpReallocateStringRoutine @ 0x1800D2B04 (NtdllpReallocateStringRoutine.c)
+ *     NtdllpReallocateStringRoutine @ 0x1800D2BC4 (NtdllpReallocateStringRoutine.c)
  */
 
 __int64 __fastcall LdrpAllocateFileNameBufferIfNeeded(const void **a1, unsigned int a2)

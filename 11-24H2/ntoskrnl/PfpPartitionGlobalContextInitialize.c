@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpPartitionGlobalContextInitialize @ 0x140747560
+ * XREFs of PfpPartitionGlobalContextInitialize @ 0x140745850
  * Callers:
- *     PfInitializeSuperfetch @ 0x140C2C91C (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140C2EA3C (PfInitializeSuperfetch.c)
  * Callees:
  *     <none>
  */

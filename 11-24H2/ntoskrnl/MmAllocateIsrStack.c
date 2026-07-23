@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateIsrStack @ 0x1407F6B68
+ * XREFs of MmAllocateIsrStack @ 0x1407F72DC
  * Callers:
- *     KiAllocateProcessorStacks @ 0x1405B5D00 (KiAllocateProcessorStacks.c)
- *     KiCompleteBootProcessorContextInitialization @ 0x1405B65C0 (KiCompleteBootProcessorContextInitialization.c)
+ *     KiAllocateProcessorStacks @ 0x1405B2FC8 (KiAllocateProcessorStacks.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405B3888 (KiCompleteBootProcessorContextInitialization.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     KasanTrackAddress @ 0x140459A10 (KasanTrackAddress.c)
- *     MiSetPageProtection @ 0x14066F27C (MiSetPageProtection.c)
- *     MiMarkBootGuardPage @ 0x14067FECC (MiMarkBootGuardPage.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     KasanTrackAddress @ 0x14044E740 (KasanTrackAddress.c)
+ *     MiSetPageProtection @ 0x14067044C (MiSetPageProtection.c)
+ *     MiMarkBootGuardPage @ 0x1406810CC (MiMarkBootGuardPage.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
  */
 
 char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)
@@ -20,6 +20,7 @@ char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)
   int v4; // ebp
   __int64 IndependentPages; // rax
   unsigned __int64 v7; // rbx
+  __int64 v8; // r8
   unsigned __int64 PteAddress; // rax
 
   v2 = 0;
@@ -46,7 +47,7 @@ LABEL_6:
   if ( (int)KasanTrackAddress(v7 + 4096, (unsigned int)KeIsrStackSize, (unsigned int)(v4 + 1)) < 0 )
   {
     if ( v2 )
-      MmFreeIndependentPages(v7, v3);
+      MmFreeIndependentPages(v7, v3, v8);
     return 0;
   }
   PteAddress = MiGetPteAddress(v7);

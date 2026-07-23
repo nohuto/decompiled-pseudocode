@@ -1,22 +1,22 @@
 /*
- * XREFs of PopScreenOff @ 0x140A387B4
+ * XREFs of PopScreenOff @ 0x1409F4374
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PoBlockConsoleSwitchEx @ 0x140450E68 (PoBlockConsoleSwitchEx.c)
- *     PopDispatchStateCallout @ 0x140A39B10 (PopDispatchStateCallout.c)
- *     PopControlMonitor @ 0x140A39C20 (PopControlMonitor.c)
+ *     PoBlockConsoleSwitchEx @ 0x140448F98 (PoBlockConsoleSwitchEx.c)
+ *     PopDispatchStateCallout @ 0x1409F5718 (PopDispatchStateCallout.c)
+ *     PopControlMonitor @ 0x1409F5820 (PopControlMonitor.c)
  */
 
 __int64 __fastcall PopScreenOff(int a1)
 {
-  unsigned int v2; // ebx
+  ULONG v2; // ebx
   __int128 v4; // [rsp+20h] [rbp-30h] BYREF
   __int128 v5; // [rsp+30h] [rbp-20h]
   __int64 v6; // [rsp+40h] [rbp-10h]
-  unsigned int v7; // [rsp+60h] [rbp+10h] BYREF
+  ULONG v7; // [rsp+60h] [rbp+10h] BYREF
   int v8; // [rsp+68h] [rbp+18h] BYREF
   int v9; // [rsp+6Ch] [rbp+1Ch]
 

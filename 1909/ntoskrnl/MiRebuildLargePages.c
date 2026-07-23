@@ -30,7 +30,7 @@ void __fastcall MiRebuildLargePages(unsigned __int64 a1)
   int v11; // edx
   unsigned __int8 CurrentIrql; // si
   unsigned __int64 *v13; // r15
-  __int64 v14; // rax
+  PRTL_BALANCED_NODE v14; // rax
   unsigned int v15; // ebp
   unsigned __int64 v16; // r11
   __int64 v17; // r8
@@ -75,7 +75,7 @@ void __fastcall MiRebuildLargePages(unsigned __int64 a1)
       KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v2 + 1952));
       v14 = KeAbPreAcquire(v2, 0LL, 0);
       if ( v14 )
-        *(_BYTE *)(v14 + 26) |= 1u;
+        BYTE2(v14[1].Left) |= 1u;
       if ( v9 >= v8 )
         goto LABEL_24;
       if ( v6 < 0x400 )

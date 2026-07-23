@@ -6,12 +6,11 @@
  *     RtlpLocateXStateChunk @ 0x1800886F8 (RtlpLocateXStateChunk.c)
  */
 
-unsigned __int64 *RtlSetExtendedFeaturesMask()
+void __cdecl RtlSetExtendedFeaturesMask(PCONTEXT_EX ContextEx, ULONG64 FeatureMask)
 {
-  unsigned __int64 *result; // rax
-  __int64 v1; // r10
+  unsigned __int64 *XStateChunk; // rax
+  __int64 v3; // r10
 
-  result = (unsigned __int64 *)RtlpLocateXStateChunk();
-  *result = v1 & MEMORY[0x7FFE03D8] & 0xFFFFFFFFFFFFFFFCuLL;
-  return result;
+  XStateChunk = (unsigned __int64 *)RtlpLocateXStateChunk(ContextEx);
+  *XStateChunk = v3 & MEMORY[0x7FFE03D8] & 0xFFFFFFFFFFFFFFFCuLL;
 }

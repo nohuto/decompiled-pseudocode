@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegLfhVsFree @ 0x18004F470
+ * XREFs of RtlpHpSegLfhVsFree @ 0x180065050
  * Callers:
- *     RtlpHpVsSubsegmentFree @ 0x18004F2C4 (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentFree @ 0x18004F304 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpVsSubsegmentFree @ 0x180064EA4 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x180064EE4 (RtlpHpLfhSubsegmentFree.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhContextFree @ 0x18004F530 (RtlpHpLfhContextFree.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhContextFree @ 0x180065110 (RtlpHpLfhContextFree.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhVsFree(__int64 a1, __int64 a2)

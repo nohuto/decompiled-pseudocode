@@ -1,10 +1,10 @@
 /*
- * XREFs of NtAllocateVirtualMemory @ 0x1407ABE20
+ * XREFs of NtAllocateVirtualMemory @ 0x1407AC010
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     MiAllocateVirtualMemoryCommon @ 0x1406F6A20 (MiAllocateVirtualMemoryCommon.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1406F6C30 (MiAllocateVirtualMemoryCommon.c)
  */
 
 NTSTATUS __stdcall NtAllocateVirtualMemory(

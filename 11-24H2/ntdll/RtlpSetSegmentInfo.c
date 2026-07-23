@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSetSegmentInfo @ 0x1800969D0
+ * XREFs of RtlpSetSegmentInfo @ 0x1800A16F0
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x180028AA0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18002A3E0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800554A0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180056DE0 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpLogHeapAffinitySlotAssign @ 0x18014C644 (RtlpLogHeapAffinitySlotAssign.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpLogHeapAffinitySlotAssign @ 0x18014AA0C (RtlpLogHeapAffinitySlotAssign.c)
  */
 
 __int64 __fastcall RtlpSetSegmentInfo(volatile signed __int64 **a1, volatile signed __int64 *a2)
@@ -68,7 +68,7 @@ __int64 __fastcall RtlpSetSegmentInfo(volatile signed __int64 **a1, volatile sig
       }
       while ( _InterlockedCompareExchange64(a2 + 20, v17, v13) != v13 );
       *a1 = a2;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v15 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v15 = 2147353472LL;

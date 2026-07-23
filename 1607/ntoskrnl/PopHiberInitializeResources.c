@@ -1,17 +1,17 @@
 /*
- * XREFs of PopHiberInitializeResources @ 0x14052F2C4
+ * XREFs of PopHiberInitializeResources @ 0x14052F804
  * Callers:
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x14000634C (RtlGetCompressionWorkSpaceSize.c)
- *     IoGetDumpStackTransferSizes @ 0x14011296C (IoGetDumpStackTransferSizes.c)
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x1400064BC (RtlGetCompressionWorkSpaceSize.c)
+ *     IoGetDumpStackTransferSizes @ 0x140112EDC (IoGetDumpStackTransferSizes.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmMarkHiberRange @ 0x14052F584 (MmMarkHiberRange.c)
- *     PopCalculateHiberFileSize @ 0x140546C54 (PopCalculateHiberFileSize.c)
- *     MmAllocateDumpHibernateResources @ 0x1405487D8 (MmAllocateDumpHibernateResources.c)
+ *     MmMarkHiberRange @ 0x14052FAC4 (MmMarkHiberRange.c)
+ *     PopCalculateHiberFileSize @ 0x140547194 (PopCalculateHiberFileSize.c)
+ *     MmAllocateDumpHibernateResources @ 0x140548D18 (MmAllocateDumpHibernateResources.c)
  */
 
 void __fastcall PopHiberInitializeResources(_QWORD *MemoryMap)
@@ -89,15 +89,15 @@ void __fastcall PopHiberInitializeResources(_QWORD *MemoryMap)
   {
     ExFreePoolWithTag(PoolWithTag, 0x72626968u);
 LABEL_23:
-    PoolWithTag = (__int64 *)qword_140303628;
+    PoolWithTag = (__int64 *)qword_140303568;
     v1 = 1;
     v20 = 1;
     v7 = 1;
-    memset(qword_140303628, 0, 0x80uLL);
+    memset(qword_140303568, 0, 0x80uLL);
     v21 = 12288;
-    PoolWithTag[1] = xmmword_1403035A8;
-    v19 = qword_140303620;
-    v12 = (char *)qword_140303620;
+    PoolWithTag[1] = xmmword_1403034E8;
+    v19 = qword_140303560;
+    v12 = (char *)qword_140303560;
     goto LABEL_21;
   }
   if ( PopHiberChecksummingEnabledReg )
@@ -136,7 +136,7 @@ LABEL_23:
   MemoryMap[37] = PoolWithTag;
   MemoryMap[38] = v18;
   MemoryMap[39] = DumpHibernateResources;
-  v19 = qword_140303620;
+  v19 = qword_140303560;
   v20 = 16;
   v21 = v22;
 LABEL_21:

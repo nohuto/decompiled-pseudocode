@@ -1,8 +1,8 @@
 /*
- * XREFs of VfMajorIsNewRequest @ 0x14070E4E4
+ * XREFs of VfMajorIsNewRequest @ 0x14070E514
  * Callers:
- *     ViGenericVerifyIrpStackDownward @ 0x140703950 (ViGenericVerifyIrpStackDownward.c)
- *     IovpCallDriver1 @ 0x14070A890 (IovpCallDriver1.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x140703980 (ViGenericVerifyIrpStackDownward.c)
+ *     IovpCallDriver1 @ 0x14070A8C0 (IovpCallDriver1.c)
  * Callees:
  *     <none>
  */

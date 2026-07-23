@@ -41,7 +41,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rcx
   _QWORD *SharedCacheMap; // rax
   __int64 v14; // r14
-  struct _LIST_ENTRY *v15; // r12
+  _LIST_ENTRY *v15; // r12
   _BYTE *v16; // r13
   _QWORD *v17; // rax
   PVPB Vpb; // rcx
@@ -118,7 +118,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   __int64 v89; // [rsp+C0h] [rbp-40h]
   __int64 v90; // [rsp+D0h] [rbp-30h]
   PFILE_OBJECT v91; // [rsp+D8h] [rbp-28h]
-  struct _LIST_ENTRY ListEntry; // [rsp+E0h] [rbp-20h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+E0h] [rbp-20h] BYREF
   __int64 v93; // [rsp+F0h] [rbp-10h]
   __int64 *p_Object; // [rsp+F8h] [rbp-8h]
   __int128 v95; // [rsp+100h] [rbp+0h]
@@ -150,7 +150,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   {
     v14 = *((_QWORD *)PspSystemPartition + 1);
     v84 = (_BYTE *)(v14 + 1292);
-    v15 = (struct _LIST_ENTRY *)(v14 + 1168);
+    v15 = (_LIST_ENTRY *)(v14 + 1168);
     v16 = (_BYTE *)(v14 + 780);
     goto LABEL_67;
   }
@@ -161,7 +161,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   *(_QWORD *)&v79 = 0LL;
   *(_QWORD *)&Wait = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && Wait <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && Wait <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( Wait != 2 )
@@ -230,13 +230,13 @@ LABEL_35:
     }
 LABEL_36:
     v84 = (char *)v5 + 1172;
-    v15 = (struct _LIST_ENTRY *)(v5 + 138);
+    v15 = (_LIST_ENTRY *)(v5 + 138);
     v16 = (char *)v5 + 708;
   }
   else
   {
     v84 = (_BYTE *)(v14 + 1292);
-    v15 = (struct _LIST_ENTRY *)(v14 + 1168);
+    v15 = (_LIST_ENTRY *)(v14 + 1168);
     v16 = (_BYTE *)(v14 + 780);
   }
   v7 = 1LL;
@@ -293,10 +293,13 @@ LABEL_36:
   }
 LABEL_56:
   v29 = (unsigned __int8)v80;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v80 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v80 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = (KSPIN_LOCK *)CurrentPrcb->SchedulerAssist;
@@ -392,10 +395,10 @@ LABEL_69:
     CcScheduleLazyWriteScan(v14, v5, v40, 0LL);
     KxReleaseQueuedSpinLock(&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v42 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
       {
         v43 = KeGetCurrentPrcb();
         v44 = v43->SchedulerAssist;
@@ -422,10 +425,10 @@ LABEL_69:
             *v16 = 0;
           KxReleaseQueuedSpinLock(&LockHandle);
           v48 = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v49 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v49 <= 0xFu && LockHandle.OldIrql <= 0xFu && v49 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu && LockHandle.OldIrql <= 0xFu && v49 >= 2u )
             {
               v50 = KeGetCurrentPrcb();
               v51 = v50->SchedulerAssist;
@@ -457,7 +460,7 @@ LABEL_123:
   v83 = 0LL;
   v54 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v54 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v54 <= 0xFu )
   {
     v8 = (KSPIN_LOCK *)KeGetCurrentPrcb()->SchedulerAssist;
     if ( v54 == 2 )
@@ -526,10 +529,10 @@ LABEL_147:
   }
 LABEL_149:
   v64 = (unsigned __int8)v83;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v65 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v65 <= 0xFu && (unsigned __int8)v83 <= 0xFu && v65 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v65 <= 0xFu && (unsigned __int8)v83 <= 0xFu && v65 >= 2u )
     {
       v66 = KeGetCurrentPrcb();
       v67 = v66->SchedulerAssist;

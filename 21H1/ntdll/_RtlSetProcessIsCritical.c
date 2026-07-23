@@ -10,7 +10,7 @@
 int __cdecl RtlSetProcessIsCritical(unsigned __int8 a1, _BYTE *a2, char a3)
 {
   int result; // eax
-  int v4; // [esp+4h] [ebp-4h] BYREF
+  int ProcessInformation; // [esp+4h] [ebp-4h] BYREF
 
   if ( a2 )
     *a2 = 0;
@@ -18,11 +18,11 @@ int __cdecl RtlSetProcessIsCritical(unsigned __int8 a1, _BYTE *a2, char a3)
     return -1073741823;
   if ( a2 )
   {
-    result = ZwQueryInformationProcess(-1, 29, (int)&v4, 4, 0);
+    result = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessBreakOnTermination, &ProcessInformation, 4u, 0);
     if ( result < 0 )
       return result;
-    *a2 = v4;
+    *a2 = ProcessInformation;
   }
-  v4 = a1;
-  return ZwSetInformationProcess(-1, 29, (int)&v4, 4);
+  ProcessInformation = a1;
+  return ZwSetInformationProcess((HANDLE)0xFFFFFFFF, ProcessBreakOnTermination, &ProcessInformation, 4u);
 }

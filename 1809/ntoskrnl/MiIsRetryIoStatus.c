@@ -5,9 +5,9 @@
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiZeroPageWrite @ 0x140128438 (MiZeroPageWrite.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
- *     MiLogFailedDriverLoad @ 0x14084E968 (MiLogFailedDriverLoad.c)
+ *     MiZeroPageWrite @ 0x140128508 (MiZeroPageWrite.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4558 (MiMakeOutswappedPageResident.c)
+ *     MiLogFailedDriverLoad @ 0x14084FBC8 (MiLogFailedDriverLoad.c)
  * Callees:
  *     FsRtlIsTotalDeviceFailure @ 0x140022ED0 (FsRtlIsTotalDeviceFailure.c)
  */

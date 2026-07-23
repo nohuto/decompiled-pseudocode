@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAccessCheckFromStateEx @ 0x140481E50
+ * XREFs of SeAccessCheckFromStateEx @ 0x14047B7C0
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
  */
 
 bool __fastcall SeAccessCheckFromStateEx(
@@ -11,7 +11,7 @@ bool __fastcall SeAccessCheckFromStateEx(
         __int64 a2,
         __int64 a3,
         unsigned int a4,
-        unsigned int a5,
+        int a5,
         _QWORD *a6,
         _DWORD *a7,
         char a8,
@@ -34,5 +34,5 @@ bool __fastcall SeAccessCheckFromStateEx(
     v12 = a3;
     LODWORD(v13) = v10;
   }
-  return SeAccessCheckWithHint(a1, 0, (__int64)&v12, 1, a4, a5, a6, a7, a8, a9, a10);
+  return SeAccessCheckWithHint(a1, 0, (int *)&v12, 1, a4, a5, a6, a7, a8, a9, a10);
 }

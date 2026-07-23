@@ -5,7 +5,7 @@
  *     ViKeWaitForMultipleObjectsCommon @ 0x140713278 (ViKeWaitForMultipleObjectsCommon.c)
  *     ViKeWaitForSingleObjectCommon @ 0x140713354 (ViKeWaitForSingleObjectCommon.c)
  * Callees:
- *     VfUtilIsLocalSystem @ 0x140702DE8 (VfUtilIsLocalSystem.c)
+ *     VfUtilIsLocalSystem @ 0x140702E18 (VfUtilIsLocalSystem.c)
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  */
 

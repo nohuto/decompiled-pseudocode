@@ -3,16 +3,16 @@
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x1400AA1D0 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeIsTsxDisabled @ 0x1401D2928 (KeIsTsxDisabled.c)
- *     KeKvaShadowingActive @ 0x1401D8DB4 (KeKvaShadowingActive.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
- *     KeQueryKvaShadowInformation @ 0x14064FF2C (KeQueryKvaShadowInformation.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1400A8750 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeIsTsxDisabled @ 0x1401D2754 (KeIsTsxDisabled.c)
+ *     KeKvaShadowingActive @ 0x1401D8BE0 (KeKvaShadowingActive.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
+ *     KeQueryKvaShadowInformation @ 0x140650010 (KeQueryKvaShadowInformation.c)
  */
 
 __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)

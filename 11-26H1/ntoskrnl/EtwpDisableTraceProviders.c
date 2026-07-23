@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDisableTraceProviders @ 0x1409378E0
+ * XREFs of EtwpDisableTraceProviders @ 0x140913480
  * Callers:
- *     EtwpStopLoggerInstance @ 0x140A15968 (EtwpStopLoggerInstance.c)
+ *     EtwpStopLoggerInstance @ 0x140A14B5C (EtwpStopLoggerInstance.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     EtwpDisablePerProcessTracing @ 0x140828458 (EtwpDisablePerProcessTracing.c)
- *     EtwpGetNextGuidEntry @ 0x1409366D0 (EtwpGetNextGuidEntry.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14093737C (EtwpClearSessionAndUnreferenceEntry.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     EtwpDisablePerProcessTracing @ 0x14082E698 (EtwpDisablePerProcessTracing.c)
+ *     EtwpGetNextGuidEntry @ 0x140912280 (EtwpGetNextGuidEntry.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140912F1C (EtwpClearSessionAndUnreferenceEntry.c)
  */
 
 LONG __fastcall EtwpDisableTraceProviders(__int64 a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -42,7 +42,7 @@ LONG __fastcall EtwpDisableTraceProviders(__int64 a1, int a2, __int64 a3, struct
       break;
     EtwpClearSessionAndUnreferenceEntry(a2, (__int64)NextGuidEntry, 2, v13);
   }
-  KeWaitForSingleObject(ExpSysDbgLock.Padding, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&stru_140F03830.Header.WaitListHead.Blink, Executive, 0, 0, 0LL);
   for ( k = 0; k < 9; ++k )
   {
     if ( *(_BYTE *)v6 == (_BYTE)a2 )
@@ -53,5 +53,5 @@ LONG __fastcall EtwpDisableTraceProviders(__int64 a1, int a2, __int64 a3, struct
     }
     ++v6;
   }
-  return KeReleaseMutex((PRKMUTEX)ExpSysDbgLock.Padding, 0);
+  return KeReleaseMutex((PRKMUTEX)&stru_140F03830.Header.WaitListHead.Blink, 0);
 }

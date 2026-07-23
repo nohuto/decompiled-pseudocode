@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x1406EE640
+ * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x1406F32E0
  * Callers:
- *     MiInitializeMdlBatchPages @ 0x14050EE1C (MiInitializeMdlBatchPages.c)
+ *     MiInitializeMdlBatchPages @ 0x14050888C (MiInitializeMdlBatchPages.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiZeroAndConvertPage @ 0x1402A14B0 (MiZeroAndConvertPage.c)
- *     MiUpdateCacheAttributeListsForPage @ 0x1402A1D68 (MiUpdateCacheAttributeListsForPage.c)
- *     MiPfnZeroingNeeded @ 0x14033AAB0 (MiPfnZeroingNeeded.c)
- *     MiCreatePageChains @ 0x1403C35B8 (MiCreatePageChains.c)
- *     MiInsertMdlPageNeedsZero @ 0x1403C472C (MiInsertMdlPageNeedsZero.c)
- *     MiChangePageAttributeAndZeroBatch @ 0x14070D2EC (MiChangePageAttributeAndZeroBatch.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiZeroAndConvertPage @ 0x1402A0A00 (MiZeroAndConvertPage.c)
+ *     MiUpdateCacheAttributeListsForPage @ 0x1402A12B8 (MiUpdateCacheAttributeListsForPage.c)
+ *     MiPfnZeroingNeeded @ 0x14033CB30 (MiPfnZeroingNeeded.c)
+ *     MiCreatePageChains @ 0x1403CD4B8 (MiCreatePageChains.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403CE638 (MiInsertMdlPageNeedsZero.c)
+ *     MiChangePageAttributeAndZeroBatch @ 0x140711F9C (MiChangePageAttributeAndZeroBatch.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall MiInitializeMdlOneNodeBatchPages(__int64 a1, ULONG_PTR *a2, __int64 a3)

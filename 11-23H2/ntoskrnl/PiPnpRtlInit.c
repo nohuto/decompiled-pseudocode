@@ -1,21 +1,21 @@
 /*
- * XREFs of PiPnpRtlInit @ 0x140811214
+ * XREFs of PiPnpRtlInit @ 0x1408114E4
  * Callers:
- *     PnpBootPhaseComplete @ 0x140811110 (PnpBootPhaseComplete.c)
+ *     PnpBootPhaseComplete @ 0x1408113E0 (PnpBootPhaseComplete.c)
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x140367778 (CmIsStateSeparationEnabled.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     _PnpCtxSetNtPlugPlayRoutine @ 0x140811394 (_PnpCtxSetNtPlugPlayRoutine.c)
- *     PiDrvDbInit @ 0x1408113C4 (PiDrvDbInit.c)
- *     _PnpCtxRegOpenKey @ 0x1408127C0 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxOpenMachine @ 0x140854C94 (_PnpCtxOpenMachine.c)
- *     _PnpCtxCreateNode @ 0x140854EA8 (_PnpCtxCreateNode.c)
- *     _PnpCtxDestroyNode @ 0x140A60838 (_PnpCtxDestroyNode.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     CmIsStateSeparationEnabled @ 0x140367918 (CmIsStateSeparationEnabled.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     _PnpCtxSetNtPlugPlayRoutine @ 0x140811664 (_PnpCtxSetNtPlugPlayRoutine.c)
+ *     PiDrvDbInit @ 0x140811694 (PiDrvDbInit.c)
+ *     _PnpCtxRegOpenKey @ 0x140812A90 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxOpenMachine @ 0x140854F94 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxCreateNode @ 0x1408551A8 (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140A60AE8 (_PnpCtxDestroyNode.c)
  */
 
 __int64 __fastcall PiPnpRtlInit(unsigned int a1)

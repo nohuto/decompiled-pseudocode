@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeProcessUserCetLogging @ 0x140B1E10C
+ * XREFs of KeInitializeProcessUserCetLogging @ 0x140B20190
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeInitializeProcessUserCetLogging(__int64 a1)

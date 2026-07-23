@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpUnblockPushLock @ 0x140087548
+ * XREFs of ExpUnblockPushLock @ 0x14010B740
  * Callers:
- *     MiUnlockImageSection @ 0x140083B04 (MiUnlockImageSection.c)
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140087378 (ExTimedWaitForUnblockPushLock.c)
- *     CmpDecrementAppHiveUnloadCount @ 0x140087508 (CmpDecrementAppHiveUnloadCount.c)
- *     CmpTryToRundownHive @ 0x1400876A8 (CmpTryToRundownHive.c)
- *     ExSweepSingleHandle @ 0x140088E4C (ExSweepSingleHandle.c)
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
- *     ExUnblockOnAddressPushLockEx @ 0x14022D85C (ExUnblockOnAddressPushLockEx.c)
+ *     MiUnlockImageSection @ 0x140081C64 (MiUnlockImageSection.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x14009DD08 (ExTimedWaitForUnblockPushLock.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x14010B700 (CmpDecrementAppHiveUnloadCount.c)
+ *     CmpTryToRundownHive @ 0x14010B8A0 (CmpTryToRundownHive.c)
+ *     ExSweepSingleHandle @ 0x14010D03C (ExSweepSingleHandle.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
+ *     ExUnblockOnAddressPushLockEx @ 0x14022D688 (ExUnblockOnAddressPushLockEx.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140087378 (ExTimedWaitForUnblockPushLock.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x14009DD08 (ExTimedWaitForUnblockPushLock.c)
  */
 
 LONG __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)

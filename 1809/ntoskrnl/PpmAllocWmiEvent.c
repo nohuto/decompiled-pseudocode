@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmAllocWmiEvent @ 0x1402E44B0
+ * XREFs of PpmAllocWmiEvent @ 0x1402E46A0
  * Callers:
- *     PpmFireWmiEvent @ 0x1402E4558 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x1402E45E0 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x1402E4748 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x1402E47D0 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     IoWMIDeviceObjectToProviderId @ 0x14012E8E0 (IoWMIDeviceObjectToProviderId.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     IoWMIDeviceObjectToProviderId @ 0x14012E9B0 (IoWMIDeviceObjectToProviderId.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall PpmAllocWmiEvent(PDEVICE_OBJECT DeviceObject, __int128 *a2, int a3)

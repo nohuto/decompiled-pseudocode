@@ -1,11 +1,11 @@
 /*
- * XREFs of CcCopyBytesToUserBuffer @ 0x1404476E0
+ * XREFs of CcCopyBytesToUserBuffer @ 0x1404465B0
  * Callers:
- *     CcMapAndCopyFromCache @ 0x140447390 (CcMapAndCopyFromCache.c)
+ *     CcMapAndCopyFromCache @ 0x140446260 (CcMapAndCopyFromCache.c)
  * Callees:
- *     FsRtlNormalizeNtstatus @ 0x14010F2F8 (FsRtlNormalizeNtstatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     CcCopyReadExceptionFilter @ 0x1401B19C0 (CcCopyReadExceptionFilter.c)
+ *     FsRtlNormalizeNtstatus @ 0x14010F85C (FsRtlNormalizeNtstatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     CcCopyReadExceptionFilter @ 0x1401B18A4 (CcCopyReadExceptionFilter.c)
  */
 
 __int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size)

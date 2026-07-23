@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceWdf @ 0x1405AA0E0
+ * XREFs of EtwpTraceWdf @ 0x1405AA310
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceWdf(__int64 a1, int a2, unsigned int a3, __int16 a4, unsigned __int8 a5)

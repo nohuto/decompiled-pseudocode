@@ -1,71 +1,87 @@
 /*
- * XREFs of RawQueryFileSystemInformation @ 0x14080012C
+ * XREFs of RawQueryFileSystemInformation @ 0x140805BB0
  * Callers:
- *     RawUserFsCtrl @ 0x140A367BC (RawUserFsCtrl.c)
+ *     RawUserFsCtrl @ 0x140919C34 (RawUserFsCtrl.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RawPerformDevIoCtrl @ 0x1407FFF34 (RawPerformDevIoCtrl.c)
- *     IoBuildSynchronousFsdRequest @ 0x140AD5C20 (IoBuildSynchronousFsdRequest.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     Feature_RAW_Sector_Alignment_Fix__private_IsEnabledDeviceUsageNoInline @ 0x14061A52C (Feature_RAW_Sector_Alignment_Fix__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RawPerformDevIoCtrl @ 0x140805964 (RawPerformDevIoCtrl.c)
+ *     RawComputeFileSystemInformationChecksum @ 0x140805B5C (RawComputeFileSystemInformationChecksum.c)
+ *     IoBuildSynchronousFsdRequest @ 0x140AD2BD0 (IoBuildSynchronousFsdRequest.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RawQueryFileSystemInformation(__int64 a1, __int64 a2, __int64 a3)
 {
-  _QWORD *v4; // r12
-  size_t v5; // rax
+  size_t v4; // rax
   NTSTATUS Status; // ebx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  unsigned __int16 v10; // si
-  ULONG v11; // r15d
-  unsigned __int16 *PoolWithTag; // rdi
-  unsigned __int16 v13; // r14
-  PIRP v14; // rax
-  ULONG v15; // r8d
-  struct _KEVENT Event; // [rsp+58h] [rbp-21h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-9h] BYREF
-  __int128 v20; // [rsp+80h] [rbp+7h] BYREF
-  SIZE_T NumberOfBytes; // [rsp+90h] [rbp+17h]
+  _QWORD *v7; // r12
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  ULONG v11; // r14d
+  int v12; // ebx
+  ULONG v13; // eax
+  PVOID PoolWithTag; // rdi
+  __int64 v15; // rsi
+  PIRP v16; // rax
+  ULONG v17; // eax
+  struct _KEVENT Event; // [rsp+50h] [rbp-29h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-11h] BYREF
+  __int128 v21; // [rsp+78h] [rbp-1h] BYREF
+  ULONG Length[2]; // [rsp+88h] [rbp+Fh]
 
-  NumberOfBytes = 0LL;
-  v4 = *(_QWORD **)(a1 + 24);
-  v5 = *(unsigned int *)(a2 + 8);
+  *(_QWORD *)Length = 0LL;
+  v4 = *(unsigned int *)(a2 + 8);
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
-  v20 = 0LL;
-  if ( (unsigned int)v5 >= 9 )
+  v21 = 0LL;
+  if ( (unsigned int)v4 >= 9 )
   {
-    memset_0(v4, 0, v5);
-    v10 = 0;
-    Status = RawPerformDevIoCtrl(v7, *(struct _DEVICE_OBJECT **)(a3 + 192), v8, v9, &v20);
+    v7 = *(_QWORD **)(a1 + 24);
+    memset_0(v7, 0, v4);
+    Status = RawPerformDevIoCtrl(v8, *(struct _DEVICE_OBJECT **)(a3 + 192), v9, v10, &v21);
     if ( Status >= 0 )
     {
-      v11 = HIDWORD(NumberOfBytes);
-      if ( HIDWORD(NumberOfBytes) >= 0x18 )
+      v11 = Length[1];
+      if ( Length[1] >= 0x18 )
       {
-        PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag((POOL_TYPE)1025, HIDWORD(NumberOfBytes), 0x62574152u);
+        v12 = *(_DWORD *)(*(_QWORD *)(a3 + 192) + 152LL);
+        if ( (unsigned int)Feature_RAW_Sector_Alignment_Fix__private_IsEnabledDeviceUsageNoInline() )
+        {
+          v13 = v12 + v11;
+          if ( v12 + v11 < v11 )
+            return (unsigned int)-1073741811;
+        }
+        else
+        {
+          v13 = v11;
+        }
+        PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1025, v13, 0x62574152u);
         if ( PoolWithTag )
         {
+          if ( (unsigned int)Feature_RAW_Sector_Alignment_Fix__private_IsEnabledDeviceUsageNoInline() )
+            v15 = -(__int64)(unsigned int)(v12 + 1) & ((unsigned __int64)PoolWithTag + (unsigned int)(v12 + 1) - 1);
+          else
+            v15 = (__int64)PoolWithTag;
           KeInitializeEvent(&Event, NotificationEvent, 0);
-          v13 = 3;
-          v14 = IoBuildSynchronousFsdRequest(
+          v16 = IoBuildSynchronousFsdRequest(
                   3u,
                   *(PDEVICE_OBJECT *)(a3 + 192),
-                  PoolWithTag,
+                  (PVOID)v15,
                   v11,
                   0LL,
                   &Event,
                   &IoStatusBlock);
-          if ( v14 )
+          if ( v16 )
           {
-            v14->Tail.Overlay.CurrentStackLocation[-1].Flags |= 2u;
-            Status = IofCallDriver(*(PDEVICE_OBJECT *)(a3 + 192), v14);
+            v16->Tail.Overlay.CurrentStackLocation[-1].Flags |= 2u;
+            Status = IofCallDriver(*(PDEVICE_OBJECT *)(a3 + 192), v16);
             if ( Status == 259 )
             {
               KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -73,26 +89,16 @@ __int64 __fastcall RawQueryFileSystemInformation(__int64 a1, __int64 a2, __int64
             }
             if ( Status >= 0 )
             {
-              if ( *((_DWORD *)PoolWithTag + 4) != 1397904198 )
-                goto LABEL_21;
-              v15 = PoolWithTag[10];
-              if ( v15 > v11 || (unsigned __int16)v15 < 0x18u )
-                goto LABEL_21;
-              do
+              if ( *(_DWORD *)(v15 + 16) == 1397904198
+                && (v17 = *(unsigned __int16 *)(v15 + 20), v17 <= v11)
+                && (unsigned __int16)v17 >= 0x18u
+                && (unsigned __int16)RawComputeFileSystemInformationChecksum(v15) == *(_WORD *)(v15 + 22) )
               {
-                if ( (unsigned __int16)(v13 - 22) > 1u )
-                  v10 = (v10 << 15) + *((unsigned __int8 *)PoolWithTag + v13) + (v10 >> 1);
-                ++v13;
-              }
-              while ( v13 < (unsigned __int16)v15 );
-              if ( v10 == PoolWithTag[11] )
-              {
-                *v4 = *(_QWORD *)((char *)PoolWithTag + 3);
+                *v7 = *(_QWORD *)(v15 + 3);
                 *(_QWORD *)(a1 + 56) = 9LL;
               }
               else
               {
-LABEL_21:
                 Status = -1073741637;
               }
             }

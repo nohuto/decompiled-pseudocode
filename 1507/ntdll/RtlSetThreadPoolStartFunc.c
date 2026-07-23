@@ -6,12 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSetThreadPoolStartFunc(__int64 (__fastcall *a1)(), __int64 (__fastcall *a2)())
+NTSTATUS __cdecl RtlSetThreadPoolStartFunc(
+        PRTL_START_POOL_THREAD StartPoolThread,
+        PRTL_EXIT_POOL_THREAD ExitPoolThread)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  RtlpStartThreadFunc = a1;
-  result = 0LL;
-  RtlpExitThreadFunc[0] = a2;
+  RtlpStartThreadFunc = (__int64 (__fastcall *)())StartPoolThread;
+  result = 0;
+  RtlpExitThreadFunc = (__int64 (__fastcall *)(NTSTATUS))ExitPoolThread;
   return result;
 }

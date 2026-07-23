@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlInitUTF8StringEx @ 0x140585470
+ * XREFs of RtlInitUTF8StringEx @ 0x1405856A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiStringEx @ 0x1403B7E40 (RtlInitAnsiStringEx.c)
+ *     RtlInitAnsiStringEx @ 0x1403B7FB0 (RtlInitAnsiStringEx.c)
  */
 
-NTSTATUS __fastcall RtlInitUTF8StringEx(STRING *a1, const char *a2)
+NTSTATUS __cdecl RtlInitUTF8StringEx(PUTF8_STRING DestinationString, PCSZ SourceString)
 {
-  return RtlInitAnsiStringEx(a1, a2);
+  return RtlInitAnsiStringEx(DestinationString, SourceString);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpRtlpCtSelfSubscribeCallback @ 0x14058E830
+ * XREFs of RtlpRtlpCtSelfSubscribeCallback @ 0x14058EA60
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCtSelfSubscribe @ 0x140919680 (RtlpCtSelfSubscribe.c)
+ *     RtlpCtSelfSubscribe @ 0x1409197E0 (RtlpCtSelfSubscribe.c)
  */
 
 __int64 __fastcall RtlpRtlpCtSelfSubscribeCallback(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, __int64 a6)

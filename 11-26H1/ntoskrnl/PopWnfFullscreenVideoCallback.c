@@ -1,16 +1,16 @@
 /*
- * XREFs of PopWnfFullscreenVideoCallback @ 0x140B486A0
+ * XREFs of PopWnfFullscreenVideoCallback @ 0x140B4A430
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x140394368 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140948918 (ExpWnfAcquireSubscriptionNameInstance.c)
- *     ExpWnfReadStateData @ 0x14094A158 (ExpWnfReadStateData.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1403960E8 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x1409C4288 (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExpWnfReadStateData @ 0x1409C5AC8 (ExpWnfReadStateData.c)
  */
 
 __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -49,13 +49,13 @@ __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1, __int64 a2, __int64
   {
     if ( v15 < 8 )
       return 0;
-    PpmAcquireLock((struct _KTHREAD **)&qword_140F123A0, v8, v9);
-    if ( byte_140F1070E )
+    PpmAcquireLock((struct _KTHREAD **)&qword_140F12AA0, v8, v9);
+    if ( *((_BYTE *)&PpmIdlePolicyLock.ForegroundLossTime + 6) )
     {
       if ( (v17 & 2) == 0 )
       {
 LABEL_12:
-        byte_140F1070E = (v17 & 2) != 0;
+        *((_BYTE *)&PpmIdlePolicyLock.ForegroundLossTime + 6) = (v17 & 2) != 0;
         PoFxSendSystemLatencyUpdate(v11, v10, v12, v13);
       }
     }
@@ -63,7 +63,7 @@ LABEL_12:
     {
       goto LABEL_12;
     }
-    PpmReleaseLock(&qword_140F123A0);
+    PpmReleaseLock(&qword_140F12AA0);
   }
   return (unsigned int)v6;
 }

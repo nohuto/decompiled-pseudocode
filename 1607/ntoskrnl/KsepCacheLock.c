@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepCacheLock @ 0x1404E3A3C
+ * XREFs of KsepCacheLock @ 0x14050CE94
  * Callers:
- *     KseAddHardwareId @ 0x1404E3884 (KseAddHardwareId.c)
- *     KsepDbCacheQueryDevice @ 0x140534DE4 (KsepDbCacheQueryDevice.c)
- *     KsepDbCacheInsertDevice @ 0x14057DABC (KsepDbCacheInsertDevice.c)
- *     KseQueryDeviceDataList @ 0x140652334 (KseQueryDeviceDataList.c)
- *     KseResetDeviceCache @ 0x1406524A8 (KseResetDeviceCache.c)
- *     KseLookupHardwareId @ 0x1406539E0 (KseLookupHardwareId.c)
+ *     KseAddHardwareId @ 0x14050D830 (KseAddHardwareId.c)
+ *     KsepDbCacheQueryDevice @ 0x140535324 (KsepDbCacheQueryDevice.c)
+ *     KsepDbCacheInsertDevice @ 0x14057DF68 (KsepDbCacheInsertDevice.c)
+ *     KseQueryDeviceDataList @ 0x140652418 (KseQueryDeviceDataList.c)
+ *     KseResetDeviceCache @ 0x14065258C (KseResetDeviceCache.c)
+ *     KseLookupHardwareId @ 0x140653AC4 (KseLookupHardwareId.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall KsepCacheLock(unsigned __int64 *a1)

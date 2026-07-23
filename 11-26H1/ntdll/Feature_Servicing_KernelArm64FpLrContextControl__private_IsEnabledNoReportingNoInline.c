@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x1801205AC
+ * XREFs of Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x18012035C
  * Callers:
- *     RtlpCopyLegacyContextArm64 @ 0x1801202A8 (RtlpCopyLegacyContextArm64.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x180120058 (RtlpCopyLegacyContextArm64.c)
  * Callees:
  *     <none>
  */

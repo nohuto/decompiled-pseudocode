@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEnableLargeSubsection @ 0x1402B5CC4
+ * XREFs of MiEnableLargeSubsection @ 0x1402B5EB4
  * Callers:
- *     MiIncrementLargeSubsections @ 0x1402B615C (MiIncrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1402B634C (MiIncrementLargeSubsections.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiChargeLargeProtoSubsection @ 0x1408528D4 (MiChargeLargeProtoSubsection.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiChargeLargeProtoSubsection @ 0x140853B34 (MiChargeLargeProtoSubsection.c)
  */
 
 __int64 __fastcall MiEnableLargeSubsection(__int64 a1)
@@ -59,8 +59,8 @@ __int64 __fastcall MiEnableLargeSubsection(__int64 a1)
         v11 = *(_QWORD *)v1;
         if ( (*(_QWORD *)v1 & 1) == 0 )
         {
-          if ( qword_14043A0C0 && (v11 & 0x10) == 0 )
-            v11 &= ~qword_14043A0C0;
+          if ( qword_14043B180 && (v11 & 0x10) == 0 )
+            v11 &= ~qword_14043B180;
           v9 ^= (v9 ^ v11) & 0xFFFFFFFFF000LL;
           *(_QWORD *)v1 = v9;
           *(_QWORD *)(v10 + 24) &= 0xC000000000000000uLL;

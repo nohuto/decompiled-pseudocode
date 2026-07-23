@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUpdatePowerActionWatchdogTimeouts @ 0x14098AAC8
+ * XREFs of PopUpdatePowerActionWatchdogTimeouts @ 0x14098ACC8
  * Callers:
- *     PopSetPowerActionWatchdogState @ 0x14058F4F8 (PopSetPowerActionWatchdogState.c)
+ *     PopSetPowerActionWatchdogState @ 0x14058F9E8 (PopSetPowerActionWatchdogState.c)
  * Callees:
- *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140996F30 (PopIsDetailedSleepReliabilityDiagEnabled.c)
+ *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140997130 (PopIsDetailedSleepReliabilityDiagEnabled.c)
  */
 
 __int64 PopUpdatePowerActionWatchdogTimeouts()

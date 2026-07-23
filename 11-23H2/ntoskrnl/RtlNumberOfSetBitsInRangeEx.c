@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlNumberOfSetBitsInRangeEx @ 0x1405A8F90
+ * XREFs of RtlNumberOfSetBitsInRangeEx @ 0x1405A9500
  * Callers:
  *     <none>
  * Callees:
@@ -39,14 +39,14 @@ __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __
   v9 = (char *)((a2 >> 3) + a1[1]);
   if ( a2 >> 3 == v6 )
     return *((unsigned __int8 *)RtlpBitsClearTotal
-           + (unsigned __int8)~(*v9 & byte_140016E88[v7] & byte_140018F88[v8 + 1]));
+           + (unsigned __int8)~(*v9 & byte_140016E78[v7] & byte_140018F80[v8 + 1]));
   if ( (((unsigned __int8)a3 | (unsigned __int8)a2) & 0x3F) != 0 )
   {
     if ( (a2 & 7) != 0 )
     {
       v13 = *v9++;
       ++v5;
-      v4 = *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(v13 & byte_140016E88[v7]));
+      v4 = *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(v13 & byte_140016E78[v7]));
     }
     v14 = 8 - (v5 & 7);
     if ( (v14 & 0xFFFFFFFFFFFFFFF7uLL) != 0 )
@@ -87,7 +87,7 @@ __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __
       }
       while ( v19 );
     }
-    return v4 + *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(*v9 & byte_140018F88[v8 + 1]));
+    return v4 + *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(*v9 & byte_140018F80[v8 + 1]));
   }
   else
   {

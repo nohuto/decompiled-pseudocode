@@ -1,20 +1,20 @@
 /*
- * XREFs of MiScrubPage @ 0x1402CF950
+ * XREFs of MiScrubPage @ 0x1402CFB40
  * Callers:
- *     MiScrubAwePage @ 0x1402B1C5C (MiScrubAwePage.c)
- *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
- *     MiScrubLargeMappedPage @ 0x1402CF238 (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
- *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
+ *     MiScrubAwePage @ 0x1402B1E4C (MiScrubAwePage.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCD80 (MiScrubNodeLargePageList.c)
+ *     MiScrubLargeMappedPage @ 0x1402CF428 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x1402CF8B8 (MiScrubNode.c)
+ *     MiScrubNonPagedPool @ 0x140850338 (MiScrubNonPagedPool.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     RtlScrubMemory @ 0x1402F7E8C (RtlScrubMemory.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     RtlScrubMemory @ 0x1402F807C (RtlScrubMemory.c)
  */
 
 __int64 __fastcall MiScrubPage(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, char a4)
@@ -44,7 +44,7 @@ __int64 __fastcall MiScrubPage(unsigned __int64 *a1, __int64 a2, unsigned __int6
     if ( (unsigned int)MiPteHasShadow() )
     {
       v12 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
 LABEL_8:
         if ( (v11 & 1) != 0 )
@@ -79,7 +79,7 @@ LABEL_12:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v16 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
 LABEL_23:
           if ( (v15 & 1) != 0 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTrackTableGetMoreLimit @ 0x1406CCCB4
+ * XREFs of ExpTrackTableGetMoreLimit @ 0x1406D0CE4
  * Callers:
- *     ExpPoolTrackerChargeEntry @ 0x1403979B0 (ExpPoolTrackerChargeEntry.c)
+ *     ExpPoolTrackerChargeEntry @ 0x140399730 (ExpPoolTrackerChargeEntry.c)
  * Callees:
- *     ExpTrackRaiseLimitNotification @ 0x1405324F8 (ExpTrackRaiseLimitNotification.c)
+ *     ExpTrackRaiseLimitNotification @ 0x140534998 (ExpTrackRaiseLimitNotification.c)
  */
 
 __int64 __fastcall ExpTrackTableGetMoreLimit(__int64 a1, __int64 a2, int a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PspJobClose @ 0x1406065F0
+ * XREFs of PspJobClose @ 0x1406075F0
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PspJobIsSilo @ 0x14008F5D8 (PspJobIsSilo.c)
- *     PspHardDereferenceSiloWorker @ 0x1402E9694 (PspHardDereferenceSiloWorker.c)
- *     PspCloseSilo @ 0x140582738 (PspCloseSilo.c)
- *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1405FE100 (PspLockJobExclusive.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x140603450 (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C6F84 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     PspJobIsSilo @ 0x14008F4F8 (PspJobIsSilo.c)
+ *     PspHardDereferenceSiloWorker @ 0x1402E9884 (PspHardDereferenceSiloWorker.c)
+ *     PspCloseSilo @ 0x140583738 (PspCloseSilo.c)
+ *     PspUnlockJob @ 0x1405FF0C0 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1405FF100 (PspLockJobExclusive.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x140604450 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C8224 (PspTerminateAllProcessesInJobHierarchy.c)
  */
 
 void __fastcall PspJobClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

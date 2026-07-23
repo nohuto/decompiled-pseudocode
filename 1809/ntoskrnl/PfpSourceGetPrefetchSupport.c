@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpSourceGetPrefetchSupport @ 0x140864E60
+ * XREFs of PfpSourceGetPrefetchSupport @ 0x1408660C0
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x14086438C (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x1408655EC (PfpPrefetchPrivatePages.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtOpenProcess @ 0x140646BF0 (NtOpenProcess.c)
- *     NtOpenSession @ 0x1406DB0D0 (NtOpenSession.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtOpenProcess @ 0x140647C10 (NtOpenProcess.c)
+ *     NtOpenSession @ 0x1406DC370 (NtOpenSession.c)
  */
 
 __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   HANDLE UniqueProcess; // r14
   int v6; // ecx
   int v8; // ecx
-  int v9; // edi
+  NTSTATUS v9; // edi
   unsigned __int64 v10; // rax
   int v11; // eax
   __int64 v12; // rdx
@@ -105,7 +105,7 @@ LABEL_16:
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v9 = NtOpenSession(&ClientId, 983043, (__int64)&ObjectAttributes);
+  v9 = NtOpenSession(&ClientId.UniqueProcess, 0xF0003u, &ObjectAttributes);
   if ( v9 >= 0 )
   {
     *(_QWORD *)(a2 + 8) = ClientId.UniqueProcess;

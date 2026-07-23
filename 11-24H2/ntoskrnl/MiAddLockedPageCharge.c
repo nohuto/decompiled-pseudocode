@@ -1,30 +1,30 @@
 /*
- * XREFs of MiAddLockedPageCharge @ 0x1402F6F40
+ * XREFs of MiAddLockedPageCharge @ 0x14033F050
  * Callers:
- *     MiMigratePfn @ 0x14022C0A0 (MiMigratePfn.c)
- *     MiHandleCollidedFault @ 0x14023B504 (MiHandleCollidedFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14023B89C (MiWaitForCollidedFaultComplete.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
- *     MiPrivateFixup @ 0x1402EE4F0 (MiPrivateFixup.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x1402F6DBC (MiTryLockProtoPoolPageAtDpc.c)
- *     MiBuildReservationCluster @ 0x140368F90 (MiBuildReservationCluster.c)
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiMirrorPerformBrownWrites @ 0x140455840 (MiMirrorPerformBrownWrites.c)
- *     MiMakeFaultPfnActive @ 0x140462FB4 (MiMakeFaultPfnActive.c)
- *     MiLockPagedAddress @ 0x14047910C (MiLockPagedAddress.c)
- *     MiBuildForkPageTable @ 0x1404A304C (MiBuildForkPageTable.c)
- *     MiMapSystemCachePage @ 0x1404C9858 (MiMapSystemCachePage.c)
- *     MiLockDownWorkingSet @ 0x1404CA2DC (MiLockDownWorkingSet.c)
- *     MiSplitDirectMapPage @ 0x1404D14D0 (MiSplitDirectMapPage.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
- *     MiSwitchToTransition @ 0x1404F1388 (MiSwitchToTransition.c)
- *     MiPurgeBadFileOnlyPages @ 0x14067B98C (MiPurgeBadFileOnlyPages.c)
- *     MiDbgMarkPfnModified @ 0x14067ECDC (MiDbgMarkPfnModified.c)
+ *     MiMakeFaultPfnActive @ 0x14025A13C (MiMakeFaultPfnActive.c)
+ *     MiBuildReservationCluster @ 0x1402EAD30 (MiBuildReservationCluster.c)
+ *     MiMigratePfn @ 0x1402FF9B0 (MiMigratePfn.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14033EECC (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
+ *     MiPrivateFixup @ 0x14034FB30 (MiPrivateFixup.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiHandleCollidedFault @ 0x140426D4C (MiHandleCollidedFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1404270E4 (MiWaitForCollidedFaultComplete.c)
+ *     MiMirrorPerformBrownWrites @ 0x14044A580 (MiMirrorPerformBrownWrites.c)
+ *     MiLockPagedAddress @ 0x14047499C (MiLockPagedAddress.c)
+ *     MiBuildForkPageTable @ 0x14049DFAC (MiBuildForkPageTable.c)
+ *     MiMapSystemCachePage @ 0x1404C2D08 (MiMapSystemCachePage.c)
+ *     MiLockDownWorkingSet @ 0x1404C3800 (MiLockDownWorkingSet.c)
+ *     MiSplitDirectMapPage @ 0x1404CA510 (MiSplitDirectMapPage.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
+ *     MiSwitchToTransition @ 0x1404EEE28 (MiSwitchToTransition.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14067CB6C (MiPurgeBadFileOnlyPages.c)
+ *     MiDbgMarkPfnModified @ 0x14067FEDC (MiDbgMarkPfnModified.c)
  * Callees:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     MiChargePartitionResidentAvailable @ 0x1402F6BC0 (MiChargePartitionResidentAvailable.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     MiChargePartitionResidentAvailable @ 0x14033ECD0 (MiChargePartitionResidentAvailable.c)
  */
 
 __int64 __fastcall MiAddLockedPageCharge(__int64 a1, char a2)
@@ -74,7 +74,7 @@ __int64 __fastcall MiAddLockedPageCharge(__int64 a1, char a2)
     if ( (*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL) > 0xFFFFF6BFFFFFFF78uLL
       || (*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL) < 0xFFFFF68000000000uLL )
     {
-      v12 = (ULONG *)*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+      v12 = (ULONG *)*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
 LABEL_14:
       if ( v12 == &MiSystemPartition )
       {
@@ -108,12 +108,12 @@ LABEL_9:
     }
     if ( (*(_BYTE *)(a1 + 35) & 0x20) == 0 )
     {
-      v12 = (ULONG *)*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+      v12 = (ULONG *)*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
       goto LABEL_14;
     }
   }
   v11 = 1;
-  v12 = (ULONG *)*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+  v12 = (ULONG *)*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
   result = MiChargeCommit((__int64)v12, 1uLL, 4 * (v9 ^ 1u) + 4);
   if ( (_DWORD)result )
     goto LABEL_14;

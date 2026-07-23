@@ -1,23 +1,23 @@
 /*
- * XREFs of BgpTxtDisplayCharacter @ 0x140384F88
+ * XREFs of BgpTxtDisplayCharacter @ 0x140385168
  * Callers:
- *     BgpDisplayCharacterEx @ 0x140671C34 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x140672184 (BgpDisplayCharacterEx.c)
  *     AnFwDisplayProgressIndicator @ 0x140AED598 (AnFwDisplayProgressIndicator.c)
  *     AnFwpProgressIndicatorTimer @ 0x140AED710 (AnFwpProgressIndicatorTimer.c)
- *     AnFwpProgressAnimationManual @ 0x140AF22AC (AnFwpProgressAnimationManual.c)
+ *     AnFwpProgressAnimationManual @ 0x140AF22BC (AnFwpProgressAnimationManual.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     TxtpGetCacheEntry @ 0x1403851C8 (TxtpGetCacheEntry.c)
- *     BgpGxDrawRectangle @ 0x14038524C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
- *     BgpRasPrintGlyph @ 0x140385724 (BgpRasPrintGlyph.c)
- *     BgpGxConvertRectangleEx @ 0x140385A9C (BgpGxConvertRectangleEx.c)
- *     BgpFoGetTextMetrics @ 0x140385BB0 (BgpFoGetTextMetrics.c)
- *     BgpGxFillRectangle @ 0x140387D34 (BgpGxFillRectangle.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     TxtpGetCacheEntry @ 0x1403853A8 (TxtpGetCacheEntry.c)
+ *     BgpGxDrawRectangle @ 0x14038542C (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
+ *     BgpRasPrintGlyph @ 0x140385904 (BgpRasPrintGlyph.c)
+ *     BgpGxConvertRectangleEx @ 0x140385C7C (BgpGxConvertRectangleEx.c)
+ *     BgpFoGetTextMetrics @ 0x140385D90 (BgpFoGetTextMetrics.c)
+ *     BgpGxFillRectangle @ 0x140387F14 (BgpGxFillRectangle.c)
  *     TxtpAddCacheEntry @ 0x140AED9C8 (TxtpAddCacheEntry.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
- *     BgpGxBlendRectangle @ 0x140AF2430 (BgpGxBlendRectangle.c)
- *     TxtpJustifyRectangle @ 0x140AF29E0 (TxtpJustifyRectangle.c)
+ *     BgpGxBlendRectangle @ 0x140AF2440 (BgpGxBlendRectangle.c)
+ *     TxtpJustifyRectangle @ 0x140AF29F0 (TxtpJustifyRectangle.c)
  */
 
 __int64 __fastcall BgpTxtDisplayCharacter(__int64 a1, __int64 a2, char a3, _DWORD *a4, _DWORD *a5)

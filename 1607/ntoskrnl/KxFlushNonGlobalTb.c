@@ -1,15 +1,15 @@
 /*
- * XREFs of KxFlushNonGlobalTb @ 0x140030C90
+ * XREFs of KxFlushNonGlobalTb @ 0x140030810
  * Callers:
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x140030DC0 (KiIpiSendRequestEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x140030FBC (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiSetTbFlushTimeStampBusy @ 0x1401D6288 (KiSetTbFlushTimeStampBusy.c)
+ *     KiIpiSendRequestEx @ 0x140030940 (KiIpiSendRequestEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140030B3C (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiSetTbFlushTimeStampBusy @ 0x1401D60B4 (KiSetTbFlushTimeStampBusy.c)
  */
 
 __int64 __fastcall KxFlushNonGlobalTb(__int64 a1)

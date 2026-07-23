@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlInsertPerFileContextWithReserve @ 0x14045B800
+ * XREFs of FsRtlInsertPerFileContextWithReserve @ 0x140450C00
  * Callers:
- *     FsRtlInsertPerFileContext @ 0x14057FEF0 (FsRtlInsertPerFileContext.c)
+ *     FsRtlInsertPerFileContext @ 0x14057D330 (FsRtlInsertPerFileContext.c)
  * Callees:
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403C576C (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403C58E4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403B432C (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403B44A4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlInsertPerFileContextWithReserve(volatile signed __int64 *a1, _QWORD *a2, int a3)
@@ -25,7 +25,7 @@ __int64 __fastcall FsRtlInsertPerFileContextWithReserve(volatile signed __int64 
   v7 = (_QWORD *)*a1;
   if ( *a1 )
     goto LABEL_7;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x42uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x42uLL, 0x28uLL, 0x63665346u);
   v7 = Pool2;
   if ( Pool2 )
   {

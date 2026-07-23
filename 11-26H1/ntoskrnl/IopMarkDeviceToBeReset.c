@@ -1,13 +1,13 @@
 /*
- * XREFs of IopMarkDeviceToBeReset @ 0x1407A2860
+ * XREFs of IopMarkDeviceToBeReset @ 0x1407A53A0
  * Callers:
- *     IopQueueDeviceResetEvent @ 0x1407A29D4 (IopQueueDeviceResetEvent.c)
- *     PnpFinalizeDeviceRemovalForReset @ 0x1407A2BCC (PnpFinalizeDeviceRemovalForReset.c)
- *     PnpRebalance @ 0x1407B3F98 (PnpRebalance.c)
+ *     IopQueueDeviceResetEvent @ 0x1407A5514 (IopQueueDeviceResetEvent.c)
+ *     PnpFinalizeDeviceRemovalForReset @ 0x1407A570C (PnpFinalizeDeviceRemovalForReset.c)
+ *     PnpRebalance @ 0x1407B6FF8 (PnpRebalance.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopQueryDeviceState @ 0x14090F0B0 (IopQueryDeviceState.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopQueryDeviceState @ 0x1409B11E0 (IopQueryDeviceState.c)
  */
 
 __int64 __fastcall IopMarkDeviceToBeReset(ULONG_PTR BugCheckParameter2)

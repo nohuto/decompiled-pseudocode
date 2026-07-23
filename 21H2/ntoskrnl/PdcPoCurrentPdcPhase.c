@@ -1,17 +1,17 @@
 /*
- * XREFs of PdcPoCurrentPdcPhase @ 0x1405763C0
+ * XREFs of PdcPoCurrentPdcPhase @ 0x140576600
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     PopFxPauseDeviceAccounting @ 0x14056B764 (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x14056C640 (PopFxResumeDeviceAccounting.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140577810 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14057792C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x1408EE678 (PopPowerAggregatorNotifyPdcSleepTransition.c)
- *     PopPowerAggregatorNotifyResiliencyReached @ 0x1408EE760 (PopPowerAggregatorNotifyResiliencyReached.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1408EFD2C (PopDisarmIdlePhaseWatchdog.c)
- *     PopIdleCsStateChanged @ 0x1408F5634 (PopIdleCsStateChanged.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     PopFxPauseDeviceAccounting @ 0x14056B9A4 (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x14056C880 (PopFxResumeDeviceAccounting.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140577A50 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x140577B6C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x1408EE7D8 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorNotifyResiliencyReached @ 0x1408EE8C0 (PopPowerAggregatorNotifyResiliencyReached.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1408EFE8C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopIdleCsStateChanged @ 0x1408F5794 (PopIdleCsStateChanged.c)
  */
 
 __int64 __fastcall PdcPoCurrentPdcPhase(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -42,14 +42,14 @@ __int64 __fastcall PdcPoCurrentPdcPhase(int a1, __int64 a2, __int64 a3, __int64 
         }
         else if ( (_BYTE)a2 )
         {
-          qword_140C4FF48 = KeQueryPerformanceCounter(0LL).QuadPart;
+          qword_140C4FF88 = KeQueryPerformanceCounter(0LL).QuadPart;
           PopDeepSleepResiliencyPhaseAccountingBegin(3LL, 0LL);
           if ( (PopFxDeviceAccountingLevel & 2) != 0 )
             PopFxResumeDeviceAccounting();
         }
         else
         {
-          qword_140C4FF50 += *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C4FF48;
+          qword_140C4FF90 += *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C4FF88;
           if ( (PopFxDeviceAccountingLevel & 2) != 0 )
             PopFxPauseDeviceAccounting();
           PopDeepSleepResiliencyPhaseAccountingEnd(3LL, 0LL);

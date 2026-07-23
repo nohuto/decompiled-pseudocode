@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMirrorPerformBrownWrites @ 0x1403822B8
+ * XREFs of MiMirrorPerformBrownWrites @ 0x140382400
  * Callers:
- *     MiMirrorBrownPhase @ 0x14099568C (MiMirrorBrownPhase.c)
+ *     MiMirrorBrownPhase @ 0x14099668C (MiMirrorBrownPhase.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
- *     MiPfnReferenceCountIsZero @ 0x140325DF0 (MiPfnReferenceCountIsZero.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiDiscardTransitionPteEx @ 0x140388E94 (MiDiscardTransitionPteEx.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
+ *     MiPfnReferenceCountIsZero @ 0x140330B40 (MiPfnReferenceCountIsZero.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140333910 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiDiscardTransitionPteEx @ 0x140388FE4 (MiDiscardTransitionPteEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiMirrorPerformBrownWrites(__int64 a1, unsigned __int64 a2, _QWORD *a3)
@@ -80,8 +80,8 @@ __int64 __fastcall MiMirrorPerformBrownWrites(__int64 a1, unsigned __int64 a2, _
   v7 = a2;
   while ( 1 )
   {
-    SchedulerAssist = v4 & -(__int64)(v4 < qword_140C4E710);
-    for ( i = qword_140C4E710 - 1; i - SchedulerAssist == -1LL; i = v20 - 1 )
+    SchedulerAssist = v4 & -(__int64)(v4 < qword_140C4E750);
+    for ( i = qword_140C4E750 - 1; i - SchedulerAssist == -1LL; i = v20 - 1 )
     {
       v12 = -1LL;
 LABEL_46:
@@ -89,18 +89,18 @@ LABEL_46:
         goto LABEL_10;
       v20 = v4 + 1;
       SchedulerAssist = 0LL;
-      if ( v4 + 1 > qword_140C4E710 )
-        v20 = qword_140C4E710;
+      if ( v4 + 1 > qword_140C4E750 )
+        v20 = qword_140C4E750;
     }
     a2 = (1LL << (SchedulerAssist & 0x3F)) - 1;
-    v10 = (_QWORD *)(qword_140C4E718 + 8 * (SchedulerAssist >> 6));
+    v10 = (_QWORD *)(qword_140C4E758 + 8 * (SchedulerAssist >> 6));
     for ( j = a2 | ~*v10; j == -1LL; j = ~*v10 )
     {
-      if ( (unsigned __int64)++v10 > qword_140C4E718 + 8 * (i >> 6) )
+      if ( (unsigned __int64)++v10 > qword_140C4E758 + 8 * (i >> 6) )
         goto LABEL_43;
     }
     _BitScanForward64(&j, ~j);
-    v12 = j + (((__int64)v10 - qword_140C4E718) >> 3 << 6);
+    v12 = j + (((__int64)v10 - qword_140C4E758) >> 3 << 6);
     if ( v12 > i )
     {
 LABEL_43:
@@ -112,24 +112,24 @@ LABEL_43:
 LABEL_10:
     if ( v12 < v4 || v12 == -1LL )
       goto LABEL_32;
-    if ( qword_140C4E710 > v12 )
+    if ( qword_140C4E750 > v12 )
     {
       v13 = v12;
-      SchedulerAssist = qword_140C4E718 + 4 * ((unsigned __int64)(qword_140C4E710 - 1) >> 5);
-      i = qword_140C4E718 + 4 * (v12 >> 5);
-      if ( i != SchedulerAssist && (*(_DWORD *)i | *((_DWORD *)qword_140011C70 + (v12 & 0x1F))) == -1 )
+      SchedulerAssist = qword_140C4E758 + 4 * ((unsigned __int64)(qword_140C4E750 - 1) >> 5);
+      i = qword_140C4E758 + 4 * (v12 >> 5);
+      if ( i != SchedulerAssist && (*(_DWORD *)i | *((_DWORD *)qword_140012120 + (v12 & 0x1F))) == -1 )
       {
         v13 = (v12 & 0xFFFFFFFFFFFFFFE0uLL) + 32;
         for ( i += 4LL; i < SchedulerAssist && *(_DWORD *)i == -1; i += 4LL )
           v13 += 32LL;
       }
-      while ( v13 < qword_140C4E710 && _bittest64((const signed __int64 *)qword_140C4E718, v13) )
+      while ( v13 < qword_140C4E750 && _bittest64((const signed __int64 *)qword_140C4E758, v13) )
         ++v13;
       v14 = 0LL;
       if ( i != SchedulerAssist )
       {
         a2 = *(unsigned int *)i;
-        if ( ((unsigned int)a2 & ~*((_DWORD *)qword_140011C70 + (v13 & 0x1F))) == 0 )
+        if ( ((unsigned int)a2 & ~*((_DWORD *)qword_140012120 + (v13 & 0x1F))) == 0 )
         {
           v14 = 32 - (v13 & 0x1F);
           if ( v14 == -1 )
@@ -144,20 +144,20 @@ LABEL_10:
           }
         }
       }
-      a2 = qword_140C4E710;
+      a2 = qword_140C4E750;
       v15 = v14 + v13;
-      if ( v14 + v13 < qword_140C4E710 )
+      if ( v14 + v13 < qword_140C4E750 )
       {
         do
         {
-          if ( _bittest64((const signed __int64 *)qword_140C4E718, v15) )
+          if ( _bittest64((const signed __int64 *)qword_140C4E758, v15) )
             break;
           if ( v14 == -1 )
             break;
           ++v15;
           ++v14;
         }
-        while ( v15 < qword_140C4E710 );
+        while ( v15 < qword_140C4E750 );
         v3 = v52;
       }
 LABEL_26:
@@ -167,7 +167,7 @@ LABEL_26:
     }
     v14 = 0LL;
 LABEL_51:
-    v13 = qword_140C4E710;
+    v13 = qword_140C4E750;
 LABEL_27:
     v16 = v13 - v12;
     v53 = v7 & 8;
@@ -177,7 +177,7 @@ LABEL_27:
       break;
     v21 = v12 & 0x1F;
     a2 = v16;
-    v22 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (v12 >> 5));
+    v22 = (volatile signed __int32 *)(qword_140C4E768 + 4 * (v12 >> 5));
     if ( v21 + v16 <= 0x20 )
     {
       if ( v16 == 32 )
@@ -214,7 +214,7 @@ LABEL_64:
 LABEL_65:
     v4 = v16 + v14 + v12;
 LABEL_31:
-    if ( v4 >= qword_140C4E710 )
+    if ( v4 >= qword_140C4E750 )
       goto LABEL_32;
   }
   v4 = v12;
@@ -267,7 +267,7 @@ LABEL_31:
     }
     SchedulerAssist = v4 & 0x1F;
     LOBYTE(v32) = 1;
-    i = qword_140C4E728 + 4 * (v4 >> 5);
+    i = qword_140C4E768 + 4 * (v4 >> 5);
     if ( SchedulerAssist + 1 <= 0x20 )
     {
       _InterlockedAnd((volatile signed __int32 *)i, ~(1 << SchedulerAssist));

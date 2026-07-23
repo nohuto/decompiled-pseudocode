@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpGetProcessCommandLine @ 0x140964348
+ * XREFs of PnpGetProcessCommandLine @ 0x140964548
  * Callers:
- *     PnpLogVetoInformation @ 0x1409643E0 (PnpLogVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x1409645E0 (PnpLogVetoInformation.c)
  * Callees:
- *     PsQueryProcessCommandLine @ 0x1403546F0 (PsQueryProcessCommandLine.c)
+ *     PsQueryProcessCommandLine @ 0x140354890 (PsQueryProcessCommandLine.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

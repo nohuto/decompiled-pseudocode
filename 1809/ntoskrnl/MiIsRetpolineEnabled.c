@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIsRetpolineEnabled @ 0x1400DA570
+ * XREFs of MiIsRetpolineEnabled @ 0x1400DA5F0
  * Callers:
- *     MmMarkHiberPhase @ 0x14057C328 (MmMarkHiberPhase.c)
- *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
- *     MmGetImageRetpolineCodePage @ 0x1406D0580 (MmGetImageRetpolineCodePage.c)
- *     MiApplyRetpolineFixups @ 0x140853708 (MiApplyRetpolineFixups.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1408538D4 (MiCaptureRetpolineRelocationTables.c)
- *     MiMarkKernelImageRetpolineBits @ 0x140853D04 (MiMarkKernelImageRetpolineBits.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744 (MiApplyRetpolineFixupsToKernelAndHal.c)
- *     MiApplyImportOptimizationToBootDrivers @ 0x1409F6F40 (MiApplyImportOptimizationToBootDrivers.c)
+ *     MmMarkHiberPhase @ 0x14057D328 (MmMarkHiberPhase.c)
+ *     MiParseImageLoadConfig @ 0x140651A9C (MiParseImageLoadConfig.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
+ *     MmGetImageRetpolineCodePage @ 0x1406D1820 (MmGetImageRetpolineCodePage.c)
+ *     MiApplyRetpolineFixups @ 0x140854968 (MiApplyRetpolineFixups.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140854B34 (MiCaptureRetpolineRelocationTables.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x140854F64 (MiMarkKernelImageRetpolineBits.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D3744 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyImportOptimizationToBootDrivers @ 0x1409F7F40 (MiApplyImportOptimizationToBootDrivers.c)
  * Callees:
  *     <none>
  */

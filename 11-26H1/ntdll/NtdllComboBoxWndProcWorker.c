@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllComboBoxWndProcWorker @ 0x18015EE90
+ * XREFs of NtdllComboBoxWndProcWorker @ 0x18015ED90
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllComboBoxWndProcWorker()
 {
-  off_1801E02C8();
+  off_1801DF2C8();
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PsGetNextPartitionUnsafe @ 0x140246D98
+ * XREFs of PsGetNextPartitionUnsafe @ 0x1402194E8
  * Callers:
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     CcCoalescingCallBack @ 0x14043C700 (CcCoalescingCallBack.c)
- *     CcForEachPartition @ 0x140470EE8 (CcForEachPartition.c)
- *     CcGetDirtyPages @ 0x140471FC0 (CcGetDirtyPages.c)
- *     CcIsThereDirtyData @ 0x140480940 (CcIsThereDirtyData.c)
- *     ExSwapinWorkerThreads @ 0x140A51B34 (ExSwapinWorkerThreads.c)
+ *     CcForEachPartition @ 0x14021AA70 (CcForEachPartition.c)
+ *     CcGetDirtyPages @ 0x14021ABB0 (CcGetDirtyPages.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     CcCoalescingCallBack @ 0x140263B80 (CcCoalescingCallBack.c)
+ *     CcIsThereDirtyData @ 0x14047B410 (CcIsThereDirtyData.c)
+ *     ExSwapinWorkerThreads @ 0x140A48C04 (ExSwapinWorkerThreads.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
  */
 
 _UNKNOWN **__fastcall PsGetNextPartitionUnsafe(_QWORD *Object)

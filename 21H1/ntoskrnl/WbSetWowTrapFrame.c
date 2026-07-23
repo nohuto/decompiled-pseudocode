@@ -8,7 +8,7 @@
  *     PspWow64GetContextThread @ 0x1406FCCF8 (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(unsigned int *a1, unsigned int *a2)
+__int64 __fastcall WbSetWowTrapFrame(ULONG *a1, ULONG *a2)
 {
   unsigned __int64 v4; // rax
   __int16 v5; // di

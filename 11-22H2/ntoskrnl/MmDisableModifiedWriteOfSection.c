@@ -30,7 +30,9 @@ char __fastcall MmDisableModifiedWriteOfSection(__int64 a1)
     else
       *(_DWORD *)(v2 + 56) |= 8u;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v3 = v10;
       if ( v10 <= 0xFu && CurrentIrql >= 2u )

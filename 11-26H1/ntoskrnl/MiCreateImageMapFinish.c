@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateImageMapFinish @ 0x140A54F3C
+ * XREFs of MiCreateImageMapFinish @ 0x140A624DC
  * Callers:
- *     MiCreateNewSection @ 0x140A562D8 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140A63860 (MiCreateNewSection.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiInitializeImageProtos @ 0x140338604 (MiInitializeImageProtos.c)
- *     MiInitializeImageHeaderPage @ 0x14040D858 (MiInitializeImageHeaderPage.c)
- *     IoIsDeviceEjectable @ 0x1404CEF14 (IoIsDeviceEjectable.c)
- *     MiEnableImageDirectMap @ 0x1406F9834 (MiEnableImageDirectMap.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiDeleteImageCreationMdls @ 0x140A5620C (MiDeleteImageCreationMdls.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiInitializeImageProtos @ 0x14033A684 (MiInitializeImageProtos.c)
+ *     MiInitializeImageHeaderPage @ 0x14042A784 (MiInitializeImageHeaderPage.c)
+ *     IoIsDeviceEjectable @ 0x1404C8944 (IoIsDeviceEjectable.c)
+ *     MiEnableImageDirectMap @ 0x1406FE504 (MiEnableImageDirectMap.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiDeleteImageCreationMdls @ 0x140A63794 (MiDeleteImageCreationMdls.c)
  */
 
 __int64 __fastcall MiCreateImageMapFinish(__int64 a1)
@@ -93,7 +93,7 @@ LABEL_11:
     v6 = 0;
     if ( !v21 )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 57;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 57;
       return 3221225773LL;
     }
     v22 = v29;
@@ -170,6 +170,6 @@ LABEL_11:
     *(_QWORD *)(v2 + 64) = 0LL;
     return 0LL;
   }
-  *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 58;
+  *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 58;
   return result;
 }

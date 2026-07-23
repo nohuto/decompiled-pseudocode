@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMGetDeviceInterfaceList @ 0x1407C9C0C
+ * XREFs of PiCMGetDeviceInterfaceList @ 0x1407C9EDC
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC6C (PiControlFreeUserModeCallersBuffer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x14055F59C (McTemplateK0d_EtwWriteTransfer.c)
- *     McTemplateK0jzt_EtwWriteTransfer @ 0x1405645A8 (McTemplateK0jzt_EtwWriteTransfer.c)
- *     PiCMReturnBufferResultData @ 0x1406D060C (PiCMReturnBufferResultData.c)
- *     IopGetDeviceInterfaces @ 0x1407873F0 (IopGetDeviceInterfaces.c)
- *     PiCMCaptureInterfaceListInputData @ 0x1407C9DAC (PiCMCaptureInterfaceListInputData.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14022BD7C (PiControlFreeUserModeCallersBuffer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14055FC5C (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0jzt_EtwWriteTransfer @ 0x140564C68 (McTemplateK0jzt_EtwWriteTransfer.c)
+ *     PiCMReturnBufferResultData @ 0x1406D063C (PiCMReturnBufferResultData.c)
+ *     IopGetDeviceInterfaces @ 0x1407875E0 (IopGetDeviceInterfaces.c)
+ *     PiCMCaptureInterfaceListInputData @ 0x1407CA07C (PiCMCaptureInterfaceListInputData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

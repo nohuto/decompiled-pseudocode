@@ -1,12 +1,12 @@
 /*
- * XREFs of HalMatchAcpiOemTableId @ 0x14053CF60
+ * XREFs of HalMatchAcpiOemTableId @ 0x14053A860
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 __int64 __fastcall HalMatchAcpiOemTableId(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -24,7 +24,7 @@ __int64 __fastcall HalMatchAcpiOemTableId(__int64 a1, __int64 a2, __int64 a3, in
     {
       if ( *(_QWORD *)(a3 + 8) )
       {
-        Table = HalpAcpiGetTable(0LL, **(_DWORD **)a3, 0LL, 0LL);
+        Table = HalpAcpiGetTable(0LL, **(_DWORD **)a3, 0, 0);
         if ( Table )
         {
           Buf1 = 0LL;

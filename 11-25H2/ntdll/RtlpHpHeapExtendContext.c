@@ -10,10 +10,10 @@
  *     RtlpHpAllocVA @ 0x1800BB510 (RtlpHpAllocVA.c)
  */
 
-unsigned __int64 __fastcall RtlpHpHeapExtendContext(__int128 *a1, __int64 a2)
+unsigned __int64 __fastcall RtlpHpHeapExtendContext(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  volatile signed __int32 *v2; // rsi
-  unsigned __int64 v5; // rdi
+  _RTL_SRWLOCK *v2; // rsi
+  unsigned __int64 Value; // rdi
   unsigned __int64 v6; // rcx
   unsigned __int64 v8; // rax
   unsigned __int64 v9; // rdi
@@ -23,43 +23,43 @@ unsigned __int64 __fastcall RtlpHpHeapExtendContext(__int128 *a1, __int64 a2)
   bool v13; // zf
   int v14; // eax
   __int128 v15; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v16; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v17; // [rsp+70h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize[2]; // [rsp+40h] [rbp-28h] BYREF
+  unsigned __int64 v17; // [rsp+70h] [rbp+8h] BYREF
   unsigned __int64 v18; // [rsp+78h] [rbp+10h] BYREF
 
   v17 = 0LL;
-  v2 = (volatile signed __int32 *)a1 + 58;
-  RtlAcquireReleaseSRWLockExclusive((char *)a1 + 232);
+  v2 = a1 + 29;
+  RtlAcquireReleaseSRWLockExclusive(a1 + 29);
   while ( 1 )
   {
     while ( 1 )
     {
-      v5 = *((_QWORD *)a1 + 30);
-      v6 = v5 + a2;
-      if ( v5 + a2 < v5 )
+      Value = a1[30].Value;
+      v6 = Value + a2;
+      if ( Value + a2 < Value )
         return 0LL;
-      if ( v6 > *((_QWORD *)a1 + 31) )
+      if ( v6 > a1[31].Value )
         break;
-      if ( v5 == _InterlockedCompareExchange64((volatile signed __int64 *)a1 + 30, v6, v5) )
-        return v5;
+      if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)&a1[30], v6, Value) )
+        return Value;
     }
     RtlAcquireSRWLockExclusive(v2);
-    v8 = *((_QWORD *)a1 + 30);
+    v8 = a1[30].Value;
     v9 = v8 + a2;
-    if ( v8 + a2 < v8 || v9 > *((_QWORD *)a1 + 32) )
+    if ( v8 + a2 < v8 || v9 > a1[32].Value )
       break;
-    v10 = *((_QWORD *)a1 + 31);
+    v10 = a1[31].Value;
     if ( v9 > v10 )
     {
-      v11 = *a1;
-      v17 = *((_QWORD *)a1 + 31);
+      v11 = *(_OWORD *)&a1->0;
+      v17 = a1[31].Value;
       v12 = (v9 - v10 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      v13 = (*((_BYTE *)a1 + 30) & 1) == 0;
+      v13 = (BYTE6(a1[3].Ptr) & 1) == 0;
       v18 = v12;
       if ( v13 )
       {
-        v16 = v11;
-        v14 = RtlpHpAllocVA((unsigned int)&v17, (unsigned int)&v18, 0, 4096, 4, (__int64)&v16);
+        *(_OWORD *)RegionSize = v11;
+        v14 = RtlpHpAllocVA((int)&v17, (int)&v18, 0, 4096, 4u, (ULONG_PTR)RegionSize);
         v12 = v18;
       }
       else
@@ -69,12 +69,12 @@ unsigned __int64 __fastcall RtlpHpHeapExtendContext(__int128 *a1, __int64 a2)
       }
       if ( v14 < 0 )
         break;
-      *((_QWORD *)a1 + 31) += v12;
-      _InterlockedAdd64((volatile signed __int64 *)a1 + 17, v12 >> 12);
+      a1[31].Value += v12;
+      _InterlockedAdd64((volatile signed __int64 *)&a1[17], v12 >> 12);
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v2);
+    RtlReleaseSRWLockExclusive(v2);
   }
-  v5 = 0LL;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)v2);
-  return v5;
+  Value = 0LL;
+  RtlReleaseSRWLockExclusive(v2);
+  return Value;
 }

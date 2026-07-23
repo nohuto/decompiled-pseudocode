@@ -125,5 +125,5 @@ NTSTATUS __stdcall ZwSetValueKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, ValueName);
+  return KiServiceInternal(KeyHandle);
 }

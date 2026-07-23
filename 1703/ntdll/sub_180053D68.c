@@ -12,7 +12,7 @@
  *     sub_1800DEA5C @ 0x1800DEA5C (sub_1800DEA5C.c)
  */
 
-__int64 __fastcall sub_180053D68(__int64 a1, int a2, UNICODE_STRING *a3)
+__int64 __fastcall sub_180053D68(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   wchar_t *v6; // rdx
   __int64 result; // rax
@@ -34,7 +34,7 @@ __int64 __fastcall sub_180053D68(__int64 a1, int a2, UNICODE_STRING *a3)
       return (unsigned __int16)result;
     v6 = Buffer;
   }
-  if ( RtlCreateUnicodeString((__int64)a3, v6) )
+  if ( RtlCreateUnicodeString(a3, v6) )
     return 0LL;
   else
     return 8LL;

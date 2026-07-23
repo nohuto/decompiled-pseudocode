@@ -7,7 +7,7 @@
  *     VfDeadlockReleaseResource @ 0x14071425C (VfDeadlockReleaseResource.c)
  *     ViIsThreadInsidePagingCodePaths @ 0x140715E0C (ViIsThreadInsidePagingCodePaths.c)
  * Callees:
- *     VfUtilAddressRangeFit @ 0x140702B80 (VfUtilAddressRangeFit.c)
+ *     VfUtilAddressRangeFit @ 0x140702BB0 (VfUtilAddressRangeFit.c)
  */
 
 _QWORD *__fastcall ViDeadlockSearchThread(unsigned __int64 a1)

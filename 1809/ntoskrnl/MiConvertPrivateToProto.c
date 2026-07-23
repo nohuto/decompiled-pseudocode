@@ -1,7 +1,7 @@
 /*
- * XREFs of MiConvertPrivateToProto @ 0x140082EB0
+ * XREFs of MiConvertPrivateToProto @ 0x140082EA0
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
@@ -13,40 +13,40 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiRemoveWsle @ 0x14006A870 (MiRemoveWsle.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiRebuildPageTableLeafAges @ 0x14007AE10 (MiRebuildPageTableLeafAges.c)
- *     MiResolveProtoCombine @ 0x14007BF74 (MiResolveProtoCombine.c)
- *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14007F930 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
- *     MiComparePages @ 0x14007F9A0 (MiComparePages.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiSetWsleProtection @ 0x1400DB164 (MiSetWsleProtection.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B9B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     MiFillCombinePage @ 0x140121784 (MiFillCombinePage.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x140126BA0 (MiUpdateWorkingSetPrivateSize.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A210 (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGetCrossPartitionCombineCharges @ 0x1402CBF14 (MiGetCrossPartitionCombineCharges.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1402CC0F0 (MiReturnCrossPartitionCombineCharges.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiRemoveWsle @ 0x14006A860 (MiRemoveWsle.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiRebuildPageTableLeafAges @ 0x14007AE00 (MiRebuildPageTableLeafAges.c)
+ *     MiResolveProtoCombine @ 0x14007BF64 (MiResolveProtoCombine.c)
+ *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14007F920 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
+ *     MiComparePages @ 0x14007F990 (MiComparePages.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUpdatePfnPriority @ 0x140082AA8 (MiUpdatePfnPriority.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140088034 (MI_WSLE_LOG_ACCESS.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiIdentifyPfn @ 0x1400A7E20 (MiIdentifyPfn.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiSetWsleProtection @ 0x1400DB1E4 (MiSetWsleProtection.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEBAC (MiWriteValidPteNewPage.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     MiCopyPfnEntryEx @ 0x14010E080 (MiCopyPfnEntryEx.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011BA24 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     MiFillCombinePage @ 0x140121854 (MiFillCombinePage.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x140126C70 (MiUpdateWorkingSetPrivateSize.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A2E0 (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGetCrossPartitionCombineCharges @ 0x1402CC104 (MiGetCrossPartitionCombineCharges.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x1402CC2E0 (MiReturnCrossPartitionCombineCharges.c)
  */
 
 unsigned __int64 __fastcall MiConvertPrivateToProto(
@@ -152,7 +152,7 @@ unsigned __int64 __fastcall MiConvertPrivateToProto(
   v64 = *v14;
   v70 = v9 << 25 >> 16;
   v62 = 0;
-  v16 = *(_QWORD *)(qword_14043A748 + 8 * v12);
+  v16 = *(_QWORD *)(qword_14043B808 + 8 * v12);
   v65 = v16;
   v61 = 1;
   if ( a7 != -1 )
@@ -273,7 +273,7 @@ LABEL_64:
     {
       if ( (unsigned int)MiPteHasShadow(v51, v50) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v59 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v59 & 1) != 0 )
           v50 |= 0x8000000000000000uLL;
         *v7 = v50;
         MiWritePteShadow(v7);
@@ -293,7 +293,7 @@ LABEL_51:
     MiInsertTbFlushEntry(v79, v70, 1LL);
     if ( v13 )
       MiReleasePageFileInfo(
-        *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)),
+        *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)),
         v13,
         1);
     v54 = v78;
@@ -316,7 +316,7 @@ LABEL_51:
         _InterlockedExchangeAdd64((volatile signed __int64 *)(v64 + 7360), 1uLL);
       MiReturnCommit(v64, 1uLL);
       if ( (ULONG_PTR *)v64 == &MiSystemPartition )
-        _InterlockedExchangeAdd64(&qword_14043B018, 0xFFFFFFFFFFFFFFFFuLL);
+        _InterlockedExchangeAdd64(&qword_14043C0D8, 0xFFFFFFFFFFFFFFFFuLL);
     }
     v38 = v72;
     if ( (*(_BYTE *)(v72 + 184) & 7) == 0 )
@@ -348,7 +348,7 @@ LABEL_3:
     goto LABEL_63;
   }
   if ( (*(_BYTE *)(v18 + 35) & 0x40) != 0
-    || v15 != *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v18 + 40) >> 40) & 0x3FFLL))
+    || v15 != *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v18 + 40) >> 40) & 0x3FFLL))
     || (v20 = *(_BYTE *)(v18 + 34), (v20 & 7) != 6) && (v20 & 0x20) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -376,7 +376,7 @@ LABEL_3:
   _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( !v63 )
     goto LABEL_62;
-  if ( dword_14043A8E8 )
+  if ( dword_14043B9A8 )
     MI_WSLE_LOG_ACCESS(v72, v71);
   MiSwizzleInvalidPte(((_QWORD)v7 << 16) | 0x400LL);
   v24 = v70;

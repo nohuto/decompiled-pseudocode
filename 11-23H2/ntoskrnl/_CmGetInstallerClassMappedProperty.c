@@ -5,8 +5,8 @@
  * Callees:
  *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14069B198 (_CmGetInstallerClassMappedPropertyFromComposite.c)
  *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14069B554 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14088114C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140882A34 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14088138C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140882C74 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedProperty(
@@ -69,7 +69,7 @@ __int64 __fastcall CmGetInstallerClassMappedProperty(
     if ( InstallerClassMappedPropertyFromRegProp != -1073741802 )
       return InstallerClassMappedPropertyFromRegValue;
 LABEL_6:
-    v15 = &off_140A79D80;
+    v15 = &off_140A7A030;
     v16 = 0;
     while ( 1 )
     {
@@ -116,7 +116,7 @@ LABEL_9:
           InstallerClassMappedPropertyFromRegValue == -1073741802) )
     {
 LABEL_10:
-      v18 = &off_140A78570;
+      v18 = &off_140A78820;
       v19 = 0;
       while ( 1 )
       {

@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpHpExtrasGet @ 0x1800192E0
+ * XREFs of RtlpHpExtrasGet @ 0x1800043C0
  * Callers:
- *     RtlSetUserValueHeap @ 0x1800145D0 (RtlSetUserValueHeap.c)
- *     RtlpHpFreeHeapSlow @ 0x180089330 (RtlpHpFreeHeapSlow.c)
- *     RtlpHpTagAllocateHeap @ 0x180097930 (RtlpHpTagAllocateHeap.c)
- *     RtlpHpReAllocateHeapSlow @ 0x1800B0E90 (RtlpHpReAllocateHeapSlow.c)
- *     RtlpHpGetUserInfo @ 0x1800DC840 (RtlpHpGetUserInfo.c)
- *     RtlSetUserFlagsHeap @ 0x180108B90 (RtlSetUserFlagsHeap.c)
+ *     RtlSetUserValueHeap @ 0x18005FD00 (RtlSetUserValueHeap.c)
+ *     RtlpHpFreeHeapSlow @ 0x180080730 (RtlpHpFreeHeapSlow.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x180080A04 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpTagAllocateHeap @ 0x180096A80 (RtlpHpTagAllocateHeap.c)
+ *     RtlpHpGetUserInfo @ 0x1800D97B0 (RtlpHpGetUserInfo.c)
+ *     RtlSetUserFlagsHeap @ 0x180108530 (RtlSetUserFlagsHeap.c)
  * Callees:
- *     RtlpHpVsChunkSize @ 0x1800190EC (RtlpHpVsChunkSize.c)
- *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800191C0 (RtlpHpLfhSubsegmentSizeBlock.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpPgGetUserSize @ 0x1800B1C98 (RtlpHpPgGetUserSize.c)
+ *     RtlpHpVsChunkSize @ 0x1800041CC (RtlpHpVsChunkSize.c)
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800042A0 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpPgGetUserSize @ 0x180081808 (RtlpHpPgGetUserSize.c)
  */
 
-unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, unsigned __int64 a2, __int16 a3, unsigned __int64 *a4)
+unsigned __int64 __fastcall RtlpHpExtrasGet(_RTL_SRWLOCK *a1, unsigned __int64 a2, __int16 a3, unsigned __int64 *a4)
 {
   __int64 v4; // rsi
   int v9; // eax
   __int64 v10; // rax
-  __int64 v11; // r11
+  _RTL_SRWLOCK *v11; // r11
   unsigned __int64 v12; // r8
   char v13; // di
   unsigned __int64 v14; // r10
@@ -34,9 +34,9 @@ unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, unsigned __int64 a2, __i
   unsigned __int64 v21; // rdi
   __int64 v22; // rax
   __int64 UserSize; // rax
-  __int64 v25; // r15
-  __int64 v26; // rax
-  unsigned __int64 *v27; // rdi
+  _RTL_SRWLOCK *v25; // r15
+  unsigned __int64 Value; // rax
+  unsigned __int64 v27; // rdi
   unsigned __int64 v28; // rcx
   int v29; // edx
   unsigned __int64 v30; // rax
@@ -50,17 +50,17 @@ unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, unsigned __int64 a2, __i
     v9 = 0;
     goto LABEL_5;
   }
-  v10 = RtlCSparseBitmapBitmaskRead(&unk_1801C78C0, 2 * ((a2 - qword_1801C78B8) >> 20));
+  v10 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_1801C6908) >> 20));
   if ( v10 )
   {
     v9 = v10 - 1;
     if ( v9 != 2 )
     {
 LABEL_5:
-      v11 = a1 + 192LL * v9;
-      v12 = a2 & *(_QWORD *)(v11 + 320);
-      if ( !(RtlpHpHeapGlobals ^ v12 ^ *(_QWORD *)(v12 + 0x10) ^ (v11 + 320))
-        && (v13 = *(_BYTE *)(v11 + 328),
+      v11 = &a1[24 * v9];
+      v12 = a2 & v11[40].Value;
+      if ( !(RtlpHpHeapGlobals ^ v12 ^ *(_QWORD *)(v12 + 0x10) ^ (unsigned __int64)&v11[40])
+        && (v13 = (char)v11[41].0,
             v14 = v12 + 32 * ((unsigned __int64)(unsigned int)(a2 - v12) >> v13),
             v15 = v14 - 32LL * *(unsigned __int8 *)(v14 + 26),
             v16 = v12 + ((unsigned int)((__int64)(v15 - v12) >> 5) << v13),
@@ -68,8 +68,7 @@ LABEL_5:
             (v17 & 3) == 3)
         && (v16 == a2 || (v17 & 0x1Cu) >= 8) )
       {
-        v18 = (v15 & *(_QWORD *)(v11 + 320))
-            + ((unsigned int)((__int64)(v15 - (v15 & *(_QWORD *)(v11 + 320))) >> 5) << v13);
+        v18 = (v15 & v11[40].Value) + ((unsigned int)((__int64)(v15 - (v15 & v11[40].Value)) >> 5) << v13);
         if ( a2 <= v18 )
         {
           v21 = (*(unsigned __int8 *)(v15 + 31) << v13) - (unsigned __int64)*(unsigned int *)(v15 + 4);
@@ -80,17 +79,17 @@ LABEL_5:
           v19 = *(_BYTE *)(v15 + 24) & 0x1C;
           if ( (_DWORD)v19 == 8 )
           {
-            v20 = RtlpHpLfhSubsegmentSizeBlock(*(_QWORD *)(v11 + 344), v18, a2, &v32);
+            v20 = RtlpHpLfhSubsegmentSizeBlock(v11[43].Value, v18, a2, &v32);
             LODWORD(v4) = v32;
             v21 = v20;
           }
           else
           {
             if ( (_DWORD)v19 == 12 )
-              UserSize = RtlpHpVsChunkSize(*(_QWORD *)(v11 + 352), a2, v19, &v32);
+              UserSize = RtlpHpVsChunkSize(v11[44].Value, a2, v19, &v32);
             else
               UserSize = RtlpHpPgGetUserSize(
-                           *(_QWORD *)(v11 + 464),
+                           v11[58].Value,
                            a2,
                            (*(unsigned __int8 *)(v15 + 31) << v13) - (unsigned __int64)*(unsigned int *)(v15 + 4),
                            &v32);
@@ -106,18 +105,18 @@ LABEL_5:
       goto LABEL_13;
     }
   }
-  v25 = a1 + 64;
-  RtlAcquireSRWLockShared(a1 + 64);
-  v26 = *(_QWORD *)(a1 + 80);
-  v27 = (unsigned __int64 *)(a1 + 72);
-  v28 = *v27;
-  if ( (v26 & 1) != 0 )
+  v25 = a1 + 8;
+  RtlAcquireSRWLockShared(a1 + 8);
+  Value = a1[10].Value;
+  v27 = (unsigned __int64)&a1[9];
+  v28 = *(_QWORD *)v27;
+  if ( (Value & 1) != 0 )
   {
     if ( !v28 )
       goto LABEL_38;
-    v28 ^= (unsigned __int64)v27;
+    v28 ^= v27;
   }
-  v29 = v26 & 1;
+  v29 = Value & 1;
   if ( !v28 )
     goto LABEL_38;
   do

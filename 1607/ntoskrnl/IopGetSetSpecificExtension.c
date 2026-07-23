@@ -1,21 +1,21 @@
 /*
- * XREFs of IopGetSetSpecificExtension @ 0x14007AE90
+ * XREFs of IopGetSetSpecificExtension @ 0x14007AF10
  * Callers:
- *     IopSetLockOperationProcess @ 0x1400784D8 (IopSetLockOperationProcess.c)
- *     IopCheckInitiatorHint @ 0x14009CF4C (IopCheckInitiatorHint.c)
- *     IopGetSetStreamIdentifier @ 0x1401C948C (IopGetSetStreamIdentifier.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x1401C9C40 (IopAdjustFileObjectKeepAliveCount.c)
- *     IoCreateStreamFileObjectEx2 @ 0x1403ECB48 (IoCreateStreamFileObjectEx2.c)
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x14046B43C (IopAllocateFoExtensionsOnCreate.c)
- *     IopRetrieveTransactionParameters @ 0x1404B9FD0 (IopRetrieveTransactionParameters.c)
- *     IoCopyDeviceObjectHint @ 0x140623694 (IoCopyDeviceObjectHint.c)
+ *     IopSetLockOperationProcess @ 0x140078558 (IopSetLockOperationProcess.c)
+ *     IopCheckInitiatorHint @ 0x14009C74C (IopCheckInitiatorHint.c)
+ *     IopGetSetStreamIdentifier @ 0x1401C932C (IopGetSetStreamIdentifier.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x1401C9AE0 (IopAdjustFileObjectKeepAliveCount.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1403EE178 (IoCreateStreamFileObjectEx2.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14046A30C (IopAllocateFoExtensionsOnCreate.c)
+ *     IopRetrieveTransactionParameters @ 0x1404A5D00 (IopRetrieveTransactionParameters.c)
+ *     IoCopyDeviceObjectHint @ 0x140623748 (IoCopyDeviceObjectHint.c)
  * Callees:
- *     IopGetFileObjectExtension @ 0x14007B520 (IopGetFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x14007B5C0 (IopSetTypeSpecificFoExtension.c)
- *     IopVerifierExAllocatePool @ 0x14007B610 (IopVerifierExAllocatePool.c)
- *     IopAllocateFileObjectExtension @ 0x1400EB590 (IopAllocateFileObjectExtension.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     IopGetFileObjectExtension @ 0x14007B5A0 (IopGetFileObjectExtension.c)
+ *     IopSetTypeSpecificFoExtension @ 0x14007B640 (IopSetTypeSpecificFoExtension.c)
+ *     IopVerifierExAllocatePool @ 0x14007B690 (IopVerifierExAllocatePool.c)
+ *     IopAllocateFileObjectExtension @ 0x1400E9400 (IopAllocateFileObjectExtension.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

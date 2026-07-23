@@ -19,7 +19,7 @@ __int64 __fastcall TppIopValidateIo(__int64 a1, int a2, int a3)
        || a2
        && (ThreadPoolData = NtCurrentTeb()->ThreadPoolData) != 0LL
        && *(_QWORD *)(*(_QWORD *)ThreadPoolData + 240LL) == a1)
-      && *(__int64 (__fastcall ***)())(a1 + 8) == TppIopCleanupGroupMemberVFuncs
+      && *(__int64 (__fastcall ***)(PVOID))(a1 + 8) == &TppIopCleanupGroupMemberVFuncs
       && !NtCurrentPeb()->Ldr->ShutdownInProgress )
     {
       return 1LL;

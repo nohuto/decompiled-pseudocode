@@ -41,7 +41,7 @@ __int64 __fastcall ObpVerifyAccessToBoundaryEntry(_DWORD *a1, __int64 a2)
   if ( *a1 == 2 )
   {
     v5 = 0;
-    if ( !(unsigned __int8)RtlIsPackageSid(a1 + 2) )
+    if ( !RtlIsPackageSid(a1 + 2) )
     {
       RtlCreateAcl(&Acl, 0xA0u, 2u);
       RtlpAddKnownAce(&Acl, 2u, 0, 983055, v3, 0);

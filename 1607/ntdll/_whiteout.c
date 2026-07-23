@@ -4,7 +4,7 @@
  *     _winput_s @ 0x1800A5094 (_winput_s.c)
  * Callees:
  *     iswctype @ 0x18009A240 (iswctype.c)
- *     _fgetwc_nolock @ 0x1800A5A84 (_fgetwc_nolock.c)
+ *     _fgetwc_nolock @ 0x1800A5A78 (_fgetwc_nolock.c)
  */
 
 __int64 __fastcall whiteout(_DWORD *a1, FILE *a2)

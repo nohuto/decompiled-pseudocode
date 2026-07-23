@@ -1,14 +1,14 @@
 /*
- * XREFs of ExQueueWorkItemEx @ 0x140203EF0
+ * XREFs of ExQueueWorkItemEx @ 0x140203FD0
  * Callers:
- *     PopPepIdleTimeoutDpcRoutine @ 0x140202E70 (PopPepIdleTimeoutDpcRoutine.c)
- *     PopFxResidentTimeoutDpcRoutine @ 0x140203110 (PopFxResidentTimeoutDpcRoutine.c)
- *     KeTerminateThread @ 0x140203388 (KeTerminateThread.c)
- *     DifExQueueWorkItemExWrapper @ 0x140653060 (DifExQueueWorkItemExWrapper.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x140202F50 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopFxResidentTimeoutDpcRoutine @ 0x1402031F0 (PopFxResidentTimeoutDpcRoutine.c)
+ *     KeTerminateThread @ 0x140203468 (KeTerminateThread.c)
+ *     DifExQueueWorkItemExWrapper @ 0x140656C40 (DifExQueueWorkItemExWrapper.c)
  * Callees:
- *     ExpValidateWorkItem @ 0x140203F4C (ExpValidateWorkItem.c)
- *     ExpQueueWorkItem @ 0x140381D74 (ExpQueueWorkItem.c)
- *     ExpTypeToPriority @ 0x1403831D0 (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x14020402C (ExpValidateWorkItem.c)
+ *     ExpQueueWorkItem @ 0x140383B24 (ExpQueueWorkItem.c)
+ *     ExpTypeToPriority @ 0x140384F80 (ExpTypeToPriority.c)
  */
 
 __int64 __fastcall ExQueueWorkItemEx(ULONG_PTR a1, unsigned int a2, int a3)

@@ -1,59 +1,52 @@
 /*
- * XREFs of TppWorkCancelPendingCallbacks @ 0x180022AB0
+ * XREFs of TppWorkCancelPendingCallbacks @ 0x18004F4B0
  * Callers:
- *     TppWorkCallbackPrologRelease @ 0x1800222C0 (TppWorkCallbackPrologRelease.c)
+ *     TppWorkCallbackPrologRelease @ 0x18004ECC0 (TppWorkCallbackPrologRelease.c)
  * Callees:
- *     TppBarrierAdjust @ 0x180011D50 (TppBarrierAdjust.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     TppETWCallbackCancel @ 0x18006A664 (TppETWCallbackCancel.c)
+ *     TppBarrierAdjust @ 0x18003E750 (TppBarrierAdjust.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     TppETWCallbackCancel @ 0x180086D54 (TppETWCallbackCancel.c)
  */
 
-__int64 __fastcall TppWorkCancelPendingCallbacks(__int64 a1)
+int __fastcall TppWorkCancelPendingCallbacks(_RTL_SRWLOCK *a1)
 {
-  __int64 result; // rax
+  struct _PEB *v2; // rax
   int v3; // ett
   unsigned int v4; // edi
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
+  __int64 v5; // rcx
 
-  _m_prefetchw((const void *)(a1 + 232));
-  result = *(unsigned int *)(a1 + 232);
-  if ( (unsigned int)result >= 2 )
+  _m_prefetchw(&a1[29]);
+  LODWORD(v2) = a1[29].0;
+  if ( (unsigned int)v2 >= 2 )
   {
-    _m_prefetchw((const void *)(a1 + 232));
-    LODWORD(result) = *(_DWORD *)(a1 + 232);
+    _m_prefetchw(&a1[29]);
+    LODWORD(v2) = a1[29].0;
     do
     {
-      v3 = result;
-      result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 232), result & 1, result);
+      v3 = (int)v2;
+      LODWORD(v2) = _InterlockedCompareExchange(
+                      (volatile signed __int32 *)&a1[29],
+                      (unsigned __int8)v2 & 1,
+                      (signed __int32)v2);
     }
-    while ( v3 != (_DWORD)result );
-    v4 = (unsigned int)result >> 1;
-    if ( (unsigned int)result >> 1 )
+    while ( v3 != (_DWORD)v2 );
+    v4 = (unsigned int)v2 >> 1;
+    if ( (unsigned int)v2 >> 1 )
     {
-      TppBarrierAdjust((volatile signed __int64 *)(a1 + 56), -v4, 0);
-      result = RtlGetCurrentServiceSessionId(v6, v5, v7, v8);
-      if ( (_DWORD)result )
+      TppBarrierAdjust(a1 + 7, -v4, 0);
+      LODWORD(v2) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v2 )
       {
-        result = (__int64)NtCurrentPeb();
-        v9 = *(_QWORD *)(result + 144) + 556LL;
+        v2 = NtCurrentPeb();
+        v5 = (__int64)v2->SharedData + 556;
       }
       else
       {
-        v9 = 2147353478LL;
+        v5 = 2147353478LL;
       }
-      if ( *(_BYTE *)v9 )
-        return TppETWCallbackCancel(
-                 *(_QWORD *)(a1 + 144),
-                 (int)a1 + 200,
-                 *(_QWORD *)(a1 + 80),
-                 *(_QWORD *)(a1 + 88),
-                 *(_QWORD *)(a1 + 104),
-                 v4);
+      if ( *(_BYTE *)v5 )
+        LODWORD(v2) = TppETWCallbackCancel(a1[18].Value, (int)a1 + 200, a1[10].Value, a1[11].Value, a1[13].Value, v4);
     }
   }
-  return result;
+  return (int)v2;
 }

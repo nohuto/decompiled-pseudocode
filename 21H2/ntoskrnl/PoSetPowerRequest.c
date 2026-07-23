@@ -1,9 +1,9 @@
 /*
- * XREFs of PoSetPowerRequest @ 0x140281F70
+ * XREFs of PoSetPowerRequest @ 0x1402701B0
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x1402840A8 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x1402726BC (PopApplyLegacyPowerRequestFlags.c)
  * Callees:
- *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x1402703A0 (PoSetPowerRequestInternal.c)
  */
 
 NTSTATUS __stdcall PoSetPowerRequest(PVOID PowerRequest, POWER_REQUEST_TYPE Type)

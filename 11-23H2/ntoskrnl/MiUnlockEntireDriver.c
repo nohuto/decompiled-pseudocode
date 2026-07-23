@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlockEntireDriver @ 0x140A34540
+ * XREFs of MiUnlockEntireDriver @ 0x140A347F0
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406408E8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640E38 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiUnlockDriverPages @ 0x140875B2C (MiUnlockDriverPages.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiUnlockDriverPages @ 0x140875D6C (MiUnlockDriverPages.c)
  */
 
-void __fastcall MiUnlockEntireDriver(__int64 *a1, __int64 a2)
+void __fastcall MiUnlockEntireDriver(_RTL_BITMAP_EX *a1, __int64 a2)
 {
   __int64 *PteAddress; // rax
   unsigned int v5; // r8d

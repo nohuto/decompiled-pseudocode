@@ -1,11 +1,11 @@
 /*
- * XREFs of KasaniBuildPc @ 0x1405A9F40
+ * XREFs of KasaniBuildPc @ 0x1405A6EB0
  * Callers:
- *     KasaniSendReport @ 0x1405AA2E0 (KasaniSendReport.c)
- *     KcsaniSendReport @ 0x1405AE980 (KcsaniSendReport.c)
+ *     KasaniSendReport @ 0x1405A7250 (KasaniSendReport.c)
+ *     KcsaniSendReport @ 0x1405AB8F0 (KcsaniSendReport.c)
  * Callees:
- *     KasaniGetModuleFromAddress @ 0x1405A9FD0 (KasaniGetModuleFromAddress.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KasaniGetModuleFromAddress @ 0x1405A6F40 (KasaniGetModuleFromAddress.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 bool __fastcall KasaniBuildPc(__int64 a1, char *a2)

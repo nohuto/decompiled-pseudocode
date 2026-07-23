@@ -6,7 +6,7 @@
  *     <none>
  */
 
-BOOL __stdcall RtlIsCriticalSectionLocked(int a1)
+LOGICAL __cdecl RtlIsCriticalSectionLocked(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  return (*(_BYTE *)(a1 + 4) & 1) == 0;
+  return (CriticalSection->LockCount & 1) == 0;
 }

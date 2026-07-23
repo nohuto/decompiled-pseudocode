@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCbCopyW @ 0x1800E1140
+ * XREFs of RtlStringCbCopyW @ 0x1800DC690
  * Callers:
- *     RtlCreateTagHeap @ 0x1800A5370 (RtlCreateTagHeap.c)
- *     SwitchedRtlGetVersion @ 0x1800A9C70 (SwitchedRtlGetVersion.c)
- *     RtlGetVersion @ 0x1800AA620 (RtlGetVersion.c)
- *     RtlInstallFunctionTableCallback @ 0x1800E0D10 (RtlInstallFunctionTableCallback.c)
- *     RtlpGetNameFromLangInfoNode @ 0x1800E1030 (RtlpGetNameFromLangInfoNode.c)
+ *     SwitchedRtlGetVersion @ 0x18000AE00 (SwitchedRtlGetVersion.c)
+ *     RtlGetVersion @ 0x18000B7B0 (RtlGetVersion.c)
+ *     RtlCreateTagHeap @ 0x180022EE0 (RtlCreateTagHeap.c)
+ *     RtlInstallFunctionTableCallback @ 0x1800DC260 (RtlInstallFunctionTableCallback.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x1800DC580 (RtlpGetNameFromLangInfoNode.c)
  * Callees:
  *     <none>
  */

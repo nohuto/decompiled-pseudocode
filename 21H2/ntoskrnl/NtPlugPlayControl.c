@@ -1,56 +1,63 @@
 /*
- * XREFs of NtPlugPlayControl @ 0x1406355A0
+ * XREFs of NtPlugPlayControl @ 0x14062A3B0
  * Callers:
  *     <none>
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x14062A4E0 (PiControlMakeUserModeCallersCopy.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 __fastcall NtPlugPlayControl(unsigned int a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl NtPlugPlayControl(
+        PLUGPLAY_CONTROL_CLASS PnPControlClass,
+        PVOID PnPControlData,
+        ULONG PnPControlDataLength)
 {
   __int64 v4; // rdi
   char PreviousMode; // si
   __int64 *v6; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v8; // r9
-  unsigned int v9; // ebx
+  NTSTATUS v9; // ebx
   int UserModeCallersCopy; // eax
   int v11; // [rsp+20h] [rbp-28h]
-  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
+  PVOID v12; // [rsp+58h] [rbp+10h] BYREF
   void *v13; // [rsp+68h] [rbp+20h] BYREF
 
-  v12 = a2;
-  v4 = a1;
+  v12 = PnPControlData;
+  v4 = (unsigned int)PnPControlClass;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
-    return 3221225569LL;
+    return -1073741727;
   if ( (unsigned int)v4 >= 0x18 )
-    return 3221225711LL;
+    return -1073741585;
   v6 = &PlugPlayHandlerTable[3 * v4];
   if ( *(_DWORD *)v6 != (_DWORD)v4 )
-    return 3221225701LL;
+    return -1073741595;
   if ( !v6 )
-    return 3221225711LL;
+    return -1073741585;
   if ( !v6[1] )
-    return 3221225474LL;
-  if ( *((_DWORD *)v6 + 1) != a3 )
-    return 3221225520LL;
-  if ( PsIsCurrentThreadInServerSilo(3 * v4, a2) && !*((_BYTE *)v6 + 16) )
-    return 3221225569LL;
+    return -1073741822;
+  if ( *((_DWORD *)v6 + 1) != PnPControlDataLength )
+    return -1073741776;
+  if ( PsIsCurrentThreadInServerSilo(3 * v4, (__int64)PnPControlData) && !*((_BYTE *)v6 + 16) )
+    return -1073741727;
   v13 = 0LL;
-  result = PiControlMakeUserModeCallersCopy(&v13, v12, a3, 4LL, PreviousMode, 1);
-  if ( (int)result >= 0 )
+  result = PiControlMakeUserModeCallersCopy(&v13, v12, PnPControlDataLength, 4LL, PreviousMode, 1);
+  if ( result >= 0 )
   {
     LOBYTE(v8) = PreviousMode;
-    v9 = ((__int64 (__fastcall *)(_QWORD, void *, _QWORD, __int64))v6[1])((unsigned int)v4, v13, a3, v8);
+    v9 = ((__int64 (__fastcall *)(_QWORD, void *, _QWORD, __int64))v6[1])(
+           (unsigned int)v4,
+           v13,
+           PnPControlDataLength,
+           v8);
     if ( (v9 & 0xC0000000) != 0xC0000000 || v9 == -1073741789 )
     {
       LOBYTE(v11) = PreviousMode;
-      UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&v12, v13, a3, 4LL, v11, 0);
+      UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&v12, v13, PnPControlDataLength, 4LL, v11, 0);
       if ( UserModeCallersCopy < 0 )
         v9 = UserModeCallersCopy;
     }

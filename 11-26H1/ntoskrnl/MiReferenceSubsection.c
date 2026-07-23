@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReferenceSubsection @ 0x14030BFE0
+ * XREFs of MiReferenceSubsection @ 0x1402EE060
  * Callers:
- *     MiTrimSection @ 0x1404651E0 (MiTrimSection.c)
- *     MiTrimSharedPage @ 0x140478A54 (MiTrimSharedPage.c)
- *     MiComputeDataFlushRange @ 0x1404866EC (MiComputeDataFlushRange.c)
- *     MiFlushAcquire @ 0x1404B3174 (MiFlushAcquire.c)
- *     MiPreventControlAreaDeletion @ 0x1404F62AC (MiPreventControlAreaDeletion.c)
- *     MiUpdateActiveSubsection @ 0x1406F8198 (MiUpdateActiveSubsection.c)
+ *     MiTrimSection @ 0x14045E1A0 (MiTrimSection.c)
+ *     MiTrimSharedPage @ 0x1404723B4 (MiTrimSharedPage.c)
+ *     MiComputeDataFlushRange @ 0x140480064 (MiComputeDataFlushRange.c)
+ *     MiFlushAcquire @ 0x1404AC7F4 (MiFlushAcquire.c)
+ *     MiPreventControlAreaDeletion @ 0x1404EF8B8 (MiPreventControlAreaDeletion.c)
+ *     MiUpdateActiveSubsection @ 0x1406FCE68 (MiUpdateActiveSubsection.c)
  * Callees:
- *     MiRemoveUnusedSubsection @ 0x14030C19C (MiRemoveUnusedSubsection.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140499D04 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiRemoveUnusedSubsection @ 0x1402EE21C (MiRemoveUnusedSubsection.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140493854 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReferenceSubsection(__int64 *BugCheckParameter2, char a2)
@@ -49,13 +49,13 @@ __int64 __fastcall MiReferenceSubsection(__int64 *BugCheckParameter2, char a2)
   else
     v9 = (a2 & 8) != 0
        ? 0LL
-       : *(ULONG **)(stru_140E2EB88.ThreadLock
+       : *(ULONG **)(stru_140E2ED08.ThreadLock
                    + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-  if ( v9 == *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v4 + 60) & 0x3FF)) )
+  if ( v9 == *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v4 + 60) & 0x3FF)) )
     goto LABEL_10;
   if ( (*(_DWORD *)(v4 + 56) & 0x100) != 0 && a2 >= 0 )
   {
-    ++LODWORD(stru_140E2EB88.CycleTime);
+    ++LODWORD(stru_140E2ED08.CycleTime);
     return v6;
   }
   SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(BugCheckParameter2);

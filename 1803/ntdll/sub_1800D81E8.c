@@ -6,12 +6,12 @@
  *     RtlUpcaseUnicodeChar @ 0x180040920 (RtlUpcaseUnicodeChar.c)
  */
 
-__int64 __fastcall sub_1800D81E8(unsigned __int16 *a1, int a2)
+__int64 __fastcall sub_1800D81E8(WCHAR *a1, int a2)
 {
   unsigned int v2; // ebx
   int v3; // edi
   int i; // ebp
-  unsigned __int16 v6; // ax
+  WCHAR v6; // ax
   int v7; // ebx
 
   v2 = 0;

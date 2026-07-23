@@ -99,7 +99,7 @@ LABEL_19:
   }
   if ( a1 )
   {
-    v19 = (_QWORD *)ResCKeOpenRuntimeView();
+    v19 = ResCKeOpenRuntimeView();
     if ( v19 )
     {
       v21 = v19[2];
@@ -153,7 +153,7 @@ LABEL_19:
   else
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

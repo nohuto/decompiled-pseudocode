@@ -1,17 +1,17 @@
 /*
- * XREFs of MmGetSessionMappedViewInformation @ 0x1408C48D0
+ * XREFs of MmGetSessionMappedViewInformation @ 0x1408C4A30
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
- *     MiGetSystemPteStatistics @ 0x1408D7A34 (MiGetSystemPteStatistics.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     ExUnlockUserBuffer @ 0x1402161DC (ExUnlockUserBuffer.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmGetSessionId @ 0x1402863C0 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x1402872E0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExLockUserBuffer @ 0x1405E45FC (ExLockUserBuffer.c)
+ *     MiGetSystemPteStatistics @ 0x1408D7B94 (MiGetSystemPteStatistics.c)
  */
 
 __int64 __fastcall MmGetSessionMappedViewInformation(unsigned __int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
@@ -68,7 +68,7 @@ LABEL_4:
     SessionId = MmGetSessionId(NextSession);
     if ( *v21 == -1 || SessionId == *v21 )
     {
-      if ( (int)MmAttachSession((_KPROCESS *)v13, (__int64)v24) >= 0 )
+      if ( (int)MmAttachSession((ULONG_PTR)v13) >= 0 )
       {
         v15 = v8 + 32;
         if ( (int)v8 + 32 < (unsigned int)v8 )

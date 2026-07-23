@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetJobIoAttribution @ 0x1404F206C
+ * XREFs of PspSetJobIoAttribution @ 0x1404D4800
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspSetJobIoRateControl @ 0x1404F1E7C (PspSetJobIoRateControl.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspSetJobIoRateControl @ 0x1404D4610 (PspSetJobIoRateControl.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     IoStartDiskIoAttributionForContext @ 0x1400B720C (IoStartDiskIoAttributionForContext.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspIsSetJobIoAttribution @ 0x1404F2250 (PspIsSetJobIoAttribution.c)
- *     PspRemoveIoAttribution @ 0x1404F22AC (PspRemoveIoAttribution.c)
- *     IoDiskIoAttributionAllocate @ 0x1404F2330 (IoDiskIoAttributionAllocate.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     IoStartDiskIoAttributionForContext @ 0x1400B5034 (IoStartDiskIoAttributionForContext.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspIsSetJobIoAttribution @ 0x1404D49E4 (PspIsSetJobIoAttribution.c)
+ *     PspRemoveIoAttribution @ 0x1404D4A40 (PspRemoveIoAttribution.c)
+ *     IoDiskIoAttributionAllocate @ 0x1404D4AC4 (IoDiskIoAttributionAllocate.c)
  */
 
 __int64 __fastcall PspSetJobIoAttribution(__int64 a1, __int64 a2, char a3, unsigned int a4)
@@ -20,8 +20,8 @@ __int64 __fastcall PspSetJobIoAttribution(__int64 a1, __int64 a2, char a3, unsig
   char v7; // r12
   unsigned int v9; // eax
   unsigned int v10; // eax
-  __int64 v11; // rax
-  __int64 v12; // rdi
+  _RTL_BALANCED_NODE *v11; // rax
+  _RTL_BALANCED_NODE *v12; // rdi
   unsigned int v13; // esi
   const EVENT_DESCRIPTOR *v14; // rbx
   REGHANDLE v15; // rdi
@@ -31,9 +31,9 @@ __int64 __fastcall PspSetJobIoAttribution(__int64 a1, __int64 a2, char a3, unsig
   int v20; // [rsp+30h] [rbp-39h] BYREF
   unsigned int v21; // [rsp+38h] [rbp-31h] BYREF
   _QWORD v22[3]; // [rsp+40h] [rbp-29h] BYREF
-  __int64 v23; // [rsp+58h] [rbp-11h] BYREF
+  _RTL_BALANCED_NODE *v23; // [rsp+58h] [rbp-11h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-9h] BYREF
-  __int64 *v25; // [rsp+70h] [rbp+7h]
+  _RTL_BALANCED_NODE **v25; // [rsp+70h] [rbp+7h]
   int v26; // [rsp+78h] [rbp+Fh]
   int v27; // [rsp+7Ch] [rbp+13h]
   unsigned int *v28; // [rsp+80h] [rbp+17h]
@@ -57,13 +57,13 @@ __int64 __fastcall PspSetJobIoAttribution(__int64 a1, __int64 a2, char a3, unsig
     *(_DWORD *)(a1 + 1336) = v18;
     if ( v18 )
     {
-      v12 = *(_QWORD *)(a1 + 1344);
+      v12 = *(_RTL_BALANCED_NODE **)(a1 + 1344);
     }
     else
     {
 LABEL_22:
       v19 = *(_DWORD *)(a1 + 1340);
-      v12 = *(_QWORD *)(a1 + 1344);
+      v12 = *(_RTL_BALANCED_NODE **)(a1 + 1344);
       if ( v19 > a4 )
       {
         *(_DWORD *)(a1 + 1340) = v19 - a4;
@@ -110,10 +110,10 @@ LABEL_22:
   {
     *(_DWORD *)(a1 + 1340) = v10 + a4;
 LABEL_25:
-    v12 = *(_QWORD *)(a1 + 1344);
+    v12 = *(_RTL_BALANCED_NODE **)(a1 + 1344);
     goto LABEL_11;
   }
-  v11 = IoDiskIoAttributionAllocate(a1, 0LL);
+  v11 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate(a1, 0LL);
   v12 = v11;
   if ( v11 )
   {

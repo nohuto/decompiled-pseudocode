@@ -10,29 +10,24 @@
  *     _RtlULongLongToUInt@12 @ 0x4B2E4CC8 (_RtlULongLongToUInt@12.c)
  */
 
-int __fastcall SafeReallocBlob(
-        int a1,
-        unsigned int a2,
-        unsigned int a3,
-        unsigned int a4,
-        int a5,
-        int a6,
-        unsigned int *a7)
+PVOID __fastcall SafeReallocBlob(PVOID BaseAddress, unsigned int a2, int a3, int a4, int a5, int a6, unsigned int *a7)
 {
-  int v9; // ecx
-  unsigned int v11; // [esp+8h] [ebp-8h] BYREF
-  int v12; // [esp+Ch] [ebp-4h] BYREF
+  unsigned int v9; // ecx
+  SIZE_T v11; // [esp-4h] [ebp-14h]
+  unsigned int Size; // [esp+8h] [ebp-8h] BYREF
+  int Size_4; // [esp+Ch] [ebp-4h] BYREF
 
-  if ( !a1
-    || RtlULongLongToUInt(&v12, a4 * a3, (a4 * (unsigned __int64)a3) >> 32) < 0
-    || (RtlULongPtrAdd(a2, v12, (int *)&v11) & 0x80000000) != 0
-    || RtlULongLongToUInt(&v12, 0, 0) < 0
-    || (RtlULongPtrAdd(v11, v12, (int *)&v11) & 0x80000000) != 0 )
+  if ( !BaseAddress
+    || RtlULongLongToUInt(&Size_4, a4 * a3, ((unsigned int)a4 * (unsigned __int64)(unsigned int)a3) >> 32) < 0
+    || (RtlULongPtrAdd(a2, Size_4, (int *)&Size) & 0x80000000) != 0
+    || RtlULongLongToUInt(&Size_4, 0, 0) < 0
+    || (RtlULongPtrAdd(Size, Size_4, (int *)&Size) & 0x80000000) != 0 )
   {
     return 0;
   }
-  v9 = v11;
+  v9 = Size;
   if ( a7 )
-    *a7 = v11;
-  return RtlReAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1, v9);
+    *a7 = Size;
+  LODWORD(v11) = v9;
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress, v11);
 }

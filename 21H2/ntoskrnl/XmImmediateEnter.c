@@ -1,10 +1,10 @@
 /*
- * XREFs of XmImmediateEnter @ 0x1404E55C0
+ * XREFs of XmImmediateEnter @ 0x1404E5800
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmGetCodeByte @ 0x140397368 (XmGetCodeByte.c)
- *     XmGetWordImmediate @ 0x140397440 (XmGetWordImmediate.c)
+ *     XmGetCodeByte @ 0x1403974B8 (XmGetCodeByte.c)
+ *     XmGetWordImmediate @ 0x140397590 (XmGetWordImmediate.c)
  */
 
 __int64 __fastcall XmImmediateEnter(__int64 a1)

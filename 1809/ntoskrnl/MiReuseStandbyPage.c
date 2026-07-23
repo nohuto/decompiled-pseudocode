@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReuseStandbyPage @ 0x1402C0FA0
+ * XREFs of MiReuseStandbyPage @ 0x1402C1190
  * Callers:
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1200 (MiSwapNumaStandbyPage.c)
  * Callees:
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiRestoreTransitionPte @ 0x140081000 (MiRestoreTransitionPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 __int64 __fastcall MiReuseStandbyPage(ULONG_PTR BugCheckParameter2)

@@ -1,30 +1,30 @@
 /*
- * XREFs of MmCreateProcessAddressSpace @ 0x140AE61C8
+ * XREFs of MmCreateProcessAddressSpace @ 0x140AE7AA8
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiChargeResident @ 0x1402F5FA0 (MiChargeResident.c)
- *     MiCreateNewProcessTopLevelMappings @ 0x140393CA0 (MiCreateNewProcessTopLevelMappings.c)
- *     PsChargeProcessQuota @ 0x1403CCF70 (PsChargeProcessQuota.c)
- *     MiCheckWsLimits @ 0x1403CD5D8 (MiCheckWsLimits.c)
- *     PsReturnProcessQuota @ 0x1403CD728 (PsReturnProcessQuota.c)
- *     MiGetSharedVm @ 0x14040C800 (MiGetSharedVm.c)
- *     RtlRandomEx @ 0x14041A510 (RtlRandomEx.c)
- *     MiDeleteProcessShadow @ 0x14045BC70 (MiDeleteProcessShadow.c)
- *     MiMakePartitionActive @ 0x14048A21C (MiMakePartitionActive.c)
- *     MiSetProcessPartitionId @ 0x1404A483C (MiSetProcessPartitionId.c)
- *     PsGetDefaultWsMaximum @ 0x1404A8270 (PsGetDefaultWsMaximum.c)
- *     MiCreateSlabIdentity @ 0x140686A04 (MiCreateSlabIdentity.c)
- *     MiDereferenceSlabIdentity @ 0x140687730 (MiDereferenceSlabIdentity.c)
- *     PsJoinSession @ 0x140A4D9A4 (PsJoinSession.c)
- *     MiAllocateProcessShadow @ 0x140A5A1B0 (MiAllocateProcessShadow.c)
- *     MiAllocateTopLevelPage @ 0x140A5A2FC (MiAllocateTopLevelPage.c)
- *     PsReserveSessionMembership @ 0x140A7D9D0 (PsReserveSessionMembership.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14033DD30 (MiChargeResident.c)
+ *     MiCreateNewProcessTopLevelMappings @ 0x14038D2BC (MiCreateNewProcessTopLevelMappings.c)
+ *     MiGetSharedVm @ 0x140404E90 (MiGetSharedVm.c)
+ *     RtlRandomEx @ 0x14040A510 (RtlRandomEx.c)
+ *     MiDeleteProcessShadow @ 0x140451008 (MiDeleteProcessShadow.c)
+ *     MiCheckWsLimits @ 0x14046CDC8 (MiCheckWsLimits.c)
+ *     PsReturnProcessQuota @ 0x14046CF18 (PsReturnProcessQuota.c)
+ *     PsChargeProcessQuota @ 0x14046CF4C (PsChargeProcessQuota.c)
+ *     MiMakePartitionActive @ 0x140485044 (MiMakePartitionActive.c)
+ *     MiSetProcessPartitionId @ 0x14049F5CC (MiSetProcessPartitionId.c)
+ *     PsGetDefaultWsMaximum @ 0x1404A2D3C (PsGetDefaultWsMaximum.c)
+ *     MiCreateSlabIdentity @ 0x140687B34 (MiCreateSlabIdentity.c)
+ *     MiDereferenceSlabIdentity @ 0x140688860 (MiDereferenceSlabIdentity.c)
+ *     PsJoinSession @ 0x140A44534 (PsJoinSession.c)
+ *     MiAllocateProcessShadow @ 0x140A51A70 (MiAllocateProcessShadow.c)
+ *     MiAllocateTopLevelPage @ 0x140A51BBC (MiAllocateTopLevelPage.c)
+ *     PsReserveSessionMembership @ 0x140A77CD0 (PsReserveSessionMembership.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall MmCreateProcessAddressSpace(
@@ -44,22 +44,23 @@ char __fastcall MmCreateProcessAddressSpace(
   __int64 v13; // rdx
   _QWORD *SharedVm; // r13
   __int64 Pool; // rax
+  struct _KPRCB *v16; // r9
   __int64 TopLevelPage; // rax
-  volatile signed __int32 *v17; // rdx
-  unsigned __int8 v19; // dl
-  unsigned __int64 v20[9]; // [rsp+30h] [rbp-48h] BYREF
-  volatile signed __int32 *v21; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v22; // [rsp+88h] [rbp+10h]
-  unsigned __int64 v23; // [rsp+90h] [rbp+18h] BYREF
+  volatile signed __int32 *v18; // rdx
+  unsigned __int8 v20; // dl
+  unsigned __int64 v21[9]; // [rsp+30h] [rbp-48h] BYREF
+  volatile signed __int32 *v22; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v23; // [rsp+88h] [rbp+10h]
+  unsigned __int64 v24; // [rsp+90h] [rbp+18h] BYREF
 
-  v23 = a3;
-  v22 = a2;
+  v24 = a3;
+  v23 = a2;
   v6 = PspMinimumWorkingSet;
   v7 = 0LL;
-  v21 = 0LL;
+  v22 = 0LL;
   v8 = 0;
   v9 = a6;
-  v20[0] = PspMinimumWorkingSet;
+  v21[0] = PspMinimumWorkingSet;
   v11 = a3;
   if ( a1 )
     v12 = **(__int16 ***)(a6 + 1880);
@@ -86,18 +87,18 @@ char __fastcall MmCreateProcessAddressSpace(
     *(_QWORD *)(v9 + 1720) = v9 + 1720;
     if ( v11 != PsGetDefaultWsMaximum() )
     {
-      MiCheckWsLimits(v9 + 1024, (__int64 *)v20, &v23, a4, 1);
-      v11 = v23;
-      v6 = v20[0];
+      MiCheckWsLimits(v9 + 1024, (__int64 *)v21, &v24, a4, 1);
+      v11 = v24;
+      v6 = v21[0];
     }
     *(_QWORD *)(v9 + 1136) = v6;
     *(_QWORD *)(v9 + 1144) = v11;
     if ( (a4 & 1) != 0 )
     {
-      v6 = v20[0];
-      LODWORD(v22) = *(_DWORD *)(v9 + 1208);
-      LOBYTE(v22) = v22 | 0x40;
-      *(_WORD *)(v9 + 1208) = v22;
+      v6 = v21[0];
+      LODWORD(v23) = *(_DWORD *)(v9 + 1208);
+      LOBYTE(v23) = v23 | 0x40;
+      *(_WORD *)(v9 + 1208) = v23;
     }
     Pool = MiAllocatePool(0x48uLL, 0x580uLL, 844130637);
     v7 = (void *)Pool;
@@ -108,20 +109,20 @@ char __fastcall MmCreateProcessAddressSpace(
       if ( (int)PsChargeProcessQuota(v9, v13, v6) >= 0 )
       {
         v8 |= 8u;
-        if ( (unsigned int)MiChargeResident((ULONG *)v12, v6, 0LL) )
+        if ( (unsigned int)MiChargeResident((ULONG *)v12, v6, 0LL, v16) )
         {
           v8 |= 0x10u;
           if ( (int)MiAllocateProcessShadow(v9, a5) >= 0 )
           {
             v8 |= 0x40u;
-            if ( (unsigned int)PsReserveSessionMembership(&v21) )
+            if ( (unsigned int)PsReserveSessionMembership(&v22) )
             {
               *(_QWORD *)(v9 + 984) = 4LL;
               TopLevelPage = MiAllocateTopLevelPage(v9);
               MiCreateNewProcessTopLevelMappings(v9, TopLevelPage);
-              v17 = v21;
+              v18 = v22;
               *(_QWORD *)(v9 + 1040) = v7;
-              PsJoinSession(v9, (__int64)v17);
+              PsJoinSession(v9, (__int64)v18);
               return 1;
             }
           }
@@ -141,10 +142,10 @@ char __fastcall MmCreateProcessAddressSpace(
     MiReturnCommit((__int64)v12, 4LL, 0);
   if ( (v8 & 1) != 0 )
   {
-    v19 = *(_BYTE *)(v9 + 1774);
-    if ( v19 != 0xFF )
+    v20 = *(_BYTE *)(v9 + 1774);
+    if ( v20 != 0xFF )
     {
-      MiDereferenceSlabIdentity((__int64)v12, v19);
+      MiDereferenceSlabIdentity((__int64)v12, v20);
       *(_BYTE *)(v9 + 1774) = -1;
     }
   }

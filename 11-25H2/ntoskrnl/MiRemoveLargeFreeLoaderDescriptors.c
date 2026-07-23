@@ -12,7 +12,7 @@
 
 void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
 {
-  unsigned __int64 v2; // r14
+  __int64 v2; // r14
   unsigned __int64 v3; // rax
   unsigned __int64 v4; // r15
   _QWORD *DescriptorByPfn; // rbx
@@ -49,7 +49,7 @@ void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
   __int64 v36; // rax
   __int64 *v37; // r11
   unsigned __int64 v38; // rdx
-  bool v39; // r8
+  BOOLEAN v39; // r8
   unsigned __int64 v40; // rax
 
   if ( !_bittest64(&KeFeatureBits, 0x25u) )
@@ -281,7 +281,11 @@ LABEL_74:
             v38 = v40;
           }
         }
-        RtlRbInsertNodeEx((__int64 *)v2, v38, v39, (unsigned __int64)&MxDeferredBootSplitDescriptor[v33]);
+        RtlRbInsertNodeEx(
+          (PRTL_RB_TREE)v2,
+          (PRTL_BALANCED_NODE)v38,
+          v39,
+          (PRTL_BALANCED_NODE)&MxDeferredBootSplitDescriptor[v33]);
         continue;
       }
       goto LABEL_62;
@@ -293,6 +297,6 @@ LABEL_62:
       *(_QWORD *)(v27 + 40) = v35 - v32;
       continue;
     }
-    RtlRbRemoveNode(v2, (unsigned __int64 *)v27);
+    RtlRbRemoveNode((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v27);
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmOutSwapWorkingSet @ 0x1400E5128
+ * XREFs of MmOutSwapWorkingSet @ 0x1400E51A8
  * Callers:
- *     PspChangeProcessExecutionState @ 0x1406035AC (PspChangeProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x1406045AC (PspChangeProcessExecutionState.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,28 +14,28 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFindBestOutswapPagefile @ 0x1400E4DAC (MiFindBestOutswapPagefile.c)
- *     MiOutSwapWorkingSet @ 0x1400E57E8 (MiOutSwapWorkingSet.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x1400E58DC (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x1400E5934 (MiAllocateWorkingSetSwapSupport.c)
- *     MiGetKernelStackSwapSupport @ 0x140124034 (MiGetKernelStackSwapSupport.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SmStoreSetProcessVaRanges @ 0x14066B6DC (SmStoreSetProcessVaRanges.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
- *     MiFreeWorkingSetSwapContext @ 0x1406B8DE4 (MiFreeWorkingSetSwapContext.c)
- *     MiFreeReservationRuns @ 0x1406B8E4C (MiFreeReservationRuns.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x14085EA34 (MiExtendWorkingSetSwapPagefile.c)
- *     MiReserveWorkingSetSwapSpace @ 0x14085EB4C (MiReserveWorkingSetSwapSpace.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiVadMapsLargeImage @ 0x140074A00 (MiVadMapsLargeImage.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFindBestOutswapPagefile @ 0x1400E4E2C (MiFindBestOutswapPagefile.c)
+ *     MiOutSwapWorkingSet @ 0x1400E5868 (MiOutSwapWorkingSet.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1400E595C (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1400E59B4 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiGetKernelStackSwapSupport @ 0x140124104 (MiGetKernelStackSwapSupport.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SmStoreSetProcessVaRanges @ 0x14066C89C (SmStoreSetProcessVaRanges.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066C988 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1406BA084 (MiFreeWorkingSetSwapContext.c)
+ *     MiFreeReservationRuns @ 0x1406BA0EC (MiFreeReservationRuns.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x14085FC94 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x14085FDAC (MiReserveWorkingSetSwapSpace.c)
  */
 
 __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
@@ -115,7 +115,7 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
   P = 0LL;
   v5 = 0;
   memset(v66, 0, sizeof(v66));
-  v6 = *(_QWORD *)(qword_14043A748 + 8LL * v2[87]);
+  v6 = *(_QWORD *)(qword_14043B808 + 8LL * v2[87]);
   v58 = v6;
   v66[3] = v6;
   LODWORD(v67) = a2 != 0;
@@ -408,7 +408,7 @@ LABEL_75:
       }
       v45->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v45->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v38->LockEntries[v44], v40);
+        KiAbEntryRemoveFromTree(&v38->LockEntries[v44].TreeNode, v40);
       v56 = 0;
       v56 = v45->BoostBitmap.AllFields & 0x1FFFF;
       v45->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWakeSRWLock @ 0x1800C8F70
+ * XREFs of RtlpWakeSRWLock @ 0x1800C6730
  * Callers:
- *     RtlConvertSRWLockExclusiveToShared @ 0x18013DF00 (RtlConvertSRWLockExclusiveToShared.c)
+ *     RtlConvertSRWLockExclusiveToShared @ 0x18013DDB0 (RtlConvertSRWLockExclusiveToShared.c)
  * Callees:
- *     ZwAlertThreadByThreadIdEx @ 0x18015FD70 (ZwAlertThreadByThreadIdEx.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x18015FC70 (ZwAlertThreadByThreadIdEx.c)
  */
 
 __int64 __fastcall RtlpWakeSRWLock(volatile signed __int64 *a1, signed __int64 a2, char a3)

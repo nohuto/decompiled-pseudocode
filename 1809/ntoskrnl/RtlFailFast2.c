@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFailFast2 @ 0x1401C6440
+ * XREFs of RtlFailFast2 @ 0x1401C65A0
  * Callers:
- *     RtlGuardCheckLongJumpTarget @ 0x1402F6718 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1402F6908 (RtlGuardCheckLongJumpTarget.c)
  * Callees:
  *     <none>
  */

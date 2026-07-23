@@ -28,12 +28,12 @@ __int64 __fastcall CmpCmdHiveOpen(
         __int64 a8,
         __int64 a9)
 {
-  int inited; // eax
-  int v12; // ebx
+  NTSTATUS inited; // eax
+  NTSTATUS v12; // ebx
   unsigned int v13; // eax
   int v14; // ecx
   struct _DMA_ADAPTER *v15; // rdi
-  int v16; // eax
+  NTSTATUS v16; // eax
   struct _KTHREAD *CurrentThread; // rcx
   BOOLEAN v19; // [rsp+50h] [rbp-69h] BYREF
   BOOLEAN v20; // [rsp+51h] [rbp-68h] BYREF
@@ -67,7 +67,7 @@ __int64 __fastcall CmpCmdHiveOpen(
                                      (bool *)&v19,
                                      (int *)ImpersonationLevel,
                                      0LL);
-      v12 = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
+      v12 = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL);
       if ( v12 >= 0 )
       {
         v16 = CmpInitHiveFromFile(a1, a5, 0LL);

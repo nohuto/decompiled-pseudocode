@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrivilegeCheck @ 0x1401BA7B0
+ * XREFs of ZwPrivilegeCheck @ 0x1401BA910
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredP
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ClientToken, RequiredPrivileges, Result);
+  return KiServiceInternal(ClientToken);
 }

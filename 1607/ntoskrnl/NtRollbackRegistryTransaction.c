@@ -1,17 +1,17 @@
 /*
- * XREFs of NtRollbackRegistryTransaction @ 0x140546394
+ * XREFs of NtRollbackRegistryTransaction @ 0x1405468D4
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpRollbackLightWeightTransaction @ 0x1404E979C (CmpRollbackLightWeightTransaction.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1404CB88C (CmpRollbackLightWeightTransaction.c)
  */
 
-__int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtRollbackRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // rdx
@@ -19,7 +19,7 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
   __int64 v7; // r9
   NTSTATUS v8; // eax
   PVOID v9; // rdi
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // r9
@@ -29,14 +29,14 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
   --CurrentThread->KernelApcDisable;
   if ( ExAcquireRundownProtection(&CmpShutdownRundown) )
   {
-    if ( a2 )
+    if ( Flags )
     {
       v10 = -1073741811;
     }
     else
     {
       v8 = ObReferenceObjectByHandle(
-             Handle,
+             RegistryTransactionHandle,
              0x10u,
              CmRegistryTransactionType,
              KeGetCurrentThread()->PreviousMode,
@@ -59,7 +59,7 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
   else
   {
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v5, v6, v7);
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
-  return (unsigned int)v10;
+  return v10;
 }

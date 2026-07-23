@@ -1,11 +1,11 @@
 /*
- * XREFs of PspIsSessionLeaderProcess @ 0x140B144C4
+ * XREFs of PspIsSessionLeaderProcess @ 0x140B165C4
  * Callers:
- *     PsIsSessionLeaderProcess @ 0x1404E80D0 (PsIsSessionLeaderProcess.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PspInitializeSessionGlobals @ 0x140B6AFFC (PspInitializeSessionGlobals.c)
+ *     PsIsSessionLeaderProcess @ 0x1404E1490 (PsIsSessionLeaderProcess.c)
+ *     PspInitializeSessionGlobals @ 0x140A098DC (PspInitializeSessionGlobals.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 _BOOL8 PspIsSessionLeaderProcess()

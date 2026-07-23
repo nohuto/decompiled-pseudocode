@@ -7,12 +7,12 @@
  * Callees:
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
  *     RtlCreateUnicodeString @ 0x1800427A0 (RtlCreateUnicodeString.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     StringCchCopyW @ 0x1800DF380 (StringCchCopyW.c)
  *     StringCchPrintfW @ 0x1800DF408 (StringCchPrintfW.c)
  */
 
-__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, UNICODE_STRING *a3)
+__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   const wchar_t *v6; // r8
   int UniqueProcess; // ecx
@@ -38,7 +38,7 @@ __int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, UNICODE_ST
       return (unsigned __int16)result;
     v8 = pszDest;
   }
-  if ( RtlCreateUnicodeString((__int64)a3, v8) )
+  if ( RtlCreateUnicodeString(a3, v8) )
     return 0LL;
   else
     return 8LL;

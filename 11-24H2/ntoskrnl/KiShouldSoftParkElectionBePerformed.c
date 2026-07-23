@@ -1,7 +1,7 @@
 /*
- * XREFs of KiShouldSoftParkElectionBePerformed @ 0x1402013B0
+ * XREFs of KiShouldSoftParkElectionBePerformed @ 0x140329AA0
  * Callers:
- *     KiSoftParkElectionDpcRoutine @ 0x1402011F0 (KiSoftParkElectionDpcRoutine.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x1403298E0 (KiSoftParkElectionDpcRoutine.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ bool __fastcall KiShouldSoftParkElectionBePerformed(__int64 a1)
   {
     return 0;
   }
-  v1 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78
+  v1 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F22998
                                     + 64 * (unsigned __int64)*(unsigned __int16 *)(a1 + 710)
                                     + *(unsigned __int8 *)(a1 + 705))]
                  + 192);

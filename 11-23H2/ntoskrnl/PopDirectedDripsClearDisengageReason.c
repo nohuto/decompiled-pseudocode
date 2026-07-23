@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsClearDisengageReason @ 0x14035E638
+ * XREFs of PopDirectedDripsClearDisengageReason @ 0x14035E7D8
  * Callers:
- *     PnpDeviceActionWorker @ 0x140359430 (PnpDeviceActionWorker.c)
- *     PnpRemoveDeviceActionRequests @ 0x1403D6540 (PnpRemoveDeviceActionRequests.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x14056265C (PnpRemoveDeviceActionRequestFromQueue.c)
- *     PopDirectedDripsDisengageTimerCallback @ 0x140586E90 (PopDirectedDripsDisengageTimerCallback.c)
- *     PopDirectedDripsNotify @ 0x1408754E4 (PopDirectedDripsNotify.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x140993734 (PopPowerAggregatorEngageModernStandby.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14099C190 (PopDripsWatchdogCallbackWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403595D0 (PnpDeviceActionWorker.c)
+ *     PnpRemoveDeviceActionRequests @ 0x1403D6720 (PnpRemoveDeviceActionRequests.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x140562D1C (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PopDirectedDripsDisengageTimerCallback @ 0x140587380 (PopDirectedDripsDisengageTimerCallback.c)
+ *     PopDirectedDripsNotify @ 0x140875724 (PopDirectedDripsNotify.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140993934 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14099C390 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x14035E6A4 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x14035E844 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SshSessionManagerTracePostSleepNotification @ 0x140B2FE08
+ * XREFs of SshSessionManagerTracePostSleepNotification @ 0x140B31BE8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     SshpSessionManagerInterruptTimeToSystemTime @ 0x1407E40FC (SshpSessionManagerInterruptTimeToSystemTime.c)
- *     SshpSessionManagerSendControlEvent @ 0x140B2FF48 (SshpSessionManagerSendControlEvent.c)
+ *     SshpSessionManagerInterruptTimeToSystemTime @ 0x1407E9550 (SshpSessionManagerInterruptTimeToSystemTime.c)
+ *     SshpSessionManagerSendControlEvent @ 0x140B31D28 (SshpSessionManagerSendControlEvent.c)
  */
 
 __int64 __fastcall SshSessionManagerTracePostSleepNotification(

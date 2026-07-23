@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbGetBinaryTagData @ 0x140885A70
+ * XREFs of SdbGetBinaryTagData @ 0x14088BE70
  * Callers:
- *     SdbpGetRegistryMatchingAttributes @ 0x1408846C8 (SdbpGetRegistryMatchingAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x14088AAC8 (SdbpGetRegistryMatchingAttributes.c)
  * Callees:
- *     SdbpGetMappedTagData @ 0x1409E7A4C (SdbpGetMappedTagData.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpGetMappedTagData @ 0x1409D4464 (SdbpGetMappedTagData.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbGetBinaryTagData(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

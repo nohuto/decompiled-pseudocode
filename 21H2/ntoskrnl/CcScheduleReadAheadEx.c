@@ -1,27 +1,27 @@
 /*
- * XREFs of CcScheduleReadAheadEx @ 0x1402F8E00
+ * XREFs of CcScheduleReadAheadEx @ 0x140303B50
  * Callers:
- *     CcAsyncCopyRead @ 0x1402F8440 (CcAsyncCopyRead.c)
- *     CcAsyncReadPrefetch @ 0x1402F9B74 (CcAsyncReadPrefetch.c)
- *     CcCopyReadEx @ 0x140320720 (CcCopyReadEx.c)
- *     CcScheduleReadAhead @ 0x1404EA6F0 (CcScheduleReadAhead.c)
- *     CcMdlRead @ 0x1406D3BB0 (CcMdlRead.c)
+ *     CcAsyncCopyRead @ 0x140303190 (CcAsyncCopyRead.c)
+ *     CcAsyncReadPrefetch @ 0x1403048C4 (CcAsyncReadPrefetch.c)
+ *     CcCopyReadEx @ 0x14032B470 (CcCopyReadEx.c)
+ *     CcScheduleReadAhead @ 0x1404EA930 (CcScheduleReadAhead.c)
+ *     CcMdlRead @ 0x1406AAE90 (CcMdlRead.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcPostWorkQueue @ 0x1402F6130 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x1402F67D0 (CcAllocateWorkQueueEntry.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402F88E8 (IoReferenceIoAttributionFromThread.c)
- *     CcDetermineReadPattern @ 0x1402F9268 (CcDetermineReadPattern.c)
- *     CcChargeThreadForReadAhead @ 0x1402F98E8 (CcChargeThreadForReadAhead.c)
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcPerfLogScheduleReadAhead @ 0x1403BC25C (CcPerfLogScheduleReadAhead.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetPagePriorityThread @ 0x1402E7020 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     CcPostWorkQueue @ 0x140300E80 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x140301520 (CcAllocateWorkQueueEntry.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140303638 (IoReferenceIoAttributionFromThread.c)
+ *     CcDetermineReadPattern @ 0x140303FB8 (CcDetermineReadPattern.c)
+ *     CcChargeThreadForReadAhead @ 0x140304638 (CcChargeThreadForReadAhead.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcPerfLogScheduleReadAhead @ 0x1403BC3CC (CcPerfLogScheduleReadAhead.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -98,7 +98,7 @@ __int64 __fastcall CcScheduleReadAheadEx(_SLIST_ENTRY *Object, _QWORD *a2, unsig
   v11 = *(_DWORD **)(v7 + 8);
   if ( v11 )
   {
-    Partition = CcGetPartition(*(_QWORD *)(v7 + 8));
+    Partition = CcGetPartition(*(_QWORD *)(v7 + 8), (_BYTE)a2, a3);
     v57 = Partition;
   }
   if ( !CurrentThread )

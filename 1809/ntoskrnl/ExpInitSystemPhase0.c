@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpInitSystemPhase0 @ 0x1409D51A0
+ * XREFs of ExpInitSystemPhase0 @ 0x1409D61A0
  * Callers:
- *     ExInitSystem @ 0x1409D4FF0 (ExInitSystem.c)
+ *     ExInitSystem @ 0x1409D5FF0 (ExInitSystem.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     RtlHpGlobalsInitialize @ 0x14018D5D0 (RtlHpGlobalsInitialize.c)
- *     ExGetSuiteMask @ 0x1407550D0 (ExGetSuiteMask.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     RtlHpGlobalsInitialize @ 0x14018D710 (RtlHpGlobalsInitialize.c)
+ *     ExGetSuiteMask @ 0x1407562C0 (ExGetSuiteMask.c)
  */
 
 char ExpInitSystemPhase0()
@@ -20,15 +20,15 @@ char ExpInitSystemPhase0()
   ExpEnvironmentLock.Event.Header.SignalState = 0;
   ExNPagedLookasideLock = 0LL;
   ExPagedLookasideLock = 0LL;
-  qword_1404070B8 = (__int64)&ExpSystemResourcesList;
+  qword_140408118 = (__int64)&ExpSystemResourcesList;
   ExpSystemResourcesList = (__int64)&ExpSystemResourcesList;
   ExpEnvironmentLock.Event.Header.WaitListHead.Blink = &ExpEnvironmentLock.Event.Header.WaitListHead;
   ExpEnvironmentLock.Event.Header.WaitListHead.Flink = &ExpEnvironmentLock.Event.Header.WaitListHead;
-  qword_140407078 = (__int64)&ExNPagedLookasideListHead;
+  qword_1404080A8 = (__int64)&ExNPagedLookasideListHead;
   ExNPagedLookasideListHead = (__int64)&ExNPagedLookasideListHead;
-  qword_140407048 = (__int64)&ExPagedLookasideListHead;
+  qword_1404080C8 = (__int64)&ExPagedLookasideListHead;
   ExPagedLookasideListHead = (__int64)&ExPagedLookasideListHead;
-  qword_140409CE8 = (__int64)&ExpFirmwareTableProviderListHead;
+  qword_14040AD48 = (__int64)&ExpFirmwareTableProviderListHead;
   ExpFirmwareTableProviderListHead = (__int64)&ExpFirmwareTableProviderListHead;
   ExpTimeout = -40000000LL;
   ExpEnvironmentLock.Count = 1;
@@ -37,8 +37,8 @@ char ExpInitSystemPhase0()
   ExInitializeResourceLite(&ExpFirmwareTableResource);
   v0 = *(_DWORD *)(KeLoaderBlock_0 + 264);
   ExpConDrvLoadLock = 0LL;
-  qword_14096E4E0 = 0LL;
-  qword_14096E5A0 = 0LL;
+  qword_14096F4E0 = 0LL;
+  qword_14096F5A0 = 0LL;
   ExpFirmwarePageProtectionSupported = (v0 & 4) != 0;
   if ( CmSuiteBufferType == 7 )
     MEMORY[0xFFFFF780000002D0] = ExGetSuiteMask((__int64)CmSuiteBuffer, ExpMultiUserTS);

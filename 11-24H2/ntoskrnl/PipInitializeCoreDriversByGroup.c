@@ -1,20 +1,20 @@
 /*
- * XREFs of PipInitializeCoreDriversByGroup @ 0x140C6351C
+ * XREFs of PipInitializeCoreDriversByGroup @ 0x140C65698
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x140C633C4 (PipInitializeCoreDriversAndElam.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140C65540 (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     PnpUnlockDeviceActionQueue @ 0x140498E64 (PnpUnlockDeviceActionQueue.c)
- *     PnpLockDeviceActionQueue @ 0x140498EF8 (PnpLockDeviceActionQueue.c)
- *     HeadlessKernelAddLogEntry @ 0x1404AD660 (HeadlessKernelAddLogEntry.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PnpWaitForEmptyDeviceEventQueue @ 0x1406FADC0 (PnpWaitForEmptyDeviceEventQueue.c)
- *     PipApplyFunctionToServiceInstances @ 0x140722AC0 (PipApplyFunctionToServiceInstances.c)
- *     PnpWaitForEmptyDeviceActionQueue @ 0x14072D27C (PnpWaitForEmptyDeviceActionQueue.c)
- *     IopGetDriverNameFromKeyNode @ 0x1409CA314 (IopGetDriverNameFromKeyNode.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PnpInitializeBootStartDriver @ 0x140C66118 (PnpInitializeBootStartDriver.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     PnpUnlockDeviceActionQueue @ 0x140493744 (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x1404937D8 (PnpLockDeviceActionQueue.c)
+ *     HeadlessKernelAddLogEntry @ 0x1404A7D40 (HeadlessKernelAddLogEntry.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PnpWaitForEmptyDeviceEventQueue @ 0x1406F8A00 (PnpWaitForEmptyDeviceEventQueue.c)
+ *     PipApplyFunctionToServiceInstances @ 0x140720650 (PipApplyFunctionToServiceInstances.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x14072B290 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1409B6410 (IopGetDriverNameFromKeyNode.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PnpInitializeBootStartDriver @ 0x140C68294 (PnpInitializeBootStartDriver.c)
  */
 
 void __fastcall PipInitializeCoreDriversByGroup(int a1, __int64 a2)

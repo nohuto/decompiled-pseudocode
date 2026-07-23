@@ -1,20 +1,20 @@
 /*
- * XREFs of VfSuspectDriversLoadCallback @ 0x1409377A4
+ * XREFs of VfSuspectDriversLoadCallback @ 0x1409387A4
  * Callers:
- *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x140922264 (VfDriverLoadImage.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
- *     VfTargetDriversAdd @ 0x1400F55A4 (VfTargetDriversAdd.c)
- *     VfTargetDriversRemove @ 0x14016C1E0 (VfTargetDriversRemove.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
- *     VfUtilPrintCheckinString @ 0x140926214 (VfUtilPrintCheckinString.c)
- *     VfCheckImageCompliance @ 0x1409271A4 (VfCheckImageCompliance.c)
- *     VfNotifyVerifierExtensions @ 0x14092820C (VfNotifyVerifierExtensions.c)
- *     VfTargetDriversEnableVerifier @ 0x140934944 (VfTargetDriversEnableVerifier.c)
- *     VfThunkApplyMandatoryThunks @ 0x140936A5C (VfThunkApplyMandatoryThunks.c)
- *     VfThunkApplyThunks @ 0x140936B30 (VfThunkApplyThunks.c)
- *     VfSuspectDriversAllocateEntry @ 0x1409374B4 (VfSuspectDriversAllocateEntry.c)
+ *     VfTargetDriversAdd @ 0x1400F5624 (VfTargetDriversAdd.c)
+ *     VfTargetDriversRemove @ 0x14016C2E0 (VfTargetDriversRemove.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x1409226E0 (VfDriverLock.c)
+ *     VfUtilPrintCheckinString @ 0x140927214 (VfUtilPrintCheckinString.c)
+ *     VfCheckImageCompliance @ 0x1409281A4 (VfCheckImageCompliance.c)
+ *     VfNotifyVerifierExtensions @ 0x14092920C (VfNotifyVerifierExtensions.c)
+ *     VfTargetDriversEnableVerifier @ 0x140935944 (VfTargetDriversEnableVerifier.c)
+ *     VfThunkApplyMandatoryThunks @ 0x140937A5C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x140937B30 (VfThunkApplyThunks.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409384B4 (VfSuspectDriversAllocateEntry.c)
  */
 
 LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, __int64 Entry, char a3, int a4, unsigned int a5)
@@ -106,7 +106,7 @@ LABEL_45:
             if ( v12 )
             {
               VfUtilPrintCheckinString((unsigned __int16 *)(a1 + 88));
-              ++dword_14041A9B0;
+              ++dword_14041BA90;
               ++*(_DWORD *)(Entry + 16);
               VfNotifyVerifierExtensions(1, a1);
               VfCheckImageCompliance(a1);
@@ -141,7 +141,7 @@ LABEL_45:
     else if ( ViVerifyAllDrivers != 1 )
     {
       if ( !VfRandomVerifiedDrivers
-        || (++ViLoadedDriversCount, !_bittest((const signed __int32 *)qword_140985C20, ViLoadedDriversCount)) )
+        || (++ViLoadedDriversCount, !_bittest((const signed __int32 *)qword_140986C20, ViLoadedDriversCount)) )
       {
         v14 = 0;
 LABEL_41:
@@ -158,13 +158,13 @@ LABEL_37:
     Entry = (__int64)VfSuspectDriversAllocateEntry((const void **)(a1 + 88));
     if ( !Entry )
       goto LABEL_45;
-    v15 = (__int64 *)qword_14040D778;
-    if ( *(__int64 **)qword_14040D778 != &VfSuspectDriversList )
+    v15 = (__int64 *)qword_14040E7E8;
+    if ( *(__int64 **)qword_14040E7E8 != &VfSuspectDriversList )
       __fastfail(3u);
     *(_QWORD *)Entry = &VfSuspectDriversList;
     *(_QWORD *)(Entry + 8) = v15;
     *v15 = Entry;
-    qword_14040D778 = Entry;
+    qword_14040E7E8 = Entry;
     goto LABEL_44;
   }
 LABEL_57:

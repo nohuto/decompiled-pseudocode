@@ -1,8 +1,8 @@
 /*
- * XREFs of KeRebaselineInterruptTime @ 0x140144648
+ * XREFs of KeRebaselineInterruptTime @ 0x140144748
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
- *     KiCalibrateTimeAdjustment @ 0x14056B040 (KiCalibrateTimeAdjustment.c)
+ *     PopInvokeSystemStateHandler @ 0x140569DB8 (PopInvokeSystemStateHandler.c)
+ *     KiCalibrateTimeAdjustment @ 0x14056C040 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>
  */

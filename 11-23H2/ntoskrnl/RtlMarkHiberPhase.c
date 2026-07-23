@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlMarkHiberPhase @ 0x1405B474C
+ * XREFs of RtlMarkHiberPhase @ 0x1405B4CBC
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140AA360C (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140AA347C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MiGetPhysicalAddress @ 0x14028BF20 (MiGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     PopSetRange @ 0x14058EF1C (PopSetRange.c)
+ *     MiGetPhysicalAddress @ 0x14028C1B0 (MiGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     PopSetRange @ 0x14058F40C (PopSetRange.c)
  */
 
 void RtlMarkHiberPhase()
@@ -30,14 +30,14 @@ void RtlMarkHiberPhase()
 
   if ( (KiBugCheckActive & 3) == 0 )
   {
-    v0 = qword_140C3D100;
-    v15 = qword_140C3D100;
-    if ( !qword_140C3D100 )
+    v0 = qword_140C3CDC0;
+    v15 = qword_140C3CDC0;
+    if ( !qword_140C3CDC0 )
       KeBugCheckEx(0xA0u, 0x10BuLL, 0xAuLL, 0LL, 0LL);
-    v1 = *(_DWORD *)(qword_140C3D100 + 184);
+    v1 = *(_DWORD *)(qword_140C3CDC0 + 184);
     if ( v1 == 8 )
     {
-      v2 = ((unsigned __int64)L"rsion\\AppCompatFlags\\SdbUpdates" + 1) >> 12;
+      v2 = (unsigned __int64)"" >> 12;
       for ( i = (unsigned __int64)XpressHashFunction >> 12; i < v2; i += v7 )
       {
         v12 = 0;

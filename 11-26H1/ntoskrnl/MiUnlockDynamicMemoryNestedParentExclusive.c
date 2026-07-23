@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockDynamicMemoryNestedParentExclusive @ 0x1406EA248
+ * XREFs of MiUnlockDynamicMemoryNestedParentExclusive @ 0x1406EEEE8
  * Callers:
- *     MiReturnPartitionPagesToParent @ 0x1407098B8 (MiReturnPartitionPagesToParent.c)
+ *     MiReturnPartitionPagesToParent @ 0x14070E56C (MiReturnPartitionPagesToParent.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall MiUnlockDynamicMemoryNestedParentExclusive(__int64 a1)

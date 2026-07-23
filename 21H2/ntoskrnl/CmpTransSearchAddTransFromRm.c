@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTransSearchAddTransFromRm @ 0x140766DB4
+ * XREFs of CmpTransSearchAddTransFromRm @ 0x140766F74
  * Callers:
- *     CmpTransSearchAddTransFromHive @ 0x1406A3040 (CmpTransSearchAddTransFromHive.c)
- *     CmpTransInitializeTransaction @ 0x1407670BC (CmpTransInitializeTransaction.c)
- *     CmpRecoverEnlistment @ 0x140874E8C (CmpRecoverEnlistment.c)
- *     CmpRmAnalysisPhase @ 0x1408755E0 (CmpRmAnalysisPhase.c)
- *     CmpRmReDoPhase @ 0x140875820 (CmpRmReDoPhase.c)
+ *     CmpTransSearchAddTransFromHive @ 0x1405DED40 (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransInitializeTransaction @ 0x14076727C (CmpTransInitializeTransaction.c)
+ *     CmpRecoverEnlistment @ 0x140874FEC (CmpRecoverEnlistment.c)
+ *     CmpRmAnalysisPhase @ 0x140875740 (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x140875980 (CmpRmReDoPhase.c)
  * Callees:
- *     CmpTransSearchAddTrans @ 0x140766E2C (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x140766FEC (CmpTransSearchAddTrans.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTransFromRm(_QWORD *a1, __int64 a2, __int64 a3, int a4, __int64 a5)

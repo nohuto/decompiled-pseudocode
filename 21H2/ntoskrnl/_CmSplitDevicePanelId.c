@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmSplitDevicePanelId @ 0x1407AFCD8
+ * XREFs of _CmSplitDevicePanelId @ 0x1407AFE78
  * Callers:
- *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
- *     _CmValidateDevicePanelName @ 0x1407AFC78 (_CmValidateDevicePanelName.c)
- *     _CmGetDevicePanelMappedProperty @ 0x14097839C (_CmGetDevicePanelMappedProperty.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074594C (PiPnpRtlSetObjectProperty.c)
+ *     _CmValidateDevicePanelName @ 0x1407AFE18 (_CmValidateDevicePanelName.c)
+ *     _CmGetDevicePanelMappedProperty @ 0x14097857C (_CmGetDevicePanelMappedProperty.c)
  * Callees:
- *     RtlStringCchCopyNExW @ 0x1402655E8 (RtlStringCchCopyNExW.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     wcstoul @ 0x1403D4500 (wcstoul.c)
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     RtlStringCchCopyNExW @ 0x140253584 (RtlStringCchCopyNExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     wcstoul @ 0x1403D4670 (wcstoul.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
  */
 
 __int64 __fastcall CmSplitDevicePanelId(STRSAFE_PCNZWCH pszSrc, GUID *Guid, unsigned int *a3, unsigned int *a4)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MmRemovePhysicalMemory @ 0x140867460
+ * XREFs of MmRemovePhysicalMemory @ 0x14086D840
  * Callers:
- *     WheapClearPoison @ 0x140848C30 (WheapClearPoison.c)
+ *     WheapClearPoison @ 0x14084EF00 (WheapClearPoison.c)
  * Callees:
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiReleaseNonPagedResourcesNotExposed @ 0x1403C2FD8 (MiReleaseNonPagedResourcesNotExposed.c)
- *     MiFreeContiguousPages @ 0x1403C3858 (MiFreeContiguousPages.c)
- *     MiReferencePagePartition @ 0x1406F0A6C (MiReferencePagePartition.c)
- *     MiRemoveBadPages @ 0x1406F17A0 (MiRemoveBadPages.c)
- *     MiReturnBadPagesToBadList @ 0x1406F1C24 (MiReturnBadPagesToBadList.c)
- *     MiAddRangeToPartitionTree @ 0x14070821C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNodes @ 0x140708B00 (MiDeletePartitionPageNodes.c)
- *     MiRemovePhysicalMemory @ 0x140866D5C (MiRemovePhysicalMemory.c)
- *     MiInsertPartitionPages @ 0x14087C1C4 (MiInsertPartitionPages.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x14087EC30 (MiSpecialPurposeMemoryRemoved.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiReleaseNonPagedResourcesNotExposed @ 0x1403CCED8 (MiReleaseNonPagedResourcesNotExposed.c)
+ *     MiFreeContiguousPages @ 0x1403CD758 (MiFreeContiguousPages.c)
+ *     MiReferencePagePartition @ 0x1406F56DC (MiReferencePagePartition.c)
+ *     MiRemoveBadPages @ 0x1406F6410 (MiRemoveBadPages.c)
+ *     MiReturnBadPagesToBadList @ 0x1406F6894 (MiReturnBadPagesToBadList.c)
+ *     MiAddRangeToPartitionTree @ 0x14070CED0 (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNodes @ 0x14070D7B4 (MiDeletePartitionPageNodes.c)
+ *     MiRemovePhysicalMemory @ 0x14086D13C (MiRemovePhysicalMemory.c)
+ *     MiInsertPartitionPages @ 0x1408825C4 (MiInsertPartitionPages.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x140885030 (MiSpecialPurposeMemoryRemoved.c)
  */
 
 NTSTATUS __stdcall MmRemovePhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)

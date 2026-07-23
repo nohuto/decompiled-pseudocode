@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIrpAllocateCallDriverData @ 0x140C2C570
+ * XREFs of VfIrpAllocateCallDriverData @ 0x140C32580
  * Callers:
- *     IovCallDriver @ 0x1404F36FC (IovCallDriver.c)
+ *     IovCallDriver @ 0x1404ECCDC (IovCallDriver.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IovpCheckIrpForCriticalTracking @ 0x140C2BB3C (IovpCheckIrpForCriticalTracking.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IovpCheckIrpForCriticalTracking @ 0x140C31B4C (IovpCheckIrpForCriticalTracking.c)
  */
 
 __int64 __fastcall VfIrpAllocateCallDriverData(__int64 a1, _QWORD *a2)

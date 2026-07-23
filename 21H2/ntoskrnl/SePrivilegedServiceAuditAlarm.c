@@ -1,17 +1,17 @@
 /*
- * XREFs of SePrivilegedServiceAuditAlarm @ 0x14062771C
+ * XREFs of SePrivilegedServiceAuditAlarm @ 0x14069382C
  * Callers:
- *     SeCheckAuditPrivilege @ 0x14062759C (SeCheckAuditPrivilege.c)
- *     SeSinglePrivilegeCheckEx @ 0x140627698 (SeSinglePrivilegeCheckEx.c)
- *     PsOpenProcess @ 0x14065A730 (PsOpenProcess.c)
- *     ObpAdjustCreatorAccessState @ 0x140662D98 (ObpAdjustCreatorAccessState.c)
- *     PspSetQuotaLimits @ 0x1406A5F94 (PspSetQuotaLimits.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
- *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     PspSetQuotaLimits @ 0x140603BC4 (PspSetQuotaLimits.c)
+ *     PsOpenProcess @ 0x14064F550 (PsOpenProcess.c)
+ *     ObpAdjustCreatorAccessState @ 0x140657BB8 (ObpAdjustCreatorAccessState.c)
+ *     SeCheckAuditPrivilege @ 0x1406936AC (SeCheckAuditPrivilege.c)
+ *     SeSinglePrivilegeCheckEx @ 0x1406937A8 (SeSinglePrivilegeCheckEx.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
+ *     RtlpNewSecurityObject @ 0x1407169D0 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140627808 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepFilterPrivilegeAudits @ 0x14069C548 (SepFilterPrivilegeAudits.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x140693918 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepFilterPrivilegeAudits @ 0x140693E40 (SepFilterPrivilegeAudits.c)
  */
 
 BOOLEAN __fastcall SePrivilegedServiceAuditAlarm(int a1, __int64 *a2, __int64 a3, char a4)

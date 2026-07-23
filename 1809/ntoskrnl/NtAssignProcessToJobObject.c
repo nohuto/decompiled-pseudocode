@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAssignProcessToJobObject @ 0x140605E30
+ * XREFs of NtAssignProcessToJobObject @ 0x140606E30
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PsAssignProcessToJobObject @ 0x140605DB0 (PsAssignProcessToJobObject.c)
- *     EtwTraceJobAssignProcess @ 0x1408B7568 (EtwTraceJobAssignProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsAssignProcessToJobObject @ 0x140606DB0 (PsAssignProcessToJobObject.c)
+ *     EtwTraceJobAssignProcess @ 0x1408B8828 (EtwTraceJobAssignProcess.c)
  */
 
 NTSTATUS __stdcall NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)

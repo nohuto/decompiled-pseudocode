@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAcquireSoftParkElectionLock @ 0x140410348
+ * XREFs of KiAcquireSoftParkElectionLock @ 0x140410424
  * Callers:
- *     KiAddThreadToReadyQueue @ 0x1402348E0 (KiAddThreadToReadyQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x140238940 (KiAddThreadToPrcbQueue.c)
- *     KiSearchForNewThreadOnProcessor @ 0x140240C90 (KiSearchForNewThreadOnProcessor.c)
- *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140243C20 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
- *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x140372898 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
- *     KiFlushReadyLists @ 0x14057DDB4 (KiFlushReadyLists.c)
- *     KiSoftParkElectionDpcRoutine @ 0x14057E250 (KiSoftParkElectionDpcRoutine.c)
+ *     KiAddThreadToReadyQueue @ 0x1402349B0 (KiAddThreadToReadyQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x140238A10 (KiAddThreadToPrcbQueue.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x140240D60 (KiSearchForNewThreadOnProcessor.c)
+ *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140243CF0 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
+ *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x140372A38 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
+ *     KiFlushReadyLists @ 0x14057E2A4 (KiFlushReadyLists.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x14057E740 (KiSoftParkElectionDpcRoutine.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KiAcquireSoftParkElectionLock(__int64 a1)

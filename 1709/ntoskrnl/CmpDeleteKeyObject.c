@@ -59,8 +59,8 @@ void __fastcall CmpDeleteKeyObject(__int64 a1)
   ULONG_PTR v21; // rdi
   bool v22; // r14
   char v23; // r13
-  __int64 v24; // rax
-  __int64 v25; // r15
+  _RTL_BALANCED_NODE *v24; // rax
+  _RTL_BALANCED_NODE *v25; // r15
   unsigned __int8 CurrentIrql; // cl
   _QWORD *v27; // rsi
   _QWORD *v28; // rax
@@ -189,7 +189,7 @@ LABEL_54:
             CurrentIrql = v40;
           }
           if ( v25 )
-            *(_BYTE *)(v25 + 26) |= 1u;
+            BYTE2(v25[1].Left) |= 1u;
           *(&CmpDelayDerefKCBLock + 1) = (ULONG_PTR)KeGetCurrentThread();
           *((_DWORD *)&CmpDelayDerefKCBLock + 12) = CurrentIrql;
           *(_BYTE *)(v7 + 56) |= 1u;

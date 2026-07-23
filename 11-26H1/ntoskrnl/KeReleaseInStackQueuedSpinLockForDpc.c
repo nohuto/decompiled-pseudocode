@@ -1,10 +1,10 @@
 /*
- * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x140494650
+ * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x14048E1A0
  * Callers:
- *     DifKeReleaseInStackQueuedSpinLockForDpcWrapper @ 0x140662DB0 (DifKeReleaseInStackQueuedSpinLockForDpcWrapper.c)
+ *     DifKeReleaseInStackQueuedSpinLockForDpcWrapper @ 0x140666990 (DifKeReleaseInStackQueuedSpinLockForDpcWrapper.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHandle)

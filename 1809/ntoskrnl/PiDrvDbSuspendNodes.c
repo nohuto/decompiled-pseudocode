@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDrvDbSuspendNodes @ 0x14073A954
+ * XREFs of PiDrvDbSuspendNodes @ 0x14073BB44
  * Callers:
- *     PiDrvDbInit @ 0x14073A6E0 (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x14073B8D0 (PiDrvDbInit.c)
  * Callees:
- *     DrvDbSuspendDatabase @ 0x14073A9B4 (DrvDbSuspendDatabase.c)
+ *     DrvDbSuspendDatabase @ 0x14073BBA4 (DrvDbSuspendDatabase.c)
  */
 
 __int64 __fastcall PiDrvDbSuspendNodes(__int64 a1, __int64 a2, __int64 a3)

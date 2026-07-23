@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlPosixBarrier @ 0x180141868
+ * XREFs of RtlPosixBarrier @ 0x180141768
  * Callers:
- *     RtlBarrier @ 0x1801417F0 (RtlBarrier.c)
- *     RtlBarrierForDelete @ 0x180141800 (RtlBarrierForDelete.c)
+ *     RtlBarrier @ 0x1801416F0 (RtlBarrier.c)
+ *     RtlBarrierForDelete @ 0x180141700 (RtlBarrierForDelete.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlWakeAddressAll @ 0x18004D5B0 (RtlWakeAddressAll.c)
- *     RtlpWaitOnAddress @ 0x18007B580 (RtlpWaitOnAddress.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlWakeAddressAll @ 0x180037B30 (RtlWakeAddressAll.c)
+ *     RtlpWaitOnAddress @ 0x180069DA0 (RtlpWaitOnAddress.c)
  */
 
 char __fastcall RtlPosixBarrier(__int64 a1, int a2)
@@ -29,7 +29,7 @@ char __fastcall RtlPosixBarrier(__int64 a1, int a2)
   v4 = *(_DWORD *)(v2 + 16);
   v5 = a2 & 0x10000;
   if ( (a2 & 0x10000) != 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(v2 + 8));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(v2 + 8));
   v6 = *(_QWORD *)v2;
   do
   {
@@ -52,7 +52,7 @@ char __fastcall RtlPosixBarrier(__int64 a1, int a2)
   while ( v11 != v6 );
   if ( v9 )
   {
-    RtlWakeAddressAll(v2 + 4);
+    RtlWakeAddressAll((PVOID)(v2 + 4));
   }
   else if ( v10 == *(_DWORD *)(v2 + 4) )
   {
@@ -61,6 +61,6 @@ char __fastcall RtlPosixBarrier(__int64 a1, int a2)
     while ( (_DWORD)v8 == *(_DWORD *)(v2 + 4) );
   }
   if ( v5 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(v2 + 8));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v2 + 8));
   return v9;
 }

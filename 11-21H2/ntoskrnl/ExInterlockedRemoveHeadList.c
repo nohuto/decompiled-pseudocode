@@ -1,27 +1,27 @@
 /*
  * XREFs of ExInterlockedRemoveHeadList @ 0x140220FB0
  * Callers:
- *     PopFxProcessWorkPool @ 0x14022EBF8 (PopFxProcessWorkPool.c)
- *     KiAltReturnWorkerRoutine @ 0x14057C370 (KiAltReturnWorkerRoutine.c)
- *     WheapWorkQueueWorkerRoutine @ 0x1406462F0 (WheapWorkQueueWorkerRoutine.c)
- *     WmipEventNotification @ 0x14069A660 (WmipEventNotification.c)
+ *     sub_14022EBF8 @ 0x14022EBF8 (sub_14022EBF8.c)
+ *     sub_14057C370 @ 0x14057C370 (sub_14057C370.c)
+ *     sub_1406462F0 @ 0x1406462F0 (sub_1406462F0.c)
+ *     sub_14069A660 @ 0x14069A660 (sub_14069A660.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_1402F32E0 @ 0x1402F32E0 (sub_1402F32E0.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
   __int16 v2; // si
-  struct _LIST_ENTRY *Flink; // r14
+  _LIST_ENTRY *Flink; // r14
   struct _KPRCB *CurrentPrcb; // rbp
   bool v7; // si
-  _DWORD *SchedulerAssist; // rcx
+  __int64 v8; // rcx
   struct _KPRCB *v9; // rcx
-  _DWORD *v10; // rax
+  __int64 v10; // rax
   struct _LIST_ENTRY *v12; // rax
-  _DWORD *v13; // rcx
-  _DWORD *v14; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // rcx
   int v15; // eax
   int v16; // eax
   int v17; // eax
@@ -35,45 +35,45 @@ PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_L
   _disable();
   CurrentPrcb = KeGetCurrentPrcb();
   v7 = (v2 & 0x200) != 0;
-  SchedulerAssist = CurrentPrcb->SchedulerAssist;
-  if ( SchedulerAssist )
+  v8 = *((_QWORD *)CurrentPrcb + 4375);
+  if ( v8 )
   {
-    if ( CurrentPrcb->NestingLevel <= 1u )
+    if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
     {
-      v15 = SchedulerAssist[6];
-      SchedulerAssist[6] = v15 + 1;
+      v15 = *(_DWORD *)(v8 + 24);
+      *(_DWORD *)(v8 + 24) = v15 + 1;
       if ( v15 == -1 )
 LABEL_20:
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        sub_140418E4C(CurrentPrcb);
     }
   }
   while ( _interlockedbittestandset64((volatile signed __int32 *)Lock, 0LL) )
   {
-    v13 = CurrentPrcb->SchedulerAssist;
+    v13 = *((_QWORD *)CurrentPrcb + 4375);
     if ( v13 )
     {
-      if ( CurrentPrcb->NestingLevel <= 1u )
+      if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
       {
-        v16 = v13[6] - 1;
-        v13[6] = v16;
+        v16 = *(_DWORD *)(v13 + 24) - 1;
+        *(_DWORD *)(v13 + 24) = v16;
         if ( !v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
     if ( v7 )
       _enable();
     do
-      KeYieldProcessorEx(&v20);
+      sub_1402F32E0(&v20);
     while ( *Lock );
     _disable();
     CurrentPrcb = KeGetCurrentPrcb();
-    v14 = CurrentPrcb->SchedulerAssist;
+    v14 = *((_QWORD *)CurrentPrcb + 4375);
     if ( v14 )
     {
-      if ( CurrentPrcb->NestingLevel <= 1u )
+      if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
       {
-        v17 = v14[6];
-        v14[6] = v17 + 1;
+        v17 = *(_DWORD *)(v14 + 24);
+        *(_DWORD *)(v14 + 24) = v17 + 1;
         if ( v17 == -1 )
           goto LABEL_20;
       }
@@ -90,15 +90,15 @@ LABEL_20:
   }
   _InterlockedAnd64((volatile signed __int64 *)Lock, 0LL);
   v9 = KeGetCurrentPrcb();
-  v10 = v9->SchedulerAssist;
+  v10 = *((_QWORD *)v9 + 4375);
   if ( v10 )
   {
-    if ( v9->NestingLevel <= 1u )
+    if ( *((_BYTE *)v9 + 32) <= 1u )
     {
-      v18 = v10[6] - 1;
-      v10[6] = v18;
+      v18 = *(_DWORD *)(v10 + 24) - 1;
+      *(_DWORD *)(v10 + 24) = v18;
       if ( !v18 )
-        KiRemoveSystemWorkPriorityKick(v9);
+        sub_140418E4C(v9);
     }
   }
   if ( v7 )

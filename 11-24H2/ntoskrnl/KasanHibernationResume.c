@@ -1,11 +1,11 @@
 /*
- * XREFs of KasanHibernationResume @ 0x1405A9CE0
+ * XREFs of KasanHibernationResume @ 0x1405A6C50
  * Callers:
- *     HalpResumePoint @ 0x1406A6090 (HalpResumePoint.c)
- *     PopSaveHiberContextWrapper @ 0x1406B3680 (PopSaveHiberContextWrapper.c)
+ *     HalpResumePoint @ 0x1406A70C0 (HalpResumePoint.c)
+ *     PopSaveHiberContextWrapper @ 0x1406B4620 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KasanHibernationResume(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
@@ -15,7 +15,7 @@ __int64 __fastcall KasanHibernationResume(ULONG_PTR BugCheckParameter3, ULONG_PT
   size_t v4; // r8
   void *v5; // rcx
 
-  if ( byte_140FCDC28 )
+  if ( byte_140FCECA8 )
   {
     v2 = BugCheckParameter4 - BugCheckParameter3;
     if ( (((_BYTE)BugCheckParameter4 - (_BYTE)BugCheckParameter3) & 7) != 0 )

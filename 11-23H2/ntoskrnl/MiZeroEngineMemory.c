@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroEngineMemory @ 0x1402D1280
+ * XREFs of MiZeroEngineMemory @ 0x1402D1510
  * Callers:
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1408253A8 (MiComputeCacheAttributeSpeeds.c)
+ *     MiZeroPage @ 0x1402D0C80 (MiZeroPage.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x1408256A8 (MiComputeCacheAttributeSpeeds.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     MiZeroMemory @ 0x14038DE4C (MiZeroMemory.c)
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiAllocateHardwareDescriptor @ 0x1406548E8 (MiAllocateHardwareDescriptor.c)
- *     MiFreeHardwareDescriptor @ 0x140654E9C (MiFreeHardwareDescriptor.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     MiZeroMemory @ 0x14038E02C (MiZeroMemory.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiAllocateHardwareDescriptor @ 0x140654E38 (MiAllocateHardwareDescriptor.c)
+ *     MiFreeHardwareDescriptor @ 0x1406553EC (MiFreeHardwareDescriptor.c)
  */
 
 __int64 __fastcall MiZeroEngineMemory(_DWORD *a1, unsigned int a2, void *a3, size_t a4)

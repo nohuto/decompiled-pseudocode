@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIsSubsectionClean @ 0x1401DEDA0
+ * XREFs of MiIsSubsectionClean @ 0x1401DEBCC
  * Callers:
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
  * Callees:
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x14004E9B0 (MiCheckProtoPtePageState.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x14004E530 (MiCheckProtoPtePageState.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiIsSubsectionClean(__int64 a1)

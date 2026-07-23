@@ -1,9 +1,9 @@
 /*
- * XREFs of _stricmp @ 0x180097DD0
+ * XREFs of _stricmp @ 0x180097DC0
  * Callers:
- *     LdrpGetDelayloadDescriptor @ 0x1800D0EF4 (LdrpGetDelayloadDescriptor.c)
- *     AVrfpFindClosestThunkDuplicate @ 0x1800D6B48 (AVrfpFindClosestThunkDuplicate.c)
- *     ImportTablepInsertFunctionSorted @ 0x1800DB5D4 (ImportTablepInsertFunctionSorted.c)
+ *     LdrpGetDelayloadDescriptor @ 0x1800D0FB4 (LdrpGetDelayloadDescriptor.c)
+ *     AVrfpFindClosestThunkDuplicate @ 0x1800D6C08 (AVrfpFindClosestThunkDuplicate.c)
+ *     ImportTablepInsertFunctionSorted @ 0x1800DB694 (ImportTablepInsertFunctionSorted.c)
  * Callees:
  *     <none>
  */

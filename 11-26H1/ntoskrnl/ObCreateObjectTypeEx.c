@@ -1,33 +1,33 @@
 /*
- * XREFs of ObCreateObjectTypeEx @ 0x140A5A0C0
+ * XREFs of ObCreateObjectTypeEx @ 0x140A67030
  * Callers:
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     AlpcpInitSystem @ 0x1407C1414 (AlpcpInitSystem.c)
- *     TtmiInitTerminals @ 0x1407EBD48 (TtmiInitTerminals.c)
- *     TtmiInitQueues @ 0x1407ECE68 (TtmiInitQueues.c)
- *     EtwpInitializePrivateSessionDemuxObject @ 0x14082CDB0 (EtwpInitializePrivateSessionDemuxObject.c)
- *     CmpInitializeLightWeightTransactionType @ 0x14085BFCC (CmpInitializeLightWeightTransactionType.c)
- *     VRegSetup @ 0x1408A5210 (VRegSetup.c)
- *     IoCreateObjectTypes @ 0x140CBA8B8 (IoCreateObjectTypes.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     AlpcpInitSystem @ 0x1407C3E88 (AlpcpInitSystem.c)
+ *     TtmiInitTerminals @ 0x1407F18AC (TtmiInitTerminals.c)
+ *     TtmiInitQueues @ 0x1407F29C8 (TtmiInitQueues.c)
+ *     EtwpInitializePrivateSessionDemuxObject @ 0x140832FF0 (EtwpInitializePrivateSessionDemuxObject.c)
+ *     CmpInitializeLightWeightTransactionType @ 0x1408622BC (CmpInitializeLightWeightTransactionType.c)
+ *     VRegSetup @ 0x1408AB680 (VRegSetup.c)
+ *     IoCreateObjectTypes @ 0x140CC0930 (IoCreateObjectTypes.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObpReleaseLookupContext @ 0x14027BE10 (ObpReleaseLookupContext.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpInitObjectTypeSD @ 0x1407C3F94 (ObpInitObjectTypeSD.c)
- *     ObpLockObjectTypeExclusive @ 0x1409242F0 (ObpLockObjectTypeExclusive.c)
- *     ObpAllocateObject @ 0x1409344A0 (ObpAllocateObject.c)
- *     RtlUnicodeToMultiByteSize @ 0x14096C100 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     ObpLockDirectoryExclusive @ 0x1409E21B8 (ObpLockDirectoryExclusive.c)
- *     ObpLookupDirectoryEntry @ 0x1409E2350 (ObpLookupDirectoryEntry.c)
- *     ObpUnlockObjectType @ 0x140A5AAA0 (ObpUnlockObjectType.c)
- *     ObpInsertDirectoryEntry @ 0x140A88ABC (ObpInsertDirectoryEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObpReleaseLookupContext @ 0x14027B380 (ObpReleaseLookupContext.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpInitObjectTypeSD @ 0x1407C6FF4 (ObpInitObjectTypeSD.c)
+ *     ObpLockObjectTypeExclusive @ 0x1408FFE00 (ObpLockObjectTypeExclusive.c)
+ *     ObpAllocateObject @ 0x140910050 (ObpAllocateObject.c)
+ *     RtlUnicodeToMultiByteSize @ 0x14097CA40 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     ObpLockDirectoryExclusive @ 0x1409DF1C8 (ObpLockDirectoryExclusive.c)
+ *     ObpLookupDirectoryEntry @ 0x1409DF360 (ObpLookupDirectoryEntry.c)
+ *     ObpUnlockObjectType @ 0x140A67A10 (ObpUnlockObjectType.c)
+ *     ObpInsertDirectoryEntry @ 0x140A8F820 (ObpInsertDirectoryEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObCreateObjectTypeEx(PCUNICODE_STRING SourceString, _DWORD *Src, void *a3, __int16 *a4, _QWORD *a5)
@@ -70,9 +70,9 @@ __int64 __fastcall ObCreateObjectTypeEx(PCUNICODE_STRING SourceString, _DWORD *S
   int v45; // ecx
   __int16 *v46; // rcx
   char *v47; // rax
-  _QWORD *v48; // rdx
-  PVOID *v49; // r8
-  PVOID v50; // rdx
+  __int64 v48; // rdx
+  char **v49; // r8
+  __int64 v50; // rdx
   unsigned int v51; // eax
   unsigned __int8 v52; // al
   __int64 v53; // rsi
@@ -81,7 +81,7 @@ __int64 __fastcall ObCreateObjectTypeEx(PCUNICODE_STRING SourceString, _DWORD *S
   __int64 v56; // [rsp+68h] [rbp-A0h]
   char *v57[4]; // [rsp+70h] [rbp-98h] BYREF
   __int16 *v58; // [rsp+90h] [rbp-78h]
-  STRING v59; // [rsp+98h] [rbp-70h] BYREF
+  _STRING v59; // [rsp+98h] [rbp-70h] BYREF
   _QWORD *v60; // [rsp+A8h] [rbp-60h]
   __int128 v61; // [rsp+B8h] [rbp-50h] BYREF
   __int128 v62; // [rsp+C8h] [rbp-40h]
@@ -153,9 +153,9 @@ LABEL_24:
   }
   DestinationString_8.MaximumLength = SourceString->MaximumLength;
   RtlCopyUnicodeString(&DestinationString_8, SourceString);
-  v19 = ObpTypeObjectType;
+  v19 = *(_BYTE **)&ObpStackTraceLock.PriorityFloorSummary;
   v20 = DestinationString_8;
-  if ( !ObpTypeObjectType )
+  if ( !*(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary )
   {
     v21 = *(_OWORD *)Src;
     v68 = 2;
@@ -207,7 +207,7 @@ LABEL_24:
   *(_OWORD *)((char *)v30 + 44) = 0LL;
   *((_DWORD *)v30 + 15) = 0;
   v32 = 3;
-  if ( ObpTypeObjectType )
+  if ( *(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary )
   {
     v33 = SourceString->Length;
     v34 = SourceString->Buffer;
@@ -255,7 +255,7 @@ LABEL_45:
   }
   else
   {
-    ObpTypeObjectType = v30;
+    *(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary = v30;
     *((_DWORD *)v30 + 11) = 1;
     *((_DWORD *)v30 + 48) = 1416258127;
   }
@@ -295,27 +295,27 @@ LABEL_45:
     v46 = v58;
   }
   v30[4] = v46;
-  ObpLockObjectTypeExclusive((__int64)ObpTypeObjectType, v44, v42, v43);
+  ObpLockObjectTypeExclusive(*(__int64 *)&ObpStackTraceLock.PriorityFloorSummary, v44, v42, v43);
   v47 = v57[0] - 32;
   if ( (v57[0][26] & 1) == 0 )
     v47 = 0LL;
-  v48 = ObpTypeObjectType;
-  v49 = (PVOID *)*((_QWORD *)ObpTypeObjectType + 1);
-  if ( *v49 != ObpTypeObjectType )
+  v48 = *(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary;
+  v49 = *(char ***)(*(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary + 8LL);
+  if ( *v49 != *(char **)&ObpStackTraceLock.PriorityFloorSummary )
     __fastfail(3u);
-  *(_QWORD *)v47 = ObpTypeObjectType;
+  *(_QWORD *)v47 = *(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary;
   *((_QWORD *)v47 + 1) = v49;
   v18 = -1073741670;
   *v49 = v47;
-  v48[1] = v47;
-  v50 = ObpTypeObjectType;
-  v51 = *((_DWORD *)ObpTypeObjectType + 11);
+  *(_QWORD *)(v48 + 8) = v47;
+  v50 = *(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary;
+  v51 = *(_DWORD *)(*(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary + 44LL);
   if ( v51 >= 0x100 )
     inited = -1073741670;
   else
-    *((_QWORD *)&stru_140F132C8.SavedApcState.ApcListHead[1].Blink + v51) = v30;
+    *((_QWORD *)&ObpStackTraceLock.AbCompletedIoQoSBoostCount + v51) = v30;
   ObpUnlockObjectType(v50);
-  if ( v30 == ObpTypeObjectType )
+  if ( v30 == *(_QWORD **)&ObpStackTraceLock.PriorityFloorSummary )
   {
     v52 = 2;
   }

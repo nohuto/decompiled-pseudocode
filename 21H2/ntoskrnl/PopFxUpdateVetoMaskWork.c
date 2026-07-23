@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxUpdateVetoMaskWork @ 0x1408E5810
+ * XREFs of PopFxUpdateVetoMaskWork @ 0x1408E5970
  * Callers:
  *     <none>
  * Callees:
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
- *     PoFxActivateDevice @ 0x14036FCB4 (PoFxActivateDevice.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     PopFxReleaseDevice @ 0x14056C360 (PopFxReleaseDevice.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x140576100 (PopPepUpdateDripsDeviceVetoMask.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     PoFxIdleDevice @ 0x14036FCE4 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14036FE64 (PoFxActivateDevice.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     PopFxReleaseDevice @ 0x14056C5A0 (PopFxReleaseDevice.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x140576340 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopFxUpdateVetoMaskWork(__int64 P)
@@ -24,20 +24,20 @@ char __fastcall PopFxUpdateVetoMaskWork(__int64 P)
 
   v1 = *(_QWORD *)(P + 16);
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopFxUpdateDripsConstraintContext, 0LL);
-  if ( byte_140C247D8 )
+  if ( byte_140C24A38 )
   {
-    v3 = (__int64 *)qword_140C247D0;
-    if ( *(__int64 **)qword_140C247D0 != &qword_140C247C8 )
+    v3 = (__int64 *)qword_140C24A30;
+    if ( *(__int64 **)qword_140C24A30 != &qword_140C24A28 )
       __fastfail(3u);
-    *(_QWORD *)P = &qword_140C247C8;
+    *(_QWORD *)P = &qword_140C24A28;
     *(_QWORD *)(P + 8) = v3;
     *v3 = P;
-    qword_140C247D0 = P;
+    qword_140C24A30 = P;
   }
   else
   {
-    ++dword_140C247DC;
-    KeResetEvent(&stru_140C247E0);
+    ++dword_140C24A3C;
+    KeResetEvent(&stru_140C24A40);
     if ( (_InterlockedExchangeAdd64(
             (volatile signed __int64 *)&PopFxUpdateDripsConstraintContext,
             0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -49,10 +49,10 @@ char __fastcall PopFxUpdateVetoMaskWork(__int64 P)
     PoFxIdleDevice(v4);
     PopFxReleaseDevice(v1);
     ExFreePoolWithTag((PVOID)P, 0x4D584650u);
-    ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL);
+    ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopFxUpdateDripsConstraintContext, 0LL);
-    if ( !--dword_140C247DC )
-      KeSetEvent(&stru_140C247E0, 0, 0);
+    if ( !--dword_140C24A3C )
+      KeSetEvent(&stru_140C24A40, 0, 0);
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxUpdateDripsConstraintContext, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&PopFxUpdateDripsConstraintContext);

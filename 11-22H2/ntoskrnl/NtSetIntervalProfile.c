@@ -7,10 +7,10 @@
  *     KeSetIntervalProfile @ 0x1409751C8 (KeSetIntervalProfile.c)
  */
 
-__int64 __fastcall NtSetIntervalProfile(int a1, int a2)
+NTSTATUS __cdecl NtSetIntervalProfile(ULONG Interval, KPROFILE_SOURCE Source)
 {
   if ( !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, KeGetCurrentThread()->PreviousMode) )
-    return 3221225569LL;
-  KeSetIntervalProfile(a1, a2);
-  return 0LL;
+    return -1073741727;
+  KeSetIntervalProfile(Interval, Source);
+  return 0;
 }

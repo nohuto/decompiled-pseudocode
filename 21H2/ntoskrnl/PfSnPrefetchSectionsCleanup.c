@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnPrefetchSectionsCleanup @ 0x1406C69D0
+ * XREFs of PfSnPrefetchSectionsCleanup @ 0x1406752C0
  * Callers:
- *     PfSnPrefetchSections @ 0x1406C6724 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSections @ 0x140675014 (PfSnPrefetchSections.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     KeQueryPriorityThread @ 0x1402DA450 (KeQueryPriorityThread.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KeQueryPriorityThread @ 0x14028B7A0 (KeQueryPriorityThread.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall PfSnPrefetchSectionsCleanup(KSPIN_LOCK a1, int a2, unsigned int a3, __int64 a4)
@@ -41,7 +41,7 @@ void __fastcall PfSnPrefetchSectionsCleanup(KSPIN_LOCK a1, int a2, unsigned int 
       *(p_WorkerRoutine - 2) = 0LL;
       *p_WorkerRoutine = (void (__fastcall *)(void *))PfSnSectionInfoCleanupWorkItem;
       p_WorkerRoutine[1] = (void (__fastcall *)(void *))v4;
-      ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)SpinLock);
+      ExAcquireRundownProtection((PEX_RUNDOWN_REF)SpinLock);
       ExQueueWorkItem(v4, (WORK_QUEUE_TYPE)(PriorityThread + 32));
       v4 = (struct _WORK_QUEUE_ITEM *)((char *)v4 + 48);
       p_WorkerRoutine += 6;

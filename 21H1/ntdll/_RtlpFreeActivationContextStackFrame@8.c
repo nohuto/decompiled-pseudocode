@@ -18,7 +18,7 @@ void __fastcall RtlpFreeActivationContextStackFrame(int a1, unsigned int a2)
   int v6; // eax
   _DWORD *v7; // eax
   _DWORD *v8; // esi
-  int v9; // edx
+  _DWORD *v9; // edx
   int v10; // ecx
   struct _PEB *v11; // eax
   EXCEPTION_RECORD ExceptionRecord; // [esp+10h] [ebp-58h] BYREF
@@ -72,7 +72,7 @@ void __fastcall RtlpFreeActivationContextStackFrame(int a1, unsigned int a2)
                 do
                 {
                   v8 = (_DWORD *)v7[1];
-                  v9 = (int)(v7 - 2);
+                  v9 = v7 - 2;
                   if ( !*(v7 - 1) )
                   {
                     v10 = *v7;
@@ -81,7 +81,7 @@ void __fastcall RtlpFreeActivationContextStackFrame(int a1, unsigned int a2)
                     v11 = NtCurrentPeb();
                     *v8 = v10;
                     *(_DWORD *)(v10 + 4) = v8;
-                    RtlFreeHeap((int)v11->ProcessHeap, 0, v9);
+                    RtlFreeHeap(v11->ProcessHeap, 0, v9);
                   }
                   v7 = v8;
                 }

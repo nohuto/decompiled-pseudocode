@@ -1,13 +1,13 @@
 /*
  * XREFs of IopGetBootDiskInformationLite @ 0x140B55908
  * Callers:
- *     IoGetBootDiskInformationLite @ 0x140824FF0 (IoGetBootDiskInformationLite.c)
+ *     IoGetBootDiskInformationLite @ 0x1408252F0 (IoGetBootDiskInformationLite.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     IopCheckDiskName @ 0x14038B294 (IopCheckDiskName.c)
- *     IopAddBootDiskInformation @ 0x14038B484 (IopAddBootDiskInformation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     IopCheckDiskName @ 0x14038B474 (IopCheckDiskName.c)
+ *     IopAddBootDiskInformation @ 0x14038B664 (IopAddBootDiskInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     VhdiGetDiskParameters @ 0x140B9A9B4 (VhdiGetDiskParameters.c)
  *     CimfsGetDiskParameters @ 0x140B9B0E0 (CimfsGetDiskParameters.c)

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetDefaultLocale @ 0x1800A33B0
+ * XREFs of NtSetDefaultLocale @ 0x1800A33D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetDefaultLocale()
+NTSTATUS __cdecl NtSetDefaultLocale(BOOLEAN UserProfile, LCID DefaultLocaleId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 391LL;
+  result = 391;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

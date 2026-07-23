@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteSegmentPages @ 0x1402F7C0C
+ * XREFs of MiDeleteSegmentPages @ 0x14030295C
  * Callers:
- *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
- *     MiInitializeImageExtents @ 0x1408D006C (MiInitializeImageExtents.c)
+ *     MiSegmentDelete @ 0x1406FF4F0 (MiSegmentDelete.c)
+ *     MiInitializeImageExtents @ 0x1408D01CC (MiInitializeImageExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteSubsectionPages @ 0x140239170 (MiDeleteSubsectionPages.c)
- *     MiGetCommittedPages @ 0x140316CD0 (MiGetCommittedPages.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteSubsectionPages @ 0x1402DD9C0 (MiDeleteSubsectionPages.c)
+ *     MiGetCommittedPages @ 0x140321A20 (MiGetCommittedPages.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -23,18 +23,18 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
   __int64 v8; // rax
   unsigned __int64 v9; // rdi
   __int64 CommittedPages; // rdi
+  __int64 CachedResidentAvailable; // r8
+  struct _KPRCB *v12; // r9
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // edx
-  bool v16; // zf
-  unsigned __int8 v17; // al
-  struct _KPRCB *v18; // r9
-  int v19; // eax
-  _DWORD *v20; // r8
-  unsigned __int64 v21; // rdx
-  struct _KPRCB *v22; // r9
-  __int64 CachedResidentAvailable; // r8
+  int v17; // edx
+  bool v18; // zf
+  unsigned __int8 v19; // al
+  struct _KPRCB *v20; // r9
+  int v21; // eax
+  _DWORD *v22; // r8
+  unsigned __int64 v23; // rdx
   signed __int32 v24; // eax
   __int64 v25; // [rsp+68h] [rbp+10h] BYREF
   __int64 v26; // [rsp+70h] [rbp+18h]
@@ -43,7 +43,7 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
   v2 = *((_WORD *)a1 + 30) & 0x3FF;
   v25 = 0LL;
   v4 = 0LL;
-  v5 = *(_QWORD *)(qword_140C4E648 + 8 * v2);
+  v5 = *(_QWORD *)(qword_140C4E688 + 8 * v2);
   v6 = *a1;
   v26 = v5;
   v7 = *(_DWORD *)(v6 + 12);
@@ -68,10 +68,10 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-            v16 = (v15 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v15;
-            if ( v16 )
+            v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+            v18 = (v17 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v17;
+            if ( v18 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
@@ -88,16 +88,16 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v17 = KeGetCurrentIrql();
-      if ( v17 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v17 >= 2u )
+      v19 = KeGetCurrentIrql();
+      if ( v19 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v19 >= 2u )
       {
-        v18 = KeGetCurrentPrcb();
-        v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v20 = v18->SchedulerAssist;
-        v16 = (v19 & v20[5]) == 0;
-        v20[5] &= v19;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick(v18);
+        v20 = KeGetCurrentPrcb();
+        v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v22 = v20->SchedulerAssist;
+        v18 = (v21 & v22[5]) == 0;
+        v22[5] &= v21;
+        if ( v18 )
+          KiRemoveSystemWorkPriorityKick(v20);
       }
     }
   }
@@ -107,45 +107,45 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
   {
     if ( (v7 & 0x1000) != 0 )
     {
-      v21 = CommittedPages - v25;
+      v23 = CommittedPages - v25;
       if ( (ULONG_PTR *)v5 == &MiSystemPartition )
       {
-        v22 = KeGetCurrentPrcb();
-        CachedResidentAvailable = (int)v22->CachedResidentAvailable;
+        v12 = KeGetCurrentPrcb();
+        CachedResidentAvailable = (int)v12->CachedResidentAvailable;
         if ( (_DWORD)CachedResidentAvailable != -1 )
         {
-          if ( v21 + CachedResidentAvailable <= 0x100 )
+          if ( v23 + CachedResidentAvailable <= 0x100 )
           {
             do
             {
-              if ( v21 >= 0x80000 )
+              if ( v23 >= 0x80000 )
                 break;
               v24 = _InterlockedCompareExchange(
-                      (volatile signed __int32 *)&v22->CachedResidentAvailable,
-                      CachedResidentAvailable + v21,
+                      (volatile signed __int32 *)&v12->CachedResidentAvailable,
+                      CachedResidentAvailable + v23,
                       CachedResidentAvailable);
-              v16 = (_DWORD)CachedResidentAvailable == v24;
-              LODWORD(CachedResidentAvailable) = v24;
-              if ( v16 )
+              v18 = (_DWORD)CachedResidentAvailable == v24;
+              CachedResidentAvailable = v24;
+              if ( v18 )
                 goto LABEL_8;
             }
-            while ( v24 != -1 && v21 + v24 <= 0x100 );
+            while ( v24 != -1 && v23 + v24 <= 0x100 );
           }
           if ( (int)CachedResidentAvailable > 192
             && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                    (volatile signed __int32 *)&v22->CachedResidentAvailable,
+                                                    (volatile signed __int32 *)&v12->CachedResidentAvailable,
                                                     192,
                                                     CachedResidentAvailable) )
           {
-            v21 += (int)CachedResidentAvailable - 192;
+            v23 += (int)CachedResidentAvailable - 192;
           }
         }
       }
-      if ( v21 )
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 7168), v21);
+      if ( v23 )
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 7168), v23);
     }
 LABEL_8:
-    MiReturnCommit(v5, CommittedPages - v25);
+    MiReturnCommit(v5, CommittedPages - v25, CachedResidentAvailable, v12);
     _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 7624), -CommittedPages);
   }
   return v4;

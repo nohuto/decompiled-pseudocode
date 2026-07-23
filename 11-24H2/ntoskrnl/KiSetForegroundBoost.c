@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetForegroundBoost @ 0x14045257C
+ * XREFs of KiSetForegroundBoost @ 0x14044762C
  * Callers:
- *     KiInitializeForegroundBoostThread @ 0x1403B3D80 (KiInitializeForegroundBoostThread.c)
- *     KiSetDisableBoostThread @ 0x140451ED4 (KiSetDisableBoostThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14045201C (KeSetPriorityAndQuantumProcess.c)
- *     KiApplyForegroundBoostThread @ 0x1404F6D4C (KiApplyForegroundBoostThread.c)
+ *     KiInitializeForegroundBoostThread @ 0x1403A2590 (KiInitializeForegroundBoostThread.c)
+ *     KiSetDisableBoostThread @ 0x140446F84 (KiSetDisableBoostThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1404470CC (KeSetPriorityAndQuantumProcess.c)
+ *     KiApplyForegroundBoostThread @ 0x1404F4630 (KiApplyForegroundBoostThread.c)
  * Callees:
- *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x1405C5094 (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x1405C275C (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
  */
 
 __int64 __fastcall KiSetForegroundBoost(__int64 a1)

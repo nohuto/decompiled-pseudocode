@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmFindFilterListInflectionPoint @ 0x140979AC8
+ * XREFs of _CmFindFilterListInflectionPoint @ 0x140979CA8
  * Callers:
- *     _CmMergeFilterLists @ 0x14097B76C (_CmMergeFilterLists.c)
+ *     _CmMergeFilterLists @ 0x14097B94C (_CmMergeFilterLists.c)
  * Callees:
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
  */
 
 const wchar_t *__fastcall CmFindFilterListInflectionPoint(wchar_t *Str1, wchar_t *a2, wchar_t *Str2)

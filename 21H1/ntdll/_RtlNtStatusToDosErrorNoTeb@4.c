@@ -8,10 +8,10 @@
  *     _DbgPrint @ 0x4B2AB8D0 (_DbgPrint.c)
  */
 
-int __stdcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
+ULONG __cdecl RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
 {
-  unsigned int v1; // ecx
-  int result; // eax
+  unsigned __int32 v1; // ecx
+  ULONG result; // eax
   unsigned int v3; // esi
   unsigned int v4; // ebx
   unsigned int v5; // edx
@@ -19,22 +19,22 @@ int __stdcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
   unsigned int v7; // edi
   int v8; // eax
 
-  v1 = a1;
-  if ( !a1 )
+  v1 = Status;
+  if ( !Status )
     return 0;
-  if ( a1 == 259 )
+  if ( Status == 259 )
     return 997;
-  result = a1;
-  if ( (a1 & 0x20000000) == 0 )
+  result = Status;
+  if ( (Status & 0x20000000) == 0 )
   {
-    if ( (a1 & 0xFF0000) == 0x70000 && (HIBYTE(a1) == 192 || HIBYTE(a1) == 128) )
+    if ( (Status & 0xFF0000) == 0x70000 && (HIBYTE(Status) == 192 || HIBYTE(Status) == 128) )
     {
       return (unsigned __int16)v1;
     }
     else
     {
-      if ( (a1 & 0xF0000000) == 0xD0000000 )
-        v1 = a1 & 0xCFFFFFFF;
+      if ( (Status & 0xF0000000) == 0xD0000000 )
+        v1 = Status & 0xCFFFFFFF;
       v3 = 0;
       v4 = 306;
       do

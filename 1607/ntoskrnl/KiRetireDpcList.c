@@ -1,25 +1,25 @@
 /*
- * XREFs of KiRetireDpcList @ 0x140058280
+ * XREFs of KiRetireDpcList @ 0x140057E00
  * Callers:
- *     KiIdleLoop @ 0x140161A70 (KiIdleLoop.c)
- *     KyRetireDpcList @ 0x140165FE0 (KyRetireDpcList.c)
+ *     KiIdleLoop @ 0x140161FE0 (KiIdleLoop.c)
+ *     KyRetireDpcList @ 0x140166550 (KyRetireDpcList.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiTimerWaitTest @ 0x140058C90 (KiTimerWaitTest.c)
- *     KiExecuteAllDpcs @ 0x140059280 (KiExecuteAllDpcs.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     KiTimer2Expiration @ 0x14005A0A0 (KiTimer2Expiration.c)
- *     KiProcessThreadWaitList @ 0x14008DCC0 (KiProcessThreadWaitList.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     KiProcessExpiredTimerList @ 0x14010CEBC (KiProcessExpiredTimerList.c)
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     KiBeginCounterAccumulation @ 0x1401D6F18 (KiBeginCounterAccumulation.c)
- *     KiEndCounterAccumulation @ 0x1401D7024 (KiEndCounterAccumulation.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiTimerWaitTest @ 0x140058810 (KiTimerWaitTest.c)
+ *     KiExecuteAllDpcs @ 0x140058E00 (KiExecuteAllDpcs.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     KiTimer2Expiration @ 0x140059C20 (KiTimer2Expiration.c)
+ *     KiProcessThreadWaitList @ 0x14008D420 (KiProcessThreadWaitList.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     KiProcessExpiredTimerList @ 0x14010D420 (KiProcessExpiredTimerList.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiBeginCounterAccumulation @ 0x1401D6D44 (KiBeginCounterAccumulation.c)
+ *     KiEndCounterAccumulation @ 0x1401D6E50 (KiEndCounterAccumulation.c)
  */
 
 signed __int16 __fastcall KiRetireDpcList(__int64 a1)
@@ -439,7 +439,7 @@ LABEL_62:
             v62 = (char *)&EtwpGroupMasks + 32 * (unsigned int)v61;
             if ( v62 && (*((_DWORD *)v62 + 1) & 0x80u) != 0 )
             {
-              v63 = (unsigned __int16)word_1402FD362[2 * v61];
+              v63 = (unsigned __int16)word_1402FD342[2 * v61];
               v64 = (unsigned __int16)EtwpSystemLogger[2 * (unsigned int)v61];
               v102[1] = 8LL;
               v102[0] = &v99[v63];

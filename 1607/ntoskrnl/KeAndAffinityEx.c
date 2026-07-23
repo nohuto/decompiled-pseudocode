@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAndAffinityEx @ 0x14007DA70
+ * XREFs of KeAndAffinityEx @ 0x14007DAF0
  * Callers:
- *     KeQueryLogicalProcessorRelationship @ 0x14007D290 (KeQueryLogicalProcessorRelationship.c)
- *     KiGetDeepIdleProcessors @ 0x140084278 (KiGetDeepIdleProcessors.c)
- *     PpmParkReportParkedCores @ 0x1400D5250 (PpmParkReportParkedCores.c)
- *     KeIsSubsetAffinityEx @ 0x1401D3ED8 (KeIsSubsetAffinityEx.c)
- *     PspSetEffectiveJobLimits @ 0x1404F2444 (PspSetEffectiveJobLimits.c)
- *     KeInitializeProfile @ 0x14064FC98 (KeInitializeProfile.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x14007D310 (KeQueryLogicalProcessorRelationship.c)
+ *     KiGetDeepIdleProcessors @ 0x1400823D8 (KiGetDeepIdleProcessors.c)
+ *     PpmParkReportParkedCores @ 0x1400D30F0 (PpmParkReportParkedCores.c)
+ *     KeIsSubsetAffinityEx @ 0x1401D3D04 (KeIsSubsetAffinityEx.c)
+ *     PspSetEffectiveJobLimits @ 0x1404D53D0 (PspSetEffectiveJobLimits.c)
+ *     KeInitializeProfile @ 0x14064FD7C (KeInitializeProfile.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeAndAffinityEx(__int16 *a1, __int16 *a2, _BYTE *a3)

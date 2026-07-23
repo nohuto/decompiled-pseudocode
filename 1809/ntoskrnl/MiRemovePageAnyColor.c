@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemovePageAnyColor @ 0x1400EB17C
+ * XREFs of MiRemovePageAnyColor @ 0x1400EB1FC
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiGetFreeOrZeroPageAnyColor @ 0x1400EB0D0 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1400EB150 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiSlistGetFreePage @ 0x1400EB364 (MiSlistGetFreePage.c)
- *     MiGetPerfectColorHeadPage @ 0x1400EE048 (MiGetPerfectColorHeadPage.c)
+ *     MiSlistGetFreePage @ 0x1400EB3E4 (MiSlistGetFreePage.c)
+ *     MiGetPerfectColorHeadPage @ 0x1400EE0C8 (MiGetPerfectColorHeadPage.c)
  */
 
 __int64 __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3)
@@ -39,21 +39,21 @@ __int64 __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3)
   v4 = a3;
   v5 = a2;
   v6 = (a3 & 2) == 0;
-  v7 = *(_QWORD *)(a1 + 16) + 1984 * ((unsigned __int64)a2 >> byte_14043A049);
+  v7 = *(_QWORD *)(a1 + 16) + 1984 * ((unsigned __int64)a2 >> byte_14043B109);
   if ( (unsigned int)MmNumberOfChannels > 1 )
     v8 = (_QWORD *)(v7
-                  + 8 * (v6 + 2 * ((unsigned __int8)(MiChannelMaximumPowerOf2Mask & (v5 >> byte_14043A04A)) + 114LL)));
+                  + 8 * (v6 + 2 * ((unsigned __int8)(MiChannelMaximumPowerOf2Mask & (v5 >> byte_14043B10A)) + 114LL)));
   else
     v8 = (_QWORD *)(v7 + 1760 + 8 * v6);
   if ( !*v8 )
     return 0LL;
-  v9 = dword_14043A088;
+  v9 = dword_14043B148;
   v10 = 0LL;
   v11 = v5;
   v12 = v7 + 16 * (v6 + 104);
   v24 = *(_QWORD *)(v3 + 8 * v6 + 2112);
   v13 = 0;
-  v14 = dword_14043A088 + 1;
+  v14 = dword_14043B148 + 1;
   while ( 1 )
   {
     while ( 1 )

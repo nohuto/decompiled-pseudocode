@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpInitializeProcessorTrace @ 0x1408303B8
+ * XREFs of EtwpInitializeProcessorTrace @ 0x1408365F8
  * Callers:
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     ExRegisterHost @ 0x140840A68 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x140846CA8 (ExRegisterHost.c)
  */
 
 __int64 __fastcall EtwpInitializeProcessorTrace(__int64 a1, __int64 a2)
@@ -20,8 +20,8 @@ __int64 __fastcall EtwpInitializeProcessorTrace(__int64 a1, __int64 a2)
   v3 = 1;
   v5[3] = 0LL;
   v5[4] = 0LL;
-  result = ExRegisterHost(&ExpSysDbgLock.SchedulerAssist, a2, v5);
+  result = ExRegisterHost(&ExpSysDbgLock.SchedulerAssistPriorityFloor, a2, v5);
   if ( (int)result < 0 )
-    ExpSysDbgLock.SchedulerAssist = 0LL;
+    *(_QWORD *)&ExpSysDbgLock.SchedulerAssistPriorityFloor = 0LL;
   return result;
 }

@@ -48,7 +48,7 @@ char __fastcall CcMapAndCopyInToCache(
   __int64 v10; // r15
   char v11; // r13
   int v12; // esi
-  struct _SLIST_ENTRY *v13; // rbx
+  _SLIST_ENTRY *v13; // rbx
   bool v14; // zf
   int v15; // r12d
   char v16; // al
@@ -56,7 +56,7 @@ char __fastcall CcMapAndCopyInToCache(
   __int64 v19; // rdi
   struct _KPRCB **v20; // rdx
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v22; // rax
+  _SLIST_ENTRY **v22; // rax
   struct _KTHREAD *v23; // rax
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rcx
   unsigned __int64 v25; // rdi
@@ -76,7 +76,7 @@ char __fastcall CcMapAndCopyInToCache(
   int v40; // ebx
   bool v41; // r12
   unsigned int v42; // ecx
-  int v43; // edi
+  NTSTATUS v43; // edi
   int v44; // eax
   char v45; // al
   unsigned int v46; // edi
@@ -137,14 +137,14 @@ char __fastcall CcMapAndCopyInToCache(
   int v101; // [rsp+C4h] [rbp-DCh]
   int v102; // [rsp+C8h] [rbp-D8h]
   unsigned int v103; // [rsp+CCh] [rbp-D4h]
-  int v104; // [rsp+D0h] [rbp-D0h] BYREF
+  NTSTATUS Status; // [rsp+D0h] [rbp-D0h] BYREF
   unsigned int v105; // [rsp+D4h] [rbp-CCh]
   NTSTATUS Exception[4]; // [rsp+D8h] [rbp-C8h] BYREF
   __int64 v107; // [rsp+E8h] [rbp-B8h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+F0h] [rbp-B0h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+F8h] [rbp-A8h] BYREF
   unsigned int v110; // [rsp+110h] [rbp-90h]
-  int v111; // [rsp+114h] [rbp-8Ch]
+  NTSTATUS v111; // [rsp+114h] [rbp-8Ch]
   unsigned int v112; // [rsp+118h] [rbp-88h]
   int v113; // [rsp+11Ch] [rbp-84h]
   struct _MDL *v114; // [rsp+120h] [rbp-80h] BYREF
@@ -223,7 +223,7 @@ char __fastcall CcMapAndCopyInToCache(
       {
         KiAcquireQueuedSpinLockInstrumented((__int64)&v116, (volatile __int64 *)(v19 + 832));
       }
-      v13 = *(struct _SLIST_ENTRY **)(v10 + 504);
+      v13 = *(_SLIST_ENTRY **)(v10 + 504);
       if ( !v13 )
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&v116);
@@ -232,7 +232,7 @@ char __fastcall CcMapAndCopyInToCache(
         RtlRaiseStatus(-1073741608);
       }
       Next = v13->Next;
-      v22 = (struct _SLIST_ENTRY **)*((_QWORD *)&v13->Next + 1);
+      v22 = (_SLIST_ENTRY **)*((_QWORD *)&v13->Next + 1);
       if ( *(&v13->Next->Next + 1) != v13 || *v22 != v13 )
         __fastfail(3u);
       *v22 = Next;
@@ -429,7 +429,7 @@ char __fastcall CcMapAndCopyInToCache(
         v114 = 0LL;
         v53 = 0LL;
         v120 = 0LL;
-        v104 = 0;
+        Status = 0;
         if ( v43 < 0 )
           RtlRaiseStatus(v43);
         v54 = v97;
@@ -439,10 +439,10 @@ char __fastcall CcMapAndCopyInToCache(
           v56 = v94;
           if ( v33 )
             v56 = 4096;
-          v53 = (char *)CcLockSystemCacheBuffer(v98, &v114, v56, IoWriteAccess, &v104);
+          v53 = (char *)CcLockSystemCacheBuffer(v98, &v114, v56, IoWriteAccess, &Status);
           v120 = v53;
           if ( !v53 )
-            RtlRaiseStatus(v104);
+            RtlRaiseStatus(Status);
           v52 = v114;
           v54 = v97;
         }

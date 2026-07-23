@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPCIAcquireConfigSpaceLock @ 0x14033F4E8
+ * XREFs of HalpPCIAcquireConfigSpaceLock @ 0x14033F778
  * Callers:
- *     HalpPCIConfig @ 0x14033F3A0 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x14033F630 (HalpPCIConfig.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
  */
 
 void __fastcall HalpPCIAcquireConfigSpaceLock(unsigned __int8 *a1)
@@ -20,7 +20,7 @@ void __fastcall HalpPCIAcquireConfigSpaceLock(unsigned __int8 *a1)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )

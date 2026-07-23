@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFxTraceDeviceRegistration @ 0x14067E618
+ * XREFs of PopFxTraceDeviceRegistration @ 0x1406724C8
  * Callers:
- *     PopDiagTraceFxRundown @ 0x140284428 (PopDiagTraceFxRundown.c)
- *     PopFxRegisterDevice @ 0x1407B578C (PopFxRegisterDevice.c)
+ *     PopDiagTraceFxRundown @ 0x140272A80 (PopDiagTraceFxRundown.c)
+ *     PopFxRegisterDevice @ 0x1407B4EDC (PopFxRegisterDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopPepGetComponentVetoMasks @ 0x1405745B0 (PopPepGetComponentVetoMasks.c)
- *     PopPepGetDeviceVetoMasks @ 0x1405746A8 (PopPepGetDeviceVetoMasks.c)
- *     PopDiagTraceFxComponentRegistration @ 0x1408EA4C8 (PopDiagTraceFxComponentRegistration.c)
- *     PopDiagTraceFxDeviceRegistration @ 0x1408EA598 (PopDiagTraceFxDeviceRegistration.c)
- *     PopFxTracePerfRegistration @ 0x1408EC03C (PopFxTracePerfRegistration.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopPepGetComponentVetoMasks @ 0x1405747F0 (PopPepGetComponentVetoMasks.c)
+ *     PopPepGetDeviceVetoMasks @ 0x1405748E8 (PopPepGetDeviceVetoMasks.c)
+ *     PopDiagTraceFxComponentRegistration @ 0x1408EA628 (PopDiagTraceFxComponentRegistration.c)
+ *     PopDiagTraceFxDeviceRegistration @ 0x1408EA6F8 (PopDiagTraceFxDeviceRegistration.c)
+ *     PopFxTracePerfRegistration @ 0x1408EC19C (PopFxTracePerfRegistration.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PopFxTraceDeviceRegistration(__int64 a1, char a2)

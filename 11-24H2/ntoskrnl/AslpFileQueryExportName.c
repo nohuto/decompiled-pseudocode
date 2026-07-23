@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileQueryExportName @ 0x14080F898
+ * XREFs of AslpFileQueryExportName @ 0x14080FFD8
  * Callers:
- *     AslpFileGetExportName @ 0x14080D8A0 (AslpFileGetExportName.c)
+ *     AslpFileGetExportName @ 0x14080DFE0 (AslpFileGetExportName.c)
  * Callees:
- *     RtlStringCchCopyA @ 0x140458158 (RtlStringCchCopyA.c)
- *     AslpMemorySpanCheckBounds @ 0x140696AC0 (AslpMemorySpanCheckBounds.c)
- *     AslpFileGetImageNtHeader @ 0x14080DFA4 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x14080FE44 (AslpImageRvaToVa.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchCopyA @ 0x14044D468 (RtlStringCchCopyA.c)
+ *     AslpMemorySpanCheckBounds @ 0x140697B90 (AslpMemorySpanCheckBounds.c)
+ *     AslpFileGetImageNtHeader @ 0x14080E6E4 (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140810584 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileQueryExportName(NTSTRSAFE_PSTR pszDest, __int64 a2)

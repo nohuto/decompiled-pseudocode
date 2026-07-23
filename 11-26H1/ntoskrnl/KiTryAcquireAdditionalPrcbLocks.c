@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTryAcquireAdditionalPrcbLocks @ 0x1404D4FAC
+ * XREFs of KiTryAcquireAdditionalPrcbLocks @ 0x1404CE81C
  * Callers:
- *     KiTryUpgradeIsolationUnitLockHandle @ 0x1404D4EF8 (KiTryUpgradeIsolationUnitLockHandle.c)
+ *     KiTryUpgradeIsolationUnitLockHandle @ 0x1404CE768 (KiTryUpgradeIsolationUnitLockHandle.c)
  * Callees:
- *     KzReleaseAdditionalPrcbLocks @ 0x14022F6B0 (KzReleaseAdditionalPrcbLocks.c)
+ *     KzReleaseAdditionalPrcbLocks @ 0x140231040 (KzReleaseAdditionalPrcbLocks.c)
  */
 
 char __fastcall KiTryAcquireAdditionalPrcbLocks(__int64 *a1, int a2, __int64 a3, unsigned int a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpReleaseHalCounters @ 0x1404B9130
+ * XREFs of HalpReleaseHalCounters @ 0x1404B9370
  * Callers:
- *     HalAllocateHardwareCounters @ 0x140864280 (HalAllocateHardwareCounters.c)
- *     HalFreeHardwareCounters @ 0x1408643D0 (HalFreeHardwareCounters.c)
+ *     HalAllocateHardwareCounters @ 0x1408643E0 (HalAllocateHardwareCounters.c)
+ *     HalFreeHardwareCounters @ 0x140864530 (HalFreeHardwareCounters.c)
  * Callees:
  *     <none>
  */

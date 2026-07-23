@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceTimeZoneBiasChange @ 0x140827C20
+ * XREFs of EtwTraceTimeZoneBiasChange @ 0x14082DE60
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
@@ -31,9 +31,9 @@ char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
   v2 = &retaddr;
   v18 = a2;
   v17 = a1;
-  if ( (unsigned int)dword_140E08F48 > 5 )
+  if ( (unsigned int)dword_140E08F78 > 5 )
   {
-    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL);
+    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL);
     if ( (_BYTE)v2 )
     {
       v6 = v4;
@@ -43,26 +43,21 @@ char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
       v13 = 4LL;
       v15 = 4LL;
       LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E08F48,
-                     (unsigned __int8 *)byte_140054318,
+                     (__int64)&dword_140E08F78,
+                     (unsigned __int8 *)byte_140054988,
                      0LL,
                      0LL,
                      4u,
                      &v11);
     }
   }
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     *(_QWORD *)&UserData.Size = 4LL;
     UserData.Ptr = (ULONGLONG)&v17;
     v10 = 4LL;
     v9 = &v18;
-    LOBYTE(v2) = EtwWrite(
-                   (REGHANDLE)EtwpSecurityLock.MutantListHead.Blink,
-                   &KernelTimeZoneBiasChange,
-                   0LL,
-                   2u,
-                   &UserData);
+    LOBYTE(v2) = EtwWrite(EtwKernelProvRegHandle, &KernelTimeZoneBiasChange, 0LL, 2u, &UserData);
   }
   return (char)v2;
 }

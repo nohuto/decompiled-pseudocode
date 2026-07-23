@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpHandleInvalidUserCallTarget @ 0x1801467D0
+ * XREFs of RtlpHandleInvalidUserCallTarget @ 0x180144B80
  * Callers:
- *     LdrpHandleInvalidUserCallTarget @ 0x180121450 (LdrpHandleInvalidUserCallTarget.c)
+ *     LdrpHandleInvalidUserCallTarget @ 0x18011F680 (LdrpHandleInvalidUserCallTarget.c)
  * Callees:
- *     RtlGuardIsExportSuppressedAddress @ 0x180003BFC (RtlGuardIsExportSuppressedAddress.c)
- *     RtlpGuardGrantSuppressedCallAccess @ 0x180003CAC (RtlpGuardGrantSuppressedCallAccess.c)
- *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180009670 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
- *     RtlpGuardIsSuppressedAddress @ 0x1800ECD20 (RtlpGuardIsSuppressedAddress.c)
- *     RtlpUnsuppressForwardReferencingCallTarget @ 0x180112FB0 (RtlpUnsuppressForwardReferencingCallTarget.c)
- *     RtlFailFast2 @ 0x180121670 (RtlFailFast2.c)
+ *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180036070 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
+ *     RtlpGuardIsSuppressedAddress @ 0x1800E7950 (RtlpGuardIsSuppressedAddress.c)
+ *     RtlpGuardGrantSuppressedCallAccess @ 0x1800E79F8 (RtlpGuardGrantSuppressedCallAccess.c)
+ *     RtlGuardIsExportSuppressedAddress @ 0x1800E7AA0 (RtlGuardIsExportSuppressedAddress.c)
+ *     RtlpUnsuppressForwardReferencingCallTarget @ 0x18010E270 (RtlpUnsuppressForwardReferencingCallTarget.c)
+ *     RtlFailFast2 @ 0x18011F8A0 (RtlFailFast2.c)
  */
 
-__int64 __fastcall RtlpHandleInvalidUserCallTarget(unsigned __int64 a1)
+int __fastcall RtlpHandleInvalidUserCallTarget(void *a1)
 {
-  __int64 result; // rax
+  int result; // eax
 
   if ( RtlGuardAllowSuppressedCalls && RtlpGuardIsSuppressedAddress(a1) )
-    return RtlpGuardGrantSuppressedCallAccess(a1, 1u);
+    return RtlpGuardGrantSuppressedCallAccess((__int64)a1, 1u);
   if ( !LdrControlFlowGuardEnforcedWithExportSuppression()
     || !RtlGuardIsExportSuppressedAddress(a1)
-    || (result = RtlpUnsuppressForwardReferencingCallTarget(a1), (int)result < 0) )
+    || (result = RtlpUnsuppressForwardReferencingCallTarget((__int64)a1), result < 0) )
   {
     RtlFailFast2(0xAu);
   }

@@ -659,6 +659,6 @@ LABEL_152:
     ExFreePoolWithTag(v8, 0x704D5050u);
   }
   *((_QWORD *)&v106 + 1) = -1LL;
-  KeSetTimer2((__int64)&PpmPerfTelemetryTimer, -36000000000LL, 36000000000LL, (__int64)&v106);
+  KeSetTimer2((__int64)&PpmPerfTelemetryTimer, (LARGE_INTEGER)-36000000000LL, 36000000000LL, (__int64)&v106);
   return (unsigned int)v27;
 }

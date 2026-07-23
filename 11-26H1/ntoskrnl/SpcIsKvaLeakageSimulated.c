@@ -1,12 +1,12 @@
 /*
- * XREFs of SpcIsKvaLeakageSimulated @ 0x14071E35C
+ * XREFs of SpcIsKvaLeakageSimulated @ 0x140722FEC
  * Callers:
- *     KiEnableKvaShadowing @ 0x140BF8180 (KiEnableKvaShadowing.c)
+ *     KiEnableKvaShadowing @ 0x140BFE180 (KiEnableKvaShadowing.c)
  * Callees:
  *     <none>
  */
 
 char SpcIsKvaLeakageSimulated()
 {
-  return WheapPfaLock.OtherTransferCount;
+  return WheapPfaLock.RealtimePriorityFloor;
 }

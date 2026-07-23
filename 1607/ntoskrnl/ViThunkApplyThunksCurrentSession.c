@@ -1,13 +1,13 @@
 /*
- * XREFs of ViThunkApplyThunksCurrentSession @ 0x14070F784
+ * XREFs of ViThunkApplyThunksCurrentSession @ 0x14070F7B4
  * Callers:
- *     VfThunkApplyThunks @ 0x14070F54C (VfThunkApplyThunks.c)
+ *     VfThunkApplyThunks @ 0x14070F57C (VfThunkApplyThunks.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     VfTargetDriversGetNode @ 0x140223890 (VfTargetDriversGetNode.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     VfTargetDriversGetNode @ 0x1402236BC (VfTargetDriversGetNode.c)
  *     ViIsDriverSuspectForVerifier @ 0x1406FE3EC (ViIsDriverSuspectForVerifier.c)
- *     ViThunkReplaceAllSharedExports @ 0x14070FAE0 (ViThunkReplaceAllSharedExports.c)
- *     ViThunkReplaceAllThunkedImports @ 0x14070FB64 (ViThunkReplaceAllThunkedImports.c)
+ *     ViThunkReplaceAllSharedExports @ 0x14070FB10 (ViThunkReplaceAllSharedExports.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x14070FB94 (ViThunkReplaceAllThunkedImports.c)
  */
 
 __int64 __fastcall ViThunkApplyThunksCurrentSession(__int64 a1, unsigned int a2)

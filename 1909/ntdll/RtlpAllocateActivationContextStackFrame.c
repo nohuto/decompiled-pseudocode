@@ -67,7 +67,7 @@ __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a
 LABEL_19:
       v6 = (_QWORD *)*v6;
     }
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 3104LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xC20uLL);
     if ( Heap )
     {
       *Heap = 1953721414;

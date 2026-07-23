@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x14043A220
+ * XREFs of KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x1402B9A64
  * Callers:
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
  * Callees:
- *     KiAcquireCpuPartitionAssignmentLock @ 0x14043A2D4 (KiAcquireCpuPartitionAssignmentLock.c)
- *     KiReleaseCpuPartitionAssignmentLock @ 0x14043A320 (KiReleaseCpuPartitionAssignmentLock.c)
- *     KiRemoveCpuPartitionAssignmentProcess @ 0x14043A35C (KiRemoveCpuPartitionAssignmentProcess.c)
- *     PsDereferenceCpuPartition @ 0x14077666C (PsDereferenceCpuPartition.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiAcquireCpuPartitionAssignmentLock @ 0x1402B9B18 (KiAcquireCpuPartitionAssignmentLock.c)
+ *     KiReleaseCpuPartitionAssignmentLock @ 0x1402B9B64 (KiReleaseCpuPartitionAssignmentLock.c)
+ *     KiRemoveCpuPartitionAssignmentProcess @ 0x1402B9BA0 (KiRemoveCpuPartitionAssignmentProcess.c)
+ *     PsDereferenceCpuPartition @ 0x14077688C (PsDereferenceCpuPartition.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiRemoveAndFreeCpuPartitionAssignmentProcess(__int64 a1)

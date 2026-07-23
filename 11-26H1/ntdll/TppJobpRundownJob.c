@@ -1,56 +1,57 @@
 /*
- * XREFs of TppJobpRundownJob @ 0x1800C9BD0
+ * XREFs of TppJobpRundownJob @ 0x1800C7350
  * Callers:
- *     TpReleaseJobNotification @ 0x1800C9820 (TpReleaseJobNotification.c)
- *     TpWaitForJobNotification @ 0x1800C9890 (TpWaitForJobNotification.c)
- *     TppJobpStopCallbackGeneration @ 0x180159150 (TppJobpStopCallbackGeneration.c)
+ *     TpReleaseJobNotification @ 0x1800C6FA0 (TpReleaseJobNotification.c)
+ *     TpWaitForJobNotification @ 0x1800C7010 (TpWaitForJobNotification.c)
+ *     TppJobpStopCallbackGeneration @ 0x180159020 (TppJobpStopCallbackGeneration.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     TppRaiseHandleStatus @ 0x1800C9DE8 (TppRaiseHandleStatus.c)
- *     NtQueryInformationJobObject @ 0x180161A10 (NtQueryInformationJobObject.c)
- *     ZwSetInformationJobObject @ 0x180162470 (ZwSetInformationJobObject.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     TppRaiseHandleStatus @ 0x1800C7568 (TppRaiseHandleStatus.c)
+ *     NtQueryInformationJobObject @ 0x180161910 (NtQueryInformationJobObject.c)
+ *     ZwSetInformationJobObject @ 0x180162370 (ZwSetInformationJobObject.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall TppJobpRundownJob(__int64 a1, __int64 a2)
+void __fastcall TppJobpRundownJob(__int64 a1)
 {
-  bool v2; // zf
-  volatile signed __int64 *v4; // rsi
-  __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // rbx
-  __int128 v8; // [rsp+30h] [rbp-18h] BYREF
-  unsigned __int64 v9; // [rsp+50h] [rbp+8h] BYREF
+  bool v1; // zf
+  _RTL_SRWLOCK *v3; // rsi
+  void *v4; // rcx
+  NTSTATUS v5; // eax
+  __int64 v6; // rbx
+  __int128 JobObjectInformation; // [rsp+30h] [rbp-18h] BYREF
+  unsigned __int64 v8; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 272) == 0LL;
-  v9 = 0LL;
-  if ( !v2 )
+  v1 = *(_QWORD *)(a1 + 272) == 0LL;
+  v8 = 0LL;
+  if ( !v1 )
   {
-    v4 = (volatile signed __int64 *)(a1 + 288);
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 288), a2);
-    v5 = *(_QWORD *)(a1 + 272);
-    if ( v5 )
+    v3 = (_RTL_SRWLOCK *)(a1 + 288);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 288));
+    v4 = *(void **)(a1 + 272);
+    if ( v4 )
     {
-      v8 = 0LL;
-      v6 = ZwSetInformationJobObject(v5, 7LL, &v8);
-      if ( v6 < 0 || (v6 = NtQueryInformationJobObject(*(_QWORD *)(a1 + 272), 17LL, &v9), v6 < 0) )
+      JobObjectInformation = 0LL;
+      v5 = ZwSetInformationJobObject(v4, JobObjectAssociateCompletionPortInformation, &JobObjectInformation, 0x10u);
+      if ( v5 < 0
+        || (v5 = NtQueryInformationJobObject(*(HANDLE *)(a1 + 272), JobObjectCompletionCounter, &v8, 8u, 0LL), v5 < 0) )
       {
-        TppRaiseHandleStatus((unsigned int)v6, *(_QWORD *)(a1 + 272), 0LL);
+        TppRaiseHandleStatus((unsigned int)v5, *(_QWORD *)(a1 + 272), 0LL);
       }
       else
       {
-        v9 = (-2LL * v9) | 1;
-        v7 = v9 + _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 280), v9);
+        v8 = (-2LL * v8) | 1;
+        v6 = v8 + _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 280), v8);
         *(_QWORD *)(a1 + 272) = 0LL;
-        RtlReleaseSRWLockExclusive(v4);
-        if ( v7 == 1 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 72), 0xFFFFFFFF) == 1 )
+        RtlReleaseSRWLockExclusive(v3);
+        if ( v6 == 1 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 72), 0xFFFFFFFF) == 1 )
           (**(void (***)(void))(a1 + 80))();
       }
     }
     else
     {
-      RtlReleaseSRWLockExclusive(v4);
+      RtlReleaseSRWLockExclusive(v3);
     }
   }
 }

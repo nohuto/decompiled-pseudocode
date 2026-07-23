@@ -123,7 +123,7 @@ LABEL_15:
       }
       else
       {
-        v5 = BiBindEfiNamespaceObjects(v2);
+        v5 = BiBindEfiNamespaceObjects((HANDLE)v2);
       }
     }
     else

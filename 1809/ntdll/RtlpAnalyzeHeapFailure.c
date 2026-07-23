@@ -14,7 +14,7 @@
  *     RtlSetUserValueHeap @ 0x18005AFE0 (RtlSetUserValueHeap.c)
  *     RtlpCollectFreeBlocks @ 0x180060F50 (RtlpCollectFreeBlocks.c)
  *     RtlpPopulateListIndex @ 0x18006161C (RtlpPopulateListIndex.c)
- *     RtlpCoalesceHeap @ 0x18008C1C4 (RtlpCoalesceHeap.c)
+ *     RtlpCoalesceHeap @ 0x18008C1D4 (RtlpCoalesceHeap.c)
  *     RtlSetUserFlagsHeap @ 0x1800F2680 (RtlSetUserFlagsHeap.c)
  *     RtlZeroHeap @ 0x1800F5670 (RtlZeroHeap.c)
  *     RtlpSetupExtendedBlock @ 0x1800F5EB4 (RtlpSetupExtendedBlock.c)
@@ -24,7 +24,7 @@
  *     RtlpValidateHeap @ 0x180108E00 (RtlpValidateHeap.c)
  *     RtlpValidateHeapSegment @ 0x1801095C0 (RtlpValidateHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  *     RtlpHeapExceptionFilter @ 0x18010C5C8 (RtlpHeapExceptionFilter.c)
  */
 

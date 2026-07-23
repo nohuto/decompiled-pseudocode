@@ -13,12 +13,12 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   ULONGLONG v3; // r12
   unsigned int v4; // edi
-  const void *v6; // rsi
+  char *v6; // rsi
   ULONGLONG v7; // r15
   char v8; // r11
   PVOID *v9; // r14
   __int64 v10; // rbx
-  unsigned __int64 v11; // rbp
+  char *v11; // rbp
   unsigned int *v12; // rdx
   unsigned int *v13; // rax
   unsigned __int64 v14; // rdx
@@ -27,33 +27,33 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
   unsigned int v17; // edi
   ULONGLONG pullResult[11]; // [rsp+20h] [rbp-58h] BYREF
   char v21; // [rsp+88h] [rbp+10h]
-  __int64 v22; // [rsp+90h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+90h] [rbp+18h] BYREF
   unsigned int v23; // [rsp+98h] [rbp+20h]
 
   v3 = *(_QWORD *)(a1 + 248);
   pullResult[0] = 0LL;
   v4 = a2;
-  LODWORD(v22) = 4112;
+  LODWORD(OutHeaders) = 4112;
   v23 = (a2 + 7) & 0xFFFFFFF8;
   v21 = 0;
   v6 = 0LL;
   v7 = -1LL;
-  IopValidateSectionSize(v23, (unsigned int *)&v22);
+  IopValidateSectionSize(v23, (unsigned int *)&OutHeaders);
   v9 = (PVOID *)PsLoadedModuleList;
-  if ( (unsigned int)v22 > 0x10 )
+  if ( (unsigned int)OutHeaders > 0x10 )
   {
-    v10 = (unsigned int)(v22 - 16);
+    v10 = (unsigned int)((_DWORD)OutHeaders - 16);
     while ( v9 != &PsLoadedModuleList )
     {
-      v11 = (unsigned __int64)v9[6];
-      if ( v3 >= v11 && v3 < v11 + *((unsigned int *)v9 + 38) )
+      v11 = (char *)v9[6];
+      if ( v3 >= (unsigned __int64)v11 && v3 < (unsigned __int64)&v11[*((unsigned int *)v9 + 38)] )
       {
-        v22 = 0LL;
-        RtlImageNtHeaderEx(1, v11, 0LL, &v22);
-        if ( !v22 )
+        OutHeaders = 0LL;
+        RtlImageNtHeaderEx(1u, v11, 0LL, &OutHeaders);
+        if ( !OutHeaders )
           return v4;
-        v12 = (unsigned int *)(v22 + *(unsigned __int16 *)(v22 + 20) + 24LL);
-        v13 = &v12[10 * *(unsigned __int16 *)(v22 + 6)];
+        v12 = (unsigned int *)((char *)&OutHeaders->OptionalHeader.Magic + OutHeaders->FileHeader.SizeOfOptionalHeader);
+        v13 = &v12[10 * OutHeaders->FileHeader.NumberOfSections];
         while ( 1 )
         {
           if ( v12 >= v13 )
@@ -61,8 +61,8 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
             v8 = v21;
             goto LABEL_15;
           }
-          v6 = (const void *)(v11 + v12[3]);
-          v7 = (ULONGLONG)v6 + v12[2];
+          v6 = &v11[v12[3]];
+          v7 = (ULONGLONG)&v6[v12[2]];
           if ( v3 >= (unsigned __int64)v6 && v3 < v7 )
             break;
           v12 += 10;
@@ -79,8 +79,8 @@ LABEL_15:
     {
       v14 = (unsigned __int64)(unsigned int)v10 >> 1;
       if ( *(_QWORD *)(a1 + 248) - v14 + 1 >= (unsigned __int64)v6 )
-        v6 = (const void *)(*(_QWORD *)(a1 + 248) - v14 + 1);
-      if ( (unsigned __int64)v6 + v10 <= v7
+        v6 = (char *)(*(_QWORD *)(a1 + 248) - v14 + 1);
+      if ( (unsigned __int64)&v6[v10] <= v7
         || RtlULongLongSub(v7, (ULONGLONG)v6, pullResult) >= 0
         && (LODWORD(v10) = pullResult[0], pullResult[0] <= 0xFFFFFFFF) )
       {

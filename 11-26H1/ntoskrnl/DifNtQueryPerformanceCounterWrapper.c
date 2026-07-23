@@ -1,17 +1,19 @@
 /*
- * XREFs of DifNtQueryPerformanceCounterWrapper @ 0x140684E50
+ * XREFs of DifNtQueryPerformanceCounterWrapper @ 0x140688A30
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtQueryPerformanceCounter @ 0x140A8E4E0 (NtQueryPerformanceCounter.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtQueryPerformanceCounter @ 0x140A931B0 (NtQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall DifNtQueryPerformanceCounterWrapper(void *a1, void *a2)
+__int64 __fastcall DifNtQueryPerformanceCounterWrapper(
+        PLARGE_INTEGER PerformanceCounter,
+        PLARGE_INTEGER PerformanceFrequency)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -43,8 +45,8 @@ __int64 __fastcall DifNtQueryPerformanceCounterWrapper(void *a1, void *a2)
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v8 = 0;
-    *(_QWORD *)&v16 = a1;
-    *((_QWORD *)&v15 + 1) = a2;
+    *(_QWORD *)&v16 = PerformanceCounter;
+    *((_QWORD *)&v15 + 1) = PerformanceFrequency;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -57,7 +59,7 @@ __int64 __fastcall DifNtQueryPerformanceCounterWrapper(void *a1, void *a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v16) = NtQueryPerformanceCounter(a1, a2);
+  DWORD2(v16) = NtQueryPerformanceCounter(PerformanceCounter, PerformanceFrequency);
   if ( v6 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCompressImportList @ 0x1406C8798
+ * XREFs of MiCompressImportList @ 0x1406C9A38
  * Callers:
- *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
- *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
+ *     MiResolveImageReferences @ 0x14067A170 (MiResolveImageReferences.c)
+ *     MiApplyDriverHotPatch @ 0x1408552E0 (MiApplyDriverHotPatch.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiAllocateImportList @ 0x1406C88A4 (MiAllocateImportList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiAllocateImportList @ 0x1406C9B44 (MiAllocateImportList.c)
  */
 
 unsigned __int64 *__fastcall MiCompressImportList(unsigned __int64 *P)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCleanPowerLimitExtension @ 0x1406039E0
+ * XREFs of PopCleanPowerLimitExtension @ 0x140606490
  * Callers:
- *     PopAssociatePowerLimitRequest @ 0x1407CA800 (PopAssociatePowerLimitRequest.c)
- *     PopFreePowerLimitRequest @ 0x1407CADDC (PopFreePowerLimitRequest.c)
+ *     PopAssociatePowerLimitRequest @ 0x1407CD8A0 (PopAssociatePowerLimitRequest.c)
+ *     PopFreePowerLimitRequest @ 0x1407CDE7C (PopFreePowerLimitRequest.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IoUnregisterPlugPlayNotificationEx @ 0x140AEA4D0 (IoUnregisterPlugPlayNotificationEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x140AECFC0 (IoUnregisterPlugPlayNotificationEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopCleanPowerLimitExtension(_QWORD *P, __int64 a2)

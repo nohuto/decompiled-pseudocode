@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventTraceHeteroSets @ 0x1404BDA24
+ * XREFs of PpmEventTraceHeteroSets @ 0x1404B7270
  * Callers:
- *     PpmParkEvaluateRestriction @ 0x14025B2D8 (PpmParkEvaluateRestriction.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PpmParkEvaluateRestriction @ 0x14025CAB4 (PpmParkEvaluateRestriction.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KiQueryRestrictionAffinity @ 0x1404BDE68 (KiQueryRestrictionAffinity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KiQueryRestrictionAffinity @ 0x1404B76B4 (KiQueryRestrictionAffinity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall PpmEventTraceHeteroSets(int a1)
@@ -110,7 +110,7 @@ char __fastcall PpmEventTraceHeteroSets(int a1)
   v37 = v2;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v1);
+    LOBYTE(v3) = EtwEventEnabled(PpmEtwHandle, v1);
     if ( (_BYTE)v3 )
     {
       v38 = 0;
@@ -141,8 +141,8 @@ char __fastcall PpmEventTraceHeteroSets(int a1)
             {
               v11 = *(_BYTE *)v5++;
               *((_BYTE *)&v42 + v9) = v11;
-              *((_BYTE *)&v77 + v9) = *((_BYTE *)&stru_140FC01F0.CycleTime + v7);
-              v12 = *((_BYTE *)&stru_140FC01F0.StackBase + v7++);
+              *((_BYTE *)&v77 + v9) = *((_BYTE *)&stru_140FC11F0.StackBase + v7);
+              v12 = *((_BYTE *)&stru_140FC11F0.CycleTime + v7++);
               *((_BYTE *)&v80 + v9) = v12;
               v9 = (unsigned int)(v9 + 1);
               --v10;
@@ -227,15 +227,7 @@ char __fastcall PpmEventTraceHeteroSets(int a1)
                     v70 = 8LL;
                     v40 = v27;
                     v72 = 4LL;
-                    EtwWriteEx(
-                      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                      v1,
-                      0LL,
-                      0,
-                      0LL,
-                      0LL,
-                      0xDu,
-                      &UserData);
+                    EtwWriteEx(PpmEtwHandle, v1, 0LL, 0, 0LL, 0LL, 0xDu, &UserData);
                     ++v30;
                     v29 = v34;
                     j = v35 + 1;

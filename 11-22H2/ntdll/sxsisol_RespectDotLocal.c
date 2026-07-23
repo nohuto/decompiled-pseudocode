@@ -10,39 +10,39 @@
  *     RtlComputePrivatizedDllName_U @ 0x1800E07E0 (RtlComputePrivatizedDllName_U.c)
  */
 
-__int64 __fastcall sxsisol_RespectDotLocal(unsigned __int16 *a1, unsigned __int16 *a2, _DWORD *a3)
+__int64 __fastcall sxsisol_RespectDotLocal(_UNICODE_STRING *a1, unsigned __int16 *a2, _DWORD *a3)
 {
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   unsigned __int16 Length; // ax
-  UNICODE_STRING *p_UnicodeString; // r14
-  unsigned __int64 v8; // r8
+  _UNICODE_STRING *p_LocalName; // r14
+  SIZE_T v8; // r8
   __int64 *v9; // rbx
   __int64 v10; // rcx
   size_t v11; // r8
   wchar_t *Buffer; // rdx
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // rcx
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-20h] BYREF
-  UNICODE_STRING v17; // [rsp+30h] [rbp-10h] BYREF
+  _UNICODE_STRING RealName; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING LocalName; // [rsp+30h] [rbp-10h] BYREF
 
-  UnicodeString = 0LL;
-  v17 = 0LL;
+  RealName = 0LL;
+  LocalName = 0LL;
   if ( a2 )
   {
-    v5 = RtlComputePrivatizedDllName_U(a1, (__int64)&UnicodeString, (__int64)&v17);
+    v5 = RtlComputePrivatizedDllName_U(a1, &RealName, &LocalName);
     if ( v5 < 0 )
       goto LABEL_19;
-    if ( v17.Buffer && RtlDoesFileExists_UstrEx((__m128i *)&v17, 1) )
+    if ( LocalName.Buffer && RtlDoesFileExists_UstrEx(&LocalName, 1) )
     {
-      Length = v17.Length;
-      p_UnicodeString = &v17;
+      Length = LocalName.Length;
+      p_LocalName = &LocalName;
     }
     else
     {
-      if ( !UnicodeString.Buffer || !RtlDoesFileExists_UstrEx((__m128i *)&UnicodeString, 1) )
+      if ( !RealName.Buffer || !RtlDoesFileExists_UstrEx(&RealName, 1) )
         goto LABEL_18;
-      Length = UnicodeString.Length;
-      p_UnicodeString = &UnicodeString;
+      Length = RealName.Length;
+      p_LocalName = &RealName;
     }
     v8 = Length + 2LL;
     *a2 = 0;
@@ -59,12 +59,12 @@ __int64 __fastcall sxsisol_RespectDotLocal(unsigned __int16 *a1, unsigned __int1
       goto LABEL_19;
     }
     v10 = *v9;
-    v11 = p_UnicodeString->Length;
-    Buffer = p_UnicodeString->Buffer;
+    v11 = p_LocalName->Length;
+    Buffer = p_LocalName->Buffer;
     v13 = (unsigned __int64)*a2 >> 1;
     *((_QWORD *)a2 + 1) = *v9;
     memmove((void *)(v10 + 2 * v13), Buffer, v11);
-    v14 = (unsigned __int16)(*a2 + p_UnicodeString->Length);
+    v14 = (unsigned __int16)(*a2 + p_LocalName->Length);
     *a2 = v14;
     a2[1] = v14 + 2;
     *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * (v14 >> 1)) = 0;
@@ -76,7 +76,7 @@ LABEL_18:
   }
   v5 = -1073741811;
 LABEL_19:
-  RtlFreeUnicodeString(&UnicodeString);
-  RtlFreeUnicodeString(&v17);
+  RtlFreeUnicodeString(&RealName);
+  RtlFreeUnicodeString(&LocalName);
   return (unsigned int)v5;
 }

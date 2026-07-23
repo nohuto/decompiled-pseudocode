@@ -1,22 +1,22 @@
 /*
- * XREFs of KiInitializeTimer2 @ 0x140456EEC
+ * XREFs of KiInitializeTimer2 @ 0x14044E75C
  * Callers:
- *     KeInitializeIRTimer @ 0x140456C5C (KeInitializeIRTimer.c)
- *     ExAllocateTimerInternal2 @ 0x140456D20 (ExAllocateTimerInternal2.c)
- *     KeInitializeTimer2 @ 0x140456ED0 (KeInitializeTimer2.c)
- *     MiStoreEvictThread @ 0x1404B0390 (MiStoreEvictThread.c)
- *     KiInitializeIdealProcessorRebalancer @ 0x1405F4B78 (KiInitializeIdealProcessorRebalancer.c)
- *     KiAllocateForceParkingData @ 0x1405F8880 (KiAllocateForceParkingData.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14063D2A4 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     HalpBlkInitSystem @ 0x140CB4528 (HalpBlkInitSystem.c)
- *     PopThermalInit @ 0x140CD17AC (PopThermalInit.c)
- *     PpmCheckInit @ 0x140CD2C04 (PpmCheckInit.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
- *     ExInitializeTimeRefresh @ 0x140CE3D60 (ExInitializeTimeRefresh.c)
- *     PopSleepstudyInitialize @ 0x140D09A38 (PopSleepstudyInitialize.c)
- *     PopPowerAggregatorInitialize @ 0x140D0B4DC (PopPowerAggregatorInitialize.c)
+ *     KeInitializeIRTimer @ 0x14044E4C8 (KeInitializeIRTimer.c)
+ *     ExAllocateTimerInternal2 @ 0x14044E590 (ExAllocateTimerInternal2.c)
+ *     KeInitializeTimer2 @ 0x14044E740 (KeInitializeTimer2.c)
+ *     MiStoreEvictThread @ 0x1404A9A20 (MiStoreEvictThread.c)
+ *     KiInitializeIdealProcessorRebalancer @ 0x1405F7538 (KiInitializeIdealProcessorRebalancer.c)
+ *     KiAllocateForceParkingData @ 0x1405FB2A0 (KiAllocateForceParkingData.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140640E84 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     HalpBlkInitSystem @ 0x140CBA568 (HalpBlkInitSystem.c)
+ *     PopThermalInit @ 0x140CD7954 (PopThermalInit.c)
+ *     PpmCheckInit @ 0x140CD8DAC (PpmCheckInit.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
+ *     ExInitializeTimeRefresh @ 0x140CEA100 (ExInitializeTimeRefresh.c)
+ *     PopSleepstudyInitialize @ 0x140D0FD08 (PopSleepstudyInitialize.c)
+ *     PopPowerAggregatorInitialize @ 0x140D11CE4 (PopPowerAggregatorInitialize.c)
  * Callees:
- *     PsTimerResolutionActive @ 0x140457020 (PsTimerResolutionActive.c)
+ *     PsTimerResolutionActive @ 0x14044E890 (PsTimerResolutionActive.c)
  */
 
 char __fastcall KiInitializeTimer2(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
@@ -34,16 +34,16 @@ char __fastcall KiInitializeTimer2(unsigned __int64 a1, __int64 a2, __int64 a3, 
   *(_QWORD *)(a1 + 16) = a1 + 8;
   *(_QWORD *)(a1 + 8) = a1 + 8;
   *(_QWORD *)(a1 + 96) = KiWaitNever ^ __ROR8__(
-                                         a1 ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ a2),
+                                         a1 ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ a2),
                                          KiWaitNever);
   *(_QWORD *)(a1 + 104) = KiWaitNever ^ __ROR8__(
-                                          a1 ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ a3),
+                                          a1 ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ a3),
                                           KiWaitNever);
   *(_QWORD *)(a1 + 112) = KiWaitNever ^ __ROR8__(
-                                          a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink),
+                                          a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink),
                                           KiWaitNever);
   *(_QWORD *)(a1 + 120) = KiWaitNever ^ __ROR8__(
-                                          a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink),
+                                          a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink),
                                           KiWaitNever);
   v6 = a4 & 0x2E;
   if ( !v6

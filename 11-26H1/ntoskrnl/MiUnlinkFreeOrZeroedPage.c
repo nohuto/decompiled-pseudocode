@@ -1,37 +1,37 @@
 /*
- * XREFs of MiUnlinkFreeOrZeroedPage @ 0x14028C8F4
+ * XREFs of MiUnlinkFreeOrZeroedPage @ 0x14028BE54
  * Callers:
- *     MiGetPerfectColorHeadPage @ 0x140289A30 (MiGetPerfectColorHeadPage.c)
- *     MiPageFreeToZero @ 0x14028C220 (MiPageFreeToZero.c)
- *     MiCoalesceFreeSmallPages @ 0x14028D060 (MiCoalesceFreeSmallPages.c)
- *     MiTradePageMarkedFreeZero @ 0x14028E304 (MiTradePageMarkedFreeZero.c)
- *     MiPurgeZeroPage @ 0x14028E7C0 (MiPurgeZeroPage.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403C7A60 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiDemoteLargeFreePage @ 0x140434410 (MiDemoteLargeFreePage.c)
- *     MiLargePagePromote @ 0x140479C00 (MiLargePagePromote.c)
- *     MiLargeFreePageToMdl @ 0x1404CF258 (MiLargeFreePageToMdl.c)
- *     MiTryUnlinkNodeLargePages @ 0x14051E74C (MiTryUnlinkNodeLargePages.c)
- *     MiMoveHibernatePageFreeToZero @ 0x1406F0000 (MiMoveHibernatePageFreeToZero.c)
- *     MiTransferPartitionPageRun @ 0x140709A80 (MiTransferPartitionPageRun.c)
- *     MiMovePageToFreeList @ 0x14070D210 (MiMovePageToFreeList.c)
+ *     MiGetPerfectColorHeadPage @ 0x140288F90 (MiGetPerfectColorHeadPage.c)
+ *     MiPageFreeToZero @ 0x14028B780 (MiPageFreeToZero.c)
+ *     MiCoalesceFreeSmallPages @ 0x14028C5C0 (MiCoalesceFreeSmallPages.c)
+ *     MiTradePageMarkedFreeZero @ 0x14028D864 (MiTradePageMarkedFreeZero.c)
+ *     MiPurgeZeroPage @ 0x14028DD20 (MiPurgeZeroPage.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403D1950 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiDemoteLargeFreePage @ 0x14042B4F0 (MiDemoteLargeFreePage.c)
+ *     MiLargePagePromote @ 0x140473560 (MiLargePagePromote.c)
+ *     MiLargeFreePageToMdl @ 0x1404C8C88 (MiLargeFreePageToMdl.c)
+ *     MiTryUnlinkNodeLargePages @ 0x140520D5C (MiTryUnlinkNodeLargePages.c)
+ *     MiMoveHibernatePageFreeToZero @ 0x1406F4C70 (MiMoveHibernatePageFreeToZero.c)
+ *     MiTransferPartitionPageRun @ 0x14070E734 (MiTransferPartitionPageRun.c)
+ *     MiMovePageToFreeList @ 0x140711EC0 (MiMovePageToFreeList.c)
  * Callees:
- *     MiWakeLargePageRebuild @ 0x140258684 (MiWakeLargePageRebuild.c)
- *     MiUpdateZeroFreeBitmap @ 0x1402897F0 (MiUpdateZeroFreeBitmap.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiWakePageZeroing @ 0x14028E71C (MiWakePageZeroing.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     MiIncreaseAvailablePages @ 0x1403E59D0 (MiIncreaseAvailablePages.c)
- *     MiUpdateLargePageCandidates @ 0x140447BF0 (MiUpdateLargePageCandidates.c)
- *     MiPageListCollision @ 0x14048DA4C (MiPageListCollision.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
+ *     MiWakeLargePageRebuild @ 0x140259E64 (MiWakeLargePageRebuild.c)
+ *     MiUpdateZeroFreeBitmap @ 0x140288D50 (MiUpdateZeroFreeBitmap.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiWakePageZeroing @ 0x14028DC7C (MiWakePageZeroing.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     MiIncreaseAvailablePages @ 0x1403E8BC0 (MiIncreaseAvailablePages.c)
+ *     MiUpdateLargePageCandidates @ 0x1404406E0 (MiUpdateLargePageCandidates.c)
+ *     MiPageListCollision @ 0x14048758C (MiPageListCollision.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
  */
 
 __int64 __fastcall MiUnlinkFreeOrZeroedPage(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
@@ -101,11 +101,11 @@ __int64 __fastcall MiUnlinkFreeOrZeroedPage(ULONG_PTR BugCheckParameter2, __int6
   v8 = (*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL;
   v9 = PfnPageSizeIndex;
   v61 = PfnPageSizeIndex;
-  v10 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v8);
+  v10 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v8);
   v11 = MiPageSizes[PfnPageSizeIndex];
   if ( (a3 & 0x200000) == 0
     && !(unsigned int)MiDecreaseAvailablePages(
-                        *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v8),
+                        *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v8),
                         MiPageSizes[PfnPageSizeIndex],
                         -1LL,
                         a3)
@@ -151,11 +151,11 @@ __int64 __fastcall MiUnlinkFreeOrZeroedPage(ULONG_PTR BugCheckParameter2, __int6
     _InterlockedAdd64((volatile signed __int64 *)(v19 + 16), -v11);
   if ( (a3 & 0x400000) == 0 )
   {
-    if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+    if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
     {
       v35 = BugCheckParameter2 & 0x1F;
       v36 = v11;
-      v37 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
+      v37 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
       if ( v35 + v11 > 0x20 )
       {
         if ( (BugCheckParameter2 & 0x1F) != 0 )
@@ -190,11 +190,11 @@ __int64 __fastcall MiUnlinkFreeOrZeroedPage(ULONG_PTR BugCheckParameter2, __int6
       }
       _InterlockedOr(v37, v38);
     }
-    else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+    else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
     {
       v20 = BugCheckParameter2 & 0x1F;
       v21 = v11;
-      v22 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
+      v22 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (BugCheckParameter2 >> 5);
       if ( v20 + v11 > 0x20 )
       {
         if ( (BugCheckParameter2 & 0x1F) != 0 )
@@ -238,12 +238,12 @@ LABEL_14:
   if ( !v63 )
   {
     v47 = *(_QWORD *)(v6 + 16);
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       if ( (v47 & 0x10) != 0 )
         v47 &= ~0x10uLL;
       else
-        v47 &= qword_140E2D748;
+        v47 &= qword_140E2D8C8;
     }
     v48 = HIDWORD(v47);
     if ( v61 == 3 && (_DWORD)v48 != -3 )
@@ -265,7 +265,7 @@ LABEL_14:
   if ( BugCheckParameter2 < 0x100000 )
     v27 = v61 != 3;
   _InterlockedAdd64((volatile signed __int64 *)(v26 + 8 * (v55 + 2 * (v27 + 1) + v27 + 1)), 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (unsigned __int8)byte_140E2D718 > 1u )
+  if ( (unsigned __int8)byte_140E2D898 > 1u )
   {
     v30 = BYTE1(v12) & 1;
     v29 = v64;
@@ -290,8 +290,8 @@ LABEL_14:
     MiPageListCollision(v6);
   *(_QWORD *)(v6 + 24) &= 0xFFFFFF0000000000uLL;
   v31 = *(_QWORD *)(v6 + 16);
-  if ( qword_140E2D740 && (v31 & 0x10) == 0 )
-    HIDWORD(v31) &= HIDWORD(qword_140E2D748);
+  if ( qword_140E2D8C0 && (v31 & 0x10) == 0 )
+    HIDWORD(v31) &= HIDWORD(qword_140E2D8C8);
   *(_QWORD *)(v6 + 16) = *(_QWORD *)&CLFS_LSN_NULL_EXT;
   if ( HIDWORD(v31) == -3 )
     *(_QWORD *)(v6 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v6 + 16), 0xFFFFFFFD);
@@ -305,7 +305,7 @@ LABEL_14:
     *(_QWORD *)(v6 + 16) = DemandZeroPte;
   }
   else if ( (MiFlags & 0x80u) != 0LL
-         && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+         && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
   {
     MiArePageContentsZero(BugCheckParameter2);
   }

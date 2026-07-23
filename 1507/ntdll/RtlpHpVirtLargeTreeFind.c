@@ -10,37 +10,35 @@
  *     RtlReleaseSRWLockExclusive @ 0x180033470 (RtlReleaseSRWLockExclusive.c)
  */
 
-unsigned __int64 *__fastcall RtlpHpVirtLargeTreeFind(unsigned __int64 a1, char *a2, __int64 a3, __int64 a4)
+_RTL_BALANCED_NODE *__fastcall RtlpHpVirtLargeTreeFind(_RTL_BALANCED_NODE *a1, int a2)
 {
-  int v5; // edi
-  unsigned __int64 *v6; // rbx
+  _RTL_BALANCED_NODE *Root; // rbx
 
-  v5 = (int)a2;
-  if ( (_DWORD)a2 )
-    RtlAcquireSRWLockExclusive(&qword_180144860, a2, a3, a4);
+  if ( a2 )
+    RtlAcquireSRWLockExclusive(&stru_180144860);
   else
-    RtlAcquireSRWLockShared(&qword_180144860, a2, a3, a4);
-  v6 = (unsigned __int64 *)xmmword_180144868;
-  while ( v6 )
+    RtlAcquireSRWLockShared(&stru_180144860);
+  Root = Parent.Root;
+  while ( Root )
   {
-    if ( v6[3] == a1 )
+    if ( Root[1].Children[0] == a1 )
     {
-      if ( !v5 )
+      if ( !a2 )
         goto LABEL_15;
-      RtlRbRemoveNode((unsigned __int64 *)&xmmword_180144868, v6);
+      RtlRbRemoveNode(&Parent, Root);
       break;
     }
-    if ( v6[3] >= a1 )
-      v6 = (unsigned __int64 *)v6[1];
+    if ( Root[1].Children[0] >= a1 )
+      Root = Root->Children[1];
     else
-      v6 = (unsigned __int64 *)*v6;
+      Root = Root->Children[0];
   }
-  if ( v5 )
+  if ( a2 )
   {
-    RtlReleaseSRWLockExclusive(&qword_180144860);
-    return v6;
+    RtlReleaseSRWLockExclusive(&stru_180144860);
+    return Root;
   }
 LABEL_15:
-  RtlReleaseSRWLockShared(&qword_180144860);
-  return v6;
+  RtlReleaseSRWLockShared(&stru_180144860);
+  return Root;
 }

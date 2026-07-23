@@ -1,38 +1,38 @@
 /*
- * XREFs of CmpCompleteUnloadKey @ 0x14071CB34
+ * XREFs of CmpCompleteUnloadKey @ 0x1405E0268
  * Callers:
- *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
- *     CmpLateUnloadHiveWorker @ 0x14071C570 (CmpLateUnloadHiveWorker.c)
+ *     CmpPerformUnloadKey @ 0x1405DFA8C (CmpPerformUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x1405DFF10 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
- *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
- *     CmpDecrementAppHiveUnloadCount @ 0x140361500 (CmpDecrementAppHiveUnloadCount.c)
- *     CmpUnJoinClassOfTrust @ 0x14036173C (CmpUnJoinClassOfTrust.c)
- *     CmpRemoveHiveFromNamespace @ 0x140361788 (CmpRemoveHiveFromNamespace.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     CmpUnJoinClassOfTrust @ 0x140213A50 (CmpUnJoinClassOfTrust.c)
+ *     CmpRemoveHiveFromNamespace @ 0x140213A9C (CmpRemoveHiveFromNamespace.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x140213D74 (CmpDecrementAppHiveUnloadCount.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     CmpInitializeDelayDerefContext @ 0x14035BE38 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x14035BE50 (CmpDrainDelayDerefContext.c)
+ *     KeEnterCriticalRegion @ 0x14035BF60 (KeEnterCriticalRegion.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
  *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1405CD088 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpLogUnload @ 0x140667AB4 (CmpLogUnload.c)
- *     CmpCleanUpSubKeyInfo @ 0x14066A0AC (CmpCleanUpSubKeyInfo.c)
- *     CmpDiscardKcb @ 0x14066C928 (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x14066CB80 (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14066CC00 (CmpFlushNotifiesOnKeyBodyList.c)
- *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     HvHiveCleanup @ 0x140709C24 (HvHiveCleanup.c)
- *     CmpVolumeContextDecrementRefCount @ 0x14071CA40 (CmpVolumeContextDecrementRefCount.c)
- *     CmpRecordRMRecoveryMode @ 0x14071CA88 (CmpRecordRMRecoveryMode.c)
- *     CmpTraceHiveUnloadStart @ 0x14071CAB0 (CmpTraceHiveUnloadStart.c)
- *     CmpTraceHiveUnloadStop @ 0x14071CD3C (CmpTraceHiveUnloadStop.c)
- *     CmpSignalUnloadEventArrayForHive @ 0x14071CD98 (CmpSignalUnloadEventArrayForHive.c)
- *     CmpCmdHiveClose @ 0x14071CE14 (CmpCmdHiveClose.c)
- *     CmpVERemoveHiveFromSIDMappingTable @ 0x14071CF7C (CmpVERemoveHiveFromSIDMappingTable.c)
- *     CmpRemoveFromPreloadedHivesList @ 0x14071D034 (CmpRemoveFromPreloadedHivesList.c)
- *     CmpDestroySecurityCache @ 0x14071D074 (CmpDestroySecurityCache.c)
- *     CmpDoFileSetSizeEx @ 0x140724A00 (CmpDoFileSetSizeEx.c)
- *     CmpRemoveFromHiveFileList @ 0x14087344C (CmpRemoveFromHiveFileList.c)
+ *     CmpTraceHiveUnloadStop @ 0x1405E0470 (CmpTraceHiveUnloadStop.c)
+ *     CmpSignalUnloadEventArrayForHive @ 0x1405E04CC (CmpSignalUnloadEventArrayForHive.c)
+ *     CmpCmdHiveClose @ 0x1405E0548 (CmpCmdHiveClose.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x1405E06B0 (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpRemoveFromPreloadedHivesList @ 0x1405E0768 (CmpRemoveFromPreloadedHivesList.c)
+ *     CmpDestroySecurityCache @ 0x1405E07A8 (CmpDestroySecurityCache.c)
+ *     CmpTraceHiveUnloadStart @ 0x1405E0858 (CmpTraceHiveUnloadStart.c)
+ *     CmpRecordRMRecoveryMode @ 0x1405E08DC (CmpRecordRMRecoveryMode.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x1405E0904 (CmpVolumeContextDecrementRefCount.c)
+ *     CmpLogUnload @ 0x14065C8D4 (CmpLogUnload.c)
+ *     CmpCleanUpSubKeyInfo @ 0x14065EECC (CmpCleanUpSubKeyInfo.c)
+ *     CmpDiscardKcb @ 0x140661748 (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1406619A0 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140661A20 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406677F0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpDoFileSetSizeEx @ 0x1406FC9FC (CmpDoFileSetSizeEx.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     HvHiveCleanup @ 0x140721004 (HvHiveCleanup.c)
+ *     CmpRemoveFromHiveFileList @ 0x1408735AC (CmpRemoveFromHiveFileList.c)
  */
 
 __int64 __fastcall CmpCompleteUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
@@ -41,39 +41,42 @@ __int64 __fastcall CmpCompleteUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
   int v6; // ebp
   int v7; // edx
   signed __int64 v8; // r15
-  __int64 v9; // rcx
-  int v10; // ebp
-  int v11; // edi
-  unsigned int v12; // esi
-  struct _PRIVILEGE_SET *v13; // rcx
-  signed __int32 v15[8]; // [rsp+0h] [rbp-48h] BYREF
-  _OWORD v16[2]; // [rsp+20h] [rbp-28h] BYREF
+  int v9; // ebp
+  __int64 v10; // rdx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  int v13; // edi
+  unsigned int v14; // esi
+  struct _PRIVILEGE_SET *v15; // rcx
+  signed __int32 v17[8]; // [rsp+0h] [rbp-48h] BYREF
+  _OWORD v18[2]; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = *(_QWORD *)(a1 + 32);
-  v16[0] = 0LL;
-  CmpInitializeDelayDerefContext(v16);
+  v18[0] = 0LL;
+  CmpInitializeDelayDerefContext(v18);
   v6 = *(_DWORD *)(v3 + 4152);
-  CmpLogUnload(v3, 6);
+  CmpLogUnload(v3, 6LL);
   v8 = (unsigned int)(v7 - 5);
   _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 2944), v8, 0LL);
-  CmpRecordRMRecoveryMode(v9);
+  CmpRecordRMRecoveryMode();
   *(_DWORD *)(v3 + 160) |= 0x40u;
-  CmpTraceHiveUnloadStart((unsigned __int16 *)(v3 + 1832), (unsigned __int16 *)(v3 + 1848));
-  CmpRemoveHiveFromNamespace(v3, a1, (__int64)v16);
-  CmpLogUnload(v3, v8 + 7);
-  v10 = v6 & 0x20;
-  if ( v10 )
+  CmpTraceHiveUnloadStart(v3 + 1832, v3 + 1848);
+  CmpRemoveHiveFromNamespace(v3, a1, (__int64)v18);
+  CmpLogUnload(v3, (unsigned int)(v8 + 7));
+  v9 = v6 & 0x20;
+  if ( v9 )
   {
     *(_DWORD *)(v3 + 4808) = v8;
     CmpDecrementAppHiveUnloadCount();
   }
-  CmpFlushNotifiesOnKeyBodyList(a1, (unsigned int)v8, (__int64)v16, 0);
-  CmpMarkKeyUnbacked(a1);
+  CmpFlushNotifiesOnKeyBodyList(a1, (unsigned int)v8, v18);
+  CmpMarkKeyUnbacked(a1, v18);
   CmpDiscardKcb(a1);
   CmpRemoveLayerLinkForDiscardedKcb(a1);
-  CmpCleanUpSubKeyInfo(*(_QWORD *)(*(_QWORD *)(a1 + 72) + 72LL), v8);
-  CmpDrainDelayDerefContext((_QWORD **)v16);
-  CmpUnlockRegistry();
+  LOBYTE(v10) = v8;
+  CmpCleanUpSubKeyInfo(*(_QWORD *)(*(_QWORD *)(a1 + 72) + 72LL), v10);
+  CmpDrainDelayDerefContext((_QWORD **)v18);
+  CmpUnlockRegistry(v12, v11);
   *a3 &= ~2u;
   if ( (*a3 & 4) != 0 )
   {
@@ -87,24 +90,24 @@ __int64 __fastcall CmpCompleteUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
   KeLeaveCriticalRegion();
   CmpRemoveFromPreloadedHivesList(v3);
   CmpVERemoveHiveFromSIDMappingTable(v3);
-  v11 = CmpFlushHive(v3, 0x2Cu);
-  if ( v11 == -1073741811 )
-    v11 = 0;
-  v12 = *(_DWORD *)(v3 + 272) + 4096;
+  v13 = CmpFlushHive(v3);
+  if ( v13 == -1073741811 )
+    v13 = 0;
+  v14 = *(_DWORD *)(v3 + 272) + 4096;
   HvHiveCleanup(v3);
-  if ( v11 >= 0 && (*(_DWORD *)(v3 + 160) & 0x8000) == 0 && (__int64)(*(_QWORD *)(v3 + 1792) - v12) > 0x100000 )
-    CmpDoFileSetSizeEx(v3, 0LL, v12, 0LL);
+  if ( v13 >= 0 && (*(_DWORD *)(v3 + 160) & 0x8000) == 0 && (__int64)(*(_QWORD *)(v3 + 1792) - v14) > 0x100000 )
+    CmpDoFileSetSizeEx(v3, 0LL, v14, 0LL);
   CmpCmdHiveClose(v3);
-  v13 = *(struct _PRIVILEGE_SET **)(v3 + 4832);
-  if ( v13 )
-    CmpVolumeContextDecrementRefCount(v13);
-  if ( v10 )
+  v15 = *(struct _PRIVILEGE_SET **)(v3 + 4832);
+  if ( v15 )
+    CmpVolumeContextDecrementRefCount(v15);
+  if ( v9 )
   {
     *(_DWORD *)(v3 + 4808) = 0;
-    _InterlockedOr(v15, 0);
+    _InterlockedOr(v17, 0);
     if ( *(_QWORD *)(v3 + 4816) )
       ExfUnblockPushLock((volatile __int64 *)(v3 + 4816), 0LL);
   }
   CmpSignalUnloadEventArrayForHive(v3);
-  return CmpTraceHiveUnloadStop((unsigned int)v11);
+  return CmpTraceHiveUnloadStop((unsigned int)v13);
 }

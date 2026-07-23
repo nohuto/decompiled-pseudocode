@@ -1,11 +1,11 @@
 /*
- * XREFs of ViMmMapLockedPagesSanityChecks @ 0x1409453E8
+ * XREFs of ViMmMapLockedPagesSanityChecks @ 0x1409463E8
  * Callers:
- *     VerifierMmMapLockedPages @ 0x140944A30 (VerifierMmMapLockedPages.c)
- *     VerifierMmMapLockedPagesSpecifyCache @ 0x140944B10 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VerifierMmMapLockedPages @ 0x140945A30 (VerifierMmMapLockedPages.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x140945B10 (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     MmCheckMdlPages @ 0x140924D88 (MmCheckMdlPages.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     MmCheckMdlPages @ 0x140925D88 (MmCheckMdlPages.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ViMmMapLockedPagesSanityChecks(ULONG_PTR BugCheckParameter2, char a2)

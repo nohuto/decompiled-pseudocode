@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqQueryCreate @ 0x140990174
+ * XREFs of PiDqQueryCreate @ 0x140950BD4
  * Callers:
- *     PiDqDispatch @ 0x14098EE00 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x14094F860 (PiDqDispatch.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x14048F5B0 (RtlInitializeGenericTableAvl.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlInitializeGenericTableAvl @ 0x140488F70 (RtlInitializeGenericTableAvl.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDqQueryCreate(char a1, __int64 *a2)

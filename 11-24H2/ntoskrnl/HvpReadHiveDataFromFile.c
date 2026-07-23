@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpReadHiveDataFromFile @ 0x1407DFC74
+ * XREFs of HvpReadHiveDataFromFile @ 0x1407E01C4
  * Callers:
- *     HvpMapHiveImage @ 0x1407DFB00 (HvpMapHiveImage.c)
+ *     HvpMapHiveImage @ 0x1407E0050 (HvpMapHiveImage.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HvpReadHiveDataFromFile(__int64 a1, _QWORD *a2, unsigned int *a3)
@@ -20,11 +20,7 @@ __int64 __fastcall HvpReadHiveDataFromFile(__int64 a1, _QWORD *a2, unsigned int 
     v7 = *(_DWORD *)(a1 + 32) - *(_DWORD *)(a1 + 28);
   if ( v7 )
   {
-    if ( (int)guard_dispatch_icall_no_overrides(
-                *(_QWORD *)a1,
-                *(unsigned int *)(a1 + 8),
-                *(unsigned int *)(a1 + 12),
-                *(_QWORD *)(a1 + 16)) >= 0 )
+    if ( (int)guard_dispatch_icall_no_overrides(*(_QWORD *)a1, *(unsigned int *)(a1 + 8)) >= 0 )
     {
       *(_DWORD *)(a1 + 12) += v7;
       v8 = *(_QWORD *)(a1 + 16);

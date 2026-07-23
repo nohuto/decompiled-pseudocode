@@ -1,16 +1,19 @@
 /*
- * XREFs of EtwTraceThread @ 0x14062955C
+ * XREFs of EtwTraceThread @ 0x14068FC44
  * Callers:
- *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     PspInsertThread @ 0x14063DE48 (PspInsertThread.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     PsGetCurrentThreadTeb @ 0x1402602B0 (PsGetCurrentThreadTeb.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpPsProvTraceThread @ 0x1406298B8 (EtwpPsProvTraceThread.c)
+ *     PsGetCurrentThreadTeb @ 0x1402722C0 (PsGetCurrentThreadTeb.c)
+ *     EtwTraceSiloKernelEvent @ 0x14027BDBC (EtwTraceSiloKernelEvent.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     PsGetPagePriorityThread @ 0x1402E7020 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PsLockThreadNameShared @ 0x1403F8534 (PsLockThreadNameShared.c)
+ *     PsUnlockThreadNameShared @ 0x1403F854C (PsUnlockThreadNameShared.c)
+ *     Feature_1694225722__private_IsEnabledDeviceUsage @ 0x1403F93D4 (Feature_1694225722__private_IsEnabledDeviceUsage.c)
+ *     EtwpPsProvTraceThread @ 0x14068FFBC (EtwpPsProvTraceThread.c)
  */
 
 __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
@@ -19,14 +22,15 @@ __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
   __int64 v7; // r8
   _DWORD *CurrentThreadTeb; // rax
   unsigned __int64 v9; // rdx
-  int v10; // eax
-  __int16 v11; // r8
-  unsigned __int16 *v12; // rdx
+  __int16 v10; // r8
+  int v11; // eax
+  unsigned __int64 v12; // rcx
+  __int16 v13; // ax
+  __int64 v14; // rax
+  unsigned __int16 *v15; // rdx
+  unsigned int v16; // eax
   __int64 ProcessServerSilo; // rax
-  unsigned __int64 v15; // rcx
-  __int64 v16; // rax
-  __int16 v17; // ax
-  unsigned int v18; // eax
+  __int64 result; // rax
   __int16 v19; // [rsp+30h] [rbp-C8h]
   int v20; // [rsp+38h] [rbp-C0h]
   _DWORD v21[2]; // [rsp+50h] [rbp-A8h] BYREF
@@ -80,11 +84,11 @@ __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
     if ( CurrentThreadTeb )
     {
       v9 = KeGetCurrentThread()->Process[1].AffinityPadding[10];
-      if ( v9 && ((v11 = *(_WORD *)(v9 + 8), v11 == 332) || v11 == 452) )
-        v10 = CurrentThreadTeb[3032];
+      if ( v9 && ((v10 = *(_WORD *)(v9 + 8), v10 == 332) || v10 == 452) )
+        v11 = CurrentThreadTeb[3032];
       else
-        v10 = CurrentThreadTeb[1480];
-      v29 = v10;
+        v11 = CurrentThreadTeb[1480];
+      v29 = v11;
     }
   }
   else
@@ -93,33 +97,35 @@ __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
     v20 = 72358147;
     if ( v7 )
     {
-      v15 = KeGetCurrentThread()->Process[1].AffinityPadding[10];
-      if ( v15 && ((v17 = *(_WORD *)(v15 + 8), v17 == 332) || v17 == 452) )
+      v12 = KeGetCurrentThread()->Process[1].AffinityPadding[10];
+      if ( v12 && ((v13 = *(_WORD *)(v12 + 8), v13 == 332) || v13 == 452) )
       {
         v29 = *(_DWORD *)(v7 + 12128);
         v24 = *(unsigned int *)(v7 + 8196);
-        v16 = *(unsigned int *)(v7 + 8200);
+        v14 = *(unsigned int *)(v7 + 8200);
       }
       else
       {
         v29 = *(_DWORD *)(v7 + 5920);
         v24 = *(_QWORD *)(v7 + 8);
-        v16 = *(_QWORD *)(v7 + 16);
+        v14 = *(_QWORD *)(v7 + 16);
       }
-      v25 = v16;
+      v25 = v14;
     }
   }
   v35[0] = v21;
   v35[1] = 72LL;
-  v12 = *(unsigned __int16 **)(a1 + 1552);
-  if ( v12 && *((_QWORD *)v12 + 1) )
+  if ( (unsigned int)Feature_1694225722__private_IsEnabledDeviceUsage() )
+    PsLockThreadNameShared();
+  v15 = *(unsigned __int16 **)(a1 + 1552);
+  if ( v15 && *((_QWORD *)v15 + 1) )
   {
-    v18 = 2048;
-    if ( *v12 < 0x800u )
-      v18 = *v12;
-    v36 = (__int64 *)*((_QWORD *)v12 + 1);
-    v37 = v18;
-    if ( !v18 || *(_WORD *)(*((_QWORD *)v12 + 1) + 2 * ((unsigned __int64)v18 >> 1) - 2) )
+    v16 = 2048;
+    if ( *v15 < 0x800u )
+      v16 = *v15;
+    v36 = (__int64 *)*((_QWORD *)v15 + 1);
+    v37 = v16;
+    if ( !v16 || *(_WORD *)(*((_QWORD *)v15 + 1) + 2 * ((unsigned __int64)v16 >> 1) - 2) )
     {
       v38 = &EtwpNull;
       v39 = 2LL;
@@ -132,5 +138,9 @@ __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
     v37 = 2LL;
   }
   ProcessServerSilo = PsGetProcessServerSilo(*(_QWORD *)(a1 + 544));
-  return EtwTraceSiloKernelEvent(ProcessServerSilo, (int)v35, v6, 2u, v19, v20);
+  EtwTraceSiloKernelEvent(ProcessServerSilo, (int)v35, v6, 2u, v19, v20);
+  result = Feature_1694225722__private_IsEnabledDeviceUsage();
+  if ( (_DWORD)result )
+    return PsUnlockThreadNameShared();
+  return result;
 }

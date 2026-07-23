@@ -1,25 +1,24 @@
 /*
- * XREFs of ?RtlpParseBinaryDecisionDiagram@@YAJV?$span@$$CBE$0?0@gsl@@V?$span@$$CBK$0?0@2@KPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409EC040
+ * XREFs of ?RtlpParseBinaryDecisionDiagram@@YAJV?$span@$$CBE$0?0@gsl@@V?$span@$$CBK$0?0@2@KPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409403D4
  * Callers:
- *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x1409EB484 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
+ *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x14093F818 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
- *     ?RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV?$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0?0@gsl@@V?$span@$$CBK$0?0@2@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409EC228 (-RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV-$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0-.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV?$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0?0@gsl@@V?$span@$$CBK$0?0@2@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409405BC (-RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV-$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0-.c)
  */
 
 __int64 __fastcall RtlpParseBinaryDecisionDiagram(
         unsigned __int16 *a1,
         _QWORD *a2,
         unsigned int a3,
-        __int64 a4,
+        int a4,
         int a5,
         struct _RTL_SYSTEM_OVERRIDE_INFORMATION *a6)
 {
-  int v6; // esi
   __int64 v8; // r10
   __int64 v9; // rax
   __int64 v10; // rdx
-  __int64 v11; // r8
+  _DWORD *v11; // r8
   unsigned __int64 v12; // r10
   __int64 v13; // rax
   unsigned __int64 v14; // rax
@@ -36,13 +35,12 @@ __int64 __fastcall RtlpParseBinaryDecisionDiagram(
   int v26[4]; // [rsp+40h] [rbp-38h] BYREF
   int v27[4]; // [rsp+50h] [rbp-28h] BYREF
 
-  v6 = a4;
   v8 = a3;
   if ( *(_QWORD *)a1 >= 8uLL && *(_QWORD *)a1 - 8LL >= (unsigned __int64)a3 )
   {
     v9 = *((_QWORD *)a1 + 1);
     v10 = *(_QWORD *)a1;
-    v11 = v9 + a3;
+    v11 = (_DWORD *)(v9 + a3);
     v12 = v8 + 8;
     if ( *(_QWORD *)a1 < v12 )
       goto LABEL_29;
@@ -55,67 +53,63 @@ __int64 __fastcall RtlpParseBinaryDecisionDiagram(
     *(_OWORD *)a1 = *(_OWORD *)v26;
     if ( v11 )
     {
-      if ( *(_DWORD *)v11 != 1 )
+      if ( *v11 != 1 )
         return 0LL;
-      v14 = *(unsigned int *)(v11 + 4);
+      v14 = (unsigned int)v11[1];
       if ( (_DWORD)v14 )
       {
-        if ( (v14 & 7) == 0 )
+        if ( (v14 & 7) == 0 && v14 <= *(_QWORD *)a1 )
         {
-          v11 = (unsigned int)v14;
-          if ( v14 <= *(_QWORD *)a1 )
+          a1 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+          if ( a1 && (v14 & 7) == 0 )
           {
-            a1 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-            if ( a1 && (v14 & 7) == 0 )
+            v15 = (unsigned __int64)(unsigned int)v14 >> 3;
+            v16 = 0;
+            *(_QWORD *)v26 = v15;
+            *(_QWORD *)&v26[2] = a1;
+            v17 = &a1[4 * v15];
+            while ( a1 != v17 )
             {
-              v15 = (unsigned __int64)(unsigned int)v14 >> 3;
-              v16 = 0;
-              *(_QWORD *)v26 = v15;
-              *(_QWORD *)&v26[2] = a1;
-              v17 = &a1[4 * v15];
-              while ( a1 != v17 )
+              v18 = *a1;
+              v19 = a1 + 1;
+              if ( (_WORD)v18 || *v19 )
               {
-                v18 = *a1;
-                v19 = a1 + 1;
-                if ( (_WORD)v18 || *v19 )
+                if ( (_DWORD)v18 == v16 )
                 {
-                  if ( (_DWORD)v18 == v16 )
-                  {
-                    if ( (unsigned __int16)*v19 != v16 )
-                      return 3221225595LL;
-                    v21 = (unsigned __int64)*((unsigned int *)a1 + 1) < *a2;
-                  }
-                  else
-                  {
-                    if ( (unsigned int)v18 <= v16 )
-                      return 3221225595LL;
-                    v20 = (unsigned __int16)*v19;
-                    if ( (unsigned int)v20 <= v16 || v18 >= v15 )
-                      return 3221225595LL;
-                    v21 = v20 < v15;
-                  }
-                  if ( !v21 )
+                  if ( (unsigned __int16)*v19 != v16 )
                     return 3221225595LL;
+                  v21 = (unsigned __int64)*((unsigned int *)a1 + 1) < *a2;
                 }
-                else if ( !v16 )
+                else
                 {
-                  return 3221225595LL;
+                  if ( (unsigned int)v18 <= v16 )
+                    return 3221225595LL;
+                  v20 = (unsigned __int16)*v19;
+                  if ( (unsigned int)v20 <= v16 || v18 >= v15 )
+                    return 3221225595LL;
+                  v21 = v20 < v15;
                 }
-                ++v16;
-                a1 += 4;
+                if ( !v21 )
+                  return 3221225595LL;
               }
-              v22 = *(_OWORD *)v26;
-              *(_OWORD *)v27 = *(_OWORD *)a2;
-              RtlpSelectFunctionFromBinaryDecisionDiagram((int)v26, (int)v27, a5, v6, 1u, a6, v24);
-              *(_OWORD *)v27 = *(_OWORD *)a2;
-              *(_OWORD *)v26 = v22;
-              RtlpSelectFunctionFromBinaryDecisionDiagram((int)v26, (int)v27, a5, v6, 0, a6, v25);
-              return 0LL;
+              else if ( !v16 )
+              {
+                return 3221225595LL;
+              }
+              ++v16;
+              a1 += 4;
             }
-LABEL_29:
-            gsl::details::terminate((gsl::details *)a1, v10, v11, a4);
-            JUMPOUT(0x1409EC220LL);
+            v22 = *(_OWORD *)v26;
+            *(_OWORD *)v27 = *(_OWORD *)a2;
+            RtlpSelectFunctionFromBinaryDecisionDiagram((int)v26, (int)v27, a5, a4, 1u, a6, v24);
+            *(_OWORD *)v27 = *(_OWORD *)a2;
+            *(_OWORD *)v26 = v22;
+            RtlpSelectFunctionFromBinaryDecisionDiagram((int)v26, (int)v27, a5, a4, 0, a6, v25);
+            return 0LL;
           }
+LABEL_29:
+          gsl::details::terminate((gsl::details *)a1, v10);
+          JUMPOUT(0x1409405B4LL);
         }
       }
     }

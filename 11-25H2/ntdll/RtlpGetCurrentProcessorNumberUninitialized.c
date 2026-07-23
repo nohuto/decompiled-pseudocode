@@ -6,7 +6,7 @@
  *     RtlpGetCurrentProcessorNumberInitialize @ 0x18010B970 (RtlpGetCurrentProcessorNumberInitialize.c)
  */
 
-__int64 RtlpGetCurrentProcessorNumberUninitialized()
+ULONG RtlpGetCurrentProcessorNumberUninitialized()
 {
   RtlpGetCurrentProcessorNumberInitialize();
   return RtlGetCurrentProcessorNumber();

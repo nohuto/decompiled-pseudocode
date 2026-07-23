@@ -1,17 +1,17 @@
 /*
- * XREFs of CarEtwWriteBugCheckEvent @ 0x1405D2BAC
+ * XREFs of CarEtwWriteBugCheckEvent @ 0x1405D311C
  * Callers:
- *     CarReportRuleViolationForTriage @ 0x1405D43C0 (CarReportRuleViolationForTriage.c)
+ *     CarReportRuleViolationForTriage @ 0x1405D4930 (CarReportRuleViolationForTriage.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CarIncrementEtwEventCount @ 0x1405D317C (CarIncrementEtwEventCount.c)
- *     McTemplateK0dszu_EtwWriteTransfer @ 0x1405D363C (McTemplateK0dszu_EtwWriteTransfer.c)
- *     DifiDbgPrint @ 0x1405D5644 (DifiDbgPrint.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CarIncrementEtwEventCount @ 0x1405D36EC (CarIncrementEtwEventCount.c)
+ *     McTemplateK0dszu_EtwWriteTransfer @ 0x1405D3BAC (McTemplateK0dszu_EtwWriteTransfer.c)
+ *     DifiDbgPrint @ 0x1405D5BB4 (DifiDbgPrint.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -94,11 +94,11 @@ __int64 __fastcall CarEtwWriteBugCheckEvent(__int64 a1, int a2, const CHAR *a3, 
           {
             memset(v15, 0, 0x50uLL);
             LOBYTE(v20) = 4;
-            if ( (unsigned int)dword_140C09328 <= 5 )
+            if ( (unsigned int)dword_140C09318 <= 5 )
             {
               v21 = v24;
             }
-            else if ( tlgKeywordOn((__int64)&dword_140C09328, 0x800000000000LL) )
+            else if ( tlgKeywordOn((__int64)&dword_140C09318, 0x800000000000LL) )
             {
               v25 = v11;
               v30 = &v25;
@@ -126,8 +126,8 @@ __int64 __fastcall CarEtwWriteBugCheckEvent(__int64 a1, int a2, const CHAR *a3, 
               v46 = v16;
               v47 = 80LL;
               tlgWriteTransfer_EtwWriteTransfer(
-                (__int64)&dword_140C09328,
-                (unsigned __int8 *)byte_140034659,
+                (__int64)&dword_140C09318,
+                (unsigned __int8 *)byte_140034741,
                 0LL,
                 0LL,
                 0xCu,

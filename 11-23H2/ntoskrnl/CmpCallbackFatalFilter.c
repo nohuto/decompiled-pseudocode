@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCallbackFatalFilter @ 0x140A0F590
+ * XREFs of CmpCallbackFatalFilter @ 0x140A0F840
  * Callers:
- *     CmpCallCallBacksEx @ 0x1406E85F0 (CmpCallCallBacksEx.c)
- *     CmpFireCleanupNotifications @ 0x1407DBB44 (CmpFireCleanupNotifications.c)
+ *     CmpCallCallBacksEx @ 0x1406E8620 (CmpCallCallBacksEx.c)
+ *     CmpFireCleanupNotifications @ 0x1407DBE14 (CmpFireCleanupNotifications.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn CmpCallbackFatalFilter(int **a1, ULONG_PTR BugCheckParameter4)

@@ -26,13 +26,13 @@ __int64 __fastcall sub_18007AE58(__int64 *a1)
 
   v1 = dword_1801596D0;
   v3 = 0;
-  if ( dword_1801596D0 && qword_18015D408 )
+  if ( dword_1801596D0 && Src )
   {
     dword_1801596D0 = 0;
     v3 = sub_1800CCA84(&v10);
     if ( v3 >= 0 )
     {
-      for ( i = qword_18015D408; *i; i += v7 + 1 )
+      for ( i = Src; *i; i += v7 + 1 )
       {
         if ( !v10(i, 0LL, 1LL) )
         {
@@ -46,10 +46,10 @@ __int64 __fastcall sub_18007AE58(__int64 *a1)
       }
       v8 = MEMORY[0x7FFE0330];
       v9 = __ROR8__(qword_18016F260, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-      RtlEnterCriticalSection((__int64)&off_1801564C0);
+      RtlEnterCriticalSection(&stru_1801564C0);
       if ( dword_18015CFB8 < 3 && (*(_DWORD *)(*a1 - 56) & 0x800) == 0 )
         sub_180055BBC(a1, (__int64 (__fastcall *)(__int64 *))(v9 ^ v8));
-      RtlLeaveCriticalSection((__int64)&off_1801564C0);
+      RtlLeaveCriticalSection(&stru_1801564C0);
     }
     else
     {
@@ -71,10 +71,10 @@ __int64 __fastcall sub_18007AE58(__int64 *a1)
     }
   }
 LABEL_3:
-  if ( qword_18015D408 && v1 == 1 )
+  if ( Src && v1 == 1 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)qword_18015D408);
-    qword_18015D408 = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Src);
+    Src = 0LL;
     qword_18015C310 = 0LL;
   }
   result = (unsigned int)v3;

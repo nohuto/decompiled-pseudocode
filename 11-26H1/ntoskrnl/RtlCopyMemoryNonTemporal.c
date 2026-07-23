@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCopyMemoryNonTemporal @ 0x140730E40
+ * XREFs of RtlCopyMemoryNonTemporal @ 0x140735A10
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
- *     CcCopyToCacheHelper @ 0x1404875B4 (CcCopyToCacheHelper.c)
- *     RtlWriteNonVolatileMemory @ 0x1404C5AC0 (RtlWriteNonVolatileMemory.c)
- *     HviCopyMemoryNonTemporal @ 0x1404F9560 (HviCopyMemoryNonTemporal.c)
- *     RtlCopyFromUserNonTemporal @ 0x14077F21C (RtlCopyFromUserNonTemporal.c)
- *     UmapCopyFromUserNonTemporal @ 0x14077FC30 (UmapCopyFromUserNonTemporal.c)
- *     UmapCopyToUserNonTemporal @ 0x14077FC90 (UmapCopyToUserNonTemporal.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
+ *     CcCopyToCacheHelper @ 0x140480FF4 (CcCopyToCacheHelper.c)
+ *     RtlWriteNonVolatileMemory @ 0x1404BF470 (RtlWriteNonVolatileMemory.c)
+ *     HviCopyMemoryNonTemporal @ 0x1404F2B70 (HviCopyMemoryNonTemporal.c)
+ *     RtlCopyFromUserNonTemporal @ 0x140781D1C (RtlCopyFromUserNonTemporal.c)
+ *     UmapCopyFromUserNonTemporal @ 0x140782730 (UmapCopyFromUserNonTemporal.c)
+ *     UmapCopyToUserNonTemporal @ 0x140782790 (UmapCopyToUserNonTemporal.c)
  * Callees:
  *     <none>
  */

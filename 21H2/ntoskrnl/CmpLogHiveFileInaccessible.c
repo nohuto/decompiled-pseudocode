@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpLogHiveFileInaccessible @ 0x1406772F4
+ * XREFs of CmpLogHiveFileInaccessible @ 0x14066A9C4
  * Callers:
- *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1406A3938 (CmpOpenHiveFile.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14027F790 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     CmpQueryFileSecurityDescriptor @ 0x140672000 (CmpQueryFileSecurityDescriptor.c)
- *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14026DA40 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x14066AB70 (CmpQueryFileSecurityDescriptor.c)
+ *     SeQueryUserSidToken @ 0x14071E204 (SeQueryUserSidToken.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, int a2, ULONG a3, ULONG a4)
@@ -58,7 +58,7 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, int a2, ULONG a3,
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ObjectAttributes.ObjectName = a1;
   if ( ZwOpenFile(&FileHandle, 0x20000u, &ObjectAttributes, &IoStatusBlock, a4, a3) >= 0
-    && (int)CmpQueryFileSecurityDescriptor(FileHandle, &v14) >= 0 )
+    && (int)CmpQueryFileSecurityDescriptor(FileHandle) >= 0 )
   {
     if ( (int)SeConvertSecurityDescriptorToStringSecurityDescriptor(v14, 1LL, 12LL, &v15, &v13) >= 0 )
     {
@@ -87,7 +87,7 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, int a2, ULONG a3,
     v28 = &v14;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02130,
-      (unsigned __int8 *)&dword_1400237F1 + 3,
+      (unsigned __int8 *)&dword_1400238B1 + 3,
       0LL,
       0LL,
       6u,

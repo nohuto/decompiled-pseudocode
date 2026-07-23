@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDeletePatchSdb @ 0x1407BE428
+ * XREFs of KsepDeletePatchSdb @ 0x1407C1488
  * Callers:
- *     KseShimDatabaseOpen @ 0x1409E63D0 (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseOpen @ 0x1409D6414 (KseShimDatabaseOpen.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     ZwDeleteFile @ 0x140724F50 (ZwDeleteFile.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     ZwDeleteFile @ 0x140729B20 (ZwDeleteFile.c)
  */
 
 NTSTATUS KsepDeletePatchSdb()
@@ -29,13 +29,11 @@ NTSTATUS KsepDeletePatchSdb()
   result = ZwDeleteFile(&ObjectAttributes);
   if ( result < 0 )
   {
-    v1 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v1 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v1 + 4] = result;
-    StackBase = (char)stru_140E66B30.StackBase;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v1) = 590370;
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v1) = result;
+    StackBase = (char)stru_140E66D40.StackBase;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v1) = 590370;
     if ( (StackBase & 2) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: Failed to delete patch shim database!\n");
     return KsepLogError(0LL, (__int64)"KSE: Failed to delete patch shim database!\n");

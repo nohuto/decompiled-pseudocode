@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpIncrementModuleLoadCount @ 0x180054D50
+ * XREFs of LdrpIncrementModuleLoadCount @ 0x18003F2D0
  * Callers:
- *     TppIopExecuteCallback @ 0x18002ABD0 (TppIopExecuteCallback.c)
- *     TppExecuteWaitCallback @ 0x18002BEA0 (TppExecuteWaitCallback.c)
- *     LdrGetDllHandleEx @ 0x1800511B0 (LdrGetDllHandleEx.c)
- *     LdrpFastpthReloadedDll @ 0x180052D40 (LdrpFastpthReloadedDll.c)
- *     TppWorkCallbackPrologRelease @ 0x180053AB0 (TppWorkCallbackPrologRelease.c)
- *     TppAlpcpExecuteCallback @ 0x180054320 (TppAlpcpExecuteCallback.c)
- *     RtlQueueWorkItem @ 0x180066390 (RtlQueueWorkItem.c)
- *     LdrGetDllHandleByName @ 0x180084930 (LdrGetDllHandleByName.c)
- *     LdrGetDllHandleByMapping @ 0x1800864B0 (LdrGetDllHandleByMapping.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x1800BBA10 (LdrpFindOrPrepareLoadingModule.c)
- *     TppJobpExecuteCallback @ 0x1800C0640 (TppJobpExecuteCallback.c)
- *     LdrAddRefDll @ 0x1800C6430 (LdrAddRefDll.c)
+ *     TppIopExecuteCallback @ 0x180015CD0 (TppIopExecuteCallback.c)
+ *     TppExecuteWaitCallback @ 0x180016FA0 (TppExecuteWaitCallback.c)
+ *     LdrGetDllHandleEx @ 0x18003B730 (LdrGetDllHandleEx.c)
+ *     LdrpFastpthReloadedDll @ 0x18003D2C0 (LdrpFastpthReloadedDll.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003E030 (TppWorkCallbackPrologRelease.c)
+ *     TppAlpcpExecuteCallback @ 0x18003E8A0 (TppAlpcpExecuteCallback.c)
+ *     LdrGetDllHandleByName @ 0x18007BCD0 (LdrGetDllHandleByName.c)
+ *     LdrGetDllHandleByMapping @ 0x18007D850 (LdrGetDllHandleByMapping.c)
+ *     RtlQueueWorkItem @ 0x1800867E0 (RtlQueueWorkItem.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x1800B8F40 (LdrpFindOrPrepareLoadingModule.c)
+ *     TppJobpExecuteCallback @ 0x1800BDDD0 (TppJobpExecuteCallback.c)
+ *     LdrAddRefDll @ 0x1800C3BF0 (LdrAddRefDll.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
 __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1, _QWORD *a2)
@@ -46,7 +46,7 @@ __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1, _QWORD *a2)
   }
 LABEL_8:
   if ( _interlockedbittestandset64((volatile signed __int32 *)&LdrpModuleDatatableLock, 0LL) )
-    RtlpAcquireSRWLockExclusiveContended(&LdrpModuleDatatableLock, (__int64)a2);
+    RtlpAcquireSRWLockExclusiveContended((volatile signed __int64 *)&LdrpModuleDatatableLock, (unsigned __int64)a2);
   v8 = *(_QWORD *)(a1 + 152);
   v9 = *(_DWORD *)(v8 + 24);
   if ( v9 != -1 )

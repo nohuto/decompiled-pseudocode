@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpBlkInitializeVirtualAddressSpace @ 0x140CB2FF8
+ * XREFs of HalpBlkInitializeVirtualAddressSpace @ 0x140CB9038
  * Callers:
- *     HalpBlkInitSystem @ 0x140CB4528 (HalpBlkInitSystem.c)
+ *     HalpBlkInitSystem @ 0x140CBA568 (HalpBlkInitSystem.c)
  * Callees:
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     HalpBlkAddVirtualMapping @ 0x140CB2B28 (HalpBlkAddVirtualMapping.c)
- *     HalpBlkAllocateShadowCode @ 0x140CB2E08 (HalpBlkAllocateShadowCode.c)
- *     HalpBlkAllocateShadowData @ 0x140CB2EDC (HalpBlkAllocateShadowData.c)
- *     HalpBlkInitializePageTables @ 0x140CB2F6C (HalpBlkInitializePageTables.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     HalpBlkAddVirtualMapping @ 0x140CB8B68 (HalpBlkAddVirtualMapping.c)
+ *     HalpBlkAllocateShadowCode @ 0x140CB8E48 (HalpBlkAllocateShadowCode.c)
+ *     HalpBlkAllocateShadowData @ 0x140CB8F1C (HalpBlkAllocateShadowData.c)
+ *     HalpBlkInitializePageTables @ 0x140CB8FAC (HalpBlkInitializePageTables.c)
  */
 
 __int64 HalpBlkInitializeVirtualAddressSpace()
@@ -42,15 +42,15 @@ __int64 HalpBlkInitializeVirtualAddressSpace()
         {
           ShadowCode = HalpBlkAddVirtualMapping(
                          HalpBlkRootPageTablePa,
-                         *(__int64 *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts,
-                         *(unsigned __int64 *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[8],
+                         *(__int64 *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount,
+                         (unsigned __int64)HalpDeviceBlockUnblockPushLock.SchedulerSharedSystemSlot,
                          1,
                          4);
           if ( ShadowCode >= 0 )
             ShadowCode = HalpBlkAddVirtualMapping(
                            HalpBlkTiledMemoryMapPa,
-                           *(__int64 *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts,
-                           *(unsigned __int64 *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts,
+                           *(__int64 *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount,
+                           *(unsigned __int64 *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount,
                            1,
                            64);
         }

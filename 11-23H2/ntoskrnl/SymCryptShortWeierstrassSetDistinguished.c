@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptShortWeierstrassSetDistinguished @ 0x1404007D0
+ * XREFs of SymCryptShortWeierstrassSetDistinguished @ 0x1404009B0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptEcpointCopy @ 0x1403FEFE4 (SymCryptEcpointCopy.c)
+ *     SymCryptEcpointCopy @ 0x1403FF1C4 (SymCryptEcpointCopy.c)
  */
 
 void *__fastcall SymCryptShortWeierstrassSetDistinguished(__int64 a1, _BYTE *a2)

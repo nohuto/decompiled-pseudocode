@@ -1,13 +1,13 @@
 /*
- * XREFs of ObQueryTypeInfo @ 0x1409FE660
+ * XREFs of ObQueryTypeInfo @ 0x140923260
  * Callers:
- *     NtQueryObject @ 0x1409FC830 (NtQueryObject.c)
+ *     NtQueryObject @ 0x140921430 (NtQueryObject.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
  */
 
 __int64 __fastcall ObQueryTypeInfo(__int64 a1, _BYTE *a2, unsigned int a3, unsigned int *a4, char a5)

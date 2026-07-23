@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteEmptyPageTableCommit @ 0x14033CF3C
+ * XREFs of MiDeleteEmptyPageTableCommit @ 0x14033D1CC
  * Callers:
- *     MiDeleteEmptyPageTableTail @ 0x14033CC90 (MiDeleteEmptyPageTableTail.c)
+ *     MiDeleteEmptyPageTableTail @ 0x14033CF20 (MiDeleteEmptyPageTableTail.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiCaptureDeleteHierarchy @ 0x14028ACA0 (MiCaptureDeleteHierarchy.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiReturnPageTablePageCommitment @ 0x140764990 (MiReturnPageTablePageCommitment.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiCaptureDeleteHierarchy @ 0x14028AF30 (MiCaptureDeleteHierarchy.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReturnPageTablePageCommitment @ 0x140764B80 (MiReturnPageTablePageCommitment.c)
  */
 
 unsigned __int64 __fastcall MiDeleteEmptyPageTableCommit(__int64 *a1)

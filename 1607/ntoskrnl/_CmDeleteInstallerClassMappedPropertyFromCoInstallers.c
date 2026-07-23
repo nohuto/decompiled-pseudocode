@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x1406DCBC4
+ * XREFs of _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x1406DCCFC
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x1406DEF10 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1406DF048 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     _PnpCtxRegDeleteValue @ 0x1404F0DB4 (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x1404D2EA8 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
  */
 
 __int64 __fastcall CmDeleteInstallerClassMappedPropertyFromCoInstallers(__int64 *a1, const WCHAR *a2)

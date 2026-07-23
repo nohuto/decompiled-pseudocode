@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpExposeHandleAttribute @ 0x140898760
+ * XREFs of AlpcpExposeHandleAttribute @ 0x1408A0E00
  * Callers:
- *     AlpcpExposeAttributes @ 0x1408980D0 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x1408A0770 (AlpcpExposeAttributes.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceConnectedPort @ 0x140911260 (AlpcpReferenceConnectedPort.c)
- *     ObCompleteObjectDuplication @ 0x140940288 (ObCompleteObjectDuplication.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObCompleteObjectDuplication @ 0x1408948C8 (ObCompleteObjectDuplication.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReferenceConnectedPort @ 0x1408E89B0 (AlpcpReferenceConnectedPort.c)
  */
 
 __int64 __fastcall AlpcpExposeHandleAttribute(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   _QWORD *v6; // rbx
   _DWORD *v7; // rdi
-  unsigned __int8 PreviousMode; // r12
+  char PreviousMode; // r12
   int v10; // r13d
   void *v11; // r15
   int v12; // eax
@@ -61,7 +61,12 @@ __int64 __fastcall AlpcpExposeHandleAttribute(__int64 a1, __int64 a2, __int64 a3
       if ( v15 )
       {
         LODWORD(v17) = *v7 & *(_DWORD *)(a1 + 320);
-        v13 = ObCompleteObjectDuplication(v7 + 2, v15, PreviousMode, (char *)&v16 + 8, (char *)&v17 + 4);
+        v13 = ObCompleteObjectDuplication(
+                (__int64)(v7 + 2),
+                v15,
+                PreviousMode,
+                (unsigned __int64 *)&v16 + 1,
+                (int *)&v17 + 1);
         if ( v13 < 0 )
           goto LABEL_8;
         goto LABEL_7;
@@ -84,7 +89,7 @@ LABEL_8:
     ObfDereferenceObject(v11);
   if ( !v10 )
   {
-    AlpcpDereferenceBlobEx((ULONG_PTR)v7, 1, a3, (__int64)a4);
+    AlpcpDereferenceBlobEx((ULONG_PTR)v7, 1);
     *v6 = 0LL;
   }
   return (unsigned int)v13;

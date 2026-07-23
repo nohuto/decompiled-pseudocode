@@ -3,9 +3,9 @@
  * Callers:
  *     PopInitializeDirectedDrips @ 0x140B51F08 (PopInitializeDirectedDrips.c)
  * Callees:
- *     PopInitializeWorkItem @ 0x14082215C (PopInitializeWorkItem.c)
- *     PopDirectedDripsInitializeDisengageTimer @ 0x140860B94 (PopDirectedDripsInitializeDisengageTimer.c)
- *     PopDirectedDripsUmInitialize @ 0x140860BD0 (PopDirectedDripsUmInitialize.c)
+ *     PopInitializeWorkItem @ 0x14082245C (PopInitializeWorkItem.c)
+ *     PopDirectedDripsInitializeDisengageTimer @ 0x140860DD4 (PopDirectedDripsInitializeDisengageTimer.c)
+ *     PopDirectedDripsUmInitialize @ 0x140860E10 (PopDirectedDripsUmInitialize.c)
  *     PopDirectedDripsDiagInitialize @ 0x140B4EF98 (PopDirectedDripsDiagInitialize.c)
  */
 

@@ -21,9 +21,9 @@ __int64 __fastcall EtwpFreeCompression(__int64 a1)
 {
   void *v2; // rcx
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v6; // r14
-  __int64 v7; // r8
+  unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
   __int64 v10; // rdi
@@ -43,23 +43,23 @@ __int64 __fastcall EtwpFreeCompression(__int64 a1)
     v15 = 0;
     CurrentThread = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(a1 + 1160) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+      SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --CurrentThread->SpecialApcDisable;
     v6 = ++CurrentThread->AbAllocationRegionCount;
-    LODWORD(v7) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    v7 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v8 = !_BitScanReverse((unsigned int *)&v9, v7);
       if ( v8 )
         goto LABEL_12;
       v10 = (__int64)&CurrentThread->LockEntries[v9];
-      v7 = ~(1 << v9) & (unsigned int)v7;
+      v7 &= ~(1 << v9);
       if ( (*(_BYTE *)(v10 + 26) & 1) != 0
         && (*(_DWORD *)(v10 + 32) & 1) == 0
         && (*(_QWORD *)(v10 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 1160) & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v10 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v10 + 40) == SessionId )
       {
         *(_BYTE *)(v10 + 26) &= ~1u;
         if ( *(_QWORD *)(v10 + 32) )
@@ -70,12 +70,12 @@ __int64 __fastcall EtwpFreeCompression(__int64 a1)
     {
 LABEL_12:
       if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a1 + 1160, (unsigned int)SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a1 + 1160, SessionId, 0LL);
       goto LABEL_24;
     }
     *(_BYTE *)(v10 + 32) |= 2u;
     if ( *(__int64 *)(v10 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v10, SessionId, v7);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
     v11 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
     v12 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
     *(_BYTE *)(v10 + 25) &= ~1u;

@@ -1,18 +1,18 @@
 /*
- * XREFs of VmpPrefetchVirtualAddresses @ 0x14049B1E8
+ * XREFs of VmpPrefetchVirtualAddresses @ 0x140494D38
  * Callers:
- *     VmPrefetchVirtualAddresses @ 0x140777540 (VmPrefetchVirtualAddresses.c)
- *     VmpPrefetchWorker @ 0x14081D000 (VmpPrefetchWorker.c)
+ *     VmPrefetchVirtualAddresses @ 0x14077A3E8 (VmPrefetchVirtualAddresses.c)
+ *     VmpPrefetchWorker @ 0x140823210 (VmpPrefetchWorker.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     VmpFillGpnRanges @ 0x14049B408 (VmpFillGpnRanges.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     VmpFillGpnRanges @ 0x140494F58 (VmpFillGpnRanges.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPrefetchVirtualAddresses(PEX_SPIN_LOCK SpinLock, _QWORD *a2, unsigned __int64 a3)
@@ -32,7 +32,7 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(PEX_SPIN_LOCK SpinLock, _QWORD *a
   unsigned __int64 v19; // [rsp+B0h] [rbp+40h] BYREF
   __int64 ExtensionTable; // [rsp+C8h] [rbp+58h]
 
-  if ( *((_QWORD *)SpinLock + 15) == -1LL || (ExtensionTable = ExGetExtensionTable(stru_140F066E8.InitialStack)) == 0 )
+  if ( *((_QWORD *)SpinLock + 15) == -1LL || (ExtensionTable = ExGetExtensionTable(stru_140F06A28.StackLimit)) == 0 )
   {
     return (unsigned int)-1073741667;
   }
@@ -87,7 +87,7 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(PEX_SPIN_LOCK SpinLock, _QWORD *a
       v6 = -1073741670;
     }
 LABEL_20:
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)stru_140F066E8.InitialStack + 11);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)stru_140F06A28.StackLimit + 11);
     if ( Pool2 )
       ExFreePoolWithTag(Pool2, 0);
   }

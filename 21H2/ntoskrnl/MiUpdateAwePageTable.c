@@ -1,21 +1,20 @@
 /*
- * XREFs of MiUpdateAwePageTable @ 0x14054E034
+ * XREFs of MiUpdateAwePageTable @ 0x14054E274
  * Callers:
- *     MiDeleteEnclavePage @ 0x14054A440 (MiDeleteEnclavePage.c)
- *     MiWriteEnclavePte @ 0x14054B59C (MiWriteEnclavePte.c)
- *     MiFreePhysicalPages @ 0x14054BF44 (MiFreePhysicalPages.c)
- *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
+ *     MiDeleteEnclavePage @ 0x14054A680 (MiDeleteEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x14054B7DC (MiWriteEnclavePte.c)
+ *     MiFreePhysicalPages @ 0x14054C184 (MiFreePhysicalPages.c)
+ *     MiWriteAwePtes @ 0x14054E4D8 (MiWriteAwePtes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiDecreaseUsedPtesCount @ 0x1402C12F4 (MiDecreaseUsedPtesCount.c)
- *     MiIncreaseUsedPtesCount @ 0x1403097D4 (MiIncreaseUsedPtesCount.c)
- *     MiGetUsedPtesHandle @ 0x14030CA60 (MiGetUsedPtesHandle.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiDecreaseUsedPtesCount @ 0x14023F794 (MiDecreaseUsedPtesCount.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiIncreaseUsedPtesCount @ 0x140314524 (MiIncreaseUsedPtesCount.c)
+ *     MiGetUsedPtesHandle @ 0x1403177B0 (MiGetUsedPtesHandle.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiUpdateAwePageTable(unsigned __int64 a1, __int64 a2, int a3)
 {
-  __int64 v4; // r15
   unsigned int v6; // edi
   unsigned __int64 v7; // rsi
   unsigned __int64 v8; // rbx
@@ -29,7 +28,6 @@ __int64 __fastcall MiUpdateAwePageTable(unsigned __int64 a1, __int64 a2, int a3)
   __int64 v16; // r9
   int v18; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = a2;
   v6 = 0;
   v7 = (__int64)(a1 << 25) >> 16 << 25 >> 16;
   if ( a2 )
@@ -61,16 +59,15 @@ __int64 __fastcall MiUpdateAwePageTable(unsigned __int64 a1, __int64 a2, int a3)
         KeYieldProcessorEx(&v18, Flink, v10, v11);
       while ( *(__int64 *)(v13 + 24) < 0 );
     }
-    a2 = *(_QWORD *)(v13 + 24) ^ (*(_QWORD *)(v13 + 24) ^ (*(_QWORD *)(v13 + 24) + v4)) & 0x3FFFFFFFFFFFFFFFLL;
-    *(_QWORD *)(v13 + 24) = a2;
+    *(_QWORD *)(v13 + 24) ^= (*(_QWORD *)(v13 + 24) ^ (*(_QWORD *)(v13 + 24) + a2)) & 0x3FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   if ( a1 == 0xFFFFF6FB7DBEDF68uLL || !a3 )
     return 0LL;
-  UsedPtesHandle = MiGetUsedPtesHandle(v7, a2);
+  UsedPtesHandle = MiGetUsedPtesHandle(v7);
   if ( a3 <= 0 )
   {
-    if ( !(unsigned int)MiDecreaseUsedPtesCount(UsedPtesHandle, (unsigned int)-a3, v15) )
+    if ( !(unsigned int)MiDecreaseUsedPtesCount(UsedPtesHandle, (unsigned int)-a3) )
       return 1;
   }
   else

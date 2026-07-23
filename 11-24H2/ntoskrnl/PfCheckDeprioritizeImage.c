@@ -1,11 +1,11 @@
 /*
- * XREFs of PfCheckDeprioritizeImage @ 0x1408E6188
+ * XREFs of PfCheckDeprioritizeImage @ 0x1409DC928
  * Callers:
- *     CcUnmapVacb @ 0x1408E5FE0 (CcUnmapVacb.c)
- *     PfProcessCreateNotification @ 0x140960888 (PfProcessCreateNotification.c)
+ *     PfProcessCreateNotification @ 0x140948348 (PfProcessCreateNotification.c)
+ *     CcUnmapVacb @ 0x1409DC780 (CcUnmapVacb.c)
  * Callees:
- *     PfLockSharedAcquire @ 0x14047FC44 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
+ *     PfLockSharedAcquire @ 0x14047A884 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
  */
 
 __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
@@ -23,8 +23,8 @@ __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
   v2 = a1;
   if ( a1 )
   {
-    PfLockSharedAcquire((volatile signed __int64 *)&qword_140E66F70);
-    if ( (_DWORD)qword_140E66F64 )
+    PfLockSharedAcquire((volatile signed __int64 *)&qword_140E670C0);
+    if ( (_DWORD)qword_140E670B4 )
     {
       v6 = 0LL;
       v7 = (HIBYTE(v2)
@@ -34,12 +34,12 @@ __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
            * (BYTE5(v2)
             + 37
             * (BYTE4(v2) + 37
-                         * (BYTE3(v2) + 37 * (BYTE2(v2) + 37 * (BYTE1(v2) + 37 * ((unsigned __int8)v2 + 11623883)))))))) & (unsigned int)(qword_140E66F64 - 1);
-      v8 = *(_QWORD *)((v7 << dword_140E66F60) + qword_140E66F58);
+                         * (BYTE3(v2) + 37 * (BYTE2(v2) + 37 * (BYTE1(v2) + 37 * ((unsigned __int8)v2 + 11623883)))))))) & (unsigned int)(qword_140E670B4 - 1);
+      v8 = *(_QWORD *)((v7 << dword_140E670B0) + qword_140E670A8);
       v4 = v8 == 0;
       if ( !v8 )
         goto LABEL_5;
-      v9 = *(_QWORD *)((v7 << dword_140E66F60) + qword_140E66F58);
+      v9 = *(_QWORD *)((v7 << dword_140E670B0) + qword_140E670A8);
       do
       {
         v3 = v9;
@@ -51,8 +51,8 @@ __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
           if ( ((-79 * (_BYTE)v2) & 1) != 0 )
             v6 = 2654435761LL * (unsigned int)v2;
         }
-        v7 = (unsigned int)(qword_140E66F64 - 1) & (v6 + v7);
-        v3 = *(_QWORD *)((v7 << dword_140E66F60) + qword_140E66F58);
+        v7 = (unsigned int)(qword_140E670B4 - 1) & (v6 + v7);
+        v3 = *(_QWORD *)((v7 << dword_140E670B0) + qword_140E670A8);
         v9 = v3;
       }
       while ( v3 );
@@ -64,7 +64,7 @@ __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
     v4 = v3 == 0;
 LABEL_5:
     LOBYTE(v1) = !v4;
-    PfLockSharedRelease((signed __int64 *)&qword_140E66F70);
+    PfLockSharedRelease((signed __int64 *)&qword_140E670C0);
     return v1;
   }
   return 0LL;

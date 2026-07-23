@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCrcStillIntact @ 0x140307648
+ * XREFs of MiCrcStillIntact @ 0x1402E96C8
  * Callers:
- *     MiRelinkDeferredCrcEntries @ 0x1403075B0 (MiRelinkDeferredCrcEntries.c)
+ *     MiRelinkDeferredCrcEntries @ 0x1402E9630 (MiRelinkDeferredCrcEntries.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiActivePageCombineCandidate @ 0x140295F90 (MiActivePageCombineCandidate.c)
- *     MiCombineCandidate @ 0x1402F3F80 (MiCombineCandidate.c)
- *     MiClearPteAccessed @ 0x1402FF9B0 (MiClearPteAccessed.c)
- *     MiVadSupportsCombine @ 0x140307A0C (MiVadSupportsCombine.c)
- *     MiMakeCombineCandidateClean @ 0x1403193BC (MiMakeCombineCandidateClean.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiActivePageCombineCandidate @ 0x1402954F0 (MiActivePageCombineCandidate.c)
+ *     MiCombineCandidate @ 0x1402D6000 (MiCombineCandidate.c)
+ *     MiClearPteAccessed @ 0x1402E1A30 (MiClearPteAccessed.c)
+ *     MiVadSupportsCombine @ 0x1402E9A8C (MiVadSupportsCombine.c)
+ *     MiMakeCombineCandidateClean @ 0x14031B3EC (MiMakeCombineCandidateClean.c)
  */
 
 __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  signed __int64 v4; // rbp
+  __int64 v4; // rbp
   _QWORD *v6; // r13
   unsigned __int64 v8; // r12
   unsigned __int64 *v9; // rsi
@@ -73,7 +73,7 @@ __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, __int64 a3, int a4)
     if ( (*(_DWORD *)(v4 + 184) & 0xF) == 1 )
       v18 = &MiSystemPartition;
     else
-      v18 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 174));
+      v18 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 174));
     if ( !(unsigned int)MiClearPteAccessed(
                           v4,
                           (unsigned __int64)v11,

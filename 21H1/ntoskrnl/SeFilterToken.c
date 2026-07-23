@@ -62,7 +62,7 @@ LABEL_6:
                  PrivilegeCount,
                  (unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL),
                  v8,
-                 Groups,
+                 &Groups->Sid,
                  0,
                  &DmaAdapter);
     if ( inserted >= 0 )

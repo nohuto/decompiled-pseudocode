@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  */
 
 __int64 __fastcall MiInitializeBootDefaults(__int64 a1)

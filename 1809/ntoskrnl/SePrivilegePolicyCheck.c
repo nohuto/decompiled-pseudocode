@@ -1,12 +1,12 @@
 /*
- * XREFs of SePrivilegePolicyCheck @ 0x1400AA9D8
+ * XREFs of SePrivilegePolicyCheck @ 0x1400AA918
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A93B0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BB530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x1400A7D50 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     SepPrivilegeCheck @ 0x1400A7C90 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SePrivilegePolicyCheck(int *a1, _DWORD *a2, __int64 *a3, __int64 a4, __int64 a5, char a6)

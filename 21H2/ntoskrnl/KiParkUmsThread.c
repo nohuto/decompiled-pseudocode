@@ -1,30 +1,30 @@
 /*
- * XREFs of KiParkUmsThread @ 0x140525F20
+ * XREFs of KiParkUmsThread @ 0x140526160
  * Callers:
- *     KiUmsExit @ 0x140413A00 (KiUmsExit.c)
+ *     KiUmsExit @ 0x140413B00 (KiUmsExit.c)
  * Callees:
- *     KiDeliverApc @ 0x14024A750 (KiDeliverApc.c)
- *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
- *     RtlXRestore @ 0x1402C2DBC (RtlXRestore.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlXRestore @ 0x1402412DC (RtlXRestore.c)
+ *     KiDispatchException @ 0x1402612C0 (KiDispatchException.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     KiDeliverApc @ 0x1402EEFA0 (KiDeliverApc.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwTerminateProcess @ 0x1403FA920 (ZwTerminateProcess.c)
- *     ZwTerminateThread @ 0x1403FAE00 (ZwTerminateThread.c)
- *     KeResetLegacyFloatingPointState @ 0x1403FE5E0 (KeResetLegacyFloatingPointState.c)
- *     KeRestoreLegacyFloatingPointControlWord @ 0x1403FE600 (KeRestoreLegacyFloatingPointControlWord.c)
- *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
- *     KiUmsRestoreUch @ 0x140413500 (KiUmsRestoreUch.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiIsPrimaryPresent @ 0x140525D24 (KiIsPrimaryPresent.c)
- *     KeUpdateUmsThreadState @ 0x1408BD75C (KeUpdateUmsThreadState.c)
- *     KiUmsExceptionFilter @ 0x1408BDD64 (KiUmsExceptionFilter.c)
- *     KiCaptureUmsThreadContext @ 0x1408BEB50 (KiCaptureUmsThreadContext.c)
+ *     ZwTerminateProcess @ 0x1403FAB00 (ZwTerminateProcess.c)
+ *     ZwTerminateThread @ 0x1403FAFE0 (ZwTerminateThread.c)
+ *     KeResetLegacyFloatingPointState @ 0x1403FE7C0 (KeResetLegacyFloatingPointState.c)
+ *     KeRestoreLegacyFloatingPointControlWord @ 0x1403FE7E0 (KeRestoreLegacyFloatingPointControlWord.c)
+ *     _alloca_probe @ 0x140408680 (_alloca_probe.c)
+ *     KiUmsRestoreUch @ 0x140413600 (KiUmsRestoreUch.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiIsPrimaryPresent @ 0x140525F64 (KiIsPrimaryPresent.c)
+ *     KeUpdateUmsThreadState @ 0x1408BD8BC (KeUpdateUmsThreadState.c)
+ *     KiUmsExceptionFilter @ 0x1408BDEC4 (KiUmsExceptionFilter.c)
+ *     KiCaptureUmsThreadContext @ 0x1408BECB0 (KiCaptureUmsThreadContext.c)
  */
 
-__int64 __fastcall KiParkUmsThread(__int64 SparePtr)
+NTSTATUS __fastcall KiParkUmsThread(__int64 SparePtr)
 {
   __int64 v2; // r8
   _DWORD *v3; // r9
@@ -50,7 +50,7 @@ __int64 __fastcall KiParkUmsThread(__int64 SparePtr)
   struct _KPRCB *v23; // r9
   _DWORD *v24; // r8
   int v25; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v27; // rax
   void *v28; // rsp
   NTSTATUS updated; // edi
@@ -65,12 +65,12 @@ __int64 __fastcall KiParkUmsThread(__int64 SparePtr)
   unsigned __int64 NpxState; // [rsp+40h] [rbp+10h]
   __int64 v39; // [rsp+68h] [rbp+38h] BYREF
   __int64 v40; // [rsp+70h] [rbp+40h]
-  NTSTATUS ExitStatus[40]; // [rsp+80h] [rbp+50h] BYREF
+  EXCEPTION_RECORD ExitStatus; // [rsp+80h] [rbp+50h] BYREF
   _QWORD v42[349]; // [rsp+120h] [rbp+F0h] BYREF
   _DWORD v43[4]; // [rsp+C10h] [rbp+BE0h] BYREF
   _QWORD v44[2]; // [rsp+C20h] [rbp+BF0h] BYREF
 
-  memset(ExitStatus, 0, 0x98uLL);
+  memset(&ExitStatus, 0, sizeof(ExitStatus));
   memset(v42, 0, sizeof(v42));
   IsPrimaryPresent = 0;
   v35 = 0;
@@ -200,7 +200,7 @@ LABEL_32:
         {
           KeGetCurrentIrql();
           __writecr8(1uLL);
-          KiDeliverApc(1, 0, 0LL);
+          KiDeliverApc(1, 0LL, 0LL);
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
@@ -238,14 +238,14 @@ LABEL_32:
     }
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 LABEL_64:
-    ExitStatus[6] = 1;
-    *(_QWORD *)&ExitStatus[8] = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
-    ExitStatus[0] = updated;
-    ExitStatus[1] = 1;
-    *(_QWORD *)&ExitStatus[4] = 0LL;
-    KiDispatchException(ExitStatus, *(_QWORD *)(SparePtr + 88), *(_QWORD *)(SparePtr + 80), 1u, 0);
-    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus[0]);
-    return ZwTerminateThread(-2LL, (unsigned int)ExitStatus[0]);
+    ExitStatus.NumberParameters = 1;
+    ExitStatus.ExceptionInformation[0] = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
+    ExitStatus.ExceptionCode = updated;
+    ExitStatus.ExceptionFlags = 1;
+    ExitStatus.ExceptionAddress = 0LL;
+    KiDispatchException(&ExitStatus, *(_QWORD *)(SparePtr + 88), *(_QWORD *)(SparePtr + 80), 1u, 0);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus.ExceptionCode);
+    return ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus.ExceptionCode);
   }
   if ( KiIrqlFlags )
   {

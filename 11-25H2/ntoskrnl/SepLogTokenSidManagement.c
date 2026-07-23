@@ -50,8 +50,8 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   int v41; // [rsp+40h] [rbp-C0h] BYREF
   int v42; // [rsp+44h] [rbp-BCh] BYREF
   ULONG v43; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v44; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v45; // [rsp+58h] [rbp-A8h] BYREF
+  ULONGLONG v44; // [rsp+50h] [rbp-B0h] BYREF
+  ULONGLONG v45; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v46; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v47; // [rsp+68h] [rbp-98h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-90h] BYREF
@@ -64,9 +64,9 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   void *v55; // [rsp+A0h] [rbp-60h]
   int v56; // [rsp+A8h] [rbp-58h]
   int v57; // [rsp+ACh] [rbp-54h]
-  __int64 *v58; // [rsp+B0h] [rbp-50h]
+  ULONGLONG *v58; // [rsp+B0h] [rbp-50h]
   __int64 v59; // [rsp+B8h] [rbp-48h]
-  __int64 *v60; // [rsp+C0h] [rbp-40h]
+  ULONGLONG *v60; // [rsp+C0h] [rbp-40h]
   __int64 v61; // [rsp+C8h] [rbp-38h]
   int *v62; // [rsp+D0h] [rbp-30h]
   __int64 v63; // [rsp+D8h] [rbp-28h]
@@ -94,8 +94,8 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     v8 = a5;
     if ( a4 )
     {
-      v44 = RtlConvertLuidToUlonglong(a4 + 16);
-      v45 = RtlConvertLuidToUlonglong(v9 + 24);
+      v44 = RtlConvertLuidToUlonglong((LUID)(a4 + 16));
+      v45 = RtlConvertLuidToUlonglong((LUID)(v9 + 24));
       v37 = *(_DWORD *)(v10 + 192);
       v38 = *(_DWORD *)(v10 + 196);
       v39 = *(_DWORD *)(v10 + 200);

@@ -1,10 +1,10 @@
 /*
- * XREFs of I_MinAsn1DecodeGeneralizedTimeFraction @ 0x1408A3FA0
+ * XREFs of I_MinAsn1DecodeGeneralizedTimeFraction @ 0x1408AA3B0
  * Callers:
- *     MinAsn1DecodeGeneralizedTime @ 0x1408A42CC (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x1408AA6DC (MinAsn1DecodeGeneralizedTime.c)
  * Callees:
- *     I_MinAsn1MultiplyAndDivide @ 0x1408A4120 (I_MinAsn1MultiplyAndDivide.c)
- *     I_MinAsn1ScanFrac @ 0x1408A41E0 (I_MinAsn1ScanFrac.c)
+ *     I_MinAsn1MultiplyAndDivide @ 0x1408AA530 (I_MinAsn1MultiplyAndDivide.c)
+ *     I_MinAsn1ScanFrac @ 0x1408AA5F0 (I_MinAsn1ScanFrac.c)
  */
 
 char __fastcall I_MinAsn1DecodeGeneralizedTimeFraction(int a1, int a2, int a3, int *a4, _DWORD *a5)

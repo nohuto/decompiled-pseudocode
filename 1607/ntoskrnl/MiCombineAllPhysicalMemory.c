@@ -1,26 +1,26 @@
 /*
- * XREFs of MiCombineAllPhysicalMemory @ 0x140663718
+ * XREFs of MiCombineAllPhysicalMemory @ 0x1406637FC
  * Callers:
- *     MiCombineIdenticalPages @ 0x140663BA4 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140663C88 (MiCombineIdenticalPages.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     KeQueryAffinityThread @ 0x140135394 (KeQueryAffinityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiCombineCandidate @ 0x1401F7E78 (MiCombineCandidate.c)
- *     MiHashIsCommon @ 0x1401F9E14 (MiHashIsCommon.c)
- *     MiMapArbitraryPage @ 0x1401FA03C (MiMapArbitraryPage.c)
- *     MiPerformCombineScan @ 0x1401FA16C (MiPerformCombineScan.c)
- *     MiReleaseArbitraryPage @ 0x1401FA428 (MiReleaseArbitraryPage.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     KeQueryAffinityThread @ 0x140135904 (KeQueryAffinityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiCombineCandidate @ 0x1401F7CA4 (MiCombineCandidate.c)
+ *     MiHashIsCommon @ 0x1401F9C40 (MiHashIsCommon.c)
+ *     MiMapArbitraryPage @ 0x1401F9E68 (MiMapArbitraryPage.c)
+ *     MiPerformCombineScan @ 0x1401F9F98 (MiPerformCombineScan.c)
+ *     MiReleaseArbitraryPage @ 0x1401FA254 (MiReleaseArbitraryPage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiAllocateCrcList @ 0x1406635EC (MiAllocateCrcList.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiAllocateCrcList @ 0x1406636D0 (MiAllocateCrcList.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  */
 
 __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1)
@@ -186,7 +186,7 @@ LABEL_43:
         {
           if ( !v2 )
           {
-            v25 = MiReservePtes((__int64)&qword_140327870, 1uLL, v24);
+            v25 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, v24);
             LODWORD(v12) = 0;
             v34 = v25;
             v2 = v25;
@@ -218,7 +218,7 @@ LABEL_42:
               ++*(_QWORD *)(v45 + 24);
             v29 = MiPerformCombineScan(a1, (__int64)v41);
             MiReleaseArbitraryPage((__int64)v41);
-            MiReleasePtes((__int64)&qword_140327870, v34, 1u);
+            MiReleasePtes((__int64)&qword_1403278B0, v34, 1u);
             v30 = a1;
             v12 = 0LL;
             v34 = 0LL;
@@ -259,7 +259,7 @@ LABEL_49:
   }
   while ( v7 != (unsigned __int16)KeNumberNodes );
   if ( v2 )
-    MiReleasePtes((__int64)&qword_140327870, v2, 1u);
+    MiReleasePtes((__int64)&qword_1403278B0, v2, 1u);
   if ( v33 == 1 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
 LABEL_57:

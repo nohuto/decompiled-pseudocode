@@ -1,20 +1,20 @@
 /*
- * XREFs of PipMigratePnpState @ 0x1409C8678
+ * XREFs of PipMigratePnpState @ 0x1409C9678
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCreateKey @ 0x1406E6464 (_PnpCtxRegCreateKey.c)
- *     _PnpCtxOpenMachine @ 0x14073B6CC (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegQueryValue @ 0x14073C304 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegCloseKey @ 0x14073C33C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
- *     _CmGetMatchingDeviceList @ 0x140749938 (_CmGetMatchingDeviceList.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B2E4 (_PnpCtxRegEnumKeyWithCallback.c)
- *     _PnpCtxCloseMachine @ 0x1408F5AF8 (_PnpCtxCloseMachine.c)
- *     _PnpCtxRegCopyTree @ 0x1408F5E1C (_PnpCtxRegCopyTree.c)
- *     _PnpCtxRegSetValue @ 0x1408F5EE8 (_PnpCtxRegSetValue.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegCreateKey @ 0x1406E7704 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxOpenMachine @ 0x14073C8BC (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegQueryValue @ 0x14073D4F4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegCloseKey @ 0x14073D52C (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14073D544 (_PnpCtxRegOpenKey.c)
+ *     _CmGetMatchingDeviceList @ 0x14074AB28 (_CmGetMatchingDeviceList.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14074C4D4 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxCloseMachine @ 0x1408F6DB8 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxRegCopyTree @ 0x1408F70DC (_PnpCtxRegCopyTree.c)
+ *     _PnpCtxRegSetValue @ 0x1408F71A8 (_PnpCtxRegSetValue.c)
  */
 
 __int64 PipMigratePnpState()

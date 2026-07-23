@@ -1,14 +1,14 @@
 /*
- * XREFs of PopOpenPowerKey @ 0x140132520
+ * XREFs of PopOpenPowerKey @ 0x140132A90
  * Callers:
- *     PopDiagTraceHiberStats @ 0x140530FB4 (PopDiagTraceHiberStats.c)
- *     PopReadSystemAwayModePolicy @ 0x140531748 (PopReadSystemAwayModePolicy.c)
- *     PopReadHiberbootPolicy @ 0x140533230 (PopReadHiberbootPolicy.c)
- *     PopEnableHiberFile @ 0x14056C7F8 (PopEnableHiberFile.c)
- *     PopResetCurrentPolicies @ 0x14056DF0C (PopResetCurrentPolicies.c)
- *     PopApplyPolicy @ 0x14056DFD8 (PopApplyPolicy.c)
- *     PopThermalHandlePreviousShutdown @ 0x140580B3C (PopThermalHandlePreviousShutdown.c)
- *     PoGetLightestSystemStateForEject @ 0x14066A180 (PoGetLightestSystemStateForEject.c)
+ *     PopDiagTraceHiberStats @ 0x1405314F4 (PopDiagTraceHiberStats.c)
+ *     PopReadSystemAwayModePolicy @ 0x140531C88 (PopReadSystemAwayModePolicy.c)
+ *     PopReadHiberbootPolicy @ 0x140533770 (PopReadHiberbootPolicy.c)
+ *     PopEnableHiberFile @ 0x14056CD38 (PopEnableHiberFile.c)
+ *     PopResetCurrentPolicies @ 0x14056E44C (PopResetCurrentPolicies.c)
+ *     PopApplyPolicy @ 0x14056E518 (PopApplyPolicy.c)
+ *     PopThermalHandlePreviousShutdown @ 0x140580FE8 (PopThermalHandlePreviousShutdown.c)
+ *     PoGetLightestSystemStateForEject @ 0x14066A264 (PoGetLightestSystemStateForEject.c)
  * Callees:
  *     <none>
  */

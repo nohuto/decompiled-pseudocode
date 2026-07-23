@@ -66,7 +66,7 @@ __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, unsigned int a3, unsi
   _QWORD *v27; // rcx
   __int64 v28; // r8
   __int64 v29; // r9
-  int v30; // esi
+  __int64 v30; // rsi
   _QWORD *v31; // rdi
   int updated; // esi
   __int64 v33; // r8
@@ -119,7 +119,6 @@ __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, unsigned int a3, unsi
   unsigned int v81; // [rsp+30h] [rbp-148h]
   unsigned int v82; // [rsp+34h] [rbp-144h]
   unsigned int v83; // [rsp+38h] [rbp-140h]
-  int v84; // [rsp+40h] [rbp-138h]
   unsigned int *v85; // [rsp+40h] [rbp-138h]
   _QWORD *v86; // [rsp+40h] [rbp-138h]
   unsigned int v87; // [rsp+4Ch] [rbp-12Ch]
@@ -143,7 +142,6 @@ __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, unsigned int a3, unsi
   unsigned __int64 v107; // [rsp+D8h] [rbp-A0h]
   _QWORD v108[10]; // [rsp+E0h] [rbp-98h] BYREF
 
-  v84 = a2;
   memset(v108, 0, sizeof(v108));
   v101 = 0LL;
   v10 = 2;
@@ -552,7 +550,7 @@ LABEL_100:
   v83 = PsSetSystemPagePriorityThread((__int64)CurrentThread, 1, v28, v29);
   v10 |= 1u;
   v31 = v26 + 9;
-  updated = MiParseImageLoadConfig(v16, v30, LODWORD(v108[2]) << 12, v84);
+  updated = MiParseImageLoadConfig(v16, v30, (unsigned int)(LODWORD(v108[2]) << 12), a2);
   if ( updated >= 0 )
     goto LABEL_28;
   ExFreePoolWithTag(v26, 0);

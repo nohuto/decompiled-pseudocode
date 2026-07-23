@@ -18,7 +18,7 @@ __int64 __fastcall PdcPoCsEnterExitReason(char a1, int a2)
   else
   {
     PopPdcLastCsExitReason = a2;
-    PopPdcLastCsExitTime = KeQueryInterruptTimePrecise(&v4);
+    PopPdcLastCsExitTime = KeQueryInterruptTimePrecise(&v4).QuadPart;
   }
   return PopEvaluateAggressiveStandbyActions(a1);
 }

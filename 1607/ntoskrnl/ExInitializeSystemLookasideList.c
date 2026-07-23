@@ -1,16 +1,16 @@
 /*
  * XREFs of ExInitializeSystemLookasideList @ 0x1403D5368
  * Callers:
- *     ExInitializeProcessor @ 0x14013C51C (ExInitializeProcessor.c)
+ *     ExInitializeProcessor @ 0x14013CA8C (ExInitializeProcessor.c)
  *     ExInitPoolLookasidePointers @ 0x1403D5234 (ExInitPoolLookasidePointers.c)
- *     CcInitializeProcessor @ 0x140552880 (CcInitializeProcessor.c)
- *     ObInitializeProcessor @ 0x140552930 (ObInitializeProcessor.c)
- *     IoInitializeProcessor @ 0x140552A44 (IoInitializeProcessor.c)
+ *     CcInitializeProcessor @ 0x140552DC0 (CcInitializeProcessor.c)
+ *     ObInitializeProcessor @ 0x140552E70 (ObInitializeProcessor.c)
+ *     IoInitializeProcessor @ 0x140552F84 (IoInitializeProcessor.c)
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  *     CcInitializeCacheManager @ 0x14079FAB0 (CcInitializeCacheManager.c)
  *     ObInitSystem @ 0x1407A0370 (ObInitSystem.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
  */
 
 __int64 __fastcall ExInitializeSystemLookasideList(__int64 a1, int a2, int a3, int a4, __int16 a5, __int64 a6)

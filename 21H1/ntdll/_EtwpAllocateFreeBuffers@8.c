@@ -18,44 +18,50 @@ int __fastcall EtwpAllocateFreeBuffers(int a1, unsigned int a2)
   _DWORD *v5; // esi
   _DWORD *v6; // edx
   _DWORD *v7; // eax
-  void *v8; // edx
-  int v11; // [esp+14h] [ebp-Ch]
-  int v12; // [esp+18h] [ebp-8h] BYREF
-  void *v13; // [esp+1Ch] [ebp-4h] BYREF
+  PVOID v8; // edx
+  ULONG_PTR v10; // [esp-10h] [ebp-30h]
+  size_t v11; // [esp-4h] [ebp-24h]
+  ULONG v12; // [esp+0h] [ebp-20h]
+  int v14; // [esp+14h] [ebp-Ch]
+  int v15; // [esp+18h] [ebp-8h] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-4h] BYREF
 
   v3 = 0;
-  v11 = 0;
-  v12 = *(_DWORD *)(a1 + 140);
+  v14 = 0;
+  v15 = *(_DWORD *)(a1 + 140);
   if ( a2 )
   {
     while ( 1 )
     {
-      v13 = 0;
+      BaseAddress = 0;
       v4 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 156));
       if ( v4 > *(_DWORD *)(a1 + 148) )
         break;
-      v13 = (void *)(*(_DWORD *)(a1 + 304) + v12 * (v4 - 1));
-      if ( (int)NtAllocateVirtualMemory(-1, &v13, 0, &v12, 4096, 4) < 0 )
+      BaseAddress = (PVOID)(*(_DWORD *)(a1 + 304) + v15 * (v4 - 1));
+      HIDWORD(v10) = &v15;
+      LODWORD(v10) = 0;
+      if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v10, (PSIZE_T)0x1000, 4u, v12) < 0 )
         break;
-      v5 = v13;
-      memset(v13, 0, 0x48u);
+      v5 = BaseAddress;
+      LODWORD(v11) = 72;
+      memset(BaseAddress, 0, v11);
       v5[2] = 72;
       *v5 = *(_DWORD *)(a1 + 140);
       *((_WORD *)v5 + 21) = *(_WORD *)(a1 + 20) | 0x8000;
-      RtlEnterCriticalSection(a1 + 72);
+      RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
       v6 = *(_DWORD **)(a1 + 168);
-      v7 = (char *)v13 + 56;
+      v7 = (char *)BaseAddress + 56;
       if ( *v6 != a1 + 164 )
         __fastfail(3u);
       *v7 = a1 + 164;
       v7[1] = v6;
       *v6 = v7;
-      v8 = v13;
+      v8 = BaseAddress;
       *(_DWORD *)(a1 + 168) = v7;
       EtwpEnqueueFreeBuffer(a1, v8);
-      RtlLeaveCriticalSection(a1 + 72);
+      RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
       ++v3;
-      if ( ++v11 >= a2 )
+      if ( ++v14 >= a2 )
         return v3;
     }
     _InterlockedDecrement((volatile signed __int32 *)(a1 + 156));

@@ -1,13 +1,13 @@
 /*
  * XREFs of IoUnregisterFileSystem @ 0x14080C290
  * Callers:
- *     RawShutdown @ 0x1409B4E80 (RawShutdown.c)
+ *     sub_1409B4E80 @ 0x1409B4E80 (sub_1409B4E80.c)
  * Callees:
- *     IopDecrementDeviceObjectRefCount @ 0x140259288 (IopDecrementDeviceObjectRefCount.c)
+ *     sub_140259288 @ 0x140259288 (sub_140259288.c)
  *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
@@ -17,11 +17,10 @@ void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *Blink; // rcx
   __int64 *v6; // rbx
-  void (__fastcall *v7)(PDEVICE_OBJECT, _QWORD); // rax
 
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(&IopDatabaseResource, 1u);
+  --*((_WORD *)CurrentThread + 242);
+  ExAcquireResourceExclusiveLite(&stru_140C46E20, 1u);
   p_Queue = &DeviceObject->Queue;
   Flink = DeviceObject->Queue.ListEntry.Flink;
   if ( Flink )
@@ -35,15 +34,14 @@ void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
     Blink->Flink = Flink;
     Flink->Blink = Blink;
   }
-  v6 = (__int64 *)IopFsNotifyChangeQueueHead;
-  while ( v6 != &IopFsNotifyChangeQueueHead )
+  v6 = (__int64 *)qword_140C46FA0;
+  while ( v6 != &qword_140C46FA0 )
   {
-    v7 = (void (__fastcall *)(PDEVICE_OBJECT, _QWORD))v6[3];
     v6 = (__int64 *)*v6;
-    v7(DeviceObject, 0LL);
+    sub_14042A5E0(DeviceObject, 0LL);
   }
-  ++IopFsRegistrationOps;
-  ExReleaseResourceLite(&IopDatabaseResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  IopDecrementDeviceObjectRefCount((ULONG_PTR)DeviceObject, 1);
+  ++dword_140C46D80;
+  ExReleaseResourceLite(&stru_140C46E20);
+  sub_1402F9540((__int64)KeGetCurrentThread());
+  sub_140259288((ULONG_PTR)DeviceObject, 1);
 }

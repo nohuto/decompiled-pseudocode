@@ -18,23 +18,23 @@ int __cdecl _vsnwprintf_l(
   int v5; // edi
   wchar_t *v6; // eax
   wchar_t *v8; // [esp+8h] [ebp-20h] BYREF
-  size_t v9; // [esp+Ch] [ebp-1Ch]
+  int v9; // [esp+Ch] [ebp-1Ch]
   wchar_t *v10; // [esp+10h] [ebp-18h]
   int v11; // [esp+14h] [ebp-14h]
 
-  if ( Format && (!BufferCount || Buffer) )
+  if ( HIDWORD(BufferCount) && (!(_DWORD)BufferCount || Buffer) )
   {
     v11 = 66;
     v10 = Buffer;
     v8 = Buffer;
-    if ( BufferCount <= 0x3FFFFFFF )
+    if ( (unsigned int)BufferCount <= 0x3FFFFFFF )
       v9 = 2 * BufferCount;
     else
       v9 = 0x7FFFFFFF;
-    v5 = _woutput_l(&v8, Format, Locale, ArgList);
+    v5 = _woutput_l(&v8, HIDWORD(BufferCount), Format, Locale);
     if ( Buffer )
     {
-      if ( (--v9 & 0x80000000) != 0 )
+      if ( --v9 < 0 )
       {
         _flsbuf_s(0, &v8);
         v6 = v8;
@@ -45,7 +45,7 @@ int __cdecl _vsnwprintf_l(
         v6 = (wchar_t *)((char *)v8 + 1);
         v8 = (wchar_t *)((char *)v8 + 1);
       }
-      if ( (--v9 & 0x80000000) != 0 )
+      if ( --v9 < 0 )
         _flsbuf_s(0, &v8);
       else
         *(_BYTE *)v6 = 0;

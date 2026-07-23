@@ -1,12 +1,12 @@
 /*
- * XREFs of KiForceSymbolReferences @ 0x1409F6470
+ * XREFs of KiForceSymbolReferences @ 0x1409F7470
  * Callers:
- *     KiInitSystem @ 0x1409D32F0 (KiInitSystem.c)
+ *     KiInitSystem @ 0x1409D42F0 (KiInitSystem.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiForceSymbolReferences()

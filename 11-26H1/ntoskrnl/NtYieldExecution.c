@@ -1,12 +1,12 @@
 /*
- * XREFs of NtYieldExecution @ 0x140238790
+ * XREFs of NtYieldExecution @ 0x14023A0F0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
  */
 
-void __noreturn NtYieldExecution()
+NTSTATUS __noreturn NtYieldExecution(void)
 {
-  KeYieldExecution(0LL);
+  return KeYieldExecution(0LL);
 }

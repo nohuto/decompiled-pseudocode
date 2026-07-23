@@ -1,15 +1,13 @@
 /*
- * XREFs of RtlpHeapAddListEntry @ 0x1800A9240
+ * XREFs of RtlpHeapAddListEntry @ 0x18000C420
  * Callers:
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpCreateSplitBlock @ 0x18002FC50 (RtlpCreateSplitBlock.c)
- *     RtlpValidateHeapSegment @ 0x180041A64 (RtlpValidateHeapSegment.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpInitializeUCRIndex @ 0x1800A8D20 (RtlpInitializeUCRIndex.c)
- *     RtlpPopulateListIndex @ 0x1800A9058 (RtlpPopulateListIndex.c)
- *     RtlZeroHeap @ 0x180143F70 (RtlZeroHeap.c)
+ *     RtlpPopulateListIndex @ 0x18000C23C (RtlpPopulateListIndex.c)
+ *     RtlpCreateSplitBlock @ 0x18000DD00 (RtlpCreateSplitBlock.c)
+ *     RtlpValidateHeapSegment @ 0x1800222F8 (RtlpValidateHeapSegment.c)
+ *     RtlpFreeHeap @ 0x18005A020 (RtlpFreeHeap.c)
+ *     RtlZeroHeap @ 0x180142320 (RtlZeroHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapAddListEntry(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, int a6)
@@ -45,7 +43,7 @@ __int64 __fastcall RtlpHeapAddListEntry(__int64 a1, __int64 a2, char a3, __int64
       v15 = v14;
       if ( HIBYTE(v14) != ((unsigned __int8)v14 ^ (unsigned __int8)(BYTE1(v14) ^ BYTE2(v14))) )
       {
-        RtlpLogHeapFailure(3, a1, v11 - 16, 0LL, 0LL, 0LL);
+        RtlpLogHeapFailure(3, a1, v11 - 16, 0, 0LL, 0LL);
         LOWORD(v14) = v15;
       }
     }

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtCommitComplete()
+NTSTATUS __cdecl NtCommitComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 145LL;
+  result = 145;
   __asm { syscall; Low latency system call }
   return result;
 }

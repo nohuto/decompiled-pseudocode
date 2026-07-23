@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpCommitWakeFastResource @ 0x1403D8410
+ * XREFs of ExpCommitWakeFastResource @ 0x1402F1EF0
  * Callers:
- *     ExpReleaseDisownedFastResourceShared @ 0x1403D7FE8 (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x1403D8120 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x1402F1AC8 (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1402F1C00 (ExpReleaseDisownedFastResourceExclusive.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiRemoveBoostThread @ 0x1403230A4 (KiRemoveBoostThread.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiRemoveBoostThread @ 0x1402CBC34 (KiRemoveBoostThread.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall ExpCommitWakeFastResource(_QWORD *a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall ExpCommitWakeFastResource(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rdi
   __int64 result; // rax
@@ -34,7 +34,7 @@ __int64 __fastcall ExpCommitWakeFastResource(_QWORD *a1, __int64 a2, __int64 a3,
   unsigned __int8 v20; // [rsp+30h] [rbp-38h]
 
   v4 = (_QWORD *)*a1;
-  result = 2 * (a4 & 1u) + 1;
+  result = 2 * (unsigned int)(a4 & 1) + 1;
   v7 = (2 * (a4 & 1) + 1) | 4;
   if ( (a4 & 2) == 0 )
     v7 = 2 * (a4 & 1) + 1;
@@ -55,7 +55,7 @@ __int64 __fastcall ExpCommitWakeFastResource(_QWORD *a1, __int64 a2, __int64 a3,
       {
         v12 = v11[6];
         if ( v12 )
-          KiAbConvertWaiterToOwnerEntry(*(_QWORD *)(v12 - 88LL * (*(_BYTE *)(v12 + 8) & 0x3F) - 16), v12, 1);
+          KiAbConvertWaiterToOwnerEntry(*(_QWORD *)(v12 - 88LL * (*(_BYTE *)(v12 + 8) & 0x3F) - 16), v12, 1LL, a4);
       }
       KiAcquireKobjectLockSafe((volatile signed __int32 *)v11 + 6);
       v13 = v11 + 4;

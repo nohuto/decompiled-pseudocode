@@ -1,30 +1,30 @@
 /*
- * XREFs of NtEnumerateDriverEntries @ 0x1407BDBD0
+ * XREFs of NtEnumerateDriverEntries @ 0x1407BE020
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExUnlockUserBuffer @ 0x14026893C (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpTranslateDriverEntryNameToId @ 0x1407BD140 (ExpTranslateDriverEntryNameToId.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExpSafeWcslen @ 0x140965898 (ExpSafeWcslen.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1409665F8 (IoEnumerateEnvironmentVariablesEx.c)
- *     ExLockUserBuffer @ 0x140966B28 (ExLockUserBuffer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExUnlockUserBuffer @ 0x14025FDEC (ExUnlockUserBuffer.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x1407BD590 (ExpTranslateDriverEntryNameToId.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExpSafeWcslen @ 0x14094E328 (ExpSafeWcslen.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14094F088 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExLockUserBuffer @ 0x14094F5B8 (ExLockUserBuffer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
 {
-  _DWORD *v2; // r15
+  PULONG v2; // r15
   unsigned int *v4; // r12
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v6; // r8
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v8; // rcx
@@ -33,7 +33,7 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   int v11; // ebx
   _DWORD *v12; // r13
   struct _KTHREAD *v13; // rax
-  int v14; // r14d
+  NTSTATUS v14; // r14d
   __int64 Pool2; // rax
   unsigned int *v16; // r15
   __int64 v17; // rdx
@@ -70,16 +70,16 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-40h]
   unsigned int v50; // [rsp+F8h] [rbp+20h] BYREF
 
-  v2 = a2;
+  v2 = BufferLength;
   v42 = 0LL;
   P = 0LL;
   v4 = 0LL;
-  if ( dword_140EFEAF0 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+  if ( dword_140EFEE10 != 2 )
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
@@ -88,17 +88,17 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
     if ( (unsigned __int64)v2 < 0x7FFFFFFF0000LL )
       v8 = (__int64)v2;
     *(_DWORD *)v8 = *(_DWORD *)v8;
-    v9 = Address != 0 ? *v2 : 0;
+    v9 = Buffer != 0LL ? *v2 : 0;
     if ( v9 )
-      ProbeForWrite((volatile void *)Address, v9, 4u);
+      ProbeForWrite(Buffer, v9, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v9 = Address != 0 ? *v2 : 0;
+    v9 = Buffer != 0LL ? *v2 : 0;
   }
-  if ( !v9 || (LOBYTE(v6) = PreviousMode, result = ExLockUserBuffer(Address, v9, v6, 1LL, &v42, &P), (int)result >= 0) )
+  if ( !v9 || (LOBYTE(v6) = PreviousMode, result = ExLockUserBuffer(Buffer, v9, v6, 1LL, &v42, &P), result >= 0) )
   {
     v10 = v42;
     v11 = 0;
@@ -111,7 +111,7 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
     v14 = IoEnumerateEnvironmentVariablesEx(2LL, ExpIsDriverEntry, 0LL, &v50);
     if ( v14 == -1073741789 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, v50, 0x72766E45u);
       v4 = (unsigned int *)Pool2;
       if ( Pool2 )
         v14 = IoEnumerateEnvironmentVariablesEx(2LL, ExpIsDriverEntry, Pool2, &v50);
@@ -141,7 +141,7 @@ LABEL_50:
       v34 = *v16;
       if ( !(_DWORD)v34 )
       {
-        v2 = a2;
+        v2 = BufferLength;
         if ( v12 )
           *v12 = 0;
 LABEL_54:
@@ -152,7 +152,7 @@ LABEL_54:
         if ( v14 >= 0 )
           v14 = v11;
         *v2 = (_DWORD)v10 - (_DWORD)v42;
-        return (unsigned int)v14;
+        return v14;
       }
       v16 = (unsigned int *)((char *)v16 + v34);
     }

@@ -1,24 +1,24 @@
 /*
- * XREFs of ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14069E174
+ * XREFs of ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14069F204
  * Callers:
- *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14069CD88 (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
- *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069E6A4 (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14069DE14 (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069F73C (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall MBR_ENTRY::ComputeChs(MBR_ENTRY *this, struct _DISK_GEOMETRY *a2)
 {
-  ULONG v2; // ebp
+  DWORD v2; // ebp
   _BYTE **v3; // rdi
   ULONG *v5; // rbx
   __int64 v6; // r14
   ULONG v7; // esi
   ULONG v8; // eax
-  ULONG v9; // ecx
+  DWORD v9; // ecx
   unsigned int v10; // r10d
   unsigned int v11; // r11d
-  ULONG SectorsPerTrack; // r8d
+  DWORD SectorsPerTrack; // r8d
   _BYTE *v13; // rdx
   _DWORD v14[2]; // [rsp+0h] [rbp-28h] BYREF
   _QWORD v15[4]; // [rsp+8h] [rbp-20h] BYREF

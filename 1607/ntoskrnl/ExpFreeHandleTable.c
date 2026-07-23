@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpFreeHandleTable @ 0x14045F118
+ * XREFs of ExpFreeHandleTable @ 0x14045DFE8
  * Callers:
- *     ExDupHandleTable @ 0x14045E7E0 (ExDupHandleTable.c)
- *     ExDestroyHandleTable @ 0x14045F0FC (ExDestroyHandleTable.c)
+ *     ExDupHandleTable @ 0x14045D6B0 (ExDupHandleTable.c)
+ *     ExDestroyHandleTable @ 0x14045DFCC (ExDestroyHandleTable.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x140027B7C (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400276FC (PsReturnProcessPagedPoolQuota.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExpFreeLowLevelTable @ 0x14045F1E4 (ExpFreeLowLevelTable.c)
- *     ExpFreeTablePagedPool @ 0x14045F21C (ExpFreeTablePagedPool.c)
- *     ExDereferenceHandleDebugInfo @ 0x1406AD34C (ExDereferenceHandleDebugInfo.c)
+ *     ExpFreeLowLevelTable @ 0x14045E0B4 (ExpFreeLowLevelTable.c)
+ *     ExpFreeTablePagedPool @ 0x14045E0EC (ExpFreeTablePagedPool.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1406AD484 (ExDereferenceHandleDebugInfo.c)
  */
 
 void __fastcall ExpFreeHandleTable(_QWORD *P)

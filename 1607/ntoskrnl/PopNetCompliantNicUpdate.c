@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetCompliantNicUpdate @ 0x140673664
+ * XREFs of PopNetCompliantNicUpdate @ 0x140673748
  * Callers:
- *     PopPdcCsDeviceNotification @ 0x14066FEEC (PopPdcCsDeviceNotification.c)
+ *     PopPdcCsDeviceNotification @ 0x14066FFD0 (PopPdcCsDeviceNotification.c)
  * Callees:
- *     PopQueueWorkItem @ 0x14014B25C (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x14014B7CC (PopQueueWorkItem.c)
  */
 
 char __fastcall PopNetCompliantNicUpdate(char a1, unsigned int a2)
@@ -46,7 +46,7 @@ char __fastcall PopNetCompliantNicUpdate(char a1, unsigned int a2)
       v4 = v2 == 2;
     }
     if ( v4 )
-      LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_140302668);
+      LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_1403026A8);
   }
   return v2;
 }

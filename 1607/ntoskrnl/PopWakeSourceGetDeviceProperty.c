@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWakeSourceGetDeviceProperty @ 0x14066E438
+ * XREFs of PopWakeSourceGetDeviceProperty @ 0x14066E51C
  * Callers:
- *     PopProcessWakeSourceWork @ 0x14066E27C (PopProcessWakeSourceWork.c)
+ *     PopProcessWakeSourceWork @ 0x14066E360 (PopProcessWakeSourceWork.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IoGetDeviceProperty @ 0x1404F936C (IoGetDeviceProperty.c)
+ *     IoGetDeviceProperty @ 0x1404DC2F8 (IoGetDeviceProperty.c)
  */
 
 void __fastcall PopWakeSourceGetDeviceProperty(__int64 a1, DEVICE_REGISTRY_PROPERTY a2, struct _DEVICE_OBJECT *a3)

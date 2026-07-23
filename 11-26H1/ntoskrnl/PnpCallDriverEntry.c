@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCallDriverEntry @ 0x140A262DC
+ * XREFs of PnpCallDriverEntry @ 0x140A3937C
  * Callers:
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpEnableWatchdog @ 0x1409DC9D0 (PnpEnableWatchdog.c)
- *     PnpDisableWatchdog @ 0x1409DDFA8 (PnpDisableWatchdog.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpEnableWatchdog @ 0x140A19C80 (PnpEnableWatchdog.c)
+ *     PnpDisableWatchdog @ 0x140A1B0D4 (PnpDisableWatchdog.c)
  */
 
 __int64 __fastcall PnpCallDriverEntry(__int64 a1, __int64 a2)

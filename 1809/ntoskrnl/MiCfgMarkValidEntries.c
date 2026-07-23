@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCfgMarkValidEntries @ 0x1405F631C
+ * XREFs of MiCfgMarkValidEntries @ 0x1405F731C
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1405F6680 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1405F7680 (NtSetInformationVirtualMemory.c)
  * Callees:
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
- *     MiIsProcessCfgExportSuppressionEnabled @ 0x140089560 (MiIsProcessCfgExportSuppressionEnabled.c)
- *     CfgAddressToBitState @ 0x1401223F0 (CfgAddressToBitState.c)
- *     MiSelectCfgBitMap @ 0x1405F482C (MiSelectCfgBitMap.c)
- *     MiPopulateCfgBitMap @ 0x1405F6560 (MiPopulateCfgBitMap.c)
- *     MiValidateUserCallTarget @ 0x1406A7648 (MiValidateUserCallTarget.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiIsProcessCfgEnabled @ 0x1400884AC (MiIsProcessCfgEnabled.c)
+ *     MiIsProcessCfgExportSuppressionEnabled @ 0x140089550 (MiIsProcessCfgExportSuppressionEnabled.c)
+ *     CfgAddressToBitState @ 0x1401224C0 (CfgAddressToBitState.c)
+ *     MiSelectCfgBitMap @ 0x1405F582C (MiSelectCfgBitMap.c)
+ *     MiPopulateCfgBitMap @ 0x1405F7560 (MiPopulateCfgBitMap.c)
+ *     MiValidateUserCallTarget @ 0x1406A88E8 (MiValidateUserCallTarget.c)
  */
 
 __int64 __fastcall MiCfgMarkValidEntries(

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoInvalidateInit @ 0x140C22968
+ * XREFs of IoInvalidateInit @ 0x140C24998
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     Feature_Servicing_PnpBootWaitForAsyncBusRelations__private_IsEnabledDeviceUsageNoInline @ 0x1404F69C8 (Feature_Servicing_PnpBootWaitForAsyncBusRelations__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_PnpBootWaitForAsyncBusRelations__private_IsEnabledDeviceUsageNoInline @ 0x1404F42AC (Feature_Servicing_PnpBootWaitForAsyncBusRelations__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 void (*IoInvalidateInit())()
@@ -24,7 +24,7 @@ void (*IoInvalidateInit())()
   }
   IoInvalidateBusRelationsWorkItem.Parameter = 0LL;
   IoInvalidateBusRelationsWorkItem.List.Flink = 0LL;
-  qword_140F8C088 = (__int64)&IoInvalidateBusRelationsQueue;
+  qword_140F8C2D8 = (__int64)&IoInvalidateBusRelationsQueue;
   IoInvalidateBusRelationsQueue = (__int64)&IoInvalidateBusRelationsQueue;
   result = IopInvalidateBusRelationsWorker;
   IoInvalidateBusRelationsWorkItem.WorkerRoutine = (void (__fastcall *)(void *))IopInvalidateBusRelationsWorker;

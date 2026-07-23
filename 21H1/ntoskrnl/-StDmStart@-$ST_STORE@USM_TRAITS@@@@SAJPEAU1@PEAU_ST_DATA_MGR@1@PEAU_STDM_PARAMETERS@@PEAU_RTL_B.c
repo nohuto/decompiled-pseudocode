@@ -12,7 +12,7 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a3, __int64 a4, __int64 a5, int a6)
+NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a3, __int64 a4, __int64 a5, int a6)
 {
   int v7; // eax
   __int64 v10; // xmm1_8
@@ -20,11 +20,11 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   __int64 v12; // rcx
   int v13; // eax
   PVOID PoolWithTag; // rax
-  RTL_BITMAP *v15; // rcx
+  _RTL_BITMAP *v15; // rcx
   PVOID v16; // rdx
   __int64 v17; // rsi
   int v18; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD v20[2]; // [rsp+20h] [rbp-49h] BYREF
   int v21; // [rsp+28h] [rbp-41h] BYREF
   int v22; // [rsp+2Ch] [rbp-3Dh]
@@ -32,12 +32,12 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   __int64 (__fastcall *v24)(); // [rsp+38h] [rbp-31h]
   __int64 (__fastcall *v25)(); // [rsp+40h] [rbp-29h]
   __int64 (__fastcall *v26)(); // [rsp+48h] [rbp-21h]
-  _OWORD v27[3]; // [rsp+50h] [rbp-19h] BYREF
+  _OWORD SystemInformation[3]; // [rsp+50h] [rbp-19h] BYREF
   __int64 v28; // [rsp+80h] [rbp+17h]
 
   v28 = 0LL;
   v7 = *a3;
-  memset(v27, 0, sizeof(v27));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   *(_OWORD *)(a2 + 776) = *(_OWORD *)a1;
   *(_OWORD *)(a2 + 792) = *(_OWORD *)(a1 + 16);
   *(_OWORD *)(a2 + 808) = *(_OWORD *)(a1 + 32);
@@ -64,15 +64,15 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
                     4 * (((unsigned __int64)*(unsigned int *)(a1 + 12) + 31) >> 5),
                     0x74536D73u);
     if ( !PoolWithTag )
-      return 3221225626LL;
-    v15 = (RTL_BITMAP *)(a2 + 840);
+      return -1073741670;
+    v15 = (_RTL_BITMAP *)(a2 + 840);
     *(_DWORD *)(a2 + 840) = *(_DWORD *)(a1 + 12);
     *(_QWORD *)(a2 + 848) = PoolWithTag;
     v13 = *(_DWORD *)(a2 + 776);
   }
   else
   {
-    v15 = (RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
   }
   if ( (v13 & 0x40000) != 0 )
     RtlSetAllBits(v15);
@@ -81,7 +81,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
           4 * (((unsigned __int64)*(unsigned int *)(a1 + 12) + 31) >> 5),
           0x74536D73u);
   if ( !v16 )
-    return 3221225626LL;
+    return -1073741670;
   *(_DWORD *)(a2 + 1072) = *(_DWORD *)(a1 + 12);
   *(_QWORD *)(a2 + 1080) = v16;
   RtlSetAllBits((PRTL_BITMAP)(a2 + 1072));
@@ -101,13 +101,13 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   v22 = 0;
   if ( (v18 & 8) != 0 )
   {
-    result = ZwQuerySystemInformation(182LL, v27);
-    if ( (int)result < 0 )
+    result = ZwQuerySystemInformation(SystemMemoryUsageInformation, SystemInformation, 0x38u, 0LL);
+    if ( result < 0 )
       return result;
-    if ( *(_QWORD *)&v27[0] >> 21 >= 0x10uLL )
+    if ( *(_QWORD *)&SystemInformation[0] >> 21 >= 0x10uLL )
     {
-      v17 = *(_QWORD *)&v27[0] >> 21;
-      if ( *(_QWORD *)&v27[0] >> 21 > 0xFFFFFFFFuLL )
+      v17 = *(_QWORD *)&SystemInformation[0] >> 21;
+      if ( *(_QWORD *)&SystemInformation[0] >> 21 > 0xFFFFFFFFuLL )
         LODWORD(v17) = -1;
     }
     v21 = v17;
@@ -122,14 +122,14 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   v25 = ST_STORE<SM_TRAITS>::StNpLeafPageIn;
   v26 = ST_STORE<SM_TRAITS>::StNpLeafDelete;
   result = NP_CONTEXT::NpStart((struct NP_CONTEXT *)(a2 + 1376), (struct NP_CONTEXT::_NP_PARAMETERS *)&v21);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     result = NP_CONTEXT::NpStart((struct NP_CONTEXT *)(a2 + 1512), (struct NP_CONTEXT::_NP_PARAMETERS *)&v21);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       result = NP_CONTEXT::NpStart((struct NP_CONTEXT *)(a2 + 1648), (struct NP_CONTEXT::_NP_PARAMETERS *)&v21);
-      if ( (int)result >= 0 )
-        return 0LL;
+      if ( result >= 0 )
+        return 0;
     }
   }
   return result;

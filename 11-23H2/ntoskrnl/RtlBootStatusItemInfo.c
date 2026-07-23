@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlBootStatusItemInfo @ 0x1407ECB48
+ * XREFs of RtlBootStatusItemInfo @ 0x1407ECE18
  * Callers:
- *     PopBootStatGet @ 0x1407EC4E8 (PopBootStatGet.c)
- *     RtlpGetSetBootStatusData @ 0x1407EC96C (RtlpGetSetBootStatusData.c)
- *     PopBootStatSet @ 0x1407EEA78 (PopBootStatSet.c)
- *     RtlCheckBootStatusIntegrity @ 0x14084D67C (RtlCheckBootStatusIntegrity.c)
+ *     PopBootStatGet @ 0x1407EC7B8 (PopBootStatGet.c)
+ *     RtlpGetSetBootStatusData @ 0x1407ECC3C (RtlpGetSetBootStatusData.c)
+ *     PopBootStatSet @ 0x1407EED48 (PopBootStatSet.c)
+ *     RtlCheckBootStatusIntegrity @ 0x14084D97C (RtlCheckBootStatusIntegrity.c)
  * Callees:
  *     <none>
  */

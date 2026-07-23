@@ -12,18 +12,17 @@ __int64 __fastcall TpAlpcUnregisterCompletionList(__int64 a1)
   __int64 v1; // rdx
   __int64 v2; // rcx
   __int64 v3; // r8
-  __int64 v4; // r9
-  int *v5; // rbx
-  int v6; // eax
+  int *v4; // rbx
+  int v5; // eax
   __int64 result; // rax
 
-  v5 = (int *)(a1 + 288);
-  if ( !(unsigned int)TppAlpcpValidateAlpc(a1, 0LL, 1LL) || (v6 = *v5, (*v5 & 1) == 0) )
+  v4 = (int *)(a1 + 288);
+  if ( !(unsigned int)TppAlpcpValidateAlpc(a1, 0LL, 1LL) || (v5 = *v4, (*v4 & 1) == 0) )
   {
-    TppRaiseInvalidParameter(v2, v1, v3, v4);
-    v6 = *v5;
+    TppRaiseInvalidParameter(v2, v1, v3);
+    v5 = *v4;
   }
-  result = v6 & 0xFFFFFFFD;
-  *v5 = result;
+  result = v5 & 0xFFFFFFFD;
+  *v4 = result;
   return result;
 }

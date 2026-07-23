@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmParkEvalualteSmtUnparkPolicy @ 0x1404B8EA0
+ * XREFs of PpmParkEvalualteSmtUnparkPolicy @ 0x1404B3B5C
  * Callers:
- *     PpmParkApplyPolicy @ 0x1404ED2F4 (PpmParkApplyPolicy.c)
- *     PpmParkApplyPolicyEx @ 0x1405E1344 (PpmParkApplyPolicyEx.c)
+ *     PpmParkApplyPolicy @ 0x1404E4B18 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicyEx @ 0x1405DE964 (PpmParkApplyPolicyEx.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
  */
 
 char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
@@ -72,7 +72,7 @@ char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
         *v6 = (_WORD)v1;
         if ( (unsigned __int16)v1 < (unsigned __int16)PpmParkGranularity )
           *v6 = PpmParkGranularity;
-        v6 += 644;
+        v6 += 648;
         --v5;
       }
       while ( v5 );

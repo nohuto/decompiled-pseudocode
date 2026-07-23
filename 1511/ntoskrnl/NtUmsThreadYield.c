@@ -7,34 +7,35 @@
  *     KiUmsExceptionFilter @ 0x14061BA0C (KiUmsExceptionFilter.c)
  */
 
-__int64 __fastcall NtUmsThreadYield(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtUmsThreadYield(PVOID SchedulerParam)
 {
+  __int64 v1; // r8
   struct _KTHREAD *CurrentThread; // rsi
-  struct _KTHREAD *v4; // rax
-  unsigned int v5; // ebx
+  struct _KTHREAD *v3; // rax
+  NTSTATUS v4; // ebx
   _DWORD *Object; // rsi
-  __int64 v8; // rdi
-  __int64 v9; // r14
+  __int64 v7; // rdi
+  __int64 v8; // r14
 
   CurrentThread = KeGetCurrentThread();
-  v4 = CurrentThread;
-  v5 = 0;
+  v3 = CurrentThread;
+  v4 = 0;
   if ( !CurrentThread )
-    v4 = KeGetCurrentThread();
-  if ( (v4->Header.Reserved1 & 0x40) == 0 )
-    return 3221225659LL;
+    v3 = KeGetCurrentThread();
+  if ( (v3->Header.Reserved1 & 0x40) == 0 )
+    return -1073741637;
   Object = CurrentThread->WaitBlock[3].Object;
-  v8 = *(_QWORD *)Object;
-  v9 = *(_QWORD *)(*(_QWORD *)Object + 1272LL);
+  v7 = *(_QWORD *)Object;
+  v8 = *(_QWORD *)(*(_QWORD *)Object + 1272LL);
   *(_QWORD *)(*(_QWORD *)Object + 1272LL) = 1LL;
-  if ( KiIsPrimaryPresent(v8, a1, a3) )
+  if ( KiIsPrimaryPresent(v7, (__int64)SchedulerParam, v1) )
   {
     Object[20] |= 1u;
   }
   else
   {
-    v5 = -1073740004;
-    *(_QWORD *)(v8 + 1272) = v9;
+    v4 = -1073740004;
+    *(_QWORD *)(v7 + 1272) = v8;
   }
-  return v5;
+  return v4;
 }

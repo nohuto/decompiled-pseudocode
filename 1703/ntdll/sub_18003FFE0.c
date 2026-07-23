@@ -6,16 +6,16 @@
  *     RtlFreeUnicodeString @ 0x18001F9F0 (RtlFreeUnicodeString.c)
  */
 
-void *__fastcall sub_18003FFE0(wchar_t **a1)
+void *__fastcall sub_18003FFE0(PWCH *a1)
 {
-  wchar_t **v2; // rdi
-  wchar_t *v3; // rax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
+  PWCH *v2; // rdi
+  WCHAR *v3; // rax
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
 
   if ( *((_BYTE *)a1 + 80) )
   {
     v2 = a1 + 2;
-    if ( a1 != (wchar_t **)-16LL && *v2 )
+    if ( a1 != (PWCH *)-16LL && *v2 )
     {
       if ( *v2 != a1[3] )
       {

@@ -1,23 +1,24 @@
 /*
- * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x14026354C
+ * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x14028498C
  * Callers:
- *     PopPepWork @ 0x1402614FC (PopPepWork.c)
+ *     PopPepWork @ 0x1402829CC (PopPepWork.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
-char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, int a4, int a5)
+char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, __int64 a3, int a4, int a5)
 {
   _UNKNOWN **v5; // rax
   int v6; // r14d
+  char v8; // r15
   REGHANDLE v10; // rbx
-  int v11; // r8d
-  __int64 v12; // r9
-  int v13; // r8d
+  __int64 v11; // r8
+  __int64 UserDataCount; // r9
+  __int64 v13; // r8
   __int64 v14; // r9
   char v15; // al
   REGHANDLE v16; // rbx
@@ -37,35 +38,40 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
   __int64 v31; // [rsp+90h] [rbp-78h]
   char *v32; // [rsp+98h] [rbp-70h]
   __int64 v33; // [rsp+A0h] [rbp-68h]
-  __int64 v34[8]; // [rsp+A8h] [rbp-60h] BYREF
-  char v35[32]; // [rsp+E8h] [rbp-20h] BYREF
-  int *v36; // [rsp+108h] [rbp+0h]
-  __int64 v37; // [rsp+110h] [rbp+8h]
+  struct _EVENT_DATA_DESCRIPTOR v34; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 *v35; // [rsp+C8h] [rbp-40h]
+  __int64 v36; // [rsp+D0h] [rbp-38h]
+  __int64 *v37; // [rsp+D8h] [rbp-30h]
+  __int64 v38; // [rsp+E0h] [rbp-28h]
+  struct _EVENT_DATA_DESCRIPTOR v39; // [rsp+E8h] [rbp-20h] BYREF
+  int *v40; // [rsp+108h] [rbp+0h]
+  __int64 v41; // [rsp+110h] [rbp+8h]
   _UNKNOWN *retaddr; // [rsp+150h] [rbp+48h] BYREF
-  __int64 v39; // [rsp+158h] [rbp+50h] BYREF
+  __int64 v43; // [rsp+158h] [rbp+50h] BYREF
 
   v5 = &retaddr;
-  v39 = a1;
+  v43 = a1;
   v6 = a5;
+  v8 = a3;
   if ( a4 == 2 )
   {
     if ( (unsigned int)dword_140C02228 > 5 )
     {
-      LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
+      LOBYTE(v5) = tlgKeywordOn(&dword_140C02228, 0x400000000000LL, a3, 4LL);
       if ( (_BYTE)v5 )
       {
         v24 = v6;
-        v36 = &v24;
-        v37 = v14;
+        v40 = &v24;
+        v41 = v14;
         LOBYTE(v5) = tlgWriteEx_EtwWriteEx(
-                       (int)&dword_140C02228,
-                       (int)&dword_1400286DC,
+                       (__int64)&dword_140C02228,
+                       (unsigned __int8 *)&byte_140028507,
                        v13,
-                       1,
+                       1u,
                        ActivityId,
                        RelatedActivityId,
                        3u,
-                       (__int64)v35);
+                       &v39);
       }
     }
   }
@@ -77,24 +83,24 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
     {
       if ( (unsigned int)dword_140C02228 > 5 )
       {
-        LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
+        LOBYTE(v5) = tlgKeywordOn(&dword_140C02228, 0x400000000000LL, a3, 4LL);
         if ( (_BYTE)v5 )
         {
           LODWORD(v25) = v6;
-          v34[4] = (__int64)&v25;
-          v34[5] = v12;
-          v34[6] = (__int64)&v26;
+          v35 = &v25;
+          v36 = UserDataCount;
+          v37 = &v26;
           v26 = 0x1000000LL;
-          v34[7] = 8LL;
+          v38 = 8LL;
           LOBYTE(v5) = tlgWriteEx_EtwWriteEx(
-                         (int)&dword_140C02228,
-                         (int)&byte_14002871B,
+                         (__int64)&dword_140C02228,
+                         (unsigned __int8 *)&byte_1400284B9,
                          v11,
-                         1,
+                         1u,
                          ActivityId,
                          RelatedActivityId,
-                         v12,
-                         (__int64)v34);
+                         UserDataCount,
+                         &v34);
         }
       }
     }
@@ -114,7 +120,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
         }
         else
         {
-          v15 = a3;
+          v15 = v8;
           if ( a2 == 3 )
             v15 = -2;
         }
@@ -125,7 +131,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
       }
       v21 = v15;
       v22 = a4;
-      UserData.Ptr = (ULONGLONG)&v39;
+      UserData.Ptr = (ULONGLONG)&v43;
       v23 = v6;
       v28 = &v21;
       v30 = &v22;

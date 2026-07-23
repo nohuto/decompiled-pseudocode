@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlCalculateLivedumpSize @ 0x1404F8B60
+ * XREFs of HvlCalculateLivedumpSize @ 0x1404F8AE0
  * Callers:
- *     IopLiveDumpEstimateMemoryPages @ 0x1409AC28C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AD1BC (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     VslLiveDumpQuerySecondaryDataSize @ 0x1404FCDB0 (VslLiveDumpQuerySecondaryDataSize.c)
+ *     VslLiveDumpQuerySecondaryDataSize @ 0x1404FCD30 (VslLiveDumpQuerySecondaryDataSize.c)
  */
 
 __int64 __fastcall HvlCalculateLivedumpSize(_QWORD *a1, _QWORD *a2, _QWORD *a3)
@@ -11,7 +11,7 @@ __int64 __fastcall HvlCalculateLivedumpSize(_QWORD *a1, _QWORD *a2, _QWORD *a3)
   unsigned int v3; // r9d
   bool v4; // zf
 
-  if ( (HvlpRootFlags & 2) != 0 && (v3 = 0, qword_140C47508) && HvlpHypervisorStatsPage )
+  if ( (HvlpRootFlags & 2) != 0 && (v3 = 0, qword_140C475A8) && HvlpHypervisorStatsPage )
   {
     v4 = VslVsmEnabled == 0;
     *a1 = (*(_QWORD *)(HvlpHypervisorStatsPage + 24)
@@ -22,7 +22,7 @@ __int64 __fastcall HvlCalculateLivedumpSize(_QWORD *a1, _QWORD *a2, _QWORD *a3)
          + 1) << 12;
     if ( v4 )
     {
-      *a3 = (unsigned __int64)(unsigned int)dword_140C47518 << 12;
+      *a3 = (unsigned __int64)(unsigned int)dword_140C475B8 << 12;
       *a2 = 0LL;
     }
     else

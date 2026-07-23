@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapCompressErrorRecord @ 0x1403202E4
+ * XREFs of WheapCompressErrorRecord @ 0x1403204D4
  * Callers:
- *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x14031FF10 (WheaReportHwError.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void *__fastcall WheapCompressErrorRecord(char a1, __int64 a2)

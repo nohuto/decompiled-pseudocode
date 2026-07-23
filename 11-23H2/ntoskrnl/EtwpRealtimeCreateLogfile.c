@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpRealtimeCreateLogfile @ 0x140772D48
+ * XREFs of EtwpRealtimeCreateLogfile @ 0x140772F38
  * Callers:
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     EtwpSendSessionNotification @ 0x14077E820 (EtwpSendSessionNotification.c)
- *     EtwpDelayCreate @ 0x1407F6A54 (EtwpDelayCreate.c)
- *     EtwpExpandFileName @ 0x1407F6D80 (EtwpExpandFileName.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     EtwpRealtimeResetReferenceTime @ 0x1408011FC (EtwpRealtimeResetReferenceTime.c)
- *     EtwpRealtimeRestoreState @ 0x140852208 (EtwpRealtimeRestoreState.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x1408573E0 (EtwpRealtimeZeroTruncateLogfile.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x140885EE8 (EtwpRealtimeUpdateReferenceTime.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     EtwpSendSessionNotification @ 0x14077EA10 (EtwpSendSessionNotification.c)
+ *     EtwpDelayCreate @ 0x1407F6D24 (EtwpDelayCreate.c)
+ *     EtwpExpandFileName @ 0x1407F7050 (EtwpExpandFileName.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x1408014CC (EtwpRealtimeResetReferenceTime.c)
+ *     EtwpRealtimeRestoreState @ 0x140852508 (EtwpRealtimeRestoreState.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x140857620 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x140886128 (EtwpRealtimeUpdateReferenceTime.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,47 +1,47 @@
 /*
- * XREFs of KeClockInterruptNotify @ 0x140221640
+ * XREFs of KeClockInterruptNotify @ 0x1402C5F40
  * Callers:
- *     HalpTimerClockIpiRoutine @ 0x140221560 (HalpTimerClockIpiRoutine.c)
- *     HalpTimerClockInterrupt @ 0x14022A590 (HalpTimerClockInterrupt.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x1404D47D0 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockIpiRoutine @ 0x1402C5E60 (HalpTimerClockIpiRoutine.c)
+ *     HalpTimerClockInterrupt @ 0x1402CEE40 (HalpTimerClockInterrupt.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x1404D4A10 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     KeAccumulateTicks @ 0x140224410 (KeAccumulateTicks.c)
- *     KiUpdateTime @ 0x140227730 (KiUpdateTime.c)
- *     PoExecuteIdleCheck @ 0x140227E50 (PoExecuteIdleCheck.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiShouldScanSharedReadyQueue @ 0x140259994 (KiShouldScanSharedReadyQueue.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1402930E4 (KiSetClockIntervalToMinimumRequested.c)
- *     KeIsForceIdleEngaged @ 0x1402935F4 (KeIsForceIdleEngaged.c)
- *     KiEventClockStateChange @ 0x140293778 (KiEventClockStateChange.c)
- *     KiRestoreClockTickRate @ 0x1402937B8 (KiRestoreClockTickRate.c)
- *     HalRequestSoftwareInterrupt @ 0x140293E90 (HalRequestSoftwareInterrupt.c)
- *     KiIsQosGroupingActive @ 0x140398E54 (KiIsQosGroupingActive.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x140211054 (KiSetClockIntervalToMinimumRequested.c)
+ *     KeIsForceIdleEngaged @ 0x140211564 (KeIsForceIdleEngaged.c)
+ *     KiEventClockStateChange @ 0x1402116E8 (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x140211728 (KiRestoreClockTickRate.c)
+ *     HalRequestSoftwareInterrupt @ 0x140211E00 (HalRequestSoftwareInterrupt.c)
+ *     KiShouldScanSharedReadyQueue @ 0x14027AF04 (KiShouldScanSharedReadyQueue.c)
+ *     KeAccumulateTicks @ 0x1402C8D10 (KeAccumulateTicks.c)
+ *     KiUpdateTime @ 0x1402CC030 (KiUpdateTime.c)
+ *     PoExecuteIdleCheck @ 0x1402CC750 (PoExecuteIdleCheck.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiIsQosGroupingActive @ 0x140398FA4 (KiIsQosGroupingActive.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeCheckAndApplyBamQos @ 0x14051E4A0 (KeCheckAndApplyBamQos.c)
- *     KeUpdatePendingQosRequest @ 0x14051EE60 (KeUpdatePendingQosRequest.c)
- *     KiConvertDynamicHeteroPolicy @ 0x14051F1A0 (KiConvertDynamicHeteroPolicy.c)
- *     KiGenerateHeteroSets @ 0x14051F2B8 (KiGenerateHeteroSets.c)
- *     KiResetForceIdle @ 0x140523620 (KiResetForceIdle.c)
- *     PoSetProcessorQoS @ 0x14056E55C (PoSetProcessorQoS.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeCheckAndApplyBamQos @ 0x14051E6E0 (KeCheckAndApplyBamQos.c)
+ *     KeUpdatePendingQosRequest @ 0x14051F0A0 (KeUpdatePendingQosRequest.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x14051F3E0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x14051F4F8 (KiGenerateHeteroSets.c)
+ *     KiResetForceIdle @ 0x140523860 (KiResetForceIdle.c)
+ *     PoSetProcessorQoS @ 0x14056E79C (PoSetProcessorQoS.c)
  */
 
 void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
 {
   struct _KPRCB *CurrentPrcb; // rsi
-  char *v5; // r12
+  LARGE_INTEGER *v5; // r12
   struct _KPRCB *v6; // rbx
   _DWORD *SchedulerAssist; // rcx
   int v8; // eax
   _DWORD *v9; // rcx
   int v10; // eax
-  __int64 InterruptTimePrecise; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rbx
   __int64 v12; // rdx
   int v13; // eax
   char v14; // r13
-  struct _KPRCB *v15; // rcx
-  _DWORD *v16; // rdx
+  __int64 PrcbFlags; // rcx
+  __int64 ThreadFlags2; // rdx
   int v17; // eax
   unsigned __int8 v18; // di
   __int64 v19; // rcx
@@ -64,56 +64,50 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   struct _KPRCB *v36; // rbx
   __int16 v37; // r15
   int v38; // r13d
-  __int64 v39; // rdx
-  __int64 PrcbFlags; // rcx
   _KTHREAD *CurrentThread; // rsi
   unsigned int SystemHeteroCpuPolicy; // edi
   _KNODE *ParentNode; // r14
-  __int64 v44; // rdx
-  __int64 v45; // r8
-  unsigned __int64 v46; // rdx
+  __int64 v42; // r8
   unsigned __int8 EfficiencySchedulingClass; // r9
-  int v48; // r11d
-  unsigned __int64 v49; // rax
-  __int64 v50; // r8
-  unsigned __int8 v51; // al
-  struct _KPRCB *v52; // rdi
-  unsigned int v53; // r8d
-  bool v54; // r15
-  unsigned int v55; // edx
-  char v56; // al
-  _KSCHEDULING_GROUP *volatile SchedulingGroup; // rcx
-  char v58; // dl
-  __int64 v59; // r8
-  char v60; // al
-  unsigned __int64 v61; // rax
-  unsigned __int8 v62; // bl
-  _DWORD *v63; // r9
-  unsigned __int8 v64; // al
-  struct _KPRCB *v65; // r9
-  _DWORD *v66; // r8
-  int v67; // eax
-  _DWORD v68[2]; // [rsp+30h] [rbp-78h] BYREF
-  __int64 v69; // [rsp+38h] [rbp-70h] BYREF
-  __int64 v70; // [rsp+40h] [rbp-68h] BYREF
-  __int64 v71; // [rsp+48h] [rbp-60h] BYREF
-  __int64 v72; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v73; // [rsp+58h] [rbp-50h] BYREF
-  __int64 v74; // [rsp+60h] [rbp-48h] BYREF
-  int v75; // [rsp+A0h] [rbp-8h]
-  char v76; // [rsp+C0h] [rbp+18h]
+  int v44; // r11d
+  unsigned __int64 v45; // rax
+  __int64 v46; // r8
+  unsigned __int8 v47; // al
+  struct _KPRCB *v48; // rdi
+  unsigned int v49; // r8d
+  bool v50; // r15
+  unsigned int v51; // edx
+  char v52; // al
+  __int64 v53; // r8
+  char v54; // al
+  unsigned __int64 v55; // rax
+  unsigned __int8 v56; // bl
+  _DWORD *v57; // r9
+  unsigned __int8 v58; // al
+  struct _KPRCB *v59; // r9
+  _DWORD *v60; // r8
+  int v61; // eax
+  _DWORD v62[2]; // [rsp+30h] [rbp-78h] BYREF
+  __int64 v63; // [rsp+38h] [rbp-70h] BYREF
+  __int64 v64; // [rsp+40h] [rbp-68h] BYREF
+  __int64 v65; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v66; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v67; // [rsp+58h] [rbp-50h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp-48h] BYREF
+  int v69; // [rsp+A0h] [rbp-8h]
+  char v70; // [rsp+C0h] [rbp+18h]
 
-  v71 = 0LL;
+  v65 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   v5 = 0LL;
-  v74 = 0LL;
-  v76 = 0;
-  v70 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
+  v70 = 0;
+  v64 = 0LL;
   if ( KiForceIdleDisabled )
     goto LABEL_28;
   _disable();
   v6 = KeGetCurrentPrcb();
-  v68[0] = 0;
+  v62[0] = 0;
   while ( 1 )
   {
     SchedulerAssist = v6->SchedulerAssist;
@@ -141,13 +135,13 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
       }
     }
     do
-      KeYieldProcessorEx(v68);
+      KeYieldProcessorEx(v62);
     while ( KiForceIdleLock );
   }
-  if ( !CurrentPrcb->ClockOwner || !(unsigned __int8)KeIsForceIdleEngaged() )
+  if ( !CurrentPrcb->ClockOwner || !KeIsForceIdleEngaged() )
     goto LABEL_22;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v74);
-  PoExecuteIdleCheck(InterruptTimePrecise);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  ((void (__fastcall *)(_QWORD))PoExecuteIdleCheck)((LARGE_INTEGER)InterruptTimePrecise.QuadPart);
   if ( KiForceIdleWatchdogResetCount == 32 )
   {
     off_140C008C0[0]();
@@ -158,7 +152,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
     v13 = KiForceIdleWatchdogResetCount + 1;
   }
   KiForceIdleWatchdogResetCount = v13;
-  if ( (unsigned __int64)(InterruptTimePrecise - KiForceIdleActiveLastStartTime) > 0x1312D00 )
+  if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiForceIdleActiveLastStartTime) > 0x1312D00 )
   {
     LOBYTE(v12) = 1;
     KiResetForceIdle(2LL, v12);
@@ -168,23 +162,23 @@ LABEL_22:
   }
   ++qword_140C31BD0;
   v14 = 1;
-  v5 = (char *)&KiClockTickSkipTraces + 16 * (unsigned int)KiClockTickSkipTraceIndex;
-  v76 = 1;
+  v5 = (LARGE_INTEGER *)((char *)&KiClockTickSkipTraces + 16 * (unsigned int)KiClockTickSkipTraceIndex);
+  v70 = 1;
   KiClockTickSkipTraceIndex = ((_BYTE)KiClockTickSkipTraceIndex + 1) & 0xF;
-  *v5 = 0;
-  *((_QWORD *)v5 + 1) = InterruptTimePrecise;
+  LOBYTE(v5->LowPart) = 0;
+  v5[1] = InterruptTimePrecise;
 LABEL_23:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
-  v15 = KeGetCurrentPrcb();
-  v16 = v15->SchedulerAssist;
-  if ( v16 )
+  PrcbFlags = (__int64)KeGetCurrentPrcb();
+  ThreadFlags2 = *(_QWORD *)(PrcbFlags + 33976);
+  if ( ThreadFlags2 )
   {
-    if ( v15->NestingLevel <= 1u )
+    if ( *(_BYTE *)(PrcbFlags + 32) <= 1u )
     {
-      v17 = v16[6] - 1;
-      v16[6] = v17;
+      v17 = *(_DWORD *)(ThreadFlags2 + 24) - 1;
+      *(_DWORD *)(ThreadFlags2 + 24) = v17;
       if ( !v17 )
-        KiRemoveSystemWorkPriorityKick(v15);
+        KiRemoveSystemWorkPriorityKick(PrcbFlags);
     }
   }
   _enable();
@@ -236,10 +230,12 @@ LABEL_28:
         __writecr8(0xFuLL);
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v28 <= 0xFu )
         {
+          PrcbFlags = (unsigned int)v28 + 1;
           v29 = KeGetCurrentPrcb()->SchedulerAssist;
-          v29[5] |= (-1 << (v28 + 1)) & 0xFFFC;
+          ThreadFlags2 = (-1LL << (v28 + 1)) & 0xFFFC;
+          v29[5] |= ThreadFlags2;
         }
-        KiSetClockIntervalToMinimumRequested();
+        KiSetClockIntervalToMinimumRequested(PrcbFlags, ThreadFlags2);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
@@ -248,8 +244,10 @@ LABEL_28:
             if ( v30 <= 0xFu && v28 <= 0xFu && v30 >= 2u )
             {
               v31 = KeGetCurrentPrcb();
+              PrcbFlags = (unsigned int)v28 + 1;
+              ThreadFlags2 = -1LL << (v28 + 1);
               v32 = v31->SchedulerAssist;
-              v33 = ~(unsigned __int16)(-1LL << (v28 + 1));
+              v33 = ~(unsigned __int16)ThreadFlags2;
               v21 = (v33 & v32[5]) == 0;
               v32[5] &= v33;
               if ( v21 )
@@ -263,9 +261,9 @@ LABEL_28:
       v34 = MEMORY[0xFFFFF78000000008];
       if ( KiClockState == 2 )
       {
-        KiRestoreClockTickRate(MEMORY[0xFFFFF78000000008], &v70, &v71);
+        KiRestoreClockTickRate(MEMORY[0xFFFFF78000000008], &v64);
         _InterlockedExchange(&KiClockState, 0);
-        KiEventClockStateChange(0LL, 2LL, &v71, &v70);
+        KiEventClockStateChange(0, 2, &v65, &v64);
       }
       v35 = v34 + (unsigned int)KeTimeIncrement;
       v20[2] = v34;
@@ -273,7 +271,7 @@ LABEL_28:
       goto LABEL_117;
     }
     v36 = KeGetCurrentPrcb();
-    v37 = v75;
+    v37 = v69;
     ++v36->ClockInterrupts;
     ++v36->InterruptLastCount;
     _disable();
@@ -288,137 +286,139 @@ LABEL_28:
       if ( CurrentThread->CycleTime >= CurrentThread->QuantumTarget )
         goto LABEL_103;
       SystemHeteroCpuPolicy = CurrentThread->SystemHeteroCpuPolicy;
-      v72 = 0LL;
-      v69 = 0LL;
-      v73 = 0LL;
+      v66 = 0LL;
+      v63 = 0LL;
+      v67 = 0LL;
       if ( SystemHeteroCpuPolicy )
       {
         if ( SystemHeteroCpuPolicy >= 5 )
-          SystemHeteroCpuPolicy = KiConvertDynamicHeteroPolicy(CurrentThread, v39, v36);
+          SystemHeteroCpuPolicy = KiConvertDynamicHeteroPolicy(CurrentThread, ThreadFlags2, v36);
         ParentNode = v36->ParentNode;
         KiGenerateHeteroSets(
           (_DWORD)ParentNode,
           CurrentThread->Affinity.Mask,
           SystemHeteroCpuPolicy,
-          (unsigned int)&v69,
-          (__int64)&v73,
-          (__int64)&v72);
-        if ( (v72 & v36->GroupSetMember) == 0
+          (unsigned int)&v63,
+          (__int64)&v67,
+          (__int64)&v66);
+        if ( (v66 & v36->GroupSetMember) == 0
           || (unsigned __int8)KiIsQosGroupingActive(
                                 PrcbFlags,
                                 v36->ParentNode->QosGroupingSets.SmtSet,
                                 ParentNode->IdleNonParkedCpuSet)
-          && (v44 & v45) != 0
+          && (ThreadFlags2 & v42) != 0
           && (unsigned int)(unsigned __int8)CurrentThread->ThreadFlags2 - 1 <= 1
-          && (v44 & v36->GroupSetMember) == 0 )
+          && (ThreadFlags2 & v36->GroupSetMember) == 0 )
         {
           goto LABEL_103;
         }
-        if ( (v69 & v36->GroupSetMember) == 0 )
+        if ( (v63 & v36->GroupSetMember) == 0 )
         {
-          if ( (v45 & ParentNode->IdleSmtSet) != 0 )
-            v45 &= ParentNode->IdleSmtSet;
-          if ( (v45 & v69) != 0 )
+          ThreadFlags2 = v63;
+          if ( (v42 & ParentNode->IdleSmtSet) != 0 )
+            v42 &= ParentNode->IdleSmtSet;
+          if ( (v42 & v63) != 0 )
             goto LABEL_103;
-          v46 = v45 & v73 & ~v69;
+          ThreadFlags2 = v42 & v67 & ~v63;
           if ( SystemHeteroCpuPolicy - 3 <= 1 )
             EfficiencySchedulingClass = v36->PowerState.EfficiencySchedulingClass;
           else
             EfficiencySchedulingClass = v36->PowerState.PerformanceSchedulingClass;
-          if ( v46 )
+          if ( ThreadFlags2 )
           {
-            v48 = ParentNode->Affinity.Group << 6;
+            v44 = ParentNode->Affinity.Group << 6;
             do
             {
-              _BitScanReverse64(&v49, v46);
-              v68[1] = v49;
-              v50 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[(unsigned int)(v48 + v49)]];
-              v51 = SystemHeteroCpuPolicy - 3 <= 1 ? *(_BYTE *)(v50 + 33210) : *(_BYTE *)(v50 + 33209);
-              if ( v51 > EfficiencySchedulingClass )
+              _BitScanReverse64(&v45, ThreadFlags2);
+              v62[1] = v45;
+              v46 = KiProcessorBlock[KiProcessorNumberToIndexMappingTable[(unsigned int)(v44 + v45)]];
+              v47 = SystemHeteroCpuPolicy - 3 <= 1 ? *(_BYTE *)(v46 + 33210) : *(_BYTE *)(v46 + 33209);
+              if ( v47 > EfficiencySchedulingClass )
                 goto LABEL_103;
-              v46 &= ~*(_QWORD *)(v50 + 200);
+              ThreadFlags2 &= ~*(_QWORD *)(v46 + 200);
             }
-            while ( v46 );
+            while ( ThreadFlags2 );
           }
         }
       }
-      v52 = KeGetCurrentPrcb();
-      PrcbFlags = (unsigned int)v52->PrcbFlags.PrcbFlags;
+      v48 = KeGetCurrentPrcb();
+      PrcbFlags = (unsigned int)v48->PrcbFlags.PrcbFlags;
       if ( (PrcbFlags & 0x300) != 0 )
       {
         _disable();
-        PrcbFlags = (unsigned int)v52->PrcbFlags.PrcbFlags;
-        v53 = v52->PrcbFlags.PrcbFlags & 0xFFFFFCFF;
-        v54 = (v37 & 0x200) != 0;
+        PrcbFlags = (unsigned int)v48->PrcbFlags.PrcbFlags;
+        ThreadFlags2 = (unsigned int)CurrentThread->ThreadFlags2;
+        v49 = v48->PrcbFlags.PrcbFlags & 0xFFFFFCFF;
+        v50 = (v37 & 0x200) != 0;
         if ( (unsigned __int8)PrcbFlags != LOBYTE(CurrentThread->ThreadFlags2) )
         {
-          v55 = v53 | ((CurrentThread->ThreadFlags2 & 3) << 8);
-          v52->PrcbFlags.PrcbFlags = v55;
-          v56 = PoSetProcessorQoS(v52, (v55 >> 8) & 3);
-          v53 = v52->PrcbFlags.PrcbFlags;
-          if ( !v56 )
+          v51 = v49 | ((CurrentThread->ThreadFlags2 & 3) << 8);
+          v48->PrcbFlags.PrcbFlags = v51;
+          v52 = PoSetProcessorQoS(v48, (v51 >> 8) & 3);
+          v49 = v48->PrcbFlags.PrcbFlags;
+          if ( !v52 )
           {
 LABEL_89:
-            if ( (v53 & 0x300) == 0 )
-              KeUpdatePendingQosRequest(v52);
-            if ( v54 )
+            if ( (v49 & 0x300) == 0 )
+              KeUpdatePendingQosRequest(v48);
+            if ( v50 )
               _enable();
             goto LABEL_95;
           }
-          v53 &= 0xFFFFFCFF;
+          v49 &= 0xFFFFFCFF;
         }
-        v52->PrcbFlags.PrcbFlags = v53;
+        v48->PrcbFlags.PrcbFlags = v49;
         goto LABEL_89;
       }
       if ( (unsigned __int8)PrcbFlags != LOBYTE(CurrentThread->ThreadFlags2) )
-        KeCheckAndApplyBamQos(v52, CurrentThread);
+        KeCheckAndApplyBamQos(v48, CurrentThread);
     }
 LABEL_95:
     if ( MEMORY[0xFFFFF78000000320] <= v36->GenerationTarget )
     {
-      SchedulingGroup = CurrentThread->SchedulingGroup;
-      if ( !SchedulingGroup || (PrcbFlags = (__int64)SchedulingGroup + v36->ScbOffset) == 0 )
+      PrcbFlags = (__int64)CurrentThread->SchedulingGroup;
+      if ( !PrcbFlags || (PrcbFlags += v36->ScbOffset) == 0 )
       {
 LABEL_111:
         if ( (signed int)(v36->ReadyScanTick - v38) < 0
-          && (!(unsigned int)KiShouldScanSharedReadyQueue(v36) || (v36->SharedReadyQueue->ReadySummary & 0x7FFE) == 0)
+          && (!KiShouldScanSharedReadyQueue((__int64)v36) || (v36->SharedReadyQueue->ReadySummary & 0x7FFE) == 0)
           && (v36->ReadySummary & 0x7FFE) == 0 )
         {
           v36->ReadyScanTick = v38 + 75;
         }
 LABEL_117:
-        if ( !v76 )
+        if ( !v70 )
           return;
         goto LABEL_118;
       }
       while ( 1 )
       {
-        v58 = *(_BYTE *)(PrcbFlags + 112);
-        v59 = PrcbFlags - v36->ScbOffset;
-        v60 = v58 & 0x10;
-        if ( (v58 & 4) != 0 )
+        ThreadFlags2 = *(unsigned __int8 *)(PrcbFlags + 112);
+        v53 = PrcbFlags - v36->ScbOffset;
+        v54 = ThreadFlags2 & 0x10;
+        if ( (ThreadFlags2 & 4) != 0 )
         {
-          if ( v60 )
+          if ( v54 )
             goto LABEL_108;
-          if ( (v58 & 2) == 0 )
+          if ( (ThreadFlags2 & 2) == 0 )
           {
-            if ( *(__int64 *)(v59 + 48) <= 0 )
+            if ( *(__int64 *)(v53 + 48) <= 0 )
               break;
 LABEL_108:
-            v61 = *(_QWORD *)(PrcbFlags + 24);
+            v55 = *(_QWORD *)(PrcbFlags + 24);
 LABEL_109:
-            if ( *(_QWORD *)PrcbFlags >= v61 )
+            if ( *(_QWORD *)PrcbFlags >= v55 )
               break;
           }
         }
         else
         {
-          if ( v60 )
+          if ( v54 )
           {
-            v61 = *(_QWORD *)(PrcbFlags + 8);
+            v55 = *(_QWORD *)(PrcbFlags + 8);
             goto LABEL_109;
           }
-          if ( (v58 & 2) == 0 && *(__int64 *)(v59 + 48) <= 0 )
+          if ( (ThreadFlags2 & 2) == 0 && *(__int64 *)(v53 + 48) <= 0 )
             break;
         }
         PrcbFlags = *(_QWORD *)(PrcbFlags + 408);
@@ -429,48 +429,45 @@ LABEL_109:
 LABEL_103:
     v36->QuantumEnd = 1;
     if ( v36->NestingLevel )
-    {
       v36->InterruptRequest = 1;
-    }
     else
-    {
-      LOBYTE(PrcbFlags) = 2;
-      HalRequestSoftwareInterrupt(PrcbFlags);
-    }
+      HalRequestSoftwareInterrupt(2);
     goto LABEL_117;
   }
 LABEL_118:
   if ( KiClockOwnerOneShotRequestState == 1 )
   {
-    v62 = KeGetCurrentIrql();
+    v56 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v62 <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v56 <= 0xFu )
     {
-      v63 = KeGetCurrentPrcb()->SchedulerAssist;
-      v63[5] |= (-1 << (v62 + 1)) & 0xFFFC;
+      PrcbFlags = (unsigned int)v56 + 1;
+      v57 = KeGetCurrentPrcb()->SchedulerAssist;
+      ThreadFlags2 = (-1LL << (v56 + 1)) & 0xFFFC;
+      v57[5] |= ThreadFlags2;
     }
     KiClockOwnerOneShotRequestState = 2;
-    KiSetClockIntervalToMinimumRequested();
+    KiSetClockIntervalToMinimumRequested(PrcbFlags, ThreadFlags2);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v64 = KeGetCurrentIrql();
-        if ( v64 <= 0xFu && v62 <= 0xFu && v64 >= 2u )
+        v58 = KeGetCurrentIrql();
+        if ( v58 <= 0xFu && v56 <= 0xFu && v58 >= 2u )
         {
-          v65 = KeGetCurrentPrcb();
-          v66 = v65->SchedulerAssist;
-          v67 = ~(unsigned __int16)(-1LL << (v62 + 1));
-          v21 = (v67 & v66[5]) == 0;
-          v66[5] &= v67;
+          v59 = KeGetCurrentPrcb();
+          v60 = v59->SchedulerAssist;
+          v61 = ~(unsigned __int16)(-1LL << (v56 + 1));
+          v21 = (v61 & v60[5]) == 0;
+          v60[5] &= v61;
           if ( v21 )
-            KiRemoveSystemWorkPriorityKick(v65);
+            KiRemoveSystemWorkPriorityKick(v59);
         }
       }
     }
-    __writecr8(v62);
+    __writecr8(v56);
     if ( v5 )
-      *v5 = 1;
+      LOBYTE(v5->LowPart) = 1;
     ++qword_140C31BD8;
   }
 }

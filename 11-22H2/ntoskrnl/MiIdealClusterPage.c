@@ -314,7 +314,7 @@ LABEL_46:
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -329,10 +329,10 @@ LABEL_46:
     v51 = (char *)LargePage;
     if ( !LargePage )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v52 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v52 <= 0xFu && CurrentIrql <= 0xFu && v52 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v52 <= 0xFu && CurrentIrql <= 0xFu && v52 >= 2u )
         {
           v53 = KeGetCurrentPrcb();
           v54 = v53->SchedulerAssist;
@@ -408,10 +408,10 @@ LABEL_76:
     }
     while ( v62 );
     v7 = v100;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v64 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v64 <= 0xFu && CurrentIrql <= 0xFu && v64 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v64 <= 0xFu && CurrentIrql <= 0xFu && v64 >= 2u )
       {
         v65 = KeGetCurrentPrcb();
         v66 = v65->SchedulerAssist;

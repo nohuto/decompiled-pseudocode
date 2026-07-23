@@ -1,10 +1,10 @@
 /*
- * XREFs of memmove_s @ 0x140152A80
+ * XREFs of memmove_s @ 0x140153040
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 errno_t __cdecl memmove_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)

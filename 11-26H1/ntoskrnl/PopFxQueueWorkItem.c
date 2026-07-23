@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxQueueWorkItem @ 0x140394940
+ * XREFs of PopFxQueueWorkItem @ 0x1403966C0
  * Callers:
- *     PopFxQueueWorkOrder @ 0x14039486C (PopFxQueueWorkOrder.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x1403B46F0 (PopHandleDevicePowerIrpCompletion.c)
- *     PopFxHandleReportDevicePoweredOn @ 0x1404DAFA0 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopFxQueueWorkOrder @ 0x1403965EC (PopFxQueueWorkOrder.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403BE5F0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x1404D4680 (PopFxHandleReportDevicePoweredOn.c)
  * Callees:
- *     ExTryQueueWorkItem @ 0x140382070 (ExTryQueueWorkItem.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     ExInterlockedInsertTailList @ 0x1403DE450 (ExInterlockedInsertTailList.c)
+ *     ExTryQueueWorkItem @ 0x140383E20 (ExTryQueueWorkItem.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     ExInterlockedInsertTailList @ 0x1403E1640 (ExInterlockedInsertTailList.c)
  */
 
-char __fastcall PopFxQueueWorkItem(__int64 a1, struct _LIST_ENTRY *a2)
+char __fastcall PopFxQueueWorkItem(__int64 a1, _LIST_ENTRY *a2)
 {
   char result; // al
 

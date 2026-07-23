@@ -3,7 +3,7 @@
  * Callers:
  *     WMIInitialize @ 0x14079DDF8 (WMIInitialize.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
  */
 
 unsigned __int8 __fastcall WmipGetSMBiosFromLoaderBlock(__int64 a1)

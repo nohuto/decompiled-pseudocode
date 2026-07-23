@@ -1,9 +1,9 @@
 /*
- * XREFs of CmLockHiveSecurityShared @ 0x140875B88
+ * XREFs of CmLockHiveSecurityShared @ 0x140875CE8
  * Callers:
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall CmLockHiveSecurityShared(__int64 a1)

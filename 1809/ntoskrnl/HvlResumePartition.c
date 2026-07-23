@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlResumePartition @ 0x140275050
+ * XREFs of HvlResumePartition @ 0x140275240
  * Callers:
  *     <none>
  * Callees:
- *     HvlSetPartitionProperty @ 0x140275524 (HvlSetPartitionProperty.c)
+ *     HvlSetPartitionProperty @ 0x140275714 (HvlSetPartitionProperty.c)
  */
 
 __int64 __fastcall HvlResumePartition(__int64 a1, __int64 a2)

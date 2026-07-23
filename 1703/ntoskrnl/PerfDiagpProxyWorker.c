@@ -34,7 +34,7 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   LARGE_INTEGER v13; // [rsp+58h] [rbp-30h] BYREF
   LARGE_INTEGER Interval; // [rsp+60h] [rbp-28h] BYREF
   LARGE_INTEGER v15; // [rsp+68h] [rbp-20h] BYREF
-  char v16; // [rsp+90h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+90h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
@@ -85,7 +85,13 @@ LABEL_4:
   {
     case 1:
       PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-      NtTraceControl(2LL, &dword_140345630, (unsigned int)dword_140345630, &dword_140345630, dword_140345630, &v16);
+      NtTraceControl(
+        EtwStopLoggerCode,
+        &InputBufferLength,
+        InputBufferLength,
+        &InputBufferLength,
+        InputBufferLength,
+        &ReturnLength);
       v8 = 0;
       while ( 1 )
       {
@@ -107,7 +113,13 @@ LABEL_4:
       goto LABEL_11;
     case 4:
       PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-      NtTraceControl(2LL, &dword_140345630, (unsigned int)dword_140345630, &dword_140345630, dword_140345630, &v16);
+      NtTraceControl(
+        EtwStopLoggerCode,
+        &InputBufferLength,
+        InputBufferLength,
+        &InputBufferLength,
+        InputBufferLength,
+        &ReturnLength);
       v3 = 0;
       while ( 1 )
       {
@@ -123,7 +135,13 @@ LABEL_4:
       break;
     case 5:
       PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-      NtTraceControl(2LL, &dword_140345630, (unsigned int)dword_140345630, &dword_140345630, dword_140345630, &v16);
+      NtTraceControl(
+        EtwStopLoggerCode,
+        &InputBufferLength,
+        InputBufferLength,
+        &InputBufferLength,
+        InputBufferLength,
+        &ReturnLength);
       v7 = 0;
       while ( 1 )
       {
@@ -139,7 +157,13 @@ LABEL_4:
       break;
     case 6:
       PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-      NtTraceControl(2LL, &dword_140345630, (unsigned int)dword_140345630, &dword_140345630, dword_140345630, &v16);
+      NtTraceControl(
+        EtwStopLoggerCode,
+        &InputBufferLength,
+        InputBufferLength,
+        &InputBufferLength,
+        InputBufferLength,
+        &ReturnLength);
       v5 = 0;
       while ( 1 )
       {
@@ -156,7 +180,13 @@ LABEL_4:
     case 7:
       PerfDiagpSaveActiveDCLLogFileName();
       PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-      NtTraceControl(2LL, &dword_140345630, (unsigned int)dword_140345630, &dword_140345630, dword_140345630, &v16);
+      NtTraceControl(
+        EtwStopLoggerCode,
+        &InputBufferLength,
+        InputBufferLength,
+        &InputBufferLength,
+        InputBufferLength,
+        &ReturnLength);
       v6 = 0;
       while ( 1 )
       {

@@ -8,47 +8,52 @@
  *     NtQueryValueKey @ 0x18009D7C0 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall LdrpAppxGetBinaryNameKeyInformation(__int64 a1, __int64 *a2, __int64 *a3)
+__int64 __fastcall LdrpAppxGetBinaryNameKeyInformation(HANDLE KeyHandle, _QWORD *a2, _QWORD *a3)
 {
-  __int64 v5; // rsi
-  __int64 Heap; // rdi
-  int ValueKey; // ebx
-  unsigned int v9; // [rsp+88h] [rbp+20h]
+  _DWORD *v6; // rsi
+  _DWORD *v7; // rdi
+  NTSTATUS v8; // ebx
+  _DWORD *Heap; // rax
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-38h] BYREF
+  SIZE_T Size; // [rsp+88h] [rbp+20h] BYREF
 
-  v5 = 0LL;
-  Heap = 0LL;
-  ValueKey = NtQueryValueKey();
-  if ( ValueKey >= 0 )
-    ValueKey = -1073739509;
-  if ( ValueKey != -1073741789 )
+  *(_DWORD *)&ValueName.Length = 1441812;
+  ValueName.Buffer = L"BinaryName";
+  v6 = 0LL;
+  v7 = 0LL;
+  v8 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0LL, 0, (PULONG)&Size);
+  if ( v8 >= 0 )
+    v8 = -1073739509;
+  if ( v8 != -1073741789 )
   {
 LABEL_13:
-    if ( ValueKey >= 0 )
+    if ( v8 >= 0 )
     {
-      *a2 = v5;
-      *a3 = Heap;
-      return (unsigned int)ValueKey;
+      *a2 = v6;
+      *a3 = v7;
+      return (unsigned int)v8;
     }
     goto LABEL_15;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v9);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)Size);
+  v7 = Heap;
   if ( !Heap )
     return (unsigned int)-1073741801;
-  ValueKey = NtQueryValueKey();
-  if ( ValueKey >= 0 )
+  v8 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Size, (PULONG)&Size);
+  if ( v8 >= 0 )
   {
-    if ( *(_DWORD *)(Heap + 4) != 1 || *(_DWORD *)(Heap + 8) < 4u )
-      ValueKey = -1073739509;
-    if ( ValueKey >= 0 )
+    if ( v7[1] != 1 || v7[2] < 4u )
+      v8 = -1073739509;
+    if ( v8 >= 0 )
     {
-      v5 = Heap + 12;
-      if ( *(_WORD *)(Heap + 12 + 2 * ((unsigned __int64)*(unsigned int *)(Heap + 8) >> 1) - 2) )
-        ValueKey = -1073739509;
+      v6 = v7 + 3;
+      if ( *((_WORD *)v7 + ((unsigned __int64)(unsigned int)v7[2] >> 1) + 5) )
+        v8 = -1073739509;
       goto LABEL_13;
     }
   }
 LABEL_15:
-  if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return (unsigned int)ValueKey;
+  if ( v7 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+  return (unsigned int)v8;
 }

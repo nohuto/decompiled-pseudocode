@@ -1,38 +1,38 @@
 /*
- * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0
+ * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0
  * Callers:
- *     MiGetSlabCurrentTime @ 0x1402073A0 (MiGetSlabCurrentTime.c)
- *     MiCheckTrimUnusedPageFileRegions @ 0x1402073C8 (MiCheckTrimUnusedPageFileRegions.c)
- *     IoDiskIoAttributionQuery @ 0x1402074B4 (IoDiskIoAttributionQuery.c)
- *     MiEmptyDecayClusterTimers @ 0x1402994DC (MiEmptyDecayClusterTimers.c)
- *     MiRetryFileOnlyFailedReapPages @ 0x1402A5FD8 (MiRetryFileOnlyFailedReapPages.c)
- *     MiLogPeriodicTelemetry @ 0x1402A8770 (MiLogPeriodicTelemetry.c)
- *     MiRebuildLargePagesThread @ 0x1403C7830 (MiRebuildLargePagesThread.c)
- *     MiPerformOnDemandLargePageCoalesce @ 0x1403C8EC4 (MiPerformOnDemandLargePageCoalesce.c)
- *     MiAccumulateTimeBoundTime @ 0x1403C96CC (MiAccumulateTimeBoundTime.c)
- *     MiFlushAllPagesWorker @ 0x1403E0A6C (MiFlushAllPagesWorker.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x140404DD0 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiCheckFreeModifiedReservations @ 0x140406B68 (MiCheckFreeModifiedReservations.c)
- *     MiModwriterIssueWrite @ 0x140408928 (MiModwriterIssueWrite.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     VmpQueryAccessedState @ 0x140464934 (VmpQueryAccessedState.c)
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
- *     MiAdjustModifiedPageLoad @ 0x1404BC438 (MiAdjustModifiedPageLoad.c)
- *     MiFlushAllPages @ 0x140504838 (MiFlushAllPages.c)
- *     MiDelayFaultingThread @ 0x1405053C4 (MiDelayFaultingThread.c)
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
- *     MiNoPagesLastChance @ 0x140703B60 (MiNoPagesLastChance.c)
- *     VmpAccessFault @ 0x14081C2B4 (VmpAccessFault.c)
- *     VmPinMemoryRanges @ 0x14081D290 (VmPinMemoryRanges.c)
- *     VmUnpinMemoryRanges @ 0x14081D680 (VmUnpinMemoryRanges.c)
- *     MiRememberUnloadedDriver @ 0x140AC7E58 (MiRememberUnloadedDriver.c)
- *     MmVerifierTrimMemory @ 0x140C437B8 (MmVerifierTrimMemory.c)
- *     MiInitializeKernelStacks @ 0x140CFC600 (MiInitializeKernelStacks.c)
- *     MiMeasureDemandCoalesceTimeBounds @ 0x140CFEB84 (MiMeasureDemandCoalesceTimeBounds.c)
+ *     MiGetSlabCurrentTime @ 0x140207480 (MiGetSlabCurrentTime.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x1402074A8 (MiCheckTrimUnusedPageFileRegions.c)
+ *     IoDiskIoAttributionQuery @ 0x140207594 (IoDiskIoAttributionQuery.c)
+ *     MiEmptyDecayClusterTimers @ 0x140298A3C (MiEmptyDecayClusterTimers.c)
+ *     MiRetryFileOnlyFailedReapPages @ 0x1402A53D0 (MiRetryFileOnlyFailedReapPages.c)
+ *     MiLogPeriodicTelemetry @ 0x1402A7B80 (MiLogPeriodicTelemetry.c)
+ *     MiRebuildLargePagesThread @ 0x1403D1720 (MiRebuildLargePagesThread.c)
+ *     MiPerformOnDemandLargePageCoalesce @ 0x1403D2D74 (MiPerformOnDemandLargePageCoalesce.c)
+ *     MiAccumulateTimeBoundTime @ 0x1403D357C (MiAccumulateTimeBoundTime.c)
+ *     MiFlushAllPagesWorker @ 0x1403E3C5C (MiFlushAllPagesWorker.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403FDED0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiCheckFreeModifiedReservations @ 0x1403FFC58 (MiCheckFreeModifiedReservations.c)
+ *     MiModwriterIssueWrite @ 0x140401A18 (MiModwriterIssueWrite.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     VmpQueryAccessedState @ 0x14045D8F4 (VmpQueryAccessedState.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
+ *     MiAdjustModifiedPageLoad @ 0x1404B5B78 (MiAdjustModifiedPageLoad.c)
+ *     MiFlushAllPages @ 0x1404FE17C (MiFlushAllPages.c)
+ *     MiDelayFaultingThread @ 0x1404FED04 (MiDelayFaultingThread.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
+ *     MiNoPagesLastChance @ 0x140708830 (MiNoPagesLastChance.c)
+ *     VmpAccessFault @ 0x1408224C4 (VmpAccessFault.c)
+ *     VmPinMemoryRanges @ 0x1408234A0 (VmPinMemoryRanges.c)
+ *     VmUnpinMemoryRanges @ 0x140823890 (VmUnpinMemoryRanges.c)
+ *     MiRememberUnloadedDriver @ 0x140AC9A48 (MiRememberUnloadedDriver.c)
+ *     MmVerifierTrimMemory @ 0x140C497C8 (MmVerifierTrimMemory.c)
+ *     MiInitializeKernelStacks @ 0x140D02980 (MiInitializeKernelStacks.c)
+ *     MiMeasureDemandCoalesceTimeBounds @ 0x140D04F24 (MiMeasureDemandCoalesceTimeBounds.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
@@ -98,7 +98,7 @@ ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
             v20 = 0;
             if ( HalpTimerQueryCounterHandlerCount )
             {
-              v1 = (unsigned __int64)&unk_140FBB448;
+              v1 = (unsigned __int64)&unk_140FBB7E8;
               do
               {
                 if ( v4 == *(_QWORD *)v1 )
@@ -182,7 +182,7 @@ ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
             v19 = 0;
             if ( HalpTimerQueryCounterHandlerCount )
             {
-              v1 = (unsigned __int64)&unk_140FBB448;
+              v1 = (unsigned __int64)&unk_140FBB7E8;
               do
               {
                 if ( v4 == *(_QWORD *)v1 )

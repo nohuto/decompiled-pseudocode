@@ -19,5 +19,5 @@ void __cdecl __noreturn __report_securityfailure(int a1)
   dword_4B3A3DCC = 1;
   dword_4B3A3DD8 = 1;
   dword_4B3A3DDC = a1;
-  __raise_securityfailure((int)&off_4B2816CC);
+  __raise_securityfailure((PEXCEPTION_POINTERS)&ExceptionPointers);
 }

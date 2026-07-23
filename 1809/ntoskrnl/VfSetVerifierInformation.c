@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSetVerifierInformation @ 0x14094AA20
+ * XREFs of VfSetVerifierInformation @ 0x14094BA20
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     VfFaultsSetParameters @ 0x1409384A0 (VfFaultsSetParameters.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     VfFaultsSetParameters @ 0x1409394A0 (VfFaultsSetParameters.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
- *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
- *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
- *     VfSettingsCheckForChanges @ 0x14093DEE8 (VfSettingsCheckForChanges.c)
+ *     VfDriverLock @ 0x1409226E0 (VfDriverLock.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409275A0 (VfInitSystemNoRebootNeeded.c)
+ *     VfSettingsCheckForChanges @ 0x14093EEE8 (VfSettingsCheckForChanges.c)
  */
 
 __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
@@ -33,7 +33,7 @@ __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
   if ( v8 != MmVerifierData )
   {
     VfSettingsCheckForChanges(MmVerifierData, v6, v7, v8);
-    ++dword_14041A9F8;
+    ++dword_14041BAD8;
     MmVerifierData = v8;
     *a1 = v8;
   }

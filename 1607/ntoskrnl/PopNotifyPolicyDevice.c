@@ -1,17 +1,17 @@
 /*
- * XREFs of PopNotifyPolicyDevice @ 0x14056C058
+ * XREFs of PopNotifyPolicyDevice @ 0x14056C598
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopConnectToPolicyDevice @ 0x14056C0D8 (PopConnectToPolicyDevice.c)
- *     PopEnableHiberFile @ 0x14056C7F8 (PopEnableHiberFile.c)
- *     PopChangeCapability @ 0x14056DEF8 (PopChangeCapability.c)
+ *     PopConnectToPolicyDevice @ 0x14056C618 (PopConnectToPolicyDevice.c)
+ *     PopEnableHiberFile @ 0x14056CD38 (PopEnableHiberFile.c)
+ *     PopChangeCapability @ 0x14056E438 (PopChangeCapability.c)
  */
 
 __int64 __fastcall PopNotifyPolicyDevice(_QWORD *NotificationStructure, PVOID Context)
@@ -35,7 +35,7 @@ __int64 __fastcall PopNotifyPolicyDevice(_QWORD *NotificationStructure, PVOID Co
       v7 = 0LL;
     else
       LOBYTE(v7) = 1;
-    PopChangeCapability(&byte_140303F73, v7);
+    PopChangeCapability(&byte_140303EB3, v7);
     PopReleasePolicyLock();
   }
   else if ( (_DWORD)Context == 3 )

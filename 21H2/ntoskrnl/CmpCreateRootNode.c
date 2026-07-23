@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCreateRootNode @ 0x140A5B0B4
+ * XREFs of CmpCreateRootNode @ 0x140A5C0B4
  * Callers:
- *     CmpCreateRegistryRoot @ 0x140A5AED4 (CmpCreateRegistryRoot.c)
+ *     CmpCreateRegistryRoot @ 0x140A5BED4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpNameSize @ 0x14069306C (CmpNameSize.c)
- *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
- *     CmpCopyName @ 0x14070A0E0 (CmpCopyName.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpNameSize @ 0x1405F26FC (CmpNameSize.c)
+ *     HvAllocateCell @ 0x1407207E4 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x1407214C0 (CmpCopyName.c)
  */
 
 char __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  ULONG_PTR v3; // rsi
+  _QWORD *v3; // rsi
   unsigned __int16 v5; // ax
   int v6; // eax
   __int64 v7; // rdi
@@ -28,12 +28,12 @@ char __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, _DWORD *a3)
   v12 = 0xFFFFFFFFLL;
   RtlInitUnicodeString(&DestinationString, L"REGISTRY");
   v5 = CmpNameSize(&DestinationString.Length);
-  v6 = HvAllocateCell(v3, (unsigned int)v5 + 76, 0, &v13, &v12);
+  v6 = HvAllocateCell((ULONG_PTR)v3, (unsigned int)v5 + 76, 0, &v13, &v12);
   *a3 = v6;
   if ( v6 == -1 )
     return 0;
   v7 = v13;
-  *(_DWORD *)(*(_QWORD *)(v3 + 64) + 36LL) = v6;
+  *(_DWORD *)(v3[8] + 36LL) = v6;
   *(_DWORD *)v7 = 813934;
   v8 = v13;
   *(_QWORD *)(v13 + 4) = MEMORY[0xFFFFF78000000014];
@@ -55,6 +55,6 @@ char __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, _DWORD *a3)
   *(_WORD *)(v8 + 72) = v9;
   if ( v9 < DestinationString.Length )
     *(_WORD *)(v7 + 2) |= 0x20u;
-  (*(void (__fastcall **)(ULONG_PTR, __int64 *))(v3 + 16))(v3, &v12);
+  ((void (__fastcall *)(_QWORD *, __int64 *))v3[2])(v3, &v12);
   return 1;
 }

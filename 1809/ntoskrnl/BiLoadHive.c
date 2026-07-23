@@ -1,19 +1,19 @@
 /*
- * XREFs of BiLoadHive @ 0x1407112E4
+ * XREFs of BiLoadHive @ 0x140712584
  * Callers:
- *     BiAddStoreFromFile @ 0x14071101C (BiAddStoreFromFile.c)
+ *     BiAddStoreFromFile @ 0x1407122BC (BiAddStoreFromFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwLoadKey @ 0x1401BA1B0 (ZwLoadKey.c)
- *     ZwLoadKey2 @ 0x1401BA1D0 (ZwLoadKey2.c)
- *     ZwUnloadKey @ 0x1401BB990 (ZwUnloadKey.c)
- *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
- *     BiOpenKeyNonBcd @ 0x140714BD8 (BiOpenKeyNonBcd.c)
- *     BiDoesHiveExist @ 0x140714C90 (BiDoesHiveExist.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwLoadKey @ 0x1401BA310 (ZwLoadKey.c)
+ *     ZwLoadKey2 @ 0x1401BA330 (ZwLoadKey2.c)
+ *     ZwUnloadKey @ 0x1401BBAF0 (ZwUnloadKey.c)
+ *     BiReleasePrivilege @ 0x140712744 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140712794 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
+ *     BiOpenKeyNonBcd @ 0x140715E78 (BiOpenKeyNonBcd.c)
+ *     BiDoesHiveExist @ 0x140715F30 (BiDoesHiveExist.c)
  */
 
 __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)

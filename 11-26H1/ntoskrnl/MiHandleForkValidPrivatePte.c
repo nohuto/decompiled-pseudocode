@@ -1,30 +1,30 @@
 /*
- * XREFs of MiHandleForkValidPrivatePte @ 0x14030ADC0
+ * XREFs of MiHandleForkValidPrivatePte @ 0x1402ECE40
  * Callers:
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x1402EE150 (MiUpdateWorkingSetPrivateSize.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14030B554 (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     MiTransferPageFileOwnership @ 0x14030B56C (MiTransferPageFileOwnership.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiWriteUselessChildPte @ 0x14030D0DC (MiWriteUselessChildPte.c)
- *     MiLockPageTablePage @ 0x14031A8E0 (MiLockPageTablePage.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiGetCloneCharges @ 0x140369494 (MiGetCloneCharges.c)
- *     MiSetWsleProtection @ 0x14036C090 (MiSetWsleProtection.c)
- *     MiReturnCloneCharges @ 0x14036CAA4 (MiReturnCloneCharges.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x14049754C (MiCaptureWriteWatchDirtyBit.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x1402D01D0 (MiUpdateWorkingSetPrivateSize.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x1402ED5D4 (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     MiTransferPageFileOwnership @ 0x1402ED5EC (MiTransferPageFileOwnership.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiWriteUselessChildPte @ 0x1402EF15C (MiWriteUselessChildPte.c)
+ *     MiLockPageTablePage @ 0x14031C910 (MiLockPageTablePage.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiGetCloneCharges @ 0x14036B234 (MiGetCloneCharges.c)
+ *     MiSetWsleProtection @ 0x14036DE30 (MiSetWsleProtection.c)
+ *     MiReturnCloneCharges @ 0x14036E844 (MiReturnCloneCharges.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14049109C (MiCaptureWriteWatchDirtyBit.c)
  */
 
 __int64 __fastcall MiHandleForkValidPrivatePte(__int64 *a1, unsigned __int64 a2)
@@ -78,12 +78,12 @@ __int64 __fastcall MiHandleForkValidPrivatePte(__int64 *a1, unsigned __int64 a2)
   ContainingPageTable = MiGetContainingPageTable((ULONG_PTR)v7);
   v9 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
   v10 = 48 * ContainingPageTable - 0x220000000000LL;
-  v34 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL));
+  v34 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL));
   v11 = *(unsigned __int16 *)(v4 + 1198);
   v12 = v34;
-  v13 = (v34 != *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * v11) ? 5 : 0) | 2;
+  v13 = (v34 != *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * v11) ? 5 : 0) | 2;
   if ( (a1[31] & 1) == 0 )
-    v13 = v34 != *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * v11) ? 5 : 0;
+    v13 = v34 != *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * v11) ? 5 : 0;
   LODWORD(v34) = v13;
   if ( !v13 || (unsigned int)MiGetCloneCharges(v12) )
   {
@@ -132,8 +132,8 @@ __int64 __fastcall MiHandleForkValidPrivatePte(__int64 *a1, unsigned __int64 a2)
       v16 = *(_QWORD *)(v5 + 16);
       if ( (v16 & 4) != 0 )
       {
-        if ( qword_140E2D740 && (v16 & 0x10) == 0 )
-          HIDWORD(v16) &= HIDWORD(qword_140E2D748);
+        if ( qword_140E2D8C0 && (v16 & 0x10) == 0 )
+          HIDWORD(v16) &= HIDWORD(qword_140E2D8C8);
         v9 = MiTransferSoftwarePte(
                *v15,
                *((_QWORD *)&v12[929].Header.WaitListHead.Flink + ((unsigned __int16)v16 >> 12)),
@@ -151,7 +151,7 @@ __int64 __fastcall MiHandleForkValidPrivatePte(__int64 *a1, unsigned __int64 a2)
       MiTransferPageFileOwnership(v5, v37);
       _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( v9 )
-        MiReleasePageFileInfo(v12, v9, 1);
+        MiReleasePageFileInfo(v12, v9, 1LL);
       if ( (v3 & 0x800) != 0 )
         v3 = v3 & 0xFFFFFFFFFFFFF5FFuLL | 0x200;
       MiWriteValidPteNewProtection(v37, v3);

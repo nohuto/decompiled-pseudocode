@@ -29,7 +29,7 @@ __int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2
   unsigned int v12; // edx
   unsigned __int64 v13; // rax
   __int64 Pool2; // rax
-  __int64 (__fastcall *v16)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char); // rax
+  __int64 (__fastcall *v16)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char); // rax
   UNICODE_STRING *v17; // r9
   int SetSecurityObject; // eax
   int v19; // r12d
@@ -38,11 +38,11 @@ __int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2
   __int64 v22; // [rsp+28h] [rbp-60h]
   int v23; // [rsp+30h] [rbp-58h]
   __int64 v24; // [rsp+38h] [rbp-50h]
-  ULONG v25[4]; // [rsp+50h] [rbp-38h] BYREF
+  DWORD v25[4]; // [rsp+50h] [rbp-38h] BYREF
   ULONG Length; // [rsp+90h] [rbp+8h] BYREF
 
   v8 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)BugCheckParameter2 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)BugCheckParameter2 - 48) >> 8)];
-  if ( *(__int64 (__fastcall **)(__int64, int, ULONG *, unsigned __int64, ULONG *, __int64 *, int, __int64))(v8 + 152) != SeDefaultObjectMethod )
+  if ( *(__int64 (__fastcall **)(__int64, int, DWORD *, unsigned __int64, ULONG *, __int64 *, int, __int64))(v8 + 152) != SeDefaultObjectMethod )
   {
     v25[0] = 447;
     Length = ObpDefaultSecurityDescriptorLength;
@@ -51,7 +51,7 @@ __int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2
     if ( !Pool2 )
       return 3221225626LL;
     *a3 = 1;
-    v16 = *(__int64 (__fastcall **)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char))(v8 + 152);
+    v16 = *(__int64 (__fastcall **)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char))(v8 + 152);
     v17 = (UNICODE_STRING *)*a2;
     v24 = v8 + 76;
     v23 = *(_DWORD *)(v8 + 100);

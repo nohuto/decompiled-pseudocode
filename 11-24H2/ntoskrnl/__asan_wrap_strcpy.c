@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_wrap_strcpy @ 0x1405ADB30
+ * XREFs of __asan_wrap_strcpy @ 0x1405AAAA0
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 ULONG_PTR __fastcall _asan_wrap_strcpy(ULONG_PTR BugCheckParameter1, char *a2)
@@ -29,7 +29,7 @@ ULONG_PTR __fastcall _asan_wrap_strcpy(ULONG_PTR BugCheckParameter1, char *a2)
   {
     if ( v5 == -1LL )
       break;
-    if ( byte_140FCDC2A && v4 >= 0xFFFF800000000000uLL )
+    if ( byte_140FCECAA && v4 >= 0xFFFF800000000000uLL )
     {
       v7 = *(_BYTE *)(((unsigned __int64)&v6[v5] >> 3) + KasaniShadow);
       if ( v7 && v7 < 8 && (char)((v4 & 7) + 1) > v7 )
@@ -42,7 +42,7 @@ ULONG_PTR __fastcall _asan_wrap_strcpy(ULONG_PTR BugCheckParameter1, char *a2)
     ++v4;
   }
   while ( v8 );
-  if ( byte_140FCDC2A && BugCheckParameter1 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && BugCheckParameter1 >= 0xFFFF800000000000uLL )
   {
     if ( v5 )
     {

@@ -8,36 +8,30 @@
  *     RtlpHpVsContextFreeInternal @ 0x18010FAC8 (RtlpHpVsContextFreeInternal.c)
  */
 
-void __fastcall RtlpHpVsContextFreeList(
-        volatile signed __int64 *a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall RtlpHpVsContextFreeList(PRTL_SRWLOCK SRWLock, __int64 a2, _QWORD *a3)
 {
-  _QWORD *v4; // rbx
-  unsigned int v5; // ebp
-  int v7; // esi
-  __int64 v8; // r8
-  __int64 v9; // [rsp+30h] [rbp-28h] BYREF
-  volatile signed __int64 *v10; // [rsp+38h] [rbp-20h]
-  __int64 v11; // [rsp+40h] [rbp-18h]
+  unsigned int v4; // ebp
+  int v6; // esi
+  unsigned __int64 v7; // r8
+  __int64 v8; // [rsp+30h] [rbp-28h] BYREF
+  PRTL_SRWLOCK SRWLocka; // [rsp+38h] [rbp-20h]
+  __int64 v10; // [rsp+40h] [rbp-18h]
 
-  v4 = (_QWORD *)a3;
-  v5 = a2;
-  v7 = a2 & 1;
+  v4 = a2;
+  v6 = a2 & 1;
   if ( (a2 & 1) == 0 )
   {
-    v9 = 0LL;
-    v11 = 0LL;
-    v10 = a1;
-    RtlAcquireSRWLockExclusive((unsigned __int64)a1, a2, a3, a4);
+    v8 = 0LL;
+    v10 = 0LL;
+    SRWLocka = SRWLock;
+    RtlAcquireSRWLockExclusive(SRWLock);
   }
-  while ( v4 )
+  while ( a3 )
   {
-    v8 = (__int64)(v4 - 2);
-    v4 = (_QWORD *)*v4;
-    RtlpHpVsContextFreeInternal((unsigned __int64)a1, a2, v8, v5, (__int64)&v9);
+    v7 = (unsigned __int64)(a3 - 2);
+    a3 = (_QWORD *)*a3;
+    RtlpHpVsContextFreeInternal((__int64)SRWLock, a2, v7, v4, (__int64)&v8);
   }
-  if ( !v7 )
-    RtlReleaseSRWLockExclusive(v10);
+  if ( !v6 )
+    RtlReleaseSRWLockExclusive(SRWLocka);
 }

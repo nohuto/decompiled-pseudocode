@@ -1,12 +1,12 @@
 /*
- * XREFs of IovpExamineIrpStackForwarding @ 0x140B8D650
+ * XREFs of IovpExamineIrpStackForwarding @ 0x140B8F650
  * Callers:
- *     IovpCallDriver1 @ 0x140B8CCB4 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x140B8ECB4 (IovpCallDriver1.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ViErrorReport1 @ 0x140612574 (ViErrorReport1.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     ViErrorReport1 @ 0x140610B34 (ViErrorReport1.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 int *__fastcall IovpExamineIrpStackForwarding(

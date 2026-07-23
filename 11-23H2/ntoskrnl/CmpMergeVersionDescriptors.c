@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpMergeVersionDescriptors @ 0x14080E89C
+ * XREFs of CmpMergeVersionDescriptors @ 0x14080EB6C
  * Callers:
- *     CmpLoadSystemVersionData @ 0x14080D0B0 (CmpLoadSystemVersionData.c)
+ *     CmpLoadSystemVersionData @ 0x14080D380 (CmpLoadSystemVersionData.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
  */
 
 void __fastcall CmpMergeVersionDescriptors(__int64 a1, __int64 a2)

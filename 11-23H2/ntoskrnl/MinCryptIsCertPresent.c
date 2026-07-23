@@ -1,9 +1,9 @@
 /*
- * XREFs of MinCryptIsCertPresent @ 0x14067761C
+ * XREFs of MinCryptIsCertPresent @ 0x140677B6C
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6F858 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6FB08 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  */
 
 __int64 __fastcall MinCryptIsCertPresent(const void **a1, __int64 a2, unsigned int a3)

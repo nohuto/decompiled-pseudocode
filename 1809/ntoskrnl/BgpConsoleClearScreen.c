@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpConsoleClearScreen @ 0x140953540
+ * XREFs of BgpConsoleClearScreen @ 0x140954540
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
- *     BgpConsoleClearScreenEx @ 0x140953578 (BgpConsoleClearScreenEx.c)
+ *     BgpFwReleaseLock @ 0x14016F308 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F358 (BgpFwAcquireLock.c)
+ *     BgpConsoleClearScreenEx @ 0x140954578 (BgpConsoleClearScreenEx.c)
  */
 
 __int64 BgpConsoleClearScreen()
@@ -16,7 +16,7 @@ __int64 BgpConsoleClearScreen()
   unsigned int v3; // ebx
 
   BgpFwAcquireLock();
-  if ( qword_1404C64D8 )
+  if ( qword_1404C7598 )
     v3 = BgpConsoleClearScreenEx(v1, v0, v2);
   else
     v3 = -1073741823;

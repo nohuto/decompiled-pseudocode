@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqActionDataFree @ 0x14062FB54
+ * XREFs of PiDqActionDataFree @ 0x140624BD4
  * Callers:
- *     PiDqQueryFreeActiveData @ 0x14062E710 (PiDqQueryFreeActiveData.c)
- *     PiDqQuerySerializeActionQueue @ 0x14062F5EC (PiDqQuerySerializeActionQueue.c)
- *     PiDqActionDataCreate @ 0x14062F9AC (PiDqActionDataCreate.c)
+ *     PiDqQueryFreeActiveData @ 0x140623798 (PiDqQueryFreeActiveData.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14062466C (PiDqQuerySerializeActionQueue.c)
+ *     PiDqActionDataCreate @ 0x140624A2C (PiDqActionDataCreate.c)
  * Callees:
- *     PnpFreeDevPropertyArray @ 0x140633680 (PnpFreeDevPropertyArray.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpFreeDevPropertyArray @ 0x140628848 (PnpFreeDevPropertyArray.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDqActionDataFree(_QWORD *P)

@@ -27,9 +27,9 @@
  *     MiCaptureUlongPtrArray @ 0x1407E9474 (MiCaptureUlongPtrArray.c)
  */
 
-NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, unsigned __int64 *a2, void *a3)
+NTSTATUS __cdecl NtFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
-  unsigned __int64 *v3; // r15
+  PULONG_PTR v3; // r15
   int v5; // ebx
   KPROCESSOR_MODE PreviousMode; // al
   unsigned __int64 v7; // r12
@@ -40,7 +40,7 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, unsigned __int64 *a2,
   unsigned __int64 v12; // r8
   __int64 v13; // r13
   _KPROCESS *v14; // rdi
-  int v15; // r14d
+  NTSTATUS v15; // r14d
   __int64 v16; // rcx
   IRP *Irp; // r8
   unsigned __int64 v18; // r15
@@ -65,7 +65,7 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, unsigned __int64 *a2,
   unsigned __int64 v37; // [rsp+50h] [rbp-1118h]
   void *Src; // [rsp+58h] [rbp-1110h]
   struct _KTHREAD *CurrentThread; // [rsp+60h] [rbp-1108h]
-  unsigned __int64 *v40; // [rsp+68h] [rbp-1100h]
+  PULONG_PTR v40; // [rsp+68h] [rbp-1100h]
   _KPROCESS *Process; // [rsp+70h] [rbp-10F8h]
   unsigned __int64 v42; // [rsp+78h] [rbp-10F0h]
   __int64 v43; // [rsp+80h] [rbp-10E8h]
@@ -76,9 +76,9 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, unsigned __int64 *a2,
   _OWORD v48[3]; // [rsp+B8h] [rbp-10B0h] BYREF
   struct _MDL Mdl; // [rsp+F0h] [rbp-1078h] BYREF
 
-  Src = a3;
-  v3 = a2;
-  v40 = a2;
+  Src = UserPfnArray;
+  v3 = NumberOfPages;
+  v40 = NumberOfPages;
   memset(v48, 0, sizeof(v48));
   memset_0(&Mdl, 0, 0x1030uLL);
   Object = 0LL;
@@ -110,7 +110,7 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, unsigned __int64 *a2,
   v10 = 0LL;
   v35 = 0LL;
   p_Mdl = &Mdl;
-  result = MiReferenceAweHandle(Handle, 2u, PreviousMode, &Object, &v36);
+  result = MiReferenceAweHandle(ProcessHandle, 2u, PreviousMode, &Object, &v36);
   v12 = 0LL;
   if ( result >= 0 )
   {

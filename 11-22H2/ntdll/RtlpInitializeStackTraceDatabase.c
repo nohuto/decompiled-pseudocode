@@ -9,9 +9,9 @@
  *     RtlStdInitializeStackDatabase @ 0x18010DF10 (RtlStdInitializeStackDatabase.c)
  */
 
-__int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RtlpInitializeStackTraceDatabase(void *a1, ULONG_PTR a2, ULONG_PTR a3)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   signed __int64 v5; // [rsp+20h] [rbp-28h] BYREF
   int v6; // [rsp+28h] [rbp-20h]
 
@@ -20,9 +20,9 @@ __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, unsigned __int64
   v4 = RtlStdInitializeStackDatabase(a1, a2, a3, &v5);
   if ( v4 >= 0 )
   {
-    if ( _InterlockedCompareExchange64(&RtlpStackTraceDatabase, v5, 0LL) )
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpStackTraceDatabase, v5, 0LL) )
     {
-      RtlStdDeleteStackDatabase();
+      RtlStdDeleteStackDatabase((_QWORD *)v5);
       return 3221225994LL;
     }
     if ( LdrInitState == 3 )

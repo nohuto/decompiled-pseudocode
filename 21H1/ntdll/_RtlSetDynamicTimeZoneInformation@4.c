@@ -6,7 +6,7 @@
  *     _RtlpSetTimeZoneInformationWorker@8 @ 0x4B35147B (_RtlpSetTimeZoneInformationWorker@8.c)
  */
 
-int __stdcall RtlSetDynamicTimeZoneInformation(int a1)
+int __stdcall RtlSetDynamicTimeZoneInformation(PVOID ValueData)
 {
-  return RtlpSetTimeZoneInformationWorker(a1);
+  return RtlpSetTimeZoneInformationWorker(ValueData);
 }

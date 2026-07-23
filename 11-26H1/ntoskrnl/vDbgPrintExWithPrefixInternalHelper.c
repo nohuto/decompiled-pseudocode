@@ -1,24 +1,24 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternalHelper @ 0x140397670
+ * XREFs of vDbgPrintExWithPrefixInternalHelper @ 0x1403993F0
  * Callers:
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     vDbgPrintEx @ 0x140397490 (vDbgPrintEx.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     vDbgPrintExWithPrefixInternal @ 0x1403975BC (vDbgPrintExWithPrefixInternal.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     vDbgPrintEx @ 0x140399210 (vDbgPrintEx.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x14039933C (vDbgPrintExWithPrefixInternal.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     DbgBreakPointWithStatus @ 0x140534930 (DbgBreakPointWithStatus.c)
- *     DebugPrint @ 0x140534940 (DebugPrint.c)
- *     _vsnprintf @ 0x1405354D0 (_vsnprintf.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     DbgBreakPointWithStatus @ 0x140536DB0 (DbgBreakPointWithStatus.c)
+ *     DebugPrint @ 0x140536DC0 (DebugPrint.c)
+ *     _vsnprintf @ 0x140537950 (_vsnprintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall vDbgPrintExWithPrefixInternalHelper(
@@ -130,7 +130,8 @@ __int64 __fastcall vDbgPrintExWithPrefixInternalHelper(
     }
     *((_QWORD *)&v33 + 1) = &v30;
     LOWORD(v33) = v15;
-    if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 || LOBYTE(RtlpBootStatHandleLock.StackBase) != 1 )
+    if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0
+      || LOBYTE(RtlpBootStatHandleLock.StackBase) != 1 )
     {
       i = v30;
     }

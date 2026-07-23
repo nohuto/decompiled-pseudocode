@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFindNextForwardRunClearCapped @ 0x1405873B0
+ * XREFs of RtlFindNextForwardRunClearCapped @ 0x1405875E0
  * Callers:
  *     <none>
  * Callees:
@@ -29,7 +29,7 @@ __int64 __fastcall RtlFindNextForwardRunClearCapped(__int64 a1, unsigned int a2,
   v8 = *(_QWORD *)(a1 + 8);
   v9 = (_DWORD *)(v8 + 4 * ((unsigned __int64)(v4 - 1) >> 5));
   v10 = (_DWORD *)(v8 + 4 * (v5 >> 5));
-  if ( v10 != v9 && (*v10 | *((_DWORD *)qword_140011C70 + (v5 & 0x1F))) == -1 )
+  if ( v10 != v9 && (*v10 | *((_DWORD *)qword_140012120 + (v5 & 0x1F))) == -1 )
   {
     LODWORD(v5) = v5 - (v5 & 0x1F) + 32;
     for ( ++v10; v10 < v9 && *v10 == -1; ++v10 )
@@ -44,7 +44,7 @@ __int64 __fastcall RtlFindNextForwardRunClearCapped(__int64 a1, unsigned int a2,
   if ( v10 == v9 )
     goto LABEL_19;
   v12 = v5 & 0x1F;
-  if ( (*v10 & ~*((_DWORD *)qword_140011C70 + (v5 & 0x1F))) != 0 )
+  if ( (*v10 & ~*((_DWORD *)qword_140012120 + (v5 & 0x1F))) != 0 )
     goto LABEL_19;
   v11 = 32 - v12;
   if ( 32 - v12 < a3 )

@@ -25,25 +25,33 @@
  *     ZwQueryVirtualMemory @ 0x1800A5760 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall sub_18001E548(_DWORD *a1, int a2)
+__int64 __fastcall sub_18001E548(_DWORD *BaseAddress, int a2)
 {
   int v4; // eax
   int v5; // eax
   unsigned int v6; // ebx
-  _DWORD *v8; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD *MemoryInformation; // [rsp+30h] [rbp-38h] BYREF
   int v9; // [rsp+54h] [rbp-14h]
 
-  if ( a1[4] == -571548178 )
-    v4 = a1[5] & 0x40000000;
+  if ( BaseAddress[4] == -571548178 )
+    v4 = BaseAddress[5] & 0x40000000;
   else
-    v4 = a1[28] & 0x40000;
+    v4 = BaseAddress[28] & 0x40000;
   v5 = -v4;
   v6 = v5 != 0 ? 64 : 4;
   if ( (v5 != 0 ? 0x3C : 0) == 0x3C
     && a2
-    && ((int)ZwQueryVirtualMemory(-1LL, a1, 0LL, &v8, 48LL, 0LL) < 0 || (v9 & 0x60) == 0 || v8 != a1) )
+    && (ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryBasicInformation,
+          &MemoryInformation,
+          0x30uLL,
+          0LL) < 0
+     || (v9 & 0x60) == 0
+     || MemoryInformation != BaseAddress) )
   {
-    sub_1800A4DFC(0, (_DWORD)a1, a2, v9, 0LL, 0LL);
+    sub_1800A4DFC(0, (_DWORD)BaseAddress, a2, v9, 0LL, 0LL);
     return 4;
   }
   return v6;

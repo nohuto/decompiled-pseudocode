@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpInitializePathInfo @ 0x140404968
+ * XREFs of CmpInitializePathInfo @ 0x140403828
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14000B4B0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14000B030 (CmpGetSymbolicLinkTarget.c)
  * Callees:
  *     <none>
  */

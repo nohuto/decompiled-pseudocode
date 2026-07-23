@@ -1,15 +1,15 @@
 /*
- * XREFs of PspApplyJobChainLimitsToProcess @ 0x140A8FD18
+ * XREFs of PspApplyJobChainLimitsToProcess @ 0x140A94870
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140984FA8 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x140AC5D48 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140946FB8 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140AC79B8 (PspAssignProcessToJob.c)
  * Callees:
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140204BFC (PspNotifyProcessEffectiveIoLimitChanged.c)
- *     PsUpdateComponentPower @ 0x14045A6F0 (PsUpdateComponentPower.c)
- *     RtlInterlockedSetClearBits @ 0x1404CB7BC (RtlInterlockedSetClearBits.c)
- *     PspSetProcessSchedulingGroup @ 0x1409560C4 (PspSetProcessSchedulingGroup.c)
- *     PspComputeExecutionState @ 0x140A8FE0C (PspComputeExecutionState.c)
- *     PspApplyJobLimitsToProcess @ 0x140A8FEB8 (PspApplyJobLimitsToProcess.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140204CDC (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     PsUpdateComponentPower @ 0x140451F70 (PsUpdateComponentPower.c)
+ *     RtlInterlockedSetClearBits @ 0x1404C51EC (RtlInterlockedSetClearBits.c)
+ *     PspComputeExecutionState @ 0x140A94964 (PspComputeExecutionState.c)
+ *     PspApplyJobLimitsToProcess @ 0x140A94A08 (PspApplyJobLimitsToProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x140AED7E8 (PspSetProcessSchedulingGroup.c)
  */
 
 __int64 __fastcall PspApplyJobChainLimitsToProcess(__int64 a1, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall PspApplyJobChainLimitsToProcess(__int64 a1, __int64 a2, __int
   {
     if ( a2 && *(_QWORD *)(a2 + 1248) || PsCpuFairShareEnabled )
       PspSetProcessSchedulingGroup(a3, 0LL);
-    PspSetProcessSchedulingGroup(a3, *(struct _KSCHEDULING_GROUP **)(a1 + 1248));
+    PspSetProcessSchedulingGroup(a3, *(_QWORD *)(a1 + 1248));
   }
   if ( (*(_DWORD *)(a1 + 1552) & 0x40000) != 0 )
     _interlockedbittestandset((volatile signed __int32 *)(a3 + 136), 4u);

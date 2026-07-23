@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpConvertFlagsToSegmentFlags @ 0x18004668C
+ * XREFs of RtlpHpConvertFlagsToSegmentFlags @ 0x18004667C
  * Callers:
- *     RtlpReAllocateHeapInternal @ 0x180020DD0 (RtlpReAllocateHeapInternal.c)
- *     RtlSetUserValueHeap @ 0x180029050 (RtlSetUserValueHeap.c)
- *     RtlSizeHeap @ 0x180046180 (RtlSizeHeap.c)
- *     RtlValidateHeap @ 0x180076860 (RtlValidateHeap.c)
- *     RtlGetUserInfoHeap @ 0x18007AB50 (RtlGetUserInfoHeap.c)
- *     RtlSetUserFlagsHeap @ 0x1800E9420 (RtlSetUserFlagsHeap.c)
+ *     RtlpReAllocateHeapInternal @ 0x180020DC0 (RtlpReAllocateHeapInternal.c)
+ *     RtlSetUserValueHeap @ 0x180029040 (RtlSetUserValueHeap.c)
+ *     RtlSizeHeap @ 0x180046170 (RtlSizeHeap.c)
+ *     RtlValidateHeap @ 0x180076850 (RtlValidateHeap.c)
+ *     RtlGetUserInfoHeap @ 0x18007AB40 (RtlGetUserInfoHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x1800E94E0 (RtlSetUserFlagsHeap.c)
  * Callees:
  *     <none>
  */

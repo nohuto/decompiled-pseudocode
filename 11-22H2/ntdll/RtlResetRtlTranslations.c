@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void RtlResetRtlTranslations()
+void __cdecl RtlResetRtlTranslations(PNLSTABLEINFO TableInfo)
 {
   ;
 }

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   return (MEMORY[0xFFFFF780000002F0] >> 8) & 1;
 }

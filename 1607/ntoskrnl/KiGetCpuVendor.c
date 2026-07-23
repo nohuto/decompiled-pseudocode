@@ -1,14 +1,14 @@
 /*
  * XREFs of KiGetCpuVendor @ 0x1403D622C
  * Callers:
- *     HvlpProcessIommu @ 0x1401BF944 (HvlpProcessIommu.c)
+ *     HvlpProcessIommu @ 0x1401BF828 (HvlpProcessIommu.c)
  *     KiSetFeatureBits @ 0x1403D57C8 (KiSetFeatureBits.c)
  *     KiIsNXSupported @ 0x1403D6320 (KiIsNXSupported.c)
  *     KiGetProcessorSignature @ 0x1403DE294 (KiGetProcessorSignature.c)
  *     KiInitializeNxSupportDiscard @ 0x1407A11F4 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strncmp @ 0x14014CE80 (strncmp.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strncmp @ 0x14014D3F0 (strncmp.c)
  */
 
 __int64 KiGetCpuVendor()

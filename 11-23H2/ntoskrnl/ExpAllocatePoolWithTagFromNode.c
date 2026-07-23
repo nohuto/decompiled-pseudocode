@@ -1,29 +1,29 @@
 /*
- * XREFs of ExpAllocatePoolWithTagFromNode @ 0x1402AD250
+ * XREFs of ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0
  * Callers:
- *     CcWriteBehind @ 0x14029B558 (CcWriteBehind.c)
- *     CcFlushCachePriv @ 0x14029CD34 (CcFlushCachePriv.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402C0C04 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncCopyRead @ 0x1402C1070 (CcAsyncCopyRead.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     CcInitializePartition @ 0x1403A0390 (CcInitializePartition.c)
- *     CcInitializeAsyncReadForNodeHelper @ 0x1403BF060 (CcInitializeAsyncReadForNodeHelper.c)
- *     CcInitializeNumaNodeForVolume @ 0x1403C10BC (CcInitializeNumaNodeForVolume.c)
- *     CcInitializeQuickLWSThreadItem @ 0x1403C1400 (CcInitializeQuickLWSThreadItem.c)
- *     CcInitializeAsyncLazywriteForNodeHelper @ 0x140539F30 (CcInitializeAsyncLazywriteForNodeHelper.c)
- *     CcInitializeNumaNode @ 0x14053A838 (CcInitializeNumaNode.c)
- *     CcWriteBehindAsyncPreProcess @ 0x14053B824 (CcWriteBehindAsyncPreProcess.c)
+ *     CcWriteBehind @ 0x14029B7E8 (CcWriteBehind.c)
+ *     CcFlushCachePriv @ 0x14029CFC4 (CcFlushCachePriv.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1402C0E94 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncCopyRead @ 0x1402C1300 (CcAsyncCopyRead.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     CcInitializePartition @ 0x1403A0570 (CcInitializePartition.c)
+ *     CcInitializeAsyncReadForNodeHelper @ 0x1403BF240 (CcInitializeAsyncReadForNodeHelper.c)
+ *     CcInitializeNumaNodeForVolume @ 0x1403C129C (CcInitializeNumaNodeForVolume.c)
+ *     CcInitializeQuickLWSThreadItem @ 0x1403C15E0 (CcInitializeQuickLWSThreadItem.c)
+ *     CcInitializeAsyncLazywriteForNodeHelper @ 0x14053A480 (CcInitializeAsyncLazywriteForNodeHelper.c)
+ *     CcInitializeNumaNode @ 0x14053AD88 (CcInitializeNumaNode.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x14053BD74 (CcWriteBehindAsyncPreProcess.c)
  *     ExpAllocatePoolWithQuotaTag @ 0x140AAE008 (ExpAllocatePoolWithQuotaTag.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  *     ExpAllocatePoolWithTagPriority @ 0x140AAECF4 (ExpAllocatePoolWithTagPriority.c)
  * Callees:
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpAllocatePoolWithTagFromNode(POOL_TYPE a1, ULONG_PTR a2, __int64 a3, int a4, int a5)
@@ -60,7 +60,7 @@ __int64 __fastcall ExpAllocatePoolWithTagFromNode(POOL_TYPE a1, ULONG_PTR a2, __
         KeBugCheckEx(0x41u, a2, (unsigned int)v11[17], (unsigned int)v11[21] + (unsigned int)v11[23], 0LL);
       }
       if ( (a1 & 0x10) != 0 )
-        RtlRaiseStatus(3221225626LL);
+        RtlRaiseStatus(-1073741670);
       return 0LL;
     }
   }

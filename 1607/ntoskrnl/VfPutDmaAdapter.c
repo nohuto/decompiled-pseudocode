@@ -1,113 +1,125 @@
 /*
- * XREFs of VfPutDmaAdapter @ 0x14070804C
+ * XREFs of VfPutDmaAdapter @ 0x14070807C
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViFlushZeroMapRegisterBaseWcbs @ 0x140222BFC (ViFlushZeroMapRegisterBaseWcbs.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140705FE0 (VF_ASSERT_MAX_IRQL.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
- *     ViReleaseDmaAdapter @ 0x14070A24C (ViReleaseDmaAdapter.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ViFlushZeroMapRegisterBaseWcbs @ 0x140222A28 (ViFlushZeroMapRegisterBaseWcbs.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140706010 (VF_ASSERT_MAX_IRQL.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
+ *     ViReleaseDmaAdapter @ 0x14070A27C (ViReleaseDmaAdapter.c)
  */
 
-__int64 __fastcall VfPutDmaAdapter(__int64 a1)
+__int64 __fastcall VfPutDmaAdapter(struct _LIST_ENTRY *a1)
 {
   __int64 result; // rax
-  __int64 (__fastcall *v3)(__int64); // rsi
+  __int64 (__fastcall *v3)(struct _LIST_ENTRY *); // rsi
   KIRQL v4; // al
-  ULONG_PTR v5; // rbx
+  struct _LIST_ENTRY *Flink; // rbx
   KIRQL v6; // bp
-  ULONG_PTR v7; // rcx
-  ULONG_PTR *v8; // rax
+  struct _LIST_ENTRY *v7; // rcx
+  struct _LIST_ENTRY *Blink; // rax
 
   VF_ASSERT_MAX_IRQL();
   result = ViGetRealDmaOperation(a1, 8LL);
-  v3 = (__int64 (__fastcall *)(__int64))result;
+  v3 = (__int64 (__fastcall *)(struct _LIST_ENTRY *))result;
   if ( result )
   {
     v4 = KeAcquireSpinLockRaiseToDpc(&Lock);
-    v5 = ViAdapterList;
+    Flink = ViAdapterList.Flink;
     v6 = v4;
     while ( 1 )
     {
-      if ( &ViAdapterList == (ULONG_PTR *)v5 )
+      if ( &ViAdapterList == Flink )
         goto LABEL_27;
-      if ( a1 == *(_QWORD *)(v5 + 16) )
+      if ( a1 == Flink[1].Flink )
         break;
-      v5 = *(_QWORD *)v5;
+      Flink = Flink->Flink;
     }
-    if ( _InterlockedDecrement((volatile signed __int32 *)(v5 + 36)) < 0 )
+    if ( _InterlockedDecrement((volatile signed __int32 *)&Flink[2].Flink + 1) < 0 )
     {
       ViHalPreprocessOptions(
         byte_1402F99AC,
         "Driver has attempted to access an adapter (%p) that has already been released.",
         (const void *)0x18);
-      VfReportIssueWithOptions(230, 24, a1, v5, 0LL, byte_1402F99AC);
+      VfReportIssueWithOptions(230, 24, (int)a1, (int)Flink, 0LL, byte_1402F99AC);
     }
-    ViFlushZeroMapRegisterBaseWcbs(v5);
-    if ( *(_DWORD *)(v5 + 180) != *(_DWORD *)(v5 + 184) )
+    ViFlushZeroMapRegisterBaseWcbs((__int64)Flink);
+    if ( HIDWORD(Flink[11].Flink) != LODWORD(Flink[11].Blink) )
     {
       ViHalPreprocessOptions(
         byte_1402F99B0,
         "Cannot put adapter %p until all adapter channels are freed (%x left).",
         (const void *)8,
-        a1);
-      VfReportIssueWithOptions(230, 8, a1, *(_DWORD *)(v5 + 180) - *(_DWORD *)(v5 + 184), v5, byte_1402F99B0);
+        (_DWORD)a1);
+      VfReportIssueWithOptions(
+        230,
+        8,
+        (int)a1,
+        HIDWORD(Flink[11].Flink) - LODWORD(Flink[11].Blink),
+        (ULONG_PTR)Flink,
+        byte_1402F99B0);
     }
-    if ( *(_DWORD *)(v5 + 172) != *(_DWORD *)(v5 + 176) )
+    if ( HIDWORD(Flink[10].Blink) != LODWORD(Flink[11].Flink) )
     {
       ViHalPreprocessOptions(
         byte_1402F99A4,
         "Cannot put adapter %p until all common buffers are freed (%x left).",
         (const void *)7,
-        a1);
-      VfReportIssueWithOptions(230, 7, a1, *(_DWORD *)(v5 + 172) - *(_DWORD *)(v5 + 176), v5, byte_1402F99A4);
+        (_DWORD)a1);
+      VfReportIssueWithOptions(
+        230,
+        7,
+        (int)a1,
+        HIDWORD(Flink[10].Blink) - LODWORD(Flink[11].Flink),
+        (ULONG_PTR)Flink,
+        byte_1402F99A4);
     }
-    if ( *(_DWORD *)(v5 + 160) )
+    if ( LODWORD(Flink[10].Flink) )
     {
       ViHalPreprocessOptions(
         byte_1402F99A8,
         "Cannot put adapter %p until all map registers are freed (%x left).",
         (const void *)9,
-        a1);
-      VfReportIssueWithOptions(230, 9, a1, *(_DWORD *)(v5 + 160), v5, byte_1402F99A8);
+        (_DWORD)a1);
+      VfReportIssueWithOptions(230, 9, (int)a1, (int)Flink[10].Flink, (ULONG_PTR)Flink, byte_1402F99A8);
     }
-    if ( *(_DWORD *)(v5 + 168) )
+    if ( LODWORD(Flink[10].Blink) )
     {
       ViHalPreprocessOptions(
         byte_1402F99A0,
         "Cannot put adapter %p until all scatter gather lists are freed (%x left).",
         (const void *)0xA,
-        a1);
-      VfReportIssueWithOptions(230, 10, a1, *(_DWORD *)(v5 + 168), v5, byte_1402F99A0);
+        (_DWORD)a1);
+      VfReportIssueWithOptions(230, 10, (int)a1, (int)Flink[10].Blink, (ULONG_PTR)Flink, byte_1402F99A0);
     }
-    if ( !*(_QWORD *)(v5 + 24) )
+    if ( !Flink[1].Blink )
     {
-      v7 = *(_QWORD *)v5;
-      v8 = *(ULONG_PTR **)(v5 + 8);
-      if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 || *v8 != v5 )
+      v7 = Flink->Flink;
+      Blink = Flink->Blink;
+      if ( Flink->Flink->Blink != Flink || Blink->Flink != Flink )
         __fastfail(3u);
 LABEL_24:
-      *v8 = v7;
-      *(_QWORD *)(v7 + 8) = v8;
+      Blink->Flink = v7;
+      v7->Blink = Blink;
       goto LABEL_27;
     }
-    if ( *(_BYTE *)(v5 + 34) )
+    if ( BYTE2(Flink[2].Flink) )
     {
-      v7 = *(_QWORD *)v5;
-      v8 = *(ULONG_PTR **)(v5 + 8);
-      if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 || *v8 != v5 )
+      v7 = Flink->Flink;
+      Blink = Flink->Blink;
+      if ( Flink->Flink->Blink != Flink || Blink->Flink != Flink )
         __fastfail(3u);
       goto LABEL_24;
     }
-    v5 = 0LL;
+    Flink = 0LL;
 LABEL_27:
     KeReleaseSpinLock(&Lock, v6);
-    if ( v5 )
-      ViReleaseDmaAdapter(v5);
+    if ( Flink )
+      ViReleaseDmaAdapter((ULONG_PTR)Flink);
     return v3(a1);
   }
   return result;

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiXmmException @ 0x1406BB900
+ * XREFs of KiXmmException @ 0x1406BC800
  * Callers:
- *     KiXmmExceptionShadow @ 0x140BBBAC0 (KiXmmExceptionShadow.c)
+ *     KiXmmExceptionShadow @ 0x140BBDAC0 (KiXmmExceptionShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x14041B1F0 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KiXmmException @ 0x1406BB900 (KiXmmException.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x1406BED00 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406BF740 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14040ED30 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KiXmmException @ 0x1406BC800 (KiXmmException.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x1406BFC00 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406C0640 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiXmmException()
@@ -69,7 +69,7 @@ void __noreturn KiXmmException()
       v6 = KeGetPcr()->Prcb.PrcbPad12a[1];
     }
     if ( (v6 & 2) != 0 )
-      JUMPOUT(0x1406BBB69LL);
+      JUMPOUT(0x1406BCA69LL);
     if ( v6 < 0 )
     {
       _mm_lfence();

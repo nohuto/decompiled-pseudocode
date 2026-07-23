@@ -1,12 +1,12 @@
 /*
- * XREFs of ValidFilter @ 0x1409FA0B0
+ * XREFs of ValidFilter @ 0x1409F2A20
  * Callers:
- *     PiDqQueryValidateQueryData @ 0x1409F9E30 (PiDqQueryValidateQueryData.c)
+ *     PiDqQueryValidateQueryData @ 0x1409F27A0 (PiDqQueryValidateQueryData.c)
  * Callees:
- *     ValidFilterExpression @ 0x1404862F0 (ValidFilterExpression.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     FilterEvalStrict @ 0x1408CC720 (FilterEvalStrict.c)
- *     FilterEvalImpliedAnd @ 0x1408D4048 (FilterEvalImpliedAnd.c)
+ *     ValidFilterExpression @ 0x1404818E0 (ValidFilterExpression.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     FilterEvalStrict @ 0x1408CA150 (FilterEvalStrict.c)
+ *     FilterEvalImpliedAnd @ 0x1408D1A38 (FilterEvalImpliedAnd.c)
  */
 
 __int64 __fastcall ValidFilter(unsigned int a1, _DWORD *a2)

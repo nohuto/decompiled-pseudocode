@@ -8,16 +8,15 @@
  *     TppJobpValidateJob @ 0x18007E6A8 (TppJobpValidateJob.c)
  */
 
-__int64 __fastcall TpWaitForJobNotification(__int64 a1)
+int __fastcall TpWaitForJobNotification(_RTL_SRWLOCK *a1)
 {
-  __int64 result; // rax
-  unsigned __int64 v3; // r9
+  int result; // eax
 
   result = TppJobpValidateJob(a1, 0LL);
-  if ( (_DWORD)result )
+  if ( result )
   {
     TppJobpRundownJob(a1);
-    return TppBarrierAdjust((volatile signed __int64 *)(a1 + 128), 0, 1uLL, v3);
+    return TppBarrierAdjust(a1 + 16, 0, 1);
   }
   return result;
 }

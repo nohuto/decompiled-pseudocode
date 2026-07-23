@@ -2,18 +2,18 @@
  * XREFs of SeExamineSacl @ 0x1409CAE50
  * Callers:
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140669A90 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     NtOpenObjectAuditAlarm @ 0x1406C5CA0 (NtOpenObjectAuditAlarm.c)
- *     SeObjectReferenceAuditAlarm @ 0x1407225F4 (SeObjectReferenceAuditAlarm.c)
+ *     sub_1406C5CA0 @ 0x1406C5CA0 (sub_1406C5CA0.c)
+ *     sub_1407225F4 @ 0x1407225F4 (sub_1407225F4.c)
  *     SeOpenObjectAuditAlarmForNonObObject @ 0x1408629D0 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     SeExamineGlobalSacl @ 0x140882A70 (SeExamineGlobalSacl.c)
- *     CmpExamineSaclForAuditEvent @ 0x140918574 (CmpExamineSaclForAuditEvent.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409C6D8C (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     sub_140882A70 @ 0x140882A70 (sub_140882A70.c)
+ *     sub_140918574 @ 0x140918574 (sub_140918574.c)
+ *     sub_1409C6D8C @ 0x1409C6D8C (sub_1409C6D8C.c)
  *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB230 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140218B60 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepEvaluateAceCondition @ 0x140219130 (AuthzBasepEvaluateAceCondition.c)
- *     SepSidInToken @ 0x14021F640 (SepSidInToken.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x14028AB90 (AuthzBasepFreeSecurityAttributesList.c)
+ *     sub_140218B60 @ 0x140218B60 (sub_140218B60.c)
+ *     sub_140219130 @ 0x140219130 (sub_140219130.c)
+ *     sub_14021F640 @ 0x14021F640 (sub_14021F640.c)
+ *     sub_14028AB90 @ 0x14028AB90 (sub_14028AB90.c)
  *     memcmp @ 0x1403E1D90 (memcmp.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -83,13 +83,13 @@ void __stdcall SeExamineSacl(
       if ( (DesiredAccess & 0x2000000) != 0 )
         v16 = AccessGranted != 0 ? 64 : 0x80;
       v17 = (_WORD *)**((_QWORD **)v10 + 19);
-      if ( *v17 == *(_WORD *)SeAnonymousLogonSid )
+      if ( *v17 == *(_WORD *)qword_140D3CA60 )
       {
-        v18 = memcmp(v17, SeAnonymousLogonSid, 4LL * *((unsigned __int8 *)SeAnonymousLogonSid + 1) + 8);
+        v18 = memcmp(v17, qword_140D3CA60, 4LL * *((unsigned __int8 *)qword_140D3CA60 + 1) + 8);
         v10 = v36;
         v12 = v35;
         if ( !v18 )
-          v9 = 4 * *((unsigned __int8 *)SeWorldSid + 1) + 8;
+          v9 = 4 * *((unsigned __int8 *)qword_140C5AFA8 + 1) + 8;
       }
       v19 = 0;
       v20 = Sacl + 1;
@@ -103,7 +103,7 @@ void __stdcall SeExamineSacl(
 LABEL_42:
             if ( v7 )
             {
-              AuthzBasepFreeSecurityAttributesList(v7);
+              sub_14028AB90(v7);
               ExFreePoolWithTag(v7, 0);
             }
             return;
@@ -123,8 +123,9 @@ LABEL_41:
         if ( v20->AclRevision == 2 )
         {
           LOBYTE(DesiredAccess) = 1;
-          if ( !(unsigned __int8)SepSidInToken((__int64)v10, 0LL, (__int64)&v20[1], *(__int64 *)&DesiredAccess, 0, 0)
-            && (!v9 || *(_WORD *)SeWorldSid != *(_WORD *)&v20[1].AclRevision || memcmp(SeWorldSid, &v20[1], v9)) )
+          if ( !(unsigned __int8)sub_14021F640((__int64)v10, 0LL, (__int64)&v20[1], *(__int64 *)&DesiredAccess, 0, 0)
+            && (!v9 || *(_WORD *)qword_140C5AFA8 != *(_WORD *)&v20[1].AclRevision
+                    || memcmp(qword_140C5AFA8, &v20[1], v9)) )
           {
             goto LABEL_40;
           }
@@ -147,7 +148,7 @@ LABEL_41:
           v31 = v24;
           if ( v12 && !v7 )
           {
-            AuthzBasepInitializeResourceClaimsFromSacl((__int64)v12, v33);
+            sub_140218B60((__int64)v12, v33);
             v23 = (unsigned int)GenerateAlarm;
             v19 = (unsigned int)GenerateAudit;
             v7 = (_DWORD *)v33[0];
@@ -170,7 +171,7 @@ LABEL_41:
             v29 = 0LL;
             v30 = 0LL;
           }
-          AuthzBasepEvaluateAceCondition(
+          sub_140219130(
             v36,
             *((void **)v36 + 97),
             v7,
@@ -186,8 +187,8 @@ LABEL_41:
           if ( ((v34 + 1) & 0xFFFFFFFD) != 0 )
             goto LABEL_40;
           LOBYTE(DesiredAccess) = 1;
-          if ( !(unsigned __int8)SepSidInToken((__int64)v36, 0LL, (__int64)&v20[1], *(__int64 *)&DesiredAccess, 0, 0)
-            && (!v9 || *(_WORD *)SeWorldSid != *(_WORD *)&v22->AclRevision || memcmp(SeWorldSid, &v20[1], v9)) )
+          if ( !(unsigned __int8)sub_14021F640((__int64)v36, 0LL, (__int64)&v20[1], *(__int64 *)&DesiredAccess, 0, 0)
+            && (!v9 || *(_WORD *)qword_140C5AFA8 != *(_WORD *)&v22->AclRevision || memcmp(qword_140C5AFA8, &v20[1], v9)) )
           {
             goto LABEL_40;
           }

@@ -8,22 +8,22 @@
  *     NtOpenKey @ 0x1800A42B0 (NtOpenKey.c)
  */
 
-NTSTATUS LdrpInitializeSmtDelayedSleep()
+int LdrpInitializeSmtDelayedSleep()
 {
-  NTSTATUS result; // eax
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  int result; // eax
+  HANDLE KeyHandle; // [rsp+30h] [rbp+8h] BYREF
 
-  Handle = 0LL;
-  result = NtOpenKey(&Handle, 1LL, &unk_18012C820);
+  KeyHandle = 0LL;
+  result = NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_18012C820);
   if ( result >= 0 )
   {
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L"68", &SmtDelayedConfiguration);
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L"46", &dword_180178D04);
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L"\"$", &dword_180178D08);
-    LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, &unk_18012C7E0, &dword_180178D0C);
-    result = LdrpInitializeSmtDelayedSleepQueryRegistry(Handle, L" \"", &dword_180178D10);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L"68", &SmtDelayedConfiguration);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L"46", &dword_180178D04);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L"\"$", &dword_180178D08);
+    LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, &unk_18012C7E0, &dword_180178D0C);
+    result = LdrpInitializeSmtDelayedSleepQueryRegistry(KeyHandle, L" \"", &dword_180178D10);
   }
-  if ( Handle )
-    return NtClose(Handle);
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

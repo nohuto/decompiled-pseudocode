@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxNotifySxTransitionState @ 0x140776B24
+ * XREFs of PopFxNotifySxTransitionState @ 0x140776CE4
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 char __fastcall PopFxNotifySxTransitionState(char a1)
@@ -20,29 +20,29 @@ char __fastcall PopFxNotifySxTransitionState(char a1)
   if ( a1 )
   {
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopFxUpdateDripsConstraintContext, 0LL);
-    byte_140C247D8 = 1;
+    byte_140C24A38 = 1;
     v1 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxUpdateDripsConstraintContext, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v1 & 2) != 0 && (v1 & 4) == 0 )
       ExfTryToWakePushLock(&PopFxUpdateDripsConstraintContext);
     KeAbPostRelease((ULONG_PTR)&PopFxUpdateDripsConstraintContext);
-    return KeWaitForSingleObject(&stru_140C247E0, Executive, 0, 0, 0LL);
+    return KeWaitForSingleObject(&stru_140C24A40, Executive, 0, 0, 0LL);
   }
   else
   {
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopFxUpdateDripsConstraintContext, 0LL);
-    byte_140C247D8 = 0;
+    byte_140C24A38 = 0;
     while ( 1 )
     {
-      v3 = (struct _WORK_QUEUE_ITEM *)qword_140C247C8;
-      if ( (__int64 *)qword_140C247C8 == &qword_140C247C8 )
+      v3 = (struct _WORK_QUEUE_ITEM *)qword_140C24A28;
+      if ( (__int64 *)qword_140C24A28 == &qword_140C24A28 )
         break;
-      if ( *(__int64 **)(qword_140C247C8 + 8) != &qword_140C247C8
-        || (v5 = *(_QWORD *)qword_140C247C8, *(_QWORD *)(*(_QWORD *)qword_140C247C8 + 8LL) != qword_140C247C8) )
+      if ( *(__int64 **)(qword_140C24A28 + 8) != &qword_140C24A28
+        || (v5 = *(_QWORD *)qword_140C24A28, *(_QWORD *)(*(_QWORD *)qword_140C24A28 + 8LL) != qword_140C24A28) )
       {
         __fastfail(3u);
       }
-      qword_140C247C8 = *(_QWORD *)qword_140C247C8;
-      *(_QWORD *)(v5 + 8) = &qword_140C247C8;
+      qword_140C24A28 = *(_QWORD *)qword_140C24A28;
+      *(_QWORD *)(v5 + 8) = &qword_140C24A28;
       ExQueueWorkItem(v3 + 1, DelayedWorkQueue);
     }
     v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxUpdateDripsConstraintContext, 0xFFFFFFFFFFFFFFFFuLL);

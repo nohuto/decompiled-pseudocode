@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFreeIdleSearchStructures @ 0x1405EB194
+ * XREFs of KiFreeIdleSearchStructures @ 0x1405EDB04
  * Callers:
- *     KiFreeProcessorSchedulerStructures @ 0x1405EB250 (KiFreeProcessorSchedulerStructures.c)
+ *     KiFreeProcessorSchedulerStructures @ 0x1405EDBC0 (KiFreeProcessorSchedulerStructures.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiFreeIdleSearchStructures(__int64 a1)

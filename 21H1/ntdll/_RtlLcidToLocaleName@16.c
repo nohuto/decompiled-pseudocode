@@ -18,51 +18,55 @@
  *     _RtlpGetUserOrMachineUILanguage4NLS@12 @ 0x4B36A9A0 (_RtlpGetUserOrMachineUILanguage4NLS@12.c)
  */
 
-int __stdcall RtlLcidToLocaleName(int a1, int a2, int a3, char a4)
+NTSTATUS __cdecl RtlLcidToLocaleName(
+        LCID lcid,
+        PUNICODE_STRING LocaleName,
+        ULONG Flags,
+        BOOLEAN AllocateDestinationString)
 {
-  int v4; // esi
+  LCID v4; // esi
   int v5; // edi
   int LcidIndex; // eax
   int v7; // esi
   int v8; // eax
   int v9; // ecx
-  wchar_t *Buffer; // edx
+  wchar_t *v10; // edx
   int v12; // [esp-8h] [ebp-D8h]
-  int v13; // [esp-4h] [ebp-D4h]
-  int v14; // [esp+Ch] [ebp-C4h] BYREF
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-C0h] BYREF
+  PUNICODE_STRING v13; // [esp-4h] [ebp-D4h]
+  int StackCookie; // [esp+Ch] [ebp-C4h] BYREF
+  uintptr_t StackCookie_4; // [esp+10h] [ebp-C0h] BYREF
   _BYTE v16[180]; // [esp+18h] [ebp-B8h] BYREF
 
-  v4 = a1;
-  v14 = 85;
-  if ( !a1 || a1 == 4096 )
+  v4 = lcid;
+  StackCookie = 85;
+  if ( !lcid || lcid == 4096 )
     return -1073741585;
-  if ( a2 )
+  if ( LocaleName )
   {
-    if ( (a3 & 0xFFFFFFFD) != 0 )
+    if ( (Flags & 0xFFFFFFFD) != 0 )
       return -1073741583;
-    if ( a4 || *(_DWORD *)(a2 + 4) )
+    if ( AllocateDestinationString || LocaleName->Buffer )
     {
-      if ( a1 == 5120 )
+      if ( lcid == 5120 )
       {
-        if ( RtlpGetUserOrMachineUILanguage4NLS(1, v16, (int)&v14) >= 0 )
+        if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1, v16, &StackCookie) >= 0 )
         {
-          v13 = a2;
-          v12 = v14;
-          Buffer = (wchar_t *)v16;
+          v13 = LocaleName;
+          v12 = StackCookie;
+          v10 = (wchar_t *)v16;
           goto LABEL_19;
         }
         return -1073741823;
       }
-      if ( a1 == 3072 || a1 == 1024 )
+      if ( lcid == 3072 || lcid == 1024 )
       {
-        DestinationString.Buffer = (wchar_t *)v16;
-        DestinationString.MaximumLength = 170;
-        if ( RtlpGetUserLocaleName(&DestinationString) >= 0 )
+        HIDWORD(StackCookie_4) = v16;
+        WORD1(StackCookie_4) = 170;
+        if ( RtlpGetUserLocaleName((PUNICODE_STRING)&StackCookie_4) >= 0 )
         {
-          Buffer = DestinationString.Buffer;
-          v13 = a2;
-          v12 = DestinationString.Length >> 1;
+          v10 = (wchar_t *)HIDWORD(StackCookie_4);
+          v13 = LocaleName;
+          v12 = (unsigned __int16)StackCookie_4 >> 1;
           goto LABEL_19;
         }
       }
@@ -75,12 +79,12 @@ int __stdcall RtlLcidToLocaleName(int a1, int a2, int a3, char a4)
         {
           v5 = pTblPtrs;
 LABEL_11:
-          if ( a1 == 2048 )
+          if ( lcid == 2048 )
             v4 = gSystemLocale;
           LcidIndex = RtlpNlsGetLcidIndex(v4);
           if ( LcidIndex >= 0 )
           {
-            if ( (a3 & 2) != 0
+            if ( (Flags & 2) != 0
               || (_mm_lfence(),
                   (*(_BYTE *)(*(unsigned __int16 *)(v5 + 28)
                             * *(unsigned __int16 *)(*(_DWORD *)(v5 + 12) + 8 * LcidIndex + 4)
@@ -90,8 +94,8 @@ LABEL_11:
               v7 = *(_DWORD *)(v5 + 20) + 2 * (*(unsigned __int16 *)(*(_DWORD *)(v5 + 12) + 8 * LcidIndex + 6) + 1);
               if ( v7 )
               {
-                v8 = RtlStringLengthWorkerW(&v14);
-                v9 = v14;
+                v8 = RtlStringLengthWorkerW(&StackCookie);
+                v9 = StackCookie;
               }
               else
               {
@@ -100,12 +104,12 @@ LABEL_11:
               }
               if ( v8 >= 0 )
               {
-                v13 = a2;
+                v13 = LocaleName;
                 v12 = v9;
-                Buffer = (wchar_t *)v7;
+                v10 = (wchar_t *)v7;
 LABEL_19:
-                LOBYTE(v9) = a4;
-                return RtlpInitUnicodeStringUsingBuffer(v9, Buffer, v12, v13);
+                LOBYTE(v9) = AllocateDestinationString;
+                return RtlpInitUnicodeStringUsingBuffer(v9, v10, v12, v13);
               }
               return -1073741823;
             }

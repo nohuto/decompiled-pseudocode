@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeEntropySystem @ 0x1407D2174
+ * XREFs of KeInitializeEntropySystem @ 0x1407D22E4
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeInitializeEntropySystem(__int64 a1, void (__fastcall *a2)(__int64, __int64, __int64), __int64 a3)

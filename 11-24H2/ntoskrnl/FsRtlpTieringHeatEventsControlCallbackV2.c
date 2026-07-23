@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpTieringHeatEventsControlCallbackV2 @ 0x140581DF0
+ * XREFs of FsRtlpTieringHeatEventsControlCallbackV2 @ 0x14057F170
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     McTemplateK0jq_EtwWriteTransfer @ 0x140581F18 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x14057F298 (McTemplateK0jq_EtwWriteTransfer.c)
  */
 
 void __fastcall FsRtlpTieringHeatEventsControlCallbackV2(
@@ -51,7 +51,7 @@ void __fastcall FsRtlpTieringHeatEventsControlCallbackV2(
         v14 = v13 & ~v11;
       *v12 = v14;
     }
-    ExAcquireResourceSharedLite(&stru_140F8E190, 1u);
+    ExAcquireResourceSharedLite(&stru_140F8E370, 1u);
     for ( i = (PVOID *)FsRtlTieringHeatData; i != &FsRtlTieringHeatData; i = (PVOID *)*i )
     {
       if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 1) != 0 )
@@ -62,6 +62,6 @@ void __fastcall FsRtlpTieringHeatEventsControlCallbackV2(
           (char *)i + 20,
           *((_DWORD *)i + 9));
     }
-    ExReleaseResourceLite(&stru_140F8E190);
+    ExReleaseResourceLite(&stru_140F8E370);
   }
 }

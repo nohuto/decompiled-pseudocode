@@ -10,12 +10,12 @@
 
 __int64 __fastcall sub_1800CF1D4(unsigned __int64 a1, const char *a2)
 {
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // rbp
   __int64 v6; // rdi
-  unsigned int v7; // ebx
-  unsigned int v8; // esi
-  unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
+  DWORD v7; // ebx
+  DWORD v8; // esi
+  DWORD v10; // [rsp+80h] [rbp+18h] BYREF
   __int64 v11; // [rsp+88h] [rbp+20h] BYREF
 
   v4 = sub_18001C4DC(a1, 1, 0xDu, &v10, &v11);

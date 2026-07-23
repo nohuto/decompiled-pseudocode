@@ -13,12 +13,12 @@ __int64 __fastcall RtlpInitCurrentDir(__int64 a1, __int64 a2, __int64 a3)
   int v4; // eax
   unsigned __int16 *v5; // r9
   __int64 result; // rax
-  __int64 v7; // rcx
+  _QWORD *v7; // rcx
   int v8; // eax
   int v9; // eax
   int v10; // eax
   int v11; // eax
-  __int64 v12; // [rsp+38h] [rbp+10h] BYREF
+  _QWORD *v12; // [rsp+38h] [rbp+10h] BYREF
 
   v12 = 0LL;
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
@@ -44,9 +44,9 @@ __int64 __fastcall RtlpInitCurrentDir(__int64 a1, __int64 a2, __int64 a3)
   {
     v7 = v12;
     RtlpCurDirRef = v12;
-    ProcessParameters->CurrentDirectory.Handle = *(void **)(v12 + 8);
-    ProcessParameters->CurrentDirectory.DosPath.Buffer = *(wchar_t **)(v7 + 32);
-    ProcessParameters->CurrentDirectory.DosPath.Length = *(_WORD *)(v7 + 24);
+    ProcessParameters->CurrentDirectory.Handle = (void *)v12[1];
+    ProcessParameters->CurrentDirectory.DosPath.Buffer = (wchar_t *)v7[4];
+    ProcessParameters->CurrentDirectory.DosPath.Length = *((_WORD *)v7 + 12);
     return 0LL;
   }
   return result;

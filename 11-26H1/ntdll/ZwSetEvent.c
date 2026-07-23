@@ -1,31 +1,31 @@
 /*
- * XREFs of ZwSetEvent @ 0x18015F100
+ * XREFs of ZwSetEvent @ 0x18015F000
  * Callers:
- *     EtwpSwitchBuffer @ 0x180011380 (EtwpSwitchBuffer.c)
- *     TppCallbackEpilog @ 0x18003FD40 (TppCallbackEpilog.c)
- *     RtlpTpTimerRundown @ 0x1800677EC (RtlpTpTimerRundown.c)
- *     EtwpSynchronizeWithLogger @ 0x1800774FC (EtwpSynchronizeWithLogger.c)
- *     EtwpLogger @ 0x180078000 (EtwpLogger.c)
- *     LdrpProcessWork @ 0x180087350 (LdrpProcessWork.c)
- *     LdrpInitializationComplete @ 0x1800CEC50 (LdrpInitializationComplete.c)
- *     LdrpInitializeThread @ 0x1800CF3C0 (LdrpInitializeThread.c)
- *     RtlpTpWaitRundown @ 0x1800DDAA0 (RtlpTpWaitRundown.c)
- *     LdrpDropLastInProgressCount @ 0x1800E1CDC (LdrpDropLastInProgressCount.c)
- *     RtlpTpTimerQueueRundown @ 0x1800FBE04 (RtlpTpTimerQueueRundown.c)
- *     RtlpWnfMetaCallbackProc @ 0x1801071F0 (RtlpWnfMetaCallbackProc.c)
- *     RtlpHeapTrkSyncWithDiagnoser @ 0x1801106B0 (RtlpHeapTrkSyncWithDiagnoser.c)
- *     RtlCreateProcessReflection @ 0x1801397C0 (RtlCreateProcessReflection.c)
- *     RtlpProcessReflectionStartup @ 0x180139D90 (RtlpProcessReflectionStartup.c)
- *     RtlpRtlpCtSelfSubscribeCallback @ 0x180149790 (RtlpRtlpCtSelfSubscribeCallback.c)
+ *     TppCallbackEpilog @ 0x18002A2B0 (TppCallbackEpilog.c)
+ *     EtwpSwitchBuffer @ 0x18005CAB0 (EtwpSwitchBuffer.c)
+ *     EtwpSynchronizeWithLogger @ 0x180065D1C (EtwpSynchronizeWithLogger.c)
+ *     EtwpLogger @ 0x180066820 (EtwpLogger.c)
+ *     LdrpProcessWork @ 0x18007E6C0 (LdrpProcessWork.c)
+ *     RtlpTpTimerRundown @ 0x180087C3C (RtlpTpTimerRundown.c)
+ *     LdrpInitializationComplete @ 0x1800CC3C0 (LdrpInitializationComplete.c)
+ *     LdrpInitializeThread @ 0x1800CCB30 (LdrpInitializeThread.c)
+ *     RtlpTpWaitRundown @ 0x1800DAA10 (RtlpTpWaitRundown.c)
+ *     LdrpDropLastInProgressCount @ 0x1800DF57C (LdrpDropLastInProgressCount.c)
+ *     RtlpTpTimerQueueRundown @ 0x1800FB554 (RtlpTpTimerQueueRundown.c)
+ *     RtlpWnfMetaCallbackProc @ 0x180106BF0 (RtlpWnfMetaCallbackProc.c)
+ *     RtlpHeapTrkSyncWithDiagnoser @ 0x180110240 (RtlpHeapTrkSyncWithDiagnoser.c)
+ *     RtlCreateProcessReflection @ 0x180139530 (RtlCreateProcessReflection.c)
+ *     RtlpProcessReflectionStartup @ 0x180139B00 (RtlpProcessReflectionStartup.c)
+ *     RtlpRtlpCtSelfSubscribeCallback @ 0x180149640 (RtlpRtlpCtSelfSubscribeCallback.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetEvent()
+NTSTATUS __cdecl ZwSetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 14LL;
+  result = 14;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

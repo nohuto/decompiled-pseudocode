@@ -44,21 +44,21 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   __int64 v23; // rdx
   __int64 v24; // r9
   ULONGLONG v25; // r8
-  ULONGLONG v26; // rcx
+  PVOID v26; // rcx
   int v27; // eax
   _DWORD *v28; // r14
   __int64 result; // rax
   int RCConfig; // eax
-  int AlternateResourceModule; // eax
+  NTSTATUS v31; // eax
   ULONGLONG v32; // rdx
   __int64 v33; // r8
   __int64 v34; // rsi
   _WORD *v35; // r15
-  unsigned __int16 v36; // [rsp+70h] [rbp-388h]
+  LANGID v36; // [rsp+70h] [rbp-388h]
   int v37; // [rsp+74h] [rbp-384h]
   bool v38; // [rsp+78h] [rbp-380h]
-  ULONGLONG ullAugenda; // [rsp+80h] [rbp-378h] BYREF
-  ULONGLONG v40; // [rsp+88h] [rbp-370h] BYREF
+  PVOID ResourceDllBase; // [rsp+80h] [rbp-378h] BYREF
+  ULONG_PTR ResourceOffset; // [rsp+88h] [rbp-370h] BYREF
   int v41; // [rsp+90h] [rbp-368h]
   ULONGLONG Size; // [rsp+98h] [rbp-360h]
   _QWORD *v43; // [rsp+A0h] [rbp-358h]
@@ -67,7 +67,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   __int64 v46; // [rsp+B8h] [rbp-340h]
   __int64 v47; // [rsp+C0h] [rbp-338h]
   __int64 v48; // [rsp+C8h] [rbp-330h] BYREF
-  ULONGLONG v49; // [rsp+D0h] [rbp-328h]
+  PVOID DllHandle; // [rsp+D0h] [rbp-328h]
   __int64 v50; // [rsp+D8h] [rbp-320h]
   __int64 v51; // [rsp+E0h] [rbp-318h]
   void *v52; // [rsp+E8h] [rbp-310h]
@@ -77,12 +77,12 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
 
   v10 = a3;
   Size = a2;
-  v49 = ullAugend;
+  DllHandle = (PVOID)ullAugend;
   v43 = a6;
   v45 = a7;
   v52 = a8;
   v51 = a9;
-  ullAugenda = 0LL;
+  ResourceDllBase = 0LL;
   v47 = 0LL;
   v50 = 0LL;
   v44 = 0LL;
@@ -156,8 +156,8 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
 LABEL_15:
   if ( v19 >= v53[0] )
     return (unsigned int)MappingSize;
-  ullAugenda = 0LL;
-  v40 = 0LL;
+  ResourceDllBase = 0LL;
+  ResourceOffset = 0LL;
   v36 = v54[4 * v19];
   v20 = *(_DWORD *)&v54[4 * v19 + 2];
   v37 = v20;
@@ -183,28 +183,23 @@ LABEL_40:
   if ( (v15 & 0xA0000) != 0 || (v10 & 0x10) != 0 || !v36 || !PnPBootDriversInitialized )
     goto LABEL_39;
   v22 = 1;
-  AlternateResourceModule = LdrLoadAlternateResourceModuleEx(
-                              v49,
-                              v36,
-                              (unsigned int)&ullAugenda,
-                              (unsigned int)&v40,
-                              v15 | 0x1000u);
-  MappingSize = AlternateResourceModule;
-  if ( AlternateResourceModule < 0 )
+  v31 = LdrLoadAlternateResourceModuleEx(DllHandle, v36, &ResourceDllBase, &ResourceOffset, v15 | 0x1000);
+  MappingSize = v31;
+  if ( v31 < 0 )
   {
-    if ( AlternateResourceModule == -1073741772 || AlternateResourceModule == -1073741766 )
+    if ( v31 == -1073741772 || v31 == -1073741766 )
       MappingSize = -1073020927;
     goto LABEL_39;
   }
-  v32 = v40;
-  if ( !v40 )
+  v32 = ResourceOffset;
+  if ( !ResourceOffset )
   {
-    MappingSize = LdrpResGetMappingSize(ullAugenda, &v40, 512LL);
-    v32 = v40;
+    MappingSize = LdrpResGetMappingSize(ResourceDllBase, &ResourceOffset, 512LL);
+    v32 = ResourceOffset;
   }
   if ( (v10 & 0x1000) != 0 && MappingSize < 0 )
     goto LABEL_41;
-  MappingSize = LdrpResGetResourceDirectory(ullAugenda, v32, (__int64)&v48);
+  MappingSize = LdrpResGetResourceDirectory((ULONGLONG)ResourceDllBase, v32, (__int64)&v48);
   if ( MappingSize < 0 )
     goto LABEL_39;
 LABEL_20:
@@ -219,10 +214,10 @@ LABEL_20:
     v24 = v50;
   v25 = Size;
   if ( v22 )
-    v25 = v40;
-  v26 = v49;
+    v25 = ResourceOffset;
+  v26 = DllHandle;
   if ( v22 )
-    v26 = ullAugenda;
+    v26 = ResourceDllBase;
   v27 = LdrpResSearchResourceInsideDirectory(v26, v23, v25, v24, v23);
   MappingSize = v27;
   if ( v38 && v27 >= 0 && v43 && v22 )
@@ -231,7 +226,7 @@ LABEL_20:
       v33 = *v45;
     else
       LODWORD(v33) = v46;
-    MappingSize = LdrpFindMessageInAlternateModule(ullAugenda, *v43, v33, *(_DWORD *)(a4 + 24), 1);
+    MappingSize = LdrpFindMessageInAlternateModule((_DWORD)ResourceDllBase, *v43, v33, *(_DWORD *)(a4 + 24), 1);
     if ( MappingSize < 0 )
     {
       *v43 = 0LL;

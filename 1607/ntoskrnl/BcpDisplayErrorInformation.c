@@ -1,13 +1,13 @@
 /*
- * XREFs of BcpDisplayErrorInformation @ 0x140239E44
+ * XREFs of BcpDisplayErrorInformation @ 0x140239D28
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x14023A7EC (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14023A6D0 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     BcpDisplayCriticalCharacter @ 0x140239A3C (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140239B00 (BcpDisplayCriticalString.c)
- *     BcpSanitizeDriverName @ 0x14023A564 (BcpSanitizeDriverName.c)
- *     BcpSetCursorPosition @ 0x14023A618 (BcpSetCursorPosition.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     BcpDisplayCriticalCharacter @ 0x140239920 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x1402399E4 (BcpDisplayCriticalString.c)
+ *     BcpSanitizeDriverName @ 0x14023A448 (BcpSanitizeDriverName.c)
+ *     BcpSetCursorPosition @ 0x14023A4FC (BcpSetCursorPosition.c)
  */
 
 __int64 __fastcall BcpDisplayErrorInformation(
@@ -63,25 +63,25 @@ __int64 __fastcall BcpDisplayErrorInformation(
   v41 = BcpCursor;
   v9 = a3;
   BcpTextBoxLeftEdgeOverride = (__int64)&v41;
-  BcpDisplayCriticalString((__int16 *)&stru_1403293A0, dword_1402F6930[18 * a1 + 1], (unsigned int)a3, a1);
+  BcpDisplayCriticalString((__int16 *)&stru_1403293E0, dword_1402F6930[18 * a1 + 1], (unsigned int)a3, a1);
   v10 = dword_1402F6930[18 * v7 + 11];
   v11 = (unsigned int)(v10 + dword_140358298);
   v12 = v10 + v11;
   v38 = v10 + v11;
   BcpSetCursorPosition(v6, v11, &v38);
-  BcpDisplayCriticalString((__int16 *)&stru_1403292F0, dword_1402F6930[18 * v7], v13, v7);
+  BcpDisplayCriticalString((__int16 *)&stru_140329330, dword_1402F6930[18 * v7], v13, v7);
   v14 = v12;
   v15 = dword_1402F6930[18 * v7 + 11] + v12;
   v38 = v15;
   BcpSetCursorPosition(v6, v14, &v38);
-  BcpDisplayCriticalString((__int16 *)&stru_140329390, *(_DWORD *)(v16 + 72 * v7), v17, v7);
+  BcpDisplayCriticalString((__int16 *)&stru_1403293D0, *(_DWORD *)(v16 + 72 * v7), v17, v7);
   BcpDisplayCriticalCharacter(v18, dword_1402F6930[18 * v7]);
   BcpDisplayCriticalString((__int16 *)(a5 + 16), dword_1402F6930[18 * v7], v19, v7);
   if ( a4 )
   {
     v38 = dword_1402F6930[18 * v7 + 11] + v15;
     BcpSetCursorPosition(v6, v15, &v38);
-    BcpDisplayCriticalString((__int16 *)&stru_140329380, dword_1402F6930[18 * v7], v20, v7);
+    BcpDisplayCriticalString((__int16 *)&stru_1403293C0, dword_1402F6930[18 * v7], v20, v7);
     BcpDisplayCriticalCharacter(v21, dword_1402F6930[18 * v7]);
     LODWORD(v39) = 0x800000;
     v40 = &v44;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetPageFromSlabEntry @ 0x1402C2848
+ * XREFs of MiGetPageFromSlabEntry @ 0x1402C2A38
  * Callers:
- *     MiGetPageFromSlabAllocator @ 0x1402C2680 (MiGetPageFromSlabAllocator.c)
+ *     MiGetPageFromSlabAllocator @ 0x1402C2870 (MiGetPageFromSlabAllocator.c)
  * Callees:
  *     RtlInterlockedSetClearRun @ 0x140014CE0 (RtlInterlockedSetClearRun.c)
  */

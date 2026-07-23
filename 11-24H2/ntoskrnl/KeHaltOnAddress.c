@@ -1,9 +1,9 @@
 /*
- * XREFs of KeHaltOnAddress @ 0x1404B388C
+ * XREFs of KeHaltOnAddress @ 0x1404AE0FC
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
  */
 
 __int64 __fastcall KeHaltOnAddress(__int64 a1, __int64 a2, __int64 a3)

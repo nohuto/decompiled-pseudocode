@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpWaitOnAddressRemoveWaitBlock @ 0x18009BA90
+ * XREFs of RtlpWaitOnAddressRemoveWaitBlock @ 0x1800308E0
  * Callers:
- *     RtlpWaitOnCriticalSection @ 0x18009A7A0 (RtlpWaitOnCriticalSection.c)
- *     RtlWaitOnAddress @ 0x18009B4E0 (RtlWaitOnAddress.c)
- *     RtlpWaitOnAddress @ 0x18009B780 (RtlpWaitOnAddress.c)
- *     RtlpWaitOnAddressWithTimeout @ 0x1800DB9F0 (RtlpWaitOnAddressWithTimeout.c)
+ *     RtlpWaitOnCriticalSection @ 0x18002F5F0 (RtlpWaitOnCriticalSection.c)
+ *     RtlWaitOnAddress @ 0x180030330 (RtlWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x1800305D0 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddressWithTimeout @ 0x180031350 (RtlpWaitOnAddressWithTimeout.c)
  * Callees:
- *     RtlpWaitOnAddressWithTimeout @ 0x1800DB9F0 (RtlpWaitOnAddressWithTimeout.c)
- *     RtlpWaitOnAddressWakeEntireList @ 0x1800EDA00 (RtlpWaitOnAddressWakeEntireList.c)
- *     NtWaitForAlertByThreadId @ 0x1801658E0 (NtWaitForAlertByThreadId.c)
+ *     RtlpWaitOnAddressWithTimeout @ 0x180031350 (RtlpWaitOnAddressWithTimeout.c)
+ *     RtlpWaitOnAddressWakeEntireList @ 0x180031484 (RtlpWaitOnAddressWakeEntireList.c)
+ *     NtWaitForAlertByThreadId @ 0x180163CA0 (NtWaitForAlertByThreadId.c)
  */
 
 __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, __int64 a2)
 LABEL_11:
         result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a2 + 40), 1);
         if ( (_DWORD)result != 2 )
-          return RtlpWaitOnAddressWithTimeout(a1, a2, 0, (_DWORD)RtlpWaitOnAddressSpinCycleCount, 0LL);
+          return RtlpWaitOnAddressWithTimeout(a1, a2, 0LL, (unsigned int)RtlpWaitOnAddressSpinCycleCount, 0LL);
         return result;
       }
       if ( (v4 & 2) == 0 )
@@ -102,7 +102,7 @@ LABEL_6:
     }
   }
   if ( !v8 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
-    NtWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+    NtWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
   *(_QWORD *)(v10 + 32) = v9;
   do
   {

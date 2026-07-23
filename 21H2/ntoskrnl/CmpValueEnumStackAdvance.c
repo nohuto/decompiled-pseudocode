@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpValueEnumStackAdvance @ 0x140729C54
+ * XREFs of CmpValueEnumStackAdvance @ 0x14072A104
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x1404ECE88 (CmpGetValueCountForKeyNodeStack.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1407292B0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1404ED0C8 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140729760 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C3C0 (CmEnumerateValueFromLayeredKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpIsValueTombstone @ 0x1406B2EA0 (CmpIsValueTombstone.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140729F90 (CmpValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BAD4 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpIsValueTombstone @ 0x140611F60 (CmpIsValueTombstone.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14072A440 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BC34 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  */
 
 __int64 __fastcall CmpValueEnumStackAdvance(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIssueMemoryListCommand @ 0x1407EDC20
+ * XREFs of MmIssueMemoryListCommand @ 0x1407EE1F0
  * Callers:
- *     NtManagePartition @ 0x140933FF0 (NtManagePartition.c)
- *     PfpLogEventRequest @ 0x140AA86F4 (PfpLogEventRequest.c)
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtManagePartition @ 0x1408F6B10 (NtManagePartition.c)
+ *     PfpLogEventRequest @ 0x140AA3778 (PfpLogEventRequest.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     MmPerformMemoryListCommand @ 0x140B6DB74 (MmPerformMemoryListCommand.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     MmPerformMemoryListCommand @ 0x140B6F414 (MmPerformMemoryListCommand.c)
  */
 
 __int64 __fastcall MmIssueMemoryListCommand(unsigned int a1, KPROCESSOR_MODE a2, __int64 a3)

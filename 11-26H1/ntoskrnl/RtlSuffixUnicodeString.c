@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlSuffixUnicodeString @ 0x140AE4280
+ * XREFs of RtlSuffixUnicodeString @ 0x140AE1D90
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x1407B7DA0 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodeHive @ 0x1407BAE00 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x14042F430 (NLS_UPCASE.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14041C340 (NLS_UPCASE.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 BOOLEAN __stdcall RtlSuffixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)

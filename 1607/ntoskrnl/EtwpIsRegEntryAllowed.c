@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpIsRegEntryAllowed @ 0x14048EBC8
+ * XREFs of EtwpIsRegEntryAllowed @ 0x14048F658
  * Callers:
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpCheckProviderLoggingAccess @ 0x14048ECA4 (EtwpCheckProviderLoggingAccess.c)
- *     EtwpIsGuidAllowed @ 0x140491F64 (EtwpIsGuidAllowed.c)
- *     EtwpIsCaptureStateAllowed @ 0x14052DDD8 (EtwpIsCaptureStateAllowed.c)
+ *     EtwpCheckProviderLoggingAccess @ 0x14048F734 (EtwpCheckProviderLoggingAccess.c)
+ *     EtwpIsGuidAllowed @ 0x1404929F4 (EtwpIsGuidAllowed.c)
+ *     EtwpIsCaptureStateAllowed @ 0x14052E318 (EtwpIsCaptureStateAllowed.c)
  */
 
 bool __fastcall EtwpIsRegEntryAllowed(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6)

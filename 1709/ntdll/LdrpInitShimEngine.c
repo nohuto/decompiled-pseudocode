@@ -29,15 +29,15 @@ _WORD *__fastcall LdrpInitShimEngine(__int64 a1)
   int v8; // [rsp+28h] [rbp-D8h]
   int v9; // [rsp+28h] [rbp-D8h]
   int v10; // [rsp+28h] [rbp-D8h]
-  __int64 v11; // [rsp+30h] [rbp-D0h] BYREF
+  PVOID v11; // [rsp+30h] [rbp-D0h] BYREF
   int v12; // [rsp+38h] [rbp-C8h] BYREF
-  PCWSTR SourceString; // [rsp+40h] [rbp-C0h]
+  PVOID BaseAddress; // [rsp+40h] [rbp-C0h]
   int v14; // [rsp+48h] [rbp-B8h] BYREF
   const wchar_t *v15; // [rsp+50h] [rbp-B0h]
   int v16; // [rsp+60h] [rbp-A0h] BYREF
   _WORD *v17; // [rsp+68h] [rbp-98h]
   _WORD v18[128]; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD v19[15]; // [rsp+170h] [rbp+70h] BYREF
+  PWSTR Path[15]; // [rsp+170h] [rbp+70h] BYREF
   char v20; // [rsp+1ECh] [rbp+ECh]
   _BYTE v21[512]; // [rsp+1F0h] [rbp+F0h] BYREF
 
@@ -62,11 +62,11 @@ _WORD *__fastcall LdrpInitShimEngine(__int64 a1)
       v8);
     goto LABEL_13;
   }
-  LdrpInitializeDllPath(0LL, 16385LL, v19);
+  LdrpInitializeDllPath(0LL, 16385LL, Path);
   LOBYTE(v3) = 1;
-  Dll = LdrpLoadDll((unsigned int)&v16, (unsigned int)v19, 0, v3, (__int64)&v11);
+  Dll = LdrpLoadDll((unsigned int)&v16, (unsigned int)Path, 0, v3, (__int64)&v11);
   if ( v20 )
-    RtlReleasePath(v19[0]);
+    RtlReleasePath(Path[0]);
   if ( Dll < 0 )
   {
     v7 = LdrpDebugFlags;
@@ -86,14 +86,14 @@ LABEL_13:
   }
   else
   {
-    *(_DWORD *)(v11 + 104) |= 0x100u;
-    g_pShimEngineModule = *(_QWORD *)(v11 + 48);
-    LdrpPinModule(v11);
+    *((_DWORD *)v11 + 26) |= 0x100u;
+    g_pShimEngineModule = (PVOID)*((_QWORD *)v11 + 6);
+    LdrpPinModule((__int64)v11);
     LdrpDereferenceModule(v11);
     ShimEngineInterface = LdrpGetShimEngineInterface();
     if ( ShimEngineInterface >= 0 )
     {
-      SourceString = (PCWSTR)v21;
+      BaseAddress = v21;
       v12 = 0x2000000;
       if ( ((int (__fastcall *)(int *, __int64, __int64))(__ROR8__(
                                                             g_pfnSE_InitializeEngine,
@@ -102,9 +102,9 @@ LABEL_13:
              LdrpImageEntry + 72,
              a1) >= 0 )
       {
-        LdrpLoadShimEngine(SourceString);
-        if ( SourceString != (PCWSTR)v21 )
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, SourceString);
+        LdrpLoadShimEngine((PCWSTR)BaseAddress);
+        if ( BaseAddress != v21 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       }
       goto LABEL_9;
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpPreInterceptHandleDuplicate @ 0x14062DAA8
+ * XREFs of ObpPreInterceptHandleDuplicate @ 0x1405E3B38
  * Callers:
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
- *     ObCompleteObjectDuplication @ 0x14062D640 (ObCompleteObjectDuplication.c)
+ *     ObCompleteObjectDuplication @ 0x1405E36D0 (ObCompleteObjectDuplication.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
  * Callees:
- *     ObpCallPreOperationCallbacks @ 0x1405E9760 (ObpCallPreOperationCallbacks.c)
+ *     ObpCallPreOperationCallbacks @ 0x1406D8EC0 (ObpCallPreOperationCallbacks.c)
  */
 
-__int64 __fastcall ObpPreInterceptHandleDuplicate(__int64 a1, char a2, int *a3, __int64 a4, __int64 a5, _QWORD *a6)
+__int64 __fastcall ObpPreInterceptHandleDuplicate(__int64 a1, char a2, int *a3, __int64 a4, __int64 a5, __int64 a6)
 {
   int v8; // r8d
   __int64 v10; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall ObpPreInterceptHandleDuplicate(__int64 a1, char a2, int *a3, 
   v20 = v10;
   v15 = a4;
   v16 = a5;
-  result = ObpCallPreOperationCallbacks(v10, (__int64)&v17, a6);
+  result = ObpCallPreOperationCallbacks(v10, &v17, a6);
   if ( (int)result >= 0 && !a2 )
     *a3 &= v12 | v14[0];
   return result;

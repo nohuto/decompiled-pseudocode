@@ -1,8 +1,8 @@
 /*
- * XREFs of PipIsProviderStarted @ 0x14085F47C
+ * XREFs of PipIsProviderStarted @ 0x14085F6BC
  * Callers:
- *     IoResolveDependency @ 0x140398140 (IoResolveDependency.c)
- *     PipCheckForUnsatisfiedDependencies @ 0x1406C982C (PipCheckForUnsatisfiedDependencies.c)
+ *     IoResolveDependency @ 0x140398320 (IoResolveDependency.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x1406C985C (PipCheckForUnsatisfiedDependencies.c)
  * Callees:
  *     <none>
  */

@@ -29,14 +29,15 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v15; // rcx
   __int64 v16; // rdx
   unsigned __int64 v17; // rdx
-  PVOID v18; // rsi
-  int v19; // eax
-  unsigned __int64 v20; // r8
-  NTSTATUS v21; // eax
-  unsigned int v22; // eax
-  _QWORD v23[11]; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v24; // [rsp+B0h] [rbp+18h] BYREF
-  PVOID BaseAddress; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v18; // rdx
+  PVOID v19; // rsi
+  int v20; // eax
+  unsigned __int64 v21; // r8
+  NTSTATUS v22; // eax
+  unsigned int v23; // eax
+  _QWORD v24[11]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v25; // [rsp+B0h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+B8h] [rbp+20h] BYREF
 
   result = RtlpLookupUserFunctionTableInverted();
   if ( result )
@@ -105,41 +106,42 @@ LABEL_13:
     KeAbPostRelease((ULONG_PTR)&Process[2].Affinity.Bitmap[19]);
     KiLeaveGuardedRegionUnsafe(CurrentThread);
   }
-  if ( (int)MmGetImageBase(a1, &BaseAddress, v23) >= 0 )
+  if ( (int)MmGetImageBase(a1, &BaseOfImage, v24) >= 0 )
   {
-    v18 = BaseAddress;
-    v21 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, 1, 3u, a2 + 20, &v24);
-    v20 = v24;
-    if ( v21 < 0 )
-      v20 = 0LL;
-    v24 = v20;
-    if ( v20 )
+    LOBYTE(v18) = 1;
+    v19 = BaseOfImage;
+    v22 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage, v18, 3LL, a2 + 20, &v25);
+    v21 = v25;
+    if ( v22 < 0 )
+      v21 = 0LL;
+    v25 = v21;
+    if ( v21 )
     {
-      v22 = *(_DWORD *)(a2 + 20);
-      if ( v22 && v22 == 12 * (v22 / 0xCuLL) )
+      v23 = *(_DWORD *)(a2 + 20);
+      if ( v23 && v23 == 12 * (v23 / 0xCuLL) )
       {
-        if ( (v20 & 3) != 0 )
+        if ( (v21 & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( v22 + v20 > 0x7FFFFFFF0000LL || v22 + v20 < v20 )
+        if ( v23 + v21 > 0x7FFFFFFF0000LL || v23 + v21 < v21 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
       else
       {
-        v20 = 0LL;
+        v21 = 0LL;
       }
     }
-    v19 = v23[0];
+    v20 = v24[0];
   }
   else
   {
-    v18 = 0LL;
-    v19 = 0;
-    v20 = 0LL;
+    v19 = 0LL;
+    v20 = 0;
+    v21 = 0LL;
   }
-  *(_QWORD *)(a2 + 8) = v18;
-  *(_DWORD *)(a2 + 16) = v19;
-  *(_QWORD *)a2 = v20;
-  if ( !v20 )
+  *(_QWORD *)(a2 + 8) = v19;
+  *(_DWORD *)(a2 + 16) = v20;
+  *(_QWORD *)a2 = v21;
+  if ( !v21 )
     *(_DWORD *)(a2 + 20) = 0;
-  return v20;
+  return v21;
 }

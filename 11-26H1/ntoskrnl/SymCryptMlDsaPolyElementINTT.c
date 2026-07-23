@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMlDsaPolyElementINTT @ 0x1405732B0
+ * XREFs of SymCryptMlDsaPolyElementINTT @ 0x1405724BC
  * Callers:
- *     SymCryptMlDsaVectorINTT @ 0x14057448C (SymCryptMlDsaVectorINTT.c)
+ *     SymCryptMlDsaVectorINTT @ 0x1405736F0 (SymCryptMlDsaVectorINTT.c)
  * Callees:
  *     <none>
  */

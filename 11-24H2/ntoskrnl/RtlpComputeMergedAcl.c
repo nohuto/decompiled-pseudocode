@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpComputeMergedAcl @ 0x140AB1A54
+ * XREFs of RtlpComputeMergedAcl @ 0x140AAC9C4
  * Callers:
- *     RtlpSetSecurityObject @ 0x140858F70 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x14091A290 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x140855250 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14090DD00 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlpComputeMergedAcl2 @ 0x1407811B4 (RtlpComputeMergedAcl2.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpComputeMergedAcl2 @ 0x1407810E4 (RtlpComputeMergedAcl2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl(
@@ -22,24 +22,26 @@ __int64 __fastcall RtlpComputeMergedAcl(
         _DWORD *a10)
 {
   unsigned int v10; // edi
+  unsigned int v11; // eax
   unsigned int i; // esi
   ACL *Acl; // rax
-  __int64 v18; // [rsp+60h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+60h] [rbp-38h] BYREF
 
   v10 = 0;
-  LODWORD(v18) = 1024;
+  v11 = 1024;
+  LODWORD(v19) = 1024;
   for ( i = 0; ; ++i )
   {
     if ( i >= 2 )
       return v10;
-    Acl = (ACL *)ExAllocatePool2(0x100uLL);
+    Acl = (ACL *)ExAllocatePool2(0x100uLL, v11, 0x63416553u);
     *a9 = Acl;
     if ( !Acl )
       break;
-    v10 = RtlpComputeMergedAcl2(a1, a2, a3, a4, a5, a6, a7, a8, (ULONG *)&v18, Acl, a10);
+    v10 = RtlpComputeMergedAcl2(a1, a2, a3, a4, a5, a6, a7, a8, (ULONG *)&v19, Acl, a10);
     if ( (v10 & 0x80000000) == 0 )
     {
-      if ( !(_DWORD)v18 )
+      if ( !(_DWORD)v19 )
       {
         ExFreePoolWithTag(*a9, 0);
         *a9 = 0LL;
@@ -50,6 +52,7 @@ __int64 __fastcall RtlpComputeMergedAcl(
     *a9 = 0LL;
     if ( v10 != -1073741789 )
       return v10;
+    v11 = v19;
   }
   return 3221225495LL;
 }

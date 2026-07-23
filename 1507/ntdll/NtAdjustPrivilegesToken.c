@@ -11,11 +11,17 @@
  *     <none>
  */
 
-__int64 NtAdjustPrivilegesToken()
+NTSTATUS __cdecl NtAdjustPrivilegesToken(
+        HANDLE TokenHandle,
+        BOOLEAN DisableAllPrivileges,
+        PTOKEN_PRIVILEGES NewState,
+        ULONG BufferLength,
+        PTOKEN_PRIVILEGES PreviousState,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 65LL;
+  result = 65;
   __asm { syscall; Low latency system call }
   return result;
 }

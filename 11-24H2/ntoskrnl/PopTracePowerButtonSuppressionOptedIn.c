@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTracePowerButtonSuppressionOptedIn @ 0x140C2FFA4
+ * XREFs of PopTracePowerButtonSuppressionOptedIn @ 0x140C320C4
  * Callers:
- *     PopPowerButtonSuppressionInit @ 0x140C306E0 (PopPowerButtonSuppressionInit.c)
+ *     PopPowerButtonSuppressionInit @ 0x140C32800 (PopPowerButtonSuppressionInit.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopTracePowerButtonSuppressionOptedIn(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -33,7 +33,7 @@ void __fastcall PopTracePowerButtonSuppressionOptedIn(__int64 a1, __int64 a2, __
   __int64 *v25; // [rsp+C0h] [rbp+2Fh]
   __int64 v26; // [rsp+C8h] [rbp+37h]
 
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v9 = v5;
     v15 = &v8;
@@ -53,6 +53,6 @@ void __fastcall PopTracePowerButtonSuppressionOptedIn(__int64 a1, __int64 a2, __
     v22 = 1LL;
     v24 = 4LL;
     v13 = 0x1000000LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&byte_1400495AF, 0LL, 0LL, 8u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)&word_1400492EE, 0LL, 0LL, 8u, &v14);
   }
 }

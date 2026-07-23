@@ -16,26 +16,30 @@ _DWORD *__fastcall EtwpCreateRegGuidsContext(int a1, int a2, _DWORD *a3, unsigne
   _DWORD *v9; // ebx
   _DWORD *v10; // esi
   struct _TEB *v11; // eax
-  ULONG v13; // [esp+0h] [ebp-18h]
-  ULONG v14; // [esp+0h] [ebp-18h]
-  ULONG *v15; // [esp+4h] [ebp-14h]
-  ULONG *v16; // [esp+4h] [ebp-14h]
-  _DWORD *v17; // [esp+Ch] [ebp-Ch]
+  SIZE_T v13; // [esp-4h] [ebp-1Ch]
+  size_t v14; // [esp-4h] [ebp-1Ch]
+  ULONG v15; // [esp+0h] [ebp-18h]
+  ULONG v16; // [esp+0h] [ebp-18h]
+  ULONG *v17; // [esp+4h] [ebp-14h]
+  ULONG *v18; // [esp+4h] [ebp-14h]
+  _DWORD *v19; // [esp+Ch] [ebp-Ch]
   ULONG ulAugend; // [esp+14h] [ebp-4h] BYREF
 
   if ( !is_mul_ok(0x18u, a4) )
     return 0;
   ulAugend = 24 * a4;
-  if ( ULongAdd((ULONG)&ulAugend, v13, v15) < 0 )
+  if ( ULongAdd((ULONG)&ulAugend, v15, v17) < 0 )
     return 0;
-  if ( ULongAdd((ULONG)&ulAugend, v14, v16) < 0 )
+  if ( ULongAdd((ULONG)&ulAugend, v16, v18) < 0 )
     return 0;
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, ulAugend);
+  LODWORD(v13) = ulAugend;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v13);
   v7 = Heap;
-  v17 = Heap;
+  v19 = Heap;
   if ( !Heap )
     return 0;
-  memset(Heap, 0, ulAugend);
+  LODWORD(v14) = ulAugend;
+  memset(Heap, 0, v14);
   v7[1] = a2;
   *v7 = a1;
   v7[4] = *a3;
@@ -60,7 +64,7 @@ _DWORD *__fastcall EtwpCreateRegGuidsContext(int a1, int a2, _DWORD *a3, unsigne
       ++v8;
     }
     while ( v8 < a4 );
-    return v17;
+    return v19;
   }
   return v7;
 }

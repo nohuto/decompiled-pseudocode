@@ -22,7 +22,7 @@ NTSTATUS PspUserThreadStartup()
 {
   struct _KTHREAD *CurrentThread; // rsi
   __int64 v1; // r8
-  __int64 Process; // r14
+  LARGE_INTEGER Process; // r14
   int SessionLocaleId; // eax
   __int64 v4; // rdx
   NTSTATUS result; // eax
@@ -32,21 +32,21 @@ NTSTATUS PspUserThreadStartup()
   unsigned __int64 v9; // rax
   unsigned int v10; // eax
   __int64 v11; // r8
-  __int64 v12[4]; // [rsp+30h] [rbp-B8h] BYREF
+  LARGE_INTEGER v12[4]; // [rsp+30h] [rbp-B8h] BYREF
   _BYTE v13[112]; // [rsp+50h] [rbp-98h] BYREF
 
   __writecr8(0LL);
   CurrentThread = KeGetCurrentThread();
-  v12[1] = (__int64)CurrentThread;
+  v12[1].QuadPart = (LONGLONG)CurrentThread;
   PspDisablePrimaryTokenExchange(CurrentThread);
   if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 2) == 0 )
   {
     LOBYTE(v1) = 1;
     PspTerminateThreadByPointer(CurrentThread, 3221225547LL, v1);
   }
-  Process = (__int64)CurrentThread->ApcState.Process;
+  Process = (LARGE_INTEGER)CurrentThread->ApcState.Process;
   v12[2] = Process;
-  if ( (*(_DWORD *)(Process + 1740) & 1) != 0 )
+  if ( (*(_DWORD *)(Process.QuadPart + 1740) & 1) != 0 )
   {
     DbgkCreateMinimalThread(CurrentThread);
   }
@@ -56,10 +56,12 @@ NTSTATUS PspUserThreadStartup()
     *(_DWORD *)(v4 + 264) = SessionLocaleId;
     PspWriteTebIdealProcessor(CurrentThread, CurrentThread);
     DbgkCreateThread(CurrentThread);
-    if ( (*(_DWORD *)(Process + 772) & 0x80000) == 0
-      && !_interlockedbittestandset((volatile signed __int32 *)(Process + 772), 0x13u) )
+    if ( (*(_DWORD *)(Process.QuadPart + 772) & 0x80000) == 0
+      && !_interlockedbittestandset((volatile signed __int32 *)(Process.QuadPart + 772), 0x13u) )
     {
-      PfProcessCreateNotification(Process, *(_QWORD *)(Process + 952));
+      ((void (__fastcall *)(_QWORD, _QWORD))PfProcessCreateNotification)(
+        (LARGE_INTEGER)Process.QuadPart,
+        *(_QWORD *)(Process.QuadPart + 952));
     }
   }
   while ( !MEMORY[0xFFFFF78000000330] )
@@ -71,10 +73,10 @@ NTSTATUS PspUserThreadStartup()
     v9 = __rdtsc();
     _InterlockedCompareExchange(
       (volatile signed __int32 *)0xFFFFF78000000330LL,
-      LODWORD(v12[0]) ^ HIDWORD(v12[0]) ^ LowPart ^ v9 ^ v8 ^ CurrentPrcb->MmPageFaultCount ^ CurrentPrcb->InterruptCount ^ CurrentPrcb->InterruptTime,
+      v12[0].LowPart ^ v12[0].HighPart ^ LowPart ^ v9 ^ v8 ^ CurrentPrcb->MmPageFaultCount ^ CurrentPrcb->InterruptCount ^ CurrentPrcb->InterruptTime,
       0);
   }
-  if ( (*(_BYTE *)(Process + 720) & 1) != 0 )
+  if ( (*(_BYTE *)(Process.QuadPart + 720) & 1) != 0 )
   {
     *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x200u;
     v10 = VslpEnterIumSecureMode(0, 0LL, KeGetCurrentThread()->SecureThreadCookie, (__int64)v13);
@@ -87,7 +89,7 @@ NTSTATUS PspUserThreadStartup()
   }
   else
   {
-    result = *(_DWORD *)(Process + 1740);
+    result = *(_DWORD *)(Process.QuadPart + 1740);
     if ( (result & 1) == 0 )
       return PspInitializeThunkContext();
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopEtGetNextEnergyTracker @ 0x140606AD4
+ * XREFs of PopEtGetNextEnergyTracker @ 0x140607AD4
  * Callers:
- *     PopEtEnumEnergyTrackers @ 0x140606A78 (PopEtEnumEnergyTrackers.c)
+ *     PopEtEnumEnergyTrackers @ 0x140607A78 (PopEtEnumEnergyTrackers.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)

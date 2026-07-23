@@ -1,16 +1,16 @@
 /*
- * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x14030C158
+ * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x14030C3E8
  * Callers:
- *     AuthzBasepEvaluateExpression @ 0x14030BEA4 (AuthzBasepEvaluateExpression.c)
- *     AuthzBasepValueInSet @ 0x14030BF48 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x14030C134 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x14030C1D8 (AuthzBasepValueInSet.c)
  * Callees:
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x14022D190 (AuthzBasepUnicodeStringFromOperandValue.c)
- *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14030C300 (AuthzBasepGetOperandStringCaseForEvaluation.c)
- *     RtlIsNameInExpression @ 0x14030C360 (RtlIsNameInExpression.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140362080 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     AuthzBasepCompareUnicodeStringCaseSensitive @ 0x14066F6FC (AuthzBasepCompareUnicodeStringCaseSensitive.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14022D2A0 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14030C590 (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     RtlIsNameInExpression @ 0x14030C5F0 (RtlIsNameInExpression.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140362220 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepCompareUnicodeStringCaseSensitive @ 0x14066FC4C (AuthzBasepCompareUnicodeStringCaseSensitive.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

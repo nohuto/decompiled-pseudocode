@@ -1,17 +1,17 @@
 /*
- * XREFs of HvlDebuggerSupportInitialize @ 0x1405B83B0
+ * XREFs of HvlDebuggerSupportInitialize @ 0x1405BAC20
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     strstr @ 0x140535B20 (strstr.c)
- *     atol @ 0x140535D80 (atol.c)
- *     sscanf_s @ 0x14053C550 (sscanf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     strncmp @ 0x14073D360 (strncmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     atol @ 0x140538200 (atol.c)
+ *     sscanf_s @ 0x14053E9D0 (sscanf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
@@ -40,7 +40,7 @@ void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
   int v23; // [rsp+34h] [rbp-CCh] BYREF
   int v24; // [rsp+38h] [rbp-C8h] BYREF
   int v25; // [rsp+3Ch] [rbp-C4h] BYREF
-  STRING SourceString; // [rsp+40h] [rbp-C0h] BYREF
+  ANSI_STRING SourceString; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   _DWORD v28[2]; // [rsp+60h] [rbp-A0h] BYREF
   __int16 v29; // [rsp+68h] [rbp-98h]

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDbgWriteCheck @ 0x1406FED48
+ * XREFs of MiDbgWriteCheck @ 0x140703A18
  * Callers:
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
  * Callees:
- *     MiDbgMarkPfnModified @ 0x1406FE520 (MiDbgMarkPfnModified.c)
- *     MiDbgPrivilegedWriteCheck @ 0x1406FEA20 (MiDbgPrivilegedWriteCheck.c)
+ *     MiDbgMarkPfnModified @ 0x1407031F0 (MiDbgMarkPfnModified.c)
+ *     MiDbgPrivilegedWriteCheck @ 0x1407036F0 (MiDbgPrivilegedWriteCheck.c)
  */
 
 __int64 __fastcall MiDbgWriteCheck(__int64 a1)

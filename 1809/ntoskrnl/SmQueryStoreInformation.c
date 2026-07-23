@@ -1,15 +1,15 @@
 /*
- * XREFs of SmQueryStoreInformation @ 0x1406CFD3C
+ * XREFs of SmQueryStoreInformation @ 0x1406D0FDC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     SmProcessCompressionInfoRequest @ 0x1406632E8 (SmProcessCompressionInfoRequest.c)
- *     SmProcessRegistrationRequest @ 0x14075EC84 (SmProcessRegistrationRequest.c)
- *     SmProcessListRequest @ 0x1408AAF28 (SmProcessListRequest.c)
- *     SmProcessStatsRequest @ 0x1408AB3C0 (SmProcessStatsRequest.c)
- *     SmcProcessListRequest @ 0x1408ABFD0 (SmcProcessListRequest.c)
- *     SmcProcessStatsRequest @ 0x1408AC214 (SmcProcessStatsRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     SmProcessCompressionInfoRequest @ 0x1406644A8 (SmProcessCompressionInfoRequest.c)
+ *     SmProcessRegistrationRequest @ 0x14075FE74 (SmProcessRegistrationRequest.c)
+ *     SmProcessListRequest @ 0x1408AC188 (SmProcessListRequest.c)
+ *     SmProcessStatsRequest @ 0x1408AC620 (SmProcessStatsRequest.c)
+ *     SmcProcessListRequest @ 0x1408AD230 (SmcProcessListRequest.c)
+ *     SmcProcessStatsRequest @ 0x1408AD474 (SmcProcessStatsRequest.c)
  */
 
 __int64 __fastcall SmQueryStoreInformation(__int64 a1, __int64 a2, int a3, __int64 a4, _DWORD *a5)
@@ -43,9 +43,9 @@ __int64 __fastcall SmQueryStoreInformation(__int64 a1, __int64 a2, int a3, __int
     case 5:
       return SmProcessListRequest(&SmGlobals, *(_QWORD *)&v8[2], (unsigned int)v9[0], a5, PreviousMode);
     case 8:
-      return SmcProcessListRequest((unsigned int)&unk_14055B1C0, v8[2], v9[0], (_DWORD)a5, PreviousMode);
+      return SmcProcessListRequest((unsigned int)&unk_14055C1C0, v8[2], v9[0], (_DWORD)a5, PreviousMode);
     case 13:
-      return SmcProcessStatsRequest((unsigned int)&unk_14055B1C0, v8[2], v9[0], (_DWORD)a5, PreviousMode);
+      return SmcProcessStatsRequest((unsigned int)&unk_14055C1C0, v8[2], v9[0], (_DWORD)a5, PreviousMode);
     default:
       return 3221225475LL;
   }

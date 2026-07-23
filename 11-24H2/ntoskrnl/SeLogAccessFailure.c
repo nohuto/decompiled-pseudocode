@@ -1,20 +1,20 @@
 /*
- * XREFs of SeLogAccessFailure @ 0x14035F070
+ * XREFs of SeLogAccessFailure @ 0x140438750
  * Callers:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x140465250 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     SepFlattenAcl @ 0x14060897C (SepFlattenAcl.c)
- *     SepGetLearningModeObjectInformation @ 0x140608AD4 (SepGetLearningModeObjectInformation.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PsReferenceEffectiveToken @ 0x14085D1B0 (PsReferenceEffectiveToken.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     SepFlattenAcl @ 0x1406061F0 (SepFlattenAcl.c)
+ *     SepGetLearningModeObjectInformation @ 0x140606348 (SepGetLearningModeObjectInformation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PsReferenceEffectiveToken @ 0x140858F20 (PsReferenceEffectiveToken.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeLogAccessFailure(
@@ -47,7 +47,7 @@ void __fastcall SeLogAccessFailure(
   const void **v26; // r8
   int v27; // edi
   int *v28; // rax
-  int v29; // r13d
+  unsigned int v29; // r13d
   _DWORD *Pool2; // rax
   int *v31; // rcx
   __int64 v32; // rax
@@ -112,11 +112,11 @@ void __fastcall SeLogAccessFailure(
   char v91; // [rsp+40h] [rbp-C0h] BYREF
   char v92[3]; // [rsp+41h] [rbp-BFh] BYREF
   _WORD v93[2]; // [rsp+44h] [rbp-BCh] BYREF
-  char v94[4]; // [rsp+48h] [rbp-B8h] BYREF
+  _WORD v94[2]; // [rsp+48h] [rbp-B8h] BYREF
   _WORD v95[2]; // [rsp+4Ch] [rbp-B4h] BYREF
-  _WORD v96[2]; // [rsp+50h] [rbp-B0h] BYREF
-  int v97; // [rsp+54h] [rbp-ACh] BYREF
-  unsigned int v98; // [rsp+58h] [rbp-A8h] BYREF
+  int v96; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v97; // [rsp+54h] [rbp-ACh] BYREF
+  char v98[4]; // [rsp+58h] [rbp-A8h] BYREF
   int v99; // [rsp+5Ch] [rbp-A4h] BYREF
   int v100; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v101; // [rsp+64h] [rbp-9Ch]
@@ -154,28 +154,27 @@ void __fastcall SeLogAccessFailure(
   __int64 v133; // [rsp+148h] [rbp+48h]
   int *v134; // [rsp+150h] [rbp+50h]
   __int64 v135; // [rsp+158h] [rbp+58h]
-  int v136; // [rsp+168h] [rbp+68h]
+  unsigned int v136; // [rsp+168h] [rbp+68h]
   int v137; // [rsp+16Ch] [rbp+6Ch]
 
   v7 = a5;
   v8 = 0;
   v111 = a5;
-  v94[0] = 0;
   v92[0] = 0;
-  v10 = Object;
   v91 = 0;
+  v10 = Object;
   v11 = 0LL;
-  v98 = 0;
+  v97 = 0;
   v106 = 0LL;
-  v95[0] = 0;
+  v94[0] = 0;
   v103 = 0;
   v107 = 0LL;
   v104 = 0;
-  v96[0] = 0;
+  v95[0] = 0;
   v100 = 0;
   v102 = 1;
   v99 = 0;
-  v97 = 0;
+  v96 = 0;
   v93[0] = 0;
   if ( KeGetCurrentIrql() >= 2u || !EtwKernelProvRegHandle )
     return;
@@ -186,7 +185,7 @@ void __fastcall SeLogAccessFailure(
   }
   else
   {
-    v10 = (const void ***)PsReferenceEffectiveToken(KeGetCurrentThread(), 1732535635LL, &v99, v94, &v100, 0LL);
+    v10 = (const void ***)PsReferenceEffectiveToken(KeGetCurrentThread(), 1732535635LL, &v99, v98, &v100, 0LL);
     if ( !v10 )
       return;
     v8 = 1;
@@ -277,12 +276,12 @@ LABEL_29:
   v27 = 10;
   v28 = (int *)(v26 + 5);
   if ( !v26 )
-    v28 = &v97;
+    v28 = &v96;
   v132 = v28;
   v133 = 4LL;
   v108 = 1;
   v29 = 4 * *((unsigned __int8 *)*v10[19] + 1) + 12;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, v29, 0x69536553u);
   P = Pool2;
   if ( Pool2 )
   {
@@ -298,7 +297,7 @@ LABEL_29:
   }
   else
   {
-    v31 = &v97;
+    v31 = &v96;
     v32 = 20LL;
     v135 = 4LL;
   }
@@ -320,13 +319,13 @@ LABEL_29:
   }
   else
   {
-    v35->Ptr = (ULONGLONG)&v97;
+    v35->Ptr = (ULONGLONG)&v96;
   }
   v101 = v34;
   if ( !*((_DWORD *)v10 + 200) )
   {
     v51 = 2LL * v34;
-    *(&UserData.Ptr + v51) = (ULONGLONG)&v97;
+    *(&UserData.Ptr + v51) = (ULONGLONG)&v96;
     *((_QWORD *)&UserData.Size + v51) = 4LL;
     goto LABEL_52;
   }
@@ -342,12 +341,12 @@ LABEL_29:
   }
   while ( v39 );
   v105 = v40;
-  v43 = ExAllocatePool2(0x100uLL);
+  v43 = ExAllocatePool2(0x100uLL, v40, 0x69536553u);
   v11 = (void *)v43;
   if ( v43 )
   {
     v44 = *((_DWORD *)v10 + 200);
-    v98 = v44;
+    v97 = v44;
     v109 = 0;
     if ( v44 )
     {
@@ -360,10 +359,10 @@ LABEL_29:
         v48 = (unsigned __int8 *)v10[99][2 * v45];
         memmove(v46 + 1, v48, 4LL * v48[1] + 8);
         ++v45;
-        v44 = v98;
+        v44 = v97;
         v46 += *((unsigned __int8 *)v10[99][v47] + 1) + 3;
       }
-      while ( v45 < v98 );
+      while ( v45 < v97 );
       v7 = v111;
       v34 = v101;
       v40 = v105;
@@ -371,10 +370,10 @@ LABEL_29:
   }
   else
   {
-    v44 = v98;
+    v44 = v97;
   }
   v49 = 2LL * v34++;
-  *(&UserData.Ptr + v49) = (ULONGLONG)&v98;
+  *(&UserData.Ptr + v49) = (ULONGLONG)&v97;
   *((_QWORD *)&UserData.Size + v49) = 4LL;
   if ( v44 )
   {
@@ -399,7 +398,7 @@ LABEL_52:
   }
   else
   {
-    v53->Ptr = (ULONGLONG)&v97;
+    v53->Ptr = (ULONGLONG)&v96;
   }
   v56 = *(_WORD *)(v7 + 2);
   v57 = 2LL * v52;
@@ -484,7 +483,7 @@ LABEL_80:
   v73 = &UserData + v69;
   if ( !v71 )
     goto LABEL_73;
-  v80 = SepFlattenAcl(v71, &v106, &v103, v95);
+  v80 = SepFlattenAcl(v71, &v106, &v103, v94);
   *(_QWORD *)&v73->Size = 1LL;
   if ( v80 < 0 )
     goto LABEL_74;
@@ -492,7 +491,7 @@ LABEL_80:
   v74 = v106;
   v81 = v72++;
   v81 *= 2LL;
-  *(&UserData.Ptr + v81) = (ULONGLONG)v95;
+  *(&UserData.Ptr + v81) = (ULONGLONG)v94;
   *((_QWORD *)&UserData.Size + v81) = 2LL;
   v82 = &UserData + v72;
   LODWORD(v81) = v103;
@@ -526,7 +525,7 @@ LABEL_88:
     *(_QWORD *)&v84->Size = 1LL;
     goto LABEL_89;
   }
-  v85 = SepFlattenAcl(v79, &v107, &v104, v96);
+  v85 = SepFlattenAcl(v79, &v107, &v104, v95);
   *(_QWORD *)&v84->Size = 1LL;
   if ( v85 < 0 )
   {
@@ -542,7 +541,7 @@ LABEL_89:
   v86 = v107;
   v87 = v83++;
   v87 *= 2LL;
-  *(&UserData.Ptr + v87) = (ULONGLONG)v96;
+  *(&UserData.Ptr + v87) = (ULONGLONG)v95;
   *((_QWORD *)&UserData.Size + v87) = 2LL;
   v88 = &UserData + v83;
   LODWORD(v87) = v104;

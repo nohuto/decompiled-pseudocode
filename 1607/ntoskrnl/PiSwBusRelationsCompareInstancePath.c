@@ -1,20 +1,20 @@
 /*
- * XREFs of PiSwBusRelationsCompareInstancePath @ 0x1404EC1F0
+ * XREFs of PiSwBusRelationsCompareInstancePath @ 0x1404CE278
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall PiSwBusRelationsCompareInstancePath(
-        struct _RTL_AVL_TABLE *Table,
-        const UNICODE_STRING *FirstStruct,
-        const UNICODE_STRING *SecondStruct)
+        _RTL_AVL_TABLE *a1,
+        const UNICODE_STRING *a2,
+        const UNICODE_STRING *a3)
 {
   LONG v3; // ecx
   __int64 result; // rax
 
-  v3 = RtlCompareUnicodeString(FirstStruct, SecondStruct, 1u);
+  v3 = RtlCompareUnicodeString(a2, a3, 1u);
   result = 0LL;
   if ( v3 >= 0 )
   {

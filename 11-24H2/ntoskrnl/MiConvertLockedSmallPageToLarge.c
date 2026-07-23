@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConvertLockedSmallPageToLarge @ 0x1402ED6D0
+ * XREFs of MiConvertLockedSmallPageToLarge @ 0x14034ED10
  * Callers:
- *     MiDeleteClusterPage @ 0x1402ED270 (MiDeleteClusterPage.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1402EE2CC (MiConvertSmallPageRangeToLarge.c)
+ *     MiDeleteClusterPage @ 0x14034E8B0 (MiDeleteClusterPage.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x14034F90C (MiConvertSmallPageRangeToLarge.c)
  * Callees:
- *     MiCanPfnOriginalPteBeLost @ 0x14039E1D0 (MiCanPfnOriginalPteBeLost.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x1402EE318 (MiCanPfnOriginalPteBeLost.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiConvertLockedSmallPageToLarge(__int64 a1, __int64 a2, char a3, int a4)

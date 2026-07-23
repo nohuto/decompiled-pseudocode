@@ -16,7 +16,7 @@
 void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
 {
   char v1; // r15
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rsi
+  _SLIST_ENTRY *NextWorkQueueEntry; // rsi
   __int64 v4; // r14
   __int64 v5; // rbp
   struct _KPRCB *CurrentPrcb; // rcx
@@ -31,7 +31,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
   v1 = 0;
   if ( *((_DWORD *)P + 8) == 4 )
   {
-    NextWorkQueueEntry = (struct _SLIST_ENTRY *)P[6];
+    NextWorkQueueEntry = (_SLIST_ENTRY *)P[6];
     v4 = 16LL * *((unsigned int *)P + 9);
     v5 = *((unsigned int *)P + 9);
     do
@@ -47,7 +47,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
             LOWORD(L->ListHead.Alignment) >= L->Depth) )
       {
         ++L->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(NextWorkQueueEntry);
+        ((void (__fastcall *)(_SLIST_ENTRY *))L->FreeEx)(NextWorkQueueEntry);
       }
       else
       {
@@ -69,7 +69,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
       }
       else
       {
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v11);
+        NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v11);
       }
       _m_prefetchw(&CcAsyncReadWorkQueueLock);
       if ( (CcAsyncReadWorkQueueLock & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )

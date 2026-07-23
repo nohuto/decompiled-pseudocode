@@ -1,9 +1,9 @@
 /*
- * XREFs of KiWaitSatisfyMutant @ 0x140206670
+ * XREFs of KiWaitSatisfyMutant @ 0x14032DC50
  * Callers:
- *     KiWaitForAllObjects @ 0x140205C00 (KiWaitForAllObjects.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x14032D1E0 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

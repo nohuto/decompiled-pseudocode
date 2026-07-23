@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapCreateView @ 0x14097FA0C
+ * XREFs of HvpViewMapCreateView @ 0x14096821C
  * Callers:
- *     HvpViewMapCreateViewsForRegion @ 0x14097F77C (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1409826CC (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x140967F8C (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x14096AEDC (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x14046A844 (CmSiProtectViewOfSection.c)
- *     CmSiAllocateMemory @ 0x140485138 (CmSiAllocateMemory.c)
- *     CmSiMapViewOfSection @ 0x14048CDE0 (CmSiMapViewOfSection.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvpViewMapFreeView @ 0x140A4A284 (HvpViewMapFreeView.c)
+ *     CmSiProtectViewOfSection @ 0x1404631DC (CmSiProtectViewOfSection.c)
+ *     CmSiAllocateMemory @ 0x14048071C (CmSiAllocateMemory.c)
+ *     CmSiMapViewOfSection @ 0x140487B00 (CmSiMapViewOfSection.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvpViewMapFreeView @ 0x140A40FA4 (HvpViewMapFreeView.c)
  */
 
 __int64 __fastcall HvpViewMapCreateView(__int64 a1, LARGE_INTEGER a2, __int64 a3, _QWORD *a4)
@@ -17,14 +17,14 @@ __int64 __fastcall HvpViewMapCreateView(__int64 a1, LARGE_INTEGER a2, __int64 a3
   void *Memory; // rax
   void *v10; // rdi
   ULONG_PTR v11; // rbp
-  __int64 v12; // rcx
-  int v13; // ebx
+  ULONG_PTR v12; // rcx
+  NTSTATUS v13; // ebx
   int v15; // [rsp+28h] [rbp-40h]
-  int v16; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v16; // [rsp+78h] [rbp+10h] BYREF
 
-  v16 = 0;
+  LODWORD(v16) = 0;
   v6 = (unsigned __int64)(unsigned int)(a3 - a2.LowPart) >> 12;
-  Memory = (void *)CmSiAllocateMemory();
+  Memory = (void *)CmSiAllocateMemory(v6 + 72, 0x35384D43u);
   v10 = Memory;
   if ( Memory )
   {
@@ -41,8 +41,7 @@ __int64 __fastcall HvpViewMapCreateView(__int64 a1, LARGE_INTEGER a2, __int64 a3
             v15,
             (PVOID *)v10 + 7);
     if ( v13 < 0
-      || (v13 = CmSiProtectViewOfSection(v12, *(__int64 **)(a1 + 24), *((_QWORD *)v10 + 7), v11, 1u, (__int64)&v16),
-          v13 < 0) )
+      || (v13 = CmSiProtectViewOfSection(v12, *(void ***)(a1 + 24), *((void **)v10 + 7), v11, 1u, (ULONG *)&v16), v13 < 0) )
     {
       HvpViewMapFreeView(a1, v10);
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmSiProcessTupleStartFromHandle @ 0x1403742A0
+ * XREFs of CmSiProcessTupleStartFromHandle @ 0x140374440
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x14080AADC (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x14080ADAC (CmpInitializeRegistryProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     CmSipQueryProcessWorkingSetLimits @ 0x140374370 (CmSipQueryProcessWorkingSetLimits.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     CmSipQueryProcessWorkingSetLimits @ 0x140374510 (CmSipQueryProcessWorkingSetLimits.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmSiProcessTupleStartFromHandle(__int64 a1, void *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall CmSiProcessTupleStartFromHandle(__int64 a1, void *a2)
     *(_QWORD *)&CmpRegistryProcess = a2;
     *((_QWORD *)&CmpRegistryProcess + 1) = Object;
     KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v7);
-    ProcessWorkingSetLimits = CmSipQueryProcessWorkingSetLimits(v4, &xmmword_140C13F40, (char *)&xmmword_140C13F40 + 8);
+    ProcessWorkingSetLimits = CmSipQueryProcessWorkingSetLimits(v4, &xmmword_140C13F00, (char *)&xmmword_140C13F00 + 8);
     KiUnstackDetachProcess(&v7);
     if ( ProcessWorkingSetLimits >= 0 )
       return 0;

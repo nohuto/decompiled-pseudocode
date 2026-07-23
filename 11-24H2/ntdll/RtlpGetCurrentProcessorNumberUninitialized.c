@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpGetCurrentProcessorNumberUninitialized @ 0x180108F20
+ * XREFs of RtlpGetCurrentProcessorNumberUninitialized @ 0x180103E50
  * Callers:
- *     RtlGetCurrentProcessorNumber @ 0x180166200 (RtlGetCurrentProcessorNumber.c)
+ *     RtlGetCurrentProcessorNumber @ 0x1801645C0 (RtlGetCurrentProcessorNumber.c)
  * Callees:
- *     RtlpGetCurrentProcessorNumberInitialize @ 0x180108F60 (RtlpGetCurrentProcessorNumberInitialize.c)
+ *     RtlpGetCurrentProcessorNumberInitialize @ 0x180103E90 (RtlpGetCurrentProcessorNumberInitialize.c)
  */
 
-__int64 RtlpGetCurrentProcessorNumberUninitialized()
+ULONG RtlpGetCurrentProcessorNumberUninitialized()
 {
   RtlpGetCurrentProcessorNumberInitialize();
   return RtlGetCurrentProcessorNumber();

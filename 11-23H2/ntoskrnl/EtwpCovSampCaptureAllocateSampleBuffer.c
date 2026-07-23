@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampCaptureAllocateSampleBuffer @ 0x1409F0910
+ * XREFs of EtwpCovSampCaptureAllocateSampleBuffer @ 0x1409F0BA0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

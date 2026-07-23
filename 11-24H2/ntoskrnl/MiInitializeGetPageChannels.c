@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeGetPageChannels @ 0x14043DDF0
+ * XREFs of MiInitializeGetPageChannels @ 0x140432090
  * Callers:
- *     MiGetHugeRange @ 0x1406700C4 (MiGetHugeRange.c)
+ *     MiGetHugeRange @ 0x140671294 (MiGetHugeRange.c)
  * Callees:
  *     <none>
  */

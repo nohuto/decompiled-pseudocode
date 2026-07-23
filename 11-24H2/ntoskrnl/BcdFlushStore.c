@@ -1,34 +1,34 @@
 /*
- * XREFs of BcdFlushStore @ 0x140811C1C
+ * XREFs of BcdFlushStore @ 0x14081235C
  * Callers:
- *     PopAdaptiveClearInitialSystemPowerState @ 0x14075F12C (PopAdaptiveClearInitialSystemPowerState.c)
- *     PopBcdClearPendingResume @ 0x1409C04F8 (PopBcdClearPendingResume.c)
+ *     PopAdaptiveClearInitialSystemPowerState @ 0x14075E0CC (PopAdaptiveClearInitialSystemPowerState.c)
+ *     PopBcdClearPendingResume @ 0x1409A6B48 (PopBcdClearPendingResume.c)
  * Callees:
- *     BiSanitizeHandle @ 0x1404A6FD0 (BiSanitizeHandle.c)
- *     BiIsOfflineHandle @ 0x1404AB350 (BiIsOfflineHandle.c)
- *     ZwFlushKey @ 0x1406A8250 (ZwFlushKey.c)
- *     BiAcquireBcdSyncMutant @ 0x1409BE268 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1409BE32C (BiReleaseBcdSyncMutant.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
+ *     BiSanitizeHandle @ 0x1404A1930 (BiSanitizeHandle.c)
+ *     BiIsOfflineHandle @ 0x1404A5974 (BiIsOfflineHandle.c)
+ *     ZwFlushKey @ 0x1406A91F0 (ZwFlushKey.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A48B8 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A497C (BiReleaseBcdSyncMutant.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdFlushStore(__int64 a1)
+NTSTATUS __cdecl BcdFlushStore(HANDLE BcdStoreHandle)
 {
   __int64 v2; // rcx
   char v3; // di
   int v4; // eax
-  unsigned int v5; // r8d
+  NTSTATUS v5; // r8d
   void *v7; // rax
   NTSTATUS v8; // eax
   __int64 v9; // rcx
-  unsigned int v10; // ebx
+  NTSTATUS v10; // ebx
 
-  LOBYTE(v2) = BiIsOfflineHandle(a1);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = v2;
   v4 = BiAcquireBcdSyncMutant(v2);
   if ( v4 >= 0 )
   {
-    v7 = (void *)BiSanitizeHandle(a1);
+    v7 = (void *)BiSanitizeHandle((__int64)BcdStoreHandle);
     v8 = ZwFlushKey(v7);
     LOBYTE(v9) = v3;
     v10 = v8;

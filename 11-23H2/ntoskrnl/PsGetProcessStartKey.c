@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetProcessStartKey @ 0x1402F6CA0
+ * XREFs of PsGetProcessStartKey @ 0x1402F6F30
  * Callers:
- *     EtwpWriteUserEvent @ 0x1406F4140 (EtwpWriteUserEvent.c)
- *     EtwpWriteAppStateChangeWithStats @ 0x140751520 (EtwpWriteAppStateChangeWithStats.c)
- *     EtwpWriteProcessStarted @ 0x140753B50 (EtwpWriteProcessStarted.c)
- *     EtwpInitStateChangeInfo @ 0x140753DE4 (EtwpInitStateChangeInfo.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140754850 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpWriteUserEvent @ 0x1406F4170 (EtwpWriteUserEvent.c)
+ *     EtwpWriteAppStateChangeWithStats @ 0x140751710 (EtwpWriteAppStateChangeWithStats.c)
+ *     EtwpWriteProcessStarted @ 0x140753D40 (EtwpWriteProcessStarted.c)
+ *     EtwpInitStateChangeInfo @ 0x140753FD4 (EtwpInitStateChangeInfo.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x140754A40 (EtwQueryProcessTelemetryInfo.c)
  * Callees:
  *     <none>
  */

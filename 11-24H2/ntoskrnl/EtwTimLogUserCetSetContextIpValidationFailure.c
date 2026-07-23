@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1407AC420
+ * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1407AC8F0
  * Callers:
- *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x14073CE80 (KiLogUserCetSetContextIpValidationFailureWorker.c)
+ *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x14073ADB0 (KiLogUserCetSetContextIpValidationFailureWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1406A6870 (ZwQueryVirtualMemory.c)
- *     EtwpQueryProcessCommandLine @ 0x14094BCC0 (EtwpQueryProcessCommandLine.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1406A7810 (ZwQueryVirtualMemory.c)
+ *     EtwpQueryProcessCommandLine @ 0x1408F0230 (EtwpQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2, void *a3, int a4, int a5)
@@ -137,14 +137,14 @@ void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2
   v72 = 0;
   v33 = v15;
   v34 = EtwpTiFillProcessIdentity(v73, a2, &v37);
-  Pool2 = (unsigned __int16 *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x6E734954u);
   v18 = Pool2;
   if ( !Pool2 )
     goto LABEL_14;
   if ( ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         (MEMORY_INFORMATION_CLASS)2,
+         MemoryMappedFilenameInformation,
          Pool2,
          0x200uLL,
          0LL) < 0 )
@@ -186,7 +186,7 @@ LABEL_14:
   if ( v25 != 1 )
     v24 = &MITIGATION_ENFORCE_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
   EtwWrite(v29, v24, 0LL, v28, &UserData);
-  if ( (unsigned int)dword_140E09128 > 5 && tlgKeywordOn((__int64)&dword_140E09128, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E09198 > 5 && tlgKeywordOn((__int64)&dword_140E09198, 0x400000000000LL) )
   {
     v35 = v25;
     v42 = &v35;
@@ -219,8 +219,8 @@ LABEL_14:
     v39 = 0x1000000LL;
     v63 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E09128,
-      (unsigned __int8 *)byte_1400533D1,
+      (__int64)&dword_140E09198,
+      (unsigned __int8 *)word_1400541DA,
       0LL,
       0LL,
       0xDu,

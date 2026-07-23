@@ -1,15 +1,15 @@
 /*
- * XREFs of KiExecuteDpc @ 0x1405FAE40
+ * XREFs of KiExecuteDpc @ 0x1405FD860
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     KiExecuteAllDpcs @ 0x14032DD00 (KiExecuteAllDpcs.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1405F6AC8 (KiSetSystemAffinityThreadToProcessor.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     KiExecuteAllDpcs @ 0x14032FD30 (KiExecuteAllDpcs.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x1405F9488 (KiSetSystemAffinityThreadToProcessor.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall __noreturn KiExecuteDpc(__int64 a1)

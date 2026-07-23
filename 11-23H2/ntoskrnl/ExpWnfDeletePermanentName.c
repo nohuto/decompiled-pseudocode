@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWnfDeletePermanentName @ 0x1407C9B88
+ * XREFs of ExpWnfDeletePermanentName @ 0x1407C9E58
  * Callers:
- *     NtDeleteWnfStateName @ 0x1407C9330 (NtDeleteWnfStateName.c)
+ *     NtDeleteWnfStateName @ 0x1407C9600 (NtDeleteWnfStateName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x140710B4C (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfComposeValueName @ 0x140710CC0 (ExpWnfComposeValueName.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140710D5C (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x140710ED0 (ExpWnfComposeValueName.c)
  */
 
 int __fastcall ExpWnfDeletePermanentName(unsigned __int64 a1)

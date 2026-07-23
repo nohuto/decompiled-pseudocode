@@ -1,15 +1,15 @@
 /*
- * XREFs of WbVerifyVirtualAddressSignature @ 0x140690984
+ * XREFs of WbVerifyVirtualAddressSignature @ 0x140691B44
  * Callers:
- *     WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405845DC (WbDecryptWarbirdEncryptionSegmentBlockV0.c)
- *     sub_14058485C @ 0x14058485C (sub_14058485C.c)
- *     WbInitializeEncryptionSegment @ 0x140584B2C (WbInitializeEncryptionSegment.c)
- *     sub_1406901D0 @ 0x1406901D0 (sub_1406901D0.c)
- *     sub_1408E5698 @ 0x1408E5698 (sub_1408E5698.c)
- *     sub_1408E5884 @ 0x1408E5884 (sub_1408E5884.c)
+ *     WbDecryptWarbirdEncryptionSegmentBlockV0 @ 0x1405855DC (WbDecryptWarbirdEncryptionSegmentBlockV0.c)
+ *     sub_14058585C @ 0x14058585C (sub_14058585C.c)
+ *     WbInitializeEncryptionSegment @ 0x140585B2C (WbInitializeEncryptionSegment.c)
+ *     sub_140691390 @ 0x140691390 (sub_140691390.c)
+ *     sub_1408E6958 @ 0x1408E6958 (sub_1408E6958.c)
+ *     sub_1408E6B44 @ 0x1408E6B44 (sub_1408E6B44.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ZwQueryVirtualMemory @ 0x1401B8750 (ZwQueryVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WbVerifyVirtualAddressSignature(PVOID BaseAddress, unsigned int a2, int a3)
@@ -30,21 +30,21 @@ __int64 __fastcall WbVerifyVirtualAddressSignature(PVOID BaseAddress, unsigned i
   v6 = ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         MemoryWorkingSetExList|MemorySectionName,
+         MemoryImageInformation,
          v13,
          0x18uLL,
          &ReturnLength);
   v9 = v6;
   if ( v6 >= 0 )
   {
-    if ( qword_14040DDA0 )
+    if ( qword_14040EE00 )
     {
       LOBYTE(v8) = (v13[4] >> 2) & 0xF;
       LOBYTE(v7) = 12;
-      v10 = ((__int64 (__fastcall *)(__int64, __int64, __int64 (__fastcall *)(_QWORD, _QWORD), _QWORD))qword_14040DDA0)(
+      v10 = ((__int64 (__fastcall *)(__int64, __int64, __int64 (__fastcall *)(_QWORD, _QWORD), _QWORD))qword_14040EE00)(
               v8,
               v7,
-              qword_14040DDA0,
+              qword_14040EE00,
               (unsigned int)v6);
     }
     else

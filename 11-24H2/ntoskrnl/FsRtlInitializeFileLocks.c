@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlInitializeFileLocks @ 0x140C1915C
+ * XREFs of FsRtlInitializeFileLocks @ 0x140C1B150
  * Callers:
- *     FsRtlInitSystem @ 0x140C18D7C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140C1AD7C (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     ExInitializePagedLookasideList @ 0x140A94D10 (ExInitializePagedLookasideList.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializePagedLookasideList @ 0x140A914C0 (ExInitializePagedLookasideList.c)
  */
 
 LIST_ENTRY *FsRtlInitializeFileLocks()

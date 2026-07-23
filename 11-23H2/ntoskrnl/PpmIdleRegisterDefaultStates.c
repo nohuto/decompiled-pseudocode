@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleRegisterDefaultStates @ 0x140822178
+ * XREFs of PpmIdleRegisterDefaultStates @ 0x140822478
  * Callers:
- *     PopNewProcessorCallback @ 0x140980420 (PopNewProcessorCallback.c)
+ *     PopNewProcessorCallback @ 0x140980620 (PopNewProcessorCallback.c)
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFB1C (PopExecuteOnTargetProcessors.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PpmHvUseNativeAlgorithms @ 0x140381360 (PpmHvUseNativeAlgorithms.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PopExecuteOnTargetProcessors @ 0x1402BFDAC (PopExecuteOnTargetProcessors.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PpmHvUseNativeAlgorithms @ 0x140381500 (PpmHvUseNativeAlgorithms.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

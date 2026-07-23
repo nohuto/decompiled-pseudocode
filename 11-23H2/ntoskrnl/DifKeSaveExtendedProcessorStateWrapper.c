@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeSaveExtendedProcessorStateWrapper @ 0x1405E5860
+ * XREFs of DifKeSaveExtendedProcessorStateWrapper @ 0x1405E5DD0
  * Callers:
  *     <none>
  * Callees:
  *     KeSaveExtendedProcessorState @ 0x14020DD90 (KeSaveExtendedProcessorState.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifKeSaveExtendedProcessorStateWrapper(ULONG64 Mask, PXSTATE_SAVE XStateSave)

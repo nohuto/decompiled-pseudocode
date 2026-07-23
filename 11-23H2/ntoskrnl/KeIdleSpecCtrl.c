@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIdleSpecCtrl @ 0x140372610
+ * XREFs of KeIdleSpecCtrl @ 0x1403727B0
  * Callers:
- *     PoIdle @ 0x1402C4B60 (PoIdle.c)
+ *     PoIdle @ 0x1402C4DF0 (PoIdle.c)
  * Callees:
  *     <none>
  */

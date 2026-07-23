@@ -6,30 +6,32 @@
  *     _RtlCompareMemoryUlong@12 @ 0x4B307F80 (_RtlCompareMemoryUlong@12.c)
  */
 
-int __thiscall RtlpHpParametersVerify(char *this)
+int __thiscall RtlpHpParametersVerify(_DWORD *this)
 {
-  char *v2; // edi
+  _DWORD *v2; // edi
   unsigned int v3; // ebx
   bool v4; // zf
   int v6; // eax
   int v7; // ebx
+  ULONG v8; // [esp+0h] [ebp-Ch]
+  ULONG v9; // [esp+0h] [ebp-Ch]
 
-  v2 = this + 8;
-  v3 = *((_DWORD *)this + 3);
+  v2 = this + 2;
+  v3 = this[3];
   if ( *(_WORD *)this == 2
     && *((_WORD *)this + 1) == 48
-    && (*((_DWORD *)this + 1) & 0xFFFFFFFE) == 0
-    && RtlCompareMemoryUlong(this + 32, 0x10u, 0) == (char *)16 )
+    && (this[1] & 0xFFFFFFFE) == 0
+    && (unsigned int)RtlCompareMemoryUlong(this + 8, 0x10uLL, v8) == 16 )
   {
-    if ( (this[4] & 1) != 0 )
+    if ( (this[1] & 1) != 0 )
     {
-      v4 = RtlCompareMemoryUlong(v2, 0x18u, 0) == (char *)24;
+      v4 = (unsigned int)RtlCompareMemoryUlong(v2, 0x18uLL, v9) == 24;
     }
     else
     {
-      if ( *((_DWORD *)this + 1) )
+      if ( this[1] )
         return 0;
-      if ( *(_DWORD *)v2 )
+      if ( *v2 )
         return 0;
       if ( !v3 )
         return 0;
@@ -37,14 +39,14 @@ int __thiscall RtlpHpParametersVerify(char *this)
         return 0;
       if ( (v3 & 2) != 0 )
         return 0;
-      if ( *((_DWORD *)v2 + 2) != -1 )
+      if ( v2[2] != -1 )
         return 0;
-      if ( RtlCompareMemoryUlong(v2 + 16, 8u, 0) != (char *)8 )
+      if ( (unsigned int)RtlCompareMemoryUlong(v2 + 4, 8uLL, v9) != 8 )
         return 0;
       if ( (v3 & 8) != 0 )
         return 0;
       v6 = v3 & 3;
-      if ( *((_DWORD *)this + 5) )
+      if ( this[5] )
       {
         if ( (v3 & 3) != 0 )
           return 0;

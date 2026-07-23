@@ -6,21 +6,21 @@
  *     <none>
  */
 
-char *__stdcall RtlLocateLegacyContext(_DWORD *a1, _DWORD *a2)
+PCONTEXT __cdecl RtlLocateLegacyContext(PCONTEXT_EX ContextEx, PULONG Length)
 {
-  int v2; // esi
-  int v3; // edi
+  LONG Offset; // esi
+  ULONG v3; // edi
 
-  v2 = a1[2];
-  if ( *a1 > v2 )
+  Offset = ContextEx->Legacy.Offset;
+  if ( ContextEx->All.Offset > Offset )
     return 0;
-  v3 = a1[3];
-  if ( *a1 + a1[1] < v3 + v2 )
+  v3 = ContextEx->Legacy.Length;
+  if ( (signed __int32)(ContextEx->All.Offset + ContextEx->All.Length) < (int)(v3 + Offset) )
     return 0;
-  if ( a2 )
+  if ( Length )
   {
-    *a2 = v3;
-    v2 = a1[2];
+    *Length = v3;
+    Offset = ContextEx->Legacy.Offset;
   }
-  return (char *)a1 + v2;
+  return (PCONTEXT)((char *)ContextEx + Offset);
 }

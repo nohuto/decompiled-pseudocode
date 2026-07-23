@@ -89,12 +89,12 @@ LABEL_19:
       return 0LL;
   }
 LABEL_24:
-  v11 = qword_140326A90;
-  if ( qword_140327360 == qword_140326A90 + 1 )
+  v11 = qword_140326AD0;
+  if ( qword_1403273A0 == qword_140326AD0 + 1 )
     goto LABEL_27;
-  if ( !(unsigned int)MxMapPfnRange(qword_140327360, 2048LL, 1LL) )
+  if ( !(unsigned int)MxMapPfnRange(qword_1403273A0, 2048LL, 1LL) )
     return 0LL;
-  v11 = qword_140326A90;
+  v11 = qword_140326AD0;
 LABEL_27:
   LOBYTE(v3) = (unsigned int)MxMapPfnRange(v11 + 1, -1LL, 1LL) != 0;
   return v3;

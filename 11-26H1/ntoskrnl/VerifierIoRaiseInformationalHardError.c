@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoRaiseInformationalHardError @ 0x140C2DDD0
+ * XREFs of VerifierIoRaiseInformationalHardError @ 0x140C33DE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierIoRaiseInformationalHardError(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpEventNameFilterSearch @ 0x1405AC1EC
+ * XREFs of EtwpEventNameFilterSearch @ 0x1405AC41C
  * Callers:
- *     EtwpApplyEventNameFilter @ 0x1405ABB34 (EtwpApplyEventNameFilter.c)
+ *     EtwpApplyEventNameFilter @ 0x1405ABD64 (EtwpApplyEventNameFilter.c)
  * Callees:
  *     <none>
  */

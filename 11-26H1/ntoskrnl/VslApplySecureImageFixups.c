@@ -1,12 +1,12 @@
 /*
- * XREFs of VslApplySecureImageFixups @ 0x1404B8C00
+ * XREFs of VslApplySecureImageFixups @ 0x1404B2430
  * Callers:
- *     MiWalkImageApplyRelocationToPage @ 0x1409CE970 (MiWalkImageApplyRelocationToPage.c)
- *     MiWalkImageApplyImportOptimizationToPage @ 0x140B19190 (MiWalkImageApplyImportOptimizationToPage.c)
+ *     MiWalkImageApplyRelocationToPage @ 0x14099F950 (MiWalkImageApplyRelocationToPage.c)
+ *     MiWalkImageApplyImportOptimizationToPage @ 0x140B1B5E0 (MiWalkImageApplyImportOptimizationToPage.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslApplySecureImageFixups(__int64 a1, unsigned int a2, __int64 a3)

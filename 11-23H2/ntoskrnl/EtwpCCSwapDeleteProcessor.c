@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpCCSwapDeleteProcessor @ 0x14060420C
+ * XREFs of EtwpCCSwapDeleteProcessor @ 0x14060475C
  * Callers:
- *     EtwInitializeProcessor @ 0x14081D7D8 (EtwInitializeProcessor.c)
- *     EtwDeleteProcessor @ 0x1409E1DA8 (EtwDeleteProcessor.c)
+ *     EtwInitializeProcessor @ 0x14081DAA8 (EtwInitializeProcessor.c)
+ *     EtwDeleteProcessor @ 0x1409E2038 (EtwDeleteProcessor.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

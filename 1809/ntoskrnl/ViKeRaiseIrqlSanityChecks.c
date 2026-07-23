@@ -1,24 +1,24 @@
 /*
- * XREFs of ViKeRaiseIrqlSanityChecks @ 0x14093B048
+ * XREFs of ViKeRaiseIrqlSanityChecks @ 0x14093C048
  * Callers:
- *     VerifierKeAcquireQueuedSpinLock @ 0x1409322F0 (VerifierKeAcquireQueuedSpinLock.c)
- *     VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x1409394FC (VerifierKeAcquireInStackQueuedSpinLockCommon.c)
- *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon @ 0x1409396E4 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon.c)
- *     VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x1409397A0 (VerifierKeAcquireQueuedSpinLockRaiseToSynch.c)
- *     VerifierKeRaiseIrqlToDpcLevel @ 0x140939D30 (VerifierKeRaiseIrqlToDpcLevel.c)
- *     VerifierKeSynchronizeExecution @ 0x14093A4E0 (VerifierKeSynchronizeExecution.c)
- *     VerifierKeTryToAcquireQueuedSpinLock @ 0x14093A560 (VerifierKeTryToAcquireQueuedSpinLock.c)
- *     VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x14093A5F0 (VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch.c)
- *     VerifierKfRaiseIrql @ 0x14093A8B0 (VerifierKfRaiseIrql.c)
- *     VerifierPortKeAcquireSpinLock @ 0x14093A940 (VerifierPortKeAcquireSpinLock.c)
- *     VerifierPortKeAcquireSpinLockNoXdv @ 0x14093A9D0 (VerifierPortKeAcquireSpinLockNoXdv.c)
- *     ViKeAcquireSpinLockRaiseToDpcCommon @ 0x14093AD74 (ViKeAcquireSpinLockRaiseToDpcCommon.c)
+ *     VerifierKeAcquireQueuedSpinLock @ 0x1409332F0 (VerifierKeAcquireQueuedSpinLock.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x14093A4FC (VerifierKeAcquireInStackQueuedSpinLockCommon.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon @ 0x14093A6E4 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon.c)
+ *     VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x14093A7A0 (VerifierKeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKeRaiseIrqlToDpcLevel @ 0x14093AD30 (VerifierKeRaiseIrqlToDpcLevel.c)
+ *     VerifierKeSynchronizeExecution @ 0x14093B4E0 (VerifierKeSynchronizeExecution.c)
+ *     VerifierKeTryToAcquireQueuedSpinLock @ 0x14093B560 (VerifierKeTryToAcquireQueuedSpinLock.c)
+ *     VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x14093B5F0 (VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKfRaiseIrql @ 0x14093B8B0 (VerifierKfRaiseIrql.c)
+ *     VerifierPortKeAcquireSpinLock @ 0x14093B940 (VerifierPortKeAcquireSpinLock.c)
+ *     VerifierPortKeAcquireSpinLockNoXdv @ 0x14093B9D0 (VerifierPortKeAcquireSpinLockNoXdv.c)
+ *     ViKeAcquireSpinLockRaiseToDpcCommon @ 0x14093BD74 (ViKeAcquireSpinLockRaiseToDpcCommon.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
- *     MmVerifierTrimMemory @ 0x140924C08 (MmVerifierTrimMemory.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x14093AC40 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x14093AEAC (ViKeIrqlLogCommon.c)
+ *     KeAreInterruptsEnabled @ 0x1400CADE4 (KeAreInterruptsEnabled.c)
+ *     MmVerifierTrimMemory @ 0x140925C08 (MmVerifierTrimMemory.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x14093BC40 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     ViKeIrqlLogCommon @ 0x14093BEAC (ViKeIrqlLogCommon.c)
  */
 
 char *__fastcall ViKeRaiseIrqlSanityChecks(unsigned __int8 a1, int a2)

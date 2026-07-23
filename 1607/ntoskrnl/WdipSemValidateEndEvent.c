@@ -1,7 +1,7 @@
 /*
- * XREFs of WdipSemValidateEndEvent @ 0x1404E4FC8
+ * XREFs of WdipSemValidateEndEvent @ 0x1404C7C80
  * Callers:
- *     WdipSemDisableScenario @ 0x1404E3DA4 (WdipSemDisableScenario.c)
+ *     WdipSemDisableScenario @ 0x1404C6A5C (WdipSemDisableScenario.c)
  * Callees:
  *     <none>
  */

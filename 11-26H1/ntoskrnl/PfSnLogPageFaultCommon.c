@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnLogPageFaultCommon @ 0x140265B50
+ * XREFs of PfSnLogPageFaultCommon @ 0x1402650C0
  * Callers:
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
- *     MiCompleteRestrictedImageFault @ 0x1403744A0 (MiCompleteRestrictedImageFault.c)
- *     PfSnLogPageFault @ 0x140374EF0 (PfSnLogPageFault.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
+ *     MiCompleteRestrictedImageFault @ 0x140376250 (MiCompleteRestrictedImageFault.c)
+ *     PfSnLogPageFault @ 0x140376CA0 (PfSnLogPageFault.c)
  * Callees:
- *     PfSnGetFileInformation @ 0x140265CF0 (PfSnGetFileInformation.c)
- *     PfSnTraceGetLogEntry @ 0x1402662D0 (PfSnTraceGetLogEntry.c)
+ *     PfSnGetFileInformation @ 0x140265260 (PfSnGetFileInformation.c)
+ *     PfSnTraceGetLogEntry @ 0x140265840 (PfSnTraceGetLogEntry.c)
  */
 
 __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4, char a5)
@@ -33,10 +33,10 @@ __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, __int64 a2, unsigned __int
     v9 = 1;
   else
     v9 = (a5 & 2) != 0 ? 3 : 0;
-  v10 = stru_140F12D20.Padding[2];
+  v10 = xmmword_140F13528;
   v11 = *(_DWORD *)(a1 + 404);
   v17 = 0LL;
-  if ( LODWORD(stru_140F12D20.Padding[2]) != v11 && (int)PfSnTraceGetLogEntry(a1, 1LL, &v17) >= 0 )
+  if ( (_DWORD)xmmword_140F13528 != v11 && (int)PfSnTraceGetLogEntry(a1, 1LL, &v17) >= 0 )
   {
     v15 = v17;
     *v17 = *v17 & 0xFFFFFFFFFFFFFFF0uLL | 2;

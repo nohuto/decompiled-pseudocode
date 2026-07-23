@@ -1,18 +1,22 @@
 /*
- * XREFs of RtlDisableThreadProfiling @ 0x1800CBF10
+ * XREFs of RtlDisableThreadProfiling @ 0x1800CBED0
  * Callers:
  *     <none>
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
- *     NtSetInformationThread @ 0x18009D7E0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x18009D7A0 (NtSetInformationThread.c)
  */
 
-__int64 __fastcall RtlDisableThreadProfiling(__int64 a1)
+NTSTATUS __cdecl RtlDisableThreadProfiling(PVOID PerformanceDataHandle)
 {
   int v2; // ebx
+  _DWORD v4[4]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID v5; // [rsp+30h] [rbp-18h]
 
-  v2 = NtSetInformationThread();
+  v4[3] = 0;
+  v5 = PerformanceDataHandle;
+  v2 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadCounterProfiling, v4, 0x18u);
   if ( v2 >= 0 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
-  return (unsigned int)v2;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, PerformanceDataHandle);
+  return v2;
 }

@@ -15,7 +15,7 @@ NTSTATUS LdrInitializeMrdata()
   unsigned int v3; // [rsp+38h] [rbp-40h]
   __int64 v4; // [rsp+48h] [rbp-30h]
 
-  LdrpMrdataLock = 0LL;
+  LdrpMrdataLock.0 = 0LL;
   result = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
   if ( result >= 0 )
   {

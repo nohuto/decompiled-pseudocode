@@ -113,33 +113,16 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  __int64 v2; // r8
-  char v3; // bl
-  unsigned int v4; // eax
-  __int64 v5; // rdx
-  __int64 v6; // r9
-  _DWORD v7[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-570h]
-  __int64 v9; // [rsp+30h] [rbp-568h]
-  int v10; // [rsp+38h] [rbp-560h]
-  _BYTE v11[132]; // [rsp+3Ch] [rbp-55Ch] BYREF
-  _BYTE v12[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  memset_0(v11, 0, 0x7CuLL);
-  v8 = 0LL;
-  v10 = 0;
-  v9 = -1LL;
-  v7[0] = a1;
-  v3 = 1;
-  v7[1] = 129;
-  do
-  {
-    LOBYTE(v2) = v3;
-    v4 = RtlRaiseNoncontinuableException(v7, v12, v2);
-    --v3;
-  }
-  while ( !v3 );
-  RtlRaiseStatus(v4, v5, v2, v6);
+  memset_0(&ExceptionRecord.NumberParameters + 1, 0, 0x7CuLL);
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionAddress = (void *)-1LL;
+  ExceptionRecord.ExceptionCode = Status;
+  ExceptionRecord.ExceptionFlags = 129;
+  RtlRaiseNoncontinuableException(&ExceptionRecord, &ContextRecord);
 }

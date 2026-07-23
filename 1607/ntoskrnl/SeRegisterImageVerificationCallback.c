@@ -1,9 +1,9 @@
 /*
- * XREFs of SeRegisterImageVerificationCallback @ 0x14058106C
+ * XREFs of SeRegisterImageVerificationCallback @ 0x140581518
  * Callers:
  *     <none>
  * Callees:
- *     ExRegisterCallback @ 0x14012FD34 (ExRegisterCallback.c)
+ *     ExRegisterCallback @ 0x1401302A4 (ExRegisterCallback.c)
  */
 
 __int64 __fastcall SeRegisterImageVerificationCallback(
@@ -33,7 +33,7 @@ __int64 __fastcall SeRegisterImageVerificationCallback(
       v7 = ExRegisterCallback(ExCbSeImageVerificationDriverInfo, a3, a4);
       if ( v7 )
       {
-        _InterlockedIncrement(&dword_14033E224);
+        _InterlockedIncrement(&dword_14033E264);
         *a6 = v7;
       }
       else

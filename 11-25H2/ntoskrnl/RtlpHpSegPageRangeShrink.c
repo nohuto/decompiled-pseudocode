@@ -48,7 +48,7 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3)
   __int64 v26; // r8
   __int64 v27; // rdx
   int v28; // r8d
-  unsigned __int8 v29; // cl
+  BOOLEAN v29; // cl
   __int64 v30; // rcx
   _QWORD *v31; // rbx
   __int64 result; // rax
@@ -214,7 +214,7 @@ LABEL_21:
 LABEL_66:
     v29 = 0;
 LABEL_22:
-    RtlRbInsertNodeEx(a1 + 96, v27, v29, v13);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v27, v29, (PRTL_BALANCED_NODE)v13);
     _InterlockedAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
       (unsigned __int16)~*(_WORD *)(v13 + 28));

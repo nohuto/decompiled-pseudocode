@@ -1,15 +1,15 @@
 /*
- * XREFs of MxConstructLoaderMemoryTree @ 0x140CF53CC
+ * XREFs of MxConstructLoaderMemoryTree @ 0x140CFB74C
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     MiSearchNumaNodeTable @ 0x1402CE020 (MiSearchNumaNodeTable.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MxApplyMemoryLimits @ 0x140CF4FC8 (MxApplyMemoryLimits.c)
- *     MxComputePageTablesNeeded @ 0x140CF5268 (MxComputePageTablesNeeded.c)
- *     MxInsertFreeZeroMemoryDescriptor @ 0x140CF755C (MxInsertFreeZeroMemoryDescriptor.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     MiSearchNumaNodeTable @ 0x1402AFDE0 (MiSearchNumaNodeTable.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MxApplyMemoryLimits @ 0x140CFB348 (MxApplyMemoryLimits.c)
+ *     MxComputePageTablesNeeded @ 0x140CFB5E8 (MxComputePageTablesNeeded.c)
+ *     MxInsertFreeZeroMemoryDescriptor @ 0x140CFD8DC (MxInsertFreeZeroMemoryDescriptor.c)
  */
 
 LARGE_INTEGER __fastcall MxConstructLoaderMemoryTree(__int64 a1)
@@ -25,15 +25,15 @@ LARGE_INTEGER __fastcall MxConstructLoaderMemoryTree(__int64 a1)
   unsigned __int64 v10; // xmm0_8
   ULONG_PTR v11; // r14
   __int64 v12; // rax
-  unsigned __int64 v13; // rdi
+  __int64 v13; // rdi
   __int64 v14; // r15
   __int64 v15; // r13
   ULONG_PTR v16; // rsi
   ULONG_PTR BugCheckParameter4; // r12
   unsigned __int64 v18; // rbx
-  unsigned __int64 v19; // rcx
+  _RTL_RB_TREE *v19; // rcx
   unsigned __int64 v20; // rdx
-  bool v21; // r8
+  BOOLEAN v21; // r8
   unsigned __int64 v22; // rax
   __int64 v23; // rcx
   ULONG_PTR v24; // r15
@@ -51,16 +51,16 @@ LARGE_INTEGER __fastcall MxConstructLoaderMemoryTree(__int64 a1)
   __int64 v36; // rdx
   __int64 v37; // rax
   LARGE_INTEGER result; // rax
-  unsigned __int64 v39; // [rsp+70h] [rbp+8h]
-  unsigned __int64 v40; // [rsp+80h] [rbp+18h]
+  __int64 v39; // [rsp+70h] [rbp+8h]
+  __int64 v40; // [rsp+80h] [rbp+18h]
 
   v1 = 64;
   if ( (unsigned __int16)KeNumberNodes > 0x40u || (v1 = (unsigned __int16)KeNumberNodes, KeNumberNodes) )
   {
-    v3 = qword_140FFF840;
+    v3 = qword_141000840;
     v4 = v1;
-    v5 = qword_140FFF850;
-    v6 = qword_140FFF860;
+    v5 = qword_141000850;
+    v6 = qword_141000860;
     do
     {
       v7 = _mm_loadl_epi64((const __m128i *)&_xmm);
@@ -125,22 +125,22 @@ LARGE_INTEGER __fastcall MxConstructLoaderMemoryTree(__int64 a1)
         }
         while ( v26 );
       }
-      MxInsertFreeZeroMemoryDescriptor(&MxBootState[250 * v25], v13);
+      MxInsertFreeZeroMemoryDescriptor((PRTL_RB_TREE)&MxBootState[250 * v25], (PRTL_BALANCED_NODE)v13);
       v11 = v16 + BugCheckParameter4;
       v14 = v39;
 LABEL_35:
       if ( !v14 )
-        qword_140E3D3C0 = v16;
+        qword_140E3D540 = v16;
       MxComputePageTablesNeeded(v14, v13);
       v39 = v13;
       v14 = v13;
       BugCheckParameter3 = BugCheckParameter4 + v16 - 1;
       goto LABEL_38;
     }
-    v19 = a1 + 352;
+    v19 = (_RTL_RB_TREE *)(a1 + 352);
     v20 = *(_QWORD *)(a1 + 352);
     if ( (*(_BYTE *)(a1 + 360) & 1) != 0 && v20 )
-      v20 ^= v19;
+      v20 ^= (unsigned __int64)v19;
     v21 = 0;
     if ( v20 )
     {
@@ -177,7 +177,7 @@ LABEL_19:
         v20 = v22;
       }
     }
-    RtlRbInsertNodeEx(v19, v20, v21, v13);
+    RtlRbInsertNodeEx(v19, (PRTL_BALANCED_NODE)v20, v21, (PRTL_BALANCED_NODE)v13);
     if ( (unsigned int)v18 > 0x2C )
       goto LABEL_35;
     v23 = 0x15C5C0C00048LL;
@@ -187,9 +187,9 @@ LABEL_38:
     v13 = v40;
     v12 = a1 + 32;
   }
-  v30 = (const __m128i *)&qword_14101EC38;
+  v30 = (const __m128i *)&qword_14101FC38;
   v31 = 2LL;
-  v32 = (__m128i *)&qword_14101EC38;
+  v32 = (__m128i *)&qword_14101FC38;
   do
   {
     *v32 = _mm_add_epi64(_mm_load_si128((const __m128i *)&_xmm), _mm_loadu_si128(v32));
@@ -198,7 +198,7 @@ LABEL_38:
   }
   while ( v31 );
   v33 = 0LL;
-  qword_14101EC38 *= 513LL;
+  qword_14101FC38 *= 513LL;
   do
   {
     v34 = _mm_loadu_si128(v30++);
@@ -206,8 +206,8 @@ LABEL_38:
     --v15;
   }
   while ( v15 );
-  qword_14101EC08 += (_mm_add_epi64(v33, _mm_srli_si128(v33, 8)).m128i_u64[0] + 511) & 0xFFFFFFFFFFFFFE00uLL;
-  v35 = ((unsigned __int64)(qword_140E2D708 + 98304) >> 12) + (((qword_140E2D708 + 98304) & 0xFFF) != 0);
+  qword_14101FC08 += (_mm_add_epi64(v33, _mm_srli_si128(v33, 8)).m128i_u64[0] + 511) & 0xFFFFFFFFFFFFFE00uLL;
+  v35 = ((unsigned __int64)(qword_140E2D888 + 98304) >> 12) + (((qword_140E2D888 + 98304) & 0xFFF) != 0);
   v36 = 0LL;
   v37 = 4LL;
   do
@@ -217,10 +217,10 @@ LABEL_38:
     --v37;
   }
   while ( v37 );
-  qword_14101EC08 += ((unsigned __int16)KeNumberNodes << 9) + ((v36 + 511) & 0xFFFFFFFFFFFFFE00uLL);
+  qword_14101FC08 += ((unsigned __int16)KeNumberNodes << 9) + ((v36 + 511) & 0xFFFFFFFFFFFFFE00uLL);
   *(_QWORD *)(a1 + 32) = 0LL;
   *(_QWORD *)(a1 + 40) = 0LL;
   result = KeQueryPerformanceCounter(0LL);
-  qword_140FFB958 = result.QuadPart;
+  qword_140FFC958 = result.QuadPart;
   return result;
 }

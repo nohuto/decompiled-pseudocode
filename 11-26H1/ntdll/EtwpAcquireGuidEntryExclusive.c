@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpAcquireGuidEntryExclusive @ 0x180102F40
+ * XREFs of EtwpAcquireGuidEntryExclusive @ 0x1801022C0
  * Callers:
- *     EtwDeliverDataBlock @ 0x1800525B0 (EtwDeliverDataBlock.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x180058090 (EtwpUpdateEnableInfoAndCallback.c)
- *     EtwpEventApiCallback @ 0x180058350 (EtwpEventApiCallback.c)
- *     EtwpRegisterGuidsApiCallback @ 0x180059160 (EtwpRegisterGuidsApiCallback.c)
- *     EtwpDereferenceUmGuidEntry @ 0x18006D3C8 (EtwpDereferenceUmGuidEntry.c)
+ *     EtwDeliverDataBlock @ 0x18003CB30 (EtwDeliverDataBlock.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x180042610 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpEventApiCallback @ 0x1800428D0 (EtwpEventApiCallback.c)
+ *     EtwpRegisterGuidsApiCallback @ 0x1800436E0 (EtwpRegisterGuidsApiCallback.c)
+ *     EtwpDereferenceUmGuidEntry @ 0x18008D818 (EtwpDereferenceUmGuidEntry.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
  */
 
-void *__fastcall EtwpAcquireGuidEntryExclusive(__int64 a1, __int64 a2)
+void *__fastcall EtwpAcquireGuidEntryExclusive(__int64 a1)
 {
   void *result; // rax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 40), a2);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   result = NtCurrentTeb()->ClientId.UniqueThread;
   *(_DWORD *)(a1 + 48) = (_DWORD)result;
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpFinalizeTimerDeletion @ 0x1402C8450
+ * XREFs of ExpFinalizeTimerDeletion @ 0x140246CB0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExpFinalizeTimerDeletion(ULONG_PTR BugCheckParameter2)

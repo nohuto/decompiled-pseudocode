@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateLastSubsectionSize @ 0x1400FCA18
+ * XREFs of MiUpdateLastSubsectionSize @ 0x1400FA798
  * Callers:
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiSubsectionRequiresCharge @ 0x1400FC9C4 (MiSubsectionRequiresCharge.c)
- *     MiGetSubsectionCharges @ 0x1401F50F8 (MiGetSubsectionCharges.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiSubsectionRequiresCharge @ 0x1400FA744 (MiSubsectionRequiresCharge.c)
+ *     MiGetSubsectionCharges @ 0x1401F4F24 (MiGetSubsectionCharges.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MiUpdateLastSubsectionSize(unsigned __int8 *a1, _QWORD *a2, unsigned int a3)

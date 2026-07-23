@@ -1,15 +1,15 @@
 /*
- * XREFs of _SafeReallocBlob @ 0x180113D64
+ * XREFs of _SafeReallocBlob @ 0x18010F064
  * Callers:
- *     RtlpMuiRegConfigListAddLanguage @ 0x1800F6F18 (RtlpMuiRegConfigListAddLanguage.c)
- *     RtlpMuiRegGrowLanguages @ 0x1801499EC (RtlpMuiRegGrowLanguages.c)
- *     RtlpMuiRegResizeLanguageList @ 0x180149A84 (RtlpMuiRegResizeLanguageList.c)
+ *     RtlpMuiRegConfigListAddLanguage @ 0x1800F1478 (RtlpMuiRegConfigListAddLanguage.c)
+ *     RtlpMuiRegGrowLanguages @ 0x180147D9C (RtlpMuiRegGrowLanguages.c)
+ *     RtlpMuiRegResizeLanguageList @ 0x180147E34 (RtlpMuiRegResizeLanguageList.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall SafeReallocBlob(
-        __int64 a1,
+PVOID __fastcall SafeReallocBlob(
+        void *a1,
         unsigned int a2,
         unsigned int a3,
         unsigned int a4,
@@ -30,5 +30,5 @@ __int64 __fastcall SafeReallocBlob(
     return 0LL;
   if ( a7 )
     *a7 = v8;
-  return RtlReAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, v8);
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1, v8);
 }

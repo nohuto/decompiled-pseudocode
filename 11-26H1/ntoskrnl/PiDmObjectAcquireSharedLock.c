@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDmObjectAcquireSharedLock @ 0x1409A7358
+ * XREFs of PiDmObjectAcquireSharedLock @ 0x140967DB8
  * Callers:
- *     PiDmObjectGetCachedObjectReference @ 0x1409915EC (PiDmObjectGetCachedObjectReference.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1409A3F50 (PiDmListEnumObjectsWithCallback.c)
- *     PiPnpRtlObjectActionCallback @ 0x1409A4F20 (PiPnpRtlObjectActionCallback.c)
- *     PiDmEnumObjectsWithCallback @ 0x1409A718C (PiDmEnumObjectsWithCallback.c)
- *     PiDmObjectIsEnumerable @ 0x1409A748C (PiDmObjectIsEnumerable.c)
- *     IopRegisterDeviceInterface @ 0x1409D8950 (IopRegisterDeviceInterface.c)
- *     PiDmListAddObject @ 0x1409D94D0 (PiDmListAddObject.c)
- *     PiDmListRemoveObject @ 0x140AF3FE0 (PiDmListRemoveObject.c)
- *     PiDmListAddList @ 0x140B2C964 (PiDmListAddList.c)
- *     PiDmListRemoveList @ 0x140B6C54C (PiDmListRemoveList.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x14095204C (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1409649B0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x140965980 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140967BEC (PiDmEnumObjectsWithCallback.c)
+ *     PiDmObjectIsEnumerable @ 0x140967EEC (PiDmObjectIsEnumerable.c)
+ *     IopRegisterDeviceInterface @ 0x1409A9840 (IopRegisterDeviceInterface.c)
+ *     PiDmListAddObject @ 0x1409AA3C0 (PiDmListAddObject.c)
+ *     PiDmListRemoveObject @ 0x140B165EC (PiDmListRemoveObject.c)
+ *     PiDmListAddList @ 0x140B2E9E4 (PiDmListAddList.c)
+ *     PiDmListRemoveList @ 0x140B6F648 (PiDmListRemoveList.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall PiDmObjectAcquireSharedLock(signed __int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

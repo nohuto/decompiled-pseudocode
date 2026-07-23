@@ -1,50 +1,52 @@
 /*
- * XREFs of PopInitPlatformSettings @ 0x140A71334
+ * XREFs of PopInitPlatformSettings @ 0x140A72334
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopLogSleepDisabled @ 0x14077EC0C (PopLogSleepDisabled.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopLogSleepDisabled @ 0x14077EDCC (PopLogSleepDisabled.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PopInitPlatformSettings()
 {
   _BYTE *v0; // rdi
-  int SystemInformation; // ebx
+  NTSTATUS v1; // ebx
   _DWORD *PoolWithTag; // rax
   int v3; // edx
   int v4; // eax
-  _DWORD v6[6]; // [rsp+38h] [rbp-28h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-30h] BYREF
+  _DWORD SystemInformation[6]; // [rsp+38h] [rbp-28h] BYREF
 
-  v6[4] = 0;
+  SystemInformation[4] = 0;
   v0 = 0LL;
-  v6[0] = 1094930505;
-  v6[3] = 0;
-  v6[1] = 1;
-  v6[2] = 1346584902;
-  SystemInformation = ZwQuerySystemInformation(76LL, (__int64)v6);
-  if ( SystemInformation != -1073741789 )
+  SystemInformation[0] = 1094930505;
+  SystemInformation[3] = 0;
+  ReturnLength = 0;
+  SystemInformation[1] = 1;
+  SystemInformation[2] = 1346584902;
+  v1 = ZwQuerySystemInformation(SystemFirmwareTableInformation, SystemInformation, 0x14u, &ReturnLength);
+  if ( v1 != -1073741789 )
     goto LABEL_28;
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0LL, 0x206D654Du);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x206D654Du);
   v0 = PoolWithTag;
   if ( !PoolWithTag )
   {
-    SystemInformation = -1073741670;
+    v1 = -1073741670;
     goto LABEL_32;
   }
   *PoolWithTag = 1094930505;
   PoolWithTag[1] = 1;
   PoolWithTag[2] = 1346584902;
-  PoolWithTag[3] = -16;
-  SystemInformation = ZwQuerySystemInformation(76LL, (__int64)PoolWithTag);
-  if ( SystemInformation < 0 )
+  PoolWithTag[3] = ReturnLength - 16;
+  v1 = ZwQuerySystemInformation(SystemFirmwareTableInformation, PoolWithTag, ReturnLength, &ReturnLength);
+  if ( v1 < 0 )
 LABEL_32:
-    KeBugCheckEx(0xA0u, 0xEuLL, SystemInformation, 0LL, 0LL);
+    KeBugCheckEx(0xA0u, 0xEuLL, v1, 0LL, 0LL);
   if ( v0[24] >= 3u )
     PopFirmwarePlatformRole = (unsigned __int8)v0[61];
   if ( (unsigned __int8)off_140C00860[0]() )
@@ -66,7 +68,7 @@ LABEL_32:
   }
   if ( PopPlatformAoAc )
   {
-    if ( !(_DWORD)InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
+    if ( !InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
       goto LABEL_25;
   }
   else
@@ -82,11 +84,11 @@ LABEL_25:
     PopFirmwarePlatformRole = 0;
   }
   PopPlatformRole = v4;
-  SystemInformation = 0;
+  v1 = 0;
 LABEL_28:
-  if ( SystemInformation < 0 )
+  if ( v1 < 0 )
     goto LABEL_32;
   if ( v0 )
     ExFreePoolWithTag(v0, 0x206D654Du);
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v1;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbpCheckAllAttributes @ 0x14080735C
+ * XREFs of SdbpCheckAllAttributes @ 0x140807A9C
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x140802D80 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140803B30 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x1408034C0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140804270 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     SdbReadQWORDTag @ 0x140805BDC (SdbReadQWORDTag.c)
- *     SdbpCheckAttribute @ 0x1408075F4 (SdbpCheckAttribute.c)
- *     AslFileAllocAndGetAttributes @ 0x14080C45C (AslFileAllocAndGetAttributes.c)
- *     AslFileFreeAttributes @ 0x14080C998 (AslFileFreeAttributes.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     SdbReadDWORDTag @ 0x14095F0F8 (SdbReadDWORDTag.c)
- *     SdbReadWORDTag @ 0x14095F588 (SdbReadWORDTag.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     SdbReadQWORDTag @ 0x14080631C (SdbReadQWORDTag.c)
+ *     SdbpCheckAttribute @ 0x140807D34 (SdbpCheckAttribute.c)
+ *     AslFileAllocAndGetAttributes @ 0x14080CB9C (AslFileAllocAndGetAttributes.c)
+ *     AslFileFreeAttributes @ 0x14080D0D8 (AslFileFreeAttributes.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     SdbReadDWORDTag @ 0x140946BB8 (SdbReadDWORDTag.c)
+ *     SdbReadWORDTag @ 0x140947048 (SdbReadWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -31,13 +31,13 @@ __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsig
   unsigned int FirstTag; // eax
   __int64 v16; // r9
   int v17; // ecx
-  unsigned int v18; // r15d
+  int v18; // r15d
   __int64 StringTagPtr; // rax
   __int64 v20; // rcx
   __int64 v21; // rcx
   __int16 WORDTag; // [rsp+30h] [rbp-28h] BYREF
   int DWORDTag; // [rsp+34h] [rbp-24h] BYREF
-  unsigned int v24; // [rsp+38h] [rbp-20h] BYREF
+  int v24; // [rsp+38h] [rbp-20h] BYREF
   int v25; // [rsp+3Ch] [rbp-1Ch]
   _QWORD v26[3]; // [rsp+40h] [rbp-18h] BYREF
   unsigned __int16 v31; // [rsp+C0h] [rbp+68h]
@@ -66,7 +66,7 @@ __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsig
   if ( v12 )
   {
     v13 = 0;
-    for ( i = (int *)&unk_140E0ECC4; ; i += 2 )
+    for ( i = (int *)&unk_140E0ED94; ; i += 2 )
     {
       v25 = v13;
       v26[1] = v13;
@@ -132,7 +132,7 @@ __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsig
         }
         v9 = v24;
         if ( *(_QWORD *)(a2 + 1752) )
-          guard_dispatch_icall_no_overrides(v31, p_WORDTag, v18, v24);
+          guard_dispatch_icall_no_overrides(v31, p_WORDTag);
         p_WORDTag = 0LL;
         if ( !v9 )
           break;

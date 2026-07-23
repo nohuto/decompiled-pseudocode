@@ -1,8 +1,8 @@
 /*
- * XREFs of IopIsRootEnumeratedDeviceObjectActive @ 0x14074F080
+ * XREFs of IopIsRootEnumeratedDeviceObjectActive @ 0x14074F240
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
- *     PiCMCreateDevice @ 0x1408AF440 (PiCMCreateDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074EF10 (IopInitializeDeviceInstanceKey.c)
+ *     PiCMCreateDevice @ 0x1408AF5A0 (PiCMCreateDevice.c)
  * Callees:
  *     <none>
  */

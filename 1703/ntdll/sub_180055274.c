@@ -16,7 +16,7 @@
 
 __int64 __fastcall sub_180055274(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, volatile signed __int64 *a5, _QWORD *a6)
 {
-  wchar_t *Buffer; // rdi
+  PWCH Buffer; // rdi
   int v7; // ebx
   _QWORD *v8; // r12
   _QWORD *v9; // r9
@@ -27,12 +27,12 @@ __int64 __fastcall sub_180055274(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, vol
   volatile signed __int64 v14; // rax
   __int64 v16; // rax
   int *Heap; // rax
-  unsigned __int64 v18; // rdi
+  int *v18; // rdi
   __int64 v19; // rax
   unsigned __int16 v20; // r12
   unsigned __int64 v21; // rax
   unsigned __int64 v22; // rbx
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
   _QWORD *v24; // [rsp+50h] [rbp-B0h]
   _QWORD *v25; // [rsp+58h] [rbp-A8h]
   void *Src[2]; // [rsp+60h] [rbp-A0h]
@@ -54,8 +54,8 @@ __int64 __fastcall sub_180055274(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, vol
   if ( (_UNKNOWN *)a3 == &unk_180110408 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() passed the empty activation context\n",
       "RtlpGetActivationContextDataStorageMapAndRosterHeader");
     return (unsigned int)-1073741811;
@@ -69,8 +69,8 @@ __int64 __fastcall sub_180055274(int a1, _QWORD *a2, __int64 a3, _QWORD *a4, vol
   if ( (a1 & 0xFFFFFFFC) != 0 || !a2 || !v8 || !a5 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() bad parameters:\n"
       "SXS:    Flags                : 0x%lx\n"
       "SXS:    Peb                  : %p\n"
@@ -128,7 +128,7 @@ LABEL_36:
           if ( v21 > 0xFFFE )
             return (unsigned int)-1073741562;
           UnicodeString.MaximumLength = v20 + 14;
-          UnicodeString.Buffer = (wchar_t *)sub_180043FE0((unsigned __int16)(v20 + 14));
+          UnicodeString.Buffer = (PWCH)sub_180043FE0((unsigned __int16)(v20 + 14));
           Buffer = UnicodeString.Buffer;
           if ( !UnicodeString.Buffer )
             return (unsigned int)-1073741801;
@@ -169,23 +169,23 @@ LABEL_17:
   }
   else
   {
-    Heap = (int *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v10 + 8) + 16);
-    v18 = (unsigned __int64)Heap;
+    Heap = (int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v10 + 8) + 16);
+    v18 = Heap;
     if ( Heap )
     {
       v7 = sub_180054594(Heap, *(_DWORD *)(v10 + 8), Heap + 4);
       if ( v7 >= 0 )
       {
-        if ( _InterlockedCompareExchange64(v12, v18, 0LL) )
+        if ( _InterlockedCompareExchange64(v12, (signed __int64)v18, 0LL) )
         {
           sub_1800873C4(v18);
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v18);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
         }
         Buffer = UnicodeString.Buffer;
         v7 = 0;
         goto LABEL_19;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v18);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
     }
     else
     {

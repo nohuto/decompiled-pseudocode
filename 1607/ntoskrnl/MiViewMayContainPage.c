@@ -1,11 +1,11 @@
 /*
- * XREFs of MiViewMayContainPage @ 0x14008F754
+ * XREFs of MiViewMayContainPage @ 0x14008EEB4
  * Callers:
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
  * Callees:
- *     MiEndingOffsetWithLock @ 0x140023560 (MiEndingOffsetWithLock.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     ObReferenceObjectSafeWithTag @ 0x14006ADC0 (ObReferenceObjectSafeWithTag.c)
+ *     MiEndingOffsetWithLock @ 0x1400230E0 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14006A940 (ObReferenceObjectSafeWithTag.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -69,7 +69,7 @@ void *__fastcall MiViewMayContainPage(__int64 a1, __int64 a2, unsigned __int64 a
         {
           v20 = a1 + 128;
           v17 = a1 + 128;
-          if ( v4 < qword_140326910 || v4 >= qword_140326910 + 0x8000000000LL )
+          if ( v4 < qword_140326950 || v4 >= qword_140326950 + 0x8000000000LL )
             v5 = -2;
           while ( v17 )
           {

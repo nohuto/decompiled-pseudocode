@@ -1,22 +1,22 @@
 /*
- * XREFs of PoEnergyEstimationEnabled @ 0x14047C5D0
+ * XREFs of PoEnergyEstimationEnabled @ 0x140475F40
  * Callers:
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1407C0410 (NtAlpcImpersonateClientContainerOfPort.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
- *     PspFoldProcessAccountingIntoJob @ 0x14095224C (PspFoldProcessAccountingIntoJob.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x140952420 (PspQueryProcessAccountingInformationCallback.c)
- *     PsQueryProcessEnergyValues @ 0x140952980 (PsQueryProcessEnergyValues.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x140A59C70 (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     NtCreateJobObject @ 0x140A76700 (NtCreateJobObject.c)
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1407C3470 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1409CDB8C (PspFoldProcessAccountingIntoJob.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x1409CDD60 (PspQueryProcessAccountingInformationCallback.c)
+ *     PsQueryProcessEnergyValues @ 0x1409CE2C0 (PsQueryProcessEnergyValues.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x140A66BE0 (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
+ *     NtCreateJobObject @ 0x140A7F420 (NtCreateJobObject.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */
 
 __int64 PoEnergyEstimationEnabled()
 {
-  return stru_140F12D20.SchedulerApcFill3[40];
+  return BYTE4(stru_140F12EA0.SystemAffinityTokenListHead.Next);
 }

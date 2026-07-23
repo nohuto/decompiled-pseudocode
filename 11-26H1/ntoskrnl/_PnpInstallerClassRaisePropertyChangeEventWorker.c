@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140B3AE9C
+ * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140B3D11C
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x14090D610 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1409AF740 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(

@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitPhase3 @ 0x1409DF584
+ * XREFs of PspInitPhase3 @ 0x1409E0584
  * Callers:
- *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
- *     PsInitSystem @ 0x1409C4944 (PsInitSystem.c)
+ *     Phase1InitializationIoReady @ 0x1409C5788 (Phase1InitializationIoReady.c)
+ *     PsInitSystem @ 0x1409C5944 (PsInitSystem.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PspMapSystemDll @ 0x1406779AC (PspMapSystemDll.c)
- *     PspGetSystemDllSecureHandle @ 0x1409F8298 (PspGetSystemDllSecureHandle.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PspMapSystemDll @ 0x140678B6C (PspMapSystemDll.c)
+ *     PspGetSystemDllSecureHandle @ 0x1409F9298 (PspGetSystemDllSecureHandle.c)
  */
 
 bool PspInitPhase3()
@@ -34,13 +34,13 @@ bool PspInitPhase3()
     if ( SystemDllSecureHandle >= 0 )
     {
       v4 = 0LL;
-      if ( (int)PspGetSystemDllSecureHandle(off_14096D218, &v4) < 0 )
+      if ( (int)PspGetSystemDllSecureHandle(off_14096E218, &v4) < 0 )
       {
         v3 = v4;
       }
       else
       {
-        v2 = PspMapSystemDll((struct _KPROCESS *)PsSecureSystemProcess, (__int64)off_14096D218, 0, 0);
+        v2 = PspMapSystemDll((struct _KPROCESS *)PsSecureSystemProcess, (__int64)off_14096E218, 0, 0);
         v3 = v4;
         if ( v2 < 0 )
           v3 = 0LL;

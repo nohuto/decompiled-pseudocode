@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlGetVersion @ 0x140758D00
+ * XREFs of RtlGetVersion @ 0x140758EF0
  * Callers:
- *     RtlVerifyVersionInfo @ 0x1403841D0 (RtlVerifyVersionInfo.c)
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F3340 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     SdbpMatchOsVersion @ 0x140757284 (SdbpMatchOsVersion.c)
- *     _SysCtxOpenMachine @ 0x140854FF0 (_SysCtxOpenMachine.c)
- *     Win7RtlGetVersion @ 0x140977F20 (Win7RtlGetVersion.c)
- *     Win81RtlGetVersion @ 0x140978000 (Win81RtlGetVersion.c)
- *     Win8RtlGetVersion @ 0x1409780E0 (Win8RtlGetVersion.c)
+ *     RtlVerifyVersionInfo @ 0x1403843B0 (RtlVerifyVersionInfo.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F3520 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SdbpMatchOsVersion @ 0x140757474 (SdbpMatchOsVersion.c)
+ *     _SysCtxOpenMachine @ 0x1408552F0 (_SysCtxOpenMachine.c)
+ *     Win7RtlGetVersion @ 0x140978120 (Win7RtlGetVersion.c)
+ *     Win81RtlGetVersion @ 0x140978200 (Win81RtlGetVersion.c)
+ *     Win8RtlGetVersion @ 0x1409782E0 (Win8RtlGetVersion.c)
  *     EtwpTraceSystemInitialization @ 0x140B4C830 (EtwpTraceSystemInitialization.c)
  *     PopEtInit @ 0x140B6A7E0 (PopEtInit.c)
  * Callees:
- *     RtlGetNtProductType @ 0x1402F7F40 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x140758DC0 (RtlGetSuiteMask.c)
+ *     RtlGetNtProductType @ 0x1402F81D0 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x140758FB0 (RtlGetSuiteMask.c)
  */
 
 NTSTATUS __stdcall RtlGetVersion(PRTL_OSVERSIONINFOW lpVersionInformation)
 {
-  ULONG v2; // eax
+  DWORD v2; // eax
   __int16 v3; // ax
   bool v4; // zf
   __int16 SuiteMask; // ax
-  int v7; // [rsp+30h] [rbp+8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp+8h] BYREF
 
   *(_QWORD *)&lpVersionInformation->dwMajorVersion = 10LL;
   lpVersionInformation->dwBuildNumber = (unsigned __int16)NtBuildNumber;
   v2 = lpVersionInformation->dwOSVersionInfoSize - 284;
-  v7 = 0;
+  NtProductType = 0;
   lpVersionInformation->dwPlatformId = 2;
   if ( (v2 & 0xFFFFFFF7) == 0 )
   {
@@ -38,8 +38,8 @@ NTSTATUS __stdcall RtlGetVersion(PRTL_OSVERSIONINFOW lpVersionInformation)
     BYTE2(lpVersionInformation[1].dwMajorVersion) = 0;
     if ( !v4 )
     {
-      if ( RtlGetNtProductType(&v7) )
-        BYTE2(lpVersionInformation[1].dwMajorVersion) = v7;
+      if ( RtlGetNtProductType(&NtProductType) )
+        BYTE2(lpVersionInformation[1].dwMajorVersion) = NtProductType;
       SuiteMask = RtlGetSuiteMask();
       v4 = lpVersionInformation->dwOSVersionInfoSize == 292;
       LOWORD(lpVersionInformation[1].dwMajorVersion) = SuiteMask;

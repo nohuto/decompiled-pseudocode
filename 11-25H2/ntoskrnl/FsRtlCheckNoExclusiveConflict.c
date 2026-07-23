@@ -16,17 +16,17 @@ char __fastcall FsRtlCheckNoExclusiveConflict(
         _RTL_SPLAY_LINKS *a5,
         _RTL_SPLAY_LINKS *a6)
 {
-  RTL_SPLAY_LINKS *v6; // rax
+  _RTL_SPLAY_LINKS *v6; // rax
   PRTL_SPLAY_LINKS v8; // rcx
-  RTL_SPLAY_LINKS *v9; // r11
-  RTL_SPLAY_LINKS *v10; // rbx
+  _RTL_SPLAY_LINKS *v9; // r11
+  _RTL_SPLAY_LINKS *v10; // rbx
   char v14; // bp
   bool v15; // zf
   _RTL_SPLAY_LINKS *v16; // r9
   _RTL_SPLAY_LINKS *RightChild; // r10
   _RTL_SPLAY_LINKS *Parent; // r8
 
-  v6 = *(RTL_SPLAY_LINKS **)(a1 + 16);
+  v6 = *(_RTL_SPLAY_LINKS **)(a1 + 16);
   v8 = 0LL;
   v9 = 0LL;
   v10 = 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopStartStopTtmSxTranstion @ 0x14098A998
+ * XREFs of PopStartStopTtmSxTranstion @ 0x14098AB98
  * Callers:
- *     PoTtmInitiatePowerStateTransition @ 0x140997BF8 (PoTtmInitiatePowerStateTransition.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x140997DF8 (PoTtmInitiatePowerStateTransition.c)
  * Callees:
- *     PopExecutePowerAction @ 0x1409897F4 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1409899F4 (PopExecutePowerAction.c)
  */
 
 __int64 __fastcall PopStartStopTtmSxTranstion(char a1)

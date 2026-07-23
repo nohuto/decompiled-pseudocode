@@ -1,30 +1,30 @@
 /*
- * XREFs of MiReferenceIoPages @ 0x1402EFF98
+ * XREFs of MiReferenceIoPages @ 0x1402D2018
  * Callers:
- *     MiMapContiguousMemoryLarge @ 0x1402A29AC (MiMapContiguousMemoryLarge.c)
- *     MiProbeLockFrame @ 0x1402EE600 (MiProbeLockFrame.c)
- *     MiMapMdlCommon @ 0x140312C2C (MiMapMdlCommon.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MiMapViewOfPhysicalSection @ 0x14095C9CC (MiMapViewOfPhysicalSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140AEC50C (MiRotateToFrameBufferNoCopy.c)
- *     MiRotateToFrameBuffer @ 0x140AEC740 (MiRotateToFrameBuffer.c)
- *     MiAddLoaderHalIoPte @ 0x140CF1510 (MiAddLoaderHalIoPte.c)
+ *     MiMapContiguousMemoryLarge @ 0x1402A1EFC (MiMapContiguousMemoryLarge.c)
+ *     MiProbeLockFrame @ 0x1402D0680 (MiProbeLockFrame.c)
+ *     MiMapMdlCommon @ 0x140314C5C (MiMapMdlCommon.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0228C (MiMapViewOfPhysicalSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140AEF51C (MiRotateToFrameBufferNoCopy.c)
+ *     MiRotateToFrameBuffer @ 0x140AEF750 (MiRotateToFrameBuffer.c)
+ *     MiAddLoaderHalIoPte @ 0x140CF7890 (MiAddLoaderHalIoPte.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiSetIoPfnNodeCellsActive @ 0x140312050 (MiSetIoPfnNodeCellsActive.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
- *     MiIoRangeIsConstant @ 0x1404C8654 (MiIoRangeIsConstant.c)
- *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1405019B4 (MiConvertIoPfnTreeLockExclusiveToShared.c)
- *     MiCreateIoPfnNode @ 0x140511B00 (MiCreateIoPfnNode.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiSetIoPfnNodeCellsActive @ 0x140314080 (MiSetIoPfnNodeCellsActive.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
+ *     MiIoRangeIsConstant @ 0x1404C2394 (MiIoRangeIsConstant.c)
+ *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1404FB1A4 (MiConvertIoPfnTreeLockExclusiveToShared.c)
+ *     MiCreateIoPfnNode @ 0x14050B570 (MiCreateIoPfnNode.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReferenceIoPages(unsigned int a1, __int64 a2, __int64 a3, int a4, _DWORD *a5, _QWORD *a6)
@@ -85,10 +85,10 @@ __int64 __fastcall MiReferenceIoPages(unsigned int a1, __int64 a2, __int64 a3, i
   v47 = a4;
   v46 = a1;
   v45 = 1;
-  v11 = qword_140E35E40;
-  v12 = a2 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1);
+  v11 = qword_140E35FC0;
+  v12 = a2 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1);
   v48 = v12;
-  v41 = &qword_140E35E40[8 * (__int64)(int)a1];
+  v41 = &qword_140E35FC0[8 * (__int64)(int)a1];
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 2 )
     __writecr8(2uLL);
@@ -142,10 +142,10 @@ __int64 __fastcall MiReferenceIoPages(unsigned int a1, __int64 a2, __int64 a3, i
       v15 = v48;
       goto LABEL_28;
     }
-    v21 = (_QWORD *)*((_QWORD *)&xmmword_140E35EC0 + 1);
+    v21 = (_QWORD *)*((_QWORD *)&xmmword_140E36040 + 1);
     v17 = v49 - 1;
     v15 = v48;
-    if ( *((_QWORD *)&xmmword_140E35EC0 + 1) )
+    if ( *((_QWORD *)&xmmword_140E36040 + 1) )
     {
       do
       {
@@ -262,7 +262,7 @@ LABEL_28:
     if ( v15 == v49 )
       goto LABEL_29;
   }
-  _InterlockedAdd(&dword_140E35F08, 1u);
+  _InterlockedAdd(&dword_140E36088, 1u);
   v10 = -1073741800;
 LABEL_29:
   LOBYTE(v17) = v43;
@@ -282,6 +282,6 @@ LABEL_29:
   if ( P )
     ExFreePoolWithTag(P, 0);
   if ( v10 == -1073741800 )
-    _InterlockedAdd(&dword_140E35F08, 1u);
+    _InterlockedAdd(&dword_140E36088, 1u);
   return (unsigned int)v10;
 }

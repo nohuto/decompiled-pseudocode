@@ -1,23 +1,23 @@
 /*
- * XREFs of CcAsyncLazywriteWorkerMulti @ 0x1404C768C
+ * XREFs of CcAsyncLazywriteWorkerMulti @ 0x1404C0AEC
  * Callers:
- *     CcAsyncLazywriteWorkerThread @ 0x1404DEF40 (CcAsyncLazywriteWorkerThread.c)
+ *     CcAsyncLazywriteWorkerThread @ 0x1404D8960 (CcAsyncLazywriteWorkerThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcFreeWorkQueueEntry @ 0x1402A7E6C (CcFreeWorkQueueEntry.c)
- *     CcRepostToSynchronousLazywriter @ 0x1402A93E4 (CcRepostToSynchronousLazywriter.c)
- *     CcFlushCachePostProcessOneRange @ 0x1402AACA0 (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCachePreProcess @ 0x1402AC290 (CcFlushCachePreProcess.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     CcFindNextWBWorkQueueEntry @ 0x14057E238 (CcFindNextWBWorkQueueEntry.c)
- *     CcQueueAsyncLazywriteCompletion @ 0x14057E2B0 (CcQueueAsyncLazywriteCompletion.c)
- *     CcWriteBehindAsyncFlushOneRange @ 0x14057E33C (CcWriteBehindAsyncFlushOneRange.c)
- *     CcWriteBehindAsyncPreProcess @ 0x14057E3BC (CcWriteBehindAsyncPreProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcFlushCachePostProcessOneRange @ 0x140275FC0 (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCachePreProcess @ 0x140278C74 (CcFlushCachePreProcess.c)
+ *     CcFreeWorkQueueEntry @ 0x140279C5C (CcFreeWorkQueueEntry.c)
+ *     CcRepostToSynchronousLazywriter @ 0x14027B688 (CcRepostToSynchronousLazywriter.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcFindNextWBWorkQueueEntry @ 0x14057B6C8 (CcFindNextWBWorkQueueEntry.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x14057B740 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x14057B7CC (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x14057B84C (CcWriteBehindAsyncPreProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
@@ -162,7 +162,7 @@ void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
         v30 = *(_QWORD *)(v29 + 16);
         if ( v30 )
         {
-          if ( !CcFlushCachePostProcessOneRange(*(_QWORD *)(v29 + 16))
+          if ( !CcFlushCachePostProcessOneRange(*(__int64 **)(v29 + 16))
             || (v32 = CcWriteBehindAsyncFlushOneRange(v30), v1 = 0, v8 = v34, !v32) )
           {
             v41[v12] = 0LL;
@@ -209,7 +209,7 @@ LABEL_29:
     if ( *(_DWORD *)(NextWBWorkQueueEntry + 128) == 4 )
     {
       KeSetEvent(*(PRKEVENT *)(NextWBWorkQueueEntry + 16), 0, 0);
-      CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)NextWBWorkQueueEntry, v18, v19, v20);
+      CcFreeWorkQueueEntry((_SLIST_ENTRY *)NextWBWorkQueueEntry, v18, v19, v20);
       KeAcquireInStackQueuedSpinLock(v14, &LockHandle);
       *(_BYTE *)(v3 + 196) = 0;
     }

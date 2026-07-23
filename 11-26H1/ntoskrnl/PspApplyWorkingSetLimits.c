@@ -1,18 +1,18 @@
 /*
- * XREFs of PspApplyWorkingSetLimits @ 0x140771F6C
+ * XREFs of PspApplyWorkingSetLimits @ 0x140774F6C
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsJobPostCallback @ 0x140B070D0 (PspSetJobLimitsJobPostCallback.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsJobPostCallback @ 0x140B09200 (PspSetJobLimitsJobPostCallback.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MmAdjustWorkingSetSize @ 0x1403BC300 (MmAdjustWorkingSetSize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MmEnforceWorkingSetLimit @ 0x140B00674 (MmEnforceWorkingSetLimit.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MmAdjustWorkingSetSize @ 0x1403C6170 (MmAdjustWorkingSetSize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MmEnforceWorkingSetLimit @ 0x140B023A4 (MmEnforceWorkingSetLimit.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PVOID *__fastcall PspApplyWorkingSetLimits(__int64 a1)
@@ -58,9 +58,9 @@ LABEL_14:
     KiUnstackDetachProcess((__int64)v11, 0);
   }
   _InterlockedAnd((volatile signed __int32 *)(a1 + 1552), 0xFFFFFEFF);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140FC01F0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140FC01F0.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140FC01F0);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140FC11F0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140FC11F0.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140FC11F0);
   while ( 1 )
   {
     v6 = (PVOID *)P;

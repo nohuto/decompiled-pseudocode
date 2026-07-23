@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogWsEmptyControl @ 0x140652A60
+ * XREFs of MiLogWsEmptyControl @ 0x140652FB0
  * Callers:
- *     MmProcessWorkingSetControl @ 0x140A43514 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x140A437C4 (MmProcessWorkingSetControl.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     MiFillLogProcessInfo @ 0x14025B460 (MiFillLogProcessInfo.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiFillLogProcessInfo @ 0x14025B6F0 (MiFillLogProcessInfo.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogWsEmptyControl(__int64 a1)
@@ -61,7 +61,7 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
         v21 = v5 + 3;
         v24 = v5 + 3;
         LODWORD(v13) = v6;
-        tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&byte_14003950F, v7, v5, v9, v10, 6u, &v15);
+        tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&byte_1400395F7, v7, v5, v9, v10, 6u, &v15);
       }
     }
   }

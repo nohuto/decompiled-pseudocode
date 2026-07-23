@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtOpenTransactionManager()
+NTSTATUS __cdecl NtOpenTransactionManager(
+        PHANDLE TmHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LogFileName,
+        LPGUID TmIdentity,
+        ULONG OpenOptions)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 284LL;
+  result = 284;
   __asm { syscall; Low latency system call }
   return result;
 }

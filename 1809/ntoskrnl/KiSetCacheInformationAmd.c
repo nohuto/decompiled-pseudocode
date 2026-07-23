@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetCacheInformationAmd @ 0x14057B798
+ * XREFs of KiSetCacheInformationAmd @ 0x14057C798
  * Callers:
- *     KiSetCacheInformation @ 0x1405720C4 (KiSetCacheInformation.c)
+ *     KiSetCacheInformation @ 0x1405730C4 (KiSetCacheInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiSetStandardizedCacheInformation @ 0x140572210 (KiSetStandardizedCacheInformation.c)
- *     KiGetL2L3AssociativityAmd @ 0x14057B758 (KiGetL2L3AssociativityAmd.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiSetStandardizedCacheInformation @ 0x140573210 (KiSetStandardizedCacheInformation.c)
+ *     KiGetL2L3AssociativityAmd @ 0x14057C758 (KiGetL2L3AssociativityAmd.c)
  */
 
 char KiSetCacheInformationAmd()

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRestoreClockTickRate @ 0x1400FCFD8
+ * XREFs of KiRestoreClockTickRate @ 0x1400FD058
  * Callers:
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KiResumeClockTimer @ 0x1401434CC (KiResumeClockTimer.c)
+ *     KiResumeClockTimer @ 0x1401435CC (KiResumeClockTimer.c)
  * Callees:
- *     KiSetPendingTick @ 0x1400FCF74 (KiSetPendingTick.c)
- *     KiGetClockIntervalOneShot @ 0x1400FCFA4 (KiGetClockIntervalOneShot.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiSetPendingTick @ 0x1400FCFF4 (KiSetPendingTick.c)
+ *     KiGetClockIntervalOneShot @ 0x1400FD024 (KiGetClockIntervalOneShot.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 unsigned __int8 __fastcall KiRestoreClockTickRate(__int64 a1, _QWORD *a2)
@@ -28,7 +28,7 @@ unsigned __int8 __fastcall KiRestoreClockTickRate(__int64 a1, _QWORD *a2)
     ClockIntervalOneShot = (unsigned int)KiLastRequestedTimeIncrement;
     v4 = 0LL;
   }
-  v5 = off_1403FE5D0[0];
+  v5 = off_1403FF5D0[0];
   *v2 = ClockIntervalOneShot;
   ((void (__fastcall *)(__int64))v5)(v4);
   return KiSetPendingTick(1);

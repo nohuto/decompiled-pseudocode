@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogProcessWorkingSetsStop @ 0x14052E43C
+ * XREFs of MiLogProcessWorkingSetsStop @ 0x14053095C
  * Callers:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogProcessWorkingSetsStop(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ void __fastcall MiLogProcessWorkingSetsStop(__int64 a1, __int64 a2)
   __int64 v21; // [rsp+B8h] [rbp+3Fh]
 
   v2 = *(_QWORD *)(a2 + 23456);
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 1LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 1LL) )
   {
     v9 = *v3;
     v15 = 4LL;
@@ -47,6 +47,6 @@ void __fastcall MiLogProcessWorkingSetsStop(__int64 a1, __int64 a2)
     v19 = 8LL;
     v12 = v2;
     v21 = 8LL;
-    tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&dword_140057EF4, (__int64)v3, v4, v7, v8, 6u, &v13);
+    tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&qword_140058EB8, (__int64)v3, v4, v7, v8, 6u, &v13);
   }
 }

@@ -43,7 +43,7 @@ NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, 
   STRING DestinationString; // [rsp+70h] [rbp-71h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-51h] BYREF
-  char SourceString[16]; // [rsp+C0h] [rbp-21h] BYREF
+  CHAR String[16]; // [rsp+C0h] [rbp-21h] BYREF
   char v32; // [rsp+D0h] [rbp-11h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
@@ -84,8 +84,8 @@ NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, 
         v13 = *(_WORD *)(a6 + 2 * v12);
         *(_WORD *)(a6 + 2LL * *(int *)(a1 + 28)) = v13 + 1;
       }
-      RtlIntegerToChar(v13, 0xAu, 12, SourceString);
-      RtlInitAnsiString(&DestinationString, SourceString);
+      RtlIntegerToChar(v13, 0xAu, 12, String);
+      RtlInitAnsiString(&DestinationString, String);
       *(_DWORD *)&v27.Length = 1572864;
       v27.Buffer = (wchar_t *)&v32;
       RtlAnsiStringToUnicodeString(&v27, &DestinationString, 0);

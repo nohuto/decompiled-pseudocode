@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpReferenceDeviceMap @ 0x140421DE0
+ * XREFs of ObpReferenceDeviceMap @ 0x140420CA0
  * Callers:
- *     ObQueryDeviceMapInformation @ 0x140422220 (ObQueryDeviceMapInformation.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
+ *     ObQueryDeviceMapInformation @ 0x1404210E0 (ObQueryDeviceMapInformation.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     PsReferenceImpersonationToken @ 0x140499D10 (PsReferenceImpersonationToken.c)
- *     ObSetCurrentProcessDeviceMap @ 0x1404CAA3C (ObSetCurrentProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x1404CABA0 (SeGetTokenDeviceMap.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ObSetCurrentProcessDeviceMap @ 0x14048845C (ObSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1404885C0 (SeGetTokenDeviceMap.c)
+ *     PsReferenceImpersonationToken @ 0x1404A5010 (PsReferenceImpersonationToken.c)
  */
 
 __int64 __fastcall ObpReferenceDeviceMap(char a1)
@@ -36,7 +36,7 @@ __int64 __fastcall ObpReferenceDeviceMap(char a1)
   _QWORD v16[9]; // [rsp+20h] [rbp-48h] BYREF
   BOOLEAN EffectiveOnly; // [rsp+78h] [rbp+10h] BYREF
   BOOLEAN CopyOnOpen; // [rsp+80h] [rbp+18h] BYREF
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+88h] [rbp+20h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+88h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsFeatureEnabledForEnterprise @ 0x180146C40
+ * XREFs of RtlIsFeatureEnabledForEnterprise @ 0x180144FF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpEcReadPolicyState @ 0x180146CC0 (RtlpEcReadPolicyState.c)
- *     RtlpEcReadSkuUpdateManagementGroup @ 0x180146D64 (RtlpEcReadSkuUpdateManagementGroup.c)
- *     RtlpEtcGetDwordFromRegistry @ 0x180146ED0 (RtlpEtcGetDwordFromRegistry.c)
- *     RtlpEtcIsValidFeatureId @ 0x180146F50 (RtlpEtcIsValidFeatureId.c)
+ *     RtlpEcReadPolicyState @ 0x180145070 (RtlpEcReadPolicyState.c)
+ *     RtlpEcReadSkuUpdateManagementGroup @ 0x180145114 (RtlpEcReadSkuUpdateManagementGroup.c)
+ *     RtlpEtcGetDwordFromRegistry @ 0x180145280 (RtlpEtcGetDwordFromRegistry.c)
+ *     RtlpEtcIsValidFeatureId @ 0x180145300 (RtlpEtcIsValidFeatureId.c)
  */
 
 char __fastcall RtlIsFeatureEnabledForEnterprise(int a1)

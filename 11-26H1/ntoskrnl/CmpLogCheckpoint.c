@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpLogCheckpoint @ 0x1408ADB44
+ * XREFs of CmpLogCheckpoint @ 0x1408B3F84
  * Callers:
- *     CmpStopRMLog @ 0x1408ACBAC (CmpStopRMLog.c)
- *     CmpCleanupTransactionState @ 0x1408ACEE8 (CmpCleanupTransactionState.c)
- *     CmpTransWriteLog @ 0x1408AD634 (CmpTransWriteLog.c)
+ *     CmpStopRMLog @ 0x1408B2FF0 (CmpStopRMLog.c)
+ *     CmpCleanupTransactionState @ 0x1408B3328 (CmpCleanupTransactionState.c)
+ *     CmpTransWriteLog @ 0x1408B3A74 (CmpTransWriteLog.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     LOCK_TRANSACTION_LIST @ 0x1408AEE3C (LOCK_TRANSACTION_LIST.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1408B527C (LOCK_TRANSACTION_LIST.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
@@ -113,7 +113,7 @@ __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
     pcbInfoBuffer[0] = LogFileInformation;
     v23 = pcbInfoBuffer;
     v24 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)&word_140056E6E, 0LL, 0LL, 3u, &v22);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140057E61, 0LL, 0LL, 3u, &v22);
   }
   return (unsigned int)LogFileInformation;
 }

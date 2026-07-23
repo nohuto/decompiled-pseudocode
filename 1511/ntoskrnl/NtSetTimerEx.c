@@ -9,48 +9,53 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetTimerEx(__int64 a1, __int64 a2, _OWORD *a3, unsigned int a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtSetTimerEx(
+        HANDLE TimerHandle,
+        TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
+        PVOID TimerSetInformation,
+        ULONG TimerSetInformationLength)
 {
   _OWORD *v4; // rbx
   char PreviousMode; // di
-  ULONG64 v7; // rcx
+  char *v7; // rcx
   __int64 v8; // rcx
   int v9; // eax
-  unsigned int v10; // ebx
-  __int64 result; // rax
+  NTSTATUS v10; // ebx
+  NTSTATUS result; // eax
   _BYTE v12[8]; // [rsp+50h] [rbp-48h] BYREF
   __int64 v13; // [rsp+58h] [rbp-40h] BYREF
   _OWORD v14[3]; // [rsp+60h] [rbp-38h] BYREF
 
-  v4 = a3;
+  v4 = TimerSetInformation;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a4 )
+  if ( PreviousMode && TimerSetInformationLength )
   {
-    if ( ((unsigned __int8)a3 & 3) != 0 )
+    if ( ((unsigned __int8)TimerSetInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = (ULONG64)a3 + a4;
-    if ( v7 > MmUserProbeAddress || v7 < (unsigned __int64)a3 )
+    v7 = (char *)TimerSetInformation + TimerSetInformationLength;
+    if ( (unsigned __int64)v7 > MmUserProbeAddress || v7 < TimerSetInformation )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  if ( (_DWORD)a2 )
-    return 3221225475LL;
-  if ( a4 != 48 )
-    return 3221225476LL;
+  if ( TimerSetInformationClass )
+    return -1073741821;
+  if ( TimerSetInformationLength != 48 )
+    return -1073741820;
   if ( PreviousMode )
   {
-    v14[0] = *a3;
-    v14[1] = a3[1];
-    v14[2] = a3[2];
+    v14[0] = *(_OWORD *)TimerSetInformation;
+    v14[1] = *((_OWORD *)TimerSetInformation + 1);
+    v14[2] = *((_OWORD *)TimerSetInformation + 2);
     v4 = v14;
   }
   if ( *((_DWORD *)v4 + 8) > 0x7FFFFFFFu )
-    return 3221225713LL;
+    return -1073741583;
   v8 = *((_QWORD *)v4 + 3);
   if ( v8 )
   {
-    LOBYTE(a2) = PreviousMode;
-    result = PoCaptureReasonContext(v8, a2, 0, 0, (__int64)v12, (__int64)&v13);
-    if ( (int)result < 0 )
+    LOBYTE(TimerSetInformationClass) = PreviousMode;
+    result = PoCaptureReasonContext(v8, TimerSetInformationClass, 0, 0, (__int64)v12, (__int64)&v13);
+    if ( result < 0 )
       return result;
   }
   else
@@ -58,10 +63,10 @@ __int64 __fastcall NtSetTimerEx(__int64 a1, __int64 a2, _OWORD *a3, unsigned int
     v13 = 0LL;
     v12[0] = 0;
   }
-  LOBYTE(a2) = PreviousMode;
+  LOBYTE(TimerSetInformationClass) = PreviousMode;
   v9 = ExpSetTimer(
-         a1,
-         a2,
+         TimerHandle,
+         *(_QWORD *)&TimerSetInformationClass,
          v4,
          *((_QWORD *)v4 + 1),
          *((_QWORD *)v4 + 2),

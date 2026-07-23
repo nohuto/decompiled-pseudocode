@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpResetCrossVmEvent @ 0x14095C9D8
+ * XREFs of ExpResetCrossVmEvent @ 0x14095CB98
  * Callers:
- *     NtClearEvent @ 0x140688F30 (NtClearEvent.c)
- *     NtResetEvent @ 0x1406C6C70 (NtResetEvent.c)
+ *     NtClearEvent @ 0x1405E83C0 (NtClearEvent.c)
+ *     NtResetEvent @ 0x140675560 (NtResetEvent.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExpGetExtensionHostForCrossVmObject @ 0x14095C6F0 (ExpGetExtensionHostForCrossVmObject.c)
+ *     ExReleaseExtensionTable @ 0x14021C83C (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x14095C8B0 (ExpGetExtensionHostForCrossVmObject.c)
  */
 
 __int64 __fastcall ExpResetCrossVmEvent(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLogEvent @ 0x1405FC494
+ * XREFs of CmpLogEvent @ 0x1405FC548
  * Callers:
- *     CmpInitHiveFromFile @ 0x1403F9AEC (CmpInitHiveFromFile.c)
- *     HvpFinishPrimaryWrite @ 0x140483C48 (HvpFinishPrimaryWrite.c)
+ *     CmpInitHiveFromFile @ 0x1403F89AC (CmpInitHiveFromFile.c)
+ *     HvpFinishPrimaryWrite @ 0x14048299C (HvpFinishPrimaryWrite.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall CmpLogEvent(PCEVENT_DESCRIPTOR EventDescriptor, int a2, unsigned __int16 *a3)

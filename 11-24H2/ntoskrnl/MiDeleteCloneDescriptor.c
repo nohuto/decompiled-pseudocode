@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteCloneDescriptor @ 0x1404F8BB8
+ * XREFs of MiDeleteCloneDescriptor @ 0x1404F6498
  * Callers:
- *     MiDecrementCloneBlockReference @ 0x1402F90A4 (MiDecrementCloneBlockReference.c)
- *     MiDeleteInsertedCloneVads @ 0x140800264 (MiDeleteInsertedCloneVads.c)
+ *     MiDecrementCloneBlockReference @ 0x140294D58 (MiDecrementCloneBlockReference.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408009A4 (MiDeleteInsertedCloneVads.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiDecrementCloneHeaderCount @ 0x1404F52D0 (MiDecrementCloneHeaderCount.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiDecrementCloneHeaderCount @ 0x1404F2BD0 (MiDecrementCloneHeaderCount.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY __fastcall MiDeleteCloneDescriptor(ULONG_PTR BugCheckParameter1, __int64 a2)

@@ -5,7 +5,7 @@
  *     RtlpFindUCREntry @ 0x18001D4F8 (RtlpFindUCREntry.c)
  *     RtlpFindEntry @ 0x18001D898 (RtlpFindEntry.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  */
 
 __int64 *__fastcall RtlpHeapFindListLookupEntry(__int64 a1, __int64 a2, char a3, int a4, __int64 a5)

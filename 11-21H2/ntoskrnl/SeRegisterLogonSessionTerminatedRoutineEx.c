@@ -5,7 +5,7 @@
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
@@ -20,13 +20,13 @@ __int64 __fastcall SeRegisterLogonSessionTerminatedRoutineEx(__int64 a1, __int64
   if ( !Pool2 )
     return 3221225626LL;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe(&SepRmNotifyMutex);
-  *Pool2 = SeFileSystemNotifyRoutinesExHead;
+  --*((_WORD *)CurrentThread + 242);
+  ExAcquireFastMutexUnsafe(&stru_140CF6860);
+  *Pool2 = qword_140D3B318;
   Pool2[1] = a1;
   Pool2[2] = a2;
-  SeFileSystemNotifyRoutinesExHead = Pool2;
-  ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  qword_140D3B318 = Pool2;
+  ExReleaseFastMutexUnsafe(&stru_140CF6860);
+  sub_1402F9540((__int64)KeGetCurrentThread());
   return 0LL;
 }

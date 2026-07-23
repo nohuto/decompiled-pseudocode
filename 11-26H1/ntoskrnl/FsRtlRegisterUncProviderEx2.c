@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlRegisterUncProviderEx2 @ 0x14078E230
+ * XREFs of FsRtlRegisterUncProviderEx2 @ 0x140790D60
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpRegisterUncProvider @ 0x14078E43C (FsRtlpRegisterUncProvider.c)
+ *     FsRtlpRegisterUncProvider @ 0x140790F6C (FsRtlpRegisterUncProvider.c)
  */
 
 __int64 __fastcall FsRtlRegisterUncProviderEx2(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

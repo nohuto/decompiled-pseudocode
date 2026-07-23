@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbEntryGetCpuPriorityKey @ 0x140251A80
+ * XREFs of KiAbEntryGetCpuPriorityKey @ 0x140282090
  * Callers:
- *     KiAbProcessThreadLocks @ 0x1402509C0 (KiAbProcessThreadLocks.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     KiAbForceProcessLockEntry @ 0x1404183E4 (KiAbForceProcessLockEntry.c)
+ *     KiAbProcessThreadLocks @ 0x140280FD0 (KiAbProcessThreadLocks.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140408194 (KiAbForceProcessLockEntry.c)
  * Callees:
  *     <none>
  */

@@ -10,20 +10,17 @@
 
 void LdrpLockTlsDelayedReclaimTable()
 {
-  unsigned __int64 v0; // rdx
-  unsigned __int64 v1; // r8
-  unsigned __int64 v2; // r9
-  char *v3; // rbx
-  __int64 v4; // rdi
+  _RTL_SRWLOCK *v0; // rbx
+  __int64 v1; // rdi
 
   RtlAcquireSRWLockShared(&LdrpTlsLock);
-  v3 = (char *)&unk_18017ACC8;
-  v4 = 16LL;
+  v0 = &stru_18017ACC8;
+  v1 = 16LL;
   do
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)v3, v0, v1, v2);
-    v3 += 16;
-    --v4;
+    RtlAcquireSRWLockExclusive(v0);
+    v0 += 2;
+    --v1;
   }
-  while ( v4 );
+  while ( v1 );
 }

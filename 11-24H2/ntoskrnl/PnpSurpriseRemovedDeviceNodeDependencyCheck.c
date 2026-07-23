@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x140A10C98
+ * XREFs of PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x1409BF0A8
  * Callers:
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140A109EC (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1409BEDFC (PnpSurpriseRemoveLockedDeviceNode.c)
  * Callees:
- *     PnpAcquireDependencyRelationsLock @ 0x140A0F188 (PnpAcquireDependencyRelationsLock.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x140A0F244 (PipProcessRebuildPowerRelationsQueue.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140A0F814 (PnpReleaseDependencyRelationsLock.c)
- *     PipConvertResolutionsToReservations @ 0x140ABC7C8 (PipConvertResolutionsToReservations.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409BD598 (PnpAcquireDependencyRelationsLock.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1409BD654 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409BDC24 (PnpReleaseDependencyRelationsLock.c)
+ *     PipConvertResolutionsToReservations @ 0x140AB77E8 (PipConvertResolutionsToReservations.c)
  */
 
 __int64 __fastcall PnpSurpriseRemovedDeviceNodeDependencyCheck(__int64 a1)

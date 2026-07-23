@@ -1,43 +1,43 @@
 /*
- * XREFs of PnpDeviceActionWorker @ 0x140482AA0
+ * XREFs of PnpDeviceActionWorker @ 0x14047C410
  * Callers:
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PnpLogActionQueueEvent @ 0x140483158 (PnpLogActionQueueEvent.c)
- *     PopDirectedDripsClearDisengageReason @ 0x140483348 (PopDirectedDripsClearDisengageReason.c)
- *     IoReportTargetDeviceChangeAsynchronous @ 0x1404A4820 (IoReportTargetDeviceChangeAsynchronous.c)
- *     PpProcessClearProblem @ 0x1404F1674 (PpProcessClearProblem.c)
- *     PnpCompleteSystemStartProcess @ 0x1405257B0 (PnpCompleteSystemStartProcess.c)
- *     PiProcessDeviceResetAction @ 0x1405D9548 (PiProcessDeviceResetAction.c)
- *     PnpProcessRebalance @ 0x1405DD30C (PnpProcessRebalance.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     PiConfigureDevice @ 0x1407A4F30 (PiConfigureDevice.c)
- *     PiProcessResourceRequirementsChanged @ 0x1407A50B4 (PiProcessResourceRequirementsChanged.c)
- *     PiProcessStartSystemDevices @ 0x1407A521C (PiProcessStartSystemDevices.c)
- *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x1407B0EE4 (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PiProcessRequeryDeviceState @ 0x14090E8A4 (PiProcessRequeryDeviceState.c)
- *     PpDevNodeLockTree @ 0x140A88424 (PpDevNodeLockTree.c)
- *     PpDevNodeUnlockTree @ 0x140A921A4 (PpDevNodeUnlockTree.c)
- *     PiProcessReenumeration @ 0x140AC6B74 (PiProcessReenumeration.c)
- *     PnpDeleteDeviceActionRequest @ 0x140B03630 (PnpDeleteDeviceActionRequest.c)
- *     PiProcessSetDeviceProblem @ 0x140B314EC (PiProcessSetDeviceProblem.c)
- *     PiQueryPowerRelations @ 0x140B35658 (PiQueryPowerRelations.c)
- *     PiRestartDevice @ 0x140B3AFB0 (PiRestartDevice.c)
- *     PiProcessClearDeviceProblem @ 0x140B419C4 (PiProcessClearDeviceProblem.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140B43BF4 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PnpLogActionQueueEvent @ 0x14047CAC8 (PnpLogActionQueueEvent.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14047CCB8 (PopDirectedDripsClearDisengageReason.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x14049DEB0 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     PpProcessClearProblem @ 0x1404EAC54 (PpProcessClearProblem.c)
+ *     PnpCompleteSystemStartProcess @ 0x140527E20 (PnpCompleteSystemStartProcess.c)
+ *     PiProcessDeviceResetAction @ 0x1405DBD48 (PiProcessDeviceResetAction.c)
+ *     PnpProcessRebalance @ 0x1405DFC7C (PnpProcessRebalance.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     PiConfigureDevice @ 0x1407A7A70 (PiConfigureDevice.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1407A7BF4 (PiProcessResourceRequirementsChanged.c)
+ *     PiProcessStartSystemDevices @ 0x1407A7D5C (PiProcessStartSystemDevices.c)
+ *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x1407B3F44 (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
+ *     PiProcessClearDeviceProblem @ 0x14096EEE0 (PiProcessClearDeviceProblem.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PiProcessRequeryDeviceState @ 0x1409B09D4 (PiProcessRequeryDeviceState.c)
+ *     PpDevNodeLockTree @ 0x140A8F554 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x140A96CF4 (PpDevNodeUnlockTree.c)
+ *     PiProcessReenumeration @ 0x140AC8764 (PiProcessReenumeration.c)
+ *     PnpDeleteDeviceActionRequest @ 0x140B05244 (PnpDeleteDeviceActionRequest.c)
+ *     PiProcessSetDeviceProblem @ 0x140B336EC (PiProcessSetDeviceProblem.c)
+ *     PiQueryPowerRelations @ 0x140B37868 (PiQueryPowerRelations.c)
+ *     PiRestartDevice @ 0x140B3D230 (PiRestartDevice.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140B45AE4 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
  */
 
 __int64 __fastcall PnpDeviceActionWorker()
@@ -60,7 +60,7 @@ __int64 __fastcall PnpDeviceActionWorker()
   signed __int64 v15; // rax
   signed __int64 v16; // rdx
   __int64 v17; // rtt
-  int v18; // ebx
+  unsigned int v18; // ebx
   KIRQL v19; // al
   KIRQL v20; // al
   __int64 v21; // r8
@@ -190,13 +190,13 @@ LABEL_6:
       KeAbPostRelease(v5 + 88);
       KeLeaveCriticalRegion();
       v18 = *(_DWORD *)(v5 + 24);
-      v19 = KeAcquireSpinLockRaiseToDpc(&qword_140F12D00);
-      KeReleaseSpinLock(&qword_140F12D00, v19);
-      v20 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink);
-      HIDWORD(PopDirectedDripsUmLock.Queue) = v18;
-      if ( PopDirectedDripsUmLock.WaitBlockFill5[40] )
-        *(_QWORD *)&PopDirectedDripsUmLock.WaitBlockFill11[64] = MEMORY[0xFFFFF78000000008];
-      KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink, v20);
+      v19 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2]);
+      KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2], v19);
+      v20 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime);
+      PopDirectedDripsDiagLock.ExpectedRunTime = v18;
+      if ( LOBYTE(PopDirectedDripsDiagLock.WaitBlockList) )
+        PopDirectedDripsDiagLock.Queue = (_DISPATCHER_HEADER *volatile)MEMORY[0xFFFFF78000000008];
+      KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime, v20);
       *(_QWORD *)(v5 + 8) = v5;
       *(_QWORD *)v5 = v5;
       if ( PnpShutdownEvent.Header.SignalState )
@@ -416,17 +416,17 @@ LABEL_127:
       }
 LABEL_38:
       v30 = *(unsigned int *)(v5 + 24);
-      v31 = KeAcquireSpinLockRaiseToDpc(&qword_140F12D00);
-      KeReleaseSpinLock(&qword_140F12D00, v31);
-      v32 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink);
-      if ( PopDirectedDripsUmLock.WaitBlockFill5[40] )
+      v31 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2]);
+      KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2], v31);
+      v32 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime);
+      if ( LOBYTE(PopDirectedDripsDiagLock.WaitBlockList) )
       {
-        *((_QWORD *)&PopDirectedDripsUmLock.WaitBlock[1].Thread + v30) += MEMORY[0xFFFFF78000000008]
-                                                                        - *(_QWORD *)&PopDirectedDripsUmLock.WaitBlockFill11[64];
-        *(_QWORD *)&PopDirectedDripsUmLock.WaitBlockFill11[64] = 0LL;
+        *((_QWORD *)&PopDirectedDripsDiagLock.Teb + v30) += MEMORY[0xFFFFF78000000008]
+                                                          - (unsigned __int64)PopDirectedDripsDiagLock.Queue;
+        PopDirectedDripsDiagLock.Queue = 0LL;
       }
-      HIDWORD(PopDirectedDripsUmLock.Queue) = 30;
-      KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink, v32);
+      PopDirectedDripsDiagLock.ExpectedRunTime = 30;
+      KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime, v32);
       do
       {
         v33 = *(unsigned int ***)v5;
@@ -438,22 +438,22 @@ LABEL_38:
         *(_QWORD *)v5 = v34;
         *((_QWORD *)v34 + 1) = v5;
         v35 = *((unsigned int *)v33 + 6);
-        v36 = KeAcquireSpinLockRaiseToDpc(&qword_140F12D00);
-        v37 = dword_140F12D08-- == 1;
+        v36 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2]);
+        v37 = (*(_DWORD *)&stru_140F12EA0.WaitBlockFill11[104])-- == 1;
         v38 = v36;
         if ( v37 )
           PopDirectedDripsClearDisengageReason(4LL);
-        KeReleaseSpinLock(&qword_140F12D00, v38);
-        v39 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink);
-        if ( !--LODWORD(PopDirectedDripsUmLock.Queue) && PopDirectedDripsUmLock.WaitBlockFill5[40] )
+        KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2], v38);
+        v39 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime);
+        if ( !--PopDirectedDripsDiagLock.CurrentRunTime && LOBYTE(PopDirectedDripsDiagLock.WaitBlockList) )
         {
-          PopDirectedDripsUmLock.WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)((char *)PopDirectedDripsUmLock.WaitBlock[1].WaitListEntry.Flink
-                                                                                         + MEMORY[0xFFFFF78000000008]
-                                                                                         - (unsigned __int64)PopDirectedDripsUmLock.WaitBlock[1].WaitListEntry.Blink);
-          *(_OWORD *)&PopDirectedDripsUmLock.WaitBlockFill11[48] = (unsigned __int64)PopDirectedDripsUmLock.WaitBlock[1].WaitListEntry.Flink;
+          PopDirectedDripsDiagLock.WaitListEntry.Flink = (struct _LIST_ENTRY *)((char *)PopDirectedDripsDiagLock.WaitListEntry.Flink
+                                                                              + MEMORY[0xFFFFF78000000008]
+                                                                              - (unsigned __int64)PopDirectedDripsDiagLock.WaitListEntry.Blink);
+          PopDirectedDripsDiagLock.216 = ($9F5D72EF54BCA79AE5AD03946D2C2FEF)(unsigned __int64)PopDirectedDripsDiagLock.WaitListEntry.Flink;
         }
-        --*((_DWORD *)&PopDirectedDripsUmLock.Teb + v35);
-        KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink, v39);
+        --*((_DWORD *)&PopDirectedDripsDiagLock.KernelStack + v35);
+        KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime, v39);
         v40 = v33[7];
         if ( v40 )
           *v40 = v3;

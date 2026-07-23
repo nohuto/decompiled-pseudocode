@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     xtow @ 0x1403E0EB4 (xtow.c)
+ *     sub_1403E0EB4 @ 0x1403E0EB4 (sub_1403E0EB4.c)
  */
 
 wchar_t *__cdecl itow(int Value, wchar_t *Dest, int Radix)
@@ -13,6 +13,6 @@ wchar_t *__cdecl itow(int Value, wchar_t *Dest, int Radix)
   v3 = 0LL;
   if ( Radix == 10 )
     v3 = Value < 0;
-  xtow(Value, Dest, Radix, v3);
+  sub_1403E0EB4(Value, Dest, Radix, v3);
   return Dest;
 }

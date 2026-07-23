@@ -54,7 +54,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   char v8; // r12
   __int64 CurrentIrql; // rcx
   char v10; // r13
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v12; // rdi
   __int64 v13; // r14
   __int64 v14; // rax
@@ -66,7 +66,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   volatile signed __int32 v20; // edx
   signed __int32 v21; // eax
   unsigned __int8 v22; // bl
-  __int64 SystemTimePrecise; // rdx
+  LARGE_INTEGER SystemTimePrecise; // rdx
   __int64 v25; // rax
   char v26; // r8
   _DWORD *SchedulerAssist; // r9
@@ -84,9 +84,9 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   char v39; // [rsp+70h] [rbp+8h] BYREF
   char v40; // [rsp+78h] [rbp+10h] BYREF
   __int64 v41; // [rsp+80h] [rbp+18h]
-  LARGE_INTEGER v42; // [rsp+88h] [rbp+20h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+88h] [rbp+20h] BYREF
 
-  v42.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v39 = 0;
   v5 = a3;
   v6 = a2;
@@ -108,18 +108,18 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     if ( (v8 & 4) != 0 )
       SystemTimePrecise = RtlGetSystemTimePrecise();
     else
-      SystemTimePrecise = MEMORY[0xFFFFF78000000014];
+      SystemTimePrecise.QuadPart = MEMORY[0xFFFFF78000000014];
     v25 = 0LL;
-    if ( v6 > SystemTimePrecise )
-      v25 = SystemTimePrecise - v6;
+    if ( v6 > SystemTimePrecise.QuadPart )
+      v25 = SystemTimePrecise.QuadPart - v6;
     v6 = v25;
   }
   if ( (v8 & 4) != 0 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v42);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   else
-    InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-  v12 = InterruptTimePrecise - v6;
-  if ( InterruptTimePrecise >= v6 || v12 == -1LL )
+    InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
+  v12 = InterruptTimePrecise.QuadPart - v6;
+  if ( InterruptTimePrecise.QuadPart >= (unsigned __int64)v6 || v12 == -1LL )
     v12 = -2LL;
   v13 = v12;
   if ( a4 && *(_BYTE *)(a1 + 130) != 21 )

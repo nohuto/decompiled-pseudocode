@@ -1,23 +1,23 @@
 /*
- * XREFs of PsQueryProcessEnergyValues @ 0x140741FD0
+ * XREFs of PsQueryProcessEnergyValues @ 0x1407421C0
  * Callers:
  *     PspQueryProcessAccountingInformationCallback @ 0x1406A0FA0 (PspQueryProcessAccountingInformationCallback.c)
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
- *     ExpGetProcessInformation @ 0x140742DC0 (ExpGetProcessInformation.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1407B0E84 (PopEtEnergyContextProcessStateUpdate.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1407B1BE0 (PopEtProcessEnumSnapshotCallback.c)
- *     PspFoldProcessAccountingIntoJob @ 0x1407DC1B0 (PspFoldProcessAccountingIntoJob.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
+ *     ExpGetProcessInformation @ 0x140742FB0 (ExpGetProcessInformation.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1407B1074 (PopEtEnergyContextProcessStateUpdate.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407B1DD0 (PopEtProcessEnumSnapshotCallback.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1407DC480 (PspFoldProcessAccountingIntoJob.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KeQueryTimelineBitmapTime @ 0x1402C0864 (KeQueryTimelineBitmapTime.c)
- *     RtlTimelineBitmapMerge @ 0x1402C0AA8 (RtlTimelineBitmapMerge.c)
- *     RtlStateDurationCapture @ 0x1402C0AF4 (RtlStateDurationCapture.c)
- *     PoEnergyEstimationEnabled @ 0x1402C0B50 (PoEnergyEstimationEnabled.c)
- *     RtlTimelineBitmapUpdateRange @ 0x1403567E4 (RtlTimelineBitmapUpdateRange.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402C0AF4 (KeQueryTimelineBitmapTime.c)
+ *     RtlTimelineBitmapMerge @ 0x1402C0D38 (RtlTimelineBitmapMerge.c)
+ *     RtlStateDurationCapture @ 0x1402C0D84 (RtlStateDurationCapture.c)
+ *     PoEnergyEstimationEnabled @ 0x1402C0DE0 (PoEnergyEstimationEnabled.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x140356984 (RtlTimelineBitmapUpdateRange.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 _QWORD *__fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)

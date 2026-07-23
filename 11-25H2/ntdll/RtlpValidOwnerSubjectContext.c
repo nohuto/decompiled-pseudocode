@@ -14,85 +14,81 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpValidOwnerSubjectContext(void *a1, unsigned __int16 *a2, char a3, int *a4)
+char __fastcall RtlpValidOwnerSubjectContext(void *a1, void *a2, char a3, NTSTATUS *a4)
 {
   char v4; // bl
-  char *ProcessHeap; // r12
-  int v9; // eax
-  int v10; // eax
+  void *ProcessHeap; // r12
+  NTSTATUS v9; // eax
+  NTSTATUS v10; // eax
   unsigned int *Heap; // r14
-  __int64 v12; // r9
   unsigned int i; // edi
-  __int64 v14; // r9
-  bool v15; // sf
-  char v16; // al
-  int v18; // eax
-  char v19[4]; // [rsp+30h] [rbp-89h] BYREF
-  unsigned int v20; // [rsp+34h] [rbp-85h] BYREF
-  HANDLE Handle[2]; // [rsp+38h] [rbp-81h] BYREF
-  void *v22; // [rsp+48h] [rbp-71h]
-  __int128 v23; // [rsp+50h] [rbp-69h] BYREF
-  int v24; // [rsp+60h] [rbp-59h]
-  _WORD *v25; // [rsp+70h] [rbp-49h] BYREF
+  bool v13; // sf
+  BOOLEAN v14; // al
+  NTSTATUS v16; // eax
+  BOOLEAN Result[4]; // [rsp+30h] [rbp-89h] BYREF
+  ULONG TokenInformationLength; // [rsp+34h] [rbp-85h] BYREF
+  HANDLE TokenHandle[2]; // [rsp+38h] [rbp-81h] BYREF
+  HANDLE ClientToken; // [rsp+48h] [rbp-71h]
+  _PRIVILEGE_SET RequiredPrivileges; // [rsp+50h] [rbp-69h] BYREF
+  PSID TokenInformation[12]; // [rsp+70h] [rbp-49h] BYREF
 
   v4 = 0;
-  v22 = a1;
-  v20 = 0;
-  Handle[0] = 0LL;
-  v19[0] = 0;
-  v24 = 0;
-  v23 = 0LL;
+  ClientToken = a1;
+  TokenInformationLength = 0;
+  TokenHandle[0] = 0LL;
+  Result[0] = 0;
+  memset(&RequiredPrivileges, 0, sizeof(RequiredPrivileges));
   if ( a2 )
   {
     if ( a3 )
     {
-      v18 = NtOpenProcessToken(-1LL, 8LL, Handle);
-      *a4 = v18;
-      if ( v18 < 0 )
+      v16 = NtOpenProcessToken((HANDLE)0xFFFFFFFFFFFFFFFFLL, 8u, TokenHandle);
+      *a4 = v16;
+      if ( v16 < 0 )
         return 0;
     }
     else
     {
-      Handle[0] = a1;
+      TokenHandle[0] = a1;
     }
-    ProcessHeap = (char *)NtCurrentPeb()->ProcessHeap;
-    v9 = NtQueryInformationToken(Handle[0], 1LL, &v25, 84LL, &v20);
+    ProcessHeap = NtCurrentPeb()->ProcessHeap;
+    v9 = NtQueryInformationToken(TokenHandle[0], 1u, TokenInformation, 0x54u, &TokenInformationLength);
     *a4 = v9;
     if ( v9 < 0 )
       goto LABEL_31;
-    if ( RtlEqualSid(a2, v25) )
+    if ( RtlEqualSid(a2, TokenInformation[0]) )
     {
       if ( a3 )
-        NtClose(Handle[0]);
+        NtClose(TokenHandle[0]);
       return 1;
     }
-    v10 = NtQueryInformationToken(Handle[0], 2LL, 0LL, 0LL, &v20);
+    v10 = NtQueryInformationToken(TokenHandle[0], 2u, 0LL, 0, &TokenInformationLength);
     *a4 = v10;
     if ( (int)(v10 + 0x80000000) >= 0 && v10 != -1073741789 )
     {
 LABEL_31:
       if ( a3 )
-        NtClose(Handle[0]);
+        NtClose(TokenHandle[0]);
       return 0;
     }
-    Heap = (unsigned int *)RtlAllocateHeap(ProcessHeap, 0, v20);
+    Heap = (unsigned int *)RtlAllocateHeap(ProcessHeap, 0, TokenInformationLength);
     if ( !Heap )
     {
       *a4 = -1073741801;
       goto LABEL_31;
     }
-    *a4 = NtQueryInformationToken(Handle[0], 2LL, Heap, v20, &v20);
+    *a4 = NtQueryInformationToken(TokenHandle[0], 2u, Heap, TokenInformationLength, &TokenInformationLength);
     if ( a3 )
-      NtClose(Handle[0]);
+      NtClose(TokenHandle[0]);
     if ( *a4 < 0 )
     {
 LABEL_27:
-      RtlFreeHeap((__int64)ProcessHeap, 0, (__int64)Heap, v12);
+      RtlFreeHeap(ProcessHeap, 0, Heap);
       return v4;
     }
     for ( i = 0; i < *Heap; ++i )
     {
-      if ( RtlEqualSid(a2, *(_WORD **)&Heap[4 * i + 2]) )
+      if ( RtlEqualSid(a2, *(PSID *)&Heap[4 * i + 2]) )
       {
         if ( (Heap[4 * i + 4] & 0x18) == 8 )
         {
@@ -102,16 +98,17 @@ LABEL_27:
         break;
       }
     }
-    RtlFreeHeap((__int64)ProcessHeap, 0, (__int64)Heap, v12);
-    Handle[1] = (HANDLE)18;
-    *((_QWORD *)&v23 + 1) = 18LL;
-    *(_QWORD *)&v23 = 0x100000001LL;
-    v24 = 0;
-    v15 = (int)ZwPrivilegeCheck(v22, &v23, v19, v14) < 0;
-    v16 = 0;
-    if ( !v15 )
-      v16 = v19[0];
-    if ( v16 )
+    RtlFreeHeap(ProcessHeap, 0, Heap);
+    TokenHandle[1] = (HANDLE)18;
+    RequiredPrivileges.Privilege[0].Luid = (_LUID)18LL;
+    RequiredPrivileges.PrivilegeCount = 1;
+    RequiredPrivileges.Control = 1;
+    RequiredPrivileges.Privilege[0].Attributes = 0;
+    v13 = ZwPrivilegeCheck(ClientToken, &RequiredPrivileges, Result) < 0;
+    v14 = 0;
+    if ( !v13 )
+      v14 = Result[0];
+    if ( v14 )
       return 1;
   }
   *a4 = -1073741734;

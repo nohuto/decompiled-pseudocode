@@ -6,11 +6,7 @@
  *     RtlEncodePointer @ 0x180071270 (RtlEncodePointer.c)
  */
 
-__int64 __fastcall RtlSetUnhandledExceptionFilter(__int64 a1)
+void __cdecl RtlSetUnhandledExceptionFilter(PRTLP_UNHANDLED_EXCEPTION_FILTER UnhandledExceptionFilter)
 {
-  __int64 result; // rax
-
-  result = RtlEncodePointer(a1);
-  qword_18015C2F0 = result;
-  return result;
+  Ptr = RtlEncodePointer(UnhandledExceptionFilter);
 }

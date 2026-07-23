@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMapCfgBitMapSection @ 0x1407113FC
+ * XREFs of MiMapCfgBitMapSection @ 0x1406BFA4C
  * Callers:
- *     MiCfgInitializeProcess @ 0x1407120DC (MiCfgInitializeProcess.c)
+ *     MiCfgInitializeProcess @ 0x1406C072C (MiCfgInitializeProcess.c)
  * Callees:
- *     MmMapViewOfSectionEx @ 0x14035E770 (MmMapViewOfSectionEx.c)
+ *     MmMapViewOfSectionEx @ 0x1402A36A0 (MmMapViewOfSectionEx.c)
  */
 
 __int64 __fastcall MiMapCfgBitMapSection(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -21,7 +21,7 @@ __int64 __fastcall MiMapCfgBitMapSection(__int64 a1, __int64 a2, __int64 a3, int
   v11 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  if ( a2 == qword_140C4CC20 )
+  if ( a2 == qword_140C4CC60 )
   {
     v6 = *((_QWORD *)&v9 + 1);
     v5 = 0x100000;

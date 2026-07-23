@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpTransReferenceTransaction @ 0x1403FF0D8
+ * XREFs of CmpTransReferenceTransaction @ 0x1403FDF98
  * Callers:
- *     CmpTransSearchAddLightWeightTrans @ 0x1403FDAD8 (CmpTransSearchAddLightWeightTrans.c)
- *     CmpTransSearchAddTrans @ 0x1403FF144 (CmpTransSearchAddTrans.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpCreateKeyBody @ 0x140490828 (CmpCreateKeyBody.c)
- *     CmpTransInitializeTransaction @ 0x1404DA4B8 (CmpTransInitializeTransaction.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1403FC998 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddTrans @ 0x1403FE004 (CmpTransSearchAddTrans.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpCreateKeyBody @ 0x1404912B8 (CmpCreateKeyBody.c)
+ *     CmpTransInitializeTransaction @ 0x1404BDABC (CmpTransInitializeTransaction.c)
  * Callees:
  *     TmIsTransactionActive @ 0x140001198 (TmIsTransactionActive.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  */
 
 __int64 __fastcall CmpTransReferenceTransaction(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of WbFreeWarbirdProcess @ 0x1407E0EC0
+ * XREFs of WbFreeWarbirdProcess @ 0x1407E1190
  * Callers:
- *     sub_140763820 @ 0x140763820 (sub_140763820.c)
+ *     sub_140763A10 @ 0x140763A10 (sub_140763A10.c)
  * Callees:
- *     sub_140762AA4 @ 0x140762AA4 (sub_140762AA4.c)
- *     sub_1407633E4 @ 0x1407633E4 (sub_1407633E4.c)
- *     WbFreeMemoryBlock @ 0x1407644EC (WbFreeMemoryBlock.c)
- *     sub_1407E1004 @ 0x1407E1004 (sub_1407E1004.c)
- *     sub_1407E103C @ 0x1407E103C (sub_1407E103C.c)
+ *     sub_140762C94 @ 0x140762C94 (sub_140762C94.c)
+ *     sub_1407635D4 @ 0x1407635D4 (sub_1407635D4.c)
+ *     WbFreeMemoryBlock @ 0x1407646DC (WbFreeMemoryBlock.c)
+ *     sub_1407E12D4 @ 0x1407E12D4 (sub_1407E12D4.c)
+ *     sub_1407E130C @ 0x1407E130C (sub_1407E130C.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -25,11 +25,11 @@ __int64 __fastcall WbFreeWarbirdProcess(_DWORD *P)
   if ( P )
   {
     for ( i = 0; i < P[23]; ++i )
-      sub_1407633E4((__int64)P, *(_QWORD *)(P[22] * i + *((_QWORD *)P + 13)));
-    sub_1407E1004(P + 22);
+      sub_1407635D4((__int64)P, *(_QWORD *)(P[22] * i + *((_QWORD *)P + 13)));
+    sub_1407E12D4(P + 22);
     for ( j = 0; j < P[3]; ++j )
-      sub_140762AA4((__int64)P, *(_QWORD *)(P[2] * j + *((_QWORD *)P + 3)));
-    sub_1407E1004(P + 2);
+      sub_140762C94((__int64)P, *(_QWORD *)(P[2] * j + *((_QWORD *)P + 3)));
+    sub_1407E12D4(P + 2);
     v5 = (char *)(P + 16);
     while ( 1 )
     {
@@ -40,18 +40,18 @@ __int64 __fastcall WbFreeWarbirdProcess(_DWORD *P)
       *(_QWORD *)(v7 + 8) = v5;
       if ( (char *)v6 == v5 )
         break;
-      sub_140762AA4((__int64)P, v6);
+      sub_140762C94((__int64)P, v6);
     }
     for ( k = 0; k < P[35]; ++k )
-      sub_1407E103C(*(PVOID *)(P[34] * k + *((_QWORD *)P + 19)));
-    sub_1407E1004(P + 34);
+      sub_1407E130C(*(PVOID *)(P[34] * k + *((_QWORD *)P + 19)));
+    sub_1407E12D4(P + 34);
     if ( P[47] )
     {
       do
         WbFreeMemoryBlock(*(PVOID **)(P[46] * v1++ + *((_QWORD *)P + 25)));
       while ( v1 < P[47] );
     }
-    sub_1407E1004(P + 46);
+    sub_1407E12D4(P + 46);
     ExFreePoolWithTag(P, 0);
   }
   return 0LL;

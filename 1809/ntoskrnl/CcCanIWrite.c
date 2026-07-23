@@ -1,8 +1,8 @@
 /*
- * XREFs of CcCanIWrite @ 0x140104D20
+ * XREFs of CcCanIWrite @ 0x140104DA0
  * Callers:
- *     FsRtlCopyWrite @ 0x1408140D0 (FsRtlCopyWrite.c)
- *     FsRtlPrepareMdlWriteDev @ 0x140814AE0 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x1408152D0 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140815CE0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
  *     MmEnoughMemoryForWrite @ 0x140021608 (MmEnoughMemoryForWrite.c)
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
@@ -10,22 +10,22 @@
  *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140023880 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExInterlockedInsertHeadList @ 0x14010BED0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x14010BF50 (ExInterlockedInsertTailList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
- *     CcPerfLogCanWriteFail @ 0x14026B900 (CcPerfLogCanWriteFail.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExInterlockedInsertHeadList @ 0x14010BF50 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x14010BFD0 (ExInterlockedInsertTailList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
+ *     CcPerfLogCanWriteFail @ 0x14026BAF0 (CcPerfLogCanWriteFail.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -94,7 +94,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   unsigned __int16 **v66; // r9
   unsigned __int16 *v67; // r10
   KSPIN_LOCK *v68; // r8
-  struct _LIST_ENTRY *v69; // rcx
+  _LIST_ENTRY *v69; // rcx
   unsigned __int8 v70; // di
   struct _KPRCB *v71; // rcx
   bool v72; // [rsp+30h] [rbp-99h]
@@ -112,7 +112,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v84; // [rsp+A0h] [rbp-29h]
   PFILE_OBJECT v85; // [rsp+A8h] [rbp-21h]
   ULONG v86; // [rsp+B0h] [rbp-19h]
-  struct _LIST_ENTRY ListEntry; // [rsp+B8h] [rbp-11h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+B8h] [rbp-11h] BYREF
   __int16 *p_Object; // [rsp+C8h] [rbp-1h]
   __int64 v89; // [rsp+E8h] [rbp+1Fh]
   void *retaddr; // [rsp+128h] [rbp+5Fh]
@@ -186,7 +186,7 @@ LABEL_61:
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140438BC0, v18);
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140439C80, v18);
   }
   else
   {
@@ -206,7 +206,7 @@ LABEL_61:
         }
       }
     }
-    if ( _interlockedbittestandset(&dword_140438BC0, 0x1Fu) )
+    if ( _interlockedbittestandset(&dword_140439C80, 0x1Fu) )
     {
       v48 = v19->SchedulerAssist;
       if ( v48 )
@@ -219,41 +219,41 @@ LABEL_61:
             KiRemoveSystemWorkPriorityKick(v19);
         }
       }
-      v73 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140438BC0, v18);
+      v73 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140439C80, v18);
       v7 = 0;
     }
-    v21 = (unsigned int)dword_140438BC0;
-    if ( (dword_140438BC0 & 0xBFFFFFFF) == 0x80000000 )
+    v21 = (unsigned int)dword_140439C80;
+    if ( (dword_140439C80 & 0xBFFFFFFF) == 0x80000000 )
       goto LABEL_17;
     do
     {
       if ( (v21 & 0x40000000) == 0 )
       {
-        v53 = _InterlockedCompareExchange(&dword_140438BC0, v21 | 0x40000000, v21);
+        v53 = _InterlockedCompareExchange(&dword_140439C80, v21 | 0x40000000, v21);
         v52 = (_DWORD)v21 == v53;
         v21 = v53;
         if ( !v52 )
           continue;
       }
       KeYieldProcessorEx(&v73, v21, Wait);
-      v21 = (unsigned int)dword_140438BC0;
+      v21 = (unsigned int)dword_140439C80;
     }
     while ( (v21 & 0xBFFFFFFF) != 0x80000000 );
   }
   v7 = 0;
 LABEL_17:
   if ( *(_QWORD *)v17 )
-    v22 = *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v17 + 60LL) & 0x3FF));
+    v22 = *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v17 + 60LL) & 0x3FF));
   else
     v22 = &MiSystemPartition;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140438BC0, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140439C80, retaddr);
     v7 = 0;
   }
   else
   {
-    dword_140438BC0 = 0;
+    dword_140439C80 = 0;
   }
   v23 = KeGetCurrentPrcb();
   v24 = v23->SchedulerAssist;
@@ -438,25 +438,25 @@ LABEL_141:
   if ( (*((_BYTE *)FileObject->FsContext + 4) & 4) == 0 && !v36 )
   {
 LABEL_48:
-    v42 = qword_14043E5C0;
+    v42 = qword_14043F680;
     v29 = 0;
     v43 = 450LL;
-    if ( (_BYTE)dword_14054019C )
+    if ( (_BYTE)dword_14054119C )
       v43 = 0x4000LL;
-    if ( qword_14043E5C0 < v43 )
+    if ( qword_14043F680 < v43 )
     {
-      v66 = (unsigned __int16 **)&unk_14043D968;
+      v66 = (unsigned __int16 **)&unk_14043EA28;
       while ( 1 )
       {
         v67 = *v66;
-        if ( dword_14043A08C )
+        if ( dword_14043B14C )
           break;
 LABEL_148:
         ++v66;
         v7 = 0;
-        if ( (__int64)v66 > (__int64)&qword_14043D970 )
+        if ( (__int64)v66 > (__int64)&qword_14043EA30 )
         {
-          if ( qword_14043E740 < (unsigned __int64)(qword_14043E7B0 + 800) )
+          if ( qword_14043F800 < (unsigned __int64)(qword_14043F870 + 800) )
             v29 = (unsigned int)MiSufficientAvailablePages((__int64)&MiSystemPartition, 0x50uLL) != 0;
           goto LABEL_52;
         }
@@ -468,7 +468,7 @@ LABEL_148:
           break;
         ++v7;
         v67 += 8;
-        if ( v7 >= dword_14043A08C )
+        if ( v7 >= dword_14043B14C )
           goto LABEL_148;
       }
     }
@@ -514,7 +514,7 @@ LABEL_52:
 LABEL_151:
   v5 = Retrying;
 LABEL_152:
-  if ( (xmmword_140541350 & 0x20000) != 0 )
+  if ( (xmmword_140542350 & 0x20000) != 0 )
     CcPerfLogCanWriteFail(FileObject, v91, *(_QWORD *)(v16 + 600), *(_QWORD *)(v16 + 624));
   CcAdjustWriteBehindThreadPoolIfNeeded(v16, 1);
   if ( !v92 )
@@ -529,7 +529,7 @@ LABEL_152:
   p_Object = &Object;
   v68 = (KSPIN_LOCK *)(v16 + 768);
   v80 = 6;
-  v69 = (struct _LIST_ENTRY *)(v16 + 744);
+  v69 = (_LIST_ENTRY *)(v16 + 744);
   v89 = v16;
   v84 = 5243644;
   v85 = FileObject;

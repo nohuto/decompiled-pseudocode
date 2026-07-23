@@ -1,22 +1,22 @@
 /*
- * XREFs of NtOpenFile @ 0x1801622F0
+ * XREFs of NtOpenFile @ 0x1801606B0
  * Callers:
- *     LdrpFindLoadedDllByMappingFile @ 0x1800038F8 (LdrpFindLoadedDllByMappingFile.c)
- *     RtlGetImageFileMachines @ 0x1800594E0 (RtlGetImageFileMachines.c)
- *     LdrpMapDllNtFileName @ 0x180071640 (LdrpMapDllNtFileName.c)
- *     LdrpMapResourceFile @ 0x180076970 (LdrpMapResourceFile.c)
- *     RtlpCreateNewDirectoryReference @ 0x180078610 (RtlpCreateNewDirectoryReference.c)
- *     RtlpResolveAssemblyStorageMapEntry @ 0x180081558 (RtlpResolveAssemblyStorageMapEntry.c)
- *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800821AC (RtlpProbeAssemblyStorageRootForAssembly.c)
- *     RtlpCheckRelativeDrive @ 0x180086BE0 (RtlpCheckRelativeDrive.c)
- *     SaferpIsV2PolicyPresent @ 0x1800F03CC (SaferpIsV2PolicyPresent.c)
- *     SaferpIsDllAllowed @ 0x1800F04FC (SaferpIsDllAllowed.c)
- *     AvrfMiniLoadDll @ 0x180108F94 (AvrfMiniLoadDll.c)
- *     RtlpMUIEnumerateFolder @ 0x18010B52C (RtlpMUIEnumerateFolder.c)
- *     RtlpOpenAndMapCustomCultureFile @ 0x1801157D4 (RtlpOpenAndMapCustomCultureFile.c)
- *     LdrpCnvrtShortToLongFileName @ 0x180116698 (LdrpCnvrtShortToLongFileName.c)
- *     LdrpCheckAppDirType @ 0x1801180BC (LdrpCheckAppDirType.c)
- *     RtlpSysVolTakeOwnership @ 0x180144470 (RtlpSysVolTakeOwnership.c)
+ *     RtlpMUIEnumerateFolder @ 0x180001138 (RtlpMUIEnumerateFolder.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x1800033D8 (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpProbeAssemblyStorageRootForAssembly @ 0x18000402C (RtlpProbeAssemblyStorageRootForAssembly.c)
+ *     RtlpCheckRelativeDrive @ 0x180008A90 (RtlpCheckRelativeDrive.c)
+ *     RtlGetImageFileMachines @ 0x18006F0C0 (RtlGetImageFileMachines.c)
+ *     LdrpMapDllNtFileName @ 0x18008DF20 (LdrpMapDllNtFileName.c)
+ *     LdrpMapResourceFile @ 0x180093250 (LdrpMapResourceFile.c)
+ *     RtlpCreateNewDirectoryReference @ 0x180094EF0 (RtlpCreateNewDirectoryReference.c)
+ *     LdrpFindLoadedDllByMappingFile @ 0x1800C7618 (LdrpFindLoadedDllByMappingFile.c)
+ *     SaferpIsV2PolicyPresent @ 0x1800EB04C (SaferpIsV2PolicyPresent.c)
+ *     SaferpIsDllAllowed @ 0x1800EB17C (SaferpIsDllAllowed.c)
+ *     AvrfMiniLoadDll @ 0x180103EC4 (AvrfMiniLoadDll.c)
+ *     RtlpOpenAndMapCustomCultureFile @ 0x180110C68 (RtlpOpenAndMapCustomCultureFile.c)
+ *     LdrpCnvrtShortToLongFileName @ 0x1801118CC (LdrpCnvrtShortToLongFileName.c)
+ *     LdrpCheckAppDirType @ 0x180113030 (LdrpCheckAppDirType.c)
+ *     RtlpSysVolTakeOwnership @ 0x180142820 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     <none>
  */

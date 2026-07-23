@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsWorkItemSchedule @ 0x140947B64
+ * XREFs of PopEsWorkItemSchedule @ 0x1409C34D4
  * Callers:
- *     PopEsWnfSubscriptionGpAndMdmCallback @ 0x1407DBB90 (PopEsWnfSubscriptionGpAndMdmCallback.c)
- *     PopEsPowerSettingPolicyCallback @ 0x140946360 (PopEsPowerSettingPolicyCallback.c)
- *     PopEsQueueStateEvaluation @ 0x140947B44 (PopEsQueueStateEvaluation.c)
- *     PopEsWnfSubscriptionOverrideCallback @ 0x140947CB0 (PopEsWnfSubscriptionOverrideCallback.c)
- *     PopEsPowerSettingBatteryThresholdCallback @ 0x140B50A40 (PopEsPowerSettingBatteryThresholdCallback.c)
- *     PopEsInStandbyAcDcCallback @ 0x140B722C0 (PopEsInStandbyAcDcCallback.c)
- *     PopEsInit @ 0x140CD59F4 (PopEsInit.c)
+ *     PopEsWnfSubscriptionGpAndMdmCallback @ 0x1407DFDB0 (PopEsWnfSubscriptionGpAndMdmCallback.c)
+ *     PopEsPowerSettingPolicyCallback @ 0x1409C1CD0 (PopEsPowerSettingPolicyCallback.c)
+ *     PopEsQueueStateEvaluation @ 0x1409C34B4 (PopEsQueueStateEvaluation.c)
+ *     PopEsWnfSubscriptionOverrideCallback @ 0x1409C3620 (PopEsWnfSubscriptionOverrideCallback.c)
+ *     PopEsPowerSettingBatteryThresholdCallback @ 0x140B53450 (PopEsPowerSettingBatteryThresholdCallback.c)
+ *     PopEsInStandbyAcDcCallback @ 0x140B772A0 (PopEsInStandbyAcDcCallback.c)
+ *     PopEsInit @ 0x140CDBD48 (PopEsInit.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopEsWorkItemSchedule(int a1)

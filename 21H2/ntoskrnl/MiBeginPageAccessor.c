@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBeginPageAccessor @ 0x140314E48
+ * XREFs of MiBeginPageAccessor @ 0x14031FB98
  * Callers:
- *     MiGetSinglePageToZero @ 0x140365884 (MiGetSinglePageToZero.c)
+ *     MiGetSinglePageToZero @ 0x140365A34 (MiGetSinglePageToZero.c)
  *     MiUnlinkNodeLargePages @ 0x1403F70E8 (MiUnlinkNodeLargePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
   if ( (*(_BYTE *)(a2 + 34) & 8) != 0 )
     return 0LL;
   *(_QWORD *)(a1 + 24) = a2;
-  v4 = &dword_140C4E570;
+  v4 = &dword_140C4E5B0;
   CurrentThread = KeGetCurrentThread();
   v6 = 0;
   *(_QWORD *)(a1 + 56) = CurrentThread;
@@ -36,12 +36,12 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
   *(_QWORD *)(a1 + 32) = 0LL;
   *(_WORD *)(a1 + 69) = 0;
   if ( !v8 )
-    v4 = &dword_140C4E560;
+    v4 = &dword_140C4E5A0;
   ExAcquireSpinLockExclusiveAtDpcLevel(v4);
   if ( *(_BYTE *)(a1 + 71) )
   {
-    v10 = (_QWORD *)qword_140C4E568;
-    if ( qword_140C4E568 )
+    v10 = (_QWORD *)qword_140C4E5A8;
+    if ( qword_140C4E5A8 )
     {
       while ( 1 )
       {
@@ -63,11 +63,11 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
         v10 = v13;
       }
     }
-    v12 = &qword_140C4E568;
+    v12 = &qword_140C4E5A8;
     goto LABEL_14;
   }
-  v10 = (_QWORD *)qword_140C4E578;
-  if ( !qword_140C4E578 )
+  v10 = (_QWORD *)qword_140C4E5B8;
+  if ( !qword_140C4E5B8 )
     goto LABEL_13;
   while ( a1 < (unsigned __int64)v10 )
   {
@@ -82,7 +82,7 @@ LABEL_9:
     goto LABEL_9;
   v6 = 1;
 LABEL_13:
-  v12 = &qword_140C4E578;
+  v12 = &qword_140C4E5B8;
 LABEL_14:
   LOBYTE(v9) = v6;
   RtlAvlInsertNodeEx(v12, v10, v9, a1);

@@ -1,62 +1,62 @@
 /*
- * XREFs of RtlLocateExtendedFeature @ 0x180018F00
+ * XREFs of RtlLocateExtendedFeature @ 0x180045900
  * Callers:
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
- *     RtlpWalkFrameChain @ 0x180016100 (RtlpWalkFrameChain.c)
- *     RtlpxVirtualUnwind @ 0x180016C30 (RtlpxVirtualUnwind.c)
- *     RtlpUnwindPrologue @ 0x180017640 (RtlpUnwindPrologue.c)
- *     RtlpVirtualPopShadowStack @ 0x180018EB0 (RtlpVirtualPopShadowStack.c)
- *     RtlpCopyContext @ 0x18001A1B0 (RtlpCopyContext.c)
- *     RtlpMergeContextXState @ 0x1800E9E90 (RtlpMergeContextXState.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
+ *     RtlpWalkFrameChain @ 0x180042B00 (RtlpWalkFrameChain.c)
+ *     RtlpxVirtualUnwind @ 0x180043630 (RtlpxVirtualUnwind.c)
+ *     RtlpUnwindPrologue @ 0x180044040 (RtlpUnwindPrologue.c)
+ *     RtlpVirtualPopShadowStack @ 0x1800458B0 (RtlpVirtualPopShadowStack.c)
+ *     RtlpCopyContext @ 0x180046BB0 (RtlpCopyContext.c)
+ *     RtlpMergeContextXState @ 0x1800E5620 (RtlpMergeContextXState.c)
  * Callees:
  *     <none>
  */
 
-char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, unsigned int a2, _DWORD *a3)
+PVOID __cdecl RtlLocateExtendedFeature(PCONTEXT_EX ContextEx, ULONG FeatureId, PULONG Length)
 {
   __int64 v3; // rsi
-  __int64 v4; // r11
+  __int64 Offset; // r11
   char *v5; // r11
-  int v6; // eax
+  ULONG v6; // eax
   __int64 v7; // r10
   __int64 v8; // rax
   __int64 v9; // rcx
   __int64 v10; // r8
   __int64 v11; // rdx
 
-  if ( a2 - 2 > 0x3D )
+  if ( FeatureId - 2 > 0x3D )
     return 0LL;
-  v3 = 1LL << a2;
-  if ( ((MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & (1LL << a2)) == 0 )
+  v3 = 1LL << FeatureId;
+  if ( ((MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & (1LL << FeatureId)) == 0 )
     return 0LL;
   if ( (MEMORY[0x7FFE03EC] & 0xFFFFFFF8) != 0 )
     return 0LL;
-  v4 = (int)a1[4];
-  if ( *a1 > (int)v4 )
+  Offset = ContextEx->XState.Offset;
+  if ( ContextEx->All.Offset > (int)Offset )
     return 0LL;
-  if ( a1[1] + *a1 < (int)v4 + a1[5] )
+  if ( (signed int)(ContextEx->All.Length + ContextEx->All.Offset) < (signed int)(Offset + ContextEx->XState.Length) )
     return 0LL;
-  v5 = (char *)a1 + v4;
+  v5 = (char *)ContextEx + Offset;
   if ( !v5 )
     return 0LL;
-  if ( a3 )
+  if ( Length )
   {
     if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
-      v6 = *(_DWORD *)(4LL * a2 + 0x7FFE0604);
+      v6 = *(_DWORD *)(4LL * FeatureId + 0x7FFE0604);
     else
-      v6 = *(_DWORD *)(8LL * a2 + 0x7FFE03F4);
-    *a3 = v6;
+      v6 = *(_DWORD *)(8LL * FeatureId + 0x7FFE03F4);
+    *Length = v6;
   }
   if ( (MEMORY[0x7FFE03EC] & 2) == 0 )
-    return &v5[*(unsigned int *)(8LL * a2 + 0x7FFE03F0) - 512];
+    return &v5[*(unsigned int *)(8LL * FeatureId + 0x7FFE03F0) - 512];
   v7 = *((_QWORD *)v5 + 1);
   if ( (v3 & v7) == 0 )
     return 0LL;
   v8 = 576LL;
-  if ( a2 > 2 )
+  if ( FeatureId > 2 )
   {
     v9 = 4LL;
-    v10 = a2 - 2;
+    v10 = FeatureId - 2;
     v11 = 2147354124LL;
     do
     {

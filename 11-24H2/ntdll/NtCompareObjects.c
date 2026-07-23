@@ -1,17 +1,17 @@
 /*
- * XREFs of NtCompareObjects @ 0x180163060
+ * XREFs of NtCompareObjects @ 0x180161420
  * Callers:
- *     RtlIsCurrentProcess @ 0x1800E60F0 (RtlIsCurrentProcess.c)
- *     RtlIsCurrentThread @ 0x18010B990 (RtlIsCurrentThread.c)
+ *     RtlIsCurrentProcess @ 0x1800E15A0 (RtlIsCurrentProcess.c)
+ *     RtlIsCurrentThread @ 0x180106360 (RtlIsCurrentThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCompareObjects()
+NTSTATUS __cdecl NtCompareObjects(HANDLE FirstObjectHandle, HANDLE SecondObjectHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 159LL;
+  result = 159;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

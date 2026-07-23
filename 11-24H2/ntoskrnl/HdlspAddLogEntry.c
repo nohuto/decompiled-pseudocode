@@ -1,16 +1,16 @@
 /*
- * XREFs of HdlspAddLogEntry @ 0x140BAD008
+ * XREFs of HdlspAddLogEntry @ 0x140BAF008
  * Callers:
- *     HdlspDispatch @ 0x140BAD320 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x140BAF320 (HdlspDispatch.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     wcscmp @ 0x1404FFE20 (wcscmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     wcscmp @ 0x1404FD6E0 (wcscmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HdlspAddLogEntry(_WORD *Src)
@@ -31,13 +31,13 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   KSPIN_LOCK v15; // rax
   KSPIN_LOCK v16; // rdx
   __int64 v17; // rcx
-  __int128 v18; // [rsp+20h] [rbp-68h] BYREF
+  __int128 SystemInformation; // [rsp+20h] [rbp-68h] BYREF
   __int128 v19; // [rsp+30h] [rbp-58h]
   __int128 v20; // [rsp+40h] [rbp-48h]
 
   v1 = 0LL;
   v2 = -1LL;
-  v18 = 0LL;
+  SystemInformation = 0LL;
   v19 = 0LL;
   v20 = 0LL;
   do
@@ -46,9 +46,9 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   v4 = 2 * v2 + 2;
   if ( KeGetCurrentIrql() < 2u )
   {
-    if ( (int)ZwQuerySystemInformation(3LL, (__int64)&v18) < 0 )
+    if ( ZwQuerySystemInformation(SystemTimeOfDayInformation, &SystemInformation, 0x30u, 0LL) < 0 )
     {
-      v18 = 0LL;
+      SystemInformation = 0LL;
       v19 = 0LL;
       v20 = 0LL;
     }
@@ -79,7 +79,7 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
     }
     v14 = 56LL * v11;
     v15 = v8[2];
-    *(_OWORD *)(v14 + v15) = v18;
+    *(_OWORD *)(v14 + v15) = SystemInformation;
     *(_OWORD *)(v14 + v15 + 16) = v19;
     *(_OWORD *)(v14 + v15 + 32) = v20;
     v16 = v8[2];

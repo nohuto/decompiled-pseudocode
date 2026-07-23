@@ -1,12 +1,12 @@
 /*
  * XREFs of ZwOpenProcessTokenEx @ 0x14041BD60
  * Callers:
- *     DifZwOpenProcessTokenExWrapper @ 0x140622200 (DifZwOpenProcessTokenExWrapper.c)
- *     RtlAcquirePrivilege @ 0x1406CB6DC (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelfEx @ 0x1406CB908 (RtlImpersonateSelfEx.c)
- *     BiAdjustPrivilege @ 0x140813C34 (BiAdjustPrivilege.c)
- *     RtlpIsAppContainer @ 0x1409BA210 (RtlpIsAppContainer.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
+ *     sub_140622200 @ 0x140622200 (sub_140622200.c)
+ *     sub_1406CB6DC @ 0x1406CB6DC (sub_1406CB6DC.c)
+ *     sub_1406CB908 @ 0x1406CB908 (sub_1406CB908.c)
+ *     sub_140813C34 @ 0x140813C34 (sub_140813C34.c)
+ *     sub_1409BA210 @ 0x1409BA210 (sub_1409BA210.c)
+ *     sub_140A2CF6C @ 0x140A2CF6C (sub_140A2CF6C.c)
  * Callees:
  *     <none>
  */
@@ -20,5 +20,5 @@ NTSTATUS __stdcall ZwOpenProcessTokenEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(ProcessHandle, *(_QWORD *)&DesiredAccess);
 }

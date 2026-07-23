@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhBucketCleanup @ 0x1800946A4
+ * XREFs of RtlpHpLfhBucketCleanup @ 0x180073830
  * Callers:
- *     RtlpHpLfhContextCleanup @ 0x180093938 (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpLfhContextCleanup @ 0x180072B10 (RtlpHpLfhContextCleanup.c)
  * Callees:
- *     RtlpHpLfhOwnerCleanup @ 0x180094734 (RtlpHpLfhOwnerCleanup.c)
- *     RtlpHpLfhBucketGetSlotInfo @ 0x1800948F0 (RtlpHpLfhBucketGetSlotInfo.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpHpLfhOwnerCleanup @ 0x1800738C0 (RtlpHpLfhOwnerCleanup.c)
+ *     RtlpHpLfhBucketGetSlotInfo @ 0x180073A80 (RtlpHpLfhBucketGetSlotInfo.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketCleanup(__int64 a1, __int64 a2)

@@ -6,18 +6,18 @@
  *     <none>
  */
 
-__int64 __fastcall RtlAddAuditAccessAceEx(
-        char *a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        unsigned __int8 *a5,
-        char a6,
-        char a7)
+NTSTATUS __cdecl RtlAddAuditAccessAceEx(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  if ( a6 )
-    a3 |= 0x40u;
-  if ( a7 )
-    a3 |= 0x80u;
-  return RtlpAddKnownAce(a1, a2, a3, a4, a5, 2);
+  if ( AuditSuccess )
+    AceFlags |= 0x40u;
+  if ( AuditFailure )
+    AceFlags |= 0x80u;
+  return RtlpAddKnownAce(Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 2);
 }

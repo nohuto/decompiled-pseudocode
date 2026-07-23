@@ -7,23 +7,23 @@
  *     RtlFindSetBitsEx @ 0x140340B10 (RtlFindSetBitsEx.c)
  */
 
-unsigned __int64 __fastcall IopLiveDumpGetCapturePagesNoLock(
-        unsigned __int64 *a1,
+ULONG64 __fastcall IopLiveDumpGetCapturePagesNoLock(
+        PRTL_BITMAP_EX BitMapHeader,
         __int64 a2,
         __int64 a3,
         unsigned int a4,
         _DWORD *a5,
         _QWORD *a6)
 {
-  unsigned __int64 result; // rax
+  ULONG64 result; // rax
   __int64 v7; // rdi
-  unsigned __int64 v8; // rbp
+  ULONG64 v8; // rbp
   int v13; // eax
   __int64 v14; // rcx
   __int64 v15; // rcx
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
-  result = (unsigned __int64)&retaddr;
+  result = (ULONG64)&retaddr;
   v7 = -1LL;
   v8 = *(_QWORD *)(a2 + 48);
   *a5 = 0;
@@ -34,7 +34,7 @@ unsigned __int64 __fastcall IopLiveDumpGetCapturePagesNoLock(
     {
       while ( 1 )
       {
-        result = RtlFindSetBitsEx(a1, 1uLL, v8);
+        result = RtlFindSetBitsEx(BitMapHeader, 1uLL, v8);
         if ( result < v8 || result == -1LL )
           break;
         v14 = (unsigned int)*a5;

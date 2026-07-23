@@ -13,25 +13,27 @@
 
 char __userpurge RtlpCheckDynamicTimeZoneInformation@<al>(int a1@<edi>, int a2@<esi>, char *Buf2, __int16 a4)
 {
+  size_t v5; // [esp-4h] [ebp-ECh]
   HANDLE Handle; // [esp+4h] [ebp-E4h] BYREF
-  char v6; // [esp+Bh] [ebp-DDh]
+  char v7; // [esp+Bh] [ebp-DDh]
   _BYTE Buf1[172]; // [esp+Ch] [ebp-DCh] BYREF
-  _BYTE v8[44]; // [esp+B8h] [ebp-30h] BYREF
+  int Radix[11]; // [esp+B8h] [ebp-30h] BYREF
 
-  v6 = 0;
+  v7 = 0;
   if ( RtlpGetDynamicTimeZoneInfoHandle(Buf2 + 172, &Handle) >= 0 )
   {
-    if ( RtlpFindRegTziForCurrentYear(v8, a4) >= 0 )
+    if ( RtlpFindRegTziForCurrentYear((int)Radix, a4) >= 0 )
     {
       qmemcpy(Buf1, Buf2, sizeof(Buf1));
       RtlpRegTziFormatToTzi(a1, a2);
-      if ( memcmp(Buf1, Buf2, 0xACu) )
+      LODWORD(v5) = 172;
+      if ( memcmp(Buf1, Buf2, v5) )
       {
-        v6 = 1;
+        v7 = 1;
         qmemcpy(Buf2, Buf1, 0xACu);
       }
     }
     NtClose(Handle);
   }
-  return v6;
+  return v7;
 }

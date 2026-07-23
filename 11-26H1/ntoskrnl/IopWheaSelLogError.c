@@ -1,14 +1,14 @@
 /*
- * XREFs of IopWheaSelLogError @ 0x1405CA160
+ * XREFs of IopWheaSelLogError @ 0x1405CCA30
  * Callers:
- *     DumpCtlCheckExitStatus @ 0x1405C6130 (DumpCtlCheckExitStatus.c)
- *     IoEmitCrashDmpGUID @ 0x1405C65F8 (IoEmitCrashDmpGUID.c)
- *     IopLogCallbackError @ 0x1405C9AA4 (IopLogCallbackError.c)
+ *     DumpCtlCheckExitStatus @ 0x1405C89A0 (DumpCtlCheckExitStatus.c)
+ *     IoEmitCrashDmpGUID @ 0x1405C8EC8 (IoEmitCrashDmpGUID.c)
+ *     IopLogCallbackError @ 0x1405CC374 (IopLogCallbackError.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     EnterWheaIpmiContextNoLock @ 0x1406D4318 (EnterWheaIpmiContextNoLock.c)
- *     IpmiLibAddSelErrorRecord @ 0x14071D64C (IpmiLibAddSelErrorRecord.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     EnterWheaIpmiContextNoLock @ 0x1406D8398 (EnterWheaIpmiContextNoLock.c)
+ *     IpmiLibAddSelErrorRecord @ 0x1407222DC (IpmiLibAddSelErrorRecord.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopWheaSelLogError(int a1, int a2, int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall IopWheaSelLogError(int a1, int a2, int a3)
   int v20; // [rsp+68h] [rbp-18h]
 
   v3 = 0;
-  if ( LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) )
+  if ( *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] )
   {
     v18 = a1;
     Src[0] = 1733060695;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockAndMapEntireDriver @ 0x1407F0938
+ * XREFs of MiLockAndMapEntireDriver @ 0x1407F0F08
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067C118 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067D2F8 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x140290A30 (MiFillSystemPtes.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiLockDriverPageRange @ 0x14066AEB0 (MiLockDriverPageRange.c)
- *     MiPrepareDriverPatchState @ 0x1407E7E2C (MiPrepareDriverPatchState.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1402A0630 (MiFillSystemPtes.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiLockDriverPageRange @ 0x14066C080 (MiLockDriverPageRange.c)
+ *     MiPrepareDriverPatchState @ 0x1407E83FC (MiPrepareDriverPatchState.c)
  */
 
 __int64 __fastcall MiLockAndMapEntireDriver(__int64 a1, __int64 *a2, struct _MDL **a3)
@@ -47,13 +47,13 @@ __int64 __fastcall MiLockAndMapEntireDriver(__int64 a1, __int64 *a2, struct _MDL
       v7 = (__int64 *)&Mdl[1];
       if ( v11 )
       {
-        if ( v11 < 2 || v7 <= &qword_140E37338 && &v7[v11 - 1] >= &qword_140E37338 )
+        if ( v11 < 2 || v7 <= &qword_140E37478 && &v7[v11 - 1] >= &qword_140E37478 )
           goto LABEL_12;
         v14 = v11 & 0xFFFFFFFE;
         do
           v13 = (unsigned int)(v13 + 2);
         while ( (unsigned int)v13 < (unsigned int)v14 );
-        memset64(v7, qword_140E37338, (2 * (v14 >> 1)) & 0x1FFFFFFFFFFFFFFFLL);
+        memset64(v7, qword_140E37478, (2 * (v14 >> 1)) & 0x1FFFFFFFFFFFFFFFLL);
         if ( (unsigned int)v13 < v11 )
         {
 LABEL_12:
@@ -61,7 +61,7 @@ LABEL_12:
           v16 = v11 - (unsigned int)v13;
           do
           {
-            *v15++ = qword_140E37338;
+            *v15++ = qword_140E37478;
             --v16;
           }
           while ( v16 );
@@ -71,7 +71,7 @@ LABEL_12:
     v9 = MiLockDriverPageRange((__int64)a2, 0, v11 - 1, 2, (__int64)v4);
     if ( v9 >= 0 && a3 )
     {
-      v17 = MiReservePtes((__int64)&qword_140E37568, v11);
+      v17 = MiReservePtes((__int64)&qword_140E376A8, v11);
       if ( v17 )
       {
         v9 = MiFillSystemPtes(v17, v11, (__int64)v7, 4u, 2, &v19);

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtRenameTransactionManager()
+NTSTATUS __cdecl NtRenameTransactionManager(PUNICODE_STRING LogFileName, LPGUID ExistingTransactionManagerGuid)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 345LL;
+  result = 345;
   __asm { syscall; Low latency system call }
   return result;
 }

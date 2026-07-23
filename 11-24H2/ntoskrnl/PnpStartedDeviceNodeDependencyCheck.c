@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpStartedDeviceNodeDependencyCheck @ 0x1409906E4
+ * XREFs of PnpStartedDeviceNodeDependencyCheck @ 0x14097B724
  * Callers:
- *     PnpCancelRemoveLockedDeviceNode @ 0x140723B44 (PnpCancelRemoveLockedDeviceNode.c)
- *     PipProcessRestartPhase2 @ 0x140736668 (PipProcessRestartPhase2.c)
- *     PipProcessStartPhase3 @ 0x14099006C (PipProcessStartPhase3.c)
+ *     PnpCancelRemoveLockedDeviceNode @ 0x1407216D4 (PnpCancelRemoveLockedDeviceNode.c)
+ *     PipProcessRestartPhase2 @ 0x140734598 (PipProcessRestartPhase2.c)
+ *     PipProcessStartPhase3 @ 0x14097B0A4 (PipProcessStartPhase3.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PipAttemptDependentsStart @ 0x14098EA5C (PipAttemptDependentsStart.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140A0F814 (PnpReleaseDependencyRelationsLock.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PipAttemptDependentsStart @ 0x140979A94 (PipAttemptDependentsStart.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409BDC24 (PnpReleaseDependencyRelationsLock.c)
  */
 
 __int64 __fastcall PnpStartedDeviceNodeDependencyCheck(__int64 a1)

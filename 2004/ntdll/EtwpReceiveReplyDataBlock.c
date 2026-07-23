@@ -14,32 +14,32 @@ __int64 __fastcall EtwpReceiveReplyDataBlock(
         unsigned int a2,
         char a3,
         unsigned int a4,
-        __int64 a5,
-        unsigned int a6,
+        char *ReturnLength,
+        ULONG OutputBufferLength,
         unsigned int *a7,
         _DWORD *a8,
-        int a9)
+        int OutputBuffer)
 {
-  __int64 v9; // r13
+  char *v9; // r13
   unsigned int v10; // r14d
-  unsigned int v11; // ebx
-  __int64 v12; // rdi
+  unsigned __int32 v11; // ebx
+  char *v12; // rdi
   __int64 v13; // r15
-  __int64 Heap; // r12
-  __int64 v15; // rsi
+  char *Heap; // r12
+  _DWORD *v15; // rsi
   unsigned int v16; // eax
   __int64 v17; // rbx
   NTSTATUS v18; // r8d
   unsigned __int64 v19; // rdx
-  int v20; // ecx
+  unsigned int v20; // ecx
   ULONG v22; // eax
   _DWORD *v23; // r8
   __int64 v24; // r9
   _DWORD *v25; // rax
   int v26; // [rsp+30h] [rbp-28h]
-  int v27; // [rsp+34h] [rbp-24h] BYREF
-  _DWORD v28[2]; // [rsp+38h] [rbp-20h] BYREF
-  __int64 v29; // [rsp+40h] [rbp-18h]
+  ULONG v27; // [rsp+34h] [rbp-24h] BYREF
+  _DWORD InputBuffer[2]; // [rsp+38h] [rbp-20h] BYREF
+  char *v29; // [rsp+40h] [rbp-18h]
   _DWORD *v30; // [rsp+48h] [rbp-10h]
   char v31; // [rsp+A0h] [rbp+48h]
 
@@ -49,21 +49,21 @@ __int64 __fastcall EtwpReceiveReplyDataBlock(
   v10 = 0;
   v26 = 0;
   v11 = 0;
-  v12 = a5;
+  v12 = ReturnLength;
   v13 = 0LL;
   Heap = 0LL;
   v31 = 0;
   v15 = 0LL;
-  v28[0] = a1;
+  InputBuffer[0] = a1;
   v16 = a4;
-  if ( a9 == 4 || a9 == 11 )
+  if ( OutputBuffer == 4 || OutputBuffer == 11 )
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, a6);
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, OutputBufferLength);
     if ( !Heap )
       return 8;
     v9 = v12 + 72;
     v29 = v12;
-    v15 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 8LL * a4);
+    v15 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 8LL * a4);
     if ( !v15 )
     {
       v11 = 8;
@@ -75,9 +75,9 @@ __int64 __fastcall EtwpReceiveReplyDataBlock(
     goto LABEL_11;
   do
   {
-    v28[1] = a2;
+    InputBuffer[1] = a2;
     v17 = (((unsigned __int64)MEMORY[0x7FFE0004] << 32) * (unsigned __int128)(unsigned __int64)(MEMORY[0x7FFE0320] << 8)) >> 64;
-    v18 = NtTraceControl(19LL, v28, 8LL, v12, a6, &a5);
+    v18 = NtTraceControl(EtwReceiveReplyDataBlock, InputBuffer, 8u, v12, OutputBufferLength, (PULONG)&ReturnLength);
     v19 = ((((unsigned __int64)MEMORY[0x7FFE0004] << 32) * (unsigned __int128)(unsigned __int64)(MEMORY[0x7FFE0320] << 8)) >> 64)
         - v17;
     if ( a2 <= v19 )
@@ -86,8 +86,8 @@ __int64 __fastcall EtwpReceiveReplyDataBlock(
       goto LABEL_16;
     }
     a2 -= v19;
-    v20 = (a5 + 7) & 0xFFFFFFF8;
-    LODWORD(a5) = v20;
+    v20 = ((_DWORD)ReturnLength + 7) & 0xFFFFFFF8;
+    LODWORD(ReturnLength) = v20;
     if ( !v18 )
     {
       v11 = 0;
@@ -96,23 +96,23 @@ LABEL_7:
       {
         if ( v29 )
         {
-          if ( *(_DWORD *)(v12 + 4) >= 0xF8u )
+          if ( *((_DWORD *)v12 + 1) >= 0xF8u )
           {
-            if ( *(_DWORD *)(v12 + 76) == 1 )
+            if ( *((_DWORD *)v12 + 19) == 1 )
             {
-              *(_DWORD *)(v15 + 8 * v13) = *(_DWORD *)(v12 + 32);
-              *(_WORD *)(v15 + 8 * v13 + 4) = *(_WORD *)(v12 + 80);
-              *(_WORD *)(v15 + 8 * v13 + 6) = *(_WORD *)(v12 + 236);
-              v20 = a5;
+              v15[2 * v13] = *((_DWORD *)v12 + 8);
+              LOWORD(v15[2 * v13 + 1]) = *((_WORD *)v12 + 40);
+              HIWORD(v15[2 * v13 + 1]) = *((_WORD *)v12 + 118);
+              v20 = (unsigned int)ReturnLength;
             }
             v13 = (unsigned int)(v13 + 1);
             if ( (_DWORD)v13 == 1 )
             {
               v12 = Heap;
             }
-            else if ( *(_DWORD *)(v12 + 76) != 1 )
+            else if ( *((_DWORD *)v12 + 19) != 1 )
             {
-              v23 = (_DWORD *)(v9 + 104);
+              v23 = v9 + 104;
               v24 = 4LL;
               do
               {
@@ -126,12 +126,12 @@ LABEL_7:
         }
         else
         {
-          v25 = (_DWORD *)(v12 + 8);
-          *(_DWORD *)(v12 + 8) = v20;
-          v20 = a5;
-          v12 += (unsigned int)a5;
+          v25 = v12 + 8;
+          *((_DWORD *)v12 + 2) = v20;
+          v20 = (unsigned int)ReturnLength;
+          v12 += (unsigned int)ReturnLength;
           v30 = v25;
-          a6 -= a5;
+          OutputBufferLength -= (unsigned int)ReturnLength;
         }
       }
       v26 += v20;
@@ -141,12 +141,12 @@ LABEL_7:
     v11 = v22;
     if ( !v22 )
     {
-      v20 = a5;
+      v20 = (unsigned int)ReturnLength;
       goto LABEL_7;
     }
     if ( v22 != 122 )
       break;
-    v26 += a5;
+    v26 += (int)ReturnLength;
     v31 = 1;
 LABEL_9:
     ++v10;
@@ -154,11 +154,11 @@ LABEL_9:
   while ( v10 < a4 );
   if ( (_DWORD)v13 )
   {
-    if ( *(_DWORD *)(v9 + 4) == 1 )
+    if ( *((_DWORD *)v9 + 1) == 1 )
     {
-      v11 = NtTraceControl(38LL, v15, (unsigned int)(8 * v13), &a9, 2, &v27);
+      v11 = NtTraceControl(EtwGetPrivateSessionTraceHandle, v15, 8 * v13, &OutputBuffer, 2u, &v27);
       if ( !v11 && v27 == 2 )
-        *(_WORD *)(v9 + 8) = a9;
+        *((_WORD *)v9 + 4) = OutputBuffer;
     }
   }
 LABEL_11:
@@ -170,8 +170,8 @@ LABEL_11:
     v11 = 122;
 LABEL_16:
   if ( Heap )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   if ( v15 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v15);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
   return v11;
 }

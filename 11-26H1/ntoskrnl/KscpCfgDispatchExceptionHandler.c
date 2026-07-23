@@ -1,5 +1,5 @@
 /*
- * XREFs of KscpCfgDispatchExceptionHandler @ 0x140C5E0A0
+ * XREFs of KscpCfgDispatchExceptionHandler @ 0x140C640A0
  * Callers:
  *     <none>
  * Callees:

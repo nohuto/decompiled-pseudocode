@@ -6,24 +6,24 @@
  *     _TpAllocTimer@16 @ 0x4B2B4570 (_TpAllocTimer@16.c)
  */
 
-void __thiscall RtlInitializeHeapGC(void *this)
+void __thiscall RtlInitializeHeapGC(struct _TP_POOL *this)
 {
-  int v1; // [esp+4h] [ebp-2Ch] BYREF
-  _DWORD v2[10]; // [esp+8h] [ebp-28h] BYREF
+  PTP_TIMER Timer; // [esp+4h] [ebp-2Ch] BYREF
+  TP_CALLBACK_ENVIRON_V3 CallbackEnviron; // [esp+8h] [ebp-28h] BYREF
 
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    v1 = 0;
+    Timer = 0;
     if ( this )
     {
-      v2[0] = 3;
-      memset(&v2[2], 0, 24);
-      v2[9] = 40;
-      v2[1] = this;
-      v2[8] = 2;
-      if ( TpAllocTimer(&v1, (int)RtlpHpGCCallback, 0, (int)v2) >= 0 )
+      CallbackEnviron.Version = 3;
+      memset(&CallbackEnviron.CleanupGroup, 0, 24);
+      CallbackEnviron.Size = 40;
+      CallbackEnviron.Pool = this;
+      CallbackEnviron.CallbackPriority = TP_CALLBACK_PRIORITY_LOW;
+      if ( TpAllocTimer(&Timer, RtlpHpGCCallback, 0, &CallbackEnviron) >= 0 )
       {
-        RtlpHpGCTimer = v1;
+        RtlpHpGCTimer = Timer;
         RtlpHpGCTimerInitialized = 1;
       }
     }

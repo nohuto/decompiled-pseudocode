@@ -14,5 +14,5 @@ int __stdcall TpAlpcRegisterCompletionList(int a1)
     TppRaiseInvalidParameter();
   _InterlockedExchange((volatile __int32 *)(a1 + 176), 0);
   *(_DWORD *)(a1 + 180) |= 2u;
-  return TppFastAlpcAdjustConcurrencyCount((volatile signed __int32 *)a1);
+  return TppFastAlpcAdjustConcurrencyCount(a1);
 }

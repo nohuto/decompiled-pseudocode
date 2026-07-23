@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpRpCHashDeleteEntries @ 0x140AABCD8
+ * XREFs of PfpRpCHashDeleteEntries @ 0x140AA9288
  * Callers:
- *     PfpRpControlRequestUpdate @ 0x140B03054 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestUpdate @ 0x140B04C68 (PfpRpControlRequestUpdate.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
- *     PfLockSharedAcquire @ 0x1404B2990 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x1404B5064 (PfLockSharedRelease.c)
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
+ *     PfLockSharedAcquire @ 0x1404ABEA0 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x1404AE4B4 (PfLockSharedRelease.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4, _QWORD *a5)

@@ -6,22 +6,22 @@
  *     <none>
  */
 
-unsigned __int16 __fastcall RtlUpcaseUnicodeChar(unsigned __int16 a1)
+WCHAR __cdecl RtlUpcaseUnicodeChar(WCHAR SourceCharacter)
 {
-  if ( a1 < 0x61u )
-    return a1;
-  if ( a1 <= 0x7Au )
-    return a1 - 32;
-  if ( !Nls844UnicodeUpcaseTable || a1 < 0xC0u )
-    return a1;
-  return a1
+  if ( SourceCharacter < 0x61u )
+    return SourceCharacter;
+  if ( SourceCharacter <= 0x7Au )
+    return SourceCharacter - 32;
+  if ( !Nls844UnicodeUpcaseTable || SourceCharacter < 0xC0u )
+    return SourceCharacter;
+  return SourceCharacter
        + *(_WORD *)(Nls844UnicodeUpcaseTable
                   + 2LL
-                  * ((a1 & 0xF)
+                  * ((SourceCharacter & 0xF)
                    + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
                                                        + 2LL
-                                                       * (((a1 >> 4) & 0xF)
+                                                       * (((SourceCharacter >> 4) & 0xF)
                                                         + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
                                                                                             + 2
-                                                                                            * ((unsigned __int64)a1 >> 8))))));
+                                                                                            * ((unsigned __int64)SourceCharacter >> 8))))));
 }

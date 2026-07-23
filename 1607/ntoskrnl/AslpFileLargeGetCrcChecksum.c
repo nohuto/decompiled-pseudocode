@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFileLargeGetCrcChecksum @ 0x1406C9794
+ * XREFs of AslpFileLargeGetCrcChecksum @ 0x1406C98CC
  * Callers:
- *     AslpFileLargeGetChecksumAttributes @ 0x1406C96A4 (AslpFileLargeGetChecksumAttributes.c)
+ *     AslpFileLargeGetChecksumAttributes @ 0x1406C97DC (AslpFileLargeGetChecksumAttributes.c)
  * Callees:
- *     AslComputeCrc32 @ 0x1406C5678 (AslComputeCrc32.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     AslComputeCrc32 @ 0x1406C57B0 (AslComputeCrc32.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileLargeGetCrcChecksum(_DWORD *a1, _QWORD *a2)
@@ -13,11 +13,9 @@ __int64 __fastcall AslpFileLargeGetCrcChecksum(_DWORD *a1, _QWORD *a2)
   __int64 v5; // r9
   unsigned __int64 v6; // r8
   _BYTE *v7; // rcx
-  __int64 v8; // rsi
-  _BYTE *v10; // rbx
-  int v11; // eax
-  unsigned int v12; // r8d
-  __int64 v13; // [rsp+20h] [rbp-28h]
+  _BYTE *v9; // rbx
+  int v10; // eax
+  unsigned int v11; // r8d
 
   *a1 = 0;
   v4 = *(_QWORD *)(*a2 + 16LL);
@@ -32,37 +30,21 @@ __int64 __fastcall AslpFileLargeGetCrcChecksum(_DWORD *a1, _QWORD *a2)
   v7 = (_BYTE *)a2[2];
   if ( !v7 || a2[3] < 0x1000uLL || a2[4] )
     return 3221225485LL;
-  v8 = v4 - a2[8] - 4096;
   if ( v4 - a2[8] <= v6 )
   {
-    v10 = (_BYTE *)(v5 + v8);
-    v11 = AslComputeCrc32(0, v7, 0x1000u);
-    *a1 = AslComputeCrc32(v11, v10, v12);
+    v9 = (_BYTE *)(v5 + v4 - a2[8] - 4096);
+    v10 = AslComputeCrc32(0, v7, 0x1000u);
+    *a1 = AslComputeCrc32(v10, v9, v11);
     return 0LL;
   }
   else
   {
-    AslLogCallPrintf(0LL, (unsigned int)"AslpFileLargeGetCrcChecksum", 886, (unsigned int)"FileSize      : %I64u", v4);
-    AslLogCallPrintf(
-      0LL,
-      (unsigned int)"AslpFileLargeGetCrcChecksum",
-      887,
-      (unsigned int)"CrcFileStart  : %I64u",
-      *(_QWORD *)(*a2 + 16LL) - 4096LL);
-    AslLogCallPrintf(
-      0LL,
-      (unsigned int)"AslpFileLargeGetCrcChecksum",
-      888,
-      (unsigned int)"ViewFileOffset: %I64u",
-      a2[8]);
-    LODWORD(v13) = *((_DWORD *)a2 + 14);
-    AslLogCallPrintf(0LL, (unsigned int)"AslpFileLargeGetCrcChecksum", 889, (unsigned int)"ViewFileSize  : %u", v13);
-    AslLogCallPrintf(0LL, (unsigned int)"AslpFileLargeGetCrcChecksum", 890, (unsigned int)"CrcViewOffset : %I64u", v8);
-    AslLogCallPrintf(
-      1LL,
-      (unsigned int)"AslpFileLargeGetCrcChecksum",
-      894,
-      (unsigned int)"Alignment error in the end of file view for CRC checksum");
+    AslLogCallPrintf(0LL);
+    AslLogCallPrintf(0LL);
+    AslLogCallPrintf(0LL);
+    AslLogCallPrintf(0LL);
+    AslLogCallPrintf(0LL);
+    AslLogCallPrintf(1LL);
     return 3221226016LL;
   }
 }

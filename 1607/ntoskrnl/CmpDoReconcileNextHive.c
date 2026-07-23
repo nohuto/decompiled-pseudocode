@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpDoReconcileNextHive @ 0x1404806D8
+ * XREFs of CmpDoReconcileNextHive @ 0x14047F42C
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CmpGetNextFailedUnloadHive @ 0x140083CFC (CmpGetNextFailedUnloadHive.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpGetNextActiveHive @ 0x1403FB6D0 (CmpGetNextActiveHive.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpDereferenceKeyControlBlock @ 0x140437DB0 (CmpDereferenceKeyControlBlock.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x14047D4CC (CmpFlushUnsupportedOperationTelemetry.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     CmpIsHiveEligibleForLazyReconcile @ 0x1404807FC (CmpIsHiveEligibleForLazyReconcile.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140480D88 (HvGetEffectiveLogSizeCapForHive.c)
- *     CmpSignalUnloadEventArrayForHive @ 0x14049FC28 (CmpSignalUnloadEventArrayForHive.c)
- *     CmpCmdHiveClose @ 0x14049FCA0 (CmpCmdHiveClose.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CmpGetNextFailedUnloadHive @ 0x140081E5C (CmpGetNextFailedUnloadHive.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpGetNextActiveHive @ 0x1403FA590 (CmpGetNextActiveHive.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140436C80 (CmpDereferenceKeyControlBlock.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x14047C220 (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x14047F550 (CmpIsHiveEligibleForLazyReconcile.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x14047FADC (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     CmpSignalUnloadEventArrayForHive @ 0x140518034 (CmpSignalUnloadEventArrayForHive.c)
+ *     CmpCmdHiveClose @ 0x1405180AC (CmpCmdHiveClose.c)
  */
 
 char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)

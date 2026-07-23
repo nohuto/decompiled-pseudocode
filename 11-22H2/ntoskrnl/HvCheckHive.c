@@ -30,7 +30,7 @@ __int64 HvCheckHive(__int64 a1, int a2, ...)
   __int64 v13; // rcx
   _DWORD *BinAddress; // rbp
   int v15; // r8d
-  RTL_BITMAP *BitMapHeader; // r10
+  _RTL_BITMAP *BitMapHeader; // r10
   unsigned int v17; // eax
   int v18; // eax
   __int64 v19; // rdx

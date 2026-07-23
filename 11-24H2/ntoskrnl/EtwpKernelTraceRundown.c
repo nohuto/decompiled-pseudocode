@@ -1,34 +1,34 @@
 /*
- * XREFs of EtwpKernelTraceRundown @ 0x140A15E44
+ * XREFs of EtwpKernelTraceRundown @ 0x140A0F024
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x14048FBCC (EtwpUpdateSelectedGroupMasks.c)
- *     EtwKernelMemoryRundown @ 0x1407A950C (EtwKernelMemoryRundown.c)
- *     EtwpLogKernelTraceRundown @ 0x140A15DD0 (EtwpLogKernelTraceRundown.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x14048A210 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwKernelMemoryRundown @ 0x1407A964C (EtwKernelMemoryRundown.c)
+ *     EtwpLogKernelTraceRundown @ 0x140A0EFB0 (EtwpLogKernelTraceRundown.c)
  * Callees:
- *     EtwpCloseLogger @ 0x140347D90 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x140347F50 (EtwpOpenLogger.c)
- *     PopExecuteOnTargetProcessors @ 0x1403529A4 (PopExecuteOnTargetProcessors.c)
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
- *     KeTraceHgsPlusRundown @ 0x1405C2288 (KeTraceHgsPlusRundown.c)
- *     KeTraceThreadAffinityRundown @ 0x1405C22FC (KeTraceThreadAffinityRundown.c)
- *     KeTraceSchedulingGroupRundown @ 0x1405C7810 (KeTraceSchedulingGroupRundown.c)
- *     KeTraceParkingRundown @ 0x1405C8144 (KeTraceParkingRundown.c)
- *     PsPerfLogSessionRundown @ 0x14077B980 (PsPerfLogSessionRundown.c)
- *     EtwpClockSourceRunDown @ 0x1407B09CC (EtwpClockSourceRunDown.c)
- *     EtwpExecutiveResourceConfigRunDown @ 0x1407B0B48 (EtwpExecutiveResourceConfigRunDown.c)
- *     EtwpLogMemInfoRundown @ 0x1407B0C30 (EtwpLogMemInfoRundown.c)
- *     EtwpLogRefSetAutoMark @ 0x1407B0C94 (EtwpLogRefSetAutoMark.c)
- *     EtwpObjectTypeRundown @ 0x1407B0FE4 (EtwpObjectTypeRundown.c)
- *     EtwpPoolRunDown @ 0x1407B1140 (EtwpPoolRunDown.c)
- *     EtwpProcessorRundown @ 0x1407B1358 (EtwpProcessorRundown.c)
- *     EtwpSpinLockConfigRunDown @ 0x1407B1644 (EtwpSpinLockConfigRunDown.c)
- *     MmIdentifyPhysicalMemory @ 0x1407EBB48 (MmIdentifyPhysicalMemory.c)
- *     MmLogSystemShareablePfnInfo @ 0x1407F8094 (MmLogSystemShareablePfnInfo.c)
- *     MmLogQueryCombineStats @ 0x140932778 (MmLogQueryCombineStats.c)
- *     EtwpProcessThreadImageRundown @ 0x140A1632C (EtwpProcessThreadImageRundown.c)
- *     WmiTraceRundownNotify @ 0x140A164A4 (WmiTraceRundownNotify.c)
- *     EtwpSampledProfileRunDown @ 0x140A6857C (EtwpSampledProfileRunDown.c)
- *     CmEtwRunDown @ 0x140A6EEE8 (CmEtwRunDown.c)
+ *     EtwpCloseLogger @ 0x140326790 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x140326950 (EtwpOpenLogger.c)
+ *     PopExecuteOnTargetProcessors @ 0x140370234 (PopExecuteOnTargetProcessors.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
+ *     KeTraceHgsPlusRundown @ 0x1405BF858 (KeTraceHgsPlusRundown.c)
+ *     KeTraceThreadAffinityRundown @ 0x1405BF8CC (KeTraceThreadAffinityRundown.c)
+ *     KeTraceSchedulingGroupRundown @ 0x1405C4F40 (KeTraceSchedulingGroupRundown.c)
+ *     KeTraceParkingRundown @ 0x1405C5874 (KeTraceParkingRundown.c)
+ *     PsPerfLogSessionRundown @ 0x14077B830 (PsPerfLogSessionRundown.c)
+ *     EtwpClockSourceRunDown @ 0x1407B0E1C (EtwpClockSourceRunDown.c)
+ *     EtwpExecutiveResourceConfigRunDown @ 0x1407B0F98 (EtwpExecutiveResourceConfigRunDown.c)
+ *     EtwpLogMemInfoRundown @ 0x1407B1080 (EtwpLogMemInfoRundown.c)
+ *     EtwpLogRefSetAutoMark @ 0x1407B10E4 (EtwpLogRefSetAutoMark.c)
+ *     EtwpObjectTypeRundown @ 0x1407B1434 (EtwpObjectTypeRundown.c)
+ *     EtwpPoolRunDown @ 0x1407B1590 (EtwpPoolRunDown.c)
+ *     EtwpProcessorRundown @ 0x1407B17A8 (EtwpProcessorRundown.c)
+ *     EtwpSpinLockConfigRunDown @ 0x1407B1A94 (EtwpSpinLockConfigRunDown.c)
+ *     MmIdentifyPhysicalMemory @ 0x1407EC118 (MmIdentifyPhysicalMemory.c)
+ *     MmLogSystemShareablePfnInfo @ 0x1407F8804 (MmLogSystemShareablePfnInfo.c)
+ *     MmLogQueryCombineStats @ 0x1408F78D4 (MmLogQueryCombineStats.c)
+ *     EtwpProcessThreadImageRundown @ 0x140A0F50C (EtwpProcessThreadImageRundown.c)
+ *     WmiTraceRundownNotify @ 0x140A0F684 (WmiTraceRundownNotify.c)
+ *     EtwpSampledProfileRunDown @ 0x140A6192C (EtwpSampledProfileRunDown.c)
+ *     CmEtwRunDown @ 0x140A6836C (CmEtwRunDown.c)
  */
 
 BOOLEAN __fastcall EtwpKernelTraceRundown(
@@ -45,7 +45,7 @@ BOOLEAN __fastcall EtwpKernelTraceRundown(
   __int64 v11; // rdx
   __int64 v12; // rbp
   __int64 v13; // r8
-  __int64 v14; // r9
+  int v14; // r9d
   int v15; // r8d
   __int64 v16; // rdi
   _DWORD *v17; // r14
@@ -83,7 +83,7 @@ BOOLEAN __fastcall EtwpKernelTraceRundown(
     {
       if ( (a1[2] & 0x1000000) == 0 )
       {
-        LODWORD(v14) = 0;
+        v14 = 0;
 LABEL_17:
         v15 = *a1 >> 17;
         LOBYTE(v15) = (*a1 & 0x20000) != 0;
@@ -128,7 +128,7 @@ LABEL_31:
               if ( (a1[2] & 0x100000) != 0 )
               {
                 LOBYTE(v11) = v7;
-                EtwpClockSourceRunDown(v12, v11, v13, v14);
+                EtwpClockSourceRunDown(v12, v11);
               }
               v20 = (__int64)(a1 + 5);
               if ( (a1[5] & 0x180) != 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCopyPfnEntryRaw @ 0x140441C20
+ * XREFs of MiCopyPfnEntryRaw @ 0x1404386A0
  * Callers:
- *     MiSplitDirectMapPage @ 0x1404D14D0 (MiSplitDirectMapPage.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
- *     MiCreateInitialPfns @ 0x14066C460 (MiCreateInitialPfns.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MxCreatePfn @ 0x140C526E4 (MxCreatePfn.c)
- *     MiCreateResidentBasePfnTemplate @ 0x140C580B8 (MiCreateResidentBasePfnTemplate.c)
+ *     MiSplitDirectMapPage @ 0x1404CA510 (MiSplitDirectMapPage.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
+ *     MiCreateInitialPfns @ 0x14066D630 (MiCreateInitialPfns.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MxCreatePfn @ 0x140C54874 (MxCreatePfn.c)
+ *     MiCreateResidentBasePfnTemplate @ 0x140C5A248 (MiCreateResidentBasePfnTemplate.c)
  * Callees:
  *     <none>
  */

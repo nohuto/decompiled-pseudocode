@@ -60,7 +60,9 @@ __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, ULONG_PTR a2)
     || (v33 = 0LL, v34 = 0LL, (int)MiTryLockProtoPoolPageAtDpc(v8, v5, &v34, &v33) < 0) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v15 = v32;
       if ( v32 <= 0xFu && CurrentIrql >= 2u )
@@ -89,10 +91,10 @@ __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, ULONG_PTR a2)
     || !(unsigned int)MiStandbyPageContentsIntact(v9) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v24 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v24 - 2) <= 0xDu )
       {
         v25 = KeGetCurrentPrcb();
         v26 = v25->SchedulerAssist;
@@ -131,10 +133,10 @@ __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, ULONG_PTR a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v16 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v16 - 2) <= 0xDu )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;
@@ -154,10 +156,10 @@ LABEL_33:
   }
   MiCopyPage(a2, v12);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v21 - 2) <= 0xDu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v21 - 2) <= 0xDu )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

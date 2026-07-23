@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpAllocateLevelKwFilter @ 0x1409F4948
+ * XREFs of EtwpAllocateLevelKwFilter @ 0x1409F4BD8
  * Callers:
- *     EtwpAllocateFilter @ 0x14077D6B0 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x14077D8A0 (EtwpAllocateFilter.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

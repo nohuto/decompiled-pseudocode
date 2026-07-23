@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhOwnerInitialize @ 0x140346490
+ * XREFs of RtlpHpLfhOwnerInitialize @ 0x140348510
  * Callers:
- *     RtlpHpLfhBucketInitialize @ 0x140345F70 (RtlpHpLfhBucketInitialize.c)
- *     RtlpHpLfhSlotInitialize @ 0x140346430 (RtlpHpLfhSlotInitialize.c)
+ *     RtlpHpLfhBucketInitialize @ 0x140347FF0 (RtlpHpLfhBucketInitialize.c)
+ *     RtlpHpLfhSlotInitialize @ 0x1403484B0 (RtlpHpLfhSlotInitialize.c)
  * Callees:
- *     RtlpHpInitializeLock @ 0x14034B490 (RtlpHpInitializeLock.c)
+ *     RtlpHpInitializeLock @ 0x14034D510 (RtlpHpInitializeLock.c)
  */
 
 _QWORD *__fastcall RtlpHpLfhOwnerInitialize(__int64 a1, char a2, char a3, __int64 a4)

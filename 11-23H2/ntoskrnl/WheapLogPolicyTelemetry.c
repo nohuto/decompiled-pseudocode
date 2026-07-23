@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapLogPolicyTelemetry @ 0x140A098F4
+ * XREFs of WheapLogPolicyTelemetry @ 0x140A09BA4
  * Callers:
- *     WheapCommitPolicy @ 0x140A09648 (WheapCommitPolicy.c)
+ *     WheapCommitPolicy @ 0x140A098F8 (WheapCommitPolicy.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 LONG WheapLogPolicyTelemetry()

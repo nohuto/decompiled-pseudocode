@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwDuplicateObject_Entry @ 0x140C328F0
+ * XREFs of VfZwDuplicateObject_Entry @ 0x140C38900
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckVirtualAddress @ 0x140C20574 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140C47B84 (ViZwShouldCheck.c)
+ *     ViZwCheckVirtualAddress @ 0x140C26580 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140C4DB94 (ViZwShouldCheck.c)
  */
 
 void __fastcall VfZwDuplicateObject_Entry(__int64 a1, __int64 a2)

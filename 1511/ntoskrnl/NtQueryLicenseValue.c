@@ -11,13 +11,18 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQueryLicenseValue(ULONG64 a1, ULONG64 a2, volatile void *a3, unsigned int a4, ULONG64 a5)
+NTSTATUS __cdecl NtQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   SIZE_T v5; // r15
   char PreviousMode; // dl
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   int v10; // r8d
-  ULONG64 v11; // rcx
+  wchar_t *Buffer; // rcx
   ULONG64 v12; // rdx
   PVOID PoolWithTag; // rax
   PVOID v14; // rsi
@@ -27,28 +32,28 @@ __int64 __fastcall NtQueryLicenseValue(ULONG64 a1, ULONG64 a2, volatile void *a3
   __int128 *v19; // [rsp+40h] [rbp-58h]
   __int128 v20; // [rsp+48h] [rbp-50h] BYREF
 
-  v5 = a4;
+  v5 = DataSize;
   P = 0LL;
   v20 = 0uLL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v9 = 0;
-  if ( a1 && a5 )
+  if ( ValueName && ResultDataSize )
   {
-    LODWORD(v19) = a1;
+    LODWORD(v19) = (_DWORD)ValueName;
     if ( PreviousMode )
     {
-      if ( a1 >= MmUserProbeAddress )
-        a1 = MmUserProbeAddress;
-      v10 = *(_DWORD *)a1;
-      LODWORD(v20) = *(_DWORD *)a1;
-      v11 = *(_QWORD *)(a1 + 8);
-      *((_QWORD *)&v20 + 1) = v11;
-      if ( v11 && (_WORD)v10 && !((unsigned __int16)v10 % 2) )
+      if ( (unsigned __int64)ValueName >= MmUserProbeAddress )
+        ValueName = (PUNICODE_STRING)MmUserProbeAddress;
+      v10 = *(_DWORD *)&ValueName->Length;
+      LODWORD(v20) = *(_DWORD *)&ValueName->Length;
+      Buffer = ValueName->Buffer;
+      *((_QWORD *)&v20 + 1) = Buffer;
+      if ( Buffer && (_WORD)v10 && !((unsigned __int16)v10 % 2) )
       {
-        if ( (v11 & 1) != 0 )
+        if ( ((unsigned __int8)Buffer & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        v12 = v11 + (unsigned __int16)v10;
-        if ( v12 > MmUserProbeAddress || v12 < v11 )
+        v12 = (ULONG64)Buffer + (unsigned __int16)v10;
+        if ( v12 > MmUserProbeAddress || v12 < (unsigned __int64)Buffer )
           *(_BYTE *)MmUserProbeAddress = 0;
         PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v20, 0x20534C53u);
         P = PoolWithTag;
@@ -58,17 +63,17 @@ __int64 __fastcall NtQueryLicenseValue(ULONG64 a1, ULONG64 a2, volatile void *a3
           memmove(PoolWithTag, *((const void **)&v20 + 1), (unsigned __int16)v20);
           *((_QWORD *)&v20 + 1) = v14;
           v19 = &v20;
-          if ( a2 )
+          if ( Type )
           {
-            v15 = (_DWORD *)a2;
-            if ( a2 >= MmUserProbeAddress )
+            v15 = Type;
+            if ( (unsigned __int64)Type >= MmUserProbeAddress )
               v15 = (_DWORD *)MmUserProbeAddress;
             *v15 = *v15;
           }
-          if ( a3 && (_DWORD)v5 )
-            ProbeForWrite(a3, v5, 1u);
-          v16 = (_DWORD *)a5;
-          if ( a5 >= MmUserProbeAddress )
+          if ( Data && (_DWORD)v5 )
+            ProbeForWrite(Data, v5, 1u);
+          v16 = ResultDataSize;
+          if ( (unsigned __int64)ResultDataSize >= MmUserProbeAddress )
             v16 = (_DWORD *)MmUserProbeAddress;
           *v16 = *v16;
           v9 = 0;
@@ -84,7 +89,7 @@ __int64 __fastcall NtQueryLicenseValue(ULONG64 a1, ULONG64 a2, volatile void *a3
       }
     }
     if ( v9 >= 0 )
-      v9 = sub_140489CE0((_DWORD)v19, a2, (_DWORD)a3, v5, a5);
+      v9 = sub_140489CE0((_DWORD)v19, (_DWORD)Type, (_DWORD)Data, v5, (__int64)ResultDataSize);
   }
   else
   {
@@ -92,5 +97,5 @@ __int64 __fastcall NtQueryLicenseValue(ULONG64 a1, ULONG64 a2, volatile void *a3
   }
   if ( P )
     ExFreePoolWithTag(P, 0);
-  return (unsigned int)v9;
+  return v9;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllocateVirtualMemoryCommon @ 0x1406F6A20
+ * XREFs of MiAllocateVirtualMemoryCommon @ 0x1406F6C30
  * Callers:
- *     MmAllocateUserStack @ 0x140774394 (MmAllocateUserStack.c)
- *     MmAllocateVirtualMemory @ 0x1407A3970 (MmAllocateVirtualMemory.c)
- *     NtAllocateVirtualMemory @ 0x1407ABE20 (NtAllocateVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x140774584 (MmAllocateUserStack.c)
+ *     MmAllocateVirtualMemory @ 0x1407A3B60 (MmAllocateVirtualMemory.c)
+ *     NtAllocateVirtualMemory @ 0x1407AC010 (NtAllocateVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1406F6BB0 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1406F7220 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x14076003C (PsReferencePartitionByHandle.c)
- *     MiAllocateUserStack @ 0x1407CB164 (MiAllocateUserStack.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1406F6DC0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1406F7430 (MiAllocateVirtualMemory.c)
+ *     PsReferencePartitionByHandle @ 0x14076022C (PsReferencePartitionByHandle.c)
+ *     MiAllocateUserStack @ 0x1407CB434 (MiAllocateUserStack.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemoryCommon(

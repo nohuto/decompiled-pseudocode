@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFreeCombineBlock @ 0x1402C67C4
+ * XREFs of MiFreeCombineBlock @ 0x140311464
  * Callers:
- *     MiSharePagesCleanup @ 0x1402C65C0 (MiSharePagesCleanup.c)
- *     MiDecommitSharedPageTail @ 0x1402DBF60 (MiDecommitSharedPageTail.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiDecrementCombinedPteEx @ 0x14036A1BC (MiDecrementCombinedPteEx.c)
+ *     MiDecommitSharedPageTail @ 0x1402BDD20 (MiDecommitSharedPageTail.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiSharePagesCleanup @ 0x140311260 (MiSharePagesCleanup.c)
+ *     MiDecrementCombinedPteEx @ 0x14036BF5C (MiDecrementCombinedPteEx.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
-void __fastcall MiFreeCombineBlock(unsigned __int64 a1, int a2)
+void __fastcall MiFreeCombineBlock(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rsi
   __int64 v5; // rdi
-  __int64 v6; // r15
+  unsigned __int64 *v6; // r15
   volatile LONG *v7; // rcx
   KIRQL v8; // r14
   volatile LONG *v9; // rcx
@@ -28,7 +28,7 @@ void __fastcall MiFreeCombineBlock(unsigned __int64 a1, int a2)
   unsigned int i; // eax
   __int64 v15; // r8
   _QWORD *v16; // rdx
-  unsigned __int64 *v17; // rax
+  __int64 *v17; // rax
   __int64 v18; // rcx
   volatile LONG *v19; // rcx
 
@@ -36,8 +36,8 @@ void __fastcall MiFreeCombineBlock(unsigned __int64 a1, int a2)
   v5 = *(_QWORD *)((a1 & 0xFFFFFFFFFFFFF000uLL) + 0x10);
   if ( *(_QWORD *)(a1 + 24) )
   {
-    v6 = v5 + 16 * ((*(_QWORD *)(a1 + 24) & 0xFLL) + 6);
-    v7 = (volatile LONG *)(v6 + 8);
+    v6 = (unsigned __int64 *)(v5 + 16 * ((*(_QWORD *)(a1 + 24) & 0xFLL) + 6));
+    v7 = (volatile LONG *)(v6 + 1);
     if ( a2 )
     {
       v8 = 17;
@@ -48,7 +48,7 @@ void __fastcall MiFreeCombineBlock(unsigned __int64 a1, int a2)
       v8 = ExAcquireSpinLockExclusive(v7);
     }
     RtlAvlRemoveNode(v6, a1);
-    v9 = (volatile LONG *)(v6 + 8);
+    v9 = (volatile LONG *)(v6 + 1);
     if ( v8 == 17 )
       ExReleaseSpinLockExclusiveFromDpcLevel(v9);
     else
@@ -96,7 +96,7 @@ void __fastcall MiFreeCombineBlock(unsigned __int64 a1, int a2)
   }
   else
   {
-    v17 = (unsigned __int64 *)(v5 + 72);
+    v17 = (__int64 *)(v5 + 72);
     v18 = *(_QWORD *)(v5 + 72);
     if ( *(_QWORD *)(v18 + 8) != v5 + 72 )
 LABEL_22:

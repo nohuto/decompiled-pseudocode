@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceTransition @ 0x1407646AC
+ * XREFs of PopDirectedDripsDiagTraceTransition @ 0x14076407C
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140A401F4 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140A35AD4 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
  *     <none>
  */

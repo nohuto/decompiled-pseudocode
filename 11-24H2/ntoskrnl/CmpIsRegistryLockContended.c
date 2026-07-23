@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpIsRegistryLockContended @ 0x1404F0268
+ * XREFs of CmpIsRegistryLockContended @ 0x1404EDD08
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x140916054 (CmpEnumerateLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x140909AC4 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char CmpIsRegistryLockContended()
@@ -13,7 +13,7 @@ char CmpIsRegistryLockContended()
   unsigned int v3; // r8d
 
   v0 = 0;
-  if ( dword_140EF6D28 )
+  if ( dword_140EF6F68 )
   {
     v2 = CmpRegistryLock;
     v3 = 0;

@@ -16,16 +16,14 @@ __int64 __fastcall RtlpHpHeapCompact(__int64 a1, int a2)
   int v2; // ebx
   int v4; // ecx
   unsigned int v5; // ebx
-  __int64 v6; // rax
 
   v2 = *(_DWORD *)(a1 + 20);
   v4 = *(_DWORD *)(a1 + 220);
   v5 = a2 | v2 & 0x13000003;
   if ( v4 && v4 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
     v5 |= 1u;
-  v6 = RtlpInterlockedFlushSList(a1 + 768);
-  if ( v6 )
-    RtlpHpVsContextFreeList(a1 + 704, v5, v6);
+  if ( RtlpInterlockedFlushSList(a1 + 768) )
+    RtlpHpVsContextFreeList((PRTL_SRWLOCK)(a1 + 704));
   RtlpHpLfhContextCompact(a1 + 896, v5);
   RtlpHpSegContextCompact(a1 + 320, v5);
   RtlpHpSegContextCompact(a1 + 512, v5);

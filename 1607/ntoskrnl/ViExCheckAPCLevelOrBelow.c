@@ -4,7 +4,7 @@
  *     ViExAcquireFastMutexCommon @ 0x14071A5CC (ViExAcquireFastMutexCommon.c)
  *     ViExTryToAcquireFastMutexCommon @ 0x14071A6E8 (ViExTryToAcquireFastMutexCommon.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 unsigned __int8 __fastcall ViExCheckAPCLevelOrBelow(__int64 a1, ULONG_PTR a2, int a3)

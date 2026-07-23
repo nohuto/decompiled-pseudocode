@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvEpWriteMsr @ 0x1404E6000
+ * XREFs of HalpHvEpWriteMsr @ 0x1404DF5A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpHvEpWriteMsr(__int64 a1, unsigned int a2, unsigned __int64 a3)
@@ -17,8 +17,8 @@ __int64 __fastcall HalpHvEpWriteMsr(__int64 a1, unsigned int a2, unsigned __int6
   }
   else
   {
-    result = qword_140FBB0A0;
-    if ( qword_140FBB0A0 )
+    result = qword_140FBB440;
+    if ( qword_140FBB440 )
     {
       LODWORD(a1) = a1 & 0x7FFFFFFF;
       return guard_dispatch_icall_no_overrides(a1, 1LL);

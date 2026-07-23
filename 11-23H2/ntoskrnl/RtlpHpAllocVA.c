@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpAllocVA @ 0x140286AC0
+ * XREFs of RtlpHpAllocVA @ 0x140286D50
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14024F080 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegMgrReserve @ 0x140314BB4 (RtlpHpSegMgrReserve.c)
- *     RtlpHpLargeAlloc @ 0x14032409C (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapExtendContext @ 0x14036469C (RtlpHpHeapExtendContext.c)
- *     RtlpHpHeapAllocate @ 0x140389128 (RtlpHpHeapAllocate.c)
+ *     RtlpHpSegMgrCommit @ 0x14024F150 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrReserve @ 0x140314E44 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpLargeAlloc @ 0x14032432C (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapExtendContext @ 0x14036483C (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x140389308 (RtlpHpHeapAllocate.c)
  * Callees:
- *     RtlpHpEnvAllocVA @ 0x140286620 (RtlpHpEnvAllocVA.c)
- *     RtlpHpVaMgrCtxAlloc @ 0x14030FE5C (RtlpHpVaMgrCtxAlloc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlHeapZero @ 0x1403D8890 (RtlHeapZero.c)
+ *     RtlpHpEnvAllocVA @ 0x1402868B0 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpVaMgrCtxAlloc @ 0x1403100EC (RtlpHpVaMgrCtxAlloc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlHeapZero @ 0x1403D8A70 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpAllocVA(unsigned __int64 *a1, __int64 *a2, unsigned __int64 a3, int a4, int a5, __int128 *a6)

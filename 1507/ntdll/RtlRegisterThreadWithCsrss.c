@@ -7,9 +7,9 @@
  *     __security_check_cookie @ 0x180084090 (__security_check_cookie.c)
  */
 
-__int64 RtlRegisterThreadWithCsrss()
+NTSTATUS RtlRegisterThreadWithCsrss(void)
 {
-  unsigned int v0; // ecx
+  NTSTATUS v0; // ecx
   _CLIENT_ID ClientId; // xmm0
   _QWORD v3[6]; // [rsp+20h] [rbp-1C8h] BYREF
   int v4; // [rsp+50h] [rbp-198h]
@@ -27,7 +27,7 @@ __int64 RtlRegisterThreadWithCsrss()
     v3[0] = 5767216LL;
     v6 = ClientId;
     v4 = 65561;
-    return (unsigned int)CsrServerApiRoutine(v3, v3);
+    return ((__int64 (__fastcall *)(_QWORD *, _QWORD *))CsrServerApiRoutine)(v3, v3);
   }
-  return 3221225659LL;
+  return -1073741637;
 }

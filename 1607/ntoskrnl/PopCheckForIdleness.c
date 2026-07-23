@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCheckForIdleness @ 0x140008B3C
+ * XREFs of PopCheckForIdleness @ 0x1400086B0
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTraceIdleCheck @ 0x140008A6C (PopDiagTraceIdleCheck.c)
- *     PopGetPolicyWorker @ 0x140008B0C (PopGetPolicyWorker.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
+ *     PopDiagTraceIdleCheck @ 0x1400085E0 (PopDiagTraceIdleCheck.c)
+ *     PopGetPolicyWorker @ 0x140008680 (PopGetPolicyWorker.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
  */
 
 __int64 PopCheckForIdleness()
@@ -30,18 +30,18 @@ __int64 PopCheckForIdleness()
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  v2 = qword_1403033B8;
+  v2 = qword_1403032F8;
   v3 = MEMORY[0xFFFFF78000000320];
   v12 = MEMORY[0xFFFFF78000000320];
   __writecr8(CurrentIrql);
-  if ( dword_14030338C )
+  if ( dword_1403032CC )
   {
-    if ( byte_1403033B5 )
+    if ( byte_1403032F5 )
     {
       v4 = v3 - v2;
       if ( (int)v3 - v2 <= 0 )
       {
-        byte_1403033B5 = 0;
+        byte_1403032F5 = 0;
         goto LABEL_19;
       }
       v5 = 100;
@@ -75,15 +75,15 @@ __int64 PopCheckForIdleness()
         if ( v6 / ActiveProcessorCount < 0 )
           v5 = 0;
       }
-      dword_140303388 += PopIdleScanInterval;
-      dword_140303384 = v7;
+      dword_1403032C8 += PopIdleScanInterval;
+      dword_1403032C4 = v7;
       PopSIdle = v5;
       PopDiagTraceIdleCheck(v8, v7, v5);
       v3 = v12;
     }
     v14 = qword_1403AA618;
-    qword_1403033B8 = v3;
-    byte_1403033B5 = 1;
+    qword_1403032F8 = v3;
+    byte_1403032F5 = 1;
     v15 = 0;
     v13 = &KeActiveProcessors;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v11, &v13) )

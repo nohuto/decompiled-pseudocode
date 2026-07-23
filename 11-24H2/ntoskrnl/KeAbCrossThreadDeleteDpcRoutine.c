@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAbCrossThreadDeleteDpcRoutine @ 0x1405C4030
+ * XREFs of KeAbCrossThreadDeleteDpcRoutine @ 0x1405C1600
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403DD90C (KeAbMarkCrossThreadReleasable.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403BD5FC (KeAbMarkCrossThreadReleasable.c)
  */
 
 LONG __fastcall KeAbCrossThreadDeleteDpcRoutine(__int64 a1, __int64 a2)

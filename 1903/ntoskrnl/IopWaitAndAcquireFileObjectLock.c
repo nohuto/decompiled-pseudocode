@@ -59,7 +59,7 @@ __int64 __fastcall IopWaitAndAcquireFileObjectLock(
       KeAbPreWait((__int64)a4);
     v9 = IopWaitForLockAlertable((PVOID)(Object + 32), a2, a3);
     if ( a4 )
-      a4 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)(Object + 32), (__int64)a4, 0);
+      a4 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)(Object + 32), &a4->TreeNode, 0);
   }
   while ( v9 >= 0 );
   _InterlockedDecrement(Object + 28);

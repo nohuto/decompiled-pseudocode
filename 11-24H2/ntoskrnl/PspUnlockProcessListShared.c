@@ -1,15 +1,15 @@
 /*
- * XREFs of PspUnlockProcessListShared @ 0x1402BAE60
+ * XREFs of PspUnlockProcessListShared @ 0x1403625A0
  * Callers:
- *     PsGetPreviousProcess @ 0x1408F00BC (PsGetPreviousProcess.c)
- *     PsChangeQuantumTable @ 0x140A32230 (PsChangeQuantumTable.c)
- *     PsGetNextProcessEx @ 0x140A3AC50 (PsGetNextProcessEx.c)
+ *     PsGetPreviousProcess @ 0x1408618BC (PsGetPreviousProcess.c)
+ *     PsChangeQuantumTable @ 0x140A261A0 (PsChangeQuantumTable.c)
+ *     PsGetNextProcessEx @ 0x140A30430 (PsGetNextProcessEx.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PspUnlockProcessListShared(__int64 a1, __int64 a2)
@@ -42,7 +42,7 @@ __int64 __fastcall PspUnlockProcessListShared(__int64 a1, __int64 a2)
                  (__int64)(v7 + 16),
                  (ULONG_PTR)CurrentThread,
                  (__int64)&PspActiveProcessLock,
-                 1,
+                 1LL,
                  0LL);
       goto LABEL_14;
     }

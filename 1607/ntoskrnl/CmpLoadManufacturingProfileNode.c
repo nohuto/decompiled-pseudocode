@@ -3,8 +3,8 @@
  * Callers:
  *     CmpLoadManufacturingProfileServicesNode @ 0x1407CDCF0 (CmpLoadManufacturingProfileServicesNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     CmpFindSubKeyByName @ 0x14055FE64 (CmpFindSubKeyByName.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     CmpFindSubKeyByName @ 0x1405603A4 (CmpFindSubKeyByName.c)
  *     CmpLoadManufacturingModeNode @ 0x1407CDB80 (CmpLoadManufacturingModeNode.c)
  */
 

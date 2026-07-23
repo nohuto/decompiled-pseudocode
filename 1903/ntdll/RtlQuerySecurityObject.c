@@ -7,17 +7,22 @@
  *     sub_1800E62D4 @ 0x1800E62D4 (sub_1800E62D4.c)
  */
 
-__int64 __fastcall RtlQuerySecurityObject(__int64 a1, __int16 a2, __int64 a3, unsigned int a4, unsigned int *a5)
+NTSTATUS __cdecl RtlQuerySecurityObject(
+        PSECURITY_DESCRIPTOR ObjectDescriptor,
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR ResultantDescriptor,
+        ULONG DescriptorLength,
+        PULONG ReturnLength)
 {
   int v6; // ecx
   char v8; // si
   unsigned int v9; // r13d
   unsigned int v10; // r8d
   unsigned __int16 *v11; // rbp
-  __int64 v12; // rbx
+  char *v12; // rbx
   unsigned __int8 *v13; // r15
-  unsigned int v14; // r12d
-  unsigned __int8 *v15; // rsi
+  SECURITY_INFORMATION v14; // r12d
+  char *v15; // rsi
   unsigned int v16; // ecx
   char *v17; // rsi
   __int16 v18; // dx
@@ -28,129 +33,129 @@ __int64 __fastcall RtlQuerySecurityObject(__int64 a1, __int16 a2, __int64 a3, un
   __int64 v23; // rbx
   int v24; // eax
   unsigned int v26; // [rsp+20h] [rbp-68h]
-  int v27; // [rsp+24h] [rbp-64h]
-  int v28; // [rsp+28h] [rbp-60h]
-  unsigned __int8 *Src; // [rsp+30h] [rbp-58h]
+  SECURITY_INFORMATION v27; // [rsp+24h] [rbp-64h]
+  SECURITY_INFORMATION v28; // [rsp+28h] [rbp-60h]
+  void *Src; // [rsp+30h] [rbp-58h]
   unsigned int v30; // [rsp+90h] [rbp+8h] BYREF
   int v31; // [rsp+98h] [rbp+10h]
   size_t Size; // [rsp+A0h] [rbp+18h]
-  unsigned int v33; // [rsp+A8h] [rbp+20h]
+  ULONG v33; // [rsp+A8h] [rbp+20h]
 
-  v33 = a4;
+  v33 = DescriptorLength;
   v30 = 0;
   v6 = 0;
   v26 = 0;
   LODWORD(Size) = 0;
-  v28 = a2 & 2;
-  v8 = a2;
+  v28 = SecurityInformation & 2;
+  v8 = SecurityInformation;
   Src = 0LL;
   v9 = 0;
   v10 = 0;
   v11 = 0LL;
   v12 = 0LL;
   v13 = 0LL;
-  if ( (a2 & 2) != 0 )
+  if ( (SecurityInformation & 2) != 0 )
   {
-    if ( *(__int16 *)(a1 + 2) >= 0 )
+    if ( *((__int16 *)ObjectDescriptor + 1) >= 0 )
     {
-      v13 = *(unsigned __int8 **)(a1 + 16);
+      v13 = (unsigned __int8 *)*((_QWORD *)ObjectDescriptor + 2);
     }
     else
     {
-      if ( !*(_DWORD *)(a1 + 8) )
+      if ( !*((_DWORD *)ObjectDescriptor + 2) )
         goto LABEL_8;
-      v13 = (unsigned __int8 *)(a1 + *(unsigned int *)(a1 + 8));
+      v13 = (unsigned __int8 *)ObjectDescriptor + *((unsigned int *)ObjectDescriptor + 2);
     }
     if ( v13 )
       v26 = (4 * v13[1] + 11) & 0xFFFFFFFC;
   }
 LABEL_8:
-  v27 = a2 & 4;
-  if ( (a2 & 4) != 0 && (*(_BYTE *)(a1 + 2) & 4) != 0 )
+  v27 = SecurityInformation & 4;
+  if ( (SecurityInformation & 4) != 0 && (*((_BYTE *)ObjectDescriptor + 2) & 4) != 0 )
   {
-    if ( *(__int16 *)(a1 + 2) >= 0 )
+    if ( *((__int16 *)ObjectDescriptor + 1) >= 0 )
     {
-      v11 = *(unsigned __int16 **)(a1 + 32);
+      v11 = (unsigned __int16 *)*((_QWORD *)ObjectDescriptor + 4);
     }
     else
     {
-      if ( !*(_DWORD *)(a1 + 16) )
+      if ( !*((_DWORD *)ObjectDescriptor + 4) )
         goto LABEL_16;
-      v11 = (unsigned __int16 *)(a1 + *(unsigned int *)(a1 + 16));
+      v11 = (unsigned __int16 *)((char *)ObjectDescriptor + *((unsigned int *)ObjectDescriptor + 4));
     }
     if ( v11 )
       v9 = (v11[1] + 3) & 0xFFFFFFFC;
   }
 LABEL_16:
-  v14 = a2 & 0x1F8;
-  if ( (a2 & 0x1F8) != 0 && (*(_BYTE *)(a1 + 2) & 0x10) != 0 )
+  v14 = SecurityInformation & 0x1F8;
+  if ( (SecurityInformation & 0x1F8) != 0 && (*((_BYTE *)ObjectDescriptor + 2) & 0x10) != 0 )
   {
-    if ( *(__int16 *)(a1 + 2) >= 0 )
+    if ( *((__int16 *)ObjectDescriptor + 1) >= 0 )
     {
-      v12 = *(_QWORD *)(a1 + 24);
+      v12 = (char *)*((_QWORD *)ObjectDescriptor + 3);
     }
     else
     {
-      if ( !*(_DWORD *)(a1 + 12) )
+      if ( !*((_DWORD *)ObjectDescriptor + 3) )
         goto LABEL_24;
-      v12 = a1 + *(unsigned int *)(a1 + 12);
+      v12 = (char *)ObjectDescriptor + *((unsigned int *)ObjectDescriptor + 3);
     }
     if ( v12 )
     {
-      sub_1800E62D4(v12, 0LL, &v30, a2 & 0x1F8);
+      sub_1800E62D4(v12, 0LL, &v30, SecurityInformation & 0x1F8);
       v10 = v30;
       v6 = Size;
-      a4 = v33;
+      DescriptorLength = v33;
     }
   }
 LABEL_24:
   v31 = v8 & 1;
   if ( (v8 & 1) != 0 )
   {
-    if ( *(__int16 *)(a1 + 2) >= 0 )
+    if ( *((__int16 *)ObjectDescriptor + 1) >= 0 )
     {
-      v15 = *(unsigned __int8 **)(a1 + 8);
+      v15 = (char *)*((_QWORD *)ObjectDescriptor + 1);
     }
     else
     {
-      if ( !*(_DWORD *)(a1 + 4) )
+      if ( !*((_DWORD *)ObjectDescriptor + 1) )
       {
         Src = 0LL;
         goto LABEL_32;
       }
-      v15 = (unsigned __int8 *)(a1 + *(unsigned int *)(a1 + 4));
+      v15 = (char *)ObjectDescriptor + *((unsigned int *)ObjectDescriptor + 1);
     }
     Src = v15;
     if ( v15 )
     {
-      v6 = (4 * v15[1] + 11) & 0xFFFFFFFC;
+      v6 = (4 * (unsigned __int8)v15[1] + 11) & 0xFFFFFFFC;
       LODWORD(Size) = v6;
     }
   }
 LABEL_32:
   v16 = v9 + v6 + v10 + v26 + 20;
-  *a5 = v16;
-  if ( v16 > a4 || !a3 )
-    return 3221225507LL;
-  v17 = (char *)(a3 + 20);
-  *(_QWORD *)a3 = 0LL;
-  *(_QWORD *)(a3 + 8) = 0LL;
-  *(_DWORD *)(a3 + 16) = 0;
-  *(_BYTE *)a3 = 1;
-  v18 = *(_WORD *)(a3 + 2) | 0x8000;
-  *(_WORD *)(a3 + 2) = v18;
+  *ReturnLength = v16;
+  if ( v16 > DescriptorLength || !ResultantDescriptor )
+    return -1073741789;
+  v17 = (char *)ResultantDescriptor + 20;
+  *(_QWORD *)ResultantDescriptor = 0LL;
+  *((_QWORD *)ResultantDescriptor + 1) = 0LL;
+  *((_DWORD *)ResultantDescriptor + 4) = 0;
+  *(_BYTE *)ResultantDescriptor = 1;
+  v18 = *((_WORD *)ResultantDescriptor + 1) | 0x8000;
+  *((_WORD *)ResultantDescriptor + 1) = v18;
   if ( v14 )
   {
     v19 = v18;
     if ( v10 )
     {
-      sub_1800E62D4(v12, a3 + 20, &v30, v14);
-      *(_DWORD *)(a3 + 12) = 20;
+      sub_1800E62D4(v12, (char *)ResultantDescriptor + 20, &v30, v14);
+      *((_DWORD *)ResultantDescriptor + 3) = 20;
       v17 += v30;
-      v19 = *(_WORD *)(a3 + 2);
+      v19 = *((_WORD *)ResultantDescriptor + 1);
     }
-    v18 = v19 | *(_WORD *)(a1 + 2) & 0x2830;
-    *(_WORD *)(a3 + 2) = v18;
+    v18 = v19 | *((_WORD *)ObjectDescriptor + 1) & 0x2830;
+    *((_WORD *)ResultantDescriptor + 1) = v18;
   }
   if ( v27 )
   {
@@ -160,11 +165,11 @@ LABEL_32:
       memmove(v17, v11, v9);
       v21 = (int)v17;
       v17 += v9;
-      *(_DWORD *)(a3 + 16) = v21 - a3;
-      v20 = *(_WORD *)(a3 + 2);
+      *((_DWORD *)ResultantDescriptor + 4) = v21 - (_DWORD)ResultantDescriptor;
+      v20 = *((_WORD *)ResultantDescriptor + 1);
     }
-    v18 = v20 | *(_WORD *)(a1 + 2) & 0x140C;
-    *(_WORD *)(a3 + 2) = v18;
+    v18 = v20 | *((_WORD *)ObjectDescriptor + 1) & 0x140C;
+    *((_WORD *)ResultantDescriptor + 1) = v18;
   }
   if ( v31 )
   {
@@ -175,21 +180,21 @@ LABEL_32:
       memmove(v17, Src, (unsigned int)Size);
       v24 = (int)v17;
       v17 += v23;
-      *(_DWORD *)(a3 + 4) = v24 - a3;
-      v22 = *(_WORD *)(a3 + 2);
+      *((_DWORD *)ResultantDescriptor + 1) = v24 - (_DWORD)ResultantDescriptor;
+      v22 = *((_WORD *)ResultantDescriptor + 1);
     }
-    v18 = v22 | *(_WORD *)(a1 + 2) & 1;
-    *(_WORD *)(a3 + 2) = v18;
+    v18 = v22 | *((_WORD *)ObjectDescriptor + 1) & 1;
+    *((_WORD *)ResultantDescriptor + 1) = v18;
   }
   if ( v28 )
   {
     if ( v26 )
     {
       memmove(v17, v13, v26);
-      v18 = *(_WORD *)(a3 + 2);
-      *(_DWORD *)(a3 + 8) = (_DWORD)v17 - a3;
+      v18 = *((_WORD *)ResultantDescriptor + 1);
+      *((_DWORD *)ResultantDescriptor + 2) = (_DWORD)v17 - (_DWORD)ResultantDescriptor;
     }
-    *(_WORD *)(a3 + 2) = v18 | *(_WORD *)(a1 + 2) & 2;
+    *((_WORD *)ResultantDescriptor + 1) = v18 | *((_WORD *)ObjectDescriptor + 1) & 2;
   }
-  return 0LL;
+  return 0;
 }

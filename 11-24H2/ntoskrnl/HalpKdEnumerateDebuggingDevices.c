@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpKdEnumerateDebuggingDevices @ 0x140B75850
+ * XREFs of HalpKdEnumerateDebuggingDevices @ 0x140B77850
  * Callers:
- *     HalpKdSetupDebuggingDevice @ 0x140B75A80 (HalpKdSetupDebuggingDevice.c)
+ *     HalpKdSetupDebuggingDevice @ 0x140B77A80 (HalpKdSetupDebuggingDevice.c)
  * Callees:
- *     wcsncpy_s @ 0x140504980 (wcsncpy_s.c)
- *     HalpMmAllocateMemory @ 0x140542CB4 (HalpMmAllocateMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     HalpDeviceEquals @ 0x140B75580 (HalpDeviceEquals.c)
+ *     wcsncpy_s @ 0x140502240 (wcsncpy_s.c)
+ *     HalpMmAllocateMemory @ 0x140540604 (HalpMmAllocateMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     HalpDeviceEquals @ 0x140B77580 (HalpDeviceEquals.c)
  */
 
 __int64 __fastcall HalpKdEnumerateDebuggingDevices(__int64 a1, __int64 a2)

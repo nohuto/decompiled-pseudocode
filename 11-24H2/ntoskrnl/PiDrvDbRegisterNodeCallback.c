@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDrvDbRegisterNodeCallback @ 0x1407388B0
+ * XREFs of PiDrvDbRegisterNodeCallback @ 0x1407367E0
  * Callers:
- *     PiDrvDbEnumDriverStoreNodes @ 0x140736CA8 (PiDrvDbEnumDriverStoreNodes.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x140734BD8 (PiDrvDbEnumDriverStoreNodes.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PiDrvDbRegisterNodeCallback(PCWSTR Source, int *a2)
 {
   int v4; // ebx
   __int64 v5; // rax
-  unsigned __int64 v6; // rbx
+  ULONG_PTR v6; // rbx
   wchar_t *Pool2; // rsi
 
   if ( wcsicmp(Source, L"SYSTEM") )
@@ -24,7 +24,7 @@ bool __fastcall PiDrvDbRegisterNodeCallback(PCWSTR Source, int *a2)
       ++v5;
     while ( Source[v5] );
     v6 = (unsigned int)(2 * v5 + 86);
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v6, 0x62647050u);
     if ( Pool2 )
     {
       v4 = RtlStringCchPrintfW(

@@ -29,7 +29,7 @@ __int64 __fastcall MiScanLeafNonPagedPool(
   __int64 v9; // rbx
   __int64 v11; // r13
   unsigned __int64 v12; // rdx
-  union _SLIST_HEADER *v13; // r13
+  _SLIST_HEADER *v13; // r13
   bool v14; // zf
   __int64 v15; // r12
   __int64 v16; // r8

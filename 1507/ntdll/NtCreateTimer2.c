@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtCreateTimer2()
+NTSTATUS __cdecl NtCreateTimer2(
+        PHANDLE TimerHandle,
+        PVOID Reserved1,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Attributes,
+        ACCESS_MASK DesiredAccess)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 181LL;
+  result = 181;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopChangeInterfaceType @ 0x140721040
+ * XREFs of IopChangeInterfaceType @ 0x14071EBD0
  * Callers:
- *     IoReportResourceUsageInternal @ 0x140720F18 (IoReportResourceUsageInternal.c)
+ *     IoReportResourceUsageInternal @ 0x14071EAA8 (IoReportResourceUsageInternal.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x14098E258 (PnpDetermineResourceListSize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x140979290 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char __fastcall IopChangeInterfaceType(__int64 a1, unsigned int **a2)
@@ -16,7 +16,7 @@ char __fastcall IopChangeInterfaceType(__int64 a1, unsigned int **a2)
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rax
   unsigned int *v8; // rdi
-  size_t v9; // rbp
+  ULONG_PTR v9; // rbp
   char *Pool2; // rax
   char *v11; // rsi
   unsigned int v12; // r8d
@@ -57,7 +57,7 @@ char __fastcall IopChangeInterfaceType(__int64 a1, unsigned int **a2)
       if ( *a2 )
       {
         v9 = (unsigned int)PnpDetermineResourceListSize(*a2);
-        Pool2 = (char *)ExAllocatePool2(0x100uLL);
+        Pool2 = (char *)ExAllocatePool2(0x100uLL, v9, 0x20207050u);
         v11 = Pool2;
         if ( Pool2 )
         {

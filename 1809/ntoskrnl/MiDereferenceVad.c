@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDereferenceVad @ 0x1402CB0C4
+ * XREFs of MiDereferenceVad @ 0x1402CB2B4
  * Callers:
- *     MiUnlockAndDereferenceNestedVad @ 0x1402CB114 (MiUnlockAndDereferenceNestedVad.c)
- *     NtAreMappedFilesTheSame @ 0x140704CA0 (NtAreMappedFilesTheSame.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x1402CB304 (MiUnlockAndDereferenceNestedVad.c)
+ *     NtAreMappedFilesTheSame @ 0x140705F40 (NtAreMappedFilesTheSame.c)
  * Callees:
  *     <none>
  */

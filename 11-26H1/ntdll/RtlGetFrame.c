@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetFrame @ 0x180139790
+ * XREFs of RtlGetFrame @ 0x180139500
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_TEB_ACTIVE_FRAME *RtlGetFrame()
+PTEB_ACTIVE_FRAME RtlGetFrame(void)
 {
   return NtCurrentTeb()->ActiveFrame;
 }

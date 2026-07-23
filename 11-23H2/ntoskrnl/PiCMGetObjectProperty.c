@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCMGetObjectProperty @ 0x1406D09D4
+ * XREFs of PiCMGetObjectProperty @ 0x1406D0A04
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     PiCMReturnBufferResultData @ 0x1406D060C (PiCMReturnBufferResultData.c)
- *     PiCMReleasePropertyInputData @ 0x1406D0C30 (PiCMReleasePropertyInputData.c)
- *     PiCMCapturePropertyInputData @ 0x1406D0C84 (PiCMCapturePropertyInputData.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     PiCMReturnBufferResultData @ 0x1406D063C (PiCMReturnBufferResultData.c)
+ *     PiCMReleasePropertyInputData @ 0x1406D0C60 (PiCMReleasePropertyInputData.c)
+ *     PiCMCapturePropertyInputData @ 0x1406D0CB4 (PiCMCapturePropertyInputData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

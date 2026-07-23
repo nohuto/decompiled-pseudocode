@@ -8,7 +8,7 @@
  *     EtwpGetPrivateLoggerContext @ 0x18004C054 (EtwpGetPrivateLoggerContext.c)
  *     EtwpSynchronizeWithLogger @ 0x18004F868 (EtwpSynchronizeWithLogger.c)
  *     EtwpQueryUmLogger @ 0x18004F944 (EtwpQueryUmLogger.c)
- *     EtwpBufferingModeFlush @ 0x180110C60 (EtwpBufferingModeFlush.c)
+ *     EtwpBufferingModeFlush @ 0x180110C20 (EtwpBufferingModeFlush.c)
  */
 
 __int64 __fastcall EtwpFlushUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __int64 a4)
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpFlushUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
         v10 = 2;
         goto LABEL_6;
       }
-      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_QWORD *)(v11 + 168));
+      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_UNICODE_STRING *)(v11 + 168));
       if ( v10 )
         goto LABEL_6;
       v10 = EtwpBufferingModeFlush(v9);

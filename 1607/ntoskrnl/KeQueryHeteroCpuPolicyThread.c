@@ -1,8 +1,8 @@
 /*
- * XREFs of KeQueryHeteroCpuPolicyThread @ 0x1401D2CF4
+ * XREFs of KeQueryHeteroCpuPolicyThread @ 0x1401D2B20
  * Callers:
- *     KeSetUserHeteroCpuPolicyThread @ 0x1401D2F5C (KeSetUserHeteroCpuPolicyThread.c)
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
+ *     KeSetUserHeteroCpuPolicyThread @ 0x1401D2D88 (KeSetUserHeteroCpuPolicyThread.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
  * Callees:
  *     <none>
  */

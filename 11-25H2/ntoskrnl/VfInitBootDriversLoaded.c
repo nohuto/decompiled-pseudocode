@@ -65,7 +65,11 @@ void VfInitBootDriversLoaded()
   _InterlockedExchange(&ViAvlInitialized, 1);
   if ( !VfSafeMode )
   {
-    if ( (int)VfAvlInitializeTreeEx(&ViTargetDriversAvl, 0LL, 72, (RTL_AVL_FREE_ROUTINE *)ViTargetDelayFreeAvlNode) < 0 )
+    if ( (int)VfAvlInitializeTreeEx(
+                &ViTargetDriversAvl,
+                0LL,
+                72,
+                (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViTargetDelayFreeAvlNode) < 0 )
     {
       _InterlockedExchange(&ViTargetAllocationFailures, 1);
     }
@@ -82,7 +86,7 @@ void VfInitBootDriversLoaded()
   ViThunkFindAllExportAddresses(&VfDifThunks, v2, &VfDifThunksBitMapHeader);
   if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
   {
-    NtSetDebugFilterState(0x5Du, 0, 1);
+    NtSetDebugFilterState(0x5Du, 0, 1u);
     if ( (_DWORD)MmVerifyDriverBufferLength )
       VfSuspectDriversParseRegistryString();
     if ( VfXdvSuppressDriversBufferLength )

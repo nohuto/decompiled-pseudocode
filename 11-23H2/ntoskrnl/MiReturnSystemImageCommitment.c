@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnSystemImageCommitment @ 0x140861800
+ * XREFs of MiReturnSystemImageCommitment @ 0x140861A40
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  * Callees:
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
  */
 
 void __fastcall MiReturnSystemImageCommitment(_QWORD *a1, __int64 a2)

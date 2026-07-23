@@ -34,31 +34,31 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-char __stdcall RtlLCIDToCultureName(int a1, unsigned __int16 *a2)
+BOOLEAN __cdecl RtlLCIDToCultureName(LCID Lcid, PUNICODE_STRING String)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int16 v4; // cx
   __int16 v5; // [esp+Ch] [ebp-Ch] BYREF
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
 
   v2 = 0;
-  if ( a1 && a2 && a1 != 4096 )
+  if ( Lcid && String && Lcid != 4096 )
   {
     if ( g_RegInfo
       && (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(0, &v5) >= 0
-      && (v4 = *(_WORD *)(*(_DWORD *)(*(_DWORD *)(g_RegInfo + 20) + 12) + 28 * v5 + 6), v4 > 0) )
+      && (v4 = *(_WORD *)(*(_DWORD *)(*((_DWORD *)g_RegInfo + 5) + 12) + 28 * v5 + 6), v4 > 0) )
     {
       RtlInitUnicodeString(
         &DestinationString,
-        (PCWSTR)(*(_DWORD *)(*(_DWORD *)(g_RegInfo + 24) + 16)
-               + 2 * *(__int16 *)(*(_DWORD *)(*(_DWORD *)(g_RegInfo + 24) + 12) + 2 * v4)));
-      if ( DestinationString.Length <= a2[1] && (int)RtlStringCbCopyW(DestinationString.Buffer) >= 0 )
+        (PCWSTR)(*(_DWORD *)(*((_DWORD *)g_RegInfo + 6) + 16)
+               + 2 * *(__int16 *)(*(_DWORD *)(*((_DWORD *)g_RegInfo + 6) + 12) + 2 * v4)));
+      if ( DestinationString.Length <= String->MaximumLength && (int)RtlStringCbCopyW(DestinationString.Buffer) >= 0 )
       {
-        *a2 = DestinationString.Length;
+        String->Length = DestinationString.Length;
         return 1;
       }
     }
-    else if ( (int)RtlLcidToLocaleName(a1, a2, 2, 0) >= 0 )
+    else if ( RtlLcidToLocaleName(Lcid, String, 2u, 0) >= 0 )
     {
       return 1;
     }

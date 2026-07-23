@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindDefragmentSlabEntries @ 0x140687B94
+ * XREFs of MiFindDefragmentSlabEntries @ 0x140688CC4
  * Callers:
- *     MiEstablishDefragSlabEntries @ 0x14068781C (MiEstablishDefragSlabEntries.c)
+ *     MiEstablishDefragSlabEntries @ 0x14068894C (MiEstablishDefragSlabEntries.c)
  * Callees:
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
  */
 
 unsigned __int64 __fastcall MiFindDefragmentSlabEntries(__int64 a1)
@@ -12,7 +12,7 @@ unsigned __int64 __fastcall MiFindDefragmentSlabEntries(__int64 a1)
   unsigned int v3; // eax
   unsigned int v4; // eax
   __int64 v5; // rcx
-  __int64 v6; // r9
+  unsigned int v6; // r9d
   unsigned __int64 result; // rax
   __int64 v8; // rcx
   unsigned __int64 v9; // [rsp+40h] [rbp+8h] BYREF
@@ -30,7 +30,7 @@ unsigned __int64 __fastcall MiFindDefragmentSlabEntries(__int64 a1)
     *(_DWORD *)(a1 + 84) = v3 | 0x40;
   v4 = *(_DWORD *)(a1 + 72);
   v5 = *(_QWORD *)a1;
-  v6 = *(unsigned int *)(a1 + 68);
+  v6 = *(_DWORD *)(a1 + 68);
   if ( v4 != 8 )
   {
     MiEnumerateSlabAllocatorsEx(v5, (__int64)MiCountSlabContextAvailablePagesForDefrag, (__int64)&v9, v6, v4);
@@ -44,7 +44,7 @@ unsigned __int64 __fastcall MiFindDefragmentSlabEntries(__int64 a1)
              *(_QWORD *)a1,
              (__int64)MiFindDefragmentSlabEntriesHelper,
              a1,
-             *(unsigned int *)(a1 + 68),
+             *(_DWORD *)(a1 + 68),
              *(_DWORD *)(a1 + 72));
   }
   result = MiEnumerateSlabAllocatorsEx(v5, (__int64)MiFindDefragmentSlabEntriesHelperByIdentity, a1, v6, 8u);
@@ -63,7 +63,7 @@ unsigned __int64 __fastcall MiFindDefragmentSlabEntries(__int64 a1)
                  *(_QWORD *)a1,
                  (__int64)MiFindDefragmentSlabEntriesHelper,
                  a1,
-                 *(unsigned int *)(a1 + 68),
+                 *(_DWORD *)(a1 + 68),
                  *(_DWORD *)(a1 + 72));
       }
     }

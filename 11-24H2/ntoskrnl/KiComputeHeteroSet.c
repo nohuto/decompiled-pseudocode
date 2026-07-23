@@ -1,10 +1,10 @@
 /*
- * XREFs of KiComputeHeteroSet @ 0x1404AD7DC
+ * XREFs of KiComputeHeteroSet @ 0x1404A7EBC
  * Callers:
- *     KiInstallSubNodeHeteroSets @ 0x1404AD6A0 (KiInstallSubNodeHeteroSets.c)
+ *     KiInstallSubNodeHeteroSets @ 0x1404A7D80 (KiInstallSubNodeHeteroSets.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall KiComputeHeteroSet(int a1, int a2, int a3, __int64 *a4, _WORD *a5, __int64 *a6)

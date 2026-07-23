@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSetUmsThreadInformation @ 0x1800F7690
+ * XREFs of RtlSetUmsThreadInformation @ 0x1800F7650
  * Callers:
  *     <none>
  * Callees:

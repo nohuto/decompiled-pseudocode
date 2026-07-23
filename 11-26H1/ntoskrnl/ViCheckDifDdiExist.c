@@ -1,20 +1,17 @@
 /*
- * XREFs of ViCheckDifDdiExist @ 0x140C28468
+ * XREFs of ViCheckDifDdiExist @ 0x140C2E474
  * Callers:
- *     VfCheckDifDdiExist @ 0x140C2810C (VfCheckDifDdiExist.c)
+ *     VfCheckDifDdiExist @ 0x140C2E11C (VfCheckDifDdiExist.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall ViCheckDifDdiExist(__int64 a1, int a2)
 {
-  _QWORD *i; // rcx
-  _QWORD *v3; // rax
-
-  for ( i = (_QWORD *)(a1 + 56); *((_DWORD *)i - 2) != a2; i += 7 )
+  while ( *(_DWORD *)(a1 + 48) != a2 )
   {
-    v3 = i;
-    if ( !*v3 )
+    a1 += 56LL;
+    if ( !*(_QWORD *)a1 )
       return 0;
   }
   return 1;

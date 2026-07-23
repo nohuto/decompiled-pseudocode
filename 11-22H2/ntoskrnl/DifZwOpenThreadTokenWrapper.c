@@ -9,7 +9,11 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwOpenThreadTokenWrapper(__int64 a1, unsigned int a2, char a3, __int64 a4)
+NTSTATUS __fastcall DifZwOpenThreadTokenWrapper(
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        BOOLEAN OpenAsSelf,
+        PHANDLE TokenHandle)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -20,7 +24,7 @@ __int64 __fastcall DifZwOpenThreadTokenWrapper(__int64 a1, unsigned int a2, char
   int v14; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v18; // rdi
   _QWORD *v19; // rbx
   __int128 v20; // [rsp+20h] [rbp-30h] BYREF
@@ -60,17 +64,17 @@ LABEL_8:
   }
   *(_QWORD *)&v20 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v21 + 1) = a1;
-  DWORD1(v21) = a2;
-  LOBYTE(v21) = a3;
-  *((_QWORD *)&v20 + 1) = a4;
+  *((_QWORD *)&v21 + 1) = ThreadHandle;
+  DWORD1(v21) = DesiredAccess;
+  LOBYTE(v21) = OpenAsSelf;
+  *((_QWORD *)&v20 + 1) = TokenHandle;
   for ( i = (__int64 *)v13[4]; i != v13 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v20);
   }
 LABEL_17:
-  result = ZwOpenThreadToken(a1, a2);
+  result = ZwOpenThreadToken(ThreadHandle, DesiredAccess, OpenAsSelf, TokenHandle);
   LODWORD(v22) = result;
   if ( v13 )
   {
@@ -85,7 +89,7 @@ LABEL_17:
         v19 = (_QWORD *)*v19;
       }
       while ( v19 != v18 );
-      return (unsigned int)v22;
+      return v22;
     }
   }
   return result;

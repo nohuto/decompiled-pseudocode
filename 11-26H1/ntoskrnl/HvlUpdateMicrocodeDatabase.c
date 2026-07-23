@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlUpdateMicrocodeDatabase @ 0x140791E30
+ * XREFs of HvlUpdateMicrocodeDatabase @ 0x140794960
  * Callers:
  *     <none>
  * Callees:
- *     HvlpDynamicUpdateMicrocode @ 0x140791E48 (HvlpDynamicUpdateMicrocode.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x140794978 (HvlpDynamicUpdateMicrocode.c)
  */
 
 __int64 HvlUpdateMicrocodeDatabase()

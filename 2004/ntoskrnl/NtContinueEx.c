@@ -14,40 +14,45 @@
  *     KiCopyCounters @ 0x1405169B0 (KiCopyCounters.c)
  */
 
-__int64 __fastcall NtContinueEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, char a5)
+NTSTATUS __cdecl NtContinueEx(PCONTEXT ContextRecord, PVOID ContinueArgument)
 {
-  __int64 v5; // rbp
-  __int64 v6; // rbx
-  __int64 v7; // rdi
-  __int64 v8; // rsi
-  __int64 result; // rax
+  __int64 v2; // rbp
+  __int64 v3; // rbx
+  __int64 v4; // rdi
+  __int64 v5; // rsi
+  NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rcx
-  struct _KTHREAD *v11; // rcx
-  __int64 v12; // r9
-  __int64 v13; // r8
+  struct _KTHREAD *v8; // rcx
+  __int64 v9; // r9
+  __int64 v10; // r8
   unsigned __int8 BpbUserSpecCtrl; // al
-  _QWORD v17[39]; // [rsp+0h] [rbp-138h] BYREF
+  _QWORD v14[39]; // [rsp+0h] [rbp-138h] BYREF
+  char v15; // [rsp+160h] [rbp+28h]
 
-  v6 = *(_QWORD *)(v5 + 192);
-  v7 = *(_QWORD *)(v5 + 200);
-  v8 = *(_QWORD *)(v5 + 208);
-  *(_QWORD *)(v5 - 80) = 0LL;
-  v17[32] = v6;
-  v17[33] = v7;
-  v17[34] = v8;
-  result = KiContinueEx(a1, a2, (unsigned __int64)v17, (_KTRAP_FRAME *)(v5 - 128));
-  if ( (int)result > 0 )
+  v3 = *(_QWORD *)(v2 + 192);
+  v4 = *(_QWORD *)(v2 + 200);
+  v5 = *(_QWORD *)(v2 + 208);
+  *(_QWORD *)(v2 - 80) = 0LL;
+  v14[32] = v3;
+  v14[33] = v4;
+  v14[34] = v5;
+  result = KiContinueEx(
+             (unsigned __int64)ContextRecord,
+             (unsigned __int64)ContinueArgument,
+             (unsigned __int64)v14,
+             (_KTRAP_FRAME *)(v2 - 128));
+  if ( result > 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    if ( (*(_BYTE *)(v5 + 240) & 1) == 0 )
+    if ( (*(_BYTE *)(v2 + 240) & 1) == 0 )
     {
-      CurrentThread->TrapFrame = *(_KTRAP_FRAME **)(v5 + 184);
-      CurrentThread->PreviousMode = *(_BYTE *)(v5 - 88);
+      CurrentThread->TrapFrame = *(_KTRAP_FRAME **)(v2 + 184);
+      CurrentThread->PreviousMode = *(_BYTE *)(v2 - 88);
     }
     _disable();
-    if ( (*(_BYTE *)(v5 + 240) & 1) == 0 )
+    if ( (*(_BYTE *)(v2 + 240) & 1) == 0 )
     {
-      _mm_setcsr(*(_DWORD *)(v5 - 84));
+      _mm_setcsr(*(_DWORD *)(v2 - 84));
       __asm { iretq }
     }
     if ( (_BYTE)KeSmapEnabled )
@@ -64,25 +69,25 @@ __int64 __fastcall NtContinueEx(unsigned __int64 a1, unsigned __int64 a2, __int6
       KiUpdateStibpPairing(0LL);
     if ( (KeGetCurrentThread()->Header.LockNV & 0x8000000) != 0 )
       KiRestoreSetContextState();
-    v11 = KeGetCurrentThread();
-    if ( (v11->Header.LockNV & 0x40010000) != 0 )
+    v8 = KeGetCurrentThread();
+    if ( (v8->Header.LockNV & 0x40010000) != 0 )
     {
-      if ( (v11->Header.Size & 1) != 0 )
+      if ( (v8->Header.Size & 1) != 0 )
       {
         KiCopyCounters();
-        v11 = KeGetCurrentThread();
+        v8 = KeGetCurrentThread();
       }
-      if ( (v11->Header.Reserved1 & 0x40) != 0 )
+      if ( (v8->Header.Reserved1 & 0x40) != 0 )
       {
-        LOBYTE(v11) = 1;
-        KiUmsExit(v11);
+        LOBYTE(v8) = 1;
+        KiUmsExit(v8);
       }
     }
-    _mm_setcsr(*(_DWORD *)(v5 - 84));
-    if ( *(_WORD *)(v5 + 128) )
+    _mm_setcsr(*(_DWORD *)(v2 - 84));
+    if ( *(_WORD *)(v2 + 128) )
       KiRestoreDebugRegisterState();
-    v12 = *(_QWORD *)(v5 - 48);
-    v13 = *(_QWORD *)(v5 - 56);
+    v9 = *(_QWORD *)(v2 - 48);
+    v10 = *(_QWORD *)(v2 - 56);
     __writegsbyte(0x853u, 0);
     BpbUserSpecCtrl = KeGetPcr()->Prcb.BpbUserSpecCtrl;
     if ( KeGetPcr()->Prcb.BpbCurrentSpecCtrl != BpbUserSpecCtrl )
@@ -100,7 +105,7 @@ __int64 __fastcall NtContinueEx(unsigned __int64 a1, unsigned __int64 a2, __int6
         iretq
       }
     }
-    return KiKernelExit(*(_QWORD *)(v5 - 72), *(_QWORD *)(v5 - 64), v13, v12, a5);
+    return KiKernelExit(*(_QWORD *)(v2 - 72), *(_QWORD *)(v2 - 64), v10, v9, v15);
   }
   return result;
 }

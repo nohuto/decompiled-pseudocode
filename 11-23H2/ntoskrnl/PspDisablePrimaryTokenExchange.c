@@ -1,18 +1,18 @@
 /*
- * XREFs of PspDisablePrimaryTokenExchange @ 0x14076F8E0
+ * XREFs of PspDisablePrimaryTokenExchange @ 0x14076FAD0
  * Callers:
- *     PspSystemThreadStartup @ 0x14030BCD0 (PspSystemThreadStartup.c)
- *     PspUserThreadStartup @ 0x14076F6E0 (PspUserThreadStartup.c)
- *     PspSecureThreadStartup @ 0x1409B18F0 (PspSecureThreadStartup.c)
+ *     PspSystemThreadStartup @ 0x14030BF60 (PspSystemThreadStartup.c)
+ *     PspUserThreadStartup @ 0x14076F8D0 (PspUserThreadStartup.c)
+ *     PspSecureThreadStartup @ 0x1409B1AF0 (PspSecureThreadStartup.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     MiDeleteProcessShadow @ 0x14029172C (MiDeleteProcessShadow.c)
- *     KeSynchronizeAddressPolicy @ 0x1403608FC (KeSynchronizeAddressPolicy.c)
- *     PspLockUnlockProcessExclusive @ 0x140361A28 (PspLockUnlockProcessExclusive.c)
- *     KeKvaShadowingActive @ 0x14036A108 (KeKvaShadowingActive.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1406B7EA8 (PspOneDirectionSecurityDomainCombine.c)
- *     SeTokenIsAdmin @ 0x1407D04A0 (SeTokenIsAdmin.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     MiDeleteProcessShadow @ 0x1402919BC (MiDeleteProcessShadow.c)
+ *     KeSynchronizeAddressPolicy @ 0x140360A9C (KeSynchronizeAddressPolicy.c)
+ *     PspLockUnlockProcessExclusive @ 0x140361BC8 (PspLockUnlockProcessExclusive.c)
+ *     KeKvaShadowingActive @ 0x14036A2A8 (KeKvaShadowingActive.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x1406B7ED8 (PspOneDirectionSecurityDomainCombine.c)
+ *     SeTokenIsAdmin @ 0x1407D0770 (SeTokenIsAdmin.c)
  */
 
 void __fastcall PspDisablePrimaryTokenExchange(__int64 a1)

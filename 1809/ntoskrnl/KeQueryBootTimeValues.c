@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryBootTimeValues @ 0x1401292B0
+ * XREFs of KeQueryBootTimeValues @ 0x140129380
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140181DA0 (PipUpdateDeviceProducts.c)
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     PipHardwareConfigInit @ 0x1409C63FC (PipHardwareConfigInit.c)
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
+ *     PipUpdateDeviceProducts @ 0x140181EE0 (PipUpdateDeviceProducts.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     PipHardwareConfigInit @ 0x1409C73FC (PipHardwareConfigInit.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryBootTimeValues(_QWORD *a1, LARGE_INTEGER *a2, _QWORD *a3)

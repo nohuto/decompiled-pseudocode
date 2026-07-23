@@ -1,40 +1,40 @@
 /*
- * XREFs of MiWalkPageTablesRecursively @ 0x14006EE80
+ * XREFs of MiWalkPageTablesRecursively @ 0x14006EE70
  * Callers:
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiWalkPageTablesRecursively @ 0x14006EE70 (MiWalkPageTablesRecursively.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
- *     MiComputePxeWalkAction @ 0x140070680 (MiComputePxeWalkAction.c)
- *     MiGetNextPageTablePte @ 0x140070A30 (MiGetNextPageTablePte.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiYieldPageTableWalk @ 0x140122728 (MiYieldPageTableWalk.c)
- *     MiPerformSafePdeWrite @ 0x140160518 (MiPerformSafePdeWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAdvanceToLastUntrimmableVa @ 0x1401B4D84 (MiAdvanceToLastUntrimmableVa.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7468 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
- *     ExSpinLockIsContended @ 0x14031C008 (ExSpinLockIsContended.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     MiWalkPageTablesRecursively @ 0x14006EE70 (MiWalkPageTablesRecursively.c)
+ *     MiComputePxeWalkAction @ 0x140070670 (MiComputePxeWalkAction.c)
+ *     MiGetNextPageTablePte @ 0x140070A20 (MiGetNextPageTablePte.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiYieldPageTableWalk @ 0x1401227F8 (MiYieldPageTableWalk.c)
+ *     MiPerformSafePdeWrite @ 0x140160618 (MiPerformSafePdeWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAdvanceToLastUntrimmableVa @ 0x1401B4EC4 (MiAdvanceToLastUntrimmableVa.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B75C8 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1403106FC (EtwTraceShouldYieldProcessor.c)
+ *     ExSpinLockIsContended @ 0x14031C1F8 (ExSpinLockIsContended.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiWalkPageTablesRecursively(int *a1, unsigned __int64 Process, unsigned __int64 a3, __int64 a4)
@@ -258,7 +258,7 @@ LABEL_65:
         a3 = *(_QWORD *)(v33 + 7296);
         if ( a3 < 0x420 )
         {
-          a4 = (unsigned int)dword_14043A08C;
+          a4 = (unsigned int)dword_14043B14C;
           v34 = 0LL;
           v35 = (unsigned __int16 **)(v33 + 4136);
           while ( 1 )
@@ -266,7 +266,7 @@ LABEL_65:
             v36 = *v35;
             v37 = v34;
             Process = 0LL;
-            if ( dword_14043A08C )
+            if ( dword_14043B14C )
               break;
 LABEL_72:
             ++v34;
@@ -284,7 +284,7 @@ LABEL_72:
               break;
             Process = (unsigned int)(Process + 1);
             v36 += 8;
-            if ( (unsigned int)Process >= dword_14043A08C )
+            if ( (unsigned int)Process >= dword_14043B14C )
               goto LABEL_72;
           }
         }
@@ -294,7 +294,7 @@ LABEL_72:
       v40 = *((_QWORD *)v8 + 3);
       if ( ((unsigned __int8)v32 & *((_BYTE *)v8 + 6)) == 0 )
       {
-        v41 = &dword_14043B700;
+        v41 = &dword_14043C7C0;
         if ( (*(_BYTE *)(v40 + 184) & 7) != 2 )
           v41 = (LONG *)(v40 + 192);
         if ( (*v41 & 0x40000000) != 0 )
@@ -341,7 +341,7 @@ LABEL_158:
             else
             {
               if ( (*v8 & 0x400) != 0 )
-                ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043A4E4);
+                ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043B5A4);
               MiUnlockWorkingSetExclusive(v61, *((_BYTE *)v8 + 4), a3, a4);
             }
             *((_BYTE *)v8 + 8) = 1;
@@ -426,7 +426,7 @@ LABEL_119:
         if ( (Process & 2) != 0 )
           goto LABEL_144;
 LABEL_120:
-        if ( (*v8 & 0x400) != 0 && (dword_14043A4E4 & 0x40000000) != 0 )
+        if ( (*v8 & 0x400) != 0 && (dword_14043B5A4 & 0x40000000) != 0 )
           goto LABEL_144;
       }
       if ( *((_BYTE *)v8 + 4) >= 2u )
@@ -1007,7 +1007,7 @@ LABEL_74:
       v163 = v15;
       if ( v16 < 6u )
       {
-        v18 = &dword_14043B700;
+        v18 = &dword_14043C7C0;
         if ( v16 != 2 )
           v18 = (LONG *)(v14 + 192);
         CurrentIrql = KeGetCurrentIrql();
@@ -1124,7 +1124,7 @@ LABEL_64:
       ExAcquireSpinLockExclusive(SharedVm);
       SharedVm[1] = 0;
       if ( (*v8 & 0x400) != 0 )
-        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_14043A4E4);
+        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_14043B5A4);
     }
     *((_BYTE *)v8 + 8) = 0;
     goto LABEL_64;
@@ -1166,7 +1166,7 @@ LABEL_409:
       ExAcquireSpinLockExclusive(v125);
       v125[1] = 0;
       if ( (*v8 & 0x400) != 0 )
-        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_14043A4E4);
+        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_14043B5A4);
       *((_BYTE *)v8 + 8) = 0;
     }
     return (unsigned int)v10;

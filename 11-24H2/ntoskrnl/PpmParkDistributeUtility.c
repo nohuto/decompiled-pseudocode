@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmParkDistributeUtility @ 0x140423260
+ * XREFs of PpmParkDistributeUtility @ 0x140417110
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x1404EC800 (PpmHeteroDistributeUtility.c)
- *     PpmParkDistributeAllUtility @ 0x1404EE3F0 (PpmParkDistributeAllUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x1404E3F40 (PpmHeteroDistributeUtility.c)
+ *     PpmParkDistributeAllUtility @ 0x1404E5B80 (PpmParkDistributeAllUtility.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x140423814 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1404176C4 (PpmHeteroUtilityToNormalizedUtility.c)
  */
 
 __int64 __fastcall PpmParkDistributeUtility(
@@ -107,7 +107,7 @@ LABEL_2:
     {
       _BitScanForward64(&v18, v12);
       v12 &= ~(1LL << v18);
-      v19 = *((unsigned int *)qword_140F21E78 + 64 * v15 + (unsigned int)(unsigned __int8)v18);
+      v19 = *((unsigned int *)qword_140F22998 + 64 * v15 + (unsigned int)(unsigned __int8)v18);
       if ( (unsigned int)v19 >= (unsigned int)KeNumberProcessors_0 )
       {
         v20 = 0LL;
@@ -152,7 +152,7 @@ LABEL_15:
     {
       _BitScanForward64(&v27, v24);
       v24 &= ~(1LL << v27);
-      Prcb = (_DWORD *)KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * v25 + (unsigned int)(unsigned __int8)v27));
+      Prcb = (_DWORD *)KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * v25 + (unsigned int)(unsigned __int8)v27));
       v29 = Prcb[8822] - Prcb[8823];
       v30 = Prcb[8828];
       if ( v30 )
@@ -195,7 +195,7 @@ LABEL_15:
       }
       _BitScanForward64(&v61, v59);
       v59 &= ~(1LL << v61);
-      v62 = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * v58 + (unsigned int)(unsigned __int8)v61));
+      v62 = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * v58 + (unsigned int)(unsigned __int8)v61));
       v14 ^= *(_QWORD *)(v62 + 200);
       v63 = *(_DWORD *)(v62 + 35312);
       if ( v63 )
@@ -235,7 +235,7 @@ LABEL_31:
     {
       _BitScanForward64(&v41, v38);
       v38 &= ~(1LL << v41);
-      v42 = *((unsigned int *)qword_140F21E78 + 64 * v39 + (unsigned int)(unsigned __int8)v41);
+      v42 = *((unsigned int *)qword_140F22998 + 64 * v39 + (unsigned int)(unsigned __int8)v41);
       if ( (unsigned int)v42 >= (unsigned int)KeNumberProcessors_0 )
       {
         v43 = 0LL;
@@ -299,7 +299,7 @@ LABEL_50:
     {
       _BitScanForward64(&v53, v14);
       v14 &= ~(1LL << v53);
-      v54 = *((unsigned int *)qword_140F21E78 + 64 * v50 + (unsigned int)(unsigned __int8)v53);
+      v54 = *((unsigned int *)qword_140F22998 + 64 * v50 + (unsigned int)(unsigned __int8)v53);
       if ( (unsigned int)v54 >= (unsigned int)KeNumberProcessors_0 )
       {
         v55 = 0LL;
@@ -335,7 +335,7 @@ LABEL_81:
       {
         _BitScanForward64(&v71, v67);
         v67 &= ~(1LL << v71);
-        result = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * v69 + (unsigned int)(unsigned __int8)v71));
+        result = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * v69 + (unsigned int)(unsigned __int8)v71));
         v72 = *(_DWORD *)(result + 35288);
         if ( v72 > 0x2710 )
         {
@@ -369,7 +369,7 @@ LABEL_81:
       }
       _BitScanForward64(&v75, v73);
       v73 &= ~(1LL << v75);
-      result = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * v49 + (unsigned int)(unsigned __int8)v75));
+      result = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * v49 + (unsigned int)(unsigned __int8)v75));
       v49 = v47;
       *(_DWORD *)(result + 35288) = *(_DWORD *)(result + 35292);
     }

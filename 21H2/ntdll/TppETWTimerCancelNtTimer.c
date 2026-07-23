@@ -1,15 +1,25 @@
 /*
- * XREFs of TppETWTimerCancelNtTimer @ 0x180112AA4
+ * XREFs of TppETWTimerCancelNtTimer @ 0x180112A64
  * Callers:
  *     TppUpdateSubQueueTimer @ 0x180013B20 (TppUpdateSubQueueTimer.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtTraceEvent @ 0x18009E1F0 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x18009E1B0 (NtTraceEvent.c)
  */
 
-__int64 TppETWTimerCancelNtTimer()
+NTSTATUS __fastcall TppETWTimerCancelNtTimer(__int64 a1)
 {
-  RtlGetCurrentServiceSessionId();
-  return NtTraceEvent();
+  __int64 v1; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
+  __int16 v4; // [rsp+26h] [rbp-32h]
+  __int64 v5; // [rsp+40h] [rbp-18h]
+
+  v5 = a1;
+  v4 = 7213;
+  if ( RtlGetCurrentServiceSessionId() )
+    v1 = (__int64)NtCurrentPeb()->SharedData + 556;
+  else
+    v1 = 2147353478LL;
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v1, 0x402u, 0xFFFFFFE4, Fields);
 }

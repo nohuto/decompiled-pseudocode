@@ -1,10 +1,10 @@
 /*
- * XREFs of _splitpath_s @ 0x14053BBE0
+ * XREFs of _splitpath_s @ 0x14053E060
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     strncpy_s @ 0x14053C7D0 (strncpy_s.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     strncpy_s @ 0x14053EC50 (strncpy_s.c)
  */
 
 errno_t __cdecl splitpath_s(

@@ -15,7 +15,7 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-void LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
   struct _TEB *v0; // rdi
   _PEB *ProcessEnvironmentBlock; // rbx
@@ -23,28 +23,24 @@ void LdrShutdownProcess()
   void *FlsData; // rcx
   char v4; // r14
   __int64 *v5; // rsi
-  unsigned __int64 v6; // rbx
+  __int64 v6; // rbx
   __int64 (__fastcall *v7)(__int64, _QWORD, __int64); // r15
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // r9
-  struct _PEB *v10; // rax
-  unsigned __int64 v11; // r8
-  unsigned __int64 v12; // r9
-  __int64 v13; // rcx
-  __int64 v14; // rcx
+  struct _PEB *v8; // rax
+  REGHANDLE v9; // rcx
+  REGHANDLE v10; // rcx
   _UNICODE_STRING CommandLine; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v16; // [rsp+50h] [rbp-B8h] BYREF
-  int v17; // [rsp+58h] [rbp-B0h]
-  __int128 v18; // [rsp+60h] [rbp-A8h]
-  __int128 v19; // [rsp+70h] [rbp-98h]
-  __int128 v20; // [rsp+80h] [rbp-88h]
-  __int64 v21; // [rsp+90h] [rbp-78h]
-  __int64 v22; // [rsp+A0h] [rbp-68h] BYREF
-  int v23; // [rsp+A8h] [rbp-60h]
-  __int128 v24; // [rsp+B0h] [rbp-58h]
-  __int128 v25; // [rsp+C0h] [rbp-48h]
-  __int128 v26; // [rsp+D0h] [rbp-38h]
-  __int64 v27; // [rsp+E0h] [rbp-28h]
+  __int64 v12; // [rsp+50h] [rbp-B8h] BYREF
+  int v13; // [rsp+58h] [rbp-B0h]
+  __int128 v14; // [rsp+60h] [rbp-A8h]
+  __int128 v15; // [rsp+70h] [rbp-98h]
+  __int128 v16; // [rsp+80h] [rbp-88h]
+  __int64 v17; // [rsp+90h] [rbp-78h]
+  __int64 v18; // [rsp+A0h] [rbp-68h] BYREF
+  int v19; // [rsp+A8h] [rbp-60h]
+  __int128 v20; // [rsp+B0h] [rbp-58h]
+  __int128 v21; // [rsp+C0h] [rbp-48h]
+  __int128 v22; // [rsp+D0h] [rbp-38h]
+  __int64 v23; // [rsp+E0h] [rbp-28h]
 
   v0 = NtCurrentTeb();
   ProcessEnvironmentBlock = v0->ProcessEnvironmentBlock;
@@ -56,9 +52,9 @@ void LdrShutdownProcess()
       CommandLine.Buffer = (wchar_t *)((char *)CommandLine.Buffer + (unsigned __int64)ProcessParameters);
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      7266LL,
+      7266,
       (__int64)"LdrShutdownProcess",
-      2LL,
+      2u,
       "Process 0x%p (%wZ) exiting\n",
       v0->ClientId.UniqueProcess,
       &CommandLine);
@@ -77,59 +73,59 @@ void LdrShutdownProcess()
       v5 = (__int64 *)qword_180187478;
       while ( v5 != &qword_180187470 )
       {
-        v6 = (unsigned __int64)(v5 - 4);
+        v6 = (__int64)(v5 - 4);
         v5 = (__int64 *)v5[1];
         v7 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v6 + 56);
         if ( v7 && (*(_DWORD *)(v6 + 104) & 0x80000) != 0 )
         {
-          v16 = 72LL;
-          v17 = 1;
-          v18 = 0LL;
-          v19 = 0LL;
-          v20 = 0LL;
-          v21 = 0LL;
-          RtlActivateActivationContextUnsafeFast((__int64)&v16, *(_QWORD *)(v6 + 136));
+          v12 = 72LL;
+          v13 = 1;
+          v14 = 0LL;
+          v15 = 0LL;
+          v16 = 0LL;
+          v17 = 0LL;
+          RtlActivateActivationContextUnsafeFast((__int64)&v12, *(_QWORD *)(v6 + 136));
           if ( *(_WORD *)(v6 + 110) )
           {
             if ( v0->ThreadLocalStoragePointer )
-              LdrpCallTlsInitializers(0, v6, v8, v9);
+              LdrpCallTlsInitializers(0, v6);
           }
-          LdrpCallInitRoutine(v7, *(_QWORD *)(v6 + 48), 0LL, 1LL);
-          RtlDeactivateActivationContextUnsafeFast((__int64)&v16);
+          LdrpCallInitRoutine(v7, *(_QWORD *)(v6 + 48), 0, 1LL);
+          RtlDeactivateActivationContextUnsafeFast((__int64)&v12);
         }
       }
       if ( *(_WORD *)(LdrpImageEntry + 110) && v0->ThreadLocalStoragePointer )
       {
-        v22 = 72LL;
-        v23 = 1;
-        v24 = 0LL;
-        v25 = 0LL;
-        v26 = 0LL;
-        v27 = 0LL;
-        RtlActivateActivationContextUnsafeFast((__int64)&v22, *(_QWORD *)(LdrpImageEntry + 136));
-        LdrpCallTlsInitializers(0, LdrpImageEntry, v11, v12);
-        RtlDeactivateActivationContextUnsafeFast((__int64)&v22);
+        v18 = 72LL;
+        v19 = 1;
+        v20 = 0LL;
+        v21 = 0LL;
+        v22 = 0LL;
+        v23 = 0LL;
+        RtlActivateActivationContextUnsafeFast((__int64)&v18, *(_QWORD *)(LdrpImageEntry + 136));
+        LdrpCallTlsInitializers(0, LdrpImageEntry);
+        RtlDeactivateActivationContextUnsafeFast((__int64)&v18);
       }
     }
     else
     {
       v4 = 1;
     }
-    v10 = NtCurrentPeb();
-    if ( VSMEnclaveProvidersRegistered && v10->ProcessHeap )
+    v8 = NtCurrentPeb();
+    if ( VSMEnclaveProvidersRegistered && v8->ProcessHeap )
     {
-      v13 = qword_180181990;
+      v9 = qword_180181990;
       dword_180181970 = 0;
       qword_180181990 = 0LL;
-      EtwNotificationUnregister(v13, 0LL);
+      EtwNotificationUnregister(v9, 0LL);
       VSMEnclaveProvidersRegistered = 0;
     }
     if ( CastGuardProvidersRegistered )
     {
-      v14 = qword_1801819C8;
+      v10 = qword_1801819C8;
       dword_1801819A8 = 0;
       qword_1801819C8 = 0LL;
-      EtwNotificationUnregister(v14, 0LL);
+      EtwNotificationUnregister(v10, 0LL);
       CastGuardProvidersRegistered = 0;
     }
     if ( !v4 )

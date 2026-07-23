@@ -1,8 +1,8 @@
 /*
- * XREFs of KiComputeProcessorDataSize @ 0x140572FFC
+ * XREFs of KiComputeProcessorDataSize @ 0x140573FFC
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
  *     <none>
  */

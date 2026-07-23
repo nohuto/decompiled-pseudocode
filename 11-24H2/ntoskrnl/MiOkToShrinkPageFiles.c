@@ -1,9 +1,9 @@
 /*
- * XREFs of MiOkToShrinkPageFiles @ 0x1403F95BC
+ * XREFs of MiOkToShrinkPageFiles @ 0x1403EF6CC
  * Callers:
- *     MiAttemptPageFileReduction @ 0x1403F9154 (MiAttemptPageFileReduction.c)
- *     MiAttemptPageFileReductionApc @ 0x1403F9310 (MiAttemptPageFileReductionApc.c)
- *     MiContractPagingFiles @ 0x1403F94EC (MiContractPagingFiles.c)
+ *     MiAttemptPageFileReduction @ 0x1403EF264 (MiAttemptPageFileReduction.c)
+ *     MiAttemptPageFileReductionApc @ 0x1403EF420 (MiAttemptPageFileReductionApc.c)
+ *     MiContractPagingFiles @ 0x1403EF5FC (MiContractPagingFiles.c)
  * Callees:
  *     <none>
  */

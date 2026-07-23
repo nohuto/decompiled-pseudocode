@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitializeTRng @ 0x1800CE900
+ * XREFs of RtlInitializeTRng @ 0x1800CC070
  * Callers:
- *     LdrpInitializeTeb @ 0x1800CF2D0 (LdrpInitializeTeb.c)
+ *     LdrpInitializeTeb @ 0x1800CCA40 (LdrpInitializeTeb.c)
  * Callees:
  *     <none>
  */

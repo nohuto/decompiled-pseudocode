@@ -1,14 +1,14 @@
 /*
- * XREFs of EmonQueryInformation @ 0x140376BF0
+ * XREFs of EmonQueryInformation @ 0x140376740
  * Callers:
  *     <none>
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpGetProfileDescriptor @ 0x140378378 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     HalpGetProfileDescriptor @ 0x140377EC8 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpQueryProfileSourceList @ 0x1404BF010 (HalpQueryProfileSourceList.c)
+ *     HalpQueryProfileSourceList @ 0x1404BF250 (HalpQueryProfileSourceList.c)
  */
 
 __int64 __fastcall EmonQueryInformation(int a1, unsigned int a2, int *a3, _DWORD *a4)

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlEncodeSystemPointer(int a1)
+PVOID __cdecl RtlEncodeSystemPointer(PVOID Ptr)
 {
-  return __ROR4__(a1 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+  return (PVOID)__ROR4__((unsigned int)Ptr ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
 }

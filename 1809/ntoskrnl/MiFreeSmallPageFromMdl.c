@@ -2,11 +2,11 @@
  * XREFs of MiFreeSmallPageFromMdl @ 0x140029F10
  * Callers:
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
- *     MmFreeSecureKernelPages @ 0x1402C3134 (MmFreeSecureKernelPages.c)
+ *     MmFreeSecureKernelPages @ 0x1402C3324 (MmFreeSecureKernelPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR BugCheckParameter2, int a2)
@@ -38,8 +38,8 @@ __int64 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR BugCheckParameter2, int a2)
     }
     else
     {
-      v9 = (_QWORD *)qword_14043A188;
-      if ( qword_14043A188 && ((*(_QWORD *)(v6 + 40) >> 54) & 7) == 1 )
+      v9 = (_QWORD *)qword_14043B248;
+      if ( qword_14043B248 && ((*(_QWORD *)(v6 + 40) >> 54) & 7) == 1 )
       {
         v11 = v3 / 48;
         while ( v9 )

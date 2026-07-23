@@ -22,13 +22,13 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-int __fastcall LdrpReleaseLoaderLock(int a1, int a2, int a3, int a4)
+NTSTATUS __fastcall LdrpReleaseLoaderLock(int a1, int a2, int a3, int a4)
 {
-  int v5; // edi
+  NTSTATUS v5; // edi
   int v6; // eax
   int v8; // eax
 
-  v5 = RtlLeaveCriticalSection((int)&LdrpLoaderLock);
+  v5 = RtlLeaveCriticalSection(&LdrpLoaderLock);
   if ( a3 < 0 )
     LdrpLogError(a2, 0);
   if ( RtlGetCurrentServiceSessionId() )

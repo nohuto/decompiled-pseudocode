@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDmObjectProcessPropertyChange @ 0x1406F221C
+ * XREFs of PiDmObjectProcessPropertyChange @ 0x1406F34BC
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x1406F1F20 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1406F31C0 (PiPnpRtlObjectEventWorker.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmGetCacheKeys @ 0x140598E7C (PiDmGetCacheKeys.c)
- *     PiDmGetCachedKeyIndex @ 0x140598ECC (PiDmGetCachedKeyIndex.c)
- *     PiDmCacheDataDecode @ 0x140598F2C (PiDmCacheDataDecode.c)
- *     PnpGetObjectProperty @ 0x140599EC8 (PnpGetObjectProperty.c)
- *     PiDmCacheDataFree @ 0x1406F2644 (PiDmCacheDataFree.c)
- *     PiDmCacheDataEncode @ 0x1406F267C (PiDmCacheDataEncode.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x1406F2948 (PiDmGetReferencedObjectFromProperty.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDmGetObject @ 0x1405999C8 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     PiDmGetCacheKeys @ 0x140599E7C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x140599ECC (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataDecode @ 0x140599F2C (PiDmCacheDataDecode.c)
+ *     PnpGetObjectProperty @ 0x14059AEC8 (PnpGetObjectProperty.c)
+ *     PiDmCacheDataFree @ 0x1406F38E4 (PiDmCacheDataFree.c)
+ *     PiDmCacheDataEncode @ 0x1406F391C (PiDmCacheDataEncode.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x1406F3BE8 (PiDmGetReferencedObjectFromProperty.c)
  */
 
 void __fastcall PiDmObjectProcessPropertyChange(

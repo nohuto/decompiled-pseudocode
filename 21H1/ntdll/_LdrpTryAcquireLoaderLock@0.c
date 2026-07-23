@@ -27,7 +27,7 @@ char __stdcall LdrpTryAcquireLoaderLock()
     if ( (*v3 & 0x20) != 0 )
       LdrpLogEtwEvent(-1, -1, 0, 0);
   }
-  if ( RtlTryEnterCriticalSection((int)&LdrpLoaderLock) )
+  if ( RtlTryEnterCriticalSection(&LdrpLoaderLock) )
   {
     if ( RtlGetCurrentServiceSessionId() )
       v0 = (int)NtCurrentPeb()->SharedData + 554;

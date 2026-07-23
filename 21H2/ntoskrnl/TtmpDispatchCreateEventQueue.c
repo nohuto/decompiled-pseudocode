@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmpDispatchCreateEventQueue @ 0x140900B3C
+ * XREFs of TtmpDispatchCreateEventQueue @ 0x140900C9C
  * Callers:
- *     TtmDispatchApi @ 0x140900694 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409007F4 (TtmDispatchApi.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
- *     TtmiWriteEnumerationEventsToQueue @ 0x1408FF4DC (TtmiWriteEnumerationEventsToQueue.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x140900934 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
- *     TtmiCreateEventQueue @ 0x140905438 (TtmiCreateEventQueue.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ObInsertObject @ 0x1406AB4A0 (ObInsertObject.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1408FF63C (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900A94 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
+ *     TtmiCreateEventQueue @ 0x140905598 (TtmiCreateEventQueue.c)
  */
 
 __int64 __fastcall TtmpDispatchCreateEventQueue(__int64 a1, HANDLE *a2)

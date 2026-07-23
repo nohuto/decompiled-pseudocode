@@ -9,11 +9,11 @@
  *     <none>
  */
 
-__int64 ZwReleaseSemaphore()
+NTSTATUS __cdecl ZwReleaseSemaphore(HANDLE SemaphoreHandle, LONG ReleaseCount, PLONG PreviousCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 10LL;
+  result = 10;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

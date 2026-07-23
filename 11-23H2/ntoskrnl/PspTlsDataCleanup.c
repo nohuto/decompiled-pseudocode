@@ -1,11 +1,11 @@
 /*
- * XREFs of PspTlsDataCleanup @ 0x14076E1F0
+ * XREFs of PspTlsDataCleanup @ 0x14076E3E0
  * Callers:
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
- *     RtlpFlsSlotDataValidateEmpty @ 0x140309588 (RtlpFlsSlotDataValidateEmpty.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpFlsDataCleanup @ 0x14076EE04 (RtlpFlsDataCleanup.c)
+ *     RtlpFlsSlotDataValidateEmpty @ 0x140309818 (RtlpFlsSlotDataValidateEmpty.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsDataCleanup @ 0x14076EFF4 (RtlpFlsDataCleanup.c)
  */
 
 void __fastcall PspTlsDataCleanup(__int64 a1, int a2)

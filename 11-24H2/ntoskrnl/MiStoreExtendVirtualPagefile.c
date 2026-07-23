@@ -1,15 +1,15 @@
 /*
- * XREFs of MiStoreExtendVirtualPagefile @ 0x1404F6510
+ * XREFs of MiStoreExtendVirtualPagefile @ 0x1404F3E10
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     MiPageFileNoFreeSpace @ 0x1404D0994 (MiPageFileNoFreeSpace.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
+ *     MiPageFileNoFreeSpace @ 0x14046F624 (MiPageFileNoFreeSpace.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     MiIsStoreVirtualPagefileFull @ 0x1404A2F68 (MiIsStoreVirtualPagefileFull.c)
- *     MiFinishPageFileExtension @ 0x1404CB678 (MiFinishPageFileExtension.c)
- *     MiAttemptChangePagingFileMaximum @ 0x140679D30 (MiAttemptChangePagingFileMaximum.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x14049DEC8 (MiIsStoreVirtualPagefileFull.c)
+ *     MiFinishPageFileExtension @ 0x1404C4B98 (MiFinishPageFileExtension.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x14067AF10 (MiAttemptChangePagingFileMaximum.c)
  */
 
 __int64 __fastcall MiStoreExtendVirtualPagefile(__int64 a1, int *a2)
@@ -24,10 +24,10 @@ __int64 __fastcall MiStoreExtendVirtualPagefile(__int64 a1, int *a2)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = dword_140FC420C;
+  v5 = dword_140FC520C;
   v6 = (unsigned int)a2[1];
   v7 = *a2;
-  if ( (unsigned int)dword_140FC420C < 0x4000 )
+  if ( (unsigned int)dword_140FC520C < 0x4000 )
     v5 = 0x4000;
   if ( (int)v6 - v7 < v5 )
   {

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIOpenBlock @ 0x140A0DEA0
+ * XREFs of IoWMIOpenBlock @ 0x140A0D390
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x1404B0AA4 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WmipOpenBlock @ 0x140A0E050 (WmipOpenBlock.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x1404AA134 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WmipOpenBlock @ 0x140A0D540 (WmipOpenBlock.c)
  */
 
 NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *DataBlockObject)

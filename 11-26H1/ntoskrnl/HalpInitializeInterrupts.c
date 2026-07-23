@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpInitializeInterrupts @ 0x140CADD98
+ * XREFs of HalpInitializeInterrupts @ 0x140CB3DD8
  * Callers:
- *     HalpInterruptInitDiscard @ 0x140CAFAB4 (HalpInterruptInitDiscard.c)
+ *     HalpInterruptInitDiscard @ 0x140CB5AF4 (HalpInterruptInitDiscard.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpInterruptInitializeIpis @ 0x14057F394 (HalpInterruptInitializeIpis.c)
- *     HalpInterruptInitializeController @ 0x1405901D0 (HalpInterruptInitializeController.c)
- *     HalpInterruptParseAcpiTables @ 0x140590698 (HalpInterruptParseAcpiTables.c)
- *     HalpInterruptSelectController @ 0x140591128 (HalpInterruptSelectController.c)
- *     HalpInterruptSetIdtEntry @ 0x140594700 (HalpInterruptSetIdtEntry.c)
- *     HalpApicDiscover @ 0x1405A13D4 (HalpApicDiscover.c)
- *     HalpPicDiscover @ 0x1405A2174 (HalpPicDiscover.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpInterruptInitializeIpis @ 0x1405818B4 (HalpInterruptInitializeIpis.c)
+ *     HalpInterruptInitializeController @ 0x140592950 (HalpInterruptInitializeController.c)
+ *     HalpInterruptParseAcpiTables @ 0x140592E18 (HalpInterruptParseAcpiTables.c)
+ *     HalpInterruptSelectController @ 0x1405938A8 (HalpInterruptSelectController.c)
+ *     HalpInterruptSetIdtEntry @ 0x140596E80 (HalpInterruptSetIdtEntry.c)
+ *     HalpApicDiscover @ 0x1405A3BE4 (HalpApicDiscover.c)
+ *     HalpPicDiscover @ 0x1405A4984 (HalpPicDiscover.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
@@ -49,12 +49,12 @@ __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
   ULONG_PTR v30; // [rsp+60h] [rbp+18h] BYREF
 
   v30 = 0LL;
-  qword_140F89668 = (__int64)&HalpInterruptOverrides;
+  qword_140F89A98 = (__int64)&HalpInterruptOverrides;
   HalpInterruptOverrides = (__int64)&HalpInterruptOverrides;
   HalpInterruptOverridesLock = 0LL;
   HalpInterruptLocalUnitErrorLock = 0LL;
   HalpInterruptPhysicalTargets = 2097153LL;
-  memset_0(qword_140FBCC88, 0, 0x100uLL);
+  memset_0(qword_140FBD028, 0, 0x100uLL);
   v2 = HalpInterruptParseAcpiTables(a1, 0);
   if ( v2 < 0 )
     goto LABEL_4;
@@ -89,14 +89,14 @@ __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
     || (memset_0(v11, 0, v10),
         v12 = 8 * HalpInterruptMaxProcessors,
         v13 = (struct _LIST_ENTRY *)HalpMmAllocateMemoryInternal(8 * HalpInterruptMaxProcessors, 1u),
-        (HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink = v13) == 0LL) )
+        (HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink = v13) == 0LL) )
   {
 LABEL_3:
     v2 = -1073741801;
     goto LABEL_4;
   }
   memset_0(v13, 0, v12);
-  HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink->Flink = (struct _LIST_ENTRY *)KeGetPcr();
+  HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink->Flink = (struct _LIST_ENTRY *)KeGetPcr();
   v2 = HalpApicDiscover();
   if ( v2 >= 0 )
     v2 = HalpPicDiscover();
@@ -153,12 +153,12 @@ LABEL_3:
     15,
     v21,
     -3LL);
-  byte_140FFBA12 = 17;
-  byte_140FFBC1A = 15;
-  dword_140FFBC1B = 2;
-  byte_140FFBAEF = 17;
-  byte_140FFC06B = 15;
-  dword_140FFC06C = 223;
+  byte_140FFCA12 = 17;
+  byte_140FFCC1A = 15;
+  dword_140FFCC1B = 2;
+  byte_140FFCAEF = 17;
+  byte_140FFD06B = 15;
+  dword_140FFD06C = 223;
   v2 = HalpInterruptSelectController((__int64)&v30);
   if ( v2 < 0 )
     goto LABEL_4;

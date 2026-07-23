@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPfnToOwningProcess @ 0x140404320
+ * XREFs of MiPfnToOwningProcess @ 0x1403FD420
  * Callers:
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
  * Callees:
- *     MiGetTopLevelPfn @ 0x140404690 (MiGetTopLevelPfn.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiGetTopLevelPfn @ 0x1403FD790 (MiGetTopLevelPfn.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
  */
 
 __int64 __fastcall MiPfnToOwningProcess(ULONG_PTR a1, __int64 a2)

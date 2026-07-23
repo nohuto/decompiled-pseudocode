@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpGetLogicalProcessorProperty @ 0x1401BB800
+ * XREFs of HvlpGetLogicalProcessorProperty @ 0x1401BB6E4
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
- *     HvlLpGetMachineCheckContext @ 0x1401BCEB4 (HvlLpGetMachineCheckContext.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
+ *     HvlLpGetMachineCheckContext @ 0x1401BCD98 (HvlLpGetMachineCheckContext.c)
  * Callees:
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpGetLogicalProcessorProperty(int a1, int a2, _OWORD *a3)

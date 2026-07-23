@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWakeAddressSingleNoFence @ 0x18014CD70
+ * XREFs of RtlWakeAddressSingleNoFence @ 0x18014CC20
  * Callers:
  *     <none>
  * Callees:

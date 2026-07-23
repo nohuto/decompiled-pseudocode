@@ -1,14 +1,14 @@
 /*
- * XREFs of IommuDomainDetachDeviceEx @ 0x140525D50
+ * XREFs of IommuDomainDetachDeviceEx @ 0x1405262A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040F968 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
- *     IommupDeviceGetPasidDevice @ 0x14050E0CC (IommupDeviceGetPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x14050E4B8 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuLeaveDmaDomain @ 0x1405184B4 (HalpIommuLeaveDmaDomain.c)
- *     IommupFindAndPopCachedDevice @ 0x140526A74 (IommupFindAndPopCachedDevice.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040FB48 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     IommupDeviceGetPasidDevice @ 0x14050E61C (IommupDeviceGetPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14050EA08 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuLeaveDmaDomain @ 0x140518A04 (HalpIommuLeaveDmaDomain.c)
+ *     IommupFindAndPopCachedDevice @ 0x140526FC4 (IommupFindAndPopCachedDevice.c)
  */
 
 __int64 __fastcall IommuDomainDetachDeviceEx(__int64 a1)

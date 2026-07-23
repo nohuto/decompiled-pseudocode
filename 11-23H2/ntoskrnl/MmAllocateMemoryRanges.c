@@ -1,15 +1,15 @@
 /*
- * XREFs of MmAllocateMemoryRanges @ 0x140A2E2C0
+ * XREFs of MmAllocateMemoryRanges @ 0x140A2E570
  * Callers:
- *     IopLiveDumpAllocateIoSpaceRanges @ 0x14094DA20 (IopLiveDumpAllocateIoSpaceRanges.c)
- *     MiAllocateUserPhysicalRanges @ 0x140A41130 (MiAllocateUserPhysicalRanges.c)
+ *     IopLiveDumpAllocateIoSpaceRanges @ 0x14094DC20 (IopLiveDumpAllocateIoSpaceRanges.c)
+ *     MiAllocateUserPhysicalRanges @ 0x140A413E0 (MiAllocateUserPhysicalRanges.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
- *     MiGetHugeRangeFromNode @ 0x1403C50E4 (MiGetHugeRangeFromNode.c)
- *     MiReleaseMemoryRuns @ 0x1406222EC (MiReleaseMemoryRuns.c)
- *     MiAddRun @ 0x140A2DBC0 (MiAddRun.c)
+ *     MiPartitionObjectToPartition @ 0x1402F8D34 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
+ *     MiGetHugeRangeFromNode @ 0x1403C52C4 (MiGetHugeRangeFromNode.c)
+ *     MiReleaseMemoryRuns @ 0x14062283C (MiReleaseMemoryRuns.c)
+ *     MiAddRun @ 0x140A2DE70 (MiAddRun.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

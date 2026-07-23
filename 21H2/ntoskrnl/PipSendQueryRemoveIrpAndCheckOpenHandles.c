@@ -1,15 +1,15 @@
 /*
- * XREFs of PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140732660
+ * XREFs of PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140732820
  * Callers:
- *     PipProcessQueryRemovalInKernelMode @ 0x1407325CC (PipProcessQueryRemovalInKernelMode.c)
+ *     PipProcessQueryRemovalInKernelMode @ 0x14073278C (PipProcessQueryRemovalInKernelMode.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PnpLogVetoInformation @ 0x140732794 (PnpLogVetoInformation.c)
- *     PipEventRemovalCheckOpenHandles @ 0x1407327F4 (PipEventRemovalCheckOpenHandles.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140738200 (PnpDeleteLockedDeviceNodes.c)
- *     PnpCollectOpenHandles @ 0x1408ABC04 (PnpCollectOpenHandles.c)
- *     PipRecordOpenHandleVeto @ 0x1408B90CC (PipRecordOpenHandleVeto.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PnpLogVetoInformation @ 0x140732954 (PnpLogVetoInformation.c)
+ *     PipEventRemovalCheckOpenHandles @ 0x1407329B4 (PipEventRemovalCheckOpenHandles.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1407383C0 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCollectOpenHandles @ 0x1408ABD64 (PnpCollectOpenHandles.c)
+ *     PipRecordOpenHandleVeto @ 0x1408B922C (PipRecordOpenHandleVeto.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipSendQueryRemoveIrpAndCheckOpenHandles(

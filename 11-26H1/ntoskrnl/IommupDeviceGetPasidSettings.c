@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupDeviceGetPasidSettings @ 0x140587F84
+ * XREFs of IommupDeviceGetPasidSettings @ 0x14058A55C
  * Callers:
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
- *     IommupDeviceEnableSvm @ 0x14078287C (IommupDeviceEnableSvm.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
+ *     IommupDeviceEnableSvm @ 0x14078537C (IommupDeviceEnableSvm.c)
  * Callees:
- *     IommupGetDeviceCreationConfigEntry @ 0x14059FF2C (IommupGetDeviceCreationConfigEntry.c)
+ *     IommupGetDeviceCreationConfigEntry @ 0x1405A271C (IommupGetDeviceCreationConfigEntry.c)
  */
 
 __int64 __fastcall IommupDeviceGetPasidSettings(__int64 a1, char *a2, char *a3, _BYTE *a4)

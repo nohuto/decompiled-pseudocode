@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpFreeHandleTableEntry @ 0x1405FB378
+ * XREFs of ExpFreeHandleTableEntry @ 0x1405FC378
  * Callers:
- *     ExCreateHandleEx @ 0x1405D1380 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     ExDestroyHandle @ 0x1405FB318 (ExDestroyHandle.c)
+ *     ExCreateHandleEx @ 0x1405D2380 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     ExDestroyHandle @ 0x1405FC318 (ExDestroyHandle.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpGetHandleExtraInfo @ 0x1408CE110 (ExpGetHandleExtraInfo.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExpGetHandleExtraInfo @ 0x1408CF3D0 (ExpGetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3)

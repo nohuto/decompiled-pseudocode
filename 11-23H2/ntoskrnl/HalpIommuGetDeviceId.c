@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIommuGetDeviceId @ 0x140390C8C
+ * XREFs of HalpIommuGetDeviceId @ 0x140390E6C
  * Callers:
- *     IommupCreateDeviceId @ 0x1403905C4 (IommupCreateDeviceId.c)
- *     IommuDomainAttachDevice @ 0x140525680 (IommuDomainAttachDevice.c)
- *     HalpQueryIommuReservedRegionInformation @ 0x14082860C (HalpQueryIommuReservedRegionInformation.c)
+ *     IommupCreateDeviceId @ 0x1403907A4 (IommupCreateDeviceId.c)
+ *     IommuDomainAttachDevice @ 0x140525BD0 (IommuDomainAttachDevice.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x14082890C (HalpQueryIommuReservedRegionInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoQueryInterface @ 0x140828780 (IoQueryInterface.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoQueryInterface @ 0x140828A80 (IoQueryInterface.c)
  */
 
 __int64 __fastcall HalpIommuGetDeviceId(__int64 a1, __int64 *a2)

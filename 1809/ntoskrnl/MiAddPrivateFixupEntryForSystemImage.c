@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x140176A6C
+ * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x140176B6C
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x140684100 (MiGetSystemAddressForImage.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiInitializePrivateFixupBitmap @ 0x1405A8B60 (MiInitializePrivateFixupBitmap.c)
- *     MiCreateSessionDriverProtos @ 0x14085F11C (MiCreateSessionDriverProtos.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiInitializePrivateFixupBitmap @ 0x1405A9B60 (MiInitializePrivateFixupBitmap.c)
+ *     MiCreateSessionDriverProtos @ 0x14086037C (MiCreateSessionDriverProtos.c)
  */
 
 __int64 __fastcall MiAddPrivateFixupEntryForSystemImage(_DWORD *a1, unsigned __int64 a2)
@@ -54,16 +54,16 @@ LABEL_7:
     v6 = PoolWithTag;
     goto LABEL_7;
   }
-  v7 = ExAcquireSpinLockExclusive(&dword_140438EC8);
-  v8 = (_QWORD *)qword_140438E88;
+  v7 = ExAcquireSpinLockExclusive(&dword_140439F88);
+  v8 = (_QWORD *)qword_140439F48;
   v9 = v7;
-  if ( *(__int64 **)qword_140438E88 != &qword_140438E80 )
+  if ( *(__int64 **)qword_140439F48 != &qword_140439F40 )
     __fastfail(3u);
-  v5[1] = qword_140438E88;
-  *v5 = &qword_140438E80;
+  v5[1] = qword_140439F48;
+  *v5 = &qword_140439F40;
   *v8 = v5;
-  qword_140438E88 = (__int64)v5;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438EC8);
+  qword_140439F48 = (__int64)v5;
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439F88);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

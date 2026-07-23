@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTiAsyncVadQueryEventWrite @ 0x140258B94
+ * XREFs of EtwpTiAsyncVadQueryEventWrite @ 0x14025A374
  * Callers:
- *     EtwpTiVadQueryEventWrite @ 0x140258ACC (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiVadQueryEventWrite @ 0x14025A2AC (EtwpTiVadQueryEventWrite.c)
  * Callees:
- *     EtwpTiTestBloomFilter @ 0x140258C94 (EtwpTiTestBloomFilter.c)
- *     EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x140258D14 (EtwpTiAllocVadQueryEventWriteWorkItemContext.c)
- *     EtwpTiAddBloomFilter @ 0x140258EA8 (EtwpTiAddBloomFilter.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     EtwpTiTestBloomFilter @ 0x14025A474 (EtwpTiTestBloomFilter.c)
+ *     EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x14025A4F4 (EtwpTiAllocVadQueryEventWriteWorkItemContext.c)
+ *     EtwpTiAddBloomFilter @ 0x14025A688 (EtwpTiAddBloomFilter.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall EtwpTiAsyncVadQueryEventWrite(__int64 a1, int a2, int a3, __int64 a4, _QWORD *a5, int a6, __int64 a7)

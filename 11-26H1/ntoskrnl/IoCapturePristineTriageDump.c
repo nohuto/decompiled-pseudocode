@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCapturePristineTriageDump @ 0x1405C61E8
+ * XREFs of IoCapturePristineTriageDump @ 0x1405C8AB8
  * Callers:
- *     KiCaptureDumpPreRecovery @ 0x1405F9F08 (KiCaptureDumpPreRecovery.c)
+ *     KiCaptureDumpPreRecovery @ 0x1405FC928 (KiCaptureDumpPreRecovery.c)
  * Callees:
- *     IoFillDumpHeader @ 0x1405C6688 (IoFillDumpHeader.c)
- *     IopCollectTriageDumpData @ 0x1405C8974 (IopCollectTriageDumpData.c)
+ *     IoFillDumpHeader @ 0x1405C8F58 (IoFillDumpHeader.c)
+ *     IopCollectTriageDumpData @ 0x1405CB244 (IopCollectTriageDumpData.c)
  */
 
 __int64 __fastcall IoCapturePristineTriageDump(
@@ -17,7 +17,7 @@ __int64 __fastcall IoCapturePristineTriageDump(
         __int64 a7,
         char a8)
 {
-  _OWORD *Object; // rsi
+  __int64 v8; // rsi
   int v10; // ebp
   int v11; // r14d
   __int64 v13; // rsi
@@ -30,30 +30,30 @@ __int64 __fastcall IoCapturePristineTriageDump(
   __int128 v20; // xmm0
   __int64 v21; // rcx
 
-  Object = KsepShimDbLock.WaitBlock[2].Object;
+  v8 = *(_QWORD *)&KsepShimDbLock.SuspendEvent.Header.Lock;
   v10 = a4;
   v11 = a3;
-  if ( !KsepShimDbLock.WaitBlock[2].Object )
+  if ( !*(_QWORD *)&KsepShimDbLock.SuspendEvent.Header.Lock )
   {
     if ( *(_DWORD *)(CrashdmpDumpBlock + 1336) != 4 )
       return 3221225626LL;
     v13 = *(_QWORD *)(CrashdmpDumpBlock + 1328);
     if ( !v13 )
       return 3221225626LL;
-    Object = (_OWORD *)(v13 - 0x2000);
+    v8 = v13 - 0x2000;
   }
-  IoFillDumpHeader((_DWORD)Object, 4, a1, a2, a3, a4, a5, a7);
+  IoFillDumpHeader(v8, 4, a1, a2, a3, a4, a5, a7);
   v14 = (_OWORD *)a6;
   v15 = IopCollectTriageDumpData(a1, a2, v11, v10, a5, a6, a7, a8);
   if ( v15 >= 0 )
   {
     v16 = 9LL;
-    Object[6] = 0LL;
-    Object[7] = 0LL;
-    *((_DWORD *)Object + 1044) |= 8u;
-    *((_QWORD *)Object + 519) = 3583LL;
-    *((_QWORD *)Object + 482) = *(_QWORD *)(a6 + 248);
-    v17 = (_OWORD *)((char *)Object + 840);
+    *(_OWORD *)(v8 + 96) = 0LL;
+    *(_OWORD *)(v8 + 112) = 0LL;
+    *(_DWORD *)(v8 + 4176) |= 8u;
+    *(_QWORD *)(v8 + 4152) = 3583LL;
+    *(_QWORD *)(v8 + 3856) = *(_QWORD *)(a6 + 248);
+    v17 = (_OWORD *)(v8 + 840);
     do
     {
       *v17 = *v14;
@@ -70,19 +70,19 @@ __int64 __fastcall IoCapturePristineTriageDump(
       --v16;
     }
     while ( v16 );
-    v19 = *((_DWORD *)Object + 2049) + 4095;
+    v19 = *(_DWORD *)(v8 + 8196) + 4095;
     *v17 = *v14;
     v19 &= 0xFFFFF000;
     v17[1] = v14[1];
     v17[2] = v14[2];
     v17[3] = v14[3];
     v20 = v14[4];
-    *((_DWORD *)Object + 2049) = v19;
+    *(_DWORD *)(v8 + 8196) = v19;
     v17[4] = v20;
-    *(_DWORD *)((char *)Object + (unsigned int)(v19 - 8196) + 0x2000) = 1145524820;
-    v21 = *((unsigned int *)Object + 2049);
-    *((_QWORD *)Object + 500) = v21;
-    *((_DWORD *)Object + 2050) = v21 - 4;
+    *(_DWORD *)((unsigned int)(v19 - 8196) + v8 + 0x2000) = 1145524820;
+    v21 = *(unsigned int *)(v8 + 8196);
+    *(_QWORD *)(v8 + 4000) = v21;
+    *(_DWORD *)(v8 + 8200) = v21 - 4;
   }
   return (unsigned int)v15;
 }

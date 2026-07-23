@@ -1,12 +1,12 @@
 /*
- * XREFs of EmonPreOverflowHandler @ 0x1403B8A20
+ * XREFs of EmonPreOverflowHandler @ 0x140374310
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptEnablePerformanceEvents @ 0x1403B90F8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x140373A20 (HalpInterruptEnablePerformanceEvents.c)
  */
 
-__int64 EmonPreOverflowHandler()
+__int64 __fastcall EmonPreOverflowHandler(__int64 a1, __int64 a2, __int64 a3)
 {
-  return HalpInterruptEnablePerformanceEvents(1LL);
+  return HalpInterruptEnablePerformanceEvents(1LL, a2, a3);
 }

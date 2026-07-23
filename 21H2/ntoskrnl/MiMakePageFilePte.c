@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMakePageFilePte @ 0x14035B8F4
+ * XREFs of MiMakePageFilePte @ 0x1402A0694
  * Callers:
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x14070FD70 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x1406BE3C0 (MiReserveWorkingSetSwapSpaceRuns.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiMakePageFilePte(__int64 a1)

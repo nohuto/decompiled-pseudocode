@@ -1,10 +1,10 @@
 /*
- * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x1400AA4A4
+ * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x1400A8A24
  * Callers:
- *     MmAllocateNodePagesForMdlEx @ 0x1400AA474 (MmAllocateNodePagesForMdlEx.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1400A89F4 (MmAllocateNodePagesForMdlEx.c)
  * Callees:
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmAllocatePartitionNodePagesForMdlEx(

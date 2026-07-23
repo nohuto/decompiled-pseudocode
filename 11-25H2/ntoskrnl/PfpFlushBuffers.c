@@ -15,7 +15,7 @@
  *     PfTReplaceCurrentBuffer @ 0x1409242F4 (PfTReplaceCurrentBuffer.c)
  */
 
-char __fastcall PfpFlushBuffers(union _SLIST_HEADER *a1)
+char __fastcall PfpFlushBuffers(_SLIST_HEADER *a1)
 {
   _QWORD *v2; // rbx
   char *j; // rdi

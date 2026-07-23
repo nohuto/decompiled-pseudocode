@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLargePageFault @ 0x1403A7860
+ * XREFs of MiLargePageFault @ 0x1403A95C0
  * Callers:
- *     MiResolvePageTablePage @ 0x1402ECA70 (MiResolvePageTablePage.c)
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
+ *     MiResolvePageTablePage @ 0x1402CEAB0 (MiResolvePageTablePage.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiNoFaultFound @ 0x1403A6898 (MiNoFaultFound.c)
- *     MiCanGrantExecute @ 0x1404D3200 (MiCanGrantExecute.c)
- *     MiCheckSystemNxFault @ 0x1404EB224 (MiCheckSystemNxFault.c)
- *     MiValidVirtualizationFault @ 0x140525860 (MiValidVirtualizationFault.c)
- *     MiGetVirtualFaultPageInfo @ 0x140525BB8 (MiGetVirtualFaultPageInfo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiNoFaultFound @ 0x1403A85F8 (MiNoFaultFound.c)
+ *     MiCanGrantExecute @ 0x1404CCA70 (MiCanGrantExecute.c)
+ *     MiCheckSystemNxFault @ 0x1404E4804 (MiCheckSystemNxFault.c)
+ *     MiValidVirtualizationFault @ 0x140527ED0 (MiValidVirtualizationFault.c)
+ *     MiGetVirtualFaultPageInfo @ 0x140528228 (MiGetVirtualFaultPageInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiLargePageFault(unsigned __int64 *a1, unsigned __int64 a2)
@@ -104,7 +104,7 @@ LABEL_12:
     if ( (unsigned int)MiCanGrantExecute(KeGetCurrentThread()->ApcState.Process, *a1) )
     {
       v18 = ((unsigned __int64)PteShadow >> 12) & 0xFFFFFFFFFFLL;
-      if ( v18 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v18 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      if ( v18 <= qword_140E2D920 && ((*(_QWORD *)(48 * v18 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
       {
         PteShadow &= ~0x8000000000000000uLL;
         if ( (MiFlags & 0x400) != 0 || (MiFlags & 0x800) != 0 )

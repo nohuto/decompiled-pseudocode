@@ -10,27 +10,27 @@
  *     sub_1800CDB44 @ 0x1800CDB44 (sub_1800CDB44.c)
  */
 
-__int64 __fastcall sub_1800CDAC4(_QWORD *a1)
+NTSTATUS __fastcall sub_1800CDAC4(PVOID *BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v3; // rdx
-  _QWORD *v4; // rax
+  NTSTATUS result; // eax
+  PVOID v3; // rdx
+  PVOID *v4; // rax
 
-  result = ZwTerminateEnclave();
-  if ( (int)result >= 0 )
+  result = ZwTerminateEnclave(BaseAddress[9], 4u);
+  if ( result >= 0 )
   {
-    a1[14] = 0LL;
-    sub_1800CD828((__int64)a1, -1073741823);
-    a1[9] = 0LL;
-    RtlEnterCriticalSection((__int64)&unk_180165AE0);
-    v3 = *a1;
-    if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v4 = (_QWORD *)a1[1], (_QWORD *)*v4 != a1) )
+    BaseAddress[14] = 0LL;
+    sub_1800CD828((__int64)BaseAddress, -1073741823);
+    BaseAddress[9] = 0LL;
+    RtlEnterCriticalSection(&stru_180165AE0);
+    v3 = *BaseAddress;
+    if ( *((PVOID **)*BaseAddress + 1) != BaseAddress || (v4 = (PVOID *)BaseAddress[1], *v4 != BaseAddress) )
       __fastfail(3u);
     *v4 = v3;
-    *(_QWORD *)(v3 + 8) = v4;
-    RtlLeaveCriticalSection((__int64)&unk_180165AE0);
-    sub_1800CDB44(a1);
-    return 0LL;
+    *((_QWORD *)v3 + 1) = v4;
+    RtlLeaveCriticalSection(&stru_180165AE0);
+    sub_1800CDB44(BaseAddress);
+    return 0;
   }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCreateResidentPfnTemplate @ 0x140A38CD4
+ * XREFs of MiCreateResidentPfnTemplate @ 0x140A39CD4
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
  *     <none>
  */

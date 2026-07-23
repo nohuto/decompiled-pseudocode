@@ -17,22 +17,16 @@
  *     VrpLockDiffHiveEntry @ 0x14094B6C0 (VrpLockDiffHiveEntry.c)
  */
 
-__int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
+__int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *a1)
 {
   __int64 DiffHiveEntryForMountPoint; // rax
   _DWORD *v3; // rbx
   char v4; // al
   char v5; // si
-  __int64 v6; // rdx
-  int v7; // edi
-  __int128 v9; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-20h]
-  __int128 v11; // [rsp+40h] [rbp-10h]
+  NTSTATUS v6; // edi
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+20h] [rbp-30h] BYREF
 
-  v9 = 0LL;
-  *(_QWORD *)&v11 = 0LL;
-  v10 = 0LL;
-  DWORD2(v11) = 0;
+  memset(&TargetKey, 0, 44);
   DiffHiveEntryForMountPoint = VrpFindDiffHiveEntryForMountPoint(a1);
   v3 = (_DWORD *)DiffHiveEntryForMountPoint;
   if ( DiffHiveEntryForMountPoint )
@@ -44,16 +38,16 @@ __int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
       v3[14] &= ~1u;
       v5 = v4;
       VrpUnlockDiffHiveEntry((__int64)v3);
-      *((_QWORD *)&v9 + 1) = 0LL;
-      LODWORD(v9) = 48;
-      v11 = 0LL;
-      DWORD2(v10) = 576;
-      *(_QWORD *)&v10 = a1;
-      v7 = ZwUnloadKey((__int64)&v9, v6);
-      if ( v7 < 0 )
-        v7 = ZwUnloadKey2((__int64)&v9, 1LL);
+      TargetKey.RootDirectory = 0LL;
+      TargetKey.Length = 48;
+      *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+      TargetKey.Attributes = 576;
+      TargetKey.ObjectName = a1;
+      v6 = ZwUnloadKey(&TargetKey);
+      if ( v6 < 0 )
+        v6 = ZwUnloadKey2(&TargetKey, 1u);
       VrpLockDiffHiveEntry(v3);
-      if ( v7 < 0 )
+      if ( v6 < 0 )
       {
         v3[14] |= 1u;
         VrpIncrementDiffHiveEntryHardRefCount(v3);
@@ -63,7 +57,7 @@ __int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
     }
     else
     {
-      v7 = 0;
+      v6 = 0;
     }
     VrpUnlockDiffHiveEntry((__int64)v3);
     VrpDereferenceDiffHiveEntry(v3);
@@ -72,5 +66,5 @@ __int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
   {
     return (unsigned int)-1073741772;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

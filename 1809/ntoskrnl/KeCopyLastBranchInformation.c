@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCopyLastBranchInformation @ 0x1400A27C4
+ * XREFs of KeCopyLastBranchInformation @ 0x1400A2704
  * Callers:
- *     KeContextFromKframes @ 0x1400A2878 (KeContextFromKframes.c)
- *     PspGetContext @ 0x14061FFC8 (PspGetContext.c)
- *     KiCaptureUmsThreadContext @ 0x140846B38 (KiCaptureUmsThreadContext.c)
+ *     KeContextFromKframes @ 0x1400A27B8 (KeContextFromKframes.c)
+ *     PspGetContext @ 0x140620FC8 (PspGetContext.c)
+ *     KiCaptureUmsThreadContext @ 0x140847D98 (KiCaptureUmsThreadContext.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 __fastcall KeCopyLastBranchInformation(__int64 a1, __int64 a2)

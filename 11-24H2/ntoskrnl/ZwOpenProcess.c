@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwOpenProcess @ 0x1406A68D0
+ * XREFs of ZwOpenProcess @ 0x1406A7870
  * Callers:
- *     DifZwOpenProcessWrapper @ 0x140642500 (DifZwOpenProcessWrapper.c)
- *     BiLogFileOwnerProcess @ 0x14069777C (BiLogFileOwnerProcess.c)
- *     EtwpNotifyProcessTracingChange @ 0x1407AA578 (EtwpNotifyProcessTracingChange.c)
- *     SepRmLsaConnectRequest @ 0x140A52AA4 (SepRmLsaConnectRequest.c)
+ *     DifZwOpenProcessWrapper @ 0x140640AC0 (DifZwOpenProcessWrapper.c)
+ *     BiLogFileOwnerProcess @ 0x1406987FC (BiLogFileOwnerProcess.c)
+ *     EtwpNotifyProcessTracingChange @ 0x1407AA6B8 (EtwpNotifyProcessTracingChange.c)
+ *     SepRmLsaConnectRequest @ 0x140A4AAF4 (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenProcess(
         PHANDLE ProcessHandle,
         ACCESS_MASK DesiredAccess,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwOpenProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(ProcessHandle);
 }

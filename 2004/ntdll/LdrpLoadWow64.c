@@ -15,52 +15,48 @@
  *     LdrpLogDbgPrint @ 0x1800CDAE8 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpLoadWow64(const void **a1)
+__int64 __fastcall LdrpLoadWow64(PCUNICODE_STRING Source)
 {
   int Dll; // ebx
   unsigned int v2; // ebx
-  const void ***v3; // rdi
-  int ProcedureAddressForCaller; // esi
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r9
-  char v9; // cl
-  char v10; // al
-  int v11; // [rsp+38h] [rbp-D0h]
-  int v12; // [rsp+40h] [rbp-C8h]
-  __int64 v13; // [rsp+48h] [rbp-C0h] BYREF
-  char *v14; // [rsp+50h] [rbp-B8h]
-  __int64 v15; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v16[15]; // [rsp+68h] [rbp-A0h] BYREF
-  char v17; // [rsp+E4h] [rbp-24h]
-  char v18; // [rsp+E8h] [rbp-20h] BYREF
-  __int64 retaddr; // [rsp+320h] [rbp+218h]
+  PANSI_STRING *v3; // rdi
+  NTSTATUS ProcedureAddressForCaller; // esi
+  char v6; // cl
+  char v7; // al
+  int v8; // [rsp+38h] [rbp-D0h]
+  NTSTATUS v9; // [rsp+40h] [rbp-C8h]
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-C0h] BYREF
+  PVOID BaseAddress[2]; // [rsp+58h] [rbp-B0h] BYREF
+  PWSTR Path[15]; // [rsp+68h] [rbp-A0h] BYREF
+  char v13; // [rsp+E4h] [rbp-24h]
+  char v14; // [rsp+E8h] [rbp-20h] BYREF
+  PVOID *Callback; // [rsp+320h] [rbp+218h]
 
-  LODWORD(v13) = 34078720;
-  v14 = &v18;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v13, a1);
-  RtlAppendUnicodeToString((unsigned __int16 *)&v13, L"wow64.dll");
-  LdrpInitializeDllPath(v14, 16385LL, v16);
-  Dll = LdrpLoadDll((__int64)&v13, (int)v16, 2048, (__int64)&v15);
-  if ( v17 )
-    RtlReleasePath(v16[0]);
+  *(_DWORD *)&Destination.Length = 34078720;
+  Destination.Buffer = (wchar_t *)&v14;
+  RtlAppendUnicodeStringToString(&Destination, Source);
+  RtlAppendUnicodeToString(&Destination, L"wow64.dll");
+  LdrpInitializeDllPath(Destination.Buffer, (const WCHAR *)0x4001, (const WCHAR **)Path);
+  Dll = LdrpLoadDll((__int64)&Destination, (__int64)Path, 2048, (__int64)BaseAddress);
+  if ( v13 )
+    RtlReleasePath(Path[0]);
   if ( Dll < 0 )
   {
-    v9 = LdrpDebugFlags;
+    v6 = LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
-      v11 = Dll;
+      v8 = Dll;
       LdrpLogDbgPrint(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         3176,
         (unsigned int)"LdrpLoadWow64",
         0,
         (__int64)"Loading WOW64 image management DLL \"%wZ\" failed with status 0x%08lx\n",
-        &v13,
-        v11);
-      v9 = LdrpDebugFlags;
+        &Destination,
+        v8);
+      v6 = LdrpDebugFlags;
     }
-    if ( (v9 & 0x10) != 0 )
+    if ( (v6 & 0x10) != 0 )
       __debugbreak();
     return (unsigned int)Dll;
   }
@@ -68,10 +64,16 @@ __int64 __fastcall LdrpLoadWow64(const void **a1)
   {
     LdrProtectMrdata(0);
     v2 = 0;
-    v3 = (const void ***)&off_18011CDF0;
+    v3 = (PANSI_STRING *)&off_18011CDF0;
     while ( 1 )
     {
-      ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(*(_QWORD *)(v15 + 48), *v3, 0, v3[1], 0, retaddr);
+      ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(
+                                    *((PVOID *)BaseAddress[0] + 6),
+                                    *v3,
+                                    0,
+                                    (PVOID *)v3[1],
+                                    0,
+                                    Callback);
       if ( ProcedureAddressForCaller < 0 )
         break;
       ++v2;
@@ -79,10 +81,10 @@ __int64 __fastcall LdrpLoadWow64(const void **a1)
       if ( v2 >= 6 )
         goto LABEL_7;
     }
-    v10 = LdrpDebugFlags;
+    v7 = LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
-      v12 = ProcedureAddressForCaller;
+      v9 = ProcedureAddressForCaller;
       LdrpLogDbgPrint(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         3199,
@@ -90,15 +92,15 @@ __int64 __fastcall LdrpLoadWow64(const void **a1)
         0,
         (__int64)"Locating procedure \"%Z\" in WOW64 image management DLL \"%wZ\" failed with status 0x%08lx\n",
         *(&off_18011CDF0 + 2 * v2),
-        &v13,
-        v12);
-      v10 = LdrpDebugFlags;
+        &Destination,
+        v9);
+      v7 = LdrpDebugFlags;
     }
-    if ( (v10 & 0x10) != 0 )
+    if ( (v7 & 0x10) != 0 )
       __debugbreak();
 LABEL_7:
     LdrProtectMrdata(1);
-    LdrpDereferenceModule(v15, v5, v6, v7);
+    LdrpDereferenceModule((char *)BaseAddress[0]);
     return (unsigned int)ProcedureAddressForCaller;
   }
 }

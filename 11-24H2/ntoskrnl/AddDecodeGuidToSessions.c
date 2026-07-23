@@ -1,11 +1,11 @@
 /*
- * XREFs of AddDecodeGuidToSessions @ 0x140A6206C
+ * XREFs of AddDecodeGuidToSessions @ 0x140A5A96C
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x1408361EC (EtwpSetProviderTraitsCommon.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1409F69B4 (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpTrackDecodeGuidForSession @ 0x140A62114 (EtwpTrackDecodeGuidForSession.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpTrackDecodeGuidForSession @ 0x140A5AA14 (EtwpTrackDecodeGuidForSession.c)
  */
 
 char __fastcall AddDecodeGuidToSessions(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpDereferenceProcess @ 0x1408C23B0
+ * XREFs of AlpcpDereferenceProcess @ 0x1408C2510
  * Callers:
- *     AlpcpPortQueryServerInfo @ 0x1408C3100 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpPortQueryServerInfo @ 0x1408C3260 (AlpcpPortQueryServerInfo.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall AlpcpDereferenceProcess(void *a1)

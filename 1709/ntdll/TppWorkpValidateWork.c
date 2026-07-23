@@ -11,15 +11,14 @@
 __int64 __fastcall TppWorkpValidateWork(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
 {
   int v3; // r10d
-  _PEB_LDR_DATA *v4; // r9
+  __int64 v4; // r9
 
   v3 = a3;
-  v4 = Ldr;
   if ( Ldr )
   {
     if ( (unsigned int)TppValidateCleanupGroupMember(Ldr, a2, a3, Ldr) )
     {
-      if ( v4->SsHandle == TppWorkpCleanupGroupMemberVFuncs )
+      if ( *(__int64 (__fastcall ***)(PVOID))(v4 + 8) == &TppWorkpCleanupGroupMemberVFuncs )
       {
         Ldr = NtCurrentPeb()->Ldr;
         if ( !Ldr->ShutdownInProgress )
@@ -28,6 +27,6 @@ __int64 __fastcall TppWorkpValidateWork(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 
     }
   }
   if ( v3 || (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
-    TppRaiseInvalidParameter(Ldr, a2, a3, v4);
+    TppRaiseInvalidParameter(Ldr, a2);
   return 0LL;
 }

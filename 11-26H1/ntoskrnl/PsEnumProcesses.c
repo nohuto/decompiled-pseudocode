@@ -1,18 +1,18 @@
 /*
- * XREFs of PsEnumProcesses @ 0x14096E8BC
+ * XREFs of PsEnumProcesses @ 0x1409BBF0C
  * Callers:
- *     PsRefreshUserPresencePpmPolicies @ 0x140614F24 (PsRefreshUserPresencePpmPolicies.c)
- *     PfTStart @ 0x1407C67E4 (PfTStart.c)
- *     PopEtEnergyTrackerCreate @ 0x1407DBF90 (PopEtEnergyTrackerCreate.c)
- *     PsShutdownSystem @ 0x1407FA284 (PsShutdownSystem.c)
- *     EtwpDisablePerProcessTracing @ 0x140828458 (EtwpDisablePerProcessTracing.c)
- *     EtwpPsProvCaptureState @ 0x14082FE4C (EtwpPsProvCaptureState.c)
- *     EtwpCoverageSamplerStart @ 0x1408314FC (EtwpCoverageSamplerStart.c)
- *     PopEtEnergyTrackerQuery @ 0x140B66F4C (PopEtEnergyTrackerQuery.c)
+ *     PsRefreshUserPresencePpmPolicies @ 0x140617DDC (PsRefreshUserPresencePpmPolicies.c)
+ *     PfTStart @ 0x1407C9844 (PfTStart.c)
+ *     PopEtEnergyTrackerCreate @ 0x1407E01B0 (PopEtEnergyTrackerCreate.c)
+ *     PsShutdownSystem @ 0x1407FFCB4 (PsShutdownSystem.c)
+ *     EtwpDisablePerProcessTracing @ 0x14082E698 (EtwpDisablePerProcessTracing.c)
+ *     EtwpPsProvCaptureState @ 0x14083608C (EtwpPsProvCaptureState.c)
+ *     EtwpCoverageSamplerStart @ 0x14083773C (EtwpCoverageSamplerStart.c)
+ *     PopEtEnergyTrackerQuery @ 0x140B69ED8 (PopEtEnergyTrackerQuery.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 __int64 __fastcall PsEnumProcesses(__int64 a1, __int64 a2)

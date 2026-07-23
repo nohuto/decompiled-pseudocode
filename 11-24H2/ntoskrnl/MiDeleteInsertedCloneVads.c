@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteInsertedCloneVads @ 0x140800264
+ * XREFs of MiDeleteInsertedCloneVads @ 0x1408009A4
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140ABD72C (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140AB879C (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiReferenceVad @ 0x140262A70 (MiReferenceVad.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     MiDeleteCloneZombies @ 0x14048F544 (MiDeleteCloneZombies.c)
- *     MiDeleteCloneDescriptor @ 0x1404F8BB8 (MiDeleteCloneDescriptor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiReferenceVad @ 0x140292770 (MiReferenceVad.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     MiDeleteCloneZombies @ 0x140489754 (MiDeleteCloneZombies.c)
+ *     MiDeleteCloneDescriptor @ 0x1404F6498 (MiDeleteCloneDescriptor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
  */
 
 __int64 __fastcall MiDeleteInsertedCloneVads(ULONG_PTR BugCheckParameter1)
@@ -26,11 +26,13 @@ __int64 __fastcall MiDeleteInsertedCloneVads(ULONG_PTR BugCheckParameter1)
   _QWORD **v10; // rcx
   _QWORD *v11; // rax
   _QWORD *k; // rcx
-  _OWORD v14[3]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v13; // r8
+  __int64 v14; // r9
+  _OWORD v16[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(v14, 0, sizeof(v14));
+  memset(v16, 0, sizeof(v16));
   CurrentThread = KeGetCurrentThread();
-  KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v14);
+  KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v16);
   *(_BYTE *)(*(_QWORD *)(BugCheckParameter1 + 1040) + 1061LL) |= 1u;
   v3 = *(_QWORD **)(BugCheckParameter1 + 1368);
   i = 0LL;
@@ -91,5 +93,5 @@ __int64 __fastcall MiDeleteInsertedCloneVads(ULONG_PTR BugCheckParameter1)
     }
   }
   MiDeleteCloneZombies(BugCheckParameter1, 0);
-  return KiUnstackDetachProcess((__int64)v14, 0);
+  return KiUnstackDetachProcess((__int64)v16, 0, v13, v14);
 }

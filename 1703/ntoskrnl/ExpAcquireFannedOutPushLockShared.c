@@ -6,7 +6,7 @@
  *     ExfAcquirePushLockSharedEx @ 0x1400FE070 (ExfAcquirePushLockSharedEx.c)
  */
 
-signed __int64 *__fastcall ExpAcquireFannedOutPushLockShared(unsigned __int64 a1, __int64 a2, ULONG_PTR a3)
+signed __int64 *__fastcall ExpAcquireFannedOutPushLockShared(unsigned __int64 a1, _RTL_BALANCED_NODE *a2, ULONG_PTR a3)
 {
   unsigned int v3; // eax
   unsigned __int64 v4; // r11

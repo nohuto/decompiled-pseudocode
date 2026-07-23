@@ -1,17 +1,17 @@
 /*
- * XREFs of CcInitializeVolumeCacheMap @ 0x14032F034
+ * XREFs of CcInitializeVolumeCacheMap @ 0x14032F2C4
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     McGenEventRegister_EtwRegister @ 0x140374E18 (McGenEventRegister_EtwRegister.c)
- *     CcQueueAsyncGetDeviceGuid @ 0x1403AE324 (CcQueueAsyncGetDeviceGuid.c)
- *     CcSetupWatchForRegistryChanges @ 0x1403B21DC (CcSetupWatchForRegistryChanges.c)
- *     McTemplateK0j_EtwWriteTransfer @ 0x1403C4268 (McTemplateK0j_EtwWriteTransfer.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CcGetDeviceGuid @ 0x140873530 (CcGetDeviceGuid.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     McGenEventRegister_EtwRegister @ 0x140374FB8 (McGenEventRegister_EtwRegister.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x1403AE504 (CcQueueAsyncGetDeviceGuid.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1403B23BC (CcSetupWatchForRegistryChanges.c)
+ *     McTemplateK0j_EtwWriteTransfer @ 0x1403C4448 (McTemplateK0j_EtwWriteTransfer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CcGetDeviceGuid @ 0x140873770 (CcGetDeviceGuid.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
@@ -71,10 +71,13 @@ __int64 __fastcall CcInitializeVolumeCacheMap(_QWORD *Object, __int64 **a2)
       ++*((_DWORD *)v7 + 1);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -91,10 +94,10 @@ __int64 __fastcall CcInitializeVolumeCacheMap(_QWORD *Object, __int64 **a2)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v10 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v29 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && LockHandle.OldIrql <= 0xFu && v29 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && LockHandle.OldIrql <= 0xFu && v29 >= 2u )
     {
       v30 = KeGetCurrentPrcb();
       v31 = v30->SchedulerAssist;
@@ -135,10 +138,10 @@ __int64 __fastcall CcInitializeVolumeCacheMap(_QWORD *Object, __int64 **a2)
       ++*((_DWORD *)v15 + 1);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v33 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v34 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && LockHandle.OldIrql <= 0xFu && v34 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && LockHandle.OldIrql <= 0xFu && v34 >= 2u )
         {
           v35 = KeGetCurrentPrcb();
           v36 = v35->SchedulerAssist;
@@ -182,10 +185,10 @@ LABEL_27:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v22 = (unsigned int)KiIrqlFlags;
   v23 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v38 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && LockHandle.OldIrql <= 0xFu && v38 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && LockHandle.OldIrql <= 0xFu && v38 >= 2u )
     {
       v39 = KeGetCurrentPrcb();
       v21 = v39->SchedulerAssist;

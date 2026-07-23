@@ -9,18 +9,18 @@
  *     ZwAlertThreadByThreadId @ 0x18009B890 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall sub_1800556F8(_QWORD *a1)
+NTSTATUS __fastcall sub_1800556F8(__int64 **a1)
 {
-  _QWORD *v1; // rbx
-  __int64 result; // rax
+  __int64 *v1; // rbx
+  NTSTATUS result; // eax
 
   if ( a1 )
   {
     do
     {
-      v1 = (_QWORD *)*a1;
+      v1 = *a1;
       result = ZwAlertThreadByThreadId(a1[1]);
-      a1 = v1;
+      a1 = (__int64 **)v1;
     }
     while ( v1 );
   }

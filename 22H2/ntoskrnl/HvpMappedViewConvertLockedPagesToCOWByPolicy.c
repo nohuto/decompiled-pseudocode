@@ -6,7 +6,7 @@
  *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140724C90 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
  */
 
-__int64 __fastcall HvpMappedViewConvertLockedPagesToCOWByPolicy(__int64 a1, _QWORD *a2)
+__int64 __fastcall HvpMappedViewConvertLockedPagesToCOWByPolicy(ULONG_PTR a1, _QWORD *a2)
 {
   __int64 v4; // r8
   __int64 v5; // r9

@@ -1,10 +1,10 @@
 /*
- * XREFs of IntPartGetClassAffinityGroup @ 0x140D01F90
+ * XREFs of IntPartGetClassAffinityGroup @ 0x140D08330
  * Callers:
- *     KiIntSteerInit @ 0x140CCBB80 (KiIntSteerInit.c)
+ *     KiIntSteerInit @ 0x140CD1CE0 (KiIntSteerInit.c)
  * Callees:
- *     IntPartGetProcessorEfficiencyClass @ 0x1405F3550 (IntPartGetProcessorEfficiencyClass.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     IntPartGetProcessorEfficiencyClass @ 0x1405F5F10 (IntPartGetProcessorEfficiencyClass.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 ULONG_PTR __fastcall IntPartGetClassAffinityGroup(__int64 a1, unsigned int a2)
@@ -18,7 +18,7 @@ ULONG_PTR __fastcall IntPartGetClassAffinityGroup(__int64 a1, unsigned int a2)
   ULONG_PTR v9; // rdi
   bool v10; // al
   unsigned __int8 v11; // cl
-  struct _PROCESSOR_NUMBER v13; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER v13; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
   v13 = 0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaFlushDriverMdl @ 0x1404B76FC
+ * XREFs of HalpDmaFlushDriverMdl @ 0x1404B793C
  * Callers:
- *     HalMapTransferEx @ 0x14039F6E0 (HalMapTransferEx.c)
- *     HalFlushAdapterBuffersEx @ 0x1403A2D30 (HalFlushAdapterBuffersEx.c)
+ *     HalMapTransferEx @ 0x14039F830 (HalMapTransferEx.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2E80 (HalFlushAdapterBuffersEx.c)
  * Callees:
- *     KeFlushIoBuffers @ 0x1402A7EB0 (KeFlushIoBuffers.c)
+ *     KeFlushIoBuffers @ 0x140225FF0 (KeFlushIoBuffers.c)
  */
 
 char __fastcall HalpDmaFlushDriverMdl(_QWORD *BugCheckParameter4, char a2, __int64 a3, __int64 a4)

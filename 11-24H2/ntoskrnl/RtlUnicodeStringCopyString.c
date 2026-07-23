@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCopyString @ 0x140465D3C
+ * XREFs of RtlUnicodeStringCopyString @ 0x14045D760
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     PnpAllocateAndEnableEventWatchdog @ 0x1409C7328 (PnpAllocateAndEnableEventWatchdog.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A8190C (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     PnpAllocateAndEnableEventWatchdog @ 0x1409B9634 (PnpAllocateAndEnableEventWatchdog.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A7C204 (PopIdleWakeGenerateInterruptDescriptionString.c)
  * Callees:
  *     <none>
  */

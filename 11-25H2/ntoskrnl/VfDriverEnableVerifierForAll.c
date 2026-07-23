@@ -22,16 +22,16 @@ __int64 VfDriverEnableVerifierForAll()
   __int64 Entry; // rax
   void *v4; // rsi
   int v6; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp+10h] BYREF
 
-  v7 = 0LL;
+  OutHeaders = 0LL;
   v0 = 0;
   v6 = 0;
   VfDriverLock();
   Lock = (struct _KTHREAD *)MmAcquireLoadLock();
   for ( i = *(PVOID **)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
   {
-    if ( !(unsigned int)VfUtilIsProtectedDriver() && (int)RtlImageNtHeaderEx(1, (unsigned __int64)i[6], 0LL, &v7) >= 0 )
+    if ( !(unsigned int)VfUtilIsProtectedDriver() && RtlImageNtHeaderEx(1u, i[6], 0LL, &OutHeaders) >= 0 )
     {
       Entry = VfSuspectDriversAllocateEntryEx(i);
       v4 = (void *)Entry;

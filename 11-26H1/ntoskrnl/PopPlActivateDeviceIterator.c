@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPlActivateDeviceIterator @ 0x1406124E0
+ * XREFs of PopPlActivateDeviceIterator @ 0x140615320
  * Callers:
  *     <none>
  * Callees:
- *     PopFxActivateDevice @ 0x1404D5290 (PopFxActivateDevice.c)
- *     PopPlLookupDevicePowerProfile @ 0x1406126C0 (PopPlLookupDevicePowerProfile.c)
+ *     PopFxActivateDevice @ 0x1404CEB00 (PopFxActivateDevice.c)
+ *     PopPlLookupDevicePowerProfile @ 0x140615500 (PopPlLookupDevicePowerProfile.c)
  */
 
 char __fastcall PopPlActivateDeviceIterator(__int64 a1, __int64 a2)

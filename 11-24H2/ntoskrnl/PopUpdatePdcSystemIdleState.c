@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdatePdcSystemIdleState @ 0x140A27CB4
+ * XREFs of PopUpdatePdcSystemIdleState @ 0x140A1C734
  * Callers:
- *     PopExecuteSystemIdleAction @ 0x140A27A7C (PopExecuteSystemIdleAction.c)
+ *     PopExecuteSystemIdleAction @ 0x140A1C4FC (PopExecuteSystemIdleAction.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x140749E0C (PopPowerRequestSetExecutionRequiredTimeoutTimer.c)
- *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A3BCEC (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x14074813C (PopPowerRequestSetExecutionRequiredTimeoutTimer.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A314CC (PopPowerRequestHandleExecutionEnablementUpdate.c)
  */
 
 __int64 __fastcall PopUpdatePdcSystemIdleState(char a1)
@@ -18,31 +18,29 @@ __int64 __fastcall PopUpdatePdcSystemIdleState(char a1)
   unsigned int v4; // ebx
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
 
-  PopAcquireRwLockExclusive(&PopPowerRequestLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   v4 = 0;
-  if ( byte_140F0BB54 && byte_140F0E083 != a1 )
+  if ( byte_140F0B674 && byte_140F0E223 != a1 )
   {
-    byte_140F0E083 = a1;
+    byte_140F0E223 = a1;
     if ( a1 )
     {
-      qword_140F0E088 = MEMORY[0xFFFFF78000000008];
+      qword_140F0E228 = MEMORY[0xFFFFF78000000008];
       PopPowerRequestSetExecutionRequiredTimeoutTimer();
     }
     else
     {
-      qword_140F0E088 = 0LL;
+      qword_140F0E228 = 0LL;
       KeCancelTimer2((__int64)&PopPowerRequestExecutionRequiredTimeoutTimer, 0LL, v2, v3);
     }
     PopPowerRequestHandleExecutionEnablementUpdate();
   }
-  PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
-  if ( qword_140E67520 )
+  PopReleaseRwLock(&PopPowerRequestLock);
+  if ( qword_140E67690 )
   {
     LOBYTE(v6) = a1;
-    return (unsigned int)guard_dispatch_icall_no_overrides(v6, v5, v7, v8);
+    return (unsigned int)guard_dispatch_icall_no_overrides(v6, v5);
   }
   return v4;
 }

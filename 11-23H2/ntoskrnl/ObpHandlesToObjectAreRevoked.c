@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpHandlesToObjectAreRevoked @ 0x140749508
+ * XREFs of ObpHandlesToObjectAreRevoked @ 0x1407496F8
  * Callers:
- *     ObReferenceFileObjectForWrite @ 0x140749DE4 (ObReferenceFileObjectForWrite.c)
+ *     ObReferenceFileObjectForWrite @ 0x140749FD4 (ObReferenceFileObjectForWrite.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F4E10 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F50A0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
  */
 
 bool __fastcall ObpHandlesToObjectAreRevoked(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAlertMultipleThreadByThreadId @ 0x18015FCF0
+ * XREFs of NtAlertMultipleThreadByThreadId @ 0x18015FBF0
  * Callers:
  *     <none>
  * Callees:

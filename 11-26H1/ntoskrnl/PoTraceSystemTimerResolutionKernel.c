@@ -1,16 +1,16 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionKernel @ 0x140418DA0
+ * XREFs of PoTraceSystemTimerResolutionKernel @ 0x14040D2D0
  * Callers:
- *     ExpUpdateTimerConfigurationWorker @ 0x1403790A0 (ExpUpdateTimerConfigurationWorker.c)
- *     KiSetClockInterval @ 0x140418834 (KiSetClockInterval.c)
- *     KiResetClockIntervalOneShot @ 0x140418B34 (KiResetClockIntervalOneShot.c)
- *     ExSetTimerResolution @ 0x140418BA0 (ExSetTimerResolution.c)
- *     KiSetClockIntervalOneShot @ 0x140418C6C (KiSetClockIntervalOneShot.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x140419438 (KiSetClockIntervalToMinimumRequested.c)
- *     KiResetClockInterval @ 0x1405EE66C (KiResetClockInterval.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x14037AE50 (ExpUpdateTimerConfigurationWorker.c)
+ *     KiSetClockInterval @ 0x14040CD6C (KiSetClockInterval.c)
+ *     KiResetClockIntervalOneShot @ 0x14040D06C (KiResetClockIntervalOneShot.c)
+ *     ExSetTimerResolution @ 0x14040D0D0 (ExSetTimerResolution.c)
+ *     KiSetClockIntervalOneShot @ 0x14040D19C (KiSetClockIntervalOneShot.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14040D968 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiResetClockInterval @ 0x1405F0FDC (KiResetClockInterval.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2, char a3)
@@ -35,9 +35,9 @@ int __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2, char a3)
   v4 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_KERNEL_STRS_INTERNAL;
   if ( !a3 )
     v4 = &POP_ETW_EVENT_KERNEL_STRS;
-  if ( byte_140E67628 && *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+  if ( PopDiagHandleRegistered && PopDiagHandle )
   {
-    v5 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL);
+    v5 = *(_QWORD *)(PopDiagHandle + 32);
     Keyword = v4->Keyword;
     if ( *(_DWORD *)(v5 + 96) )
     {
@@ -56,9 +56,9 @@ int __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2, char a3)
         }
       }
     }
-    if ( *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL) )
+    if ( *(_WORD *)(PopDiagHandle + 102) )
     {
-      v9 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL);
+      v9 = *(_QWORD *)(PopDiagHandle + 40);
       v10 = v4->Keyword;
       if ( *(_DWORD *)(v9 + 96) )
       {
@@ -74,15 +74,7 @@ LABEL_15:
             v14 = 4LL;
             UserData.Ptr = (ULONGLONG)&v15;
             v13 = &v16;
-            LODWORD(v3) = EtwWriteEx(
-                            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                            v4,
-                            0LL,
-                            0,
-                            0LL,
-                            0LL,
-                            2u,
-                            &UserData);
+            LODWORD(v3) = EtwWriteEx(PopDiagHandle, v4, 0LL, 0, 0LL, 0LL, 2u, &UserData);
           }
         }
       }

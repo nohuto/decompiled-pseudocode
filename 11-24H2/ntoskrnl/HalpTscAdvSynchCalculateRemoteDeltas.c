@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscAdvSynchCalculateRemoteDeltas @ 0x140548E80
+ * XREFs of HalpTscAdvSynchCalculateRemoteDeltas @ 0x140546740
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x140548F60 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchLeader @ 0x140546820 (HalpTscAdvSynchLeader.c)
  * Callees:
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x140488824 (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     HalpTscTraceProcessorDelta @ 0x140549A54 (HalpTscTraceProcessorDelta.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x140483974 (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscTraceProcessorDelta @ 0x140547314 (HalpTscTraceProcessorDelta.c)
  */
 
 struct _KPRCB *__fastcall HalpTscAdvSynchCalculateRemoteDeltas(

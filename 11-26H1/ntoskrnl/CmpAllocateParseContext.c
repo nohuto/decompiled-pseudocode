@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpAllocateParseContext @ 0x140976870
+ * XREFs of CmpAllocateParseContext @ 0x140938880
  * Callers:
- *     CmCreateKey @ 0x1409748F0 (CmCreateKey.c)
- *     CmOpenKey @ 0x140975160 (CmOpenKey.c)
+ *     CmCreateKey @ 0x140936900 (CmCreateKey.c)
+ *     CmOpenKey @ 0x140937170 (CmOpenKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char *CmpAllocateParseContext()

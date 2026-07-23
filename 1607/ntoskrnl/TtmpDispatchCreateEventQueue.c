@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmpDispatchCreateEventQueue @ 0x1406797AC
+ * XREFs of TtmpDispatchCreateEventQueue @ 0x140679890
  * Callers:
- *     TtmDispatchApi @ 0x14067937C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140679460 (TtmDispatchApi.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmiWriteEnumerationEventsToQueue @ 0x140678D70 (TtmiWriteEnumerationEventsToQueue.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1406795CC (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiCreateEventQueue @ 0x140679E9C (TtmiCreateEventQueue.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x140678E54 (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x1406796B0 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiCreateEventQueue @ 0x140679F80 (TtmiCreateEventQueue.c)
  */
 
 __int64 __fastcall TtmpDispatchCreateEventQueue(__int64 a1, HANDLE *a2)

@@ -34,7 +34,7 @@ __int64 __fastcall MiFreeSlabEntries(__int64 a1, __int64 a2)
   _QWORD *v17; // rcx
   int v18; // ecx
   _QWORD *v19; // rdx
-  RTL_BITMAP *v20; // rcx
+  _RTL_BITMAP *v20; // rcx
 
   v2 = (unsigned int *)(a2 + 136);
   v5 = LODWORD(MiPageSizes[(*(_DWORD *)(a2 + 136) >> 4) & 3]);
@@ -61,10 +61,10 @@ LABEL_7:
       *v7 = *v2 & 0xFFFFFFFE;
       if ( v11 && *(_DWORD *)(a1 + 18288) )
       {
-        v20 = (RTL_BITMAP *)(*(_QWORD *)(57216LL * *(unsigned int *)(a2 + 132)
-                                       + *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL)
-                                       + 57008)
-                           + 314064LL);
+        v20 = (_RTL_BITMAP *)(*(_QWORD *)(57216LL * *(unsigned int *)(a2 + 132)
+                                        + *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL)
+                                        + 57008)
+                            + 314064LL);
         RtlClearBits(v20, 0, v20->SizeOfBitMap);
       }
       v12 = *(_QWORD *)(a2 + 8);

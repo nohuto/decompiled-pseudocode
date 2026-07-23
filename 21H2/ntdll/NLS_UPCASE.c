@@ -11,12 +11,12 @@
  *     RtlpHashStringToAtom @ 0x1800597E0 (RtlpHashStringToAtom.c)
  *     UpcaseUnicodeToSingleByteNHelper @ 0x18006270C (UpcaseUnicodeToSingleByteNHelper.c)
  *     RtlFindUnicodeSubstring @ 0x180087820 (RtlFindUnicodeSubstring.c)
- *     WerEscalationLazyInit @ 0x1800DE1B8 (WerEscalationLazyInit.c)
- *     RtlUpcaseUnicodeToCustomCPN @ 0x1800E58C0 (RtlUpcaseUnicodeToCustomCPN.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1800E5A14 (UpcaseUnicodeToMultiByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1800E5B14 (UpcaseUnicodeToUTF8NHelper.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x1800FBCB0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlIsValidOemCharacter @ 0x1800FCE7C (RtlIsValidOemCharacter.c)
+ *     WerEscalationLazyInit @ 0x1800DE178 (WerEscalationLazyInit.c)
+ *     RtlUpcaseUnicodeToCustomCPN @ 0x1800E5880 (RtlUpcaseUnicodeToCustomCPN.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x1800E59D4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x1800E5AD4 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1800FBC70 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlIsValidOemCharacter @ 0x1800FCE3C (RtlIsValidOemCharacter.c)
  * Callees:
  *     <none>
  */

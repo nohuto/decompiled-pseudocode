@@ -15,10 +15,10 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PnpPrepareDriverLoading(int a1, void *a2, __int64 a3, int a4, _DWORD *a5, bool *a6)
+__int64 __fastcall PnpPrepareDriverLoading(int a1, void *a2, void *a3, int a4, _DWORD *a5, bool *a6)
 {
   int v8; // edi
-  __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   unsigned int v11; // edi
   PVOID v13; // rcx
   PVOID v14; // rcx
@@ -29,7 +29,7 @@ __int64 __fastcall PnpPrepareDriverLoading(int a1, void *a2, __int64 a3, int a4,
   __int128 v19; // [rsp+80h] [rbp-9h] BYREF
 
   P = 0LL;
-  v8 = a3;
+  v8 = (int)a3;
   *a5 = 0;
   *a6 = 0;
   DestinationString = 0LL;
@@ -37,7 +37,7 @@ __int64 __fastcall PnpPrepareDriverLoading(int a1, void *a2, __int64 a3, int a4,
   if ( !v10 )
     return 3221225473LL;
   v19 = 0LL;
-  v11 = PpCheckInDriverDatabase(a1, (_DWORD)a2, v8, *(_DWORD *)(v10 + 80), a4, (__int64)&v19);
+  v11 = PpCheckInDriverDatabase(a1, (_DWORD)a2, v8, v10->OptionalHeader.SizeOfImage, a4, (__int64)&v19);
   if ( v11 + 1073740949 <= 1 )
     PnpSetBlockedDriverEvent(&v19);
   if ( IopGetRegistryValue(a2, L"PnpFlags", 0, &P) >= 0 )

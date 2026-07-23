@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpRmUnDoPhase @ 0x14085E718
+ * XREFs of CmpRmUnDoPhase @ 0x140864A08
  * Callers:
- *     CmpStartRMLog @ 0x1408AC340 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x1408B2784 (CmpStartRMLog.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenTransaction @ 0x140725B70 (ZwOpenTransaction.c)
- *     CmpTransMgrRollback @ 0x1408AEDA8 (CmpTransMgrRollback.c)
- *     CmpTransMgrPrepare @ 0x1408AEE6C (CmpTransMgrPrepare.c)
- *     CmpTransMgrCommit @ 0x1408AF444 (CmpTransMgrCommit.c)
- *     CmpTransMgrFreeVolatileData @ 0x1408BC6D0 (CmpTransMgrFreeVolatileData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenTransaction @ 0x14072A740 (ZwOpenTransaction.c)
+ *     CmpTransMgrRollback @ 0x1408B51E8 (CmpTransMgrRollback.c)
+ *     CmpTransMgrPrepare @ 0x1408B52AC (CmpTransMgrPrepare.c)
+ *     CmpTransMgrCommit @ 0x1408B5850 (CmpTransMgrCommit.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1408C2CA0 (CmpTransMgrFreeVolatileData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpRmUnDoPhase(__int64 a1)

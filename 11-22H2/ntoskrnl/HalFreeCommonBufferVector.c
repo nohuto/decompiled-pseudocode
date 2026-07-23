@@ -46,10 +46,10 @@ __int64 __fastcall HalFreeCommonBufferVector(__int64 a1, __int64 a2)
   *v7 = v9;
   *(_QWORD *)(v9 + 8) = v7;
   KxReleaseSpinLock((volatile signed __int64 *)(v2 + 104));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetJobProperty @ 0x1402E9C00
+ * XREFs of PsSetJobProperty @ 0x1402E9DF0
  * Callers:
  *     <none>
  * Callees:
- *     PspInsertProperty @ 0x14010EFA4 (PspInsertProperty.c)
- *     PspRemoveProperty @ 0x14010F08C (PspRemoveProperty.c)
+ *     PspInsertProperty @ 0x14010F024 (PspInsertProperty.c)
+ *     PspRemoveProperty @ 0x14010F10C (PspRemoveProperty.c)
  */
 
 __int64 __fastcall PsSetJobProperty(__int64 a1, __int64 a2, void *a3)

@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlWriteRegistryValue @ 0x1407D42E0
+ * XREFs of RtlWriteRegistryValue @ 0x1407D45B0
  * Callers:
- *     KseKPSOHookDriverTargeted @ 0x1405824F0 (KseKPSOHookDriverTargeted.c)
- *     RtlSetPortableOperatingSystem @ 0x1405AA1F0 (RtlSetPortableOperatingSystem.c)
- *     DifRtlWriteRegistryValueWrapper @ 0x1405EC500 (DifRtlWriteRegistryValueWrapper.c)
- *     EtwpEnumerateKeyProviders @ 0x140809074 (EtwpEnumerateKeyProviders.c)
- *     EtwpEnableAutoLoggerProvider @ 0x1408091D4 (EtwpEnableAutoLoggerProvider.c)
- *     EtwpEnumerateAutologgerPath @ 0x14083BD48 (EtwpEnumerateAutologgerPath.c)
- *     EtwStartAutoLogger @ 0x14083BFA8 (EtwStartAutoLogger.c)
- *     RtlSetActiveTimeBias @ 0x14083F1E4 (RtlSetActiveTimeBias.c)
- *     RtlpUpdateDynamicTimeZones @ 0x14083F980 (RtlpUpdateDynamicTimeZones.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x14085FBC0 (WmipSaveGuidSecurityDescriptor.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1409BD7CC (RtlpSetTimeZoneInformationWorker.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x1409DD9B0 (PerfDiagpSaveActiveDCLLogFileName.c)
- *     ExpSetTimeZoneInformation @ 0x1409F762C (ExpSetTimeZoneInformation.c)
- *     WheapCommitPolicy @ 0x140A09648 (WheapCommitPolicy.c)
+ *     KseKPSOHookDriverTargeted @ 0x1405829E0 (KseKPSOHookDriverTargeted.c)
+ *     RtlSetPortableOperatingSystem @ 0x1405AA760 (RtlSetPortableOperatingSystem.c)
+ *     DifRtlWriteRegistryValueWrapper @ 0x1405ECA70 (DifRtlWriteRegistryValueWrapper.c)
+ *     EtwpEnumerateKeyProviders @ 0x140809344 (EtwpEnumerateKeyProviders.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x1408094A4 (EtwpEnableAutoLoggerProvider.c)
+ *     EtwpEnumerateAutologgerPath @ 0x14083C048 (EtwpEnumerateAutologgerPath.c)
+ *     EtwStartAutoLogger @ 0x14083C2A8 (EtwStartAutoLogger.c)
+ *     RtlSetActiveTimeBias @ 0x14083F4E4 (RtlSetActiveTimeBias.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x14083FC80 (RtlpUpdateDynamicTimeZones.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x14085FE00 (WmipSaveGuidSecurityDescriptor.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1409BD9CC (RtlpSetTimeZoneInformationWorker.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x1409DDBB0 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     ExpSetTimeZoneInformation @ 0x1409F78BC (ExpSetTimeZoneInformation.c)
+ *     WheapCommitPolicy @ 0x140A098F8 (WheapCommitPolicy.c)
  *     IopStoreBootDriveLetter @ 0x140B39740 (IopStoreBootDriveLetter.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     RtlpGetRegistryHandle @ 0x1406C61C0 (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x1406C61F0 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __stdcall RtlWriteRegistryValue(

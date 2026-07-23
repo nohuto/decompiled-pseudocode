@@ -1,53 +1,53 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryInsert @ 0x1402EA35C
+ * XREFs of PspJobIoRateVolumeEntryInsert @ 0x1402EA54C
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x14088A214 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x14088B474 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x1402A83D0 (MiLockTrackerCompare.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x1402A85C0 (MiLockTrackerCompare.c)
  */
 
-__int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, _QWORD *a2)
+__int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   volatile LONG *v2; // r12
-  unsigned __int64 *v4; // rsi
+  _RTL_RB_TREE *v4; // rsi
   KIRQL v5; // al
-  unsigned __int64 v6; // rcx
+  _RTL_BALANCED_NODE *Min; // rcx
   KIRQL v7; // bp
   unsigned __int64 v8; // r14
-  unsigned __int64 v9; // rbx
-  bool v10; // r8
+  __int64 Root; // rbx
+  BOOLEAN v10; // r8
   int v11; // edi
   unsigned __int64 v12; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   __int64 result; // rax
 
   v2 = (volatile LONG *)(a1 + 1440);
-  v4 = (unsigned __int64 *)(a1 + 1448);
+  v4 = (_RTL_RB_TREE *)(a1 + 1448);
   v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1440));
-  v6 = v4[1];
+  Min = v4->Min;
   v7 = v5;
-  v8 = a2[3];
-  v9 = *v4;
-  if ( (v6 & 1) != 0 && v9 )
-    v9 ^= (unsigned __int64)v4;
+  v8 = (unsigned __int64)a2[1].Children[0];
+  Root = (__int64)v4->Root;
+  if ( ((unsigned __int8)Min & 1) != 0 && Root )
+    Root ^= (unsigned __int64)v4;
   v10 = 0;
-  v11 = v6 & 1;
-  if ( v9 )
+  v11 = (unsigned __int8)Min & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)MiLockTrackerCompare(v8, v9) < 0 )
+      if ( (int)MiLockTrackerCompare(v8, Root) < 0 )
       {
-        v12 = *(_QWORD *)v9;
+        v12 = *(_QWORD *)Root;
         if ( v11 )
         {
           if ( !v12 )
             goto LABEL_16;
-          v12 ^= v9;
+          v12 ^= Root;
         }
         if ( !v12 )
         {
@@ -58,12 +58,12 @@ LABEL_16:
       }
       else
       {
-        v12 = *(_QWORD *)(v9 + 8);
+        v12 = *(_QWORD *)(Root + 8);
         if ( v11 )
         {
           if ( !v12 )
             goto LABEL_10;
-          v12 ^= v9;
+          v12 ^= Root;
         }
         if ( !v12 )
         {
@@ -72,10 +72,10 @@ LABEL_10:
           break;
         }
       }
-      v9 = v12;
+      Root = v12;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64)v4, v9, v10, a2);
+  RtlRbInsertNodeEx(v4, (PRTL_BALANCED_NODE)Root, v10, a2);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v7 < 2u )
   {

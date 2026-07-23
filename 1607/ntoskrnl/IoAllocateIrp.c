@@ -1,24 +1,24 @@
 /*
- * XREFs of IoAllocateIrp @ 0x1400C611C
+ * XREFs of IoAllocateIrp @ 0x1400C3FBC
  * Callers:
- *     CcSetValidData @ 0x1400C6024 (CcSetValidData.c)
- *     PopAllocateIrp @ 0x14012AD80 (PopAllocateIrp.c)
- *     SmKmIssueVolumeIo @ 0x140220B4C (SmKmIssueVolumeIo.c)
- *     PnpAsynchronousCall @ 0x1403F1BB0 (PnpAsynchronousCall.c)
- *     CmpGetVolumeClusterSize @ 0x140481F90 (CmpGetVolumeClusterSize.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x1404C0C34 (WmipSendWmiIrpToTraceDeviceList.c)
- *     IopFilterResourceRequirementsCall @ 0x1404C8FAC (IopFilterResourceRequirementsCall.c)
- *     IopSynchronousCall @ 0x140505B9C (IopSynchronousCall.c)
- *     CmpFileFlushAndPurge @ 0x140506A2C (CmpFileFlushAndPurge.c)
- *     WmipGetFilePDO @ 0x140546704 (WmipGetFilePDO.c)
- *     WmipSendWmiIrp @ 0x1405496D8 (WmipSendWmiIrp.c)
- *     PopFxRegisterDeviceWorker @ 0x140566D28 (PopFxRegisterDeviceWorker.c)
- *     PopConnectToPolicyDevice @ 0x14056C0D8 (PopConnectToPolicyDevice.c)
- *     PopAcquireCoolingInterface @ 0x14056C778 (PopAcquireCoolingInterface.c)
- *     WmipSetTraceNotify @ 0x14057A164 (WmipSetTraceNotify.c)
- *     PiPagePathSetState @ 0x14057D324 (PiPagePathSetState.c)
- *     IopEjectDevice @ 0x140649D84 (IopEjectDevice.c)
- *     SmKmIsVolumeIoPossible @ 0x140698108 (SmKmIsVolumeIoPossible.c)
+ *     CcSetValidData @ 0x1400C3EC4 (CcSetValidData.c)
+ *     PopAllocateIrp @ 0x14012B2F0 (PopAllocateIrp.c)
+ *     SmKmIssueVolumeIo @ 0x140220978 (SmKmIssueVolumeIo.c)
+ *     PnpAsynchronousCall @ 0x1403F0A74 (PnpAsynchronousCall.c)
+ *     CmpGetVolumeClusterSize @ 0x140480CE4 (CmpGetVolumeClusterSize.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x1404AC964 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     IopSynchronousCall @ 0x1404E8B2C (IopSynchronousCall.c)
+ *     CmpFileFlushAndPurge @ 0x1404E99BC (CmpFileFlushAndPurge.c)
+ *     IopFilterResourceRequirementsCall @ 0x14050D21C (IopFilterResourceRequirementsCall.c)
+ *     WmipGetFilePDO @ 0x140546C44 (WmipGetFilePDO.c)
+ *     WmipSendWmiIrp @ 0x140549C18 (WmipSendWmiIrp.c)
+ *     PopFxRegisterDeviceWorker @ 0x140567268 (PopFxRegisterDeviceWorker.c)
+ *     PopConnectToPolicyDevice @ 0x14056C618 (PopConnectToPolicyDevice.c)
+ *     PopAcquireCoolingInterface @ 0x14056CCB8 (PopAcquireCoolingInterface.c)
+ *     WmipSetTraceNotify @ 0x14057A6A4 (WmipSetTraceNotify.c)
+ *     PiPagePathSetState @ 0x14057D7D0 (PiPagePathSetState.c)
+ *     IopEjectDevice @ 0x140649E68 (IopEjectDevice.c)
+ *     SmKmIsVolumeIoPossible @ 0x1406981EC (SmKmIsVolumeIoPossible.c)
  * Callees:
  *     <none>
  */

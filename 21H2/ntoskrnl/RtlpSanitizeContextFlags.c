@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpSanitizeContextFlags @ 0x140276574
+ * XREFs of RtlpSanitizeContextFlags @ 0x140264514
  * Callers:
- *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140647E54 (PspGetContextThreadInternal.c)
- *     KeCopyContextFromUch @ 0x1408BE180 (KeCopyContextFromUch.c)
- *     KeCopyContextFromUmsContext @ 0x1408BE43C (KeCopyContextFromUmsContext.c)
- *     KeCopyContextToUch @ 0x1408BE5F0 (KeCopyContextToUch.c)
- *     KeCopyContextToUmsContext @ 0x1408BE85C (KeCopyContextToUmsContext.c)
- *     NtCreateThread @ 0x140907010 (NtCreateThread.c)
+ *     KiRaiseException @ 0x1405220D0 (KiRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x1405253D4 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspSetContextThreadInternal @ 0x14063CA8C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x14063CC44 (PspGetContextThreadInternal.c)
+ *     KeCopyContextFromUch @ 0x1408BE2E0 (KeCopyContextFromUch.c)
+ *     KeCopyContextFromUmsContext @ 0x1408BE59C (KeCopyContextFromUmsContext.c)
+ *     KeCopyContextToUch @ 0x1408BE750 (KeCopyContextToUch.c)
+ *     KeCopyContextToUmsContext @ 0x1408BE9BC (KeCopyContextToUmsContext.c)
+ *     NtCreateThread @ 0x140907170 (NtCreateThread.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x140276D30 (RtlpValidateContextFlags.c)
+ *     RtlpValidateContextFlags @ 0x140264CD0 (RtlpValidateContextFlags.c)
  */
 
 __int64 __fastcall RtlpSanitizeContextFlags(unsigned int *a1, char a2)

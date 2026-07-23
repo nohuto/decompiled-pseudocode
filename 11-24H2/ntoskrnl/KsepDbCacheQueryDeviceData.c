@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDbCacheQueryDeviceData @ 0x14073E41C
+ * XREFs of KsepDbCacheQueryDeviceData @ 0x14073C34C
  * Callers:
- *     KsepDbCacheQueryDevice @ 0x14095B370 (KsepDbCacheQueryDevice.c)
- *     KseQueryDeviceData @ 0x14095C660 (KseQueryDeviceData.c)
+ *     KsepDbCacheQueryDevice @ 0x140942E30 (KsepDbCacheQueryDevice.c)
+ *     KseQueryDeviceData @ 0x140944120 (KseQueryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall KsepDbCacheQueryDeviceData(__int64 a1, const WCHAR *a2, _DWORD *a3, unsigned int *a4, void *a5)

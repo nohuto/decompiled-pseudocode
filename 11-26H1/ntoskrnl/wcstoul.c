@@ -1,19 +1,19 @@
 /*
- * XREFs of wcstoul @ 0x1405389D0
+ * XREFs of wcstoul @ 0x14053AE50
  * Callers:
- *     PnpStringToDwordValue @ 0x1404FB41C (PnpStringToDwordValue.c)
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405931E8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     _CmDevicePanelEnumSubkeyCallback @ 0x14089A3A0 (_CmDevicePanelEnumSubkeyCallback.c)
- *     LocalGetAclForString @ 0x1409243B0 (LocalGetAclForString.c)
- *     BiCleanupLoadedStores @ 0x1409D3368 (BiCleanupLoadedStores.c)
- *     BiOpenSystemStore @ 0x1409D43D4 (BiOpenSystemStore.c)
- *     LocalpConvertStringSidToSid @ 0x140A60294 (LocalpConvertStringSidToSid.c)
- *     _CmCreateOrdinalInstanceKey @ 0x140AE8928 (_CmCreateOrdinalInstanceKey.c)
- *     _CmSplitDevicePanelId @ 0x140B5CB08 (_CmSplitDevicePanelId.c)
- *     HalpInitChipHacks @ 0x140CB3C08 (HalpInitChipHacks.c)
- *     KsepMatchInitBiosInfo @ 0x140CCD5F0 (KsepMatchInitBiosInfo.c)
+ *     PnpStringToDwordValue @ 0x1404F4A2C (PnpStringToDwordValue.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x140595968 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     _CmDevicePanelEnumSubkeyCallback @ 0x1408A07A0 (_CmDevicePanelEnumSubkeyCallback.c)
+ *     LocalGetAclForString @ 0x1408FFEC0 (LocalGetAclForString.c)
+ *     BiCleanupLoadedStores @ 0x1409A4348 (BiCleanupLoadedStores.c)
+ *     BiOpenSystemStore @ 0x1409A53B4 (BiOpenSystemStore.c)
+ *     LocalpConvertStringSidToSid @ 0x140A6D254 (LocalpConvertStringSidToSid.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x140AE67D8 (_CmCreateOrdinalInstanceKey.c)
+ *     _CmSplitDevicePanelId @ 0x140B5FC88 (_CmSplitDevicePanelId.c)
+ *     HalpInitChipHacks @ 0x140CB9C48 (HalpInitChipHacks.c)
+ *     KsepMatchInitBiosInfo @ 0x140CD3750 (KsepMatchInitBiosInfo.c)
  * Callees:
- *     wcstoxlX @ 0x14053873C (wcstoxlX.c)
+ *     wcstoxlX @ 0x14053ABBC (wcstoxlX.c)
  */
 
 unsigned int __cdecl wcstoul(const wchar_t *Str, wchar_t **EndPtr, int Radix)

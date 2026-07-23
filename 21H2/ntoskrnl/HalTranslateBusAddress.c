@@ -1,11 +1,11 @@
 /*
- * XREFs of HalTranslateBusAddress @ 0x1403A5A60
+ * XREFs of HalTranslateBusAddress @ 0x1403A5BB0
  * Callers:
- *     HeadlessTerminalAddResources @ 0x14079568C (HeadlessTerminalAddResources.c)
- *     IopTranslateBusAddress @ 0x1407BE0B8 (IopTranslateBusAddress.c)
- *     HalpReportResourceUsage @ 0x140A39D8C (HalpReportResourceUsage.c)
+ *     HeadlessTerminalAddResources @ 0x140795890 (HeadlessTerminalAddResources.c)
+ *     IopTranslateBusAddress @ 0x1407BE848 (IopTranslateBusAddress.c)
+ *     HalpReportResourceUsage @ 0x140A3AD8C (HalpReportResourceUsage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall HalTranslateBusAddress(

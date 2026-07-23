@@ -1,9 +1,9 @@
 /*
- * XREFs of DifMarkHiberPhase @ 0x1405D4E84
+ * XREFs of DifMarkHiberPhase @ 0x1405D53F4
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140AA360C (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140AA347C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
  */
 
 void DifMarkHiberPhase()

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpAllocationSize @ 0x1800839C4
+ * XREFs of RtlpAllocationSize @ 0x180005844
  * Callers:
- *     RtlSetEnvironmentVar @ 0x180083050 (RtlSetEnvironmentVar.c)
- *     RtlSetCurrentEnvironment @ 0x180112B10 (RtlSetCurrentEnvironment.c)
- *     RtlSetEnvironmentStrings @ 0x180112E80 (RtlSetEnvironmentStrings.c)
+ *     RtlSetEnvironmentVar @ 0x180004ED0 (RtlSetEnvironmentVar.c)
+ *     RtlSetCurrentEnvironment @ 0x18010DDD0 (RtlSetCurrentEnvironment.c)
+ *     RtlSetEnvironmentStrings @ 0x18010E140 (RtlSetEnvironmentStrings.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpAllocationSize(__int64 a1)
+SIZE_T __fastcall RtlpAllocationSize(void *a1)
 {
-  return RtlSizeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlSizeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of HvcallpNoHypervisorPresent @ 0x140365D80
+ * XREFs of HvcallpNoHypervisorPresent @ 0x140365F30
  * Callers:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     HvcallpExtendedFastHypercall @ 0x140409980 (HvcallpExtendedFastHypercall.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     HvcallpExtendedFastHypercall @ 0x140409B60 (HvcallpExtendedFastHypercall.c)
  * Callees:
  *     <none>
  */

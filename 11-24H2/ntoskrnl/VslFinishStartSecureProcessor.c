@@ -1,14 +1,14 @@
 /*
- * XREFs of VslFinishStartSecureProcessor @ 0x14058CF6C
+ * XREFs of VslFinishStartSecureProcessor @ 0x14058A25C
  * Callers:
- *     KeWriteProtectProcessorState @ 0x140B56770 (KeWriteProtectProcessorState.c)
+ *     KeWriteProtectProcessorState @ 0x140B587C0 (KeWriteProtectProcessorState.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslFinishStartSecureProcessor(__int64 a1, struct _MDL *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall VslFinishStartSecureProcessor(__int64 a1, struct _MDL *a2)
   {
     v11 = v7[0];
     v12 = v7[7];
-    v5 = VslpEnterIumSecureMode(2u, 3LL, 0, (__int64)v8);
+    v5 = VslpEnterIumSecureMode(2u, 3u, 0, (__int64)v8);
     VslpUnlockPagesForTransfer(v7);
   }
   return (unsigned int)v5;

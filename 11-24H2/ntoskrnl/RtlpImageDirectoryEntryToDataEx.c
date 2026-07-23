@@ -1,78 +1,75 @@
 /*
- * XREFs of RtlpImageDirectoryEntryToDataEx @ 0x14042CC7C
+ * XREFs of RtlpImageDirectoryEntryToDataEx @ 0x1402EECFC
  * Callers:
- *     RtlCaptureRetpolineImportRvas @ 0x14042C560 (RtlCaptureRetpolineImportRvas.c)
- *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1406A32EC (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x1402F0074 (RtlCaptureRetpolineImportRvas.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1406A433C (RtlpCaptureRetpolineBinaryInfoForImage.c)
  * Callees:
- *     RtlpImageDirectoryEntryToData32 @ 0x14042CE00 (RtlpImageDirectoryEntryToData32.c)
- *     RtlAddressInSectionTable @ 0x14042CEAC (RtlAddressInSectionTable.c)
+ *     RtlpImageDirectoryEntryToData32 @ 0x1402EEE80 (RtlpImageDirectoryEntryToData32.c)
+ *     RtlAddressInSectionTable @ 0x1402EEF2C (RtlAddressInSectionTable.c)
  */
 
 __int64 __fastcall RtlpImageDirectoryEntryToDataEx(
-        unsigned __int64 a1,
+        unsigned __int64 BaseOfImage,
         char a2,
         unsigned __int16 a3,
-        _DWORD *a4,
-        __int64 *a5)
+        unsigned int *a4,
+        _QWORD *a5)
 {
   unsigned int v5; // r10d
   char v6; // bl
-  unsigned __int64 v8; // r11
-  unsigned __int64 v9; // rcx
-  __int16 v10; // ax
-  int v11; // edx
-  __int64 v12; // r9
-  __int64 v13; // r8
-  unsigned __int64 v15; // rax
-  __int64 v16; // rax
+  unsigned int *v8; // r11
+  _IMAGE_NT_HEADERS64 *NtHeaders; // rcx
+  unsigned __int16 Magic; // ax
+  __int64 v11; // r9
+  __int64 VirtualAddress; // r8
+  unsigned __int64 v14; // rax
+  PVOID v15; // rax
 
   v5 = 0;
   v6 = a2;
-  v8 = a1;
+  v8 = (unsigned int *)BaseOfImage;
   *a5 = 0LL;
-  if ( (a1 & 3) != 0 )
+  if ( (BaseOfImage & 3) != 0 )
   {
-    v8 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v8 = (unsigned int *)(BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
     v6 = 0;
-    if ( (a1 & 1) == 0 )
+    if ( (BaseOfImage & 1) == 0 )
       v6 = a2;
   }
-  if ( v8 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
+  if ( (unsigned __int64)v8 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
     return (unsigned int)-1073741811;
   if ( *(_WORD *)v8 == 23117
-    && (v9 = v8 + *(unsigned int *)(v8 + 60), v9 >= v8)
-    && (v8 > 0x7FFFFFFEFFFFLL || v9 + 263 >= v9 && v9 + 263 <= 0x7FFFFFFEFFFFLL)
-    && *(_DWORD *)v9 == 17744 )
+    && (NtHeaders = (_IMAGE_NT_HEADERS64 *)((char *)v8 + v8[15]), NtHeaders >= (_IMAGE_NT_HEADERS64 *)v8)
+    && ((unsigned __int64)v8 > 0x7FFFFFFEFFFFLL
+     || (_IMAGE_NT_HEADERS64 *)((char *)&NtHeaders->OptionalHeader.DataDirectory[15].Size + 3) >= NtHeaders
+     && (unsigned __int64)&NtHeaders->OptionalHeader.DataDirectory[15].Size + 3 <= 0x7FFFFFFEFFFFLL)
+    && NtHeaders->Signature == 17744 )
   {
-    v10 = *(_WORD *)(v9 + 24);
-    v11 = 267;
-    if ( v10 == 267 )
-    {
-      LOBYTE(v11) = v6;
-      return (unsigned int)RtlpImageDirectoryEntryToData32(v8, v11, a3, (_DWORD)a4, v9, (__int64)a5);
-    }
-    if ( v10 != 523 || (unsigned int)a3 >= *(_DWORD *)(v9 + 132) )
+    Magic = NtHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 )
+      return (unsigned int)RtlpImageDirectoryEntryToData32(v8, NtHeaders, (__int64)a5);
+    if ( Magic != 523 || a3 >= NtHeaders->OptionalHeader.NumberOfRvaAndSizes )
       return (unsigned int)-1073741811;
-    v12 = a3;
-    v13 = *(unsigned int *)(v9 + 8LL * a3 + 136);
-    if ( (_DWORD)v13 )
+    v11 = a3;
+    VirtualAddress = NtHeaders->OptionalHeader.DataDirectory[a3].VirtualAddress;
+    if ( (_DWORD)VirtualAddress )
     {
-      if ( v8 <= 0x7FFFFFFEFFFFLL )
+      if ( (unsigned __int64)v8 <= 0x7FFFFFFEFFFFLL )
       {
-        v15 = v8 + v13 - 1;
-        if ( v15 > 0x7FFFFFFEFFFFLL || v15 < v8 )
+        v14 = (unsigned __int64)v8 + VirtualAddress - 1;
+        if ( v14 > 0x7FFFFFFEFFFFLL || v14 < (unsigned __int64)v8 )
           return (unsigned int)-1073741811;
       }
-      *a4 = *(_DWORD *)(v9 + 8 * v12 + 140);
-      if ( v6 || (unsigned int)v13 < *(_DWORD *)(v9 + 84) )
+      *a4 = NtHeaders->OptionalHeader.DataDirectory[v11].Size;
+      if ( v6 || (unsigned int)VirtualAddress < NtHeaders->OptionalHeader.SizeOfHeaders )
       {
-        *a5 = v13 + v8;
+        *a5 = (char *)v8 + VirtualAddress;
       }
       else
       {
-        v16 = RtlAddressInSectionTable(v9, v8);
-        *a5 = v16;
-        return v16 == 0 ? 0xC000000D : 0;
+        v15 = RtlAddressInSectionTable(NtHeaders, v8, VirtualAddress);
+        *a5 = v15;
+        return v15 == 0LL ? 0xC000000D : 0;
       }
     }
     else

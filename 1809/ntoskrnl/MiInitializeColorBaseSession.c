@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeColorBaseSession @ 0x1400E76F0
+ * XREFs of MiInitializeColorBaseSession @ 0x1400E7770
  * Callers:
  *     MiInitializeColorBaseEx @ 0x140028994 (MiInitializeColorBaseEx.c)
- *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
+ *     MmAllocateSpecialPool @ 0x1402ACD54 (MmAllocateSpecialPool.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
  */
 
 unsigned __int8 __fastcall MiInitializeColorBaseSession(__int64 a1)

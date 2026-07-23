@@ -1,13 +1,13 @@
 /*
- * XREFs of IoGetRequestorProcess @ 0x1400C3870
+ * XREFs of IoGetRequestorProcess @ 0x1400C1700
  * Callers:
- *     FsRtlCheckLockForReadAccess @ 0x1400A8AD0 (FsRtlCheckLockForReadAccess.c)
- *     FsRtlPrivateFastUnlockAll @ 0x1400AB1A8 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x1400AB4CC (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlCheckLockForWriteAccess @ 0x1400ACDE8 (FsRtlCheckLockForWriteAccess.c)
- *     IoGetRequestorProcessId @ 0x1400B5BEC (IoGetRequestorProcessId.c)
- *     IoIs32bitProcess @ 0x1400C3800 (IoIs32bitProcess.c)
- *     FsRtlProcessFileLock @ 0x140132C48 (FsRtlProcessFileLock.c)
+ *     FsRtlCheckLockForReadAccess @ 0x1400A7050 (FsRtlCheckLockForReadAccess.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x1400A9728 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1400A9A4C (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlCheckLockForWriteAccess @ 0x1400AB350 (FsRtlCheckLockForWriteAccess.c)
+ *     IoGetRequestorProcessId @ 0x1400B3A14 (IoGetRequestorProcessId.c)
+ *     IoIs32bitProcess @ 0x1400C1690 (IoIs32bitProcess.c)
+ *     FsRtlProcessFileLock @ 0x1401331B8 (FsRtlProcessFileLock.c)
  * Callees:
  *     <none>
  */

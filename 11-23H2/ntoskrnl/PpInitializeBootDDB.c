@@ -4,7 +4,7 @@
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     PpBootDDBHelper @ 0x1408128B4 (PpBootDDBHelper.c)
+ *     PpBootDDBHelper @ 0x140812B84 (PpBootDDBHelper.c)
  *     PiInitializeDDBCache @ 0x140B3F860 (PiInitializeDDBCache.c)
  */
 

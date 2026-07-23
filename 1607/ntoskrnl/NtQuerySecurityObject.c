@@ -1,13 +1,13 @@
 /*
- * XREFs of NtQuerySecurityObject @ 0x1405212B0
+ * XREFs of NtQuerySecurityObject @ 0x140504310
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A01C (RtlpSysVolCheckOwnerAndSecurity.c)
- *     CmpSaveBootControlSet @ 0x1405F9094 (CmpSaveBootControlSet.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A55C (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     CmpSaveBootControlSet @ 0x1405F9148 (CmpSaveBootControlSet.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeQuerySecurityAccessMask @ 0x14052141C (SeQuerySecurityAccessMask.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeQuerySecurityAccessMask @ 0x14050447C (SeQuerySecurityAccessMask.c)
  */
 
 NTSTATUS __stdcall NtQuerySecurityObject(

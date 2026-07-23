@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpCallAddDevice @ 0x14070CC10
+ * XREFs of PnpCallAddDevice @ 0x14070DEB0
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E7EEC (PipCallDriverAddDevice.c)
  * Callees:
  *     PnpSetDeviceAffinityThread @ 0x14000EA6C (PnpSetDeviceAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     PpvUtilCallAddDevice @ 0x14016BD24 (PpvUtilCallAddDevice.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     McTemplateK0q @ 0x14028B0FC (McTemplateK0q.c)
- *     McTemplateK0qhzr1z @ 0x14028B168 (McTemplateK0qhzr1z.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     PpvUtilCallAddDevice @ 0x14016BE24 (PpvUtilCallAddDevice.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     McTemplateK0q @ 0x14028B2EC (McTemplateK0q.c)
+ *     McTemplateK0qhzr1z @ 0x14028B358 (McTemplateK0qhzr1z.c)
  */
 
 __int64 __fastcall PnpCallAddDevice(
@@ -24,7 +24,7 @@ __int64 __fastcall PnpCallAddDevice(
   __int64 v11; // r8
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-48h] BYREF
 
-  if ( (byte_140405847 & 8) != 0 )
+  if ( (byte_140406847 & 8) != 0 )
     McTemplateK0qhzr1z(
       a1,
       a2,
@@ -37,7 +37,7 @@ __int64 __fastcall PnpCallAddDevice(
   v10 = PpvUtilCallAddDevice(*(struct _DEVICE_OBJECT **)(a1 + 32), (struct _DRIVER_OBJECT *)a2, a3);
   if ( v7 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-  if ( (byte_140405847 & 8) != 0 )
+  if ( (byte_140406847 & 8) != 0 )
     McTemplateK0q(v9, v8, v11, v10);
   return v10;
 }

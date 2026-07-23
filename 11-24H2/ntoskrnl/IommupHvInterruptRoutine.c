@@ -1,30 +1,30 @@
 /*
- * XREFs of IommupHvInterruptRoutine @ 0x140565FD0
+ * XREFs of IommupHvInterruptRoutine @ 0x140563CD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall IommupHvInterruptRoutine(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char IommupHvInterruptRoutine()
 {
-  char v4; // di
+  char v0; // di
   unsigned int i; // ebx
-  unsigned __int64 v6; // rcx
-  __int64 v7; // rdx
+  unsigned __int64 v2; // rcx
+  __int64 v3; // rdx
 
-  v4 = 0;
+  v0 = 0;
   for ( i = 0; i < IommupHvPageRequestQueueCount; ++i )
   {
-    v6 = IommupHvPageRequestQueues + ((unsigned __int64)i << 6);
-    v7 = *(unsigned int *)(*(_QWORD *)(v6 + 8) + 8LL);
-    if ( (_WORD)v7 )
+    v2 = IommupHvPageRequestQueues + ((unsigned __int64)i << 6);
+    v3 = *(unsigned int *)(*(_QWORD *)(v2 + 8) + 8LL);
+    if ( (_WORD)v3 )
     {
-      if ( (_BYTE)v7 )
-        *(_BYTE *)(*(_QWORD *)(v6 + 8) + 8LL) = 0;
-      v4 = 1;
-      guard_dispatch_icall_no_overrides(i, v7, a3, a4);
+      if ( (_BYTE)v3 )
+        *(_BYTE *)(*(_QWORD *)(v2 + 8) + 8LL) = 0;
+      v0 = 1;
+      guard_dispatch_icall_no_overrides(i, v3);
     }
   }
-  return v4;
+  return v0;
 }

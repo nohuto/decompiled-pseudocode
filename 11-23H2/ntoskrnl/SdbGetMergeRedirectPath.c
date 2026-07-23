@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbGetMergeRedirectPath @ 0x140A4E100
+ * XREFs of SdbGetMergeRedirectPath @ 0x140A4E3B0
  * Callers:
- *     SdbOpenDatabaseEx @ 0x140A4E550 (SdbOpenDatabaseEx.c)
+ *     SdbOpenDatabaseEx @ 0x140A4E800 (SdbOpenDatabaseEx.c)
  * Callees:
- *     RtlStringCchCatW @ 0x14022BC94 (RtlStringCchCatW.c)
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     RtlStringCchCatW @ 0x14022BDA4 (RtlStringCchCatW.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyNW @ 0x1402F815C (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslRegistryGetKey @ 0x14084E44C (AslRegistryGetKey.c)
- *     SdbpGetFileTimestamp @ 0x140A4E934 (SdbpGetFileTimestamp.c)
- *     SdbpGetManifestedMergeStubAlloc @ 0x140A4EB08 (SdbpGetManifestedMergeStubAlloc.c)
- *     AslRegistryGetString @ 0x140A542D4 (AslRegistryGetString.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslRegistryGetKey @ 0x14084E74C (AslRegistryGetKey.c)
+ *     SdbpGetFileTimestamp @ 0x140A4EBE4 (SdbpGetFileTimestamp.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140A4EDB8 (SdbpGetManifestedMergeStubAlloc.c)
+ *     AslRegistryGetString @ 0x140A54584 (AslRegistryGetString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

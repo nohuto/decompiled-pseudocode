@@ -34,7 +34,13 @@
  *     ExRaiseDatatypeMisalignment @ 0x140767450 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetValueKey(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, void *a5, size_t Size)
+NTSTATUS __cdecl NtSetValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        ULONG TitleIndex,
+        ULONG Type,
+        PVOID Data,
+        ULONG DataSize)
 {
   char v7; // r13
   char v8; // r12
@@ -47,7 +53,7 @@ __int64 __fastcall NtSetValueKey(__int64 a1, unsigned __int64 a2, __int64 a3, __
   BOOLEAN v15; // r14
   signed __int8 v16; // al
   unsigned __int16 Length; // di
-  unsigned int v18; // ebx
+  ULONG v18; // ebx
   void *v19; // r15
   unsigned int v20; // r13d
   unsigned int v21; // r14d
@@ -67,24 +73,24 @@ __int64 __fastcall NtSetValueKey(__int64 a1, unsigned __int64 a2, __int64 a3, __
   unsigned __int64 v36; // rdx
   __int64 v37; // r8
   __int64 v38; // r9
-  signed int v39; // edi
+  int v39; // edi
   bool v40; // zf
   _DMA_OPERATIONS *v41; // rcx
   int v42; // [rsp+30h] [rbp-1A8h]
   unsigned __int8 v43; // [rsp+40h] [rbp-198h]
   BOOLEAN v44; // [rsp+41h] [rbp-197h]
   char v45; // [rsp+42h] [rbp-196h]
-  unsigned int v46; // [rsp+44h] [rbp-194h]
+  NTSTATUS v46; // [rsp+44h] [rbp-194h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-188h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp-178h] BYREF
   void *Src; // [rsp+68h] [rbp-170h]
   void *v50; // [rsp+70h] [rbp-168h]
   int v51; // [rsp+78h] [rbp-160h] BYREF
-  unsigned int v52; // [rsp+7Ch] [rbp-15Ch]
+  ULONG v52; // [rsp+7Ch] [rbp-15Ch]
   PPRIVILEGE_SET Privileges; // [rsp+80h] [rbp-158h]
-  unsigned int v54; // [rsp+88h] [rbp-150h]
+  ULONG v54; // [rsp+88h] [rbp-150h]
   __int64 v55; // [rsp+90h] [rbp-148h] BYREF
-  __int64 v56; // [rsp+98h] [rbp-140h]
+  HANDLE v56; // [rsp+98h] [rbp-140h]
   _DMA_OPERATIONS *DmaOperations; // [rsp+A0h] [rbp-138h]
   _QWORD v58[2]; // [rsp+A8h] [rbp-130h] BYREF
   struct _PRIVILEGE_SET *v59; // [rsp+B8h] [rbp-120h]
@@ -94,16 +100,16 @@ __int64 __fastcall NtSetValueKey(__int64 a1, unsigned __int64 a2, __int64 a3, __
   _OWORD v63[2]; // [rsp+130h] [rbp-A8h] BYREF
   _BYTE v64[64]; // [rsp+150h] [rbp-88h] BYREF
 
-  v52 = a4;
-  v54 = a3;
-  v56 = a1;
-  Src = a5;
+  v52 = Type;
+  v54 = TitleIndex;
+  v56 = KeyHandle;
+  Src = Data;
   DestinationString = 0LL;
   v55 = 0LL;
   memset(v63, 0, sizeof(v63));
   DmaOperations = 0LL;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v63, 0x20000LL, a3, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v63, 0x20000u);
   v7 = 0;
   DmaAdapter = 0LL;
   v8 = 0;
@@ -133,7 +139,7 @@ LABEL_97:
     v28 = 0;
     goto LABEL_74;
   }
-  v39 = CmObReferenceObjectByHandle(v56, 2, v13, v9, (__int64)&DmaAdapter, (__int64)&v55);
+  v39 = CmObReferenceObjectByHandle((_DWORD)v56, 2, v13, v9, (__int64)&DmaAdapter, (__int64)&v55);
   v46 = v39;
   if ( v39 != -1073741790 )
   {
@@ -148,10 +154,10 @@ LABEL_6:
     {
       v60 = 0LL;
       v37 = 0x7FFFFFFF0000LL;
-      if ( a2 >= 0x7FFFFFFF0000LL )
-        a2 = 0x7FFFFFFF0000LL;
-      LODWORD(v60) = *(_DWORD *)a2;
-      *((_QWORD *)&v60 + 1) = *(_QWORD *)(a2 + 8);
+      if ( (unsigned __int64)ValueName >= 0x7FFFFFFF0000LL )
+        ValueName = (PUNICODE_STRING)0x7FFFFFFF0000LL;
+      LODWORD(v60) = *(_DWORD *)&ValueName->Length;
+      *((_QWORD *)&v60 + 1) = ValueName->Buffer;
       DestinationString = (UNICODE_STRING)v60;
       DestinationString.MaximumLength = v60;
       Length = v60;
@@ -166,10 +172,9 @@ LABEL_6:
           Length = DestinationString.Length;
         }
       }
-      v18 = Size;
+      v18 = DataSize;
       v19 = Src;
-      if ( (_DWORD)Size
-        && ((unsigned __int64)Src + (unsigned int)Size > 0x7FFFFFFF0000LL || (char *)Src + (unsigned int)Size < Src) )
+      if ( DataSize && ((unsigned __int64)Src + DataSize > 0x7FFFFFFF0000LL || (char *)Src + DataSize < Src) )
       {
         MEMORY[0x7FFFFFFF0000] = 0;
         Length = DestinationString.Length;
@@ -177,10 +182,10 @@ LABEL_6:
     }
     else
     {
-      DestinationString = *(UNICODE_STRING *)a2;
+      DestinationString = *ValueName;
       v50 = 0LL;
-      v18 = Size;
-      if ( !(_DWORD)Size )
+      v18 = DataSize;
+      if ( !DataSize )
       {
         Length = DestinationString.Length;
         v19 = Src;
@@ -366,7 +371,7 @@ LABEL_73:
     v28 = 0;
     goto LABEL_74;
   }
-  v39 = CmObReferenceObjectByHandle(v56, 131097, v37, v43, (__int64)&DmaAdapter, (__int64)&v55);
+  v39 = CmObReferenceObjectByHandle((_DWORD)v56, 131097, v37, v43, (__int64)&DmaAdapter, (__int64)&v55);
   v46 = v39;
   if ( v39 < 0 )
     goto LABEL_97;
@@ -414,5 +419,5 @@ LABEL_74:
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v32, v33, v34);
     return v46;
   }
-  return (unsigned int)v39;
+  return v39;
 }

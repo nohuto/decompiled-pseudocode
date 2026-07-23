@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpBuddyAllocatorBltAdd @ 0x1403AC5B0
+ * XREFs of HalpBuddyAllocatorBltAdd @ 0x14039ADBC
  * Callers:
- *     HalpBuddyAllocatorDeleteSubtree @ 0x1403AC040 (HalpBuddyAllocatorDeleteSubtree.c)
- *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x1403ACFA0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
- *     HalpBuddyAllocatorFreeLogicalAddress @ 0x1403AD740 (HalpBuddyAllocatorFreeLogicalAddress.c)
- *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140574A10 (HalpBuddyAllocatorReserveLogicalAddress.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x14039A750 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14039B7B0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpBuddyAllocatorFreeLogicalAddress @ 0x14039BF50 (HalpBuddyAllocatorFreeLogicalAddress.c)
+ *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140571EA0 (HalpBuddyAllocatorReserveLogicalAddress.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall HalpBuddyAllocatorBltAdd(__int64 *a1, __int64 a2)

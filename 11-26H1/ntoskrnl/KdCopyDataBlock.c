@@ -1,10 +1,10 @@
 /*
- * XREFs of KdCopyDataBlock @ 0x1405E35A4
+ * XREFs of KdCopyDataBlock @ 0x1405E5F14
  * Callers:
- *     KeCapturePersistentThreadState @ 0x14034F2C0 (KeCapturePersistentThreadState.c)
- *     IoFillTriageDumpBuffer @ 0x1405C6994 (IoFillTriageDumpBuffer.c)
- *     KdDecodeDataBlock @ 0x1405E3670 (KdDecodeDataBlock.c)
- *     IopInitializeInMemoryDumpData @ 0x140CBA480 (IopInitializeInMemoryDumpData.c)
+ *     KeCapturePersistentThreadState @ 0x140351340 (KeCapturePersistentThreadState.c)
+ *     IoFillTriageDumpBuffer @ 0x1405C9264 (IoFillTriageDumpBuffer.c)
+ *     KdDecodeDataBlock @ 0x1405E5FE0 (KdDecodeDataBlock.c)
+ *     IopInitializeInMemoryDumpData @ 0x140CC04C0 (IopInitializeInMemoryDumpData.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ unsigned __int64 __fastcall KdCopyDataBlock(_OWORD *a1)
     v3 = 117;
     do
     {
-      result = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64((unsigned __int64)&KdpDataBlockEncoded ^ __ROL8__(KiWaitNever ^ *(_QWORD *)v1, KiWaitNever));
+      result = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64((unsigned __int64)&KdpDataBlockEncoded ^ __ROL8__(KiWaitNever ^ *(_QWORD *)v1, KiWaitNever));
       *(_QWORD *)&v1[(char *)a1 - (char *)&KdDebuggerDataBlock] = result;
       v1 += 8;
       --v3;

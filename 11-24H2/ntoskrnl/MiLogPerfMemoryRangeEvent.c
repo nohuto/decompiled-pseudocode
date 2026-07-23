@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLogPerfMemoryRangeEvent @ 0x1404D0550
+ * XREFs of MiLogPerfMemoryRangeEvent @ 0x1404C9744
  * Callers:
- *     MiCommitPoolMemory @ 0x1402EB010 (MiCommitPoolMemory.c)
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
- *     MiDecommitLargePoolVa @ 0x1403A3F50 (MiDecommitLargePoolVa.c)
- *     MmFreeContiguousMemory @ 0x1403A93D0 (MmFreeContiguousMemory.c)
- *     MiAllocateContiguousMemory @ 0x14041182C (MiAllocateContiguousMemory.c)
- *     MiLogSectionCreate @ 0x1407EC15C (MiLogSectionCreate.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
+ *     MiDecommitLargePoolVa @ 0x14021BCD4 (MiDecommitLargePoolVa.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiCommitPoolMemory @ 0x14034C650 (MiCommitPoolMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140395A6C (MiAllocateContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x140398060 (MmFreeContiguousMemory.c)
+ *     MiLogSectionCreate @ 0x1407EC72C (MiLogSectionCreate.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogPerfMemoryRangeEvent(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)

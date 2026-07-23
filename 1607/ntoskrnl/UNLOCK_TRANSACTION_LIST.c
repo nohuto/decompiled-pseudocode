@@ -1,10 +1,10 @@
 /*
- * XREFs of UNLOCK_TRANSACTION_LIST @ 0x1403FDA20
+ * XREFs of UNLOCK_TRANSACTION_LIST @ 0x1403FC8E0
  * Callers:
- *     CmpTransEnlistUowInCmTrans @ 0x14000AE94 (CmpTransEnlistUowInCmTrans.c)
- *     CmpRundownUnitOfWork @ 0x1403FD8BC (CmpRundownUnitOfWork.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x14000AA14 (CmpTransEnlistUowInCmTrans.c)
+ *     CmpRundownUnitOfWork @ 0x1403FC77C (CmpRundownUnitOfWork.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
  */
 
 __int64 UNLOCK_TRANSACTION_LIST()

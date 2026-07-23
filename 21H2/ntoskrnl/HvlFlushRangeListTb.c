@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlFlushRangeListTb @ 0x14038FF5C
+ * XREFs of HvlFlushRangeListTb @ 0x1403900AC
  * Callers:
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
- *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x1403C951C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140346370 (KeFlushMultipleRangeTb.c)
+ *     KeFlushSingleCurrentTb @ 0x14038A028 (KeFlushSingleCurrentTb.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x1403C96BC (KeFlushMultipleRangeCurrentTb.c)
  * Callees:
- *     HvlpFlushRangeListTb @ 0x14038FFAC (HvlpFlushRangeListTb.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x14039048C (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvlpFlushRangeListTbEx @ 0x1404FAF7C (HvlpFlushRangeListTbEx.c)
+ *     HvlpFlushRangeListTb @ 0x1403900FC (HvlpFlushRangeListTb.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1403905DC (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpFlushRangeListTbEx @ 0x1404FAEFC (HvlpFlushRangeListTbEx.c)
  */
 
 char __fastcall HvlFlushRangeListTb(int a1, __int64 a2, int a3, int a4, char a5, int a6, __int64 a7)

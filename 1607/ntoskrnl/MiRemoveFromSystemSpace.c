@@ -1,28 +1,28 @@
 /*
- * XREFs of MiRemoveFromSystemSpace @ 0x140100090
+ * XREFs of MiRemoveFromSystemSpace @ 0x1400FDE10
  * Callers:
- *     MiUnmapImageInSystemSpace @ 0x140525DFC (MiUnmapImageInSystemSpace.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
- *     MiMapViewInSystemSpace @ 0x140525ED4 (MiMapViewInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x140508E5C (MiUnmapImageInSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x140508F34 (MiMapViewInSystemSpace.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiManageSubsectionView @ 0x140013D20 (MiManageSubsectionView.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiRemoveMappedPtes @ 0x140100320 (MiRemoveMappedPtes.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiManageSubsectionView @ 0x1400138A0 (MiManageSubsectionView.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiRemoveMappedPtes @ 0x1400FE0A0 (MiRemoveMappedPtes.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
  */
 
 void __fastcall MiRemoveFromSystemSpace(__int64 a1, ULONG_PTR a2, int a3)
@@ -50,7 +50,7 @@ void __fastcall MiRemoveFromSystemSpace(__int64 a1, ULONG_PTR a2, int a3)
 
   CurrentThread = KeGetCurrentThread();
   v6 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( (_UNKNOWN *)a1 == &unk_140326880 )
+  if ( (_UNKNOWN *)a1 == &unk_1403268C0 )
   {
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
     v23 = 0LL;
@@ -110,9 +110,9 @@ void __fastcall MiRemoveFromSystemSpace(__int64 a1, ULONG_PTR a2, int a3)
   v21 = *((unsigned int *)i + 23);
   if ( (_DWORD)v21 != 0x7FFFF )
     MiDereferencePerSessionProtos(v18, v21);
-  if ( (_UNKNOWN *)a1 == &unk_140326880 )
+  if ( (_UNKNOWN *)a1 == &unk_1403268C0 )
   {
-    MiReleasePtes((__int64)&unk_1403274D8, v6, v20);
+    MiReleasePtes((__int64)&unk_140327518, v6, v20);
     MiChargeWsles((ULONG_PTR)AnyMultiplexedVm, -v20, 0);
   }
   else

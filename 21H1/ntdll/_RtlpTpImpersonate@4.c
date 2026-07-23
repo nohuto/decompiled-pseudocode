@@ -11,26 +11,28 @@
  *     _RtlRaiseException@4 @ 0x4B308940 (_RtlRaiseException@4.c)
  */
 
-int __thiscall RtlpTpImpersonate(void *this)
+NTSTATUS __thiscall RtlpTpImpersonate(void *this)
 {
   unsigned int v1; // esi
-  int result; // eax
+  NTSTATUS result; // eax
   int v3; // edi
-  void *v4; // [esp+8h] [ebp-58h] BYREF
+  size_t v4; // [esp-4h] [ebp-64h]
+  void *ThreadInformation; // [esp+8h] [ebp-58h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [esp+Ch] [ebp-54h] BYREF
 
-  v4 = this;
+  ThreadInformation = this;
   v1 = 0;
   while ( 1 )
   {
-    result = ZwSetInformationThread(-2, 5, (int)&v4, 4);
+    result = ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, &ThreadInformation, 4u);
     v3 = result;
     ++v1;
     if ( result >= 0 )
       break;
     if ( v1 >= 2 )
     {
-      memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+      LODWORD(v4) = 80;
+      memset(&ExceptionRecord, 0, v4);
       ExceptionRecord.ExceptionCode = v3;
       RtlRaiseException(&ExceptionRecord);
     }

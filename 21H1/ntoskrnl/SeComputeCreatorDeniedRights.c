@@ -22,16 +22,15 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   __int16 v10; // r14
   __int64 v11; // rax
   __int64 v12; // rdx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // rax
-  __int64 v16; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  ACL *v15; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
-  __int64 v20; // rdx
+  __int64 v19; // rdx
   ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-20h]
+  __int64 v21; // [rsp+58h] [rbp-20h]
   NTSTATUS AccessStatus; // [rsp+90h] [rbp+18h] BYREF
 
   AccessStatus = 0;
@@ -71,37 +70,37 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
     {
       if ( v10 >= 0 )
       {
-        v16 = *(_QWORD *)(a4 + 24);
+        v15 = *(ACL **)(a4 + 24);
       }
       else
       {
-        v15 = *(unsigned int *)(a4 + 12);
-        v16 = (_DWORD)v15 ? a4 + v15 : 0LL;
+        v14 = *(unsigned int *)(a4 + 12);
+        v15 = (_DWORD)v14 ? (ACL *)(a4 + v14) : 0LL;
       }
     }
     else
     {
-      v16 = 0LL;
+      v15 = 0LL;
     }
-    v22 = 0LL;
+    v21 = 0LL;
     if ( !SepRmEnforceCap )
       return 0LL;
-    if ( !v16 )
+    if ( !v15 )
       return 0LL;
-    ScopedPolicySid = (void *)SepGetScopedPolicySid(v16, v13, v14);
+    ScopedPolicySid = (void *)SepGetScopedPolicySid(v15);
     if ( !ScopedPolicySid )
       return 0LL;
     Cap = SepRmReferenceFindCap(ScopedPolicySid);
-    v20 = v22;
+    v19 = v21;
     if ( Cap < 0 )
-      v20 = SepRmDefaultCap;
-    if ( (*(_DWORD *)(v20 + 56) & 1) == 0 )
+      v19 = SepRmDefaultCap;
+    if ( (*(_DWORD *)(v19 + 56) & 1) == 0 )
       return 0LL;
   }
   ClientToken = SubjectSecurityContext->ClientToken;
   if ( !SubjectSecurityContext->ClientToken )
     ClientToken = SubjectSecurityContext->PrimaryToken;
-  if ( !SepTokenIsOwner((__int64)ClientToken, a4, v14, 0) )
+  if ( !SepTokenIsOwner((__int64)ClientToken, a4, v13, 0) )
     return 0LL;
   if ( (a3 & 0x40000) != 0
     && !SeAccessCheck(

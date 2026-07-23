@@ -1,16 +1,16 @@
 /*
- * XREFs of PspInitializeSiloStructures @ 0x140CD8CA4
+ * XREFs of PspInitializeSiloStructures @ 0x140CDF024
  * Callers:
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     PspSiloInitializeSharedUserSessionId @ 0x1407EF6FC (PspSiloInitializeSharedUserSessionId.c)
- *     PspStorageAllocSlot @ 0x1407FF9E4 (PspStorageAllocSlot.c)
- *     PspStorageFreeSlot @ 0x1407FFAF4 (PspStorageFreeSlot.c)
- *     PspAllocStorage @ 0x140B09D44 (PspAllocStorage.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     PspSiloInitializeSharedUserSessionId @ 0x1407F525C (PspSiloInitializeSharedUserSessionId.c)
+ *     PspStorageAllocSlot @ 0x140805414 (PspStorageAllocSlot.c)
+ *     PspStorageFreeSlot @ 0x140805524 (PspStorageFreeSlot.c)
+ *     PspAllocStorage @ 0x140B0BB04 (PspAllocStorage.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 char PspInitializeSiloStructures()
@@ -41,7 +41,7 @@ char PspInitializeSiloStructures()
   __int64 (__fastcall *v24)(__int64); // [rsp+68h] [rbp+1Fh]
 
   Pool2 = ExAllocatePool2(64LL, 0x270uLL, 0x476C6953u);
-  qword_140FC8E48 = Pool2;
+  qword_140FC9E48 = Pool2;
   if ( !Pool2
     || (int)PspSiloInitializeSharedUserSessionId(Pool2) < 0
     || (int)PspStorageAllocSlot((ULONG *)&PsObjectDirectorySiloContextSlot, v1, v2, v3) < 0 )
@@ -84,7 +84,7 @@ LABEL_13:
     ObfDereferenceObjectWithTag(Flink, 0x746C6644u);
     return 0;
   }
-  if ( (int)PspAllocStorage(&qword_140FC8E30) < 0 )
+  if ( (int)PspAllocStorage(&qword_140FC9E30) < 0 )
   {
     ObfDereferenceObjectWithTag(PspSiloMonitorLock.SavedApcState.ApcListHead[0].Flink, 0x746C6644u);
     Flink = PspSiloMonitorLock.IoSelfBoostsEntry.Next;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPagesRemainingInResidentPage @ 0x14064F244
+ * XREFs of MiGetPagesRemainingInResidentPage @ 0x14064F794
  * Callers:
- *     MiAddPhysicalPagesToCrashDump @ 0x14062F71C (MiAddPhysicalPagesToCrashDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x14062FC6C (MiAddPhysicalPagesToCrashDump.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetBaseResidentPageForBugCheck @ 0x14064F1C4 (MiGetBaseResidentPageForBugCheck.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetBaseResidentPageForBugCheck @ 0x14064F714 (MiGetBaseResidentPageForBugCheck.c)
  */
 
 unsigned __int64 __fastcall MiGetPagesRemainingInResidentPage(__int64 a1, int *a2, int *a3)

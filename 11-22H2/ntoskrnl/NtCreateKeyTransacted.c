@@ -12,26 +12,27 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtCreateKeyTransacted(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        HANDLE Handle)
+NTSTATUS __cdecl NtCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
   KPROCESSOR_MODE PreviousMode; // r9
-  NTSTATUS v11; // eax
-  unsigned __int64 v12; // rbx
-  unsigned int Key; // edi
-  KPROCESSOR_MODE v14; // r9
-  NTSTATUS v15; // eax
+  NTSTATUS v12; // eax
+  unsigned __int64 v13; // rbx
+  NTSTATUS Key; // edi
+  KPROCESSOR_MODE v15; // r9
+  NTSTATUS v16; // eax
   PVOID Object; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v18[3]; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v19[3]; // [rsp+48h] [rbp-20h] BYREF
 
-  *(_OWORD *)v18 = 0LL;
-  CmpInitializeThreadInfo((__int64)v18);
+  *(_OWORD *)v19 = 0LL;
+  CmpInitializeThreadInfo((__int64)v19);
   if ( !(unsigned __int8)CmpAcquireShutdownRundown() )
   {
     Key = -1073741431;
@@ -39,29 +40,29 @@ __int64 __fastcall NtCreateKeyTransacted(
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v11 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
-  v12 = (unsigned __int64)Object;
-  Key = v11;
-  if ( v11 == -1073741788 )
+  v12 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v13 = (unsigned __int64)Object;
+  Key = v12;
+  if ( v12 == -1073741788 )
   {
-    v14 = KeGetCurrentThread()->PreviousMode;
+    v15 = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    v15 = ObReferenceObjectByHandle(Handle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v14, &Object, 0LL);
-    v12 = (unsigned __int64)Object;
-    Key = v15;
-    if ( v15 >= 0 )
+    v16 = ObReferenceObjectByHandle(TransactionHandle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v15, &Object, 0LL);
+    v13 = (unsigned __int64)Object;
+    Key = v16;
+    if ( v16 >= 0 )
       goto LABEL_6;
   }
-  else if ( v11 >= 0 )
+  else if ( v12 >= 0 )
   {
-    v12 = (unsigned __int64)Object | 1;
+    v13 = (unsigned __int64)Object | 1;
 LABEL_6:
-    Key = CmCreateKey(a1, a2, a3);
+    Key = CmCreateKey(KeyHandle, DesiredAccess, ObjectAttributes);
   }
-  if ( v12 )
-    CmpTransDereferenceTransaction(v12);
+  if ( v13 )
+    CmpTransDereferenceTransaction(v13);
   CmpReleaseShutdownRundown();
 LABEL_10:
-  CmCleanupThreadInfo(v18);
+  CmCleanupThreadInfo(v19);
   return Key;
 }

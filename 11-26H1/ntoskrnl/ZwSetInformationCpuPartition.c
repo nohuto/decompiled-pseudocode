@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetInformationCpuPartition @ 0x1407268B0
+ * XREFs of ZwSetInformationCpuPartition @ 0x14072B480
  * Callers:
- *     DifZwSetInformationCpuPartitionWrapper @ 0x1406B9920 (DifZwSetInformationCpuPartitionWrapper.c)
+ *     DifZwSetInformationCpuPartitionWrapper @ 0x1406BD500 (DifZwSetInformationCpuPartitionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationCpuPartition(__int64 a1, __int64 a2)
+__int64 __fastcall ZwSetInformationCpuPartition(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(a1);
 }

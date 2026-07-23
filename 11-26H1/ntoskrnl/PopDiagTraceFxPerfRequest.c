@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxPerfRequest @ 0x1404F9B54
+ * XREFs of PopDiagTraceFxPerfRequest @ 0x1404F3164
  * Callers:
- *     PopFxIssueComponentPerfStateChanges @ 0x1404F97B0 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x1404F2DC0 (PopFxIssueComponentPerfStateChanges.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxPerfRequest(__int64 *a1, unsigned int a2, __int64 a3)
@@ -26,11 +26,9 @@ char __fastcall PopDiagTraceFxPerfRequest(__int64 *a1, unsigned int a2, __int64 
 
   v3 = &retaddr;
   v18 = a2;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_INITIATING);
+    LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_INITIATING);
     if ( (_BYTE)v3 )
     {
       v6 = *a1;
@@ -48,7 +46,7 @@ char __fastcall PopDiagTraceFxPerfRequest(__int64 *a1, unsigned int a2, __int64 
         v14 = a3;
         v16 = 0;
         LOBYTE(v3) = EtwWriteEx(
-                       *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                       PopDiagHandle,
                        &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_INITIATING,
                        0LL,
                        0,

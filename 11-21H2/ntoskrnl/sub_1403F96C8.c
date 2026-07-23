@@ -4,7 +4,7 @@
  *     sub_1403F974C @ 0x1403F974C (sub_1403F974C.c)
  *     sub_140AD6FD0 @ 0x140AD6FD0 (sub_140AD6FD0.c)
  * Callees:
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
+ *     j__guard_dispatch_icall_nop @ 0x140AD23B0 (j__guard_dispatch_icall_nop.c)
  */
 
 unsigned __int8 __fastcall sub_1403F96C8(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpEnableMetaProviderGuid @ 0x1404575EC
+ * XREFs of EtwpEnableMetaProviderGuid @ 0x14044EE5C
  * Callers:
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeReleaseMutant @ 0x1403DD0B0 (KeReleaseMutant.c)
- *     EtwpGetMetaProviderContext @ 0x140457670 (EtwpGetMetaProviderContext.c)
- *     EtwpUpdateSelectedGroupMasks @ 0x1404CCCE8 (EtwpUpdateSelectedGroupMasks.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpUpdateTagFilter @ 0x140827634 (EtwpUpdateTagFilter.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeReleaseMutant @ 0x1403E02A0 (KeReleaseMutant.c)
+ *     EtwpGetMetaProviderContext @ 0x14044EEE0 (EtwpGetMetaProviderContext.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x1404C6488 (EtwpUpdateSelectedGroupMasks.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpUpdateTagFilter @ 0x14082D874 (EtwpUpdateTagFilter.c)
  */
 
 __int64 __fastcall EtwpEnableMetaProviderGuid(
@@ -59,7 +59,7 @@ __int64 __fastcall EtwpEnableMetaProviderGuid(
           v14 = (unsigned int)v13 >> 2;
           if ( (unsigned int)v14 > 4 )
             return 3221225485LL;
-          EtwpUpdateTagFilter(v12 + 24, v14, &EtwpPoolTagFilter[10 * *(unsigned __int8 *)(a1 + 818)]);
+          EtwpUpdateTagFilter(v12 + 24, v14, &stru_140F03830.ApcStateFill[20 * *(unsigned __int8 *)(a1 + 818) + 24]);
         }
         break;
       }

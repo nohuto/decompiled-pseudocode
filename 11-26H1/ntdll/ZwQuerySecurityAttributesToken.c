@@ -1,17 +1,23 @@
 /*
- * XREFs of ZwQuerySecurityAttributesToken @ 0x180161C30
+ * XREFs of ZwQuerySecurityAttributesToken @ 0x180161B30
  * Callers:
- *     RtlQueryPackageClaims @ 0x1800C24B0 (RtlQueryPackageClaims.c)
- *     RtlQueryTokenHostIdAsUlong64 @ 0x180100770 (RtlQueryTokenHostIdAsUlong64.c)
+ *     RtlQueryPackageClaims @ 0x1800BFB80 (RtlQueryPackageClaims.c)
+ *     RtlQueryTokenHostIdAsUlong64 @ 0x1800FFEC0 (RtlQueryTokenHostIdAsUlong64.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQuerySecurityAttributesToken()
+NTSTATUS __cdecl ZwQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 360LL;
+  result = 360;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

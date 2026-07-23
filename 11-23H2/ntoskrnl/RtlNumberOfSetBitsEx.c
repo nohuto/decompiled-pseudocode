@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlNumberOfSetBitsEx @ 0x1405A8B70
+ * XREFs of RtlNumberOfSetBitsEx @ 0x1405A90E0
  * Callers:
- *     HvlIsSingleGroupRequired @ 0x1403AA48C (HvlIsSingleGroupRequired.c)
- *     IoWriteCrashDump @ 0x140551300 (IoWriteCrashDump.c)
- *     RtlNumberOfClearBitsEx @ 0x1405A8B10 (RtlNumberOfClearBitsEx.c)
- *     MiMakeEntireHugePfnGood @ 0x140621514 (MiMakeEntireHugePfnGood.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     IopLiveDumpWriteDumpFile @ 0x14094F484 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094F958 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     IopLiveDumpCollectPages @ 0x140A9AB04 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x140A9B19C (IopLiveDumpEstimateMemoryPages.c)
+ *     HvlIsSingleGroupRequired @ 0x1403AA66C (HvlIsSingleGroupRequired.c)
+ *     IoWriteCrashDump @ 0x1405519C0 (IoWriteCrashDump.c)
+ *     RtlNumberOfClearBitsEx @ 0x1405A9080 (RtlNumberOfClearBitsEx.c)
+ *     MiMakeEntireHugePfnGood @ 0x140621A64 (MiMakeEntireHugePfnGood.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094F684 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094FB58 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpCollectPages @ 0x140A9A974 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9B00C (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
  *     <none>
  */
@@ -59,7 +59,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(_QWORD *a1)
   {
     v12 = *v1++;
     if ( i == v6 - 1 && v3 )
-      v12 &= byte_140018F88[v3];
+      v12 &= byte_140018F80[v3];
     ++i;
     v4 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v12);
   }
@@ -88,7 +88,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(_QWORD *a1)
     {
       v17 = *v1++;
       if ( i == v16 && v3 )
-        v17 &= byte_140018F88[v3];
+        v17 &= byte_140018F80[v3];
       ++i;
       v4 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v17);
       --v9;

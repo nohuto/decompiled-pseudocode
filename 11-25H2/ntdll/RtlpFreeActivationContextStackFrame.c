@@ -84,7 +84,7 @@ unsigned __int64 __fastcall RtlpFreeActivationContextStackFrame(__int64 a1, unsi
                         __fastfail(3u);
                       *v9 = v10;
                       *(_QWORD *)(v10 + 8) = v9;
-                      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, result - 8);
+                      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)(result - 8));
                     }
                     result = (unsigned __int64)v9;
                   }

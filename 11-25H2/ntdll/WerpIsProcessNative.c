@@ -16,7 +16,7 @@ __int64 WerpIsProcessNative()
 
   memset_thunk_772440563353939046(ProcessInformation, 0, 0x40uLL);
   v0 = 0;
-  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)37, ProcessInformation, 0x40u, 0LL) < 0 )
+  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageInformation, ProcessInformation, 0x40u, 0LL) < 0 )
     return 0LL;
   LOBYTE(v0) = v3 == 1;
   return v0;

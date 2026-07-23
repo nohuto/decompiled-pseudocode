@@ -1,8 +1,8 @@
 /*
- * XREFs of MiHyperPage @ 0x1403BC0F0
+ * XREFs of MiHyperPage @ 0x1403BC2D0
  * Callers:
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MiActivePageClaimCandidate @ 0x1403BBBF8 (MiActivePageClaimCandidate.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MiActivePageClaimCandidate @ 0x1403BBDD8 (MiActivePageClaimCandidate.c)
  * Callees:
  *     <none>
  */

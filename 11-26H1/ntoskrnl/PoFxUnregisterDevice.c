@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxUnregisterDevice @ 0x140B06270
+ * XREFs of PoFxUnregisterDevice @ 0x140B083A0
  * Callers:
- *     DifPoFxUnregisterDeviceWrapper @ 0x1406941D0 (DifPoFxUnregisterDeviceWrapper.c)
+ *     DifPoFxUnregisterDeviceWrapper @ 0x140697DB0 (DifPoFxUnregisterDeviceWrapper.c)
  * Callees:
- *     PopFxDestroyDeviceDpm @ 0x1404EF894 (PopFxDestroyDeviceDpm.c)
- *     PopFxUnregisterDeviceOrWait @ 0x140B06444 (PopFxUnregisterDeviceOrWait.c)
- *     PopFxUnregisterDevice @ 0x140B06628 (PopFxUnregisterDevice.c)
+ *     PopFxDestroyDeviceDpm @ 0x1404E8E74 (PopFxDestroyDeviceDpm.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140B08574 (PopFxUnregisterDeviceOrWait.c)
+ *     PopFxUnregisterDevice @ 0x140B08758 (PopFxUnregisterDevice.c)
  */
 
 __int64 __fastcall PoFxUnregisterDevice(ULONG_PTR a1)

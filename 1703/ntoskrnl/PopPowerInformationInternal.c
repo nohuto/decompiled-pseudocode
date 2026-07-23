@@ -155,7 +155,7 @@ __int64 __fastcall PopPowerInformationInternal(
                   PoolWithTag = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x206D654Du);
                   if ( PoolWithTag )
                   {
-                    *PoolWithTag = PopPlatformAoAc && (unsigned __int8)RtlIsMultiSessionSku();
+                    *PoolWithTag = PopPlatformAoAc && RtlIsMultiSessionSku();
                     *a5 = PoolWithTag;
                     goto LABEL_22;
                   }
@@ -178,9 +178,13 @@ __int64 __fastcall PopPowerInformationInternal(
           }
           PopVideoInitialized = 1;
           return (unsigned int)ZwUpdateWnfStateData(
-                                 (__int64)&WNF_PO_VIDEO_INITIALIALIZED,
-                                 (__int64)&PopVideoInitialized,
-                                 1LL);
+                                 &WNF_PO_VIDEO_INITIALIALIZED,
+                                 &PopVideoInitialized,
+                                 1u,
+                                 0LL,
+                                 0LL,
+                                 0,
+                                 0);
         }
         if ( !a4 )
           return (unsigned int)-1073741789;
@@ -471,9 +475,13 @@ LABEL_23:
         && (v39 == -1
          || (PopVideoHighPrecisionBrightnessEnabled = 1,
              ZwUpdateWnfStateData(
-               (__int64)&WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
-               (__int64)&PopVideoHighPrecisionBrightnessEnabled,
-               1LL),
+               &WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
+               &PopVideoHighPrecisionBrightnessEnabled,
+               1u,
+               0LL,
+               0LL,
+               0,
+               0),
              PopDiagTraceEventNoPayload(&POP_ETW_EVENT_BASIC_BRIGHTNESS_ENGINE_OFF),
              !PopVideoHighPrecisionBrightnessEnabled))
         || v39 != -1 )

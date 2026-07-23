@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpInitializeSvmIommuSupport @ 0x1405C0FF4
+ * XREFs of HvlpInitializeSvmIommuSupport @ 0x1405C3864
  * Callers:
- *     HvlPhase2Initialize @ 0x1405B8B08 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1405BB378 (HvlPhase2Initialize.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     HvlGetSystemPasidCapabilities @ 0x1405BD1B0 (HvlGetSystemPasidCapabilities.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     HvlGetSystemPasidCapabilities @ 0x1405BFA20 (HvlGetSystemPasidCapabilities.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 HvlpInitializeSvmIommuSupport()
@@ -25,11 +25,11 @@ __int64 HvlpInitializeSvmIommuSupport()
   v0 = HIDWORD(v5);
   if ( !HIDWORD(v5) )
     return 3221225659LL;
-  stru_140E3E928.ReadTransferCount = ExAllocatePool2(0x40uLL);
-  ReadTransferCount = stru_140E3E928.ReadTransferCount;
-  if ( !stru_140E3E928.ReadTransferCount )
+  stru_140E3EAA8.ReadTransferCount = ExAllocatePool2(0x40uLL);
+  ReadTransferCount = stru_140E3EAA8.ReadTransferCount;
+  if ( !stru_140E3EAA8.ReadTransferCount )
     return 3221225626LL;
-  *(_DWORD *)&stru_140E3E928.SavedApcStateFill[28] = v0;
+  *(_DWORD *)&stru_140E3EAA8.SavedApcStateFill[28] = v0;
   v3 = 0;
   if ( v0 )
   {
@@ -47,9 +47,9 @@ __int64 HvlpInitializeSvmIommuSupport()
       *(_QWORD *)(v4 + 96) = v4;
       *(_DWORD *)(v4 + 4) = 3;
       ExQueueWorkItem((PWORK_QUEUE_ITEM)(v4 + 72), HyperCriticalWorkQueue);
-      if ( ++v3 >= *(_DWORD *)&stru_140E3E928.SavedApcStateFill[28] )
+      if ( ++v3 >= *(_DWORD *)&stru_140E3EAA8.SavedApcStateFill[28] )
         break;
-      ReadTransferCount = stru_140E3E928.ReadTransferCount;
+      ReadTransferCount = stru_140E3EAA8.ReadTransferCount;
     }
   }
   return 0LL;

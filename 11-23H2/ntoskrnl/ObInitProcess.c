@@ -1,17 +1,17 @@
 /*
- * XREFs of ObInitProcess @ 0x1406B362C
+ * XREFs of ObInitProcess @ 0x1406B365C
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
  *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
  *     ExpRemoveHandleTable @ 0x14068EB88 (ExpRemoveHandleTable.c)
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     ExSweepHandleTable @ 0x14073FC60 (ExSweepHandleTable.c)
- *     ObReferenceProcessHandleTable @ 0x140742640 (ObReferenceProcessHandleTable.c)
- *     ExEnumHandleTable @ 0x1407ADF70 (ExEnumHandleTable.c)
- *     ExDupHandleTable @ 0x1407B00DC (ExDupHandleTable.c)
- *     ExCreateHandleTable @ 0x1407B05C8 (ExCreateHandleTable.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406BB280 (SeAuditingWithTokenForSubcategory.c)
+ *     ExSweepHandleTable @ 0x14073FE50 (ExSweepHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x140742830 (ObReferenceProcessHandleTable.c)
+ *     ExEnumHandleTable @ 0x1407AE160 (ExEnumHandleTable.c)
+ *     ExDupHandleTable @ 0x1407B02CC (ExDupHandleTable.c)
+ *     ExCreateHandleTable @ 0x1407B07B8 (ExCreateHandleTable.c)
  */
 
 __int64 __fastcall ObInitProcess(struct _EX_RUNDOWN_REF *a1, __int64 a2, int a3, int a4)

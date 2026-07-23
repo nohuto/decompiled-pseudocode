@@ -1,9 +1,9 @@
 /*
- * XREFs of PiIsHVCIEnabled @ 0x140763990
+ * XREFs of PiIsHVCIEnabled @ 0x140764B80
  * Callers:
- *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14067FCB0 (PiIsDriverBlocked.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
  */
 
 bool PiIsHVCIEnabled()
@@ -13,7 +13,7 @@ bool PiIsHVCIEnabled()
 
   v0 = 0;
   SystemInformation = 8LL;
-  if ( ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &SystemInformation, 8u, 0LL) >= 0 )
+  if ( ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, 0LL) >= 0 )
     return (SystemInformation & 0x40000000000LL) != 0;
   return v0;
 }

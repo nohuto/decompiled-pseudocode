@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerRequestActionInfo @ 0x1407A5CC4
+ * XREFs of PopPowerRequestActionInfo @ 0x1407A5EB4
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PopPowerRequestReferenceRelease @ 0x14032B428 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14032B828 (PopPowerRequestReferenceAcquire.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A5BE0 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     PopPowerRequestSpecialRequestClear @ 0x140981900 (PopPowerRequestSpecialRequestClear.c)
- *     PopPowerRequestSpecialRequestSet @ 0x1409819DC (PopPowerRequestSpecialRequestSet.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PopPowerRequestReferenceRelease @ 0x14032B6B8 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14032BAB8 (PopPowerRequestReferenceAcquire.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A5DD0 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PopPowerRequestSpecialRequestClear @ 0x140981B00 (PopPowerRequestSpecialRequestClear.c)
+ *     PopPowerRequestSpecialRequestSet @ 0x140981BDC (PopPowerRequestSpecialRequestSet.c)
  */
 
 __int64 __fastcall PopPowerRequestActionInfo(__int64 a1)

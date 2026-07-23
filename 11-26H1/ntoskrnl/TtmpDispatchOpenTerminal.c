@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpDispatchOpenTerminal @ 0x1407E80E4
+ * XREFs of TtmpDispatchOpenTerminal @ 0x1407EDC44
  * Callers:
- *     TtmDispatchApi @ 0x140A3A3D0 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409F5FD0 (TtmDispatchApi.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiAcquireCurrentSession @ 0x1407E6640 (TtmiAcquireCurrentSession.c)
- *     TtmiOpenDefaultTerminal @ 0x1407EBF0C (TtmiOpenDefaultTerminal.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiAcquireCurrentSession @ 0x1407EC1A0 (TtmiAcquireCurrentSession.c)
+ *     TtmiOpenDefaultTerminal @ 0x1407F1A70 (TtmiOpenDefaultTerminal.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpDispatchOpenTerminal(__int64 a1, __int64 a2, __int64 a3)
@@ -32,7 +32,7 @@ __int64 __fastcall TtmpDispatchOpenTerminal(__int64 a1, __int64 a2, __int64 a3)
   }
   if ( v9 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   return v6;

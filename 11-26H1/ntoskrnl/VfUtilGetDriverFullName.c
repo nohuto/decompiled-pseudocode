@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilGetDriverFullName @ 0x140C21760
+ * XREFs of VfUtilGetDriverFullName @ 0x140C27770
  * Callers:
- *     CarEtwWriteBugCheckEvent @ 0x140648C28 (CarEtwWriteBugCheckEvent.c)
+ *     CarEtwWriteBugCheckEvent @ 0x14064C808 (CarEtwWriteBugCheckEvent.c)
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140C46B58 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140C4CB68 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 __fastcall VfUtilGetDriverFullName(__int64 a1)

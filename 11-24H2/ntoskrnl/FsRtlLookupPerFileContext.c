@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlLookupPerFileContext @ 0x14041F020
+ * XREFs of FsRtlLookupPerFileContext @ 0x140414D60
  * Callers:
- *     FsRtlRemovePerFileContextWithReserve @ 0x14057FFE0 (FsRtlRemovePerFileContextWithReserve.c)
+ *     FsRtlRemovePerFileContextWithReserve @ 0x14057D420 (FsRtlRemovePerFileContextWithReserve.c)
  * Callees:
- *     FsRtlAcquireAutoExpandPushLockShared @ 0x14025EAF0 (FsRtlAcquireAutoExpandPushLockShared.c)
- *     FsRtlReleaseAutoExpandPushLockShared @ 0x14025F970 (FsRtlReleaseAutoExpandPushLockShared.c)
+ *     FsRtlAcquireAutoExpandPushLockShared @ 0x14028F100 (FsRtlAcquireAutoExpandPushLockShared.c)
+ *     FsRtlReleaseAutoExpandPushLockShared @ 0x14028FF80 (FsRtlReleaseAutoExpandPushLockShared.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(

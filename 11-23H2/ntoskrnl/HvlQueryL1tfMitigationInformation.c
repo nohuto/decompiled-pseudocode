@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryL1tfMitigationInformation @ 0x14053FB48
+ * XREFs of HvlQueryL1tfMitigationInformation @ 0x140540208
  * Callers:
- *     KeQuerySpeculationControlInformation @ 0x1409747AC (KeQuerySpeculationControlInformation.c)
+ *     KeQuerySpeculationControlInformation @ 0x1409749AC (KeQuerySpeculationControlInformation.c)
  * Callees:
  *     <none>
  */

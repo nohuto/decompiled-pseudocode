@@ -11,9 +11,9 @@ int __cdecl vsprintf_s(char *const Buffer, const size_t BufferCount, const char 
 {
   int result; // eax
 
-  if ( !Buffer || !BufferCount || !Format )
+  if ( !Buffer || !(_DWORD)BufferCount || !HIDWORD(BufferCount) )
     goto LABEL_6;
-  result = _soutput_s(Buffer, BufferCount, Format, ArgList);
+  result = _soutput_s(Buffer, BufferCount, HIDWORD(BufferCount), Format);
   if ( result >= 0 )
     return result;
   *Buffer = 0;

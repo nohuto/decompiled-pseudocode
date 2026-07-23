@@ -39,35 +39,28 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, unsigned __int
   unsigned int v27; // ecx
   unsigned int v28; // r12d
   __int64 v29; // r10
-  __int64 (__fastcall *v30)(__int64 *, __int64, unsigned int, int *); // rax
-  __int64 v31; // r11
-  __int64 v32; // r8
-  unsigned __int64 v33; // r8
-  char v34; // cl
-  unsigned __int64 v35; // rdx
-  unsigned __int64 v36; // rdx
-  char v37; // r9
-  int v38; // ecx
-  unsigned int v39; // eax
-  int v40; // r9d
-  unsigned int v41; // r10d
-  unsigned int v42; // eax
-  __int64 v43; // rcx
-  __int64 v44; // r10
-  __int64 (__fastcall *v45)(__int64, __int64); // rax
-  unsigned __int64 v46; // rdx
-  char v47; // cl
-  unsigned __int64 v48; // r8
-  __int64 v49; // r8
-  unsigned __int64 v50; // r9
-  int v51; // [rsp+90h] [rbp+8h] BYREF
-  int v52; // [rsp+98h] [rbp+10h] BYREF
-  int v53; // [rsp+A0h] [rbp+18h] BYREF
-  int v54; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 (__fastcall *v30)(int, __int64, __int64, int *); // rax
+  int v31; // ecx
+  unsigned int v32; // eax
+  int v33; // r9d
+  unsigned int v34; // r10d
+  unsigned int v35; // eax
+  __int64 v36; // rcx
+  __int64 v37; // r10
+  __int64 (__fastcall *v38)(__int64, __int64); // rax
+  unsigned __int64 v39; // rdx
+  char v40; // cl
+  unsigned __int64 v41; // r8
+  __int64 v42; // r8
+  unsigned __int64 v43; // r9
+  int v44; // [rsp+90h] [rbp+8h] BYREF
+  int v45; // [rsp+98h] [rbp+10h] BYREF
+  int v46; // [rsp+A0h] [rbp+18h] BYREF
+  int v47; // [rsp+A8h] [rbp+20h] BYREF
 
   v3 = 0;
-  v51 = 0;
-  v53 = 0;
+  v44 = 0;
+  v46 = 0;
   v7 = a2[1];
   v8 = (unsigned __int16)RtlpBucketBlockSizes[(*a2 >> 1) + 1];
   v9 = -1;
@@ -103,30 +96,30 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, unsigned __int
   v21 = v20 << v17;
   if ( v18 <= v19 >> 6 )
   {
-    v39 = RtlpCalculateSubsegmentSizeIndex(v19);
-    if ( v39 <= v41 )
-      LOBYTE(v39) = v41;
-    v42 = v40 << v39;
-    if ( v21 > v42 )
-      v21 = v42;
+    v32 = RtlpCalculateSubsegmentSizeIndex(v19);
+    if ( v32 <= v34 )
+      LOBYTE(v32) = v34;
+    v35 = v33 << v32;
+    if ( v21 > v35 )
+      v21 = v35;
   }
   v22 = (__int64 (__fastcall *)())(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 8));
   if ( v22 == RtlpHpSegLfhAllocate )
   {
-    v23 = RtlpHpSegSubAllocate(*(_QWORD *)a1, v21, 0x8000000, (unsigned int)&v53, (__int64)&v51);
+    v23 = RtlpHpSegSubAllocate(*(_QWORD *)a1, v21, 0x8000000, (unsigned int)&v46, (__int64)&v44);
   }
   else
   {
-    v43 = *(_QWORD *)a1;
+    v36 = *(_QWORD *)a1;
     if ( (char *)v22 == (char *)RtlpHpSegVsAllocate )
-      v23 = RtlpHpSegVsAllocate(v43, v21, &v53, &v51);
+      v23 = RtlpHpSegVsAllocate(v36, v21, &v46, &v44);
     else
-      v23 = ((__int64 (__fastcall *)(__int64, _QWORD, int *, int *))v22)(v43, v21, &v53, &v51);
+      v23 = ((__int64 (__fastcall *)(__int64, _QWORD, int *, int *))v22)(v36, v21, &v46, &v44);
   }
   v24 = v23;
   if ( !v23 )
     return 0LL;
-  if ( a3 >= 1 || (v53 & 1) != 0 || (RtlpHpAppCompatFlags & 2) != 0 )
+  if ( a3 >= 1 || (v46 & 1) != 0 || (RtlpHpAppCompatFlags & 2) != 0 )
   {
     v28 = v21;
   }
@@ -147,70 +140,49 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, unsigned __int
       v28 = v26;
   }
   v29 = *(_QWORD *)a1;
-  v30 = (__int64 (__fastcall *)(__int64 *, __int64, unsigned int, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24));
-  v52 = 0;
+  v30 = (__int64 (__fastcall *)(int, __int64, __int64, int *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24));
+  v45 = 0;
   if ( v30 == RtlpHpSegLfhVsCommit )
   {
-    v31 = *(_QWORD *)v29;
-    v32 = *(_QWORD *)v29;
-    v54 = 0;
-    v33 = v24 & v32;
-    if ( RtlpHpHeapGlobals ^ v33 ^ *(_QWORD *)(v33 + 16) ^ v29
-      || (v34 = *(_BYTE *)(v29 + 8),
-          v35 = v33 + 32 * ((unsigned __int64)(unsigned int)(v24 - v33) >> v34),
-          v36 = -32LL * *(unsigned __int8 *)(v35 + 26) + v35,
-          v37 = *(_BYTE *)(v36 + 24),
-          (v37 & 3) != 3)
-      || v33 + ((__int64)(v36 - v33) >> 5 << v34) != v24 && (v37 & 0xCu) < 8 )
-    {
-      v36 = 0LL;
-    }
-    v38 = RtlpHpSegPageRangeCommit(
-            v29,
-            v36,
-            ((_DWORD)v24
-           - ((unsigned int)v36 & (unsigned int)v31)
-           - (unsigned int)((__int64)(v36 - (v36 & v31)) >> 5 << *(_BYTE *)(v29 + 8))) >> 12,
-            v28 >> 12,
-            0,
-            (__int64)&v54);
-    if ( v38 >= 0 )
-      v52 = v54 << 12;
+    v47 = 0;
+    v31 = RtlpHpSegPageRangeCommit(v29, 0, (__int64)&v47);
+    if ( v31 >= 0 )
+      v45 = v47 << 12;
   }
   else
   {
-    v38 = v30((__int64 *)v29, v24, v28, &v52);
+    v31 = v30(v29, v24, v28, &v45);
   }
-  if ( v38 < 0 )
+  if ( v31 < 0 )
   {
-    v44 = *(_QWORD *)a1;
-    v45 = (__int64 (__fastcall *)(__int64, __int64))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 16));
-    if ( v45 == RtlpHpSegLfhVsFree )
+    v37 = *(_QWORD *)a1;
+    v38 = (__int64 (__fastcall *)(__int64, __int64))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 16));
+    if ( v38 == RtlpHpSegLfhVsFree )
     {
-      v46 = *(_QWORD *)v44 & v24;
-      if ( RtlpHpHeapGlobals ^ v44 ^ *(_QWORD *)(v46 + 0x10) ^ v46 )
+      v39 = *(_QWORD *)v37 & v24;
+      if ( RtlpHpHeapGlobals ^ v37 ^ *(_QWORD *)(v39 + 0x10) ^ v39 )
       {
-        RtlpLogHeapFailure(9, *(_QWORD *)(v44 + 56), v24, 0, 0LL, 0LL);
+        RtlpLogHeapFailure(9, *(_QWORD *)(v37 + 56), v24, 0, 0LL, 0LL);
       }
       else
       {
-        v47 = *(_BYTE *)(v44 + 8);
-        v48 = v46 + 32 * ((unsigned __int64)(unsigned int)(v24 - v46) >> v47);
-        v49 = -32LL * *(unsigned __int8 *)(v48 + 26) + v48;
-        v50 = v46 + ((__int64)(v49 - v46) >> 5 << v47);
-        if ( *(_BYTE *)(v49 + 24) + (v50 == v24) == 11 )
-          RtlpHpLfhContextFree(*(_QWORD *)(v44 + 24), v50, v24);
+        v40 = *(_BYTE *)(v37 + 8);
+        v41 = v39 + 32 * ((unsigned __int64)(unsigned int)(v24 - v39) >> v40);
+        v42 = -32LL * *(unsigned __int8 *)(v41 + 26) + v41;
+        v43 = v39 + ((__int64)(v42 - v39) >> 5 << v40);
+        if ( *(_BYTE *)(v42 + 24) + (v43 == v24) == 11 )
+          RtlpHpLfhContextFree(*(_QWORD *)(v37 + 24), v43, v24);
         else
-          RtlpHpSegFreeInternal(*(_QWORD *)a1, v24, v49, 0LL);
+          RtlpHpSegFreeInternal(*(_QWORD *)a1, v24, v42, 0LL);
       }
       return 0LL;
     }
-    ((void (__fastcall *)(_QWORD, unsigned __int64, _QWORD))v45)(*(_QWORD *)a1, v24, v21);
+    ((void (__fastcall *)(_QWORD, unsigned __int64, _QWORD))v38)(*(_QWORD *)a1, v24, v21);
     return 0LL;
   }
   else
   {
-    if ( !v52 )
+    if ( !v45 )
       v3 = 1;
     RtlpHpLfhSubsegmentInitialize(v24, v21, v28, a3, a2, a1, v3);
     _InterlockedIncrement64((volatile signed __int64 *)a2 + 8);

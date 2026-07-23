@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfResetHistory @ 0x14018A368
+ * XREFs of PpmPerfResetHistory @ 0x14018A4A8
  * Callers:
- *     PpmPerfRecordUtility @ 0x1401024B0 (PpmPerfRecordUtility.c)
- *     PpmPerfResetHistoryAll @ 0x140750144 (PpmPerfResetHistoryAll.c)
- *     PpmPerfResizeHistory @ 0x14086B19C (PpmPerfResizeHistory.c)
+ *     PpmPerfRecordUtility @ 0x140102530 (PpmPerfRecordUtility.c)
+ *     PpmPerfResetHistoryAll @ 0x140751334 (PpmPerfResetHistoryAll.c)
+ *     PpmPerfResizeHistory @ 0x14086C3FC (PpmPerfResizeHistory.c)
  * Callees:
  *     <none>
  */

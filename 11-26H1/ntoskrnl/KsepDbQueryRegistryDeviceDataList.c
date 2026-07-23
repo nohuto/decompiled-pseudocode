@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepDbQueryRegistryDeviceDataList @ 0x1407BCC58
+ * XREFs of KsepDbQueryRegistryDeviceDataList @ 0x1407BFCB8
  * Callers:
- *     KseQueryDeviceDataList @ 0x140B2C3B0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceDataList @ 0x140B2E430 (KseQueryDeviceDataList.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1404DE51C (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     KsepRegistryEnumValue @ 0x1407BEF3C (KsepRegistryEnumValue.c)
- *     KsepRegistryQueryKeyInformation @ 0x1407BF18C (KsepRegistryQueryKeyInformation.c)
- *     KsepRegistryCloseKey @ 0x1409E42F0 (KsepRegistryCloseKey.c)
- *     KsepRegistryOpenKey @ 0x1409E5254 (KsepRegistryOpenKey.c)
- *     KsepStringFree @ 0x1409E5588 (KsepStringFree.c)
- *     KsepStringTransform @ 0x1409E5CF0 (KsepStringTransform.c)
+ *     KsepPoolAllocatePaged @ 0x1404D7BFC (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     KsepRegistryEnumValue @ 0x1407C1F9C (KsepRegistryEnumValue.c)
+ *     KsepRegistryQueryKeyInformation @ 0x1407C21EC (KsepRegistryQueryKeyInformation.c)
+ *     KsepStringTransform @ 0x1409D7270 (KsepStringTransform.c)
+ *     KsepStringFree @ 0x1409D7848 (KsepStringFree.c)
+ *     KsepRegistryOpenKey @ 0x1409D7988 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x1409D8784 (KsepRegistryCloseKey.c)
  */
 
 __int64 __fastcall KsepDbQueryRegistryDeviceDataList(__int64 a1, char *a2, unsigned int a3, _DWORD *a4)

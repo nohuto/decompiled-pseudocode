@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTryUnwaitThreadWithPriority @ 0x140242960
+ * XREFs of KiTryUnwaitThreadWithPriority @ 0x1402E71B0
  * Callers:
- *     ExpQueueWorkItem @ 0x1402414A0 (ExpQueueWorkItem.c)
- *     KiWakePriQueueWaiter @ 0x14029F81C (KiWakePriQueueWaiter.c)
+ *     KiWakePriQueueWaiter @ 0x14021CD7C (KiWakePriQueueWaiter.c)
+ *     ExpQueueWorkItem @ 0x1402E5CF0 (ExpQueueWorkItem.c)
  * Callees:
- *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
- *     KiSignalThread @ 0x1402464A0 (KiSignalThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
+ *     KiSetPriorityThread @ 0x1402D4AF0 (KiSetPriorityThread.c)
+ *     KiSignalThread @ 0x1402EACF0 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -19,12 +19,12 @@ __int64 __fastcall KiTryUnwaitThreadWithPriority(__int64 a1, __int64 a2, __int64
   __int64 v8; // rdi
   _DWORD *SchedulerAssist; // rdx
   __int64 v12; // rax
-  struct _KPRCB *v13; // rcx
+  struct _KDPC *v13; // rcx
   char v14; // al
   struct _KPRCB *v15; // rcx
   _DWORD *v16; // rdx
-  struct _SINGLE_LIST_ENTRY *v18; // rdx
-  _SINGLE_LIST_ENTRY *p_AbSelfIoBoostsList; // r8
+  PVOID *v18; // rdx
+  PVOID *p_SystemArgument2; // r8
   __int64 v20; // rdx
   int v21; // edx
   _DWORD *v22; // rcx
@@ -99,19 +99,19 @@ LABEL_30:
     if ( v7 )
     {
       *(_BYTE *)(v5 + 645) = 0;
-      v13 = KeGetCurrentPrcb();
+      v13 = (struct _KDPC *)KeGetCurrentPrcb();
       if ( (char)v8 < *(char *)(v5 + 563) )
       {
         if ( *(_BYTE *)(v5 + 871) )
         {
-          v18 = (struct _SINGLE_LIST_ENTRY *)(v5 + 816);
+          v18 = (PVOID *)(v5 + 816);
           if ( *(_QWORD *)(v5 + 816) == 1LL )
           {
-            p_AbSelfIoBoostsList = &v13->AbSelfIoBoostsList;
-            if ( v13 != (struct _KPRCB *)-34672LL )
+            p_SystemArgument2 = &v13[541].SystemArgument2;
+            if ( v13 != (struct _KDPC *)-34672LL )
             {
-              v18->Next = p_AbSelfIoBoostsList->Next;
-              p_AbSelfIoBoostsList->Next = v18;
+              *v18 = *p_SystemArgument2;
+              *p_SystemArgument2 = v18;
               _InterlockedIncrement16((volatile signed __int16 *)(v5 + 868));
               KiAbQueueAutoBoostDpc(v13);
             }

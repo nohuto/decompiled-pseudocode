@@ -1,11 +1,11 @@
 /*
- * XREFs of PopThermalTraceRundownEvents @ 0x140590074
+ * XREFs of PopThermalTraceRundownEvents @ 0x140590564
  * Callers:
- *     PopDiagTraceControlCallback @ 0x1408629E0 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140862C20 (PopDiagTraceControlCallback.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopDiagTraceThermalZoneRundown @ 0x140594D4C (PopDiagTraceThermalZoneRundown.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopDiagTraceThermalZoneRundown @ 0x14059523C (PopDiagTraceThermalZoneRundown.c)
  */
 
 void PopThermalTraceRundownEvents()

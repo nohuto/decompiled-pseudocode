@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogReserveVaFailed @ 0x140B3D6D0
+ * XREFs of MiLogReserveVaFailed @ 0x140B3F7A0
  * Callers:
- *     MiReserveUserMemoryInsertVad @ 0x14095BBAC (MiReserveUserMemoryInsertVad.c)
+ *     MiReserveUserMemoryInsertVad @ 0x140A0146C (MiReserveUserMemoryInsertVad.c)
  * Callees:
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -65,9 +65,9 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64
     v24 = MEMORY[0xFFFFF780000002C4];
     v9 = Process[1].ThreadListHead.Flink;
     v25 = v9;
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 2u )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 2u )
     {
-      LOBYTE(v9) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000002000LL);
+      LOBYTE(v9) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000002000LL);
       if ( (_BYTE)v9 )
       {
         v28 = 16LL;
@@ -93,7 +93,7 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64
         v20 = a4;
         v40 = 8LL;
         v42 = 8LL;
-        LOBYTE(v9) = tlgWriteEx_EtwWriteEx(v11, (unsigned __int8 *)&byte_140057A71, v11, 1u, v13, v14, 0xAu, &v26);
+        LOBYTE(v9) = tlgWriteEx_EtwWriteEx(v11, (unsigned __int8 *)&dword_140058A64, v11, 1u, v13, v14, 0xAu, &v26);
       }
     }
   }

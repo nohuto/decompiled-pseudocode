@@ -8,23 +8,27 @@
  *     <none>
  */
 
-__int64 __fastcall SafeReallocBlob(
-        __int64 a1,
+PVOID __fastcall SafeReallocBlob(
+        PVOID BaseAddress,
         unsigned int a2,
         unsigned int a3,
         unsigned int a4,
-        __int64 a5,
-        __int64 a6,
-        _DWORD *a7)
+        int a5,
+        int a6,
+        unsigned int *a7)
 {
-  unsigned __int64 v7; // rcx
+  unsigned __int64 v9; // rcx
+  unsigned int v10; // eax
 
-  if ( !a1 )
+  if ( !BaseAddress )
     return 0LL;
-  v7 = a4 * (unsigned __int64)a3;
-  if ( v7 > 0xFFFFFFFF || (unsigned int)v7 + a2 < a2 )
+  v9 = a4 * (unsigned __int64)a3;
+  if ( v9 > 0xFFFFFFFF )
+    return 0LL;
+  v10 = v9 + a2;
+  if ( (unsigned int)v9 + a2 < a2 )
     return 0LL;
   if ( a7 )
-    *a7 = v7 + a2;
-  return RtlReAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap);
+    *a7 = v10;
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress, v10);
 }

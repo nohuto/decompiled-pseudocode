@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindNextForwardRunSetEx @ 0x1404712F0
+ * XREFs of RtlFindNextForwardRunSetEx @ 0x14046BEC0
  * Callers:
- *     MiApplyHotPatchToDriverDataPages @ 0x1407F1288 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x1407F1858 (MiApplyHotPatchToDriverDataPages.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeMarkDynamicTracingHiberPhase @ 0x14057EB2C
+ * XREFs of KeMarkDynamicTracingHiberPhase @ 0x14057F01C
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140AA360C (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140AA347C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     KiTpCompletionContextSize @ 0x140976704 (KiTpCompletionContextSize.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     KiTpCompletionContextSize @ 0x140976904 (KiTpCompletionContextSize.c)
  */
 
 void KeMarkDynamicTracingHiberPhase()

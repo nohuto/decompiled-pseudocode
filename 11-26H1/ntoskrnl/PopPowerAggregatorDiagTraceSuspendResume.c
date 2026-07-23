@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceSuspendResume @ 0x140B46BD8
+ * XREFs of PopPowerAggregatorDiagTraceSuspendResume @ 0x140B48C08
  * Callers:
- *     PopPowerAggregatorNotifySuspendResume @ 0x140B46B2C (PopPowerAggregatorNotifySuspendResume.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140B48B5C (PopPowerAggregatorNotifySuspendResume.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopPowerAggregatorDiagTraceSuspendResume(unsigned __int8 a1, int a2)
@@ -24,18 +24,11 @@ char __fastcall PopPowerAggregatorDiagTraceSuspendResume(unsigned __int8 a1, int
   v6 = &v8;
   *(_QWORD *)&UserData.Size = 4LL;
   v7 = 4LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v2) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_POWER_AGGREGATOR_SUSPEND_RESUME);
+    LOBYTE(v2) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_SUSPEND_RESUME);
     if ( (_BYTE)v2 )
-      LOBYTE(v2) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_POWER_AGGREGATOR_SUSPEND_RESUME,
-                     0LL,
-                     2u,
-                     &UserData);
+      LOBYTE(v2) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_SUSPEND_RESUME, 0LL, 2u, &UserData);
   }
   return (char)v2;
 }

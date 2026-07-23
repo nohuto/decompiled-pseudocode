@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGetCurrentProcessorNumber @ 0x1801634D0
+ * XREFs of RtlGetCurrentProcessorNumber @ 0x1801633D0
  * Callers:
- *     RtlpGetCurrentProcessorNumberUninitialized @ 0x180100440 (RtlpGetCurrentProcessorNumberUninitialized.c)
+ *     RtlpGetCurrentProcessorNumberUninitialized @ 0x1800FFB90 (RtlpGetCurrentProcessorNumberUninitialized.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlGetCurrentProcessorNumber(__int64 _RCX)
+ULONG RtlGetCurrentProcessorNumber(void)
 {
-  unsigned __int64 result; // rax
+  unsigned __int64 v1; // rax
   unsigned __int64 Mask; // rdx
   char v3; // zf
   unsigned __int32 v4; // eax
@@ -22,20 +22,28 @@ unsigned __int64 __fastcall RtlGetCurrentProcessorNumber(__int64 _RCX)
   {
     __asm { rdtscp }
 LABEL_5:
-    result = (unsigned __int8)_RCX;
+    LODWORD(v1) = (unsigned __int8)_RCX;
     Mask = NtCurrentTeb()->PrimaryGroupAffinity.Mask;
     if ( _bittest64((const __int64 *)&Mask, (unsigned __int8)_RCX) )
-      return result;
-    return RtlpGetCurrentProcessorNumberRemappingRequired(result, Mask);
+      return v1;
+    goto LABEL_12;
   }
   if ( RtlpGetCurrentProcessorNumberHow != 3 )
-    return RtlpGetCurrentProcessorNumberUninitialized();
+  {
+    LODWORD(v1) = RtlpGetCurrentProcessorNumberUninitialized();
+    return v1;
+  }
   v4 = __segmentlimit(0x53u);
-  if ( !v3 )
-    return ZwGetCurrentProcessorNumber();
-  result = v4 >> 14;
-  Mask = NtCurrentTeb()->PrimaryGroupAffinity.Mask;
-  if ( !_bittest64((const __int64 *)&Mask, result) )
-    return RtlpGetCurrentProcessorNumberRemappingRequired(result, Mask);
-  return result;
+  if ( v3 )
+  {
+    v1 = v4 >> 14;
+    Mask = NtCurrentTeb()->PrimaryGroupAffinity.Mask;
+    if ( _bittest64((const __int64 *)&Mask, v1) )
+      return v1;
+LABEL_12:
+    LODWORD(v1) = RtlpGetCurrentProcessorNumberRemappingRequired(v1, Mask);
+    return v1;
+  }
+  LODWORD(v1) = ZwGetCurrentProcessorNumber();
+  return v1;
 }

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetIntervalProfile()
+NTSTATUS __cdecl NtSetIntervalProfile(ULONG Interval, KPROFILE_SOURCE Source)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 388LL;
+  result = 388;
   __asm { syscall; Low latency system call }
   return result;
 }

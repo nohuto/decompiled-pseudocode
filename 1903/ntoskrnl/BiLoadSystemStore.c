@@ -19,7 +19,7 @@
 __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 {
   void *v2; // rdi
-  int SystemStorePath; // eax
+  NTSTATUS SystemStorePath; // eax
   void *v4; // rbp
   unsigned int v5; // ebx
   __int64 v6; // rbx
@@ -40,7 +40,7 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
   DestinationString.Buffer = 0LL;
   v2 = 0LL;
   Src = 0LL;
-  SystemStorePath = BcdGetSystemStorePath(&Src);
+  SystemStorePath = BcdGetSystemStorePath((PWSTR *)&Src);
   v4 = Src;
   v5 = SystemStorePath;
   if ( SystemStorePath >= 0 )
@@ -63,7 +63,13 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
       v5 = v10;
       if ( v10 < 0 )
       {
-        BiLogMessage(4LL, L"Failed to add system store from file. File: %ws Status: %x", v9, (unsigned int)v10);
+        BiLogMessage(
+          4LL,
+          L"Failed to add system store from file. File: %ws Status: %x",
+          v9,
+          (unsigned int)v10,
+          *(_QWORD *)&DestinationString.Length,
+          DestinationString.Buffer);
         if ( v5 == -1073741757 )
         {
           RtlInitUnicodeString(&DestinationString, (PCWSTR)v4);
@@ -78,7 +84,13 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
         v5 = v13;
         if ( v13 < 0 )
         {
-          BiLogMessage(4LL, L"Failed to mark system store. File: %ws Status: %x", v9, (unsigned int)v13);
+          BiLogMessage(
+            4LL,
+            L"Failed to mark system store. File: %ws Status: %x",
+            v9,
+            (unsigned int)v13,
+            *(_QWORD *)&DestinationString.Length,
+            DestinationString.Buffer);
           BcdCloseStore(v12);
         }
         else if ( (unsigned __int8)BiIsSystemStore(v12, v14, v15) )
@@ -87,7 +99,13 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
         }
         else
         {
-          BiLogMessage(4LL, L"File is not system store. File: %ws Status: %x", v9, v5);
+          BiLogMessage(
+            4LL,
+            L"File is not system store. File: %ws Status: %x",
+            v9,
+            v5,
+            *(_QWORD *)&DestinationString.Length,
+            DestinationString.Buffer);
           BcdCloseStore(v12);
           v5 = -1073741672;
         }

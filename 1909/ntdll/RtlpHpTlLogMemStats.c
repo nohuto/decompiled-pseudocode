@@ -32,7 +32,7 @@ TLG_STATUS __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, const GUID *a
   __int64 *v19; // [rsp+C0h] [rbp+37h]
   __int64 v20; // [rsp+C8h] [rbp+3Fh]
 
-  if ( dword_18015F5C8 > 5u )
+  if ( (unsigned int)dword_18015F5C8 > 5 )
   {
     v6 = *a2;
     v7 = a2[1];

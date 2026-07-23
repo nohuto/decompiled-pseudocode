@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x140801F00
+ * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x1408079A0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x14042F430 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14041C340 (NLS_UPCASE.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(

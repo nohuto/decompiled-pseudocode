@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetAvailablePagesForTrimPass @ 0x1403B9C08
+ * XREFs of MiGetAvailablePagesForTrimPass @ 0x1403C3B08
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1402A65A8 (MiComputeSystemTrimCriteria.c)
- *     MiUpdatePartitionMemoryUsage @ 0x1402A6CA0 (MiUpdatePartitionMemoryUsage.c)
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
- *     MiForcedTrim @ 0x1403B9340 (MiForcedTrim.c)
- *     MiWorkingSetVeryLarge @ 0x1403B99E0 (MiWorkingSetVeryLarge.c)
- *     MiStoreUpdateMemoryConditions @ 0x1403E0ED8 (MiStoreUpdateMemoryConditions.c)
+ *     MiComputeSystemTrimCriteria @ 0x1402A59C4 (MiComputeSystemTrimCriteria.c)
+ *     MiUpdatePartitionMemoryUsage @ 0x1402A60BC (MiUpdatePartitionMemoryUsage.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
+ *     MiForcedTrim @ 0x1403C3240 (MiForcedTrim.c)
+ *     MiWorkingSetVeryLarge @ 0x1403C38E0 (MiWorkingSetVeryLarge.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1403E40C8 (MiStoreUpdateMemoryConditions.c)
  * Callees:
  *     <none>
  */

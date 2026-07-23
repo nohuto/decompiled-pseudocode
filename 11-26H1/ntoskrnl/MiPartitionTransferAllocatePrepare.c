@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPartitionTransferAllocatePrepare @ 0x140B60344
+ * XREFs of MiPartitionTransferAllocatePrepare @ 0x140B633E0
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140B60228 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140B632C4 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiInitializeDemandCoalesceContext @ 0x140206AD0 (MiInitializeDemandCoalesceContext.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
+ *     MiInitializeDemandCoalesceContext @ 0x140206BB0 (MiInitializeDemandCoalesceContext.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
  */
 
 __int64 __fastcall MiPartitionTransferAllocatePrepare(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiPartitionTransferAllocatePrepare(__int64 a1)
   v5 = (unsigned __int16)KeNumberNodes;
   if ( (v1 & 1) == 0 )
     v5 = 1;
-  v6 = qword_140E2D690 + 4LL * *(_DWORD *)(a1 + 24) * (unsigned int)(unsigned __int16)KeNumberNodes;
+  v6 = qword_140E2D810 + 4LL * *(_DWORD *)(a1 + 24) * (unsigned int)(unsigned __int16)KeNumberNodes;
   if ( v2 < 0x40000 )
     v7 = -(__int64)(v2 < 0x200) & 0xFFFFFFFFFFFFFE10uLL;
   else

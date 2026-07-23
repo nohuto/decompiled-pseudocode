@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoRegisterShutdownNotification @ 0x14070C86C
+ * XREFs of VerifierIoRegisterShutdownNotification @ 0x14070C89C
  * Callers:
  *     <none>
  * Callees:

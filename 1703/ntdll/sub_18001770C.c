@@ -11,22 +11,21 @@
  *     sub_1801058B8 @ 0x1801058B8 (sub_1801058B8.c)
  */
 
-__int64 __fastcall sub_18001770C(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+__int64 __fastcall sub_18001770C(PPEB_LDR_DATA Ldr, __int64 a2, __int64 a3)
 {
   int v3; // r11d
   int v4; // r10d
-  struct _PEB_LDR_DATA *v5; // r9
+  __int64 v5; // r9
 
   LOBYTE(v3) = 0;
   v4 = a3;
-  v5 = Ldr;
   if ( Ldr )
   {
     if ( !BYTE1(Ldr[4].Length) )
     {
       if ( (unsigned int)sub_18001777C(Ldr, a2, a3, Ldr) )
       {
-        if ( v5->SsHandle == off_180110230 )
+        if ( *(__int64 (__fastcall ***)())(v5 + 8) == off_180110230 )
         {
           Ldr = NtCurrentPeb()->Ldr;
           if ( Ldr->ShutdownInProgress == (_BYTE)v3 )
@@ -36,6 +35,6 @@ __int64 __fastcall sub_18001770C(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 
     }
   }
   if ( v4 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress == (_BYTE)v3) )
-    sub_1801058B8(Ldr, a2, a3, v5);
+    sub_1801058B8(Ldr, a2);
   return 0LL;
 }

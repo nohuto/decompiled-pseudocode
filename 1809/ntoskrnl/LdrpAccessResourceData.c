@@ -1,25 +1,21 @@
 /*
- * XREFs of LdrpAccessResourceData @ 0x14067BCE8
+ * XREFs of LdrpAccessResourceData @ 0x14067CEA8
  * Callers:
- *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
- *     LdrAccessResource @ 0x140756B30 (LdrAccessResource.c)
- *     RtlLoadString @ 0x140891B90 (RtlLoadString.c)
+ *     RtlFindMessage @ 0x14067CF90 (RtlFindMessage.c)
+ *     LdrAccessResource @ 0x140757D20 (LdrAccessResource.c)
+ *     RtlLoadString @ 0x140892DF0 (RtlLoadString.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     LdrpGetImageSize @ 0x1400F37C4 (LdrpGetImageSize.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F449C (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067AC98 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     LdrpGetImageSize @ 0x1400F3844 (LdrpGetImageSize.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F451C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067BE58 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
-__int64 __fastcall LdrpAccessResourceData(
-        unsigned __int64 BaseAddress,
-        unsigned int *a2,
-        unsigned __int64 *a3,
-        _DWORD *a4)
+__int64 __fastcall LdrpAccessResourceData(unsigned __int64 BaseOfImage, ULONG *a2, unsigned __int64 *a3, _DWORD *a4)
 {
   PVOID v7; // rdi
   unsigned __int64 v8; // rsi
-  unsigned int *v9; // rax
+  ULONG *v9; // rax
   __int64 v10; // rdx
   __int64 result; // rax
   __int64 AlternateResourceModuleHandle; // rax
@@ -29,13 +25,13 @@ __int64 __fastcall LdrpAccessResourceData(
 
   v14[0] = 0LL;
   v13 = 0LL;
-  v7 = (PVOID)BaseAddress;
-  if ( !BaseAddress || !a2 )
+  v7 = (PVOID)BaseOfImage;
+  if ( !BaseOfImage || !a2 )
     return 3221225485LL;
   if ( BYTE2(PnpShutdownEvent.Limit) == 1 )
   {
-    v8 = BaseAddress & 0xFFFFFFFFFFFFFFFCuLL;
-    v9 = (unsigned int *)RtlImageDirectoryEntryToData((PVOID)BaseAddress, 1u, 2u, &v15);
+    v8 = BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL;
+    v9 = (ULONG *)RtlImageDirectoryEntryToData((PVOID)BaseOfImage, 1u, 2u, &v15);
     if ( !v9 )
       return 3221225609LL;
     if ( a2 < v9 )

@@ -11,51 +11,54 @@
  *     RtlFailFast2 @ 0x1800A3E40 (RtlFailFast2.c)
  */
 
-__int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 a1, char a2, char *a3)
+__int64 __fastcall RtlGuardCheckExceptionHandler(PVOID BaseAddress, char a2, char *a3)
 {
-  char v6; // bl
-  unsigned __int64 v7; // rbp
+  int v6; // eax
+  char v7; // bl
+  PVOID v8; // rbp
   _DWORD *Config; // rax
-  const void **v9; // rdx
-  rsize_t v10; // r8
-  unsigned int v11; // eax
-  __int128 v13; // [rsp+30h] [rbp-38h] BYREF
+  const void **v10; // rdx
+  rsize_t v11; // r8
+  unsigned int v12; // eax
+  PVOID BaseOfImage[7]; // [rsp+30h] [rbp-38h] BYREF
   int Key; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( !LdrControlFlowGuardEnforced() )
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( !v6 )
   {
     if ( !a3 )
       return 0LL;
-    v6 = 1;
+    v7 = 1;
 LABEL_16:
-    *a3 = v6;
+    *a3 = v7;
     return 0LL;
   }
-  v6 = 0;
-  if ( a1 < *((_QWORD *)&xmmword_180199520 + 1)
-    || a1 >= *((_QWORD *)&xmmword_180199520 + 1) + (unsigned __int64)(unsigned int)qword_180199530 )
+  v7 = 0;
+  if ( (unsigned __int64)BaseAddress < *((_QWORD *)&xmmword_180199520 + 1)
+    || (unsigned __int64)BaseAddress >= *((_QWORD *)&xmmword_180199520 + 1)
+                                      + (unsigned __int64)(unsigned int)qword_180199530 )
   {
-    RtlpxLookupFunctionTable(a1, (__int64 *)&v13);
+    RtlpxLookupFunctionTable(BaseAddress, (__int64 *)BaseOfImage);
   }
   else
   {
-    v13 = xmmword_180199520;
+    *(_OWORD *)BaseOfImage = xmmword_180199520;
   }
-  v7 = *((_QWORD *)&v13 + 1);
-  if ( *((_QWORD *)&v13 + 1)
-    && (Config = LdrImageDirectoryEntryToLoadConfig(*((unsigned __int64 *)&v13 + 1)), (v9 = (const void **)Config) != 0LL)
+  v8 = BaseOfImage[1];
+  if ( BaseOfImage[1]
+    && (Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage[1]), (v10 = (const void **)Config) != 0LL)
     && *Config >= 0x118u
     && (Config[36] & 0x400000) != 0
-    && *((_QWORD *)Config + 33) > v7
-    && ((Key = a1 - v7, v10 = *((_QWORD *)Config + 34), v11 = (Config[36] >> 28) + 4, !v10)
-     || !bsearch_s(&Key, v9[33], v10, v11, RtlpTargetCompare, 0LL)) )
+    && *((_QWORD *)Config + 33) > (unsigned __int64)v8
+    && ((Key = (_DWORD)BaseAddress - (_DWORD)v8, v11 = *((_QWORD *)Config + 34), v12 = (Config[36] >> 28) + 4, !v11)
+     || !bsearch_s(&Key, v10[33], v11, v12, RtlpTargetCompare, 0LL)) )
   {
     if ( !a2 )
-      RtlFailFast2(38LL, a1);
+      RtlFailFast2(38LL, BaseAddress);
   }
   else
   {
-    v6 = 1;
+    v7 = 1;
   }
   if ( a3 )
     goto LABEL_16;

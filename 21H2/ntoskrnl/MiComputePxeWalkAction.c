@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputePxeWalkAction @ 0x14020CA50
+ * XREFs of MiComputePxeWalkAction @ 0x1402B1350
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x1402B06A0 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiGetSystemCacheReverseMap @ 0x140311FB0 (MiGetSystemCacheReverseMap.c)
- *     MiMakeSystemLeavesNonZero @ 0x1403792AC (MiMakeSystemLeavesNonZero.c)
+ *     MiGetSystemCacheReverseMap @ 0x14031CD00 (MiGetSystemCacheReverseMap.c)
+ *     MiMakeSystemLeavesNonZero @ 0x140378DFC (MiMakeSystemLeavesNonZero.c)
  */
 
 __int64 __fastcall MiComputePxeWalkAction(__int16 *a1, unsigned __int64 a2, int a3)
@@ -74,7 +74,7 @@ __int64 __fastcall MiComputePxeWalkAction(__int16 *a1, unsigned __int64 a2, int 
   {
     if ( a2 == 0xFFFFF6FB7DBEDF68uLL
       || (v8 & 0x200) != 0
-      && qword_140C4EDC8 != (PVOID)qword_140C4EDD0
+      && qword_140C4EE08 != (PVOID)qword_140C4EE10
       && ((v3 >> 12) & 0xFFFFFFFFFLL) == MiState[a3 + 1185] )
     {
       return 0LL;

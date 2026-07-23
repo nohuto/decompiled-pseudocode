@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpMarkHvlPagesForHibernation @ 0x1401BF6AC
+ * XREFs of HvlpMarkHvlPagesForHibernation @ 0x1401BF590
  * Callers:
- *     HvlMarkHiberPhase @ 0x140126C5C (HvlMarkHiberPhase.c)
+ *     HvlMarkHiberPhase @ 0x1401271CC (HvlMarkHiberPhase.c)
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
  */
 
 void HvlpMarkHvlPagesForHibernation()

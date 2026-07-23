@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagSleepStudyInitialize @ 0x140796B90
+ * XREFs of PopDiagSleepStudyInitialize @ 0x140796D90
  * Callers:
- *     PopDiagInitialize @ 0x140A40D18 (PopDiagInitialize.c)
+ *     PopDiagInitialize @ 0x140A41D18 (PopDiagInitialize.c)
  * Callees:
- *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
- *     PopSleepstudyInitialize @ 0x140A40C80 (PopSleepstudyInitialize.c)
+ *     EtwRegister @ 0x140762E70 (EtwRegister.c)
+ *     PopSleepstudyInitialize @ 0x140A41C80 (PopSleepstudyInitialize.c)
  */
 
 __int64 PopDiagSleepStudyInitialize()

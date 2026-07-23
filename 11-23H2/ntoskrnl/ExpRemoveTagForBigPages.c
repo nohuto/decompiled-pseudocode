@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpRemoveTagForBigPages @ 0x140323810
+ * XREFs of ExpRemoveTagForBigPages @ 0x140323AA0
  * Callers:
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     ExQueryPoolBlockSize @ 0x140607980 (ExQueryPoolBlockSize.c)
- *     ExpCleanupBigTag @ 0x140607AA8 (ExpCleanupBigTag.c)
- *     ExpSizeHeapPool @ 0x14060F4A0 (ExpSizeHeapPool.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     ExQueryPoolBlockSize @ 0x140607ED0 (ExQueryPoolBlockSize.c)
+ *     ExpCleanupBigTag @ 0x140607FF8 (ExpCleanupBigTag.c)
+ *     ExpSizeHeapPool @ 0x14060F9F0 (ExpSizeHeapPool.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall ExpRemoveTagForBigPages(
@@ -46,7 +46,7 @@ __int64 __fastcall ExpRemoveTagForBigPages(
   v9 = a2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -123,10 +123,10 @@ LABEL_30:
     _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
     _InterlockedDecrement(&ExpLargePoolTableLock);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v22 = CurrentPrcb->SchedulerAssist;

@@ -23,41 +23,39 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
   unsigned __int64 v9; // rdx
   PRUNTIME_FUNCTION result; // rax
   __int64 v11; // r10
-  __int64 v12; // r9
-  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v13; // r11
-  unsigned __int128 v14; // rax
-  __int64 v15; // r8
-  unsigned __int64 v16; // rbx
-  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v17; // rdx
-  bool v18; // sf
-  int v19; // r8d
-  int v20; // r9d
-  int v21; // eax
+  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v12; // r11
+  unsigned int v13; // r8d
+  unsigned __int64 v14; // rbx
+  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v15; // rdx
+  bool v16; // sf
+  int v17; // r8d
+  int v18; // r9d
+  int v19; // eax
   __int64 Count; // rcx
-  unsigned __int64 v23; // rdx
-  unsigned __int64 v24; // rcx
-  __int64 v25; // rax
+  unsigned __int64 v21; // rdx
+  unsigned __int64 v22; // rcx
+  __int64 v23; // rax
   DWORD LocalHint; // edx
-  DWORD v27; // r9d
-  DWORD64 v28; // r8
+  DWORD v25; // r9d
+  DWORD64 v26; // r8
   PRUNTIME_FUNCTION FunctionEntry; // rcx
   __int64 UnwindInfoAddress; // rax
-  unsigned __int64 v31; // rdx
-  __int128 v32; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v33; // [rsp+30h] [rbp-18h]
+  unsigned __int64 v29; // rdx
+  unsigned __int64 v30; // [rsp+28h] [rbp-20h]
+  unsigned int v31; // [rsp+34h] [rbp-14h]
 
   if ( !HistoryTable )
     goto LABEL_10;
   if ( HistoryTable->Once )
   {
     HistoryTable->Once = 0;
-    v31 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_180158335 + 6];
+    v29 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_180158335 + 6];
     result = *(PRUNTIME_FUNCTION *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_180158335 + 8];
     if ( result )
     {
-      if ( ControlPc >= v31 + result->BeginAddress && ControlPc < v31 + result->EndAddress )
+      if ( ControlPc >= v29 + result->BeginAddress && ControlPc < v29 + result->EndAddress )
       {
-        *ImageBase = v31;
+        *ImageBase = v29;
         return result;
       }
     }
@@ -72,83 +70,82 @@ LABEL_36:
     if ( ControlPc >= HistoryTable->LowAddress && ControlPc < HistoryTable->HighAddress )
     {
       LocalHint = HistoryTable->LocalHint;
-      v27 = LocalHint;
+      v25 = LocalHint;
       if ( LocalHint < HistoryTable->Count )
       {
         while ( 1 )
         {
-          v28 = HistoryTable->Entry[v27].ImageBase;
-          FunctionEntry = HistoryTable->Entry[v27].FunctionEntry;
-          if ( ControlPc >= v28 + FunctionEntry->BeginAddress && ControlPc < v28 + FunctionEntry->EndAddress )
+          v26 = HistoryTable->Entry[v25].ImageBase;
+          FunctionEntry = HistoryTable->Entry[v25].FunctionEntry;
+          if ( ControlPc >= v26 + FunctionEntry->BeginAddress && ControlPc < v26 + FunctionEntry->EndAddress )
             break;
-          if ( ++v27 >= HistoryTable->Count )
+          if ( ++v25 >= HistoryTable->Count )
             goto LABEL_10;
         }
         HistoryTable->LocalHint = LocalHint + 1;
-        *ImageBase = v28;
+        *ImageBase = v26;
         UnwindInfoAddress = FunctionEntry->UnwindInfoAddress;
         if ( (UnwindInfoAddress & 1) != 0 )
-          return (PRUNTIME_FUNCTION)(UnwindInfoAddress + v28 - 1);
+          return (PRUNTIME_FUNCTION)(UnwindInfoAddress + v26 - 1);
         return FunctionEntry;
       }
     }
 LABEL_10:
-    if ( ControlPc < *((_QWORD *)&xmmword_180155330 + 1)
-      || ControlPc >= *((_QWORD *)&xmmword_180155330 + 1) + (unsigned __int64)(unsigned int)qword_180155340 )
+    if ( ControlPc < LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+      || ControlPc >= LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+                    + LODWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) )
     {
-      v11 = RtlpxLookupFunctionTable(ControlPc, &v32);
+      v11 = RtlpxLookupFunctionTable((PVOID)ControlPc);
     }
     else
     {
-      v11 = xmmword_180155330;
-      v32 = xmmword_180155330;
-      v33 = qword_180155340;
+      v11 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[0];
+      v30 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[1];
+      v31 = HIDWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]);
     }
     if ( v11 )
     {
-      v12 = *((_QWORD *)&v32 + 1);
-      v13 = 0LL;
-      v14 = HIDWORD(v33) * (unsigned __int128)0xAAAAAAAAAAAAAAABuLL;
-      *ImageBase = *((_QWORD *)&v32 + 1);
-      v15 = *((_QWORD *)&v14 + 1) >> 3;
-      if ( !(unsigned int)(*((_QWORD *)&v14 + 1) >> 3) )
-        return v13;
-      v16 = ControlPc - v12;
-      v17 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)(v11 + 12LL * (unsigned int)(v15 - 1));
-      if ( v16 < v17->BeginAddress )
+      v12 = 0LL;
+      *ImageBase = v30;
+      v13 = v31 / 0xC;
+      if ( !(v31 / 0xC) )
+        return v12;
+      v14 = ControlPc - v30;
+      v15 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)(v11 + 12LL * (v13 - 1));
+      if ( v14 < v15->BeginAddress )
       {
-        v18 = (int)v15 - 2 < 0;
-        v19 = v15 - 2;
-        v20 = 0;
-        if ( !v18 )
+        v16 = (int)(v13 - 2) < 0;
+        v17 = v13 - 2;
+        v18 = 0;
+        if ( !v16 )
         {
           do
           {
-            v21 = (v19 + v20) >> 1;
-            v17 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)(v11 + 12LL * v21);
-            if ( v16 < v17->BeginAddress )
+            v19 = (v17 + v18) >> 1;
+            v15 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)(v11 + 12LL * v19);
+            if ( v14 < v15->BeginAddress )
             {
-              v19 = v21 - 1;
+              v17 = v19 - 1;
             }
             else
             {
-              if ( v16 < v17[1].BeginAddress )
+              if ( v14 < v15[1].BeginAddress )
                 break;
-              v20 = v21 + 1;
+              v18 = v19 + 1;
             }
           }
-          while ( v19 >= v20 );
+          while ( v17 >= v18 );
         }
       }
-      if ( v16 < v17->BeginAddress || v16 >= v17->EndAddress )
+      if ( v14 < v15->BeginAddress || v14 >= v15->EndAddress )
         goto LABEL_32;
-      v13 = v17;
+      v12 = v15;
     }
     else
     {
-      v13 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)RtlpLookupDynamicFunctionEntry(ControlPc, ImageBase);
+      v12 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)RtlpLookupDynamicFunctionEntry(ControlPc, ImageBase);
     }
-    if ( v13 )
+    if ( v12 )
     {
       if ( HistoryTable )
       {
@@ -159,25 +156,25 @@ LABEL_10:
           {
             HistoryTable->Count = Count + 1;
             HistoryTable->Entry[Count].ImageBase = *ImageBase;
-            HistoryTable->Entry[(unsigned int)Count].FunctionEntry = v13;
-            v23 = *ImageBase + v13->BeginAddress;
-            v24 = *ImageBase + v13->EndAddress;
-            if ( v23 < HistoryTable->LowAddress )
-              HistoryTable->LowAddress = v23;
-            if ( v24 > HistoryTable->HighAddress )
-              HistoryTable->HighAddress = v24;
+            HistoryTable->Entry[(unsigned int)Count].FunctionEntry = v12;
+            v21 = *ImageBase + v12->BeginAddress;
+            v22 = *ImageBase + v12->EndAddress;
+            if ( v21 < HistoryTable->LowAddress )
+              HistoryTable->LowAddress = v21;
+            if ( v22 > HistoryTable->HighAddress )
+              HistoryTable->HighAddress = v22;
           }
         }
       }
 LABEL_32:
-      if ( v13 )
+      if ( v12 )
       {
-        v25 = v13->UnwindInfoAddress;
-        if ( (v25 & 1) != 0 )
-          return (PRUNTIME_FUNCTION)(v25 + *ImageBase - 1);
+        v23 = v12->UnwindInfoAddress;
+        if ( (v23 & 1) != 0 )
+          return (PRUNTIME_FUNCTION)(v23 + *ImageBase - 1);
       }
     }
-    return v13;
+    return v12;
   }
   while ( 1 )
   {

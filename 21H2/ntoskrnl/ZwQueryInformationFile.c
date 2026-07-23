@@ -1,28 +1,28 @@
 /*
- * XREFs of ZwQueryInformationFile @ 0x1403FA5C0
+ * XREFs of ZwQueryInformationFile @ 0x1403FA7A0
  * Callers:
- *     RtlFileMapMapView @ 0x1403BD8C4 (RtlFileMapMapView.c)
- *     CmpAdjustFileCFSafety @ 0x1403F057C (CmpAdjustFileCFSafety.c)
- *     DbgkCaptureLiveKernelDump @ 0x1404EE658 (DbgkCaptureLiveKernelDump.c)
- *     BiLogFileOwnerProcess @ 0x1405C3B80 (BiLogFileOwnerProcess.c)
- *     CmpInitHiveFromFile @ 0x140670FA8 (CmpInitHiveFromFile.c)
- *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
- *     EtwpUpdateFileHeader @ 0x1406DFDA8 (EtwpUpdateFileHeader.c)
- *     CmpCmdHiveClose @ 0x14071CE14 (CmpCmdHiveClose.c)
- *     CmpGetFileSize @ 0x140724580 (CmpGetFileSize.c)
- *     AslFileMappingCreate @ 0x1407589F8 (AslFileMappingCreate.c)
- *     KsepShimDatabaseTime @ 0x14075F2C8 (KsepShimDatabaseTime.c)
- *     PopValidateHiberFileSize @ 0x140776E28 (PopValidateHiberFileSize.c)
- *     PopCreateHiberFile @ 0x1407919C0 (PopCreateHiberFile.c)
- *     EtwpRealtimeRestoreState @ 0x1407C89FC (EtwpRealtimeRestoreState.c)
- *     IopLiveDumpValidateDumpFileHandle @ 0x140898988 (IopLiveDumpValidateDumpFileHandle.c)
- *     IopFileUtilClearAttributes @ 0x1408B431C (IopFileUtilClearAttributes.c)
- *     PfpQueryFileExtentsRequest @ 0x1408DFD0C (PfpQueryFileExtentsRequest.c)
- *     PopZeroHiberFile @ 0x1408E74C4 (PopZeroHiberFile.c)
- *     SmKmStoreFileCreate @ 0x14092BFDC (SmKmStoreFileCreate.c)
- *     SmKmStoreFileWriteHeader @ 0x14092CE74 (SmKmStoreFileWriteHeader.c)
- *     CMFGetFileSizeEx @ 0x140958DC0 (CMFGetFileSizeEx.c)
- *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
+ *     RtlFileMapMapView @ 0x1403BDA34 (RtlFileMapMapView.c)
+ *     CmpAdjustFileCFSafety @ 0x1403F06EC (CmpAdjustFileCFSafety.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE898 (DbgkCaptureLiveKernelDump.c)
+ *     BiLogFileOwnerProcess @ 0x1405C3DB0 (BiLogFileOwnerProcess.c)
+ *     CmpCmdHiveClose @ 0x1405E0548 (CmpCmdHiveClose.c)
+ *     CmpInitHiveFromFile @ 0x1406A3018 (CmpInitHiveFromFile.c)
+ *     CmpOpenHiveFile @ 0x1406A3938 (CmpOpenHiveFile.c)
+ *     EtwpUpdateFileHeader @ 0x1406B7088 (EtwpUpdateFileHeader.c)
+ *     CmpGetFileSize @ 0x1406FC5AC (CmpGetFileSize.c)
+ *     AslFileMappingCreate @ 0x140758BB8 (AslFileMappingCreate.c)
+ *     KsepShimDatabaseTime @ 0x14075F488 (KsepShimDatabaseTime.c)
+ *     PopValidateHiberFileSize @ 0x140776FE8 (PopValidateHiberFileSize.c)
+ *     PopCreateHiberFile @ 0x140792F70 (PopCreateHiberFile.c)
+ *     EtwpRealtimeRestoreState @ 0x1407C8D1C (EtwpRealtimeRestoreState.c)
+ *     IopLiveDumpValidateDumpFileHandle @ 0x140898AE8 (IopLiveDumpValidateDumpFileHandle.c)
+ *     IopFileUtilClearAttributes @ 0x1408B447C (IopFileUtilClearAttributes.c)
+ *     PfpQueryFileExtentsRequest @ 0x1408DFE6C (PfpQueryFileExtentsRequest.c)
+ *     PopZeroHiberFile @ 0x1408E7624 (PopZeroHiberFile.c)
+ *     SmKmStoreFileCreate @ 0x14092C13C (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileWriteHeader @ 0x14092CFD4 (SmKmStoreFileWriteHeader.c)
+ *     CMFGetFileSizeEx @ 0x140958F90 (CMFGetFileSizeEx.c)
+ *     EmInitSystem @ 0x140A4628C (EmInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -36,5 +36,5 @@ NTSTATUS __stdcall ZwQueryInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

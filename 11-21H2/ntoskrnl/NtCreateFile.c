@@ -1,12 +1,12 @@
 /*
  * XREFs of NtCreateFile @ 0x1407E0BC0
  * Callers:
- *     DifNtCreateFileWrapper @ 0x140617C10 (DifNtCreateFileWrapper.c)
- *     PfpVolumeOpenAndVerify @ 0x1406AECC0 (PfpVolumeOpenAndVerify.c)
- *     PfSnIsVolumeMounted @ 0x1407E0A98 (PfSnIsVolumeMounted.c)
+ *     sub_140617C10 @ 0x140617C10 (sub_140617C10.c)
+ *     sub_1406AECC0 @ 0x1406AECC0 (sub_1406AECC0.c)
+ *     sub_1407E0A98 @ 0x1407E0A98 (sub_1407E0A98.c)
  *     RtlCreateSystemVolumeInformationFolder @ 0x1407F7F00 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
+ *     sub_1407ADB90 @ 0x1407ADB90 (sub_1407ADB90.c)
  */
 
 NTSTATUS __stdcall NtCreateFile(
@@ -25,11 +25,11 @@ NTSTATUS __stdcall NtCreateFile(
   size_t Size; // [rsp+50h] [rbp-38h]
 
   LODWORD(Size) = EaLength;
-  return IopCreateFile(
+  return sub_1407ADB90(
            FileHandle,
            DesiredAccess,
-           (_SLIST_ENTRY *)ObjectAttributes,
-           (NTSTATUS *)&IoStatusBlock->0,
+           (__int64)ObjectAttributes,
+           (int *)&IoStatusBlock->0,
            (HANDLE *)AllocationSize,
            FileAttributes,
            ShareAccess,

@@ -11,7 +11,7 @@
  *     sub_1800FE220 @ 0x1800FE220 (sub_1800FE220.c)
  */
 
-__int64 __fastcall sub_1800FE4C4(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall sub_1800FE4C4(PRTL_SRWLOCK SRWLock, __int64 a2, __int64 a3)
 {
   __int64 v6; // rax
   _QWORD *v7; // r15
@@ -23,29 +23,29 @@ __int64 __fastcall sub_1800FE4C4(__int64 a1, __int64 a2, __int64 a3)
   unsigned __int64 v13; // rcx
   unsigned int v14; // edi
   __int64 v15; // r9
-  __int64 v16; // r12
+  _QWORD *Ptr; // r12
   _QWORD *v17; // r10
   __int64 v18; // rdx
-  __int64 v19; // rcx
-  unsigned int v20; // edi
-  __int64 v21; // rcx
+  PVOID v19; // rcx
+  unsigned int Ptr_high; // edi
+  _QWORD *v21; // rcx
   __int64 v22; // rdx
   __int64 v24; // [rsp+68h] [rbp+48h]
   __int64 v25; // [rsp+68h] [rbp+48h]
 
-  v6 = sub_1800093FC(24LL, 0);
+  v6 = sub_1800093FC(0x18uLL, 0);
   v7 = (_QWORD *)v6;
   if ( !v6 )
     return 0;
   *(_QWORD *)(v6 + 8) = a2;
   *(_QWORD *)(v6 + 16) = a3;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
-  v9 = a1 + 8;
+  RtlAcquireSRWLockExclusive(SRWLock);
+  v9 = (unsigned __int64)&SRWLock[1];
   v8 = 1;
-  if ( *(_DWORD *)(a1 + 8) < (unsigned int)(2 * (*(_DWORD *)(a1 + 12) >> 5)) )
+  if ( LODWORD(SRWLock[1].Ptr) < 2 * (HIDWORD(SRWLock[1].Ptr) >> 5) )
     goto LABEL_24;
   v10 = -1;
-  v11 = 2 * ((unsigned __int64)*(unsigned int *)(a1 + 12) >> 5);
+  v11 = 2 * ((unsigned __int64)HIDWORD(SRWLock[1].Ptr) >> 5);
   if ( v11 > 0xFFFFFFFF )
     goto LABEL_24;
   if ( (unsigned int)v11 < 4 )
@@ -71,18 +71,18 @@ __int64 __fastcall sub_1800FE4C4(__int64 a1, __int64 a2, __int64 a3)
     if ( v13 )
       memset64(v12, v9 | 1, v13);
     v14 = 0;
-    v15 = -1LL << (*(_BYTE *)(a1 + 12) & 0x1F);
-    if ( (*(_DWORD *)(a1 + 12) & 0xFFFFFFE0) != 0 )
+    v15 = -1LL << (BYTE4(SRWLock[1].Ptr) & 0x1F);
+    if ( (HIDWORD(SRWLock[1].Ptr) & 0xFFFFFFE0) != 0 )
     {
       do
       {
-        v16 = *(_QWORD *)(a1 + 16);
+        Ptr = SRWLock[2].Ptr;
         while ( 1 )
         {
-          v17 = *(_QWORD **)(v16 + 8LL * v14);
+          v17 = (_QWORD *)Ptr[v14];
           if ( ((unsigned __int8)v17 & 1) != 0 )
             break;
-          *(_QWORD *)(v16 + 8LL * v14) = *v17;
+          Ptr[v14] = *v17;
           v24 = v15 & v17[1];
           v18 = (37
                * (BYTE6(v24)
@@ -97,22 +97,22 @@ __int64 __fastcall sub_1800FE4C4(__int64 a1, __int64 a2, __int64 a3)
         }
         ++v14;
       }
-      while ( v14 < *(_DWORD *)(a1 + 12) >> 5 );
+      while ( v14 < HIDWORD(SRWLock[1].Ptr) >> 5 );
     }
-    *(_DWORD *)(a1 + 12) &= 0x1Fu;
-    v19 = *(_QWORD *)(a1 + 16);
-    *(_DWORD *)(a1 + 12) |= 32 * v11;
-    *(_QWORD *)(a1 + 16) = v12;
+    HIDWORD(SRWLock[1].Ptr) &= 0x1Fu;
+    v19 = SRWLock[2].Ptr;
+    HIDWORD(SRWLock[1].Ptr) |= 32 * v11;
+    SRWLock[2].Ptr = v12;
     if ( v19 )
-      sub_1800076D0(v19);
+      sub_1800076D0((int)v19);
     goto LABEL_24;
   }
-  if ( *(_DWORD *)(a1 + 12) >= 0x20u )
+  if ( HIDWORD(SRWLock[1].Ptr) >= 0x20 )
   {
 LABEL_24:
-    v20 = *(_DWORD *)(a1 + 12);
-    v25 = v7[1] & (-1LL << (v20 & 0x1F));
-    v21 = *(_QWORD *)(a1 + 16);
+    Ptr_high = HIDWORD(SRWLock[1].Ptr);
+    v25 = v7[1] & (-1LL << (Ptr_high & 0x1F));
+    v21 = SRWLock[2].Ptr;
     v22 = (37
          * (BYTE6(v25)
           + 37
@@ -120,11 +120,11 @@ LABEL_24:
            + 37
            * (BYTE4(v25)
             + 37 * (BYTE3(v25) + 37 * (BYTE2(v25) + 37 * (BYTE1(v25) + 37 * ((unsigned __int8)v25 + 11623883)))))))
-         + HIBYTE(v25)) & ((v20 >> 5) - 1);
-    *v7 = *(_QWORD *)(v21 + 8 * v22);
-    *(_QWORD *)(v21 + 8 * v22) = v7;
+         + HIBYTE(v25)) & ((Ptr_high >> 5) - 1);
+    *v7 = v21[v22];
+    v21[v22] = v7;
     ++*(_DWORD *)v9;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+    RtlReleaseSRWLockExclusive(SRWLock);
     v7 = 0LL;
     goto LABEL_25;
   }

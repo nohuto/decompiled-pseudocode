@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcQueryAllFeatureConfigurationsFromBuffers @ 0x14091A26C
+ * XREFs of RtlpFcQueryAllFeatureConfigurationsFromBuffers @ 0x14091A3CC
  * Callers:
- *     RtlQueryAllFeatureConfigurations @ 0x140918FB0 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x140919110 (RtlQueryAllFeatureConfigurations.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall RtlpFcQueryAllFeatureConfigurationsFromBuffers(__int64 a1, void *a2, unsigned __int64 *a3)

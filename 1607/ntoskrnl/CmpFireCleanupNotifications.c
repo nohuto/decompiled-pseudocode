@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpFireCleanupNotifications @ 0x1405FB4A4
+ * XREFs of CmpFireCleanupNotifications @ 0x1405FB558
  * Callers:
- *     CmpDeleteKeyObject @ 0x14043C400 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x14043B2D0 (CmpDeleteKeyObject.c)
  * Callees:
  *     <none>
  */

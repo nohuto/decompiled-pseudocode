@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x1407350A4
+ * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x140736294
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140734674 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140735864 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     RtlpFindRegTziForCurrentYear @ 0x140180F3C (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407351D0 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlpRegTziFormatToTzi @ 0x140735348 (RtlpRegTziFormatToTzi.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x14018107C (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407363C0 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpRegTziFormatToTzi @ 0x140736538 (RtlpRegTziFormatToTzi.c)
  */
 
 char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
@@ -33,7 +33,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
   char *v22; // rbx
   __int64 v23; // rax
   __int128 v24; // xmm1
-  HANDLE Handle; // [rsp+20h] [rbp-108h]
+  WCHAR *Handle; // [rsp+20h] [rbp-108h]
   _DWORD v26[14]; // [rsp+28h] [rbp-100h] BYREF
   __int128 Buf1; // [rsp+60h] [rbp-C8h] BYREF
   __int128 v28; // [rsp+70h] [rbp-B8h]
@@ -51,7 +51,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
   v4 = 0;
   if ( (int)RtlpGetDynamicTimeZoneInfoHandle((NTSTRSAFE_PCWSTR)Buf2 + 86) >= 0 )
   {
-    if ( (int)RtlpFindRegTziForCurrentYear(v26, (__int64)Handle, a2) >= 0 )
+    if ( (int)RtlpFindRegTziForCurrentYear(v26, Handle, a2) >= 0 )
     {
       v6 = *((_OWORD *)Buf2 + 1);
       Buf1 = *(_OWORD *)Buf2;

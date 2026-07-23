@@ -15,45 +15,45 @@ char __stdcall RtlpUnWaitCriticalSection(int a1)
   HANDLE v1; // esi
   signed __int32 v2; // ecx
   int v3; // eax
-  HANDLE Handle; // [esp+Ch] [ebp-4h] BYREF
+  HANDLE EventHandle; // [esp+Ch] [ebp-4h] BYREF
 
   v1 = *(HANDLE *)(a1 + 16);
   if ( !v1 )
   {
     v2 = -1;
-    Handle = (HANDLE)-1;
+    EventHandle = (HANDLE)-1;
     if ( RtlpForceCSToUseEvents )
     {
-      if ( NtCreateEvent((int)&Handle, 1048579, 0, 1, 0) >= 0 )
+      if ( NtCreateEvent(&EventHandle, 0x100003u, 0, SynchronizationEvent, 0) >= 0 )
       {
-        v2 = (signed __int32)Handle;
+        v2 = (signed __int32)EventHandle;
       }
       else
       {
         v2 = -1;
-        Handle = (HANDLE)-1;
+        EventHandle = (HANDLE)-1;
       }
     }
     v1 = (HANDLE)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 16), v2, 0);
     if ( v1 )
     {
-      if ( Handle != (HANDLE)-1 )
-        NtClose(Handle);
-      Handle = v1;
+      if ( EventHandle != (HANDLE)-1 )
+        NtClose(EventHandle);
+      EventHandle = v1;
     }
     else
     {
-      v1 = Handle;
+      v1 = EventHandle;
     }
   }
   if ( v1 == (HANDLE)-1 )
   {
-    _InterlockedOr((volatile signed __int32 *)&Handle, 0);
+    _InterlockedOr((volatile signed __int32 *)&EventHandle, 0);
     LOBYTE(v3) = RtlpWakeByAddress(a1 + 4, 0, 0);
   }
   else
   {
-    v3 = NtSetEvent((int)v1, 0);
+    v3 = NtSetEvent(v1, 0);
     if ( v3 < 0 )
       RtlRaiseStatus(v3);
   }

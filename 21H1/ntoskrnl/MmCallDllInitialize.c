@@ -15,10 +15,10 @@
  *     VfDriverInitSuccess @ 0x1409BF79C (VfDriverInitSuccess.c)
  */
 
-unsigned __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
+__int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rcx
-  unsigned __int64 result; // rax
+  void *v4; // rcx
+  __int64 result; // rax
   __int64 (__fastcall *v6)(UNICODE_STRING *); // r14
   unsigned __int16 v7; // ax
   wchar_t *Pool; // rax
@@ -33,10 +33,10 @@ unsigned __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
   UNICODE_STRING Destination; // [rsp+20h] [rbp-20h] BYREF
   UNICODE_STRING Source; // [rsp+30h] [rbp-10h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 48);
+  v4 = *(void **)(a1 + 48);
   Destination = 0LL;
   Source = 0LL;
-  result = RtlFindExportedRoutineByName(v4, "DllInitialize");
+  result = (__int64)RtlFindExportedRoutineByName(v4, "DllInitialize");
   v6 = (__int64 (__fastcall *)(UNICODE_STRING *))result;
   if ( result )
   {

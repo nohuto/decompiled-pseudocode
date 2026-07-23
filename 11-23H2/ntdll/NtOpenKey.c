@@ -49,24 +49,24 @@
  *     RtlpSetInstallLanguage @ 0x1800FCEB0 (RtlpSetInstallLanguage.c)
  *     RtlpSetPreferredUILanguages @ 0x1800FD570 (RtlpSetPreferredUILanguages.c)
  *     RtlpHpOverrideGCInterval @ 0x180100C58 (RtlpHpOverrideGCInterval.c)
- *     RtlpGetLocaleDataKey @ 0x18010AFF8 (RtlpGetLocaleDataKey.c)
- *     RtlpIsCustomLocale @ 0x18010B264 (RtlpIsCustomLocale.c)
- *     RtlOsDeploymentState @ 0x1801100C0 (RtlOsDeploymentState.c)
- *     RtlQueryValidationRunlevel @ 0x180110200 (RtlQueryValidationRunlevel.c)
- *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180111E30 (RtlpGetUserOrMachineUILanguage4NLS.c)
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x180115234 (_RtlpMuiRegLoadInstalledFromKey.c)
- *     _RtlpRemovePendingDeleteLanguages @ 0x1801160B4 (_RtlpRemovePendingDeleteLanguages.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E928 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBC4 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlpGetLocaleDataKey @ 0x18010AFC8 (RtlpGetLocaleDataKey.c)
+ *     RtlpIsCustomLocale @ 0x18010B234 (RtlpIsCustomLocale.c)
+ *     RtlOsDeploymentState @ 0x180110090 (RtlOsDeploymentState.c)
+ *     RtlQueryValidationRunlevel @ 0x1801101D0 (RtlQueryValidationRunlevel.c)
+ *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180111E00 (RtlpGetUserOrMachineUILanguage4NLS.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x180115204 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x180116084 (_RtlpRemovePendingDeleteLanguages.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E954 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBF0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenKey()
+NTSTATUS __cdecl NtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 18LL;
+  result = 18;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

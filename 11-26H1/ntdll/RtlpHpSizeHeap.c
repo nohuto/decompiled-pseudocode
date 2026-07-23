@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpSizeHeap @ 0x18001A0F0
+ * XREFs of RtlpHpSizeHeap @ 0x1800051D0
  * Callers:
- *     RtlValidateHeap @ 0x1800156C0 (RtlValidateHeap.c)
- *     RtlpHpFreeHeapSlow @ 0x180089330 (RtlpHpFreeHeapSlow.c)
+ *     RtlValidateHeap @ 0x180060DF0 (RtlValidateHeap.c)
+ *     RtlpHpFreeHeapSlow @ 0x180080730 (RtlpHpFreeHeapSlow.c)
  * Callees:
- *     RtlpHpVsChunkSize @ 0x1800190EC (RtlpHpVsChunkSize.c)
- *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800191C0 (RtlpHpLfhSubsegmentSizeBlock.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpPgGetUserSize @ 0x1800B1C98 (RtlpHpPgGetUserSize.c)
- *     RtlCompareMemory @ 0x1801631E0 (RtlCompareMemory.c)
+ *     RtlpHpVsChunkSize @ 0x1800041CC (RtlpHpVsChunkSize.c)
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800042A0 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpPgGetUserSize @ 0x180081808 (RtlpHpPgGetUserSize.c)
+ *     RtlCompareMemory @ 0x1801630E0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
   unsigned __int64 v15; // rdx
   __int64 v16; // r8
   __int64 UserSize; // rdi
-  __int64 v19; // rbp
+  _RTL_SRWLOCK *v19; // rbp
   __int64 v20; // rax
   unsigned __int64 *v21; // rdi
   unsigned __int64 v22; // rcx
@@ -44,11 +44,11 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
     v6 = 0;
     goto LABEL_7;
   }
-  v7 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((a2 - qword_1801C78B8) >> 20));
+  v7 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801C6908) >> 20));
   if ( !v7 || (v6 = v7 - 1, v6 == 2) )
   {
-    v19 = a1 + 64;
-    RtlAcquireSRWLockShared(a1 + 64);
+    v19 = (_RTL_SRWLOCK *)(a1 + 64);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
     v20 = *(_QWORD *)(a1 + 80);
     v21 = (unsigned __int64 *)(a1 + 72);
     v22 = *v21;

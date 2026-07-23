@@ -4,9 +4,9 @@
  *     PfInitializeSuperfetch @ 0x140B617C0 (PfInitializeSuperfetch.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PfpRpStart @ 0x140846F14 (PfpRpStart.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PfpRpStart @ 0x140847214 (PfpRpStart.c)
  */
 
 __int64 __fastcall PfpRpInitialize(__int64 a1)

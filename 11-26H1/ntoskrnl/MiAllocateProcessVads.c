@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocateProcessVads @ 0x14095E044
+ * XREFs of MiAllocateProcessVads @ 0x140A03904
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1409622B0 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140964050 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x140A08068 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x140A08138 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiAllocateVad @ 0x14095D5C0 (MiAllocateVad.c)
- *     MiReturnProcessVads @ 0x1409627CC (MiReturnProcessVads.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiAllocateVad @ 0x140A02E80 (MiAllocateVad.c)
+ *     MiReturnProcessVads @ 0x140A08654 (MiReturnProcessVads.c)
  */
 
 _QWORD *__fastcall MiAllocateProcessVads(__int64 a1, __int64 a2)
@@ -26,9 +26,9 @@ _QWORD *__fastcall MiAllocateProcessVads(__int64 a1, __int64 a2)
   KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)v10);
   if ( (int)MiAllocateVad((__int64 *)&P, a1, 0x7FFE0000uLL, 0x7FFE0FFFuLL, 1) < 0 )
     goto LABEL_9;
-  if ( qword_140E2D638 )
+  if ( qword_140E2D7B8 )
   {
-    if ( (int)MiAllocateVad((__int64 *)&v9, a1, qword_140E2D638, qword_140E2D638 + 4095, 1) < 0 )
+    if ( (int)MiAllocateVad((__int64 *)&v9, a1, qword_140E2D7B8, qword_140E2D7B8 + 4095, 1) < 0 )
     {
       v6 = P;
 LABEL_8:

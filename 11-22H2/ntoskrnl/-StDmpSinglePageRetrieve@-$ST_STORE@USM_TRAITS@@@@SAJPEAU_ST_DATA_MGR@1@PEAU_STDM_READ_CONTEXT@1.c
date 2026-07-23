@@ -113,7 +113,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageRetrieve(
   v17 = v18;
 LABEL_22:
   *(_QWORD *)(a2 + 56) = a3;
-  v10 = ST_STORE<SM_TRAITS>::StDmSinglePageTransfer(a1, *(_QWORD *)(a2 + 16), v17 | v5, a4, *(_QWORD *)(a3 + 8), a5, a2);
+  v10 = ST_STORE<SM_TRAITS>::StDmSinglePageTransfer(a1, *(void **)(a2 + 16), v17 | v5, a4, *(_QWORD *)(a3 + 8), a5, a2);
   if ( v10 >= 0 )
     v10 = 0;
   if ( v7 )

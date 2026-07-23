@@ -44,9 +44,9 @@ __int64 __fastcall TppWorkInitialize(__int64 a1, int a2, int a3, int a4, __int64
         v12 = MEMORY[0x7FFE03C0];
       if ( *(_DWORD *)(v8 + 424) != v12 )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v8 + 72));
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v8 + 72));
         TppAdjustRunningThreadGoalWithLock(v8);
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 72));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 72));
         Group = v17;
       }
       for ( i = 0; i < TppNumberNodes; ++i )

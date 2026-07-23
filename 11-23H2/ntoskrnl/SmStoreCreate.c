@@ -1,22 +1,22 @@
 /*
- * XREFs of SmStoreCreate @ 0x1409D7A1C
+ * XREFs of SmStoreCreate @ 0x1409D7C1C
  * Callers:
- *     SmcStoreCreate @ 0x1409DB254 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x1409DB454 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwSetSystemInformation @ 0x14041E480 (ZwSetSystemInformation.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SmStorePhysicalRequestIssue @ 0x1409D7BB0 (SmStorePhysicalRequestIssue.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwSetSystemInformation @ 0x14041E810 (ZwSetSystemInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SmStorePhysicalRequestIssue @ 0x1409D7DB0 (SmStorePhysicalRequestIssue.c)
  */
 
-__int64 __fastcall SmStoreCreate(__int64 a1, int a2, __int128 *a3, _DWORD *a4)
+NTSTATUS __fastcall SmStoreCreate(__int64 a1, int a2, __int128 *a3, _DWORD *a4)
 {
   __int128 v8; // xmm0
   __int128 v9; // xmm1
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v11; // ecx
   __int64 v12; // [rsp+30h] [rbp-59h] BYREF
-  _DWORD v13[2]; // [rsp+38h] [rbp-51h] BYREF
+  _DWORD SystemInformation[2]; // [rsp+38h] [rbp-51h] BYREF
   _QWORD *v14; // [rsp+40h] [rbp-49h]
   int v15; // [rsp+48h] [rbp-41h]
   int v16; // [rsp+4Ch] [rbp-3Dh]
@@ -24,8 +24,8 @@ __int64 __fastcall SmStoreCreate(__int64 a1, int a2, __int128 *a3, _DWORD *a4)
 
   v12 = 0LL;
   v16 = 0;
-  v13[0] = 1;
-  v13[1] = 3;
+  SystemInformation[0] = 1;
+  SystemInformation[1] = 3;
   v14 = v17;
   v15 = 88;
   memset((char *)v17 + 4, 0, 0x54uLL);
@@ -40,8 +40,8 @@ __int64 __fastcall SmStoreCreate(__int64 a1, int a2, __int128 *a3, _DWORD *a4)
   if ( a2 )
   {
     if ( a2 != 1 )
-      return 3221225485LL;
-    result = ZwSetSystemInformation(109LL, (__int64)v13);
+      return -1073741811;
+    result = ZwSetSystemInformation(SystemStoreInformation, SystemInformation, 0x18u);
     v11 = v17[10];
   }
   else
@@ -49,10 +49,10 @@ __int64 __fastcall SmStoreCreate(__int64 a1, int a2, __int128 *a3, _DWORD *a4)
     result = SmStorePhysicalRequestIssue(*(PDEVICE_OBJECT *)(a1 + 1904), 0, (__int64)&v12);
     v11 = v12;
   }
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     *a4 = v11;
-    return 0LL;
+    return 0;
   }
   return result;
 }

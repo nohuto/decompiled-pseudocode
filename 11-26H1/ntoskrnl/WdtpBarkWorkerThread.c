@@ -1,10 +1,10 @@
 /*
- * XREFs of WdtpBarkWorkerThread @ 0x1408A00C0
+ * XREFs of WdtpBarkWorkerThread @ 0x1408A64D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 LONG __fastcall WdtpBarkWorkerThread(struct _KEVENT *a1, __int64 a2)

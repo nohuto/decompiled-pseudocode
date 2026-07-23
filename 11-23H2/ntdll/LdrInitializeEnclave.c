@@ -12,64 +12,71 @@
  *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800DC1F8 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
  */
 
-__int64 __fastcall LdrInitializeEnclave(__int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl LdrInitializeEnclave(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
-  int v2; // edi
-  __int64 *v3; // rax
-  __int64 *v4; // rbx
-  _DWORD *v5; // rsi
-  bool v6; // zf
+  int v9; // edi
+  __int64 *v10; // rax
+  __int64 *v11; // rbx
+  _DWORD *v12; // rsi
+  bool v13; // zf
+  PVOID v15; // [rsp+38h] [rbp-20h] BYREF
 
-  v2 = 0;
-  v3 = LdrpObtainLockedEnclave(a2, 1);
-  v4 = v3;
-  if ( v3 )
+  v9 = 0;
+  v10 = LdrpObtainLockedEnclave((unsigned __int64)BaseAddress, 1);
+  v11 = v10;
+  if ( v10 )
   {
-    if ( *((_DWORD *)v3 + 14) == 16 )
+    if ( *((_DWORD *)v10 + 14) == 16 )
     {
-      v5 = v3 + 8;
-      if ( *((_DWORD *)v3 + 16) )
+      v12 = v10 + 8;
+      if ( *((_DWORD *)v10 + 16) )
       {
-        if ( *v5 != 1 )
+        if ( *v12 != 1 )
         {
-          v2 = -1073741502;
+          v9 = -1073741502;
           goto LABEL_13;
         }
         goto LABEL_8;
       }
     }
   }
-  v2 = ZwInitializeEnclave();
-  if ( v2 < 0 )
+  v9 = ZwInitializeEnclave(ProcessHandle, BaseAddress, EnclaveInformation, EnclaveInformationLength, EnclaveError);
+  if ( v9 < 0 )
   {
-    if ( v4 )
+    if ( v11 )
       goto LABEL_13;
   }
   else
   {
-    v5 = v4 + 8;
-    if ( v4 )
+    v12 = v11 + 8;
+    if ( v11 )
     {
 LABEL_8:
-      v6 = *((_DWORD *)v4 + 14) == 16;
-      *v5 = 1;
-      if ( !v6 )
+      v13 = *((_DWORD *)v11 + 14) == 16;
+      *v12 = 1;
+      if ( !v13 )
       {
 LABEL_15:
-        RtlLeaveCriticalSection((__int64)(v4 + 2));
-        LdrpDereferenceEnclave(v4);
-        return (unsigned int)v2;
+        RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v11 + 2));
+        LdrpDereferenceEnclave(v11);
+        return v9;
       }
-      v2 = RtlCallEnclave();
-      if ( v2 < 0 )
-        NtTerminateEnclave();
+      v15 = 0LL;
+      v9 = RtlCallEnclave((LPVOID (__cdecl *)(LPVOID))v11[9], 0LL, 0, &v15);
+      if ( v9 < 0 )
+        NtTerminateEnclave((PVOID)v11[9], 0);
       else
-        *v5 = 2;
+        *v12 = 2;
 LABEL_13:
-      if ( *((_DWORD *)v4 + 14) == 16 )
-        LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry((unsigned int)v2);
+      if ( *((_DWORD *)v11 + 14) == 16 )
+        LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry((unsigned int)v9);
       goto LABEL_15;
     }
   }
-  return (unsigned int)v2;
+  return v9;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x140AED360
+ * XREFs of ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x140AF00B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     LookUpTableFlushPartial @ 0x140AED298 (LookUpTableFlushPartial.c)
- *     LookUpTableFlushComplete @ 0x140AED3DC (LookUpTableFlushComplete.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     LookUpTableFlushPartial @ 0x140AEFFE8 (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x140AF012C (LookUpTableFlushComplete.c)
  */
 
 void __fastcall TlgAggregateInternalRegisteredProviderEtwCallback(

@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateFileDeviceElement @ 0x140891908
+ * XREFs of BiCreateFileDeviceElement @ 0x140897D04
  * Callers:
- *     BiCreatePartitionDevice @ 0x140891AB0 (BiCreatePartitionDevice.c)
+ *     BiCreatePartitionDevice @ 0x140897EAC (BiCreatePartitionDevice.c)
  * Callees:
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, unsigned int *a3)

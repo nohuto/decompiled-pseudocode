@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpCreateUmReplyObject @ 0x140A762A0
+ * XREFs of EtwpCreateUmReplyObject @ 0x140A703BC
  * Callers:
- *     EtwpNotifyGuid @ 0x140836EE4 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x140834644 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeInitializeQueue @ 0x140475830 (KeInitializeQueue.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpReferenceGuidEntry @ 0x14083AFE0 (EtwpReferenceGuidEntry.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeInitializeQueue @ 0x1404717A0 (KeInitializeQueue.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpReferenceGuidEntry @ 0x140838980 (EtwpReferenceGuidEntry.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCreateUmReplyObject(ULONG_PTR BugCheckParameter2, __int64 a2, _QWORD *a3)
@@ -23,9 +23,9 @@ __int64 __fastcall EtwpCreateUmReplyObject(ULONG_PTR BugCheckParameter2, __int64
   struct _KQUEUE *v7; // rdi
   int inserted; // ebx
   PVOID v9; // rsi
-  _QWORD *v10; // rax
+  char *v10; // rax
   signed __int8 v11; // cf
-  _QWORD *v12; // rbx
+  char *v12; // rbx
   __int64 v13; // rcx
   _QWORD *v14; // rax
   _QWORD *v15; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall EtwpCreateUmReplyObject(ULONG_PTR BugCheckParameter2, __int64
   v20[0] = 48LL;
   v21 = 64;
   v23 = 0LL;
-  Pool2 = (struct _KQUEUE *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _KQUEUE *)ExAllocatePool2(0x40uLL, 0x48uLL, 0x71777445u);
   v7 = Pool2;
   if ( Pool2 )
   {
@@ -64,13 +64,13 @@ __int64 __fastcall EtwpCreateUmReplyObject(ULONG_PTR BugCheckParameter2, __int64
       *((_QWORD *)v9 + 6) = v7;
       EtwpReferenceGuidEntry(BugCheckParameter2);
       *((_QWORD *)v9 + 4) = BugCheckParameter2;
-      v10 = KeAbPreAcquire((__int64)&EtwpReplyListLock, 0LL);
+      v10 = (char *)KeAbPreAcquire((__int64)&EtwpReplyListLock, 0LL);
       v11 = _interlockedbittestandset64((volatile signed __int32 *)&EtwpReplyListLock, 0LL);
       v12 = v10;
       if ( v11 )
-        ExfAcquirePushLockExclusiveEx(&EtwpReplyListLock, (__int64)v10, (__int64)&EtwpReplyListLock);
+        ExfAcquirePushLockExclusiveEx(&EtwpReplyListLock, v10, (__int64)&EtwpReplyListLock);
       if ( v12 )
-        *((_BYTE *)v12 + 10) = 1;
+        v12[10] = 1;
       v13 = EtwpReplyListHead;
       if ( *(__int64 **)(EtwpReplyListHead + 8) != &EtwpReplyListHead )
         __fastfail(3u);

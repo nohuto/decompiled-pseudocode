@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGetPdbSignature @ 0x18015D3E0
+ * XREFs of LdrpGetPdbSignature @ 0x18015D2A0
  * Callers:
- *     LdrpCgLogFailure @ 0x18015CE90 (LdrpCgLogFailure.c)
+ *     LdrpCgLogFailure @ 0x18015CD50 (LdrpCgLogFailure.c)
  * Callees:
- *     RtlpImageNtHeader @ 0x18015DD74 (RtlpImageNtHeader.c)
+ *     RtlpImageNtHeader @ 0x18015DC34 (RtlpImageNtHeader.c)
  */
 
 __int64 __fastcall LdrpGetPdbSignature(__int64 a1, unsigned __int64 a2, _OWORD *a3, _DWORD *a4, _QWORD *a5)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopHandleDevicePowerIrpCompletion @ 0x140376270
+ * XREFs of PopHandleDevicePowerIrpCompletion @ 0x1403A65A0
  * Callers:
- *     PopRequestCompletion @ 0x140376130 (PopRequestCompletion.c)
+ *     PopRequestCompletion @ 0x1403A6460 (PopRequestCompletion.c)
  * Callees:
- *     PopFxQueueWorkItem @ 0x14029F7F4 (PopFxQueueWorkItem.c)
- *     PopPepDeviceDState @ 0x1403137A0 (PopPepDeviceDState.c)
- *     PopFxNotifyPostDIrpCompletion @ 0x140375B78 (PopFxNotifyPostDIrpCompletion.c)
- *     PopDequeueQuerySetIrp @ 0x140375DBC (PopDequeueQuerySetIrp.c)
- *     PopFreeIrp @ 0x1403764AC (PopFreeIrp.c)
- *     PopDiagTraceFxDevicePowerState @ 0x1403768BC (PopDiagTraceFxDevicePowerState.c)
- *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CD8C8 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
- *     PopFxNotifyPendingSIrpReady @ 0x1405D17C8 (PopFxNotifyPendingSIrpReady.c)
+ *     PopDequeueQuerySetIrp @ 0x1402BA5A0 (PopDequeueQuerySetIrp.c)
+ *     PopFxNotifyPostDIrpCompletion @ 0x1403A6294 (PopFxNotifyPostDIrpCompletion.c)
+ *     PopPepDeviceDState @ 0x1403A6948 (PopPepDeviceDState.c)
+ *     PopFreeIrp @ 0x1403A7BB8 (PopFreeIrp.c)
+ *     PopFxQueueWorkItem @ 0x1403AA2B4 (PopFxQueueWorkItem.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x140483350 (PopDiagTraceFxDevicePowerState.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CB038 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
+ *     PopFxNotifyPendingSIrpReady @ 0x1405CEEE8 (PopFxNotifyPendingSIrpReady.c)
  */
 
-LONG __fastcall PopHandleDevicePowerIrpCompletion(__int64 a1)
+__int64 __fastcall PopHandleDevicePowerIrpCompletion(__int64 a1)
 {
   IRP *v2; // rsi
   _QWORD *v3; // rbx
@@ -62,7 +62,7 @@ LONG __fastcall PopHandleDevicePowerIrpCompletion(__int64 a1)
     else
     {
       if ( v5 != 1 )
-        return PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (struct _LIST_ENTRY *)(a1 + 248), 0);
+        return PopFxQueueWorkItem(&PopFxSystemWorkPool, a1 + 248, 0LL);
       _m_prefetchw(v3 + 4);
       v10 = *((_DWORD *)v3 + 8);
       do
@@ -74,7 +74,7 @@ LONG __fastcall PopHandleDevicePowerIrpCompletion(__int64 a1)
       v9 = (v10 & 2) == 0;
     }
     if ( !v9 )
-      return PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (struct _LIST_ENTRY *)(a1 + 248), 0);
+      return PopFxQueueWorkItem(&PopFxSystemWorkPool, a1 + 248, 0LL);
   }
   if ( *(_BYTE *)(a1 + 209) )
   {
@@ -104,7 +104,7 @@ LONG __fastcall PopHandleDevicePowerIrpCompletion(__int64 a1)
     {
 LABEL_28:
       LOBYTE(v14) = 1;
-      PopPepDeviceDState(v3[7], *(_DWORD *)(a1 + 192), v14, *(unsigned int *)(a1 + 280));
+      PopPepDeviceDState(v3[7], *(unsigned int *)(a1 + 192), v14, *(unsigned int *)(a1 + 280));
       PopDiagTraceFxDevicePowerState(v3[6], *(unsigned int *)(a1 + 192));
       if ( (unsigned int)Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline() )
       {

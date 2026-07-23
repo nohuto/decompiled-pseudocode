@@ -1,14 +1,14 @@
 /*
- * XREFs of PspFoldProcessAccountingIntoJob @ 0x14095224C
+ * XREFs of PspFoldProcessAccountingIntoJob @ 0x1409CDB8C
  * Callers:
- *     PspRemoveProcessFromJobChain @ 0x140959638 (PspRemoveProcessFromJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x1409FEEF8 (PspRemoveProcessFromJobChain.c)
  * Callees:
- *     PsAddProcessEnergyValues @ 0x14041D0E0 (PsAddProcessEnergyValues.c)
- *     PoEnergyEstimationEnabled @ 0x14047C5D0 (PoEnergyEstimationEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspUpdateJobPeakProcessMemory @ 0x1409523E0 (PspUpdateJobPeakProcessMemory.c)
- *     PsQueryProcessEnergyValues @ 0x140952980 (PsQueryProcessEnergyValues.c)
+ *     PsAddProcessEnergyValues @ 0x140414930 (PsAddProcessEnergyValues.c)
+ *     PoEnergyEstimationEnabled @ 0x140475F40 (PoEnergyEstimationEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspUpdateJobPeakProcessMemory @ 0x1409CDD20 (PspUpdateJobPeakProcessMemory.c)
+ *     PsQueryProcessEnergyValues @ 0x1409CE2C0 (PsQueryProcessEnergyValues.c)
  */
 
 __int64 __fastcall PspFoldProcessAccountingIntoJob(__int64 a1, __int64 a2, __int64 *a3)

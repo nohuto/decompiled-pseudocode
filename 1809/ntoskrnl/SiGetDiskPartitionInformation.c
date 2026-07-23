@@ -1,12 +1,12 @@
 /*
- * XREFs of SiGetDiskPartitionInformation @ 0x1406AECA4
+ * XREFs of SiGetDiskPartitionInformation @ 0x1406AFF44
  * Callers:
- *     SiValidateSystemPartition @ 0x140127AD4 (SiValidateSystemPartition.c)
+ *     SiValidateSystemPartition @ 0x140127BA4 (SiValidateSystemPartition.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1401B83D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
  */
 
 __int64 __fastcall SiGetDiskPartitionInformation(PCWSTR SourceString, PVOID OutputBuffer)

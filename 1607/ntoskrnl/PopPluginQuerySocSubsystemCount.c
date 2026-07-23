@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPluginQuerySocSubsystemCount @ 0x14066DB2C
+ * XREFs of PopPluginQuerySocSubsystemCount @ 0x14066DC10
  * Callers:
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x14066C59C (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x14066C680 (PopFxInitializeSocSubsystemStaticInfo.c)
  * Callees:
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginQuerySocSubsystemCount(__int64 a1, __int64 a2)

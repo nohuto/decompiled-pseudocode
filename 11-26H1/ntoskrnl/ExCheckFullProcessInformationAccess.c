@@ -1,16 +1,16 @@
 /*
- * XREFs of ExCheckFullProcessInformationAccess @ 0x1409E78E0
+ * XREFs of ExCheckFullProcessInformationAccess @ 0x1409D42F8
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x140831834 (EtwpSetCoverageSamplerInformation.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x14093E61C (EtwpQueryCoverageSamplerInformation.c)
- *     ExpGetProcessInformation @ 0x14096767C (ExpGetProcessInformation.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     NtSetDefaultLocale @ 0x140B0F0F0 (NtSetDefaultLocale.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x140837A74 (EtwpSetCoverageSamplerInformation.c)
+ *     ExpGetProcessInformation @ 0x1409DC1B8 (ExpGetProcessInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x140A31734 (EtwpQueryCoverageSamplerInformation.c)
+ *     NtSetDefaultLocale @ 0x140B10920 (NtSetDefaultLocale.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140920670 (SeCaptureSubjectContextEx.c)
- *     RtlRunOnceExecuteOnce @ 0x1409E7CD0 (RtlRunOnceExecuteOnce.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x1408FBAB0 (SeCaptureSubjectContextEx.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409D46E0 (RtlRunOnceExecuteOnce.c)
  */
 
 NTSTATUS __fastcall ExCheckFullProcessInformationAccess(char a1)
@@ -28,7 +28,7 @@ NTSTATUS __fastcall ExCheckFullProcessInformationAccess(char a1)
   if ( a1 != 1 )
     return -1073741790;
   result = RtlRunOnceExecuteOnce(
-             (PRTL_RUN_ONCE)&ExpPlatformBinaryLock.KernelWaitTime,
+             &ExpFullProcessInfoInit,
              (PRTL_RUN_ONCE_INIT_FN)ExpInitFullProcessSecurityInfo,
              0LL,
              &Context);
@@ -40,7 +40,7 @@ NTSTATUS __fastcall ExCheckFullProcessInformationAccess(char a1)
     SeAccessCheckWithHint(
       (__int64)Context,
       7,
-      (__int64)&SubjectContext,
+      (int *)&SubjectContext,
       0,
       1u,
       0,

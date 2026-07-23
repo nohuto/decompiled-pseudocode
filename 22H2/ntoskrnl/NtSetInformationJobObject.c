@@ -82,7 +82,11 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtSetInformationJobObject(HANDLE Handle, int a2, void *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
   size_t v4; // r12
   __int64 v5; // r13
@@ -214,7 +218,7 @@ NTSTATUS __fastcall NtSetInformationJobObject(HANDLE Handle, int a2, void *a3, u
   signed __int32 v132[8]; // [rsp+0h] [rbp-BC8h] BYREF
   KPROCESSOR_MODE AccessMode; // [rsp+40h] [rbp-B88h]
   PVOID DeferredContext; // [rsp+48h] [rbp-B80h] BYREF
-  int v135; // [rsp+50h] [rbp-B78h]
+  JOBOBJECTINFOCLASS v135; // [rsp+50h] [rbp-B78h]
   int v136; // [rsp+58h] [rbp-B70h]
   char v137; // [rsp+5Ch] [rbp-B6Ch] BYREF
   _BYTE v138[3]; // [rsp+5Dh] [rbp-B6Bh] BYREF
@@ -253,7 +257,7 @@ NTSTATUS __fastcall NtSetInformationJobObject(HANDLE Handle, int a2, void *a3, u
   unsigned int v171; // [rsp+168h] [rbp-A60h]
   int v172; // [rsp+16Ch] [rbp-A5Ch]
   int v173; // [rsp+170h] [rbp-A58h]
-  HANDLE Handlea[2]; // [rsp+178h] [rbp-A50h]
+  HANDLE Handle[2]; // [rsp+178h] [rbp-A50h]
   PVOID v175[2]; // [rsp+188h] [rbp-A40h]
   __int128 v176; // [rsp+198h] [rbp-A30h] BYREF
   __int128 v177; // [rsp+1A8h] [rbp-A20h]
@@ -283,14 +287,14 @@ NTSTATUS __fastcall NtSetInformationJobObject(HANDLE Handle, int a2, void *a3, u
   __m128i v201; // [rsp+480h] [rbp-748h]
   _OWORD v202[111]; // [rsp+490h] [rbp-738h] BYREF
 
-  v4 = a4;
-  BugCheckParameter2 = (ULONG_PTR)a3;
-  v5 = a2;
-  P = Handle;
-  v135 = a2;
-  Src = a3;
+  v4 = JobObjectInformationLength;
+  BugCheckParameter2 = (ULONG_PTR)JobObjectInformation;
+  v5 = JobObjectInformationClass;
+  P = JobHandle;
+  v135 = JobObjectInformationClass;
+  Src = JobObjectInformation;
   memset((char *)v202 + 8, 0, 0xA0uLL);
-  *(_OWORD *)Handlea = 0LL;
+  *(_OWORD *)Handle = 0LL;
   v162 = 0LL;
   v165 = 0LL;
   v137 = 0;
@@ -373,13 +377,13 @@ LABEL_6:
   {
     v9 = (__int64 *)Src;
   }
-  if ( !Handle )
+  if ( !JobHandle )
     return -1073741816;
   v10 = 16;
   if ( (_DWORD)v5 != 5 )
     v10 = 2;
   result = ObReferenceObjectByHandleWithTag(
-             Handle,
+             JobHandle,
              v10,
              (POBJECT_TYPE)PsJobType,
              PreviousMode,
@@ -839,8 +843,8 @@ LABEL_345:
               goto LABEL_430;
             case 7:
               P = 0LL;
-              *(_OWORD *)Handlea = *(_OWORD *)v9;
-              if ( !Handlea[1] )
+              *(_OWORD *)Handle = *(_OWORD *)v9;
+              if ( !Handle[1] )
               {
                 v14 = (char *)DeferredContext;
                 ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
@@ -855,7 +859,7 @@ LABEL_345:
                 goto LABEL_35;
               }
               v13 = ObReferenceObjectByHandleWithTag(
-                      Handlea[1],
+                      Handle[1],
                       2u,
                       IoCompletionObjectType,
                       AccessMode,
@@ -902,7 +906,7 @@ LABEL_47:
                       v17 = 0LL;
                     }
                     ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 1032), 0LL);
-                    *((HANDLE *)v14 + 58) = Handlea[0];
+                    *((HANDLE *)v14 + 58) = Handle[0];
                     *((_QWORD *)v14 + 57) = Object;
                     *((_QWORD *)v14 + 59) = 0LL;
                     PspUnlockJobMemoryLimitsExclusive((__int64)v14, 0LL, 0LL);

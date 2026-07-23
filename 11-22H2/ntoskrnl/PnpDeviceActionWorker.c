@@ -173,10 +173,10 @@ LABEL_170:
     v4 = 0LL;
 LABEL_6:
     KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)CurrentIrql <= 0xFu
         && (unsigned __int8)v5 <= 0xFu
         && (unsigned __int8)CurrentIrql >= 2u )
@@ -212,10 +212,10 @@ LABEL_6:
       v11 = *(_DWORD *)(v4 + 24);
       v12 = KeAcquireSpinLockRaiseToDpc(&qword_140C3F3E8);
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F3E8);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v51 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v51 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v51 >= 2u )
         {
           v52 = KeGetCurrentPrcb();
           v53 = v52->SchedulerAssist;
@@ -232,10 +232,10 @@ LABEL_6:
       if ( byte_140C38F70 )
         qword_140C38F88 = MEMORY[0xFFFFF78000000008];
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38EF0);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v55 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v55 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v55 >= 2u )
         {
           v56 = KeGetCurrentPrcb();
           v57 = v56->SchedulerAssist;
@@ -468,10 +468,10 @@ LABEL_42:
       v25 = *(unsigned int *)(v4 + 24);
       v26 = KeAcquireSpinLockRaiseToDpc(&qword_140C3F3E8);
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F3E8);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v66 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v66 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v66 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v66 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v66 >= 2u )
         {
           v67 = KeGetCurrentPrcb();
           v68 = v67->SchedulerAssist;
@@ -493,10 +493,10 @@ LABEL_42:
       }
       dword_140C38EFC = 28;
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38EF0);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v70 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v70 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v70 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v70 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v70 >= 2u )
         {
           v71 = KeGetCurrentPrcb();
           v72 = v71->SchedulerAssist;
@@ -524,10 +524,10 @@ LABEL_42:
         if ( v33 )
           PopDirectedDripsClearDisengageReason(4LL);
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F3E8);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v74 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v74 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v74 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v74 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v74 >= 2u )
           {
             v75 = KeGetCurrentPrcb();
             v76 = v75->SchedulerAssist;
@@ -547,10 +547,10 @@ LABEL_42:
         }
         --*((_DWORD *)&PopDirectedDripsDiagSessionContext + v31 + 16);
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38EF0);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v78 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v78 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v78 >= 2u )
           {
             v79 = KeGetCurrentPrcb();
             v80 = v79->SchedulerAssist;
@@ -602,10 +602,10 @@ LABEL_42:
   PnpEnumerationInProgress = 0;
   KeSetEvent(&PnpEnumerationLock, 0, 0);
   KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v82 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v82 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v82 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v82 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v82 >= 2u )
     {
       v83 = KeGetCurrentPrcb();
       v84 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

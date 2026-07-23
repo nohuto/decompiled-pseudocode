@@ -14,67 +14,59 @@
  *     RtlUnhandledExceptionFilter2 @ 0x1800F9930 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall LdrpLogFatalUserCallbackException(__int64 a1, __int64 a2)
+LONG __fastcall LdrpLogFatalUserCallbackException(_EXCEPTION_RECORD *a1, struct _CONTEXT *a2)
 {
-  __int64 (__fastcall *v4)(_QWORD *); // rax
-  __int64 result; // rax
+  __int64 (__fastcall *v4)(_EXCEPTION_POINTERS *); // rax
+  LONG result; // eax
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rdx
   unsigned __int16 Length; // ax
   int v8; // ecx
   wchar_t *Buffer; // rax
-  unsigned __int64 *v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  int v13; // eax
-  __int16 v14; // [rsp+20h] [rbp-E0h] BYREF
-  unsigned __int64 v15; // [rsp+28h] [rbp-D8h] BYREF
-  _QWORD v16[2]; // [rsp+30h] [rbp-D0h] BYREF
-  int v17; // [rsp+40h] [rbp-C0h]
-  int v18; // [rsp+44h] [rbp-BCh]
-  __int64 v19; // [rsp+48h] [rbp-B8h]
-  __int64 v20; // [rsp+50h] [rbp-B0h]
-  int v21; // [rsp+58h] [rbp-A8h]
-  __int16 *v22; // [rsp+E0h] [rbp-20h] BYREF
-  int v23; // [rsp+E8h] [rbp-18h]
-  int v24; // [rsp+ECh] [rbp-14h]
-  wchar_t *v25; // [rsp+F0h] [rbp-10h]
-  int v26; // [rsp+F8h] [rbp-8h]
-  int v27; // [rsp+FCh] [rbp-4h]
+  void *Rip; // rax
+  NTSTATUS v11; // eax
+  __int16 v12; // [rsp+20h] [rbp-E0h] BYREF
+  ULONGLONG RegHandle; // [rsp+28h] [rbp-D8h] BYREF
+  _EXCEPTION_POINTERS ExceptionPointers; // [rsp+30h] [rbp-D0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-C0h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+E0h] [rbp-20h] BYREF
+  wchar_t *v17; // [rsp+F0h] [rbp-10h]
+  int v18; // [rsp+F8h] [rbp-8h]
+  int v19; // [rsp+FCh] [rbp-4h]
 
-  v16[0] = a1;
-  v16[1] = a2;
-  v4 = (__int64 (__fastcall *)(_QWORD *))RtlDecodePointer(RtlpUnhandledExceptionFilter);
+  ExceptionPointers.ExceptionRecord = a1;
+  ExceptionPointers.ContextRecord = a2;
+  v4 = (__int64 (__fastcall *)(_EXCEPTION_POINTERS *))RtlDecodePointer(RtlpUnhandledExceptionFilter);
   if ( v4 )
-    result = v4(v16);
+    result = v4(&ExceptionPointers);
   else
-    result = RtlUnhandledExceptionFilter2(v16, &unk_180118A7A);
-  if ( (_DWORD)result != -1 )
+    result = RtlUnhandledExceptionFilter2(&ExceptionPointers, (ULONG)&Flags);
+  if ( result != -1 )
   {
-    if ( !(unsigned int)EtwEventRegister(UserLoaderGuid, 0LL, 0LL, &v15) )
+    if ( !EtwEventRegister(&UserLoaderGuid, 0LL, 0LL, &RegHandle) )
     {
       ProcessParameters = NtCurrentPeb()->ProcessParameters;
       Length = ProcessParameters->ImagePathName.Length;
-      v24 = 0;
-      v14 = Length >> 1;
-      v22 = &v14;
-      v23 = 2;
+      UserData.Reserved = 0;
+      v12 = Length >> 1;
+      UserData.Ptr = (unsigned __int64)&v12;
+      UserData.Size = 2;
       v8 = ProcessParameters->ImagePathName.Length;
       Buffer = ProcessParameters->ImagePathName.Buffer;
-      v27 = 0;
-      v26 = v8;
-      v25 = Buffer;
-      EtwEventWrite(v15, (int)&FatalUserCallbackException, 2, (__int64)&v22);
-      EtwNotificationUnregister(v15, 0LL, v10, v11);
+      v19 = 0;
+      v18 = v8;
+      v17 = Buffer;
+      EtwEventWrite(RegHandle, &FatalUserCallbackException, 2u, &UserData);
+      EtwNotificationUnregister(RegHandle, 0LL);
     }
-    v12 = *(_QWORD *)(a2 + 248);
-    v21 = 0;
-    v20 = v12;
-    LODWORD(v12) = *(_DWORD *)(a1 + 4) | 1;
-    v17 = -1073740771;
-    v18 = v12;
-    v19 = a1;
-    v13 = ZwRaiseException();
-    RtlRaiseStatus(v13);
+    Rip = (void *)a2->Rip;
+    ExceptionRecord.NumberParameters = 0;
+    ExceptionRecord.ExceptionAddress = Rip;
+    LODWORD(Rip) = a1->ExceptionFlags | 1;
+    ExceptionRecord.ExceptionCode = -1073740771;
+    ExceptionRecord.ExceptionFlags = (unsigned int)Rip;
+    ExceptionRecord.ExceptionRecord = a1;
+    v11 = ZwRaiseException(&ExceptionRecord, a2, 0);
+    RtlRaiseStatus(v11);
   }
   return result;
 }

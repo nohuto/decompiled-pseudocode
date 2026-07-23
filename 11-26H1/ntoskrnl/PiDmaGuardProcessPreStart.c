@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmaGuardProcessPreStart @ 0x1409109F4
+ * XREFs of PiDmaGuardProcessPreStart @ 0x1409B2AD4
  * Callers:
- *     PipProcessStartPhase1 @ 0x1409108E0 (PipProcessStartPhase1.c)
+ *     PipProcessStartPhase1 @ 0x1409B29C0 (PipProcessStartPhase1.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PiIommuUnblockDevice @ 0x14077916C (PiIommuUnblockDevice.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PiIommuUnblockDevice @ 0x14077C00C (PiIommuUnblockDevice.c)
  */
 
 void __fastcall PiDmaGuardProcessPreStart(ULONG_PTR MaxDataSize)

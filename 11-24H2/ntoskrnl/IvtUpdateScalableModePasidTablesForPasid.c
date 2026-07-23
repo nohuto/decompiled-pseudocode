@@ -1,18 +1,18 @@
 /*
- * XREFs of IvtUpdateScalableModePasidTablesForPasid @ 0x1404F5314
+ * XREFs of IvtUpdateScalableModePasidTablesForPasid @ 0x1404F2C14
  * Callers:
- *     IvtUpdateScalableModeTranslationStructures @ 0x1404CB814 (IvtUpdateScalableModeTranslationStructures.c)
- *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x140570FFC (IvtLegacyUpdateScalableModeTranslationStructures.c)
- *     IvtLegacySetupScalableModeDefaultPasidTables @ 0x140B52624 (IvtLegacySetupScalableModeDefaultPasidTables.c)
- *     IvtSetupScalableModeDefaultPasidTables @ 0x140B52A38 (IvtSetupScalableModeDefaultPasidTables.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x1404C4C90 (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x14056E48C (IvtLegacyUpdateScalableModeTranslationStructures.c)
+ *     IvtLegacySetupScalableModeDefaultPasidTables @ 0x140B54674 (IvtLegacySetupScalableModeDefaultPasidTables.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140B54A88 (IvtSetupScalableModeDefaultPasidTables.c)
  * Callees:
- *     IvtBuildScalableModePasidTableS2Entry @ 0x1404D4D10 (IvtBuildScalableModePasidTableS2Entry.c)
- *     IvtLegacySetScalableModePasidTableEntry @ 0x1404D51BC (IvtLegacySetScalableModePasidTableEntry.c)
- *     IvtBuildScalableModePasidDirectoryEntry @ 0x1404D867C (IvtBuildScalableModePasidDirectoryEntry.c)
- *     IvtBuildScalableModePasidTableS1Entry @ 0x1404F592C (IvtBuildScalableModePasidTableS1Entry.c)
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IvtBuildScalableModePasidTableS2Entry @ 0x1404CDEEC (IvtBuildScalableModePasidTableS2Entry.c)
+ *     IvtLegacySetScalableModePasidTableEntry @ 0x1404CE494 (IvtLegacySetScalableModePasidTableEntry.c)
+ *     IvtBuildScalableModePasidDirectoryEntry @ 0x1404D1ACC (IvtBuildScalableModePasidDirectoryEntry.c)
+ *     IvtBuildScalableModePasidTableS1Entry @ 0x1404F322C (IvtBuildScalableModePasidTableS1Entry.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IvtUpdateScalableModePasidTablesForPasid(

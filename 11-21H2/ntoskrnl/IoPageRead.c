@@ -1,9 +1,9 @@
 /*
  * XREFs of IoPageRead @ 0x140388EE0
  * Callers:
- *     PopReadPagesFromHiberFile @ 0x14098F634 (PopReadPagesFromHiberFile.c)
+ *     sub_14098F634 @ 0x14098F634 (sub_14098F634.c)
  * Callees:
- *     IoPageReadEx @ 0x140342C50 (IoPageReadEx.c)
+ *     sub_140342C50 @ 0x140342C50 (sub_140342C50.c)
  */
 
 NTSTATUS __stdcall IoPageRead(
@@ -41,5 +41,5 @@ NTSTATUS __stdcall IoPageRead(
   v12 = v9 & 0xFFFFFFFFFFFFFFFDuLL;
   if ( (v9 & 2) == 0 )
     v12 = v9;
-  return IoPageReadEx(FileObject, v12, StartingOffset, (__int64)Event, (__int64)IoStatusBlock, v11, 0LL);
+  return sub_140342C50(FileObject, v12, StartingOffset, (__int64)Event, (__int64)IoStatusBlock, v11, 0LL);
 }

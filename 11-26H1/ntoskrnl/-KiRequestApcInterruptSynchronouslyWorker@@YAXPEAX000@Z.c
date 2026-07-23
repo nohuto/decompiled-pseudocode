@@ -1,9 +1,9 @@
 /*
- * XREFs of ?KiRequestApcInterruptSynchronouslyWorker@@YAXPEAX000@Z @ 0x1405F6C50
+ * XREFs of ?KiRequestApcInterruptSynchronouslyWorker@@YAXPEAX000@Z @ 0x1405F9610
  * Callers:
  *     <none>
  * Callees:
- *     KiRequestSoftwareInterrupt @ 0x1402C7D20 (KiRequestSoftwareInterrupt.c)
+ *     KiRequestSoftwareInterrupt @ 0x1403129C0 (KiRequestSoftwareInterrupt.c)
  */
 
 void __fastcall KiRequestApcInterruptSynchronouslyWorker(void *a1, void *a2, void *a3, void *a4)

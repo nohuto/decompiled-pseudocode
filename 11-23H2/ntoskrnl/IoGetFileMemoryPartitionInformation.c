@@ -1,7 +1,7 @@
 /*
- * XREFs of IoGetFileMemoryPartitionInformation @ 0x1402A1DB0
+ * XREFs of IoGetFileMemoryPartitionInformation @ 0x1402A2040
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140723350 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x140723550 (MiCreateImageOrDataSection.c)
  * Callees:
  *     <none>
  */

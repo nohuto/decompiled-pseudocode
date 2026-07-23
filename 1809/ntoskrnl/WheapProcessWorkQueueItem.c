@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapProcessWorkQueueItem @ 0x1403204D0
+ * XREFs of WheapProcessWorkQueueItem @ 0x1403206C0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     WheapFreeErrorRecord @ 0x140320420 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x140320F88 (WheapGenerateETWEvents.c)
- *     WheapCreateTriageDumpFromPreviousSession @ 0x14057F05C (WheapCreateTriageDumpFromPreviousSession.c)
- *     WheapPredictiveFailureAnalysis @ 0x1408DCF44 (WheapPredictiveFailureAnalysis.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     WheapFreeErrorRecord @ 0x140320610 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x140321178 (WheapGenerateETWEvents.c)
+ *     WheapCreateTriageDumpFromPreviousSession @ 0x14058005C (WheapCreateTriageDumpFromPreviousSession.c)
+ *     WheapPredictiveFailureAnalysis @ 0x1408DE204 (WheapPredictiveFailureAnalysis.c)
  */
 
 void __fastcall WheapProcessWorkQueueItem(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ void __fastcall WheapProcessWorkQueueItem(__int64 a1, __int64 a2)
   __int64 v3; // rax
   unsigned int v4; // ecx
   int v5; // eax
-  __int64 *v6; // rax
+  struct _LIST_ENTRY *Flink; // rax
 
   if ( WheapPreviousSessionFailure )
   {
@@ -44,13 +44,13 @@ void __fastcall WheapProcessWorkQueueItem(__int64 a1, __int64 a2)
   else
   {
     KeWaitForSingleObject(&WheapDispatchPtr.Queue.Wcb.DeviceObject, Executive, 0, 0, 0LL);
-    v6 = *(__int64 **)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters;
-    if ( **(struct _DEVICE_OBJECT ***)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.Queue.Wcb.DeviceContext )
+    Flink = WheapDispatchPtr.DeviceQueue.DeviceListHead.Flink;
+    if ( WheapDispatchPtr.DeviceQueue.DeviceListHead.Flink->Flink != (struct _LIST_ENTRY *)&WheapDispatchPtr.DeviceQueue )
       __fastfail(3u);
-    *(_QWORD *)a2 = &WheapDispatchPtr.Queue.Wcb.DeviceContext;
-    *(_QWORD *)(a2 + 8) = v6;
-    *v6 = a2;
-    *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters = a2;
+    *(_QWORD *)a2 = &WheapDispatchPtr.DeviceQueue;
+    *(_QWORD *)(a2 + 8) = Flink;
+    Flink->Flink = (struct _LIST_ENTRY *)a2;
+    WheapDispatchPtr.DeviceQueue.DeviceListHead.Flink = (struct _LIST_ENTRY *)a2;
     KeSetEvent((PRKEVENT)&WheapDispatchPtr.Queue.Wcb.DeviceObject, 0, 0);
   }
 }

@@ -9,14 +9,14 @@
  *     RtlQueryRegistryValuesEx @ 0x1406C7B10 (RtlQueryRegistryValuesEx.c)
  */
 
-__int64 __fastcall RtlpEtcGetDwordFromRegistry(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall RtlpEtcGetDwordFromRegistry(PCWSTR Path, wchar_t *a2, void *a3)
 {
-  _QWORD v7[14]; // [rsp+30h] [rbp-78h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+30h] [rbp-78h] BYREF
 
-  memset(v7, 0, sizeof(v7));
-  LODWORD(v7[1]) = 308;
-  v7[2] = a2;
-  LODWORD(v7[4]) = 0x4000000;
-  v7[3] = a3;
-  return RtlQueryRegistryValuesEx(0LL, a1, v7, 0LL, 0LL);
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].Flags = 308;
+  QueryTable[0].Name = a2;
+  QueryTable[0].DefaultType = 0x4000000;
+  QueryTable[0].EntryContext = a3;
+  return RtlQueryRegistryValuesEx(0, Path, QueryTable, 0LL, 0LL);
 }

@@ -12,60 +12,60 @@
  */
 
 int __fastcall LdrMapAndVerifyResourceFile(
-        int a1,
+        void *a1,
         int a2,
-        char a3,
+        int a3,
         int a4,
         wchar_t *String1,
         int a6,
         HANDLE *a7,
         _DWORD *a8,
-        int *a9)
+        unsigned int *a9)
 {
-  int v10; // eax
-  int v11; // esi
-  int v12; // edi
-  int v14; // eax
-  int v15; // [esp+10h] [ebp-10h] BYREF
+  int v11; // eax
+  int v12; // esi
+  unsigned int v13; // edi
+  int v15; // eax
+  PVOID BaseAddress; // [esp+10h] [ebp-10h] BYREF
   HANDLE Handle; // [esp+14h] [ebp-Ch] BYREF
-  int v17; // [esp+18h] [ebp-8h] BYREF
-  int v18; // [esp+1Ch] [ebp-4h]
+  int v18; // [esp+18h] [ebp-8h] BYREF
+  void *v19; // [esp+1Ch] [ebp-4h]
 
-  v18 = a1;
+  v19 = a1;
   *a7 = 0;
   Handle = 0;
-  v15 = 0;
+  BaseAddress = 0;
   *a8 = 0;
-  v17 = 0;
+  v18 = 0;
   *a9 = 0;
   if ( RtlGetCurrentServiceSessionId() )
-    v10 = (int)NtCurrentPeb()->SharedData + 555;
+    v11 = (int)NtCurrentPeb()->SharedData + 555;
   else
-    v10 = 2147353477;
-  if ( (*(_BYTE *)v10 & 1) != 0 )
+    v11 = 2147353477;
+  if ( (*(_BYTE *)v11 & 1) != 0 )
   {
     if ( RtlGetCurrentServiceSessionId() )
-      v14 = (int)NtCurrentPeb()->SharedData + 554;
+      v15 = (int)NtCurrentPeb()->SharedData + 554;
     else
-      v14 = 2147353476;
-    LdrpTraceLoadMUIDll(a2, *(unsigned __int8 *)v14);
+      v15 = 2147353476;
+    LdrpTraceLoadMUIDll(a2, *(unsigned __int8 *)v15);
   }
-  v11 = LdrpMapResourceFile(a3, &Handle, &v15, &v17);
-  if ( v11 >= 0 )
+  v12 = LdrpMapResourceFile(a1, a2, a3, &Handle, &BaseAddress, &v18);
+  if ( v12 >= 0 )
   {
-    v12 = v15 | 1;
-    if ( LdrpVerifyAlternateResourceModuleEx(v18, v15 | 1, a2, String1, a4, a6) )
+    v13 = (unsigned int)BaseAddress | 1;
+    if ( LdrpVerifyAlternateResourceModuleEx(v19, (void *)((unsigned int)BaseAddress | 1), a2, String1, a4, a6) )
     {
       *a7 = Handle;
-      *a8 = v17;
-      *a9 = v12;
+      *a8 = v18;
+      *a9 = v13;
     }
     else
     {
-      NtUnmapViewOfSection(-1, v15);
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
       NtClose(Handle);
       return -1073020926;
     }
   }
-  return v11;
+  return v12;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of BgpFmSqrt @ 0x1403B2DA0
+ * XREFs of BgpFmSqrt @ 0x1403B2F10
  * Callers:
- *     RaspTestIntersection @ 0x1403B2A70 (RaspTestIntersection.c)
+ *     RaspTestIntersection @ 0x1403B2BE0 (RaspTestIntersection.c)
  * Callees:
  *     <none>
  */

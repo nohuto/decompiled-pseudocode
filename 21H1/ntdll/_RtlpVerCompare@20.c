@@ -8,7 +8,7 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-bool __fastcall RtlpVerCompare(int a1, int a2, int ArgList, bool *a4, char a5)
+bool __fastcall RtlpVerCompare(int a1, int a2, int Format, bool *a4, char a5)
 {
   int v6; // ecx
   int v7; // esi
@@ -24,8 +24,8 @@ bool __fastcall RtlpVerCompare(int a1, int a2, int ArgList, bool *a4, char a5)
 
   if ( (a5 & 1) != 0 )
   {
-    RtlStringCbPrintfA(Buffer, 20, "%d", a2);
-    RtlStringCbPrintfA(v16, 20, "%d", ArgList);
+    RtlStringCbPrintfA(Buffer, 20, (int)"%d", a2);
+    RtlStringCbPrintfA(v16, 20, (int)"%d", Format);
     v11 = Buffer;
     v12 = v16;
     while ( 1 )
@@ -53,7 +53,7 @@ LABEL_12:
   }
   else
   {
-    v6 = ArgList;
+    v6 = Format;
   }
 LABEL_3:
   *a4 = a2 == v6;

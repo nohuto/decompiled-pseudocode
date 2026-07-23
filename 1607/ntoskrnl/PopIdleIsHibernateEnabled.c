@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleIsHibernateEnabled @ 0x1403F56BC
+ * XREFs of PopIdleIsHibernateEnabled @ 0x1403F4580
  * Callers:
- *     PopIdleArmAoAcDozeS4Timer @ 0x14020D4E4 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopPolicySystemIdle @ 0x1403F5874 (PopPolicySystemIdle.c)
- *     PopInitSIdle @ 0x140544AF4 (PopInitSIdle.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14020D310 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopPolicySystemIdle @ 0x1403F4738 (PopPolicySystemIdle.c)
+ *     PopInitSIdle @ 0x140545034 (PopInitSIdle.c)
  * Callees:
  *     <none>
  */

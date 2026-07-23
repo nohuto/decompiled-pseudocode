@@ -18,48 +18,48 @@
 
 __int64 __fastcall SepAppendAceToTokenDefaultDacl(__int64 a1, unsigned __int8 *a2)
 {
-  __int64 v2; // rsi
-  int v5; // ebx
+  ACL *v2; // rsi
+  int AclSize; // ebx
   NTSTATUS Acl; // edi
   ULONG v7; // r12d
   ACL *Pool2; // rax
   ACL *v9; // r14
   ULONG v10; // ebx
-  ULONG AclRevision; // [rsp+30h] [rbp-58h] BYREF
+  ULONG AclInformation; // [rsp+30h] [rbp-58h] BYREF
   __int64 v13; // [rsp+38h] [rbp-50h] BYREF
   int v14; // [rsp+40h] [rbp-48h]
 
-  v2 = *(_QWORD *)(a1 + 184);
+  v2 = *(ACL **)(a1 + 184);
   v13 = 0LL;
   v14 = 0;
-  AclRevision = 0;
-  if ( !v2 || RtlFindAceBySid(v2, a2, 0LL) )
+  AclInformation = 0;
+  if ( !v2 || RtlFindAceBySid((__int64)v2, a2, 0LL) )
   {
     return 0;
   }
   else
   {
-    v5 = *(unsigned __int16 *)(v2 + 2);
-    Acl = RtlQueryInformationAcl(v2, &AclRevision, 4LL);
+    AclSize = v2->AclSize;
+    Acl = RtlQueryInformationAcl(v2, &AclInformation, 4u, AclRevisionInformation);
     if ( Acl >= 0 )
     {
-      Acl = RtlQueryInformationAcl(v2, &v13, 12LL);
+      Acl = RtlQueryInformationAcl(v2, &v13, 0xCu, AclSizeInformation);
       if ( Acl >= 0 )
       {
-        v7 = (v5 + 4 * a2[1] + 19) & 0xFFFFFFFC;
+        v7 = (AclSize + 4 * a2[1] + 19) & 0xFFFFFFFC;
         Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
         v9 = Pool2;
         if ( Pool2 )
         {
-          v10 = AclRevision;
-          Acl = RtlCreateAcl(Pool2, v7, AclRevision);
+          v10 = AclInformation;
+          Acl = RtlCreateAcl(Pool2, v7, AclInformation);
           if ( Acl >= 0 )
           {
-            if ( (unsigned __int8)(*(_BYTE *)v2 - 2) <= 2u
-              && *(_WORD *)(v2 + 4)
-              && v2 + 8 < v2 + (unsigned __int64)*(unsigned __int16 *)(v2 + 2) )
+            if ( (unsigned __int8)(v2->AclRevision - 2) <= 2u
+              && v2->AceCount
+              && &v2[1] < (ACL *)((char *)v2 + v2->AclSize) )
             {
-              Acl = RtlAddAce(v9, v10, 0, (PVOID)(v2 + 8), HIDWORD(v13) - 8);
+              Acl = RtlAddAce(v9, v10, 0, &v2[1], HIDWORD(v13) - 8);
               if ( Acl >= 0 )
               {
                 Acl = RtlAddAccessAllowedAce(v9, v10, 0x10000000u, a2);

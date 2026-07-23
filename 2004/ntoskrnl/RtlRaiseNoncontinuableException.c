@@ -6,69 +6,20 @@
  *     RtlpCaptureContext @ 0x1403FF0F0 (RtlpCaptureContext.c)
  */
 
-__int64 __fastcall RtlRaiseNoncontinuableException(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12,
-        __int64 a13,
-        __int64 a14,
-        __int64 a15,
-        __int64 a16,
-        __int64 a17,
-        __int64 a18,
-        __int64 a19,
-        __int64 a20,
-        __int64 a21,
-        __int64 a22,
-        __int64 a23,
-        __int64 a24)
+void __cdecl __noreturn RtlRaiseNoncontinuableException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord)
 {
-  __int64 v24; // r8
-  __int64 v25; // r9
-  __int64 v27; // [rsp+28h] [rbp-10h]
-  __int64 v28; // [rsp+30h] [rbp-8h]
+  char v2; // r8
+  _CONTEXT *v3; // [rsp+28h] [rbp-10h]
+  __int64 v4; // [rsp+30h] [rbp-8h]
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
-  char v30; // [rsp+40h] [rbp+8h] BYREF
+  char v6; // [rsp+40h] [rbp+8h] BYREF
 
   RtlpCaptureContext();
-  *(_QWORD *)(v28 + 152) = &v30;
-  *(_QWORD *)(v28 + 248) = retaddr;
-  *(_QWORD *)(v27 + 16) = *(_QWORD *)(v28 + 248);
-  if ( (_BYTE)v24 )
-    return RtlRaiseException(
-             v28,
-             v27,
-             v24,
-             v25,
-             a5,
-             a6,
-             a7,
-             a8,
-             a9,
-             a10,
-             a11,
-             a12,
-             a13,
-             a14,
-             a15,
-             a16,
-             a17,
-             a18,
-             a19,
-             a20,
-             a21,
-             a22,
-             a23,
-             a24);
+  *(_QWORD *)(v4 + 152) = &v6;
+  *(_QWORD *)(v4 + 248) = retaddr;
+  v3->P3Home = *(_QWORD *)(v4 + 248);
+  if ( v2 )
+    RtlRaiseException((PEXCEPTION_RECORD)v4);
   else
-    return ZwRaiseException(v28, v27);
+    ZwRaiseException((PEXCEPTION_RECORD)v4, v3, 0);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrCaptureDynamicRelocationTableHeader @ 0x1408F40C4
+ * XREFs of LdrCaptureDynamicRelocationTableHeader @ 0x14093E62C
  * Callers:
- *     MiCaptureBootDriverRetpolineInfo @ 0x1407F06EC (MiCaptureBootDriverRetpolineInfo.c)
- *     MiParseImageLoadConfig @ 0x1408F42B8 (MiParseImageLoadConfig.c)
- *     MiApplyDynamicRelocations @ 0x140C58C4C (MiApplyDynamicRelocations.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407F0CBC (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiParseImageLoadConfig @ 0x14093D160 (MiParseImageLoadConfig.c)
+ *     MiApplyDynamicRelocations @ 0x140C5ADDC (MiApplyDynamicRelocations.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
  */
 
 __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
-        unsigned __int64 a1,
-        unsigned int a2,
+        char *BaseOfImage,
+        ULONG64 Size,
         __int64 a3,
         unsigned int a4,
         __int64 a5,
@@ -19,19 +19,19 @@ __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
         _QWORD *a8)
 {
   unsigned __int64 v8; // r15
-  int v10; // r10d
+  NTSTATUS v10; // r10d
   unsigned __int16 v11; // bx
   int v12; // esi
   __int64 v13; // r11
   __int64 v14; // r11
   __int64 v15; // rax
   int v16; // edx
-  unsigned __int64 v18; // rdi
-  unsigned __int64 v19; // rax
-  _QWORD v20[4]; // [rsp+28h] [rbp-20h] BYREF
+  char *v18; // rdi
+  char *v19; // rax
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+28h] [rbp-20h] BYREF
 
-  v8 = a2;
-  v20[0] = 0LL;
+  v8 = (unsigned int)Size;
+  OutHeaders = 0LL;
   v10 = 0;
   v11 = 0;
   v12 = 0;
@@ -59,17 +59,17 @@ __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
   }
   if ( v11 )
   {
-    v18 = a2 + a1;
-    v10 = RtlImageNtHeaderEx(0, a1, a2, v20);
+    v18 = &BaseOfImage[(unsigned int)Size];
+    v10 = RtlImageNtHeaderEx(0, BaseOfImage, (unsigned int)Size, &OutHeaders);
     if ( v10 < 0 )
       return (unsigned int)v10;
-    if ( v11 > *(_WORD *)(v20[0] + 6LL) )
+    if ( v11 > OutHeaders->FileHeader.NumberOfSections )
       return (unsigned int)-1073741701;
-    v19 = v20[0] + *(unsigned __int16 *)(v20[0] + 20LL) - 16LL + 40LL * v11;
+    v19 = (char *)OutHeaders + 40 * v11 + OutHeaders->FileHeader.SizeOfOptionalHeader - 16;
     if ( v18 <= v19 || v18 < v19 + 40 )
       return (unsigned int)-1073741701;
     _mm_lfence();
-    v14 = (unsigned int)(v12 + *(_DWORD *)(v19 + 12));
+    v14 = (unsigned int)(v12 + *((_DWORD *)v19 + 3));
   }
   else
   {
@@ -78,13 +78,13 @@ __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
     if ( a5 )
       v14 = (unsigned int)(v13 - a5);
     else
-      v14 = (unsigned int)(v13 - a1);
+      v14 = (unsigned int)(v13 - (_DWORD)BaseOfImage);
   }
   if ( v14 + 8 < (unsigned __int64)(unsigned int)v14 )
     return (unsigned int)-1073741701;
   if ( v14 + 8 > v8 )
     return (unsigned int)-1073741701;
-  v15 = *(_QWORD *)(v14 + a1);
+  v15 = *(_QWORD *)&BaseOfImage[v14];
   v16 = HIDWORD(v15) + 8;
   if ( (unsigned int)(HIDWORD(v15) + 8) < HIDWORD(v15)
     || v16 + (int)v14 < (unsigned int)v14

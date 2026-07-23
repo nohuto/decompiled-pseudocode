@@ -11,11 +11,11 @@
  *     RtlSidHashLookup @ 0x180078BA0 (RtlSidHashLookup.c)
  *     EtwpGuidEntryCompare @ 0x180082E68 (EtwpGuidEntryCompare.c)
  *     RtlFindUnicodeSubstring @ 0x180087820 (RtlFindUnicodeSubstring.c)
- *     RtlReplaceSidInSd @ 0x1800E6CF0 (RtlReplaceSidInSd.c)
- *     RtlpIsAttributeAceInSacl @ 0x1800EA970 (RtlpIsAttributeAceInSacl.c)
- *     RtlpIsNameInExpressionPrivate @ 0x1800FB72C (RtlpIsNameInExpressionPrivate.c)
- *     RtlpStackDbEntryIsEqual @ 0x180119394 (RtlpStackDbEntryIsEqual.c)
- *     RtlpStackDbSegmentComparitor @ 0x1801194A0 (RtlpStackDbSegmentComparitor.c)
+ *     RtlReplaceSidInSd @ 0x1800E6CB0 (RtlReplaceSidInSd.c)
+ *     RtlpIsAttributeAceInSacl @ 0x1800EA930 (RtlpIsAttributeAceInSacl.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x1800FB6EC (RtlpIsNameInExpressionPrivate.c)
+ *     RtlpStackDbEntryIsEqual @ 0x180119334 (RtlpStackDbEntryIsEqual.c)
+ *     RtlpStackDbSegmentComparitor @ 0x180119440 (RtlpStackDbSegmentComparitor.c)
  * Callees:
  *     <none>
  */

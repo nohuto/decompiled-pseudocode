@@ -14,7 +14,7 @@ __int64 __fastcall MiAssignSystemVa(ULONG NumberToClear, unsigned int a2)
   int v5; // ebx
   ULONG ClearBitsAndSet; // eax
   __int64 v7; // rbp
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   BitMapHeader.SizeOfBitMap = 256;
   BitMapHeader.Buffer = (unsigned int *)&unk_1403CBA60;

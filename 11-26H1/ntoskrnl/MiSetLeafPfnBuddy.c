@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetLeafPfnBuddy @ 0x140463390
+ * XREFs of MiSetLeafPfnBuddy @ 0x14045C350
  * Callers:
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
  * Callees:
  *     <none>
  */

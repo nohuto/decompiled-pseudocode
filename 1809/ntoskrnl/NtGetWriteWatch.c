@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGetWriteWatch @ 0x140086AD0
+ * XREFs of NtGetWriteWatch @ 0x140086AC0
  * Callers:
  *     <none>
  * Callees:
@@ -21,34 +21,34 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiUnlockVadCore @ 0x140125768 (MiUnlockVadCore.c)
- *     MiPreUnlockWorkingSetShared @ 0x140130C48 (MiPreUnlockWorkingSetShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiWaitForVadDeletion @ 0x1402CB150 (MiWaitForVadDeletion.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140671500 (ObReferenceObjectByHandleWithTag.c)
- *     ExSystemExceptionFilter @ 0x1406E2770 (ExSystemExceptionFilter.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiUnlockVadCore @ 0x140125838 (MiUnlockVadCore.c)
+ *     MiPreUnlockWorkingSetShared @ 0x140130D18 (MiPreUnlockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiWaitForVadDeletion @ 0x1402CB340 (MiWaitForVadDeletion.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C494 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406726C0 (ObReferenceObjectByHandleWithTag.c)
+ *     ExSystemExceptionFilter @ 0x1406E3A10 (ExSystemExceptionFilter.c)
  */
 
 NTSTATUS __stdcall NtGetWriteWatch(
@@ -341,7 +341,7 @@ LABEL_30:
         else
         {
           if ( v34 == 2 )
-            v35 = &dword_14043B700;
+            v35 = &dword_14043C7C0;
           else
             v35 = (LONG *)(v101 + 192);
           v36 = KeGetCurrentIrql();
@@ -403,7 +403,7 @@ LABEL_30:
               v100 = 0LL;
             }
             if ( (*(_BYTE *)(v33 + 184) & 7) == 2 )
-              v41 = &dword_14043B700;
+              v41 = &dword_14043C7C0;
             else
               v41 = (LONG *)(v33 + 192);
             if ( (*v41 & 0x40000000) != 0 || KeShouldYieldProcessor() )
@@ -421,7 +421,7 @@ LABEL_30:
               if ( j > 0xFFFFF6FFFFFFFFFFuLL )
                 break;
             }
-            if ( j < 0xFFFF800000000000uLL || j >= qword_14043BAC0 && j <= qword_14043A530 )
+            if ( j < 0xFFFF800000000000uLL || j >= qword_14043CB80 && j <= qword_14043B5F0 )
               AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
             else
               AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
@@ -550,7 +550,7 @@ LABEL_135:
                   }
                   v82 = MiCaptureDirtyBitToPfn(v77);
                   if ( v82 )
-                    v81 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v77 + 40) >> 40) & 0x3FFLL));
+                    v81 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v77 + 40) >> 40) & 0x3FFLL));
                   _InterlockedAnd64((volatile signed __int64 *)(v77 + 24), 0x7FFFFFFFFFFFFFFFuLL);
                   if ( v82 )
                     MiReleasePageFileInfo(v81, v82, 1);
@@ -629,7 +629,7 @@ LABEL_91:
             LOBYTE(v55) = *(_BYTE *)(v101 + 184);
           }
           if ( (v55 & 7) == 2 )
-            v56 = &dword_14043B700;
+            v56 = &dword_14043C7C0;
           else
             v56 = (volatile signed __int32 *)(v101 + 192);
           MiCheckProcessShadow(v101, 1u, v53, v54);
@@ -735,7 +735,7 @@ LABEL_107:
     {
       *(_BYTE *)(v69 + 32) |= 2u;
       if ( *(__int64 *)(v69 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v69, v66);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v69, v66);
       v98 = 0;
       v98 = *(_DWORD *)(v69 + 88) & 0x1FFFF;
       *(_DWORD *)(v69 + 88) &= 0xFFFE0000;

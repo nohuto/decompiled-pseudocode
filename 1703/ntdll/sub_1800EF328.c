@@ -18,15 +18,16 @@ __int64 sub_1800EF328()
 {
   struct _PEB *v0; // r14
   unsigned int v1; // ebx
-  unsigned int i; // esi
-  void **ProcessHeaps; // rax
+  ULONG i; // esi
+  PVOID *ProcessHeaps; // rax
   char *v4; // rdi
   int v5; // ebp
-  volatile signed __int64 *v7; // rcx
+  _RTL_SRWLOCK *v7; // rcx
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
   v0 = NtCurrentPeb();
-  RtlEnterCriticalSection((__int64)&unk_180159A80);
-  sub_180058AF0((__int64)&qword_180159600, &qword_180159600);
+  RtlEnterCriticalSection(&stru_180159A80);
+  sub_180058AF0((__int64)&stru_180159600, &stru_180159600);
   v1 = 0;
   for ( i = 0; i < v0->NumberOfHeaps; ++i )
   {
@@ -37,16 +38,17 @@ __int64 sub_1800EF328()
       if ( (v4[20] & 1) == 0 )
       {
         sub_18001F91C((__int64)ProcessHeaps[i]);
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)v4 + 18);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v4 + 18);
         sub_180103988(v4 + 288, 0LL);
       }
     }
     else if ( (v4[112] & 1) == 0 )
     {
       v5 = 0;
-      while ( !(unsigned int)RtlTryEnterCriticalSection(*((_QWORD *)v4 + 44)) )
+      DelayInterval.QuadPart = -250000LL;
+      while ( !RtlTryEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)v4 + 44)) )
       {
-        ZwDelayExecution();
+        ZwDelayExecution(0, &DelayInterval);
         if ( (unsigned int)++v5 >= 0x64 )
         {
           v1 = -1073741420;
@@ -55,7 +57,7 @@ __int64 sub_1800EF328()
         }
       }
       if ( v4[386] == 2 )
-        v7 = (volatile signed __int64 *)*((_QWORD *)v4 + 47);
+        v7 = (_RTL_SRWLOCK *)*((_QWORD *)v4 + 47);
       else
         v7 = 0LL;
       if ( v7 )

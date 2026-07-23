@@ -2,13 +2,13 @@
  * XREFs of InitializeTEBUserLangList @ 0x18003BEF8
  * Callers:
  *     RtlGetThreadPreferredUILanguages @ 0x18003CC60 (RtlGetThreadPreferredUILanguages.c)
- *     RtlpQueryDefaultUILanguage @ 0x18007A6A0 (RtlpQueryDefaultUILanguage.c)
- *     RtlGetUserPreferredUILanguages @ 0x180080700 (RtlGetUserPreferredUILanguages.c)
+ *     RtlpQueryDefaultUILanguage @ 0x18007A6B0 (RtlpQueryDefaultUILanguage.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180080710 (RtlGetUserPreferredUILanguages.c)
  * Callees:
  *     InitializeUserOrMachineLangList @ 0x180039F7C (InitializeUserOrMachineLangList.c)
  *     RtlpMuiRegFreeLanguageList @ 0x18003C3D8 (RtlpMuiRegFreeLanguageList.c)
  *     RtlpLoadLanguageConfigList @ 0x18004BC10 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x180080C90 (RtlpUpdateTEBLanguage.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080CA0 (RtlpUpdateTEBLanguage.c)
  */
 
 __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   bool v6; // si
   bool v7; // bp
   bool v8; // r14
-  __int64 *UserPrefLanguages; // rdi
+  void *UserPrefLanguages; // rdi
   __int64 v10; // rax
   unsigned __int16 v11; // r10
   __int64 v12; // r9
@@ -30,7 +30,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   __int64 v18; // rax
   unsigned int MuiImpersonation; // eax
   __int64 v20; // rcx
-  __int64 v21; // rcx
+  _DWORD *v21; // rcx
   int v22; // eax
   bool v23; // zf
   struct _TEB *v25; // r8
@@ -39,7 +39,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   __int64 v28; // rax
   struct _TEB *v29; // rcx
   __int64 v30; // rax
-  __int64 v31; // rcx
+  _DWORD *v31; // rcx
   char v32; // cl
   __int64 v33; // rcx
   unsigned int v34; // r8d
@@ -56,7 +56,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v6 = 0;
   v7 = 0;
   v8 = 0;
-  UserPrefLanguages = (__int64 *)NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = NtCurrentTeb()->UserPrefLanguages;
   if ( a2 )
   {
     v10 = *(_QWORD *)(a2 + 24);
@@ -173,9 +173,9 @@ LABEL_47:
             }
             return (unsigned int)updated;
           }
-          if ( *UserPrefLanguages )
+          if ( *(_QWORD *)UserPrefLanguages )
           {
-            v20 = *(_QWORD *)(*UserPrefLanguages + 16);
+            v20 = *(_QWORD *)(*(_QWORD *)UserPrefLanguages + 16LL);
             if ( v20 )
             {
               if ( *(_DWORD *)(v20 + 12) < *(_DWORD *)(a2 + 12) )
@@ -183,15 +183,15 @@ LABEL_47:
 LABEL_36:
                 if ( UserPrefLanguages )
                 {
-                  v31 = *UserPrefLanguages;
-                  if ( *UserPrefLanguages )
+                  v31 = *(_DWORD **)UserPrefLanguages;
+                  if ( *(_QWORD *)UserPrefLanguages )
                   {
-                    v7 = (*(_DWORD *)(v31 + 40) & 2) != 0;
-                    v6 = (*(_DWORD *)(v31 + 40) & 4) != 0;
-                    if ( (*(_DWORD *)(v31 + 40) & 2) != 0 || (*(_DWORD *)(v31 + 40) & 4) != 0 )
-                      v5 = *(_DWORD *)(v31 + 40) & 0xFFFF0000;
+                    v7 = (v31[10] & 2) != 0;
+                    v6 = (v31[10] & 4) != 0;
+                    if ( (v31[10] & 2) != 0 || (v31[10] & 4) != 0 )
+                      v5 = v31[10] & 0xFFFF0000;
                     RtlpMuiRegFreeLanguageList(v31);
-                    *UserPrefLanguages = 0LL;
+                    *(_QWORD *)UserPrefLanguages = 0LL;
                   }
                 }
                 if ( NtCurrentTeb()->MergedPrefLanguages )
@@ -202,10 +202,10 @@ LABEL_36:
           }
           if ( UserPrefLanguages )
           {
-            v21 = *UserPrefLanguages;
-            if ( *UserPrefLanguages )
+            v21 = *(_DWORD **)UserPrefLanguages;
+            if ( *(_QWORD *)UserPrefLanguages )
             {
-              v22 = *(_DWORD *)(v21 + 40);
+              v22 = v21[10];
               if ( a1 )
                 v23 = (v22 & 0x20) == 0;
               else
@@ -219,7 +219,7 @@ LABEL_36:
               if ( v7 || v6 )
                 v5 = v22 & 0xFFFF0000;
               RtlpMuiRegFreeLanguageList(v21);
-              *UserPrefLanguages = 0LL;
+              *(_QWORD *)UserPrefLanguages = 0LL;
               if ( NtCurrentTeb()->MergedPrefLanguages )
               {
                 RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);

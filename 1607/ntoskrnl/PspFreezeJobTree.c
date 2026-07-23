@@ -1,20 +1,20 @@
 /*
- * XREFs of PspFreezeJobTree @ 0x140489E4C
+ * XREFs of PspFreezeJobTree @ 0x1404D4EDC
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspFreezeJobTree @ 0x140489E4C (PspFreezeJobTree.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspFreezeJobTree @ 0x1404D4EDC (PspFreezeJobTree.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExConvertExclusiveToSharedLite @ 0x1400A5C20 (ExConvertExclusiveToSharedLite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspUnlockJobConditionally @ 0x140469924 (PspUnlockJobConditionally.c)
- *     PspLockJobConditionally @ 0x140469940 (PspLockJobConditionally.c)
- *     PspComputeReportWakeFilter @ 0x140489E14 (PspComputeReportWakeFilter.c)
- *     PspFreezeJobTree @ 0x140489E4C (PspFreezeJobTree.c)
- *     PspDispatchWakeNotification @ 0x14048A150 (PspDispatchWakeNotification.c)
- *     PspLockRootJobExclusive @ 0x14048AB04 (PspLockRootJobExclusive.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x1400A4198 (ExConvertExclusiveToSharedLite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJobConditionally @ 0x1404687F4 (PspUnlockJobConditionally.c)
+ *     PspLockJobConditionally @ 0x140468810 (PspLockJobConditionally.c)
+ *     PspLockRootJobExclusive @ 0x1404D4E7C (PspLockRootJobExclusive.c)
+ *     PspFreezeJobTree @ 0x1404D4EDC (PspFreezeJobTree.c)
+ *     PspDispatchWakeNotification @ 0x1404D51E0 (PspDispatchWakeNotification.c)
+ *     PspComputeReportWakeFilter @ 0x1404D52F0 (PspComputeReportWakeFilter.c)
  */
 
 __int64 __fastcall PspFreezeJobTree(__int64 a1, int *a2)
@@ -22,11 +22,11 @@ __int64 __fastcall PspFreezeJobTree(__int64 a1, int *a2)
   int v4; // ecx
   __int64 v5; // rdi
   int v6; // eax
-  int v7; // edx
-  int v8; // ecx
-  int v10; // r8d
-  _QWORD *v11; // r8
-  __int64 v12; // r9
+  __int64 v7; // r9
+  int v8; // edx
+  int v9; // ecx
+  int v11; // r8d
+  _QWORD *v12; // r8
   signed __int32 v13; // eax
   signed __int32 v14; // edx
   __int128 v15; // xmm1
@@ -59,7 +59,7 @@ __int64 __fastcall PspFreezeJobTree(__int64 a1, int *a2)
       ExConvertExclusiveToSharedLite((PERESOURCE)(v19 + 56));
   }
   PspLockJobConditionally(a1, &v19);
-  v7 = *a2;
+  v8 = *a2;
   if ( (*a2 & 1) != 0 )
   {
     if ( *((_BYTE *)a2 + 4) )
@@ -72,7 +72,7 @@ __int64 __fastcall PspFreezeJobTree(__int64 a1, int *a2)
       goto LABEL_29;
     }
   }
-  if ( (v7 & 4) != 0 )
+  if ( (v8 & 4) != 0 )
   {
     if ( *((_BYTE *)a2 + 5) )
     {
@@ -88,7 +88,7 @@ LABEL_29:
     goto LABEL_47;
   }
 LABEL_6:
-  if ( (v7 & 2) == 0 )
+  if ( (v8 & 2) == 0 )
   {
 LABEL_7:
     if ( (*a2 & 1) != 0 )
@@ -98,12 +98,12 @@ LABEL_7:
       else
         _interlockedbittestandreset((volatile signed __int32 *)(a1 + 1304), 9u);
       v5 = v19;
-      v8 = 5;
+      v9 = 5;
       v18 = 5;
     }
     else
     {
-      v8 = v18;
+      v9 = v18;
     }
     if ( (*a2 & 4) != 0 )
     {
@@ -112,17 +112,17 @@ LABEL_7:
       else
         _interlockedbittestandreset((volatile signed __int32 *)(a1 + 1304), 0x13u);
       v5 = v19;
-      v8 |= 5u;
-      v18 = v8;
+      v9 |= 5u;
+      v18 = v9;
     }
-    if ( v8 )
+    if ( v9 )
       PspEnumJobsAndProcessesInJobHierarchy(
         (_QWORD *)a1,
         (int)PspSetJobFreezeCountCallback,
         0,
         (int)PspSetProcessFreezeStateCallback,
         (__int64)&v22,
-        v8);
+        v9);
     PspUnlockJobConditionally(a1, &v19);
     if ( v5 )
       ExReleaseResourceLite((PERESOURCE)(v5 + 56));
@@ -141,14 +141,15 @@ LABEL_7:
     PspDispatchWakeNotification((PVOID)a1);
     return (unsigned int)v17;
   }
-  v10 = ~*(_DWORD *)(a1 + 948) & v21;
-  if ( !v10 )
+  v11 = ~*(_DWORD *)(a1 + 948) & v21;
+  if ( !v11 )
   {
 LABEL_26:
-    v11 = a2 + 2;
+    v12 = a2 + 2;
     if ( (*(_DWORD *)(a1 + 1304) & 0x800) != 0 )
     {
-      PspComputeReportWakeFilter((_DWORD *)a1, (__int64)&v20, v11, 1);
+      LOBYTE(v7) = 1;
+      PspComputeReportWakeFilter(a1, &v20, v12, v7);
       if ( v20 )
       {
         v15 = *(_OWORD *)(a1 + 896);
@@ -158,19 +159,19 @@ LABEL_26:
         v25[2] = v16;
       }
     }
-    *(_QWORD *)(a1 + 936) = *v11;
+    *(_QWORD *)(a1 + 936) = *v12;
     goto LABEL_7;
   }
-  v12 = *(_QWORD *)(a1 + 1328);
-  _m_prefetchw((const void *)(v12 + 1308));
-  v13 = *(_DWORD *)(v12 + 1308);
-  while ( (v13 & v10) == 0 )
+  v7 = *(_QWORD *)(a1 + 1328);
+  _m_prefetchw((const void *)(v7 + 1308));
+  v13 = *(_DWORD *)(v7 + 1308);
+  while ( (v13 & v11) == 0 )
   {
     v14 = v13;
-    v13 = _InterlockedCompareExchange((volatile signed __int32 *)(v12 + 1308), v10 | v13, v13);
+    v13 = _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 1308), v11 | v13, v13);
     if ( v13 == v14 )
     {
-      *(_DWORD *)(a1 + 948) |= v10;
+      *(_DWORD *)(a1 + 948) |= v11;
       v5 = v19;
       goto LABEL_26;
     }

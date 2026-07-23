@@ -1,11 +1,11 @@
 /*
- * XREFs of KeEnableOptionalXStateFeaturesApc @ 0x1405B8740
+ * XREFs of KeEnableOptionalXStateFeaturesApc @ 0x1405B5D80
  * Callers:
- *     PspEnableProcessOptionalXStateFeatures @ 0x1407748A0 (PspEnableProcessOptionalXStateFeatures.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140774AC0 (PspEnableProcessOptionalXStateFeatures.c)
  * Callees:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     KxEnableOptionalXStateFeatures @ 0x1405B8D14 (KxEnableOptionalXStateFeatures.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     KxEnableOptionalXStateFeatures @ 0x1405B6354 (KxEnableOptionalXStateFeatures.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeEnableOptionalXStateFeaturesApc(__int64 a1)

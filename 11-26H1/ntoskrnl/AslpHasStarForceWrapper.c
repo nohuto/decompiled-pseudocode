@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpHasStarForceWrapper @ 0x14088F370
+ * XREFs of AslpHasStarForceWrapper @ 0x14089576C
  * Callers:
- *     AslpFileGetExeWrapper @ 0x14088CBA4 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetExeWrapper @ 0x140892FA0 (AslpFileGetExeWrapper.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     strncmp @ 0x14073D360 (strncmp.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
  */
 
 __int64 __fastcall AslpHasStarForceWrapper(unsigned __int64 a1, unsigned __int16 a2)

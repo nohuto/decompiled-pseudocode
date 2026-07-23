@@ -1,9 +1,9 @@
 /*
  * XREFs of HvlpDiscoverTopologyComplete @ 0x1407CDEF4
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
  * Callees:
- *     HvlpDiscoverTopologyWorker @ 0x140620540 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x1406205F4 (HvlpDiscoverTopologyWorker.c)
  */
 
 int *HvlpDiscoverTopologyComplete()
@@ -24,26 +24,26 @@ int *HvlpDiscoverTopologyComplete()
   v1 = 0;
   if ( (_DWORD)HvlpLogicalProcessorCount )
   {
-    v2 = dword_140326140;
+    v2 = dword_140326180;
     v3 = (unsigned int *)&unk_1403AF030;
-    v4 = dword_140326144;
+    v4 = dword_140326184;
     do
     {
       if ( v3[2] == -1 )
       {
         result = (int *)HvlpDiscoverTopologyWorker();
         v0 = HvlpLogicalProcessorCount;
-        v2 = dword_140326140;
-        v4 = dword_140326144;
+        v2 = dword_140326180;
+        v4 = dword_140326184;
       }
       v6 = *v3;
       v7 = v3[1];
       if ( *v3 > v2 )
         v2 = *v3;
-      dword_140326140 = v2;
+      dword_140326180 = v2;
       if ( v7 > v4 )
         v4 = v7;
-      dword_140326144 = v4;
+      dword_140326184 = v4;
       if ( *((_BYTE *)v3 + 88) )
       {
         v8 = 1;

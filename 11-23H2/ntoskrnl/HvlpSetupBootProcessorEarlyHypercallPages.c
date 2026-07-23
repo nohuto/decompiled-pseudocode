@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpSetupBootProcessorEarlyHypercallPages @ 0x14054205C
+ * XREFs of HvlpSetupBootProcessorEarlyHypercallPages @ 0x14054271C
  * Callers:
- *     HvlPhase0Initialize @ 0x14081FE98 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x140820198 (HvlPhase0Initialize.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpSetupBootProcessorEarlyHypercallPages(__int64 a1)

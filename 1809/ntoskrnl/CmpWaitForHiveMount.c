@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpWaitForHiveMount @ 0x1407555A4
+ * XREFs of CmpWaitForHiveMount @ 0x140756794
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1405E6320 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     CmpHashUnicodeComponent @ 0x1405B02C4 (CmpHashUnicodeComponent.c)
  */
 
 char __fastcall CmpWaitForHiveMount(__m128i *a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -61,32 +61,32 @@ char __fastcall CmpWaitForHiveMount(__m128i *a1, __int64 a2, __int64 a3, _DWORD 
     while ( 1 )
     {
       v13 = 3LL * v12;
-      if ( dword_1403FF2DC[6 * v12] == v11 )
+      if ( dword_1404002DC[6 * v12] == v11 )
         break;
       if ( ++v12 >= 8u )
       {
-        _interlockedbittestandset(dword_1403FF2E0, 2u);
+        _interlockedbittestandset(dword_1404002E0, 2u);
         return 0;
       }
     }
-    _interlockedbittestandset(&dword_1403FF2E0[6 * v12], 3u);
-    _InterlockedAdd(&dword_1403FF2E4[6 * v12], 1u);
+    _interlockedbittestandset(&dword_1404002E0[6 * v12], 3u);
+    _InterlockedAdd(&dword_1404002E4[6 * v12], 1u);
     v15 = 3LL * v12;
-    KeSetEvent((struct _KEVENT *)((char *)&stru_1403FEE50 + 152 * (unsigned int)dword_1403FF2D8[6 * v12]), 0, 0);
-    v16 = (unsigned int)dword_1403FF2D8[2 * v15];
-    if ( !*(&stru_1403FEE80.Header.SignalState + 38 * v16) )
+    KeSetEvent((struct _KEVENT *)((char *)&stru_1403FFE50 + 152 * (unsigned int)dword_1404002D8[6 * v12]), 0, 0);
+    v16 = (unsigned int)dword_1404002D8[2 * v15];
+    if ( !*(&stru_1403FFE80.Header.SignalState + 38 * v16) )
     {
       v5 = 1;
       *a4 = v16;
       v10 = 5;
     }
-    _interlockedbittestandset(&dword_1403FF2E0[2 * v13], v10);
+    _interlockedbittestandset(&dword_1404002E0[2 * v13], v10);
     return v5;
   }
   else
   {
 LABEL_18:
-    _interlockedbittestandset(dword_1403FF2E0, 0);
+    _interlockedbittestandset(dword_1404002E0, 0);
     return 0;
   }
 }

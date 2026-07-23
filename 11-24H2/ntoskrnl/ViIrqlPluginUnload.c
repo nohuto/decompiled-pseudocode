@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIrqlPluginUnload @ 0x140B9D780
+ * XREFs of ViIrqlPluginUnload @ 0x140B9F780
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void ViIrqlPluginUnload()

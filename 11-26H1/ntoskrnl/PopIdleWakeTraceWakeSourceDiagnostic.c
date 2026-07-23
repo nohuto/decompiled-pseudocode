@@ -1,14 +1,14 @@
 /*
- * XREFs of PopIdleWakeTraceWakeSourceDiagnostic @ 0x140B0B0E0
+ * XREFs of PopIdleWakeTraceWakeSourceDiagnostic @ 0x140B0C830
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140B284E0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140B2A9B0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140B0B1C0 (PopIdleWakeSendDripsWakeSourceTelemetry.c)
- *     PopIdleWakeCalculateConvergedBuckets @ 0x140B510B0 (PopIdleWakeCalculateConvergedBuckets.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140B0C910 (PopIdleWakeSendDripsWakeSourceTelemetry.c)
+ *     PopIdleWakeCalculateConvergedBuckets @ 0x140B53948 (PopIdleWakeCalculateConvergedBuckets.c)
  */
 
 char __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)
@@ -56,15 +56,15 @@ char __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)
   PopIdleWakeSendDripsWakeSourceTelemetry(a1, a2, 0LL);
   LOBYTE(v4) = 1;
   result = PopIdleWakeSendDripsWakeSourceTelemetry(a1, a2, v4);
-  if ( byte_140E6760C )
+  if ( PopDiagSleepStudyHandleRegistered )
   {
-    result = EtwEventEnabled(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_DRIPS_WAKE_ACCOUNTING);
+    result = EtwEventEnabled(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_DRIPS_WAKE_ACCOUNTING);
     if ( result )
     {
       PopIdleWakeCalculateConvergedBuckets(a2, v18);
       v6 = *(unsigned __int16 *)(a2 + 768);
       v7 = 8;
-      v16 = qword_140F0F5D0;
+      v16 = PopWnfCsEnterScenarioId;
       UserData.Ptr = (ULONGLONG)&v16;
       v24 = v18;
       v35 = v6;
@@ -103,17 +103,15 @@ char __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)
         while ( v10 );
       }
       v13 = 2LL * v7;
-      *(&UserData.Ptr + v13) = (ULONGLONG)&qword_140F0F5D0;
-      v14 = qword_140F0F5D8;
+      *(&UserData.Ptr + v13) = (ULONGLONG)&PopWnfCsEnterScenarioId;
+      v14 = PopDiagSleepStudyHandle;
       *((_QWORD *)&UserData.Size + v13) = 8LL;
       result = EtwWrite(v14, &SLEEPSTUDY_EVT_SCENARIO_DRIPS_WAKE_ACCOUNTING, 0LL, v7 + 1, &UserData);
     }
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DRIPS_WAKE_SOURCE_MAPPING);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DRIPS_WAKE_SOURCE_MAPPING);
     if ( result )
     {
       v15 = *(unsigned __int16 *)(a2 + 768);
@@ -124,12 +122,7 @@ char __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)
       v26 = *(char **)(a2 + 776);
       *(_QWORD *)&UserData.Size = 4LL;
       v25 = 4LL;
-      return EtwWrite(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DRIPS_WAKE_SOURCE_MAPPING,
-               0LL,
-               3u,
-               &UserData);
+      return EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DRIPS_WAKE_SOURCE_MAPPING, 0LL, 3u, &UserData);
     }
   }
   return result;

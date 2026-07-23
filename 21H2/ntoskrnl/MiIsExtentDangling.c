@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsExtentDangling @ 0x1408D00F8
+ * XREFs of MiIsExtentDangling @ 0x1408D0258
  * Callers:
- *     FsRtlIsExtentDangling @ 0x14088C260 (FsRtlIsExtentDangling.c)
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
+ *     FsRtlIsExtentDangling @ 0x14088C3C0 (FsRtlIsExtentDangling.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 unsigned __int64 __fastcall MiIsExtentDangling(unsigned __int64 a1, __int64 a2, char a3)
@@ -46,9 +46,9 @@ LABEL_8:
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C4CCA8, 0LL);
-    v10 = (_QWORD *)qword_140C4CCA0;
-    if ( qword_140C4CCA0 )
+    ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C4CCE8, 0LL);
+    v10 = (_QWORD *)qword_140C4CCE0;
+    if ( qword_140C4CCE0 )
     {
       do
       {
@@ -96,9 +96,9 @@ LABEL_8:
       }
     }
     v15 = KeGetCurrentThread();
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C4CCA8, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&qword_140C4CCA8);
-    KeAbPostRelease((ULONG_PTR)&qword_140C4CCA8);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C4CCE8, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&qword_140C4CCE8);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4CCE8);
     KiLeaveGuardedRegionUnsafe((__int64)v15);
   }
   return v4;

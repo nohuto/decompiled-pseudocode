@@ -1,15 +1,15 @@
 /*
- * XREFs of PspDeleteCreateProcessContext @ 0x14076F210
+ * XREFs of PspDeleteCreateProcessContext @ 0x14076F400
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     NtCreateThreadEx @ 0x14076F400 (NtCreateThreadEx.c)
- *     PspBuildCreateProcessContext @ 0x140771168 (PspBuildCreateProcessContext.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
+ *     NtCreateThreadEx @ 0x14076F5F0 (NtCreateThreadEx.c)
+ *     PspBuildCreateProcessContext @ 0x140771358 (PspBuildCreateProcessContext.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

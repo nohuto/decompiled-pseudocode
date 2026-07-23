@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplacePageOfProtoPool @ 0x1402E73F0
+ * XREFs of MiReplacePageOfProtoPool @ 0x140348A30
  * Callers:
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
  * Callees:
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiLockLeafPage @ 0x1402E8100 (MiLockLeafPage.c)
- *     MiMakeProtectionPfnCompatible @ 0x140313770 (MiMakeProtectionPfnCompatible.c)
- *     MiGetPrototypePteRanges @ 0x14042DE18 (MiGetPrototypePteRanges.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiLockLeafPage @ 0x140349740 (MiLockLeafPage.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1403F26B0 (MiMakeProtectionPfnCompatible.c)
+ *     MiGetPrototypePteRanges @ 0x14041FB48 (MiGetPrototypePteRanges.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiReplacePageOfProtoPool(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -102,7 +102,7 @@ __int64 __fastcall MiReplacePageOfProtoPool(__int64 a1, __int64 a2, __int64 a3, 
     ValidPte = MiMakeValidPte((unsigned __int64)v10, a3, ProtectionPfnCompatible | 0xA0000000);
     v13 = ValidPte;
     if ( _bittest64(&MiFlags, 0x24u) && (ValidPte & 0x20) == 0 && (unsigned __int64)v10 >= 0xFFFFF6C000000000uLL )
-      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v10, ValidPte, 128);
+      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v10, ValidPte, 128LL);
     *v10 = v13;
     v14 = 0LL;
     v15 = (((unsigned __int8)v72 - 57) & 4) != 0LL ? 0x20 : 0;
@@ -220,7 +220,7 @@ LABEL_78:
           v39 = ++v62;
           if ( (*(_BYTE *)(v37 + 34) & 8) != 0 )
           {
-            ++dword_140EF4E04;
+            ++dword_140EF5024;
 LABEL_52:
             v44 = 0;
 LABEL_53:
@@ -259,12 +259,12 @@ LABEL_72:
                 v56 = (unsigned int)(v56 - v47);
 LABEL_64:
                 v57 = *(_QWORD *)(a1 + 8 * v56);
-                if ( (v57 & 1) == 0 && qword_140E2DB80 )
+                if ( (v57 & 1) == 0 && qword_140E2DCC0 )
                 {
                   if ( (v57 & 0x10) != 0 )
                     v57 &= ~0x10uLL;
                   else
-                    v57 &= ~qword_140E2DB80;
+                    v57 &= ~qword_140E2DCC0;
                 }
                 v58 = 48 * ((v57 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
                 if ( v44 )
@@ -286,7 +286,7 @@ LABEL_64:
           v38 = *v36;
           if ( (*v36 & 1) == 0 && (*(_BYTE *)(v37 + 34) & 0x20) != 0 )
           {
-            ++dword_140EF4E00;
+            ++dword_140EF5020;
             goto LABEL_52;
           }
         }
@@ -376,11 +376,11 @@ LABEL_42:
             v44 = 1;
             goto LABEL_53;
           }
-          ++dword_140EF4E08;
+          ++dword_140EF5028;
         }
         else
         {
-          ++dword_140EF4E0C;
+          ++dword_140EF502C;
         }
         _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         goto LABEL_52;

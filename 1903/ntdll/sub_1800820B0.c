@@ -12,12 +12,12 @@
 __int64 __fastcall sub_1800820B0(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v8; // ebx
-  int v9; // eax
+  NTSTATUS v9; // eax
   __int64 v10; // rcx
-  int v12; // eax
+  NTSTATUS v12; // eax
   __int64 v13; // rcx
   __int64 v14[5]; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v15; // [rsp+70h] [rbp+18h] BYREF
+  DWORD v15; // [rsp+70h] [rbp+18h] BYREF
 
   if ( (dword_18015FAB0 & 9) != 0 )
     sub_1800CE318(

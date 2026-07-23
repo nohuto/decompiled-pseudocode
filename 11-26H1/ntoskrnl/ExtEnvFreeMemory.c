@@ -1,24 +1,24 @@
 /*
- * XREFs of ExtEnvFreeMemory @ 0x140597DF0
+ * XREFs of ExtEnvFreeMemory @ 0x14059A570
  * Callers:
- *     IommuUnmapDevice @ 0x14059CDA0 (IommuUnmapDevice.c)
- *     IvtFreeScalableModePasidTables @ 0x1405A65F4 (IvtFreeScalableModePasidTables.c)
- *     IvtSetDeviceSvmCapabilities @ 0x1405A7980 (IvtSetDeviceSvmCapabilities.c)
- *     HsaAllocateRemappingTableEntry @ 0x1405A8C60 (HsaAllocateRemappingTableEntry.c)
- *     HsaCreateDevice @ 0x1405A9390 (HsaCreateDevice.c)
- *     HsaDeleteDevice @ 0x1405A9480 (HsaDeleteDevice.c)
- *     HsaFreePasidTables @ 0x1405A9840 (HsaFreePasidTables.c)
- *     HsaFreeRemappingTableEntry @ 0x1405A9970 (HsaFreeRemappingTableEntry.c)
- *     HsaSetDeviceSvmCapabilities @ 0x1405AA8D0 (HsaSetDeviceSvmCapabilities.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405AEAE8 (HalpIvtProcessDrhdEntry.c)
- *     IvtAllocateDevice @ 0x1405AF3CC (IvtAllocateDevice.c)
- *     IvtCreateDevice @ 0x1405AF480 (IvtCreateDevice.c)
- *     IvtDeleteDevice @ 0x1405AF530 (IvtDeleteDevice.c)
- *     HalpIvtCreateReservedDevice @ 0x1405AF660 (HalpIvtCreateReservedDevice.c)
- *     DmrFreeRmrrTree @ 0x1405B0374 (DmrFreeRmrrTree.c)
+ *     IommuUnmapDevice @ 0x14059F520 (IommuUnmapDevice.c)
+ *     IvtFreeScalableModePasidTables @ 0x1405A8E04 (IvtFreeScalableModePasidTables.c)
+ *     IvtSetDeviceSvmCapabilities @ 0x1405AA190 (IvtSetDeviceSvmCapabilities.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1405AB470 (HsaAllocateRemappingTableEntry.c)
+ *     HsaCreateDevice @ 0x1405ABBA0 (HsaCreateDevice.c)
+ *     HsaDeleteDevice @ 0x1405ABC90 (HsaDeleteDevice.c)
+ *     HsaFreePasidTables @ 0x1405AC050 (HsaFreePasidTables.c)
+ *     HsaFreeRemappingTableEntry @ 0x1405AC180 (HsaFreeRemappingTableEntry.c)
+ *     HsaSetDeviceSvmCapabilities @ 0x1405AD0E0 (HsaSetDeviceSvmCapabilities.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1405B12F8 (HalpIvtProcessDrhdEntry.c)
+ *     IvtAllocateDevice @ 0x1405B1BDC (IvtAllocateDevice.c)
+ *     IvtCreateDevice @ 0x1405B1C90 (IvtCreateDevice.c)
+ *     IvtDeleteDevice @ 0x1405B1D40 (IvtDeleteDevice.c)
+ *     HalpIvtCreateReservedDevice @ 0x1405B1E70 (HalpIvtCreateReservedDevice.c)
+ *     DmrFreeRmrrTree @ 0x1405B2B84 (DmrFreeRmrrTree.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpMmIsInsideHalVa @ 0x14057DF48 (HalpMmIsInsideHalVa.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpMmIsInsideHalVa @ 0x140580468 (HalpMmIsInsideHalVa.c)
  */
 
 void __fastcall ExtEnvFreeMemory(__int64 a1, unsigned __int64 a2)

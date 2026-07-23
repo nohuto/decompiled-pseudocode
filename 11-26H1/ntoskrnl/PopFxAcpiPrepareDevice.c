@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxAcpiPrepareDevice @ 0x1406121A4
+ * XREFs of PopFxAcpiPrepareDevice @ 0x140614FE4
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x140612000 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x140614E40 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1404FA998 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopPluginAcpiNotificationStrict @ 0x140613F04 (PopPluginAcpiNotificationStrict.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1404F3FA8 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopPluginAcpiNotificationStrict @ 0x140616DC4 (PopPluginAcpiNotificationStrict.c)
  */
 
 __int64 __fastcall PopFxAcpiPrepareDevice(
@@ -33,13 +33,18 @@ __int64 __fastcall PopFxAcpiPrepareDevice(
     CurrentThread = KeGetCurrentThread();
     v10 = 0LL;
     --CurrentThread->KernelApcDisable;
-    v12 = (_BYTE *)KeAbPreAcquire((__int64)&stru_140F12420.StateSaveArea, 0LL, 0LL, v8);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140F12420.StateSaveArea, 17LL, 0LL) )
+    v12 = (_BYTE *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock.WaitListEntry.Blink, 0LL, 0LL, v8);
+    if ( _InterlockedCompareExchange64(
+           (volatile signed __int64 *)&PopFxBlockingDeviceListLock.WaitListEntry.Blink,
+           17LL,
+           0LL) )
+    {
       ExfAcquirePushLockSharedEx(
-        (signed __int64 *)&stru_140F12420.StateSaveArea,
+        (signed __int64 *)&PopFxBlockingDeviceListLock.WaitListEntry.Blink,
         0,
         (LegacyAutoBoost *)v12,
-        (struct _KTHREAD *)&stru_140F12420.StateSaveArea);
+        (struct _KTHREAD *)(&PopFxBlockingDeviceListLock.SwapListEntry + 1));
+    }
     if ( v12 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -52,7 +57,9 @@ __int64 __fastcall PopFxAcpiPrepareDevice(
         v12[10] = 1;
       }
     }
-    for ( i = qword_140F123F0; (ULONG_PTR *)i != &qword_140F123F0; i = *(_QWORD *)i )
+    for ( i = PopFxBlockingDeviceListLock.RelativeTimerBias;
+          (unsigned __int64 *)i != &PopFxBlockingDeviceListLock.RelativeTimerBias;
+          i = *(_QWORD *)i )
     {
       if ( *(_DWORD *)(i + 16) >= 3u
         && *(_QWORD *)(i + 112)
@@ -63,9 +70,12 @@ __int64 __fastcall PopFxAcpiPrepareDevice(
         break;
       }
     }
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140F12420.StateSaveArea, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&stru_140F12420.StateSaveArea);
-    KeAbPostRelease((unsigned __int64)&stru_140F12420.StateSaveArea);
+    if ( _InterlockedCompareExchange64(
+           (volatile signed __int64 *)&PopFxBlockingDeviceListLock.WaitListEntry.Blink,
+           0LL,
+           17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&PopFxBlockingDeviceListLock.WaitListEntry.Blink);
+    KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock.WaitListEntry.Blink);
     KeLeaveCriticalRegion();
     if ( v10 )
     {

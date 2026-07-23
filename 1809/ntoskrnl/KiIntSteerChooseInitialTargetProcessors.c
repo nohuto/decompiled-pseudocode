@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x14016E288
+ * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x14016E388
  * Callers:
- *     KiIntSteerConnect @ 0x14016DEA4 (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x14016DFA4 (KiIntSteerConnect.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x1400165E0 (KeFindFirstSetRightGroupAffinity.c)
- *     KeIntSteerGetSteeringMode @ 0x14016E3A0 (KeIntSteerGetSteeringMode.c)
- *     KiIntRedirectConnnect @ 0x14016E438 (KiIntRedirectConnnect.c)
+ *     KeIntSteerGetSteeringMode @ 0x14016E4A0 (KeIntSteerGetSteeringMode.c)
+ *     KiIntRedirectConnnect @ 0x14016E538 (KiIntRedirectConnnect.c)
  */
 
 __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
@@ -41,7 +41,7 @@ __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
     *(_WORD *)(a6 + 8) = v14;
     if ( SteeringMode )
     {
-      *(_QWORD *)a6 = qword_14041B228[v14];
+      *(_QWORD *)a6 = qword_14041C2C8[v14];
       v15 = KiProcessorIndexToNumberMappingTable[(unsigned int)KeFindFirstSetRightGroupAffinity(a6)];
       *(_DWORD *)(a6 + 10) = 0;
       *(_WORD *)(a6 + 14) = 0;
@@ -54,7 +54,7 @@ __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
       *(_QWORD *)a6 = *v7;
       if ( LOWORD(KiIntSteerAffinitizedInterrupts[0]) <= v14 )
         LOWORD(KiIntSteerAffinitizedInterrupts[0]) = v14 + 1;
-      qword_14041B2E8[v14] |= v17;
+      qword_14041C388[v14] |= v17;
     }
     *a7 = SteeringMode;
   }

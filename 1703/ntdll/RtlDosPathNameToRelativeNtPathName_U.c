@@ -13,11 +13,15 @@
  *     sub_18003D6A4 @ 0x18003D6A4 (sub_18003D6A4.c)
  */
 
-bool __fastcall RtlDosPathNameToRelativeNtPathName_U(int a1, int a2, __int64 a3, __int64 a4)
+BOOLEAN __cdecl RtlDosPathNameToRelativeNtPathName_U(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
-  int v4; // r9d
+  PUNICODE_STRING v4; // r9
 
-  v4 = a2;
-  LOBYTE(a2) = 1;
-  return (int)sub_18003D6A4(a1, a2, a1, v4, a3, a4) >= 0;
+  v4 = NtFileName;
+  LOBYTE(NtFileName) = 1;
+  return (int)sub_18003D6A4(DosFileName, NtFileName, DosFileName, v4, FilePart, RelativeName) >= 0;
 }

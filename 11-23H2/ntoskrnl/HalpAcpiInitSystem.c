@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAcpiInitSystem @ 0x140A90C00
+ * XREFs of HalpAcpiInitSystem @ 0x140A90A80
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaSwapP0NodeToFront @ 0x1403A53B8 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x1403A5598 (HalpNumaSwapP0NodeToFront.c)
  *     HalpAcpiInitDiscard @ 0x140B653A4 (HalpAcpiInitDiscard.c)
  *     HalpAcpiDetectPiix4 @ 0x140B653D8 (HalpAcpiDetectPiix4.c)
  *     HalpAcpiPopulateTableCache @ 0x140B6544C (HalpAcpiPopulateTableCache.c)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateImageMapHeader @ 0x140A55DDC
+ * XREFs of MiCreateImageMapHeader @ 0x140A63364
  * Callers:
- *     MiCreateNewSection @ 0x140A562D8 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140A63860 (MiCreateNewSection.c)
  * Callees:
- *     CcZeroEndOfLastPage @ 0x1402C6408 (CcZeroEndOfLastPage.c)
- *     PsIsCurrentThreadPrefetching @ 0x14049B190 (PsIsCurrentThreadPrefetching.c)
- *     MiCopyHeaderIfResident @ 0x1404B51A4 (MiCopyHeaderIfResident.c)
- *     MiFlushDataSection @ 0x1404BD87C (MiFlushDataSection.c)
- *     MiAllocateEntireImageFileExtents @ 0x14086CD18 (MiAllocateEntireImageFileExtents.c)
- *     MiCreateMdl @ 0x140A560A8 (MiCreateMdl.c)
- *     MiDeleteImageCreationMdls @ 0x140A5620C (MiDeleteImageCreationMdls.c)
- *     FsRtlGetFileSize @ 0x140A56DE0 (FsRtlGetFileSize.c)
- *     MiReadImageHeaders @ 0x140A577D8 (MiReadImageHeaders.c)
+ *     CcZeroEndOfLastPage @ 0x1403110A8 (CcZeroEndOfLastPage.c)
+ *     PsIsCurrentThreadPrefetching @ 0x140494CE0 (PsIsCurrentThreadPrefetching.c)
+ *     MiCopyHeaderIfResident @ 0x1404AE5F4 (MiCopyHeaderIfResident.c)
+ *     MiFlushDataSection @ 0x1404B705C (MiFlushDataSection.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408730F8 (MiAllocateEntireImageFileExtents.c)
+ *     MiCreateMdl @ 0x140A63630 (MiCreateMdl.c)
+ *     MiDeleteImageCreationMdls @ 0x140A63794 (MiDeleteImageCreationMdls.c)
+ *     FsRtlGetFileSize @ 0x140A64360 (FsRtlGetFileSize.c)
+ *     MiReadImageHeaders @ 0x140A64D58 (MiReadImageHeaders.c)
  */
 
 signed int __fastcall MiCreateImageMapHeader(__int64 a1)
@@ -46,7 +46,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
   result = FsRtlGetFileSize(v5, v2);
   if ( result < 0 )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 33;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 33;
     if ( result == -1073741638 )
       return -1073741792;
   }
@@ -54,7 +54,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
   {
     if ( *(_DWORD *)(a1 + 44) )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 34;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 34;
       return -1073741792;
     }
     v7 = *(unsigned int *)(a1 + 24);
@@ -64,7 +64,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
     v10 = Mdl;
     if ( !Mdl )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 35;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 35;
       return -1073741670;
     }
     *(_QWORD *)(Mdl + 16) = 0LL;
@@ -76,7 +76,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
       return -1073741740;
     if ( v11 < 0 )
     {
-      _InterlockedAdd((volatile signed __int32 *)&stru_140E2EB88.SchedulerApcFill5[64], 1u);
+      _InterlockedAdd((volatile signed __int32 *)&stru_140E2ED08.SchedulerApcFill5[64], 1u);
       v12 = 1;
     }
     else
@@ -93,7 +93,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
     }
     if ( (v13 & 2) != 0 && PsIsCurrentThreadPrefetching() )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 37;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 37;
       return -1073740749;
     }
     *(_QWORD *)(a1 + 112) = *(_QWORD *)(a1 + 40);
@@ -104,7 +104,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
       result = MiAllocateEntireImageFileExtents(v1, *(_QWORD *)(a1 + 112), 0LL, (__int64 *)(a1 + 64));
       if ( result < 0 )
       {
-        *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 38;
+        *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 38;
         return result;
       }
     }
@@ -139,7 +139,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
       result = MiReadImageHeaders(v1, v16, v10, &v21);
       if ( result < 0 )
       {
-        *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 40;
+        *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 40;
         return result;
       }
       v17 = *((_QWORD *)&v21 + 1);
@@ -147,7 +147,7 @@ signed int __fastcall MiCreateImageMapHeader(__int64 a1)
       *(_QWORD *)(a1 + 32) = *((_QWORD *)&v21 + 1);
       if ( v17 != v18 && v17 < 0x40 )
       {
-        *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 41;
+        *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 41;
         return -1073741521;
       }
     }

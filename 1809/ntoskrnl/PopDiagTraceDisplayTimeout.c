@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDisplayTimeout @ 0x1406DCBFC
+ * XREFs of PopDiagTraceDisplayTimeout @ 0x1406DDE9C
  * Callers:
- *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
- *     PopCheckConsoleTimeouts @ 0x140878C94 (PopCheckConsoleTimeouts.c)
+ *     PopUpdateTimeouts @ 0x1406DDAA0 (PopUpdateTimeouts.c)
+ *     PopCheckConsoleTimeouts @ 0x140879EF4 (PopCheckConsoleTimeouts.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDisplayTimeout(int a1, int a2, int a3)

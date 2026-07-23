@@ -1,112 +1,110 @@
 /*
- * XREFs of RtlFindHotPatchInformation @ 0x140A764CC
+ * XREFs of RtlFindHotPatchInformation @ 0x140A7677C
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140A34878 (MiApplyDriverHotPatch.c)
- *     MiCaptureHotPatchInfo @ 0x140A361B8 (MiCaptureHotPatchInfo.c)
- *     MiMapAndApplyPatchInSession @ 0x140A39FB4 (MiMapAndApplyPatchInSession.c)
- *     MiOpenHotPatchFile @ 0x140A3A350 (MiOpenHotPatchFile.c)
+ *     MiApplyDriverHotPatch @ 0x140A34B28 (MiApplyDriverHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x140A36468 (MiCaptureHotPatchInfo.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A3A264 (MiMapAndApplyPatchInSession.c)
+ *     MiOpenHotPatchFile @ 0x140A3A600 (MiOpenHotPatchFile.c)
  * Callees:
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
  *     RtlImageNtHeaderEx @ 0x140214B60 (RtlImageNtHeaderEx.c)
- *     RtlFindHotPatchBase @ 0x140A7649C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchBase @ 0x140A7674C (RtlFindHotPatchBase.c)
  */
 
-__int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1)
+__int64 __fastcall RtlFindHotPatchInformation(char *BaseOfImage)
 {
-  unsigned int *v2; // rdi
-  unsigned int *v3; // rsi
-  __int64 v4; // r14
-  int v5; // edx
-  __int16 v6; // bx
-  unsigned int *v7; // rcx
-  unsigned int v8; // eax
-  bool v9; // cf
-  char *v10; // rdx
-  __int64 v11; // r10
-  unsigned int v12; // r8d
-  unsigned int *v13; // r9
-  unsigned int v14; // eax
-  unsigned int v15; // edx
-  unsigned int v16; // r8d
-  unsigned int v17; // r10d
-  __int64 v18; // r9
-  unsigned int v20; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v21; // [rsp+50h] [rbp+18h] BYREF
+  ULONG *v2; // rdi
+  ULONG *v3; // rsi
+  PIMAGE_NT_HEADERS v4; // r14
+  unsigned __int16 Machine; // bx
+  ULONG *v6; // rcx
+  ULONG v7; // eax
+  bool v8; // cf
+  char *v9; // rdx
+  __int64 SizeOfImage; // r10
+  unsigned int v11; // r8d
+  unsigned int *v12; // r9
+  unsigned int v13; // eax
+  unsigned int v14; // edx
+  unsigned int v15; // r8d
+  unsigned int v16; // r10d
+  __int64 v17; // r9
+  ULONG Size; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS v20; // [rsp+50h] [rbp+18h] BYREF
 
-  v20 = 0;
-  v21 = 0LL;
+  Size = 0;
+  v20 = 0LL;
   v2 = 0LL;
   v3 = 0LL;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v21);
-  v4 = v21;
-  LOBYTE(v5) = 1;
-  v6 = *(_WORD *)(v21 + 4);
-  v7 = (unsigned int *)RtlImageDirectoryEntryToData(a1, v5, 10, (int)&v20);
-  if ( !v7 )
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &v20);
+  v4 = v20;
+  Machine = v20->FileHeader.Machine;
+  v6 = (ULONG *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0xAu, &Size);
+  if ( !v6 )
     return 0LL;
-  if ( v6 == -31132 || v6 == -21916 )
+  if ( Machine == 0x8664 || Machine == 0xAA64 )
   {
-    v8 = v20;
-    if ( v20 <= 4 )
+    v7 = Size;
+    if ( Size <= 4 )
       return 0LL;
-    v3 = v7;
-    if ( v20 != *v7 )
+    v3 = v6;
+    if ( Size != *v6 )
       return 0LL;
-    v9 = v20 < 0xF4;
+    v8 = Size < 0xF4;
   }
   else
   {
-    if ( v6 != 332 )
+    if ( Machine != 332 )
       return 0LL;
-    v8 = v20;
-    if ( v20 <= 4 )
+    v7 = Size;
+    if ( Size <= 4 )
       return 0LL;
-    v2 = v7;
-    if ( v20 == 64 )
-      v8 = *v7;
-    if ( v8 != *v7 )
+    v2 = v6;
+    if ( Size == 64 )
+      v7 = *v6;
+    if ( v7 != *v6 )
       return 0LL;
-    v9 = v8 < 0x98;
+    v8 = v7 < 0x98;
   }
-  if ( v9 )
+  if ( v8 )
     return 0LL;
-  v10 = (char *)v7 + v8;
-  if ( v10 < (char *)v7 )
+  v9 = (char *)v6 + v7;
+  if ( v9 < (char *)v6 )
     return 0LL;
-  v11 = *(unsigned int *)(v4 + 80);
-  if ( (unsigned __int64)v7 >= v11 + a1 || (unsigned __int64)v10 > v11 + a1 )
+  SizeOfImage = v4->OptionalHeader.SizeOfImage;
+  if ( v6 >= (ULONG *)&BaseOfImage[SizeOfImage] || v9 > &BaseOfImage[SizeOfImage] )
     return 0LL;
-  v12 = v6 == -31132 || v6 == -21916 ? v3[60] : v2[37];
-  if ( v12 >= 0xFFFFFFF8 || v12 == 0 || v12 + 8 > (unsigned int)v11 )
+  v11 = Machine == 0x8664 || Machine == 0xAA64 ? v3[60] : v2[37];
+  if ( v11 >= 0xFFFFFFF8 || v11 == 0 || v11 + 8 > (unsigned int)SizeOfImage )
     return 0LL;
-  v13 = (unsigned int *)(a1 + v12);
-  switch ( *v13 )
+  v12 = (unsigned int *)&BaseOfImage[v11];
+  switch ( *v12 )
   {
     case 1u:
-      v14 = 20;
+      v13 = 20;
       break;
     case 2u:
-      v14 = 24;
+      v13 = 24;
       break;
     case 3u:
-      v14 = 28;
+      v13 = 28;
       break;
     default:
       return 0LL;
   }
-  v15 = v13[1];
-  if ( v15 >= v14 )
+  v14 = v12[1];
+  if ( v14 >= v13 )
   {
-    if ( v13[2] )
+    if ( v12[2] )
     {
-      if ( v15 + v12 > v15 && v15 + v12 <= (unsigned int)v11 )
+      if ( v14 + v11 > v14 && v14 + v11 <= (unsigned int)SizeOfImage )
       {
-        v16 = v13[4];
-        if ( v16 <= 0x3FFFFFF9 )
+        v15 = v12[4];
+        if ( v15 <= 0x3FFFFFF9 )
         {
-          v17 = 4 * v16 + v13[3];
-          if ( v17 > 4 * v16 && v17 <= v15 && v16 == 1 && RtlFindHotPatchBase(v13) )
-            return v18;
+          v16 = 4 * v15 + v12[3];
+          if ( v16 > 4 * v15 && v16 <= v14 && v15 == 1 && RtlFindHotPatchBase(v12) )
+            return v17;
         }
       }
     }

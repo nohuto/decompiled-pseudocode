@@ -1,42 +1,42 @@
 /*
- * XREFs of SLUpdateLicenseDataInternal @ 0x1407BA204
+ * XREFs of SLUpdateLicenseDataInternal @ 0x1407BA654
  * Callers:
- *     sub_140972980 @ 0x140972980 (sub_140972980.c)
- *     ExUpdateLicenseData @ 0x140A9CF20 (ExUpdateLicenseData.c)
+ *     sub_14095B190 @ 0x14095B190 (sub_14095B190.c)
+ *     ExUpdateLicenseData @ 0x140A98490 (ExUpdateLicenseData.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiRemoveFromSystemSpace @ 0x14026086C (MiRemoveFromSystemSpace.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     ExpGetLicenseTamperState @ 0x1406557A0 (ExpGetLicenseTamperState.c)
- *     ExpLicUpdateChecksum @ 0x14065590C (ExpLicUpdateChecksum.c)
- *     ExpSetLicenseTamperState @ 0x140655B24 (ExpSetLicenseTamperState.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateSection @ 0x1406A6D50 (ZwCreateSection.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ntoskrnl_24 @ 0x1407B8580 (ntoskrnl_24.c)
- *     sub_1407B8D30 @ 0x1407B8D30 (sub_1407B8D30.c)
- *     sub_1407B921C @ 0x1407B921C (sub_1407B921C.c)
- *     sub_1407B935C @ 0x1407B935C (sub_1407B935C.c)
- *     SLSendPolicyChangeNotifications @ 0x1407BA1DC (SLSendPolicyChangeNotifications.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     MmMapViewInSessionSpace @ 0x140946C00 (MmMapViewInSessionSpace.c)
- *     ntoskrnl_20 @ 0x140972DB0 (ntoskrnl_20.c)
- *     ExpReducedLicenseData @ 0x140AA0910 (ExpReducedLicenseData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiRemoveFromSystemSpace @ 0x140290E7C (MiRemoveFromSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     ExpGetLicenseTamperState @ 0x140653EA0 (ExpGetLicenseTamperState.c)
+ *     ExpLicUpdateChecksum @ 0x14065400C (ExpLicUpdateChecksum.c)
+ *     ExpSetLicenseTamperState @ 0x140654224 (ExpSetLicenseTamperState.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateSection @ 0x1406A7CF0 (ZwCreateSection.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ntoskrnl_24 @ 0x1407B89D0 (ntoskrnl_24.c)
+ *     sub_1407B9180 @ 0x1407B9180 (sub_1407B9180.c)
+ *     sub_1407B966C @ 0x1407B966C (sub_1407B966C.c)
+ *     sub_1407B97AC @ 0x1407B97AC (sub_1407B97AC.c)
+ *     SLSendPolicyChangeNotifications @ 0x1407BA62C (SLSendPolicyChangeNotifications.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     MmMapViewInSessionSpace @ 0x1408EB520 (MmMapViewInSessionSpace.c)
+ *     ntoskrnl_20 @ 0x14095B5C0 (ntoskrnl_20.c)
+ *     ExpReducedLicenseData @ 0x140A9BCA0 (ExpReducedLicenseData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SLUpdateLicenseDataInternal(__int64 a1, int a2, unsigned int *a3)
@@ -48,12 +48,12 @@ __int64 __fastcall SLUpdateLicenseDataInternal(__int64 a1, int a2, unsigned int 
   unsigned int v10; // r9d
   char *v11; // r12
   char v12; // r14
-  _QWORD *v13; // rbx
+  char *v13; // rbx
   _DWORD *v14; // rcx
   unsigned int v15; // edx
   struct _KTHREAD *v16; // rax
-  _QWORD *v17; // rax
-  _QWORD *v18; // r13
+  char *v17; // rax
+  char *v18; // r13
   bool v19; // si
   __int64 v20; // rdx
   int v21; // eax
@@ -65,11 +65,11 @@ __int64 __fastcall SLUpdateLicenseDataInternal(__int64 a1, int a2, unsigned int 
   unsigned int *v27; // rsi
   _DWORD *v28; // rcx
   struct _KTHREAD *v29; // rax
-  _QWORD *v30; // rsi
+  char *v30; // rsi
   signed __int64 *v31; // rdi
   size_t v32; // rdi
   void *Pool2; // rax
-  _QWORD *v34; // rdi
+  char *v34; // rdi
   unsigned int v35; // r12d
   unsigned int v36; // r13d
   _QWORD *v37; // rdi
@@ -78,9 +78,9 @@ __int64 __fastcall SLUpdateLicenseDataInternal(__int64 a1, int a2, unsigned int 
   __int64 v40; // rdx
   PVOID v41; // r12
   struct _KTHREAD *v42; // rax
-  _QWORD *v43; // rax
+  char *v43; // rax
   __int64 v44; // rdx
-  _QWORD *v45; // rdi
+  char *v45; // rdi
   __int64 v46; // r10
   PVOID v47; // r13
   __int64 v48; // rsi
@@ -93,11 +93,11 @@ __int64 __fastcall SLUpdateLicenseDataInternal(__int64 a1, int a2, unsigned int 
   PVOID v55; // rax
   struct _KTHREAD *v56; // rax
   volatile signed __int64 *v57; // rdi
-  _QWORD *v58; // rsi
+  char *v58; // rsi
   volatile signed __int64 *v59; // rax
   struct _KTHREAD *v60; // rax
-  _QWORD *v61; // rax
-  _QWORD *v62; // rsi
+  char *v61; // rax
+  char *v62; // rsi
   signed int v64; // [rsp+40h] [rbp-1C8h]
   bool v65; // [rsp+44h] [rbp-1C4h]
   char v66; // [rsp+45h] [rbp-1C3h]
@@ -182,11 +182,11 @@ LABEL_9:
   *(_BYTE *)(a1 + 46856) = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v13 = KeAbPreAcquire(a1 + 46840, 0LL);
+  v13 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 46840), 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 46840), 0, v13, a1 + 46840);
   if ( v13 )
-    *((_BYTE *)v13 + 10) = 1;
+    v13[10] = 1;
   v76 = *(PVOID *)a1;
   v65 = v76 == 0LL;
   if ( !(unsigned __int8)ExpReducedLicenseData() )
@@ -236,13 +236,13 @@ LABEL_35:
   {
     v16 = KeGetCurrentThread();
     --v16->KernelApcDisable;
-    v17 = KeAbPreAcquire(a1 + 46840, 0LL);
+    v17 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
     v18 = v17;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 46840), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), (__int64)v17, a1 + 46840);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), v17, a1 + 46840);
     v6 = 0LL;
     if ( v18 )
-      *((_BYTE *)v18 + 10) = 1;
+      v18[10] = 1;
     ExpGetLicenseTamperState(a1, &v71);
     v19 = v71 != 0;
     v20 = *(unsigned int *)(a1 + 46824);
@@ -330,7 +330,7 @@ LABEL_150:
     v6 = Src;
     goto LABEL_155;
   }
-  v64 = sub_1407B921C((__int64)v27, 1, 0LL, 0, (unsigned int *)&NumOfElements);
+  v64 = sub_1407B966C((__int64)v27, 1, 0LL, 0, (unsigned int *)&NumOfElements);
   if ( v64 != -1073741789 )
   {
     v7 = 0LL;
@@ -338,11 +338,11 @@ LABEL_150:
   }
   v29 = KeGetCurrentThread();
   --v29->KernelApcDisable;
-  v30 = KeAbPreAcquire(a1 + 46840, 0LL);
+  v30 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 46840), 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 46840), 0, v30, a1 + 46840);
   if ( v30 )
-    *((_BYTE *)v30 + 10) = 1;
+    v30[10] = 1;
   v64 = (unsigned int)NumOfElements > 0xB6D ? 0xC000000D : 0;
   v31 = (signed __int64 *)(a1 + 46840);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 46840), 0LL, 17LL) != 17 )
@@ -358,7 +358,7 @@ LABEL_11:
     goto LABEL_155;
   }
   v32 = (unsigned int)NumOfElements;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 16LL * (unsigned int)NumOfElements, 0x20534C53u);
   v7 = Pool2;
   Src = Pool2;
   if ( !Pool2 )
@@ -366,9 +366,9 @@ LABEL_11:
     v64 = -1073741801;
     goto LABEL_11;
   }
-  v64 = sub_1407B921C((__int64)MappedBase, 0, Pool2, NumOfElements, 0LL);
+  v64 = sub_1407B966C((__int64)MappedBase, 0, Pool2, NumOfElements, 0LL);
   if ( v64 >= 0 )
-    qsort(v7, v32, 0x10uLL, (int (__cdecl *)(const void *, const void *))sub_1407B8D30);
+    qsort(v7, v32, 0x10uLL, (int (__cdecl *)(const void *, const void *))sub_1407B9180);
 LABEL_80:
   if ( v64 < 0 )
   {
@@ -380,11 +380,11 @@ LABEL_80:
   v66 = 0;
   v96 = KeGetCurrentThread();
   --v96->KernelApcDisable;
-  v34 = KeAbPreAcquire(a1 + 46840, 0LL);
+  v34 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 46840), 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 46840), 0, v34, a1 + 46840);
   if ( v34 )
-    *((_BYTE *)v34 + 10) = 1;
+    v34[10] = 1;
   if ( !v76 )
   {
     v35 = 0;
@@ -394,7 +394,7 @@ LABEL_80:
     while ( v35 < (unsigned int)NumOfElements && v36 < *(_DWORD *)(a1 + 46824) )
     {
       v37 = (char *)Src + 16 * v35;
-      v38 = sub_1407B8D30(v37, (_QWORD *)(a1 + 16LL * v36 + 24));
+      v38 = sub_1407B9180(v37, (_QWORD *)(a1 + 16LL * v36 + 24));
       v88 = v38;
       v39 = v37[1];
       v90 = v39;
@@ -443,13 +443,13 @@ LABEL_104:
   PsReferenceSiloContext(v79);
   v42 = KeGetCurrentThread();
   --v42->KernelApcDisable;
-  v43 = KeAbPreAcquire(a1 + 46840, 0LL);
+  v43 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
   v45 = v43;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 46840), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), (__int64)v43, a1 + 46840);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), v43, a1 + 46840);
   LOBYTE(v46) = 0;
   if ( v45 )
-    *((_BYTE *)v45 + 10) = 1;
+    v45[10] = 1;
   HIDWORD(v85) = 0;
   *(_DWORD *)((char *)&v87 + 9) = 0;
   *(_WORD *)((char *)&v87 + 13) = 0;
@@ -542,7 +542,7 @@ LABEL_124:
   v55 = v76;
   if ( v76 )
     goto LABEL_144;
-  v64 = sub_1407B935C(a1);
+  v64 = sub_1407B97AC(a1);
   if ( v64 < 0 )
   {
 LABEL_154:
@@ -565,16 +565,16 @@ LABEL_155:
     v56 = KeGetCurrentThread();
     --v56->KernelApcDisable;
     v57 = (volatile signed __int64 *)(a1 + 46840);
-    v58 = KeAbPreAcquire(a1 + 46840, 0LL);
+    v58 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
     v59 = (volatile signed __int64 *)(a1 + 46840);
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 46840), 0LL) )
     {
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), (__int64)v58, a1 + 46840);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), v58, a1 + 46840);
       v59 = (volatile signed __int64 *)(a1 + 46840);
     }
     if ( v58 )
     {
-      *((_BYTE *)v58 + 10) = 1;
+      v58[10] = 1;
       v57 = v59;
     }
     memset(v98, 0, 48);
@@ -598,12 +598,12 @@ LABEL_155:
   {
     v60 = KeGetCurrentThread();
     --v60->KernelApcDisable;
-    v61 = KeAbPreAcquire(a1 + 46840, 0LL);
+    v61 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
     v62 = v61;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 46840), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), (__int64)v61, a1 + 46840);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), v61, a1 + 46840);
     if ( v62 )
-      *((_BYTE *)v62 + 10) = 1;
+      v62[10] = 1;
     ExpGetLicenseTamperState(a1, &v71);
     if ( v71 )
       v12 = 0;

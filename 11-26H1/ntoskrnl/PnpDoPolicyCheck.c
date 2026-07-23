@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDoPolicyCheck @ 0x140C7FCAC
+ * XREFs of PnpDoPolicyCheck @ 0x140C85CAC
  * Callers:
- *     PipInitializeDriverDependentDLLs @ 0x140D05314 (PipInitializeDriverDependentDLLs.c)
- *     PnpInitializeBootStartDriver @ 0x140D08CFC (PnpInitializeBootStartDriver.c)
+ *     PipInitializeDriverDependentDLLs @ 0x140D0B5E4 (PipInitializeDriverDependentDLLs.c)
+ *     PnpInitializeBootStartDriver @ 0x140D0EFCC (PnpInitializeBootStartDriver.c)
  * Callees:
- *     PnpDiagnosticTraceElamDecision @ 0x140503A58 (PnpDiagnosticTraceElamDecision.c)
+ *     PnpDiagnosticTraceElamDecision @ 0x1404FD328 (PnpDiagnosticTraceElamDecision.c)
  */
 
 char __fastcall PnpDoPolicyCheck(int a1, char a2)

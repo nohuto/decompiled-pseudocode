@@ -10,26 +10,25 @@
  *     NtSetInformationWorkerFactory @ 0x180166830 (NtSetInformationWorkerFactory.c)
  */
 
-__int64 __fastcall TpSetPoolThreadCpuSets(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall TpSetPoolThreadCpuSets(__int64 a1, void *a2, int a3)
 {
-  volatile signed __int64 *v6; // rsi
-  int v7; // r14d
-  int v8; // ebp
-  _DWORD v10[2]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v11; // [rsp+28h] [rbp-10h]
+  _RTL_SRWLOCK *v6; // rsi
+  ULONG v7; // r14d
+  NTSTATUS v8; // ebp
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
-  v10[1] = 0;
+  *(&BitMapHeader.SizeOfBitMap + 1) = 0;
   if ( !a1 || !a2 )
     return 3221225485LL;
-  v6 = (volatile signed __int64 *)(a1 + 72);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 72));
+  v6 = (_RTL_SRWLOCK *)(a1 + 72);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   v7 = 8 * a3;
-  v8 = NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 15LL, a2);
+  v8 = NtSetInformationWorkerFactory(*(HANDLE *)(a1 + 56), WorkerFactoryThreadCpuSets, a2, v7);
   if ( v8 >= 0 )
   {
-    v10[0] = v7;
-    v11 = a2;
-    *(_DWORD *)(a1 + 440) = RtlNumberOfSetBits(v10);
+    BitMapHeader.SizeOfBitMap = v7;
+    BitMapHeader.Buffer = (unsigned int *)a2;
+    *(_DWORD *)(a1 + 440) = RtlNumberOfSetBits(&BitMapHeader);
     TppAdjustRunningThreadGoalWithLock(a1);
   }
   RtlReleaseSRWLockExclusive(v6);

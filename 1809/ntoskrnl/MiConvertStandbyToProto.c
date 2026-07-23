@@ -1,7 +1,7 @@
 /*
- * XREFs of MiConvertStandbyToProto @ 0x14013EA50
+ * XREFs of MiConvertStandbyToProto @ 0x14013EB50
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
@@ -10,22 +10,22 @@
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiComparePages @ 0x14007F9A0 (MiComparePages.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiTryLockLeafPage @ 0x140082A0C (MiTryLockLeafPage.c)
- *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     MiFillCombinePage @ 0x140121784 (MiFillCombinePage.c)
- *     MiUnlockNestedProtoPoolPage @ 0x1401348BC (MiUnlockNestedProtoPoolPage.c)
- *     MiRecheckCombineVm @ 0x14013EEF4 (MiRecheckCombineVm.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     MiGetCrossPartitionCombineCharges @ 0x1402CBF14 (MiGetCrossPartitionCombineCharges.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1402CC0F0 (MiReturnCrossPartitionCombineCharges.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiComparePages @ 0x14007F990 (MiComparePages.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiTryLockLeafPage @ 0x1400829FC (MiTryLockLeafPage.c)
+ *     MiUpdatePfnPriority @ 0x140082AA8 (MiUpdatePfnPriority.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     MiFillCombinePage @ 0x140121854 (MiFillCombinePage.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x14013498C (MiUnlockNestedProtoPoolPage.c)
+ *     MiRecheckCombineVm @ 0x14013EFF4 (MiRecheckCombineVm.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     MiGetCrossPartitionCombineCharges @ 0x1402CC104 (MiGetCrossPartitionCombineCharges.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x1402CC2E0 (MiReturnCrossPartitionCombineCharges.c)
  */
 
 __int64 __fastcall MiConvertStandbyToProto(
@@ -89,7 +89,7 @@ __int64 __fastcall MiConvertStandbyToProto(
   v40 = 0;
   v39 = 1;
   v14 = *(unsigned __int16 *)(v13 + 174);
-  v15 = *(_QWORD *)(qword_14043A748 + 8 * v14);
+  v15 = *(_QWORD *)(qword_14043B808 + 8 * v14);
   v17 = *v16;
   v46 = *v16;
   if ( a8 != -1 )
@@ -147,7 +147,7 @@ LABEL_17:
     goto LABEL_16;
   }
   if ( a7 != (*(_QWORD *)(BugCheckParameter2 + 8) | 0x8000000000000000uLL)
-    || v15 != *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL))
+    || v15 != *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL))
     || !(unsigned int)MiRecheckCombineVm(a2, a4, BugCheckParameter2, a1)
     || (v22 = MiTryLockLeafPage(v8), (v23 = v22) == 0) )
   {
@@ -155,7 +155,7 @@ LABEL_17:
     goto LABEL_15;
   }
   if ( (*(_BYTE *)(v22 + 35) & 0x40) != 0
-    || v17 != *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v22 + 40) >> 40) & 0x3FFLL))
+    || v17 != *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v22 + 40) >> 40) & 0x3FFLL))
     || (*(_BYTE *)(v22 + 34) & 7) != 6 && (*(_BYTE *)(v22 + 34) & 0x20) != 0
     || (v48 = MiMapPageInHyperSpaceWorker((v22 + 0x58000000000LL) / 48, 0LL, 0x80000000),
         v41 = MiComparePages(v48, v44),
@@ -193,7 +193,7 @@ LABEL_16:
   if ( (unsigned int)MiPteHasShadow() )
   {
     v34 = 1;
-    if ( !HIBYTE(word_14043A1AC) )
+    if ( !HIBYTE(word_14043B26C) )
     {
       v38 = (v9 & 1) == 0;
       goto LABEL_54;

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntBitsizeOfValue @ 0x14053710C
+ * XREFs of SymCryptFdefIntBitsizeOfValue @ 0x1405315AC
  * Callers:
- *     SymCryptIntBitsizeOfValue @ 0x1405237CC (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1405210E4 (SymCryptIntBitsizeOfValue.c)
  * Callees:
- *     SymCryptFdefBitsizeOfUint32 @ 0x140536EA8 (SymCryptFdefBitsizeOfUint32.c)
+ *     SymCryptFdefBitsizeOfUint32 @ 0x140531348 (SymCryptFdefBitsizeOfUint32.c)
  */
 
 __int64 __fastcall SymCryptFdefIntBitsizeOfValue(__int64 a1)

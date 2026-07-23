@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRebuildLargePagesThread @ 0x1403967A0
+ * XREFs of MiRebuildLargePagesThread @ 0x140396980
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     MiRebuildLargeZeroPage @ 0x140332BA0 (MiRebuildLargeZeroPage.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     MiRebuildLargeZeroPage @ 0x140332E30 (MiRebuildLargeZeroPage.c)
  */
 
 NTSTATUS __fastcall MiRebuildLargePagesThread(__int64 a1)

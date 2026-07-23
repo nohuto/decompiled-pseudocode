@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepGetConstantOperand @ 0x14024F278
+ * XREFs of AuthzBasepGetConstantOperand @ 0x1402F3AC8
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepGetNextValue @ 0x1402500A4 (AuthzBasepGetNextValue.c)
- *     AuthzBasepCompareFQBNOperands @ 0x1405C1890 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepGetNextValue @ 0x1402F48F4 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x1405C1AC0 (AuthzBasepCompareFQBNOperands.c)
  * Callees:
  *     <none>
  */

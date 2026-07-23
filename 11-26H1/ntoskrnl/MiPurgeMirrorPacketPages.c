@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPurgeMirrorPacketPages @ 0x1406F0200
+ * XREFs of MiPurgeMirrorPacketPages @ 0x1406F4E70
  * Callers:
  *     <none>
  * Callees:
- *     MiMirrorRemoveInactivePages @ 0x1404CB2E0 (MiMirrorRemoveInactivePages.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140C037CC (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorRemoveInactivePages @ 0x1404C4D10 (MiMirrorRemoveInactivePages.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140C099DC (MiMirrorOmitPagesFromCopy.c)
  */
 
 __int64 __fastcall MiPurgeMirrorPacketPages(__int64 a1, __int64 a2, unsigned __int64 a3)

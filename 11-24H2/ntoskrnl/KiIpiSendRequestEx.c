@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIpiSendRequestEx @ 0x140292F80
+ * XREFs of KiIpiSendRequestEx @ 0x1402A2B80
  * Callers:
- *     KxFlushSingleTb @ 0x1405C9918 (KxFlushSingleTb.c)
+ *     KxFlushSingleTb @ 0x1405C7048 (KxFlushSingleTb.c)
  * Callees:
- *     KiIpiSendRequest @ 0x1402928D0 (KiIpiSendRequest.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiIpiSendRequest @ 0x1402A24D0 (KiIpiSendRequest.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiIpiSendRequestEx(__int64 a1, __int64 a2, char *a3, _OWORD *a4, __int64 a5, __int64 a6, __int64 a7)
@@ -28,12 +28,12 @@ __int64 __fastcall KiIpiSendRequestEx(__int64 a1, __int64 a2, char *a3, _OWORD *
 LABEL_3:
       KiIpiSendRequest(a1, a2, a3, a4, a5);
       if ( a6 )
-        guard_dispatch_icall_no_overrides(a7, v9, v11, v12);
+        guard_dispatch_icall_no_overrides(a7, v9);
       for ( result = *(unsigned int *)(a1 + 11648); (_DWORD)result; result = *(unsigned int *)(a1 + 11648) )
       {
         if ( (++v7 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10) )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10, v9, v11, v12) )
         {
           HvlNotifyLongSpinWait(v7);
         }
@@ -56,6 +56,6 @@ LABEL_3:
   }
   result = a6;
   if ( a6 )
-    return guard_dispatch_icall_no_overrides(a7, a2, a3, a4);
+    return guard_dispatch_icall_no_overrides(a7, a2);
   return result;
 }

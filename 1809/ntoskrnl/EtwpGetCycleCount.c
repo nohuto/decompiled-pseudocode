@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpGetCycleCount @ 0x14013E450
+ * XREFs of EtwpGetCycleCount @ 0x14013E550
  * Callers:
  *     <none>
  * Callees:

@@ -10,48 +10,45 @@
  *     ZwAllocateVirtualMemory @ 0x180093A80 (ZwAllocateVirtualMemory.c)
  */
 
-signed __int64 __fastcall RtlpHpSegLfhExtendContext(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpHpSegLfhExtendContext(_RTL_SRWLOCK *BaseAddress, __int64 a2)
 {
-  volatile signed __int64 *v2; // rdi
-  char *v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  signed __int64 v8; // rsi
-  __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  int HeapProtection; // eax
-  unsigned __int64 v13; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+58h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v2; // rdi
+  signed __int64 Value; // rsi
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rdx
+  ULONG Protect; // eax
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddressa; // [rsp+58h] [rbp+10h] BYREF
 
-  v2 = (volatile signed __int64 *)(a1 + 144);
-  RtlAcquireReleaseSRWLockExclusive(a1 + 144);
+  v2 = BaseAddress + 18;
+  RtlAcquireReleaseSRWLockExclusive(BaseAddress + 18);
   while ( 1 )
   {
     while ( 1 )
     {
-      v8 = *(_QWORD *)(a1 + 152);
-      if ( (unsigned __int64)(v8 + a2) > *(_QWORD *)(a1 + 160) )
+      Value = BaseAddress[19].Value;
+      if ( Value + a2 > BaseAddress[20].Value )
         break;
-      if ( v8 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 152), v8 + a2, v8) )
-        return v8;
+      if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)&BaseAddress[19], Value + a2, Value) )
+        return Value;
     }
-    RtlAcquireSRWLockExclusive(v2, v5, v6, v7);
-    v10 = *(_QWORD *)(a1 + 152);
-    v11 = *(_QWORD *)(a1 + 160);
-    if ( v10 + a2 > v11 )
+    RtlAcquireSRWLockExclusive(v2);
+    v7 = BaseAddress[19].Value;
+    v8 = BaseAddress[20].Value;
+    if ( v7 + a2 > v8 )
       break;
 LABEL_8:
     RtlReleaseSRWLockExclusive(v2);
   }
-  v14 = *(_QWORD *)(a1 + 160);
-  v13 = (v10 - v11 + a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  HeapProtection = RtlpGetHeapProtection((_DWORD *)a1, 1);
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v14, 0LL, &v13, 4096, HeapProtection) >= 0 )
+  BaseAddressa = BaseAddress[20].Ptr;
+  RegionSize = (v7 - v8 + a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  Protect = RtlpGetHeapProtection(BaseAddress, 1);
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect) >= 0 )
   {
-    *(_QWORD *)(a1 + 160) += v13;
+    BaseAddress[20].Value += RegionSize;
     goto LABEL_8;
   }
-  v8 = 0LL;
+  Value = 0LL;
   RtlReleaseSRWLockExclusive(v2);
-  return v8;
+  return Value;
 }

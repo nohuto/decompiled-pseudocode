@@ -1,16 +1,16 @@
 /*
- * XREFs of PspStorageAllocSlot @ 0x140728938
+ * XREFs of PspStorageAllocSlot @ 0x140729B28
  * Callers:
- *     PsAllocSiloContextSlot @ 0x140728810 (PsAllocSiloContextSlot.c)
- *     PsRegisterSiloMonitor @ 0x140728830 (PsRegisterSiloMonitor.c)
- *     CmpInitSiloSupport @ 0x1407306D4 (CmpInitSiloSupport.c)
- *     VRegSetup @ 0x14075AE00 (VRegSetup.c)
- *     PspInitializeSiloStructures @ 0x1409B01B8 (PspInitializeSiloStructures.c)
+ *     PsAllocSiloContextSlot @ 0x140729A00 (PsAllocSiloContextSlot.c)
+ *     PsRegisterSiloMonitor @ 0x140729A20 (PsRegisterSiloMonitor.c)
+ *     CmpInitSiloSupport @ 0x1407318C4 (CmpInitSiloSupport.c)
+ *     VRegSetup @ 0x14075BFF0 (VRegSetup.c)
+ *     PspInitializeSiloStructures @ 0x1409B11B8 (PspInitializeSiloStructures.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D9660 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall PspStorageAllocSlot(ULONG *a1)

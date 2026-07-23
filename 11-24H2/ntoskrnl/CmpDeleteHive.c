@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpDeleteHive @ 0x14084475C
+ * XREFs of CmpDeleteHive @ 0x140840A1C
  * Callers:
- *     CmpFindSubkeyInHashByChildCell @ 0x140843700 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpGetNextHive @ 0x14084425C (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1408443C0 (CmpDereferenceHive.c)
- *     CmpUnlockHashEntryByKcb @ 0x140844460 (CmpUnlockHashEntryByKcb.c)
- *     CmpUnlockHashEntry @ 0x1408446B0 (CmpUnlockHashEntry.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x140844830 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmpDeleteKeyObject @ 0x140847360 (CmpDeleteKeyObject.c)
- *     CmpWalkOneLevel @ 0x140872560 (CmpWalkOneLevel.c)
- *     CmpDelayCloseWorker @ 0x1409D6A50 (CmpDelayCloseWorker.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x14083F9C0 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpGetNextHive @ 0x14084051C (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x140840680 (CmpDereferenceHive.c)
+ *     CmpUnlockHashEntryByKcb @ 0x140840720 (CmpUnlockHashEntryByKcb.c)
+ *     CmpUnlockHashEntry @ 0x140840970 (CmpUnlockHashEntry.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140840AF0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDeleteKeyObject @ 0x140843620 (CmpDeleteKeyObject.c)
+ *     CmpWalkOneLevel @ 0x140876890 (CmpWalkOneLevel.c)
+ *     CmpDelayCloseWorker @ 0x1409C6AD0 (CmpDelayCloseWorker.c)
  * Callees:
- *     CmpUnlockHiveList @ 0x140844354 (CmpUnlockHiveList.c)
- *     CmpFree @ 0x14087EC70 (CmpFree.c)
- *     HvFreeDirtyData @ 0x14097C440 (HvFreeDirtyData.c)
- *     CmpDeleteKcbCache @ 0x140A59444 (CmpDeleteKcbCache.c)
- *     CmpLockHiveListExclusive @ 0x140A5B428 (CmpLockHiveListExclusive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmpUnlockHiveList @ 0x140840614 (CmpUnlockHiveList.c)
+ *     CmpFree @ 0x140882B20 (CmpFree.c)
+ *     HvFreeDirtyData @ 0x140964C50 (HvFreeDirtyData.c)
+ *     CmpDeleteKcbCache @ 0x140A50BF4 (CmpDeleteKcbCache.c)
+ *     CmpLockHiveListExclusive @ 0x140A52D38 (CmpLockHiveListExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpDeleteHive(_QWORD *P)

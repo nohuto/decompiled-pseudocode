@@ -1,17 +1,17 @@
 /*
- * XREFs of PopUpdateWakeSource @ 0x1402DBD0C
+ * XREFs of PopUpdateWakeSource @ 0x1402DBEFC
  * Callers:
- *     PopRequestCompletion @ 0x140170E50 (PopRequestCompletion.c)
- *     PoSetSystemWakeDevice @ 0x1402D37C0 (PoSetSystemWakeDevice.c)
+ *     PopRequestCompletion @ 0x140170F50 (PopRequestCompletion.c)
+ *     PoSetSystemWakeDevice @ 0x1402D39B0 (PoSetSystemWakeDevice.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopUpdateWakeSource(PVOID Object)
@@ -40,14 +40,14 @@ __int64 __fastcall PopUpdateWakeSource(PVOID Object)
       v4[3] = PopCurrentWakeInfo;
       v4[2] = Object;
       _InterlockedIncrement((volatile signed __int32 *)(v5 + 16));
-      v6 = (_QWORD *)qword_140418578;
-      if ( *(PVOID **)qword_140418578 != &PopWakeSourceWorkList )
+      v6 = (_QWORD *)qword_140419638;
+      if ( *(PVOID **)qword_140419638 != &PopWakeSourceWorkList )
         __fastfail(3u);
       v7 = PopWakeSourceWorkInProgress == 0;
       *v4 = &PopWakeSourceWorkList;
       v4[1] = v6;
       *v6 = v4;
-      qword_140418578 = (__int64)v4;
+      qword_140419638 = (__int64)v4;
       v4 = 0LL;
       if ( v7 )
       {

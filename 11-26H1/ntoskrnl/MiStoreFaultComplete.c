@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreFaultComplete @ 0x140494AA8
+ * XREFs of MiStoreFaultComplete @ 0x14048E5F8
  * Callers:
- *     MiReadPagefilePage @ 0x1406E4AA0 (MiReadPagefilePage.c)
+ *     MiReadPagefilePage @ 0x1406E9750 (MiReadPagefilePage.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiStoreLogReadFailure @ 0x14070AB24 (MiStoreLogReadFailure.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiStoreLogReadFailure @ 0x14070F7D8 (MiStoreLogReadFailure.c)
  */
 
 void __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, int *a2)
@@ -49,11 +49,11 @@ void __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, int *a2)
       }
       if ( *(_DWORD *)(BugCheckParameter2 + 80) != -1073741801 )
       {
-        _InterlockedAdd(&dword_140E35FE0, 1u);
-        if ( stru_140E36558.FirstArgument )
+        _InterlockedAdd(&dword_140E36160, 1u);
+        if ( stru_140E366D8.FirstArgument )
         {
-          if ( *(_DWORD *)stru_140E36558.FirstArgument
-            && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+          if ( *(_DWORD *)stru_140E366D8.FirstArgument
+            && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
           {
             MiStoreLogReadFailure(v6, BugCheckParameter2);
           }

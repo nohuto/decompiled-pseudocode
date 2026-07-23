@@ -18,6 +18,8 @@ __int64 __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
   unsigned __int16 i; // di
   __int64 v6; // rsi
   int v7; // eax
+  unsigned __int16 OutputBuffer; // [rsp+80h] [rbp+18h] BYREF
+  ULONG ReturnLength; // [rsp+88h] [rbp+20h] BYREF
 
   for ( i = 0; ; ++i )
   {
@@ -30,18 +32,25 @@ __int64 __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
       if ( *(_QWORD *)(v6 + 544) )
       {
         v7 = *(unsigned __int16 *)(v6 + 552);
-        if ( !(_WORD)v7 )
+        if ( (_WORD)v7 )
+          goto LABEL_10;
+        OutputBuffer = 0;
+        ReturnLength = 0;
+        if ( !NtTraceControl(EtwQuerySessionDemuxObject, (PVOID)(v6 + 544), 8u, &OutputBuffer, 2u, &ReturnLength)
+          && ReturnLength == 2 )
         {
-          NtTraceControl(40LL, v6 + 544, 8LL);
-          goto LABEL_9;
-        }
-        if ( v7 == a1 )
           break;
+        }
       }
     }
-LABEL_9:
+LABEL_11:
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * i + 8));
   }
+  v7 = OutputBuffer;
+  *(_WORD *)(v6 + 552) = OutputBuffer;
+LABEL_10:
+  if ( v7 != a1 )
+    goto LABEL_11;
   *a2 = i;
   _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * i + 8));
   return 0LL;

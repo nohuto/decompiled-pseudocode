@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetVadLargePageMinimumIndex @ 0x1404F6FC4
+ * XREFs of MiGetVadLargePageMinimumIndex @ 0x1404F48A8
  * Callers:
- *     MiCommitExistingVad @ 0x140213020 (MiCommitExistingVad.c)
+ *     MiCommitExistingVad @ 0x140306380 (MiCommitExistingVad.c)
  * Callees:
  *     <none>
  */

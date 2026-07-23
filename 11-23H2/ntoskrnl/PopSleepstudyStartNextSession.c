@@ -1,44 +1,44 @@
 /*
- * XREFs of PopSleepstudyStartNextSession @ 0x140878644
+ * XREFs of PopSleepstudyStartNextSession @ 0x140878884
  * Callers:
- *     PopPowerAggregatorStartNextSession @ 0x140877C84 (PopPowerAggregatorStartNextSession.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140877CD4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099357C (PopPowerAggregatorDisengageModernStandby.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x140993734 (PopPowerAggregatorEngageModernStandby.c)
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140993FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
- *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994090 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140877EC4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140877F14 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099377C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140993934 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x1409941E0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994290 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopCalculateIdleInformation @ 0x1403C7D40 (PopCalculateIdleInformation.c)
- *     PopSetModernStandbyTransitionReason @ 0x1403C7E6C (PopSetModernStandbyTransitionReason.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopThermalCsEntry @ 0x14058F84C (PopThermalCsEntry.c)
- *     PopThermalCsExit @ 0x14058F8CC (PopThermalCsExit.c)
- *     PopTransitionTelemetryOsState @ 0x140859174 (PopTransitionTelemetryOsState.c)
- *     PopCurrentPowerStatePrecise @ 0x1408737C8 (PopCurrentPowerStatePrecise.c)
- *     PopSleepstudySendSessionChangeEvent @ 0x140877EB4 (PopSleepstudySendSessionChangeEvent.c)
- *     PopSleepstudyCaptureSessionStatistics @ 0x140878564 (PopSleepstudyCaptureSessionStatistics.c)
- *     PopSleepstudySendWnfNotification @ 0x1408789B4 (PopSleepstudySendWnfNotification.c)
- *     PopDiagTraceSleepStudyStart @ 0x140878A10 (PopDiagTraceSleepStudyStart.c)
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x140993254 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopCalculateIdleInformation @ 0x1403C7F20 (PopCalculateIdleInformation.c)
+ *     PopSetModernStandbyTransitionReason @ 0x1403C804C (PopSetModernStandbyTransitionReason.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopThermalCsEntry @ 0x14058FD3C (PopThermalCsEntry.c)
+ *     PopThermalCsExit @ 0x14058FDBC (PopThermalCsExit.c)
+ *     PopTransitionTelemetryOsState @ 0x1408593B4 (PopTransitionTelemetryOsState.c)
+ *     PopCurrentPowerStatePrecise @ 0x140873A08 (PopCurrentPowerStatePrecise.c)
+ *     PopSleepstudySendSessionChangeEvent @ 0x1408780F4 (PopSleepstudySendSessionChangeEvent.c)
+ *     PopSleepstudyCaptureSessionStatistics @ 0x1408787A4 (PopSleepstudyCaptureSessionStatistics.c)
+ *     PopSleepstudySendWnfNotification @ 0x140878BF4 (PopSleepstudySendWnfNotification.c)
+ *     PopDiagTraceSleepStudyStart @ 0x140878C50 (PopDiagTraceSleepStudyStart.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140993454 (PopSleepstudyCaptureResiliencyStatistics.c)
  */
 
 void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
 {
-  char *v4; // r13
+  LARGE_INTEGER *v4; // r13
   __int64 v5; // rcx
   __int64 v6; // r12
-  __int64 InterruptTimePrecise; // rax
-  __int64 v8; // r14
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v8; // r14
   int v9; // eax
-  int v10; // esi
-  int v11; // edi
-  __int64 v12; // r8
+  LONG v10; // esi
+  LONG v11; // edi
+  LARGE_INTEGER v12; // r8
   char LowPart; // si
   __int64 *v14; // rdi
   int v15; // r15d
@@ -65,7 +65,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
   __int64 v36; // rax
   __int64 v37; // r9
   __int64 v38; // r8
-  LARGE_INTEGER v39; // [rsp+38h] [rbp-D0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp-D0h] BYREF
   __int64 v40; // [rsp+40h] [rbp-C8h]
   _OWORD v41[2]; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v42; // [rsp+68h] [rbp-A0h] BYREF
@@ -78,44 +78,44 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
   v43 = 0LL;
   v44 = 0LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepstudySessionLock);
-  v4 = (char *)&unk_140C3BCD0 + 104 * (unsigned int)dword_140C3BCC8;
-  v5 = ((_BYTE)dword_140C3BCC8 + 1) & 7;
-  dword_140C3BCC8 = ((_BYTE)dword_140C3BCC8 + 1) & 7;
+  v4 = (LARGE_INTEGER *)((char *)&unk_140C3BC90 + 104 * (unsigned int)dword_140C3BC88);
+  v5 = ((_BYTE)dword_140C3BC88 + 1) & 7;
+  dword_140C3BC88 = ((_BYTE)dword_140C3BC88 + 1) & 7;
   v6 = 13 * v5;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v39);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v42 = -2500000LL;
   v8 = InterruptTimePrecise;
   v9 = PopCurrentPowerStatePrecise(v41, (__int64)&v42);
   v10 = DWORD2(v41[0]);
-  *((_QWORD *)v4 + 3) = v8;
+  v4[3] = v8;
   v11 = HIDWORD(v41[0]);
-  *((_DWORD *)v4 + 9) = a2;
-  *((_DWORD *)v4 + 11) = v11;
-  v39.LowPart = v9 != 258;
-  *((_DWORD *)v4 + 13) = v10;
+  v4[4].HighPart = a2;
+  v4[5].HighPart = v11;
+  PerformanceCounter.LowPart = v9 != 258;
+  v4[6].HighPart = v10;
   memset((char *)&PopSleepstudySessionContext[v6 + 26] + 4, 0, 0x64uLL);
   LODWORD(PopSleepstudySessionContext[v6 + 26]) = a1;
-  v12 = *((_QWORD *)v4 + 1);
-  PopSleepstudySessionContext[v6 + 28] = v8;
-  PopSleepstudySessionContext[v6 + 27] = v12 + 1;
+  v12 = v4[1];
+  PopSleepstudySessionContext[v6 + 28] = v8.QuadPart;
+  PopSleepstudySessionContext[v6 + 27] = v12.QuadPart + 1;
   LOBYTE(PopSleepstudySessionContext[v6 + 33]) = v41[0];
   LODWORD(PopSleepstudySessionContext[v6 + 30]) = a2;
   LODWORD(PopSleepstudySessionContext[v6 + 31]) = v11;
   LODWORD(PopSleepstudySessionContext[v6 + 32]) = v10;
-  if ( *(_DWORD *)v4 == 1 )
+  if ( v4->LowPart == 1 )
   {
-    LowPart = v39.LowPart;
+    LowPart = PerformanceCounter.LowPart;
   }
   else
   {
-    if ( *(_DWORD *)v4 != 2 )
+    if ( v4->LowPart != 2 )
     {
-      LowPart = v39.LowPart;
+      LowPart = PerformanceCounter.LowPart;
       goto LABEL_4;
     }
     PopSleepstudySendWnfNotification(&WNF_PO_SCENARIO_CHANGE, &NullGuid);
-    LowPart = v39.LowPart;
-    LOBYTE(v19) = v39.LowPart;
+    LowPart = PerformanceCounter.LowPart;
+    LOBYTE(v19) = PerformanceCounter.LowPart;
     PopSleepstudyCaptureResiliencyStatistics(v4, v41, v19, 0LL);
   }
   if ( PopPlatformAoAc )
@@ -132,7 +132,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
   {
     goto LABEL_4;
   }
-  if ( *(_DWORD *)v4 == 1 )
+  if ( v4->LowPart == 1 )
     ++PopSleepstudySessionContext[v6 + 27];
   if ( ((a1 - 1) & 0xFFFFFFFD) != 0 || (byte_140CF7CD4 = 1, a1 != 3) )
   {
@@ -141,11 +141,11 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
   }
   else
   {
-    PopSleepstudyStopReason = dword_140C3D0D4;
+    PopSleepstudyStopReason = dword_140C3CD94;
   }
   PopSetModernStandbyTransitionReason(0, a2);
   PopSleepstudyCaptureSessionStatistics(v20, &NullGuid, PopSleepstudySessionContext[v6 + 27], (__int64)v41, v45);
-  if ( !byte_140C3BC18 )
+  if ( !byte_140C3BBD8 )
   {
     v21 = 2LL;
     v22 = &PopWdiScenarioStopEventData;
@@ -173,7 +173,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
     }
     while ( v21 );
     v31 = *v23;
-    v39.QuadPart = 0LL;
+    PerformanceCounter.QuadPart = 0LL;
     v32 = v23[1];
     v40 = -1LL;
     *v22 = v31;
@@ -184,10 +184,10 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
     v35 = v23[4];
     v22[3] = v34;
     v22[4] = v35;
-    KeSetTimer2((__int64)&unk_140C3BC20, -50000000LL, 0LL, (__int64)&v39);
+    KeSetTimer2((__int64)&unk_140C3BBE0, -50000000LL, 0LL, (__int64)&PerformanceCounter);
     v36 = PopSleepstudySessionContext[v6 + 27] - 2;
-    byte_140C3BC18 = 1;
-    qword_140C3BC10 = v36;
+    byte_140C3BBD8 = 1;
+    qword_140C3BBD0 = v36;
   }
   PopSleepstudySendWnfNotification(&WNF_PO_UMPO_SCENARIO_CHANGE, &NullGuid);
 LABEL_4:
@@ -208,7 +208,7 @@ LABEL_4:
   }
   else
   {
-    if ( PopPlatformAoAc && (unsigned int)(*(_DWORD *)v4 - 1) > 1 )
+    if ( PopPlatformAoAc && v4->LowPart - 1 > 1 )
     {
       PopTransitionTelemetryOsState(3, 6);
       PopThermalCsEntry(a2 == 23);
@@ -220,7 +220,7 @@ LABEL_4:
       PopSleepstudySessionContext[v6 + 27],
       (__int64)v41,
       v45);
-    if ( !byte_140C3BC18 )
+    if ( !byte_140C3BBD8 )
       PopDiagTraceSleepStudyStart();
     v17 = &WNF_PO_UMPO_SCENARIO_CHANGE;
   }

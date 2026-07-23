@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSvmDevicePowerCallback @ 0x14022EF7C
+ * XREFs of ExSvmDevicePowerCallback @ 0x14022EDA8
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetCurrentTransaction @ 0x1800770C0
+ * XREFs of RtlGetCurrentTransaction @ 0x1800770B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void *RtlGetCurrentTransaction()
+HANDLE RtlGetCurrentTransaction(void)
 {
   return NtCurrentTeb()->CurrentTransactionHandle;
 }

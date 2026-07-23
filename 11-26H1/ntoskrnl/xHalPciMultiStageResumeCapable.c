@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalPciMultiStageResumeCapable @ 0x140BF1440
+ * XREFs of xHalPciMultiStageResumeCapable @ 0x140BF7440
  * Callers:
  *     <none>
  * Callees:

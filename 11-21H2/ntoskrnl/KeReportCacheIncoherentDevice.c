@@ -8,5 +8,5 @@
 
 void KeReportCacheIncoherentDevice()
 {
-  KiSystemFullyCoherent = 0;
+  dword_140C0B8A8 = 0;
 }

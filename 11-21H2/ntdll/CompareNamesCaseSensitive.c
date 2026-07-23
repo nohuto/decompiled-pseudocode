@@ -37,7 +37,7 @@ __int64 __fastcall CompareNamesCaseSensitive(__int64 a1, __int64 a2)
   {
     _InterlockedOr(v23, 0);
     v5 = qword_1801776E0;
-    v4 = word_18017765C != 0;
+    v4 = GlobalRtlNlsState.DBCSCodePage != 0;
   }
   v9 = *v8;
   v10 = *v7;

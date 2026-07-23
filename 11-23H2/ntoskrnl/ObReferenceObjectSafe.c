@@ -1,24 +1,24 @@
 /*
- * XREFs of ObReferenceObjectSafe @ 0x140337710
+ * XREFs of ObReferenceObjectSafe @ 0x1403379A0
  * Callers:
- *     AlpcpDispatchConnectionRequest @ 0x140716058 (AlpcpDispatchConnectionRequest.c)
- *     AlpcpFlushMessagesPort @ 0x1407188F0 (AlpcpFlushMessagesPort.c)
- *     AlpcpDisconnectPort @ 0x140718EC0 (AlpcpDisconnectPort.c)
- *     AlpcpReferenceReplyTargetPorts @ 0x14071B460 (AlpcpReferenceReplyTargetPorts.c)
- *     AlpcpReceiveLegacyMessage @ 0x14071BB90 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpReferenceConnectedPort @ 0x14071D0C8 (AlpcpReferenceConnectedPort.c)
- *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140739AF0 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
- *     AlpcpProcessSynchronousRequest @ 0x14073D5D0 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
- *     AlpcpQueryRemoteView @ 0x1407C4534 (AlpcpQueryRemoteView.c)
- *     WmipProcessEvent @ 0x14086AE10 (WmipProcessEvent.c)
- *     AlpcpPortQueryServerInfo @ 0x1409790C8 (AlpcpPortQueryServerInfo.c)
- *     AlpcpReferenceMessageByWaitingThread @ 0x140979C10 (AlpcpReferenceMessageByWaitingThread.c)
- *     ObpCreateTypeArray @ 0x14097BF7C (ObpCreateTypeArray.c)
- *     CmUnRegisterCallback @ 0x140A0F1C0 (CmUnRegisterCallback.c)
- *     IovpBuildDriverObjectList @ 0x140AC18F8 (IovpBuildDriverObjectList.c)
+ *     AlpcpDispatchConnectionRequest @ 0x140716258 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpFlushMessagesPort @ 0x140718AF0 (AlpcpFlushMessagesPort.c)
+ *     AlpcpDisconnectPort @ 0x1407190C0 (AlpcpDisconnectPort.c)
+ *     AlpcpReferenceReplyTargetPorts @ 0x14071B660 (AlpcpReferenceReplyTargetPorts.c)
+ *     AlpcpReceiveLegacyMessage @ 0x14071BD90 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpReferenceConnectedPort @ 0x14071D2C8 (AlpcpReferenceConnectedPort.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140739CE0 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ *     AlpcpProcessSynchronousRequest @ 0x14073D7C0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
+ *     AlpcpQueryRemoteView @ 0x1407C4804 (AlpcpQueryRemoteView.c)
+ *     WmipProcessEvent @ 0x14086B050 (WmipProcessEvent.c)
+ *     AlpcpPortQueryServerInfo @ 0x1409792C8 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpReferenceMessageByWaitingThread @ 0x140979E10 (AlpcpReferenceMessageByWaitingThread.c)
+ *     ObpCreateTypeArray @ 0x14097C17C (ObpCreateTypeArray.c)
+ *     CmUnRegisterCallback @ 0x140A0F470 (CmUnRegisterCallback.c)
+ *     IovpBuildDriverObjectList @ 0x140AC18E8 (IovpBuildDriverObjectList.c)
  * Callees:
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 char __fastcall ObReferenceObjectSafe(__int64 a1)

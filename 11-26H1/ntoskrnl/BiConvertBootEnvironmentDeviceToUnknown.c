@@ -1,12 +1,12 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToUnknown @ 0x140891758
+ * XREFs of BiConvertBootEnvironmentDeviceToUnknown @ 0x140897B54
  * Callers:
- *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4AF34 (BiConvertBootEnvironmentDeviceToElement.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4AF80 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4CCC4 (BiConvertBootEnvironmentDeviceToElement.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4CD10 (BiConvertBootEnvironmentDeviceToNt.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall BiConvertBootEnvironmentDeviceToUnknown(_DWORD *Src, _QWORD *a2, unsigned int *a3)

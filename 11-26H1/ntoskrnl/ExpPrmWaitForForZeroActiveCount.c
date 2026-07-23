@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPrmWaitForForZeroActiveCount @ 0x1406CFF00
+ * XREFs of ExpPrmWaitForForZeroActiveCount @ 0x1406D3F30
  * Callers:
- *     ExpPrmNotifyInterfaceChange @ 0x14083EEE0 (ExpPrmNotifyInterfaceChange.c)
- *     ExpPrmTargetDeviceChangeCallback @ 0x14083EFD0 (ExpPrmTargetDeviceChangeCallback.c)
+ *     ExpPrmNotifyInterfaceChange @ 0x140845120 (ExpPrmNotifyInterfaceChange.c)
+ *     ExpPrmTargetDeviceChangeCallback @ 0x140845210 (ExpPrmTargetDeviceChangeCallback.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
  */
 
 __int64 ExpPrmWaitForForZeroActiveCount()
@@ -15,8 +15,8 @@ __int64 ExpPrmWaitForForZeroActiveCount()
   Interval.QuadPart = -10000LL;
   while ( 1 )
   {
-    result = HIDWORD(ExSaPageGroupDescriptorArrayLock.MutantListHead.Flink);
-    if ( !HIDWORD(ExSaPageGroupDescriptorArrayLock.MutantListHead.Flink) )
+    result = HIDWORD(ExSaPageGroupDescriptorArrayLock.IoSelfBoostsEntry.Next);
+    if ( !HIDWORD(ExSaPageGroupDescriptorArrayLock.IoSelfBoostsEntry.Next) )
       break;
     KeDelayExecutionThread(0, 0, &Interval);
   }

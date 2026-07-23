@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSaveCurrentEtwTraceBuffer @ 0x1405E8920
+ * XREFs of KiSaveCurrentEtwTraceBuffer @ 0x1405EB290
  * Callers:
- *     KiCollectTriageDumpDataBlocks @ 0x1405E7B6C (KiCollectTriageDumpDataBlocks.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405EA4DC (KiCollectTriageDumpDataBlocks.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     EtwGetProcessorBuffer @ 0x1406C3720 (EtwGetProcessorBuffer.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     EtwGetProcessorBuffer @ 0x1406C7360 (EtwGetProcessorBuffer.c)
  */
 
 char KiSaveCurrentEtwTraceBuffer()
@@ -21,8 +21,8 @@ char KiSaveCurrentEtwTraceBuffer()
   if ( ProcessorBuffer >= 0 )
   {
     v1 = 0x2000LL;
-    *(_QWORD *)&KiCurrentEtwBufferBase = v6;
-    *(_QWORD *)&KiCurrentEtwBufferOffset = v6 + HIDWORD(v6);
+    KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)v6;
+    KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)(v6 + HIDWORD(v6));
     if ( HIDWORD(v6) >= 0x2000uLL )
     {
       v2 = v6 + HIDWORD(v6) - 0x2000;
@@ -33,8 +33,10 @@ char KiSaveCurrentEtwTraceBuffer()
       v2 = v6;
     }
     IoAddTriageDumpDataBlock(v2, (PVOID)v1);
-    IoAddTriageDumpDataBlock((ULONG)&KiCurrentEtwBufferBase, (PVOID)8);
-    LOBYTE(ProcessorBuffer) = IoAddTriageDumpDataBlock((ULONG)&KiCurrentEtwBufferOffset, (PVOID)8);
+    IoAddTriageDumpDataBlock((ULONG)&KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink, (PVOID)8);
+    LOBYTE(ProcessorBuffer) = IoAddTriageDumpDataBlock(
+                                (ULONG)&KiDpcWatchdogConfigurationLock.Header.WaitListHead,
+                                (PVOID)8);
   }
   if ( ErrorLogSessionOpened )
   {
@@ -42,8 +44,8 @@ char KiSaveCurrentEtwTraceBuffer()
     if ( ProcessorBuffer >= 0 )
     {
       v3 = 4096LL;
-      *(_QWORD *)&KiCurrentErrLogBufferBase = v6;
-      *(_QWORD *)&KiCurrentErrLogBufferOffset = v6 + HIDWORD(v6);
+      KiDpcWatchdogConfigurationLock.QuantumTarget = v6;
+      KiDpcWatchdogConfigurationLock.SListFaultAddress = (void *)(v6 + HIDWORD(v6));
       if ( HIDWORD(v6) >= 0x1000uLL )
       {
         v4 = v6 + HIDWORD(v6) - 4096;
@@ -54,8 +56,10 @@ char KiSaveCurrentEtwTraceBuffer()
         v4 = v6;
       }
       IoAddTriageDumpDataBlock(v4, (PVOID)v3);
-      IoAddTriageDumpDataBlock((ULONG)&KiCurrentErrLogBufferBase, (PVOID)8);
-      LOBYTE(ProcessorBuffer) = IoAddTriageDumpDataBlock((ULONG)&KiCurrentErrLogBufferOffset, (PVOID)8);
+      IoAddTriageDumpDataBlock((ULONG)&KiDpcWatchdogConfigurationLock.QuantumTarget, (PVOID)8);
+      LOBYTE(ProcessorBuffer) = IoAddTriageDumpDataBlock(
+                                  (ULONG)&KiDpcWatchdogConfigurationLock.SListFaultAddress,
+                                  (PVOID)8);
     }
   }
   return ProcessorBuffer;

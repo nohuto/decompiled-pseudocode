@@ -1,14 +1,14 @@
 /*
- * XREFs of SiOpenDevice @ 0x1406A4E74
+ * XREFs of SiOpenDevice @ 0x140602AA4
  * Callers:
- *     SiGetDiskPartitionInformation @ 0x1406A4DE0 (SiGetDiskPartitionInformation.c)
- *     SiGetDriveLayoutInformation @ 0x14077AD0C (SiGetDriveLayoutInformation.c)
- *     SiGetDeviceNumberInformation @ 0x140973770 (SiGetDeviceNumberInformation.c)
- *     SiIssueSynchronousIoctl @ 0x14097384C (SiIssueSynchronousIoctl.c)
- *     SiQueryProperty @ 0x1409738E8 (SiQueryProperty.c)
+ *     SiGetDiskPartitionInformation @ 0x140602A10 (SiGetDiskPartitionInformation.c)
+ *     SiGetDriveLayoutInformation @ 0x14077AECC (SiGetDriveLayoutInformation.c)
+ *     SiGetDeviceNumberInformation @ 0x140973950 (SiGetDeviceNumberInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x140973A2C (SiIssueSynchronousIoctl.c)
+ *     SiQueryProperty @ 0x140973AC8 (SiQueryProperty.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
  */
 
 NTSTATUS __fastcall SiOpenDevice(PCWSTR SourceString, PHANDLE FileHandle)

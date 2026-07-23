@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUTF8ToUnicodeN @ 0x1406DA5D0
+ * XREFs of RtlUTF8ToUnicodeN @ 0x1406DA600
  * Callers:
- *     RtlAnsiCharToUnicodeChar @ 0x1406DA400 (RtlAnsiCharToUnicodeChar.c)
- *     RtlMultiByteToUnicodeSize @ 0x140773D00 (RtlMultiByteToUnicodeSize.c)
- *     RtlCustomCPToUnicodeN @ 0x140773E60 (RtlCustomCPToUnicodeN.c)
- *     RtlUTF8StringToUnicodeString @ 0x1409C2330 (RtlUTF8StringToUnicodeString.c)
- *     EtwpApplyContainerFilter @ 0x1409F4CF8 (EtwpApplyContainerFilter.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1406DA430 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlMultiByteToUnicodeSize @ 0x140773EF0 (RtlMultiByteToUnicodeSize.c)
+ *     RtlCustomCPToUnicodeN @ 0x140774050 (RtlCustomCPToUnicodeN.c)
+ *     RtlUTF8StringToUnicodeString @ 0x1409C2530 (RtlUTF8StringToUnicodeString.c)
+ *     EtwpApplyContainerFilter @ 0x1409F4F88 (EtwpApplyContainerFilter.c)
  * Callees:
- *     CountUTF8ToUnicode @ 0x1403947D0 (CountUTF8ToUnicode.c)
+ *     CountUTF8ToUnicode @ 0x1403949B0 (CountUTF8ToUnicode.c)
  */
 
 NTSTATUS __stdcall RtlUTF8ToUnicodeN(

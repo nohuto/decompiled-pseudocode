@@ -1,39 +1,39 @@
 /*
- * XREFs of FsRtlSendModernAppTermination @ 0x1400AC82C
+ * XREFs of FsRtlSendModernAppTermination @ 0x1400AAD94
  * Callers:
- *     FsRtlpOplockSendModernAppTermination @ 0x1400AC754 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x1400AACBC (FsRtlpOplockSendModernAppTermination.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall FsRtlSendModernAppTermination(_DWORD *a1, unsigned int a2, int a3)
+NTSTATUS __fastcall FsRtlSendModernAppTermination(_DWORD *Buffer, ULONG Length, int a3)
 {
-  __int64 v3; // rax
+  WNF_STATE_NAME v3; // rax
   _DWORD v5[2]; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+48h] [rbp-20h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-20h] BYREF
 
-  if ( !a1 || !a2 )
+  if ( !Buffer || !Length )
   {
     v5[0] = -1;
-    a1 = v5;
+    Buffer = v5;
     v5[1] = 0;
-    a2 = 4;
+    Length = 4;
   }
-  if ( a2 > 0x1000 )
-    return 2147483653LL;
+  if ( Length > 0x1000 )
+    return -2147483643;
   if ( !a3 )
   {
-    v3 = WNF_FLT_RUNDOWN_WAIT;
+    v3 = (WNF_STATE_NAME)WNF_FLT_RUNDOWN_WAIT;
     goto LABEL_7;
   }
   if ( a3 == 1 )
   {
-    v3 = WNF_FSRL_OPLOCK_BREAK;
+    v3 = (WNF_STATE_NAME)WNF_FSRL_OPLOCK_BREAK;
 LABEL_7:
-    v6 = v3;
-    return ZwUpdateWnfStateData(&v6, a1, a2);
+    StateName = v3;
+    return ZwUpdateWnfStateData(&StateName, Buffer, Length, 0LL, 0LL, 0, 0);
   }
-  return 3221225485LL;
+  return -1073741811;
 }

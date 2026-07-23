@@ -1,12 +1,12 @@
 /*
- * XREFs of MiKernelStackVaToStackNode @ 0x140155AC0
+ * XREFs of MiKernelStackVaToStackNode @ 0x140155BC0
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14013D4A0 (MiInPageSingleKernelStack.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiInPageSingleKernelStack @ 0x14013D5A0 (MiInPageSingleKernelStack.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1)
@@ -17,8 +17,8 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1)
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = 0LL;
-  v3 = ExAcquireSpinLockShared(&dword_14043ACA0);
-  v4 = (_QWORD *)qword_14043AC98;
+  v3 = ExAcquireSpinLockShared(&dword_14043BD60);
+  v4 = (_QWORD *)qword_14043BD58;
   while ( v4 )
   {
     if ( a1 > v4[3] )
@@ -35,7 +35,7 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1)
       v4 = (_QWORD *)*v4;
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043ACA0);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043BD60);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

@@ -1,10 +1,10 @@
 /*
- * XREFs of NtCreatePort @ 0x140547544
+ * XREFs of NtCreatePort @ 0x140547A84
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     AlpcpCreateConnectionPort @ 0x1404B36C8 (AlpcpCreateConnectionPort.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     AlpcpCreateConnectionPort @ 0x14049DAA8 (AlpcpCreateConnectionPort.c)
  */
 
 NTSTATUS __stdcall NtCreatePort(

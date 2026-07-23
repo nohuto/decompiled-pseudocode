@@ -1,10 +1,10 @@
 /*
- * XREFs of HalWheaUpdateCmciPolicy @ 0x1403BAA80
+ * XREFs of HalWheaUpdateCmciPolicy @ 0x1403BABF0
  * Callers:
- *     WheapApplyPolicyChanges @ 0x14095DB3C (WheapApplyPolicyChanges.c)
- *     WheapLoadPolicy @ 0x140A62C18 (WheapLoadPolicy.c)
+ *     WheapApplyPolicyChanges @ 0x14095DD1C (WheapApplyPolicyChanges.c)
+ *     WheapLoadPolicy @ 0x140A63C18 (WheapLoadPolicy.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
  */
 
 LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)
@@ -55,17 +55,17 @@ LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)
       }
       else
       {
-        dword_140C508E0 = a2;
+        dword_140C50920 = a2;
       }
     }
     else
     {
-      dword_140C508E4 = a2;
+      dword_140C50924 = a2;
     }
   }
   else
   {
-    byte_140C508DC = a2;
+    byte_140C5091C = a2;
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
  * XREFs of MmIsVerifierEnabled @ 0x140A7BDF0
  * Callers:
- *     PoBroadcastSystemState @ 0x140A4A768 (PoBroadcastSystemState.c)
+ *     sub_140A4A768 @ 0x140A4A768 (sub_140A4A768.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
+ *     sub_1402DA4B0 @ 0x1402DA4B0 (sub_1402DA4B0.c)
  */
 
 NTSTATUS __stdcall MmIsVerifierEnabled(PULONG VerifierFlags)
@@ -13,13 +13,13 @@ NTSTATUS __stdcall MmIsVerifierEnabled(PULONG VerifierFlags)
   v1 = 0;
   if ( VerifierFlags )
   {
-    if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
+    if ( (_QWORD)xmmword_140C1B2B0 )
     {
-      if ( (unsigned int)VfIsVerifierEnabled()
-        && ((VfRuleClasses & 0xFFA9F6E6) != 0 || (VfRuleClasses & 0x200000000LL) != 0)
-        || (VfRuleClasses & 0x10) != 0 && (VfRuleClasses & 0x400000) == 0 )
+      if ( (unsigned int)sub_1402DA4B0()
+        && ((qword_140D01450 & 0xFFA9F6E6) != 0 || (qword_140D01450 & 0x200000000LL) != 0)
+        || (qword_140D01450 & 0x10) != 0 && (qword_140D01450 & 0x400000) == 0 )
       {
-        *VerifierFlags = MmVerifierData;
+        *VerifierFlags = dword_140C29FC0;
         return v1;
       }
       *VerifierFlags = 0;

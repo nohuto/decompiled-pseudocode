@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpDeleteSymbolicLinkName @ 0x14084281C
+ * XREFs of ObpDeleteSymbolicLinkName @ 0x14083EADC
  * Callers:
- *     ObShutdownSystem @ 0x1407432D0 (ObShutdownSystem.c)
- *     ObpDecrementHandleCount @ 0x1408410A0 (ObpDecrementHandleCount.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ObpDeleteNameCheck @ 0x14089B690 (ObpDeleteNameCheck.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x1409E4C18 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObShutdownSystem @ 0x140741200 (ObShutdownSystem.c)
+ *     ObpDecrementHandleCount @ 0x14083D360 (ObpDecrementHandleCount.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ObpDeleteNameCheck @ 0x1408A3D30 (ObpDeleteNameCheck.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1409DF678 (ObpMarkDirectoryObjectsTemporary.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ObDereferenceObjectDeferDelete @ 0x1403C5CE0 (ObDereferenceObjectDeferDelete.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1403B48A0 (ObDereferenceObjectDeferDelete.c)
  */
 
 void __fastcall ObpDeleteSymbolicLinkName(__int64 a1)
@@ -25,8 +25,8 @@ void __fastcall ObpDeleteSymbolicLinkName(__int64 a1)
   struct _KTHREAD *CurrentThread; // rcx
   struct _LIST_ENTRY *v7; // rsi
   unsigned __int64 *p_Blink; // rdi
-  _QWORD *v9; // rax
-  _QWORD *v10; // rbp
+  char *v9; // rax
+  char *v10; // rbp
   int v11; // edx
   __int64 v12; // rax
   volatile signed __int64 *v13; // rbp
@@ -44,12 +44,12 @@ void __fastcall ObpDeleteSymbolicLinkName(__int64 a1)
       v7 = CurrentServerSiloGlobals;
       p_Blink = (unsigned __int64 *)&CurrentServerSiloGlobals[7].Blink;
       --CurrentThread->SpecialApcDisable;
-      v9 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL);
+      v9 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL);
       v10 = v9;
       if ( _interlockedbittestandset64((volatile signed __int32 *)p_Blink, 0LL) )
-        ExfAcquirePushLockExclusiveEx(p_Blink, (__int64)v9, (__int64)p_Blink);
+        ExfAcquirePushLockExclusiveEx(p_Blink, v9, (__int64)p_Blink);
       if ( v10 )
-        *((_BYTE *)v10 + 10) = 1;
+        v10[10] = 1;
       v11 = ~(1 << v3);
       *(_DWORD *)(v4 + 256) &= v11;
       *(_BYTE *)(v3 + v4 + 260) = 0;

@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapGetTimestamp @ 0x140612354
+ * XREFs of WheapGetTimestamp @ 0x1406128A4
  * Callers:
- *     WheaInitializeRecordHeader @ 0x1406124F0 (WheaInitializeRecordHeader.c)
+ *     WheaInitializeRecordHeader @ 0x140612A40 (WheaInitializeRecordHeader.c)
  * Callees:
- *     RtlpTimeToTimeFields @ 0x14033B6C8 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeToTimeFields @ 0x14033B958 (RtlpTimeToTimeFields.c)
  */
 
 __int64 __fastcall WheapGetTimestamp(_BYTE *a1, __int64 a2, __int64 a3)

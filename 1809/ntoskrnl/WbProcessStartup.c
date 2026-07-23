@@ -1,10 +1,10 @@
 /*
- * XREFs of WbProcessStartup @ 0x1406CFDF4
+ * XREFs of WbProcessStartup @ 0x1406D1094
  * Callers:
- *     WbDispatchOperation @ 0x140625364 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140626384 (WbDispatchOperation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WbAlloc @ 0x140624D14 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WbAlloc @ 0x140625D34 (WbAlloc.c)
  */
 
 __int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)

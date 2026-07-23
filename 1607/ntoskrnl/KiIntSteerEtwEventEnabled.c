@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIntSteerEtwEventEnabled @ 0x14012D778
+ * XREFs of KiIntSteerEtwEventEnabled @ 0x14012DCE8
  * Callers:
- *     KiIntSteerLogState @ 0x14012D718 (KiIntSteerLogState.c)
- *     KiIntSteerLogMask @ 0x1401DA6E4 (KiIntSteerLogMask.c)
- *     KiIntSteerLogProc @ 0x1401DA7D8 (KiIntSteerLogProc.c)
- *     KiIntSteerLogStatus @ 0x1401DA8BC (KiIntSteerLogStatus.c)
+ *     KiIntSteerLogState @ 0x14012DC88 (KiIntSteerLogState.c)
+ *     KiIntSteerLogMask @ 0x1401DA510 (KiIntSteerLogMask.c)
+ *     KiIntSteerLogProc @ 0x1401DA604 (KiIntSteerLogProc.c)
+ *     KiIntSteerLogStatus @ 0x1401DA6E8 (KiIntSteerLogStatus.c)
  * Callees:
  *     <none>
  */

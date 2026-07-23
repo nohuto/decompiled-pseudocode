@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x14061C2CC
+ * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x14061C380
  * Callers:
- *     DbgkpWerCaptureLiveFullDump @ 0x14061BD38 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x14061BDEC (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateTimer @ 0x14015B360 (ZwCreateTimer.c)
- *     DbgkpWerAllocateNonpagedPool @ 0x1401B7DC4 (DbgkpWerAllocateNonpagedPool.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateTimer @ 0x14015B8D0 (ZwCreateTimer.c)
+ *     DbgkpWerAllocateNonpagedPool @ 0x1401B7CA8 (DbgkpWerAllocateNonpagedPool.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)

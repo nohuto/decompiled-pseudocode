@@ -1,10 +1,10 @@
 /*
- * XREFs of HalGetInterruptTargetInformation @ 0x1403C9A60
+ * XREFs of HalGetInterruptTargetInformation @ 0x1403C9C00
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     HalpInterruptIsMsiSupported @ 0x1403C9BA8 (HalpInterruptIsMsiSupported.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     HalpInterruptIsMsiSupported @ 0x1403C9D48 (HalpInterruptIsMsiSupported.c)
  */
 
 __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
@@ -53,7 +53,7 @@ __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
     v12 = HalpInterruptTargets;
     v13 = 3LL * ProcessorIndexFromNumber;
     if ( v7 == 1
-      || (v14 = qword_140C4BA48[*(unsigned __int16 *)(i + 16)], _bittest64(&v14, *(unsigned __int8 *)(i + 18))) )
+      || (v14 = qword_140C4BA88[*(unsigned __int16 *)(i + 16)], _bittest64(&v14, *(unsigned __int8 *)(i + 18))) )
     {
       *(_DWORD *)(a3 + 12) = 0;
       *(_DWORD *)(a3 + 20) = 1;

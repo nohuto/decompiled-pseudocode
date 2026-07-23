@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmPerfAction @ 0x140220770
+ * XREFs of PpmPerfAction @ 0x1402C5070
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfSnapDeliveredPerformance @ 0x140220810 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmCheckContinueExecution @ 0x14022B780 (PpmCheckContinueExecution.c)
- *     PpmPerfApplyProcessorState @ 0x140398B3C (PpmPerfApplyProcessorState.c)
- *     PpmParkReportParkedCore @ 0x14057D7B4 (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x14057D8AC (PpmParkReportSoftParkChange.c)
- *     PpmParkReportUnparkedCore @ 0x14057D960 (PpmParkReportUnparkedCore.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402C5110 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckContinueExecution @ 0x1402D0030 (PpmCheckContinueExecution.c)
+ *     PpmPerfApplyProcessorState @ 0x140398C8C (PpmPerfApplyProcessorState.c)
+ *     PpmParkReportParkedCore @ 0x14057D9F4 (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x14057DAEC (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportUnparkedCore @ 0x14057DBA0 (PpmParkReportUnparkedCore.c)
  */
 
 void __fastcall PpmPerfAction(

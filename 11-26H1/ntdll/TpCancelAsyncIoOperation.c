@@ -1,22 +1,22 @@
 /*
- * XREFs of TpCancelAsyncIoOperation @ 0x1800E0250
+ * XREFs of TpCancelAsyncIoOperation @ 0x1800DDAF0
  * Callers:
  *     <none>
  * Callees:
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall TpCancelAsyncIoOperation(__int64 a1)
+void __cdecl TpCancelAsyncIoOperation(PTP_IO Io)
 {
-  int v2; // eax
-  signed __int32 v3; // eax
-  signed __int32 v4; // ett
+  volatile int Flags; // eax
+  volatile int PendingIrpCount; // eax
+  volatile int v4; // ett
 
-  if ( !a1
-    || (v2 = *(_DWORD *)(a1 + 168), (v2 & 0x10000) != 0)
-    || (v2 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppIopCleanupGroupMemberVFuncs
+  if ( !Io
+    || (Flags = Io->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)(PVOID))Io->CleanupGroupMember.VFuncs != &TppIopCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
@@ -24,19 +24,19 @@ void __fastcall TpCancelAsyncIoOperation(__int64 a1)
   }
   else
   {
-    _m_prefetchw((const void *)(a1 + 280));
-    v3 = *(_DWORD *)(a1 + 280);
-    while ( v3 > 0 )
+    _m_prefetchw((const void *)&Io->PendingIrpCount);
+    PendingIrpCount = Io->PendingIrpCount;
+    while ( PendingIrpCount > 0 )
     {
-      v4 = v3;
-      v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 280), v3 - 1, v3);
-      if ( v4 == v3 )
+      v4 = PendingIrpCount;
+      PendingIrpCount = _InterlockedCompareExchange(&Io->PendingIrpCount, PendingIrpCount - 1, PendingIrpCount);
+      if ( v4 == PendingIrpCount )
       {
-        TppBarrierAdjust((signed __int64 *)(a1 + 56), -1, 0);
+        TppBarrierAdjust((_RTL_SRWLOCK *)&Io->CleanupGroupMember.CallbackBarrier, -1, 0);
         break;
       }
     }
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
-      (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
+    if ( _InterlockedExchangeAdd(&Io->CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
+      Io->CleanupGroupMember.VFuncs->Free(&Io->CleanupGroupMember);
   }
 }

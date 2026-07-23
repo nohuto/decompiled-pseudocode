@@ -1,7 +1,7 @@
 /*
  * XREFs of IoGetActivityIdIrp @ 0x14020C9B0
  * Callers:
- *     EtwpTraceIo @ 0x14020A0D0 (EtwpTraceIo.c)
+ *     sub_14020A0D0 @ 0x14020A0D0 (sub_14020A0D0.c)
  *     IoPropagateActivityIdToThread @ 0x14020BD50 (IoPropagateActivityIdToThread.c)
  * Callees:
  *     <none>

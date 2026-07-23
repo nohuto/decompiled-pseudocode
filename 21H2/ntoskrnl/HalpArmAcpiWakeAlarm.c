@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpArmAcpiWakeAlarm @ 0x140778E88
+ * XREFs of HalpArmAcpiWakeAlarm @ 0x140779048
  * Callers:
- *     HaliSetWakeAlarm @ 0x1409987D0 (HaliSetWakeAlarm.c)
+ *     HaliSetWakeAlarm @ 0x1409997D0 (HaliSetWakeAlarm.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     HalpGetDynamicDevicePointer @ 0x140778ED4 (HalpGetDynamicDevicePointer.c)
- *     HalpCallWakeAlarmDriver @ 0x140866260 (HalpCallWakeAlarmDriver.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     HalpGetDynamicDevicePointer @ 0x140779094 (HalpGetDynamicDevicePointer.c)
+ *     HalpCallWakeAlarmDriver @ 0x1408663C0 (HalpCallWakeAlarmDriver.c)
  */
 
 __int64 HalpArmAcpiWakeAlarm()

@@ -16,11 +16,11 @@
  *     RtlGetSystemTimePrecise @ 0x140341F30 (RtlGetSystemTimePrecise.c)
  */
 
-__int64 __fastcall KeQuerySystemTimePrecise(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
+LARGE_INTEGER __fastcall KeQuerySystemTimePrecise(LARGE_INTEGER *a1)
 {
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
 
-  result = RtlGetSystemTimePrecise(a1, a2, a3, a4);
+  result = RtlGetSystemTimePrecise();
   *a1 = result;
   return result;
 }

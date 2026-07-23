@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV?$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0?0@gsl@@V?$span@$$CBK$0?0@2@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x140A5EDE0
+ * XREFs of ?RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV?$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0?0@gsl@@V?$span@$$CBK$0?0@2@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x140A6BDA0
  * Callers:
- *     ?RtlpParseBinaryDecisionDiagram@@YAJV?$span@$$CBE$0?0@gsl@@V?$span@$$CBK$0?0@2@KPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x140A5EBFC (-RtlpParseBinaryDecisionDiagram@@YAJV-$span@$$CBE$0-0@gsl@@V-$span@$$CBK$0-0@2@KPEBU_RTL_FUNCTIO.c)
+ *     ?RtlpParseBinaryDecisionDiagram@@YAJV?$span@$$CBE$0?0@gsl@@V?$span@$$CBK$0?0@2@KPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x140A6BBBC (-RtlpParseBinaryDecisionDiagram@@YAJV-$span@$$CBE$0-0@gsl@@V-$span@$$CBK$0-0@2@KPEBU_RTL_FUNCTIO.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x14047FF64 (-terminate@details@gsl@@YAXXZ.c)
- *     ?RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z @ 0x140A5EF38 (-RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404798A4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z @ 0x140A6BEF8 (-RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z.c)
  */
 
 __int64 __fastcall RtlpSelectFunctionFromBinaryDecisionDiagram(
@@ -59,7 +59,7 @@ LABEL_9:
       {
 LABEL_26:
         gsl::details::terminate((gsl::details *)a1, a2);
-        JUMPOUT(0x140A5EF2ELL);
+        JUMPOUT(0x140A6BEEELL);
       }
       v16 = *(_DWORD *)(v9[1] + 4 * a2);
       goto LABEL_9;

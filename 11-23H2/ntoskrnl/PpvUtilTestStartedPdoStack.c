@@ -1,9 +1,9 @@
 /*
- * XREFs of PpvUtilTestStartedPdoStack @ 0x14032308C
+ * XREFs of PpvUtilTestStartedPdoStack @ 0x14032331C
  * Callers:
- *     PipProcessStartPhase3 @ 0x14079B9C4 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x14079BBB4 (PipProcessStartPhase3.c)
  * Callees:
- *     VfMajorTestStartedPdoStack @ 0x140AD3194 (VfMajorTestStartedPdoStack.c)
+ *     VfMajorTestStartedPdoStack @ 0x140AD3184 (VfMajorTestStartedPdoStack.c)
  */
 
 __int64 PpvUtilTestStartedPdoStack()

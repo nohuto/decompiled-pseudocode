@@ -1,13 +1,13 @@
 /*
- * XREFs of MiScrubNonPagedPool @ 0x14084F0D8
+ * XREFs of MiScrubNonPagedPool @ 0x140850338
  * Callers:
- *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
+ *     MiScrubNode @ 0x1402CF8B8 (MiScrubNode.c)
  * Callees:
- *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MiReturnNonPagedPoolVa @ 0x140161634 (MiReturnNonPagedPoolVa.c)
- *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
- *     MiPushBadPool @ 0x1402AC70C (MiPushBadPool.c)
- *     MiScrubPage @ 0x1402CF950 (MiScrubPage.c)
+ *     MiVaToPfn @ 0x140098F50 (MiVaToPfn.c)
+ *     MiReturnNonPagedPoolVa @ 0x140161734 (MiReturnNonPagedPoolVa.c)
+ *     MiScanNonPagedPoolVa @ 0x1401636E0 (MiScanNonPagedPoolVa.c)
+ *     MiPushBadPool @ 0x1402AC8FC (MiPushBadPool.c)
+ *     MiScrubPage @ 0x1402CFB40 (MiScrubPage.c)
  */
 
 void __fastcall MiScrubNonPagedPool(unsigned __int64 *a1, unsigned int a2, __int64 a3)
@@ -16,7 +16,7 @@ void __fastcall MiScrubNonPagedPool(unsigned __int64 *a1, unsigned int a2, __int
   __int64 v4; // r14
   __int64 v7; // rax
   unsigned __int64 v8; // rbx
-  union _SLIST_HEADER *v9; // r15
+  _SLIST_HEADER *v9; // r15
   __int64 v10; // rsi
   __int64 v11; // rbp
   int v12[10]; // [rsp+20h] [rbp-68h] BYREF
@@ -35,7 +35,7 @@ void __fastcall MiScrubNonPagedPool(unsigned __int64 *a1, unsigned int a2, __int
     if ( v7 == -1 )
       break;
     v13 = v7 + 1;
-    v9 = &qword_14043A058[25 * v4];
+    v9 = &qword_14043B118[25 * v4];
     v10 = v9[20].Alignment + (v7 << 12);
     v11 = 48 * MiVaToPfn(v10) - 0x58000000000LL;
     if ( (int)MiScrubPage(a1, v11, 0LL, 0) < 0 )

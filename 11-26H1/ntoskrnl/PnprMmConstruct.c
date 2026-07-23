@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMmConstruct @ 0x1407AFFB8
+ * XREFs of PnprMmConstruct @ 0x1407B3018
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
- *     PnprMmAddRange @ 0x1407AFE84 (PnprMmAddRange.c)
- *     PnprMmFree @ 0x1407B00BC (PnprMmFree.c)
+ *     PnprMmAddRange @ 0x1407B2EE4 (PnprMmAddRange.c)
+ *     PnprMmFree @ 0x1407B311C (PnprMmFree.c)
  */
 
 __int64 __fastcall PnprMmConstruct(__int64 a1, _QWORD *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall PnprMmConstruct(__int64 a1, _QWORD *a2)
       v6 = PnprContext;
       v7 = *(_DWORD *)(PnprContext + 33288);
       if ( !v7 )
-        v7 = 4502;
+        v7 = 4088;
       *(_DWORD *)(PnprContext + 33288) = v7;
       v8 = *(_DWORD *)(v6 + 33292);
       if ( !v8 )
@@ -51,7 +51,7 @@ LABEL_19:
       v2 = -1073741811;
       v13 = *(_DWORD *)(PnprContext + 33288);
       if ( !v13 )
-        v13 = 4523;
+        v13 = 4109;
       *(_DWORD *)(PnprContext + 33288) = v13;
       v8 = *(_DWORD *)(v6 + 33292);
       if ( !v8 )

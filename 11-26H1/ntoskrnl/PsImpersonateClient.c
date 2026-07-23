@@ -1,47 +1,47 @@
 /*
- * XREFs of PsImpersonateClient @ 0x140928820
+ * XREFs of PsImpersonateClient @ 0x140904330
  * Callers:
- *     CmpCmdHiveOpen @ 0x1408B4674 (CmpCmdHiveOpen.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
- *     AlpcpImpersonateMessage @ 0x1409281A0 (AlpcpImpersonateMessage.c)
- *     PsRevertThreadToSelf @ 0x1409286B0 (PsRevertThreadToSelf.c)
- *     SeImpersonateClientEx @ 0x1409286E0 (SeImpersonateClientEx.c)
- *     PsAssignImpersonationToken @ 0x140928740 (PsAssignImpersonationToken.c)
- *     PsRevertToSelf @ 0x140A17630 (PsRevertToSelf.c)
- *     NtImpersonateAnonymousToken @ 0x140AB2A30 (NtImpersonateAnonymousToken.c)
+ *     CmpCmdHiveOpen @ 0x1408BAC48 (CmpCmdHiveOpen.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
+ *     AlpcpImpersonateMessage @ 0x140903CB0 (AlpcpImpersonateMessage.c)
+ *     PsRevertThreadToSelf @ 0x1409041C0 (PsRevertThreadToSelf.c)
+ *     SeImpersonateClientEx @ 0x1409041F0 (SeImpersonateClientEx.c)
+ *     PsAssignImpersonationToken @ 0x140904250 (PsAssignImpersonationToken.c)
+ *     NtImpersonateAnonymousToken @ 0x140AB3DD0 (NtImpersonateAnonymousToken.c)
+ *     PsRevertToSelf @ 0x140AE5830 (PsRevertToSelf.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x140260160 (SepSetProcessTrustLabelAceForToken.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     SeSetTokenTrustLink @ 0x1404A2D14 (SeSetTokenTrustLink.c)
- *     PsIsProcessLoggingEnabled @ 0x1404AA304 (PsIsProcessLoggingEnabled.c)
- *     SeQueryTokenTrustSid @ 0x1404BBB30 (SeQueryTokenTrustSid.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SepFinalizeTokenAcls @ 0x140926FDC (SepFinalizeTokenAcls.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140927020 (SepAppendAceToTokenObjectAcl.c)
- *     PspWriteTebImpersonationInfo @ 0x140928FB0 (PspWriteTebImpersonationInfo.c)
- *     SeTokenCanImpersonate @ 0x140929184 (SeTokenCanImpersonate.c)
- *     EtwTiLogImpersonateClient @ 0x1409294AC (EtwTiLogImpersonateClient.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     RtlCopySid @ 0x140A2AE10 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x140406340 (SepSetProcessTrustLabelAceForToken.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     SeSetTokenTrustLink @ 0x14049C734 (SeSetTokenTrustLink.c)
+ *     PsIsProcessLoggingEnabled @ 0x1404A3994 (PsIsProcessLoggingEnabled.c)
+ *     SeQueryTokenTrustSid @ 0x1404B5310 (SeQueryTokenTrustSid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SepFinalizeTokenAcls @ 0x140902AEC (SepFinalizeTokenAcls.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140902B30 (SepAppendAceToTokenObjectAcl.c)
+ *     PspWriteTebImpersonationInfo @ 0x140904AC0 (PspWriteTebImpersonationInfo.c)
+ *     SeTokenCanImpersonate @ 0x140904C94 (SeTokenCanImpersonate.c)
+ *     EtwTiLogImpersonateClient @ 0x140904FBC (EtwTiLogImpersonateClient.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     RtlCopySid @ 0x140A3DEA0 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -67,28 +67,26 @@ NTSTATUS __stdcall PsImpersonateClient(
   AutoBoost *v19; // r12
   void *v20; // r12
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  AutoBoost *v25; // rax
-  void *v26; // rdx
-  AutoBoost *v27; // rbx
-  struct _KTHREAD *v28; // r11
-  bool v29; // zf
-  int v30; // ecx
+  AutoBoost *v23; // rax
+  void *v24; // rdx
+  AutoBoost *v25; // rbx
+  struct _KTHREAD *v26; // r11
+  bool v27; // zf
+  int v28; // ecx
   NTSTATUS inserted; // r15d
-  signed __int64 v32; // rax
-  signed __int64 v33; // rtt
-  _QWORD *v34; // r13
-  _WORD *v35; // r8
-  int v36; // eax
-  int v37; // eax
-  int v38; // r9d
-  PVOID v40; // [rsp+48h] [rbp-B8h] BYREF
+  signed __int64 v30; // rax
+  signed __int64 v31; // rtt
+  _QWORD *v32; // r13
+  _WORD *v33; // r8
+  int v34; // eax
+  int v35; // eax
+  int v36; // r9d
+  PVOID v38; // [rsp+48h] [rbp-B8h] BYREF
   PVOID Object; // [rsp+50h] [rbp-B0h]
   PSID SourceSid; // [rsp+60h] [rbp-A0h]
-  struct _KTHREAD *v43; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD v44[4]; // [rsp+78h] [rbp-88h] BYREF
-  __int128 v45; // [rsp+98h] [rbp-68h]
+  struct _KTHREAD *v41; // [rsp+68h] [rbp-98h] BYREF
+  _QWORD v42[4]; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v43; // [rsp+98h] [rbp-68h]
   struct _EVENT_DATA_DESCRIPTOR UserData[8]; // [rsp+E0h] [rbp-20h] BYREF
 
   Process = Thread->Process;
@@ -104,20 +102,20 @@ NTSTATUS __stdcall PsImpersonateClient(
     CurrentThread = KeGetCurrentThread();
     p_WaitBlockList = (unsigned __int64 *)&Thread[1].WaitBlockList;
     --CurrentThread->KernelApcDisable;
-    v25 = (AutoBoost *)KeAbPreAcquire(
+    v23 = (AutoBoost *)KeAbPreAcquire(
                          (__int64)&Thread[1].WaitBlockList,
                          0LL,
                          0LL,
                          (struct _KLOCK_ENTRIES *)EffectiveOnly);
-    v27 = v25;
+    v25 = v23;
     if ( _interlockedbittestandset64((volatile signed __int32 *)p_WaitBlockList, 0LL) )
-      ExfAcquirePushLockExclusiveEx(p_WaitBlockList, v25, (__int64)p_WaitBlockList);
-    if ( v27 )
+      ExfAcquirePushLockExclusiveEx(p_WaitBlockList, v23, (__int64)p_WaitBlockList);
+    if ( v25 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
-        AutoBoost::KiAbpPostAcquire(v27, v26);
+        AutoBoost::KiAbpPostAcquire(v25, v24);
       else
-        *((_BYTE *)v27 + 10) = 1;
+        *((_BYTE *)v25 + 10) = 1;
     }
     if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
     {
@@ -127,19 +125,14 @@ NTSTATUS __stdcall PsImpersonateClient(
       _InterlockedAnd((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0xFFFFFFF7);
       if ( (unsigned int)PsIsProcessLoggingEnabled((__int64)Process, (__int64)Process, 256) )
       {
-        v43 = v28;
-        if ( EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, &THREATINT_PROCESS_IMPERSONATION_REVERT) )
+        v41 = v26;
+        if ( EtwEventEnabled(EtwThreatIntProvRegHandle, &THREATINT_PROCESS_IMPERSONATION_REVERT) )
         {
-          if ( EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x8000000000uLL) )
+          if ( EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x8000000000uLL) )
           {
-            v36 = EtwpTiFillProcessIdentity(UserData, (__int64)Process, (unsigned __int64 *)&v43);
-            v37 = EtwpTiFillThreadIdentity(&UserData[v36].Ptr, (__int64)Thread);
-            EtwWrite(
-              *(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount,
-              &THREATINT_PROCESS_IMPERSONATION_REVERT,
-              0LL,
-              v37 + v38,
-              UserData);
+            v34 = EtwpTiFillProcessIdentity(UserData, (__int64)Process, (unsigned __int64 *)&v41);
+            v35 = EtwpTiFillThreadIdentity(&UserData[v34].Ptr, (__int64)Thread);
+            EtwWrite(EtwThreatIntProvRegHandle, &THREATINT_PROCESS_IMPERSONATION_REVERT, 0LL, v35 + v36, UserData);
           }
         }
       }
@@ -148,7 +141,7 @@ NTSTATUS __stdcall PsImpersonateClient(
       ExfTryToWakePushLock((volatile signed __int64 *)p_WaitBlockList);
 LABEL_25:
     KeAbPostRelease((unsigned __int64)p_WaitBlockList);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, v22, v23);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     PspWriteTebImpersonationInfo(Thread, CurrentThread);
     if ( v20 )
       ObfDereferenceObjectWithTag(v20, 0x746C6644u);
@@ -169,8 +162,8 @@ LABEL_10:
 LABEL_11:
     p_WaitBlockList = (unsigned __int64 *)&Thread[1].WaitBlockList;
     v15 = (unsigned __int8)Object & 3 | (4LL * (EffectiveOnly & 1));
-    v43 = KeGetCurrentThread();
-    --v43->KernelApcDisable;
+    v41 = KeGetCurrentThread();
+    --v41->KernelApcDisable;
     v16 = v8 & 0xFFFFFFFFFFFFFFF8uLL | v15;
     v17 = (AutoBoost *)KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL, 0LL, v11);
     v19 = v17;
@@ -199,7 +192,7 @@ LABEL_11:
       _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 8u);
     }
     Thread[1].WaitBlock[1].Thread = (struct _KTHREAD *)SourceSid;
-    *($353D57E818BB6F967B4B818D974CF463 *)((char *)&Thread[1].116 + 4) = ($353D57E818BB6F967B4B818D974CF463)v16;
+    *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&Thread[1].116 + 4) = ($C9C4F79064DE35237E3F199A7D1BD3E1)v16;
     if ( CopyOnOpen )
       _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0x100u);
     else
@@ -208,7 +201,7 @@ LABEL_11:
       EtwTiLogImpersonateClient(Process, Thread, v20, v8);
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)p_WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&Thread[1].WaitBlockList);
-    CurrentThread = v43;
+    CurrentThread = v41;
     goto LABEL_25;
   }
   if ( (int)SeTokenCanImpersonate((PACCESS_TOKEN)v10, (PACCESS_TOKEN)v8) >= 0 )
@@ -237,45 +230,45 @@ LABEL_9:
       goto LABEL_11;
     goto LABEL_10;
   }
-  v29 = *(_DWORD *)(v8 + 192) == 2;
-  v30 = 1;
+  v27 = *(_DWORD *)(v8 + 192) == 2;
+  v28 = 1;
   LODWORD(Object) = 1;
-  if ( v29 )
+  if ( v27 )
   {
     if ( *(int *)(v8 + 196) < 1 )
-      v30 = *(_DWORD *)(v8 + 196);
-    LODWORD(Object) = v30;
+      v28 = *(_DWORD *)(v8 + 196);
+    LODWORD(Object) = v28;
   }
-  v44[0] = 48LL;
-  v40 = 0LL;
-  memset(&v44[1], 0, 24);
-  v45 = 0LL;
-  inserted = SepDuplicateToken(v8, (unsigned int)v44, 0, 2, v30, 0, 0, (__int64)&v40);
+  v42[0] = 48LL;
+  v38 = 0LL;
+  memset(&v42[1], 0, 24);
+  v43 = 0LL;
+  inserted = SepDuplicateToken(v8, (unsigned int)v42, 0, 2, v28, 0, 0, (__int64)&v38);
   if ( inserted < 0 )
     goto LABEL_46;
-  inserted = ObInsertObjectEx(v40, 0LL, 0LL, 0LL, 0, 0LL, 0LL);
+  inserted = ObInsertObjectEx(v38, 0LL, 0LL, 0LL, 0, 0LL, 0LL);
   if ( inserted < 0 )
     goto LABEL_46;
-  v34 = v40;
-  if ( (*((_DWORD *)v40 + 50) & 0x4000) != 0 )
+  v32 = v38;
+  if ( (*((_DWORD *)v38 + 50) & 0x4000) != 0 )
   {
-    v35 = (_WORD *)*((_QWORD *)v40 + 98);
-    if ( v35 )
+    v33 = (_WORD *)*((_QWORD *)v38 + 98);
+    if ( v33 )
     {
-      inserted = SepAppendAceToTokenObjectAcl((__int64)v40, 983551, v35, v11);
+      inserted = SepAppendAceToTokenObjectAcl((__int64)v38, 983551, v33, v11);
       if ( inserted < 0 )
       {
-        ObfDereferenceObject(v40);
+        ObfDereferenceObject(v38);
 LABEL_46:
         v8 = 0LL;
         goto LABEL_47;
       }
-      v34 = v40;
+      v32 = v38;
     }
   }
-  if ( (int)SepAppendAceToTokenObjectAcl((__int64)v34, 8, SeAliasAdminsSid, v11) >= 0 )
-    SepSetProcessTrustLabelAceForToken(v34);
-  v8 = (unsigned __int64)v40;
+  if ( (int)SepAppendAceToTokenObjectAcl((__int64)v32, 8, SeAliasAdminsSid, v11) >= 0 )
+    SepSetProcessTrustLabelAceForToken(v32);
+  v8 = (unsigned __int64)v38;
 LABEL_47:
   if ( inserted >= 0 )
   {
@@ -283,18 +276,18 @@ LABEL_47:
     goto LABEL_4;
   }
   _m_prefetchw(&Process[1].ActiveProcessors);
-  v32 = (signed __int64)Process[1].ActiveProcessors;
+  v30 = (signed __int64)Process[1].ActiveProcessors;
   do
   {
-    if ( (v10 ^ v32) >= 0xF )
+    if ( (v10 ^ v30) >= 0xF )
     {
       ObfDereferenceObjectWithTag((PVOID)v10, 0x746C6644u);
       return inserted;
     }
-    v33 = v32;
-    v32 = _InterlockedCompareExchange64((volatile signed __int64 *)&Process[1].ActiveProcessors, v32 + 1, v32);
+    v31 = v30;
+    v30 = _InterlockedCompareExchange64((volatile signed __int64 *)&Process[1].ActiveProcessors, v30 + 1, v30);
   }
-  while ( v33 != v32 );
+  while ( v31 != v30 );
   if ( ObpTraceFlags )
     ObpPushStackInfo(v10 - 48, -1, 0x746C6644u);
   return inserted;

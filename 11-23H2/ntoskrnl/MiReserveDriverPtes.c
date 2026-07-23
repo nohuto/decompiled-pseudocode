@@ -2,20 +2,20 @@
  * XREFs of MiReserveDriverPtes @ 0x140696DF0
  * Callers:
  *     MiSelectSystemImageAddress @ 0x140696DA4 (MiSelectSystemImageAddress.c)
- *     MmMapLockedRestartPages @ 0x140A2B3E0 (MmMapLockedRestartPages.c)
+ *     MmMapLockedRestartPages @ 0x140A2B690 (MmMapLockedRestartPages.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x14020B280 (MiMakeZeroedPageTables.c)
  *     MiUnlockDriverMappings @ 0x14020B474 (MiUnlockDriverMappings.c)
  *     MiLockDriverMappings @ 0x14020B4D8 (MiLockDriverMappings.c)
  *     MiObtainSystemVa @ 0x140210F9C (MiObtainSystemVa.c)
  *     MiReturnSystemVa @ 0x140213B54 (MiReturnSystemVa.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -29,11 +29,11 @@ unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int
   ULONG ClearBitsAndSet; // ecx
   ULONG v11; // r12d
   __int64 v12; // r8
-  RTL_BITMAP *Pool; // r15
+  _RTL_BITMAP *Pool; // r15
   unsigned int v14; // ebx
   unsigned __int64 v15; // rax
   __int64 PteAddress; // rsi
-  RTL_BITMAP *v17; // rcx
+  _RTL_BITMAP *v17; // rcx
   unsigned __int64 v18; // [rsp+20h] [rbp-58h]
   unsigned __int64 v20; // [rsp+98h] [rbp+20h]
 
@@ -60,7 +60,7 @@ unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int
   }
   v11 = (unsigned __int8)ExGenRandom(1);
   v20 = (16 * (v6 + v11) + 511) & 0xFFFFFE00;
-  Pool = (RTL_BITMAP *)MiAllocatePool((_DWORD)InitializationPhase != 0 ? 256 : 64, (v20 >> 7) + 40, 0x70446D4Du);
+  Pool = (_RTL_BITMAP *)MiAllocatePool((_DWORD)InitializationPhase != 0 ? 256 : 64, (v20 >> 7) + 40, 0x70446D4Du);
   if ( !Pool )
   {
 LABEL_8:

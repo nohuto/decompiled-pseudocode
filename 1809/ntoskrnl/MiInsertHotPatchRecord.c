@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertHotPatchRecord @ 0x140855890
+ * XREFs of MiInsertHotPatchRecord @ 0x140856AF0
  * Callers:
- *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
- *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
+ *     MiLoadHotPatch @ 0x140856C38 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140856E98 (MiLoadHotPatchForUserSid.c)
+ *     MmRegisterHotPatch @ 0x1409F81D0 (MmRegisterHotPatch.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCompareHotPatchNodes @ 0x140854A78 (MiCompareHotPatchNodes.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiCompareHotPatchNodes @ 0x140855CD8 (MiCompareHotPatchNodes.c)
  */
 
 void __fastcall MiInsertHotPatchRecord(unsigned __int64 *a1, _QWORD *a2, int a3)

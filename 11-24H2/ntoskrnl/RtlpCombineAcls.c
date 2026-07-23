@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCombineAcls @ 0x14091C480
+ * XREFs of RtlpCombineAcls @ 0x14090FEF0
  * Callers:
- *     RtlpSetSecurityObject @ 0x140858F70 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x14091A290 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x140855250 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14090DD00 (RtlpNewSecurityObject.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpCombineAcls(
@@ -205,7 +205,7 @@ LABEL_38:
     else
     {
       v20 = (v15 + 3) & 0xFFFFFFFC;
-      Pool2 = (char *)ExAllocatePool2(0x100uLL);
+      Pool2 = (char *)ExAllocatePool2(0x100uLL, v20, 0x64536553u);
       v13 = Pool2;
       if ( Pool2 )
       {

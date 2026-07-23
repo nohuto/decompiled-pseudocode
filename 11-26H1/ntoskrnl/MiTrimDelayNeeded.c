@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTrimDelayNeeded @ 0x1403E116C
+ * XREFs of MiTrimDelayNeeded @ 0x1403E435C
  * Callers:
- *     MiPartitionTrimmedEnough @ 0x1404C212C (MiPartitionTrimmedEnough.c)
+ *     MiPartitionTrimmedEnough @ 0x1404BB97C (MiPartitionTrimmedEnough.c)
  * Callees:
- *     MiCanFlushMakeProgress @ 0x1403E0D04 (MiCanFlushMakeProgress.c)
+ *     MiCanFlushMakeProgress @ 0x1403E3EF4 (MiCanFlushMakeProgress.c)
  */
 
 __int64 __fastcall MiTrimDelayNeeded(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of KscpReadUShortFromUserSmap @ 0x140C5E9E0
+ * XREFs of KscpReadUShortFromUserSmap @ 0x140C649E0
  * Callers:
  *     <none>
  * Callees:

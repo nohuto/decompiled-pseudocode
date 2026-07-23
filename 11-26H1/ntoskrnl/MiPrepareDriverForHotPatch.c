@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrepareDriverForHotPatch @ 0x1408734E8
+ * XREFs of MiPrepareDriverForHotPatch @ 0x140879848
  * Callers:
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x140720BB0 (RtlGetHotPatchSize.c)
- *     MiLockHotPatchPages @ 0x140871638 (MiLockHotPatchPages.c)
- *     MiLockHotPatchUndoPages @ 0x1408716DC (MiLockHotPatchUndoPages.c)
+ *     RtlGetHotPatchSize @ 0x1407257D0 (RtlGetHotPatchSize.c)
+ *     MiLockHotPatchPages @ 0x140877998 (MiLockHotPatchPages.c)
+ *     MiLockHotPatchUndoPages @ 0x140877A3C (MiLockHotPatchUndoPages.c)
  */
 
 __int64 __fastcall MiPrepareDriverForHotPatch(__int64 a1)

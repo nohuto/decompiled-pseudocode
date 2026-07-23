@@ -28,7 +28,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   __int64 v7; // rbx
   __int64 v8; // rsi
   _QWORD **v9; // r13
-  const char *v10; // rdx
+  const CHAR *v10; // rdx
   ULONG v11; // eax
   NTSTATUS DeviceObjectPointer; // ebx
   struct _DEVICE_OBJECT *v13; // r15
@@ -61,7 +61,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   __int128 OutputBuffer; // [rsp+108h] [rbp+0h] BYREF
   __int64 v41; // [rsp+118h] [rbp+10h]
   char pszDest[128]; // [rsp+128h] [rbp+20h] BYREF
-  char v43[128]; // [rsp+1A8h] [rbp+A0h] BYREF
+  CHAR v43[128]; // [rsp+1A8h] [rbp+A0h] BYREF
 
   v33 = a1;
   v41 = 0LL;
@@ -88,7 +88,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   if ( !v6 )
     v8 = a1;
   v9 = *(_QWORD ***)(v7 + 232);
-  v10 = *(const char **)(v7 + 184);
+  v10 = *(const CHAR **)(v7 + 184);
   v34 = v9;
   v32 = (_QWORD **)**v9;
   RtlInitAnsiString(&DestinationString, v10);

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDrainZeroLookasides @ 0x14011ACA0
+ * XREFs of MiDrainZeroLookasides @ 0x14011AD10
  * Callers:
- *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiReturnPartitionPagesToParent @ 0x1402D25D4 (MiReturnPartitionPagesToParent.c)
+ *     MiProcessWorkingSets @ 0x14006CEC0 (MiProcessWorkingSets.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
+ *     MiReturnPartitionPagesToParent @ 0x1402D27C4 (MiReturnPartitionPagesToParent.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
  */
 
 _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -32,11 +32,11 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   __int64 v20; // [rsp+28h] [rbp-60h]
   _QWORD *v21; // [rsp+30h] [rbp-58h]
   __int64 v22; // [rsp+38h] [rbp-50h]
-  struct _SLIST_ENTRY *Next; // [rsp+40h] [rbp-48h]
+  _SLIST_ENTRY *Next; // [rsp+40h] [rbp-48h]
   unsigned __int8 v24; // [rsp+98h] [rbp+10h]
   unsigned int v25; // [rsp+A0h] [rbp+18h]
 
-  v4 = dword_14043A08C;
+  v4 = dword_14043B14C;
   if ( a2 )
     v4 = a4 + 1;
   v25 = v4;

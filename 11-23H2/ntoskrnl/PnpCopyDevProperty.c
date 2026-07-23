@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCopyDevProperty @ 0x140819C30
+ * XREFs of PnpCopyDevProperty @ 0x140819F00
  * Callers:
- *     PnpCopyDevPropertyArray @ 0x140819B60 (PnpCopyDevPropertyArray.c)
+ *     PnpCopyDevPropertyArray @ 0x140819E30 (PnpCopyDevPropertyArray.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
- *     PnpFreeDevProperty @ 0x1407896F8 (PnpFreeDevProperty.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
+ *     PnpFreeDevProperty @ 0x1407898E8 (PnpFreeDevProperty.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

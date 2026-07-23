@@ -1,37 +1,37 @@
 /*
- * XREFs of CmGetVisibleSubkeyCount @ 0x14066B1EC
+ * XREFs of CmGetVisibleSubkeyCount @ 0x14066000C
  * Callers:
- *     CmpQueryKeyDataFromCache @ 0x14066A75C (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x14066AB20 (CmpQueryKeyDataFromNode.c)
- *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpQueryKeyDataFromCache @ 0x14065F57C (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x14065F940 (CmpQueryKeyDataFromNode.c)
+ *     CmDeleteKey @ 0x140660814 (CmDeleteKey.c)
  * Callees:
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
  */
 
 __int64 __fastcall CmGetVisibleSubkeyCount(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx
-  __int64 v6; // rbp
-  __int64 NextElement; // rax
-  __int64 v8; // rdi
+  _QWORD **v6; // rbp
+  char *NextElement; // rax
+  char *v8; // rdi
   int v9; // eax
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v10; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = *(_DWORD *)(a2 + 20) + *(_DWORD *)(a2 + 24);
   v10 = 0LL;
   if ( a1 && a3 )
   {
-    v6 = a1 + 208;
+    v6 = (_QWORD **)(a1 + 208);
     while ( 1 )
     {
-      NextElement = CmListGetNextElement(v6, &v10, 32LL);
+      NextElement = CmListGetNextElement(v6, &v10, 32);
       v8 = NextElement;
       if ( !NextElement )
         break;
-      if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a3) )
+      if ( (unsigned __int8)CmEqualTrans(*((_QWORD *)NextElement + 7), a3) )
       {
-        v9 = *(_DWORD *)(v8 + 68);
+        v9 = *((_DWORD *)v8 + 17);
         if ( v9 == 1 )
         {
           ++v4;

@@ -11,7 +11,7 @@
  *     RtlpGetLocaleDataKey @ 0x1800F9318 (RtlpGetLocaleDataKey.c)
  *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800FF570 (RtlpGetUserOrMachineUILanguage4NLS.c)
  * Callees:
- *     NtClose @ 0x1800A04C0 (NtClose.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
  */
 
 __int64 __fastcall CloseGlobalizationUserSettingsKey(char *a1)

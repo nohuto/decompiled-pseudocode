@@ -1,19 +1,19 @@
 /*
- * XREFs of HalSetRealTimeClock @ 0x1404B6B40
+ * XREFs of HalSetRealTimeClock @ 0x1404B6D80
  * Callers:
- *     ExpRefreshSystemTime @ 0x1407A909C (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x14094BD10 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140998FC8 (ExpSetSystemTime.c)
- *     GetBootSystemTime @ 0x140A7182C (GetBootSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x1407A929C (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14094BEE0 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140999FC8 (ExpSetSystemTime.c)
+ *     GetBootSystemTime @ 0x140A7282C (GetBootSystemTime.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402B5A04 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     HalpSetVirtualRtc @ 0x1402B617C (HalpSetVirtualRtc.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalEfiSetTime @ 0x1404C3CC0 (HalEfiSetTime.c)
- *     HalpWriteCmosTime @ 0x1404CC36C (HalpWriteCmosTime.c)
- *     HalpSetAcpiRealTimeClock @ 0x140863FD0 (HalpSetAcpiRealTimeClock.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x1408640B4 (HalpUtcTimeToAcpiRealTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140233BE4 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     HalpSetVirtualRtc @ 0x14023435C (HalpSetVirtualRtc.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalEfiSetTime @ 0x1404C3F00 (HalEfiSetTime.c)
+ *     HalpWriteCmosTime @ 0x1404CC5AC (HalpWriteCmosTime.c)
+ *     HalpSetAcpiRealTimeClock @ 0x140864128 (HalpSetAcpiRealTimeClock.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x14086420C (HalpUtcTimeToAcpiRealTime.c)
  */
 
 char __fastcall HalSetRealTimeClock(__int16 *a1)
@@ -110,7 +110,7 @@ LABEL_22:
   }
   if ( v11 >= 0 )
     LOBYTE(v9) = 1;
-  v12 = HalpSetVirtualRtc((__int64 *)&SystemTime, (__int64)v4, v6);
+  v12 = HalpSetVirtualRtc(&SystemTime, (__int64)v4, v6);
   v13 = v9;
   if ( v12 )
     return 1;

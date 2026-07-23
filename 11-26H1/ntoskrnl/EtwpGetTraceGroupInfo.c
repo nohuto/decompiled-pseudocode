@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpGetTraceGroupInfo @ 0x140939330
+ * XREFs of EtwpGetTraceGroupInfo @ 0x140914ED0
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpUnreferenceGuidEntry @ 0x140936B20 (EtwpUnreferenceGuidEntry.c)
- *     EtwpFindGuidEntryByGuid @ 0x140939130 (EtwpFindGuidEntryByGuid.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1409126C0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140914CD0 (EtwpFindGuidEntryByGuid.c)
  */
 
 __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, _DWORD *a2, _DWORD *a3, unsigned int *a4)
@@ -39,24 +39,20 @@ __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, _DWORD *a2, _DWORD *a3, uns
   signed __int64 v25; // rax
   signed __int64 v26; // rdx
   __int64 v27; // rtt
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  unsigned int v30; // ebp
-  volatile signed __int64 *v31; // rbx
-  signed __int64 v32; // rax
-  signed __int64 v33; // rdx
-  __int64 v34; // rtt
-  __int64 v35; // rdx
-  __int64 v36; // r8
-  __int64 v37; // rdx
-  __int64 v38; // r8
-  struct _KLOCK_ENTRIES *v39; // r9
-  _DWORD *v41; // rbx
-  _QWORD *v42; // rdi
-  _QWORD *v43; // rdx
-  int v44; // r9d
-  __int64 v45; // r8
-  __int64 v46; // rcx
+  unsigned int v28; // ebp
+  volatile signed __int64 *v29; // rbx
+  signed __int64 v30; // rax
+  signed __int64 v31; // rdx
+  __int64 v32; // rtt
+  __int64 v33; // rdx
+  __int64 v34; // r8
+  struct _KLOCK_ENTRIES *v35; // r9
+  _DWORD *v37; // rbx
+  _QWORD *v38; // rdi
+  _QWORD *v39; // rdx
+  int v40; // r9d
+  __int64 v41; // r8
+  __int64 v42; // rcx
   _QWORD *BugCheckParameter2; // [rsp+28h] [rbp-40h]
 
   v4 = *a4;
@@ -186,7 +182,7 @@ __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, _DWORD *a2, _DWORD *a3, uns
     if ( v16 + 16 < v16 )
     {
       v16 = -1;
-      v30 = -2147483643;
+      v28 = -2147483643;
       goto LABEL_57;
     }
     ++v7;
@@ -219,68 +215,68 @@ __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, _DWORD *a2, _DWORD *a3, uns
       if ( (v25 & 2) != 0 || (v27 = *v24, v27 != _InterlockedCompareExchange64(v24, v26, v25)) )
         ExfReleasePushLock(v24);
       KeAbPostRelease((unsigned __int64)v24);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v28, v29);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       ++v17;
     }
     v15 = (_QWORD *)*v15;
   }
   if ( v16 > v4 )
   {
-    v30 = -1073741789;
+    v28 = -1073741789;
   }
   else
   {
     if ( v7 == 1 )
     {
-      v41 = a3;
-      v44 = 1;
+      v37 = a3;
+      v40 = 1;
     }
     else if ( v7 <= 1 )
     {
-      v44 = 0;
-      v41 = a3;
+      v40 = 0;
+      v37 = a3;
     }
     else
     {
-      v41 = a3;
-      v42 = a3 + 130;
+      v37 = a3;
+      v38 = a3 + 130;
       qsort(a3 + 130, v7, 0x10uLL, EtwpCompareGuid);
-      v43 = a3 + 134;
-      v44 = 1;
-      v45 = v7 - 1;
+      v39 = a3 + 134;
+      v40 = 1;
+      v41 = v7 - 1;
       do
       {
-        v46 = *v43 - *v42;
-        if ( *v43 == *v42 )
-          v46 = v43[1] - v42[1];
-        if ( v46 )
+        v42 = *v39 - *v38;
+        if ( *v39 == *v38 )
+          v42 = v39[1] - v38[1];
+        if ( v42 )
         {
-          v42 += 2;
-          if ( v42 != v43 )
-            *(_OWORD *)v42 = *(_OWORD *)v43;
-          ++v44;
+          v38 += 2;
+          if ( v38 != v39 )
+            *(_OWORD *)v38 = *(_OWORD *)v39;
+          ++v40;
         }
-        v43 += 2;
-        --v45;
+        v39 += 2;
+        --v41;
       }
-      while ( v45 );
+      while ( v41 );
     }
-    v30 = 0;
-    v41[129] = v44;
+    v28 = 0;
+    v37[129] = v40;
   }
 LABEL_57:
   BugCheckParameter2[84] = 0LL;
-  v31 = BugCheckParameter2 + 83;
+  v29 = BugCheckParameter2 + 83;
   _m_prefetchw(BugCheckParameter2 + 83);
-  v32 = *v31;
-  v33 = *v31 - 16;
-  if ( (*v31 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-    v33 = 0LL;
-  if ( (v32 & 2) != 0 || (v34 = BugCheckParameter2[83], v34 != _InterlockedCompareExchange64(v31, v33, v32)) )
+  v30 = *v29;
+  v31 = *v29 - 16;
+  if ( (*v29 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+    v31 = 0LL;
+  if ( (v30 & 2) != 0 || (v32 = BugCheckParameter2[83], v32 != _InterlockedCompareExchange64(v29, v31, v30)) )
     ExfReleasePushLock(BugCheckParameter2 + 83);
   KeAbPostRelease((unsigned __int64)(BugCheckParameter2 + 83));
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v35, v36);
-  EtwpUnreferenceGuidEntry(BugCheckParameter2, v37, v38, v39);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  EtwpUnreferenceGuidEntry(BugCheckParameter2, v33, v34, v35);
   *a4 = v16;
-  return v30;
+  return v28;
 }

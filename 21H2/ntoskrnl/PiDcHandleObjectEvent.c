@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDcHandleObjectEvent @ 0x1407586D4
+ * XREFs of PiDcHandleObjectEvent @ 0x140758894
  * Callers:
- *     PiPnpRtlObjectEventDispatch @ 0x140633E90 (PiPnpRtlObjectEventDispatch.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x140628F1C (PiPnpRtlObjectEventDispatch.c)
  * Callees:
- *     PiDcHandleDeviceEvent @ 0x140758724 (PiDcHandleDeviceEvent.c)
- *     PiDcHandleInterfaceEvent @ 0x140758904 (PiDcHandleInterfaceEvent.c)
- *     PiDcHandleContainerEvent @ 0x14075BA14 (PiDcHandleContainerEvent.c)
+ *     PiDcHandleDeviceEvent @ 0x1407588E4 (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x140758AC4 (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleContainerEvent @ 0x14075BBD4 (PiDcHandleContainerEvent.c)
  */
 
 __int64 __fastcall PiDcHandleObjectEvent(__int64 a1)

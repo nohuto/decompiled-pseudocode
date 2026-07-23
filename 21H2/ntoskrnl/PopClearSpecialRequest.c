@@ -1,13 +1,13 @@
 /*
- * XREFs of PopClearSpecialRequest @ 0x1408E17FC
+ * XREFs of PopClearSpecialRequest @ 0x1408E195C
  * Callers:
- *     PopPowerRequestActionInfo @ 0x14067C148 (PopPowerRequestActionInfo.c)
+ *     PopPowerRequestActionInfo @ 0x14066F888 (PopPowerRequestActionInfo.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopDiagTracePowerRequestChange @ 0x140282394 (PopDiagTracePowerRequestChange.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopDiagTracePowerRequestChange @ 0x1402705D4 (PopDiagTracePowerRequestChange.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
  */
 
 __int64 __fastcall PopClearSpecialRequest(__int64 a1, int a2)

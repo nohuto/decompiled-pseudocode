@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogPartitionState @ 0x1402A6280
+ * XREFs of MiLogPartitionState @ 0x1402A5678
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogPartitionState(__int64 a1, __int64 a2)
@@ -72,9 +72,9 @@ __int64 __fastcall MiLogPartitionState(__int64 a1, __int64 a2)
   v10 = *(_QWORD *)(a2 + 3280);
   v11 = *(_QWORD *)(a2 + 4368);
   v12 = *(_QWORD *)(a2 + 4496);
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
   {
-    result = tlgKeywordOn(stru_140E36558.FirstArgument, 2048LL);
+    result = tlgKeywordOn(stru_140E366D8.FirstArgument, 2048LL);
     if ( (_BYTE)result )
     {
       v20 = *v13;
@@ -118,7 +118,7 @@ __int64 __fastcall MiLogPartitionState(__int64 a1, __int64 a2)
       v32[27] = 8LL;
       v32[29] = 2LL;
       v34 = 0;
-      return tlgWriteEx_EtwWriteEx(v15, (int)&byte_140057B2F, (int)v13, 1, v17, v18, 0x10u, (__int64)v32);
+      return tlgWriteEx_EtwWriteEx(v15, (int)&word_140058B22, (int)v13, 1, v17, v18, 0x10u, (__int64)v32);
     }
   }
   return result;

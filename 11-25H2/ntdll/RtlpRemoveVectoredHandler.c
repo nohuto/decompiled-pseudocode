@@ -12,106 +12,112 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpRemoveVectoredHandler(__int64 a1, unsigned int a2)
+__int64 __fastcall RtlpRemoveVectoredHandler(void **a1, unsigned int a2)
 {
   __int64 v4; // rsi
-  __int64 *v5; // rdi
-  __int64 i; // rbx
-  int v7; // edi
-  signed __int64 v8; // rcx
-  bool v9; // cc
-  signed __int64 v10; // rcx
-  int v11; // ecx
-  __int64 v12; // rdi
-  __int64 v14; // r9
-  __int64 v15; // r9
-  void *v16; // rcx
-  int v17; // edx
-  _QWORD *v18; // rcx
-  _QWORD *v19; // rax
+  void **v5; // rdi
+  void **i; // rbx
+  int v7; // eax
+  int v8; // edi
+  signed __int64 v9; // rcx
+  bool v10; // cc
+  signed __int64 v11; // rcx
+  int v12; // eax
+  int v13; // ecx
+  void **v14; // rdi
+  int v16; // eax
+  PVOID v17; // rcx
+  int v18; // eax
+  int v19; // edx
+  void **v20; // rcx
+  void **v21; // rax
 
   v4 = 3LL * a2;
-  v5 = (__int64 *)(&LdrpVectorHandlerList + 3 * a2 + 1);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)*(&LdrpVectorHandlerList + 3 * a2));
-  for ( i = *v5; ; i = *(_QWORD *)i )
+  v5 = (void **)(&LdrpVectorHandlerList + 3 * a2 + 1);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)*(&LdrpVectorHandlerList + 3 * a2));
+  for ( i = (void **)*v5; ; i = (void **)*i )
   {
-    if ( (__int64 *)i == v5 )
+    if ( i == v5 )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)*(&LdrpVectorHandlerList + v4));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)*(&LdrpVectorHandlerList + v4));
       return 0LL;
     }
     if ( i == a1 )
       break;
   }
-  if ( LdrControlFlowGuardEnforced() )
+  LOBYTE(v7) = LdrControlFlowGuardEnforced();
+  if ( v7 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-    v7 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v8 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 0);
+      RtlProtectHeap(LdrpMrdataHeap, 0);
       goto LABEL_7;
     }
-    if ( v7 == -1 )
+    if ( v8 == -1 )
     {
 LABEL_23:
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
 LABEL_7:
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v7 + 1;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v8 + 1;
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  *(_DWORD *)(i + 24) = 1;
-  v8 = _InterlockedExchangeAdd64(*(volatile signed __int64 **)(i + 16), 0xFFFFFFFFFFFFFFFFuLL);
-  v9 = v8 <= 1;
-  v10 = v8 - 1;
-  if ( v9 )
+  *((_DWORD *)i + 6) = 1;
+  v9 = _InterlockedExchangeAdd64((volatile signed __int64 *)i[2], 0xFFFFFFFFFFFFFFFFuLL);
+  v10 = v9 <= 1;
+  v11 = v9 - 1;
+  if ( v10 )
   {
-    if ( v10 )
+    if ( v11 )
       __fastfail(0xEu);
     LdrProtectMrdata(0);
-    v18 = *(_QWORD **)i;
-    v19 = *(_QWORD **)(i + 8);
-    if ( *(_QWORD *)(*(_QWORD *)i + 8LL) != i || *v19 != i )
+    v20 = (void **)*i;
+    v21 = (void **)i[1];
+    if ( *((void ***)*i + 1) != i || *v21 != i )
       __fastfail(3u);
-    *v19 = v18;
-    v18[1] = v19;
-    if ( v19 == v18 )
+    *v21 = v20;
+    v20[1] = v21;
+    if ( v21 == v20 )
       _interlockedbittestandreset((volatile signed __int32 *)&NtCurrentPeb()->80, a2 + 2);
-    v12 = i;
+    v14 = i;
   }
   else
   {
-    if ( LdrControlFlowGuardEnforced() )
+    LOBYTE(v12) = LdrControlFlowGuardEnforced();
+    if ( v12 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-      v11 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+      v13 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
         goto LABEL_23;
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v11 - 1;
-      if ( v11 == 1 )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v13 - 1;
+      if ( v13 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
-    v12 = 0LL;
+    v14 = 0LL;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)*(&LdrpVectorHandlerList + v4));
-  if ( v12 )
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)*(&LdrpVectorHandlerList + v4));
+  if ( v14 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(_QWORD *)(v12 + 16), v14);
-    v16 = LdrControlFlowGuardEnforced() ? (void *)LdrpMrdataHeap : NtCurrentPeb()->ProcessHeap;
-    RtlFreeHeap((__int64)v16, 0, i, v15);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14[2]);
+    LOBYTE(v16) = LdrControlFlowGuardEnforced();
+    v17 = v16 ? LdrpMrdataHeap : NtCurrentPeb()->ProcessHeap;
+    RtlFreeHeap(v17, 0, i);
     LdrProtectMrdata(1);
-    if ( LdrControlFlowGuardEnforced() )
+    LOBYTE(v18) = LdrControlFlowGuardEnforced();
+    if ( v18 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-      v17 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+      v19 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
         goto LABEL_23;
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v17 - 1;
-      if ( v17 == 1 )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v19 - 1;
+      if ( v19 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
   }

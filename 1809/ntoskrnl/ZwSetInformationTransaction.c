@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSetInformationTransaction @ 0x1401BB430
+ * XREFs of ZwSetInformationTransaction @ 0x1401BB590
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationTransaction(
         HANDLE TransactionHandle,
         TRANSACTION_INFORMATION_CLASS TransactionInformationClass,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSetInformationTransaction(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, *(_QWORD *)&TransactionInformationClass, TransactionInformation);
+  return KiServiceInternal(TransactionHandle);
 }

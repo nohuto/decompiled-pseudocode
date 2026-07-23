@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpSaveLocationsSearched @ 0x180110310
+ * XREFs of LdrpSaveLocationsSearched @ 0x18010B430
  * Callers:
- *     LdrpSearchPath @ 0x1800754F0 (LdrpSearchPath.c)
+ *     LdrpSearchPath @ 0x180091DD0 (LdrpSearchPath.c)
  * Callees:
  *     <none>
  */

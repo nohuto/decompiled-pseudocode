@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfControlActionCallback @ 0x1404B0400
+ * XREFs of PpmPerfControlActionCallback @ 0x1404AAC90
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckContinueExecution @ 0x140351834 (PpmCheckContinueExecution.c)
+ *     PpmCheckContinueExecution @ 0x1402B065C (PpmCheckContinueExecution.c)
  */
 
 BOOLEAN PpmPerfControlActionCallback()

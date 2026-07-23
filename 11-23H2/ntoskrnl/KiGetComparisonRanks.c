@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetComparisonRanks @ 0x140369738
+ * XREFs of KiGetComparisonRanks @ 0x1403698D8
  * Callers:
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x1402B3000 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1402B3290 (KiEvaluateGroupSchedulingPreemption.c)
  * Callees:
  *     <none>
  */

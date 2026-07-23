@@ -1,20 +1,20 @@
 /*
- * XREFs of NtLockVirtualMemory @ 0x1800A23B0
+ * XREFs of NtLockVirtualMemory @ 0x1800A23D0
  * Callers:
- *     RtlLockMemoryZone @ 0x180079A60 (RtlLockMemoryZone.c)
- *     RtlpModuleEnumeratorCallback @ 0x180082540 (RtlpModuleEnumeratorCallback.c)
- *     RtlLockCurrentThread @ 0x1800865A0 (RtlLockCurrentThread.c)
- *     RtlpLockStack @ 0x180086658 (RtlpLockStack.c)
+ *     RtlLockMemoryZone @ 0x180079A70 (RtlLockMemoryZone.c)
+ *     RtlpModuleEnumeratorCallback @ 0x180082550 (RtlpModuleEnumeratorCallback.c)
+ *     RtlLockCurrentThread @ 0x1800865B0 (RtlLockCurrentThread.c)
+ *     RtlpLockStack @ 0x180086668 (RtlpLockStack.c)
  *     RtlExtendMemoryZone @ 0x1800EB990 (RtlExtendMemoryZone.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtLockVirtualMemory()
+NTSTATUS __cdecl NtLockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 263LL;
+  result = 263;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

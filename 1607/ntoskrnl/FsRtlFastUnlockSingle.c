@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlFastUnlockSingle @ 0x1400C50D8
+ * XREFs of FsRtlFastUnlockSingle @ 0x1400C2F78
  * Callers:
- *     FsRtlProcessFileLock @ 0x140132C48 (FsRtlProcessFileLock.c)
+ *     FsRtlProcessFileLock @ 0x1401331B8 (FsRtlProcessFileLock.c)
  * Callees:
- *     FsRtlFastUnlockSingleExclusive @ 0x1400C51B4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x1400C530C (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1400C3054 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1400C31AC (FsRtlFastUnlockSingleShared.c)
  */
 
 NTSTATUS __stdcall FsRtlFastUnlockSingle(

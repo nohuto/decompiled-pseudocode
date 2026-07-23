@@ -1,18 +1,18 @@
 /*
- * XREFs of _PnpDispatchDeviceInterface @ 0x1406CCE90
+ * XREFs of _PnpDispatchDeviceInterface @ 0x1406CCEC0
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14022B1E4 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC1F8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC674 (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmValidateDeviceInterfaceName @ 0x1406CE9C0 (_CmValidateDeviceInterfaceName.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x1408603AC (_CmGetMatchingDeviceInterfaceList.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x14086D588 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmCreateDeviceInterface @ 0x14088011C (_CmCreateDeviceInterface.c)
- *     _CmDeleteDeviceInterface @ 0x140A615CC (_CmDeleteDeviceInterface.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A683E8 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x140A68614 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x14022B2F4 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC228 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC6A4 (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406CE9F0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x1408605EC (_CmGetMatchingDeviceInterfaceList.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x14086D7C8 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmCreateDeviceInterface @ 0x14088035C (_CmCreateDeviceInterface.c)
+ *     _CmDeleteDeviceInterface @ 0x140A6187C (_CmDeleteDeviceInterface.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A68698 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x140A688C4 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, _DWORD *a5)

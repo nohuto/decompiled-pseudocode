@@ -1,10 +1,10 @@
 /*
  * XREFs of HvlpDiscoverTopologyAmd @ 0x1407CDD80
  * Callers:
- *     HvlpDiscoverTopologyWorker @ 0x140620540 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x1406205F4 (HvlpDiscoverTopologyWorker.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x1400077E8 (MmIsThisAnNtAsSystem.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MmIsThisAnNtAsSystem @ 0x140007958 (MmIsThisAnNtAsSystem.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     HvlpLpCpuid @ 0x1407CE184 (HvlpLpCpuid.c)
  */
 

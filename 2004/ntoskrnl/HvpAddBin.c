@@ -250,7 +250,7 @@ LABEL_31:
   }
   else
   {
-    if ( (int)HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 216), v13) < 0 )
+    if ( HvpViewMapExtendStorage(BugCheckParameter2 + 216, v13) < 0 )
       goto LABEL_76;
     v17 = 1;
     v54 = 0;

@@ -18,7 +18,13 @@
  *     PsGetNextProcess @ 0x14050D584 (PsGetNextProcess.c)
  */
 
-NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, __int64 a2, __int64 a3, __int64 a4, HANDLE *a5)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   ULONG v7; // r12d
@@ -29,7 +35,7 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, __int64 a2, __int64 a3, __in
   __int64 v12; // r8
   __int64 v13; // r9
   struct _KTHREAD *CurrentThread; // r14
-  int v15; // esi
+  NTSTATUS v15; // esi
   __int64 v16; // r15
   __int64 v17; // r9
   __int16 v18; // ax
@@ -39,31 +45,31 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, __int64 a2, __int64 a3, __in
   ACCESS_MASK v22; // [rsp+44h] [rbp-1F4h]
   PVOID Object; // [rsp+48h] [rbp-1F0h] BYREF
   unsigned __int64 v24; // [rsp+50h] [rbp-1E8h]
-  HANDLE Handlea; // [rsp+68h] [rbp-1D0h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-1D0h] BYREF
   struct _ACCESS_STATE PassedAccessState; // [rsp+70h] [rbp-1C8h] BYREF
   _QWORD v27[28]; // [rsp+110h] [rbp-128h] BYREF
 
-  v22 = a2;
+  v22 = DesiredAccess;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v20 = PreviousMode;
   if ( PreviousMode )
-    v7 = a3 & 0xDF2;
+    v7 = HandleAttributes & 0xDF2;
   else
-    v7 = a3 & 0x10FF2;
+    v7 = HandleAttributes & 0x10FF2;
   if ( PreviousMode )
   {
-    v8 = a5;
-    if ( (unsigned __int64)a5 >= MmUserProbeAddress )
+    v8 = NewProcessHandle;
+    if ( (unsigned __int64)NewProcessHandle >= MmUserProbeAddress )
       v8 = (_QWORD *)MmUserProbeAddress;
     *v8 = *v8;
   }
-  *a5 = 0LL;
-  if ( (_DWORD)a4 )
+  *NewProcessHandle = 0LL;
+  if ( Flags )
     return -1073741811;
-  if ( Handle )
+  if ( ProcessHandle )
   {
     result = ObReferenceObjectByHandleWithTag(
-               Handle,
+               ProcessHandle,
                0,
                (POBJECT_TYPE)PsProcessType,
                PreviousMode,
@@ -77,7 +83,7 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, __int64 a2, __int64 a3, __in
   {
     Object = 0LL;
   }
-  NextProcess = PsGetNextProcess(Object, a2, a3, a4);
+  NextProcess = PsGetNextProcess(Object, *(__int64 *)&DesiredAccess, *(__int64 *)&HandleAttributes, *(__int64 *)&Flags);
   v24 = NextProcess;
   if ( !NextProcess )
     return -2147483622;
@@ -129,11 +135,11 @@ LABEL_13:
               0,
               (POBJECT_TYPE)PsProcessType,
               PreviousMode,
-              &Handlea);
+              &Handle);
       SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
       if ( v15 >= 0 )
       {
-        *a5 = Handlea;
+        *NewProcessHandle = Handle;
         goto LABEL_20;
       }
       if ( v15 != -1073741790 )

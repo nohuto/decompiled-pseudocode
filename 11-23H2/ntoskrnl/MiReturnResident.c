@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReturnResident @ 0x140292E10
+ * XREFs of MiReturnResident @ 0x1402930A0
  * Callers:
  *     MiDereferenceSessionFinal @ 0x140681B80 (MiDereferenceSessionFinal.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiRemoveVadCharges @ 0x1406FB440 (MiRemoveVadCharges.c)
- *     MiReleaseVadEventBlocks @ 0x1406FB5DC (MiReleaseVadEventBlocks.c)
- *     MiFreeInitializationCode @ 0x140703AFC (MiFreeInitializationCode.c)
- *     MmDeleteProcessAddressSpace @ 0x1407059E8 (MmDeleteProcessAddressSpace.c)
- *     MmCreateProcessAddressSpace @ 0x140705E50 (MmCreateProcessAddressSpace.c)
- *     MmCleanProcessAddressSpace @ 0x14071FA58 (MmCleanProcessAddressSpace.c)
- *     MiCreatePagingFileMap @ 0x140747994 (MiCreatePagingFileMap.c)
- *     MiSessionCreate @ 0x1407A900C (MiSessionCreate.c)
- *     MiMarkBootGuardPage @ 0x14081D648 (MiMarkBootGuardPage.c)
- *     MiReturnSystemImageCommitment @ 0x140861800 (MiReturnSystemImageCommitment.c)
- *     MmReturnChargesToLockPagedPool @ 0x140A309A0 (MmReturnChargesToLockPagedPool.c)
- *     MiChargeLargeProtoSubsection @ 0x140A33644 (MiChargeLargeProtoSubsection.c)
- *     MiReturnVadCharges @ 0x140A3C4A4 (MiReturnVadCharges.c)
- *     MiFreePartitionPhysicalPages @ 0x140A44AF4 (MiFreePartitionPhysicalPages.c)
+ *     MiRemoveVadCharges @ 0x1406FB650 (MiRemoveVadCharges.c)
+ *     MiReleaseVadEventBlocks @ 0x1406FB7EC (MiReleaseVadEventBlocks.c)
+ *     MiFreeInitializationCode @ 0x140703D0C (MiFreeInitializationCode.c)
+ *     MmDeleteProcessAddressSpace @ 0x140705BF8 (MmDeleteProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x140706060 (MmCreateProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14071FC58 (MmCleanProcessAddressSpace.c)
+ *     MiCreatePagingFileMap @ 0x140747B84 (MiCreatePagingFileMap.c)
+ *     MiSessionCreate @ 0x1407A91FC (MiSessionCreate.c)
+ *     MiMarkBootGuardPage @ 0x14081D918 (MiMarkBootGuardPage.c)
+ *     MiReturnSystemImageCommitment @ 0x140861A40 (MiReturnSystemImageCommitment.c)
+ *     MmReturnChargesToLockPagedPool @ 0x140A30C50 (MmReturnChargesToLockPagedPool.c)
+ *     MiChargeLargeProtoSubsection @ 0x140A338F4 (MiChargeLargeProtoSubsection.c)
+ *     MiReturnVadCharges @ 0x140A3C754 (MiReturnVadCharges.c)
+ *     MiFreePartitionPhysicalPages @ 0x140A44DA4 (MiFreePartitionPhysicalPages.c)
  * Callees:
  *     <none>
  */

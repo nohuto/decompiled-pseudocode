@@ -49,7 +49,7 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
         {
           if ( (*(_BYTE *)(i + 24) & 1) == 0 && *(_WORD *)(i + 28) != 0xFFFF )
           {
-            RtlRbRemoveNode(a1 + 96, (unsigned __int64 *)i);
+            RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)i);
             *(_OWORD *)i = 0LL;
             *(_QWORD *)(i + 16) = 0LL;
             v8 = ~(unsigned __int16)*(_DWORD *)(i + 28);
@@ -59,7 +59,7 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
             v9 = 32LL * ((unsigned int)*(unsigned __int8 *)(i + 31) - 1);
             *(_BYTE *)(v9 + i + 24) |= 1u;
             i = RtlpHpSegPageRangeCoalesce(a1, i, 1, &v17);
-            v10 = (_QWORD *)RtlpHpSegFreeRangeInsert((__int64 *)a1, i, 0);
+            v10 = (_QWORD *)RtlpHpSegFreeRangeInsert((_RTL_RB_TREE *)a1, i, 0);
             if ( v10 )
             {
               v11 = *v10;

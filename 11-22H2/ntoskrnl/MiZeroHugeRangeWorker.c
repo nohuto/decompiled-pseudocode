@@ -61,10 +61,13 @@ void __fastcall MiZeroHugeRangeWorker(PRTL_BITMAP BitMapHeader)
       (volatile signed __int32 *)(qword_140C67EF8 + 4
                                                   * (((((__int64)Buffer - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
       ~(1 << ((((__int64)Buffer - qword_140C67EF0) >> 3) & 0x1F)));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -108,10 +111,10 @@ void __fastcall MiZeroHugeRangeWorker(PRTL_BITMAP BitMapHeader)
         (volatile signed __int32 *)(qword_140C67EF8
                                   + 4 * (((((__int64)Buffer - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
         ~(1 << ((((__int64)Buffer - qword_140C67EF0) >> 3) & 0x1F)));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v16 >= 2u )
         {
           v17 = KeGetCurrentPrcb();
           v18 = v17->SchedulerAssist;

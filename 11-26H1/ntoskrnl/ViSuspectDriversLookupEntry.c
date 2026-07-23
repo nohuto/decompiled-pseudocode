@@ -1,14 +1,14 @@
 /*
- * XREFs of ViSuspectDriversLookupEntry @ 0x140C20440
+ * XREFs of ViSuspectDriversLookupEntry @ 0x140C2644C
  * Callers:
- *     VfVolatileRemoveDifVerification @ 0x140647AAC (VfVolatileRemoveDifVerification.c)
- *     VfSuspectDriversLookupName @ 0x140C20420 (VfSuspectDriversLookupName.c)
- *     VfSuspectDifRemoveEntry @ 0x140C38864 (VfSuspectDifRemoveEntry.c)
- *     VfSuspectDriversRemove @ 0x140C38DC4 (VfSuspectDriversRemove.c)
- *     VfSuspectDriversUnloadCallback @ 0x140C38E64 (VfSuspectDriversUnloadCallback.c)
- *     VfSuspectDriversIsLoaded @ 0x140CDF3D8 (VfSuspectDriversIsLoaded.c)
+ *     VfVolatileRemoveDifVerification @ 0x14064B68C (VfVolatileRemoveDifVerification.c)
+ *     VfSuspectDriversLookupName @ 0x140C2642C (VfSuspectDriversLookupName.c)
+ *     VfSuspectDifRemoveEntry @ 0x140C3E874 (VfSuspectDifRemoveEntry.c)
+ *     VfSuspectDriversRemove @ 0x140C3EDD4 (VfSuspectDriversRemove.c)
+ *     VfSuspectDriversUnloadCallback @ 0x140C3EE74 (VfSuspectDriversUnloadCallback.c)
+ *     VfSuspectDriversIsLoaded @ 0x140CE5770 (VfSuspectDriversIsLoaded.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall ViSuspectDriversLookupEntry(PCUNICODE_STRING String2)

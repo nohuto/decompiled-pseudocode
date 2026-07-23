@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcAddHandleTableEntry @ 0x140618DEC
+ * XREFs of AlpcAddHandleTableEntry @ 0x140619DEC
  * Callers:
- *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14061901C (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSection @ 0x14061BF74 (AlpcpCreateSection.c)
+ *     AlpcpCreateReserve @ 0x1406A5258 (AlpcpCreateReserve.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AlpcpReleasePushLockExclusive @ 0x140849930 (AlpcpReleasePushLockExclusive.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AlpcpReleasePushLockExclusive @ 0x14084AB90 (AlpcpReleasePushLockExclusive.c)
  */
 
 __int64 __fastcall AlpcAddHandleTableEntry(__int64 a1, _QWORD *a2)
@@ -60,7 +60,7 @@ LABEL_5:
         v13 = *(_QWORD *)(a1 + 16);
         *((_QWORD *)v12 + v13) = *a2;
         if ( *(_QWORD *)(a1 + 16) == 16LL )
-          ExFreeToNPagedLookasideList(&stru_1404D7280, *(PVOID *)a1);
+          ExFreeToNPagedLookasideList(&stru_1404D82C0, *(PVOID *)a1);
         else
           ExFreePoolWithTag(*(PVOID *)a1, 0x61486C41u);
         *(_QWORD *)a1 = v12;

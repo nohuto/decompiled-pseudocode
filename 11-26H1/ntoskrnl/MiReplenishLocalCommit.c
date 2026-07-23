@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReplenishLocalCommit @ 0x140462B18
+ * XREFs of MiReplenishLocalCommit @ 0x14045BAD8
  * Callers:
- *     MiChargeCommitSlow @ 0x1402F4DE8 (MiChargeCommitSlow.c)
+ *     MiChargeCommitSlow @ 0x1402D6E68 (MiChargeCommitSlow.c)
  * Callees:
- *     MiSignalCommitSignals @ 0x14043CAA0 (MiSignalCommitSignals.c)
- *     MiUpdateCommitCounts @ 0x140462BC4 (MiUpdateCommitCounts.c)
+ *     MiSignalCommitSignals @ 0x14042F350 (MiSignalCommitSignals.c)
+ *     MiUpdateCommitCounts @ 0x14045BB84 (MiUpdateCommitCounts.c)
  */
 
 int __fastcall MiReplenishLocalCommit(__int64 a1, __int64 a2, signed __int64 a3, __int64 a4)

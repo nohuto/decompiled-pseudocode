@@ -1,21 +1,21 @@
 /*
- * XREFs of MmUnloadSystemImage @ 0x140772150
+ * XREFs of MmUnloadSystemImage @ 0x140772310
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
- *     IopDeleteDriver @ 0x140772070 (IopDeleteDriver.c)
- *     MiSessionUnloadAllImages @ 0x1407785DC (MiSessionUnloadAllImages.c)
- *     MiLoadImportDll @ 0x1407AC3E0 (MiLoadImportDll.c)
- *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
- *     PnprLoadPluginDriver @ 0x1408ADE48 (PnprLoadPluginDriver.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
+ *     IopDeleteDriver @ 0x140772230 (IopDeleteDriver.c)
+ *     MiSessionUnloadAllImages @ 0x14077879C (MiSessionUnloadAllImages.c)
+ *     MiLoadImportDll @ 0x1407AC5E0 (MiLoadImportDll.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC3D0 (PnpReplacePartitionUnit.c)
+ *     PnprLoadPluginDriver @ 0x1408ADFA8 (PnprLoadPluginDriver.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     MmReleaseLoadLock @ 0x1406A83F0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406A8450 (MmAcquireLoadLock.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
  */
 
 __int64 __fastcall MmUnloadSystemImage(__int64 BugCheckParameter2, __int64 a2)

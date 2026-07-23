@@ -1,18 +1,18 @@
 /*
- * XREFs of SeSetSessionIdToken @ 0x1405BC45C
+ * XREFs of SeSetSessionIdToken @ 0x1405BD45C
  * Callers:
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1405828D0 (SepCopyAnonymousTokenAndSetSilo.c)
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14089BCD0 (SepCopyClientTokenAndSetSilo.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x1405838D0 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14089CF30 (SepCopyClientTokenAndSetSilo.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     MmGetSessionObjectById @ 0x14007F244 (MmGetSessionObjectById.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1405DF038 (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenSessionById @ 0x14064FD7C (SepSetTokenSessionById.c)
- *     SepSetTokenLowboxNumber @ 0x14065C0E4 (SepSetTokenLowboxNumber.c)
+ *     MmGetSessionObjectById @ 0x14007F234 (MmGetSessionObjectById.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1405E0038 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenSessionById @ 0x140650F3C (SepSetTokenSessionById.c)
+ *     SepSetTokenLowboxNumber @ 0x14065D2A4 (SepSetTokenLowboxNumber.c)
  */
 
 NTSTATUS __stdcall SeSetSessionIdToken(PACCESS_TOKEN Token, ULONG SessionId)

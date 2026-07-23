@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x1408219C0
+ * XREFs of KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x140821CC0
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     KiInitializeDpcRuntimeHistoryHashTables @ 0x140B4EC40 (KiInitializeDpcRuntimeHistoryHashTables.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KiDpcRuntimeHistoryHashTableAllocate @ 0x140383AD4 (KiDpcRuntimeHistoryHashTableAllocate.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KiDpcRuntimeHistoryHashTableAllocate @ 0x140383CB4 (KiDpcRuntimeHistoryHashTableAllocate.c)
  */
 
 __int64 __fastcall KiInitializeSingleDpcRuntimeHistoryHashTable(__int64 a1)

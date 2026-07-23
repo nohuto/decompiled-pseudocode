@@ -1,45 +1,45 @@
 /*
- * XREFs of NtLoadEnclaveData @ 0x140AEE740
+ * XREFs of NtLoadEnclaveData @ 0x140AF16E0
  * Callers:
- *     DifNtLoadEnclaveDataWrapper @ 0x14067A450 (DifNtLoadEnclaveDataWrapper.c)
+ *     DifNtLoadEnclaveDataWrapper @ 0x14067E030 (DifNtLoadEnclaveDataWrapper.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     MiDereferenceEnclaveModule @ 0x140876560 (MiDereferenceEnclaveModule.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140876584 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140876988 (MiLoadSectionIntoVsmEnclave.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     DbgkMapViewOfSection @ 0x1409C37E4 (DbgkMapViewOfSection.c)
- *     MiCopyPagesIntoEnclave @ 0x140AEEB74 (MiCopyPagesIntoEnclave.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     MiDereferenceEnclaveModule @ 0x14087C944 (MiDereferenceEnclaveModule.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x14087C968 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14087CD6C (MiLoadSectionIntoVsmEnclave.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     DbgkMapViewOfSection @ 0x1409947C4 (DbgkMapViewOfSection.c)
+ *     MiCopyPagesIntoEnclave @ 0x140AF1B14 (MiCopyPagesIntoEnclave.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtLoadEnclaveData(
-        ULONG_PTR a1,
-        __int64 a2,
-        void *a3,
-        struct _KLOCK_ENTRIES *a4,
-        int a5,
-        void *a6,
-        size_t Size,
-        __int64 *a8,
-        unsigned int *a9)
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   int v9; // ebx
   _BYTE *PoolMm; // rdi
@@ -69,22 +69,22 @@ __int64 __fastcall NtLoadEnclaveData(
   __int64 v35; // [rsp+98h] [rbp-D0h]
   ULONG_PTR BugCheckParameter1; // [rsp+A0h] [rbp-C8h]
   PVOID Base; // [rsp+A8h] [rbp-C0h]
-  unsigned int *v38; // [rsp+B0h] [rbp-B8h]
-  ULONG_PTR v39; // [rsp+C0h] [rbp-A8h]
-  __int64 *v40; // [rsp+C8h] [rbp-A0h]
+  PULONG v38; // [rsp+B0h] [rbp-B8h]
+  HANDLE v39; // [rsp+C0h] [rbp-A8h]
+  PSIZE_T v40; // [rsp+C8h] [rbp-A0h]
   _OWORD v41[3]; // [rsp+D0h] [rbp-98h] BYREF
   _BYTE v42[32]; // [rsp+100h] [rbp-68h] BYREF
 
-  v35 = (__int64)a4;
-  Base = a3;
-  *(_QWORD *)v31 = a2;
-  BugCheckParameter1 = a1;
-  v39 = a1;
-  Src = a6;
-  v9 = Size;
-  v28 = Size;
-  v40 = a8;
-  v38 = a9;
+  v35 = BufferSize;
+  Base = Buffer;
+  *(_QWORD *)v31 = BaseAddress;
+  BugCheckParameter1 = (ULONG_PTR)ProcessHandle;
+  v39 = ProcessHandle;
+  Src = PageInformation;
+  v9 = PageInformationLength;
+  v28 = PageInformationLength;
+  v40 = NumberOfBytesWritten;
+  v38 = EnclaveError;
   memset(v41, 0, sizeof(v41));
   v33 = 0LL;
   LODWORD(v29) = 0;
@@ -97,20 +97,20 @@ __int64 __fastcall NtLoadEnclaveData(
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode == 1 )
   {
-    if ( a9 )
+    if ( EnclaveError )
     {
-      ULongFromUser = RtlReadULongFromUser(a9);
-      RtlWriteULongToUser(a9, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(EnclaveError);
+      RtlWriteULongToUser(EnclaveError, ULongFromUser);
     }
-    if ( a8 )
+    if ( NumberOfBytesWritten )
     {
-      ULong64FromUser = RtlReadULong64FromUser(a8);
-      RtlWriteULong64ToUser(a8, ULong64FromUser);
+      ULong64FromUser = RtlReadULong64FromUser(NumberOfBytesWritten);
+      RtlWriteULong64ToUser(NumberOfBytesWritten, ULong64FromUser);
     }
   }
-  if ( (_DWORD)Size )
+  if ( PageInformationLength )
   {
-    if ( (unsigned int)Size > 0xFFFF )
+    if ( PageInformationLength > 0xFFFF )
     {
       LODWORD(Src) = -1073741820;
       goto LABEL_19;
@@ -118,7 +118,7 @@ __int64 __fastcall NtLoadEnclaveData(
     if ( (unsigned int)v28 > 0x20 )
     {
       CurrentProcessorColor = MmGetCurrentProcessorColor();
-      PoolMm = (_BYTE *)ExAllocatePoolMm(64LL, (unsigned int)Size, 1230007877, CurrentProcessorColor | 0x80000000);
+      PoolMm = (_BYTE *)ExAllocatePoolMm(64LL, PageInformationLength, 1230007877, CurrentProcessorColor | 0x80000000);
       *(_QWORD *)v32 = PoolMm;
       if ( !PoolMm )
       {
@@ -132,9 +132,9 @@ __int64 __fastcall NtLoadEnclaveData(
       *(_QWORD *)v32 = v42;
     }
     if ( PreviousMode )
-      RtlCopyFromUser(PoolMm, Src, (unsigned int)Size);
+      RtlCopyFromUser(PoolMm, Src, PageInformationLength);
     else
-      RtlCopyVolatileMemory(PoolMm, Src, (unsigned int)Size);
+      RtlCopyVolatileMemory(PoolMm, Src, PageInformationLength);
     v9 = v28;
   }
   if ( (v31[0] & 0xFFF) != 0 )
@@ -157,8 +157,8 @@ __int64 __fastcall NtLoadEnclaveData(
     {
       LODWORD(Src) = ObpReferenceObjectByHandleWithTag(
                        BugCheckParameter1,
-                       8LL,
-                       PsProcessType,
+                       8,
+                       (__int64)PsProcessType,
                        PreviousMode,
                        0x6D566D4Du,
                        &Object,
@@ -191,12 +191,16 @@ LABEL_14:
                 (int *)PoolMm,
                 (unsigned __int64)Base,
                 v35,
-                a5,
+                Protect,
                 &v33);
       }
       else
       {
-        v23 = (void *)PsReferencePrimaryTokenWithTag(*(__int64 *)v32, 0x746C6644u, v18, a4);
+        v23 = (void *)PsReferencePrimaryTokenWithTag(
+                        *(__int64 *)v32,
+                        0x746C6644u,
+                        v18,
+                        (struct _KLOCK_ENTRIES *)BufferSize);
         v28 = MiLoadSectionIntoVsmEnclave(
                 (volatile signed __int32 *)v11,
                 PreviousMode,
@@ -225,7 +229,7 @@ LABEL_14:
       goto LABEL_14;
     }
     KiUnstackDetachProcess((__int64)v41, 0);
-    LODWORD(Src) = MiCopyPagesIntoEnclave((ULONG_PTR)Object, (__int64)Base, v20, a5, (__int64)&v33, (__int64)&v29);
+    LODWORD(Src) = MiCopyPagesIntoEnclave((ULONG_PTR)Object, (__int64)Base, v20, Protect, (__int64)&v33, (__int64)&v29);
   }
 LABEL_19:
   v19 = 0;
@@ -243,26 +247,26 @@ LABEL_20:
     DbgkMapViewOfSection(
       (_KPROCESS *)Object,
       0LL,
-      *(_QWORD *)(v12 + 16),
-      (__int64)a4,
+      *(void **)(v12 + 16),
+      BufferSize,
       Tag,
       *(_DWORD *)(v12 + 36),
       *(_DWORD *)(v12 + 40));
     MiDereferenceEnclaveModule((volatile signed __int32 *)v12);
   }
-  if ( a8 )
+  if ( NumberOfBytesWritten )
   {
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a8, v33);
+      RtlWriteULong64ToUser(NumberOfBytesWritten, v33);
     else
-      *a8 = v33;
+      *NumberOfBytesWritten = v33;
   }
-  if ( a9 )
+  if ( EnclaveError )
   {
     if ( PreviousMode )
-      RtlWriteULongToUser(a9, v29);
+      RtlWriteULongToUser(EnclaveError, v29);
     else
-      *a9 = v29;
+      *EnclaveError = v29;
   }
-  return (unsigned int)Src;
+  return (int)Src;
 }

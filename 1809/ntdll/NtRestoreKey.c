@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRestoreKey @ 0x1800A3130
+ * XREFs of NtRestoreKey @ 0x1800A3150
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRestoreKey()
+NTSTATUS __cdecl NtRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 371LL;
+  result = 371;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

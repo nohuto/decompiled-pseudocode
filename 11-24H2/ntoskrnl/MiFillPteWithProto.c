@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFillPteWithProto @ 0x1403EED40
+ * XREFs of MiFillPteWithProto @ 0x1403E17D0
  * Callers:
- *     MiResolveSharedZeroFault @ 0x1402FFD60 (MiResolveSharedZeroFault.c)
+ *     MiResolveSharedZeroFault @ 0x14030A4E0 (MiResolveSharedZeroFault.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 unsigned __int64 __fastcall MiFillPteWithProto(__int64 *a1, __int64 a2, int a3)
@@ -32,12 +32,12 @@ unsigned __int64 __fastcall MiFillPteWithProto(__int64 *a1, __int64 a2, int a3)
   {
     v17 = a2 << 16;
     v5 = v17 | 0x400;
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
       v18 = v17;
       v19 = v17 | 0x410;
-      v20 = qword_140E2DB80 | v18 | 0x400;
-      if ( (qword_140E2DB80 & v5) == 0 )
+      v20 = qword_140E2DCC0 | v18 | 0x400;
+      if ( (qword_140E2DCC0 & v5) == 0 )
         v19 = v20;
       v5 = v19;
     }
@@ -45,12 +45,12 @@ unsigned __int64 __fastcall MiFillPteWithProto(__int64 *a1, __int64 a2, int a3)
   else
   {
     v5 = 32 * (a3 & 0x1F | 0xFFFFFFFFF8000020uLL);
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
-      if ( (qword_140E2DB80 & v5) != 0 )
+      if ( (qword_140E2DCC0 & v5) != 0 )
         v5 |= 0x10uLL;
       else
-        v5 |= qword_140E2DB80;
+        v5 |= qword_140E2DCC0;
     }
   }
   *a1 = v5;

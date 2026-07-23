@@ -1,26 +1,26 @@
 /*
- * XREFs of MiSessionCreate @ 0x1407A900C
+ * XREFs of MiSessionCreate @ 0x1407A91FC
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
- *     MiMapProcessExecutable @ 0x1407A3090 (MiMapProcessExecutable.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
+ *     MiMapProcessExecutable @ 0x1407A3280 (MiMapProcessExecutable.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiMarkSessionReferenceProcess @ 0x14032EF10 (MiMarkSessionReferenceProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiGetNewSessionId @ 0x1407A999C (MiGetNewSessionId.c)
- *     MiInitializeSessionGlobals @ 0x1407A9A80 (MiInitializeSessionGlobals.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407A9BC8 (MiInitializeSystemWorkingSetList.c)
- *     MiSessionObjectCreate @ 0x1407A9CEC (MiSessionObjectCreate.c)
- *     MiDereferenceSession @ 0x1407E0BC0 (MiDereferenceSession.c)
- *     MiFreeSessionId @ 0x140A32474 (MiFreeSessionId.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     MiMarkSessionReferenceProcess @ 0x14032F1A0 (MiMarkSessionReferenceProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiGetNewSessionId @ 0x1407A9B8C (MiGetNewSessionId.c)
+ *     MiInitializeSessionGlobals @ 0x1407A9C70 (MiInitializeSessionGlobals.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407A9DB8 (MiInitializeSystemWorkingSetList.c)
+ *     MiSessionObjectCreate @ 0x1407A9EDC (MiSessionObjectCreate.c)
+ *     MiDereferenceSession @ 0x1407E0E90 (MiDereferenceSession.c)
+ *     MiFreeSessionId @ 0x140A32724 (MiFreeSessionId.c)
  */
 
 __int64 MiSessionCreate()
@@ -31,10 +31,10 @@ __int64 MiSessionCreate()
   unsigned __int32 NewSessionId; // eax
   unsigned __int32 v4; // esi
   unsigned __int64 v5; // rdi
-  _DWORD *Pool; // rax
+  LARGE_INTEGER *Pool; // rax
   __int64 v7; // rbx
   void *CurrentServerSilo; // rax
-  LARGE_INTEGER v9; // [rsp+30h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp-48h] BYREF
   __int64 v10; // [rsp+38h] [rbp-40h] BYREF
   unsigned __int32 v11; // [rsp+40h] [rbp-38h]
   int v12; // [rsp+44h] [rbp-34h]
@@ -58,17 +58,17 @@ LABEL_15:
     MiFreeSessionId(v4);
     return 3221225495LL;
   }
-  Pool = MiAllocatePool(64, 0x340uLL, 0x7353694Du);
+  Pool = (LARGE_INTEGER *)MiAllocatePool(64, 0x340uLL, 0x7353694Du);
   v7 = (__int64)Pool;
   if ( !Pool )
   {
     MiReturnResident((__int64)ProcessPartition, v5);
     goto LABEL_15;
   }
-  Pool[2] = v4;
-  *Pool = 1;
-  Pool[18] = PsDefaultSystemLocaleId;
-  *((_QWORD *)Pool + 99) = RtlGetInterruptTimePrecise(&v9);
+  Pool[1].LowPart = v4;
+  Pool->LowPart = 1;
+  Pool[9].LowPart = PsDefaultSystemLocaleId;
+  Pool[99] = RtlGetInterruptTimePrecise(&PerformanceCounter);
   *(_WORD *)(v7 + 366) = *(_WORD *)ProcessPartition;
   if ( _InterlockedIncrement64((volatile signed __int64 *)(ProcessPartition[25] + 32LL)) <= 1 )
     __fastfail(0xEu);

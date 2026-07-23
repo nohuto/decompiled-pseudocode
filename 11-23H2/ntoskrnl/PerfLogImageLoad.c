@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfLogImageLoad @ 0x1406AD914
+ * XREFs of PerfLogImageLoad @ 0x1406AD944
  * Callers:
- *     PsCallImageNotifyRoutines @ 0x1406AFC10 (PsCallImageNotifyRoutines.c)
+ *     PsCallImageNotifyRoutines @ 0x1406AFC40 (PsCallImageNotifyRoutines.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x1409E6324 (EtwpPsProvTraceImage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x1409E65B4 (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
@@ -15,13 +15,13 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
   _QWORD *v5; // r14
   int v6; // ecx
   int v7; // edx
-  __int64 v8; // rax
-  __int64 v9[2]; // [rsp+50h] [rbp-98h] BYREF
+  PIMAGE_NT_HEADERS v8; // rax
+  PVOID v9[2]; // [rsp+50h] [rbp-98h] BYREF
   int v10; // [rsp+60h] [rbp-88h]
   __int64 v11; // [rsp+64h] [rbp-84h]
   char v12; // [rsp+6Ch] [rbp-7Ch]
   _BYTE v13[3]; // [rsp+6Dh] [rbp-7Bh]
-  __int64 v14; // [rsp+70h] [rbp-78h]
+  unsigned __int64 ImageBase; // [rsp+70h] [rbp-78h]
   __int64 v15; // [rsp+78h] [rbp-70h]
   __int64 v16; // [rsp+80h] [rbp-68h]
   __int64 v17; // [rsp+88h] [rbp-60h]
@@ -44,23 +44,23 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
           v6 = *(_DWORD *)(a2 + 1088);
         else
           v6 = 0;
-        v9[0] = *((_QWORD *)a3 + 1);
-        v9[1] = *((_QWORD *)a3 + 3);
+        v9[0] = *((PVOID *)a3 + 1);
+        v9[1] = *((PVOID *)a3 + 3);
         v10 = v6;
         *(_WORD *)&v13[1] = 0;
         v15 = 0LL;
         v16 = 0LL;
         v11 = 0LL;
-        v14 = 0LL;
+        ImageBase = 0LL;
         v7 = *a3;
         v12 = ((unsigned int)*a3 >> 12) & 0xF;
         *(_WORD *)v13 = BYTE2(v7) & 7;
         v8 = RtlImageNtHeader(v9[0]);
         if ( v8 )
         {
-          LODWORD(v11) = *(_DWORD *)(v8 + 88);
-          HIDWORD(v11) = *(_DWORD *)(v8 + 8);
-          v14 = *(_QWORD *)(v8 + 48);
+          LODWORD(v11) = v8->OptionalHeader.CheckSum;
+          HIDWORD(v11) = v8->FileHeader.TimeDateStamp;
+          ImageBase = v8->OptionalHeader.ImageBase;
         }
         if ( EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4540) & 4) != 0 )
           EtwpPsProvTraceImage(a1, v9, 5121LL, 0LL);

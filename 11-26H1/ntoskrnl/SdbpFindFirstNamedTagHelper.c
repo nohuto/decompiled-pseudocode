@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpFindFirstNamedTagHelper @ 0x140A9287C
+ * XREFs of SdbpFindFirstNamedTagHelper @ 0x140A973CC
  * Callers:
- *     SdbQueryDataExTagID @ 0x140881ED8 (SdbQueryDataExTagID.c)
- *     SdbpFindFirstTagWithoutIndex @ 0x140883F24 (SdbpFindFirstTagWithoutIndex.c)
- *     SdbpFindFirstWildcardTagWithoutIndex @ 0x140883FE0 (SdbpFindFirstWildcardTagWithoutIndex.c)
- *     SdbpSearchDB @ 0x140A92348 (SdbpSearchDB.c)
+ *     SdbQueryDataExTagID @ 0x1408882D8 (SdbQueryDataExTagID.c)
+ *     SdbpFindFirstTagWithoutIndex @ 0x14088A324 (SdbpFindFirstTagWithoutIndex.c)
+ *     SdbpFindFirstWildcardTagWithoutIndex @ 0x14088A3E0 (SdbpFindFirstWildcardTagWithoutIndex.c)
+ *     SdbpSearchDB @ 0x140A96E98 (SdbpSearchDB.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     AslStringPatternMatchExW @ 0x1409E7030 (AslStringPatternMatchExW.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     SdbGetNextChild @ 0x1409E86F4 (SdbGetNextChild.c)
- *     SdbGetFirstChild @ 0x1409E87E4 (SdbGetFirstChild.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     SdbGetNextChild @ 0x1409D5104 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x1409D51F4 (SdbGetFirstChild.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslStringPatternMatchExW @ 0x1409D59C0 (AslStringPatternMatchExW.c)
  */
 
 __int64 __fastcall SdbpFindFirstNamedTagHelper(void *a1, __int64 a2, __int16 a3, __int16 a4, wchar_t *Str1, int a6)

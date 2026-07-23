@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFanRemove @ 0x14075CEF0
+ * XREFs of PopFanRemove @ 0x14075BE90
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
- *     PopFanSetNoiseImpact @ 0x14075CF3C (PopFanSetNoiseImpact.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
+ *     PopFanSetNoiseImpact @ 0x14075BEDC (PopFanSetNoiseImpact.c)
  */
 
 __int64 __fastcall PopFanRemove(__int64 a1)

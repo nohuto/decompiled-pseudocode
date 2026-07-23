@@ -7,24 +7,24 @@
  *     <none>
  */
 
-_DWORD *__stdcall RtlRealSuccessor(_DWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlRealSuccessor(PRTL_SPLAY_LINKS Links)
 {
-  _DWORD *v1; // edx
-  _DWORD *result; // eax
-  _DWORD *i; // ecx
+  PRTL_SPLAY_LINKS v1; // edx
+  PRTL_SPLAY_LINKS result; // eax
+  _RTL_SPLAY_LINKS *i; // ecx
 
-  v1 = a1;
-  result = (_DWORD *)a1[2];
+  v1 = Links;
+  result = Links->RightChild;
   if ( result )
   {
-    while ( result[1] )
-      result = (_DWORD *)result[1];
+    while ( result->LeftChild )
+      result = result->LeftChild;
   }
   else
   {
-    for ( i = (_DWORD *)*a1; (_DWORD *)i[2] == v1; i = (_DWORD *)*i )
+    for ( i = Links->Parent; i->RightChild == v1; i = i->Parent )
       v1 = i;
-    return v1 == (_DWORD *)i[1] ? i : 0;
+    return v1 == i->LeftChild ? i : 0;
   }
   return result;
 }

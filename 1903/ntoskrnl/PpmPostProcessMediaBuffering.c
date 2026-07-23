@@ -13,22 +13,19 @@
 
 __int64 PpmPostProcessMediaBuffering()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
   __int64 result; // rax
-  unsigned __int16 v4[88]; // [rsp+20h] [rbp-178h] BYREF
-  _BYTE v5[176]; // [rsp+D0h] [rbp-C8h] BYREF
+  unsigned __int16 v1[88]; // [rsp+20h] [rbp-178h] BYREF
+  _BYTE v2[176]; // [rsp+D0h] [rbp-C8h] BYREF
 
-  memset(v5, 0, 0xA8uLL);
-  memset(v4, 0, 0xA8uLL);
-  result = PpmCheckApplyResetNotification(v1, v0, v2);
+  memset(v2, 0, 0xA8uLL);
+  memset(v1, 0, 0xA8uLL);
+  result = PpmCheckApplyResetNotification();
   if ( PpmPlatformStates )
   {
-    PoCopyDeepIdleMask(v4);
-    result = KeSubtractAffinityEx((unsigned __int16 *)KeActiveProcessors, v4, v5);
+    PoCopyDeepIdleMask(v1);
+    result = KeSubtractAffinityEx((unsigned __int16 *)KeActiveProcessors, v1, v2);
     if ( (_DWORD)result )
-      return PopExecuteOnTargetProcessors((__int64)v5, (__int64)PpmResetInterruptRate, 0LL, 0LL);
+      return PopExecuteOnTargetProcessors((__int64)v2, (__int64)PpmResetInterruptRate, 0LL, 0LL);
   }
   return result;
 }

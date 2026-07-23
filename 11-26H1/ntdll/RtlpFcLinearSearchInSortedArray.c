@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcLinearSearchInSortedArray @ 0x18016F8F8
+ * XREFs of RtlpFcLinearSearchInSortedArray @ 0x18016E8F8
  * Callers:
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x18016F1FC (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x18016E1FC (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpFcLinearSearchInSortedArray(

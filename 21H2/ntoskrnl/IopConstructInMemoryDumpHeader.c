@@ -1,10 +1,10 @@
 /*
- * XREFs of IopConstructInMemoryDumpHeader @ 0x140503C00
+ * XREFs of IopConstructInMemoryDumpHeader @ 0x140503B80
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x1403C9E88 (IopInitializeOfflineCrashDump.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140502C4C (IoUpdateDumpPhysicalRanges.c)
+ *     IopInitializeOfflineCrashDump @ 0x1403CA028 (IopInitializeOfflineCrashDump.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140502BCC (IoUpdateDumpPhysicalRanges.c)
  * Callees:
- *     IoFillDumpHeader @ 0x140501AF8 (IoFillDumpHeader.c)
+ *     IoFillDumpHeader @ 0x140501A78 (IoFillDumpHeader.c)
  */
 
 __int64 IopConstructInMemoryDumpHeader()
@@ -16,21 +16,21 @@ __int64 IopConstructInMemoryDumpHeader()
   result = (unsigned int)_InterlockedExchange(InMemData, 1);
   if ( (_DWORD)result != 1 )
   {
-    dword_140C50C28 = 0;
-    if ( dword_140C50BF4
-      && (result = qword_140C50C10 & 1, (v1 = *(_DWORD **)&InMemData[2 * result + 2]) != 0LL)
-      && (v2 = *(_QWORD *)&InMemData[2 * (((_BYTE)qword_140C50C10 - 1) & 1) + 2]) != 0 )
+    dword_140C50C38 = 0;
+    if ( dword_140C50C04
+      && (result = qword_140C50C20 & 1, (v1 = *(_DWORD **)&InMemData[2 * result + 2]) != 0LL)
+      && (v2 = *(_QWORD *)&InMemData[2 * (((_BYTE)qword_140C50C20 - 1) & 1) + 2]) != 0 )
     {
-      IoFillDumpHeader((_DWORD *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
-      *(_QWORD *)(v2 + 4040) = qword_140C50C18;
+      IoFillDumpHeader((_NT_PRODUCT_TYPE *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
+      *(_QWORD *)(v2 + 4040) = qword_140C50C28;
       *(_QWORD *)(v2 + 40) = PsInitialSystemProcess->DirectoryTableBase & 0xFFFFFFFFFFFFF000uLL;
       result = (unsigned int)_InterlockedExchange((volatile __int32 *)v2, 1397967163);
       *v1 = result;
-      LODWORD(qword_140C50C10) = qword_140C50C10 + 1;
+      LODWORD(qword_140C50C20) = qword_140C50C20 + 1;
     }
     else
     {
-      dword_140C50C28 = -1073741823;
+      dword_140C50C38 = -1073741823;
     }
     _InterlockedExchange(InMemData, 0);
   }

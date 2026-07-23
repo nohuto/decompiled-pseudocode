@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpSetComponentNameAtIndex @ 0x1404B13B8
+ * XREFs of CmpSetComponentNameAtIndex @ 0x14049B798
  * Callers:
- *     CmpComputeComponentHashes @ 0x1404B10A0 (CmpComputeComponentHashes.c)
+ *     CmpComputeComponentHashes @ 0x14049B480 (CmpComputeComponentHashes.c)
  * Callees:
  *     <none>
  */

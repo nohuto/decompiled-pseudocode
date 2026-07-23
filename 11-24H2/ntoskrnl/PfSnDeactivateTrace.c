@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnDeactivateTrace @ 0x1402C65D4
+ * XREFs of PfSnDeactivateTrace @ 0x1402BC3D4
  * Callers:
- *     PfSnEndTrace @ 0x140971A58 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x14095A268 (PfSnEndTrace.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PfSnRemoveProcessTrace @ 0x1402C66D4 (PfSnRemoveProcessTrace.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     PfSnRemoveProcessTrace @ 0x1402BC4D4 (PfSnRemoveProcessTrace.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
  */
 
 __int64 __fastcall PfSnDeactivateTrace(__int64 a1)
@@ -21,8 +21,8 @@ __int64 __fastcall PfSnDeactivateTrace(__int64 a1)
   __int64 v7; // r9
   _QWORD *v8; // r8
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140E67010);
-  KeReleaseSpinLock(&qword_140E67010, v2);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140E67160);
+  KeReleaseSpinLock(&qword_140E67160, v2);
   PfSnRemoveProcessTrace(*(_QWORD *)(a1 + 352));
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 360));
   v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 272));
@@ -33,13 +33,13 @@ __int64 __fastcall PfSnDeactivateTrace(__int64 a1)
   if ( v5 )
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 360));
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a1 + 360));
-  v6 = KeAcquireSpinLockRaiseToDpc(&qword_140E67010);
+  v6 = KeAcquireSpinLockRaiseToDpc(&qword_140E67160);
   v7 = *(_QWORD *)(a1 + 8);
   if ( *(_QWORD *)(v7 + 8) != a1 + 8 || (v8 = *(_QWORD **)(a1 + 16), *v8 != a1 + 8) )
     __fastfail(3u);
   --PfSnNumActiveTraces;
   *v8 = v7;
   *(_QWORD *)(v7 + 8) = v8;
-  KeReleaseSpinLock(&qword_140E67010, v6);
+  KeReleaseSpinLock(&qword_140E67160, v6);
   return 0LL;
 }

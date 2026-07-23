@@ -1,22 +1,22 @@
 /*
- * XREFs of TpWaitForJobNotification @ 0x1800C9890
+ * XREFs of TpWaitForJobNotification @ 0x1800C7010
  * Callers:
  *     <none>
  * Callees:
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     TppJobpValidateJob @ 0x1800C98CC (TppJobpValidateJob.c)
- *     TppJobpRundownJob @ 0x1800C9BD0 (TppJobpRundownJob.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     TppJobpValidateJob @ 0x1800C704C (TppJobpValidateJob.c)
+ *     TppJobpRundownJob @ 0x1800C7350 (TppJobpRundownJob.c)
  */
 
-struct _TEB *__fastcall TpWaitForJobNotification(__int64 a1)
+int __fastcall TpWaitForJobNotification(_RTL_SRWLOCK *a1)
 {
-  struct _TEB *result; // rax
+  int result; // eax
 
-  result = (struct _TEB *)TppJobpValidateJob(a1, 0LL);
-  if ( (_DWORD)result )
+  result = TppJobpValidateJob(a1, 0LL);
+  if ( result )
   {
     TppJobpRundownJob(a1);
-    return TppBarrierAdjust((signed __int64 *)(a1 + 128), 0, 1);
+    return TppBarrierAdjust(a1 + 16, 0, 1);
   }
   return result;
 }

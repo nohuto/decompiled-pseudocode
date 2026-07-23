@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpReleaseQueueEntry @ 0x1405C0D9C
+ * XREFs of EtwpReleaseQueueEntry @ 0x1405C1D9C
  * Callers:
- *     EtwpQueueNotification @ 0x1405C054C (EtwpQueueNotification.c)
- *     EtwpReceiveNotification @ 0x1405C0E00 (EtwpReceiveNotification.c)
- *     EtwpDeleteRegistrationObject @ 0x1405C3E20 (EtwpDeleteRegistrationObject.c)
- *     EtwpRundownNotifications @ 0x1405C4714 (EtwpRundownNotifications.c)
- *     EtwpSendReplyDataBlock @ 0x140658EB0 (EtwpSendReplyDataBlock.c)
+ *     EtwpQueueNotification @ 0x1405C154C (EtwpQueueNotification.c)
+ *     EtwpReceiveNotification @ 0x1405C1E00 (EtwpReceiveNotification.c)
+ *     EtwpDeleteRegistrationObject @ 0x1405C4E20 (EtwpDeleteRegistrationObject.c)
+ *     EtwpRundownNotifications @ 0x1405C5714 (EtwpRundownNotifications.c)
+ *     EtwpSendReplyDataBlock @ 0x14065A070 (EtwpSendReplyDataBlock.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsReleaseProcessWakeCounter @ 0x14061C390 (PsReleaseProcessWakeCounter.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsReleaseProcessWakeCounter @ 0x14061D390 (PsReleaseProcessWakeCounter.c)
  */
 
 void __fastcall EtwpReleaseQueueEntry(PVOID *P, int a2)

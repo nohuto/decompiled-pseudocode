@@ -1,14 +1,14 @@
 /*
- * XREFs of AslRegistryGetKey @ 0x140723428
+ * XREFs of AslRegistryGetKey @ 0x1407246C8
  * Callers:
- *     SdbpQueryAppCompatFlagsByExeID @ 0x1407233AC (SdbpQueryAppCompatFlagsByExeID.c)
- *     AslpProcessMatchRegNode @ 0x1408EBD04 (AslpProcessMatchRegNode.c)
+ *     SdbpQueryAppCompatFlagsByExeID @ 0x14072464C (SdbpQueryAppCompatFlagsByExeID.c)
+ *     AslpProcessMatchRegNode @ 0x1408ECFC4 (AslpProcessMatchRegNode.c)
  * Callees:
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslRegistryBuildMachinePath @ 0x1407234FC (AslRegistryBuildMachinePath.c)
- *     AslRegistryBuildUserPath @ 0x1407235B0 (AslRegistryBuildUserPath.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslRegistryBuildMachinePath @ 0x14072479C (AslRegistryBuildMachinePath.c)
+ *     AslRegistryBuildUserPath @ 0x140724850 (AslRegistryBuildUserPath.c)
  */
 
 __int64 __fastcall AslRegistryGetKey(_QWORD *a1, const WCHAR *a2, ACCESS_MASK a3, int a4)

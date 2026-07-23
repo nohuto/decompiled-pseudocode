@@ -29,7 +29,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
 {
   LOGICAL_PROCESSOR_RELATIONSHIP v4; // ebx
   PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX v5; // rsi
-  struct _PROCESSOR_NUMBER *v7; // r11
+  _PROCESSOR_NUMBER *v7; // r11
   __int16 v8; // r13
   NTSTATUS v9; // r12d
   ULONG v10; // r14d
@@ -68,13 +68,13 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v43; // r13
   unsigned __int16 *v44; // r8
   __int64 v45; // r15
-  struct _PROCESSOR_NUMBER *v46; // r12
+  _PROCESSOR_NUMBER *v46; // r12
   size_t v47; // r8
   unsigned __int16 *v48; // r15
   int v49; // eax
   unsigned __int16 v50; // r9
   unsigned __int16 Group; // r10
-  unsigned __int16 v52; // r9
+  WORD v52; // r9
   unsigned __int16 v53; // dx
   unsigned int v54; // r8d
   unsigned __int64 v55; // rcx
@@ -84,8 +84,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   unsigned __int64 v59; // r9
   __int64 v60; // rcx
   __int64 v61; // rax
-  ULONG v62; // ebx
-  ULONG v63; // r10d
+  DWORD v62; // ebx
+  DWORD v63; // r10d
   __int64 v64; // rdi
   __int64 v65; // rcx
   __int64 NodePrimarySubNode; // rax
@@ -96,7 +96,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v71; // r13
   unsigned int v72; // r15d
   PPROCESSOR_NUMBER v73; // rbx
-  USHORT v74; // r8
+  WORD v74; // r8
   unsigned __int16 v75; // dx
   unsigned int v76; // edx
   unsigned __int64 v77; // rcx
@@ -146,9 +146,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   v14 = Size[0] + 8LL;
   v15 = 0;
   if ( ((v4 == RelationAll
-      || (unsigned int)v4 <= (RelationGroup|RelationProcessorPackage)
-      && _bittest(&v12, v4)
-      && (v15 = 1, v4 == RelationCache))
+      || (unsigned int)v4 <= RelationProcessorModule && _bittest(&v12, v4) && (v15 = 1, v4 == RelationCache))
      && (v15 = 6, v4 == RelationAll)
      || v4 == RelationProcessorCore)
     && (++v15, v4 == RelationAll)
@@ -156,11 +154,11 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   {
     ++v15;
   }
-  if ( v4 == (RelationGroup|RelationNumaNode) )
+  if ( v4 == RelationProcessorDie )
   {
     ++v15;
   }
-  else if ( v4 == RelationAll || v4 == (RelationGroup|RelationProcessorPackage) )
+  else if ( v4 == RelationAll || v4 == RelationProcessorModule )
   {
     ++v15;
   }
@@ -193,7 +191,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
     v13 = 1LL;
   }
   v20 = v11;
-  if ( v4 == RelationAll || (unsigned int)v4 <= (RelationGroup|RelationProcessorPackage) && _bittest(&v12, v4) )
+  if ( v4 == RelationAll || (unsigned int)v4 <= RelationProcessorModule && _bittest(&v12, v4) )
   {
     v101[0] = v11;
     v20 = &v11[v14];
@@ -227,11 +225,11 @@ LABEL_32:
     v101[7] = v20;
     v20 += v14;
   }
-  if ( v4 == (RelationGroup|RelationNumaNode) )
+  if ( v4 == RelationProcessorDie )
   {
     v101[8] = v20;
   }
-  else if ( v4 == RelationAll || v4 == (RelationGroup|RelationProcessorPackage) )
+  else if ( v4 == RelationAll || v4 == RelationProcessorModule )
   {
     v101[9] = v20;
   }
@@ -303,9 +301,9 @@ LABEL_32:
       if ( v4 == RelationProcessorCore || v4 == RelationAll )
         break;
 LABEL_64:
-      if ( v4 != (RelationGroup|RelationNumaNode) )
+      if ( v4 != RelationProcessorDie )
       {
-        if ( v4 == (RelationGroup|RelationProcessorPackage) || v4 == RelationAll )
+        if ( v4 == RelationProcessorModule || v4 == RelationAll )
         {
           KiCopyAffinityEx((__int64)v26, v26[1], (unsigned __int16 *)(v29 + 38416));
           LODWORD(v104) = 0;
@@ -360,7 +358,7 @@ LABEL_64:
             if ( (unsigned __int16)v45 >= *v44 )
               v46 = v7;
             else
-              v46 = *(struct _PROCESSOR_NUMBER **)&v44[4 * v45 + 4];
+              v46 = *(_PROCESSOR_NUMBER **)&v44[4 * v45 + 4];
             v47 = 8LL * *v26;
             Size[1] = v46;
             memset(v26 + 4, 0, v47);
@@ -435,7 +433,7 @@ LABEL_87:
               v5->Cache.LineSize = *(_WORD *)(v42 + 12 * v43 + 34394);
               v5->Cache.CacheSize = *(_DWORD *)(v42 + 12 * v43 + 34396);
               v5->Cache.Type = *(_DWORD *)(v42 + 12 * v43 + 34400);
-              *(_WORD *)&v5->Group.GroupInfo[0].Reserved[4] = v52;
+              v5->Cache.GroupCount = v52;
               *(_OWORD *)&v5->Group.Reserved[8] = 0LL;
               *(_WORD *)&v5->Group.GroupInfo[0].Reserved[2] = 0;
               if ( Group >= *v26 )
@@ -628,7 +626,7 @@ LABEL_168:
     goto LABEL_172;
   }
   v71 = v27;
-  if ( v4 == (RelationGroup|RelationCache) || v4 == RelationAll )
+  if ( v4 == RelationNumaNodeEx || v4 == RelationAll )
   {
     v72 = (unsigned int)v7;
     if ( (unsigned __int16)v7 < (unsigned __int16)KeNumberNodes )

@@ -9,16 +9,16 @@
  *     RtlpGetUserLocaleName @ 0x180109CE4 (RtlpGetUserLocaleName.c)
  */
 
-bool __fastcall RtlpMatchUserLanguage(PCWSTR SourceString, __int64 a2, __int64 a3, __int64 a4)
+bool __fastcall RtlpMatchUserLanguage(PCWSTR SourceString, __int64 a2)
 {
-  UNICODE_STRING v6; // [rsp+20h] [rbp-E8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D8h] BYREF
-  char v8; // [rsp+40h] [rbp-C8h] BYREF
+  _UNICODE_STRING String2; // [rsp+20h] [rbp-E8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D8h] BYREF
+  char v6; // [rsp+40h] [rbp-C8h] BYREF
 
-  v6.Buffer = (wchar_t *)&v8;
-  v6.MaximumLength = 170;
-  if ( (int)RtlpGetUserLocaleName(&v6, a2, a3, a4) < 0 )
+  String2.Buffer = (wchar_t *)&v6;
+  String2.MaximumLength = 170;
+  if ( (int)RtlpGetUserLocaleName(&String2, a2) < 0 )
     return 0;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  return (unsigned int)RtlCompareUnicodeString(&DestinationString.Length, &v6.Length, 1) == 0;
+  return RtlCompareUnicodeString(&DestinationString, &String2, 1u) == 0;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawGetValue @ 0x1404059D4
+ * XREFs of SymCryptFdefRawGetValue @ 0x140405BB4
  * Callers:
- *     SymCryptFdefModElementGetValue @ 0x1404041E8 (SymCryptFdefModElementGetValue.c)
+ *     SymCryptFdefModElementGetValue @ 0x1404043C8 (SymCryptFdefModElementGetValue.c)
  * Callees:
  *     <none>
  */

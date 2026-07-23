@@ -1,9 +1,9 @@
 /*
  * XREFs of PoRequestShutdownEvent @ 0x14083B7D0
  * Callers:
- *     SepRmCommandServerThread @ 0x14083B300 (SepRmCommandServerThread.c)
+ *     sub_14083B300 @ 0x14083B300 (sub_14083B300.c)
  * Callees:
- *     PopRequestShutdownWait @ 0x14083B814 (PopRequestShutdownWait.c)
+ *     sub_14083B814 @ 0x14083B814 (sub_14083B814.c)
  */
 
 NTSTATUS __stdcall PoRequestShutdownEvent(PVOID *Event)
@@ -12,11 +12,11 @@ NTSTATUS __stdcall PoRequestShutdownEvent(PVOID *Event)
 
   if ( Event )
     *Event = 0LL;
-  result = PopRequestShutdownWait(KeGetCurrentThread());
+  result = sub_14083B814(KeGetCurrentThread());
   if ( result >= 0 )
   {
     if ( Event )
-      *Event = &PopShutdownEvent;
+      *Event = &stru_140C23960;
     return 0;
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxRegisterCrashdumpDevice @ 0x140B448E0
+ * XREFs of PoFxRegisterCrashdumpDevice @ 0x140B466A0
  * Callers:
  *     <none>
  * Callees:
- *     PopPluginRegisterCrashdumpDevice @ 0x1404FD014 (PopPluginRegisterCrashdumpDevice.c)
+ *     PopPluginRegisterCrashdumpDevice @ 0x1404F6554 (PopPluginRegisterCrashdumpDevice.c)
  */
 
 __int64 __fastcall PoFxRegisterCrashdumpDevice(__int64 a1)

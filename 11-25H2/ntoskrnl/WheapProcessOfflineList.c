@@ -15,8 +15,8 @@
 __int64 WheapProcessOfflineList()
 {
   KIRQL v0; // al
-  struct _SINGLE_LIST_ENTRY *v1; // rbx
-  struct _SINGLE_LIST_ENTRY *v2; // rsi
+  _SINGLE_LIST_ENTRY *v1; // rbx
+  _SINGLE_LIST_ENTRY *v2; // rsi
   struct _SINGLE_LIST_ENTRY *Next; // rdi
   int PageBadStatus; // eax
   struct _SINGLE_LIST_ENTRY *v6; // [rsp+20h] [rbp-40h] BYREF
@@ -28,7 +28,7 @@ __int64 WheapProcessOfflineList()
   v9 = 0LL;
   v8 = 0LL;
   v0 = KeAcquireSpinLockRaiseToDpc(&qword_140EF7508);
-  v1 = (struct _SINGLE_LIST_ENTRY *)WheapOfflineChecker;
+  v1 = (_SINGLE_LIST_ENTRY *)WheapOfflineChecker;
   WheapOfflineChecker = 0LL;
   dword_140EF7510 = 0;
   KeReleaseSpinLock(&qword_140EF7508, v0);

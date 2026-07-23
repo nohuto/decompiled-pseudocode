@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoSetCompletionRoutineEx @ 0x1407056F8
+ * XREFs of VerifierIoSetCompletionRoutineEx @ 0x140705728
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilFreePoolCheckIRQL @ 0x14012EF04 (VfUtilFreePoolCheckIRQL.c)
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14012F474 (VfUtilFreePoolCheckIRQL.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  */
 
@@ -36,7 +36,7 @@ __int64 __fastcall VerifierIoSetCompletionRoutineEx(
       *PoolWithTagPriority = *(_OWORD *)v15;
       PoolWithTagPriority[1] = *(_OWORD *)(v15 + 16);
       *(_QWORD *)(v14 - 8) = PoolWithTagPriority;
-      VfUtilFreePoolCheckIRQL((struct _SLIST_ENTRY *)v15);
+      VfUtilFreePoolCheckIRQL((_SLIST_ENTRY *)v15);
     }
   }
   return (unsigned int)v12;

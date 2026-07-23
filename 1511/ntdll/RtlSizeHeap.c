@@ -17,15 +17,15 @@
  *     RtlpLogHeapFailure @ 0x1800A4B04 (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+SIZE_T __cdecl RtlSizeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  unsigned int v4; // esi
-  unsigned __int64 v6; // r9
+  char *v6; // r9
   unsigned int v7; // eax
   __int64 v8; // r9
   __int64 v9; // rax
-  __int64 v10; // rbp
-  int v12; // edx
+  SIZE_T v10; // rbp
+  ULONG v12; // edx
   __int64 v13; // rsi
   unsigned __int64 v14; // rdx
   struct _TEB *v15; // rbx
@@ -43,26 +43,30 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
   int v27; // [rsp+38h] [rbp-10h]
   int v28; // [rsp+38h] [rbp-10h]
 
-  v4 = a2;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    if ( (RtlpHpAppCompatFlags & 2) != 0 && a3 )
+    if ( (RtlpHpAppCompatFlags & 2) != 0 && BaseAddress )
     {
-      if ( (_WORD)a3 || !(unsigned int)RtlSparseBitmapCtxCheckBitsInternal(a1, a3 >> 16) )
-        v6 = a3 - 16;
+      if ( (_WORD)BaseAddress
+        || !(unsigned int)RtlSparseBitmapCtxCheckBitsInternal(HeapHandle, (unsigned __int64)BaseAddress >> 16) )
+      {
+        v6 = (char *)BaseAddress - 16;
+      }
       else
-        v6 = a3;
+      {
+        v6 = (char *)BaseAddress;
+      }
     }
     else
     {
-      v6 = a3;
+      v6 = (char *)BaseAddress;
     }
-    v7 = RtlpHpConvertFlagsToSegmentFlags(v4, a2, a3, v6);
-    v9 = RtlpHpSizeHeap(a1, v8, v7);
+    v7 = RtlpHpConvertFlagsToSegmentFlags(Flags, *(_QWORD *)&Flags, BaseAddress, v6);
+    v9 = RtlpHpSizeHeap(HeapHandle, v8, v7);
     v10 = v9;
     if ( v9 == -1 )
     {
-      RtlpLogHeapFailure(9, a1, a3, 0, 0LL, 0LL);
+      RtlpLogHeapFailure(9, (_DWORD)HeapHandle, (_DWORD)BaseAddress, 0, 0LL, 0LL);
       return -1LL;
     }
     else
@@ -74,28 +78,28 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
   }
   else
   {
-    v12 = a2 | *(_DWORD *)(a1 + 116);
+    v12 = Flags | *((_DWORD *)HeapHandle + 29);
     if ( (v12 & 0x61000000) == 0 || (v12 & 0x10000000) != 0 )
     {
       v13 = 0LL;
-      if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+      if ( (*((_BYTE *)HeapHandle + 120) & 1) != 0 )
       {
-        v14 = RtlpProbeUserBufferSafe(a1, a3);
+        v14 = RtlpProbeUserBufferSafe(HeapHandle, BaseAddress);
       }
-      else if ( (a3 & 0xF) != 0 )
+      else if ( ((unsigned __int8)BaseAddress & 0xF) != 0 )
       {
-        RtlpLogHeapFailure(9, a1, a3, 0, 0LL, 0LL);
+        RtlpLogHeapFailure(9, (_DWORD)HeapHandle, (_DWORD)BaseAddress, 0, 0LL, 0LL);
         v14 = 0LL;
       }
       else
       {
-        v14 = a3 - 16;
-        _m_prefetchw((const void *)(a3 - 16));
-        if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+        v14 = (unsigned __int64)BaseAddress - 16;
+        _m_prefetchw((char *)BaseAddress - 16);
+        if ( *((char *)BaseAddress - 1) == 5 )
           v14 -= 16LL * *(unsigned __int8 *)(v14 + 14);
         if ( (*(_BYTE *)(v14 + 15) & 0x3F) == 0 )
         {
-          RtlpLogHeapFailure(8, a1, v14, 0, 0LL, 0LL);
+          RtlpLogHeapFailure(8, (_DWORD)HeapHandle, v14, 0, 0LL, 0LL);
           v14 = 0LL;
         }
       }
@@ -104,12 +108,12 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
         v16 = *(_BYTE *)(v14 + 15);
         if ( v16 == 4 )
         {
-          if ( *(_DWORD *)(a1 + 124) )
+          if ( *((_DWORD *)HeapHandle + 31) )
           {
             v17 = *(_DWORD *)(v14 + 8);
             LOWORD(v26) = v17;
-            if ( (v17 & *(_DWORD *)(a1 + 124)) != 0 )
-              v26 = *(_DWORD *)(a1 + 136) ^ v17;
+            if ( (v17 & *((_DWORD *)HeapHandle + 31)) != 0 )
+              v26 = *((_DWORD *)HeapHandle + 34) ^ v17;
             return *(_QWORD *)(v14 - 16) - (unsigned __int16)v26;
           }
           else
@@ -121,12 +125,12 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
         {
           if ( v16 >= 0 )
           {
-            if ( *(_DWORD *)(a1 + 124) )
+            if ( *((_DWORD *)HeapHandle + 31) )
             {
               v19 = *(_DWORD *)(v14 + 8);
               LOWORD(v27) = v19;
-              if ( (v19 & *(_DWORD *)(a1 + 124)) != 0 )
-                v27 = *(_DWORD *)(a1 + 136) ^ v19;
+              if ( (v19 & *((_DWORD *)HeapHandle + 31)) != 0 )
+                v27 = *((_DWORD *)HeapHandle + 34) ^ v19;
               v20 = v27;
             }
             else
@@ -135,20 +139,20 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
             }
             v18 = v20;
           }
-          else if ( (unsigned __int16)RtlpLFHKey ^ (unsigned __int16)(a1 ^ *(_WORD *)(v14 + 8) ^ (v14 >> 4)) )
+          else if ( (unsigned __int16)RtlpLFHKey ^ (unsigned __int16)((unsigned __int16)HeapHandle ^ *(_WORD *)(v14 + 8) ^ (v14 >> 4)) )
           {
             v18 = MEMORY[0x24];
           }
           else
           {
             v18 = *(unsigned __int16 *)(*(_QWORD *)(v14
-                                                  - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ *(_DWORD *)(v14 + 8) ^ (unsigned int)(v14 >> 4)) >> 12))
+                                                  - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)HeapHandle ^ *(_DWORD *)(v14 + 8) ^ (unsigned int)(v14 >> 4)) >> 12))
                                       + 36LL);
           }
           v21 = *(_BYTE *)(v14 + 15);
           if ( v21 == 5 )
           {
-            v22 = *(unsigned __int16 *)(v14 + 12) ^ (unsigned __int64)*(unsigned __int16 *)(a1 + 140);
+            v22 = *(unsigned __int16 *)(v14 + 12) ^ (unsigned __int64)*((unsigned __int16 *)HeapHandle + 70);
           }
           else if ( (v21 & 0x40) != 0 )
           {
@@ -158,12 +162,12 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
           {
             if ( v21 >= 0 )
             {
-              if ( *(_DWORD *)(a1 + 124) )
+              if ( *((_DWORD *)HeapHandle + 31) )
               {
                 v24 = *(_DWORD *)(v14 + 8);
                 LOWORD(v28) = v24;
-                if ( (v24 & *(_DWORD *)(a1 + 124)) != 0 )
-                  v28 = *(_DWORD *)(a1 + 136) ^ v24;
+                if ( (v24 & *((_DWORD *)HeapHandle + 31)) != 0 )
+                  v28 = *((_DWORD *)HeapHandle + 34) ^ v24;
                 v25 = v28;
               }
               else
@@ -174,9 +178,9 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
             }
             else
             {
-              if ( !((unsigned __int16)RtlpLFHKey ^ (unsigned __int16)(a1 ^ *(_WORD *)(v14 + 8) ^ (v14 >> 4))) )
+              if ( !((unsigned __int16)RtlpLFHKey ^ (unsigned __int16)((unsigned __int16)HeapHandle ^ *(_WORD *)(v14 + 8) ^ (v14 >> 4))) )
                 v13 = *(_QWORD *)(v14
-                                - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ *(_DWORD *)(v14 + 8) ^ (unsigned int)(v14 >> 4)) >> 12));
+                                - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)HeapHandle ^ *(_DWORD *)(v14 + 8) ^ (unsigned int)(v14 >> 4)) >> 12));
               v23 = *(unsigned __int16 *)(v13 + 36);
             }
             v22 = *(_QWORD *)(v14 + 16LL * v23);
@@ -198,7 +202,7 @@ __int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, unsigned __int64 a3)
     }
     else
     {
-      return RtlDebugSizeHeap();
+      return RtlDebugSizeHeap(HeapHandle);
     }
   }
 }

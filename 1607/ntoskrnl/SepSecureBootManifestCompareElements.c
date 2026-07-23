@@ -1,5 +1,5 @@
 /*
- * XREFs of SepSecureBootManifestCompareElements @ 0x1406943E8
+ * XREFs of SepSecureBootManifestCompareElements @ 0x1406944CC
  * Callers:
  *     <none>
  * Callees:

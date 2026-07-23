@@ -24,14 +24,18 @@ int __thiscall LdrpInitializeThread(_DWORD *this)
 {
   struct _TEB *v1; // esi
   int result; // eax
-  int Tls; // eax
-  int v4; // edi
-  int v5; // ecx
-  int i; // ebx
-  int v7; // eax
+  NTSTATUS Tls; // eax
+  NTSTATUS v4; // edi
+  void *EntryPoint; // ecx
+  PLDR_DATA_TABLE_ENTRY i; // ebx
+  unsigned int Flags; // eax
   int v8[9]; // [esp+10h] [ebp-7Ch] BYREF
   int v9[9]; // [esp+34h] [ebp-58h] BYREF
-  _DWORD v10[6]; // [esp+58h] [ebp-34h] BYREF
+  LARGE_INTEGER DelayInterval; // [esp+58h] [ebp-34h] BYREF
+  void *v11; // [esp+60h] [ebp-2Ch]
+  PLDR_DATA_TABLE_ENTRY v12; // [esp+64h] [ebp-28h]
+  void *v13; // [esp+68h] [ebp-24h]
+  PLDR_DATA_TABLE_ENTRY v14; // [esp+6Ch] [ebp-20h]
   _PEB *ProcessEnvironmentBlock; // [esp+70h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+74h] [ebp-18h]
 
@@ -54,42 +58,41 @@ int __thiscall LdrpInitializeThread(_DWORD *this)
           break;
         if ( Tls != -1073741801 )
         {
-          ZwTerminateProcess(-1, Tls);
+          ZwTerminateProcess((HANDLE)0xFFFFFFFF, Tls);
           RtlRaiseStatus(v4);
         }
-        v10[0] = -3000000;
-        v10[1] = -1;
-        ZwDelayExecution(0, v10);
+        DelayInterval.QuadPart = -3000000LL;
+        ZwDelayExecution(0, &DelayInterval);
       }
       LdrpDrainWorkQueue(0);
       LdrpAcquireLoaderLock();
       ms_exc.registration.TryLevel = 0;
-      for ( i = dword_4B3A5D8C; ; i = *(_DWORD *)i )
+      for ( i = dword_4B3A5D8C; ; i = (PLDR_DATA_TABLE_ENTRY)i->InLoadOrderLinks.Flink )
       {
-        v10[5] = i;
-        if ( (int *)i == &dword_4B3A5D8C )
+        v14 = i;
+        if ( i == (PLDR_DATA_TABLE_ENTRY)&dword_4B3A5D8C )
           break;
-        v10[3] = i;
-        if ( *(int *)(*(_DWORD *)(i + 80) + 32) >= 9 && ProcessEnvironmentBlock->ImageBaseAddress != *(void **)(i + 24) )
+        v12 = i;
+        if ( i->DdagNode->State >= LdrModulesReadyToRun && ProcessEnvironmentBlock->ImageBaseAddress != i->DllBase )
         {
-          v7 = *(_DWORD *)(i + 52);
-          if ( (v7 & 0x40000) == 0 )
+          Flags = i->Flags;
+          if ( (Flags & 0x40000) == 0 )
           {
-            v5 = *(_DWORD *)(i + 28);
-            v10[4] = v5;
-            v10[2] = v5;
-            if ( v5 )
+            EntryPoint = i->EntryPoint;
+            v13 = EntryPoint;
+            v11 = EntryPoint;
+            if ( EntryPoint )
             {
-              if ( (v7 & 0x80004) == 0x80004 )
+              if ( (Flags & 0x80004) == 0x80004 )
               {
                 if ( byte_4B3A5DA8 )
                   goto LABEL_21;
                 v9[0] = 36;
                 v9[1] = 1;
                 memset(&v9[2], 0, 0x1Cu);
-                RtlActivateActivationContextUnsafeFast(v9, *(_DWORD *)(i + 72));
+                RtlActivateActivationContextUnsafeFast(v9, i->EntryPointActivationContext);
                 ms_exc.registration.TryLevel = 1;
-                if ( *(_WORD *)(i + 58) )
+                if ( i->TlsIndex )
                   LdrpCallTlsInitializers(2, i);
                 LdrpCallInitRoutine(2, 0);
                 ms_exc.registration.TryLevel = 0;
@@ -112,7 +115,7 @@ int __thiscall LdrpInitializeThread(_DWORD *this)
       }
 LABEL_21:
       ms_exc.registration.TryLevel = -2;
-      LdrpReleaseLoaderLock(0, v5);
+      LdrpReleaseLoaderLock(0, EntryPoint);
       return LdrpDropLastInProgressCount();
     }
   }

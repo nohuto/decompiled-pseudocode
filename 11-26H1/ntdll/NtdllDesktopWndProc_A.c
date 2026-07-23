@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDesktopWndProc_A @ 0x18015EBE0
+ * XREFs of NtdllDesktopWndProc_A @ 0x18015EAE0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllDesktopWndProc_A()
 {
-  off_1801E0158();
+  off_1801DF158();
 }

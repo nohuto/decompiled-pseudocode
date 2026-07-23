@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTracePriQEnqueueFailed @ 0x14064DCC0
+ * XREFs of EtwTracePriQEnqueueFailed @ 0x14064C2D0
  * Callers:
- *     ExpTryQueueWorkItem @ 0x1402A0DCC (ExpTryQueueWorkItem.c)
- *     ExQueueWorkItemFromIo @ 0x140323D10 (ExQueueWorkItemFromIo.c)
- *     ExpQueueWorkItem @ 0x140324510 (ExpQueueWorkItem.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItemFromIo @ 0x1402CC8A0 (ExQueueWorkItemFromIo.c)
+ *     ExpQueueWorkItem @ 0x1402CD0A0 (ExpQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExpTryQueueWorkItem @ 0x1403AB6FC (ExpTryQueueWorkItem.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTracePriQEnqueueFailed(__int64 a1, __int64 a2)
@@ -22,8 +22,8 @@ __int64 __fastcall EtwTracePriQEnqueueFailed(__int64 a1, __int64 a2)
   int v9; // [rsp+4Ch] [rbp-1Ch]
 
   v6 = 0;
-  result = HIDWORD(xmmword_140FC5B10);
-  if ( (BYTE12(xmmword_140FC5B10) & 8) == 0 )
+  result = HIDWORD(xmmword_140FC6B50);
+  if ( (BYTE12(xmmword_140FC6B50) & 8) == 0 )
   {
     v3 = *(_DWORD *)(a1 + 1296);
     v4 = a2;

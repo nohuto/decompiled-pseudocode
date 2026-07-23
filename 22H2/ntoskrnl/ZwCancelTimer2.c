@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCancelTimer2(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCancelTimer2(HANDLE TimerHandle, PT2_CANCEL_PARAMETERS Parameters)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TimerHandle);
 }

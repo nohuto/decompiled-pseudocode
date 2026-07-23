@@ -1,7 +1,7 @@
 /*
  * XREFs of ExAllocatePoolWithQuota @ 0x14063A580
  * Callers:
- *     VerifierExAllocatePoolWithQuota @ 0x140A90380 (VerifierExAllocatePoolWithQuota.c)
+ *     sub_140A90380 @ 0x140A90380 (sub_140A90380.c)
  * Callees:
  *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
  */

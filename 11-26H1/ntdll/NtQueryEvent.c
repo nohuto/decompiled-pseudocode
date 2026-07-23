@@ -1,16 +1,21 @@
 /*
- * XREFs of NtQueryEvent @ 0x18015FA00
+ * XREFs of NtQueryEvent @ 0x18015F900
  * Callers:
- *     PsspDumpObject_Event @ 0x180100F90 (PsspDumpObject_Event.c)
+ *     PsspDumpObject_Event @ 0x1801006E0 (PsspDumpObject_Event.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryEvent()
+NTSTATUS __cdecl NtQueryEvent(
+        HANDLE EventHandle,
+        EVENT_INFORMATION_CLASS EventInformationClass,
+        PVOID EventInformation,
+        ULONG EventInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 86LL;
+  result = 86;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

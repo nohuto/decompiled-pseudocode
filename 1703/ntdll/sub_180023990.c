@@ -46,9 +46,9 @@ __int64 __fastcall sub_180023990(__int64 a1, unsigned __int64 a2, int a3)
     v9 = v6;
   if ( a2 && (a2 & 0xF) == 0 )
   {
-    if ( !(_WORD)a2 && (unsigned int)sub_1800588D4(&qword_180159600, a2 >> 16, 1LL) )
+    if ( !(_WORD)a2 && (unsigned int)sub_1800588D4(&stru_180159600) )
     {
-      v22 = sub_180008F9C(a1, a2, v9, 0LL);
+      v22 = sub_180008F9C((_RTL_SRWLOCK *)a1, a2, v9, 0LL);
       goto LABEL_28;
     }
     if ( (dword_180158684 & 1) != 0 )

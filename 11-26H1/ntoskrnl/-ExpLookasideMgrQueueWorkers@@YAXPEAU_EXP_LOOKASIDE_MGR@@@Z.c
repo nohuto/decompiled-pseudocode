@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ExpLookasideMgrQueueWorkers@@YAXPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x1404EFD58
+ * XREFs of ?ExpLookasideMgrQueueWorkers@@YAXPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x1404E9338
  * Callers:
- *     ?ExpLookasideMgrTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1404EFD40 (-ExpLookasideMgrTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     ?ExpLookasideMgrTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1404E9320 (-ExpLookasideMgrTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
  * Callees:
- *     IoQueueWorkItemToNode @ 0x140202EB0 (IoQueueWorkItemToNode.c)
- *     ?ExpLookasideMgrTraceScanStarting@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z @ 0x1404EFE78 (-ExpLookasideMgrTraceScanStarting@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z.c)
+ *     IoQueueWorkItemToNode @ 0x140202F90 (IoQueueWorkItemToNode.c)
+ *     ?ExpLookasideMgrTraceScanStarting@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z @ 0x1404E9458 (-ExpLookasideMgrTraceScanStarting@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z.c)
  */
 
 void __fastcall ExpLookasideMgrQueueWorkers(struct _EXP_LOOKASIDE_MGR *a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpPartitionDestroy @ 0x1407BFCAC
+ * XREFs of ExpPartitionDestroy @ 0x1407C00FC
  * Callers:
- *     PspTeardownPartition @ 0x14077B050 (PspTeardownPartition.c)
- *     ExpPartitionInitialize @ 0x1407BFE84 (ExpPartitionInitialize.c)
+ *     PspTeardownPartition @ 0x14077AF00 (PspTeardownPartition.c)
+ *     ExpPartitionInitialize @ 0x1407C02D4 (ExpPartitionInitialize.c)
  * Callees:
- *     KeFlushQueuedDpcs @ 0x140204EA0 (KeFlushQueuedDpcs.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ExpWorkQueueDestroy @ 0x1407C00D8 (ExpWorkQueueDestroy.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KeFlushQueuedDpcs @ 0x14032C480 (KeFlushQueuedDpcs.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ExpWorkQueueDestroy @ 0x1407C0528 (ExpWorkQueueDestroy.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpPartitionDestroy(PVOID P, __int64 a2, __int64 a3, __int64 a4)

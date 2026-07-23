@@ -1527,7 +1527,7 @@ LABEL_309:
               if ( MiniCompletionPacket )
               {
                 *(_QWORD *)(MiniCompletionPacket + 56) = 0LL;
-                IopFreeMiniCompletionPacket((struct _SLIST_ENTRY *)MiniCompletionPacket);
+                IopFreeMiniCompletionPacket((_SLIST_ENTRY *)MiniCompletionPacket);
               }
             }
             else

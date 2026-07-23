@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateOldPte @ 0x1403FA590
+ * XREFs of MiUpdateOldPte @ 0x140438350
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPagePrivilege @ 0x14021CE30 (MiGetPagePrivilege.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x140231E18 (MiAcquirePrcbAgeTrimLists.c)
- *     MiUpdateOldPteWorker @ 0x1403FA800 (MiUpdateOldPteWorker.c)
- *     MiDemoteCombinedPte @ 0x1403FABBC (MiDemoteCombinedPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagePrivilege @ 0x140249B80 (MiGetPagePrivilege.c)
+ *     MiDemoteCombinedPte @ 0x140296374 (MiDemoteCombinedPte.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x140303A64 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiUpdateOldPteWorker @ 0x1404385C0 (MiUpdateOldPteWorker.c)
  */
 
 __int64 __fastcall MiUpdateOldPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -57,7 +57,7 @@ __int64 __fastcall MiUpdateOldPte(__int64 a1, unsigned __int64 a2, int a3)
             return ++*(_QWORD *)(v10 + 16) >= *(_QWORD *)(v10 + 8) ? 4 : 0;
           }
           if ( *(_QWORD *)(v10 + 40) == 1LL )
-            MiAcquirePrcbAgeTrimLists(v5, (__int64 *)(v10 + 24));
+            MiAcquirePrcbAgeTrimLists(v5, (__int64 **)(v10 + 24));
           v12 = *(_DWORD **)(v10 + 40);
           *(_QWORD *)&v12[2 * (*v12)++ + 2] = v8 & 0xFFFFFFFFFFFFF000uLL;
         }

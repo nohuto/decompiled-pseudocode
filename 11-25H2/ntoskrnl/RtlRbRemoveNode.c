@@ -52,46 +52,46 @@
  *     <none>
  */
 
-char __fastcall RtlRbRemoveNode(unsigned __int64 a1, unsigned __int64 *a2)
+BOOLEAN __cdecl RtlRbRemoveNode(PRTL_RB_TREE Tree, PRTL_BALANCED_NODE Node)
 {
-  unsigned __int64 v3; // r11
+  PRTL_RB_TREE v3; // r11
   unsigned __int64 v4; // rax
   unsigned __int64 v5; // r8
   unsigned __int64 v6; // rdx
   unsigned __int64 v7; // r9
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r12
+  _RTL_BALANCED_NODE *v10; // r12
   unsigned __int64 v11; // rdx
-  __int64 v12; // rdx
-  BOOL v13; // ebp
-  __int64 v14; // r8
+  _RTL_BALANCED_NODE *v12; // rdx
+  _BOOL8 v13; // rbp
+  _RTL_BALANCED_NODE *v14; // r8
   char v15; // dl
-  __int64 v16; // rcx
+  _RTL_BALANCED_NODE *Min; // rcx
   unsigned __int64 v17; // r8
   unsigned __int64 v18; // rdx
-  unsigned __int64 v19; // rcx
+  _RTL_BALANCED_NODE *v19; // rcx
   __int64 v20; // rdi
   unsigned __int64 v21; // rcx
   char v22; // si
   unsigned __int64 v23; // rdx
-  __int64 v24; // rdx
+  unsigned __int64 v24; // rdx
   unsigned __int64 v25; // rax
   char v26; // di
   unsigned __int64 v27; // rax
   char v28; // cl
-  unsigned __int64 v29; // rcx
-  __int64 v30; // rdi
-  char v31; // dl
+  _RTL_BALANCED_NODE *v29; // rcx
+  unsigned __int64 v30; // rdi
+  $7D93978C745EB1C2D28075BAF55422B4 v31; // dl
   unsigned __int64 v32; // rcx
   unsigned __int64 v33; // rsi
-  char v34; // r8
+  $424C8BBEF8F6C852886B4C6E806B5DB0 v34; // r8
   unsigned __int64 v35; // rcx
   unsigned __int64 v36; // rdx
   unsigned __int64 v37; // rdi
-  unsigned __int64 v38; // rdi
+  unsigned __int64 Root; // rdi
   char v39; // r8
-  char v40; // cl
+  $7D93978C745EB1C2D28075BAF55422B4 v40; // cl
   unsigned __int64 v41; // rdi
   unsigned __int64 v42; // rdx
   unsigned __int64 v43; // rbx
@@ -99,14 +99,14 @@ char __fastcall RtlRbRemoveNode(unsigned __int64 a1, unsigned __int64 *a2)
   int v45; // r8d
   unsigned __int64 v46; // rcx
   unsigned __int64 v47; // rcx
-  char v48; // r8
+  $7D93978C745EB1C2D28075BAF55422B4 v48; // r8
   unsigned __int64 v49; // rcx
   char v50; // dl
   __int64 v51; // rax
   unsigned __int64 v52; // rax
   __int64 v53; // rcx
   unsigned __int64 v54; // rcx
-  _QWORD *v55; // rax
+  _QWORD *p_Root; // rax
   unsigned __int64 v56; // rcx
   __int64 v57; // rax
   char v58; // cl
@@ -126,7 +126,7 @@ char __fastcall RtlRbRemoveNode(unsigned __int64 a1, unsigned __int64 *a2)
   __int64 v72; // rax
   unsigned __int64 v73; // rax
   unsigned __int64 v74; // r10
-  _BOOL8 v75; // rbx
+  __int64 v75; // rbx
   unsigned __int64 v76; // rax
   int v77; // r8d
   __int64 v78; // rcx
@@ -136,8 +136,8 @@ char __fastcall RtlRbRemoveNode(unsigned __int64 a1, unsigned __int64 *a2)
   __int64 v82; // rcx
   unsigned __int64 v83; // rcx
   unsigned __int64 v84; // r8
-  char v85; // r15
-  unsigned __int64 v86; // rcx
+  $7D93978C745EB1C2D28075BAF55422B4 v85; // r15
+  PRTL_BALANCED_NODE v86; // rcx
   __int64 v87; // rsi
   unsigned __int64 v88; // rcx
   __int64 v89; // rax
@@ -152,22 +152,22 @@ char __fastcall RtlRbRemoveNode(unsigned __int64 a1, unsigned __int64 *a2)
   unsigned __int64 v98; // rax
   unsigned __int64 v99; // rax
 
-  v3 = a1;
-  LOBYTE(a1) = *(_BYTE *)(a1 + 8);
-  v4 = *a2;
-  if ( (a1 & 1) != 0 && v4 )
+  v3 = Tree;
+  LOBYTE(Tree) = Tree->0;
+  v4 = (unsigned __int64)Node->Children[0];
+  if ( ((unsigned __int8)Tree & 1) != 0 && v4 )
   {
-    v5 = a2[1];
-    v4 ^= (unsigned __int64)a2;
+    v5 = (unsigned __int64)Node->Children[1];
+    v4 ^= (unsigned __int64)Node;
   }
   else
   {
-    v5 = a2[1];
-    if ( (a1 & 1) == 0 )
+    v5 = (unsigned __int64)Node->Children[1];
+    if ( ((unsigned __int8)Tree & 1) == 0 )
       goto LABEL_6;
   }
   if ( v5 )
-    v5 ^= (unsigned __int64)a2;
+    v5 ^= (unsigned __int64)Node;
 LABEL_6:
   if ( !v4 )
   {
@@ -182,14 +182,14 @@ LABEL_6:
     v10 = 0LL;
     v8 = v5;
     v7 = v5;
-    v13 = 1;
+    LODWORD(v13) = 1;
     if ( *(_QWORD *)v5 )
     {
-      v13 = 0;
+      LODWORD(v13) = 0;
       do
       {
         v7 = v8;
-        if ( (a1 & 1) != 0 && v18 )
+        if ( ((unsigned __int8)Tree & 1) != 0 && v18 )
           v8 ^= v18;
         else
           v8 = v18;
@@ -197,17 +197,17 @@ LABEL_6:
       }
       while ( *(_QWORD *)v8 );
     }
-    if ( (a1 & 1) != 0 )
-      v19 = v4 ^ v8;
+    if ( ((unsigned __int8)Tree & 1) != 0 )
+      v19 = (_RTL_BALANCED_NODE *)(v4 ^ v8);
     else
-      v19 = v4;
+      v19 = (_RTL_BALANCED_NODE *)v4;
     *(_QWORD *)v8 = v19;
     v20 = *(_QWORD *)(v4 + 16);
     v21 = v20 & 0xFFFFFFFFFFFFFFFCuLL;
-    v22 = *(_BYTE *)(v3 + 8) & 1;
+    v22 = *(_BYTE *)&v3->0 & 1;
     if ( v22 && v21 )
       v21 ^= v4;
-    if ( (unsigned __int64 *)v21 != a2 )
+    if ( (PRTL_BALANCED_NODE)v21 != Node )
       goto LABEL_31;
     v23 = v8;
     if ( v22 )
@@ -215,41 +215,41 @@ LABEL_6:
     *(_QWORD *)(v4 + 16) = v23 | v20 & 3;
     v24 = *(_QWORD *)(v5 + 16);
     v25 = v24 & 0xFFFFFFFFFFFFFFFCuLL;
-    v26 = *(_BYTE *)(v3 + 8) & 1;
+    v26 = *(_BYTE *)&v3->0 & 1;
     if ( v26 && v25 )
       v25 ^= v5;
-    if ( (unsigned __int64 *)v25 != a2 )
+    if ( (PRTL_BALANCED_NODE)v25 != Node )
       goto LABEL_31;
     v27 = v8;
     if ( v26 )
       v27 = v5 ^ v8;
     *(_QWORD *)(v5 + 16) = v27 | v24 & 3;
     v4 = *(_QWORD *)(v8 + 8);
-    v28 = *(_BYTE *)(v3 + 8) & 1;
+    v28 = *(_BYTE *)&v3->0 & 1;
     if ( v28 && v4 )
     {
       v4 ^= v8;
     }
     else if ( !v28 )
     {
-      v29 = v5;
+      v29 = (_RTL_BALANCED_NODE *)v5;
       goto LABEL_56;
     }
-    v29 = v5 ^ v8;
+    v29 = (_RTL_BALANCED_NODE *)(v5 ^ v8);
 LABEL_56:
     v30 = *(_QWORD *)(v8 + 16);
     *(_QWORD *)(v8 + 8) = v29;
-    v31 = *(_BYTE *)(v3 + 8);
+    v31 = v3->0;
     v32 = v30 & 0xFFFFFFFFFFFFFFFCuLL;
-    if ( (v31 & 1) != 0 && v32 )
+    if ( (*(_BYTE *)&v31 & 1) != 0 && v32 )
       v33 = v8 ^ v32;
     else
       v33 = v30 & 0xFFFFFFFFFFFFFFFCuLL;
-    v34 = v30;
+    v34 = ($424C8BBEF8F6C852886B4C6E806B5DB0)v30;
     if ( v33 == v7 )
       goto LABEL_60;
-    v34 = v30;
-    if ( (v31 & 1) != 0 )
+    v34 = ($424C8BBEF8F6C852886B4C6E806B5DB0)v30;
+    if ( (*(_BYTE *)&v31 & 1) != 0 )
     {
       if ( !v32 )
       {
@@ -257,14 +257,14 @@ LABEL_258:
         if ( v8 != v7 )
           goto LABEL_31;
 LABEL_60:
-        v35 = a2[2] & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( (v31 & 1) == 0 )
+        v35 = Node->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( (*(_BYTE *)&v31 & 1) == 0 )
           goto LABEL_65;
         if ( v35 )
         {
-          v35 ^= (unsigned __int64)a2;
+          v35 ^= (unsigned __int64)Node;
         }
-        else if ( (v31 & 1) == 0 )
+        else if ( (*(_BYTE *)&v31 & 1) == 0 )
         {
           goto LABEL_65;
         }
@@ -273,56 +273,56 @@ LABEL_60:
 LABEL_65:
         v36 = v35 | *(_DWORD *)(v8 + 16) & 3;
         *(_QWORD *)(v8 + 16) = v36;
-        *(_BYTE *)(v8 + 16) = v36 ^ (*((_BYTE *)a2 + 16) ^ v36) & 1;
-        v37 = a2[2] & 0xFFFFFFFFFFFFFFFCuLL;
+        *(_BYTE *)(v8 + 16) = v36 ^ (*(_BYTE *)&Node->0 ^ v36) & 1;
+        v37 = Node->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
         if ( !v37 )
         {
-          a1 = *(_QWORD *)(v3 + 8);
-          v38 = *(_QWORD *)v3;
-          if ( (a1 & 1) != 0 && v38 )
-            v38 ^= v3;
-          if ( (unsigned __int64 *)v38 != a2 )
+          Tree = (PRTL_RB_TREE)v3->Min;
+          Root = (unsigned __int64)v3->Root;
+          if ( ((unsigned __int8)Tree & 1) != 0 && Root )
+            Root ^= (unsigned __int64)v3;
+          if ( (PRTL_BALANCED_NODE)Root != Node )
             goto LABEL_31;
-          if ( (a1 & 1) != 0 )
-            *(_QWORD *)v3 = v3 ^ v8;
+          if ( ((unsigned __int8)Tree & 1) != 0 )
+            v3->Root = (_RTL_BALANCED_NODE *)((unsigned __int64)v3 ^ v8);
           else
-            *(_QWORD *)v3 = v8;
+            v3->Root = (_RTL_BALANCED_NODE *)v8;
           goto LABEL_72;
         }
-        v85 = *(_BYTE *)(v3 + 8);
-        if ( (v85 & 1) != 0 )
+        v85 = v3->0;
+        if ( (*(_BYTE *)&v85 & 1) != 0 )
         {
-          v37 ^= (unsigned __int64)a2;
-          v86 = *(_QWORD *)(v37 + 8);
+          v37 ^= (unsigned __int64)Node;
+          v86 = *(PRTL_BALANCED_NODE *)(v37 + 8);
           if ( v86 )
           {
             v87 = 0LL;
-            if ( (unsigned __int64 *)(v86 ^ v37) == a2 )
+            if ( (PRTL_BALANCED_NODE)((unsigned __int64)v86 ^ v37) == Node )
               v87 = 8LL;
             v88 = *(_QWORD *)(v37 + v87);
 LABEL_240:
             if ( v88 )
               v88 ^= v37;
 LABEL_242:
-            if ( (unsigned __int64 *)v88 != a2 )
+            if ( (PRTL_BALANCED_NODE)v88 != Node )
               goto LABEL_31;
-            a1 = v8;
-            if ( (v85 & 1) != 0 )
-              a1 = v8 ^ v37;
-            *(_QWORD *)(v87 + v37) = a1;
-            LOBYTE(a1) = *(_BYTE *)(v3 + 8);
+            Tree = (PRTL_RB_TREE)v8;
+            if ( (*(_BYTE *)&v85 & 1) != 0 )
+              Tree = (PRTL_RB_TREE)(v8 ^ v37);
+            *(_QWORD *)(v87 + v37) = Tree;
+            LOBYTE(Tree) = v3->0;
             goto LABEL_72;
           }
         }
         else
         {
-          v86 = *(_QWORD *)(v37 + 8);
+          v86 = *(PRTL_BALANCED_NODE *)(v37 + 8);
         }
         v87 = 0LL;
-        if ( (unsigned __int64 *)v86 == a2 )
+        if ( v86 == Node )
           v87 = 8LL;
         v88 = *(_QWORD *)(v87 + v37);
-        if ( (v85 & 1) == 0 )
+        if ( (*(_BYTE *)&v85 & 1) == 0 )
           goto LABEL_242;
         goto LABEL_240;
       }
@@ -333,121 +333,121 @@ LABEL_242:
     goto LABEL_258;
   }
 LABEL_9:
-  v7 = a2[2] & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( (a1 & 1) != 0 && v7 )
-    v7 ^= (unsigned __int64)a2;
-  v8 = (unsigned __int64)a2;
+  v7 = Node->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+  if ( ((unsigned __int8)Tree & 1) != 0 && v7 )
+    v7 ^= (unsigned __int64)Node;
+  v8 = (unsigned __int64)Node;
   if ( !v7 )
   {
     v10 = 0LL;
     if ( v4 )
       *(_QWORD *)(v4 + 16) = 0LL;
-    v16 = *(_QWORD *)(v3 + 8);
-    v17 = *(_QWORD *)v3;
-    if ( (v16 & 1) != 0 && v17 )
-      v17 ^= v3;
-    if ( (unsigned __int64 *)v17 == a2 )
+    Min = v3->Min;
+    v17 = (unsigned __int64)v3->Root;
+    if ( ((unsigned __int8)Min & 1) != 0 && v17 )
+      v17 ^= (unsigned __int64)v3;
+    if ( (PRTL_BALANCED_NODE)v17 == Node )
     {
-      if ( (v16 & 1) != 0 )
+      if ( ((unsigned __int8)Min & 1) != 0 )
       {
         v84 = 0LL;
         if ( v4 )
-          v84 = v3 ^ v4;
-        *(_QWORD *)(v3 + 8) = v84;
-        v48 = v84 | 1;
-        *(_BYTE *)(v3 + 8) = v48;
+          v84 = (unsigned __int64)v3 ^ v4;
+        v3->Min = (_RTL_BALANCED_NODE *)v84;
+        v48 = ($7D93978C745EB1C2D28075BAF55422B4)(v84 | 1);
+        v3->0 = v48;
       }
       else
       {
-        *(_QWORD *)(v3 + 8) = v4;
-        v48 = v4;
+        v3->Min = (_RTL_BALANCED_NODE *)v4;
+        v48 = ($7D93978C745EB1C2D28075BAF55422B4)v4;
       }
-      if ( (v48 & 1) != 0 )
+      if ( (*(_BYTE *)&v48 & 1) != 0 )
       {
         if ( v4 )
-          v10 = v3 ^ v4;
+          v10 = (_RTL_BALANCED_NODE *)((unsigned __int64)v3 ^ v4);
       }
       else
       {
-        v10 = v6;
+        v10 = (_RTL_BALANCED_NODE *)v6;
       }
       goto LABEL_97;
     }
     goto LABEL_31;
   }
   v9 = *(_QWORD *)(v7 + 8);
-  if ( (a1 & 1) != 0 && v9 )
+  if ( ((unsigned __int8)Tree & 1) != 0 && v9 )
     v9 ^= v7;
   v10 = 0LL;
-  if ( (unsigned __int64 *)v9 == a2 )
+  if ( (PRTL_BALANCED_NODE)v9 == Node )
   {
-    v13 = 1;
+    LODWORD(v13) = 1;
   }
   else
   {
     v11 = *(_QWORD *)v7;
-    if ( (a1 & 1) != 0 && v11 )
+    if ( ((unsigned __int8)Tree & 1) != 0 && v11 )
       v11 ^= v7;
-    if ( (unsigned __int64 *)v11 != a2 )
+    if ( (PRTL_BALANCED_NODE)v11 != Node )
       goto LABEL_31;
-    v12 = *(_QWORD *)(v3 + 8);
-    v13 = 0;
-    if ( (v12 & 1) != 0 )
+    v12 = v3->Min;
+    LODWORD(v13) = 0;
+    if ( ((unsigned __int8)v12 & 1) != 0 )
     {
-      if ( v12 == 1 )
+      if ( v12 == (_RTL_BALANCED_NODE *)1 )
         v14 = 0LL;
       else
-        v14 = v12 ^ (v3 | 1);
+        v14 = (_RTL_BALANCED_NODE *)((unsigned __int64)v12 ^ ((unsigned __int64)v3 | 1));
     }
     else
     {
-      v14 = *(_QWORD *)(v3 + 8);
+      v14 = v3->Min;
     }
-    LOBYTE(a1) = *(_QWORD *)(v3 + 8);
-    if ( (unsigned __int64 *)v14 == a2 )
+    LOBYTE(Tree) = v3->Min;
+    if ( v14 == Node )
     {
-      v15 = v12 & 1;
+      v15 = (unsigned __int8)v12 & 1;
       if ( v4 )
       {
         if ( v15 )
         {
-          *(_QWORD *)(v3 + 8) = v3 ^ v4;
-          LOBYTE(a1) = v3 ^ v4 | 1;
-          *(_BYTE *)(v3 + 8) = a1;
+          v3->Min = (_RTL_BALANCED_NODE *)((unsigned __int64)v3 ^ v4);
+          LOBYTE(Tree) = (unsigned __int8)v3 ^ v4 | 1;
+          v3->0 = ($7D93978C745EB1C2D28075BAF55422B4)Tree;
         }
         else
         {
-          *(_QWORD *)(v3 + 8) = v4;
-          LOBYTE(a1) = v4;
+          v3->Min = (_RTL_BALANCED_NODE *)v4;
+          LOBYTE(Tree) = v4;
         }
       }
       else if ( v15 )
       {
-        *(_QWORD *)(v3 + 8) = v3 ^ v7;
-        LOBYTE(a1) = v3 ^ v7 | 1;
-        *(_BYTE *)(v3 + 8) = a1;
+        v3->Min = (_RTL_BALANCED_NODE *)((unsigned __int64)v3 ^ v7);
+        LOBYTE(Tree) = (unsigned __int8)v3 ^ v7 | 1;
+        v3->0 = ($7D93978C745EB1C2D28075BAF55422B4)Tree;
       }
       else
       {
-        *(_QWORD *)(v3 + 8) = v7;
-        LOBYTE(a1) = v7;
+        v3->Min = (_RTL_BALANCED_NODE *)v7;
+        LOBYTE(Tree) = v7;
       }
     }
   }
-  v34 = *((_BYTE *)a2 + 16);
+  v34 = Node->0;
 LABEL_72:
-  v39 = v34 & 1;
-  if ( (a1 & 1) != 0 && v4 )
+  v39 = *(_BYTE *)&v34 & 1;
+  if ( ((unsigned __int8)Tree & 1) != 0 && v4 )
   {
-    *(_QWORD *)(v7 + 8LL * v13) = v4 ^ v7;
+    *(_QWORD *)(v7 + 8 * v13) = v4 ^ v7;
     goto LABEL_100;
   }
-  *(_QWORD *)(v7 + 8LL * v13) = v4;
+  *(_QWORD *)(v7 + 8 * v13) = v4;
   if ( v4 )
   {
 LABEL_100:
     v49 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-    v50 = *(_BYTE *)(v3 + 8) & 1;
+    v50 = *(_BYTE *)&v3->0 & 1;
     if ( v50 && v49 )
       v49 ^= v4;
     if ( v49 == v8 )
@@ -463,29 +463,29 @@ LABEL_100:
     return v4;
   while ( 1 )
   {
-    v40 = *(_BYTE *)(v3 + 8);
+    v40 = v3->0;
     v41 = v7;
     v42 = *(_QWORD *)(v7 + 8 * !v13);
-    if ( (v40 & 1) != 0 && v42 )
+    if ( (*(_BYTE *)&v40 & 1) != 0 && v42 )
       v42 ^= v7;
     if ( (*(_BYTE *)(v42 + 16) & 1) != 0 )
     {
-      v43 = *(_QWORD *)v3;
-      if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v43 )
-        v43 ^= v3;
+      v43 = (unsigned __int64)v3->Root;
+      if ( ((__int64)v3->Min & 1) != 0 && v43 )
+        v43 ^= (unsigned __int64)v3;
       v44 = *(_QWORD *)(v42 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      v45 = *(_QWORD *)(v3 + 8) & 1;
-      if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v44 )
+      v45 = (__int64)v3->Min & 1;
+      if ( ((__int64)v3->Min & 1) != 0 && v44 )
         v44 ^= v42;
       if ( v44 != v7 )
         goto LABEL_31;
       v46 = *(_QWORD *)(v7 + 8 * !v13);
-      if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v46 )
+      if ( ((__int64)v3->Min & 1) != 0 && v46 )
         v46 ^= v7;
       if ( v46 != v42 )
         goto LABEL_31;
       v47 = *(_QWORD *)(v7 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( (*(_QWORD *)(v3 + 8) & 1) != 0 )
+      if ( ((__int64)v3->Min & 1) != 0 )
       {
         if ( !v47 )
           goto LABEL_91;
@@ -494,11 +494,11 @@ LABEL_100:
       if ( v47 )
       {
         v51 = *(_QWORD *)(v47 + 8);
-        if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v51 )
+        if ( ((__int64)v3->Min & 1) != 0 && v51 )
           v51 ^= v47;
         if ( v51 == v7 )
         {
-          if ( (*(_QWORD *)(v3 + 8) & 1) != 0 )
+          if ( ((__int64)v3->Min & 1) != 0 )
             v52 = v42 ^ v47;
           else
             v52 = v42;
@@ -507,11 +507,11 @@ LABEL_100:
         else
         {
           v72 = *(_QWORD *)v47;
-          if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v72 )
+          if ( ((__int64)v3->Min & 1) != 0 && v72 )
             v72 ^= v47;
           if ( v72 != v7 )
             goto LABEL_31;
-          if ( (*(_QWORD *)(v3 + 8) & 1) != 0 )
+          if ( ((__int64)v3->Min & 1) != 0 )
             v73 = v42 ^ v47;
           else
             v73 = v42;
@@ -521,7 +521,7 @@ LABEL_122:
         if ( v45 && v47 )
           v47 ^= v42;
         *(_QWORD *)(v42 + 16) = v47 | *(_DWORD *)(v42 + 16) & 3;
-        v53 = *(_QWORD *)(v42 + 8LL * v13);
+        v53 = *(_QWORD *)(v42 + 8 * v13);
         if ( v45 )
         {
           if ( !v53 )
@@ -553,32 +553,32 @@ LABEL_127:
           if ( !v45 )
           {
             v54 = v42;
-            *(_QWORD *)(v42 + 8LL * v13) = v7;
+            *(_QWORD *)(v42 + 8 * v13) = v7;
             goto LABEL_131;
           }
         }
-        *(_QWORD *)(v42 + 8LL * v13) = v7 ^ v42;
+        *(_QWORD *)(v42 + 8 * v13) = v7 ^ v42;
         v54 = v7 ^ v42;
 LABEL_131:
         *(_QWORD *)(v7 + 16) = v54 | *(_DWORD *)(v7 + 16) & 3;
-        v55 = (_QWORD *)v3;
-        if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
+        p_Root = &v3->Root;
+        if ( (*(_BYTE *)&v3->0 & 1) != 0 )
         {
           v56 = 0LL;
           if ( v43 )
-            v56 = v43 ^ v3;
-          v55 = (_QWORD *)v3;
+            v56 = v43 ^ (unsigned __int64)v3;
+          p_Root = &v3->Root;
         }
         else
         {
           v56 = v43;
         }
-        *v55 = v56;
+        *p_Root = v56;
         *(_BYTE *)(v42 + 16) &= ~1u;
         *(_BYTE *)(v7 + 16) |= 1u;
-        v40 = *(_BYTE *)(v3 + 8);
+        v40 = v3->0;
         v42 = *(_QWORD *)(v7 + 8 * !v13);
-        if ( (v40 & 1) != 0 && v42 )
+        if ( (*(_BYTE *)&v40 & 1) != 0 && v42 )
           v42 ^= v7;
         goto LABEL_136;
       }
@@ -590,7 +590,7 @@ LABEL_91:
     }
 LABEL_136:
     v57 = *(_QWORD *)v42;
-    v58 = v40 & 1;
+    v58 = *(_BYTE *)&v40 & 1;
     if ( *(_QWORD *)v42 )
     {
       if ( v58 )
@@ -616,7 +616,7 @@ LABEL_136:
     }
     *(_BYTE *)(v42 + 16) |= 1u;
     v4 = *(_QWORD *)(v7 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-    v70 = *(_BYTE *)(v3 + 8) & 1;
+    v70 = *(_BYTE *)&v3->0 & 1;
     if ( v70 && v4 )
       v7 ^= v4;
     else
@@ -642,33 +642,33 @@ LABEL_155:
     goto LABEL_155;
   }
 LABEL_190:
-  v74 = *(_QWORD *)(v42 + 8LL * v13);
+  v74 = *(_QWORD *)(v42 + 8 * v13);
   if ( v58 && v74 )
     v74 ^= v42;
   *(_BYTE *)(v74 + 16) &= ~1u;
-  v75 = !v13;
+  v75 = (unsigned int)v13 ^ 1;
   v76 = *(_QWORD *)(v74 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-  v77 = *(_BYTE *)(v3 + 8) & 1;
-  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 && v76 )
+  v77 = *(_BYTE *)&v3->0 & 1;
+  if ( (*(_BYTE *)&v3->0 & 1) != 0 && v76 )
     v76 ^= v74;
   if ( v76 != v42 )
     goto LABEL_31;
-  v78 = *(_QWORD *)(v42 + 8LL * v13);
-  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 && v78 )
+  v78 = *(_QWORD *)(v42 + 8 * v13);
+  if ( (*(_BYTE *)&v3->0 & 1) != 0 && v78 )
     v78 ^= v42;
   if ( v78 != v74 )
     goto LABEL_31;
   v79 = *(_QWORD *)(v7 + 8 * v75);
-  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 && v79 )
+  if ( (*(_BYTE *)&v3->0 & 1) != 0 && v79 )
     v79 ^= v7;
   if ( v79 != v42 )
     goto LABEL_31;
   v80 = *(_QWORD *)(v42 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 && v80 )
+  if ( (*(_BYTE *)&v3->0 & 1) != 0 && v80 )
     v80 ^= v42;
   if ( v80 != v7 )
     goto LABEL_31;
-  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
+  if ( (*(_BYTE *)&v3->0 & 1) != 0 )
   {
     *(_QWORD *)(v7 + 8 * v75) = v7 ^ v74;
     if ( !v7 )
@@ -702,14 +702,14 @@ LABEL_211:
 LABEL_214:
   if ( v77 && v82 )
   {
-    *(_QWORD *)(v42 + 8LL * v13) = v42 ^ v82;
+    *(_QWORD *)(v42 + 8 * v13) = v42 ^ v82;
 LABEL_217:
     *(_QWORD *)(v74 + 8 * v75) = v42 ^ v74;
     v83 = v42 ^ v74;
   }
   else
   {
-    *(_QWORD *)(v42 + 8LL * v13) = v82;
+    *(_QWORD *)(v42 + 8 * v13) = v82;
     if ( v77 )
       goto LABEL_217;
     *(_QWORD *)(v74 + 8 * v75) = v42;
@@ -722,22 +722,22 @@ LABEL_157:
   *(_BYTE *)(v42 + 16) ^= (*(_BYTE *)(v7 + 16) ^ *(_BYTE *)(v42 + 16)) & 1;
   *(_BYTE *)(v7 + 16) &= ~1u;
   *(_BYTE *)(v64 + 16) &= ~1u;
-  v65 = *(_QWORD *)v3;
-  if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v65 )
-    v65 ^= v3;
+  v65 = (unsigned __int64)v3->Root;
+  if ( ((__int64)v3->Min & 1) != 0 && v65 )
+    v65 ^= (unsigned __int64)v3;
   v66 = *(_QWORD *)(v42 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-  v67 = *(_QWORD *)(v3 + 8) & 1;
-  if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v66 )
+  v67 = (__int64)v3->Min & 1;
+  if ( ((__int64)v3->Min & 1) != 0 && v66 )
     v66 ^= v42;
   if ( v66 != v7 )
     goto LABEL_31;
   v68 = *(_QWORD *)(v7 + 8 * !v13);
-  if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v68 )
+  if ( ((__int64)v3->Min & 1) != 0 && v68 )
     v68 ^= v7;
   if ( v68 != v42 )
     goto LABEL_31;
   v69 = *(_QWORD *)(v7 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( (*(_QWORD *)(v3 + 8) & 1) != 0 )
+  if ( ((__int64)v3->Min & 1) != 0 )
   {
     if ( !v69 )
       goto LABEL_168;
@@ -754,11 +754,11 @@ LABEL_168:
     goto LABEL_31;
   }
   v89 = *(_QWORD *)(v69 + 8);
-  if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v89 )
+  if ( ((__int64)v3->Min & 1) != 0 && v89 )
     v89 ^= v69;
   if ( v89 == v7 )
   {
-    if ( (*(_QWORD *)(v3 + 8) & 1) != 0 )
+    if ( ((__int64)v3->Min & 1) != 0 )
       v90 = v42 ^ v69;
     else
       v90 = v42;
@@ -766,11 +766,11 @@ LABEL_168:
     goto LABEL_282;
   }
   v95 = *(_QWORD *)v69;
-  if ( (*(_QWORD *)(v3 + 8) & 1) != 0 && v95 )
+  if ( ((__int64)v3->Min & 1) != 0 && v95 )
     v95 ^= v69;
   if ( v95 != v7 )
     goto LABEL_31;
-  if ( (*(_QWORD *)(v3 + 8) & 1) != 0 )
+  if ( ((__int64)v3->Min & 1) != 0 )
     v96 = v42 ^ v69;
   else
     v96 = v42;
@@ -779,7 +779,7 @@ LABEL_282:
   if ( v67 && v69 )
     v69 ^= v42;
   *(_QWORD *)(v42 + 16) = v69 | *(_DWORD *)(v42 + 16) & 3;
-  v91 = *(_QWORD *)(v42 + 8LL * v13);
+  v91 = *(_QWORD *)(v42 + 8 * v13);
   if ( v67 )
   {
     if ( !v91 )
@@ -805,7 +805,7 @@ LABEL_287:
   {
     *(_QWORD *)(v7 + 8 * !v13) = v7 ^ v91;
 LABEL_290:
-    *(_QWORD *)(v42 + 8LL * v13) = v7 ^ v42;
+    *(_QWORD *)(v42 + 8 * v13) = v7 ^ v42;
     v42 ^= v7;
   }
   else
@@ -813,21 +813,21 @@ LABEL_290:
     *(_QWORD *)(v7 + 8 * !v13) = v91;
     if ( v67 )
       goto LABEL_290;
-    *(_QWORD *)(v42 + 8LL * v13) = v7;
+    *(_QWORD *)(v42 + 8 * v13) = v7;
   }
   v4 = v42 | *(_DWORD *)(v7 + 16) & 3;
   *(_QWORD *)(v7 + 16) = v4;
-  if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
+  if ( (*(_BYTE *)&v3->0 & 1) != 0 )
   {
-    LOBYTE(v4) = v65 ^ v3;
+    LOBYTE(v4) = v65 ^ (unsigned __int8)v3;
     if ( v65 )
-      v10 = v65 ^ v3;
+      v10 = (_RTL_BALANCED_NODE *)(v65 ^ (unsigned __int64)v3);
   }
   else
   {
-    v10 = v65;
+    v10 = (_RTL_BALANCED_NODE *)v65;
   }
 LABEL_97:
-  *(_QWORD *)v3 = v10;
+  v3->Root = v10;
   return v4;
 }

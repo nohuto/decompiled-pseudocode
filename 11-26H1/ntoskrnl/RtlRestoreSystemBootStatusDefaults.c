@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlRestoreSystemBootStatusDefaults @ 0x140805C30
+ * XREFs of RtlRestoreSystemBootStatusDefaults @ 0x14080B6D0
  * Callers:
  *     <none>
  * Callees:
- *     ZwPowerInformation @ 0x140723FD0 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x140728BA0 (ZwPowerInformation.c)
  */
 
-NTSTATUS RtlRestoreSystemBootStatusDefaults()
+NTSTATUS RtlRestoreSystemBootStatusDefaults(void)
 {
   _QWORD v1[5]; // [rsp+30h] [rbp-28h] BYREF
 

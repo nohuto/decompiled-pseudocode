@@ -82,10 +82,10 @@ __int64 __fastcall MiGetPageInHugePageBadStatus(unsigned __int64 a1, __int64 a2,
     _InterlockedAnd(
       (volatile signed __int32 *)(qword_140C67EF8 + 4 * (((((__int64)v10 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
       ~(1 << ((((__int64)v10 - qword_140C67EF0) >> 3) & 0x1F)));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

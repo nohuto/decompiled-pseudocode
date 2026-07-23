@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateMdlPagesByLists @ 0x14010F82C
+ * XREFs of MiAllocateMdlPagesByLists @ 0x14010FD90
  * Callers:
- *     MiFindPagesForMdl @ 0x14010404C (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x140101DCC (MiFindPagesForMdl.c)
  * Callees:
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiPfnZeroingNeeded @ 0x1401071D8 (MiPfnZeroingNeeded.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiPfnZeroingNeeded @ 0x140104F58 (MiPfnZeroingNeeded.c)
  */
 
 __int64 __fastcall MiAllocateMdlPagesByLists(
@@ -96,11 +96,11 @@ LABEL_20:
     v18 = (unsigned __int8)HIBYTE(*(_QWORD *)(v21 + 40)) >> 2;
     ++v8;
     *v23 = v22;
-    v24 = byte_1403269C9;
+    v24 = byte_140326A09;
     v25 = *(_QWORD *)(v21 + 40);
     *(_QWORD *)(((unsigned __int64)v27 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = v23 + 1;
-    LODWORD(v25) = v22 & dword_1403269F8 | (((v25 >> 36) & 3) << byte_1403269D8) | (((v25 >> 58) & 0x3F) << v24);
-    v15 = v25 & ~dword_1403269A0 | dword_1403269A0 & (v25 + 1);
+    LODWORD(v25) = v22 & dword_140326A38 | (((v25 >> 36) & 3) << byte_140326A18) | (((v25 >> 58) & 0x3F) << v24);
+    v15 = v25 & ~dword_1403269E0 | dword_1403269E0 & (v25 + 1);
     if ( v8 >= a6 )
       goto LABEL_20;
   }

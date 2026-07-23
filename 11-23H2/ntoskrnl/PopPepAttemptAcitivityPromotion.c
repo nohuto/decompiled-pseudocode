@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepAttemptAcitivityPromotion @ 0x140313EE8
+ * XREFs of PopPepAttemptAcitivityPromotion @ 0x140314178
  * Callers:
- *     PopPepPromoteActivities @ 0x140313C60 (PopPepPromoteActivities.c)
+ *     PopPepPromoteActivities @ 0x140313EF0 (PopPepPromoteActivities.c)
  * Callees:
- *     PopPepShouldActivityWait @ 0x140314088 (PopPepShouldActivityWait.c)
+ *     PopPepShouldActivityWait @ 0x140314318 (PopPepShouldActivityWait.c)
  */
 
 volatile signed __int32 *__fastcall PopPepAttemptAcitivityPromotion(

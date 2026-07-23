@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DF2CC
+ * XREFs of PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DC3F8
  * Callers:
- *     PpmParkCalculateCoreParkingMaskEx @ 0x1405E1B9C (PpmParkCalculateCoreParkingMaskEx.c)
+ *     PpmParkCalculateCoreParkingMaskEx @ 0x1405DF1A8 (PpmParkCalculateCoreParkingMaskEx.c)
  * Callees:
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 BOOLEAN __fastcall PpmEventTraceSoftCoreParkingSelectionEx(
@@ -80,7 +80,7 @@ BOOLEAN __fastcall PpmEventTraceSoftCoreParkingSelectionEx(
       if ( result )
       {
         v36[1] = 0;
-        v17 = *(_QWORD *)(a1 + 1280) + 640 * v16;
+        v17 = *(_QWORD *)(a1 + 1288) + 640 * v16;
         v36[0] = 2097153;
         memset_0(v37, 0, 0x100uLL);
         v38[1] = 0;

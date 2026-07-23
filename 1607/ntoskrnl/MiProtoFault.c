@@ -1,23 +1,23 @@
 /*
- * XREFs of MiProtoFault @ 0x1400A3E68
+ * XREFs of MiProtoFault @ 0x1400A2790
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiResolveDemandZeroFault @ 0x14003AA90 (MiResolveDemandZeroFault.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiRetainSubsection @ 0x1400A4194 (MiRetainSubsection.c)
- *     MiFaultPteIntact @ 0x1400A44BC (MiFaultPteIntact.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiResolveDemandZeroFault @ 0x14003A610 (MiResolveDemandZeroFault.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiRetainSubsection @ 0x1400A2ABC (MiRetainSubsection.c)
+ *     MiFaultPteIntact @ 0x1400A2DE4 (MiFaultPteIntact.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiProtoFault(
@@ -54,7 +54,7 @@ __int64 __fastcall MiProtoFault(
   v11 = a3;
   v12 = (char *)a2;
   *a7 = 0LL;
-  if ( (AnyMultiplexedVm[184] & 7) == 0 && a4 != qword_140326988 && (!qword_140326990 || a4 != qword_140326990) )
+  if ( (AnyMultiplexedVm[184] & 7) == 0 && a4 != qword_1403269C8 && (!qword_1403269D0 || a4 != qword_1403269D0) )
   {
     if ( !a5 )
     {
@@ -96,7 +96,7 @@ LABEL_36:
       --v20;
     }
     while ( v20 );
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140326D38);
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140326D78);
     while ( 1 )
     {
       v21 = MI_READ_PTE_LOCK_FREE(v28[v15]);
@@ -106,20 +106,20 @@ LABEL_36:
         break;
       --v15;
     }
-    if ( (a4 < qword_140327F30 || a4 >= qword_140327F30 + 0xF8000000000LL)
-      && (!qword_140326C30
-       || a4 < qword_140326C30
-       || a4 >= qword_140326C30 + (qword_140326C10 << 21)
+    if ( (a4 < qword_140327F70 || a4 >= qword_140327F70 + 0xF8000000000LL)
+      && (!qword_140326C70
+       || a4 < qword_140326C70
+       || a4 >= qword_140326C70 + (qword_140326C50 << 21)
        || (*(_BYTE *)(48 * ((*(_QWORD *)(((a4 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                     - 0x57FFFFFFFDALL) & 0xF0) != 0x70) )
     {
 LABEL_29:
-      ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D38);
+      ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D78);
       goto LABEL_36;
     }
     v22 = ((a4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v23 = MI_READ_PTE_LOCK_FREE(v22);
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D38);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D78);
     if ( (v23 & 1) == 0 )
     {
       if ( (unsigned int)MiFaultPteIntact(v23) )

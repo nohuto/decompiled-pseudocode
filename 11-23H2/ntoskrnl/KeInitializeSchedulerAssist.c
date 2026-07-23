@@ -36,6 +36,6 @@ LABEL_3:
   if ( (unsigned int)result > 0x1E )
     KiVpThreadSystemWorkPriority = 1;
   if ( *(_QWORD *)(a1 + 35000) )
-    KiIrqlFlags |= 1u;
+    LODWORD(KiIrqlFlags) = (unsigned int)KiIrqlFlags | 1;
   return result;
 }

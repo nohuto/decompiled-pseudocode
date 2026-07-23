@@ -1,16 +1,16 @@
 /*
- * XREFs of IopUnlockAndFreeMdl @ 0x14028CF2C
+ * XREFs of IopUnlockAndFreeMdl @ 0x14028D1BC
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x14028C3D0 (IopCopyCompleteReadIrp.c)
- *     IopFreeCopyObjectsFromIrp @ 0x14028F1B0 (IopFreeCopyObjectsFromIrp.c)
- *     IopMcTryUnlockMdl @ 0x14055F40C (IopMcTryUnlockMdl.c)
- *     IopAllocateAndLockMdl @ 0x14094405C (IopAllocateAndLockMdl.c)
- *     IopDeleteIoRing @ 0x1409491B0 (IopDeleteIoRing.c)
- *     IopMcCreateBufferEntryMdl @ 0x140951640 (IopMcCreateBufferEntryMdl.c)
+ *     IopCopyCompleteReadIrp @ 0x14028C660 (IopCopyCompleteReadIrp.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x14028F440 (IopFreeCopyObjectsFromIrp.c)
+ *     IopMcTryUnlockMdl @ 0x14055FACC (IopMcTryUnlockMdl.c)
+ *     IopAllocateAndLockMdl @ 0x14094425C (IopAllocateAndLockMdl.c)
+ *     IopDeleteIoRing @ 0x1409493B0 (IopDeleteIoRing.c)
+ *     IopMcCreateBufferEntryMdl @ 0x140951840 (IopMcCreateBufferEntryMdl.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
  */
 
 void __fastcall IopUnlockAndFreeMdl(PMDL Mdl)

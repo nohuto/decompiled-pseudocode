@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPluginRegisterComponentPerfStates @ 0x1405D24F8
+ * XREFs of PopPluginRegisterComponentPerfStates @ 0x1405CFC18
  * Callers:
- *     PopFxRegisterComponentPerfStates @ 0x14074E534 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxRegisterComponentPerfStates @ 0x14074C864 (PopFxRegisterComponentPerfStates.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PopPluginRegisterComponentPerfStates(__int64 a1, int a2, __int64 a3)
@@ -25,7 +25,7 @@ char __fastcall PopPluginRegisterComponentPerfStates(__int64 a1, int a2, __int64
     v7 = a2;
     v9 = 0LL;
     v10 = a3;
-    return guard_dispatch_icall_no_overrides(32LL, &v6, a3, 0LL);
+    return guard_dispatch_icall_no_overrides(32LL, &v6);
   }
   return v4;
 }

@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQueryMutant()
+NTSTATUS __cdecl ZwQueryMutant(
+        HANDLE MutantHandle,
+        MUTANT_INFORMATION_CLASS MutantInformationClass,
+        PVOID MutantInformation,
+        ULONG MutantInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 316LL;
+  result = 316;
   __asm { syscall; Low latency system call }
   return result;
 }

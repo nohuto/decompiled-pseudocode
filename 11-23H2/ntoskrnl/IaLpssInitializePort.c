@@ -1,9 +1,9 @@
 /*
- * XREFs of IaLpssInitializePort @ 0x14067C7C0
+ * XREFs of IaLpssInitializePort @ 0x14067CD10
  * Callers:
  *     <none>
  * Callees:
- *     Uart16550InitializePortCommon @ 0x14067CD74 (Uart16550InitializePortCommon.c)
+ *     Uart16550InitializePortCommon @ 0x14067D2C4 (Uart16550InitializePortCommon.c)
  */
 
 __int64 __fastcall IaLpssInitializePort(int a1, __int64 *a2)

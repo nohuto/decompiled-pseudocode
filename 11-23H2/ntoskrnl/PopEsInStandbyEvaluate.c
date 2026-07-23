@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsInStandbyEvaluate @ 0x1409983B0
+ * XREFs of PopEsInStandbyEvaluate @ 0x1409985B0
  * Callers:
- *     PopEsInStandbyLowPowerEpochCallback @ 0x140998380 (PopEsInStandbyLowPowerEpochCallback.c)
+ *     PopEsInStandbyLowPowerEpochCallback @ 0x140998580 (PopEsInStandbyLowPowerEpochCallback.c)
  * Callees:
- *     PopGetPowerSettingValue @ 0x14032CC40 (PopGetPowerSettingValue.c)
- *     ExQueryWnfStateData @ 0x1407E21C0 (ExQueryWnfStateData.c)
- *     PopEsQueueStateEvaluation @ 0x140870820 (PopEsQueueStateEvaluation.c)
- *     PopTraceEsBgActivityPolicyUpdate @ 0x1409926DC (PopTraceEsBgActivityPolicyUpdate.c)
+ *     PopGetPowerSettingValue @ 0x14032CED0 (PopGetPowerSettingValue.c)
+ *     ExQueryWnfStateData @ 0x1407E2490 (ExQueryWnfStateData.c)
+ *     PopEsQueueStateEvaluation @ 0x140870A60 (PopEsQueueStateEvaluation.c)
+ *     PopTraceEsBgActivityPolicyUpdate @ 0x1409928DC (PopTraceEsBgActivityPolicyUpdate.c)
  */
 
 __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)

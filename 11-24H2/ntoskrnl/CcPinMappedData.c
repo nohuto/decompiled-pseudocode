@@ -1,13 +1,13 @@
 /*
- * XREFs of CcPinMappedData @ 0x1409B7760
+ * XREFs of CcPinMappedData @ 0x1409AEAF0
  * Callers:
  *     <none>
  * Callees:
- *     CcDecrementVacbActiveCount @ 0x140272550 (CcDecrementVacbActiveCount.c)
- *     CcPinFileData @ 0x140272D30 (CcPinFileData.c)
- *     ExAcquireSharedStarveExclusive @ 0x1403DCB50 (ExAcquireSharedStarveExclusive.c)
- *     CcAllocateObcb @ 0x140706C1C (CcAllocateObcb.c)
- *     CcUnpinData @ 0x1409A6A30 (CcUnpinData.c)
+ *     CcDecrementVacbActiveCount @ 0x140227AE0 (CcDecrementVacbActiveCount.c)
+ *     CcPinFileData @ 0x1402282C0 (CcPinFileData.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1403BC840 (ExAcquireSharedStarveExclusive.c)
+ *     CcAllocateObcb @ 0x1407047DC (CcAllocateObcb.c)
+ *     CcUnpinData @ 0x140989B70 (CcUnpinData.c)
  */
 
 BOOLEAN __stdcall CcPinMappedData(

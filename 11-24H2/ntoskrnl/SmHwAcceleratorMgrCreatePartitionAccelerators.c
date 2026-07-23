@@ -1,12 +1,12 @@
 /*
- * XREFs of SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x14079C48C
+ * XREFs of SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x14079C59C
  * Callers:
- *     SmHwAcceleratorMgrPartitionRegister @ 0x14079C60C (SmHwAcceleratorMgrPartitionRegister.c)
+ *     SmHwAcceleratorMgrPartitionRegister @ 0x14079C71C (SmHwAcceleratorMgrPartitionRegister.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmHwAcceleratorPartitionMgrInsertAccelerator @ 0x14060F934 (SmHwAcceleratorPartitionMgrInsertAccelerator.c)
- *     SmHwAcceleratorParitionCtxCreate @ 0x14079C8D8 (SmHwAcceleratorParitionCtxCreate.c)
- *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CB08 (SmHwAcceleratorPartitionCtxCleanup.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmHwAcceleratorPartitionMgrInsertAccelerator @ 0x14060DEF4 (SmHwAcceleratorPartitionMgrInsertAccelerator.c)
+ *     SmHwAcceleratorParitionCtxCreate @ 0x14079C9E8 (SmHwAcceleratorParitionCtxCreate.c)
+ *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CC18 (SmHwAcceleratorPartitionCtxCleanup.c)
  */
 
 __int64 __fastcall SmHwAcceleratorMgrCreatePartitionAccelerators(__int64 a1, __int64 a2)

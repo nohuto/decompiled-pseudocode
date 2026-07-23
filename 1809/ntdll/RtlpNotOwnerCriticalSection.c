@@ -6,21 +6,21 @@
  * Callees:
  *     DbgPrintEx @ 0x18004D290 (DbgPrintEx.c)
  *     RtlDecodePointer @ 0x180072AF0 (RtlDecodePointer.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
-struct _TEB *__fastcall RtlpNotOwnerCriticalSection(const void **a1)
+_RTL_CRITICAL_SECTION *__fastcall RtlpNotOwnerCriticalSection(_RTL_CRITICAL_SECTION *a1)
 {
   _PEB_LDR_DATA *Ldr; // r8
-  struct _TEB *result; // rax
+  _RTL_CRITICAL_SECTION *result; // rax
   struct _TEB *v4; // rcx
   __int64 WowTebOffset; // rax
 
   Ldr = NtCurrentPeb()->Ldr;
   if ( !Ldr->ShutdownInProgress
-    || (result = (struct _TEB *)&LdrpLoaderLock, a1 == (const void **)&LdrpLoaderLock)
-    && (result = NtCurrentTeb(), Ldr->ShutdownThreadId != result->ClientId.UniqueThread) )
+    || (result = &LdrpLoaderLock, a1 == &LdrpLoaderLock)
+    && (result = (_RTL_CRITICAL_SECTION *)NtCurrentTeb(), Ldr->ShutdownThreadId != (void *)result[1].SpinCount) )
   {
     if ( !UseWOW64 )
       goto LABEL_16;
@@ -35,19 +35,19 @@ struct _TEB *__fastcall RtlpNotOwnerCriticalSection(const void **a1)
     {
       v4 = 0LL;
     }
-    result = (struct _TEB *)LODWORD(v4->NtTib.Self);
-    if ( !HIDWORD(result->NtTib.StackBase) || !*(_BYTE *)(HIDWORD(result->NtTib.StackBase) + 0x28LL) )
+    result = (_RTL_CRITICAL_SECTION *)LODWORD(v4->NtTib.Self);
+    if ( !result->RecursionCount || !*(_BYTE *)((unsigned int)result->RecursionCount + 0x28LL) )
     {
 LABEL_16:
       if ( NtCurrentPeb()->BeingDebugged )
       {
         DbgPrintEx(
-          101,
+          0x65u,
           0,
           "NTDLL: Calling thread (%p) not owner of CritSect: %p  Owner ThreadId: %p\n",
           NtCurrentTeb()->ClientId.UniqueThread,
           a1,
-          a1[2]);
+          a1->OwningThread);
         __debugbreak();
       }
       RtlDecodePointer(RtlpUnhandledExceptionFilter);

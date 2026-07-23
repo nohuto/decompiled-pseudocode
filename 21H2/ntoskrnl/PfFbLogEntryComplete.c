@@ -1,13 +1,13 @@
 /*
- * XREFs of PfFbLogEntryComplete @ 0x1402D4FC8
+ * XREFs of PfFbLogEntryComplete @ 0x140273CA8
  * Callers:
- *     PfLogDeleteHelper @ 0x1402D4C80 (PfLogDeleteHelper.c)
- *     PfLogEvent @ 0x1402D4DFC (PfLogEvent.c)
- *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
+ *     PfLogDeleteHelper @ 0x140273960 (PfLogDeleteHelper.c)
+ *     PfLogEvent @ 0x140273ADC (PfLogEvent.c)
+ *     PfFileInfoNotify @ 0x140328350 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PfFbLogEntryComplete(PSLIST_ENTRY ListEntry, __int64 a2, __int64 a3)
@@ -29,6 +29,6 @@ void __fastcall PfFbLogEntryComplete(PSLIST_ENTRY ListEntry, __int64 a2, __int64
   else
   {
     RtlpInterlockedPushEntrySList((PSLIST_HEADER)&Next[2], ListEntry);
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)Next);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)Next);
   }
 }

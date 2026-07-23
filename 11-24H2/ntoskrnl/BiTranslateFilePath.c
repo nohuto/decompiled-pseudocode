@@ -1,36 +1,40 @@
 /*
- * XREFs of BiTranslateFilePath @ 0x1409C0B6C
+ * XREFs of BiTranslateFilePath @ 0x1409A71BC
  * Callers:
- *     BiCreateBootEntry @ 0x140814BFC (BiCreateBootEntry.c)
- *     BiGetDeviceFromEfiPath @ 0x1409C09F4 (BiGetDeviceFromEfiPath.c)
- *     BiCreateMergedBootEntry @ 0x1409C168C (BiCreateMergedBootEntry.c)
+ *     BiCreateBootEntry @ 0x14081533C (BiCreateBootEntry.c)
+ *     BiGetDeviceFromEfiPath @ 0x1409A7044 (BiGetDeviceFromEfiPath.c)
+ *     BiCreateMergedBootEntry @ 0x1409A7CDC (BiCreateMergedBootEntry.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x1406A9EF0 (ZwTranslateFilePath.c)
- *     BiReleasePrivilege @ 0x1409C0C38 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1409C0C90 (BiAcquirePrivilege.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwTranslateFilePath @ 0x1406AAE90 (ZwTranslateFilePath.c)
+ *     BiReleasePrivilege @ 0x1409A7288 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1409A72E0 (BiAcquirePrivilege.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, _FILE_PATH **a3)
 {
-  void *Pool2; // rdi
-  int v7; // ebx
-  int v9; // eax
-  _QWORD v10[5]; // [rsp+20h] [rbp-28h] BYREF
+  _FILE_PATH *v5; // rdi
+  NTSTATUS v7; // ebx
+  NTSTATUS v9; // eax
+  _FILE_PATH *Pool2; // rax
+  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
+  ULONG OutputFilePathLength; // [rsp+68h] [rbp+20h] BYREF
 
-  v10[0] = 0LL;
-  Pool2 = 0LL;
-  v7 = BiAcquirePrivilege(22LL, v10);
+  v11[0] = 0LL;
+  v5 = 0LL;
+  v7 = BiAcquirePrivilege(22LL, v11);
   if ( v7 >= 0 )
   {
-    v9 = ZwTranslateFilePath(a1, a2);
+    OutputFilePathLength = 0;
+    v9 = ZwTranslateFilePath(InputFilePath, OutputType, 0LL, &OutputFilePathLength);
     v7 = v9;
     if ( v9 == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(0x102uLL);
+      Pool2 = (_FILE_PATH *)ExAllocatePool2(0x102uLL, OutputFilePathLength, 0x4B444342u);
+      v5 = Pool2;
       if ( Pool2 )
-        v7 = ZwTranslateFilePath(a1, a2);
+        v7 = ZwTranslateFilePath(InputFilePath, OutputType, Pool2, &OutputFilePathLength);
       else
         v7 = -1073741670;
     }
@@ -38,15 +42,15 @@ __int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
     {
       v7 = -1073741811;
     }
-    BiReleasePrivilege(v10);
+    BiReleasePrivilege(v11);
     if ( v7 < 0 )
     {
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x4B444342u);
+      if ( v5 )
+        ExFreePoolWithTag(v5, 0x4B444342u);
     }
     else
     {
-      *a3 = Pool2;
+      *a3 = v5;
     }
   }
   return (unsigned int)v7;

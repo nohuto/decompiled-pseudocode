@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitializeSystemHivesLoad @ 0x1407CAC9C
+ * XREFs of CmpInitializeSystemHivesLoad @ 0x1407CB18C
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407CF20C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407CF6FC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     CmpCreateRegistryThread @ 0x1407D819C (CmpCreateRegistryThread.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     CmpCreateRegistryThread @ 0x1407D86F0 (CmpCreateRegistryThread.c)
  */
 
 void CmpInitializeSystemHivesLoad()

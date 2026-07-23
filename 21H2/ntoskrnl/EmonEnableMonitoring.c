@@ -1,14 +1,14 @@
 /*
- * XREFs of EmonEnableMonitoring @ 0x1404D34F0
+ * XREFs of EmonEnableMonitoring @ 0x1404D3730
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpGetProfileDescriptor @ 0x140378378 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     EmonConfigureCounter @ 0x14038B22C (EmonConfigureCounter.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpGetProfileDescriptor @ 0x140377EC8 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     EmonConfigureCounter @ 0x14038B37C (EmonConfigureCounter.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EmonAllocateCounter @ 0x1404D3060 (EmonAllocateCounter.c)
+ *     EmonAllocateCounter @ 0x1404D32A0 (EmonAllocateCounter.c)
  */
 
 __int64 __fastcall EmonEnableMonitoring(int a1, int a2, unsigned int *a3)

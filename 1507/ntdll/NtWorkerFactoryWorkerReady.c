@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtWorkerFactoryWorkerReady()
+NTSTATUS __cdecl NtWorkerFactoryWorkerReady(HANDLE WorkerFactoryHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 1LL;
+  result = 1;
   __asm { syscall; Low latency system call }
   return result;
 }

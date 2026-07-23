@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceAcDcStateChange @ 0x140870678
+ * XREFs of PopDiagTraceAcDcStateChange @ 0x1408718D8
  * Callers:
- *     PopUpdateAcDcState @ 0x140174A78 (PopUpdateAcDcState.c)
+ *     PopUpdateAcDcState @ 0x140174B78 (PopUpdateAcDcState.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceAcDcStateChange(int a1, int a2, int a3)

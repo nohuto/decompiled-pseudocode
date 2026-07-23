@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlCalculateUnwindInfoSizeForKernelScp @ 0x1405F0C78
+ * XREFs of RtlCalculateUnwindInfoSizeForKernelScp @ 0x1405EE2B8
  * Callers:
- *     RtlCopyKernelScpUnwindInfo @ 0x1405F0CBC (RtlCopyKernelScpUnwindInfo.c)
- *     RtlCreateKernelScpFunctionTable @ 0x1405F0D9C (RtlCreateKernelScpFunctionTable.c)
+ *     RtlCopyKernelScpUnwindInfo @ 0x1405EE2FC (RtlCopyKernelScpUnwindInfo.c)
+ *     RtlCreateKernelScpFunctionTable @ 0x1405EE3DC (RtlCreateKernelScpFunctionTable.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsProcessCfgExportSuppressionEnabled @ 0x140089560
+ * XREFs of MiIsProcessCfgExportSuppressionEnabled @ 0x140089550
  * Callers:
- *     MiCfgMarkValidEntries @ 0x1405F631C (MiCfgMarkValidEntries.c)
- *     MiValidateUserCallTarget @ 0x1406A7648 (MiValidateUserCallTarget.c)
+ *     MiCfgMarkValidEntries @ 0x1405F731C (MiCfgMarkValidEntries.c)
+ *     MiValidateUserCallTarget @ 0x1406A88E8 (MiValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

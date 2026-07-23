@@ -24,8 +24,8 @@ void __fastcall HvlDeleteProcessor(struct _KPRCB *a1, SIZE_T a2, MEMORY_CACHING_
   {
     if ( a1 == KeGetCurrentPrcb() )
     {
-      HvlpGetRegister64(589843LL, &v7);
-      HvlpSetRegister64(589843LL, v7 & 0xFFFFFFFFFFFFFFFEuLL);
+      HvlpGetRegister64(589843, &v7);
+      HvlpSetRegister64(589843, v7 & 0xFFFFFFFFFFFFFFFEuLL);
       VirtualApicAssist = a1->VirtualApicAssist;
     }
     if ( (HvlpFlags & 2) != 0 )

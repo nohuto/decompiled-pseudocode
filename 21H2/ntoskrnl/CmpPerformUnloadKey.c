@@ -1,146 +1,148 @@
 /*
- * XREFs of CmpPerformUnloadKey @ 0x14071A1B8
+ * XREFs of CmpPerformUnloadKey @ 0x1405DFA8C
  * Callers:
- *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     CmUnloadKey @ 0x1405DF54C (CmUnloadKey.c)
  * Callees:
- *     ExRundownCompleted @ 0x140251F40 (ExRundownCompleted.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     CmpReportNotifyForKcbStack @ 0x1405ED300 (CmpReportNotifyForKcbStack.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpSignalDeferredPosts @ 0x140667890 (CmpSignalDeferredPosts.c)
- *     CmpFlushNotify @ 0x14066AE8C (CmpFlushNotify.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14066CC00 (CmpFlushNotifiesOnKeyBodyList.c)
- *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x140672754 (LOCK_HIVE_LOAD.c)
- *     CmSnapshotRMTxArray @ 0x1406A3B98 (CmSnapshotRMTxArray.c)
- *     CmShutdownCmRM @ 0x1406BB458 (CmShutdownCmRM.c)
- *     CmpFreezeHive @ 0x1406BF2E8 (CmpFreezeHive.c)
- *     CmCloseRmHandle @ 0x1406C2CB0 (CmCloseRmHandle.c)
- *     CmCloseTmHandle @ 0x1406C2CD8 (CmCloseTmHandle.c)
- *     CmpLogTransactionAbortedForRollbackPacket @ 0x1406C3144 (CmpLogTransactionAbortedForRollbackPacket.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpCleanupKcbStack @ 0x1406FB360 (CmpCleanupKcbStack.c)
- *     CmpDoesKeyHaveOpenSubkeys @ 0x14071984C (CmpDoesKeyHaveOpenSubkeys.c)
- *     CmpCleanupRollbackPacket @ 0x14071C518 (CmpCleanupRollbackPacket.c)
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
- *     CmpUnfreezeHive @ 0x140730C38 (CmpUnfreezeHive.c)
- *     CmpTryAcquireKcbIXLocks @ 0x14076E1A4 (CmpTryAcquireKcbIXLocks.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x140772AC4 (CmpPrepareForSubtreeInvalidation.c)
- *     CmpInvalidateSubtree @ 0x140772CE0 (CmpInvalidateSubtree.c)
- *     CmpAbortRollbackPacket @ 0x14077A8CC (CmpAbortRollbackPacket.c)
- *     CmObliterateRMTxArray @ 0x140872A14 (CmObliterateRMTxArray.c)
- *     CmpLogUnsupportedOperation @ 0x14087634C (CmpLogUnsupportedOperation.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExRundownCompleted @ 0x1402F6750 (ExRundownCompleted.c)
+ *     CmpInitializeDelayDerefContext @ 0x14035BE38 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x14035BE50 (CmpDrainDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     CmpFreezeHive @ 0x1405DF460 (CmpFreezeHive.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
+ *     CmpCleanupRollbackPacket @ 0x1405E094C (CmpCleanupRollbackPacket.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x1405E0998 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmShutdownCmRM @ 0x1405E0E38 (CmShutdownCmRM.c)
+ *     CmCloseTmHandle @ 0x1405E114C (CmCloseTmHandle.c)
+ *     CmCloseRmHandle @ 0x1405E1174 (CmCloseRmHandle.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x1405E119C (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmSnapshotRMTxArray @ 0x1405E1668 (CmSnapshotRMTxArray.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x14065AB50 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpSignalDeferredPosts @ 0x14065C6B0 (CmpSignalDeferredPosts.c)
+ *     CmpFlushNotify @ 0x14065FCAC (CmpFlushNotify.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140661A20 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406677F0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x140667920 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x140667984 (LOCK_HIVE_LOAD.c)
+ *     CmpReportNotifyForKcbStack @ 0x1406DCA60 (CmpReportNotifyForKcbStack.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1406E3E60 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpDetachFromRegistryProcess @ 0x1406E589C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpCleanupKcbStack @ 0x140712740 (CmpCleanupKcbStack.c)
+ *     CmpUnfreezeHive @ 0x140730E04 (CmpUnfreezeHive.c)
+ *     CmpTryAcquireKcbIXLocks @ 0x14076E364 (CmpTryAcquireKcbIXLocks.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x140772C84 (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpInvalidateSubtree @ 0x140772EA0 (CmpInvalidateSubtree.c)
+ *     CmpAbortRollbackPacket @ 0x14077AA8C (CmpAbortRollbackPacket.c)
+ *     CmObliterateRMTxArray @ 0x140872B74 (CmObliterateRMTxArray.c)
+ *     CmpLogUnsupportedOperation @ 0x1408764AC (CmpLogUnsupportedOperation.c)
  */
 
 __int64 __fastcall CmpPerformUnloadKey(__int64 a1, char a2, char a3, __int64 a4)
 {
-  __int64 v7; // rsi
-  int v8; // edi
-  __int64 v9; // r14
-  int v10; // ebx
-  __int64 v11; // r8
-  struct _LOOKASIDE_LIST_EX *v12; // r9
-  __int64 v13; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  _DWORD *v9; // rcx
+  ULONG_PTR v10; // rsi
+  int v11; // edi
+  __int64 v12; // r14
+  int v13; // ebx
   __int64 v14; // rdx
   __int64 v15; // r8
-  __int64 v16; // rcx
-  __int64 v18; // rax
+  __int64 v17; // rax
+  int v18; // eax
   int v19; // eax
-  __int64 v20; // r9
-  int v21; // eax
-  char v22; // r15
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  _DWORD *v25; // r9
-  __int64 v26; // rcx
-  __int64 v27; // rdx
-  __int64 v28; // r9
-  void *v29; // rdi
-  char v30; // dl
-  void *v31; // rbx
+  char v20; // r15
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rcx
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  void *v28; // rdi
+  void *v29; // rbx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
   __int64 v32; // rdx
-  signed __int32 v33[8]; // [rsp+0h] [rbp-A9h] BYREF
-  char v34; // [rsp+30h] [rbp-79h]
-  _BYTE v35[3]; // [rsp+31h] [rbp-78h] BYREF
-  int v36; // [rsp+34h] [rbp-75h] BYREF
-  __int128 v37; // [rsp+38h] [rbp-71h] BYREF
-  __int128 v38; // [rsp+48h] [rbp-61h] BYREF
-  __int128 v39; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v40; // [rsp+68h] [rbp-41h]
-  _OWORD v41[2]; // [rsp+70h] [rbp-39h] BYREF
-  _OWORD v42[3]; // [rsp+90h] [rbp-19h] BYREF
+  __int64 v33; // rcx
+  signed __int32 v34[8]; // [rsp+0h] [rbp-A9h] BYREF
+  char v35; // [rsp+30h] [rbp-79h]
+  _BYTE v36[3]; // [rsp+31h] [rbp-78h] BYREF
+  int v37; // [rsp+34h] [rbp-75h] BYREF
+  __int128 v38; // [rsp+38h] [rbp-71h] BYREF
+  _QWORD v39[2]; // [rsp+48h] [rbp-61h] BYREF
+  __int128 v40; // [rsp+58h] [rbp-51h] BYREF
+  __int64 v41; // [rsp+68h] [rbp-41h]
+  _OWORD v42[2]; // [rsp+70h] [rbp-39h] BYREF
+  _OWORD v43[3]; // [rsp+90h] [rbp-19h] BYREF
 
-  v40 = a4;
-  v35[0] = 0;
-  *((_QWORD *)&v38 + 1) = &v38;
-  v34 = 0;
-  *(_QWORD *)&v38 = &v38;
-  memset(v41, 0, sizeof(v41));
-  WORD1(v41[0]) = -1;
+  v41 = a4;
+  v36[0] = 0;
+  v39[1] = v39;
+  v35 = 0;
+  v39[0] = v39;
   memset(v42, 0, sizeof(v42));
-  v39 = 0LL;
-  v37 = 0LL;
-  CmpInitializeDelayDerefContext(&v39);
+  WORD1(v42[0]) = -1;
+  memset(v43, 0, sizeof(v43));
+  v40 = 0LL;
+  v38 = 0LL;
+  CmpInitializeDelayDerefContext(&v40);
   LOCK_HIVE_LOAD();
-  CmpLockRegistryFreezeAware(1);
-  v7 = *(_QWORD *)(a1 + 8);
-  v8 = 6;
-  v36 = 6;
-  v9 = *(_QWORD *)(v7 + 32);
-  if ( (*(_DWORD *)(v7 + 8) & 0x80u) != 0 )
+  LOBYTE(v7) = 1;
+  CmpLockRegistryFreezeAware(v7);
+  v10 = *(_QWORD *)(a1 + 8);
+  v11 = 6;
+  v37 = 6;
+  v12 = *(_QWORD *)(v10 + 32);
+  if ( (*(_DWORD *)(v10 + 8) & 0x80u) != 0 )
     goto LABEL_58;
-  v10 = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
-  if ( v10 < 0 )
+  v13 = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
+  if ( v13 < 0 )
     goto LABEL_50;
-  if ( (*(_DWORD *)(v7 + 8) & 0x40000) != 0 )
+  if ( (*(_DWORD *)(v10 + 8) & 0x40000) != 0 )
   {
-    v10 = -1073740763;
+    v13 = -1073740763;
     goto LABEL_50;
   }
-  if ( *(_BYTE *)(v9 + 2936) && ((a2 & 1) == 0 || (*(_DWORD *)(v9 + 4152) & 0x20) == 0) )
+  if ( *(_BYTE *)(v12 + 2936) && ((a2 & 1) == 0 || (*(_DWORD *)(v12 + 4152) & 0x20) == 0) )
   {
-    v10 = -1073741431;
+    v13 = -1073741431;
     goto LABEL_50;
   }
-  if ( (int)CmpStartKcbStackForTopLayerKcb((__int64)v41, v7, v11, v12) < 0 )
+  if ( (int)CmpStartKcbStackForTopLayerKcb(v42, v10) < 0 )
   {
-    v10 = -1073741670;
+    v13 = -1073741670;
     goto LABEL_50;
   }
-  CmpReportNotifyForKcbStack((__int64)v41, 0, 4, (__int64)&v38);
-  LOBYTE(v13) = 1;
-  CmpFlushNotify(a1, v13, &v38);
-  v16 = *(_QWORD *)(v7 + 32);
-  if ( v16 == CmpMasterHive || (*(_DWORD *)(v7 + 184) & 0x40000) == 0 )
+  CmpReportNotifyForKcbStack(v42, 0LL, 4LL, v39);
+  LOBYTE(v14) = 1;
+  CmpFlushNotify(a1, v14, v39);
+  v9 = *(_DWORD **)(v10 + 32);
+  if ( v9 == CmpMasterHive || (*(_DWORD *)(v10 + 184) & 0x40000) == 0 )
   {
-    v10 = -1073741811;
+    v13 = -1073741811;
     goto LABEL_50;
   }
-  if ( (*(_DWORD *)(v16 + 4152) & 4) != 0 )
+  if ( (v9[1038] & 4) != 0 )
   {
 LABEL_58:
-    v10 = -1073741790;
+    v13 = -1073741790;
     goto LABEL_50;
   }
   if ( (a2 & 1) == 0 )
   {
-    if ( CmpDoesKeyHaveOpenSubkeys(v7) || *(_QWORD *)v7 != 2LL )
+    if ( (unsigned __int8)CmpDoesKeyHaveOpenSubkeys(v10) || *(_QWORD *)v10 != 2LL )
     {
       if ( a3 )
       {
-        v10 = CmpFreezeHive(v7, v40);
-        if ( v10 >= 0 )
+        v13 = CmpFreezeHive(v10, v41);
+        if ( v13 >= 0 )
         {
-          v10 = 259;
+          v13 = 259;
           goto LABEL_14;
         }
         goto LABEL_50;
@@ -149,134 +151,137 @@ LABEL_58:
     }
     goto LABEL_27;
   }
-  v18 = *(_QWORD *)(v7 + 192);
-  if ( v18 && *(_QWORD *)(v18 + 32) != v18 + 32 )
+  v17 = *(_QWORD *)(v10 + 192);
+  if ( v17 && *(_QWORD *)(v17 + 32) != v17 + 32 )
   {
     CmpLogUnsupportedOperation(3LL);
 LABEL_49:
-    v10 = -1073741535;
+    v13 = -1073741535;
     goto LABEL_50;
   }
-  LOBYTE(v14) = 1;
-  v19 = CmpTryAcquireKcbIXLocks(v7, v14, v15, &v37);
-  v10 = v19;
-  if ( v19 == -1073741267 )
+  LOBYTE(v8) = 1;
+  v18 = CmpTryAcquireKcbIXLocks(v10, v8, v15, &v38);
+  v13 = v18;
+  if ( v18 == -1073741267 )
   {
 LABEL_65:
-    CmpLogTransactionAbortedForRollbackPacket(v7, 0xAu, (unsigned int *)&v37, v20);
-    CmpUnlockRegistry();
+    CmpLogTransactionAbortedForRollbackPacket(v10, 10LL, &v38);
+    CmpUnlockRegistry(v33, v32);
     UNLOCK_HIVE_LOAD();
-    v8 = 0;
-    v36 = 0;
-    v10 = CmpAbortRollbackPacket(&v37, 0LL);
-    if ( v10 >= 0 )
-      v10 = -1073741267;
-    v22 = 0;
+    v11 = 0;
+    v37 = 0;
+    v13 = CmpAbortRollbackPacket(&v38, 0LL);
+    if ( v13 >= 0 )
+      v13 = -1073741267;
+    v20 = 0;
     goto LABEL_51;
   }
-  if ( v19 < 0 )
+  if ( v18 < 0 )
   {
 LABEL_50:
-    v22 = v34;
+    v20 = v35;
     goto LABEL_51;
   }
-  v21 = CmpPrepareForSubtreeInvalidation(v7, 0LL, &v37);
-  v10 = v21;
-  if ( v21 == -1073741267 )
+  v19 = CmpPrepareForSubtreeInvalidation(v10, 0LL, &v38);
+  v13 = v19;
+  if ( v19 == -1073741267 )
     goto LABEL_65;
-  if ( v21 < 0 )
+  if ( v19 < 0 )
     goto LABEL_50;
-  CmpInvalidateSubtree(v7, 1, 1, (unsigned int)&v39, 0LL);
-  CmpFlushNotifiesOnKeyBodyList(v7, 1LL, (__int64)&v39, 1);
+  CmpInvalidateSubtree(v10, 1, 1, (unsigned int)&v40, 0LL);
+  CmpFlushNotifiesOnKeyBodyList(v10, 1LL, &v40);
 LABEL_27:
-  *(_DWORD *)(v7 + 8) |= 0x40000u;
-  v22 = 1;
-  if ( *(_BYTE *)(v9 + 2936) == 1 )
+  *(_DWORD *)(v10 + 8) |= 0x40000u;
+  v20 = 1;
+  if ( *(_BYTE *)(v12 + 2936) == 1 )
   {
-    CmpUnfreezeHive((PVOID)v9);
+    CmpUnfreezeHive((PVOID)v12);
     ++CmpActiveAppHiveUnloadCount;
   }
-  CmpDrainDelayDerefContext((_QWORD **)&v39);
-  CmpUnlockRegistry();
+  CmpDrainDelayDerefContext((_QWORD **)&v40);
+  CmpUnlockRegistry(v22, v21);
   UNLOCK_HIVE_LOAD();
   _InterlockedIncrement(&CmpActiveHiveRundownCount);
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(v9 + 1632));
-  ExRundownCompleted((PEX_RUNDOWN_REF)(v9 + 1632));
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(v12 + 1632));
+  ExRundownCompleted((PEX_RUNDOWN_REF)(v12 + 1632));
   LOCK_HIVE_LOAD();
-  CmpLockRegistryFreezeAware(1);
-  v26 = *(_QWORD *)(v9 + 4192);
-  if ( !v26 )
+  LOBYTE(v23) = 1;
+  CmpLockRegistryFreezeAware(v23);
+  v24 = *(_QWORD *)(v12 + 4192);
+  if ( !v24 )
     goto LABEL_30;
-  v10 = CmSnapshotRMTxArray(v26, &v37);
-  if ( v10 >= 0 )
+  v13 = CmSnapshotRMTxArray(v24, &v38);
+  if ( v13 >= 0 )
   {
-    CmpLogTransactionAbortedForRollbackPacket(v7, 9u, (unsigned int *)&v37, v28);
-    CmpUnlockRegistry();
+    CmpLogTransactionAbortedForRollbackPacket(v10, 9LL, &v38);
+    CmpUnlockRegistry(v27, v26);
     UNLOCK_HIVE_LOAD();
-    v8 = 0;
-    v36 = 0;
-    v10 = CmpAbortRollbackPacket(&v37, v35);
-    if ( v10 < 0 )
+    v11 = 0;
+    v37 = 0;
+    v13 = CmpAbortRollbackPacket(&v38, v36);
+    if ( v13 < 0 )
       goto LABEL_51;
-    CmpCleanupRollbackPacket(&v37);
-    v37 = 0LL;
-    if ( v35[0] )
-      CmObliterateRMTxArray(*(_QWORD *)(v9 + 4192));
+    CmpCleanupRollbackPacket(&v38);
+    v38 = 0LL;
+    if ( v36[0] )
+      CmObliterateRMTxArray(*(_QWORD *)(v12 + 4192));
     LOCK_HIVE_LOAD();
-    v29 = (void *)CmCloseRmHandle(*(_QWORD *)(v9 + 4192), 0);
-    v31 = (void *)CmCloseTmHandle(*(_QWORD *)(v9 + 4192), v30);
+    v28 = (void *)CmCloseRmHandle(*(_QWORD *)(v12 + 4192), 0LL);
+    v29 = (void *)CmCloseTmHandle(*(_QWORD *)(v12 + 4192));
     UNLOCK_HIVE_LOAD();
+    if ( v28 )
+      ZwClose(v28);
     if ( v29 )
       ZwClose(v29);
-    if ( v31 )
-      ZwClose(v31);
     LOCK_HIVE_LOAD();
-    LOBYTE(v32) = 1;
-    CmShutdownCmRM(*(_QWORD *)(v9 + 4192), v32);
-    CmpLockRegistryFreezeAware(1);
-    v36 = 6;
+    LOBYTE(v30) = 1;
+    CmShutdownCmRM(*(_QWORD *)(v12 + 4192), v30);
+    LOBYTE(v31) = 1;
+    CmpLockRegistryFreezeAware(v31);
+    v37 = 6;
 LABEL_30:
-    CmpAttachToRegistryProcess((__int64)v42, v23, v24, v25);
-    CmpCompleteUnloadKey(v7, v27, &v36);
-    CmpDetachFromRegistryProcess((__int64)v42);
-    v10 = 0;
+    CmpAttachToRegistryProcess(v43);
+    CmpCompleteUnloadKey(v10, v25, &v37);
+    CmpDetachFromRegistryProcess(v43);
+    v13 = 0;
     goto LABEL_31;
   }
-  v8 = v36;
+  v11 = v37;
 LABEL_51:
-  if ( (v8 & 4) == 0 )
+  if ( (v11 & 4) == 0 )
   {
     LOCK_HIVE_LOAD();
-    v8 |= 4u;
-    v36 = v8;
+    v11 |= 4u;
+    v37 = v11;
   }
-  if ( (v8 & 2) == 0 )
+  if ( (v11 & 2) == 0 )
   {
-    CmpLockRegistryFreezeAware(1);
-    v8 |= 2u;
-    v36 = v8;
+    LOBYTE(v9) = 1;
+    CmpLockRegistryFreezeAware(v9);
+    v11 |= 2u;
+    v37 = v11;
   }
-  if ( v22 )
+  if ( v20 )
   {
-    _InterlockedExchange64((volatile __int64 *)(v9 + 1632), 0LL);
-    *(_DWORD *)(v7 + 8) &= ~0x40000u;
+    _InterlockedExchange64((volatile __int64 *)(v12 + 1632), 0LL);
+    *(_DWORD *)(v10 + 8) &= ~0x40000u;
 LABEL_31:
     if ( _InterlockedExchangeAdd(&CmpActiveHiveRundownCount, 0xFFFFFFFF) == 1 )
     {
-      _InterlockedOr(v33, 0);
+      _InterlockedOr(v34, 0);
       if ( CmpActiveHiveRundownEvent )
         ExfUnblockPushLock(&CmpActiveHiveRundownEvent, 0LL);
     }
-    LOBYTE(v8) = v36;
+    LOBYTE(v11) = v37;
   }
 LABEL_14:
-  if ( (v8 & 2) != 0 )
-    CmpUnlockRegistry();
-  if ( (v8 & 4) != 0 )
+  if ( (v11 & 2) != 0 )
+    CmpUnlockRegistry(v9, v8);
+  if ( (v11 & 4) != 0 )
     UNLOCK_HIVE_LOAD();
-  if ( (__int128 *)v38 != &v38 )
-    CmpSignalDeferredPosts((_QWORD **)&v38);
-  CmpCleanupKcbStack((__int64)v41);
-  CmpCleanupRollbackPacket(&v37);
-  return (unsigned int)v10;
+  if ( (_QWORD *)v39[0] != v39 )
+    CmpSignalDeferredPosts(v39);
+  CmpCleanupKcbStack(v42);
+  CmpCleanupRollbackPacket(&v38);
+  return (unsigned int)v13;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiQueryPfn @ 0x1400973F0
+ * XREFs of MiQueryPfn @ 0x140097330
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     <none>
  */

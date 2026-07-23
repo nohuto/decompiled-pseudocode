@@ -1,9 +1,9 @@
 /*
- * XREFs of HalPutScatterGatherListDmaThin @ 0x140434930
+ * XREFs of HalPutScatterGatherListDmaThin @ 0x140427BB0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalPutScatterGatherListDmaThin(__int64 a1, _QWORD *a2)

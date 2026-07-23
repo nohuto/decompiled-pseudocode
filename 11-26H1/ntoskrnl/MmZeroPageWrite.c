@@ -1,10 +1,10 @@
 /*
- * XREFs of MmZeroPageWrite @ 0x14046D60C
+ * XREFs of MmZeroPageWrite @ 0x140466D8C
  * Callers:
- *     MiZeroPageFile @ 0x1406E69A0 (MiZeroPageFile.c)
- *     PopZeroHiberFile @ 0x1407D0EAC (PopZeroHiberFile.c)
+ *     MiZeroPageFile @ 0x1406EB650 (MiZeroPageFile.c)
+ *     PopZeroHiberFile @ 0x1407D3F4C (PopZeroHiberFile.c)
  * Callees:
- *     MiZeroPageWrite @ 0x14046D748 (MiZeroPageWrite.c)
+ *     MiZeroPageWrite @ 0x140466EC8 (MiZeroPageWrite.c)
  */
 
 __int64 __fastcall MmZeroPageWrite(__int64 a1, __int64 a2, __int64 *a3, unsigned int a4)

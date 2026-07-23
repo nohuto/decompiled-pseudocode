@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpDeleteData @ 0x18007BF30
+ * XREFs of RtlpDeleteData @ 0x18007BF40
  * Callers:
- *     RtlDeleteAce @ 0x18007BEB0 (RtlDeleteAce.c)
+ *     RtlDeleteAce @ 0x18007BEC0 (RtlDeleteAce.c)
  * Callees:
  *     memset @ 0x1800A7100 (memset.c)
  */

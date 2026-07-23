@@ -15,7 +15,7 @@ __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, __int64 a3, int a4)
   __int64 Table; // rax
   STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   STRING String1; // [rsp+30h] [rbp-28h] BYREF
-  char SourceString[4]; // [rsp+40h] [rbp-18h] BYREF
+  CHAR SourceString[4]; // [rsp+40h] [rbp-18h] BYREF
   __int16 v11; // [rsp+44h] [rbp-14h]
   char v12; // [rsp+46h] [rbp-12h]
 

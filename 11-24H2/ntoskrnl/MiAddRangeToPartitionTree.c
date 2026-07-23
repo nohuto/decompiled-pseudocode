@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAddRangeToPartitionTree @ 0x14068993C
+ * XREFs of MiAddRangeToPartitionTree @ 0x14068AA6C
  * Callers:
- *     MiAddMdlToPartitionTree @ 0x140689850 (MiAddMdlToPartitionTree.c)
- *     MiDuplicatePartitionNodeTree @ 0x14068A284 (MiDuplicatePartitionNodeTree.c)
- *     MiAcquireAddMemoryResources @ 0x1407E85A8 (MiAcquireAddMemoryResources.c)
- *     MmRemovePhysicalMemory @ 0x1407EA5D0 (MmRemovePhysicalMemory.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x1407FC284 (MiHotAddPartitionMemory.c)
+ *     MiAddMdlToPartitionTree @ 0x14068A980 (MiAddMdlToPartitionTree.c)
+ *     MiDuplicatePartitionNodeTree @ 0x14068B3B4 (MiDuplicatePartitionNodeTree.c)
+ *     MiAcquireAddMemoryResources @ 0x1407E8B78 (MiAcquireAddMemoryResources.c)
+ *     MmRemovePhysicalMemory @ 0x1407EABA0 (MmRemovePhysicalMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1407FC9F4 (MiHotAddPartitionMemory.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlClearBitsEx @ 0x140261AD0 (RtlClearBitsEx.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlSetBitsEx @ 0x1403A4600 (RtlSetBitsEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlSetBitsEx @ 0x14026E120 (RtlSetBitsEx.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlClearBitsEx @ 0x1402920E0 (RtlClearBitsEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAddRangeToPartitionTree(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, char a4)

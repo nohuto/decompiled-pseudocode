@@ -61,7 +61,7 @@ LABEL_9:
         if ( v4 != -1073741275 )
         {
 LABEL_11:
-          ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL);
+          ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
           return (unsigned int)ObjectProperty;
         }
       }

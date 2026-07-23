@@ -1,13 +1,13 @@
 /*
- * XREFs of TppWorkPost @ 0x18003CDF4
+ * XREFs of TppWorkPost @ 0x18003CDE4
  * Callers:
- *     TppSingleTimerExpiration @ 0x18003CC28 (TppSingleTimerExpiration.c)
- *     TpSimpleTryPost @ 0x18007A0F0 (TpSimpleTryPost.c)
+ *     TppSingleTimerExpiration @ 0x18003CC18 (TppSingleTimerExpiration.c)
+ *     TpSimpleTryPost @ 0x18007A0E0 (TpSimpleTryPost.c)
  * Callees:
  *     RtlpTpETWCallbackEnqueue @ 0x180001338 (RtlpTpETWCallbackEnqueue.c)
- *     TpPostTask @ 0x18003D028 (TpPostTask.c)
- *     RtlGetThreadWorkOnBehalfTicket @ 0x18003D220 (RtlGetThreadWorkOnBehalfTicket.c)
- *     TppBarrierAdjust @ 0x180063E84 (TppBarrierAdjust.c)
+ *     TpPostTask @ 0x18003D018 (TpPostTask.c)
+ *     RtlGetThreadWorkOnBehalfTicket @ 0x18003D210 (RtlGetThreadWorkOnBehalfTicket.c)
+ *     TppBarrierAdjust @ 0x180063E74 (TppBarrierAdjust.c)
  */
 
 __int64 __fastcall TppWorkPost(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -30,10 +30,8 @@ __int64 __fastcall TppWorkPost(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   while ( !v7 );
   if ( v6 )
   {
-    RtlGetThreadWorkOnBehalfTicket(
-      a1 + 128,
-      1LL,
-      (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 2u));
+    _InterlockedExchangeAdd((volatile signed __int32 *)a1, 2u);
+    RtlGetThreadWorkOnBehalfTicket((PVOID)(a1 + 128));
     if ( MEMORY[0x7FFE0386] )
       RtlpTpETWCallbackEnqueue(
         *(_QWORD *)(a1 + 144),

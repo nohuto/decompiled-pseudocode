@@ -1,10 +1,10 @@
 /*
- * XREFs of ViMiscCheckResourceRelease @ 0x140C3E3B4
+ * XREFs of ViMiscCheckResourceRelease @ 0x140C443C4
  * Callers:
- *     VfMiscExReleaseResourceLite_Entry @ 0x140C3CAD0 (VfMiscExReleaseResourceLite_Entry.c)
- *     VfMiscExReleaseResourceForThreadLite_Entry @ 0x140C3CAF0 (VfMiscExReleaseResourceForThreadLite_Entry.c)
+ *     VfMiscExReleaseResourceLite_Entry @ 0x140C42AE0 (VfMiscExReleaseResourceLite_Entry.c)
+ *     VfMiscExReleaseResourceForThreadLite_Entry @ 0x140C42B00 (VfMiscExReleaseResourceForThreadLite_Entry.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 struct _KTHREAD *__fastcall ViMiscCheckResourceRelease(__int64 a1, __int64 a2)

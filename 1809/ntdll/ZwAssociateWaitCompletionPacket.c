@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAssociateWaitCompletionPacket @ 0x1800A1490
+ * XREFs of ZwAssociateWaitCompletionPacket @ 0x1800A14B0
  * Callers:
  *     TppSetupNextWait @ 0x18002C320 (TppSetupNextWait.c)
  *     TppTimerQueueExpiration @ 0x18002CAB0 (TppTimerQueueExpiration.c)
@@ -8,11 +8,19 @@
  *     <none>
  */
 
-__int64 ZwAssociateWaitCompletionPacket()
+NTSTATUS __cdecl ZwAssociateWaitCompletionPacket(
+        HANDLE WaitCompletionPacketHandle,
+        HANDLE IoCompletionHandle,
+        HANDLE TargetObjectHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        PBOOLEAN AlreadySignaled)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 142LL;
+  result = 142;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpInitGlobalQuotaAllowed @ 0x140C48FDC
+ * XREFs of CmpInitGlobalQuotaAllowed @ 0x140C4B100
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
  *     <none>
  */
@@ -64,9 +64,9 @@ LABEL_13:
   else
   {
     LODWORD(v4) = 393216;
-    result = *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18512LL) >> 1;
+    result = *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18512LL) >> 1;
     if ( result < 0x60000 )
-      v4 = *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18512LL) >> 1;
+      v4 = *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18512LL) >> 1;
     v5 = (_DWORD)v4 << 12;
   }
   CmSystemHiveLimitSize = v5;

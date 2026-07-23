@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall NtQueryTimerResolution(_DWORD *a1, _DWORD *a2, _DWORD *a3)
+NTSTATUS __cdecl NtQueryTimerResolution(PULONG MaximumTime, PULONG MinimumTime, PULONG CurrentTime)
 {
   __int64 v5; // r9
   __int64 v6; // r8
@@ -16,25 +16,25 @@ __int64 __fastcall NtQueryTimerResolution(_DWORD *a1, _DWORD *a2, _DWORD *a3)
   {
     v5 = 0x7FFFFFFF0000LL;
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a1;
+    if ( (unsigned __int64)MaximumTime < 0x7FFFFFFF0000LL )
+      v6 = (__int64)MaximumTime;
     *(_DWORD *)v6 = *(_DWORD *)v6;
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a2;
+    if ( (unsigned __int64)MinimumTime < 0x7FFFFFFF0000LL )
+      v7 = (__int64)MinimumTime;
     *(_DWORD *)v7 = *(_DWORD *)v7;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a3;
+    if ( (unsigned __int64)CurrentTime < 0x7FFFFFFF0000LL )
+      v5 = (__int64)CurrentTime;
     *(_DWORD *)v5 = *(_DWORD *)v5;
-    *a1 = KeMaximumIncrement;
-    *a2 = KeMinimumIncrement;
-    *a3 = KeTimeIncrement;
+    *MaximumTime = KeMaximumIncrement;
+    *MinimumTime = KeMinimumIncrement;
+    *CurrentTime = KeTimeIncrement;
   }
   else
   {
-    *a1 = KeMaximumIncrement;
-    *a2 = KeMinimumIncrement;
-    *a3 = KeTimeIncrement;
+    *MaximumTime = KeMaximumIncrement;
+    *MinimumTime = KeMinimumIncrement;
+    *CurrentTime = KeTimeIncrement;
   }
-  return 0LL;
+  return 0;
 }

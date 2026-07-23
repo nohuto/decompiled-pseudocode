@@ -1,13 +1,13 @@
 /*
  * XREFs of IoCreateFileEx @ 0x14066E670
  * Callers:
- *     DifIoCreateFileExWrapper @ 0x14060DBD0 (DifIoCreateFileExWrapper.c)
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     IopOpenLinkOrRenameTarget @ 0x1406C78D4 (IopOpenLinkOrRenameTarget.c)
+ *     sub_14060DBD0 @ 0x14060DBD0 (sub_14060DBD0.c)
+ *     sub_14066D650 @ 0x14066D650 (sub_14066D650.c)
+ *     sub_1406C78D4 @ 0x1406C78D4 (sub_1406C78D4.c)
  *     IoCreateFileSpecifyDeviceObjectHint @ 0x1406E0C70 (IoCreateFileSpecifyDeviceObjectHint.c)
  * Callees:
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14066E7C0 (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
+ *     sub_14066E7C0 @ 0x14066E7C0 (sub_14066E7C0.c)
+ *     sub_1407ADB90 @ 0x1407ADB90 (sub_1407ADB90.c)
  */
 
 NTSTATUS __stdcall IoCreateFileEx(
@@ -45,7 +45,7 @@ NTSTATUS __stdcall IoCreateFileEx(
   {
 LABEL_11:
     LODWORD(Size) = EaLength;
-    return IopCreateFile(
+    return sub_1407ADB90(
              v19,
              DesiredAccess,
              v16,
@@ -67,8 +67,7 @@ LABEL_11:
   v21 = v17 | 1;
   if ( !DriverContext->DeviceObjectHint )
     v21 = (Options >> 10) & 2;
-  if ( !ExtraCreateParameter
-    || (result = FsRtlpPrepareExtraCreateParametersForCreate((ULONG_PTR)ExtraCreateParameter), result >= 0) )
+  if ( !ExtraCreateParameter || (result = sub_14066E7C0((ULONG_PTR)ExtraCreateParameter), result >= 0) )
   {
     v23 = v21 | 4;
     if ( !DriverContext->TxnParameters )

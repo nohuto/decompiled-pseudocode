@@ -14,20 +14,24 @@ int __thiscall SbObtainTraceHandle(unsigned int *this)
 {
   char *pShimData; // eax
   _DWORD *v3; // eax
-  unsigned int v5; // ecx
-  unsigned int v6; // edx
-  unsigned int v7; // ecx
-  signed __int64 v8; // kr00_8
+  _DWORD *v4; // edi
+  unsigned int v6; // ecx
+  unsigned int v7; // edx
+  unsigned int v8; // ecx
+  signed __int64 v9; // kr00_8
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // eax
-  volatile signed __int64 *v10; // [esp+10h] [ebp-10h]
-  signed __int64 v12; // [esp+18h] [ebp-8h] BYREF
+  volatile signed __int64 *v11; // [esp+10h] [ebp-10h]
+  ULONGLONG RegHandle; // [esp+18h] [ebp-8h] BYREF
 
-  v12 = 0LL;
+  RegHandle = 0LL;
   pShimData = (char *)NtCurrentPeb()->pShimData;
   if ( !pShimData )
     return 0;
   v3 = pShimData + 2016;
-  if ( !v3 || !v3[12] )
+  if ( !v3 )
+    return 0;
+  v4 = v3 + 12;
+  if ( !v3[12] )
     return 0;
   if ( this )
   {
@@ -36,38 +40,40 @@ int __thiscall SbObtainTraceHandle(unsigned int *this)
   }
   if ( !v3[3] )
     return 0;
-  v5 = v3[4];
-  v10 = (volatile signed __int64 *)(v3 + 4);
-  v6 = v3[5];
-  if ( __PAIR64__(v5, v6) )
+  v6 = v3[4];
+  v11 = (volatile signed __int64 *)(v3 + 4);
+  v7 = v3[5];
+  if ( __PAIR64__(v6, v7) )
   {
     if ( this )
     {
-      *this = v5;
-      this[1] = v6;
+      *this = v6;
+      this[1] = v7;
     }
     return 1;
   }
-  if ( EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0, 0, (int)&v12) )
+  if ( EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0, 0, &RegHandle) )
     return 0;
-  v7 = HIDWORD(v12);
-  v8 = _InterlockedCompareExchange64(v10, v12, 0LL);
-  if ( v8 )
+  v8 = HIDWORD(RegHandle);
+  v9 = _InterlockedCompareExchange64(v11, RegHandle, 0LL);
+  if ( v9 )
   {
-    EtwNotificationUnregister(v12, v7, 0);
+    EtwNotificationUnregister(__PAIR64__(v8, RegHandle), 0);
     if ( this )
-      *(_QWORD *)this = v8;
+      *(_QWORD *)this = v9;
     return 1;
   }
   if ( this )
   {
-    *this = v12;
-    this[1] = v7;
+    *this = RegHandle;
+    this[1] = v8;
   }
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
   SbpTraceContextUpdate(
-    v12,
-    HIDWORD(v12),
+    v4,
+    0,
+    RegHandle,
+    HIDWORD(RegHandle),
     ProcessParameters->ImagePathName.Length,
     ProcessParameters->ImagePathName.Buffer);
   return 1;

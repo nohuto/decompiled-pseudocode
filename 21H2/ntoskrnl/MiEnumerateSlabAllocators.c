@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEnumerateSlabAllocators @ 0x1402B8CCC
+ * XREFs of MiEnumerateSlabAllocators @ 0x140236EDC
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
- *     MiFreeSlabPage @ 0x14037BF74 (MiFreeSlabPage.c)
- *     MiGetSlabAllocatorStandbyList @ 0x140552E84 (MiGetSlabAllocatorStandbyList.c)
- *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
- *     MmUpdateSlabRangeProtection @ 0x140A929A8 (MmUpdateSlabRangeProtection.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
+ *     MiFreeSlabPage @ 0x14037BAC4 (MiFreeSlabPage.c)
+ *     MiGetSlabAllocatorStandbyList @ 0x1405530C4 (MiGetSlabAllocatorStandbyList.c)
+ *     MiDeletePartitionResources @ 0x140561B58 (MiDeletePartitionResources.c)
+ *     MmUpdateSlabRangeProtection @ 0x140A939A8 (MmUpdateSlabRangeProtection.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiEnumerateSlabAllocators(

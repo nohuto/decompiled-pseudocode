@@ -1,11 +1,11 @@
 /*
- * XREFs of SeRegisterElamCertResources @ 0x14078E2C8
+ * XREFs of SeRegisterElamCertResources @ 0x14078E1F8
  * Callers:
- *     ExpQueryElamCertInfo @ 0x1407B4C04 (ExpQueryElamCertInfo.c)
- *     PipInitializeEarlyLaunchDrivers @ 0x140C636C8 (PipInitializeEarlyLaunchDrivers.c)
+ *     ExpQueryElamCertInfo @ 0x1407B5054 (ExpQueryElamCertInfo.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140C65844 (PipInitializeEarlyLaunchDrivers.c)
  * Callees:
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
- *     SepParseElamCertResources @ 0x140A9463C (SepParseElamCertResources.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
+ *     SepParseElamCertResources @ 0x140A90DEC (SepParseElamCertResources.c)
  */
 
 __int64 __fastcall SeRegisterElamCertResources(int a1, __int64 a2, char a3)

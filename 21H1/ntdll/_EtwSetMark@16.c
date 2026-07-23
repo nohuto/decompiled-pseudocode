@@ -7,13 +7,13 @@
  *     _NtTraceEvent@16 @ 0x4B2F2F60 (_NtTraceEvent@16.c)
  */
 
-ULONG __stdcall EtwSetMark(int a1, int a2, int a3, int a4)
+ULONG __cdecl EtwSetMark(TRACEHANDLE TraceHandle, PETW_SET_MARK_INFORMATION MarkInfo, ULONG Size)
 {
-  NTSTATUS v4; // eax
+  NTSTATUS v3; // eax
 
-  v4 = NtTraceEvent(a1, 1536, a4, a3);
-  if ( v4 )
-    return RtlNtStatusToDosError(v4);
+  v3 = NtTraceEvent((HANDLE)TraceHandle, 0x600u, Size, MarkInfo);
+  if ( v3 )
+    return RtlNtStatusToDosError(v3);
   else
     return 0;
 }

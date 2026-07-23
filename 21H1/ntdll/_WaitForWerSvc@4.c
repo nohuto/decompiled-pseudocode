@@ -8,38 +8,38 @@
  *     _NtOpenEvent@12 @ 0x4B2F2D80 (_NtOpenEvent@12.c)
  */
 
-int __fastcall WaitForWerSvc(int a1)
+NTSTATUS __fastcall WaitForWerSvc(int a1)
 {
-  int result; // eax
-  __int64 *v3; // eax
-  int v4; // esi
-  _DWORD v5[6]; // [esp+8h] [ebp-30h] BYREF
-  __int64 v6; // [esp+20h] [ebp-18h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER *p_Timeout; // eax
+  NTSTATUS v4; // esi
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+8h] [ebp-30h] BYREF
+  LARGE_INTEGER Timeout; // [esp+20h] [ebp-18h] BYREF
   _WORD v7[2]; // [esp+2Ch] [ebp-Ch] BYREF
   const wchar_t *v8; // [esp+30h] [ebp-8h]
-  HANDLE Handle; // [esp+34h] [ebp-4h] BYREF
+  HANDLE EventHandle; // [esp+34h] [ebp-4h] BYREF
 
   v7[0] = 70;
   v7[1] = 72;
   v8 = L"\\KernelObjects\\SystemErrorPortReady";
-  v5[2] = v7;
-  v5[0] = 24;
-  v5[1] = 0;
-  memset(&v5[3], 0, 12);
-  result = NtOpenEvent((int)&Handle, 1048577, (int)v5);
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v7;
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.RootDirectory = 0;
+  memset(&ObjectAttributes.Attributes, 0, 12);
+  result = NtOpenEvent(&EventHandle, 0x100001u, &ObjectAttributes);
   if ( result >= 0 )
   {
     if ( a1 == -1 )
     {
-      v3 = 0;
+      p_Timeout = 0;
     }
     else
     {
-      v6 = -10000LL * a1;
-      v3 = &v6;
+      Timeout.QuadPart = -10000LL * a1;
+      p_Timeout = &Timeout;
     }
-    v4 = ZwWaitForSingleObject((int)Handle, 0, (int)v3);
-    NtClose(Handle);
+    v4 = ZwWaitForSingleObject(EventHandle, 0, p_Timeout);
+    NtClose(EventHandle);
     return v4;
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCopyXStateArea @ 0x14050C380
+ * XREFs of RtlCopyXStateArea @ 0x140505DF0
  * Callers:
- *     KeContextFromKframes @ 0x1403D46B0 (KeContextFromKframes.c)
- *     KxContextToKframes @ 0x1403D52E0 (KxContextToKframes.c)
- *     PspGetContext @ 0x140A321C0 (PspGetContext.c)
- *     PspSetContext @ 0x140A32610 (PspSetContext.c)
+ *     KeContextFromKframes @ 0x1403D7680 (KeContextFromKframes.c)
+ *     KxContextToKframes @ 0x1403D82B0 (KxContextToKframes.c)
+ *     PspGetContext @ 0x140A4D120 (PspGetContext.c)
+ *     PspSetContext @ 0x140A4D570 (PspSetContext.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall RtlCopyXStateArea(__int64 a1, __int64 a2, __int64 a3)

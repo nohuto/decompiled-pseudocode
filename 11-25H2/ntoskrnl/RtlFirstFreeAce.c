@@ -11,22 +11,22 @@
  *     <none>
  */
 
-char __fastcall RtlFirstFreeAce(__int64 a1, _QWORD *a2)
+BOOLEAN __cdecl RtlFirstFreeAce(PACL Acl, PVOID *FirstFree)
 {
   unsigned int v2; // eax
-  unsigned __int64 v3; // r8
+  PACL v3; // r8
 
   v2 = 0;
-  v3 = a1 + 8;
-  *a2 = 0LL;
-  while ( v2 < *(unsigned __int16 *)(a1 + 4) )
+  v3 = Acl + 1;
+  *FirstFree = 0LL;
+  while ( v2 < Acl->AceCount )
   {
-    if ( v3 >= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+    if ( v3 >= (PACL)((char *)Acl + Acl->AclSize) )
       return 0;
     ++v2;
-    v3 += *(unsigned __int16 *)(v3 + 2);
+    v3 = (PACL)((char *)v3 + v3->AclSize);
   }
-  if ( v3 <= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
-    *a2 = v3;
+  if ( v3 <= (PACL)((char *)Acl + Acl->AclSize) )
+    *FirstFree = v3;
   return 1;
 }

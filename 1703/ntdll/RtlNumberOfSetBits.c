@@ -6,39 +6,39 @@
  *     <none>
  */
 
-__int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
+ULONG __cdecl RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
 {
-  char *v1; // r10
-  unsigned int v2; // edx
-  int v3; // r14d
-  int v4; // esi
-  unsigned int v5; // edi
+  PULONG Buffer; // r10
+  ULONG v2; // edx
+  ULONG SizeOfBitMap; // r14d
+  ULONG v4; // esi
+  ULONG v5; // edi
   int v6; // r8d
-  unsigned int v7; // r11d
-  unsigned int v8; // r9d
+  ULONG v7; // r11d
+  ULONG v8; // r9d
   int v9; // edx
   int v10; // ebx
-  unsigned int v11; // edx
+  ULONG v11; // edx
   int i; // r8d
   char v13; // cl
   unsigned int v14; // eax
   __int64 v15; // r9
-  unsigned __int64 v16; // rdx
+  __int64 v16; // rdx
   unsigned __int64 v17; // rax
-  unsigned int v19; // r11d
+  ULONG v19; // r11d
   char v20; // cl
 
-  v1 = (char *)*((_QWORD *)a1 + 1);
-  v2 = *a1 >> 3;
-  v3 = *a1;
-  v4 = *a1 & 7;
+  Buffer = BitMapHeader->Buffer;
+  v2 = BitMapHeader->SizeOfBitMap >> 3;
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  v4 = BitMapHeader->SizeOfBitMap & 7;
   v5 = 0;
-  v6 = (unsigned __int8)v1 & 7;
+  v6 = (unsigned __int8)Buffer & 7;
   v7 = v2 + (v4 != 0);
-  if ( 8 - (unsigned __int64)(a1[2] & 7) > (unsigned __int64)*a1 >> 3 )
+  if ( 8 - (unsigned __int64)((__int64)BitMapHeader->Buffer & 7) > (unsigned __int64)BitMapHeader->SizeOfBitMap >> 3 )
   {
     v10 = 0;
-    v8 = v2 + ((*a1 & 7) != 0);
+    v8 = v2 + ((BitMapHeader->SizeOfBitMap & 7) != 0);
     v11 = 0;
   }
   else
@@ -52,9 +52,10 @@ __int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
   }
   for ( i = 0; v8; --v8 )
   {
-    v13 = *v1++;
+    v13 = *(_BYTE *)Buffer;
+    Buffer = (PULONG)((char *)Buffer + 1);
     if ( i == v7 - 1 && v4 )
-      v13 &= byte_180123730[v3 & 7];
+      v13 &= byte_180123730[SizeOfBitMap & 7];
     ++i;
     v5 += *((unsigned __int8 *)&dword_1801237C0[28] + (unsigned __int8)~v13);
   }
@@ -65,9 +66,9 @@ __int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
     i += 8 * v14;
     do
     {
-      v16 = *(_QWORD *)v1;
-      v17 = *(_QWORD *)v1;
-      v1 += 8;
+      v16 = *(_QWORD *)Buffer;
+      v17 = *(_QWORD *)Buffer;
+      Buffer += 2;
       v5 += (unsigned int)((0x101010101010101LL
                           * ((((v16 - ((v17 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
                             + (((v16 - ((v17 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
@@ -82,9 +83,10 @@ __int64 __fastcall RtlNumberOfSetBits(unsigned int *a1)
     v19 = v7 - 1;
     do
     {
-      v20 = *v1++;
+      v20 = *(_BYTE *)Buffer;
+      Buffer = (PULONG)((char *)Buffer + 1);
       if ( i == v19 && v4 )
-        v20 &= byte_180123730[v3 & 7];
+        v20 &= byte_180123730[SizeOfBitMap & 7];
       ++i;
       v5 += *((unsigned __int8 *)&dword_1801237C0[28] + (unsigned __int8)~v20);
       --v10;

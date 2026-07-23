@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfGetVmCppcConfig @ 0x1405D2AE4
+ * XREFs of PpmPerfGetVmCppcConfig @ 0x1405D0204
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PpmPerfPercentageFromFrequency @ 0x14074FB54 (PpmPerfPercentageFromFrequency.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmPerfPercentageFromFrequency @ 0x14074DE84 (PpmPerfPercentageFromFrequency.c)
  */
 
 __int64 __fastcall PpmPerfGetVmCppcConfig(
@@ -28,13 +28,14 @@ __int64 __fastcall PpmPerfGetVmCppcConfig(
   unsigned int v17; // eax
   unsigned int MaxPolicyPercent; // edx
   unsigned int MaxEquivalentFrequencyPercent; // edi
-  __int64 v20; // r9
+  unsigned int v20; // r9d
   unsigned int MinPerfPercent; // ecx
   unsigned int v22; // eax
   unsigned int GuaranteedPercent; // edi
   unsigned int v24; // eax
   unsigned int v25; // r11d
   unsigned int v26; // eax
+  unsigned int v27; // r9d
 
   v10 = a2;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock, a2, a3);
@@ -69,8 +70,8 @@ __int64 __fastcall PpmPerfGetVmCppcConfig(
       if ( (_DWORD)v13 == -1 )
         v20 = MaxEquivalentFrequencyPercent;
       else
-        v20 = (unsigned int)PpmPerfPercentageFromFrequency(v13, Domain->NominalFrequency);
-      if ( !a6 && (unsigned int)v20 >= MaxEquivalentFrequencyPercent )
+        v20 = PpmPerfPercentageFromFrequency(v13, Domain->NominalFrequency);
+      if ( !a6 && v20 >= MaxEquivalentFrequencyPercent )
         v20 = MaxEquivalentFrequencyPercent;
       if ( v12 == -1 )
       {
@@ -86,23 +87,23 @@ __int64 __fastcall PpmPerfGetVmCppcConfig(
         MinPerfPercent = PpmPerfPercentageFromFrequency(v12, Domain->NominalFrequency);
       }
       v22 = v20;
-      if ( MinPerfPercent < (unsigned int)v20 )
+      if ( MinPerfPercent < v20 )
         v22 = MinPerfPercent;
       if ( MinThrottlePercent <= v22 )
       {
         MinThrottlePercent = MinPerfPercent;
-        if ( MinPerfPercent >= (unsigned int)v20 )
+        if ( MinPerfPercent >= v20 )
           MinThrottlePercent = v20;
       }
       GuaranteedPercent = Domain->GuaranteedPercent;
       v24 = MaxPercent;
       if ( MinThrottlePercent < GuaranteedPercent )
         GuaranteedPercent = MinThrottlePercent;
-      if ( (unsigned int)v20 < MaxPercent )
+      if ( v20 < MaxPercent )
         v24 = v20;
       if ( GuaranteedPercent <= v24 )
       {
-        if ( (unsigned int)v20 >= MaxPercent )
+        if ( v20 >= MaxPercent )
           v20 = MaxPercent;
       }
       else
@@ -116,19 +117,19 @@ __int64 __fastcall PpmPerfGetVmCppcConfig(
       {
         v26 = PpmPerfPercentageFromFrequency(a3, Domain->NominalFrequency);
         v25 = v26;
-        if ( (unsigned int)v20 < v26 )
-          v26 = v20;
+        if ( v27 < v26 )
+          v26 = v27;
         if ( GuaranteedPercent <= v26 )
         {
-          if ( (unsigned int)v20 < v25 )
-            v25 = v20;
+          if ( v27 < v25 )
+            v25 = v27;
         }
         else
         {
           v25 = GuaranteedPercent;
         }
       }
-      guard_dispatch_icall_no_overrides(Domain->Processors->PerfContext, v25, GuaranteedPercent, v20);
+      guard_dispatch_icall_no_overrides(Domain->Processors->PerfContext, v25);
     }
   }
   else

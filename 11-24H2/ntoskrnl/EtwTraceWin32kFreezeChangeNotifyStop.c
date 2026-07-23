@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceWin32kFreezeChangeNotifyStop @ 0x1407A9BEC
+ * XREFs of EtwTraceWin32kFreezeChangeNotifyStop @ 0x1407A9D2C
  * Callers:
- *     PspPostFreezeOperationWorker @ 0x140A7EC10 (PspPostFreezeOperationWorker.c)
- *     PspWin32kProcessFreezeNotify @ 0x140A8E398 (PspWin32kProcessFreezeNotify.c)
+ *     PspPostFreezeOperationWorker @ 0x140A783C0 (PspPostFreezeOperationWorker.c)
+ *     PspWin32kProcessFreezeNotify @ 0x140A8A968 (PspWin32kProcessFreezeNotify.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceWin32kFreezeChangeNotifyStop(__int64 a1, __int64 a2, __int16 a3)
@@ -33,7 +33,7 @@ void __fastcall EtwTraceWin32kFreezeChangeNotifyStop(__int64 a1, __int64 a2, __i
   __int16 v22; // [rsp+E0h] [rbp+77h] BYREF
 
   v22 = a3;
-  if ( (unsigned int)dword_140E090F0 > 5 && tlgKeywordOn((__int64)&dword_140E090F0, 4LL) )
+  if ( (unsigned int)dword_140E09160 > 5 && tlgKeywordOn((__int64)&dword_140E09160, 4LL) )
   {
     v7 = v3;
     v11 = &v8;
@@ -49,6 +49,6 @@ void __fastcall EtwTraceWin32kFreezeChangeNotifyStop(__int64 a1, __int64 a2, __i
     v16 = 2LL;
     v17 = v5;
     v21 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E090F0, (unsigned __int8 *)byte_140052FCB, 0LL, 0LL, 7u, &v10);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09160, (unsigned __int8 *)byte_14005374B, 0LL, 0LL, 7u, &v10);
   }
 }

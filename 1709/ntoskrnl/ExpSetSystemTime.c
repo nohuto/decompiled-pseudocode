@@ -16,7 +16,7 @@ __int64 __fastcall ExpSetSystemTime(char a1, char a2, unsigned int a3, LARGE_INT
 {
   LARGE_INTEGER SystemTime; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+28h] [rbp-28h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
 
   SystemTime = a4;
   if ( ExpRealTimeIsUniversal )

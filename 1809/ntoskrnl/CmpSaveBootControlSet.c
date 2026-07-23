@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpSaveBootControlSet @ 0x1407E88D0
+ * XREFs of CmpSaveBootControlSet @ 0x1407E9AD0
  * Callers:
- *     CmpAcceptBoot @ 0x14071DD88 (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x14071F028 (CmpAcceptBoot.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
@@ -11,29 +11,29 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwQuerySecurityObject @ 0x1401BAC10 (ZwQuerySecurityObject.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpRebuildKcbCache @ 0x1405A8F78 (CmpRebuildKcbCache.c)
- *     CmpCleanupRollbackPacket @ 0x1405AFF78 (CmpCleanupRollbackPacket.c)
- *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
- *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpAbortRollbackPacket @ 0x1407027CC (CmpAbortRollbackPacket.c)
- *     CmpTryAcquireKcbIXLocks @ 0x14071C0DC (CmpTryAcquireKcbIXLocks.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x14071E9FC (CmpPrepareForSubtreeInvalidation.c)
- *     CmpInvalidateSubtree @ 0x14071EE5C (CmpInvalidateSubtree.c)
- *     CmpRetryBackOff @ 0x1407F8AA4 (CmpRetryBackOff.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpCopySyncTree @ 0x1407FCB60 (CmpCopySyncTree.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D81C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwQuerySecurityObject @ 0x1401BAD70 (ZwQuerySecurityObject.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpRebuildKcbCache @ 0x1405A9F78 (CmpRebuildKcbCache.c)
+ *     CmpCleanupRollbackPacket @ 0x1405B0F78 (CmpCleanupRollbackPacket.c)
+ *     CmpLockRegistryExclusive @ 0x1405B26C8 (CmpLockRegistryExclusive.c)
+ *     CmObReferenceObjectByHandle @ 0x1405CE4CC (CmObReferenceObjectByHandle.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405D78BC (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406D0908 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpAbortRollbackPacket @ 0x140703A6C (CmpAbortRollbackPacket.c)
+ *     CmpTryAcquireKcbIXLocks @ 0x14071D37C (CmpTryAcquireKcbIXLocks.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x14071FC9C (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpInvalidateSubtree @ 0x1407200FC (CmpInvalidateSubtree.c)
+ *     CmpRetryBackOff @ 0x1407F9CA4 (CmpRetryBackOff.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407FAE88 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpCopySyncTree @ 0x1407FDD60 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)
@@ -254,20 +254,20 @@ LABEL_34:
   }
   if ( v6 < 0 )
   {
-    if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+    if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
     {
       v34 = v6;
       v45 = &v34;
       v46 = 4LL;
-      TlgWrite(&stru_1403FFAA0, &unk_14036BA49, 0LL, 0LL, 3u, &v44);
+      TlgWrite(&stru_140400AA0, &unk_14036C9D9, 0LL, 0LL, 3u, &v44);
     }
   }
-  else if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+  else if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
   {
     v33 = v25;
     v42 = &v33;
     v43 = 4LL;
-    TlgWrite(&stru_1403FFAA0, &unk_14036BA7E, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_140400AA0, &unk_14036CA0E, 0LL, 0LL, 3u, &pData);
   }
   return (unsigned int)v6;
 }

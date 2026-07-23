@@ -1,10 +1,10 @@
 /*
- * XREFs of ViPtInitCircularPoolTrace @ 0x140ADEE5C
+ * XREFs of ViPtInitCircularPoolTrace @ 0x140ADEE4C
  * Callers:
- *     VfPoolTrackingEntry @ 0x1405D2128 (VfPoolTrackingEntry.c)
+ *     VfPoolTrackingEntry @ 0x1405D2698 (VfPoolTrackingEntry.c)
  * Callees:
- *     ExSetPoolFlags @ 0x140607A98 (ExSetPoolFlags.c)
- *     MmGetNumberOfPhysicalPages @ 0x1407B98F0 (MmGetNumberOfPhysicalPages.c)
+ *     ExSetPoolFlags @ 0x140607FE8 (ExSetPoolFlags.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1407B9BD0 (MmGetNumberOfPhysicalPages.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  */
 

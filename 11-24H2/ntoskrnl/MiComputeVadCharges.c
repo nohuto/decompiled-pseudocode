@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeVadCharges @ 0x140236208
+ * XREFs of MiComputeVadCharges @ 0x140210398
  * Callers:
- *     MiDeletePartialVad @ 0x1403CDE5C (MiDeletePartialVad.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF044 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiInsertVadCharges @ 0x1408E2418 (MiInsertVadCharges.c)
+ *     MiDeletePartialVad @ 0x1402675A0 (MiDeletePartialVad.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF7B4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInsertVadCharges @ 0x140918FC8 (MiInsertVadCharges.c)
  * Callees:
- *     MiVadPureReserve @ 0x140236380 (MiVadPureReserve.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     MiComputeAweCharges @ 0x1406F57C8 (MiComputeAweCharges.c)
- *     MiResidentPagesForSpan @ 0x1409B0784 (MiResidentPagesForSpan.c)
+ *     MiVadPureReserve @ 0x140210510 (MiVadPureReserve.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     MiComputeAweCharges @ 0x1406F37C8 (MiComputeAweCharges.c)
+ *     MiResidentPagesForSpan @ 0x14099A484 (MiResidentPagesForSpan.c)
  */
 
 __int64 __fastcall MiComputeVadCharges(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall MiComputeVadCharges(__int64 a1, __int64 a2)
     v6 = *(_DWORD *)(v2 + 48);
     v7 = 0LL;
     *(_QWORD *)(a2 + 16) = 136LL;
-    if ( (v6 & 0x200000) == 0 && !(unsigned int)MiVadPureReserve(v2) )
+    if ( (v6 & 0x200000) == 0 && !(unsigned int)MiVadPureReserve(v2, a2, 0LL, v2) )
       *(_QWORD *)(a2 + 8) = 8
                           * ((*(unsigned int *)(v2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v2 + 33) << 32))
                            - (*(unsigned int *)(v2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v2 + 32) << 32)))

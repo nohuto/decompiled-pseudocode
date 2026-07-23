@@ -1,11 +1,11 @@
 /*
- * XREFs of PopHibernateEvaluation @ 0x140943464
+ * XREFs of PopHibernateEvaluation @ 0x1409BEDDC
  * Callers:
- *     PoInitHiberServices @ 0x1407C8370 (PoInitHiberServices.c)
- *     PopWnfHibernatePolicyCallback @ 0x1407D0DE0 (PopWnfHibernatePolicyCallback.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     PoInitHiberServices @ 0x1407CB3D0 (PoInitHiberServices.c)
+ *     PopWnfHibernatePolicyCallback @ 0x1407D3E80 (PopWnfHibernatePolicyCallback.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopEnableHiberFile @ 0x14094353C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x1409BEEB4 (PopEnableHiberFile.c)
  */
 
 __int64 __fastcall PopHibernateEvaluation(char a1, char a2, bool *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PopHibernateEvaluation(char a1, char a2, bool *a3)
   }
   if ( a2 )
   {
-    p_SparePtr = &stru_140FC01F0.WaitBlock[1].SparePtr;
+    p_SparePtr = &stru_140FC11F0.WaitBlock[1].SparePtr;
     v7 = 2LL;
     do
     {

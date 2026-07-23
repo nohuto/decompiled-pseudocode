@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAcquireQueuedSpinLockRaiseToSynch @ 0x140516130
+ * XREFs of KeAcquireQueuedSpinLockRaiseToSynch @ 0x140516370
  * Callers:
- *     VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x1409DA920 (VerifierKeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x1409DB920 (VerifierKeAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  */
 
 unsigned __int8 __fastcall KeAcquireQueuedSpinLockRaiseToSynch(__int64 a1)

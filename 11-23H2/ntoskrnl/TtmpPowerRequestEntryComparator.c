@@ -1,7 +1,7 @@
 /*
- * XREFs of TtmpPowerRequestEntryComparator @ 0x1409A577C
+ * XREFs of TtmpPowerRequestEntryComparator @ 0x1409A597C
  * Callers:
- *     TtmpFindPowerRequestEntryById @ 0x1409A5298 (TtmpFindPowerRequestEntryById.c)
+ *     TtmpFindPowerRequestEntryById @ 0x1409A5498 (TtmpFindPowerRequestEntryById.c)
  * Callees:
  *     <none>
  */

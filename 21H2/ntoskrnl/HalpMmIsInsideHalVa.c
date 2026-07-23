@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpMmIsInsideHalVa @ 0x1404BCA24
+ * XREFs of HalpMmIsInsideHalVa @ 0x1404BCC64
  * Callers:
- *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x1404D53FC (ExtEnvFreePhysicalMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D55FC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x1404D563C (ExtEnvFreePhysicalMemory.c)
  * Callees:
  *     <none>
  */

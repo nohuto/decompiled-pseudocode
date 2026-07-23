@@ -5,8 +5,8 @@
  * Callees:
  *     MiCreateCombineAnchor @ 0x14021503C (MiCreateCombineAnchor.c)
  *     MiCombineWithExisting @ 0x1402179B4 (MiCombineWithExisting.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiDecrementCombinedPteEx @ 0x1402F3B18 (MiDecrementCombinedPteEx.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
+ *     MiDecrementCombinedPteEx @ 0x1402F3DA8 (MiDecrementCombinedPteEx.c)
  */
 
 __int64 __fastcall MiConvertPrivateToProto(__int64 *a1, __int64 a2, __int64 a3)

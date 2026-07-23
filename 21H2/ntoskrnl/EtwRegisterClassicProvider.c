@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwRegisterClassicProvider @ 0x140762C60
+ * XREFs of EtwRegisterClassicProvider @ 0x140762E20
  * Callers:
- *     VslpIumPhase4Initialize @ 0x1403CEDD8 (VslpIumPhase4Initialize.c)
- *     WmipProcessLegacyEtwRegister @ 0x1407C5120 (WmipProcessLegacyEtwRegister.c)
+ *     VslpIumPhase4Initialize @ 0x1403CEF48 (VslpIumPhase4Initialize.c)
+ *     WmipProcessLegacyEtwRegister @ 0x1407C5640 (WmipProcessLegacyEtwRegister.c)
  * Callees:
- *     EtwpRegisterProvider @ 0x140762D20 (EtwpRegisterProvider.c)
+ *     EtwpRegisterProvider @ 0x140762EE0 (EtwpRegisterProvider.c)
  */
 
 __int64 __fastcall EtwRegisterClassicProvider(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

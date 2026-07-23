@@ -6,62 +6,62 @@
  *     _RtlUpperChar@4 @ 0x4B2E0B70 (_RtlUpperChar@4.c)
  */
 
-unsigned int __stdcall RtlCompareString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+LONG __cdecl RtlCompareString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  char *v3; // esi
-  unsigned int v4; // edi
+  char *Buffer; // esi
+  unsigned int Length; // edi
   unsigned int v5; // ecx
   char *v6; // ebx
-  int v7; // ebx
+  char *v7; // ebx
   int v8; // eax
   unsigned __int8 v9; // cl
-  int v11; // eax
+  char *v11; // eax
   unsigned __int8 v12; // dl
   unsigned int v13; // [esp+Ch] [ebp-14h]
   char *v14; // [esp+10h] [ebp-10h]
-  char v15; // [esp+17h] [ebp-9h]
-  char v16; // [esp+1Fh] [ebp-1h]
+  CHAR v15; // [esp+17h] [ebp-9h]
+  CHAR v16; // [esp+1Fh] [ebp-1h]
 
-  v3 = (char *)*((_DWORD *)a1 + 1);
-  v4 = *a1;
-  v5 = *a2;
+  Buffer = String1->Buffer;
+  Length = String1->Length;
+  v5 = String2->Length;
   v13 = v5;
-  if ( v4 <= v5 )
-    v5 = *a1;
-  v6 = &v3[v5];
-  v14 = &v3[v5];
-  if ( v3 >= &v3[v5] )
-    return v4 - v13;
-  if ( a3 )
+  if ( Length <= v5 )
+    v5 = String1->Length;
+  v6 = &Buffer[v5];
+  v14 = &Buffer[v5];
+  if ( Buffer >= &Buffer[v5] )
+    return Length - v13;
+  if ( CaseInSensitive )
   {
-    v7 = *((_DWORD *)a2 + 1) - (_DWORD)v3;
+    v7 = (char *)(String2->Buffer - Buffer);
     while ( 1 )
     {
-      v15 = v3[v7];
-      if ( *v3 != v15 )
+      v15 = Buffer[(_DWORD)v7];
+      if ( *Buffer != v15 )
       {
-        v16 = RtlUpperChar(*v3);
+        v16 = RtlUpperChar(*Buffer);
         LOBYTE(v8) = RtlUpperChar(v15);
         v9 = v16;
         if ( v16 != (_BYTE)v8 )
           break;
       }
-      if ( ++v3 >= v14 )
-        return v4 - v13;
+      if ( ++Buffer >= v14 )
+        return Length - v13;
     }
     v8 = (unsigned __int8)v8;
   }
   else
   {
-    v11 = *((_DWORD *)a2 + 1) - (_DWORD)v3;
+    v11 = (char *)(String2->Buffer - Buffer);
     while ( 1 )
     {
-      v9 = *v3;
-      v12 = v3[v11];
-      if ( *v3 != v12 )
+      v9 = *Buffer;
+      v12 = Buffer[(_DWORD)v11];
+      if ( *Buffer != v12 )
         break;
-      if ( ++v3 >= v6 )
-        return v4 - v13;
+      if ( ++Buffer >= v6 )
+        return Length - v13;
     }
     v8 = v12;
   }

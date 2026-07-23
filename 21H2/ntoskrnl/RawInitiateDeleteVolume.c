@@ -1,20 +1,20 @@
 /*
- * XREFs of RawInitiateDeleteVolume @ 0x140360A2C
+ * XREFs of RawInitiateDeleteVolume @ 0x1402A592C
  * Callers:
- *     RawCompletionRoutine @ 0x1403606A0 (RawCompletionRoutine.c)
- *     RawVerifyVolume @ 0x140584E44 (RawVerifyVolume.c)
- *     RawReadWriteDeviceControl @ 0x14071AD48 (RawReadWriteDeviceControl.c)
- *     RawCreate @ 0x14071AE04 (RawCreate.c)
- *     RawClose @ 0x14071AF9C (RawClose.c)
- *     RawCleanup @ 0x14071B01C (RawCleanup.c)
+ *     RawCompletionRoutine @ 0x1402A55A0 (RawCompletionRoutine.c)
+ *     RawVerifyVolume @ 0x140585074 (RawVerifyVolume.c)
+ *     RawReadWriteDeviceControl @ 0x1406C8A38 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x1406C8AF4 (RawCreate.c)
+ *     RawClose @ 0x1406C8C8C (RawClose.c)
+ *     RawCleanup @ 0x1406C8D0C (RawCleanup.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     IoReleaseVpbSpinLock @ 0x140360CB0 (IoReleaseVpbSpinLock.c)
- *     IoAcquireVpbSpinLock @ 0x140360CD0 (IoAcquireVpbSpinLock.c)
- *     memset @ 0x140414200 (memset.c)
- *     RawCleanupVcb @ 0x14071A630 (RawCleanupVcb.c)
- *     RawDeleteVcb @ 0x14071B46C (RawDeleteVcb.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     IoReleaseVpbSpinLock @ 0x1402A5BB0 (IoReleaseVpbSpinLock.c)
+ *     IoAcquireVpbSpinLock @ 0x1402A5BD0 (IoAcquireVpbSpinLock.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RawDeleteVcb @ 0x1406C98D8 (RawDeleteVcb.c)
+ *     RawCleanupVcb @ 0x1406CA0E4 (RawCleanupVcb.c)
  */
 
 char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, int a2, int a3)
@@ -33,7 +33,7 @@ char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeade
   struct _LIST_ENTRY *v18; // rax
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx
-  KIRQL Irql; // [rsp+30h] [rbp+8h] BYREF
+  UCHAR Irql; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0;
   Irql = 0;
@@ -92,13 +92,13 @@ LABEL_21:
           v17->Flink = v16;
           v16->Blink = v17;
           *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 6u;
-          v18 = (struct _LIST_ENTRY *)qword_140C1DF28;
-          if ( *(__int64 **)qword_140C1DF28 == &RawDismountedQueue )
+          v18 = (struct _LIST_ENTRY *)qword_140C1DF08;
+          if ( *(__int64 **)qword_140C1DF08 == &RawDismountedQueue )
           {
             *(_QWORD *)p_FilterContexts = &RawDismountedQueue;
             AdvancedHeader[1].FilterContexts.Blink = v18;
             v18->Flink = (struct _LIST_ENTRY *)p_FilterContexts;
-            qword_140C1DF28 = (__int64)&AdvancedHeader[1].FilterContexts;
+            qword_140C1DF08 = (__int64)&AdvancedHeader[1].FilterContexts;
             KeReleaseGuardedMutex(&RawGlobalLock);
             return v3;
           }

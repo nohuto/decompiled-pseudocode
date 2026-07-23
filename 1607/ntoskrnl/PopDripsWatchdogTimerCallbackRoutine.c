@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDripsWatchdogTimerCallbackRoutine @ 0x14020D6D4
+ * XREFs of PopDripsWatchdogTimerCallbackRoutine @ 0x14020D500
  * Callers:
  *     <none>
  * Callees:
- *     PopCalculateIdleInformation @ 0x140207954 (PopCalculateIdleInformation.c)
+ *     PopCalculateIdleInformation @ 0x140207780 (PopCalculateIdleInformation.c)
  */
 
 char __fastcall PopDripsWatchdogTimerCallbackRoutine(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlFreeExtraCreateParameterList @ 0x140414F98
+ * XREFs of FsRtlFreeExtraCreateParameterList @ 0x140413E58
  * Callers:
- *     FsRtlpRestoreCallerEcpsToCallerList @ 0x1401B8120 (FsRtlpRestoreCallerEcpsToCallerList.c)
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
- *     PspCreateUserProcessEcp @ 0x14045C848 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x140540F84 (IopSymlinkAllocateAndAddECP.c)
+ *     FsRtlpRestoreCallerEcpsToCallerList @ 0x1401B8004 (FsRtlpRestoreCallerEcpsToCallerList.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
+ *     PspCreateUserProcessEcp @ 0x14045B718 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405414C4 (IopSymlinkAllocateAndAddECP.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1404150D0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x140413F90 (FsRtlFreeExtraCreateParameter.c)
  */
 
 void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
@@ -31,7 +31,7 @@ void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
     FsRtlFreeExtraCreateParameter(&Flink[4]);
   }
   if ( (EcpList->Flags & 4) != 0 )
-    ExFreeToNPagedLookasideList(&FsRtlEcpListLookaside, EcpList);
+    ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlEcpListLookaside, EcpList);
   else
     ExFreePoolWithTag(EcpList, 0);
 }

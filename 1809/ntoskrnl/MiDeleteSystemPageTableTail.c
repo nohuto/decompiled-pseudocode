@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteSystemPageTableTail @ 0x140120730
+ * XREFs of MiDeleteSystemPageTableTail @ 0x140120800
  * Callers:
  *     <none>
  * Callees:
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiReturnSystemCharges @ 0x1401207D4 (MiReturnSystemCharges.c)
- *     MiFreeUnmappedPageTables @ 0x140120860 (MiFreeUnmappedPageTables.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiReturnSystemCharges @ 0x1401208A4 (MiReturnSystemCharges.c)
+ *     MiFreeUnmappedPageTables @ 0x140120930 (MiFreeUnmappedPageTables.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiDeleteSystemPageTableTail(__int64 a1)
@@ -30,9 +30,9 @@ __int64 __fastcall MiDeleteSystemPageTableTail(__int64 a1)
     v2[1] = 0LL;
     if ( v9[3] )
     {
-      if ( qword_14043E7A8 )
+      if ( qword_14043F868 )
       {
-        v8 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 24) + 174LL));
+        v8 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 24) + 174LL));
         MiReturnCommit(v8, v9[3] - v9[1]);
         MiReturnSystemCharges(v8, v9[3], *(unsigned int *)v2);
       }

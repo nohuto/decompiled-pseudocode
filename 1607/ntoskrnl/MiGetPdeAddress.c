@@ -1,18 +1,18 @@
 /*
- * XREFs of MiGetPdeAddress @ 0x1400AB5EC
+ * XREFs of MiGetPdeAddress @ 0x1400847A4
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x140434210 (MiReturnPageTablePageCommitment.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiMapProcessExecutable @ 0x14046CDE8 (MiMapProcessExecutable.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MiCreatePagingFileMap @ 0x1404B8370 (MiCreatePagingFileMap.c)
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
- *     MiSessionCreateInternal @ 0x140536508 (MiSessionCreateInternal.c)
- *     MiMapNewSession @ 0x140536994 (MiMapNewSession.c)
- *     MiMapUserLargePages @ 0x140662B28 (MiMapUserLargePages.c)
- *     MiUnmapLargeDriver @ 0x140662F2C (MiUnmapLargeDriver.c)
- *     MiDeleteLargePfnBitMap @ 0x1406648A0 (MiDeleteLargePfnBitMap.c)
- *     MmAreMdlPagesLocked @ 0x140701990 (MmAreMdlPagesLocked.c)
+ *     MiReturnPageTablePageCommitment @ 0x1404330E0 (MiReturnPageTablePageCommitment.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiMapProcessExecutable @ 0x14046BCB8 (MiMapProcessExecutable.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MiCreatePagingFileMap @ 0x1404A2750 (MiCreatePagingFileMap.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
+ *     MiSessionCreateInternal @ 0x140536A48 (MiSessionCreateInternal.c)
+ *     MiMapNewSession @ 0x140536ED4 (MiMapNewSession.c)
+ *     MiMapUserLargePages @ 0x140662C0C (MiMapUserLargePages.c)
+ *     MiUnmapLargeDriver @ 0x140663010 (MiUnmapLargeDriver.c)
+ *     MiDeleteLargePfnBitMap @ 0x140664984 (MiDeleteLargePfnBitMap.c)
+ *     MmAreMdlPagesLocked @ 0x1407019C0 (MmAreMdlPagesLocked.c)
  * Callees:
  *     <none>
  */

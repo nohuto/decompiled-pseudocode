@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateSystemTime @ 0x1404A7710
+ * XREFs of KiUpdateSystemTime @ 0x1404A2140
  * Callers:
- *     KeSetTimeAdjustment @ 0x1402A0168 (KeSetTimeAdjustment.c)
- *     KiSetSystemTimeDpc @ 0x14047BEC0 (KiSetSystemTimeDpc.c)
- *     KiCalibrateTimeAdjustment @ 0x140B6B5B0 (KiCalibrateTimeAdjustment.c)
+ *     KeSetTimeAdjustment @ 0x140317AD8 (KeSetTimeAdjustment.c)
+ *     KiSetSystemTimeDpc @ 0x140477490 (KiSetSystemTimeDpc.c)
+ *     KiCalibrateTimeAdjustment @ 0x140B6BCD0 (KiCalibrateTimeAdjustment.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiComputeNewSystemTime @ 0x14029D3EC (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x14029D4E4 (RtlWriteAcquireTickLock.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiComputeNewSystemTime @ 0x1402ABEDC (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1402ABFD4 (RtlWriteAcquireTickLock.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall KiUpdateSystemTime(__int64 a1, __int64 a2, char a3)

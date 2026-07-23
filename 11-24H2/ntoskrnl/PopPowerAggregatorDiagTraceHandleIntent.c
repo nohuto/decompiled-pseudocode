@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x1409BC414
+ * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x1409A2A64
  * Callers:
- *     PopPowerAggregatorRecordIntent @ 0x1409BC260 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1409A28B0 (PopPowerAggregatorRecordIntent.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopPowerAggregatorDiagTraceHandleIntent(
@@ -107,9 +107,9 @@ char __fastcall PopPowerAggregatorDiagTraceHandleIntent(
     if ( (_BYTE)v10 )
       LOBYTE(v10) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_HANDLE_INTENT, 0LL, 9u, &UserData);
   }
-  if ( *a4 != *v7 && a6 >= 0 && (unsigned int)dword_140E076F0 > 5 )
+  if ( *a4 != *v7 && a6 >= 0 && (unsigned int)dword_140E07680 > 5 )
   {
-    LOBYTE(v10) = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+    LOBYTE(v10) = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
     if ( (_BYTE)v10 )
     {
       v18 = v61;
@@ -139,8 +139,8 @@ char __fastcall PopPowerAggregatorDiagTraceHandleIntent(
       v24 = 0x1000000LL;
       v60 = 8LL;
       LOBYTE(v10) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140E076F0,
-                      (unsigned __int8 *)&byte_14004F6DF,
+                      (__int64)&dword_140E07680,
+                      (unsigned __int8 *)byte_1400501D9,
                       0LL,
                       0LL,
                       0xBu,

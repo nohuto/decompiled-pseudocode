@@ -1,23 +1,23 @@
 /*
- * XREFs of BiGetNtPartitionPath @ 0x140813BA8
+ * XREFs of BiGetNtPartitionPath @ 0x1408142E8
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x1408127CC (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140812F0C (BiConvertBootEnvironmentDeviceToNt.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ZwOpenDirectoryObject @ 0x1406A6F10 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x1406A8DD0 (ZwQueryDirectoryObject.c)
- *     BiIsValidDiskDevice @ 0x1406F9AF4 (BiIsValidDiskDevice.c)
- *     BiGetDriveLayoutBlock @ 0x140813AC8 (BiGetDriveLayoutBlock.c)
- *     BiVerifyBootPartition @ 0x1408144D0 (BiVerifyBootPartition.c)
- *     BiTranslateSymbolicLink @ 0x140A83F4C (BiTranslateSymbolicLink.c)
- *     BiGetPartitionVhdFilePath @ 0x140A86BE0 (BiGetPartitionVhdFilePath.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ZwOpenDirectoryObject @ 0x1406A7EB0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1406A9D70 (ZwQueryDirectoryObject.c)
+ *     BiIsValidDiskDevice @ 0x1406F7734 (BiIsValidDiskDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x140814208 (BiGetDriveLayoutBlock.c)
+ *     BiVerifyBootPartition @ 0x140814C10 (BiVerifyBootPartition.c)
+ *     BiTranslateSymbolicLink @ 0x140A7EA6C (BiTranslateSymbolicLink.c)
+ *     BiGetPartitionVhdFilePath @ 0x140A816B8 (BiGetPartitionVhdFilePath.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetNtPartitionPath(int a1, _QWORD *a2)
@@ -26,9 +26,9 @@ __int64 __fastcall BiGetNtPartitionPath(int a1, _QWORD *a2)
   wchar_t **v3; // r13
   int v4; // eax
   wchar_t *v5; // r12
-  int DirectoryObject; // ebx
+  NTSTATUS v6; // ebx
   void *Pool2; // r14
-  int i; // esi
+  ULONG i; // esi
   int v10; // esi
   char v11; // bl
   wchar_t **v12; // r15
@@ -37,95 +37,91 @@ __int64 __fastcall BiGetNtPartitionPath(int a1, _QWORD *a2)
   _QWORD *v15; // rbx
   __int64 j; // rax
   __int64 v17; // r15
-  ULONG v18; // eax
+  int v18; // eax
   const wchar_t *PartitionVhdFilePath; // rax
   bool v20; // zf
   __int64 v21; // rcx
   const wchar_t *v22; // rax
-  ULONG ShareAccess[2]; // [rsp+20h] [rbp-E0h]
-  int *OpenOptions; // [rsp+28h] [rbp-D8h]
-  __int64 v25; // [rsp+30h] [rbp-D0h]
-  char v26; // [rsp+40h] [rbp-C0h]
-  bool v27; // [rsp+44h] [rbp-BCh]
-  int v28; // [rsp+48h] [rbp-B8h]
-  wchar_t **v29; // [rsp+50h] [rbp-B0h]
-  int v30; // [rsp+58h] [rbp-A8h] BYREF
+  BOOLEAN RestartScan[8]; // [rsp+20h] [rbp-E0h]
+  char v24; // [rsp+40h] [rbp-C0h]
+  bool v25; // [rsp+44h] [rbp-BCh]
+  int v26; // [rsp+48h] [rbp-B8h]
+  wchar_t **v27; // [rsp+50h] [rbp-B0h]
+  ULONG Context; // [rsp+58h] [rbp-A8h] BYREF
   HANDLE DirectoryHandle; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD *v32; // [rsp+68h] [rbp-98h] BYREF
+  _QWORD *v30; // [rsp+68h] [rbp-98h] BYREF
   wchar_t *Str1; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v34; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v32; // [rsp+78h] [rbp-88h] BYREF
   PVOID P; // [rsp+80h] [rbp-80h] BYREF
-  _DWORD *v36; // [rsp+88h] [rbp-78h] BYREF
+  _DWORD *v34; // [rsp+88h] [rbp-78h] BYREF
   HANDLE FileHandle; // [rsp+90h] [rbp-70h] BYREF
-  void *v38; // [rsp+98h] [rbp-68h]
-  _QWORD *v39; // [rsp+A0h] [rbp-60h]
+  void *v36; // [rsp+98h] [rbp-68h]
+  _QWORD *v37; // [rsp+A0h] [rbp-60h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-58h] BYREF
-  OBJECT_ATTRIBUTES v41; // [rsp+D8h] [rbp-28h] BYREF
+  OBJECT_ATTRIBUTES v39; // [rsp+D8h] [rbp-28h] BYREF
   UNICODE_STRING DestinationString; // [rsp+108h] [rbp+8h] BYREF
-  UNICODE_STRING v43; // [rsp+118h] [rbp+18h] BYREF
+  UNICODE_STRING v41; // [rsp+118h] [rbp+18h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+128h] [rbp+28h] BYREF
-  _OWORD v45[2]; // [rsp+138h] [rbp+38h] BYREF
-  __int64 v46; // [rsp+158h] [rbp+58h]
+  _OWORD v43[2]; // [rsp+138h] [rbp+38h] BYREF
+  __int64 v44; // [rsp+158h] [rbp+58h]
 
-  v39 = a2;
-  v36 = 0LL;
-  v46 = 0LL;
+  v37 = a2;
+  v34 = 0LL;
+  v44 = 0LL;
   v2 = 0LL;
   FileHandle = 0LL;
   v3 = 0LL;
-  memset(v45, 0, sizeof(v45));
-  v30 = 0;
+  memset(v43, 0, sizeof(v43));
+  Context = 0;
   P = 0LL;
   memset(&ObjectAttributes, 0, 44);
+  v30 = 0LL;
   v32 = 0LL;
-  v34 = 0LL;
   DestinationString = 0LL;
   DirectoryHandle = 0LL;
-  memset(&v41, 0, 44);
-  v38 = 0LL;
+  memset(&v39, 0, 44);
+  v36 = 0LL;
   Str1 = 0LL;
   IoStatusBlock = 0LL;
-  v43 = 0LL;
-  v4 = BiVerifyBootPartition(a1, (unsigned int)&v32, (unsigned int)&v36, (unsigned int)&v34, (__int64)&Str1, 0LL);
+  v41 = 0LL;
+  v4 = BiVerifyBootPartition(a1, (unsigned int)&v30, (unsigned int)&v34, (unsigned int)&v32, (__int64)&Str1, 0LL);
   v5 = Str1;
-  DirectoryObject = v4;
+  v6 = v4;
   if ( v4 < 0 )
     goto LABEL_77;
-  Pool2 = (void *)ExAllocatePool2(0x102uLL);
+  Pool2 = (void *)ExAllocatePool2(0x102uLL, 0x58uLL, 0x4B444342u);
   if ( !Pool2 )
     return 3221225495LL;
-  v27 = 0;
-  if ( v5 && !v32 )
-    v27 = v36 == 0LL;
+  v25 = 0;
+  if ( v5 && !v30 )
+    v25 = v34 == 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Device");
   ObjectAttributes.Length = 48;
   ObjectAttributes.ObjectName = &DestinationString;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  DirectoryObject = ZwOpenDirectoryObject(&DirectoryHandle, 1u, &ObjectAttributes);
-  if ( DirectoryObject < 0 )
+  v6 = ZwOpenDirectoryObject(&DirectoryHandle, 1u, &ObjectAttributes);
+  if ( v6 < 0 )
     goto LABEL_75;
   for ( i = 4096; ; i += 4096 )
   {
-    v3 = (wchar_t **)ExAllocatePool2(0x102uLL);
+    v3 = (wchar_t **)ExAllocatePool2(0x102uLL, i, 0x4B444342u);
     if ( !v3 )
     {
-      DirectoryObject = -1073741801;
+      v6 = -1073741801;
       goto LABEL_75;
     }
-    v25 = 0LL;
-    v30 = 0;
-    OpenOptions = &v30;
-    DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v3);
-    if ( DirectoryObject != 261 )
+    Context = 0;
+    v6 = ZwQueryDirectoryObject(DirectoryHandle, v3, i, 0, 1u, &Context, 0LL);
+    if ( v6 != 261 )
       break;
     ExFreePoolWithTag(v3, 0x4B444342u);
   }
   ZwClose(DirectoryHandle);
   v10 = 0;
   DirectoryHandle = 0LL;
-  if ( (int)(DirectoryObject + 0x80000000) >= 0 && DirectoryObject != -2147483622 )
+  if ( (int)(v6 + 0x80000000) >= 0 && v6 != -2147483622 )
   {
 LABEL_75:
     ExFreePoolWithTag(Pool2, 0x4B444342u);
@@ -134,26 +130,26 @@ LABEL_75:
     goto LABEL_77;
   }
   v11 = 0;
-  v26 = 0;
+  v24 = 0;
   if ( !*(_WORD *)v3 )
     goto LABEL_73;
   v12 = v3 + 1;
-  v29 = v3 + 1;
+  v27 = v3 + 1;
   while ( 2 )
   {
     if ( !BiIsValidDiskDevice(*v12, v12[2], 0LL) )
       goto LABEL_68;
-    swprintf_s((wchar_t *)Pool2, 0x2CuLL, L"\\Device\\%s\\Partition%lu", *v12, 0LL, OpenOptions, v25);
-    if ( (int)BiGetDriveLayoutBlock((PCWSTR)Pool2, &P, (__int64)v45) < 0 )
+    swprintf_s((wchar_t *)Pool2, 0x2CuLL, L"\\Device\\%s\\Partition%lu", *v12, 0LL);
+    if ( (int)BiGetDriveLayoutBlock((PCWSTR)Pool2, &P, (__int64)v43) < 0 )
       goto LABEL_68;
-    if ( LODWORD(v45[0]) == 7 || !v5 )
+    if ( LODWORD(v43[0]) == 7 || !v5 )
     {
-      v13 = *(_QWORD *)(v34 + 4) - *(_QWORD *)((char *)v45 + 4);
+      v13 = *(_QWORD *)(v32 + 4) - *(_QWORD *)((char *)v43 + 4);
       if ( !v13 )
       {
-        v13 = *(_QWORD *)(v34 + 12) - *(_QWORD *)((char *)v45 + 12);
+        v13 = *(_QWORD *)(v32 + 12) - *(_QWORD *)((char *)v43 + 12);
         if ( !v13 )
-          v13 = *(unsigned int *)(v34 + 20) - (unsigned __int64)DWORD1(v45[1]);
+          v13 = *(unsigned int *)(v32 + 20) - (unsigned __int64)DWORD1(v43[1]);
       }
       if ( v13 )
       {
@@ -171,24 +167,24 @@ LABEL_75:
     {
       v10 = 1;
     }
-    if ( v36 )
+    if ( v34 )
     {
       if ( v10 == 1 )
       {
-        ShareAccess[0] = *v36;
-        swprintf_s((wchar_t *)Pool2, 0x2CuLL, L"\\Device\\%s\\Partition%lu", *v12, *(_QWORD *)ShareAccess);
-        RtlInitUnicodeString(&v43, (PCWSTR)Pool2);
+        *(_DWORD *)RestartScan = *v34;
+        swprintf_s((wchar_t *)Pool2, 0x2CuLL, L"\\Device\\%s\\Partition%lu", *v12, *(_QWORD *)RestartScan);
+        RtlInitUnicodeString(&v41, (PCWSTR)Pool2);
         v10 = 0;
-        v41.Length = 48;
-        v41.ObjectName = &v43;
-        v41.RootDirectory = 0LL;
-        v41.Attributes = 576;
-        *(_OWORD *)&v41.SecurityDescriptor = 0LL;
-        if ( ZwOpenFile(&FileHandle, 0x80000000, &v41, &IoStatusBlock, 3u, 0) >= 0 )
+        v39.Length = 48;
+        v39.ObjectName = &v41;
+        v39.RootDirectory = 0LL;
+        v39.Attributes = 576;
+        *(_OWORD *)&v39.SecurityDescriptor = 0LL;
+        if ( ZwOpenFile(&FileHandle, 0x80000000, &v39, &IoStatusBlock, 3u, 0) >= 0 )
         {
           ZwClose(FileHandle);
           v11 = 1;
-          v26 = 1;
+          v24 = 1;
         }
         goto LABEL_61;
       }
@@ -203,27 +199,27 @@ LABEL_35:
     v15 = 0LL;
     if ( !v10 )
     {
-      if ( v36 )
+      if ( v34 )
       {
-        v15 = v36;
+        v15 = v34;
       }
-      else if ( v32 )
+      else if ( v30 )
       {
-        v15 = v32;
+        v15 = v30;
       }
     }
-    for ( j = 0LL; ; j = (unsigned int)(v28 + 1) )
+    for ( j = 0LL; ; j = (unsigned int)(v26 + 1) )
     {
-      v28 = j;
+      v26 = j;
       if ( (unsigned int)j >= v14[1] )
         break;
       v17 = 36 * j;
       v18 = v14[36 * j + 18];
       if ( !v18 )
         continue;
-      ShareAccess[0] = v18;
-      swprintf_s((wchar_t *)Pool2, 0x2CuLL, L"\\Device\\%s\\Partition%lu", *v29, *(_QWORD *)ShareAccess);
-      if ( v27 )
+      *(_DWORD *)RestartScan = v18;
+      swprintf_s((wchar_t *)Pool2, 0x2CuLL, L"\\Device\\%s\\Partition%lu", *v27, *(_QWORD *)RestartScan);
+      if ( v25 )
       {
         PartitionVhdFilePath = (const wchar_t *)BiGetPartitionVhdFilePath((PCWSTR)Pool2);
         v2 = (wchar_t *)PartitionVhdFilePath;
@@ -237,9 +233,9 @@ LABEL_35:
       }
       if ( v10 == 1 )
       {
-        if ( !v32 )
+        if ( !v30 )
           continue;
-        v20 = *v32 == *(_QWORD *)&v14[v17 + 14];
+        v20 = *v30 == *(_QWORD *)&v14[v17 + 14];
       }
       else
       {
@@ -254,13 +250,13 @@ LABEL_35:
       {
 LABEL_57:
         v11 = 1;
-        v26 = 1;
+        v24 = 1;
         goto LABEL_59;
       }
     }
-    v11 = v26;
+    v11 = v24;
 LABEL_59:
-    v12 = v29;
+    v12 = v27;
 LABEL_60:
     v10 = 0;
 LABEL_61:
@@ -270,7 +266,7 @@ LABEL_61:
       goto LABEL_69;
     if ( !v11 )
       goto LABEL_68;
-    if ( !v27 )
+    if ( !v25 )
     {
       v22 = (const wchar_t *)BiGetPartitionVhdFilePath((PCWSTR)Pool2);
       v2 = (wchar_t *)v22;
@@ -282,17 +278,17 @@ LABEL_61:
         v2 = 0LL;
 LABEL_67:
         v11 = 0;
-        v26 = 0;
+        v24 = 0;
 LABEL_68:
         v12 += 4;
-        v29 = v12;
+        v27 = v12;
         if ( !*((_WORD *)v12 - 4) )
         {
 LABEL_69:
           if ( v11 )
             break;
 LABEL_73:
-          DirectoryObject = -1073741811;
+          v6 = -1073741811;
           goto LABEL_75;
         }
         continue;
@@ -303,10 +299,10 @@ LABEL_73:
   if ( (int)BiTranslateSymbolicLink((PCWSTR)Pool2) >= 0 )
   {
     ExFreePoolWithTag(Pool2, 0x4B444342u);
-    Pool2 = v38;
+    Pool2 = v36;
   }
-  DirectoryObject = 0;
-  *v39 = Pool2;
+  v6 = 0;
+  *v37 = Pool2;
 LABEL_76:
   ExFreePoolWithTag(v3, 0x4B444342u);
 LABEL_77:
@@ -316,5 +312,5 @@ LABEL_77:
     ExFreePoolWithTag(v2, 0x4B444342u);
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
-  return (unsigned int)DirectoryObject;
+  return (unsigned int)v6;
 }

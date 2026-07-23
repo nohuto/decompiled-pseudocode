@@ -1,7 +1,7 @@
 /*
- * XREFs of NormalizationList__Lookup @ 0x140626454
+ * XREFs of NormalizationList__Lookup @ 0x1406294A4
  * Callers:
- *     RtlpGetNormalization @ 0x14080F254 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x140814CE4 (RtlpGetNormalization.c)
  * Callees:
  *     <none>
  */

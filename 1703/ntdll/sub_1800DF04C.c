@@ -9,34 +9,45 @@
  *     ZwQueryValueKey @ 0x1800A55E0 (ZwQueryValueKey.c)
  */
 
-__int64 __fastcall sub_1800DF04C(__int64 a1, const WCHAR *a2, _DWORD *a3)
+__int64 __fastcall sub_1800DF04C(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3)
 {
-  int ValueKey; // ecx
+  NTSTATUS v5; // ecx
   __int64 result; // rax
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
-  int v7; // [rsp+4Ch] [rbp-2Ch]
-  int v8; // [rsp+50h] [rbp-28h]
-  int v9; // [rsp+54h] [rbp-24h]
+  ULONG ResultLength; // [rsp+30h] [rbp-48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+48h] [rbp-30h] BYREF
+  int v10; // [rsp+4Ch] [rbp-2Ch]
+  int v11; // [rsp+50h] [rbp-28h]
+  int v12; // [rsp+54h] [rbp-24h]
 
   *a3 = 0;
   RtlInitUnicodeString(&DestinationString, a2);
-  ValueKey = ZwQueryValueKey();
+  v5 = ZwQueryValueKey(
+         KeyHandle,
+         &DestinationString,
+         KeyValuePartialInformation,
+         KeyValueInformation,
+         0x14u,
+         &ResultLength);
   result = 3221225524LL;
-  if ( ValueKey >= 0 )
+  if ( v5 >= 0 )
   {
-    if ( v7 == 4 && v8 == 4 )
+    if ( v5 != -1073741772 )
     {
-      *a3 = v9;
-      return 0LL;
-    }
-    else
-    {
-      return 3221225473LL;
+      if ( v10 == 4 && v11 == 4 )
+      {
+        *a3 = v12;
+        return 0LL;
+      }
+      else
+      {
+        return 3221225473LL;
+      }
     }
   }
-  else if ( ValueKey != -1073741772 )
+  else if ( v5 != -1073741772 )
   {
-    return (unsigned int)ValueKey;
+    return (unsigned int)v5;
   }
   return result;
 }

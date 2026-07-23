@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAllocateContiguousHeapPool @ 0x1402C2E9C
+ * XREFs of ExAllocateContiguousHeapPool @ 0x140396AFC
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14041182C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140395A6C (MiAllocateContiguousMemory.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     RtlpHpFreeHeap @ 0x1402B2660 (RtlpHpFreeHeap.c)
- *     KasanPoolAllocate @ 0x1402C0EE0 (KasanPoolAllocate.c)
- *     RtlpHpAllocateHeapBackend @ 0x1402C15F0 (RtlpHpAllocateHeapBackend.c)
- *     ExpAddTagForBigPages @ 0x1402C4180 (ExpAddTagForBigPages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpPlFindLimitEntry @ 0x1403A9D04 (ExpPlFindLimitEntry.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1403A9DD0 (ExpInsertPoolTrackerExpansion.c)
- *     ExpPoolTrackerChargeEntry @ 0x1403A9F50 (ExpPoolTrackerChargeEntry.c)
- *     EtwTracePool @ 0x1403AA0C8 (EtwTracePool.c)
- *     ExpPoolFlagsToPoolType @ 0x140B744E0 (ExpPoolFlagsToPoolType.c)
+ *     ExpAddTagForBigPages @ 0x14021A4A0 (ExpAddTagForBigPages.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x14035B220 (RtlpHpFreeHeap.c)
+ *     KasanPoolAllocate @ 0x14035CFE0 (KasanPoolAllocate.c)
+ *     RtlpHpAllocateHeapBackend @ 0x14035DC90 (RtlpHpAllocateHeapBackend.c)
+ *     ExpPlFindLimitEntry @ 0x140396E20 (ExpPlFindLimitEntry.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140396EF0 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpPoolTrackerChargeEntry @ 0x140397070 (ExpPoolTrackerChargeEntry.c)
+ *     EtwTracePool @ 0x1403971E8 (EtwTracePool.c)
+ *     ExpPoolFlagsToPoolType @ 0x140B76080 (ExpPoolFlagsToPoolType.c)
  */
 
 unsigned __int64 ExAllocateContiguousHeapPool(
@@ -28,7 +28,7 @@ unsigned __int64 ExAllocateContiguousHeapPool(
   __int64 v6; // r14
   unsigned __int64 v7; // rdi
   unsigned __int64 v9; // rsi
-  __int64 HeapBackend; // rax
+  unsigned __int64 HeapBackend; // rax
   unsigned __int64 v11; // r13
   __int64 v12; // rdi
   unsigned int v13; // r8d
@@ -37,7 +37,7 @@ unsigned __int64 ExAllocateContiguousHeapPool(
   __int64 v16; // r10
   __int64 v17; // rdx
   unsigned int v18; // r12d
-  unsigned int v19; // r9d
+  __int64 v19; // r9
   __int64 v20; // r15
   int v21; // r14d
   __int64 v22; // rdx
@@ -69,10 +69,10 @@ unsigned __int64 ExAllocateContiguousHeapPool(
   v5 = v38;
   if ( (_DWORD)v38 == 0x80000000 )
     v5 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
-  v6 = *((_QWORD *)&unk_140E6BC48 + 1048 * (v5 < dword_140E6BC10 ? v5 : 0));
-  if ( a1 > *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18496LL) )
+  v6 = *((_QWORD *)&unk_140E6BE48 + 1048 * (v5 < dword_140E6BE10 ? v5 : 0));
+  if ( a1 > *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18496LL) )
     return 0LL;
-  if ( a2 < *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18504LL) )
+  if ( a2 < *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18504LL) )
     return 0LL;
   if ( (unsigned __int64)(a3 - 1) <= 0x1FE )
     return 0LL;
@@ -86,7 +86,7 @@ unsigned __int64 ExAllocateContiguousHeapPool(
   if ( !HeapBackend )
     return 0LL;
   v12 = (unsigned int)v40;
-  if ( !(unsigned int)ExpAddTagForBigPages(HeapBackend, v40, v9, 64, 0, 0) )
+  if ( !(unsigned int)ExpAddTagForBigPages(HeapBackend, (unsigned int)v40, v9, (char *)0x40, 0, 0) )
   {
     v7 = 0LL;
     RtlpHpFreeHeap(v6, v11, v13);
@@ -130,7 +130,7 @@ unsigned __int64 ExAllocateContiguousHeapPool(
       v20 = v17 + 80LL * v18;
       if ( *(_DWORD *)v20 == (_DWORD)v12 )
       {
-        v21 = ExpPoolTrackerChargeEntry(1LL, v9, v17 + 80LL * v18);
+        v21 = ExpPoolTrackerChargeEntry(1LL, v9, v17 + 80LL * v18, v19);
         goto LABEL_18;
       }
       if ( *(_DWORD *)v20 )
@@ -170,7 +170,7 @@ unsigned __int64 ExAllocateContiguousHeapPool(
     }
     v18 = v15 & (v18 + 1);
   }
-  while ( v18 != v19 );
+  while ( v18 != (_DWORD)v19 );
   ExpInsertPoolTrackerExpansion((unsigned int)v12, v9, 64LL);
   v21 = 1;
 LABEL_18:

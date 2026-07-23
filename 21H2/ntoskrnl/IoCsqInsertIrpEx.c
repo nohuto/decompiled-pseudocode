@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCsqInsertIrpEx @ 0x1402A7CD0
+ * XREFs of IoCsqInsertIrpEx @ 0x140225E10
  * Callers:
- *     IoCsqInsertIrp @ 0x1402A7CB0 (IoCsqInsertIrp.c)
+ *     IoCsqInsertIrp @ 0x140225DF0 (IoCsqInsertIrp.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall IoCsqInsertIrpEx(PIO_CSQ Csq, PIRP Irp, PIO_CSQ_IRP_CONTEXT Context, PVOID InsertContext)

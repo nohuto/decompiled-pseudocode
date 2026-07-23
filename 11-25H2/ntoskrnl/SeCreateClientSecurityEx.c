@@ -24,7 +24,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, __int64 a3, 
   char v5; // di
   struct _KTHREAD *CurrentThread; // rax
   __int64 Process; // r14
-  __int64 *v10; // rsi
+  PSID *v10; // rsi
   __int64 result; // rax
   unsigned int v12; // edi
   signed __int64 *v13; // r15
@@ -62,7 +62,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, __int64 a3, 
     *((_BYTE *)v14 + 10) = 1;
   if ( (*(_DWORD *)(a1 + 1440) & 8) != 0 )
   {
-    v10 = (__int64 *)(*(_QWORD *)(a1 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
+    v10 = (PSID *)(*(_QWORD *)(a1 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
     ObfReferenceObjectWithTag(v10, 0x63436553u);
     v4 = *(_DWORD *)(a1 + 1336) & 3;
     v5 = (*(_BYTE *)(a1 + 1336) & 4) != 0;
@@ -79,7 +79,7 @@ __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, __int64 a2, __int64 a3, 
   if ( !v10 )
   {
 LABEL_4:
-    v10 = (__int64 *)PsReferencePrimaryTokenWithTag(Process, 0x63436553u);
+    v10 = (PSID *)PsReferencePrimaryTokenWithTag(Process, 0x63436553u);
     v21 = *(_BYTE *)(Process + 1530);
     v5 = 0;
   }

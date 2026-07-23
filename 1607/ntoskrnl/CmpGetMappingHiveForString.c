@@ -2,13 +2,13 @@
  * XREFs of CmpGetMappingHiveForString @ 0x1403E1798
  * Callers:
  *     CmpGetCmHiveFromVirtualPath @ 0x1403E176C (CmpGetCmHiveFromVirtualPath.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140600020 (CmKeyBodyReplicateToVirtual.c)
- *     CmpGetVirtualStoreRoot @ 0x1406016A8 (CmpGetVirtualStoreRoot.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406000D4 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpGetVirtualStoreRoot @ 0x14060175C (CmpGetVirtualStoreRoot.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
- *     CmpCompareUnicodeString @ 0x1404D2580 (CmpCompareUnicodeString.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
+ *     CmpCompareUnicodeString @ 0x1404B6020 (CmpCompareUnicodeString.c)
  */
 
 __int64 __fastcall CmpGetMappingHiveForString(_WORD *a1, _QWORD *a2)

@@ -1,49 +1,49 @@
 /*
- * XREFs of NtAlpcQueryInformation @ 0x140476D70
+ * XREFs of NtAlpcQueryInformation @ 0x140475C40
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     AlpcpPortQueryBasicInfo @ 0x140476F90 (AlpcpPortQueryBasicInfo.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x140476FE8 (AlpcpPortQueryConnectedSidInfo.c)
- *     AlpcpWaitForPortReferences @ 0x1404ED53C (AlpcpWaitForPortReferences.c)
- *     AlpcpPortQueryServerInfo @ 0x140655F30 (AlpcpPortQueryServerInfo.c)
- *     AlpcpPortQueryServerSessionInfo @ 0x140656338 (AlpcpPortQueryServerSessionInfo.c)
- *     ExRaiseAccessViolation @ 0x1406B6048 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     AlpcpPortQueryBasicInfo @ 0x140475E60 (AlpcpPortQueryBasicInfo.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x140475EB8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     AlpcpWaitForPortReferences @ 0x1404CF5F4 (AlpcpWaitForPortReferences.c)
+ *     AlpcpPortQueryServerInfo @ 0x140656014 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpPortQueryServerSessionInfo @ 0x14065641C (AlpcpPortQueryServerSessionInfo.c)
+ *     ExRaiseAccessViolation @ 0x1406B6180 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformation(
-        HANDLE Handle,
-        int a2,
-        unsigned __int64 a3,
-        unsigned int a4,
-        unsigned __int64 a5)
+NTSTATUS __cdecl NtAlpcQueryInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  unsigned __int64 v6; // r15
+  PVOID v6; // r15
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v10; // ebx
+  int v10; // ebx
   KPROCESSOR_MODE PreviousMode; // r12
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rdx
   bool v14; // cc
   unsigned __int64 v15; // rdx
   PVOID v16; // rdi
-  unsigned __int64 v17; // r14
+  PULONG v17; // r14
   __int64 v18; // rcx
-  int v19; // esi
-  int v20; // esi
-  int v21; // esi
-  NTSTATUS ServerSessionInfo; // eax
+  __int32 v19; // esi
+  __int32 v20; // esi
+  __int32 v21; // esi
+  int ServerSessionInfo; // eax
   int Object; // [rsp+20h] [rbp-38h]
   PVOID v25; // [rsp+70h] [rbp+18h] BYREF
 
-  v6 = a3;
+  v6 = PortInformation;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( !a3 )
+  if ( !PortInformation )
   {
     v10 = -1073741811;
     goto LABEL_40;
@@ -52,23 +52,23 @@ __int64 __fastcall NtAlpcQueryInformation(
   if ( !PreviousMode )
   {
     v16 = 0LL;
-    v17 = a5;
+    v17 = ReturnLength;
     goto LABEL_24;
   }
-  if ( ((a2 - 3) & 0xFFFFFFF7) != 0 )
+  if ( ((PortInformationClass - 3) & 0xFFFFFFF7) != 0 )
   {
-    if ( !a4 )
+    if ( !Length )
     {
       v16 = 0LL;
-      a3 = 0x7FFFFFFF0000LL;
+      PortInformation = (PVOID)0x7FFFFFFF0000LL;
       goto LABEL_18;
     }
-    v12 = a3;
-    if ( (a3 & 3) != 0 )
+    v12 = (unsigned __int64)PortInformation;
+    if ( ((unsigned __int8)PortInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v13 = a4 + a3 - 1;
-    v14 = a3 <= v13;
-    a3 = 0x7FFFFFFF0000LL;
+    v13 = (unsigned __int64)PortInformation + Length - 1;
+    v14 = (unsigned __int64)PortInformation <= v13;
+    PortInformation = (PVOID)0x7FFFFFFF0000LL;
     if ( !v14 || v13 >= 0x7FFFFFFF0000LL )
     {
       v16 = 0LL;
@@ -86,29 +86,29 @@ __int64 __fastcall NtAlpcQueryInformation(
   }
   else
   {
-    a3 = 0x7FFFFFFF0000LL;
+    PortInformation = (PVOID)0x7FFFFFFF0000LL;
   }
   v16 = 0LL;
 LABEL_18:
-  v17 = a5;
-  if ( a5 )
+  v17 = ReturnLength;
+  if ( ReturnLength )
   {
-    v18 = a5;
-    if ( a5 >= 0x7FFFFFFF0000LL )
+    v18 = (__int64)ReturnLength;
+    if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
       v18 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v18 = *(_DWORD *)v18;
   }
 LABEL_24:
-  if ( Handle )
+  if ( PortHandle )
   {
-    v10 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &v25, 0LL);
+    v10 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &v25, 0LL);
     v16 = v25;
     if ( v10 < 0 )
       goto LABEL_40;
   }
-  if ( a2 )
+  if ( PortInformationClass )
   {
-    v19 = a2 - 3;
+    v19 = PortInformationClass - 3;
     if ( v19 )
     {
       v20 = v19 - 1;
@@ -122,27 +122,27 @@ LABEL_24:
             v10 = -1073741811;
             goto LABEL_38;
           }
-          ServerSessionInfo = AlpcpPortQueryServerSessionInfo(v16, v6, a4, v17);
+          ServerSessionInfo = AlpcpPortQueryServerSessionInfo(v16, v6, Length, v17);
         }
         else
         {
-          ServerSessionInfo = AlpcpWaitForPortReferences((_DWORD)v16, v6, a4, v17, PreviousMode);
+          ServerSessionInfo = AlpcpWaitForPortReferences((_DWORD)v16, (_DWORD)v6, Length, (_DWORD)v17, PreviousMode);
         }
       }
       else
       {
-        ServerSessionInfo = AlpcpPortQueryServerInfo((int)v16, v6, a4, v17, PreviousMode);
+        ServerSessionInfo = AlpcpPortQueryServerInfo((int)v16, (int)v6, Length, (int)v17, PreviousMode);
       }
     }
     else
     {
       LOBYTE(Object) = PreviousMode;
-      ServerSessionInfo = AlpcpPortQueryConnectedSidInfo(v16, v6, a3, v17, Object);
+      ServerSessionInfo = AlpcpPortQueryConnectedSidInfo(v16, v6, PortInformation, v17, Object);
     }
   }
   else
   {
-    ServerSessionInfo = AlpcpPortQueryBasicInfo(v16, v6, a4, v17);
+    ServerSessionInfo = AlpcpPortQueryBasicInfo(v16, v6, Length, v17);
   }
   v10 = ServerSessionInfo;
 LABEL_38:
@@ -150,5 +150,5 @@ LABEL_38:
     ObfDereferenceObject(v16);
 LABEL_40:
   KeLeaveCriticalRegion();
-  return (unsigned int)v10;
+  return v10;
 }

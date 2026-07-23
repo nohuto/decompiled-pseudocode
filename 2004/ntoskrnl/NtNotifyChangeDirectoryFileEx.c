@@ -25,28 +25,28 @@
  *     IopExceptionCleanup @ 0x14088E518 (IopExceptionCleanup.c)
  */
 
-__int64 __fastcall NtNotifyChangeDirectoryFileEx(
-        void *a1,
-        HANDLE Handle,
-        __int64 a3,
-        __int64 a4,
-        unsigned __int64 a5,
-        volatile void *Address,
-        SIZE_T Length,
-        int a8,
-        char a9,
-        unsigned int a10)
+NTSTATUS __cdecl NtNotifyChangeDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        DIRECTORY_NOTIFY_INFORMATION_CLASS DirectoryNotifyInformationClass)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v13; // rcx
   ULONG v14; // r12d
   char v15; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v17; // rdx
   __int64 v18; // r8
   _DWORD *v19; // r9
   PFILE_OBJECT v20; // rdi
-  int v21; // ebx
+  NTSTATUS v21; // ebx
   PDEVICE_OBJECT RelatedDeviceObject; // r13
   __int64 v23; // r8
   __int64 v24; // rdx
@@ -69,51 +69,51 @@ __int64 __fastcall NtNotifyChangeDirectoryFileEx(
   PVOID Object; // [rsp+58h] [rbp-40h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+60h] [rbp-38h]
   __int64 retaddr; // [rsp+98h] [rbp+0h]
-  __int64 v44; // [rsp+B0h] [rbp+18h] BYREF
-  __int64 v45; // [rsp+B8h] [rbp+20h]
+  PIO_APC_ROUTINE v44; // [rsp+B0h] [rbp+18h] BYREF
+  PVOID v45; // [rsp+B8h] [rbp+20h]
 
-  v45 = a4;
-  v44 = a3;
+  v45 = ApcContext;
+  v44 = ApcRoutine;
   FileObject = 0LL;
   DmaAdapter = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    v13 = a5;
-    if ( a5 >= 0x7FFFFFFF0000LL )
+    v13 = (__int64)IoStatusBlock;
+    if ( (unsigned __int64)IoStatusBlock >= 0x7FFFFFFF0000LL )
       v13 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v13 = *(_DWORD *)v13;
     v14 = Length;
-    if ( (_DWORD)Length )
-      ProbeForWrite(Address, (unsigned int)Length, 4u);
-    if ( (a8 & 0xFFFFF000) != 0 || !a8 )
-      return 3221225485LL;
+    if ( Length )
+      ProbeForWrite(Buffer, Length, 4u);
+    if ( (CompletionFilter & 0xFFFFF000) != 0 || !CompletionFilter )
+      return -1073741811;
   }
   else
   {
     v14 = Length;
   }
   v15 = 1;
-  result = IopReferenceFileObject(a1, 1u, PreviousMode, (PVOID *)&FileObject, 0LL);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 1u, PreviousMode, (PVOID *)&FileObject, 0LL);
+  if ( result >= 0 )
   {
     v20 = FileObject;
-    if ( FileObject->CompletionContext && (v44 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+    if ( FileObject->CompletionContext && ((unsigned __int64)v44 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
     {
       v21 = -1073741811;
       goto LABEL_39;
     }
-    if ( Handle )
+    if ( Event )
     {
       Object = 0LL;
-      v21 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+      v21 = ObReferenceObjectByHandle(Event, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
       DmaAdapter = (PADAPTER_OBJECT)Object;
       if ( v21 < 0 )
       {
 LABEL_39:
         HalPutDmaAdapter((PADAPTER_OBJECT)v20);
-        return (unsigned int)v21;
+        return v21;
       }
       KeResetEvent((PRKEVENT)Object);
     }
@@ -123,7 +123,7 @@ LABEL_39:
       v32 = KeGetCurrentThread();
       --v32->KernelApcDisable;
       v33 = FileObject;
-      v34 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0LL);
+      v34 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0);
       LOBYTE(v38) = 0;
       if ( _InterlockedExchange((volatile __int32 *)&v33->Busy, 1) )
       {
@@ -156,7 +156,7 @@ LABEL_39:
       v15 = 0;
       LOBYTE(v38) = 0;
       if ( PreviousMode )
-        IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&a5, &v44, 0);
+        IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&IoStatusBlock, (__int64 *)&v44, 0);
     }
     IopResetEvent((__int64)v20, v17, v18, v19);
     RelatedDeviceObject = IoGetRelatedDeviceObject(v20);
@@ -168,19 +168,19 @@ LABEL_39:
     if ( !Irp )
     {
       IopAllocateIrpCleanup((PADAPTER_OBJECT)v20, DmaAdapter);
-      return 3221225626LL;
+      return -1073741670;
     }
     *(_QWORD *)(Irp + 192) = v20;
     *(_QWORD *)(Irp + 152) = CurrentThread;
     *(_BYTE *)(Irp + 64) = PreviousMode;
     *(_QWORD *)(Irp + 80) = DmaAdapter;
-    *(_QWORD *)(Irp + 72) = a5;
+    *(_QWORD *)(Irp + 72) = IoStatusBlock;
     *(_QWORD *)(Irp + 88) = v44;
     *(_QWORD *)(Irp + 96) = v45;
     v27 = *(_QWORD *)(Irp + 184);
     *(_BYTE *)(v27 - 72) = 12;
-    v28 = a10;
-    *(_BYTE *)(v27 - 71) = (a10 == 2) + 2;
+    v28 = (unsigned int)DirectoryNotifyInformationClass;
+    *(_BYTE *)(v27 - 71) = (DirectoryNotifyInformationClass == DirectoryNotifyExtendedInformation) + 2;
     *(_QWORD *)(v27 - 24) = v20;
     if ( !v14 )
       goto LABEL_21;
@@ -193,26 +193,26 @@ LABEL_39:
         memset(PoolWithQuota_0, 0, v14);
       v26->Flags = 112;
       v15 = v38;
-      LODWORD(v28) = a10;
+      LODWORD(v28) = DirectoryNotifyInformationClass;
     }
     else if ( (Flags & 0x10) != 0 )
     {
-      Mdl = IoAllocateMdl((PVOID)Address, v14, 0, 1u, v26);
+      Mdl = IoAllocateMdl(Buffer, v14, 0, 1u, v26);
       if ( !Mdl )
-        RtlRaiseStatus(0xC000009A);
+        RtlRaiseStatus(-1073741670);
       IopProbeAndLockPages_1(Mdl, PreviousMode, v37, (__int64)RelatedDeviceObject, *(unsigned __int8 *)(v27 - 72));
-      LODWORD(v28) = a10;
+      LODWORD(v28) = DirectoryNotifyInformationClass;
       goto LABEL_21;
     }
-    v26->UserBuffer = (PVOID)Address;
+    v26->UserBuffer = Buffer;
 LABEL_21:
     *(_DWORD *)(v27 - 64) = v14;
-    *(_DWORD *)(v27 - 56) = a8;
+    *(_DWORD *)(v27 - 56) = CompletionFilter;
     if ( *(_BYTE *)(v27 - 71) == 3 )
       *(_DWORD *)(v27 - 48) = v28;
     *(_BYTE *)(v27 - 70) = 0;
     v30 = *(_BYTE *)(v27 - 70);
-    if ( a9 )
+    if ( WatchTree )
       v30 = 1;
     *(_BYTE *)(v27 - 70) = v30;
     return IopSynchronousServiceTail(RelatedDeviceObject, v26, (__int64)v20, 0LL, PreviousMode, v15, 2u);

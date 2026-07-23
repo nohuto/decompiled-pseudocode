@@ -1,5 +1,5 @@
 /*
- * XREFs of NtWaitForDebugEvent @ 0x140810300
+ * XREFs of NtWaitForDebugEvent @ 0x140811500
  * Callers:
  *     <none>
  * Callees:
@@ -8,13 +8,13 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     DbgkpConvertKernelToUserStateChange @ 0x14080E8A4 (DbgkpConvertKernelToUserStateChange.c)
- *     DbgkpOpenHandles @ 0x14080EB70 (DbgkpOpenHandles.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     DbgkpConvertKernelToUserStateChange @ 0x14080FAA4 (DbgkpConvertKernelToUserStateChange.c)
+ *     DbgkpOpenHandles @ 0x14080FD70 (DbgkpOpenHandles.c)
  */
 
 NTSTATUS __stdcall NtWaitForDebugEvent(

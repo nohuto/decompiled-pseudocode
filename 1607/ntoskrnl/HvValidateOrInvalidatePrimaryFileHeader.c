@@ -1,15 +1,15 @@
 /*
- * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x140484068
+ * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x140482DBC
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
- *     HvSyncHive @ 0x14060635C (HvSyncHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
+ *     HvSyncHive @ 0x140606410 (HvSyncHive.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
- *     CmpFileFlushAndPurge @ 0x140506A2C (CmpFileFlushAndPurge.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
+ *     CmpFileFlushAndPurge @ 0x1404E99BC (CmpFileFlushAndPurge.c)
  */
 
 __int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, char a2, char a3, char a4)

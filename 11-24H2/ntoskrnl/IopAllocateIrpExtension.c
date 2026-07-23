@@ -1,17 +1,17 @@
 /*
- * XREFs of IopAllocateIrpExtension @ 0x140375A80
+ * XREFs of IopAllocateIrpExtension @ 0x140435420
  * Callers:
- *     IoPropagateIrpExtensionEx @ 0x1403756E0 (IoPropagateIrpExtensionEx.c)
- *     IoSetFsTrackOffsetState @ 0x1403759C0 (IoSetFsTrackOffsetState.c)
- *     IopSetCopyInformationExtension @ 0x140375A3C (IopSetCopyInformationExtension.c)
- *     IopAllocateAndPopulateWriteIrp @ 0x140401030 (IopAllocateAndPopulateWriteIrp.c)
- *     IopPerfCallDriver @ 0x14049F664 (IopPerfCallDriver.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140597410 (IoClearAdapterCryptoEngineExtension.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x1405974E0 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140597580 (IoSetFsZeroingOffsetRequired.c)
- *     ViGetContextPointer @ 0x140B848F8 (ViGetContextPointer.c)
+ *     IoPropagateIrpExtensionEx @ 0x14025DFA0 (IoPropagateIrpExtensionEx.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403FB9B0 (IopAllocateAndPopulateWriteIrp.c)
+ *     IoSetFsTrackOffsetState @ 0x140435360 (IoSetFsTrackOffsetState.c)
+ *     IopSetCopyInformationExtension @ 0x1404353DC (IopSetCopyInformationExtension.c)
+ *     IopPerfCallDriver @ 0x14049A4AC (IopPerfCallDriver.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140594390 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140594460 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140594500 (IoSetFsZeroingOffsetRequired.c)
+ *     ViGetContextPointer @ 0x140B868F8 (ViGetContextPointer.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopAllocateIrpExtension(__int64 a1, int a2)
@@ -31,7 +31,7 @@ __int64 __fastcall IopAllocateIrpExtension(__int64 a1, int a2)
     }
     if ( a2 != 2 )
     {
-      result = ExAllocatePool2(0x40uLL);
+      result = ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
       if ( result )
       {
         *(_WORD *)(result + 2) = (1 << (v3 & 0xF)) | 4;
@@ -50,7 +50,7 @@ __int64 __fastcall IopAllocateIrpExtension(__int64 a1, int a2)
     *(_BYTE *)(a1 + 71) |= 0x80u;
     return a1 + 196;
   }
-  result = ExAllocatePool2(0x40uLL);
+  result = ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
   if ( result )
   {
     *(_WORD *)(result + 2) = 1 << v3;

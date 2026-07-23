@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockMemoryLists @ 0x1404B1210
+ * XREFs of MiLockMemoryLists @ 0x1404ABAA0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiLockSlabAllocator @ 0x1404B1440 (MiLockSlabAllocator.c)
- *     MiWalkAllFreeZeroLists @ 0x1404B1468 (MiWalkAllFreeZeroLists.c)
- *     MiLockSlabRepurposedStandbyList @ 0x1406884A8 (MiLockSlabRepurposedStandbyList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiLockSlabAllocator @ 0x1404ABCD0 (MiLockSlabAllocator.c)
+ *     MiWalkAllFreeZeroLists @ 0x1404ABCF8 (MiWalkAllFreeZeroLists.c)
+ *     MiLockSlabRepurposedStandbyList @ 0x1406895D8 (MiLockSlabRepurposedStandbyList.c)
  */
 
 void __fastcall MiLockMemoryLists(__int64 a1, __int64 a2)

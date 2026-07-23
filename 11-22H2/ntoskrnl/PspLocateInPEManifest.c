@@ -10,7 +10,7 @@
 __int64 __fastcall PspLocateInPEManifest(__int64 a1, __int64 a2)
 {
   bool v2; // zf
-  ULONGLONG v4; // r10
+  unsigned __int64 v4; // r10
   __int64 result; // rax
   int v6; // eax
   __int16 v7; // ax

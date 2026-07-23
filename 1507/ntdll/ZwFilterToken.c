@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwFilterToken()
+NTSTATUS __cdecl ZwFilterToken(
+        HANDLE ExistingTokenHandle,
+        ULONG Flags,
+        PTOKEN_GROUPS SidsToDisable,
+        PTOKEN_PRIVILEGES PrivilegesToDelete,
+        PTOKEN_GROUPS RestrictedSids,
+        PHANDLE NewTokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 213LL;
+  result = 213;
   __asm { syscall; Low latency system call }
   return result;
 }

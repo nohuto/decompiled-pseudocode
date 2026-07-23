@@ -1,10 +1,10 @@
 /*
- * XREFs of WbGetTrapFrame @ 0x140762DDC
+ * XREFs of WbGetTrapFrame @ 0x140762FCC
  * Callers:
- *     WbHeapExecuteCall @ 0x140762C10 (WbHeapExecuteCall.c)
+ *     WbHeapExecuteCall @ 0x140762E00 (WbHeapExecuteCall.c)
  * Callees:
- *     PspGetContextThreadInternal @ 0x1407707D4 (PspGetContextThreadInternal.c)
- *     WbGetWowTrapFrame @ 0x140A4D9B8 (WbGetWowTrapFrame.c)
+ *     PspGetContextThreadInternal @ 0x1407709C4 (PspGetContextThreadInternal.c)
+ *     WbGetWowTrapFrame @ 0x140A4DC68 (WbGetWowTrapFrame.c)
  */
 
 __int64 __fastcall WbGetTrapFrame(__int64 a1, __int64 a2)

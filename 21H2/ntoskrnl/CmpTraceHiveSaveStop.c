@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveSaveStop @ 0x140728EDC
+ * XREFs of CmpTraceHiveSaveStop @ 0x14072938C
  * Callers:
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveSaveStop(int a1)

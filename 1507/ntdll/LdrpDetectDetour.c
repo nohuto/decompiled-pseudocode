@@ -16,9 +16,6 @@ void LdrpDetectDetour()
   int v1; // edx
   __int64 (__fastcall **i)(int, int, int, int, ULONG, ULONG); // r8
   __int64 v3; // rax
-  char *v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
 
   if ( !LdrpDetourExist )
   {
@@ -41,14 +38,14 @@ void LdrpDetectDetour()
         3062,
         (unsigned int)"LdrpDetectDetour",
         2,
-        "!!! Detour detected, disable parallel loading\n");
+        (__int64)"!!! Detour detected, disable parallel loading\n");
     LdrpDetourExist = 1;
     if ( LdrpMapAndSnapWork )
     {
-      TpWaitForWork((_PEB_LDR_DATA *)LdrpMapAndSnapWork, 1u);
+      TpWaitForWork(LdrpMapAndSnapWork, 1u);
       TpReleaseWork(LdrpMapAndSnapWork);
       LdrpMapAndSnapWork = 0LL;
-      TpReleasePool(LdrpThreadPool, v4, v5, v6);
+      TpReleasePool(LdrpThreadPool);
       LdrpThreadPool = 0LL;
     }
   }

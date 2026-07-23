@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MmCreateSection @ 0x14042CC10 (MmCreateSection.c)
- *     MmMapViewInSystemSpace @ 0x14049552C (MmMapViewInSystemSpace.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MmCreateSection @ 0x14042BAE0 (MmCreateSection.c)
+ *     MmMapViewInSystemSpace @ 0x140495FBC (MmMapViewInSystemSpace.c)
  */
 
 __int64 __fastcall MiInitializeApiSets(__int64 a1)
@@ -38,10 +38,10 @@ __int64 __fastcall MiInitializeApiSets(__int64 a1)
         MappedBase,
         *(const void **)(*(_QWORD *)(a1 + 240) + 2336LL),
         *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2344LL));
-      qword_140326760 = (__int64)v3;
-      qword_140326768 = (__int64)v5;
+      qword_1403267A0 = (__int64)v3;
+      qword_1403267A8 = (__int64)v5;
       result = 0LL;
-      qword_140326770 = *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2344LL);
+      qword_1403267B0 = *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2344LL);
     }
   }
   return result;

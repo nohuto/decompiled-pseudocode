@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpPushRefDerefInfo @ 0x14097D13C
+ * XREFs of ObpPushRefDerefInfo @ 0x14097D33C
  * Callers:
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
- *     ObpPushStackInfoQueue @ 0x14097D330 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
+ *     ObpPushStackInfoQueue @ 0x14097D530 (ObpPushStackInfoQueue.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     ObpGetObjectRefInfo @ 0x14097CC84 (ObpGetObjectRefInfo.c)
- *     ObpGetTraceIndex @ 0x14097CD90 (ObpGetTraceIndex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     ObpGetObjectRefInfo @ 0x14097CE84 (ObpGetObjectRefInfo.c)
+ *     ObpGetTraceIndex @ 0x14097CF90 (ObpGetTraceIndex.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -31,7 +31,7 @@ char __fastcall ObpPushRefDerefInfo(
   __int64 v15; // rcx
   __int64 v16; // rdx
   __int64 v17; // rsi
-  struct _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *Pool2; // rax
   struct _KTHREAD *v19; // rax
   unsigned __int16 *v22; // [rsp+20h] [rbp-38h] BYREF
 
@@ -75,7 +75,7 @@ char __fastcall ObpPushRefDerefInfo(
     {
       do
       {
-        Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
+        Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
         if ( Pool2 )
           RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, Pool2);
         --v17;

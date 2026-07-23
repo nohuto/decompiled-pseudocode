@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUnblockTwoHiveWrites @ 0x140672258
+ * XREFs of CmpUnblockTwoHiveWrites @ 0x140664940
  * Callers:
- *     CmpVirtualBranchIsReplicated @ 0x1406720EC (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x140870E50 (CmpVirtualPathPresent.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1406647D4 (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x140870FB0 (CmpVirtualPathPresent.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
  */
 
 void __fastcall CmpUnblockTwoHiveWrites(char *P, char *a2)

@@ -18,7 +18,7 @@
 int __fastcall DbgkMapViewOfSection(
         _KPROCESS *BugCheckParameter1,
         __int64 a2,
-        __int64 a3,
+        void *a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,
@@ -28,7 +28,7 @@ int __fastcall DbgkMapViewOfSection(
   struct _KTHREAD *v11; // rcx
   struct _KTHREAD *v12; // rbx
   char *Teb; // rbx
-  __int64 v14; // rcx
+  PIMAGE_NT_HEADERS v14; // rcx
   _QWORD v16[34]; // [rsp+30h] [rbp-138h] BYREF
 
   memset(v16, 0, sizeof(v16));
@@ -64,7 +64,7 @@ int __fastcall DbgkMapViewOfSection(
         else
           v14 = 0LL;
         if ( v14 )
-          v16[8] = *(_QWORD *)(v14 + 12);
+          v16[8] = *(_QWORD *)&v14->FileHeader.PointerToSymbolTable;
         v16[0] = 0x800500028LL;
         LODWORD(v16[5]) = 5;
         LODWORD(CurrentThread) = DbgkpSendApiMessage((ULONG_PTR)BugCheckParameter1);

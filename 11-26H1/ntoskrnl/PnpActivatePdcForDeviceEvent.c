@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpActivatePdcForDeviceEvent @ 0x1409DCA60
+ * XREFs of PnpActivatePdcForDeviceEvent @ 0x140A19D10
  * Callers:
- *     PnpDeviceEventWorker @ 0x1409DCD90 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x140A1A040 (PnpDeviceEventWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _PnpStringFromGuid @ 0x14090F21C (_PnpStringFromGuid.c)
- *     PnpConcatPWSTR @ 0x140992634 (PnpConcatPWSTR.c)
- *     PnpGetObjectProperty @ 0x14099D8E0 (PnpGetObjectProperty.c)
- *     PiPdcActivate @ 0x1409DC5CC (PiPdcActivate.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PnpConcatPWSTR @ 0x140953094 (PnpConcatPWSTR.c)
+ *     PnpGetObjectProperty @ 0x14095E340 (PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x1409B134C (_PnpStringFromGuid.c)
+ *     PiPdcActivate @ 0x140A1987C (PiPdcActivate.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpActivatePdcForDeviceEvent(__int64 a1)

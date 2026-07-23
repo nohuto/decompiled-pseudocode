@@ -1,11 +1,11 @@
 /*
- * XREFs of XmSetLogicalResult @ 0x1404A8DA0
+ * XREFs of XmSetLogicalResult @ 0x1404A2430
  * Callers:
- *     XmXorOp @ 0x1404A7D50 (XmXorOp.c)
- *     XmTestOp @ 0x1404A8C10 (XmTestOp.c)
- *     XmOrOp @ 0x1405ACA60 (XmOrOp.c)
+ *     XmXorOp @ 0x1404A13E0 (XmXorOp.c)
+ *     XmTestOp @ 0x1404A22A0 (XmTestOp.c)
+ *     XmOrOp @ 0x1405AF270 (XmOrOp.c)
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 __int64 __fastcall XmSetLogicalResult(__int64 a1, unsigned int a2)

@@ -9,15 +9,19 @@
  *     IopLiveDumpGetCapturePagesNoLock @ 0x1403FF3CC (IopLiveDumpGetCapturePagesNoLock.c)
  */
 
-__int64 __fastcall IopLiveDumpGetCapturePages(int a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)
+__int64 __fastcall IopLiveDumpGetCapturePages(
+        PRTL_BITMAP_EX BitMapHeader,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6)
 {
   volatile signed __int32 *v6; // rbx
-  int v8; // edi
   __int64 result; // rax
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   v6 = (volatile signed __int32 *)(a2 + 24);
-  v8 = a2;
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
     KiAcquireSpinLockInstrumented((volatile signed __int32 *)(a2 + 24));
@@ -26,7 +30,7 @@ __int64 __fastcall IopLiveDumpGetCapturePages(int a1, __int64 a2, int a3, int a4
   {
     KxWaitForSpinLockAndAcquire((volatile signed __int32 *)(a2 + 24));
   }
-  result = IopLiveDumpGetCapturePagesNoLock(a1, v8, a3, a4, a5, a6);
+  result = IopLiveDumpGetCapturePagesNoLock(BitMapHeader, a5, a6);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     return KiReleaseSpinLockInstrumented((volatile signed __int64 *)v6, retaddr);
   _InterlockedAnd64((volatile signed __int64 *)v6, 0LL);

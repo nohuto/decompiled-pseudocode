@@ -9,19 +9,19 @@
  *     RtlCreateUnicodeStringFromAsciiz @ 0x1408100F0 (RtlCreateUnicodeStringFromAsciiz.c)
  */
 
-__int64 __fastcall CmpSetSystemRegistryString(HANDLE KeyHandle, PUNICODE_STRING ValueName, __int64 a3)
+__int64 __fastcall CmpSetSystemRegistryString(HANDLE KeyHandle, PUNICODE_STRING ValueName, PCSTR SourceString)
 {
   wchar_t *Buffer; // rdi
-  char v6; // al
+  BOOLEAN v6; // al
   unsigned int v7; // ebx
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
 
   *(_QWORD *)&UnicodeString.Length = 0LL;
   Buffer = 0LL;
   UnicodeString.Buffer = 0LL;
-  if ( a3 )
+  if ( SourceString )
   {
-    v6 = RtlCreateUnicodeStringFromAsciiz(&UnicodeString);
+    v6 = RtlCreateUnicodeStringFromAsciiz(&UnicodeString, SourceString);
     Buffer = UnicodeString.Buffer;
     if ( v6 )
       v7 = ZwSetValueKey(KeyHandle, ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);

@@ -11,7 +11,7 @@
  *     PspSetContextThreadInternal @ 0x1406ADEB0 (PspSetContextThreadInternal.c)
  */
 
-__int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
+NTSTATUS __cdecl NtSetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
   struct _KTHREAD *CurrentThread; // rbx
   KPROCESSOR_MODE PreviousMode; // si
@@ -25,7 +25,7 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   Thread = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
-  v5 = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, (PVOID *)&Thread, 0LL);
+  v5 = ObReferenceObjectByHandle(ThreadHandle, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, (PVOID *)&Thread, 0LL);
   if ( v5 >= 0 )
   {
     v6 = IoThreadToProcess(CurrentThread);
@@ -40,7 +40,7 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
     }
     else
     {
-      v5 = PspSetContextThreadInternal(v7, a2, PreviousMode, PreviousMode, 1);
+      v5 = PspSetContextThreadInternal(v7, (__int64)ThreadContext, PreviousMode, PreviousMode, 1);
     }
     HalPutDmaAdapter((PADAPTER_OBJECT)v7);
   }
@@ -49,5 +49,5 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
   v9 = v5;
   UserData.Size = 4;
   EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_SETCONTEXTTHREAD, 0LL, 1u, &UserData);
-  return (unsigned int)v5;
+  return v5;
 }

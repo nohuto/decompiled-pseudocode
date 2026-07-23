@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerSwitchToNormalClock @ 0x1405202C0
+ * XREFs of HalpTimerSwitchToNormalClock @ 0x140522964
  * Callers:
- *     HalpTimerClockArm @ 0x140208950 (HalpTimerClockArm.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x140596CC0 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockArm @ 0x140208A30 (HalpTimerClockArm.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x140599440 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     HalpTimerClockArm @ 0x140208950 (HalpTimerClockArm.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeGetClockTimerResolution @ 0x1405ED190 (KeGetClockTimerResolution.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerClockArm @ 0x140208A30 (HalpTimerClockArm.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeGetClockTimerResolution @ 0x1405EFB00 (KeGetClockTimerResolution.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpTimerSwitchToNormalClock(__int64 a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of PoCaptureReasonContext @ 0x14028363C
+ * XREFs of PoCaptureReasonContext @ 0x14027184C
  * Callers:
- *     NtSetTimerEx @ 0x1402491A0 (NtSetTimerEx.c)
- *     NtSetTimer @ 0x1403769A0 (NtSetTimer.c)
- *     PoRegisterSystemState @ 0x14056EF10 (PoRegisterSystemState.c)
- *     PopPowerRequestCreateInfo @ 0x14067CFCC (PopPowerRequestCreateInfo.c)
- *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
- *     PoCreatePowerRequest @ 0x140772740 (PoCreatePowerRequest.c)
- *     PoCreateThermalRequest @ 0x140790920 (PoCreateThermalRequest.c)
- *     PopInitializeHighPerfPowerRequest @ 0x140A710FC (PopInitializeHighPerfPowerRequest.c)
+ *     NtSetTimerEx @ 0x1402ED9F0 (NtSetTimerEx.c)
+ *     NtSetTimer @ 0x1403764F0 (NtSetTimer.c)
+ *     PoRegisterSystemState @ 0x14056F150 (PoRegisterSystemState.c)
+ *     PopPowerRequestCreateInfo @ 0x140670E30 (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x1406713E0 (NtSetThreadExecutionState.c)
+ *     PoCreatePowerRequest @ 0x140772900 (PoCreatePowerRequest.c)
+ *     PoCreateThermalRequest @ 0x140791ED0 (PoCreateThermalRequest.c)
+ *     PopInitializeHighPerfPowerRequest @ 0x140A720FC (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     PoGetRequester @ 0x140283794 (PoGetRequester.c)
- *     PopCaptureReasonContext @ 0x1402838E0 (PopCaptureReasonContext.c)
+ *     PoGetRequester @ 0x1402719A4 (PoGetRequester.c)
+ *     PopCaptureReasonContext @ 0x140271AF0 (PopCaptureReasonContext.c)
  *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
  *     PoGetRequesterOld @ 0x1403F7F10 (PoGetRequesterOld.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoCaptureReasonContext(unsigned __int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5, PVOID *a6)

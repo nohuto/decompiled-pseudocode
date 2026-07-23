@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCopyOnWriteReturnCharges @ 0x14036B1E0
+ * XREFs of MiCopyOnWriteReturnCharges @ 0x14036CF80
  * Callers:
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
  * Callees:
- *     MiUnlockPageTableCharges @ 0x140318F40 (MiUnlockPageTableCharges.c)
- *     MiReleaseLockedVaLeafCharges @ 0x1404B3E8C (MiReleaseLockedVaLeafCharges.c)
+ *     MiUnlockPageTableCharges @ 0x14031AF70 (MiUnlockPageTableCharges.c)
+ *     MiReleaseLockedVaLeafCharges @ 0x1404AD45C (MiReleaseLockedVaLeafCharges.c)
  */
 
 unsigned __int64 __fastcall MiCopyOnWriteReturnCharges(__int64 a1)

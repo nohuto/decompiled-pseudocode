@@ -38,13 +38,13 @@ __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
   __int128 v24; // [rsp+48h] [rbp-B8h]
   int v25; // [rsp+58h] [rbp-A8h]
   __int128 *v26; // [rsp+60h] [rbp-A0h] BYREF
-  STRING v27; // [rsp+68h] [rbp-98h] BYREF
+  _STRING v27; // [rsp+68h] [rbp-98h] BYREF
   _BYTE v28[8]; // [rsp+78h] [rbp-88h] BYREF
   _DWORD v29[36]; // [rsp+80h] [rbp-80h] BYREF
   _DWORD v30[4]; // [rsp+110h] [rbp+10h] BYREF
-  STRING DestinationString; // [rsp+120h] [rbp+20h] BYREF
-  STRING v32; // [rsp+130h] [rbp+30h] BYREF
-  STRING v33; // [rsp+140h] [rbp+40h] BYREF
+  _STRING DestinationString; // [rsp+120h] [rbp+20h] BYREF
+  _STRING v32; // [rsp+130h] [rbp+30h] BYREF
+  _STRING v33; // [rsp+140h] [rbp+40h] BYREF
 
   v30[0] = 536871168;
   v20 = 0;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MxComputePageTablesNeededByPde @ 0x140CF5354
+ * XREFs of MxComputePageTablesNeededByPde @ 0x140CFB6D4
  * Callers:
- *     MxComputePageTablesNeeded @ 0x140CF5268 (MxComputePageTablesNeeded.c)
+ *     MxComputePageTablesNeeded @ 0x140CFB5E8 (MxComputePageTablesNeeded.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ void __fastcall MxComputePageTablesNeededByPde(unsigned __int64 a1, unsigned __i
   __int64 v5; // rax
 
   v3 = 0;
-  v4 = &qword_14101EC38;
+  v4 = &qword_14101FC38;
   do
   {
     if ( a2 == a1 )

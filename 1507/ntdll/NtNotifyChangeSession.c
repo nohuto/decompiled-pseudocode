@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 NtNotifyChangeSession()
+NTSTATUS __cdecl NtNotifyChangeSession(
+        HANDLE SessionHandle,
+        ULONG ChangeSequenceNumber,
+        PLARGE_INTEGER ChangeTimeStamp,
+        IO_SESSION_EVENT Event,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 263LL;
+  result = 263;
   __asm { syscall; Low latency system call }
   return result;
 }

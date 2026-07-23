@@ -1,7 +1,7 @@
 /*
  * XREFs of KiCheckUserAddressCetCompat @ 0x1405CEF24
  * Callers:
- *     KiProcessControlProtection @ 0x140512760 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x1405129A0 (KiProcessControlProtection.c)
  * Callees:
  *     MmGetImageInformation @ 0x1405CF098 (MmGetImageInformation.c)
  *     RtlFindDynamicEnforcedAddressInRanges @ 0x1405CFE78 (RtlFindDynamicEnforcedAddressInRanges.c)

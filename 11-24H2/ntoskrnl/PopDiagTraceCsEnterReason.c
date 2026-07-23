@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceCsEnterReason @ 0x140A90F24
+ * XREFs of PopDiagTraceCsEnterReason @ 0x140A8D620
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsEnterReason(int a1)
@@ -59,8 +59,8 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
   v4 = (unsigned __int8)PopConsoleExternalDisplayConnected;
   v3 = (unsigned __int8)PopLidOpened;
   v5 = PopCsConsumption;
-  result = dword_140E27CE8;
-  v6 = dword_140E27CE8;
+  result = dword_140E27E28;
+  v6 = dword_140E27E28;
   v2 = a1;
   if ( PopDiagHandleRegistered )
   {
@@ -90,9 +90,9 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
       }
     }
   }
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
     if ( result )
     {
       v13 = PopWnfCsEnterScenarioId;
@@ -114,8 +114,8 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
       v39 = 4LL;
       v41 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E076F0,
-               (unsigned __int8 *)byte_14004A1BD,
+               (__int64)&dword_140E07680,
+               (unsigned __int8 *)byte_14004ACD1,
                0LL,
                0LL,
                8u,

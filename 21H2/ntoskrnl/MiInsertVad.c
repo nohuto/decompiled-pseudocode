@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInsertVad @ 0x140316330
+ * XREFs of MiInsertVad @ 0x140321080
  * Callers:
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402980D4 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
- *     MiGetWsAndInsertVad @ 0x140316080 (MiGetWsAndInsertVad.c)
- *     MiInsertPrivateVad @ 0x140316D84 (MiInsertPrivateVad.c)
- *     MiInsertViewOfPhysicalSection @ 0x1403C6DC8 (MiInsertViewOfPhysicalSection.c)
- *     MiReInsertPlaceholderVad @ 0x14055533C (MiReInsertPlaceholderVad.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140218B54 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
+ *     MiGetWsAndInsertVad @ 0x140320DD0 (MiGetWsAndInsertVad.c)
+ *     MiInsertPrivateVad @ 0x140321AD4 (MiInsertPrivateVad.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C6F68 (MiInsertViewOfPhysicalSection.c)
+ *     MiReInsertPlaceholderVad @ 0x14055557C (MiReInsertPlaceholderVad.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     MiAweViewInserter @ 0x1408D56DC (MiAweViewInserter.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     MiVadMapsLargeImage @ 0x1402C1520 (MiVadMapsLargeImage.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     MiLocateLockedVadEvent @ 0x14030911C (MiLocateLockedVadEvent.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiAweViewInserter @ 0x1408D583C (MiAweViewInserter.c)
  */
 
 void __fastcall MiInsertVad(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -40,7 +40,7 @@ void __fastcall MiInsertVad(__int64 a1, __int64 a2, __int64 a3, _DWORD *Schedule
   if ( (a3 & 1) != 0 )
   {
     if ( (*(_BYTE *)(a2 + 1848) & 7) == 2 )
-      v10 = &dword_140C4F780;
+      v10 = &dword_140C4F7C0;
     else
       v10 = (LONG *)(a2 + 1856);
     CurrentIrql = KeGetCurrentIrql();

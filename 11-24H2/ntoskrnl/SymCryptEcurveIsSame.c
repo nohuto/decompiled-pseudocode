@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptEcurveIsSame @ 0x140522A18
+ * XREFs of SymCryptEcurveIsSame @ 0x14052032C
  * Callers:
- *     SymCryptEcDhSecretAgreement @ 0x140538EE8 (SymCryptEcDhSecretAgreement.c)
+ *     SymCryptEcDhSecretAgreement @ 0x140533388 (SymCryptEcDhSecretAgreement.c)
  * Callees:
- *     SymCryptIntFromModulus @ 0x1405238E0 (SymCryptIntFromModulus.c)
- *     SymCryptIntIsEqual @ 0x140523970 (SymCryptIntIsEqual.c)
- *     SymCryptModElementIsEqual @ 0x140523C24 (SymCryptModElementIsEqual.c)
+ *     SymCryptIntFromModulus @ 0x1405211F8 (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsEqual @ 0x140521288 (SymCryptIntIsEqual.c)
+ *     SymCryptModElementIsEqual @ 0x14052153C (SymCryptModElementIsEqual.c)
  */
 
 bool __fastcall SymCryptEcurveIsSame(__int64 a1, __int64 a2)

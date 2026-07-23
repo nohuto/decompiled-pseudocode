@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpSetCoverageSamplerInformation @ 0x14094793C
+ * XREFs of EtwpSetCoverageSamplerInformation @ 0x140947B0C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938730 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ExCheckFullProcessInformationAccess @ 0x1406BAC8C (ExCheckFullProcessInformationAccess.c)
- *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
- *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     EtwpCovSampApplyBounds @ 0x140941EE4 (EtwpCovSampApplyBounds.c)
- *     EtwpCovSampSplitSegments @ 0x140945C78 (EtwpCovSampSplitSegments.c)
- *     EtwpCoverageSamplerInitialize @ 0x140946374 (EtwpCoverageSamplerInitialize.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x140946FE4 (EtwpCoverageSamplerSetBloomFilter.c)
- *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x140947458 (EtwpCoverageSamplerStop.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExCheckFullProcessInformationAccess @ 0x140619F60 (ExCheckFullProcessInformationAccess.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     ObInsertObject @ 0x1406AB4A0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1406ABDC0 (ObCreateObject.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     EtwpCovSampApplyBounds @ 0x1409420B4 (EtwpCovSampApplyBounds.c)
+ *     EtwpCovSampSplitSegments @ 0x140945E48 (EtwpCovSampSplitSegments.c)
+ *     EtwpCoverageSamplerInitialize @ 0x140946544 (EtwpCoverageSamplerInitialize.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x1409471B4 (EtwpCoverageSamplerSetBloomFilter.c)
+ *     EtwpCoverageSamplerStart @ 0x14094735C (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x140947628 (EtwpCoverageSamplerStop.c)
  */
 
 __int64 __fastcall EtwpSetCoverageSamplerInformation(_OWORD *Address, SIZE_T Length, KPROCESSOR_MODE AccessMode)

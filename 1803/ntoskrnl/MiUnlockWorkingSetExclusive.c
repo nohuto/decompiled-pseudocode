@@ -83,14 +83,14 @@
 void __fastcall MiUnlockWorkingSetExclusive(__int64 a1, unsigned __int8 a2)
 {
   int v4; // esi
-  struct _SLIST_ENTRY *v5; // r14
+  _SLIST_ENTRY *v5; // r14
   LONG *v6; // rbx
   _KPROCESS *Process; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // rdx
   __int64 v10; // r8
   int v11; // eax
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
   void *retaddr; // [rsp+38h] [rbp+0h]
   int v14; // [rsp+48h] [rbp+10h]
 

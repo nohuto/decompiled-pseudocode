@@ -16,17 +16,23 @@ void __stdcall LdrpDetectDetour()
   char *v0; // edi
   unsigned int v1; // esi
   char v2; // al
+  size_t v3; // [esp-4h] [ebp-14h]
   int ThreadInformation; // [esp+Ch] [ebp-4h] BYREF
 
   if ( !LdrpDetourExist )
   {
     v0 = (char *)&LdrpThunkSignature;
     v1 = 0;
-    while ( !memcmp(
-               v0,
-               *(int (__stdcall **)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, PIO_STATUS_BLOCK, ULONG, ULONG))((char *)&LdrpCriticalLoaderFunctions + v1),
-               0x10u) )
+    while ( 1 )
     {
+      LODWORD(v3) = 16;
+      if ( memcmp(
+             v0,
+             *(int (__stdcall **)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, PIO_STATUS_BLOCK, ULONG, ULONG))((char *)&LdrpCriticalLoaderFunctions + v1),
+             v3) )
+      {
+        break;
+      }
       v1 += 4;
       v0 += 16;
       if ( v1 >= 0x14 )
@@ -41,7 +47,7 @@ void __stdcall LdrpDetectDetour()
         "!!! Detour detected, disable parallel loading\n");
     LdrpDetourExist = 1;
 LABEL_5:
-    if ( NtQueryInformationThread((HANDLE)0xFFFFFFFE, (THREADINFOCLASS)42, &ThreadInformation, 4u, 0) >= 0
+    if ( NtQueryInformationThread((HANDLE)0xFFFFFFFE, ThreadDynamicCodePolicyInfo, &ThreadInformation, 4u, 0) >= 0
       && ThreadInformation == 1 )
     {
       v2 = 1;
@@ -55,7 +61,7 @@ LABEL_5:
     {
       if ( LdrpMapAndSnapWork )
       {
-        TpWaitForWork(LdrpMapAndSnapWork, 1);
+        TpWaitForWork(LdrpMapAndSnapWork, 1u);
         TpReleaseWork(LdrpMapAndSnapWork);
         LdrpMapAndSnapWork = 0;
       }

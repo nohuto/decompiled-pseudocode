@@ -1,21 +1,21 @@
 /*
- * XREFs of PopEndMirroring @ 0x140AA2820
+ * XREFs of PopEndMirroring @ 0x140AA2690
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwKernelMemoryRundown @ 0x1409E5018 (EtwKernelMemoryRundown.c)
- *     PopBuildMemoryImageHeader @ 0x140AA1BB8 (PopBuildMemoryImageHeader.c)
- *     PopInvokeSystemStateHandler @ 0x140AA859C (PopInvokeSystemStateHandler.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwKernelMemoryRundown @ 0x1409E52A8 (EtwKernelMemoryRundown.c)
+ *     PopBuildMemoryImageHeader @ 0x140AA1A28 (PopBuildMemoryImageHeader.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA840C (PopInvokeSystemStateHandler.c)
  */
 
 __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
@@ -28,7 +28,7 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
   _DWORD *SchedulerAssist; // r9
   int v8; // eax
   int v9; // edi
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-19h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-19h] BYREF
   unsigned __int16 *v11[2]; // [rsp+48h] [rbp-9h] BYREF
   __int16 v12; // [rsp+58h] [rbp+7h]
   int v13; // [rsp+5Ah] [rbp+9h]
@@ -49,7 +49,7 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
       v2 = -1073741823;
       goto LABEL_4;
     }
-    v2 = *(_DWORD *)(qword_140C3D100 + 188);
+    v2 = *(_DWORD *)(qword_140C3CDC0 + 188);
     if ( v2 >= 0 )
     {
       v2 = PopInvokeSystemStateHandler((unsigned int)PopHibernatePowerStateHandlerType);
@@ -62,15 +62,15 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
     }
 LABEL_4:
     IoAddTriageDumpDataBlock((ULONG)&PopAction, (PVOID)0x1D0);
-    if ( *(_QWORD *)&qword_140C3D0F8 )
-      IoAddTriageDumpDataBlock(qword_140C3D0F8, (PVOID)0x1D8);
-    if ( qword_140C3D100 )
+    if ( *(_QWORD *)&qword_140C3CDB8 )
+      IoAddTriageDumpDataBlock(qword_140C3CDB8, (PVOID)0x1D8);
+    if ( qword_140C3CDC0 )
     {
-      IoAddTriageDumpDataBlock(qword_140C3D100, (PVOID)0x1C8);
-      v3 = *(_QWORD *)(qword_140C3D100 + 168);
+      IoAddTriageDumpDataBlock(qword_140C3CDC0, (PVOID)0x1C8);
+      v3 = *(_QWORD *)(qword_140C3CDC0 + 168);
       if ( v3 )
         IoAddTriageDumpDataBlock(v3, (PVOID)0x178);
-      v4 = *(_QWORD *)(qword_140C3D100 + 200);
+      v4 = *(_QWORD *)(qword_140C3CDC0 + 200);
       if ( v4 )
         IoAddTriageDumpDataBlock(v4, (PVOID)0x448);
     }
@@ -80,7 +80,7 @@ LABEL_4:
     EtwKernelMemoryRundown();
   KeSetEvent(PopSleeperHandoff, 0, 1u);
   KeWaitForSingleObject(&PopSleeperHandoff[1], Executive, 0, 0, 0LL);
-  v2 = PopBuildMemoryImageHeader((_QWORD *)qword_140C3D100, 0);
+  v2 = PopBuildMemoryImageHeader((_QWORD *)qword_140C3CDC0, 0);
   if ( v2 < 0 )
     goto LABEL_4;
   Affinity.Reserved[1] = 0;
@@ -90,7 +90,7 @@ LABEL_4:
   KeSetSystemGroupAffinityThread(&Affinity, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v8 = 4;

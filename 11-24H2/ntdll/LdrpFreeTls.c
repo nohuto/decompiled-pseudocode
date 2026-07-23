@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpFreeTls @ 0x180004110
+ * XREFs of LdrpFreeTls @ 0x1800AB4A0
  * Callers:
- *     LdrShutdownThread @ 0x1800045E0 (LdrShutdownThread.c)
+ *     LdrShutdownThread @ 0x1800AB0D0 (LdrShutdownThread.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
 __int64 LdrpFreeTls()
@@ -36,13 +36,13 @@ __int64 LdrpFreeTls()
         do
         {
           if ( *ThreadLocalStoragePointer )
-            RtlFreeHeap(LdrpTlsHeap, 0LL, *((_QWORD *)*ThreadLocalStoragePointer - 1));
+            RtlFreeHeap(LdrpTlsHeap, 0, *((PVOID *)*ThreadLocalStoragePointer - 1));
           ++ThreadLocalStoragePointer;
           --v5;
         }
         while ( v5 );
       }
-      RtlFreeHeap(LdrpTlsHeap, 0LL, v4);
+      RtlFreeHeap(LdrpTlsHeap, 0, v4);
     }
   }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiLoadMTRRTarget @ 0x140B57930
+ * XREFs of KiLoadMTRRTarget @ 0x140B599B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLoadMTRR @ 0x140B68C20 (KeLoadMTRR.c)
+ *     KeLoadMTRR @ 0x140B6F790 (KeLoadMTRR.c)
  */
 
 ULONG_PTR __fastcall KiLoadMTRRTarget(ULONG_PTR Argument)

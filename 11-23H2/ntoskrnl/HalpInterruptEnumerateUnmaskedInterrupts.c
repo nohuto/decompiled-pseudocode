@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x140503FE0
+ * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x140504530
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14051A0D8 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14051A628 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
@@ -94,10 +94,13 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
     }
 LABEL_16:
     KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -105,7 +108,7 @@ LABEL_16:
         v23 = (v22 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v22;
         if ( v23 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v9);

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiUEventNotifyClient @ 0x14077E5DC
+ * XREFs of PiUEventNotifyClient @ 0x14077E7CC
  * Callers:
- *     PiUEventNotifyDeviceInstanceChange @ 0x14077E3F0 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyTargetDeviceChange @ 0x140783544 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x140791288 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140872360 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x14077E5E0 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x140783734 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140791478 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1408725A0 (PiUEventNotifyDeviceInstancePropertyChange.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PiUEventQueuePendingEvent @ 0x14077E6E0 (PiUEventQueuePendingEvent.c)
- *     PiUEventReferenceEventEntry @ 0x14077E724 (PiUEventReferenceEventEntry.c)
- *     PiUEventNotifyClientPendingEvent @ 0x14077E760 (PiUEventNotifyClientPendingEvent.c)
- *     PiUEventIsClientStuck @ 0x14077E7B8 (PiUEventIsClientStuck.c)
- *     PiUEventDequeuePendingEventWorker @ 0x14078207C (PiUEventDequeuePendingEventWorker.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     PiUEventQueuePendingEvent @ 0x14077E8D0 (PiUEventQueuePendingEvent.c)
+ *     PiUEventReferenceEventEntry @ 0x14077E914 (PiUEventReferenceEventEntry.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x14077E950 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventIsClientStuck @ 0x14077E9A8 (PiUEventIsClientStuck.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14078226C (PiUEventDequeuePendingEventWorker.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

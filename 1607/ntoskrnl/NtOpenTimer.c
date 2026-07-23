@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenTimer @ 0x1406AFC5C
+ * XREFs of NtOpenTimer @ 0x1406AFD94
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
  */
 
 NTSTATUS __stdcall NtOpenTimer(PHANDLE TimerHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)

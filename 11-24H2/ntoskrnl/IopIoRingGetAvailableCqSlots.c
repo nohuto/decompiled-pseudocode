@@ -1,10 +1,10 @@
 /*
- * XREFs of IopIoRingGetAvailableCqSlots @ 0x1405977D0
+ * XREFs of IopIoRingGetAvailableCqSlots @ 0x140594750
  * Callers:
- *     NtSubmitIoRing @ 0x1404C3910 (NtSubmitIoRing.c)
+ *     NtSubmitIoRing @ 0x1404BEE40 (NtSubmitIoRing.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall IopIoRingGetAvailableCqSlots(__int64 a1)

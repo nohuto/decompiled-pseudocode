@@ -356,7 +356,7 @@ LABEL_58:
     v32->AssociatedIrp.MasterIrp = PoolWithQuota;
     memmove(PoolWithQuota, FileInformation, v5);
     if ( ((unsigned int)(v10 - 19) <= 1 || v10 == FilePositionInformation) && v83->Header.SignalState < 0 )
-      RtlRaiseStatus(3221225485LL);
+      RtlRaiseStatus(-1073741811);
     v32->Flags |= 0x830u;
     CurrentStackLocation[-1].Parameters.Read.Length = v5;
     CurrentStackLocation[-1].Parameters.Create.Options = v10;

@@ -92,7 +92,7 @@ __int64 __fastcall sub_1801070E0(unsigned __int16 a1, char a2, signed __int32 *a
             v27,
             v12,
             v39->CurrentIdealProcessor.Reserved,
-            (_QWORD *)((unsigned __int64)&v33 & -(__int64)(v10 != 0)),
+            (LARGE_INTEGER *)((unsigned __int64)&v33 & -(__int64)(v10 != 0)),
             &v35);
     v38 = v16;
     v17 = 0;

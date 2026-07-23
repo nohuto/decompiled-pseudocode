@@ -19,7 +19,7 @@ char __fastcall MiUnlockDynamicMemoryNestedParentExclusive(__int64 a1)
   unsigned int SessionId; // edx
   unsigned __int8 v4; // bp
   unsigned int v5; // r8d
-  unsigned __int64 v6; // rdi
+  __int64 v6; // rdi
   bool v7; // zf
   __int64 v8; // rcx
   int v9; // eax
@@ -46,7 +46,7 @@ char __fastcall MiUnlockDynamicMemoryNestedParentExclusive(__int64 a1)
     v7 = !_BitScanReverse((unsigned int *)&v8, v5);
     if ( v7 )
       goto LABEL_13;
-    v6 = (unsigned __int64)&CurrentThread->LockEntries[v8];
+    v6 = (__int64)&CurrentThread->LockEntries[v8];
     v5 &= ~(1 << v8);
     if ( (*(_BYTE *)(v6 + 26) & 1) != 0
       && (*(_DWORD *)(v6 + 32) & 1) == 0
@@ -67,14 +67,14 @@ LABEL_13:
   }
   *(_BYTE *)(v6 + 32) |= 2u;
   if ( *(__int64 *)(v6 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v6);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v6);
   v9 = *(_DWORD *)(v6 + 88) & 0x1FFFF;
   v10 = *(_DWORD *)(v6 + 88) & 0xFFFE0000;
   *(_BYTE *)(v6 + 25) &= ~1u;
   v15 = v9;
   *(_DWORD *)(v6 + 88) = v10;
   *(_QWORD *)(v6 + 32) = 0LL;
-  v11 = (__int64)(v6 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+  v11 = (signed __int64)(v6 - (unsigned __int64)CurrentThread->LockEntries) / 96;
   if ( v4 == 1 )
     CurrentThread->AbEntrySummary |= 1 << v11;
   else

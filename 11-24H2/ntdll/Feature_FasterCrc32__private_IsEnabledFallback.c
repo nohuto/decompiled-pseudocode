@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_FasterCrc32__private_IsEnabledFallback @ 0x180120738
+ * XREFs of Feature_FasterCrc32__private_IsEnabledFallback @ 0x18011E968
  * Callers:
- *     Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline @ 0x18011CFE0 (Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline @ 0x18011B210 (Feature_FasterCrc32__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
  *     <none>
  */

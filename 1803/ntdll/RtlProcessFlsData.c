@@ -12,71 +12,68 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlProcessFlsData(_QWORD *a1, char *a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall RtlProcessFlsData(_QWORD *a1)
 {
-  struct _PEB *v4; // rsi
-  struct _TEB *v6; // rdi
-  __int64 Heap; // rax
-  unsigned __int64 v8; // rdx
-  unsigned __int64 *v9; // r8
-  __int64 v10; // r9
-  struct _LIST_ENTRY *v11; // rbx
-  struct _LIST_ENTRY *Blink; // rcx
-  unsigned int FlsHighIndex; // ebp
+  struct _PEB *v1; // rsi
+  struct _TEB *v3; // rdi
+  struct _PEB *Heap; // rax
+  struct _PEB *v5; // rbx
+  struct _PEB **PatchLoaderData; // rcx
+  unsigned int v8; // ebp
   unsigned int i; // edi
-  _QWORD *v16; // r15
-  __int64 v17; // r14
-  struct _FLS_CALLBACK_INFO *FlsCallback; // rdx
-  void (*v19)(void); // rax
-  __int64 v20; // rcx
-  _QWORD *v21; // rax
+  _QWORD *v10; // r15
+  __int64 v11; // r14
+  char *v12; // rdx
+  void (*v13)(void); // rax
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
 
-  v4 = NtCurrentPeb();
+  v1 = NtCurrentPeb();
   if ( a1 )
   {
-    FlsHighIndex = v4->FlsHighIndex;
-    for ( i = 1; i <= FlsHighIndex; ++i )
+    v8 = *(_DWORD *)&v1->UseCaseMapping;
+    for ( i = 1; i <= v8; ++i )
     {
-      v16 = &a1[i];
-      if ( v16[2] )
+      v10 = &a1[i];
+      if ( v10[2] )
       {
-        v17 = 16LL * i;
-        RtlAcquireSRWLockShared((volatile signed __int64 *)((char *)v4->FlsCallback + v17 + 8), a2, (__int64)a3, a4);
-        FlsCallback = v4->FlsCallback;
-        v19 = *(void (**)(void))((char *)FlsCallback + v17);
-        if ( v19 && v16[2] )
+        v11 = 16LL * i;
+        RtlAcquireSRWLockShared((PRTL_SRWLOCK)((char *)v1->SparePointers[0] + v11 + 8));
+        v12 = (char *)v1->SparePointers[0];
+        v13 = *(void (**)(void))&v12[v11];
+        if ( v13 && v10[2] )
         {
-          v19();
-          v16[2] = 0LL;
-          FlsCallback = v4->FlsCallback;
+          v13();
+          v10[2] = 0LL;
+          v12 = (char *)v1->SparePointers[0];
         }
-        RtlReleaseSRWLockShared((volatile signed __int64 *)((char *)FlsCallback + v17 + 8));
+        RtlReleaseSRWLockShared((PRTL_SRWLOCK)&v12[v11 + 8]);
       }
     }
-    RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D260, (unsigned __int64)a2, a3, a4);
-    v20 = *a1;
-    if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v21 = (_QWORD *)a1[1], (_QWORD *)*v21 != a1) )
+    RtlAcquireSRWLockExclusive(&stru_18015D260);
+    v14 = *a1;
+    if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v15 = (_QWORD *)a1[1], (_QWORD *)*v15 != a1) )
       __fastfail(3u);
-    *v21 = v20;
-    *(_QWORD *)(v20 + 8) = v21;
+    *v15 = v14;
+    *(_QWORD *)(v14 + 8) = v15;
     goto LABEL_5;
   }
-  v6 = NtCurrentTeb();
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (dword_18015C294 + 2883584) | 8u, 1040LL);
-  v11 = (struct _LIST_ENTRY *)Heap;
+  v3 = NtCurrentTeb();
+  Heap = (struct _PEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (Flags + 2883584) | 8, 0x410uLL);
+  v5 = Heap;
   if ( Heap )
   {
-    v6->FlsData = (void *)Heap;
-    RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D260, v8, v9, v10);
-    Blink = v4->FlsListHead.Blink;
-    if ( Blink->Flink != &v4->FlsListHead )
+    v3->FlsData = Heap;
+    RtlAcquireSRWLockExclusive(&stru_18015D260);
+    PatchLoaderData = (struct _PEB **)v1->PatchLoaderData;
+    if ( *PatchLoaderData != (struct _PEB *)&v1->SparePointers[1] )
       __fastfail(3u);
-    v11->Flink = &v4->FlsListHead;
-    v11->Blink = Blink;
-    Blink->Flink = v11;
-    v4->FlsListHead.Blink = v11;
+    *(_QWORD *)&v5->InheritedAddressSpace = &v1->SparePointers[1];
+    v5->Mutant = PatchLoaderData;
+    *PatchLoaderData = v5;
+    v1->PatchLoaderData = v5;
 LABEL_5:
-    RtlReleaseSRWLockExclusive(&qword_18015D260);
+    RtlReleaseSRWLockExclusive(&stru_18015D260);
     return 0LL;
   }
   return 3221225495LL;

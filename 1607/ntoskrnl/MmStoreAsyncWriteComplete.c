@@ -1,11 +1,11 @@
 /*
- * XREFs of MmStoreAsyncWriteComplete @ 0x14011AE4C
+ * XREFs of MmStoreAsyncWriteComplete @ 0x14011B3BC
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14011ABA0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14011B110 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiStoreModifiedWriteDereference @ 0x14011AEC0 (MiStoreModifiedWriteDereference.c)
- *     MiStoreLogWriteCompleteFailure @ 0x1401F4A58 (MiStoreLogWriteCompleteFailure.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiStoreModifiedWriteDereference @ 0x14011B430 (MiStoreModifiedWriteDereference.c)
+ *     MiStoreLogWriteCompleteFailure @ 0x1401F4884 (MiStoreLogWriteCompleteFailure.c)
  */
 
 __int64 __fastcall MmStoreAsyncWriteComplete(__int64 a1)

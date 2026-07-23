@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPepIdleTimeoutRoutine @ 0x1403552F0
+ * XREFs of PopPepIdleTimeoutRoutine @ 0x140355490
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140310938 (PopPepComponentGetResidencyIdleState.c)
- *     PopPepUpdateIdleState @ 0x1403109B8 (PopPepUpdateIdleState.c)
- *     PopPepCountReadyActivities @ 0x140313A54 (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x140313AA0 (PopPepRequestWork.c)
- *     PopPepPromoteActivities @ 0x140313C60 (PopPepPromoteActivities.c)
- *     PopPepArmIdleTimer @ 0x1403554F4 (PopPepArmIdleTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140310BC8 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepUpdateIdleState @ 0x140310C48 (PopPepUpdateIdleState.c)
+ *     PopPepCountReadyActivities @ 0x140313CE4 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x140313D30 (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140313EF0 (PopPepPromoteActivities.c)
+ *     PopPepArmIdleTimer @ 0x140355694 (PopPepArmIdleTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopPepIdleTimeoutRoutine()
@@ -83,10 +83,10 @@ __int64 PopPepIdleTimeoutRoutine()
       v7 = PopPepCountReadyActivities((unsigned int *)i, 0LL, 3);
       PopPepRequestWork(i, ready, v7);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(i + 64));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_10;
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_10;
       if ( CurrentIrql > 0xFu )
         goto LABEL_10;
@@ -105,10 +105,10 @@ __int64 PopPepIdleTimeoutRoutine()
     else
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(i + 64));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_10;
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_10;
       if ( v17 > 0xFu )
         goto LABEL_10;

@@ -46,7 +46,7 @@ __int64 __fastcall ExRegisterExtension(__int64 *a1, int a2, unsigned __int16 *a3
     return 3221225485LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire((ULONG_PTR)&ExpHostListLock, 0LL, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)&ExpHostListLock, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpHostListLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&ExpHostListLock, v6, (ULONG_PTR)&ExpHostListLock);
   if ( v6 )
@@ -81,7 +81,7 @@ LABEL_14:
   v13 = KeGetCurrentThread();
   --v13->KernelApcDisable;
   v14 = (volatile signed __int64 *)(Host + 72);
-  v15 = KeAbPreAcquire(Host + 72, 0LL, 0LL);
+  v15 = KeAbPreAcquire(Host + 72, 0LL, 0);
   v16 = v15;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(Host + 72), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(Host + 72), v15, Host + 72);

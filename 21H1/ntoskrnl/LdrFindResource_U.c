@@ -7,7 +7,11 @@
  *     LdrpSearchResourceSection_U @ 0x1406F8B20 (LdrpSearchResourceSection_U.c)
  */
 
-__int64 __fastcall LdrFindResource_U(__int64 a1, __int64 *a2, unsigned int a3, __int64 *a4)
+NTSTATUS __cdecl LdrFindResource_U(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
-  return LdrpSearchResourceSection_U(a1, a2, a3, 0, a4);
+  return LdrpSearchResourceSection_U((char *)DllHandle, (__int64 *)ResourceInfo, Level, 0, ResourceDataEntry);
 }

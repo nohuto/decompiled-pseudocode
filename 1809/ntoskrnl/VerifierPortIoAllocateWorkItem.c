@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierPortIoAllocateWorkItem @ 0x140928F50
+ * XREFs of VerifierPortIoAllocateWorkItem @ 0x140929F50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierPortIoAllocateWorkItem(__int64 a1, __int64 a2)

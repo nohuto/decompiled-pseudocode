@@ -1,17 +1,17 @@
 /*
- * XREFs of SepAddTokenOriginClaim @ 0x140A2D094
+ * XREFs of SepAddTokenOriginClaim @ 0x140B2A2F4
  * Callers:
- *     SeDuplicateTokenWithPredictedClaims @ 0x1408149DC (SeDuplicateTokenWithPredictedClaims.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x140A2CFB8 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeDuplicateTokenWithPredictedClaims @ 0x14081AACC (SeDuplicateTokenWithPredictedClaims.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x140B2A218 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     RtlUShortAdd @ 0x140481650 (RtlUShortAdd.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64 (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     RtlUShortAdd @ 0x14047AFC0 (RtlUShortAdd.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3, char a4)
@@ -21,11 +21,11 @@ __int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3, char a
   wchar_t *Pool2; // rax
   const UNICODE_STRING *v9; // rdi
   const wchar_t *v10; // rax
-  __int64 v11; // rcx
+  _DWORD *v11; // rcx
   NTSTATUS v12; // eax
   __int16 v13; // cx
   USHORT v14; // bx
-  __int64 v15; // rcx
+  _DWORD *v15; // rcx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
   int v17; // [rsp+30h] [rbp-29h] BYREF
   int v18; // [rsp+34h] [rbp-25h]
@@ -79,7 +79,7 @@ LABEL_4:
     *(_QWORD *)&v22.Length = 4849736LL;
     v10 = L"SMARTLOCKER://SMARTSCREENORIGINCLAIM";
   }
-  v11 = *(_QWORD *)(a3 + 776);
+  v11 = *(_DWORD **)(a3 + 776);
   v22.Buffer = (wchar_t *)v10;
   v23 = 16;
   v26 = (const UNICODE_STRING *)&v20;
@@ -122,7 +122,7 @@ LABEL_5:
         appended = RtlAppendUnicodeStringToString(&DestinationString, v9 - 2);
         if ( appended < 0 )
           break;
-        v15 = *(_QWORD *)(a3 + 776);
+        v15 = *(_DWORD **)(a3 + 776);
         v19 = &v22;
         v17 = 1;
         v26 = v9 - 1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrefetchNormally @ 0x14033E640
+ * XREFs of MiPrefetchNormally @ 0x14033E8D0
  * Callers:
- *     MiPrefetchPagesViable @ 0x14033E5E4 (MiPrefetchPagesViable.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
+ *     MiPrefetchPagesViable @ 0x14033E874 (MiPrefetchPagesViable.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
  */
 
 __int64 __fastcall MiPrefetchNormally(_QWORD *a1, __int64 a2, unsigned int a3)

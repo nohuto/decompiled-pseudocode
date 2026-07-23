@@ -1,21 +1,21 @@
 /*
- * XREFs of CcAsyncLazywriteWorker @ 0x1402A8E24
+ * XREFs of CcAsyncLazywriteWorker @ 0x14027B0C8
  * Callers:
- *     CcAsyncLazywriteWorkerThread @ 0x1404DEF40 (CcAsyncLazywriteWorkerThread.c)
+ *     CcAsyncLazywriteWorkerThread @ 0x1404D8960 (CcAsyncLazywriteWorkerThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcFindNextWorkQueueEntry @ 0x1402A788C (CcFindNextWorkQueueEntry.c)
- *     CcFreeWorkQueueEntry @ 0x1402A7E6C (CcFreeWorkQueueEntry.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1402A7FF0 (CcPerfLogWorkItemEnqueue.c)
- *     CcPerfLogWorkItemComplete @ 0x1402A8CC0 (CcPerfLogWorkItemComplete.c)
- *     CcPerfLogWorkItemDequeue @ 0x1402A8D2C (CcPerfLogWorkItemDequeue.c)
- *     CcWriteBehindAsync @ 0x1402A91A8 (CcWriteBehindAsync.c)
- *     CcRepostToSynchronousLazywriter @ 0x1402A93E4 (CcRepostToSynchronousLazywriter.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcReEngageWorkerThreads @ 0x1404DB200 (CcReEngageWorkerThreads.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CcDebugExceptionFilter @ 0x14057A414 (CcDebugExceptionFilter.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcFreeWorkQueueEntry @ 0x140279C5C (CcFreeWorkQueueEntry.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140279DE0 (CcPerfLogWorkItemEnqueue.c)
+ *     CcFindNextWorkQueueEntry @ 0x14027ACDC (CcFindNextWorkQueueEntry.c)
+ *     CcPerfLogWorkItemComplete @ 0x14027AD94 (CcPerfLogWorkItemComplete.c)
+ *     CcPerfLogWorkItemDequeue @ 0x14027AE00 (CcPerfLogWorkItemDequeue.c)
+ *     CcWriteBehindAsync @ 0x14027B44C (CcWriteBehindAsync.c)
+ *     CcRepostToSynchronousLazywriter @ 0x14027B688 (CcRepostToSynchronousLazywriter.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcReEngageWorkerThreads @ 0x1404D4C20 (CcReEngageWorkerThreads.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CcDebugExceptionFilter @ 0x1405778A4 (CcDebugExceptionFilter.c)
  */
 
 void __fastcall CcAsyncLazywriteWorker(__int64 a1)
@@ -119,7 +119,7 @@ LABEL_13:
           v21 = v4 + 188;
           _InterlockedIncrement((volatile signed __int32 *)(v4 + 188));
           KeReleaseInStackQueuedSpinLock(&LockHandle);
-          if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+          if ( (xmmword_140FC6B50 & 0x20000) != 0 )
             CcPerfLogWorkItemDequeue((__int64)P);
           v13 = *((_DWORD *)P + 32);
           if ( v13 == 4 )
@@ -155,14 +155,14 @@ LABEL_13:
           {
             if ( v20 == (_QWORD *)35422 )
             {
-              if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+              if ( (xmmword_140FC6B50 & 0x20000) != 0 )
                 CcPerfLogWorkItemEnqueue((__int64)v1, (__int64)P, 1, 0);
             }
             else
             {
-              if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+              if ( (xmmword_140FC6B50 & 0x20000) != 0 )
                 CcPerfLogWorkItemComplete((__int64)P);
-              CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)P, v10, v11, v12);
+              CcFreeWorkQueueEntry((_SLIST_ENTRY *)P, v10, v11, v12);
             }
           }
           goto LABEL_3;

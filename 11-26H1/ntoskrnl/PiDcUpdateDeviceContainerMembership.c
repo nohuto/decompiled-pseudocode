@@ -1,26 +1,25 @@
 /*
- * XREFs of PiDcUpdateDeviceContainerMembership @ 0x140909994
+ * XREFs of PiDcUpdateDeviceContainerMembership @ 0x1409ABF4C
  * Callers:
- *     PipProcessStartPhase3 @ 0x140908998 (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x1409AB9E8 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     wcscmp @ 0x140537FF0 (wcscmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiDcResetChildDeviceContainers @ 0x1407A7FF4 (PiDcResetChildDeviceContainers.c)
- *     _CmRemoveDeviceFromContainer @ 0x140898054 (_CmRemoveDeviceFromContainer.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x140909B98 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmSetDeviceRegProp @ 0x14090A0E8 (_CmSetDeviceRegProp.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     _CmAddDeviceToContainer @ 0x140AE815C (_CmAddDeviceToContainer.c)
- *     PiDcContainerRequiresConfiguration @ 0x140B04F50 (PiDcContainerRequiresConfiguration.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     wcscmp @ 0x14053A470 (wcscmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PiDcResetChildDeviceContainers @ 0x1407AABA4 (PiDcResetChildDeviceContainers.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14089E454 (_CmRemoveDeviceFromContainer.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1409AC150 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmSetDeviceRegProp @ 0x1409AC6A0 (_CmSetDeviceRegProp.c)
+ *     _CmAddDeviceToContainer @ 0x140AE600C (_CmAddDeviceToContainer.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140B06B60 (PiDcContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, __int64 a2, const wchar_t *a3)
 {
-  int v5; // r14d
   int DeviceContainerIdFromBase; // ebx
   int DeviceRegProp; // eax
   __int64 v8; // rax
@@ -35,13 +34,20 @@ __int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, __int64 a2, c
   v10[0] = 0;
   P[0] = 0LL;
   v12 = 0;
-  v5 = a2;
   v11 = 0;
-  DeviceContainerIdFromBase = PiPnpRtlBeginOperation(P, a2);
+  DeviceContainerIdFromBase = PiPnpRtlBeginOperation(P);
   if ( DeviceContainerIdFromBase >= 0 )
   {
     v11 = 78;
-    DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, a1, v5, 37, (__int64)&v12, (__int64)Str2, (__int64)&v11, 0);
+    DeviceRegProp = CmGetDeviceRegProp(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      a1,
+                      a2,
+                      0x25u,
+                      (__int64)&v12,
+                      (__int64)Str2,
+                      (__int64)&v11,
+                      0);
     DeviceContainerIdFromBase = DeviceRegProp;
     if ( DeviceRegProp >= 0 )
     {
@@ -71,7 +77,7 @@ __int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, __int64 a2, c
       do
         ++v8;
       while ( a3[v8] );
-      DeviceContainerIdFromBase = CmSetDeviceRegProp(PiPnpRtlCtx, a1, v5, 37, 1, (__int64)a3, 2 * (int)v8 + 2, 0);
+      DeviceContainerIdFromBase = CmSetDeviceRegProp(PiPnpRtlCtx, a1, a2, 37, 1, (__int64)a3, 2 * (int)v8 + 2, 0);
       if ( DeviceContainerIdFromBase >= 0 )
       {
         if ( wcscmp(L"{00000000-0000-0000-0000-000000000000}", a3) )
@@ -90,6 +96,6 @@ __int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, __int64 a2, c
   }
 LABEL_8:
   if ( P[0] )
-    PiPnpRtlEndOperation(P[0]);
+    PiPnpRtlEndOperation((char *)P[0]);
   return (unsigned int)DeviceContainerIdFromBase;
 }

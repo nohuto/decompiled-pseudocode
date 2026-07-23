@@ -1,14 +1,15 @@
 /*
- * XREFs of KxTryToAcquireQueuedSpinLock @ 0x1402DA128
+ * XREFs of KxTryToAcquireQueuedSpinLock @ 0x14023BA08
  * Callers:
- *     MiFastLockLeafPageTable @ 0x1402D90E0 (MiFastLockLeafPageTable.c)
- *     MiDeleteVaDirect @ 0x1402DA300 (MiDeleteVaDirect.c)
- *     MiCheckProcessShadow @ 0x1402E1370 (MiCheckProcessShadow.c)
- *     MiReacquireHigherPageTableLock @ 0x1402E2E70 (MiReacquireHigherPageTableLock.c)
- *     KeTryToAcquireQueuedSpinLock @ 0x1405BC0C0 (KeTryToAcquireQueuedSpinLock.c)
- *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1405BC150 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
+ *     MiReacquireHigherPageTableLock @ 0x14020B170 (MiReacquireHigherPageTableLock.c)
+ *     MiFastLockLeafPageTable @ 0x14023A9C0 (MiFastLockLeafPageTable.c)
+ *     MiDeleteVaDirect @ 0x14023BBE0 (MiDeleteVaDirect.c)
+ *     MiCheckProcessShadow @ 0x140242C50 (MiCheckProcessShadow.c)
+ *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140468550 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeTryToAcquireQueuedSpinLock @ 0x1405B96F0 (KeTryToAcquireQueuedSpinLock.c)
+ *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1405B9780 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
- *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x1402D5388 (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x140356608 (KiTryToAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall KxTryToAcquireQueuedSpinLock(signed __int64 a1, _DWORD *a2)
@@ -26,7 +27,7 @@ __int64 __fastcall KxTryToAcquireQueuedSpinLock(signed __int64 a1, _DWORD *a2)
   }
   else
   {
-    return (unsigned int)KiTryToAcquireQueuedSpinLockInstrumented(a1, a2);
+    return (unsigned int)KiTryToAcquireQueuedSpinLockInstrumented(a1, a2, 0LL);
   }
   return v2;
 }

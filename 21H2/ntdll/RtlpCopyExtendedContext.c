@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCopyExtendedContext @ 0x1800F5E04
+ * XREFs of RtlpCopyExtendedContext @ 0x1800F5DC4
  * Callers:
- *     RtlCopyExtendedContext @ 0x1800F5D70 (RtlCopyExtendedContext.c)
+ *     RtlCopyExtendedContext @ 0x1800F5D30 (RtlCopyExtendedContext.c)
  * Callees:
  *     RtlpValidateContextFlags @ 0x1800531DC (RtlpValidateContextFlags.c)
  *     RtlpCopyLegacyContext @ 0x1800532C8 (RtlpCopyLegacyContext.c)

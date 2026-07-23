@@ -4,7 +4,7 @@
  *     HalpAcpiInitializePmRegisters @ 0x140B65744 (HalpAcpiInitializePmRegisters.c)
  *     HalpAcpiSetupPmRegisterLegacy @ 0x140B658EC (HalpAcpiSetupPmRegisterLegacy.c)
  * Callees:
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
  */
 
 __int64 __fastcall HalpAcpiSetupPmRegister(SIZE_T NumberOfBytes, unsigned int a2, __int64 a3, __int64 a4)

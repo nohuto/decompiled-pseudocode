@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpExtrasAppend @ 0x1402FC96C
+ * XREFs of RtlpHpExtrasAppend @ 0x1402FCB5C
  * Callers:
  *     RtlpHpAllocateHeap @ 0x1400098C4 (RtlpHpAllocateHeap.c)
- *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA0B0 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpHpExtrasSetPresent @ 0x1402FCA8C (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x1402FCC7C (RtlpHpExtrasSetPresent.c)
  */
 
 unsigned __int64 __fastcall RtlpHpExtrasAppend(

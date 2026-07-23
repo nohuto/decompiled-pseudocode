@@ -16,14 +16,14 @@ __int64 __fastcall MiInitializeMirroring(EVENT_TYPE Type)
 {
   unsigned int v1; // ebx
   struct _KLOCK_QUEUE_HANDLE *MemoryListLocks; // rdi
-  _QWORD *PoolWithTag; // rax
-  void *v5; // rsi
-  _QWORD *v6; // rax
+  _RTL_BITMAP_EX *PoolWithTag; // rax
+  _RTL_BITMAP_EX *v5; // rsi
+  _RTL_BITMAP_EX *v6; // rax
   __int64 v7; // r8
   __int64 v8; // r9
-  __int64 v9; // r14
+  _RTL_BITMAP_EX *v9; // r14
   struct _KTHREAD *CurrentThread; // rbp
-  void *v11; // rcx
+  _RTL_BITMAP_EX *v11; // rcx
 
   v1 = 0;
   if ( Type == SynchronizationEvent )
@@ -40,30 +40,35 @@ __int64 __fastcall MiInitializeMirroring(EVENT_TYPE Type)
     MemoryListLocks = (struct _KLOCK_QUEUE_HANDLE *)MiAllocateMemoryListLocks();
     if ( !MemoryListLocks )
       return 0LL;
-    PoolWithTag = ExAllocatePoolWithTag(
-                    NonPagedPoolNx,
-                    8 * (((((_BYTE)qword_14034EC10 + 1) & 0x3F) != 0) + ((unsigned __int64)(qword_14034EC10 + 1) >> 6))
-                  + 16,
-                    0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP_EX *)ExAllocatePoolWithTag(
+                                      NonPagedPoolNx,
+                                      8
+                                    * (((((_BYTE)qword_14034EC10 + 1) & 0x3F) != 0)
+                                     + ((unsigned __int64)(qword_14034EC10 + 1) >> 6))
+                                    + 16,
+                                      0x20206D4Du);
     v5 = PoolWithTag;
     if ( PoolWithTag )
     {
-      *PoolWithTag = qword_14034EC10 + 1;
-      PoolWithTag[1] = PoolWithTag + 2;
-      v6 = ExAllocatePoolWithTag(
-             NonPagedPoolNx,
-             8 * (((((_BYTE)qword_14034EC10 + 1) & 0x3F) != 0) + ((unsigned __int64)(qword_14034EC10 + 1) >> 6)) + 16,
-             0x20206D4Du);
-      v9 = (__int64)v6;
+      PoolWithTag->SizeOfBitMap = qword_14034EC10 + 1;
+      PoolWithTag->Buffer = &PoolWithTag[1].SizeOfBitMap;
+      v6 = (_RTL_BITMAP_EX *)ExAllocatePoolWithTag(
+                               NonPagedPoolNx,
+                               8
+                             * (((((_BYTE)qword_14034EC10 + 1) & 0x3F) != 0)
+                              + ((unsigned __int64)(qword_14034EC10 + 1) >> 6))
+                             + 16,
+                               0x20206D4Du);
+      v9 = v6;
       if ( v6 )
       {
-        *v6 = qword_14034EC10 + 1;
-        v6[1] = v6 + 2;
+        v6->SizeOfBitMap = qword_14034EC10 + 1;
+        v6->Buffer = &v6[1].SizeOfBitMap;
         CurrentThread = KeGetCurrentThread();
         MiLockDynamicMemoryExclusive((__int64)MiSystemPartition, (__int64)CurrentThread, v7, v8);
         if ( !qword_14034F158 )
         {
-          qword_14034F158 = (__int64)v5;
+          qword_14034F158 = v5;
           v5 = 0LL;
           qword_14034F160 = v9;
           v9 = 0LL;
@@ -73,7 +78,7 @@ __int64 __fastcall MiInitializeMirroring(EVENT_TYPE Type)
         if ( !v5 )
           return 1;
         ExFreePoolWithTag(v5, 0);
-        v11 = (void *)v9;
+        v11 = v9;
       }
       else
       {

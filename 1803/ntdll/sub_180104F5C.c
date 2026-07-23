@@ -15,7 +15,7 @@ __int64 __fastcall sub_180104F5C(__int64 a1, __int64 a2, __int64 a3, unsigned in
   unsigned int v8; // eax
   unsigned int v9; // edi
   unsigned int v10; // r13d
-  unsigned __int16 HeapVirtualAffinity_high; // si
+  unsigned __int16 HeapData_high; // si
   __int64 v12; // rbp
   __int16 v13; // ax
   __int16 v14; // ax
@@ -34,19 +34,19 @@ __int64 __fastcall sub_180104F5C(__int64 a1, __int64 a2, __int64 a3, unsigned in
   v8 = *(_DWORD *)(a3 + 40) ^ ((unsigned int)a3 >> 12);
   v9 = (unsigned __int16)(qword_18015A448 ^ v8);
   v10 = ((unsigned int)qword_18015A448 ^ v8) >> 16;
-  HeapVirtualAffinity_high = (unsigned __int8)HIWORD(v5->HeapVirtualAffinity);
+  HeapData_high = (unsigned __int8)HIWORD(v5->HeapData);
   v12 = a4 < v9 ? 3LL : 1LL;
-  if ( HeapVirtualAffinity_high == HIBYTE(HIWORD(v5->HeapVirtualAffinity)) )
+  if ( HeapData_high == HIBYTE(HIWORD(v5->HeapData)) )
   {
     v13 = sub_18001EBF0();
     v14 = (v13 << 8) | (unsigned __int8)(v13 + 1);
   }
   else
   {
-    v14 = (unsigned __int8)(HIWORD(v5->HeapVirtualAffinity) ^ (HeapVirtualAffinity_high + 1)) ^ HIWORD(v5->HeapVirtualAffinity);
+    v14 = (unsigned __int8)(HIWORD(v5->HeapData) ^ (HeapData_high + 1)) ^ HIWORD(v5->HeapData);
   }
-  HIWORD(v5->HeapVirtualAffinity) = v14;
-  v15 = sub_1801044E0(v21, *(unsigned __int16 *)(a3 + 36), byte_18015A460[HeapVirtualAffinity_high], v22, v12);
+  HIWORD(v5->HeapData) = v14;
+  v15 = sub_1801044E0(v21, *(unsigned __int16 *)(a3 + 36), byte_18015A460[HeapData_high], v22, v12);
   *(_WORD *)(a3 + 36) = v15;
   v16 = v15;
   v17 = v10 + v15 * v9;

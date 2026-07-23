@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x140170EC0 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1401713C0 (KiFlushBhbDuringTrapEntryOrExit.c)
  *     KiSystemCall64Shadow @ 0x140240EC0 (KiSystemCall64Shadow.c)
  */
 

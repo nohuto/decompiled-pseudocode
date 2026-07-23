@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetNextFileLock @ 0x14053D420
+ * XREFs of FsRtlGetNextFileLock @ 0x14053D970
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlRealSuccessor @ 0x140326CF0 (RtlRealSuccessor.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x140327AAC (FsRtlFindFirstOverlappingSharedNode.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140328398 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRealSuccessor @ 0x140326F80 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x140327D3C (FsRtlFindFirstOverlappingSharedNode.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140328628 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Restart)
@@ -17,7 +17,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   PRTL_SPLAY_LINKS LastReturnedLock; // rdi
   char v5; // r14
   PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // rax
-  RTL_SPLAY_LINKS *v7; // rcx
+  _RTL_SPLAY_LINKS *v7; // rcx
   __int64 v8; // r14
   __int64 v9; // r15
   __int32 v10; // r12d
@@ -26,12 +26,12 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int64 v13; // rax
   __int64 j; // rcx
   __int128 v15; // xmm0
-  RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
+  _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
   PRTL_SPLAY_LINKS v17; // rcx
   _RTL_SPLAY_LINKS *Parent; // rbx
   bool v19; // cf
   PRTL_SPLAY_LINKS v20; // rax
-  RTL_SPLAY_LINKS *v21; // rax
+  _RTL_SPLAY_LINKS *v21; // rax
   __int64 i; // rcx
   unsigned __int8 CurrentIrql; // al
   KIRQL v24; // bl
@@ -64,7 +64,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   v39 = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
   if ( Restart )
   {
-    v21 = (RTL_SPLAY_LINKS *)LockInformation[5];
+    v21 = (_RTL_SPLAY_LINKS *)LockInformation[5];
     if ( v21 )
     {
       do
@@ -160,12 +160,12 @@ LABEL_22:
     }
     goto LABEL_23;
   }
-  FirstOverlappingSharedNode = (RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
-                                                    LockInformation[4],
-                                                    (unsigned __int64 *)&v35,
-                                                    &v36.m256i_u64[3],
-                                                    &Links,
-                                                    &v38);
+  FirstOverlappingSharedNode = (_RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
+                                                     LockInformation[4],
+                                                     (unsigned __int64 *)&v35,
+                                                     &v36.m256i_u64[3],
+                                                     &Links,
+                                                     &v38);
   if ( FirstOverlappingSharedNode )
   {
     v17 = FirstOverlappingSharedNode;
@@ -231,7 +231,9 @@ LABEL_48:
     goto LABEL_51;
 LABEL_62:
   KxReleaseSpinLock(LockInformation + 3);
-  if ( !KiIrqlFlags || (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0) || CurrentIrql > 0xFu )
+  if ( !(_DWORD)KiIrqlFlags
+    || (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) == 0)
+    || CurrentIrql > 0xFu )
   {
     v24 = v39;
 LABEL_71:
@@ -247,7 +249,7 @@ LABEL_71:
   v28 = (v27 & SchedulerAssist[5]) == 0;
   SchedulerAssist[5] &= v27;
   if ( v28 )
-    KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   v29 = *(_OWORD *)v36.m256i_i8;
 LABEL_72:
   __writecr8(v24);

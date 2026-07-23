@@ -1,10 +1,10 @@
 /*
- * XREFs of IopBootAllocation @ 0x1407A6128
+ * XREFs of IopBootAllocation @ 0x1407A8CD8
  * Callers:
- *     IopAllocateBootResourcesInternal @ 0x1407A5F8C (IopAllocateBootResourcesInternal.c)
+ *     IopAllocateBootResourcesInternal @ 0x1407A8B3C (IopAllocateBootResourcesInternal.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IopAddRemoveReqDescs @ 0x140B3FF04 (IopAddRemoveReqDescs.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IopAddRemoveReqDescs @ 0x140B41F34 (IopAddRemoveReqDescs.c)
  */
 
 __int64 __fastcall IopBootAllocation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

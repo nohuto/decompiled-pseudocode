@@ -1,34 +1,34 @@
 /*
- * XREFs of SepAddLuidToIndexEntry @ 0x14046E2DC
+ * XREFs of SepAddLuidToIndexEntry @ 0x14046D1AC
  * Callers:
- *     SepSetProcessUniqueAttribute @ 0x14046E1C8 (SepSetProcessUniqueAttribute.c)
+ *     SepSetProcessUniqueAttribute @ 0x14046D098 (SepSetProcessUniqueAttribute.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     SepInitSingletonEntry @ 0x14007CEA4 (SepInitSingletonEntry.c)
- *     RtlInsertEntryHashTable @ 0x14007CFAC (RtlInsertEntryHashTable.c)
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     SepCleanupMarkedForDeletionEntries @ 0x140091F30 (SepCleanupMarkedForDeletionEntries.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SepExpandSingletonArrays @ 0x140112028 (SepExpandSingletonArrays.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     SepInitSingletonEntry @ 0x14007CF24 (SepInitSingletonEntry.c)
+ *     RtlInsertEntryHashTable @ 0x14007D02C (RtlInsertEntryHashTable.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x140091690 (SepCleanupMarkedForDeletionEntries.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     SepExpandSingletonArrays @ 0x14011258C (SepExpandSingletonArrays.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, unsigned __int64 *a2, struct _RTL_DYNAMIC_HASH_TABLE_ENTRY **a3)
+__int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, unsigned __int64 *a2, _RTL_DYNAMIC_HASH_TABLE_ENTRY **a3)
 {
   PVOID v3; // r15
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rbp
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rbp
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v8; // rsi
   _BYTE *v9; // rax
   _BYTE *v10; // rdi
-  struct _RTL_BITMAP *v11; // r14
+  _RTL_BITMAP *v11; // r14
   ULONG ClearBitsAndSet; // esi
   ULONG_PTR v13; // r8
   int v14; // edi
@@ -38,11 +38,11 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, unsigned __int64 *a2, str
   __int64 v18; // r8
   __int64 v19; // r9
   ULONG v21; // esi
-  struct _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+70h] [rbp+18h]
+  _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+70h] [rbp+18h]
 
   v3 = 0LL;
   *a3 = 0LL;
-  PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x74446553u);
+  PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x74446553u);
   if ( !PoolWithTag )
     return (unsigned int)-1073741801;
   CurrentThread = KeGetCurrentThread();
@@ -54,8 +54,8 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, unsigned __int64 *a2, str
     ExfAcquirePushLockExclusiveEx(v8, v9, (ULONG_PTR)v8);
   if ( v10 )
     v10[26] |= 1u;
-  v11 = (struct _RTL_BITMAP *)(SeLuidToIndexMapping + 16);
-  HashTable = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v11 = (_RTL_BITMAP *)(SeLuidToIndexMapping + 16);
+  HashTable = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(SeLuidToIndexMapping + 16), 1u, 0);
   if ( ClearBitsAndSet == -1 )
   {

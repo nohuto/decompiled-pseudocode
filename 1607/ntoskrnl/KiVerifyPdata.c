@@ -3,8 +3,8 @@
  * Callers:
  *     KiVerifyScopesExecute @ 0x1407B17A0 (KiVerifyScopesExecute.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x140051540 (RtlpxLookupFunctionTable.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     RtlpxLookupFunctionTable @ 0x1400510C0 (RtlpxLookupFunctionTable.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2)

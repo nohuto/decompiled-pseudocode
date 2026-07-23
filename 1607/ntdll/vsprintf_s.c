@@ -3,7 +3,7 @@
  * Callers:
  *     sprintf_s @ 0x1800A1E20 (sprintf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _soutput_s @ 0x1800A3218 (_soutput_s.c)
  */
 

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtReplyWaitReplyPort()
+NTSTATUS __cdecl NtReplyWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE ReplyMessage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 348LL;
+  result = 348;
   __asm { syscall; Low latency system call }
   return result;
 }

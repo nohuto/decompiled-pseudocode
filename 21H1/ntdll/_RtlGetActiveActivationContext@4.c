@@ -8,16 +8,16 @@
  *     _RtlRaiseException@4 @ 0x4B308940 (_RtlRaiseException@4.c)
  */
 
-int __stdcall RtlGetActiveActivationContext(_DWORD *a1)
+NTSTATUS __cdecl RtlGetActiveActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // ecx
   unsigned int ActiveFrame; // esi
   EXCEPTION_RECORD ExceptionRecord; // [esp+8h] [ebp-5Ch] BYREF
 
   ActivationContextStackPointer = NtCurrentTeb()->ActivationContextStackPointer;
-  if ( !a1 )
+  if ( !ActivationContext )
     return -1073741811;
-  *a1 = 0;
+  ActivationContext->RefCount = 0;
   if ( ActivationContextStackPointer )
   {
     ActiveFrame = (unsigned int)ActivationContextStackPointer->ActiveFrame;
@@ -39,8 +39,8 @@ int __stdcall RtlGetActiveActivationContext(_DWORD *a1)
         ExceptionRecord.ExceptionFlags = 1;
         RtlRaiseException(&ExceptionRecord);
       }
-      RtlAddRefActivationContext(*(volatile signed __int32 **)(ActiveFrame + 4));
-      *a1 = *(_DWORD *)(ActiveFrame + 4);
+      RtlAddRefActivationContext(*(PACTIVATION_CONTEXT *)(ActiveFrame + 4));
+      ActivationContext->RefCount = *(_DWORD *)(ActiveFrame + 4);
     }
   }
   return 0;

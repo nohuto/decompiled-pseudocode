@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnAsyncContextInitialize @ 0x1403E5134
+ * XREFs of PfSnAsyncContextInitialize @ 0x1403E6760
  * Callers:
- *     PfSnPrefetchScenario @ 0x1403E5094 (PfSnPrefetchScenario.c)
+ *     PfSnPrefetchScenario @ 0x1403E66C0 (PfSnPrefetchScenario.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     PsGetPagePriorityThread @ 0x1400E7E00 (PsGetPagePriorityThread.c)
- *     PfSnReferenceProcessTrace @ 0x1400F0910 (PfSnReferenceProcessTrace.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     PsGetPagePriorityThread @ 0x1400E5CA0 (PsGetPagePriorityThread.c)
+ *     PfSnReferenceProcessTrace @ 0x1400EE760 (PfSnReferenceProcessTrace.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall PfSnAsyncContextInitialize(_QWORD *a1, __int64 a2, __int64 a3, int a4)

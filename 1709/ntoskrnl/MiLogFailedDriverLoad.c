@@ -15,7 +15,7 @@
  *     RtlFreeUnicodeString @ 0x14053F140 (RtlFreeUnicodeString.c)
  */
 
-void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const char *a3, NTSTATUS a4)
+void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const CHAR *a3, NTSTATUS a4)
 {
   int v4; // esi
   __int128 v5; // xmm0
@@ -39,7 +39,7 @@ void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2
   size_t v23; // rbx
   char *v24; // rsi
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-49h] BYREF
-  STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
   __int128 v27; // [rsp+40h] [rbp-29h] BYREF
   __int16 v28; // [rsp+50h] [rbp-19h]
   const wchar_t *v29; // [rsp+58h] [rbp-11h]

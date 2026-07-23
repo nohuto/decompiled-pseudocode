@@ -48,25 +48,23 @@ char ExpRefreshTimeZoneInformation()
   __int128 v19; // xmm1
   __int128 v20; // xmm0
   __int16 Year; // bx
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  LARGE_INTEGER v24; // rax
-  __int16 v25; // bx
+  LARGE_INTEGER v22; // rax
+  __int16 v23; // bx
   char result; // al
   LARGE_INTEGER LocalTime; // [rsp+48h] [rbp-C0h] BYREF
   LARGE_INTEGER Time; // [rsp+50h] [rbp-B8h] BYREF
-  LARGE_INTEGER v29; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v30[2]; // [rsp+60h] [rbp-A8h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
-  LARGE_INTEGER v32; // [rsp+78h] [rbp-90h] BYREF
+  LARGE_INTEGER v27; // [rsp+58h] [rbp-B0h] BYREF
+  _DWORD Buffer[2]; // [rsp+60h] [rbp-A8h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
+  LARGE_INTEGER v30; // [rsp+78h] [rbp-90h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+80h] [rbp-88h] BYREF
   char ValueData[68]; // [rsp+88h] [rbp-80h] BYREF
-  struct _TIME_FIELDS CutoverTimeFields; // [rsp+CCh] [rbp-3Ch] BYREF
-  int v36; // [rsp+DCh] [rbp-2Ch]
-  struct _TIME_FIELDS v37; // [rsp+120h] [rbp+18h] BYREF
-  int v38; // [rsp+130h] [rbp+28h]
-  __int16 v39; // [rsp+134h] [rbp+2Ch]
-  char v40; // [rsp+234h] [rbp+12Ch]
+  _TIME_FIELDS CutoverTimeFields; // [rsp+CCh] [rbp-3Ch] BYREF
+  int v34; // [rsp+DCh] [rbp-2Ch]
+  _TIME_FIELDS v35; // [rsp+120h] [rbp+18h] BYREF
+  int v36; // [rsp+130h] [rbp+28h]
+  __int16 v37; // [rsp+134h] [rbp+2Ch]
+  char v38; // [rsp+234h] [rbp+12Ch]
 
   if ( !ExpTimeZoneWorkItem.WorkerRoutine )
   {
@@ -96,9 +94,9 @@ char ExpRefreshTimeZoneInformation()
   v1 = MEMORY[0xFFFFF78000000014];
   v2.QuadPart = MEMORY[0xFFFFF78000000014] - ExpTimeZoneBias;
   Time.QuadPart = MEMORY[0xFFFFF78000000014] - ExpTimeZoneBias;
-  if ( !v40 )
+  if ( !v38 )
   {
-    if ( v39 )
+    if ( v37 )
     {
       RtlTimeToTimeFields(&Time, &TimeFields);
       if ( (unsigned __int8)RtlpCheckDynamicTimeZoneInformation(ValueData) )
@@ -106,7 +104,7 @@ char ExpRefreshTimeZoneInformation()
     }
   }
   v3 = *(_DWORD *)ValueData;
-  if ( !CutoverTimeFields.Month || !v37.Month )
+  if ( !CutoverTimeFields.Month || !v35.Month )
   {
     KeCancelTimer(&ExpTimeZoneTimer);
     v5.QuadPart = 0LL;
@@ -115,7 +113,7 @@ char ExpRefreshTimeZoneInformation()
     goto LABEL_19;
   }
   if ( !RtlCutoverTimeToSystemTime(&CutoverTimeFields, &SystemTime, &Time, v0)
-    || !RtlCutoverTimeToSystemTime(&v37, &v32, &Time, v4) )
+    || !RtlCutoverTimeToSystemTime(&v35, &v30, &Time, v4) )
   {
 LABEL_33:
     ++ExpRefreshFailures;
@@ -123,33 +121,33 @@ LABEL_33:
     ExpSystemIsInCmosMode = 1;
     return result;
   }
-  if ( v2.QuadPart >= SystemTime.QuadPart && v2.QuadPart >= v32.QuadPart )
+  if ( v2.QuadPart >= SystemTime.QuadPart && v2.QuadPart >= v30.QuadPart )
   {
     v5.QuadPart = 0LL;
     LocalTime.QuadPart = 0LL;
-    if ( SystemTime.QuadPart <= v32.QuadPart )
+    if ( SystemTime.QuadPart <= v30.QuadPart )
       goto LABEL_17;
 LABEL_40:
-    v6 = v36;
+    v6 = v34;
     v7 = 1;
     goto LABEL_18;
   }
-  if ( v32.QuadPart >= SystemTime.QuadPart )
+  if ( v30.QuadPart >= SystemTime.QuadPart )
   {
-    if ( v2.QuadPart < SystemTime.QuadPart || v2.QuadPart >= v32.QuadPart )
+    if ( v2.QuadPart < SystemTime.QuadPart || v2.QuadPart >= v30.QuadPart )
       goto LABEL_16;
 LABEL_39:
-    LocalTime = v32;
-    v5 = v32;
+    LocalTime = v30;
+    v5 = v30;
     goto LABEL_40;
   }
-  if ( v2.QuadPart < v32.QuadPart || v2.QuadPart >= SystemTime.QuadPart )
+  if ( v2.QuadPart < v30.QuadPart || v2.QuadPart >= SystemTime.QuadPart )
     goto LABEL_39;
 LABEL_16:
   LocalTime = SystemTime;
   v5 = SystemTime;
 LABEL_17:
-  v6 = v38;
+  v6 = v36;
   v7 = 2;
 LABEL_18:
   v3 += v6;
@@ -157,9 +155,9 @@ LABEL_19:
   ExpCurrentTimeZoneId = v7;
   if ( ExpLastTimeZoneBias != v3 )
   {
-    v30[1] = -1;
-    v30[0] &= 0xFFC000u;
-    ZwUpdateWnfStateData((__int64)&WNF_SEB_TIME_ZONE_CHANGE, (__int64)v30, 8LL);
+    Buffer[1] = -1;
+    Buffer[0] &= 0xFFC000u;
+    ZwUpdateWnfStateData(&WNF_SEB_TIME_ZONE_CHANGE, Buffer, 8u, 0LL, 0LL, 0, 0);
     v7 = ExpCurrentTimeZoneId;
   }
   v8 = 3LL;
@@ -205,30 +203,30 @@ LABEL_19:
   }
   Year = TimeFields.Year;
   ExpNextCenturyTimeFieldsInLocalTime.Year = 100 * (TimeFields.Year / 100 + 1);
-  RtlTimeFieldsToTime(&ExpNextCenturyTimeFieldsInLocalTime, &v29);
-  ExLocalTimeToSystemTime(&v29, &ExpNextCenturyTimeInUTC);
+  RtlTimeFieldsToTime(&ExpNextCenturyTimeFieldsInLocalTime, &v27);
+  ExLocalTimeToSystemTime(&v27, &ExpNextCenturyTimeInUTC);
   KeSetTimer(&ExpCenturyTimer, ExpNextCenturyTimeInUTC, &ExpCenturyDpc);
   ExpNextYearTimeFieldsInLocalTime.Year = Year + 1;
-  RtlTimeFieldsToTime(&ExpNextYearTimeFieldsInLocalTime, &v29);
-  ExLocalTimeToSystemTime(&v29, &ExpNextYearTimeInUTC);
+  RtlTimeFieldsToTime(&ExpNextYearTimeFieldsInLocalTime, &v27);
+  ExLocalTimeToSystemTime(&v27, &ExpNextYearTimeInUTC);
   KeSetTimer(&ExpNextYearTimer, ExpNextYearTimeInUTC, &ExpNextYearDpc);
   _InterlockedAdd((volatile signed __int32 *)0xFFFFF7800000025CLL, 1u);
   MEMORY[0xFFFFF78000000028] = HIDWORD(ExpTimeZoneBias);
   MEMORY[0xFFFFF78000000020] = ExpTimeZoneBias;
   MEMORY[0xFFFFF780000003C8] = v1;
   if ( LocalTime.QuadPart )
-    v24 = ExpNextSystemCutoverInUTC;
+    v22 = ExpNextSystemCutoverInUTC;
   else
-    v24.QuadPart = ExpNextYearTimeInUTC.QuadPart - 10000;
-  MEMORY[0xFFFFF780000003D0] = v24.QuadPart;
+    v22.QuadPart = ExpNextYearTimeInUTC.QuadPart - 10000;
+  MEMORY[0xFFFFF780000003D0] = v22.QuadPart;
   _InterlockedAdd((volatile signed __int32 *)0xFFFFF7800000025CLL, 1u);
   if ( !ExpRealTimeIsUniversal )
-    RtlSetActiveTimeBias(0xFFFFF7800000025CuLL, v22, v23);
-  v25 = TimeFields.Year;
+    RtlSetActiveTimeBias();
+  v23 = TimeFields.Year;
   if ( TimeFields.Year != ExpLastDynamicTimeZoneYear )
   {
     if ( (unsigned __int8)RtlpUpdateDynamicTimeZones((unsigned __int16)TimeFields.Year) )
-      ExpLastDynamicTimeZoneYear = v25;
+      ExpLastDynamicTimeZoneYear = v23;
   }
   return 1;
 }

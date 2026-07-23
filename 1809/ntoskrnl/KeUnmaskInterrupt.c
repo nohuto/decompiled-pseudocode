@@ -1,11 +1,11 @@
 /*
- * XREFs of KeUnmaskInterrupt @ 0x140158AA0
+ * XREFs of KeUnmaskInterrupt @ 0x140158BA0
  * Callers:
- *     IopUnmaskInterrupt @ 0x140158A24 (IopUnmaskInterrupt.c)
+ *     IopUnmaskInterrupt @ 0x140158B24 (IopUnmaskInterrupt.c)
  * Callees:
- *     KiIsInterruptTypeSecondary @ 0x14016E418 (KiIsInterruptTypeSecondary.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KiUnmaskSecondaryInterruptInternal @ 0x140293AF8 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KiIsInterruptTypeSecondary @ 0x14016E518 (KiIsInterruptTypeSecondary.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x140293CE8 (KiUnmaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeUnmaskInterrupt(__int64 a1, unsigned __int8 a2, __int64 a3)
@@ -45,7 +45,7 @@ LABEL_4:
     if ( v9 )
       v12 = KiUnmaskSecondaryInterruptInternal(*(unsigned int *)(*(_QWORD *)a1 + 88LL), (unsigned int)v11, v9, v8);
     else
-      v12 = ((__int64 (__fastcall *)(__int64, _QWORD, _BOOL8, __int64))off_1403FE4B8[0])(v11, 0LL, v9, v8);
+      v12 = ((__int64 (__fastcall *)(__int64, _QWORD, _BOOL8, __int64))off_1403FF4B8[0])(v11, 0LL, v9, v8);
   }
   if ( v12 != 296 )
     return v12;

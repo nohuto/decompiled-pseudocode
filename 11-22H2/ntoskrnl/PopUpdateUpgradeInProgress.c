@@ -15,23 +15,26 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
+NTSTATUS __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
 {
   HANDLE v2; // rdi
-  int result; // eax
+  NTSTATUS result; // eax
   int v4; // ecx
   __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
+  __int64 v8; // r9
+  ULONG Length[2]; // [rsp+20h] [rbp-49h]
+  PULONG ResultLength; // [rsp+28h] [rbp-41h]
   HANDLE KeyHandlea; // [rsp+50h] [rbp-19h] BYREF
-  ULONG ResultLength; // [rsp+58h] [rbp-11h] BYREF
+  ULONG v12; // [rsp+58h] [rbp-11h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   __int128 KeyValueInformation; // [rsp+A0h] [rbp+37h] BYREF
-  int v13; // [rsp+B0h] [rbp+47h]
+  int v16; // [rsp+B0h] [rbp+47h]
 
-  ResultLength = 0;
-  v13 = 0;
+  v12 = 0;
+  v16 = 0;
   v2 = KeyHandle;
   KeyHandlea = KeyHandle;
   memset(&ObjectAttributes, 0, 44);
@@ -51,20 +54,14 @@ int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
     v2 = KeyHandlea;
   }
   RtlInitUnicodeString(&DestinationString, L"SystemSetupInProgress");
-  result = ZwQueryValueKey(
-             v2,
-             &DestinationString,
-             KeyValuePartialInformation,
-             &KeyValueInformation,
-             0x14u,
-             &ResultLength);
+  result = ZwQueryValueKey(v2, &DestinationString, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &v12);
   if ( result < 0 || !HIDWORD(KeyValueInformation) || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
   {
     if ( KeyHandle )
     {
       PopAcquirePolicyLock(v4);
       PopRemoveReasonRecordByReasonCode();
-      result = PopReleasePolicyLock(v6, v5, v7);
+      result = PopReleasePolicyLock(v6, v5, v7, v8, *(_QWORD *)Length, ResultLength);
     }
     goto LABEL_8;
   }

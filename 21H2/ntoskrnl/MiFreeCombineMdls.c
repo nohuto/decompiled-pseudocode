@@ -1,49 +1,49 @@
 /*
- * XREFs of MiFreeCombineMdls @ 0x140726A64
+ * XREFs of MiFreeCombineMdls @ 0x140726F18
  * Callers:
- *     MiCombineWorkingSet @ 0x14055CC24 (MiCombineWorkingSet.c)
- *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
+ *     MiCombineWorkingSet @ 0x14055CE64 (MiCombineWorkingSet.c)
+ *     MiProcessCrcList @ 0x140726FD0 (MiProcessCrcList.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiFreeCombineMdls(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall MiFreeCombineMdls(__int64 a1)
 {
-  __int64 v3; // rsi
+  __int64 v1; // rsi
   unsigned int i; // ebp
-  _DWORD *v5; // rdi
-  unsigned int v6; // edx
-  int v7; // eax
-  _DWORD *v8; // r14
-  unsigned __int64 v9; // rbx
+  _DWORD *v3; // rdi
+  unsigned int v4; // edx
+  int v5; // eax
+  _DWORD *v6; // r14
+  unsigned __int64 v7; // rbx
 
-  v3 = a1 + 64;
+  v1 = a1 + 64;
   for ( i = 0; i < 3; ++i )
   {
-    v5 = *(_DWORD **)v3;
-    if ( *(_QWORD *)v3 )
+    v3 = *(_DWORD **)v1;
+    if ( *(_QWORD *)v1 )
     {
       do
       {
-        v6 = v5[11];
-        v7 = v5[10];
-        v8 = *(_DWORD **)v5;
-        if ( v6 != v7 )
+        v4 = v3[11];
+        v5 = v3[10];
+        v6 = *(_DWORD **)v3;
+        if ( v4 != v5 )
         {
-          v9 = (unsigned __int64)(v7 - v6) >> 12;
-          memmove(v5 + 12, &v5[2 * ((unsigned __int64)v6 >> 12) + 12], 8 * v9);
-          *((_QWORD *)v5 + 5) = (unsigned int)((_DWORD)v9 << 12);
+          v7 = (unsigned __int64)(v5 - v4) >> 12;
+          memmove(v3 + 12, &v3[2 * ((unsigned __int64)v4 >> 12) + 12], 8 * v7);
+          *((_QWORD *)v3 + 5) = (unsigned int)((_DWORD)v7 << 12);
         }
-        MiFreePagesFromMdl((ULONG_PTR)v5, 0, a3);
-        ExFreePoolWithTag(v5, 0);
-        v5 = v8;
+        MiFreePagesFromMdl((ULONG_PTR)v3, 0);
+        ExFreePoolWithTag(v3, 0);
+        v3 = v6;
       }
-      while ( v8 );
+      while ( v6 );
     }
-    *(_QWORD *)v3 = 0LL;
-    *(_QWORD *)(v3 + 24) = 0LL;
-    v3 += 8LL;
+    *(_QWORD *)v1 = 0LL;
+    *(_QWORD *)(v1 + 24) = 0LL;
+    v1 += 8LL;
   }
 }

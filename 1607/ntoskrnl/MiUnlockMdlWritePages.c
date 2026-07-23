@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockMdlWritePages @ 0x14004D4B0
+ * XREFs of MiUnlockMdlWritePages @ 0x14004D030
  * Callers:
- *     MiUnlockFlushMdl @ 0x14008EFFC (MiUnlockFlushMdl.c)
- *     MiFlushComplete @ 0x1401EAD40 (MiFlushComplete.c)
+ *     MiUnlockFlushMdl @ 0x14008E75C (MiUnlockFlushMdl.c)
+ *     MiFlushComplete @ 0x1401EAB6C (MiFlushComplete.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiWriteCompletePfn @ 0x14004E5A0 (MiWriteCompletePfn.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiWriteCompletePfn @ 0x14004E120 (MiWriteCompletePfn.c)
  */
 
 void __fastcall MiUnlockMdlWritePages(_QWORD *a1, unsigned __int64 a2, int *a3)
@@ -42,7 +42,7 @@ void __fastcall MiUnlockMdlWritePages(_QWORD *a1, unsigned __int64 a2, int *a3)
     if ( v8 == 1023 )
       v9 = MiSystemPartition;
     else
-      v9 = *(int **)(qword_140326FF8 + 8LL * v8);
+      v9 = *(int **)(qword_140327038 + 8LL * v8);
     MiReturnCommit(v9, 1LL);
     if ( v9 == MiSystemPartition )
     {
@@ -75,7 +75,7 @@ void __fastcall MiUnlockMdlWritePages(_QWORD *a1, unsigned __int64 a2, int *a3)
           v11 = (int)CachedResidentAvailable - 192 + 1LL;
         }
       }
-      _InterlockedExchangeAdd64(&qword_140324EC0, v11);
+      _InterlockedExchangeAdd64(&qword_140324F00, v11);
     }
     else
     {

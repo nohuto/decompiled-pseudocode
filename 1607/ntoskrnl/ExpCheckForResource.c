@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCheckForResource @ 0x14022DBC8
+ * XREFs of ExpCheckForResource @ 0x14022D9F4
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     ExpFreePoolChecks @ 0x14022D080 (ExpFreePoolChecks.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     ExpFreePoolChecks @ 0x14022CEAC (ExpFreePoolChecks.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  *     VfCheckForResource @ 0x1407181D0 (VfCheckForResource.c)
  */
 

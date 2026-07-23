@@ -28,16 +28,16 @@
  *     BiCloseKey @ 0x140966980 (BiCloseKey.c)
  */
 
-int __fastcall BcdCloseObject(void *a1)
+NTSTATUS __cdecl BcdCloseObject(HANDLE BcdObjectHandle)
 {
   char IsOfflineHandle; // di
-  int result; // eax
+  NTSTATUS result; // eax
 
-  IsOfflineHandle = BiIsOfflineHandle((char)a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdObjectHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    BiCloseKey(a1);
+    BiCloseKey(BcdObjectHandle);
     return BiReleaseBcdSyncMutant(IsOfflineHandle);
   }
   return result;

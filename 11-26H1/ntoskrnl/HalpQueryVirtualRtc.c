@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryVirtualRtc @ 0x140585330
+ * XREFs of HalpQueryVirtualRtc @ 0x140587850
  * Callers:
- *     HalQueryRealTimeClock @ 0x140451480 (HalQueryRealTimeClock.c)
- *     HalCalibratePerformanceCounter @ 0x140576AC0 (HalCalibratePerformanceCounter.c)
- *     HalpSetResumeTime @ 0x140594834 (HalpSetResumeTime.c)
+ *     HalQueryRealTimeClock @ 0x1404495B0 (HalQueryRealTimeClock.c)
+ *     HalCalibratePerformanceCounter @ 0x140578FF0 (HalCalibratePerformanceCounter.c)
+ *     HalpSetResumeTime @ 0x140596FB4 (HalpSetResumeTime.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlpTimeToTimeFields @ 0x140451D40 (RtlpTimeToTimeFields.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlpTimeToTimeFields @ 0x140449E70 (RtlpTimeToTimeFields.c)
  */
 
 char __fastcall HalpQueryVirtualRtc(_QWORD *a1, bool *a2)
@@ -20,15 +20,15 @@ char __fastcall HalpQueryVirtualRtc(_QWORD *a1, bool *a2)
 
   v8 = 0LL;
   PerformanceFrequency.QuadPart = 0LL;
-  if ( HalpDeviceBlockUnblockPushLock.NextProcessor == 2 )
+  if ( LODWORD(HalpDeviceBlockUnblockPushLock.LastXStateSaveDebugInfo) == 2 )
     return 0;
   while ( 1 )
   {
     v4 = VrtcTime;
-    v5 = qword_140FBB30C;
-    v10 = qword_140FBB30C;
+    v5 = qword_140FBB6AC;
+    v10 = qword_140FBB6AC;
     v6 = KeQueryPerformanceCounter(&PerformanceFrequency);
-    if ( v4 == qword_140FBB318 )
+    if ( v4 == qword_140FBB6B8 )
       break;
     _mm_pause();
   }

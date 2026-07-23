@@ -1,17 +1,17 @@
 /*
- * XREFs of VmpUnpinMemoryRangeHelper @ 0x14064B360
+ * XREFs of VmpUnpinMemoryRangeHelper @ 0x140649920
  * Callers:
- *     VmpUnpinMemoryRange @ 0x14079F79C (VmpUnpinMemoryRange.c)
+ *     VmpUnpinMemoryRange @ 0x14079F8AC (VmpUnpinMemoryRange.c)
  * Callees:
- *     VmpProcessContextLockExclusive @ 0x1403B0458 (VmpProcessContextLockExclusive.c)
- *     VmpInvalidateSlatBatched @ 0x14047F01C (VmpInvalidateSlatBatched.c)
- *     VmpProcessContextUnlockExclusive @ 0x14047F1E4 (VmpProcessContextUnlockExclusive.c)
- *     VmpCheckUnpinAndDereference @ 0x14064A530 (VmpCheckUnpinAndDereference.c)
- *     VmpDereferencePinInProgress @ 0x14064A7B4 (VmpDereferencePinInProgress.c)
- *     VmpFindNextPinnedPageStateHelper @ 0x14064A7D4 (VmpFindNextPinnedPageStateHelper.c)
- *     VmpUnsecureMemoryForPin @ 0x14079F88C (VmpUnsecureMemoryForPin.c)
- *     MmUnlockPhysicalPagesByVa @ 0x1407EAAAC (MmUnlockPhysicalPagesByVa.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VmpProcessContextLockExclusive @ 0x14039EC68 (VmpProcessContextLockExclusive.c)
+ *     VmpInvalidateSlatBatched @ 0x140479E38 (VmpInvalidateSlatBatched.c)
+ *     VmpProcessContextUnlockExclusive @ 0x14047A000 (VmpProcessContextUnlockExclusive.c)
+ *     VmpCheckUnpinAndDereference @ 0x140648AF0 (VmpCheckUnpinAndDereference.c)
+ *     VmpDereferencePinInProgress @ 0x140648D74 (VmpDereferencePinInProgress.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x140648D94 (VmpFindNextPinnedPageStateHelper.c)
+ *     VmpUnsecureMemoryForPin @ 0x14079F99C (VmpUnsecureMemoryForPin.c)
+ *     MmUnlockPhysicalPagesByVa @ 0x1407EB07C (MmUnlockPhysicalPagesByVa.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpUnpinMemoryRangeHelper(

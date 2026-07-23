@@ -1,52 +1,53 @@
 /*
- * XREFs of MiDeleteSystemPageTables @ 0x140234368
+ * XREFs of MiDeleteSystemPageTables @ 0x14045B798
  * Callers:
- *     MiDecommitSystemPageTables @ 0x1402342AC (MiDecommitSystemPageTables.c)
- *     MiMakeZeroedPageTablesEx @ 0x1403A62E0 (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14026D5D0 (MiMakeZeroedPageTablesEx.c)
+ *     MiDecommitSystemPageTables @ 0x14045B6DC (MiDecommitSystemPageTables.c)
  * Callees:
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1402E3A1C (MiLockWorkingSetSharedAtDpc.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x14020BF58 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-__int64 __fastcall MiDeleteSystemPageTables(__int64 a1, int a2, __int64 a3, __int64 a4, char a5)
+char __fastcall MiDeleteSystemPageTables(__int64 a1, int a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 v9; // rdx
-  _BYTE v11[40]; // [rsp+20h] [rbp-E8h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-C0h]
-  _DWORD v13[2]; // [rsp+58h] [rbp-B0h] BYREF
-  char v14; // [rsp+61h] [rbp-A7h]
-  __int64 v15; // [rsp+78h] [rbp-90h]
-  __int64 v16; // [rsp+80h] [rbp-88h]
-  __int64 v17; // [rsp+88h] [rbp-80h]
-  void *v18; // [rsp+100h] [rbp-8h]
-  __int64 (__fastcall *v19)(); // [rsp+108h] [rbp+0h]
-  _BYTE *v20; // [rsp+110h] [rbp+8h]
+  __int64 v10; // r8
+  __int64 v11; // r9
+  _BYTE v13[40]; // [rsp+20h] [rbp-E8h] BYREF
+  __int64 v14; // [rsp+48h] [rbp-C0h]
+  int v15[2]; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned __int8 v16; // [rsp+61h] [rbp-A7h]
+  __int64 v17; // [rsp+78h] [rbp-90h]
+  __int64 v18; // [rsp+80h] [rbp-88h]
+  __int64 v19; // [rsp+88h] [rbp-80h]
+  void *v20; // [rsp+100h] [rbp-8h]
+  __int64 (__fastcall *v21)(__int64); // [rsp+108h] [rbp+0h]
+  _BYTE *v22; // [rsp+110h] [rbp+8h]
 
-  v12 = 0LL;
-  memset(&v11[8], 0, 32);
-  memset_0(v13, 0, 0xC0uLL);
-  *(_DWORD *)&v11[8] = a2;
-  v13[1] = (a5 & 7) << 6;
-  v18 = &MiDeleteSystemPageTable;
-  v19 = MiDeleteSystemPageTableTail;
-  v20 = &v11[8];
-  v13[0] = 8199;
-  v16 = a3;
-  v17 = a4;
-  v15 = a1;
+  v14 = 0LL;
+  memset(&v13[8], 0, 32);
+  memset_0(v15, 0, 0xC0uLL);
+  *(_DWORD *)&v13[8] = a2;
+  v15[1] = (a5 & 7) << 6;
+  v20 = &MiDeleteSystemPageTable;
+  v21 = MiDeleteSystemPageTableTail;
+  v22 = &v13[8];
+  v15[0] = 8199;
+  v18 = a3;
+  v19 = a4;
+  v17 = a1;
   if ( KeGetCurrentIrql() == 2 )
   {
-    v14 = 17;
+    v16 = 17;
     MiLockWorkingSetSharedAtDpc(a1);
   }
   else
   {
-    v14 = MiLockWorkingSetShared(a1);
+    v16 = MiLockWorkingSetShared(a1, v9, v10, v11);
   }
-  MiWalkPageTables(v13);
-  LOBYTE(v9) = v14;
-  return MiUnlockWorkingSetShared(a1, v9);
+  MiWalkPageTables(v15);
+  return MiUnlockWorkingSetShared(a1, v16);
 }

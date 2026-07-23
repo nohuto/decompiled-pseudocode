@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpConsoleDisplayCharacterEx @ 0x140953724
+ * XREFs of BgpConsoleDisplayCharacterEx @ 0x140954724
  * Callers:
- *     BgpConsoleDisplayString @ 0x1409539C0 (BgpConsoleDisplayString.c)
+ *     BgpConsoleDisplayString @ 0x1409549C0 (BgpConsoleDisplayString.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
- *     BgpConsoleScrollScreen @ 0x140953C10 (BgpConsoleScrollScreen.c)
+ *     BgpDisplayCharacterEx @ 0x140327A64 (BgpDisplayCharacterEx.c)
+ *     BgpConsoleScrollScreen @ 0x140954C10 (BgpConsoleScrollScreen.c)
  */
 
 __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsigned int a3, int a4, int a5, ...)
@@ -34,13 +34,13 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
   va_start(va, a5);
   if ( a2 > 0x50 )
     return 3221225485LL;
-  v7 = qword_1404C64D8;
-  if ( a3 > *(_DWORD *)(qword_1404C64D8 + 4) )
+  v7 = qword_1404C7598;
+  if ( a3 > *(_DWORD *)(qword_1404C7598 + 4) )
     return 3221225485LL;
-  v8 = (int *)(qword_1404C64D8 + 68);
+  v8 = (int *)(qword_1404C7598 + 68);
   v9 = 0;
-  v10 = (_DWORD *)(qword_1404C64D8 + 60);
-  v11 = (_DWORD *)(qword_1404C64D8 + 48);
+  v10 = (_DWORD *)(qword_1404C7598 + 60);
+  v11 = (_DWORD *)(qword_1404C7598 + 48);
   v12 = (unsigned int)a1 - 8;
   if ( !(_DWORD)v12 )
   {
@@ -61,10 +61,10 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
            v26);
     if ( v9 >= 0 )
     {
-      v7 = qword_1404C64D8;
+      v7 = qword_1404C7598;
       v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
       v23 = 3 * v12;
-      *(_WORD *)(qword_1404C64D8 + 4 * v23 + 88) = 32;
+      *(_WORD *)(qword_1404C7598 + 4 * v23 + 88) = 32;
       *(_DWORD *)(v7 + 4 * v23 + 80) = a4;
       *(_DWORD *)(v7 + 4 * v23 + 84) = v21;
       goto LABEL_20;
@@ -90,9 +90,9 @@ LABEL_22:
     v14 = a5;
     v9 = BgpDisplayCharacterEx(
            a1,
-           *(__int64 **)(qword_1404C64D8 + 40),
-           *(_DWORD *)(qword_1404C64D8 + 60) + *v11 * *v8,
-           *(_DWORD *)(qword_1404C64D8 + 64) + *(_DWORD *)(qword_1404C64D8 + 72) * *(_DWORD *)(qword_1404C64D8 + 52),
+           *(__int64 **)(qword_1404C7598 + 40),
+           *(_DWORD *)(qword_1404C7598 + 60) + *v11 * *v8,
+           *(_DWORD *)(qword_1404C7598 + 64) + *(_DWORD *)(qword_1404C7598 + 72) * *(_DWORD *)(qword_1404C7598 + 52),
            a5,
            a4,
            (int *)va,
@@ -101,15 +101,15 @@ LABEL_22:
     if ( v9 >= 0 )
     {
       v12 = 3 * ((unsigned int)v8[1] + 25LL * (unsigned int)*v8);
-      v7 = qword_1404C64D8;
-      *(_WORD *)(qword_1404C64D8 + 4 * v12 + 88) = a1;
+      v7 = qword_1404C7598;
+      *(_WORD *)(qword_1404C7598 + 4 * v12 + 88) = a1;
       *(_DWORD *)(v7 + 4 * v12 + 80) = a4;
       *(_DWORD *)(v7 + 4 * v12 + 84) = v14;
       ++*v8;
       goto LABEL_20;
     }
 LABEL_19:
-    v7 = qword_1404C64D8;
+    v7 = qword_1404C7598;
     goto LABEL_20;
   }
   v15 = *v8;
@@ -131,13 +131,13 @@ LABEL_19:
               (int *)va,
               &v27,
               v26);
-      v7 = qword_1404C64D8;
+      v7 = qword_1404C7598;
       v9 = v19;
       if ( v19 >= 0 )
       {
         v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
         v20 = 3 * v12;
-        *(_WORD *)(qword_1404C64D8 + 4 * v20 + 88) = 32;
+        *(_WORD *)(qword_1404C7598 + 4 * v20 + 88) = 32;
         *(_DWORD *)(v7 + 4 * v20 + 80) = a4;
         *(_DWORD *)(v7 + 4 * v20 + 84) = v17;
       }

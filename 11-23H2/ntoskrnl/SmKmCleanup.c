@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmCleanup @ 0x1409D86E8
+ * XREFs of SmKmCleanup @ 0x1409D88E8
  * Callers:
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BE68C (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BEBFC (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SmStoreGetId @ 0x1405CDB70 (SmStoreGetId.c)
- *     SmKmStoreDelete @ 0x1407B72E8 (SmKmStoreDelete.c)
+ *     SmStoreGetId @ 0x1405CE0E0 (SmStoreGetId.c)
+ *     SmKmStoreDelete @ 0x1407B75C8 (SmKmStoreDelete.c)
  */
 
 void __fastcall SmKmCleanup(__int64 a1)

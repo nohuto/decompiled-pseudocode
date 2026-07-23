@@ -1,17 +1,17 @@
 /*
- * XREFs of HsaFreeRemappingTableEntry @ 0x1404E3590
+ * XREFs of HsaFreeRemappingTableEntry @ 0x1404E37D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExtEnvCriticalFailure @ 0x1404D539C (ExtEnvCriticalFailure.c)
- *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x1404D53FC (ExtEnvFreePhysicalMemory.c)
- *     HsaGetDeviceAperture @ 0x1404E3784 (HsaGetDeviceAperture.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E4A94 (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExtEnvCriticalFailure @ 0x1404D55DC (ExtEnvCriticalFailure.c)
+ *     ExtEnvFreeMemory @ 0x1404D55FC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x1404D563C (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x1404E39C4 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E4CD4 (HsaUpdateRemappingTableInDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
     DeviceAperture = (char *)HsaGetDeviceAperture(a2);
     if ( *(_QWORD *)DeviceAperture != v5 )
       return (unsigned int)-1073741594;
-    byte_140C48918 = HalpAcquireHighLevelLock(&qword_140C48910);
+    byte_140C48958 = HalpAcquireHighLevelLock(&qword_140C48950);
     v8 = *((_DWORD *)DeviceAperture + 12) == a3;
     *((_DWORD *)DeviceAperture + 12) -= a3;
     if ( v8 )
@@ -57,8 +57,8 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
       memset(DeviceAperture, 0, 0x48uLL);
       v3 = 1;
     }
-    v9 = (unsigned __int8)byte_140C48918;
-    KxReleaseSpinLock(&qword_140C48910);
+    v9 = (unsigned __int8)byte_140C48958;
+    KxReleaseSpinLock(&qword_140C48950);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

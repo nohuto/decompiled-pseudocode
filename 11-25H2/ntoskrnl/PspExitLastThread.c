@@ -42,7 +42,7 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, ULONG_PTR a3, _QWORD *a4,
   _QWORD *v14; // rdi
   _QWORD *v15; // rax
   __int64 ProcessServerSilo; // rax
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   int v18; // eax
   __int64 v19; // [rsp+30h] [rbp-30h] BYREF
   int v20; // [rsp+38h] [rbp-28h]

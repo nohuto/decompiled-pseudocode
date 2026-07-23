@@ -8,10 +8,10 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_1800955A0(__int64 a1, _QWORD *a2)
+__int64 __fastcall sub_1800955A0(__int64 a1, _RTL_DEBUG_INFORMATION *a2)
 {
-  _DWORD *v2; // rsi
-  char *v4; // rax
+  _DWORD *Heaps; // rsi
+  PVOID v4; // rax
   __int64 v5; // rbx
   __int64 result; // rax
   __int64 *v7; // rcx
@@ -19,8 +19,8 @@ __int64 __fastcall sub_1800955A0(__int64 a1, _QWORD *a2)
   __int64 v9; // rax
   __int64 v10; // rcx
 
-  v2 = (_DWORD *)a2[14];
-  v4 = RtlCommitDebugInfo_0(a2, 0x58u);
+  Heaps = a2->Heaps;
+  v4 = RtlCommitDebugInfo_0(a2, 0x58uLL);
   v5 = (__int64)v4;
   if ( !v4 )
     return 3221225495LL;
@@ -28,7 +28,7 @@ __int64 __fastcall sub_1800955A0(__int64 a1, _QWORD *a2)
   result = sub_18008AD6C(a1, v5);
   if ( (int)result >= 0 )
   {
-    ++*v2;
+    ++*Heaps;
   }
   else
   {
@@ -59,7 +59,7 @@ __int64 __fastcall sub_1800955A0(__int64 a1, _QWORD *a2)
     }
     *(_QWORD *)(v5 + 24) += v9;
     *(_QWORD *)(v5 + 16) = *(_QWORD *)(v5 + 24) - 16LL * *(_QWORD *)(a1 + 192);
-    ++*v2;
+    ++*Heaps;
     return 0LL;
   }
   return result;

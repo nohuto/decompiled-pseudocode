@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLockContextListShared @ 0x140A1EC40
+ * XREFs of CmpLockContextListShared @ 0x140A28260
  * Callers:
- *     CmpCallbackFillObjectContext @ 0x1408CA800 (CmpCallbackFillObjectContext.c)
+ *     CmpCallbackFillObjectContext @ 0x1408D0DB0 (CmpCallbackFillObjectContext.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall CmpLockContextListShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -16,14 +16,10 @@ void __fastcall CmpLockContextListShared(__int64 a1, __int64 a2, __int64 a3, str
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpCallbackListLock.SListFaultAddress, 0LL, 0LL, a4);
+  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL, 0LL, a4);
   v6 = 17LL;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(
-      (signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-      0,
-      v5,
-      (struct _KTHREAD *)&CmpCallbackListLock.SListFaultAddress);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock.Header.Lock, 0, v5, &CmpContextListLock);
   if ( v5 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )

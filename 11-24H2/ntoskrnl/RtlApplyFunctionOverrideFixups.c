@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlApplyFunctionOverrideFixups @ 0x140959034
+ * XREFs of RtlApplyFunctionOverrideFixups @ 0x14093BF84
  * Callers:
- *     RtlApplyFunctionOverrideFixupsToImage @ 0x140787C90 (RtlApplyFunctionOverrideFixupsToImage.c)
- *     MiPerformFixups @ 0x140958AE0 (MiPerformFixups.c)
+ *     RtlApplyFunctionOverrideFixupsToImage @ 0x140787BC0 (RtlApplyFunctionOverrideFixupsToImage.c)
+ *     MiPerformFixups @ 0x14093BA30 (MiPerformFixups.c)
  * Callees:
- *     ?RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_INFORMATION@@K@Z @ 0x1409592B8 (-RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_IN.c)
+ *     ?RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_INFORMATION@@K@Z @ 0x14093C208 (-RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_IN.c)
  */
 
 __int64 __fastcall RtlApplyFunctionOverrideFixups(

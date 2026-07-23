@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwEnumerateDriverEntries()
+NTSTATUS __cdecl ZwEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 208LL;
+  result = 208;
   __asm { syscall; Low latency system call }
   return result;
 }

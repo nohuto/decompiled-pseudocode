@@ -12,11 +12,12 @@ void __fastcall sub_18000D8E0(__int64 a1)
 {
   struct _PEB *v1; // rbx
   unsigned int v3; // edi
-  unsigned int MaximumNumberOfHeaps; // eax
+  ULONG MaximumNumberOfHeaps; // eax
   __int16 NumberOfHeaps; // ax
   unsigned int v6; // eax
-  void **Heap; // rax
-  void **v8; // rbp
+  PVOID *Heap; // rax
+  PVOID *v8; // rbp
+  PVOID *ProcessHeaps; // r8
 
   v1 = NtCurrentPeb();
   v3 = v1->NumberOfHeaps + (unsigned __int16)word_18015BFA0;
@@ -27,7 +28,7 @@ void __fastcall sub_18000D8E0(__int64 a1)
     {
       v6 = 2 * MaximumNumberOfHeaps;
       v1->MaximumNumberOfHeaps = v6;
-      Heap = (void **)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 8LL * v6);
+      Heap = (PVOID *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * v6);
       v8 = Heap;
       if ( !Heap )
       {
@@ -35,11 +36,12 @@ void __fastcall sub_18000D8E0(__int64 a1)
         return;
       }
       memmove(Heap, v1->ProcessHeaps, 8LL * v1->NumberOfHeaps);
-      if ( (_UNKNOWN *)v1->ProcessHeaps != &unk_180159AE0 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+      ProcessHeaps = v1->ProcessHeaps;
+      if ( ProcessHeaps != (PVOID *)&unk_180159AE0 )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ProcessHeaps);
       v1->ProcessHeaps = v8;
     }
-    v1->ProcessHeaps[v1->NumberOfHeaps++] = (void *)a1;
+    v1->ProcessHeaps[v1->NumberOfHeaps++] = (PVOID)a1;
     NumberOfHeaps = v1->NumberOfHeaps;
     if ( *(_DWORD *)(a1 + 16) == -571548178 )
       *(_WORD *)(a1 + 36) = NumberOfHeaps;

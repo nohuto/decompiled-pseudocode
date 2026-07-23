@@ -1,9 +1,9 @@
 /*
- * XREFs of __report_securityfailure @ 0x180096DFC
+ * XREFs of __report_securityfailure @ 0x180096DEC
  * Callers:
- *     __report_rangecheckfailure @ 0x180096DE0 (__report_rangecheckfailure.c)
+ *     __report_rangecheckfailure @ 0x180096DD0 (__report_rangecheckfailure.c)
  * Callees:
- *     __raise_securityfailure @ 0x180096C64 (__raise_securityfailure.c)
+ *     __raise_securityfailure @ 0x180096C54 (__raise_securityfailure.c)
  *     RtlCaptureContext @ 0x1800AA150 (RtlCaptureContext.c)
  */
 
@@ -21,5 +21,5 @@ void __fastcall __noreturn _report_securityfailure(unsigned int a1)
   dword_18014FE24 = 1;
   dword_18014FE38 = 1;
   unk_18014FE40 = v2;
-  _raise_securityfailure();
+  _raise_securityfailure((_EXCEPTION_POINTERS *)&ExceptionPointers);
 }

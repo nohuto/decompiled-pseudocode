@@ -1,7 +1,7 @@
 /*
- * XREFs of NtQueryInformationFile @ 0x1800A0500
+ * XREFs of NtQueryInformationFile @ 0x1800A0520
  * Callers:
- *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7B0 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7C0 (LdrVerifyImageMatchesChecksumEx.c)
  *     LdrpResFileSize @ 0x1800E5280 (LdrpResFileSize.c)
  *     LdrpResValidateFileHandle @ 0x1800E5F64 (LdrpResValidateFileHandle.c)
  *     RtlpGetFileSize @ 0x1800F92BC (RtlpGetFileSize.c)
@@ -10,11 +10,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationFile()
+NTSTATUS __cdecl NtQueryInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 17LL;
+  result = 17;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

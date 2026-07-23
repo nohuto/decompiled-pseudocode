@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetJobIoAttribution @ 0x1408EA0D0
+ * XREFs of PspSetJobIoAttribution @ 0x14085B900
  * Callers:
- *     PspSetJobIoRateControl @ 0x14085E618 (PspSetJobIoRateControl.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspSetJobIoRateControl @ 0x14085A388 (PspSetJobIoRateControl.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     IoStartDiskIoAttributionForContext @ 0x140462C4C (IoStartDiskIoAttributionForContext.c)
- *     IoDiskIoAttributionAllocate @ 0x1408E9344 (IoDiskIoAttributionAllocate.c)
- *     PspRemoveIoAttribution @ 0x1408E9FA4 (PspRemoveIoAttribution.c)
- *     EtwTracePsIoAttribution @ 0x1408EA2C4 (EtwTracePsIoAttribution.c)
- *     PspIsSetJobIoAttribution @ 0x1408EA38C (PspIsSetJobIoAttribution.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     IoStartDiskIoAttributionForContext @ 0x14045825C (IoStartDiskIoAttributionForContext.c)
+ *     IoDiskIoAttributionAllocate @ 0x14085AB74 (IoDiskIoAttributionAllocate.c)
+ *     PspRemoveIoAttribution @ 0x14085B7D4 (PspRemoveIoAttribution.c)
+ *     EtwTracePsIoAttribution @ 0x14085BAF4 (EtwTracePsIoAttribution.c)
+ *     PspIsSetJobIoAttribution @ 0x14085BBBC (PspIsSetJobIoAttribution.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, __int64 a2, char a3, unsigned int a4)
@@ -22,7 +22,7 @@ __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, __int64 a2, char a3, u
   unsigned int v13; // eax
   unsigned int v14; // eax
   unsigned int v15; // eax
-  struct _EX_RUNDOWN_REF *v16; // rax
+  _RTL_BALANCED_NODE *v16; // rax
   unsigned int v17; // eax
   __int64 v18[2]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v19; // [rsp+40h] [rbp-28h]
@@ -55,7 +55,7 @@ LABEL_22:
       v10 = *((_QWORD *)Object + 198);
       if ( v17 <= a4 )
       {
-        PspRemoveIoAttribution((struct _EX_RUNDOWN_REF **)Object);
+        PspRemoveIoAttribution((PRTL_BALANCED_NODE *)Object);
         Object[395] = 0;
       }
       else
@@ -104,11 +104,11 @@ LABEL_8:
       Object[395] = v15 + a4;
       goto LABEL_7;
     }
-    v16 = IoDiskIoAttributionAllocate((unsigned __int64)Object, 0LL);
+    v16 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate((unsigned __int64)Object, 0LL);
     v10 = (__int64)v16;
     if ( v16 )
     {
-      IoStartDiskIoAttributionForContext((unsigned __int64)v16);
+      IoStartDiskIoAttributionForContext(v16);
       v18[0] = v10;
       LOBYTE(v19) = 1;
       v18[1] = (__int64)Object;

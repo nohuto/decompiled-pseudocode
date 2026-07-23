@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInsertPassiveInterruptBlock @ 0x1401CDAFC
+ * XREFs of IopInsertPassiveInterruptBlock @ 0x1401CD948
  * Callers:
- *     IopAllocatePassiveInterruptBlock @ 0x14062D044 (IopAllocatePassiveInterruptBlock.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x14062D0F8 (IopAllocatePassiveInterruptBlock.c)
  * Callees:
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x1401CD9E0 (IopAcquireGlobalPassiveInterruptListLock.c)
- *     IopFindPassiveInterruptBlockLocked @ 0x1401CDACC (IopFindPassiveInterruptBlockLocked.c)
- *     IopReleaseGlobalPassiveInterruptListLock @ 0x1401CDCA4 (IopReleaseGlobalPassiveInterruptListLock.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x1401CD82C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopFindPassiveInterruptBlockLocked @ 0x1401CD918 (IopFindPassiveInterruptBlockLocked.c)
+ *     IopReleaseGlobalPassiveInterruptListLock @ 0x1401CDAF0 (IopReleaseGlobalPassiveInterruptListLock.c)
  */
 
 __int64 __fastcall IopInsertPassiveInterruptBlock(__int64 a1, _BYTE *a2)
@@ -20,13 +20,13 @@ __int64 __fastcall IopInsertPassiveInterruptBlock(__int64 a1, _BYTE *a2)
   if ( !PassiveInterruptBlockLocked )
   {
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 192));
-    v4 = (__int64 *)qword_140320248;
-    if ( *(__int64 **)qword_140320248 != &PassiveInterruptList )
+    v4 = (__int64 *)qword_140320268;
+    if ( *(__int64 **)qword_140320268 != &PassiveInterruptList )
       __fastfail(3u);
     *(_QWORD *)a1 = &PassiveInterruptList;
     *(_QWORD *)(a1 + 8) = v4;
     *v4 = a1;
-    qword_140320248 = a1;
+    qword_140320268 = a1;
   }
   LOBYTE(v4) = v7;
   IopReleaseGlobalPassiveInterruptListLock(v4);

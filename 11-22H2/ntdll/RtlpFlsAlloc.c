@@ -25,7 +25,7 @@ __int64 __fastcall RtlpFlsAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
   __int64 v18; // rdx
   __int64 v19; // rax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+  RtlAcquireSRWLockExclusive(&RtlpFlsContext);
   v6 = 0;
   v7 = 8LL;
   while ( 1 )
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpFlsAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
     v6 = -1073741801;
     RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree((__int64)&xmmword_180184DD8, v8);
 LABEL_20:
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
     return v6;
   }
   _BitScanReverse((unsigned int *)&v11, v8);
@@ -76,7 +76,7 @@ LABEL_20:
   if ( v10 > (unsigned int)qword_180184E28 )
     v15 = v9 - 16;
   LODWORD(qword_180184E28) = v15;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+  RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   *a5 = v10;
   return v6;
 }

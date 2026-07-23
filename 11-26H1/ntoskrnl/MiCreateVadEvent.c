@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCreateVadEvent @ 0x1409CE5DC
+ * XREFs of MiCreateVadEvent @ 0x14099F5BC
  * Callers:
- *     MiCreateUserPhysicalView @ 0x140878ADC (MiCreateUserPhysicalView.c)
- *     MiCreatePlaceholderStorage @ 0x1409C684C (MiCreatePlaceholderStorage.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409CA420 (MiAllocateNewSubAllocatedRegion.c)
- *     MiCreateFixupVad @ 0x1409CE47C (MiCreateFixupVad.c)
- *     MiCreateWriteWatchView @ 0x1409CF818 (MiCreateWriteWatchView.c)
- *     MiCreateRotateView @ 0x1409CF99C (MiCreateRotateView.c)
- *     MiCreateLargePageEvent @ 0x140B3C9EC (MiCreateLargePageEvent.c)
+ *     MiCreateUserPhysicalView @ 0x14087EEBC (MiCreateUserPhysicalView.c)
+ *     MiCreatePlaceholderStorage @ 0x14099782C (MiCreatePlaceholderStorage.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14099B400 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiCreateFixupVad @ 0x14099F45C (MiCreateFixupVad.c)
+ *     MiCreateWriteWatchView @ 0x1409A07F8 (MiCreateWriteWatchView.c)
+ *     MiCreateRotateView @ 0x1409A097C (MiCreateRotateView.c)
+ *     MiCreateLargePageEvent @ 0x140B3EC6C (MiCreateLargePageEvent.c)
  * Callees:
- *     MiConfirmQuotaAmount @ 0x1403BCDC0 (MiConfirmQuotaAmount.c)
- *     MiConfirmQuotaProcess @ 0x1403BCE04 (MiConfirmQuotaProcess.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403BCE40 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiInsertVadEvent @ 0x14049B0F8 (MiInsertVadEvent.c)
- *     MiAllocateVadEvent @ 0x1409CE71C (MiAllocateVadEvent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiConfirmQuotaAmount @ 0x1403C6C30 (MiConfirmQuotaAmount.c)
+ *     MiConfirmQuotaProcess @ 0x1403C6C74 (MiConfirmQuotaProcess.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403C6CB0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiInsertVadEvent @ 0x140494C48 (MiInsertVadEvent.c)
+ *     MiAllocateVadEvent @ 0x14099F6FC (MiAllocateVadEvent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateVadEvent(

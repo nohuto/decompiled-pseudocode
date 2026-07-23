@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSetupExtendedBlock @ 0x1800CA280
+ * XREFs of RtlpSetupExtendedBlock @ 0x1800C7A00
  * Callers:
- *     RtlpReAllocateHeapInternal @ 0x18001AED0 (RtlpReAllocateHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x180005FB0 (RtlpReAllocateHeapInternal.c)
  * Callees:
- *     RtlpAnalyzeHeapFailure @ 0x1800257B0 (RtlpAnalyzeHeapFailure.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180010880 (RtlpAnalyzeHeapFailure.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
  */
 
 __int64 __fastcall RtlpSetupExtendedBlock(
@@ -82,7 +82,7 @@ LABEL_6:
   }
   if ( ((*(_BYTE *)(a1 + 116) | a2) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v9 = 1;
   }
   if ( *(_DWORD *)(a1 + 124) )
@@ -96,7 +96,7 @@ LABEL_6:
   *(_BYTE *)(v6 + 14) = a5 >> 4;
   if ( *(_DWORD *)(a1 + 124) )
   {
-    *(_BYTE *)(v6 + 11) = HIBYTE(v12) ^ *(_BYTE *)(v6 + 10) ^ v12;
+    *(_BYTE *)(v6 + 11) = v12 ^ *(_BYTE *)(v6 + 10) ^ HIBYTE(v12);
     *(_DWORD *)(v6 + 8) ^= *(_DWORD *)(a1 + 136);
   }
   *(_BYTE *)(v10 - 2) = a5 >> 4;
@@ -104,6 +104,6 @@ LABEL_6:
   *(_WORD *)(v10 - 4) = a5 + v12;
   *(_DWORD *)(v10 - 8) = a6;
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v10;
 }

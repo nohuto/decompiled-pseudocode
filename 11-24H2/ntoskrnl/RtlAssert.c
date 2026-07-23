@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlAssert @ 0x1405E9340
+ * XREFs of RtlAssert @ 0x1405E6890
  * Callers:
- *     KsepStringSplitMultiString @ 0x140740268 (KsepStringSplitMultiString.c)
- *     KsepRegistryCreateKey @ 0x140740728 (KsepRegistryCreateKey.c)
- *     KsepRegistryQueryDWORD @ 0x140740A68 (KsepRegistryQueryDWORD.c)
- *     KsepRegistryQuerySZ @ 0x140740CAC (KsepRegistryQuerySZ.c)
- *     KsepRegistryQueryValue @ 0x140740F18 (KsepRegistryQueryValue.c)
- *     KseDriverUnloadImage @ 0x140959CDC (KseDriverUnloadImage.c)
- *     KsepStringDuplicateUnicode @ 0x14095A274 (KsepStringDuplicateUnicode.c)
- *     KsepGetShimCallbacksForDriver @ 0x14095A360 (KsepGetShimCallbacksForDriver.c)
- *     KsepStringFree @ 0x14095B694 (KsepStringFree.c)
- *     KsepRegistryOpenKey @ 0x14095BE4C (KsepRegistryOpenKey.c)
- *     KsepStringConcatenate @ 0x14095BF50 (KsepStringConcatenate.c)
- *     KseShimDatabaseClose @ 0x14095C27C (KseShimDatabaseClose.c)
- *     KsepStringTransform @ 0x14095C9C8 (KsepStringTransform.c)
- *     KsepStringDuplicate @ 0x14095CB04 (KsepStringDuplicate.c)
- *     KsepEngineInitialize @ 0x140C2B2F0 (KsepEngineInitialize.c)
- *     KseShimDatabaseBootInitialize @ 0x140C2BF74 (KseShimDatabaseBootInitialize.c)
- *     KsepEngineReadFlags @ 0x140C2C160 (KsepEngineReadFlags.c)
+ *     KsepStringSplitMultiString @ 0x14073E198 (KsepStringSplitMultiString.c)
+ *     KsepRegistryCreateKey @ 0x14073E658 (KsepRegistryCreateKey.c)
+ *     KsepRegistryQueryDWORD @ 0x14073E998 (KsepRegistryQueryDWORD.c)
+ *     KsepRegistryQuerySZ @ 0x14073EBDC (KsepRegistryQuerySZ.c)
+ *     KsepRegistryQueryValue @ 0x14073EE48 (KsepRegistryQueryValue.c)
+ *     KseDriverUnloadImage @ 0x14094179C (KseDriverUnloadImage.c)
+ *     KsepStringDuplicateUnicode @ 0x140941D34 (KsepStringDuplicateUnicode.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140941E20 (KsepGetShimCallbacksForDriver.c)
+ *     KsepStringFree @ 0x140943154 (KsepStringFree.c)
+ *     KsepRegistryOpenKey @ 0x14094390C (KsepRegistryOpenKey.c)
+ *     KsepStringConcatenate @ 0x140943A10 (KsepStringConcatenate.c)
+ *     KseShimDatabaseClose @ 0x140943D3C (KseShimDatabaseClose.c)
+ *     KsepStringTransform @ 0x140944488 (KsepStringTransform.c)
+ *     KsepStringDuplicate @ 0x1409445C4 (KsepStringDuplicate.c)
+ *     KsepEngineInitialize @ 0x140C2D410 (KsepEngineInitialize.c)
+ *     KseShimDatabaseBootInitialize @ 0x140C2E094 (KseShimDatabaseBootInitialize.c)
+ *     KsepEngineReadFlags @ 0x140C2E280 (KsepEngineReadFlags.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     RtlCaptureContext @ 0x1404FC8A0 (RtlCaptureContext.c)
- *     DbgPrompt @ 0x1405E7670 (DbgPrompt.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwTerminateThread @ 0x1406A6E70 (ZwTerminateThread.c)
- *     RtlpTerminateCurrentProcess @ 0x140781F2C (RtlpTerminateCurrentProcess.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     RtlCaptureContext @ 0x1404FA160 (RtlCaptureContext.c)
+ *     DbgPrompt @ 0x1405E4C60 (DbgPrompt.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwTerminateThread @ 0x1406A7E10 (ZwTerminateThread.c)
+ *     RtlpTerminateCurrentProcess @ 0x140781E5C (RtlpTerminateCurrentProcess.c)
  */
 
 void __stdcall RtlAssert(PVOID VoidFailedAssertion, PVOID VoidFileName, ULONG LineNumber, PSTR MutableMessage)
@@ -34,7 +34,7 @@ void __stdcall RtlAssert(PVOID VoidFailedAssertion, PVOID VoidFileName, ULONG Li
   int v10; // ecx
   int v11; // ecx
   CHAR Response[16]; // [rsp+40h] [rbp-518h] BYREF
-  struct _CONTEXT ContextRecord; // [rsp+50h] [rbp-508h] BYREF
+  _CONTEXT ContextRecord; // [rsp+50h] [rbp-508h] BYREF
 
   RtlCaptureContext(&ContextRecord);
   if ( !MutableMessage )
@@ -86,6 +86,6 @@ LABEL_15:
     if ( !v11 )
       goto LABEL_17;
     if ( v11 == 4 )
-      ZwTerminateThread(-2LL, 3221225473LL);
+      ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, -1073741823);
   }
 }

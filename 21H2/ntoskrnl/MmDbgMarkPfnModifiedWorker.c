@@ -1,12 +1,12 @@
 /*
- * XREFs of MmDbgMarkPfnModifiedWorker @ 0x1403C969C
+ * XREFs of MmDbgMarkPfnModifiedWorker @ 0x1403C983C
  * Callers:
- *     ExpDebuggerWorker @ 0x1409B5030 (ExpDebuggerWorker.c)
+ *     ExpDebuggerWorker @ 0x1409B6030 (ExpDebuggerWorker.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiCaptureDirtyBitToPfn @ 0x14030FB10 (MiCaptureDirtyBitToPfn.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031A860 (MiCaptureDirtyBitToPfn.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140333910 (MiRemoveLockedPageChargeAndDecRef.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,19 +25,19 @@ void __fastcall MmDbgMarkPfnModifiedWorker(__int64 a1, __int64 a2, __int64 a3, _
   bool v14; // zf
 
   v4 = 0LL;
-  v5 = qword_140C4E898;
+  v5 = qword_140C4E8D8;
   do
   {
     v6 = *v5;
     if ( (*v5 & 1) != 0 )
     {
-      _InterlockedAnd64(&qword_140C4E898[v4], 0LL);
+      _InterlockedAnd64(&qword_140C4E8D8[v4], 0LL);
       v7 = v6 - 1;
       v8 = (unsigned __int8)MiLockPageInline(v7, a2, a3, SchedulerAssist);
       v9 = MiCaptureDirtyBitToPfn(v7);
       MiRemoveLockedPageChargeAndDecRef(v7);
       a2 = (*(_QWORD *)(v7 + 40) >> 39) & 0x3FFLL;
-      v10 = *(_QWORD *)(qword_140C4E648 + 8 * a2);
+      v10 = *(_QWORD *)(qword_140C4E688 + 8 * a2);
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {

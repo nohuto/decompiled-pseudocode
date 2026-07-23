@@ -1,17 +1,19 @@
 /*
- * XREFs of HvlQueryVsmConnection @ 0x140456290
+ * XREFs of HvlQueryVsmConnection @ 0x14044B190
  * Callers:
- *     VslConfigureDynamicMemory @ 0x14058CCAC (VslConfigureDynamicMemory.c)
- *     VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma @ 0x14058D2C0 (VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma.c)
- *     VslGetSecurePciDeviceBootConfiguration @ 0x14058D360 (VslGetSecurePciDeviceBootConfiguration.c)
- *     VslGetSecurePciEnabled @ 0x14058D480 (VslGetSecurePciEnabled.c)
- *     VslGetSecureSpeculationControlInformation @ 0x14058D500 (VslGetSecureSpeculationControlInformation.c)
- *     VslQuerySecureKernelProfileInformation @ 0x14058DC54 (VslQuerySecureKernelProfileInformation.c)
- *     MmSnapTriageDumpInformation @ 0x140677F08 (MmSnapTriageDumpInformation.c)
- *     VslRelaxQuotas @ 0x140710214 (VslRelaxQuotas.c)
- *     KiInitializeXSaveConfiguration @ 0x140B56AA0 (KiInitializeXSaveConfiguration.c)
- *     VslpIumPhase0Initialize @ 0x140C19E78 (VslpIumPhase0Initialize.c)
- *     ExpLicenseWatchInitWorker @ 0x140C5C5B4 (ExpLicenseWatchInitWorker.c)
+ *     HvlPrepareForRootCrashdump @ 0x140584F94 (HvlPrepareForRootCrashdump.c)
+ *     HvlResumeFromRootCrashdump @ 0x1405853A8 (HvlResumeFromRootCrashdump.c)
+ *     VslConfigureDynamicMemory @ 0x140589FA4 (VslConfigureDynamicMemory.c)
+ *     VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma @ 0x14058A5B0 (VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma.c)
+ *     VslGetSecurePciDeviceBootConfiguration @ 0x14058A650 (VslGetSecurePciDeviceBootConfiguration.c)
+ *     VslGetSecurePciEnabled @ 0x14058A770 (VslGetSecurePciEnabled.c)
+ *     VslGetSecureSpeculationControlInformation @ 0x14058A7F0 (VslGetSecureSpeculationControlInformation.c)
+ *     VslQuerySecureKernelProfileInformation @ 0x14058AFAC (VslQuerySecureKernelProfileInformation.c)
+ *     MmSnapTriageDumpInformation @ 0x1406790E8 (MmSnapTriageDumpInformation.c)
+ *     VslRelaxQuotas @ 0x14070DDA4 (VslRelaxQuotas.c)
+ *     KiInitializeXSaveConfiguration @ 0x140B58B20 (KiInitializeXSaveConfiguration.c)
+ *     VslpIumPhase0Initialize @ 0x140C1BEB0 (VslpIumPhase0Initialize.c)
+ *     ExpLicenseWatchInitWorker @ 0x140C5E744 (ExpLicenseWatchInitWorker.c)
  * Callees:
  *     <none>
  */

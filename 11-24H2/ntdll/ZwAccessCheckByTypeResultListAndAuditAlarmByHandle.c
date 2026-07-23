@@ -1,16 +1,33 @@
 /*
- * XREFs of ZwAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x180162940
+ * XREFs of ZwAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x180160D00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAccessCheckByTypeResultListAndAuditAlarmByHandle()
+NTSTATUS __cdecl ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        HANDLE ClientToken,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        ACCESS_MASK DesiredAccess,
+        AUDIT_EVENT_TYPE AuditType,
+        ULONG Flags,
+        POBJECT_TYPE_LIST ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        PGENERIC_MAPPING GenericMapping,
+        BOOLEAN ObjectCreation,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus,
+        PBOOLEAN GenerateOnClose)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 102LL;
+  result = 102;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

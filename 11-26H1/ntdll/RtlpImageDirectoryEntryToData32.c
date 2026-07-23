@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpImageDirectoryEntryToData32 @ 0x1800C2DC0
+ * XREFs of RtlpImageDirectoryEntryToData32 @ 0x1800C0490
  * Callers:
- *     RtlCaptureImageExceptionValues @ 0x1800821B0 (RtlCaptureImageExceptionValues.c)
+ *     RtlCaptureImageExceptionValues @ 0x180079550 (RtlCaptureImageExceptionValues.c)
  * Callees:
  *     <none>
  */

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwUnloadDriver()
+NTSTATUS __cdecl ZwUnloadDriver(PUNICODE_STRING DriverServiceName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 425LL;
+  result = 425;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1408EB088
+ * XREFs of EtwpUpdateGlobalGroupMasks @ 0x14085C8B8
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x14048FBCC (EtwpUpdateSelectedGroupMasks.c)
- *     EtwDereferenceSpinLockCounters @ 0x1407ACDE8 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1407ACE44 (EtwReferenceSpinLockCounters.c)
- *     EtwpCoverageSamplerStart @ 0x1407B2D48 (EtwpCoverageSamplerStart.c)
- *     EtwpUpdateKernelGroupsWork @ 0x140A9B710 (EtwpUpdateKernelGroupsWork.c)
- *     EtwpCoverageSamplerStop @ 0x140ADAAD0 (EtwpCoverageSamplerStop.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x14048A210 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1407AD2B8 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1407AD314 (EtwReferenceSpinLockCounters.c)
+ *     EtwpCoverageSamplerStart @ 0x1407B3198 (EtwpCoverageSamplerStart.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x140A96C80 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwpCoverageSamplerStop @ 0x140ADC310 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsIsServerSilo @ 0x140349B68 (PsIsServerSilo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpEnableKernelTrace @ 0x1408E95BC (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1408E9BB0 (EtwpDisableKernelTrace.c)
- *     PspGetNextJob @ 0x1408EBB60 (PspGetNextJob.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsIsServerSilo @ 0x1403C35A8 (PsIsServerSilo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpEnableKernelTrace @ 0x14085ADEC (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x14085B3E0 (EtwpDisableKernelTrace.c)
+ *     PspGetNextJob @ 0x14085D390 (PspGetNextJob.c)
  */
 
 __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsigned int a3)
@@ -165,7 +165,7 @@ LABEL_16:
       while ( v6 );
     }
     PerfGlobalGroupMask[0] = v31;
-    xmmword_140FC5B10 = v32;
+    xmmword_140FC6B50 = v32;
     if ( (BYTE4(v31) & 4) != 0 )
       _interlockedbittestandset(&KiCpuTracingFlags, 0);
     else

@@ -1,16 +1,16 @@
 /*
- * XREFs of VfClearVerifierSettings @ 0x140640270
+ * XREFs of VfClearVerifierSettings @ 0x140643E50
  * Callers:
- *     VfNotifyVerifierOfEvent @ 0x140C21340 (VfNotifyVerifierOfEvent.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     VfNotifyVerifierOfEvent @ 0x140C27350 (VfNotifyVerifierOfEvent.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     VfUtilDbgPrint @ 0x14052FE80 (VfUtilDbgPrint.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     ZwFlushKey @ 0x140725230 (ZwFlushKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     VfUtilDbgPrint @ 0x140532380 (VfUtilDbgPrint.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     ZwFlushKey @ 0x140729E00 (ZwFlushKey.c)
  */
 
 NTSTATUS VfClearVerifierSettings()
@@ -51,7 +51,7 @@ NTSTATUS VfClearVerifierSettings()
   p_IptSaveArea = (void **)&VfPersistentStateRoot;
   Data = v1;
   ObjectAttributes.RootDirectory = 0LL;
-  if ( !HIDWORD(WheapPfaLock.CycleTime) )
+  if ( !HIDWORD(WheapPfaLock.KernelStack) )
     p_IptSaveArea = &PspSiloMonitorLock.IptSaveArea;
   ObjectAttributes.Attributes = 576;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)p_IptSaveArea;

@@ -9,20 +9,14 @@
  *     TppCleanupGroupAddMember @ 0x18007D77C (TppCleanupGroupAddMember.c)
  */
 
-__int64 __fastcall TppInitializeTimer(
-        __int64 a1,
-        char a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        __int64 a5,
-        __int64 a6)
+__int64 __fastcall TppInitializeTimer(__int64 a1, char a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  unsigned __int64 v6; // rdi
+  __int64 v6; // rdi
   __int64 result; // rax
 
   v6 = a4;
   if ( a4 )
-    a4 = *(unsigned int *)(a4 + 56);
+    LODWORD(a4) = *(_DWORD *)(a4 + 56);
   result = TppWorkInitialize(a1, a3, v6, a4, a5, a6);
   if ( (int)result >= 0 )
   {

@@ -18,7 +18,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
         __int64 (__fastcall *a4)(__int64, _QWORD *),
         __int64 (__fastcall *a5)(__int64, const char *),
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v7; // r12
   __int64 v10; // rdi
@@ -52,7 +52,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
     v13,
     v19,
     v11 + 88,
-    a7);
+    Status);
   if ( a2 )
   {
     v15 = *(_QWORD *)(a2 + 48);
@@ -76,7 +76,7 @@ LABEL_6:
   LODWORD(v18[0]) = 72;
   v18[3] = v7;
   v18[6] = v15;
-  LODWORD(v18[8]) = RtlNtStatusToDosErrorNoTeb(a7);
+  LODWORD(v18[8]) = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v12 )
   {
     LODWORD(v18[4]) = 1;

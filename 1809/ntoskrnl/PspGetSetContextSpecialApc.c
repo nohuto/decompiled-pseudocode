@@ -1,11 +1,11 @@
 /*
- * XREFs of PspGetSetContextSpecialApc @ 0x1401C5230
+ * XREFs of PspGetSetContextSpecialApc @ 0x1401C5390
  * Callers:
- *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
+ *     PspSetContextThreadInternal @ 0x140621A30 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140621C00 (PspGetContextThreadInternal.c)
  * Callees:
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
  */
 
 __int64 __fastcall PspGetSetContextSpecialApc(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

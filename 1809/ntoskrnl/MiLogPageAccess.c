@@ -1,29 +1,29 @@
 /*
- * XREFs of MiLogPageAccess @ 0x14006BDB0
+ * XREFs of MiLogPageAccess @ 0x14006BDA0
  * Callers:
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)
- *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiResetAccessBitPte @ 0x14016E830 (MiResetAccessBitPte.c)
- *     MiResetAccessBitPteWorker @ 0x1402B3780 (MiResetAccessBitPteWorker.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiClearPteAccessed @ 0x14006B770 (MiClearPteAccessed.c)
+ *     MmUnmapViewInSystemCache @ 0x140078700 (MmUnmapViewInSystemCache.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140088034 (MI_WSLE_LOG_ACCESS.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiResetAccessBitPte @ 0x14016E930 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPteWorker @ 0x1402B3970 (MiResetAccessBitPteWorker.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     MiAllocateAccessLog @ 0x140114810 (MiAllocateAccessLog.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ObFastReferenceObjectLocked @ 0x14007DFE4 (ObFastReferenceObjectLocked.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     MiAllocateAccessLog @ 0x140114880 (MiAllocateAccessLog.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 void __fastcall MiLogPageAccess(__int64 a1, unsigned __int64 a2)
@@ -94,7 +94,7 @@ void __fastcall MiLogPageAccess(__int64 a1, unsigned __int64 a2)
   v5 = v2 & 7;
   v55[0] = 0;
   if ( v5 == 2 )
-    v7 = &unk_14043B730;
+    v7 = &unk_14043C7F0;
   else
     v7 = (_QWORD *)(a1 + 240);
   v8 = a2 & 1;
@@ -143,9 +143,9 @@ void __fastcall MiLogPageAccess(__int64 a1, unsigned __int64 a2)
     v4 = 0LL;
   }
   v10 = (_QWORD *)(48 * ((v9 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
-  v11 = &dword_14043B728;
+  v11 = &dword_14043C7E8;
   if ( v5 == 2 )
-    v12 = &dword_14043B728;
+    v12 = &dword_14043C7E8;
   else
     v12 = (volatile signed __int32 *)(a1 + 232);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
@@ -207,8 +207,8 @@ void __fastcall MiLogPageAccess(__int64 a1, unsigned __int64 a2)
   }
   if ( (v10[5] & 0x200000000000000LL) != 0 && (v17 = v10[2], (v17 & 0x400) != 0) )
   {
-    if ( qword_14043A0C0 && (v17 & 0x10) == 0 )
-      v17 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v17 & 0x10) == 0 )
+      v17 &= ~qword_14043B180;
     v18 = v10[1];
     v19 = AccessLog[6];
     v20 = v18 | 0x8000000000000000uLL;

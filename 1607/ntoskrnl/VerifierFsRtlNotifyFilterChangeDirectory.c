@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlNotifyFilterChangeDirectory @ 0x14070C5B0
+ * XREFs of VerifierFsRtlNotifyFilterChangeDirectory @ 0x14070C5E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapViewOfSectionExCommon @ 0x1407A34F0
+ * XREFs of MiMapViewOfSectionExCommon @ 0x1407A36E0
  * Callers:
- *     MmMapViewOfSectionEx @ 0x14032A35C (MmMapViewOfSectionEx.c)
- *     PspMapView @ 0x1405A646C (PspMapView.c)
- *     NtMapViewOfSectionEx @ 0x1407A2F30 (NtMapViewOfSectionEx.c)
+ *     MmMapViewOfSectionEx @ 0x14032A5EC (MmMapViewOfSectionEx.c)
+ *     PspMapView @ 0x1405A69DC (PspMapView.c)
+ *     NtMapViewOfSectionEx @ 0x1407A3120 (NtMapViewOfSectionEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     EtwTiLogMapExecView @ 0x140682E58 (EtwTiLogMapExecView.c)
- *     MiMapViewOfSectionCommon @ 0x140721110 (MiMapViewOfSectionCommon.c)
- *     MiMapParametersInitialize @ 0x14072154C (MiMapParametersInitialize.c)
- *     MiMapViewOfSection @ 0x140721660 (MiMapViewOfSection.c)
- *     MiMapExParametersInitialize @ 0x1407A37A0 (MiMapExParametersInitialize.c)
- *     MiCaptureAllocateMapExtendedParameters @ 0x1407A3AE0 (MiCaptureAllocateMapExtendedParameters.c)
- *     DbgkMapViewOfSection @ 0x1407A3DBC (DbgkMapViewOfSection.c)
+ *     MiMapViewOfSectionCommon @ 0x140721310 (MiMapViewOfSectionCommon.c)
+ *     MiMapParametersInitialize @ 0x14072174C (MiMapParametersInitialize.c)
+ *     MiMapViewOfSection @ 0x140721860 (MiMapViewOfSection.c)
+ *     MiMapExParametersInitialize @ 0x1407A3990 (MiMapExParametersInitialize.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1407A3CD0 (MiCaptureAllocateMapExtendedParameters.c)
+ *     DbgkMapViewOfSection @ 0x1407A3FAC (DbgkMapViewOfSection.c)
  */
 
 __int64 __fastcall MiMapViewOfSectionExCommon(

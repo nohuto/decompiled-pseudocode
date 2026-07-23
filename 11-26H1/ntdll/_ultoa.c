@@ -1,9 +1,9 @@
 /*
- * XREFs of _ultoa @ 0x180127E40
+ * XREFs of _ultoa @ 0x180127BB0
  * Callers:
  *     <none>
  * Callees:
- *     xtoa @ 0x180127EDC (xtoa.c)
+ *     xtoa @ 0x180127C4C (xtoa.c)
  */
 
 char *__cdecl ultoa(unsigned int Value, char *Buffer, int Radix)

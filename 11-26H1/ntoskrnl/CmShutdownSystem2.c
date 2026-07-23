@@ -1,29 +1,29 @@
 /*
- * XREFs of CmShutdownSystem2 @ 0x1406E24C0
+ * XREFs of CmShutdownSystem2 @ 0x1406E6740
  * Callers:
- *     CmShutdownSystem @ 0x140854284 (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x14085A594 (CmShutdownSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     CmpUnJoinClassOfTrust @ 0x1404D3C6C (CmpUnJoinClassOfTrust.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmpFreeAllMemory @ 0x1408542E0 (CmpFreeAllMemory.c)
- *     CmFcShutdownSystem @ 0x140854C94 (CmFcShutdownSystem.c)
- *     CmpFlushTraceLoggingProvider @ 0x14085523C (CmpFlushTraceLoggingProvider.c)
- *     CmpTraceShutdownRundownComplete @ 0x1408557B0 (CmpTraceShutdownRundownComplete.c)
- *     CmpTraceShutdownStop @ 0x140855890 (CmpTraceShutdownStop.c)
- *     CmpWaitForShutdownRundownRelease @ 0x14085EACC (CmpWaitForShutdownRundownRelease.c)
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     CmpGetNextActiveHive @ 0x1408B3048 (CmpGetNextActiveHive.c)
- *     LOCK_HIVE_LOAD @ 0x1408B45EC (LOCK_HIVE_LOAD.c)
- *     CmpVERemoveHiveFromSIDMappingTable @ 0x1408B7ECC (CmpVERemoveHiveFromSIDMappingTable.c)
- *     CmpVolumeContextDecrementRefCount @ 0x1408B7F90 (CmpVolumeContextDecrementRefCount.c)
- *     CmpCmdHiveClose @ 0x1408B81BC (CmpCmdHiveClose.c)
- *     HvHiveCleanup @ 0x1408B9010 (HvHiveCleanup.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     CmpDoFileSetSizeEx @ 0x140AAA978 (CmpDoFileSetSizeEx.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     CmpUnJoinClassOfTrust @ 0x1404CD4DC (CmpUnJoinClassOfTrust.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpFreeAllMemory @ 0x14085A5F0 (CmpFreeAllMemory.c)
+ *     CmFcShutdownSystem @ 0x14085AFA4 (CmFcShutdownSystem.c)
+ *     CmpFlushTraceLoggingProvider @ 0x14085B5D4 (CmpFlushTraceLoggingProvider.c)
+ *     CmpTraceShutdownRundownComplete @ 0x14085BB48 (CmpTraceShutdownRundownComplete.c)
+ *     CmpTraceShutdownStop @ 0x14085BC28 (CmpTraceShutdownStop.c)
+ *     CmpWaitForShutdownRundownRelease @ 0x140864DBC (CmpWaitForShutdownRundownRelease.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     CmpGetNextActiveHive @ 0x1408B95EC (CmpGetNextActiveHive.c)
+ *     LOCK_HIVE_LOAD @ 0x1408BABC0 (LOCK_HIVE_LOAD.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x1408BE49C (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x1408BE560 (CmpVolumeContextDecrementRefCount.c)
+ *     CmpCmdHiveClose @ 0x1408BE78C (CmpCmdHiveClose.c)
+ *     HvHiveCleanup @ 0x1408BF5E0 (HvHiveCleanup.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     CmpDoFileSetSizeEx @ 0x140AA7F58 (CmpDoFileSetSizeEx.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 CmShutdownSystem2()
@@ -75,7 +75,7 @@ __int64 CmShutdownSystem2()
       CmpVolumeContextDecrementRefCount(v6);
   }
   HvShutdownComplete = 1;
-  if ( ((__int64)stru_140F10828.KernelShadowStackInitial & 8) != 0 && !LOBYTE(ExpPlatformBinaryLock.SListFaultAddress) )
+  if ( (PopShutdownCleanly & 8) != 0 && !LOBYTE(ExpPlatformBinaryLock.SListFaultAddress) )
     CmpFreeAllMemory();
   CmpUnlockRegistry();
   UNLOCK_HIVE_LOAD();

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExRebootSystemForRecovery @ 0x140606674
+ * XREFs of ExRebootSystemForRecovery @ 0x140606BC4
  * Callers:
- *     KiDeferredBugcheckRecoveryWorker @ 0x14057ADE0 (KiDeferredBugcheckRecoveryWorker.c)
- *     NtShutdownSystem @ 0x1406068A0 (NtShutdownSystem.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x14057B2D0 (KiDeferredBugcheckRecoveryWorker.c)
+ *     NtShutdownSystem @ 0x140606DF0 (NtShutdownSystem.c)
  * Callees:
- *     ExNotifyWithProcessing @ 0x14033BF60 (ExNotifyWithProcessing.c)
- *     KeRebootSystemForRecovery @ 0x14057A3AC (KeRebootSystemForRecovery.c)
- *     CmShutdownSystem @ 0x140A112D8 (CmShutdownSystem.c)
+ *     ExNotifyWithProcessing @ 0x14033C1F0 (ExNotifyWithProcessing.c)
+ *     KeRebootSystemForRecovery @ 0x14057A89C (KeRebootSystemForRecovery.c)
+ *     CmShutdownSystem @ 0x140A11588 (CmShutdownSystem.c)
  */
 
 void ExRebootSystemForRecovery()

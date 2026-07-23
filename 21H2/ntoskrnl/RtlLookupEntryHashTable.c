@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLookupEntryHashTable @ 0x140360330
+ * XREFs of RtlLookupEntryHashTable @ 0x1402A5260
  * Callers:
- *     SepRmReferenceFindCap @ 0x140597E54 (SepRmReferenceFindCap.c)
- *     SepFindMatchingCachedHandlesEntry @ 0x140717EA8 (SepFindMatchingCachedHandlesEntry.c)
- *     SepFindMatchingLowBoxNumberEntry @ 0x1407181E4 (SepFindMatchingLowBoxNumberEntry.c)
- *     SepFindMatchingLuidEntry @ 0x1409248C8 (SepFindMatchingLuidEntry.c)
- *     SepFindSharedSidEntry @ 0x1409253C4 (SepFindSharedSidEntry.c)
+ *     SepRmReferenceFindCap @ 0x140598084 (SepRmReferenceFindCap.c)
+ *     SepFindMatchingCachedHandlesEntry @ 0x1406C64F8 (SepFindMatchingCachedHandlesEntry.c)
+ *     SepFindMatchingLowBoxNumberEntry @ 0x1406C6834 (SepFindMatchingLowBoxNumberEntry.c)
+ *     SepFindMatchingLuidEntry @ 0x140924A28 (SepFindMatchingLuidEntry.c)
+ *     SepFindSharedSidEntry @ 0x140925524 (SepFindSharedSidEntry.c)
  * Callees:
  *     <none>
  */

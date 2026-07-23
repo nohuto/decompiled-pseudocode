@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpNetProvTraceNetwork @ 0x1402268D8
+ * XREFs of EtwpNetProvTraceNetwork @ 0x140226704
  * Callers:
- *     EtwpTraceNetwork @ 0x140227330 (EtwpTraceNetwork.c)
+ *     EtwpTraceNetwork @ 0x14022715C (EtwpTraceNetwork.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
  */
 
 NTSTATUS __fastcall EtwpNetProvTraceNetwork(PEVENT_DATA_DESCRIPTOR UserData, unsigned __int16 a2)

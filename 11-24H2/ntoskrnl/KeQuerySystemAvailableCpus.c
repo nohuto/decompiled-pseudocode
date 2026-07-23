@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQuerySystemAvailableCpus @ 0x1405B836C
+ * XREFs of KeQuerySystemAvailableCpus @ 0x1405B594C
  * Callers:
- *     PsQuerySystemAvailableCpus @ 0x1405E5670 (PsQuerySystemAvailableCpus.c)
- *     PsQuerySystemAvailableCpusCount @ 0x1405E56B0 (PsQuerySystemAvailableCpusCount.c)
+ *     PsQuerySystemAvailableCpus @ 0x1405E2C20 (PsQuerySystemAvailableCpus.c)
+ *     PsQuerySystemAvailableCpusCount @ 0x1405E2C60 (PsQuerySystemAvailableCpusCount.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x14029D200 (RtlBeginReadTickLock.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     RtlBeginReadTickLock @ 0x1402ABCF0 (RtlBeginReadTickLock.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
  */
 
 __int64 __fastcall KeQuerySystemAvailableCpus(struct _KAFFINITY_EX *a1, _QWORD *a2, __int64 *a3, _DWORD *a4)

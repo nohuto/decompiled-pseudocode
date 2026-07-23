@@ -40,12 +40,12 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
   size_t Size; // [rsp+48h] [rbp-B8h] BYREF
   int v26; // [rsp+50h] [rbp-B0h]
   int v27; // [rsp+54h] [rbp-ACh]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int8 (__fastcall *v29)(__int128 *, _WORD *, _QWORD); // [rsp+68h] [rbp-98h]
   unsigned __int64 v30; // [rsp+70h] [rbp-90h]
   _DWORD *v31; // [rsp+78h] [rbp-88h]
   __int128 v32; // [rsp+80h] [rbp-80h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
   _WORD Src[256]; // [rsp+A0h] [rbp-60h] BYREF
 
   v29 = a2;

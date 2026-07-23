@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x140366180
+ * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x1403C3E30
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiFindFreePageFileSpace @ 0x140367D88 (MiFindFreePageFileSpace.c)
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiFindFreePageFileSpace @ 0x1403C438C (MiFindFreePageFileSpace.c)
  */
 
 LONG __fastcall MiTrimUnusedPageFileRegionsApc(PRKEVENT Event)
@@ -34,8 +34,8 @@ LONG __fastcall MiTrimUnusedPageFileRegionsApc(PRKEVENT Event)
   if ( FreePageFileSpace >= HIDWORD(Event[1].Header.WaitListHead.Flink) )
   {
     v9 = v15;
-    if ( qword_140E2DB80 && (v15 & 0x10) == 0 )
-      v9 = v15 & ~qword_140E2DB80;
+    if ( qword_140E2DCC0 && (v15 & 0x10) == 0 )
+      v9 = v15 & ~qword_140E2DCC0;
     v10 = HIDWORD(v9);
     LODWORD(Event[1].Header.WaitListHead.Blink) = v10;
     v11 = MiMakePageFilePte(FreePageFileSpace + (unsigned int)v10);

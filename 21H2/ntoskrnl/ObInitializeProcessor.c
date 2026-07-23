@@ -1,12 +1,12 @@
 /*
- * XREFs of ObInitializeProcessor @ 0x1407961DC
+ * XREFs of ObInitializeProcessor @ 0x1407963DC
  * Callers:
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
- *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
+ *     ObInitSystem @ 0x140A3F538 (ObInitSystem.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x1402EE2B0 (MmIsThisAnNtAsSystem.c)
- *     ExInitializeSystemLookasideList @ 0x14099C6E4 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmIsThisAnNtAsSystem @ 0x14020DC80 (MmIsThisAnNtAsSystem.c)
+ *     ExInitializeSystemLookasideList @ 0x14099D6E4 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObInitializeProcessor(_QWORD *a1)

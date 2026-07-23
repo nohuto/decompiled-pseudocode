@@ -5,7 +5,7 @@
  * Callees:
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
+ *     sub_140348B40 @ 0x140348B40 (sub_140348B40.c)
  *     ObCreateObject @ 0x14066BA00 (ObCreateObject.c)
  *     ObDeleteCapturedInsertInfo @ 0x140680050 (ObDeleteCapturedInsertInfo.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
@@ -46,7 +46,7 @@ __int64 __fastcall ExCreateDpcEvent(ULONG_PTR *a1, _QWORD *a2, __int64 a3)
   }
   else
   {
-    ExFreeHeapPool(Pool2);
+    sub_140348B40(Pool2);
     return (unsigned int)v8;
   }
   return result;

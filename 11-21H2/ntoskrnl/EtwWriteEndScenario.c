@@ -1,15 +1,15 @@
 /*
  * XREFs of EtwWriteEndScenario @ 0x14081CDA0
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1403D2178 (PnpCompleteSystemStartProcess.c)
- *     PopDiagTracePowerTransitionEnd @ 0x1407FE344 (PopDiagTracePowerTransitionEnd.c)
- *     PopGracefulShutdown @ 0x140A6AEC0 (PopGracefulShutdown.c)
+ *     sub_1403D2178 @ 0x1403D2178 (sub_1403D2178.c)
+ *     sub_1407FE344 @ 0x1407FE344 (sub_1407FE344.c)
+ *     sub_140A6AEC0 @ 0x140A6AEC0 (sub_140A6AEC0.c)
  * Callees:
- *     EtwGetProviderIdFromHandle @ 0x14025A19C (EtwGetProviderIdFromHandle.c)
+ *     sub_14025A19C @ 0x14025A19C (sub_14025A19C.c)
  *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
  *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WdipStartEndScenario @ 0x1406E6A98 (WdipStartEndScenario.c)
+ *     sub_1406E6A98 @ 0x1406E6A98 (sub_1406E6A98.c)
  */
 
 NTSTATUS __fastcall EtwWriteEndScenario(
@@ -27,10 +27,10 @@ NTSTATUS __fastcall EtwWriteEndScenario(
     return -1073741811;
   if ( !EtwEventEnabled((REGHANDLE)RegHandle, EventDescriptor) )
     return -1073741816;
-  result = EtwGetProviderIdFromHandle(RegHandle, 0, &v10);
+  result = sub_14025A19C(RegHandle, 0, &v10);
   if ( result >= 0 )
   {
-    WdipStartEndScenario((__int64)&v10, (__int64)ActivityId, &EventDescriptor->Id, 11);
+    sub_1406E6A98((__int64)&v10, (__int64)ActivityId, &EventDescriptor->Id, 11);
     return EtwWrite((REGHANDLE)RegHandle, EventDescriptor, ActivityId, UserDataCount, UserData);
   }
   return result;

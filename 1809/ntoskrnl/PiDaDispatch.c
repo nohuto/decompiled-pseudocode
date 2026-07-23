@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDaDispatch @ 0x1406A6B40
+ * XREFs of PiDaDispatch @ 0x1406A7DE0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PiDqDispatch @ 0x140590640 (PiDqDispatch.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PiDqDispatch @ 0x140591640 (PiDqDispatch.c)
  */
 
 __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
   FileObject = CurrentStackLocation->FileObject;
   if ( CurrentStackLocation->MajorFunction )
   {
-    return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1406A6B81 + 3 * (__int64)FileObject->FsContext))(
+    return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1406A7E21 + 3 * (__int64)FileObject->FsContext))(
              a1,
              a2,
              a2);

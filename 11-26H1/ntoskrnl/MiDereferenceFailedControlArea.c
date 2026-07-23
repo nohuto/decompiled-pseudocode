@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDereferenceFailedControlArea @ 0x140B25454
+ * XREFs of MiDereferenceFailedControlArea @ 0x140B275E4
  * Callers:
- *     MiFinishCreateSection @ 0x1409BAAFC (MiFinishCreateSection.c)
- *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
+ *     MiFinishCreateSection @ 0x14098BADC (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x14098BFCC (MiCreateImageOrDataSection.c)
  * Callees:
- *     MiDereferenceControlAreaBySection @ 0x14036D708 (MiDereferenceControlAreaBySection.c)
- *     MiAweControlArea @ 0x14048FC84 (MiAweControlArea.c)
- *     MiDeleteSectionAwe @ 0x1407014B8 (MiDeleteSectionAwe.c)
+ *     MiDereferenceControlAreaBySection @ 0x14036F4A8 (MiDereferenceControlAreaBySection.c)
+ *     MiAweControlArea @ 0x140489730 (MiAweControlArea.c)
+ *     MiDeleteSectionAwe @ 0x140706188 (MiDeleteSectionAwe.c)
  */
 
 __int64 __fastcall MiDereferenceFailedControlArea(int *a1)

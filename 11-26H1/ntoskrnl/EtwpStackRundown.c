@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpStackRundown @ 0x14047173C
+ * XREFs of EtwpStackRundown @ 0x14046AEBC
  * Callers:
- *     EtwpStopLoggerInstance @ 0x140A15968 (EtwpStopLoggerInstance.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x140A6F5B8 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpStopLoggerInstance @ 0x140A14B5C (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x140A99C44 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     EtwpDereferenceStackEntry @ 0x14032CCA0 (EtwpDereferenceStackEntry.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     EtwpTraceCachedStack @ 0x140471860 (EtwpTraceCachedStack.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     EtwpDereferenceStackEntry @ 0x14032ECD0 (EtwpDereferenceStackEntry.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     EtwpTraceCachedStack @ 0x14046AFE0 (EtwpTraceCachedStack.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
@@ -20,8 +20,8 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
   __int64 v8; // rdi
   KIRQL CurrentIrql; // bp
   volatile signed __int32 *j; // r8
-  struct _SLIST_ENTRY **v11; // r14
-  struct _SLIST_ENTRY *v12; // rbx
+  _SLIST_ENTRY **v11; // r14
+  _SLIST_ENTRY *v12; // rbx
   __int128 v13; // [rsp+20h] [rbp-68h] BYREF
   __int128 i; // [rsp+30h] [rbp-58h]
 
@@ -52,12 +52,12 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
       KeReleaseSpinLock((PKSPIN_LOCK)v7 + 2, CurrentIrql);
       if ( (_DWORD)v8 )
       {
-        v11 = (struct _SLIST_ENTRY **)&v13;
+        v11 = (_SLIST_ENTRY **)&v13;
         do
         {
           v12 = *v11;
           EtwpTraceCachedStack(a2, a3, 6180LL, *v11, v13, *((_QWORD *)&v13 + 1), i, *((_QWORD *)&i + 1));
-          EtwpDereferenceStackEntry(v12, (union _SLIST_HEADER *)v6);
+          EtwpDereferenceStackEntry(v12, (_SLIST_HEADER *)v6);
           ++v11;
           --v8;
         }

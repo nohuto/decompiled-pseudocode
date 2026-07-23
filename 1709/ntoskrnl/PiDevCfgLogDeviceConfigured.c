@@ -139,7 +139,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   int v116; // [rsp+90h] [rbp-80h]
   BOOL v117; // [rsp+94h] [rbp-7Ch]
   char v118; // [rsp+98h] [rbp-78h]
-  struct _TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
   const wchar_t *v120; // [rsp+B0h] [rbp-60h]
   size_t pcchNewDestLength; // [rsp+B8h] [rbp-58h] BYREF
   int v122; // [rsp+C0h] [rbp-50h]
@@ -155,11 +155,11 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   size_t cchDest; // [rsp+130h] [rbp+20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+138h] [rbp+28h] BYREF
   UNICODE_STRING v134; // [rsp+150h] [rbp+40h] BYREF
-  UNICODE_STRING v135; // [rsp+160h] [rbp+50h] BYREF
+  UNICODE_STRING GuidString; // [rsp+160h] [rbp+50h] BYREF
   wchar_t *v136; // [rsp+170h] [rbp+60h] BYREF
   UNICODE_STRING v137; // [rsp+180h] [rbp+70h] BYREF
   __int64 v138; // [rsp+190h] [rbp+80h]
-  unsigned int v139[6]; // [rsp+198h] [rbp+88h] BYREF
+  GUID Guid; // [rsp+198h] [rbp+88h] BYREF
   _QWORD v140[16]; // [rsp+1B0h] [rbp+A0h] BYREF
   wchar_t pszDest[12]; // [rsp+230h] [rbp+120h] BYREF
   wchar_t v142[24]; // [rsp+248h] [rbp+138h] BYREF
@@ -181,8 +181,8 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
   *(_DWORD *)&v125.Length = 0;
-  *(_DWORD *)&v135.Length = 0;
-  v135.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   v126 = 0;
   *(_DWORD *)&v134.Length = 0;
   v134.Buffer = 0LL;
@@ -299,7 +299,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       *StringRoutine = 0;
       v36 = (_QWORD *)(v6 + 208);
       v37 = *(_QWORD *)(v6 + 208);
-      TimeFields = (struct _TIME_FIELDS)v35;
+      TimeFields = (_TIME_FIELDS)v35;
       v124 = (size_t *)v37;
       if ( v37 != v6 + 208 )
       {
@@ -613,7 +613,7 @@ LABEL_32:
     {
       memset(v85, 0, Size);
       v86 = *(size_t **)(v6 + 192);
-      TimeFields = (struct _TIME_FIELDS)v134;
+      TimeFields = (_TIME_FIELDS)v134;
       v124 = v86;
       if ( v86 == (size_t *)(v6 + 192) )
         goto LABEL_154;
@@ -635,7 +635,7 @@ LABEL_32:
         v140[0] = &DEVPKEY_DriverPackage_OriginalInfName;
         v140[2] = &v137;
         v140[5] = &DEVPKEY_DriverPackage_ExtensionId;
-        v140[7] = v139;
+        v140[7] = &Guid;
         v140[10] = &DEVPKEY_DriverPackage_DriverFlightIds;
         v140[12] = &v131;
         LODWORD(v140[1]) = 18;
@@ -648,8 +648,8 @@ LABEL_32:
         {
           if ( SLODWORD(v140[4]) < 0 && !RtlCreateUnicodeString(&v137, (PCWSTR)v89[6]) )
             RtlInitUnicodeString(&v137, 0LL);
-          if ( SLODWORD(v140[9]) < 0 || (int)RtlStringFromGUIDEx(v139, (__int64)&v135, 1) < 0 )
-            RtlInitUnicodeString(&v135, 0LL);
+          if ( SLODWORD(v140[9]) < 0 || RtlStringFromGUIDEx(&Guid, &GuidString, 1u) < 0 )
+            RtlInitUnicodeString(&GuidString, 0LL);
           if ( SLODWORD(v140[14]) < 0 )
             RtlInitUnicodeString(&v131, 0LL);
           v95 = v131.Buffer;
@@ -693,9 +693,9 @@ LABEL_32:
                    L"%ws%wZ:%wZ:%wZ",
                    v100,
                    &v137,
-                   &v135,
+                   &GuidString,
                    v99);
-          RtlFreeUnicodeString(&v135);
+          RtlFreeUnicodeString(&GuidString);
           RtlFreeUnicodeString(&v131);
           RtlFreeUnicodeString(&v137);
           if ( v101 < 0 )

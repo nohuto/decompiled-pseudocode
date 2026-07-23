@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogContinueTrim @ 0x1406F7D24
+ * XREFs of MiLogContinueTrim @ 0x1406FC9F0
  * Callers:
- *     MiPartitionTrimmedEnough @ 0x1404C212C (MiPartitionTrimmedEnough.c)
+ *     MiPartitionTrimmedEnough @ 0x1404BB97C (MiPartitionTrimmedEnough.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void MiLogContinueTrim()
@@ -36,7 +36,7 @@ void MiLogContinueTrim()
   __int64 *v23; // [rsp+E0h] [rbp+37h]
   __int64 v24; // [rsp+E8h] [rbp+3Fh]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 1LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 1LL) )
   {
     v6 = *v3;
     v18 = v1 + 7;
@@ -56,6 +56,6 @@ void MiLogContinueTrim()
     v24 = v18;
     v14 = 4LL;
     v16 = 4LL;
-    tlgWriteEx_EtwWriteEx(v2, (unsigned __int8 *)&byte_14005804D, v0, v1, v4, v5, v1 + 7, &v12);
+    tlgWriteEx_EtwWriteEx(v2, (unsigned __int8 *)&word_140058D4E, v0, v1, v4, v5, v1 + 7, &v12);
   }
 }

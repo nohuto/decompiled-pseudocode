@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwPrivilegedServiceAuditAlarm()
+NTSTATUS __cdecl ZwPrivilegedServiceAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PUNICODE_STRING ServiceName,
+        HANDLE ClientToken,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 304LL;
+  result = 304;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,17 +1,17 @@
 /*
- * XREFs of VfDriverEnableVerifier @ 0x140B8A250
+ * XREFs of VfDriverEnableVerifier @ 0x140B8C250
  * Callers:
- *     VfDriverEnableDisableVerifier @ 0x140B8A1C0 (VfDriverEnableDisableVerifier.c)
- *     VfDriverEnableVerifierForAll @ 0x140B8A3B4 (VfDriverEnableVerifierForAll.c)
- *     VfAddVerifierEntry @ 0x140B9C32C (VfAddVerifierEntry.c)
+ *     VfDriverEnableDisableVerifier @ 0x140B8C1C0 (VfDriverEnableDisableVerifier.c)
+ *     VfDriverEnableVerifierForAll @ 0x140B8C3B4 (VfDriverEnableVerifierForAll.c)
+ *     VfAddVerifierEntry @ 0x140B9E32C (VfAddVerifierEntry.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     MmIsVerifierApplicableToImage @ 0x1406756AC (MmIsVerifierApplicableToImage.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VfUtilIsProtectedDriver @ 0x140B834AC (VfUtilIsProtectedDriver.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfSuspectApplyDifVolatileVerification @ 0x140B9A568 (VfSuspectApplyDifVolatileVerification.c)
- *     VfSuspectDriversLookupName @ 0x140B9AE84 (VfSuspectDriversLookupName.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     MmIsVerifierApplicableToImage @ 0x14067687C (MmIsVerifierApplicableToImage.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VfUtilIsProtectedDriver @ 0x140B854AC (VfUtilIsProtectedDriver.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140B9C568 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectDriversLookupName @ 0x140B9CE84 (VfSuspectDriversLookupName.c)
  */
 
 __int64 __fastcall VfDriverEnableVerifier(__int64 a1, PVOID *a2, _DWORD *a3)
@@ -65,17 +65,17 @@ LABEL_9:
       v6 = 1;
     }
 LABEL_17:
-    v10 = (__int64 *)qword_140F045D8;
-    if ( *(__int64 **)qword_140F045D8 != &VfSuspectDriversList )
+    v10 = (__int64 *)qword_140F04728;
+    if ( *(__int64 **)qword_140F04728 != &VfSuspectDriversList )
       __fastfail(3u);
     *(_QWORD *)a1 = &VfSuspectDriversList;
     *(_QWORD *)(a1 + 8) = v10;
     *v10 = a1;
-    qword_140F045D8 = a1;
+    qword_140F04728 = a1;
     *a3 = 1;
     if ( v6 )
       VfSuspectApplyDifVolatileVerification(a2, a1);
-    ++dword_140F03F00;
+    ++dword_140F04860;
   }
 LABEL_22:
   ViDriversLoadLockOwner = 0LL;

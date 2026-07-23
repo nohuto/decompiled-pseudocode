@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSanitizePfnProtection @ 0x140238DA0
+ * XREFs of MiSanitizePfnProtection @ 0x140212F30
  * Callers:
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiProtectPrivateMemory @ 0x140237480 (MiProtectPrivateMemory.c)
- *     MiSetProtectionOnTransitionPte @ 0x1402386B4 (MiSetProtectionOnTransitionPte.c)
- *     MiResolveMappedFileFault @ 0x140239490 (MiResolveMappedFileFault.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x140211610 (MiProtectPrivateMemory.c)
+ *     MiSetProtectionOnTransitionPte @ 0x140212844 (MiSetProtectionOnTransitionPte.c)
+ *     MiResolveMappedFileFault @ 0x140214824 (MiResolveMappedFileFault.c)
  * Callees:
  *     <none>
  */

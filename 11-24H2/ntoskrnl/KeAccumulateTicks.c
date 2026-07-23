@@ -1,63 +1,63 @@
 /*
- * XREFs of KeAccumulateTicks @ 0x14029C3C0
+ * XREFs of KeAccumulateTicks @ 0x1402AAEB0
  * Callers:
- *     KiUpdateRunTime @ 0x14029BDF0 (KiUpdateRunTime.c)
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
+ *     KiUpdateRunTime @ 0x1402AA8E0 (KiUpdateRunTime.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiRequestSoftwareInterrupt @ 0x140297BA0 (KiRequestSoftwareInterrupt.c)
- *     KiCheckForTimerExpiration @ 0x14029CAE0 (KiCheckForTimerExpiration.c)
- *     KdPollBreakIn @ 0x14029CFB0 (KdPollBreakIn.c)
- *     KiDpcWatchdogCounterReset @ 0x14029D7D0 (KiDpcWatchdogCounterReset.c)
- *     KiQueryEffectivePriorityThread @ 0x14034BFE0 (KiQueryEffectivePriorityThread.c)
- *     KiCheckKeepAlive @ 0x1403C9E44 (KiCheckKeepAlive.c)
- *     KiDpcWatchdogCaptureStack @ 0x140447624 (KiDpcWatchdogCaptureStack.c)
- *     EtwTraceDpcProfilingStack @ 0x1404476CC (EtwTraceDpcProfilingStack.c)
- *     EtwTraceDpcProfilingStackBegin @ 0x14044775C (EtwTraceDpcProfilingStackBegin.c)
- *     HvlInvokeHypervisorDebugger @ 0x14044782C (HvlInvokeHypervisorDebugger.c)
- *     KiDeferDpcWatchdogViolation @ 0x14044787C (KiDeferDpcWatchdogViolation.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1404F9918 (KiResetGlobalDpcWatchdogProfiler.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     DbgBreakPointWithStatus @ 0x1404FC810 (DbgBreakPointWithStatus.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiCheckForTimerExpiration @ 0x1402AB5D0 (KiCheckForTimerExpiration.c)
+ *     KdPollBreakIn @ 0x1402ABAA0 (KdPollBreakIn.c)
+ *     KiDpcWatchdogCounterReset @ 0x1402AC2C0 (KiDpcWatchdogCounterReset.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402DC510 (KiRequestSoftwareInterrupt.c)
+ *     KiQueryEffectivePriorityThread @ 0x14036A4C0 (KiQueryEffectivePriorityThread.c)
+ *     KiCheckKeepAlive @ 0x1403A49E4 (KiCheckKeepAlive.c)
+ *     KiDpcWatchdogCaptureStack @ 0x14043FD44 (KiDpcWatchdogCaptureStack.c)
+ *     EtwTraceDpcProfilingStack @ 0x14043FDEC (EtwTraceDpcProfilingStack.c)
+ *     EtwTraceDpcProfilingStackBegin @ 0x14043FE7C (EtwTraceDpcProfilingStackBegin.c)
+ *     HvlInvokeHypervisorDebugger @ 0x14043FF4C (HvlInvokeHypervisorDebugger.c)
+ *     KiDeferDpcWatchdogViolation @ 0x14043FF9C (KiDeferDpcWatchdogViolation.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1404F71F8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     DbgBreakPointWithStatus @ 0x1404FA0D0 (DbgBreakPointWithStatus.c)
  */
 
-void __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, unsigned int a3, unsigned __int8 a4, char a5, int a6)
+void __fastcall KeAccumulateTicks(__int64 a1, int a2, int a3, unsigned __int8 a4, char a5, int a6)
 {
-  _KTHREAD *CurrentThread; // rbp
+  _DWORD *v10; // rbp
   unsigned int v11; // edi
-  __int64 DpcCount; // rdx
+  __int64 v12; // rdx
   __int16 v13; // cx
   unsigned int v14; // ecx
-  unsigned int MaximumDpcQueueDepth; // eax
-  unsigned __int8 NestingLevel; // al
+  unsigned int v15; // eax
+  char v16; // al
   int v17; // esi
   __int64 v18; // rcx
-  unsigned int InterruptRate; // eax
-  unsigned int DpcWatchdogProfileSingleDpcThresholdTicks; // r14d
-  unsigned int DpcWatchdogProfileCumulativeDpcThresholdTicks; // esi
-  unsigned int DpcTimeCount; // r15d
-  unsigned int DpcWatchdogCount; // r13d
+  unsigned int v19; // eax
+  unsigned int v20; // r14d
+  unsigned int v21; // esi
+  unsigned int v22; // r15d
+  unsigned int v23; // r13d
   unsigned int v24; // r12d
   int v25; // r15d
   bool v26; // zf
-  unsigned int SingleDpcSoftTimeLimitTicks; // eax
+  unsigned int v27; // eax
   unsigned int v28; // edx
-  unsigned int *p_DpcTimeCount; // rcx
+  unsigned int *v29; // rcx
   ULONG_PTR v30; // r9
-  unsigned int DpcWatchdogPeriodTicks; // ecx
+  unsigned int v31; // ecx
   int v32; // esi
   unsigned int v33; // r8d
   int v34; // r14d
-  unsigned int DpcTimeLimitTicks; // edx
+  unsigned int v35; // edx
   ULONG_PTR v36; // r12
   ULONG_PTR v37; // r13
   unsigned int v38; // r10d
   char v39; // dl
   ULONG_PTR v40; // r12
   ULONG_PTR v41; // rsi
-  _KSINGLE_DPC_SOFT_TIMEOUT_EVENT_INFO *SingleDpcSoftTimeoutEventInfo; // r9
-  _KDPC *volatile ActiveDpc; // r8
-  _QWORD *p_DeferredRoutine; // rcx
+  __int64 v42; // r9
+  __int64 v43; // r8
+  _QWORD *v44; // rcx
   int v45; // eax
   ULONG_PTR BugCheckParameter3; // [rsp+30h] [rbp-38h]
   ULONG_PTR *BugCheckParameter4; // [rsp+70h] [rbp+8h]
@@ -65,10 +65,10 @@ void __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, unsigned int a3, un
 
   if ( a6 != 4 )
     KiCheckForTimerExpiration();
-  CurrentThread = a1->CurrentThread;
-  if ( KiTickAccumulationFromAccountingPeriods && (CurrentThread->MiscFlags & 0x400) == 0 )
-    CurrentThread->ModeHistory = a5 | (2 * CurrentThread->ModeHistory);
-  a1->LastTick = a3;
+  v10 = *(_DWORD **)(a1 + 8);
+  if ( KiTickAccumulationFromAccountingPeriods && (v10[29] & 0x400) == 0 )
+    v10[275] = a5 | (2 * v10[275]);
+  *(_DWORD *)(a1 + 14528) = a3;
   v11 = a3 - a2;
   if ( !v11 )
   {
@@ -76,7 +76,7 @@ void __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, unsigned int a3, un
       return;
     goto LABEL_12;
   }
-  if ( a1->ClockOwner )
+  if ( *(_BYTE *)(a1 + 33) )
   {
     if ( !--KiClockPollCycle )
     {
@@ -102,158 +102,148 @@ void __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, unsigned int a3, un
   {
     if ( !KiTickAccumulationFromAccountingPeriods )
     {
-      a1->UserTime += v11;
-      CurrentThread->UserTime += v11;
+      *(_DWORD *)(a1 + 34376) += v11;
+      v10[183] += v11;
     }
-    ++a1->DpcWatchdogSequenceNumber;
+    ++*(_DWORD *)(a1 + 33772);
     KiDpcWatchdogCounterReset(a1);
     goto LABEL_39;
   }
-  NestingLevel = a1->NestingLevel;
+  v16 = *(_BYTE *)(a1 + 32);
   v17 = 0;
   if ( KiTickAccumulationFromAccountingPeriods )
   {
-    if ( NestingLevel == 2 && a1->DpcRoutineActive )
+    if ( v16 == 2 && *(_BYTE *)(a1 + 14522) )
     {
-      ++a1->DpcTimeCount;
+      ++*(_DWORD *)(a1 + 34396);
       v17 = 1;
     }
   }
   else
   {
-    a1->KernelTime += v11;
-    if ( NestingLevel == 2 && a1->DpcRoutineActive )
+    *(_DWORD *)(a1 + 34372) += v11;
+    if ( v16 == 2 && *(_BYTE *)(a1 + 14522) )
     {
-      a1->DpcTime += v11;
+      *(_DWORD *)(a1 + 34380) += v11;
       v17 = 1;
-      ++a1->DpcTimeCount;
+      ++*(_DWORD *)(a1 + 34396);
     }
-    else if ( a1->NestingLevel > 1u )
+    else if ( *(_BYTE *)(a1 + 32) > 1u )
     {
-      a1->InterruptTime += v11;
+      *(_DWORD *)(a1 + 34384) += v11;
     }
     else
     {
-      a1->CurrentThread->SchedulerApc.SpareLong0 += v11;
+      *(_DWORD *)(*(_QWORD *)(a1 + 8) + 652LL) += v11;
     }
   }
   if ( a4 >= 2u )
   {
-    ++a1->DpcWatchdogCount;
+    ++*(_DWORD *)(a1 + 33708);
     goto LABEL_58;
   }
   KiDpcWatchdogCounterReset(a1);
-  ++a1->DpcWatchdogSequenceNumber;
+  ++*(_DWORD *)(a1 + 33772);
   if ( v17 )
   {
 LABEL_58:
-    DpcWatchdogProfileSingleDpcThresholdTicks = a1->DpcWatchdogProfileSingleDpcThresholdTicks;
-    DpcWatchdogProfileCumulativeDpcThresholdTicks = DpcWatchdogProfileSingleDpcThresholdTicks;
-    if ( !DpcWatchdogProfileSingleDpcThresholdTicks
-      || DpcWatchdogProfileSingleDpcThresholdTicks > a1->DpcWatchdogProfileCumulativeDpcThresholdTicks )
+    v20 = *(_DWORD *)(a1 + 34624);
+    v21 = v20;
+    if ( !v20 || v20 > *(_DWORD *)(a1 + 33716) )
+      v21 = *(_DWORD *)(a1 + 33716);
+    if ( v21 )
     {
-      DpcWatchdogProfileCumulativeDpcThresholdTicks = a1->DpcWatchdogProfileCumulativeDpcThresholdTicks;
-    }
-    if ( DpcWatchdogProfileCumulativeDpcThresholdTicks )
-    {
-      DpcTimeCount = a1->DpcTimeCount;
-      DpcWatchdogCount = a1->DpcWatchdogCount;
-      v24 = DpcWatchdogCount;
-      if ( DpcTimeCount > DpcWatchdogCount )
-        v24 = a1->DpcTimeCount;
-      if ( DpcWatchdogProfileCumulativeDpcThresholdTicks == v24 )
-        EtwTraceDpcProfilingStackBegin(
-          a1->DpcWatchdogSequenceNumber,
-          DpcWatchdogProfileCumulativeDpcThresholdTicks,
-          DpcTimeCount,
-          DpcWatchdogCount,
-          0);
-      if ( DpcWatchdogProfileSingleDpcThresholdTicks && DpcWatchdogProfileSingleDpcThresholdTicks == DpcTimeCount )
-        EtwTraceDpcProfilingStackBegin(a1->DpcWatchdogSequenceNumber, DpcTimeCount, DpcTimeCount, DpcWatchdogCount, 1);
-      if ( DpcWatchdogProfileCumulativeDpcThresholdTicks <= v24 )
+      v22 = *(_DWORD *)(a1 + 34396);
+      v23 = *(_DWORD *)(a1 + 33708);
+      v24 = v23;
+      if ( v22 > v23 )
+        v24 = *(_DWORD *)(a1 + 34396);
+      if ( v21 == v24 )
+        EtwTraceDpcProfilingStackBegin(*(_DWORD *)(a1 + 33772), v21, v22, v23, 0);
+      if ( v20 && v20 == v22 )
+        EtwTraceDpcProfilingStackBegin(*(_DWORD *)(a1 + 33772), v22, v22, v23, 1);
+      if ( v21 <= v24 )
       {
         KiDpcWatchdogCaptureStack(a1);
-        EtwTraceDpcProfilingStack(a1->DpcWatchdogSequenceNumber, v24);
+        EtwTraceDpcProfilingStack(*(unsigned int *)(a1 + 33772), v24);
       }
       v25 = 0;
-      if ( DpcWatchdogProfileCumulativeDpcThresholdTicks < 0x20 )
+      if ( v21 < 0x20 )
         v26 = v24 == 16;
       else
-        v26 = v24 == DpcWatchdogProfileCumulativeDpcThresholdTicks >> 1;
+        v26 = v24 == v21 >> 1;
       LOBYTE(v25) = v26;
     }
     else
     {
       v25 = 0;
     }
-    SingleDpcSoftTimeLimitTicks = a1->SingleDpcSoftTimeLimitTicks;
-    v28 = a1->DpcTimeCount;
-    p_DpcTimeCount = &a1->DpcTimeCount;
-    if ( SingleDpcSoftTimeLimitTicks )
+    v27 = *(_DWORD *)(a1 + 14540);
+    v28 = *(_DWORD *)(a1 + 34396);
+    v29 = (unsigned int *)(a1 + 34396);
+    if ( v27 )
     {
-      if ( v28 >= SingleDpcSoftTimeLimitTicks )
+      if ( v28 >= v27 )
       {
-        SingleDpcSoftTimeoutEventInfo = a1->SingleDpcSoftTimeoutEventInfo;
-        if ( SingleDpcSoftTimeoutEventInfo )
+        v42 = *(_QWORD *)(a1 + 14544);
+        if ( v42 )
         {
-          ActiveDpc = a1->DpcData[0].ActiveDpc;
-          if ( ActiveDpc )
+          v43 = *(_QWORD *)(a1 + 14432);
+          if ( v43 )
           {
-            p_DeferredRoutine = &ActiveDpc->DeferredRoutine;
-            if ( SingleDpcSoftTimeoutEventInfo->TickCount )
+            v44 = (_QWORD *)(v43 + 24);
+            if ( *(_DWORD *)(v42 + 72) )
             {
-              if ( SingleDpcSoftTimeoutEventInfo->DeferredRoutine == (void *)*p_DeferredRoutine )
-                SingleDpcSoftTimeoutEventInfo->TickCount = v28;
-              p_DpcTimeCount = &a1->DpcTimeCount;
+              if ( *(_QWORD *)(v42 + 64) == *v44 )
+                *(_DWORD *)(v42 + 72) = v28;
+              v29 = (unsigned int *)(a1 + 34396);
             }
             else
             {
-              SingleDpcSoftTimeoutEventInfo->TickCount = v28;
-              SingleDpcSoftTimeoutEventInfo->DeferredRoutine = (void *)*p_DeferredRoutine;
+              *(_DWORD *)(v42 + 72) = v28;
+              *(_QWORD *)(v42 + 64) = *v44;
               KeInsertQueueDpc(
-                &SingleDpcSoftTimeoutEventInfo->EventDpc,
-                a1->CurrentThread,
+                (PRKDPC)v42,
+                *(PVOID *)(a1 + 8),
                 (PVOID)(0x7E35C6C7F3DD7277LL
-                      * (KiWaitNever ^ __ROR8__(
-                                         *p_DeferredRoutine ^ _byteswap_uint64(KiWaitAlways ^ (unsigned __int64)ActiveDpc),
-                                         KiWaitNever))));
-              p_DpcTimeCount = &a1->DpcTimeCount;
+                      * (KiWaitNever ^ __ROR8__(*v44 ^ _byteswap_uint64(KiWaitAlways ^ v43), KiWaitNever))));
+              v29 = (unsigned int *)(a1 + 34396);
             }
           }
         }
       }
     }
-    v30 = *p_DpcTimeCount;
-    DpcWatchdogPeriodTicks = a1->DpcWatchdogPeriodTicks;
+    v30 = *v29;
+    v31 = *(_DWORD *)(a1 + 33704);
     v32 = 0;
-    v33 = a1->DpcWatchdogCount;
+    v33 = *(_DWORD *)(a1 + 33708);
     v34 = 0;
-    DpcTimeLimitTicks = a1->DpcTimeLimitTicks;
+    v35 = *(_DWORD *)(a1 + 34400);
     v36 = 0LL;
     v37 = 0LL;
     v48 = 0;
     v38 = 0;
     BugCheckParameter3 = 0LL;
     BugCheckParameter4 = 0LL;
-    if ( DpcWatchdogPeriodTicks )
+    if ( v31 )
     {
-      LOBYTE(v32) = v33 == DpcWatchdogPeriodTicks >> 1;
-      if ( v33 >= DpcWatchdogPeriodTicks )
+      LOBYTE(v32) = v33 == v31 >> 1;
+      if ( v33 >= v31 )
       {
         v34 = 1;
         BugCheckParameter4 = 0LL;
         v36 = 1LL;
         BugCheckParameter3 = (ULONG_PTR)&KeDpcWatchdogProfileGlobalTriageBlock;
-        v37 = DpcWatchdogPeriodTicks;
+        v37 = v31;
         v38 = 2;
       }
     }
-    if ( DpcTimeLimitTicks && (unsigned int)v30 >= DpcTimeLimitTicks )
+    if ( v35 && (unsigned int)v30 >= v35 )
     {
       v36 = 0LL;
       v48 = 1;
       v37 = v30;
-      BugCheckParameter3 = a1->DpcTimeLimitTicks;
+      BugCheckParameter3 = *(unsigned int *)(a1 + 34400);
       BugCheckParameter4 = &KeDpcWatchdogProfileGlobalTriageBlock;
       v38 = 3;
     }
@@ -261,7 +251,7 @@ LABEL_58:
     {
 LABEL_81:
       if ( v25 | v32 )
-        KeInsertQueueDpc(&a1->DpcWatchdogDpc, 0LL, 0LL);
+        KeInsertQueueDpc((PRKDPC)(a1 + 35544), 0LL, 0LL);
       goto LABEL_39;
     }
     if ( KeEnableWatchdogTimeout )
@@ -274,13 +264,13 @@ LABEL_81:
           KeBugCheckEx(0x133u, v36, v37, BugCheckParameter3, (ULONG_PTR)BugCheckParameter4);
         KiDeferDpcWatchdogViolation();
 LABEL_109:
-        a1->DpcTimeCount = 0;
+        *(_DWORD *)(a1 + 34396) = 0;
         KiResetGlobalDpcWatchdogProfiler(a1);
 LABEL_110:
         if ( v34 )
         {
           KiDpcWatchdogCounterReset(a1);
-          ++a1->DpcWatchdogSequenceNumber;
+          ++*(_DWORD *)(a1 + 33772);
         }
         goto LABEL_81;
       }
@@ -317,59 +307,59 @@ LABEL_110:
   }
 LABEL_39:
   if ( !KiTickAccumulationFromAccountingPeriods
-    && CurrentThread != a1->IdleThread
-    && a1->NestingLevel <= 1u
-    && (int)KiQueryEffectivePriorityThread(CurrentThread, a1) < 8 )
+    && v10 != *(_DWORD **)(a1 + 24)
+    && *(_BYTE *)(a1 + 32) <= 1u
+    && (int)KiQueryEffectivePriorityThread(v10, a1) < 8 )
   {
-    a1->AvailableTime += v11;
+    *(_DWORD *)(a1 + 34412) += v11;
   }
   if ( v11 >= 8 )
   {
-    a1->InterruptRate = 0;
+    *(_DWORD *)(a1 + 11684) = 0;
   }
   else
   {
     v18 = v11;
-    a1->InterruptRate += 15 * (a1->InterruptCount - a1->InterruptLastCount);
-    InterruptRate = a1->InterruptRate;
+    *(_DWORD *)(a1 + 11684) += 15 * (*(_DWORD *)(a1 + 34368) - *(_DWORD *)(a1 + 11680));
+    v19 = *(_DWORD *)(a1 + 11684);
     do
     {
-      InterruptRate >>= 4;
+      v19 >>= 4;
       --v18;
     }
     while ( v18 );
-    a1->InterruptRate = InterruptRate;
+    *(_DWORD *)(a1 + 11684) = v19;
   }
-  a1->InterruptLastCount = a1->InterruptCount;
-  DpcCount = a1->DpcData[0].DpcCount;
-  a1->DpcRequestRate = (a1->DpcRequestRate + a1->DpcData[0].DpcCount - a1->DpcLastCount) >> v11;
-  a1->DpcLastCount = DpcCount;
-  if ( !a1->DpcData[0].DpcQueueDepth || (v13 = a1->DpcRequestSlot[0], (v13 & 3) != 0) )
+  *(_DWORD *)(a1 + 11680) = *(_DWORD *)(a1 + 34368);
+  v12 = *(unsigned int *)(a1 + 14428);
+  *(_DWORD *)(a1 + 14508) = (unsigned int)(*(_DWORD *)(a1 + 14508) + *(_DWORD *)(a1 + 14428) - *(_DWORD *)(a1 + 14516)) >> v11;
+  *(_DWORD *)(a1 + 14516) = v12;
+  if ( !*(_DWORD *)(a1 + 14424) || (v13 = *(_WORD *)(a1 + 14524), (v13 & 3) != 0) )
   {
-    v26 = a1->AdjustDpcThreshold-- == 1;
+    v26 = (*(_DWORD *)(a1 + 34388))-- == 1;
     if ( v26 )
     {
-      a1->AdjustDpcThreshold = KiAdjustDpcThreshold;
-      MaximumDpcQueueDepth = a1->MaximumDpcQueueDepth;
-      if ( MaximumDpcQueueDepth < KiMaximumDpcQueueDepth )
-        a1->MaximumDpcQueueDepth = MaximumDpcQueueDepth + 1;
+      *(_DWORD *)(a1 + 34388) = KiAdjustDpcThreshold;
+      v15 = *(_DWORD *)(a1 + 14504);
+      if ( v15 < KiMaximumDpcQueueDepth )
+        *(_DWORD *)(a1 + 14504) = v15 + 1;
     }
   }
   else
   {
-    a1->AdjustDpcThreshold = KiAdjustDpcThreshold;
+    *(_DWORD *)(a1 + 34388) = KiAdjustDpcThreshold;
     if ( (v13 & 0xAF) == 0 )
     {
-      LOBYTE(DpcCount) = 2;
-      KiRequestSoftwareInterrupt(a1, DpcCount);
+      LOBYTE(v12) = 2;
+      KiRequestSoftwareInterrupt(a1, v12);
     }
-    v14 = a1->MaximumDpcQueueDepth;
-    if ( a1->DpcRequestRate < KiIdealDpcRate && v14 > 1 )
-      a1->MaximumDpcQueueDepth = v14 - 1;
+    v14 = *(_DWORD *)(a1 + 14504);
+    if ( *(_DWORD *)(a1 + 14508) < (unsigned int)KiIdealDpcRate && v14 > 1 )
+      *(_DWORD *)(a1 + 14504) = v14 - 1;
   }
 LABEL_12:
   if ( ((_BYTE)KdDebuggerEnabled || KdEventLoggingEnabled)
-    && KiPollSlot == a1->Number
+    && KiPollSlot == *(_DWORD *)(a1 + 36)
     && (!KdPitchDebugger && (_BYTE)KdDebuggerEnabled || KdEventLoggingEnabled) )
   {
     if ( (unsigned __int8)KdPollBreakIn() )

@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpCheckLowMemory @ 0x140C13E70
+ * XREFs of KdpCheckLowMemory @ 0x140C19E70
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpSysCheckLowMemory @ 0x140C152F4 (KdpSysCheckLowMemory.c)
+ *     KdpSysCheckLowMemory @ 0x140C1B2F4 (KdpSysCheckLowMemory.c)
  */
 
 __int64 __fastcall KdpCheckLowMemory(__int64 a1)

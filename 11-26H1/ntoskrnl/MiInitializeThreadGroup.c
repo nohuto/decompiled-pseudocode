@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeThreadGroup @ 0x140501014
+ * XREFs of MiInitializeThreadGroup @ 0x1404FA804
  * Callers:
- *     MiUseThreads @ 0x1403C3644 (MiUseThreads.c)
+ *     MiUseThreads @ 0x1403CD544 (MiUseThreads.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiComputeSoloZeroingTime @ 0x14050130C (MiComputeSoloZeroingTime.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiComputeSoloZeroingTime @ 0x1404FAAFC (MiComputeSoloZeroingTime.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall MiInitializeThreadGroup(__int64 a1)

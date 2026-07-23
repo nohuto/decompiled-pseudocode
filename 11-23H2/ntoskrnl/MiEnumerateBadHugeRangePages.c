@@ -1,8 +1,8 @@
 /*
- * XREFs of MiEnumerateBadHugeRangePages @ 0x14061FA70
+ * XREFs of MiEnumerateBadHugeRangePages @ 0x14061FFC0
  * Callers:
- *     MiEnumerateQuarantinedBadHugeRangePages @ 0x140629E08 (MiEnumerateQuarantinedBadHugeRangePages.c)
- *     MiGetListOfPendingBadPages @ 0x140629FF8 (MiGetListOfPendingBadPages.c)
+ *     MiEnumerateQuarantinedBadHugeRangePages @ 0x14062A358 (MiEnumerateQuarantinedBadHugeRangePages.c)
+ *     MiGetListOfPendingBadPages @ 0x14062A548 (MiGetListOfPendingBadPages.c)
  * Callees:
  *     <none>
  */

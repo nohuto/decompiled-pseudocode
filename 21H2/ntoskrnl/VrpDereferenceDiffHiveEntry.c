@@ -4,9 +4,9 @@
  *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
  *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  *     VrpDereferenceDiffHiveEntryWithLock @ 0x1405D64B0 (VrpDereferenceDiffHiveEntryWithLock.c)
  */
 
@@ -16,6 +16,9 @@ _QWORD *__fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)
   signed __int64 i; // rdx
   _QWORD *v4; // rtt
   struct _KTHREAD *CurrentThread; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
 
   _m_prefetchw(P + 2);
   result = (_QWORD *)P[2];
@@ -33,5 +36,5 @@ _QWORD *__fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&gLoadedDiffHivesLock, 0LL);
   VrpDereferenceDiffHiveEntryWithLock(P);
   ExReleasePushLockEx((ULONG_PTR)&gLoadedDiffHivesLock, 0LL);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
 }

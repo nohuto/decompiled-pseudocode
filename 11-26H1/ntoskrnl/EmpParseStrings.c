@@ -1,13 +1,13 @@
 /*
- * XREFs of EmpParseStrings @ 0x140CB7308
+ * XREFs of EmpParseStrings @ 0x140CBD34C
  * Callers:
- *     EmpParseInfDatabase @ 0x140CB63E0 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140CBC420 (EmpParseInfDatabase.c)
  * Callees:
- *     RtlStringCchCopyA @ 0x14048D1D8 (RtlStringCchCopyA.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpInfParseGetSectionLineCount @ 0x140CB5EF0 (EmpInfParseGetSectionLineCount.c)
- *     CmpGetSectionLineIndex @ 0x140CB7F54 (CmpGetSectionLineIndex.c)
+ *     RtlStringCchCopyA @ 0x140486D18 (RtlStringCchCopyA.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140CBBF30 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140CBDF98 (CmpGetSectionLineIndex.c)
  */
 
 __int64 __fastcall EmpParseStrings(__int64 a1)

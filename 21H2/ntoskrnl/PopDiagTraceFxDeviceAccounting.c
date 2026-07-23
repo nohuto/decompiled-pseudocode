@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceFxDeviceAccounting @ 0x140571F14
+ * XREFs of PopDiagTraceFxDeviceAccounting @ 0x140572154
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14056D03C (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14056D27C (PopFxStopDeviceAccounting.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopDiagQueryDevicePropertyString @ 0x1408E80F8 (PopDiagQueryDevicePropertyString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopDiagQueryDevicePropertyString @ 0x1408E8258 (PopDiagQueryDevicePropertyString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3, ...)
@@ -135,7 +135,7 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 a2, unsigned __int16 *a3
           v54[1] = 0;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C02228,
-            (unsigned __int8 *)&byte_14002892F,
+            (unsigned __int8 *)&word_1400286CE,
             0LL,
             0LL,
             0xFu,

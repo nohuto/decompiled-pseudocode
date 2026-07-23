@@ -3,18 +3,18 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x1400957C0 (MiInitializeLargeNonPagedPoolLeafFrames.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x14013C86C (MiInitializeNonPagedPoolThresholds.c)
- *     MiBuildDynamicRegion @ 0x14013C940 (MiBuildDynamicRegion.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x140094FC0 (MiInitializeLargeNonPagedPoolLeafFrames.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x14013CDDC (MiInitializeNonPagedPoolThresholds.c)
+ *     MiBuildDynamicRegion @ 0x14013CEB0 (MiBuildDynamicRegion.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
  */
 
 __int64 MiInitializeNonPagedPool()
@@ -46,7 +46,7 @@ __int64 MiInitializeNonPagedPool()
   __int64 v25; // rbx
   unsigned __int64 v26; // rax
   __int64 v27; // rsi
-  union _SLIST_HEADER *v28; // r14
+  _SLIST_HEADER *v28; // r14
   __int64 v29; // r12
   unsigned __int64 Region; // rax
   unsigned __int64 v31; // r12
@@ -74,14 +74,14 @@ __int64 MiInitializeNonPagedPool()
   v3 = (v2 | (unsigned int)ExGenRandom(0)) ^ v1;
   if ( !v3 )
     v3 = 1LL;
-  qword_140327780 = v3;
+  qword_1403277C0 = v3;
   if ( (MiFlags & 1) == 0 && !MmSpecialPoolTag && MmProtectFreedNonPagedPool != 1 )
   {
     v4 = 4;
-    dword_140326448[0] = 4;
-    if ( qword_140324DD0 < 0x80000 )
+    dword_140326488[0] = 4;
+    if ( qword_140324E10 < 0x80000 )
     {
-      if ( qword_140324DD0 < 0x40000 )
+      if ( qword_140324E10 < 0x40000 )
         goto LABEL_11;
       v4 = 8;
     }
@@ -89,16 +89,16 @@ __int64 MiInitializeNonPagedPool()
     {
       v4 = 32;
     }
-    dword_140326448[0] = v4;
+    dword_140326488[0] = v4;
 LABEL_11:
-    v5 = (unsigned int *)&unk_14032644C;
+    v5 = (unsigned int *)&unk_14032648C;
     v6 = 2LL;
     while ( 1 )
     {
       *v5++ = v4 >> 1;
       if ( !--v6 )
         break;
-      v4 = dword_140326448[0];
+      v4 = dword_140326488[0];
     }
   }
   v7 = MmPfnDatabase + (MxPfnAllocation << 12);
@@ -110,13 +110,13 @@ LABEL_11:
   else
     v9 = 0LL;
   v36 = v9;
-  qword_140327860 = 0x100000000LL;
-  v38 = qword_140327F20[0];
+  qword_1403278A0 = 0x100000000LL;
+  v38 = qword_140327F60[0];
   v10 = 0x800000uLL / (unsigned __int16)KeNumberNodes;
   v11 = ((v10 + 0x7FFF) >> 3) & 0x1FFFFFFFFFFFF000LL;
   v39 = v10 << 9;
   v12 = (((v10 << 9) + 0x7FFF) >> 3) & 0x1FFFFFFFFFFFF000LL;
-  v13 = MiReservePtes((__int64)&qword_140327870, ((unsigned __int16)KeNumberNodes * (v12 + 2 * v11)) >> 12, 1uLL);
+  v13 = MiReservePtes((__int64)&qword_1403278B0, ((unsigned __int16)KeNumberNodes * (v12 + 2 * v11)) >> 12, 1uLL);
   if ( !v13 )
     return 0LL;
   if ( KeNumberNodes )
@@ -127,11 +127,11 @@ LABEL_11:
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
     do
     {
-      v19 = qword_1403269B0;
+      v19 = qword_1403269F0;
       v20 = 26LL * v17;
       v42 = v17;
       LODWORD(v45) = v17 + 1;
-      qword_1403269B0[v20 + 20].Region = v38 + ((v39 * v17) << 12);
+      qword_1403269F0[v20 + 20].Region = v38 + ((v39 * v17) << 12);
       v19[v20 + 21].Alignment = v38 + ((v39 * (v17 + 1)) << 12);
       v37 = v20 * 16;
       MiInitializeDynamicBitmap(&v19[v20 + 23].Region, (__int64)((v13 << 25) - v18) >> 16, v39, 19);
@@ -151,7 +151,7 @@ LABEL_11:
         --v48;
       }
       while ( v48 );
-      v24 = (__int64 *)((char *)&qword_1403269B0[11].Region + v37);
+      v24 = (__int64 *)((char *)&qword_1403269F0[11].Region + v37);
       v9 = v36;
       v15 = v41;
       v8 = v43;
@@ -182,7 +182,7 @@ LABEL_11:
   {
     v26 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v45);
     v27 = (v8 >> 12) + ((v26 >> 12) & 0xFFFFFFFFFLL);
-    v28 = &qword_1403269B0[26 * ((unsigned __int8)HIBYTE(*(_QWORD *)(48 * v27 - 0x57FFFFFFFD8LL)) >> 2)];
+    v28 = &qword_1403269F0[26 * ((unsigned __int8)HIBYTE(*(_QWORD *)(48 * v27 - 0x57FFFFFFFD8LL)) >> 2)];
     v29 = MiExpandNonPagedPool(
             512,
             0x200uLL,

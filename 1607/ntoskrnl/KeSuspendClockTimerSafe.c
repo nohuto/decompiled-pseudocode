@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSuspendClockTimerSafe @ 0x1401D24F0
+ * XREFs of KeSuspendClockTimerSafe @ 0x1401D231C
  * Callers:
  *     IopLiveDumpProcessCorralStateChange @ 0x1403DB824 (IopLiveDumpProcessCorralStateChange.c)
  *     PnprQuiesceProcessorDpc @ 0x1403DC538 (PnprQuiesceProcessorDpc.c)
  *     PnprQuiesceProcessors @ 0x1403DC8B8 (PnprQuiesceProcessors.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400516A4 (KeGetEffectiveIrql.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     KeGetEffectiveIrql @ 0x140051224 (KeGetEffectiveIrql.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 void KeSuspendClockTimerSafe()
@@ -27,7 +27,7 @@ void KeSuspendClockTimerSafe()
       CurrentPrcb->PendingTickFlags &= ~1u;
     }
     if ( CurrentPrcb->Number == v4 )
-      ++dword_14030DD88;
+      ++dword_14030DDC8;
     if ( CurrentPrcb->ClockOwner )
       CurrentPrcb->ClockOwner = 0;
   }
@@ -43,7 +43,7 @@ void KeSuspendClockTimerSafe()
       v1->PendingTickFlags &= ~1u;
     }
     if ( v1->Number == v2 )
-      ++dword_14030DD88;
+      ++dword_14030DDC8;
     if ( v1->ClockOwner )
       v1->ClockOwner = 0;
     __writecr8(CurrentIrql);

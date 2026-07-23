@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAllocateScratchMemory @ 0x140B754B0
+ * XREFs of HalpAllocateScratchMemory @ 0x140B774B0
  * Callers:
- *     HalpKdSetupDebuggingDevice @ 0x140B75A80 (HalpKdSetupDebuggingDevice.c)
+ *     HalpKdSetupDebuggingDevice @ 0x140B77A80 (HalpKdSetupDebuggingDevice.c)
  * Callees:
- *     HalpMapPhysicalMemory64 @ 0x140478C30 (HalpMapPhysicalMemory64.c)
- *     HalpAllocPhysicalMemory @ 0x140BDEBF0 (HalpAllocPhysicalMemory.c)
+ *     HalpMapPhysicalMemory64 @ 0x14046032C (HalpMapPhysicalMemory64.c)
+ *     HalpAllocPhysicalMemory @ 0x140BE0BF0 (HalpAllocPhysicalMemory.c)
  */
 
 __int64 __fastcall HalpAllocateScratchMemory(__int64 a1, __int64 a2)

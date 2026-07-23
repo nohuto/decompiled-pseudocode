@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpHiveCacheSubscribePnpNotifications @ 0x1407D8E4C
+ * XREFs of CmpHiveCacheSubscribePnpNotifications @ 0x1407D939C
  * Callers:
- *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5970 (CmpHiveCachePopulateHiveEntryThread.c)
+ *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5F40 (CmpHiveCachePopulateHiveEntryThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
  */
 
 __int64 __fastcall CmpHiveCacheSubscribePnpNotifications(void **a1, __int64 a2, __int64 a3)

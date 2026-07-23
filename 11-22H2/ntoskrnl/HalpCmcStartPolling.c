@@ -43,10 +43,10 @@ char __fastcall HalpCmcStartPolling(__int64 a1, __int64 a2)
       HalpCmcPollingStartDeferred = 1;
     }
     LOBYTE(v5) = KxReleaseSpinLock((volatile signed __int64 *)&HalpCmcFallbackLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v5) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v5 <= 0xFu
         && (unsigned __int8)v4 <= 0xFu
         && (unsigned __int8)v5 >= 2u )

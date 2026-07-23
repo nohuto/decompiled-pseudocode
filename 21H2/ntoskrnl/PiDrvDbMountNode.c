@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbMountNode @ 0x1408B6074
+ * XREFs of PiDrvDbMountNode @ 0x1408B61D4
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x140636410 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x14062B220 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x14051017C (PiDrvDbFindNode.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x1405103BC (PiDrvDbFindNode.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall PiDrvDbMountNode(PCWSTR SourceString)

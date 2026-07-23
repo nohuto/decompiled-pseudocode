@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiLibpTimeAfter @ 0x1406787B8
+ * XREFs of IpmiLibpTimeAfter @ 0x140678D08
  * Callers:
- *     IpmiLibpKcsSpinRegister @ 0x1406786C0 (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpKcsSpinRegister @ 0x140678C10 (IpmiLibpKcsSpinRegister.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
  */
 
 bool __fastcall IpmiLibpTimeAfter(__int64 a1, __int64 a2)

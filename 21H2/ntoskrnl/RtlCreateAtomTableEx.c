@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCreateAtomTableEx @ 0x140264090
+ * XREFs of RtlCreateAtomTableEx @ 0x1402522D0
  * Callers:
- *     RtlCreateAtomTable @ 0x14062D080 (RtlCreateAtomTable.c)
+ *     RtlCreateAtomTable @ 0x140622D90 (RtlCreateAtomTable.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpInitializeHandleTableForAtomTable @ 0x14062CF58 (RtlpInitializeHandleTableForAtomTable.c)
- *     RtlpInitializeLockAtomTable @ 0x14062CF84 (RtlpInitializeLockAtomTable.c)
- *     RtlpAllocateAtom @ 0x14062D000 (RtlpAllocateAtom.c)
- *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpFreeAtom @ 0x140600CFC (RtlpFreeAtom.c)
+ *     RtlpInitializeLockAtomTable @ 0x140622DAC (RtlpInitializeLockAtomTable.c)
+ *     RtlpInitializeHandleTableForAtomTable @ 0x140622DBC (RtlpInitializeHandleTableForAtomTable.c)
+ *     RtlpAllocateAtom @ 0x140622F24 (RtlpAllocateAtom.c)
  */
 
 NTSTATUS __fastcall RtlCreateAtomTableEx(unsigned int a1, int a2, _QWORD *a3)

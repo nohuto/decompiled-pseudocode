@@ -1,20 +1,20 @@
 /*
- * XREFs of MiZeroHugeRangeWorker @ 0x140686090
+ * XREFs of MiZeroHugeRangeWorker @ 0x1406871C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x14024B8D0 (RtlFindClearBitsAndSet.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiZeroMoveToProcessor @ 0x14030AA98 (MiZeroMoveToProcessor.c)
- *     MiRevertProcessorMove @ 0x14030AAFC (MiRevertProcessorMove.c)
- *     KeSignalGate @ 0x14030AB68 (KeSignalGate.c)
- *     MiFillMemory @ 0x14040A5D0 (MiFillMemory.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlCompareMemoryUlong @ 0x1406B3A10 (RtlCompareMemoryUlong.c)
+ *     RtlFindClearBitsAndSet @ 0x14027BEE0 (RtlFindClearBitsAndSet.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiZeroMoveToProcessor @ 0x140314978 (MiZeroMoveToProcessor.c)
+ *     MiRevertProcessorMove @ 0x1403149DC (MiRevertProcessorMove.c)
+ *     KeSignalGate @ 0x140314A48 (KeSignalGate.c)
+ *     MiFillMemory @ 0x140402AB0 (MiFillMemory.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlCompareMemoryUlong @ 0x1406B49B0 (RtlCompareMemoryUlong.c)
  */
 
-__int64 __fastcall MiZeroHugeRangeWorker(__int64 a1)
+void __fastcall MiZeroHugeRangeWorker(__int64 a1)
 {
   __int64 v1; // rsi
   __int64 v2; // rbx
@@ -24,13 +24,13 @@ __int64 __fastcall MiZeroHugeRangeWorker(__int64 a1)
   void *v6; // rdi
   __int64 v7; // r9
   SIZE_T v8; // rax
-  __int128 v10; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v11; // [rsp+40h] [rbp-28h]
+  __int128 v9; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v10; // [rsp+40h] [rbp-28h]
 
   v1 = *(_QWORD *)(a1 + 32);
+  v9 = 0LL;
   v10 = 0LL;
-  v11 = 0LL;
-  MiZeroMoveToProcessor(a1, (__int64)&v10);
+  MiZeroMoveToProcessor(a1, (__int64)&v9);
   v2 = *(_QWORD *)(v1 + 152);
   v3 = *(_DWORD *)(v2 + 104);
   v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 96));
@@ -39,7 +39,7 @@ __int64 __fastcall MiZeroHugeRangeWorker(__int64 a1)
     ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)v2, 1u, 0);
     MiReleaseSpinLockExclusive((_DWORD *)(v2 + 96), v4);
     if ( ClearBitsAndSet == -1 )
-      return MiRevertProcessorMove((__int64)&v10);
+      break;
     v6 = (void *)(*(_QWORD *)(v2 + 80) + (ClearBitsAndSet << 21));
     if ( v3 )
     {
@@ -61,15 +61,16 @@ __int64 __fastcall MiZeroHugeRangeWorker(__int64 a1)
     {
       v7 = 0LL;
     }
-    MiFillMemory(v11, v6, 0x200000uLL, v7, 1);
+    MiFillMemory(v10, v6, 0x200000uLL, v7, 1);
 LABEL_9:
     ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 96));
     if ( ++*(_DWORD *)(v2 + 100) == 512 )
     {
       _InterlockedAnd((volatile signed __int32 *)(v1 + 108), 0);
       MiReleaseSpinLockExclusive((_DWORD *)(v2 + 96), v4);
-      KeSignalGate((_DWORD *)(v1 + 120), 1LL);
-      return MiRevertProcessorMove((__int64)&v10);
+      KeSignalGate((volatile signed __int32 *)(v1 + 120), 1LL);
+      break;
     }
   }
+  MiRevertProcessorMove((__int64)&v9);
 }

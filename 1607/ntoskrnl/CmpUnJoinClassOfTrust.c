@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpUnJoinClassOfTrust @ 0x1401B47B0
+ * XREFs of CmpUnJoinClassOfTrust @ 0x1401B4694
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
- *     CmReplaceKey @ 0x1405FE0FC (CmReplaceKey.c)
- *     CmpResolveHiveLoadConflict @ 0x1405FF120 (CmpResolveHiveLoadConflict.c)
- *     CmpDestroyTemporaryHive @ 0x14060D2A0 (CmpDestroyTemporaryHive.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
+ *     CmReplaceKey @ 0x1405FE1B0 (CmReplaceKey.c)
+ *     CmpResolveHiveLoadConflict @ 0x1405FF1D4 (CmpResolveHiveLoadConflict.c)
+ *     CmpDestroyTemporaryHive @ 0x14060D354 (CmpDestroyTemporaryHive.c)
  * Callees:
- *     CmpUnlockHiveList @ 0x14049FFBC (CmpUnlockHiveList.c)
- *     CmpLockHiveListExclusive @ 0x1404A0FBC (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x1405183C8 (CmpUnlockHiveList.c)
+ *     CmpLockHiveListExclusive @ 0x1405193C8 (CmpLockHiveListExclusive.c)
  */
 
 void __fastcall CmpUnJoinClassOfTrust(__int64 a1)

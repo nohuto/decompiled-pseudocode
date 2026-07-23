@@ -3,10 +3,10 @@
  * Callers:
  *     sub_140A0F914 @ 0x140A0F914 (sub_140A0F914.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_14029F350 @ 0x14029F350 (sub_14029F350.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
  *     sub_140A0EFB4 @ 0x140A0EFB4 (sub_140A0EFB4.c)
  *     sub_140A0F140 @ 0x140A0F140 (sub_140A0F140.c)
@@ -32,20 +32,20 @@ __int64 __fastcall sub_140A0FAB0(__int64 a1, __int64 a2, volatile signed __int64
   CurrentThread = KeGetCurrentThread();
   v18 = 0LL;
   v16 = 0LL;
-  --CurrentThread->SpecialApcDisable;
+  --*((_WORD *)CurrentThread + 243);
   v7 = (signed __int64 *)(a1 + 176);
-  v8 = KeAbPreAcquire(a1 + 176, 0LL);
+  v8 = sub_140347C10(a1 + 176, 0LL);
   if ( _InterlockedCompareExchange64(v7, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v7, 0, v8, (__int64)v7);
+    sub_14029F350(v7, 0, v8, (__int64)v7);
   if ( v8 )
     *(_BYTE *)(v8 + 18) = 1;
   v9 = sub_140A0F874(a1, a2, &v18, &v17);
   if ( _InterlockedCompareExchange64(v7, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v7);
-  KeAbPostRelease((ULONG_PTR)v7);
+  sub_1402AFC00((ULONG_PTR)v7);
   v10 = KeGetCurrentThread();
-  v11 = v10->SpecialApcDisable++ == -1;
-  if ( v11 && ($CEA84C04E3712D858E5667A507841A2A *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
+  v11 = (*((_WORD *)v10 + 243))++ == 0xFFFF;
+  if ( v11 && *((struct _KTHREAD **)v10 + 19) != (struct _KTHREAD *)((char *)v10 + 152) )
     KiCheckForKernelApcDelivery();
   if ( v9 == -1073741198 )
   {

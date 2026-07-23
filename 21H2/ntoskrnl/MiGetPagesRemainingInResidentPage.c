@@ -1,7 +1,7 @@
 /*
  * XREFs of MiGetPagesRemainingInResidentPage @ 0x1403F69B8
  * Callers:
- *     MiAddPhysicalPagesToCrashDump @ 0x140537C98 (MiAddPhysicalPagesToCrashDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x140537ED8 (MiAddPhysicalPagesToCrashDump.c)
  * Callees:
  *     MiGetBaseResidentPageForBugCheck @ 0x1403F688C (MiGetBaseResidentPageForBugCheck.c)
  *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)

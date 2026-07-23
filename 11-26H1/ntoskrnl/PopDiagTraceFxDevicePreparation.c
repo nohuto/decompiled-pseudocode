@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxDevicePreparation @ 0x140B064BC
+ * XREFs of PopDiagTraceFxDevicePreparation @ 0x140B085EC
  * Callers:
- *     PoFxPrepareDevice @ 0x1404A1864 (PoFxPrepareDevice.c)
- *     PoFxAbandonDevice @ 0x140B062B4 (PoFxAbandonDevice.c)
+ *     PoFxPrepareDevice @ 0x14049B394 (PoFxPrepareDevice.c)
+ *     PoFxAbandonDevice @ 0x140B083E4 (PoFxAbandonDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDevicePreparation(__int64 a1, __int64 a2, unsigned __int16 *a3, unsigned __int8 a4)
@@ -34,11 +34,9 @@ char __fastcall PopDiagTraceFxDevicePreparation(__int64 a1, __int64 a2, unsigned
   v23 = a2;
   v22 = a1;
   v6 = a4;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v4) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_DEVICE_PREPARATION);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_PREPARATION);
     if ( (_BYTE)v4 )
     {
       v7 = *a3;
@@ -55,12 +53,7 @@ char __fastcall PopDiagTraceFxDevicePreparation(__int64 a1, __int64 a2, unsigned
       v15 = 2LL;
       v18 = 0;
       v20 = 4LL;
-      LOBYTE(v4) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_DEVICE_PREPARATION,
-                     0LL,
-                     5u,
-                     &UserData);
+      LOBYTE(v4) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DEVICE_PREPARATION, 0LL, 5u, &UserData);
     }
   }
   return (char)v4;

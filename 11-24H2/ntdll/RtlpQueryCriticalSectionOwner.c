@@ -1,67 +1,60 @@
 /*
- * XREFs of RtlpQueryCriticalSectionOwner @ 0x180045F94
+ * XREFs of RtlpQueryCriticalSectionOwner @ 0x180029F24
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x180044CD0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x180028C60 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlpQueryCriticalSectionOwner64 @ 0x1800442E0 (RtlpQueryCriticalSectionOwner64.c)
- *     RtlpQueryProcessMachine @ 0x1800443A4 (RtlpQueryProcessMachine.c)
- *     RtlpQueryCriticalSectionOwner32 @ 0x180133DA0 (RtlpQueryCriticalSectionOwner32.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenProcess @ 0x180162150 (NtOpenProcess.c)
+ *     RtlpQueryCriticalSectionOwner64 @ 0x180113770 (RtlpQueryCriticalSectionOwner64.c)
+ *     RtlpQueryProcessMachine @ 0x180113DDC (RtlpQueryProcessMachine.c)
+ *     RtlpQueryCriticalSectionOwner32 @ 0x180131FD0 (RtlpQueryCriticalSectionOwner32.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenProcess @ 0x180160510 (NtOpenProcess.c)
  */
 
-__int64 __fastcall RtlpQueryCriticalSectionOwner(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpQueryCriticalSectionOwner(void *a1, __int64 a2)
 {
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   __int64 CriticalSectionOwner32; // rax
-  _QWORD v6[2]; // [rsp+20h] [rbp-40h] BYREF
-  _DWORD v7[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-28h]
-  __int64 v9; // [rsp+40h] [rbp-20h]
-  int v10; // [rsp+48h] [rbp-18h]
-  int v11; // [rsp+4Ch] [rbp-14h]
-  __int128 v12; // [rsp+50h] [rbp-10h]
-  unsigned __int16 v13; // [rsp+88h] [rbp+28h] BYREF
-  HANDLE Handle; // [rsp+90h] [rbp+30h] BYREF
+  _CLIENT_ID ClientId; // [rsp+20h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  unsigned __int16 v8; // [rsp+88h] [rbp+28h] BYREF
+  HANDLE ProcessHandle; // [rsp+90h] [rbp+30h] BYREF
 
-  v7[1] = 0;
-  v11 = 0;
-  v13 = 0;
-  Handle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v8 = 0;
+  ProcessHandle = 0LL;
   if ( !*(_QWORD *)(a2 + 160) )
     return (unsigned int)-1073741811;
-  v6[0] = a1;
-  v7[0] = 48;
-  v8 = 0LL;
-  v10 = 0;
-  v9 = 0LL;
-  v12 = 0LL;
-  v6[1] = 0LL;
-  v3 = NtOpenProcess(&Handle, 4112LL, v7, v6);
+  ClientId.UniqueProcess = a1;
+  ObjectAttributes.Length = 48;
+  memset(&ObjectAttributes.RootDirectory, 0, 20);
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ClientId.UniqueThread = 0LL;
+  v3 = NtOpenProcess(&ProcessHandle, 0x1010u, &ObjectAttributes, &ClientId);
   if ( v3 >= 0 )
   {
-    v3 = RtlpQueryProcessMachine((__int64)Handle, &v13);
+    v3 = RtlpQueryProcessMachine(ProcessHandle, &v8);
     if ( v3 >= 0 )
     {
-      if ( v13 == 332 || v13 == 452 )
+      if ( v8 == 332 || v8 == 452 )
       {
-        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner32(Handle, *(_QWORD *)(a2 + 160));
+        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner32(ProcessHandle);
       }
       else
       {
-        if ( v13 != 34404 && v13 != 43620 )
+        if ( v8 != 34404 && v8 != 43620 )
         {
           v3 = -1073741811;
           goto LABEL_13;
         }
-        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner64((__int64)Handle, *(_QWORD *)(a2 + 160));
+        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner64(ProcessHandle);
       }
       *(_QWORD *)(a2 + 168) = CriticalSectionOwner32;
       v3 = 0;
     }
   }
 LABEL_13:
-  if ( Handle )
-    NtClose(Handle);
+  if ( ProcessHandle )
+    NtClose(ProcessHandle);
   return (unsigned int)v3;
 }

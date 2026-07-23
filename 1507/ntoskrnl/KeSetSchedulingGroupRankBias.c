@@ -33,7 +33,7 @@ void __fastcall KeSetSchedulingGroupRankBias(__int64 a1, char a2)
   __int64 v21; // rcx
   __int64 *v22; // rdi
   __int64 v23; // rax
-  unsigned __int64 *v24; // rax
+  _RTL_RB_TREE *v24; // rax
   unsigned int v25; // eax
   char v26; // cl
   int v27; // eax
@@ -49,14 +49,14 @@ void __fastcall KeSetSchedulingGroupRankBias(__int64 a1, char a2)
   __int64 v37; // rcx
   __int64 *v38; // rdi
   __int64 v39; // rax
-  unsigned __int64 *v40; // rax
+  _RTL_RB_TREE *v40; // rax
   __int64 v41; // rdx
   __int64 v42; // rax
   _QWORD **v43; // r9
   __int64 v44; // rcx
   __int64 *v45; // rdi
   __int64 v46; // rax
-  unsigned __int64 *v47; // r8
+  _RTL_RB_TREE *v47; // r8
   __int64 v48; // [rsp+20h] [rbp-58h]
   _QWORD *v49; // [rsp+28h] [rbp-50h] BYREF
   __int64 v50; // [rsp+30h] [rbp-48h]
@@ -139,16 +139,16 @@ LABEL_32:
                 v22 = (__int64 *)(v21 + 392);
                 v23 = *(_QWORD *)(v21 + 392);
                 if ( v23 )
-                  v24 = (unsigned __int64 *)(v23 + 376);
+                  v24 = (_RTL_RB_TREE *)(v23 + 376);
                 else
-                  v24 = (unsigned __int64 *)(v8 + 22768);
+                  v24 = (_RTL_RB_TREE *)(v8 + 22768);
                 *(_BYTE *)(v21 + 112) &= ~1u;
-                RtlRbRemoveNode(v24, (unsigned __int64 *)(v21 + 88));
+                RtlRbRemoveNode(v24, (PRTL_BALANCED_NODE)(v21 + 88));
                 v21 = *v22;
               }
               while ( *v22 && (*(_BYTE *)(v21 + 112) & 1) != 0 && !*(_QWORD *)(v21 + 376) && !*(_WORD *)(v21 + 114) );
 LABEL_68:
-              KiInsertSchedulingGroupQueue(v8, v9, 0LL);
+              KiInsertSchedulingGroupQueue((_RTL_RB_TREE *)v8, v9, 0);
               goto LABEL_85;
             }
             v16 = 1;
@@ -194,12 +194,12 @@ LABEL_68:
               {
                 v45 = (__int64 *)(v44 + 392);
                 v46 = *(_QWORD *)(v44 + 392);
-                v47 = (unsigned __int64 *)(v46 + 376);
+                v47 = (_RTL_RB_TREE *)(v46 + 376);
                 if ( !v46 )
-                  v47 = (unsigned __int64 *)(v8 + 22768);
+                  v47 = (_RTL_RB_TREE *)(v8 + 22768);
                 *(_QWORD *)(v44 + 56) += MEMORY[0xFFFFF78000000008] - *(_QWORD *)(v44 + 64);
                 *(_BYTE *)(v44 + 112) &= ~1u;
-                RtlRbRemoveNode(v47, (unsigned __int64 *)(v44 + 88));
+                RtlRbRemoveNode(v47, (PRTL_BALANCED_NODE)(v44 + 88));
                 v44 = *v45;
               }
               while ( *v45 && (*(_BYTE *)(v44 + 112) & 1) != 0 && !*(_QWORD *)(v44 + 376) && !*(_WORD *)(v44 + 114) );
@@ -256,11 +256,11 @@ LABEL_68:
                 v38 = (__int64 *)(v37 + 392);
                 v39 = *(_QWORD *)(v37 + 392);
                 if ( v39 )
-                  v40 = (unsigned __int64 *)(v39 + 376);
+                  v40 = (_RTL_RB_TREE *)(v39 + 376);
                 else
-                  v40 = (unsigned __int64 *)(v8 + 22768);
+                  v40 = (_RTL_RB_TREE *)(v8 + 22768);
                 *(_BYTE *)(v37 + 112) &= ~1u;
-                RtlRbRemoveNode(v40, (unsigned __int64 *)(v37 + 88));
+                RtlRbRemoveNode(v40, (PRTL_BALANCED_NODE)(v37 + 88));
                 v37 = *v38;
               }
               while ( *v38 && (*(_BYTE *)(v37 + 112) & 1) != 0 && !*(_QWORD *)(v37 + 376) && !*(_WORD *)(v37 + 114) );

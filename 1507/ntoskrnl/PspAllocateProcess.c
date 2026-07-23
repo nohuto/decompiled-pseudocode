@@ -163,7 +163,7 @@ __int64 __fastcall PspAllocateProcess(
   __int64 v77; // rax
   __int64 v78; // r9
   __int64 v79; // rsi
-  _QWORD *v80; // r13
+  LARGE_INTEGER *v80; // r13
   __int64 v81; // rax
   _QWORD *v82; // rcx
   PACCESS_TOKEN v83; // rdi
@@ -1008,9 +1008,9 @@ LABEL_151:
                     ExfAcquirePushLockExclusiveEx(v76, v77, (ULONG_PTR)v76, v78);
                   if ( v79 )
                     *(_BYTE *)(v79 + 26) |= 1u;
-                  v80 = Object;
+                  v80 = (LARGE_INTEGER *)Object;
                   v81 = ExCreateHandleEx(PspCidTable, (__int64)Object, 0, 0, 0);
-                  v80[93] = v81;
+                  v80[93].QuadPart = v81;
                   if ( !v81 )
                   {
                     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v76, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -1029,16 +1029,19 @@ LABEL_151:
                   }
                   if ( (v17 & 0x1000) != 0 )
                   {
-                    v80[224] = *(_QWORD *)(v134 + 368);
-                    SectionInformation = MmGetSectionStrongImageReference(0LL, v80[119], &v147);
+                    v80[224] = *(LARGE_INTEGER *)(v134 + 368);
+                    SectionInformation = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))MmGetSectionStrongImageReference)(
+                                           0LL,
+                                           (LARGE_INTEGER)v80[119].QuadPart,
+                                           &v147);
                     if ( SectionInformation < 0
                       || (SectionInformation = KeSecureProcess(
                                                  (_KPROCESS *)v80,
-                                                 v80[224],
-                                                 v80[127],
-                                                 v80[93],
+                                                 v80[224].QuadPart,
+                                                 v80[127].QuadPart,
+                                                 v80[93].QuadPart,
                                                  v147,
-                                                 v80[120]),
+                                                 v80[120].QuadPart),
                           SectionInformation < 0) )
                     {
                       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v76, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -1061,13 +1064,13 @@ LABEL_151:
                   }
                   else
                   {
-                    v80 = Object;
+                    v80 = (LARGE_INTEGER *)Object;
                     *((_QWORD *)Object + 97) = MEMORY[0xFFFFF78000000014];
                   }
-                  v80[233] = MEMORY[0xFFFFF78000000008];
+                  v80[233].QuadPart = MEMORY[0xFFFFF78000000008];
                   v82 = Object;
                   *((_QWORD *)Object + 234) = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];
-                  v82[236] = v80[233];
+                  v82[236] = v80[233].QuadPart;
                   *v146 = v82;
                   return (unsigned int)v119;
                 }

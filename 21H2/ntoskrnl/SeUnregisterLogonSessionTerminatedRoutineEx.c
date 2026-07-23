@@ -1,12 +1,12 @@
 /*
- * XREFs of SeUnregisterLogonSessionTerminatedRoutineEx @ 0x1409235F0
+ * XREFs of SeUnregisterLogonSessionTerminatedRoutineEx @ 0x140923750
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeUnregisterLogonSessionTerminatedRoutineEx(PVOID a1, PVOID a2)
@@ -15,6 +15,12 @@ __int64 __fastcall SeUnregisterLogonSessionTerminatedRoutineEx(PVOID a1, PVOID a
   struct _KTHREAD *CurrentThread; // rax
   PVOID *v7; // rbx
   PVOID *v8; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
 
   v2 = 0;
   if ( !a1 )
@@ -38,14 +44,14 @@ __int64 __fastcall SeUnregisterLogonSessionTerminatedRoutineEx(PVOID a1, PVOID a
   {
     *v8 = *v7;
     ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
     ExFreePoolWithTag(v7, 0);
   }
   else
   {
 LABEL_9:
     ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
     return (unsigned int)-1073741275;
   }
   return v2;

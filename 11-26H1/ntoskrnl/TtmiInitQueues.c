@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiInitQueues @ 0x1407ECE68
+ * XREFs of TtmiInitQueues @ 0x1407F29C8
  * Callers:
- *     TtmInit @ 0x1407E63A8 (TtmInit.c)
+ *     TtmInit @ 0x1407EBF08 (TtmInit.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
  */
 
 __int64 TtmiInitQueues()

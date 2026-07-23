@@ -1,26 +1,26 @@
 /*
- * XREFs of IopTrackLink @ 0x140ACE24C
+ * XREFs of IopTrackLink @ 0x140AD048C
  * Callers:
- *     NtSetInformationFile @ 0x14026A2F0 (NtSetInformationFile.c)
- *     IopTrackLink @ 0x140ACE24C (IopTrackLink.c)
+ *     NtSetInformationFile @ 0x140269860 (NtSetInformationFile.c)
+ *     IopTrackLink @ 0x140AD048C (IopTrackLink.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     IoGetTransactionParameterBlock @ 0x140447BD0 (IoGetTransactionParameterBlock.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemoryUlong @ 0x140730E10 (RtlCompareMemoryUlong.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopMarshalIds @ 0x1407951E8 (IopMarshalIds.c)
- *     IopSetRemoteLink @ 0x140795B5C (IopSetRemoteLink.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     IopTrackLink @ 0x140ACE24C (IopTrackLink.c)
- *     IopGetSetObjectId @ 0x140ACEC58 (IopGetSetObjectId.c)
- *     IopGetVolumeId @ 0x140ACED9C (IopGetVolumeId.c)
- *     IopSendMessageToTrackService @ 0x140B4EAA4 (IopSendMessageToTrackService.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     IoGetTransactionParameterBlock @ 0x1404406C0 (IoGetTransactionParameterBlock.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemoryUlong @ 0x1407359E0 (RtlCompareMemoryUlong.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopMarshalIds @ 0x140797D18 (IopMarshalIds.c)
+ *     IopSetRemoteLink @ 0x14079868C (IopSetRemoteLink.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     IopTrackLink @ 0x140AD048C (IopTrackLink.c)
+ *     IopGetSetObjectId @ 0x140AD0E98 (IopGetSetObjectId.c)
+ *     IopGetVolumeId @ 0x140AD0FDC (IopGetVolumeId.c)
+ *     IopSendMessageToTrackService @ 0x140B51334 (IopSendMessageToTrackService.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopTrackLink(

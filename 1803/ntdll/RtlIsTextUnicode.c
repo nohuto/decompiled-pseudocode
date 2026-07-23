@@ -6,11 +6,11 @@
  *     <none>
  */
 
-bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
+BOOLEAN __cdecl RtlIsTextUnicode(PVOID Buffer, ULONG Size, PULONG Result)
 {
   int v3; // ebx
-  unsigned int v4; // r15d
-  unsigned int v5; // r13d
+  ULONG v4; // r15d
+  ULONG v5; // r13d
   _WORD *v6; // rbp
   int v7; // r12d
   int v8; // r14d
@@ -40,7 +40,7 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   int v32; // r8d
   int v33; // ecx
   int v34; // eax
-  int v35; // ecx
+  ULONG v35; // ecx
   unsigned int v37; // r11d
   unsigned int v38; // r13d
   unsigned int v39; // eax
@@ -60,15 +60,15 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   int v53; // [rsp+24h] [rbp-64h]
   int v54; // [rsp+28h] [rbp-60h]
   int v55; // [rsp+2Ch] [rbp-5Ch]
-  unsigned int v56; // [rsp+30h] [rbp-58h]
+  ULONG v56; // [rsp+30h] [rbp-58h]
   unsigned int v57; // [rsp+38h] [rbp-50h]
   unsigned int v61; // [rsp+A8h] [rbp+20h]
 
   v3 = 0;
-  v4 = a2;
+  v4 = Size;
   v47 = 0;
-  v5 = a2 >> 1;
-  v6 = a1;
+  v5 = Size >> 1;
+  v6 = Buffer;
   v46 = 0;
   v7 = 0;
   v45 = 0;
@@ -106,8 +106,8 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
     if ( !*v6 || HIBYTE(*v6) )
       goto LABEL_9;
 LABEL_75:
-    if ( a3 )
-      *a3 = 5;
+    if ( Result )
+      *Result = 5;
     return 0;
   }
   if ( v4 > 2 && v5 <= 0x100 && (v4 & 1) == 0 )
@@ -230,12 +230,12 @@ LABEL_9:
       --v18;
     }
     while ( v18 );
-    v6 = a1;
+    v6 = Buffer;
     v61 = v17;
     v14 = v17;
     v5 = v56;
     v45 = v19;
-    v4 = a2;
+    v4 = Size;
   }
   if ( v11 == 13 )
   {
@@ -298,7 +298,7 @@ LABEL_23:
 LABEL_32:
   v28 = 0;
 LABEL_33:
-  if ( NlsMbCodePageTag && v57 && a3 && (*a3 & 0x400) != 0 )
+  if ( NlsMbCodePageTag && v57 && Result && (*Result & 0x400) != 0 )
   {
     if ( v5 <= 0x100 )
       v42 = (unsigned __int64)v4 >> 1;
@@ -347,10 +347,10 @@ LABEL_33:
   {
     v35 |= 0x80u;
   }
-  if ( a3 )
+  if ( Result )
   {
-    *a3 &= v35;
-    v35 = *a3;
+    *Result &= v35;
+    v35 = *Result;
   }
   return (v35 & 0xB08) == 8 || (v35 & 0xF0) == 0 && (v35 & 0xF00) == 0 && (v35 & 0xF00F) != 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoAcquireKsrPersistentMemoryEx @ 0x1409524A0
+ * XREFs of IoAcquireKsrPersistentMemoryEx @ 0x1409526A0
  * Callers:
- *     IoAcquireKsrPersistentMemory @ 0x140952470 (IoAcquireKsrPersistentMemory.c)
+ *     IoAcquireKsrPersistentMemory @ 0x140952670 (IoAcquireKsrPersistentMemory.c)
  * Callees:
- *     ExIsSoftBoot @ 0x140384150 (ExIsSoftBoot.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PipGetPersistentMemory @ 0x140953368 (PipGetPersistentMemory.c)
+ *     ExIsSoftBoot @ 0x140384330 (ExIsSoftBoot.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PipGetPersistentMemory @ 0x140953568 (PipGetPersistentMemory.c)
  */
 
 __int64 __fastcall IoAcquireKsrPersistentMemoryEx(

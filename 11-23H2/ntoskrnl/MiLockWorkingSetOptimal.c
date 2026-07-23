@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockWorkingSetOptimal @ 0x14028596C
+ * XREFs of MiLockWorkingSetOptimal @ 0x140285BFC
  * Callers:
- *     MmSetAddressRangeModifiedEx @ 0x14027F1D0 (MmSetAddressRangeModifiedEx.c)
- *     MiMakeSystemCachePteValid @ 0x140345DCC (MiMakeSystemCachePteValid.c)
- *     MiMarkPteDirty @ 0x14034B510 (MiMarkPteDirty.c)
- *     MiDirtySystemCachePte @ 0x140351578 (MiDirtySystemCachePte.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1403D4058 (MiReturnSystemCacheRegionsToKva.c)
- *     MiInitializeBootShadowStackPage @ 0x140644964 (MiInitializeBootShadowStackPage.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14027F460 (MmSetAddressRangeModifiedEx.c)
+ *     MiMakeSystemCachePteValid @ 0x14034605C (MiMakeSystemCachePteValid.c)
+ *     MiMarkPteDirty @ 0x14034B6B0 (MiMarkPteDirty.c)
+ *     MiDirtySystemCachePte @ 0x140351718 (MiDirtySystemCachePte.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1403D4238 (MiReturnSystemCacheRegionsToKva.c)
+ *     MiInitializeBootShadowStackPage @ 0x140644EB4 (MiInitializeBootShadowStackPage.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
  */
 
 unsigned __int64 __fastcall MiLockWorkingSetOptimal(__int64 a1, unsigned __int64 a2, _BYTE *a3)

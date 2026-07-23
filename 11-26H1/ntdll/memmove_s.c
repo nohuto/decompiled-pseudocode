@@ -1,10 +1,10 @@
 /*
- * XREFs of memmove_s @ 0x180133BF0
+ * XREFs of memmove_s @ 0x180133960
  * Callers:
- *     _StartPathWithLongPathPrefixIfNeeded @ 0x1800E5DE4 (_StartPathWithLongPathPrefixIfNeeded.c)
+ *     _StartPathWithLongPathPrefixIfNeeded @ 0x1800E3FF4 (_StartPathWithLongPathPrefixIfNeeded.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 errno_t __cdecl memmove_s(

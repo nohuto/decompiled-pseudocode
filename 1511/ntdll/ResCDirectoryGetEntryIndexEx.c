@@ -16,7 +16,7 @@ __int64 __fastcall ResCDirectoryGetEntryIndexEx(__int64 a1, __int128 *a2)
   if ( !a1 || !*(_QWORD *)(a1 + 48) )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     return 0xFFFFFFFFLL;
   }
   v6 = *a2;

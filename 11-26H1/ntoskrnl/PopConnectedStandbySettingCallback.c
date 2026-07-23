@@ -1,10 +1,10 @@
 /*
- * XREFs of PopConnectedStandbySettingCallback @ 0x140B1FCF0
+ * XREFs of PopConnectedStandbySettingCallback @ 0x140B22110
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     PopFanUpdateCsState @ 0x140B66398 (PopFanUpdateCsState.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     PopFanUpdateCsState @ 0x140B69324 (PopFanUpdateCsState.c)
  */
 
 __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, __int64 a2, int a3)
@@ -22,18 +22,18 @@ __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, __int64 a2, in
   {
     if ( !SSHSupportIsPlatformAoAc() )
       return (unsigned int)-1073741637;
-    if ( LOBYTE(stru_140F12420.OtherTransferCount) )
+    if ( PopMonitorOffDueToSleep )
     {
-      LOBYTE(stru_140F12420.OtherTransferCount) = 0;
+      PopMonitorOffDueToSleep = 0;
       v6 = (_DWORD)v5 == 0;
       if ( (_DWORD)v5 )
         return v4;
     }
     else
     {
-      if ( (_DWORD)qword_140F0FB64 || PopHiberBootForceMonitorOff )
+      if ( (_DWORD)qword_140F10424 || PopHiberBootForceMonitorOff )
       {
-        LOBYTE(stru_140F12420.OtherTransferCount) = 1;
+        PopMonitorOffDueToSleep = 1;
         return v4;
       }
       v6 = (_DWORD)v5 == 0;

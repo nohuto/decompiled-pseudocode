@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCallInterceptRoutine @ 0x1403528A8
+ * XREFs of RtlpCallInterceptRoutine @ 0x14035492C
  * Callers:
- *     RtlpHpAllocateHeapSlow @ 0x140352630 (RtlpHpAllocateHeapSlow.c)
- *     RtlpFreeNTHeapInternal @ 0x140352C30 (RtlpFreeNTHeapInternal.c)
- *     RtlpAllocateNTHeapInternal @ 0x140498638 (RtlpAllocateNTHeapInternal.c)
- *     RtlDestroyHeap @ 0x140B3BB10 (RtlDestroyHeap.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1403546B4 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpFreeNTHeapInternal @ 0x140354CB0 (RtlpFreeNTHeapInternal.c)
+ *     RtlpAllocateNTHeapInternal @ 0x140492188 (RtlpAllocateNTHeapInternal.c)
+ *     RtlDestroyHeap @ 0x140B3DD90 (RtlDestroyHeap.c)
  * Callees:
  *     <none>
  */

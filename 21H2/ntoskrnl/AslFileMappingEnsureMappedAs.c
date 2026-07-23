@@ -1,13 +1,13 @@
 /*
- * XREFs of AslFileMappingEnsureMappedAs @ 0x140967F84
+ * XREFs of AslFileMappingEnsureMappedAs @ 0x140968164
  * Callers:
- *     SdbOpenDatabaseEx @ 0x14096408C (SdbOpenDatabaseEx.c)
- *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
- *     AslpFileGetChecksumAttributes @ 0x14096A9F4 (AslpFileGetChecksumAttributes.c)
+ *     SdbOpenDatabaseEx @ 0x14096426C (SdbOpenDatabaseEx.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964E74 (SdbpCheckMatchingTextEntry.c)
+ *     AslpFileGetChecksumAttributes @ 0x14096ABD4 (AslpFileGetChecksumAttributes.c)
  * Callees:
- *     RtlFileMapMapView @ 0x1403BD8C4 (RtlFileMapMapView.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslpFileMappingGetFileKind @ 0x1407B3894 (AslpFileMappingGetFileKind.c)
+ *     RtlFileMapMapView @ 0x1403BDA34 (RtlFileMapMapView.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x1407B3A34 (AslpFileMappingGetFileKind.c)
  */
 
 __int64 __fastcall AslFileMappingEnsureMappedAs(__int64 a1)

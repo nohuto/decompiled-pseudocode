@@ -6,13 +6,13 @@
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     MiReferenceControlArea @ 0x14001C358 (MiReferenceControlArea.c)
- *     MiLockControlAreaSectionExtend @ 0x140092CE0 (MiLockControlAreaSectionExtend.c)
- *     ExAcquireFastResourceExclusive @ 0x1401652D0 (ExAcquireFastResourceExclusive.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x140165930 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceShared @ 0x140165B60 (ExAcquireFastResourceShared.c)
- *     MiChangingSubsectionProtos @ 0x1402B5430 (MiChangingSubsectionProtos.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080DEC8 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
- *     PfpPrefetchSharedConflictNotifyStart @ 0x140864680 (PfpPrefetchSharedConflictNotifyStart.c)
+ *     MiLockControlAreaSectionExtend @ 0x140092C20 (MiLockControlAreaSectionExtend.c)
+ *     ExAcquireFastResourceExclusive @ 0x1401653D0 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x140165A30 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x140165C60 (ExAcquireFastResourceShared.c)
+ *     MiChangingSubsectionProtos @ 0x1402B5620 (MiChangingSubsectionProtos.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080F0C8 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     PfpPrefetchSharedConflictNotifyStart @ 0x1408658E0 (PfpPrefetchSharedConflictNotifyStart.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  */
@@ -23,7 +23,7 @@ char __fastcall KeAbPreWait(__int64 a1, __int64 a2)
 
   *(_BYTE *)(a1 + 32) |= 2u;
   if ( *(__int64 *)(a1 + 32) < 0 )
-    KiAbEntryRemoveFromTree(a1, a2);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a1, a2);
   *(_BYTE *)(a1 + 25) |= 1u;
   result = *(_BYTE *)(a1 + 32) & 0xFD;
   *(_BYTE *)(a1 + 32) = result;

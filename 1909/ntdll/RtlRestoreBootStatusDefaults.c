@@ -10,31 +10,34 @@
  *     RtlpRecordBootStatusData @ 0x1800EB34C (RtlpRecordBootStatusData.c)
  */
 
-__int64 RtlRestoreBootStatusDefaults()
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  char v0; // cl
-  int *v1; // rax
-  __int64 v2; // rdx
-  int v4; // [rsp+70h] [rbp-90h] BYREF
-  _DWORD v5[43]; // [rsp+74h] [rbp-8Ch] BYREF
+  char v2; // cl
+  int *p_Buffer; // rax
+  __int64 v4; // rdx
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
+  int Buffer; // [rsp+70h] [rbp-90h] BYREF
+  _NT_PRODUCT_TYPE NtProductType[43]; // [rsp+74h] [rbp-8Ch] BYREF
 
-  memset(v5, 0, 0xA4uLL);
-  v4 = 168;
-  RtlGetNtProductType(v5);
-  v0 = 0;
-  *(_WORD *)((char *)&v5[1] + 1) = 286;
-  v1 = &v4;
-  BYTE1(v5[11]) = 1;
-  v2 = 168LL;
-  HIBYTE(v5[1]) = 0;
+  memset(NtProductType, 0, 0xA4uLL);
+  Buffer = 168;
+  RtlGetNtProductType(NtProductType);
+  v2 = 0;
+  *(_WORD *)((char *)&NtProductType[1] + 1) = 286;
+  p_Buffer = &Buffer;
+  BYTE1(NtProductType[11]) = 1;
+  v4 = 168LL;
+  HIBYTE(NtProductType[1]) = 0;
   do
   {
-    v0 -= *(_BYTE *)v1;
-    v1 = (int *)((char *)v1 + 1);
-    --v2;
+    v2 -= *(_BYTE *)p_Buffer;
+    p_Buffer = (int *)((char *)p_Buffer + 1);
+    --v4;
   }
-  while ( v2 );
-  BYTE2(v5[11]) = v0;
-  RtlpRecordBootStatusData(0LL, &v4, 0LL, 168LL);
-  return NtWriteFile();
+  while ( v4 );
+  ByteOffset.QuadPart = 0LL;
+  BYTE2(NtProductType[11]) = v2;
+  RtlpRecordBootStatusData(0LL, &Buffer, 0LL, 168LL);
+  return NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 0xA8u, &ByteOffset, 0LL);
 }

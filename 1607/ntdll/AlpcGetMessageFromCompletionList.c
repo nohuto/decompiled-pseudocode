@@ -1,31 +1,33 @@
 /*
- * XREFs of AlpcGetMessageFromCompletionList @ 0x18001A2B0
+ * XREFs of AlpcGetMessageFromCompletionList @ 0x18001A2A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall AlpcGetMessageFromCompletionList(__int64 a1, _QWORD *a2)
+PPORT_MESSAGE __cdecl AlpcGetMessageFromCompletionList(
+        PVOID CompletionList,
+        PALPC_MESSAGE_ATTRIBUTES *MessageAttributes)
 {
-  __int64 v2; // rbp
+  _RTL_SRWLOCK *v2; // rbp
   unsigned __int64 v5; // rcx
   unsigned __int64 v6; // r9
-  __int64 v7; // r10
+  char *v7; // r10
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // rdx
   unsigned __int64 v10; // r8
   __int64 v11; // r11
   signed __int64 v12; // rdx
   unsigned int v13; // ecx
-  __int64 v14; // rbx
+  _PORT_MESSAGE *v14; // rbx
 
-  v2 = a1 + 320;
-  RtlAcquireSRWLockExclusive(a1 + 320);
-  v5 = *(_QWORD *)(a1 + 64);
-  v6 = (unsigned __int64)*(unsigned int *)(a1 + 16) >> 2;
-  v7 = a1 + *(unsigned int *)(a1 + 12);
+  v2 = (_RTL_SRWLOCK *)((char *)CompletionList + 320);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)CompletionList + 40);
+  v5 = *((_QWORD *)CompletionList + 8);
+  v6 = (unsigned __int64)*((unsigned int *)CompletionList + 4) >> 2;
+  v7 = (char *)CompletionList + *((unsigned int *)CompletionList + 3);
   do
   {
     v8 = v5;
@@ -35,27 +37,27 @@ __int64 __fastcall AlpcGetMessageFromCompletionList(__int64 a1, _QWORD *a2)
       v14 = 0LL;
       goto LABEL_13;
     }
-    v11 = *(unsigned int *)(v7 + 4 * (v5 & 0xFFFFFF));
+    v11 = *(unsigned int *)&v7[4 * (v5 & 0xFFFFFF)];
     if ( v9 == v10 )
       v12 = v5 | 0xFFFFFFFFFFFFLL;
     else
       v12 = v5 ^ (v5 ^ ((v9 + 1) % v6)) & 0xFFFFFF;
-    v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), v12, v5);
+    v5 = _InterlockedCompareExchange64((volatile signed __int64 *)CompletionList + 8, v12, v5);
   }
   while ( v5 != v8 );
   v13 = 0;
-  v14 = v11 + a1 + *(unsigned int *)(a1 + 28);
-  if ( a2 )
+  v14 = (_PORT_MESSAGE *)((char *)CompletionList + *((unsigned int *)CompletionList + 7) + v11);
+  if ( MessageAttributes )
   {
-    if ( *(_DWORD *)(a1 + 36) )
+    if ( *((_DWORD *)CompletionList + 9) )
     {
-      if ( (((_BYTE)v14 + (unsigned __int8)*(_WORD *)(v14 + 2)) & 7) != 0 )
-        v13 = 8 - (((_BYTE)v14 + (unsigned __int8)*(_WORD *)(v14 + 2)) & 7);
-      *a2 = v14 + *(unsigned __int16 *)(v14 + 2) + v13;
+      if ( (((_BYTE)v14 + (unsigned __int8)v14->u1.s1.TotalLength) & 7) != 0 )
+        v13 = 8 - (((_BYTE)v14 + (unsigned __int8)v14->u1.s1.TotalLength) & 7);
+      *MessageAttributes = (PALPC_MESSAGE_ATTRIBUTES)((char *)v14 + (unsigned __int16)v14->u1.s1.TotalLength + v13);
     }
     else
     {
-      *a2 = 0LL;
+      *MessageAttributes = 0LL;
     }
   }
 LABEL_13:

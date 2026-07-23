@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateAccessLog @ 0x140086DF0
+ * XREFs of MiAllocateAccessLog @ 0x1400886E0
  * Callers:
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
  * Callees:
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiInitializePageAccessLogging @ 0x140086F20 (MiInitializePageAccessLogging.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiInitializePageAccessLogging @ 0x140088810 (MiInitializePageAccessLogging.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -19,16 +19,16 @@ _QWORD *__fastcall MiAllocateAccessLog(__int64 a1)
   _QWORD *v8; // rdx
   _QWORD *result; // rax
   _QWORD *v10; // rax
-  struct _SLIST_ENTRY *v11; // rcx
+  _SLIST_ENTRY *v11; // rcx
 
   v1 = *(_WORD *)(a1 + 164);
   if ( v1 == 1023 )
     v3 = MiSystemPartition;
   else
-    v3 = *(int **)(qword_140326FF8 + 8LL * v1);
+    v3 = *(int **)(qword_140327038 + 8LL * v1);
   if ( *((_QWORD *)v3 + 808) < 0x420uLL
     || *((__int64 *)v3 + 816) < 1056
-    || (unsigned __int64)(MiState[0] - qword_140326458) < 0x800 )
+    || (unsigned __int64)(MiState[0] - qword_140326498) < 0x800 )
   {
     v4 = 512LL;
   }
@@ -37,7 +37,7 @@ _QWORD *__fastcall MiAllocateAccessLog(__int64 a1)
     v4 = 4096LL;
   }
   if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
-    v5 = &dword_140327C80;
+    v5 = &dword_140327CC0;
   else
     v5 = (LONG *)(a1 + 192);
   v6 = (_QWORD **)*((_QWORD *)v5 + 5);
@@ -46,7 +46,7 @@ _QWORD *__fastcall MiAllocateAccessLog(__int64 a1)
     v10 = *v6;
     if ( v4 == 512 || v10 && *v10 )
     {
-      MiEmptyPageAccessLog(*((struct _SLIST_ENTRY **)v5 + 5));
+      MiEmptyPageAccessLog(*((_SLIST_ENTRY **)v5 + 5));
       v6 = 0LL;
       *((_QWORD *)v5 + 5) = 0LL;
     }
@@ -64,7 +64,7 @@ LABEL_11:
   {
     while ( 1 )
     {
-      v11 = (struct _SLIST_ENTRY *)*((_QWORD *)v5 + 5);
+      v11 = (_SLIST_ENTRY *)*((_QWORD *)v5 + 5);
       if ( v11 )
       {
         MiEmptyPageAccessLog(v11);

@@ -1,11 +1,11 @@
 /*
- * XREFs of XmOutOp @ 0x140468950
+ * XREFs of XmOutOp @ 0x140461300
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosWriteIoSpace @ 0x1404689A0 (x86BiosWriteIoSpace.c)
- *     XmSetSourceValue @ 0x140469348 (XmSetSourceValue.c)
- *     longjmp @ 0x1404FB920 (longjmp.c)
+ *     x86BiosWriteIoSpace @ 0x140461350 (x86BiosWriteIoSpace.c)
+ *     XmSetSourceValue @ 0x140461CF8 (XmSetSourceValue.c)
+ *     longjmp @ 0x1404F91E0 (longjmp.c)
  */
 
 __int64 __fastcall XmOutOp(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of IoDumpStackResumeCapable @ 0x14011331C
+ * XREFs of IoDumpStackResumeCapable @ 0x14011388C
  * Callers:
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  * Callees:
@@ -13,8 +13,8 @@ __int64 IoDumpStackResumeCapable()
   result = 0LL;
   if ( CrashdmpImageEntry )
   {
-    if ( qword_140328A08 )
-      return qword_140328A08();
+    if ( qword_140328A48 )
+      return qword_140328A48();
   }
   return result;
 }

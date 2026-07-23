@@ -460,56 +460,57 @@ __int64 __fastcall SPCall2ServerInternal(unsigned int *a1, unsigned int a2, UINT
   PVOID v376; // [rsp+190h] [rbp+90h]
   PVOID v377; // [rsp+198h] [rbp+98h]
   int v378; // [rsp+1A0h] [rbp+A0h]
-  int v379; // [rsp+1A8h] [rbp+A8h]
+  ULONG v379; // [rsp+1A8h] [rbp+A8h] BYREF
   ACCESS_MASK v380; // [rsp+1ACh] [rbp+ACh] BYREF
   UINT v381; // [rsp+1B0h] [rbp+B0h]
-  ACCESS_MASK GrantedAccess[2]; // [rsp+1B4h] [rbp+B4h] BYREF
-  int v383; // [rsp+1BCh] [rbp+BCh]
-  UINT v384; // [rsp+1C0h] [rbp+C0h]
-  int v385; // [rsp+1C8h] [rbp+C8h]
-  UINT v386; // [rsp+1D0h] [rbp+D0h]
+  ACCESS_MASK GrantedAccess; // [rsp+1B4h] [rbp+B4h] BYREF
+  ULONG ReturnLength; // [rsp+1B8h] [rbp+B8h] BYREF
+  int v384; // [rsp+1BCh] [rbp+BCh]
+  UINT v385; // [rsp+1C0h] [rbp+C0h]
+  int v386; // [rsp+1C8h] [rbp+C8h]
+  UINT v387; // [rsp+1D0h] [rbp+D0h]
   PVOID P; // [rsp+1D8h] [rbp+D8h]
-  int v388; // [rsp+1E0h] [rbp+E0h]
-  int v389; // [rsp+1E8h] [rbp+E8h]
-  int v390; // [rsp+1F0h] [rbp+F0h]
-  UINT v391; // [rsp+1F4h] [rbp+F4h]
-  __int64 v392; // [rsp+1F8h] [rbp+F8h] BYREF
-  wchar_t *v393; // [rsp+200h] [rbp+100h]
-  void *v394; // [rsp+208h] [rbp+108h]
-  __int64 v395; // [rsp+210h] [rbp+110h] BYREF
-  unsigned __int64 v396; // [rsp+218h] [rbp+118h]
-  __int64 v397; // [rsp+220h] [rbp+120h] BYREF
-  int v398; // [rsp+228h] [rbp+128h]
-  UINT v399; // [rsp+22Ch] [rbp+12Ch]
-  int v400; // [rsp+230h] [rbp+130h]
-  UINT v401; // [rsp+234h] [rbp+134h]
-  int v402; // [rsp+238h] [rbp+138h]
-  UINT v403; // [rsp+23Ch] [rbp+13Ch]
-  int v404; // [rsp+240h] [rbp+140h]
-  int v405; // [rsp+244h] [rbp+144h]
-  unsigned int *v406; // [rsp+248h] [rbp+148h]
-  int *v407; // [rsp+250h] [rbp+150h]
-  PACL v408; // [rsp+258h] [rbp+158h]
-  _QWORD *v409; // [rsp+260h] [rbp+160h]
-  __int64 v410; // [rsp+268h] [rbp+168h]
-  int v411; // [rsp+270h] [rbp+170h]
-  unsigned int v412; // [rsp+274h] [rbp+174h]
-  __int128 v413; // [rsp+278h] [rbp+178h] BYREF
-  ULONGLONG v414[2]; // [rsp+288h] [rbp+188h] BYREF
+  ULONG v389; // [rsp+1E0h] [rbp+E0h] BYREF
+  int v390; // [rsp+1E8h] [rbp+E8h]
+  int v391; // [rsp+1F0h] [rbp+F0h]
+  UINT v392; // [rsp+1F4h] [rbp+F4h]
+  __int64 v393; // [rsp+1F8h] [rbp+F8h] BYREF
+  wchar_t *v394; // [rsp+200h] [rbp+100h]
+  void *v395; // [rsp+208h] [rbp+108h]
+  __int64 v396; // [rsp+210h] [rbp+110h] BYREF
+  unsigned __int64 v397; // [rsp+218h] [rbp+118h]
+  __int64 SystemInformation; // [rsp+220h] [rbp+120h] BYREF
+  int v399; // [rsp+228h] [rbp+128h]
+  UINT v400; // [rsp+22Ch] [rbp+12Ch]
+  int v401; // [rsp+230h] [rbp+130h]
+  UINT v402; // [rsp+234h] [rbp+134h]
+  int v403; // [rsp+238h] [rbp+138h]
+  UINT v404; // [rsp+23Ch] [rbp+13Ch]
+  int v405; // [rsp+240h] [rbp+140h]
+  int v406; // [rsp+244h] [rbp+144h]
+  unsigned int *v407; // [rsp+248h] [rbp+148h]
+  int *v408; // [rsp+250h] [rbp+150h]
+  PACL v409; // [rsp+258h] [rbp+158h]
+  _QWORD *v410; // [rsp+260h] [rbp+160h]
+  __int64 v411; // [rsp+268h] [rbp+168h]
+  int v412; // [rsp+270h] [rbp+170h]
+  unsigned int v413; // [rsp+274h] [rbp+174h]
+  __int128 v414; // [rsp+278h] [rbp+178h] BYREF
+  ULONGLONG v415[2]; // [rsp+288h] [rbp+188h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+298h] [rbp+198h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+2B8h] [rbp+1B8h] BYREF
-  _OWORD v417[2]; // [rsp+2D8h] [rbp+1D8h] BYREF
-  __int64 v418; // [rsp+2F8h] [rbp+1F8h]
+  _OWORD v418[2]; // [rsp+2D8h] [rbp+1D8h] BYREF
+  __int64 v419; // [rsp+2F8h] [rbp+1F8h]
   _OWORD SecurityDescriptor[2]; // [rsp+300h] [rbp+200h] BYREF
-  __int64 v420; // [rsp+320h] [rbp+220h]
-  unsigned int *v421; // [rsp+328h] [rbp+228h]
-  ACL *v422; // [rsp+330h] [rbp+230h]
-  __int64 v423; // [rsp+338h] [rbp+238h]
-  __int64 v424; // [rsp+340h] [rbp+240h] BYREF
-  __int64 v425; // [rsp+348h] [rbp+248h] BYREF
+  __int64 v421; // [rsp+320h] [rbp+220h]
+  unsigned int *v422; // [rsp+328h] [rbp+228h]
+  ACL *v423; // [rsp+330h] [rbp+230h]
+  __int64 v424; // [rsp+338h] [rbp+238h]
+  __int64 v425; // [rsp+340h] [rbp+240h] BYREF
+  __int64 v426; // [rsp+348h] [rbp+248h] BYREF
 
-  v409 = a4;
-  v410 = a5;
+  v410 = a4;
+  v411 = a5;
   v348 = a3;
   v376 = 0LL;
   v6 = 0LL;
@@ -518,11 +519,11 @@ __int64 __fastcall SPCall2ServerInternal(unsigned int *a1, unsigned int a2, UINT
   v377 = 0LL;
   v8 = 0LL;
   v347 = 0;
-  v396 = 0LL;
+  v397 = 0LL;
   v364 = 0LL;
   v363 = 0;
   v365 = 0;
-  v406 = 0LL;
+  v407 = 0LL;
   v381 = 0;
   *(_OWORD *)v338 = 0LL;
   *(_OWORD *)uAddend = 0LL;
@@ -768,7 +769,7 @@ LABEL_23:
   v31 = *(unsigned __int8 **)v369;
   v32 = v30;
   Dacl = v30;
-  v424 = v29;
+  v425 = v29;
   pcbLength = pullResult & 7;
   v337 = *(_QWORD *)v369;
   NumberOfBytes = 0;
@@ -809,7 +810,7 @@ LABEL_23:
     v236 = v234[1];
     if ( (unsigned __int8)v236 < 0x1Fu )
     {
-      v237 = funcs_14066C673[v236](v232 + 1, *(v233 - 2), *(v233 - 1), *v233, v233[1], (__int64)&v424, v226);
+      v237 = funcs_14066C673[v236](v232 + 1, *(v233 - 2), *(v233 - 1), *v233, v233[1], (__int64)&v425, v226);
       v235 = ullAugend;
       v227 ^= v237;
       v234 = (unsigned __int8 *)Src;
@@ -817,7 +818,7 @@ LABEL_23:
     v238 = *v234;
     if ( (unsigned __int8)v238 < 0x1Fu )
     {
-      v239 = funcs_14066C673[v238](v232, *(v233 - 6), *(v233 - 5), *(v233 - 4), *(v233 - 3), (__int64)&v424, v227);
+      v239 = funcs_14066C673[v238](v232, *(v233 - 6), *(v233 - 5), *(v233 - 4), *(v233 - 3), (__int64)&v425, v227);
       v235 = ullAugend;
       v226 ^= v239;
       v234 = (unsigned __int8 *)Src;
@@ -869,7 +870,7 @@ LABEL_23:
   v31 = (unsigned __int8 *)v337;
   if ( v242 <= 4 )
   {
-    LODWORD(v29) = v424;
+    LODWORD(v29) = v425;
     v335 = 0;
     if ( v242 >= 4 )
       goto LABEL_40;
@@ -878,7 +879,7 @@ LABEL_23:
   else
   {
     v335 = v240 >> (8 * (8 - v242)) << (8 * (8 - v242));
-    LODWORD(v29) = v424;
+    LODWORD(v29) = v425;
   }
   v32 = Dacl;
 LABEL_40:
@@ -902,30 +903,30 @@ LABEL_40:
       v43 = v34[5] | ((v34[4] | ((v41 | v39) << 8)) << 8);
       *(_QWORD *)v374 = v34 + 8;
       LODWORD(v346) = v43;
-      v44 = v42 ^ v29 ^ HIDWORD(v424) ^ v43 ^ v35;
-      v45 = (v44 >> 8) ^ (WORD2(v424) * (WORD1(v424) ^ v44)) ^ v42;
-      v46 = (WORD1(v424) * __ROR4__(HIDWORD(v424) - v45, 11) - __ROR4__(v45, 12)) ^ v44;
-      v47 = ((unsigned __int16)v29 * __ROL4__(v46 ^ HIDWORD(v424), 8) - __ROL4__(v46, 2)) ^ v45;
-      v48 = __ROR4__(v47, 9) ^ (HIWORD(v424) * __ROR4__(v47 - v29, 4)) ^ v46;
-      v49 = (__ROR4__(v48, 4) + WORD2(v424) * __ROR4__(v29 - v48, 10)) ^ v47;
-      v50 = (WORD1(v424) * __ROL4__(HIWORD(v424) ^ v49, 4) - __ROR4__(v49, 16)) ^ v48;
+      v44 = v42 ^ v29 ^ HIDWORD(v425) ^ v43 ^ v35;
+      v45 = (v44 >> 8) ^ (WORD2(v425) * (WORD1(v425) ^ v44)) ^ v42;
+      v46 = (WORD1(v425) * __ROR4__(HIDWORD(v425) - v45, 11) - __ROR4__(v45, 12)) ^ v44;
+      v47 = ((unsigned __int16)v29 * __ROL4__(v46 ^ HIDWORD(v425), 8) - __ROL4__(v46, 2)) ^ v45;
+      v48 = __ROR4__(v47, 9) ^ (HIWORD(v425) * __ROR4__(v47 - v29, 4)) ^ v46;
+      v49 = (__ROR4__(v48, 4) + WORD2(v425) * __ROR4__(v29 - v48, 10)) ^ v47;
+      v50 = (WORD1(v425) * __ROL4__(HIWORD(v425) ^ v49, 4) - __ROR4__(v49, 16)) ^ v48;
       v51 = 30LL;
-      v52 = ((unsigned __int16)v29 * (WORD1(v424) ^ v50) - __ROR4__(v50, 7)) ^ v49;
+      v52 = ((unsigned __int16)v29 * (WORD1(v425) ^ v50) - __ROR4__(v50, 7)) ^ v49;
       v53 = 16LL;
-      v54 = (v52 - v29 - HIWORD(v424)) ^ v50;
+      v54 = (v52 - v29 - HIWORD(v425)) ^ v50;
       Dacl = (PACL)16;
-      v55 = __ROR4__(v54, 11) ^ (WORD2(v424) * __ROR4__(v29 - v54, 9)) ^ v52;
+      v55 = __ROR4__(v54, 11) ^ (WORD2(v425) * __ROR4__(v29 - v54, 9)) ^ v52;
       v56 = (unsigned __int8 *)pcbLength;
-      v57 = (WORD1(v424) * (v55 - WORD2(v424)) - (v55 >> 13)) ^ v54;
+      v57 = (WORD1(v425) * (v55 - WORD2(v425)) - (v55 >> 13)) ^ v54;
       v58 = v38;
       Src = v38;
-      v59 = (v57 >> 15) ^ (v40 * __ROL4__(v57 - WORD2(v424), 3)) ^ v55;
+      v59 = (v57 >> 15) ^ (v40 * __ROL4__(v57 - WORD2(v425), 3)) ^ v55;
       do
       {
         v60 = v58[1];
         if ( (unsigned __int8)v60 < 0x1Fu )
         {
-          v73 = funcs_14066C673[v60](v51 + 1, *(v56 - 2), *(v56 - 1), *v56, v56[1], (__int64)&v424, v59);
+          v73 = funcs_14066C673[v60](v51 + 1, *(v56 - 2), *(v56 - 1), *v56, v56[1], (__int64)&v425, v59);
           v53 = (__int64)Dacl;
           v57 ^= v73;
           v58 = (unsigned __int8 *)Src;
@@ -933,7 +934,7 @@ LABEL_40:
         v61 = *v58;
         if ( (unsigned __int8)v61 < 0x1Fu )
         {
-          v72 = funcs_14066C673[v61](v51, *(v56 - 6), *(v56 - 5), *(v56 - 4), *(v56 - 3), (__int64)&v424, v57);
+          v72 = funcs_14066C673[v61](v51, *(v56 - 6), *(v56 - 5), *(v56 - 4), *(v56 - 3), (__int64)&v425, v57);
           v53 = (__int64)Dacl;
           v59 ^= v72;
           v58 = (unsigned __int8 *)Src;
@@ -971,7 +972,7 @@ LABEL_40:
       v337 = (ULONGLONG)(v62 + 8);
       if ( v71 )
         break;
-      LODWORD(v29) = v424;
+      LODWORD(v29) = v425;
     }
     LOBYTE(v25) = NumberOfBytes_4;
     Acl = v349;
@@ -1090,7 +1091,7 @@ LABEL_388:
       Acl = -1073741675;
       goto LABEL_88;
     }
-    v405 = *(_DWORD *)v86 + 4;
+    v406 = *(_DWORD *)v86 + 4;
     v88 = &v86[v87];
     if ( v88 < v86 )
       goto LABEL_388;
@@ -1190,7 +1191,7 @@ LABEL_691:
       if ( v95 )
         v97 = v96;
       Src = v97;
-      v406 = v97;
+      v407 = v97;
       if ( LODWORD(v338[0]) <= 2 )
       {
         Acl = -1073741811;
@@ -1213,12 +1214,12 @@ LABEL_691:
         LODWORD(ullAddend) = *v98;
         if ( v98 + 1 >= v98 )
         {
-          v412 = v102;
+          v413 = v102;
           v104 = 0LL;
           if ( v102 )
             v104 = v103;
           Dacl = v104;
-          v422 = v104;
+          v423 = v104;
           v105 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x20534C53u);
           v108 = v105;
           if ( !v105 )
@@ -1357,8 +1358,8 @@ LABEL_130:
                   break;
                 case 0xCEu:
                   v379 = 0;
-                  v395 = 8LL;
-                  ZwQuerySystemInformation(103LL, (__int64)&v395);
+                  v396 = 8LL;
+                  ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v396, 8u, &v379);
                   if ( v8[4] != 160 )
                     goto LABEL_338;
                   v306 = (const void *)*((_QWORD *)v8 + 3);
@@ -1466,7 +1467,7 @@ LABEL_623:
                 if ( Acl < 0 )
                   goto LABEL_624;
 LABEL_140:
-                v396 = __rdtsc();
+                v397 = __rdtsc();
                 puResult = 8;
                 Acl = RtlUIntAdd(8u, uAddend[1], &puResult);
                 if ( Acl >= 0 )
@@ -1496,7 +1497,7 @@ LABEL_140:
                           if ( Acl >= 0 )
                           {
                             v121 = Src;
-                            *(_QWORD *)&v118[puResult - 8] = v396;
+                            *(_QWORD *)&v118[puResult - 8] = v397;
                             memmove(v121, *(const void **)&uAddend[2], uAddend[1]);
                             v377 = v118;
                             v118 = 0LL;
@@ -1650,8 +1651,8 @@ LABEL_176:
                                 v6 = v8;
                                 if ( Acl >= 0 )
                                 {
-                                  v181 = (_DWORD *)v410;
-                                  *v409 = v25;
+                                  v181 = (_DWORD *)v411;
+                                  *v410 = v25;
                                   v25 = 0LL;
                                   *v181 = v363;
                                 }
@@ -1659,7 +1660,7 @@ LABEL_176:
                               goto LABEL_200;
                             }
                             v130 = (unsigned __int8 *)v377;
-                            v425 = v126;
+                            v426 = v126;
                             v131 = (ULONGLONG)v129;
                             Src = v377;
                             v337 = (ULONGLONG)v129;
@@ -1708,7 +1709,7 @@ LABEL_163:
                                                *(v140 - 1),
                                                *v140,
                                                v140[1],
-                                               (__int64)&v425,
+                                               (__int64)&v426,
                                                v147);
                                       v138 = v337;
                                       v145 ^= v189;
@@ -1723,7 +1724,7 @@ LABEL_163:
                                                v140[3],
                                                v140[4],
                                                v140[5],
-                                               (__int64)&v425,
+                                               (__int64)&v426,
                                                v145);
                                       v138 = v337;
                                       v147 ^= v190;
@@ -1736,22 +1737,22 @@ LABEL_163:
                                     v337 = --v138;
                                   }
                                   while ( v138 );
-                                  v150 = (HIWORD(v425) * ((unsigned __int16)v425 + __ROR4__(~v147, 5))) ^ v145;
-                                  v151 = (v150 >> 10) ^ (WORD1(v425) * (HIWORD(v425) ^ v150)) ^ v147;
-                                  v152 = __ROR4__(v151, 10) ^ (WORD2(v425) * __ROR4__(v425 ^ v151, 12)) ^ v150;
-                                  v153 = (HIWORD(v425) * __ROR4__(v152 - v425, 14) - __ROL4__(v152, 8)) ^ v151;
-                                  v154 = (__ROL4__(v153, 2) + (unsigned __int16)v425
-                                                            * __ROR4__(HIDWORD(v425) + v153, 15)) ^ v152;
-                                  Dacl = (PACL)((WORD1(v425) * (WORD2(v425) ^ v154)) ^ __ROR4__(v154, 6) ^ (unsigned int)v153);
-                                  v155 = (HIDWORD(v425) - ((unsigned int)Dacl ^ v425)) ^ v154;
-                                  v156 = (HIWORD(v425) * __ROL4__(WORD1(v425) ^ v155, 6) - __ROL4__(v155, 2)) ^ (unsigned int)Dacl;
-                                  v157 = ((unsigned __int16)v425 * (v156 - WORD2(v425)) - (v156 >> 13)) ^ v155;
-                                  v158 = (WORD1(v425) * __ROR4__(v157 + HIDWORD(v425), 9) - __ROL4__(v157, 2)) ^ v156;
+                                  v150 = (HIWORD(v426) * ((unsigned __int16)v426 + __ROR4__(~v147, 5))) ^ v145;
+                                  v151 = (v150 >> 10) ^ (WORD1(v426) * (HIWORD(v426) ^ v150)) ^ v147;
+                                  v152 = __ROR4__(v151, 10) ^ (WORD2(v426) * __ROR4__(v426 ^ v151, 12)) ^ v150;
+                                  v153 = (HIWORD(v426) * __ROR4__(v152 - v426, 14) - __ROL4__(v152, 8)) ^ v151;
+                                  v154 = (__ROL4__(v153, 2) + (unsigned __int16)v426
+                                                            * __ROR4__(HIDWORD(v426) + v153, 15)) ^ v152;
+                                  Dacl = (PACL)((WORD1(v426) * (WORD2(v426) ^ v154)) ^ __ROR4__(v154, 6) ^ (unsigned int)v153);
+                                  v155 = (HIDWORD(v426) - ((unsigned int)Dacl ^ v426)) ^ v154;
+                                  v156 = (HIWORD(v426) * __ROL4__(WORD1(v426) ^ v155, 6) - __ROL4__(v155, 2)) ^ (unsigned int)Dacl;
+                                  v157 = ((unsigned __int16)v426 * (v156 - WORD2(v426)) - (v156 >> 13)) ^ v155;
+                                  v158 = (WORD1(v426) * __ROR4__(v157 + HIDWORD(v426), 9) - __ROL4__(v157, 2)) ^ v156;
                                   v159 = (_BYTE *)pcbLength;
                                   v137 = pullResult;
                                   v160 = ullAddend;
-                                  v161 = (__ROL4__(v158, 10) + WORD2(v425) * __ROL4__(v158 - v425, 5)) ^ v157;
-                                  v162 = v161 ^ v425 ^ HIDWORD(v425) ^ v158;
+                                  v161 = (__ROL4__(v158, 10) + WORD2(v426) * __ROL4__(v158 - v426, 5)) ^ v157;
+                                  v162 = v161 ^ v426 ^ HIDWORD(v426) ^ v158;
                                   v163 = NumberOfBytes ^ v161;
                                   v164 = v332 ^ v162;
                                   *(_BYTE *)(pcbLength - 4) = v163;
@@ -1784,7 +1785,7 @@ LABEL_163:
                               v171 = (void *)v346;
                               v172 = v347 + 8LL;
                               *(_QWORD *)(v346 + v347) = v127;
-                              v423 = v172;
+                              v424 = v172;
                               P = v171;
                               Acl = 0;
                               if ( (_DWORD)v172 )
@@ -1847,7 +1848,7 @@ LABEL_163:
                                          *(v316 - 1),
                                          *v316,
                                          v316[1],
-                                         (__int64)&v425,
+                                         (__int64)&v426,
                                          v122);
                                 v314 = ullAugend;
                                 v315 = v320 ^ (unsigned int)v315;
@@ -1862,7 +1863,7 @@ LABEL_163:
                                          *(v316 - 5),
                                          *(v316 - 4),
                                          *(v316 - 3),
-                                         (__int64)&v425,
+                                         (__int64)&v426,
                                          v315);
                                 v314 = ullAugend;
                                 v122 ^= v322;
@@ -1936,8 +1937,8 @@ LABEL_685:
               }
               v215 = qword_140D2D4C0;
               v380 = 0;
-              memset(v417, 0, sizeof(v417));
-              v418 = 0LL;
+              memset(v418, 0, sizeof(v418));
+              v419 = 0LL;
               v366 = 0;
               memset(&SubjectSecurityContext, 0, sizeof(SubjectSecurityContext));
               Src = (void *)qword_140D2D4C0;
@@ -1959,24 +1960,24 @@ LABEL_335:
               Acl = RtlCreateAcl(v219, v218, 2u);
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((int)Dacl, 2, 0, 32, *((void **)Src + 48), 0);
+                Acl = RtlpAddKnownAce(Dacl, *((void **)Src + 48), 0);
                 if ( Acl >= 0 )
                 {
-                  Acl = RtlpAddKnownAce((int)Dacl, 2, 0, 32, *((void **)Src + 49), 0);
+                  Acl = RtlpAddKnownAce(Dacl, *((void **)Src + 49), 0);
                   if ( Acl >= 0 )
                   {
-                    Acl = RtlpAddKnownAce((int)Dacl, 2, 0, 32, *((void **)Src + 34), 0);
+                    Acl = RtlpAddKnownAce(Dacl, *((void **)Src + 34), 0);
                     if ( Acl >= 0 )
                     {
-                      Acl = RtlCreateSecurityDescriptor(v417, 1u);
+                      Acl = RtlCreateSecurityDescriptor(v418, 1u);
                       if ( Acl >= 0 )
                       {
-                        Acl = RtlSetDaclSecurityDescriptor(v417, 1u, Dacl, 0);
+                        Acl = RtlSetDaclSecurityDescriptor(v418, 1u, Dacl, 0);
                         if ( Acl >= 0 )
                         {
                           SeCaptureSubjectContext(&SubjectSecurityContext);
                           v220 = SeAccessCheck(
-                                   v417,
+                                   v418,
                                    &SubjectSecurityContext,
                                    0,
                                    0x20u,
@@ -1998,9 +1999,9 @@ LABEL_335:
               ExFreePoolWithTag(Dacl, 0x20534C53u);
               if ( Acl < 0 )
                 goto LABEL_335;
-              v388 = 0;
-              v392 = 8LL;
-              ZwQuerySystemInformation(103LL, (__int64)&v392);
+              v389 = 0;
+              v393 = 8LL;
+              ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v393, 8u, &v389);
               if ( v8[4] == 160 )
               {
                 if ( (v221 = (const void *)*((_QWORD *)v8 + 3), !memcmp(qword_140983D70, v221, 0xA0uLL))
@@ -2018,7 +2019,7 @@ LABEL_335:
                   && *((_DWORD *)v7 + 8) == 8
                   && *(_QWORD *)v7[5] == 0x6223E824AB21D998LL )
                 {
-                  v398 = 0;
+                  v399 = 0;
                   v222 = 0;
                   if ( (BYTE2(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 7) == 0 )
                     v222 = -2147024891;
@@ -2031,9 +2032,9 @@ LABEL_338:
               goto LABEL_385;
             }
             v203 = qword_140D2D4C0;
-            GrantedAccess[0] = 0;
+            GrantedAccess = 0;
             memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-            v420 = 0LL;
+            v421 = 0LL;
             AccessStatus = 0;
             memset(&SubjectContext, 0, sizeof(SubjectContext));
             Src = (void *)qword_140D2D4C0;
@@ -2047,13 +2048,13 @@ LABEL_338:
               Acl = RtlCreateAcl(v207, v206, 2u);
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((int)Dacl, 2, 0, 32, *((void **)Src + 48), 0);
+                Acl = RtlpAddKnownAce(Dacl, *((void **)Src + 48), 0);
                 if ( Acl >= 0 )
                 {
-                  Acl = RtlpAddKnownAce((int)Dacl, 2, 0, 32, *((void **)Src + 49), 0);
+                  Acl = RtlpAddKnownAce(Dacl, *((void **)Src + 49), 0);
                   if ( Acl >= 0 )
                   {
-                    Acl = RtlpAddKnownAce((int)Dacl, 2, 0, 32, *((void **)Src + 34), 0);
+                    Acl = RtlpAddKnownAce(Dacl, *((void **)Src + 34), 0);
                     if ( Acl >= 0 )
                     {
                       Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -2072,7 +2073,7 @@ LABEL_338:
                                    0LL,
                                    (PGENERIC_MAPPING)&IopFileMapping,
                                    1,
-                                   GrantedAccess,
+                                   &GrantedAccess,
                                    &AccessStatus);
                           SeReleaseSubjectContext(&SubjectContext);
                           if ( !v210 )
@@ -2086,9 +2087,9 @@ LABEL_338:
               ExFreePoolWithTag(Dacl, 0x20534C53u);
               if ( Acl >= 0 )
               {
-                GrantedAccess[1] = 0;
-                v397 = 8LL;
-                ZwQuerySystemInformation(103LL, (__int64)&v397);
+                ReturnLength = 0;
+                SystemInformation = 8LL;
+                ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, &ReturnLength);
                 if ( v8[4] != 160 )
                   goto LABEL_338;
                 v211 = (const void *)*((_QWORD *)v8 + 3);
@@ -2184,7 +2185,7 @@ LABEL_139:
               v270 = 0;
               if ( v269 >= 0 )
                 v270 = v371[0];
-              v401 = v270;
+              v402 = v270;
               if ( v269 >= 0 )
               {
                 Acl = RtlUIntAdd(0, v270, &v342);
@@ -2226,10 +2227,10 @@ LABEL_139:
                       if ( Acl >= 0 )
                       {
                         Acl = RtlUIntAdd(v335, *((_DWORD *)v7 + 8), &v335);
-                        v276 = v386;
+                        v276 = v387;
                         if ( Acl >= 0 )
                           v276 = v335;
-                        v386 = v276;
+                        v387 = v276;
                       }
                     }
                   }
@@ -2245,17 +2246,17 @@ LABEL_139:
                 {
                   *(_QWORD *)&uAddend[2] = v277;
                   uAddend[0] = 0;
-                  v389 = 0;
-                  v413 = 0LL;
-                  v402 = 0;
-                  Acl = RtlULongLongAdd((ULONGLONG)v277, 4uLL, (ULONGLONG *)&v413 + 1);
+                  v390 = 0;
+                  v414 = 0LL;
+                  v403 = 0;
+                  Acl = RtlULongLongAdd((ULONGLONG)v277, 4uLL, (ULONGLONG *)&v414 + 1);
                   if ( Acl < 0 )
                     goto LABEL_506;
                   if ( v278 + 2 <= (_DWORD *)((char *)v278 + uAddend[1]) )
                   {
-                    v266 = (_DWORD *)*((_QWORD *)&v413 + 1);
+                    v266 = (_DWORD *)*((_QWORD *)&v414 + 1);
                     *v278 = v279;
-                    v267 = v389;
+                    v267 = v390;
                     goto LABEL_505;
                   }
                   goto LABEL_504;
@@ -2288,8 +2289,8 @@ LABEL_139:
               }
               v251 = 0;
               v370 = 0;
-              v407 = 0LL;
-              v383 = 0;
+              v408 = 0LL;
+              v384 = 0;
               if ( LODWORD(v338[0]) > 3 )
               {
                 v252 = v338[1];
@@ -2313,10 +2314,10 @@ LABEL_139:
                     {
                       v254 = ullAddend;
                       v253 = (int *)ullAugend;
-                      v383 = ullAddend;
+                      v384 = ullAddend;
                       if ( !(_DWORD)ullAddend )
                         v253 = 0LL;
-                      v407 = v253;
+                      v408 = v253;
                     }
                     break;
                   }
@@ -2345,7 +2346,7 @@ LABEL_504:
               v258 = 0;
               if ( v255 >= 0 )
                 v258 = v374[0];
-              v399 = v258;
+              v400 = v258;
               if ( v255 >= 0 )
               {
                 Acl = RtlUIntAdd(0, v258, v369);
@@ -2354,7 +2355,7 @@ LABEL_504:
               }
               if ( Acl < 0 )
                 goto LABEL_506;
-              v384 = v257;
+              v385 = v257;
               v352 = 8;
               Acl = RtlUIntAdd(8u, v256, &v352);
               if ( Acl >= 0 )
@@ -2390,7 +2391,7 @@ LABEL_504:
                         Acl = RtlUIntAdd(uAugend[0], *((_DWORD *)v7 + 8), uAugend);
                         if ( Acl >= 0 )
                           v263 = uAugend[0];
-                        v384 = v263;
+                        v385 = v263;
                       }
                     }
                   }
@@ -2414,9 +2415,9 @@ LABEL_506:
                 {
                   *(_QWORD *)&uAddend[2] = v264;
                   uAddend[0] = 0;
-                  v385 = 0;
+                  v386 = 0;
                   *(_OWORD *)Size = 0LL;
-                  v400 = 0;
+                  v401 = 0;
                   Acl = RtlULongLongAdd((ULONGLONG)v264, 4uLL, &Size[1]);
                   if ( Acl >= 0 )
                   {
@@ -2424,7 +2425,7 @@ LABEL_506:
                     {
                       v266 = (_DWORD *)Size[1];
                       *v265 = 4;
-                      v267 = v385;
+                      v267 = v386;
 LABEL_505:
                       *v266 = v267;
                       ++uAddend[0];
@@ -2448,9 +2449,9 @@ LABEL_503:
           v360 = 0;
           LODWORD(ullAddend) = 0;
           v361 = 0;
-          v394 = 0LL;
+          v395 = 0LL;
           v373 = 0;
-          v393 = 0LL;
+          v394 = 0LL;
           v372 = 0;
           pcbLength = 0LL;
           if ( LODWORD(v338[0]) > 3 )
@@ -2479,7 +2480,7 @@ LABEL_503:
                   v372 = v346;
                   if ( !(_DWORD)v346 )
                     v283 = 0LL;
-                  v393 = (wchar_t *)v283;
+                  v394 = (wchar_t *)v283;
                 }
                 break;
               }
@@ -2501,7 +2502,7 @@ LABEL_569:
               goto LABEL_607;
             }
             v281 = pcbLength >> 1;
-            v394 = v393;
+            v395 = v394;
             v373 = pcbLength >> 1;
           }
           else
@@ -2520,11 +2521,11 @@ LABEL_569:
               Acl = -1073741801;
               goto LABEL_607;
             }
-            memmove(v292, v394, Size[0]);
+            memmove(v292, v395, Size[0]);
             v360 = v373;
             v375 = v293;
-            v408 = 0LL;
-            v390 = 0;
+            v409 = 0LL;
+            v391 = 0;
             if ( LODWORD(v338[0]) > 4 )
             {
               v294 = (PACL)v338[1];
@@ -2546,10 +2547,10 @@ LABEL_569:
                   {
                     v295 = Dacl;
                     v296 = v298;
-                    v390 = v298;
+                    v391 = v298;
                     if ( !v298 )
                       v295 = 0LL;
-                    v408 = v295;
+                    v409 = v295;
                   }
                   break;
                 }
@@ -2573,7 +2574,7 @@ LABEL_569:
               v286 = 0;
               if ( v285 >= 0 )
                 v286 = v349;
-              v403 = v286;
+              v404 = v286;
               if ( v285 >= 0 )
               {
                 Acl = RtlUIntAdd(0, v286, (UINT *)&v346);
@@ -2627,14 +2628,14 @@ LABEL_600:
                         *(_QWORD *)&uAddend[2] = v302;
                         uAddend[0] = 0;
                         v378 = 0;
-                        *(_OWORD *)v414 = 0LL;
-                        v404 = 0;
-                        Acl = RtlULongLongAdd((ULONGLONG)v302, 4uLL, &v414[1]);
+                        *(_OWORD *)v415 = 0LL;
+                        v405 = 0;
+                        Acl = RtlULongLongAdd((ULONGLONG)v302, 4uLL, &v415[1]);
                         if ( Acl < 0 )
                           goto LABEL_607;
                         if ( v303 + 2 <= (_DWORD *)((char *)v303 + uAddend[1]) )
                         {
-                          v305 = (_DWORD *)v414[1];
+                          v305 = (_DWORD *)v415[1];
                           *v303 = v304;
                           *v305 = v378;
                           ++uAddend[0];
@@ -2681,10 +2682,10 @@ LABEL_588:
                           if ( Acl >= 0 )
                           {
                             Acl = RtlUIntAdd(v332, *((_DWORD *)v7 + 8), &v332);
-                            v301 = v391;
+                            v301 = v392;
                             if ( Acl >= 0 )
                               v301 = v332;
-                            v391 = v301;
+                            v392 = v301;
                           }
                         }
                       }
@@ -2716,11 +2717,11 @@ LABEL_311:
     v25 = 0LL;
     goto LABEL_200;
   }
-  v411 = *(_DWORD *)v338[1];
+  v412 = *(_DWORD *)v338[1];
   v90 = 0LL;
   if ( v89 )
     v90 = (unsigned int *)((char *)v338[1] + 4);
-  v421 = v90;
+  v422 = v90;
   Acl = 0;
   if ( v89 == 4 )
   {

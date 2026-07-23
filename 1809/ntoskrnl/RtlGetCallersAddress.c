@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetCallersAddress @ 0x1402EF990
+ * XREFs of RtlGetCallersAddress @ 0x1402EFB80
  * Callers:
  *     <none>
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCD30 (RtlCaptureStackBackTrace.c)
  */
 
 void __stdcall RtlGetCallersAddress(PVOID *CallersAddress, PVOID *CallersCaller)

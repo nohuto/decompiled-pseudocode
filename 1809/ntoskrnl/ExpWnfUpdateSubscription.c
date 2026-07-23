@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfUpdateSubscription @ 0x140610794
+ * XREFs of ExpWnfUpdateSubscription @ 0x140611794
  * Callers:
- *     ExpWnfSubscribeNameInstance @ 0x14061034C (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfSubscribeNameInstance @ 0x14061134C (ExpWnfSubscribeNameInstance.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall ExpWnfUpdateSubscription(
@@ -24,8 +24,8 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   _QWORD *i; // rax
   _QWORD *v13; // rbx
   unsigned __int64 *v15; // rdi
-  __int64 v16; // rax
-  __int64 v17; // rbp
+  _RTL_BALANCED_NODE *v16; // rax
+  _RTL_BALANCED_NODE *v17; // rbp
   int v18; // edx
   int v19; // r9d
   int v20; // ecx
@@ -48,7 +48,7 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
     ExfAcquirePushLockExclusiveEx(v15, v16, (ULONG_PTR)v15);
   if ( v17 )
-    *(_BYTE *)(v17 + 26) |= 1u;
+    BYTE2(v17[1].Left) |= 1u;
   v18 = *((_DWORD *)v13 + 25) & 1;
   if ( (a5 & 1) != 0 )
   {

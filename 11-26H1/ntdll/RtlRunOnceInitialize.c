@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlRunOnceInitialize @ 0x1800DB020
+ * XREFs of RtlRunOnceInitialize @ 0x1800D7FE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall RtlRunOnceInitialize(_QWORD *a1)
+void __cdecl RtlRunOnceInitialize(PRTL_RUN_ONCE RunOnce)
 {
-  *a1 = 0LL;
+  RunOnce->Value = 0LL;
 }

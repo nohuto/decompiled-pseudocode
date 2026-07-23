@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepGetNextValue @ 0x1402500A4
+ * XREFs of AuthzBasepGetNextValue @ 0x1402F48F4
  * Callers:
- *     AuthzBasepValueInSet @ 0x14024FF78 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateSetRelationship @ 0x14025019C (AuthzBasepEvaluateSetRelationship.c)
- *     AuthzBasepDeviceMemberOf @ 0x1405C1EE0 (AuthzBasepDeviceMemberOf.c)
- *     AuthzBasepMemberOf @ 0x1405C2028 (AuthzBasepMemberOf.c)
+ *     AuthzBasepValueInSet @ 0x1402F47C8 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x1402F49EC (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepDeviceMemberOf @ 0x1405C2110 (AuthzBasepDeviceMemberOf.c)
+ *     AuthzBasepMemberOf @ 0x1405C2258 (AuthzBasepMemberOf.c)
  * Callees:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14024E6B8 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     AuthzBasepGetConstantOperand @ 0x14024F278 (AuthzBasepGetConstantOperand.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402F2F08 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepGetConstantOperand @ 0x1402F3AC8 (AuthzBasepGetConstantOperand.c)
  */
 
 __int64 __fastcall AuthzBasepGetNextValue(__int64 a1, __int64 a2)

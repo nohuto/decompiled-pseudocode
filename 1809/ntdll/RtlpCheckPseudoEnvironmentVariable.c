@@ -3,8 +3,8 @@
  * Callers:
  *     RtlQueryEnvironmentVariable @ 0x180056D90 (RtlQueryEnvironmentVariable.c)
  * Callees:
- *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E184 (RtlpQueryPseudoEnvironmentVariable.c)
- *     _wcsnicmp @ 0x180091A20 (_wcsnicmp.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E194 (RtlpQueryPseudoEnvironmentVariable.c)
+ *     _wcsnicmp @ 0x180091A30 (_wcsnicmp.c)
  */
 
 __int64 __fastcall RtlpCheckPseudoEnvironmentVariable(

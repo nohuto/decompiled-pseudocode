@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpGetObjectProperty @ 0x1408CCF60
+ * XREFs of PnpGetObjectProperty @ 0x1408CA950
  * Callers:
- *     IoGetDeviceDirectory @ 0x14071EEF0 (IoGetDeviceDirectory.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x1407268E8 (PiPnpRtlGatherInterfaceDeleteInfo.c)
- *     PiDmObjectProcessPropertyChange @ 0x1408BA158 (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1408BB2BC (PiDmObjectUpdateCachedObjectProperty.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiUEventCacheObjectProperties @ 0x1409EF508 (PiUEventCacheObjectProperties.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x140A60418 (PiDmGetReferencedObjectFromProperty.c)
- *     PnpInitializeInheritedRestrictedSd @ 0x140A689C0 (PnpInitializeInheritedRestrictedSd.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x140A8EF90 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     IoGetDeviceDirectory @ 0x14071CA80 (IoGetDeviceDirectory.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140724478 (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1408B7B08 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1408B8C6C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiUEventCacheObjectProperties @ 0x140A16710 (PiUEventCacheObjectProperties.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x140A58968 (PiDmGetReferencedObjectFromProperty.c)
+ *     PnpInitializeInheritedRestrictedSd @ 0x140A61D70 (PnpInitializeInheritedRestrictedSd.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x140A8B600 (PiDevCfgResolveVariableDeviceProperty.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpValidatePropertyData @ 0x1408B8DD0 (_PnpValidatePropertyData.c)
- *     _PnpGetGenericStoreProperty @ 0x1408C7EF0 (_PnpGetGenericStoreProperty.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     DrvDbDispatchDriverPackage @ 0x1409240F0 (DrvDbDispatchDriverPackage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpValidatePropertyData @ 0x1408B6740 (_PnpValidatePropertyData.c)
+ *     _PnpGetGenericStoreProperty @ 0x1408C5920 (_PnpGetGenericStoreProperty.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     DrvDbDispatchDriverPackage @ 0x140926230 (DrvDbDispatchDriverPackage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetObjectProperty(
@@ -42,7 +42,7 @@ __int64 __fastcall PnpGetObjectProperty(
   PVOID *v11; // rdi
   unsigned int v12; // r10d
   WCHAR *v13; // r11
-  unsigned int v15; // esi
+  ULONG_PTR v15; // rsi
   __int64 Pool2; // rax
   _QWORD *v17; // r13
   int *v18; // r15
@@ -58,7 +58,7 @@ __int64 __fastcall PnpGetObjectProperty(
   int GenericStoreProperty; // eax
   __int64 v30; // [rsp+58h] [rbp-B0h]
   int v31; // [rsp+60h] [rbp-A8h]
-  ULONG *v32; // [rsp+68h] [rbp-A0h]
+  unsigned int *v32; // [rsp+68h] [rbp-A0h]
   wchar_t *psz; // [rsp+70h] [rbp-98h]
   HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
   __int64 v35; // [rsp+80h] [rbp-88h]
@@ -69,14 +69,14 @@ __int64 __fastcall PnpGetObjectProperty(
   __int64 v40; // [rsp+B8h] [rbp-50h]
   __int64 v41; // [rsp+C0h] [rbp-48h]
   wchar_t *v42; // [rsp+C8h] [rbp-40h]
-  unsigned int v43; // [rsp+D0h] [rbp-38h]
+  int v43; // [rsp+D0h] [rbp-38h]
   int v44; // [rsp+D4h] [rbp-34h]
   unsigned int *v45; // [rsp+D8h] [rbp-30h]
   int v46; // [rsp+E0h] [rbp-28h]
   int v47; // [rsp+E4h] [rbp-24h]
   _QWORD v48[5]; // [rsp+E8h] [rbp-20h] BYREF
   int v49; // [rsp+110h] [rbp+8h]
-  ULONG *v50; // [rsp+118h] [rbp+10h]
+  unsigned int *v50; // [rsp+118h] [rbp+10h]
   __int64 v51; // [rsp+120h] [rbp+18h]
   unsigned int v52; // [rsp+170h] [rbp+68h] BYREF
   WCHAR *v53; // [rsp+178h] [rbp+70h]
@@ -89,15 +89,15 @@ __int64 __fastcall PnpGetObjectProperty(
   v13 = a3;
   v52 = a2;
   *a9 = 0LL;
-  v15 = 0;
+  LODWORD(v15) = 0;
   while ( 1 )
   {
-    if ( v52 > v15 )
+    if ( v52 > (unsigned int)v15 )
     {
       v15 = v52;
       if ( *v11 )
         ExFreePoolWithTag(*v11, Tag);
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, v15, Tag);
       *v11 = (PVOID)Pool2;
       if ( !Pool2 )
       {
@@ -128,7 +128,7 @@ __int64 __fastcall PnpGetObjectProperty(
       if ( v19 == PiPnpRtlObjectActionCallback )
         v20 = PiPnpRtlObjectActionCallback(*(_QWORD *)&PiPnpRtlCtx, v13, v12, 8LL, 1, v37);
       else
-        v20 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v13, v12, 8LL);
+        v20 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v13);
       if ( v20 == -1073741822 )
       {
         v19 = 0LL;
@@ -203,7 +203,7 @@ __int64 __fastcall PnpGetObjectProperty(
       }
       else
       {
-        v27 = guard_dispatch_icall_no_overrides(v17, v53, v54, 8LL);
+        v27 = guard_dispatch_icall_no_overrides(v17, v53);
       }
       v21 = v27;
       if ( v27 == -1073741802 )
@@ -245,7 +245,7 @@ LABEL_37:
       LODWORD(v37[0]) = v21;
       v28 = v19 == PiPnpRtlObjectActionCallback
           ? PiPnpRtlObjectActionCallback(v17, v53, v54, 8LL, 2, v37)
-          : guard_dispatch_icall_no_overrides(v17, v53, v54, 8LL);
+          : guard_dispatch_icall_no_overrides(v17, v53);
       if ( v28 != -1073741822 )
       {
         if ( v28 == -1073741536 )

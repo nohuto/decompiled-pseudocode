@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInitializeKcbCache @ 0x14092C134
+ * XREFs of CmpInitializeKcbCache @ 0x14092E274
  * Callers:
- *     CmpLinkHiveToMaster @ 0x14092C240 (CmpLinkHiveToMaster.c)
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmpLinkHiveToMaster @ 0x14092E380 (CmpLinkHiveToMaster.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     CmpDeleteKcbCache @ 0x140A59444 (CmpDeleteKcbCache.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     CmpDeleteKcbCache @ 0x140A50BF4 (CmpDeleteKcbCache.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmpInitializeKcbCache(__int64 a1, unsigned int a2)
@@ -29,10 +29,10 @@ __int64 __fastcall CmpInitializeKcbCache(__int64 a1, unsigned int a2)
   }
   else
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 24 * a2, 0x61434D43u);
     if ( Pool2 )
     {
-      v6 = ExAllocatePool2(0x100uLL);
+      v6 = ExAllocatePool2(0x100uLL, 0x300uLL, 0x61434D43u);
       if ( v6 )
       {
         if ( a2 )

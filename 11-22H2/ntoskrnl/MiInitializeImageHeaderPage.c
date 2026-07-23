@@ -43,7 +43,9 @@ __int64 __fastcall MiInitializeImageHeaderPage(__int64 a1, __int64 a2)
     *(_BYTE *)(v8 + 34) |= 0x10u;
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v6 = v14;
     if ( v14 <= 0xFu && CurrentIrql >= 2u )

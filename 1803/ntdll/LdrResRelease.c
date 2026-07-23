@@ -12,95 +12,93 @@
  *     sub_1800DBCC0 @ 0x1800DBCC0 (sub_1800DBCC0.c)
  */
 
-__int64 __fastcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
+__int64 __fastcall LdrResRelease(PVOID InitModule, PCWSTR SourceString, ULONG Flags)
 {
-  unsigned __int64 *v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // r14
-  __int64 v9; // rcx
-  __int64 v10; // rsi
-  wchar_t *v11; // rdi
-  unsigned int v12; // edi
-  __int64 v14; // rcx
-  int v15; // eax
-  int v16; // [rsp+20h] [rbp-58h] BYREF
-  const wchar_t *v17; // [rsp+28h] [rbp-50h]
-  int v18; // [rsp+30h] [rbp-48h] BYREF
-  const wchar_t *v19; // [rsp+38h] [rbp-40h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
-  int v21; // [rsp+80h] [rbp+8h] BYREF
-  wchar_t *v22; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v6; // r14
+  __int64 v7; // rcx
+  __int64 v8; // rsi
+  unsigned __int64 v9; // rdi
+  unsigned __int32 v10; // edi
+  __int64 v12; // rcx
+  NTSTATUS v13; // eax
+  int v14; // [rsp+20h] [rbp-58h] BYREF
+  const wchar_t *v15; // [rsp+28h] [rbp-50h]
+  int v16; // [rsp+30h] [rbp-48h] BYREF
+  const wchar_t *v17; // [rsp+38h] [rbp-40h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+80h] [rbp+8h] BYREF
+  PVOID DllHandle; // [rsp+98h] [rbp+20h] BYREF
 
-  v16 = 2621478;
-  v17 = L"LdrResRelease Enter";
-  v18 = 2490404;
-  v19 = L"LdrResRelease Exit";
-  v8 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  v14 = 2621478;
+  v15 = L"LdrResRelease Enter";
+  v16 = 2490404;
+  v17 = L"LdrResRelease Exit";
+  v6 = 2147353477LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   else
-    v9 = 2147353477LL;
-  if ( (*(_BYTE *)v9 & 1) != 0 )
+    v7 = 2147353477LL;
+  if ( (*(_BYTE *)v7 & 1) != 0 )
   {
-    v10 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    v8 = 2147353476LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v12 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
-      v14 = 2147353476LL;
-    sub_1800DBCC0(&v16, *(unsigned __int8 *)v14);
+      v12 = 2147353476LL;
+    sub_1800DBCC0(&v14, *(unsigned __int8 *)v12);
   }
   else
   {
-    v10 = 2147353476LL;
+    v8 = 2147353476LL;
   }
-  if ( !String2 )
+  if ( !InitModule )
     return 3221225485LL;
-  v22 = 0LL;
-  if ( (a3 & 0x8800) == 0x8800 )
+  DllHandle = 0LL;
+  if ( (Flags & 0x8800) == 0x8800 )
     return 0LL;
   if ( (unsigned __int64)SourceString >= 0x10000 )
   {
     if ( *SourceString )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( !RtlCultureNameToLCID(&DestinationString.Length, &v21) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         return 3221225485LL;
     }
     else
     {
-      v21 = 0;
+      Lcid = 0;
     }
-    LOWORD(SourceString) = v21;
+    LOWORD(SourceString) = Lcid;
   }
-  if ( (a3 & 0xC00) != 0 )
+  if ( (Flags & 0xC00) != 0 )
   {
-    v15 = LdrRemoveLoadAsDataTable(String2, &v22, 0LL, a3);
-    v12 = v15;
-    if ( v15 < 0 )
+    v13 = LdrRemoveLoadAsDataTable(InitModule, &DllHandle, 0LL, Flags);
+    v10 = v13;
+    if ( v13 < 0 )
     {
-      if ( v15 != -1073740024 && v15 != -1073741511 )
+      if ( v13 != -1073740024 && v13 != -1073741511 )
         goto LABEL_12;
       goto LABEL_11;
     }
   }
   else
   {
-    v22 = String2;
+    DllHandle = InitModule;
   }
-  v11 = v22;
-  LdrUnloadAlternateResourceModuleEx((__int64)v22, (unsigned __int16)SourceString, v6, v7);
-  if ( (a3 & 0xC00) != 0 && v11 )
-    ZwUnmapViewOfSection(-1LL);
+  v9 = (unsigned __int64)DllHandle;
+  LdrUnloadAlternateResourceModuleEx(DllHandle, (unsigned __int16)SourceString);
+  if ( (Flags & 0xC00) != 0 && v9 )
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(v9 & 0xFFFFFFFFFFFFFFFCuLL));
 LABEL_11:
-  v12 = 0;
+  v10 = 0;
 LABEL_12:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
-  if ( (*(_BYTE *)v8 & 1) != 0 )
+  if ( RtlGetCurrentServiceSessionId() )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
+  if ( (*(_BYTE *)v6 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
-    sub_1800DBCC0(&v18, *(unsigned __int8 *)v10);
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
+    sub_1800DBCC0(&v16, *(unsigned __int8 *)v8);
   }
-  return v12;
+  return v10;
 }

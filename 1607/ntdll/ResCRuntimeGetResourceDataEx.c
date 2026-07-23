@@ -1,13 +1,13 @@
 /*
- * XREFs of ResCRuntimeGetResourceDataEx @ 0x180095F1C
+ * XREFs of ResCRuntimeGetResourceDataEx @ 0x180095F0C
  * Callers:
- *     LdrpGetMUIFromCMFSegment @ 0x18005A1F8 (LdrpGetMUIFromCMFSegment.c)
+ *     LdrpGetMUIFromCMFSegment @ 0x18005A1E8 (LdrpGetMUIFromCMFSegment.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     ResCDirectoryGetEntryCopyAndIndex @ 0x18008A1C0 (ResCDirectoryGetEntryCopyAndIndex.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     ResCDirectoryGetEntryCopyAndIndex @ 0x18008A1B0 (ResCDirectoryGetEntryCopyAndIndex.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     ResCRuntimeGetSegmentDataEx @ 0x1800FF43C (ResCRuntimeGetSegmentDataEx.c)
- *     ResCHitsEntryHit @ 0x180100054 (ResCHitsEntryHit.c)
+ *     ResCHitsEntryHit @ 0x1800FFF8C (ResCHitsEntryHit.c)
  */
 
 __int64 __fastcall ResCRuntimeGetResourceDataEx(
@@ -19,7 +19,7 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
         _DWORD *a6,
         _DWORD *a7)
 {
-  __int64 v7; // rsi
+  _QWORD *v7; // rsi
   __int64 v10; // rbp
   _DWORD *v11; // rbp
   __int64 result; // rax
@@ -43,13 +43,13 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
   v7 = ResRuntimeView;
   v26 = a2;
   if ( !ResRuntimeView
-    || (v10 = *(_QWORD *)(ResRuntimeView + 16)) == 0
+    || (v10 = *((_QWORD *)ResRuntimeView + 2)) == 0
     || (v11 = *(_DWORD **)(v10 + 24)) == 0LL
     || (a4 & 0xFFFFFF) != 0
     || !a3 )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     goto LABEL_7;
   }
   v22 = v11[12];
@@ -65,7 +65,7 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
   {
     _InterlockedOr(v23, 0);
     v19 = *a2;
-    v20 = *(_QWORD *)(v7 + 16);
+    v20 = v7[2];
     v25 = v11[4];
     v27 = v19;
     v21 = (_DWORD *)((unsigned __int64)v28 & -(__int64)((unsigned int)ResCDirectoryGetEntryCopyAndIndex(
@@ -93,7 +93,7 @@ LABEL_13:
   {
     if ( (v21[11] & 0x4000000) != 0 )
     {
-      v15 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+      v15 = *(_QWORD *)(v7[2] + 64LL);
       if ( v15 )
         ResCHitsEntryHit(v15, v24);
     }
@@ -102,7 +102,7 @@ LABEL_7:
       *a6 = 0;
     return 0LL;
   }
-  v14 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+  v14 = *(_QWORD *)(v7[2] + 64LL);
   if ( v14 )
     ResCHitsEntryHit(v14, v24);
   if ( (v11[12] & 0x80000) != 0 )
@@ -118,12 +118,12 @@ LABEL_7:
     if ( a7 )
       *a7 = v21[5];
     v16 = (unsigned int)v21[5];
-    if ( *(_QWORD *)(*(_QWORD *)(v7 + 24) + 8 * v16) || (a5 & 0x10) == 0 )
+    if ( *(_QWORD *)(v7[3] + 8 * v16) || (a5 & 0x10) == 0 )
     {
       result = ResCRuntimeGetSegmentDataEx(v7, v16, (unsigned int)v21[6], (unsigned int)v21[7], a5);
       if ( result )
       {
-        v17 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+        v17 = *(_QWORD *)(v7[2] + 64LL);
         if ( v17 )
         {
           v18 = *(_QWORD *)(v17 + 24);

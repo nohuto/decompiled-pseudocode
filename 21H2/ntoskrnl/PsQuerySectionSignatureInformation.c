@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQuerySectionSignatureInformation @ 0x14069F0B0
+ * XREFs of PsQuerySectionSignatureInformation @ 0x1405FE280
  * Callers:
- *     PsConvertToGuiThread @ 0x14069EF80 (PsConvertToGuiThread.c)
+ *     PsConvertToGuiThread @ 0x1405FE150 (PsConvertToGuiThread.c)
  * Callees:
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall PsQuerySectionSignatureInformation(_KPROCESS *a1)

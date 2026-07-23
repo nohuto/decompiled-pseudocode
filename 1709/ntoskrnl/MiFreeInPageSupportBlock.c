@@ -23,7 +23,7 @@ void __fastcall MiFreeInPageSupportBlock(char *P, unsigned __int64 a2)
 {
   char *v3; // rcx
   __int64 v4; // rdx
-  union _SLIST_HEADER *v5; // rcx
+  _SLIST_HEADER *v5; // rcx
 
   if ( *((struct _KTHREAD **)P + 19) == KeGetCurrentThread() && *((_QWORD *)P + 26) )
     KeAbPostRelease((ULONG_PTR)P);
@@ -34,7 +34,7 @@ void __fastcall MiFreeInPageSupportBlock(char *P, unsigned __int64 a2)
       ExFreePoolWithTag(v3, 0);
     LOBYTE(a2) = ~P[189];
     v4 = (a2 >> 5) & 1;
-    v5 = (union _SLIST_HEADER *)&MiState[2 * (unsigned int)v4 + 552];
+    v5 = (_SLIST_HEADER *)&MiState[2 * (unsigned int)v4 + 552];
     if ( (unsigned int)LOWORD(v5->Alignment) >= *((unsigned __int8 *)&MiState[556] + v4) )
       ExFreePoolWithTag(P, 0);
     else

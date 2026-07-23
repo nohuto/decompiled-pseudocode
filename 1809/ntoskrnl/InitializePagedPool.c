@@ -1,19 +1,19 @@
 /*
- * XREFs of InitializePagedPool @ 0x1409B7280
+ * XREFs of InitializePagedPool @ 0x1409B8280
  * Callers:
- *     MiBuildPagedPool @ 0x1409B6A44 (MiBuildPagedPool.c)
- *     InitializePool @ 0x1409B6DF8 (InitializePool.c)
+ *     MiBuildPagedPool @ 0x1409B7A44 (MiBuildPagedPool.c)
+ *     InitializePool @ 0x1409B7DF8 (InitializePool.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1401042B0 (ExpInsertPoolTrackerExpansion.c)
- *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MmGetNumberOfPhysicalPages @ 0x1406259BC (MmGetNumberOfPhysicalPages.c)
- *     ExInitializePoolDescriptor @ 0x140715A4C (ExInitializePoolDescriptor.c)
- *     MmIsVerifierEnabled @ 0x140921490 (MmIsVerifierEnabled.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140104330 (ExpInsertPoolTrackerExpansion.c)
+ *     MmAllocateIndependentPagesEx @ 0x14010903C (MmAllocateIndependentPagesEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1401B7350 (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1406269DC (MmGetNumberOfPhysicalPages.c)
+ *     ExInitializePoolDescriptor @ 0x140716CEC (ExInitializePoolDescriptor.c)
+ *     MmIsVerifierEnabled @ 0x140922490 (MmIsVerifierEnabled.c)
  */
 
 int InitializePagedPool()
@@ -72,7 +72,7 @@ int InitializePagedPool()
           KeBugCheckEx(0x41u, 0x1140uLL, 0xFFFFFFFFFFFFFFFFuLL, 0xFFFFFFFFFFFFFFFFuLL, 0xFFFFFFFFFFFFFFFFuLL);
         ExpPagedPoolDescriptor[v19] = IndependentPages;
         if ( !(_DWORD)v19 )
-          qword_140541698 = IndependentPages;
+          qword_140542698 = IndependentPages;
         ExInitializePoolDescriptor(IndependentPages, 1, v19);
         v19 = (unsigned int)(v19 + 1);
       }
@@ -86,7 +86,7 @@ int InitializePagedPool()
     v4 = v3;
     if ( !v3 )
       KeBugCheckEx(0x41u, v2, 0xFFFFFFFFFFFFFFFFuLL, 0xFFFFFFFFFFFFFFFFuLL, 0xFFFFFFFFFFFFFFFFuLL);
-    qword_140541698 = v3;
+    qword_140542698 = v3;
     v5 = 0LL;
     if ( ExpNumberOfPagedPools != -1 )
     {

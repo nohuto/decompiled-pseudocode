@@ -11,7 +11,7 @@
 __int64 __fastcall sub_14067068C(__int64 a1, int a2)
 {
   _SLIST_ENTRY *Next; // r14
-  struct _SLIST_ENTRY *v4; // r15
+  _SLIST_ENTRY *v4; // r15
   char v6; // si
   __int64 result; // rax
   char v8; // bp
@@ -22,8 +22,8 @@ __int64 __fastcall sub_14067068C(__int64 a1, int a2)
   __int16 v13; // bx
   __int64 v14; // rax
   struct _KPRCB *v15; // rcx
-  union _SLIST_HEADER *v16; // [rsp+28h] [rbp-50h]
-  struct _SLIST_ENTRY *v17; // [rsp+30h] [rbp-48h]
+  _SLIST_HEADER *v16; // [rsp+28h] [rbp-50h]
+  _SLIST_ENTRY *v17; // [rsp+30h] [rbp-48h]
   _SLIST_ENTRY *v18; // [rsp+38h] [rbp-40h]
   __int16 v19; // [rsp+70h] [rbp-8h]
   int v20; // [rsp+80h] [rbp+8h]
@@ -63,7 +63,7 @@ LABEL_8:
     }
     Next = v12[1].Next;
     v8 = 1;
-    v16 = (union _SLIST_HEADER *)CurrentPrcb;
+    v16 = (_SLIST_HEADER *)CurrentPrcb;
     v4 = v12;
     v6 = BYTE4(CurrentPrcb);
     v9 = (char)CurrentPrcb;

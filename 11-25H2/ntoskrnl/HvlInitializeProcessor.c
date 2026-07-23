@@ -120,7 +120,7 @@ __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, int a3)
       --v5;
     }
     while ( v5 );
-    HvlpSetupCachedHypercallPages((union _SLIST_HEADER *)a1);
+    HvlpSetupCachedHypercallPages((_SLIST_HEADER *)a1);
     return 0LL;
   }
 LABEL_25:

@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetExeEntryFlags @ 0x140573320
+ * XREFs of SdbpGetExeEntryFlags @ 0x140573860
  * Callers:
- *     SdbpCheckForMatch @ 0x140573228 (SdbpCheckForMatch.c)
+ *     SdbpCheckForMatch @ 0x140573768 (SdbpCheckForMatch.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SdbReadBinaryTag @ 0x1404954C0 (SdbReadBinaryTag.c)
- *     SdbReadDWORDTag @ 0x1404EA9AC (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbGetEntryFlags @ 0x1405733F0 (SdbGetEntryFlags.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SdbReadBinaryTag @ 0x140495F50 (SdbReadBinaryTag.c)
+ *     SdbReadDWORDTag @ 0x1404CCBB0 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbGetEntryFlags @ 0x140573930 (SdbGetEntryFlags.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetExeEntryFlags(__int64 a1, unsigned int a2, int *a3)
@@ -38,7 +38,7 @@ __int64 __fastcall SdbpGetExeEntryFlags(__int64 a1, unsigned int a2, int *a3)
     v13 = "Failed to read TAG_EXE_ID for tiExe 0x%x";
     v14 = 449;
 LABEL_10:
-    AslLogCallPrintf(1, (unsigned int)"SdbpGetExeEntryFlags", v14, (_DWORD)v13, a2);
+    AslLogCallPrintf(1, (unsigned int)"SdbpGetExeEntryFlags", v14, (_DWORD)v13);
     return v4;
   }
   if ( !(unsigned int)SdbReadBinaryTag(a1, FirstTag, (__int64)&v17, 0x10u) )

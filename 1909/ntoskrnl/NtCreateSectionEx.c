@@ -6,16 +6,27 @@
  *     MiCreateSectionCommon @ 0x1405D6CC0 (MiCreateSectionCommon.c)
  */
 
-__int64 __fastcall NtCreateSectionEx(
-        unsigned __int64 a1,
-        __int64 a2,
-        int a3,
-        __int64 *a4,
-        int a5,
-        int a6,
-        __int64 a7,
-        _QWORD *Address,
-        unsigned int a9)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtCreateSectionEx(
+        PHANDLE SectionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PLARGE_INTEGER MaximumSize,
+        ULONG SectionPageProtection,
+        ULONG AllocationAttributes,
+        HANDLE FileHandle,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
-  return MiCreateSectionCommon(a1, a2, a3, a4, a5, a6, a7, Address, a9, 0);
+  return MiCreateSectionCommon(
+           (unsigned __int64)SectionHandle,
+           *(__int64 *)&DesiredAccess,
+           (int)ObjectAttributes,
+           (__int64 *)MaximumSize,
+           SectionPageProtection,
+           AllocationAttributes,
+           (__int64)FileHandle,
+           ExtendedParameters,
+           ExtendedParameterCount,
+           0);
 }

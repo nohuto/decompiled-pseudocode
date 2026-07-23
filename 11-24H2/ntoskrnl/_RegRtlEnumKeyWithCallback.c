@@ -1,16 +1,16 @@
 /*
- * XREFs of _RegRtlEnumKeyWithCallback @ 0x140992760
+ * XREFs of _RegRtlEnumKeyWithCallback @ 0x14097D7A0
  * Callers:
- *     DrvDbGetObjectSubKeyList @ 0x140922FC0 (DrvDbGetObjectSubKeyList.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     DrvDbGetObjectSubKeyList @ 0x1409250F8 (DrvDbGetObjectSubKeyList.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14027FEF0 (RtlpGetStackLimits.c)
- *     _SysCtxInternalEnumSubkeyCallback @ 0x140467768 (_SysCtxInternalEnumSubkeyCallback.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _RegRtlEnumKey @ 0x140992974 (_RegRtlEnumKey.c)
- *     _RegRtlQueryInfoKey @ 0x140993F98 (_RegRtlQueryInfoKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpGetStackLimits @ 0x140235480 (RtlpGetStackLimits.c)
+ *     _SysCtxInternalEnumSubkeyCallback @ 0x14045F208 (_SysCtxInternalEnumSubkeyCallback.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _RegRtlEnumKey @ 0x14097D9B4 (_RegRtlEnumKey.c)
+ *     _RegRtlQueryInfoKey @ 0x14097EFD8 (_RegRtlQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int64 *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int
   int v3; // r15d
   unsigned int v5; // ebx
   void *v6; // rdi
-  bool StackLimits; // al
+  char StackLimits; // al
   unsigned int v9; // eax
   unsigned __int64 v10; // rsi
   char *v12; // r14
@@ -29,8 +29,8 @@ __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int
   int v17; // ecx
   int v18; // ecx
   unsigned int v19; // [rsp+30h] [rbp-59h] BYREF
-  unsigned __int64 v20; // [rsp+38h] [rbp-51h] BYREF
-  unsigned __int64 v21[2]; // [rsp+40h] [rbp-49h] BYREF
+  __int64 v20; // [rsp+38h] [rbp-51h] BYREF
+  _QWORD v21[2]; // [rsp+40h] [rbp-49h] BYREF
   char v22; // [rsp+50h] [rbp-39h] BYREF
 
   v3 = 0;
@@ -39,8 +39,8 @@ __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int
   v5 = 0;
   v20 = 0LL;
   v6 = 0LL;
-  StackLimits = RtlpGetStackLimits((char **)&v20, v21);
-  if ( (unsigned __int64)v21 - (v20 & -(__int64)StackLimits) < 0x400 )
+  StackLimits = RtlpGetStackLimits((__int64)&v20, (__int64)v21);
+  if ( (unsigned __int64)v21 - (v20 & -(__int64)(StackLimits != 0)) < 0x400 )
     return (unsigned int)-1073741670;
   if ( !(unsigned int)RegRtlQueryInfoKey((_DWORD)KeyHandle, 0, (unsigned int)&v19, 0, 0LL, 0LL) )
   {
@@ -77,7 +77,7 @@ __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int
       if ( v6 )
         ExFreePoolWithTag(v6, 0);
 LABEL_16:
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)v10, 0x4C474552u);
       v6 = (void *)Pool2;
       if ( !Pool2 )
         return (unsigned int)-1073741801;

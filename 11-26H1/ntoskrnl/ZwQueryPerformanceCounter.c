@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQueryPerformanceCounter @ 0x140723A10
+ * XREFs of ZwQueryPerformanceCounter @ 0x1407285E0
  * Callers:
- *     DifZwQueryPerformanceCounterWrapper @ 0x1406B3450 (DifZwQueryPerformanceCounterWrapper.c)
+ *     DifZwQueryPerformanceCounterWrapper @ 0x1406B7030 (DifZwQueryPerformanceCounterWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryPerformanceCounter(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter, PLARGE_INTEGER PerformanceFrequency)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PerformanceCounter);
 }

@@ -70,10 +70,13 @@ LABEL_14:
   }
   MiInitializeNonPagedPoolThresholds();
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6B5E0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v12 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));

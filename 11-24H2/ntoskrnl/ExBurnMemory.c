@@ -1,7 +1,7 @@
 /*
- * XREFs of ExBurnMemory @ 0x140C0A860
+ * XREFs of ExBurnMemory @ 0x140C0C860
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */
@@ -43,14 +43,14 @@ LABEL_7:
   }
   v8 = v6 - v3;
   *(_QWORD *)(v4 + 40) = v8;
-  qword_140FC33C0 = *(_QWORD *)(v4 + 32) + v8;
-  qword_140FC33C8 = v3;
-  dword_140FC33B8 = 6;
+  qword_140FC3620 = *(_QWORD *)(v4 + 32) + v8;
+  qword_140FC3628 = v3;
+  dword_140FC3618 = 6;
   v9 = *(_QWORD *)v4;
   if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
     __fastfail(3u);
   BurnMemoryDescriptor = *(_QWORD *)v4;
-  qword_140FC33A8 = v4;
+  qword_140FC3608 = v4;
   v3 = 0LL;
   *(_QWORD *)(v9 + 8) = &BurnMemoryDescriptor;
   *(_QWORD *)v4 = &BurnMemoryDescriptor;

@@ -16,7 +16,7 @@ __int64 ExTraceTimerResolution()
   KIRQL v0; // al
   int v1; // r15d
   int v2; // r14d
-  int v3; // ebp
+  ULONG v3; // ebp
   int v4; // esi
   char v5; // di
   char v6; // bl

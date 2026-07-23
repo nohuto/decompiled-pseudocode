@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfCheckRequired @ 0x1404E0208
+ * XREFs of PpmPerfCheckRequired @ 0x1404D98E8
  * Callers:
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
  * Callees:
  *     <none>
  */

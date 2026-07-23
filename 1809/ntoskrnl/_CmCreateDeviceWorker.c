@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmCreateDeviceWorker @ 0x1406FD4F8
+ * XREFs of _CmCreateDeviceWorker @ 0x1406FE798
  * Callers:
- *     _CmCreateDevice @ 0x1406FD38C (_CmCreateDevice.c)
+ *     _CmCreateDevice @ 0x1406FE62C (_CmCreateDevice.c)
  * Callees:
- *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     _CmRaiseCreateEvent @ 0x1406FD5A0 (_CmRaiseCreateEvent.c)
+ *     _CmOpenDeviceRegKey @ 0x1405C7EF0 (_CmOpenDeviceRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x1406FE840 (_CmRaiseCreateEvent.c)
  */
 
 __int64 __fastcall CmCreateDeviceWorker(__int64 a1, __int64 a2, int a3, _QWORD *a4, bool *a5, __int16 a6)

@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwRecoverTransactionManager @ 0x14041E600
  * Callers:
- *     CmpInitCmRM @ 0x140742E3C (CmpInitCmRM.c)
+ *     sub_140742E3C @ 0x140742E3C (sub_140742E3C.c)
  * Callees:
  *     <none>
  */
@@ -12,5 +12,5 @@ NTSTATUS __stdcall ZwRecoverTransactionManager(HANDLE TransactionManagerHandle)
 
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionManagerHandle, v1);
+  return sub_140433F80(TransactionManagerHandle, v1);
 }

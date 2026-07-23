@@ -1,21 +1,21 @@
 /*
- * XREFs of MmAllocateContiguousNodeMemory @ 0x1403B9C20
+ * XREFs of MmAllocateContiguousNodeMemory @ 0x1403B9E00
  * Callers:
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403A90E0 (HalpInterruptBuildGlobalStartupStub.c)
- *     HalpAllocateCR3Root @ 0x1403A9168 (HalpAllocateCR3Root.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x1403AA918 (MiAllocateZeroCalibrationBuffer.c)
- *     HalAllocateCommonBufferExV2 @ 0x1403B1290 (HalAllocateCommonBufferExV2.c)
- *     HalpDmaAllocateContiguousMemory @ 0x140510410 (HalpDmaAllocateContiguousMemory.c)
- *     HalpDmaControllerInitializeController @ 0x1405167A0 (HalpDmaControllerInitializeController.c)
- *     HvlpAllocateOverlayPages @ 0x1405497DC (HvlpAllocateOverlayPages.c)
- *     IopInitializeInMemoryDumpData @ 0x140553370 (IopInitializeInMemoryDumpData.c)
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E190 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     ViAllocateContiguousMemory @ 0x140AC7A9C (ViAllocateContiguousMemory.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x1403A92C0 (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpAllocateCR3Root @ 0x1403A9348 (HalpAllocateCR3Root.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x1403AAAF8 (MiAllocateZeroCalibrationBuffer.c)
+ *     HalAllocateCommonBufferExV2 @ 0x1403B1470 (HalAllocateCommonBufferExV2.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x140510960 (HalpDmaAllocateContiguousMemory.c)
+ *     HalpDmaControllerInitializeController @ 0x140516CF0 (HalpDmaControllerInitializeController.c)
+ *     HvlpAllocateOverlayPages @ 0x140549E9C (HvlpAllocateOverlayPages.c)
+ *     IopInitializeInMemoryDumpData @ 0x140553A30 (IopInitializeInMemoryDumpData.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E6E0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     ViAllocateContiguousMemory @ 0x140AC7A8C (ViAllocateContiguousMemory.c)
  *     IommupHvInitializeLibrary @ 0x140B92694 (IommupHvInitializeLibrary.c)
  * Callees:
- *     MiAllocateContiguousMemory @ 0x1403B9CD4 (MiAllocateContiguousMemory.c)
- *     MiConvertContiguousMemoryParameters @ 0x1403BA438 (MiConvertContiguousMemoryParameters.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiAllocateContiguousMemory @ 0x1403B9EB4 (MiAllocateContiguousMemory.c)
+ *     MiConvertContiguousMemoryParameters @ 0x1403BA618 (MiConvertContiguousMemoryParameters.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmAllocateContiguousNodeMemory(__int64 a1, int a2, int a3, int a4, int a5, int a6)

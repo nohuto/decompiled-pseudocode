@@ -1,20 +1,20 @@
 /*
- * XREFs of PopUpdateSystemIdleContext @ 0x140824978
+ * XREFs of PopUpdateSystemIdleContext @ 0x140824C78
  * Callers:
- *     PopInitSIdle @ 0x140824914 (PopInitSIdle.c)
+ *     PopInitSIdle @ 0x140824C14 (PopInitSIdle.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopIdleCancelAoAcDozeS4Timer @ 0x14032EFC0 (PopIdleCancelAoAcDozeS4Timer.c)
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411374 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14059E178 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopPulseSystemIdleEvent @ 0x1407A853C (PopPulseSystemIdleEvent.c)
- *     PopFilterCapabilities @ 0x1407A8694 (PopFilterCapabilities.c)
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
- *     PopDiagTraceSystemIdleContextUpdate @ 0x140824B6C (PopDiagTraceSystemIdleContextUpdate.c)
- *     PopIsDozeSupported @ 0x140980B04 (PopIsDozeSupported.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14032F250 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411580 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059E668 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopPulseSystemIdleEvent @ 0x1407A872C (PopPulseSystemIdleEvent.c)
+ *     PopFilterCapabilities @ 0x1407A8884 (PopFilterCapabilities.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
+ *     PopDiagTraceSystemIdleContextUpdate @ 0x140824E6C (PopDiagTraceSystemIdleContextUpdate.c)
+ *     PopIsDozeSupported @ 0x140980D04 (PopIsDozeSupported.c)
  */
 
 void __fastcall PopUpdateSystemIdleContext(int a1)
@@ -57,8 +57,8 @@ LABEL_8:
   PopFilterCapabilities(&PopCapabilities, (__int64)v11);
   if ( v4 )
   {
-    v6 = dword_140C3D880;
-    if ( dword_140C3D880 )
+    v6 = dword_140C3D980;
+    if ( dword_140C3D980 )
     {
       v9 = 4;
       goto LABEL_27;
@@ -97,7 +97,7 @@ LABEL_27:
   if ( a1 == 3 )
   {
     PopIdleCancelAoAcDozeS4Timer(6u);
-    if ( byte_140C3CD51 )
+    if ( byte_140C3CCF1 )
       PopIdleArmAoAcDozeS4Timer();
   }
   PopSystemIdleContext = v9;

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoIsPartialDumpRetry @ 0x140591BA0
+ * XREFs of IoIsPartialDumpRetry @ 0x14058EBC0
  * Callers:
- *     HvlAddPagesCallbackRoutine @ 0x140589CB0 (HvlAddPagesCallbackRoutine.c)
- *     HvlAddSecureHvPagesCallbackRoutine @ 0x140589DD0 (HvlAddSecureHvPagesCallbackRoutine.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x140589E28 (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlAddSecureSkPagesCallbackRoutine @ 0x14058A050 (HvlAddSecureSkPagesCallbackRoutine.c)
- *     KeValidateBugCheckCallbackRecord @ 0x1405B2970 (KeValidateBugCheckCallbackRecord.c)
+ *     HvlAddPagesCallbackRoutine @ 0x140586FA0 (HvlAddPagesCallbackRoutine.c)
+ *     HvlAddSecureHvPagesCallbackRoutine @ 0x1405870C0 (HvlAddSecureHvPagesCallbackRoutine.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140587118 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlAddSecureSkPagesCallbackRoutine @ 0x140587340 (HvlAddSecureSkPagesCallbackRoutine.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x1405AF8E0 (KeValidateBugCheckCallbackRecord.c)
  * Callees:
  *     <none>
  */

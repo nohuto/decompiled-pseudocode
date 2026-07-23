@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryPrimaryGroupThread @ 0x140485128
+ * XREFs of KeQueryPrimaryGroupThread @ 0x140480638
  * Callers:
- *     NtCreateProfile @ 0x1407C41C0 (NtCreateProfile.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
- *     NtQuerySystemInformation @ 0x140AE0FD0 (NtQuerySystemInformation.c)
+ *     NtCreateProfile @ 0x1407C1FE0 (NtCreateProfile.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
+ *     NtQuerySystemInformation @ 0x140AE28B0 (NtQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

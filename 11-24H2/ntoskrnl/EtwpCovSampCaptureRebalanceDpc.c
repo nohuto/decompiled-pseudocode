@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampCaptureRebalanceDpc @ 0x140651D10
+ * XREFs of EtwpCovSampCaptureRebalanceDpc @ 0x140650410
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 void __fastcall EtwpCovSampCaptureRebalanceDpc(

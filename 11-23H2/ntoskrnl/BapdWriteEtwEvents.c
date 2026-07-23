@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdWriteEtwEvents @ 0x140383CE0
+ * XREFs of BapdWriteEtwEvents @ 0x140383EC0
  * Callers:
- *     BapdpProcessEtwEvents @ 0x140383BC0 (BapdpProcessEtwEvents.c)
- *     PopBootLoaderTraceProcess @ 0x1409883E0 (PopBootLoaderTraceProcess.c)
+ *     BapdpProcessEtwEvents @ 0x140383DA0 (BapdpProcessEtwEvents.c)
+ *     PopBootLoaderTraceProcess @ 0x1409885E0 (PopBootLoaderTraceProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     BapdpParseEventParts @ 0x140384044 (BapdpParseEventParts.c)
- *     BapdRegisterEtwProvider @ 0x1403840EC (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
- *     EtwSetInformation @ 0x1407D7120 (EtwSetInformation.c)
- *     BapdpWriteEventDataToRegistry @ 0x140A8F084 (BapdpWriteEventDataToRegistry.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     BapdpParseEventParts @ 0x140384224 (BapdpParseEventParts.c)
+ *     BapdRegisterEtwProvider @ 0x1403842CC (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
+ *     EtwSetInformation @ 0x1407D73F0 (EtwSetInformation.c)
+ *     BapdpWriteEventDataToRegistry @ 0x140A8EEFC (BapdpWriteEventDataToRegistry.c)
  */
 
 __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
@@ -153,7 +153,7 @@ LABEL_27:
         goto LABEL_55;
       case 0x14:
         if ( !*v8 )
-          ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL);
+          ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
         goto LABEL_27;
       case 0x1D:
 LABEL_55:
@@ -169,7 +169,7 @@ LABEL_55:
 LABEL_20:
     v2 = (*(unsigned int *)(v2 + 4) + v2 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
   }
-  if ( (qword_140C31B18 & 4) != 0 )
+  if ( (qword_140C31AB8 & 4) != 0 )
   {
     Data = 0;
     RtlInitUnicodeString(&DestinationString, L"BootmgrUserInputTime");

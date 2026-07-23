@@ -118,7 +118,7 @@ __int64 __fastcall ExpApplyPriorityBoost(__int64 a1, __int64 a2, __int64 a3, __i
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   CurrentPrcb = 4LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -177,7 +177,7 @@ LABEL_7:
         v38 = KeGetCurrentIrql();
         v67 = v38;
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v38 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu )
         {
           v40 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v38 == 2 )
@@ -190,10 +190,10 @@ LABEL_7:
         if ( (unsigned int)KiAbThreadInsertList(v21, CurrentPrcb + 35704, v21 + 808) )
           KiAbQueueAutoBoostDpc(CurrentPrcb);
         v39 = v67;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v43 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v67 <= 0xFu && v43 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v67 <= 0xFu && v43 >= 2u )
           {
             v44 = KeGetCurrentPrcb();
             v45 = v44->SchedulerAssist;
@@ -229,10 +229,10 @@ LABEL_7:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
       v65 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v47 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && LockHandle.OldIrql <= 0xFu && v47 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && LockHandle.OldIrql <= 0xFu && v47 >= 2u )
         {
           v48 = KeGetCurrentPrcb();
           v49 = v48->SchedulerAssist;
@@ -322,10 +322,10 @@ LABEL_7:
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
             v34 = LockHandle.OldIrql;
             v66 = LockHandle.OldIrql;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v51 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v51 <= 0xFu && LockHandle.OldIrql <= 0xFu && v51 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v51 <= 0xFu && LockHandle.OldIrql <= 0xFu && v51 >= 2u )
               {
                 v52 = KeGetCurrentPrcb();
                 v53 = v52->SchedulerAssist;
@@ -411,10 +411,10 @@ LABEL_54:
 LABEL_44:
   result = (unsigned int)KiIrqlFlags;
   v25 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v56 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v56 <= 0xFu && LockHandle.OldIrql <= 0xFu && v56 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu && LockHandle.OldIrql <= 0xFu && v56 >= 2u )
     {
       v57 = KeGetCurrentPrcb();
       v58 = v57->SchedulerAssist;

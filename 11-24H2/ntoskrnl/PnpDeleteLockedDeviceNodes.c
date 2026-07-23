@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNodes @ 0x140A6B488
+ * XREFs of PnpDeleteLockedDeviceNodes @ 0x140A649E8
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14073A198 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
- *     PipRemoveDevicesInRelationList @ 0x1409C6D70 (PipRemoveDevicesInRelationList.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407380C8 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipRemoveDevicesInRelationList @ 0x1409BADE0 (PipRemoveDevicesInRelationList.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PoFxIdleDevice @ 0x1403D76E4 (PoFxIdleDevice.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404D4ED8 (McTemplateK0z_EtwWriteTransfer.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PipSendGuestAssignedNotification @ 0x140736264 (PipSendGuestAssignedNotification.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     PnpRequestDeviceRemoval @ 0x140A1132C (PnpRequestDeviceRemoval.c)
- *     PnpDeleteLockedDeviceNode @ 0x140A6B71C (PnpDeleteLockedDeviceNode.c)
+ *     PoFxIdleDevice @ 0x1402F11C4 (PoFxIdleDevice.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x1404CE1B0 (McTemplateK0z_EtwWriteTransfer.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PipSendGuestAssignedNotification @ 0x140734194 (PipSendGuestAssignedNotification.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     PnpRequestDeviceRemoval @ 0x1409BF73C (PnpRequestDeviceRemoval.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140A64C7C (PnpDeleteLockedDeviceNode.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNodes(
@@ -85,7 +85,7 @@ LABEL_5:
           *(_DWORD *)(v21 + 704) &= ~0x2000u;
           if ( (v22 & 0x2000) != 0 )
           {
-            if ( (byte_140EEFD24 & 8) != 0 )
+            if ( (byte_140EEFF64 & 8) != 0 )
               McTemplateK0z_EtwWriteTransfer(
                 v22,
                 (const EVENT_DESCRIPTOR *)KMPnPEvt_Guest_Unassigned,
@@ -94,7 +94,7 @@ LABEL_5:
             PnpSetObjectProperty(
               *(__int64 *)&PiPnpRtlCtx,
               *(_QWORD *)(v21 + 48),
-              1u,
+              1,
               0LL,
               0LL,
               (__int64)DEVPKEY_Device_AssignedToGuest,

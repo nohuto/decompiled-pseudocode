@@ -1,21 +1,21 @@
 /*
- * XREFs of BiSetRegistryValue @ 0x14085DF2C
+ * XREFs of BiSetRegistryValue @ 0x140859C9C
  * Callers:
- *     BiSetFirmwareModified @ 0x1404A7F74 (BiSetFirmwareModified.c)
- *     BcdMarkAsSystemStore @ 0x140811D3C (BcdMarkAsSystemStore.c)
- *     BiMarkTreatAsSystemStore @ 0x140811E50 (BiMarkTreatAsSystemStore.c)
- *     BiCreateEfiEntry @ 0x140814FB0 (BiCreateEfiEntry.c)
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
- *     BiAddStoreFromFile @ 0x14085E3B8 (BiAddStoreFromFile.c)
- *     BiSetObjectDescription @ 0x14085F3C4 (BiSetObjectDescription.c)
- *     BcdSetElementDataWithFlags @ 0x1409BEB2C (BcdSetElementDataWithFlags.c)
- *     BcdSetBootBcdAsSystemStore @ 0x140C5C8E8 (BcdSetBootBcdAsSystemStore.c)
+ *     BiSetFirmwareModified @ 0x1404A29C4 (BiSetFirmwareModified.c)
+ *     BcdMarkAsSystemStore @ 0x14081247C (BcdMarkAsSystemStore.c)
+ *     BiMarkTreatAsSystemStore @ 0x140812590 (BiMarkTreatAsSystemStore.c)
+ *     BiCreateEfiEntry @ 0x1408156F0 (BiCreateEfiEntry.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
+ *     BiAddStoreFromFile @ 0x14085A128 (BiAddStoreFromFile.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A517C (BcdSetElementDataWithFlags.c)
+ *     BiSetObjectDescription @ 0x140AAAEDC (BiSetObjectDescription.c)
+ *     BcdSetBootBcdAsSystemStore @ 0x140C5EA78 (BcdSetBootBcdAsSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x1404A6FD0 (BiSanitizeHandle.c)
- *     BiZwSetValueKey @ 0x1404B2108 (BiZwSetValueKey.c)
- *     BiCloseKey @ 0x14085CB80 (BiCloseKey.c)
- *     BiOpenKey @ 0x14085D808 (BiOpenKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     BiSanitizeHandle @ 0x1404A1930 (BiSanitizeHandle.c)
+ *     BiZwSetValueKey @ 0x1404AC998 (BiZwSetValueKey.c)
+ *     BiCloseKey @ 0x1408588F0 (BiCloseKey.c)
+ *     BiOpenKey @ 0x140859578 (BiOpenKey.c)
  */
 
 __int64 __fastcall BiSetRegistryValue(__int64 a1, const WCHAR *a2, const WCHAR *a3, ULONG a4, PVOID a5, ULONG a6)

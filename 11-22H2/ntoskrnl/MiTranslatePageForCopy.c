@@ -356,10 +356,16 @@ LABEL_77:
     goto LABEL_20;
   }
   _InterlockedAnd64((volatile signed __int64 *)(v39 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
+  {
     v42 = v57[0];
+  }
   else
+  {
     v42 = v57[0];
+  }
   __writecr8(v42);
 LABEL_92:
   v18 = -1073741608;

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMlDsaMontMul @ 0x140572D60
+ * XREFs of SymCryptMlDsaMontMul @ 0x140571F6C
  * Callers:
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
  * Callees:
  *     <none>
  */

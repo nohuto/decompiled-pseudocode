@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroWithUltraSpace @ 0x1402A0EE0
+ * XREFs of MiZeroWithUltraSpace @ 0x1402A0430
  * Callers:
- *     MiZeroChainWorker @ 0x1402A0D50 (MiZeroChainWorker.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
+ *     MiZeroChainWorker @ 0x1402A02A0 (MiZeroChainWorker.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     AccelFillMemory @ 0x1402A19C4 (AccelFillMemory.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     AccelFillMemory @ 0x1402A0F14 (AccelFillMemory.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
  */
 
 unsigned __int64 __fastcall MiZeroWithUltraSpace(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -53,7 +53,7 @@ unsigned __int64 __fastcall MiZeroWithUltraSpace(__int64 a1, __int64 a2, __int64
     goto LABEL_9;
   if ( (int)AccelFillMemory(a2, UltraMapping, v14, 0, 3LL) < 0 )
   {
-    _InterlockedIncrement(&dword_140EF4A84);
+    _InterlockedIncrement(&dword_140EF4DEC);
 LABEL_9:
     KeZeroPages(UltraMapping, v14);
   }

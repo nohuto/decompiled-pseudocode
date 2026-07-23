@@ -1,9 +1,9 @@
 /*
- * XREFs of PopApplyAdminPolicy @ 0x140AB8BB0
+ * XREFs of PopApplyAdminPolicy @ 0x140AB3074
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PopApplyAdminPolicy(__int64 a1, __m128i *a2)
@@ -32,13 +32,13 @@ __int64 __fastcall PopApplyAdminPolicy(__int64 a1, __m128i *a2)
   {
     v6 = v5 - *((_QWORD *)&PopAdminPolicy + 1);
     if ( v5 == *((_QWORD *)&PopAdminPolicy + 1) )
-      v6 = v3 - qword_140F0BAD0;
+      v6 = v3 - qword_140F0B650;
   }
   result = 0LL;
   if ( v6 )
   {
     PopAdminPolicy = (__int128)v2;
-    qword_140F0BAD0 = v3;
+    qword_140F0B650 = v3;
   }
   return result;
 }

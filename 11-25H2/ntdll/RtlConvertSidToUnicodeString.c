@@ -32,7 +32,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   size_t v13; // r8
   wchar_t *v14; // rcx
   NTSTATUS v15; // edx
-  char v16; // al
+  BOOLEAN v16; // al
   int v17; // eax
   __int64 v18; // rdx
   _DWORD v19[4]; // [rsp+20h] [rbp-248h] BYREF
@@ -42,7 +42,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   _BYTE v23[2]; // [rsp+22Ch] [rbp-3Ch] BYREF
   _BYTE v24[2]; // [rsp+22Eh] [rbp-3Ah] BYREF
 
-  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+  if ( RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
     return -1073741704;
   wcscpy_s(&Destination, 0x100uLL, L"S-1-");
   v6 = v21;

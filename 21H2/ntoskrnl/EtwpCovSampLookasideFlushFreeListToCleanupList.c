@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF36C
+ * XREFs of EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF59C
  * Callers:
- *     EtwpCovSampCaptureCleanupLookasides @ 0x1405AE928 (EtwpCovSampCaptureCleanupLookasides.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x140942908 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x1405AEB58 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140942AD8 (EtwpCovSampCaptureFreeLookasides.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampPushListSList @ 0x1405AF790 (EtwpCovSampPushListSList.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampPushListSList @ 0x1405AF9C0 (EtwpCovSampPushListSList.c)
  */
 
-__int64 __fastcall EtwpCovSampLookasideFlushFreeListToCleanupList(union _SLIST_HEADER *a1)
+__int64 __fastcall EtwpCovSampLookasideFlushFreeListToCleanupList(_SLIST_HEADER *a1)
 {
   unsigned __int64 Alignment; // rdi
   unsigned int v2; // ebx

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDemotePfnListChain @ 0x14069234C
+ * XREFs of MiDemotePfnListChain @ 0x14069341C
  * Callers:
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x140414A8C (MiInitializeLargeMdlLeafPfns.c)
- *     MiPopLargePfnList @ 0x1404912BC (MiPopLargePfnList.c)
- *     MiMakeLargePageTable @ 0x1404F8168 (MiMakeLargePageTable.c)
- *     MiFillUserPhysicalMdl @ 0x140681F84 (MiFillUserPhysicalMdl.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiPopLargePfnList @ 0x14048BDB4 (MiPopLargePfnList.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x1404A6B00 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiMakeLargePageTable @ 0x1404F5A48 (MiMakeLargePageTable.c)
+ *     MiFillUserPhysicalMdl @ 0x140683174 (MiFillUserPhysicalMdl.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x1403A29EC (MiUpdateLargePageBitMap.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiUpdateDemotedSubPage @ 0x14042FB30 (MiUpdateDemotedSubPage.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiUpdateLargePageBitMap @ 0x140219EE0 (MiUpdateLargePageBitMap.c)
+ *     MiUpdateDemotedSubPage @ 0x1402EF390 (MiUpdateDemotedSubPage.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
@@ -69,7 +69,7 @@ __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
       if ( CurrentIrql != 2 )
         v11 = 2;
       MiUpdateLargePageBitMap(
-        *((_QWORD *)qword_140E2FF88 + ((v7[5] >> 43) & 0x3FFLL)),
+        *((_QWORD *)qword_140E300C8 + ((v7[5] >> 43) & 0x3FFLL)),
         0xAAAAAAAAAAAAAAABuLL * ((__int64)(v7 + 0x44000000000LL) >> 4),
         v9,
         v11);

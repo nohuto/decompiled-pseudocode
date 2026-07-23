@@ -1,24 +1,29 @@
 /*
- * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1402B2E70
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1402B3100
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1402B02C0 (SepReferenceTokenByHandle.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
+ *     SepReferenceTokenByHandle @ 0x1402B0550 (SepReferenceTokenByHandle.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     SepSidFromProcessProtection @ 0x1402B3370 (SepSidFromProcessProtection.c)
- *     RtlSidDominatesForTrust @ 0x1402B33F0 (RtlSidDominatesForTrust.c)
- *     PsReferenceEffectiveToken @ 0x14071D6EC (PsReferenceEffectiveToken.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D7A0 (PsReferenceImpersonationTokenEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     SepSidFromProcessProtection @ 0x1402B3600 (SepSidFromProcessProtection.c)
+ *     RtlSidDominatesForTrust @ 0x1402B3680 (RtlSidDominatesForTrust.c)
+ *     PsReferenceEffectiveToken @ 0x14071D8EC (PsReferenceEffectiveToken.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14071D9A0 (PsReferenceImpersonationTokenEx.c)
  */
 
-__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, int a2, ULONG_PTR *a3, _BYTE *a4, __int64 *a5)
+__int64 __fastcall SepReferenceTokenUsingPseudoHandle(
+        __int64 a1,
+        int a2,
+        ULONG_PTR *a3,
+        _BYTE *a4,
+        _QWORD *DominatesTrust)
 {
-  __int64 *v5; // rsi
+  _QWORD *v5; // rsi
   struct _KTHREAD *CurrentThread; // rax
   void *v9; // rax
-  __int64 v10; // rbp
-  __int64 v11; // r9
+  void *v10; // rbp
+  PSID v11; // r9
   ULONG_PTR v12; // r11
   void *v14; // rax
   int v15; // [rsp+60h] [rbp+8h] BYREF
@@ -26,7 +31,7 @@ __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, int a2, ULONG_
   int v17; // [rsp+70h] [rbp+18h] BYREF
 
   v16 = a2;
-  v5 = a5;
+  v5 = DominatesTrust;
   *a3 = 0LL;
   *a4 = 0;
   v17 = 0;
@@ -47,7 +52,7 @@ LABEL_6:
                    (_DWORD)CurrentThread,
                    1953654867,
                    (unsigned int)&v15,
-                   (unsigned int)&a5,
+                   (unsigned int)&DominatesTrust,
                    (__int64)&v17,
                    (__int64)&v16);
     if ( v15 == 2 && !v17 )
@@ -57,7 +62,7 @@ LABEL_6:
     }
     goto LABEL_4;
   }
-  v14 = (void *)PsReferenceImpersonationTokenEx(CurrentThread, 0LL, 1953654867LL, &v15, &a5, &v17, &v16);
+  v14 = (void *)PsReferenceImpersonationTokenEx(CurrentThread, 0LL, 1953654867LL, &v15, &DominatesTrust, &v17, &v16);
   if ( v14 )
   {
     if ( !v17 )
@@ -68,10 +73,10 @@ LABEL_6:
 LABEL_4:
     *a4 = 0;
     *v5 = 0LL;
-    LOBYTE(a5) = 0;
-    v10 = SepSidFromProcessProtection(&v16);
-    RtlSidDominatesForTrust(v10, v11, &a5, v11);
-    if ( !(_BYTE)a5 )
+    LOBYTE(DominatesTrust) = 0;
+    v10 = (void *)SepSidFromProcessProtection(&v16);
+    RtlSidDominatesForTrust(v10, v11, (PBOOLEAN)&DominatesTrust);
+    if ( !(_BYTE)DominatesTrust )
     {
       *a4 = 1;
       *v5 = v10;

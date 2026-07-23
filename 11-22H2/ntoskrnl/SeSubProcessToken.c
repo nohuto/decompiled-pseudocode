@@ -197,7 +197,7 @@ LABEL_58:
   inserted = SepSetTokenBnoIsolation((__int64)Object, 0, 0LL, 0, 0LL);
   if ( inserted < 0 )
     goto LABEL_57;
-  inserted = SepDesktopAppxSubProcessToken((__int64)Object, a1, *(_DWORD *)(a6 + 4), &v36, v37);
+  inserted = SepDesktopAppxSubProcessToken(Object, a1, *(_DWORD *)(a6 + 4), &v36, v37);
   if ( inserted < 0 )
     goto LABEL_57;
   inserted = SepMandatorySubProcessToken((_DWORD *)(v16 & -(__int64)((a4 & 2) != 0)), (__int64)Object, a1, &v40);

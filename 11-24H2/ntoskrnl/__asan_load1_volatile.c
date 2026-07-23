@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_load1_volatile @ 0x1405AB780
+ * XREFs of __asan_load1_volatile @ 0x1405A86F0
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 signed __int8 __fastcall _asan_load1_volatile(ULONG_PTR BugCheckParameter1)
@@ -13,7 +13,7 @@ signed __int8 __fastcall _asan_load1_volatile(ULONG_PTR BugCheckParameter1)
   signed __int8 result; // al
   signed __int8 v4; // cl
 
-  if ( byte_140FCDC2A )
+  if ( byte_140FCECAA )
   {
     result = 0;
     if ( BugCheckParameter1 >= 0xFFFF800000000000uLL )

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrpDatabaseFindPointer @ 0x140BA4150
+ * XREFs of ViIrpDatabaseFindPointer @ 0x140BA6150
  * Callers:
- *     VfIrpDatabaseCheckExFreePool @ 0x140BA3E64 (VfIrpDatabaseCheckExFreePool.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140BA7084 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseCheckExFreePool @ 0x140BA5E64 (VfIrpDatabaseCheckExFreePool.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140BA9084 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
- *     VfUtilAddressRangeFit @ 0x140B83148 (VfUtilAddressRangeFit.c)
+ *     VfUtilAddressRangeFit @ 0x140B85148 (VfUtilAddressRangeFit.c)
  */
 
 _QWORD *__fastcall ViIrpDatabaseFindPointer(unsigned __int64 a1)

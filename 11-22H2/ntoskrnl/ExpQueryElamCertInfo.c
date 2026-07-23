@@ -112,7 +112,7 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                     v3 = -1073741637;
                   if ( v3 >= 0 )
                   {
-                    v3 = SeRegisterElamCertResources((ULONGLONG)v2, v7, 1);
+                    v3 = SeRegisterElamCertResources((unsigned __int64)v2, v7, 1);
                     if ( v3 >= 0 )
                       v3 = 0;
                   }

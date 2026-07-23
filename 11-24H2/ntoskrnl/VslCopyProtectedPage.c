@@ -1,12 +1,12 @@
 /*
- * XREFs of VslCopyProtectedPage @ 0x14048BE78
+ * XREFs of VslCopyProtectedPage @ 0x140486C48
  * Callers:
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     KeCopyPrivilegedPage @ 0x14048BE3C (KeCopyPrivilegedPage.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     KeCopyPrivilegedPage @ 0x140486C0C (KeCopyPrivilegedPage.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslCopyProtectedPage(__int64 a1, __int128 *a2, __int64 a3, __int128 *a4, __int64 a5, char a6)
@@ -30,5 +30,5 @@ __int64 __fastcall VslCopyProtectedPage(__int64 a1, __int128 *a2, __int64 a3, __
   v15 = v10;
   v16 = a3;
   v17 = v11;
-  return VslpEnterIumSecureMode(2u, 244LL, 0, (__int64)v13);
+  return VslpEnterIumSecureMode(2u, 0xF4u, 0, (__int64)v13);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpGetTraceIndex @ 0x140744E8C
+ * XREFs of ObpGetTraceIndex @ 0x14074317C
  * Callers:
- *     ObpPushRefDerefInfo @ 0x140745228 (ObpPushRefDerefInfo.c)
+ *     ObpPushRefDerefInfo @ 0x140743518 (ObpPushRefDerefInfo.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ObpGetTraceIndex(unsigned __int16 *Source2)
@@ -57,7 +57,7 @@ __int64 __fastcall ObpGetTraceIndex(unsigned __int16 *Source2)
   }
   if ( *(_WORD *)ObpStackTable == *((_WORD *)ObpStackTable + 1) )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x20000uLL, 0x7452624Fu);
     if ( !Pool2 )
       return 16381LL;
     v10 = (unsigned __int16 *)ObpStackTable;

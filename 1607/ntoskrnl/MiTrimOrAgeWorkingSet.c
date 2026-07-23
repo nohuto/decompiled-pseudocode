@@ -1,30 +1,30 @@
 /*
- * XREFs of MiTrimOrAgeWorkingSet @ 0x1400CDCA0
+ * XREFs of MiTrimOrAgeWorkingSet @ 0x1400CBB40
  * Callers:
- *     MiProcessWorkingSets @ 0x1400CD640 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1400CB4E0 (MiProcessWorkingSets.c)
  * Callees:
- *     MiEmptyWorkingSet @ 0x140015ED4 (MiEmptyWorkingSet.c)
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EF00 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     MiAgeWorkingSet @ 0x140047090 (MiAgeWorkingSet.c)
- *     MiQueuePageAccessLog @ 0x140086FA4 (MiQueuePageAccessLog.c)
- *     MiAttachSession @ 0x1400A5234 (MiAttachSession.c)
- *     MiDetachSession @ 0x1400A7C2C (MiDetachSession.c)
- *     PfLogForegroundProcess @ 0x1400A86E4 (PfLogForegroundProcess.c)
- *     KiAttachProcess @ 0x1400CD4F0 (KiAttachProcess.c)
- *     KiDetachProcess @ 0x1400CE460 (KiDetachProcess.c)
- *     MiReturnCcAccessLog @ 0x1400CE7C4 (MiReturnCcAccessLog.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140129C50 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1401C1588 (HvlSwitchVirtualAddressSpace.c)
- *     KiSetAddressPolicy @ 0x1401D907C (KiSetAddressPolicy.c)
- *     MiComputeTrimAmount @ 0x1401E951C (MiComputeTrimAmount.c)
- *     MiPreUnlockWorkingSetExclusive @ 0x1401F2A6C (MiPreUnlockWorkingSetExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiEmptyWorkingSet @ 0x140015A54 (MiEmptyWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EA80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     MiAgeWorkingSet @ 0x140046C10 (MiAgeWorkingSet.c)
+ *     MiQueuePageAccessLog @ 0x140088894 (MiQueuePageAccessLog.c)
+ *     MiAttachSession @ 0x1400A37AC (MiAttachSession.c)
+ *     MiDetachSession @ 0x1400A61A4 (MiDetachSession.c)
+ *     PfLogForegroundProcess @ 0x1400A6C5C (PfLogForegroundProcess.c)
+ *     KiAttachProcess @ 0x1400CB390 (KiAttachProcess.c)
+ *     KiDetachProcess @ 0x1400CC300 (KiDetachProcess.c)
+ *     MiReturnCcAccessLog @ 0x1400CC664 (MiReturnCcAccessLog.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x14012A1C0 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1401C146C (HvlSwitchVirtualAddressSpace.c)
+ *     KiSetAddressPolicy @ 0x1401D8EA8 (KiSetAddressPolicy.c)
+ *     MiComputeTrimAmount @ 0x1401E9348 (MiComputeTrimAmount.c)
+ *     MiPreUnlockWorkingSetExclusive @ 0x1401F2898 (MiPreUnlockWorkingSetExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiTrimOrAgeWorkingSet(ULONG_PTR a1, __int64 a2, unsigned int a3)
@@ -71,7 +71,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(ULONG_PTR a1, __int64 a2, unsigned int 
   __int64 v45; // rdx
   __int64 v46; // rcx
   char v47; // al
-  struct _SLIST_ENTRY *v48; // rsi
+  _SLIST_ENTRY *v48; // rsi
   int v50; // [rsp+30h] [rbp-A8h] BYREF
   int v51; // [rsp+34h] [rbp-A4h] BYREF
   __int64 v52; // [rsp+38h] [rbp-A0h]
@@ -89,13 +89,13 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(ULONG_PTR a1, __int64 a2, unsigned int 
   if ( v6 == 1023 )
     v7 = MiSystemPartition;
   else
-    v7 = *(int **)(qword_140326FF8 + 8LL * v6);
+    v7 = *(int **)(qword_140327038 + 8LL * v6);
   v8 = *((_QWORD *)v7 + 781);
-  v9 = &dword_140327C80;
+  v9 = &dword_140327CC0;
   v10 = *(_BYTE *)(a1 + 184) & 7;
   v52 = v8;
   if ( v10 == 2 )
-    v54 = &dword_140327C80;
+    v54 = &dword_140327CC0;
   else
     v54 = (LONG *)(a1 + 192);
   if ( v10 )
@@ -227,13 +227,13 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(ULONG_PTR a1, __int64 a2, unsigned int 
           v14->MiscFlags &= ~0x800u;
           __writecr8((unsigned __int8)CurrentIrql);
           v8 = v52;
-          v9 = &dword_140327C80;
+          v9 = &dword_140327CC0;
           v58 = 0LL;
         }
       }
     }
   }
-  v29 = &dword_140327C80;
+  v29 = &dword_140327CC0;
   if ( (*(_BYTE *)(a1 + 184) & 7) != 2 )
     v29 = (LONG *)(a1 + 192);
   v30 = KeGetCurrentIrql();
@@ -332,7 +332,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(ULONG_PTR a1, __int64 a2, unsigned int 
         i = v43;
       if ( MEMORY[0xFFFFF78000000320] - i[2] > (unsigned __int64)PfKernelGlobals )
       {
-        MiEmptyPageAccessLog(*((struct _SLIST_ENTRY **)v54 + 5));
+        MiEmptyPageAccessLog(*((_SLIST_ENTRY **)v54 + 5));
         *((_QWORD *)v41 + 5) = 0LL;
       }
     }
@@ -357,9 +357,9 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(ULONG_PTR a1, __int64 a2, unsigned int 
   }
   if ( !v36 )
   {
-    if ( qword_140327180 )
+    if ( qword_1403271C0 )
     {
-      v48 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_140327180, 0LL);
+      v48 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_1403271C0, 0LL);
       if ( v48 )
       {
         if ( v39 - (unsigned __int64)v48[1].Next > PfKernelGlobals || (a3 & 0x18) != 0 )

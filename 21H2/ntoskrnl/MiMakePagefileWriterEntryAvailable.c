@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakePagefileWriterEntryAvailable @ 0x1402D00F4
+ * XREFs of MiMakePagefileWriterEntryAvailable @ 0x14024E474
  * Callers:
- *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
- *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
- *     MiModifiedPageWriter @ 0x1403BDB20 (MiModifiedPageWriter.c)
- *     MiPageFileNoFreeSpace @ 0x140543C34 (MiPageFileNoFreeSpace.c)
+ *     MiGatherPagefilePages @ 0x140256844 (MiGatherPagefilePages.c)
+ *     MiWriteComplete @ 0x1402766E0 (MiWriteComplete.c)
+ *     MiModifiedPageWriter @ 0x1403BF240 (MiModifiedPageWriter.c)
+ *     MiPageFileNoFreeSpace @ 0x140543E74 (MiPageFileNoFreeSpace.c)
  * Callees:
  *     <none>
  */
@@ -26,12 +26,12 @@ _QWORD *__fastcall MiMakePagefileWriterEntryAvailable(_QWORD *a1)
       v1[1] = a1;
       return result;
     }
-FatalListEntryError_22:
+FatalListEntryError_14:
     __fastfail(3u);
   }
   result = (_QWORD *)*v1;
   if ( *(_QWORD **)(*v1 + 8LL) != v1 )
-    goto FatalListEntryError_22;
+    goto FatalListEntryError_14;
   *a1 = result;
   a1[1] = v1;
   result[1] = a1;

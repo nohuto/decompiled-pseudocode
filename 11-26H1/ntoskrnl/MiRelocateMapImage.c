@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRelocateMapImage @ 0x1409CBD3C
+ * XREFs of MiRelocateMapImage @ 0x14099CD1C
  * Callers:
- *     MiRelocateImage @ 0x1409CA7A4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14099B784 (MiRelocateImage.c)
  * Callees:
- *     PsSetSystemPagePriorityThread @ 0x140480008 (PsSetSystemPagePriorityThread.c)
- *     MiSetDeleteOnClose @ 0x14050687C (MiSetDeleteOnClose.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
+ *     PsSetSystemPagePriorityThread @ 0x140479948 (PsSetSystemPagePriorityThread.c)
+ *     MiSetDeleteOnClose @ 0x14050012C (MiSetDeleteOnClose.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
  */
 
 __int64 __fastcall MiRelocateMapImage(__int64 *a1)
@@ -32,7 +32,7 @@ __int64 __fastcall MiRelocateMapImage(__int64 *a1)
     v5 = *((_DWORD *)a1 + 18);
     v6 = a1[1];
     *((_DWORD *)a1 + 13) = v4;
-    result = MiParseImageLoadConfig(v1, v3, v6, v5 << 12, a1[7] + 72);
+    result = MiParseImageLoadConfig(v1, v3, v6, (unsigned int)(v5 << 12), a1[7] + 72);
     if ( (int)result >= 0 )
     {
       *((_DWORD *)a1 + 8) |= 0x400u;

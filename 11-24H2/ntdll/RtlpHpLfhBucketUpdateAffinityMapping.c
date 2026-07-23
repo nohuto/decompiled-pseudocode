@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x180119830
+ * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117A60
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x180010830 (RtlpHpMetadataAlloc.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpReallocMove @ 0x180094540 (RtlpHpReallocMove.c)
- *     RtlpHpTagAllocateHeap @ 0x180094EF0 (RtlpHpTagAllocateHeap.c)
- *     RtlpHpSegReAlloc @ 0x1800A3160 (RtlpHpSegReAlloc.c)
- *     RtlpHpAllocateHeapSlow @ 0x1800ACEF0 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpMetadataAlloc @ 0x18003D230 (RtlpHpMetadataAlloc.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpHpSegReAlloc @ 0x18005CF10 (RtlpHpSegReAlloc.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpTagAllocateHeap @ 0x180083CE0 (RtlpHpTagAllocateHeap.c)
+ *     RtlpHpReallocMove @ 0x18009EFF0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeapSlow @ 0x18009FA50 (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0 (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpEnvTlsSetValue @ 0x18004EB3C (RtlpHpEnvTlsSetValue.c)
- *     RtlpHpGetCurrentProcessorNumber @ 0x18004EBB4 (RtlpHpGetCurrentProcessorNumber.c)
- *     RtlpHpLfhBucketGetSlotInfo @ 0x18008F410 (RtlpHpLfhBucketGetSlotInfo.c)
- *     RtlpHpLfhContextSlotAllocate @ 0x1800A4C3C (RtlpHpLfhContextSlotAllocate.c)
- *     RtlpHpAffinityMgrUpdateProcess @ 0x18011C63C (RtlpHpAffinityMgrUpdateProcess.c)
- *     RtlpHpAffinityMgrUpdateComplete @ 0x18011C7B8 (RtlpHpAffinityMgrUpdateComplete.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpHpLfhBucketGetSlotInfo @ 0x180026DE0 (RtlpHpLfhBucketGetSlotInfo.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpEnvTlsSetValue @ 0x18006471C (RtlpHpEnvTlsSetValue.c)
+ *     RtlpHpGetCurrentProcessorNumber @ 0x180064794 (RtlpHpGetCurrentProcessorNumber.c)
+ *     RtlpHpLfhContextSlotAllocate @ 0x1800D65B0 (RtlpHpLfhContextSlotAllocate.c)
+ *     RtlpHpAffinityMgrUpdateProcess @ 0x18011A86C (RtlpHpAffinityMgrUpdateProcess.c)
+ *     RtlpHpAffinityMgrUpdateComplete @ 0x18011A9E8 (RtlpHpAffinityMgrUpdateComplete.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, volatile signed __int8 *a2)

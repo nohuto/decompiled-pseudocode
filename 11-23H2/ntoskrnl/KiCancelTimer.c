@@ -1,15 +1,15 @@
 /*
- * XREFs of KiCancelTimer @ 0x140253AA0
+ * XREFs of KiCancelTimer @ 0x140253B60
  * Callers:
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     KeSetTimerEx @ 0x140253590 (KeSetTimerEx.c)
- *     KiSuspendThread @ 0x140309F1C (KiSuspendThread.c)
- *     KeCancelTimerInternal @ 0x1403698D0 (KeCancelTimerInternal.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     KeSetTimerEx @ 0x140253650 (KeSetTimerEx.c)
+ *     KiSuspendThread @ 0x14030A1AC (KiSuspendThread.c)
+ *     KeCancelTimerInternal @ 0x140369A70 (KeCancelTimerInternal.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiCancelTimer(__int64 a1, char a2)

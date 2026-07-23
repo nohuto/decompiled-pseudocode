@@ -31,112 +31,115 @@ void __fastcall SmKmStoreTerminateWorker(PVOID P)
   __int64 v10; // rbx
   struct _EX_RUNDOWN_REF *v11; // rax
   int v12; // eax
-  size_t Size; // rbx
+  unsigned __int64 v13; // rbx
   const wchar_t *v14; // rax
-  __int64 v15; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 *v16; // [rsp+58h] [rbp-B0h]
-  __int64 v17; // [rsp+60h] [rbp-A8h]
-  __int64 v18; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v19[2]; // [rsp+70h] [rbp-98h] BYREF
-  int v20; // [rsp+80h] [rbp-88h]
-  int v21; // [rsp+84h] [rbp-84h]
-  int v22; // [rsp+88h] [rbp-80h]
-  int v23; // [rsp+8Ch] [rbp-7Ch]
-  int v24; // [rsp+90h] [rbp-78h]
-  const wchar_t *v25; // [rsp+98h] [rbp-70h]
-  int v26; // [rsp+A0h] [rbp-68h]
-  int v27; // [rsp+A8h] [rbp-60h]
-  _DWORD v28[20]; // [rsp+B8h] [rbp-50h] BYREF
-  _DWORD v29[284]; // [rsp+108h] [rbp+0h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v30[6]; // [rsp+578h] [rbp+470h] BYREF
+  ULONG ReturnLength; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 SystemInformation; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 *v17; // [rsp+58h] [rbp-B0h]
+  __int64 v18; // [rsp+60h] [rbp-A8h]
+  __int64 v19; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v20[2]; // [rsp+70h] [rbp-98h] BYREF
+  int v21; // [rsp+80h] [rbp-88h]
+  int v22; // [rsp+84h] [rbp-84h]
+  int v23; // [rsp+88h] [rbp-80h]
+  int v24; // [rsp+8Ch] [rbp-7Ch]
+  int v25; // [rsp+90h] [rbp-78h]
+  const wchar_t *v26; // [rsp+98h] [rbp-70h]
+  int v27; // [rsp+A0h] [rbp-68h]
+  int v28; // [rsp+A8h] [rbp-60h]
+  _DWORD v29[20]; // [rsp+B8h] [rbp-50h] BYREF
+  _DWORD v30[284]; // [rsp+108h] [rbp+0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v31[6]; // [rsp+578h] [rbp+470h] BYREF
 
-  memset(v29, 0, 0x468uLL);
-  v18 = 0LL;
-  memset(v30, 0, sizeof(v30));
-  memset(v28, 0, 0x44uLL);
-  v17 = 68LL;
-  v16 = (__int64 *)v28;
-  v15 = 0x800000001LL;
-  v28[0] = 1;
-  if ( (int)ZwQuerySystemInformation(109LL, (__int64)&v15) >= 0
-    && (v15 = 0xD00000001LL,
-        v16 = (__int64 *)v29,
-        LODWORD(v17) = 1128,
-        memset(&v29[1], 0, 0x464uLL),
+  ReturnLength = 0;
+  memset(v30, 0, 0x468uLL);
+  v19 = 0LL;
+  memset(v31, 0, sizeof(v31));
+  memset(v29, 0, 0x44uLL);
+  v18 = 68LL;
+  v17 = (__int64 *)v29;
+  SystemInformation = 0x800000001LL;
+  v29[0] = 1;
+  if ( ZwQuerySystemInformation(SystemStoreInformation, &SystemInformation, 0x18u, &ReturnLength) >= 0
+    && (SystemInformation = 0xD00000001LL,
+        v17 = (__int64 *)v30,
+        LODWORD(v18) = 1128,
+        memset(&v30[1], 0, 0x464uLL),
         v2 = 0,
-        v29[0] = 259,
-        (v28[0] & 0xFF00) != 0) )
+        v30[0] = 259,
+        (v29[0] & 0xFF00) != 0) )
   {
     while ( 1 )
     {
       v3 = v2;
-      v29[1] = v28[v2 + 1];
-      if ( (int)ZwQuerySystemInformation(109LL, (__int64)&v15) >= 0 )
+      v30[1] = v29[v2 + 1];
+      if ( ZwQuerySystemInformation(SystemStoreInformation, &SystemInformation, 0x18u, &ReturnLength) >= 0 )
       {
         v4 = 0;
-        if ( v29[4] )
+        if ( v30[4] )
           break;
       }
 LABEL_9:
-      if ( ++v2 >= BYTE1(v28[0]) )
+      if ( ++v2 >= BYTE1(v29[0]) )
         goto LABEL_10;
     }
-    v5 = v29[24];
-    while ( !_bittest(&v5, v4) != *((_DWORD *)P + 13) || v29[v4 + 8] != *((_DWORD *)P + 12) )
+    v5 = v30[24];
+    while ( !_bittest(&v5, v4) != *((_DWORD *)P + 13) || v30[v4 + 8] != *((_DWORD *)P + 12) )
     {
-      if ( ++v4 >= v29[4] )
+      if ( ++v4 >= v30[4] )
         goto LABEL_9;
     }
     UserDataCount = 0;
-    UserData = v30;
-    v19[1] = (__int64)v29;
-    v19[0] = (__int64)v30;
-    v21 = 6;
-    v23 = 1036;
+    UserData = v31;
+    v20[1] = (__int64)v30;
+    v20[0] = (__int64)v31;
+    v22 = 6;
+    v24 = 1036;
     v9 = SmEtwEnabled(2);
     if ( v9 )
     {
       if ( P != (PVOID)-56LL )
-        LOBYTE(v29[0]) = *((_BYTE *)P + 56);
-      v30[0].Ptr = (ULONGLONG)v29;
-      *(_QWORD *)&v30[0].Size = 1LL;
+        LOBYTE(v30[0]) = *((_BYTE *)P + 56);
+      v31[0].Ptr = (ULONGLONG)v30;
+      *(_QWORD *)&v31[0].Size = 1LL;
       if ( P != (PVOID)-60LL )
-        *(_DWORD *)((char *)v29 + 1) = *((_DWORD *)P + 15);
-      v30[1].Ptr = (ULONGLONG)v29 + 1;
-      *(_QWORD *)&v30[1].Size = 4LL;
+        *(_DWORD *)((char *)v30 + 1) = *((_DWORD *)P + 15);
+      v31[1].Ptr = (ULONGLONG)v30 + 1;
+      *(_QWORD *)&v31[1].Size = 4LL;
       v10 = *((_QWORD *)P + 5);
-      v20 = 2;
-      v22 = 5;
-      SmKmEtwAppendProductName(v19, v10);
-      SmKmEtwAppendObjectName((__int64)v19, *(_QWORD *)(v10 + 8));
-      UserDataCount = v20;
-      UserData = (struct _EVENT_DATA_DESCRIPTOR *)v19[0];
+      v21 = 2;
+      v23 = 5;
+      SmKmEtwAppendProductName(v20, v10);
+      SmKmEtwAppendObjectName((__int64)v20, *(_QWORD *)(v10 + 8));
+      UserDataCount = v21;
+      UserData = (struct _EVENT_DATA_DESCRIPTOR *)v20[0];
     }
     v11 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(*((_QWORD *)P + 4), *((_DWORD *)P + 12) & 0x3FF);
     ExReleaseRundownProtection(v11 + 1);
-    v15 = 0xA00000001LL;
-    v16 = &v18;
-    v12 = v28[v3 + 1];
-    LODWORD(v17) = 8;
-    LODWORD(v18) = 1;
-    HIDWORD(v18) = v12;
-    if ( (int)ZwSetSystemInformation(109LL, (__int64)&v15) >= 0 )
+    SystemInformation = 0xA00000001LL;
+    v17 = &v19;
+    v12 = v29[v3 + 1];
+    LODWORD(v18) = 8;
+    LODWORD(v19) = 1;
+    HIDWORD(v19) = v12;
+    if ( ZwSetSystemInformation(SystemStoreInformation, &SystemInformation, 0x18u) >= 0 )
     {
       if ( v9 )
       {
         EtwWriteEx(*v9, &SmEventCacheTermination, 0LL, 0, 0LL, 0LL, UserDataCount, UserData);
         if ( !*((_DWORD *)P + 14) )
         {
-          Size = UserData[3].Size;
-          memmove(v29, (const void *)UserData[3].Ptr, Size);
-          v24 = 2;
-          v14 = (const wchar_t *)v29;
-          v26 = 1;
-          *((_WORD *)v29 + (Size >> 1)) = 0;
-          if ( !LOWORD(v29[0]) )
+          ReturnLength = UserData[3].Size;
+          v13 = ReturnLength;
+          memmove(v30, (const void *)UserData[3].Ptr, ReturnLength);
+          v25 = 2;
+          v14 = (const wchar_t *)v30;
+          v27 = 1;
+          *((_WORD *)v30 + (v13 >> 1)) = 0;
+          if ( !LOWORD(v30[0]) )
             v14 = L"(null)";
-          v25 = v14;
-          v27 = *((_DWORD *)P + 15);
+          v26 = v14;
+          v28 = *((_DWORD *)P + 15);
           SmKmSqmAddToStream(*v9);
         }
       }

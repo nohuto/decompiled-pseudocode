@@ -1,5 +1,5 @@
 /*
- * XREFs of ExAllocatePoolWithQuota @ 0x14022CD38
+ * XREFs of ExAllocatePoolWithQuota @ 0x14022CB64
  * Callers:
  *     <none>
  * Callees:

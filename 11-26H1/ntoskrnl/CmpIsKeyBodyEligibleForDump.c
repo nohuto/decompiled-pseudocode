@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsKeyBodyEligibleForDump @ 0x140C5825C
+ * XREFs of CmpIsKeyBodyEligibleForDump @ 0x140C5E25C
  * Callers:
- *     CmDumpKeyToFile @ 0x14084D1E8 (CmDumpKeyToFile.c)
- *     CmpDumpKeyToBuffer @ 0x140C5812C (CmpDumpKeyToBuffer.c)
+ *     CmDumpKeyToFile @ 0x1408534F4 (CmDumpKeyToFile.c)
+ *     CmpDumpKeyToBuffer @ 0x140C5E12C (CmpDumpKeyToBuffer.c)
  * Callees:
- *     CmpPerformKeyBodyDeletionCheck @ 0x140C587C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140C5E7C0 (CmpPerformKeyBodyDeletionCheck.c)
  */
 
 __int64 __fastcall CmpIsKeyBodyEligibleForDump(__int64 a1, __int64 a2)

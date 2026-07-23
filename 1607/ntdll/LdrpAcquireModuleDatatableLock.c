@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpAcquireModuleDatatableLock @ 0x1800D0568
+ * XREFs of LdrpAcquireModuleDatatableLock @ 0x1800D0628
  * Callers:
- *     LdrpUnloadNode @ 0x18000D730 (LdrpUnloadNode.c)
+ *     LdrpUnloadNode @ 0x18000D720 (LdrpUnloadNode.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall LdrpAcquireModuleDatatableLock(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void LdrpAcquireModuleDatatableLock()
 {
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
 }

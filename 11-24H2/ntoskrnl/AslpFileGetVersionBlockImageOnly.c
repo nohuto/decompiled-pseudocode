@@ -1,16 +1,16 @@
 /*
- * XREFs of AslpFileGetVersionBlockImageOnly @ 0x14080ED88
+ * XREFs of AslpFileGetVersionBlockImageOnly @ 0x14080F4C8
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x14080E498 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x14080EBD8 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     AslpMemoryCheckBounds @ 0x140696A48 (AslpMemoryCheckBounds.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AslFileMappingEnsure @ 0x14080915C (AslFileMappingEnsure.c)
- *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E06C (AslpFileGetImageResourceDirectoryRoot.c)
- *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080EB1C (AslpFileGetVersionBlockFromResourceRoot.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslpMemoryCheckBounds @ 0x140697B18 (AslpMemoryCheckBounds.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AslFileMappingEnsure @ 0x14080989C (AslFileMappingEnsure.c)
+ *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E7AC (AslpFileGetImageResourceDirectoryRoot.c)
+ *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080F25C (AslpFileGetVersionBlockFromResourceRoot.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetVersionBlockImageOnly(_QWORD *a1, unsigned __int16 **a2, __int64 a3, __int64 a4)

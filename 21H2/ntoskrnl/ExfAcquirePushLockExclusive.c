@@ -1,12 +1,12 @@
 /*
- * XREFs of ExfAcquirePushLockExclusive @ 0x1402F2C70
+ * XREFs of ExfAcquirePushLockExclusive @ 0x1402FD9C0
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x140773640 (ExCovReadjustUnloadedModuleEntry.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x1409570FC (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovQueryInformation @ 0x1409577DC (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x140958064 (ExpCovResetInformation.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x140773800 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x1409572CC (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovQueryInformation @ 0x1409579AC (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x140958234 (ExpCovResetInformation.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall ExfAcquirePushLockExclusive(__int64 a1)

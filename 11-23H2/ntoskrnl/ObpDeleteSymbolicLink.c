@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpDeleteSymbolicLink @ 0x1407E6290
+ * XREFs of ObpDeleteSymbolicLink @ 0x1407E6560
  * Callers:
  *     <none>
  * Callees:

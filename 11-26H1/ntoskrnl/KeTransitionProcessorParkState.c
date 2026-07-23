@@ -1,24 +1,24 @@
 /*
- * XREFs of KeTransitionProcessorParkState @ 0x14042C1D0
+ * XREFs of KeTransitionProcessorParkState @ 0x1404208A0
  * Callers:
- *     PpmParkReportUnparkedCore @ 0x14025336C (PpmParkReportUnparkedCore.c)
- *     PpmParkReportParkedCore @ 0x140253514 (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x14042BF38 (PpmParkReportSoftParkChange.c)
- *     PpmParkReportForceParkChange @ 0x14042C088 (PpmParkReportForceParkChange.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404F1878 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     PpmParkReportUnparkedCore @ 0x140254CCC (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportParkedCore @ 0x140254E74 (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x140420608 (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportForceParkChange @ 0x140420758 (PpmParkReportForceParkChange.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404EAE58 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiParkCurrentProcessor @ 0x1403346DC (KiParkCurrentProcessor.c)
- *     KiUnparkCurrentProcessor @ 0x14042C4D0 (KiUnparkCurrentProcessor.c)
- *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404E01D0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
- *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404ED5A4 (KiDisarmForceParkDutyCyclingIfNecessary.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405E5CF4 (KiUpdateSystemAvailableCpuState.c)
- *     EtwTraceParkTransition @ 0x1406C4C6C (EtwTraceParkTransition.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiParkCurrentProcessor @ 0x14033670C (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x140420BA0 (KiUnparkCurrentProcessor.c)
+ *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404D98B0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
+ *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404E6B84 (KiDisarmForceParkDutyCyclingIfNecessary.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405E8664 (KiUpdateSystemAvailableCpuState.c)
+ *     EtwTraceParkTransition @ 0x1406C88AC (EtwTraceParkTransition.c)
  */
 
 void __fastcall KeTransitionProcessorParkState(struct _KPRCB *a1, unsigned int a2)
@@ -160,12 +160,12 @@ LABEL_12:
     ExReleaseSpinLockExclusiveFromDpcLevel(&SchedulerSubNode->ParkLock);
   if ( v6 == 3 || a2 == 3 )
   {
-    _InterlockedIncrement64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Thread);
+    _InterlockedIncrement64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.Timer.Processor);
     KiUpdateSystemAvailableCpuState();
     KxAcquireSpinLock(&KiCpuPartitionAssignmentLock);
     KiAvailableCpusSubscriptionQueueWorkItem(&a1->CpuPartition->AvailableCpusNotificationWorkItem.ExWorkItem);
     KxReleaseSpinLock(&KiCpuPartitionAssignmentLock);
   }
-  if ( !v10 && !v11 && (WORD2(xmmword_140FBFC10) & 0x2000) != 0 )
+  if ( !v10 && !v11 && (WORD2(xmmword_140FC0C10) & 0x2000) != 0 )
     EtwTraceParkTransition(a1, a2, v6);
 }

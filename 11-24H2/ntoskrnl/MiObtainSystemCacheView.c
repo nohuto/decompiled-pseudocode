@@ -1,93 +1,95 @@
 /*
- * XREFs of MiObtainSystemCacheView @ 0x140241D90
+ * XREFs of MiObtainSystemCacheView @ 0x140209EE0
  * Callers:
- *     MmMapViewInSystemCache @ 0x1402D5CA4 (MmMapViewInSystemCache.c)
- *     MmReserveViewInSystemCache @ 0x1407ED6D8 (MmReserveViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x140356F24 (MmMapViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x1407EDCA8 (MmReserveViewInSystemCache.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14020D580 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14020D650 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     MiUnlockWorkingSetOptimal @ 0x14024231C (MiUnlockWorkingSetOptimal.c)
- *     MiSetSystemCacheReverseMap @ 0x140242480 (MiSetSystemCacheReverseMap.c)
- *     MiLockWorkingSetOptimal @ 0x1402424F0 (MiLockWorkingSetOptimal.c)
- *     MiReturnSystemVa @ 0x1402429F4 (MiReturnSystemVa.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiReleaseSystemCacheView @ 0x1402D4388 (MiReleaseSystemCacheView.c)
- *     MiInsertReadiedSystemCacheViews @ 0x1402D4594 (MiInsertReadiedSystemCacheViews.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiExpandSystemCache @ 0x1403A7378 (MiExpandSystemCache.c)
- *     CcUnmapInactiveViews @ 0x1403F8634 (CcUnmapInactiveViews.c)
- *     MiConsumeSystemCacheTbFlushNeededView @ 0x140424738 (MiConsumeSystemCacheTbFlushNeededView.c)
- *     MiConsumeSystemCachePde @ 0x14046AF08 (MiConsumeSystemCachePde.c)
- *     MiLateInitializeSystemCache @ 0x1404BC914 (MiLateInitializeSystemCache.c)
- *     MiReadyReservedView @ 0x1404C04A8 (MiReadyReservedView.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiUnlockWorkingSetOptimal @ 0x14020A46C (MiUnlockWorkingSetOptimal.c)
+ *     MiSetSystemCacheReverseMap @ 0x14020A5D0 (MiSetSystemCacheReverseMap.c)
+ *     MiLockWorkingSetOptimal @ 0x14020A640 (MiLockWorkingSetOptimal.c)
+ *     MiReturnSystemVa @ 0x14020AB44 (MiReturnSystemVa.c)
+ *     MiExpandSystemCache @ 0x14026B918 (MiExpandSystemCache.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1403368E0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1403369B0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiReleaseSystemCacheView @ 0x140355608 (MiReleaseSystemCacheView.c)
+ *     MiInsertReadiedSystemCacheViews @ 0x140355814 (MiInsertReadiedSystemCacheViews.c)
+ *     CcUnmapInactiveViews @ 0x1403EE744 (CcUnmapInactiveViews.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1404185E8 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiReadyReservedView @ 0x14044D858 (MiReadyReservedView.c)
+ *     MiConsumeSystemCachePde @ 0x140463984 (MiConsumeSystemCachePde.c)
+ *     MiLateInitializeSystemCache @ 0x1404B7A84 (MiLateInitializeSystemCache.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiObtainSystemCacheView(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiObtainSystemCacheView(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // r13
-  _QWORD *v4; // rsi
-  int v6; // r12d
+  __int64 v4; // r13
+  _QWORD *v5; // rsi
+  int v7; // r12d
   unsigned __int8 CurrentIrql; // r15
-  unsigned int v8; // ebx
-  LONG v9; // edx
-  __int64 v10; // rcx
-  int v11; // edi
-  _QWORD *v12; // rbx
-  __int64 v13; // rax
-  int v14; // eax
-  PVOID ***v15; // rcx
-  PVOID **v16; // r8
-  PVOID **v17; // rbx
-  PVOID *v18; // rax
-  unsigned __int64 v19; // rsi
-  __int64 v20; // rdi
-  __int64 v21; // rcx
-  int v23; // ecx
+  unsigned int v9; // ebx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // edi
+  _QWORD *v13; // rbx
+  __int64 v14; // rax
+  int v15; // eax
+  PVOID ***v16; // rcx
+  PVOID **v17; // r8
+  PVOID **v18; // rbx
+  PVOID *v19; // rax
+  unsigned __int64 v20; // rsi
+  __int64 v21; // rdi
+  __int64 v22; // rcx
   int v24; // ecx
   int v25; // ecx
-  int v26; // eax
-  unsigned int v27; // edi
-  PVOID **v28; // r9
+  int v26; // ecx
+  int v27; // eax
+  unsigned int v28; // edi
   PVOID **v29; // r9
-  __int64 v30; // rcx
-  signed __int32 v31[8]; // [rsp+0h] [rbp-38h] BYREF
+  PVOID **v30; // r9
+  __int64 v31; // rcx
+  signed __int32 v32[8]; // [rsp+0h] [rbp-38h] BYREF
   PVOID P; // [rsp+20h] [rbp-18h] BYREF
   PVOID *p_P; // [rsp+28h] [rbp-10h]
   void *retaddr; // [rsp+68h] [rbp+30h]
-  unsigned __int8 v35; // [rsp+70h] [rbp+38h] BYREF
-  __int64 v36; // [rsp+80h] [rbp+48h] BYREF
+  unsigned __int8 v36; // [rsp+70h] [rbp+38h] BYREF
+  __int64 v37; // [rsp+80h] [rbp+48h] BYREF
 
-  v3 = 0LL;
+  v4 = 0LL;
   p_P = &P;
-  v4 = (_QWORD *)(a1 + 2288);
+  v5 = (_QWORD *)(a1 + 2288);
   P = &P;
-  v6 = 0;
+  v7 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags )
-    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL, a3);
+    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v8 = 0;
-    if ( _interlockedbittestandset(&dword_140E2F2B8, 0x1Fu) )
-      v8 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E2F2B8, CurrentIrql, a3);
-    v9 = dword_140E2F2B8;
-    v10 = (unsigned int)dword_140E2F2B8;
-    for ( LODWORD(v10) = dword_140E2F2B8 & 0xBFFFFFFF; (dword_140E2F2B8 & 0xBFFFFFFF) != 0x80000000; v9 = dword_140E2F2B8 )
+    v9 = 0;
+    if ( _interlockedbittestandset(&dword_140E2F3F8, 0x1Fu) )
+      v9 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E2F3F8, CurrentIrql);
+    v10 = (unsigned int)dword_140E2F3F8;
+    v11 = (unsigned int)dword_140E2F3F8;
+    for ( LODWORD(v11) = dword_140E2F3F8 & 0xBFFFFFFF;
+          (dword_140E2F3F8 & 0xBFFFFFFF) != 0x80000000;
+          v10 = (unsigned int)dword_140E2F3F8 )
     {
-      if ( (v9 & 0x40000000) == 0 )
-        _InterlockedOr(&dword_140E2F2B8, 0x40000000u);
-      if ( (++v8 & HvlLongSpinCountMask) == 0
+      if ( (v10 & 0x40000000) == 0 )
+        _InterlockedOr(&dword_140E2F3F8, 0x40000000u);
+      if ( (++v9 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10) )
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v11, v10, a3, a4) )
       {
-        HvlNotifyLongSpinWait(v8);
+        HvlNotifyLongSpinWait(v9);
       }
       else
       {
@@ -97,151 +99,151 @@ __int64 __fastcall MiObtainSystemCacheView(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E2F2B8, CurrentIrql);
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E2F3F8, CurrentIrql);
   }
   if ( !*(_BYTE *)(a1 + 18524) )
   {
-    MiReleaseSpinLockExclusive(&dword_140E2F2B8, CurrentIrql);
+    MiReleaseSpinLockExclusive(&dword_140E2F3F8, CurrentIrql);
     if ( !(unsigned int)MiLateInitializeSystemCache(a1) )
       return 0LL;
-    ExAcquireSpinLockExclusive(&dword_140E2F2B8);
+    ExAcquireSpinLockExclusive(&dword_140E2F3F8);
   }
-  _InterlockedOr(v31, 0);
-  v11 = KiTbFlushTimeStamp;
+  _InterlockedOr(v32, 0);
+  v12 = KiTbFlushTimeStamp;
   if ( *(_QWORD *)(a1 + 2176) )
   {
-    v23 = *(_DWORD *)(a1 + 2184);
-    if ( (unsigned int)(KiTbFlushTimeStamp - v23) > 2 || (v23 & 1) == 0 && (unsigned int)(KiTbFlushTimeStamp - v23) >= 2 )
+    v24 = *(_DWORD *)(a1 + 2184);
+    if ( (unsigned int)(KiTbFlushTimeStamp - v24) > 2 || (v24 & 1) == 0 && (unsigned int)(KiTbFlushTimeStamp - v24) >= 2 )
       MiInsertReadiedSystemCacheViews(a1, a1 + 2160);
   }
   if ( *(_QWORD *)(a1 + 2208) )
   {
-    v24 = *(_DWORD *)(a1 + 2216);
-    if ( (unsigned int)(v11 - v24) > 2 || (v24 & 1) == 0 && (unsigned int)(v11 - v24) >= 2 )
+    v25 = *(_DWORD *)(a1 + 2216);
+    if ( (unsigned int)(v12 - v25) > 2 || (v25 & 1) == 0 && (unsigned int)(v12 - v25) >= 2 )
       MiInsertReadiedSystemCacheViews(a1, a1 + 2192);
   }
   if ( *(_QWORD *)(a1 + 2240) )
   {
-    v25 = *(_DWORD *)(a1 + 2248);
-    if ( (unsigned int)(v11 - v25) > 2 || (v25 & 1) == 0 && (unsigned int)(v11 - v25) >= 2 )
+    v26 = *(_DWORD *)(a1 + 2248);
+    if ( (unsigned int)(v12 - v26) > 2 || (v26 & 1) == 0 && (unsigned int)(v12 - v26) >= 2 )
       MiInsertReadiedSystemCacheViews(a1, a1 + 2224);
   }
   if ( *(_QWORD *)(a1 + 2272) )
   {
-    v26 = *(_DWORD *)(a1 + 2280);
-    v27 = v11 - v26;
-    if ( v27 > 2 || (v26 & 1) == 0 && v27 >= 2 )
+    v27 = *(_DWORD *)(a1 + 2280);
+    v28 = v12 - v27;
+    if ( v28 > 2 || (v27 & 1) == 0 && v28 >= 2 )
       MiInsertReadiedSystemCacheViews(a1, a1 + 2256);
   }
-  if ( v4[2] )
+  if ( v5[2] )
   {
-    v12 = (_QWORD *)*v4;
-    if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v13 = *v12, *(_QWORD **)(*v12 + 8LL) != v12) )
+    v13 = (_QWORD *)*v5;
+    if ( *(_QWORD **)(*v5 + 8LL) != v5 || (v14 = *v13, *(_QWORD **)(*v13 + 8LL) != v13) )
 LABEL_62:
       __fastfail(3u);
-    *v4 = v13;
-    *(_QWORD *)(v13 + 8) = v4;
-    v12[4] = v12[4] & 0x3FFFFFFFFFFFFFFFLL | 0x8000000000000000uLL;
-    --v4[2];
+    *v5 = v14;
+    *(_QWORD *)(v14 + 8) = v5;
+    v13[4] = v13[4] & 0x3FFFFFFFFFFFFFFFLL | 0x8000000000000000uLL;
+    --v5[2];
 LABEL_21:
-    v14 = *(_DWORD *)(a1 + 4);
+    v15 = *(_DWORD *)(a1 + 4);
     p_P = &P;
     P = &P;
-    v15 = (PVOID ***)(a1 + 2320);
+    v16 = (PVOID ***)(a1 + 2320);
     while ( 1 )
     {
-      v16 = *v15;
-      if ( *v15 == (PVOID **)v15 || (v14 & 1) == 0 && *(_QWORD *)(a1 + 2336) <= 0x20uLL )
+      v17 = *v16;
+      if ( *v16 == (PVOID **)v16 || (v15 & 1) == 0 && *(_QWORD *)(a1 + 2336) <= 0x20uLL )
         break;
-      if ( v16[1] != (PVOID *)v15 )
+      if ( v17[1] != (PVOID *)v16 )
         goto LABEL_62;
-      v28 = (PVOID **)*v16;
-      if ( (*v16)[1] != v16 )
+      v29 = (PVOID **)*v17;
+      if ( (*v17)[1] != v17 )
         goto LABEL_62;
-      *v15 = v28;
-      v28[1] = (PVOID *)v15;
-      v29 = (PVOID **)p_P;
+      *v16 = v29;
+      v29[1] = (PVOID *)v16;
+      v30 = (PVOID **)p_P;
       --*(_QWORD *)(a1 + 2336);
-      if ( *v29 != &P )
+      if ( *v30 != &P )
         goto LABEL_62;
-      v16[1] = (PVOID *)v29;
-      *v16 = &P;
-      *v29 = (PVOID *)v16;
-      p_P = (PVOID *)v16;
+      v17[1] = (PVOID *)v30;
+      *v17 = &P;
+      *v30 = (PVOID *)v17;
+      p_P = (PVOID *)v17;
     }
     if ( CurrentIrql == 17 )
     {
       if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-        dword_140E2F2B8 = 0;
+        dword_140E2F3F8 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2F2B8, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2F3F8, retaddr);
     }
     else
     {
       if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-        dword_140E2F2B8 = 0;
+        dword_140E2F3F8 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2F2B8, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E2F3F8, retaddr);
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);
     }
-    if ( !v12 )
+    if ( !v13 )
       goto LABEL_33;
     goto LABEL_32;
   }
-  v12 = (_QWORD *)MiConsumeSystemCachePde(a1);
-  if ( v12 )
+  v13 = (_QWORD *)MiConsumeSystemCachePde(a1);
+  if ( v13 )
     goto LABEL_21;
-  v12 = (_QWORD *)MiConsumeSystemCacheTbFlushNeededView(a1, 1024LL);
-  if ( v12 )
+  v13 = (_QWORD *)MiConsumeSystemCacheTbFlushNeededView(a1, 1024LL);
+  if ( v13 )
     goto LABEL_21;
-  MiReleaseSpinLockExclusive(&dword_140E2F2B8, CurrentIrql);
-  v12 = (_QWORD *)MiExpandSystemCache(a1);
-  if ( !v12 )
+  MiReleaseSpinLockExclusive(&dword_140E2F3F8, CurrentIrql);
+  v13 = (_QWORD *)MiExpandSystemCache(a1);
+  if ( !v13 )
   {
-    ExAcquireSpinLockExclusive(&dword_140E2F2B8);
-    v6 = 1;
-    v12 = (_QWORD *)MiConsumeSystemCacheTbFlushNeededView(a1, 1LL);
+    ExAcquireSpinLockExclusive(&dword_140E2F3F8);
+    v7 = 1;
+    v13 = (_QWORD *)MiConsumeSystemCacheTbFlushNeededView(a1, 1LL);
     goto LABEL_21;
   }
 LABEL_32:
-  v3 = v12[2];
+  v4 = v13[2];
 LABEL_33:
-  if ( v6 )
+  if ( v7 )
   {
-    v30 = *(_QWORD *)(a1 + 184);
-    v36 = 0LL;
-    if ( (unsigned int)CcUnmapInactiveViews(v30, 64LL, 0LL, &v36) )
+    v31 = *(_QWORD *)(a1 + 184);
+    v37 = 0LL;
+    if ( (unsigned int)CcUnmapInactiveViews(v31, 64LL, 0LL, &v37) )
     {
-      if ( v3 )
-        MiReleaseSystemCacheView(0LL, v3);
-      v3 = v36;
-      MiReadyReservedView(a1, v36);
+      if ( v4 )
+        MiReleaseSystemCacheView(0LL, v4);
+      v4 = v37;
+      MiReadyReservedView(a1, v37);
     }
   }
-  v17 = (PVOID **)P;
+  v18 = (PVOID **)P;
   if ( P != &P )
   {
-    v35 = 0;
-    while ( v17 != (PVOID **)&P )
+    v36 = 0;
+    while ( v18 != (PVOID **)&P )
     {
-      if ( v17[1] != &P )
+      if ( v18[1] != &P )
         goto LABEL_62;
-      v18 = *v17;
-      if ( (*v17)[1] != v17 )
+      v19 = *v18;
+      if ( (*v18)[1] != v18 )
         goto LABEL_62;
-      P = *v17;
-      v18[1] = &P;
-      v19 = (unsigned __int64)v17[2];
-      v20 = MiLockWorkingSetOptimal(a1 + 18816, ((v19 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, &v35);
-      MiSetSystemCacheReverseMap(v21, v19, 0LL);
-      MiUnlockWorkingSetOptimal(a1 + 18816, v20, v35);
+      P = *v18;
+      v19[1] = &P;
+      v20 = (unsigned __int64)v18[2];
+      v21 = MiLockWorkingSetOptimal(a1 + 18816, ((v20 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, &v36);
+      MiSetSystemCacheReverseMap(v22, v20, 0LL);
+      MiUnlockWorkingSetOptimal(a1 + 18816, v21, v36);
       _InterlockedDecrement((volatile signed __int32 *)(a1 + 2408));
-      MiReturnSystemVa(v19, v19 + 0x200000, 7LL);
-      ExFreePoolWithTag(v17, 0);
-      v17 = (PVOID **)P;
+      MiReturnSystemVa(v20, v20 + 0x200000, 7LL);
+      ExFreePoolWithTag(v18, 0);
+      v18 = (PVOID **)P;
     }
   }
-  return v3;
+  return v4;
 }

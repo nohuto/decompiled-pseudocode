@@ -1,25 +1,25 @@
 /*
- * XREFs of MiUseLargeDriverPage @ 0x1404ED9A4
+ * XREFs of MiUseLargeDriverPage @ 0x1404CFA5C
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiFreeContiguousPages @ 0x14011191C (MiFreeContiguousPages.c)
- *     MiMapWithLargePages @ 0x14012E28C (MiMapWithLargePages.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1401E35E0 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x1401EC6EC (MiInitPerfMemoryFlags.c)
- *     MiRoundUpToPowerOf2SizeT @ 0x1401F779C (MiRoundUpToPowerOf2SizeT.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     MiChargeSystemImageCommitment @ 0x1404EDFD0 (MiChargeSystemImageCommitment.c)
- *     LdrRelocateImage @ 0x140554094 (LdrRelocateImage.c)
- *     MiUnmapLargeDriver @ 0x140662F2C (MiUnmapLargeDriver.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x140111E80 (MiFreeContiguousPages.c)
+ *     MiMapWithLargePages @ 0x14012E7FC (MiMapWithLargePages.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1401E340C (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x1401EC518 (MiInitPerfMemoryFlags.c)
+ *     MiRoundUpToPowerOf2SizeT @ 0x1401F75C8 (MiRoundUpToPowerOf2SizeT.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     MiChargeSystemImageCommitment @ 0x140483538 (MiChargeSystemImageCommitment.c)
+ *     LdrRelocateImage @ 0x1405545D4 (LdrRelocateImage.c)
+ *     MiUnmapLargeDriver @ 0x140663010 (MiUnmapLargeDriver.c)
  */
 
 void *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a3, const UNICODE_STRING *a4)
@@ -56,9 +56,9 @@ void *__fastcall MiUseLargeDriverPage(__int64 a1, unsigned int a2, const void *a
   v7 = a2;
   if ( (MiFlags & 0x4000) == 0 )
   {
-    if ( !byte_140326811 )
+    if ( !byte_140326851 )
     {
-      for ( i = qword_140326820; (__int64 *)i != &qword_140326820; i = *(_QWORD *)i )
+      for ( i = qword_140326860; (__int64 *)i != &qword_140326860; i = *(_QWORD *)i )
       {
         if ( RtlEqualUnicodeString(a4, (PCUNICODE_STRING)(i + 16), 1u) )
           goto LABEL_9;
@@ -85,7 +85,7 @@ LABEL_9:
     if ( (int)MiFindContiguousPages(
                 (__int64)MiSystemPartition,
                 0x200uLL,
-                qword_140326A90,
+                qword_140326AD0,
                 v14,
                 v14,
                 1u,
@@ -134,7 +134,7 @@ LABEL_25:
       MiGetPteAddress((unsigned __int64)a3);
       AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
       MiDeleteSystemPagableVm((__int64)AnyMultiplexedVm, v10, v28, v12, 1, v32);
-      MiChargeSystemImageCommitment(a1, 0LL);
+      MiChargeSystemImageCommitment(a1);
     }
     if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
     {

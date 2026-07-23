@@ -1,14 +1,14 @@
 /*
- * XREFs of EmPowerPagingEnabled @ 0x1405303F0
+ * XREFs of EmPowerPagingEnabled @ 0x140530930
  * Callers:
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 unsigned __int64 __fastcall EmPowerPagingEnabled(char a1)
@@ -32,12 +32,12 @@ unsigned __int64 __fastcall EmPowerPagingEnabled(char a1)
     v5[26] |= 1u;
   if ( a1 )
   {
-    dword_140322548 |= 0x80000000;
+    dword_140322568 |= 0x80000000;
   }
   else
   {
-    dword_140322548 &= ~0x80000000;
-    if ( (dword_140322548 & 0x7FFFFFFF) != 0 )
+    dword_140322568 &= ~0x80000000;
+    if ( (dword_140322568 & 0x7FFFFFFF) != 0 )
     {
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
       v2 = 1;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpAllocateAsid @ 0x1405B870C
+ * XREFs of ExpAllocateAsid @ 0x1405B893C
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x1405B7280 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B74B0 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 ExpAllocateAsid()
@@ -24,37 +24,35 @@ __int64 ExpAllocateAsid()
   unsigned int v7; // edi
   char *PoolWithTag; // r14
   void *v9; // rsi
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  _DWORD *v12; // r9
-  unsigned __int64 v13; // rbx
-  unsigned __int8 v14; // al
-  struct _KPRCB *v15; // r10
-  int v16; // eax
-  unsigned int v17; // ebx
-  _KPROCESS **v18; // rax
-  int v19; // ebx
+  unsigned __int64 v10; // rbx
+  unsigned __int8 v11; // al
+  struct _KPRCB *v12; // r10
+  _DWORD *v13; // r9
+  int v14; // eax
+  unsigned int v15; // ebx
+  _KPROCESS **v16; // rax
+  int v17; // ebx
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v24; // eax
-  unsigned __int64 v26; // rdi
-  unsigned __int8 v27; // al
-  struct _KPRCB *v28; // r9
-  _DWORD *v29; // r8
-  int v30; // eax
+  int v22; // eax
+  unsigned __int64 v24; // rdi
+  unsigned __int8 v25; // al
+  struct _KPRCB *v26; // r9
+  _DWORD *v27; // r8
+  int v28; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   Process = KeGetCurrentThread()->ApcState.Process;
-  KeAcquireInStackQueuedSpinLock(&qword_140C16918, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C16958, &LockHandle);
   while ( 1 )
   {
-    v17 = dword_140C16904;
-    if ( (_DWORD)dword_140C16904 != dword_140C16908 )
+    v15 = dword_140C16944;
+    if ( (_DWORD)dword_140C16944 != dword_140C16948 )
       break;
-    if ( (_DWORD)dword_140C16904 == ExpSvmAgents )
+    if ( (_DWORD)dword_140C16944 == ExpSvmAgents )
     {
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       OldIrql = LockHandle.OldIrql;
@@ -67,9 +65,9 @@ __int64 ExpAllocateAsid()
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v24 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v6 = (v24 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v24;
+            v22 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v6 = (v22 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v22;
             if ( v6 )
               KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
@@ -98,8 +96,8 @@ __int64 ExpAllocateAsid()
       }
     }
     __writecr8(v1);
-    v7 = v17 + 8;
-    if ( v17 + 8 >= v17 )
+    v7 = v15 + 8;
+    if ( v15 + 8 >= v15 )
     {
       if ( v7 > ExpSvmAgents )
         v7 = ExpSvmAgents;
@@ -111,79 +109,77 @@ __int64 ExpAllocateAsid()
     PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 16LL * v7, 0x73417845u);
     if ( !PoolWithTag )
       return 0LL;
-    KeAcquireInStackQueuedSpinLock(&qword_140C16918, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140C16958, &LockHandle);
     v9 = PoolWithTag;
-    if ( v17 == (_DWORD)dword_140C16904 )
+    if ( v15 == (_DWORD)dword_140C16944 )
     {
-      v9 = qword_140C16910;
-      if ( qword_140C16910 )
-        memmove(PoolWithTag, qword_140C16910, 16LL * v17);
-      memset(&PoolWithTag[16 * v17], 0, 16LL * (v7 - v17));
-      qword_140C16910 = PoolWithTag;
-      LODWORD(dword_140C16904) = v7;
+      v9 = qword_140C16950;
+      if ( qword_140C16950 )
+        memmove(PoolWithTag, qword_140C16950, 16LL * v15);
+      memset(&PoolWithTag[16 * v15], 0, 16LL * (v7 - v15));
+      qword_140C16950 = PoolWithTag;
+      LODWORD(dword_140C16944) = v7;
     }
     if ( v9 )
     {
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-      v13 = LockHandle.OldIrql;
+      v10 = LockHandle.OldIrql;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v14 = KeGetCurrentIrql();
-          if ( v14 <= 0xFu && LockHandle.OldIrql <= 0xFu && v14 >= 2u )
+          v11 = KeGetCurrentIrql();
+          if ( v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
           {
-            v15 = KeGetCurrentPrcb();
-            v12 = v15->SchedulerAssist;
-            v10 = -1LL << (LockHandle.OldIrql + 1);
-            v16 = ~(unsigned __int16)v10;
-            v6 = (v16 & v12[5]) == 0;
-            v11 = (unsigned int)v16 & v12[5];
-            v12[5] = v11;
+            v12 = KeGetCurrentPrcb();
+            v13 = v12->SchedulerAssist;
+            v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v6 = (v14 & v13[5]) == 0;
+            v13[5] &= v14;
             if ( v6 )
-              KiRemoveSystemWorkPriorityKick((__int64)v15);
+              KiRemoveSystemWorkPriorityKick((__int64)v12);
           }
         }
       }
-      __writecr8(v13);
-      ExFreeHeapPool((ULONG_PTR)v9, v10, v11, v12);
-      KeAcquireInStackQueuedSpinLock(&qword_140C16918, &LockHandle);
+      __writecr8(v10);
+      ExFreeHeapPool((ULONG_PTR)v9);
+      KeAcquireInStackQueuedSpinLock(&qword_140C16958, &LockHandle);
     }
   }
-  v18 = (_KPROCESS **)qword_140C16910;
-  v19 = 0;
-  if ( (_DWORD)dword_140C16904 )
+  v16 = (_KPROCESS **)qword_140C16950;
+  v17 = 0;
+  if ( (_DWORD)dword_140C16944 )
   {
-    while ( *v18 )
+    while ( *v16 )
     {
-      v18 += 2;
-      if ( ++v19 >= (unsigned int)dword_140C16904 )
+      v16 += 2;
+      if ( ++v17 >= (unsigned int)dword_140C16944 )
         goto LABEL_43;
     }
-    v18[1] = (_KPROCESS *)1;
-    *v18 = Process;
+    v16[1] = (_KPROCESS *)1;
+    *v16 = Process;
   }
 LABEL_43:
-  ++dword_140C16908;
+  ++dword_140C16948;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  v26 = LockHandle.OldIrql;
+  v24 = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v27 = KeGetCurrentIrql();
-      if ( v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
+      v25 = KeGetCurrentIrql();
+      if ( v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
       {
-        v28 = KeGetCurrentPrcb();
-        v29 = v28->SchedulerAssist;
-        v30 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v6 = (v30 & v29[5]) == 0;
-        v29[5] &= v30;
+        v26 = KeGetCurrentPrcb();
+        v27 = v26->SchedulerAssist;
+        v28 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v6 = (v28 & v27[5]) == 0;
+        v27[5] &= v28;
         if ( v6 )
-          KiRemoveSystemWorkPriorityKick((__int64)v28);
+          KiRemoveSystemWorkPriorityKick((__int64)v26);
       }
     }
   }
-  __writecr8(v26);
-  return (unsigned int)(v19 + 1);
+  __writecr8(v24);
+  return (unsigned int)(v17 + 1);
 }

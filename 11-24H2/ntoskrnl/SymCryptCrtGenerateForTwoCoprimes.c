@@ -1,16 +1,16 @@
 /*
- * XREFs of SymCryptCrtGenerateForTwoCoprimes @ 0x140528C20
+ * XREFs of SymCryptCrtGenerateForTwoCoprimes @ 0x140526540
  * Callers:
- *     SymCryptCrtGenerateInverses @ 0x140528DD0 (SymCryptCrtGenerateInverses.c)
+ *     SymCryptCrtGenerateInverses @ 0x1405266F0 (SymCryptCrtGenerateInverses.c)
  * Callees:
- *     KeReadStateSemaphore @ 0x1404506F0 (KeReadStateSemaphore.c)
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
- *     SymCryptIntFromModulus @ 0x1405238E0 (SymCryptIntFromModulus.c)
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptIntIsEqualUint32 @ 0x140523988 (SymCryptIntIsEqualUint32.c)
- *     SymCryptIntToModElement @ 0x140523ADC (SymCryptIntToModElement.c)
- *     SymCryptSizeofIntFromDigits @ 0x140523FFC (SymCryptSizeofIntFromDigits.c)
- *     SymCryptIntExtendedGcd @ 0x140529024 (SymCryptIntExtendedGcd.c)
+ *     KeReadStateSemaphore @ 0x140445960 (KeReadStateSemaphore.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1405211F8 (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1405212A0 (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntToModElement @ 0x1405213F4 (SymCryptIntToModElement.c)
+ *     SymCryptSizeofIntFromDigits @ 0x140521914 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptIntExtendedGcd @ 0x140526944 (SymCryptIntExtendedGcd.c)
  */
 
 __int64 __fastcall SymCryptCrtGenerateForTwoCoprimes(

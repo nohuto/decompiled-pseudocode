@@ -1,45 +1,45 @@
 /*
- * XREFs of SepAuditFailed @ 0x14092FD10
+ * XREFs of SepAuditFailed @ 0x14090B840
  * Callers:
- *     SepRmCallLsa @ 0x1402C3DC0 (SepRmCallLsa.c)
- *     SepRmDispatchDataToLsa @ 0x1404DDA94 (SepRmDispatchDataToLsa.c)
- *     SepAuditFailedRaisedIrql @ 0x140533030 (SepAuditFailedRaisedIrql.c)
- *     SepInitProcessAuditSd @ 0x14063AA70 (SepInitProcessAuditSd.c)
- *     SeAuditFipsCryptoSelftests @ 0x1408127E0 (SeAuditFipsCryptoSelftests.c)
- *     SeAuditProcessExit @ 0x1408129B0 (SeAuditProcessExit.c)
- *     SeAuditSystemTimeChange @ 0x140812B38 (SeAuditSystemTimeChange.c)
- *     SepAuditAssignPrimaryToken @ 0x140813228 (SepAuditAssignPrimaryToken.c)
- *     NtDeleteObjectAuditAlarm @ 0x140813DA0 (NtDeleteObjectAuditAlarm.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x14092FDE0 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SeAuditProcessCreation @ 0x140983DEC (SeAuditProcessCreation.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1409F51E0 (NtPrivilegedServiceAuditAlarm.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1409F7550 (NtOpenObjectAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x1409F8190 (NtPrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409F8930 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1409F8EF4 (SeTokenDefaultDaclChangedAuditAlarm.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409F9204 (SepAdtCloseObjectAuditAlarm.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1409F966C (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409F9DCC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409FA180 (SepAdtDeleteObjectAuditAlarm.c)
- *     SeOperationAuditAlarm @ 0x1409FA6B0 (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409FB6F8 (SepAdtStagingEvent.c)
- *     SepAdtAuditThisEventByCategoryWithContext @ 0x140A651E0 (SepAdtAuditThisEventByCategoryWithContext.c)
- *     NtCloseObjectAuditAlarm @ 0x140A97170 (NtCloseObjectAuditAlarm.c)
- *     SepRmCommandServerThread @ 0x140AF0B10 (SepRmCommandServerThread.c)
- *     SepAdtObjectReferenceAuditAlarm @ 0x140B4FC88 (SepAdtObjectReferenceAuditAlarm.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B64ACC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SepRmCallLsa @ 0x14030EA80 (SepRmCallLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x1404D7174 (SepRmDispatchDataToLsa.c)
+ *     SepAuditFailedRaisedIrql @ 0x1405354B0 (SepAuditFailedRaisedIrql.c)
+ *     SepInitProcessAuditSd @ 0x14063DADC (SepInitProcessAuditSd.c)
+ *     SeAuditFipsCryptoSelftests @ 0x140818640 (SeAuditFipsCryptoSelftests.c)
+ *     SeAuditProcessExit @ 0x140818810 (SeAuditProcessExit.c)
+ *     SeAuditSystemTimeChange @ 0x140818998 (SeAuditSystemTimeChange.c)
+ *     SepAuditAssignPrimaryToken @ 0x140819088 (SepAuditAssignPrimaryToken.c)
+ *     NtDeleteObjectAuditAlarm @ 0x140819C00 (NtDeleteObjectAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x14090B910 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091D6BC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED80 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeOperationAuditAlarm @ 0x14091F2B0 (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1409202F8 (SepAdtStagingEvent.c)
+ *     SeAuditProcessCreation @ 0x140945DFC (SeAuditProcessCreation.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x140A5DD30 (NtPrivilegedServiceAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x140A60090 (NtOpenObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x140A60CD0 (NtPrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140A61470 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140A6173C (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SepAdtAuditThisEventByCategoryWithContext @ 0x140A721B0 (SepAdtAuditThisEventByCategoryWithContext.c)
+ *     NtCloseObjectAuditAlarm @ 0x140A9B2F0 (NtCloseObjectAuditAlarm.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x140A9EE24 (SepAdtCloseObjectAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x140AE2774 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SepRmCommandServerThread @ 0x140AF3750 (SepRmCommandServerThread.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x140B52518 (SepAdtObjectReferenceAuditAlarm.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B67B6C (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwFlushKey @ 0x140725230 (ZwFlushKey.c)
- *     SepAdtLogAuditFailureEvent @ 0x140812DF4 (SepAdtLogAuditFailureEvent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwFlushKey @ 0x140729E00 (ZwFlushKey.c)
+ *     SepAdtLogAuditFailureEvent @ 0x140818C54 (SepAdtLogAuditFailureEvent.c)
  */
 
 void __fastcall SepAuditFailed(signed int a1)
@@ -52,7 +52,7 @@ void __fastcall SepAuditFailed(signed int a1)
 
   DestinationString = 0LL;
   v1 = a1;
-  if ( BYTE4(RtlpBootStatHandleLock.QueuedScb) )
+  if ( *((_BYTE *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue + 5) )
   {
     if ( SepAdtRegNotifyHandle )
     {
@@ -78,6 +78,6 @@ void __fastcall SepAuditFailed(signed int a1)
       }
       KeBugCheckEx(0xC0000244, v1, 0LL, 0LL, 0LL);
     }
-    BYTE4(RtlpBootStatHandleLock.QueuedScb) = 0;
+    *((_BYTE *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue + 5) = 0;
   }
 }

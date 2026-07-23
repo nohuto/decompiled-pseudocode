@@ -1,11 +1,11 @@
 /*
- * XREFs of ViThunkAdjustExportAddressIfHooked @ 0x140936C04
+ * XREFs of ViThunkAdjustExportAddressIfHooked @ 0x140937C04
  * Callers:
- *     VfThunkAdjustExportAddressIfHooked @ 0x1409368E8 (VfThunkAdjustExportAddressIfHooked.c)
+ *     VfThunkAdjustExportAddressIfHooked @ 0x1409378E8 (VfThunkAdjustExportAddressIfHooked.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067CC90 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ViThunkAdjustExportAddressIfHooked(
@@ -21,7 +21,7 @@ __int64 __fastcall ViThunkAdjustExportAddressIfHooked(
   char *v12; // rax
   int v13; // r9d
   int v14; // ecx
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   Buffer = 0LL;
   v6 = 0;

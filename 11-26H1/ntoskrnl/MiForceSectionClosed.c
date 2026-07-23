@@ -1,14 +1,14 @@
 /*
- * XREFs of MiForceSectionClosed @ 0x1404B0200
+ * XREFs of MiForceSectionClosed @ 0x1404A9890
  * Callers:
- *     MmForceSectionClosedEx @ 0x1404B0100 (MmForceSectionClosedEx.c)
- *     MmForceSectionClosed @ 0x1404B01B0 (MmForceSectionClosed.c)
- *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
+ *     MmForceSectionClosedEx @ 0x1404A9790 (MmForceSectionClosedEx.c)
+ *     MmForceSectionClosed @ 0x1404A9840 (MmForceSectionClosed.c)
+ *     MiCreateImageOrDataSection @ 0x14098BFCC (MiCreateImageOrDataSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockSectionControlArea @ 0x14044FAD0 (MiLockSectionControlArea.c)
- *     MiAttemptSectionDelete @ 0x1404BF538 (MiAttemptSectionDelete.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x140447C00 (MiLockSectionControlArea.c)
+ *     MiAttemptSectionDelete @ 0x1404B8D88 (MiAttemptSectionDelete.c)
  */
 
 __int64 __fastcall MiForceSectionClosed(__int64 *a1, char a2, char a3)

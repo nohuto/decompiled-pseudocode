@@ -1,17 +1,17 @@
 /*
- * XREFs of NtGetContextThread @ 0x1406C5310
+ * XREFs of NtGetContextThread @ 0x1406C65B0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     PspGetContextThreadInternal @ 0x140621C00 (PspGetContextThreadInternal.c)
  */
 
 NTSTATUS __stdcall NtGetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  NTSTATUS ContextThreadInternal; // edi
+  int ContextThreadInternal; // edi
   PVOID v5; // rbx
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAttachContextToSilo @ 0x140A30E08
+ * XREFs of CmpAttachContextToSilo @ 0x140A4BD68
  * Callers:
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140A30A64 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140A4B9C4 (CmpGetOrCreateContextForSiloNoRef.c)
  * Callees:
- *     PsInsertPermanentSiloContextEx @ 0x140A30E34 (PsInsertPermanentSiloContextEx.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140A4BD94 (PsInsertPermanentSiloContextEx.c)
  */
 
 __int64 __fastcall CmpAttachContextToSilo(__int64 a1, __int64 a2)

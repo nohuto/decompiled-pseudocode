@@ -8,10 +8,14 @@
  *     ObInsertObjectEx @ 0x1408A05E0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateIoCompletion(__int64 *a1, int a2, int a3, ULONG a4)
+NTSTATUS __cdecl NtCreateIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Count)
 {
   char PreviousMode; // si
-  int Object; // ecx
+  NTSTATUS Object; // ecx
   ULONG v9; // edx
   PRKQUEUE v10; // rbx
   __int64 v12; // rcx
@@ -25,21 +29,31 @@ __int64 __fastcall NtCreateIoCompletion(__int64 *a1, int a2, int a3, ULONG a4)
   if ( PreviousMode )
   {
     v12 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v12 = (__int64)a1;
+    if ( (unsigned __int64)IoCompletionHandle < 0x7FFFFFFF0000LL )
+      v12 = (__int64)IoCompletionHandle;
     *(_QWORD *)v12 = *(_QWORD *)v12;
   }
-  Object = ObCreateObjectEx(PreviousMode, IoCompletionObjectType, a3, PreviousMode, v13, 80, 0, 0, Queue, 0LL);
+  Object = ObCreateObjectEx(
+             PreviousMode,
+             IoCompletionObjectType,
+             (int)ObjectAttributes,
+             PreviousMode,
+             v13,
+             80,
+             0,
+             0,
+             Queue,
+             0LL);
   if ( Object >= 0 )
   {
-    v9 = a4;
+    v9 = Count;
     v10 = Queue[0];
     KeInitializeQueue(Queue[0], v9);
     *(_QWORD *)&v10[1].Header.Lock = 0LL;
     LOBYTE(v10[1].Header.WaitListHead.Flink) = 0;
-    Object = ObInsertObjectEx((char *)v10, 0LL, a2, 0, 0, 0LL, (__int64)&v14);
+    Object = ObInsertObjectEx((char *)v10, 0LL, DesiredAccess, 0, 0, 0LL, (__int64)&v14);
     if ( Object >= 0 )
-      *a1 = v14;
+      *IoCompletionHandle = (HANDLE)v14;
   }
-  return (unsigned int)Object;
+  return Object;
 }

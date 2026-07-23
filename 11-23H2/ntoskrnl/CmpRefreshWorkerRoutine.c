@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRefreshWorkerRoutine @ 0x140A0CE20
+ * XREFs of CmpRefreshWorkerRoutine @ 0x140A0D0D0
  * Callers:
  *     <none>
  * Callees:
- *     CmpMarkKeyUnbacked @ 0x1407107FC (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14071087C (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpDiscardKcb @ 0x14076AD08 (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x140710A0C (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140710A8C (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpDiscardKcb @ 0x14076AEF8 (CmpDiscardKcb.c)
  */
 
 __int64 __fastcall CmpRefreshWorkerRoutine(ULONG_PTR BugCheckParameter4, __int64 a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of TmInitSystemPhase2 @ 0x1403D06C0
+ * XREFs of TmInitSystemPhase2 @ 0x1403D0830
  * Callers:
  *     <none>
  * Callees:

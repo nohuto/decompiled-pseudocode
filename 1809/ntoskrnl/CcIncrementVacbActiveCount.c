@@ -4,7 +4,7 @@
  *     CcGetVirtualAddressIfMapped @ 0x14002037C (CcGetVirtualAddressIfMapped.c)
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcIncrementVacbActiveCount(__int64 a1)

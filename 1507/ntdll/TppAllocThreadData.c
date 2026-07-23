@@ -12,7 +12,7 @@ struct _TEB *__fastcall TppAllocThreadData(struct _TEB **a1)
   struct _TEB *v3; // rdx
 
   *a1 = 0LL;
-  result = (struct _TEB *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 2883584) | 8u, 136LL);
+  result = (struct _TEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 2883584) | 8, 0x88uLL);
   v3 = result;
   if ( result )
   {

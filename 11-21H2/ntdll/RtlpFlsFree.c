@@ -12,105 +12,102 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800AAAD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlpFlsFree(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlpFlsFree(__int64 a1, int a2)
 {
-  unsigned int v4; // r15d
-  unsigned int v5; // ebx
-  int v6; // ecx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rsi
-  __int64 v10; // rbp
-  unsigned __int64 v11; // rcx
-  __int64 v12; // rdi
-  __int64 **v13; // rdx
-  __int64 *v14; // r9
-  unsigned int v15; // ecx
-  __int64 v16; // r8
-  __int64 *v17; // rcx
-  __int64 *v18; // rcx
-  __int64 v19; // rdx
-  unsigned __int64 v20; // rdx
-  unsigned __int64 v21; // r8
-  unsigned __int64 v22; // r9
-  __int64 v24; // rax
-  _QWORD *v25; // r14
-  _QWORD v27[31]; // [rsp+28h] [rbp-130h] BYREF
+  unsigned int v2; // r15d
+  unsigned int v3; // ebx
+  int v4; // ecx
+  __int64 v5; // r8
+  unsigned __int64 v6; // rcx
+  _RTL_SRWLOCK *v7; // rsi
+  unsigned __int64 Value; // rbp
+  _RTL_SRWLOCK *v9; // rcx
+  __int64 v10; // rdi
+  __int64 **v11; // rdx
+  __int64 *v12; // r9
+  unsigned int v13; // ecx
+  __int64 v14; // r8
+  __int64 *v15; // rcx
+  __int64 *v16; // rcx
+  __int64 v17; // rdx
+  __int64 v19; // rax
+  _QWORD *v20; // r14
+  _QWORD v22[31]; // [rsp+28h] [rbp-130h] BYREF
 
   if ( (unsigned int)(a2 - 1) <= 0xFEE
-    && (v4 = a2 + 16,
-        v5 = 0,
-        _BitScanReverse((unsigned int *)&v6, a2 + 16),
-        (v7 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v6 - 4) + 1)) != 0)
-    && (v8 = v4 ^ (unsigned __int64)(unsigned int)(1 << v6), (v9 = v7 + 8 * (v8 + 2 * v8 + 1)) != 0)
-    && *(_QWORD *)(v9 + 8) )
+    && (v2 = a2 + 16,
+        v3 = 0,
+        _BitScanReverse((unsigned int *)&v4, a2 + 16),
+        (v5 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v4 - 4) + 1)) != 0)
+    && (v6 = v2 ^ (unsigned __int64)(unsigned int)(1 << v4), (v7 = (_RTL_SRWLOCK *)(v5 + 8 * (v6 + 2 * v6 + 1))) != 0LL)
+    && v7[1].Value )
   {
-    v10 = 0LL;
-    v11 = v7 + 8 * (v8 + 2 * v8 + 1);
-    if ( *(_QWORD *)(v9 + 8) != -1LL )
-      v10 = *(_QWORD *)(v9 + 8);
-    RtlAcquireSRWLockExclusive(v11, a2, v7, a4);
+    Value = 0LL;
+    v9 = (_RTL_SRWLOCK *)(v5 + 8 * (v6 + 2 * v6 + 1));
+    if ( v7[1].Value != -1LL )
+      Value = v7[1].Value;
+    RtlAcquireSRWLockExclusive(v9);
     while ( 1 )
     {
-      v12 = 0LL;
-      RtlAcquireSRWLockShared((volatile signed __int64 *)&RtlpFlsContext);
-      v13 = (__int64 **)qword_18017ABD8;
+      v10 = 0LL;
+      RtlAcquireSRWLockShared(&RtlpFlsContext);
+      v11 = (__int64 **)qword_18017ABD8;
       if ( (__int64 *)qword_18017ABD8 != &qword_18017ABD8 )
       {
         while ( 1 )
         {
-          if ( (unsigned int)v12 >= 0x10 )
+          if ( (unsigned int)v10 >= 0x10 )
             goto LABEL_16;
-          v14 = *v13;
-          _BitScanReverse(&v15, v4);
-          v16 = v4 ^ (1 << v15);
-          v17 = v13[v15 - 2];
-          v18 = v17 ? &v17[v16 + 1] : 0LL;
-          if ( v10 )
+          v12 = *v11;
+          _BitScanReverse(&v13, v2);
+          v14 = v2 ^ (1 << v13);
+          v15 = v11[v13 - 2];
+          v16 = v15 ? &v15[v14 + 1] : 0LL;
+          if ( Value )
             break;
-          if ( v18 )
+          if ( v16 )
             goto LABEL_22;
 LABEL_15:
-          v13 = (__int64 **)v14;
-          if ( v14 == &qword_18017ABD8 )
+          v11 = (__int64 **)v12;
+          if ( v12 == &qword_18017ABD8 )
             goto LABEL_16;
         }
-        if ( !v18 )
+        if ( !v16 )
           goto LABEL_15;
-        v19 = *v18;
-        if ( !*v18 )
+        v17 = *v16;
+        if ( !*v16 )
           goto LABEL_15;
-        v24 = 2LL * (unsigned int)v12;
-        v12 = (unsigned int)(v12 + 1);
-        v27[v24 - 1] = v10;
-        v27[v24] = v19;
+        v19 = 2LL * (unsigned int)v10;
+        v10 = (unsigned int)(v10 + 1);
+        v22[v19 - 1] = Value;
+        v22[v19] = v17;
 LABEL_22:
-        *v18 = 0LL;
+        *v16 = 0LL;
         goto LABEL_15;
       }
 LABEL_16:
-      RtlReleaseSRWLockShared((volatile signed __int64 *)&RtlpFlsContext);
-      if ( !(_DWORD)v12 )
+      RtlReleaseSRWLockShared(&RtlpFlsContext);
+      if ( !(_DWORD)v10 )
         break;
-      v25 = v27;
+      v20 = v22;
       do
       {
-        ((void (__fastcall *)(_QWORD))*(v25 - 1))(*v25);
-        v25 += 2;
-        --v12;
+        ((void (__fastcall *)(_QWORD))*(v20 - 1))(*v20);
+        v20 += 2;
+        --v10;
       }
-      while ( v12 );
+      while ( v10 );
     }
-    *(_QWORD *)(v9 + 8) = -2LL;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v9);
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpFlsContext, v20, v21, v22);
-    *(_QWORD *)(v9 + 8) = 0LL;
-    RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree(&xmmword_18017AB98, v4);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    v7[1].Value = -2LL;
+    RtlReleaseSRWLockExclusive(v7);
+    RtlAcquireSRWLockExclusive(&RtlpFlsContext);
+    v7[1].Value = 0LL;
+    RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree(&xmmword_18017AB98, v2);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return v5;
+  return v3;
 }

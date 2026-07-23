@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpMUIRegPatchLicenseInfortmation @ 0x18001032C (RtlpMUIRegPatchLicenseInfortmation.c)
  *     GetLCIDFromLangListNodeWithLICCheck @ 0x18001EA5C (GetLCIDFromLangListNodeWithLICCheck.c)
- *     RtlpMuiRegAddLanguageByName @ 0x180112474 (RtlpMuiRegAddLanguageByName.c)
- *     _RtlpMuiRegValidateInstalled @ 0x180115980 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x180112444 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180115950 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
  *     RtlpLangNameInMultiSzString @ 0x1800102C0 (RtlpLangNameInMultiSzString.c)
  */

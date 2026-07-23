@@ -3,7 +3,7 @@
  * Callers:
  *     VrpIncrementSiloCount @ 0x1405D2494 (VrpIncrementSiloCount.c)
  * Callees:
- *     CmpRegisterCallbackInternal @ 0x14069D488 (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x1405FC558 (CmpRegisterCallbackInternal.c)
  */
 
 __int64 __fastcall CmRegisterInternalCallback(__int64 a1, int a2)

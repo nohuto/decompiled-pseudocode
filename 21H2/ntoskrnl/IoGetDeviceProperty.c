@@ -1,39 +1,39 @@
 /*
- * XREFs of IoGetDeviceProperty @ 0x14063FC90
+ * XREFs of IoGetDeviceProperty @ 0x140634AA0
  * Callers:
- *     PoStoreRequester @ 0x140282E3C (PoStoreRequester.c)
- *     PiRebalanceOptOut @ 0x140510338 (PiRebalanceOptOut.c)
- *     KseDsCallbackHookAddDevice @ 0x140527270 (KseDsCallbackHookAddDevice.c)
- *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
- *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
- *     IoGetDmaAdapter @ 0x140764DA0 (IoGetDmaAdapter.c)
- *     ArbShareDriverExclusive @ 0x1407B90E4 (ArbShareDriverExclusive.c)
- *     PopGenerateDeviceFriendlyName @ 0x1407BDE58 (PopGenerateDeviceFriendlyName.c)
- *     ArbQueryConflict @ 0x1408671C0 (ArbQueryConflict.c)
- *     IopIsPciRootBus @ 0x1408A2EF0 (IopIsPciRootBus.c)
- *     PopRegisterCoolingExtensionProtection @ 0x1408E2FB0 (PopRegisterCoolingExtensionProtection.c)
- *     PopWakeSourceGetDeviceProperty @ 0x1408E6D2C (PopWakeSourceGetDeviceProperty.c)
- *     PopDiagQueryDevicePropertyString @ 0x1408E80F8 (PopDiagQueryDevicePropertyString.c)
- *     SshpGenerateDeviceFriendlyName @ 0x1408FB120 (SshpGenerateDeviceFriendlyName.c)
- *     IoWMISuggestInstanceName @ 0x140931450 (IoWMISuggestInstanceName.c)
- *     VfIsPCIBus @ 0x1409CC7E8 (VfIsPCIBus.c)
+ *     PoStoreRequester @ 0x1402710E8 (PoStoreRequester.c)
+ *     PiRebalanceOptOut @ 0x140510578 (PiRebalanceOptOut.c)
+ *     KseDsCallbackHookAddDevice @ 0x1405274B0 (KseDsCallbackHookAddDevice.c)
+ *     PiControlGetPropertyData @ 0x14060C640 (PiControlGetPropertyData.c)
+ *     IopProcessSetInterfaceState @ 0x14074929C (IopProcessSetInterfaceState.c)
+ *     IoGetDmaAdapter @ 0x140764F60 (IoGetDmaAdapter.c)
+ *     ArbShareDriverExclusive @ 0x1407B9604 (ArbShareDriverExclusive.c)
+ *     PopGenerateDeviceFriendlyName @ 0x1407BE5E8 (PopGenerateDeviceFriendlyName.c)
+ *     ArbQueryConflict @ 0x140867320 (ArbQueryConflict.c)
+ *     IopIsPciRootBus @ 0x1408A3050 (IopIsPciRootBus.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1408E3110 (PopRegisterCoolingExtensionProtection.c)
+ *     PopWakeSourceGetDeviceProperty @ 0x1408E6E8C (PopWakeSourceGetDeviceProperty.c)
+ *     PopDiagQueryDevicePropertyString @ 0x1408E8258 (PopDiagQueryDevicePropertyString.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x1408FB280 (SshpGenerateDeviceFriendlyName.c)
+ *     IoWMISuggestInstanceName @ 0x1409315B0 (IoWMISuggestInstanceName.c)
+ *     VfIsPCIBus @ 0x1409CD7E8 (VfIsPCIBus.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpvUtilFailDriver @ 0x1405100E0 (PpvUtilFailDriver.c)
- *     PiGetDeviceRegProperty @ 0x1406401E8 (PiGetDeviceRegProperty.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1406C0754 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     PnpBusTypeGuidGet @ 0x1406C27EC (PnpBusTypeGuidGet.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     PpIrpQueryCapabilities @ 0x14074B408 (PpIrpQueryCapabilities.c)
- *     PnpDetermineResourceListSize @ 0x140750A1C (PnpDetermineResourceListSize.c)
- *     PiGetDeviceRegistryProperty @ 0x14089E518 (PiGetDeviceRegistryProperty.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpvUtilFailDriver @ 0x140510320 (PpvUtilFailDriver.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x14061F664 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PnpBusTypeGuidGet @ 0x1406214AC (PnpBusTypeGuidGet.c)
+ *     PiGetDeviceRegProperty @ 0x140634FF8 (PiGetDeviceRegProperty.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     PpIrpQueryCapabilities @ 0x14074B5C8 (PpIrpQueryCapabilities.c)
+ *     PnpDetermineResourceListSize @ 0x140750BDC (PnpDetermineResourceListSize.c)
+ *     PiGetDeviceRegistryProperty @ 0x14089E678 (PiGetDeviceRegistryProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceProperty(
@@ -47,7 +47,7 @@ NTSTATUS __stdcall IoGetDeviceProperty(
   int v9; // r8d
   int v10; // r9d
   unsigned int v11; // ebx
-  unsigned __int16 *DeviceNode; // rsi
+  PVOID DeviceNode; // rsi
   unsigned int v13; // ebx
   int v14; // edi
   int v15; // r15d
@@ -99,7 +99,7 @@ NTSTATUS __stdcall IoGetDeviceProperty(
   *ResultLength = 0;
   if ( !DeviceObject )
     return -1073741808;
-  DeviceNode = (unsigned __int16 *)DeviceObject->DeviceObjectExtension->DeviceNode;
+  DeviceNode = DeviceObject->DeviceObjectExtension->DeviceNode;
   if ( !DeviceNode || (*((_DWORD *)DeviceNode + 99) & 0x20000) != 0 )
   {
     if ( v11 != 18 && (v11 != 15 || !DeviceNode) )
@@ -119,7 +119,7 @@ NTSTATUS __stdcall IoGetDeviceProperty(
       v27 = v11 - 12;
       if ( !v27 )
       {
-        DeviceRegProp = PnpBusTypeGuidGet(DeviceNode[232], &v52);
+        DeviceRegProp = PnpBusTypeGuidGet(*((_WORD *)DeviceNode + 232), &v52);
         if ( DeviceRegProp < 0 )
           return DeviceRegProp;
         *ResultLength = 16;
@@ -211,7 +211,7 @@ LABEL_43:
           {
             v41 = (v50 & 0x400) != 0 ? 3 : 0;
           }
-          DeviceNode = (unsigned __int16 *)*((_QWORD *)DeviceNode + 2);
+          DeviceNode = (PVOID)*((_QWORD *)DeviceNode + 2);
           if ( v41 || DeviceNode == IopRootDeviceNode )
             goto LABEL_81;
         }
@@ -239,7 +239,7 @@ LABEL_81:
       *ResultLength = 4;
       if ( BufferLength < 4 )
         return -1073741789;
-      PpHotSwapGetDevnodeRemovalPolicy(DeviceNode, 1LL, PropertyBuffer);
+      PpHotSwapGetDevnodeRemovalPolicy((__int64)DeviceNode, 1, (unsigned int *)PropertyBuffer);
       return 0;
     }
     v31 = v26 - 1;
@@ -393,13 +393,7 @@ LABEL_11:
         if ( *((_QWORD *)DeviceNode + 6) )
         {
           *ResultLength = BufferLength;
-          DeviceRegProp = PiGetDeviceRegProperty(
-                            *((_QWORD *)DeviceNode + 6),
-                            0,
-                            v14,
-                            v15,
-                            PropertyBuffer,
-                            (__int64)ResultLength);
+          DeviceRegProp = PiGetDeviceRegProperty(*((_QWORD *)DeviceNode + 6), 0, v14, v15, PropertyBuffer, ResultLength);
           v17 = DeviceRegProp == -1073741275;
 LABEL_13:
           if ( !v17 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReportingNoInline @ 0x14052648C
+ * XREFs of Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReportingNoInline @ 0x140528AFC
  * Callers:
- *     EtwTraceAutoBoostEntryExhaustion @ 0x1402703AC (EtwTraceAutoBoostEntryExhaustion.c)
- *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x1404B1670 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14026F91C (EtwTraceAutoBoostEntryExhaustion.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x1404AAD00 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
  * Callees:
- *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback @ 0x1405016BC (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback @ 0x1404FAEAC (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReportingNoInline()

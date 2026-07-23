@@ -5,7 +5,7 @@
  *     VfDeadlockReleaseResource @ 0x14071425C (VfDeadlockReleaseResource.c)
  *     ViDeadlockAddResource @ 0x14071474C (ViDeadlockAddResource.c)
  * Callees:
- *     VfUtilAddressRangeFit @ 0x140702B80 (VfUtilAddressRangeFit.c)
+ *     VfUtilAddressRangeFit @ 0x140702BB0 (VfUtilAddressRangeFit.c)
  *     ViDeadlockTrimResources @ 0x140715D78 (ViDeadlockTrimResources.c)
  */
 

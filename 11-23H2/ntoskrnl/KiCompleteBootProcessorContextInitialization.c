@@ -1,13 +1,13 @@
 /*
- * XREFs of KiCompleteBootProcessorContextInitialization @ 0x140376E6C
+ * XREFs of KiCompleteBootProcessorContextInitialization @ 0x14037700C
  * Callers:
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     KiAllocateDpcDelegateThread @ 0x140376B1C (KiAllocateDpcDelegateThread.c)
- *     KiStartPrcbThread @ 0x140382A20 (KiStartPrcbThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiResetBootProcessorApicMask @ 0x1407EAF58 (KiResetBootProcessorApicMask.c)
- *     MmAllocateIsrStack @ 0x14081D57C (MmAllocateIsrStack.c)
+ *     KiAllocateDpcDelegateThread @ 0x140376CBC (KiAllocateDpcDelegateThread.c)
+ *     KiStartPrcbThread @ 0x140382BC0 (KiStartPrcbThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiResetBootProcessorApicMask @ 0x1407EB228 (KiResetBootProcessorApicMask.c)
+ *     MmAllocateIsrStack @ 0x14081D84C (MmAllocateIsrStack.c)
  *     KiInitializePrcbContext @ 0x140A88F30 (KiInitializePrcbContext.c)
  */
 
@@ -62,7 +62,7 @@ __int64 KiCompleteBootProcessorContextInitialization()
             {
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( CurrentIrql != 2 )
@@ -72,10 +72,10 @@ __int64 KiCompleteBootProcessorContextInitialization()
               v9 = v17;
               KiStartPrcbThread(v17, CurrentPrcb);
               CurrentPrcb->DpcDelegateThread = v9;
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v11 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
                 {
                   v12 = KeGetCurrentPrcb();
                   v13 = v12->SchedulerAssist;

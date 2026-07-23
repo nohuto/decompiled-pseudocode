@@ -1,0 +1,84 @@
+/*
+ * XREFs of sub_14083A2EC @ 0x14083A2EC
+ * Callers:
+ *     sub_1408394BC @ 0x1408394BC (sub_1408394BC.c)
+ *     sub_14083A1D0 @ 0x14083A1D0 (sub_14083A1D0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_14083A2EC(__int64 a1, unsigned __int64 *a2, char a3)
+{
+  __int64 v3; // r11
+  unsigned __int64 v4; // rax
+  __int64 *v5; // r10
+  char v6; // bl
+  unsigned __int64 *v9; // rcx
+  unsigned __int64 v10; // r8
+  unsigned __int64 v11; // rax
+  bool v12; // cf
+  __int64 *v13; // rcx
+  __int64 **v14; // rax
+  unsigned __int64 v15; // rax
+  char v16; // al
+  __int64 v18; // rax
+
+  v3 = a1 + 16;
+  v4 = *(_QWORD *)(a1 + 16);
+  v5 = 0LL;
+  v6 = *((_BYTE *)a2 + 33) & 1;
+  while ( 1 )
+  {
+    v9 = (unsigned __int64 *)(v4 - 40);
+    if ( v3 == v4 )
+      break;
+    v10 = *v9;
+    v11 = *a2;
+    v12 = *a2 < *v9;
+    if ( *a2 > *v9 )
+    {
+      if ( v9[1] < v11 )
+        goto LABEL_5;
+      v12 = v11 < v10;
+    }
+    if ( (!v12 || a2[1] >= v10) && (!v6 || (*((_BYTE *)v9 + 33) & 1) == 0) )
+    {
+      if ( (a3 & 1) == 0 )
+        return 3221226114LL;
+      *((_BYTE *)v9 + 33) |= 2u;
+      *((_BYTE *)a2 + 33) |= 2u;
+    }
+LABEL_5:
+    if ( !v5 && *v9 > *a2 )
+      v5 = (__int64 *)v9[6];
+    v4 = v9[5];
+  }
+  v13 = (__int64 *)(a2 + 5);
+  if ( v5 )
+  {
+    v18 = *v5;
+    *v13 = *v5;
+    a2[6] = (unsigned __int64)v5;
+    *(_QWORD *)(v18 + 8) = v13;
+    *v5 = (__int64)v13;
+  }
+  else
+  {
+    v14 = *(__int64 ***)(v3 + 8);
+    if ( *v14 != (__int64 *)v3 )
+      __fastfail(3u);
+    *v13 = v3;
+    a2[6] = (unsigned __int64)v14;
+    *v14 = v13;
+    *(_QWORD *)(v3 + 8) = v13;
+  }
+  if ( *a2 < *(_QWORD *)a1 )
+    *(_QWORD *)a1 = *a2;
+  v15 = a2[1];
+  if ( v15 > *(_QWORD *)(a1 + 8) )
+    *(_QWORD *)(a1 + 8) = v15;
+  v16 = *(_BYTE *)(a1 + 33);
+  if ( (v16 & 1) != 0 && !v6 )
+    *(_BYTE *)(a1 + 33) = v16 & 0xFE;
+  return 0LL;
+}

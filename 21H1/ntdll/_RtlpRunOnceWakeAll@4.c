@@ -10,7 +10,7 @@ unsigned int __thiscall RtlpRunOnceWakeAll(_DWORD *this)
 {
   unsigned int result; // eax
   unsigned int v2; // esi
-  int v3; // ecx
+  void *v3; // ecx
 
   result = *this & 0xFFFFFFFC;
   if ( result )
@@ -18,7 +18,7 @@ unsigned int __thiscall RtlpRunOnceWakeAll(_DWORD *this)
     do
     {
       v2 = *(_DWORD *)result;
-      v3 = *(_DWORD *)(result + 12);
+      v3 = *(void **)(result + 12);
       _interlockedbittestandset((volatile signed __int32 *)(result + 20), 2u);
       ZwAlertThreadByThreadId(v3);
       result = v2;

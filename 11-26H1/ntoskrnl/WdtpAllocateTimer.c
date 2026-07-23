@@ -1,12 +1,12 @@
 /*
- * XREFs of WdtpAllocateTimer @ 0x140AA403C
+ * XREFs of WdtpAllocateTimer @ 0x140AA4D68
  * Callers:
- *     PnpWatchdogTimerAllocate @ 0x140AA3FA4 (PnpWatchdogTimerAllocate.c)
+ *     PnpWatchdogTimerAllocate @ 0x140AA4CD0 (PnpWatchdogTimerAllocate.c)
  * Callees:
- *     ExAllocateTimer @ 0x140456CE0 (ExAllocateTimer.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocateTimer @ 0x14044E550 (ExAllocateTimer.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 struct _KEVENT *WdtpAllocateTimer()

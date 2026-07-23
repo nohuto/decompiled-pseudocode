@@ -9,11 +9,11 @@
  *     <none>
  */
 
-__int64 NtOpenSection()
+NTSTATUS __cdecl NtOpenSection(PHANDLE SectionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 55LL;
+  result = 55;
   __asm { syscall; Low latency system call }
   return result;
 }

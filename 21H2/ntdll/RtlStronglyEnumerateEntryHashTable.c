@@ -6,49 +6,51 @@
  *     RtlpGetChainHead @ 0x180068E80 (RtlpGetChainHead.c)
  */
 
-_QWORD *__fastcall RtlStronglyEnumerateEntryHashTable(__int64 a1, __int64 a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlStronglyEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  unsigned int v2; // r10d
-  __int64 v3; // r9
-  __int64 v4; // r11
+  unsigned int BucketIndex; // r10d
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v3; // r9
+  PRTL_DYNAMIC_HASH_TABLE v4; // r11
   __int64 ChainHead; // rdx
-  _QWORD *v6; // rcx
-  _QWORD *v7; // rcx
-  _QWORD *result; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY **Flink; // rcx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v7; // rcx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
 
-  v2 = *(_DWORD *)(a2 + 32);
-  v3 = a2;
-  v4 = a1;
-  if ( v2 >= *(_DWORD *)(a1 + 8) )
+  BucketIndex = Enumerator->BucketIndex;
+  v3 = Enumerator;
+  v4 = HashTable;
+  if ( BucketIndex >= HashTable->TableSize )
     return 0LL;
   while ( 1 )
   {
-    if ( v2 == *(_DWORD *)(v3 + 32) )
+    if ( BucketIndex == v3->BucketIndex )
     {
-      v6 = *(_QWORD **)v3;
-      ChainHead = *(_QWORD *)(v3 + 24);
+      Flink = (_RTL_DYNAMIC_HASH_TABLE_ENTRY **)v3->HashEntry.Linkage.Flink;
+      ChainHead = (__int64)v3->ChainHead;
     }
     else
     {
-      ChainHead = RtlpGetChainHead(v4, v2);
-      v6 = (_QWORD *)ChainHead;
+      ChainHead = RtlpGetChainHead(v4, BucketIndex);
+      Flink = (_RTL_DYNAMIC_HASH_TABLE_ENTRY **)ChainHead;
     }
-    v7 = (_QWORD *)*v6;
-    if ( v7 != (_QWORD *)ChainHead )
+    v7 = *Flink;
+    if ( v7 != (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       break;
 LABEL_5:
-    if ( ++v2 >= *(_DWORD *)(v4 + 8) )
+    if ( ++BucketIndex >= v4->TableSize )
       return 0LL;
   }
-  while ( !v7[2] )
+  while ( !v7->Signature )
   {
-    v7 = (_QWORD *)*v7;
-    if ( v7 == (_QWORD *)ChainHead )
+    v7 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)v7->Linkage.Flink;
+    if ( v7 == (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       goto LABEL_5;
   }
-  *(_DWORD *)(v3 + 32) = v2;
+  v3->BucketIndex = BucketIndex;
   result = v7;
-  *(_QWORD *)(v3 + 24) = ChainHead;
-  *(_QWORD *)v3 = v7;
+  v3->ChainHead = (_LIST_ENTRY *)ChainHead;
+  v3->HashEntry.Linkage.Flink = &v7->Linkage;
   return result;
 }

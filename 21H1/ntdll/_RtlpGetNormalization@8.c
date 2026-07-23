@@ -18,13 +18,14 @@ int __fastcall RtlpGetNormalization(unsigned int a1, void ***a2)
   int v4; // ecx
   void **v5; // ebx
   void **v6; // eax
-  int NlsSectionPtr; // esi
-  int Heap; // eax
-  int v9; // esi
-  int *v10; // eax
+  NTSTATUS NlsSectionPtr; // esi
+  char *Heap; // eax
+  _DWORD *v9; // esi
+  _DWORD *v10; // eax
+  SIZE_T v11; // [esp-4h] [ebp-24h]
   int Tables; // [esp+14h] [ebp-Ch]
-  unsigned __int16 *v13; // [esp+18h] [ebp-8h] BYREF
-  int v14; // [esp+1Ch] [ebp-4h] BYREF
+  PVOID SectionPointer; // [esp+18h] [ebp-8h] BYREF
+  ULONG SectionSize; // [esp+1Ch] [ebp-4h] BYREF
 
   if ( !a2 )
     return -1073741584;
@@ -35,16 +36,17 @@ int __fastcall RtlpGetNormalization(unsigned int a1, void ***a2)
     v6 = NormalizationList__Lookup((void *)(v4 ^ 0x100));
     if ( v6 )
     {
-      v13 = (unsigned __int16 *)v6[1];
-      v14 = (int)v6[2];
+      SectionPointer = v6[1];
+      SectionSize = (ULONG)v6[2];
     }
     else
     {
-      NlsSectionPtr = NtGetNlsSectionPtr(12, a1 & 0xFFFFFEFF, 0, (int)&v13, (int)&v14);
+      NlsSectionPtr = NtGetNlsSectionPtr(0xCu, a1 & 0xFFFFFEFF, 0, &SectionPointer, &SectionSize);
       if ( NlsSectionPtr < 0 )
         goto LABEL_12;
     }
-    Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 80);
+    LODWORD(v11) = 80;
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
     v9 = Heap;
     if ( !Heap )
     {
@@ -54,19 +56,19 @@ LABEL_12:
       return NlsSectionPtr;
     }
     v5 = (void **)(Heap + 12);
-    Tables = Normalization__LoadTables(v13, SBYTE1(a1), v14, (_DWORD *)(Heap + 12));
+    Tables = Normalization__LoadTables((unsigned __int16 *)SectionPointer, SBYTE1(a1), SectionSize, (_DWORD *)Heap + 3);
     if ( Tables < 0 )
     {
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v9);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
       NlsSectionPtr = Tables;
       goto LABEL_12;
     }
-    *(_DWORD *)(v9 + 8) = a1;
-    v10 = (int *)off_4B3A341C[0];
+    v9[2] = a1;
+    v10 = off_4B3A341C[0];
     if ( *(_UNKNOWN ***)off_4B3A341C[0] != &NormalizationListHead )
       __fastfail(3u);
-    *(_DWORD *)v9 = &NormalizationListHead;
-    *(_DWORD *)(v9 + 4) = v10;
+    *v9 = &NormalizationListHead;
+    v9[1] = v10;
     *v10 = v9;
     off_4B3A341C[0] = (_UNKNOWN **)v9;
   }

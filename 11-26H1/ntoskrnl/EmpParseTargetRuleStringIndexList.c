@@ -1,13 +1,13 @@
 /*
- * XREFs of EmpParseTargetRuleStringIndexList @ 0x140CB7484
+ * XREFs of EmpParseTargetRuleStringIndexList @ 0x140CBD4C8
  * Callers:
- *     EmpParseTargetRules @ 0x140CB77A4 (EmpParseTargetRules.c)
+ *     EmpParseTargetRules @ 0x140CBD7E8 (EmpParseTargetRules.c)
  * Callees:
- *     strchr @ 0x140537A00 (strchr.c)
- *     RtlCharToInteger @ 0x140ADC490 (RtlCharToInteger.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140CB5F44 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     strchr @ 0x140539E80 (strchr.c)
+ *     RtlCharToInteger @ 0x140AD99E0 (RtlCharToInteger.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140CBBF84 (EmpInfParseGetValueFromSectionAndKeyName.c)
  */
 
 bool __fastcall EmpParseTargetRuleStringIndexList(
@@ -30,13 +30,13 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
   _BYTE *v17; // r14
   unsigned __int64 v18; // rbp
   unsigned __int64 v19; // rsi
-  char *Pool2; // rax
+  CHAR *Pool2; // rax
   __int64 v21; // r9
-  char *v22; // r15
-  char *v23; // rcx
+  CHAR *v22; // r15
+  CHAR *v23; // rcx
   __int64 v24; // r14
-  char v25; // al
-  char *v26; // rax
+  CHAR v25; // al
+  CHAR *v26; // rax
   __int64 ValueFromSectionAndKeyName; // r10
   __int64 i; // r8
   unsigned __int8 *v29; // r9
@@ -108,7 +108,7 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
         }
         else
         {
-          Pool2 = (char *)ExAllocatePool2(256LL, a2 - v17 + 1, 0x74694D45u);
+          Pool2 = (CHAR *)ExAllocatePool2(256LL, a2 - v17 + 1, 0x74694D45u);
           v22 = Pool2;
           if ( !Pool2 || v19 > 0x7FFFFFFF )
             goto LABEL_25;

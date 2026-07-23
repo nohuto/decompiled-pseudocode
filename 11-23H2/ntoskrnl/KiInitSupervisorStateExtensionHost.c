@@ -3,7 +3,7 @@
  * Callers:
  *     KeInitSystem @ 0x140B4DED4 (KeInitSystem.c)
  * Callees:
- *     ExRegisterHost @ 0x140821610 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x140821910 (ExRegisterHost.c)
  */
 
 void __fastcall KiInitSupervisorStateExtensionHost(__int64 a1, __int64 a2)

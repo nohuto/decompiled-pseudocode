@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpAddDebugInfoEvents @ 0x140492EAC
+ * XREFs of EtwpAddDebugInfoEvents @ 0x14049393C
  * Callers:
- *     EtwpRealtimeNotifyConsumers @ 0x140492464 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpFinalizeHeader @ 0x140492C74 (EtwpFinalizeHeader.c)
- *     EtwpAddLogHeader @ 0x140493E48 (EtwpAddLogHeader.c)
- *     EtwpSendDbgId @ 0x1406A5450 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140492EF4 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpFinalizeHeader @ 0x140493704 (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x1404948D8 (EtwpAddLogHeader.c)
+ *     EtwpSendDbgId @ 0x1406A5588 (EtwpSendDbgId.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EtwpAddEventToBuffer @ 0x140493004 (EtwpAddEventToBuffer.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EtwpAddEventToBuffer @ 0x140493A94 (EtwpAddEventToBuffer.c)
  */
 
 void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *a4, int a5)
@@ -37,7 +37,7 @@ void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *
   v9 = a5;
   if ( (a5 & 1) != 0 )
   {
-    if ( (int)EtwpAddEventToBuffer(a2, 66LL, v5, "14393.8957.amd64fre.rs1_release.260227-2344", 44, v6, &a5) < 0 )
+    if ( (int)EtwpAddEventToBuffer(a2, 66LL, v5, "14393.9339.amd64fre.rs1_release.260710-1833", 44, v6, &a5) < 0 )
       return;
     v6 -= a5;
   }

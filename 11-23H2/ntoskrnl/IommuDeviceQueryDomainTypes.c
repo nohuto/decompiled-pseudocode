@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuDeviceQueryDomainTypes @ 0x140525660
+ * XREFs of IommuDeviceQueryDomainTypes @ 0x140525BB0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDeviceGetDomainTypes @ 0x14050DE78 (HalpIommuDeviceGetDomainTypes.c)
+ *     HalpIommuDeviceGetDomainTypes @ 0x14050E3C8 (HalpIommuDeviceGetDomainTypes.c)
  */
 
 __int64 __fastcall IommuDeviceQueryDomainTypes(__int64 a1, _DWORD *a2)

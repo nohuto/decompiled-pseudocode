@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmParkApplyForcedMask @ 0x1407DD1D8
+ * XREFs of PpmParkApplyForcedMask @ 0x1407E1804
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmCheckApplyParkConstraints @ 0x1404BBD54 (PpmCheckApplyParkConstraints.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpmParkParkingAvailable @ 0x140A9D5A0 (PpmParkParkingAvailable.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmCheckApplyParkConstraints @ 0x1404B5534 (PpmCheckApplyParkConstraints.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpmParkParkingAvailable @ 0x140AEBCBC (PpmParkParkingAvailable.c)
  */
 
 __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
   __int64 v7; // rdx
   unsigned int v8; // r8d
   __int64 v10; // rcx
-  unsigned int SystemCallNumber; // r15d
+  unsigned int v11; // r15d
   char v12; // cl
   unsigned __int16 v13; // si
   __int64 v14; // r13
@@ -42,7 +42,7 @@ __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
   memset_0(v24, 0, 0x100uLL);
   v5 = *((unsigned __int16 *)a1 + 4);
   v6 = *a1;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v7, v8);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v7, v8);
   if ( (unsigned __int16)v5 > 0x20u || *((_WORD *)a1 + 5) || *((_WORD *)a1 + 6) || *((_WORD *)a1 + 7) )
     goto LABEL_7;
   if ( a2 )
@@ -79,42 +79,38 @@ LABEL_17:
     goto LABEL_17;
   }
 LABEL_18:
-  SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
+  v11 = PpmParkNumNodes;
   v12 = 0;
   v13 = 0;
-  if ( PopModernStandbyStateNotify.SystemCallNumber )
+  if ( PpmParkNumNodes )
   {
     do
     {
-      v14 = *(__int64 *)((char *)&PopModernStandbyStateNotify.116 + 4);
+      v14 = PpmParkNodes;
       v15 = 1264LL * v13;
-      v16 = v15 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4);
-      if ( (unsigned __int16)v5 < *(_WORD *)(v15 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 16)
-        && *(_QWORD *)(v16 + 8 * v5 + 24) )
+      v16 = v15 + PpmParkNodes;
+      if ( (unsigned __int16)v5 < *(_WORD *)(v15 + PpmParkNodes + 16) && *(_QWORD *)(v16 + 8 * v5 + 24) )
       {
-        RtlAndAffinityEx(
-          (unsigned __int16 *)(v16 + 16),
-          (unsigned __int16 *)&v21,
-          v15 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 280LL);
+        RtlAndAffinityEx((unsigned __int16 *)(v16 + 16), (unsigned __int16 *)&v21, v15 + PpmParkNodes + 280);
         RtlAndAffinityEx((unsigned __int16 *)(v16 + 16), (unsigned __int16 *)&v23, v15 + v14 + 808);
         v12 = 1;
         *(_BYTE *)(v15 + v14 + 1152) |= 1u;
       }
       ++v13;
     }
-    while ( v13 < SystemCallNumber );
+    while ( v13 < v11 );
     if ( v12 )
     {
       PpmParkApplyPolicy();
       PpmParkParkingAvailable(v17);
       PpmCheckApplyParkConstraints();
-      PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v18, v19);
+      PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v18, v19);
       goto LABEL_8;
     }
   }
 LABEL_7:
   v4 = -1073741811;
 LABEL_8:
-  PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   return v4;
 }

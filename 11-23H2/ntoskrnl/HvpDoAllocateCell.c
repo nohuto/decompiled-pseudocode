@@ -1,24 +1,24 @@
 /*
- * XREFs of HvpDoAllocateCell @ 0x14070A440
+ * XREFs of HvpDoAllocateCell @ 0x14070A650
  * Callers:
- *     HvReallocateCell @ 0x140709DB0 (HvReallocateCell.c)
- *     HvAllocateCell @ 0x14070A3C8 (HvAllocateCell.c)
+ *     HvReallocateCell @ 0x140709FC0 (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x14070A5D8 (HvAllocateCell.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvpDelistFreeCell @ 0x140709C10 (HvpDelistFreeCell.c)
- *     HvpRemoveFreeCellHint @ 0x14070A220 (HvpRemoveFreeCellHint.c)
- *     HvpFindFreeCell @ 0x14070A730 (HvpFindFreeCell.c)
- *     HvpGetCellContextMove @ 0x14070AA08 (HvpGetCellContextMove.c)
- *     HvpEnlistFreeCell @ 0x140745F70 (HvpEnlistFreeCell.c)
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvpDelistFreeCell @ 0x140709E20 (HvpDelistFreeCell.c)
+ *     HvpRemoveFreeCellHint @ 0x14070A430 (HvpRemoveFreeCellHint.c)
+ *     HvpFindFreeCell @ 0x14070A940 (HvpFindFreeCell.c)
+ *     HvpGetCellContextMove @ 0x14070AC18 (HvpGetCellContextMove.c)
+ *     HvpEnlistFreeCell @ 0x140746160 (HvpEnlistFreeCell.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall HvpDoAllocateCell(

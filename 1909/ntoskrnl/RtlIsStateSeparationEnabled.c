@@ -9,7 +9,7 @@
  *     <none>
  */
 
-bool RtlIsStateSeparationEnabled()
+BOOLEAN RtlIsStateSeparationEnabled(void)
 {
   return (MEMORY[0xFFFFF780000002F0] & 0x400) != 0;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of VfBuildScatterGatherList @ 0x1409CB000
+ * XREFs of VfBuildScatterGatherList @ 0x1409CC000
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140213400 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
- *     DECREMENT_SCATTER_GATHER_LISTS @ 0x1409C9E00 (DECREMENT_SCATTER_GATHER_LISTS.c)
- *     VERIFY_BUFFER_LOCKED @ 0x1409CA060 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_IRQL @ 0x1409CA0EC (VF_ASSERT_IRQL.c)
- *     ViAllocateMapRegisterFile @ 0x1409CD5C4 (ViAllocateMapRegisterFile.c)
- *     ViCheckMdlLength @ 0x1409CDC54 (ViCheckMdlLength.c)
- *     ViFreeMapRegisterFile @ 0x1409CE3C4 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x1409CE748 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
- *     ViHalPreprocessOptions @ 0x1409CEC60 (ViHalPreprocessOptions.c)
- *     ViMapDoubleBuffer @ 0x1409CF094 (ViMapDoubleBuffer.c)
- *     ViSwap @ 0x1409CFA00 (ViSwap.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405A2024 (VfReportIssueWithOptions.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x1409CAE00 (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x1409CB060 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_IRQL @ 0x1409CB0EC (VF_ASSERT_IRQL.c)
+ *     ViAllocateMapRegisterFile @ 0x1409CE5C4 (ViAllocateMapRegisterFile.c)
+ *     ViCheckMdlLength @ 0x1409CEC54 (ViCheckMdlLength.c)
+ *     ViFreeMapRegisterFile @ 0x1409CF3C4 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CF748 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CFA50 (ViGetRealDmaOperation.c)
+ *     ViHalPreprocessOptions @ 0x1409CFC60 (ViHalPreprocessOptions.c)
+ *     ViMapDoubleBuffer @ 0x1409D0094 (ViMapDoubleBuffer.c)
+ *     ViSwap @ 0x1409D0A00 (ViSwap.c)
  */
 
 __int64 VfBuildScatterGatherList(__int64 a1, __int64 a2, ...)
@@ -110,13 +110,13 @@ LABEL_14:
     {
       v10 = v9;
       ViHalPreprocessOptions(
-        byte_140C12EF8,
+        byte_140C12ED4,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v9,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v10, 0LL, 0LL, byte_140C12EF8);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v10, 0LL, 0LL, byte_140C12ED4);
     }
   }
   v11 = ExAllocateFromNPagedLookasideList(&ViHalWaitBlockLookaside);

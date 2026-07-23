@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpSyncNextBackupHive @ 0x14085A968
+ * XREFs of CmpSyncNextBackupHive @ 0x140860C5C
  * Callers:
- *     NtInitializeRegistry @ 0x14084EE60 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x140855170 (NtInitializeRegistry.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     CmpFlushBackupHive @ 0x14085A45C (CmpFlushBackupHive.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140C58CD4 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140C58F14 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     CmpFlushBackupHive @ 0x140860750 (CmpFlushBackupHive.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140C5ECD4 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140C5EF14 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
 __int64 CmpSyncNextBackupHive()
@@ -24,7 +24,7 @@ __int64 CmpSyncNextBackupHive()
   memset(&ObjectAttributes, 0, 44);
   if ( (unsigned __int8)CmpAcquireHiveLoadUnloadRundown() )
   {
-    if ( *(_DWORD *)&WheapPfaLock.ApcStateFill[40] )
+    if ( HIDWORD(WheapPfaLock.RelativeTimerBias) )
     {
       do
       {
@@ -46,8 +46,8 @@ __int64 CmpSyncNextBackupHive()
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
         if ( ZwCreateKey(&KeyHandle, 2u, &ObjectAttributes, 0, 0LL, 0, 0LL) >= 0 )
         {
-          _InterlockedIncrement((volatile signed __int32 *)&WheapPfaLock.WaitBlockList);
-          ZwSetValueKey(KeyHandle, &CmpBackupCountValueName, 0, 4u, &WheapPfaLock.WaitBlockList, 4u);
+          _InterlockedIncrement((volatile signed __int32 *)&WheapPfaLock.RelativeTimerBias);
+          ZwSetValueKey(KeyHandle, &CmpBackupCountValueName, 0, 4u, &WheapPfaLock.RelativeTimerBias, 4u);
           ZwClose(KeyHandle);
         }
         v0 = -2147483622;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicRequestInterrupt @ 0x1403F74D0
+ * XREFs of HalpApicRequestInterrupt @ 0x1403F0E80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpApicRequestInterrupt(__int64 a1, __int64 a2, __m128i *a3, unsigned int a4, _DWORD *a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCreateCmResourceList @ 0x1408104E4
+ * XREFs of IopCreateCmResourceList @ 0x1408107B4
  * Callers:
  *     IopAllocateLegacyBootResources @ 0x140B3A148 (IopAllocateLegacyBootResources.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

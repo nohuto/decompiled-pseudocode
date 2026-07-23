@@ -11,7 +11,7 @@
  *     sub_180011E90 @ 0x180011E90 (sub_180011E90.c)
  *     sub_1800141D4 @ 0x1800141D4 (sub_1800141D4.c)
  *     sub_1800156B0 @ 0x1800156B0 (sub_1800156B0.c)
- *     sub_180018970 @ 0x180018970 (sub_180018970.c)
+ *     Callback @ 0x180018970 (Callback.c)
  *     sub_180019170 @ 0x180019170 (sub_180019170.c)
  *     sub_18001A028 @ 0x18001A028 (sub_18001A028.c)
  *     sub_18001A2D0 @ 0x18001A2D0 (sub_18001A2D0.c)
@@ -115,37 +115,37 @@
  *     RtlpNotOwnerCriticalSection @ 0x1800E7490 (RtlpNotOwnerCriticalSection.c)
  */
 
-__int64 __fastcall RtlLeaveCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   bool v1; // zf
   signed __int32 v3; // edi
-  signed __int64 v4; // r8
+  HANDLE LockSemaphore; // r8
   int v5; // edx
   signed __int32 v6; // eax
 
-  v1 = (*(_DWORD *)(a1 + 12))-- == 1;
+  v1 = CriticalSection->RecursionCount-- == 1;
   if ( v1 )
   {
-    *(_QWORD *)(a1 + 16) = 0LL;
-    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), -1, -2);
+    CriticalSection->OwningThread = 0LL;
+    v3 = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
     if ( v3 != -2 )
     {
-      if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-        RtlpNotOwnerCriticalSection(a1);
-      v4 = *(_QWORD *)(a1 + 24);
-      if ( !v4 )
-        v4 = sub_18000C1F4(a1);
+      if ( (CriticalSection->LockCount & 1) != 0 )
+        RtlpNotOwnerCriticalSection(CriticalSection);
+      LockSemaphore = CriticalSection->LockSemaphore;
+      if ( !LockSemaphore )
+        LockSemaphore = sub_18000C1F4((__int64)CriticalSection);
       do
       {
         v5 = v3 & 2 | 1;
-        v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), v5 + v3, v3);
+        v6 = _InterlockedCompareExchange(&CriticalSection->LockCount, v5 + v3, v3);
         v1 = v3 == v6;
         v3 = v6;
       }
       while ( !v1 );
       if ( (v5 & 2) != 0 )
-        sub_1800A4BC0(a1, v4);
+        sub_1800A4BC0(CriticalSection, LockSemaphore);
     }
   }
-  return 0LL;
+  return 0;
 }

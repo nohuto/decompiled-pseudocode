@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x1404197DC
+ * XREFs of AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x14040DD0C
  * Callers:
- *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x140A343AC (AuthzBasepCopyoutInternalSecurityAttributes.c)
+ *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x140A4F30C (AuthzBasepCopyoutInternalSecurityAttributes.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     AuthzBasepProbeAndInsertTailList @ 0x140A34588 (AuthzBasepProbeAndInsertTailList.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     AuthzBasepProbeAndInsertTailList @ 0x140A4F4E8 (AuthzBasepProbeAndInsertTailList.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutInternalSecurityAttributeValues(

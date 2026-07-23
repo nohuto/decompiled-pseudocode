@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsWnfSubscriptionBgActivityPolicyCallback @ 0x140877900
+ * XREFs of PopEsWnfSubscriptionBgActivityPolicyCallback @ 0x140878B60
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
- *     PopEsQueueStateEvaluation @ 0x14071A4C0 (PopEsQueueStateEvaluation.c)
+ *     ExQueryWnfStateData @ 0x1406C9520 (ExQueryWnfStateData.c)
+ *     PopEsQueueStateEvaluation @ 0x14071B760 (PopEsQueueStateEvaluation.c)
  */
 
 __int64 __fastcall PopEsWnfSubscriptionBgActivityPolicyCallback(__int64 a1)

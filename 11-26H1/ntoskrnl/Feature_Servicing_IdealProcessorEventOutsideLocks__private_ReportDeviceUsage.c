@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage @ 0x1404D6360
+ * XREFs of Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage @ 0x1404CFB30
  * Callers:
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140237654 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140238FB4 (KiUpdateGlobalCpuSetConfiguration.c)
  * Callees:
- *     Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportUsageFallback @ 0x1405F358C (Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportUsageFallback.c)
+ *     Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportUsageFallback @ 0x1405F5F4C (Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportUsageFallback.c)
  */
 
 __int64 Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage()

@@ -1,11 +1,11 @@
 /*
- * XREFs of CarHandleEtwEvent @ 0x140615FAC
+ * XREFs of CarHandleEtwEvent @ 0x14061456C
  * Callers:
- *     CarReportDifPluginRuleViolation @ 0x140617240 (CarReportDifPluginRuleViolation.c)
+ *     CarReportDifPluginRuleViolation @ 0x140615800 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     CarEtwWriteBugCheckEvent @ 0x140615B58 (CarEtwWriteBugCheckEvent.c)
- *     CarAddUniqueViolation @ 0x14061907C (CarAddUniqueViolation.c)
- *     DifiDbgPrint @ 0x1406197A4 (DifiDbgPrint.c)
+ *     CarEtwWriteBugCheckEvent @ 0x140614118 (CarEtwWriteBugCheckEvent.c)
+ *     CarAddUniqueViolation @ 0x14061763C (CarAddUniqueViolation.c)
+ *     DifiDbgPrint @ 0x140617D64 (DifiDbgPrint.c)
  */
 
 __int64 __fastcall CarHandleEtwEvent(__int64 a1, int a2, const CHAR *a3, char a4, int a5, __int64 a6, int a7)

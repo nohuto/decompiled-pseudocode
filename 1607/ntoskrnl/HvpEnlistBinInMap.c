@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpEnlistBinInMap @ 0x140513FE0
+ * XREFs of HvpEnlistBinInMap @ 0x1404F73D0
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x140514194 (HvpRemapAndEnlistHiveBins.c)
- *     HvpBuildMap @ 0x140610554 (HvpBuildMap.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1404F7584 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpBuildMap @ 0x140610608 (HvpBuildMap.c)
  * Callees:
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     HvpPointMapEntriesToBuffer @ 0x140513AF8 (HvpPointMapEntriesToBuffer.c)
- *     HvpEnlistFreeCells @ 0x1405140A0 (HvpEnlistFreeCells.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1404F6EE8 (HvpPointMapEntriesToBuffer.c)
+ *     HvpEnlistFreeCells @ 0x1404F7490 (HvpEnlistFreeCells.c)
  */
 
 __int64 __fastcall HvpEnlistBinInMap(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, __int64 a4, int a5)

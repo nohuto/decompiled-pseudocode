@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSaveKeyEx @ 0x180164EC0
+ * XREFs of NtSaveKeyEx @ 0x180163280
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSaveKeyEx()
+NTSTATUS __cdecl NtSaveKeyEx(HANDLE KeyHandle, HANDLE FileHandle, ULONG Format)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 402LL;
+  result = 402;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 LdrCallEnclave()
+NTSTATUS __cdecl LdrCallEnclave(PENCLAVE_ROUTINE Routine, ULONG Flags, PVOID *RoutineParamReturn)
 {
-  return LdrpIssueEnclaveCall();
+  return LdrpIssueEnclaveCall(Routine, Flags, RoutineParamReturn);
 }

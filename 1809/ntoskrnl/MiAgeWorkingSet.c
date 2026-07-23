@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAgeWorkingSet @ 0x14006DE50
+ * XREFs of MiAgeWorkingSet @ 0x14006DE40
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     MiForceAgeWorkingSet @ 0x1402B3120 (MiForceAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
+ *     MiForceAgeWorkingSet @ 0x1402B3310 (MiForceAgeWorkingSet.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     MiGenerateRandomPte @ 0x14013111C (MiGenerateRandomPte.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiIsStoreProcess @ 0x1400837DC (MiIsStoreProcess.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     MiGenerateRandomPte @ 0x1401311EC (MiGenerateRandomPte.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 _BOOL8 __fastcall MiAgeWorkingSet(__int64 a1, char a2, int a3, unsigned int a4)
@@ -126,9 +126,9 @@ _BOOL8 __fastcall MiAgeWorkingSet(__int64 a1, char a2, int a3, unsigned int a4)
     }
     else
     {
-      v16 = &dword_14043B728;
+      v16 = &dword_14043C7E8;
       if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
-        v17 = &dword_14043B728;
+        v17 = &dword_14043C7E8;
       else
         v17 = (volatile signed __int32 *)(a1 + 232);
       if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
@@ -253,7 +253,7 @@ _BOOL8 __fastcall MiAgeWorkingSet(__int64 a1, char a2, int a3, unsigned int a4)
     v28 = *(unsigned __int16 *)(a1 + 174);
     PoolWithTag = 0LL;
     HIDWORD(v66[1]) = v15;
-    v30 = *(_QWORD **)(qword_14043A748 + 8 * v28);
+    v30 = *(_QWORD **)(qword_14043B808 + 8 * v28);
     v31 = v30[878];
     if ( (v6 & 3) != 0 )
     {
@@ -418,7 +418,7 @@ LABEL_107:
       v81 = 8LL;
       v83 = 8LL;
       v85 = 4LL;
-      TlgWriteEx(v53, &unk_14036DFBB, 0LL, 1u, 0LL, 0LL, 0xAu, &pData);
+      TlgWriteEx(v53, &unk_14036EEA5, 0LL, 1u, 0LL, 0LL, 0xAu, &pData);
     }
   }
   return v10 == 4;

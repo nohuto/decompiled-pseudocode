@@ -559,12 +559,20 @@ __int64 VfMiscPluginEntry()
   v0 = DifRegisterPlugin((__int64)&v6, 0x43u, 0xBu, &ViMiscSetting);
   if ( v0 >= 0 )
   {
-    v1 = VfAvlInitializeTree(&ViLookasideAvl, 96LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode);
+    v1 = VfAvlInitializeTree(
+           &ViLookasideAvl,
+           96LL,
+           0LL,
+           (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode);
     v2 = &ViLookasideInitialized;
     if ( v1 < 0 )
       v2 = &ViLookasideAllocationFailures;
     _InterlockedExchange(v2, 1);
-    v3 = VfAvlInitializeTree(&ViResourceAvl, 104LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode);
+    v3 = VfAvlInitializeTree(
+           &ViResourceAvl,
+           104LL,
+           0LL,
+           (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode);
     v4 = &ViResourceInitialized;
     if ( v3 < 0 )
       v4 = &ViResourceNotTracked;

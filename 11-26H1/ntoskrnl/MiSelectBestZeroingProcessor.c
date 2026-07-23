@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSelectBestZeroingProcessor @ 0x1403E8AC4
+ * XREFs of MiSelectBestZeroingProcessor @ 0x1402F59A4
  * Callers:
- *     MiMoveBackgroundZeroThreads @ 0x1403E84D0 (MiMoveBackgroundZeroThreads.c)
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
- *     MiZeroThreadEnterWaitState @ 0x1404ECD84 (MiZeroThreadEnterWaitState.c)
+ *     MiMoveBackgroundZeroThreads @ 0x1402F53B0 (MiMoveBackgroundZeroThreads.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
+ *     MiZeroThreadEnterWaitState @ 0x1404E6364 (MiZeroThreadEnterWaitState.c)
  * Callees:
- *     MiZeroRemainOnProcessor @ 0x1403E8CEC (MiZeroRemainOnProcessor.c)
- *     MiDecrementZeroEngineThread @ 0x1403E8DCC (MiDecrementZeroEngineThread.c)
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x1403E8E94 (MiUnlinkZeroThreadFromActiveDomain.c)
- *     MiAssignBackgroundZeroThreadToProcessor @ 0x1403E8F54 (MiAssignBackgroundZeroThreadToProcessor.c)
- *     MiFindBestZeroingProcessor @ 0x1403E9158 (MiFindBestZeroingProcessor.c)
- *     MiStartBackgroundZeroTimer @ 0x14070EAF4 (MiStartBackgroundZeroTimer.c)
+ *     MiZeroRemainOnProcessor @ 0x1402F5BCC (MiZeroRemainOnProcessor.c)
+ *     MiDecrementZeroEngineThread @ 0x1402F5CAC (MiDecrementZeroEngineThread.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x1402F5D74 (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     MiAssignBackgroundZeroThreadToProcessor @ 0x1402F5E34 (MiAssignBackgroundZeroThreadToProcessor.c)
+ *     MiFindBestZeroingProcessor @ 0x1402F6038 (MiFindBestZeroingProcessor.c)
+ *     MiStartBackgroundZeroTimer @ 0x1407137F4 (MiStartBackgroundZeroTimer.c)
  */
 
 __int64 __fastcall MiSelectBestZeroingProcessor(__int64 a1, __int64 a2)

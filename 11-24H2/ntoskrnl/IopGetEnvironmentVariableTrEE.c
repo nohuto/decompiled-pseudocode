@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetEnvironmentVariableTrEE @ 0x1407192E0
+ * XREFs of IopGetEnvironmentVariableTrEE @ 0x140716E70
  * Callers:
  *     <none>
  * Callees:
- *     IopIssueTrEERequest @ 0x14059F35C (IopIssueTrEERequest.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopEfiStatusToNTSTATUS @ 0x140718A60 (IopEfiStatusToNTSTATUS.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopIssueTrEERequest @ 0x14059C2DC (IopIssueTrEERequest.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopEfiStatusToNTSTATUS @ 0x1407165F0 (IopEfiStatusToNTSTATUS.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetEnvironmentVariableTrEE(
@@ -37,14 +37,14 @@ __int64 __fastcall IopGetEnvironmentVariableTrEE(
   while ( a3[v9] );
   v12 = 2 * v9 + 2;
   v13 = 2 * v9 + 18;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v13, 0x79536F49u);
   v15 = (_OWORD *)Pool2;
   if ( Pool2 )
   {
     memmove((void *)(Pool2 + 16), a3, v12);
     *v15 = *a4;
     v17 = *a6 + 24;
-    v18 = ExAllocatePool2(0x100uLL);
+    v18 = ExAllocatePool2(0x100uLL, v17, 0x79536F49u);
     if ( v18 )
     {
       v16 = IopIssueTrEERequest(0, a1, a2, (__int64)v15, v13, v18, v17, 0x18u, v21);

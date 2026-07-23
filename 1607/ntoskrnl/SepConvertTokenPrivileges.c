@@ -1,10 +1,10 @@
 /*
- * XREFs of SepConvertTokenPrivileges @ 0x140087D88
+ * XREFs of SepConvertTokenPrivileges @ 0x14010BF78
  * Callers:
- *     NtQueryInformationToken @ 0x14040F810 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x14040E6D0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
  * Callees:
- *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140087DB0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x14010BFA0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
  */
 
 __int64 __fastcall SepConvertTokenPrivileges(__int64 a1, _DWORD *a2)

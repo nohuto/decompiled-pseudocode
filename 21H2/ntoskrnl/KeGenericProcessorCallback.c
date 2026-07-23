@@ -1,65 +1,64 @@
 /*
- * XREFs of KeGenericProcessorCallback @ 0x1402EB178
+ * XREFs of KeGenericProcessorCallback @ 0x14029C4C8
  * Callers:
- *     KeDisableTimer2 @ 0x14027FC30 (KeDisableTimer2.c)
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
- *     ExpUpdateTimerConfiguration @ 0x1402EAF00 (ExpUpdateTimerConfiguration.c)
- *     KeFlushQueuedDpcs @ 0x1402EC6E0 (KeFlushQueuedDpcs.c)
- *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
- *     KeSetIntervalProfile @ 0x140734424 (KeSetIntervalProfile.c)
- *     RtlUpdateSwapReference @ 0x1407CACBC (RtlUpdateSwapReference.c)
- *     PspSetVmProcessorHostProcessWorkerRoutine @ 0x14090A4C0 (PspSetVmProcessorHostProcessWorkerRoutine.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     KeDisableTimer2 @ 0x14026DE70 (KeDisableTimer2.c)
+ *     ExpUpdateTimerConfiguration @ 0x14029C250 (ExpUpdateTimerConfiguration.c)
+ *     KeFlushQueuedDpcs @ 0x14029DA30 (KeFlushQueuedDpcs.c)
+ *     KeGenericCallDpc @ 0x14029E250 (KeGenericCallDpc.c)
+ *     KeSetIntervalProfile @ 0x1407345E4 (KeSetIntervalProfile.c)
+ *     RtlUpdateSwapReference @ 0x1407CAFDC (RtlUpdateSwapReference.c)
+ *     PspSetVmProcessorHostProcessWorkerRoutine @ 0x14090A620 (PspSetVmProcessorHostProcessWorkerRoutine.c)
  * Callees:
- *     KiEnumerateNextProcessorNumber @ 0x1402284F0 (KiEnumerateNextProcessorNumber.c)
- *     KeSetPriorityBoost @ 0x14022F6F0 (KeSetPriorityBoost.c)
- *     KiRemoveBoostThread @ 0x14024AED0 (KiRemoveBoostThread.c)
- *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
- *     KiCheckForThreadDispatch @ 0x1402783B4 (KiCheckForThreadDispatch.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KiCheckForThreadDispatch @ 0x140266354 (KiCheckForThreadDispatch.c)
+ *     KeSetPriorityThread @ 0x140279050 (KeSetPriorityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1402CCDF0 (KiEnumerateNextProcessorNumber.c)
+ *     KeSetPriorityBoost @ 0x1402D3F40 (KeSetPriorityBoost.c)
+ *     KiRemoveBoostThread @ 0x1402EF720 (KiRemoveBoostThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall KeGenericProcessorCallback(
-        unsigned __int16 *a1,
+        _QWORD *a1,
         void (__fastcall *a2)(struct _KPRCB *, __int64),
         __int64 a3,
         int a4)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // r12
+  _GROUP_AFFINITY *p_PreviousAffinity; // r12
   struct _KPRCB *CurrentPrcb; // rbx
   KPRIORITY v10; // r15d
-  unsigned __int16 *v11; // rax
+  __int64 v11; // rax
   __int64 v12; // rsi
   unsigned __int8 CurrentIrql; // si
-  __int64 v14; // rdx
   _DWORD *SchedulerAssist; // r9
-  int v17; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v18; // [rsp+28h] [rbp-D8h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int16 *v20[2]; // [rsp+40h] [rbp-C0h] BYREF
-  __int16 v21; // [rsp+50h] [rbp-B0h]
-  int v22; // [rsp+52h] [rbp-AEh]
-  __int16 v23; // [rsp+56h] [rbp-AAh]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v25[22]; // [rsp+70h] [rbp-90h] BYREF
+  int v16; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 v17; // [rsp+28h] [rbp-D8h]
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD v19[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int16 v20; // [rsp+50h] [rbp-B0h]
+  int v21; // [rsp+52h] [rbp-AEh]
+  __int16 v22; // [rsp+56h] [rbp-AAh]
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
+  _QWORD v24[22]; // [rsp+70h] [rbp-90h] BYREF
 
-  v18 = a3;
+  v17 = a3;
   Affinity = 0LL;
-  memset(v25, 0, 0xA8uLL);
+  memset(v24, 0, 0xA8uLL);
+  v21 = 0;
   v22 = 0;
-  v23 = 0;
-  v17 = 0;
+  v16 = 0;
   PreviousAffinity = 0LL;
   if ( !a1 )
   {
-    LODWORD(v25[0]) = 1310721;
-    a1 = (unsigned __int16 *)v25;
-    memset((char *)v25 + 4, 0, 0xA4uLL);
-    v25[1] |= 1uLL;
+    LODWORD(v24[0]) = 1310721;
+    a1 = v24;
+    memset((char *)v24 + 4, 0, 0xA4uLL);
+    v24[1] |= 1uLL;
   }
   CurrentThread = KeGetCurrentThread();
   p_PreviousAffinity = &PreviousAffinity;
@@ -72,17 +71,17 @@ char __fastcall KeGenericProcessorCallback(
     if ( (a4 & 2) != 0 )
       v10 = KeSetPriorityThread(CurrentThread, 30);
     else
-      KeSetPriorityBoost((__int64)CurrentThread, 15);
+      KeSetPriorityBoost(CurrentThread, 15LL);
   }
-  v11 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  v20[0] = a1;
-  v12 = v18;
-  v20[1] = v11;
-  v21 = 0;
-  while ( !(unsigned int)KiEnumerateNextProcessorNumber((__int64)&v17, v20) )
+  v11 = a1[1];
+  v19[0] = a1;
+  v12 = v17;
+  v19[1] = v11;
+  v20 = 0;
+  while ( !(unsigned int)KiEnumerateNextProcessorNumber(&v16, v19) )
   {
-    Affinity.Group = v17;
-    Affinity.Mask = 1LL << SBYTE2(v17);
+    Affinity.Group = v16;
+    Affinity.Mask = 1LL << SBYTE2(v16);
     KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
     CurrentPrcb = KeGetCurrentPrcb();
     a2(CurrentPrcb, v12);
@@ -101,10 +100,9 @@ char __fastcall KeGenericProcessorCallback(
     if ( (a4 & 2) != 0 )
       KeSetPriorityThread(CurrentThread, v10);
     else
-      KiRemoveBoostThread((__int64)CurrentPrcb, (__int64)CurrentThread);
+      KiRemoveBoostThread(CurrentPrcb, CurrentThread);
   }
   KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-  LOBYTE(v14) = CurrentIrql;
   CurrentPrcb->DpcRoutineActive = 0;
-  return KiCheckForThreadDispatch((__int64)CurrentPrcb, v14);
+  return KiCheckForThreadDispatch((__int64)CurrentPrcb, CurrentIrql);
 }

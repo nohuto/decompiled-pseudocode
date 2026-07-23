@@ -1,18 +1,18 @@
 /*
- * XREFs of PiAuGetStateDirectorySecurityObject @ 0x14095BB9C
+ * XREFs of PiAuGetStateDirectorySecurityObject @ 0x14095BD9C
  * Callers:
- *     PiOpenDirectoryWithRoot @ 0x1409561A4 (PiOpenDirectoryWithRoot.c)
+ *     PiOpenDirectoryWithRoot @ 0x1409563A4 (PiOpenDirectoryWithRoot.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
  *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710F40 (RtlLengthSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140781FF0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x1407B4D10 (RtlValidSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF0C0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140711150 (RtlLengthSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1407821E0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1407B4FF0 (RtlValidSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1407EF390 (RtlSetGroupSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -48,28 +48,22 @@ __int64 __fastcall PiAuGetStateDirectorySecurityObject(char a1, _QWORD *a2)
     Acl = RtlCreateAcl(Pool2, v8, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v10, 2u, 3, 1245599, (unsigned __int8 *)SeLocalSystemSid, 0);
+      Acl = RtlpAddKnownAce(v10, 2u, 3, 1245599, (unsigned __int8 *)SeLocalSystemSid, 0);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 32, (unsigned __int8 *)SeLocalSystemSid, 0);
+        Acl = RtlpAddKnownAce(v10, 2u, 2, 32, (unsigned __int8 *)SeLocalSystemSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce(
-                  (__int64)v10,
-                  2u,
-                  3,
-                  a1 != 0 ? 1245599 : 1179785,
-                  (unsigned __int8 *)SeAliasAdminsSid,
-                  0);
+          Acl = RtlpAddKnownAce(v10, 2u, 3, a1 != 0 ? 1245599 : 1179785, (unsigned __int8 *)SeAliasAdminsSid, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 32, (unsigned __int8 *)SeAliasAdminsSid, 0);
+            Acl = RtlpAddKnownAce(v10, 2u, 2, 32, (unsigned __int8 *)SeAliasAdminsSid, 0);
             if ( Acl >= 0 )
             {
-              Acl = RtlpAddKnownAce((__int64)v10, 2u, 3, 1179785, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
+              Acl = RtlpAddKnownAce(v10, 2u, 3, 1179785, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 32, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
+                Acl = RtlpAddKnownAce(v10, 2u, 2, 32, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);

@@ -23,12 +23,12 @@ __int64 __fastcall MiObtainRelocationBits(PRTL_BITMAP *a1, unsigned __int16 a2, 
   __int64 v11; // rdi
   ULONG ClearBitsAndSet; // eax
   ULONG v13; // esi
-  struct _RTL_BITMAP *v14; // rcx
+  _RTL_BITMAP *v14; // rcx
   __int16 v15; // ax
   ULONG v17; // r12d
   ULONG started; // eax
   ULONG v19; // r15d
-  struct _RTL_BITMAP *v20; // rcx
+  _RTL_BITMAP *v20; // rcx
   int v21; // [rsp+68h] [rbp+20h]
 
   v21 = a4;

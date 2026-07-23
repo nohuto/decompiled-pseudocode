@@ -1,13 +1,13 @@
 /*
- * XREFs of BiStringFromGUID @ 0x1409D3908
+ * XREFs of BiStringFromGUID @ 0x1409A48E8
  * Callers:
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140894258 (BiUpdateObjectReferenceInEfiEntry.c)
- *     BiConvertElementToRegistryData @ 0x1409D2544 (BiConvertElementToRegistryData.c)
- *     BiCreateObject @ 0x1409D2A70 (BiCreateObject.c)
- *     BcdGetElementDataWithFlags @ 0x1409D4B80 (BcdGetElementDataWithFlags.c)
- *     BcdOpenObject @ 0x1409D54D8 (BcdOpenObject.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x14089A658 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     BiConvertElementToRegistryData @ 0x1409A3524 (BiConvertElementToRegistryData.c)
+ *     BiCreateObject @ 0x1409A3A50 (BiCreateObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1409A5B60 (BcdGetElementDataWithFlags.c)
+ *     BcdOpenObject @ 0x1409A64B8 (BcdOpenObject.c)
  * Callees:
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
  */
 
 __int64 __fastcall BiStringFromGUID(unsigned int *a1, __int64 a2)

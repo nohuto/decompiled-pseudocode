@@ -6,7 +6,7 @@
  *     SepTokenFromAccessInformation @ 0x140241054 (SepTokenFromAccessInformation.c)
  */
 
-__int64 __fastcall SeTokenFromAccessInformation(unsigned int **a1, __int64 a2, unsigned int a3, _DWORD *a4)
+__int64 __fastcall SeTokenFromAccessInformation(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   if ( a3 < 0x498 )
   {

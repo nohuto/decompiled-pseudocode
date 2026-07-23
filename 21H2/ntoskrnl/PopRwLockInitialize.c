@@ -1,7 +1,7 @@
 /*
- * XREFs of PopRwLockInitialize @ 0x1403AE3F0
+ * XREFs of PopRwLockInitialize @ 0x1403AE540
  * Callers:
- *     PopCreateIdlePhaseWatchdog @ 0x140A73F7C (PopCreateIdlePhaseWatchdog.c)
+ *     PopCreateIdlePhaseWatchdog @ 0x140A74F7C (PopCreateIdlePhaseWatchdog.c)
  * Callees:
  *     <none>
  */

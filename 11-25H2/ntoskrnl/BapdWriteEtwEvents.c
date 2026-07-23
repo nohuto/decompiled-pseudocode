@@ -42,7 +42,7 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
   char v23; // [rsp+48h] [rbp-59h]
   GUID *v24; // [rsp+50h] [rbp-51h]
   unsigned __int64 v25; // [rsp+58h] [rbp-49h]
-  ULONG Data[2]; // [rsp+60h] [rbp-41h] BYREF
+  ULONG CheckStamp[2]; // [rsp+60h] [rbp-41h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-39h] BYREF
   REGHANDLE v28; // [rsp+78h] [rbp-29h] BYREF
   ULONGLONG RegHandle; // [rsp+80h] [rbp-21h] BYREF
@@ -57,9 +57,9 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
   v31 = a1;
   v4 = a2;
   v25 = v3;
-  Data[1] = 0;
+  CheckStamp[1] = 0;
   v5 = &CPER_EMPTY_GUID;
-  Data[0] = 0;
+  CheckStamp[0] = 0;
   RegHandle = 0LL;
   v30 = 0LL;
   v28 = 0LL;
@@ -91,18 +91,18 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
       {
         if ( (qword_140EFE818 & 4) != 0 )
         {
-          Data[0] = 0;
+          CheckStamp[0] = 0;
           RtlInitUnicodeString(&DestinationString, L"BootmgrUserInputTime");
-          BapdpWriteEventDataToRegistry(Data);
+          BapdpWriteEventDataToRegistry(CheckStamp);
           RtlInitUnicodeString(&DestinationString, L"POSTTime");
-          BapdpWriteEventDataToRegistry(Data);
+          BapdpWriteEventDataToRegistry(CheckStamp);
         }
         break;
       }
       v11 = *(_DWORD *)(v4 + 8);
       if ( v11 == 6 )
       {
-        BapdpParseEventParts(v4 + 48, v4 + 68, *(_DWORD *)(v4 + 64), (unsigned int)&UserData, (__int64)&Data[1]);
+        BapdpParseEventParts(v4 + 48, v4 + 68, *(_DWORD *)(v4 + 64), (unsigned int)&UserData, (__int64)&CheckStamp[1]);
         v13 = (_QWORD *)(v4 + 32);
         v14 = *(_QWORD *)(v4 + 32);
         v15 = *(_QWORD *)&BOOTENV_ETW_PROVIDER.Data1 - v14;
@@ -158,7 +158,7 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
         if ( EtwEventEnabled(v16, (PCEVENT_DESCRIPTOR)(v4 + 48)) )
         {
           ActivityId = *(_BYTE *)(v4 + 15) ? (const GUID *)(v4 + 16) : 0LL;
-          v8 = EtwWriteEx(v16, (PCEVENT_DESCRIPTOR)(v4 + 48), 0LL, 0, ActivityId, 0LL, Data[1], &UserData);
+          v8 = EtwWriteEx(v16, (PCEVENT_DESCRIPTOR)(v4 + 48), 0LL, 0, ActivityId, 0LL, CheckStamp[1], &UserData);
           if ( v8 < 0 )
             break;
         }
@@ -176,7 +176,7 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
             goto LABEL_60;
           case 0x14:
             if ( !*(_DWORD *)(v4 + 68) )
-              ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL, 0LL, 0LL, 0, 0);
+              ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
             goto LABEL_23;
           case 0x1D:
 LABEL_60:

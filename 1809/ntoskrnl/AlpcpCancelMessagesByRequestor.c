@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpCancelMessagesByRequestor @ 0x140619A3C
+ * XREFs of AlpcpCancelMessagesByRequestor @ 0x14061AA3C
  * Callers:
- *     AlpcpDisconnectPort @ 0x1406196F0 (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x14061A6F0 (AlpcpDisconnectPort.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpTransferQuotaMessage @ 0x140615E7C (AlpcpTransferQuotaMessage.c)
- *     AlpcpClearOwnerPortMessage @ 0x140616260 (AlpcpClearOwnerPortMessage.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x140616314 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
- *     PsReleaseProcessWakeCounter @ 0x14061C390 (PsReleaseProcessWakeCounter.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x1406C702C (AlpcpTryLockForCachedReferenceBlob.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D29F0 (KeReleaseSemaphoreEx.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpTransferQuotaMessage @ 0x140616E7C (AlpcpTransferQuotaMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x140617260 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x140617314 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x140617E4C (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpReferenceBlob @ 0x140619428 (AlpcpReferenceBlob.c)
+ *     PsReleaseProcessWakeCounter @ 0x14061D390 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1406C82CC (AlpcpTryLockForCachedReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpCancelMessagesByRequestor(__int64 a1, __int64 a2, ULONG_PTR *a3, unsigned int a4, __int64 a5)

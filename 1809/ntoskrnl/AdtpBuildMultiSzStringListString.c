@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildMultiSzStringListString @ 0x1401892DC
+ * XREFs of AdtpBuildMultiSzStringListString @ 0x14018941C
  * Callers:
- *     AdtpPackageParameters @ 0x140188D9C (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140188EDC (AdtpPackageParameters.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     AdtpEtwBuildDashString @ 0x1406D0B60 (AdtpEtwBuildDashString.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     AdtpEtwBuildDashString @ 0x1406D1E00 (AdtpEtwBuildDashString.c)
  */
 
 __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, __int64 a2, _BYTE *a3)

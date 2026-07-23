@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimThisWsle @ 0x1402E27D8
+ * XREFs of MiTrimThisWsle @ 0x1402E2A68
  * Callers:
- *     MiTrimPteWorker @ 0x1402E38D8 (MiTrimPteWorker.c)
+ *     MiTrimPteWorker @ 0x1402E3B68 (MiTrimPteWorker.c)
  * Callees:
- *     MiLocateCloneAddress @ 0x140294598 (MiLocateCloneAddress.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiGetVaAge @ 0x1402E3A30 (MiGetVaAge.c)
+ *     MiLocateCloneAddress @ 0x140294828 (MiLocateCloneAddress.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiGetVaAge @ 0x1402E3CC0 (MiGetVaAge.c)
  */
 
 __int64 __fastcall MiTrimThisWsle(__int64 a1, unsigned __int64 a2, __int64 a3, int *a4, unsigned __int8 a5, _DWORD *a6)

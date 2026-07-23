@@ -1,22 +1,22 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x14056E040
+ * XREFs of KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x14056E580
  * Callers:
  *     <none>
  * Callees:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056E69C (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056EBDC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  */
 
 void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
@@ -36,7 +36,7 @@ void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
   struct _KPRCB *CurrentPrcb; // rbx
   char v13; // si
   _QWORD *v14; // rdi
-  void (__fastcall *v15)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v15)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v16; // r12
   unsigned int *v17; // rbx
   unsigned __int64 v18; // rdi
@@ -50,7 +50,7 @@ void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
   int v26; // eax
   signed __int32 v27[8]; // [rsp+0h] [rbp-338h] BYREF
   _DWORD v28[2]; // [rsp+30h] [rbp-308h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-300h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-300h] BYREF
   int v30; // [rsp+3Ch] [rbp-2FCh]
   _QWORD *v31; // [rsp+40h] [rbp-2F8h] BYREF
   __int128 v32; // [rsp+48h] [rbp-2F0h] BYREF
@@ -146,13 +146,12 @@ void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
     v45 = 0LL;
     if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
     {
-      ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+      ProcNumber = (_PROCESSOR_NUMBER)-1;
       v44 = 3;
       v30 = 1;
       v28[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
       v28[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-      v15 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                + 120);
+      v15 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
       _disable();
       v15(*(_QWORD *)(HalpInterruptController + 16), v28, &v44, 47LL, &ProcNumber);
       if ( (v49 & 0x200) != 0 )

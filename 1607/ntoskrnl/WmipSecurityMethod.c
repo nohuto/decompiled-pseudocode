@@ -1,31 +1,31 @@
 /*
- * XREFs of WmipSecurityMethod @ 0x1404E1DBC
+ * XREFs of WmipSecurityMethod @ 0x1404C53C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObQuerySecurityDescriptorInfo @ 0x14040423C (ObQuerySecurityDescriptorInfo.c)
- *     RtlLengthSecurityDescriptor @ 0x14041FFE0 (RtlLengthSecurityDescriptor.c)
- *     ObSetSecurityDescriptorInfo @ 0x1404A5248 (ObSetSecurityDescriptorInfo.c)
- *     RtlWriteRegistryValue @ 0x1404E08E4 (RtlWriteRegistryValue.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1404E1E60 (ObAssignObjectSecurityDescriptor.c)
- *     ObDeassignSecurity @ 0x1404E1ED4 (ObDeassignSecurity.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1404030FC (ObQuerySecurityDescriptorInfo.c)
+ *     RtlLengthSecurityDescriptor @ 0x14041EEA0 (RtlLengthSecurityDescriptor.c)
+ *     RtlWriteRegistryValue @ 0x1404C3EE8 (RtlWriteRegistryValue.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x1404C5464 (ObAssignObjectSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x1404C54D8 (ObDeassignSecurity.c)
+ *     ObSetSecurityDescriptorInfo @ 0x14051D648 (ObSetSecurityDescriptorInfo.c)
  */
 
 __int64 __fastcall WmipSecurityMethod(
-        unsigned __int16 *Object,
+        __int64 a1,
         int a2,
         DWORD *a3,
         void *a4,
         ULONG *a5,
         __int64 a6,
         POOL_TYPE PoolType,
-        PGENERIC_MAPPING a8)
+        GENERIC_MAPPING *a8)
 {
   int v9; // edx
   int v10; // edx
@@ -51,7 +51,7 @@ __int64 __fastcall WmipSecurityMethod(
       {
         if ( v10 != 1 )
           KeBugCheckEx(0x29u, 1uLL, 0xFFFFFFFFC000000DuLL, 0LL, 0LL);
-        return ObAssignObjectSecurityDescriptor(Object, a4);
+        return ObAssignObjectSecurityDescriptor(a1, a4);
       }
       else
       {
@@ -60,12 +60,12 @@ __int64 __fastcall WmipSecurityMethod(
     }
     else
     {
-      return ObQuerySecurityDescriptorInfo((__int64)Object, a3, a4, a5);
+      return ObQuerySecurityDescriptorInfo(a1, a3, a4, a5);
     }
   }
   else
   {
-    v12 = ObSetSecurityDescriptorInfo(Object, a3, a4, a6, PoolType, a8);
+    v12 = ObSetSecurityDescriptorInfo((PVOID)a1, a3, a4, PoolType, a8);
     if ( v12 >= 0 )
     {
       v13 = 1024LL;
@@ -76,7 +76,7 @@ __int64 __fastcall WmipSecurityMethod(
         if ( !PoolWithTag )
           break;
         NumberOfBytes_4 = -1;
-        v12 = ObQuerySecurityDescriptorInfo((__int64)Object, &NumberOfBytes_4, PoolWithTag, &NumberOfBytes);
+        v12 = ObQuerySecurityDescriptorInfo(a1, &NumberOfBytes_4, PoolWithTag, &NumberOfBytes);
         if ( v12 != -1073741789 )
           goto LABEL_15;
         ExFreePoolWithTag(v15, 0);
@@ -85,23 +85,23 @@ __int64 __fastcall WmipSecurityMethod(
 LABEL_15:
       if ( v12 >= 0 )
       {
-        ValueLength[0] = Object[15];
-        LODWORD(ValueData) = Object[14];
+        ValueLength[0] = *(unsigned __int16 *)(a1 + 30);
+        LODWORD(ValueData) = *(unsigned __int16 *)(a1 + 28);
         RtlStringCbPrintfW(
           pszDest,
           0x4CuLL,
           L"%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x",
-          *((unsigned int *)Object + 6),
+          *(unsigned int *)(a1 + 24),
           ValueData,
           *(_QWORD *)ValueLength,
-          *((unsigned __int8 *)Object + 32),
-          *((unsigned __int8 *)Object + 33),
-          *((unsigned __int8 *)Object + 34),
-          *((unsigned __int8 *)Object + 35),
-          *((unsigned __int8 *)Object + 36),
-          *((unsigned __int8 *)Object + 37),
-          *((unsigned __int8 *)Object + 38),
-          *((unsigned __int8 *)Object + 39));
+          *(unsigned __int8 *)(a1 + 32),
+          *(unsigned __int8 *)(a1 + 33),
+          *(unsigned __int8 *)(a1 + 34),
+          *(unsigned __int8 *)(a1 + 35),
+          *(unsigned __int8 *)(a1 + 36),
+          *(unsigned __int8 *)(a1 + 37),
+          *(unsigned __int8 *)(a1 + 38),
+          *(unsigned __int8 *)(a1 + 39));
         RtlInitUnicodeString(&DestinationString, pszDest);
         v16 = RtlLengthSecurityDescriptor(v15);
         v12 = RtlWriteRegistryValue(2u, L"WMI\\Security", DestinationString.Buffer, 3u, v15, v16);

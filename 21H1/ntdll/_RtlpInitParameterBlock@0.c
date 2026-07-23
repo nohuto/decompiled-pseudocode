@@ -11,60 +11,63 @@
 int __stdcall RtlpInitParameterBlock()
 {
   struct _PEB *v0; // ebx
-  size_t v1; // edi
-  char *Heap; // eax
-  char *v3; // esi
-  int v4; // eax
-  int v5; // ecx
-  int v6; // eax
-  int v7; // eax
-  int v8; // eax
-  int v9; // eax
-  int v10; // eax
-  int v11; // eax
-  int v12; // eax
-  int v13; // eax
-  int v15; // [esp+Ch] [ebp-8h] BYREF
-  void *Src; // [esp+10h] [ebp-4h] BYREF
+  int v1; // edi
+  _RTL_USER_PROCESS_PARAMETERS *Heap; // eax
+  _RTL_USER_PROCESS_PARAMETERS *v3; // esi
+  wchar_t *Buffer; // eax
+  char *v5; // ecx
+  wchar_t *v6; // eax
+  wchar_t *v7; // eax
+  wchar_t *v8; // eax
+  wchar_t *v9; // eax
+  wchar_t *v10; // eax
+  wchar_t *v11; // eax
+  wchar_t *v12; // eax
+  wchar_t *v13; // eax
+  SIZE_T v15; // [esp-4h] [ebp-18h]
+  size_t v16; // [esp-4h] [ebp-18h]
+  ULONG_PTR RegionSize; // [esp+Ch] [ebp-8h] BYREF
 
   v0 = NtCurrentPeb();
-  Src = v0->ProcessParameters;
-  v1 = *((_DWORD *)Src + 1);
-  Heap = (char *)RtlAllocateHeap((int)v0->ProcessHeap, 0, v1);
+  HIDWORD(RegionSize) = v0->ProcessParameters;
+  v1 = *(_DWORD *)(HIDWORD(RegionSize) + 4);
+  LODWORD(v15) = v1;
+  Heap = (_RTL_USER_PROCESS_PARAMETERS *)RtlAllocateHeap(v0->ProcessHeap, 0, v15);
   v3 = Heap;
   if ( !Heap )
     return -1073741670;
-  memcpy(Heap, Src, v1);
-  v4 = *((_DWORD *)v3 + 10);
-  v5 = v3 - (_BYTE *)Src;
-  if ( v4 )
-    *((_DWORD *)v3 + 10) = v5 + v4;
-  v6 = *((_DWORD *)v3 + 13);
+  LODWORD(v16) = v1;
+  memcpy(Heap, (const void *)HIDWORD(RegionSize), v16);
+  Buffer = v3->CurrentDirectory.DosPath.Buffer;
+  v5 = (char *)v3 - HIDWORD(RegionSize);
+  if ( Buffer )
+    v3->CurrentDirectory.DosPath.Buffer = (wchar_t *)((char *)Buffer + (_DWORD)v5);
+  v6 = v3->DllPath.Buffer;
   if ( v6 )
-    *((_DWORD *)v3 + 13) = v5 + v6;
-  v7 = *((_DWORD *)v3 + 15);
+    v3->DllPath.Buffer = (wchar_t *)((char *)v6 + (_DWORD)v5);
+  v7 = v3->ImagePathName.Buffer;
   if ( v7 )
-    *((_DWORD *)v3 + 15) = v5 + v7;
-  v8 = *((_DWORD *)v3 + 17);
+    v3->ImagePathName.Buffer = (wchar_t *)((char *)v7 + (_DWORD)v5);
+  v8 = v3->CommandLine.Buffer;
   if ( v8 )
-    *((_DWORD *)v3 + 17) = v5 + v8;
-  v9 = *((_DWORD *)v3 + 29);
+    v3->CommandLine.Buffer = (wchar_t *)((char *)v8 + (_DWORD)v5);
+  v9 = v3->WindowTitle.Buffer;
   if ( v9 )
-    *((_DWORD *)v3 + 29) = v5 + v9;
-  v10 = *((_DWORD *)v3 + 31);
+    v3->WindowTitle.Buffer = (wchar_t *)((char *)v9 + (_DWORD)v5);
+  v10 = v3->DesktopInfo.Buffer;
   if ( v10 )
-    *((_DWORD *)v3 + 31) = v5 + v10;
-  v11 = *((_DWORD *)v3 + 33);
+    v3->DesktopInfo.Buffer = (wchar_t *)((char *)v10 + (_DWORD)v5);
+  v11 = v3->ShellInfo.Buffer;
   if ( v11 )
-    *((_DWORD *)v3 + 33) = v5 + v11;
-  v12 = *((_DWORD *)v3 + 35);
+    v3->ShellInfo.Buffer = (wchar_t *)((char *)v11 + (_DWORD)v5);
+  v12 = v3->RuntimeData.Buffer;
   if ( v12 )
-    *((_DWORD *)v3 + 35) = v5 + v12;
-  v13 = *((_DWORD *)v3 + 170);
+    v3->RuntimeData.Buffer = (wchar_t *)((char *)v12 + (_DWORD)v5);
+  v13 = v3->RedirectionDllName.Buffer;
   if ( v13 )
-    *((_DWORD *)v3 + 170) = v5 + v13;
-  v0->ProcessParameters = (_RTL_USER_PROCESS_PARAMETERS *)v3;
-  v15 = 0;
-  NtFreeVirtualMemory(-1, &Src, &v15, 0x8000);
+    v3->RedirectionDllName.Buffer = (wchar_t *)((char *)v13 + (_DWORD)v5);
+  v0->ProcessParameters = v3;
+  LODWORD(RegionSize) = 0;
+  NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
   return 0;
 }

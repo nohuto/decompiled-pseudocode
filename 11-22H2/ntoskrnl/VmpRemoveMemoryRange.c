@@ -22,34 +22,34 @@ __int64 __fastcall VmpRemoveMemoryRange(
         unsigned __int64 a4,
         __int64 a5)
 {
-  void *v6; // rdi
+  _RTL_BALANCED_NODE *v6; // rdi
   __int64 v7; // rsi
   unsigned int v11; // ebx
   unsigned __int64 v12; // rsi
   unsigned __int64 v13; // r10
   unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rbx
-  _QWORD *v16; // rdi
+  _RTL_BALANCED_NODE *v15; // rbx
+  _RTL_BALANCED_NODE *ParentValue; // rdi
   int v17; // eax
-  __int64 v18; // rdx
-  _QWORD *v19; // rcx
+  _RTL_BALANCED_NODE *v18; // rdx
+  _RTL_BALANCED_NODE *v19; // rcx
   __int64 v20; // rax
-  unsigned __int64 v21; // r8
+  _RTL_BALANCED_NODE *v21; // r8
   unsigned __int64 v22; // r9
-  unsigned __int64 v23; // r11
+  _RTL_BALANCED_NODE *v23; // r11
   bool v24; // zf
   unsigned __int64 v25; // r14
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
   int v29; // eax
-  PVOID P; // [rsp+40h] [rbp-78h]
-  unsigned __int64 v32; // [rsp+48h] [rbp-70h]
+  _RTL_BALANCED_NODE *P; // [rsp+40h] [rbp-78h]
+  _RTL_BALANCED_NODE *v32; // [rsp+48h] [rbp-70h]
   __int64 v33; // [rsp+50h] [rbp-68h]
-  PVOID v34; // [rsp+60h] [rbp-58h]
+  _RTL_BALANCED_NODE *v34; // [rsp+60h] [rbp-58h]
   unsigned __int64 v35; // [rsp+68h] [rbp-50h]
   __int64 v36; // [rsp+C0h] [rbp+8h]
-  unsigned __int64 v37; // [rsp+C8h] [rbp+10h]
+  _RTL_BALANCED_NODE *v37; // [rsp+C8h] [rbp+10h]
   __int64 v38; // [rsp+D0h] [rbp+18h] BYREF
   unsigned __int64 v39; // [rsp+D8h] [rbp+20h]
 
@@ -59,7 +59,7 @@ __int64 __fastcall VmpRemoveMemoryRange(
   P = 0LL;
   v7 = 0LL;
   v36 = 0LL;
-  v37 = a4 + a2 - 1;
+  v37 = (_RTL_BALANCED_NODE *)(a4 + a2 - 1);
   v35 = a3 + a4;
   v33 = a3 + a4 - 1;
   v38 = VmpProcessContextLockExclusive(SpinLock);
@@ -90,62 +90,65 @@ __int64 __fastcall VmpRemoveMemoryRange(
     else
       v13 = v14;
   }
-  if ( !v13 || (v15 = v13 - 24, v13 == 24) )
+  if ( !v13 || (v15 = (_RTL_BALANCED_NODE *)(v13 - 24), v13 == 24) )
   {
     v11 = -1073741172;
     goto LABEL_51;
   }
-  v16 = *(_QWORD **)(v15 + 16);
-  v32 = v16[3];
-  if ( *(_QWORD *)(v15 + 48) == a3 && *(_QWORD *)(v15 + 56) == v33 && v32 == a2 && v16[4] == v37 )
+  ParentValue = (_RTL_BALANCED_NODE *)v15->ParentValue;
+  v32 = ParentValue[1].Children[0];
+  if ( v15[2].Children[0] == (_RTL_BALANCED_NODE *)a3
+    && v15[2].Children[1] == (_RTL_BALANCED_NODE *)v33
+    && v32 == (_RTL_BALANCED_NODE *)a2
+    && ParentValue[1].Children[1] == v37 )
   {
-    v17 = *(_DWORD *)(v15 + 64);
+    v17 = *(_DWORD *)&v15[2].0;
     if ( (v17 & 1) != 0 )
     {
-      *(_DWORD *)(v15 + 64) = v17 & 0xFFFFFFFE;
-      v36 = VmpVaRangeCheckPinnedGpaRanges(v16);
+      *(_DWORD *)&v15[2].0 = v17 & 0xFFFFFFFE;
+      v36 = VmpVaRangeCheckPinnedGpaRanges(ParentValue);
     }
-    RtlRbRemoveNode((unsigned __int64 *)SpinLock + 1, v13);
-    *(_QWORD *)(v15 + 40) = -1LL;
-    v18 = *(_QWORD *)v15;
-    v19 = *(_QWORD **)(v15 + 8);
-    if ( *(_QWORD *)(*(_QWORD *)v15 + 8LL) != v15 || *v19 != v15 )
+    RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v13);
+    v15[1].ParentValue = -1LL;
+    v18 = v15->Children[0];
+    v19 = v15->Children[1];
+    if ( v15->Children[0]->Children[1] != v15 || v19->Children[0] != v15 )
       __fastfail(3u);
-    *v19 = v18;
-    *(_QWORD *)(v18 + 8) = v19;
-    P = (PVOID)v15;
-    if ( (_QWORD *)v16[5] == v16 + 5 )
+    v19->Children[0] = v18;
+    v18->Children[1] = v19;
+    P = v15;
+    if ( ($908AA03DF88B8AEA08B7D1DBE06F5A9B *)ParentValue[1].ParentValue == &ParentValue[1].16 )
     {
-      RtlRbRemoveNode((unsigned __int64 *)SpinLock + 3, (unsigned __int64)v16);
-      v16[2] = -1LL;
-      v34 = v16;
+      RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 6), ParentValue);
+      ParentValue->ParentValue = -1LL;
+      v34 = ParentValue;
     }
     goto LABEL_28;
   }
-  if ( (unsigned __int64)VmpVaRangeNumberOfGpaRanges(v16) <= 1 )
+  if ( (unsigned __int64)VmpVaRangeNumberOfGpaRanges(ParentValue) <= 1 )
   {
-    if ( a3 == v22 && a2 == v32 )
+    if ( a3 == v22 && (_RTL_BALANCED_NODE *)a2 == v32 )
     {
-      v24 = v23 == *(_QWORD *)(v15 + 56);
-      if ( v23 >= *(_QWORD *)(v15 + 56) )
+      v24 = v23 == v15[2].Children[1];
+      if ( v23 >= v15[2].Children[1] )
         goto LABEL_43;
       if ( v37 < v21 )
       {
         v25 = v39;
-        *(_QWORD *)(v15 + 48) = v35;
-        v16[3] = v25 + a2;
+        v15[2].Children[0] = (_RTL_BALANCED_NODE *)v35;
+        ParentValue[1].Children[0] = (_RTL_BALANCED_NODE *)(v25 + a2);
         goto LABEL_48;
       }
     }
-    v24 = v23 == *(_QWORD *)(v15 + 56);
+    v24 = v23 == v15[2].Children[1];
 LABEL_43:
-    if ( !v24 || v37 != v21 || a3 <= v22 || a2 <= v32 )
+    if ( !v24 || v37 != v21 || a3 <= v22 || a2 <= (unsigned __int64)v32 )
       goto LABEL_36;
-    *(_QWORD *)(v15 + 56) = a3 - 1;
-    v16[4] = a2 - 1;
+    v15[2].Children[1] = (_RTL_BALANCED_NODE *)(a3 - 1);
+    ParentValue[1].Children[1] = (_RTL_BALANCED_NODE *)(a2 - 1);
 LABEL_48:
-    if ( (*(_DWORD *)(v15 + 64) & 1) != 0 )
-      v36 = v16[7];
+    if ( (*(_DWORD *)&v15[2].0 & 1) != 0 )
+      v36 = (__int64)ParentValue[2].Children[1];
 LABEL_28:
     ++*((_QWORD *)SpinLock + 5);
     v20 = *(_QWORD *)v12;
@@ -177,10 +180,13 @@ LABEL_52:
   if ( v38 != -1 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v38 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v38 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetPhysicalMemoryBlock @ 0x14059473C
+ * XREFs of IopGetPhysicalMemoryBlock @ 0x140591760
  * Callers:
- *     IopLoadCrashdumpDriver @ 0x1404D88C4 (IopLoadCrashdumpDriver.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140592538 (IoUpdateDumpPhysicalRanges.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLoadCrashdumpDriver @ 0x1404D1D14 (IopLoadCrashdumpDriver.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14058F55C (IoUpdateDumpPhysicalRanges.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     MmGetPhysicalMemoryRanges @ 0x1407EA590 (MmGetPhysicalMemoryRanges.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmGetPhysicalMemoryRanges @ 0x1407EAB60 (MmGetPhysicalMemoryRanges.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 IopGetPhysicalMemoryBlock()
@@ -49,7 +49,7 @@ __int64 IopGetPhysicalMemoryBlock()
     {
       if ( v7 <= 0xFFFFFFFF && (int)v7 + 32 >= (unsigned int)v7 )
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, (unsigned int)(v7 + 32), 0x706D4443u);
         v0 = Pool2;
         if ( Pool2 )
         {

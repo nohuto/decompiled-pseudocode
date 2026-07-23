@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpDelayCloseWorker @ 0x1404256F0
+ * XREFs of CmpDelayCloseWorker @ 0x1404245C0
  * Callers:
- *     NtUnloadKeyEx @ 0x14049A1D4 (NtUnloadKeyEx.c)
+ *     NtUnloadKeyEx @ 0x1403E3100 (NtUnloadKeyEx.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x140436D30 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpLockHashEntryExclusive @ 0x140437A90 (CmpLockHashEntryExclusive.c)
- *     CmpUnlockHashEntry @ 0x140437EC0 (CmpUnlockHashEntry.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140435C00 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpLockHashEntryExclusive @ 0x140436960 (CmpLockHashEntryExclusive.c)
+ *     CmpUnlockHashEntry @ 0x140436D90 (CmpUnlockHashEntry.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
  */
 
 __int64 __fastcall CmpDelayCloseWorker(__int64 a1)
@@ -54,11 +54,11 @@ __int64 __fastcall CmpDelayCloseWorker(__int64 a1)
       {
         if ( v3 <= CmpDelayedCloseSize && (!v1 || !v3) )
           break;
-        v5 = qword_140322B28 - 216;
-        v6 = *(_QWORD **)(qword_140322B28 + 8);
-        if ( *(__int64 **)qword_140322B28 != &CmpDelayedLRUListHead || *v6 != qword_140322B28 )
+        v5 = qword_140322B48 - 216;
+        v6 = *(_QWORD **)(qword_140322B48 + 8);
+        if ( *(__int64 **)qword_140322B48 != &CmpDelayedLRUListHead || *v6 != qword_140322B48 )
           __fastfail(3u);
-        qword_140322B28 = *(_QWORD *)(qword_140322B28 + 8);
+        qword_140322B48 = *(_QWORD *)(qword_140322B48 + 8);
         *v6 = &CmpDelayedLRUListHead;
         --v3;
         --qword_1407481D8;

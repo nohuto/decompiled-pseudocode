@@ -1,11 +1,11 @@
 /*
- * XREFs of MiObtainPoolCharges @ 0x14035A980
+ * XREFs of MiObtainPoolCharges @ 0x14035AB20
  * Callers:
- *     MiInitializePoolCommitPacket @ 0x140286900 (MiInitializePoolCommitPacket.c)
- *     MiGetPoolPages @ 0x1402E3304 (MiGetPoolPages.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C23C (MmAllocateIndependentPagesEx.c)
+ *     MiInitializePoolCommitPacket @ 0x140286B90 (MiInitializePoolCommitPacket.c)
+ *     MiGetPoolPages @ 0x1402E3594 (MiGetPoolPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x14086C47C (MmAllocateIndependentPagesEx.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
  */
 
 __int64 __fastcall MiObtainPoolCharges(unsigned __int64 a1, int a2)

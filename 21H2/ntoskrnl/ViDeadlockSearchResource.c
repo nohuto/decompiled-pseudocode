@@ -1,12 +1,12 @@
 /*
- * XREFs of ViDeadlockSearchResource @ 0x1409DFD30
+ * XREFs of ViDeadlockSearchResource @ 0x1409E0D30
  * Callers:
- *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
- *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
- *     ViDeadlockAddResource @ 0x1409DE838 (ViDeadlockAddResource.c)
+ *     VfDeadlockAcquireResource @ 0x1409DE5C8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x1409DF338 (VfDeadlockReleaseResource.c)
+ *     ViDeadlockAddResource @ 0x1409DF838 (ViDeadlockAddResource.c)
  * Callees:
- *     VfUtilAddressRangeFit @ 0x1409C62FC (VfUtilAddressRangeFit.c)
- *     ViDeadlockTrimResources @ 0x1409DFEB8 (ViDeadlockTrimResources.c)
+ *     VfUtilAddressRangeFit @ 0x1409C72FC (VfUtilAddressRangeFit.c)
+ *     ViDeadlockTrimResources @ 0x1409E0EB8 (ViDeadlockTrimResources.c)
  */
 
 _QWORD *__fastcall ViDeadlockSearchResource(unsigned __int64 a1)

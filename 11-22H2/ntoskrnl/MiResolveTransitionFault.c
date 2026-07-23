@@ -76,7 +76,7 @@ __int64 MiResolveTransitionFault(_QWORD *a1, ULONG_PTR a2, __int64 a3, __int64 a
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
   signed __int32 v45; // eax
-  struct _SLIST_ENTRY *v46; // rdi
+  _SLIST_ENTRY *v46; // rdi
   unsigned __int64 v47; // rax
   ULONG_PTR v48; // rbx
   unsigned __int64 v49; // rax

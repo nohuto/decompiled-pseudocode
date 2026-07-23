@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptEckeyAllocate @ 0x140522CE8
+ * XREFs of SymCryptEckeyAllocate @ 0x1405205FC
  * Callers:
- *     SymCryptEcDhSecretAgreementSelftest @ 0x140529594 (SymCryptEcDhSecretAgreementSelftest.c)
- *     SymCryptEcDsaSelftest @ 0x14052972C (SymCryptEcDsaSelftest.c)
- *     HashpVerifyEcdsaSignature @ 0x14082FC54 (HashpVerifyEcdsaSignature.c)
+ *     SymCryptEcDhSecretAgreementSelftest @ 0x140526EB4 (SymCryptEcDhSecretAgreementSelftest.c)
+ *     SymCryptEcDsaSelftest @ 0x14052704C (SymCryptEcDsaSelftest.c)
+ *     HashpVerifyEcdsaSignature @ 0x14083044C (HashpVerifyEcdsaSignature.c)
  * Callees:
- *     SymCryptEckeyCreate @ 0x140522D3C (SymCryptEckeyCreate.c)
- *     SymCryptSizeofEckeyFromCurve @ 0x1405233FC (SymCryptSizeofEckeyFromCurve.c)
- *     SymCryptCallbackAlloc @ 0x1406A5810 (SymCryptCallbackAlloc.c)
+ *     SymCryptEckeyCreate @ 0x140520650 (SymCryptEckeyCreate.c)
+ *     SymCryptSizeofEckeyFromCurve @ 0x140520D14 (SymCryptSizeofEckeyFromCurve.c)
+ *     SymCryptCallbackAlloc @ 0x1406A6810 (SymCryptCallbackAlloc.c)
  */
 
 __int64 __fastcall SymCryptEckeyAllocate(__int64 a1)

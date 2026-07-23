@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTraceDevicesWakeEnd @ 0x1407D3424
+ * XREFs of PopDiagTraceDevicesWakeEnd @ 0x1407D645C
  * Callers:
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x1404C6954 (PopDiagTraceEventNoPayload.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404C0304 (PopDiagTraceEventNoPayload.c)
  */
 
 void PopDiagTraceDevicesWakeEnd()

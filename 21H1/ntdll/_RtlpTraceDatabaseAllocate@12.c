@@ -7,15 +7,17 @@
  *     _NtAllocateVirtualMemory@24 @ 0x4B2F2AE0 (_NtAllocateVirtualMemory@24.c)
  */
 
-int __thiscall RtlpTraceDatabaseAllocate(void *this, int a2)
+PVOID __thiscall RtlpTraceDatabaseAllocate(ULONG Protect, int a2)
 {
-  void *v3; // [esp+0h] [ebp-8h] BYREF
-  int v4; // [esp+4h] [ebp-4h] BYREF
+  ULONG_PTR v3; // [esp-10h] [ebp-18h]
+  int v4; // [esp+0h] [ebp-8h] BYREF
+  PVOID BaseAddress; // [esp+4h] [ebp-4h] BYREF
 
-  v4 = 0;
-  v3 = this;
-  if ( NtAllocateVirtualMemory(-1, (int)&v4, 0, (int)&v3, 12288, 4) < 0 )
+  BaseAddress = 0;
+  HIDWORD(v3) = &v4;
+  LODWORD(v3) = 0;
+  if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v3, (PSIZE_T)0x3000, 4u, Protect) < 0 )
     return 0;
   else
-    return v4;
+    return BaseAddress;
 }

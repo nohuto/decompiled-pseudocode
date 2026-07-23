@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpEnableTrace @ 0x140A4882C
+ * XREFs of EtwpEnableTrace @ 0x140A3E5DC
  * Callers:
- *     EtwEnableTrace @ 0x140A48790 (EtwEnableTrace.c)
- *     EtwpEnableAutoLoggerProvider @ 0x140A79EF0 (EtwpEnableAutoLoggerProvider.c)
+ *     EtwEnableTrace @ 0x140A3E540 (EtwEnableTrace.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140A741F0 (EtwpEnableAutoLoggerProvider.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpEnableTrace(
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpEnableTrace(
   int v30; // ecx
   unsigned int v31; // ebx
   int v32; // esi
-  int v33; // esi
+  unsigned int v33; // esi
   __int64 Pool2; // rax
   _BYTE *v35; // r14
   unsigned int v36; // ebx
@@ -130,7 +130,7 @@ __int64 __fastcall EtwpEnableTrace(
   if ( !a18 )
     v32 = v30;
   v33 = 16 * v31 + v32;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v33, 0x74777445u);
   v35 = (_BYTE *)Pool2;
   if ( Pool2 )
   {
@@ -241,7 +241,7 @@ __int64 __fastcall EtwpEnableTrace(
         *((_QWORD *)v43 + 2) = *(_QWORD *)(a18 + 16);
       }
     }
-    v36 = EtwpEnableGuid(a1, (__int64)v35, 0);
+    v36 = EtwpEnableGuid(a1, v35, 0LL);
     ExFreePoolWithTag(v35, 0);
   }
   else

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUpdatePfnPriority @ 0x1402992A0
+ * XREFs of MiUpdatePfnPriority @ 0x140298800
  * Callers:
- *     MiActOnValidPte @ 0x140297138 (MiActOnValidPte.c)
- *     MiCombineWithStandbyExisting @ 0x140307CC4 (MiCombineWithStandbyExisting.c)
- *     MiCombineWithExisting @ 0x140308244 (MiCombineWithExisting.c)
- *     MiUpdatePrefetchPriority @ 0x1403149AC (MiUpdatePrefetchPriority.c)
- *     MiLockVirtualMemoryVa @ 0x140318C10 (MiLockVirtualMemoryVa.c)
- *     MiActOnTransitionPte @ 0x14033C8B0 (MiActOnTransitionPte.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiResolveTransitionFault @ 0x1403A6F04 (MiResolveTransitionFault.c)
- *     MiDeprioritizeVirtualAddresses @ 0x140442198 (MiDeprioritizeVirtualAddresses.c)
+ *     MiActOnValidPte @ 0x140296698 (MiActOnValidPte.c)
+ *     MiCombineWithStandbyExisting @ 0x1402E9D44 (MiCombineWithStandbyExisting.c)
+ *     MiCombineWithExisting @ 0x1402EA2C4 (MiCombineWithExisting.c)
+ *     MiUpdatePrefetchPriority @ 0x1403169DC (MiUpdatePrefetchPriority.c)
+ *     MiLockVirtualMemoryVa @ 0x14031AC40 (MiLockVirtualMemoryVa.c)
+ *     MiActOnTransitionPte @ 0x14033E930 (MiActOnTransitionPte.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiResolveTransitionFault @ 0x1403A8C64 (MiResolveTransitionFault.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14043ACA8 (MiDeprioritizeVirtualAddresses.c)
  * Callees:
- *     MiRelinkStandbyPage @ 0x140299860 (MiRelinkStandbyPage.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
+ *     MiRelinkStandbyPage @ 0x140298DC0 (MiRelinkStandbyPage.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
  */
 
 __int64 __fastcall MiUpdatePfnPriority(unsigned __int64 a1, unsigned int a2, int a3)
@@ -35,7 +35,7 @@ __int64 __fastcall MiUpdatePfnPriority(unsigned __int64 a1, unsigned int a2, int
   if ( (*(_DWORD *)(a1 + 32) & 0x8000000) == 0 )
     goto LABEL_3;
   if ( a1 < 0xFFFFDE0000000000uLL
-    || a1 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+    || a1 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
     || (unsigned int)MiIsDecayPfn((__int64)(a1 + 0x220000000000LL) / 48) )
   {
 LABEL_29:
@@ -74,11 +74,11 @@ LABEL_4:
   }
   if ( !v7
     && (*(_DWORD *)(v5 + 16) & 0x400LL) == 0
-    && (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) == 0 )
+    && (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) == 0 )
   {
     v10 = *(_QWORD *)(v5 + 16);
     if ( (v10 & 8) != 0
-      && (unsigned __int16)v10 >> 12 == *(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock
+      && (unsigned __int16)v10 >> 12 == *(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock
                                                               + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL))
                                                   + 1300LL) )
     {

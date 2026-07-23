@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSetThreadIsolationWidthUnsafe @ 0x1404D3598
+ * XREFs of KiSetThreadIsolationWidthUnsafe @ 0x1404CCE08
  * Callers:
- *     KiAdjustCoreIsolationReasonThread @ 0x1404D3414 (KiAdjustCoreIsolationReasonThread.c)
+ *     KiAdjustCoreIsolationReasonThread @ 0x1404CCC84 (KiAdjustCoreIsolationReasonThread.c)
  * Callees:
  *     <none>
  */

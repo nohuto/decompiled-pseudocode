@@ -1,19 +1,19 @@
 /*
- * XREFs of KeWakeProcessor @ 0x1405BCCD0
+ * XREFs of KeWakeProcessor @ 0x1405BA300
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
- *     KxIsrLinkage @ 0x1406AE9A0 (KxIsrLinkage.c)
- *     KiHvInterrupt @ 0x1406AF940 (KiHvInterrupt.c)
- *     KiVmbusInterrupt0 @ 0x1406AFCB0 (KiVmbusInterrupt0.c)
- *     KiVmbusInterrupt1 @ 0x1406B0020 (KiVmbusInterrupt1.c)
- *     KiVmbusInterrupt2 @ 0x1406B0390 (KiVmbusInterrupt2.c)
- *     KiVmbusInterrupt3 @ 0x1406B0700 (KiVmbusInterrupt3.c)
- *     KiSwInterrupt @ 0x1406B1390 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x1406B2240 (KiIpiInterrupt.c)
- *     KiNmiInterruptStart @ 0x1406B67C0 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x1406BAAC0 (KiMcheckAbort.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
+ *     KxIsrLinkage @ 0x1406AF940 (KxIsrLinkage.c)
+ *     KiHvInterrupt @ 0x1406B08E0 (KiHvInterrupt.c)
+ *     KiVmbusInterrupt0 @ 0x1406B0C50 (KiVmbusInterrupt0.c)
+ *     KiVmbusInterrupt1 @ 0x1406B0FC0 (KiVmbusInterrupt1.c)
+ *     KiVmbusInterrupt2 @ 0x1406B1330 (KiVmbusInterrupt2.c)
+ *     KiVmbusInterrupt3 @ 0x1406B16A0 (KiVmbusInterrupt3.c)
+ *     KiSwInterrupt @ 0x1406B2330 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x1406B31E0 (KiIpiInterrupt.c)
+ *     KiNmiInterruptStart @ 0x1406B76C0 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x1406BB9C0 (KiMcheckAbort.c)
  * Callees:
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403E9E90 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1403D7B30 (KeInterlockedClearProcessorAffinityEx.c)
  */
 
 unsigned __int64 KeWakeProcessor()

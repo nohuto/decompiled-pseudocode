@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpFreeBin @ 0x1406CFF90
+ * XREFs of HvpFreeBin @ 0x1406D1230
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
- *     HvHiveCleanup @ 0x1405FB440 (HvHiveCleanup.c)
- *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
- *     HvpAddDummyBinToHive @ 0x1407F7700 (HvpAddDummyBinToHive.c)
- *     HvpMapHiveImage @ 0x1407F794C (HvpMapHiveImage.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x1405A9240 (HvFreeHivePartial.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1405FA6A0 (HvpRemapAndEnlistHiveBins.c)
+ *     HvHiveCleanup @ 0x1405FC440 (HvHiveCleanup.c)
+ *     HvpDropPagedBins @ 0x140737784 (HvpDropPagedBins.c)
+ *     HvpAddDummyBinToHive @ 0x1407F8900 (HvpAddDummyBinToHive.c)
+ *     HvpMapHiveImage @ 0x1407F8B4C (HvpMapHiveImage.c)
  * Callees:
- *     CmpProtectPool @ 0x14013B38C (CmpProtectPool.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpProtectPool @ 0x14013B48C (CmpProtectPool.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvpFreeBin(__int64 a1, unsigned int a2, unsigned __int64 a3)

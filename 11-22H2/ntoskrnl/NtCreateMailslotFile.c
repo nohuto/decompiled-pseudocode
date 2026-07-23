@@ -8,41 +8,42 @@
  *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtCreateMailslotFile(
+NTSTATUS __cdecl NtCreateMailslotFile(
         PHANDLE FileHandle,
-        ACCESS_MASK DesiredAccess,
-        OBJECT_ATTRIBUTES *a3,
-        struct _IO_STATUS_BLOCK *a4,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
         ULONG CreateOptions,
-        unsigned int a6,
-        unsigned int a7,
-        __int64 a8)
+        ULONG MailslotQuota,
+        ULONG MaximumMessageSize,
+        PLARGE_INTEGER ReadTimeout)
 {
   __int128 InternalParameters; // [rsp+70h] [rbp-28h] BYREF
   __int64 v10; // [rsp+80h] [rbp-18h]
 
   InternalParameters = 0LL;
   v10 = 0LL;
-  if ( a8 )
+  if ( ReadTimeout )
   {
     LOBYTE(v10) = 1;
     if ( KeGetCurrentThread()->PreviousMode )
     {
-      if ( (a8 & 3) != 0 )
+      if ( ((unsigned __int8)ReadTimeout & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      *((_QWORD *)&InternalParameters + 1) = *(_QWORD *)a8;
+      *((LARGE_INTEGER *)&InternalParameters + 1) = *ReadTimeout;
     }
     else
     {
-      *((_QWORD *)&InternalParameters + 1) = *(_QWORD *)a8;
+      *((LARGE_INTEGER *)&InternalParameters + 1) = *ReadTimeout;
     }
   }
-  *(_QWORD *)&InternalParameters = __PAIR64__(a7, a6);
+  LODWORD(InternalParameters) = MailslotQuota;
+  DWORD1(InternalParameters) = MaximumMessageSize;
   return IoCreateFile(
            FileHandle,
            DesiredAccess,
-           a3,
-           a4,
+           ObjectAttributes,
+           IoStatusBlock,
            0LL,
            0,
            3u,

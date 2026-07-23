@@ -1,13 +1,13 @@
 /*
- * XREFs of PopExtendConnectionState @ 0x140761D3C
+ * XREFs of PopExtendConnectionState @ 0x140762F2C
  * Callers:
- *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
- *     PopInitializeAdpm @ 0x1409DDD80 (PopInitializeAdpm.c)
+ *     PopSetSessionUserStatus @ 0x1406DDC58 (PopSetSessionUserStatus.c)
+ *     PopInitializeAdpm @ 0x1409DED80 (PopInitializeAdpm.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall PopExtendConnectionState(unsigned int a1)

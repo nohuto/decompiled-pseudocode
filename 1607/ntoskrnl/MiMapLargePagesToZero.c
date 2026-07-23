@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMapLargePagesToZero @ 0x14008AE60
+ * XREFs of MiMapLargePagesToZero @ 0x14008A560
  * Callers:
- *     MiGetLargePageToZero @ 0x14008A680 (MiGetLargePageToZero.c)
+ *     MiGetLargePageToZero @ 0x140089D80 (MiGetLargePageToZero.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiGetUltraMapping @ 0x14013F7E4 (MiGetUltraMapping.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiGetUltraMapping @ 0x14013FD54 (MiGetUltraMapping.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiMapLargePagesToZero(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

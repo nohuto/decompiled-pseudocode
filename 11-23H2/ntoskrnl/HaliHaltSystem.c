@@ -1,11 +1,11 @@
 /*
- * XREFs of HaliHaltSystem @ 0x140506A00
+ * XREFs of HaliHaltSystem @ 0x140506F50
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterRead @ 0x1403A1D30 (HalpAcpiPmRegisterRead.c)
- *     HalpShutdown @ 0x140506C48 (HalpShutdown.c)
- *     InbvCheckDisplayOwnership @ 0x14054E530 (InbvCheckDisplayOwnership.c)
+ *     HalpAcpiPmRegisterRead @ 0x1403A1F10 (HalpAcpiPmRegisterRead.c)
+ *     HalpShutdown @ 0x140507198 (HalpShutdown.c)
+ *     InbvCheckDisplayOwnership @ 0x14054EBF0 (InbvCheckDisplayOwnership.c)
  */
 
 void __noreturn HaliHaltSystem()

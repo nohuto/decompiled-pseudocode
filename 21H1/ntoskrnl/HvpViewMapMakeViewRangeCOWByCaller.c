@@ -9,22 +9,22 @@
  *     HvpViewMapTouchPages @ 0x140692C58 (HvpViewMapTouchPages.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx
-  __int64 v8; // rcx
+  ULONG_PTR v8; // rcx
   int v9; // r14d
   __int64 v10; // rsi
   __int64 v11; // rdx
   __int64 v12; // rax
   unsigned __int64 v13; // rsi
-  __int64 v14; // r8
-  __int64 v16; // rcx
-  int v17; // [rsp+60h] [rbp+8h] BYREF
+  void *v14; // r8
+  ULONG_PTR v16; // rcx
+  __int64 v17; // [rsp+60h] [rbp+8h] BYREF
 
-  v17 = 0;
+  LODWORD(v17) = 0;
   v4 = a3;
-  v9 = CmSiProtectViewOfSection(a1, *(__int64 **)(a1 + 24), a2[7] + a3 - a2[3], a4 - a3, 8u, (__int64)&v17);
+  v9 = CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), (void *)(a2[7] + a3 - a2[3]), a4 - a3, 8u, (ULONG *)&v17);
   if ( v9 >= 0 )
   {
     v10 = v4;
@@ -50,12 +50,12 @@ __int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __
           {
             v12 = a2[3];
             v13 = (unsigned __int64)(v4 - v12) >> 12;
-            v14 = a2[7] + v4 - v12;
+            v14 = (void *)(a2[7] + v4 - v12);
             LOBYTE(v12) = *((_BYTE *)a2 + v13 + 72) | 0xA;
             *((_BYTE *)a2 + v13 + 72) = v12;
             if ( (v12 & 0x10) != 0 )
             {
-              CmSiUnlockViewOfSection(v8, *(__int64 **)(a1 + 24), v14, 4096LL);
+              CmSiUnlockViewOfSection(v8, *(void ***)(a1 + 24), v14, 0x1000uLL);
               *((_BYTE *)a2 + v13 + 72) &= ~0x10u;
               --a2[8];
               *((_BYTE *)a2 + v13 + 72) |= 4u;
@@ -68,8 +68,14 @@ __int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __
       do
       {
         v16 = a2[3];
-        if ( (*((_BYTE *)a2 + ((unsigned __int64)(v4 - v16) >> 12) + 72) & 6) == 0 )
-          CmSiProtectViewOfSection(v16, *(__int64 **)(a1 + 24), a2[7] + v4 - v16, 4096LL, 0x80000002, (__int64)&v17);
+        if ( (*((_BYTE *)a2 + ((v4 - v16) >> 12) + 72) & 6) == 0 )
+          CmSiProtectViewOfSection(
+            v16,
+            *(void ***)(a1 + 24),
+            (void *)(a2[7] + v4 - v16),
+            0x1000uLL,
+            0x80000002,
+            (ULONG *)&v17);
         v4 += 4096LL;
       }
       while ( v4 < a4 );

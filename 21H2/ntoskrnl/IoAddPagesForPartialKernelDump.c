@@ -1,12 +1,12 @@
 /*
- * XREFs of IoAddPagesForPartialKernelDump @ 0x14050B6A0
+ * XREFs of IoAddPagesForPartialKernelDump @ 0x14050B8E0
  * Callers:
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
  * Callees:
- *     IoSaveBugCheckProgress @ 0x140502780 (IoSaveBugCheckProgress.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x140503E50 (IopDumpCallRemovePagesCallbacks.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B798 (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14050BAB0 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IoSaveBugCheckProgress @ 0x140502700 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140503DD0 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B9D8 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14050BCF0 (IopAddMiniDumpPagesToPartialKernelDump.c)
  */
 
 __int64 __fastcall IoAddPagesForPartialKernelDump(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)

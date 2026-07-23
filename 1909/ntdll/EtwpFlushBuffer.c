@@ -11,19 +11,19 @@
 
 __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
 {
-  int v3; // r9d
+  NTSTATUS v3; // r9d
   int v4; // r10d
   int v7; // eax
   int v8; // esi
   unsigned int v9; // edx
   __int64 v10; // r11
-  __int64 v11; // rbp
+  __int64 Length; // rbp
   unsigned __int64 v12; // r9
   int v14; // edx
   int v15; // edx
   __int64 v16; // rax
-  int v17; // eax
-  _BYTE v18[16]; // [rsp+50h] [rbp-28h] BYREF
+  NTSTATUS v17; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-28h] BYREF
   int v19; // [rsp+88h] [rbp+10h] BYREF
   int v20; // [rsp+98h] [rbp+20h] BYREF
 
@@ -45,10 +45,10 @@ __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
   {
     v9 = *(_DWORD *)(a1 + 324);
     v10 = *(unsigned int *)(a1 + 320);
-    v11 = *(unsigned int *)(a1 + 208);
+    Length = *(unsigned int *)(a1 + 208);
     if ( (_DWORD)v10 )
     {
-      v12 = (v9 & 0x4000000) != 0 ? *(_QWORD *)(a1 + 360) : v11 * (((v9 >> 2) & 2) + *(_DWORD *)(a1 + 336));
+      v12 = (v9 & 0x4000000) != 0 ? *(_QWORD *)(a1 + 360) : Length * (((v9 >> 2) & 2) + *(_DWORD *)(a1 + 336));
       if ( v12 >= v10 * ((-(__int64)((v9 & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
       {
         v14 = (v9 & 0xB) - 1;
@@ -71,7 +71,7 @@ LABEL_31:
         {
           v16 = *(_QWORD *)(a1 + 352);
           *(_QWORD *)(a1 + 360) = v16;
-          *(_DWORD *)(a1 + 336) = v16 / v11;
+          *(_DWORD *)(a1 + 336) = v16 / Length;
         }
       }
     }
@@ -85,12 +85,21 @@ LABEL_31:
     }
     else
     {
-      if ( *(_DWORD *)(a2 + 48) < (unsigned int)v11 )
-        memset((void *)(a2 + *(unsigned int *)(a2 + 48)), 255, (unsigned int)(v11 - *(_DWORD *)(a2 + 48)));
-      v3 = NtWriteFile(*(_QWORD *)(a1 + 144), 0LL, 0LL, 0LL, v18, a2, v11, a1 + 360, 0LL);
+      if ( *(_DWORD *)(a2 + 48) < (unsigned int)Length )
+        memset((void *)(a2 + *(unsigned int *)(a2 + 48)), 255, (unsigned int)(Length - *(_DWORD *)(a2 + 48)));
+      v3 = NtWriteFile(
+             *(HANDLE *)(a1 + 144),
+             0LL,
+             0LL,
+             0LL,
+             &IoStatusBlock,
+             (PVOID)a2,
+             Length,
+             (PLARGE_INTEGER)(a1 + 360),
+             0LL);
       if ( v3 >= 0 )
       {
-        *(_QWORD *)(a1 + 360) += v11;
+        *(_QWORD *)(a1 + 360) += Length;
         v4 = v19;
 LABEL_14:
         if ( v3 >= 0 )

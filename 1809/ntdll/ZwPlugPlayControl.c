@@ -1,16 +1,19 @@
 /*
- * XREFs of ZwPlugPlayControl @ 0x1800A2850
+ * XREFs of ZwPlugPlayControl @ 0x1800A2870
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwPlugPlayControl()
+NTSTATUS __cdecl ZwPlugPlayControl(
+        PLUGPLAY_CONTROL_CLASS PnPControlClass,
+        PVOID PnPControlData,
+        ULONG PnPControlDataLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 300LL;
+  result = 300;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

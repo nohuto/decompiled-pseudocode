@@ -10,38 +10,38 @@
  *     ZwUnlockVirtualMemory @ 0x18009FF70 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 __fastcall RtlLockMemoryZone(__int64 a1)
+NTSTATUS __cdecl RtlLockMemoryZone(PVOID MemoryZone)
 {
-  volatile signed __int64 *v1; // r14
+  _RTL_SRWLOCK *v1; // r14
   int v3; // esi
-  _QWORD *i; // rdi
-  _QWORD *j; // rbx
-  _QWORD *k; // rbx
-  __int64 v8; // [rsp+50h] [rbp+30h] BYREF
-  _QWORD *v9; // [rsp+58h] [rbp+38h] BYREF
+  ULONG_PTR *i; // rdi
+  ULONG_PTR *j; // rbx
+  ULONG_PTR *k; // rbx
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+30h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp+38h] BYREF
 
-  v1 = (volatile signed __int64 *)(a1 + 32);
+  v1 = (_RTL_SRWLOCK *)((char *)MemoryZone + 32);
   v3 = 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
-  if ( *(_DWORD *)(a1 + 40) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
+  if ( *((_DWORD *)MemoryZone + 10) )
   {
 LABEL_7:
-    ++*(_DWORD *)(a1 + 40);
+    ++*((_DWORD *)MemoryZone + 10);
   }
   else
   {
-    for ( i = *(_QWORD **)(a1 + 48); i; i = (_QWORD *)*i )
+    for ( i = (ULONG_PTR *)*((_QWORD *)MemoryZone + 6); i; i = (ULONG_PTR *)*i )
     {
-      v9 = i;
-      v8 = i[1];
-      v3 = ZwLockVirtualMemory(-1LL, &v9, &v8, 1LL);
+      BaseAddress = i;
+      RegionSize = i[1];
+      v3 = ZwLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
       if ( v3 < 0 )
       {
-        for ( j = *(_QWORD **)(a1 + 48); j != i; j = (_QWORD *)*j )
+        for ( j = (ULONG_PTR *)*((_QWORD *)MemoryZone + 6); j != i; j = (ULONG_PTR *)*j )
         {
-          v9 = j;
-          v8 = j[1];
-          ZwUnlockVirtualMemory(-1LL, &v9, &v8, 1LL);
+          BaseAddress = j;
+          RegionSize = j[1];
+          ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
         }
         goto LABEL_8;
       }
@@ -49,14 +49,14 @@ LABEL_7:
     v3 = sub_180073A4C();
     if ( v3 >= 0 )
       goto LABEL_7;
-    for ( k = *(_QWORD **)(a1 + 48); k; k = (_QWORD *)*k )
+    for ( k = (ULONG_PTR *)*((_QWORD *)MemoryZone + 6); k; k = (ULONG_PTR *)*k )
     {
-      v9 = k;
-      v8 = k[1];
-      ZwUnlockVirtualMemory(-1LL, &v9, &v8, 1LL);
+      BaseAddress = k;
+      RegionSize = k[1];
+      ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     }
   }
 LABEL_8:
   RtlReleaseSRWLockExclusive(v1);
-  return (unsigned int)v3;
+  return v3;
 }

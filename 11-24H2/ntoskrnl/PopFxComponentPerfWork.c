@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxComponentPerfWork @ 0x1405D09A0
+ * XREFs of PopFxComponentPerfWork @ 0x1405CE0C0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     PopFxCompleteComponentPerfState @ 0x1404B6CBC (PopFxCompleteComponentPerfState.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     PopFxCompleteComponentPerfState @ 0x1404B149C (PopFxCompleteComponentPerfState.c)
  */
 
 LONG __fastcall PopFxComponentPerfWork(volatile signed __int32 *a1)

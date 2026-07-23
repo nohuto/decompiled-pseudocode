@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpQueryPackageIdentityAttributes @ 0x14044CCC0
+ * XREFs of RtlpQueryPackageIdentityAttributes @ 0x140443BC0
  * Callers:
- *     EtwpQueryPsmKey @ 0x1407AA428 (EtwpQueryPsmKey.c)
+ *     EtwpQueryPsmKey @ 0x1407AA568 (EtwpQueryPsmKey.c)
  * Callees:
- *     SeQuerySecurityAttributesToken @ 0x1409ECEB0 (SeQuerySecurityAttributesToken.c)
+ *     SeQuerySecurityAttributesToken @ 0x1409E61E0 (SeQuerySecurityAttributesToken.c)
  */
 
 __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int6
   if ( a4 || v5 )
     v10 = 2;
   LODWORD(v13) = 816;
-  result = SeQuerySecurityAttributesToken(a1, (int)&qword_140002D18, v10, (void *)a3, v13, (__int64)&v16);
+  result = SeQuerySecurityAttributesToken(a1, (int)&qword_140002DC0, v10, (void *)a3, v13, (__int64)&v16);
   if ( (int)result < 0 )
   {
     if ( (_DWORD)result != -1073741275 )
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int6
     if ( v10 == 1 )
       return result;
     LODWORD(v14) = 816;
-    result = SeQuerySecurityAttributesToken(a1, (int)&qword_140002D18, 1, (void *)a3, v14, (__int64)&v16);
+    result = SeQuerySecurityAttributesToken(a1, (int)&qword_140002DC0, 1, (void *)a3, v14, (__int64)&v16);
     if ( (int)result < 0 )
       return result;
     v9 = 0;
@@ -53,10 +53,10 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int6
   {
     *v5 |= (2LL * v9) | 1;
     LODWORD(v14) = 0;
-    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (int)&qword_140002D38, 1, 0LL, v14, (__int64)&v16) == -1073741789 )
+    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (int)&qword_140002DE0, 1, 0LL, v14, (__int64)&v16) == -1073741789 )
       *v5 |= 4uLL;
     LODWORD(v15) = 0;
-    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (int)&qword_140002D48, 1, 0LL, v15, (__int64)&v16) == -1073741789 )
+    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (int)&qword_140002DF0, 1, 0LL, v15, (__int64)&v16) == -1073741789 )
       *v5 |= 8uLL;
   }
   return 0LL;

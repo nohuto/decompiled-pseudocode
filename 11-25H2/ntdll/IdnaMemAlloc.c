@@ -8,7 +8,7 @@
  *     <none>
  */
 
-__int64 __fastcall IdnaMemAlloc(unsigned __int64 a1)
+PVOID __fastcall IdnaMemAlloc(SIZE_T a1)
 {
-  return RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, a1);
 }

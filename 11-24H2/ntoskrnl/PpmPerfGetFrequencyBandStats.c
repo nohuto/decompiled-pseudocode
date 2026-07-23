@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfGetFrequencyBandStats @ 0x140A4486C
+ * XREFs of PpmPerfGetFrequencyBandStats @ 0x140A3A0FC
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1, __int64 a2, unsigned int a3)
@@ -35,7 +35,7 @@ __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1, __int64 a2, unsigned
       {
         _BitScanForward64(&v7, v5);
         v5 &= ~(1LL << v7);
-        Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v6 + (unsigned __int8)v7));
+        Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v6 + (unsigned __int8)v7));
         v9 = *(_QWORD *)(Prcb + 35264);
         if ( v9 )
         {

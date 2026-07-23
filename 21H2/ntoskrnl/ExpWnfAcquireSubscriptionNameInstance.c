@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpWnfAcquireSubscriptionNameInstance @ 0x1406BB228
+ * XREFs of ExpWnfAcquireSubscriptionNameInstance @ 0x14061A4F8
  * Callers:
- *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x14061A450 (ExQueryWnfStateData.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall ExpWnfAcquireSubscriptionNameInstance(__int64 a1, __int64 a2)
 {
   __int64 v3; // rsi
   unsigned __int64 *v4; // rbx
-  __int64 v5; // rdi
+  PRTL_BALANCED_NODE v5; // rdi
   struct _EX_RUNDOWN_REF *v6; // rcx
 
   v3 = 0LL;
@@ -23,9 +23,9 @@ __int64 __fastcall ExpWnfAcquireSubscriptionNameInstance(__int64 a1, __int64 a2)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v4, v5, (ULONG_PTR)v4);
   if ( v5 )
-    *(_BYTE *)(v5 + 26) |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   v6 = *(struct _EX_RUNDOWN_REF **)(a2 + 48);
-  if ( v6 && ExAcquireRundownProtection_0(v6 + 1) )
+  if ( v6 && ExAcquireRundownProtection(v6 + 1) )
     v3 = *(_QWORD *)(a2 + 48);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)v4);

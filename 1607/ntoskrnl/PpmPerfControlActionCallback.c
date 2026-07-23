@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfControlActionCallback @ 0x140204FA0
+ * XREFs of PpmPerfControlActionCallback @ 0x140204DCC
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 __int64 PpmPerfControlActionCallback()

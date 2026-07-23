@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsContextFreeList @ 0x1401B6BB0
+ * XREFs of RtlpHpVsContextFreeList @ 0x1401B6D18
  * Callers:
  *     RtlpHpVsContextFree @ 0x1400079BC (RtlpHpVsContextFree.c)
- *     RtlpHpHeapCompact @ 0x1401B6244 (RtlpHpHeapCompact.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlpHpHeapCompact @ 0x1401B63AC (RtlpHpHeapCompact.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B6304 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B636C (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsContextFreeInternal @ 0x1401B6A1C (RtlpHpVsContextFreeInternal.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B646C (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B64D4 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextFreeInternal @ 0x1401B6B84 (RtlpHpVsContextFreeInternal.c)
  */
 
 void __fastcall RtlpHpVsContextFreeList(__int64 a1, __int64 a2, _QWORD *a3)

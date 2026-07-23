@@ -19,46 +19,46 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
+__int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, ULONG a3)
 {
-  unsigned int v3; // r14d
+  ULONG v3; // r14d
   void *v4; // r15
   void *v5; // r12
   int *v6; // r13
   wchar_t *v7; // rdi
   wchar_t *v8; // rsi
   __int64 result; // rax
-  __int64 i; // rcx
-  signed int BootEntryOrder; // ebx
+  void *i; // rcx
+  signed int DeviceNumberInformation; // ebx
   __int64 Pool2; // rax
-  __int64 v13; // rax
-  unsigned int v14; // r14d
-  int BootOptions; // eax
+  _BOOT_OPTIONS *v13; // rax
+  ULONG v14; // r14d
+  NTSTATUS v15; // eax
   unsigned int *EfiBootEntryById; // rax
   unsigned int *v17; // r14
   int NtFilePath; // eax
   char IsValidWindowsBootEntry; // al
-  unsigned int v20; // r14d
-  __int64 j; // rcx
+  ULONG v20; // r14d
+  ULONG *j; // rcx
   __int64 v22; // rax
-  unsigned int k; // ebx
+  ULONG k; // ebx
   unsigned int *v24; // rax
   unsigned int *v25; // r14
   int v26; // eax
   _WORD *v27; // rdx
   __int64 v28; // rax
-  unsigned int v29; // eax
+  ULONG v29; // eax
   unsigned int v30; // [rsp+30h] [rbp-28h] BYREF
   int v31; // [rsp+34h] [rbp-24h] BYREF
   PVOID v32; // [rsp+38h] [rbp-20h] BYREF
   PVOID P; // [rsp+40h] [rbp-18h] BYREF
   _QWORD v34[2]; // [rsp+48h] [rbp-10h] BYREF
-  unsigned int v37; // [rsp+B0h] [rbp+58h] BYREF
-  unsigned int v38; // [rsp+B8h] [rbp+60h] BYREF
+  ULONG BufferLength; // [rsp+B0h] [rbp+58h] BYREF
+  ULONG Count; // [rsp+B8h] [rbp+60h] BYREF
 
-  v37 = a3;
+  BufferLength = a3;
   v3 = 0;
-  v38 = 0;
+  Count = 0;
   v4 = 0LL;
   v30 = 0;
   v5 = 0LL;
@@ -72,13 +72,13 @@ __int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
   result = BiAcquirePrivilege(22LL, v34);
   if ( (int)result >= 0 )
   {
-    v37 = 0;
-    for ( i = 0LL; ; i = Pool2 )
+    BufferLength = 0;
+    for ( i = 0LL; ; i = (void *)Pool2 )
     {
-      BootEntryOrder = ZwEnumerateBootEntries(i, (__int64)&v37);
-      if ( BootEntryOrder != -1073741789 )
+      DeviceNumberInformation = ZwEnumerateBootEntries(i, &BufferLength);
+      if ( DeviceNumberInformation != -1073741789 )
         break;
-      if ( v3 >= v37 )
+      if ( v3 >= BufferLength )
         goto LABEL_48;
       if ( v4 )
         ExFreePoolWithTag(v4, 0);
@@ -86,34 +86,34 @@ __int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
       v4 = (void *)Pool2;
       if ( !Pool2 )
         goto LABEL_9;
-      v3 = v37;
+      v3 = BufferLength;
     }
-    if ( BootEntryOrder >= 0 )
+    if ( DeviceNumberInformation >= 0 )
     {
-      if ( v37 )
+      if ( BufferLength )
       {
-        v37 = 24;
+        BufferLength = 24;
         while ( 1 )
         {
           if ( v6 )
             ExFreePoolWithTag(v6, 0);
-          v13 = ExAllocatePool2(0x100uLL);
+          v13 = (_BOOT_OPTIONS *)ExAllocatePool2(0x100uLL);
           v6 = (int *)v13;
           if ( !v13 )
             break;
-          v14 = v37;
-          BootOptions = ZwQueryBootOptions(v13, (__int64)&v37);
-          BootEntryOrder = BootOptions;
-          if ( BootOptions != -1073741789 )
+          v14 = BufferLength;
+          v15 = ZwQueryBootOptions(v13, &BufferLength);
+          DeviceNumberInformation = v15;
+          if ( v15 != -1073741789 )
           {
-            if ( BootOptions < 0 )
+            if ( v15 < 0 )
               goto LABEL_48;
             EfiBootEntryById = SiGetEfiBootEntryById((unsigned int *)v4, v6[3]);
             v17 = EfiBootEntryById;
             if ( EfiBootEntryById
-              && (NtFilePath = SiBootEntryGetNtFilePath((__int64)EfiBootEntryById, &P),
+              && (NtFilePath = SiBootEntryGetNtFilePath((__int64)EfiBootEntryById, (_FILE_PATH **)&P),
                   v7 = (wchar_t *)P,
-                  BootEntryOrder = NtFilePath,
+                  DeviceNumberInformation = NtFilePath,
                   NtFilePath >= 0) )
             {
               IsValidWindowsBootEntry = SiIsValidWindowsBootEntry(v17, P);
@@ -127,12 +127,12 @@ __int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
             {
               v20 = 0;
             }
-            for ( j = 0LL; ; j = v22 )
+            for ( j = 0LL; ; j = (ULONG *)v22 )
             {
-              BootEntryOrder = ZwQueryBootEntryOrder(j, (__int64)&v38);
-              if ( BootEntryOrder != -1073741789 )
+              DeviceNumberInformation = ZwQueryBootEntryOrder(j, &Count);
+              if ( DeviceNumberInformation != -1073741789 )
                 break;
-              if ( v20 >= v38 )
+              if ( v20 >= Count )
                 goto LABEL_48;
               if ( v5 )
                 ExFreePoolWithTag(v5, 0);
@@ -140,19 +140,19 @@ __int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
               v5 = (void *)v22;
               if ( !v22 )
                 goto LABEL_9;
-              v20 = v38;
+              v20 = Count;
             }
-            if ( !BootEntryOrder )
+            if ( !DeviceNumberInformation )
             {
-              if ( !v38 )
+              if ( !Count )
                 goto LABEL_12;
-              for ( k = 0; k < v38; ++k )
+              for ( k = 0; k < Count; ++k )
               {
                 v24 = SiGetEfiBootEntryById((unsigned int *)v4, *((_DWORD *)v5 + k));
                 v25 = v24;
                 if ( v24 )
                 {
-                  v26 = SiBootEntryGetNtFilePath((__int64)v24, &v32);
+                  v26 = SiBootEntryGetNtFilePath((__int64)v24, (_FILE_PATH **)&v32);
                   v8 = (wchar_t *)v32;
                   if ( v26 >= 0 && (unsigned __int8)SiIsValidWindowsBootEntry(v25, v32) )
                   {
@@ -160,7 +160,7 @@ __int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
                     {
                       if ( wcsicmp(v7 + 6, v8 + 6) )
                       {
-                        BootEntryOrder = -1073740719;
+                        DeviceNumberInformation = -1073740719;
                         goto LABEL_48;
                       }
                     }
@@ -179,23 +179,23 @@ __int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
                   }
                 }
               }
-              BootEntryOrder = v7 == 0LL ? 0xC0000225 : 0;
+              DeviceNumberInformation = v7 == 0LL ? 0xC0000225 : 0;
             }
             goto LABEL_48;
           }
-          if ( v14 >= v37 )
+          if ( v14 >= BufferLength )
             goto LABEL_48;
         }
 LABEL_9:
-        BootEntryOrder = -1073741801;
+        DeviceNumberInformation = -1073741801;
         goto LABEL_48;
       }
 LABEL_12:
-      BootEntryOrder = -1073741275;
+      DeviceNumberInformation = -1073741275;
     }
 LABEL_48:
     BiReleasePrivilege(v34);
-    if ( BootEntryOrder >= 0 )
+    if ( DeviceNumberInformation >= 0 )
     {
       if ( v7 )
       {
@@ -207,27 +207,27 @@ LABEL_48:
             ++v28;
           while ( v27[v28] );
           v29 = 2 * v28 + 2;
-          v37 = v29;
+          BufferLength = v29;
           if ( v29 <= 0x6A )
             memmove(a2, v27, v29);
           else
-            BootEntryOrder = -1073741789;
+            DeviceNumberInformation = -1073741789;
         }
         else
         {
-          BootEntryOrder = SiGetDeviceNumberInformation(v7 + 6, &v30, &v31);
-          if ( BootEntryOrder >= 0 )
-            BootEntryOrder = RtlStringCbPrintfW(
-                               (NTSTRSAFE_PWSTR)a2,
-                               0x6AuLL,
-                               L"\\Device\\Harddisk%lu\\Partition%lu",
-                               v30,
-                               0LL);
+          DeviceNumberInformation = SiGetDeviceNumberInformation(v7 + 6, &v30, &v31);
+          if ( DeviceNumberInformation >= 0 )
+            DeviceNumberInformation = RtlStringCbPrintfW(
+                                        (NTSTRSAFE_PWSTR)a2,
+                                        0x6AuLL,
+                                        L"\\Device\\Harddisk%lu\\Partition%lu",
+                                        v30,
+                                        0LL);
         }
       }
       else
       {
-        BootEntryOrder = -1073741823;
+        DeviceNumberInformation = -1073741823;
       }
     }
     if ( v4 )
@@ -240,7 +240,7 @@ LABEL_48:
       ExFreePoolWithTag(v7, 0);
     if ( v8 )
       ExFreePoolWithTag(v8, 0);
-    return (unsigned int)BootEntryOrder;
+    return (unsigned int)DeviceNumberInformation;
   }
   return result;
 }

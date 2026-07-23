@@ -1,41 +1,41 @@
 /*
- * XREFs of EtwEventProviderEnabled @ 0x180076CD0
+ * XREFs of EtwEventProviderEnabled @ 0x180076CE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall EtwEventProviderEnabled(unsigned __int64 a1, unsigned __int8 a2, __int64 a3)
+BOOLEAN __cdecl EtwEventProviderEnabled(REGHANDLE RegHandle, UCHAR Level, ULONGLONG Keyword)
 {
-  unsigned __int64 v3; // rax
-  char v5; // dl
-  __int64 v6; // rcx
-  unsigned __int8 v7; // al
-  unsigned __int8 v9; // al
+  REGHANDLE v3; // rax
+  BOOLEAN v5; // dl
+  REGHANDLE v6; // rcx
+  UCHAR v7; // al
+  UCHAR v9; // al
 
-  v3 = HIWORD(a1);
-  if ( !HIWORD(a1) )
+  v3 = HIWORD(RegHandle);
+  if ( !HIWORD(RegHandle) )
     return 0;
   v5 = 1;
-  v6 = a1 & 0xFFFFFFFFFFFFLL;
+  v6 = RegHandle & 0xFFFFFFFFFFFFLL;
   if ( (v6 & 1) != 0 || (_WORD)v3 != *(_WORD *)(v6 + 96) )
     return 0;
   if ( !*(_BYTE *)(v6 + 124)
-    || (v7 = *(_BYTE *)(v6 + 125), a2 > v7) && v7
-    || ((*(_BYTE *)(v6 + 120) & 0x40) == 0 || a3)
-    && ((a3 & *(_QWORD *)(v6 + 112)) == 0 || (a3 & *(_QWORD *)(v6 + 104)) != *(_QWORD *)(v6 + 104)) )
+    || (v7 = *(_BYTE *)(v6 + 125), Level > v7) && v7
+    || ((*(_BYTE *)(v6 + 120) & 0x40) == 0 || Keyword)
+    && ((Keyword & *(_QWORD *)(v6 + 112)) == 0 || (Keyword & *(_QWORD *)(v6 + 104)) != *(_QWORD *)(v6 + 104)) )
   {
     if ( !*(_BYTE *)(v6 + 244) )
       return 0;
     v9 = *(_BYTE *)(v6 + 245);
-    if ( a2 > v9 )
+    if ( Level > v9 )
     {
       if ( v9 )
         return 0;
     }
-    if ( ((*(_BYTE *)(v6 + 240) & 0x40) == 0 || a3)
-      && ((a3 & *(_QWORD *)(v6 + 232)) == 0 || (a3 & *(_QWORD *)(v6 + 224)) != *(_QWORD *)(v6 + 224)) )
+    if ( ((*(_BYTE *)(v6 + 240) & 0x40) == 0 || Keyword)
+      && ((Keyword & *(_QWORD *)(v6 + 232)) == 0 || (Keyword & *(_QWORD *)(v6 + 224)) != *(_QWORD *)(v6 + 224)) )
     {
       return 0;
     }

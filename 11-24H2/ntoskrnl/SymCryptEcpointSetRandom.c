@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptEcpointSetRandom @ 0x14052E8E4
+ * XREFs of SymCryptEcpointSetRandom @ 0x140528D60
  * Callers:
- *     SymCryptEcDsaSignEx @ 0x140524044 (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaSignEx @ 0x14052195C (SymCryptEcDsaSignEx.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNetConnectivityInStandbyCallback @ 0x1407D4E60
+ * XREFs of PopNetConnectivityInStandbyCallback @ 0x1407D4FD0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopNetConnectivityInStandbyCallback(int a1, int *a2, int a3)
@@ -17,7 +17,7 @@ __int64 __fastcall PopNetConnectivityInStandbyCallback(int a1, int *a2, int a3)
   {
     v4 = 0;
     PopAcquirePolicyLock(a1);
-    dword_140C23ED8 = *a2;
+    dword_140C23378 = *a2;
     PopReleasePolicyLock(v6, v5);
   }
   else

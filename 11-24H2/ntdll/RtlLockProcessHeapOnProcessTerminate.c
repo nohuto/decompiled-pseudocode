@@ -1,20 +1,22 @@
 /*
- * XREFs of RtlLockProcessHeapOnProcessTerminate @ 0x18000322C
+ * XREFs of RtlLockProcessHeapOnProcessTerminate @ 0x1800AB850
  * Callers:
- *     RtlExitUserProcess @ 0x180004320 (RtlExitUserProcess.c)
+ *     RtlExitUserProcess @ 0x1800AAE10 (RtlExitUserProcess.c)
  * Callees:
- *     RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x180141DD8 (RtlpAcquireDescriptorPseudoGlobalLockEx.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x18013FF88 (RtlpAcquireDescriptorPseudoGlobalLockEx.c)
  */
 
-__int64 RtlLockProcessHeapOnProcessTerminate()
+BOOLEAN RtlLockProcessHeapOnProcessTerminate()
 {
   struct _PEB *v0; // rax
-  _DWORD *ProcessHeap; // rbx
+  _RTL_SRWLOCK *ProcessHeap; // rbx
 
+  RtlEnterCriticalSection(&RtlpProcessHeapsLock);
   v0 = NtCurrentPeb();
-  ProcessHeap = v0->ProcessHeap;
-  if ( ProcessHeap[4] != -571548178 )
+  ProcessHeap = (_RTL_SRWLOCK *)v0->ProcessHeap;
+  if ( ProcessHeap[2].0 != -571548178 )
     return RtlLockHeap(v0->ProcessHeap);
-  RtlpAcquireDescriptorPseudoGlobalLockEx(*((_QWORD *)ProcessHeap + 7), 0LL);
+  RtlpAcquireDescriptorPseudoGlobalLockEx(ProcessHeap[7].Value, 0LL);
   return RtlpHpLockHeapForProcessCloneOrTerminate(ProcessHeap);
 }

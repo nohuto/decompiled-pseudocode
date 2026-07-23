@@ -36,8 +36,8 @@ char __fastcall RtlpGrowBlockInPlace(
   __int64 v19; // rax
   unsigned int v20; // r9d
   char v21; // al
-  unsigned __int64 v22; // rbp
-  __int64 v23; // r14
+  SIZE_T v22; // rbp
+  SIZE_T v23; // r14
   char v24; // r9
   unsigned __int16 v25; // dx
   char v26; // cl
@@ -128,7 +128,7 @@ LABEL_15:
     v22 = 16LL * *(unsigned __int16 *)(v10 + 8) - 32;
     if ( (v21 & 2) != 0 && v22 > 4 )
       v22 = 16LL * *(unsigned __int16 *)(v10 + 8) - 36;
-    v23 = RtlCompareMemoryUlong(v10 + 32, v22, 4277075694LL);
+    v23 = RtlCompareMemoryUlong((PVOID)(v10 + 32), v22, 0xFEEEFEEE);
     if ( v23 != v22 )
     {
       if ( NtCurrentPeb()->Ldr )

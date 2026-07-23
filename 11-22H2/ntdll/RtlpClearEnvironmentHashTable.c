@@ -13,7 +13,7 @@ __int64 RtlpClearEnvironmentHashTable()
   __int64 *v0; // rdi
   __int64 v1; // rbx
   __int64 result; // rax
-  __int64 v3; // r8
+  void *v3; // r8
   __int64 *i; // rcx
 
   v0 = (__int64 *)qword_180184AA8;
@@ -29,7 +29,7 @@ LABEL_4:
     result = v1;
     if ( !v1 )
       return result;
-    v3 = v1;
+    v3 = (void *)v1;
     for ( i = v0; (*i & 1) == 0; i = (__int64 *)*i )
     {
       if ( *i == v1 )
@@ -43,7 +43,7 @@ LABEL_4:
     }
     v3 = 0LL;
 LABEL_9:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   }
   ++v0;
   result = qword_180184AA8;

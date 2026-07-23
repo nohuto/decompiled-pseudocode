@@ -1,27 +1,27 @@
 /*
- * XREFs of NtCancelIoFile @ 0x140ACE000
+ * XREFs of NtCancelIoFile @ 0x140AD0240
  * Callers:
- *     DifNtCancelIoFileWrapper @ 0x14066E310 (DifNtCancelIoFileWrapper.c)
+ *     DifNtCancelIoFileWrapper @ 0x140671EF0 (DifNtCancelIoFileWrapper.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoCancelIrp @ 0x14049B940 (IoCancelIrp.c)
- *     IopCancelIrpsInFileObjectList @ 0x14051B53C (IopCancelIrpsInFileObjectList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140515BDC (IopCancelIrpsInFileObjectList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
-__int64 __fastcall NtCancelIoFile(void *a1, unsigned int *a2)
+NTSTATUS __cdecl NtCancelIoFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
   char v4; // r14
   struct _KTHREAD *CurrentThread; // rsi
   KPROCESSOR_MODE PreviousMode; // r12
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v8; // edx
   struct _KTHREAD *v9; // rcx
   unsigned __int8 CurrentIrql; // di
@@ -42,11 +42,11 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned int *a2)
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
-    RtlWriteULongToUser(a2, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser((unsigned int *)IoStatusBlock);
+    RtlWriteULongToUser(IoStatusBlock, ULongFromUser);
   }
-  result = IopReferenceFileObject(a1, 0, PreviousMode, (ULONG_PTR *)&Object, 0LL);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, (ULONG_PTR *)&Object, 0LL);
+  if ( result >= 0 )
   {
     v9 = KeGetCurrentThread();
     ++v9->OtherOperationCount;
@@ -112,11 +112,11 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned int *a2)
       1,
       0);
     if ( PreviousMode )
-      RtlCopyToUser(a2, &Src, 0x10uLL);
+      RtlCopyToUser(IoStatusBlock, &Src, 0x10uLL);
     else
-      RtlCopyVolatileMemory(a2, &Src, 0x10uLL);
+      RtlCopyVolatileMemory(IoStatusBlock, &Src, 0x10uLL);
     ObfDereferenceObject(Object);
-    return 0LL;
+    return 0;
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWriteSharedDemandZeroPte @ 0x1400C02F0
+ * XREFs of MiWriteSharedDemandZeroPte @ 0x1400BE180
  * Callers:
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
  * Callees:
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiMakePrototypePteDirect @ 0x1401F2758 (MiMakePrototypePteDirect.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiMakePrototypePteDirect @ 0x1401F2584 (MiMakePrototypePteDirect.c)
  */
 
 __int64 __fastcall MiWriteSharedDemandZeroPte(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

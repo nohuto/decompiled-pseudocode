@@ -1,5 +1,5 @@
 /*
- * XREFs of PoSetDeviceBusyEx @ 0x1402D7050
+ * XREFs of PoSetDeviceBusyEx @ 0x1402D7240
  * Callers:
  *     <none>
  * Callees:

@@ -28,8 +28,8 @@ __int64 __fastcall WheaAddErrorSourceDeviceDriverV1(__int64 a1, __int128 *a2, __
   v10 = a4;
   v7[1] = v5;
   v11 = 1;
-  v12 = DEFAULT_DEVICE_DRIVER_CREATOR_GUID;
+  v12 = xmmword_140025DD8;
   LODWORD(v7[0]) = 2;
-  v13 = CPER_EMPTY_GUID;
+  v13 = xmmword_140025DC8;
   return WheaAddErrorSourceDeviceDriver(a1, v7);
 }

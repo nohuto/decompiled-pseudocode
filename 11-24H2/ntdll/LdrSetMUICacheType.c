@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrSetMUICacheType @ 0x180136CA0
+ * XREFs of LdrSetMUICacheType @ 0x180134ED0
  * Callers:
  *     <none>
  * Callees:
- *     LdrpSetAlternateResourceModuleHandle @ 0x18005F120 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x180074D00 (LdrpSetAlternateResourceModuleHandle.c)
  */
 
 __int64 __fastcall LdrSetMUICacheType(int a1)

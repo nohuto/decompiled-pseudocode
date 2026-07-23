@@ -15,31 +15,31 @@
 __int64 sub_18006C280()
 {
   int v0; // ebx
-  __int64 v1; // rdx
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v1; // rdx
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = 0;
-  if ( !qword_18015BF90 || *(_DWORD *)(qword_18015BF90 + 12) != MEMORY[0x7FFE03A4] )
+  if ( !qword_18015BF90 || *((_DWORD *)qword_18015BF90 + 3) != MEMORY[0x7FFE03A4] )
   {
-    v3 = 0LL;
-    v0 = RtlpInitializeLangRegistryInfo(&v3);
+    BaseAddress = 0LL;
+    v0 = RtlpInitializeLangRegistryInfo(&BaseAddress);
     if ( v0 >= 0 )
     {
       sub_18006E3A0();
-      RtlEnterCriticalSection((__int64)&unk_180159BA0);
-      if ( qword_18015BF90 && *(_DWORD *)(qword_18015BF90 + 12) == MEMORY[0x7FFE03A4] )
+      RtlEnterCriticalSection(&stru_180159BA0);
+      if ( qword_18015BF90 && *((_DWORD *)qword_18015BF90 + 3) == MEMORY[0x7FFE03A4] )
       {
-        RtlpMuiFreeLangRegistryInfo(v3);
+        RtlpMuiFreeLangRegistryInfo(BaseAddress);
       }
       else
       {
-        v1 = v3;
-        *(_QWORD *)(v3 + 104) = qword_18015BF90;
+        v1 = BaseAddress;
+        *((_QWORD *)BaseAddress + 13) = qword_18015BF90;
         if ( qword_18015BF90 )
-          *(_QWORD *)(v1 + 72) = *(_QWORD *)(qword_18015BF90 + 72);
+          v1[9] = *((_QWORD *)qword_18015BF90 + 9);
         qword_18015BF90 = v1;
       }
-      RtlLeaveCriticalSection((__int64)&unk_180159BA0);
+      RtlLeaveCriticalSection(&stru_180159BA0);
     }
   }
   return (unsigned int)v0;

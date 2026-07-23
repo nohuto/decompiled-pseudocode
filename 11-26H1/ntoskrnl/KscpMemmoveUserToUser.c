@@ -1,7 +1,7 @@
 /*
- * XREFs of KscpMemmoveUserToUser @ 0x140C5EFA0
+ * XREFs of KscpMemmoveUserToUser @ 0x140C64FA0
  * Callers:
- *     KscpMemmoveUserToUserSmap @ 0x140C5F060 (KscpMemmoveUserToUserSmap.c)
+ *     KscpMemmoveUserToUserSmap @ 0x140C65060 (KscpMemmoveUserToUserSmap.c)
  * Callees:
  *     <none>
  */

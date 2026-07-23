@@ -45,14 +45,14 @@ __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
   unsigned int v28; // r8d
   bool v29; // zf
   __int64 v30; // rcx
-  __int64 v31; // rcx
+  _KLOCK_ENTRY *v31; // rcx
   __int64 v32; // rdx
   __int64 v33; // rsi
   struct _KTHREAD *CurrentThread; // [rsp+30h] [rbp-68h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-60h] BYREF
   unsigned __int8 AbAllocationRegionCount; // [rsp+A0h] [rbp+8h]
   int v37; // [rsp+B0h] [rbp+18h] BYREF
-  __int64 v38; // [rsp+B8h] [rbp+20h]
+  _KLOCK_ENTRY *v38; // [rsp+B8h] [rbp+20h]
 
   v3 = &MiSystemPartition;
   v4 = 0;
@@ -128,15 +128,15 @@ LABEL_5:
       while ( 1 )
       {
         v28 &= ~(1 << v30);
-        v31 = (__int64)&v26->LockEntries[v30];
+        v31 = &v26->LockEntries[v30];
         v38 = v31;
-        if ( (*(_BYTE *)(v31 + 26) & 1) != 0
-          && (*(_DWORD *)(v31 + 32) & 1) == 0
-          && (*(_QWORD *)(v31 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140389318 & 0x7FFFFFFFFFFFFFFCLL)
-          && *(_DWORD *)(v31 + 40) == SessionId )
+        if ( (v31->AcquiredByte & 1) != 0
+          && (*(_DWORD *)&v31->LockState.0 & 1) == 0
+          && (*(_QWORD *)&v31->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140389318 & 0x7FFFFFFFFFFFFFFCLL)
+          && v31->LockState.SessionId == SessionId )
         {
-          *(_BYTE *)(v31 + 26) &= ~1u;
-          if ( *(_QWORD *)(v31 + 32) )
+          v31->AcquiredByte &= ~1u;
+          if ( v31->LockState.0 )
             break;
         }
         v29 = !_BitScanReverse((unsigned int *)&v30, v28);
@@ -151,18 +151,18 @@ LABEL_55:
       }
       else
       {
-        *(_BYTE *)(v31 + 32) |= 2u;
-        if ( *(__int64 *)(v31 + 32) < 0 )
+        v31->CrossThreadReleasableAndBusyByte |= 2u;
+        if ( (__int64)v31->LockState.LockState < 0 )
         {
-          KiAbEntryRemoveFromTree(v31);
+          KiAbEntryRemoveFromTree(&v31->TreeNode);
           v31 = v38;
         }
         v37 = 0;
-        v37 = *(_DWORD *)(v31 + 88) & 0x1FFFF;
-        *(_DWORD *)(v31 + 88) &= 0xFFFE0000;
-        *(_BYTE *)(v31 + 25) &= ~1u;
-        *(_QWORD *)(v31 + 32) = 0LL;
-        v32 = (v31 - (__int64)v26 - 800) / 96;
+        v37 = v31->BoostBitmap.AllFields & 0x1FFFF;
+        v31->BoostBitmap.AllFields &= 0xFFFE0000;
+        v31->ThreadLocalFlags &= ~1u;
+        v31->LockState.0 = 0LL;
+        v32 = ((char *)v31 - (char *)v26 - 800) / 96;
         if ( AbAllocationRegionCount == 1 )
           v26->AbEntrySummary |= 1 << v32;
         else

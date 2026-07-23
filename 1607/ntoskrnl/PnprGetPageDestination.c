@@ -1,7 +1,7 @@
 /*
- * XREFs of PnprGetPageDestination @ 0x1401D041C
+ * XREFs of PnprGetPageDestination @ 0x1401D0248
  * Callers:
- *     PnprCopyReservedMapping @ 0x1401D0094 (PnprCopyReservedMapping.c)
+ *     PnprCopyReservedMapping @ 0x1401CFEC0 (PnprCopyReservedMapping.c)
  * Callees:
  *     <none>
  */

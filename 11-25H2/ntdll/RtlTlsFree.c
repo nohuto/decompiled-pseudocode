@@ -10,21 +10,21 @@
  *     NtSetInformationThread @ 0x1801633C0 (NtSetInformationThread.c)
  */
 
-__int64 __fastcall RtlTlsFree(unsigned int a1)
+__int64 __fastcall RtlTlsFree(ULONG StartingIndex)
 {
   struct _PEB *v1; // rsi
-  unsigned int v2; // ebx
+  ULONG v2; // ebx
   _RTL_BITMAP *TlsExpansionBitmap; // rsi
   unsigned int v4; // edi
-  unsigned int v6; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = a1;
+  ThreadInformation = StartingIndex;
   v1 = NtCurrentPeb();
-  v2 = a1;
-  if ( a1 >= 0x40 )
+  v2 = StartingIndex;
+  if ( StartingIndex >= 0x40 )
   {
-    v2 = a1 - 64;
-    if ( a1 - 64 >= 0x400 )
+    v2 = StartingIndex - 64;
+    if ( StartingIndex - 64 >= 0x400 )
       return 3221225485LL;
     TlsExpansionBitmap = v1->TlsExpansionBitmap;
   }
@@ -32,17 +32,17 @@ __int64 __fastcall RtlTlsFree(unsigned int a1)
   {
     TlsExpansionBitmap = v1->TlsBitmap;
   }
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   if ( v2 < TlsExpansionBitmap->SizeOfBitMap
     && (v4 = 0, _bittest((const signed __int32 *)&TlsExpansionBitmap->Buffer[(unsigned __int64)v2 >> 5], v2 & 0x1F))
-    && (int)NtSetInformationThread(-2LL, 10LL, &v6) >= 0 )
+    && NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadZeroTlsCell, &ThreadInformation, 4u) >= 0 )
   {
-    RtlClearBits(TlsExpansionBitmap, v2, 1LL);
+    RtlClearBits(TlsExpansionBitmap, v2, 1u);
   }
   else
   {
     v4 = -1073741811;
   }
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
+  RtlLeaveCriticalSection(&FastPebLock);
   return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopMemFindSuitableRange @ 0x1407A68F0
+ * XREFs of IopMemFindSuitableRange @ 0x1407A94A0
  * Callers:
  *     <none>
  * Callees:
- *     ArbFindSuitableRange @ 0x140788710 (ArbFindSuitableRange.c)
+ *     ArbFindSuitableRange @ 0x14078B240 (ArbFindSuitableRange.c)
  */
 
 char __fastcall IopMemFindSuitableRange(_QWORD *a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoMakeAssociatedIrp @ 0x140168B70
+ * XREFs of IoMakeAssociatedIrp @ 0x140168C70
  * Callers:
  *     <none>
  * Callees:
- *     IoMakeAssociatedIrpPriv @ 0x1401078F4 (IoMakeAssociatedIrpPriv.c)
+ *     IoMakeAssociatedIrpPriv @ 0x140107974 (IoMakeAssociatedIrpPriv.c)
  */
 
 PIRP __stdcall IoMakeAssociatedIrp(PIRP Irp, CCHAR StackSize)

@@ -1,26 +1,26 @@
 /*
- * XREFs of ViPtFreePoolInfoEntryCallback @ 0x140ADED70
+ * XREFs of ViPtFreePoolInfoEntryCallback @ 0x140ADED60
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall ViPtFreePoolInfoEntryCallback(struct _RTL_AVL_TABLE *Table, _QWORD *Buffer)
+void __fastcall ViPtFreePoolInfoEntryCallback(_RTL_AVL_TABLE *a1, _QWORD *a2)
 {
   __int64 v2; // rcx
 
   if ( ViUpdateStackInfo )
   {
-    if ( Buffer != (_QWORD *)-32LL )
+    if ( a2 != (_QWORD *)-32LL )
     {
-      v2 = Buffer[6];
+      v2 = a2[6];
       if ( v2 )
       {
         ++*(_DWORD *)(v2 + 16);
-        *(_QWORD *)(Buffer[6] + 32LL) += Buffer[5];
+        *(_QWORD *)(a2[6] + 32LL) += a2[5];
       }
     }
   }
-  ExFreePoolWithTag(Buffer, 0x6E496956u);
+  ExFreePoolWithTag(a2, 0x6E496956u);
 }

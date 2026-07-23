@@ -1,10 +1,10 @@
 /*
- * XREFs of KiComputeTopologyConstants @ 0x1405FBA98
+ * XREFs of KiComputeTopologyConstants @ 0x1405FE4E8
  * Callers:
- *     KiSetFeatureBits @ 0x140BF74E8 (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x140BFD4E8 (KiSetFeatureBits.c)
  * Callees:
- *     KiComputeTopologyConstantsAmd @ 0x1405FBB7C (KiComputeTopologyConstantsAmd.c)
- *     KiComputeTopologyConstantsIntelCompatible @ 0x1405FBE0C (KiComputeTopologyConstantsIntelCompatible.c)
+ *     KiComputeTopologyConstantsAmd @ 0x1405FE5CC (KiComputeTopologyConstantsAmd.c)
+ *     KiComputeTopologyConstantsIntelCompatible @ 0x1405FE85C (KiComputeTopologyConstantsIntelCompatible.c)
  */
 
 __int64 __fastcall KiComputeTopologyConstants(

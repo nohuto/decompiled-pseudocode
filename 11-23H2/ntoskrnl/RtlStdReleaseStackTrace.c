@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStdReleaseStackTrace @ 0x1405A9580
+ * XREFs of RtlStdReleaseStackTrace @ 0x1405A9AF0
  * Callers:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x1403C4FB0 (ExpInitializeResource.c)
- *     ExInitializeFastResource2 @ 0x140413770 (ExInitializeFastResource2.c)
+ *     ExpInitializeResource @ 0x1403C5190 (ExpInitializeResource.c)
+ *     ExInitializeFastResource2 @ 0x140413B04 (ExInitializeFastResource2.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)
@@ -70,10 +70,10 @@ LABEL_11:
   }
   v13 = *((unsigned __int8 *)v9 + 8);
   result = KxReleaseSpinLock(v9);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v13 <= 0xFu
       && (unsigned __int8)result >= 2u )

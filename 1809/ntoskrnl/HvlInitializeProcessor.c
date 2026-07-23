@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlInitializeProcessor @ 0x140729DB8
+ * XREFs of HvlInitializeProcessor @ 0x14072AFA8
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
- *     MmAllocateIndependentPages @ 0x140108FA0 (MmAllocateIndependentPages.c)
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     HvlpFreeOverlayPages @ 0x14013FC00 (HvlpFreeOverlayPages.c)
- *     HvlpSetupCachedHypercallPages @ 0x140272E4C (HvlpSetupCachedHypercallPages.c)
- *     HvlpAllocateOverlayPages @ 0x1402794F4 (HvlpAllocateOverlayPages.c)
- *     HvlpEnableRootVirtualProcessor @ 0x1408179E0 (HvlpEnableRootVirtualProcessor.c)
+ *     MmAllocateIndependentPages @ 0x140109020 (MmAllocateIndependentPages.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     HvlpFreeOverlayPages @ 0x14013FD00 (HvlpFreeOverlayPages.c)
+ *     HvlpSetupCachedHypercallPages @ 0x14027303C (HvlpSetupCachedHypercallPages.c)
+ *     HvlpAllocateOverlayPages @ 0x1402796E4 (HvlpAllocateOverlayPages.c)
+ *     HvlpEnableRootVirtualProcessor @ 0x140818BE0 (HvlpEnableRootVirtualProcessor.c)
  */
 
-__int64 __fastcall HvlInitializeProcessor(union _SLIST_HEADER *a1)
+__int64 __fastcall HvlInitializeProcessor(_SLIST_HEADER *a1)
 {
   __int64 result; // rax
   __int64 v3; // r14

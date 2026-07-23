@@ -1,36 +1,36 @@
 /*
- * XREFs of EtwpQueueNotification @ 0x14083A16C
+ * XREFs of EtwpQueueNotification @ 0x140834C40
  * Callers:
- *     EtwpSendDataBlock @ 0x14083A3F4 (EtwpSendDataBlock.c)
+ *     EtwpSendDataBlock @ 0x140834A64 (EtwpSendDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpAddDataSource @ 0x14083A384 (EtwpAddDataSource.c)
- *     PsChargeProcessWakeCounter @ 0x14088E7A0 (PsChargeProcessWakeCounter.c)
- *     EtwpReleaseQueueEntry @ 0x1409F6E4C (EtwpReleaseQueueEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpReleaseQueueEntry @ 0x140831B1C (EtwpReleaseQueueEntry.c)
+ *     EtwpAddDataSource @ 0x140834E58 (EtwpAddDataSource.c)
+ *     PsChargeProcessWakeCounter @ 0x1408983D0 (PsChargeProcessWakeCounter.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall EtwpQueueNotification(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall EtwpQueueNotification(void *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx
   __int16 v4; // r12
   char v8; // r13
   _QWORD *v9; // r14
   __int64 Pool2; // rax
-  _QWORD *v11; // rdi
+  signed __int64 v11; // rdi
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v13; // rsi
-  _QWORD *v14; // rax
-  _QWORD *v15; // rbp
+  char *v14; // rax
+  char *v15; // rbp
   _QWORD *v16; // rdx
   _QWORD *j; // r8
-  _QWORD *v18; // rax
+  signed __int64 *v18; // rax
   signed __int64 v19; // rax
   signed __int64 v20; // rdx
   signed __int64 v21; // rtt
@@ -41,8 +41,8 @@ __int64 __fastcall EtwpQueueNotification(__int64 a1, __int64 a2, __int64 a3)
   v3 = 0;
   v4 = *(_WORD *)(a3 + 98) & 0x80;
   v8 = 1;
-  v9 = (_QWORD *)EtwpAddDataSource(a1);
-  if ( v9 && (Pool2 = ExAllocatePool2(0x40uLL), (v11 = (_QWORD *)Pool2) != 0LL) )
+  v9 = (_QWORD *)EtwpAddDataSource();
+  if ( v9 && (Pool2 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x72777445u), (v11 = Pool2) != 0) )
   {
     *(_QWORD *)(Pool2 + 16) = a2;
     *(_QWORD *)(Pool2 + 24) = a3;
@@ -53,19 +53,19 @@ __int64 __fastcall EtwpQueueNotification(__int64 a1, __int64 a2, __int64 a3)
       v24 = *(void **)(a2 + 24);
       *(_DWORD *)(Pool2 + 52) |= 2u;
       PsReferenceSiloContext(v24);
-      v11[4] = v24;
-      v11[5] = PsChargeProcessWakeCounter(a1);
+      *(_QWORD *)(v11 + 32) = v24;
+      *(_QWORD *)(v11 + 40) = PsChargeProcessWakeCounter(a1);
       for ( i = 0; i < 4; ++i )
       {
-        if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 8LL * i + 48), (signed __int64)v11, 0LL) )
+        if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 8LL * i + 48), v11, 0LL) )
         {
-          *((_WORD *)v11 + 25) = i;
+          *(_WORD *)(v11 + 50) = i;
           v3 = 0;
           goto LABEL_4;
         }
       }
       v3 = -1073741823;
-      EtwpReleaseQueueEntry(v11);
+      EtwpReleaseQueueEntry((PVOID *)v11, 3);
     }
     else
     {
@@ -74,12 +74,12 @@ LABEL_4:
       CurrentThread = KeGetCurrentThread();
       v13 = v9 + 2;
       --CurrentThread->KernelApcDisable;
-      v14 = KeAbPreAcquire((__int64)(v9 + 2), 0LL);
+      v14 = (char *)KeAbPreAcquire((__int64)(v9 + 2), 0LL);
       v15 = v14;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v9 + 4, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v9 + 2, (__int64)v14, (__int64)(v9 + 2));
+        ExfAcquirePushLockExclusiveEx(v9 + 2, v14, (__int64)(v9 + 2));
       if ( v15 )
-        *((_BYTE *)v15 + 10) = 1;
+        v15[10] = 1;
       v16 = v9 + 3;
       for ( j = (_QWORD *)v9[3]; j != v16; j = (_QWORD *)*j )
       {
@@ -89,11 +89,11 @@ LABEL_4:
           break;
         }
       }
-      v18 = (_QWORD *)v9[4];
+      v18 = (signed __int64 *)v9[4];
       if ( (_QWORD *)*v18 != v16 )
         __fastfail(3u);
-      *v11 = v16;
-      v11[1] = v18;
+      *(_QWORD *)v11 = v16;
+      *(_QWORD *)(v11 + 8) = v18;
       *v18 = v11;
       v9[4] = v11;
       if ( v8 )

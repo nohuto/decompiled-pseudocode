@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateMdlPagesByLists @ 0x140337F84
+ * XREFs of MiAllocateMdlPagesByLists @ 0x14033A004
  * Callers:
- *     MiFindPagesForMdl @ 0x140337DE8 (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x140339E68 (MiFindPagesForMdl.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiAllocateSlabPageForMdl @ 0x14033A080 (MiAllocateSlabPageForMdl.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiAllocateSlabPageForMdl @ 0x14033C100 (MiAllocateSlabPageForMdl.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
  */
 
 __int64 __fastcall MiAllocateMdlPagesByLists(

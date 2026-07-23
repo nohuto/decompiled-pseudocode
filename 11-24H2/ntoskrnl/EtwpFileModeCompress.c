@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpFileModeCompress @ 0x14032EFC8
+ * XREFs of EtwpFileModeCompress @ 0x1402B780C
  * Callers:
- *     EtwpFlushBuffer @ 0x1409D9A88 (EtwpFlushBuffer.c)
+ *     EtwpFlushBuffer @ 0x1409D4598 (EtwpFlushBuffer.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     RtlCompressBuffer @ 0x14038A270 (RtlCompressBuffer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpPrepareHeader @ 0x1409DBC94 (EtwpPrepareHeader.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     RtlCompressBuffer @ 0x140383BB0 (RtlCompressBuffer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpPrepareHeader @ 0x1409D64A4 (EtwpPrepareHeader.c)
  */
 
 __int64 __fastcall EtwpFileModeCompress(__int64 a1, __int64 a2)
@@ -67,13 +67,13 @@ LABEL_8:
   }
   v8 = 100000000 * (*(_QWORD *)&KeQueryPerformanceCounter(&PerformanceFrequency) - v5.QuadPart);
   v7.QuadPart = v8 / PerformanceFrequency.QuadPart;
-  if ( (unsigned int)dword_140E09128 > 5 )
+  if ( (unsigned int)dword_140E09198 > 5 )
   {
     v18 = 0;
     PerformanceFrequency = v7;
     v17 = 8;
     p_PerformanceFrequency = &PerformanceFrequency;
-    tlgWriteTransfer_EtwWriteTransfer(&dword_140E09128, byte_1400539C1, 0LL, 0LL, 3, v15);
+    tlgWriteTransfer_EtwWriteTransfer(&dword_140E09198, byte_1400544BB, 0LL, 0LL, 3, v15);
   }
   return v4;
 }

@@ -8,7 +8,7 @@
  *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall MiRemoveSlabEntry(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
+__int64 __fastcall MiRemoveSlabEntry(__int64 a1, _RTL_RB_TREE *a2, __int64 a3)
 {
   unsigned __int64 v5; // rbp
   __int64 result; // rax
@@ -19,15 +19,15 @@ __int64 __fastcall MiRemoveSlabEntry(__int64 a1, unsigned __int64 *a2, unsigned 
   unsigned __int64 v12; // rcx
 
   v5 = *(_QWORD *)(a3 + 24) >> 9;
-  RtlRbRemoveNode(a2, a3);
-  if ( a2[4] == a3 )
-    a2[4] = 0LL;
-  if ( a2[5] == a3 )
-    a2[5] = 0LL;
-  a2[6] -= *(unsigned int *)(a3 + 132);
+  RtlRbRemoveNode(a2, (PRTL_BALANCED_NODE)a3);
+  if ( a2[2].Root == (_RTL_BALANCED_NODE *)a3 )
+    a2[2].Root = 0LL;
+  if ( a2[2].Min == (_RTL_BALANCED_NODE *)a3 )
+    a2[2].Min = 0LL;
+  a2[3].Root = (_RTL_BALANCED_NODE *)((char *)a2[3].Root - *(unsigned int *)(a3 + 132));
   if ( (*(_DWORD *)(a3 + 140) & 2) != 0 )
   {
-    a2[8] -= 512LL;
+    a2[4].Root = (_RTL_BALANCED_NODE *)((char *)a2[4].Root - 512);
     _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17856), 0xFFFFFFFFFFFFFE00uLL);
     v8 = v5 & 0x1F;
     LOBYTE(v9) = 1;
@@ -70,6 +70,6 @@ LABEL_15:
   {
     result = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 17864), 0xFFFFFFFFFFFFFE00uLL);
   }
-  --a2[9];
+  --a2[4].Min;
   return result;
 }

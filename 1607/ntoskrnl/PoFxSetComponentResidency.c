@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxSetComponentResidency @ 0x14014BCB4
+ * XREFs of PoFxSetComponentResidency @ 0x14014C224
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     PopPepComponentSetResidency @ 0x14014BD30 (PopPepComponentSetResidency.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     PopPepComponentSetResidency @ 0x14014C2A0 (PopPepComponentSetResidency.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PoFxSetComponentResidency(__int64 a1, unsigned int a2, __int64 a3)

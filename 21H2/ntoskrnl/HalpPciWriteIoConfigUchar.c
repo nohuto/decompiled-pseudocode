@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPciWriteIoConfigUchar @ 0x1404CC140
+ * XREFs of HalpPciWriteIoConfigUchar @ 0x1404CC380
  * Callers:
  *     <none>
  * Callees:

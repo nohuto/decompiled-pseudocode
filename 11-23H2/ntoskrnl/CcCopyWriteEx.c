@@ -1,16 +1,16 @@
 /*
- * XREFs of CcCopyWriteEx @ 0x1402C8D20
+ * XREFs of CcCopyWriteEx @ 0x1402C8FB0
  * Callers:
- *     CcCopyWrite @ 0x1403A9060 (CcCopyWrite.c)
- *     CcFastCopyWrite @ 0x140537730 (CcFastCopyWrite.c)
- *     DifCcCopyWriteExWrapper @ 0x1405D5F00 (DifCcCopyWriteExWrapper.c)
- *     DifCcCopyWriteWrapper @ 0x1405D6060 (DifCcCopyWriteWrapper.c)
- *     DifCcFastCopyWriteWrapper @ 0x1405D6300 (DifCcFastCopyWriteWrapper.c)
+ *     CcCopyWrite @ 0x1403A9240 (CcCopyWrite.c)
+ *     CcFastCopyWrite @ 0x140537C80 (CcFastCopyWrite.c)
+ *     DifCcCopyWriteExWrapper @ 0x1405D6470 (DifCcCopyWriteExWrapper.c)
+ *     DifCcCopyWriteWrapper @ 0x1405D65D0 (DifCcCopyWriteWrapper.c)
+ *     DifCcFastCopyWriteWrapper @ 0x1405D6870 (DifCcFastCopyWriteWrapper.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     CcMapAndCopyInToCache @ 0x1402CC8F0 (CcMapAndCopyInToCache.c)
- *     CcTelemetryBucketizeLatency @ 0x1406F5AB0 (CcTelemetryBucketizeLatency.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140875774 (CcSetTelemetryPeriodicTimer.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     CcMapAndCopyInToCache @ 0x1402CCB80 (CcMapAndCopyInToCache.c)
+ *     CcTelemetryBucketizeLatency @ 0x1406F5CC0 (CcTelemetryBucketizeLatency.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x1408759B4 (CcSetTelemetryPeriodicTimer.c)
  */
 
 char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4, __int64 a5, __int64 a6)

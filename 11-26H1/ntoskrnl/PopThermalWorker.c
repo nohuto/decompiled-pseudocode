@@ -1,28 +1,28 @@
 /*
- * XREFs of PopThermalWorker @ 0x140AC3C50
+ * XREFs of PopThermalWorker @ 0x140AC58C0
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoReuseIrp @ 0x140268650 (IoReuseIrp.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopCheckAndHandleThermalConditions @ 0x1404ED080 (PopCheckAndHandleThermalConditions.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     PopFireThermalWmiEvent @ 0x140607A94 (PopFireThermalWmiEvent.c)
- *     PopDiagTraceThermalZoneEnumeration @ 0x1406094C4 (PopDiagTraceThermalZoneEnumeration.c)
- *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x140609860 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
- *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x140609994 (PopDiagTraceThermalZoneThrottlePerfTrack.c)
- *     PopDiagTraceActiveCooling @ 0x1407D2580 (PopDiagTraceActiveCooling.c)
- *     PopDiagTracePassiveCooling @ 0x1407D390C (PopDiagTracePassiveCooling.c)
- *     PopCheckThermalPolicy @ 0x140AC40EC (PopCheckThermalPolicy.c)
- *     PopDiagTraceThermalCoolingMode @ 0x140AC438C (PopDiagTraceThermalCoolingMode.c)
- *     PopPrepareIoctl @ 0x140AFBC84 (PopPrepareIoctl.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140B2F378 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140B41620 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoReuseIrp @ 0x140267BC0 (IoReuseIrp.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1404E6660 (PopCheckAndHandleThermalConditions.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     PopFireThermalWmiEvent @ 0x14060A650 (PopFireThermalWmiEvent.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x14060C084 (PopDiagTraceThermalZoneEnumeration.c)
+ *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x14060C420 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
+ *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x14060C554 (PopDiagTraceThermalZoneThrottlePerfTrack.c)
+ *     PopDiagTraceActiveCooling @ 0x1407D55EC (PopDiagTraceActiveCooling.c)
+ *     PopDiagTracePassiveCooling @ 0x1407D6A8C (PopDiagTracePassiveCooling.c)
+ *     PopCheckThermalPolicy @ 0x140AC5D5C (PopCheckThermalPolicy.c)
+ *     PopDiagTraceThermalCoolingMode @ 0x140AC5FFC (PopDiagTraceThermalCoolingMode.c)
+ *     PopPrepareIoctl @ 0x140AFD904 (PopPrepareIoctl.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140B31158 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140B43630 (PopThermalUpdateActiveTimeTracking.c)
  */
 
 __int64 __fastcall PopThermalWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -309,10 +309,10 @@ LABEL_61:
     PopPrepareIoctl(*(_QWORD *)(a1 + 56), 2719884, v9, a1 + 84, 4, 0);
     goto LABEL_24;
   }
-  if ( *(unsigned __int8 *)(a1 + 67) != dword_140E67608 )
+  if ( *(unsigned __int8 *)(a1 + 67) != PopCoolingMode )
   {
     v30 = *(IRP **)(a1 + 56);
-    *(_BYTE *)(a1 + 68) = dword_140E67608;
+    *(_BYTE *)(a1 + 68) = PopCoolingMode;
     *(_BYTE *)(a1 + 64) = 2;
     IoReuseIrp(v30, -1073741637);
     CurrentStackLocation = v30->Tail.Overlay.CurrentStackLocation;
@@ -343,7 +343,7 @@ LABEL_61:
     }
   }
   v17 = 0LL;
-  if ( unk_140F10E70 )
+  if ( PopThermalPollingMode )
   {
     v39 = *(_QWORD *)(a1 + 232);
     if ( v39 )
@@ -359,7 +359,7 @@ LABEL_61:
         v15 = v40;
       }
     }
-    if ( !unk_140F10E6C )
+    if ( !PopThermalPollingWakesAllowed )
     {
       *(_QWORD *)&v52 = 0LL;
       v17 = &v52;

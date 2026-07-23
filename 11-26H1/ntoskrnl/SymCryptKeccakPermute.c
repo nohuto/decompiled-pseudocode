@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptKeccakPermute @ 0x140575BC0
+ * XREFs of SymCryptKeccakPermute @ 0x140578070
  * Callers:
- *     SymCryptKeccakAppend @ 0x1405757DC (SymCryptKeccakAppend.c)
- *     SymCryptKeccakAppendLanes @ 0x1405758E0 (SymCryptKeccakAppendLanes.c)
- *     SymCryptKeccakApplyPadding @ 0x14057596C (SymCryptKeccakApplyPadding.c)
- *     SymCryptKeccakExtract @ 0x1405759D4 (SymCryptKeccakExtract.c)
- *     SymCryptKeccakExtractLanes @ 0x140575B10 (SymCryptKeccakExtractLanes.c)
+ *     SymCryptKeccakAppend @ 0x140577C8C (SymCryptKeccakAppend.c)
+ *     SymCryptKeccakAppendLanes @ 0x140577D90 (SymCryptKeccakAppendLanes.c)
+ *     SymCryptKeccakApplyPadding @ 0x140577E1C (SymCryptKeccakApplyPadding.c)
+ *     SymCryptKeccakExtract @ 0x140577E84 (SymCryptKeccakExtract.c)
+ *     SymCryptKeccakExtractLanes @ 0x140577FC0 (SymCryptKeccakExtractLanes.c)
  * Callees:
  *     <none>
  */

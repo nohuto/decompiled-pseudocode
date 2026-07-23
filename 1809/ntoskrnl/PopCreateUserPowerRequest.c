@@ -1,17 +1,17 @@
 /*
- * XREFs of PopCreateUserPowerRequest @ 0x140588C2C
+ * XREFs of PopCreateUserPowerRequest @ 0x140589C2C
  * Callers:
- *     NtSetThreadExecutionState @ 0x1405872F0 (NtSetThreadExecutionState.c)
- *     PopPowerRequestCreateInfo @ 0x140588318 (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x1405882F0 (NtSetThreadExecutionState.c)
+ *     PopPowerRequestCreateInfo @ 0x140589318 (PopPowerRequestCreateInfo.c)
  * Callees:
  *     SessionIsInteractive @ 0x140001FF8 (SessionIsInteractive.c)
  *     PopUmpoSendPowerRequestOverrideQuery @ 0x140002AE4 (PopUmpoSendPowerRequestOverrideQuery.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopInsertPowerRequestObject @ 0x140588BEC (PopInsertPowerRequestObject.c)
- *     PopCreatePowerRequestObject @ 0x140588F40 (PopCreatePowerRequestObject.c)
- *     PopDiagTracePowerRequestCreate @ 0x14058928C (PopDiagTracePowerRequestCreate.c)
- *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
- *     PsQueryProcessAttributes @ 0x1406258FC (PsQueryProcessAttributes.c)
+ *     PopInsertPowerRequestObject @ 0x140589BEC (PopInsertPowerRequestObject.c)
+ *     PopCreatePowerRequestObject @ 0x140589F40 (PopCreatePowerRequestObject.c)
+ *     PopDiagTracePowerRequestCreate @ 0x14058A28C (PopDiagTracePowerRequestCreate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14058AD50 (PopAcquirePowerRequestPushLock.c)
+ *     PsQueryProcessAttributes @ 0x14062691C (PsQueryProcessAttributes.c)
  */
 
 __int64 __fastcall PopCreateUserPowerRequest(__int64 *a1, char a2, __int64 a3)

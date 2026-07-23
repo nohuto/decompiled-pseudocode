@@ -1,9 +1,9 @@
 /*
- * XREFs of AstTestBloomFilter @ 0x1407AE150
+ * XREFs of AstTestBloomFilter @ 0x1407AE340
  * Callers:
- *     IopXxxControlFile @ 0x1406E54E0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x1406E5510 (IopXxxControlFile.c)
  * Callees:
- *     AstGetHashedBitNumbers @ 0x1407AE1E0 (AstGetHashedBitNumbers.c)
+ *     AstGetHashedBitNumbers @ 0x1407AE3D0 (AstGetHashedBitNumbers.c)
  */
 
 bool __fastcall AstTestBloomFilter(__int64 a1, __int64 a2, unsigned int a3)

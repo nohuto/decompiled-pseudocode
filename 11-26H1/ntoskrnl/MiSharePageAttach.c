@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSharePageAttach @ 0x1403080F8
+ * XREFs of MiSharePageAttach @ 0x1402EA178
  * Callers:
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     KeForceAttachProcess @ 0x14045D2E0 (KeForceAttachProcess.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     KeForceAttachProcess @ 0x140456CE0 (KeForceAttachProcess.c)
  */
 
 __int64 __fastcall MiSharePageAttach(__int64 *a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiSharePageAttach(__int64 *a1)
   v4 = *(_QWORD *)(v3 + 40);
   if ( v4 && (_KPROCESS *)v4 != KeGetCurrentThread()->ApcState.Process )
   {
-    v5 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 1198)) + 21384LL);
+    v5 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 1198)) + 21384LL);
     v6 = ExAcquireSpinLockExclusive(v5);
     if ( (*(_DWORD *)(v4 + 500) & 0xC00u) < 0xC00
       || *(_QWORD *)(*(_QWORD *)(v4 + 1040) + 72LL)

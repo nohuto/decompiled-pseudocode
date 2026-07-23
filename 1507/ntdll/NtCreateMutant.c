@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtCreateMutant()
+NTSTATUS __cdecl NtCreateMutant(
+        PHANDLE MutantHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN InitialOwner)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 167LL;
+  result = 167;
   __asm { syscall; Low latency system call }
   return result;
 }

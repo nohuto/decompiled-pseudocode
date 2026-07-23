@@ -24,7 +24,7 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, _DWORD
   int v3; // r12d
   __int64 v4; // r13
   struct _KPROCESS *v5; // r9
-  int v6; // esi
+  int TimeDateStamp; // esi
   int v7; // edi
   bool v8; // al
   __int64 v9; // rdx
@@ -42,9 +42,9 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, _DWORD
   bool v21; // cf
   int v22; // eax
   int NameStringMode; // edi
-  int v24; // r14d
-  __int64 v25; // r15
-  unsigned __int64 v26; // rax
+  int CheckSum; // r14d
+  unsigned __int64 ImageBase; // r15
+  PIMAGE_NT_HEADERS v26; // rax
   int v27; // edx
   __int64 v28; // rcx
   void *v29; // r9
@@ -85,7 +85,7 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, _DWORD
   __int64 v64; // [rsp+D0h] [rbp-118h]
   unsigned __int16 *v65; // [rsp+D8h] [rbp-110h]
   __int64 v66; // [rsp+E0h] [rbp-108h]
-  __int64 v67; // [rsp+E8h] [rbp-100h]
+  unsigned __int64 v67; // [rsp+E8h] [rbp-100h]
   __int64 v68; // [rsp+F0h] [rbp-F8h]
   __m128i *v69; // [rsp+F8h] [rbp-F0h]
   PRKPROCESS v70; // [rsp+100h] [rbp-E8h]
@@ -93,7 +93,7 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, _DWORD
   PVOID P; // [rsp+110h] [rbp-D8h]
   _QWORD v73[2]; // [rsp+120h] [rbp-C8h] BYREF
   int Flink; // [rsp+130h] [rbp-B8h]
-  __int32 v75; // [rsp+134h] [rbp-B4h]
+  int v75; // [rsp+134h] [rbp-B4h]
   int v76; // [rsp+138h] [rbp-B0h]
   char v77; // [rsp+13Ch] [rbp-ACh]
   char v78; // [rsp+13Dh] [rbp-ABh]
@@ -116,7 +116,7 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, _DWORD
   v57 = PROCESS;
   v70 = PROCESS;
   v71 = a2;
-  v6 = 0;
+  TimeDateStamp = 0;
   v39 = 0;
   v83 = 0LL;
   v62 = 0LL;
@@ -291,19 +291,19 @@ LABEL_55:
           v49 = NameStringMode;
         }
         v53 = 0;
-        v24 = i[2].m128i_i32[2];
-        v52 = v24;
-        v25 = i[1].m128i_i64[0];
-        v67 = v25;
-        v26 = RtlImageNtHeader(i->m128i_u64[1]);
+        CheckSum = i[2].m128i_i32[2];
+        v52 = CheckSum;
+        ImageBase = i[1].m128i_u64[0];
+        v67 = ImageBase;
+        v26 = RtlImageNtHeader((PVOID)i->m128i_i64[1]);
         if ( v26 )
         {
-          v24 = *(_DWORD *)(v26 + 88);
-          v52 = v24;
-          v6 = *(_DWORD *)(v26 + 8);
-          v53 = v6;
-          v25 = *(_QWORD *)(v26 + 48);
-          v67 = v25;
+          CheckSum = v26->OptionalHeader.CheckSum;
+          v52 = CheckSum;
+          TimeDateStamp = v26->FileHeader.TimeDateStamp;
+          v53 = TimeDateStamp;
+          ImageBase = v26->OptionalHeader.ImageBase;
+          v67 = ImageBase;
         }
         if ( NameStringMode < 0 )
           break;
@@ -317,7 +317,7 @@ LABEL_55:
           if ( !(_WORD)v27 )
             goto LABEL_46;
           v28 = *((_QWORD *)v56 + 1);
-          v6 = 0;
+          TimeDateStamp = 0;
           if ( v28 )
           {
             Flink = (int)v57[1].Header.WaitListHead.Flink;
@@ -343,10 +343,20 @@ LABEL_55:
         }
         else
         {
-          v37 = v25;
+          v37 = ImageBase;
           Pool2 = v56;
-          EtwpTraceImageUnload(v56, (__int64)v57, i->m128i_i64[1], i[1].m128i_i64[1], v24, v6, v18, v19, v37, 0);
-          v6 = 0;
+          EtwpTraceImageUnload(
+            v56,
+            (__int64)v57,
+            i->m128i_i64[1],
+            i[1].m128i_i64[1],
+            CheckSum,
+            TimeDateStamp,
+            v18,
+            v19,
+            v37,
+            0);
+          TimeDateStamp = 0;
         }
 LABEL_39:
         if ( v62 )
@@ -389,7 +399,7 @@ LABEL_44:
       }
       Pool2 = v56;
 LABEL_46:
-      v6 = 0;
+      TimeDateStamp = 0;
       goto LABEL_39;
     }
   }

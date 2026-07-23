@@ -1,11 +1,11 @@
 /*
- * XREFs of UpcaseUnicodeToMultiByteNHelper @ 0x14043D8B0
+ * XREFs of UpcaseUnicodeToMultiByteNHelper @ 0x1404363C0
  * Callers:
- *     RtlUpcaseUnicodeToOemN @ 0x14096B750 (RtlUpcaseUnicodeToOemN.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14096BED0 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x14096C780 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x14097C090 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14097C810 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x14097D0C0 (RtlUpcaseUnicodeToMultiByteN.c)
  * Callees:
- *     PsIsServerSilo @ 0x140216838 (PsIsServerSilo.c)
+ *     PsIsServerSilo @ 0x140216B68 (PsIsServerSilo.c)
  */
 
 __int64 __fastcall UpcaseUnicodeToMultiByteNHelper(

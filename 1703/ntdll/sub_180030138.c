@@ -18,5 +18,6 @@
 
 _BOOL8 sub_180030138()
 {
-  return qword_18016B370 && (BYTE5(xmmword_18016B360) & 3) == 3;
+  return LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]
+      && (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3;
 }

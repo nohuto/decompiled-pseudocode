@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpBootPhaseComplete @ 0x140580834
+ * XREFs of PnpBootPhaseComplete @ 0x140580CE0
  * Callers:
- *     NtInitializeRegistry @ 0x140547164 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1405476A4 (NtInitializeRegistry.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     PipForDeviceNodeSubtree @ 0x14051D928 (PipForDeviceNodeSubtree.c)
- *     PiDrvDbInit @ 0x140551A0C (PiDrvDbInit.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     PipForDeviceNodeSubtree @ 0x140487410 (PipForDeviceNodeSubtree.c)
+ *     PiDrvDbInit @ 0x140551F4C (PiDrvDbInit.c)
  */
 
 __int64 PnpBootPhaseComplete()

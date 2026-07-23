@@ -1,24 +1,24 @@
 /*
- * XREFs of HvpGenerateLogEntry @ 0x1405A7860
+ * XREFs of HvpGenerateLogEntry @ 0x1405A8860
  * Callers:
- *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x1405A8438 (HvStoreModifiedData.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
- *     SymCryptMarvin32 @ 0x1401AF044 (SymCryptMarvin32.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x1405A64F0 (HvpHeaderCheckSum.c)
- *     HvpFindNextDirtyBlock @ 0x1405A7B38 (HvpFindNextDirtyBlock.c)
- *     CmpLogDirtyVectorUse @ 0x1405A7DC8 (CmpLogDirtyVectorUse.c)
- *     HvpGenerateLogMetadata @ 0x1405A83CC (HvpGenerateLogMetadata.c)
- *     HvpCountSetRangesInVector @ 0x1405DF8D4 (HvpCountSetRangesInVector.c)
+ *     SymCryptMarvin32 @ 0x1401AF184 (SymCryptMarvin32.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     HvpHeaderCheckSum @ 0x1405A74F0 (HvpHeaderCheckSum.c)
+ *     HvpFindNextDirtyBlock @ 0x1405A8B38 (HvpFindNextDirtyBlock.c)
+ *     CmpLogDirtyVectorUse @ 0x1405A8DC8 (CmpLogDirtyVectorUse.c)
+ *     HvpGenerateLogMetadata @ 0x1405A93CC (HvpGenerateLogMetadata.c)
+ *     HvpCountSetRangesInVector @ 0x1405E08D4 (HvpCountSetRangesInVector.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntry(ULONG_PTR BugCheckParameter2, _QWORD *a2, unsigned int *a3)
 {
   int v3; // r14d
-  struct _RTL_BITMAP *v4; // r12
+  _RTL_BITMAP *v4; // r12
   unsigned int v6; // ebx
   ULONG v7; // eax
   unsigned int v8; // r13d
@@ -44,7 +44,7 @@ __int64 __fastcall HvpGenerateLogEntry(ULONG_PTR BugCheckParameter2, _QWORD *a2,
   v26 = a3;
   v25 = a2;
   v3 = *(_DWORD *)(BugCheckParameter2 + 176);
-  v4 = (struct _RTL_BITMAP *)(BugCheckParameter2 + 88);
+  v4 = (_RTL_BITMAP *)(BugCheckParameter2 + 88);
   v6 = HvpCountSetRangesInVector((PRTL_BITMAP)(BugCheckParameter2 + 88));
   LODWORD(Size) = v6;
   v7 = RtlNumberOfSetBits(v4);

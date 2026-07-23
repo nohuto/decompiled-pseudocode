@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIrtExtendRemappingRange @ 0x14085DF6C
+ * XREFs of HalpIrtExtendRemappingRange @ 0x14085E1AC
  * Callers:
- *     HalpIrtAllocateIndex @ 0x14081E298 (HalpIrtAllocateIndex.c)
- *     HalpInitializeInterruptRemappingBspLate @ 0x14085DE88 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpIrtAllocateIndex @ 0x14081E568 (HalpIrtAllocateIndex.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x14085E0C8 (HalpInitializeInterruptRemappingBspLate.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -17,7 +17,7 @@ __int64 __fastcall HalpIrtExtendRemappingRange(unsigned int a1)
   __int64 v2; // rdi
   unsigned int *Pool2; // rbp
   char v4; // si
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = 0;
   v2 = a1;

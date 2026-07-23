@@ -1,16 +1,16 @@
 /*
  * XREFs of KeForceResumeProcess @ 0x140204AE0
  * Callers:
- *     MiReAcquireCommitFailWorker @ 0x140618ED0 (MiReAcquireCommitFailWorker.c)
+ *     MiReAcquireCommitFailWorker @ 0x140619420 (MiReAcquireCommitFailWorker.c)
  *     PspTerminateProcess @ 0x1406839D4 (PspTerminateProcess.c)
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
- *     PsFreezeProcess @ 0x1407EBC80 (PsFreezeProcess.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
+ *     PsFreezeProcess @ 0x1407EBF50 (PsFreezeProcess.c)
  * Callees:
  *     KiThawSingleThread @ 0x140205004 (KiThawSingleThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeForceResumeProcess(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall KeForceResumeProcess(__int64 a1)
   v2 = (_QWORD **)(a1 + 48);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v10) = 4;
@@ -61,10 +61,10 @@ __int64 __fastcall KeForceResumeProcess(__int64 a1)
   else
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         v13 = KeGetCurrentPrcb();
         v14 = v13->SchedulerAssist;

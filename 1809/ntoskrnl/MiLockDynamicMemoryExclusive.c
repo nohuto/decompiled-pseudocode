@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockDynamicMemoryExclusive @ 0x140091050
+ * XREFs of MiLockDynamicMemoryExclusive @ 0x140090F90
  * Callers:
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
- *     MiGetChannelInformation @ 0x1406086FC (MiGetChannelInformation.c)
- *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140860828 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
+ *     MiGetChannelInformation @ 0x1406096FC (MiGetChannelInformation.c)
+ *     MiAddPhysicalMemory @ 0x14084DAF4 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14084E7AC (MiRemovePhysicalMemory.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140861A88 (MiUpdatePartitionLargePfnBitMap.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

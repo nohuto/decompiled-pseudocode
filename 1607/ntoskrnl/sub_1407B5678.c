@@ -3,8 +3,8 @@
  * Callers:
  *     ExInitLicenseData @ 0x1407B505C (ExInitLicenseData.c)
  * Callees:
- *     KiInitializeMutant @ 0x140085B84 (KiInitializeMutant.c)
- *     KeQueryTimeIncrement @ 0x140086090 (KeQueryTimeIncrement.c)
+ *     KiInitializeMutant @ 0x140087474 (KiInitializeMutant.c)
+ *     KeQueryTimeIncrement @ 0x140087980 (KeQueryTimeIncrement.c)
  */
 
 unsigned __int64 sub_1407B5678()

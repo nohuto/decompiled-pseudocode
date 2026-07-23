@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     KeExitRetpoline @ 0x14034C0DC (KeExitRetpoline.c)
- *     CcAdjustBcbDepth @ 0x14042B950 (CcAdjustBcbDepth.c)
- *     VslVerifyPage @ 0x14054CC80 (VslVerifyPage.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     KeExitRetpoline @ 0x14034C27C (KeExitRetpoline.c)
+ *     CcAdjustBcbDepth @ 0x14042BCE0 (CcAdjustBcbDepth.c)
+ *     VslVerifyPage @ 0x14054D340 (VslVerifyPage.c)
  */
 
 BOOLEAN __fastcall sub_14067E010(PKDPC Dpc, __int64 a2, __int64 a3)

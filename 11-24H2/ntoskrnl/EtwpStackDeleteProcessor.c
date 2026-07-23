@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpStackDeleteProcessor @ 0x14064F914
+ * XREFs of EtwpStackDeleteProcessor @ 0x14064DFC0
  * Callers:
- *     EtwInitializeProcessor @ 0x1407A65DC (EtwInitializeProcessor.c)
+ *     EtwInitializeProcessor @ 0x1407A671C (EtwInitializeProcessor.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     KeFreeCalloutStack @ 0x140A82DB0 (KeFreeCalloutStack.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     KeFreeCalloutStack @ 0x140A7D8D0 (KeFreeCalloutStack.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpStackDeleteProcessor(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall EtwpStackDeleteProcessor(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rdi
+  _SLIST_HEADER *v1; // rdi
   PSLIST_ENTRY result; // rax
   PSLIST_ENTRY v3; // rbx
 

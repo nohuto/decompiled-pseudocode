@@ -37,18 +37,14 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   __int64 v14; // r9
   ULONGLONG v15; // rax
   ULONGLONG i; // rdi
-  __int64 v17; // r8
+  ULONGLONG v17; // r8
   ULONGLONG v18; // rdx
   __int64 v19; // r15
   __int64 v20; // rdx
   __int64 v21; // r8
   __int64 v22; // r9
   ULONGLONG pullResult; // [rsp+40h] [rbp-40h] BYREF
-  int v25; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-30h]
-  __int64 v27; // [rsp+58h] [rbp-28h]
-  int v28; // [rsp+60h] [rbp-20h]
-  __int128 v29; // [rsp+68h] [rbp-18h]
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+48h] [rbp-38h] BYREF
 
   Object = 0LL;
   a5 = 0LL;
@@ -102,12 +98,12 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
           }
           else
           {
-            v26 = 0LL;
-            v27 = v19 + 24;
-            v25 = 48;
-            v28 = 576;
-            v29 = 0LL;
-            ZwUnloadKey2((__int64)&v25, 1LL, v17);
+            TargetKey.RootDirectory = 0LL;
+            TargetKey.ObjectName = (PUNICODE_STRING)(v19 + 24);
+            TargetKey.Length = 48;
+            TargetKey.Attributes = 576;
+            *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+            ZwUnloadKey2(&TargetKey, 1u);
             VrpDestroyNamespaceNode(v10);
           }
         }

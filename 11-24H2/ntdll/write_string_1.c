@@ -1,9 +1,9 @@
 /*
- * XREFs of write_string_1 @ 0x18012EE30
+ * XREFs of write_string_1 @ 0x18012D060
  * Callers:
- *     _output_s @ 0x18012E310 (_output_s.c)
+ *     _output_s @ 0x18012C540 (_output_s.c)
  * Callees:
- *     write_char_1 @ 0x18012ED88 (write_char_1.c)
+ *     write_char_1 @ 0x18012CFB8 (write_char_1.c)
  */
 
 __int64 __fastcall write_string_1(unsigned __int8 *a1, int a2, __int64 a3, _DWORD *a4)

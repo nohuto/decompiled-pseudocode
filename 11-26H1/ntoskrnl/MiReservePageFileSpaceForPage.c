@@ -1,27 +1,27 @@
 /*
- * XREFs of MiReservePageFileSpaceForPage @ 0x1403676AC
+ * XREFs of MiReservePageFileSpaceForPage @ 0x14036944C
  * Callers:
- *     MiOutSwapWorkingSetPte @ 0x140296850 (MiOutSwapWorkingSetPte.c)
- *     MiReservePageFileSpace @ 0x1403670E8 (MiReservePageFileSpace.c)
+ *     MiOutSwapWorkingSetPte @ 0x140295DB0 (MiOutSwapWorkingSetPte.c)
+ *     MiReservePageFileSpace @ 0x140368E88 (MiReservePageFileSpace.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiLockLeafPage @ 0x140298E10 (MiLockLeafPage.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiInvalidPteConforms @ 0x1402F4430 (MiInvalidPteConforms.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MI_IS_RESET_PTE @ 0x140367DF0 (MI_IS_RESET_PTE.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiPageStandbyLookasideStatus @ 0x140423010 (MiPageStandbyLookasideStatus.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiLockLeafPage @ 0x140298370 (MiLockLeafPage.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiInvalidPteConforms @ 0x1402D64B0 (MiInvalidPteConforms.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MI_IS_RESET_PTE @ 0x140369B90 (MI_IS_RESET_PTE.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiPageStandbyLookasideStatus @ 0x14041A850 (MiPageStandbyLookasideStatus.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReservePageFileSpaceForPage(struct _KEVENT *a1, unsigned __int64 a2, unsigned int a3, __int64 *a4)
@@ -166,7 +166,7 @@ LABEL_24:
   }
   if ( PteShadow )
   {
-    if ( qword_140E2D740 && (qword_140E2D740 & PteShadow) == 0 )
+    if ( qword_140E2D8C0 && (qword_140E2D8C0 & PteShadow) == 0 )
       goto LABEL_33;
     v15 = v43;
     if ( ((PteShadow >> 5) & 0xF) == 0 )
@@ -263,8 +263,8 @@ LABEL_40:
         v18 = *a4;
         if ( (unsigned __int64)a4 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)a4 <= 0xFFFFF6FB7DBED7F8uLL )
           v18 = MiReadPteShadow((unsigned __int64)a4, *a4);
-        if ( qword_140E2D740 != v5 && (v18 & 0x10) == 0 )
-          HIDWORD(v18) &= HIDWORD(qword_140E2D748);
+        if ( qword_140E2D8C0 != v5 && (v18 & 0x10) == 0 )
+          HIDWORD(v18) &= HIDWORD(qword_140E2D8C8);
         v19 = MiTransferSoftwarePte(
                 DemandZeroPte,
                 *((_QWORD *)&a1[929].Header.WaitListHead.Flink + ((unsigned __int16)v18 >> 12)),
@@ -308,6 +308,6 @@ LABEL_29:
   _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_30:
   if ( v4 )
-    MiReleasePageFileInfo(a1, v4, 1);
+    MiReleasePageFileInfo(a1, v4, 1LL);
   return v9;
 }

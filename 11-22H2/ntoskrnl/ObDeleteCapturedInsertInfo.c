@@ -15,7 +15,7 @@ void __fastcall ObDeleteCapturedInsertInfo(__int64 a1, __int64 a2, __int64 a3, _
   __int64 v5; // rax
   __int64 v6; // rcx
   struct _KPRCB *CurrentPrcb; // r8
-  struct _SLIST_ENTRY *v8; // rdx
+  _SLIST_ENTRY *v8; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
 
   if ( (*(_BYTE *)(a1 - 21) & 1) != 0 )
@@ -32,7 +32,7 @@ void __fastcall ObDeleteCapturedInsertInfo(__int64 a1, __int64 a2, __int64 a3, _
         *(_QWORD *)(*(_QWORD *)(a1 - 16) + 32LL) = 0LL;
       }
       CurrentPrcb = KeGetCurrentPrcb();
-      v8 = *(struct _SLIST_ENTRY **)(a1 - 16);
+      v8 = *(_SLIST_ENTRY **)(a1 - 16);
       P = CurrentPrcb->PPLookasideList[4].P;
       ++P->TotalFrees;
       if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -46,7 +46,7 @@ void __fastcall ObDeleteCapturedInsertInfo(__int64 a1, __int64 a2, __int64 a3, _
       else
       {
         ++P->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v8);
+        ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v8);
       }
       *(_QWORD *)(a1 - 16) = 0LL;
     }

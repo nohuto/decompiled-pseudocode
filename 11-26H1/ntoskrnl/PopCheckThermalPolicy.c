@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCheckThermalPolicy @ 0x140AC40EC
+ * XREFs of PopCheckThermalPolicy @ 0x140AC5D5C
  * Callers:
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopPrintEx @ 0x1404C33A8 (PopPrintEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopPrintEx @ 0x1404BCBF8 (PopPrintEx.c)
  */
 
 char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, int *a4)
@@ -46,7 +46,7 @@ char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, int *a4)
   }
   else
   {
-    v11 = &word_140B814F0;
+    v11 = &word_140B8A320;
   }
   v12 = (unsigned int *)(a1 + 128);
   v13 = *(_DWORD *)(a1 + 140);

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlGetSharedPageVa @ 0x140364C54
+ * XREFs of HvlGetSharedPageVa @ 0x140364DF4
  * Callers:
- *     RtlGetMultiTimePrecise @ 0x140364A80 (RtlGetMultiTimePrecise.c)
+ *     RtlGetMultiTimePrecise @ 0x140364C20 (RtlGetMultiTimePrecise.c)
  *     MiInitializeSharedUserData @ 0x140B6BC64 (MiInitializeSharedUserData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 PVOID HvlGetSharedPageVa()

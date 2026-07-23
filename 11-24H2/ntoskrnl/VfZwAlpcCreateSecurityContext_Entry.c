@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwAlpcCreateSecurityContext_Entry @ 0x140B93EF0
+ * XREFs of VfZwAlpcCreateSecurityContext_Entry @ 0x140B95EF0
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckVirtualAddress @ 0x140B94D78 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140B94DC4 (ViZwShouldCheck.c)
+ *     ViZwCheckVirtualAddress @ 0x140B96D78 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140B96DC4 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwAlpcCreateSecurityContext_Entry(__int64 a1, __int64 a2)

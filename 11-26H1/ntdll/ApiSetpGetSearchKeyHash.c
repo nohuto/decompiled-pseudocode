@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetpGetSearchKeyHash @ 0x1801179E4
+ * XREFs of ApiSetpGetSearchKeyHash @ 0x1801171E0
  * Callers:
- *     ApiSetpResolveHost @ 0x180047310 (ApiSetpResolveHost.c)
- *     ApiSetQuerySchemaInfo2_V7 @ 0x180117408 (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetQuerySchemaInfo_V7 @ 0x180117718 (ApiSetQuerySchemaInfo_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x180117AD0 (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpResolveHost @ 0x180031880 (ApiSetpResolveHost.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x180116BE8 (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetQuerySchemaInfo_V7 @ 0x180116F14 (ApiSetQuerySchemaInfo_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x1801172CC (ApiSetpSearchForSectionIndex_V7.c)
  * Callees:
  *     <none>
  */

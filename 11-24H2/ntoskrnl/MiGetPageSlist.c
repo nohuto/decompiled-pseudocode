@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPageSlist @ 0x1404541D0
+ * XREFs of MiGetPageSlist @ 0x14033F3D8
  * Callers:
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402F75B8 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x14033FA14 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiSlistGetFreePage @ 0x1402F3B70 (MiSlistGetFreePage.c)
+ *     MiSlistGetFreePage @ 0x14033DDB0 (MiSlistGetFreePage.c)
  */
 
 PSLIST_ENTRY __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, int a3)
@@ -46,7 +46,7 @@ PSLIST_ENTRY __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, int a3)
   if ( (*(_DWORD *)(v5 + 4) & 0x10) != 0 )
     return 0LL;
   v26[0] = a1;
-  v7 = MiZeroThenZero;
+  v7 = &MiZeroThenZero;
   v31 = 0LL;
   v8 = a3 & 0x10;
   v9 = 0LL;

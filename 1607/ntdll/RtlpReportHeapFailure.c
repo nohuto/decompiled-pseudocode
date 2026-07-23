@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHeapHandleError @ 0x1800F7D80 (RtlpHeapHandleError.c)
  * Callees:
- *     RtlpGetModifiedProcessCookie @ 0x18005D96C (RtlpGetModifiedProcessCookie.c)
+ *     RtlpGetModifiedProcessCookie @ 0x18005D95C (RtlpGetModifiedProcessCookie.c)
  *     RtlIsAnyDebuggerPresent @ 0x1800F7334 (RtlIsAnyDebuggerPresent.c)
  *     RtlpPrintErrorInformation @ 0x1800F97EC (RtlpPrintErrorInformation.c)
  */

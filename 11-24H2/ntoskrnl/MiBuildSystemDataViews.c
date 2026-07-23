@@ -1,11 +1,11 @@
 /*
- * XREFs of MiBuildSystemDataViews @ 0x140C54094
+ * XREFs of MiBuildSystemDataViews @ 0x140C56224
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407EA844 (MiInitializeSystemWorkingSetList.c)
- *     MiInitializeDynamicRegion @ 0x140C54EFC (MiInitializeDynamicRegion.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407EAE14 (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeDynamicRegion @ 0x140C5708C (MiInitializeDynamicRegion.c)
  */
 
 __int64 MiBuildSystemDataViews()
@@ -16,16 +16,16 @@ __int64 MiBuildSystemDataViews()
   char *AnyMultiplexedVm; // rax
   _QWORD *v4; // rcx
 
-  v0 = qword_140E38BB0;
+  v0 = qword_140E38CF0;
   v1 = 0;
-  if ( !(unsigned int)MiInitializeDynamicRegion(17LL, qword_140E38BA8, qword_140E38BB0) )
+  if ( !(unsigned int)MiInitializeDynamicRegion(17LL, qword_140E38CE8, qword_140E38CF0) )
     return 0LL;
   v2 = v0 >> 12;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
-  v4 = &unk_140E38740;
+  v4 = &unk_140E38880;
   if ( (*((_DWORD *)AnyMultiplexedVm + 46) & 0xF) != 1 )
     v4 = AnyMultiplexedVm + 192;
-  *v4 = &unk_140E36080;
-  LOBYTE(v1) = (int)MiInitializeSystemWorkingSetList((__int64)&MiSystemPartition, (__int64)AnyMultiplexedVm, 4, v2) >= 0;
+  *v4 = &unk_140E361C0;
+  LOBYTE(v1) = (int)MiInitializeSystemWorkingSetList((__int64)&MiSystemPartition, (__int64)AnyMultiplexedVm, 4u, v2) >= 0;
   return v1;
 }

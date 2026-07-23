@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsThreadAttachedToSpecificSilo @ 0x14043AEC0
+ * XREFs of PsIsThreadAttachedToSpecificSilo @ 0x14042D770
  * Callers:
  *     <none>
  * Callees:

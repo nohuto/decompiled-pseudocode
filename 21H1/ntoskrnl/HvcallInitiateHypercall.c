@@ -82,39 +82,39 @@
  *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
  */
 
-__int64 __fastcall HvcallInitiateHypercall(int a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvcallInitiateHypercall(int a1)
 {
-  char v5; // di
-  int v6; // esi
+  char v2; // di
+  int v3; // esi
   __int64 result; // rax
-  __int64 v8; // rbx
-  int v9; // [rsp+30h] [rbp-58h] BYREF
-  char v10; // [rsp+34h] [rbp-54h]
-  __int16 v11; // [rsp+35h] [rbp-53h]
-  char v12; // [rsp+37h] [rbp-51h]
-  _OWORD v13[2]; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v5; // rbx
+  int v6; // [rsp+30h] [rbp-58h] BYREF
+  char v7; // [rsp+34h] [rbp-54h]
+  __int16 v8; // [rsp+35h] [rbp-53h]
+  char v9; // [rsp+37h] [rbp-51h]
+  _OWORD v10[2]; // [rsp+38h] [rbp-50h] BYREF
 
-  memset(v13, 0, sizeof(v13));
+  memset(v10, 0, sizeof(v10));
   if ( (BYTE4(xmmword_140CFC490) & 0x10) != 0 )
   {
-    v5 = 1;
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v13, 2684354576LL, a3, a4);
+    v2 = 1;
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v10, 0xA0000010);
   }
   else
   {
-    v5 = 0;
+    v2 = 0;
   }
-  v6 = a1;
+  v3 = a1;
   result = HvcallCodeVa();
-  v8 = result;
-  if ( v5 )
+  v5 = result;
+  if ( v2 )
   {
-    v12 = 0;
-    v9 = (unsigned __int16)v6;
-    v10 = BYTE2(v6) & 1;
-    v11 = v6 < 0;
-    EtwTraceTimedEvent(0xF72u, 0xA0000010, (__int64)&v9, 8, 0x401A02u, (__int64)v13);
-    return v8;
+    v9 = 0;
+    v6 = (unsigned __int16)v3;
+    v7 = BYTE2(v3) & 1;
+    v8 = v3 < 0;
+    EtwTraceTimedEvent(0xF72u, 0xA0000010, (__int64)&v6, 8, 0x401A02u, (__int64)v10);
+    return v5;
   }
   return result;
 }

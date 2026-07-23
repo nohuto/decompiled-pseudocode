@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSubsectionProtosCreated @ 0x1401EDCB4
+ * XREFs of MiSubsectionProtosCreated @ 0x1401EDAE0
  * Callers:
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
  */
 
 void __fastcall MiSubsectionProtosCreated(__int64 *a1, __int64 a2)

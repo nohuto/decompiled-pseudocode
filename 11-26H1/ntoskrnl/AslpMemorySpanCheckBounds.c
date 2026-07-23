@@ -1,8 +1,8 @@
 /*
- * XREFs of AslpMemorySpanCheckBounds @ 0x140714EC4
+ * XREFs of AslpMemorySpanCheckBounds @ 0x140719BB4
  * Callers:
- *     AslpFileGetVersionBlock @ 0x14088DAFC (AslpFileGetVersionBlock.c)
- *     AslpFileQueryExportName @ 0x14088EF6C (AslpFileQueryExportName.c)
+ *     AslpFileGetVersionBlock @ 0x140893EF8 (AslpFileGetVersionBlock.c)
+ *     AslpFileQueryExportName @ 0x140895368 (AslpFileQueryExportName.c)
  * Callees:
  *     <none>
  */

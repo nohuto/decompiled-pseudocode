@@ -1,5 +1,5 @@
 /*
- * XREFs of WheaEnterCriticalState @ 0x140610530
+ * XREFs of WheaEnterCriticalState @ 0x140610A80
  * Callers:
  *     <none>
  * Callees:

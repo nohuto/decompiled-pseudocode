@@ -1,22 +1,22 @@
 /*
- * XREFs of CcInitializeVolumeCacheMap @ 0x14038538C
+ * XREFs of CcInitializeVolumeCacheMap @ 0x14038713C
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x1403E1230 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x1403E4420 (CcInitializeCacheMapInternal.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     McTemplateK0j_EtwWriteTransfer @ 0x1405B08AC (McTemplateK0j_EtwWriteTransfer.c)
- *     CcSetupWatchForRegistryChanges @ 0x1405B1944 (CcSetupWatchForRegistryChanges.c)
- *     CcQueueAsyncGetDeviceGuid @ 0x1405B3204 (CcQueueAsyncGetDeviceGuid.c)
- *     McGenEventRegister_EtwRegister @ 0x1405B3298 (McGenEventRegister_EtwRegister.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CcGetDeviceGuid @ 0x1409067DC (CcGetDeviceGuid.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     McTemplateK0j_EtwWriteTransfer @ 0x1405B30BC (McTemplateK0j_EtwWriteTransfer.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1405B4154 (CcSetupWatchForRegistryChanges.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x1405B5A14 (CcQueueAsyncGetDeviceGuid.c)
+ *     McGenEventRegister_EtwRegister @ 0x1405B5AA8 (McGenEventRegister_EtwRegister.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CcGetDeviceGuid @ 0x140A2EB0C (CcGetDeviceGuid.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, volatile signed __int64 **a2)
@@ -30,7 +30,7 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, volatile signed __int6
   _QWORD *v11; // rax
   struct _KTHREAD *j; // rax
   volatile signed __int64 *v13; // rsi
-  _QWORD *v14; // rax
+  _QWORD *UserWaitTime; // rax
   char v15; // si
   __int64 v16; // rdx
   __int64 v17; // rcx
@@ -44,8 +44,8 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, volatile signed __int6
     v3 = *(_QWORD *)(a1 + 16);
   v6 = *(_QWORD *)(v3 + 8);
   KeRcuReadLock(a1);
-  for ( i = (struct _KTHREAD *)EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-        i != (struct _KTHREAD *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
+  for ( i = (struct _KTHREAD *)EmpParseLock.KernelWaitTime;
+        i != (struct _KTHREAD *)&EmpParseLock.KernelWaitTime;
         i = *(struct _KTHREAD **)&i->Header.Lock )
   {
     v8 = (volatile signed __int64 *)&i[-1].Padding[2];
@@ -73,8 +73,8 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, volatile signed __int6
   if ( *(_DWORD *)(v6 + 72) != 20 && !memcmp((const void *)(v8 + 29), &GUID_NULL, 0x10uLL) )
     CcGetDeviceGuid(a1, v8 + 29);
   KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
-  for ( j = (struct _KTHREAD *)EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-        j != (struct _KTHREAD *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
+  for ( j = (struct _KTHREAD *)EmpParseLock.KernelWaitTime;
+        j != (struct _KTHREAD *)&EmpParseLock.KernelWaitTime;
         j = *(struct _KTHREAD **)&j->Header.Lock )
   {
     v13 = (volatile signed __int64 *)&j[-1].Padding[2];
@@ -88,12 +88,12 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, volatile signed __int6
       return 0LL;
     }
   }
-  v14 = *(_QWORD **)&EmpParseLock.SchedulerAssistPriorityFloor;
-  *((_QWORD *)v8 + 3) = &EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-  *((_QWORD *)v8 + 4) = v14;
-  *v14 = v8 + 3;
-  *(_QWORD *)&EmpParseLock.SchedulerAssistPriorityFloor = v8 + 3;
-  _InterlockedAdd64((volatile signed __int64 *)&EmpParseLock.Timer.TimerListEntry.Flink, 1uLL);
+  UserWaitTime = (_QWORD *)EmpParseLock.UserWaitTime;
+  *((_QWORD *)v8 + 3) = &EmpParseLock.KernelWaitTime;
+  *((_QWORD *)v8 + 4) = UserWaitTime;
+  *UserWaitTime = v8 + 3;
+  EmpParseLock.UserWaitTime = (unsigned __int64)(v8 + 3);
+  _InterlockedAdd64((volatile signed __int64 *)&EmpParseLock.Timer.TimerListEntry.Blink, 1uLL);
   if ( *(_DWORD *)(*((_QWORD *)v8 + 2) + 72LL) != 20 && !memcmp((const void *)(v8 + 29), &GUID_NULL, 0x10uLL) )
   {
     if ( _InterlockedIncrement64(v8 + 1) <= 1 )
@@ -123,9 +123,9 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, volatile signed __int6
                                      LockHandle.LockQueue.Next,
                                      LockHandle.LockQueue.Lock,
                                      *(_QWORD *)&LockHandle.OldIrql) >= 0;
-  if ( (BYTE4(EmpParseLock.KernelAbEntries) & 1) != 0 )
+  if ( (EmpParseLock.SchedulerAssistLastYieldBoostTime & 0x100000000LL) != 0 )
     McTemplateK0j_EtwWriteTransfer(&MS_KernelCc_Provider_Context, CcEvt_VolumeCacheMap_Init, v18, v8 + 29);
-  if ( v15 && !(_BYTE)dword_140FBE22C )
+  if ( v15 && !(_BYTE)dword_140FBF22C )
   {
     CcContainerRestoreWorkItem.Parameter = 0LL;
     CcContainerRestoreWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CcRegisterForContainerRestore;

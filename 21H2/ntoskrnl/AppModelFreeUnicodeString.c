@@ -1,10 +1,10 @@
 /*
- * XREFs of AppModelFreeUnicodeString @ 0x1402C9E0C
+ * XREFs of AppModelFreeUnicodeString @ 0x1402486FC
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x1406B7BD8 (KIsUnlockSettingEnabled.c)
- *     KIsSideloadingEnabled @ 0x14095EFA4 (KIsSideloadingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x1406170E8 (KIsUnlockSettingEnabled.c)
+ *     KIsSideloadingEnabled @ 0x14095F184 (KIsSideloadingEnabled.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AppModelFreeUnicodeString(__int64 a1)

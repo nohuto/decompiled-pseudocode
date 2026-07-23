@@ -1,10 +1,10 @@
 /*
- * XREFs of HsaBuildDeviceTableEntry @ 0x14052F298
+ * XREFs of HsaBuildDeviceTableEntry @ 0x14052F7E8
  * Callers:
- *     HsaUpdateDeviceTableEntry @ 0x140530D20 (HsaUpdateDeviceTableEntry.c)
- *     HsaInitializeIommu @ 0x140A99260 (HsaInitializeIommu.c)
+ *     HsaUpdateDeviceTableEntry @ 0x140531270 (HsaUpdateDeviceTableEntry.c)
+ *     HsaInitializeIommu @ 0x140A990D0 (HsaInitializeIommu.c)
  * Callees:
- *     HsaBuildInterruptRemappingEntry @ 0x14052F424 (HsaBuildInterruptRemappingEntry.c)
+ *     HsaBuildInterruptRemappingEntry @ 0x14052F974 (HsaBuildInterruptRemappingEntry.c)
  */
 
 unsigned __int64 __fastcall HsaBuildDeviceTableEntry(

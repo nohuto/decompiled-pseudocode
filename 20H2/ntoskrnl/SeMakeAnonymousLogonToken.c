@@ -39,28 +39,25 @@ __int64 SeMakeAnonymousLogonToken()
   int v18; // [rsp+A8h] [rbp-80h] BYREF
   __int64 v19; // [rsp+B0h] [rbp-78h] BYREF
   __int64 v20; // [rsp+B8h] [rbp-70h] BYREF
-  __int64 v21; // [rsp+C0h] [rbp-68h] BYREF
-  PSID v22; // [rsp+C8h] [rbp-60h] BYREF
-  int v23; // [rsp+D0h] [rbp-58h]
-  int v24; // [rsp+D4h] [rbp-54h]
+  int v21[2]; // [rsp+C0h] [rbp-68h] BYREF
+  _SID_AND_ATTRIBUTES v22; // [rsp+C8h] [rbp-60h] BYREF
   __m128i si128; // [rsp+D8h] [rbp-50h] BYREF
-  _DWORD v26[2]; // [rsp+E8h] [rbp-40h] BYREF
-  __int64 v27; // [rsp+F0h] [rbp-38h]
-  __int64 v28; // [rsp+F8h] [rbp-30h]
-  int v29; // [rsp+100h] [rbp-28h]
-  int v30; // [rsp+104h] [rbp-24h]
-  void *v31; // [rsp+108h] [rbp-20h]
-  __int64 v32; // [rsp+110h] [rbp-18h]
-  PSID v33; // [rsp+118h] [rbp-10h] BYREF
-  int v34; // [rsp+120h] [rbp-8h]
-  PSID v35; // [rsp+128h] [rbp+0h]
-  int v36; // [rsp+130h] [rbp+8h]
+  int v24[2]; // [rsp+E8h] [rbp-40h] BYREF
+  __int64 v25; // [rsp+F0h] [rbp-38h]
+  __int64 v26; // [rsp+F8h] [rbp-30h]
+  int v27; // [rsp+100h] [rbp-28h]
+  int v28; // [rsp+104h] [rbp-24h]
+  void *v29; // [rsp+108h] [rbp-20h]
+  __int64 v30; // [rsp+110h] [rbp-18h]
+  _SID_AND_ATTRIBUTES v31; // [rsp+118h] [rbp-10h] BYREF
+  PSID v32; // [rsp+128h] [rbp+0h]
+  int v33; // [rsp+130h] [rbp+8h]
 
   v0 = (char *)ExLeapSecondData;
-  v21 = 0LL;
-  v24 = 0;
-  v26[1] = 0;
-  v30 = 0;
+  *(_QWORD *)v21 = 0LL;
+  *(&v22.Attributes + 1) = 0;
+  v24[1] = 0;
+  v28 = 0;
   v20 = 0LL;
   v18 = 1;
   v19 = 0LL;
@@ -111,12 +108,12 @@ LABEL_5:
     v20 = v2;
 LABEL_6:
   v4 = SeAnonymousLogonSid;
-  v33 = SeWorldSid;
-  v35 = SeLowMandatorySid;
-  v22 = SeAnonymousLogonSid;
-  v23 = 0;
-  v34 = 7;
-  v36 = 96;
+  v31.Sid = SeWorldSid;
+  v32 = SeLowMandatorySid;
+  v22.Sid = SeAnonymousLogonSid;
+  v22.Attributes = 0;
+  v31.Attributes = 7;
+  v33 = 96;
   v5 = ((4 * *((unsigned __int8 *)SeWorldSid + 1) + 11) & 0xFFFFFFFC)
      + 16
      + ((4 * *((unsigned __int8 *)SeLowMandatorySid + 1) + 11) & 0xFFFFFFFC);
@@ -136,34 +133,34 @@ LABEL_6:
       RtlSetDaclSecurityDescriptor(v10, 1u, v8, 0);
       RtlSetOwnerSecurityDescriptor(v10, SeWorldSid, 0);
       RtlSetGroupSecurityDescriptor(v10, SeWorldSid, 0);
-      v26[0] = 48;
-      v27 = 0LL;
-      v29 = 0;
-      v28 = 0LL;
-      v31 = v10;
-      v32 = 0LL;
+      v24[0] = 48;
+      v25 = 0LL;
+      v27 = 0;
+      v26 = 0LL;
+      v29 = v10;
+      v30 = 0LL;
       SepCreateToken(
-        (HANDLE *)&v21,
+        (HANDLE *)v21,
         v11,
         v12,
-        (__int64)v26,
+        (__int64)v24,
         v17[8],
         v17[10],
         (__int64)&SeAnonymousAuthenticationId,
         &v20,
         &v22,
-        2,
-        (__int64)&v33,
+        2u,
+        &v31,
         v5,
         0,
         0LL,
         0LL,
         v4,
         v8);
-      SeSetMandatoryPolicyToken(v21, &v18);
+      SeSetMandatoryPolicyToken(*(__int64 *)v21, &v18);
       ExFreePoolWithTag(v8, 0);
       ExFreePoolWithTag(v10, 0);
-      return v21;
+      return *(_QWORD *)v21;
     }
     ExFreePoolWithTag(v8, 0);
   }

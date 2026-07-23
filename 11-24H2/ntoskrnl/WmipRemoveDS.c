@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipRemoveDS @ 0x140AA0824
+ * XREFs of WmipRemoveDS @ 0x140A9BBB4
  * Callers:
- *     WmipDeregisterRegEntry @ 0x14046FAA4 (WmipDeregisterRegEntry.c)
+ *     WmipDeregisterRegEntry @ 0x14046A000 (WmipDeregisterRegEntry.c)
  * Callees:
- *     WmipGenerateRegistrationNotification @ 0x1409CB3C4 (WmipGenerateRegistrationNotification.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
+ *     WmipGenerateRegistrationNotification @ 0x1409B1AE4 (WmipGenerateRegistrationNotification.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
  */
 
 __int64 __fastcall WmipRemoveDS(__int64 a1)

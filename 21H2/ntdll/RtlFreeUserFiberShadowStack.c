@@ -1,12 +1,19 @@
 /*
- * XREFs of RtlFreeUserFiberShadowStack @ 0x1800E1A30
+ * XREFs of RtlFreeUserFiberShadowStack @ 0x1800E19F0
  * Callers:
  *     <none>
  * Callees:
- *     NtSetInformationProcess @ 0x18009D9C0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x18009D980 (NtSetInformationProcess.c)
  */
 
-__int64 RtlFreeUserFiberShadowStack()
+NTSTATUS __fastcall RtlFreeUserFiberShadowStack(__int64 a1)
 {
-  return NtSetInformationProcess();
+  __int64 ProcessInformation; // [rsp+30h] [rbp+8h] BYREF
+
+  ProcessInformation = a1;
+  return NtSetInformationProcess(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           ProcessFreeFiberShadowStackAllocation,
+           &ProcessInformation,
+           8u);
 }

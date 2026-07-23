@@ -12,7 +12,7 @@ int __thiscall WerpThreadId(HANDLE ThreadHandle)
   _BYTE ThreadInformation[12]; // [esp+0h] [ebp-1Ch] BYREF
   int v3; // [esp+Ch] [ebp-10h]
 
-  if ( NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)0, ThreadInformation, 0x1Cu, 0) >= 0 )
+  if ( NtQueryInformationThread(ThreadHandle, ThreadBasicInformation, ThreadInformation, 0x1Cu, 0) >= 0 )
     return v3;
   else
     return 0;

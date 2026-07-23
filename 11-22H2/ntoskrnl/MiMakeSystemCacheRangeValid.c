@@ -99,7 +99,7 @@ __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __i
       CurrentIrql = KeGetCurrentIrql();
       v53 = CurrentIrql;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)CurrentIrql == 2 )
@@ -120,7 +120,7 @@ __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __i
 LABEL_4:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -315,10 +315,10 @@ LABEL_31:
         MiDecrementShareCount(v37);
         _InterlockedAnd64((volatile signed __int64 *)(v37 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         result = (unsigned int)KiIrqlFlags;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v40 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v40 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v40 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v42 = CurrentPrcb->SchedulerAssist;

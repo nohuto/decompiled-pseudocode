@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmHvSnapPerformanceAccumulation @ 0x1405A0104
+ * XREFs of PpmHvSnapPerformanceAccumulation @ 0x1405A05F4
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140255F80 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmResetPerfTimes @ 0x1403A70A0 (PpmResetPerfTimes.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140256040 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1403A7280 (PpmResetPerfTimes.c)
  * Callees:
- *     HvlGetReferenceTime @ 0x1403C85E4 (HvlGetReferenceTime.c)
- *     HvlpGetLpcbByLpIndex @ 0x1403CEA18 (HvlpGetLpcbByLpIndex.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvlGetStatsUpdateCounter @ 0x1405467E4 (HvlGetStatsUpdateCounter.c)
+ *     HvlGetReferenceTime @ 0x1403C87C4 (HvlGetReferenceTime.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403CEBF8 (HvlpGetLpcbByLpIndex.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvlGetStatsUpdateCounter @ 0x140546EA4 (HvlGetStatsUpdateCounter.c)
  */
 
 char __fastcall PpmHvSnapPerformanceAccumulation(_QWORD *a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)

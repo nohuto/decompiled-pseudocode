@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmGetIdleGenerationCounter @ 0x1401FFAA4
+ * XREFs of PpmGetIdleGenerationCounter @ 0x1401FF8D0
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14012F3B0 (PpmPerfApplyProcessorState.c)
+ *     PpmPerfApplyProcessorState @ 0x14012F920 (PpmPerfApplyProcessorState.c)
  * Callees:
  *     <none>
  */

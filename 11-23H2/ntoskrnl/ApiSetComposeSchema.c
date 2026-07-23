@@ -1,16 +1,16 @@
 /*
- * XREFs of ApiSetComposeSchema @ 0x1406149A4
+ * XREFs of ApiSetComposeSchema @ 0x140614EF4
  * Callers:
- *     ApiSetpLoadSchemaExtension @ 0x140A09FC0 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetpLoadSchemaExtension @ 0x140A0A270 (ApiSetpLoadSchemaExtension.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x14035F580 (ApiSetpSearchForApiSet.c)
- *     ApiSetComposeSchema_V7 @ 0x140417648 (ApiSetComposeSchema_V7.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ApiSetValidateSchemaFormat @ 0x1406146CC (ApiSetValidateSchemaFormat.c)
- *     AsiAddDataToSchema @ 0x1406150EC (AsiAddDataToSchema.c)
- *     AsiPopulateHashes @ 0x140615184 (AsiPopulateHashes.c)
- *     AsiSortValueList @ 0x1406152E0 (AsiSortValueList.c)
+ *     ApiSetpSearchForApiSet @ 0x14035F720 (ApiSetpSearchForApiSet.c)
+ *     ApiSetComposeSchema_V7 @ 0x1404179D8 (ApiSetComposeSchema_V7.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ApiSetValidateSchemaFormat @ 0x140614C1C (ApiSetValidateSchemaFormat.c)
+ *     AsiAddDataToSchema @ 0x14061563C (AsiAddDataToSchema.c)
+ *     AsiPopulateHashes @ 0x1406156D4 (AsiPopulateHashes.c)
+ *     AsiSortValueList @ 0x140615830 (AsiSortValueList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -16,7 +16,7 @@ __int64 __fastcall VfCheckForResource(unsigned __int64 a1, __int64 a2)
 {
   ULONG_PTR *v5; // rax
   ULONG_PTR *v6; // rbx
-  struct _SLIST_ENTRY *v7; // rbx
+  _SLIST_ENTRY *v7; // rbx
   _BYTE v8[24]; // [rsp+30h] [rbp-18h] BYREF
   ULONG_PTR v9; // [rsp+60h] [rbp+18h] BYREF
 
@@ -39,7 +39,7 @@ __int64 __fastcall VfCheckForResource(unsigned __int64 a1, __int64 a2)
     {
       _InterlockedIncrement(&ViResourceStaleNodes);
       VfAvlInitializeLockContext((__int64)v8, 0);
-      v7 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v8, (__int64)&v9, 0LL);
+      v7 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v8, (__int64)&v9, 0LL);
       VfAvlCleanupLockContext((__int64)v8);
       if ( v7 )
         VfAvlFreeNodeNoLock((__int64)&ViResourceAvl, v7);

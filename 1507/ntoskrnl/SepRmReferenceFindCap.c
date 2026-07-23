@@ -19,17 +19,17 @@
 __int64 __fastcall SepRmReferenceFindCap(PSID Sid1, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a2, __int64 a3, __int64 a4)
 {
   unsigned int v6; // esi
-  struct _RTL_DYNAMIC_HASH_TABLE *v7; // rdi
+  _RTL_DYNAMIC_HASH_TABLE *v7; // rdi
   ULONG_PTR v8; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY NextEntryHashTable; // rbx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   Context.ChainHead = 0LL;
   *a2 = 0LL;
   Context.PrevLinkage = 0LL;
   Context.Signature = 0LL;
   v6 = -1073741275;
-  v7 = (struct _RTL_DYNAMIC_HASH_TABLE *)SepRmReferenceCapTable((__int64)Sid1, (__int64)a2, a3, a4);
+  v7 = (_RTL_DYNAMIC_HASH_TABLE *)SepRmReferenceCapTable((__int64)Sid1, (__int64)a2, a3, a4);
   if ( v7 )
   {
     if ( !SepRmEnforceCap )

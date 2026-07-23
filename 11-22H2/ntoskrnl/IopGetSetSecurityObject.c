@@ -34,7 +34,7 @@
 __int64 __fastcall IopGetSetSecurityObject(
         struct _FILE_OBJECT *Object,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         UNICODE_STRING *a4,
         PULONG Length,
         int a6,
@@ -62,7 +62,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   struct _KTHREAD *v30; // rdi
   PSECURITY_DESCRIPTOR SecurityDescriptor; // rbx
   ULONG *v32; // r8
-  ULONG *v33; // rcx
+  DWORD *v33; // rcx
   _DWORD *DevicePDO; // rax
   void *v35; // rbx
   struct _KTHREAD *v36; // rdi
@@ -71,7 +71,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   __int128 v39; // [rsp+48h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+58h] [rbp-40h] BYREF
   __int64 v41; // [rsp+A0h] [rbp+8h] BYREF
-  ULONG *v42; // [rsp+B0h] [rbp+18h]
+  DWORD *v42; // [rsp+B0h] [rbp+18h]
 
   v42 = a3;
   v38 = 0LL;

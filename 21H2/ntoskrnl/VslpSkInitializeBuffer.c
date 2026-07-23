@@ -1,9 +1,9 @@
 /*
- * XREFs of VslpSkInitializeBuffer @ 0x1408908D8
+ * XREFs of VslpSkInitializeBuffer @ 0x140890A38
  * Callers:
- *     VslpFlushBufferArrayEntryCallback @ 0x1404FDE30 (VslpFlushBufferArrayEntryCallback.c)
+ *     VslpFlushBufferArrayEntryCallback @ 0x1404FDDB0 (VslpFlushBufferArrayEntryCallback.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void *__fastcall VslpSkInitializeBuffer(__int64 a1, int a2, unsigned int a3)

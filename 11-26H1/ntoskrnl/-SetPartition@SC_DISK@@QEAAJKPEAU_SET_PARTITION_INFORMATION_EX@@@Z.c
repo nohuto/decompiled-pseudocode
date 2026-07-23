@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14071B6DC
+ * XREFs of ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14072036C
  * Callers:
- *     IoSetPartitionInformation @ 0x140791210 (IoSetPartitionInformation.c)
- *     IoSetPartitionInformationEx @ 0x1407912F0 (IoSetPartitionInformationEx.c)
+ *     IoSetPartitionInformation @ 0x140793D40 (IoSetPartitionInformation.c)
+ *     IoSetPartitionInformationEx @ 0x140793E20 (IoSetPartitionInformationEx.c)
  * Callees:
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x14071A218 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?IsUnused@SC_PART_ENTRY@@QEAAEXZ @ 0x14071B38C (-IsUnused@SC_PART_ENTRY@@QEAAEXZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14071B498 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x14071B570 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14071B84C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x14071EEA8 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?IsUnused@SC_PART_ENTRY@@QEAAEXZ @ 0x14072001C (-IsUnused@SC_PART_ENTRY@@QEAAEXZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140720128 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x140720200 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1407204DC (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
  */
 
 __int64 __fastcall SC_DISK::SetPartition(SC_DISK *this, unsigned int a2, struct _SET_PARTITION_INFORMATION_EX *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall SC_DISK::SetPartition(SC_DISK *this, unsigned int a2, struct 
   __int64 v10; // rcx
   int v11; // r9d
   _OWORD *v12; // rdx
-  UCHAR PartitionType; // al
+  BYTE PartitionType; // al
   struct SC_DISK_LAYOUT *v15; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = a2;

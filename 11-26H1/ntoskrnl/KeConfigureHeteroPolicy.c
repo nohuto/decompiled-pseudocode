@@ -1,7 +1,7 @@
 /*
- * XREFs of KeConfigureHeteroPolicy @ 0x140A9F184
+ * XREFs of KeConfigureHeteroPolicy @ 0x140AAA6F0
  * Callers:
- *     PopConfigureHeteroPolicies @ 0x140A9E35C (PopConfigureHeteroPolicies.c)
+ *     PopConfigureHeteroPolicies @ 0x140AA9D88 (PopConfigureHeteroPolicies.c)
  * Callees:
  *     <none>
  */
@@ -75,16 +75,16 @@ char __fastcall KeConfigureHeteroPolicy(_DWORD *a1)
         *v9 = v11;
       }
       v12 = *((_BYTE *)a1 + v1 + 90);
-      if ( *((_BYTE *)&stru_140FC01F0.CycleTime + v1) != v12 )
+      if ( *((_BYTE *)&stru_140FC11F0.StackBase + v1) != v12 )
       {
         v8 = 1;
-        *((_BYTE *)&stru_140FC01F0.CycleTime + v1) = v12;
+        *((_BYTE *)&stru_140FC11F0.StackBase + v1) = v12;
       }
       v13 = *((_BYTE *)a1 + v1 + 76);
-      if ( *((_BYTE *)&stru_140FC01F0.StackBase + v1) != v13 )
+      if ( *((_BYTE *)&stru_140FC11F0.CycleTime + v1) != v13 )
       {
         v8 = 1;
-        *((_BYTE *)&stru_140FC01F0.StackBase + v1) = v13;
+        *((_BYTE *)&stru_140FC11F0.CycleTime + v1) = v13;
       }
       ++v9;
       ++v1;

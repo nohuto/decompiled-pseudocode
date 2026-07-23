@@ -1,12 +1,12 @@
 /*
  * XREFs of SleepstudyHelperCreateBlockerFromGuid @ 0x1402099A0
  * Callers:
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A7FE4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x1408503A0 (SleepstudyHelper_RegisterComponentEx.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A81D4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x1408506A0 (SleepstudyHelper_RegisterComponentEx.c)
  * Callees:
  *     SleepstudyHelperSetBlockerFriendlyName @ 0x140209A80 (SleepstudyHelperSetBlockerFriendlyName.c)
  *     SSHSupportAllocatePaged @ 0x14069376C (SSHSupportAllocatePaged.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8290 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8480 (SleepstudyHelperDestroyBlockerBuilder.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateBlockerFromGuid(

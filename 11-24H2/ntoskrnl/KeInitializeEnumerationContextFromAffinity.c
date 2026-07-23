@@ -1,5 +1,5 @@
 /*
- * XREFs of KeInitializeEnumerationContextFromAffinity @ 0x140459830
+ * XREFs of KeInitializeEnumerationContextFromAffinity @ 0x14044E560
  * Callers:
  *     <none>
  * Callees:

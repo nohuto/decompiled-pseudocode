@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCmResourcesToIoResources @ 0x140733330
+ * XREFs of PnpCmResourcesToIoResources @ 0x140731264
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1405A6878 (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     IoReportResourceUsageInternal @ 0x140720F18 (IoReportResourceUsageInternal.c)
- *     IopAllocateBootResourcesInternal @ 0x1407252A8 (IopAllocateBootResourcesInternal.c)
- *     PnpRestoreResourcesInternal @ 0x1407348C0 (PnpRestoreResourcesInternal.c)
- *     PnpFilterResourceRequirementsList @ 0x14098D2D0 (PnpFilterResourceRequirementsList.c)
- *     IopQueryDeviceResources @ 0x14098DEA4 (IopQueryDeviceResources.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1405A37AC (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     IoReportResourceUsageInternal @ 0x14071EAA8 (IoReportResourceUsageInternal.c)
+ *     IopAllocateBootResourcesInternal @ 0x140722E38 (IopAllocateBootResourcesInternal.c)
+ *     PnpRestoreResourcesInternal @ 0x1407327F0 (PnpRestoreResourcesInternal.c)
+ *     PnpFilterResourceRequirementsList @ 0x140978308 (PnpFilterResourceRequirementsList.c)
+ *     IopQueryDeviceResources @ 0x140978EDC (IopQueryDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1404955C0 (RtlCmDecodeMemIoResource.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlCmDecodeMemIoResource @ 0x14048FE80 (RtlCmDecodeMemIoResource.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpCmResourcesToIoResources(__int64 a1, _DWORD *a2, int a3)
@@ -23,7 +23,7 @@ __int64 __fastcall PnpCmResourcesToIoResources(__int64 a1, _DWORD *a2, int a3)
   unsigned int v11; // eax
   __int64 v12; // rdx
   __int64 v13; // rax
-  int v14; // ebx
+  unsigned int v14; // ebx
   __int64 Pool2; // rax
   __int64 v16; // rsi
   int v17; // ebp
@@ -75,7 +75,7 @@ __int64 __fastcall PnpCmResourcesToIoResources(__int64 a1, _DWORD *a2, int a3)
   if ( !v8 )
     return 0LL;
   v14 = v3 + v8;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 32LL * v14 + 72, 0x36706E50u);
   v16 = Pool2;
   if ( !Pool2 )
     return 0LL;

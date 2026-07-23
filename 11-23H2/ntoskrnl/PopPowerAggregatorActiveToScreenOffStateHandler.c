@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140877C40
+ * XREFs of PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140877E80
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopPowerAggregatorStartNextSession @ 0x140877C84 (PopPowerAggregatorStartNextSession.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140877DE8 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140877EC4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140878028 (PopPowerAggregatorSetCurrentState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorActiveToScreenOffStateHandler(__int64 a1)

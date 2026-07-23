@@ -1,37 +1,37 @@
 /*
- * XREFs of LogFwInitialize @ 0x140BB2E70
+ * XREFs of LogFwInitialize @ 0x140BB4E70
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140BB5400 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x140BB7400 (BgpFwLibraryInitialize.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *LogFwInitialize()
 {
-  dword_140EF0050 |= 0x80u;
-  qword_140EEFB68 = 0LL;
-  qword_140EEFBA0 = 0LL;
-  qword_140EEFB28 = 0LL;
-  dword_140EEFB10 = 0;
-  qword_140EEFB30 = 0LL;
-  qword_140EEFBA8 = 0LL;
-  qword_140EEFB48 = 0LL;
-  qword_140EEFB20 = 0LL;
-  qword_140EEFB58 = 0LL;
-  qword_140EEFB38 = 0LL;
-  qword_140EEFB40 = 0LL;
-  qword_140EEFB88 = 0LL;
-  qword_140EEFB70 = 0LL;
-  qword_140EEFB78 = 0LL;
-  qword_140EEFB90 = 0LL;
-  dword_140EEFB60 = 0;
-  dword_140EEFB50 = 0;
-  dword_140EEFB18 = 0;
-  dword_140EEFB80 = 0;
-  dword_140EEFB14 = 0;
-  dword_140EEFB64 = 0;
-  qword_140E0F080 = 1LL;
-  qword_140E0F088 = 0x7FFFFFFFFFFFFFFFLL;
-  qword_140E0F078 = 0x7FFFFFFFFFFFFFFFLL;
-  return memset_0(&qword_140E64FE0, 0, 0x48uLL);
+  dword_140EF0270 |= 0x80u;
+  qword_140EEFD68 = 0LL;
+  qword_140EEFD90 = 0LL;
+  qword_140EEFDC0 = 0LL;
+  dword_140EEFDB4 = 0;
+  qword_140EEFDD0 = 0LL;
+  qword_140EEFDA8 = 0LL;
+  qword_140EEFDE8 = 0LL;
+  qword_140EEFDC8 = 0LL;
+  qword_140EEFD50 = 0LL;
+  qword_140EEFDE0 = 0LL;
+  qword_140EEFDD8 = 0LL;
+  qword_140EEFD80 = 0LL;
+  qword_140EEFD70 = 0LL;
+  qword_140EEFD78 = 0LL;
+  qword_140EEFD98 = 0LL;
+  dword_140EEFD60 = 0;
+  dword_140EEFD58 = 0;
+  dword_140EEFDB8 = 0;
+  dword_140EEFD88 = 0;
+  dword_140EEFDB0 = 0;
+  dword_140EEFD5C = 0;
+  qword_140E0F158 = 1LL;
+  qword_140E0F148 = 0x7FFFFFFFFFFFFFFFLL;
+  qword_140E0F150 = 0x7FFFFFFFFFFFFFFFLL;
+  return memset_0(&qword_140E65160, 0, 0x48uLL);
 }

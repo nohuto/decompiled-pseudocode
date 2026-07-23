@@ -1,14 +1,14 @@
 /*
- * XREFs of PopReleaseTransitionLock @ 0x14071E704
+ * XREFs of PopReleaseTransitionLock @ 0x14071F9A4
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x14056C5F0 (PopUnlockAfterSleepWorker.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PopNotifyPolicyDevice @ 0x140740E10 (PopNotifyPolicyDevice.c)
- *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
- *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
+ *     PopUnlockAfterSleepWorker @ 0x14056D5F0 (PopUnlockAfterSleepWorker.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     PopNotifyPolicyDevice @ 0x140742000 (PopNotifyPolicyDevice.c)
+ *     PoInitHiberServices @ 0x140746E80 (PoInitHiberServices.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x1408693B8 (PopDirectedDripsNotifyDrivers.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
  */
 
 LONG __fastcall PopReleaseTransitionLock(int a1)

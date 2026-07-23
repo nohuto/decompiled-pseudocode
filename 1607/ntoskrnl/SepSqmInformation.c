@@ -1,15 +1,15 @@
 /*
- * XREFs of SepSqmInformation @ 0x140695354
+ * XREFs of SepSqmInformation @ 0x140695438
  * Callers:
- *     SeAdjustObjectAppContainerSecurity @ 0x14069479C (SeAdjustObjectAppContainerSecurity.c)
+ *     SeAdjustObjectAppContainerSecurity @ 0x140694880 (SeAdjustObjectAppContainerSecurity.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
- *     SepSetSqmObjectName @ 0x140695270 (SepSetSqmObjectName.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
+ *     SepSetSqmObjectName @ 0x140695354 (SepSetSqmObjectName.c)
  */
 
 NTSTATUS __fastcall SepSqmInformation(__int64 a1)
@@ -36,7 +36,7 @@ NTSTATUS __fastcall SepSqmInformation(__int64 a1)
     ExfAcquirePushLockExclusiveEx(&qword_1403581D8, v3, (ULONG_PTR)&qword_1403581D8);
   if ( v5 )
     v5[26] |= 1u;
-  if ( qword_1403581E0 || EtwRegister(&stru_140286BF0, 0LL, 0LL, &qword_1403581E0) >= 0 )
+  if ( qword_1403581E0 || EtwRegister(&stru_140286CE0, 0LL, 0LL, &qword_1403581E0) >= 0 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403581D8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403581D8);

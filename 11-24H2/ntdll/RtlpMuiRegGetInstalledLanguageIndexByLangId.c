@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1800122F0
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x18003ECF0
  * Callers:
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     LdrpMergeLangFallbackLists @ 0x1800356C0 (LdrpMergeLangFallbackLists.c)
- *     RtlLCIDToCultureName @ 0x1800360C0 (RtlLCIDToCultureName.c)
- *     RtlGetUILanguageInfo @ 0x18007B9D0 (RtlGetUILanguageInfo.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18007D580 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1800E1AA0 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpRefreshCachedUILanguage @ 0x180149BD0 (RtlpRefreshCachedUILanguage.c)
- *     _RtlpMuiRegValidateInstalled @ 0x18014AC60 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     LdrpMergeLangFallbackLists @ 0x180015940 (LdrpMergeLangFallbackLists.c)
+ *     RtlLCIDToCultureName @ 0x180016340 (RtlLCIDToCultureName.c)
+ *     RtlGetUILanguageInfo @ 0x1800CA620 (RtlGetUILanguageInfo.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x1800CAFA0 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1800DD070 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpRefreshCachedUILanguage @ 0x180147F80 (RtlpRefreshCachedUILanguage.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180149010 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlLCIDToCultureName @ 0x1800360C0 (RtlLCIDToCultureName.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
+ *     RtlLCIDToCultureName @ 0x180016340 (RtlLCIDToCultureName.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsigned __int16 a2, char a3, _WORD *a4)
 {
   char v4; // r11
-  unsigned int v5; // ebx
+  LCID v5; // ebx
   unsigned int v9; // edi
   __int64 v10; // r9
   char v11; // r13
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   _WORD *v13; // r8
   wchar_t *Heap; // rax
   wchar_t *v15; // rbp
-  const wchar_t *v17; // r14
+  wchar_t *Buffer; // r14
   __int64 v18; // r12
   __int64 v19; // rsi
   int v20; // ebx
@@ -35,14 +35,14 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   const wchar_t *v22; // rcx
   int j; // ecx
   _WORD *v24; // rdx
-  wchar_t *String2[2]; // [rsp+20h] [rbp-38h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
   char v26; // [rsp+60h] [rbp+8h]
 
   v4 = 0;
   v5 = a2;
   v26 = 0;
   v9 = -1073741772;
-  *(_OWORD *)String2 = 0LL;
+  String = 0LL;
   if ( !a1 || !a2 )
     return 3221225485LL;
   if ( a2 == 4096 )
@@ -53,19 +53,19 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   {
     if ( i >= *(unsigned __int16 *)(v10 + 6) )
     {
-      Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+      Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
       v15 = Heap;
       if ( Heap )
       {
-        String2[1] = Heap;
-        LODWORD(String2[0]) = 11141120;
-        if ( a3 && (unsigned __int8)RtlLCIDToCultureName(v5, String2) )
+        String.Buffer = Heap;
+        *(_DWORD *)&String.Length = 11141120;
+        if ( a3 && RtlLCIDToCultureName(v5, &String) )
         {
-          v17 = String2[1];
-          if ( String2[1] )
+          Buffer = String.Buffer;
+          if ( String.Buffer )
           {
             v18 = *(_QWORD *)(a1 + 24);
-            if ( !*String2[1] )
+            if ( !*String.Buffer )
               goto LABEL_43;
             v19 = *(_QWORD *)(a1 + 32);
             if ( v19 )
@@ -75,7 +75,7 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
               while ( v20 < *(unsigned __int16 *)(v19 + 6) )
               {
                 v22 = (const wchar_t *)(*(_QWORD *)(v19 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v19 + 16) + v21));
-                if ( v22 == v17 || !wcsicmp(v22, v17) )
+                if ( v22 == Buffer || !wcsicmp(v22, Buffer) )
                 {
                   if ( v20 < 0 )
                     break;
@@ -121,7 +121,7 @@ LABEL_43:
           }
         }
 LABEL_10:
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v15);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
         if ( v26 && v9 == -1073741772 )
           return 3221225659LL;
       }

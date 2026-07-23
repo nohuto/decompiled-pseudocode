@@ -1,13 +1,13 @@
 /*
  * XREFs of PsIsCurrentThreadPrefetching @ 0x140232600
  * Callers:
- *     MiShareExistingControlArea @ 0x1406FE8F4 (MiShareExistingControlArea.c)
- *     MiCreateImageFileMap @ 0x140707E70 (MiCreateImageFileMap.c)
+ *     sub_1406FE8F4 @ 0x1406FE8F4 (sub_1406FE8F4.c)
+ *     sub_140707E70 @ 0x140707E70 (sub_140707E70.c)
  * Callees:
  *     <none>
  */
 
 BOOLEAN PsIsCurrentThreadPrefetching(void)
 {
-  return ((__int64)KeGetCurrentThread()[1].Queue & 0x40) != 0;
+  return (*((_BYTE *)KeGetCurrentThread() + 1384) & 0x40) != 0;
 }

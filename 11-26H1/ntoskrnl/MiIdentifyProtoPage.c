@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIdentifyProtoPage @ 0x1402F1EE0
+ * XREFs of MiIdentifyProtoPage @ 0x1402D3F60
  * Callers:
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiGetSharedProtos @ 0x140372BD8 (MiGetSharedProtos.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiGetSharedProtos @ 0x140374988 (MiGetSharedProtos.c)
  */
 
 unsigned __int64 __fastcall MiIdentifyProtoPage(__int64 a1, _QWORD *a2, unsigned __int64 *a3)
@@ -29,12 +29,12 @@ unsigned __int64 __fastcall MiIdentifyProtoPage(__int64 a1, _QWORD *a2, unsigned
   v3 = a2[2];
   if ( (v3 & 0x400) != 0 )
   {
-    if ( qword_140E2D740 && (v3 & 0x10) == 0 )
-      v3 &= qword_140E2D748;
+    if ( qword_140E2D8C0 && (v3 & 0x10) == 0 )
+      v3 &= qword_140E2D8C8;
     v6 = 0LL;
     v7 = (v3 >> 12) & 0x3FFFFFFFFFFLL;
     if ( v7 )
-      v8 = (_QWORD *)(qword_140E37B90 - 8 + 8 * v7);
+      v8 = (_QWORD *)(qword_140E37D10 - 8 + 8 * v7);
     else
       v8 = 0LL;
     v9 = *v8;
@@ -43,7 +43,7 @@ unsigned __int64 __fastcall MiIdentifyProtoPage(__int64 a1, _QWORD *a2, unsigned
     if ( (*(_QWORD *)(v9 + 64) & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
     {
       a3[2] = *(_QWORD *)((*(_QWORD *)(v9 + 64) & 0xFFFFFFFFFFFFFFF0uLL) + 0x18);
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       {
         _InterlockedAnd((volatile signed __int32 *)(v9 + 72), 0xBFFFFFFF);
         _InterlockedDecrement((volatile signed __int32 *)(v9 + 72));

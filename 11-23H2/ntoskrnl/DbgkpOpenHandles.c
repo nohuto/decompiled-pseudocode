@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpOpenHandles @ 0x140937524
+ * XREFs of DbgkpOpenHandles @ 0x140937724
  * Callers:
- *     NtWaitForDebugEvent @ 0x140938DE0 (NtWaitForDebugEvent.c)
+ *     NtWaitForDebugEvent @ 0x140938FE0 (NtWaitForDebugEvent.c)
  * Callees:
- *     ObDuplicateObject @ 0x1406FB8F0 (ObDuplicateObject.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
+ *     ObDuplicateObject @ 0x1406FBB00 (ObDuplicateObject.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
  */
 
 void __fastcall DbgkpOpenHandles(__int64 a1, void *a2, void *a3)

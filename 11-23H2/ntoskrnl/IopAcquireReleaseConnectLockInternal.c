@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAcquireReleaseConnectLockInternal @ 0x140848654
+ * XREFs of IopAcquireReleaseConnectLockInternal @ 0x140848954
  * Callers:
- *     IoDisconnectInterrupt @ 0x14078E1D0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x14078E760 (IopConnectInterrupt.c)
- *     IopInitializeActiveConnectBlock @ 0x14078EC94 (IopInitializeActiveConnectBlock.c)
- *     IopDestroyActiveConnectBlock @ 0x14078ED68 (IopDestroyActiveConnectBlock.c)
+ *     IoDisconnectInterrupt @ 0x14078E3C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14078E950 (IopConnectInterrupt.c)
+ *     IopInitializeActiveConnectBlock @ 0x14078EE84 (IopInitializeActiveConnectBlock.c)
+ *     IopDestroyActiveConnectBlock @ 0x14078EF58 (IopDestroyActiveConnectBlock.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall IopAcquireReleaseConnectLockInternal(__int64 a1, char a2, char a3)

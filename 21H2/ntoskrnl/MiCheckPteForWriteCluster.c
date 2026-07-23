@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckPteForWriteCluster @ 0x1403877F4
+ * XREFs of MiCheckPteForWriteCluster @ 0x140387944
  * Callers:
- *     MiGetPageForWriteCluster @ 0x1403876CC (MiGetPageForWriteCluster.c)
+ *     MiGetPageForWriteCluster @ 0x14038781C (MiGetPageForWriteCluster.c)
  * Callees:
- *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
+ *     MiLockTransitionLeafPage @ 0x140224B74 (MiLockTransitionLeafPage.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -32,8 +32,8 @@ __int64 __fastcall MiCheckPteForWriteCluster(
   {
     goto LABEL_11;
   }
-  if ( qword_140C4DF40 && (a3 & 0x10) == 0 )
-    a3 &= ~qword_140C4DF40;
+  if ( qword_140C4DF80 && (a3 & 0x10) == 0 )
+    a3 &= ~qword_140C4DF80;
   if ( _bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(a3)) )
   {
 LABEL_11:

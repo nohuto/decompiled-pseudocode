@@ -1,584 +1,588 @@
 /*
- * XREFs of LdrpSearchResourceSection_U @ 0x14068DCE4
+ * XREFs of LdrpSearchResourceSection_U @ 0x1405EDB54
  * Callers:
- *     LdrpGetRcConfig @ 0x1402A92B4 (LdrpGetRcConfig.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x1402A93F8 (LdrpLoadResourceFromAlternativeModule.c)
- *     RtlFindMessage @ 0x14068D900 (RtlFindMessage.c)
- *     LdrFindResource_U @ 0x1407C5730 (LdrFindResource_U.c)
- *     LdrFindResourceDirectory_U @ 0x140910A00 (LdrFindResourceDirectory_U.c)
- *     LdrFindResourceEx_U @ 0x140910A20 (LdrFindResourceEx_U.c)
- *     RtlLoadString @ 0x1409116C0 (RtlLoadString.c)
+ *     LdrpGetRcConfig @ 0x1402273F4 (LdrpGetRcConfig.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x140227538 (LdrpLoadResourceFromAlternativeModule.c)
+ *     RtlFindMessage @ 0x1405ED770 (RtlFindMessage.c)
+ *     LdrFindResource_U @ 0x1407C5C50 (LdrFindResource_U.c)
+ *     LdrFindResourceDirectory_U @ 0x140910B60 (LdrFindResourceDirectory_U.c)
+ *     LdrFindResourceEx_U @ 0x140910B80 (LdrFindResourceEx_U.c)
+ *     RtlLoadString @ 0x140911820 (RtlLoadString.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
- *     LdrIsResItemExist @ 0x1402A9020 (LdrIsResItemExist.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x1402A93F8 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpGetParentLangId @ 0x1402A994C (LdrpGetParentLangId.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x1403F8578 (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrIsResItemExist @ 0x140227160 (LdrIsResItemExist.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x140227538 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpGetParentLangId @ 0x140227A8C (LdrpGetParentLangId.c)
+ *     RtlImageDirectoryEntryToData @ 0x140286140 (RtlImageDirectoryEntryToData.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1403F85A8 (LdrpCompareResourceNamesWithValidation.c)
  */
 
-__int64 __fastcall LdrpSearchResourceSection_U(__int64 a1, __int64 *a2, unsigned int a3, int a4, unsigned int **a5)
+int __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned int a3, ULONG a4, unsigned int **a5)
 {
-  int v5; // r15d
+  ULONG v5; // r15d
   int v6; // esi
-  int v8; // edx
-  int v9; // eax
-  unsigned __int16 v10; // r14
-  __int64 v11; // rax
-  __int64 v12; // r8
-  __int64 result; // rax
-  __int64 v14; // rbx
-  unsigned int *v15; // r12
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  int v18; // eax
-  char v19; // di
-  char v20; // r8
-  unsigned int v21; // ecx
-  __int64 v22; // rax
-  int v23; // r9d
-  int v24; // eax
-  __int64 v25; // r8
-  bool v26; // cl
-  int v27; // ebx
+  __int64 *v7; // r13
+  int v8; // eax
+  unsigned __int16 v9; // r14
+  char *v10; // rax
+  int result; // eax
+  unsigned int *v12; // rbx
+  unsigned int *v13; // r12
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  int v16; // eax
+  char v17; // di
+  char v18; // r8
+  unsigned int v19; // ecx
+  __int64 v20; // rax
+  int v21; // r9d
+  int v22; // eax
+  unsigned int *v23; // r8
+  bool v24; // cl
+  int v25; // ebx
+  int v26; // eax
+  int v27; // eax
   int v28; // eax
   int v29; // eax
   int v30; // eax
   int v31; // eax
-  int v32; // eax
-  int v33; // eax
-  __int16 v34; // ax
-  __int16 v35; // cx
-  __int64 v36; // rdi
-  unsigned int *v37; // rsi
-  __int64 v38; // rcx
-  unsigned int *v39; // rax
-  unsigned __int16 v40; // r12
-  __int64 v41; // rax
-  char v42; // di
-  unsigned int *v43; // r15
-  const wchar_t *v44; // r8
-  int v45; // eax
-  __int64 v46; // rax
-  __int64 v47; // rdi
-  const wchar_t *v48; // r8
-  __int16 v49[2]; // [rsp+30h] [rbp-118h] BYREF
-  char v50; // [rsp+34h] [rbp-114h]
-  bool v51; // [rsp+35h] [rbp-113h]
-  char v52; // [rsp+36h] [rbp-112h]
-  int v53; // [rsp+38h] [rbp-110h]
-  char v54; // [rsp+3Ch] [rbp-10Ch]
-  unsigned int v55; // [rsp+40h] [rbp-108h]
-  char v56; // [rsp+44h] [rbp-104h] BYREF
-  char v57[3]; // [rsp+45h] [rbp-103h] BYREF
-  unsigned int v58; // [rsp+48h] [rbp-100h]
-  int v59; // [rsp+4Ch] [rbp-FCh]
-  unsigned __int16 v60; // [rsp+50h] [rbp-F8h] BYREF
-  int v61; // [rsp+54h] [rbp-F4h]
-  unsigned int **v62; // [rsp+58h] [rbp-F0h]
-  __int64 v63; // [rsp+60h] [rbp-E8h] BYREF
-  unsigned int *v64; // [rsp+68h] [rbp-E0h]
-  __int64 v65; // [rsp+70h] [rbp-D8h]
-  unsigned int v66; // [rsp+78h] [rbp-D0h]
-  bool v67; // [rsp+7Ch] [rbp-CCh]
-  char v68; // [rsp+7Dh] [rbp-CBh]
-  __int16 v69; // [rsp+80h] [rbp-C8h]
-  int v70; // [rsp+84h] [rbp-C4h]
-  __int64 v71; // [rsp+88h] [rbp-C0h]
-  __int64 v72; // [rsp+90h] [rbp-B8h]
-  __int64 v73; // [rsp+98h] [rbp-B0h]
-  unsigned int *v74; // [rsp+A0h] [rbp-A8h]
-  unsigned int *v75; // [rsp+A8h] [rbp-A0h]
-  unsigned int *v76; // [rsp+B0h] [rbp-98h]
-  unsigned int *v77; // [rsp+B8h] [rbp-90h]
-  int v78; // [rsp+C0h] [rbp-88h]
-  __int64 v79; // [rsp+C8h] [rbp-80h]
-  __int64 *v80; // [rsp+D0h] [rbp-78h]
-  __int64 *v81; // [rsp+D8h] [rbp-70h]
-  _QWORD v82[2]; // [rsp+E0h] [rbp-68h] BYREF
-  __int64 v83; // [rsp+F0h] [rbp-58h]
-  __int64 v84; // [rsp+F8h] [rbp-50h]
+  __int16 v32; // ax
+  __int16 v33; // cx
+  __int64 v34; // rdi
+  unsigned int *v35; // rsi
+  __int64 v36; // rcx
+  unsigned int *v37; // rax
+  unsigned __int16 v38; // r12
+  __int64 v39; // rax
+  char v40; // di
+  unsigned int *v41; // r15
+  const wchar_t *v42; // r8
+  int v43; // eax
+  __int64 v44; // rax
+  __int64 v45; // rdi
+  const wchar_t *v46; // r8
+  __int16 v47[2]; // [rsp+30h] [rbp-118h] BYREF
+  char v48; // [rsp+34h] [rbp-114h]
+  bool v49; // [rsp+35h] [rbp-113h]
+  char v50; // [rsp+36h] [rbp-112h]
+  int v51; // [rsp+38h] [rbp-110h]
+  char v52; // [rsp+3Ch] [rbp-10Ch]
+  unsigned int v53; // [rsp+40h] [rbp-108h]
+  char v54; // [rsp+44h] [rbp-104h] BYREF
+  char v55[3]; // [rsp+45h] [rbp-103h] BYREF
+  unsigned int v56; // [rsp+48h] [rbp-100h]
+  int v57; // [rsp+4Ch] [rbp-FCh]
+  ULONG Size; // [rsp+50h] [rbp-F8h] BYREF
+  ULONG v59; // [rsp+54h] [rbp-F4h]
+  unsigned int **v60; // [rsp+58h] [rbp-F0h]
+  __int64 v61; // [rsp+60h] [rbp-E8h] BYREF
+  unsigned int *v62; // [rsp+68h] [rbp-E0h]
+  void *v63; // [rsp+70h] [rbp-D8h]
+  unsigned int v64; // [rsp+78h] [rbp-D0h]
+  bool v65; // [rsp+7Ch] [rbp-CCh]
+  char v66; // [rsp+7Dh] [rbp-CBh]
+  __int16 v67; // [rsp+80h] [rbp-C8h]
+  int v68; // [rsp+84h] [rbp-C4h]
+  unsigned int *v69; // [rsp+88h] [rbp-C0h]
+  unsigned __int16 *v70; // [rsp+90h] [rbp-B8h]
+  char *v71; // [rsp+98h] [rbp-B0h]
+  unsigned int *v72; // [rsp+A0h] [rbp-A8h]
+  unsigned int *v73; // [rsp+A8h] [rbp-A0h]
+  unsigned int *v74; // [rsp+B0h] [rbp-98h]
+  unsigned int *v75; // [rsp+B8h] [rbp-90h]
+  int v76; // [rsp+C0h] [rbp-88h]
+  unsigned int *v77; // [rsp+C8h] [rbp-80h]
+  __int64 *v78; // [rsp+D0h] [rbp-78h]
+  __int64 *v79; // [rsp+D8h] [rbp-70h]
+  _QWORD v80[2]; // [rsp+E0h] [rbp-68h] BYREF
+  __int64 v81; // [rsp+F0h] [rbp-58h]
+  __int64 v82; // [rsp+F8h] [rbp-50h]
 
   v5 = a4;
-  v61 = a4;
+  v59 = a4;
   v6 = a3;
-  v66 = a3;
-  v65 = a1;
-  v8 = (int)a5;
-  v62 = a5;
-  v63 = 0LL;
-  v80 = a2;
-  v51 = 0;
-  v54 = 1;
+  v64 = a3;
+  v7 = a2;
+  v63 = a1;
+  v60 = a5;
+  v61 = 0LL;
+  v78 = a2;
+  v49 = 0;
   v52 = 1;
+  v50 = 1;
   if ( a3 < 3 && (a4 & 2) == 0 || a3 > 4 || (a4 & 0x41) != 0 && a3 != 4 || a3 == 4 && (a4 & 0x41) == 0 )
-    return 3221225713LL;
-  v9 = a3;
+    return -1073741583;
+  v8 = a3;
   if ( a3 == 4 )
-    v9 = 3;
-  v58 = v9;
-  v59 = v9;
-  LOWORD(v55) = 0;
-  v10 = 0;
-  v49[0] = 0;
+    v8 = 3;
+  v56 = v8;
+  v57 = v8;
+  LOWORD(v53) = 0;
+  v9 = 0;
+  v47[0] = 0;
   if ( (unsigned __int64)a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL
     || (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL
     || (unsigned __int64)a5 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
-  LOBYTE(v8) = 1;
-  v11 = RtlImageDirectoryEntryToData(a1, v8, 2, (int)&v60);
-  v73 = v11;
-  if ( !v11 )
-    return 3221225609LL;
-  v14 = v11;
-  v71 = v11;
-  v63 = 61166LL;
-  v70 = 0;
-  v15 = 0LL;
-  v64 = 0LL;
-  v74 = 0LL;
+  v10 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 2u, &Size);
+  v71 = v10;
+  if ( !v10 )
+    return -1073741687;
+  v12 = (unsigned int *)v10;
+  v69 = (unsigned int *)v10;
+  v61 = 61166LL;
+  v68 = 0;
+  v13 = 0LL;
+  v62 = 0LL;
   v72 = 0LL;
-  v79 = 0LL;
-  if ( (~(_BYTE)v5 & 0x10) == 0 || v58 - 1 > 2 || PnPBootDriversInitialized != 1 )
+  v70 = 0LL;
+  v77 = 0LL;
+  if ( (~(_BYTE)v5 & 0x10) == 0 || v56 - 1 > 2 || PnPBootDriversInitialized != 1 )
     goto LABEL_30;
-  if ( v58 == 3 )
-    v16 = *((unsigned __int16 *)a2 + 8);
+  if ( v56 == 3 )
+    v14 = *((unsigned __int16 *)v7 + 8);
   else
-    v16 = 0LL;
-  v55 = v16;
-  v69 = v16;
-  v17 = *a2;
-  if ( ((*a2 - 16) & 0xFFFFFFFFFFFFFFF7uLL) == 0 )
+    v14 = 0LL;
+  v53 = v14;
+  v67 = v14;
+  v15 = *v7;
+  if ( ((*v7 - 16) & 0xFFFFFFFFFFFFFFF7uLL) == 0 )
     goto LABEL_25;
-  if ( (v17 & 0xFFFFFFFFFFFF0000uLL) != 0 && !wcsicmp((const wchar_t *)v17, L"MUI") )
+  if ( (v15 & 0xFFFFFFFFFFFF0000uLL) != 0 && !wcsicmp((const wchar_t *)v15, L"MUI") )
   {
-    v16 = v55;
+    v14 = v53;
 LABEL_25:
-    if ( (~(_BYTE)v5 & 8) != 0 && (v16 & 0xF3FF) == 0 && (_WORD)v16 != 3072 )
+    if ( (~(_BYTE)v5 & 8) != 0 && (v14 & 0xF3FF) == 0 && (_WORD)v14 != 3072 )
     {
       v5 |= 0x10u;
-      v61 = v5;
+      v59 = v5;
       goto LABEL_31;
     }
   }
-  v5 |= LdrIsResItemExist(v65, a2, v12);
-  v61 = v5;
+  v5 |= LdrIsResItemExist(v63, v7);
+  v59 = v5;
 LABEL_30:
-  v16 = v55;
+  v14 = v53;
 LABEL_31:
-  if ( PnPBootDriversInitialized == 1 && (v18 = ~v5, (~v5 & 0x80000) != 0) && (v18 & 0x20000) != 0 && (v18 & 0x10) != 0 )
+  if ( PnPBootDriversInitialized == 1 && (v16 = ~v5, (~v5 & 0x80000) != 0) && (v16 & 0x20000) != 0 && (v16 & 0x10) != 0 )
   {
-    v19 = 1;
-    v50 = 1;
+    v17 = 1;
+    v48 = 1;
   }
   else
   {
-    v19 = 0;
-    v50 = 0;
+    v17 = 0;
+    v48 = 0;
   }
   if ( PnPBootDriversInitialized && (v5 & 0x2040000) == 0 )
   {
-    v20 = v52;
+    v18 = v50;
   }
   else
   {
-    v20 = 0;
-    v52 = 0;
+    v18 = 0;
+    v50 = 0;
   }
-  if ( !v19 && !v20 )
+  if ( !v17 && !v18 )
     goto LABEL_48;
-  v82[0] = *a2;
-  v21 = v58;
-  if ( v58 < 2 )
-    v22 = 0LL;
+  v80[0] = *v7;
+  v19 = v56;
+  if ( v56 < 2 )
+    v20 = 0LL;
   else
-    v22 = a2[1];
-  v82[1] = v22;
+    v20 = v7[1];
+  v80[1] = v20;
   if ( v6 == 4 )
-    v84 = a2[3];
+    v82 = v7[3];
 LABEL_49:
-  v23 = v59;
-  if ( !v14 || (v24 = v59, v23 = v59 - 1, v59 = v23, v78 = v23, !v24) )
+  v21 = v57;
+  if ( !v12 || (v22 = v57, v21 = v57 - 1, v57 = v21, v76 = v21, !v22) )
   {
-    v25 = v72;
+    v23 = (unsigned int *)v70;
 LABEL_63:
-    if ( !v15 || (v5 & 2) != 0 )
+    if ( !v13 || (v5 & 2) != 0 )
     {
-      if ( !v14 || (v5 & 2) == 0 )
+      if ( !v12 || (v5 & 2) == 0 )
       {
 LABEL_70:
-        switch ( v21 - v23 )
+        switch ( v19 - v21 )
         {
           case 1u:
-            result = 3221225610LL;
+            result = -1073741686;
             goto LABEL_77;
           case 2u:
-            result = 3221225611LL;
+            result = -1073741685;
             break;
           case 3u:
-            result = 3221225988LL;
-            v53 = -1073741308;
-            if ( !v25 )
+            result = -1073741308;
+            v51 = -1073741308;
+            if ( !v23 )
               return result;
-            v64 = 0LL;
-            v74 = 0LL;
-            if ( v54 )
+            v62 = 0LL;
+            v72 = 0LL;
+            if ( v52 )
             {
-              v26 = v51;
+              v24 = v49;
 LABEL_81:
-              v27 = v70;
+              v25 = v68;
               while ( 1 )
               {
-                v28 = v27++;
-                v70 = v27;
-                if ( v28 )
+                v26 = v25++;
+                v68 = v25;
+                if ( v26 )
                 {
-                  v29 = v28 - 1;
-                  if ( v29 )
+                  v27 = v26 - 1;
+                  if ( v27 )
                   {
-                    v30 = v29 - 1;
-                    if ( v30 )
+                    v28 = v27 - 1;
+                    if ( v28 )
                     {
-                      v31 = v30 - 1;
-                      if ( !v31 )
+                      v29 = v28 - 1;
+                      if ( !v29 )
                       {
                         if ( PsInstallUILanguageId != PsMachineUILanguageId )
                         {
-                          if ( v19 )
+                          if ( v17 )
                           {
-                            v83 = (unsigned __int16)PsInstallUILanguageId;
-                            result = LdrpLoadResourceFromAlternativeModule(v65, (__int64)v82, v6, v5, v62);
-                            v53 = result;
-                            if ( (int)result >= 0 )
+                            v81 = (unsigned __int16)PsInstallUILanguageId;
+                            result = LdrpLoadResourceFromAlternativeModule(v63, (__int64)v80, v6, v5, v60);
+                            v51 = result;
+                            if ( result >= 0 )
                               return result;
                           }
-                          v34 = PsInstallUILanguageId;
+                          v32 = PsInstallUILanguageId;
                           goto LABEL_106;
                         }
 LABEL_102:
-                        v10 = v63;
-                        v49[0] = v63;
+                        v9 = v61;
+                        v47[0] = v61;
                         goto LABEL_129;
                       }
-                      v32 = v31 - 1;
-                      if ( v32 )
+                      v30 = v29 - 1;
+                      if ( v30 )
                       {
-                        v33 = v32 - 1;
-                        if ( v33 )
+                        v31 = v30 - 1;
+                        if ( v31 )
                         {
-                          if ( v33 != 1 )
+                          if ( v31 != 1 )
                             break;
                           v5 |= 0x20u;
-                          v61 = v5;
+                          v59 = v5;
                         }
                         else
                         {
-                          v10 = 1033;
-                          v49[0] = 1033;
+                          v9 = 1033;
+                          v47[0] = 1033;
                           if ( PsDefaultSystemLocaleId == 1033
                             || PsInstallUILanguageId == 1033
                             || PsMachineUILanguageId == 1033 )
                           {
                             goto LABEL_102;
                           }
-                          if ( v19 )
+                          if ( v17 )
                           {
-                            v83 = 1033LL;
-                            result = LdrpLoadResourceFromAlternativeModule(v65, (__int64)v82, v6, v5, v62);
-                            v53 = result;
-                            if ( (int)result >= 0 )
+                            v81 = 1033LL;
+                            result = LdrpLoadResourceFromAlternativeModule(v63, (__int64)v80, v6, v5, v60);
+                            v51 = result;
+                            if ( result >= 0 )
                               return result;
                           }
                         }
                       }
                       else
                       {
-                        v10 = PsDefaultSystemLocaleId;
-                        v49[0] = PsDefaultSystemLocaleId;
+                        v9 = PsDefaultSystemLocaleId;
+                        v47[0] = PsDefaultSystemLocaleId;
                         if ( (_WORD)PsDefaultSystemLocaleId == PsInstallUILanguageId
                           || (_WORD)PsDefaultSystemLocaleId == PsMachineUILanguageId )
                         {
                           goto LABEL_102;
                         }
-                        if ( v19 )
+                        if ( v17 )
                         {
-                          v83 = (unsigned __int16)PsDefaultSystemLocaleId;
-                          result = LdrpLoadResourceFromAlternativeModule(v65, (__int64)v82, v6, v5, v62);
-                          v53 = result;
-                          if ( (int)result >= 0 )
+                          v81 = (unsigned __int16)PsDefaultSystemLocaleId;
+                          result = LdrpLoadResourceFromAlternativeModule(v63, (__int64)v80, v6, v5, v60);
+                          v51 = result;
+                          if ( result >= 0 )
                             return result;
                         }
                       }
                     }
                     else
                     {
-                      if ( !v26 )
+                      if ( !v24 )
                         break;
-                      if ( v19 && PsMachineUILanguageId )
+                      if ( v17 && PsMachineUILanguageId )
                       {
-                        v83 = (unsigned __int16)PsMachineUILanguageId;
-                        result = LdrpLoadResourceFromAlternativeModule(v65, (__int64)v82, v6, v5, v62);
-                        v53 = result;
-                        if ( (int)result >= 0 )
+                        v81 = (unsigned __int16)PsMachineUILanguageId;
+                        result = LdrpLoadResourceFromAlternativeModule(v63, (__int64)v80, v6, v5, v60);
+                        v51 = result;
+                        if ( result >= 0 )
                           return result;
-                        v34 = PsMachineUILanguageId;
+                        v32 = PsMachineUILanguageId;
 LABEL_106:
-                        v10 = v34;
-                        v49[0] = v34;
+                        v9 = v32;
+                        v47[0] = v32;
                         goto LABEL_129;
                       }
-                      v35 = v63;
+                      v33 = v61;
                       if ( PsMachineUILanguageId )
-                        v35 = PsMachineUILanguageId;
-                      v10 = v35;
-                      v49[0] = v35;
+                        v33 = PsMachineUILanguageId;
+                      v9 = v33;
+                      v47[0] = v33;
                     }
                   }
                   else
                   {
-                    if ( v10 )
+                    if ( v9 )
                     {
-                      if ( (int)LdrpGetParentLangId(v10, v49) >= 0 )
+                      if ( (int)LdrpGetParentLangId(v9, v47) >= 0 )
                       {
-                        v10 = v49[0];
+                        v9 = v47[0];
                       }
                       else
                       {
-                        v10 = 0;
-                        v49[0] = 0;
+                        v9 = 0;
+                        v47[0] = 0;
                       }
                     }
-                    if ( v19 )
+                    if ( v17 )
                     {
-                      if ( !v10 )
+                      if ( !v9 )
                         goto LABEL_129;
-                      v83 = v10;
-                      result = LdrpLoadResourceFromAlternativeModule(v65, (__int64)v82, v6, v5, v62);
-                      v53 = result;
-                      if ( (int)result >= 0 )
+                      v81 = v9;
+                      result = LdrpLoadResourceFromAlternativeModule(v63, (__int64)v80, v6, v5, v60);
+                      v51 = result;
+                      if ( result >= 0 )
                         return result;
                     }
-                    if ( v10 )
-                      v70 = --v27;
+                    if ( v9 )
+                      v68 = --v25;
                   }
                 }
                 else
                 {
-                  if ( v19 && (_WORD)v16 )
+                  if ( v17 && (_WORD)v14 )
                   {
-                    v83 = (unsigned __int16)v16;
-                    result = LdrpLoadResourceFromAlternativeModule(v65, (__int64)v82, v6, v5, v62);
-                    v53 = result;
-                    if ( (int)result >= 0 )
+                    v81 = (unsigned __int16)v14;
+                    result = LdrpLoadResourceFromAlternativeModule(v63, (__int64)v80, v6, v5, v60);
+                    v51 = result;
+                    if ( result >= 0 )
                       return result;
-                    v16 = v55;
+                    v14 = v53;
                   }
-                  v10 = v16;
-                  v49[0] = v16;
+                  v9 = v14;
+                  v47[0] = v14;
                 }
 LABEL_129:
-                if ( (~(_BYTE)v5 & 0x20) == 0 || v10 != v63 )
+                if ( (~(_BYTE)v5 & 0x20) == 0 || v9 != v61 )
                 {
-                  v63 = v10;
-                  a2 = &v63;
-                  v81 = &v63;
-                  v25 = v72;
-                  v14 = v72;
-                  v71 = v72;
-                  v15 = v64;
-                  v23 = v59;
+                  v61 = v9;
+                  v7 = &v61;
+                  v79 = &v61;
+                  v23 = (unsigned int *)v70;
+                  v12 = (unsigned int *)v70;
+                  v69 = (unsigned int *)v70;
+                  v13 = v62;
+                  v21 = v57;
 LABEL_133:
-                  v36 = *(unsigned __int16 *)(v14 + 12);
-                  v60 = v36;
-                  v37 = (unsigned int *)(v14 + 16);
-                  v76 = (unsigned int *)(v14 + 16);
-                  v38 = (unsigned __int16)v36;
-                  if ( (*a2 & 0xFFFFFFFFFFFF0000uLL) == 0 )
+                  v34 = *((unsigned __int16 *)v12 + 6);
+                  LOWORD(Size) = v34;
+                  v35 = v12 + 4;
+                  v74 = v12 + 4;
+                  v36 = (unsigned __int16)v34;
+                  if ( (*v7 & 0xFFFFFFFFFFFF0000uLL) == 0 )
                   {
-                    v37 += 2 * v36;
-                    v76 = v37;
-                    LOWORD(v36) = *(_WORD *)(v14 + 14);
-                    v60 = v36;
-                    v38 = (unsigned __int16)v36;
+                    v35 += 2 * v34;
+                    v74 = v35;
+                    LOWORD(v34) = *((_WORD *)v12 + 7);
+                    LOWORD(Size) = v34;
+                    v36 = (unsigned __int16)v34;
                   }
-                  if ( !(_WORD)v38 )
+                  if ( !(_WORD)v36 )
                   {
-                    v71 = 0LL;
-                    v54 = 0;
-                    v68 = 0;
-                    v6 = v66;
-                    v19 = v50;
-                    v16 = v55;
-                    v21 = v58;
+                    v69 = 0LL;
+                    v52 = 0;
+                    v66 = 0;
+                    v6 = v64;
+                    v17 = v48;
+                    v14 = v53;
+                    v19 = v56;
                     goto LABEL_70;
                   }
-                  if ( v25 && (v5 & 0x20) != 0 )
+                  if ( v23 && (v5 & 0x20) != 0 )
                   {
-                    v14 = 0LL;
-                    v71 = 0LL;
-                    v63 = *v37;
-                    v15 = (unsigned int *)(v73 + v37[1]);
-                    v74 = v15;
-                    v6 = v66;
-                    v19 = v50;
-                    v16 = v55;
-                    v21 = v58;
+                    v12 = 0LL;
+                    v69 = 0LL;
+                    v61 = *v35;
+                    v13 = (unsigned int *)&v71[v35[1]];
+                    v72 = v13;
+                    v6 = v64;
+                    v17 = v48;
+                    v14 = v53;
+                    v19 = v56;
                     goto LABEL_63;
                   }
-                  v14 = 0LL;
-                  v71 = 0LL;
-                  v39 = &v37[2 * (unsigned __int16)v38 - 2];
-                  v77 = v39;
+                  v12 = 0LL;
+                  v69 = 0LL;
+                  v37 = &v35[2 * (unsigned __int16)v36 - 2];
+                  v75 = v37;
                   while ( 2 )
                   {
-                    if ( v37 > v39 )
+                    if ( v35 > v37 )
                       goto LABEL_151;
-                    v40 = (unsigned __int16)v38 >> 1;
-                    if ( !((unsigned __int16)v38 >> 1) )
+                    v38 = (unsigned __int16)v36 >> 1;
+                    if ( !((unsigned __int16)v36 >> 1) )
                     {
-                      if ( (_WORD)v38 )
+                      if ( (_WORD)v36 )
                       {
-                        v48 = (const wchar_t *)*a2;
-                        v57[0] = 0;
-                        v47 = v73;
-                        if ( !(unsigned int)LdrpCompareResourceNamesWithValidation(v38, v16, v48, v73, v37, v57) )
+                        v46 = (const wchar_t *)*v7;
+                        v55[0] = 0;
+                        v45 = (__int64)v71;
+                        if ( !(unsigned int)LdrpCompareResourceNamesWithValidation(
+                                              v36,
+                                              v14,
+                                              v46,
+                                              (__int64)v71,
+                                              v35,
+                                              v55) )
                         {
-                          v46 = v37[1];
-                          if ( (int)v46 >= 0 )
+                          v44 = v35[1];
+                          if ( (int)v44 >= 0 )
                           {
-                            v15 = (unsigned int *)(v46 + v47);
+                            v13 = (unsigned int *)(v44 + v45);
                             goto LABEL_153;
                           }
 LABEL_149:
-                          v14 = v47 + (v46 & 0xFFFFFFFF7FFFFFFFuLL);
-                          v71 = v14;
+                          v12 = (unsigned int *)(v45 + (v44 & 0xFFFFFFFF7FFFFFFFuLL));
+                          v69 = v12;
                         }
                       }
-                      v15 = v64;
+                      v13 = v62;
                       goto LABEL_151;
                     }
-                    v75 = v37;
-                    v41 = 2LL * v40;
-                    v42 = v36 & 1;
-                    if ( v42 )
-                      v43 = &v37[v41];
+                    v73 = v35;
+                    v39 = 2LL * v38;
+                    v40 = v34 & 1;
+                    if ( v40 )
+                      v41 = &v35[v39];
                     else
-                      v43 = &v37[v41 - 2];
-                    v75 = v43;
-                    v44 = (const wchar_t *)*a2;
-                    v56 = 0;
-                    v45 = LdrpCompareResourceNamesWithValidation(v38, v16, v44, v73, v43, &v56);
-                    if ( !v45 )
+                      v41 = &v35[v39 - 2];
+                    v73 = v41;
+                    v42 = (const wchar_t *)*v7;
+                    v54 = 0;
+                    v43 = LdrpCompareResourceNamesWithValidation(v36, v14, v42, (__int64)v71, v41, &v54);
+                    if ( !v43 )
                     {
-                      v46 = v43[1];
-                      if ( (int)v46 < 0 )
+                      v44 = v41[1];
+                      if ( (int)v44 < 0 )
                       {
-                        v47 = v73;
+                        v45 = (__int64)v71;
                         goto LABEL_149;
                       }
-                      v14 = 0LL;
-                      v71 = 0LL;
-                      v15 = (unsigned int *)(v46 + v73);
+                      v12 = 0LL;
+                      v69 = 0LL;
+                      v13 = (unsigned int *)&v71[v44];
 LABEL_153:
-                      v64 = v15;
-                      v74 = v15;
+                      v62 = v13;
+                      v72 = v13;
 LABEL_151:
-                      v81 = ++a2;
-                      v5 = v61;
-                      v6 = v66;
-                      v19 = v50;
-                      v16 = v55;
-                      v20 = v52;
+                      v79 = ++v7;
+                      v5 = v59;
+                      v6 = v64;
+                      v17 = v48;
+                      v14 = v53;
+                      v18 = v50;
 LABEL_48:
-                      v21 = v58;
+                      v19 = v56;
                       goto LABEL_49;
                     }
-                    if ( v45 >= 0 )
+                    if ( v43 >= 0 )
                     {
-                      v37 = v43 + 2;
-                      v76 = v43 + 2;
-                      v60 = v40;
-                      v39 = v77;
+                      v35 = v41 + 2;
+                      v74 = v41 + 2;
+                      LOWORD(Size) = v38;
+                      v37 = v75;
 LABEL_159:
-                      v38 = v40;
-                      LOBYTE(v36) = v40;
+                      v36 = v38;
+                      LOBYTE(v34) = v38;
                     }
                     else
                     {
-                      v39 = v43 - 2;
-                      v77 = v43 - 2;
-                      if ( v42 )
+                      v37 = v41 - 2;
+                      v75 = v41 - 2;
+                      if ( v40 )
                       {
-                        v60 = v40;
+                        LOWORD(Size) = v38;
                         goto LABEL_159;
                       }
-                      LOBYTE(v36) = v40 - 1;
-                      v60 = v40 - 1;
-                      v38 = (unsigned __int16)(v40 - 1);
+                      LOBYTE(v34) = v38 - 1;
+                      LOWORD(Size) = v38 - 1;
+                      v36 = (unsigned __int16)(v38 - 1);
                     }
-                    v15 = v64;
+                    v13 = v62;
                     continue;
                   }
                 }
-                v16 = v55;
-                v26 = v51;
+                v14 = v53;
+                v24 = v49;
               }
             }
-            result = 3221225988LL;
+            result = -1073741308;
             break;
           default:
-            result = 3221225485LL;
+            result = -1073741811;
             goto LABEL_77;
         }
-        v53 = result;
+        v51 = result;
         return result;
       }
-      *v62 = (unsigned int *)v14;
+      *v60 = v12;
     }
     else
     {
-      *v62 = v15;
+      *v60 = v13;
     }
-    result = 0LL;
+    result = 0;
 LABEL_77:
-    v53 = result;
+    v51 = result;
     return result;
   }
-  if ( v23 )
+  if ( v21 )
     goto LABEL_59;
-  if ( !v20 )
+  if ( !v18 )
   {
 LABEL_55:
-    if ( !v23 )
+    if ( !v21 )
     {
-      v25 = v72;
-      if ( v58 == 3 )
-        v25 = v14;
-      v72 = v25;
-      v79 = v25;
+      v23 = (unsigned int *)v70;
+      if ( v56 == 3 )
+        v23 = v12;
+      v70 = (unsigned __int16 *)v23;
+      v77 = v23;
       goto LABEL_60;
     }
 LABEL_59:
-    v25 = v72;
+    v23 = (unsigned int *)v70;
 LABEL_60:
-    if ( !v25 )
+    if ( !v23 )
       goto LABEL_133;
-    v16 = *((unsigned __int16 *)v80 + 8);
-    v55 = v16;
-    v69 = v16;
-    v26 = (v16 & 0x3FF) == 0;
-    v51 = v26;
-    v67 = v26;
+    v14 = *((unsigned __int16 *)v78 + 8);
+    v53 = v14;
+    v67 = v14;
+    v24 = (v14 & 0x3FF) == 0;
+    v49 = v24;
+    v65 = v24;
     goto LABEL_81;
   }
-  result = LdrpLoadResourceFromAlternativeModule(v65, (__int64)v82, v6, v5 | 0x1000000u, v62);
-  v53 = result;
-  if ( (int)result < 0 )
+  result = LdrpLoadResourceFromAlternativeModule(v63, (__int64)v80, v6, v5 | 0x1000000, v60);
+  v51 = result;
+  if ( result < 0 )
   {
-    v23 = v59;
+    v21 = v57;
     goto LABEL_55;
   }
   return result;

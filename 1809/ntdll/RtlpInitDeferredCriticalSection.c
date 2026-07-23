@@ -3,8 +3,8 @@
  * Callers:
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     InterlockedPushListSList @ 0x1800A3E40 (InterlockedPushListSList.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     InterlockedPushListSList @ 0x1800A3E60 (InterlockedPushListSList.c)
  */
 
 __int64 RtlpInitDeferredCriticalSection()

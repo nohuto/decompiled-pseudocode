@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCleanupPathInfo @ 0x140640EF0
+ * XREFs of CmpCleanupPathInfo @ 0x140641F10
  * Callers:
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 PSLIST_ENTRY __fastcall CmpCleanupPathInfo(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // rdx
+  _SLIST_ENTRY *v1; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   PSLIST_ENTRY result; // rax
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 160);
+  v1 = *(_SLIST_ENTRY **)(a1 + 160);
   if ( v1 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -32,7 +32,7 @@ PSLIST_ENTRY __fastcall CmpCleanupPathInfo(__int64 a1)
     else
     {
       ++P->FreeMisses;
-      return (PSLIST_ENTRY)((__int64 (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v1);
+      return (PSLIST_ENTRY)((__int64 (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v1);
     }
   }
   return result;

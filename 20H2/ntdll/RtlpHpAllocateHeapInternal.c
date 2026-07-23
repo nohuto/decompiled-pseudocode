@@ -11,8 +11,8 @@
  */
 
 __int64 __fastcall RtlpHpAllocateHeapInternal(
-        __int64 a1,
-        unsigned int a2,
+        unsigned int *BaseAddress,
+        __int64 a2,
         unsigned __int64 a3,
         unsigned int a4,
         int *a5)
@@ -26,19 +26,22 @@ __int64 __fastcall RtlpHpAllocateHeapInternal(
   v6 = a3;
   v7 = a2;
   v9 = 3;
-  if ( a3 > (unsigned int)*(unsigned __int16 *)(a1 + 892) - 16
-    || (v10 = RtlpHpLfhContextAllocate(a1 + 832, a2, a3, a4), LODWORD(a3) = v6, a2 = v7, v10 == -1) )
+  if ( a3 > (unsigned int)*((unsigned __int16 *)BaseAddress + 446) - 16
+    || (v10 = RtlpHpLfhContextAllocate((__int64)(BaseAddress + 208), a2, a3, a4),
+        a3 = (unsigned int)v6,
+        a2 = v7,
+        v10 == -1) )
   {
     if ( v6 > 0x20000 )
     {
-      if ( v6 > *(unsigned int *)(a1 + 464) )
-        v11 = (__int64)RtlpHpLargeAlloc((__int128 *)a1, v7, v6, a4);
+      if ( v6 > BaseAddress[116] )
+        v11 = (__int64)RtlpHpLargeAlloc((char *)BaseAddress, v7, v6, a4);
       else
-        v11 = RtlpHpSegAlloc((unsigned int)a1 + (*(unsigned int *)(a1 + 272) < v6 ? 448 : 256), v7, v6, v6, a4);
+        v11 = RtlpHpSegAlloc((unsigned int)BaseAddress + (BaseAddress[68] < v6 ? 448 : 256), a4);
     }
     else
     {
-      v11 = RtlpHpVsContextAllocate((int)a1 + 640, a2, a3, a4);
+      v11 = RtlpHpVsContextAllocate((_RTL_SRWLOCK *)BaseAddress + 80, a2, a3, a4);
     }
     v10 = v11;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockProcessListExclusive @ 0x140076068
+ * XREFs of PspLockProcessListExclusive @ 0x1400760E8
  * Callers:
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall PspLockProcessListExclusive(__int64 a1)

@@ -1,24 +1,24 @@
 /*
- * XREFs of DifZwWriteRequestDataWrapper @ 0x1406BFEE0
+ * XREFs of DifZwWriteRequestDataWrapper @ 0x1406C3AC0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwWriteRequestData @ 0x140723ED0 (ZwWriteRequestData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwWriteRequestData @ 0x140728AA0 (ZwWriteRequestData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwWriteRequestDataWrapper(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6)
+        void *a1,
+        _PORT_MESSAGE *a2,
+        ULONG a3,
+        void *a4,
+        SIZE_T BufferSize,
+        ULONG_PTR *NumberOfBytesWritten)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -30,17 +30,14 @@ __int64 __fastcall DifZwWriteRequestDataWrapper(
   __int64 v16; // rdx
   BOOLEAN v17; // di
   __int128 *j; // rbx
-  PVOID v20; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v21; // [rsp+38h] [rbp-38h]
-  __int64 v22; // [rsp+40h] [rbp-30h]
-  __int64 v23; // [rsp+48h] [rbp-28h]
-  unsigned int v24; // [rsp+50h] [rbp-20h]
-  __int64 v25; // [rsp+58h] [rbp-18h]
-  __int64 v26; // [rsp+60h] [rbp-10h]
-  unsigned int v27; // [rsp+68h] [rbp-8h]
+  _QWORD v20[4]; // [rsp+30h] [rbp-40h] BYREF
+  ULONG v21; // [rsp+50h] [rbp-20h]
+  _PORT_MESSAGE *v22; // [rsp+58h] [rbp-18h]
+  void *v23; // [rsp+60h] [rbp-10h]
+  unsigned int v24; // [rsp+68h] [rbp-8h]
   void *retaddr; // [rsp+98h] [rbp+28h]
 
-  memset_0(&v20, 0, 0x40uLL);
+  memset_0(v20, 0, 0x40uLL);
   APIThunkContextById = DifGetAPIThunkContextById(957);
   v11 = APIThunkContextById;
   if ( !APIThunkContextById )
@@ -56,28 +53,28 @@ __int64 __fastcall DifZwWriteRequestDataWrapper(
       goto LABEL_7;
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  v20 = ReturnAddressForWrappers;
+  v20[0] = ReturnAddressForWrappers;
 LABEL_7:
   v14 = 0;
-  v26 = a1;
-  v22 = a5;
-  v21 = a6;
-  v25 = a2;
-  v24 = a3;
-  v23 = a4;
+  v23 = a1;
+  v20[2] = BufferSize;
+  v20[1] = NumberOfBytesWritten;
+  v22 = a2;
+  v21 = a3;
+  v20[3] = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
     || (v14 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
     for ( i = (__int128 *)*((_QWORD *)v11 + 4); i != v11 + 2; i = *(__int128 **)i )
     {
       if ( i != (__int128 *)16 )
-        guard_dispatch_icall_no_overrides(&v20, v10);
+        guard_dispatch_icall_no_overrides(v20, v10);
     }
     if ( v14 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v27 = ZwWriteRequestData(a1, a2, a3, a4, a5, a6, v20, v21, v22, v23, v24, v25, v26);
+  v24 = ZwWriteRequestData(a1, a2, a3, a4, BufferSize, NumberOfBytesWritten);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
@@ -86,11 +83,11 @@ LABEL_17:
       for ( j = (__int128 *)*((_QWORD *)v11 + 6); j != v11 + 3; j = *(__int128 **)j )
       {
         if ( j != (__int128 *)16 )
-          guard_dispatch_icall_no_overrides(&v20, v16);
+          guard_dispatch_icall_no_overrides(v20, v16);
       }
       if ( v17 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return v27;
+  return v24;
 }

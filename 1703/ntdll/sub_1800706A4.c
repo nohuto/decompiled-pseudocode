@@ -7,10 +7,8 @@
  *     RtlReleaseSRWLockExclusive @ 0x180021A90 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_1800706A4(__int64 a1, int a2)
+void __fastcall sub_1800706A4(__int64 a1, int a2)
 {
-  signed __int64 result; // rax
-
   if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
   {
     if ( a2 )
@@ -22,19 +20,17 @@ signed __int64 __fastcall sub_1800706A4(__int64 a1, int a2)
       *(_QWORD *)(a1 + 88) = 1LL;
       *(_QWORD *)(a1 + 48) = 1LL;
     }
-    result = 0xFFFFLL;
     if ( (*(_WORD *)(a1 + 38))-- == 1 )
     {
       *(_DWORD *)(a1 + 40) = 0;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 48));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 48));
       if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 88));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 88));
         if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 176));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 176));
       }
-      return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 336));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 336));
     }
   }
-  return result;
 }

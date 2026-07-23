@@ -10,13 +10,13 @@
 
 PSLIST_ENTRY __fastcall KeAllocateInterrupt(__int64 a1)
 {
-  union _SLIST_HEADER *v1; // rbp
+  _SLIST_HEADER *v1; // rbp
   unsigned int v3; // r14d
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *v5; // rbx
+  _SLIST_ENTRY *v5; // rbx
   __int64 v6; // rsi
 
-  v1 = (union _SLIST_HEADER *)(a1 + 14336);
+  v1 = (_SLIST_HEADER *)(a1 + 14336);
   v3 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 138LL);
   while ( 1 )
   {

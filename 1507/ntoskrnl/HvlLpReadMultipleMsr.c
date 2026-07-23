@@ -36,11 +36,11 @@ __int64 __fastcall HvlLpReadMultipleMsr(int a1, unsigned int a2, int *a3, _QWORD
   PSLIST_ENTRY ListEntry; // [rsp+28h] [rbp-A0h]
   PSLIST_ENTRY v30; // [rsp+30h] [rbp-98h]
   __int64 v31; // [rsp+38h] [rbp-90h]
-  union _SLIST_HEADER *v32; // [rsp+48h] [rbp-80h]
-  struct _SLIST_ENTRY *v33; // [rsp+50h] [rbp-78h]
+  _SLIST_HEADER *v32; // [rsp+48h] [rbp-80h]
+  _SLIST_ENTRY *v33; // [rsp+50h] [rbp-78h]
   _SLIST_ENTRY *v34; // [rsp+58h] [rbp-70h]
-  struct _KPRCB *v35; // [rsp+68h] [rbp-60h]
-  struct _SLIST_ENTRY *v36; // [rsp+70h] [rbp-58h]
+  _SLIST_HEADER *v35; // [rsp+68h] [rbp-60h]
+  _SLIST_ENTRY *v36; // [rsp+70h] [rbp-58h]
   _SLIST_ENTRY *v37; // [rsp+78h] [rbp-50h]
   __int16 v38; // [rsp+C0h] [rbp-8h]
   char v40; // [rsp+D8h] [rbp+10h]
@@ -57,7 +57,7 @@ __int64 __fastcall HvlLpReadMultipleMsr(int a1, unsigned int a2, int *a3, _QWORD
     if ( v8 )
     {
       Next = v8[1].Next;
-      v32 = (union _SLIST_HEADER *)CurrentPrcb;
+      v32 = (_SLIST_HEADER *)CurrentPrcb;
       v9 = BYTE4(CurrentPrcb);
       v40 = 1;
       ListEntry = v8;
@@ -109,7 +109,7 @@ LABEL_13:
     p_Next = (char *)KeGetCurrentPrcb()->HypercallCachedPages + 4096;
     goto LABEL_13;
   }
-  v35 = v13;
+  v35 = (_SLIST_HEADER *)v13;
   v12 = v14[1].Next;
   v10 = (char)v35;
   v28 = 1;
@@ -178,7 +178,7 @@ LABEL_14:
   if ( (v28 & 1) != 0 )
   {
     v30[1].Next = v12;
-    RtlpInterlockedPushEntrySList(&v35->HypercallPageList, v30);
+    RtlpInterlockedPushEntrySList(v35 + 1535, v30);
   }
   else
   {

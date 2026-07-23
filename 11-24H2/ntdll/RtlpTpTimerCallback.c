@@ -1,86 +1,88 @@
 /*
- * XREFs of RtlpTpTimerCallback @ 0x18006D350
+ * XREFs of RtlpTpTimerCallback @ 0x180089C30
  * Callers:
- *     TppTimerpExecuteCallback @ 0x180020920 (TppTimerpExecuteCallback.c)
+ *     TppTimerpExecuteCallback @ 0x18004D320 (TppTimerpExecuteCallback.c)
  * Callees:
- *     TppCompleteThreadData @ 0x18001F420 (TppCompleteThreadData.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpTpImpersonate @ 0x18006F310 (RtlpTpImpersonate.c)
- *     RtlpTpETWCallbackStop @ 0x18006F39C (RtlpTpETWCallbackStop.c)
- *     RtlpTpETWCallbackStart @ 0x18006F464 (RtlpTpETWCallbackStart.c)
- *     NtSetInformationThread @ 0x180161E30 (NtSetInformationThread.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppCompleteThreadData @ 0x18004BE20 (TppCompleteThreadData.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpTpImpersonate @ 0x18008BBF0 (RtlpTpImpersonate.c)
+ *     RtlpTpETWCallbackStop @ 0x18008BC7C (RtlpTpETWCallbackStop.c)
+ *     RtlpTpETWCallbackStart @ 0x18008BD44 (RtlpTpETWCallbackStart.c)
+ *     NtSetInformationThread @ 0x1801601F0 (NtSetInformationThread.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall RtlpTpTimerCallback(__int64 a1, __int64 a2)
+void __fastcall RtlpTpTimerCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  struct _TEB *v3; // rsi
-  __int64 v4; // rdi
-  __int64 v5; // rcx
+  __int64 v4; // rcx
+  struct _TEB *v5; // rsi
+  __int64 v6; // rdi
+  __int64 v7; // rcx
   void *SubProcessTag; // rdx
-  __int64 v7; // r9
-  __int64 v8; // r10
+  __int64 v9; // r9
+  __int64 v10; // r10
   _QWORD *ThreadPoolData; // rcx
-  __int64 v10; // rax
-  __int64 v11; // r8
-  _QWORD *v12; // r14
-  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v12; // rax
+  __int64 v13; // r8
+  _QWORD *v14; // r14
+  __int64 ThreadInformation; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( *(_BYTE *)(a2 + 88) || !_InterlockedExchange((volatile __int32 *)(a2 + 92), 1) )
+  if ( *((_BYTE *)a2 + 88) || !_InterlockedExchange((volatile __int32 *)a2 + 23, 1) )
   {
-    if ( *(_QWORD *)(a2 + 16) )
-      RtlpTpImpersonate();
-    v3 = NtCurrentTeb();
-    v4 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v5 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v4 = *((_QWORD *)a2 + 2);
+    if ( v4 )
+      RtlpTpImpersonate(v4, a2, a3);
+    v5 = NtCurrentTeb();
+    v6 = 2147353478LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v5 = 2147353478LL;
-    if ( *(_BYTE *)v5 )
+      v7 = 2147353478LL;
+    if ( *(_BYTE *)v7 )
       RtlpTpETWCallbackStart(
         0,
-        *(_QWORD *)(a2 + 64),
-        *(_QWORD *)(a2 + 32),
-        *(_QWORD *)(a2 + 40),
-        (__int64)v3->SubProcessTag);
-    SubProcessTag = v3->SubProcessTag;
-    v7 = *(_QWORD *)(a2 + 40);
-    v8 = *(_QWORD *)(a2 + 32);
+        *((_QWORD *)a2 + 8),
+        *((_QWORD *)a2 + 4),
+        *((_QWORD *)a2 + 5),
+        (__int64)v5->SubProcessTag);
+    SubProcessTag = v5->SubProcessTag;
+    v9 = *((_QWORD *)a2 + 5);
+    v10 = *((_QWORD *)a2 + 4);
     ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
     if ( ThreadPoolData )
     {
       ++ThreadPoolData[2];
-      v10 = ((unsigned __int8)*((_DWORD *)ThreadPoolData + 3) - 1) & 1;
-      *((_DWORD *)ThreadPoolData + 3) = v10;
-      v11 = (unsigned int)v10;
-      v10 *= 32LL;
-      v12 = (_QWORD *)((char *)ThreadPoolData + v10 + 32);
-      *v12 = v8;
-      *(_QWORD *)((char *)ThreadPoolData + v10 + 40) = v7;
-      *(_QWORD *)((char *)ThreadPoolData + v10 + 48) = SubProcessTag;
+      v12 = ((unsigned __int8)*((_DWORD *)ThreadPoolData + 3) - 1) & 1;
+      *((_DWORD *)ThreadPoolData + 3) = v12;
+      v13 = (unsigned int)v12;
+      v12 *= 32LL;
+      v14 = (_QWORD *)((char *)ThreadPoolData + v12 + 32);
+      *v14 = v10;
+      *(_QWORD *)((char *)ThreadPoolData + v12 + 40) = v9;
+      *(_QWORD *)((char *)ThreadPoolData + v12 + 48) = SubProcessTag;
       SubProcessTag = (void *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
-      ThreadPoolData[4 * v11 + 7] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
+      ThreadPoolData[4 * v13 + 7] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
     }
     else
     {
-      v12 = 0LL;
+      v14 = 0LL;
     }
     LOBYTE(SubProcessTag) = 1;
-    (*(void (__fastcall **)(_QWORD, void *))(a2 + 32))(*(_QWORD *)(a2 + 40), SubProcessTag);
+    (*((void (__fastcall **)(_QWORD, void *))a2 + 4))(*((_QWORD *)a2 + 5), SubProcessTag);
     if ( NtCurrentTeb()->IsImpersonating )
     {
-      v13 = 0LL;
-      NtSetInformationThread(-2LL, 5LL, &v13);
+      ThreadInformation = 0LL;
+      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v4 = (__int64)NtCurrentPeb()->SharedData + 556;
-    if ( *(_BYTE *)v4 )
+    if ( RtlGetCurrentServiceSessionId() )
+      v6 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( *(_BYTE *)v6 )
       RtlpTpETWCallbackStop(
         0,
-        *(_QWORD *)(a2 + 64),
-        *(_QWORD *)(a2 + 32),
-        *(_QWORD *)(a2 + 40),
-        (__int64)v3->SubProcessTag);
-    TppCompleteThreadData((__int64)v12);
+        *((_QWORD *)a2 + 8),
+        *((_QWORD *)a2 + 4),
+        *((_QWORD *)a2 + 5),
+        (__int64)v5->SubProcessTag);
+    TppCompleteThreadData((__int64)v14);
   }
 }

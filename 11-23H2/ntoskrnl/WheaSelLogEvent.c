@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaSelLogEvent @ 0x1406100F8
+ * XREFs of WheaSelLogEvent @ 0x140610648
  * Callers:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
  * Callees:
- *     WheaSelLogErrorPkt @ 0x14061000C (WheaSelLogErrorPkt.c)
- *     WheapLogIpmiSELEvent @ 0x140613340 (WheapLogIpmiSELEvent.c)
+ *     WheaSelLogErrorPkt @ 0x14061055C (WheaSelLogErrorPkt.c)
+ *     WheapLogIpmiSELEvent @ 0x140613890 (WheapLogIpmiSELEvent.c)
  */
 
 __int64 __fastcall WheaSelLogEvent(char *Src)

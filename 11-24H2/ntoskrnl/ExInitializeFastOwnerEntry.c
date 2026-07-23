@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInitializeFastOwnerEntry @ 0x140417C20
+ * XREFs of ExInitializeFastOwnerEntry @ 0x1404079D0
  * Callers:
- *     DifExInitializeFastOwnerEntryWrapper @ 0x14061E6E0 (DifExInitializeFastOwnerEntryWrapper.c)
+ *     DifExInitializeFastOwnerEntryWrapper @ 0x14061CCA0 (DifExInitializeFastOwnerEntryWrapper.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 struct _KTHREAD *__fastcall ExInitializeFastOwnerEntry(__int64 a1)

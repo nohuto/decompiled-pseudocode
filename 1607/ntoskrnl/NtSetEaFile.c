@@ -1,28 +1,28 @@
 /*
- * XREFs of NtSetEaFile @ 0x1406251DC
+ * XREFs of NtSetEaFile @ 0x140625290
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x14002E5C0 (IopResetEvent.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopVerifierExAllocatePoolWithQuota @ 0x140079F20 (IopVerifierExAllocatePoolWithQuota.c)
- *     IopReferenceFileObject @ 0x14007B630 (IopReferenceFileObject.c)
- *     IopAcquireFastLock @ 0x14007BAB4 (IopAcquireFastLock.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     IopProbeAndLockPages_0 @ 0x1401C5358 (IopProbeAndLockPages_0.c)
- *     IopVerifierExAllocatePool_2 @ 0x1401CAE28 (IopVerifierExAllocatePool_2.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopResetEvent @ 0x14002E140 (IopResetEvent.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x140079FA0 (IopVerifierExAllocatePoolWithQuota.c)
+ *     IopReferenceFileObject @ 0x14007B6B0 (IopReferenceFileObject.c)
+ *     IopAcquireFastLock @ 0x14007BB34 (IopAcquireFastLock.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     IopProbeAndLockPages_1 @ 0x1401CAC84 (IopProbeAndLockPages_1.c)
+ *     IopVerifierExAllocatePool_2 @ 0x1401CACC8 (IopVerifierExAllocatePool_2.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     IoCheckEaBufferValidity @ 0x14045C55C (IoCheckEaBufferValidity.c)
- *     IopSynchronousApiServiceTail @ 0x1404C9698 (IopSynchronousApiServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x1406213D4 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     IoCheckEaBufferValidity @ 0x14045B42C (IoCheckEaBufferValidity.c)
+ *     IopSynchronousApiServiceTail @ 0x1404AF418 (IopSynchronousApiServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140621488 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock, PVOID EaBuffer, ULONG EaBufferSize)
@@ -44,7 +44,7 @@ NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock
   struct _KTHREAD *v21; // rbx
   ULONG Flags; // eax
   size_t v23; // rbx
-  struct _FILE_FULL_EA_INFORMATION *PoolWithQuota; // rdi
+  _FILE_FULL_EA_INFORMATION *PoolWithQuota; // rdi
   int v25; // eax
   struct _MDL *Mdl; // rcx
   char v27; // r12
@@ -154,7 +154,7 @@ LABEL_20:
           {
             v31 = 0;
             v23 = v4;
-            PoolWithQuota = (struct _FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota(0LL, v4);
+            PoolWithQuota = (_FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota(0LL, v4);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuota;
             memmove(PoolWithQuota, EaBuffer, v23);
             v25 = IoCheckEaBufferValidity(PoolWithQuota, EaBufferSize, &ErrorOffset);
@@ -183,7 +183,7 @@ LABEL_20:
             if ( !Mdl )
               RtlRaiseStatus(-1073741670);
             v27 = v29;
-            IopProbeAndLockPages_0(Mdl, v29, IoReadAccess, (__int64)DeviceObject, v21->Header.Type);
+            IopProbeAndLockPages_1(Mdl, v29, IoReadAccess, (__int64)DeviceObject, v21->Header.Type);
             goto LABEL_40;
           }
         }

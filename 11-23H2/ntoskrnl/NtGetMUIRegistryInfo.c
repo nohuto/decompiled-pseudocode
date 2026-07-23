@@ -1,33 +1,33 @@
 /*
- * XREFs of NtGetMUIRegistryInfo @ 0x1407CA590
+ * XREFs of NtGetMUIRegistryInfo @ 0x1407CA860
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MUIBugCheck @ 0x14060F524 (MUIBugCheck.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14060F54C (MigrateOOBELanguageToInstallationLanguage.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
- *     MUIInitializeResourceLock @ 0x14085F5BC (MUIInitializeResourceLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MUIBugCheck @ 0x14060FA74 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x14060FA9C (MigrateOOBELanguageToInstallationLanguage.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x14085F7FC (MUIInitializeResourceLock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
+NTSTATUS __cdecl NtGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
   __int64 v5; // r14
   __int64 v6; // rax
-  int v7; // ebx
+  ULONG v7; // ebx
   struct _KTHREAD *CurrentThread; // rax
   _DWORD *v9; // rcx
   char v10; // bl
-  int v11; // edi
+  NTSTATUS v11; // edi
   unsigned int Length; // [rsp+50h] [rbp-A8h]
   __int128 v14; // [rsp+58h] [rbp-A0h] BYREF
   __int128 v15; // [rsp+68h] [rbp-90h]
@@ -49,11 +49,11 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   v15 = 0LL;
   v16 = 0LL;
   v22 = 0;
-  if ( !KeGetCurrentThread()->PreviousMode || (_DWORD)InitSafeBootMode )
+  if ( !KeGetCurrentThread()->PreviousMode || InitSafeBootMode )
     goto LABEL_46;
-  if ( !a2 )
+  if ( !DataSize )
   {
-    if ( (a1 & 0xA) == 0 )
+    if ( (Flags & 0xA) == 0 )
       goto LABEL_47;
     Length = 0;
     v5 = 0x7FFFFFFF0000LL;
@@ -61,22 +61,22 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   }
   v5 = 0x7FFFFFFF0000LL;
   v6 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v6 = (__int64)a2;
+  if ( (unsigned __int64)DataSize < 0x7FFFFFFF0000LL )
+    v6 = (__int64)DataSize;
   Length = *(_DWORD *)v6;
   if ( !*(_DWORD *)v6 )
   {
 LABEL_11:
-    if ( a3 )
+    if ( Data )
       goto LABEL_47;
     goto LABEL_12;
   }
-  if ( !a3 )
+  if ( !Data )
     goto LABEL_47;
 LABEL_12:
   v7 = 1;
-  if ( a1 )
-    v7 = a1;
+  if ( Flags )
+    v7 = Flags;
   if ( (v7 & 0xFFFFFFF4) != 0 )
     goto LABEL_47;
   if ( !MUIRegistryLock )
@@ -196,15 +196,15 @@ LABEL_19:
   }
   v11 = 0;
 LABEL_23:
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v5 = (__int64)a2;
+  if ( (unsigned __int64)DataSize < 0x7FFFFFFF0000LL )
+    v5 = (__int64)DataSize;
   *(_DWORD *)v5 = *(_DWORD *)v5;
-  *a2 = MUIRegistryInfoSize;
+  *DataSize = MUIRegistryInfoSize;
   if ( v10 )
   {
-    ProbeForWrite(a3, Length, 1u);
-    memset((void *)a3, 0, Length);
-    memmove((void *)a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
+    ProbeForWrite(Data, Length, 1u);
+    memset(Data, 0, Length);
+    memmove(Data, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
   }
 LABEL_27:
   if ( v22 )
@@ -212,5 +212,5 @@ LABEL_27:
     ExReleaseResourceLite(MUIRegistryLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v11;
+  return v11;
 }

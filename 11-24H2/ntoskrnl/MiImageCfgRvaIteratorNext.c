@@ -1,7 +1,7 @@
 /*
- * XREFs of MiImageCfgRvaIteratorNext @ 0x14099E650
+ * XREFs of MiImageCfgRvaIteratorNext @ 0x140987300
  * Callers:
- *     MiImageCfgRvaIteratorFirst @ 0x14099E620 (MiImageCfgRvaIteratorFirst.c)
+ *     MiImageCfgRvaIteratorFirst @ 0x1409872D0 (MiImageCfgRvaIteratorFirst.c)
  * Callees:
  *     <none>
  */
@@ -79,6 +79,6 @@ LABEL_14:
     }
     LODWORD(result) = v13;
   }
-  dword_140E2D728 = 14;
+  dword_140E2D868 = 14;
   return v4;
 }

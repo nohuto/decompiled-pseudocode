@@ -1,29 +1,29 @@
 /*
- * XREFs of TpIsTimerSet @ 0x1800697E0
+ * XREFs of TpIsTimerSet @ 0x180089C30
  * Callers:
- *     TpSetTimerEx @ 0x180069020 (TpSetTimerEx.c)
+ *     TpSetTimerEx @ 0x180089470 (TpSetTimerEx.c)
  * Callees:
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
  */
 
-_BOOL8 __fastcall TpIsTimerSet(__int64 a1)
+LOGICAL __cdecl TpIsTimerSet(PTP_TIMER Timer)
 {
-  int v1; // eax
+  volatile int Flags; // eax
+  __int64 v2; // rax
 
-  if ( a1 )
+  if ( !Timer
+    || Timer->WaitTimer
+    || (Flags = Timer->Work.CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)(PVOID))Timer->Work.CleanupGroupMember.VFuncs != &TppTimerpCleanupGroupMemberVFuncs
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    if ( !*(_BYTE *)(a1 + 353) )
-    {
-      v1 = *(_DWORD *)(a1 + 168);
-      if ( (v1 & 0x10000) == 0
-        && (v1 & 0x20000) == 0
-        && *(__int64 (__fastcall ***)())(a1 + 8) == TppTimerpCleanupGroupMemberVFuncs
-        && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-      {
-        return *(_QWORD *)(a1 + 328) != 0LL;
-      }
-    }
+    TppRaiseInvalidParameter();
+    LODWORD(v2) = 0;
   }
-  TppRaiseInvalidParameter();
-  return 0LL;
+  else
+  {
+    return Timer->DueTime != 0;
+  }
+  return v2;
 }

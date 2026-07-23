@@ -1,19 +1,19 @@
 /*
- * XREFs of PopReadPagesFromHiberFile @ 0x140AB1180
+ * XREFs of PopReadPagesFromHiberFile @ 0x140AAC0F0
  * Callers:
- *     PopReadResumeContext @ 0x140AB1028 (PopReadResumeContext.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopReadResumeContext @ 0x140AABF98 (PopReadResumeContext.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IoPageRead @ 0x1404FB130 (IoPageRead.c)
- *     RtlLongLongAdd @ 0x1405D3918 (RtlLongLongAdd.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IoPageRead @ 0x1404F8A10 (IoPageRead.c)
+ *     RtlLongLongAdd @ 0x1405D1038 (RtlLongLongAdd.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, PVOID *a3)
@@ -26,22 +26,23 @@ __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, P
   signed int Status; // edi
   unsigned __int128 v10; // rax
   unsigned __int64 v11; // rcx
+  ULONG_PTR v12; // r11
   void *Pool2; // rax
   struct _MDL *Mdl; // rax
-  struct _MDL *v15; // [rsp+30h] [rbp-68h] BYREF
+  struct _MDL *v16; // [rsp+30h] [rbp-68h] BYREF
   LARGE_INTEGER StartingOffset; // [rsp+38h] [rbp-60h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-58h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-48h] BYREF
 
-  v15 = 0LL;
+  v16 = 0LL;
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
   v4 = 0LL;
   v5 = 0;
-  if ( !byte_140F0BB48
+  if ( !byte_140F0B668
     || (char *)PopHiberInfo - 1 > (char *)0xFFFFFFFFFFFFFFFDLL
     || (unsigned __int64)&FileObject[-1].FileObjectExtension + 7 > 0xFFFFFFFFFFFFFFFDuLL
-    || (v6 = qword_140F0AD50, qword_140F0AD50 < 0x1000) )
+    || (v6 = qword_140F0BB90, qword_140F0BB90 < 0x1000) )
   {
     Status = -1073741637;
     goto LABEL_26;
@@ -76,18 +77,18 @@ LABEL_13:
 LABEL_14:
     if ( Status >= 0 )
     {
-      Status = RtlLongLongAdd(v11, v8, (unsigned __int64 *)&v15);
+      Status = RtlLongLongAdd(v11, v8, (unsigned __int64 *)&v16);
       if ( Status >= 0 )
       {
-        if ( (unsigned __int64)v15 <= v6 )
+        if ( (unsigned __int64)v16 <= v6 )
         {
-          Pool2 = (void *)ExAllocatePool2(0x100uLL);
+          Pool2 = (void *)ExAllocatePool2(0x100uLL, v12, 0x206D654Du);
           *a3 = Pool2;
           if ( Pool2 )
           {
             Mdl = IoAllocateMdl(Pool2, v8, 0, 0, 0LL);
             v4 = Mdl;
-            v15 = Mdl;
+            v16 = Mdl;
             if ( Mdl )
             {
               MmProbeAndLockPages(Mdl, 0, IoReadAccess);

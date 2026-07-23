@@ -103,7 +103,7 @@ __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
         {
           v22->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v22->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v14->LockEntries[v21], SessionId);
+            KiAbEntryRemoveFromTree(&v14->LockEntries[v21].TreeNode, SessionId);
           v24 = 0;
           v24 = v22->BoostBitmap.AllFields & 0x1FFFF;
           v22->BoostBitmap.AllFields &= 0xFFFE0000;

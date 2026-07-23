@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpFreeFilterInfo @ 0x1406E2C4C
+ * XREFs of EtwpFreeFilterInfo @ 0x1406B9F2C
  * Callers:
- *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x1406B8AE4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpFreeEventNameFilter @ 0x140940B40 (EtwpFreeEventNameFilter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwpFreeEventNameFilter @ 0x140940D10 (EtwpFreeEventNameFilter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeFilterInfo(__int64 a1)

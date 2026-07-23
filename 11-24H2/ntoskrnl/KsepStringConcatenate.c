@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepStringConcatenate @ 0x14095BF50
+ * XREFs of KsepStringConcatenate @ 0x140943A10
  * Callers:
- *     KsepLoadShimProvider @ 0x1405CA514 (KsepLoadShimProvider.c)
- *     KsepRegistryQueryDriverShims @ 0x14095AB74 (KsepRegistryQueryDriverShims.c)
- *     KsepRegistryOpenKey @ 0x14095BE4C (KsepRegistryOpenKey.c)
- *     KsepDbQueryRegistryDeviceData @ 0x14095C824 (KsepDbQueryRegistryDeviceData.c)
+ *     KsepLoadShimProvider @ 0x1405C7C3C (KsepLoadShimProvider.c)
+ *     KsepRegistryQueryDriverShims @ 0x140942634 (KsepRegistryQueryDriverShims.c)
+ *     KsepRegistryOpenKey @ 0x14094390C (KsepRegistryOpenKey.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x1409442E4 (KsepDbQueryRegistryDeviceData.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1404A03F0 (KsepPoolAllocatePaged.c)
- *     RtlAssert @ 0x1405E9340 (RtlAssert.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KsepPoolAllocatePaged @ 0x14049AA70 (KsepPoolAllocatePaged.c)
+ *     RtlAssert @ 0x1405E6890 (RtlAssert.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall KsepStringConcatenate(__int64 a1, _WORD *a2, _WORD *a3, int a4)

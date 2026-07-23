@@ -23,5 +23,5 @@ char *__fastcall RtlpHpMetadataHeapCtxGet(_QWORD *a1)
   v2 = *a1 >> 8;
   if ( (unsigned __int8)v2 < 2u )
     v1 = (unsigned __int8)v2;
-  return (char *)&unk_1801714E8 + 16 * v1;
+  return (char *)&unk_1801714D8 + 16 * v1;
 }

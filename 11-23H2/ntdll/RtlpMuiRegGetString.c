@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpMuiRegGetString @ 0x180113560
+ * XREFs of RtlpMuiRegGetString @ 0x180113530
  * Callers:
  *     RtlpGetDefaultLanguageBaseOrParent @ 0x1800FC76C (RtlpGetDefaultLanguageBaseOrParent.c)
- *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x180113228 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
+ *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x1801131F8 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
  * Callees:
  *     <none>
  */

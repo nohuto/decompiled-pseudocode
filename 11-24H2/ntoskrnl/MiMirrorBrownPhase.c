@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorBrownPhase @ 0x140B6CC0C
+ * XREFs of MiMirrorBrownPhase @ 0x140B6E4AC
  * Callers:
- *     MmDuplicateMemory @ 0x140B62998 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140B64A68 (MmDuplicateMemory.c)
  * Callees:
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     MiMirrorPerformBrownWrites @ 0x140455840 (MiMirrorPerformBrownWrites.c)
- *     MiWalkPagesOnLists @ 0x140489D48 (MiWalkPagesOnLists.c)
- *     PsQuitNextPartition @ 0x1405E6934 (PsQuitNextPartition.c)
- *     MiEmptyAllWorkingSets @ 0x140678800 (MiEmptyAllWorkingSets.c)
- *     MiActOnMirrorBitmap @ 0x140AA9E60 (MiActOnMirrorBitmap.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     MiWalkPagesOnLists @ 0x14026E7E0 (MiWalkPagesOnLists.c)
+ *     MiMirrorPerformBrownWrites @ 0x14044A580 (MiMirrorPerformBrownWrites.c)
+ *     PsQuitNextPartition @ 0x1405E3F34 (PsQuitNextPartition.c)
+ *     MiEmptyAllWorkingSets @ 0x1406799E0 (MiEmptyAllWorkingSets.c)
+ *     MiActOnMirrorBitmap @ 0x140AA4F10 (MiActOnMirrorBitmap.c)
  */
 
 __int64 __fastcall MiMirrorBrownPhase(__int64 a1)
@@ -45,11 +45,11 @@ __int64 __fastcall MiMirrorBrownPhase(__int64 a1)
         v9 = (_BYTE *)(a1 + 20);
         while ( 1 )
         {
-          MiActOnMirrorBitmap((unsigned __int64 *)xmmword_140E30090, 2);
+          MiActOnMirrorBitmap((unsigned __int64 *)xmmword_140E301D0, 2);
           if ( v8 == v3 && !*v9 )
           {
             *v9 = 1;
-            _InterlockedIncrement(&dword_140E37318);
+            _InterlockedIncrement(&dword_140E37458);
             v9 = (_BYTE *)(a1 + 20);
           }
           v11 = *(_DWORD *)(a1 + 8);

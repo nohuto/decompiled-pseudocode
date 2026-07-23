@@ -11,129 +11,158 @@
  *     _NtUnmapViewOfSection@8 @ 0x4B2F2C20 (_NtUnmapViewOfSection@8.c)
  */
 
-int __fastcall RtlpChangeQueryDebugBufferTarget(int *a1, int a2, int a3, HANDLE *a4)
+NTSTATUS __fastcall RtlpChangeQueryDebugBufferTarget(int a1, void *a2, int a3, HANDLE *a4)
 {
   HANDLE v5; // ecx
-  int v7; // eax
+  void *v7; // eax
   _DWORD *v8; // ebx
-  int result; // eax
+  NTSTATUS result; // eax
   int v10; // eax
-  int v11; // edi
-  int *v12; // edi
-  int v13; // edx
-  int v14; // eax
+  NTSTATUS v11; // edi
+  PVOID *v12; // edi
+  unsigned int v13; // edx
+  NTSTATUS v14; // eax
   int v15; // eax
-  _DWORD v16[6]; // [esp+10h] [ebp-48h] BYREF
-  _DWORD v17[2]; // [esp+28h] [ebp-30h] BYREF
-  _DWORD v18[2]; // [esp+30h] [ebp-28h] BYREF
-  _DWORD v19[3]; // [esp+38h] [ebp-20h] BYREF
-  int v20; // [esp+44h] [ebp-14h]
-  int v21; // [esp+48h] [ebp-10h]
-  int v22; // [esp+4Ch] [ebp-Ch] BYREF
-  HANDLE Handle; // [esp+50h] [ebp-8h] BYREF
-  HANDLE v24; // [esp+54h] [ebp-4h] BYREF
+  SIZE_T v16; // [esp-14h] [ebp-6Ch]
+  SIZE_T v17; // [esp-14h] [ebp-6Ch]
+  ULONG v18; // [esp+0h] [ebp-58h]
+  ULONG v19; // [esp+0h] [ebp-58h]
+  ULONG v20; // [esp+4h] [ebp-54h]
+  ULONG v21; // [esp+4h] [ebp-54h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-48h] BYREF
+  _CLIENT_ID v23; // [esp+28h] [ebp-30h] BYREF
+  _CLIENT_ID ClientId; // [esp+30h] [ebp-28h] BYREF
+  SIZE_T CommitSize; // [esp+38h] [ebp-20h] BYREF
+  void *v26; // [esp+44h] [ebp-14h]
+  NTSTATUS v27; // [esp+48h] [ebp-10h]
+  unsigned int v28; // [esp+4Ch] [ebp-Ch] BYREF
+  HANDLE ProcessHandle; // [esp+50h] [ebp-8h] BYREF
+  HANDLE Handle; // [esp+54h] [ebp-4h] BYREF
 
-  v16[0] = 24;
+  ObjectAttributes.Length = 24;
   v5 = 0;
-  memset(&v16[1], 0, 20);
-  v7 = a1[6];
-  v8 = (int *)((char *)a1 + a1[11]);
-  v20 = a2;
+  memset(&ObjectAttributes.RootDirectory, 0, 20);
+  v7 = *(void **)(a1 + 24);
+  v8 = (_DWORD *)(a1 + *(_DWORD *)(a1 + 44));
+  v26 = a2;
   if ( v7 )
   {
-    v18[0] = v7;
-    v18[1] = 0;
-    result = ZwOpenProcess((int)&Handle, 0x1FFFFF, (int)v16, (int)v18);
+    ClientId.UniqueProcess = v7;
+    ClientId.UniqueThread = 0;
+    result = ZwOpenProcess(&ProcessHandle, 0x1FFFFFu, &ObjectAttributes, &ClientId);
     if ( result < 0 )
       return result;
-    v10 = (int)Handle;
+    v10 = (int)ProcessHandle;
     v5 = 0;
   }
   else
   {
     v10 = -1;
-    Handle = (HANDLE)-1;
+    ProcessHandle = (HANDLE)-1;
   }
   if ( a2 )
   {
-    v17[0] = a2;
-    v17[1] = 0;
-    v11 = ZwOpenProcess((int)&v24, 0x1FFFFF, (int)v16, (int)v17);
+    v23.UniqueProcess = a2;
+    v23.UniqueThread = 0;
+    v11 = ZwOpenProcess(&Handle, 0x1FFFFFu, &ObjectAttributes, &v23);
     if ( v11 < 0 )
     {
-      if ( Handle != (HANDLE)-1 )
-        NtClose(Handle);
+      if ( ProcessHandle != (HANDLE)-1 )
+        NtClose(ProcessHandle);
       return v11;
     }
-    v10 = (int)Handle;
-    v5 = v24;
+    v10 = (int)ProcessHandle;
+    v5 = Handle;
   }
   else
   {
-    v24 = 0;
+    Handle = 0;
   }
-  v12 = a1 + 2;
+  v12 = (PVOID *)(a1 + 8);
   if ( v10 == -1 )
   {
-    v13 = a1[11];
-    *v12 = v13 + a1[1];
+    v13 = *(_DWORD *)(a1 + 44);
+    *v12 = (PVOID)(v13 + *(_DWORD *)(a1 + 4));
   }
   else
   {
     if ( *v12 )
     {
-      NtUnmapViewOfSection(v10, *v12);
-      v10 = (int)Handle;
+      NtUnmapViewOfSection((HANDLE)v10, *v12);
+      v10 = (int)ProcessHandle;
       *v12 = 0;
     }
     NtClose((HANDLE)v10);
-    v13 = a1[11];
-    v5 = v24;
+    v13 = *(_DWORD *)(a1 + 44);
+    v5 = Handle;
   }
-  v19[1] = 0;
-  v22 = v13;
-  v19[0] = v13;
+  v28 = v13;
+  CommitSize = v13;
   if ( v5 )
   {
-    v14 = ZwMapViewOfSection(*a1, (int)v5, (int)(a1 + 2), 0, 0, (int)v19, (int)&v22, 2, 0, 4);
-    v21 = v14;
+    HIDWORD(v16) = &v28;
+    LODWORD(v16) = &CommitSize;
+    v14 = ZwMapViewOfSection(
+            *(HANDLE *)a1,
+            v5,
+            (PVOID *)(a1 + 8),
+            0LL,
+            v16,
+            (PLARGE_INTEGER)2,
+            0,
+            (SECTION_INHERIT)4,
+            v18,
+            v20);
+    v27 = v14;
     if ( v14 == -1073741800 )
     {
+      HIDWORD(v17) = &v28;
       *v12 = 0;
-      v14 = ZwMapViewOfSection(*a1, (int)v24, (int)(a1 + 2), 0, 0, (int)v19, (int)&v22, 2, 0, 4);
-      v21 = v14;
+      LODWORD(v17) = &CommitSize;
+      v14 = ZwMapViewOfSection(
+              *(HANDLE *)a1,
+              Handle,
+              (PVOID *)(a1 + 8),
+              0LL,
+              v17,
+              (PLARGE_INTEGER)2,
+              0,
+              (SECTION_INHERIT)4,
+              v19,
+              v21);
+      v27 = v14;
     }
     if ( v14 < 0 )
     {
-      NtClose(v24);
-      return v21;
+      NtClose(Handle);
+      return v27;
     }
     if ( a4 )
-      *a4 = v24;
+      *a4 = Handle;
     else
-      NtClose(v24);
+      NtClose(Handle);
   }
-  a1[6] = v20;
-  a1[3] = (int)a1 - *v12;
+  *(_DWORD *)(a1 + 24) = v26;
+  *(_DWORD *)(a1 + 12) = a1 - (_DWORD)*v12;
   if ( a3 == 1 )
   {
     *v8 = 0;
     v8[1] = *v12;
     v8[2] = *v12;
-    v8[3] = a1[3];
-    v8[4] = a1[4];
-    v8[5] = a1[5];
-    v8[6] = a1[6];
-    v8[7] = a1[7];
-    v8[8] = a1[8];
-    v8[9] = a1[9];
-    v8[10] = a1[10];
-    v8[11] = a1[11];
-    v8[20] = a1[20];
+    v8[3] = *(_DWORD *)(a1 + 12);
+    v8[4] = *(_DWORD *)(a1 + 16);
+    v8[5] = *(_DWORD *)(a1 + 20);
+    v8[6] = *(_DWORD *)(a1 + 24);
+    v8[7] = *(_DWORD *)(a1 + 28);
+    v8[8] = *(_DWORD *)(a1 + 32);
+    v8[9] = *(_DWORD *)(a1 + 36);
+    v8[10] = *(_DWORD *)(a1 + 40);
+    v8[11] = *(_DWORD *)(a1 + 44);
+    v8[20] = *(_DWORD *)(a1 + 80);
   }
   else
   {
-    qmemcpy(v8, a1, 0x68u);
+    qmemcpy(v8, (const void *)a1, 0x68u);
     v15 = v8[2];
     *v8 = 0;
     v8[1] = v15;

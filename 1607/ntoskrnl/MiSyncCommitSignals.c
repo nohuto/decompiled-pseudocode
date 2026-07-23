@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSyncCommitSignals @ 0x140142B2C
+ * XREFs of MiSyncCommitSignals @ 0x14014309C
  * Callers:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReplenishLocalCommit @ 0x1400A4FEC (MiReplenishLocalCommit.c)
- *     MiComputeCommitThresholds @ 0x140142AD4 (MiComputeCommitThresholds.c)
- *     MiSetPagesModified @ 0x1401E5664 (MiSetPagesModified.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReplenishLocalCommit @ 0x1400A3564 (MiReplenishLocalCommit.c)
+ *     MiComputeCommitThresholds @ 0x140143044 (MiComputeCommitThresholds.c)
+ *     MiSetPagesModified @ 0x1401E5490 (MiSetPagesModified.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 void __fastcall MiSyncCommitSignals(__int64 a1, int a2)

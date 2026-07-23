@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlApplyHotPatch @ 0x140AAD770
+ * XREFs of RtlApplyHotPatch @ 0x140AAD5E0
  * Callers:
- *     MiApplyHotPatchToDriverDataPages @ 0x140A34F28 (MiApplyHotPatchToDriverDataPages.c)
- *     MiApplyImageHotPatch @ 0x140A35388 (MiApplyImageHotPatch.c)
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
- *     MiApplyImageHotPatchDpc @ 0x140AAD150 (MiApplyImageHotPatchDpc.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x140A351D8 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiApplyImageHotPatch @ 0x140A35638 (MiApplyImageHotPatch.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchDpc @ 0x140AACFC0 (MiApplyImageHotPatchDpc.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlGetHotPatchSize @ 0x14067ACB8 (RtlGetHotPatchSize.c)
- *     RtlGetHpatEntryAddress @ 0x14067ACD0 (RtlGetHpatEntryAddress.c)
- *     RtlPopulateHpatEntry @ 0x14067AE74 (RtlPopulateHpatEntry.c)
- *     RtlRevertFunctionPatchFromUndoEntry @ 0x14067AED8 (RtlRevertFunctionPatchFromUndoEntry.c)
- *     RtlpApplyFunctionPatch @ 0x14067AEEC (RtlpApplyFunctionPatch.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067AF0C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
- *     RtlpDetermineHotPatchExtent @ 0x140AADC84 (RtlpDetermineHotPatchExtent.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlGetHotPatchSize @ 0x14067B208 (RtlGetHotPatchSize.c)
+ *     RtlGetHpatEntryAddress @ 0x14067B220 (RtlGetHpatEntryAddress.c)
+ *     RtlPopulateHpatEntry @ 0x14067B3C4 (RtlPopulateHpatEntry.c)
+ *     RtlRevertFunctionPatchFromUndoEntry @ 0x14067B428 (RtlRevertFunctionPatchFromUndoEntry.c)
+ *     RtlpApplyFunctionPatch @ 0x14067B43C (RtlpApplyFunctionPatch.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067B45C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     RtlpDetermineHotPatchExtent @ 0x140AADAF4 (RtlpDetermineHotPatchExtent.c)
  */
 
 __int64 __fastcall RtlApplyHotPatch(
@@ -77,7 +77,7 @@ __int64 __fastcall RtlApplyHotPatch(
   __int64 v55; // rax
   __int64 v56; // r10
   _BYTE *v57; // rcx
-  RTL_BITMAP *v58; // rbx
+  _RTL_BITMAP *v58; // rbx
   ULONG ClearBitsAndSet; // r8d
   __int64 v60; // rdi
   unsigned int *v61; // rdx

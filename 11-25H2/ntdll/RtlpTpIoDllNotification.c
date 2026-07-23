@@ -6,10 +6,10 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpTpIoDllNotification(int a1, __int64 a2)
+void __fastcall RtlpTpIoDllNotification(int a1, PCLDR_DLL_NOTIFICATION_DATA a2, PVOID a3)
 {
   if ( a1 == 1 )
-    return RtlpTpIoDllLoaded(a2);
+    RtlpTpIoDllLoaded(a2, a2, a3);
   else
-    return RtlpTpIoDllUnloaded(a2);
+    RtlpTpIoDllUnloaded(a2, a2, a3);
 }

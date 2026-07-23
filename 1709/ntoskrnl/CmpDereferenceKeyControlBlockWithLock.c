@@ -36,7 +36,7 @@ void __fastcall CmpDereferenceKeyControlBlockWithLock(ULONG_PTR BugCheckParamete
   bool v5; // dl
   int v6; // ecx
   char v7; // bp
-  __int64 v8; // rdi
+  PRTL_BALANCED_NODE v8; // rdi
   unsigned __int8 CurrentIrql; // r14
   __int64 v10; // rcx
   _QWORD *v11; // rax
@@ -97,7 +97,7 @@ void __fastcall CmpDereferenceKeyControlBlockWithLock(ULONG_PTR BugCheckParamete
         if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )
           ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, v8);
         if ( v8 )
-          *(_BYTE *)(v8 + 26) |= 1u;
+          BYTE2(v8[1].Left) |= 1u;
         v10 = CmpDelayedLRUListHead;
         *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
         *((_DWORD *)&CmpDelayedCloseTableLock + 12) = CurrentIrql;

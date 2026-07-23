@@ -9,36 +9,36 @@
  *     sub_180086EA8 @ 0x180086EA8 (sub_180086EA8.c)
  */
 
-__int64 __fastcall sub_18001A8B4(__int64 a1)
+LOGICAL __fastcall sub_18001A8B4(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
   __int64 i; // rdi
-  __int64 v4; // rcx
+  _QWORD *v4; // rcx
   __int64 v5; // rax
 
-  *(_QWORD *)(*(_QWORD *)(a1 + 48) + 176LL) = 0LL;
+  *(_QWORD *)(*((_QWORD *)BaseAddress + 6) + 176LL) = 0LL;
   result = sub_18001A950();
-  if ( *(_QWORD *)(a1 + 80) )
+  if ( *((_QWORD *)BaseAddress + 10) )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 88); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)BaseAddress + 22); i = (unsigned int)(i + 1) )
     {
-      v4 = *(_QWORD *)(*(_QWORD *)(a1 + 80) + 8 * i);
+      v4 = *(_QWORD **)(*((_QWORD *)BaseAddress + 10) + 8 * i);
       if ( v4 )
       {
-        v5 = *(_QWORD *)(v4 + 176);
+        v5 = v4[22];
         if ( v5 )
         {
-          if ( (*(_DWORD *)(v5 + 24) & 0x80000) == 0 && *(_QWORD *)(v5 + 48) != v4 )
+          if ( (*(_DWORD *)(v5 + 24) & 0x80000) == 0 && *(_QWORD **)(v5 + 48) != v4 )
           {
             *(_QWORD *)(v5 + 48) = v4;
-            sub_180086EA8();
+            sub_180086EA8(v4);
           }
         }
       }
     }
-    result = RtlFreeHeap(qword_18015B328, 0LL);
+    result = RtlFreeHeap(HeapHandle, 0, *((PVOID *)BaseAddress + 10));
   }
-  if ( (*(_DWORD *)(a1 + 24) & 0x8000) != 0 )
-    return RtlFreeHeap(qword_18015B328, 0LL);
+  if ( (*((_DWORD *)BaseAddress + 6) & 0x8000) != 0 )
+    return RtlFreeHeap(HeapHandle, 0, BaseAddress);
   return result;
 }

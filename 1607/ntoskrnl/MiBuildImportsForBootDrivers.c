@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitializeLoadedModuleList @ 0x1407B1234 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -54,11 +54,11 @@ __int64 MiBuildImportsForBootDrivers()
   do
   {
     v5 = v0[6];
-    if ( (PVOID)PsNtosImageBase == v5 )
+    if ( PsNtosImageBase == v5 )
     {
       v3 = v0;
     }
-    else if ( (PVOID)PsHalImageBase == v5 )
+    else if ( PsHalImageBase == v5 )
     {
       v4 = v0;
     }

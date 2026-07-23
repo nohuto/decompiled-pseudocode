@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqSerializationWrite @ 0x1406B87F0
+ * XREFs of PiDqSerializationWrite @ 0x140617DF0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 unsigned __int64 __fastcall PiDqSerializationWrite(__int64 a1, const void *a2, unsigned int a3)

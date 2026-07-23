@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwGetWorkQueueHealthMetricsDataDescriptorCount @ 0x1406C45B0
+ * XREFs of EtwGetWorkQueueHealthMetricsDataDescriptorCount @ 0x1406C81F0
  * Callers:
- *     ExStartStopWorkQueueProvider @ 0x14083F6BC (ExStartStopWorkQueueProvider.c)
+ *     ExStartStopWorkQueueProvider @ 0x1408458FC (ExStartStopWorkQueueProvider.c)
  * Callees:
  *     <none>
  */

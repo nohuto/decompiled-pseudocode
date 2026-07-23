@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x140648E78
+ * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x140648F5C
  * Callers:
- *     IopDeviceRemovalForResetComplete @ 0x14062C698 (IopDeviceRemovalForResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x14062C74C (IopDeviceRemovalForResetComplete.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PnpTraceDeviceRemovalForResetComplete(__int64 a1, UCHAR a2)
@@ -86,7 +86,7 @@ char __fastcall PnpTraceDeviceRemovalForResetComplete(__int64 a1, UCHAR a2)
         v31 = 4LL;
         v33 = 2LL;
         v35[1] = v6;
-        LOBYTE(v2) = TlgWrite(&stru_1402F3230, &unk_14027BC86, 0LL, 0LL, 0xDu, &pData);
+        LOBYTE(v2) = TlgWrite(&stru_1402F3230, &unk_14027BD86, 0LL, 0LL, 0xDu, &pData);
       }
     }
   }

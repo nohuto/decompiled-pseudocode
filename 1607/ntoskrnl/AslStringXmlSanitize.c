@@ -1,10 +1,10 @@
 /*
- * XREFs of AslStringXmlSanitize @ 0x1406C5610
+ * XREFs of AslStringXmlSanitize @ 0x1406C5748
  * Callers:
- *     AslpFileGetClrVersionAttribute @ 0x1406C747C (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x1406C7980 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x1406C7F0C (AslpFileGetPeExportNameExeWrapper.c)
- *     AslpFileMakeStringVersionAttributes @ 0x1406C8868 (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x1406C75B4 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x1406C7AB8 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x1406C8044 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1406C89A0 (AslpFileMakeStringVersionAttributes.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ __int64 __fastcall AslStringXmlSanitize(_WORD *a1)
     {
       v4 = a1[i];
       v5 = 0LL;
-      while ( v4 < asc_1402871C8[v5] || v4 > asc_1402871C8[v5 + 1] )
+      while ( v4 < asc_1402872B8[v5] || v4 > asc_1402872B8[v5 + 1] )
       {
         v5 += 2LL;
         if ( v5 >= 10 )

@@ -8,22 +8,22 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToOemN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned __int16 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  _BYTE *v5; // r10
-  unsigned int v6; // eax
-  unsigned int v8; // r8d
-  unsigned int v9; // r13d
+  PCHAR v5; // r10
+  ULONG v6; // eax
+  ULONG v8; // r8d
+  ULONG v9; // r13d
   __int64 v10; // r8
   __int64 v11; // r14
   __int64 v12; // r12
-  _BYTE *v13; // r10
-  unsigned __int16 *v14; // rbx
+  CHAR *v13; // r10
+  const WCHAR *v14; // rbx
   __int64 v15; // r9
   unsigned __int16 v16; // r11
   unsigned __int16 v17; // r11
@@ -51,30 +51,30 @@ __int64 __fastcall RtlUpcaseUnicodeToOemN(
   __int16 v40; // dx
   unsigned __int16 v41; // r8
   __int64 v42; // rax
-  unsigned int v43; // r8d
+  ULONG v43; // r8d
   __int16 v44; // dx
   unsigned int v45; // eax
   bool v46; // zf
-  unsigned int v47; // [rsp+48h] [rbp+10h]
-  unsigned int v48; // [rsp+60h] [rbp+28h]
+  ULONG v47; // [rsp+48h] [rbp+10h]
+  ULONG BytesInUnicodeStringa; // [rsp+60h] [rbp+28h]
 
-  v47 = a2;
-  v5 = a1;
-  v6 = a5 >> 1;
-  v8 = a2;
-  v48 = a5 >> 1;
+  v47 = MaxBytesInOemString;
+  v5 = OemString;
+  v6 = BytesInUnicodeString >> 1;
+  v8 = MaxBytesInOemString;
+  BytesInUnicodeStringa = BytesInUnicodeString >> 1;
   if ( !NlsMbOemCodePageTag )
   {
-    v9 = a2;
-    if ( v6 < a2 )
+    v9 = MaxBytesInOemString;
+    if ( v6 < MaxBytesInOemString )
       v9 = v6;
-    if ( a3 )
-      *a3 = v9;
+    if ( BytesInOemString )
+      *BytesInOemString = v9;
     v10 = NlsUnicodeToOemData;
     v11 = NlsOemToUnicodeData;
     v12 = v9 & 0xF;
-    v13 = &a1[v12];
-    v14 = &a4[v12];
+    v13 = &OemString[v12];
+    v14 = &UnicodeString[v12];
     v15 = Nls844UnicodeUpcaseTable;
     while ( (unsigned int)v12 <= 8 )
     {
@@ -180,7 +180,7 @@ LABEL_35:
       v9 -= v12;
       LODWORD(v12) = 16;
       if ( !v9 )
-        return v47 < v48 ? 0x80000005 : 0;
+        return v47 < BytesInUnicodeStringa ? 0x80000005 : 0;
     }
     if ( (_DWORD)v12 != 9 )
     {
@@ -380,7 +380,7 @@ LABEL_33:
     *(v13 - 6) = *(_BYTE *)(v25 + v10);
     goto LABEL_35;
   }
-  v34 = (int)a1;
+  v34 = (int)OemString;
   if ( v6 )
   {
     v35 = NlsOemToUnicodeData;
@@ -391,7 +391,7 @@ LABEL_33:
     {
       if ( !v8 )
         break;
-      v39 = *a4++;
+      v39 = *UnicodeString++;
       v40 = *(_WORD *)(v37 + 2 * v39);
       if ( NlsOemLeadByteInfoTable[HIBYTE(v40)] )
         v41 = *(_WORD *)(v38
@@ -426,13 +426,13 @@ LABEL_33:
       *v5 = v44;
       v8 = v43 - 1;
       ++v5;
-      v46 = v48-- == 1;
+      v46 = BytesInUnicodeStringa-- == 1;
       v47 = v8;
     }
     while ( !v46 );
-    v34 = (int)a1;
+    v34 = (int)OemString;
   }
-  if ( a3 )
-    *a3 = (_DWORD)v5 - v34;
-  return v47 < v48 ? 0x80000005 : 0;
+  if ( BytesInOemString )
+    *BytesInOemString = (_DWORD)v5 - v34;
+  return v47 < BytesInUnicodeStringa ? 0x80000005 : 0;
 }

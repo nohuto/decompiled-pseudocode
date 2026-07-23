@@ -1,5 +1,5 @@
 /*
- * XREFs of CarpSecondaryDataCallback @ 0x14064CB30
+ * XREFs of CarpSecondaryDataCallback @ 0x140650710
  * Callers:
  *     <none>
  * Callees:
@@ -13,6 +13,6 @@ void __fastcall CarpSecondaryDataCallback(
         ULONG ReasonSpecificDataLength)
 {
   ReasonSpecificData[1] = CarSecondaryDataGuid;
-  *((_DWORD *)ReasonSpecificData + 10) = HIDWORD(stru_140F066E8.SwapListEntry.Next);
-  *((_QWORD *)ReasonSpecificData + 4) = &stru_140F066E8.216;
+  *((_DWORD *)ReasonSpecificData + 10) = HIDWORD(stru_140F06A28.SwapListEntry.Next);
+  *((_QWORD *)ReasonSpecificData + 4) = &stru_140F06A28.216;
 }

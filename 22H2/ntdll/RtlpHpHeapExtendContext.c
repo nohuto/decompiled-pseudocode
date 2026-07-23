@@ -10,65 +10,60 @@
  *     RtlAcquireReleaseSRWLockExclusive @ 0x18007F180 (RtlAcquireReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpHeapExtendContext(__int128 *a1, __int64 a2)
+signed __int64 __fastcall RtlpHpHeapExtendContext(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  __int128 *v2; // rsi
-  signed __int64 v5; // rdi
-  __int64 v7; // rcx
+  _RTL_SRWLOCK *v2; // rsi
+  signed __int64 Value; // rdi
+  unsigned __int64 v7; // rcx
   unsigned __int64 v8; // rdx
   __int128 v9; // xmm0
-  __int64 v10; // rcx
+  unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rdi
-  bool v12; // zf
-  int v13; // eax
-  __int128 v14; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-28h] BYREF
-  unsigned __int64 v16; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v17; // [rsp+78h] [rbp+10h] BYREF
+  int v12; // eax
+  __int128 v13; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v14[2]; // [rsp+40h] [rbp-28h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp+10h] BYREF
 
-  v2 = a1 + 14;
-  RtlAcquireReleaseSRWLockExclusive(a1 + 14);
+  v2 = a1 + 28;
+  RtlAcquireReleaseSRWLockExclusive(a1 + 28);
   while ( 1 )
   {
     while ( 1 )
     {
-      v5 = *((_QWORD *)a1 + 29);
-      if ( (unsigned __int64)(v5 + a2) > *((_QWORD *)a1 + 30) )
+      Value = a1[29].Value;
+      if ( Value + a2 > a1[30].Value )
         break;
-      if ( v5 == _InterlockedCompareExchange64((volatile signed __int64 *)a1 + 29, v5 + a2, v5) )
-        return v5;
+      if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)&a1[29], Value + a2, Value) )
+        return Value;
     }
     RtlAcquireSRWLockExclusive(v2);
-    v7 = *((_QWORD *)a1 + 29);
-    v8 = *((_QWORD *)a1 + 30);
+    v7 = a1[29].Value;
+    v8 = a1[30].Value;
     if ( v7 + a2 > v8 )
       break;
 LABEL_10:
     RtlReleaseSRWLockExclusive(v2);
   }
-  v9 = *a1;
+  v9 = *(_OWORD *)&a1->0;
   v10 = v7 - v8;
-  v17 = *((_QWORD *)a1 + 30);
+  BaseAddress = a1[30].Ptr;
   v11 = (v10 + a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  v12 = (*((_BYTE *)a1 + 30) & 1) == 0;
-  v16 = v11;
-  if ( v12 )
+  if ( (BYTE6(a1[3].Ptr) & 1) != 0 )
   {
-    v15 = v9;
-    v13 = RtlpHpAllocVA((unsigned int)&v17, (unsigned int)&v16, 0, 4096, 4, (__int64)&v15);
-    v11 = v16;
+    v13 = v9;
+    v12 = RtlpHpMetadataCommit((_DWORD)a1, v8, (v10 + a2 + 4095) & 0xFFFFF000, (unsigned int)&v13, 1);
   }
   else
   {
-    v14 = v9;
-    v13 = RtlpHpMetadataCommit((_DWORD)a1, v8, (v10 + a2 + 4095) & 0xFFFFF000, (unsigned int)&v14, 1);
+    *(_OWORD *)v14 = v9;
+    v12 = RtlpHpAllocVA(&BaseAddress, 4u, (__int64)v14);
   }
-  if ( v13 >= 0 )
+  if ( v12 >= 0 )
   {
-    *((_QWORD *)a1 + 30) += v11;
+    a1[30].Value += v11;
     goto LABEL_10;
   }
-  v5 = 0LL;
+  Value = 0LL;
   RtlReleaseSRWLockExclusive(v2);
-  return v5;
+  return Value;
 }

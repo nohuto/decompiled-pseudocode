@@ -1,12 +1,12 @@
 /*
  * XREFs of KiInSwapKernelStacks @ 0x1402227B4
  * Callers:
- *     KeSwapProcessOrStack @ 0x1403954B0 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x140395690 (KeSwapProcessOrStack.c)
  * Callees:
  *     MiInPageSingleKernelStack @ 0x14021B0F0 (MiInPageSingleKernelStack.c)
  *     KeGetNextKernelStackSegment @ 0x140222C2C (KeGetNextKernelStackSegment.c)
- *     KiFastReadyThread @ 0x1402BB984 (KiFastReadyThread.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiFastReadyThread @ 0x1402BBC14 (KiFastReadyThread.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiInSwapKernelStacks(_QWORD *a1)

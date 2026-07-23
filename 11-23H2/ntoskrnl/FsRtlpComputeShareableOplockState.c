@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlpComputeShareableOplockState @ 0x140302370
+ * XREFs of FsRtlpComputeShareableOplockState @ 0x140302600
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpCancelOplockRHIrp @ 0x140360BC0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BFC24 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3330 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14053E1A0 (FsRtlpCancelReadOnlyOplockIrp.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140766310 (FsRtlpOplockFsctrlInternal.c)
- *     FsRtlCheckUpperOplock @ 0x14093DBD0 (FsRtlCheckUpperOplock.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x1403011A4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpRequestShareableOplock @ 0x140301BB0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x140360D60 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403BFE04 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3510 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x14053E6F0 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x140766500 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlCheckUpperOplock @ 0x14093DDD0 (FsRtlCheckUpperOplock.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall FsRtlpComputeShareableOplockState(_QWORD *a1)
@@ -65,7 +65,7 @@ char __fastcall FsRtlpComputeShareableOplockState(_QWORD *a1)
     v26 = 4;
     LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
                    (__int64)&dword_140C03768,
-                   (unsigned __int8 *)byte_14003A7E8,
+                   (unsigned __int8 *)word_14003A84A,
                    0LL,
                    0LL,
                    4u,
@@ -176,7 +176,7 @@ LABEL_6:
     v32 = 8;
     LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
                    (__int64)&dword_140C03768,
-                   (unsigned __int8 *)word_14003A762,
+                   (unsigned __int8 *)byte_14003A89B,
                    0LL,
                    0LL,
                    6u,

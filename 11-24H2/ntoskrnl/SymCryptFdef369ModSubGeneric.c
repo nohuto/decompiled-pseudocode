@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdef369ModSubGeneric @ 0x140538E10
+ * XREFs of SymCryptFdef369ModSubGeneric @ 0x1405332B0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     SymCryptFdef369RawAddAsm @ 0x140539880 (SymCryptFdef369RawAddAsm.c)
- *     SymCryptFdef369RawSubAsm @ 0x1405398D0 (SymCryptFdef369RawSubAsm.c)
- *     SymCryptFdef369MaskedCopyAsm @ 0x140539920 (SymCryptFdef369MaskedCopyAsm.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdef369RawAddAsm @ 0x1405370C0 (SymCryptFdef369RawAddAsm.c)
+ *     SymCryptFdef369RawSubAsm @ 0x140537110 (SymCryptFdef369RawSubAsm.c)
+ *     SymCryptFdef369MaskedCopyAsm @ 0x140537160 (SymCryptFdef369MaskedCopyAsm.c)
  */
 
 __int64 __fastcall SymCryptFdef369ModSubGeneric(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

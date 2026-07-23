@@ -1,16 +1,13 @@
 /*
- * XREFs of MicrosoftTelemetryAssertTriggeredUM @ 0x180108000
+ * XREFs of MicrosoftTelemetryAssertTriggeredUM @ 0x180107A00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-struct _TEB *__fastcall MicrosoftTelemetryAssertTriggeredUM(__int64 a1, __int64 a2)
+void __fastcall MicrosoftTelemetryAssertTriggeredUM(__int64 a1)
 {
-  struct _TEB *result; // rax
-
   if ( *(_DWORD *)a1 == 11 )
-    return MicrosoftTelemetryAssertTriggeredWorker(a1, a2);
-  return result;
+    MicrosoftTelemetryAssertTriggeredWorker(a1);
 }

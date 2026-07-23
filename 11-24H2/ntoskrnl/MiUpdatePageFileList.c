@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdatePageFileList @ 0x14067A25C
+ * XREFs of MiUpdatePageFileList @ 0x14067B43C
  * Callers:
- *     MiIncreaseCommitLimits @ 0x14068620C (MiIncreaseCommitLimits.c)
- *     MiDeletePagefile @ 0x1407EEEF8 (MiDeletePagefile.c)
- *     MiInsertPageFileInList @ 0x1407EF2F0 (MiInsertPageFileInList.c)
+ *     MiIncreaseCommitLimits @ 0x14068733C (MiIncreaseCommitLimits.c)
+ *     MiDeletePagefile @ 0x1407EF4C8 (MiDeletePagefile.c)
+ *     MiInsertPageFileInList @ 0x1407EF8C0 (MiInsertPageFileInList.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 _UNKNOWN **__fastcall MiUpdatePageFileList(__int64 a1, char a2)
@@ -31,21 +31,21 @@ _UNKNOWN **__fastcall MiUpdatePageFileList(__int64 a1, char a2)
   if ( (a2 & 2) != 0 )
   {
     v7 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E37288);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E373C8);
   }
   else
   {
-    v7 = ExAcquireSpinLockExclusive(&dword_140E37288);
+    v7 = ExAcquireSpinLockExclusive(&dword_140E373C8);
   }
   if ( (a2 & 1) == 0 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E37280, (__int64)v6);
-    return (_UNKNOWN **)MiReleaseSpinLockExclusive(&dword_140E37288, v7);
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E373C0, (__int64)v6);
+    return (_UNKNOWN **)MiReleaseSpinLockExclusive(&dword_140E373C8, v7);
   }
   v8 = *(_QWORD *)(a1 + 24);
   *(_WORD *)(a1 + 172) |= 0x100u;
-  v9 = (_QWORD *)qword_140E37280;
-  if ( !qword_140E37280 )
+  v9 = (_QWORD *)qword_140E373C0;
+  if ( !qword_140E373C0 )
     goto LABEL_13;
   while ( v8 < *(v9 - 25) )
   {
@@ -60,6 +60,6 @@ LABEL_11:
     goto LABEL_11;
   v3 = 1;
 LABEL_13:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E37280, (unsigned __int64)v9, v3, v6);
-  return (_UNKNOWN **)MiReleaseSpinLockExclusive(&dword_140E37288, v7);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E373C0, (unsigned __int64)v9, v3, v6);
+  return (_UNKNOWN **)MiReleaseSpinLockExclusive(&dword_140E373C8, v7);
 }

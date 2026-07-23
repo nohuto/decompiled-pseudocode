@@ -1,7 +1,7 @@
 /*
- * XREFs of ViWdInsertSortIrp @ 0x14093E8B4
+ * XREFs of ViWdInsertSortIrp @ 0x14093F8B4
  * Callers:
- *     ViWdBeforeCancelIrp @ 0x14093E808 (ViWdBeforeCancelIrp.c)
+ *     ViWdBeforeCancelIrp @ 0x14093F808 (ViWdBeforeCancelIrp.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall ViWdInsertSortIrp(__int64 a1)
   __int64 i; // rdx
   __int64 result; // rax
 
-  for ( i = qword_140985C30; (__int64 *)i != &VfWdIrpListHead; i = *(_QWORD *)(i + 8) )
+  for ( i = qword_140986C30; (__int64 *)i != &VfWdIrpListHead; i = *(_QWORD *)(i + 8) )
   {
     if ( *(_DWORD *)(i + 24) <= *(_DWORD *)(a1 + 24) )
       break;

@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpBecomeDiffHiveEntryTransitionOwner @ 0x14077C5E0
+ * XREFs of VrpBecomeDiffHiveEntryTransitionOwner @ 0x14077C7D0
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14077BA9C (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x14077BECC (VrpUnloadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14077BC8C (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14077C0BC (VrpUnloadDifferencingHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
  */
 
 char __fastcall VrpBecomeDiffHiveEntryTransitionOwner(__int64 a1)

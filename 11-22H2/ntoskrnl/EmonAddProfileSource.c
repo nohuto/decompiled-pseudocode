@@ -93,10 +93,13 @@ __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)
     if ( a2 )
       *a2 = *(_DWORD *)v14;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v19 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -125,10 +128,10 @@ __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)
     }
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
     v28 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v29 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v19 <= 0xFu && v29 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v19 <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
         v28 = (unsigned int)(v19 + 1);

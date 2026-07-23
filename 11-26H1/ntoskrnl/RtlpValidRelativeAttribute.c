@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidRelativeAttribute @ 0x1409F5010
+ * XREFs of RtlpValidRelativeAttribute @ 0x1409E0D60
  * Callers:
- *     RtlpValidAttributeAce @ 0x1409F4FA0 (RtlpValidAttributeAce.c)
+ *     RtlpValidAttributeAce @ 0x1409E0CF0 (RtlpValidAttributeAce.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14047EE24 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x140478794 (RtlStringCbLengthW.c)
  */
 
 char __fastcall RtlpValidRelativeAttribute(unsigned int *a1, unsigned int a2)
@@ -11,8 +11,8 @@ char __fastcall RtlpValidRelativeAttribute(unsigned int *a1, unsigned int a2)
   unsigned int v2; // r11d
   __int64 v5; // r8
   unsigned int v6; // eax
-  unsigned int v7; // ecx
-  _WORD *v8; // rdx
+  unsigned int v7; // edx
+  _WORD *v8; // rcx
   unsigned __int64 i; // rax
   unsigned int v11; // ecx
   __int64 v12; // rcx
@@ -41,7 +41,7 @@ char __fastcall RtlpValidRelativeAttribute(unsigned int *a1, unsigned int a2)
   if ( a2 < *a1 )
     return 0;
   v7 = a2 - v6;
-  if ( a2 - v6 < 4 )
+  if ( v7 < 4 )
     return 0;
   v8 = (_WORD *)((char *)a1 + v6);
   if ( !v8 )

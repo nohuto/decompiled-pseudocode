@@ -15,7 +15,7 @@ __int64 PopAcquireTransitionLockAfterSleep()
   PopWaitingForTransitionLock = 1;
   if ( qword_140F0B038 )
     PopWaitingForTransitionLock = (int)PopPushPowerStateTransitionRecordWithCallback(
-                                         (__int64)KeGetCurrentThread()->ApcState.Process,
+                                         (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process,
                                          qword_140F0B038,
                                          0LL,
                                          0,

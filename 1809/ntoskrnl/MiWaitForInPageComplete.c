@@ -15,23 +15,23 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiDeleteControlArea @ 0x140094D1C (MiDeleteControlArea.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiPrefetchRestOfCluster @ 0x140139098 (MiPrefetchRestOfCluster.c)
- *     MiFlowThroughRemoveNode @ 0x14013B730 (MiFlowThroughRemoveNode.c)
- *     MiStoreFaultComplete @ 0x140157C60 (MiStoreFaultComplete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiExceptionForMappedVa @ 0x1402A587C (MiExceptionForMappedVa.c)
- *     MiRetardMdl @ 0x1402A83EC (MiRetardMdl.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
- *     MiValidatePagefilePageHash @ 0x1402CC514 (MiValidatePagefilePageHash.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiDeleteControlArea @ 0x140094C5C (MiDeleteControlArea.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiPrefetchRestOfCluster @ 0x140139198 (MiPrefetchRestOfCluster.c)
+ *     MiFlowThroughRemoveNode @ 0x14013B830 (MiFlowThroughRemoveNode.c)
+ *     MiStoreFaultComplete @ 0x140157D60 (MiStoreFaultComplete.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiExceptionForMappedVa @ 0x1402A5A6C (MiExceptionForMappedVa.c)
+ *     MiRetardMdl @ 0x1402A85DC (MiRetardMdl.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AB1E0 (MiFlushAllFilesystemPages.c)
+ *     MiValidatePagefilePageHash @ 0x1402CC704 (MiValidatePagefilePageHash.c)
  */
 
 __int64 __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, int *a3)
@@ -114,7 +114,7 @@ __int64 __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, int *a3)
       if ( (void (__fastcall __noreturn *)())KeGetCurrentThread()[1].ApcState.ApcListHead[0].Blink != KeSwapProcessOrStack )
         v37 = ~(*(_DWORD *)(a1 + 80) << 11) & 0x20000 | 0x40000000;
       MiFindContiguousPages(
-        *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL)),
+        *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL)),
         v36 + 1,
         -1,
         0,
@@ -261,8 +261,8 @@ LABEL_73:
     if ( v19 == -2147483626 )
       goto LABEL_31;
     IsRetryIoStatus = MiIsRetryIoStatus((unsigned int)v19, *(unsigned int *)(v3 + 40));
-    if ( IsRetryIoStatus && !dword_14043ADA4 && (!v20 || (v56 & 2) != 0) )
-      dword_14043ADA4 = 32;
+    if ( IsRetryIoStatus && !dword_14043BE64 && (!v20 || (v56 & 2) != 0) )
+      dword_14043BE64 = 32;
     if ( (*(_DWORD *)(a2 + 192) & 8) != 0 )
     {
       v19 = -1073741801;

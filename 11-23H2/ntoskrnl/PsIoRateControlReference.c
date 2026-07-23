@@ -4,7 +4,7 @@
  *     IoGetIoRateControl @ 0x14020C410 (IoGetIoRateControl.c)
  * Callees:
  *     PspIoRateEntryIoControlReference @ 0x14020C964 (PspIoRateEntryIoControlReference.c)
- *     PspJobIoRateVolumeEntryReference @ 0x1405A4570 (PspJobIoRateVolumeEntryReference.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x1405A4AE0 (PspJobIoRateVolumeEntryReference.c)
  */
 
 __int64 __fastcall PsIoRateControlReference(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4, _QWORD *a5)

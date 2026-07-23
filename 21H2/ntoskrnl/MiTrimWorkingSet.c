@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTrimWorkingSet @ 0x140359EE4
+ * XREFs of MiTrimWorkingSet @ 0x14029EC80
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     MiReduceWs @ 0x14036C38C (MiReduceWs.c)
- *     MiForcedTrim @ 0x14036C520 (MiForcedTrim.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     MiReduceWs @ 0x14036C53C (MiReduceWs.c)
+ *     MiForcedTrim @ 0x14036C6D0 (MiForcedTrim.c)
  * Callees:
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
- *     MiLogTrimWs @ 0x14035A108 (MiLogTrimWs.c)
- *     MiGenerateRandomPte @ 0x14035A1EC (MiGenerateRandomPte.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiLogTrimWs @ 0x14029EEA4 (MiLogTrimWs.c)
+ *     MiGenerateRandomPte @ 0x14029EF88 (MiGenerateRandomPte.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x140341F58 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4, int a5)
@@ -77,7 +77,7 @@ __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, un
       LODWORD(v23[0]) = v9;
     }
   }
-  if ( dword_140C4E828 )
+  if ( dword_140C4E868 )
     LODWORD(v23[0]) = v9 | 0x10;
   v23[8] = 20LL;
   v11 = MiTbFlushType(a1);
@@ -116,7 +116,7 @@ __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, un
   BYTE6(v22[0]) = a3;
   if ( ((unsigned int)v12 & v13) != 0 )
   {
-    RandomPte = MiGenerateRandomPte(v22, v12, v17, 0LL);
+    RandomPte = MiGenerateRandomPte(v22, v12, v17);
     v22[7] = RandomPte;
   }
   else
@@ -128,7 +128,7 @@ __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, un
   if ( !RandomPte )
     v20 = -1LL;
   v22[5] = v20;
-  MiWalkPageTables((__int64)v22);
+  MiWalkPageTables(v22);
   MiLogTrimWs(a1, v23[4], v23[2], v6, a5);
   return v23[2];
 }

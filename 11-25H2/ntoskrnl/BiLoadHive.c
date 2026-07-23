@@ -20,69 +20,63 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
 {
   unsigned int i; // esi
   HANDLE v6; // rdi
-  int Key2; // ebx
-  __int64 v8; // rdx
-  __int64 v10; // [rsp+30h] [rbp-C8h] BYREF
-  HANDLE v11; // [rsp+38h] [rbp-C0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-B8h] BYREF
-  __int128 v13; // [rsp+70h] [rbp-88h] BYREF
-  __int128 v14; // [rsp+80h] [rbp-78h]
-  __int128 v15; // [rsp+90h] [rbp-68h]
+  int v7; // ebx
+  __int64 v9; // [rsp+30h] [rbp-C8h] BYREF
+  HANDLE v10; // [rsp+38h] [rbp-C0h] BYREF
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+40h] [rbp-B8h] BYREF
+  OBJECT_ATTRIBUTES SourceFile; // [rsp+70h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-58h] BYREF
-  UNICODE_STRING v17; // [rsp+B0h] [rbp-48h] BYREF
+  UNICODE_STRING v14; // [rsp+B0h] [rbp-48h] BYREF
 
-  v13 = 0LL;
+  memset(&SourceFile, 0, 44);
+  memset(&TargetKey, 0, 44);
+  v9 = 0LL;
   v14 = 0LL;
-  *(_QWORD *)&v15 = 0LL;
-  DWORD2(v15) = 0;
-  memset(&ObjectAttributes, 0, 44);
-  v10 = 0LL;
-  v17 = 0LL;
   DestinationString = 0LL;
   for ( i = 0; ; ++i )
   {
     v6 = 0LL;
-    v11 = 0LL;
+    v10 = 0LL;
     if ( (unsigned __int8)BiDoesHiveExist(a2) )
     {
-      Key2 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 0xF003Fu, &v11);
-      if ( Key2 >= 0 )
+      v7 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 0xF003Fu, &v10);
+      if ( v7 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);
-        ObjectAttributes.Length = 48;
-        v6 = v11;
-        ObjectAttributes.RootDirectory = v11;
-        ObjectAttributes.Attributes = 576;
-        ObjectAttributes.ObjectName = &DestinationString;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        RtlInitUnicodeString(&v17, (PCWSTR)(a2 + 12));
-        LODWORD(v13) = 48;
-        *((_QWORD *)&v13 + 1) = 0LL;
-        DWORD2(v14) = 576;
-        *(_QWORD *)&v14 = &v17;
-        v15 = 0LL;
-        Key2 = BiAcquirePrivilege(0x12u, (__int64)&v10);
-        if ( Key2 < 0 )
+        TargetKey.Length = 48;
+        v6 = v10;
+        TargetKey.RootDirectory = v10;
+        TargetKey.Attributes = 576;
+        TargetKey.ObjectName = &DestinationString;
+        *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+        RtlInitUnicodeString(&v14, (PCWSTR)(a2 + 12));
+        SourceFile.Length = 48;
+        SourceFile.RootDirectory = 0LL;
+        SourceFile.Attributes = 576;
+        SourceFile.ObjectName = &v14;
+        *(_OWORD *)&SourceFile.SecurityDescriptor = 0LL;
+        v7 = BiAcquirePrivilege(0x12u, (__int64)&v9);
+        if ( v7 < 0 )
           goto LABEL_7;
-        Key2 = ZwLoadKey2((__int64)&ObjectAttributes, (__int64)&v13);
-        if ( Key2 < 0 )
-          Key2 = ZwLoadKey2((__int64)&ObjectAttributes, (__int64)&v13);
-        if ( Key2 < 0 )
-          Key2 = ZwLoadKey((__int64)&ObjectAttributes, (__int64)&v13);
-        BiReleasePrivilege((unsigned int *)&v10);
-        if ( Key2 < 0 )
+        v7 = ZwLoadKey2(&TargetKey, &SourceFile, 0x1780u);
+        if ( v7 < 0 )
+          v7 = ZwLoadKey2(&TargetKey, &SourceFile, 0x1380u);
+        if ( v7 < 0 )
+          v7 = ZwLoadKey(&TargetKey, &SourceFile);
+        BiReleasePrivilege((unsigned int *)&v9);
+        if ( v7 < 0 )
         {
 LABEL_7:
           BiLogMessage();
         }
         else
         {
-          Key2 = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);
-          if ( Key2 < 0 )
+          v7 = ZwOpenKey(a3, 0x20019u, &TargetKey);
+          if ( v7 < 0 )
           {
-            BiAcquirePrivilege(0x11u, (__int64)&v10);
-            ZwUnloadKey((__int64)&ObjectAttributes, v8);
-            BiReleasePrivilege((unsigned int *)&v10);
+            BiAcquirePrivilege(0x11u, (__int64)&v9);
+            ZwUnloadKey(&TargetKey);
+            BiReleasePrivilege((unsigned int *)&v9);
             BiLogMessage();
           }
         }
@@ -90,20 +84,20 @@ LABEL_7:
       else
       {
         BiLogMessage();
-        v6 = v11;
+        v6 = v10;
       }
     }
     else
     {
-      Key2 = -1073741809;
+      v7 = -1073741809;
     }
     if ( v6 )
       ZwClose(v6);
-    if ( Key2 != -1073741443 )
+    if ( v7 != -1073741443 )
       break;
     __debugbreak();
     if ( i >= 5 )
       break;
   }
-  return (unsigned int)Key2;
+  return (unsigned int)v7;
 }

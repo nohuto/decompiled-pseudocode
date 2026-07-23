@@ -21,10 +21,10 @@ __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, _QWORD *a2, int 
   __int64 v3; // r14
   unsigned int v4; // r13d
   signed __int64 *v5; // r15
-  __int64 v6; // rsi
+  PRTL_BALANCED_NODE v6; // rsi
   unsigned __int64 *v7; // r14
-  __int64 v8; // rax
-  __int64 v9; // rsi
+  _RTL_BALANCED_NODE *v8; // rax
+  _RTL_BALANCED_NODE *v9; // rsi
   _QWORD *v10; // rax
   _QWORD *v11; // r12
   __int64 v12; // rsi
@@ -71,7 +71,7 @@ LABEL_2:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 80), 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((unsigned __int64 *)(v3 + 80), v6, v3 + 80);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = (unsigned __int64 *)(v3 + 104);
   v32 = v7;
   v8 = KeAbPreAcquire((ULONG_PTR)v7, 0LL, 0);
@@ -79,7 +79,7 @@ LABEL_2:
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
     ExfAcquirePushLockExclusiveEx(v7, v8, (ULONG_PTR)v7);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v10 = (_QWORD *)(a1 + 112);
   v34 = (_QWORD *)(a1 + 112);
   v11 = *(_QWORD **)(a1 + 112);

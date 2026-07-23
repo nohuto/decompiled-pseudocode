@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCchCopyNW @ 0x1800ED544
+ * XREFs of RtlStringCchCopyNW @ 0x1800E8834
  * Callers:
- *     LdrpGetFileDriverStoreRoot @ 0x1800ED484 (LdrpGetFileDriverStoreRoot.c)
+ *     LdrpGetFileDriverStoreRoot @ 0x1800E8774 (LdrpGetFileDriverStoreRoot.c)
  * Callees:
  *     <none>
  */

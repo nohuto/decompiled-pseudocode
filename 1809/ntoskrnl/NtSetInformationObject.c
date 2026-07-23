@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetInformationObject @ 0x14068D6B0
+ * XREFs of NtSetInformationObject @ 0x14068E870
  * Callers:
  *     <none>
  * Callees:
  *     PsGetCurrentProcessSessionId @ 0x140002AA0 (PsGetCurrentProcessSessionId.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MmGetSessionObjectById @ 0x14007F244 (MmGetSessionObjectById.c)
- *     ObpUnlockDirectory @ 0x140109F18 (ObpUnlockDirectory.c)
- *     ObpLockDirectoryExclusive @ 0x140109FD0 (ObpLockDirectoryExclusive.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     ObSetHandleAttributes @ 0x14068D8D0 (ObSetHandleAttributes.c)
+ *     MmGetSessionObjectById @ 0x14007F234 (MmGetSessionObjectById.c)
+ *     ObpUnlockDirectory @ 0x140109F98 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryExclusive @ 0x14010A050 (ObpLockDirectoryExclusive.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     ObSetHandleAttributes @ 0x14068EA90 (ObSetHandleAttributes.c)
  */
 
 NTSTATUS __stdcall NtSetInformationObject(

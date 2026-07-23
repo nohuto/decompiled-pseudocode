@@ -1,36 +1,31 @@
 /*
- * XREFs of PopFxProcessWorkPool @ 0x1404EB530
+ * XREFs of PopFxProcessWorkPool @ 0x1404E24A0
  * Callers:
- *     PopFxStaticWorkPoolThread @ 0x1405D1F40 (PopFxStaticWorkPoolThread.c)
- *     PopFxPluginWork @ 0x140A03A70 (PopFxPluginWork.c)
+ *     PopFxStaticWorkPoolThread @ 0x1405CF660 (PopFxStaticWorkPoolThread.c)
+ *     PopFxPluginWork @ 0x1409FFFA0 (PopFxPluginWork.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     PopFxDispatchPluginWorkOnce @ 0x140315E30 (PopFxDispatchPluginWorkOnce.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExInterlockedRemoveHeadList @ 0x14042ECB0 (ExInterlockedRemoveHeadList.c)
- *     Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline @ 0x1405CFD88 (Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1402BE9E4 (PopFxDispatchPluginWorkOnce.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     ExInterlockedRemoveHeadList @ 0x1404209E0 (ExInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __fastcall PopFxProcessWorkPool(char *a1, unsigned int a2)
 {
-  __int64 v2; // rbp
+  __int64 v2; // rsi
   int v3; // edi
-  unsigned int v5; // r15d
+  unsigned int v5; // r14d
   LARGE_INTEGER *p_Timeout; // rax
   NTSTATUS result; // eax
-  int v8; // esi
+  int v8; // ecx
   struct _KTHREAD *CurrentThread; // rax
   PLIST_ENTRY v10; // rax
   __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  struct _KTHREAD *v16; // rax
-  signed __int32 v18; // eax
-  signed __int32 v19; // ett
+  struct _KTHREAD *v12; // rax
+  signed __int32 v14; // eax
+  signed __int32 v15; // ett
   PVOID Object[2]; // [rsp+40h] [rbp-38h] BYREF
   LARGE_INTEGER Timeout; // [rsp+80h] [rbp+8h] BYREF
 
@@ -64,8 +59,7 @@ NTSTATUS __fastcall PopFxProcessWorkPool(char *a1, unsigned int a2)
     if ( result == 258 )
       break;
 LABEL_11:
-    if ( (unsigned int)Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline()
-      && a1 == (char *)&PopFxNoFaultSystemWorkPool )
+    if ( a1 == (char *)&PopFxNoFaultSystemWorkPool )
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
@@ -79,31 +73,28 @@ LABEL_11:
     {
       v10 = ExInterlockedRemoveHeadList((PLIST_ENTRY)a1 + 1, (PKSPIN_LOCK)a1 + 1);
       *v10 = 0LL;
-      guard_dispatch_icall_no_overrides(v10[1].Blink, v11, v12, v13);
+      guard_dispatch_icall_no_overrides(v10[1].Blink, v11);
     }
-    if ( (unsigned int)Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline() )
+    if ( a1 == (char *)&PopFxNoFaultSystemWorkPool )
     {
-      if ( a1 == (char *)&PopFxNoFaultSystemWorkPool )
+      v12 = KeGetCurrentThread();
+      if ( v12->SpecialApcDisable++ == -1
+        && ($727077A9B6E167EAE1398C74674DC5A5 *)v12->ApcState.ApcListHead[0].Flink != &v12->152 )
       {
-        v16 = KeGetCurrentThread();
-        if ( v16->SpecialApcDisable++ == -1
-          && ($81B80DCEA5A02D890AB7B2872B48AC01 *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
-        {
-          KiCheckForKernelApcDelivery(v15, v14);
-        }
+        KiCheckForKernelApcDelivery();
       }
     }
     if ( !(_DWORD)v2 )
     {
       _m_prefetchw(a1 + 96);
-      v18 = *((_DWORD *)a1 + 24);
+      v14 = *((_DWORD *)a1 + 24);
       do
       {
-        v19 = v18;
-        v18 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + 24, v18, v18);
+        v15 = v14;
+        v14 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + 24, v14, v14);
       }
-      while ( v19 != v18 );
-      if ( v18 )
+      while ( v15 != v14 );
+      if ( v14 )
         v3 = 0;
       else
         v3 = (v3 + 1) % 2;

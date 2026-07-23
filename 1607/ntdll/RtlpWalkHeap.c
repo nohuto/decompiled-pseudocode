@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpWalkHeap @ 0x18004D484
+ * XREFs of RtlpWalkHeap @ 0x18004D474
  * Callers:
- *     RtlpWalkHeapInternal @ 0x18004D364 (RtlpWalkHeapInternal.c)
+ *     RtlpWalkHeapInternal @ 0x18004D354 (RtlpWalkHeapInternal.c)
  * Callees:
  *     RtlpWalkLowFragHeapSegment @ 0x180001070 (RtlpWalkLowFragHeapSegment.c)
  *     RtlpSetHeapWalkEntryOverheadBytes @ 0x1800010E0 (RtlpSetHeapWalkEntryOverheadBytes.c)
- *     RtlpWalkLFHBlock @ 0x18004DBD8 (RtlpWalkLFHBlock.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpWalkLFHBlock @ 0x18004DBC8 (RtlpWalkLFHBlock.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
- *     RtlpGetExtraStuffPointerUnsafe @ 0x1800EA1E8 (RtlpGetExtraStuffPointerUnsafe.c)
+ *     RtlpGetExtraStuffPointerUnsafe @ 0x1800EA2A8 (RtlpGetExtraStuffPointerUnsafe.c)
  *     RtlDebugWalkHeap @ 0x1800FB4C8 (RtlDebugWalkHeap.c)
  */
 
@@ -88,7 +88,7 @@ __int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, __int64 a3)
   int v77; // [rsp+30h] [rbp-29h]
   int v78; // [rsp+40h] [rbp-19h]
   int v79; // [rsp+50h] [rbp-9h]
-  char v80[6]; // [rsp+58h] [rbp-1h] BYREF
+  char Fields[6]; // [rsp+58h] [rbp-1h] BYREF
   __int16 v81; // [rsp+5Eh] [rbp+5h]
   __int64 v82; // [rsp+78h] [rbp+1Fh]
 
@@ -585,7 +585,7 @@ LABEL_10:
   {
     v81 = 4142;
     v82 = a1;
-    NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v80);
+    NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
   }
   return v70;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpAsynchronousCall @ 0x140AE4154
+ * XREFs of PnpAsynchronousCall @ 0x140AE1C5C
  * Callers:
- *     PnpSendIrp @ 0x1404A1724 (PnpSendIrp.c)
- *     PiIrpQueryRemoveDevice @ 0x140AE3FF4 (PiIrpQueryRemoveDevice.c)
+ *     PnpSendIrp @ 0x14049B254 (PnpSendIrp.c)
+ *     PiIrpQueryRemoveDevice @ 0x140AE1AFC (PiIrpQueryRemoveDevice.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x14026FCE0 (IoGetAttachedDeviceReferenceWithTag.c)
- *     IovUtilWatermarkIrp @ 0x1404BECEC (IovUtilWatermarkIrp.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x14026F250 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     IovUtilWatermarkIrp @ 0x1404B853C (IovUtilWatermarkIrp.c)
  */
 
 __int64 __fastcall PnpAsynchronousCall(_QWORD *a1, __int128 *a2, IO_COMPLETION_ROUTINE *a3, void *a4)

@@ -1,18 +1,18 @@
 /*
- * XREFs of KiTransitionSchedulingGroupGeneration @ 0x14030CC70
+ * XREFs of KiTransitionSchedulingGroupGeneration @ 0x1402DBCD0
  * Callers:
- *     KiGroupSchedulingGenerationEnd @ 0x14030B428 (KiGroupSchedulingGenerationEnd.c)
- *     KiParkCurrentProcessor @ 0x1403E9898 (KiParkCurrentProcessor.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1402DA488 (KiGroupSchedulingGenerationEnd.c)
+ *     KiParkCurrentProcessor @ 0x1403D7544 (KiParkCurrentProcessor.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
- *     KiSetClockTimer @ 0x14029F85C (KiSetClockTimer.c)
- *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14030E6D0 (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     ?KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14030E824 (-KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14030F768 (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     KiQueryEffectivePriorityThread @ 0x14034BFE0 (KiQueryEffectivePriorityThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
+ *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402D716C (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     ?KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1402D8870 (-KiInsertSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1402D89A8 (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     KiQueryEffectivePriorityThread @ 0x14036A4C0 (KiQueryEffectivePriorityThread.c)
+ *     KiSetClockTimer @ 0x14043504C (KiSetClockTimer.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _LIST_ENTRY *__fastcall KiTransitionSchedulingGroupGeneration(
@@ -24,10 +24,10 @@ _LIST_ENTRY *__fastcall KiTransitionSchedulingGroupGeneration(
 {
   unsigned __int64 GenerationTarget; // rdx
   unsigned int v6; // r12d
-  __int64 v8; // rdi
+  int v8; // edi
   bool v9; // zf
   unsigned __int8 CurrentIrql; // bl
-  __int64 InterruptTimePrecise; // rax
+  ULONG LowPart; // eax
   _KTHREAD *NextThread; // r13
   char v13; // r14
   _KSCHEDULING_GROUP *volatile SchedulingGroup; // rax
@@ -74,20 +74,20 @@ _LIST_ENTRY *__fastcall KiTransitionSchedulingGroupGeneration(
   __int64 v55; // rdx
   unsigned int v56; // [rsp+40h] [rbp-68h]
   char *v57; // [rsp+48h] [rbp-60h]
-  __int64 v58; // [rsp+50h] [rbp-58h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-58h] BYREF
   __int64 v59; // [rsp+58h] [rbp-50h]
   int Flink_high; // [rsp+C0h] [rbp+18h]
 
   GenerationTarget = a1->GenerationTarget;
   v6 = 1;
-  v58 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v56 = 1;
   if ( a3 > GenerationTarget )
   {
     v6 = (a3 + (unsigned int)KiGenerationTicks - GenerationTarget - 1) / (unsigned int)KiGenerationTicks + 1;
     v56 = v6;
   }
-  v8 = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+  v8 = KiGenerationEndTick * KeMaximumIncrement;
   v9 = KiClockTimerPerCpuTickScheduling == 0;
   a1->GenerationTarget = KiGenerationEndTick;
   if ( !v9 )
@@ -97,10 +97,10 @@ _LIST_ENTRY *__fastcall KiTransitionSchedulingGroupGeneration(
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15LL);
     if ( KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v58);
+      LowPart = RtlGetInterruptTimePrecise(&PerformanceCounter).LowPart;
     else
-      InterruptTimePrecise = 0LL;
-    KiSetClockTimer((__int64)a1, InterruptTimePrecise, v8, KeMaximumIncrement, 4, 1, 0);
+      LowPart = 0;
+    KiSetClockTimer((_DWORD)a1, LowPart, v8, KeMaximumIncrement, 4, 1, 0);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
@@ -137,7 +137,7 @@ LABEL_87:
       result = (_LIST_ENTRY *)KiGroupSchedulingOverQuotaMask[1];
       v55 = v54 >> 6;
       if ( KiGroupSchedulingOverQuotaMask[1] > (unsigned int)v55 )
-        _InterlockedAnd64(&qword_140E0AF78[v55], ~(1LL << (v54 & 0x3F)));
+        _InterlockedAnd64(&qword_140E0ADA8[v55], ~(1LL << (v54 & 0x3F)));
     }
     return result;
   }
@@ -305,7 +305,7 @@ LABEL_66:
       }
     }
 LABEL_81:
-    if ( (WORD2(xmmword_140FC5B10) & 0x4000) != 0
+    if ( (WORD2(xmmword_140FC6B50) & 0x4000) != 0
       && (Flink_high != *((_DWORD *)p_Blink + 31) || (v20 != 0) != ((*((_WORD *)p_Blink + 56) >> 1) & 1)) )
     {
       *((_WORD *)p_Blink + 56) |= 0x100u;

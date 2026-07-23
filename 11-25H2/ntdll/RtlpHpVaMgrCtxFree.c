@@ -21,61 +21,54 @@
  *     RtlSparseArrayElementFindCapped @ 0x18011F5B0 (RtlSparseArrayElementFindCapped.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, unsigned __int64 *a2, __int64 *a3)
+void __fastcall RtlpHpVaMgrCtxFree(__int64 a1, PVOID *a2, ULONG_PTR *a3)
 {
-  unsigned __int64 v6; // rdi
+  ULONG_PTR v6; // rdi
   _BYTE *v7; // rax
   _BYTE *v8; // rbx
   __int64 v9; // rsi
-  unsigned __int64 v10; // rbp
-  __int64 v11; // r14
+  char *v10; // rbp
+  ULONG_PTR v11; // r14
   __int64 v12; // rax
   _WORD *v13; // r9
   unsigned __int64 v14; // r8
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // rdx
+  char *v15; // rdx
+  char *v16; // rdx
   _BYTE *v17; // rbp
-  unsigned __int64 *v18; // rax
-  unsigned __int64 v19; // rdx
-  unsigned __int64 v20; // rcx
+  ULONG_PTR *v18; // rax
+  ULONG_PTR v19; // rdx
+  ULONG_PTR v20; // rcx
   _BYTE *v21; // rdi
-  __int64 result; // rax
   __int64 Capped; // rbx
-  __int64 v24; // rax
 
-  v6 = (unsigned __int64)*a3 >> 20;
-  v7 = (_BYTE *)RtlSparseArrayElementAllocated(a1 + 16, (*a2 - *(_QWORD *)(a1 + 8)) >> 20);
+  v6 = *a3 >> 20;
+  v7 = (_BYTE *)RtlSparseArrayElementAllocated(a1 + 16, ((unsigned __int64)*a2 - *(_QWORD *)(a1 + 8)) >> 20);
   v8 = v7;
   if ( !v7 )
   {
     Capped = RtlSparseArrayElementFindCapped(
                a1 + 16,
-               (__int64)(*a2 - *(_QWORD *)(a1 + 8)) / 0x100000,
-               ~((__int64)(*a2 - *(_QWORD *)(a1 + 8)) / 0x100000));
-    v24 = 6 * (*(unsigned __int8 *)(Capped + 1) + 45LL);
-    RtlpHpEnvFreeVA(
-      (_DWORD)a2,
-      (_DWORD)a3,
-      0x8000,
-      (*(unsigned __int8 *)(a1 + 8 * v24 + 46) >> 1) & 7,
-      *(_QWORD *)(a1 + 8 * v24 + 32));
-    result = (unsigned __int64)*a3 >> 20;
-    *(_QWORD *)(Capped + 24) -= result;
-    return result;
+               ((__int64)*a2 - *(_QWORD *)(a1 + 8)) / 0x100000,
+               ~(((__int64)*a2 - *(_QWORD *)(a1 + 8)) / 0x100000));
+    RtlpHpEnvFreeVA(a2, a3, *(_QWORD *)(a1 + 48 * (*(unsigned __int8 *)(Capped + 1) + 45LL) + 32));
+    *(_QWORD *)(Capped + 24) -= *a3 >> 20;
+    return;
   }
   v9 = a1 + 48 * ((unsigned __int8)v7[1] + 45LL);
   if ( (*v7 & 4) != 0 )
   {
     *v7 &= ~1u;
-    return RtlpHpVaMgrRangeFree(v9, v8);
+LABEL_28:
+    RtlpHpVaMgrRangeFree(v9, v8);
+    return;
   }
   if ( (unsigned int)`RtlpHpMemoryTypePageSize'::`2'::PageSize[((unsigned __int64)*(unsigned __int8 *)(v9 + 46) >> 1) & 7] <= 0x100000 )
   {
-    v10 = *a2;
+    v10 = (char *)*a2;
     v11 = *a3;
     v12 = RtlSparseArrayElementAllocated(
             *(_QWORD *)(v9 + 24) + 16LL,
-            (*a2 - *(_QWORD *)(*(_QWORD *)(v9 + 24) + 8LL)) >> 20);
+            ((unsigned __int64)*a2 - *(_QWORD *)(*(_QWORD *)(v9 + 24) + 8LL)) >> 20);
     if ( v11 )
     {
       v13 = (_WORD *)(v12 + 2);
@@ -83,28 +76,28 @@ __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, unsigned __int64 *a2, __int64 
       {
         v14 = *(_QWORD *)(*(_QWORD *)(v9 + 24) + 8LL)
             + (((unsigned __int64)v13 - *(_QWORD *)(*(_QWORD *)(v9 + 24) + 40LL) - 2) >> *(_DWORD *)(*(_QWORD *)(v9 + 24) + 24LL) << 20);
-        v15 = v14 + 0x100000;
-        if ( v11 + v10 <= v14 || v15 <= v10 )
+        v15 = (char *)(v14 + 0x100000);
+        if ( (unsigned __int64)&v10[v11] <= v14 || v15 <= v10 )
         {
           BYTE2(v14) = 0;
           v16 = 0LL;
         }
         else
         {
-          if ( v10 > v14 )
-            v14 = v10;
-          if ( v11 + v10 < v15 )
-            v15 = v11 + v10;
-          v16 = v15 - v14;
+          if ( (unsigned __int64)v10 > v14 )
+            v14 = (unsigned __int64)v10;
+          if ( &v10[v11] < v15 )
+            v15 = &v10[v11];
+          v16 = &v15[-v14];
         }
-        v10 += v16;
+        v10 = &v10[(_QWORD)v16];
         *v13 &= ~(((1 << SBYTE2(v16)) - 1) << (BYTE2(v14) & 0xF));
         v13 += 16;
-        v11 -= v16;
+        v11 -= (unsigned __int64)v16;
       }
       while ( v11 );
     }
-    RtlpHpEnvFreeVA((_DWORD)a2, (_DWORD)a3, 0x4000, (*(unsigned __int8 *)(v9 + 46) >> 1) & 7, *(_QWORD *)(v9 + 32));
+    RtlpHpEnvFreeVA(a2, a3, *(_QWORD *)(v9 + 32));
   }
   v17 = v8;
   if ( (*v8 & 2) != 0 )
@@ -116,7 +109,7 @@ __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, unsigned __int64 *a2, __int64 
   }
   else
   {
-    v18 = (unsigned __int64 *)(v8 + 24);
+    v18 = (ULONG_PTR *)(v8 + 24);
     if ( ((*(_BYTE *)(v9 + 46) >> 5) & (unsigned __int8)~(*v8 >> 2) & 1) == 0 )
     {
       v19 = (*v8 & 4) != 0 ? *v18 : *(unsigned __int16 *)v18;
@@ -132,12 +125,11 @@ __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, unsigned __int64 *a2, __int64 
     else
       v21 = 0LL;
   }
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)v9);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v9);
   if ( v21 )
     RtlpHpVaMgrRangeSplit(v9, v8, (v21 - v8) >> 5);
   v8 = (_BYTE *)RtlpHpVaMgrFree(v9, v17);
-  result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)v9);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v9);
   if ( v8 )
-    return RtlpHpVaMgrRangeFree(v9, v8);
-  return result;
+    goto LABEL_28;
 }

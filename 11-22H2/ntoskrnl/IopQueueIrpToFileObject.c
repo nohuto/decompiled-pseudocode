@@ -42,7 +42,7 @@ char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, char a3)
   v4 = (volatile signed __int32 *)(a2 + 184);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -62,10 +62,10 @@ char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, char a3)
   if ( (*(_DWORD *)(a2 + 80) & 0x400) != 0 || a3 && !*(_QWORD *)(a2 + 176) )
   {
     KxReleaseSpinLock(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v26 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v28 = CurrentPrcb->SchedulerAssist;
@@ -119,10 +119,10 @@ char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, char a3)
       KiReleaseSpinLockInstrumented(v4, retaddr);
     else
       _InterlockedAnd64((volatile signed __int64 *)v4, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v21 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
       {
         v22 = KeGetCurrentPrcb();
         v23 = v22->SchedulerAssist;

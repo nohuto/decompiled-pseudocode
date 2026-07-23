@@ -1,10 +1,10 @@
 /*
- * XREFs of CcInitializeAsyncLazywriteForNodeHelper @ 0x140539F30
+ * XREFs of CcInitializeAsyncLazywriteForNodeHelper @ 0x14053A480
  * Callers:
  *     <none>
  * Callees:
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall CcInitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, __int64 a3, char *a4)

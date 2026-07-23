@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRepurposeDecayNode @ 0x1403F49D0
+ * XREFs of MiRepurposeDecayNode @ 0x1403E79C0
  * Callers:
- *     MiLockStandbyOldestPage @ 0x1403F41B8 (MiLockStandbyOldestPage.c)
+ *     MiLockStandbyOldestPage @ 0x1403E71A8 (MiLockStandbyOldestPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiRepurposeDecayNode(PSLIST_ENTRY ListEntry)
@@ -27,15 +27,15 @@ PSLIST_ENTRY __fastcall MiRepurposeDecayNode(PSLIST_ENTRY ListEntry)
   else
   {
     v2 = (unsigned __int64)(-1431655765 * (unsigned int)((__int64)&ListEntry[0x22000000000LL] >> 4)
-                          - (unsigned int)qword_140E35B00) >> 3;
-    v3 = -85 * ((__int64)&ListEntry[0x22000000000LL] >> 4) - qword_140E35B00;
-    if ( ((*(char *)(v2 + qword_140E35B30) >> (v3 & 7)) & 1) != 0 )
+                          - (unsigned int)qword_140E35C40) >> 3;
+    v3 = -85 * ((__int64)&ListEntry[0x22000000000LL] >> 4) - qword_140E35C40;
+    if ( ((*(char *)(v2 + qword_140E35C70) >> (v3 & 7)) & 1) != 0 )
     {
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35B20);
-      *(_BYTE *)(v2 + qword_140E35B30) &= ~(1 << (v3 & 7));
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E35B20);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35C60);
+      *(_BYTE *)(v2 + qword_140E35C70) &= ~(1 << (v3 & 7));
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E35C60);
     }
-    return RtlpInterlockedPushEntrySList(&ListHead, ListEntry);
+    return RtlpInterlockedPushEntrySList(&stru_140E35C50, ListEntry);
   }
   return result;
 }

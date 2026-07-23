@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceProcessorThrottlePerfTrack @ 0x14044DEC8
+ * XREFs of PopDiagTraceProcessorThrottlePerfTrack @ 0x140445FF8
  * Callers:
- *     PpmRegisterPerfCap @ 0x14044DCE0 (PpmRegisterPerfCap.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
+ *     PpmRegisterPerfCap @ 0x140445E10 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceProcessorThrottlePerfTrack(int a1, ULONG a2)
@@ -32,11 +32,9 @@ char __fastcall PopDiagTraceProcessorThrottlePerfTrack(int a1, ULONG a2)
   LOBYTE(v3) = aProcessor99999[20];
   pcchRemaining = 0LL;
   wcscpy(pszDest, L"Processor 9999999999");
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_THERMAL_PERFTRACK);
+    LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_PERFTRACK);
     if ( (_BYTE)v3 )
     {
       UserDataCount = a2;
@@ -54,15 +52,7 @@ char __fastcall PopDiagTraceProcessorThrottlePerfTrack(int a1, ULONG a2)
         v7 = 0;
         v13 = 2LL;
         v16 = 0;
-        LOBYTE(v3) = EtwWriteEx(
-                       *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                       &POP_ETW_EVENT_THERMAL_PERFTRACK,
-                       0LL,
-                       0,
-                       0LL,
-                       0LL,
-                       4u,
-                       &UserData);
+        LOBYTE(v3) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_THERMAL_PERFTRACK, 0LL, 0, 0LL, 0LL, 4u, &UserData);
       }
     }
   }

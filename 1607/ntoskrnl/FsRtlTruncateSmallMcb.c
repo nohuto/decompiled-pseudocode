@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlTruncateSmallMcb @ 0x14023243C
+ * XREFs of FsRtlTruncateSmallMcb @ 0x140232268
  * Callers:
- *     KiInterruptThunk @ 0x140168F30 (KiInterruptThunk.c)
+ *     KiInterruptThunk @ 0x1401694A0 (KiInterruptThunk.c)
  * Callees:
- *     RtlpComputeEpilogueOffset @ 0x1401590FC (RtlpComputeEpilogueOffset.c)
- *     KiCustomAccessRoutine0 @ 0x140168E70 (KiCustomAccessRoutine0.c)
+ *     RtlpComputeEpilogueOffset @ 0x14015966C (RtlpComputeEpilogueOffset.c)
+ *     KiCustomAccessRoutine0 @ 0x1401693E0 (KiCustomAccessRoutine0.c)
  */
 
 __int64 __fastcall FsRtlTruncateSmallMcb(__int64 a1, unsigned int *a2, __int64 a3, unsigned __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiOutlawInswaps @ 0x1402D5144
+ * XREFs of MiOutlawInswaps @ 0x1402A098C
  * Callers:
- *     MiBeginProcessClean @ 0x1402D5048 (MiBeginProcessClean.c)
+ *     MiBeginProcessClean @ 0x1402A0890 (MiBeginProcessClean.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiGetWorkingSetSwapSupport @ 0x1402D5F60 (MiGetWorkingSetSwapSupport.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1402872B0 (MiGetWorkingSetSwapSupport.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -15,19 +15,21 @@ __int64 __fastcall MiOutlawInswaps(__int64 a1)
   __int64 v1; // rdi
   __int64 v2; // rbx
   unsigned __int64 v3; // rsi
+  __int64 v4; // rdx
   __int64 WorkingSetSwapSupport; // rbp
-  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
+  int v12; // eax
+  bool v13; // zf
 
   v1 = a1 + 1664;
-  v2 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 1838));
+  v2 = *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 1838));
   v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 1136));
-  WorkingSetSwapSupport = MiGetWorkingSetSwapSupport(v1);
-  *((_QWORD *)MiGetSharedVm(v5) + 3) = 2LL;
+  WorkingSetSwapSupport = MiGetWorkingSetSwapSupport(v1, v4);
+  *(_QWORD *)(MiGetSharedVm(v7, v6) + 24) = 2LL;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 1136));
   if ( KiIrqlFlags )
   {
@@ -38,10 +40,10 @@ __int64 __fastcall MiOutlawInswaps(__int64 a1)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
+        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

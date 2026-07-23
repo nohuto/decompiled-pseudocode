@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteVadBitmap @ 0x1400750D0
+ * XREFs of MiDeleteVadBitmap @ 0x140075150
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiReturnFullProcessCharges @ 0x1400275E0 (MiReturnFullProcessCharges.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiDeletePagablePteRange @ 0x1400751A0 (MiDeletePagablePteRange.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiReturnFullProcessCharges @ 0x140027160 (MiReturnFullProcessCharges.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiDeletePagablePteRange @ 0x140075220 (MiDeletePagablePteRange.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiDeleteVadBitmap(ULONG_PTR BugCheckParameter2)
@@ -27,13 +27,13 @@ unsigned __int64 __fastcall MiDeleteVadBitmap(ULONG_PTR BugCheckParameter2)
   v2 = 0LL;
   if ( v1 )
     KeBugCheckEx(0x1Au, 0x3455uLL, BugCheckParameter2, v1, 0LL);
-  v4 = qword_140327F90;
-  v5 = *(unsigned int *)(qword_140327F90 + 276840448);
+  v4 = qword_140327FD0;
+  v5 = *(unsigned int *)(qword_140327FD0 + 276840448);
   MiReturnFullProcessCharges(BugCheckParameter2, v5);
   v6 = *(unsigned int *)(v4 + 276840544);
   v7 = v6 + v5;
-  _InterlockedExchangeAdd64(&qword_140327908, -v6);
-  MiDeletePagablePteRange(BugCheckParameter2, qword_140327F90, v4 + 276840447);
+  _InterlockedExchangeAdd64(&qword_140327948, -v6);
+  MiDeletePagablePteRange(BugCheckParameter2, qword_140327FD0, v4 + 276840447);
   v8 = MiPartitionIdToPointer(*(_WORD *)(BugCheckParameter2 + 1444));
   v10 = (unsigned int *)(v4 + 276840796);
   v11 = 2LL;

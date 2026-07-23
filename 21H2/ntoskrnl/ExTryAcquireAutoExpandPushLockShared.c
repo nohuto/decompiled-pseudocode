@@ -1,18 +1,18 @@
 /*
- * XREFs of ExTryAcquireAutoExpandPushLockShared @ 0x140390A00
+ * XREFs of ExTryAcquireAutoExpandPushLockShared @ 0x140390B50
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryAcquirePushLockShared @ 0x14028AEE0 (ExfTryAcquirePushLockShared.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExpTryAcquireFannedOutPushLockShared @ 0x140390AC0 (ExpTryAcquireFannedOutPushLockShared.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x140208080 (ExfTryAcquirePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpTryAcquireFannedOutPushLockShared @ 0x140390C10 (ExpTryAcquireFannedOutPushLockShared.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExTryAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  ULONG_PTR v2; // rsi
+  PRTL_BALANCED_NODE v2; // rsi
   ULONG_PTR v3; // rbx
   int v5; // ebp
   int v6; // ecx
@@ -39,9 +39,9 @@ ULONG_PTR __fastcall ExTryAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckPara
   if ( v2 )
   {
     if ( v3 )
-      *(_BYTE *)(v2 + 26) |= 1u;
+      BYTE2(v2[1].Left) |= 1u;
     else
-      KeAbPostReleaseEx(BugCheckParameter2, v2);
+      KeAbPostReleaseEx(BugCheckParameter2, (ULONG_PTR)v2);
   }
   return v3;
 }

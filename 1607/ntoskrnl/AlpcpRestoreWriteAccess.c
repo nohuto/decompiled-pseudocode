@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpRestoreWriteAccess @ 0x14050BB10
+ * XREFs of AlpcpRestoreWriteAccess @ 0x1404EEAA0
  * Callers:
- *     AlpcpReceiveView @ 0x14040CD88 (AlpcpReceiveView.c)
- *     AlpcViewDestroyProcedure @ 0x14042B168 (AlpcViewDestroyProcedure.c)
+ *     AlpcpReceiveView @ 0x14040BC48 (AlpcpReceiveView.c)
+ *     AlpcViewDestroyProcedure @ 0x14042A038 (AlpcViewDestroyProcedure.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x14042A5DC (MmUnsecureVirtualMemory.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MmUnsecureVirtualMemory @ 0x1404294AC (MmUnsecureVirtualMemory.c)
  */
 
 void __fastcall AlpcpRestoreWriteAccess(__int64 a1)

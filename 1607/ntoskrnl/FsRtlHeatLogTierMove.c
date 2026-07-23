@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlHeatLogTierMove @ 0x14061F840
+ * XREFs of FsRtlHeatLogTierMove @ 0x14061F8F4
  * Callers:
  *     <none>
  * Callees:
- *     Template_xxxqqqq @ 0x1401B9F1C (Template_xxxqqqq.c)
+ *     Template_xxxqqqq @ 0x1401B9E00 (Template_xxxqqqq.c)
  */
 
 __int64 __fastcall FsRtlHeatLogTierMove(int *a1, _QWORD *a2, __int64 a3, int a4, int a5, int a6, const GUID *a7)

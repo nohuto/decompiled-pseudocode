@@ -30,41 +30,40 @@ __int64 __fastcall SepSetProcessTrustLabelAceForToken(_QWORD *a1)
   __int16 v7; // ax
   __int64 v8; // rax
   ACL *v9; // rsi
-  unsigned __int8 *AceByType; // rax
-  unsigned __int8 *v11; // rbx
+  char *AceByType; // rax
+  char *v11; // rbx
   int v12; // r12d
   ULONG v13; // ebx
   ACL *Pool2; // rax
   ACL *v15; // rsi
-  __int64 v16; // rdx
-  ULONG AceListLength; // [rsp+28h] [rbp-49h]
-  __int64 MemoryAllocated; // [rsp+38h] [rbp-39h] BYREF
-  int v20; // [rsp+40h] [rbp-31h] BYREF
-  int v21; // [rsp+44h] [rbp-2Dh]
-  unsigned int v22; // [rsp+48h] [rbp-29h] BYREF
+  BOOLEAN MemoryAllocated[4]; // [rsp+38h] [rbp-39h] BYREF
+  ULONG AclRevision; // [rsp+3Ch] [rbp-35h]
+  ULONG v19; // [rsp+40h] [rbp-31h] BYREF
+  int v20; // [rsp+44h] [rbp-2Dh]
+  ULONG Index; // [rsp+48h] [rbp-29h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+50h] [rbp-21h] BYREF
   PVOID Ace; // [rsp+58h] [rbp-19h] BYREF
-  _OWORD v25[2]; // [rsp+60h] [rbp-11h] BYREF
-  __int64 v26; // [rsp+80h] [rbp+Fh]
-  __int64 v27; // [rsp+88h] [rbp+17h] BYREF
-  int v28; // [rsp+90h] [rbp+1Fh]
+  _OWORD v24[2]; // [rsp+60h] [rbp-11h] BYREF
+  __int64 v25; // [rsp+80h] [rbp+Fh]
+  __int64 AclInformation; // [rsp+88h] [rbp+17h] BYREF
+  int v27; // [rsp+90h] [rbp+1Fh]
 
   SecurityDescriptor = 0LL;
-  LOBYTE(MemoryAllocated) = 0;
-  v27 = 0LL;
+  MemoryAllocated[0] = 0;
+  AclInformation = 0LL;
   v2 = 0LL;
-  v28 = 0;
-  v20 = 0;
+  v27 = 0;
+  v19 = 0;
   Ace = 0LL;
-  v22 = 0;
-  v26 = 0LL;
-  memset(v25, 0, sizeof(v25));
+  Index = 0;
+  v25 = 0LL;
+  memset(v24, 0, sizeof(v24));
   if ( !a1 )
     return (unsigned int)-1073741811;
   v4 = (unsigned __int8 *)a1[138];
-  v21 = 8;
-  HIDWORD(MemoryAllocated) = 2;
-  ObjectSecurity = ObGetObjectSecurity(a1, &SecurityDescriptor, (PBOOLEAN)&MemoryAllocated);
+  v20 = 8;
+  AclRevision = 2;
+  ObjectSecurity = ObGetObjectSecurity(a1, &SecurityDescriptor, MemoryAllocated);
   v6 = SecurityDescriptor;
   Acl = ObjectSecurity;
   if ( ObjectSecurity < 0 )
@@ -83,33 +82,31 @@ __int64 __fastcall SepSetProcessTrustLabelAceForToken(_QWORD *a1)
       goto LABEL_10;
     }
 LABEL_21:
-    v12 = HIDWORD(v27);
+    v12 = HIDWORD(AclInformation);
 LABEL_22:
     if ( v4 )
     {
-      v13 = v21 + 16 + 4 * v4[1];
+      v13 = v20 + 16 + 4 * v4[1];
       Pool2 = (ACL *)ExAllocatePool2(256LL, v13, 1665230163LL);
       v15 = Pool2;
       if ( Pool2 )
       {
-        Acl = RtlCreateAcl(Pool2, v13, HIDWORD(MemoryAllocated));
+        Acl = RtlCreateAcl(Pool2, v13, AclRevision);
         if ( Acl >= 0 )
         {
-          if ( !v2 || (Acl = RtlAddAce(v15, HIDWORD(MemoryAllocated), 0, v2, v12 - 8), Acl >= 0) )
+          if ( !v2 || (Acl = RtlAddAce(v15, AclRevision, 0, v2, v12 - 8), Acl >= 0) )
           {
-            LOBYTE(AceListLength) = 20;
-            Acl = RtlAddProcessTrustLabelAce(v15, 2LL, 0LL, v4, AceListLength, 131102, MemoryAllocated);
+            Acl = RtlAddProcessTrustLabelAce(v15, 2u, 0, v4, 0x14u, 0x2001Eu);
             if ( Acl >= 0 )
             {
-              Acl = RtlCreateSecurityDescriptor(v25, 1u);
+              Acl = RtlCreateSecurityDescriptor(v24, 1u);
               if ( Acl >= 0 )
               {
-                LOBYTE(v16) = 1;
-                Acl = RtlSetSaclSecurityDescriptor(v25, v16, v15, 0LL);
+                Acl = RtlSetSaclSecurityDescriptor(v24, 1u, v15, 0);
                 if ( Acl >= 0 )
                 {
-                  WORD1(v25[0]) |= v6[1] & 0x2830;
-                  Acl = ObSetSecurityObjectByPointer(a1, 504LL, v25);
+                  WORD1(v24[0]) |= v6[1] & 0x2830;
+                  Acl = ObSetSecurityObjectByPointer(a1, 504LL, v24);
                 }
               }
             }
@@ -129,7 +126,7 @@ LABEL_22:
 LABEL_10:
   if ( !v9 )
     goto LABEL_21;
-  AceByType = RtlFindAceByType((__int64)v9, 20, &v22);
+  AceByType = (char *)RtlFindAceByType(v9, 0x14u, &Index);
   v11 = AceByType;
   if ( !v4 )
   {
@@ -145,15 +142,15 @@ LABEL_20:
     goto LABEL_20;
   }
 LABEL_13:
-  Acl = RtlQueryInformationAcl(v9, &v27, 12LL, 2LL);
+  Acl = RtlQueryInformationAcl(v9, &AclInformation, 0xCu, AclSizeInformation);
   if ( Acl >= 0 )
   {
-    v12 = HIDWORD(v27);
-    v21 = HIDWORD(v27);
-    Acl = RtlQueryInformationAcl(v9, &v20, 4LL, 1LL);
+    v12 = HIDWORD(AclInformation);
+    v20 = HIDWORD(AclInformation);
+    Acl = RtlQueryInformationAcl(v9, &v19, 4u, AclRevisionInformation);
     if ( Acl >= 0 )
     {
-      HIDWORD(MemoryAllocated) = v20;
+      AclRevision = v19;
       Acl = RtlGetAce(v9, 0, &Ace);
       if ( Acl >= 0 )
       {
@@ -164,6 +161,6 @@ LABEL_13:
   }
 LABEL_33:
   if ( v6 )
-    ObReleaseObjectSecurity(v6, MemoryAllocated);
+    ObReleaseObjectSecurity(v6, MemoryAllocated[0]);
   return (unsigned int)Acl;
 }

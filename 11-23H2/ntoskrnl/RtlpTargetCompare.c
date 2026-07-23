@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpTargetCompare @ 0x140372B40
+ * XREFs of RtlpTargetCompare @ 0x140372CE0
  * Callers:
  *     <none>
  * Callees:

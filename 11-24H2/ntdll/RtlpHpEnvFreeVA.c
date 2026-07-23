@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpHpEnvFreeVA @ 0x180092B20
+ * XREFs of RtlpHpEnvFreeVA @ 0x18009D6B0
  * Callers:
- *     RtlpHpVaMgrRegionAllocate @ 0x180090F84 (RtlpHpVaMgrRegionAllocate.c)
- *     RtlpHpVaMgrCtxFree @ 0x180092700 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrAlloc @ 0x180092D78 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrRangeDecommit @ 0x180158074 (RtlpHpVaMgrRangeDecommit.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x18009BB10 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrCtxFree @ 0x18009D290 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrAlloc @ 0x18009D908 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrRangeDecommit @ 0x180156434 (RtlpHpVaMgrRangeDecommit.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpHpEnvFreeVA(__int64 a1, __int64 a2, __int16 a3, int a4, __int64 a5)
+NTSTATUS __fastcall RtlpHpEnvFreeVA(PVOID *BaseAddress, PSIZE_T RegionSize, __int16 a3, int a4, __int64 a5)
 {
-  unsigned int v5; // r8d
+  ULONG v5; // r8d
 
   v5 = a3 & 0xC000;
   if ( a4 == 5 )
-    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, unsigned int))(a5 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a5 + 16)))(
+    return ((__int64 (__fastcall *)(__int64, __int64, PVOID *, PSIZE_T, ULONG))(a5 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a5 + 16)))(
              a5 ^ RtlpHpHeapGlobals ^ *(_QWORD *)a5,
              -1LL,
-             a1,
-             a2,
+             BaseAddress,
+             RegionSize,
              v5);
   else
-    return ZwFreeVirtualMemory(-1LL, a1, a2, v5);
+    return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, RegionSize, v5);
 }

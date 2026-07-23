@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDeviceConstraintsEnforced @ 0x1405A2B20
+ * XREFs of PopDeviceConstraintsEnforced @ 0x1405A3010
  * Callers:
- *     PopDripsWatchdogCallbackHandler @ 0x14099BFF0 (PopDripsWatchdogCallbackHandler.c)
- *     PopDripsWatchdogTakeAction @ 0x1409A11AC (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x14099C1F0 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x1409A13AC (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool PopDeviceConstraintsEnforced()
@@ -23,7 +23,7 @@ bool PopDeviceConstraintsEnforced()
   v0 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v3 = 4;
@@ -34,10 +34,10 @@ bool PopDeviceConstraintsEnforced()
   IdleStates = KeGetCurrentPrcb()->PowerState.IdleStates;
   if ( IdleStates && IdleStates->InterfaceVersion == 1 )
     v0 = PpmPlatformStates != 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v5 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v7 = CurrentPrcb->SchedulerAssist;

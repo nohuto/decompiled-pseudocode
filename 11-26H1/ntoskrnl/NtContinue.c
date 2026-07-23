@@ -1,12 +1,12 @@
 /*
- * XREFs of NtContinue @ 0x1407273E0
+ * XREFs of NtContinue @ 0x14072BFB0
  * Callers:
- *     DifNtContinueWrapper @ 0x14066F710 (DifNtContinueWrapper.c)
+ *     DifNtContinueWrapper @ 0x1406732F0 (DifNtContinueWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtContinue(__int64 a1, unsigned __int8 a2)
+NTSTATUS __cdecl NtContinue(PCONTEXT ContextRecord, BOOLEAN TestAlert)
 {
-  return NtContinueEx(a1, a2);
+  return NtContinueEx(ContextRecord, (PVOID)TestAlert);
 }

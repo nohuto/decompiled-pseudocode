@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlCheckOplock @ 0x1402FE610
+ * XREFs of FsRtlCheckOplock @ 0x1402FE8A0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402FE6F0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402FE980 (FsRtlpOplockStoreKeyForDeleteOperation.c)
  */
 
 NTSTATUS __stdcall FsRtlCheckOplock(

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventProcessorPerfStateChange @ 0x14029E7D8
+ * XREFs of PpmEventProcessorPerfStateChange @ 0x1402AD2C8
  * Callers:
- *     PpmPerfArbitratorApplyProcessorState @ 0x14029E340 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmPerfApplyHiddenProcessorState @ 0x1405D2984 (PpmPerfApplyHiddenProcessorState.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1402ACE30 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x1405D00A4 (PpmPerfApplyHiddenProcessorState.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x14041FD10 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140415490 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventProcessorPerfStateChange(__int64 a1, int a2, int a3)

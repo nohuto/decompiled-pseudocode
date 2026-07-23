@@ -1,5 +1,5 @@
 /*
- * XREFs of READ_REGISTER_UCHAR @ 0x14055A7B0
+ * XREFs of READ_REGISTER_UCHAR @ 0x1405583E0
  * Callers:
  *     <none>
  * Callees:

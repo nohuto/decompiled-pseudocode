@@ -26,10 +26,10 @@ int __fastcall LdrpLangFallbackListFindNode(int a1, int a2, PCWSTR SourceString,
   int v18; // esi
   int v19; // ecx
   bool v21; // zf
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-18h] BYREF
   int v23; // [esp+18h] [ebp-10h]
   int v24; // [esp+1Ch] [ebp-Ch]
-  int v25; // [esp+20h] [ebp-8h] BYREF
+  DWORD Lcid; // [esp+20h] [ebp-8h] BYREF
   int v26; // [esp+24h] [ebp-4h]
 
   v24 = a2;
@@ -38,11 +38,11 @@ int __fastcall LdrpLangFallbackListFindNode(int a1, int a2, PCWSTR SourceString,
   {
     *a4 = -1;
     RtlInitUnicodeString(&DestinationString, SourceString);
-    if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v25) )
+    if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       return -1073741772;
     v5 = 0;
-    if ( v25 == 4096 || v25 == 5120 )
-      v25 = 0;
+    if ( Lcid == 4096 || Lcid == 5120 )
+      Lcid = 0;
     v6 = -1;
     if ( *SourceString )
     {
@@ -53,7 +53,7 @@ int __fastcall LdrpLangFallbackListFindNode(int a1, int a2, PCWSTR SourceString,
         while ( 1 )
         {
           v9 = (const WCHAR *)(*(_DWORD *)(v7 + 16) + 2 * *(__int16 *)(*(_DWORD *)(v7 + 12) + 2 * v8));
-          if ( v9 == SourceString || !_wcsicmp(v9, SourceString) )
+          if ( v9 == SourceString || !_wcsicmp((const wchar_t *)v9, (const wchar_t *)SourceString) )
             break;
           v7 = v26;
           if ( ++v8 >= *(unsigned __int16 *)(v26 + 6) )
@@ -93,9 +93,9 @@ LABEL_20:
               v24 = v19;
               if ( v11 > 0 && v11 == *(_WORD *)(28 * v18 + v19 + 6) )
                 goto LABEL_26;
-              if ( v25 )
+              if ( Lcid )
               {
-                v21 = v25 == *(unsigned __int16 *)(28 * v18 + v24 + 4);
+                v21 = Lcid == *(unsigned __int16 *)(28 * v18 + v24 + 4);
 LABEL_29:
                 if ( v21 )
                   goto LABEL_26;
@@ -113,9 +113,9 @@ LABEL_31:
             if ( v5 >= v14 )
               return -1073741772;
           }
-          if ( v25 )
+          if ( Lcid )
           {
-            v21 = *(__int16 *)(v15 + v12 + 4) == v25;
+            v21 = *(__int16 *)(v15 + v12 + 4) == Lcid;
             goto LABEL_29;
           }
 LABEL_30:

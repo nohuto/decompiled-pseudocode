@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliSetSystemInformation @ 0x140866424
+ * XREFs of HaliSetSystemInformation @ 0x140866584
  * Callers:
- *     HalpSetSystemInformation @ 0x1407333E0 (HalpSetSystemInformation.c)
+ *     HalpSetSystemInformation @ 0x1407335A0 (HalpSetSystemInformation.c)
  * Callees:
- *     HalpRegisterSecondaryIcInterface @ 0x1404D13F4 (HalpRegisterSecondaryIcInterface.c)
- *     HalpChannelPowerRequest @ 0x140866928 (HalpChannelPowerRequest.c)
+ *     HalpRegisterSecondaryIcInterface @ 0x1404D1634 (HalpRegisterSecondaryIcInterface.c)
+ *     HalpChannelPowerRequest @ 0x140866A88 (HalpChannelPowerRequest.c)
  */
 
 __int64 __fastcall HaliSetSystemInformation(int a1, __int64 a2, _DWORD *a3)

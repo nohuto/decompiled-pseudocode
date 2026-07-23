@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryRegistryDirect @ 0x1800B6EE4
+ * XREFs of RtlpQueryRegistryDirect @ 0x180083784
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x1800B6A14 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x1800832B4 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)
@@ -12,7 +12,7 @@ __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, si
   unsigned __int16 v4; // bx
   unsigned __int64 v8; // rax
   void *v10; // rcx
-  void *Atom; // rax
+  PVOID Atom; // rax
   size_t v12; // rbp
 
   v4 = a3;
@@ -47,7 +47,7 @@ LABEL_10:
   }
   if ( (unsigned int)a3 > 0xFFFE )
     v4 = -2;
-  Atom = (void *)*((_QWORD *)a4 + 1);
+  Atom = (PVOID)*((_QWORD *)a4 + 1);
   if ( Atom )
   {
     if ( v4 > *((_WORD *)a4 + 1) )
@@ -56,7 +56,7 @@ LABEL_10:
     goto LABEL_20;
   }
   v12 = v4;
-  Atom = (void *)RtlpAllocateAtom(v4);
+  Atom = RtlpAllocateAtom(v4);
   *((_QWORD *)a4 + 1) = Atom;
   if ( Atom )
   {

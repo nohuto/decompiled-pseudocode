@@ -209,7 +209,7 @@ LABEL_6:
           KiUnlockKobjectArray(&v81, v9);
           LOBYTE(v66) = v21;
           KiFastExitThreadWait((__int64)CurrentPrcb, (__int64)CurrentThread, v66, v67);
-          RtlRaiseStatus(3221225873LL);
+          RtlRaiseStatus(-1073741423);
         }
         if ( *(int *)(v39 + 4) <= 0 && (CurrentThread != v55 || *(_BYTE *)(v39 + 2) != DpcRoutineActive) )
         {
@@ -272,7 +272,7 @@ LABEL_23:
                 v58 = v57;
                 v76 = v57;
                 _bittestandreset64((__int64 *)&v10, (unsigned int)v57);
-                v59 = KeAbPreAcquire(a2[v57], 0LL, 0LL);
+                v59 = KeAbPreAcquire(a2[v57], 0LL, 0);
                 v60 = v59;
                 if ( !v59 )
                   break;
@@ -301,7 +301,7 @@ LABEL_23:
                 v45 &= ~(1LL << v63);
                 v74 = (unsigned int)v63;
                 v65 = &KeGetCurrentThread()->LockEntries[v64];
-                KeAbPreAcquire(a2[(unsigned int)v63], (__int64)v65, 0LL);
+                KeAbPreAcquire(a2[(unsigned int)v63], (__int64)v65, 0);
                 if ( v71 )
                   v65->AcquiredByte |= 1u;
                 else

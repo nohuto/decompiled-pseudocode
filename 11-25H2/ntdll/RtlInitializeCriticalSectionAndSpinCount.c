@@ -9,69 +9,67 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlInitializeCriticalSectionAndSpinCount(__int64 a1, int a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlInitializeCriticalSectionAndSpinCount(PRTL_CRITICAL_SECTION CriticalSection, ULONG SpinCount)
 {
-  unsigned int v4; // edx
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 *v8; // rsi
-  bool v9; // zf
-  __int64 v10; // rdi
+  ULONG v2; // edx
+  unsigned __int64 v4; // rcx
+  unsigned __int64 *p_SpinCount; // rsi
+  bool v6; // zf
+  __int64 v7; // rdi
   _DWORD *SharedData; // rcx
-  __int64 v12; // rcx
-  __int64 v14; // rax
-  _DWORD v15[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v16; // [rsp+28h] [rbp-40h]
-  __int64 v17; // [rsp+38h] [rbp-30h]
-  __int64 v18; // [rsp+40h] [rbp-28h]
-  __int64 v19; // [rsp+48h] [rbp-20h]
+  __int64 v9; // rcx
+  unsigned __int64 v11; // rax
+  _DWORD Fields[2]; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v13; // [rsp+28h] [rbp-40h]
+  __int64 v14; // [rsp+38h] [rbp-30h]
+  unsigned __int64 v15; // [rsp+40h] [rbp-28h]
+  PRTL_CRITICAL_SECTION v16; // [rsp+48h] [rbp-20h]
 
-  *(_DWORD *)(a1 + 8) = -1;
-  *(_DWORD *)(a1 + 12) = 0;
-  v4 = a2 & 0xFFFFFF;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  *(_QWORD *)(a1 + 24) = 0LL;
+  CriticalSection->LockCount = -1;
+  CriticalSection->RecursionCount = 0;
+  v2 = SpinCount & 0xFFFFFF;
+  CriticalSection->OwningThread = 0LL;
+  CriticalSection->LockSemaphore = 0LL;
   if ( NtCurrentPeb()->NumberOfProcessors <= 1 )
   {
-    v6 = 0LL;
+    v4 = 0LL;
   }
-  else if ( v4 )
+  else if ( v2 )
   {
-    v6 = v4;
+    v4 = v2;
   }
   else
   {
-    v6 = 33556432LL;
+    v4 = 33556432LL;
   }
-  v7 = a1;
-  *(_QWORD *)(a1 + 32) = v6;
-  v8 = (__int64 *)(a1 + 32);
-  v9 = RtlpForceCSDebugInfoCreation == 0;
-  *(_QWORD *)a1 = -1LL;
-  if ( !v9 )
+  CriticalSection->SpinCount = v4;
+  p_SpinCount = &CriticalSection->SpinCount;
+  v6 = RtlpForceCSDebugInfoCreation == 0;
+  CriticalSection->DebugInfo = (_RTL_CRITICAL_SECTION_DEBUG *)-1LL;
+  if ( !v6 )
   {
-    RtlpAddDebugInfoToCriticalSection(a1, a1);
-    if ( *(_QWORD *)a1 == -1LL )
-      *v8 |= 0x1000000uLL;
+    RtlpAddDebugInfoToCriticalSection(CriticalSection, CriticalSection);
+    if ( CriticalSection->DebugInfo == (_RTL_CRITICAL_SECTION_DEBUG *)-1LL )
+      *p_SpinCount |= 0x1000000uLL;
   }
-  v10 = 2147353474LL;
+  v7 = 2147353474LL;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v12 = (__int64)NtCurrentPeb()->SharedData + 552;
+    v9 = (__int64)NtCurrentPeb()->SharedData + 552;
   else
-    v12 = 2147353474LL;
-  if ( *(_BYTE *)v12 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
+    v9 = 2147353474LL;
+  if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
   {
-    v14 = *v8;
-    v16 = 0LL;
-    v18 = v14;
-    v15[0] = 0;
-    v15[1] = 388169728;
-    v17 = 0LL;
-    v19 = a1;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v12, v7, a3, a4) )
-      v10 = (__int64)NtCurrentPeb()->SharedData + 552;
-    NtTraceEvent(*(unsigned __int8 *)v10, 66562LL, 16LL, v15);
+    v11 = *p_SpinCount;
+    v13 = 0LL;
+    v15 = v11;
+    Fields[0] = 0;
+    Fields[1] = 388169728;
+    v14 = 0LL;
+    v16 = CriticalSection;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 552;
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v7, 0x10402u, 0x10u, Fields);
   }
-  return 0LL;
+  return 0;
 }

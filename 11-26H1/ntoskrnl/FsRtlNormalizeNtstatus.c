@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlNormalizeNtstatus @ 0x1404B6BC0
+ * XREFs of FsRtlNormalizeNtstatus @ 0x1404B0010
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
  */
 
 NTSTATUS __stdcall FsRtlNormalizeNtstatus(NTSTATUS Exception, NTSTATUS GenericException)

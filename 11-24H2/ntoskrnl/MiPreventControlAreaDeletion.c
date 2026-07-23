@@ -1,29 +1,29 @@
 /*
- * XREFs of MiPreventControlAreaDeletion @ 0x14022F600
+ * XREFs of MiPreventControlAreaDeletion @ 0x140302F10
  * Callers:
- *     MiTrimSharedPage @ 0x140370B4C (MiTrimSharedPage.c)
- *     MiLocateSharedPageViews @ 0x1406790E0 (MiLocateSharedPageViews.c)
- *     MiPurgeBadFileOnlyPages @ 0x14067B98C (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x14025A33C (MiTrimSharedPage.c)
+ *     MiLocateSharedPageViews @ 0x14067A2C0 (MiLocateSharedPageViews.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14067CB6C (MiPurgeBadFileOnlyPages.c)
  * Callees:
- *     MiReferenceSubsection @ 0x14020F750 (MiReferenceSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRemoveUnusedSegment @ 0x14022F72C (MiRemoveUnusedSegment.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiRemoveUnusedSegment @ 0x14030303C (MiRemoveUnusedSegment.c)
+ *     MiReferenceSubsection @ 0x140338AB0 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
-__int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, __int64 *a2, _QWORD *a3)
+__int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, ULONG_PTR *a2, _QWORD *a3)
 {
   __int64 v3; // rax
   __int64 v4; // rbx
-  __int64 v7; // rbx
+  ULONG_PTR v7; // rbx
   __int64 v8; // rdi
   int v9; // ecx
   __int64 *v10; // rcx
   __int64 *v12; // rdx
-  void *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  v3 = qword_140E2DB80;
+  v3 = qword_140E2DCC0;
   v4 = *(_QWORD *)(a1 + 16);
   *a3 = 0LL;
   *a2 = 0LL;
@@ -41,7 +41,7 @@ __int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, __int64 *a2, _QWORD 
   {
     if ( (*(_DWORD *)(v7 + 32) & 0x10000) == 0 && *(_QWORD *)(v7 + 8) && !*(_DWORD *)(v7 + 108) )
     {
-      MiReferenceSubsection((__int64 *)v7, 0);
+      MiReferenceSubsection(v7);
       *a2 = v7;
       goto LABEL_11;
     }
@@ -68,6 +68,6 @@ LABEL_11:
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     *(_DWORD *)(v8 + 72) = 0;
   else
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v8 + 72, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v8 + 72), retaddr);
   return v8;
 }

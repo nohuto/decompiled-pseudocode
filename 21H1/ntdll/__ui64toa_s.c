@@ -8,5 +8,5 @@
 
 errno_t __cdecl _ui64toa_s(unsigned __int64 Value, char *Buffer, size_t BufferCount, int Radix)
 {
-  return x64toa_s(Buffer, BufferCount, Value, Radix, 0);
+  return x64toa_s(Buffer, BufferCount, Value, HIDWORD(BufferCount), 0);
 }

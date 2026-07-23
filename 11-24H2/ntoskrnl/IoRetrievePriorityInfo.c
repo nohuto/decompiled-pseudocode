@@ -1,9 +1,9 @@
 /*
- * XREFs of IoRetrievePriorityInfo @ 0x14040E6D0
+ * XREFs of IoRetrievePriorityInfo @ 0x1404068D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x14022BEB0 (PsGetIoPriorityThread.c)
  */
 
 NTSTATUS __stdcall IoRetrievePriorityInfo(

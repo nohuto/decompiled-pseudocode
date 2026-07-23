@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCancelTraceImageUnloadApc @ 0x1406C5420
+ * XREFs of EtwpCancelTraceImageUnloadApc @ 0x1406C9060
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     EtwpTraceImageUnload @ 0x1404760E8 (EtwpTraceImageUnload.c)
- *     FsRtlReleaseFileNameInformation @ 0x1409FDA00 (FsRtlReleaseFileNameInformation.c)
- *     FsRtlGetFileNameInformation @ 0x140A86A70 (FsRtlGetFileNameInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     EtwpTraceImageUnload @ 0x14046F868 (EtwpTraceImageUnload.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140922600 (FsRtlReleaseFileNameInformation.c)
+ *     FsRtlGetFileNameInformation @ 0x140A8B9F0 (FsRtlGetFileNameInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCancelTraceImageUnloadApc(PVOID P)

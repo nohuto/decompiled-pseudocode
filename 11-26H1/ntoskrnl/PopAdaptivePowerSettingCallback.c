@@ -1,18 +1,18 @@
 /*
- * XREFs of PopAdaptivePowerSettingCallback @ 0x140ABC470
+ * XREFs of PopAdaptivePowerSettingCallback @ 0x140ABE290
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x1404FF380 (PopVideoPowerSettingCallback.c)
+ *     PopVideoPowerSettingCallback @ 0x1404F8B70 (PopVideoPowerSettingCallback.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     PopDiagTracePolicyChange @ 0x14077C59C (PopDiagTracePolicyChange.c)
- *     PopReleaseAdaptiveLock @ 0x140A3D6E4 (PopReleaseAdaptiveLock.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
- *     PopSendSessionInfo @ 0x140B46330 (PopSendSessionInfo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     PopDiagTracePolicyChange @ 0x14077F090 (PopDiagTracePolicyChange.c)
+ *     PopReleaseAdaptiveLock @ 0x1409F9104 (PopReleaseAdaptiveLock.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
+ *     PopSendSessionInfo @ 0x140B48360 (PopSendSessionInfo.c)
  */
 
-__int64 __fastcall PopAdaptivePowerSettingCallback(void *Buf2, unsigned int *a2, int a3)
+__int64 __fastcall PopAdaptivePowerSettingCallback(void *Buf2, int *a2, int a3)
 {
   char v5; // r15
   struct _KTHREAD *CurrentThread; // rax
@@ -37,14 +37,14 @@ __int64 __fastcall PopAdaptivePowerSettingCallback(void *Buf2, unsigned int *a2,
   v7 = 0;
   v8 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&PopAdaptiveStandbyLock.AbCompletedIoQoSBoostCount, 1u);
+  ExAcquireResourceExclusiveLite(&PopAdpmLock, 1u);
   ExpPlatformBinaryLock.WaitBlock[3].WaitListEntry.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-  LOBYTE(PopAdaptiveStandbyLock.ThreadListEntry.Blink) = 0;
+  PopAdaptiveContext = 0;
   if ( !memcmp(&GUID_NON_ADAPTIVE_INPUT_TIMEOUT, Buf2, 0x10uLL) )
   {
-    if ( *a2 != LODWORD(PopAdaptiveStandbyLock.UserWaitTime) )
+    if ( *a2 != PopInputTimeout )
     {
-      LODWORD(PopAdaptiveStandbyLock.UserWaitTime) = *a2;
+      PopInputTimeout = *a2;
 LABEL_24:
       v5 = 1;
       goto LABEL_25;
@@ -53,45 +53,45 @@ LABEL_24:
   }
   if ( !memcmp(&GUID_VIDEO_POWERDOWN_TIMEOUT, Buf2, 0x10uLL) )
   {
-    if ( *a2 == HIDWORD(PopAdaptiveStandbyLock.KernelWaitTime) )
+    if ( *a2 == PopDisplayTimeout )
       goto LABEL_25;
-    HIDWORD(PopAdaptiveStandbyLock.KernelWaitTime) = *a2;
+    PopDisplayTimeout = *a2;
 LABEL_9:
     v7 = 1;
     goto LABEL_25;
   }
   if ( !memcmp(&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT, Buf2, 0x10uLL) )
   {
-    if ( *a2 == PopAdaptiveStandbyLock.ReservedPreviousReadyTimeValue )
+    if ( *a2 == PopAdaptiveLockConsoleTimeout )
       goto LABEL_25;
-    PopAdaptiveStandbyLock.ReservedPreviousReadyTimeValue = *a2;
+    PopAdaptiveLockConsoleTimeout = *a2;
     goto LABEL_9;
   }
   if ( !memcmp(&GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT, Buf2, 0x10uLL) )
   {
-    LODWORD(PopAdaptiveStandbyLock.SchedulerAssist) = *a2;
+    PopAdaptiveSensorAwayDisplayTimeout = *a2;
     goto LABEL_25;
   }
   if ( !memcmp(&GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT, Buf2, 0x10uLL) )
   {
-    HIDWORD(PopAdaptiveStandbyLock.SchedulerAssist) = *a2;
+    PopAdaptiveSensorAwayDimTimeout = *a2;
     goto LABEL_25;
   }
   if ( !memcmp(&GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT, Buf2, 0x10uLL) )
   {
-    LODWORD(PopAdaptiveStandbyLock.AbWaitObject) = *a2;
+    PopAdaptiveSensorInattentiveDisplayTimeout = *a2;
     goto LABEL_25;
   }
   if ( !memcmp(&GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT, Buf2, 0x10uLL) )
   {
-    HIDWORD(PopAdaptiveStandbyLock.AbWaitObject) = *a2;
+    PopAdaptiveSensorInattentiveDimTimeout = *a2;
     goto LABEL_25;
   }
   if ( !memcmp(&GUID_VIDEO_DIM_TIMEOUT, Buf2, 0x10uLL) )
   {
-    if ( *a2 != LODWORD(PopAdaptiveStandbyLock.KernelWaitTime) )
+    if ( *a2 != PopAdaptiveDimTimeout )
     {
-      LODWORD(PopAdaptiveStandbyLock.KernelWaitTime) = *a2;
+      PopAdaptiveDimTimeout = *a2;
       goto LABEL_24;
     }
 LABEL_25:
@@ -109,7 +109,7 @@ LABEL_27:
     LODWORD(v15) = 0;
     v13 = 0LL;
     v14 = 0LL;
-    if ( LOBYTE(PsAltSystemCallRegistrationLock.TrapFrame) )
+    if ( BYTE1(PsAltSystemCallRegistrationLock.Timer.DueTime.LowPart) )
     {
       DWORD2(v13) = 20;
       DWORD2(v14) = 0;
@@ -118,9 +118,9 @@ LABEL_27:
       PopInvokeWin32Callout(5LL, &v12, 2LL);
     }
   }
-  else if ( v7 && PopAdaptiveStandbyLock.PriorityFloorCounts[24] )
+  else if ( v7 && PopConsoleSession )
   {
-    PopSendSessionInfo(*(unsigned int *)&PopAdaptiveStandbyLock.AbWaitEntryCount, v9, v10, &v16);
+    PopSendSessionInfo((unsigned int)dword_140F0C078, v9, v10, &v16);
   }
   return v8;
 }

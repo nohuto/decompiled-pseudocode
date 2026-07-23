@@ -1,23 +1,23 @@
 /*
- * XREFs of NtAlpcImpersonateClientOfPort @ 0x14071CBA0
+ * XREFs of NtAlpcImpersonateClientOfPort @ 0x14071CDA0
  * Callers:
- *     NtImpersonateClientOfPort @ 0x1409785E0 (NtImpersonateClientOfPort.c)
+ *     NtImpersonateClientOfPort @ 0x1409787E0 (NtImpersonateClientOfPort.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     AlpcpImpersonateMessage @ 0x14071CE00 (AlpcpImpersonateMessage.c)
- *     AlpcpCaptureIdMessage @ 0x14071D040 (AlpcpCaptureIdMessage.c)
- *     AlpcpReferenceConnectedPort @ 0x14071D0C8 (AlpcpReferenceConnectedPort.c)
- *     AlpcpLookupMessage @ 0x1407388B0 (AlpcpLookupMessage.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
- *     SeImpersonateClientEx @ 0x1407F5DF0 (SeImpersonateClientEx.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14097AA10 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     AlpcpImpersonateMessage @ 0x14071D000 (AlpcpImpersonateMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x14071D240 (AlpcpCaptureIdMessage.c)
+ *     AlpcpReferenceConnectedPort @ 0x14071D2C8 (AlpcpReferenceConnectedPort.c)
+ *     AlpcpLookupMessage @ 0x140738AA0 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
+ *     SeImpersonateClientEx @ 0x1407F60C0 (SeImpersonateClientEx.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14097AC10 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientOfPort(void *a1, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, PVOID Flags)
 {
-  void *v5; // r10
+  HANDLE v5; // r10
   PVOID v6; // rbx
   struct _KTHREAD *CurrentThread; // rax
   void *v8; // r13
@@ -26,7 +26,7 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(void *a1, __int64 a2, unsigned 
   unsigned __int64 v11; // rdi
   int v12; // r15d
   BOOL v13; // r12d
-  NTSTATUS v14; // esi
+  int v14; // esi
   int v15; // r9d
   ULONG_PTR v16; // rdi
   __int64 v18; // rax
@@ -37,7 +37,7 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(void *a1, __int64 a2, unsigned 
   PVOID v24; // [rsp+E8h] [rbp+10h] BYREF
   int v25; // [rsp+F8h] [rbp+20h] BYREF
 
-  v5 = a1;
+  v5 = PortHandle;
   v6 = 0LL;
   BugCheckParameter2[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -48,9 +48,9 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(void *a1, __int64 a2, unsigned 
   v8 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(v24) = PreviousMode;
-  if ( a2 )
+  if ( Message )
   {
-    AlpcpCaptureIdMessage(a2, &v25, &v20);
+    AlpcpCaptureIdMessage(Message, &v25, &v20);
     v10 = v25;
     if ( !v25 )
     {
@@ -58,18 +58,18 @@ LABEL_28:
       v14 = -1073741811;
       goto LABEL_11;
     }
-    v5 = a1;
+    v5 = PortHandle;
     PreviousMode = (char)v24;
   }
   else
   {
     v10 = v25;
   }
-  v11 = a3 >> 2;
-  if ( (unsigned int)(a3 >> 2) > 3 )
+  v11 = (unsigned __int64)Flags >> 2;
+  if ( (unsigned int)((unsigned __int64)Flags >> 2) > 3 )
     goto LABEL_28;
-  v12 = a3 & 1;
-  v13 = (((4 * (_DWORD)v11) | 2) & (unsigned int)a3) != 0LL;
+  v12 = (unsigned __int8)Flags & 1;
+  v13 = (((4 * (_DWORD)v11) | 2) & (unsigned int)Flags) != 0LL;
   v24 = 0LL;
   v14 = ObReferenceObjectByHandle(v5, 1u, AlpcPortObjectType, PreviousMode, &v24, 0LL);
   v6 = v24;
@@ -123,5 +123,5 @@ LABEL_11:
   if ( v6 )
     ObfDereferenceObject(v6);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v14;
+  return v14;
 }

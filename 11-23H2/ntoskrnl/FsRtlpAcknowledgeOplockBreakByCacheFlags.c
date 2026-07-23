@@ -1,29 +1,29 @@
 /*
- * XREFs of FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3330
+ * XREFs of FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3510
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x140766310 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x140766500 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201C30 (FsRtlpRemoveAndCompleteWaitingIrp.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     FsRtlpClearOwner @ 0x1402FD62C (FsRtlpClearOwner.c)
- *     FsRtlpOplockKeysEqual @ 0x140300C80 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpOplockDequeueRH @ 0x140301520 (FsRtlpOplockDequeueRH.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpComputeShareableOplockState @ 0x140302370 (FsRtlpComputeShareableOplockState.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpModifyThreadPriorities @ 0x140358C84 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140360E34 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpCancelExclusiveIrp @ 0x1403B23B0 (FsRtlpCancelExclusiveIrp.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x14053E5C0 (FsRtlpGrantAnyOplockFromExclusive.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x140766798 (FsRtlpOplockUpperLowerCompatible.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     FsRtlpClearOwner @ 0x1402FD8BC (FsRtlpClearOwner.c)
+ *     FsRtlpOplockKeysEqual @ 0x140300F10 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockDequeueRH @ 0x1403017B0 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpRequestShareableOplock @ 0x140301BB0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140302600 (FsRtlpComputeShareableOplockState.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140358E24 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140360FD4 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x1403B2590 (FsRtlpCancelExclusiveIrp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x14053EC88 (FsRtlpGrantAnyOplockFromExclusive.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x140766988 (FsRtlpOplockUpperLowerCompatible.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -150,7 +150,7 @@ __int64 __fastcall FsRtlpAcknowledgeOplockBreakByCacheFlags(
     v55 = *((_DWORD *)v8 + 36);
     v81 = &v55;
     v82 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)&dword_14002B04C, 0LL, 0LL, 6u, v74);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)byte_14002B2F9, 0LL, 0LL, 6u, v74);
     v8 = v40;
   }
   if ( !v8 )
@@ -225,7 +225,7 @@ LABEL_19:
             v80 = 4LL;
             tlgWriteTransfer_EtwWriteTransfer(
               (__int64)&dword_140C03768,
-              (unsigned __int8 *)byte_14002B128,
+              (unsigned __int8 *)&byte_14002B07F,
               0LL,
               0LL,
               5u,
@@ -362,7 +362,7 @@ LABEL_53:
         v89 = 4LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C03768,
-          (unsigned __int8 *)byte_14002AFCD,
+          (unsigned __int8 *)word_14002B27A,
           0LL,
           0LL,
           5u,
@@ -503,7 +503,7 @@ LABEL_108:
       v73 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C03768,
-        (unsigned __int8 *)&word_14002B0C6,
+        (unsigned __int8 *)byte_14002B01D,
         0LL,
         0LL,
         5u,

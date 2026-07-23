@@ -16,60 +16,58 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall RtlGetPersistedStateLocation(
-        PCWSTR SourceString,
-        PCWSTR a2,
-        const unsigned __int16 *Src,
-        unsigned int a4,
-        _WORD *a5,
-        unsigned int a6,
-        size_t *a7)
+NTSTATUS __cdecl RtlGetPersistedStateLocation(
+        PCWSTR SourceID,
+        PCWSTR CustomValue,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PWCHAR TargetPath,
+        ULONG BufferLengthIn,
+        PULONG BufferLengthOut)
 {
-  int v7; // edi
-  signed int v8; // esi
+  char *v7; // edi
+  NTSTATUS v8; // esi
   unsigned int v9; // kr00_4
-  size_t v10; // ecx
-  int v12; // eax
-  int v13; // eax
+  unsigned int v10; // ecx
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // eax
   const WCHAR *v14; // eax
-  int Heap; // eax
-  int v16; // eax
-  size_t v17; // ecx
-  int v18; // edx
-  __int16 *v19; // ecx
+  char *Heap; // eax
+  NTSTATUS v16; // eax
+  ULONG v17; // ecx
+  char *v18; // edx
+  char *v19; // ecx
   __int16 v20; // ax
-  int v21; // eax
-  size_t v22; // [esp+Ch] [ebp-34h] BYREF
-  HANDLE Handle; // [esp+10h] [ebp-30h] BYREF
-  HANDLE v24; // [esp+14h] [ebp-2Ch] BYREF
-  int v25; // [esp+18h] [ebp-28h]
-  int v26; // [esp+1Ch] [ebp-24h] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-20h] BYREF
-  int v28; // [esp+28h] [ebp-18h] BYREF
-  HANDLE v29; // [esp+2Ch] [ebp-14h]
-  UNICODE_STRING *p_DestinationString; // [esp+30h] [ebp-10h]
-  int v31; // [esp+34h] [ebp-Ch]
-  int v32; // [esp+38h] [ebp-8h]
-  int v33; // [esp+3Ch] [ebp-4h]
+  NTSTATUS v21; // eax
+  SIZE_T v22; // [esp-10h] [ebp-50h]
+  size_t v23; // [esp-4h] [ebp-44h]
+  SIZE_T v24; // [esp-4h] [ebp-44h]
+  ULONG_PTR *v25; // [esp+4h] [ebp-3Ch]
+  ULONG ResultLength; // [esp+Ch] [ebp-34h] BYREF
+  HANDLE KeyHandle; // [esp+10h] [ebp-30h] BYREF
+  HANDLE Handle; // [esp+14h] [ebp-2Ch] BYREF
+  int v29; // [esp+18h] [ebp-28h]
+  _DWORD DestinationLength[3]; // [esp+1Ch] [ebp-24h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-18h] BYREF
 
-  v25 = 0;
+  v29 = 0;
+  KeyHandle = 0;
   Handle = 0;
-  v24 = 0;
   v7 = 0;
-  if ( a4 > 1 )
+  if ( (unsigned int)StateLocationType > LocationTypeFileSystem )
     return -1073741583;
   if ( byte_4B3A6618 )
   {
     v8 = -1073741772;
     goto LABEL_4;
   }
-  v28 = 24;
-  p_DestinationString = (UNICODE_STRING *)&dword_4B281750[2 * a4];
-  v29 = 0;
-  v31 = 64;
-  v32 = 0;
-  v33 = 0;
-  v12 = ZwOpenKey(&Handle, 131097, &v28);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&dword_4B281750[2 * StateLocationType];
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  v12 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   v8 = v12;
   if ( v12 == -1073741772 )
   {
@@ -78,93 +76,109 @@ int __stdcall RtlGetPersistedStateLocation(
   }
   if ( v12 >= 0 )
   {
-    RtlInitUnicodeString(&DestinationString, SourceString);
-    v29 = Handle;
-    p_DestinationString = &DestinationString;
-    v28 = 24;
-    v31 = 64;
-    v32 = 0;
-    v33 = 0;
-    v13 = ZwOpenKey(&v24, 131097, &v28);
+    RtlInitUnicodeString((PUNICODE_STRING)&DestinationLength[1], SourceID);
+    ObjectAttributes.RootDirectory = KeyHandle;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationLength[1];
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    v13 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
     v8 = v13;
     if ( v13 == -1073741772 )
     {
 LABEL_4:
-      if ( Src )
+      if ( DefaultPath )
       {
-        v9 = wcslen(Src);
+        v9 = wcslen((const unsigned __int16 *)DefaultPath);
         v10 = 2 * (v9 + 1);
-        v22 = v10;
+        ResultLength = v10;
         if ( v10 < v9 + 1 )
         {
           v8 = -1073741675;
         }
         else
         {
-          v8 = a6 < v10 ? 0x80000005 : 0;
-          if ( a7 )
-            *a7 = v10;
-          if ( v10 <= a6 )
-            memcpy(a5, Src, v10);
+          v8 = BufferLengthIn < v10 ? 0x80000005 : 0;
+          if ( BufferLengthOut )
+            *BufferLengthOut = v10;
+          if ( v10 <= BufferLengthIn )
+          {
+            LODWORD(v23) = 2 * (v9 + 1);
+            memcpy(TargetPath, DefaultPath, v23);
+          }
         }
       }
       goto LABEL_10;
     }
     if ( v13 >= 0 )
     {
-      v14 = a2;
-      if ( !a2 )
-        v14 = L"TargetPath";
-      RtlInitUnicodeString(&DestinationString, v14);
-      if ( a6 + 16 >= a6 )
+      v14 = CustomValue;
+      if ( !CustomValue )
+        v14 = (const WCHAR *)L"TargetPath";
+      RtlInitUnicodeString((PUNICODE_STRING)&DestinationLength[1], v14);
+      if ( BufferLengthIn + 16 >= BufferLengthIn )
       {
-        Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, a6 + 16);
+        LODWORD(v23) = BufferLengthIn + 16;
+        Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v23);
         v7 = Heap;
         if ( Heap )
         {
-          v16 = ZwQueryValueKey(v24, &DestinationString, 2, Heap, a6 + 16, &v22);
+          v16 = ZwQueryValueKey(
+                  Handle,
+                  (PUNICODE_STRING)&DestinationLength[1],
+                  KeyValuePartialInformation,
+                  Heap,
+                  BufferLengthIn + 16,
+                  &ResultLength);
           v8 = v16;
           if ( v16 < 0 )
           {
             if ( v16 != -2147483643 )
               goto LABEL_10;
           }
-          else if ( *(_DWORD *)(v7 + 4) != 1 && *(_DWORD *)(v7 + 4) != 2 )
+          else if ( *((_DWORD *)v7 + 1) != 1 && *((_DWORD *)v7 + 1) != 2 )
           {
             v8 = -1073741788;
             goto LABEL_10;
           }
-          v17 = *(_DWORD *)(v7 + 8);
+          v17 = *((_DWORD *)v7 + 2);
           v18 = v7 + 12;
-          v22 = v17;
+          ResultLength = v17;
           if ( v16 < 0 )
             goto LABEL_50;
-          if ( *(_WORD *)(v18 + 2 * (v17 >> 1) - 2) )
+          if ( *(_WORD *)&v18[2 * (v17 >> 1) - 2] )
           {
             v17 += 2;
-            v22 = v17;
-            if ( a6 < v17 )
+            ResultLength = v17;
+            if ( BufferLengthIn < v17 )
             {
               v8 = -2147483643;
             }
             else
             {
-              *(_WORD *)(v18 + 2 * (v17 >> 1) - 2) = 0;
-              v17 = v22;
+              *(_WORD *)&v18[2 * (v17 >> 1) - 2] = 0;
+              v17 = ResultLength;
             }
           }
-          if ( v8 >= 0 && *(_DWORD *)(v7 + 4) == 2 )
+          if ( v8 >= 0 && *((_DWORD *)v7 + 1) == 2 )
           {
-            v19 = (__int16 *)(v7 + 12);
+            v19 = v7 + 12;
             do
-              v20 = *v19++;
-            while ( v20 != (_WORD)v25 );
-            v21 = RtlExpandEnvironmentStrings(0, (_WORD *)(v7 + 12), ((int)v19 - v7 - 14) >> 1, a5, a6 >> 1, &v26);
+            {
+              v20 = *(_WORD *)v19;
+              v19 += 2;
+            }
+            while ( v20 != (_WORD)v29 );
+            LODWORD(v24) = DestinationLength;
+            HIDWORD(v22) = TargetPath;
+            LODWORD(v22) = (v19 - (v7 + 14)) >> 1;
+            v21 = RtlExpandEnvironmentStrings(0, (PCWSTR)v7 + 6, v22, (PWSTR)(BufferLengthIn >> 1), v24, v25);
             v8 = v21;
             if ( v21 >= 0 || v21 == -1073741789 )
             {
-              if ( a7 )
-                *a7 = 2 * v26;
+              if ( BufferLengthOut )
+                *BufferLengthOut = 2 * DestinationLength[0];
               if ( v21 == -1073741789 )
                 v8 = -2147483643;
             }
@@ -172,10 +186,13 @@ LABEL_4:
           else
           {
 LABEL_50:
-            if ( a7 )
-              *a7 = v17;
+            if ( BufferLengthOut )
+              *BufferLengthOut = v17;
             if ( v8 >= 0 )
-              memcpy(a5, (const void *)(v7 + 12), v17);
+            {
+              LODWORD(v24) = v17;
+              memcpy(TargetPath, v7 + 12, v24);
+            }
           }
           goto LABEL_10;
         }
@@ -188,11 +205,11 @@ LABEL_50:
     }
   }
 LABEL_10:
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   if ( Handle )
     NtClose(Handle);
-  if ( v24 )
-    NtClose(v24);
   if ( v7 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   return v8;
 }

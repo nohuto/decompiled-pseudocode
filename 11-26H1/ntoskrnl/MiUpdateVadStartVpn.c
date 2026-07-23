@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateVadStartVpn @ 0x14049B0E4
+ * XREFs of MiUpdateVadStartVpn @ 0x140494C34
  * Callers:
- *     MiReserveUserMemoryInsertVad @ 0x14095BBAC (MiReserveUserMemoryInsertVad.c)
- *     MiMapViewOfPhysicalSection @ 0x14095C9CC (MiMapViewOfPhysicalSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateVad @ 0x14095D5C0 (MiAllocateVad.c)
- *     MiUnmapViewOfSectionPrepare @ 0x1409C40F0 (MiUnmapViewOfSectionPrepare.c)
- *     MiInitializeDataVad @ 0x1409C5B30 (MiInitializeDataVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409CA420 (MiAllocateNewSubAllocatedRegion.c)
- *     MiInitializeImageVad @ 0x1409CDD4C (MiInitializeImageVad.c)
- *     MiFindEmptyAddressRangeDownTree @ 0x140A34950 (MiFindEmptyAddressRangeDownTree.c)
- *     MiAllocateEnclaveVad @ 0x140B693A0 (MiAllocateEnclaveVad.c)
+ *     MiUnmapViewOfSectionPrepare @ 0x1409950D0 (MiUnmapViewOfSectionPrepare.c)
+ *     MiInitializeDataVad @ 0x140996B10 (MiInitializeDataVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14099B400 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiInitializeImageVad @ 0x14099ED2C (MiInitializeImageVad.c)
+ *     MiReserveUserMemoryInsertVad @ 0x140A0146C (MiReserveUserMemoryInsertVad.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0228C (MiMapViewOfPhysicalSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateVad @ 0x140A02E80 (MiAllocateVad.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x140A4F8B0 (MiFindEmptyAddressRangeDownTree.c)
+ *     MiAllocateEnclaveVad @ 0x140B6C330 (MiAllocateEnclaveVad.c)
  * Callees:
  *     <none>
  */

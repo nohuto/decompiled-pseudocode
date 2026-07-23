@@ -50,7 +50,7 @@ __int64 __fastcall RtlEnumerateBoundaryDescriptorEntries(_DWORD *a1)
         if ( (unsigned int)++v4 > 1 )
           return 3221226026LL;
       }
-      if ( !(unsigned __int8)RtlpValidateSidBuffer(v3 + 2, (unsigned int)(v7 - 8)) )
+      if ( !(unsigned __int8)RtlpValidateSidBuffer(v3 + 2) )
         return 3221225485LL;
     }
     v3 = (_DWORD *)((unsigned __int64)(v8 + 7) & 0xFFFFFFFFFFFFFFF8uLL);

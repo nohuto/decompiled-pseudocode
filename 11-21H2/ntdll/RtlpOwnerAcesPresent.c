@@ -9,68 +9,66 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2, __int64 a3)
+char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2)
 {
-  unsigned __int8 *v5; // rbx
-  unsigned int v6; // esi
-  unsigned int v7; // edi
-  unsigned __int8 v8; // cl
-  __int64 v9; // rcx
-  int v11; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v12; // [rsp+24h] [rbp-24h]
-  _BYTE v13[8]; // [rsp+28h] [rbp-20h] BYREF
-  int v14; // [rsp+30h] [rbp-18h]
+  unsigned __int8 *v4; // rbx
+  unsigned int v5; // esi
+  unsigned int v6; // edi
+  unsigned __int8 v7; // cl
+  char *v8; // rcx
+  _SID_IDENTIFIER_AUTHORITY v10; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE Sid2[8]; // [rsp+28h] [rbp-20h] BYREF
+  int v12; // [rsp+30h] [rbp-18h]
 
-  v11 = 0;
-  v12 = 768;
-  LOBYTE(a3) = 1;
-  if ( (int)RtlInitializeSid(v13, &v11, a3) < 0 )
+  *(_DWORD *)v10.Value = 0;
+  *(_WORD *)&v10.Value[4] = 768;
+  if ( RtlInitializeSid(Sid2, &v10, 1u) < 0 )
     return 0;
-  v14 = 4;
+  v12 = 4;
   if ( !a2 )
     return 0;
-  v5 = (unsigned __int8 *)(a2 + 8);
-  v6 = 0;
-  v7 = *(unsigned __int16 *)(a2 + 4);
-  if ( !v7 )
+  v4 = (unsigned __int8 *)(a2 + 8);
+  v5 = 0;
+  v6 = *(unsigned __int16 *)(a2 + 4);
+  if ( !v6 )
     return 0;
   while ( 1 )
   {
-    if ( (v5[1] & 8) != 0 )
+    if ( (v4[1] & 8) != 0 )
       goto LABEL_13;
-    v8 = *v5;
-    if ( (unsigned __int8)(*v5 - 5) <= 3u || (unsigned __int8)(v8 - 11) <= 1u )
+    v7 = *v4;
+    if ( (unsigned __int8)(*v4 - 5) <= 3u || (unsigned __int8)(v7 - 11) <= 1u )
       break;
-    if ( v8 >= 0xFu )
+    if ( v7 >= 0xFu )
     {
-      if ( v8 <= 0x10u )
+      if ( v7 <= 0x10u )
         break;
     }
     else
     {
-      if ( v8 == 4 )
+      if ( v7 == 4 )
       {
-        v9 = (__int64)(v5 + 12);
+        v8 = (char *)(v4 + 12);
         goto LABEL_11;
       }
-      if ( v8 < 0xBu )
+      if ( v7 < 0xBu )
         goto LABEL_10;
     }
-    if ( (unsigned __int8)(v8 - 13) <= 1u )
+    if ( (unsigned __int8)(v7 - 13) <= 1u )
     {
 LABEL_10:
-      v9 = (__int64)(v5 + 8);
+      v8 = (char *)(v4 + 8);
       goto LABEL_11;
     }
 LABEL_13:
-    ++v6;
-    v5 += *((unsigned __int16 *)v5 + 1);
-    if ( v6 >= v7 )
+    ++v5;
+    v4 += *((unsigned __int16 *)v4 + 1);
+    if ( v5 >= v6 )
       return 0;
   }
-  v9 = (__int64)&v5[16 * (*((_DWORD *)v5 + 2) & 1) + ((8LL * (*((_DWORD *)v5 + 2) & 2)) | 0xC)];
+  v8 = (char *)&v4[16 * (*((_DWORD *)v4 + 2) & 1) + ((8LL * (*((_DWORD *)v4 + 2) & 2)) | 0xC)];
 LABEL_11:
-  if ( !v9 || !(unsigned __int8)RtlEqualSid(v9, v13) || a1 && (a1 & v5[1]) == 0 )
+  if ( !v8 || !RtlEqualSid(v8, Sid2) || a1 && (a1 & v4[1]) == 0 )
     goto LABEL_13;
   return 1;
 }

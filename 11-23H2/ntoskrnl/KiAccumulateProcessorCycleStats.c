@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     KiGetProcessorEfficiencyClass @ 0x14020E8D4 (KiGetProcessorEfficiencyClass.c)
- *     PoGetFrequencyBucket @ 0x140249C20 (PoGetFrequencyBucket.c)
+ *     PoGetFrequencyBucket @ 0x140249CF0 (PoGetFrequencyBucket.c)
  */
 
 __int64 __fastcall KiAccumulateProcessorCycleStats(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

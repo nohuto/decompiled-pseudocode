@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpIsCaptureStateAllowed @ 0x14052DDD8
+ * XREFs of EtwpIsCaptureStateAllowed @ 0x14052E318
  * Callers:
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     EtwpIsRegEntryAllowed @ 0x14048EBC8 (EtwpIsRegEntryAllowed.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     EtwpIsRegEntryAllowed @ 0x14048F658 (EtwpIsRegEntryAllowed.c)
  * Callees:
- *     EtwpApplyExeFilter @ 0x1406A8A9C (EtwpApplyExeFilter.c)
- *     EtwpApplyPackageIdFilter @ 0x1406A8B50 (EtwpApplyPackageIdFilter.c)
+ *     EtwpApplyExeFilter @ 0x1406A8BD4 (EtwpApplyExeFilter.c)
+ *     EtwpApplyPackageIdFilter @ 0x1406A8C88 (EtwpApplyPackageIdFilter.c)
  */
 
 char __fastcall EtwpIsCaptureStateAllowed(__int64 a1, __int64 a2, _QWORD *a3)

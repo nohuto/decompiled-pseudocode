@@ -17,16 +17,15 @@ NTSTATUS __stdcall NtNotifyChangeDirectoryFile(
         ULONG CompletionFilter,
         BOOLEAN WatchTree)
 {
-  SIZE_T Length; // [rsp+30h] [rbp-28h]
-
-  LODWORD(Length) = BufferSize;
   return NtNotifyChangeDirectoryFileEx(
-           (int)FileHandle,
+           FileHandle,
            Event,
-           (__int64)IoStatusBlock,
+           ApcRoutine,
+           ApcContext,
+           IoStatusBlock,
            Buffer,
-           Length,
+           BufferSize,
            CompletionFilter,
            WatchTree,
-           1);
+           DirectoryNotifyInformation);
 }

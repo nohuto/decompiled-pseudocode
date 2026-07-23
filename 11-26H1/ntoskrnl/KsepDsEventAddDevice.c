@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventAddDevice @ 0x1405FEAFC
+ * XREFs of KsepDsEventAddDevice @ 0x14060154C
  * Callers:
- *     KseDsCallbackHookAddDevice @ 0x1405FE340 (KseDsCallbackHookAddDevice.c)
+ *     KseDsCallbackHookAddDevice @ 0x140600D90 (KseDsCallbackHookAddDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char KsepDsEventAddDevice(__int64 a1, int a2, ...)
@@ -53,9 +53,9 @@ char KsepDsEventAddDevice(__int64 a1, int a2, ...)
   v2 = &retaddr;
   v21 = a2;
   v20 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v2) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventAddDevice);
+    LOBYTE(v2) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventAddDevice);
     if ( (_BYTE)v2 )
     {
       UserData.Ptr = (ULONGLONG)&v20;
@@ -75,7 +75,7 @@ char KsepDsEventAddDevice(__int64 a1, int a2, ...)
       v15 = 0;
       v18 = 0;
       LOBYTE(v2) = EtwWriteEx(
-                     (REGHANDLE)stru_140E66B30.StackLimit,
+                     (REGHANDLE)stru_140E66D40.StackLimit,
                      &KseDsEventAddDevice,
                      0LL,
                      0,

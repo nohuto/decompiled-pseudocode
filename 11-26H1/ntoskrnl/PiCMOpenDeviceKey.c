@@ -1,23 +1,23 @@
 /*
- * XREFs of PiCMOpenDeviceKey @ 0x1409FF7B4
+ * XREFs of PiCMOpenDeviceKey @ 0x14091C550
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PiAuDoesClientHaveAccess @ 0x14098DE50 (PiAuDoesClientHaveAccess.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     PiCMCaptureRegistryInputData @ 0x1409FFECC (PiCMCaptureRegistryInputData.c)
- *     PiCMReturnHandleResultData @ 0x140A0019C (PiCMReturnHandleResultData.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     PiCMDuplicateRegistryHandle @ 0x140A007EC (PiCMDuplicateRegistryHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PiCMCaptureRegistryInputData @ 0x14091CC68 (PiCMCaptureRegistryInputData.c)
+ *     PiCMReturnHandleResultData @ 0x14091CF38 (PiCMReturnHandleResultData.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     PiCMDuplicateRegistryHandle @ 0x14091D314 (PiCMDuplicateRegistryHandle.c)
+ *     PiAuDoesClientHaveAccess @ 0x14094E8B0 (PiAuDoesClientHaveAccess.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMOpenDeviceKey(void *a1, __int64 a2, __int64 a3, unsigned int a4, int a5, _DWORD *a6)
 {
   HANDLE v6; // rsi
   int v8; // edi
-  PVOID v9; // r14
+  int v9; // r14d
   unsigned int v10; // r15d
   int v11; // r12d
   int v12; // r13d
@@ -47,7 +47,7 @@ __int64 __fastcall PiCMOpenDeviceKey(void *a1, __int64 a2, __int64 a3, unsigned 
   v8 = PiCMCaptureRegistryInputData(a1);
   if ( v8 < 0 )
     goto LABEL_25;
-  v9 = P[0];
+  v9 = (int)P[0];
   v10 = HIDWORD(P[1]);
   v11 = v27;
   v12 = DWORD1(v27);
@@ -87,25 +87,17 @@ LABEL_33:
   }
   v13 |= v15;
 LABEL_16:
-  v17 = CmOpenDeviceRegKey(
-          *(__int64 *)&PiPnpRtlCtx,
-          (__int64)P[0],
-          v13,
-          SDWORD1(v27),
-          SHIDWORD(P[1]),
-          0,
-          (__int64)&Handle,
-          0LL);
+  v17 = CmOpenDeviceRegKey(PiPnpRtlCtx, P[0], v13, DWORD1(v27), HIDWORD(P[1]), 0, (__int64)&Handle, 0LL);
   if ( v17 == -1073741772 )
   {
     if ( v11 != 1 )
       goto LABEL_20;
-    if ( !PiAuDoesClientHaveAccess(2u) )
+    if ( !(unsigned __int8)PiAuDoesClientHaveAccess(2u) )
     {
       v17 = -1073741790;
       goto LABEL_20;
     }
-    v17 = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v9, v13, v12, v10, 1, (__int64)&Handle, 0LL);
+    v17 = CmOpenDeviceRegKey(PiPnpRtlCtx, v9, v13, v12, v10, 1, (__int64)&Handle, 0LL);
   }
   if ( v17 < 0 )
   {

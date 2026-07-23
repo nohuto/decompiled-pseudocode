@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcVolumePnpNotification @ 0x1408AFB40
+ * XREFs of SmcVolumePnpNotification @ 0x1408B0DA0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     SmcCacheDelete @ 0x1408AEA28 (SmcCacheDelete.c)
- *     SmcCacheReference @ 0x1408AECA8 (SmcCacheReference.c)
+ *     SmcCacheDelete @ 0x1408AFC88 (SmcCacheDelete.c)
+ *     SmcCacheReference @ 0x1408AFF08 (SmcCacheReference.c)
  */
 
 __int64 __fastcall SmcVolumePnpNotification(_QWORD *NotificationStructure, PVOID Context)
@@ -29,19 +29,19 @@ __int64 __fastcall SmcVolumePnpNotification(_QWORD *NotificationStructure, PVOID
   if ( !v4 )
   {
 LABEL_7:
-    v5 = &unk_14055B1D8;
+    v5 = &unk_14055C1D8;
     for ( i = 0; i < 0x10; ++i )
     {
       v7 = i | (16 * (*v5 & 0xFFF));
-      v8.Count = SmcCacheReference((__int64)&unk_14055B1C0, v7).Count;
+      v8.Count = SmcCacheReference((__int64)&unk_14055C1C0, v7).Count;
       Count = v8.Count;
       if ( v8.Count )
       {
         if ( *(_QWORD *)(v8.Count + 48) != NotificationStructure[3] )
           Count = 0LL;
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&unk_14055B1C8 + 4 * (v7 & 0xF));
+        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&unk_14055C1C8 + 4 * (v7 & 0xF));
         if ( Count )
-          SmcCacheDelete((__int64)&unk_14055B1C0);
+          SmcCacheDelete((__int64)&unk_14055C1C0);
       }
       v5 += 8;
     }

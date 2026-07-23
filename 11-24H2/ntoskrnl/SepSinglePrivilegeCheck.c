@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSinglePrivilegeCheck @ 0x14035F3EC
+ * XREFs of SepSinglePrivilegeCheck @ 0x14041571C
  * Callers:
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SePrivilegePolicyCheck @ 0x14035F1D0 (SePrivilegePolicyCheck.c)
- *     SepAccessCheckEx @ 0x140361710 (SepAccessCheckEx.c)
+ *     SePrivilegePolicyCheck @ 0x140415500 (SePrivilegePolicyCheck.c)
+ *     SepAccessCheck @ 0x1404E76E0 (SepAccessCheck.c)
+ *     SepAccessCheckEx @ 0x1404E81A8 (SepAccessCheckEx.c)
  * Callees:
  *     <none>
  */

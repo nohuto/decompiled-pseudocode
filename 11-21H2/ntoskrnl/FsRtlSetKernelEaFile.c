@@ -1,7 +1,7 @@
 /*
  * XREFs of FsRtlSetKernelEaFile @ 0x1406A3540
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x14065EA54 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     sub_14065EA54 @ 0x14065EA54 (sub_14065EA54.c)
  * Callees:
  *     IoAllocateIrpEx @ 0x14022CFA0 (IoAllocateIrpEx.c)
  *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
@@ -11,7 +11,7 @@
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
  *     FsRtlCancellableWaitForMultipleObjects @ 0x1407A11A0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14092EF10 (FsRtlpFreeMdlChain.c)
+ *     sub_14092EF10 @ 0x14092EF10 (sub_14092EF10.c)
  */
 
 __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a3)
@@ -55,7 +55,7 @@ __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a
       Irp->Flags = 4;
       Irp->RequestorMode = 0;
       v11 = *v9;
-      *(_QWORD *)(v11 - 16) = SmKmGenericCompletion;
+      *(_QWORD *)(v11 - 16) = sub_140248550;
       *(_QWORD *)(v11 - 8) = &Object;
       *(_BYTE *)(v11 - 69) = 0;
       *(_BYTE *)(v11 - 69) = 64;
@@ -82,7 +82,7 @@ __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a
     MdlAddress = v6->MdlAddress;
     if ( MdlAddress )
     {
-      FsRtlpFreeMdlChain(MdlAddress);
+      sub_14092EF10(MdlAddress);
       v6->MdlAddress = 0LL;
     }
     IoFreeIrp(v6);

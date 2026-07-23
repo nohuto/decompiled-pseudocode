@@ -1,22 +1,22 @@
 /*
- * XREFs of KiAbSetMinimumThreadPriority @ 0x1402F1D84
+ * XREFs of KiAbSetMinimumThreadPriority @ 0x1402FCAD4
  * Callers:
- *     KiAbIoBoostOwners @ 0x1402F0D60 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x1402F0E64 (KiAbCpuBoostOwners.c)
- *     KiAbProcessThreadLocks @ 0x1402F10C4 (KiAbProcessThreadLocks.c)
- *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
+ *     KiAbIoBoostOwners @ 0x1402FBAB0 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x1402FBBB4 (KiAbCpuBoostOwners.c)
+ *     KiAbProcessThreadLocks @ 0x1402FBE14 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x1403529A0 (KiAbProcessContextSwitch.c)
  * Callees:
- *     PsGetBaseIoPriorityThread @ 0x14022C100 (PsGetBaseIoPriorityThread.c)
- *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiAbThreadBoostIoPriority @ 0x140288934 (KiAbThreadBoostIoPriority.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiAbThreadInsertList @ 0x1402C7CCC (KiAbThreadInsertList.c)
- *     KiAbEntryGetCpuPriorityKey @ 0x1402F26F0 (KiAbEntryGetCpuPriorityKey.c)
+ *     KiAbThreadBoostIoPriority @ 0x140205AD4 (KiAbThreadBoostIoPriority.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiAbThreadInsertList @ 0x14024652C (KiAbThreadInsertList.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402D0980 (PsGetBaseIoPriorityThread.c)
+ *     KiSetPriorityThread @ 0x1402D4AF0 (KiSetPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x1402FD440 (KiAbEntryGetCpuPriorityKey.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostSetFloor @ 0x1405A74EC (EtwTraceAutoBoostSetFloor.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x1405A771C (EtwTraceAutoBoostSetFloor.c)
  */
 
 __int64 __fastcall KiAbSetMinimumThreadPriority(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 a5, _DWORD *a6)
@@ -148,7 +148,7 @@ __int64 __fastcall KiAbSetMinimumThreadPriority(__int64 a1, __int64 a2, __int64 
     BYTE2(v32) = 1;
   }
   if ( a4 && v13 && *(_BYTE *)(v7 + 793) )
-    KiAbThreadInsertList(v7, a4, (_QWORD *)(v7 + 808), (__int64)v20);
+    KiAbThreadInsertList(v7, a4, (_QWORD *)(v7 + 808));
   if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 && v32 )
   {
     LOBYTE(v20) = v11;

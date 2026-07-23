@@ -1,14 +1,14 @@
 /*
- * XREFs of VfCheckImageCompliance @ 0x140703D18
+ * XREFs of VfCheckImageCompliance @ 0x140703D48
  * Callers:
  *     VfSuspectDriversLoadCallback @ 0x140716114 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _stricmp @ 0x14014D394 (_stricmp.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x1407043A0 (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _stricmp @ 0x14014D904 (_stricmp.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x1407043D0 (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckImageCompliance(__int64 a1)
@@ -64,7 +64,7 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
           VfReportIssueWithOptions(196, 8195, a1 + 88, v5, (ULONG_PTR)Str1, Response);
           if ( (MmVerifierData & 0x1000) != 0 )
             ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 260LL);
-          _InterlockedIncrement(&dword_14030729C);
+          _InterlockedIncrement(&dword_1403072DC);
         }
       }
       if ( v2 )
@@ -86,7 +86,7 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
           VfReportIssueWithOptions(196, 8198, a1 + 88, (int)v6, (ULONG_PTR)Str1, byte_1402F98F0);
           if ( (MmVerifierData & 0x1000) != 0 )
             ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 272LL);
-          _InterlockedIncrement(&dword_1403072A8);
+          _InterlockedIncrement(&dword_1403072E8);
         }
       }
       Magic = v4->OptionalHeader.Magic;
@@ -108,7 +108,7 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
         VfReportIssueWithOptions(196, 8196, a1 + 88, v5, (ULONG_PTR)Str1, byte_1402F98F4);
         if ( (MmVerifierData & 0x1000) != 0 )
           ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 264LL);
-        _InterlockedIncrement(&dword_1403072A0);
+        _InterlockedIncrement(&dword_1403072E0);
       }
       v5 += 40LL;
       ++v7;
@@ -164,7 +164,7 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
       }
       if ( (MmVerifierData & 0x1000) != 0 )
         ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 268LL);
-      _InterlockedIncrement(&dword_1403072A4);
+      _InterlockedIncrement(&dword_1403072E4);
 LABEL_43:
       ++v15;
     }

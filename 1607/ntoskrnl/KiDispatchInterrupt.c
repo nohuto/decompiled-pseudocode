@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDispatchInterrupt @ 0x140165DB0
+ * XREFs of KiDispatchInterrupt @ 0x140166320
  * Callers:
- *     KiDpcInterrupt @ 0x140164FF0 (KiDpcInterrupt.c)
- *     KiDpcInterruptBypass @ 0x140165590 (KiDpcInterruptBypass.c)
+ *     KiDpcInterrupt @ 0x140165560 (KiDpcInterrupt.c)
+ *     KiDpcInterruptBypass @ 0x140165B00 (KiDpcInterruptBypass.c)
  * Callees:
- *     KiCheckForSListAddress @ 0x14008C180 (KiCheckForSListAddress.c)
- *     KiDeferGroupSchedulingPreemption @ 0x1400CFE18 (KiDeferGroupSchedulingPreemption.c)
- *     KiQuantumEnd @ 0x1400D1780 (KiQuantumEnd.c)
+ *     KiCheckForSListAddress @ 0x14008B8E0 (KiCheckForSListAddress.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1400CDCB8 (KiDeferGroupSchedulingPreemption.c)
+ *     KiQuantumEnd @ 0x1400CF620 (KiQuantumEnd.c)
  */
 
 // bad sp value at call has been detected, the output may be wrong!

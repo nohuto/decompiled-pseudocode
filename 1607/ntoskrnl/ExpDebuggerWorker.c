@@ -3,19 +3,19 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MmGetDefaultPagePriority @ 0x1400D3D18 (MmGetDefaultPagePriority.c)
- *     MmDbgMarkPfnModifiedWorker @ 0x140148C04 (MmDbgMarkPfnModifiedWorker.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     DbgBreakPointWithStatus @ 0x140166D80 (DbgBreakPointWithStatus.c)
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
- *     MmPrefetchVirtualMemory @ 0x1404F4680 (MmPrefetchVirtualMemory.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
- *     PsQuitNextProcess @ 0x14054C95C (PsQuitNextProcess.c)
- *     EtwWmitraceWorker @ 0x1406A5048 (EtwWmitraceWorker.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MmGetDefaultPagePriority @ 0x1400D1BB8 (MmGetDefaultPagePriority.c)
+ *     MmDbgMarkPfnModifiedWorker @ 0x140149174 (MmDbgMarkPfnModifiedWorker.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     DbgBreakPointWithStatus @ 0x1401672F0 (DbgBreakPointWithStatus.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
+ *     MmPrefetchVirtualMemory @ 0x1404D760C (MmPrefetchVirtualMemory.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
+ *     PsQuitNextProcess @ 0x14054CE9C (PsQuitNextProcess.c)
+ *     EtwWmitraceWorker @ 0x1406A5180 (EtwWmitraceWorker.c)
  */
 
 void ExpDebuggerWorker()

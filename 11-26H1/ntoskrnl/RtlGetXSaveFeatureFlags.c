@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetXSaveFeatureFlags @ 0x140619470
+ * XREFs of RtlGetXSaveFeatureFlags @ 0x14061C470
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
  *     <none>
  */

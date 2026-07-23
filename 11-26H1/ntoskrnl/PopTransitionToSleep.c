@@ -1,18 +1,18 @@
 /*
- * XREFs of PopTransitionToSleep @ 0x140C04000
+ * XREFs of PopTransitionToSleep @ 0x140C0A210
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopDiagTraceEventNoPayload @ 0x1404C6954 (PopDiagTraceEventNoPayload.c)
- *     MmEmptyAllWorkingSets @ 0x1406F7E2C (MmEmptyAllWorkingSets.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x1406F7F58 (MmTrimFilePagesFromWorkingSets.c)
- *     MmFlushAllPagesEx @ 0x1406F90D0 (MmFlushAllPagesEx.c)
- *     PopEnlargeHiberFile @ 0x1407D0204 (PopEnlargeHiberFile.c)
- *     PopInvokeSystemStateHandler @ 0x140C04104 (PopInvokeSystemStateHandler.c)
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404C0304 (PopDiagTraceEventNoPayload.c)
+ *     MmEmptyAllWorkingSets @ 0x1406FCAF8 (MmEmptyAllWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x1406FCC28 (MmTrimFilePagesFromWorkingSets.c)
+ *     MmFlushAllPagesEx @ 0x1406FDDA0 (MmFlushAllPagesEx.c)
+ *     PopEnlargeHiberFile @ 0x1407D32A4 (PopEnlargeHiberFile.c)
+ *     PopInvokeSystemStateHandler @ 0x140C0A314 (PopInvokeSystemStateHandler.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
  */
 
 LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
@@ -22,7 +22,7 @@ LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
   LONG v4; // ebx
   int v6; // eax
   bool v7; // cl
-  unsigned __int8 v8; // si
+  char v8; // si
   char v9; // r15
   unsigned int v10; // r12d
   int v11; // eax
@@ -36,10 +36,10 @@ LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
   v15 = 0;
   v12 = 0LL;
   v13 = 0LL;
-  qword_140F0FE40 = (__int64)KeGetCurrentThread();
+  qword_140F109C0 = (__int64)KeGetCurrentThread();
   if ( Lock == 3 || Lock == 6 )
   {
-    if ( (dword_140F0FD40 & 0x20) != 0 )
+    if ( (PopSimulateHiberBugcheck & 0x20) != 0 )
     {
       KeSetEvent(a1, 0, 1u);
       KeWaitForSingleObject(&a1[1], Executive, 0, 0, 0LL);
@@ -64,8 +64,7 @@ LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
       v9 = 1;
       v11 = v14 | 1;
     }
-    else if ( (dword_140F0FB6C & 0x20) != 0 && *(_DWORD *)&stru_140F11D08.ApcStateFill[40]
-           || *(_DWORD *)&stru_140F11D08.ApcStateFill[36] )
+    else if ( (dword_140F1042C & 0x20) != 0 && PopEnableMinimalHiberFile || PopForceMinimalHiberFile )
     {
       MmEmptyAllWorkingSets();
       v9 = 1;
@@ -79,17 +78,17 @@ LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
         v11 = v14 | 1;
 LABEL_20:
         LODWORD(v14) = v11;
-        stru_140F11D08.ApcStateFill[28] = v8;
-        stru_140F11D08.ApcStateFill[29] = v9;
-        *(_DWORD *)&stru_140F11D08.ApcStateFill[24] = v11;
+        byte_140F1217C = v8;
+        byte_140F1217D = v9;
+        dword_140F12178 = v11;
         PopDiagTraceEventNoPayload(&POP_ETW_EVENT_FLUSHALLPAGES);
         if ( v8 )
           MmFlushAllPagesEx(v9, v10);
         PopDiagTraceEventNoPayload(&POP_ETW_EVENT_FLUSHALLPAGES_END);
         PopHibernatePowerStateHandlerType = Lock;
-        qword_140E674B8 = a1;
+        qword_140E67710 = a1;
         v3 = MmDuplicateMemory(&v12);
-        qword_140E674B8 = 0LL;
+        qword_140E67710 = 0LL;
         PopHibernatePowerStateHandlerType = 7;
         goto LABEL_4;
       }
@@ -105,8 +104,7 @@ LABEL_20:
 LABEL_4:
   v4 = v3;
 LABEL_5:
-  stru_140F10070.SavedApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)(*(_QWORD *)&KeQueryPerformanceCounter(0LL)
-                                                                           - qword_140F0B0D0);
+  qword_140F10B68 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - PopDirectedDripsDiagLock.WriteOperationCount;
   a1[3].Header.SignalState = v4;
   return KeSetEvent(a1 + 2, 0, 0);
 }

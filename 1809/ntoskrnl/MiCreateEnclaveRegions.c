@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateEnclaveRegions @ 0x1409BA34C
+ * XREFs of MiCreateEnclaveRegions @ 0x1409BB34C
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     MiInitializeMdlPfn @ 0x1400113B8 (MiInitializeMdlPfn.c)
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiInitializeEnclaveMetadataPage @ 0x1409F72B8 (MiInitializeEnclaveMetadataPage.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x1409F82B8 (MiInitializeEnclaveMetadataPage.c)
  */
 
 _BOOL8 __fastcall MiCreateEnclaveRegions(__int64 a1)
@@ -60,8 +60,8 @@ _BOOL8 __fastcall MiCreateEnclaveRegions(__int64 a1)
     PoolWithTag[3] = v6;
     v10 = 0;
     PoolWithTag[4] = v7;
-    v11 = (_QWORD *)qword_14043A188;
-    if ( !qword_14043A188 )
+    v11 = (_QWORD *)qword_14043B248;
+    if ( !qword_14043B248 )
       goto LABEL_15;
     while ( v6 >= v11[3] )
     {
@@ -79,7 +79,7 @@ LABEL_21:
       goto LABEL_21;
     v10 = 0;
 LABEL_15:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043A188, (unsigned __int64)v11, v10, v1);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043B248, (unsigned __int64)v11, v10, v1);
 LABEL_16:
     MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v6, v7, 0, 0);
     v13 = 48 * v6 - 0x58000000000LL;
@@ -113,7 +113,7 @@ LABEL_16:
       while ( v7 );
       v2 = v18;
     }
-    qword_14043B018 -= i[4];
+    qword_14043C0D8 -= i[4];
   }
-  return !qword_14043A188 || (unsigned int)MiInitializeEnclaveMetadataPage();
+  return !qword_14043B248 || (unsigned int)MiInitializeEnclaveMetadataPage();
 }

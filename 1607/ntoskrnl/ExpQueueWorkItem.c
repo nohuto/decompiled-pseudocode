@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpQueueWorkItem @ 0x14005FCC0
+ * XREFs of ExpQueueWorkItem @ 0x14005F840
  * Callers:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExQueueWorkItemEx @ 0x1400A8A00 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemFromIo @ 0x1400D1174 (ExQueueWorkItemFromIo.c)
- *     ExQueueWorkItemToPrivatePool @ 0x140124A68 (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemExFromIo @ 0x14022E85C (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExQueueWorkItemEx @ 0x1400A6F80 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemFromIo @ 0x1400CF014 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x140124FD8 (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemExFromIo @ 0x14022E688 (ExQueueWorkItemExFromIo.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeInsertPriQueue @ 0x14005F700 (KeInsertPriQueue.c)
- *     ExpIsPoolReadyForWork @ 0x14005FE00 (ExpIsPoolReadyForWork.c)
- *     MmGetNextNode @ 0x1400C0F74 (MmGetNextNode.c)
- *     ExpQueueWorkItemNode @ 0x14022EA8C (ExpQueueWorkItemNode.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeInsertPriQueue @ 0x14005F280 (KeInsertPriQueue.c)
+ *     ExpIsPoolReadyForWork @ 0x14005F980 (ExpIsPoolReadyForWork.c)
+ *     MmGetNextNode @ 0x1400BEE04 (MmGetNextNode.c)
+ *     ExpQueueWorkItemNode @ 0x14022E8B8 (ExpQueueWorkItemNode.c)
  */
 
 __int64 __fastcall ExpQueueWorkItem(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)

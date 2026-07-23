@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdateSelectionStatistics @ 0x1405CEE48
+ * XREFs of PpmIdleUpdateSelectionStatistics @ 0x1405CC568
  * Callers:
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */

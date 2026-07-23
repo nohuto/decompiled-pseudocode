@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeUCRIndex @ 0x18007DE6C
+ * XREFs of RtlpInitializeUCRIndex @ 0x18006C558
  * Callers:
- *     RtlpPerformHeapMaintenance @ 0x180021680 (RtlpPerformHeapMaintenance.c)
+ *     RtlpPerformHeapMaintenance @ 0x18000C750 (RtlpPerformHeapMaintenance.c)
  * Callees:
- *     RtlpHeapAddListEntry @ 0x18007E3B0 (RtlpHeapAddListEntry.c)
- *     RtlpAllocateListLookup @ 0x18007E4C0 (RtlpAllocateListLookup.c)
+ *     RtlpHeapAddListEntry @ 0x18006CAA0 (RtlpHeapAddListEntry.c)
+ *     RtlpAllocateListLookup @ 0x18006CBB0 (RtlpAllocateListLookup.c)
  */
 
 __int64 __fastcall RtlpInitializeUCRIndex(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpVerifyGenericError @ 0x1405407D0
+ * XREFs of HalpVerifyGenericError @ 0x14053E0D0
  * Callers:
- *     HalpGetMcaExtendedLogStatusBlock @ 0x14053F6CC (HalpGetMcaExtendedLogStatusBlock.c)
+ *     HalpGetMcaExtendedLogStatusBlock @ 0x14053CFCC (HalpGetMcaExtendedLogStatusBlock.c)
  * Callees:
  *     <none>
  */

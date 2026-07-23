@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlSetProcessPreferredUILanguages @ 0x180007130
+ * XREFs of RtlSetProcessPreferredUILanguages @ 0x180052860
  * Callers:
  *     <none>
  * Callees:
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800052F0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpMuiRegFreeLanguageList @ 0x180006B20 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpInitMuiCriticalSection @ 0x1800080C0 (RtlpInitMuiCriticalSection.c)
- *     RtlpCreateProcessRegistryInfo @ 0x180008370 (RtlpCreateProcessRegistryInfo.c)
- *     RtlpCheckMuiMultiStringSafe @ 0x180008818 (RtlpCheckMuiMultiStringSafe.c)
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180050A20 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180052250 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpInitMuiCriticalSection @ 0x1800537F0 (RtlpInitMuiCriticalSection.c)
+ *     RtlpCreateProcessRegistryInfo @ 0x180053AA0 (RtlpCreateProcessRegistryInfo.c)
+ *     RtlpCheckMuiMultiStringSafe @ 0x180053F48 (RtlpCheckMuiMultiStringSafe.c)
  */
 
 __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, __int16 *a2, _DWORD *a3)
 {
-  __int64 v3; // rbp
+  PVOID v3; // rbp
   int v6; // ebx
   __int64 result; // rax
   int v8; // esi
@@ -29,15 +29,15 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, __int16 *a2, _DWORD
   unsigned __int64 v16; // rdx
   int v17; // eax
   __int64 v18; // rax
-  __int64 v19; // rbx
+  void *v19; // rbx
   __int64 v20; // rdx
-  __int64 v21; // rcx
+  PVOID v21; // rcx
   __int64 v22[5]; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v23; // [rsp+88h] [rbp+20h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = 0LL;
   v22[0] = 0LL;
-  v23 = 0LL;
+  BaseAddress = 0LL;
   v6 = a1;
   if ( NtCurrentTeb()->IsImpersonating )
     return 3221225741LL;
@@ -100,16 +100,23 @@ LABEL_19:
       }
       if ( (unsigned int)(v12 + 1) < 2 || v10 || a2[1] )
       {
-        v8 = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, (int)v12 + 1, v6 | 2u, 26, 5u, &v23);
+        v8 = RtlpMuiRegAddMultiSzToLangFallbackList(
+               (__int64)g_RegInfo,
+               a2,
+               (int)v12 + 1,
+               v6 | 2u,
+               26,
+               5u,
+               (__int64 *)&BaseAddress);
         if ( v8 < 0 )
         {
-          v21 = v23;
+          v21 = BaseAddress;
           goto LABEL_31;
         }
-        v3 = v23;
-        if ( !v23 || (v17 = *(unsigned __int16 *)(v23 + 4), !(_WORD)v17) )
+        v3 = BaseAddress;
+        if ( !BaseAddress || (v17 = *((unsigned __int16 *)BaseAddress + 2), !(_WORD)v17) )
         {
-          RtlpMuiRegFreeLanguageList(v23);
+          RtlpMuiRegFreeLanguageList(BaseAddress);
           return (unsigned int)-1073741823;
         }
         if ( a3 )
@@ -119,7 +126,7 @@ LABEL_19:
     RtlpInitMuiCriticalSection();
     RtlEnterCriticalSection(&RegistryInfoCritSect);
     v18 = v22[0];
-    v19 = *(_QWORD *)(v22[0] + 72);
+    v19 = *(void **)(v22[0] + 72);
     *(_QWORD *)(v22[0] + 72) = v3;
     ++*(_DWORD *)(v18 + 16);
     v20 = *(_QWORD *)(v18 + 96);

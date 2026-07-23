@@ -8,16 +8,16 @@
  *     _DbgUiIssueRemoteBreakin@4 @ 0x4B32DB10 (_DbgUiIssueRemoteBreakin@4.c)
  */
 
-int __stdcall DbgUiDebugActiveProcess(int a1)
+NTSTATUS __cdecl DbgUiDebugActiveProcess(HANDLE Process)
 {
   int active; // esi
 
-  active = NtDebugActiveProcess(a1, (int)NtCurrentTeb()->DbgSsReserved[1]);
+  active = NtDebugActiveProcess(Process, NtCurrentTeb()->DbgSsReserved[1]);
   if ( active >= 0 )
   {
-    active = DbgUiIssueRemoteBreakin(a1);
+    active = DbgUiIssueRemoteBreakin(Process);
     if ( active < 0 )
-      ZwRemoveProcessDebug(a1, (int)NtCurrentTeb()->DbgSsReserved[1]);
+      ZwRemoveProcessDebug(Process, NtCurrentTeb()->DbgSsReserved[1]);
   }
   return active;
 }

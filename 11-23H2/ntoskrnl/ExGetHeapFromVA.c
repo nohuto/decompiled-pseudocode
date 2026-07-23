@@ -1,19 +1,19 @@
 /*
- * XREFs of ExGetHeapFromVA @ 0x1402AC3F0
+ * XREFs of ExGetHeapFromVA @ 0x1402AC680
  * Callers:
- *     ExReturnPoolQuota @ 0x1402ACCE0 (ExReturnPoolQuota.c)
- *     ExpHpCompactionRoutine @ 0x140337AD0 (ExpHpCompactionRoutine.c)
- *     ExGetBigPoolInfo @ 0x140606F50 (ExGetBigPoolInfo.c)
- *     ExPoolCleanupExpansionTable @ 0x1406072A8 (ExPoolCleanupExpansionTable.c)
- *     ExQueryPoolBlockSize @ 0x140607980 (ExQueryPoolBlockSize.c)
- *     ExIsSpecialPoolAddress @ 0x14060F088 (ExIsSpecialPoolAddress.c)
+ *     ExReturnPoolQuota @ 0x1402ACF70 (ExReturnPoolQuota.c)
+ *     ExpHpCompactionRoutine @ 0x140337D60 (ExpHpCompactionRoutine.c)
+ *     ExGetBigPoolInfo @ 0x1406074A0 (ExGetBigPoolInfo.c)
+ *     ExPoolCleanupExpansionTable @ 0x1406077F8 (ExPoolCleanupExpansionTable.c)
+ *     ExQueryPoolBlockSize @ 0x140607ED0 (ExQueryPoolBlockSize.c)
+ *     ExIsSpecialPoolAddress @ 0x14060F5D8 (ExIsSpecialPoolAddress.c)
  *     ExpAllocatePoolWithQuotaTag @ 0x140AAE008 (ExpAllocatePoolWithQuotaTag.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  * Callees:
- *     RtlpHpQueryVA @ 0x140315918 (RtlpHpQueryVA.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x14032378C (RtlCSparseBitmapBitmaskRead.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     RtlpHpQueryVA @ 0x140315BA8 (RtlpHpQueryVA.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x140323A1C (RtlCSparseBitmapBitmaskRead.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExGetHeapFromVA(ULONG_PTR BugCheckParameter3)

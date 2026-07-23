@@ -1,9 +1,9 @@
 /*
- * XREFs of ExEnableNlsSectionCache @ 0x1409FB538
+ * XREFs of ExEnableNlsSectionCache @ 0x1409FB7C8
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080A920 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14080ABF0 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
  */
 
 _QWORD *ExEnableNlsSectionCache()

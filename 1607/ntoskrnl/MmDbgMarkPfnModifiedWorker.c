@@ -1,13 +1,13 @@
 /*
- * XREFs of MmDbgMarkPfnModifiedWorker @ 0x140148C04
+ * XREFs of MmDbgMarkPfnModifiedWorker @ 0x140149174
  * Callers:
  *     ExpDebuggerWorker @ 0x1406F3E60 (ExpDebuggerWorker.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 void MmDbgMarkPfnModifiedWorker()
@@ -24,13 +24,13 @@ void MmDbgMarkPfnModifiedWorker()
   struct _KEVENT *v9; // rax
 
   v0 = 0LL;
-  v1 = qword_140327218;
+  v1 = qword_140327258;
   do
   {
     v2 = *v1;
     if ( (*v1 & 1) != 0 )
     {
-      _InterlockedAnd64(&qword_140327218[v0], 0LL);
+      _InterlockedAnd64(&qword_140327258[v0], 0LL);
       v3 = v2 - 1;
       v4 = (unsigned __int8)MiLockPageInline(v3);
       v5 = MiCaptureDirtyBitToPfn(v3);

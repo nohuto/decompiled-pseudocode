@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdatePageAttributeStamp @ 0x1400FCF10
+ * XREFs of MiUpdatePageAttributeStamp @ 0x1400FAC90
  * Callers:
- *     MiCopyHeaderIfResident @ 0x1400FD5B8 (MiCopyHeaderIfResident.c)
+ *     MiCopyHeaderIfResident @ 0x1400FB338 (MiCopyHeaderIfResident.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
  */
 
 void __fastcall MiUpdatePageAttributeStamp(__int64 a1)

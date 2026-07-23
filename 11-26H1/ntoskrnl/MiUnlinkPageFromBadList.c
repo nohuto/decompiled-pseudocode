@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkPageFromBadList @ 0x1402C8074
+ * XREFs of MiUnlinkPageFromBadList @ 0x1402A9E2C
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiAllocateBadPagesForMdl @ 0x1405245B4 (MiAllocateBadPagesForMdl.c)
- *     MiRemoveBadPages @ 0x1406F17A0 (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x1406F1FDC (MiUnlinkBadPages.c)
- *     MiMoveBadPagePartition @ 0x1407093D4 (MiMoveBadPagePartition.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiAllocateBadPagesForMdl @ 0x140526C24 (MiAllocateBadPagesForMdl.c)
+ *     MiRemoveBadPages @ 0x1406F6410 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x1406F6C4C (MiUnlinkBadPages.c)
+ *     MiMoveBadPagePartition @ 0x14070E088 (MiMoveBadPagePartition.c)
  * Callees:
- *     MiSetPfnBlink @ 0x1402C8380 (MiSetPfnBlink.c)
- *     MiAcquirePageListLock @ 0x1402FB4C0 (MiAcquirePageListLock.c)
- *     MiReleasePageListLock @ 0x140369F10 (MiReleasePageListLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiSetPfnBlink @ 0x1402AA140 (MiSetPfnBlink.c)
+ *     MiAcquirePageListLock @ 0x1402DD540 (MiAcquirePageListLock.c)
+ *     MiReleasePageListLock @ 0x14036BCB0 (MiReleasePageListLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkPageFromBadList(__int64 *a1, char a2)
@@ -34,7 +34,7 @@ unsigned __int64 __fastcall MiUnlinkPageFromBadList(__int64 *a1, char a2)
   _BYTE v19[112]; // [rsp+30h] [rbp-A8h] BYREF
 
   v4 = (__int64)(a1 + 0x44000000000LL) / 48;
-  v5 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)a1[5] >> 43) & 0x3FF)) + 7424LL;
+  v5 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)a1[5] >> 43) & 0x3FF)) + 7424LL;
   memset_0(v19, 0, 0x68uLL);
   v8 = a2 & 0x80;
   if ( !v8 )
@@ -55,11 +55,11 @@ unsigned __int64 __fastcall MiUnlinkPageFromBadList(__int64 *a1, char a2)
     v6 = (volatile signed __int32 *)0xFFFFFF0000000000LL;
     *(_QWORD *)(48 * v11 - 0x220000000000LL) = v9 ^ (v9 ^ *(_QWORD *)(48 * v11 - 0x220000000000LL)) & 0xFFFFFF0000000000uLL;
   }
-  if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+  if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
   {
     v12 = v4 & 0x1F;
     v7 = 1LL;
-    v6 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v4 >> 5);
+    v6 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v4 >> 5);
     if ( v12 + 1 > 0x20 )
     {
       if ( (v4 & 0x1F) == 0 )
@@ -88,11 +88,11 @@ LABEL_17:
       _InterlockedOr(v6, 1 << v12);
     }
   }
-  else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+  else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
   {
     v15 = v4 & 0x1F;
     v7 = 1LL;
-    v6 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v4 >> 5);
+    v6 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v4 >> 5);
     if ( v15 + 1 > 0x20 )
     {
       if ( (v4 & 0x1F) == 0 )

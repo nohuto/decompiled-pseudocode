@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwReplaceKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReplaceKey(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(NewFile);
 }

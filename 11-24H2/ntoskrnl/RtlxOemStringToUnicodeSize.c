@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlxOemStringToUnicodeSize @ 0x1408B05E0
+ * XREFs of RtlxOemStringToUnicodeSize @ 0x140906840
  * Callers:
- *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x14069D260 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
+ *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x14069E2F0 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
  * Callees:
- *     RtlMultiByteToUnicodeSize @ 0x1408AE950 (RtlMultiByteToUnicodeSize.c)
+ *     RtlMultiByteToUnicodeSize @ 0x140904BB0 (RtlMultiByteToUnicodeSize.c)
  */
 
 ULONG __stdcall RtlxOemStringToUnicodeSize(PCOEM_STRING OemString)

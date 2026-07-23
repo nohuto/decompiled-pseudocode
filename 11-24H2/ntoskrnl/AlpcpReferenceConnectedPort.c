@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpReferenceConnectedPort @ 0x140911260
+ * XREFs of AlpcpReferenceConnectedPort @ 0x1408E89B0
  * Callers:
- *     NtAlpcImpersonateClientOfPort @ 0x140896970 (NtAlpcImpersonateClientOfPort.c)
- *     AlpcpExposeHandleAttribute @ 0x140898760 (AlpcpExposeHandleAttribute.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x1409AB3F4 (AlpcpPortQueryConnectedSidInfo.c)
- *     AlpcpPortQueryServerSessionInfo @ 0x1409AB6FC (AlpcpPortQueryServerSessionInfo.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x14089F010 (NtAlpcImpersonateClientOfPort.c)
+ *     AlpcpExposeHandleAttribute @ 0x1408A0E00 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x1409950F4 (AlpcpPortQueryConnectedSidInfo.c)
+ *     AlpcpPortQueryServerSessionInfo @ 0x1409953FC (AlpcpPortQueryServerSessionInfo.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
  */
 
 __int64 __fastcall AlpcpReferenceConnectedPort(__int64 a1)
 {
   __int64 v2; // rdi
   __int64 v3; // rsi
-  _QWORD *v4; // rbp
+  char *v4; // rbp
   int v5; // eax
 
   v2 = 0LL;
@@ -30,11 +30,11 @@ __int64 __fastcall AlpcpReferenceConnectedPort(__int64 a1)
   v3 = *(_QWORD *)(a1 + 16);
   if ( v3 )
   {
-    v4 = KeAbPreAcquire(v3 - 16, 0LL);
+    v4 = (char *)KeAbPreAcquire(v3 - 16, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v3 - 16), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)(v3 - 16), 0, v4, v3 - 16);
     if ( v4 )
-      *((_BYTE *)v4 + 10) = 1;
+      v4[10] = 1;
     v5 = *(_DWORD *)(a1 + 416) & 6;
     if ( v5 == 4 )
     {

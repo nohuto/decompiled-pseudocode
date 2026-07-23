@@ -7,7 +7,7 @@
  *     RtlFreeHeap @ 0x18003B190 (RtlFreeHeap.c)
  */
 
-_QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
+int __fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
 {
   _QWORD *v4; // rdi
   _QWORD *v5; // rsi
@@ -17,7 +17,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
   _QWORD *v9; // rcx
   _QWORD *v10; // rax
   _QWORD *v11; // rcx
-  _QWORD *result; // rax
+  _QWORD *v12; // rax
   _QWORD *v13; // r8
   _QWORD *v14; // rdx
   _QWORD *i; // rcx
@@ -48,9 +48,9 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
 
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrddag.c",
-    1001LL,
+    1001,
     (__int64)"LdrpMergeNodes",
-    2LL,
+    2u,
     "Merging a cycle rooted at %wZ.\n",
     *(_QWORD *)a1 - 72LL);
   v4 = *a2;
@@ -64,9 +64,9 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
           *(_QWORD *)(v6 + 8) = v7,
           LdrpLogInternal(
             (unsigned int)"minkernel\\ntdll\\ldrddag.c",
-            1037LL,
+            1037,
             (__int64)"LdrpMergeNodes",
-            2LL,
+            2u,
             "Adding cyclic module %wZ.\n",
             v5 - 9),
           *(v5 - 1) = a1,
@@ -91,13 +91,13 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
     }
     while ( v10 != v9 );
     v11 = (_QWORD *)*(v4 - 2);
-    result = v11;
+    v12 = v11;
     do
     {
-      result = (_QWORD *)*result;
-      *(result - 1) = a1;
+      v12 = (_QWORD *)*v12;
+      *(v12 - 1) = a1;
     }
-    while ( result != v11 );
+    while ( v12 != v11 );
     v4 = (_QWORD *)*v4;
   }
   while ( v4 );
@@ -107,14 +107,14 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
   {
     if ( i[1] == a1 )
     {
-      result = (_QWORD *)*i;
+      v12 = (_QWORD *)*i;
       *v14 = *i;
       if ( *(_QWORD **)(a1 + 40) == i )
       {
-        result = 0LL;
+        v12 = 0LL;
         if ( v14 != i )
-          result = v14;
-        *(_QWORD *)(a1 + 40) = result;
+          v12 = v14;
+        *(_QWORD *)(a1 + 40) = v12;
       }
       *i = 0LL;
     }
@@ -140,7 +140,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
       }
       else
       {
-        result = (_QWORD *)*v18;
+        v12 = (_QWORD *)*v18;
         *v17 = (_QWORD *)*v18;
       }
       if ( !v18 )
@@ -163,7 +163,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
               break;
             if ( v21 == v20 )
             {
-              result = (_QWORD *)*v20;
+              v12 = (_QWORD *)*v20;
               *v18 = *v20;
               *v20 = v18;
               goto LABEL_49;
@@ -182,7 +182,7 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
             *(_QWORD *)(v19 + 48) = v25;
           }
           --*(_DWORD *)(v19 + 24);
-          result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (__int64)v18);
+          LODWORD(v12) = RtlFreeHeap(LdrpHeap, 0, v18);
         }
         else
         {
@@ -210,7 +210,7 @@ LABEL_49:
         *(_QWORD *)(a1 + 48) = v29;
       }
       --*(_DWORD *)(a1 + 24);
-      result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (__int64)(k - 2));
+      LODWORD(v12) = RtlFreeHeap(LdrpHeap, 0, k - 2);
     }
     else
     {
@@ -234,7 +234,7 @@ LABEL_49:
       }
       else
       {
-        result = (_QWORD *)*v32;
+        v12 = (_QWORD *)*v32;
         *v31 = *v32;
       }
       if ( !v32 )
@@ -254,7 +254,7 @@ LABEL_49:
             break;
           if ( v36 == v35 )
           {
-            result = (_QWORD *)*v35;
+            v12 = (_QWORD *)*v35;
             *v32 = *v35;
             *v35 = v32;
             goto LABEL_67;
@@ -273,7 +273,7 @@ LABEL_49:
         }
 LABEL_56:
         --*(_DWORD *)(a1 + 24);
-        result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (__int64)v33);
+        LODWORD(v12) = RtlFreeHeap(LdrpHeap, 0, v33);
       }
       else
       {
@@ -285,5 +285,5 @@ LABEL_67:
     v30 = (_QWORD *)*v30;
   }
   while ( v30 );
-  return result;
+  return (int)v12;
 }

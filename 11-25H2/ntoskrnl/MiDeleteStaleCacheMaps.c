@@ -44,8 +44,8 @@ __int64 __fastcall MiDeleteStaleCacheMaps(__int64 a1)
   int v20; // eax
   char v21; // di
   unsigned __int64 v22; // rax
-  int IsPageInHugePfn; // eax
-  int v24; // edi
+  unsigned int v23; // eax
+  unsigned int v24; // edi
   bool v25; // zf
   int v26; // ecx
   signed __int64 v27; // rcx
@@ -227,9 +227,9 @@ LABEL_61:
         goto LABEL_61;
       }
       ++v51;
-      IsPageInHugePfn = MiIsPageInHugePfn(v22);
-      v24 = IsPageInHugePfn;
-      if ( !v50 && !IsPageInHugePfn )
+      v23 = (unsigned int)MiIsPageInHugePfn(v22);
+      v24 = v23;
+      if ( !v50 && !v23 )
       {
         MiFlushEntireTbDueToAttributeChange();
         v50 = 1;

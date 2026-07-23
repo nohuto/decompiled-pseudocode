@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlAllocateHibernateResources @ 0x140772C6C
+ * XREFs of HvlAllocateHibernateResources @ 0x140775C6C
  * Callers:
- *     PopPreallocateHibernateMemory @ 0x1407D04CC (PopPreallocateHibernateMemory.c)
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
+ *     PopPreallocateHibernateMemory @ 0x1407D356C (PopPreallocateHibernateMemory.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
  * Callees:
- *     HvlpPreallocatePageListResources @ 0x140772CA4 (HvlpPreallocatePageListResources.c)
- *     HvlpAllocatePageListResources @ 0x140B4E9F8 (HvlpAllocatePageListResources.c)
+ *     HvlpPreallocatePageListResources @ 0x140775CA4 (HvlpPreallocatePageListResources.c)
+ *     HvlpAllocatePageListResources @ 0x140B51288 (HvlpAllocatePageListResources.c)
  */
 
 __int64 __fastcall HvlAllocateHibernateResources(__int64 a1)

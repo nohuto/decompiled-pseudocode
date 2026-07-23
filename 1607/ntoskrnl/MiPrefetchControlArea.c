@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPrefetchControlArea @ 0x140527654
+ * XREFs of MiPrefetchControlArea @ 0x14050A6B4
  * Callers:
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiSetPagesModified @ 0x1401E5664 (MiSetPagesModified.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiSetPagesModified @ 0x1401E5490 (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
  * Callees:
- *     MiPfCompletePrefetchIos @ 0x140023914 (MiPfCompletePrefetchIos.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
+ *     MiPfCompletePrefetchIos @ 0x140023494 (MiPfCompletePrefetchIos.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiReleaseReadListResources @ 0x14042C750 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x14042C854 (MiPfExecuteReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
+ *     MiReleaseReadListResources @ 0x14042B620 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x14042B724 (MiPfExecuteReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
  */
 
 __int64 __fastcall MiPrefetchControlArea(

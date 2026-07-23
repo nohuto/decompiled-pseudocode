@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpEndOfBoot @ 0x140787690
+ * XREFs of HalpEndOfBoot @ 0x14078A1C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpResetSBF @ 0x140BE917C (HalpResetSBF.c)
+ *     HalpResetSBF @ 0x140BEF17C (HalpResetSBF.c)
  */
 
 __int64 HalpEndOfBoot()

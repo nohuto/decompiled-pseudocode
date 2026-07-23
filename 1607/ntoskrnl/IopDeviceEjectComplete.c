@@ -1,9 +1,9 @@
 /*
- * XREFs of IopDeviceEjectComplete @ 0x1401D10F4
+ * XREFs of IopDeviceEjectComplete @ 0x1401D0F20
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall IopDeviceEjectComplete(__int64 a1, __int64 a2, __int64 a3)

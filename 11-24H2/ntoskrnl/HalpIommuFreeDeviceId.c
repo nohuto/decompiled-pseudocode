@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuFreeDeviceId @ 0x140552200
+ * XREFs of HalpIommuFreeDeviceId @ 0x14054FB40
  * Callers:
- *     HalpQueryIommuReservedRegionInformation @ 0x1406FF184 (HalpQueryIommuReservedRegionInformation.c)
- *     IommuDeviceCreate @ 0x140703920 (IommuDeviceCreate.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x1406FCDC4 (HalpQueryIommuReservedRegionInformation.c)
+ *     IommuDeviceCreate @ 0x1407014F0 (IommuDeviceCreate.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
  */
 
 void __fastcall HalpIommuFreeDeviceId(__int64 a1)

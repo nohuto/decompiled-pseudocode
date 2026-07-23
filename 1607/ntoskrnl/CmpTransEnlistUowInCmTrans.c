@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpTransEnlistUowInCmTrans @ 0x14000AE94
+ * XREFs of CmpTransEnlistUowInCmTrans @ 0x14000AA14
  * Callers:
- *     CmpSetKeySecurity @ 0x14000A660 (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x1403FAE34 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1405FE35C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1405FE7F4 (CmSetLastWriteTimeKey.c)
- *     CmpUndoDeleteKeyForTransEx @ 0x14060DD60 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmpSetKeySecurity @ 0x14000A1E0 (CmpSetKeySecurity.c)
+ *     CmDeleteValueKey @ 0x1403F9CF4 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1405FE410 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1405FE8A8 (CmSetLastWriteTimeKey.c)
+ *     CmpUndoDeleteKeyForTransEx @ 0x14060DE14 (CmpUndoDeleteKeyForTransEx.c)
  * Callees:
- *     UNLOCK_TRANSACTION_LIST @ 0x1403FDA20 (UNLOCK_TRANSACTION_LIST.c)
- *     LOCK_TRANSACTION_LIST @ 0x1403FDA44 (LOCK_TRANSACTION_LIST.c)
+ *     UNLOCK_TRANSACTION_LIST @ 0x1403FC8E0 (UNLOCK_TRANSACTION_LIST.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1403FC904 (LOCK_TRANSACTION_LIST.c)
  */
 
 __int64 __fastcall CmpTransEnlistUowInCmTrans(_QWORD *a1, __int64 a2)

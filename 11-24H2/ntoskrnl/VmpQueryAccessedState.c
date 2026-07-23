@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpQueryAccessedState @ 0x1403AAF1C
+ * XREFs of VmpQueryAccessedState @ 0x140399630
  * Callers:
- *     MiQueryVpabAccessedState @ 0x1403AACE4 (MiQueryVpabAccessedState.c)
+ *     MiQueryVpabAccessedState @ 0x1403994CC (MiQueryVpabAccessedState.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140309950 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     VmpProcessContextLockShared @ 0x1403ABC30 (VmpProcessContextLockShared.c)
- *     VmpProcessContextUnlockShared @ 0x1403ABC7C (VmpProcessContextUnlockShared.c)
- *     VmpProcessAccessedBatch @ 0x1403ABE94 (VmpProcessAccessedBatch.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1403B04A4 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     VmpLogQueryAccessedState @ 0x14064BAD0 (VmpLogQueryAccessedState.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140313830 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     VmpProcessContextLockShared @ 0x14039A340 (VmpProcessContextLockShared.c)
+ *     VmpProcessContextUnlockShared @ 0x14039A38C (VmpProcessContextUnlockShared.c)
+ *     VmpProcessAccessedBatch @ 0x14039A5A4 (VmpProcessAccessedBatch.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x14039ECB4 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     VmpLogQueryAccessedState @ 0x14064A090 (VmpLogQueryAccessedState.c)
  */
 
 ULONG64 __fastcall VmpQueryAccessedState(PEX_SPIN_LOCK SpinLock, _QWORD *a2, int a3, int a4)

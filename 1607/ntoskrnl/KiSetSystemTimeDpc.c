@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSetSystemTimeDpc @ 0x14012A438
+ * XREFs of KiSetSystemTimeDpc @ 0x14012A9A8
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     RtlGetSystemTimePrecise @ 0x1400F2118 (RtlGetSystemTimePrecise.c)
- *     KeAdjustInterruptTime @ 0x140126A0C (KeAdjustInterruptTime.c)
- *     KiSelectActiveTimerTable @ 0x14012A5E8 (KiSelectActiveTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14012A614 (KiAdjustTimerDueTimes.c)
- *     KiUpdateSystemTime @ 0x14013281C (KiUpdateSystemTime.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     RtlGetSystemTimePrecise @ 0x1400EFF68 (RtlGetSystemTimePrecise.c)
+ *     KeAdjustInterruptTime @ 0x140126F7C (KeAdjustInterruptTime.c)
+ *     KiSelectActiveTimerTable @ 0x14012AB58 (KiSelectActiveTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x14012AB84 (KiAdjustTimerDueTimes.c)
+ *     KiUpdateSystemTime @ 0x140132D8C (KiUpdateSystemTime.c)
  */
 
 void __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -23,7 +23,7 @@ void __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
   unsigned int v12; // ebx
   signed __int32 v13; // eax
   unsigned int v14; // ebx
-  __int64 *v15; // rbx
+  LARGE_INTEGER *v15; // rbx
   unsigned int v16; // eax
   __int64 v17; // r9
   _QWORD *v18; // rcx
@@ -51,7 +51,7 @@ void __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
   active = KiSelectActiveTimerTable(CurrentPrcb, a2);
   if ( CurrentPrcb->ClockOwner )
   {
-    v15 = *(__int64 **)(v6 + 16);
+    v15 = *(LARGE_INTEGER **)(v6 + 16);
     *v15 = RtlGetSystemTimePrecise();
     v16 = *(_DWORD *)(v6 + 4);
     v17 = **(_QWORD **)(v6 + 8);

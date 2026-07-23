@@ -1,31 +1,31 @@
 /*
- * XREFs of MiZeroInParallel @ 0x140304230
+ * XREFs of MiZeroInParallel @ 0x1403044C0
  * Callers:
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9810 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiProcessPageGroupInfo @ 0x14032F510 (MiProcessPageGroupInfo.c)
- *     MiFindLargePageMemory @ 0x140A49768 (MiFindLargePageMemory.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9AA0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiProcessPageGroupInfo @ 0x14032F7A0 (MiProcessPageGroupInfo.c)
+ *     MiFindLargePageMemory @ 0x140A49A18 (MiFindLargePageMemory.c)
  * Callees:
  *     MiAllocateAcceleratorDescriptor @ 0x1402220E0 (MiAllocateAcceleratorDescriptor.c)
  *     MiInitializeAffinityWalker @ 0x140223104 (MiInitializeAffinityWalker.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     MiTimeToWriteMemory @ 0x1403521D8 (MiTimeToWriteMemory.c)
- *     KiSetSystemPriorityThread @ 0x140355ED0 (KiSetSystemPriorityThread.c)
- *     MiSelectEngine @ 0x14035B84C (MiSelectEngine.c)
- *     MiInitializeZeroGroup @ 0x1403607A0 (MiInitializeZeroGroup.c)
- *     MiGetNextAffinityWalker @ 0x1403BF8C8 (MiGetNextAffinityWalker.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiDeleteAcceleratorDescriptor @ 0x1406549FC (MiDeleteAcceleratorDescriptor.c)
- *     MiRestoreIdealProcessorThread @ 0x140667044 (MiRestoreIdealProcessorThread.c)
- *     MiSetIdealProcessorThread @ 0x14066706C (MiSetIdealProcessorThread.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     MiZeroInParallelWorker @ 0x1402D1590 (MiZeroInParallelWorker.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     KeQueryPriorityThread @ 0x140304E00 (KeQueryPriorityThread.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     MiTimeToWriteMemory @ 0x140352378 (MiTimeToWriteMemory.c)
+ *     KiSetSystemPriorityThread @ 0x140356070 (KiSetSystemPriorityThread.c)
+ *     MiSelectEngine @ 0x14035B9EC (MiSelectEngine.c)
+ *     MiInitializeZeroGroup @ 0x140360940 (MiInitializeZeroGroup.c)
+ *     MiGetNextAffinityWalker @ 0x1403BFAA8 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140654F4C (MiDeleteAcceleratorDescriptor.c)
+ *     MiRestoreIdealProcessorThread @ 0x140667594 (MiRestoreIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x1406675BC (MiSetIdealProcessorThread.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -76,7 +76,7 @@ void __fastcall MiZeroInParallel(__int64 a1)
   HANDLE Handle; // [rsp+88h] [rbp-80h] BYREF
   PKTHREAD Thread; // [rsp+90h] [rbp-78h]
   __int64 v46; // [rsp+98h] [rbp-70h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-60h] BYREF
   _OWORD v48[3]; // [rsp+B8h] [rbp-50h] BYREF
   _OWORD v49[3]; // [rsp+E8h] [rbp-20h] BYREF
   _OWORD v50[3]; // [rsp+118h] [rbp+10h] BYREF
@@ -269,7 +269,7 @@ LABEL_54:
     memset(v48, 0, sizeof(v48));
     if ( BYTE1(v37) && (int)MiGetNextAffinityWalker(v29, v48) >= 0 && v29[8] )
     {
-      Affinity = *(struct _GROUP_AFFINITY *)((char *)v48 + 8);
+      Affinity = *(_GROUP_AFFINITY *)((char *)v48 + 8);
       v34 = MiSetIdealProcessorThread(&Affinity);
     }
     if ( v31 && _InterlockedIncrement64((volatile signed __int64 *)(v31 + 32)) <= 1 )

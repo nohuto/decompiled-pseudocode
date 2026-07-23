@@ -1,13 +1,13 @@
 /*
- * XREFs of ViResourceReleaseSanityChecks @ 0x1409E2698
+ * XREFs of ViResourceReleaseSanityChecks @ 0x1409E3698
  * Callers:
- *     VerifierExReleaseResourceAndLeaveCriticalRegion @ 0x1409E2380 (VerifierExReleaseResourceAndLeaveCriticalRegion.c)
- *     VerifierExReleaseResourceAndLeaveCriticalRegionNoReboot @ 0x1409E23C0 (VerifierExReleaseResourceAndLeaveCriticalRegionNoReboot.c)
- *     VerifierExReleaseResourceAndLeavePriorityRegion @ 0x1409E23F0 (VerifierExReleaseResourceAndLeavePriorityRegion.c)
- *     VerifierExReleaseResourceForThreadLiteNoReboot @ 0x1409E2420 (VerifierExReleaseResourceForThreadLiteNoReboot.c)
- *     VerifierExReleaseResourceLiteNoReboot @ 0x1409E2460 (VerifierExReleaseResourceLiteNoReboot.c)
+ *     VerifierExReleaseResourceAndLeaveCriticalRegion @ 0x1409E3380 (VerifierExReleaseResourceAndLeaveCriticalRegion.c)
+ *     VerifierExReleaseResourceAndLeaveCriticalRegionNoReboot @ 0x1409E33C0 (VerifierExReleaseResourceAndLeaveCriticalRegionNoReboot.c)
+ *     VerifierExReleaseResourceAndLeavePriorityRegion @ 0x1409E33F0 (VerifierExReleaseResourceAndLeavePriorityRegion.c)
+ *     VerifierExReleaseResourceForThreadLiteNoReboot @ 0x1409E3420 (VerifierExReleaseResourceForThreadLiteNoReboot.c)
+ *     VerifierExReleaseResourceLiteNoReboot @ 0x1409E3460 (VerifierExReleaseResourceLiteNoReboot.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 struct _KTHREAD *__fastcall ViResourceReleaseSanityChecks(__int64 a1)

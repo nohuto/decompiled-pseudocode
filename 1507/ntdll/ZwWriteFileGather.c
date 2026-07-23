@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 ZwWriteFileGather()
+NTSTATUS __cdecl ZwWriteFileGather(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 27LL;
+  result = 27;
   __asm { syscall; Low latency system call }
   return result;
 }

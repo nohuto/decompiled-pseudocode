@@ -31,7 +31,7 @@ int __fastcall RtlpHpSegContextReserve(int a1, int a2, int a3)
       if ( !v8 )
         break;
       RtlpHpSegSegmentInitialize(v9);
-      RtlpHpSegFreeRangeInsert(1);
+      RtlpHpSegFreeRangeInsert(a1, v8 + 16 * *(unsigned __int8 *)(a1 + 6), 1);
       RtlpHpSegHeapAddSegment(a1, v8);
       --v7;
       v5 = v3 < v5 ? v5 - v3 : 0;

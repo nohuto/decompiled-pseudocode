@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpScenCtxPrefetchWait @ 0x140B5B170
+ * XREFs of PfpScenCtxPrefetchWait @ 0x140B5D1E0
  * Callers:
- *     PfpProcessScenarioPhase @ 0x14093289C (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140B6B9F8 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x1408F77E8 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140B6CE28 (PfPowerActionNotify.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PfpScenCtxWaiterTimedOut @ 0x1405CC500 (PfpScenCtxWaiterTimedOut.c)
- *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1405CCA6C (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x1405C9C70 (PfpScenCtxWaiterTimedOut.c)
+ *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1405CA1DC (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
  */
 
 __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3)
@@ -23,8 +23,8 @@ __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, 
   unsigned int v7; // r15d
   int v8; // r14d
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbx
+  char *v10; // rax
+  char *v11; // rbx
   int v12; // ecx
   int v13; // r12d
   unsigned int v14; // ebx
@@ -49,12 +49,12 @@ __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, 
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+    v10 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v10, BugCheckParameter2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v10, BugCheckParameter2);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     if ( *(_DWORD *)(BugCheckParameter2 + 48) != v4 || (*(_DWORD *)(BugCheckParameter2 + 8) & 0xC) == 8 )
       break;
     if ( v6 )

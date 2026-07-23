@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockRootJobFromProcess @ 0x1406162D4
+ * XREFs of PspLockRootJobFromProcess @ 0x14067FF34
  * Callers:
- *     PspSendProcessNotificationToJobChain @ 0x140605088 (PspSendProcessNotificationToJobChain.c)
- *     PspRemoveProcessFromJobChain @ 0x140616398 (PspRemoveProcessFromJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x14067FFF8 (PspRemoveProcessFromJobChain.c)
+ *     PspSendProcessNotificationToJobChain @ 0x1406F47B8 (PspSendProcessNotificationToJobChain.c)
  * Callees:
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406823D4 (PspLockJobExclusive.c)
  */
 
 __int64 __fastcall PspLockRootJobFromProcess(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)

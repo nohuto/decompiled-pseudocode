@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlDedupChangeUninit @ 0x14093E780
+ * XREFs of FsRtlDedupChangeUninit @ 0x14093E980
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0jq_EtwWriteTransfer @ 0x14053EFF4 (McTemplateK0jq_EtwWriteTransfer.c)
- *     FsRtlpDedupChangeUnregisterVolume @ 0x14093EABC (FsRtlpDedupChangeUnregisterVolume.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x14053F6B4 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     FsRtlpDedupChangeUnregisterVolume @ 0x14093ECBC (FsRtlpDedupChangeUnregisterVolume.c)
  */
 
 NTSTATUS __fastcall FsRtlDedupChangeUninit(_DWORD *a1, __int64 a2)

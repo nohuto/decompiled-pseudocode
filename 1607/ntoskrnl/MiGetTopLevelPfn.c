@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetTopLevelPfn @ 0x14010A970
+ * XREFs of MiGetTopLevelPfn @ 0x1401086F0
  * Callers:
- *     MiIdentifyPfn @ 0x14000FC90 (MiIdentifyPfn.c)
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiGetPagePrivilege @ 0x1400E3730 (MiGetPagePrivilege.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiAttachToOwningSession @ 0x14010C45C (MiAttachToOwningSession.c)
- *     MiStoreCheckCandidatePage @ 0x1401191C4 (MiStoreCheckCandidatePage.c)
- *     MiCapturePfnVm @ 0x1401F7D38 (MiCapturePfnVm.c)
- *     MiRecheckCombineVm @ 0x1401FA240 (MiRecheckCombineVm.c)
+ *     MiIdentifyPfn @ 0x14000F810 (MiIdentifyPfn.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiGetPagePrivilege @ 0x1400E15D0 (MiGetPagePrivilege.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiAttachToOwningSession @ 0x14010A1DC (MiAttachToOwningSession.c)
+ *     MiStoreCheckCandidatePage @ 0x140119734 (MiStoreCheckCandidatePage.c)
+ *     MiCapturePfnVm @ 0x1401F7B64 (MiCapturePfnVm.c)
+ *     MiRecheckCombineVm @ 0x1401FA06C (MiRecheckCombineVm.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetTopLevelPfn(__int64 a1, _DWORD *a2)

@@ -1,34 +1,34 @@
 /*
- * XREFs of ExpSetBootEntry @ 0x1408D170C
+ * XREFs of ExpSetBootEntry @ 0x1408D29CC
  * Callers:
- *     NtAddBootEntry @ 0x1408D3550 (NtAddBootEntry.c)
- *     NtModifyBootEntry @ 0x1408D4680 (NtModifyBootEntry.c)
+ *     NtAddBootEntry @ 0x1408D4810 (NtAddBootEntry.c)
+ *     NtModifyBootEntry @ 0x1408D5940 (NtModifyBootEntry.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     strcmp @ 0x140196F00 (strcmp.c)
- *     swprintf_s @ 0x14019A360 (swprintf_s.c)
- *     ZwTranslateFilePath @ 0x1401BB930 (ZwTranslateFilePath.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IoGetEnvironmentVariableEx @ 0x1408212FC (IoGetEnvironmentVariableEx.c)
- *     IoSetEnvironmentVariableEx @ 0x1408215E8 (IoSetEnvironmentVariableEx.c)
- *     ExpSafeWcslen @ 0x1408D16DC (ExpSafeWcslen.c)
- *     ExpVerifyFilePath @ 0x1408D3380 (ExpVerifyFilePath.c)
- *     ExpVerifyWindowsOsOptions @ 0x1408D34DC (ExpVerifyWindowsOsOptions.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     strcmp @ 0x140197040 (strcmp.c)
+ *     swprintf_s @ 0x14019A4A0 (swprintf_s.c)
+ *     ZwTranslateFilePath @ 0x1401BBA90 (ZwTranslateFilePath.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     IoGetEnvironmentVariableEx @ 0x1408224FC (IoGetEnvironmentVariableEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x1408227E8 (IoSetEnvironmentVariableEx.c)
+ *     ExpSafeWcslen @ 0x1408D299C (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x1408D4640 (ExpVerifyFilePath.c)
+ *     ExpVerifyWindowsOsOptions @ 0x1408D479C (ExpVerifyWindowsOsOptions.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
 {
   _DWORD *v3; // r12
   unsigned int i; // r14d
-  struct _FILE_PATH *v6; // r13
+  _FILE_PATH *v6; // r13
   KPROCESSOR_MODE PreviousMode; // dl
   unsigned __int64 v8; // rax
   unsigned int v9; // ebx
@@ -37,14 +37,14 @@ __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
   unsigned int *PoolWithTag; // rax
   unsigned int *v14; // rdi
   int EnvironmentVariable; // ebx
-  struct _FILE_PATH *v16; // rsi
+  _FILE_PATH *v16; // rsi
   __int64 v17; // r13
   __int64 v18; // rsi
-  struct _FILE_PATH *v19; // r15
+  _FILE_PATH *v19; // r15
   char *v20; // r13
   int v21; // eax
-  struct _FILE_PATH *v22; // rax
-  struct _FILE_PATH *v23; // rbx
+  _FILE_PATH *v22; // rax
+  _FILE_PATH *v23; // rbx
   ULONG Length; // eax
   ULONG v25; // eax
   ULONG v26; // esi
@@ -57,14 +57,14 @@ __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
   __int64 v33; // rbx
   char *v34; // rbx
   char *v35; // r13
-  struct _FILE_PATH *v36; // r8
+  _FILE_PATH *v36; // r8
   struct _KTHREAD *CurrentThread; // rax
   _DWORD *v38; // r13
   ULONG OutputFilePathLength; // [rsp+34h] [rbp-C4h] BYREF
   ULONG v40; // [rsp+38h] [rbp-C0h] BYREF
-  struct _FILE_PATH *v41; // [rsp+40h] [rbp-B8h]
+  _FILE_PATH *v41; // [rsp+40h] [rbp-B8h]
   _DWORD *v42; // [rsp+50h] [rbp-A8h]
-  struct _FILE_PATH *v43; // [rsp+58h] [rbp-A0h]
+  _FILE_PATH *v43; // [rsp+58h] [rbp-A0h]
   ULONG v44; // [rsp+60h] [rbp-98h] BYREF
   int v46; // [rsp+68h] [rbp-90h]
   int v47; // [rsp+6Ch] [rbp-8Ch]
@@ -157,7 +157,7 @@ LABEL_85:
       if ( EnvironmentVariable < 0 )
         goto LABEL_34;
       v46 = 1;
-      v19 = (struct _FILE_PATH *)((char *)v14 + v14[11] + 28);
+      v19 = (_FILE_PATH *)((char *)v14 + v14[11] + 28);
     }
     else
     {
@@ -169,7 +169,7 @@ LABEL_85:
     if ( v21 == -1 )
       goto LABEL_33;
     LODWORD(Size) = 2 * v21 + 2;
-    v16 = (struct _FILE_PATH *)((char *)v14 + v48);
+    v16 = (_FILE_PATH *)((char *)v14 + v48);
     v43 = v16;
     EnvironmentVariable = ExpVerifyFilePath(v16);
     if ( EnvironmentVariable >= 0 )
@@ -182,7 +182,7 @@ LABEL_85:
       if ( v16->Type == 4 )
       {
         Length = v16->Length;
-        v41 = (struct _FILE_PATH *)((char *)v14 + v48);
+        v41 = (_FILE_PATH *)((char *)v14 + v48);
       }
       else
       {
@@ -190,7 +190,7 @@ LABEL_85:
         EnvironmentVariable = ZwTranslateFilePath(v16, 4u, 0LL, (ULONG)&OutputFilePathLength);
         if ( EnvironmentVariable != -1073741789 )
           goto LABEL_84;
-        v22 = (struct _FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
+        v22 = (_FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
         v23 = v22;
         v41 = v22;
         if ( !v22 )
@@ -247,7 +247,7 @@ LABEL_56:
         {
           memmove(&v34[OutputFilePathLength], v14 + 7, v14[11]);
           *((_DWORD *)v35 + 3) = v26;
-          v36 = (struct _FILE_PATH *)&v35[v14[11]];
+          v36 = (_FILE_PATH *)&v35[v14[11]];
           v40 = v44;
           EnvironmentVariable = ZwTranslateFilePath(v19, 4u, v36, (ULONG)&v44);
           if ( EnvironmentVariable )

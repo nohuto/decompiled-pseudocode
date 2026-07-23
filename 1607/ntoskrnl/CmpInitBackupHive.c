@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpInitBackupHive @ 0x14054DB38
+ * XREFs of CmpInitBackupHive @ 0x14054DED8
  * Callers:
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwCreateFile @ 0x14015A720 (ZwCreateFile.c)
- *     ZwSetSecurityObject @ 0x14015CF00 (ZwSetSecurityObject.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlAppendStringToString @ 0x1405446F0 (RtlAppendStringToString.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwCreateFile @ 0x14015AC90 (ZwCreateFile.c)
+ *     ZwSetSecurityObject @ 0x14015D470 (ZwSetSecurityObject.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlAppendStringToString @ 0x140544C30 (RtlAppendStringToString.c)
  */
 
 NTSTATUS __fastcall CmpInitBackupHive(ULONG_PTR BugCheckParameter2, const WCHAR *BugCheckParameter3)

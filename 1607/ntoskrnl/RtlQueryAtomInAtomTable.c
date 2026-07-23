@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlQueryAtomInAtomTable @ 0x140425460
+ * XREFs of RtlQueryAtomInAtomTable @ 0x140424320
  * Callers:
- *     NtQueryInformationAtom @ 0x1404CBF08 (NtQueryInformationAtom.c)
+ *     NtQueryInformationAtom @ 0x1404B1934 (NtQueryInformationAtom.c)
  * Callees:
- *     RtlpLookupLowBox @ 0x140013E94 (RtlpLookupLowBox.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _snwprintf_s @ 0x14015217C (_snwprintf_s.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     EvaluateCurrentState @ 0x1401B8354 (EvaluateCurrentState.c)
- *     RtlpLockAtomTable @ 0x140421FD0 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140425940 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpLookupLowBox @ 0x140013A14 (RtlpLookupLowBox.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _snwprintf_s @ 0x14015273C (_snwprintf_s.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     EvaluateCurrentState @ 0x1401B8EC0 (EvaluateCurrentState.c)
+ *     RtlpLockAtomTable @ 0x140420E90 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140424810 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
 NTSTATUS __stdcall RtlQueryAtomInAtomTable(
@@ -23,15 +23,14 @@ NTSTATUS __stdcall RtlQueryAtomInAtomTable(
         PWSTR AtomName,
         PULONG NameLength)
 {
-  ULONG v11; // edi
-  unsigned int v12; // esi
-  unsigned int v13; // eax
-  ULONG v14; // eax
-  __int64 v15; // rax
-  __int64 v16; // rsi
-  unsigned int v17; // edi
-  ULONG v18; // eax
-  NTSTATUS v19; // [rsp+34h] [rbp-94h]
+  ULONG v11; // esi
+  ULONG v12; // r15d
+  __int64 v13; // rax
+  __int64 v14; // r15
+  unsigned int v15; // edi
+  unsigned int v16; // eax
+  ULONG v17; // eax
+  NTSTATUS v18; // [rsp+34h] [rbp-94h]
   wchar_t DstBuf[16]; // [rsp+68h] [rbp-60h] BYREF
 
   if ( !RtlpLockAtomTable(AtomTable) )
@@ -39,43 +38,58 @@ NTSTATUS __stdcall RtlQueryAtomInAtomTable(
   v11 = *NameLength & 0xFFFFFFFE;
   if ( Atom >= 0xC000u )
   {
-    v19 = -1073741816;
-    v15 = RtlpAtomMapAtomToHandleEntry(AtomTable, Atom & 0x3FFF);
-    v16 = v15;
-    if ( !v15 || *(_WORD *)(v15 + 10) != Atom || !RtlpLookupLowBox((__int64)AtomTable, v15, 0) )
+    v18 = -1073741816;
+    v13 = RtlpAtomMapAtomToHandleEntry(AtomTable, Atom & 0x3FFF);
+    v14 = v13;
+    if ( !v13 || *(_WORD *)(v13 + 10) != Atom || !RtlpLookupLowBox((__int64)AtomTable, v13, 0) )
       goto LABEL_38;
-    v19 = 0;
+    v18 = 0;
     if ( RefCount )
-      *RefCount = *(unsigned __int16 *)(v16 + 36);
+      *RefCount = *(unsigned __int16 *)(v14 + 36);
     if ( PinCount )
-      *PinCount = *(unsigned __int16 *)(v16 + 38);
+      *PinCount = *(unsigned __int16 *)(v14 + 38);
     if ( !AtomName )
       goto LABEL_38;
-    v17 = 2 * *(unsigned __int8 *)(v16 + 40);
-    v18 = *NameLength;
-    if ( v17 >= *NameLength )
+    v15 = 2 * *(unsigned __int8 *)(v14 + 40);
+    if ( EvaluateCurrentState((_DWORD **)&reg_FeatureDescriptors_a) )
     {
-      if ( v18 < 2 )
+      if ( v15 < v11 )
+        goto LABEL_35;
+      if ( v11 >= 2 )
       {
-        *NameLength = v17;
-        goto LABEL_37;
-      }
-      v17 = v18 - 2;
-    }
-    if ( v17 )
-    {
-      memmove(AtomName, (const void *)(v16 + 42), v17);
-      AtomName[(unsigned __int64)v17 >> 1] = 0;
-      *NameLength = v17;
-      goto LABEL_38;
-    }
+        v16 = v11 - 2;
+LABEL_34:
+        v15 = v16;
+LABEL_35:
+        if ( v15 )
+        {
+          memmove(AtomName, (const void *)(v14 + 42), v15);
+          AtomName[(unsigned __int64)v15 >> 1] = 0;
+          *NameLength = v15;
+          goto LABEL_38;
+        }
 LABEL_37:
-    v19 = -1073741789;
-    goto LABEL_38;
+        v18 = -1073741789;
+        goto LABEL_38;
+      }
+    }
+    else
+    {
+      v17 = *NameLength;
+      if ( v15 < *NameLength )
+        goto LABEL_35;
+      if ( v17 >= 2 )
+      {
+        v16 = v17 - 2;
+        goto LABEL_34;
+      }
+    }
+    *NameLength = v15;
+    goto LABEL_37;
   }
   if ( Atom )
   {
-    v19 = 0;
+    v18 = 0;
     if ( RefCount )
       *RefCount = 1;
     if ( PinCount )
@@ -83,25 +97,12 @@ LABEL_37:
     if ( !AtomName )
       goto LABEL_38;
     v12 = 2 * snwprintf_s(DstBuf, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", Atom);
-    if ( EvaluateCurrentState((_DWORD **)&g_Feature_1399796027_59803018_FeatureDescriptorDetails) )
+    if ( v12 >= v11 )
     {
-      if ( v12 < v11 )
-        goto LABEL_20;
       if ( v11 < 2 )
-        goto LABEL_22;
-      v13 = v11 - 2;
+        goto LABEL_17;
+      v12 = v11 - 2;
     }
-    else
-    {
-      v14 = *NameLength;
-      if ( v12 < *NameLength )
-        goto LABEL_20;
-      if ( v14 < 2 )
-        goto LABEL_22;
-      v13 = v14 - 2;
-    }
-    v12 = v13;
-LABEL_20:
     if ( v12 )
     {
       memmove(AtomName, DstBuf, v12);
@@ -109,15 +110,15 @@ LABEL_20:
       *NameLength = v12;
       goto LABEL_38;
     }
-LABEL_22:
-    v19 = -1073741789;
+LABEL_17:
+    v18 = -1073741789;
     goto LABEL_38;
   }
-  v19 = -1073741811;
+  v18 = -1073741811;
 LABEL_38:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AtomTable->PushLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&AtomTable->PushLock);
   KeAbPostRelease((ULONG_PTR)&AtomTable->PushLock);
   KeLeaveCriticalRegion();
-  return v19;
+  return v18;
 }

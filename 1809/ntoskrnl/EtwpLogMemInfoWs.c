@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpLogMemInfoWs @ 0x1408B7FEC
+ * XREFs of EtwpLogMemInfoWs @ 0x1408B92AC
  * Callers:
- *     EtwpPerfMemInfoWork @ 0x1408B88A0 (EtwpPerfMemInfoWork.c)
- *     EtwpLogMemInfoRundown @ 0x1408BE9DC (EtwpLogMemInfoRundown.c)
+ *     EtwpPerfMemInfoWork @ 0x1408B9B60 (EtwpPerfMemInfoWork.c)
+ *     EtwpLogMemInfoRundown @ 0x1408BFC9C (EtwpLogMemInfoRundown.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     SmProcessQueryStoreStats @ 0x1408AB234 (SmProcessQueryStoreStats.c)
- *     EtwpLogMemInfoWsHelper @ 0x1408B8308 (EtwpLogMemInfoWsHelper.c)
- *     EtwpLogSessionWorkingSetInfo @ 0x1408B85C4 (EtwpLogSessionWorkingSetInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
+ *     SmProcessQueryStoreStats @ 0x1408AC494 (SmProcessQueryStoreStats.c)
+ *     EtwpLogMemInfoWsHelper @ 0x1408B95C8 (EtwpLogMemInfoWsHelper.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x1408B9884 (EtwpLogSessionWorkingSetInfo.c)
  */
 
 void __fastcall EtwpLogMemInfoWs(unsigned __int64 a1, unsigned __int64 a2)

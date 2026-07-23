@@ -1,9 +1,9 @@
 /*
- * XREFs of BiTranslateBootOrder @ 0x1408F467C
+ * XREFs of BiTranslateBootOrder @ 0x1408F593C
  * Callers:
- *     BiBindEfiBootManager @ 0x1408F1F6C (BiBindEfiBootManager.c)
+ *     BiBindEfiBootManager @ 0x1408F322C (BiBindEfiBootManager.c)
  * Callees:
- *     BiTranslateBootEntryId @ 0x1408F461C (BiTranslateBootEntryId.c)
+ *     BiTranslateBootEntryId @ 0x1408F58DC (BiTranslateBootEntryId.c)
  */
 
 __int64 __fastcall BiTranslateBootOrder(__int64 **a1, int *a2, __int64 a3, _DWORD *a4)

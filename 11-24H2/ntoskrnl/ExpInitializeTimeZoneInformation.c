@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpInitializeTimeZoneInformation @ 0x1409DCDAC
+ * XREFs of ExpInitializeTimeZoneInformation @ 0x140A7A008
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     ExpInitializeTimeChangeWorker @ 0x1409DD2A8 (ExpInitializeTimeChangeWorker.c)
+ *     ExpInitializeTimeChangeWorker @ 0x140A7A504 (ExpInitializeTimeChangeWorker.c)
  */
 
 __int64 __fastcall ExpInitializeTimeZoneInformation(__int64 a1, __int64 a2, __int64 a3, int a4)

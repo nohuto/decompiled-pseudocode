@@ -5,14 +5,14 @@
  * Callees:
  *     ZwCancelWaitCompletionPacket @ 0x1800A2140 (ZwCancelWaitCompletionPacket.c)
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
- *     TppRaiseHandleStatus @ 0x1801271D0 (TppRaiseHandleStatus.c)
+ *     TppRaiseHandleStatus @ 0x1801271A0 (TppRaiseHandleStatus.c)
  */
 
 char __fastcall TppWaitTimerExpiration(__int64 a1)
 {
-  unsigned int v2; // eax
+  unsigned __int32 v2; // eax
 
-  v2 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), 0LL);
+  v2 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), 0);
   if ( v2 )
   {
     if ( v2 != 259 && v2 != -1073741536 )

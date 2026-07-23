@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateUltraThreadContextHelper @ 0x1402E3164
+ * XREFs of MiCreateUltraThreadContextHelper @ 0x1402944B4
  * Callers:
- *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
- *     MiGetUltraMdlContext @ 0x14055F368 (MiGetUltraMdlContext.c)
+ *     MiCreateUltraThreadContext @ 0x14029444C (MiCreateUltraThreadContext.c)
+ *     MiGetUltraMdlContext @ 0x14055F5A8 (MiGetUltraMdlContext.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x140297AC4 (MiReleaseFreshPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140334C80 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2, unsigned int a3)
@@ -19,24 +19,26 @@ __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2,
   unsigned __int64 v8; // rbx
   __int64 v9; // rdi
   __int64 Page; // rax
-  _QWORD *v11; // rcx
+  __int64 v11; // r8
   __int64 v12; // r9
-  _QWORD *v14; // rsi
+  _QWORD *v13; // rcx
+  __int64 v14; // r9
+  _QWORD *v16; // rsi
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  signed __int32 v17; // eax
+  signed __int32 v19; // eax
 
-  v3 = dword_140C4EC2C;
-  if ( dword_140C4EC2C != dword_140C4EC28 )
+  v3 = dword_140C4EC6C;
+  if ( dword_140C4EC6C != dword_140C4EC68 )
   {
     while ( 1 )
     {
-      v7 = _InterlockedCompareExchange(&dword_140C4EC2C, v3 + 1, v3);
+      v7 = _InterlockedCompareExchange(&dword_140C4EC6C, v3 + 1, v3);
       v6 = v3 == v7;
       v3 = v7;
       if ( v6 )
         break;
-      if ( v7 == dword_140C4EC28 )
+      if ( v7 == dword_140C4EC68 )
         return 0LL;
     }
     *(_QWORD *)a1 = 0LL;
@@ -53,30 +55,31 @@ __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2,
       {
         while ( 1 )
         {
-          Page = MiGetPage((__int64)&MiSystemPartition, a3, 778LL);
+          Page = MiGetPage(&MiSystemPartition, a3, 778LL);
+          v12 = Page;
           if ( Page == -1 )
             break;
-          v11 = (_QWORD *)(48 * Page - 0x57FFFFFFFF0LL);
-          *v11 = ZeroPte;
-          MiSetOriginalPtePfnFromFreeList(v11);
-          *(_QWORD *)(a1 + 8 * v9 + 8) = v12;
+          v13 = (_QWORD *)(48 * Page - 0x57FFFFFFFF0LL);
+          *v13 = ZeroPte;
+          MiSetOriginalPtePfnFromFreeList(v13, ZeroPte);
+          *(_QWORD *)(a1 + 8 * v9 + 8) = v14;
           v9 = (unsigned int)(v9 + 1);
           if ( (unsigned int)v9 >= v8 )
             goto LABEL_10;
         }
-        _InterlockedDecrement(&dword_140C4EC2C);
+        _InterlockedDecrement(&dword_140C4EC6C);
         if ( (_DWORD)v9 )
         {
-          v14 = (_QWORD *)(a1 + 8 * v9 + 8);
+          v16 = (_QWORD *)(a1 + 8 * v9 + 8);
           do
           {
-            MiReleaseFreshPage(48LL * *--v14 - 0x58000000000LL);
-            *v14 = -1LL;
+            MiReleaseFreshPage(48LL * *--v16 - 0x58000000000LL);
+            *v16 = -1LL;
             LODWORD(v9) = v9 - 1;
           }
           while ( (_DWORD)v9 );
         }
-        MiReturnCommit(&MiSystemPartition, v8);
+        MiReturnCommit(&MiSystemPartition, v8, v11, v12);
         CurrentPrcb = KeGetCurrentPrcb();
         CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
         if ( (_DWORD)CachedResidentAvailable != -1 )
@@ -87,16 +90,16 @@ __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2,
             {
               if ( v8 >= 0x80000 )
                 break;
-              v17 = _InterlockedCompareExchange(
+              v19 = _InterlockedCompareExchange(
                       (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
                       CachedResidentAvailable + v8,
                       CachedResidentAvailable);
-              v6 = (_DWORD)CachedResidentAvailable == v17;
-              LODWORD(CachedResidentAvailable) = v17;
+              v6 = (_DWORD)CachedResidentAvailable == v19;
+              LODWORD(CachedResidentAvailable) = v19;
               if ( v6 )
                 return 0LL;
             }
-            while ( v17 != -1 && v8 + v17 <= 0x100 );
+            while ( v19 != -1 && v8 + v19 <= 0x100 );
           }
           if ( (int)CachedResidentAvailable > 192
             && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -108,14 +111,14 @@ __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2,
           }
         }
         if ( v8 )
-          _InterlockedExchangeAdd64(&qword_140C52980, v8);
+          _InterlockedExchangeAdd64(&qword_140C529C0, v8);
         return 0LL;
       }
 LABEL_10:
       *(_BYTE *)(a1 + 24) = 1;
       return 1LL;
     }
-    _InterlockedDecrement(&dword_140C4EC2C);
+    _InterlockedDecrement(&dword_140C4EC6C);
   }
   return 0LL;
 }

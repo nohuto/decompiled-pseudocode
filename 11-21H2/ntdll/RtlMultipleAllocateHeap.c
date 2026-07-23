@@ -6,24 +6,24 @@
  *     RtlAllocateHeap @ 0x180028B70 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlMultipleAllocateHeap(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4, __int64 *a5)
+ULONG __cdecl RtlMultipleAllocateHeap(PVOID HeapHandle, ULONG Flags, SIZE_T Size, ULONG Count, PVOID *Array)
 {
-  unsigned int v5; // ebx
-  __int64 Heap; // rax
+  ULONG v5; // ebx
+  PVOID Heap; // rax
 
   v5 = 0;
-  if ( !a4 )
-    return a4;
+  if ( !Count )
+    return Count;
   while ( 1 )
   {
-    Heap = RtlAllocateHeap(a1, a2, a3);
-    *a5 = Heap;
+    Heap = RtlAllocateHeap(HeapHandle, Flags, Size);
+    *Array = Heap;
     if ( !Heap )
       break;
     ++v5;
-    ++a5;
-    if ( v5 >= a4 )
-      return a4;
+    ++Array;
+    if ( v5 >= Count )
+      return Count;
   }
   return v5;
 }

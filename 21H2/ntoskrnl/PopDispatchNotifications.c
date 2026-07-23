@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDispatchNotifications @ 0x14067C320
+ * XREFs of PopDispatchNotifications @ 0x14066FA60
  * Callers:
  *     <none>
  * Callees:
- *     PopDispatchNotificationsToList @ 0x14067BFD4 (PopDispatchNotificationsToList.c)
+ *     PopDispatchNotificationsToList @ 0x14066F714 (PopDispatchNotificationsToList.c)
  */
 
 struct _KTHREAD *PopDispatchNotifications()
 {
-  __int64 **v0; // rbx
+  WNF_STATE_NAME **v0; // rbx
   __int64 v1; // rdi
   struct _KTHREAD *result; // rax
 
-  PopDispatchNotificationsToList((__int64 **)&PopPowerSettings);
-  v0 = (__int64 **)&PopSessionSpecificLists;
+  PopDispatchNotificationsToList((WNF_STATE_NAME **)&PopPowerSettings);
+  v0 = (WNF_STATE_NAME **)&PopSessionSpecificLists;
   v1 = 2LL;
   do
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopProtectSystemPartition @ 0x1409DE514
+ * XREFs of IopProtectSystemPartition @ 0x1409DF514
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     NtOpenKey @ 0x1405E04C0 (NtOpenKey.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
- *     IopApplySystemPartitionProt @ 0x1409F4F40 (IopApplySystemPartitionProt.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     NtOpenKey @ 0x1405E14C0 (NtOpenKey.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtQueryValueKey @ 0x140641360 (NtQueryValueKey.c)
+ *     IopApplySystemPartitionProt @ 0x1409F5F40 (IopApplySystemPartitionProt.c)
  */
 
 char __fastcall IopProtectSystemPartition(__int64 a1)

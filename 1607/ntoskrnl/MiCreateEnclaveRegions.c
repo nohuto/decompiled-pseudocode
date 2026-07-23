@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -40,8 +40,8 @@ __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
     v7 = v2[4];
     *(_QWORD *)(result + 24) = v5;
     *(_QWORD *)(result + 32) = v7;
-    v8 = (_QWORD *)qword_140326A98;
-    if ( !qword_140326A98 )
+    v8 = (_QWORD *)qword_140326AD8;
+    if ( !qword_140326AD8 )
       goto LABEL_10;
     while ( v5 >= v8[3] )
     {
@@ -59,7 +59,7 @@ LABEL_15:
       goto LABEL_15;
     v6 = 0;
 LABEL_10:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140326A98, (unsigned __int64)v8, v6, v4);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140326AD8, (unsigned __int64)v8, v6, v4);
     for ( i = 48 * v5 - 0x58000000000LL; v7; --v7 )
     {
       v11 = (unsigned __int8)MiLockPageInline(i);
@@ -72,7 +72,7 @@ LABEL_10:
       i += 48LL;
       ++v5;
     }
-    qword_1403278E8 -= v2[4];
+    qword_140327928 -= v2[4];
 LABEL_3:
     v2 = (__int64 *)*v2;
     if ( v2 == v1 )

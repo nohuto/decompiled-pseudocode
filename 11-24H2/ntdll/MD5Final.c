@@ -1,11 +1,11 @@
 /*
- * XREFs of MD5Final @ 0x180119DE0
+ * XREFs of MD5Final @ 0x180118010
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptMd5Result @ 0x180158E30 (SymCryptMd5Result.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     SymCryptMd5Result @ 0x1801571F0 (SymCryptMd5Result.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall MD5Final(unsigned int *a1)

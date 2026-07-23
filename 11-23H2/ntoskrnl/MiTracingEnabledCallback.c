@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTracingEnabledCallback @ 0x140865E80
+ * XREFs of MiTracingEnabledCallback @ 0x1408660C0
  * Callers:
  *     <none>
  * Callees:
- *     MiLogHotPatchRundown @ 0x140A396B0 (MiLogHotPatchRundown.c)
+ *     MiLogHotPatchRundown @ 0x140A39960 (MiLogHotPatchRundown.c)
  */
 
 __int64 __fastcall MiTracingEnabledCallback(__int64 a1, int a2, __int64 a3, char a4)

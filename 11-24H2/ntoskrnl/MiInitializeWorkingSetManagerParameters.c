@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeWorkingSetManagerParameters @ 0x140678930
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x140679B10
  * Callers:
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
- *     MmCreatePartition @ 0x1407FC90C (MmCreatePartition.c)
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
+ *     MmCreatePartition @ 0x1407FD07C (MmCreatePartition.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     MiSetTrimWhileAgingState @ 0x140678C78 (MiSetTrimWhileAgingState.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiSetTrimWhileAgingState @ 0x140679E58 (MiSetTrimWhileAgingState.c)
  */
 
 __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
@@ -58,11 +58,11 @@ __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
     v21 = *(_DWORD *)(a1 + 19000);
     LOBYTE(v21) = v21 & 0xF0 | 1;
     *(_WORD *)(a1 + 19000) = v21;
-    v5 = &unk_140E38740;
+    v5 = &unk_140E38880;
     if ( (*(_DWORD *)(a1 + 19000) & 0xF) != 1 )
       v5 = (_QWORD *)(a1 + 19008);
     v6 = 1;
-    *v5 = &unk_140E2FD00;
+    *v5 = &unk_140E2FE40;
   }
   v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 200));
   v8 = *(_QWORD *)(a1 + 18512);
@@ -139,11 +139,11 @@ LABEL_14:
     *(_QWORD *)(v1 + 104) = v1 + 104;
     if ( (ULONG *)a1 == &MiSystemPartition )
     {
-      LOWORD(Event.Header.Lock) = 0;
-      Event.Header.SignalState = 0;
-      Event.Header.WaitListHead.Blink = &Event.Header.WaitListHead;
-      Event.Header.WaitListHead.Flink = &Event.Header.WaitListHead;
-      Event.Header.Size = 6;
+      LOWORD(stru_140E37508.Header.Lock) = 0;
+      stru_140E37508.Header.SignalState = 0;
+      stru_140E37508.Header.WaitListHead.Blink = &stru_140E37508.Header.WaitListHead;
+      stru_140E37508.Header.WaitListHead.Flink = &stru_140E37508.Header.WaitListHead;
+      stru_140E37508.Header.Size = 6;
     }
   }
   if ( !v9 )

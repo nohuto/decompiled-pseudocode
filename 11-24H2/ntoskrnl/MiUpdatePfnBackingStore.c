@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdatePfnBackingStore @ 0x140229ECC
+ * XREFs of MiUpdatePfnBackingStore @ 0x1402FD13C
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     MiGatherPagefilePages @ 0x14039C8C8 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1402F9BC8 (MiGatherPagefilePages.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSwizzleInvalidPte @ 0x14022A3B0 (MiSwizzleInvalidPte.c)
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSwizzleInvalidPte @ 0x1402FD620 (MiSwizzleInvalidPte.c)
  */
 
 bool __fastcall MiUpdatePfnBackingStore(__int64 a1, __int64 a2, unsigned int a3)
@@ -41,14 +41,14 @@ bool __fastcall MiUpdatePfnBackingStore(__int64 a1, __int64 a2, unsigned int a3)
   {
     if ( v10 )
     {
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
         if ( (v10 & 0x10) != 0 )
-          LODWORD(v10) = v10 & 0xFFFFFFEF;
+          v10 &= ~0x10uLL;
         else
-          LODWORD(v10) = v10 & ~(_DWORD)qword_140E2DB80;
+          v10 &= ~qword_140E2DCC0;
       }
-      PageFilePte = MiSwizzleInvalidPte((unsigned int)v10 | (unsigned __int64)(v5 << 32));
+      PageFilePte = MiSwizzleInvalidPte((unsigned int)v10 | (unsigned __int64)(v5 << 32), v10);
     }
     else
     {

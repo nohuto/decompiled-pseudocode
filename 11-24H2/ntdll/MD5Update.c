@@ -1,11 +1,11 @@
 /*
- * XREFs of MD5Update @ 0x180119FB0
+ * XREFs of MD5Update @ 0x1801181E0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptWipeAsm @ 0x180131590 (SymCryptWipeAsm.c)
- *     SymCryptHashAppendInternal @ 0x18015B714 (SymCryptHashAppendInternal.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     SymCryptWipeAsm @ 0x18012F7C0 (SymCryptWipeAsm.c)
+ *     SymCryptHashAppendInternal @ 0x180159AD4 (SymCryptHashAppendInternal.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MD5Update(unsigned int *a1, __int64 a2, unsigned int a3)

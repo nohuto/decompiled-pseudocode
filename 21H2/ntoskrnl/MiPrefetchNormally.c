@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchNormally @ 0x1402718D8
+ * XREFs of MiPrefetchNormally @ 0x14025F878
  * Callers:
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14027191C (MiGetAvailablePagesBelowPriority.c)
- *     MiCommitmentAvailable @ 0x140271958 (MiCommitmentAvailable.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025F8BC (MiGetAvailablePagesBelowPriority.c)
+ *     MiCommitmentAvailable @ 0x14025F8F8 (MiCommitmentAvailable.c)
  */
 
 _BOOL8 __fastcall MiPrefetchNormally(__int64 a1, __int64 a2)

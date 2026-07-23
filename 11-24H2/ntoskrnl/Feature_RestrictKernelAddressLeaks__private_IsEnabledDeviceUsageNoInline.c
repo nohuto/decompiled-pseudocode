@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_RestrictKernelAddressLeaks__private_IsEnabledDeviceUsageNoInline @ 0x140485DF8
+ * XREFs of Feature_RestrictKernelAddressLeaks__private_IsEnabledDeviceUsageNoInline @ 0x1404813E8
  * Callers:
- *     ExIsRestrictedCaller @ 0x140A14B1C (ExIsRestrictedCaller.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     ExIsRestrictedCaller @ 0x140A0DA38 (ExIsRestrictedCaller.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     Feature_RestrictKernelAddressLeaks__private_IsEnabledFallback @ 0x1404FB4B0 (Feature_RestrictKernelAddressLeaks__private_IsEnabledFallback.c)
+ *     Feature_RestrictKernelAddressLeaks__private_IsEnabledFallback @ 0x1404F8D90 (Feature_RestrictKernelAddressLeaks__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_RestrictKernelAddressLeaks__private_IsEnabledDeviceUsageNoInline()

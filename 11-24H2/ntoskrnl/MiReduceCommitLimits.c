@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReduceCommitLimits @ 0x1406864D0
+ * XREFs of MiReduceCommitLimits @ 0x140687600
  * Callers:
- *     MiAttemptPageFileReductionApc @ 0x1403F9310 (MiAttemptPageFileReductionApc.c)
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
- *     MiCreatePagingFile @ 0x1407EE364 (MiCreatePagingFile.c)
+ *     MiAttemptPageFileReductionApc @ 0x1403EF420 (MiAttemptPageFileReductionApc.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
+ *     MiCreatePagingFile @ 0x1407EE934 (MiCreatePagingFile.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiComputeCommitThresholds @ 0x1404709E8 (MiComputeCommitThresholds.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiComputeCommitThresholds @ 0x14046B098 (MiComputeCommitThresholds.c)
  */
 
 __int64 __fastcall MiReduceCommitLimits(__int64 a1, __int64 a2, __int64 a3)

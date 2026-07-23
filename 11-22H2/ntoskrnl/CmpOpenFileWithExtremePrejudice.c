@@ -20,31 +20,29 @@ __int64 __fastcall CmpOpenFileWithExtremePrejudice(
         ULONG CreateOptions,
         __int64 a6)
 {
-  int AttributesFile; // eax
+  NTSTATUS v10; // eax
   unsigned int v11; // ebx
   NTSTATUS v12; // eax
   NTSTATUS v13; // eax
   NTSTATUS File; // eax
   HANDLE FileHandlea; // [rsp+60h] [rbp-39h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlocka; // [rsp+68h] [rbp-31h] BYREF
-  _OWORD FileInformation[2]; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v19; // [rsp+98h] [rbp-1h]
+  struct _FILE_BASIC_INFORMATION FileInformation; // [rsp+78h] [rbp-21h] BYREF
 
   *FileHandle = 0LL;
   FileHandlea = 0LL;
-  v19 = 0LL;
   IoStatusBlocka = 0LL;
-  memset(FileInformation, 0, sizeof(FileInformation));
-  AttributesFile = ZwQueryAttributesFile((__int64)ObjectAttributes, (__int64)FileInformation);
-  v11 = AttributesFile;
-  if ( AttributesFile >= 0 )
+  memset(&FileInformation, 0, sizeof(FileInformation));
+  v10 = ZwQueryAttributesFile(ObjectAttributes, &FileInformation);
+  v11 = v10;
+  if ( v10 >= 0 )
   {
-    LODWORD(v19) = v19 & 0xFFFFFFFE;
+    FileInformation.FileAttributes &= ~1u;
     v12 = ZwOpenFile(&FileHandlea, 0x100u, ObjectAttributes, &IoStatusBlocka, 7u, 0x4000u);
     v11 = v12;
     if ( v12 >= 0 )
     {
-      v13 = ZwSetInformationFile(FileHandlea, &IoStatusBlocka, FileInformation, 0x28u, FileBasicInformation);
+      v13 = ZwSetInformationFile(FileHandlea, &IoStatusBlocka, &FileInformation, 0x28u, FileBasicInformation);
       v11 = v13;
       if ( v13 >= 0 )
       {
@@ -80,7 +78,7 @@ __int64 __fastcall CmpOpenFileWithExtremePrejudice(
   }
   else
   {
-    SetFailureLocation(a6, 0, 36, AttributesFile, 16);
+    SetFailureLocation(a6, 0, 36, v10, 16);
   }
   if ( FileHandlea )
     ZwClose(FileHandlea);

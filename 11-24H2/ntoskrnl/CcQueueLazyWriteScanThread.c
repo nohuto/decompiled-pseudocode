@@ -1,21 +1,21 @@
 /*
- * XREFs of CcQueueLazyWriteScanThread @ 0x14057A5C0
+ * XREFs of CcQueueLazyWriteScanThread @ 0x140577A50
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x1402A7488 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x1402A7D3C (CcAllocateWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x1402A7F20 (CcDereferencePartition.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     CcIsLazyWriteScanQueuedInternal @ 0x14043C504 (CcIsLazyWriteScanQueuedInternal.c)
- *     CcNotifyExternalCachesInternal @ 0x14043C550 (CcNotifyExternalCachesInternal.c)
- *     CcSetLazyWriteScanQueuedInternal @ 0x14043C6B0 (CcSetLazyWriteScanQueuedInternal.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1404A08EC (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x140265EE4 (CcIsLazyWriteScanQueuedInternal.c)
+ *     CcNotifyExternalCachesInternal @ 0x140265F30 (CcNotifyExternalCachesInternal.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x140266090 (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcAllocateWorkQueueEntry @ 0x140279B34 (CcAllocateWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x140279D10 (CcDereferencePartition.c)
+ *     CcPostWorkQueue @ 0x14027AE6C (CcPostWorkQueue.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14049AF6C (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)
@@ -35,16 +35,18 @@ void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)
   __int64 v14; // r15
   _QWORD *v15; // rdx
   _BYTE *v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
   _KSPIN_LOCK_QUEUE *volatile Next; // rcx
-  __int64 v18; // rdx
+  __int64 v20; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v20; // [rsp+60h] [rbp-A8h]
+  __int64 v22; // [rsp+60h] [rbp-A8h]
   PVOID Object[6]; // [rsp+68h] [rbp-A0h] BYREF
   struct _KWAIT_BLOCK WaitBlockArray; // [rsp+98h] [rbp-70h] BYREF
 
   v1 = StartContext + 123;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v20 = 0LL;
+  v22 = 0LL;
   v2 = (char *)(StartContext + 166);
   Object[2] = StartContext + 123;
   Object[0] = StartContext + 110;
@@ -130,15 +132,15 @@ LABEL_16:
       {
         CcSetLazyWriteScanQueuedInternal(v16, v11, 1);
         KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
-        if ( (int)CcAllocateWorkQueueEntry((__int64)StartContext, 0LL, v14, (__int64 *)&LockHandle) >= 0 )
+        if ( (int)CcAllocateWorkQueueEntry((__int64)StartContext, 0LL, v14, (PSLIST_ENTRY *)&LockHandle) >= 0 )
         {
           Next = LockHandle.LockQueue.Next;
-          v18 = 72LL;
+          v20 = 72LL;
           LODWORD(LockHandle.LockQueue.Next[8].Next) = 3;
           if ( v11 != 8 )
-            v18 = 104LL;
+            v20 = 104LL;
           LODWORD(Next[1].Next) = v11;
-          CcPostWorkQueue((__int64)Next, v14 + v18);
+          CcPostWorkQueue(Next, v14 + v20, v17, v18);
         }
         else
         {

@@ -6,9 +6,15 @@
  *     _ZwCreateKey@28 @ 0x4B2F2B50 (_ZwCreateKey@28.c)
  */
 
-int __stdcall RtlpNtCreateKey(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __stdcall RtlpNtCreateKey(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        int a4,
+        int a5,
+        PULONG Disposition)
 {
-  if ( a3 )
-    *(_DWORD *)(a3 + 12) &= 0xFFFFFFCF;
-  return ZwCreateKey(a1, a2, a3, 0, 0, 0, a6);
+  if ( ObjectAttributes )
+    ObjectAttributes->Attributes &= 0xFFFFFFCF;
+  return ZwCreateKey(KeyHandle, DesiredAccess, ObjectAttributes, 0, 0, 0, Disposition);
 }

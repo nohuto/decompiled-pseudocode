@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwpNotifyGuid @ 0x140938434
+ * XREFs of EtwpNotifyGuid @ 0x140913FD4
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
- *     EtwpSendSessionNotification @ 0x140A1545C (EtwpSendSessionNotification.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
+ *     EtwpSendSessionNotification @ 0x140A14650 (EtwpSendSessionNotification.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     PsGetCurrentThreadProcessId @ 0x1404575B0 (PsGetCurrentThreadProcessId.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpValidateTraceControlFilterDescriptors @ 0x140832148 (EtwpValidateTraceControlFilterDescriptors.c)
- *     EtwpCheckGuidAccess @ 0x1409207F8 (EtwpCheckGuidAccess.c)
- *     EtwpAccessCheck @ 0x140931F90 (EtwpAccessCheck.c)
- *     EtwpUnreferenceGuidEntry @ 0x140936B20 (EtwpUnreferenceGuidEntry.c)
- *     EtwpSendDataBlock @ 0x1409388D8 (EtwpSendDataBlock.c)
- *     EtwpFreeFilterInfo @ 0x140938D98 (EtwpFreeFilterInfo.c)
- *     EtwpUnreferenceDataBlock @ 0x140939064 (EtwpUnreferenceDataBlock.c)
- *     EtwpAllocDataBlock @ 0x140939088 (EtwpAllocDataBlock.c)
- *     EtwpFindGuidEntryByGuid @ 0x140939130 (EtwpFindGuidEntryByGuid.c)
- *     EtwpApplyTransientFilters @ 0x14093929C (EtwpApplyTransientFilters.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x14093B234 (EtwpCheckCurrentUserProcessAccess.c)
- *     EtwpCreateUmReplyObject @ 0x140B12A84 (EtwpCreateUmReplyObject.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x140B55CDC (EtwpDemuxPrivateTraceHandle.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsGetCurrentThreadProcessId @ 0x14044EE20 (PsGetCurrentThreadProcessId.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x140838388 (EtwpValidateTraceControlFilterDescriptors.c)
+ *     EtwpCheckGuidAccess @ 0x1408FC30C (EtwpCheckGuidAccess.c)
+ *     EtwpAccessCheck @ 0x14090DB60 (EtwpAccessCheck.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1409126C0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpSendDataBlock @ 0x140914478 (EtwpSendDataBlock.c)
+ *     EtwpFreeFilterInfo @ 0x140914938 (EtwpFreeFilterInfo.c)
+ *     EtwpUnreferenceDataBlock @ 0x140914C04 (EtwpUnreferenceDataBlock.c)
+ *     EtwpAllocDataBlock @ 0x140914C28 (EtwpAllocDataBlock.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140914CD0 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpApplyTransientFilters @ 0x140914E3C (EtwpApplyTransientFilters.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x140916DD4 (EtwpCheckCurrentUserProcessAccess.c)
+ *     EtwpCreateUmReplyObject @ 0x140B14804 (EtwpCreateUmReplyObject.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x140B5857C (EtwpDemuxPrivateTraceHandle.c)
  */
 
 __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
@@ -111,10 +111,10 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
       goto LABEL_39;
     }
     v10 = 128;
-    v37 = EtwpCheckGuidAccess((__int64)PrivateLoggerSecurityGuid, 0x80u);
+    v37 = EtwpCheckGuidAccess((__int64)&PrivateLoggerSecurityGuid, 0x80u);
     v11 = a2 + 40;
     v40 = v37 >> 31;
-    *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+    *(GUID *)(a2 + 40) = PrivateLoggerNotificationGuid;
   }
   else
   {

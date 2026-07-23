@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpReleaseDisownedFastResourceExclusive2 @ 0x140416018
+ * XREFs of ExpReleaseDisownedFastResourceExclusive2 @ 0x1404163AC
  * Callers:
- *     ExReleaseDisownedFastResource2 @ 0x140413D9C (ExReleaseDisownedFastResource2.c)
- *     ExReleaseDisownedFastResourceExclusive2 @ 0x140413EA0 (ExReleaseDisownedFastResourceExclusive2.c)
- *     ExReleaseDisownedFastResourceShared2 @ 0x140413F94 (ExReleaseDisownedFastResourceShared2.c)
+ *     ExReleaseDisownedFastResource2 @ 0x140414130 (ExReleaseDisownedFastResource2.c)
+ *     ExReleaseDisownedFastResourceExclusive2 @ 0x140414234 (ExReleaseDisownedFastResourceExclusive2.c)
+ *     ExReleaseDisownedFastResourceShared2 @ 0x140414328 (ExReleaseDisownedFastResourceShared2.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A650 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeReleaseSpinLockFromDpcLevel @ 0x14032FB40 (KeReleaseSpinLockFromDpcLevel.c)
- *     KeAbCrossThreadRelease @ 0x1403CAD08 (KeAbCrossThreadRelease.c)
- *     ExpCommitWakeFastResource @ 0x1404152F8 (ExpCommitWakeFastResource.c)
- *     ExpPrepareToWakeFastResourceExclusive @ 0x140415E00 (ExpPrepareToWakeFastResourceExclusive.c)
- *     ExpRemoveEntryListAndClear2 @ 0x14041676C (ExpRemoveEntryListAndClear2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A8E0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14032FDD0 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAbCrossThreadRelease @ 0x1403CAEE8 (KeAbCrossThreadRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpCommitWakeFastResource @ 0x14041568C (ExpCommitWakeFastResource.c)
+ *     ExpPrepareToWakeFastResourceExclusive @ 0x140416194 (ExpPrepareToWakeFastResourceExclusive.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x140416B00 (ExpRemoveEntryListAndClear2.c)
  */
 
 LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive2(__int64 a1, __int64 a2)
@@ -50,7 +50,7 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive2(__int64 a1, __int64
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v9 = 4;
@@ -69,10 +69,10 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive2(__int64 a1, __int64
     ExpPrepareToWakeFastResourceExclusive(a1, (__int64 *)&v22, &v18, &v21, &v20);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     ExpCommitWakeFastResource(&v22, v11, v12, v20);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = CurrentPrcb->SchedulerAssist;
@@ -80,7 +80,7 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive2(__int64 a1, __int64
         v17 = (v16 & v15[5]) == 0;
         v15[5] &= v16;
         if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

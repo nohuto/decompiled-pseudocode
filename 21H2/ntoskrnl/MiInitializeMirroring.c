@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializeMirroring @ 0x140A54728
+ * XREFs of MiInitializeMirroring @ 0x140A55728
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiSizeMemoryListLocks @ 0x1406C3F48 (MiSizeMemoryListLocks.c)
- *     MiUpdateMirrorBitmaps @ 0x1407775F4 (MiUpdateMirrorBitmaps.c)
- *     MiInitializeDynamicBitmap @ 0x1407868DC (MiInitializeDynamicBitmap.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiSizeMemoryListLocks @ 0x140622B08 (MiSizeMemoryListLocks.c)
+ *     MiUpdateMirrorBitmaps @ 0x1407777B4 (MiUpdateMirrorBitmaps.c)
+ *     MiInitializeDynamicBitmap @ 0x140786A9C (MiInitializeDynamicBitmap.c)
  */
 
 __int64 MiInitializeMirroring()
@@ -32,103 +32,100 @@ __int64 MiInitializeMirroring()
   struct _KTHREAD *v9; // rbx
   unsigned int SessionId; // edx
   unsigned __int8 v11; // bp
-  _DWORD *v12; // r9
-  unsigned int v13; // r8d
-  bool v14; // zf
-  __int64 v15; // rcx
-  __int64 v16; // rdi
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int128 v19; // [rsp+30h] [rbp-38h] BYREF
-  int v20; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int v12; // r8d
+  bool v13; // zf
+  __int64 v14; // rcx
+  __int64 v15; // rdi
+  __int64 v16; // rdx
+  __int128 v17; // [rsp+30h] [rbp-38h] BYREF
+  int v18; // [rsp+78h] [rbp+10h] BYREF
 
-  *((_QWORD *)&v19 + 1) = 0LL;
-  stru_140C4E6E8.List.Flink = 0LL;
-  stru_140C4E6D0.Header.WaitListHead.Blink = &stru_140C4E6D0.Header.WaitListHead;
-  stru_140C4E6D0.Header.WaitListHead.Flink = &stru_140C4E6D0.Header.WaitListHead;
-  stru_140C4E6E8.WorkerRoutine = (void (__fastcall *)(void *))MiFinishResume;
-  LOWORD(stru_140C4E6D0.Header.Lock) = 1;
-  stru_140C4E6D0.Header.Size = 6;
-  stru_140C4E6D0.Header.SignalState = 1;
-  stru_140C4E6E8.Parameter = (void *)-1LL;
+  *((_QWORD *)&v17 + 1) = 0LL;
+  stru_140C4E728.List.Flink = 0LL;
+  stru_140C4E710.Header.WaitListHead.Blink = &stru_140C4E710.Header.WaitListHead;
+  stru_140C4E710.Header.WaitListHead.Flink = &stru_140C4E710.Header.WaitListHead;
+  stru_140C4E728.WorkerRoutine = (void (__fastcall *)(void *))MiFinishResume;
+  LOWORD(stru_140C4E710.Header.Lock) = 1;
+  stru_140C4E710.Header.Size = 6;
+  stru_140C4E710.Header.SignalState = 1;
+  stru_140C4E728.Parameter = (void *)-1LL;
   v0 = MiSizeMemoryListLocks();
   Pool = MiAllocatePool(64, v0, 0x614C6D4Du);
   if ( Pool )
   {
-    qword_140C52128 = (__int64)Pool;
-    v4 = qword_140C4E710;
+    qword_140C52168 = (__int64)Pool;
+    v4 = qword_140C4E750;
     CurrentThread = KeGetCurrentThread();
     v6 = 0;
     while ( 1 )
     {
-      v7 = MiReservePtes((__int64)&qword_140C4EF40, 0x200000u, v2, v3);
-      if ( !v7 || !(unsigned int)MiInitializeDynamicBitmap(&v19, (__int64)(v7 << 25) >> 16, 0x1000000000LL, 12) )
+      v7 = MiReservePtes((__int64)&qword_140C4EF80, 0x200000u, v2, v3);
+      if ( !v7 || !(unsigned int)MiInitializeDynamicBitmap(&v17, (__int64)(v7 << 25) >> 16, 0x1000000000LL, 12) )
         break;
-      *(_QWORD *)&v19 = 0LL;
+      *(_QWORD *)&v17 = 0LL;
       ++v6;
-      *(_OWORD *)v4 = v19;
+      *(_OWORD *)v4 = v17;
       v4 += 2;
       if ( v6 >= 2 )
       {
         if ( (dword_140CFB184 & 1) != 0 )
         {
           --CurrentThread->SpecialApcDisable;
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C50E40, 0LL);
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C50E80, 0LL);
           MiUpdateMirrorBitmaps();
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C50E40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock(&qword_140C50E40);
-          v20 = 0;
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C50E80, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock(&qword_140C50E80);
+          v18 = 0;
           v9 = KeGetCurrentThread();
-          if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140C50E40) == 1 )
+          if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140C50E80) == 1 )
             SessionId = MmGetSessionIdEx((__int64)v9->ApcState.Process);
           else
             SessionId = -1;
           --v9->SpecialApcDisable;
           v11 = ++v9->AbAllocationRegionCount;
-          v12 = (_DWORD *)((unsigned __int64)&qword_140C50E40 & 0x7FFFFFFFFFFFFFFCLL);
-          v13 = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
+          v12 = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
           while ( 1 )
           {
-            v14 = !_BitScanReverse((unsigned int *)&v15, v13);
-            if ( v14 )
+            v13 = !_BitScanReverse((unsigned int *)&v14, v12);
+            if ( v13 )
               goto LABEL_16;
-            v16 = (__int64)&v9->LockEntries[v15];
-            v13 &= ~(1 << v15);
-            if ( (*(_BYTE *)(v16 + 26) & 1) != 0
-              && (*(_DWORD *)(v16 + 32) & 1) == 0
-              && (_DWORD *)(*(_QWORD *)(v16 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v12
-              && *(_DWORD *)(v16 + 40) == SessionId )
+            v15 = (__int64)&v9->LockEntries[v14];
+            v12 &= ~(1 << v14);
+            if ( (*(_BYTE *)(v15 + 26) & 1) != 0
+              && (*(_DWORD *)(v15 + 32) & 1) == 0
+              && (*(_QWORD *)(v15 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140C50E80 & 0x7FFFFFFFFFFFFFFCLL)
+              && *(_DWORD *)(v15 + 40) == SessionId )
             {
-              *(_BYTE *)(v16 + 26) &= ~1u;
-              if ( *(_QWORD *)(v16 + 32) )
+              *(_BYTE *)(v15 + 26) &= ~1u;
+              if ( *(_QWORD *)(v15 + 32) )
                 break;
             }
           }
-          if ( !v16 )
+          if ( !v15 )
           {
 LABEL_16:
             if ( (*((_DWORD *)&v9->0 + 1) & 0x10000) == 0 )
-              KeBugCheckEx(0x162u, (ULONG_PTR)v9, (ULONG_PTR)&qword_140C50E40, SessionId, 0LL);
+              KeBugCheckEx(0x162u, (ULONG_PTR)v9, (ULONG_PTR)&qword_140C50E80, SessionId, 0LL);
             goto LABEL_28;
           }
-          *(_BYTE *)(v16 + 32) |= 2u;
-          if ( *(__int64 *)(v16 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v16);
-          v20 = *(_DWORD *)(v16 + 88) & 0x1FFFF;
-          *(_DWORD *)(v16 + 88) &= 0xFFFE0000;
-          *(_BYTE *)(v16 + 25) &= ~1u;
-          *(_QWORD *)(v16 + 32) = 0LL;
-          v17 = (signed __int64)(v16 - (unsigned __int64)v9->LockEntries) / 96;
+          *(_BYTE *)(v15 + 32) |= 2u;
+          if ( *(__int64 *)(v15 + 32) < 0 )
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v15);
+          v18 = *(_DWORD *)(v15 + 88) & 0x1FFFF;
+          *(_DWORD *)(v15 + 88) &= 0xFFFE0000;
+          *(_BYTE *)(v15 + 25) &= ~1u;
+          *(_QWORD *)(v15 + 32) = 0LL;
+          v16 = (signed __int64)(v15 - (unsigned __int64)v9->LockEntries) / 96;
           if ( v11 == 1 )
-            v9->AbEntrySummary |= 1 << v17;
+            v9->AbEntrySummary |= 1 << v16;
           else
-            _InterlockedOr8((volatile signed __int8 *)&v9->AbOrphanedEntrySummary, 1 << v17);
+            _InterlockedOr8((volatile signed __int8 *)&v9->AbOrphanedEntrySummary, 1 << v16);
 LABEL_28:
           --v9->AbAllocationRegionCount;
-          KiAbThreadRemoveBoosts((ULONG_PTR)v9, (__int64)&qword_140C50E40, (__int64)&v20, v12);
-          v14 = v9->SpecialApcDisable++ == -1;
-          if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
-            KiCheckForKernelApcDelivery(v18);
+          KiAbThreadRemoveBoosts((ULONG_PTR)v9, (__int64)&qword_140C50E80, (unsigned int *)&v18);
+          v13 = v9->SpecialApcDisable++ == -1;
+          if ( v13 && ($C459BD0D405E8E46662177FB3D0A143F *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
+            KiCheckForKernelApcDelivery();
           KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
         }
         return 1LL;

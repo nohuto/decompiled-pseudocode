@@ -1,11 +1,11 @@
 /*
- * XREFs of CcCoherencyFlushAndPurgeCache @ 0x14008F364
+ * XREFs of CcCoherencyFlushAndPurgeCache @ 0x14008EAC4
  * Callers:
  *     <none>
  * Callees:
- *     CcPurgeCacheSection @ 0x140072920 (CcPurgeCacheSection.c)
- *     CcFlushCache @ 0x14008F434 (CcFlushCache.c)
- *     MmTrimSection @ 0x14008F450 (MmTrimSection.c)
+ *     CcPurgeCacheSection @ 0x1400724A0 (CcPurgeCacheSection.c)
+ *     CcFlushCache @ 0x14008EB94 (CcFlushCache.c)
+ *     MmTrimSection @ 0x14008EBB0 (MmTrimSection.c)
  */
 
 void __stdcall CcCoherencyFlushAndPurgeCache(

@@ -70,7 +70,7 @@ LABEL_2:
     if ( v14 <= 0 )
     {
       v15 = 1LL;
-      v14 += (unsigned int)KeMaximumIncrement;
+      v14 += KeMaximumIncrement;
       if ( v14 <= 0 )
       {
         v16 = KeNumberProcessorsGroup0[1];

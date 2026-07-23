@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x140171420
+ * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x140171520
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x140171268 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceIrpFinish @ 0x140171368 (PopDiagTraceIrpFinish.c)
  * Callees:
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     PopDiagGetDriverName @ 0x140155D94 (PopDiagGetDriverName.c)
- *     IoFindDeviceThatFailedIrp @ 0x14016C198 (IoFindDeviceThatFailedIrp.c)
- *     PopComputeWatchdogTimeout @ 0x140172CE8 (PopComputeWatchdogTimeout.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     PopDiagGetDriverName @ 0x140155E94 (PopDiagGetDriverName.c)
+ *     IoFindDeviceThatFailedIrp @ 0x14016C298 (IoFindDeviceThatFailedIrp.c)
+ *     PopComputeWatchdogTimeout @ 0x140172DE8 (PopComputeWatchdogTimeout.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
@@ -109,7 +109,7 @@ char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
             v38 = 4LL;
             v40 = 4LL;
             v42 = 4LL;
-            LOBYTE(UnbiasedInterruptTime) = TlgWrite(&pCallbackContext, &unk_14037104D, 0LL, 0LL, 0xAu, &pData);
+            LOBYTE(UnbiasedInterruptTime) = TlgWrite(&pCallbackContext, &unk_1403720CF, 0LL, 0LL, 0xAu, &pData);
           }
         }
       }
@@ -124,7 +124,7 @@ char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
       v17 = *(_BYTE *)(a1 + 68);
       v18 = *(_BYTE *)(v4 + 240);
       v19 = PopCurrentBroadcast;
-      v20 = qword_1404176A8;
+      v20 = qword_140418728;
       v28 = &v22;
       v30 = &v21;
       v32 = (__int64 *)&v17;
@@ -138,7 +138,7 @@ char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
       *(_QWORD *)&pDesc.Size = 1LL;
       v36 = 1LL;
       v38 = 4LL;
-      LOBYTE(UnbiasedInterruptTime) = TlgWrite(&pCallbackContext, &unk_14037114E, 0LL, 0LL, 8u, &pData);
+      LOBYTE(UnbiasedInterruptTime) = TlgWrite(&pCallbackContext, &unk_14037205D, 0LL, 0LL, 8u, &pData);
     }
   }
   return UnbiasedInterruptTime;

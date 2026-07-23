@@ -1,22 +1,22 @@
 /*
- * XREFs of PspCaptureUserProcessParameters @ 0x140A65460
+ * XREFs of PspCaptureUserProcessParameters @ 0x140A72430
  * Callers:
- *     PsCaptureUserProcessParameters @ 0x140A653B0 (PsCaptureUserProcessParameters.c)
- *     PspCaptureProcessParameters @ 0x140A653F0 (PspCaptureProcessParameters.c)
+ *     PsCaptureUserProcessParameters @ 0x140A72380 (PsCaptureUserProcessParameters.c)
+ *     PspCaptureProcessParameters @ 0x140A723C0 (PspCaptureProcessParameters.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     PspCaptureAndValidateUnicodeString @ 0x140A65D1C (PspCaptureAndValidateUnicodeString.c)
- *     PspCopyUnicodeString @ 0x140A65DB4 (PspCopyUnicodeString.c)
- *     PspValidateEnvironmentBlock @ 0x140A65E40 (PspValidateEnvironmentBlock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     PspCaptureAndValidateUnicodeString @ 0x140A72CEC (PspCaptureAndValidateUnicodeString.c)
+ *     PspCopyUnicodeString @ 0x140A72D84 (PspCopyUnicodeString.c)
+ *     PspValidateEnvironmentBlock @ 0x140A72E10 (PspValidateEnvironmentBlock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspCaptureUserProcessParameters(_QWORD *a1, unsigned int *a2, __int64 a3, char a4, __int64 a5)

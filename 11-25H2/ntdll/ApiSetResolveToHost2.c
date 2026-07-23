@@ -11,11 +11,11 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-NTSTATUS __fastcall ApiSetResolveToHost2(__int64 a1, const char *a2, char *a3, _OWORD *a4)
+NTSTATUS __fastcall ApiSetResolveToHost2(__int64 a1, const CHAR *a2, char *a3, _OWORD *a4)
 {
   NTSTATUS result; // eax
-  UNICODE_STRING v8; // [rsp+30h] [rbp-268h] BYREF
-  STRING DestinationString; // [rsp+40h] [rbp-258h] BYREF
+  _UNICODE_STRING v8; // [rsp+30h] [rbp-268h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-258h] BYREF
   _BYTE v10[528]; // [rsp+50h] [rbp-248h] BYREF
 
   *a3 = 0;

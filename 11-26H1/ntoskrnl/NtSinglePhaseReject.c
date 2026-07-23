@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSinglePhaseReject @ 0x140534890
+ * XREFs of NtSinglePhaseReject @ 0x140536D70
  * Callers:
  *     <none>
  * Callees:

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiRelocateImageAgain @ 0x14087B470
+ * XREFs of MiRelocateImageAgain @ 0x140881870
  * Callers:
- *     MiValidateExistingImage @ 0x140A56F88 (MiValidateExistingImage.c)
+ *     MiValidateExistingImage @ 0x140A64508 (MiValidateExistingImage.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiGetControlAreaLoadConfig @ 0x140495994 (MiGetControlAreaLoadConfig.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7214 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404AE6C4 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MiImageUnused @ 0x1404BE770 (MiImageUnused.c)
- *     MiUpdateImageSystemWideBitmaps @ 0x1409CA3E4 (MiUpdateImageSystemWideBitmaps.c)
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
- *     MiReturnImageBase @ 0x140A7FE38 (MiReturnImageBase.c)
- *     MiSwitchBaseAddress @ 0x140AC82D0 (MiSwitchBaseAddress.c)
- *     MiMarkImageActive @ 0x140AFF5C4 (MiMarkImageActive.c)
- *     SeSetImageBaseAddress @ 0x140B35488 (SeSetImageBaseAddress.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiGetControlAreaLoadConfig @ 0x14048F4E4 (MiGetControlAreaLoadConfig.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A08A4 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7D54 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiImageUnused @ 0x1404B7FC0 (MiImageUnused.c)
+ *     MiUpdateImageSystemWideBitmaps @ 0x14099B3C4 (MiUpdateImageSystemWideBitmaps.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
+ *     MiReturnImageBase @ 0x140A85CA8 (MiReturnImageBase.c)
+ *     MiSwitchBaseAddress @ 0x140AC9EC0 (MiSwitchBaseAddress.c)
+ *     MiMarkImageActive @ 0x140B01254 (MiMarkImageActive.c)
+ *     SeSetImageBaseAddress @ 0x140B37698 (SeSetImageBaseAddress.c)
  */
 
 __int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -56,7 +56,7 @@ __int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2, __int64 a3, struct _
   if ( (*(_DWORD *)(a1 + 92) & 0x400000) == 0 )
   {
     v15 = *(_QWORD *)(v9 + 32);
-    v11 = (unsigned __int64 *)MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, v13, v14);
+    v11 = (unsigned __int64 *)MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, v13, v14);
     if ( !v11 )
     {
       MiMarkImageActive(a1);
@@ -96,7 +96,7 @@ LABEL_8:
 LABEL_18:
   MI_UNLOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v7);
   if ( v11 )
-    MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, v11, 1u);
+    MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, v11, 1u);
   MiReturnImageBase(&v20);
   return (unsigned int)updated;
 }

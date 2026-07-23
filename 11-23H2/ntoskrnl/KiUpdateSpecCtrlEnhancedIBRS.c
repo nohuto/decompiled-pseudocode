@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUpdateSpecCtrlEnhancedIBRS @ 0x140460C28
+ * XREFs of KiUpdateSpecCtrlEnhancedIBRS @ 0x140461028
  * Callers:
- *     KiUpdateSpeculationControl @ 0x140325BC0 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x140325E50 (KiUpdateSpeculationControl.c)
  * Callees:
  *     <none>
  */

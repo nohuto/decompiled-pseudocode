@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140B121A0 @ 0x140B121A0
  * Callers:
- *     RtlpComputeEpilogueOffset @ 0x1403F3228 (RtlpComputeEpilogueOffset.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403F3408 (RtlpComputeEpilogueOffset.c)
  * Callees:
  *     $$ba @ 0x140B11898 ($$ba.c)
  *     SdbpCheckDll @ 0x140B134F0 (SdbpCheckDll.c)

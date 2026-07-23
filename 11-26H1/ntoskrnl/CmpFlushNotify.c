@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFlushNotify @ 0x1408BA228
+ * XREFs of CmpFlushNotify @ 0x1408C07F8
  * Callers:
- *     CmpFlushNotifiesOnKeyBodyList @ 0x1408BA114 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1408C06E4 (CmpFlushNotifiesOnKeyBodyList.c)
  * Callees:
- *     CmLockHive @ 0x1408C8694 (CmLockHive.c)
- *     CmUnlockHive @ 0x1408C86FC (CmUnlockHive.c)
- *     CmpPostNotify @ 0x1408CAEE0 (CmpPostNotify.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmLockHive @ 0x1408CEC48 (CmLockHive.c)
+ *     CmUnlockHive @ 0x1408CECB0 (CmUnlockHive.c)
+ *     CmpPostNotify @ 0x1408D1490 (CmpPostNotify.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFlushNotify(__int64 a1, char a2, __int64 a3)

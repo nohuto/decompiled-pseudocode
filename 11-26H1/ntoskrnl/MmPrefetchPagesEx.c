@@ -1,28 +1,28 @@
 /*
- * XREFs of MmPrefetchPagesEx @ 0x140A51A98
+ * XREFs of MmPrefetchPagesEx @ 0x140A5AD88
  * Callers:
- *     PfpPrefetchFiles @ 0x140A4EEAC (PfpPrefetchFiles.c)
- *     PfSnPrefetchSections @ 0x140A4FBD4 (PfSnPrefetchSections.c)
- *     PfpPrefetchFilesTrickle @ 0x140A507FC (PfpPrefetchFilesTrickle.c)
- *     MmPrefetchPages @ 0x140A51A80 (MmPrefetchPages.c)
+ *     PfpPrefetchFiles @ 0x140A5819C (PfpPrefetchFiles.c)
+ *     PfSnPrefetchSections @ 0x140A58EC4 (PfSnPrefetchSections.c)
+ *     PfpPrefetchFilesTrickle @ 0x140A59AEC (PfpPrefetchFilesTrickle.c)
+ *     MmPrefetchPages @ 0x140A5AD70 (MmPrefetchPages.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiFreeInPageSupportBlock @ 0x14031D5D8 (MiFreeInPageSupportBlock.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiGetInPageAutoBoostLock @ 0x14039855C (MiGetInPageAutoBoostLock.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiPfCompletePrefetchIos @ 0x14039FC90 (MiPfCompletePrefetchIos.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1403A001C (MiDereferenceInPageAutoBoostLock.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     MiPfExecuteReadList @ 0x140A51868 (MiPfExecuteReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
- *     MiReleaseReadListResources @ 0x140A52550 (MiReleaseReadListResources.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiFreeInPageSupportBlock @ 0x14031F608 (MiFreeInPageSupportBlock.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiGetInPageAutoBoostLock @ 0x14039A2BC (MiGetInPageAutoBoostLock.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiPfCompletePrefetchIos @ 0x1403A19F0 (MiPfCompletePrefetchIos.c)
+ *     MiDereferenceInPageAutoBoostLock @ 0x1403A1D7C (MiDereferenceInPageAutoBoostLock.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     MiPfExecuteReadList @ 0x140A5AB58 (MiPfExecuteReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
+ *     MiReleaseReadListResources @ 0x140A5B840 (MiReleaseReadListResources.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, unsigned __int64 *a3)
@@ -54,8 +54,8 @@ __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, unsigned __int
   int v29; // eax
   __int64 v30; // rcx
   __int64 v31; // rbp
-  struct _SLIST_ENTRY **v32; // rax
-  struct _SLIST_ENTRY *v33; // rcx
+  _SLIST_ENTRY **v32; // rax
+  _SLIST_ENTRY *v33; // rcx
   _SLIST_ENTRY *Next; // rdx
   struct _KTHREAD *v35; // [rsp+20h] [rbp-78h]
   __int64 v36; // [rsp+28h] [rbp-70h]
@@ -90,7 +90,7 @@ __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, unsigned __int
       else
         *((_BYTE *)v37 + 10) = 1;
     }
-    if ( (stru_140E36558.WaitRegister.Flags & 1) != 0 )
+    if ( (stru_140E366D8.WaitRegister.Flags & 1) != 0 )
     {
       v25 = MmGetCurrentProcessorColor();
       PoolMm = ExAllocatePoolMm(66LL, 0x1008uLL, 1818782029, v25 | 0x80000000);
@@ -174,15 +174,12 @@ LABEL_19:
               {
                 while ( 1 )
                 {
-                  v32 = (struct _SLIST_ENTRY **)((char *)P[i] + 224);
+                  v32 = (_SLIST_ENTRY **)((char *)P[i] + 224);
                   v33 = *v32;
-                  if ( *v32 == (struct _SLIST_ENTRY *)v32 )
+                  if ( *v32 == (_SLIST_ENTRY *)v32 )
                     break;
-                  if ( *((struct _SLIST_ENTRY ***)&v33->Next + 1) != v32
-                    || (Next = v33->Next, *(&v33->Next->Next + 1) != v33) )
-                  {
+                  if ( *((_SLIST_ENTRY ***)&v33->Next + 1) != v32 || (Next = v33->Next, *(&v33->Next->Next + 1) != v33) )
                     __fastfail(3u);
-                  }
                   *v32 = Next;
                   *((_QWORD *)&Next->Next + 1) = v32;
                   MiFreeInPageSupportBlock(v33);

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSuspendProcess()
+NTSTATUS __cdecl ZwSuspendProcess(HANDLE ProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 415LL;
+  result = 415;
   __asm { syscall; Low latency system call }
   return result;
 }

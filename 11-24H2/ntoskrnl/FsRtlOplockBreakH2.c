@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlOplockBreakH2 @ 0x140A35490
+ * XREFs of FsRtlOplockBreakH2 @ 0x140A294A0
  * Callers:
- *     FsRtlOplockBreakH @ 0x14070B400 (FsRtlOplockBreakH.c)
+ *     FsRtlOplockBreakH @ 0x140708FC0 (FsRtlOplockBreakH.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpAttachOplockKey @ 0x14041D800 (FsRtlpAttachOplockKey.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1404E1388 (FsRtlpOplockBreakByCacheFlags.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlpAttachOplockKey @ 0x1403CD800 (FsRtlpAttachOplockKey.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1403CF664 (FsRtlpOplockBreakByCacheFlags.c)
  */
 
 __int64 __fastcall FsRtlOplockBreakH2(
@@ -16,7 +16,7 @@ __int64 __fastcall FsRtlOplockBreakH2(
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        int *a7,
+        unsigned int *a7,
         unsigned __int16 *a8)
 {
   __int64 v10; // rsi
@@ -58,7 +58,7 @@ LABEL_11:
       v12 = FsRtlpOplockBreakByCacheFlags(
               v10,
               CurrentStackLocation,
-              (__int64)a2,
+              a2,
               a3,
               v16,
               0x2000,

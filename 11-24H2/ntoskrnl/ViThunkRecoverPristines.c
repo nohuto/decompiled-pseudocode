@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkRecoverPristines @ 0x140B97A00
+ * XREFs of ViThunkRecoverPristines @ 0x140B99A00
  * Callers:
- *     VfThunkAddSpecialDriverThunks @ 0x140B96ED4 (VfThunkAddSpecialDriverThunks.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x140B98ED4 (VfThunkAddSpecialDriverThunks.c)
  * Callees:
- *     ViThunkReplacePristine @ 0x140B97D44 (ViThunkReplacePristine.c)
+ *     ViThunkReplacePristine @ 0x140B99D44 (ViThunkReplacePristine.c)
  */
 
 void __fastcall ViThunkRecoverPristines(__int64 a1)

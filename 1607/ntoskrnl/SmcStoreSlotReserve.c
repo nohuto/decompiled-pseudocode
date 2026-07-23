@@ -1,17 +1,17 @@
 /*
- * XREFs of SmcStoreSlotReserve @ 0x14069AF68
+ * XREFs of SmcStoreSlotReserve @ 0x14069B04C
  * Callers:
- *     SmcStoreCreate @ 0x14069A590 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14069A674 (SmcStoreCreate.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SmcStorePlacementGet @ 0x14069A9AC (SmcStorePlacementGet.c)
- *     SmcStoreSlotAbort @ 0x14069ADDC (SmcStoreSlotAbort.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     SmcStorePlacementGet @ 0x14069AA90 (SmcStorePlacementGet.c)
+ *     SmcStoreSlotAbort @ 0x14069AEC0 (SmcStoreSlotAbort.c)
  */
 
 unsigned __int64 __fastcall SmcStoreSlotReserve(__int64 a1, __int64 a2, ULONG a3)

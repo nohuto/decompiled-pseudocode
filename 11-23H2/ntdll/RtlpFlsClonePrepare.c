@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpFlsClonePrepare @ 0x1801198CC
+ * XREFs of RtlpFlsClonePrepare @ 0x18011989C
  * Callers:
  *     RtlPrepareForProcessCloning @ 0x18009EA60 (RtlPrepareForProcessCloning.c)
  *     RtlCloneUserProcess @ 0x1800E2930 (RtlCloneUserProcess.c)
@@ -16,7 +16,7 @@ __int64 RtlpFlsClonePrepare()
   __int64 v3; // rbp
   int v4; // ecx
   __int64 v5; // r8
-  volatile signed __int64 *v6; // rcx
+  _RTL_SRWLOCK *v6; // rcx
   __int64 result; // rax
 
   v0 = qword_180187F28;
@@ -33,7 +33,7 @@ __int64 RtlpFlsClonePrepare()
         _BitScanReverse((unsigned int *)&v4, v2);
         v5 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v4 - 4) + 1);
         if ( v5 )
-          v6 = (volatile signed __int64 *)(v5 + 8 * ((v2 ^ (1 << v4)) + 2LL * (v2 ^ (1 << v4)) + 1));
+          v6 = (_RTL_SRWLOCK *)(v5 + 8 * ((v2 ^ (1 << v4)) + 2LL * (v2 ^ (1 << v4)) + 1));
         else
           v6 = 0LL;
         RtlAcquireSRWLockExclusive(v6);
@@ -42,12 +42,12 @@ __int64 RtlpFlsClonePrepare()
       }
       while ( v3 );
     }
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlAcquireSRWLockExclusive(&RtlpFlsContext);
     result = qword_180187F28;
     if ( (unsigned int)qword_180187F28 <= v0 )
       break;
     v0 = qword_180187F28;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   }
   return result;
 }

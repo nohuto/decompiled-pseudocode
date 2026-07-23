@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInitializeStackTraceDatabase @ 0x1800E599C
+ * XREFs of RtlpInitializeStackTraceDatabase @ 0x1800E0E4C
  * Callers:
- *     RtlControlStackTraceDataBase @ 0x1800E5934 (RtlControlStackTraceDataBase.c)
+ *     RtlControlStackTraceDataBase @ 0x1800E0DE4 (RtlControlStackTraceDataBase.c)
  * Callees:
- *     RtlStdInitializeStackDatabase @ 0x1800E5A10 (RtlStdInitializeStackDatabase.c)
- *     RtlHeapsStackCollection @ 0x1800E5C44 (RtlHeapsStackCollection.c)
- *     RtlStdDeleteStackDatabase @ 0x18011DB90 (RtlStdDeleteStackDatabase.c)
+ *     RtlStdInitializeStackDatabase @ 0x1800E0EC0 (RtlStdInitializeStackDatabase.c)
+ *     RtlHeapsStackCollection @ 0x1800E10F4 (RtlHeapsStackCollection.c)
+ *     RtlStdDeleteStackDatabase @ 0x18011BDC0 (RtlStdDeleteStackDatabase.c)
  */
 
 __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, __in
   v3 = RtlStdInitializeStackDatabase(a1, a2, a3, &v5);
   if ( v3 >= 0 )
   {
-    if ( _InterlockedCompareExchange64(&RtlpStackTraceDatabase, v5, 0LL) )
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpStackTraceDatabase, v5, 0LL) )
     {
       RtlStdDeleteStackDatabase(v5);
       return 3221225994LL;

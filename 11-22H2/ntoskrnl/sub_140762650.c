@@ -39,7 +39,7 @@ __int64 __fastcall sub_140762650(__int64 a1, __int64 a2, void **a3)
   _QWORD *v18; // rbx
   _QWORD *v19; // r10
   _QWORD *v20; // rdx
-  __int64 *v21; // r9
+  PVOID *v21; // r9
   __int64 v22; // rax
   _QWORD *v23; // rbx
   __int64 v24; // rcx
@@ -215,7 +215,7 @@ LABEL_43:
                   *((_QWORD *)v28 + 8) = *(_QWORD *)a2;
                   v20 = v18 + 5;
                   v18[5] = v17;
-                  v21 = v18 + 3;
+                  v21 = (PVOID *)(v18 + 3);
                   v18[3] = v36 + *(unsigned int *)(a2 + 288);
                   v22 = *(unsigned int *)(a2 + 312);
                   if ( (_DWORD)v22 )
@@ -225,7 +225,7 @@ LABEL_43:
                   v23 = v28;
                   *((_DWORD *)v28 + 18) = *(_DWORD *)(a2 + 320);
                   v23[6] = *(_QWORD *)(a2 + 272);
-                  v24 = *(_QWORD *)(a2 + 272) - *v21;
+                  v24 = *(_QWORD *)(a2 + 272) - (_QWORD)*v21;
                   v23[7] = v24;
                   Process = KeGetCurrentThread()->ApcState.Process;
                   if ( !Process[1].Affinity.StaticBitmap[30] )
@@ -239,10 +239,15 @@ LABEL_43:
 LABEL_52:
                     *(_QWORD *)*v20 = v24;
                   *(_QWORD *)(*v20 + 8LL) = v38;
-                  v4 = ZwFlushInstructionCache(-1LL, *v21);
+                  v4 = ZwFlushInstructionCache((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v21, *(unsigned int *)(a2 + 284));
                   if ( v4 >= 0 )
                   {
-                    if ( !*(_QWORD *)(a2 + 296) || (v4 = ZwFlushInstructionCache(-1LL, *((_QWORD *)v28 + 4)), v4 >= 0) )
+                    if ( !*(_QWORD *)(a2 + 296)
+                      || (v4 = ZwFlushInstructionCache(
+                                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                                 *((PVOID *)v28 + 4),
+                                 *(unsigned int *)(a2 + 308)),
+                          v4 >= 0) )
                     {
                       if ( a3 )
                       {

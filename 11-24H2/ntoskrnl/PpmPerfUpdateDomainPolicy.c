@@ -1,22 +1,22 @@
 /*
- * XREFs of PpmPerfUpdateDomainPolicy @ 0x140AC66D0
+ * XREFs of PpmPerfUpdateDomainPolicy @ 0x140AC40C8
  * Callers:
- *     PpmPerfRemoveMaximumOverride @ 0x14074FBC8 (PpmPerfRemoveMaximumOverride.c)
- *     PpmPerfSetMaximumOverride @ 0x14074FCE0 (PpmPerfSetMaximumOverride.c)
- *     PpmRegisterPerfStates @ 0x14074FED4 (PpmRegisterPerfStates.c)
- *     PpmUpdatePerfStates @ 0x140750C40 (PpmUpdatePerfStates.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
- *     PpmReapplyPerfPolicy @ 0x140AC77C4 (PpmReapplyPerfPolicy.c)
+ *     PpmPerfRemoveMaximumOverride @ 0x14074DEF8 (PpmPerfRemoveMaximumOverride.c)
+ *     PpmPerfSetMaximumOverride @ 0x14074E004 (PpmPerfSetMaximumOverride.c)
+ *     PpmRegisterPerfStates @ 0x14074E1F4 (PpmRegisterPerfStates.c)
+ *     PpmUpdatePerfStates @ 0x14074EF60 (PpmUpdatePerfStates.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
+ *     PpmReapplyPerfPolicy @ 0x140AC5250 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmPerfCalculateQosClassPolicies @ 0x140429AF0 (PpmPerfCalculateQosClassPolicies.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x1404579A4 (PpmPerfSetAllDomainsToUpdate.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x14048DA40 (PpmPerfUpdateQosDisableReasons.c)
- *     PpmPerfUpdateMultimediaPowerModel @ 0x1404AF8FC (PpmPerfUpdateMultimediaPowerModel.c)
- *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x1405D28DC (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
- *     PsRefreshUserPresencePpmPolicies @ 0x1405E53C0 (PsRefreshUserPresencePpmPolicies.c)
- *     PpmEventQosSupport @ 0x140A8BB94 (PpmEventQosSupport.c)
- *     PpmCheckApplyPerfConstraints @ 0x140A8E688 (PpmCheckApplyPerfConstraints.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x14044C454 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x140472694 (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x1404882D8 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmPerfUpdateMultimediaPowerModel @ 0x1404AA2EC (PpmPerfUpdateMultimediaPowerModel.c)
+ *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x1405CFFFC (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     PsRefreshUserPresencePpmPolicies @ 0x1405E28F8 (PsRefreshUserPresencePpmPolicies.c)
+ *     PpmEventQosSupport @ 0x140A88084 (PpmEventQosSupport.c)
+ *     PpmCheckApplyPerfConstraints @ 0x140A8ACF8 (PpmCheckApplyPerfConstraints.c)
  */
 
 void __fastcall PpmPerfUpdateDomainPolicy(char a1)
@@ -117,7 +117,7 @@ void __fastcall PpmPerfUpdateDomainPolicy(char a1)
   if ( v16 )
     PpmEventQosSupport(0);
   if ( (unsigned int)Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline() )
-    PsRefreshUserPresencePpmPolicies(v5, dword_140F0BA4C == 0);
+    PsRefreshUserPresencePpmPolicies(v5, dword_140F0B38C == 0);
   if ( v3 || v2 )
   {
     PpmPerfSetAllDomainsToUpdate();

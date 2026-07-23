@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryModuleInformation @ 0x1403F71C0
+ * XREFs of ExpQueryModuleInformation @ 0x1403F6080
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x1403F7370 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1403F6230 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformation(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4)
@@ -16,7 +16,7 @@ __int64 __fastcall ExpQueryModuleInformation(__int64 a1, _DWORD *a2, unsigned in
   unsigned int v11; // eax
   NTSTATUS v12; // eax
   char *v13; // rcx
-  STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
 
   v6 = 0;
   v7 = 0;

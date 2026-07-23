@@ -1,10 +1,10 @@
 /*
- * XREFs of KeIsNmiCallbackRegistered @ 0x140514240
+ * XREFs of KeIsNmiCallbackRegistered @ 0x140514480
  * Callers:
- *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054452C (MmRemoveImportOptimizationForDriverVerifier.c)
- *     MmRemoveImportOptimizationWorker @ 0x140544810 (MmRemoveImportOptimizationWorker.c)
+ *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054476C (MmRemoveImportOptimizationForDriverVerifier.c)
+ *     MmRemoveImportOptimizationWorker @ 0x140544A50 (MmRemoveImportOptimizationWorker.c)
  * Callees:
- *     KiEnumerateNmiSxCallback @ 0x140380E44 (KiEnumerateNmiSxCallback.c)
+ *     KiEnumerateNmiSxCallback @ 0x140380994 (KiEnumerateNmiSxCallback.c)
  */
 
 __int64 KeIsNmiCallbackRegistered()
@@ -22,8 +22,11 @@ __int64 KeIsNmiCallbackRegistered()
   v4 = 0LL;
   while ( (unsigned int)KiEnumerateNmiSxCallback(&v4, &CurrentIrql, &v3) )
   {
-    if ( (v3 < PsNtosImageBase || v3 >= PsNtosImageEnd) && (v3 < PsHalImageBase || v3 >= PsHalImageEnd) )
+    if ( (v3 < (unsigned __int64)PsNtosImageBase || v3 >= PsNtosImageEnd)
+      && (v3 < (unsigned __int64)PsHalImageBase || v3 >= PsHalImageEnd) )
+    {
       v1 = 1;
+    }
   }
   return v1;
 }

@@ -68,12 +68,12 @@ __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
   struct _KEVENT Object; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+80h] [rbp-80h] BYREF
-  STRING Buffer; // [rsp+90h] [rbp-70h] BYREF
+  _STRING Buffer; // [rsp+90h] [rbp-70h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
   _BYTE v45[20]; // [rsp+B0h] [rbp-50h] BYREF
   ULONG NumberOfBytes; // [rsp+C4h] [rbp-3Ch]
   SIZE_T NumberOfBytes_4; // [rsp+C8h] [rbp-38h] BYREF
-  char SourceString[64]; // [rsp+E0h] [rbp-20h] BYREF
+  CHAR SourceString[64]; // [rsp+E0h] [rbp-20h] BYREF
   wchar_t pszDest[64]; // [rsp+120h] [rbp+20h] BYREF
 
   v2 = (PDEVICE_OBJECT)IoArcTableListHead;

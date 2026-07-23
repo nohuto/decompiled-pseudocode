@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline @ 0x1405E9468
+ * XREFs of Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline @ 0x1405EBDD8
  * Callers:
- *     KiInitializeVelocity @ 0x140CCA1CC (KiInitializeVelocity.c)
+ *     KiInitializeVelocity @ 0x140CD02B4 (KiInitializeVelocity.c)
  * Callees:
- *     Feature_DisableQosGroupingForMediumQos__private_IsEnabledFallback @ 0x1405E94A4 (Feature_DisableQosGroupingForMediumQos__private_IsEnabledFallback.c)
+ *     Feature_DisableQosGroupingForMediumQos__private_IsEnabledFallback @ 0x1405EBE14 (Feature_DisableQosGroupingForMediumQos__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline()

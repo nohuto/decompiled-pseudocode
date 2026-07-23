@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocateVad @ 0x1408F82D8
+ * XREFs of MiAllocateVad @ 0x1408DC6F8
  * Callers:
- *     MiFreeVadRange @ 0x1403CDBD8 (MiFreeVadRange.c)
- *     MiCreatePlaceholderStorage @ 0x1408F8210 (MiCreatePlaceholderStorage.c)
- *     MiAllocateProcessVads @ 0x1408F8DC8 (MiAllocateProcessVads.c)
+ *     MiFreeVadRange @ 0x14026731C (MiFreeVadRange.c)
+ *     MiCreatePlaceholderStorage @ 0x1408DC630 (MiCreatePlaceholderStorage.c)
+ *     MiAllocateProcessVads @ 0x14091B168 (MiAllocateProcessVads.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiUpdateVadStartVpn @ 0x140449454 (MiUpdateVadStartVpn.c)
- *     MiAddSecureEntry @ 0x1409C3F30 (MiAddSecureEntry.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiUpdateVadStartVpn @ 0x140441BA4 (MiUpdateVadStartVpn.c)
+ *     MiAddSecureEntry @ 0x1408DC0A0 (MiAddSecureEntry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateVad(unsigned __int64 a1, unsigned __int64 a2, char a3)

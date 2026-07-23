@@ -13,7 +13,7 @@
  *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
  */
 
-char __fastcall IoInitSystem(__int64 a1)
+char __fastcall IoInitSystem(_QWORD *a1)
 {
   FeatureDeveloperVolume = 1;
   IoFsctlProcessMitigationEnabled = (unsigned int)Feature_FsctlProcessMitigation__private_IsEnabledNoReporting() != 0;

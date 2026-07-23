@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpTimerRegister @ 0x1403ABC00
+ * XREFs of HalpTimerRegister @ 0x1403AC990
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403AA5BC (HalpTimerRegisterBuiltinPlugins.c)
- *     HalpPmTimerDiscover @ 0x1403AA64C (HalpPmTimerDiscover.c)
- *     HalpSfiTimerDiscover @ 0x1403AA74C (HalpSfiTimerDiscover.c)
- *     HalpRtcDiscover @ 0x1403AA7D8 (HalpRtcDiscover.c)
- *     HalpApicTimerDiscover @ 0x1403AA91C (HalpApicTimerDiscover.c)
- *     HalpTscDiscover @ 0x1403AAA90 (HalpTscDiscover.c)
- *     HalpHpetDiscover @ 0x1403AB43C (HalpHpetDiscover.c)
- *     HalpWdatDiscover @ 0x1403AC0B0 (HalpWdatDiscover.c)
- *     HalpHvWatchdogDiscover @ 0x1403AC380 (HalpHvWatchdogDiscover.c)
- *     HalpArtDiscover @ 0x1403AC3DC (HalpArtDiscover.c)
- *     HalpHvDiscover @ 0x1403AC52C (HalpHvDiscover.c)
- *     HalpVpptTimerRegister @ 0x1404C0C98 (HalpVpptTimerRegister.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403AB34C (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpPmTimerDiscover @ 0x1403AB3DC (HalpPmTimerDiscover.c)
+ *     HalpSfiTimerDiscover @ 0x1403AB4DC (HalpSfiTimerDiscover.c)
+ *     HalpRtcDiscover @ 0x1403AB568 (HalpRtcDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403AB6AC (HalpApicTimerDiscover.c)
+ *     HalpTscDiscover @ 0x1403AB820 (HalpTscDiscover.c)
+ *     HalpHpetDiscover @ 0x1403AC1CC (HalpHpetDiscover.c)
+ *     HalpWdatDiscover @ 0x1403ACE40 (HalpWdatDiscover.c)
+ *     HalpHvWatchdogDiscover @ 0x1403AD110 (HalpHvWatchdogDiscover.c)
+ *     HalpArtDiscover @ 0x1403AD16C (HalpArtDiscover.c)
+ *     HalpHvDiscover @ 0x1403AD2BC (HalpHvDiscover.c)
+ *     HalpVpptTimerRegister @ 0x1404C0ED8 (HalpVpptTimerRegister.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     HalpTimerBuildKnownResourceIdString @ 0x1403ABF14 (HalpTimerBuildKnownResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpPciGetHpetInterruptSource @ 0x140A8E120 (HalpPciGetHpetInterruptSource.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403ACCA4 (HalpTimerBuildKnownResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB428 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpPciGetHpetInterruptSource @ 0x140A8F120 (HalpPciGetHpetInterruptSource.c)
  */
 
 __int64 __fastcall HalpTimerRegister(__int64 a1, UNICODE_STRING *a2)
@@ -148,14 +148,14 @@ __int64 __fastcall HalpTimerRegister(__int64 a1, UNICODE_STRING *a2)
           HalpPciGetHpetInterruptSource(v15, v11 + 8, (v10 + 303) & 0xFFFFFFFFFFFFFFF8uLL);
         }
       }
-      v16 = (__int64 *)qword_140C4C168;
-      if ( *(ULONG_PTR **)qword_140C4C168 != &HalpRegisteredTimers )
+      v16 = (__int64 *)qword_140C4C1A8;
+      if ( *(ULONG_PTR **)qword_140C4C1A8 != &HalpRegisteredTimers )
         __fastfail(3u);
       LODWORD(HalpRegisteredTimerCount) = HalpRegisteredTimerCount + 1;
       *(_QWORD *)v10 = &HalpRegisteredTimers;
       *(_QWORD *)(v10 + 8) = v16;
       *v16 = v10;
-      qword_140C4C168 = v10;
+      qword_140C4C1A8 = v10;
       if ( (*(_DWORD *)(v10 + 224) & 0x100000) != 0 )
         HalpTimerAuxiliaryClockEnabled = 1;
     }

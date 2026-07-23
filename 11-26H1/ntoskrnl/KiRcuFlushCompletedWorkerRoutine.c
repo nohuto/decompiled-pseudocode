@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRcuFlushCompletedWorkerRoutine @ 0x1405F0100
+ * XREFs of KiRcuFlushCompletedWorkerRoutine @ 0x1405F2A70
  * Callers:
  *     <none>
  * Callees:
- *     KiRcuFlushCompleted @ 0x140503B7C (KiRcuFlushCompleted.c)
+ *     KiRcuFlushCompleted @ 0x1404FD44C (KiRcuFlushCompleted.c)
  */
 
 __int64 KiRcuFlushCompletedWorkerRoutine()
@@ -12,9 +12,12 @@ __int64 KiRcuFlushCompletedWorkerRoutine()
 
   do
   {
-    _InterlockedAnd(&dword_140F24FA0, 0xFFFFFFFD);
+    _InterlockedAnd((volatile signed __int32 *)&KiDpcCorralLock.UserAffinityPrimaryGroup, 0xFFFFFFFD);
     KiRcuFlushCompleted(1);
-    result = (unsigned int)_InterlockedCompareExchange(&dword_140F24FA0, 0, 1);
+    result = (unsigned int)_InterlockedCompareExchange(
+                             (volatile signed __int32 *)&KiDpcCorralLock.UserAffinityPrimaryGroup,
+                             0,
+                             1);
   }
   while ( (_DWORD)result != 1 );
   return result;

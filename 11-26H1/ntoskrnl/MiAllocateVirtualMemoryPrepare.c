@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1409F2C94
+ * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1409EF464
  * Callers:
- *     MmAllocateUserStack @ 0x1409F2008 (MmAllocateUserStack.c)
- *     MmAllocateVirtualMemory @ 0x1409F22A0 (MmAllocateVirtualMemory.c)
- *     NtAllocateVirtualMemory @ 0x1409F2980 (NtAllocateVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x1409EE7D8 (MmAllocateUserStack.c)
+ *     MmAllocateVirtualMemory @ 0x1409EEA70 (MmAllocateVirtualMemory.c)
+ *     NtAllocateVirtualMemory @ 0x1409EF150 (NtAllocateVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     MiHugePagesSupported @ 0x1404CFA24 (MiHugePagesSupported.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     MiGetUserReservationHighestAddress @ 0x1409CB5D0 (MiGetUserReservationHighestAddress.c)
- *     MiValidateAllocationType @ 0x1409F3B90 (MiValidateAllocationType.c)
- *     MiValidateZeroBits @ 0x1409F3F40 (MiValidateZeroBits.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     MiHugePagesSupported @ 0x1404C9454 (MiHugePagesSupported.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiGetUserReservationHighestAddress @ 0x14099C5B0 (MiGetUserReservationHighestAddress.c)
+ *     MiValidateAllocationType @ 0x1409F0360 (MiValidateAllocationType.c)
+ *     MiValidateZeroBits @ 0x1409F0710 (MiValidateZeroBits.c)
  */
 
 __int64 MiAllocateVirtualMemoryPrepare(ULONG_PTR a1, unsigned __int64 a2, ...)
@@ -92,7 +92,7 @@ __int64 MiAllocateVirtualMemoryPrepare(ULONG_PTR a1, unsigned __int64 a2, ...)
   Object = 0LL;
   if ( a1 != -1LL )
   {
-    v8 = ObpReferenceObjectByHandleWithTag(a1, 8LL, PsProcessType, v46, 0x6D566D4Du, &Object, 0LL, 0LL);
+    v8 = ObpReferenceObjectByHandleWithTag(a1, 8, (__int64)PsProcessType, v46, 0x6D566D4Du, &Object, 0LL, 0LL);
     if ( v8 < 0 )
       goto LABEL_63;
     p_Lock = Object;

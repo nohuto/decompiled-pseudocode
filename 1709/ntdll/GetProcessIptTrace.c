@@ -12,12 +12,12 @@ NTSTATUS __fastcall GetProcessIptTrace(__int64 a1, void *a2, ULONG a3)
 {
   NTSTATUS result; // eax
   NTSTATUS v7; // ebx
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-29h] BYREF
-  struct _IO_STATUS_BLOCK v9; // [rsp+70h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-29h] BYREF
+  _IO_STATUS_BLOCK v9; // [rsp+70h] [rbp-19h] BYREF
   _DWORD InputBuffer[4]; // [rsp+80h] [rbp-9h] BYREF
   __int16 v11; // [rsp+90h] [rbp+7h]
   __int64 v12; // [rsp+98h] [rbp+Fh]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp+17h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp+17h] BYREF
   HANDLE FileHandle; // [rsp+108h] [rbp+7Fh] BYREF
 
   if ( a3 < 8 )

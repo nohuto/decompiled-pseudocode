@@ -6,26 +6,15 @@
  *     <none>
  */
 
-unsigned int __stdcall RtlGetNtVersionNumbers(unsigned int *a1, unsigned int *a2, unsigned int *a3)
+void __cdecl RtlGetNtVersionNumbers(PULONG NtMajorVersion, PULONG NtMinorVersion, PULONG NtBuildNumber)
 {
   struct _PEB *v3; // ecx
-  unsigned int result; // eax
 
   v3 = NtCurrentPeb();
-  if ( a1 )
-  {
-    result = v3->OSMajorVersion;
-    *a1 = result;
-  }
-  if ( a2 )
-  {
-    result = v3->OSMinorVersion;
-    *a2 = result;
-  }
-  if ( a3 )
-  {
-    result = v3->OSBuildNumber | 0xF0000000;
-    *a3 = result;
-  }
-  return result;
+  if ( NtMajorVersion )
+    *NtMajorVersion = v3->OSMajorVersion;
+  if ( NtMinorVersion )
+    *NtMinorVersion = v3->OSMinorVersion;
+  if ( NtBuildNumber )
+    *NtBuildNumber = v3->OSBuildNumber | 0xF0000000;
 }

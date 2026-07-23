@@ -11,55 +11,55 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlLookupAtomInAtomTable(int a1, _WORD *a2, _WORD *a3)
+NTSTATUS __cdecl RtlLookupAtomInAtomTable(PVOID AtomTableHandle, PWSTR AtomName, PRTL_ATOM Atom)
 {
   int v3; // ecx
-  int v4; // esi
+  NTSTATUS v4; // esi
   int v5; // edi
-  _WORD *v6; // ecx
-  __int16 v7; // ax
+  PRTL_ATOM v6; // ecx
+  USHORT v7; // ax
   _BYTE v9[4]; // [esp+10h] [ebp-28h] BYREF
-  int v10; // [esp+18h] [ebp-20h]
-  int v11; // [esp+1Ch] [ebp-1Ch] BYREF
+  NTSTATUS v10; // [esp+18h] [ebp-20h]
+  USHORT IntegerAtom[2]; // [esp+1Ch] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+20h] [ebp-18h]
 
-  if ( (unsigned __int8)RtlpLockAtomTable(a1) )
+  if ( (unsigned __int8)RtlpLockAtomTable(AtomTableHandle) )
   {
     ms_exc.registration.TryLevel = 0;
-    if ( (unsigned __int8)RtlGetIntegerAtom(a2, &v11) )
+    if ( RtlGetIntegerAtom(AtomName, IntegerAtom) )
     {
-      v7 = v11;
-      if ( (unsigned __int16)v11 < 0xC000u )
+      v7 = IntegerAtom[0];
+      if ( IntegerAtom[0] < 0xC000u )
       {
         v4 = 0;
       }
       else
       {
         v7 = 0;
-        LOWORD(v11) = 0;
+        IntegerAtom[0] = 0;
         v4 = -1073741811;
       }
       v10 = v4;
-      v6 = a3;
-      if ( !a3 )
+      v6 = Atom;
+      if ( !Atom )
         goto LABEL_10;
       goto LABEL_9;
     }
-    if ( *a2 )
+    if ( *AtomName )
     {
-      v4 = RtlpHashStringToAtom(v3, 0, 0, v9, &v11);
+      v4 = RtlpHashStringToAtom(v3, 0, 0, v9, IntegerAtom);
       v10 = v4;
       if ( v4 < 0 )
         goto LABEL_10;
-      v5 = v11;
-      if ( v11 )
+      v5 = *(_DWORD *)IntegerAtom;
+      if ( *(_DWORD *)IntegerAtom )
       {
-        if ( RtlpAtomMapAtomToHandleEntry(a1, *(unsigned __int16 *)(v11 + 4)) )
+        if ( RtlpAtomMapAtomToHandleEntry(AtomTableHandle, *(unsigned __int16 *)(*(_DWORD *)IntegerAtom + 4)) )
         {
           v4 = 0;
           v10 = 0;
-          v6 = a3;
-          if ( a3 )
+          v6 = Atom;
+          if ( Atom )
           {
             v7 = *(_WORD *)(v5 + 6);
 LABEL_9:
@@ -67,7 +67,7 @@ LABEL_9:
           }
 LABEL_10:
           ms_exc.registration.TryLevel = -2;
-          RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 2);
           return v4;
         }
         v4 = -1073741816;

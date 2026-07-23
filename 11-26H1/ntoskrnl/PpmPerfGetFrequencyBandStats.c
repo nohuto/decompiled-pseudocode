@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfGetFrequencyBandStats @ 0x140AC9B88
+ * XREFs of PpmPerfGetFrequencyBandStats @ 0x140ACBC98
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
  */
 
 __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1, __int64 a2, unsigned int a3)
@@ -23,11 +23,11 @@ __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1, __int64 a2, unsigned
   _QWORD *v14; // rcx
   __int64 v15; // r8
 
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   v4 = 0;
   if ( a1 )
   {
-    v5 = qword_140E0B638[0];
+    v5 = PpmCheckRegistered.Bitmap[0];
     LOWORD(v6) = 0;
     while ( 1 )
     {
@@ -35,8 +35,7 @@ __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1, __int64 a2, unsigned
       {
         _BitScanForward64(&v7, v5);
         v5 &= ~(1LL << v7);
-        Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                         + 64 * (unsigned __int16)v6
+        Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v6].Flink
                          + (unsigned int)(unsigned __int8)v7));
         v9 = *(_QWORD *)(Prcb + 35280);
         if ( v9 )
@@ -63,15 +62,15 @@ __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1, __int64 a2, unsigned
         }
       }
       v6 = (unsigned __int16)(v6 + 1);
-      if ( (unsigned int)v6 >= LOWORD(PpmCheckRegistered[0]) )
+      if ( (unsigned int)v6 >= PpmCheckRegistered.Count )
         break;
-      v5 = qword_140E0B638[v6];
+      v5 = PpmCheckRegistered.Bitmap[v6];
     }
   }
   else
   {
     v4 = -1073741811;
   }
-  PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   return v4;
 }

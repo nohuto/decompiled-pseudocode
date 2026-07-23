@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpQueueWorkItem @ 0x140381D74
+ * XREFs of ExpQueueWorkItem @ 0x140383B24
  * Callers:
- *     ExQueueWorkItemExFromIo @ 0x1402030B4 (ExQueueWorkItemExFromIo.c)
- *     ExQueueWorkItemToPrivatePool @ 0x140203E58 (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemEx @ 0x140203EF0 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemFromIo @ 0x140381B60 (ExQueueWorkItemFromIo.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemExFromIo @ 0x140203194 (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x140203F38 (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemEx @ 0x140203FD0 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemFromIo @ 0x140383910 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpPartitionCreateThreadIfNecessary @ 0x1402DF350 (ExpPartitionCreateThreadIfNecessary.c)
- *     KeInsertPriQueue @ 0x1403814C0 (KeInsertPriQueue.c)
- *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140382244 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     MmGetNextNode @ 0x14045D380 (MmGetNextNode.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x1402C1160 (ExpPartitionCreateThreadIfNecessary.c)
+ *     KeInsertPriQueue @ 0x140383270 (KeInsertPriQueue.c)
+ *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140383FF4 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     MmGetNextNode @ 0x140456D80 (MmGetNextNode.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall ExpQueueWorkItem(__int64 a1, __int64 a2, int a3, unsigned int a4, int a5)
@@ -60,7 +60,7 @@ char __fastcall ExpQueueWorkItem(__int64 a1, __int64 a2, int a3, unsigned int a4
   if ( a4 >= (unsigned __int16)KeNumberNodes || a4 == (_DWORD)v12 )
   {
     v13 = (int *)KeNodeBlock[v12];
-    if ( !v13 || v13 == &dword_140F268E8 )
+    if ( !v13 || v13 == &dword_140F26D28 )
       v13 = 0LL;
     WorkSubQueueIndex = KeGetCurrentPrcb()->WorkSubQueueIndex;
   }
@@ -104,7 +104,7 @@ char __fastcall ExpQueueWorkItem(__int64 a1, __int64 a2, int a3, unsigned int a4
         v18 = *(_QWORD *)(*(_QWORD *)(v10 + 8)
                         + 8LL
                         * (WorkSubQueueIndex
-                         + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (v15 + 8 * (_DWORD)v17)));
+                         + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v15 + 8 * (_DWORD)v17)));
         if ( (v18 & 1) == 0 )
         {
           if ( v18 )
@@ -117,7 +117,7 @@ char __fastcall ExpQueueWorkItem(__int64 a1, __int64 a2, int a3, unsigned int a4
               v16 = 0LL;
               v26 = *(_QWORD *)(v10 + 8);
               v27 = WorkSubQueueIndex
-                  + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32]
+                  + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72]
                   * (v15 + 8 * *(unsigned __int16 *)v13);
               if ( (*(_QWORD *)(v26 + 8 * v27) & 1) == 0 )
                 v16 = *(_QWORD *)(v26 + 8 * v27);

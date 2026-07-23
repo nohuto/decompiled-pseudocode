@@ -34,7 +34,7 @@ void __fastcall HvpRemoveFreeCellHint(
   ULONG v18; // ebp
   __int64 v19; // r14
   int v20; // ebx
-  struct _RTL_BITMAP *v21; // rdi
+  _RTL_BITMAP *v21; // rdi
   ULONG SetBits; // eax
   int v23; // ecx
   unsigned int v24; // ecx
@@ -91,7 +91,7 @@ void __fastcall HvpRemoveFreeCellHint(
   v18 = v12 >> 12;
   v19 = 24 * v10;
   v20 = 1 << v10;
-  v21 = (struct _RTL_BITMAP *)(24 * v10 + 632 * v5 + BugCheckParameter2 + 312);
+  v21 = (_RTL_BITMAP *)(24 * v10 + 632 * v5 + BugCheckParameter2 + 312);
   if ( v7 )
   {
     *(_DWORD *)(v17 + BugCheckParameter2 + 896) |= v20;

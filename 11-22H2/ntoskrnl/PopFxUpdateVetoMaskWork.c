@@ -49,7 +49,7 @@ signed __int32 __fastcall PopFxUpdateVetoMaskWork(__int64 P)
     PoFxIdleDevice(v4);
     PopFxReleaseDevice(v1);
     ExFreePoolWithTag((PVOID)P, 0x4D584650u);
-    ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL);
+    ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopFxUpdateDripsConstraintContext, 0LL);
     if ( !--dword_140C3EC5C )
       KeSetEvent(&stru_140C3EC60, 0, 0);

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslCopyProtectedPage @ 0x1404CA3C0
+ * XREFs of VslCopyProtectedPage @ 0x1404C3DF0
  * Callers:
- *     KeCopyPrivilegedPage @ 0x1404CA384 (KeCopyPrivilegedPage.c)
+ *     KeCopyPrivilegedPage @ 0x1404C3DB4 (KeCopyPrivilegedPage.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslCopyProtectedPage(__int64 a1, __int128 *a2, __int64 a3, __int128 *a4, __int64 a5, char a6)

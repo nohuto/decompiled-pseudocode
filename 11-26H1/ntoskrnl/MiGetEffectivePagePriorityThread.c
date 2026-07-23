@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetEffectivePagePriorityThread @ 0x1403719B0
+ * XREFs of MiGetEffectivePagePriorityThread @ 0x140373760
  * Callers:
- *     MiSwitchToTransition @ 0x1402A2130 (MiSwitchToTransition.c)
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiLockVirtualMemoryVa @ 0x140318C10 (MiLockVirtualMemoryVa.c)
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
- *     MiUnlockWsle @ 0x140324658 (MiUnlockWsle.c)
- *     MiInitializeImageProtos @ 0x140338604 (MiInitializeImageProtos.c)
- *     MiGetPageForHeader @ 0x14033897C (MiGetPageForHeader.c)
- *     MmCopyMemory @ 0x140339450 (MmCopyMemory.c)
- *     MiCopyOnWriteInitializeTargetPage @ 0x14036B648 (MiCopyOnWriteInitializeTargetPage.c)
- *     MiAllocateInPageSupport @ 0x140371500 (MiAllocateInPageSupport.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiSetPagesModified @ 0x14045BE6C (MiSetPagesModified.c)
- *     MiPrefetchRestOfCluster @ 0x1404CC6B0 (MiPrefetchRestOfCluster.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     NtSetInformationVirtualMemory @ 0x1408F18A0 (NtSetInformationVirtualMemory.c)
- *     MmPrefetchVirtualAddresses @ 0x140A4E9F0 (MmPrefetchVirtualAddresses.c)
+ *     MiSwitchToTransition @ 0x1402A1680 (MiSwitchToTransition.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiLockVirtualMemoryVa @ 0x14031AC40 (MiLockVirtualMemoryVa.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
+ *     MiUnlockWsle @ 0x140326688 (MiUnlockWsle.c)
+ *     MiInitializeImageProtos @ 0x14033A684 (MiInitializeImageProtos.c)
+ *     MiGetPageForHeader @ 0x14033A9FC (MiGetPageForHeader.c)
+ *     MmCopyMemory @ 0x14033B4D0 (MmCopyMemory.c)
+ *     MiCopyOnWriteInitializeTargetPage @ 0x14036D3E8 (MiCopyOnWriteInitializeTargetPage.c)
+ *     MiAllocateInPageSupport @ 0x1403732B0 (MiAllocateInPageSupport.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiSetPagesModified @ 0x140455A14 (MiSetPagesModified.c)
+ *     MiPrefetchRestOfCluster @ 0x1404C5E4C (MiPrefetchRestOfCluster.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     NtSetInformationVirtualMemory @ 0x1408F7E60 (NtSetInformationVirtualMemory.c)
+ *     MmPrefetchVirtualAddresses @ 0x140A57CE0 (MmPrefetchVirtualAddresses.c)
  * Callees:
  *     <none>
  */

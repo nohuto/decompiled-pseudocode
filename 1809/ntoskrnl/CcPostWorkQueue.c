@@ -1,16 +1,16 @@
 /*
- * XREFs of CcPostWorkQueue @ 0x1400D5FF8
+ * XREFs of CcPostWorkQueue @ 0x1400D6078
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14007D960 (CcNotifyOfMappedWrite.c)
- *     CcScheduleReadAheadEx @ 0x14008DFD0 (CcScheduleReadAheadEx.c)
- *     CcLazyWriteScan @ 0x1400D575C (CcLazyWriteScan.c)
- *     CcQueueLazyWriteScanThread @ 0x140183840 (CcQueueLazyWriteScanThread.c)
+ *     CcNotifyOfMappedWrite @ 0x14007D950 (CcNotifyOfMappedWrite.c)
+ *     CcScheduleReadAheadEx @ 0x14008DEF0 (CcScheduleReadAheadEx.c)
+ *     CcLazyWriteScan @ 0x1400D57DC (CcLazyWriteScan.c)
+ *     CcQueueLazyWriteScanThread @ 0x140183980 (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140187B58 (CcPerfLogWorkItemEnqueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140187C98 (CcPerfLogWorkItemEnqueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcPostWorkQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -29,7 +29,7 @@ __int64 __fastcall CcPostWorkQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a
 
   v4 = *(_QWORD *)(a1 + 128);
   v5 = 0LL;
-  if ( (xmmword_140541350 & 0x20000) != 0 )
+  if ( (xmmword_140542350 & 0x20000) != 0 )
   {
     if ( ((*(_BYTE *)(a1 + 120) - 2) & 0xFD) != 0 )
       a4 = 0LL;

@@ -5,7 +5,7 @@
  *     BgpDisplayCharacterGetContext @ 0x140AEE4B8 (BgpDisplayCharacterGetContext.c)
  *     BgpDisplayCharacterDestroyContext @ 0x140AEF564 (BgpDisplayCharacterDestroyContext.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  *     RaspClearCache @ 0x140AED540 (RaspClearCache.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  */
@@ -47,7 +47,7 @@ FatalListEntryError_124:
           goto FatalListEntryError_124;
         v5 = *(_QWORD *)TxtpTextCache;
       }
-      dword_140C04410 = 0;
+      dword_140C043D8 = 0;
       if ( RasterizerInitialized )
         RaspClearCache();
     }

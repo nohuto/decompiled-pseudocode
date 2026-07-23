@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x140501064
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1405015B4
  * Callers:
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140510504 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140510A54 (HalpDmaAllocateMapRegistersAtHighLevel.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x1403B9834 (HalpDmaGetAdapterVersion.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3 @ 0x1404FF4A8 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2 @ 0x140515EC4 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x1403B9A14 (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3 @ 0x1404FF9F8 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2 @ 0x140516414 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel(__int64 a1)

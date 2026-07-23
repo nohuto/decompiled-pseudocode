@@ -28,14 +28,14 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
 {
   HANDLE v1; // r14
   char v2; // bp
-  char v4; // di
+  unsigned __int8 v4; // di
   __int64 *v5; // rbx
   __int64 v6; // rax
   struct _TEB *result; // rax
   __int64 v8; // rax
   __int64 v9; // rax
 
-  v1 = (HANDLE)LdrpWorkCompleteEvent;
+  v1 = LdrpWorkCompleteEvent;
   v2 = 0;
   if ( !a1 )
     v1 = LdrpLoadCompleteEvent;
@@ -75,7 +75,7 @@ LABEL_16:
       if ( &LdrpWorkQueue == v5 )
         NtWaitForSingleObject(v1, 0, 0LL);
       else
-        LdrpProcessWork((_BYTE)v5 - 64);
+        LdrpProcessWork(v5 - 8, v4);
     }
     if ( LdrpWorkInProgress != a1 )
       goto LABEL_16;

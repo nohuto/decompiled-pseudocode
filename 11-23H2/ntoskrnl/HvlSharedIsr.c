@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlSharedIsr @ 0x14045F360
+ * XREFs of HvlSharedIsr @ 0x14045F760
  * Callers:
- *     HvlEnlightenProcessor @ 0x1403828D0 (HvlEnlightenProcessor.c)
- *     KiHvInterruptSubDispatch @ 0x140426860 (KiHvInterruptSubDispatch.c)
+ *     HvlEnlightenProcessor @ 0x140382A70 (HvlEnlightenProcessor.c)
+ *     KiHvInterruptSubDispatch @ 0x140426BF0 (KiHvInterruptSubDispatch.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     HvlpGetLpcbByLpIndex @ 0x1403CEA18 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x14045F450 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlpHandleIommuFaultMessage @ 0x14054824C (HvlpHandleIommuFaultMessage.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403CEBF8 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x14045F850 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpHandleIommuFaultMessage @ 0x14054890C (HvlpHandleIommuFaultMessage.c)
  */
 
 char __fastcall HvlSharedIsr(__int64 a1)

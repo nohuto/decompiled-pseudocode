@@ -10,26 +10,25 @@
  *     _TppAdjustRunningThreadGoalWithLock@4 @ 0x4B384257 (_TppAdjustRunningThreadGoalWithLock@4.c)
  */
 
-int __stdcall TpSetPoolThreadCpuSets(int a1, int a2, int a3)
+NTSTATUS __stdcall TpSetPoolThreadCpuSets(_RTL_SRWLOCK *a1, PVOID WorkerFactoryInformation, int a3)
 {
-  int v4; // [esp-10h] [ebp-2Ch]
-  int v5; // [esp+10h] [ebp-Ch] BYREF
-  int v6; // [esp+14h] [ebp-8h]
-  int v7; // [esp+18h] [ebp-4h]
+  void *Ptr; // [esp-10h] [ebp-2Ch]
+  _RTL_BITMAP BitMapHeader; // [esp+10h] [ebp-Ch] BYREF
+  NTSTATUS v6; // [esp+18h] [ebp-4h]
 
-  if ( !a1 || !a2 )
+  if ( !a1 || !WorkerFactoryInformation )
     return -1073741811;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 44));
-  v4 = *(_DWORD *)(a1 + 36);
-  v6 = 8 * a3;
-  v7 = ZwSetInformationWorkerFactory(v4, 15, a2, 8 * a3);
-  if ( v7 >= 0 )
+  RtlAcquireSRWLockExclusive(a1 + 11);
+  Ptr = a1[9].Ptr;
+  BitMapHeader.Buffer = (unsigned int *)(8 * a3);
+  v6 = ZwSetInformationWorkerFactory(Ptr, WorkerFactoryThreadCpuSets, WorkerFactoryInformation, 8 * a3);
+  if ( v6 >= 0 )
   {
-    v5 = v6;
-    v6 = a2;
-    *(_DWORD *)(a1 + 272) = RtlNumberOfSetBits(&v5);
+    BitMapHeader.SizeOfBitMap = (unsigned int)BitMapHeader.Buffer;
+    BitMapHeader.Buffer = (unsigned int *)WorkerFactoryInformation;
+    a1[68].Value = RtlNumberOfSetBits(&BitMapHeader);
     TppAdjustRunningThreadGoalWithLock(a1);
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 44));
-  return v7;
+  RtlReleaseSRWLockExclusive(a1 + 11);
+  return v6;
 }

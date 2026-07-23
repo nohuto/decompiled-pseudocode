@@ -1,9 +1,9 @@
 /*
- * XREFs of SeComputeAutoInheritByObjectType @ 0x140455A90
+ * XREFs of SeComputeAutoInheritByObjectType @ 0x14044DBC0
  * Callers:
  *     <none>
  * Callees:
- *     SeComputeAutoInheritByObjectTypeEx @ 0x140455AC0 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x14044DBF0 (SeComputeAutoInheritByObjectTypeEx.c)
  */
 
 ULONG __stdcall SeComputeAutoInheritByObjectType(
@@ -11,14 +11,14 @@ ULONG __stdcall SeComputeAutoInheritByObjectType(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         PSECURITY_DESCRIPTOR ParentSecurityDescriptor)
 {
-  ULONG v4; // [rsp+58h] [rbp+20h] BYREF
+  int v4; // [rsp+58h] [rbp+20h] BYREF
 
   v4 = 0;
   SeComputeAutoInheritByObjectTypeEx(
-    (_DWORD)ObjectType,
-    (_DWORD)SecurityDescriptor,
-    (_DWORD)ParentSecurityDescriptor,
-    (unsigned int)&v4,
-    0LL);
+    (int)ObjectType,
+    (int)SecurityDescriptor,
+    (int)ParentSecurityDescriptor,
+    (int)&v4,
+    0);
   return v4;
 }

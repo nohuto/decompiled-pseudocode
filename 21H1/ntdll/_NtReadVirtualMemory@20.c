@@ -13,7 +13,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtReadVirtualMemory(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl NtReadVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
   return Wow64SystemServiceCall();
 }

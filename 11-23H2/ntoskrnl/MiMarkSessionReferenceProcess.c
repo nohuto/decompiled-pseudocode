@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkSessionReferenceProcess @ 0x14032EF10
+ * XREFs of MiMarkSessionReferenceProcess @ 0x14032F1A0
  * Callers:
- *     MiSessionCreate @ 0x1407A900C (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x1407A91FC (MiSessionCreate.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSessionAddProcess @ 0x1407A9FB8 (MiSessionAddProcess.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSessionAddProcess @ 0x1407AA1A8 (MiSessionAddProcess.c)
  */
 
 __int64 __fastcall MiMarkSessionReferenceProcess(__int64 a1, __int64 a2)
@@ -39,10 +39,10 @@ __int64 __fastcall MiMarkSessionReferenceProcess(__int64 a1, __int64 a2)
   *(_QWORD *)(v4 + 8) = v5;
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && LockHandle.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

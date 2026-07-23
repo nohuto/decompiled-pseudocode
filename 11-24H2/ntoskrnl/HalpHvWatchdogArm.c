@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpHvWatchdogArm @ 0x1403BC810
+ * XREFs of HalpHvWatchdogArm @ 0x140375C90
  * Callers:
- *     HalpTimerClockArm @ 0x1403BC1E0 (HalpTimerClockArm.c)
- *     HalpSetTimer @ 0x1403BC5B0 (HalpSetTimer.c)
+ *     HalpTimerClockArm @ 0x140375660 (HalpTimerClockArm.c)
+ *     HalpSetTimer @ 0x140375A30 (HalpSetTimer.c)
  * Callees:
  *     <none>
  */

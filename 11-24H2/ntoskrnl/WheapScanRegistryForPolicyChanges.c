@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapScanRegistryForPolicyChanges @ 0x1407C8D68
+ * XREFs of WheapScanRegistryForPolicyChanges @ 0x1407C9258
  * Callers:
- *     WheaRegChangeNotifyCallback @ 0x1407C8A60 (WheaRegChangeNotifyCallback.c)
- *     WheapLoadPolicy @ 0x140C44C40 (WheapLoadPolicy.c)
+ *     WheaRegChangeNotifyCallback @ 0x1407C8F50 (WheaRegChangeNotifyCallback.c)
+ *     WheapLoadPolicy @ 0x140C46D90 (WheapLoadPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     WheapSetPolicyValue @ 0x1407C8E4C (WheapSetPolicyValue.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     WheapSetPolicyValue @ 0x1407C933C (WheapSetPolicyValue.c)
  */
 
 void WheapScanRegistryForPolicyChanges()
@@ -29,7 +29,7 @@ void WheapScanRegistryForPolicyChanges()
   if ( WheapDispatchPtr.Vpb )
   {
     v0 = 0;
-    v1 = &unk_140E0954C;
+    v1 = &unk_140E095BC;
     do
     {
       RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(v1 - 28));

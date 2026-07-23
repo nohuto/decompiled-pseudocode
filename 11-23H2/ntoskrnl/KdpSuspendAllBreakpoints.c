@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpSuspendAllBreakpoints @ 0x140AB5D04
  * Callers:
- *     KdDisableDebuggerWithLock @ 0x140567528 (KdDisableDebuggerWithLock.c)
+ *     KdDisableDebuggerWithLock @ 0x140567BE8 (KdDisableDebuggerWithLock.c)
  * Callees:
  *     KdpLowWriteContent @ 0x140AB59EC (KdpLowWriteContent.c)
  */

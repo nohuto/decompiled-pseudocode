@@ -13,15 +13,15 @@
  */
 
 __int64 __fastcall DifZwAlpcAcceptConnectPortWrapper(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        char a9)
+        HANDLE *a1,
+        void *a2,
+        ULONG a3,
+        OBJECT_ATTRIBUTES *a4,
+        _ALPC_PORT_ATTRIBUTES *PortAttributes,
+        PVOID PortContext,
+        _PORT_MESSAGE *ConnectionRequest,
+        _ALPC_MESSAGE_ATTRIBUTES *ConnectionMessageAttributes,
+        BOOLEAN AcceptConnection)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v13; // rsi
@@ -33,15 +33,15 @@ __int64 __fastcall DifZwAlpcAcceptConnectPortWrapper(
   _QWORD **v19; // rsi
   _QWORD *j; // rbx
   PVOID v22; // [rsp+58h] [rbp-51h] BYREF
-  char v23; // [rsp+60h] [rbp-49h]
-  __int64 v24; // [rsp+68h] [rbp-41h]
-  __int64 v25; // [rsp+70h] [rbp-39h]
-  __int64 v26; // [rsp+78h] [rbp-31h]
-  __int64 v27; // [rsp+80h] [rbp-29h]
-  __int64 v28; // [rsp+88h] [rbp-21h]
-  unsigned int v29; // [rsp+90h] [rbp-19h]
-  __int64 v30; // [rsp+98h] [rbp-11h]
-  __int64 v31; // [rsp+A0h] [rbp-9h]
+  BOOLEAN v23; // [rsp+60h] [rbp-49h]
+  _ALPC_MESSAGE_ATTRIBUTES *v24; // [rsp+68h] [rbp-41h]
+  _PORT_MESSAGE *v25; // [rsp+70h] [rbp-39h]
+  PVOID v26; // [rsp+78h] [rbp-31h]
+  _ALPC_PORT_ATTRIBUTES *v27; // [rsp+80h] [rbp-29h]
+  OBJECT_ATTRIBUTES *v28; // [rsp+88h] [rbp-21h]
+  ULONG v29; // [rsp+90h] [rbp-19h]
+  void *v30; // [rsp+98h] [rbp-11h]
+  HANDLE *v31; // [rsp+A0h] [rbp-9h]
   unsigned int v32; // [rsp+A8h] [rbp-1h]
   void *retaddr; // [rsp+E0h] [rbp+37h]
 
@@ -65,11 +65,11 @@ __int64 __fastcall DifZwAlpcAcceptConnectPortWrapper(
 LABEL_7:
   v16 = 0;
   v31 = a1;
-  v27 = a5;
-  v26 = a6;
-  v25 = a7;
-  v24 = a8;
-  v23 = a9;
+  v27 = PortAttributes;
+  v26 = PortContext;
+  v25 = ConnectionRequest;
+  v24 = ConnectionMessageAttributes;
+  v23 = AcceptConnection;
   v30 = a2;
   v29 = a3;
   v28 = a4;
@@ -85,7 +85,16 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v32 = ZwAlpcAcceptConnectPort(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  v32 = ZwAlpcAcceptConnectPort(
+          a1,
+          a2,
+          a3,
+          a4,
+          PortAttributes,
+          PortContext,
+          ConnectionRequest,
+          ConnectionMessageAttributes,
+          AcceptConnection);
   if ( v13 )
   {
     if ( (v18 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

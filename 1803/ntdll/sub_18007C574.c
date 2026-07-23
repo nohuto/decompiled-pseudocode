@@ -12,72 +12,70 @@
  *     ZwSetInformationObject @ 0x18009B630 (ZwSetInformationObject.c)
  */
 
-struct _TEB *__fastcall sub_18007C574(_QWORD *a1)
+int __fastcall sub_18007C574(HANDLE *a1)
 {
-  struct _TEB *result; // rax
-  __int16 v3; // [rsp+30h] [rbp-98h] BYREF
-  __int64 v4; // [rsp+38h] [rbp-90h] BYREF
-  int v5; // [rsp+40h] [rbp-88h] BYREF
-  __int64 v6; // [rsp+48h] [rbp-80h] BYREF
-  _QWORD v7[2]; // [rsp+50h] [rbp-78h] BYREF
-  int v8; // [rsp+60h] [rbp-68h] BYREF
-  __int128 v9; // [rsp+68h] [rbp-60h]
-  int v10; // [rsp+78h] [rbp-50h]
-  __int128 v11; // [rsp+80h] [rbp-48h]
-  int v12; // [rsp+90h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+94h] [rbp-34h]
-  int v14; // [rsp+A0h] [rbp-28h] BYREF
-  __int64 v15; // [rsp+A4h] [rbp-24h]
-  int v16; // [rsp+ACh] [rbp-1Ch]
+  struct _TEB *v2; // rax
+  __int16 ObjectInformation; // [rsp+30h] [rbp-98h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-90h] BYREF
+  int ThreadInformation; // [rsp+40h] [rbp-88h] BYREF
+  __int64 v7; // [rsp+48h] [rbp-80h] BYREF
+  HANDLE TokenHandle[2]; // [rsp+50h] [rbp-78h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-68h] BYREF
+  int v10; // [rsp+90h] [rbp-38h] BYREF
+  __int64 v11; // [rsp+94h] [rbp-34h]
+  _TOKEN_PRIVILEGES NewState; // [rsp+A0h] [rbp-28h] BYREF
 
-  v8 = 48;
-  v9 = 0LL;
-  v10 = 0;
-  v11 = 0LL;
+  ObjectAttributes.Length = 48;
+  memset(&ObjectAttributes.RootDirectory, 0, 20);
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   *a1 = 0LL;
-  result = NtCurrentTeb();
-  if ( (result->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) != 0 )
+  v2 = NtCurrentTeb();
+  if ( (v2->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) != 0 )
   {
-    result = (struct _TEB *)ZwOpenProcessTokenEx(-1LL, 2LL, 0LL, v7);
-    if ( (int)result >= 0 )
+    LODWORD(v2) = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 2u, 0, TokenHandle);
+    if ( (int)v2 >= 0 )
     {
-      v13 = 2LL;
-      v12 = 12;
-      *((_QWORD *)&v11 + 1) = &v12;
-      if ( (int)ZwDuplicateToken(v7[0], 36LL, &v8, 0LL, 2, &v4) >= 0 )
+      v11 = 2LL;
+      v10 = 12;
+      ObjectAttributes.SecurityQualityOfService = &v10;
+      if ( ZwDuplicateToken(TokenHandle[0], 0x24u, &ObjectAttributes, 0, TokenImpersonation, &Handle) >= 0 )
       {
-        v3 = 256;
-        if ( (int)ZwSetInformationObject(v4, 4LL, &v3, 2LL) >= 0 )
+        ObjectInformation = 256;
+        if ( ZwSetInformationObject(Handle, ObjectHandleFlagInformation, &ObjectInformation, 2u) >= 0 )
         {
-          if ( (int)ZwSetInformationThread(-2LL, 5LL, &v4) >= 0 )
+          if ( ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &Handle, 8u) >= 0 )
           {
-            v14 = 1;
-            v7[1] = 20LL;
-            v15 = 20LL;
-            v16 = 2;
-            if ( (int)ZwAdjustPrivilegesToken(v4, 0LL, &v14) >= 0 )
+            NewState.PrivilegeCount = 1;
+            TokenHandle[1] = (HANDLE)20;
+            NewState.Privileges[0].Luid = (LUID)20LL;
+            NewState.Privileges[0].Attributes = 2;
+            if ( ZwAdjustPrivilegesToken(Handle, 0, &NewState, 0x10u, 0LL, 0LL) >= 0 )
             {
-              v5 = 1;
-              if ( (int)ZwSetInformationThread(-2LL, 18LL, &v5) >= 0 )
+              ThreadInformation = 1;
+              if ( ZwSetInformationThread(
+                     (HANDLE)0xFFFFFFFFFFFFFFFELL,
+                     ThreadBreakOnTermination,
+                     &ThreadInformation,
+                     4u) >= 0 )
               {
-                *a1 = v4;
-                v4 = 0LL;
+                *a1 = Handle;
+                Handle = 0LL;
               }
             }
-            v6 = 0LL;
-            ZwSetInformationThread(-2LL, 5LL, &v6);
+            v7 = 0LL;
+            ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &v7, 8u);
           }
-          if ( v4 )
+          if ( Handle )
           {
-            v3 = 0;
-            ZwSetInformationObject(v4, 4LL, &v3, 2LL);
+            ObjectInformation = 0;
+            ZwSetInformationObject(Handle, ObjectHandleFlagInformation, &ObjectInformation, 2u);
           }
         }
-        if ( v4 )
-          ZwClose(v4);
+        if ( Handle )
+          ZwClose(Handle);
       }
-      return (struct _TEB *)ZwClose(v7[0]);
+      LODWORD(v2) = ZwClose(TokenHandle[0]);
     }
   }
-  return result;
+  return (int)v2;
 }

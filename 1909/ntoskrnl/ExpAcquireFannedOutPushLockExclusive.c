@@ -7,7 +7,7 @@
  *     ExfAcquirePushLockExclusiveEx @ 0x1400EF920 (ExfAcquirePushLockExclusiveEx.c)
  */
 
-int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned __int64 a1, __int64 a2, ULONG_PTR a3)
+int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned __int64 a1, _RTL_BALANCED_NODE *a2, ULONG_PTR a3)
 {
   unsigned int v3; // esi
   unsigned __int64 v4; // rbp

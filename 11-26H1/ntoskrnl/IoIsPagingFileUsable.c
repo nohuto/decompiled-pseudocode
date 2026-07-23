@@ -1,12 +1,12 @@
 /*
- * XREFs of IoIsPagingFileUsable @ 0x140796504
+ * XREFs of IoIsPagingFileUsable @ 0x140799034
  * Callers:
- *     MiCreatePagingFile @ 0x14086B464 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x140871844 (MiCreatePagingFile.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     PiPagePathSetState @ 0x1407A3E10 (PiPagePathSetState.c)
- *     IopQueryXxxInformation @ 0x1409B8C10 (IopQueryXxxInformation.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140B39144 (FsRtlIssueFileNotificationFsctl.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     PiPagePathSetState @ 0x1407A6950 (PiPagePathSetState.c)
+ *     IopQueryXxxInformation @ 0x140989BF0 (IopQueryXxxInformation.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140B3B354 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 __int64 __fastcall IoIsPagingFileUsable(PFILE_OBJECT FileObject)

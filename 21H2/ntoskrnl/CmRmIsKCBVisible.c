@@ -1,12 +1,12 @@
 /*
- * XREFs of CmRmIsKCBVisible @ 0x1406FC5D0
+ * XREFs of CmRmIsKCBVisible @ 0x1407139B0
  * Callers:
  *     CmRmIsKcbStackVisible @ 0x1405CD270 (CmRmIsKcbStackVisible.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1406DBF40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406DEBC0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406E2D00 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
  */
 
 char __fastcall CmRmIsKCBVisible(__int64 a1, __int64 a2)

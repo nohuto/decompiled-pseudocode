@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMmBuildTiledMemoryMap @ 0x140B4E7C0
+ * XREFs of HalpMmBuildTiledMemoryMap @ 0x140B50810
  * Callers:
- *     HalpInterruptBuildGlobalStartupStub @ 0x14054181C (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x14053F11C (HalpInterruptBuildGlobalStartupStub.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     HalpAllocateCR3Root @ 0x140559294 (HalpAllocateCR3Root.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HalpCommitCR3Worker @ 0x140B4E648 (HalpCommitCR3Worker.c)
- *     HalpMapCR3Ex @ 0x140B4E6CC (HalpMapCR3Ex.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     HalpAllocateCR3Root @ 0x140556EC4 (HalpAllocateCR3Root.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HalpCommitCR3Worker @ 0x140B50698 (HalpCommitCR3Worker.c)
+ *     HalpMapCR3Ex @ 0x140B5071C (HalpMapCR3Ex.c)
  */
 
 __int64 HalpMmBuildTiledMemoryMap()
@@ -28,7 +28,7 @@ __int64 HalpMmBuildTiledMemoryMap()
     {
       v2 = 0;
       HalpCommitCR3Worker((PVOID *)HalpCR3Root, 3u);
-      dword_140FC0CD4 = MmGetPhysicalAddress(v0).LowPart;
+      dword_140FC0F2C = MmGetPhysicalAddress(v0).LowPart;
     }
   }
   return (unsigned int)v2;

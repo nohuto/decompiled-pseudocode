@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpIsProcessPageIncluded @ 0x1405D021C
+ * XREFs of IopLiveDumpIsProcessPageIncluded @ 0x1405D2A2C
  * Callers:
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1405D0970 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1405D3180 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
  * Callees:
- *     IopLiveDumpLookupProcessFilter @ 0x1405D02BC (IopLiveDumpLookupProcessFilter.c)
+ *     IopLiveDumpLookupProcessFilter @ 0x1405D2ACC (IopLiveDumpLookupProcessFilter.c)
  */
 
 __int64 __fastcall IopLiveDumpIsProcessPageIncluded(__int64 a1, _QWORD *a2)

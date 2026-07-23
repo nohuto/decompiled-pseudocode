@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegLfhVsDecommit @ 0x140307CE0
+ * XREFs of RtlpHpSegLfhVsDecommit @ 0x140312A30
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpScheduleCompaction @ 0x1403082E8 (RtlpHpScheduleCompaction.c)
- *     RtlpHpSegPageRangeCommit @ 0x14030A2B0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegDescriptorValidate @ 0x1403422D0 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpScheduleCompaction @ 0x140313038 (RtlpHpScheduleCompaction.c)
+ *     RtlpHpSegPageRangeCommit @ 0x140315000 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegDescriptorValidate @ 0x14034D020 (RtlpHpSegDescriptorValidate.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhVsDecommit(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipUpdateDeviceStackSize @ 0x14075524C
+ * XREFs of WmipUpdateDeviceStackSize @ 0x14075540C
  * Callers:
- *     WmipForwardWmiIrp @ 0x1406396EC (WmipForwardWmiIrp.c)
- *     WmipRegisterDevice @ 0x140755008 (WmipRegisterDevice.c)
+ *     WmipForwardWmiIrp @ 0x14062E4FC (WmipForwardWmiIrp.c)
+ *     WmipRegisterDevice @ 0x1407551C8 (WmipRegisterDevice.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  */
 
 LONG __fastcall WmipUpdateDeviceStackSize(CCHAR a1)

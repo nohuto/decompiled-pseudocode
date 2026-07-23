@@ -7,19 +7,19 @@
  *     memset @ 0x1800A3DC0 (memset.c)
  */
 
-signed __int64 __fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned int *a2)
+void __fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned int *a2)
 {
-  volatile signed __int64 *v2; // rsi
+  _RTL_SRWLOCK *v2; // rsi
   __int64 v4; // rbx
 
-  v2 = (volatile signed __int64 *)(a1 + 2144);
+  v2 = (_RTL_SRWLOCK *)(a1 + 2144);
   v4 = a1 + 48 * (*a2 + 45LL);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 2144));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 2144));
   if ( (*(_WORD *)(v4 + 42))-- == 1 )
   {
     memset((void *)v4, 0, 0x30uLL);
     *(_QWORD *)(v4 + 16) = 0LL;
     --*(_DWORD *)(a1 + 2152);
   }
-  return RtlReleaseSRWLockExclusive(v2);
+  RtlReleaseSRWLockExclusive(v2);
 }

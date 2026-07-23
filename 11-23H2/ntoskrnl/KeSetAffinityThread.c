@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetAffinityThread @ 0x14056EFF0
+ * XREFs of KeSetAffinityThread @ 0x14056F530
  * Callers:
  *     <none>
  * Callees:

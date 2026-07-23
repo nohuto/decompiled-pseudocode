@@ -1,13 +1,13 @@
 /*
- * XREFs of MxRelocatePageTables @ 0x1409BFC44
+ * XREFs of MxRelocatePageTables @ 0x1409C0C44
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIncrementPfn @ 0x140177FF8 (MiIncrementPfn.c)
- *     MxMovePageTables @ 0x1409BFEB0 (MxMovePageTables.c)
- *     MxSwapPages @ 0x1409C04C8 (MxSwapPages.c)
+ *     MiIncrementPfn @ 0x1401780F8 (MiIncrementPfn.c)
+ *     MxMovePageTables @ 0x1409C0EB0 (MxMovePageTables.c)
+ *     MxSwapPages @ 0x1409C14C8 (MxSwapPages.c)
  */
 
 __int64 __fastcall MxRelocatePageTables(int a1)

@@ -1,32 +1,32 @@
 /*
- * XREFs of CmpVolumeManagerGetContextForGuidUnsafe @ 0x140905B48
+ * XREFs of CmpVolumeManagerGetContextForGuidUnsafe @ 0x140AED84C
  * Callers:
- *     CmpVolumeManagerGetContextForFile @ 0x14090792C (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140A2FA8C (CmpVolumeManagerGetContextForFile.c)
  * Callees:
  *     <none>
  */
 
-struct _LIST_ENTRY *__fastcall CmpVolumeManagerGetContextForGuidUnsafe(__int64 a1, _QWORD *a2)
+__int64 *__fastcall CmpVolumeManagerGetContextForGuidUnsafe(__int64 a1, _QWORD *a2)
 {
-  struct _LIST_ENTRY *Blink; // r8
-  struct _LIST_ENTRY *v3; // r9
-  char *v4; // rcx
+  int *v2; // r8
+  __int64 *v3; // r9
+  __int64 v4; // rcx
 
-  Blink = KiSystemServiceTraceCallbackLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
+  v2 = *(int **)&KiSystemServiceTraceCallbackLock.SchedulerAssistPriorityFloor;
   v3 = 0LL;
-  while ( Blink != (struct _LIST_ENTRY *)&KiSystemServiceTraceCallbackLock.InGlobalUpdateVpThreadPriorityList )
+  while ( v2 != &KiSystemServiceTraceCallbackLock.SchedulerAssistPriorityFloor )
   {
-    v4 = (char *)Blink[2].Flink - *a2;
+    v4 = *((_QWORD *)v2 + 4) - *a2;
     if ( !v4 )
-      v4 = (char *)Blink[2].Blink - a2[1];
+      v4 = *((_QWORD *)v2 + 5) - a2[1];
     if ( !v4 )
     {
-      v3 = Blink;
-      if ( Blink && _InterlockedIncrement64((volatile signed __int64 *)&Blink[1].Blink) <= 1 )
+      v3 = (__int64 *)v2;
+      if ( v2 && _InterlockedIncrement64((volatile signed __int64 *)v2 + 3) <= 1 )
         __fastfail(0xEu);
       return v3;
     }
-    Blink = Blink->Flink;
+    v2 = *(int **)v2;
   }
   return v3;
 }

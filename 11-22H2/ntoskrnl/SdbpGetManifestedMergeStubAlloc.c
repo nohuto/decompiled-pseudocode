@@ -157,7 +157,7 @@ LABEL_26:
           MergeSdbsDisabled = -1073741789;
           goto LABEL_44;
         }
-        NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+        NtSystemRoot = RtlGetNtSystemRoot();
         v21 = NtSystemRoot;
         v22 = -1LL;
         do

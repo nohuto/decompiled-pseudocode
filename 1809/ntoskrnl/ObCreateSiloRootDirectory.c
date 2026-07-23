@@ -1,27 +1,27 @@
 /*
- * XREFs of ObCreateSiloRootDirectory @ 0x140905EF0
+ * XREFs of ObCreateSiloRootDirectory @ 0x1409071B0
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     PsDereferenceSiloContext @ 0x14012C0A0 (PsDereferenceSiloContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1401B8C90 (ZwOpenDirectoryObject.c)
- *     ZwCreateDirectoryObjectEx @ 0x1401B95D0 (ZwCreateDirectoryObjectEx.c)
- *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PsIsJobParentImmutable @ 0x1406064A4 (PsIsJobParentImmutable.c)
- *     ObpInitializeRootNamespace @ 0x14072BC6C (ObpInitializeRootNamespace.c)
- *     PsInsertPermanentSiloContextEx @ 0x140730A08 (PsInsertPermanentSiloContextEx.c)
- *     PsCreateSiloContext @ 0x140730CA0 (PsCreateSiloContext.c)
- *     PsGetParentSilo @ 0x140886710 (PsGetParentSilo.c)
- *     PsInsertSiloContext @ 0x140886760 (PsInsertSiloContext.c)
- *     ObpGetSilosRootDirectory @ 0x14090638C (ObpGetSilosRootDirectory.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     PsDereferenceSiloContext @ 0x14012C170 (PsDereferenceSiloContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1401B8DF0 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1401B9730 (ZwCreateDirectoryObjectEx.c)
+ *     RtlIntegerToUnicodeString @ 0x1405A9E00 (RtlIntegerToUnicodeString.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     PsIsJobParentImmutable @ 0x1406074A4 (PsIsJobParentImmutable.c)
+ *     ObpInitializeRootNamespace @ 0x14072CE5C (ObpInitializeRootNamespace.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140731BF8 (PsInsertPermanentSiloContextEx.c)
+ *     PsCreateSiloContext @ 0x140731E90 (PsCreateSiloContext.c)
+ *     PsGetParentSilo @ 0x140887970 (PsGetParentSilo.c)
+ *     PsInsertSiloContext @ 0x1408879C0 (PsInsertSiloContext.c)
+ *     ObpGetSilosRootDirectory @ 0x14090764C (ObpGetSilosRootDirectory.c)
  */
 
 __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
@@ -89,7 +89,7 @@ __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
         ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
         ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 592;
-        SilosRootDirectory = ZwCreateDirectoryObjectEx((__int64)&Handle, 983055LL, (__int64)&ObjectAttributes);
+        SilosRootDirectory = ZwCreateDirectoryObjectEx(&Handle, 0xF000Fu, &ObjectAttributes, DirectoryHandle, 0);
         if ( SilosRootDirectory >= 0 )
         {
           v13 = ObReferenceObjectByHandle(Handle, 0xF000Fu, ObpDirectoryObjectType, 0, &Object, 0LL);

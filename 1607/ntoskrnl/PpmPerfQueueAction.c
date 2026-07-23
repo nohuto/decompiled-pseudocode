@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfQueueAction @ 0x14012F6DC
+ * XREFs of PpmPerfQueueAction @ 0x14012FC4C
  * Callers:
- *     PpmParkUnblockIdle @ 0x1400D520C (PpmParkUnblockIdle.c)
- *     PpmParkReportParkedCores @ 0x1400D5250 (PpmParkReportParkedCores.c)
- *     PpmParkReportUnparkedCores @ 0x1400D5294 (PpmParkReportUnparkedCores.c)
- *     PpmPerfApplyProcessorStates @ 0x14012F1C0 (PpmPerfApplyProcessorStates.c)
+ *     PpmParkUnblockIdle @ 0x1400D30AC (PpmParkUnblockIdle.c)
+ *     PpmParkReportParkedCores @ 0x1400D30F0 (PpmParkReportParkedCores.c)
+ *     PpmParkReportUnparkedCores @ 0x1400D3134 (PpmParkReportUnparkedCores.c)
+ *     PpmPerfApplyProcessorStates @ 0x14012F730 (PpmPerfApplyProcessorStates.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall PpmPerfQueueAction(__int64 a1, char a2)

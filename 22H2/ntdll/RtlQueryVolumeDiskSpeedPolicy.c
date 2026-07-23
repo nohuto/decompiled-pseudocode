@@ -10,7 +10,7 @@
 NTSTATUS __fastcall RtlQueryVolumeDiskSpeedPolicy(void *a1, _DWORD *a2)
 {
   NTSTATUS result; // eax
-  struct _IO_STATUS_BLOCK v4; // [rsp+50h] [rbp-48h] BYREF
+  _IO_STATUS_BLOCK v4; // [rsp+50h] [rbp-48h] BYREF
   _DWORD v5[4]; // [rsp+60h] [rbp-38h] BYREF
   __int64 v6; // [rsp+70h] [rbp-28h] BYREF
   int v7; // [rsp+78h] [rbp-20h]

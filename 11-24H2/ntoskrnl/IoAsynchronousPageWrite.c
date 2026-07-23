@@ -1,22 +1,22 @@
 /*
- * XREFs of IoAsynchronousPageWrite @ 0x14037286C
+ * XREFs of IoAsynchronousPageWrite @ 0x14025B12C
  * Callers:
- *     MiGatherMappedPages @ 0x140369B20 (MiGatherMappedPages.c)
- *     MiGatherPagefilePages @ 0x14039C8C8 (MiGatherPagefilePages.c)
+ *     MiGatherMappedPages @ 0x1402EB8C0 (MiGatherMappedPages.c)
+ *     MiGatherPagefilePages @ 0x1402F9BC8 (MiGatherPagefilePages.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x140253C60 (IopQueueThreadIrp.c)
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     MmIsFileObjectAPagingFile @ 0x140373D0C (MmIsFileObjectAPagingFile.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     IoSetDiskIoAttributionFromThread @ 0x140374220 (IoSetDiskIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionExtension @ 0x1403743E4 (IopSetDiskIoAttributionExtension.c)
- *     IopAllocateReserveIrp @ 0x140374518 (IopAllocateReserveIrp.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopAllocateBackpocketIrp @ 0x140595CD8 (IopAllocateBackpocketIrp.c)
- *     StRtlIoStorInfoSetNvCachePriority @ 0x14069EF50 (StRtlIoStorInfoSetNvCachePriority.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     MmIsFileObjectAPagingFile @ 0x14025C5CC (MmIsFileObjectAPagingFile.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14025CAE0 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14025CCA4 (IopSetDiskIoAttributionExtension.c)
+ *     IopAllocateReserveIrp @ 0x14025CDD8 (IopAllocateReserveIrp.c)
+ *     IopQueueThreadIrp @ 0x140284270 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopAllocateBackpocketIrp @ 0x140592D08 (IopAllocateBackpocketIrp.c)
+ *     StRtlIoStorInfoSetNvCachePriority @ 0x1406A0000 (StRtlIoStorInfoSetNvCachePriority.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __fastcall IoAsynchronousPageWrite(
@@ -38,16 +38,14 @@ NTSTATUS __fastcall IoAsynchronousPageWrite(
   IRP *Irp; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   struct _KTHREAD *CurrentThread; // rdx
-  __int64 v21; // rdx
-  __int64 v22; // r8
   NTSTATUS result; // eax
-  __int64 v24; // r9
+  __int64 v22; // r9
+  __int64 v23; // rcx
+  __int64 v24; // rdx
   __int64 v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
   __int64 ReserveIrp; // rax
   unsigned __int8 CurrentIrql; // bl
-  __int64 v30; // rdx
+  __int64 v28; // rdx
 
   SectionObjectPointer = a1->SectionObjectPointer;
   if ( SectionObjectPointer && SectionObjectPointer->SharedCacheMap )
@@ -57,20 +55,20 @@ NTSTATUS __fastcall IoAsynchronousPageWrite(
   }
   RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
   LOBYTE(v17) = RelatedDeviceObject->StackSize;
-  Irp = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v17, 0LL);
+  Irp = (IRP *)IopAllocateIrpExReturn(RelatedDeviceObject, v17, 0LL);
   if ( !Irp )
   {
     if ( (unsigned int)MmIsFileObjectAPagingFile(a1) )
     {
       _InterlockedAdd(&IoAsynchronousPageWriteIrpAllocationFailure, 1u);
-      LOBYTE(v26) = RelatedDeviceObject->StackSize;
-      ReserveIrp = IopAllocateReserveIrp(v27, v26, 1LL);
+      LOBYTE(v24) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateReserveIrp(v25, v24, 1LL);
     }
     else
     {
       _InterlockedAdd(&IoAsynchronousPageWriteNonPagefileIrpAllocationFailure, 1u);
-      LOBYTE(v26) = RelatedDeviceObject->StackSize;
-      ReserveIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v26, 0LL);
+      LOBYTE(v24) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v24, 0LL);
     }
     Irp = (IRP *)ReserveIrp;
     if ( !ReserveIrp )
@@ -99,12 +97,12 @@ NTSTATUS __fastcall IoAsynchronousPageWrite(
     IopSetDiskIoAttributionExtension(Irp, *(_QWORD *)(a9 + 24), CurrentThread, 0LL);
   else
     IoSetDiskIoAttributionFromThread(Irp, CurrentThread);
-  IopQueueThreadIrp((__int64)Irp, v21, v22);
+  IopQueueThreadIrp(Irp);
   if ( a7 )
     StRtlIoStorInfoSetNvCachePriority(Irp);
   result = IofCallDriver(RelatedDeviceObject, Irp);
-  v25 = result & 0xC0000000;
-  if ( (_DWORD)v25 == -1073741824 )
+  v23 = result & 0xC0000000;
+  if ( (_DWORD)v23 == -1073741824 )
   {
     a10->Status = result;
     a10->Information = 0LL;
@@ -112,14 +110,14 @@ NTSTATUS __fastcall IoAsynchronousPageWrite(
     __writecr8(1uLL);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v25) = CurrentIrql;
-      KiRaiseIrqlProcessIrqlFlags(v25, 1LL);
+      LOBYTE(v23) = CurrentIrql;
+      KiRaiseIrqlProcessIrqlFlags(v23, 1LL);
     }
-    guard_dispatch_icall_no_overrides(a5, a10, 0LL, v24);
+    guard_dispatch_icall_no_overrides(a5, a10, 0LL, v22);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v30) = CurrentIrql;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v30);
+      LOBYTE(v28) = CurrentIrql;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v28);
     }
     __writecr8(CurrentIrql);
     return 259;

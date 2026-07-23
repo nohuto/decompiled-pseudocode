@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetChainHead @ 0x140472E28
+ * XREFs of RtlpGetChainHead @ 0x14046C5A8
  * Callers:
- *     RtlContractHashTable @ 0x140472B00 (RtlContractHashTable.c)
- *     RtlExpandHashTable @ 0x140472C50 (RtlExpandHashTable.c)
+ *     RtlContractHashTable @ 0x14046C280 (RtlContractHashTable.c)
+ *     RtlExpandHashTable @ 0x14046C3D0 (RtlExpandHashTable.c)
  * Callees:
  *     <none>
  */

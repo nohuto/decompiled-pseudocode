@@ -46,11 +46,11 @@ __int64 __fastcall ExpWnfResolveScopeInstance(struct _EX_RUNDOWN_REF **a1, __int
   PVOID PoolWithTag; // rax
   __int64 v19; // r12
   signed __int64 *v20; // rdi
-  unsigned __int64 v21; // rbx
+  PRTL_BALANCED_NODE v21; // rbx
   struct _EX_RUNDOWN_REF *ScopeInstance; // rax
   int v23; // r14d
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // rbx
+  PRTL_BALANCED_NODE v24; // rax
+  PRTL_BALANCED_NODE v25; // rbx
   struct _EX_RUNDOWN_REF *v26; // rax
   __int64 v27; // rbx
   __int64 v28; // rax
@@ -177,9 +177,9 @@ LABEL_13:
   v20 = (signed __int64 *)(*v9 + 8 * (v5 + 2 * v5 + 3));
   v21 = KeAbPreAcquire((ULONG_PTR)v20, 0LL, 0);
   if ( _InterlockedCompareExchange64(v20, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v20, v21, (unsigned __int64)v20);
+    ExfAcquirePushLockSharedEx(v20, (__int64)v21, (ULONG_PTR)v20);
   if ( v21 )
-    *(_BYTE *)(v21 + 26) |= 1u;
+    BYTE2(v21[1].Left) |= 1u;
   ScopeInstance = (struct _EX_RUNDOWN_REF *)ExpWnfFindScopeInstance(v19, Sid, NumberOfBytes[0]);
   v13 = ScopeInstance;
   if ( ScopeInstance )
@@ -200,9 +200,9 @@ LABEL_13:
     v24 = KeAbPreAcquire((ULONG_PTR)v20, 0LL, 0);
     v25 = v24;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v20, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v20, v24, (__int16 *)v20);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v20, (__int64)v24, (__int16 *)v20);
     if ( v25 )
-      *(_BYTE *)(v25 + 26) |= 1u;
+      BYTE2(v25[1].Left) |= 1u;
     v26 = (struct _EX_RUNDOWN_REF *)ExpWnfFindScopeInstance(v19, Sid, NumberOfBytes[0]);
     v13 = v26;
     if ( !v26 )

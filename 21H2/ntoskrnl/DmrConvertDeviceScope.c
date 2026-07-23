@@ -1,11 +1,11 @@
 /*
- * XREFs of DmrConvertDeviceScope @ 0x1404E852C
+ * XREFs of DmrConvertDeviceScope @ 0x1404E876C
  * Callers:
- *     HalpIvtCreateReservedDevice @ 0x1404E7CE0 (HalpIvtCreateReservedDevice.c)
+ *     HalpIvtCreateReservedDevice @ 0x1404E7F20 (HalpIvtCreateReservedDevice.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
  */
 
 _WORD *__fastcall DmrConvertDeviceScope(__int64 a1, _BYTE *a2)

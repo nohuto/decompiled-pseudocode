@@ -1,8 +1,8 @@
 /*
  * XREFs of KdpAddBreakpoint @ 0x1406F602C
  * Callers:
- *     KdpWriteCustomBreakpoint @ 0x1401D18A8 (KdpWriteCustomBreakpoint.c)
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
+ *     KdpWriteCustomBreakpoint @ 0x1401D16D4 (KdpWriteCustomBreakpoint.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
  *     KdpWriteBreakPointEx @ 0x1406F5BD0 (KdpWriteBreakPointEx.c)
  * Callees:
  *     KdpCopyCodeStream @ 0x1406F5FA4 (KdpCopyCodeStream.c)

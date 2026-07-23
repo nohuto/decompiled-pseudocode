@@ -1,20 +1,20 @@
 /*
- * XREFs of KeAdjustWobPriority @ 0x1402A2074
+ * XREFs of KeAdjustWobPriority @ 0x1402D17A4
  * Callers:
- *     PspUpdateContainerImpersonation @ 0x1402A11C4 (PspUpdateContainerImpersonation.c)
- *     IopProcessWorkItem @ 0x1402A2410 (IopProcessWorkItem.c)
+ *     IopProcessWorkItem @ 0x1402D1B40 (IopProcessWorkItem.c)
+ *     PspUpdateContainerImpersonation @ 0x1403B4C5C (PspUpdateContainerImpersonation.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x14024FA80 (KiComputeThreadPriority.c)
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiComputeThreadPriority @ 0x140280090 (KiComputeThreadPriority.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall KeAdjustWobPriority(ULONG_PTR BugCheckParameter1, __int64 a2)
+char __fastcall KeAdjustWobPriority(ULONG_PTR BugCheckParameter1, __int64 a2)
 {
   ULONG_PTR v2; // rbx
   ULONG_PTR v3; // rbp
@@ -26,10 +26,10 @@ __int64 __fastcall KeAdjustWobPriority(ULONG_PTR BugCheckParameter1, __int64 a2)
   __int64 v9; // r9
   __int64 v10; // rdx
   bool v11; // zf
-  __int64 result; // rax
+  char result; // al
   char v13; // al
   char v14; // al
-  __int64 v15; // [rsp+50h] [rbp+8h] BYREF
+  _QWORD *v15; // [rsp+50h] [rbp+8h] BYREF
 
   v15 = 0LL;
   v2 = BugCheckParameter1;
@@ -83,10 +83,10 @@ __int64 __fastcall KeAdjustWobPriority(ULONG_PTR BugCheckParameter1, __int64 a2)
   }
   v8 = KiComputeThreadPriority(v2, 0, 0);
   KiSetPriorityThread((_KTHREAD *)v2, (__int64)&v15, v8, v9);
-  v11 = v15 == 0;
+  v11 = v15 == 0LL;
   *(_QWORD *)(v2 + 64) = 0LL;
   if ( !v11 )
-    return KiProcessDeferredReadyList(KeGetCurrentPrcb());
+    return KiProcessDeferredReadyList(KeGetCurrentPrcb(), &v15, CurrentIrql);
   if ( KiIrqlFlags )
   {
     LOBYTE(v10) = CurrentIrql;

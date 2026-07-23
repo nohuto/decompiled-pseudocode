@@ -1,10 +1,10 @@
 /*
- * XREFs of DrvDbRegisterDatabase @ 0x140578B14
+ * XREFs of DrvDbRegisterDatabase @ 0x140579054
  * Callers:
- *     PiDrvDbRegisterNode @ 0x140551AE8 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x140552028 (PiDrvDbRegisterNode.c)
  * Callees:
- *     DrvDbFindDatabaseNode @ 0x1404D429C (DrvDbFindDatabaseNode.c)
- *     DrvDbCreateDatabaseNode @ 0x140578BB0 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x1404B7D3C (DrvDbFindDatabaseNode.c)
+ *     DrvDbCreateDatabaseNode @ 0x1405790F0 (DrvDbCreateDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbRegisterDatabase(

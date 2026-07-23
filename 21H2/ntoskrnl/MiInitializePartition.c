@@ -1,24 +1,24 @@
 /*
- * XREFs of MiInitializePartition @ 0x14079C65C
+ * XREFs of MiInitializePartition @ 0x14079C85C
  * Callers:
- *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
- *     MiCreatePfnDatabase @ 0x140A436BC (MiCreatePfnDatabase.c)
+ *     MmCreatePartition @ 0x1403CAB14 (MmCreatePartition.c)
+ *     MiCreatePfnDatabase @ 0x140A446BC (MiCreatePfnDatabase.c)
  * Callees:
- *     KeInitializeGate @ 0x1402D2C10 (KeInitializeGate.c)
- *     RtlRandomEx @ 0x1402E5D70 (RtlRandomEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     MiInitializeSlabAllocator @ 0x1403AFBCC (MiInitializeSlabAllocator.c)
- *     MiInitializePfnListHead @ 0x1403AFC2C (MiInitializePfnListHead.c)
- *     MiInitializeCombining @ 0x1403AFC54 (MiInitializeCombining.c)
- *     MiInitializeNuma @ 0x1403AFCA8 (MiInitializeNuma.c)
- *     MiInitializeCommitment @ 0x1403BF628 (MiInitializeCommitment.c)
- *     MiInitializeSections @ 0x14079CB94 (MiInitializeSections.c)
- *     MiInitializeLargePageNodeLists @ 0x14079CD1C (MiInitializeLargePageNodeLists.c)
+ *     KeInitializeGate @ 0x140251190 (KeInitializeGate.c)
+ *     RtlRandomEx @ 0x1402970C0 (RtlRandomEx.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     MiInitializeSlabAllocator @ 0x1403AFD3C (MiInitializeSlabAllocator.c)
+ *     MiInitializePfnListHead @ 0x1403AFD9C (MiInitializePfnListHead.c)
+ *     MiInitializeCombining @ 0x1403AFDC4 (MiInitializeCombining.c)
+ *     MiInitializeNuma @ 0x1403AFE18 (MiInitializeNuma.c)
+ *     MiInitializeCommitment @ 0x1403BFA54 (MiInitializeCommitment.c)
+ *     MiInitializeSections @ 0x14079CD94 (MiInitializeSections.c)
+ *     MiInitializeLargePageNodeLists @ 0x14079CF1C (MiInitializeLargePageNodeLists.c)
  */
 
 char __fastcall MiInitializePartition(__int64 a1, __int16 a2)
@@ -71,7 +71,7 @@ char __fastcall MiInitializePartition(__int64 a1, __int16 a2)
   do
   {
     v6 = 0;
-    for ( i = *v5; v6 < dword_140C4DEFC; i += 40LL )
+    for ( i = *v5; v6 < dword_140C4DF3C; i += 40LL )
     {
       *(_DWORD *)(i + 8) = v4;
       ++v6;
@@ -117,12 +117,12 @@ char __fastcall MiInitializePartition(__int64 a1, __int16 a2)
     ++v17;
   }
   while ( v17 < 2 );
-  v20 = dword_140C4DEFC;
+  v20 = dword_140C4DF3C;
   v21 = 0;
-  for ( m = *(_QWORD *)(a1 + 4200); v21 < 2 * dword_140C4DEFC; ++v21 )
+  for ( m = *(_QWORD *)(a1 + 4200); v21 < 2 * dword_140C4DF3C; ++v21 )
   {
     InitializeSListHead((PSLIST_HEADER)(m + 16LL * v21));
-    v20 = dword_140C4DEFC;
+    v20 = dword_140C4DF3C;
   }
   v23 = 16LL;
   v24 = (unsigned int)(*(_QWORD *)(a1 + 6928) / 0x64uLL) / v20;
@@ -132,7 +132,7 @@ char __fastcall MiInitializePartition(__int64 a1, __int16 a2)
     v24 = 16;
   *(_DWORD *)(a1 + 6300) = v24;
   if ( (ULONG_PTR *)a1 == &MiSystemPartition )
-    MiInitializePfnListHead((__int64)&qword_140C4CAC0, 5);
+    MiInitializePfnListHead((__int64)&qword_140C4CB00, 5);
   v25 = 3LL;
   MiInitializePfnListHead(a1 + 7488, 3);
   MiInitializePfnListHead(a1 + 7552, 4);
@@ -207,10 +207,10 @@ char __fastcall MiInitializePartition(__int64 a1, __int16 a2)
   *(_QWORD *)(a1 + 1368) = 1LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E608, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E648, 0LL);
   *(_DWORD *)(a1 + 4) |= 2u;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140C4E608);
-  KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E648, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C4E648);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4E648);
   return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 }

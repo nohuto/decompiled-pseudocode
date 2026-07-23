@@ -8,15 +8,22 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall LsaCallAuthenticationPackage(__int64 a1)
+NTSTATUS __cdecl LsaCallAuthenticationPackage(
+        HANDLE LsaHandle,
+        ULONG AuthenticationPackage,
+        PVOID ProtocolSubmitBuffer,
+        ULONG SubmitBufferLength,
+        PVOID *ProtocolReturnBuffer,
+        PULONG ReturnBufferLength,
+        PNTSTATUS ProtocolStatus)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v8; // ebx
 
-  v2 = -1073741822;
+  v8 = -1073741822;
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost) )
   {
-    v2 = guard_dispatch_icall_no_overrides(a1);
+    v8 = guard_dispatch_icall_no_overrides(LsaHandle);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
-  return v2;
+  return v8;
 }

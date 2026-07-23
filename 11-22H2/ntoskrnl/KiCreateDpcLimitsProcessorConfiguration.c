@@ -22,9 +22,8 @@ unsigned __int64 __fastcall KiCreateDpcLimitsProcessorConfiguration(__int64 a1, 
   *(_QWORD *)(a1 + 16) = 0LL;
   *(_DWORD *)(a1 + 28) = a2;
   *(_DWORD *)(a1 + 24) = a3;
-  v3 = (unsigned int)KeMaximumIncrement;
-  v4 = (10000LL * (unsigned int)KeDpcWatchdogPeriodMs + (unsigned __int64)(unsigned int)KeMaximumIncrement - 1)
-     / (unsigned int)KeMaximumIncrement;
+  v3 = KeMaximumIncrement;
+  v4 = (10000LL * (unsigned int)KeDpcWatchdogPeriodMs + (unsigned __int64)KeMaximumIncrement - 1) / KeMaximumIncrement;
   if ( v4 > 0xFFFFFFFF )
     LODWORD(v4) = -1;
   *(_DWORD *)(a1 + 4) = v4;

@@ -1,29 +1,33 @@
 /*
- * XREFs of MiPurgeImageSection @ 0x140AC2CF4
+ * XREFs of MiPurgeImageSection @ 0x140ABDFDC
  * Callers:
- *     MiCheckControlArea @ 0x14020EFD0 (MiCheckControlArea.c)
+ *     MiCheckControlArea @ 0x140338330 (MiCheckControlArea.c)
  * Callees:
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
  */
 
-void __fastcall MiPurgeImageSection(__int64 a1)
+char __fastcall MiPurgeImageSection(__int64 a1)
 {
   __int64 v1; // rbx
-  _OWORD v2[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v3; // [rsp+50h] [rbp-18h]
+  int v2; // eax
+  _OWORD v4[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+50h] [rbp-18h]
 
   v1 = a1 + 128;
-  memset(v2, 0, sizeof(v2));
-  v3 = 0LL;
+  LOBYTE(v2) = 0;
+  memset(v4, 0, sizeof(v4));
+  v5 = 0LL;
   while ( v1 )
   {
-    if ( (*(_DWORD *)(v1 + 32) & 0x20000) != 0 )
-      MiPurgeSubsection(
-        (__int64 *)v1,
-        *(_QWORD *)(v1 + 8),
-        *(_QWORD *)(v1 + 8) + 8LL * *(unsigned int *)(v1 + 44),
-        5u,
-        (__int64)v2);
+    v2 = *(_DWORD *)(v1 + 32);
+    if ( (v2 & 0x20000) != 0 )
+      LOBYTE(v2) = MiPurgeSubsection(
+                     (__int64 *)v1,
+                     *(_QWORD *)(v1 + 8),
+                     *(_QWORD *)(v1 + 8) + 8LL * *(unsigned int *)(v1 + 44),
+                     5u,
+                     (__int64)v4);
     v1 = *(_QWORD *)(v1 + 16);
   }
+  return v2;
 }

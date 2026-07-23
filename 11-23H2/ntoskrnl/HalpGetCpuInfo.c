@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpGetCpuInfo @ 0x140380630
+ * XREFs of HalpGetCpuInfo @ 0x1403807D0
  * Callers:
- *     HalpIommuGetPageTableType @ 0x14037FE50 (HalpIommuGetPageTableType.c)
- *     HalpProcGetFeatureBits @ 0x14037FFB4 (HalpProcGetFeatureBits.c)
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     HalpInterruptIsMsiSupported @ 0x14038091C (HalpInterruptIsMsiSupported.c)
- *     HalpTscCheckAdjustMsrCapability @ 0x1403B1E60 (HalpTscCheckAdjustMsrCapability.c)
- *     HalpTimerConfigureQpcBypass @ 0x1403B3104 (HalpTimerConfigureQpcBypass.c)
- *     HalpAcpiShouldIgnoreSdevTable @ 0x14040F5BC (HalpAcpiShouldIgnoreSdevTable.c)
- *     HalpInterruptIsDeferredErrorSupported @ 0x1405050B4 (HalpInterruptIsDeferredErrorSupported.c)
- *     HalpSetSystemInformation @ 0x14085ECB0 (HalpSetSystemInformation.c)
+ *     HalpIommuGetPageTableType @ 0x14037FFF0 (HalpIommuGetPageTableType.c)
+ *     HalpProcGetFeatureBits @ 0x140380154 (HalpProcGetFeatureBits.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     HalpInterruptIsMsiSupported @ 0x140380ABC (HalpInterruptIsMsiSupported.c)
+ *     HalpTscCheckAdjustMsrCapability @ 0x1403B2040 (HalpTscCheckAdjustMsrCapability.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403B32E4 (HalpTimerConfigureQpcBypass.c)
+ *     HalpAcpiShouldIgnoreSdevTable @ 0x14040F79C (HalpAcpiShouldIgnoreSdevTable.c)
+ *     HalpInterruptIsDeferredErrorSupported @ 0x140505604 (HalpInterruptIsDeferredErrorSupported.c)
+ *     HalpSetSystemInformation @ 0x14085EEF0 (HalpSetSystemInformation.c)
  *     HalpErrataApplyPerProcessor @ 0x140A8A8C8 (HalpErrataApplyPerProcessor.c)
- *     HalpPiix4Detect @ 0x140A8F324 (HalpPiix4Detect.c)
- *     HalpLbrInitialize @ 0x140A9150C (HalpLbrInitialize.c)
- *     HalpDpPostReplaceInitialization @ 0x140A975F4 (HalpDpPostReplaceInitialization.c)
+ *     HalpPiix4Detect @ 0x140A8F1A4 (HalpPiix4Detect.c)
+ *     HalpLbrInitialize @ 0x140A9138C (HalpLbrInitialize.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A97464 (HalpDpPostReplaceInitialization.c)
  * Callees:
  *     <none>
  */

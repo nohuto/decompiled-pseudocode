@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWorkerFactoryManagerThread @ 0x14038EA40
+ * XREFs of ExpWorkerFactoryManagerThread @ 0x14038EC20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeRegisterObjectNotification @ 0x1402509B0 (KeRegisterObjectNotification.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402B8D40 (ExpWorkerFactoryCheckCreate.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140304C0C (ExpTryEnterWorkerFactoryAwayMode.c)
- *     KeRemoveQueue @ 0x14031CCF0 (KeRemoveQueue.c)
- *     KeTimeOutQueueWaiters @ 0x14034EB4C (KeTimeOutQueueWaiters.c)
- *     ExpWorkerFactoryDeferredThreadCreation @ 0x140366064 (ExpWorkerFactoryDeferredThreadCreation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeRegisterObjectNotification @ 0x140250A70 (KeRegisterObjectNotification.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1402B8FD0 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140304E9C (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     KeRemoveQueue @ 0x14031CF80 (KeRemoveQueue.c)
+ *     KeTimeOutQueueWaiters @ 0x14034ECEC (KeTimeOutQueueWaiters.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x140366204 (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
@@ -73,10 +73,13 @@ void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -104,10 +107,10 @@ void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v8 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v9 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && LockHandle.OldIrql <= 0xFu && v9 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && LockHandle.OldIrql <= 0xFu && v9 >= 2u )
           {
             v10 = KeGetCurrentPrcb();
             v11 = v10->SchedulerAssist;

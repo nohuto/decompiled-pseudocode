@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpUnlockCommunicationInfoShared @ 0x1408C2F2C
+ * XREFs of AlpcpUnlockCommunicationInfoShared @ 0x1408C308C
  * Callers:
- *     AlpcpPortQueryServerInfo @ 0x1408C3100 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpPortQueryServerInfo @ 0x1408C3260 (AlpcpPortQueryServerInfo.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  */
 
 char __fastcall AlpcpUnlockCommunicationInfoShared(__int64 a1)

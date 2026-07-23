@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryRegistryDirectStringValue @ 0x1801213C8
+ * XREFs of RtlpQueryRegistryDirectStringValue @ 0x180121164
  * Callers:
- *     RtlpQueryRegistryDirect @ 0x18005A930 (RtlpQueryRegistryDirect.c)
+ *     RtlpQueryRegistryDirect @ 0x180044EB0 (RtlpQueryRegistryDirect.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirectStringValue(_WORD *Src, unsigned int a2, __int64 a3)
@@ -14,7 +14,7 @@ __int64 __fastcall RtlpQueryRegistryDirectStringValue(_WORD *Src, unsigned int a
   void *v8; // rcx
   unsigned int v9; // edi
   unsigned __int64 v10; // rbp
-  __int64 Atom; // rax
+  PVOID Atom; // rax
 
   v4 = a2;
   if ( (a2 & 1) != 0 )
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpQueryRegistryDirectStringValue(_WORD *Src, unsigned int a
     v10 = v9;
     Atom = RtlpAllocateAtom(v9);
     *(_QWORD *)(a3 + 8) = Atom;
-    v8 = (void *)Atom;
+    v8 = Atom;
     if ( !Atom )
       return 3221225495LL;
     if ( v9 >= 0xFFFE )

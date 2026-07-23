@@ -1,12 +1,12 @@
 /*
- * XREFs of VfNotifyVerifierExtensions @ 0x1409C8A88
+ * XREFs of VfNotifyVerifierExtensions @ 0x1409C9A88
  * Callers:
- *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
- *     VfSuspectDriversLoadCallback @ 0x1409D9B98 (VfSuspectDriversLoadCallback.c)
- *     VfSuspectDriversUnloadCallback @ 0x1409D9FBC (VfSuspectDriversUnloadCallback.c)
- *     ViLogAndLoadXdv @ 0x140A938F4 (ViLogAndLoadXdv.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C7050 (VfNotifyVerifierOfEvent.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409DAB98 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversUnloadCallback @ 0x1409DAFBC (VfSuspectDriversUnloadCallback.c)
+ *     ViLogAndLoadXdv @ 0x140A948F4 (ViLogAndLoadXdv.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfNotifyVerifierExtensions(int a1, __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MinAsn1DecodeGeneralizedTime @ 0x1408A42CC
+ * XREFs of MinAsn1DecodeGeneralizedTime @ 0x1408AA6DC
  * Callers:
- *     I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A27C4 (I_MinCryptVerifyRFC3161TimeStamp.c)
- *     MinAsn1DecodeTime @ 0x1408A4510 (MinAsn1DecodeTime.c)
+ *     I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A8BD4 (I_MinCryptVerifyRFC3161TimeStamp.c)
+ *     MinAsn1DecodeTime @ 0x1408AA920 (MinAsn1DecodeTime.c)
  * Callees:
- *     atoi @ 0x140535D60 (atoi.c)
- *     isdigit @ 0x140536BA0 (isdigit.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     I_MinAsn1CalculateTimeOffset @ 0x1408A3E0C (I_MinAsn1CalculateTimeOffset.c)
- *     I_MinAsn1ConvertTime @ 0x1408A3EFC (I_MinAsn1ConvertTime.c)
- *     I_MinAsn1DecodeGeneralizedTimeFraction @ 0x1408A3FA0 (I_MinAsn1DecodeGeneralizedTimeFraction.c)
+ *     atoi @ 0x1405381E0 (atoi.c)
+ *     isdigit @ 0x140539020 (isdigit.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     I_MinAsn1CalculateTimeOffset @ 0x1408AA21C (I_MinAsn1CalculateTimeOffset.c)
+ *     I_MinAsn1ConvertTime @ 0x1408AA30C (I_MinAsn1ConvertTime.c)
+ *     I_MinAsn1DecodeGeneralizedTimeFraction @ 0x1408AA3B0 (I_MinAsn1DecodeGeneralizedTimeFraction.c)
  */
 
 bool __fastcall MinAsn1DecodeGeneralizedTime(__int64 a1, LARGE_INTEGER *a2)

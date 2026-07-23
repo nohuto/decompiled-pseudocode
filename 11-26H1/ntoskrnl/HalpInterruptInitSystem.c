@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpInterruptInitSystem @ 0x140BEB450
+ * XREFs of HalpInterruptInitSystem @ 0x140BF1450
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x1404298AC (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInterruptEnableNmi @ 0x140429E90 (HalpInterruptEnableNmi.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpInterruptBuildGlobalStartupStub @ 0x14057C69C (HalpInterruptBuildGlobalStartupStub.c)
- *     HalpInitializeInterruptsBspLate @ 0x14057D120 (HalpInitializeInterruptsBspLate.c)
- *     HalpInitializeInterruptsPn @ 0x14057D1EC (HalpInitializeInterruptsPn.c)
- *     HalpInterruptInitializeGlobals @ 0x14057D470 (HalpInterruptInitializeGlobals.c)
- *     HalpIsPrebootMode @ 0x140584F08 (HalpIsPrebootMode.c)
- *     HalpInterruptInitPowerManagement @ 0x1405900B4 (HalpInterruptInitPowerManagement.c)
- *     HalpInterruptInitDiscard @ 0x140CAFAB4 (HalpInterruptInitDiscard.c)
- *     HalpPreAllocateKInterrupts @ 0x140CB30FC (HalpPreAllocateKInterrupts.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
+ *     HalpInterruptEnableNmi @ 0x140435DF0 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1404360DC (HalpInterruptEnablePerformanceEvents.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x14057EBCC (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpInitializeInterruptsBspLate @ 0x14057F640 (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsPn @ 0x14057F70C (HalpInitializeInterruptsPn.c)
+ *     HalpInterruptInitializeGlobals @ 0x14057F990 (HalpInterruptInitializeGlobals.c)
+ *     HalpIsPrebootMode @ 0x140587428 (HalpIsPrebootMode.c)
+ *     HalpInterruptInitPowerManagement @ 0x140592834 (HalpInterruptInitPowerManagement.c)
+ *     HalpInterruptInitDiscard @ 0x140CB5AF4 (HalpInterruptInitDiscard.c)
+ *     HalpPreAllocateKInterrupts @ 0x140CB913C (HalpPreAllocateKInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, int a4)

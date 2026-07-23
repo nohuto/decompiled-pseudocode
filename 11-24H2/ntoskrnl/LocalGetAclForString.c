@@ -1,39 +1,39 @@
 /*
- * XREFs of LocalGetAclForString @ 0x140865750
+ * XREFs of LocalGetAclForString @ 0x140869D60
  * Callers:
- *     LocalConvertStringSDToSD_Rev1 @ 0x140863ECC (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1408684DC (LocalConvertStringSDToSD_Rev1.c)
  * Callees:
- *     RtlGetAce @ 0x14040BC40 (RtlGetAce.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     wcstoul @ 0x1405007D0 (wcstoul.c)
- *     wcsncpy_s @ 0x140504980 (wcsncpy_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlAddAccessAllowedObjectAce @ 0x14077FA90 (RtlAddAccessAllowedObjectAce.c)
- *     RtlAddAccessDeniedObjectAce @ 0x14077FB20 (RtlAddAccessDeniedObjectAce.c)
- *     RtlAddAuditAccessAceEx @ 0x14077FDC0 (RtlAddAuditAccessAceEx.c)
- *     RtlAddAuditAccessObjectAce @ 0x14077FE10 (RtlAddAuditAccessObjectAce.c)
- *     SddlAddAccessFilterAce @ 0x1407966D8 (SddlAddAccessFilterAce.c)
- *     SddlAddProcessTrustLabelAce @ 0x140796914 (SddlAddProcessTrustLabelAce.c)
- *     SddlAddScopedPolicyIDAce @ 0x140796A74 (SddlAddScopedPolicyIDAce.c)
- *     SddlpUuidFromString @ 0x140796C80 (SddlpUuidFromString.c)
- *     LocalGetConditionForString @ 0x14085FAE0 (LocalGetConditionForString.c)
- *     LocalpConvertStringSidToSid @ 0x140862418 (LocalpConvertStringSidToSid.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     FContainCallBackAce @ 0x1408667C0 (FContainCallBackAce.c)
- *     LocalGetAceCount @ 0x140866950 (LocalGetAceCount.c)
- *     LookupSidInTable @ 0x140866BD0 (LookupSidInTable.c)
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     RtlNtStatusToDosError @ 0x140867430 (RtlNtStatusToDosError.c)
- *     SddlAddMandatoryAce @ 0x1408674D8 (SddlAddMandatoryAce.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
- *     RtlAddAce @ 0x14091CC90 (RtlAddAce.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     LocalGetRelativeAttributeForString @ 0x140AAF494 (LocalGetRelativeAttributeForString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlGetAce @ 0x140404120 (RtlGetAce.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     wcstoul @ 0x1404FE090 (wcstoul.c)
+ *     wcsncpy_s @ 0x140502240 (wcsncpy_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlAddAccessAllowedObjectAce @ 0x14077F9C0 (RtlAddAccessAllowedObjectAce.c)
+ *     RtlAddAccessDeniedObjectAce @ 0x14077FA50 (RtlAddAccessDeniedObjectAce.c)
+ *     RtlAddAuditAccessAceEx @ 0x14077FCF0 (RtlAddAuditAccessAceEx.c)
+ *     RtlAddAuditAccessObjectAce @ 0x14077FD40 (RtlAddAuditAccessObjectAce.c)
+ *     SddlAddAccessFilterAce @ 0x1407967E8 (SddlAddAccessFilterAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x140796A24 (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x140796B84 (SddlAddScopedPolicyIDAce.c)
+ *     SddlpUuidFromString @ 0x140796D90 (SddlpUuidFromString.c)
+ *     LocalGetConditionForString @ 0x1408640EC (LocalGetConditionForString.c)
+ *     LocalpConvertStringSidToSid @ 0x140866A28 (LocalpConvertStringSidToSid.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     FContainCallBackAce @ 0x14086ADD0 (FContainCallBackAce.c)
+ *     LocalGetAceCount @ 0x14086AF60 (LocalGetAceCount.c)
+ *     LookupSidInTable @ 0x14086B1E0 (LookupSidInTable.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     RtlNtStatusToDosError @ 0x14086B8C0 (RtlNtStatusToDosError.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
+ *     RtlAddAce @ 0x140910700 (RtlAddAce.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     SddlAddMandatoryAce @ 0x140911D60 (SddlAddMandatoryAce.c)
+ *     LocalGetRelativeAttributeForString @ 0x140AAA374 (LocalGetRelativeAttributeForString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LocalGetAclForString(wchar_t *Str1, char a2, const void **a3, wchar_t **a4)
@@ -65,108 +65,107 @@ __int64 __fastcall LocalGetAclForString(wchar_t *Str1, char a2, const void **a3,
   wchar_t *v32; // r15
   unsigned int v33; // ebx
   unsigned int v34; // edi
+  wchar_t i; // ax
   wchar_t j; // ax
-  wchar_t k; // ax
   __int64 v37; // rax
   char *v38; // r8
   wchar_t *v39; // rsi
-  wchar_t *m; // rbx
+  wchar_t *k; // rbx
   int v41; // ecx
   unsigned int v42; // r15d
   unsigned int v43; // edx
-  wchar_t ii; // ax
+  wchar_t n; // ax
   unsigned int v45; // r13d
   unsigned int v46; // ebx
   ULONG v47; // edi
   ULONG v48; // eax
-  __int64 v49; // rdx
-  char *v50; // rbx
-  char v51; // r15
-  char *v52; // rdx
-  unsigned int jj; // ecx
-  void *v54; // rdi
-  char *v55; // r8
-  unsigned __int16 v56; // cx
-  char v57; // al
-  unsigned int v58; // eax
-  unsigned int v59; // edi
+  ACL *v49; // rbx
+  char AclRevision; // r15
+  ACL *v51; // rdx
+  unsigned int ii; // ecx
+  void *v53; // rdi
+  ACL *v54; // r8
+  USHORT v55; // cx
+  char v56; // al
+  unsigned int v57; // eax
+  unsigned int v58; // edi
+  _BYTE *v59; // rax
   _BYTE *v60; // rax
-  _BYTE *v61; // rax
-  wchar_t v62; // ax
-  const wchar_t **v63; // rbx
-  unsigned int v64; // edi
-  int v65; // eax
-  wchar_t **v66; // rax
-  unsigned int v67; // edi
-  wchar_t *v68; // r15
-  unsigned int v69; // r14d
-  wchar_t **v70; // rax
-  unsigned __int64 v71; // rcx
-  NTSTATUS v72; // eax
-  char *v73; // rax
-  char *v74; // r15
-  ULONG v75; // eax
-  unsigned int v76; // ebx
-  ULONG v77; // eax
-  wchar_t v78; // ax
-  wint_t *n; // rbx
+  wchar_t v61; // ax
+  const wchar_t **v62; // rbx
+  unsigned int v63; // edi
+  int v64; // eax
+  wchar_t **v65; // rax
+  unsigned int v66; // edi
+  wchar_t *v67; // r15
+  unsigned int v68; // r14d
+  wchar_t **v69; // rax
+  unsigned __int64 v70; // rcx
+  NTSTATUS v71; // eax
+  char *v72; // rax
+  char *v73; // r15
+  ULONG v74; // eax
+  unsigned int v75; // ebx
+  ULONG v76; // eax
+  wchar_t v77; // ax
+  wint_t *m; // rbx
   unsigned int ConditionForString; // eax
-  unsigned int v81; // eax
-  int v82; // eax
-  int v83; // ecx
-  unsigned int v84; // eax
-  int v85; // ecx
-  wchar_t v86; // ax
-  unsigned int v87; // ebx
-  _WORD *v88; // rax
-  _WORD *v89; // r15
-  void *v90; // rcx
-  const void **v91; // rax
-  char *v92; // rax
-  char *v93; // r15
-  ULONG v94; // eax
-  unsigned int v95; // ebx
-  ULONG v96; // eax
-  _WORD *v97; // r15
-  char v98; // al
-  size_t v99; // rbx
-  int v100; // edi
+  unsigned int v80; // eax
+  int v81; // eax
+  int v82; // ecx
+  unsigned int v83; // eax
+  int v84; // ecx
+  wchar_t v85; // ax
+  unsigned int v86; // ebx
+  _WORD *v87; // rax
+  _WORD *v88; // r15
+  void *v89; // rcx
+  const void **v90; // rax
+  char *v91; // rax
+  char *v92; // r15
+  ULONG v93; // eax
+  unsigned int v94; // ebx
+  ULONG v95; // eax
+  _WORD *v96; // r15
+  char v97; // al
+  size_t v98; // rbx
+  int v99; // edi
+  ULONG v100; // eax
   ULONG v101; // eax
-  ULONG v102; // eax
-  __int64 AceListLength; // [rsp+20h] [rbp-E0h]
-  char v104; // [rsp+50h] [rbp-B0h]
-  unsigned __int8 v105; // [rsp+51h] [rbp-AFh]
-  char v106; // [rsp+52h] [rbp-AEh]
-  int v107; // [rsp+54h] [rbp-ACh]
+  int AceListLength; // [rsp+20h] [rbp-E0h]
+  char v103; // [rsp+50h] [rbp-B0h]
+  UCHAR v104; // [rsp+51h] [rbp-AFh]
+  char v105; // [rsp+52h] [rbp-AEh]
+  ACCESS_MASK AccessMask; // [rsp+54h] [rbp-ACh]
   char *Sid; // [rsp+58h] [rbp-A8h]
-  int v110; // [rsp+68h] [rbp-98h]
+  int v109; // [rsp+68h] [rbp-98h]
   size_t Size; // [rsp+6Ch] [rbp-94h] BYREF
-  wchar_t *v112; // [rsp+78h] [rbp-88h] BYREF
+  wchar_t *v111; // [rsp+78h] [rbp-88h] BYREF
   PVOID Src; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v114; // [rsp+88h] [rbp-78h] BYREF
-  unsigned int v115; // [rsp+90h] [rbp-70h]
-  unsigned int v116; // [rsp+94h] [rbp-6Ch]
-  int v117; // [rsp+98h] [rbp-68h]
-  __int64 i; // [rsp+A0h] [rbp-60h]
-  char v119[8]; // [rsp+A8h] [rbp-58h]
+  unsigned int v113; // [rsp+88h] [rbp-78h] BYREF
+  unsigned int v114; // [rsp+90h] [rbp-70h]
+  unsigned int v115; // [rsp+94h] [rbp-6Ch]
+  int v116; // [rsp+98h] [rbp-68h]
+  PGUID InheritedObjectTypeGuid; // [rsp+A0h] [rbp-60h]
+  PGUID ObjectTypeGuid; // [rsp+A8h] [rbp-58h]
   PVOID P; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v121; // [rsp+B8h] [rbp-48h] BYREF
-  char *v122; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v120; // [rsp+B8h] [rbp-48h] BYREF
+  char *v121; // [rsp+C0h] [rbp-40h] BYREF
   wchar_t *EndPtr; // [rsp+C8h] [rbp-38h] BYREF
   PVOID Ace; // [rsp+D0h] [rbp-30h] BYREF
-  int v125; // [rsp+D8h] [rbp-28h]
-  unsigned __int16 v126; // [rsp+DCh] [rbp-24h]
+  int v124; // [rsp+D8h] [rbp-28h]
+  unsigned __int16 v125; // [rsp+DCh] [rbp-24h]
   GUID Guid; // [rsp+E0h] [rbp-20h] BYREF
-  GUID v128; // [rsp+F0h] [rbp-10h] BYREF
+  GUID v127; // [rsp+F0h] [rbp-10h] BYREF
   wchar_t Dst[40]; // [rsp+100h] [rbp+0h] BYREF
 
   v4 = 0;
-  v114 = 0;
-  v104 = 0;
+  v113 = 0;
+  v103 = 0;
   Sid = 0LL;
-  v122 = 0LL;
+  v121 = 0LL;
   v6 = a3;
-  v125 = 0;
+  v124 = 0;
   EndPtr = 0LL;
   v8 = Str1;
   Src = 0LL;
@@ -174,8 +173,8 @@ __int64 __fastcall LocalGetAclForString(wchar_t *Str1, char a2, const void **a3,
   Size = 0LL;
   P = 0LL;
   Ace = 0LL;
-  v112 = 0LL;
-  v126 = 256;
+  v111 = 0LL;
+  v125 = 256;
   if ( !Str1 || !a3 || !a4 )
     return 87LL;
   if ( !wcsnicmp(Str1, L"NO_ACCESS_CONTROL", 0x11uLL) )
@@ -188,7 +187,7 @@ __int64 __fastcall LocalGetAclForString(wchar_t *Str1, char a2, const void **a3,
   *a4 = 0LL;
   v11 = v8;
   v12 = 0;
-  v110 = 2 - v10;
+  v109 = 2 - v10;
   if ( !(unsigned int)FContainCallBackAce(v8) )
   {
     *a4 = wcschr(v8, 0x3Au);
@@ -208,11 +207,11 @@ LABEL_10:
         v16 = &v8[v14];
       }
       *a4 = v16;
-      AceCount = LocalGetAceCount(v8, v16, &v114);
+      AceCount = LocalGetAceCount(v8, v16, &v113);
       if ( AceCount )
         goto LABEL_26;
-      v17 = v114;
-      if ( !v114 )
+      v17 = v113;
+      if ( !v113 )
       {
         v18 = SddlpAlloc(8uLL);
         *v6 = v18;
@@ -229,84 +228,84 @@ LABEL_10:
         }
         return AceCount;
       }
-      v59 = 84 * v114 + 8;
-      if ( v59 > 0xFFFF )
-        v59 = 0xFFFF;
-      v115 = v59;
-      v60 = SddlpAlloc(v59);
-      *v6 = v60;
-      if ( !v60 )
+      v58 = 84 * v113 + 8;
+      if ( v58 > 0xFFFF )
+        v58 = 0xFFFF;
+      v114 = v58;
+      v59 = SddlpAlloc(v58);
+      *v6 = v59;
+      if ( !v59 )
       {
         AceCount = 8;
         goto LABEL_26;
       }
-      *v60 = 2;
-      v61 = *v6;
-      v117 = 8;
-      v61[1] = 0;
-      *((_WORD *)*v6 + 1) = v59;
+      *v59 = 2;
+      v60 = *v6;
+      v116 = 8;
+      v60[1] = 0;
+      *((_WORD *)*v6 + 1) = v58;
       *((_WORD *)*v6 + 2) = 0;
       *((_WORD *)*v6 + 3) = 0;
-      v58 = 0;
+      v57 = 0;
 LABEL_131:
-      v116 = v58;
-      LODWORD(v121) = AceCount;
-      if ( v58 >= v17 )
+      v115 = v57;
+      LODWORD(v120) = AceCount;
+      if ( v57 >= v17 )
         goto LABEL_23;
-      v105 = 0;
-      v107 = 0;
+      v104 = 0;
+      AccessMask = 0;
       Guid = 0LL;
-      *(_QWORD *)v119 = 0LL;
-      v128 = 0LL;
-      v62 = *v8;
-      for ( i = 0LL; v62 == 32; ++v8 )
-        v62 = v8[1];
-      if ( v62 == 40 )
+      ObjectTypeGuid = 0LL;
+      v127 = 0LL;
+      v61 = *v8;
+      for ( InheritedObjectTypeGuid = 0LL; v61 == 32; ++v8 )
+        v61 = v8[1];
+      if ( v61 == 40 )
       {
         for ( ++v8; *v8 == 32; ++v8 )
           ;
       }
-      v63 = (const wchar_t **)&unk_140E08A38;
-      v64 = 0;
-      v23 = v110;
+      v62 = (const wchar_t **)&unk_140E08AA8;
+      v63 = 0;
+      v23 = v109;
       while ( 1 )
       {
-        if ( (v23 & (_DWORD)v63[1]) == v23 )
+        if ( (v23 & (_DWORD)v62[1]) == v23 )
         {
           if ( v8 )
           {
-            v65 = wcsnicmp(v8, *(v63 - 1), *(unsigned int *)v63);
-            v23 = v110;
-            if ( !v65 )
+            v64 = wcsnicmp(v8, *(v62 - 1), *(unsigned int *)v62);
+            v23 = v109;
+            if ( !v64 )
               goto LABEL_142;
           }
-          else if ( !*((_DWORD *)v63 + 1) )
+          else if ( !*((_DWORD *)v62 + 1) )
           {
 LABEL_142:
-            v66 = &(&off_140E08A30)[3 * v64];
-            if ( !v66 )
+            v65 = &(&off_140E08AA0)[3 * v63];
+            if ( !v65 )
             {
 LABEL_140:
               v21 = *v6;
               AceCount = 1804;
               goto LABEL_54;
             }
-            v67 = *((unsigned __int8 *)v66 + 12);
-            v106 = *((_BYTE *)v66 + 12);
-            v68 = &v8[*((unsigned int *)v66 + 2)];
-            if ( *v68 != 59 && *v68 != 32 )
+            v66 = *((unsigned __int8 *)v65 + 12);
+            v105 = *((_BYTE *)v65 + 12);
+            v67 = &v8[*((unsigned int *)v65 + 2)];
+            if ( *v67 != 59 && *v67 != 32 )
             {
 LABEL_71:
               v21 = *v6;
               AceCount = 1336;
               goto LABEL_54;
             }
-            v27 = v68 + 1;
-            if ( (unsigned __int8)(v67 - 5) <= 3u || (_BYTE)v67 == 11 )
+            v27 = v67 + 1;
+            if ( (unsigned __int8)(v66 - 5) <= 3u || (_BYTE)v66 == 11 )
               *(_BYTE *)*v6 = 4;
             for ( ; *v27 == 32; ++v27 )
               ;
-            v69 = v67;
+            v68 = v66;
 LABEL_148:
             v24 = 0;
             if ( v27 != *a4 )
@@ -316,7 +315,7 @@ LABEL_148:
                 for ( ; *v27 == 32; ++v27 )
                   ;
                 v25 = 0;
-                v26 = (char *)&unk_140E08924;
+                v26 = (char *)&unk_140E08994;
                 while ( 1 )
                 {
                   if ( (v23 & *((_DWORD *)v26 - 1)) == v23 )
@@ -325,7 +324,7 @@ LABEL_148:
                     {
                       while ( v24 < *(_DWORD *)v26 )
                       {
-                        if ( *(_BYTE *)(v24 + *(_QWORD *)(v26 + 4)) == (_BYTE)v69 )
+                        if ( *(_BYTE *)(v24 + *(_QWORD *)(v26 + 4)) == (_BYTE)v68 )
                           goto LABEL_154;
                         ++v24;
                       }
@@ -335,19 +334,19 @@ LABEL_148:
 LABEL_154:
                       if ( !wcsnicmp(v27, *(const wchar_t **)(v26 - 20), *((unsigned int *)v26 - 3)) )
                       {
-                        v70 = &(&off_140E08910)[4 * v25];
-                        if ( v70 )
+                        v69 = &(&off_140E08980)[4 * v25];
+                        if ( v69 )
                         {
-                          v23 = v110;
-                          v105 |= *((_BYTE *)v70 + 12);
-                          v27 += *((unsigned int *)v70 + 2);
+                          v23 = v109;
+                          v104 |= *((_BYTE *)v69 + 12);
+                          v27 += *((unsigned int *)v69 + 2);
                           goto LABEL_148;
                         }
 LABEL_53:
                         v21 = *v6;
                         AceCount = 1004;
 LABEL_54:
-                        v22 = v104;
+                        v22 = v103;
 LABEL_55:
                         if ( v21 )
                           ExFreePoolWithTag(v21, 0);
@@ -366,7 +365,7 @@ LABEL_26:
                         return AceCount;
                       }
                     }
-                    v23 = v110;
+                    v23 = v109;
                     v24 = 0;
                   }
                   ++v25;
@@ -383,9 +382,9 @@ LABEL_26:
             {
               for ( ; *v27 == 32; ++v27 )
                 ;
-              v28 = (const wchar_t **)&unk_140E08BD8;
+              v28 = (const wchar_t **)&unk_140E08C48;
               v29 = v23;
-              if ( (_BYTE)v69 == 17 )
+              if ( (_BYTE)v68 == 17 )
                 v29 = 4;
               v30 = 0;
               while ( (v29 & (_DWORD)v28[1]) != v29 || wcsnicmp(v27, *(v28 - 1), *(unsigned int *)v28) )
@@ -395,51 +394,51 @@ LABEL_26:
                 if ( v30 >= 0x1C )
                   goto LABEL_70;
               }
-              v31 = &(&off_140E08BD0)[3 * v30];
+              v31 = &(&off_140E08C40)[3 * v30];
               if ( v31 )
               {
-                v23 = v110;
-                v107 |= *((_DWORD *)v31 + 3);
+                v23 = v109;
+                AccessMask |= *((_DWORD *)v31 + 3);
                 v27 += *((unsigned int *)v31 + 2);
               }
               else
               {
 LABEL_70:
-                v107 |= wcstoul(v27, &EndPtr, 0);
+                AccessMask |= wcstoul(v27, &EndPtr, 0);
                 if ( EndPtr == v27 )
                   goto LABEL_71;
-                v23 = v110;
+                v23 = v109;
                 v27 = EndPtr;
               }
             }
             v32 = v27 + 1;
             v33 = 0;
-            v34 = v69;
+            v34 = v68;
             while ( v33 < 2 )
             {
-              for ( j = *v32; j == 32; ++v32 )
-                j = v32[1];
-              if ( j != 59 )
+              for ( i = *v32; i == 32; ++v32 )
+                i = v32[1];
+              if ( i != 59 )
               {
-                if ( (unsigned __int8)(v69 - 5) > 3u && (_BYTE)v69 != 11 )
+                if ( (unsigned __int8)(v68 - 5) > 3u && (_BYTE)v68 != 11 )
                   goto LABEL_71;
                 wcsncpy_s(Dst, 0x25uLL, v32, 0x24uLL);
                 Dst[36] = 0;
                 if ( v33 )
                 {
-                  if ( !SddlpUuidFromString(Dst, &v128) )
+                  if ( !SddlpUuidFromString(Dst, &v127) )
                     goto LABEL_278;
-                  i = (__int64)&v128;
+                  InheritedObjectTypeGuid = &v127;
                 }
                 else
                 {
                   if ( !SddlpUuidFromString(Dst, &Guid) )
                     goto LABEL_278;
-                  *(_QWORD *)v119 = &Guid;
+                  ObjectTypeGuid = &Guid;
                 }
-                v86 = v32[36];
+                v85 = v32[36];
                 v32 += 36;
-                if ( v86 != 59 && v86 != 32 )
+                if ( v85 != 59 && v85 != 32 )
                 {
 LABEL_278:
                   AceCount = 1705;
@@ -449,45 +448,45 @@ LABEL_278:
               ++v32;
               ++v33;
             }
-            AceCount = v121;
-            if ( (_DWORD)v121 )
+            AceCount = v120;
+            if ( (_DWORD)v120 )
               goto LABEL_23;
-            for ( k = *v32; k == 32; ++v32 )
-              k = v32[1];
+            for ( j = *v32; j == 32; ++v32 )
+              j = v32[1];
             v22 = 0;
-            v121 = 0LL;
+            v120 = 0LL;
             AceCount = 0;
-            v104 = 0;
-            if ( !k || !v32[1] )
+            v103 = 0;
+            if ( !j || !v32[1] )
             {
               v21 = *v6;
               AceCount = 1332;
               goto LABEL_55;
             }
-            v112 = v32 + 2;
-            v37 = LookupSidInTable(v32, 0LL, AceListLength, 0, (__int64)&v121);
+            v111 = v32 + 2;
+            v37 = LookupSidInTable(v32, 0LL, AceListLength, 0, (__int64)&v120);
             if ( v37 )
             {
               v38 = *(char **)(v37 + 16);
               Sid = v38;
 LABEL_85:
-              v39 = v112;
-              if ( !v112 || !v38 )
+              v39 = v111;
+              if ( !v111 || !v38 )
               {
                 v21 = *v6;
                 AceCount = 1336;
                 goto LABEL_55;
               }
-              for ( m = v112; *m == 32; ++m )
+              for ( k = v111; *k == 32; ++k )
                 ;
               if ( (unsigned __int8)v34 <= 0x15u && (v41 = 2371072, _bittest(&v41, v34)) )
               {
-                if ( *m == 59 )
+                if ( *k == 59 )
                 {
-                  v78 = m[1];
-                  for ( n = m + 1; v78 == 32; ++n )
-                    v78 = n[1];
-                  if ( v78 == 40 )
+                  v77 = k[1];
+                  for ( m = k + 1; v77 == 32; ++m )
+                    v77 = m[1];
+                  if ( v77 == 40 )
                   {
                     if ( Src )
                     {
@@ -504,8 +503,8 @@ LABEL_85:
                     if ( (_BYTE)v34 == 18 )
                     {
                       AceCount = LocalGetRelativeAttributeForString(
-                                   (_DWORD)n,
-                                   (unsigned int)&v112,
+                                   (_DWORD)m,
+                                   (unsigned int)&v111,
                                    (unsigned int)&P,
                                    (unsigned int)&Size + 4,
                                    0LL,
@@ -518,26 +517,26 @@ LABEL_207:
                         v21 = *v6;
                         goto LABEL_54;
                       }
-                      v39 = v112;
+                      v39 = v111;
                       v38 = Sid;
                     }
                     else
                     {
-                      AceListLength = 0LL;
+                      AceListLength = 0;
                       ConditionForString = LocalGetConditionForString(
-                                             n,
-                                             (__int64)&v112,
+                                             m,
+                                             (__int64)&v111,
                                              (const void **)&Src,
                                              (unsigned int *)&Size);
                       v38 = Sid;
                       AceCount = ConditionForString;
-                      v39 = v112;
+                      v39 = v111;
                     }
                   }
                   else
                   {
-                    v39 = n;
-                    v112 = n;
+                    v39 = m;
+                    v111 = m;
                   }
                 }
                 v42 = Size;
@@ -555,9 +554,9 @@ LABEL_207:
                 v42 = Size;
                 v43 = HIDWORD(Size);
               }
-              for ( ii = *v39; *v39 == 32; ii = *v39 )
-                v112 = ++v39;
-              if ( ii != 41 )
+              for ( n = *v39; *v39 == 32; n = *v39 )
+                v111 = ++v39;
+              if ( n != 41 )
                 goto LABEL_71;
               v8 = v39 + 1;
               v45 = v34;
@@ -577,9 +576,9 @@ LABEL_207:
                   case 7u:
                   case 8u:
                     v46 = 32;
-                    if ( !*(_QWORD *)v119 )
+                    if ( !ObjectTypeGuid )
                       v46 = 16;
-                    if ( i )
+                    if ( InheritedObjectTypeGuid )
                       v46 += 16;
                     goto LABEL_95;
                   case 9u:
@@ -588,27 +587,27 @@ LABEL_207:
                   case 0x15u:
                     if ( v42 > 0xFFFFFFFC )
                       goto LABEL_163;
-                    v81 = (v42 + 3) & 0xFFFFFFFC;
-                    v46 = v81 + 12;
-                    if ( v81 + 12 >= v81 )
+                    v80 = (v42 + 3) & 0xFFFFFFFC;
+                    v46 = v80 + 12;
+                    if ( v80 + 12 >= v80 )
                       goto LABEL_95;
                     goto LABEL_96;
                   case 0xBu:
-                    v82 = 32;
-                    if ( !*(_QWORD *)v119 )
-                      v82 = 16;
-                    v83 = v82 + 16;
-                    if ( !i )
-                      v83 = v82;
+                    v81 = 32;
+                    if ( !ObjectTypeGuid )
+                      v81 = 16;
+                    v82 = v81 + 16;
+                    if ( !InheritedObjectTypeGuid )
+                      v82 = v81;
                     if ( v42 > 0xFFFFFFFC )
                     {
 LABEL_163:
                       AceCount = 534;
                       goto LABEL_26;
                     }
-                    v84 = (v42 + 3) & 0xFFFFFFFC;
-                    v46 = v83 + v84;
-                    if ( v83 + v84 >= v84 )
+                    v83 = (v42 + 3) & 0xFFFFFFFC;
+                    v46 = v82 + v83;
+                    if ( v82 + v83 >= v83 )
                       goto LABEL_95;
                     goto LABEL_96;
                   case 0x12u:
@@ -628,15 +627,14 @@ LABEL_95:
               v47 = RtlLengthSid(v38) + v46 - 4;
               if ( v47 < v46 )
                 goto LABEL_96;
-              v48 = v47 + v117;
-              v117 = v48;
+              v48 = v47 + v116;
+              v116 = v48;
               if ( v48 < v47 )
                 goto LABEL_96;
-              v49 = v115;
-              if ( v48 <= v115 )
+              if ( v48 <= v114 )
                 goto LABEL_99;
-              v71 = v47 * (unsigned __int64)(v114 - v116);
-              if ( v71 > 0xFFFFFFFF || (v87 = v71 + v115, (unsigned int)v71 + v115 < (unsigned int)v71) )
+              v70 = v47 * (unsigned __int64)(v113 - v115);
+              if ( v70 > 0xFFFFFFFF || (v86 = v70 + v114, (unsigned int)v70 + v114 < (unsigned int)v70) )
               {
 LABEL_96:
                 v6 = a3;
@@ -644,17 +642,17 @@ LABEL_96:
                 v21 = *a3;
                 goto LABEL_54;
               }
-              v88 = SddlpAlloc(v87);
-              v89 = v88;
-              v90 = (void *)*a3;
-              if ( !v88 )
+              v87 = SddlpAlloc(v86);
+              v88 = v87;
+              v89 = (void *)*a3;
+              if ( !v87 )
               {
-                if ( v90 )
-                  ExFreePoolWithTag(v90, 0);
+                if ( v89 )
+                  ExFreePoolWithTag(v89, 0);
                 v6 = a3;
-                v22 = v104;
+                v22 = v103;
                 *a3 = 0LL;
-                if ( v104 == 1 )
+                if ( v103 == 1 )
                 {
                   if ( Sid )
                     ExFreePoolWithTag(Sid, 0);
@@ -665,159 +663,180 @@ LABEL_96:
                 AceCount = 8;
                 goto LABEL_55;
               }
-              memmove(v88, *a3, v115);
-              v91 = a3;
-              v89[1] = v87;
+              memmove(v87, *a3, v114);
+              v90 = a3;
+              v88[1] = v86;
               if ( *a3 )
               {
                 ExFreePoolWithTag((PVOID)*a3, 0);
-                v91 = a3;
+                v90 = a3;
               }
-              *v91 = v89;
+              *v90 = v88;
               v42 = Size;
-              v115 = v87;
+              v114 = v86;
 LABEL_99:
               if ( v45 )
               {
                 if ( v45 == 17 )
                 {
                   v6 = a3;
-                  v54 = Sid;
-                  v20 = SddlAddMandatoryAce(*a3, v49, v105, Sid);
+                  v53 = Sid;
+                  v20 = SddlAddMandatoryAce((PACL)*a3, AceListLength, AccessMask);
                   goto LABEL_115;
                 }
                 switch ( v45 )
                 {
                   case 1u:
                     v6 = a3;
-                    v54 = Sid;
-                    v20 = RtlpAddKnownAce((int)*a3, 2, v105, v107, Sid, 1);
+                    v53 = Sid;
+                    v20 = RtlpAddKnownAce((int)*a3, 2, v104, AccessMask, Sid, 1);
                     goto LABEL_115;
                   case 2u:
                     v6 = a3;
-                    v54 = Sid;
-                    v20 = RtlAddAuditAccessAceEx((int)*a3, 2, v105 & 0x3F, v107, Sid, v105 & 0x40, v105 & 0x80);
+                    v53 = Sid;
+                    v20 = RtlAddAuditAccessAceEx((PACL)*a3, 2u, v104 & 0x3F, AccessMask, Sid, v104 & 0x40, v104 & 0x80);
                     goto LABEL_115;
                   case 5u:
-                    v54 = Sid;
+                    v53 = Sid;
                     v6 = a3;
-                    v20 = RtlAddAccessAllowedObjectAce((int)*a3, 4, v105, v107, *(__int64 *)v119, i, Sid);
+                    v20 = RtlAddAccessAllowedObjectAce(
+                            (PACL)*a3,
+                            4u,
+                            v104,
+                            AccessMask,
+                            ObjectTypeGuid,
+                            InheritedObjectTypeGuid,
+                            Sid);
                     goto LABEL_115;
                   case 6u:
-                    v54 = Sid;
+                    v53 = Sid;
                     v6 = a3;
-                    v20 = RtlAddAccessDeniedObjectAce((int)*a3, 4, v105, v107, *(__int64 *)v119, i, Sid);
+                    v20 = RtlAddAccessDeniedObjectAce(
+                            (PACL)*a3,
+                            4u,
+                            v104,
+                            AccessMask,
+                            ObjectTypeGuid,
+                            InheritedObjectTypeGuid,
+                            Sid);
                     goto LABEL_115;
                   case 7u:
-                    v54 = Sid;
+                    v53 = Sid;
                     v6 = a3;
                     v20 = RtlAddAuditAccessObjectAce(
-                            (int)*a3,
-                            4,
-                            v105,
-                            v107,
-                            *(__int64 *)v119,
-                            i,
+                            (PACL)*a3,
+                            4u,
+                            v104,
+                            AccessMask,
+                            ObjectTypeGuid,
+                            InheritedObjectTypeGuid,
                             Sid,
-                            v105 & 0x40,
-                            v105 & 0x80);
+                            v104 & 0x40,
+                            v104 & 0x80);
                     goto LABEL_115;
                   case 9u:
                   case 0xAu:
                   case 0xDu:
                     if ( v47 >= 0xFFFF )
                       goto LABEL_21;
-                    v73 = (char *)SddlpAlloc(v47);
-                    v74 = v73;
-                    if ( !v73 )
+                    v72 = (char *)SddlpAlloc(v47);
+                    v73 = v72;
+                    if ( !v72 )
                     {
                       v20 = -1073741801;
                       goto LABEL_22;
                     }
-                    *v73 = v106;
-                    v73[1] = v105;
-                    *((_DWORD *)v73 + 1) = v107;
-                    *((_WORD *)v73 + 1) = v47;
-                    v75 = RtlLengthSid(Sid);
-                    RtlCopySid(v75, v74 + 8, Sid);
+                    *v72 = v105;
+                    v72[1] = v104;
+                    *((_DWORD *)v72 + 1) = AccessMask;
+                    *((_WORD *)v72 + 1) = v47;
+                    v74 = RtlLengthSid(Sid);
+                    RtlCopySid(v74, v73 + 8, Sid);
                     if ( (_DWORD)Size )
                     {
-                      v76 = Size;
-                      v77 = RtlLengthSid(Sid);
-                      memmove(&v74[v77 + 8], Src, v76);
+                      v75 = Size;
+                      v76 = RtlLengthSid(Sid);
+                      memmove(&v73[v76 + 8], Src, v75);
                     }
                     v6 = a3;
-                    v20 = RtlAddAce((PACL)*a3, 2u, 0xFFFFFFFF, v74, v47);
-                    ExFreePoolWithTag(v74, 0);
+                    v20 = RtlAddAce((PACL)*a3, 2u, 0xFFFFFFFF, v73, v47);
+                    ExFreePoolWithTag(v73, 0);
                     break;
                   case 0xBu:
                     if ( v47 >= 0xFFFF )
                       goto LABEL_21;
                     v6 = a3;
-                    v20 = RtlAddAccessAllowedObjectAce((int)*a3, 4, v105, v107, *(__int64 *)v119, i, Sid);
+                    v20 = RtlAddAccessAllowedObjectAce(
+                            (PACL)*a3,
+                            4u,
+                            v104,
+                            AccessMask,
+                            ObjectTypeGuid,
+                            InheritedObjectTypeGuid,
+                            Sid);
                     if ( v20 < 0 )
                       goto LABEL_22;
                     v20 = RtlGetAce((PACL)*a3, *((unsigned __int16 *)*a3 + 2) - 1, &Ace);
                     if ( v20 < 0 )
                       goto LABEL_22;
-                    v97 = Ace;
-                    v98 = 9;
+                    v96 = Ace;
+                    v97 = 9;
                     if ( *(_BYTE *)Ace == 5 )
-                      v98 = 11;
-                    *(_BYTE *)Ace = v98;
-                    v97[1] = v47;
+                      v97 = 11;
+                    *(_BYTE *)Ace = v97;
+                    v96[1] = v47;
                     if ( !(_DWORD)Size )
                       goto LABEL_299;
-                    v99 = (unsigned int)Size;
-                    if ( *(_BYTE *)v97 == 11 )
+                    v98 = (unsigned int)Size;
+                    if ( *(_BYTE *)v96 == 11 )
                     {
-                      v100 = *((_DWORD *)v97 + 2);
-                      v101 = RtlLengthSid(Sid);
-                      memmove((char *)&v97[8 * (v100 & 1) + 6 + 4 * (v100 & 2)] + v101, Src, (unsigned int)v99);
+                      v99 = *((_DWORD *)v96 + 2);
+                      v100 = RtlLengthSid(Sid);
+                      memmove((char *)&v96[8 * (v99 & 1) + 6 + 4 * (v99 & 2)] + v100, Src, (unsigned int)v98);
 LABEL_299:
-                      v54 = Sid;
+                      v53 = Sid;
                     }
                     else
                     {
-                      v54 = Sid;
-                      v102 = RtlLengthSid(Sid);
-                      memmove((char *)v97 + v102 + 8, Src, v99);
+                      v53 = Sid;
+                      v101 = RtlLengthSid(Sid);
+                      memmove((char *)v96 + v101 + 8, Src, v98);
                     }
-                    v57 = v104;
+                    v56 = v103;
                     goto LABEL_117;
                   case 0x12u:
-                    if ( v47 >= 0xFFFF || (v105 & 0xE0) != 0 || v107 )
+                    if ( v47 >= 0xFFFF || (v104 & 0xE0) != 0 || AccessMask )
                       goto LABEL_21;
-                    v85 = *(_DWORD *)(Sid + 2) - v125;
-                    if ( !v85 )
-                      v85 = *((unsigned __int16 *)Sid + 3) - v126;
-                    if ( v85 || Sid[1] != 1 || *((_DWORD *)Sid + 2) )
+                    v84 = *(_DWORD *)(Sid + 2) - v124;
+                    if ( !v84 )
+                      v84 = *((unsigned __int16 *)Sid + 3) - v125;
+                    if ( v84 || Sid[1] != 1 || *((_DWORD *)Sid + 2) )
                     {
                       v20 = -1073741705;
                     }
                     else
                     {
-                      v92 = (char *)SddlpAlloc(v47);
-                      v93 = v92;
-                      if ( v92 )
+                      v91 = (char *)SddlpAlloc(v47);
+                      v92 = v91;
+                      if ( v91 )
                       {
-                        *v92 = v106;
-                        *((_DWORD *)v92 + 1) = 0;
-                        v92[1] = v105;
-                        *((_WORD *)v92 + 1) = v47;
-                        v94 = RtlLengthSid(Sid);
-                        RtlCopySid(v94, v93 + 8, Sid);
+                        *v91 = v105;
+                        *((_DWORD *)v91 + 1) = 0;
+                        v91[1] = v104;
+                        *((_WORD *)v91 + 1) = v47;
+                        v93 = RtlLengthSid(Sid);
+                        RtlCopySid(v93, v92 + 8, Sid);
                         if ( HIDWORD(Size) )
                         {
-                          v95 = HIDWORD(Size);
-                          v96 = RtlLengthSid(Sid);
-                          memmove(&v93[v96 + 8], P, v95);
+                          v94 = HIDWORD(Size);
+                          v95 = RtlLengthSid(Sid);
+                          memmove(&v92[v95 + 8], P, v94);
                         }
                         v6 = a3;
-                        v20 = RtlAddAce((PACL)*a3, 2u, 0xFFFFFFFF, v93, v47);
-                        ExFreePoolWithTag(v93, 0);
-                        v57 = v104;
-                        v54 = Sid;
+                        v20 = RtlAddAce((PACL)*a3, 2u, 0xFFFFFFFF, v92, v47);
+                        ExFreePoolWithTag(v92, 0);
+                        v56 = v103;
+                        v53 = Sid;
                         goto LABEL_116;
                       }
                       v20 = -1073741801;
@@ -825,32 +844,32 @@ LABEL_299:
                     goto LABEL_22;
                   case 0x13u:
                     v6 = a3;
-                    v54 = Sid;
-                    v20 = SddlAddScopedPolicyIDAce((__int64)*a3, 0x140000000LL, v105, v107, Sid);
+                    v53 = Sid;
+                    v20 = SddlAddScopedPolicyIDAce((PACL)*a3, 0x140000000LL, v104, AccessMask, Sid);
                     goto LABEL_115;
                   case 0x14u:
                     v6 = a3;
-                    v54 = Sid;
+                    v53 = Sid;
                     v20 = SddlAddProcessTrustLabelAce(
-                            (__int64)*a3,
+                            (PACL)*a3,
                             0x140000000LL,
-                            v105,
+                            v104,
                             (__int64)Sid,
                             AceListLength,
-                            v107);
+                            AccessMask);
                     goto LABEL_115;
                   case 0x15u:
                     if ( v42 < 0xFFFF )
                     {
                       v6 = a3;
-                      v54 = Sid;
+                      v53 = Sid;
                       v20 = SddlAddAccessFilterAce(
-                              (__int64)*a3,
+                              (PACL)*a3,
                               0x140000000LL,
-                              v105,
+                              v104,
                               (__int64)Sid,
                               AceListLength,
-                              v107,
+                              AccessMask,
                               Src,
                               v42);
                       goto LABEL_115;
@@ -866,48 +885,48 @@ LABEL_21:
               else
               {
                 v6 = a3;
-                v50 = (char *)*a3;
+                v49 = (ACL *)*a3;
                 if ( !RtlValidSid(Sid) )
                 {
                   v20 = -1073741704;
                   goto LABEL_114;
                 }
-                v51 = *v50;
-                if ( (unsigned __int8)*v50 > 4u )
+                AclRevision = v49->AclRevision;
+                if ( v49->AclRevision > 4u )
                 {
                   v20 = -1073741735;
                   goto LABEL_114;
                 }
-                if ( (unsigned __int8)v51 <= 2u )
-                  v51 = 2;
-                if ( (v105 & 0xE0) != 0 && (v105 & 0xC0) != 0 )
+                if ( (unsigned __int8)AclRevision <= 2u )
+                  AclRevision = 2;
+                if ( (v104 & 0xE0) != 0 && (v104 & 0xC0) != 0 )
                 {
                   v20 = -1073741811;
                   goto LABEL_114;
                 }
-                if ( (unsigned __int8)RtlValidAcl(v50) )
+                if ( RtlValidAcl(v49) )
                 {
-                  v52 = v50 + 8;
-                  for ( jj = 0; jj < *((unsigned __int16 *)v50 + 2); ++jj )
+                  v51 = v49 + 1;
+                  for ( ii = 0; ii < v49->AceCount; ++ii )
                   {
-                    if ( v52 >= &v50[*((unsigned __int16 *)v50 + 1)] )
+                    if ( v51 >= (ACL *)((char *)v49 + v49->AclSize) )
                       goto LABEL_209;
-                    v52 += *((unsigned __int16 *)v52 + 1);
+                    v51 = (ACL *)((char *)v51 + v51->AclSize);
                   }
-                  v54 = Sid;
-                  v55 = &v50[*((unsigned __int16 *)v50 + 1)];
-                  if ( v52 > v55 )
-                    v52 = 0LL;
-                  v56 = 4 * ((unsigned __int8)Sid[1] + 4);
-                  if ( v52 && &v52[v56] <= v55 )
+                  v53 = Sid;
+                  v54 = (ACL *)((char *)v49 + v49->AclSize);
+                  if ( v51 > v54 )
+                    v51 = 0LL;
+                  v55 = 4 * ((unsigned __int8)Sid[1] + 4);
+                  if ( v51 && (ACL *)((char *)v51 + v55) <= v54 )
                   {
-                    v52[1] = v105;
-                    *((_WORD *)v52 + 1) = v56;
-                    *((_DWORD *)v52 + 1) = v107;
-                    *v52 = 0;
-                    RtlCopySid(4 * (unsigned __int8)Sid[1] + 8, v52 + 8, Sid);
-                    ++*((_WORD *)v50 + 2);
-                    *v50 = v51;
+                    v51->Sbz1 = v104;
+                    v51->AclSize = v55;
+                    *(_DWORD *)&v51->AceCount = AccessMask;
+                    v51->AclRevision = 0;
+                    RtlCopySid(4 * (unsigned __int8)Sid[1] + 8, &v51[1], Sid);
+                    ++v49->AceCount;
+                    v49->AclRevision = AclRevision;
                     v20 = 0;
                   }
                   else
@@ -915,15 +934,15 @@ LABEL_21:
                     v20 = -1073741671;
                   }
 LABEL_115:
-                  v57 = v104;
+                  v56 = v103;
 LABEL_116:
                   if ( v20 >= 0 )
                   {
 LABEL_117:
-                    if ( v57 == 1 && v54 )
-                      ExFreePoolWithTag(v54, 0);
+                    if ( v56 == 1 && v53 )
+                      ExFreePoolWithTag(v53, 0);
                     Sid = 0LL;
-                    v122 = 0LL;
+                    v121 = 0LL;
                     if ( Src )
                     {
                       ExFreePoolWithTag(Src, 0);
@@ -938,8 +957,8 @@ LABEL_117:
                     HIDWORD(Size) = 0;
                     if ( *v8 == 40 )
                       ++v8;
-                    v17 = v114;
-                    v58 = v116 + 1;
+                    v17 = v113;
+                    v57 = v115 + 1;
                     goto LABEL_131;
                   }
 LABEL_22:
@@ -949,49 +968,49 @@ LABEL_23:
                   v21 = *v6;
                   if ( AceCount )
                     goto LABEL_54;
-                  v22 = v104;
-                  v21[1] = v117;
+                  v22 = v103;
+                  v21[1] = v116;
                   goto LABEL_25;
                 }
 LABEL_209:
                 v20 = -1073741705;
               }
 LABEL_114:
-              v54 = Sid;
+              v53 = Sid;
               goto LABEL_115;
             }
-            v38 = (char *)v121;
-            Sid = (char *)v121;
-            if ( !v121 )
+            v38 = (char *)v120;
+            Sid = (char *)v120;
+            if ( !v120 )
             {
-              v112 -= 2;
-              v72 = LocalpConvertStringSidToSid(v32, (__int64 *)&v122, &v112);
-              if ( v72 < 0 )
+              v111 -= 2;
+              v71 = LocalpConvertStringSidToSid(v32, (__int64 *)&v121, &v111);
+              if ( v71 < 0 )
               {
-                AceCount = RtlNtStatusToDosError(v72);
+                AceCount = RtlNtStatusToDosError(v71);
                 if ( AceCount )
                 {
-                  v38 = v122;
-                  Sid = v122;
+                  v38 = v121;
+                  Sid = v121;
 LABEL_178:
-                  v104 = v22;
+                  v103 = v22;
                   if ( !AceCount )
                     goto LABEL_85;
                   goto LABEL_23;
                 }
               }
-              v38 = v122;
-              Sid = v122;
-              if ( !v122 )
+              v38 = v121;
+              Sid = v121;
+              if ( !v121 )
                 goto LABEL_178;
             }
             v22 = 1;
             goto LABEL_178;
           }
         }
-        ++v64;
-        v63 += 3;
-        if ( v64 >= 0x11 )
+        ++v63;
+        v62 += 3;
+        if ( v63 >= 0x11 )
           goto LABEL_140;
       }
     }

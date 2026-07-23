@@ -55,7 +55,7 @@ NTSTATUS __fastcall KiSwapToUmsThread(signed __int64 a1)
   __int64 v27; // r8
   __int64 v28; // rdx
   unsigned __int64 v29; // [rsp+30h] [rbp+0h]
-  struct _EXCEPTION_RECORD ExitStatus; // [rsp+40h] [rbp+10h] BYREF
+  EXCEPTION_RECORD ExitStatus; // [rsp+40h] [rbp+10h] BYREF
   _DWORD v31[4]; // [rsp+E0h] [rbp+B0h] BYREF
   _DWORD v32[4]; // [rsp+F0h] [rbp+C0h] BYREF
   _DWORD *v33; // [rsp+100h] [rbp+D0h] BYREF

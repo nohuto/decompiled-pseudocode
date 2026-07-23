@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteUnmappedSystemCacheViews @ 0x1406F5A18
+ * XREFs of MiDeleteUnmappedSystemCacheViews @ 0x1406FA688
  * Callers:
- *     MiReduceSystemCache @ 0x140531298 (MiReduceSystemCache.c)
- *     MiDeletePartitionResources @ 0x140868E28 (MiDeletePartitionResources.c)
+ *     MiReduceSystemCache @ 0x140533798 (MiReduceSystemCache.c)
+ *     MiDeletePartitionResources @ 0x14086F208 (MiDeletePartitionResources.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiRebalanceSystemCacheFreedViews @ 0x1402A3240 (MiRebalanceSystemCacheFreedViews.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1402A38D8 (MiReturnSystemCacheRegionsToKva.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemCacheRegionsToFree @ 0x14048AE64 (MiGetSystemCacheRegionsToFree.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x1402A2790 (MiRebalanceSystemCacheFreedViews.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1402A2E28 (MiReturnSystemCacheRegionsToKva.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemCacheRegionsToFree @ 0x1404849A4 (MiGetSystemCacheRegionsToFree.c)
  */
 
 void __fastcall MiDeleteUnmappedSystemCacheViews(__int64 a1)

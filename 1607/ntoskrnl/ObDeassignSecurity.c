@@ -1,9 +1,9 @@
 /*
- * XREFs of ObDeassignSecurity @ 0x1404E1ED4
+ * XREFs of ObDeassignSecurity @ 0x1404C54D8
  * Callers:
- *     WmipSecurityMethod @ 0x1404E1DBC (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1404C53C0 (WmipSecurityMethod.c)
  * Callees:
- *     ObDereferenceSecurityDescriptor @ 0x1404200D0 (ObDereferenceSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14041EF90 (ObDereferenceSecurityDescriptor.c)
  */
 
 __int64 __fastcall ObDeassignSecurity(__int64 *a1)

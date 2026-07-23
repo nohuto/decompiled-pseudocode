@@ -7,8 +7,8 @@
  *     EtwpInitLoggerContext @ 0x180051D88 (EtwpInitLoggerContext.c)
  *     EtwpAddInstanceIdToLogFileName @ 0x1800521A0 (EtwpAddInstanceIdToLogFileName.c)
  *     LdrpLogDllStateEx2 @ 0x180054588 (LdrpLogDllStateEx2.c)
- *     LdrSetDllDirectory @ 0x1800835A0 (LdrSetDllDirectory.c)
- *     EtwpGenerateFileName @ 0x1800888C4 (EtwpGenerateFileName.c)
+ *     LdrSetDllDirectory @ 0x1800835B0 (LdrSetDllDirectory.c)
+ *     EtwpGenerateFileName @ 0x1800888D4 (EtwpGenerateFileName.c)
  *     LdrpMakeUnicodeStringFromPathElement @ 0x1800D21BC (LdrpMakeUnicodeStringFromPathElement.c)
  * Callees:
  *     NtdllpAllocateStringRoutine @ 0x18000EB60 (NtdllpAllocateStringRoutine.c)
@@ -16,25 +16,25 @@
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-char __fastcall RtlCreateUnicodeString(__int64 a1, _WORD *a2)
+BOOLEAN __cdecl RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
   __int64 v4; // rax
   unsigned int v5; // esi
-  void *StringRoutine; // rax
+  wchar_t *StringRoutine; // rax
 
   v4 = -1LL;
   do
     ++v4;
-  while ( a2[v4] );
+  while ( SourceString[v4] );
   v5 = 2 * v4 + 2;
   if ( (unsigned int)(2 * v4 + 1) > 0xFFFD )
     return 0;
-  StringRoutine = (void *)NtdllpAllocateStringRoutine(v5);
-  *(_QWORD *)(a1 + 8) = StringRoutine;
+  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v5);
+  DestinationString->Buffer = StringRoutine;
   if ( !StringRoutine )
     return 0;
-  *(_WORD *)(a1 + 2) = v5;
-  memmove(StringRoutine, a2, v5);
-  *(_WORD *)a1 = v5 - 2;
+  DestinationString->MaximumLength = v5;
+  memmove(StringRoutine, SourceString, v5);
+  DestinationString->Length = v5 - 2;
   return 1;
 }

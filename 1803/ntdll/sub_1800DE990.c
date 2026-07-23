@@ -12,67 +12,75 @@
  *     sub_1800DBCC0 @ 0x1800DBCC0 (sub_1800DBCC0.c)
  */
 
-__int64 __fastcall sub_1800DE990(_WORD *a1)
+__int64 __fastcall sub_1800DE990(PCWSTR DosFileName)
 {
   __int64 v2; // r14
   __int64 v3; // rcx
-  signed int AttributesFile; // edi
-  int v5; // edx
-  unsigned __int64 v6; // rbx
-  int v8; // [rsp+28h] [rbp-A0h] BYREF
-  const wchar_t *v9; // [rsp+30h] [rbp-98h]
-  int v10; // [rsp+38h] [rbp-90h] BYREF
-  const wchar_t *v11; // [rsp+40h] [rbp-88h]
-  char v12; // [rsp+48h] [rbp-80h] BYREF
-  unsigned __int64 v13; // [rsp+50h] [rbp-78h]
-  int v14; // [rsp+58h] [rbp-70h]
-  __int64 v15; // [rsp+60h] [rbp-68h]
-  char *v16; // [rsp+68h] [rbp-60h]
-  int v17; // [rsp+70h] [rbp-58h]
-  __int128 v18; // [rsp+78h] [rbp-50h]
-  int v19; // [rsp+A8h] [rbp-20h]
+  __int64 v4; // rsi
+  __int64 v5; // rcx
+  NTSTATUS v6; // edi
+  RTL_PATH_TYPE v7; // edx
+  PWCH Buffer; // rbx
+  int v10; // [rsp+28h] [rbp-A0h] BYREF
+  const wchar_t *v11; // [rsp+30h] [rbp-98h]
+  int v12; // [rsp+38h] [rbp-90h] BYREF
+  const wchar_t *v13; // [rsp+40h] [rbp-88h]
+  _UNICODE_STRING NtFileName; // [rsp+48h] [rbp-80h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-70h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+88h] [rbp-40h] BYREF
 
-  v8 = 3932218;
-  v9 = L"LdrpResValidateFilePath Enter";
-  v10 = 3801144;
-  v11 = L"LdrpResValidateFilePath Exit";
+  v10 = 3932218;
+  v11 = L"LdrpResValidateFilePath Enter";
+  v12 = 3801144;
+  v13 = L"LdrpResValidateFilePath Exit";
   v2 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v3 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  if ( RtlGetCurrentServiceSessionId() )
+    v3 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   else
     v3 = 2147353477LL;
   if ( (*(_BYTE *)v3 & 1) != 0 )
   {
-    RtlGetCurrentServiceSessionId();
-    sub_1800DBCC0((unsigned __int16 *)&v8);
-  }
-  if ( !a1 || (v5 = RtlDetermineDosPathNameType_U(a1), ((v5 - 1) & 0xFFFFFFFA) != 0) || v5 == 5 )
-  {
-    AttributesFile = -1073741811;
-  }
-  else if ( RtlDosPathNameToNtPathName_U((__int64)a1, (int)&v12, 0LL, 0LL) )
-  {
-    v6 = v13;
-    v14 = 48;
-    v15 = 0LL;
-    v17 = 64;
-    v16 = &v12;
-    v18 = 0LL;
-    AttributesFile = ZwQueryAttributesFile();
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
-    if ( AttributesFile >= 0 )
-      AttributesFile = (v19 & 0x10) != 0 ? 0xC000000D : 0;
+    v4 = 2147353476LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v5 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
+    else
+      v5 = 2147353476LL;
+    sub_1800DBCC0((unsigned __int16 *)&v10, *(unsigned __int8 *)v5);
   }
   else
   {
-    AttributesFile = -1073741766;
+    v4 = 2147353476LL;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v2 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  if ( !DosFileName
+    || (v7 = RtlDetermineDosPathNameType_U(DosFileName), ((v7 - 1) & 0xFFFFFFFA) != 0)
+    || v7 == RtlPathTypeRelative )
+  {
+    v6 = -1073741811;
+  }
+  else if ( RtlDosPathNameToNtPathName_U(DosFileName, &NtFileName, 0LL, 0LL) )
+  {
+    Buffer = NtFileName.Buffer;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = &NtFileName;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v6 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+    if ( v6 >= 0 )
+      v6 = (FileInformation.FileAttributes & 0x10) != 0 ? 0xC000000D : 0;
+  }
+  else
+  {
+    v6 = -1073741766;
+  }
+  if ( RtlGetCurrentServiceSessionId() )
+    v2 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   if ( (*(_BYTE *)v2 & 1) != 0 )
   {
-    RtlGetCurrentServiceSessionId();
-    sub_1800DBCC0((unsigned __int16 *)&v10);
+    if ( RtlGetCurrentServiceSessionId() )
+      v4 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
+    sub_1800DBCC0((unsigned __int16 *)&v12, *(unsigned __int8 *)v4);
   }
-  return (unsigned int)AttributesFile;
+  return (unsigned int)v6;
 }

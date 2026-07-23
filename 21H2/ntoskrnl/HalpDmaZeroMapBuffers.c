@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaZeroMapBuffers @ 0x1404C88D4
+ * XREFs of HalpDmaZeroMapBuffers @ 0x1404C8B14
  * Callers:
- *     HalpMapTransferV3 @ 0x1404CA838 (HalpMapTransferV3.c)
- *     HalpMapTransferV2 @ 0x1404CC994 (HalpMapTransferV2.c)
+ *     HalpMapTransferV3 @ 0x1404CAA78 (HalpMapTransferV3.c)
+ *     HalpMapTransferV2 @ 0x1404CCBD4 (HalpMapTransferV2.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpDmaAcquireBufferMappings @ 0x1404C65A8 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReleaseBufferMappings @ 0x1404C7E8C (HalpDmaReleaseBufferMappings.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpDmaAcquireBufferMappings @ 0x1404C67E8 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x1404C80CC (HalpDmaReleaseBufferMappings.c)
  */
 
 void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)

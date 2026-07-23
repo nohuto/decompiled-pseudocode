@@ -2,8 +2,8 @@
  * XREFs of CcAdjustVacbLevelLockCount @ 0x1400223FC
  * Callers:
  *     CcUnpinFileDataEx @ 0x140020910 (CcUnpinFileDataEx.c)
- *     CcAllocateInitializeBcb @ 0x1400CC318 (CcAllocateInitializeBcb.c)
- *     CcDeleteBcbs @ 0x14016049C (CcDeleteBcbs.c)
+ *     CcAllocateInitializeBcb @ 0x1400CC398 (CcAllocateInitializeBcb.c)
+ *     CcDeleteBcbs @ 0x14016059C (CcDeleteBcbs.c)
  * Callees:
  *     CcSetVacbLargeOffset @ 0x1400224B0 (CcSetVacbLargeOffset.c)
  *     VacbLevelReference @ 0x140022BAC (VacbLevelReference.c)

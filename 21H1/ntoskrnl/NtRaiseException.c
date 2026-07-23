@@ -12,31 +12,37 @@
  *     KiRaiseException @ 0x14051C390 (KiRaiseException.c)
  */
 
-__int64 __fastcall NtRaiseException(int a1, int a2, char a3, __int64 a4, char a5)
+NTSTATUS __cdecl NtRaiseException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, BOOLEAN FirstChance)
 {
-  __int64 v5; // rbp
-  __int64 result; // rax
+  __int64 v3; // rbp
+  NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rbx
-  struct _KTHREAD *v8; // rcx
-  __int64 v9; // r9
-  __int64 v10; // r8
+  struct _KTHREAD *v6; // rcx
+  __int64 v7; // r9
+  __int64 v8; // r8
   unsigned __int8 BpbUserSpecCtrl; // al
-  __int64 v14; // [rsp+0h] [rbp-138h] BYREF
+  __int64 v12; // [rsp+0h] [rbp-138h] BYREF
+  char v13; // [rsp+160h] [rbp+28h]
 
-  *(_QWORD *)(v5 + 80) = *(_QWORD *)(v5 + 232);
-  result = KiRaiseException(a1, a2, (unsigned int)&v14, (int)v5 - 128, a3);
-  if ( !(_DWORD)result )
+  *(_QWORD *)(v3 + 80) = *(_QWORD *)(v3 + 232);
+  result = KiRaiseException(
+             (_DWORD)ExceptionRecord,
+             (_DWORD)ContextRecord,
+             (unsigned int)&v12,
+             (int)v3 - 128,
+             FirstChance);
+  if ( !result )
   {
-    if ( (*(_BYTE *)(v5 + 240) & 1) == 0 )
+    if ( (*(_BYTE *)(v3 + 240) & 1) == 0 )
     {
       CurrentThread = KeGetCurrentThread();
-      CurrentThread->TrapFrame = *(_KTRAP_FRAME **)(v5 + 184);
-      CurrentThread->PreviousMode = *(_BYTE *)(v5 - 88);
+      CurrentThread->TrapFrame = *(_KTRAP_FRAME **)(v3 + 184);
+      CurrentThread->PreviousMode = *(_BYTE *)(v3 - 88);
     }
     _disable();
-    if ( (*(_BYTE *)(v5 + 240) & 1) == 0 )
+    if ( (*(_BYTE *)(v3 + 240) & 1) == 0 )
     {
-      _mm_setcsr(*(_DWORD *)(v5 - 84));
+      _mm_setcsr(*(_DWORD *)(v3 - 84));
       __asm { iretq }
     }
     if ( (_BYTE)KeSmapEnabled )
@@ -53,25 +59,25 @@ __int64 __fastcall NtRaiseException(int a1, int a2, char a3, __int64 a4, char a5
       KiUpdateStibpPairing(0LL);
     if ( (KeGetCurrentThread()->Header.LockNV & 0x8000000) != 0 )
       KiRestoreSetContextState();
-    v8 = KeGetCurrentThread();
-    if ( (v8->Header.LockNV & 0x40010000) != 0 )
+    v6 = KeGetCurrentThread();
+    if ( (v6->Header.LockNV & 0x40010000) != 0 )
     {
-      if ( (v8->Header.Size & 1) != 0 )
+      if ( (v6->Header.Size & 1) != 0 )
       {
         KiCopyCounters();
-        v8 = KeGetCurrentThread();
+        v6 = KeGetCurrentThread();
       }
-      if ( (v8->Header.Reserved1 & 0x40) != 0 )
+      if ( (v6->Header.Reserved1 & 0x40) != 0 )
       {
-        LOBYTE(v8) = 1;
-        KiUmsExit(v8);
+        LOBYTE(v6) = 1;
+        KiUmsExit(v6);
       }
     }
-    _mm_setcsr(*(_DWORD *)(v5 - 84));
-    if ( *(_WORD *)(v5 + 128) )
+    _mm_setcsr(*(_DWORD *)(v3 - 84));
+    if ( *(_WORD *)(v3 + 128) )
       KiRestoreDebugRegisterState();
-    v9 = *(_QWORD *)(v5 - 48);
-    v10 = *(_QWORD *)(v5 - 56);
+    v7 = *(_QWORD *)(v3 - 48);
+    v8 = *(_QWORD *)(v3 - 56);
     __writegsbyte(0x853u, 0);
     BpbUserSpecCtrl = KeGetPcr()->Prcb.BpbUserSpecCtrl;
     if ( KeGetPcr()->Prcb.BpbCurrentSpecCtrl != BpbUserSpecCtrl )
@@ -89,7 +95,7 @@ __int64 __fastcall NtRaiseException(int a1, int a2, char a3, __int64 a4, char a5
         iretq
       }
     }
-    return KiKernelExit(*(_QWORD *)(v5 - 72), *(_QWORD *)(v5 - 64), v10, v9, a5);
+    return KiKernelExit(*(_QWORD *)(v3 - 72), *(_QWORD *)(v3 - 64), v8, v7, v13);
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpQueryAccessedState @ 0x1405A4BEC
+ * XREFs of VmpQueryAccessedState @ 0x1405A4E1C
  * Callers:
- *     MiQueryEPTAccessedState @ 0x14053BA00 (MiQueryEPTAccessedState.c)
+ *     MiQueryEPTAccessedState @ 0x14053BC40 (MiQueryEPTAccessedState.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405A2E80 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpProcessAccessedBatch @ 0x1405A4840 (VmpProcessAccessedBatch.c)
- *     VmpProcessContextLockShared @ 0x1405A49D4 (VmpProcessContextLockShared.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405A30B0 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpProcessAccessedBatch @ 0x1405A4A70 (VmpProcessAccessedBatch.c)
+ *     VmpProcessContextLockShared @ 0x1405A4C04 (VmpProcessContextLockShared.c)
  */
 
 unsigned __int64 __fastcall VmpQueryAccessedState(PEX_SPIN_LOCK SpinLock, unsigned __int64 *a2, int a3, int a4)

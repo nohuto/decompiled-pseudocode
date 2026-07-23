@@ -1,19 +1,19 @@
 /*
- * XREFs of HvStoreModifiedData @ 0x140721060
+ * XREFs of HvStoreModifiedData @ 0x1406F88B8
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
  * Callees:
- *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
- *     RtlMergeBitMaps @ 0x1403629A8 (RtlMergeBitMaps.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvpFindNextDirtyBlock @ 0x14064611C (HvpFindNextDirtyBlock.c)
- *     HvpCountSetRangesInVector @ 0x1406463C4 (HvpCountSetRangesInVector.c)
- *     HvpTruncateBins @ 0x140721484 (HvpTruncateBins.c)
- *     HvResetDirtyData @ 0x140721924 (HvResetDirtyData.c)
- *     HvpGenerateLogEntry @ 0x140721960 (HvpGenerateLogEntry.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlClearAllBits @ 0x1402F70D0 (RtlClearAllBits.c)
+ *     RtlMergeBitMaps @ 0x1402F7B98 (RtlMergeBitMaps.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvpFindNextDirtyBlock @ 0x14063AF08 (HvpFindNextDirtyBlock.c)
+ *     HvpCountSetRangesInVector @ 0x14063B1B0 (HvpCountSetRangesInVector.c)
+ *     HvpTruncateBins @ 0x1406F8CDC (HvpTruncateBins.c)
+ *     HvResetDirtyData @ 0x1406F917C (HvResetDirtyData.c)
+ *     HvpGenerateLogEntry @ 0x1406F91B8 (HvpGenerateLogEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, char a3)
@@ -54,7 +54,7 @@ __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, ch
   PVOID P; // [rsp+58h] [rbp-21h]
   PVOID v39; // [rsp+60h] [rbp-19h]
   unsigned int v40; // [rsp+68h] [rbp-11h] BYREF
-  RTL_BITMAP BitMapHeader; // [rsp+70h] [rbp-9h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+70h] [rbp-9h] BYREF
   __int64 v42; // [rsp+80h] [rbp+7h] BYREF
   __int128 v43; // [rsp+88h] [rbp+Fh] BYREF
   unsigned int v44; // [rsp+E0h] [rbp+67h]

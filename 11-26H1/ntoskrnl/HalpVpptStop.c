@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpVpptStop @ 0x140583330
+ * XREFs of HalpVpptStop @ 0x140585850
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x140426F38 (HalpVpptUpdatePhysicalTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x140434048 (HalpVpptUpdatePhysicalTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpVpptStop(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall HalpVpptStop(__int64 a1)
   __int64 InternalData; // rax
   __int64 v6; // rdx
 
-  byte_140FBB3F8 = HalpAcquireHighLevelLock(&qword_140FBB3F0);
+  byte_140FBB798 = HalpAcquireHighLevelLock(&qword_140FBB790);
   if ( *(_BYTE *)(a1 + 24) )
   {
     v2 = *(_QWORD *)a1;
@@ -43,5 +43,5 @@ void __fastcall HalpVpptStop(__int64 a1)
   }
   *(_DWORD *)(a1 + 20) = 0;
   *(_BYTE *)(a1 + 24) = 0;
-  HalpReleaseHighLevelLock(&qword_140FBB3F0, byte_140FBB3F8);
+  HalpReleaseHighLevelLock(&qword_140FBB790, byte_140FBB798);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerDetermineSteeringEnabled @ 0x140C29FFC
+ * XREFs of KiIntSteerDetermineSteeringEnabled @ 0x140C2C11C
  * Callers:
- *     KiIntSteerInit @ 0x140C2A074 (KiIntSteerInit.c)
+ *     KiIntSteerInit @ 0x140C2C194 (KiIntSteerInit.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
- *     HviIsXboxNanovisorPresent @ 0x140663E00 (HviIsXboxNanovisorPresent.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
+ *     HviIsXboxNanovisorPresent @ 0x1406626F0 (HviIsXboxNanovisorPresent.c)
  */
 
 char KiIntSteerDetermineSteeringEnabled()
@@ -17,7 +17,7 @@ char KiIntSteerDetermineSteeringEnabled()
     if ( (KiInterruptSteeringFlags & 2) != 0 )
       return 1;
     if ( (KiActiveGroups != 1 || KeQueryActiveProcessorCountEx(0) >= 2)
-      && !(_BYTE)dword_140FC421C
+      && !(_BYTE)dword_140FC521C
       && !HviIsXboxNanovisorPresent() )
     {
       if ( HvlHypervisorConnected )

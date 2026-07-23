@@ -1,13 +1,13 @@
 /*
- * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x1409393D4
+ * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x1408F3AA4
  * Callers:
- *     DbgkForwardException @ 0x140938C20 (DbgkForwardException.c)
- *     PsSetProcessFaultInformation @ 0x14093B330 (PsSetProcessFaultInformation.c)
+ *     DbgkForwardException @ 0x1408F32F0 (DbgkForwardException.c)
+ *     PsSetProcessFaultInformation @ 0x140A55880 (PsSetProcessFaultInformation.c)
  * Callees:
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)
@@ -34,7 +34,7 @@ void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)
         v2 = v3 + 2;
     }
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(v2 + 8), 0x62427350u);
   v5 = Pool2;
   if ( Pool2 )
   {

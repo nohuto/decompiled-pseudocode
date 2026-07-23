@@ -1,20 +1,20 @@
 /*
- * XREFs of SepTokenDeleteMethod @ 0x140729590
+ * XREFs of SepTokenDeleteMethod @ 0x140729790
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8D40 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
- *     SepDereferenceLuidToIndexEntry @ 0x1403497DC (SepDereferenceLuidToIndexEntry.c)
- *     SepFreeTokenCapabilities @ 0x14035F0B4 (SepFreeTokenCapabilities.c)
- *     SepDeReferenceLogonSession @ 0x14076CE00 (SepDeReferenceLogonSession.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF1CC (SepDereferenceLowBoxNumberEntry.c)
- *     SepDereferenceCachedHandlesEntry @ 0x1407EF31C (SepDereferenceCachedHandlesEntry.c)
- *     SepModifyTokenPolicyCounter @ 0x1409C9958 (SepModifyTokenPolicyCounter.c)
- *     SepDeleteTokenUserAndGroups @ 0x1409CF6CC (SepDeleteTokenUserAndGroups.c)
- *     SepRemoveTokenLogonSession @ 0x1409D0334 (SepRemoveTokenLogonSession.c)
- *     SepDeleteClaimAttributes @ 0x1409D13BC (SepDeleteClaimAttributes.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8FD0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x140349EFC (SepDereferenceLuidToIndexEntry.c)
+ *     SepFreeTokenCapabilities @ 0x14035F254 (SepFreeTokenCapabilities.c)
+ *     SepDeReferenceLogonSession @ 0x14076CFF0 (SepDeReferenceLogonSession.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1407EF49C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x1407EF5EC (SepDereferenceCachedHandlesEntry.c)
+ *     SepModifyTokenPolicyCounter @ 0x1409C9B58 (SepModifyTokenPolicyCounter.c)
+ *     SepDeleteTokenUserAndGroups @ 0x1409CF8CC (SepDeleteTokenUserAndGroups.c)
+ *     SepRemoveTokenLogonSession @ 0x1409D0534 (SepRemoveTokenLogonSession.c)
+ *     SepDeleteClaimAttributes @ 0x1409D15BC (SepDeleteClaimAttributes.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

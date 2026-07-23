@@ -1,24 +1,24 @@
 /*
- * XREFs of _RegRtlCopyTreeInternal @ 0x14089D400
+ * XREFs of _RegRtlCopyTreeInternal @ 0x1408A3800
  * Callers:
- *     _PnpCtxRegCopyTree @ 0x140895F28 (_PnpCtxRegCopyTree.c)
- *     _RegRtlCopyTreeInternal @ 0x14089D400 (_RegRtlCopyTreeInternal.c)
+ *     _PnpCtxRegCopyTree @ 0x14089C328 (_PnpCtxRegCopyTree.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408A3800 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     IoGetStackLimits @ 0x140263C80 (IoGetStackLimits.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     _RegRtlCopyTreeInternal @ 0x14089D400 (_RegRtlCopyTreeInternal.c)
- *     _RegRtlGetKeySecurity @ 0x14089D908 (_RegRtlGetKeySecurity.c)
- *     _RegRtlSetKeySecurity @ 0x14089DB2C (_RegRtlSetKeySecurity.c)
- *     _RegRtlSetValue @ 0x14090AB48 (_RegRtlSetValue.c)
- *     _RegRtlEnumKey @ 0x14091A1C0 (_RegRtlEnumKey.c)
- *     _RegRtlQueryInfoKey @ 0x14091A3B0 (_RegRtlQueryInfoKey.c)
- *     _RegRtlEnumValue @ 0x14091AFB0 (_RegRtlEnumValue.c)
- *     _RegRtlCreateKeyTransacted @ 0x14091E5D4 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IoGetStackLimits @ 0x1402631F0 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408A3800 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlGetKeySecurity @ 0x1408A3D08 (_RegRtlGetKeySecurity.c)
+ *     _RegRtlSetKeySecurity @ 0x1408A3F2C (_RegRtlSetKeySecurity.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlEnumKey @ 0x140974C20 (_RegRtlEnumKey.c)
+ *     _RegRtlQueryInfoKey @ 0x140974E10 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlEnumValue @ 0x140975A14 (_RegRtlEnumValue.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140979034 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlSetValue @ 0x1409AD100 (_RegRtlSetValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlCopyTreeInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, __int64 a6, char a7)

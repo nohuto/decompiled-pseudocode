@@ -14,21 +14,26 @@
  *     PopUmpoProcessPowerMessage @ 0x1404FFB68 (PopUmpoProcessPowerMessage.c)
  */
 
-__int64 __fastcall PopUmpoProcessMessage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall PopUmpoProcessMessage(
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_CONTEXT_ATTR MessageContext,
+        __int64 a3,
+        __int64 a4)
 {
-  int v6; // ecx
+  int Type; // ecx
   __int64 v7; // rdx
   signed int v8; // eax
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   HANDLE v11; // rbx
   __int64 v12; // rdx
   __int64 v13; // rcx
-  _QWORD v14[9]; // [rsp+80h] [rbp-68h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-98h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+80h] [rbp-68h] BYREF
 
-  v6 = *(unsigned __int16 *)(a1 + 4);
+  Type = (unsigned __int16)ConnectionRequest->u2.s2.Type;
   v7 = 4294902015LL;
-  v8 = v6 & 0xFFFF00FF;
-  if ( (v6 & 0xFFFF00FF) != 3 )
+  v8 = Type & 0xFFFF00FF;
+  if ( (Type & 0xFFFF00FF) != 3 )
   {
     if ( v8 != 1 )
     {
@@ -48,17 +53,40 @@ __int64 __fastcall PopUmpoProcessMessage(__int64 a1, __int64 a2, __int64 a3, __i
         }
         if ( v8 == 10 )
         {
-          memset(v14, 0, sizeof(v14));
-          v14[2] = 512LL;
-          v9 = ZwAlpcAcceptConnectPort((__int64)&PopAlpcClientPort, PopAlpcServerPort, 0LL);
+          ObjectAttributes.RootDirectory = 0LL;
+          ObjectAttributes.ObjectName = 0LL;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.Attributes = 512;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          memset(&PortAttributes, 0, sizeof(PortAttributes));
+          PortAttributes.MaxMessageLength = 512LL;
+          v9 = ZwAlpcAcceptConnectPort(
+                 &PopAlpcClientPort,
+                 PopAlpcServerPort,
+                 0,
+                 &ObjectAttributes,
+                 &PortAttributes,
+                 0LL,
+                 ConnectionRequest,
+                 0LL,
+                 PopUmpoAlpcClientConnected == 0);
           if ( v9 < 0 )
           {
-            ZwAlpcAcceptConnectPort((__int64)&PopAlpcClientPort, PopAlpcServerPort, 0LL);
+            ZwAlpcAcceptConnectPort(
+              &PopAlpcClientPort,
+              PopAlpcServerPort,
+              0,
+              &ObjectAttributes,
+              &PortAttributes,
+              0LL,
+              ConnectionRequest,
+              0LL,
+              0);
             return (unsigned int)v9;
           }
           PopUmpoAlpcClientConnected = 1;
           if ( (PoDebug & 0x10000000) != 0 )
-            DbgPrint("%s: UMPO Connected, port=%p\n", "PopUmpoProcessMessage", (const void *)PopAlpcServerPort);
+            DbgPrint("%s: UMPO Connected, port=%p\n", "PopUmpoProcessMessage", PopAlpcServerPort);
           return 0;
         }
       }
@@ -66,29 +94,29 @@ __int64 __fastcall PopUmpoProcessMessage(__int64 a1, __int64 a2, __int64 a3, __i
         DbgPrint(
           "%s: Not expecting message type=0x%x\n",
           "PopUmpoProcessMessage",
-          *(unsigned __int16 *)(a1 + 4) & 0xFFFF00FF);
+          (unsigned __int16)ConnectionRequest->u2.s2.Type & 0xFFFF00FF);
       return 0;
     }
     if ( (PoDebug & 0x10000000) != 0 )
       DbgPrint(
         "%s: ALPC message id=%x required continuation unexpectedly.Cancelling it.\n",
         "PopUmpoProcessMessage",
-        *(unsigned int *)(a2 + 20));
+        MessageContext->MessageId);
 LABEL_23:
-    if ( (int)ZwAlpcCancelMessage(PopAlpcServerPort, 0LL, a2) < 0 && (PoDebug & 1) != 0 )
-      DbgPrint("%s: Unable to cancel ALPC message id=%x\n", "PopUmpoProcessMessage", *(unsigned int *)(a2 + 20));
+    if ( ZwAlpcCancelMessage(PopAlpcServerPort, 0, MessageContext) < 0 && (PoDebug & 1) != 0 )
+      DbgPrint("%s: Unable to cancel ALPC message id=%x\n", "PopUmpoProcessMessage", MessageContext->MessageId);
     return 0;
   }
-  if ( (v6 & 0x2000) != 0 )
+  if ( (Type & 0x2000) != 0 )
   {
     if ( (PoDebug & 0x10000000) != 0 )
       DbgPrint(
         "%s: ALPC message id=%x required continuationunexpectedly. Cancelling it.\n",
         "PopUmpoProcessMessage",
-        *(unsigned int *)(a2 + 20));
+        MessageContext->MessageId);
     goto LABEL_23;
   }
-  v9 = PopUmpoProcessPowerMessage(a1 + 40);
+  v9 = PopUmpoProcessPowerMessage(&ConnectionRequest[1]);
   if ( v9 >= 0 )
     return 0;
   return (unsigned int)v9;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddRuns @ 0x140A2DCF4
+ * XREFs of MiAddRuns @ 0x140A2DFA4
  * Callers:
- *     MmQueryMemoryRanges @ 0x14085D580 (MmQueryMemoryRanges.c)
+ *     MmQueryMemoryRanges @ 0x14085D7C0 (MmQueryMemoryRanges.c)
  * Callees:
- *     MiPageToNode @ 0x1406177F0 (MiPageToNode.c)
- *     MiAddRun @ 0x140A2DBC0 (MiAddRun.c)
+ *     MiPageToNode @ 0x140617D40 (MiPageToNode.c)
+ *     MiAddRun @ 0x140A2DE70 (MiAddRun.c)
  */
 
 __int64 __fastcall MiAddRuns(__int64 a1, __int64 *a2, int a3, unsigned __int64 a4, __int16 a5)

@@ -1,19 +1,19 @@
 /*
- * XREFs of IoRegisterContainerNotification @ 0x1409481D0
+ * XREFs of IoRegisterContainerNotification @ 0x1409483D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     MmGetSessionObjectById @ 0x1402C0B60 (MmGetSessionObjectById.c)
- *     IopGetDevicePDO @ 0x1403029B8 (IopGetDevicePDO.c)
- *     IopSetFileObjectExtensionFlag @ 0x140302B0C (IopSetFileObjectExtensionFlag.c)
- *     ExRegisterCallback @ 0x1403678A0 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x14036E6A0 (ExUnregisterCallback.c)
- *     IopGetSessionIdFromPDO @ 0x140790F54 (IopGetSessionIdFromPDO.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     MmGetSessionObjectById @ 0x1402C0DF0 (MmGetSessionObjectById.c)
+ *     IopGetDevicePDO @ 0x140302C48 (IopGetDevicePDO.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140302D9C (IopSetFileObjectExtensionFlag.c)
+ *     ExRegisterCallback @ 0x140367A40 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x14036E840 (ExUnregisterCallback.c)
+ *     IopGetSessionIdFromPDO @ 0x140791144 (IopGetSessionIdFromPDO.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

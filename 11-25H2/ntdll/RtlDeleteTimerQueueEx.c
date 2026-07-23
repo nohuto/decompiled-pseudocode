@@ -14,63 +14,63 @@
  *     NtWaitForAlertByThreadId @ 0x180166E70 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlDeleteTimerQueueEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlDeleteTimerQueueEx(HANDLE TimerQueueHandle, HANDLE Event)
 {
   int v4; // ebx
   __int64 v5; // rdx
   __int64 v6; // r8
-  __int64 i; // rsi
+  char *i; // rsi
   int v9; // [rsp+20h] [rbp-58h]
-  __int64 v10; // [rsp+30h] [rbp-48h]
+  char *v10; // [rsp+30h] [rbp-48h]
   HANDLE v11; // [rsp+98h] [rbp+20h] BYREF
 
   v9 = 0;
   v11 = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 0LL;
-  if ( a1 )
+    return 0;
+  if ( TimerQueueHandle )
   {
     v4 = RtlpTpRevertCapture(&v11, 0);
     if ( v4 >= 0 )
     {
-      if ( a2 )
+      if ( Event )
       {
-        if ( a2 == -1 )
-          *(_QWORD *)(a1 + 40) = NtCurrentTeb()->ClientId.UniqueThread;
+        if ( Event == (HANDLE)-1LL )
+          *((_QWORD *)TimerQueueHandle + 5) = NtCurrentTeb()->ClientId.UniqueThread;
         else
-          *(_QWORD *)(a1 + 16) = a2;
+          *((_QWORD *)TimerQueueHandle + 2) = Event;
       }
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
-      for ( i = *(_QWORD *)(a1 + 24); i != a1 + 24; i = v10 )
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)TimerQueueHandle + 1);
+      for ( i = (char *)*((_QWORD *)TimerQueueHandle + 3); i != (char *)TimerQueueHandle + 24; i = v10 )
       {
-        v10 = *(_QWORD *)i;
-        _InterlockedOr((volatile signed __int32 *)(i + 48), 1u);
-        v9 += TpTimerOutstandingCallbackCount(*(_QWORD *)(i + 64), v5, v6);
-        TpReleaseTimer(*(_QWORD *)(i + 64));
-        _m_prefetchw((const void *)(i + 48));
-        if ( (_InterlockedAnd((volatile signed __int32 *)(i + 48), 0xFFFFFFFE) & 2) != 0 )
-          RtlpTpTimerRundown(i);
+        v10 = *(char **)i;
+        _InterlockedOr((volatile signed __int32 *)i + 12, 1u);
+        v9 += TpTimerOutstandingCallbackCount(*((_QWORD *)i + 8), v5, v6);
+        TpReleaseTimer(*((PTP_TIMER *)i + 8));
+        _m_prefetchw(i + 48);
+        if ( (_InterlockedAnd((volatile signed __int32 *)i + 12, 0xFFFFFFFE) & 2) != 0 )
+          RtlpTpTimerRundown((__int64)i);
       }
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-      if ( _InterlockedDecrement((volatile signed __int32 *)a1) )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)TimerQueueHandle + 1);
+      if ( _InterlockedDecrement((volatile signed __int32 *)TimerQueueHandle) )
       {
-        if ( a2 != -1 )
+        if ( Event != (HANDLE)-1LL )
         {
           v4 = v9 != 0 ? 0x103 : 0;
           goto LABEL_19;
         }
-        NtWaitForAlertByThreadId(a1, 0LL);
+        NtWaitForAlertByThreadId(TimerQueueHandle, 0LL);
       }
       else
       {
-        *(_QWORD *)(a1 + 40) = 0LL;
-        RtlpTpTimerQueueRundown(a1);
+        *((_QWORD *)TimerQueueHandle + 5) = 0LL;
+        RtlpTpTimerQueueRundown(TimerQueueHandle);
       }
       v4 = 0;
     }
 LABEL_19:
     RtlpTpResumeImpersonation(v11);
-    return (unsigned int)v4;
+    return v4;
   }
-  return 3221225711LL;
+  return -1073741585;
 }

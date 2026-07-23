@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_UpperThresholdInheritance__private_ReportDeviceUsage @ 0x1404A5184
+ * XREFs of Feature_UpperThresholdInheritance__private_ReportDeviceUsage @ 0x14049FF14
  * Callers:
- *     PopConfigureHeteroThresholds @ 0x140A2B0A0 (PopConfigureHeteroThresholds.c)
+ *     PopConfigureHeteroThresholds @ 0x140A20D48 (PopConfigureHeteroThresholds.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_UpperThresholdInheritance__private_ReportDeviceUsage()

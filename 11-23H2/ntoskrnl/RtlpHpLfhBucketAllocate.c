@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhBucketAllocate @ 0x1403D4258
+ * XREFs of RtlpHpLfhBucketAllocate @ 0x1403D4438
  * Callers:
- *     RtlpHpLfhContextAllocate @ 0x140323A30 (RtlpHpLfhContextAllocate.c)
+ *     RtlpHpLfhContextAllocate @ 0x140323CC0 (RtlpHpLfhContextAllocate.c)
  * Callees:
- *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADF50 (RtlpHpLfhSlotAllocate.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketAllocate(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

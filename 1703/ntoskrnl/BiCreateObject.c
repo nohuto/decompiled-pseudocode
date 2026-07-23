@@ -25,7 +25,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, UUID *p_Uuid, unsigned int *a3, u
   HANDLE v12; // rdi
   int v13; // ebx
   NTSTATUS result; // eax
-  int v15; // eax
+  NTSTATUS v15; // eax
   wchar_t *Buffer; // r14
   int v17; // eax
   int v18; // eax
@@ -34,7 +34,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, UUID *p_Uuid, unsigned int *a3, u
   __int64 v21; // [rsp+40h] [rbp-40h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-38h] BYREF
   int v23; // [rsp+50h] [rbp-30h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-28h] BYREF
+  UNICODE_STRING GuidString; // [rsp+58h] [rbp-28h] BYREF
   UUID Uuid; // [rsp+68h] [rbp-18h] BYREF
 
   v21 = 0LL;
@@ -44,7 +44,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, UUID *p_Uuid, unsigned int *a3, u
   v8 = a3[1];
   v10 = *a3;
   v11 = 0LL;
-  UnicodeString.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   v12 = 0LL;
   BiLogMessage(2u, L"Creating object. Version: %d. Type: 0x%08x", v10, v8);
   if ( !(unsigned __int8)BiIsValidObject(a3, p_Uuid, a4) )
@@ -62,12 +62,12 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, UUID *p_Uuid, unsigned int *a3, u
       return result;
     p_Uuid = &Uuid;
   }
-  v15 = RtlStringFromGUIDEx(&p_Uuid->Data1, (__int64)&UnicodeString, 1);
-  Buffer = UnicodeString.Buffer;
+  v15 = RtlStringFromGUIDEx(p_Uuid, &GuidString, 1u);
+  Buffer = GuidString.Buffer;
   v13 = v15;
   if ( v15 >= 0 )
   {
-    BiLogMessage(2u, L"Object GUID: %s", UnicodeString.Buffer);
+    BiLogMessage(2u, L"Object GUID: %s", GuidString.Buffer);
     v17 = BiOpenKey(a1, L"Objects", 4u, (HANDLE *)&v21);
     v11 = (HANDLE)v21;
     v13 = v17;
@@ -94,7 +94,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, UUID *p_Uuid, unsigned int *a3, u
     }
   }
   if ( Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeUnicodeString(&GuidString);
   if ( v13 < 0 && v12 )
     BiCloseKey(v12);
   if ( v11 )

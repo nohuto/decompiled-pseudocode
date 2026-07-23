@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDisassociateThreadIrp @ 0x140555134
+ * XREFs of IopDisassociateThreadIrp @ 0x1405557F4
  * Callers:
- *     IoCancelThreadIo @ 0x14076E4E4 (IoCancelThreadIo.c)
+ *     IoCancelThreadIo @ 0x14076E6D4 (IoCancelThreadIo.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     IoAllocateErrorLogEntry @ 0x1403C70E0 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x1403C7310 (IoWriteErrorLogEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     IoAllocateErrorLogEntry @ 0x1403C72C0 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x1403C74F0 (IoWriteErrorLogEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR IopDisassociateThreadIrp()
@@ -44,10 +44,10 @@ LONG_PTR IopDisassociateThreadIrp()
   p_SystemCallNumber = &KeGetCurrentThread()[1].SystemCallNumber;
   if ( *(unsigned int **)p_SystemCallNumber == p_SystemCallNumber )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v2 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v2 <= 0xFu && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v2 <= 0xFu && CurrentIrql <= 0xFu )
       {
         v3 = v2 < 2u;
         goto LABEL_13;
@@ -61,10 +61,10 @@ LONG_PTR IopDisassociateThreadIrp()
   if ( *(char *)(*(_QWORD *)p_SystemCallNumber + 35LL) == *(char *)(*(_QWORD *)p_SystemCallNumber + 34LL) + 2 )
   {
     KeReleaseQueuedSpinLock(0xBuLL, v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v7 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu )
       {
         v3 = v7 < 2u;
 LABEL_13:
@@ -76,7 +76,7 @@ LABEL_13:
           v11 = (v10 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v10;
           if ( v11 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
@@ -114,10 +114,10 @@ LABEL_16:
     v18 = 0LL;
   }
   KeReleaseQueuedSpinLock(0xBuLL, v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v19 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
     {
       v20 = KeGetCurrentPrcb();
       v21 = v20->SchedulerAssist;
@@ -125,7 +125,7 @@ LABEL_16:
       v11 = (v22 & v21[5]) == 0;
       v21[5] &= v22;
       if ( v11 )
-        KiRemoveSystemWorkPriorityKick(v20);
+        KiRemoveSystemWorkPriorityKick((__int64)v20);
     }
   }
   result = CurrentIrql;

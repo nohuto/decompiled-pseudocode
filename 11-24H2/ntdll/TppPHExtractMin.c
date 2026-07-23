@@ -1,10 +1,10 @@
 /*
- * XREFs of TppPHExtractMin @ 0x18006C650
+ * XREFs of TppPHExtractMin @ 0x180088F30
  * Callers:
- *     TpSetTimerEx @ 0x18006AF80 (TpSetTimerEx.c)
- *     TppTimerQueueExpiration @ 0x18006B9F0 (TppTimerQueueExpiration.c)
- *     TppCancelTimer @ 0x18006C3B0 (TppCancelTimer.c)
- *     TppPHDelete @ 0x1800E3BF0 (TppPHDelete.c)
+ *     TpSetTimerEx @ 0x180087860 (TpSetTimerEx.c)
+ *     TppTimerQueueExpiration @ 0x1800882D0 (TppTimerQueueExpiration.c)
+ *     TppCancelTimer @ 0x180088C90 (TppCancelTimer.c)
+ *     TppPHDelete @ 0x1800DF1C0 (TppPHDelete.c)
  * Callees:
  *     <none>
  */

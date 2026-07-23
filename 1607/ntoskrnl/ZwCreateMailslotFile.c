@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateMailslotFile @ 0x14015B180
+ * XREFs of ZwCreateMailslotFile @ 0x14015B6F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateMailslotFile(
         PHANDLE MailSlotFileHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwCreateMailslotFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(MailSlotFileHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(MailSlotFileHandle);
 }

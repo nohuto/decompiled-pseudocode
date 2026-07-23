@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpInitLicensing @ 0x1407D4088
+ * XREFs of ExpInitLicensing @ 0x1407D41F8
  * Callers:
- *     sub_1405B2E48 @ 0x1405B2E48 (sub_1405B2E48.c)
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     sub_1405B3078 @ 0x1405B3078 (sub_1405B3078.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

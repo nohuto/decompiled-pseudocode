@@ -6,7 +6,7 @@
  *     RtlVirtualUnwind @ 0x1800053B0 (RtlVirtualUnwind.c)
  *     RtlUnwindEx @ 0x180005BF0 (RtlUnwindEx.c)
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
- *     RtlpUnwindEpilogue @ 0x18009F434 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindEpilogue @ 0x18009F448 (RtlpUnwindEpilogue.c)
  * Callees:
  *     RtlLocateExtendedFeature2 @ 0x1800083F0 (RtlLocateExtendedFeature2.c)
  */

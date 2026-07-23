@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogTrimWs @ 0x14035D8F4
+ * XREFs of MiLogTrimWs @ 0x14035DA94
  * Callers:
- *     MiTrimWorkingSet @ 0x14035D6C4 (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x14035D864 (MiTrimWorkingSet.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     MiFillLogProcessInfo @ 0x14025B460 (MiFillLogProcessInfo.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiFillLogProcessInfo @ 0x14025B6F0 (MiFillLogProcessInfo.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -111,7 +111,7 @@ char __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
         v24 = a2;
         v25 = a3;
         v23 = a4;
-        LOBYTE(v5) = tlgWriteEx_EtwWriteEx(v15, (int)&byte_140038850, v14, 1, v17, v18, 0xCu, (__int64)v29);
+        LOBYTE(v5) = tlgWriteEx_EtwWriteEx(v15, (int)&byte_140038938, v14, 1, v17, v18, 0xCu, (__int64)v29);
       }
     }
   }

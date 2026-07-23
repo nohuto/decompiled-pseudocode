@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateImportList @ 0x14075DA64
+ * XREFs of MiAllocateImportList @ 0x14075DC24
  * Callers:
- *     MiAddEntryToImportList @ 0x140545548 (MiAddEntryToImportList.c)
- *     MiCompressImportList @ 0x14075D950 (MiCompressImportList.c)
- *     MiPrepareImportList @ 0x14075DA10 (MiPrepareImportList.c)
+ *     MiAddEntryToImportList @ 0x140545788 (MiAddEntryToImportList.c)
+ *     MiCompressImportList @ 0x14075DB10 (MiCompressImportList.c)
+ *     MiPrepareImportList @ 0x14075DBD0 (MiPrepareImportList.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
  */
 
 _QWORD *__fastcall MiAllocateImportList(unsigned __int64 a1)

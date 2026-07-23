@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSetDisableBoostThread @ 0x1406DB970
+ * XREFs of KeSetDisableBoostThread @ 0x1406DCC10
  * Callers:
- *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     NtSetInformationThread @ 0x1405EAEA0 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

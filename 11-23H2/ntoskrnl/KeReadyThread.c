@@ -1,10 +1,10 @@
 /*
- * XREFs of KeReadyThread @ 0x1402BDDBC
+ * XREFs of KeReadyThread @ 0x1402BE04C
  * Callers:
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
  * Callees:
- *     KiFastReadyThread @ 0x1402BB984 (KiFastReadyThread.c)
- *     KiInSwapSingleProcess @ 0x14034DBB4 (KiInSwapSingleProcess.c)
+ *     KiFastReadyThread @ 0x1402BBC14 (KiFastReadyThread.c)
+ *     KiInSwapSingleProcess @ 0x14034DD54 (KiInSwapSingleProcess.c)
  */
 
 __int64 __fastcall KeReadyThread(__int64 a1, __int64 a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall KeReadyThread(__int64 a1, __int64 a2, __int64 a3)
     return KiFastReadyThread(a1, a2, a3);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v8) = 4;

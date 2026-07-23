@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeCancelTimerWrapper @ 0x1405E2BE0
+ * XREFs of DifKeCancelTimerWrapper @ 0x1405E3150
  * Callers:
  *     <none>
  * Callees:
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 BOOLEAN __fastcall DifKeCancelTimerWrapper(PKTIMER a1)

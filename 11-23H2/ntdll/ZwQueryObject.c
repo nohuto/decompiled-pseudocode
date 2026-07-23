@@ -3,16 +3,21 @@
  * Callers:
  *     RtlpWow64SuspendThread @ 0x180001CA0 (RtlpWow64SuspendThread.c)
  *     RtlpWow64SuspendProcess @ 0x1800E7C08 (RtlpWow64SuspendProcess.c)
- *     PsspWalkHandleTable @ 0x18012AEB4 (PsspWalkHandleTable.c)
+ *     PsspWalkHandleTable @ 0x18012AE84 (PsspWalkHandleTable.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryObject()
+NTSTATUS __cdecl ZwQueryObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 16LL;
+  result = 16;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

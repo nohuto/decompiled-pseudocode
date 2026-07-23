@@ -1,7 +1,7 @@
 /*
- * XREFs of send_tree @ 0x1801063E8
+ * XREFs of send_tree @ 0x180105DE8
  * Callers:
- *     send_all_trees @ 0x180157334 (send_all_trees.c)
+ *     send_all_trees @ 0x180157204 (send_all_trees.c)
  * Callees:
  *     <none>
  */
@@ -14,10 +14,10 @@ unsigned __int64 __fastcall send_tree(__int64 a1, __int64 a2, int a3)
   int v6; // r10d
   unsigned __int16 *v8; // r14
   __int64 v9; // r12
-  int v10; // ecx
-  int v11; // edx
+  int v10; // edx
+  int v11; // ecx
   __int16 v12; // si
-  unsigned int v13; // ebp
+  __int64 v13; // rbp
   int v14; // r15d
   _WORD *v15; // r8
   int v16; // ecx
@@ -52,20 +52,19 @@ unsigned __int64 __fastcall send_tree(__int64 a1, __int64 a2, int a3)
   unsigned __int16 v45; // r10
   __int64 v46; // rcx
   int v47; // edx
-  unsigned __int64 v48; // rdi
-  int v49; // ecx
-  unsigned __int16 v50; // r8
-  int v51; // r11d
-  __int16 v52; // dx
-  __int64 v53; // rcx
-  int v54; // r11d
-  __int16 v55; // r8
-  unsigned __int16 v56; // r10
-  int v57; // edi
-  __int64 v58; // rcx
-  int v59; // eax
-  int v60; // edi
-  __int16 v61; // r10
+  int v48; // ecx
+  unsigned __int16 v49; // r8
+  int v50; // r11d
+  __int16 v51; // dx
+  __int64 v52; // rcx
+  int v53; // r11d
+  __int16 v54; // r8
+  unsigned __int16 v55; // r10
+  int v56; // edi
+  __int64 v57; // rcx
+  int v58; // eax
+  int v59; // edi
+  __int16 v60; // r10
   _UNKNOWN *retaddr; // [rsp+20h] [rbp+0h] BYREF
 
   result = (unsigned __int64)&retaddr;
@@ -77,45 +76,44 @@ unsigned __int64 __fastcall send_tree(__int64 a1, __int64 a2, int a3)
     v8 = (unsigned __int16 *)(a2 + 6);
     v9 = a3 + 1LL;
     v10 = v4 != 0 ? 7 : 138;
+    result = -v4;
     v11 = (v4 != 0) + 3;
     do
     {
       v12 = v6;
-      result = v4;
-      ++v6;
       v13 = v4;
+      ++v6;
       v14 = v4;
       v4 = *v8;
-      if ( v6 < v10 && v13 == v4 )
+      if ( v6 < v10 && (_DWORD)v13 == v4 )
         goto LABEL_22;
       if ( v6 < v11 )
       {
-        v48 = result;
         do
         {
-          v49 = *(_DWORD *)(a1 + 5984);
-          v50 = *(_WORD *)(a1 + 4 * v48 + 2804);
-          v51 = *(unsigned __int16 *)(a1 + 4 * v48 + 2806);
-          result = (unsigned int)(16 - v51);
-          v52 = *(_WORD *)(a1 + 5980) | (v50 << v49);
-          if ( v49 <= (int)result )
+          v48 = *(_DWORD *)(a1 + 5984);
+          v49 = *(_WORD *)(a1 + 4 * v13 + 2804);
+          v50 = *(unsigned __int16 *)(a1 + 4 * v13 + 2806);
+          result = (unsigned int)(16 - v50);
+          v51 = *(_WORD *)(a1 + 5980) | (v49 << v48);
+          if ( v48 <= (int)result )
           {
-            v54 = v49 + v51;
-            v55 = *(_WORD *)(a1 + 5980) | (v50 << v49);
+            v53 = v48 + v50;
+            v54 = *(_WORD *)(a1 + 5980) | (v49 << v48);
           }
           else
           {
-            v53 = *(_QWORD *)(a1 + 16);
-            *(_WORD *)(a1 + 5980) = v52;
-            *(_BYTE *)((unsigned int)(*(_DWORD *)(a1 + 40))++ + v53) = *(_BYTE *)(a1 + 5980);
+            v52 = *(_QWORD *)(a1 + 16);
+            *(_WORD *)(a1 + 5980) = v51;
+            *(_BYTE *)((unsigned int)(*(_DWORD *)(a1 + 40))++ + v52) = *(_BYTE *)(a1 + 5980);
             *(_BYTE *)(*(unsigned int *)(a1 + 40) + *(_QWORD *)(a1 + 16)) = *(_BYTE *)(a1 + 5981);
             result = *(unsigned int *)(a1 + 5984);
-            v54 = result + v51 - 16;
+            v53 = result + v50 - 16;
             ++*(_DWORD *)(a1 + 40);
-            v55 = v50 >> (16 - result);
+            v54 = v49 >> (16 - result);
           }
-          *(_WORD *)(a1 + 5980) = v55;
-          *(_DWORD *)(a1 + 5984) = v54;
+          *(_WORD *)(a1 + 5980) = v54;
+          *(_DWORD *)(a1 + 5984) = v53;
           --v6;
         }
         while ( v6 );
@@ -123,32 +121,32 @@ unsigned __int64 __fastcall send_tree(__int64 a1, __int64 a2, int a3)
       else
       {
         v15 = (_WORD *)(a1 + 5980);
-        if ( v13 )
+        if ( (_DWORD)v13 )
         {
           v27 = (int *)(a1 + 5984);
           if ( v14 != v5 )
           {
-            v56 = *(_WORD *)(a1 + 4 * result + 2804);
-            v57 = *(unsigned __int16 *)(a1 + 4 * result + 2806);
-            if ( *v27 <= 16 - v57 )
+            v55 = *(_WORD *)(a1 + 4 * v13 + 2804);
+            v56 = *(unsigned __int16 *)(a1 + 4 * v13 + 2806);
+            if ( *v27 <= 16 - v56 )
             {
-              v60 = *v27 + v57;
-              v61 = *v15 | (v56 << *v27);
+              v59 = *v27 + v56;
+              v60 = *v15 | (v55 << *v27);
             }
             else
             {
-              v58 = *(_QWORD *)(a1 + 16);
-              *v15 |= v56 << *v27;
-              *(_BYTE *)((unsigned int)(*(_DWORD *)(a1 + 40))++ + v58) = *(_BYTE *)v15;
+              v57 = *(_QWORD *)(a1 + 16);
+              *v15 |= v55 << *v27;
+              *(_BYTE *)((unsigned int)(*(_DWORD *)(a1 + 40))++ + v57) = *(_BYTE *)v15;
               *(_BYTE *)(*(unsigned int *)(a1 + 40) + *(_QWORD *)(a1 + 16)) = *(_BYTE *)(a1 + 5981);
-              v59 = *v27;
-              v60 = *v27 + v57 - 16;
+              v58 = *v27;
+              v59 = *v27 + v56 - 16;
               ++*(_DWORD *)(a1 + 40);
-              v61 = v56 >> (16 - v59);
+              v60 = v55 >> (16 - v58);
             }
-            *v15 = v61;
+            *v15 = v60;
             LOWORD(v6) = v12;
-            *v27 = v60;
+            *v27 = v59;
           }
           v28 = *(_WORD *)(a1 + 2868);
           v29 = *(unsigned __int16 *)(a1 + 2870);
@@ -279,7 +277,7 @@ LABEL_19:
       v5 = v14;
       if ( v4 )
       {
-        if ( v13 != v4 )
+        if ( (_DWORD)v13 != v4 )
         {
           v10 = 7;
           v11 = 4;

@@ -4,11 +4,11 @@
  *     KseInitialize @ 0x140B495CC (KseInitialize.c)
  * Callees:
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
- *     KsepSdbBootRelease @ 0x140843B74 (KsepSdbBootRelease.c)
- *     KsepSdbBootInitialize @ 0x140861E48 (KsepSdbBootInitialize.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
+ *     KsepSdbBootRelease @ 0x140843E74 (KsepSdbBootRelease.c)
+ *     KsepSdbBootInitialize @ 0x140862088 (KsepSdbBootInitialize.c)
  */
 
 __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a3, unsigned int a4)
@@ -47,7 +47,7 @@ __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a
     {
       if ( a3 && a4 )
       {
-        if ( (int)KsepSdbBootInitialize(a3, a4, (__int64)&unk_140C40C38) < 0 )
+        if ( (int)KsepSdbBootInitialize(a3, a4, (__int64)&unk_140C40BF8) < 0 )
         {
           v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
           KsepHistoryErrors[2 * v12 + 1] = v8;
@@ -56,9 +56,9 @@ __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a
             KsepDebugPrint(1LL, "KSE: KsepSdbBootInitialize failed for patch SDB!\n");
           KsepLogError(1LL, (__int64)"KSE: KsepSdbBootInitialize failed for patch SDB!\n");
         }
-        else if ( dword_140C40C30 >= (unsigned int)dword_140C40C68 )
+        else if ( dword_140C40BF0 >= (unsigned int)dword_140C40C28 )
         {
-          KsepSdbBootRelease((__int64)&unk_140C40C38);
+          KsepSdbBootRelease((__int64)&unk_140C40BF8);
         }
       }
       ++KsepShimDbRefCount;

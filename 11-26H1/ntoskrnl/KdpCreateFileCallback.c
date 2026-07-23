@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpCreateFileCallback @ 0x140C135E0
+ * XREFs of KdpCreateFileCallback @ 0x140C195E0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
  */
 
 __int64 __fastcall KdpCreateFileCallback(__int64 a1, UNICODE_STRING *a2, LARGE_INTEGER a3)
@@ -22,7 +22,7 @@ __int64 __fastcall KdpCreateFileCallback(__int64 a1, UNICODE_STRING *a2, LARGE_I
   ObjectAttributes.ObjectName = a2;
   v3 = *(_DWORD *)(a1 + 4);
   AllocationSize = a3;
-  CreateOptions = *(_DWORD *)(a1 + 8) | (HIDWORD(WheapPfaLock.CycleTime) != 0 ? 0x80000 : 0);
+  CreateOptions = *(_DWORD *)(a1 + 8) | (HIDWORD(WheapPfaLock.KernelStack) != 0 ? 0x80000 : 0);
   CreateDisposition = v3;
   FileAttributes = *(_DWORD *)a1;
   IoStatusBlock = 0LL;

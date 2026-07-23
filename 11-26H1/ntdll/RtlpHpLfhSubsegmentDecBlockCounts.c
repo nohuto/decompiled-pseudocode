@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x180096580
+ * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x180063F20
  * Callers:
- *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1800962E0 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1800966D8 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x180063C80 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x180064078 (RtlpHpLfhSubsegmentDecommitPages.c)
  * Callees:
- *     TpSetTimerEx @ 0x180069020 (TpSetTimerEx.c)
- *     RtlpHpTlLogGCScheduled @ 0x180096B64 (RtlpHpTlLogGCScheduled.c)
+ *     RtlpHpTlLogGCScheduled @ 0x180064504 (RtlpHpTlLogGCScheduled.c)
+ *     TpSetTimerEx @ 0x180089470 (TpSetTimerEx.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentDecBlockCounts(__int64 a1, __int64 a2, unsigned int a3, int a4)
@@ -61,13 +61,13 @@ __int64 __fastcall RtlpHpLfhSubsegmentDecBlockCounts(__int64 a1, __int64 a2, uns
         if ( !*(_BYTE *)(v17 + a1 + 92) )
         {
           *(_BYTE *)(v17 + a1 + 92) = 1;
-          if ( !(_DWORD)qword_1801C7278 )
+          if ( !(_DWORD)qword_1801C6278 )
           {
-            if ( qword_1801C7268 )
+            if ( Timer )
             {
-              if ( !byte_1801CB8C8 && !_InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C7278, 1, 0) )
+              if ( !byte_1801CA908 && !_InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C6278, 1, 0) )
               {
-                TpSetTimerEx(qword_1801C7268, (__int64)&qword_1801C7270, 0, 1000);
+                TpSetTimerEx(Timer, &DueTime, 0, 0x3E8u);
                 if ( (RtlpHpHeapFeatures & 0x10) != 0 )
                   RtlpHpTlLogGCScheduled();
               }

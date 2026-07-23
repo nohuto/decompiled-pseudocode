@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAddStringToMapping @ 0x1406C24B4
+ * XREFs of CmpAddStringToMapping @ 0x140621174
  * Callers:
- *     CmpVEAddHiveToSIDMappingTable @ 0x1406C2414 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x1406210D4 (CmpVEAddHiveToSIDMappingTable.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpHashUnicodeComponent @ 0x14065F044 (CmpHashUnicodeComponent.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
@@ -64,7 +64,7 @@ LABEL_11:
     goto LABEL_5;
   }
   memmove(v7, a1[1], *(unsigned __int16 *)a1);
-  *(_DWORD *)&v9[v10 + 16] = CmpHashUnicodeComponent((__m128i *)a1);
+  *(_DWORD *)&v9[v10 + 16] = CmpHashUnicodeComponent(a1);
   CmpSIDToHiveMappingCount = v8 + 1;
 LABEL_5:
   KeReleaseGuardedMutex(&CmpSIDMappingLock);

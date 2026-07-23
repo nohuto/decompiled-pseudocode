@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpSetPowerVetoEvent @ 0x14072E0B4
+ * XREFs of PnpSetPowerVetoEvent @ 0x14072C0C4
  * Callers:
- *     IoNotifyPowerOperationVetoed @ 0x1407205B8 (IoNotifyPowerOperationVetoed.c)
- *     IopWarmEjectDevice @ 0x14073639C (IopWarmEjectDevice.c)
+ *     IoNotifyPowerOperationVetoed @ 0x14071E148 (IoNotifyPowerOperationVetoed.c)
+ *     IopWarmEjectDevice @ 0x1407342CC (IopWarmEjectDevice.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpCreateDeviceEventEntry @ 0x1408B3920 (PnpCreateDeviceEventEntry.c)
- *     PnpInsertEventInQueue @ 0x1408B3950 (PnpInsertEventInQueue.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x1408B1210 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1408B1240 (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpSetPowerVetoEvent(int a1, __int64 a2, __int64 a3, _QWORD *a4, int a5, const void **a6)

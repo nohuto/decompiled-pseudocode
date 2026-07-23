@@ -2,7 +2,7 @@
  * XREFs of XpressBuildHuffmanEncodings @ 0x180056990
  * Callers:
  *     RtlCompressBufferXpressHuffStandard @ 0x180055E80 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1801205DC (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x1801205AC (RtlCompressBufferXpressHuffMax.c)
  * Callees:
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */

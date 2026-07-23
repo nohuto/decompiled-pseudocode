@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlFlsFree(__int64 a1)
+NTSTATUS __cdecl RtlFlsFree(ULONG FlsIndex)
 {
-  return RtlpFlsFree(a1, (unsigned int)a1);
+  return RtlpFlsFree(FlsIndex, FlsIndex);
 }

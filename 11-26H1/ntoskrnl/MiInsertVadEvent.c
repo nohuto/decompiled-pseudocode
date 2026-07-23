@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertVadEvent @ 0x14049B0F8
+ * XREFs of MiInsertVadEvent @ 0x140494C48
  * Callers:
- *     MiWaitForVadDeletion @ 0x140531014 (MiWaitForVadDeletion.c)
- *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
- *     MiAddSecureEntry @ 0x14095D9B8 (MiAddSecureEntry.c)
- *     MiInitializeDataVad @ 0x1409C5B30 (MiInitializeDataVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409CA420 (MiAllocateNewSubAllocatedRegion.c)
- *     MiInitializeImageVad @ 0x1409CDD4C (MiInitializeImageVad.c)
- *     MiCreateVadEvent @ 0x1409CE5DC (MiCreateVadEvent.c)
+ *     MiWaitForVadDeletion @ 0x140533514 (MiWaitForVadDeletion.c)
+ *     MiApplyImageHotPatchRequest @ 0x140874C78 (MiApplyImageHotPatchRequest.c)
+ *     MiInitializeDataVad @ 0x140996B10 (MiInitializeDataVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14099B400 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiInitializeImageVad @ 0x14099ED2C (MiInitializeImageVad.c)
+ *     MiCreateVadEvent @ 0x14099F5BC (MiCreateVadEvent.c)
+ *     MiAddSecureEntry @ 0x140A03278 (MiAddSecureEntry.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiWriteVadFlags @ 0x1404737D0 (MiWriteVadFlags.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiWriteVadFlags @ 0x14046CF50 (MiWriteVadFlags.c)
  */
 
 void __fastcall MiInsertVadEvent(__int64 a1, __int64 a2, int a3)

@@ -16,7 +16,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
   __int64 v1; // rbx
   char v3; // si
   struct _FAST_MUTEX *v4; // rdi
-  __int64 *v6; // rcx
+  _RTL_RB_TREE *v6; // rcx
 
   v1 = _InterlockedExchange64((volatile __int64 *)(a1 + 104), 0LL);
   if ( v1 )
@@ -31,7 +31,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
       v6 = &EtwpProviderTraitsKmTree;
       if ( !v3 )
         v6 = &EtwpProviderTraitsUmTree;
-      RtlRbRemoveNode((unsigned __int64)v6, (unsigned __int64 *)v1);
+      RtlRbRemoveNode(v6, (PRTL_BALANCED_NODE)v1);
     }
     else
     {

@@ -3,15 +3,15 @@
  * Callers:
  *     PnpPrepareDriverLoading @ 0x14068F654 (PnpPrepareDriverLoading.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     McTemplateK0j_EtwWriteTransfer @ 0x1403C4268 (McTemplateK0j_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     McTemplateK0j_EtwWriteTransfer @ 0x1403C4448 (McTemplateK0j_EtwWriteTransfer.c)
  *     IopBuildFullDriverPath @ 0x14068DB7C (IopBuildFullDriverPath.c)
  *     PiLookupInDDBCache @ 0x140692D24 (PiLookupInDDBCache.c)
  *     PiLookupInDDB @ 0x140692E10 (PiLookupInDDB.c)
- *     PnpLogEvent @ 0x140958AB0 (PnpLogEvent.c)
+ *     PnpLogEvent @ 0x140958CB0 (PnpLogEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

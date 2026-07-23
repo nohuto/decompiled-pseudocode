@@ -192,7 +192,7 @@ LABEL_10:
         {
           if ( (v17 & 8) != 0
             || (v36 = v52,
-                *(__int64 (__fastcall **)(_QWORD *, int, ULONG *, void *, __int64, __int64 *, POOL_TYPE, GENERIC_MAPPING *))(v52 + 152) != SeDefaultObjectMethod) )
+                *(__int64 (__fastcall **)(_QWORD *, int, DWORD *, void *, __int64, __int64 *, POOL_TYPE, GENERIC_MAPPING *))(v52 + 152) != SeDefaultObjectMethod) )
           {
             v28 = v47;
             v29 = -1073741790;

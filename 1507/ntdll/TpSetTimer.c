@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 TpSetTimer()
+void __cdecl TpSetTimer(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  return TpSetTimerEx();
+  TpSetTimerEx(Timer, DueTime, Period, WindowLength);
 }

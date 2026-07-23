@@ -115,7 +115,7 @@ __int64 __fastcall HvcallFastExtended(__int64 a1, __int64 a2, unsigned int a3, _
   *(LARGE_INTEGER *)&v30 = KeQueryPerformanceCounter(0LL);
 LABEL_25:
   if ( (v21 & 4) != 0 )
-    *((_QWORD *)&v30 + 1) = RtlGetSystemTimePrecise();
+    *((LARGE_INTEGER *)&v30 + 1) = RtlGetSystemTimePrecise();
   else
     *((_QWORD *)&v30 + 1) = 0LL;
   if ( (v21 & 8) != 0 )

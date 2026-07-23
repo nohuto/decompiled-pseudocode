@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCountWslesInPageTable @ 0x1402E3E10
+ * XREFs of MiCountWslesInPageTable @ 0x140392D68
  * Callers:
- *     MiRebuildPageTableAges @ 0x1402E3D14 (MiRebuildPageTableAges.c)
+ *     MiRebuildPageTableAges @ 0x140392C6C (MiRebuildPageTableAges.c)
  * Callees:
- *     MiCountWslesInPageTableRange @ 0x1402E3F20 (MiCountWslesInPageTableRange.c)
+ *     MiCountWslesInPageTableRange @ 0x140392E70 (MiCountWslesInPageTableRange.c)
  */
 
 __int64 __fastcall MiCountWslesInPageTable(int a1, unsigned __int64 a2, _OWORD *a3, char a4)
@@ -21,9 +21,9 @@ __int64 __fastcall MiCountWslesInPageTable(int a1, unsigned __int64 a2, _OWORD *
   {
     MiCountWslesInPageTableRange(
       a1,
-      8 * (((unsigned __int64)qword_140E2F280 >> 39) & 0x1FF) + 2109657088,
-      ((__int64)(8 * (((unsigned __int64)qword_140E2F290 >> 39) & 0x1FF)
-               - 8 * (((unsigned __int64)qword_140E2F280 >> 39) & 0x1FF)) >> 3)
+      8 * (((unsigned __int64)qword_140E2F3C0 >> 39) & 0x1FF) + 2109657088,
+      ((__int64)(8 * (((unsigned __int64)qword_140E2F3D0 >> 39) & 0x1FF)
+               - 8 * (((unsigned __int64)qword_140E2F3C0 >> 39) & 0x1FF)) >> 3)
     + 1,
       v5,
       a4);

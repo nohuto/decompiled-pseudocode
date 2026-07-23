@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlComplementAffinityEx @ 0x18013F7C0
+ * XREFs of RtlComplementAffinityEx @ 0x18013F6C0
  * Callers:
  *     <none>
  * Callees:

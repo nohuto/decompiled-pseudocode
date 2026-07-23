@@ -1,15 +1,15 @@
 /*
- * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A6D4
+ * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056AD94
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
- *     KiCaptureDumpPreRecovery @ 0x14057ACEC (KiCaptureDumpPreRecovery.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
+ *     KiCaptureDumpPreRecovery @ 0x14057B1DC (KiCaptureDumpPreRecovery.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403A8334 (KiValidateTriageDumpDataArray.c)
- *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x140410080 (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x1405694E8 (KeValidateBugCheckCallbackRecord.c)
- *     KiGlobalDeduplicateTriageDumpData @ 0x14056A644 (KiGlobalDeduplicateTriageDumpData.c)
- *     KiValidateComponentName @ 0x14056AC64 (KiValidateComponentName.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403A8514 (KiValidateTriageDumpDataArray.c)
+ *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x14041015C (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140569BA8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiGlobalDeduplicateTriageDumpData @ 0x14056AD04 (KiGlobalDeduplicateTriageDumpData.c)
+ *     KiValidateComponentName @ 0x14056B324 (KiValidateComponentName.c)
  */
 
 char __fastcall KiInvokeBugCheckAddTriageDumpDataCallbacks(char a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleasePageFileSectionInfo @ 0x14063B578
+ * XREFs of MiReleasePageFileSectionInfo @ 0x14063BAC8
  * Callers:
- *     MiReservePageFileSpace @ 0x1402849A0 (MiReservePageFileSpace.c)
- *     MiBuildReservationCluster @ 0x1406382E4 (MiBuildReservationCluster.c)
- *     MiGetPageFileSectionForReservation @ 0x14063AC44 (MiGetPageFileSectionForReservation.c)
+ *     MiReservePageFileSpace @ 0x140284C30 (MiReservePageFileSpace.c)
+ *     MiBuildReservationCluster @ 0x140638834 (MiBuildReservationCluster.c)
+ *     MiGetPageFileSectionForReservation @ 0x14063B194 (MiGetPageFileSectionForReservation.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     MiDecrementModifiedWriteCount @ 0x1402F4824 (MiDecrementModifiedWriteCount.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     MiDecrementModifiedWriteCount @ 0x1402F4AB4 (MiDecrementModifiedWriteCount.c)
  */
 
 __int64 *__fastcall MiReleasePageFileSectionInfo(__int64 a1)

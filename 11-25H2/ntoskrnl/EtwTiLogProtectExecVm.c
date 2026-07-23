@@ -119,7 +119,7 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
         VirtualMemory = ZwQueryVirtualMemory(
                           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                           v13,
-                          (MEMORY_INFORMATION_CLASS)3,
+                          MemoryRegionInformation,
                           MemoryInformation,
                           0x30uLL,
                           0LL);
@@ -133,7 +133,7 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    v13,
-                   (MEMORY_INFORMATION_CLASS)2,
+                   MemoryMappedFilenameInformation,
                    Pool2,
                    0x200uLL,
                    0LL) < 0 )

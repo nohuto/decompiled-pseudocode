@@ -1,8 +1,8 @@
 /*
- * XREFs of KiUncommitGroupSubNodeAssignments @ 0x1405BBB60
+ * XREFs of KiUncommitGroupSubNodeAssignments @ 0x1405B9190
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1405BAF4C (KiAllocateProcessorNumber.c)
- *     KiFreeProcessorNumber @ 0x1405BB6B8 (KiFreeProcessorNumber.c)
+ *     KiAllocateProcessorNumber @ 0x1405B857C (KiAllocateProcessorNumber.c)
+ *     KiFreeProcessorNumber @ 0x1405B8CE8 (KiFreeProcessorNumber.c)
  * Callees:
  *     <none>
  */
@@ -27,6 +27,6 @@ __int64 __fastcall KiUncommitGroupSubNodeAssignments(__int16 a1)
     while ( v1 );
   }
   result = 0xFFFFLL;
-  --word_140E66770;
+  --word_140E668B0;
   return result;
 }

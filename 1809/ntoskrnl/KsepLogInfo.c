@@ -1,22 +1,22 @@
 /*
- * XREFs of KsepLogInfo @ 0x1400F4D38
+ * XREFs of KsepLogInfo @ 0x1400F4DB8
  * Callers:
- *     KsepGetShimsForDriver @ 0x14067DBAC (KsepGetShimsForDriver.c)
- *     KseDriverLoadImage @ 0x14067DF40 (KseDriverLoadImage.c)
- *     KsepGetShimCallbacksForDriver @ 0x140680878 (KsepGetShimCallbacksForDriver.c)
- *     KseShimDriverIoCallbacks @ 0x1406808FC (KseShimDriverIoCallbacks.c)
- *     KseDriverUnloadImage @ 0x14070F03C (KseDriverUnloadImage.c)
- *     KseQueryDeviceData @ 0x140720930 (KseQueryDeviceData.c)
- *     KseRegisterShimEx @ 0x140728420 (KseRegisterShimEx.c)
- *     KseUnregisterShim @ 0x140847DD0 (KseUnregisterShim.c)
- *     KsepApplyShimsToDriver @ 0x14084815C (KsepApplyShimsToDriver.c)
- *     KsepResolveApplicableShimsForDriver @ 0x140848564 (KsepResolveApplicableShimsForDriver.c)
- *     KsepMatchInitBiosInfo @ 0x1409AF2B4 (KsepMatchInitBiosInfo.c)
- *     KsepEngineReadFlags @ 0x1409AF4F4 (KsepEngineReadFlags.c)
- *     KseDriverScopeInitialize @ 0x1409AF73C (KseDriverScopeInitialize.c)
- *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
+ *     KsepGetShimsForDriver @ 0x14067ED6C (KsepGetShimsForDriver.c)
+ *     KseDriverLoadImage @ 0x14067F100 (KseDriverLoadImage.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140681A38 (KsepGetShimCallbacksForDriver.c)
+ *     KseShimDriverIoCallbacks @ 0x140681ABC (KseShimDriverIoCallbacks.c)
+ *     KseDriverUnloadImage @ 0x1407102DC (KseDriverUnloadImage.c)
+ *     KseQueryDeviceData @ 0x140721BD0 (KseQueryDeviceData.c)
+ *     KseRegisterShimEx @ 0x140729610 (KseRegisterShimEx.c)
+ *     KseUnregisterShim @ 0x140849030 (KseUnregisterShim.c)
+ *     KsepApplyShimsToDriver @ 0x1408493BC (KsepApplyShimsToDriver.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1408497C4 (KsepResolveApplicableShimsForDriver.c)
+ *     KsepMatchInitBiosInfo @ 0x1409B02B4 (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x1409B04F4 (KsepEngineReadFlags.c)
+ *     KseDriverScopeInitialize @ 0x1409B073C (KseDriverScopeInitialize.c)
+ *     KseInitialize @ 0x1409B0930 (KseInitialize.c)
  * Callees:
- *     KsepLogEtwMessage @ 0x1400F4D68 (KsepLogEtwMessage.c)
+ *     KsepLogEtwMessage @ 0x1400F4DE8 (KsepLogEtwMessage.c)
  */
 
 __int64 KsepLogInfo(__int64 a1, __int64 a2, ...)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?wil_details_RecordUsageInPropertyCache@@YA?AUwil_details_RecordUsageResult@@PEATwil_details_FeaturePropertyCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1400A4EE8
+ * XREFs of ?wil_details_RecordUsageInPropertyCache@@YA?AUwil_details_RecordUsageResult@@PEATwil_details_FeaturePropertyCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1400A4E28
  * Callers:
- *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E6C (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
+ *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4DAC (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
  * Callees:
- *     ?wil_details_ModifyFeatureData@@YAHPEATwil_details_FeaturePropertyCache@@P6AH0PEAX@Z1@Z @ 0x1400A4FB8 (-wil_details_ModifyFeatureData@@YAHPEATwil_details_FeaturePropertyCache@@P6AH0PEAX@Z1@Z.c)
+ *     ?wil_details_ModifyFeatureData@@YAHPEATwil_details_FeaturePropertyCache@@P6AH0PEAX@Z1@Z @ 0x1400A4EF8 (-wil_details_ModifyFeatureData@@YAHPEATwil_details_FeaturePropertyCache@@P6AH0PEAX@Z1@Z.c)
  */
 
 __int64 (__fastcall *__fastcall wil_details_RecordUsageInPropertyCache(
@@ -59,10 +59,10 @@ LABEL_16:
 LABEL_19:
       if ( (unsigned int)(a3 - 320) <= 0x3F )
       {
-        v10 = (union wil_details_FeaturePropertyCache *)(((unsigned int)dword_1404C6920 >> 7) & 0x3F);
+        v10 = (union wil_details_FeaturePropertyCache *)(((unsigned int)dword_1404C79E0 >> 7) & 0x3F);
         if ( a3 - 320 == (_DWORD)v10 )
         {
-          if ( (dword_1404C6920 & 0x40) != 0 )
+          if ( (dword_1404C79E0 & 0x40) != 0 )
           {
             *((_DWORD *)v6 + 4) = 1;
             return v6;

@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmCheckAdjustNextPerfCheck @ 0x1402B9600
+ * XREFs of PpmCheckAdjustNextPerfCheck @ 0x140237810
  * Callers:
  *     <none>
  * Callees:

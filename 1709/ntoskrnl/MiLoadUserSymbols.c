@@ -18,7 +18,7 @@ void __fastcall MiLoadUserSymbols(__int64 a1, __int64 a2, __int64 a3)
   int v9; // r15d
   int v10; // r12d
   int v11; // ebx
-  STRING AnsiString; // [rsp+30h] [rbp-28h] BYREF
+  _STRING AnsiString; // [rsp+30h] [rbp-28h] BYREF
 
   v6 = MiReferenceControlAreaFile(a1);
   v7 = v6;

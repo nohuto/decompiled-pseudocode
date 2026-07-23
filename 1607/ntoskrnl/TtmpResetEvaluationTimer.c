@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpResetEvaluationTimer @ 0x1406780BC
+ * XREFs of TtmpResetEvaluationTimer @ 0x1406781A0
  * Callers:
- *     TtmpSetTerminalPendingCleanup @ 0x140678184 (TtmpSetTerminalPendingCleanup.c)
- *     TtmpUpdateTerminalState @ 0x14067837C (TtmpUpdateTerminalState.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x140678268 (TtmpSetTerminalPendingCleanup.c)
+ *     TtmpUpdateTerminalState @ 0x140678460 (TtmpUpdateTerminalState.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
  */
 
 char __fastcall TtmpResetEvaluationTimer(char *Object, __int64 a2)

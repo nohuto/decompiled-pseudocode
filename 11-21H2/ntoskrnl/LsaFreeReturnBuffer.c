@@ -3,22 +3,21 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_1403614E0 @ 0x1403614E0 (sub_1403614E0.c)
+ *     sub_1403614FC @ 0x1403614FC (sub_1403614FC.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 NTSTATUS __stdcall LsaFreeReturnBuffer(PVOID Buffer)
 {
   NTSTATUS v2; // ebx
-  unsigned __int64 ExtensionTable; // rax
+  __int64 v3; // rdx
 
   v2 = -1073741822;
-  ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
-  if ( ExtensionTable )
+  if ( sub_1403614FC((struct _EX_RUNDOWN_REF *)qword_140C1B888) )
   {
-    v2 = (*(__int64 (__fastcall **)(PVOID))(ExtensionTable + 16))(Buffer);
-    ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
+    v2 = sub_14042A5E0(Buffer, v3);
+    sub_1403614E0((struct _EX_RUNDOWN_REF *)qword_140C1B888);
   }
   return v2;
 }

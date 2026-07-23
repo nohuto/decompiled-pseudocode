@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRestoreFeatureBits @ 0x140516590
+ * XREFs of KiRestoreFeatureBits @ 0x140510000
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x14052FDF4 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x1405322F4 (KeRestoreProcessorSpecificFeatures.c)
  * Callees:
- *     KiSetMicrocodeUpdateOptions @ 0x14052DC20 (KiSetMicrocodeUpdateOptions.c)
- *     KeInitializeCatRegisters @ 0x14052DCD8 (KeInitializeCatRegisters.c)
- *     KiSetVirtualMitigationControl @ 0x1405336D0 (KiSetVirtualMitigationControl.c)
- *     KiApplyProcessorErrata @ 0x1405F487C (KiApplyProcessorErrata.c)
- *     KiCheckMicrocode @ 0x140C0D88C (KiCheckMicrocode.c)
+ *     KiSetMicrocodeUpdateOptions @ 0x140530140 (KiSetMicrocodeUpdateOptions.c)
+ *     KeInitializeCatRegisters @ 0x1405301F8 (KeInitializeCatRegisters.c)
+ *     KiSetVirtualMitigationControl @ 0x140535B50 (KiSetVirtualMitigationControl.c)
+ *     KiApplyProcessorErrata @ 0x1405F723C (KiApplyProcessorErrata.c)
+ *     KiCheckMicrocode @ 0x140C13A9C (KiCheckMicrocode.c)
  */
 
 __int64 KiRestoreFeatureBits()
@@ -22,7 +22,7 @@ __int64 KiRestoreFeatureBits()
 
   CurrentPrcb = KeGetCurrentPrcb();
   if ( CurrentPrcb->CpuVendor == 2 )
-    __writemsr(0x1A0u, (unsigned __int64)stru_140FC01F0.SavedApcState.ApcListHead[1].Flink);
+    __writemsr(0x1A0u, (unsigned __int64)stru_140FC11F0.SavedApcState.ApcListHead[0].Blink);
   if ( _bittest64((const signed __int64 *)&CurrentPrcb->FeatureBits, 0x22u) )
     __writemsr(0xC0000103, CurrentPrcb->GroupIndex | ((unsigned __int64)CurrentPrcb->Group << 8));
   if ( CurrentPrcb->BpbCurrentSpecCtrl || (KeFeatureBits2 & 0x600) != 0 )

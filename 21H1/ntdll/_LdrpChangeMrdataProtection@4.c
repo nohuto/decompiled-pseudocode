@@ -7,19 +7,23 @@
  *     _LdrpLocateMrdata@0 @ 0x4B334ED2 (_LdrpLocateMrdata@0.c)
  */
 
-int __thiscall LdrpChangeMrdataProtection(void *this)
+NTSTATUS __thiscall LdrpChangeMrdataProtection(void *this)
 {
-  int result; // eax
-  int v2; // [esp+0h] [ebp-Ch] BYREF
-  int v3; // [esp+4h] [ebp-8h] BYREF
-  void *v4; // [esp+8h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  PVOID BaseAddress; // [esp+0h] [ebp-Ch] BYREF
+  ULONG_PTR RegionSize; // [esp+4h] [ebp-8h] BYREF
 
-  v4 = this;
+  HIDWORD(RegionSize) = this;
   if ( !LdrpMrdataBase )
     LdrpLocateMrdata();
-  v2 = LdrpMrdataBase;
-  v3 = LdrpMrdataSize;
-  result = ZwProtectVirtualMemory(-1, &v2, &v3, v4, &v4);
+  BaseAddress = (PVOID)LdrpMrdataBase;
+  LODWORD(RegionSize) = LdrpMrdataSize;
+  result = ZwProtectVirtualMemory(
+             (HANDLE)0xFFFFFFFF,
+             &BaseAddress,
+             &RegionSize,
+             HIDWORD(RegionSize),
+             (PULONG)&RegionSize + 1);
   if ( result < 0 )
     __fastfail(5u);
   return result;

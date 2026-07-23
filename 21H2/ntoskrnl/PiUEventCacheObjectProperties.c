@@ -1,11 +1,11 @@
 /*
- * XREFs of PiUEventCacheObjectProperties @ 0x1406E6A9C
+ * XREFs of PiUEventCacheObjectProperties @ 0x1406FDE7C
  * Callers:
- *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x1406FDB3C (PiUEventNotifyUserMode.c)
  * Callees:
- *     PnpGetObjectProperty @ 0x140637A3C (PnpGetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpGetObjectProperty @ 0x14062C84C (PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUEventCacheObjectProperties(__int64 a1)

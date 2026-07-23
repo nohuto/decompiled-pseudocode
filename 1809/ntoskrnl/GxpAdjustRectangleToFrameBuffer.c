@@ -1,8 +1,8 @@
 /*
- * XREFs of GxpAdjustRectangleToFrameBuffer @ 0x14016F0B0
+ * XREFs of GxpAdjustRectangleToFrameBuffer @ 0x14016F1B0
  * Callers:
- *     GxpWriteFrameBufferPixels @ 0x14016EEB8 (GxpWriteFrameBufferPixels.c)
- *     GxpReadFrameBufferPixels @ 0x14094E9FC (GxpReadFrameBufferPixels.c)
+ *     GxpWriteFrameBufferPixels @ 0x14016EFB8 (GxpWriteFrameBufferPixels.c)
+ *     GxpReadFrameBufferPixels @ 0x14094F9FC (GxpReadFrameBufferPixels.c)
  * Callees:
  *     <none>
  */

@@ -8,50 +8,50 @@
  *     sub_1800784E4 @ 0x1800784E4 (sub_1800784E4.c)
  */
 
-void __fastcall RtlFreeActivationContextStack(unsigned __int64 a1)
+void __fastcall RtlFreeActivationContextStack(__int64 **BaseAddress)
 {
   __int64 *v1; // rdi
-  _QWORD *v3; // rdi
-  _QWORD *v4; // rbp
-  unsigned __int64 v5; // r8
-  _QWORD *v6; // rax
+  __int64 **v3; // rdi
+  __int64 **v4; // rbp
+  __int64 **v5; // r8
+  __int64 *v6; // rax
   __int64 *v7; // rsi
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    v1 = *(__int64 **)a1;
-    if ( *(_QWORD *)a1 )
+    v1 = *BaseAddress;
+    if ( *BaseAddress )
     {
       do
       {
         v7 = (__int64 *)*v1;
         if ( (v1[2] & 1) != 0 )
-          RtlReleaseActivationContext((volatile signed __int32 *)v1[1]);
+          RtlReleaseActivationContext((PACTIVATION_CONTEXT)v1[1]);
         if ( (v1[2] & 8) != 0 )
-          sub_1800784E4(a1, v1);
+          sub_1800784E4(BaseAddress, v1);
         v1 = v7;
       }
       while ( v7 );
     }
-    *(_QWORD *)a1 = 0LL;
-    v3 = *(_QWORD **)(a1 + 8);
-    if ( v3 != (_QWORD *)(a1 + 8) )
+    *BaseAddress = 0LL;
+    v3 = (__int64 **)BaseAddress[1];
+    if ( v3 != BaseAddress + 1 )
     {
       do
       {
-        v4 = (_QWORD *)*v3;
-        v5 = (unsigned __int64)(v3 - 1);
-        v6 = (_QWORD *)v3[1];
-        if ( *(_QWORD **)(*v3 + 8LL) != v3 || (_QWORD *)*v6 != v3 )
+        v4 = (__int64 **)*v3;
+        v5 = v3 - 1;
+        v6 = v3[1];
+        if ( (__int64 **)(*v3)[1] != v3 || (__int64 **)*v6 != v3 )
           __fastfail(3u);
-        *v6 = v4;
+        *v6 = (__int64)v4;
         v4[1] = v6;
         v3 = v4;
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
       }
-      while ( v4 != (_QWORD *)(a1 + 8) );
+      while ( v4 != BaseAddress + 1 );
     }
-    if ( (*(_BYTE *)(a1 + 24) & 2) == 0 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    if ( ((_BYTE)BaseAddress[3] & 2) == 0 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNotifyTelemetryOsState @ 0x14053056C
+ * XREFs of PopNotifyTelemetryOsState @ 0x140530AAC
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     PopTransitionTelemetryOsState @ 0x140545DA0 (PopTransitionTelemetryOsState.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     PopTransitionTelemetryOsState @ 0x1405462E0 (PopTransitionTelemetryOsState.c)
  */
 
 __int64 __fastcall PopNotifyTelemetryOsState(__int64 a1, UCHAR a2, __int64 a3, __int64 a4, char a5)
@@ -13,7 +13,7 @@ __int64 __fastcall PopNotifyTelemetryOsState(__int64 a1, UCHAR a2, __int64 a3, _
   int v6; // r11d
   __int64 v7; // rcx
 
-  if ( TraceLoggingProviderEnabled(&pCallbackContext, a2, 0x800000000000uLL) )
+  if ( TraceLoggingProviderEnabled(&hProvider, a2, 0x800000000000uLL) )
   {
     if ( (unsigned int)(v6 - 4) <= 2 )
     {

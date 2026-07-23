@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmSetExitLatencySamplingPercentage @ 0x1404D13E0
+ * XREFs of PpmSetExitLatencySamplingPercentage @ 0x1404CA420
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
  */
 
 __int64 __fastcall PpmSetExitLatencySamplingPercentage(unsigned int *a1, __int64 a2, unsigned int a3)
@@ -12,7 +12,7 @@ __int64 __fastcall PpmSetExitLatencySamplingPercentage(unsigned int *a1, __int64
   unsigned int v4; // ebx
   unsigned int v5; // edx
 
-  PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock, a2, a3);
+  PpmAcquireLock(&PopFxSystemLatencyLock, a2, a3);
   v4 = 0;
   if ( PpmExitLatencySamplingPercentageSet )
   {
@@ -26,6 +26,6 @@ __int64 __fastcall PpmSetExitLatencySamplingPercentage(unsigned int *a1, __int64
       v5 = 100;
     PpmExitLatencySamplingPercentage = v5;
   }
-  PpmReleaseLock(&PopFxSystemLatencyLock);
+  PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
   return v4;
 }

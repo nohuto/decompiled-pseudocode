@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrQueryProcessModuleInformationEx2 @ 0x18008EE40
+ * XREFs of LdrQueryProcessModuleInformationEx2 @ 0x1800BF120
  * Callers:
- *     RtlQueryProcessModuleInformation @ 0x180090CA8 (RtlQueryProcessModuleInformation.c)
+ *     RtlQueryProcessModuleInformation @ 0x180075A08 (RtlQueryProcessModuleInformation.c)
  * Callees:
- *     LdrQueryModuleInfoFromLdrEntry @ 0x180033C20 (LdrQueryModuleInfoFromLdrEntry.c)
- *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x1800868D0 (LdrQueryModuleInfoLocalLoaderUnlock.c)
- *     LdrQueryInLoadOrderModuleList32 @ 0x1800D7770 (LdrQueryInLoadOrderModuleList32.c)
- *     LdrQueryNextListEntry @ 0x1800DF3F0 (LdrQueryNextListEntry.c)
- *     LdrQueryInLoadOrderModuleList @ 0x1800ED1C0 (LdrQueryInLoadOrderModuleList.c)
- *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8E40 (LdrQueryModuleInfoFromLdrEntry32.c)
- *     RtlEndStrongEnumerationHashTable @ 0x1800FBBF0 (RtlEndStrongEnumerationHashTable.c)
- *     LdrQueryNextListEntry32 @ 0x1800FD1D0 (LdrQueryNextListEntry32.c)
- *     LdrQueryModuleInfoLocalLoaderLock @ 0x1801105B0 (LdrQueryModuleInfoLocalLoaderLock.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrQueryModuleInfoFromLdrEntry @ 0x18001ED80 (LdrQueryModuleInfoFromLdrEntry.c)
+ *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x18007DC70 (LdrQueryModuleInfoLocalLoaderUnlock.c)
+ *     LdrQueryInLoadOrderModuleList32 @ 0x1800D4730 (LdrQueryInLoadOrderModuleList32.c)
+ *     LdrQueryNextListEntry @ 0x1800DC360 (LdrQueryNextListEntry.c)
+ *     LdrQueryInLoadOrderModuleList @ 0x1800EC660 (LdrQueryInLoadOrderModuleList.c)
+ *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8610 (LdrQueryModuleInfoFromLdrEntry32.c)
+ *     RtlEndStrongEnumerationHashTable @ 0x1800FB340 (RtlEndStrongEnumerationHashTable.c)
+ *     LdrQueryNextListEntry32 @ 0x1800FC920 (LdrQueryNextListEntry32.c)
+ *     LdrQueryModuleInfoLocalLoaderLock @ 0x180110140 (LdrQueryModuleInfoLocalLoaderLock.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrQueryProcessModuleInformationEx2(
@@ -116,8 +116,8 @@ LABEL_6:
       v37 = v12;
     }
     if ( v12 )
-      funcs_18008EF1A[5 * v9]();
-    v13 = ((__int64 (__fastcall *)(_QWORD *, __int64 *, __int64 *))funcs_18008EF43[5 * v9])(v5, &v29, &v30);
+      funcs_1800BF1FA[5 * v9]();
+    v13 = ((__int64 (__fastcall *)(_QWORD *, __int64 *, __int64 *))funcs_1800BF223[5 * v9])(v5, &v29, &v30);
     if ( v13 < 0 )
     {
 LABEL_13:
@@ -126,7 +126,7 @@ LABEL_13:
     }
     if ( v29 )
     {
-      v13 = ((__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))*(&funcs_18008EF79 + 5 * v9))(v5, v29, &v27);
+      v13 = ((__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))*(&funcs_1800BF259 + 5 * v9))(v5, v29, &v27);
       if ( v13 < 0 )
         goto LABEL_13;
       while ( v27 != v29 )
@@ -149,7 +149,7 @@ LABEL_13:
         {
           v14 = v44;
           *v44 = 320;
-          v13 = (*(&funcs_18008F015 + 5 * v9))((int)v5, (int)(v14 + 4), v27, v30, v43);
+          v13 = (*(&funcs_1800BF2F5 + 5 * v9))((int)v5, (int)(v14 + 4), v27, v30, v43);
           if ( v13 < 0 )
             goto LABEL_13;
           v15 = *((_QWORD *)v14 + 3);
@@ -251,14 +251,14 @@ LABEL_27:
             v28 = 0;
           }
         }
-        v13 = ((__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))*(&funcs_18008EF79 + 5 * v9))(v5, v27, &v27);
+        v13 = ((__int64 (__fastcall *)(_QWORD *, __int64, __int64 *))*(&funcs_1800BF259 + 5 * v9))(v5, v27, &v27);
         if ( v13 < 0 )
           goto LABEL_13;
       }
     }
 LABEL_50:
     if ( v37 )
-      funcs_18008F2CB[5 * v9]();
+      funcs_1800BF5AB[5 * v9]();
     if ( a5 )
       *a5 = v6;
     v39 = ++v9;

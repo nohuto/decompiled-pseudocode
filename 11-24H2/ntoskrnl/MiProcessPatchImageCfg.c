@@ -1,18 +1,18 @@
 /*
- * XREFs of MiProcessPatchImageCfg @ 0x1407F5CBC
+ * XREFs of MiProcessPatchImageCfg @ 0x1407F63AC
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x1407F191C (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x1407F1EEC (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiReadVadFlags2 @ 0x14044BF3C (MiReadVadFlags2.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     RtlEnumerateHotPatchPatches @ 0x14082EF88 (RtlEnumerateHotPatchPatches.c)
- *     MiPopulateCfgBitMap @ 0x1408F9F54 (MiPopulateCfgBitMap.c)
- *     MiSelectCfgBitMap @ 0x1409E9D08 (MiSelectCfgBitMap.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiReadVadFlags2 @ 0x14044307C (MiReadVadFlags2.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     RtlEnumerateHotPatchPatches @ 0x14082F7B8 (RtlEnumerateHotPatchPatches.c)
+ *     MiPopulateCfgBitMap @ 0x14091C830 (MiPopulateCfgBitMap.c)
+ *     MiSelectCfgBitMap @ 0x1409E4CC8 (MiSelectCfgBitMap.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiProcessPatchImageCfg(__int64 a1, __int64 a2, __int64 a3)
@@ -74,7 +74,7 @@ __int64 __fastcall MiProcessPatchImageCfg(__int64 a1, __int64 a2, __int64 a3)
         *((_QWORD *)Base[1] + 2 * i + 1) = 1LL;
       }
       if ( (MiReadVadFlags2(a1) & 0x20) != 0 )
-        v12 = dword_140E2D7AC;
+        v12 = dword_140E2D8EC;
       v13 = (unsigned int)(v12 - 1);
       v8 = MiPopulateCfgBitMap(
              v10,

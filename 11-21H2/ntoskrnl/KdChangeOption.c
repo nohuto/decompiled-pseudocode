@@ -16,7 +16,7 @@ NTSTATUS __stdcall KdChangeOption(
 {
   NTSTATUS result; // eax
 
-  if ( KdPitchDebugger )
+  if ( byte_140C09804 )
     return -1073740972;
   if ( Option )
   {
@@ -26,9 +26,9 @@ NTSTATUS __stdcall KdChangeOption(
   {
     if ( InBufferBytes != 1 || OutBufferBytes || OutBuffer )
       return -1073741811;
-    if ( KdBlockEnable < 0 )
+    if ( byte_140C44528 < 0 )
       return -1073741790;
-    KdBlockEnable = *(_BYTE *)InBuffer;
+    byte_140C44528 = *(_BYTE *)InBuffer;
     result = 0;
   }
   if ( OutBufferNeeded )

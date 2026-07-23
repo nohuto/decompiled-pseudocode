@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlFreeRangeList @ 0x140815600
+ * XREFs of RtlFreeRangeList @ 0x1408158D0
  * Callers:
- *     ArbTestAllocation @ 0x140814D10 (ArbTestAllocation.c)
- *     RtlCopyRangeList @ 0x140814E80 (RtlCopyRangeList.c)
- *     ArbBootAllocation @ 0x140815190 (ArbBootAllocation.c)
- *     ArbCommitAllocation @ 0x1408153F0 (ArbCommitAllocation.c)
- *     ArbInitializeRangeList @ 0x140936130 (ArbInitializeRangeList.c)
- *     ArbQueryConflict @ 0x140936320 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x1409366C0 (ArbRetestAllocation.c)
- *     ArbRollbackAllocation @ 0x140936890 (ArbRollbackAllocation.c)
- *     ArbStartArbiter @ 0x140936AD0 (ArbStartArbiter.c)
- *     RtlMergeRangeLists @ 0x1409B8C50 (RtlMergeRangeLists.c)
+ *     ArbTestAllocation @ 0x140814FE0 (ArbTestAllocation.c)
+ *     RtlCopyRangeList @ 0x140815150 (RtlCopyRangeList.c)
+ *     ArbBootAllocation @ 0x140815460 (ArbBootAllocation.c)
+ *     ArbCommitAllocation @ 0x1408156C0 (ArbCommitAllocation.c)
+ *     ArbInitializeRangeList @ 0x140936330 (ArbInitializeRangeList.c)
+ *     ArbQueryConflict @ 0x140936520 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x1409368C0 (ArbRetestAllocation.c)
+ *     ArbRollbackAllocation @ 0x140936A90 (ArbRollbackAllocation.c)
+ *     ArbStartArbiter @ 0x140936CD0 (ArbStartArbiter.c)
+ *     RtlMergeRangeLists @ 0x1409B8E50 (RtlMergeRangeLists.c)
  * Callees:
- *     RtlpDeleteRangeListEntry @ 0x140815668 (RtlpDeleteRangeListEntry.c)
+ *     RtlpDeleteRangeListEntry @ 0x140815938 (RtlpDeleteRangeListEntry.c)
  */
 
 _QWORD *__fastcall RtlFreeRangeList(__int64 a1)

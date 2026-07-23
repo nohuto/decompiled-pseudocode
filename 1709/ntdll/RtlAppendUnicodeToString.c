@@ -20,30 +20,30 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendUnicodeToString(unsigned __int16 *a1, _WORD *a2)
+NTSTATUS __cdecl RtlAppendUnicodeToString(PUNICODE_STRING Destination, PCWSTR Source)
 {
   unsigned __int64 v3; // rbx
   unsigned __int16 v4; // bx
-  void *v5; // r14
+  wchar_t *v5; // r14
 
-  if ( !a2 )
-    return 0LL;
+  if ( !Source )
+    return 0;
   v3 = -1LL;
   do
     ++v3;
-  while ( a2[v3] );
+  while ( Source[v3] );
   if ( v3 <= 0x7FFE )
   {
     v4 = 2 * v3;
-    if ( *a1 + (unsigned int)v4 <= a1[1] )
+    if ( Destination->Length + (unsigned int)v4 <= Destination->MaximumLength )
     {
-      v5 = (void *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*a1 >> 1));
-      memmove(v5, a2, v4);
-      *a1 += v4;
-      if ( (unsigned int)*a1 + 1 < a1[1] )
-        *((_WORD *)v5 + ((unsigned __int64)v4 >> 1)) = 0;
-      return 0LL;
+      v5 = &Destination->Buffer[(unsigned __int64)Destination->Length >> 1];
+      memmove(v5, Source, v4);
+      Destination->Length += v4;
+      if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+        v5[(unsigned __int64)v4 >> 1] = 0;
+      return 0;
     }
   }
-  return 3221225507LL;
+  return -1073741789;
 }

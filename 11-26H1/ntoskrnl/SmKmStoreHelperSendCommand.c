@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreHelperSendCommand @ 0x1403F020C
+ * XREFs of SmKmStoreHelperSendCommand @ 0x1403E9BDC
  * Callers:
- *     SmKmStoreHelperCleanup @ 0x1403F01B8 (SmKmStoreHelperCleanup.c)
+ *     SmKmStoreHelperCleanup @ 0x1403E9B88 (SmKmStoreHelperCleanup.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
  */
 
 NTSTATUS __fastcall SmKmStoreHelperSendCommand(__int64 a1, __int16 a2, __int64 a3, int a4)

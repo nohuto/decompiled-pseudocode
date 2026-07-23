@@ -1,31 +1,31 @@
 /*
- * XREFs of EtwQueryPerformanceTraceInformation @ 0x1408B9360
+ * XREFs of EtwQueryPerformanceTraceInformation @ 0x1408BA620
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlFindSetBits @ 0x14008BE50 (RtlFindSetBits.c)
- *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     EtwpCheckLoggerControlAccess @ 0x1405C1E98 (EtwpCheckLoggerControlAccess.c)
- *     EtwpDereferenceLoggerSecurityDescriptor @ 0x1405C1EEC (EtwpDereferenceLoggerSecurityDescriptor.c)
- *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReferenceLoggerSecurityDescriptor @ 0x1405C5324 (EtwpReferenceLoggerSecurityDescriptor.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1405CB720 (SeQuerySecurityDescriptorInfo.c)
- *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
- *     EtwpMapEnableFlags @ 0x1406CBBAC (EtwpMapEnableFlags.c)
- *     EtwpCheckSystemTraceAccess @ 0x140726EBC (EtwpCheckSystemTraceAccess.c)
- *     EtwpUMGLEnabled @ 0x1408B572C (EtwpUMGLEnabled.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x1408C91B8 (EtwpQueryCoverageSamplerInformation.c)
- *     EtwpGetSoftRestartInformation @ 0x1408C9E64 (EtwpGetSoftRestartInformation.c)
+ *     RtlFindSetBits @ 0x14008BE40 (RtlFindSetBits.c)
+ *     PsGetProcessId @ 0x1400A5650 (PsGetProcessId.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExUnlockUserBuffer @ 0x14011A788 (ExUnlockUserBuffer.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1405C2E98 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpDereferenceLoggerSecurityDescriptor @ 0x1405C2EEC (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     EtwpReleaseLoggerContext @ 0x1405C6160 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C61A8 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReferenceLoggerSecurityDescriptor @ 0x1405C6324 (EtwpReferenceLoggerSecurityDescriptor.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1405CC720 (SeQuerySecurityDescriptorInfo.c)
+ *     ExLockUserBuffer @ 0x14069FBD8 (ExLockUserBuffer.c)
+ *     EtwpMapEnableFlags @ 0x1406CCE4C (EtwpMapEnableFlags.c)
+ *     EtwpCheckSystemTraceAccess @ 0x14072815C (EtwpCheckSystemTraceAccess.c)
+ *     EtwpUMGLEnabled @ 0x1408B69EC (EtwpUMGLEnabled.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1408CA478 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpGetSoftRestartInformation @ 0x1408CB124 (EtwpGetSoftRestartInformation.c)
  */
 
 __int64 __fastcall EtwQueryPerformanceTraceInformation(
@@ -68,7 +68,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
   unsigned int v38; // edx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int *v40; // rax
-  struct _RTL_BITMAP *v41; // rsi
+  _RTL_BITMAP *v41; // rsi
   unsigned int v42; // eax
   ULONG v43; // ebx
   __int64 i; // r12
@@ -117,7 +117,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       v40 = EtwpAcquireLoggerContextByLoggerId(v12, v38, 1);
-      v41 = (struct _RTL_BITMAP *)v40;
+      v41 = (_RTL_BITMAP *)v40;
       P = v40;
       if ( v40 )
       {
@@ -203,7 +203,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
             result = ExLockUserBuffer(a1 + 8, v25, a3, IoWriteAccess, &Object, (struct _MDL **)&P);
             if ( (int)result < 0 )
               return result;
-            v8 = ((__int64 (__fastcall *)(__int64, _QWORD, PVOID, unsigned int *))off_140400458[0])(
+            v8 = ((__int64 (__fastcall *)(__int64, _QWORD, PVOID, unsigned int *))off_140401458[0])(
                    20LL,
                    v25,
                    Object,

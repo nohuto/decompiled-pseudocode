@@ -1,16 +1,16 @@
 /*
- * XREFs of IoReportHalResourceUsage @ 0x1409C0AA0
+ * XREFs of IoReportHalResourceUsage @ 0x1409C1AA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
- *     IopWriteResourceList @ 0x14072FBA8 (IopWriteResourceList.c)
- *     HeadlessTerminalAddResources @ 0x1407304DC (HeadlessTerminalAddResources.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopCreateRegistryKeyEx @ 0x14070A964 (IopCreateRegistryKeyEx.c)
+ *     IopWriteResourceList @ 0x140730D98 (IopWriteResourceList.c)
+ *     HeadlessTerminalAddResources @ 0x1407316CC (HeadlessTerminalAddResources.c)
  */
 
 __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD *a3, unsigned int a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of SmHpUnprotectListNeighbors @ 0x1403884F4
+ * XREFs of SmHpUnprotectListNeighbors @ 0x140381E34
  * Callers:
- *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140385D30 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     SmHpChunkFree @ 0x140387610 (SmHpChunkFree.c)
- *     SmHpBufferUpdateFullness @ 0x140388300 (SmHpBufferUpdateFullness.c)
- *     SmHpChunkAlloc @ 0x1403893F0 (SmHpChunkAlloc.c)
+ *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037F670 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     SmHpChunkFree @ 0x140380F50 (SmHpChunkFree.c)
+ *     SmHpBufferUpdateFullness @ 0x140381C40 (SmHpBufferUpdateFullness.c)
+ *     SmHpChunkAlloc @ 0x140382D30 (SmHpChunkAlloc.c)
  * Callees:
- *     SmPrepareForFatalHeapCorruption @ 0x140380700 (SmPrepareForFatalHeapCorruption.c)
- *     ExProtectPoolEx @ 0x140388828 (ExProtectPoolEx.c)
- *     wyhash @ 0x140389238 (wyhash.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x14037A040 (SmPrepareForFatalHeapCorruption.c)
+ *     ExProtectPoolEx @ 0x140382168 (ExProtectPoolEx.c)
+ *     wyhash @ 0x140382B78 (wyhash.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SmHpUnprotectListNeighbors(__int64 a1, __int64 a2, _QWORD *a3)

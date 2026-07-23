@@ -1,15 +1,15 @@
 /*
- * XREFs of PspGetNewSessionId @ 0x14077BC2C
+ * XREFs of PspGetNewSessionId @ 0x14077BADC
  * Callers:
- *     PsSessionCreate @ 0x1406F73F8 (PsSessionCreate.c)
+ *     PsSessionCreate @ 0x1406F53F8 (PsSessionCreate.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x14024B8D0 (RtlFindClearBitsAndSet.c)
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
- *     MmMaximumUserSessionId @ 0x14068BCF8 (MmMaximumUserSessionId.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlFindClearBitsAndSet @ 0x14027BEE0 (RtlFindClearBitsAndSet.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
+ *     MmMaximumUserSessionId @ 0x14068CE28 (MmMaximumUserSessionId.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PspGetNewSessionId()
@@ -44,7 +44,7 @@ LABEL_10:
     if ( v6 > v5 )
     {
       v7 = v6 >> 3;
-      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, v7, 0x73537350u);
       v9 = Pool2;
       if ( Pool2 )
       {

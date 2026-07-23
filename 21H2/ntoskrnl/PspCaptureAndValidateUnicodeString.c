@@ -1,7 +1,7 @@
 /*
- * XREFs of PspCaptureAndValidateUnicodeString @ 0x140606F88
+ * XREFs of PspCaptureAndValidateUnicodeString @ 0x140696A18
  * Callers:
- *     PspCaptureUserProcessParameters @ 0x1406068CC (PspCaptureUserProcessParameters.c)
+ *     PspCaptureUserProcessParameters @ 0x14069635C (PspCaptureUserProcessParameters.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlTraceDatabaseCreate @ 0x140215B84
+ * XREFs of RtlTraceDatabaseCreate @ 0x1402159B0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlpTraceDatabaseAllocate @ 0x140215EC8 (RtlpTraceDatabaseAllocate.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlpTraceDatabaseAllocate @ 0x140215CF4 (RtlpTraceDatabaseAllocate.c)
  */
 
 PRTL_TRACE_DATABASE __stdcall RtlTraceDatabaseCreate(

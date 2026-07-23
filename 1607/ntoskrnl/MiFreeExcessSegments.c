@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreeExcessSegments @ 0x1400A3910
+ * XREFs of MiFreeExcessSegments @ 0x1400A2238
  * Callers:
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
- *     MiScanLeafNonPagedPool @ 0x14001ADE0 (MiScanLeafNonPagedPool.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MmResourcesAvailable @ 0x14007E280 (MmResourcesAvailable.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
- *     MiExpandPagedPool @ 0x1400A296C (MiExpandPagedPool.c)
- *     MiAllocatePagedPoolPages @ 0x1400DE970 (MiAllocatePagedPoolPages.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
+ *     MiScanLeafNonPagedPool @ 0x14001A960 (MiScanLeafNonPagedPool.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MmResourcesAvailable @ 0x14007E300 (MmResourcesAvailable.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
+ *     MiExpandPagedPool @ 0x1400A1294 (MiExpandPagedPool.c)
+ *     MiAllocatePagedPoolPages @ 0x1400DC810 (MiAllocatePagedPoolPages.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
  * Callees:
- *     MiGetNextPartition @ 0x140001C94 (MiGetNextPartition.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MiShouldTrimUnusedSegments @ 0x1401DF418 (MiShouldTrimUnusedSegments.c)
+ *     MiGetNextPartition @ 0x140001E08 (MiGetNextPartition.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MiShouldTrimUnusedSegments @ 0x1401DF244 (MiShouldTrimUnusedSegments.c)
  */
 
 unsigned __int64 MiFreeExcessSegments()
@@ -21,10 +21,10 @@ unsigned __int64 MiFreeExcessSegments()
   _QWORD *i; // rcx
   _QWORD *v2; // rbx
 
-  result = 9 * (qword_1403251E8 / 0xAuLL);
-  if ( qword_140325168 >= result )
+  result = 9 * (qword_140325228 / 0xAuLL);
+  if ( qword_1403251A8 >= result )
   {
-    result = MiShouldTrimUnusedSegments(qword_1403251E8, qword_1403251E8 / 0xAuLL);
+    result = MiShouldTrimUnusedSegments(qword_140325228, qword_140325228 / 0xAuLL);
     if ( (_DWORD)result )
     {
       for ( i = 0LL; ; i = v2 )

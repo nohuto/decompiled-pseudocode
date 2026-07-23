@@ -1,70 +1,71 @@
 /*
- * XREFs of MiFreeModifiedReservations @ 0x1404F8E8C
+ * XREFs of MiFreeModifiedReservations @ 0x1404F676C
  * Callers:
- *     MiCheckFreeModifiedReservations @ 0x1402D00FC (MiCheckFreeModifiedReservations.c)
- *     MiPageFileNoFreeSpace @ 0x1404D0994 (MiPageFileNoFreeSpace.c)
+ *     MiPageFileNoFreeSpace @ 0x14046F624 (MiPageFileNoFreeSpace.c)
+ *     MiCheckFreeModifiedReservations @ 0x14046FF1C (MiCheckFreeModifiedReservations.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-void __fastcall MiFreeModifiedReservations(__int64 a1, int a2, __int64 a3)
+void __fastcall MiFreeModifiedReservations(__int64 a1, int a2)
 {
-  __int16 v3; // ax
-  __int64 v5; // rdx
-  __int64 v6; // rbp
-  unsigned __int64 v7; // r15
-  __int64 v8; // rbx
-  ULONG_PTR v9; // rdi
-  unsigned __int8 v10; // al
-  unsigned __int64 v11; // r14
-  unsigned __int64 v12; // rbx
+  __int16 v2; // ax
+  __int64 v4; // rbp
+  unsigned __int64 v5; // rsi
+  unsigned __int64 v6; // r15
+  __int64 v7; // rbx
+  ULONG_PTR v8; // rdi
+  unsigned __int8 v9; // al
+  unsigned __int64 v10; // r14
+  unsigned __int64 v11; // rbx
+  __int64 v12; // r9
   __int64 v13; // [rsp+50h] [rbp+8h]
 
-  v3 = *(_WORD *)(a1 + 172);
-  v5 = *(_QWORD *)(a1 + 216);
-  v13 = v5;
-  if ( (v3 & 0x40) == 0 )
+  v2 = *(_WORD *)(a1 + 172);
+  v13 = *(_QWORD *)(a1 + 216);
+  if ( (v2 & 0x40) == 0 )
   {
-    v6 = v5 + 88 * ((v3 & 0xF) + 48LL);
-    v7 = 0LL;
+    v4 = *(_QWORD *)(a1 + 216) + 88 * ((v2 & 0xF) + 48LL);
+    v5 = a2 == 0 ? 0x10000 : 0;
+    v6 = 0LL;
     while ( 1 )
     {
-      v8 = *(_QWORD *)(v6 + 16);
-      if ( v8 == 0x3FFFFFFFFFLL )
+      v7 = *(_QWORD *)(v4 + 16);
+      if ( v7 == 0x3FFFFFFFFFLL )
         break;
-      v9 = 48 * v8 - 0x220000000000LL;
-      v10 = MiSafeLockPage(*(_QWORD *)(v6 + 16), v5, a3);
-      v11 = v10;
-      if ( v10 != 17 )
+      v8 = 48 * v7 - 0x220000000000LL;
+      v9 = MiSafeLockPage(*(_QWORD *)(v4 + 16));
+      v10 = v9;
+      if ( v9 != 17 )
       {
-        ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v6 + 32));
-        if ( v8 == *(_QWORD *)(v6 + 16) )
+        ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v4 + 32));
+        if ( v7 == *(_QWORD *)(v4 + 16) )
         {
-          MiUnlinkPageFromListEx(48 * v8 - 0x220000000000LL, 1);
-          v12 = *(_QWORD *)(v9 + 16);
-          *(_QWORD *)(v9 + 16) = v12 & 0xFFFFFFFFFFFFFFFDuLL;
-          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 32));
-          MiInsertPageInList(v9, 8u);
-          _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          MiReleasePageFileInfo(v13, v12, 1LL);
+          MiUnlinkPageFromListEx(48 * v7 - 0x220000000000LL, 1);
+          v11 = *(_QWORD *)(v8 + 16);
+          *(_QWORD *)(v8 + 16) = v11 & 0xFFFFFFFFFFFFFFFDuLL;
+          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 32));
+          MiInsertPageInList(v8, 8u);
+          _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          MiReleasePageFileInfo(v13, v11, 1LL, v12);
           if ( KiIrqlFlags )
-            KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);
-          __writecr8(v11);
-          ++v7;
-          if ( !a2 && v7 >= 0x10000 )
+            KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v10);
+          __writecr8(v10);
+          ++v6;
+          if ( !a2 && v6 >= v5 )
             return;
         }
         else
         {
-          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 32));
-          MiUnlockPage(48 * v8 - 0x220000000000LL, v11);
+          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 32));
+          MiUnlockPage(48 * v7 - 0x220000000000LL, v10);
         }
       }
     }

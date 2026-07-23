@@ -9,30 +9,34 @@
  *     _NtQuerySystemInformation@16 @ 0x4B2F2CE0 (_NtQuerySystemInformation@16.c)
  */
 
-NTSTATUS __stdcall RtlRegisterSecureMemoryCacheCallback(int a1)
+NTSTATUS __cdecl RtlRegisterSecureMemoryCacheCallback(PRTL_SECURE_MEMORY_CACHE_CALLBACK Callback)
 {
+  int v1; // esi
   NTSTATUS result; // eax
-  int Heap; // eax
-  int v3; // esi
-  int *v4; // eax
+  _DWORD *Heap; // eax
+  _DWORD *v4; // esi
+  _DWORD *v5; // eax
+  SIZE_T v6; // [esp-8h] [ebp-8h]
 
   result = NtQuerySystemInformation(SystemRangeStartInformation, &RtlSecureMemorySystemRangeStart, 4u, 0);
   if ( result >= 0 )
   {
-    Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 16);
-    v3 = Heap;
+    HIDWORD(v6) = v1;
+    LODWORD(v6) = 16;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
+    v4 = Heap;
     if ( Heap )
     {
-      *(_DWORD *)(Heap + 8) = 1;
-      *(_DWORD *)(Heap + 12) = a1;
+      Heap[2] = 1;
+      Heap[3] = Callback;
       RtlAcquireSRWLockExclusive(&RtlpSecMemLock);
-      v4 = (int *)off_4B3A37A0;
+      v5 = off_4B3A37A0;
       if ( *off_4B3A37A0 != (_UNKNOWN *)&RtlpSecMemListHead )
         __fastfail(3u);
-      *(_DWORD *)v3 = &RtlpSecMemListHead;
-      *(_DWORD *)(v3 + 4) = v4;
-      *v4 = v3;
-      off_4B3A37A0 = (_UNKNOWN **)v3;
+      *v4 = &RtlpSecMemListHead;
+      v4[1] = v5;
+      *v5 = v4;
+      off_4B3A37A0 = (_UNKNOWN **)v4;
       RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
       return 0;
     }

@@ -1,8 +1,8 @@
 /*
- * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1800D5E78
+ * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1800D11E8
  * Callers:
- *     wil_details_IsEnabledFallback @ 0x1800D5838 (wil_details_IsEnabledFallback.c)
- *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x180116E44 (RtlpAreLegacyDosDeviceNamesEnabled.c)
+ *     wil_details_IsEnabledFallback @ 0x1800D0BA8 (wil_details_IsEnabledFallback.c)
+ *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x180111E30 (RtlpAreLegacyDosDeviceNamesEnabled.c)
  * Callees:
  *     <none>
  */

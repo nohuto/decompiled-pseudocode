@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFreeProcessorStacks @ 0x14056BD4C
+ * XREFs of KiFreeProcessorStacks @ 0x14056C40C
  * Callers:
- *     KiFreeProcessorStateInitializationParameters @ 0x14056BE34 (KiFreeProcessorStateInitializationParameters.c)
+ *     KiFreeProcessorStateInitializationParameters @ 0x14056C4F4 (KiFreeProcessorStateInitializationParameters.c)
  * Callees:
- *     MmDeleteKernelStackEx @ 0x14026F8D0 (MmDeleteKernelStackEx.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
- *     KiDeleteKernelShadowStack @ 0x14097438C (KiDeleteKernelShadowStack.c)
- *     MmFreeIsrStack @ 0x140A3C778 (MmFreeIsrStack.c)
+ *     MmDeleteKernelStackEx @ 0x14026FB60 (MmDeleteKernelStackEx.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
+ *     KiDeleteKernelShadowStack @ 0x14097458C (KiDeleteKernelShadowStack.c)
+ *     MmFreeIsrStack @ 0x140A3CA28 (MmFreeIsrStack.c)
  */
 
 signed __int64 __fastcall KiFreeProcessorStacks(_QWORD *a1)

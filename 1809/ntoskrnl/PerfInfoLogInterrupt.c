@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfInfoLogInterrupt @ 0x1400C83A0
+ * XREFs of PerfInfoLogInterrupt @ 0x1400C82E0
  * Callers:
- *     KiScanInterruptObjectList @ 0x1401BD5E0 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x1401BD7C0 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x1401BD910 (KiInterruptSubDispatchNoLock.c)
- *     KiInvokeInterruptServiceRoutine @ 0x140299D04 (KiInvokeInterruptServiceRoutine.c)
+ *     KiScanInterruptObjectList @ 0x1401BD740 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x1401BD920 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x1401BDA70 (KiInterruptSubDispatchNoLock.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x140299EF4 (KiInvokeInterruptServiceRoutine.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PerfInfoLogInterrupt(__int64 a1, int a2, __int64 a3)

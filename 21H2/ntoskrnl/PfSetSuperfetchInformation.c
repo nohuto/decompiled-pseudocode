@@ -1,31 +1,31 @@
 /*
- * XREFs of PfSetSuperfetchInformation @ 0x1406DBD54
+ * XREFs of PfSetSuperfetchInformation @ 0x1406B3034
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     MmSetTrimWhileAgingState @ 0x1402ABF4C (MmSetTrimWhileAgingState.c)
- *     PfTSetTraceWorkerPriority @ 0x140382DA4 (PfTSetTraceWorkerPriority.c)
- *     PfLockExclusiveAcquire @ 0x1403CF600 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1403D00D0 (PfLockExclusiveRelease.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     MmSetMinimumAgeRate @ 0x140691E00 (MmSetMinimumAgeRate.c)
- *     PfpPrefetchRequest @ 0x1406C55B0 (PfpPrefetchRequest.c)
- *     PfpRpControlRequest @ 0x1406DC9F0 (PfpRpControlRequest.c)
- *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
- *     PfpLogEventRequest @ 0x14077668C (PfpLogEventRequest.c)
- *     PfGenerateTrace @ 0x140776874 (PfGenerateTrace.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     PfpProcessScenarioPhase @ 0x14078CF98 (PfpProcessScenarioPhase.c)
- *     PfTInitialize @ 0x1407BED40 (PfTInitialize.c)
- *     PfpSetParameter @ 0x1407BF0B8 (PfpSetParameter.c)
- *     PfTStart @ 0x1407BFA40 (PfTStart.c)
- *     PfpDeprioritizeOldPagesInWs @ 0x1408DF6E0 (PfpDeprioritizeOldPagesInWs.c)
- *     PfTCleanup @ 0x1408E03BC (PfTCleanup.c)
- *     PfpScenCtxPrefetchStateSet @ 0x140998C20 (PfpScenCtxPrefetchStateSet.c)
- *     PfpScenCtxServiceThreadSet @ 0x1409A18EC (PfpScenCtxServiceThreadSet.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmSetTrimWhileAgingState @ 0x140250E2C (MmSetTrimWhileAgingState.c)
+ *     PfTSetTraceWorkerPriority @ 0x140382F54 (PfTSetTraceWorkerPriority.c)
+ *     PfLockExclusiveAcquire @ 0x1403CF770 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1403D0240 (PfLockExclusiveRelease.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MmSetMinimumAgeRate @ 0x1406209E4 (MmSetMinimumAgeRate.c)
+ *     PfpPrefetchRequest @ 0x140673EA0 (PfpPrefetchRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     PfpRpControlRequest @ 0x1406B3CD0 (PfpRpControlRequest.c)
+ *     PfpPfnPrioRequest @ 0x140709F90 (PfpPfnPrioRequest.c)
+ *     PfpLogEventRequest @ 0x14077684C (PfpLogEventRequest.c)
+ *     PfGenerateTrace @ 0x140776A34 (PfGenerateTrace.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     PfpProcessScenarioPhase @ 0x14078D158 (PfpProcessScenarioPhase.c)
+ *     PfTInitialize @ 0x1407BF25C (PfTInitialize.c)
+ *     PfpSetParameter @ 0x1407BF5D4 (PfpSetParameter.c)
+ *     PfTStart @ 0x1407BFF5C (PfTStart.c)
+ *     PfpDeprioritizeOldPagesInWs @ 0x1408DF840 (PfpDeprioritizeOldPagesInWs.c)
+ *     PfTCleanup @ 0x1408E051C (PfTCleanup.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140999C20 (PfpScenCtxPrefetchStateSet.c)
+ *     PfpScenCtxServiceThreadSet @ 0x1409A281C (PfpScenCtxServiceThreadSet.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4)
@@ -103,10 +103,10 @@ __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, __int128 *a2, int a3, 
       if ( a4 && (v21 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       v30 = *(_DWORD *)v21;
-      v22 = v30 + dword_140C502DC;
+      v22 = v30 + dword_140C5031C;
       v9 = PfpSetParameter(KeyHandle, 4u);
       if ( v9 >= 0 )
-        dword_140C502DC = v22;
+        dword_140C5031C = v22;
       goto LABEL_12;
     }
     if ( DWORD2(v20) != 18 )
@@ -175,17 +175,17 @@ LABEL_11:
       PfLockExclusiveAcquire((ULONG_PTR)&PfTGlobals);
       if ( HIDWORD(v26) )
       {
-        v18 = dword_140C4FBC8 & ~v16;
+        v18 = dword_140C4FC08 & ~v16;
         PfTCleanup(&PfTGlobals);
         PfTInitialize(&PfTGlobals, v19, 1LL);
       }
       else
       {
-        v18 = v16 & ~dword_140C4FBC8;
+        v18 = v16 & ~dword_140C4FC08;
       }
       v9 = PfTStart(&PfTGlobals, v17, v18);
       PfLockExclusiveRelease((ULONG_PTR)&PfTGlobals);
-      PfpScenCtxServiceThreadSet((ULONG_PTR)&qword_140C502E0);
+      PfpScenCtxServiceThreadSet((ULONG_PTR)&qword_140C50320);
       goto LABEL_12;
     }
 LABEL_84:
@@ -281,7 +281,7 @@ LABEL_54:
         v31 = *(_QWORD *)v21;
         if ( (_WORD)v31 == 1 && (unsigned int)(HIDWORD(v31) - 1) <= 4 )
         {
-          v8 = PfpScenCtxPrefetchStateSet((ULONG_PTR)&qword_140C502E0);
+          v8 = PfpScenCtxPrefetchStateSet((ULONG_PTR)&qword_140C50320);
           goto LABEL_11;
         }
         goto LABEL_84;

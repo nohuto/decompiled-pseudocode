@@ -6,25 +6,25 @@
  *     _RtlInitializeSid@12 @ 0x4B2D82C0 (_RtlInitializeSid@12.c)
  */
 
-int __cdecl RtlInitializeSidEx(int a1, int a2, unsigned __int8 a3)
+NTSTATUS __cdecl RtlInitializeSidEx(char *Sid, PSID_IDENTIFIER_AUTHORITY IdentifierAuthority, UCHAR SubAuthorityCount)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v4; // ecx
-  unsigned __int8 *v5; // edx
+  UCHAR *p_SubAuthorityCount; // edx
   _DWORD *v6; // esi
 
-  result = RtlInitializeSid(a1, a2, a3);
+  result = RtlInitializeSid(Sid, IdentifierAuthority, SubAuthorityCount);
   if ( result >= 0 )
   {
-    v4 = a3;
-    if ( a3 )
+    v4 = SubAuthorityCount;
+    if ( SubAuthorityCount )
     {
-      v5 = &a3;
-      v6 = (_DWORD *)(a1 + 8);
+      p_SubAuthorityCount = &SubAuthorityCount;
+      v6 = Sid + 8;
       do
       {
-        v5 += 4;
-        *v6++ = *(_DWORD *)v5;
+        p_SubAuthorityCount += 4;
+        *v6++ = *(_DWORD *)p_SubAuthorityCount;
         --v4;
       }
       while ( v4 );

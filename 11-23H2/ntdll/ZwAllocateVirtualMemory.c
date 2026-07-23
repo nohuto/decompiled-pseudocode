@@ -32,27 +32,33 @@
  *     RtlpHeapPerformCrossProcessQuery @ 0x180100668 (RtlpHeapPerformCrossProcessQuery.c)
  *     RtlpValidateHeap @ 0x180107E20 (RtlpValidateHeap.c)
  *     RtlpValidateHeapHeaders @ 0x180108404 (RtlpValidateHeapHeaders.c)
- *     RtlStdInitializeStackDatabase @ 0x18010F3C0 (RtlStdInitializeStackDatabase.c)
- *     RtlpStdExtendLowerWatermark @ 0x18010F868 (RtlpStdExtendLowerWatermark.c)
- *     RtlpStdExtendUpperWatermark @ 0x18010F948 (RtlpStdExtendUpperWatermark.c)
- *     RtlpTraceDatabaseAllocate @ 0x180110BB8 (RtlpTraceDatabaseAllocate.c)
- *     EtwpInitializeCompression @ 0x180126608 (EtwpInitializeCompression.c)
- *     PssNtCaptureSnapshot @ 0x180128820 (PssNtCaptureSnapshot.c)
- *     PsspCaptureAuxiliaryPages @ 0x180129BC8 (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureVaSpaceInformation @ 0x180129F70 (PsspCaptureVaSpaceInformation.c)
- *     PsspCaptureHandleInformation @ 0x18012A744 (PsspCaptureHandleInformation.c)
- *     PsspCaptureThreadInformation @ 0x18012B180 (PsspCaptureThreadInformation.c)
- *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BEFC (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C484 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     RtlStdInitializeStackDatabase @ 0x18010F390 (RtlStdInitializeStackDatabase.c)
+ *     RtlpStdExtendLowerWatermark @ 0x18010F838 (RtlpStdExtendLowerWatermark.c)
+ *     RtlpStdExtendUpperWatermark @ 0x18010F918 (RtlpStdExtendUpperWatermark.c)
+ *     RtlpTraceDatabaseAllocate @ 0x180110B88 (RtlpTraceDatabaseAllocate.c)
+ *     EtwpInitializeCompression @ 0x1801265D8 (EtwpInitializeCompression.c)
+ *     PssNtCaptureSnapshot @ 0x1801287F0 (PssNtCaptureSnapshot.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180129B98 (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureVaSpaceInformation @ 0x180129F40 (PsspCaptureVaSpaceInformation.c)
+ *     PsspCaptureHandleInformation @ 0x18012A714 (PsspCaptureHandleInformation.c)
+ *     PsspCaptureThreadInformation @ 0x18012B150 (PsspCaptureThreadInformation.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BECC (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C488 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAllocateVirtualMemory()
+NTSTATUS __cdecl ZwAllocateVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG Protect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 24LL;
+  result = 24;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

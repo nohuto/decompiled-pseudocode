@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPciInitializeMmConfigAccess @ 0x140A6C8BC
+ * XREFs of HalpPciInitializeMmConfigAccess @ 0x140A6D8BC
  * Callers:
- *     HalpPciInitSystem @ 0x1409A14E0 (HalpPciInitSystem.c)
+ *     HalpPciInitSystem @ 0x1409A2410 (HalpPciInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x140216340 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalpPciInitializeMmConfigAccess(__int64 a1)

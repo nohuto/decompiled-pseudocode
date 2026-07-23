@@ -1,9 +1,9 @@
 /*
  * XREFs of ExAllocateCacheAwareRundownProtection @ 0x14074D200
  * Callers:
- *     MmCreatePartition @ 0x1403D981C (MmCreatePartition.c)
- *     RawInitializeVcb @ 0x14074D028 (RawInitializeVcb.c)
- *     EtwpPreInitializeSiloState @ 0x14084EB98 (EtwpPreInitializeSiloState.c)
+ *     sub_1403D981C @ 0x1403D981C (sub_1403D981C.c)
+ *     sub_14074D028 @ 0x14074D028 (sub_14074D028.c)
+ *     sub_14084EB98 @ 0x14084EB98 (sub_14084EB98.c)
  * Callees:
  *     KeGetRecommendedSharedDataAlignment @ 0x1402D3250 (KeGetRecommendedSharedDataAlignment.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
@@ -17,9 +17,9 @@ PEX_RUNDOWN_REF_CACHE_AWARE __stdcall ExAllocateCacheAwareRundownProtection(POOL
   unsigned int v6; // edi
   ULONG RecommendedSharedDataAlignment; // esi
   unsigned __int64 v8; // rax
-  unsigned int Number; // edx
+  unsigned int v9; // edx
   __int64 v10; // rdi
-  _EX_RUNDOWN_REF *v11; // rcx
+  unsigned __int64 v11; // rcx
   unsigned int v12; // r8d
   int v13; // edx
 
@@ -27,42 +27,45 @@ PEX_RUNDOWN_REF_CACHE_AWARE __stdcall ExAllocateCacheAwareRundownProtection(POOL
   v5 = PoolWithTag;
   if ( !PoolWithTag )
     return v5;
-  v6 = KeNumberProcessors_0;
-  PoolWithTag->Number = KeNumberProcessors_0;
+  v6 = dword_140D06884;
+  *((_DWORD *)PoolWithTag + 5) = dword_140D06884;
   if ( v6 <= 1 )
     RecommendedSharedDataAlignment = 8;
   else
     RecommendedSharedDataAlignment = KeGetRecommendedSharedDataAlignment();
-  v5->RunRefSize = RecommendedSharedDataAlignment;
+  *((_DWORD *)v5 + 4) = RecommendedSharedDataAlignment;
   v8 = (unsigned __int64)ExAllocatePoolWithTag(PoolType, RecommendedSharedDataAlignment * v6, PoolTag);
   if ( v8 )
   {
-    Number = v5->Number;
-    if ( Number <= 1 || (v10 = RecommendedSharedDataAlignment - 1, (v10 & v8) == 0) )
+    v9 = *((_DWORD *)v5 + 5);
+    if ( v9 <= 1 || (v10 = RecommendedSharedDataAlignment - 1, (v10 & v8) == 0) )
     {
-      v11 = (_EX_RUNDOWN_REF *)v8;
+      v11 = v8;
 LABEL_9:
       v12 = 0;
-      v5->PoolToFree = (void *)v8;
-      v5->RunRefs = v11;
-      if ( Number )
+      *((_QWORD *)v5 + 1) = v8;
+      *(_QWORD *)v5 = v11;
+      if ( v9 )
       {
         do
         {
-          v13 = v12 % v5->Number;
+          v13 = v12 % *((_DWORD *)v5 + 5);
           ++v12;
-          *(unsigned __int64 *)((char *)&v5->RunRefs->Count + v5->RunRefSize * v13) = 0LL;
+          *(_QWORD *)((unsigned int)(*((_DWORD *)v5 + 4) * v13) + *(_QWORD *)v5) = 0LL;
         }
-        while ( v12 < v5->Number );
+        while ( v12 < *((_DWORD *)v5 + 5) );
       }
       return v5;
     }
     ExFreePoolWithTag((PVOID)v8, 0);
-    v8 = (unsigned __int64)ExAllocatePoolWithTag(PoolType, RecommendedSharedDataAlignment * (v5->Number + 1), PoolTag);
+    v8 = (unsigned __int64)ExAllocatePoolWithTag(
+                             PoolType,
+                             RecommendedSharedDataAlignment * (*((_DWORD *)v5 + 5) + 1),
+                             PoolTag);
     if ( v8 )
     {
-      Number = v5->Number;
-      v11 = (_EX_RUNDOWN_REF *)(~v10 & (v10 + v8));
+      v9 = *((_DWORD *)v5 + 5);
+      v11 = ~v10 & (v10 + v8);
       goto LABEL_9;
     }
   }

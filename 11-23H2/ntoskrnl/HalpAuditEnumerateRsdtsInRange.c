@@ -3,8 +3,8 @@
  * Callers:
  *     HalpAuditEnumerateRsdts @ 0x140B920BC (HalpAuditEnumerateRsdts.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
  *     HalpAuditAllocateRsdtArrayTable @ 0x140B92014 (HalpAuditAllocateRsdtArrayTable.c)
  *     HalpAuditSelectRsdtOrXsdt @ 0x140B92468 (HalpAuditSelectRsdtOrXsdt.c)
  */

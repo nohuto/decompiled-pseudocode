@@ -1,21 +1,21 @@
 /*
- * XREFs of IoVolumeDeviceToDosName @ 0x140967FB0
+ * XREFs of IoVolumeDeviceToDosName @ 0x140950A40
  * Callers:
- *     IopValidateJunctionTarget @ 0x140713438 (IopValidateJunctionTarget.c)
- *     IopQueryNameInternal @ 0x140968330 (IopQueryNameInternal.c)
- *     IopMountVolume @ 0x140A29164 (IopMountVolume.c)
+ *     IopValidateJunctionTarget @ 0x140710FC8 (IopValidateJunctionTarget.c)
+ *     IopQueryNameInternal @ 0x140950DC0 (IopQueryNameInternal.c)
+ *     IopMountVolume @ 0x140A1DB24 (IopMountVolume.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x1402678C0 (IoBuildDeviceIoControlRequest.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IoGetDeviceObjectPointer @ 0x140967A30 (IoGetDeviceObjectPointer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14025EEA0 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IoGetDeviceObjectPointer @ 0x1409504C0 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoVolumeDeviceToDosName(PVOID VolumeDeviceObject, PUNICODE_STRING DosName)
@@ -50,7 +50,7 @@ NTSTATUS __stdcall IoVolumeDeviceToDosName(PVOID VolumeDeviceObject, PUNICODE_ST
     v6 = 0x1080000084LL;
     if ( _bittest64(&v6, v2) )
     {
-      OutputBuffer = (void *)ExAllocatePool2(0x100uLL);
+      OutputBuffer = (void *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x20643244u);
       if ( !OutputBuffer )
         return -1073741670;
       KeInitializeEvent(&Event, NotificationEvent, 0);
@@ -110,7 +110,7 @@ LABEL_24:
             Status = -1073741306;
             goto LABEL_20;
           }
-          Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+          Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, OutputBufferLength, 0x20643244u);
           if ( Pool2 )
           {
             KeInitializeEvent(&Event, NotificationEvent, 0);

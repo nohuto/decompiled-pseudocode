@@ -1,10 +1,10 @@
 /*
- * XREFs of CarLoggingExit @ 0x1405D3470
+ * XREFs of CarLoggingExit @ 0x1405D39E0
  * Callers:
- *     CarCleanup @ 0x1405D3738 (CarCleanup.c)
+ *     CarCleanup @ 0x1405D3CA8 (CarCleanup.c)
  * Callees:
- *     McGenEventUnregister_EtwUnregister @ 0x1405D360C (McGenEventUnregister_EtwUnregister.c)
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1405D3B7C (McGenEventUnregister_EtwUnregister.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -18,7 +18,7 @@ __int64 CarLoggingExit()
   {
     v1 = RegHandle;
     RegHandle = 0LL;
-    dword_140C09328 = 0;
+    dword_140C09318 = 0;
     EtwUnregister(v1);
     if ( CarEtwEventBook )
     {

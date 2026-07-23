@@ -1,10 +1,10 @@
 /*
- * XREFs of IoSetPartitionInformation @ 0x14062006C
+ * XREFs of IoSetPartitionInformation @ 0x140620120
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PcSetPartition @ 0x14023B6CC (PcSetPartition.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PcSetPartition @ 0x14023B5B0 (PcSetPartition.c)
  */
 
 NTSTATUS __stdcall IoSetPartitionInformation(

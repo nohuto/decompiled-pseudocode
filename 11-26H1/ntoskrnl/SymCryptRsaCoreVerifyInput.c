@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptRsaCoreVerifyInput @ 0x14055EA90
+ * XREFs of SymCryptRsaCoreVerifyInput @ 0x140560FB4
  * Callers:
- *     SymCryptRsaCoreDecCrt @ 0x14055E3DC (SymCryptRsaCoreDecCrt.c)
- *     SymCryptRsaCoreEnc @ 0x14055E8B4 (SymCryptRsaCoreEnc.c)
+ *     SymCryptRsaCoreDecCrt @ 0x140560900 (SymCryptRsaCoreDecCrt.c)
+ *     SymCryptRsaCoreEnc @ 0x140560DD8 (SymCryptRsaCoreEnc.c)
  * Callees:
- *     SymCryptRsakeySizeofModulus @ 0x14055ABB8 (SymCryptRsakeySizeofModulus.c)
- *     SymCryptIntCreate @ 0x14055C1F0 (SymCryptIntCreate.c)
- *     SymCryptIntFromModulus @ 0x14055C28C (SymCryptIntFromModulus.c)
- *     SymCryptIntIsLessThan @ 0x14055C34C (SymCryptIntIsLessThan.c)
- *     SymCryptIntSetValue @ 0x14055C3B4 (SymCryptIntSetValue.c)
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptRsakeySizeofModulus @ 0x14055D0CC (SymCryptRsakeySizeofModulus.c)
+ *     SymCryptIntCreate @ 0x14055E6D8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x14055E774 (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsLessThan @ 0x14055E834 (SymCryptIntIsLessThan.c)
+ *     SymCryptIntSetValue @ 0x14055E89C (SymCryptIntSetValue.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
  */
 
 __int64 __fastcall SymCryptRsaCoreVerifyInput(

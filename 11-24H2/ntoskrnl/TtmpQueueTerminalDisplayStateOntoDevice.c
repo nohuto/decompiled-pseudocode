@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x140769760
+ * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x140769980
  * Callers:
- *     TtmpPushTerminalState @ 0x140769690 (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x1407698B0 (TtmpPushTerminalState.c)
  * Callees:
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall TtmpQueueTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, int a3)
@@ -39,7 +39,7 @@ LABEL_9:
     }
     i = (__int64 *)i[1];
 LABEL_11:
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x446D7454u);
     v10 = (_QWORD *)Pool2;
     if ( !Pool2 )
     {

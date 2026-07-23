@@ -1,10 +1,10 @@
 /*
- * XREFs of MiZeroBootMappings @ 0x140A5661C
+ * XREFs of MiZeroBootMappings @ 0x140A5761C
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     KeFlushCurrentTbOnly @ 0x1403B7498 (KeFlushCurrentTbOnly.c)
- *     MxZeroBootMappings @ 0x140A5767C (MxZeroBootMappings.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B7608 (KeFlushCurrentTbOnly.c)
+ *     MxZeroBootMappings @ 0x140A5867C (MxZeroBootMappings.c)
  */
 
 struct _KTHREAD *MiZeroBootMappings()

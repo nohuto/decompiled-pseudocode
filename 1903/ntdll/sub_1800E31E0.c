@@ -7,10 +7,13 @@
  *     ZwQueryInformationFile @ 0x18009C900 (ZwQueryInformationFile.c)
  */
 
-__int64 __fastcall sub_1800E31E0(__int64 a1)
+NTSTATUS __fastcall sub_1800E31E0(char *a1)
 {
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-48h] BYREF
+  _BYTE FileInformation[40]; // [rsp+40h] [rbp-38h] BYREF
+
   if ( (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225480LL;
+    return -1073741816;
   else
-    return ZwQueryInformationFile();
+    return ZwQueryInformationFile(a1, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
 }

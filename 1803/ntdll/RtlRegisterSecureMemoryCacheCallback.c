@@ -9,39 +9,36 @@
  *     ZwQuerySystemInformation @ 0x18009B180 (ZwQuerySystemInformation.c)
  */
 
-__int64 __fastcall RtlRegisterSecureMemoryCacheCallback(__int64 a1)
+NTSTATUS __cdecl RtlRegisterSecureMemoryCacheCallback(PRTL_SECURE_MEMORY_CACHE_CALLBACK Callback)
 {
-  __int64 result; // rax
-  __int64 Heap; // rax
-  unsigned __int64 v4; // rdx
-  unsigned __int64 *v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rbx
-  __int64 *v8; // rax
+  NTSTATUS result; // eax
+  _DWORD *Heap; // rax
+  _DWORD *v4; // rbx
+  _QWORD *v5; // rax
 
-  result = ZwQuerySystemInformation();
-  if ( (int)result >= 0 )
+  result = ZwQuerySystemInformation(SystemRangeStartInformation, &unk_18015AAA0, 8u, 0LL);
+  if ( result >= 0 )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 32LL);
-    v7 = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x20uLL);
+    v4 = Heap;
     if ( Heap )
     {
-      *(_DWORD *)(Heap + 16) = 1;
-      *(_QWORD *)(Heap + 24) = a1;
-      RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D760, v4, v5, v6);
-      v8 = (__int64 *)off_180156A48;
+      Heap[4] = 1;
+      *((_QWORD *)Heap + 3) = Callback;
+      RtlAcquireSRWLockExclusive(&stru_18015D760);
+      v5 = off_180156A48;
       if ( *off_180156A48 != (_UNKNOWN *)&off_180156A40 )
         __fastfail(3u);
-      *(_QWORD *)v7 = &off_180156A40;
-      *(_QWORD *)(v7 + 8) = v8;
-      *v8 = v7;
-      off_180156A48 = (_UNKNOWN **)v7;
-      RtlReleaseSRWLockExclusive(&qword_18015D760);
-      return 0LL;
+      *(_QWORD *)v4 = &off_180156A40;
+      *((_QWORD *)v4 + 1) = v5;
+      *v5 = v4;
+      off_180156A48 = (_UNKNOWN **)v4;
+      RtlReleaseSRWLockExclusive(&stru_18015D760);
+      return 0;
     }
     else
     {
-      return 3221225495LL;
+      return -1073741801;
     }
   }
   return result;

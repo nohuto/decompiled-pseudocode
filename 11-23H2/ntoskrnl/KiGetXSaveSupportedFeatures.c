@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetXSaveSupportedFeatures @ 0x14039BF40
+ * XREFs of KiGetXSaveSupportedFeatures @ 0x14039C120
  * Callers:
- *     KiInitializeXSave @ 0x140A8FF30 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x140A8FDB0 (KiInitializeXSave.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiGetXSaveSupportedFeatures(__int64 a1)

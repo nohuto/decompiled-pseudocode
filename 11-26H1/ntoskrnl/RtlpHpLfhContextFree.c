@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhContextFree @ 0x140353D70
+ * XREFs of RtlpHpLfhContextFree @ 0x140355DF0
  * Callers:
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     RtlpHpAllocateHeapSlow @ 0x140352630 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1403546B4 (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x14052769C (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x140529D0C (RtlpHpLfhThreadDataInitializeSet.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextFree(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -82,8 +82,8 @@ __int64 __fastcall RtlpHpLfhContextFree(__int64 a1, unsigned __int64 a2, __int64
       {
         *(_BYTE *)(v21 + a1 + 92) = 1;
         if ( !(BYTE1(**(_QWORD **)(*(_QWORD *)a1 + 56LL)) == 1
-             ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-             : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+             ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+             : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
           RtlpHpEnvCompactionSchedule(*(_QWORD **)(*(_QWORD *)a1 + 56LL));
       }
       if ( BYTE2(v31) == 1 )

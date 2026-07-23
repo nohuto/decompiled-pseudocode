@@ -1,23 +1,23 @@
 /*
- * XREFs of IopAllocateFileObjectExtension @ 0x14022C1D0
+ * XREFs of IopAllocateFileObjectExtension @ 0x1402D0A50
  * Callers:
- *     IoSetOplockPrivateFoExt @ 0x140206288 (IoSetOplockPrivateFoExt.c)
- *     IoGetFileObjectFilterContext @ 0x1402A2A8C (IoGetFileObjectFilterContext.c)
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
- *     IopSetFileObjectExtensionFlag @ 0x1403621E0 (IopSetFileObjectExtensionFlag.c)
- *     IoSetOplockKeyContext @ 0x140390E44 (IoSetOplockKeyContext.c)
- *     IoSetIoPriorityHintIntoFileObject @ 0x140506320 (IoSetIoPriorityHintIntoFileObject.c)
- *     IopSymlinkSetFoExtension @ 0x14069BA2C (IopSymlinkSetFoExtension.c)
- *     IopSetFileObjectIosbRange @ 0x140892814 (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x1408942EC (IopSetFileMemoryPartitionInformation.c)
+ *     IoGetFileObjectFilterContext @ 0x14021FECC (IoGetFileObjectFilterContext.c)
+ *     IoSetOplockPrivateFoExt @ 0x1402AABB8 (IoSetOplockPrivateFoExt.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1402F7040 (IopSetFileObjectExtensionFlag.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     IopGetSetSpecificExtension @ 0x140361838 (IopGetSetSpecificExtension.c)
+ *     IoSetOplockKeyContext @ 0x140390F94 (IoSetOplockKeyContext.c)
+ *     IoSetIoPriorityHintIntoFileObject @ 0x1405062A0 (IoSetIoPriorityHintIntoFileObject.c)
+ *     IopSymlinkSetFoExtension @ 0x1405FABEC (IopSymlinkSetFoExtension.c)
+ *     IopSetFileObjectIosbRange @ 0x140892974 (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14089444C (IopSetFileMemoryPartitionInformation.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     IopVerifierExAllocatePool_0 @ 0x1402B6C78 (IopVerifierExAllocatePool_0.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     IopVerifierExAllocatePool_0 @ 0x140234E58 (IopVerifierExAllocatePool_0.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 *a2)
   unsigned __int8 CurrentIrql; // r15
   __int64 v7; // rsi
   __int64 v8; // rcx
-  void *Pool_0; // rax
+  PVOID Pool_0; // rax
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v12; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -84,7 +84,7 @@ __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 *a2)
       }
     }
     __writecr8(CurrentIrql);
-    Pool_0 = (void *)IopVerifierExAllocatePool_0(v8, 88LL);
+    Pool_0 = IopVerifierExAllocatePool_0(v8, 0x58uLL);
     v7 = (__int64)Pool_0;
     if ( Pool_0 )
     {

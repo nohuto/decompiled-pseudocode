@@ -15,33 +15,40 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpSimpleTryPost(int a1, int a2, int a3)
+NTSTATUS __cdecl TpSimpleTryPost(PTP_SIMPLE_CALLBACK Callback, PVOID Context, PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  int v3; // edi
+  unsigned int Flags; // edi
   _DWORD *Heap; // esi
-  int v5; // edi
-  int v7; // [esp+24h] [ebp-1Ch]
+  NTSTATUS v5; // edi
+  SIZE_T v7; // [esp-4h] [ebp-44h]
+  int v8; // [esp+24h] [ebp-1Ch]
   _UNKNOWN *retaddr; // [esp+44h] [ebp+4h]
 
-  if ( a3 )
-    v3 = *(_DWORD *)(a3 + 28);
+  if ( CallbackEnviron )
+    Flags = CallbackEnviron->u.Flags;
   else
-    v3 = 0;
-  if ( !a1 || (v3 & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+    Flags = 0;
+  if ( !Callback || (Flags & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8, 144);
+  LODWORD(v7) = 144;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8, v7);
   if ( Heap )
   {
     Heap[27] = retaddr;
-    v5 = TppWorkInitialize(Heap, a3, v3, (int)TppSimplepCleanupGroupMemberVFuncs, (int)TppSimplepTaskVFuncs);
-    v7 = v5;
+    v5 = TppWorkInitialize(
+           Heap,
+           (int)CallbackEnviron,
+           Flags,
+           (int)&TppSimplepCleanupGroupMemberVFuncs,
+           (int)TppSimplepTaskVFuncs);
+    v8 = v5;
     if ( v5 >= 0 )
     {
       v5 = 0;
-      v7 = 0;
-      Heap[12] = a1;
-      if ( a3 )
-        Heap[4] = *(_DWORD *)(a3 + 24);
+      v8 = 0;
+      Heap[12] = Callback;
+      if ( CallbackEnviron )
+        Heap[4] = CallbackEnviron->FinalizationCallback;
       if ( Heap[2] )
         TppCleanupGroupAddMember(Heap);
     }
@@ -49,13 +56,13 @@ int __stdcall TpSimpleTryPost(int a1, int a2, int a3)
   else
   {
     v5 = -1073741801;
-    v7 = -1073741801;
+    v8 = -1073741801;
   }
   if ( v5 < 0 && Heap )
   {
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, (int)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, Heap);
     Heap = 0;
-    v5 = v7;
+    v5 = v8;
   }
   if ( v5 >= 0 )
     TppWorkPost((int)Heap);

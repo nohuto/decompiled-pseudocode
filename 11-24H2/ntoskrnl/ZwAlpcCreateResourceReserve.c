@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwAlpcCreateResourceReserve @ 0x1406A73F0
+ * XREFs of ZwAlpcCreateResourceReserve @ 0x1406A8390
  * Callers:
- *     DifZwAlpcCreateResourceReserveWrapper @ 0x14063C170 (DifZwAlpcCreateResourceReserveWrapper.c)
+ *     DifZwAlpcCreateResourceReserveWrapper @ 0x14063A730 (DifZwAlpcCreateResourceReserveWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreateResourceReserve(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcCreateResourceReserve(
+        HANDLE PortHandle,
+        ULONG Flags,
+        SIZE_T MessageSize,
+        PALPC_HANDLE ResourceId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

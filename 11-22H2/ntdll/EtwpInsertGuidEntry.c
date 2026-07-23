@@ -8,48 +8,48 @@
  *     EtwpGuidEntryCompare @ 0x180083E60 (EtwpGuidEntryCompare.c)
  */
 
-signed __int64 __fastcall EtwpInsertGuidEntry(unsigned __int64 a1)
+void __fastcall EtwpInsertGuidEntry(PRTL_BALANCED_NODE Node)
 {
-  __int64 v2; // rdi
-  bool v3; // bl
+  unsigned __int64 Root; // rdi
+  BOOLEAN v3; // bl
   int v4; // esi
-  __int64 v5; // rax
+  unsigned __int64 v5; // rax
 
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v2 = EtwpGuidEntryTable;
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
   v3 = 0;
-  if ( (qword_180185198 & 1) != 0 )
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 )
   {
-    if ( EtwpGuidEntryTable )
-      v2 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+    if ( EtwpGuidEntryTable.Root )
+      Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
     else
-      v2 = 0LL;
+      Root = 0LL;
   }
-  v4 = qword_180185198 & 1;
-  if ( v2 )
+  v4 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)EtwpGuidEntryCompare(a1 + 24, v2) < 0 )
+      if ( (int)EtwpGuidEntryCompare(&Node[1], Root) < 0 )
       {
-        v5 = *(_QWORD *)v2;
+        v5 = *(_QWORD *)Root;
         if ( v4 )
         {
           if ( !v5 )
             break;
-          v5 ^= v2;
+          v5 ^= Root;
         }
         if ( !v5 )
           break;
       }
       else
       {
-        v5 = *(_QWORD *)(v2 + 8);
+        v5 = *(_QWORD *)(Root + 8);
         if ( v4 )
         {
           if ( !v5 )
             goto LABEL_17;
-          v5 ^= v2;
+          v5 ^= Root;
         }
         if ( !v5 )
         {
@@ -58,9 +58,9 @@ LABEL_17:
           break;
         }
       }
-      v2 = v5;
+      Root = v5;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&EtwpGuidEntryTable, v2, v3, a1);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

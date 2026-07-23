@@ -1,20 +1,20 @@
 /*
- * XREFs of ObFastReplaceObject @ 0x1400CCF54
+ * XREFs of ObFastReplaceObject @ 0x1400CADF4
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x1400CCD34 (CcDeleteSharedCacheMap.c)
- *     MmChangeSectionBackingFile @ 0x1400FCFC0 (MmChangeSectionBackingFile.c)
- *     CcChangeBackingFileObject @ 0x1401B13EC (CcChangeBackingFileObject.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     SeDeassignPrimaryToken @ 0x14045F4DC (SeDeassignPrimaryToken.c)
- *     MiSegmentDelete @ 0x1404B81E4 (MiSegmentDelete.c)
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
- *     PsShutdownSystem @ 0x14067F844 (PsShutdownSystem.c)
- *     SeExchangePrimaryToken @ 0x140692774 (SeExchangePrimaryToken.c)
+ *     CcDeleteSharedCacheMap @ 0x1400CABD4 (CcDeleteSharedCacheMap.c)
+ *     MmChangeSectionBackingFile @ 0x1400FAD40 (MmChangeSectionBackingFile.c)
+ *     CcChangeBackingFileObject @ 0x1401B12D0 (CcChangeBackingFileObject.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     SeDeassignPrimaryToken @ 0x14045E3AC (SeDeassignPrimaryToken.c)
+ *     MiSegmentDelete @ 0x1404A25C4 (MiSegmentDelete.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
+ *     PsShutdownSystem @ 0x14067F928 (PsShutdownSystem.c)
+ *     SeExchangePrimaryToken @ 0x140692858 (SeExchangePrimaryToken.c)
  * Callees:
- *     ObReferenceObjectExWithTag @ 0x140096540 (ObReferenceObjectExWithTag.c)
- *     ObpDeferObjectDeletion @ 0x1400A7FB4 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
+ *     ObReferenceObjectExWithTag @ 0x140095D40 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x1400A652C (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
  */
 
 ULONG_PTR __fastcall ObFastReplaceObject(volatile __int64 *a1, __int64 a2)

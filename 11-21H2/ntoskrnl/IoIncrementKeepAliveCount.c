@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x140558AE0 (IopAdjustFileObjectKeepAliveCount.c)
- *     PspAdjustKeepAliveCountProcess @ 0x1409AD954 (PspAdjustKeepAliveCountProcess.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_140558AE0 @ 0x140558AE0 (sub_140558AE0.c)
+ *     sub_1409AD954 @ 0x1409AD954 (sub_1409AD954.c)
  */
 
 __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
   _QWORD *v9; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v12; // r9
   int v13; // eax
   bool v14; // zf
   int v16; // [rsp+50h] [rbp+18h] BYREF
@@ -30,7 +30,7 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
 
   v16 = 0;
   v17 = 0LL;
-  v4 = IopAdjustFileObjectKeepAliveCount(a1, (_DWORD)a2, 1, (unsigned int)&v16, (__int64)&v17);
+  v4 = sub_140558AE0(a1, (_DWORD)a2, 1, (unsigned int)&v16, (__int64)&v17);
   if ( v4 >= 0 && v16 == 1 )
   {
     if ( KeGetCurrentIrql() == 2 )
@@ -52,24 +52,24 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
         if ( !byte_140C47258 )
         {
           byte_140C47258 = 1;
-          ExQueueWorkItem(&IopKeepAliveTracker, DelayedWorkQueue);
+          ExQueueWorkItem(&stru_140C47200, DelayedWorkQueue);
         }
       }
-      KxReleaseSpinLock(&qword_140C47230);
-      if ( KiIrqlFlags )
+      KeReleaseSpinLockFromDpcLevel(&qword_140C47230);
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( (dword_140D06B08 & 1) != 0 )
         {
           CurrentIrql = KeGetCurrentIrql();
           if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v12 = *((_QWORD *)CurrentPrcb + 4375);
             v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-            v14 = (v13 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v13;
+            v14 = (v13 & *(_DWORD *)(v12 + 20)) == 0;
+            *(_DWORD *)(v12 + 20) &= v13;
             if ( v14 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              sub_140418E4C((__int64)CurrentPrcb);
           }
         }
       }
@@ -79,7 +79,7 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
     {
       ObfReferenceObjectWithTag(a2, 0x746C6644u);
       LOBYTE(v5) = *(_BYTE *)(v17 + 18);
-      PspAdjustKeepAliveCountProcess(a2, 1LL, a1, v5);
+      sub_1409AD954(a2, 1LL, a1, v5);
     }
   }
   return (unsigned int)v4;

@@ -7,7 +7,7 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-__int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
+NTSTATUS __cdecl RtlSelfRelativeToAbsoluteSD2(PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor, PULONG BufferSize)
 {
   unsigned __int64 v2; // rbx
   __int16 v5; // r12
@@ -16,7 +16,7 @@ __int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
   unsigned __int64 v8; // rax
   unsigned __int64 v9; // r14
   unsigned __int64 v10; // r15
-  unsigned int v11; // ecx
+  ULONG v11; // ecx
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // rax
@@ -30,16 +30,16 @@ __int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
   unsigned int v23; // [rsp+D8h] [rbp+58h] BYREF
 
   v2 = 0LL;
-  if ( !a1 )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  if ( *a2 < 0x14 )
-    return 3221225485LL;
-  v5 = *(_WORD *)(a1 + 2);
+  if ( !SelfRelativeSecurityDescriptor )
+    return -1073741585;
+  if ( !BufferSize )
+    return -1073741584;
+  if ( *BufferSize < 0x14 )
+    return -1073741811;
+  v5 = *((_WORD *)SelfRelativeSecurityDescriptor + 1);
   if ( v5 >= 0 )
-    return 3221225703LL;
-  sub_180070500(a1, &v17, &v21, &v18, &v22, &v19, &v23, &v20, &v16);
+    return -1073741593;
+  sub_180070500((__int64)SelfRelativeSecurityDescriptor, &v17, &v21, &v18, &v22, &v19, &v23, &v20, &v16);
   v6 = v17;
   v7 = v18;
   if ( v17 > v18 )
@@ -54,36 +54,36 @@ __int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
     v8 = v20 + v16;
   v11 = 40;
   if ( v8 )
-    v11 = ((v8 - a1 - 13) & 0xFFFFFFF8) + 40;
-  if ( v11 > *a2 )
+    v11 = ((v8 - (_DWORD)SelfRelativeSecurityDescriptor - 13) & 0xFFFFFFF8) + 40;
+  if ( v11 > *BufferSize )
   {
-    *a2 = v11;
-    return 3221225507LL;
+    *BufferSize = v11;
+    return -1073741789;
   }
   else
   {
     if ( v8 )
     {
-      memmove((void *)(a1 + 40), (const void *)(a1 + 20), v11 - 40LL);
+      memmove((char *)SelfRelativeSecurityDescriptor + 40, (char *)SelfRelativeSecurityDescriptor + 20, v11 - 40LL);
       v6 = v17;
-      v5 = *(_WORD *)(a1 + 2);
+      v5 = *((_WORD *)SelfRelativeSecurityDescriptor + 1);
     }
     v12 = v6 + 20;
-    *(_WORD *)(a1 + 2) = v5 & 0x7FFF;
+    *((_WORD *)SelfRelativeSecurityDescriptor + 1) = v5 & 0x7FFF;
     if ( !v6 )
       v12 = 0LL;
-    *(_QWORD *)(a1 + 8) = v12;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 1) = v12;
     v13 = v7 + 20;
     if ( !v7 )
       v13 = 0LL;
-    *(_QWORD *)(a1 + 16) = v13;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 2) = v13;
     v14 = v10 + 20;
     if ( !v10 )
       v14 = 0LL;
-    *(_QWORD *)(a1 + 24) = v14;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 3) = v14;
     if ( v9 )
       v2 = v9 + 20;
-    *(_QWORD *)(a1 + 32) = v2;
-    return 0LL;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 4) = v2;
+    return 0;
   }
 }

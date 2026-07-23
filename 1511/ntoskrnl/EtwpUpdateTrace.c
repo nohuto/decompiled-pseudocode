@@ -136,14 +136,14 @@ LABEL_8:
 LABEL_20:
         v11 = p_Length + 73;
         v12 = *(_QWORD *)(p_Length + 73);
-        v13 = HeapGuid - v12;
-        if ( HeapGuid == v12 )
-          v13 = 0x4AA2F2756B3425A8LL - *(_QWORD *)(p_Length + 75);
+        v13 = *(_QWORD *)&HeapGuid.Data1 - v12;
+        if ( *(_QWORD *)&HeapGuid.Data1 == v12 )
+          v13 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)(p_Length + 75);
         if ( v13 )
         {
-          v14 = CritSecGuid - v12;
-          if ( CritSecGuid == v12 )
-            v14 = 0x6B81390EF58D1581LL - *(_QWORD *)(p_Length + 75);
+          v14 = *(_QWORD *)&CritSecGuid.Data1 - v12;
+          if ( *(_QWORD *)&CritSecGuid.Data1 == v12 )
+            v14 = *(_QWORD *)CritSecGuid.Data4 - *(_QWORD *)(p_Length + 75);
           if ( v14 )
           {
 LABEL_26:

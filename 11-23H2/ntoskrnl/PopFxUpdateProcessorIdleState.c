@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxUpdateProcessorIdleState @ 0x14058C510
+ * XREFs of PopFxUpdateProcessorIdleState @ 0x14058CA00
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     IoAcquireRemoveLockEx @ 0x1403124F0 (IoAcquireRemoveLockEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     IoAcquireRemoveLockEx @ 0x140312780 (IoAcquireRemoveLockEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxUpdateProcessorIdleState(__int64 a1, int a2, _DWORD *a3)

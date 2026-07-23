@@ -1,12 +1,12 @@
 /*
- * XREFs of IopQueryLegacyBusInformation @ 0x14073E4E8
+ * XREFs of IopQueryLegacyBusInformation @ 0x14073E6A8
  * Callers:
- *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140741B48 (PipCallDriverAddDevice.c)
  * Callees:
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopSynchronousCall @ 0x1406FA580 (IopSynchronousCall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryLegacyBusInformation(struct _DEVICE_OBJECT *a1, __int64 a2, _DWORD *a3, _DWORD *a4)

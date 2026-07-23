@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBuildWakeList @ 0x140026D70
+ * XREFs of MiBuildWakeList @ 0x1400268F0
  * Callers:
- *     MiReferenceControlAreaForCacheManager @ 0x140021518 (MiReferenceControlAreaForCacheManager.c)
- *     MiComputeDataFlushRange @ 0x140021958 (MiComputeDataFlushRange.c)
- *     MiReferenceControlArea @ 0x140026064 (MiReferenceControlArea.c)
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     MiTrimSharedPage @ 0x14008E6E4 (MiTrimSharedPage.c)
- *     MiDecrementModifiedWriteCount @ 0x14008F084 (MiDecrementModifiedWriteCount.c)
- *     MiReferencePfBackedSection @ 0x14008FB80 (MiReferencePfBackedSection.c)
- *     MiPrepareSegmentForDeletion @ 0x140090154 (MiPrepareSegmentForDeletion.c)
+ *     MiReferenceControlAreaForCacheManager @ 0x140021098 (MiReferenceControlAreaForCacheManager.c)
+ *     MiComputeDataFlushRange @ 0x1400214D8 (MiComputeDataFlushRange.c)
+ *     MiReferenceControlArea @ 0x140025BE4 (MiReferenceControlArea.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     MiTrimSharedPage @ 0x14008DE44 (MiTrimSharedPage.c)
+ *     MiDecrementModifiedWriteCount @ 0x14008E7E4 (MiDecrementModifiedWriteCount.c)
+ *     MiReferencePfBackedSection @ 0x14008F2E0 (MiReferencePfBackedSection.c)
+ *     MiPrepareSegmentForDeletion @ 0x14008F8B4 (MiPrepareSegmentForDeletion.c)
  * Callees:
  *     <none>
  */

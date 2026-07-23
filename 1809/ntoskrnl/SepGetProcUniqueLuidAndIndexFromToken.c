@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetProcUniqueLuidAndIndexFromToken @ 0x14030054C
+ * XREFs of SepGetProcUniqueLuidAndIndexFromToken @ 0x14030073C
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x1400A6AC8 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesTokenEx @ 0x140300330 (SeSetSecurityAttributesTokenEx.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1400A6A08 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140300520 (SeSetSecurityAttributesTokenEx.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140300484 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140300674 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
  */
 
 __int64 __fastcall SepGetProcUniqueLuidAndIndexFromToken(__int64 a1, _DWORD *a2, _QWORD *a3)

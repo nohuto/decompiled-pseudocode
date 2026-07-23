@@ -1,14 +1,14 @@
 /*
- * XREFs of ViSpecialAllocateCommonBuffer @ 0x1409CF72C
+ * XREFs of ViSpecialAllocateCommonBuffer @ 0x1409D072C
  * Callers:
- *     VfAllocateCommonBuffer @ 0x1409CAA70 (VfAllocateCommonBuffer.c)
+ *     VfAllocateCommonBuffer @ 0x1409CBA70 (VfAllocateCommonBuffer.c)
  * Callees:
- *     ExInterlockedInsertHeadList @ 0x1402A0300 (ExInterlockedInsertHeadList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ViInitializePadding @ 0x1409CEFEC (ViInitializePadding.c)
+ *     ExInterlockedInsertHeadList @ 0x14021D880 (ExInterlockedInsertHeadList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405A0924 (VfUtilDbgPrint.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ViInitializePadding @ 0x1409CFFEC (ViInitializePadding.c)
  */
 
 char *__fastcall ViSpecialAllocateCommonBuffer(
@@ -21,7 +21,7 @@ char *__fastcall ViSpecialAllocateCommonBuffer(
 {
   unsigned int v7; // r10d
   __int64 v10; // rdi
-  struct _LIST_ENTRY *PoolWithTag; // rsi
+  _LIST_ENTRY *PoolWithTag; // rsi
   __int64 v12; // r9
   int v14; // ebx
   int v15; // ebx
@@ -35,7 +35,7 @@ char *__fastcall ViSpecialAllocateCommonBuffer(
   v10 = a4;
   if ( v7 >= 0x20 || a4 > 0xFFFFDFFF )
     return 0LL;
-  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x566C6148u);
+  PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x566C6148u);
   if ( !PoolWithTag )
   {
     VfUtilDbgPrint("Couldn't track common buffer allocation\n");

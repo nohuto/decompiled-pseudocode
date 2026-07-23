@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x1407FCAB0
+ * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x1407FCD80
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PiIommuGetInterface @ 0x1407FCB54 (PiIommuGetInterface.c)
- *     PipDmgDestroyIommuExtension @ 0x1407FD41C (PipDmgDestroyIommuExtension.c)
- *     PiIommuAllocateExtension @ 0x14084180C (PiIommuAllocateExtension.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PiIommuGetInterface @ 0x1407FCE24 (PiIommuGetInterface.c)
+ *     PipDmgDestroyIommuExtension @ 0x1407FD6EC (PipDmgDestroyIommuExtension.c)
+ *     PiIommuAllocateExtension @ 0x140841B0C (PiIommuAllocateExtension.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessNewDeviceNode(ULONG_PTR MaxDataSize)

@@ -40,12 +40,12 @@ void __fastcall MiTimeSingleLargePageZero(__int64 a1)
   __int64 v24; // rdi
   unsigned int v25; // [rsp+20h] [rbp-60h]
   unsigned int v26; // [rsp+24h] [rbp-5Ch]
-  struct _GROUP_AFFINITY v27; // [rsp+28h] [rbp-58h] BYREF
+  _GROUP_AFFINITY v27; // [rsp+28h] [rbp-58h] BYREF
   __int64 v28; // [rsp+38h] [rbp-48h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
   __int64 v30; // [rsp+50h] [rbp-30h]
   _QWORD *v31; // [rsp+58h] [rbp-28h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   v28 = a1;
   v1 = a1;
@@ -57,7 +57,7 @@ void __fastcall MiTimeSingleLargePageZero(__int64 a1)
     v4 = *(_QWORD *)(v1 + 16) + 4544LL * i;
     v30 = v4;
     v5 = *(unsigned __int16 *)(v4 + 4488) / v2;
-    v27 = *(struct _GROUP_AFFINITY *)(v4 + 4472);
+    v27 = *(_GROUP_AFFINITY *)(v4 + 4472);
     if ( !v5 )
       v5 = 1;
     v26 = v5;
@@ -148,7 +148,7 @@ void __fastcall MiTimeSingleLargePageZero(__int64 a1)
     }
     if ( !*(_QWORD *)(v4 + 4400) )
     {
-      v27 = *(struct _GROUP_AFFINITY *)(v4 + 4472);
+      v27 = *(_GROUP_AFFINITY *)(v4 + 4472);
       KeSetSystemGroupAffinityThread(&v27, &PreviousAffinity);
       v24 = MiTimeSingleLargePageZeroWorker(v1, i);
       KeRevertToUserGroupAffinityThread(&PreviousAffinity);

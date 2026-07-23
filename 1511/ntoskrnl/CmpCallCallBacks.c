@@ -57,23 +57,23 @@ __int64 __fastcall CmpCallCallBacks(unsigned int a1, __int64 a2, char a3, unsign
   struct _KTHREAD *v19; // rcx
   __int16 v20; // ax
   _QWORD *v22; // r14
-  struct _SLIST_ENTRY *v23; // rbx
-  struct _SLIST_ENTRY **v24; // rax
-  struct _SLIST_ENTRY *v25; // rsi
+  _SLIST_ENTRY *v23; // rbx
+  _SLIST_ENTRY **v24; // rax
+  _SLIST_ENTRY *v25; // rsi
   PVOID *v26; // rax
   unsigned int v27; // ecx
   signed __int64 v28; // rcx
   ULONG_PTR v29; // rtt
   struct _KTHREAD *v30; // rcx
   __int16 v31; // ax
-  struct _SLIST_ENTRY *PoolWithTag; // rsi
+  _SLIST_ENTRY *PoolWithTag; // rsi
   struct _KTHREAD *v33; // rdx
-  struct _SLIST_ENTRY **v34; // rax
+  _SLIST_ENTRY **v34; // rax
   int v35; // eax
   struct _KTHREAD *v36; // rax
   __int64 v37; // rsi
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v39; // rax
+  _SLIST_ENTRY **v39; // rax
   PVOID *v40; // rax
   __int64 v41; // rdx
   int v42; // eax
@@ -82,7 +82,7 @@ __int64 __fastcall CmpCallCallBacks(unsigned int a1, __int64 a2, char a3, unsign
   char v45; // [rsp+21h] [rbp-B7h]
   int v46; // [rsp+24h] [rbp-B4h]
   _QWORD *v47; // [rsp+30h] [rbp-A8h]
-  struct _SLIST_ENTRY *v48; // [rsp+38h] [rbp-A0h]
+  _SLIST_ENTRY *v48; // [rsp+38h] [rbp-A0h]
   struct _KTHREAD *v49; // [rsp+40h] [rbp-98h]
   void *v50; // [rsp+48h] [rbp-90h]
   _QWORD v51[15]; // [rsp+60h] [rbp-78h] BYREF
@@ -148,7 +148,7 @@ __int64 __fastcall CmpCallCallBacks(unsigned int a1, __int64 a2, char a3, unsign
       v45 = 0;
       PoolWithTag = RtlpInterlockedPopEntrySList(&CmpCallbackContextSList);
       if ( !PoolWithTag )
-        PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x69634D43u);
+        PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x69634D43u);
       v48 = PoolWithTag;
       if ( !PoolWithTag )
         break;
@@ -157,10 +157,10 @@ __int64 __fastcall CmpCallCallBacks(unsigned int a1, __int64 a2, char a3, unsign
       v33 = v49;
       PoolWithTag[1].Next = (_SLIST_ENTRY *)v49[1].WaitBlock[0].Object;
       v33[1].WaitBlock[0].Object = &PoolWithTag[1];
-      v34 = *(struct _SLIST_ENTRY ***)(a6 + 8);
+      v34 = *(_SLIST_ENTRY ***)(a6 + 8);
       PoolWithTag->Next = (_SLIST_ENTRY *)a6;
       *((_QWORD *)&PoolWithTag->Next + 1) = v34;
-      if ( *v34 != (struct _SLIST_ENTRY *)a6 )
+      if ( *v34 != (_SLIST_ENTRY *)a6 )
         __fastfail(3u);
       *v34 = PoolWithTag;
       *(_QWORD *)(a6 + 8) = PoolWithTag;
@@ -174,7 +174,7 @@ __int64 __fastcall CmpCallCallBacks(unsigned int a1, __int64 a2, char a3, unsign
       else if ( v35 < 0 )
       {
         Next = PoolWithTag->Next;
-        v39 = (struct _SLIST_ENTRY **)*((_QWORD *)&PoolWithTag->Next + 1);
+        v39 = (_SLIST_ENTRY **)*((_QWORD *)&PoolWithTag->Next + 1);
         if ( *(&PoolWithTag->Next->Next + 1) != PoolWithTag || *v39 != PoolWithTag )
           __fastfail(3u);
         *v39 = Next;
@@ -374,14 +374,14 @@ LABEL_11:
     }
     while ( v15->Next != v15 )
     {
-      v23 = (struct _SLIST_ENTRY *)*((_QWORD *)&v15->Next + 1);
+      v23 = (_SLIST_ENTRY *)*((_QWORD *)&v15->Next + 1);
       v50 = v23;
-      v24 = (struct _SLIST_ENTRY **)*((_QWORD *)&v23->Next + 1);
+      v24 = (_SLIST_ENTRY **)*((_QWORD *)&v23->Next + 1);
       if ( v23->Next != v15 || *v24 != v23 )
         __fastfail(3u);
       *((_QWORD *)&v15->Next + 1) = v24;
       *v24 = v15;
-      v48 = (struct _SLIST_ENTRY *)*((_QWORD *)&v23[1].Next + 1);
+      v48 = (_SLIST_ENTRY *)*((_QWORD *)&v23[1].Next + 1);
       v25 = v48;
       v22[4] = v23[2].Next;
       CmpCallbackFillObjectContext(a1, v22, &v25[1].Next + 1);

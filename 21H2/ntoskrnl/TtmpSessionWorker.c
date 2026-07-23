@@ -1,24 +1,24 @@
 /*
- * XREFs of TtmpSessionWorker @ 0x140900030
+ * XREFs of TtmpSessionWorker @ 0x140900190
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     TtmiSessionDeviceListWorker @ 0x1408FC3A4 (TtmiSessionDeviceListWorker.c)
- *     TtmiSessionTerminalListWorker @ 0x1408FD930 (TtmiSessionTerminalListWorker.c)
- *     TtmpActivateSessionWorker @ 0x1408FF6B8 (TtmpActivateSessionWorker.c)
- *     TtmpDeactivateSessionWorker @ 0x1408FF8C0 (TtmpDeactivateSessionWorker.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1408FF940 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
- *     TtmiLogSessionWorkerPass @ 0x140904420 (TtmiLogSessionWorkerPass.c)
- *     TtmiLogSessionWorkerStart @ 0x1409044E8 (TtmiLogSessionWorkerStart.c)
- *     TtmiLogSessionWorkerStop @ 0x14090457C (TtmiLogSessionWorkerStop.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     MmGetSessionById @ 0x1402AAD40 (MmGetSessionById.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     TtmiSessionDeviceListWorker @ 0x1408FC504 (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x1408FDA90 (TtmiSessionTerminalListWorker.c)
+ *     TtmpActivateSessionWorker @ 0x1408FF818 (TtmpActivateSessionWorker.c)
+ *     TtmpDeactivateSessionWorker @ 0x1408FFA20 (TtmpDeactivateSessionWorker.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1408FFAA0 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
+ *     TtmiLogSessionWorkerPass @ 0x140904580 (TtmiLogSessionWorkerPass.c)
+ *     TtmiLogSessionWorkerStart @ 0x140904648 (TtmiLogSessionWorkerStart.c)
+ *     TtmiLogSessionWorkerStop @ 0x1409046DC (TtmiLogSessionWorkerStop.c)
  */
 
 __int64 __fastcall TtmpSessionWorker(unsigned int *a1)
@@ -29,7 +29,7 @@ __int64 __fastcall TtmpSessionWorker(unsigned int *a1)
   unsigned int v5; // r12d
   __int64 v6; // rdx
   unsigned int v7; // ecx
-  _KPROCESS *SessionById; // rax
+  ULONG_PTR SessionById; // rax
   unsigned int v9; // esi
   __int64 v10; // r8
   __int64 v11; // r9
@@ -63,8 +63,8 @@ __int64 __fastcall TtmpSessionWorker(unsigned int *a1)
   *((_QWORD *)a1 + 29) = KeGetCurrentThread();
   if ( (v7 & 4) == 0 )
   {
-    SessionById = (_KPROCESS *)MmGetSessionById(v5, v6);
-    v4 = (__int64)SessionById;
+    SessionById = MmGetSessionById(v5, v6);
+    v4 = SessionById;
     if ( !SessionById )
     {
       v9 = -1073740715;
@@ -75,7 +75,7 @@ LABEL_4:
       TtmiLogError("TtmpSessionWorker", v12, v10, v11);
       goto LABEL_25;
     }
-    v13 = MmAttachSession(SessionById, (__int64)v26);
+    v13 = MmAttachSession(SessionById);
     v9 = v13;
     if ( v13 < 0 )
     {

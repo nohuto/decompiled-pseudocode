@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateLocallyUniqueId @ 0x14041BB80
+ * XREFs of ZwAllocateLocallyUniqueId @ 0x14041BF10
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwAllocateLocallyUniqueId(PLUID Luid)
 {
-  __int64 v1; // rdx
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Luid, v1);
+  return KiServiceInternal(Luid);
 }

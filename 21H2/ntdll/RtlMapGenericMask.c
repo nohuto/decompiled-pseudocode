@@ -4,37 +4,33 @@
  *     RtlpCopyEffectiveAce @ 0x180037A3C (RtlpCopyEffectiveAce.c)
  *     RtlpCopyAces @ 0x18003D298 (RtlpCopyAces.c)
  *     RtlpApplyAclToObject @ 0x180077D18 (RtlpApplyAclToObject.c)
- *     RtlNewSecurityGrantedAccess @ 0x1800D6FA0 (RtlNewSecurityGrantedAccess.c)
- *     RtlpConvertAclToAutoInherit @ 0x1800E7924 (RtlpConvertAclToAutoInherit.c)
+ *     RtlNewSecurityGrantedAccess @ 0x1800D6F60 (RtlNewSecurityGrantedAccess.c)
+ *     RtlpConvertAclToAutoInherit @ 0x1800E78E4 (RtlpConvertAclToAutoInherit.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlMapGenericMask(int *a1, _DWORD *a2)
+void __cdecl RtlMapGenericMask(PACCESS_MASK AccessMask, PGENERIC_MAPPING GenericMapping)
 {
-  int v2; // r8d
-  __int64 result; // rax
+  ACCESS_MASK v2; // r8d
 
-  v2 = *a1;
-  if ( *a1 < 0 )
+  v2 = *AccessMask;
+  if ( (*AccessMask & 0x80000000) != 0 )
   {
-    v2 |= *a2;
-    *a1 = v2;
+    v2 |= GenericMapping->GenericRead;
+    *AccessMask = v2;
   }
   if ( (v2 & 0x40000000) != 0 )
   {
-    result = (unsigned int)v2 | a2[1];
-    v2 = result;
-    *a1 = result;
+    v2 |= GenericMapping->GenericWrite;
+    *AccessMask = v2;
   }
   if ( (v2 & 0x20000000) != 0 )
   {
-    result = (unsigned int)v2 | a2[2];
-    v2 = result;
-    *a1 = result;
+    v2 |= GenericMapping->GenericExecute;
+    *AccessMask = v2;
   }
   if ( (v2 & 0x10000000) != 0 )
-    v2 |= a2[3];
-  *a1 = v2 & 0xFFFFFFF;
-  return result;
+    v2 |= GenericMapping->GenericAll;
+  *AccessMask = v2 & 0xFFFFFFF;
 }

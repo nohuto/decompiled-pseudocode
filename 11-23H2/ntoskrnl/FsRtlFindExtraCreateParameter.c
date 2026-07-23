@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlFindExtraCreateParameter @ 0x140765350
+ * XREFs of FsRtlFindExtraCreateParameter @ 0x140765540
  * Callers:
- *     IopSymlinkGetECP @ 0x1402FD8B0 (IopSymlinkGetECP.c)
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpAttachOplockKey @ 0x14030287C (FsRtlpAttachOplockKey.c)
- *     IopCheckTopDeviceHint @ 0x140767B78 (IopCheckTopDeviceHint.c)
- *     IopCheckAndUpdateStopOnSymlinkEcp @ 0x1409478A4 (IopCheckAndUpdateStopOnSymlinkEcp.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x140948E04 (IopSymlinkEnforceEnabledTypes.c)
+ *     IopSymlinkGetECP @ 0x1402FDB40 (IopSymlinkGetECP.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpAttachOplockKey @ 0x140302B0C (FsRtlpAttachOplockKey.c)
+ *     IopCheckTopDeviceHint @ 0x140767D68 (IopCheckTopDeviceHint.c)
+ *     IopCheckAndUpdateStopOnSymlinkEcp @ 0x140947AA4 (IopCheckAndUpdateStopOnSymlinkEcp.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x140949004 (IopSymlinkEnforceEnabledTypes.c)
  * Callees:
  *     <none>
  */

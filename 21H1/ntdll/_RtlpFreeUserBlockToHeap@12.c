@@ -9,25 +9,25 @@
  *     _ZwProtectVirtualMemory@20 @ 0x4B2F2E80 (_ZwProtectVirtualMemory@20.c)
  */
 
-int __fastcall RtlpFreeUserBlockToHeap(int a1, int a2, int a3)
+LOGICAL __fastcall RtlpFreeUserBlockToHeap(PVOID BaseAddress, _BYTE *a2, int a3)
 {
   unsigned int v6; // edx
   unsigned int v7; // eax
-  int HeapProtection; // eax
-  _BYTE v9[4]; // [esp+8h] [ebp-Ch] BYREF
-  int v10; // [esp+Ch] [ebp-8h] BYREF
-  int v11; // [esp+10h] [ebp-4h] BYREF
+  ULONG HeapProtection; // eax
+  ULONG OldProtect; // [esp+8h] [ebp-Ch] BYREF
+  PVOID BaseAddressa; // [esp+Ch] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+10h] [ebp-4h] BYREF
 
-  if ( *(_BYTE *)(a2 + 9) )
+  if ( a2[9] )
   {
-    v6 = 1 << *(_BYTE *)(a2 + 8);
+    v6 = 1 << a2[8];
     if ( v6 > 0x78000 )
       v6 = 491520;
-    v7 = v6 + *(unsigned __int16 *)(a2 + 10);
-    v11 = 4096;
-    v10 = a2 + v7;
-    HeapProtection = RtlpGetHeapProtection(a1, 1);
-    ZwProtectVirtualMemory(-1, &v10, &v11, HeapProtection, v9);
+    v7 = v6 + *((unsigned __int16 *)a2 + 5);
+    LODWORD(RegionSize) = 4096;
+    BaseAddressa = &a2[v7];
+    HeapProtection = RtlpGetHeapProtection(BaseAddress);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddressa, &RegionSize, HeapProtection, &OldProtect);
   }
-  return RtlFreeHeap(a1, 0x800000, a2);
+  return RtlFreeHeap(BaseAddress, 0x800000u, a2);
 }

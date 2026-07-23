@@ -14,37 +14,42 @@
  *     RtlSetLastWin32Error @ 0x180053C30 (RtlSetLastWin32Error.c)
  */
 
-__int64 __fastcall EtwNotificationRegister(_QWORD *a1, unsigned int a2, __int64 a3, __int64 a4, unsigned __int64 *a5)
+ULONG __cdecl EtwNotificationRegister(
+        LPCGUID Guid,
+        ULONG Type,
+        PETW_NOTIFICATION_CALLBACK Callback,
+        PVOID Context,
+        PREGHANDLE RegHandle)
 {
   __int64 v7; // rax
   ULONG v8; // ebx
-  __int64 Registration; // rax
+  _RTL_SRWLOCK *Registration; // rax
   __int64 v10; // rdi
-  __int64 v11; // rsi
+  _RTL_SRWLOCK *v11; // rsi
 
-  if ( a1 && a5 )
+  if ( Guid && RegHandle )
   {
-    v7 = *a1 - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
-    if ( *a1 == *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 )
-      v7 = a1[1] - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
+    v7 = *(_QWORD *)&Guid->Data1 - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
+    if ( *(_QWORD *)&Guid->Data1 == *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 )
+      v7 = *(_QWORD *)Guid->Data4 - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
     if ( !v7 && PrivateLoggerNotificationEntry )
     {
       v8 = 87;
       goto LABEL_14;
     }
-    *a5 = 0LL;
+    *RegHandle = 0LL;
     v8 = 0;
-    Registration = EtwpAllocateRegistration(a1, a3, a4, a2);
-    v10 = Registration;
+    Registration = (_RTL_SRWLOCK *)EtwpAllocateRegistration(Guid, Callback, Context, Type);
+    v10 = (__int64)Registration;
     if ( !Registration )
     {
       v8 = 14;
       goto LABEL_14;
     }
-    v11 = Registration + 64;
-    RtlAcquireSRWLockExclusive(Registration + 64);
+    v11 = Registration + 8;
+    RtlAcquireSRWLockExclusive(Registration + 8);
     *(_DWORD *)(v10 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
-    if ( a2 != 10 && (v8 = EtwpRegisterProvider(v10, a3, a2)) != 0 )
+    if ( Type != 10 && (v8 = EtwpRegisterProvider(v10, (__int64)Callback, Type)) != 0 )
     {
       *(_DWORD *)(v10 + 80) = 0;
       RtlReleaseSRWLockExclusive(v11);
@@ -52,11 +57,11 @@ __int64 __fastcall EtwNotificationRegister(_QWORD *a1, unsigned int a2, __int64 
     }
     else
     {
-      EtwpInsertRegistration(v10);
+      EtwpInsertRegistration((PRTL_BALANCED_NODE)v10);
       EtwpCheckForPrivatePreEnable(v10);
       *(_DWORD *)(v10 + 80) = 0;
       RtlReleaseSRWLockExclusive(v11);
-      *a5 = v10 | ((unsigned __int64)*(unsigned __int16 *)(v10 + 96) << 48);
+      *RegHandle = v10 | ((unsigned __int64)*(unsigned __int16 *)(v10 + 96) << 48);
     }
   }
   else

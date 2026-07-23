@@ -10,30 +10,38 @@
  *     NtCreateWaitCompletionPacket @ 0x1800A07E0 (NtCreateWaitCompletionPacket.c)
  */
 
-__int64 __fastcall TppInitializeTimerSubQueue(__int64 a1, __int64 a2, unsigned __int8 a3)
+NTSTATUS __fastcall TppInitializeTimerSubQueue(__int64 a1, __int64 a2, unsigned __int8 a3)
 {
   HANDLE *v3; // rbx
-  __int64 v6; // r15
-  __int64 result; // rax
-  int WaitCompletionPacket; // ebp
-  char v9; // [rsp+60h] [rbp+8h] BYREF
+  ULONG_PTR IoStatusInformation; // r15
+  NTSTATUS result; // eax
+  NTSTATUS WaitCompletionPacket; // ebp
+  BOOLEAN AlreadySignaled; // [rsp+60h] [rbp+8h] BYREF
 
   *(_QWORD *)a1 = 0LL;
   v3 = (HANDLE *)(a1 + 24);
   *(_QWORD *)(a1 + 16) = 0LL;
   *(_QWORD *)(a1 + 8) = 0LL;
-  v6 = a3;
-  result = NtCreateTimer2(a1 + 24, 0LL, 0LL, 8LL, 1048578);
-  if ( (int)result >= 0 )
+  IoStatusInformation = a3;
+  result = NtCreateTimer2((PHANDLE)(a1 + 24), 0LL, 0LL, 8u, 0x100002u);
+  if ( result >= 0 )
   {
-    WaitCompletionPacket = NtCreateWaitCompletionPacket(a1 + 32, 1LL);
+    WaitCompletionPacket = NtCreateWaitCompletionPacket((PHANDLE)(a1 + 32), 1u, 0LL);
     if ( WaitCompletionPacket < 0 )
     {
       NtClose(*v3);
     }
     else
     {
-      ZwAssociateWaitCompletionPacket(*(_QWORD *)(a1 + 32), *(_QWORD *)(a2 + 64), *v3, a1 + 40, a2 + 112, 0, v6, &v9);
+      ZwAssociateWaitCompletionPacket(
+        *(HANDLE *)(a1 + 32),
+        *(HANDLE *)(a2 + 64),
+        *v3,
+        (PVOID)(a1 + 40),
+        (PVOID)(a2 + 112),
+        0,
+        IoStatusInformation,
+        &AlreadySignaled);
       *(_QWORD *)(a1 + 96) = TppTimerQueueExpiration;
       TppGetCurrentThreadNumaNode(a2, (int *)(a1 + 104), (_BYTE *)(a1 + 108), 0LL);
       *(_QWORD *)(a1 + 72) = 0LL;
@@ -43,7 +51,7 @@ __int64 __fastcall TppInitializeTimerSubQueue(__int64 a1, __int64 a2, unsigned _
       *(_DWORD *)(a1 + 48) = *(_DWORD *)(a1 + 104);
       *(_BYTE *)(a1 + 52) = *(_BYTE *)(a1 + 108);
     }
-    return (unsigned int)WaitCompletionPacket;
+    return WaitCompletionPacket;
   }
   return result;
 }

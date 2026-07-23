@@ -1,20 +1,19 @@
 /*
- * XREFs of EtwpGetNextGuidEntry @ 0x14083D5B0
+ * XREFs of EtwpGetNextGuidEntry @ 0x140839C10
  * Callers:
- *     EtwpGetGuidList @ 0x14083D340 (EtwpGetGuidList.c)
- *     EtwpDisableTraceProviders @ 0x140A166D4 (EtwpDisableTraceProviders.c)
- *     EtwpSetProviderBinaryTracking @ 0x140A45A78 (EtwpSetProviderBinaryTracking.c)
- *     EtwpEnumerateTraceGuids @ 0x140A4A870 (EtwpEnumerateTraceGuids.c)
- *     EtwpTracingProvEnableCallback @ 0x140AAAD20 (EtwpTracingProvEnableCallback.c)
- *     EtwpEventTracingCounterSetCallback @ 0x140AE8A70 (EtwpEventTracingCounterSetCallback.c)
+ *     EtwpGetGuidList @ 0x1408399A0 (EtwpGetGuidList.c)
+ *     EtwpDisableTraceProviders @ 0x140A0F8B4 (EtwpDisableTraceProviders.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
+ *     EtwpTracingProvEnableCallback @ 0x140AA5F50 (EtwpTracingProvEnableCallback.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140AEBCE0 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     EtwpUnreferenceGuidEntry @ 0x14083D760 (EtwpUnreferenceGuidEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140839DC0 (EtwpUnreferenceGuidEntry.c)
  */
 
 _QWORD *__fastcall EtwpGetNextGuidEntry(__int64 a1, _DWORD *a2, unsigned int a3)
@@ -29,7 +28,7 @@ _QWORD *__fastcall EtwpGetNextGuidEntry(__int64 a1, _DWORD *a2, unsigned int a3)
   _QWORD **v10; // rbp
   __int64 i; // r12
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v13; // rdi
+  char *v13; // rdi
   _QWORD **v14; // rax
   _QWORD *v15; // r8
   signed __int64 j; // rcx
@@ -50,11 +49,11 @@ _QWORD *__fastcall EtwpGetNextGuidEntry(__int64 a1, _DWORD *a2, unsigned int a3)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v13 = KeAbPreAcquire((__int64)v8, 0LL);
+    v13 = (char *)KeAbPreAcquire((__int64)v8, 0LL);
     if ( _InterlockedCompareExchange64(v8, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v8, 0, v13, (__int64)v8);
     if ( v13 )
-      *((_BYTE *)v13 + 10) = 1;
+      v13[10] = 1;
     v14 = v10;
     if ( v5 )
       v14 = (_QWORD **)v5;

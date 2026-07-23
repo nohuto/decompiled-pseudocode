@@ -1,12 +1,12 @@
 /*
- * XREFs of MiOkToZeroNextLargePage @ 0x14013F418
+ * XREFs of MiOkToZeroNextLargePage @ 0x14013F988
  * Callers:
- *     MiZeroLargePages @ 0x14013F2D0 (MiZeroLargePages.c)
+ *     MiZeroLargePages @ 0x14013F840 (MiZeroLargePages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  */
 
 __int64 __fastcall MiOkToZeroNextLargePage(__int64 a1, _DWORD *a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x1800FE130
+ * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x1800FD880
  * Callers:
- *     SymCryptSha256Result @ 0x1800FE014 (SymCryptSha256Result.c)
- *     SymCryptSha256Append @ 0x180121194 (SymCryptSha256Append.c)
+ *     SymCryptSha256Result @ 0x1800FD764 (SymCryptSha256Result.c)
+ *     SymCryptSha256Append @ 0x180120F44 (SymCryptSha256Append.c)
  * Callees:
  *     <none>
  */
@@ -274,13 +274,13 @@ __int64 __fastcall SymCryptSha256AppendBlocks_ul1(__m128i *a1, __int64 a2, unsig
       v123 = _byteswap_ulong(v7[13]);
       v65 = v58;
       v66 = v132;
-      v67 = &unk_180183448;
+      v67 = &unk_180182348;
       v68 = v123
           + (__ROR4__(v63, 11) ^ __ROR4__(v63, 25) ^ __ROR4__(v63, 6))
           + (v115 ^ v63 & (v115 ^ v58))
           + v52
           - 1046744716;
-      v114 = &unk_180183448;
+      v114 = &unk_180182348;
       v69 = v68 + v54;
       v70 = v123;
       v116 = v69;
@@ -456,7 +456,7 @@ __int64 __fastcall SymCryptSha256AppendBlocks_ul1(__m128i *a1, __int64 a2, unsig
         v67 = v114 + 16;
         v114 = v67;
       }
-      while ( (__int64)v67 < (__int64)((_DWORD *)&xmmword_180183500 + 2) );
+      while ( (__int64)v67 < (__int64)((_DWORD *)&xmmword_180182400 + 2) );
       v5 = a1;
       v7 = (unsigned int *)(v133 + 64);
       v112 = v134-- == 1;

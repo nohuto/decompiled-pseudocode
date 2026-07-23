@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeExitRetpoline @ 0x14024B6F8 (KeExitRetpoline.c)
+ *     sub_14024B6F8 @ 0x14024B6F8 (sub_14024B6F8.c)
  *     KeSetCoalescableTimer @ 0x1402E2C60 (KeSetCoalescableTimer.c)
  *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140356250 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
- *     CcAdjustBcbDepth @ 0x14042C310 (CcAdjustBcbDepth.c)
- *     VslVerifyPage @ 0x14054FBE0 (VslVerifyPage.c)
+ *     sub_140363220 @ 0x140363220 (sub_140363220.c)
+ *     sub_14042C310 @ 0x14042C310 (sub_14042C310.c)
+ *     sub_14054FBE0 @ 0x14054FBE0 (sub_14054FBE0.c)
  */
 
 BOOLEAN __fastcall sub_140657010(PKDPC Dpc, __int64 a2, __int64 a3)
@@ -47,11 +47,11 @@ BOOLEAN __fastcall sub_140657010(PKDPC Dpc, __int64 a2, __int64 a3)
   int v35; // eax
   unsigned __int64 v36; // rbx
   struct _KPRCB *CurrentPrcb; // rcx
-  char *DpcStack; // rbx
-  _KTHREAD *CurrentThread; // rdx
+  char *v38; // rbx
+  _QWORD *v39; // rdx
   char v40; // [rsp+78h] [rbp+10h] BYREF
 
-  KeExitRetpoline(Dpc, a2, a3);
+  sub_14024B6F8(Dpc, a2, a3);
   ProcessorHistory_low = LODWORD(Dpc[2].ProcessorHistory);
   v5 = *(_QWORD **)&Dpc[2].TargetInfoAsUlong;
   v6 = ProcessorHistory_low;
@@ -127,8 +127,8 @@ BOOLEAN __fastcall sub_140657010(PKDPC Dpc, __int64 a2, __int64 a3)
     --v23;
   }
   while ( v23 );
-  v27 = -1200000000LL - (unsigned int)ExGenRandom(1) % 0x5F5E100uLL;
-  v28 = ExGenRandom(1);
+  v27 = -1200000000LL - (unsigned int)sub_140363220(1) % 0x5F5E100uLL;
+  v28 = sub_140363220(1);
   result = KeSetCoalescableTimer((PKTIMER)&Dpc[1], (LARGE_INTEGER)v27, 0, v28 % 0x2710, Dpc);
   if ( v24 != Dpc[2].DeferredRoutine )
   {
@@ -144,7 +144,7 @@ BOOLEAN __fastcall sub_140657010(PKDPC Dpc, __int64 a2, __int64 a3)
         v34 = (v10 & 0xFFFFFFFFFFFFF000uLL) - 1;
         while ( 1 )
         {
-          v35 = VslVerifyPage(v32, 0);
+          v35 = sub_14054FBE0(v32, 0);
           v36 = CurrentIrql;
           while ( v35 == -1073741267 )
           {
@@ -156,7 +156,7 @@ BOOLEAN __fastcall sub_140657010(PKDPC Dpc, __int64 a2, __int64 a3)
             __writecr8(CurrentIrql);
             KeGetCurrentIrql();
             __writecr8(2uLL);
-            v35 = VslVerifyPage(v32, 0);
+            v35 = sub_14054FBE0(v32, 0);
           }
           if ( v35 < 0 )
             break;
@@ -176,21 +176,21 @@ LABEL_31:
     }
     _disable();
     CurrentPrcb = KeGetCurrentPrcb();
-    DpcStack = (char *)CurrentPrcb->DpcStack;
-    CurrentThread = CurrentPrcb->CurrentThread;
-    if ( !CurrentPrcb->DpcRoutineActive || &v40 > DpcStack || &v40 < DpcStack - 24576 )
-      DpcStack = (char *)CurrentThread->InitialStack;
-    CurrentThread[1].QuantumTarget = 0LL;
-    CurrentThread[1].ApcState.ApcListHead[0].Blink = 0LL;
-    ExTryAcquireSpinLockExclusiveAtDpcLevel(&PsLoadedModuleSpinLock);
-    CcAdjustBcbDepth(
+    v38 = (char *)*((_QWORD *)CurrentPrcb + 1652);
+    v39 = (_QWORD *)*((_QWORD *)CurrentPrcb + 1);
+    if ( !*((_BYTE *)CurrentPrcb + 13242) || &v40 > v38 || &v40 < v38 - 24576 )
+      v38 = (char *)v39[5];
+    v39[148] = 0LL;
+    v39[164] = 0LL;
+    ExTryAcquireSpinLockExclusiveAtDpcLevel(&dword_140D311C0);
+    sub_14042C310(
       (unsigned int)__ROL4__(536870945, 163),
       __ROR8__(0x1C8B4E8A3A03F589LL, 164),
       0LL,
       v10,
       (unsigned int)__ROR4__(33536, 167),
       (__int64 (__fastcall *)(__int64))KeBugCheckEx,
-      DpcStack);
+      v38);
     JUMPOUT(0x140657369LL);
   }
   return result;

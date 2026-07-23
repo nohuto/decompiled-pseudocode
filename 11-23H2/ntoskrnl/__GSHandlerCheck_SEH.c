@@ -1,10 +1,10 @@
 /*
- * XREFs of __GSHandlerCheck_SEH @ 0x14041A490
+ * XREFs of __GSHandlerCheck_SEH @ 0x14041A820
  * Callers:
  *     <none>
  * Callees:
- *     __C_specific_handler @ 0x1403D7D10 (__C_specific_handler.c)
- *     __GSHandlerCheckCommon @ 0x1403DD878 (__GSHandlerCheckCommon.c)
+ *     __C_specific_handler @ 0x1403D7EF0 (__C_specific_handler.c)
+ *     __GSHandlerCheckCommon @ 0x1403DDA58 (__GSHandlerCheckCommon.c)
  */
 
 EXCEPTION_DISPOSITION __fastcall _GSHandlerCheck_SEH(
@@ -13,13 +13,13 @@ EXCEPTION_DISPOSITION __fastcall _GSHandlerCheck_SEH(
         struct _CONTEXT *ContextRecord,
         struct _DISPATCHER_CONTEXT *DispatcherContext)
 {
-  __int64 v8; // rbx
+  char *v8; // rbx
   EXCEPTION_DISPOSITION result; // eax
 
-  v8 = *((_QWORD *)DispatcherContext + 7) + 16LL * **((unsigned int **)DispatcherContext + 7);
+  v8 = (char *)DispatcherContext->HandlerData + 16 * *(unsigned int *)DispatcherContext->HandlerData;
   _GSHandlerCheckCommon((__int64)EstablisherFrame, (__int64)DispatcherContext);
   result = ExceptionContinueSearch;
-  if ( ((((ExceptionRecord->ExceptionFlags & 0x66) != 0) + 1) & *(_DWORD *)(v8 + 4)) != 0 )
+  if ( ((((ExceptionRecord->ExceptionFlags & 0x66) != 0) + 1) & *((_DWORD *)v8 + 1)) != 0 )
     return _C_specific_handler(ExceptionRecord, EstablisherFrame, ContextRecord, DispatcherContext);
   return result;
 }

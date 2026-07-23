@@ -10,7 +10,7 @@
  *     PspIsProcessInJob @ 0x140675180 (PspIsProcessInJob.c)
  */
 
-NTSTATUS __fastcall NtIsProcessInJob(void *a1, void *a2)
+NTSTATUS __cdecl NtIsProcessInJob(HANDLE ProcessHandle, HANDLE JobHandle)
 {
   struct _KTHREAD *CurrentThread; // rbx
   KPROCESSOR_MODE PreviousMode; // si
@@ -26,7 +26,7 @@ NTSTATUS __fastcall NtIsProcessInJob(void *a1, void *a2)
   CurrentThread = KeGetCurrentThread();
   v12 = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
-  if ( a1 == (void *)-1LL )
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
     p_Lock = &CurrentThread->ApcState.Process->Header.Lock;
     v12 = p_Lock;
@@ -34,7 +34,7 @@ NTSTATUS __fastcall NtIsProcessInJob(void *a1, void *a2)
   else
   {
     result = ObReferenceObjectByHandleWithTag(
-               a1,
+               ProcessHandle,
                0x1000u,
                (POBJECT_TYPE)PsProcessType,
                PreviousMode,
@@ -45,24 +45,24 @@ NTSTATUS __fastcall NtIsProcessInJob(void *a1, void *a2)
       return result;
     p_Lock = v12;
   }
-  if ( !a2 )
+  if ( !JobHandle )
   {
     v9 = (PVOID)p_Lock[162];
     p_Lock = v12;
 LABEL_6:
     IsProcessInJob = PspIsProcessInJob(p_Lock, v9);
-    if ( a2 )
+    if ( JobHandle )
       HalPutDmaAdapter(v11);
     goto LABEL_8;
   }
   Object = 0LL;
-  v8 = ObReferenceObjectByHandle(a2, 4u, (POBJECT_TYPE)PsJobType, PreviousMode, &Object, 0LL);
+  v8 = ObReferenceObjectByHandle(JobHandle, 4u, (POBJECT_TYPE)PsJobType, PreviousMode, &Object, 0LL);
   v9 = Object;
   IsProcessInJob = v8;
   if ( v8 >= 0 )
     goto LABEL_6;
 LABEL_8:
-  if ( a1 != (void *)-1LL )
+  if ( ProcessHandle != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(p_Lock, 0x624A7350u);
   return IsProcessInJob;
 }

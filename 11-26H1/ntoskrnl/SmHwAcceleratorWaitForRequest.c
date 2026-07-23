@@ -1,16 +1,16 @@
 /*
- * XREFs of SmHwAcceleratorWaitForRequest @ 0x140640060
+ * XREFs of SmHwAcceleratorWaitForRequest @ 0x140643C40
  * Callers:
- *     SmStoreCompressBuffer @ 0x14024B590 (SmStoreCompressBuffer.c)
- *     SmStoreDecompressBuffer @ 0x1403905E0 (SmStoreDecompressBuffer.c)
- *     SmStoreCompletePendingDecompress @ 0x140443928 (SmStoreCompletePendingDecompress.c)
- *     ?SmStoreDecompressBufferContextCleanup@@YAXPEAU_SM_STORE_DECOMPRESS_BUFFER_CONTEXT@@@Z @ 0x140487E14 (-SmStoreDecompressBufferContextCleanup@@YAXPEAU_SM_STORE_DECOMPRESS_BUFFER_CONTEXT@@@Z.c)
- *     SmStoreCompletePendingCompress @ 0x14063F294 (SmStoreCompletePendingCompress.c)
+ *     SmStoreCompressBuffer @ 0x14024CEF0 (SmStoreCompressBuffer.c)
+ *     SmStoreDecompressBuffer @ 0x140392390 (SmStoreDecompressBuffer.c)
+ *     SmStoreCompletePendingDecompress @ 0x14043C438 (SmStoreCompletePendingDecompress.c)
+ *     ?SmStoreDecompressBufferContextCleanup@@YAXPEAU_SM_STORE_DECOMPRESS_BUFFER_CONTEXT@@@Z @ 0x140481954 (-SmStoreDecompressBufferContextCleanup@@YAXPEAU_SM_STORE_DECOMPRESS_BUFFER_CONTEXT@@@Z.c)
+ *     SmStoreCompletePendingCompress @ 0x140642E74 (SmStoreCompletePendingCompress.c)
  * Callees:
- *     AccelWaitForWorkCompletion @ 0x1402A1F3C (AccelWaitForWorkCompletion.c)
- *     AccelGetStatusFromCompletionRecord @ 0x1402A20AC (AccelGetStatusFromCompletionRecord.c)
- *     AccelQueryCompletionInformation @ 0x1406DF030 (AccelQueryCompletionInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelWaitForWorkCompletion @ 0x1402A148C (AccelWaitForWorkCompletion.c)
+ *     AccelGetStatusFromCompletionRecord @ 0x1402A15FC (AccelGetStatusFromCompletionRecord.c)
+ *     AccelQueryCompletionInformation @ 0x1406E32D0 (AccelQueryCompletionInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SmHwAcceleratorWaitForRequest(__int64 a1, int a2, _QWORD *a3, _DWORD *a4, _DWORD *a5)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmDisableProfile @ 0x14087A640
+ * XREFs of PpmDisableProfile @ 0x14087B8A0
  * Callers:
- *     PdcPoPpmResetProfile @ 0x14086ECF0 (PdcPoPpmResetProfile.c)
+ *     PdcPoPpmResetProfile @ 0x14086FF50 (PdcPoPpmResetProfile.c)
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PpmResetProfileSettings @ 0x14018E810 (PpmResetProfileSettings.c)
- *     PpmReinitializeHeteroEngine @ 0x14074E488 (PpmReinitializeHeteroEngine.c)
- *     PpmEventTraceProfileEnable @ 0x140756EC4 (PpmEventTraceProfileEnable.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     PpmResetProfileSettings @ 0x14018E950 (PpmResetProfileSettings.c)
+ *     PpmReinitializeHeteroEngine @ 0x14074F678 (PpmReinitializeHeteroEngine.c)
+ *     PpmEventTraceProfileEnable @ 0x1407580B4 (PpmEventTraceProfileEnable.c)
  */
 
 void __fastcall PpmDisableProfile(__int64 a1)

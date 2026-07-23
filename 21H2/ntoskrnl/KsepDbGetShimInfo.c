@@ -1,21 +1,21 @@
 /*
- * XREFs of KsepDbGetShimInfo @ 0x1408BF81C
+ * XREFs of KsepDbGetShimInfo @ 0x1408BF97C
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x14075B74C (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14075B90C (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KseShimDatabaseClose @ 0x140758D88 (KseShimDatabaseClose.c)
- *     KsepDbFreeDriverShims @ 0x140758F30 (KsepDbFreeDriverShims.c)
- *     SdbFindFirstStringIndexedTag @ 0x140759C00 (SdbFindFirstStringIndexedTag.c)
- *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     KseShimDatabaseOpen @ 0x14075B0E0 (KseShimDatabaseOpen.c)
- *     SdbTagRefToTagID @ 0x1407C2090 (SdbTagRefToTagID.c)
- *     SdbTagIDToTagRef @ 0x1407CD560 (SdbTagIDToTagRef.c)
- *     KsepDbGetSdbString @ 0x1408BF7E8 (KsepDbGetSdbString.c)
- *     SdbReadGUIDTag @ 0x140966250 (SdbReadGUIDTag.c)
+ *     KsepPoolFreePaged @ 0x140371274 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14037129C (KsepPoolAllocatePaged.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KseShimDatabaseClose @ 0x140758F48 (KseShimDatabaseClose.c)
+ *     KsepDbFreeDriverShims @ 0x1407590F0 (KsepDbFreeDriverShims.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140759DC0 (SdbFindFirstStringIndexedTag.c)
+ *     SdbReadDWORDTag @ 0x140759F54 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     KseShimDatabaseOpen @ 0x14075B2A0 (KseShimDatabaseOpen.c)
+ *     SdbTagRefToTagID @ 0x1407C25B0 (SdbTagRefToTagID.c)
+ *     SdbTagIDToTagRef @ 0x1407CD6D0 (SdbTagIDToTagRef.c)
+ *     KsepDbGetSdbString @ 0x1408BF948 (KsepDbGetSdbString.c)
+ *     SdbReadGUIDTag @ 0x140966430 (SdbReadGUIDTag.c)
  */
 
 __int64 __fastcall KsepDbGetShimInfo(__int64 a1, unsigned int a2)

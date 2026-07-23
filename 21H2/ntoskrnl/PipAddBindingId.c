@@ -1,11 +1,11 @@
 /*
- * XREFs of PipAddBindingId @ 0x1407B4B78
+ * XREFs of PipAddBindingId @ 0x1407B6498
  * Callers:
- *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
- *     PipCreateDependencyNode @ 0x1407B4C9C (PipCreateDependencyNode.c)
+ *     IoResolveDependency @ 0x1403BF8D0 (IoResolveDependency.c)
+ *     PipCreateDependencyNode @ 0x1407B65BC (PipCreateDependencyNode.c)
  * Callees:
- *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlDuplicateUnicodeString @ 0x1405EAFA0 (RtlDuplicateUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PipAddBindingId(__int64 a1, const UNICODE_STRING *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDcHandleDeviceEvent @ 0x140758724
+ * XREFs of PiDcHandleDeviceEvent @ 0x1407588E4
  * Callers:
- *     PiDcHandleObjectEvent @ 0x1407586D4 (PiDcHandleObjectEvent.c)
+ *     PiDcHandleObjectEvent @ 0x140758894 (PiDcHandleObjectEvent.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
- *     PiDcContainerRequiresConfiguration @ 0x140759668 (PiDcContainerRequiresConfiguration.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x14062D230 (_PnpStringFromGuid.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140759828 (PiDcContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)

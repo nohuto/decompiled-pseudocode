@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlQueryDmaProtectionInfo @ 0x1406202D4
+ * XREFs of HvlQueryDmaProtectionInfo @ 0x140620388
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpProcessIommu @ 0x1401BF944 (HvlpProcessIommu.c)
- *     HviGetHardwareFeatures @ 0x140231EDC (HviGetHardwareFeatures.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpProcessIommu @ 0x1401BF828 (HvlpProcessIommu.c)
+ *     HviGetHardwareFeatures @ 0x140231D08 (HviGetHardwareFeatures.c)
  */
 
 __int64 __fastcall HvlQueryDmaProtectionInfo(__int16 *a1, __int64 a2, _DWORD *a3, __int64 a4)

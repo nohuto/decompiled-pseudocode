@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCtxRegDeletePath @ 0x1406D70AC
+ * XREFs of _PnpCtxRegDeletePath @ 0x1406D71E4
  * Callers:
- *     PiDevCfgClearDeviceMigrationNode @ 0x140632EB8 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x140632F6C (PiDevCfgClearDeviceMigrationNode.c)
  * Callees:
- *     _RegRtlDeletePathInternal @ 0x1406E06D0 (_RegRtlDeletePathInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x1406E0808 (_RegRtlDeletePathInternal.c)
  */
 
 __int64 __fastcall PnpCtxRegDeletePath(__int64 a1, __int64 a2, __int64 a3, char a4)

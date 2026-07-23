@@ -6,18 +6,31 @@
  *     AlpcpConnectPort @ 0x1405DF5BC (AlpcpConnectPort.c)
  */
 
-__int64 __fastcall NtAlpcConnectPortEx(
-        int a1,
-        int a2,
-        int a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+NTSTATUS __cdecl NtAlpcConnectPortEx(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ConnectionPortObjectAttributes,
+        POBJECT_ATTRIBUTES ClientPortObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSECURITY_DESCRIPTOR ServerSecurityRequirements,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
-  return AlpcpConnectPort(a1, 0, a2, a3, a4, a5, a6, 0LL, a7, a8, a9, a10, a11);
+  return AlpcpConnectPort(
+           (int)PortHandle,
+           0,
+           (int)ConnectionPortObjectAttributes,
+           (int)ClientPortObjectAttributes,
+           (__int64)PortAttributes,
+           Flags,
+           (__int64)ServerSecurityRequirements,
+           0LL,
+           (__int64)ConnectionMessage,
+           (__int64)BufferLength,
+           (__int64)OutMessageAttributes,
+           (__int64)InMessageAttributes,
+           (__int64)Timeout);
 }

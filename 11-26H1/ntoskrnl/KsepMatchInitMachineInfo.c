@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepMatchInitMachineInfo @ 0x140CCD8F8
+ * XREFs of KsepMatchInitMachineInfo @ 0x140CD3A58
  * Callers:
- *     KseInitialize @ 0x140CCCEE0 (KseInitialize.c)
+ *     KseInitialize @ 0x140CD3040 (KseInitialize.c)
  * Callees:
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     KsepMatchInitAcpiOemInfo @ 0x140CCD4A0 (KsepMatchInitAcpiOemInfo.c)
- *     KsepMatchInitBiosInfo @ 0x140CCD5F0 (KsepMatchInitBiosInfo.c)
- *     KsepMatchInitCpuInfo @ 0x140CCD868 (KsepMatchInitCpuInfo.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x140CD3600 (KsepMatchInitAcpiOemInfo.c)
+ *     KsepMatchInitBiosInfo @ 0x140CD3750 (KsepMatchInitBiosInfo.c)
+ *     KsepMatchInitCpuInfo @ 0x140CD39C8 (KsepMatchInitCpuInfo.c)
  */
 
 __int64 __fastcall KsepMatchInitMachineInfo(__int64 a1)
@@ -29,13 +29,11 @@ __int64 __fastcall KsepMatchInitMachineInfo(__int64 a1)
   v2 = matched;
   if ( matched < 0 )
   {
-    v3 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v3 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v3 + 4] = matched;
-    StackBase = (char)stru_140E66B30.StackBase;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v3) = 655514;
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v3) = matched;
+    StackBase = (char)stru_140E66D40.StackBase;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v3) = 655514;
     if ( (StackBase & 2) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", v2);
     KsepLogError(0LL, (__int64)"KSE: KsepMatchInitAcpiOemInfo failed [0x%08x]\n", v2);
@@ -44,13 +42,11 @@ __int64 __fastcall KsepMatchInitMachineInfo(__int64 a1)
   v6 = v5;
   if ( v5 < 0 )
   {
-    v7 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v7 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v7 + 4] = v5;
-    v8 = (char)stru_140E66B30.StackBase;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v7) = 655520;
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v7) = v5;
+    v8 = (char)stru_140E66D40.StackBase;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v7) = 655520;
     if ( (v8 & 2) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v6);
     KsepLogError(0LL, (__int64)"KSE: KsepMatchInitCpuInfo failed\n [0x%08x]\n", v6);
@@ -60,19 +56,19 @@ __int64 __fastcall KsepMatchInitMachineInfo(__int64 a1)
   if ( v9 < 0 )
   {
     v11 = ((unsigned __int8)_InterlockedExchangeAdd(
-                              (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                              (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                               1u)
          + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v11 + 4] = v9;
-    v12 = (char)stru_140E66B30.StackBase;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v11) = 655526;
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v11) = v9;
+    v12 = (char)stru_140E66D40.StackBase;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v11) = 655526;
     if ( (v12 & 2) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v10);
     KsepLogError(0LL, (__int64)"KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v10);
   }
-  KsepShimDbLock.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)&xmmword_140E61D28;
-  KsepShimDbLock.ApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)&xmmword_140E62180;
-  KsepShimDbLock.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)&xmmword_140E621B8;
-  KsepShimDbLock.ApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)&xmmword_140E62200;
+  KsepShimDbLock.FirstArgument = &xmmword_140E61EB0;
+  KsepShimDbLock.TrapFrame = (_KTRAP_FRAME *)&xmmword_140E62310;
+  KsepShimDbLock.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)&xmmword_140E62348;
+  KsepShimDbLock.ApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)&xmmword_140E62390;
   return 0LL;
 }

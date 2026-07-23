@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdatePfnProtection @ 0x1402BF55C
+ * XREFs of MiUpdatePfnProtection @ 0x1402BF74C
  * Callers:
- *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140085AF0 (MiSetReadOnlyOnSectionView.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiSanitizePfnProtection @ 0x140074050 (MiSanitizePfnProtection.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiSanitizePfnProtection @ 0x140074040 (MiSanitizePfnProtection.c)
  */
 
 __int64 __fastcall MiUpdatePfnProtection(__int64 a1, __int64 a2, __int64 a3)

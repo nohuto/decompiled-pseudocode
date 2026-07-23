@@ -1,12 +1,12 @@
 /*
- * XREFs of CcDeleteNumaNode @ 0x1403E4540
+ * XREFs of CcDeleteNumaNode @ 0x1403E7730
  * Callers:
- *     CcDeletePrivateVolumeCacheMap @ 0x1403E3E90 (CcDeletePrivateVolumeCacheMap.c)
- *     CcInitializeNumaNodeForVolume @ 0x1403E4224 (CcInitializeNumaNodeForVolume.c)
- *     CcDeletePartition @ 0x1405B2214 (CcDeletePartition.c)
- *     CcInitializeNumaNode @ 0x1405B33B0 (CcInitializeNumaNode.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403E7080 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcInitializeNumaNodeForVolume @ 0x1403E7414 (CcInitializeNumaNodeForVolume.c)
+ *     CcDeletePartition @ 0x1405B4A24 (CcDeletePartition.c)
+ *     CcInitializeNumaNode @ 0x1405B5BC0 (CcInitializeNumaNode.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcDeleteNumaNode(__int64 a1)

@@ -4,7 +4,7 @@
  *     RtlTraceDatabaseFind @ 0x1800FED80 (RtlTraceDatabaseFind.c)
  *     RtlpTraceDatabaseInternalAdd @ 0x1800FEF28 (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall RtlpTraceDatabaseInternalFind(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

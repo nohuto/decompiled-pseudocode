@@ -1,19 +1,19 @@
 /*
- * XREFs of VfDeadlockInitializeResource @ 0x14093C0E0
+ * XREFs of VfDeadlockInitializeResource @ 0x14093D0E0
  * Callers:
- *     VerifierKeInitializeMutant @ 0x140939A50 (VerifierKeInitializeMutant.c)
- *     VerifierKeInitializeMutex @ 0x140939AD0 (VerifierKeInitializeMutex.c)
+ *     VerifierKeInitializeMutant @ 0x14093AA50 (VerifierKeInitializeMutant.c)
+ *     VerifierKeInitializeMutex @ 0x14093AAD0 (VerifierKeInitializeMutex.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockAddResource @ 0x14093C74C (ViDeadlockAddResource.c)
- *     ViDeadlockAllocate @ 0x14093CA4C (ViDeadlockAllocate.c)
- *     ViDeadlockCanProceed @ 0x14093CD18 (ViDeadlockCanProceed.c)
- *     ViDeadlockDetectionLock @ 0x14093D1AC (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x14093D1E4 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x14093D4A8 (ViDeadlockFree.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCD30 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ViLowerIrql @ 0x14030B6FC (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B758 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockAddResource @ 0x14093D74C (ViDeadlockAddResource.c)
+ *     ViDeadlockAllocate @ 0x14093DA4C (ViDeadlockAllocate.c)
+ *     ViDeadlockCanProceed @ 0x14093DD18 (ViDeadlockCanProceed.c)
+ *     ViDeadlockDetectionLock @ 0x14093E1AC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x14093E1E4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x14093E4A8 (ViDeadlockFree.c)
  */
 
 __int64 __fastcall VfDeadlockInitializeResource(__int64 a1, __int64 a2, void *a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefModElementIsEqual @ 0x140404290
+ * XREFs of SymCryptFdefModElementIsEqual @ 0x140404470
  * Callers:
- *     SymCryptModElementIsEqual @ 0x1403F96B8 (SymCryptModElementIsEqual.c)
+ *     SymCryptModElementIsEqual @ 0x1403F9898 (SymCryptModElementIsEqual.c)
  * Callees:
  *     <none>
  */

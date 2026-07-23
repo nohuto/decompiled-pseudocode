@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCreateHashTable(__int64 a1, unsigned int a2, unsigned int a3)
+BOOLEAN __cdecl RtlCreateHashTable(PRTL_DYNAMIC_HASH_TABLE *HashTable, ULONG Shift, ULONG Flags)
 {
-  return RtlCreateHashTableEx_0(a1, 128LL, a2, a3);
+  return RtlCreateHashTableEx_0(HashTable, 128LL, Shift, Flags);
 }

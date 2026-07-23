@@ -1,17 +1,17 @@
 /*
- * XREFs of VfSuspectDriversLoadCallback @ 0x140B9AB3C
+ * XREFs of VfSuspectDriversLoadCallback @ 0x140B9CB3C
  * Callers:
- *     VfDriverLoadImage @ 0x140BA7DF4 (VfDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x140BA9DF4 (VfDriverLoadImage.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     VfTargetDriversAdd @ 0x1403F01F8 (VfTargetDriversAdd.c)
- *     CarLoadImageHandler @ 0x140616118 (CarLoadImageHandler.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VfUtilPrintCheckinString @ 0x140B834E4 (VfUtilPrintCheckinString.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfTargetDriversAllocateFullName @ 0x140B8B234 (VfTargetDriversAllocateFullName.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140B971AC (VfThunkApplyThunksCurrentSession.c)
- *     VfSuspectDriversAllocateEntry @ 0x140B9A6A0 (VfSuspectDriversAllocateEntry.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     VfTargetDriversAdd @ 0x1403E3ED4 (VfTargetDriversAdd.c)
+ *     CarLoadImageHandler @ 0x1406146D8 (CarLoadImageHandler.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VfUtilPrintCheckinString @ 0x140B854E4 (VfUtilPrintCheckinString.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfTargetDriversAllocateFullName @ 0x140B8D234 (VfTargetDriversAllocateFullName.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140B991AC (VfThunkApplyThunksCurrentSession.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140B9C6A0 (VfSuspectDriversAllocateEntry.c)
  */
 
 LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, char a2, int a3)
@@ -100,7 +100,7 @@ LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, char a2, int a3)
     if ( !VfRandomVerifiedDrivers
       || (v13 = (unsigned __int64)(unsigned int)(ViLoadedDriversCount + 1) >> 3,
           ++ViLoadedDriversCount,
-          ((*(char *)(v13 + qword_140FFCBE8) >> (ViLoadedDriversCount & 7)) & 1) == 0) )
+          ((*(char *)(v13 + qword_140FFDBE8) >> (ViLoadedDriversCount & 7)) & 1) == 0) )
     {
 LABEL_32:
       Entry = 0LL;
@@ -111,14 +111,14 @@ LABEL_32:
   Entry = VfSuspectDriversAllocateEntry((const void **)(a1 + 88));
   if ( Entry )
   {
-    v14 = (__int64 *)qword_140F045D8;
-    if ( *(__int64 **)qword_140F045D8 != &VfSuspectDriversList )
+    v14 = (__int64 *)qword_140F04728;
+    if ( *(__int64 **)qword_140F04728 != &VfSuspectDriversList )
       __fastfail(3u);
     *(_QWORD *)Entry = &VfSuspectDriversList;
     v11 = 1;
     *(_QWORD *)(Entry + 8) = v14;
     *v14 = Entry;
-    qword_140F045D8 = Entry;
+    qword_140F04728 = Entry;
 LABEL_43:
     VfTargetDriversAllocateFullName(Entry, a1);
   }
@@ -128,7 +128,7 @@ LABEL_44:
   {
     v6 = VfThunkApplyThunksCurrentSession(a1);
     VfUtilPrintCheckinString((unsigned __int16 *)(a1 + 88), 0);
-    ++dword_140F03EB4;
+    ++dword_140F04814;
     ++*(_DWORD *)(Entry + 16);
     CarLoadImageHandler(a1);
   }

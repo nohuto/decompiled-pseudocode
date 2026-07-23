@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetEnvironmentVariableTrEE @ 0x140628AE8
+ * XREFs of IopGetEnvironmentVariableTrEE @ 0x140628B9C
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     IopIssueTrEERequest @ 0x1401CC164 (IopIssueTrEERequest.c)
- *     IopVerifierExAllocatePool_4 @ 0x1401CC250 (IopVerifierExAllocatePool_4.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     IopIssueTrEERequest @ 0x1401CC048 (IopIssueTrEERequest.c)
+ *     IopVerifierExAllocatePool_4 @ 0x1401CC134 (IopVerifierExAllocatePool_4.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopEfiStatusToNTSTATUS @ 0x1406282FC (IopEfiStatusToNTSTATUS.c)
+ *     IopEfiStatusToNTSTATUS @ 0x1406283B0 (IopEfiStatusToNTSTATUS.c)
  */
 
 __int64 __fastcall IopGetEnvironmentVariableTrEE(

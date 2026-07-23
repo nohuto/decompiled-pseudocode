@@ -1,7 +1,7 @@
 /*
- * XREFs of WmiVerifierTakeEventOwnership @ 0x1406C35E4
+ * XREFs of WmiVerifierTakeEventOwnership @ 0x1406C71C4
  * Callers:
- *     VerifierIoWMIWriteEvent @ 0x140C40470 (VerifierIoWMIWriteEvent.c)
+ *     VerifierIoWMIWriteEvent @ 0x140C46480 (VerifierIoWMIWriteEvent.c)
  * Callees:
  *     <none>
  */

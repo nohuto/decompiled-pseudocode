@@ -7,27 +7,27 @@
  *     ZwFreeVirtualMemory @ 0x1801635E0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall RtlDestroyHandleTable(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlDestroyHandleTable(PRTL_HANDLE_TABLE HandleTable)
 {
-  __int64 v4; // rdx
-  unsigned int v5; // ebx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
+  PRTL_HANDLE_TABLE_ENTRY CommittedHandles; // rdx
+  NTSTATUS v2; // ebx
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 24);
-  v5 = 0;
-  v7 = v4;
-  if ( v4 )
+  CommittedHandles = HandleTable->CommittedHandles;
+  v2 = 0;
+  BaseAddress = CommittedHandles;
+  if ( CommittedHandles )
   {
-    if ( *(_DWORD *)(a1 + 8) )
+    if ( HandleTable->Reserved[0] )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7, a4);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     }
     else
     {
-      v8 = *(_QWORD *)(a1 + 40) - v4;
-      return (unsigned int)ZwFreeVirtualMemory(-1LL, &v7, &v8, 0x8000LL);
+      RegionSize = (char *)HandleTable->MaxReservedHandles - (char *)CommittedHandles;
+      return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
     }
   }
-  return v5;
+  return v2;
 }

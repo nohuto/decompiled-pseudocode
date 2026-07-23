@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpAllocateIoSpaceRanges @ 0x14094DA20
+ * XREFs of IopLiveDumpAllocateIoSpaceRanges @ 0x14094DC20
  * Callers:
- *     IopLiveDumpAllocateFromIOSpace @ 0x14094D4E4 (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x14094D6E4 (IopLiveDumpAllocateFromIOSpace.c)
  * Callees:
- *     MmAllocateMemoryRanges @ 0x140A2E2C0 (MmAllocateMemoryRanges.c)
+ *     MmAllocateMemoryRanges @ 0x140A2E570 (MmAllocateMemoryRanges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopMonitorInvocation @ 0x140AC930C
+ * XREFs of PopMonitorInvocation @ 0x140AC7244
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     Feature_AggressiveInputSuppression__private_IsEnabledPreCheck @ 0x1404F97A4 (Feature_AggressiveInputSuppression__private_IsEnabledPreCheck.c)
- *     PopTraceMonitorOnRequestUserInput @ 0x140758954 (PopTraceMonitorOnRequestUserInput.c)
- *     PopProcessSessionDisplayStateChange @ 0x1409BBD90 (PopProcessSessionDisplayStateChange.c)
- *     PopIsInputSuppressionEngaged @ 0x140A37828 (PopIsInputSuppressionEngaged.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     Feature_AggressiveInputSuppression__private_IsEnabledPreCheck @ 0x1404F7084 (Feature_AggressiveInputSuppression__private_IsEnabledPreCheck.c)
+ *     PopTraceMonitorOnRequestUserInput @ 0x140756DD4 (PopTraceMonitorOnRequestUserInput.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1409A23E0 (PopProcessSessionDisplayStateChange.c)
+ *     PopIsInputSuppressionEngaged @ 0x140A3AD68 (PopIsInputSuppressionEngaged.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopMonitorInvocation(__int64 a1, __int64 a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiAttemptBugcheckRecovery @ 0x140524D84
+ * XREFs of KiAttemptBugcheckRecovery @ 0x140524FC4
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     IoSaveBugCheckRecoveryStatus @ 0x140502860 (IoSaveBugCheckRecoveryStatus.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x140518084 (KiBugcheckUnloadDebugSymbols.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x1405187A8 (KiInvokeBugCheckEntryCallbacks.c)
- *     KiGetRecoveryInformation @ 0x1405250E0 (KiGetRecoveryInformation.c)
- *     KiRecordRecoveryFailure @ 0x14052515C (KiRecordRecoveryFailure.c)
- *     ExRebootSystemForRecovery @ 0x1405B2614 (ExRebootSystemForRecovery.c)
+ *     IoSaveBugCheckRecoveryStatus @ 0x1405027E0 (IoSaveBugCheckRecoveryStatus.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x1405182C4 (KiBugcheckUnloadDebugSymbols.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405189E8 (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiGetRecoveryInformation @ 0x140525320 (KiGetRecoveryInformation.c)
+ *     KiRecordRecoveryFailure @ 0x14052539C (KiRecordRecoveryFailure.c)
+ *     ExRebootSystemForRecovery @ 0x1405B2844 (ExRebootSystemForRecovery.c)
  */
 
 void KiAttemptBugcheckRecovery()
@@ -33,12 +33,12 @@ void KiAttemptBugcheckRecovery()
   _DWORD *v12; // r9
   unsigned __int8 v13; // cl
   struct _KPRCB *v14; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
   __int128 v16; // [rsp+30h] [rbp-50h] BYREF
   __int128 v17; // [rsp+40h] [rbp-40h]
   __int128 v18; // [rsp+50h] [rbp-30h]
   __int64 v19; // [rsp+60h] [rbp-20h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
@@ -64,10 +64,10 @@ void KiAttemptBugcheckRecovery()
     v18 = 0LL;
     IoSaveBugCheckRecoveryStatus((int *)&v16);
     KiInvokeBugCheckEntryCallbacks(0x3FFu, (__int64)&KiBugcheckRecoveryInformation, 0x20u);
-    BYTE8(v16) = byte_140C2AFE7;
+    BYTE8(v16) = byte_140C2B007;
     LODWORD(v16) = 1;
     IoSaveBugCheckRecoveryStatus((int *)&v16);
-    if ( !byte_140C2AFE7 )
+    if ( !byte_140C2B007 )
     {
       v1 = 2LL;
 LABEL_39:
@@ -117,11 +117,11 @@ LABEL_39:
     KiRecoveryInProgress = 0;
     v17 = KiBugCheckData;
     LODWORD(v16) = 2;
-    v19 = qword_140C31560;
-    BYTE8(v16) = byte_140C2AFE4;
-    v18 = xmmword_140C31550;
+    v19 = qword_140C31540;
+    BYTE8(v16) = byte_140C2B004;
+    v18 = xmmword_140C31530;
     IoSaveBugCheckRecoveryStatus((int *)&v16);
-    if ( byte_140C2AFE4 )
+    if ( byte_140C2B004 )
     {
       KiBugcheckUnloadDebugSymbols();
       LOBYTE(v10) = CurrentIrql;

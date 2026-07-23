@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSnapThunk @ 0x14046CB34
+ * XREFs of MiSnapThunk @ 0x14046BA04
  * Callers:
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
- *     MiSnapThunk @ 0x14046CB34 (MiSnapThunk.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x14046BA04 (MiSnapThunk.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     strchr @ 0x14014E738 (strchr.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     strchr @ 0x14014ECF8 (strchr.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     MiSnapThunk @ 0x14046CB34 (MiSnapThunk.c)
- *     RtlPrefixString @ 0x1404BBC70 (RtlPrefixString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     MiSnapThunk @ 0x14046BA04 (MiSnapThunk.c)
+ *     RtlPrefixString @ 0x1404A79A0 (RtlPrefixString.c)
  */
 
 __int64 __fastcall MiSnapThunk(char *a1, __int64 a2, __int64 *a3, char **a4, unsigned __int16 *a5)
@@ -50,7 +50,7 @@ __int64 __fastcall MiSnapThunk(char *a1, __int64 a2, __int64 *a3, char **a4, uns
   __int64 v39; // [rsp+20h] [rbp-40h]
   ULONG Size[2]; // [rsp+30h] [rbp-30h] BYREF
   void *Src; // [rsp+38h] [rbp-28h]
-  STRING SourceString; // [rsp+40h] [rbp-20h] BYREF
+  ANSI_STRING SourceString; // [rsp+40h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
   int v44; // [rsp+88h] [rbp+28h]
 

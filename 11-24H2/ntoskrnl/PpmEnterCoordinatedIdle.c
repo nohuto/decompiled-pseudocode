@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEnterCoordinatedIdle @ 0x1404B0014
+ * XREFs of PpmEnterCoordinatedIdle @ 0x1404AA8A4
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
  * Callees:
- *     PpmEventCoordinatedIdleTransition @ 0x1404B0128 (PpmEventCoordinatedIdleTransition.c)
- *     KdPowerTransitionEx @ 0x1404CF5B0 (KdPowerTransitionEx.c)
- *     KdCallPowerHandlers @ 0x1405AF83C (KdCallPowerHandlers.c)
- *     PpmEventEnterPlatformIdleState @ 0x1405D90F4 (PpmEventEnterPlatformIdleState.c)
+ *     PpmEventCoordinatedIdleTransition @ 0x1404AA9B8 (PpmEventCoordinatedIdleTransition.c)
+ *     KdPowerTransitionEx @ 0x1404C8870 (KdPowerTransitionEx.c)
+ *     KdCallPowerHandlers @ 0x1405AC7AC (KdCallPowerHandlers.c)
+ *     PpmEventEnterPlatformIdleState @ 0x1405D6594 (PpmEventEnterPlatformIdleState.c)
  */
 
 unsigned int __fastcall PpmEnterCoordinatedIdle(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
@@ -23,8 +23,8 @@ unsigned int __fastcall PpmEnterCoordinatedIdle(__int64 a1, __int64 a2, unsigned
   {
     v9 = PpmPlatformStates + 448LL * a3;
     PpmEventEnterPlatformIdleState(a3);
-    if ( !qword_140E27D80 && a3 == dword_140E27DC0 )
-      _InterlockedCompareExchange64(&qword_140E27D80, MEMORY[0xFFFFF78000000008], 0LL);
+    if ( !qword_140E27EC0 && a3 == dword_140E27F00 )
+      _InterlockedCompareExchange64(&qword_140E27EC0, MEMORY[0xFFFFF78000000008], 0LL);
     a1 = a5;
     if ( a5 )
     {

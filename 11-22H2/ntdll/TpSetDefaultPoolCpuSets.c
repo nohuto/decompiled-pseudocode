@@ -7,10 +7,10 @@
  *     memmove @ 0x1800A5980 (memmove.c)
  */
 
-__int64 __fastcall TpSetDefaultPoolCpuSets(void *Src, unsigned int a2)
+void __fastcall TpSetDefaultPoolCpuSets(void *Src, unsigned int a2)
 {
   RtlAcquireSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
   TppPoolpDefaultPoolCpuSetCount = a2;
   memmove(&TppPoolpDefaultPoolCpuSets, Src, 8LL * a2);
-  return RtlReleaseSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
+  RtlReleaseSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
 }

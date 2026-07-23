@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBlackBoxUpdate @ 0x140679468
+ * XREFs of PopBlackBoxUpdate @ 0x14066CBA8
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlTestProtectedAccess @ 0x1406075FC (RtlTestProtectedAccess.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlTestProtectedAccess @ 0x14069708C (RtlTestProtectedAccess.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
@@ -24,14 +24,17 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
   size_t v9; // rdi
   unsigned int v10; // ebx
   char v11; // si
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rcx
-  char *v15; // rax
-  char *v16; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  unsigned __int64 v16; // rax
+  unsigned __int64 v17; // rcx
+  char *v18; // rax
+  char *v19; // rcx
   __int64 *PoolWithTag; // rax
-  char v18; // [rsp+50h] [rbp+8h]
+  char v21; // [rsp+50h] [rbp+8h]
 
-  v18 = 0;
+  v21 = 0;
   v3 = *((int *)a1 + 6);
   if ( (unsigned int)v3 > 0x15 )
   {
@@ -41,22 +44,24 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
   v4 = &PopBlackBoxEntries + 13 * v3;
   if ( a2 )
   {
-    v15 = a1[1];
-    if ( v15 )
+    v18 = a1[1];
+    if ( v18 )
     {
-      v16 = *a1;
-      if ( &v15[(_QWORD)v16] > (char *)0x7FFFFFFF0000LL || &v15[(_QWORD)v16] < v16 )
+      v19 = *a1;
+      if ( &v18[(_QWORD)v19] > (char *)0x7FFFFFFF0000LL || &v18[(_QWORD)v19] < v19 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     if ( ((_DWORD)v4[2] & 1) != 0
-      && !RtlTestProtectedAccess(BYTE2(KeGetCurrentThread()->Process[2].Header.WaitListHead.Flink), 0x61u) )
+      && !RtlTestProtectedAccess(
+            (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->Process[2].Header.WaitListHead.Flink),
+            (PS_PROTECTION)97) )
     {
       v10 = -1073741790;
       goto LABEL_11;
     }
   }
   v5 = *((_DWORD *)a1 + 7);
-  v18 = 1;
+  v21 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopBlackBoxLock, 0LL);
@@ -93,20 +98,20 @@ LABEL_29:
     goto LABEL_11;
   }
   v8 = (unsigned __int64)a1[2];
-  v13 = v8 + v7;
-  v14 = -1LL;
-  if ( v13 >= v8 )
-    v14 = v13;
-  v10 = v13 < v8 ? 0xC0000095 : 0;
-  if ( v13 >= v8 )
+  v16 = v8 + v7;
+  v17 = -1LL;
+  if ( v16 >= v8 )
+    v17 = v16;
+  v10 = v16 < v8 ? 0xC0000095 : 0;
+  if ( v16 >= v8 )
   {
-    if ( v14 <= (unsigned __int64)v4[12] )
+    if ( v17 <= (unsigned __int64)v4[12] )
     {
       if ( v8 >= 0x1000 )
       {
         v9 = 0LL;
       }
-      else if ( v14 > 0x1000 )
+      else if ( v17 > 0x1000 )
       {
         v9 = 4096 - v8;
       }
@@ -115,13 +120,13 @@ LABEL_29:
     goto LABEL_29;
   }
 LABEL_11:
-  if ( v18 )
+  if ( v21 )
   {
     v11 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PopBlackBoxLock, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v11 & 2) != 0 && (v11 & 4) == 0 )
       ExfTryToWakePushLock(&PopBlackBoxLock);
     KeAbPostRelease((ULONG_PTR)&PopBlackBoxLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
   }
   return v10;
 }

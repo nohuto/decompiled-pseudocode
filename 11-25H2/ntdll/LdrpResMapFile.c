@@ -16,152 +16,152 @@
  *     ZwCreateFile @ 0x180163CC0 (ZwCreateFile.c)
  */
 
-__int64 __fastcall LdrpResMapFile(wchar_t *String2, wchar_t **a2, _QWORD *a3, unsigned int a4)
+NTSTATUS __fastcall LdrpResMapFile(HANDLE FileHandle, PVOID *BaseModule, PSIZE_T Size, int a4)
 {
   __int64 v8; // r14
   __int64 v9; // rcx
   __int64 v10; // rdi
-  __int64 v11; // r9
-  int v12; // ebx
-  __int64 result; // rax
-  __int64 v14; // rcx
-  __int64 v15; // r15
-  __int64 v16; // rdx
-  __int64 v17; // r9
-  HANDLE v18; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v19; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v20; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v21; // [rsp+80h] [rbp-88h] BYREF
-  _QWORD v22[2]; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v23; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v24[2]; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v25; // [rsp+B8h] [rbp-50h] BYREF
-  __int128 v26; // [rsp+C0h] [rbp-48h] BYREF
-  __int128 v27; // [rsp+D0h] [rbp-38h]
-  __int128 v28; // [rsp+E0h] [rbp-28h] BYREF
-  __int128 v29; // [rsp+F0h] [rbp-18h]
-  __int128 v30; // [rsp+100h] [rbp-8h]
-  __int128 v31; // [rsp+110h] [rbp+8h] BYREF
+  NTSTATUS v11; // ebx
+  NTSTATUS result; // eax
+  __int64 v13; // rcx
+  wchar_t *Buffer; // r15
+  unsigned __int64 ContainingDirectory; // rdx
+  HANDLE SectionHandle; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v17; // [rsp+70h] [rbp-98h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp-90h] BYREF
+  ULONG_PTR ViewSize; // [rsp+80h] [rbp-88h] BYREF
+  _QWORD v20[2]; // [rsp+88h] [rbp-80h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+98h] [rbp-70h] BYREF
+  _QWORD v22[2]; // [rsp+A8h] [rbp-60h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+B8h] [rbp-50h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+C0h] [rbp-48h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+E0h] [rbp-28h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+110h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+158h] [rbp+50h] BYREF
 
-  v22[0] = 2752552LL;
-  v24[0] = 2621478LL;
+  v20[0] = 2752552LL;
+  v22[0] = 2621478LL;
   Handle = 0LL;
-  *(_QWORD *)&v30 = 0LL;
-  DWORD2(v30) = 0;
-  v18 = 0LL;
-  v22[1] = L"LdrpResMapFile Enter";
-  v21 = 0LL;
-  v24[1] = L"LdrpResMapFile Exit";
-  v23 = 0LL;
-  v25 = 0LL;
-  v28 = 0LL;
-  v20 = 0LL;
-  v29 = 0LL;
-  v19 = 0LL;
-  v26 = 0LL;
-  v27 = 0LL;
-  v31 = 0LL;
+  SectionHandle = 0LL;
+  v20[1] = L"LdrpResMapFile Enter";
+  ViewSize = 0LL;
+  v22[1] = L"LdrpResMapFile Exit";
+  NtFileName = 0LL;
+  SectionOffset.QuadPart = 0LL;
+  memset(&ObjectAttributes, 0, 44);
+  BaseAddress = 0LL;
+  v17 = 0LL;
+  memset(&RelativeName, 0, sizeof(RelativeName));
+  IoStatusBlock = 0LL;
   v8 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v9 = 2147353477LL;
   v10 = 2147353476LL;
   if ( (*(_BYTE *)v9 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v14 = (__int64)NtCurrentPeb()->SharedData + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v14 = 2147353476LL;
-    LdrpTraceLoadMUIDll((unsigned __int16 *)v22, *(unsigned __int8 *)v14);
+      v13 = 2147353476LL;
+    LdrpTraceLoadMUIDll((unsigned __int16 *)v20, *(unsigned __int8 *)v13);
   }
-  if ( !String2 || !a2 || !a3 )
+  if ( !FileHandle || !BaseModule || !Size )
     goto LABEL_30;
-  v11 = a4;
-  *a2 = 0LL;
-  LODWORD(v11) = a4 | 0x200000;
-  if ( (int)LdrRemoveLoadAsDataTable(String2, a2, a3, v11) >= 0 )
+  *BaseModule = 0LL;
+  if ( LdrRemoveLoadAsDataTable(FileHandle, BaseModule, Size, a4 | 0x200000) >= 0 )
   {
-    v12 = -1073741302;
+    v11 = -1073741302;
     goto LABEL_17;
   }
   if ( (a4 & 0x400) != 0 )
   {
-    if ( !RtlDosPathNameToRelativeNtPathName_U(String2, (unsigned __int16 *)&v23, 0LL, (__int64)&v26) )
+    if ( !RtlDosPathNameToRelativeNtPathName_U((PCWSTR)FileHandle, &NtFileName, 0LL, &RelativeName) )
     {
-      v12 = -1073020927;
+      v11 = -1073020927;
       goto LABEL_17;
     }
-    v15 = *((_QWORD *)&v23 + 1);
-    if ( (_WORD)v26 )
+    Buffer = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v16 = v27;
-      v23 = v26;
+      ContainingDirectory = (unsigned __int64)RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v16 = 0LL;
-      *(_QWORD *)&v27 = 0LL;
+      ContainingDirectory = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     }
-    *((_QWORD *)&v28 + 1) = v16 & -(__int64)(v15 != 0);
-    LODWORD(v28) = 48;
-    DWORD2(v29) = 64;
-    *(_QWORD *)&v29 = &v23;
-    v30 = 0LL;
-    v12 = ZwCreateFile(&Handle, 2148532352LL, &v28, &v31, 0LL, 0, 5, 1, 0, 0LL, 0);
-    if ( v15 )
+    ObjectAttributes.RootDirectory = (HANDLE)(ContainingDirectory & -(__int64)(Buffer != 0LL));
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = &NtFileName;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v11 = ZwCreateFile(&Handle, 0x80100080, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 5u, 1u, 0, 0LL, 0);
+    if ( Buffer )
     {
-      RtlReleaseRelativeName((__int64)&v26);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v15, v17);
+      RtlReleaseRelativeName(&RelativeName);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
     }
-    if ( v12 < 0 )
+    if ( v11 < 0 )
       goto LABEL_17;
-    String2 = (wchar_t *)Handle;
+    FileHandle = Handle;
     goto LABEL_11;
   }
   if ( (a4 & 0x800) == 0 )
   {
 LABEL_30:
-    v12 = -1073741811;
+    v11 = -1073741811;
     goto LABEL_17;
   }
-  Handle = String2;
+  Handle = FileHandle;
 LABEL_11:
   if ( (a4 & 0x20000) == 0 )
-    goto LABEL_12;
-  result = LdrpResFileSize((__int64)String2, &v19);
-  if ( (int)result < 0 )
-    return result;
-  if ( (unsigned __int64)(unsigned int)v19 > *a3 )
-  {
-    v12 = -1073741793;
-  }
-  else
   {
 LABEL_12:
-    v12 = NtCreateSection(&v18, 983045LL, 0LL);
+    v11 = NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle);
     if ( (~(_WORD)a4 & 0x800) != 0 )
       NtClose(Handle);
-    if ( v12 >= 0 )
+    if ( v11 >= 0 )
     {
-      v12 = ZwMapViewOfSection(v18, -1LL, &v20, 0LL, 0LL, &v25, &v21, 1, 0, 2);
-      NtClose(v18);
-      if ( v12 >= 0 )
+      v11 = ZwMapViewOfSection(
+              SectionHandle,
+              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+              &BaseAddress,
+              0LL,
+              0LL,
+              &SectionOffset,
+              &ViewSize,
+              ViewShare,
+              0,
+              2u);
+      NtClose(SectionHandle);
+      if ( v11 >= 0 )
       {
-        *a2 = (wchar_t *)(v20 | 1);
-        *a3 = v21;
+        *BaseModule = (PVOID)((unsigned __int64)BaseAddress | 1);
+        *Size = ViewSize;
       }
     }
+    goto LABEL_17;
   }
+  result = LdrpResFileSize((char *)FileHandle, &v17);
+  if ( result < 0 )
+    return result;
+  if ( (unsigned int)v17 <= *Size )
+  {
+    FileHandle = Handle;
+    goto LABEL_12;
+  }
+  v11 = -1073741793;
 LABEL_17:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v8 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 554;
-    LdrpTraceLoadMUIDll((unsigned __int16 *)v24, *(unsigned __int8 *)v10);
+    LdrpTraceLoadMUIDll((unsigned __int16 *)v22, *(unsigned __int8 *)v10);
   }
-  return (unsigned int)v12;
+  return v11;
 }

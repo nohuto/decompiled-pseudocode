@@ -9,76 +9,79 @@
  *     sub_1800F34C8 @ 0x1800F34C8 (sub_1800F34C8.c)
  */
 
-_QWORD *__fastcall sub_1800F4094(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+PVOID *__fastcall sub_1800F4094(PVOID a1)
 {
-  unsigned int v5; // edi
-  __int64 v6; // rsi
-  __int64 *v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // rax
-  __int64 **v10; // rdx
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rbx
-  _QWORD *result; // rax
-  __int64 v14; // rax
-  _QWORD *v15; // rcx
-  unsigned __int64 v16; // rcx
-  _QWORD v17[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v2; // edi
+  __int64 v3; // rsi
+  PVOID *v4; // rcx
+  __int64 v5; // r8
+  PVOID *v6; // rax
+  PVOID **v7; // rdx
+  _QWORD *v8; // rdx
+  _QWORD *v9; // rbx
+  PVOID *result; // rax
+  _QWORD *v11; // rax
+  PVOID *v12; // rcx
+  PVOID **v13; // rcx
+  PVOID BaseAddress[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v17[1] = v17;
-  v5 = 0;
-  v17[0] = v17;
+  BaseAddress[1] = BaseAddress;
+  v2 = 0;
+  BaseAddress[0] = BaseAddress;
   do
   {
-    v6 = v5 & 0xF;
-    RtlAcquireSRWLockExclusive(*(_QWORD *)(qword_18015D7C8 + 8 * v6), a2, a3, a4);
-    v7 = *(__int64 **)(qword_18015D720 + 16LL * v5);
-    v8 = qword_18015D720 + 16LL * v5;
-    if ( v7 != (__int64 *)v8 )
+    v3 = v2 & 0xF;
+    RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_18015D7C8 + 8 * v3));
+    v4 = *(PVOID **)(qword_18015D720 + 16LL * v2);
+    v5 = qword_18015D720 + 16LL * v2;
+    if ( v4 != (PVOID *)v5 )
     {
       do
       {
-        v9 = *v7;
-        if ( v7[2] == a1 )
+        v6 = (PVOID *)*v4;
+        if ( v4[2] == a1 )
         {
-          if ( *(__int64 **)(v9 + 8) != v7 || (v10 = (__int64 **)v7[1], *v10 != v7) )
+          if ( v6[1] != v4 || (v7 = (PVOID **)v4[1], *v7 != v4) )
             __fastfail(3u);
-          *v10 = (__int64 *)v9;
-          *(_QWORD *)(v9 + 8) = v10;
-          v11 = v17[0];
-          if ( *(_QWORD **)(v17[0] + 8LL) != v17 )
+          *v7 = v6;
+          v6[1] = v7;
+          v8 = BaseAddress[0];
+          if ( *((PVOID **)BaseAddress[0] + 1) != BaseAddress )
             __fastfail(3u);
-          *v7 = v17[0];
-          v7[1] = (__int64)v17;
-          *(_QWORD *)(v11 + 8) = v7;
-          v17[0] = v7;
+          *v4 = BaseAddress[0];
+          v4[1] = BaseAddress;
+          v8[1] = v4;
+          BaseAddress[0] = v4;
         }
-        v7 = (__int64 *)v9;
+        v4 = v6;
       }
-      while ( v9 != v8 );
+      while ( v6 != (PVOID *)v5 );
     }
-    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_18015D7C8 + 8 * v6));
-    ++v5;
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_18015D7C8 + 8 * v3));
+    ++v2;
   }
-  while ( v5 < 0x1EEF );
+  while ( v2 < 0x1EEF );
   while ( 1 )
   {
-    v12 = v17[0];
-    result = v17;
-    if ( (_QWORD *)v17[0] == v17 )
+    v9 = BaseAddress[0];
+    result = BaseAddress;
+    if ( BaseAddress[0] == BaseAddress )
       break;
-    v14 = *(_QWORD *)v17[0];
-    if ( *(_QWORD *)(*(_QWORD *)v17[0] + 8LL) != v17[0] || (v15 = *(_QWORD **)(v17[0] + 8LL), *v15 != v17[0]) )
-      __fastfail(3u);
-    *v15 = v14;
-    *(_QWORD *)(v14 + 8) = v15;
-    v16 = *(_QWORD *)(v12 + 32);
-    if ( v16 )
+    v11 = *(_QWORD **)BaseAddress[0];
+    if ( *(PVOID *)(*(_QWORD *)BaseAddress[0] + 8LL) != BaseAddress[0]
+      || (v12 = (PVOID *)*((_QWORD *)BaseAddress[0] + 1), *v12 != BaseAddress[0]) )
     {
-      sub_1800F34C8(v16, a2, a3, a4);
-      *(_QWORD *)(v12 + 32) = 0LL;
+      __fastfail(3u);
     }
-    RtlFreeHeap(qword_18015D7E8, 0, v12);
+    *v12 = v11;
+    v11[1] = v12;
+    v13 = (PVOID **)v9[4];
+    if ( v13 )
+    {
+      sub_1800F34C8(v13);
+      v9[4] = 0LL;
+    }
+    RtlFreeHeap(qword_18015D7E8, 0, v9);
   }
   return result;
 }

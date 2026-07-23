@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpClearScreen @ 0x140671AF0
+ * XREFs of BgpClearScreen @ 0x140672040
  * Callers:
- *     BgpDisplaySafeToPowerOffScreen @ 0x140672E44 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1406730C4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140673394 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140673614 (BgpFwDisplayBugCheckScreen.c)
  *     AnFwDisplayBackgroundUpdate @ 0x140AEC0B8 (AnFwDisplayBackgroundUpdate.c)
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
- *     BgpConsoleClearScreenEx @ 0x140AF1428 (BgpConsoleClearScreenEx.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140AF21E0 (AnFwpBackgroundUpdateTimer.c)
+ *     BgpConsoleClearScreenEx @ 0x140AF1438 (BgpConsoleClearScreenEx.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140AF21F0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14038524C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
- *     BgpGxInitializeRectangle @ 0x14038779C (BgpGxInitializeRectangle.c)
- *     BgpGxFillRectangle @ 0x140387D34 (BgpGxFillRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14038542C (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxInitializeRectangle @ 0x14038797C (BgpGxInitializeRectangle.c)
+ *     BgpGxFillRectangle @ 0x140387F14 (BgpGxFillRectangle.c)
  */
 
 __int64 __fastcall BgpClearScreen(unsigned int a1)

@@ -15,7 +15,7 @@ __int64 __fastcall sub_180036634(__int64 a1, __int64 a2)
   __int64 v5; // rdx
   __int64 result; // rax
 
-  RtlRbRemoveNode(a1 + 96, a2);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)a2);
   *(_QWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;

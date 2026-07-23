@@ -1,18 +1,18 @@
 /*
- * XREFs of WheaAttemptRowOffline @ 0x14065CB10
+ * XREFs of WheaAttemptRowOffline @ 0x14065B230
  * Callers:
- *     WheapOfflineRow @ 0x1407C8078 (WheapOfflineRow.c)
- *     WheapExecuteRowFailureCheck @ 0x1407C8EE8 (WheapExecuteRowFailureCheck.c)
+ *     WheapOfflineRow @ 0x1407C8518 (WheapOfflineRow.c)
+ *     WheapExecuteRowFailureCheck @ 0x1407C93D8 (WheapExecuteRowFailureCheck.c)
  * Callees:
- *     WheaPersistBadPageToBcd @ 0x14065CE90 (WheaPersistBadPageToBcd.c)
- *     WheaPersistBadPageToRegistry @ 0x14065D04C (WheaPersistBadPageToRegistry.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     MmGetPageBadStatus @ 0x140674AB0 (MmGetPageBadStatus.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x140674B50 (MmMarkPhysicalMemoryAsBad.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WheaAddressTranslateAndAddToDefectList @ 0x1407C715C (WheaAddressTranslateAndAddToDefectList.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x1407C7B98 (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapLogPageOfflineAttemptEvent @ 0x1407C8590 (WheapLogPageOfflineAttemptEvent.c)
+ *     WheaPersistBadPageToBcd @ 0x14065B5B0 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x14065B76C (WheaPersistBadPageToRegistry.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     MmGetPageBadStatus @ 0x140675C80 (MmGetPageBadStatus.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140675D20 (MmMarkPhysicalMemoryAsBad.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WheaAddressTranslateAndAddToDefectList @ 0x1407C75FC (WheaAddressTranslateAndAddToDefectList.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x1407C8038 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x1407C8A78 (WheapLogPageOfflineAttemptEvent.c)
  */
 
 __int64 __fastcall WheaAttemptRowOffline(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -104,13 +104,13 @@ __int64 __fastcall WheaAttemptRowOffline(__int64 a1, __int64 a2, unsigned int a3
       HIBYTE(v28) = 1;
       WheaLogInternalEvent(&Src);
       v19 = 0;
-      if ( *(_BYTE *)off_140E09558 )
+      if ( *(_BYTE *)off_140E095C8 )
       {
-        if ( *(_DWORD *)off_140E09718 == 1 )
+        if ( *(_DWORD *)off_140E09788 == 1 )
         {
           WheaPersistBadPageToBcd(a1);
         }
-        else if ( *(_DWORD *)off_140E09718 == 2 )
+        else if ( *(_DWORD *)off_140E09788 == 2 )
         {
           WheaPersistBadPageToRegistry(a1 + i);
         }

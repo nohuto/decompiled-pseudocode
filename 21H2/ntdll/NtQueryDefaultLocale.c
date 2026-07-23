@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryDefaultLocale @ 0x18009D8E0
+ * XREFs of NtQueryDefaultLocale @ 0x18009D8A0
  * Callers:
  *     LdrpSearchResourceSection_U @ 0x180033BCC (LdrpSearchResourceSection_U.c)
  *     LdrResFallbackLangList @ 0x180057BE8 (LdrResFallbackLangList.c)
@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtQueryDefaultLocale()
+NTSTATUS __cdecl NtQueryDefaultLocale(BOOLEAN UserProfile, PLCID DefaultLocaleId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 21LL;
+  result = 21;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

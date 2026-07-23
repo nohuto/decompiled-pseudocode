@@ -1,10 +1,10 @@
 /*
- * XREFs of inflateStateCheck @ 0x140627754
+ * XREFs of inflateStateCheck @ 0x14062A7A4
  * Callers:
- *     inflate @ 0x14062664C (inflate.c)
- *     inflateReset @ 0x1406275F4 (inflateReset.c)
- *     inflateReset2 @ 0x140627624 (inflateReset2.c)
- *     inflateResetKeep @ 0x1406276C4 (inflateResetKeep.c)
+ *     inflate @ 0x14062969C (inflate.c)
+ *     inflateReset @ 0x14062A644 (inflateReset.c)
+ *     inflateReset2 @ 0x14062A674 (inflateReset2.c)
+ *     inflateResetKeep @ 0x14062A714 (inflateResetKeep.c)
  * Callees:
  *     <none>
  */

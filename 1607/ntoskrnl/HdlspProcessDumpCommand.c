@@ -4,12 +4,12 @@
  *     HdlspBugCheckProcessing @ 0x140722CBC (HdlspBugCheckProcessing.c)
  *     HdlspDispatch @ 0x140722DE0 (HdlspDispatch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     sprintf_s @ 0x140152AEC (sprintf_s.c)
- *     RtlUnicodeStringToAnsiString @ 0x1403F7370 (RtlUnicodeStringToAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sprintf_s @ 0x1401530AC (sprintf_s.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1403F6230 (RtlUnicodeStringToAnsiString.c)
  *     HdlspPutMore @ 0x140723BF0 (HdlspPutMore.c)
  *     HdlspPutString @ 0x140723C8C (HdlspPutString.c)
  */
@@ -31,8 +31,8 @@ void __fastcall HdlspProcessDumpCommand(char a1)
   KIRQL v14; // al
   KIRQL v15; // al
   const char *v16; // rcx
-  struct _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v18; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v18; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   char v20; // [rsp+A8h] [rbp+38h] BYREF
 

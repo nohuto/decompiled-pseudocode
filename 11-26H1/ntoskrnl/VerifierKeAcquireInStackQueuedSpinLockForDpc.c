@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x140C333D0
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x140C393E0
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x140C333F0 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x140C39400 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockForDpc(__int64 a1, __int64 a2)

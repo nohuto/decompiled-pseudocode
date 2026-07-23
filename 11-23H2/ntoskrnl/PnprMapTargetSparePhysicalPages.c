@@ -1,9 +1,9 @@
 /*
- * XREFs of PnprMapTargetSparePhysicalPages @ 0x140A9CEB0
+ * XREFs of PnprMapTargetSparePhysicalPages @ 0x140A9CD20
  * Callers:
  *     <none>
  * Callees:
- *     PnprMapPhysicalPages @ 0x140A9CCE8 (PnprMapPhysicalPages.c)
+ *     PnprMapPhysicalPages @ 0x140A9CB58 (PnprMapPhysicalPages.c)
  */
 
 __int64 __fastcall PnprMapTargetSparePhysicalPages(

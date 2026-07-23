@@ -1,10 +1,10 @@
 /*
- * XREFs of Normalization__LoadTables @ 0x1800FFC24
+ * XREFs of Normalization__LoadTables @ 0x1800FF374
  * Callers:
- *     RtlpGetNormalization @ 0x1800AE430 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x1800AD560 (RtlpGetNormalization.c)
  * Callees:
- *     Normalization__LoadClassMapExceptions @ 0x1800FFDAC (Normalization__LoadClassMapExceptions.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     Normalization__LoadClassMapExceptions @ 0x1800FF4FC (Normalization__LoadClassMapExceptions.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall Normalization__LoadTables(__int64 a1, unsigned __int16 *a2, unsigned __int64 a3, _DWORD *a4)

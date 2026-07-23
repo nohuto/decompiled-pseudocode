@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpEnvFreeVA @ 0x140350258
+ * XREFs of RtlpHpEnvFreeVA @ 0x1403522D8
  * Callers:
- *     RtlpHpVaMgrRegionAllocate @ 0x1403510D8 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x140353158 (RtlpHpVaMgrRegionAllocate.c)
  * Callees:
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
  */
 
 __int64 __fastcall RtlpHpEnvFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __int64 a3)

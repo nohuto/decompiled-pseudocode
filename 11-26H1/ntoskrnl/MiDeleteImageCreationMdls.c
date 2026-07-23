@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteImageCreationMdls @ 0x140A5620C
+ * XREFs of MiDeleteImageCreationMdls @ 0x140A63794
  * Callers:
- *     MiCreateImageMapFinish @ 0x140A54F3C (MiCreateImageMapFinish.c)
- *     MiCreateImageMapFreeResources @ 0x140A55C50 (MiCreateImageMapFreeResources.c)
- *     MiCreateImageMapHeader @ 0x140A55DDC (MiCreateImageMapHeader.c)
- *     MiCreateMdl @ 0x140A560A8 (MiCreateMdl.c)
- *     MiReleaseImageSection @ 0x140A579A4 (MiReleaseImageSection.c)
+ *     MiCreateImageMapFinish @ 0x140A624DC (MiCreateImageMapFinish.c)
+ *     MiCreateImageMapFreeResources @ 0x140A631D8 (MiCreateImageMapFreeResources.c)
+ *     MiCreateImageMapHeader @ 0x140A63364 (MiCreateImageMapHeader.c)
+ *     MiCreateMdl @ 0x140A63630 (MiCreateMdl.c)
+ *     MiReleaseImageSection @ 0x140A64F24 (MiReleaseImageSection.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MiReturnPfnReferenceCount @ 0x1404AE950 (MiReturnPfnReferenceCount.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MiReturnPfnReferenceCount @ 0x1404A7FE0 (MiReturnPfnReferenceCount.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteImageCreationMdls(PMDL Mdl, int a2)

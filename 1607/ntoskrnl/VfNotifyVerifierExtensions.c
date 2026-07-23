@@ -1,8 +1,8 @@
 /*
- * XREFs of VfNotifyVerifierExtensions @ 0x140704E00
+ * XREFs of VfNotifyVerifierExtensions @ 0x140704E30
  * Callers:
  *     VfDriverLoadImage @ 0x1406FDD58 (VfDriverLoadImage.c)
- *     VfNotifyVerifierOfEvent @ 0x1407028B0 (VfNotifyVerifierOfEvent.c)
+ *     VfNotifyVerifierOfEvent @ 0x1407028E0 (VfNotifyVerifierOfEvent.c)
  *     VfSuspectDriversLoadCallback @ 0x140716114 (VfSuspectDriversLoadCallback.c)
  *     VfSuspectDriversUnloadCallback @ 0x140716514 (VfSuspectDriversUnloadCallback.c)
  * Callees:

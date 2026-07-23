@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlAddMandatoryAce @ 0x1406308A0
+ * XREFs of RtlAddMandatoryAce @ 0x1406318C0
  * Callers:
- *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1406527AC (IopCreateSecurityDescriptorPerType.c)
- *     ObpVerifyAccessToBoundaryEntry @ 0x140654050 (ObpVerifyAccessToBoundaryEntry.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F5218 (CmpGenerateAppHiveSecurityDescriptor.c)
- *     SepInitSystemDacls @ 0x1409AD07C (SepInitSystemDacls.c)
- *     ExpKeyedEventInitialization @ 0x1409DA2F8 (ExpKeyedEventInitialization.c)
+ *     RtlpNewSecurityObject @ 0x14062E650 (RtlpNewSecurityObject.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x14065396C (IopCreateSecurityDescriptorPerType.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140655210 (ObpVerifyAccessToBoundaryEntry.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F6418 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     SepInitSystemDacls @ 0x1409AE07C (SepInitSystemDacls.c)
+ *     ExpKeyedEventInitialization @ 0x1409DB2F8 (ExpKeyedEventInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
- *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlFirstFreeAce @ 0x140631A10 (RtlFirstFreeAce.c)
+ *     RtlValidSid @ 0x140632590 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140632720 (RtlValidAcl.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

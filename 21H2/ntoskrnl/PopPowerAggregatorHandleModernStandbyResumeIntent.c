@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerAggregatorHandleModernStandbyResumeIntent @ 0x1408EE420
+ * XREFs of PopPowerAggregatorHandleModernStandbyResumeIntent @ 0x1408EE580
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775FD4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
- *     PopPowerAggregatorGetModernStandbySessionType @ 0x1408EE258 (PopPowerAggregatorGetModernStandbySessionType.c)
+ *     PopPowerAggregatorGetModernStandbySessionType @ 0x1408EE3B8 (PopPowerAggregatorGetModernStandbySessionType.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleModernStandbyResumeIntent(__int64 a1)

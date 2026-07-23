@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __stdcall DbgUserBreakPoint()
+void DbgUserBreakPoint(void)
 {
   __debugbreak();
 }

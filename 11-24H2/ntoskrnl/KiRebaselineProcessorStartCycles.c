@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRebaselineProcessorStartCycles @ 0x1405B109C
+ * XREFs of KiRebaselineProcessorStartCycles @ 0x1405AE00C
  * Callers:
- *     KiInitializeProcessorCycleAccumulation @ 0x1405B0FC4 (KiInitializeProcessorCycleAccumulation.c)
- *     KiCalibrateTimeAdjustment @ 0x140B6B5B0 (KiCalibrateTimeAdjustment.c)
+ *     KiInitializeProcessorCycleAccumulation @ 0x1405ADF34 (KiInitializeProcessorCycleAccumulation.c)
+ *     KiCalibrateTimeAdjustment @ 0x140B6BCD0 (KiCalibrateTimeAdjustment.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall KiRebaselineProcessorStartCycles(__int64 a1)

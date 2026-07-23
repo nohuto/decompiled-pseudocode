@@ -1,11 +1,11 @@
 /*
- * XREFs of PfHardFaultLog @ 0x14038E8C4
+ * XREFs of PfHardFaultLog @ 0x140390674
  * Callers:
- *     MiWaitForInPageComplete @ 0x14038E1F0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x14038FFA0 (MiWaitForInPageComplete.c)
  * Callees:
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PfLogEvent @ 0x1403829A0 (PfLogEvent.c)
- *     EtwTraceSiloTimedEvent @ 0x14038CBFC (EtwTraceSiloTimedEvent.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PfLogEvent @ 0x140384750 (PfLogEvent.c)
+ *     EtwTraceSiloTimedEvent @ 0x14038E9A8 (EtwTraceSiloTimedEvent.c)
  */
 
 void __fastcall PfHardFaultLog(_QWORD *a1, unsigned int a2)
@@ -69,7 +69,7 @@ LABEL_3:
           a1[8] = v12;
           v13 = (__int64)Process[1].Header.WaitListHead.Flink ^ (__int64)Process[1].ThreadListHead.Flink;
           v17[0] = 2 * v12;
-          v17[1] = stru_140F12D20.Padding[2];
+          v17[1] = xmmword_140F13528;
           v20 = a1[6];
           v18 = (unsigned int)(a1[4] >> 9);
           v14 = a1[5];

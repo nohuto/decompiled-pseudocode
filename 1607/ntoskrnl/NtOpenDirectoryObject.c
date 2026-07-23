@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenDirectoryObject @ 0x140463F18
+ * XREFs of NtOpenDirectoryObject @ 0x140462DE8
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
  */
 
 NTSTATUS __stdcall NtOpenDirectoryObject(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpPartitionFindByHandle @ 0x140933E78
+ * XREFs of PfpPartitionFindByHandle @ 0x1408F6998
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
- *     PfGetCompletedTrace @ 0x140933980 (PfGetCompletedTrace.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
+ *     PfGetCompletedTrace @ 0x1408F64A0 (PfGetCompletedTrace.c)
  * Callees:
- *     PfpPartitionDereferenceParent @ 0x140274CCC (PfpPartitionDereferenceParent.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PfpPartitionRundownProtectionAcquire @ 0x140477518 (PfpPartitionRundownProtectionAcquire.c)
- *     PfpPartitionFromParent @ 0x140498054 (PfpPartitionFromParent.c)
- *     PfpTraceLogPartitionId @ 0x1405CCB30 (PfpTraceLogPartitionId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PfpPartitionDereferenceParent @ 0x14022A25C (PfpPartitionDereferenceParent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PfpPartitionRundownProtectionAcquire @ 0x140473AB8 (PfpPartitionRundownProtectionAcquire.c)
+ *     PfpPartitionFromParent @ 0x140492A30 (PfpPartitionFromParent.c)
+ *     PfpTraceLogPartitionId @ 0x1405CA2A0 (PfpTraceLogPartitionId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall PfpPartitionFindByHandle(__int64 *a1, __int64 *a2, __int64 a3, char a4)
@@ -37,7 +37,7 @@ __int64 __fastcall PfpPartitionFindByHandle(__int64 *a1, __int64 *a2, __int64 a3
   v5 = a3;
   v8 = 1;
   if ( (unsigned int)dword_140E074B8 > 4 && (byte_140E074C8 & 1) != 0 && (qword_140E074D0 & 1) == qword_140E074D0 )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&byte_14004825F, 0LL, 0LL, 2u, v19);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&byte_14004865F, 0LL, 0LL, 2u, v19);
   LOBYTE(a3) = a4;
   v10 = PsReferencePartitionByHandle(v5, 1LL, a3, 1951426128LL, &v17);
   v11 = v17;
@@ -74,7 +74,13 @@ __int64 __fastcall PfpPartitionFindByHandle(__int64 *a1, __int64 *a2, __int64 a3
       LODWORD(v17) = v12;
       v23 = &v17;
       v24 = 4;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)word_1400481C2, 0LL, 0LL, 4u, v19);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140E074B8,
+        (unsigned __int8 *)&dword_14004852C,
+        0LL,
+        0LL,
+        4u,
+        v19);
     }
   }
   if ( v11 )

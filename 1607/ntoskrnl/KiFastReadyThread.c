@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFastReadyThread @ 0x1400F27A8
+ * XREFs of KiFastReadyThread @ 0x1400F05F8
  * Callers:
- *     KeReadyThread @ 0x1400F2F6C (KeReadyThread.c)
- *     KeSwapProcessOrStack @ 0x14013D2D4 (KeSwapProcessOrStack.c)
+ *     KeReadyThread @ 0x1400F0DBC (KeReadyThread.c)
+ *     KeSwapProcessOrStack @ 0x14013D844 (KeSwapProcessOrStack.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     EtwTraceReadyThread @ 0x1402260C8 (EtwTraceReadyThread.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     EtwTraceReadyThread @ 0x140225EF4 (EtwTraceReadyThread.c)
  */
 
 __int64 __fastcall KiFastReadyThread(__int64 a1, __int64 a2, _SINGLE_LIST_ENTRY *a3, __int64 a4)

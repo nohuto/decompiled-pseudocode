@@ -15,10 +15,10 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-void *__fastcall sub_18001EFB4(__int64 a1, size_t a2, __int64 a3, unsigned int a4)
+void *__fastcall sub_18001EFB4(PVOID BaseAddress, size_t Size, __int64 a3, unsigned int a4)
 {
   unsigned __int64 v4; // rdi
-  unsigned int v5; // r14d
+  int v5; // r14d
   int v9; // r15d
   __int64 v10; // rax
   __int64 v11; // rbx
@@ -35,12 +35,12 @@ void *__fastcall sub_18001EFB4(__int64 a1, size_t a2, __int64 a3, unsigned int a
   v9 = a4 & 4;
   if ( (a4 & 4) != 0 )
     LODWORD(v4) = v4 + 1;
-  v10 = sub_18001F314(a1, (unsigned int)v4, a4);
+  v10 = sub_18001F314(BaseAddress);
   v11 = v10;
   if ( !v10 )
     return 0LL;
   v12 = ~*(_BYTE *)(v10 + 26);
-  if ( v5 && (int)sub_180072F9C(a1, v10, v10, v5) < 0 )
+  if ( v5 && (int)sub_180072F9C(BaseAddress) < 0 )
   {
     v15 = 0LL;
     goto LABEL_16;
@@ -49,19 +49,19 @@ void *__fastcall sub_18001EFB4(__int64 a1, size_t a2, __int64 a3, unsigned int a
   {
     v17 = 32LL * (unsigned int)v4 + v11 - 32;
     if ( (*(_BYTE *)(v17 + 24) & 2) != 0 )
-      sub_180020B90(a1, v11, v17, 1LL);
+      sub_180020B90(BaseAddress, v11, v17, 1LL);
   }
   v13 = v11 & 0xFFFFFFFFFFF00000uLL;
-  *(_WORD *)(v11 + 6) = ((_WORD)v4 << 12) - a2;
+  *(_WORD *)(v11 + 6) = ((_WORD)v4 << 12) - Size;
   v14 = (unsigned int)((__int64)(v11 - (v11 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12;
   v11 = 0LL;
   v15 = (void *)(v13 + v14);
   if ( (a4 & 2) != 0 && v12 )
   {
-    memset(v15, 0, a2);
+    memset(v15, 0, Size);
 LABEL_16:
     if ( v11 )
-      sub_18001F198(a1, v11, 0LL, a4);
+      sub_18001F198(BaseAddress, v11, 0LL, a4);
   }
   return v15;
 }

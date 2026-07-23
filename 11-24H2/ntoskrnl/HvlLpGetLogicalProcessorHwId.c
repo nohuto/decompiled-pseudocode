@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlLpGetLogicalProcessorHwId @ 0x140587500
+ * XREFs of HvlLpGetLogicalProcessorHwId @ 0x140584880
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetLogicalProcessorProperty @ 0x140584434 (HvlpGetLogicalProcessorProperty.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x1405817B4 (HvlpGetLogicalProcessorProperty.c)
  */
 
 __int64 __fastcall HvlLpGetLogicalProcessorHwId(int a1, _QWORD *a2)

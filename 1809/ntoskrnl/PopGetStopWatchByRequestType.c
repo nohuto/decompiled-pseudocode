@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetStopWatchByRequestType @ 0x1405888A4
+ * XREFs of PopGetStopWatchByRequestType @ 0x1405898A4
  * Callers:
- *     PopStatsMarkPowerRequestInactive @ 0x14058866C (PopStatsMarkPowerRequestInactive.c)
- *     PopPausePowerRequestStats @ 0x14058878C (PopPausePowerRequestStats.c)
- *     PopIsDataAccruedByPowerRequestStats @ 0x1405887D8 (PopIsDataAccruedByPowerRequestStats.c)
- *     PopAvlDeleteStatsForPowerRequest @ 0x14058883C (PopAvlDeleteStatsForPowerRequest.c)
- *     PopStatsMarkPowerRequestActive @ 0x140588904 (PopStatsMarkPowerRequestActive.c)
- *     PopStatsNotifyAudioState @ 0x1406DB6CC (PopStatsNotifyAudioState.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopStatsMarkPowerRequestInactive @ 0x14058966C (PopStatsMarkPowerRequestInactive.c)
+ *     PopPausePowerRequestStats @ 0x14058978C (PopPausePowerRequestStats.c)
+ *     PopIsDataAccruedByPowerRequestStats @ 0x1405897D8 (PopIsDataAccruedByPowerRequestStats.c)
+ *     PopAvlDeleteStatsForPowerRequest @ 0x14058983C (PopAvlDeleteStatsForPowerRequest.c)
+ *     PopStatsMarkPowerRequestActive @ 0x140589904 (PopStatsMarkPowerRequestActive.c)
+ *     PopStatsNotifyAudioState @ 0x1406DC96C (PopStatsNotifyAudioState.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087C07C (PopPublishAndPurgePowerRequestStats.c)
  * Callees:
  *     PoInitializeStopWatch @ 0x140001E48 (PoInitializeStopWatch.c)
  *     PoIsInitializedStopWatch @ 0x140001F70 (PoIsInitializedStopWatch.c)

@@ -4,7 +4,7 @@
  *     NormBuffer__ReplaceLastStartBase @ 0x1800FC33C (NormBuffer__ReplaceLastStartBase.c)
  *     NormBuffer__ReplaceLastStartBasePair @ 0x1800FC3B4 (NormBuffer__ReplaceLastStartBasePair.c)
  * Callees:
- *     NormBuffer__AppendEx @ 0x180083DC8 (NormBuffer__AppendEx.c)
+ *     NormBuffer__AppendEx @ 0x180083DD8 (NormBuffer__AppendEx.c)
  *     NormBuffer__Insert @ 0x1800FBFD8 (NormBuffer__Insert.c)
  *     NormBuffer__SortBeforeSameClass @ 0x1800FC4BC (NormBuffer__SortBeforeSameClass.c)
  */

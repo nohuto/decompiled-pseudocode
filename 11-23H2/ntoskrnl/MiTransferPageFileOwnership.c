@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransferPageFileOwnership @ 0x1402ED1B0
+ * XREFs of MiTransferPageFileOwnership @ 0x1402ED440
  * Callers:
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x140664948 (MiHandleForkTransitionPte.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x140664E98 (MiHandleForkTransitionPte.c)
  * Callees:
- *     MiUpdatePageFileBlockOwner @ 0x140666C9C (MiUpdatePageFileBlockOwner.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1406671EC (MiUpdatePageFileBlockOwner.c)
  */
 
 char __fastcall MiTransferPageFileOwnership(__int64 a1, __int64 a2)

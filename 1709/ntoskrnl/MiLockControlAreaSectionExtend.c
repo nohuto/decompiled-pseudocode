@@ -16,13 +16,13 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v5; // r12
   volatile LONG *v6; // r15
-  unsigned __int64 v7; // rbp
+  _RTL_BALANCED_NODE *v7; // rbp
   KIRQL v8; // al
   __int64 **v9; // rsi
   KIRQL v10; // r13
-  __int64 v11; // rax
+  PRTL_BALANCED_NODE v11; // rax
   __int64 result; // rax
-  __int64 v13; // rax
+  PRTL_BALANCED_NODE v13; // rax
 
   CurrentThread = KeGetCurrentThread();
   if ( *(_DWORD *)(a2 + 8) == 16 )
@@ -51,7 +51,7 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
         v13 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
         v7 = v13;
         if ( v13 )
-          KeAbPreWait(v13);
+          KeAbPreWait((__int64)v13);
       }
     }
     *(_DWORD *)(a2 + 20) = 0;
@@ -69,12 +69,12 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
     if ( v7 )
     {
       KeAbPreAcquire(BugCheckParameter2, v7, 0);
-      KeAbPostReleaseEx(BugCheckParameter2, v7);
+      KeAbPostReleaseEx(BugCheckParameter2, (unsigned __int64)v7);
     }
   }
   v11 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   ExReleaseSpinLockExclusiveFromDpcLevel(v6);
   result = v10;
   __writecr8(v10);

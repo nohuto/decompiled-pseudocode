@@ -1,10 +1,10 @@
 /*
- * XREFs of strncpy_s @ 0x140152DA8
+ * XREFs of strncpy_s @ 0x140153368
  * Callers:
- *     _splitpath_s @ 0x140152274 (_splitpath_s.c)
+ *     _splitpath_s @ 0x140152834 (_splitpath_s.c)
  *     CmpGetToken @ 0x1407AEEE8 (CmpGetToken.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl strncpy_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)

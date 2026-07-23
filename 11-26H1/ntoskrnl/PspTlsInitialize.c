@@ -1,11 +1,11 @@
 /*
- * XREFs of PspTlsInitialize @ 0x140CD90E8
+ * XREFs of PspTlsInitialize @ 0x140CDF468
  * Callers:
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     PsTlsAlloc @ 0x1407FD050 (PsTlsAlloc.c)
- *     RtlpFlsInitialize @ 0x140809D1C (RtlpFlsInitialize.c)
+ *     PsTlsAlloc @ 0x140802A80 (PsTlsAlloc.c)
+ *     RtlpFlsInitialize @ 0x14080F7AC (RtlpFlsInitialize.c)
  */
 
 __int64 PspTlsInitialize()

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpEndSecurePageListIteration @ 0x1401C1E4C
+ * XREFs of HvlpEndSecurePageListIteration @ 0x1401C1D30
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x1401BEF68 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x1401BF0F8 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x1401C00E8 (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x1401C082C (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1401BEE4C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x1401BEFDC (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x1401BFFCC (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x1401C0710 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     HvlpGetPageListIterator @ 0x1401C1F80 (HvlpGetPageListIterator.c)
- *     VslEndSecurePageIteration @ 0x1401C2794 (VslEndSecurePageIteration.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvlpGetPageListIterator @ 0x1401C1E64 (HvlpGetPageListIterator.c)
+ *     VslEndSecurePageIteration @ 0x1401C2678 (VslEndSecurePageIteration.c)
  */
 
 __int64 __fastcall HvlpEndSecurePageListIteration(__int64 a1, void *a2, _DWORD *a3)

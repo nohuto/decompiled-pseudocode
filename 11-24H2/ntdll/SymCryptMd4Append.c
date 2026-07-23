@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMd4Append @ 0x180161040
+ * XREFs of SymCryptMd4Append @ 0x18015F400
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptHashAppendInternal @ 0x18015B714 (SymCryptHashAppendInternal.c)
+ *     SymCryptHashAppendInternal @ 0x180159AD4 (SymCryptHashAppendInternal.c)
  */
 
 size_t __fastcall SymCryptMd4Append(unsigned int *a1, char *a2, size_t a3)

@@ -1,16 +1,21 @@
 /*
  * XREFs of ZwQuerySemaphore @ 0x1800A8D50
  * Callers:
- *     PsspDumpObject_Semaphore @ 0x180006840 (PsspDumpObject_Semaphore.c)
+ *     PsspDumpObject_Semaphore @ 0x180006830 (PsspDumpObject_Semaphore.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQuerySemaphore()
+NTSTATUS __cdecl ZwQuerySemaphore(
+        HANDLE SemaphoreHandle,
+        SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
+        PVOID SemaphoreInformation,
+        ULONG SemaphoreInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 330LL;
+  result = 330;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

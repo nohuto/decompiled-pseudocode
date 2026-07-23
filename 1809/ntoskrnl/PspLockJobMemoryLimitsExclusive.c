@@ -1,7 +1,7 @@
 /*
- * XREFs of PspLockJobMemoryLimitsExclusive @ 0x1406034A4
+ * XREFs of PspLockJobMemoryLimitsExclusive @ 0x1406044A4
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

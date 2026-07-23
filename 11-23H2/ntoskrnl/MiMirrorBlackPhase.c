@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorBlackPhase @ 0x140626BE4
+ * XREFs of MiMirrorBlackPhase @ 0x140627134
  * Callers:
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  * Callees:
- *     MiMirrorPerformBlackWrites @ 0x1406273F4 (MiMirrorPerformBlackWrites.c)
- *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140627E40 (MiMirrorReduceBlackToActiveAndPrivatePages.c)
- *     MiMirrorReduceBlackWrites @ 0x140628060 (MiMirrorReduceBlackWrites.c)
- *     MiIterateOverPartitions @ 0x14062940C (MiIterateOverPartitions.c)
- *     MiMirrorDiscardPageContents @ 0x14064F434 (MiMirrorDiscardPageContents.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x140AAD628 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorPerformBlackWrites @ 0x140627944 (MiMirrorPerformBlackWrites.c)
+ *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140628390 (MiMirrorReduceBlackToActiveAndPrivatePages.c)
+ *     MiMirrorReduceBlackWrites @ 0x1406285B0 (MiMirrorReduceBlackWrites.c)
+ *     MiIterateOverPartitions @ 0x14062995C (MiIterateOverPartitions.c)
+ *     MiMirrorDiscardPageContents @ 0x14064F984 (MiMirrorDiscardPageContents.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x140AAD498 (MiRemoveEnclavePagesFromMirror.c)
  */
 
 __int64 __fastcall MiMirrorBlackPhase(__int64 *a1)

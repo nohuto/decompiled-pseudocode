@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpFindMessageInAlternateModule @ 0x140470C00
+ * XREFs of LdrpFindMessageInAlternateModule @ 0x14046B2B0
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x14044E290 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14044EAD4 (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140A03160 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1409BA5C0 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
 __int64 __fastcall LdrpFindMessageInAlternateModule(
-        __int64 a1,
+        void *a1,
         unsigned int *a2,
         unsigned __int64 a3,
         unsigned int a4,
@@ -17,17 +17,15 @@ __int64 __fastcall LdrpFindMessageInAlternateModule(
   __int64 v8; // r8
   unsigned int *v9; // rdx
   int v10; // eax
-  unsigned int *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v11 = 0LL;
   if ( !a1 || !a2 )
     return 3221225485LL;
   if ( !a5 )
   {
-    result = LdrpAccessResourceDataNoMultipleLanguage(a1, a2, &v11, 0LL);
+    result = LdrpAccessResourceDataNoMultipleLanguage(a1);
     if ( (int)result < 0 )
       return result;
-    a2 = v11;
+    a2 = 0LL;
   }
   v8 = *a2;
   v9 = a2 + 1;

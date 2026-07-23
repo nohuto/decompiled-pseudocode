@@ -1,13 +1,13 @@
 /*
- * XREFs of ExSetTimerResolution @ 0x1403B4D60
+ * XREFs of ExSetTimerResolution @ 0x1403B4F40
  * Callers:
- *     DifExSetTimerResolutionWrapper @ 0x1405D9E00 (DifExSetTimerResolutionWrapper.c)
+ *     DifExSetTimerResolutionWrapper @ 0x1405DA370 (DifExSetTimerResolutionWrapper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x140340BF4 (PoTraceSystemTimerResolutionKernel.c)
- *     ExpUpdateTimerResolution @ 0x140364EEC (ExpUpdateTimerResolution.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x140340E84 (PoTraceSystemTimerResolutionKernel.c)
+ *     ExpUpdateTimerResolution @ 0x14036508C (ExpUpdateTimerResolution.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG __stdcall ExSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution)
@@ -51,10 +51,10 @@ LABEL_4:
   }
 LABEL_10:
   KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

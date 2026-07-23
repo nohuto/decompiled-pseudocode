@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInitializeContextThread @ 0x1400F0C70
+ * XREFs of KiInitializeContextThread @ 0x1400EEAC0
  * Callers:
  *     KeInitThread @ 0x1403C8E74 (KeInitThread.c)
  * Callees:
- *     KxContextToKframes @ 0x140081D84 (KxContextToKframes.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KxContextToKframes @ 0x1400847BC (KxContextToKframes.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 unsigned __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _OWORD *a5)

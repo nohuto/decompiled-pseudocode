@@ -1,19 +1,22 @@
 /*
- * XREFs of VrpPostUnloadKey @ 0x140883218
+ * XREFs of VrpPostUnloadKey @ 0x140883378
  * Callers:
  *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwActivityIdControl @ 0x140272110 (EtwActivityIdControl.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     VrpDestroyNamespaceNode @ 0x1405D3260 (VrpDestroyNamespaceNode.c)
  */
 
 __int64 __fastcall VrpPostUnloadKey(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
   GUID ActivityId; // [rsp+20h] [rbp-28h] BYREF
 
   ActivityId = 0LL;
@@ -26,7 +29,7 @@ __int64 __fastcall VrpPostUnloadKey(__int64 a1, __int64 a2)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a2 + 16);
     KeAbPostRelease(a2 + 16);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
   }
   return 0LL;
 }

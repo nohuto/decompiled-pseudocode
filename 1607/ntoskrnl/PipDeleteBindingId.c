@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDeleteBindingId @ 0x14062B15C
+ * XREFs of PipDeleteBindingId @ 0x14062B210
  * Callers:
- *     IoResolveDependency @ 0x1401428E4 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x140142E54 (IoResolveDependency.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     PipFreeBindingId @ 0x14062B2DC (PipFreeBindingId.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     PipFreeBindingId @ 0x14062B390 (PipFreeBindingId.c)
  */
 
 __int64 __fastcall PipDeleteBindingId(__int64 a1, const UNICODE_STRING *a2)

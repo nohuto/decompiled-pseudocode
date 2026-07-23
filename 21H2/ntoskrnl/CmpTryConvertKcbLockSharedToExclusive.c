@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpTryConvertKcbLockSharedToExclusive @ 0x140666330
+ * XREFs of CmpTryConvertKcbLockSharedToExclusive @ 0x14065B150
  * Callers:
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
  * Callees:
  *     <none>
  */

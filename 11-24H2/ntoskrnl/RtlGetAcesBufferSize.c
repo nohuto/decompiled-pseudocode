@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetAcesBufferSize @ 0x140780220
+ * XREFs of RtlGetAcesBufferSize @ 0x140780150
  * Callers:
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14099C6D0 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x1409CEE40 (PiDevCfgGetKeySecurityDescriptor.c)
  * Callees:
  *     <none>
  */

@@ -37,12 +37,12 @@ LABEL_7:
     {
       case SystemProcessorPerformanceInformation:
       case SystemInterruptInformation:
-      case SystemPowerInformationNative:
+      case SystemProcessorIdleInformation:
       case SystemProcessorPowerInformation:
       case SystemProcessorIdleCycleTimeInformation:
-      case SystemPrefetchPathInformation|SystemPathInformation:
-      case SystemPrefetchPathInformation|SystemLocksInformation:
-      case SystemStackTraceInformation|0x80:
+      case SystemProcessorPerformanceDistribution:
+      case SystemProcessorCycleTimeInformation:
+      case SystemProcessorPerformanceInformationEx:
         p_Group = &Group;
         v7 = 2LL;
         Group = KeGetCurrentPrcb()->Group;
@@ -64,8 +64,8 @@ LABEL_7:
                  SystemInformation,
                  SystemInformationLength,
                  ReturnLength);
-      case MaxSystemInfoClass|SystemFlagsInformation:
-      case SystemVerifierFaultsInformation|SystemDpcBehaviorInformation:
+      case SystemLogicalProcessorAndGroupInformation:
+      case SystemNodeDistanceInformation:
         result = -1073741821;
         break;
       default:

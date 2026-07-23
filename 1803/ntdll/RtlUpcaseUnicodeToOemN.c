@@ -8,17 +8,17 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToOemN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned __int16 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // r11d
-  unsigned int v8; // ebx
-  _BYTE *v9; // r10
-  unsigned int v10; // eax
+  ULONG v6; // r11d
+  ULONG v8; // ebx
+  PCHAR v9; // r10
+  ULONG v10; // eax
   __int64 v11; // r9
   __int64 v12; // r14
   __int64 v13; // rbp
@@ -34,9 +34,9 @@ __int64 __fastcall RtlUpcaseUnicodeToOemN(
   __int16 v24; // dx
   unsigned int v25; // eax
 
-  v6 = a5 >> 1;
-  v8 = a2;
-  v9 = a1;
+  v6 = BytesInUnicodeString >> 1;
+  v8 = MaxBytesInOemString;
+  v9 = OemString;
   if ( NlsMbOemCodePageTag )
   {
     if ( v6 )
@@ -49,7 +49,7 @@ __int64 __fastcall RtlUpcaseUnicodeToOemN(
       {
         if ( !v8 )
           break;
-        v21 = *a4++;
+        v21 = *UnicodeString++;
         v22 = *(_WORD *)(v19 + 2 * v21);
         if ( word_18015B000[HIBYTE(v22)] )
           v23 = *(_WORD *)(v20
@@ -84,16 +84,16 @@ __int64 __fastcall RtlUpcaseUnicodeToOemN(
       }
       while ( v6 );
     }
-    if ( a3 )
-      *a3 = (_DWORD)v9 - (_DWORD)a1;
+    if ( BytesInOemString )
+      *BytesInOemString = (_DWORD)v9 - (_DWORD)OemString;
   }
   else
   {
-    v10 = a2;
-    if ( v6 < a2 )
-      v10 = a5 >> 1;
-    if ( a3 )
-      *a3 = v10;
+    v10 = MaxBytesInOemString;
+    if ( v6 < MaxBytesInOemString )
+      v10 = BytesInUnicodeString >> 1;
+    if ( BytesInOemString )
+      *BytesInOemString = v10;
     v11 = qword_18015AFD0;
     if ( v10 )
     {
@@ -102,7 +102,7 @@ __int64 __fastcall RtlUpcaseUnicodeToOemN(
       v14 = v10;
       do
       {
-        v15 = *(_WORD *)(v12 + 2LL * *(unsigned __int8 *)(*a4 + v11));
+        v15 = *(_WORD *)(v12 + 2LL * *(unsigned __int8 *)(*UnicodeString + v11));
         if ( v15 >= 0x61u )
         {
           if ( v15 > 0x7Au )
@@ -116,7 +116,7 @@ __int64 __fastcall RtlUpcaseUnicodeToOemN(
           else
             v15 -= 32;
         }
-        ++a4;
+        ++UnicodeString;
         *v9++ = *(_BYTE *)(v15 + v11);
         --v14;
       }

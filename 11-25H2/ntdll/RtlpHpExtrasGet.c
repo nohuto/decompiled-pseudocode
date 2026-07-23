@@ -12,7 +12,7 @@
  *     RtlCSparseBitmapBitmaskRead @ 0x1800554D0 (RtlCSparseBitmapBitmaskRead.c)
  */
 
-unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, unsigned __int64 a2, __int16 a3, __int64 *a4)
+unsigned __int64 __fastcall RtlpHpExtrasGet(_RTL_SRWLOCK *a1, unsigned __int64 a2, __int16 a3, __int64 *a4)
 {
   __int64 v4; // r14
   int v9; // eax
@@ -24,9 +24,9 @@ unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, unsigned __int64 a2, __i
   unsigned __int64 v15; // rdx
   char v16; // r9
   __int64 v18; // rax
-  volatile signed __int64 *v19; // rsi
-  __int64 v20; // rax
-  unsigned __int64 *v21; // rdi
+  _RTL_SRWLOCK *v19; // rsi
+  unsigned __int64 Value; // rax
+  unsigned __int64 v21; // rdi
   unsigned __int64 v22; // rcx
   int v23; // edx
   unsigned __int64 v24; // rax
@@ -54,7 +54,7 @@ unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, unsigned __int64 a2, __i
   {
     v9 = 0;
 LABEL_3:
-    v10 = a1 + 320 + 192LL * v9;
+    v10 = (__int64)&a1[24 * v9 + 40];
     v11 = *(_QWORD *)v10;
     v12 = a2 & *(_QWORD *)v10;
     if ( (RtlpHpHeapGlobals ^ *(_QWORD *)(v12 + 0x10) ^ v12) == v10 )
@@ -140,25 +140,25 @@ LABEL_43:
     }
     return -1LL;
   }
-  v18 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801D0980, 2 * ((a2 - qword_1801D0978) >> 20));
+  v18 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801D0978) >> 20));
   if ( v18 )
   {
     v9 = v18 - 1;
     if ( v9 != 2 )
       goto LABEL_3;
   }
-  v19 = (volatile signed __int64 *)(a1 + 64);
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64));
-  v20 = *(_QWORD *)(a1 + 80);
-  v21 = (unsigned __int64 *)(a1 + 72);
-  v22 = *v21;
-  if ( (v20 & 1) != 0 )
+  v19 = a1 + 8;
+  RtlAcquireSRWLockShared(a1 + 8);
+  Value = a1[10].Value;
+  v21 = (unsigned __int64)&a1[9];
+  v22 = *(_QWORD *)v21;
+  if ( (Value & 1) != 0 )
   {
     if ( !v22 )
       goto LABEL_50;
-    v22 ^= (unsigned __int64)v21;
+    v22 ^= v21;
   }
-  v23 = v20 & 1;
+  v23 = Value & 1;
   if ( !v22 )
     goto LABEL_50;
   do

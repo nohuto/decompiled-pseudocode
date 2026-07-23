@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPciConvertDevicePathToRid @ 0x140552828
+ * XREFs of HalpPciConvertDevicePathToRid @ 0x140550168
  * Callers:
- *     HalpIommuDetermineReservedPciRid @ 0x140553B0C (HalpIommuDetermineReservedPciRid.c)
+ *     HalpIommuDetermineReservedPciRid @ 0x14055144C (HalpIommuDetermineReservedPciRid.c)
  * Callees:
- *     HalpPciReadSecondaryBusNumber @ 0x1405528DC (HalpPciReadSecondaryBusNumber.c)
+ *     HalpPciReadSecondaryBusNumber @ 0x14055021C (HalpPciReadSecondaryBusNumber.c)
  */
 
 __int64 __fastcall HalpPciConvertDevicePathToRid(unsigned __int16 *a1)

@@ -149,7 +149,7 @@ void __fastcall MiDeletePartitionResources(__int64 a1)
     --v5;
   }
   while ( v5 );
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   v7 = *(_QWORD *)(a1 + 6864);
   v8 = **(_QWORD **)(*(_QWORD *)(a1 + 168) + 56LL);
   *(_QWORD *)(a1 + 7528) -= MiDeletePagingFiles(a1);
@@ -325,7 +325,7 @@ LABEL_68:
   }
   v42->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v42->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v36->LockEntries[v41], SessionId);
+    KiAbEntryRemoveFromTree(&v36->LockEntries[v41].TreeNode, SessionId);
   v45 = v42->BoostBitmap.AllFields & 0x1FFFF;
   v46 = v42->BoostBitmap.AllFields & 0xFFFE0000;
   v42->ThreadLocalFlags &= ~1u;

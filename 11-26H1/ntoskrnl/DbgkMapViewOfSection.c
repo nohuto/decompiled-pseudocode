@@ -1,41 +1,34 @@
 /*
- * XREFs of DbgkMapViewOfSection @ 0x1409C37E4
+ * XREFs of DbgkMapViewOfSection @ 0x1409947C4
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     NtMapViewOfSection @ 0x1409C28A0 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1409F1570 (MiMapViewOfSectionExCommon.c)
- *     NtLoadEnclaveData @ 0x140AEE740 (NtLoadEnclaveData.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     NtMapViewOfSection @ 0x140993880 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1409EDD40 (MiMapViewOfSectionExCommon.c)
+ *     NtLoadEnclaveData @ 0x140AF16E0 (NtLoadEnclaveData.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     DbgkpSuppressDbgMsg @ 0x14078A930 (DbgkpSuppressDbgMsg.c)
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     DbgkpSectionToFileHandle @ 0x140B260F0 (DbgkpSectionToFileHandle.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     DbgkpSuppressDbgMsg @ 0x14078D460 (DbgkpSuppressDbgMsg.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140B28350 (DbgkpSectionToFileHandle.c)
  */
 
-int __fastcall DbgkMapViewOfSection(
-        _KPROCESS *a1,
-        __int64 a2,
-        unsigned __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        int a7)
+int __fastcall DbgkMapViewOfSection(_KPROCESS *a1, __int64 a2, void *a3, __int64 a4, __int64 a5, int a6, int a7)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v11; // rdi
   struct _KTHREAD *v12; // rbx
   __int64 Teb; // rbx
   bool IsUserAddress; // di
-  _DWORD *v15; // rbx
+  PIMAGE_NT_HEADERS v15; // rbx
   int ULongFromUser; // eax
-  int v17; // eax
+  int NumberOfSymbols; // eax
   _DWORD v19[12]; // [rsp+30h] [rbp-138h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-108h]
-  unsigned __int64 v21; // [rsp+68h] [rbp-100h]
+  void *v21; // [rsp+68h] [rbp-100h]
   int v22; // [rsp+70h] [rbp-F8h]
   int v23; // [rsp+74h] [rbp-F4h]
   __int64 v24; // [rsp+78h] [rbp-F0h]
@@ -71,7 +64,7 @@ int __fastcall DbgkMapViewOfSection(
         v21 = a3;
         v22 = a6;
         v23 = a7;
-        IsUserAddress = MmIsUserAddress(a3);
+        IsUserAddress = MmIsUserAddress((unsigned __int64)a3);
         if ( a3 )
           v15 = RtlImageNtHeader(a3);
         else
@@ -79,20 +72,20 @@ int __fastcall DbgkMapViewOfSection(
         if ( v15 )
         {
           if ( IsUserAddress )
-            ULongFromUser = RtlReadULongFromUser(v15 + 3);
+            ULongFromUser = RtlReadULongFromUser(&v15->FileHeader.PointerToSymbolTable);
           else
-            ULongFromUser = v15[3];
+            ULongFromUser = v15->FileHeader.PointerToSymbolTable;
           v22 = ULongFromUser;
           if ( IsUserAddress )
-            v17 = RtlReadULongFromUser(v15 + 4);
+            NumberOfSymbols = RtlReadULongFromUser(&v15->FileHeader.NumberOfSymbols);
           else
-            v17 = v15[4];
-          v23 = v17;
+            NumberOfSymbols = v15->FileHeader.NumberOfSymbols;
+          v23 = NumberOfSymbols;
         }
         v19[0] = 5242920;
         v19[1] = 8;
         v19[10] = 5;
-        LODWORD(CurrentThread) = DbgkpSendApiMessage(a1, 1, (__int64)v19);
+        LODWORD(CurrentThread) = DbgkpSendApiMessage(a1);
         if ( Handle )
           LODWORD(CurrentThread) = ObCloseHandle(Handle, 0);
       }

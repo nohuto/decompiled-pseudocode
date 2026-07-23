@@ -1,17 +1,21 @@
 /*
- * XREFs of NtSetInformationObject @ 0x18015FAB0
+ * XREFs of NtSetInformationObject @ 0x18015F9B0
  * Callers:
- *     TppCritSetThread @ 0x1800E1D30 (TppCritSetThread.c)
- *     TppCritResetThread @ 0x1800EC5D4 (TppCritResetThread.c)
+ *     TppCritSetThread @ 0x1800DF5D0 (TppCritSetThread.c)
+ *     TppCritResetThread @ 0x1800EB7A4 (TppCritResetThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationObject()
+NTSTATUS __cdecl NtSetInformationObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 92LL;
+  result = 92;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

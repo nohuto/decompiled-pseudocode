@@ -9,48 +9,50 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, int a2, int *a3, int *a4)
+NTSTATUS __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, PULONG Type, PULONG ResultDataSize, _DWORD *a4)
 {
-  int Heap; // esi
-  int v6; // eax
-  int v7; // edi
-  int v8; // eax
-  UNICODE_STRING DestinationString; // [esp+Ch] [ebp-Ch] BYREF
-  int v11; // [esp+14h] [ebp-4h]
+  PVOID Heap; // esi
+  NTSTATUS v6; // eax
+  NTSTATUS v7; // edi
+  ULONG v8; // eax
+  SIZE_T v10; // [esp-4h] [ebp-1Ch]
+  _UNICODE_STRING DestinationString; // [esp+Ch] [ebp-Ch] BYREF
+  PULONG Typea; // [esp+14h] [ebp-4h]
 
   Heap = 0;
-  v11 = a2;
-  if ( !a2 || !a3 || !a4 || !SourceString )
+  Typea = Type;
+  if ( !Type || !ResultDataSize || !a4 || !SourceString )
   {
     v7 = -1073741811;
     goto LABEL_13;
   }
   RtlInitUnicodeString(&DestinationString, SourceString);
-  v6 = NtQueryLicenseValue(&DestinationString, a2, 0, 0, a3);
+  v6 = NtQueryLicenseValue(&DestinationString, Type, 0, 0, ResultDataSize);
   v7 = v6;
   if ( v6 >= 0 )
   {
-    v8 = *a3;
-    if ( !*a3 )
+    v8 = *ResultDataSize;
+    if ( !*ResultDataSize )
     {
       *a4 = 0;
       return v7;
     }
 LABEL_8:
-    Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v8);
+    LODWORD(v10) = v8;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
     goto LABEL_9;
   }
   if ( v6 != -1073741789 )
     goto LABEL_10;
-  v8 = *a3;
-  if ( *a3 )
+  v8 = *ResultDataSize;
+  if ( *ResultDataSize )
     goto LABEL_8;
   Heap = 0;
 LABEL_9:
   if ( !Heap )
     return -1073741801;
 LABEL_10:
-  v7 = NtQueryLicenseValue(&DestinationString, v11, Heap, *a3, a3);
+  v7 = NtQueryLicenseValue(&DestinationString, Typea, Heap, *ResultDataSize, ResultDataSize);
   if ( v7 >= 0 )
   {
     *a4 = Heap;
@@ -58,6 +60,6 @@ LABEL_10:
   }
 LABEL_13:
   if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v7;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmStoreAdd @ 0x1403E3E78
+ * XREFs of SmKmStoreAdd @ 0x1403E54A4
  * Callers:
- *     SmProcessCreateRequest @ 0x1403E3B50 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x1403E517C (SmProcessCreateRequest.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     SmEtwEnabled @ 0x140002E00 (SmEtwEnabled.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmKmEtwLogStoreChange @ 0x140697BC0 (SmKmEtwLogStoreChange.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     SmEtwEnabled @ 0x140002F74 (SmEtwEnabled.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmKmEtwLogStoreChange @ 0x140697CA4 (SmKmEtwLogStoreChange.c)
  */
 
 __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)

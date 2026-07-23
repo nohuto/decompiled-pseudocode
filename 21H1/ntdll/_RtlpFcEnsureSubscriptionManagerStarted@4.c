@@ -8,12 +8,12 @@
  *     _RtlRunOnceBeginInitialize@12 @ 0x4B2B2320 (_RtlRunOnceBeginInitialize@12.c)
  */
 
-int RtlpFcEnsureSubscriptionManagerStarted()
+NTSTATUS RtlpFcEnsureSubscriptionManagerStarted()
 {
-  int started; // esi
-  unsigned int v1; // eax
+  NTSTATUS started; // esi
+  ULONG v1; // eax
 
-  started = RtlRunOnceBeginInitialize(&dword_4B3A4768, 0, 0);
+  started = RtlRunOnceBeginInitialize(&stru_4B3A4768, 0, 0);
   if ( started )
   {
     started = RtlpFcStartSubscriptionManager();
@@ -21,7 +21,7 @@ int RtlpFcEnsureSubscriptionManagerStarted()
       v1 = 4;
     else
       v1 = 0;
-    RtlRunOnceComplete(&dword_4B3A4768, v1, 0);
+    RtlRunOnceComplete(&stru_4B3A4768, v1, 0);
   }
   return started;
 }

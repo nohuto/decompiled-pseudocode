@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpUpdateStatistics @ 0x18000E35C
+ * XREFs of LdrpUpdateStatistics @ 0x18000E34C
  * Callers:
- *     LdrpDrainWorkQueue @ 0x18000D61C (LdrpDrainWorkQueue.c)
- *     LdrpWorkCallback @ 0x18000E110 (LdrpWorkCallback.c)
+ *     LdrpDrainWorkQueue @ 0x18000D60C (LdrpDrainWorkQueue.c)
+ *     LdrpWorkCallback @ 0x18000E100 (LdrpWorkCallback.c)
  * Callees:
  *     <none>
  */

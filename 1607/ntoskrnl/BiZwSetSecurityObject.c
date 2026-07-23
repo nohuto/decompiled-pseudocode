@@ -1,9 +1,9 @@
 /*
- * XREFs of BiZwSetSecurityObject @ 0x14012E080
+ * XREFs of BiZwSetSecurityObject @ 0x14012E5F0
  * Callers:
- *     BiCreateKey @ 0x14053D6A0 (BiCreateKey.c)
- *     BiOpenKey @ 0x14053DE4C (BiOpenKey.c)
- *     BiCloseKey @ 0x14053DFCC (BiCloseKey.c)
+ *     BiCreateKey @ 0x14053DBE0 (BiCreateKey.c)
+ *     BiOpenKey @ 0x14053E38C (BiOpenKey.c)
+ *     BiCloseKey @ 0x14053E50C (BiCloseKey.c)
  * Callees:
  *     <none>
  */

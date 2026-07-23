@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmCompareObjects @ 0x1407AD400
+ * XREFs of PiDmCompareObjects @ 0x1407AD5F0
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
  */
 
-__int64 __fastcall PiDmCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *FirstStruct, __int64 *SecondStruct)
+__int64 __fastcall PiDmCompareObjects(_RTL_AVL_TABLE *a1, __int64 *a2, __int64 *a3)
 {
   __int64 v3; // r9
   __int64 v4; // rdx
@@ -15,9 +15,9 @@ __int64 __fastcall PiDmCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *Fir
   const wchar_t *v8; // rcx
   int v9; // ecx
 
-  v3 = *FirstStruct;
-  v4 = *SecondStruct;
-  if ( v3 == *SecondStruct )
+  v3 = *a2;
+  v4 = *a3;
+  if ( v3 == *a3 )
     return 2LL;
   v5 = *(_DWORD *)(v3 + 24);
   if ( v5 < *(_DWORD *)(v4 + 24) )

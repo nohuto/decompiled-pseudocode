@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpAllocateTablePagedPoolNoZero @ 0x14093C154
+ * XREFs of ExpAllocateTablePagedPoolNoZero @ 0x14094D42C
  * Callers:
- *     ExpAllocateTablePagedPool @ 0x14093BCFC (ExpAllocateTablePagedPool.c)
- *     ExpAllocateLowLevelTable @ 0x14093C120 (ExpAllocateLowLevelTable.c)
+ *     ExpAllocateLowLevelTable @ 0x14094D3F8 (ExpAllocateLowLevelTable.c)
+ *     ExpAllocateTablePagedPool @ 0x14094D7D0 (ExpAllocateTablePagedPool.c)
  * Callees:
- *     PsChargeProcessPagedPoolQuota @ 0x140896630 (PsChargeProcessPagedPoolQuota.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x14089EAD0 (PsChargeProcessPagedPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void *__fastcall ExpAllocateTablePagedPoolNoZero(__int64 a1, unsigned __int64 a2)
+void *__fastcall ExpAllocateTablePagedPoolNoZero(__int64 a1, ULONG_PTR a2)
 {
   void *Pool2; // rbx
 
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, a2, 0x6274624Fu);
   if ( Pool2 && a1 && (int)PsChargeProcessPagedPoolQuota(a1, a2) < 0 )
   {
     ExFreePoolWithTag(Pool2, 0x6274624Fu);

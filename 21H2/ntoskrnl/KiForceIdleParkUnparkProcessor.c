@@ -1,12 +1,12 @@
 /*
- * XREFs of KiForceIdleParkUnparkProcessor @ 0x1405230F8
+ * XREFs of KiForceIdleParkUnparkProcessor @ 0x140523338
  * Callers:
- *     KiForceIdleParkUnparkDpcRoutine @ 0x1405230D0 (KiForceIdleParkUnparkDpcRoutine.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x1405234B0 (KiForceIdleUpdateSchedulerParkState.c)
+ *     KiForceIdleParkUnparkDpcRoutine @ 0x140523310 (KiForceIdleParkUnparkDpcRoutine.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x1405236F0 (KiForceIdleUpdateSchedulerParkState.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeTransitionProcessorParkState @ 0x1405254AC (KeTransitionProcessorParkState.c)
+ *     KeTransitionProcessorParkState @ 0x1405256EC (KeTransitionProcessorParkState.c)
  */
 
 __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -34,12 +34,12 @@ __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, __int64 a2, __int6
     v17 = KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)];
     if ( v11 )
     {
-      _InterlockedAnd64(&qword_140C12788[v16], ~(1LL << (v17 & 0x3F)));
+      _InterlockedAnd64(&qword_140C126B8[v16], ~(1LL << (v17 & 0x3F)));
       v18 = 0LL;
     }
     else
     {
-      _InterlockedAnd64(&qword_140C126B8[v16], ~(1LL << (v17 & 0x3F)));
+      _InterlockedAnd64(&qword_140C12768[v16], ~(1LL << (v17 & 0x3F)));
       v18 = 2LL;
     }
     return KeTransitionProcessorParkState(a1, v18);
@@ -49,12 +49,12 @@ __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, __int64 a2, __int6
     if ( !*(_BYTE *)(a1 + 32819) )
       goto LABEL_7;
     v6 = KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)];
-    _InterlockedOr64(&qword_140C126B8[v6 >> 6], 1LL << (v6 & 0x3F));
+    _InterlockedOr64(&qword_140C12768[v6 >> 6], 1LL << (v6 & 0x3F));
   }
   else
   {
     v5 = KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)];
-    _InterlockedOr64(&qword_140C12788[v5 >> 6], 1LL << (v5 & 0x3F));
+    _InterlockedOr64(&qword_140C126B8[v5 >> 6], 1LL << (v5 & 0x3F));
   }
   result = KeTransitionProcessorParkState(a1, 1LL);
 LABEL_7:

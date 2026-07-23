@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAdjustTimerDelayProcess @ 0x1405137CC
+ * XREFs of KeAdjustTimerDelayProcess @ 0x140513A0C
  * Callers:
- *     PspSetProcessTimerDelayForKTimers @ 0x140582468 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x140582698 (PspSetProcessTimerDelayForKTimers.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
- *     KiAdjustThreadTimer @ 0x14051EFD4 (KiAdjustThreadTimer.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
+ *     KiAdjustThreadTimer @ 0x14051F214 (KiAdjustThreadTimer.c)
  */
 
 char __fastcall KeAdjustTimerDelayProcess(__int64 a1, __int64 a2, unsigned int a3)

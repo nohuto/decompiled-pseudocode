@@ -20,7 +20,7 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeN(
   ULONG v11; // r10d
   const CHAR *v12; // r9
   PWCH v13; // rdx
-  struct _CPTABLEINFO *p_Blink; // r8
+  _CPTABLEINFO *p_Blink; // r8
   ULONG v15; // edi
   unsigned __int16 *MultiByteTable; // rdx
   __int64 v17; // r8
@@ -47,7 +47,7 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeN(
     v11 = UTF8StringByteCount;
     v12 = MultiByteString;
     v13 = UnicodeString;
-    p_Blink = (struct _CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
     if ( CurrentServerSiloGlobals == (struct _LIST_ENTRY *)-1032LL )
       goto LABEL_22;
   }

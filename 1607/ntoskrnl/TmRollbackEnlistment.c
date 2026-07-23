@@ -1,7 +1,7 @@
 /*
  * XREFs of TmRollbackEnlistment @ 0x140001210
  * Callers:
- *     CmpRollbackTransactionArray @ 0x140605148 (CmpRollbackTransactionArray.c)
+ *     CmpRollbackTransactionArray @ 0x1406051FC (CmpRollbackTransactionArray.c)
  * Callees:
  *     <none>
  */

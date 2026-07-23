@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpBuddyAllocatorReserveLogicalAddress @ 0x1405326B0
+ * XREFs of HalpBuddyAllocatorReserveLogicalAddress @ 0x140532C00
  * Callers:
  *     <none>
  * Callees:
- *     HalpBuddyAllocatorBltAdd @ 0x140531FE0 (HalpBuddyAllocatorBltAdd.c)
- *     HalpBuddyAllocatorBltRemove @ 0x140532314 (HalpBuddyAllocatorBltRemove.c)
- *     HalpBuddyAllocatorSplitNode @ 0x140532908 (HalpBuddyAllocatorSplitNode.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x140532530 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltRemove @ 0x140532864 (HalpBuddyAllocatorBltRemove.c)
+ *     HalpBuddyAllocatorSplitNode @ 0x140532E58 (HalpBuddyAllocatorSplitNode.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorReserveLogicalAddress(__int64 a1, unsigned __int64 a2, __int64 a3)

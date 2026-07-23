@@ -1,14 +1,14 @@
 /*
- * XREFs of PspHardDereferenceSiloWorker @ 0x1403DBCA0
+ * XREFs of PspHardDereferenceSiloWorker @ 0x1403DEE90
  * Callers:
- *     PsReleaseSiloHardReference @ 0x1403DBC10 (PsReleaseSiloHardReference.c)
- *     IopCloseFileObjectExtension @ 0x1403DBC40 (IopCloseFileObjectExtension.c)
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     PspJobClose @ 0x140958D70 (PspJobClose.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x140959B30 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PsReleaseSiloHardReference @ 0x1403DEE00 (PsReleaseSiloHardReference.c)
+ *     IopCloseFileObjectExtension @ 0x1403DEE30 (IopCloseFileObjectExtension.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x1409FF3F0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspJobClose @ 0x140A06ED0 (PspJobClose.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall PspHardDereferenceSiloWorker(__int64 a1)

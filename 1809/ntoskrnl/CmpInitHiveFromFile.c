@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpInitHiveFromFile @ 0x1405B3D68
+ * XREFs of CmpInitHiveFromFile @ 0x1405B4D68
  * Callers:
- *     CmpCmdHiveOpen @ 0x1405B494C (CmpCmdHiveOpen.c)
- *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
+ *     CmpCmdHiveOpen @ 0x1405B594C (CmpCmdHiveOpen.c)
+ *     CmpLoadHiveThread @ 0x140736D20 (CmpLoadHiveThread.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1405B4B70 (CmpQueryFileSecurityDescriptor.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpLogEvent @ 0x1407EC6DC (CmpLogEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1401B8510 (ZwQueryInformationFile.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1405B5B70 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpLogEvent @ 0x1407ED8DC (CmpLogEvent.c)
  */
 
 __int64 __fastcall CmpInitHiveFromFile(
@@ -96,14 +96,14 @@ __int64 __fastcall CmpInitHiveFromFile(
   v46 = a4;
   v40 = a3;
   v38 = a6;
-  if ( stru_1403FFAA0.LevelPlus1 > 4 )
+  if ( stru_140400AA0.LevelPlus1 > 4 )
   {
     v56 = 2LL;
     v55 = v58;
     Buffer = Source->Buffer;
     v58[0] = Source->Length;
     v58[1] = 0;
-    TlgWrite(&stru_1403FFAA0, &unk_14036BAEC, 0LL, 0LL, 4u, &pData);
+    TlgWrite(&stru_140400AA0, &unk_14036CA7C, 0LL, 0LL, 4u, &pData);
     v13 = v38;
     a4 = v46;
     v11 = v40;
@@ -328,13 +328,13 @@ LABEL_7:
     ZwClose(v16);
   if ( v17 )
     ExFreePoolWithTag(v17, 0);
-  if ( stru_1403FFAA0.LevelPlus1 > 4 )
+  if ( stru_140400AA0.LevelPlus1 > 4 )
   {
     v62 = 0;
     v60 = &v33;
     v33 = FileSecurityDescriptor;
     v61 = 4;
-    TlgWrite(&stru_1403FFAA0, &unk_14036BAC2, 0LL, 0LL, 3u, &v59);
+    TlgWrite(&stru_140400AA0, &unk_14036CA52, 0LL, 0LL, 3u, &v59);
   }
   return (unsigned int)FileSecurityDescriptor;
 }

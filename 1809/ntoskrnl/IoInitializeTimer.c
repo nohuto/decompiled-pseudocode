@@ -1,11 +1,11 @@
 /*
- * XREFs of IoInitializeTimer @ 0x14081C490
+ * XREFs of IoInitializeTimer @ 0x14081D690
  * Callers:
  *     <none>
  * Callees:
- *     ExInterlockedInsertTailList @ 0x14010BF50 (ExInterlockedInsertTailList.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExInterlockedInsertTailList @ 0x14010BFD0 (ExInterlockedInsertTailList.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoInitializeTimer(PDEVICE_OBJECT DeviceObject, PIO_TIMER_ROUTINE TimerRoutine, PVOID Context)

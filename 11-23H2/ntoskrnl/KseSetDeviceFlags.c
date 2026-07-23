@@ -1,14 +1,14 @@
 /*
- * XREFs of KseSetDeviceFlags @ 0x140976B30
+ * XREFs of KseSetDeviceFlags @ 0x140976D30
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
  *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
- *     KsepStringTransform @ 0x140808228 (KsepStringTransform.c)
- *     KsepRegistryCreateKey @ 0x1409777E8 (KsepRegistryCreateKey.c)
+ *     KsepStringTransform @ 0x1408084F8 (KsepStringTransform.c)
+ *     KsepRegistryCreateKey @ 0x1409779E8 (KsepRegistryCreateKey.c)
  */
 
 __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
@@ -52,7 +52,7 @@ __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
       if ( Handle )
       {
         ZwClose(Handle);
-        _InterlockedIncrement(dword_140C4075C);
+        _InterlockedIncrement(dword_140C4071C);
         v5 = v8;
       }
       Handle = 0LL;
@@ -76,7 +76,7 @@ LABEL_15:
   if ( Handle )
   {
     ZwClose(Handle);
-    _InterlockedIncrement(dword_140C4075C);
+    _InterlockedIncrement(dword_140C4071C);
   }
   return (unsigned int)v4;
 }

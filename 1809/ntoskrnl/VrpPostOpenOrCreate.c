@@ -1,24 +1,24 @@
 /*
- * XREFs of VrpPostOpenOrCreate @ 0x14080AE44
+ * XREFs of VrpPostOpenOrCreate @ 0x14080C044
  * Callers:
- *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408091F0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmSetCallbackObjectContext @ 0x1407EADD0 (CmSetCallbackObjectContext.c)
- *     CmAllocateExtraParameter @ 0x1407EC508 (CmAllocateExtraParameter.c)
- *     CmRetrieveExtraParameter @ 0x1407EC568 (CmRetrieveExtraParameter.c)
- *     CmpFindExtraParameterInBlock @ 0x1407EC5A4 (CmpFindExtraParameterInBlock.c)
- *     CmpFreeExtraParameter @ 0x1407EC5DC (CmpFreeExtraParameter.c)
- *     VrpAllocateKeyContext @ 0x140808368 (VrpAllocateKeyContext.c)
- *     VrpFreeCallbackContext @ 0x140808448 (VrpFreeCallbackContext.c)
- *     VrpFreeKeyContext @ 0x140808490 (VrpFreeKeyContext.c)
- *     VrpBuildKeyPath @ 0x14080DFDC (VrpBuildKeyPath.c)
- *     VrpCountPathComponents @ 0x14080E1BC (VrpCountPathComponents.c)
+ *     EtwActivityIdControl @ 0x1400A3A90 (EtwActivityIdControl.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmSetCallbackObjectContext @ 0x1407EBFD0 (CmSetCallbackObjectContext.c)
+ *     CmAllocateExtraParameter @ 0x1407ED708 (CmAllocateExtraParameter.c)
+ *     CmRetrieveExtraParameter @ 0x1407ED768 (CmRetrieveExtraParameter.c)
+ *     CmpFindExtraParameterInBlock @ 0x1407ED7A4 (CmpFindExtraParameterInBlock.c)
+ *     CmpFreeExtraParameter @ 0x1407ED7DC (CmpFreeExtraParameter.c)
+ *     VrpAllocateKeyContext @ 0x140809568 (VrpAllocateKeyContext.c)
+ *     VrpFreeCallbackContext @ 0x140809648 (VrpFreeCallbackContext.c)
+ *     VrpFreeKeyContext @ 0x140809690 (VrpFreeKeyContext.c)
+ *     VrpBuildKeyPath @ 0x14080F1DC (VrpBuildKeyPath.c)
+ *     VrpCountPathComponents @ 0x14080F3BC (VrpCountPathComponents.c)
  */
 
 __int64 __fastcall VrpPostOpenOrCreate(__int64 *a1, void *a2)
@@ -128,7 +128,7 @@ LABEL_2:
 LABEL_8:
     v12 = -1073741670;
 LABEL_21:
-    if ( stru_1403FFAD8.LevelPlus1 > 2 )
+    if ( stru_140400AD8.LevelPlus1 > 2 )
     {
       v20 = *v11;
       v21 = (unsigned __int16 *)&EmptyUnicodeString;
@@ -147,7 +147,7 @@ LABEL_21:
       v40 = 2;
       v43 = v24;
       v46 = 4;
-      TlgWrite(&stru_1403FFAD8, &unk_14036CDD3, &ActivityId, 0LL, 5u, &pData);
+      TlgWrite(&stru_140400AD8, &unk_14036DD63, &ActivityId, 0LL, 5u, &pData);
     }
     if ( v6 )
       VrpFreeKeyContext(v6);
@@ -176,7 +176,7 @@ LABEL_29:
     v27 = *(_DWORD *)(v26 + 8);
     if ( v27 == 260 || v27 == 872 )
     {
-      if ( stru_1403FFAD8.LevelPlus1 > 5 )
+      if ( stru_140400AD8.LevelPlus1 > 5 )
       {
         v30 = *v11;
         v31 = (unsigned __int16 *)&EmptyUnicodeString;
@@ -195,7 +195,7 @@ LABEL_29:
         v40 = 2;
         v43 = v33;
         v46 = 4;
-        TlgWrite(&stru_1403FFAD8, &unk_14036CAB5, &ActivityId, 0LL, 5u, &pData);
+        TlgWrite(&stru_140400AD8, &unk_14036DA45, &ActivityId, 0LL, 5u, &pData);
       }
     }
     else

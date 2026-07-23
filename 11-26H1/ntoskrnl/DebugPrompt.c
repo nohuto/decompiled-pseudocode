@@ -1,7 +1,7 @@
 /*
- * XREFs of DebugPrompt @ 0x140534960
+ * XREFs of DebugPrompt @ 0x140536DE0
  * Callers:
- *     DbgPrompt @ 0x140618030 (DbgPrompt.c)
+ *     DbgPrompt @ 0x14061B080 (DbgPrompt.c)
  * Callees:
  *     <none>
  */

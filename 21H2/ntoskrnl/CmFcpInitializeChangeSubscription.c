@@ -1,13 +1,13 @@
 /*
- * XREFs of CmFcpInitializeChangeSubscription @ 0x14087E46C
+ * XREFs of CmFcpInitializeChangeSubscription @ 0x14087E5CC
  * Callers:
- *     CmFcpManagerAllocateChangeSubscription @ 0x14087E4E0 (CmFcpManagerAllocateChangeSubscription.c)
+ *     CmFcpManagerAllocateChangeSubscription @ 0x14087E640 (CmFcpManagerAllocateChangeSubscription.c)
  * Callees:
- *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
- *     MmIsSessionAddress @ 0x140349110 (MmIsSessionAddress.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmFcpWorkItemInitialize @ 0x1407D27E0 (CmFcpWorkItemInitialize.c)
+ *     PsGetCurrentProcess @ 0x140346350 (PsGetCurrentProcess.c)
+ *     MmIsSessionAddress @ 0x140353E60 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmFcpWorkItemInitialize @ 0x1407D2950 (CmFcpWorkItemInitialize.c)
  */
 
 __int64 __fastcall CmFcpInitializeChangeSubscription(__int64 a1, unsigned __int64 a2, KSPIN_LOCK a3)

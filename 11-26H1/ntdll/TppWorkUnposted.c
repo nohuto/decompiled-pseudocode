@@ -1,12 +1,12 @@
 /*
- * XREFs of TppWorkUnposted @ 0x1801107C0
+ * XREFs of TppWorkUnposted @ 0x180110350
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     TppETWCallbackDequeue @ 0x18002A21C (TppETWCallbackDequeue.c)
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     TppETWCallbackDequeue @ 0x180015328 (TppETWCallbackDequeue.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall TppWorkUnposted(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall TppWorkUnposted(__int64 a1)
   __int64 result; // rax
 
   v2 = a1 - 200;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v3 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v3 = 2147353478LL;
@@ -36,7 +36,7 @@ __int64 __fastcall TppWorkUnposted(__int64 a1)
     v4 = _InterlockedCompareExchange((volatile signed __int32 *)(v2 + 232), 0, v4);
     if ( v4 == v6 )
     {
-      TppBarrierAdjust((signed __int64 *)(v2 + 56), -(int)v5, 0);
+      TppBarrierAdjust((_RTL_SRWLOCK *)(v2 + 56), -(int)v5, 0);
       break;
     }
   }

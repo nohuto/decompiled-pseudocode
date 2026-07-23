@@ -1,29 +1,29 @@
 /*
- * XREFs of MiLocateKernelSections @ 0x140C5B8DC
+ * XREFs of MiLocateKernelSections @ 0x140C5DA6C
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140C5B318 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140C5D4A8 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
  */
 
 __int64 __fastcall MiLocateKernelSections(__int64 a1)
 {
-  unsigned __int64 v1; // rbx
+  char *v1; // rbx
   __int64 result; // rax
-  int v3; // r8d
+  int NumberOfSections; // r8d
   unsigned int *v4; // rdx
   unsigned int v5; // r9d
   unsigned int v6; // r10d
-  unsigned __int64 v7; // rcx
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  char *v7; // rcx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
-  v8 = 0LL;
-  RtlImageNtHeaderEx(1, v1, 0LL, &v8);
-  result = *(unsigned __int16 *)(v8 + 20);
-  v3 = *(unsigned __int16 *)(v8 + 6);
-  v4 = (unsigned int *)(result + v8 + 24);
-  if ( *(_WORD *)(v8 + 6) )
+  v1 = *(char **)(a1 + 48);
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, v1, 0LL, &OutHeaders);
+  result = OutHeaders->FileHeader.SizeOfOptionalHeader;
+  NumberOfSections = OutHeaders->FileHeader.NumberOfSections;
+  v4 = (unsigned int *)((char *)&OutHeaders->OptionalHeader.Magic + result);
+  if ( OutHeaders->FileHeader.NumberOfSections )
   {
     do
     {
@@ -36,20 +36,20 @@ __int64 __fastcall MiLocateKernelSections(__int64 a1)
       }
       else if ( (_DWORD)result == 1280266064 )
       {
-        v7 = v1 + v4[3];
+        v7 = &v1[v4[3]];
         if ( v4[1] == 1162104643 )
         {
-          ExPoolCodeStart = v1 + v4[3];
+          ExPoolCodeStart = (__int64)&v1[v4[3]];
           if ( v5 < v6 )
             v5 = v6;
           result = v5;
-          ExPoolCodeEnd = ((v5 + v7 + 4095) & 0xFFFFFFFFFFFFF000uLL) - 1;
+          ExPoolCodeEnd = ((unsigned __int64)&v7[v5 + 4095] & 0xFFFFFFFFFFFFF000uLL) - 1;
         }
       }
-      --v3;
+      --NumberOfSections;
       v4 += 10;
     }
-    while ( v3 > 0 );
+    while ( NumberOfSections > 0 );
   }
   return result;
 }

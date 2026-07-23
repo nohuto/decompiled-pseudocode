@@ -1,11 +1,11 @@
 /*
- * XREFs of PopLockGetDoDevicePowerState @ 0x14056F4EC
+ * XREFs of PopLockGetDoDevicePowerState @ 0x14056F72C
  * Callers:
- *     PiControlGetDevicePowerData @ 0x1408B3494 (PiControlGetDevicePowerData.c)
- *     NtGetDevicePowerState @ 0x1408F0370 (NtGetDevicePowerState.c)
+ *     PiControlGetDevicePowerData @ 0x1408B35F4 (PiControlGetDevicePowerData.c)
+ *     NtGetDevicePowerState @ 0x1408F04D0 (NtGetDevicePowerState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

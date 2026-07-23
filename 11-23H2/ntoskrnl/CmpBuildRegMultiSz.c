@@ -3,7 +3,7 @@
  * Callers:
  *     CmpInitializeSystemBiosInformation @ 0x140B7007C (CmpInitializeSystemBiosInformation.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 unsigned __int64 __fastcall CmpBuildRegMultiSz(__int64 a1, __int64 a2, _DWORD *a3, const void *a4, unsigned int Size)

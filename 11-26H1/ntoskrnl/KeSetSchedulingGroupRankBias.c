@@ -1,18 +1,18 @@
 /*
- * XREFs of KeSetSchedulingGroupRankBias @ 0x140444924
+ * XREFs of KeSetSchedulingGroupRankBias @ 0x14043D434
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140336618 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14033678C (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     ?KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x140445CD8 (-KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@.c)
- *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140445DC0 (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTraceScbRankChange @ 0x1406C4D3C (EtwTraceScbRankChange.c)
- *     EtwTraceSchedulingGroup @ 0x1406C4E5C (EtwTraceSchedulingGroup.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140338648 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1403387BC (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     ?KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x14043E7DC (-KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@.c)
+ *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14043E8C0 (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTraceScbRankChange @ 0x1406C897C (EtwTraceScbRankChange.c)
+ *     EtwTraceSchedulingGroup @ 0x1406C8A9C (EtwTraceSchedulingGroup.c)
  */
 
 __int64 __fastcall KeSetSchedulingGroupRankBias(__int64 a1, __int64 a2, __int64 a3)
@@ -105,7 +105,7 @@ LABEL_14:
             (union _KISOLATION_UNIT_LOCK_HANDLE *)v11,
             (struct _KSCB *)(v7 + v3 + 128));
           KiReleasePrcbLocksForIsolationUnit(&v22);
-          if ( (WORD2(xmmword_140FBFC10) & 0x4000) != 0 )
+          if ( (WORD2(xmmword_140FC0C10) & 0x4000) != 0 )
           {
             a3 = *(unsigned int *)(v7 + v3 + 268);
             if ( v10 != (_DWORD)a3 || (v12 != 0) != ((*(_WORD *)(v7 + v3 + 256) >> 1) & 1) )
@@ -177,7 +177,7 @@ LABEL_17:
   LOBYTE(a3) = CurrentIrql;
   *(_DWORD *)(v3 + 4) ^= (*(_DWORD *)(v3 + 4) ^ (4 * v23)) & 4;
   result = KiProcessDeferredReadyList(CurrentPrcb, &v24, a3, 4LL);
-  if ( (WORD2(xmmword_140FBFC10) & 0x4000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x4000) != 0 )
     return EtwTraceSchedulingGroup(v3, 1380LL);
   return result;
 }

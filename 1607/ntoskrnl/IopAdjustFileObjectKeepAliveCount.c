@@ -1,15 +1,15 @@
 /*
- * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x1401C9C40
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x1401C9AE0
  * Callers:
- *     IoDecrementKeepAliveCount @ 0x1401C9844 (IoDecrementKeepAliveCount.c)
- *     IoIncrementKeepAliveCount @ 0x1401C9930 (IoIncrementKeepAliveCount.c)
+ *     IoDecrementKeepAliveCount @ 0x1401C96E4 (IoDecrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x1401C97D0 (IoIncrementKeepAliveCount.c)
  * Callees:
- *     IopGetSetSpecificExtension @ 0x14007AE90 (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x14007B520 (IopGetFileObjectExtension.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     IopGetSetSpecificExtension @ 0x14007AF10 (IopGetSetSpecificExtension.c)
+ *     IopGetFileObjectExtension @ 0x14007B5A0 (IopGetFileObjectExtension.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

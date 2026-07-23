@@ -1,14 +1,14 @@
 /*
- * XREFs of KxStartUserThread @ 0x1401666E0
+ * XREFs of KxStartUserThread @ 0x140166C50
  * Callers:
- *     KyStartUserThread @ 0x140166450 (KyStartUserThread.c)
+ *     KyStartUserThread @ 0x1401669C0 (KyStartUserThread.c)
  * Callees:
- *     KiRestoreDebugRegisterState @ 0x14015D990 (KiRestoreDebugRegisterState.c)
- *     KiRestoreSetContextState @ 0x14015E540 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x140162560 (KiInitiateUserApc.c)
- *     KxStartUserThread @ 0x1401666E0 (KxStartUserThread.c)
- *     KiUmsExit @ 0x140170D40 (KiUmsExit.c)
- *     KiCopyCounters @ 0x1401D6FBC (KiCopyCounters.c)
+ *     KiRestoreDebugRegisterState @ 0x14015DF00 (KiRestoreDebugRegisterState.c)
+ *     KiRestoreSetContextState @ 0x14015EAB0 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x140162AD0 (KiInitiateUserApc.c)
+ *     KxStartUserThread @ 0x140166C50 (KxStartUserThread.c)
+ *     KiUmsExit @ 0x140171240 (KiUmsExit.c)
+ *     KiCopyCounters @ 0x1401D6DE8 (KiCopyCounters.c)
  */
 
 // positive sp value has been detected, the output may be wrong!

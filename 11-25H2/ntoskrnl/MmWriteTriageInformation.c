@@ -17,15 +17,20 @@ __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
   __int128 v7; // [rsp+40h] [rbp-30h]
   __int128 v8; // [rsp+50h] [rbp-20h]
   __int128 v9; // [rsp+60h] [rbp-10h]
-  int v10; // [rsp+80h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+80h] [rbp+10h] BYREF
 
-  v10 = 0;
+  NtProductType = 0;
   v2 = VerifierTriageActionTaken;
   *(_QWORD *)&v5 = 0x5000000001LL;
   DWORD2(v5) = MmSpecialPoolTag;
-  RtlGetNtProductType(&v10);
-  if ( v10 != 1 || ExVerifySuite(EmbeddedNT) || ExVerifySuite(EmbeddedRestricted) || ExVerifySuite(SecurityAppliance) )
+  RtlGetNtProductType(&NtProductType);
+  if ( NtProductType != NtProductWinNt
+    || ExVerifySuite(EmbeddedNT)
+    || ExVerifySuite(EmbeddedRestricted)
+    || ExVerifySuite(SecurityAppliance) )
+  {
     v2 |= 0x80000000;
+  }
   LODWORD(v6) = MmVerifierData;
   v3 = (unsigned __int8)MiFlags;
   *((_QWORD *)&v6 + 1) = qword_140E37318;

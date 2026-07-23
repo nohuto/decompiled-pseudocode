@@ -1,12 +1,13 @@
 /*
- * XREFs of KeGetCurrentProcessorNumberEx @ 0x1404481A0
+ * XREFs of KeGetCurrentProcessorNumberEx @ 0x140440C90
  * Callers:
- *     HalpHvInitMcaPcrContext @ 0x14050944C (HalpHvInitMcaPcrContext.c)
- *     KiAltContextWorkQueueAddItem @ 0x1405FCC08 (KiAltContextWorkQueueAddItem.c)
- *     PopIdleWakeNotifyWakeSource @ 0x140610904 (PopIdleWakeNotifyWakeSource.c)
- *     WheaFlushETWEventsAddWorkRtn @ 0x1406D6F0C (WheaFlushETWEventsAddWorkRtn.c)
- *     KiCopyCountersWorker @ 0x1407BAFAC (KiCopyCountersWorker.c)
- *     HalpMcaInitializePcrContext @ 0x140BEA068 (HalpMcaInitializePcrContext.c)
+ *     HalpHvInitMcaPcrContext @ 0x140502EFC (HalpHvInitMcaPcrContext.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x140519218 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     KiAltContextWorkQueueAddItem @ 0x1405FF658 (KiAltContextWorkQueueAddItem.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x140613B64 (PopIdleWakeNotifyWakeSource.c)
+ *     WheaFlushETWEventsAddWorkRtn @ 0x1406DB0A4 (WheaFlushETWEventsAddWorkRtn.c)
+ *     KiCopyCountersWorker @ 0x1407BE00C (KiCopyCountersWorker.c)
+ *     HalpMcaInitializePcrContext @ 0x140BF0068 (HalpMcaInitializePcrContext.c)
  * Callees:
  *     <none>
  */

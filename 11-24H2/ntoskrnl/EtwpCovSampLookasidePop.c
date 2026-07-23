@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampLookasidePop @ 0x140465630
+ * XREFs of EtwpCovSampLookasidePop @ 0x14045BD10
  * Callers:
- *     EtwpCovSampSampleBufferReserve @ 0x14043ED5C (EtwpCovSampSampleBufferReserve.c)
- *     EtwpCovSampCaptureBufferGet @ 0x1404EF638 (EtwpCovSampCaptureBufferGet.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140651B10 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x140434910 (EtwpCovSampSampleBufferReserve.c)
+ *     EtwpCovSampCaptureBufferGet @ 0x1404ECF6C (EtwpCovSampCaptureBufferGet.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140650210 (EtwpCovSampCaptureQueueApc.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140442670 (EtwpCovSampCaptureReleaseToLookaside.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140439240 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall EtwpCovSampLookasidePop(__int64 a1, __int64 a2)

@@ -1,60 +1,60 @@
 /*
- * XREFs of HalpDmaControllerReadDmaCounter @ 0x1404B4D50
+ * XREFs of HalpDmaControllerReadDmaCounter @ 0x1404AF550
  * Callers:
- *     HalReadDmaCounterV3 @ 0x1404B4D20 (HalReadDmaCounterV3.c)
+ *     HalReadDmaCounterV3 @ 0x1404AF520 (HalReadDmaCounterV3.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HalpDmaControllerReadDmaCounter(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall HalpDmaControllerReadDmaCounter(__int64 a1, unsigned int a2)
 {
-  __int64 v4; // r15
-  _QWORD *v5; // rbx
+  __int64 v2; // r15
+  _QWORD *v3; // rbx
   unsigned __int8 CurrentIrql; // di
-  char v7; // bp
-  unsigned __int64 v8; // rdx
-  volatile signed __int64 *v9; // rsi
-  unsigned int v10; // r14d
-  __int64 v11; // rdx
+  char v5; // bp
+  unsigned __int64 v6; // rdx
+  volatile signed __int64 *v7; // rsi
+  unsigned int v8; // r14d
+  __int64 v9; // rdx
 
-  v4 = a2;
-  v5 = (_QWORD *)a1;
+  v2 = a2;
+  v3 = (_QWORD *)a1;
   CurrentIrql = KeGetCurrentIrql();
-  v7 = 0;
+  v5 = 0;
   if ( CurrentIrql == 15 )
   {
-    v9 = (volatile signed __int64 *)(a1 + 168);
+    v7 = (volatile signed __int64 *)(a1 + 168);
   }
   else
   {
-    v8 = *(unsigned __int8 *)(a1 + 176);
+    v6 = *(unsigned __int8 *)(a1 + 176);
     CurrentIrql = KeGetCurrentIrql();
-    __writecr8(v8);
+    __writecr8(v6);
     if ( KiIrqlFlags )
     {
       LOBYTE(a1) = CurrentIrql;
-      KiRaiseIrqlProcessIrqlFlags(a1, v8);
+      KiRaiseIrqlProcessIrqlFlags(a1, v6);
     }
-    v9 = v5 + 21;
-    KxAcquireSpinLock(v5 + 21);
-    v7 = 1;
+    v7 = v3 + 21;
+    KxAcquireSpinLock(v3 + 21);
+    v5 = 1;
   }
-  v10 = guard_dispatch_icall_no_overrides(v5[8], (unsigned int)v4, a3, a4);
-  if ( !v10 )
-    *(_BYTE *)(160 * v4 + v5[7] + 6) = 1;
-  if ( v7 )
+  v8 = guard_dispatch_icall_no_overrides(v3[8], (unsigned int)v2);
+  if ( !v8 )
+    *(_BYTE *)(160 * v2 + v3[7] + 6) = 1;
+  if ( v5 )
   {
-    KxReleaseSpinLock(v9);
+    KxReleaseSpinLock(v7);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v11) = CurrentIrql;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);
+      LOBYTE(v9) = CurrentIrql;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);
     }
     __writecr8(CurrentIrql);
   }
-  return v10;
+  return v8;
 }

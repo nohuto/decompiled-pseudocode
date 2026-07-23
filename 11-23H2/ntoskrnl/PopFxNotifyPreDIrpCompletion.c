@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxNotifyPreDIrpCompletion @ 0x14028DFBC
+ * XREFs of PopFxNotifyPreDIrpCompletion @ 0x14028E24C
  * Callers:
- *     PopRequestCompletion @ 0x14028E0C0 (PopRequestCompletion.c)
+ *     PopRequestCompletion @ 0x14028E350 (PopRequestCompletion.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x140589B78 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x14058A068 (PopFxDerefAndCompleteDirectedPowerTransition.c)
  */
 
 __int64 __fastcall PopFxNotifyPreDIrpCompletion(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)
@@ -44,10 +44,13 @@ __int64 __fastcall PopFxNotifyPreDIrpCompletion(ULONG_PTR BugCheckParameter3, __
       *(_DWORD *)(BugCheckParameter3 + 1176) = a3;
       *(_DWORD *)(BugCheckParameter3 + 1180) = v8;
       KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter3 + 1152));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

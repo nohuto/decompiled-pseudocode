@@ -54,7 +54,7 @@ __int64 __fastcall EtwpRegisterGuidsApiCallback(__int64 a1, __int64 a2, char a3)
     *(_QWORD *)(v3 + 152) = *(_QWORD *)(a1 + 104);
     *(_DWORD *)(v3 + 160) = v9;
     *(_DWORD *)(v3 + 48) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 40));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 40));
   }
   v11 = *(_QWORD *)(a2 + 56);
   v12 = *(_OWORD *)(a1 + 40);

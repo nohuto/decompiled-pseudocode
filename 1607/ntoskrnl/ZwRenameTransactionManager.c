@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwRenameTransactionManager @ 0x14015C880
+ * XREFs of ZwRenameTransactionManager @ 0x14015CDF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRenameTransactionManager(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwRenameTransactionManager(PUNICODE_STRING LogFileName, LPGUID ExistingTransactionManagerGuid)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(LogFileName);
 }

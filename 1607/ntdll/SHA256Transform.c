@@ -1,9 +1,9 @@
 /*
- * XREFs of SHA256Transform @ 0x180009758
+ * XREFs of SHA256Transform @ 0x180009748
  * Callers:
- *     SHA256Update @ 0x180009654 (SHA256Update.c)
+ *     SHA256Update @ 0x180009644 (SHA256Update.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SHA256Transform(int *a1, __int64 a2)

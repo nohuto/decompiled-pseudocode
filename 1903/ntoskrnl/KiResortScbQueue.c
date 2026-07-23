@@ -11,7 +11,7 @@
  *     KiInsertSchedulingGroupQueue @ 0x1400E8F4C (KiInsertSchedulingGroupQueue.c)
  */
 
-void __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
+void __fastcall KiResortScbQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
   unsigned __int64 *v3; // r9
   unsigned __int64 v6; // rcx
@@ -79,7 +79,7 @@ LABEL_31:
       return;
 LABEL_25:
     KiRemoveSchedulingGroupQueue(a1, a2, 0);
-    KiInsertSchedulingGroupQueue(a1, a2, 0);
+    KiInsertSchedulingGroupQueue((__int64)a1, a2, 0);
     return;
   }
   v8 = *(_QWORD *)(a2 + 96);

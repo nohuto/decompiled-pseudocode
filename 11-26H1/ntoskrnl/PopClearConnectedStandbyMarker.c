@@ -1,26 +1,26 @@
 /*
- * XREFs of PopClearConnectedStandbyMarker @ 0x140B337C0
+ * XREFs of PopClearConnectedStandbyMarker @ 0x140B35C10
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1404E5A30 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1404DEFD0 (PopBsdHandleRequest.c)
  */
 
 __int64 __fastcall PopClearConnectedStandbyMarker(int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   __int64 result; // rax
 
-  if ( !LOBYTE(stru_140F12D20.SchedulerAssist) )
+  if ( !PopBsdSkipLogging )
   {
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20.AbWaitObject, a2, a3, a4);
-    stru_140E66FF0.SavedApcStateFill[32] &= ~2u;
-    stru_140E66FF0.SavedApcState.ApcListHead[1].Blink = 0LL;
-    stru_140E66FF0.SavedApcStateFill[35] = a1 & 0x3F | stru_140E66FF0.SavedApcStateFill[35] & 0xC0;
-    stru_140E66FF0.Spare6 = stru_140E66FF0.Spare6 & 0xF | (16 * HIBYTE(a1));
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock, a2, a3, a4);
+    LOBYTE(stru_140E67200.ReservedPreviousReadyTimeValue) &= ~2u;
+    stru_140E67200.AbWaitObject = 0LL;
+    HIBYTE(stru_140E67200.ReservedPreviousReadyTimeValue) = a1 & 0x3F | HIBYTE(stru_140E67200.ReservedPreviousReadyTimeValue) & 0xC0;
+    HIBYTE(stru_140E67200.ModeHistory) = HIBYTE(stru_140E67200.ModeHistory) & 0xF | (16 * HIBYTE(a1));
     PopBsdHandleRequest(3u);
-    return PopReleaseRwLock((struct _KTHREAD *)&stru_140F12D20.AbWaitObject);
+    return PopReleaseRwLock((struct _KTHREAD *)&PopBsdUpdateLock);
   }
   return result;
 }

@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwCreatePort()
+NTSTATUS __cdecl ZwCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 184LL;
+  result = 184;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgSplitDriverConfigurationId @ 0x1408AA62C
+ * XREFs of PiDevCfgSplitDriverConfigurationId @ 0x1408AA78C
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F1C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A507C (PiDevCfgCheckDeviceNeedsUpdate.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1402B5900 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     swscanf_s @ 0x1403D8170 (swscanf_s.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     RtlTimeFieldsToTime @ 0x140233AE0 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     swscanf_s @ 0x1403D82E0 (swscanf_s.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404B66AC (__report_rangecheckfailure.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
@@ -35,7 +35,7 @@ __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
   _WORD *v20; // r14
   wchar_t *v21; // rsi
   unsigned __int64 v22; // rbp
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-58h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-58h] BYREF
   wchar_t Srca[12]; // [rsp+40h] [rbp-48h] BYREF
 
   v7 = 0;

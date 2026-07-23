@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveLoaderEntry @ 0x14066C0B4
+ * XREFs of MiRemoveLoaderEntry @ 0x14066D284
  * Callers:
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14042C87C (RtlRemoveInvertedFunctionTable.c)
- *     MmLockLoadedModuleListExclusive @ 0x14042CA30 (MmLockLoadedModuleListExclusive.c)
- *     MmUnlockLoadedModuleListExclusive @ 0x14042CA74 (MmUnlockLoadedModuleListExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1402EE530 (MmLockLoadedModuleListExclusive.c)
+ *     MmUnlockLoadedModuleListExclusive @ 0x1402EE574 (MmUnlockLoadedModuleListExclusive.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x1402EF4F4 (RtlRemoveInvertedFunctionTable.c)
  */
 
 void __fastcall MiRemoveLoaderEntry(_QWORD *a1)
@@ -25,6 +25,6 @@ void __fastcall MiRemoveLoaderEntry(_QWORD *a1)
     __fastfail(3u);
   *v5 = v3;
   *(_QWORD *)(v3 + 8) = v5;
-  RtlAvlRemoveNode(&qword_140E2D880, (__int64)(a1 + 26));
+  RtlAvlRemoveNode(&qword_140E2D9C0, (__int64)(a1 + 26));
   MmUnlockLoadedModuleListExclusive(v4);
 }

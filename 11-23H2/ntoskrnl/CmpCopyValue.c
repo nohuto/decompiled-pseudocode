@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCopyValue @ 0x1408AB984
+ * XREFs of CmpCopyValue @ 0x1408ABBD4
  * Callers:
- *     CmpCopyKeyPartial @ 0x1407DD858 (CmpCopyKeyPartial.c)
- *     CmpMergeKeyValues @ 0x140A222D8 (CmpMergeKeyValues.c)
- *     CmpSyncKeyValues @ 0x140A22DD4 (CmpSyncKeyValues.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A25DD4 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpCopyKeyPartial @ 0x1407DDB28 (CmpCopyKeyPartial.c)
+ *     CmpMergeKeyValues @ 0x140A22588 (CmpMergeKeyValues.c)
+ *     CmpSyncKeyValues @ 0x140A23084 (CmpSyncKeyValues.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A26084 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     CmpGetValueData @ 0x1406DC820 (CmpGetValueData.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     CmpSetValueDataNew @ 0x14070946C (CmpSetValueDataNew.c)
- *     HvFreeCell @ 0x14070ABE0 (HvFreeCell.c)
- *     CmpFreeValueData @ 0x14070AF5C (CmpFreeValueData.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     CmpCopyCell @ 0x1407DDCB0 (CmpCopyCell.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpGetValueData @ 0x1406DC850 (CmpGetValueData.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     CmpSetValueDataNew @ 0x14070967C (CmpSetValueDataNew.c)
+ *     HvFreeCell @ 0x14070ADF0 (HvFreeCell.c)
+ *     CmpFreeValueData @ 0x14070B16C (CmpFreeValueData.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     CmpCopyCell @ 0x1407DDF80 (CmpCopyCell.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

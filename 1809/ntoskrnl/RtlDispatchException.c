@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlDispatchException @ 0x1400A0F40
+ * XREFs of RtlDispatchException @ 0x1400A0E80
  * Callers:
- *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
+ *     KiDispatchException @ 0x1400A2E90 (KiDispatchException.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     RtlRaiseException @ 0x1402EDA30 (RtlRaiseException.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x14009DC20 (RtlLookupFunctionEntry.c)
- *     RtlpCopyContext @ 0x14009E9D0 (RtlpCopyContext.c)
- *     RtlpIsFrameInBounds @ 0x1400A1894 (RtlpIsFrameInBounds.c)
- *     RtlGetExtendedContextLength2 @ 0x1400A1E3C (RtlGetExtendedContextLength2.c)
- *     RtlInitializeExtendedContext2 @ 0x1400A1F20 (RtlInitializeExtendedContext2.c)
- *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     RtlVirtualUnwind @ 0x1401376A0 (RtlVirtualUnwind.c)
- *     RtlpUnwindEpilogue @ 0x14013A394 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x14013A54C (RtlpUnwindOpSlots.c)
- *     RtlpSameFunction @ 0x140184F84 (RtlpSameFunction.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
- *     RtlpExecuteHandlerForException @ 0x1401C6330 (RtlpExecuteHandlerForException.c)
- *     RtlpLogExceptionDispatch @ 0x1402EC390 (RtlpLogExceptionDispatch.c)
- *     RtlpLogExceptionHandler @ 0x1402EC530 (RtlpLogExceptionHandler.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlLookupFunctionEntry @ 0x14009DB60 (RtlLookupFunctionEntry.c)
+ *     RtlpCopyContext @ 0x14009E910 (RtlpCopyContext.c)
+ *     RtlpIsFrameInBounds @ 0x1400A17D4 (RtlpIsFrameInBounds.c)
+ *     RtlGetExtendedContextLength2 @ 0x1400A1D7C (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x1400A1E60 (RtlInitializeExtendedContext2.c)
+ *     RtlpGetStackLimits @ 0x1400CAC00 (RtlpGetStackLimits.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     RtlVirtualUnwind @ 0x1401377A0 (RtlVirtualUnwind.c)
+ *     RtlpUnwindEpilogue @ 0x14013A494 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x14013A64C (RtlpUnwindOpSlots.c)
+ *     RtlpSameFunction @ 0x1401850C4 (RtlpSameFunction.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1401C5F20 (_alloca_probe.c)
+ *     RtlpExecuteHandlerForException @ 0x1401C6490 (RtlpExecuteHandlerForException.c)
+ *     RtlpLogExceptionDispatch @ 0x1402EC580 (RtlpLogExceptionDispatch.c)
+ *     RtlpLogExceptionHandler @ 0x1402EC720 (RtlpLogExceptionHandler.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT Context)
@@ -127,7 +127,7 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
   struct _RUNTIME_FUNCTION *v103; // [rsp+58h] [rbp+18h]
   unsigned __int64 v104; // [rsp+60h] [rbp+20h]
   PEXCEPTION_RECORD v105; // [rsp+68h] [rbp+28h]
-  unsigned int v106; // [rsp+70h] [rbp+30h] BYREF
+  ULONG ContextLength; // [rsp+70h] [rbp+30h] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+78h] [rbp+38h] BYREF
   PVOID HandlerData; // [rsp+80h] [rbp+40h] BYREF
   DWORD64 *v109; // [rsp+88h] [rbp+48h]
@@ -142,11 +142,11 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+D0h] [rbp+90h]
   DWORD64 *v119; // [rsp+D8h] [rbp+98h]
   char *p_ContextRecord; // [rsp+E8h] [rbp+A8h]
-  EXCEPTION_ROUTINE *v121; // [rsp+F0h] [rbp+B0h]
+  EXCEPTION_DISPOSITION (__cdecl *v121)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+F0h] [rbp+B0h]
   PVOID v122; // [rsp+F8h] [rbp+B8h]
   struct _UNWIND_HISTORY_TABLE *v123; // [rsp+100h] [rbp+C0h]
   int v124; // [rsp+108h] [rbp+C8h]
-  char v125[16]; // [rsp+110h] [rbp+D0h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+110h] [rbp+D0h] BYREF
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+120h] [rbp+E0h] BYREF
 
   v2 = 0;
@@ -165,14 +165,14 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
     ExceptionRecord->ExceptionFlags = v5 | 8;
     return v2;
   }
-  RtlGetExtendedContextLength2(1048587LL, &v106, 0LL);
-  v6 = v106 + 15LL;
-  if ( v6 <= v106 )
+  RtlGetExtendedContextLength2(0x10000Bu, &ContextLength, 0LL);
+  v6 = ContextLength + 15LL;
+  if ( v6 <= ContextLength )
     v6 = 0xFFFFFFFFFFFFFF0LL;
   v7 = v6 & 0xFFFFFFFFFFFFFFF0uLL;
   v8 = alloca(v7);
   v9 = alloca(v7);
-  RtlInitializeExtendedContext2(&ContextRecord, 1048587LL, v125, 0LL);
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextRecord, 0x10000Bu, &ContextEx, 0LL);
   RtlpCopyContext((__int64)&ContextRecord, (__int64)Context);
   Rip = Context->Rip;
   p_HistoryTable = &HistoryTable;

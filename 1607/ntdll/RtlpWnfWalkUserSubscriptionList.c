@@ -1,159 +1,155 @@
 /*
- * XREFs of RtlpWnfWalkUserSubscriptionList @ 0x180065F08
+ * XREFs of RtlpWnfWalkUserSubscriptionList @ 0x180065EF8
  * Callers:
- *     RtlpWnfProcessCurrentDescriptor @ 0x180065D48 (RtlpWnfProcessCurrentDescriptor.c)
+ *     RtlpWnfProcessCurrentDescriptor @ 0x180065D38 (RtlpWnfProcessCurrentDescriptor.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlSetThreadSubProcessTag @ 0x18003B520 (RtlSetThreadSubProcessTag.c)
- *     RtlpDecRefWnfUserSubscription @ 0x1800662F8 (RtlpDecRefWnfUserSubscription.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlSetThreadSubProcessTag @ 0x18003B510 (RtlSetThreadSubProcessTag.c)
+ *     RtlpDecRefWnfUserSubscription @ 0x1800662E8 (RtlpDecRefWnfUserSubscription.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
- *     RtlpWnfETWEventCallback @ 0x1800D9A08 (RtlpWnfETWEventCallback.c)
- *     RtlpWnfMarkFailure @ 0x1800D9C80 (RtlpWnfMarkFailure.c)
+ *     RtlpWnfETWEventCallback @ 0x1800D9AC8 (RtlpWnfETWEventCallback.c)
+ *     RtlpWnfMarkFailure @ 0x1800D9D40 (RtlpWnfMarkFailure.c)
  */
 
-__int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, _RTL_SRWLOCK *a2, int a3)
 {
-  int v4; // r13d
-  unsigned int v7; // edi
-  volatile signed __int32 *v8; // rax
-  volatile signed __int32 *v9; // r9
-  volatile signed __int32 *v10; // rsi
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  int v13; // r14d
-  __int64 v15; // rbx
-  void *v16; // r13
-  __int64 v17; // r9
-  __int64 v18; // rax
-  bool v19; // al
-  unsigned __int64 v20; // rbx
-  int v21; // [rsp+40h] [rbp-88h]
-  int v22; // [rsp+44h] [rbp-84h]
-  int v23; // [rsp+48h] [rbp-80h]
-  volatile signed __int32 *v24; // [rsp+58h] [rbp-70h]
-  unsigned __int64 v25; // [rsp+60h] [rbp-68h]
-  void *v26; // [rsp+60h] [rbp-68h]
-  __int64 v27; // [rsp+68h] [rbp-60h]
-  volatile signed __int32 *v28; // [rsp+88h] [rbp-40h]
-  int v29; // [rsp+D0h] [rbp+8h]
-  int v31; // [rsp+E0h] [rbp+18h]
-  unsigned int v32; // [rsp+E8h] [rbp+20h]
+  int v3; // r13d
+  unsigned int v6; // edi
+  _RTL_SRWLOCK *v7; // rax
+  volatile signed __int32 *Value; // r9
+  volatile signed __int32 *v9; // rsi
+  int v10; // r14d
+  __int64 v12; // rbx
+  void *v13; // r13
+  int v14; // edx
+  __int64 v15; // rax
+  bool v16; // al
+  _RTL_SRWLOCK *v17; // rbx
+  int v18; // [rsp+40h] [rbp-88h]
+  int v19; // [rsp+44h] [rbp-84h]
+  int v20; // [rsp+48h] [rbp-80h]
+  volatile signed __int32 *v21; // [rsp+58h] [rbp-70h]
+  PVOID SubProcessTag; // [rsp+60h] [rbp-68h]
+  PVOID SubProcessTaga; // [rsp+60h] [rbp-68h]
+  __int64 v24; // [rsp+68h] [rbp-60h]
+  _RTL_SRWLOCK *v25; // [rsp+88h] [rbp-40h]
+  int v26; // [rsp+D0h] [rbp+8h]
+  int v29; // [rsp+E8h] [rbp+20h]
 
-  v31 = a3;
-  v4 = a3;
-  v7 = 0;
-  v23 = 0;
-  RtlAcquireSRWLockExclusive(a2 + 56, (char *)a2, a3, a4);
-  v8 = (volatile signed __int32 *)(a2 + 64);
-  v28 = (volatile signed __int32 *)(a2 + 64);
-  v9 = *(volatile signed __int32 **)(a2 + 64);
-  v24 = v9;
-  while ( v9 != v8 )
+  v3 = a3;
+  v6 = 0;
+  v20 = 0;
+  RtlAcquireSRWLockExclusive(a2 + 7);
+  v7 = a2 + 8;
+  v25 = a2 + 8;
+  Value = (volatile signed __int32 *)a2[8].Value;
+  v21 = Value;
+  while ( Value != (volatile signed __int32 *)v7 )
   {
-    v10 = v9 - 2;
-    v11 = RtlpFreezeTimeBias;
-    v12 = MEMORY[0x7FFE03B0];
-    v25 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000;
-    _InterlockedIncrement(v9 + 18);
-    v13 = *(_DWORD *)(a1 + 24) & v9[14];
-    if ( !*((_DWORD *)v9 + 22)
-      && v13
-      && ((v13 & 1) != 0 && (!*((_DWORD *)v10 + 14) || *(_DWORD *)(a1 + 16) - *((_DWORD *)v10 + 14) > 0)
-       || (v13 & 0xFFFFFFFE) != 0 && !*((_DWORD *)v10 + 40)
-       || (v13 & 0x10) != 0)
-      && (!*((_DWORD *)v10 + 30) || v25 >= *((_QWORD *)v10 + 16) || *((_DWORD *)v10 + 37) < *(_DWORD *)(a1 + 16))
-      && (!v4 || *((_DWORD *)v10 + 36)) )
+    v9 = Value - 2;
+    SubProcessTag = (PVOID)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000);
+    _InterlockedIncrement(Value + 18);
+    v10 = *(_DWORD *)(a1 + 24) & Value[14];
+    if ( !*((_DWORD *)Value + 22)
+      && v10
+      && ((v10 & 1) != 0 && (!*((_DWORD *)v9 + 14) || *(_DWORD *)(a1 + 16) - *((_DWORD *)v9 + 14) > 0)
+       || (v10 & 0xFFFFFFFE) != 0 && !*((_DWORD *)v9 + 40)
+       || (v10 & 0x10) != 0)
+      && (!*((_DWORD *)v9 + 30)
+       || (unsigned __int64)SubProcessTag >= *((_QWORD *)v9 + 16)
+       || *((_DWORD *)v9 + 37) < *(_DWORD *)(a1 + 16))
+      && (!v3 || *((_DWORD *)v9 + 36)) )
     {
-      v21 = 0;
-      v22 = 0;
-      v27 = *((_QWORD *)v10 + 4);
-      v15 = *(_QWORD *)(*((_QWORD *)v10 + 3) + 16LL);
-      v16 = (void *)*((_QWORD *)v10 + 6);
-      *((_QWORD *)v10 + 19) = NtCurrentTeb()->ClientId.UniqueThread;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 56));
-      v11 = 0LL;
-      v32 = 0;
+      v18 = 0;
+      v19 = 0;
+      v24 = *((_QWORD *)v9 + 4);
+      v12 = *(_QWORD *)(*((_QWORD *)v9 + 3) + 16LL);
+      v13 = (void *)*((_QWORD *)v9 + 6);
+      *((_QWORD *)v9 + 19) = NtCurrentTeb()->ClientId.UniqueThread;
+      RtlReleaseSRWLockExclusive(a2 + 7);
+      v14 = 0;
       v29 = 0;
-      v18 = *((_QWORD *)v10 + 9);
-      if ( !v18 || (v19 = !_interlockedbittestandset64((volatile signed __int32 *)(v18 + 24), 0LL), (v29 = v19) != 0) )
+      v26 = 0;
+      v15 = *((_QWORD *)v9 + 9);
+      if ( !v15 || (v16 = !_interlockedbittestandset64((volatile signed __int32 *)(v15 + 24), 0LL), (v26 = v16) != 0) )
       {
 LABEL_19:
-        if ( !*((_DWORD *)v10 + 24) )
+        if ( !*((_DWORD *)v9 + 24) )
         {
-          v22 = 1;
-          v26 = RtlSetThreadSubProcessTag(v16);
-          if ( (v13 & 1) != 0 )
-            v21 = _guard_dispatch_icall_fptr();
-          if ( (v13 & 0x10) != 0 && !*((_DWORD *)v10 + 24) && (v21 >= 0 || (v10[15] & 4) == 0) )
+          v19 = 1;
+          SubProcessTaga = RtlSetThreadSubProcessTag(v13);
+          if ( (v10 & 1) != 0 )
+            v18 = _guard_dispatch_icall_fptr();
+          if ( (v10 & 0x10) != 0 && !*((_DWORD *)v9 + 24) && (v18 >= 0 || (v9[15] & 4) == 0) )
           {
             _guard_dispatch_icall_fptr();
-            v21 = 0;
+            v18 = 0;
           }
-          if ( (v13 & 0xFFFFFFEE) != 0 )
+          if ( (v10 & 0xFFFFFFEE) != 0 )
           {
-            v21 = 0;
+            v18 = 0;
             _guard_dispatch_icall_fptr();
           }
           if ( MEMORY[0x7FFE038E] )
-            RtlpWnfETWEventCallback(v15, *(_DWORD *)(a1 + 16), (_DWORD)v10, a2, v27, v13, v21);
-          RtlSetThreadSubProcessTag(v26);
+            RtlpWnfETWEventCallback(v12, *(_DWORD *)(a1 + 16), (_DWORD)v9, (_DWORD)a2, v24, v10, v18);
+          RtlSetThreadSubProcessTag(SubProcessTaga);
         }
-        if ( v29 )
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(*((_QWORD *)v10 + 9) + 24LL));
-        v20 = a2 + 56;
-        if ( v22 )
+        if ( v26 )
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(*((_QWORD *)v9 + 9) + 24LL));
+        v17 = a2 + 7;
+        if ( v19 )
         {
-          RtlAcquireSRWLockExclusive(a2 + 56, (char *)v11, v12, v17);
-          v11 = 1LL;
-          v32 = 1;
-          if ( v21 != -1073741267 && v21 != -1073741801 )
+          RtlAcquireSRWLockExclusive(a2 + 7);
+          v14 = 1;
+          v29 = 1;
+          if ( v18 != -1073741267 && v18 != -1073741801 )
           {
-            if ( !*((_DWORD *)v10 + 14) || *(_DWORD *)(a1 + 16) - *((_DWORD *)v10 + 14) > 0 )
-              *((_DWORD *)v10 + 14) = *(_DWORD *)(a1 + 16);
-            if ( (v10[15] & 4) != 0 && *((_DWORD *)v10 + 34) )
+            if ( !*((_DWORD *)v9 + 14) || *(_DWORD *)(a1 + 16) - *((_DWORD *)v9 + 14) > 0 )
+              *((_DWORD *)v9 + 14) = *(_DWORD *)(a1 + 16);
+            if ( (v9[15] & 4) != 0 && *((_DWORD *)v9 + 34) )
             {
-              *((_DWORD *)v10 + 30) = 0;
-              *((_QWORD *)v10 + 17) = 0LL;
-              *((_QWORD *)v10 + 16) = 0LL;
-              *((_DWORD *)v10 + 37) = 0;
+              *((_DWORD *)v9 + 30) = 0;
+              *((_QWORD *)v9 + 17) = 0LL;
+              *((_QWORD *)v9 + 16) = 0LL;
+              *((_DWORD *)v9 + 37) = 0;
             }
 LABEL_45:
-            *((_DWORD *)v10 + 36) = 0;
+            *((_DWORD *)v9 + 36) = 0;
 LABEL_46:
-            if ( !(_DWORD)v11 )
-              RtlAcquireSRWLockExclusive(v20, (char *)v11, v12, v17);
-            *((_QWORD *)v10 + 19) = 0LL;
-            v9 = v24;
-            v4 = v31;
+            if ( !v14 )
+              RtlAcquireSRWLockExclusive(v17);
+            *((_QWORD *)v9 + 19) = 0LL;
+            Value = v21;
+            v3 = a3;
             goto LABEL_10;
           }
-          if ( (v10[15] & 4) == 0 )
+          if ( (v9[15] & 4) == 0 )
             goto LABEL_45;
-          v23 = 1;
-          RtlpWnfMarkFailure(v10, (unsigned int)v21, *(unsigned int *)(a1 + 16));
+          v20 = 1;
+          RtlpWnfMarkFailure(v9, (unsigned int)v18, *(unsigned int *)(a1 + 16));
         }
-        v11 = v32;
+        v14 = v29;
         goto LABEL_45;
       }
-      if ( v31 == 1 )
+      if ( a3 == 1 )
       {
-        RtlAcquireSRWLockExclusive(*((_QWORD *)v10 + 9) + 24LL, 0LL, v12, v17);
-        v29 = 1;
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(*((_QWORD *)v9 + 9) + 24LL));
+        v26 = 1;
         goto LABEL_19;
       }
-      *((_DWORD *)v10 + 36) = 1;
-      v20 = a2 + 56;
+      *((_DWORD *)v9 + 36) = 1;
+      v17 = a2 + 7;
       goto LABEL_46;
     }
 LABEL_10:
-    v24 = *(volatile signed __int32 **)v9;
-    RtlpDecRefWnfUserSubscription(v10, v11, v12);
-    v9 = v24;
-    v8 = v28;
+    v21 = *(volatile signed __int32 **)Value;
+    RtlpDecRefWnfUserSubscription((PVOID)v9);
+    Value = v21;
+    v7 = v25;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 56));
-  if ( v23 )
+  RtlReleaseSRWLockExclusive(a2 + 7);
+  if ( v20 )
     return (unsigned int)-1073741267;
-  return v7;
+  return v6;
 }

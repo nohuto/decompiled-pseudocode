@@ -26,11 +26,11 @@ __int64 __fastcall HalpInitializeMce(__int64 a1, _DWORD *a2, __int64 a3, __int64
   ULONG ActiveProcessorCount; // r14d
   int *v12; // rsi
   unsigned int v13; // edx
-  struct _GROUP_AFFINITY *v14; // rdx
+  _GROUP_AFFINITY *v14; // rdx
   __int64 i; // rbx
   signed __int32 v16[8]; // [rsp+0h] [rbp-50h] BYREF
   __int64 v17; // [rsp+20h] [rbp-30h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
   __int128 v19; // [rsp+38h] [rbp-18h] BYREF
 
   v17 = 0LL;
@@ -69,7 +69,7 @@ __int64 __fastcall HalpInitializeMce(__int64 a1, _DWORD *a2, __int64 a3, __int64
             if ( v10 )
               v14 = 0LL;
             else
-              v14 = (struct _GROUP_AFFINITY *)&v19;
+              v14 = (_GROUP_AFFINITY *)&v19;
             KeSetSystemGroupAffinityThread(&Affinity, v14);
             for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 176) )
               PshedInitProc(*(unsigned int *)(i + 164));

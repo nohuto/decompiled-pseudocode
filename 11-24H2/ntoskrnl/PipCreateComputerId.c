@@ -1,17 +1,17 @@
 /*
- * XREFs of PipCreateComputerId @ 0x140C203D8
+ * XREFs of PipCreateComputerId @ 0x140C22418
  * Callers:
- *     PipInitComputerIds @ 0x140C63B74 (PipInitComputerIds.c)
+ *     PipInitComputerIds @ 0x140C65CF0 (PipInitComputerIds.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140356698 (RtlStringCbPrintfExW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     _PnpStringFromGuid @ 0x1408B754C (_PnpStringFromGuid.c)
- *     RtlGenerateClass5Guid @ 0x140AAC700 (RtlGenerateClass5Guid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfExW @ 0x140423038 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     _PnpStringFromGuid @ 0x1408B4EBC (_PnpStringFromGuid.c)
+ *     RtlGenerateClass5Guid @ 0x140AA7730 (RtlGenerateClass5Guid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipCreateComputerId(void *a1, void *a2, unsigned __int16 **a3, unsigned int a4, int *a5)
@@ -23,7 +23,7 @@ __int64 __fastcall PipCreateComputerId(void *a1, void *a2, unsigned __int16 **a3
   _WORD *v12; // rax
   unsigned __int16 v13; // cx
   unsigned __int16 v14; // bx
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   UCHAR *Data; // rsi
   int Class5Guid; // ebx
   _WORD *v18; // rdi
@@ -75,7 +75,7 @@ __int64 __fastcall PipCreateComputerId(void *a1, void *a2, unsigned __int16 **a3
       while ( v5 < a4 );
       *v18 = 0;
       DataSize = v14;
-      Class5Guid = RtlGenerateClass5Guid((__int64)qword_140027700, Data, (unsigned int)v14 - 2, (__int64)a5);
+      Class5Guid = RtlGenerateClass5Guid((__int64)qword_140027AF0, Data, (unsigned int)v14 - 2, (__int64)a5);
       if ( Class5Guid >= 0 )
       {
         Class5Guid = PnpStringFromGuid(a5, SourceString);

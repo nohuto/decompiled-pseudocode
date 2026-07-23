@@ -1,23 +1,23 @@
 /*
- * XREFs of VfIrpDatabaseEntryFindAndLock @ 0x1409E07A8
+ * XREFs of VfIrpDatabaseEntryFindAndLock @ 0x1409E17A8
  * Callers:
- *     IovCancelIrp @ 0x1409C4F5C (IovCancelIrp.c)
- *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
- *     IovpCheckIrpForCriticalTracking @ 0x1409D0448 (IovpCheckIrpForCriticalTracking.c)
- *     IovpCompleteRequest1 @ 0x1409D04C0 (IovpCompleteRequest1.c)
- *     VfIoFreeIrp @ 0x1409D124C (VfIoFreeIrp.c)
- *     VfIoInitializeIrp @ 0x1409D1404 (VfIoInitializeIrp.c)
- *     VfIrpWatermark @ 0x1409D169C (VfIrpWatermark.c)
- *     VfSetIoBuildRequest @ 0x1409D16D8 (VfSetIoBuildRequest.c)
- *     VfPendingMoreProcessingRequired @ 0x1409D58A0 (VfPendingMoreProcessingRequired.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x1409E0858 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     IovCancelIrp @ 0x1409C5F5C (IovCancelIrp.c)
+ *     IovpCallDriver1 @ 0x1409D0C4C (IovpCallDriver1.c)
+ *     IovpCheckIrpForCriticalTracking @ 0x1409D1448 (IovpCheckIrpForCriticalTracking.c)
+ *     IovpCompleteRequest1 @ 0x1409D14C0 (IovpCompleteRequest1.c)
+ *     VfIoFreeIrp @ 0x1409D224C (VfIoFreeIrp.c)
+ *     VfIoInitializeIrp @ 0x1409D2404 (VfIoInitializeIrp.c)
+ *     VfIrpWatermark @ 0x1409D269C (VfIrpWatermark.c)
+ *     VfSetIoBuildRequest @ 0x1409D26D8 (VfSetIoBuildRequest.c)
+ *     VfPendingMoreProcessingRequired @ 0x1409D68A0 (VfPendingMoreProcessingRequired.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x1409E1858 (VfIrpDatabaseEntryInsertAndLock.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViIrpDatabaseAcquireLockShared @ 0x1405A2630 (ViIrpDatabaseAcquireLockShared.c)
- *     ViIrpDatabaseReleaseLockShared @ 0x1405A26D0 (ViIrpDatabaseReleaseLockShared.c)
- *     VfUtilAddressRangeFitNoLock @ 0x1409C633C (VfUtilAddressRangeFitNoLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x1409E092C (VfIrpDatabaseEntryReleaseLock.c)
- *     ViIrpDatabaseFindPointer @ 0x1409E0B3C (ViIrpDatabaseFindPointer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ViIrpDatabaseAcquireLockShared @ 0x1405A2860 (ViIrpDatabaseAcquireLockShared.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x1405A2900 (ViIrpDatabaseReleaseLockShared.c)
+ *     VfUtilAddressRangeFitNoLock @ 0x1409C733C (VfUtilAddressRangeFitNoLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E192C (VfIrpDatabaseEntryReleaseLock.c)
+ *     ViIrpDatabaseFindPointer @ 0x1409E1B3C (ViIrpDatabaseFindPointer.c)
  */
 
 __int64 __fastcall VfIrpDatabaseEntryFindAndLock(unsigned __int64 a1)

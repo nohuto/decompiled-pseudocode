@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpIsDevicePathForRemovableMedia @ 0x14022E6F4
+ * XREFs of ExpIsDevicePathForRemovableMedia @ 0x14022E520
  * Callers:
- *     NtEnumerateBootEntries @ 0x1406B378C (NtEnumerateBootEntries.c)
+ *     NtEnumerateBootEntries @ 0x1406B38C4 (NtEnumerateBootEntries.c)
  * Callees:
  *     <none>
  */

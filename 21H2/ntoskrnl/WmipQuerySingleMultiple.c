@@ -1,16 +1,17 @@
 /*
- * XREFs of WmipQuerySingleMultiple @ 0x140932E8C
+ * XREFs of WmipQuerySingleMultiple @ 0x140933020
  * Callers:
- *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
- *     IoWMIQuerySingleInstanceMultiple @ 0x1409310F0 (IoWMIQuerySingleInstanceMultiple.c)
+ *     WmipIoControl @ 0x1406061A0 (WmipIoControl.c)
+ *     IoWMIQuerySingleInstanceMultiple @ 0x140931250 (IoWMIQuerySingleInstanceMultiple.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     WmipQuerySetExecuteSI @ 0x140757270 (WmipQuerySetExecuteSI.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     Feature_1246750008__private_IsEnabledDeviceUsage @ 0x1403F911C (Feature_1246750008__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WmipQuerySetExecuteSI @ 0x140757430 (WmipQuerySetExecuteSI.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQuerySingleMultiple(
@@ -30,34 +31,33 @@ __int64 __fastcall WmipQuerySingleMultiple(
   _WORD *PoolWithTag; // rax
   _WORD *v13; // r14
   int v14; // r15d
-  char v15; // r13
+  char v15; // r12
   unsigned int *v16; // r8
-  _BYTE *v17; // r12
+  _BYTE *v17; // r13
   unsigned int v18; // r9d
   unsigned int v19; // eax
   unsigned __int16 v20; // dx
   unsigned int v21; // esi
-  unsigned int *v22; // r13
+  unsigned int *v22; // r12
   void *v23; // rdx
   unsigned int v24; // eax
-  unsigned int *i; // rcx
-  __int64 v26; // rax
-  __int64 v27; // rax
+  unsigned int *v25; // rcx
+  __int64 i; // rax
+  unsigned int v27; // esi
   char *v28; // rsi
   int v29; // eax
   char v31; // [rsp+40h] [rbp-338h]
   unsigned __int16 v33; // [rsp+42h] [rbp-336h]
-  unsigned int v34; // [rsp+44h] [rbp-334h] BYREF
-  int v35; // [rsp+48h] [rbp-330h]
-  unsigned int v36; // [rsp+4Ch] [rbp-32Ch]
+  unsigned int v35; // [rsp+48h] [rbp-330h] BYREF
+  int v36; // [rsp+4Ch] [rbp-32Ch]
   int v37; // [rsp+50h] [rbp-328h]
   void *v38; // [rsp+58h] [rbp-320h]
   int v39; // [rsp+60h] [rbp-318h]
   int v40; // [rsp+64h] [rbp-314h]
   unsigned int v41; // [rsp+68h] [rbp-310h]
   int v42; // [rsp+6Ch] [rbp-30Ch]
-  void *Src; // [rsp+70h] [rbp-308h]
-  unsigned int *v44; // [rsp+78h] [rbp-300h]
+  unsigned int *v43; // [rsp+70h] [rbp-308h]
+  void *Src; // [rsp+78h] [rbp-300h]
   __int64 v45; // [rsp+80h] [rbp-2F8h]
   char *v46; // [rsp+88h] [rbp-2F0h]
   unsigned int v47; // [rsp+90h] [rbp-2E8h]
@@ -73,7 +73,6 @@ __int64 __fastcall WmipQuerySingleMultiple(
   __int64 v57; // [rsp+E8h] [rbp-290h]
   _BYTE P[592]; // [rsp+F0h] [rbp-288h] BYREF
 
-  v36 = a4;
   v9 = a3;
   v46 = a3;
   Irp = a1;
@@ -83,7 +82,7 @@ __int64 __fastcall WmipQuerySingleMultiple(
   v47 = a6;
   v45 = a7;
   v54 = a8;
-  v34 = 0;
+  v35 = 0;
   v40 = 0;
   v48 = 0LL;
   memset(P, 0, 0x248uLL);
@@ -110,10 +109,10 @@ __int64 __fastcall WmipQuerySingleMultiple(
   if ( v10 < 0 )
     return (unsigned int)v10;
   v14 = 0;
-  v35 = 0;
+  v36 = 0;
   v15 = 0;
   v31 = 0;
-  v44 = 0LL;
+  v43 = 0LL;
   v16 = (unsigned int *)v9;
   v38 = v9;
   v17 = P;
@@ -146,7 +145,7 @@ __int64 __fastcall WmipQuerySingleMultiple(
     }
     v33 = v20;
     v21 = (v20 + 73) & 0xFFFFFFF8;
-    if ( v15 || v36 < v21 )
+    if ( v15 || a4 < v21 )
     {
       if ( v21 > v18 )
       {
@@ -163,13 +162,13 @@ __int64 __fastcall WmipQuerySingleMultiple(
       }
       v22 = (unsigned int *)v17;
       v39 = v21;
-      v44 = 0LL;
+      v43 = 0LL;
       v31 = 1;
     }
     else
     {
       v22 = v16;
-      v39 = v36;
+      v39 = a4;
     }
     memset(v22, 0, 0x40uLL);
     v22[11] = 2;
@@ -191,49 +190,53 @@ __int64 __fastcall WmipQuerySingleMultiple(
       v23 = Src;
     }
     memmove((char *)v22 + 66, v23, v33);
-    v34 = *v22;
-    if ( (int)WmipQuerySetExecuteSI(DmaAdapter, Irp, a2, 1u, (__int64)v22, v39, &v34) < 0 )
-      goto LABEL_37;
+    v35 = *v22;
+    if ( (int)WmipQuerySetExecuteSI(DmaAdapter, Irp, a2, 1u, (__int64)v22, v39, &v35) < 0 )
+      goto LABEL_36;
     v24 = v22[11];
     if ( (v24 & 0x100) != 0 )
-      goto LABEL_37;
+      goto LABEL_36;
     ++v37;
     if ( (v24 & 0x20) != 0 )
     {
       v14 += (v22[12] + 7) & 0xFFFFFFF8;
-      v35 = v14;
+      v36 = v14;
       v15 = 1;
       v31 = 1;
-      goto LABEL_38;
+      goto LABEL_37;
     }
     if ( v31 )
     {
-      v14 += (v34 + 7) & 0xFFFFFFF8;
-      v35 = v14;
-LABEL_37:
+      v14 += (v35 + 7) & 0xFFFFFFF8;
+      v36 = v14;
+LABEL_36:
       v15 = v31;
-LABEL_38:
+LABEL_37:
       v16 = (unsigned int *)v38;
-      goto LABEL_39;
+      goto LABEL_38;
     }
-    if ( v44 )
-      v44[3] = v40;
-    for ( i = v22; ; i = (unsigned int *)((char *)i + v26) )
+    if ( v43 )
+      v43[3] = v40;
+    v25 = v22;
+    for ( i = v22[3]; ; i = v25[3] )
     {
-      v44 = i;
-      v26 = i[3];
-      if ( !(_DWORD)v26 )
+      v43 = v25;
+      if ( !(_DWORD)i )
         break;
+      v25 = (unsigned int *)((char *)v25 + i);
     }
-    v27 = (v34 + 7) & 0xFFFFFFF8;
+    v27 = (v35 + 7) & 0xFFFFFFF8;
     v14 += v27;
-    v35 = v14;
-    v36 -= v27;
+    v36 = v14;
+    if ( (unsigned int)Feature_1246750008__private_IsEnabledDeviceUsage() )
+      a4 = v27 < a4 ? a4 - v27 : 0;
+    else
+      a4 -= v27;
     v16 = (unsigned int *)((char *)v38 + v27);
     v38 = v16;
-    v40 = (_DWORD)v16 - (_DWORD)i;
+    v40 = (_DWORD)v16 - (_DWORD)v43;
     v15 = 0;
-LABEL_39:
+LABEL_38:
     v19 = v41 + 1;
     v18 = v42;
     v11 = v45;

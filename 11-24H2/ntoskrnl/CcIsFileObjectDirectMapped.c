@@ -1,34 +1,28 @@
 /*
- * XREFs of CcIsFileObjectDirectMapped @ 0x1404DC40C
+ * XREFs of CcIsFileObjectDirectMapped @ 0x1404D5E2C
  * Callers:
- *     CcCanIWriteStreamEx @ 0x1402CE730 (CcCanIWriteStreamEx.c)
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
+ *     CcCanIWriteStreamEx @ 0x14040C5C0 (CcCanIWriteStreamEx.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402CE230 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x1402CE360 (KeRcuReadLock.c)
+ *     KeRcuReadUnlock @ 0x14040C230 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x14040C360 (KeRcuReadLock.c)
  */
 
 bool __fastcall CcIsFileObjectDirectMapped(__int64 a1)
 {
   bool v2; // di
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // rax
-  __int64 v7; // rax
+  __int64 v3; // rax
+  __int64 v4; // rax
 
   v2 = 0;
-  KeRcuReadLock(a1);
-  v6 = *(_QWORD *)(a1 + 40);
-  if ( v6 )
+  KeRcuReadLock();
+  v3 = *(_QWORD *)(a1 + 40);
+  if ( v3 )
   {
-    v7 = *(_QWORD *)(v6 + 8);
-    if ( v7 )
-    {
-      v4 = 1LL;
-      v2 = (*(_DWORD *)(v7 + 152) & 0x40000000) != 0;
-    }
+    v4 = *(_QWORD *)(v3 + 8);
+    if ( v4 )
+      v2 = (*(_DWORD *)(v4 + 152) & 0x40000000) != 0;
   }
-  KeRcuReadUnlock(v4, v3, v5);
+  KeRcuReadUnlock();
   return v2;
 }

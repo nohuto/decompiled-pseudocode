@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferencePfBackedSection @ 0x14008FB80
+ * XREFs of MiReferencePfBackedSection @ 0x14008F2E0
  * Callers:
- *     MiTrimSharedPage @ 0x14008E6E4 (MiTrimSharedPage.c)
- *     MiGetPageFileSectionForReservation @ 0x140115A88 (MiGetPageFileSectionForReservation.c)
+ *     MiTrimSharedPage @ 0x14008DE44 (MiTrimSharedPage.c)
+ *     MiGetPageFileSectionForReservation @ 0x140115FF8 (MiGetPageFileSectionForReservation.c)
  * Callees:
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140026D70 (MiBuildWakeList.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1400268F0 (MiBuildWakeList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 _QWORD *__fastcall MiReferencePfBackedSection(unsigned __int64 a1)
@@ -29,8 +29,8 @@ _QWORD *__fastcall MiReferencePfBackedSection(unsigned __int64 a1)
 
   v2 = 0LL;
   v3 = 0LL;
-  v4 = ExAcquireSpinLockShared(&dword_1403266B0);
-  v5 = (_QWORD *)qword_1403266A8;
+  v4 = ExAcquireSpinLockShared(&dword_1403266F0);
+  v5 = (_QWORD *)qword_1403266E8;
   v6 = v4;
   while ( v5 )
   {
@@ -65,7 +65,7 @@ _QWORD *__fastcall MiReferencePfBackedSection(unsigned __int64 a1)
       v5 = (_QWORD *)v5[1];
     }
   }
-  ExReleaseSpinLockShared(&dword_1403266B0, v6);
+  ExReleaseSpinLockShared(&dword_1403266F0, v6);
   if ( v2 )
     MiReleaseControlAreaWaiters(v2);
   return v3;

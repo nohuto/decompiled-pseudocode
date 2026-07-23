@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpQueryKeyDataFromNode @ 0x14066AB20
+ * XREFs of CmpQueryKeyDataFromNode @ 0x14065F940
  * Callers:
  *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
- *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
- *     CmpQueryKeyData @ 0x14066A67C (CmpQueryKeyData.c)
+ *     CmpQueryKeyData @ 0x14065F49C (CmpQueryKeyData.c)
+ *     CmEnumerateKey @ 0x1406E3AB0 (CmEnumerateKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpPopulateKeyNodeInformation @ 0x14066A590 (CmpPopulateKeyNodeInformation.c)
- *     CmGetVisibleValueCount @ 0x14066A924 (CmGetVisibleValueCount.c)
- *     CmGetKeyLastWriteTime @ 0x14066A960 (CmGetKeyLastWriteTime.c)
- *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x14066A9D8 (CmGetVisibleMaxValueNameLenAndDataLen.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x14066AA6C (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmpPopulateKeyFullInformation @ 0x14066B140 (CmpPopulateKeyFullInformation.c)
- *     CmGetVisibleSubkeyCount @ 0x14066B1EC (CmGetVisibleSubkeyCount.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
- *     CmListGetPrevElement @ 0x140768A88 (CmListGetPrevElement.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpPopulateKeyNodeInformation @ 0x14065F3B0 (CmpPopulateKeyNodeInformation.c)
+ *     CmGetVisibleValueCount @ 0x14065F744 (CmGetVisibleValueCount.c)
+ *     CmGetKeyLastWriteTime @ 0x14065F780 (CmGetKeyLastWriteTime.c)
+ *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x14065F7F8 (CmGetVisibleMaxValueNameLenAndDataLen.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x14065F88C (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmpPopulateKeyFullInformation @ 0x14065FF60 (CmpPopulateKeyFullInformation.c)
+ *     CmGetVisibleSubkeyCount @ 0x14066000C (CmGetVisibleSubkeyCount.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x140768C48 (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromNode(

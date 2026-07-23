@@ -8,31 +8,32 @@
  *     sub_180105950 @ 0x180105950 (sub_180105950.c)
  */
 
-__int64 __fastcall sub_180105B94(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall sub_180105B94(_EXCEPTION_POINTERS *a1, __int64 a2, _DWORD *a3)
 {
-  unsigned int v5; // eax
-  unsigned int v6; // ebx
-  int *v7; // rcx
+  LONG v5; // eax
+  unsigned __int32 v6; // ebx
+  EXCEPTION_RECORD *ExceptionRecord; // rcx
 
-  v5 = sub_1801057D0((const void **)a1);
+  v5 = sub_1801057D0(a1);
   v6 = v5;
   if ( !v5 )
     *a3 = 1;
   if ( v5 == 1 )
   {
-    v7 = *(int **)a1;
-    if ( **(_DWORD **)a1 == -1073741571 )
+    ExceptionRecord = a1->ExceptionRecord;
+    if ( a1->ExceptionRecord->ExceptionCode == -1073741571 )
     {
-      RtlReportException((__int64)v7, *(_QWORD *)(a1 + 8), 3u);
+      RtlReportException(ExceptionRecord, a1->ContextRecord, 3u);
     }
     else
     {
-      if ( *v7 <= -1073740022 || *v7 > -1073740018 && *v7 != -1073740016 )
+      if ( (int)ExceptionRecord->ExceptionCode <= -1073740022
+        || (int)ExceptionRecord->ExceptionCode > -1073740018 && ExceptionRecord->ExceptionCode != -1073740016 )
       {
-        sub_180105950();
+        sub_180105950((NTSTATUS **)a1);
         __debugbreak();
       }
-      return (unsigned int)-1;
+      return (unsigned __int32)-1;
     }
   }
   return v6;

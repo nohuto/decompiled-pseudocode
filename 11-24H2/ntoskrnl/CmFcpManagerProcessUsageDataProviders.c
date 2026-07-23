@@ -1,17 +1,17 @@
 /*
- * XREFs of CmFcpManagerProcessUsageDataProviders @ 0x140A90644
+ * XREFs of CmFcpManagerProcessUsageDataProviders @ 0x140A8CD40
  * Callers:
- *     CmFcpManagerFlushFeatureUsageDataWorker @ 0x1407E4EB0 (CmFcpManagerFlushFeatureUsageDataWorker.c)
+ *     CmFcpManagerFlushFeatureUsageDataWorker @ 0x1407E5480 (CmFcpManagerFlushFeatureUsageDataWorker.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExBlockOnAddressPushLock @ 0x1402C6C40 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     CmpWorkItemQueueWork @ 0x1403A68B0 (CmpWorkItemQueueWork.c)
- *     CmFcpManagerPublishFeatureUsageData @ 0x140A90804 (CmFcpManagerPublishFeatureUsageData.c)
+ *     CmpWorkItemQueueWork @ 0x14021E9B0 (CmpWorkItemQueueWork.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExBlockOnAddressPushLock @ 0x1402BB7C0 (ExBlockOnAddressPushLock.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmFcpManagerPublishFeatureUsageData @ 0x140A8CF00 (CmFcpManagerPublishFeatureUsageData.c)
  */
 
 __int64 __fastcall CmFcpManagerProcessUsageDataProviders(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall CmFcpManagerProcessUsageDataProviders(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v2; // rdi
   char v4; // bp
-  _QWORD *v5; // rsi
+  char *v5; // rsi
   signed __int32 v6; // eax
   unsigned int v7; // ecx
   volatile signed __int32 *v8; // r14
@@ -34,19 +34,19 @@ __int64 __fastcall CmFcpManagerProcessUsageDataProviders(__int64 a1)
   v2 = (signed __int64 *)(a1 + 968);
   v4 = 0;
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire(a1 + 968, 0LL);
+  v5 = (char *)KeAbPreAcquire(a1 + 968, 0LL);
   if ( _InterlockedCompareExchange64(v2, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v2, 0, v5, (__int64)v2);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
-  _m_prefetchw((const void *)(a1 + 1744));
+    v5[10] = 1;
+  _m_prefetchw((const void *)(a1 + 1816));
   do
   {
-    v6 = *(_DWORD *)(a1 + 1744);
+    v6 = *(_DWORD *)(a1 + 1816);
     v7 = v6;
     if ( (v6 & 0x10) != 0 )
     {
-      v7 = *(_DWORD *)(a1 + 1744) & 6 | ((*(_DWORD *)(a1 + 1744) & 0xFFFFFFE0) + 32);
+      v7 = *(_DWORD *)(a1 + 1816) & 6 | ((*(_DWORD *)(a1 + 1816) & 0xFFFFFFE0) + 32);
       v4 = 0;
     }
     else if ( (v6 & 8) != 0 )
@@ -55,12 +55,12 @@ __int64 __fastcall CmFcpManagerProcessUsageDataProviders(__int64 a1)
       v4 = 1;
     }
   }
-  while ( v6 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 1744), v7, v6) );
+  while ( v6 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 1816), v7, v6) );
   if ( v4 || (v7 & 0x20) != 0 )
   {
-    v8 = (volatile signed __int32 *)(a1 + 1788);
-    *(_DWORD *)(a1 + 1788) = 0;
-    for ( i = *(__int64 **)(a1 + 1344); i != (__int64 *)(a1 + 1344); i = (__int64 *)*i )
+    v8 = (volatile signed __int32 *)(a1 + 1860);
+    *(_DWORD *)(a1 + 1860) = 0;
+    for ( i = *(__int64 **)(a1 + 1416); i != (__int64 *)(a1 + 1416); i = (__int64 *)*i )
     {
       v10 = *((_DWORD *)i + 25);
       if ( v4 )
@@ -77,18 +77,18 @@ __int64 __fastcall CmFcpManagerProcessUsageDataProviders(__int64 a1)
       ExfReleasePushLockShared(v2);
     KeAbPostRelease((ULONG_PTR)v2);
     KeLeaveCriticalRegion();
-    for ( j = *(_DWORD *)(a1 + 1788); ; j = *v8 )
+    for ( j = *(_DWORD *)(a1 + 1860); ; j = *v8 )
     {
       v15 = j;
       if ( !j )
         break;
-      ExBlockOnAddressPushLock((signed __int64 *)(a1 + 1376), (_BYTE *)(a1 + 1788), &v15, 4LL, 0LL);
+      ExBlockOnAddressPushLock((signed __int64 *)(a1 + 1448), (_BYTE *)(a1 + 1860), &v15, 4LL, 0LL);
     }
     if ( !v4 )
-      _InterlockedAdd((volatile signed __int32 *)(a1 + 1744), 0x20u);
+      _InterlockedAdd((volatile signed __int32 *)(a1 + 1816), 0x20u);
     _InterlockedOr(v14, 0);
-    if ( *(_QWORD *)(a1 + 1384) )
-      ExfUnblockPushLock(a1 + 1384, 0LL);
+    if ( *(_QWORD *)(a1 + 1456) )
+      ExfUnblockPushLock(a1 + 1456, 0LL);
   }
   else
   {

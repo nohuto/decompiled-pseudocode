@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterDriverReinitialization @ 0x14084FA70
+ * XREFs of IoRegisterDriverReinitialization @ 0x14084FD70
  * Callers:
- *     DifIoRegisterDriverReinitializationWrapper @ 0x1405E0B40 (DifIoRegisterDriverReinitializationWrapper.c)
+ *     DifIoRegisterDriverReinitializationWrapper @ 0x1405E10B0 (DifIoRegisterDriverReinitializationWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     IopInterlockedInsertTailList @ 0x1403A8F3C (IopInterlockedInsertTailList.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     IopInterlockedInsertTailList @ 0x1403A911C (IopInterlockedInsertTailList.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

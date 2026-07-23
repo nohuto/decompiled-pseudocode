@@ -1,22 +1,21 @@
 /*
- * XREFs of RtlpHpMetadataFree @ 0x140420E2C
+ * XREFs of RtlpHpMetadataFree @ 0x140459100
  * Callers:
- *     RtlpHpLargeAlloc @ 0x140420250 (RtlpHpLargeAlloc.c)
- *     RtlpHpLargeFree @ 0x140420C64 (RtlpHpLargeFree.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x140604534 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1406048CC (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpHeapDestroy @ 0x1406050DC (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x140607214 (RtlpHpLargeAllocationDestroy.c)
- *     ExDestroyPool @ 0x140654030 (ExDestroyPool.c)
- *     ExpSecurePoolCreate @ 0x140658620 (ExpSecurePoolCreate.c)
- *     ExpPrivatePoolDestroy @ 0x1407C616C (ExpPrivatePoolDestroy.c)
+ *     RtlpHpLargeAlloc @ 0x1404585E4 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeFree @ 0x140458F38 (RtlpHpLargeFree.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x140601B74 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x140601F0C (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpHeapDestroy @ 0x14060271C (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x140604814 (RtlpHpLargeAllocationDestroy.c)
+ *     ExpSecurePoolCreate @ 0x140656D00 (ExpSecurePoolCreate.c)
+ *     ExpPrivatePoolDestroy @ 0x1407C65CC (ExpPrivatePoolDestroy.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhContextFree @ 0x1402B3130 (RtlpHpLfhContextFree.c)
- *     RtlpHpSegFreeInternal @ 0x1402B33D0 (RtlpHpSegFreeInternal.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x1402B381C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpLargeFree @ 0x140420C64 (RtlpHpLargeFree.c)
- *     RtlpLogHeapFreeEvent @ 0x1405F33C0 (RtlpLogHeapFreeEvent.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhContextFree @ 0x14035BCF0 (RtlpHpLfhContextFree.c)
+ *     RtlpHpSegFreeInternal @ 0x14035BF90 (RtlpHpSegFreeInternal.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14035C3DC (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLargeFree @ 0x140458F38 (RtlpHpLargeFree.c)
+ *     RtlpLogHeapFreeEvent @ 0x1405F0A00 (RtlpLogHeapFreeEvent.c)
  */
 
 __int64 __fastcall RtlpHpMetadataFree(ULONG_PTR a1, _QWORD *a2)
@@ -39,14 +38,14 @@ __int64 __fastcall RtlpHpMetadataFree(ULONG_PTR a1, _QWORD *a2)
   v2 = 0;
   v3 = (unsigned __int8)BYTE1(*a2);
   v16 = 0;
-  v5 = qword_140E6BB98[2 * (unsigned int)dword_14001E850[v3]];
+  v5 = qword_140E6BD98[2 * (unsigned int)dword_14001EB70[v3]];
   if ( (_WORD)a1 )
   {
     v7 = 0;
   }
   else
   {
-    v6 = RtlCSparseBitmapBitmaskRead((__int64)&dword_140E68310, 2 * ((a1 - qword_140E68308) >> 20));
+    v6 = RtlCSparseBitmapBitmaskRead((__int64)&dword_140E68510, 2 * ((a1 - qword_140E68508) >> 20));
     if ( !v6 || (v7 = v6 - 1, (_DWORD)v6 == 3) )
     {
       RtlpHpLargeFree(v5, a1);

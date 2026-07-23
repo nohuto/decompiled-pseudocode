@@ -10,11 +10,11 @@
 
 void __fastcall BgpFwInitializeReservePool(__int64 a1, unsigned int a2, unsigned int *a3)
 {
-  HintIndex = 0;
+  dword_14038D028 = 0;
   qword_14038D020 = a1;
   dword_14038D040 = a2;
-  BitMapHeader.SizeOfBitMap = a2;
-  BitMapHeader.Buffer = a3;
+  stru_14038D030.SizeOfBitMap = a2;
+  stru_14038D030.Buffer = a3;
   if ( a3 )
-    RtlClearAllBits(&BitMapHeader);
+    RtlClearAllBits(&stru_14038D030);
 }

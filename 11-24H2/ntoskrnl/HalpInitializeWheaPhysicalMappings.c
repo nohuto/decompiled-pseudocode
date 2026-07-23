@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInitializeWheaPhysicalMappings @ 0x140C147D4
+ * XREFs of HalpInitializeWheaPhysicalMappings @ 0x140C167D4
  * Callers:
- *     HalpWheaInitDiscard @ 0x140C0FBD4 (HalpWheaInitDiscard.c)
+ *     HalpWheaInitDiscard @ 0x140C11BD4 (HalpWheaInitDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpReserveHalPtes @ 0x140C0E408 (HalpReserveHalPtes.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpReserveHalPtes @ 0x140C10408 (HalpReserveHalPtes.c)
  */
 
 unsigned __int64 HalpInitializeWheaPhysicalMappings()

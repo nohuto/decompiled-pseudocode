@@ -1,10 +1,10 @@
 /*
- * XREFs of KiValidateDpcWatchdogConfiguration @ 0x1405E9288
+ * XREFs of KiValidateDpcWatchdogConfiguration @ 0x1405EBBF8
  * Callers:
- *     KeUpdateDpcWatchdogConfiguration @ 0x1405E8E50 (KeUpdateDpcWatchdogConfiguration.c)
+ *     KeUpdateDpcWatchdogConfiguration @ 0x1405EB7C0 (KeUpdateDpcWatchdogConfiguration.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall KiValidateDpcWatchdogConfiguration(void *Src, size_t Size, int a3, _DWORD *a4)

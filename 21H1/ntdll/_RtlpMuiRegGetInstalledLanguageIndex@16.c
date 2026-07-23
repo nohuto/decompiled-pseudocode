@@ -16,14 +16,14 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndex(int a1, int a2, __int16 a3, _
   int v6; // edx
   int v7; // ebx
   __int16 v8; // dx
-  int v10; // ecx
+  signed int v10; // ecx
   __int16 *v11; // edx
   __int16 v12; // ax
   int v13; // edx
   const WCHAR *v14; // eax
   int v15; // [esp+Ch] [ebp-14h]
-  int v16; // [esp+10h] [ebp-10h] BYREF
-  UNICODE_STRING DestinationString; // [esp+14h] [ebp-Ch] BYREF
+  DWORD Lcid; // [esp+10h] [ebp-10h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+14h] [ebp-Ch] BYREF
   int v18; // [esp+1Ch] [ebp-4h]
 
   LOBYTE(v18) = 1;
@@ -38,8 +38,8 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndex(int a1, int a2, __int16 a3, _
     goto LABEL_4;
   }
   v10 = 0;
-  v16 = *(unsigned __int16 *)(v6 + 6);
-  if ( !v16 )
+  Lcid = *(unsigned __int16 *)(v6 + 6);
+  if ( !Lcid )
   {
 LABEL_15:
     v13 = *(_DWORD *)(a1 + 24);
@@ -50,9 +50,9 @@ LABEL_15:
     if ( !v14 )
       return -1073741772;
     RtlInitUnicodeString(&DestinationString, v14);
-    if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v16) )
+    if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       return -1073741772;
-    v8 = v16;
+    v8 = Lcid;
     a2 = 1;
     LOBYTE(v18) = 0;
 LABEL_4:
@@ -79,7 +79,7 @@ LABEL_4:
       break;
     ++v10;
     v11 += 14;
-    if ( v10 >= v16 )
+    if ( v10 >= (int)Lcid )
       goto LABEL_15;
   }
   *a4 = v10;

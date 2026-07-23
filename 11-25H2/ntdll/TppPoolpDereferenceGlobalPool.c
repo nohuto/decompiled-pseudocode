@@ -16,27 +16,27 @@
  *     RtlReleaseSRWLockExclusive @ 0x1800123F0 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall TppPoolpDereferenceGlobalPool(const void **a1, volatile signed __int32 *a2)
+void __fastcall TppPoolpDereferenceGlobalPool(const void **a1, _RTL_SRWLOCK *a2)
 {
   volatile signed __int32 *v4; // r9
   signed __int32 v5; // r8d
   bool v6; // zf
-  __int64 result; // rax
+  signed __int32 v7; // eax
   volatile signed __int32 *v8; // rdx
   signed __int32 v9; // ecx
   signed __int32 v10; // eax
-  const void *v11; // rsi
+  _TP_POOL *v11; // rsi
 
   v4 = (volatile signed __int32 *)*a1;
   _m_prefetchw(*a1);
   v5 = *v4;
   while ( v5 > 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(v4, v5 - 1, v5);
-    v6 = v5 == (_DWORD)result;
-    v5 = result;
+    v7 = _InterlockedCompareExchange(v4, v5 - 1, v5);
+    v6 = v5 == v7;
+    v5 = v7;
     if ( v6 )
-      return result;
+      return;
   }
   RtlAcquireSRWLockExclusive(a2);
   v8 = (volatile signed __int32 *)*a1;
@@ -53,11 +53,10 @@ __int64 __fastcall TppPoolpDereferenceGlobalPool(const void **a1, volatile signe
       goto LABEL_10;
     }
   }
-  v11 = *a1;
+  v11 = (_TP_POOL *)*a1;
   *a1 = 0LL;
 LABEL_10:
-  result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+  RtlReleaseSRWLockExclusive(a2);
   if ( v11 )
-    return TpReleasePool(v11);
-  return result;
+    TpReleasePool(v11);
 }

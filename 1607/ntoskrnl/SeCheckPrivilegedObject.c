@@ -1,17 +1,17 @@
 /*
- * XREFs of SeCheckPrivilegedObject @ 0x14054757C
+ * XREFs of SeCheckPrivilegedObject @ 0x140547ABC
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspSetProcessPriorityClass @ 0x1404E7514 (PspSetProcessPriorityClass.c)
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
- *     PspAssignPrimaryToken @ 0x14067EFDC (PspAssignPrimaryToken.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspSetProcessPriorityClass @ 0x1404C9A88 (PspSetProcessPriorityClass.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
+ *     PspAssignPrimaryToken @ 0x14067F0C0 (PspAssignPrimaryToken.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SePrivilegeObjectAuditAlarm @ 0x140414B04 (SePrivilegeObjectAuditAlarm.c)
- *     SePrivilegeCheck @ 0x140415490 (SePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x1404139C4 (SePrivilegeObjectAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x140414350 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
  */
 
 BOOLEAN __fastcall SeCheckPrivilegedObject(LUID a1, int a2, int a3, KPROCESSOR_MODE a4)

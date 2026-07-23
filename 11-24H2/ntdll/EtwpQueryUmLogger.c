@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpQueryUmLogger @ 0x18008C894
+ * XREFs of EtwpQueryUmLogger @ 0x1800A8354
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x18008C670 (EtwProcessPrivateLoggerRequest.c)
- *     EtwpIncrementUmLoggerFile @ 0x18008C9F0 (EtwpIncrementUmLoggerFile.c)
- *     EtwpUpdateUmLogger @ 0x18008CAC4 (EtwpUpdateUmLogger.c)
- *     EtwpFlushUmLogger @ 0x18008E070 (EtwpFlushUmLogger.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x1800A8130 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwpIncrementUmLoggerFile @ 0x1800A84B0 (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x1800A8584 (EtwpUpdateUmLogger.c)
+ *     EtwpFlushUmLogger @ 0x1800A9B30 (EtwpFlushUmLogger.c)
  * Callees:
- *     EtwpGetPrivateLoggerContext @ 0x18008DAF4 (EtwpGetPrivateLoggerContext.c)
- *     EtwpGetUmLoggerInfoFromContext @ 0x18008E19C (EtwpGetUmLoggerInfoFromContext.c)
- *     RtlCopyUnicodeString @ 0x1800DC080 (RtlCopyUnicodeString.c)
+ *     EtwpGetPrivateLoggerContext @ 0x1800A95B4 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpGetUmLoggerInfoFromContext @ 0x1800A9C5C (EtwpGetUmLoggerInfoFromContext.c)
+ *     RtlCopyUnicodeString @ 0x1800D7160 (RtlCopyUnicodeString.c)
  */
 
 __int64 __fastcall EtwpQueryUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __int64 a4)
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpQueryUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
       {
         *(_QWORD *)(a4 + 152) = a4 + 176;
         *(_WORD *)(a4 + 146) = *(_WORD *)(v9 + 138);
-        RtlCopyUnicodeString(a4 + 144, v9 + 136);
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 144), (PCUNICODE_STRING)(v9 + 136));
         *a3 += *(unsigned __int16 *)(v9 + 138);
       }
       EtwpGetUmLoggerInfoFromContext(a4, v9, 0LL);
@@ -45,7 +45,7 @@ __int64 __fastcall EtwpQueryUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
       {
         *(_QWORD *)(a4 + 136) = a4 + v10;
         *(_WORD *)(a4 + 130) = *(_WORD *)(v9 + 154);
-        RtlCopyUnicodeString(a4 + 128, v9 + 152);
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 128), (PCUNICODE_STRING)(v9 + 152));
         *a3 += *(unsigned __int16 *)(v9 + 154);
       }
       *a2 = *a3;

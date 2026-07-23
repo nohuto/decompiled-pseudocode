@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlReleaseSwapReference @ 0x14035D244
+ * XREFs of RtlReleaseSwapReference @ 0x14035D3E4
  * Callers:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D208 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     CmFcManagerRecordFeatureUsage @ 0x140419A58 (CmFcManagerRecordFeatureUsage.c)
- *     CmFcManagerNotifyFeatureUsage @ 0x140617134 (CmFcManagerNotifyFeatureUsage.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D3A8 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     CmFcManagerRecordFeatureUsage @ 0x140419DE8 (CmFcManagerRecordFeatureUsage.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x140617684 (CmFcManagerNotifyFeatureUsage.c)
  *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x1406802F8 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
  * Callees:
  *     ExpUnblockPushLock @ 0x140209468 (ExpUnblockPushLock.c)
- *     RtlBackoff @ 0x1402FD2B0 (RtlBackoff.c)
+ *     RtlBackoff @ 0x1402FD540 (RtlBackoff.c)
  */
 
 void __fastcall RtlReleaseSwapReference(volatile signed __int64 *a1, unsigned int a2)

@@ -8,109 +8,105 @@
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
  *     RtlExpandEnvironmentStrings @ 0x180056C00 (RtlExpandEnvironmentStrings.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenKey @ 0x1800A0520 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x1800A05C0 (NtQueryValueKey.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenKey @ 0x1800A0540 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x1800A05E0 (NtQueryValueKey.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-__int64 __fastcall RtlGetPersistedStateLocation(
-        PCWSTR SourceString,
-        const WCHAR *a2,
-        _WORD *a3,
-        unsigned int a4,
-        void *a5,
-        unsigned int a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlGetPersistedStateLocation(
+        PCWSTR SourceID,
+        PCWSTR CustomValue,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PWCHAR TargetPath,
+        ULONG BufferLengthIn,
+        PULONG BufferLengthOut)
 {
-  unsigned __int64 Heap; // rdi
-  int v11; // eax
+  WCHAR *Heap; // rdi
+  NTSTATUS v11; // eax
   signed int v12; // ebx
   __int64 v13; // r8
   unsigned int v14; // r8d
   unsigned int v15; // eax
   size_t v16; // r8
-  _WORD *v17; // rdx
+  const WCHAR *v17; // rdx
   unsigned __int64 v19; // r14
-  unsigned int v20; // ebx
-  unsigned int v21; // ecx
+  ULONG Length; // ebx
+  ULONG v21; // ecx
   unsigned __int64 v22; // rax
-  __int64 v23; // r8
-  HANDLE Handle; // [rsp+30h] [rbp-41h] BYREF
-  HANDLE v25; // [rsp+38h] [rbp-39h] BYREF
-  int v26; // [rsp+40h] [rbp-31h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-29h] BYREF
-  int v28; // [rsp+58h] [rbp-19h] BYREF
-  HANDLE v29; // [rsp+60h] [rbp-11h]
-  UNICODE_STRING *p_DestinationString; // [rsp+68h] [rbp-9h]
-  int v31; // [rsp+70h] [rbp-1h]
-  __int128 v32; // [rsp+78h] [rbp+7h]
-  int v33; // [rsp+D8h] [rbp+67h] BYREF
+  SIZE_T v23; // r8
+  HANDLE KeyHandle; // [rsp+30h] [rbp-41h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-39h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+40h] [rbp-31h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-29h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-19h] BYREF
+  ULONG ResultLength; // [rsp+D8h] [rbp+67h] BYREF
 
+  KeyHandle = 0LL;
   Handle = 0LL;
-  v25 = 0LL;
   Heap = 0LL;
-  if ( a4 > 1 )
-    return 3221225713LL;
-  v28 = 48;
-  p_DestinationString = (UNICODE_STRING *)((char *)&unk_1801181E0 + 16 * (int)a4);
-  v29 = 0LL;
-  v31 = 64;
-  v32 = 0LL;
-  v11 = NtOpenKey(&Handle, 131097LL, &v28);
+  if ( (unsigned int)StateLocationType > LocationTypeFileSystem )
+    return -1073741583;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)((char *)&unk_1801181E0 + 16 * StateLocationType);
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v11 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   v12 = v11;
   if ( v11 != -1073741772 )
   {
     if ( v11 < 0 )
       goto LABEL_12;
-    RtlInitUnicodeString(&DestinationString, SourceString);
-    v29 = Handle;
-    v28 = 48;
-    p_DestinationString = &DestinationString;
-    v31 = 64;
-    v32 = 0LL;
-    v12 = NtOpenKey(&v25, 131097LL, &v28);
+    RtlInitUnicodeString(&DestinationString, SourceID);
+    ObjectAttributes.RootDirectory = KeyHandle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v12 = NtOpenKey(&Handle, 0x20019u, &ObjectAttributes);
     if ( v12 != -1073741772 )
       goto LABEL_19;
   }
-  if ( !a3 )
+  if ( !DefaultPath )
   {
 LABEL_19:
     if ( v12 < 0 )
       goto LABEL_12;
-    if ( !a2 )
-      a2 = L"TargetPath";
-    RtlInitUnicodeString(&DestinationString, a2);
-    v19 = a6;
-    v20 = a6 + 16;
-    if ( a6 + 16 >= a6 )
+    if ( !CustomValue )
+      CustomValue = L"TargetPath";
+    RtlInitUnicodeString(&DestinationString, CustomValue);
+    v19 = BufferLengthIn;
+    Length = BufferLengthIn + 16;
+    if ( BufferLengthIn + 16 >= BufferLengthIn )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v20);
+      Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, Length);
       if ( !Heap )
       {
         v12 = -1073741801;
         goto LABEL_12;
       }
-      v12 = NtQueryValueKey(v25, &DestinationString, 2LL, Heap, v20, &v33);
+      v12 = NtQueryValueKey(Handle, &DestinationString, KeyValuePartialInformation, Heap, Length, &ResultLength);
       if ( v12 < 0 )
       {
         if ( v12 != -2147483643 )
           goto LABEL_12;
       }
-      else if ( (unsigned int)(*(_DWORD *)(Heap + 4) - 1) > 1 )
+      else if ( (unsigned int)(*((_DWORD *)Heap + 1) - 1) > 1 )
       {
         v12 = -1073741788;
         goto LABEL_12;
       }
-      v21 = *(_DWORD *)(Heap + 8);
-      v17 = (_WORD *)(Heap + 12);
-      v33 = v21;
+      v21 = *((_DWORD *)Heap + 2);
+      v17 = Heap + 6;
+      ResultLength = v21;
       if ( v12 >= 0 )
       {
         if ( v17[((unsigned __int64)v21 >> 1) - 1] )
         {
           v22 = v21 + 2;
-          v33 = v22;
+          ResultLength = v22;
           v21 += 2;
           if ( (unsigned int)v19 < (unsigned int)v22 )
           {
@@ -119,28 +115,28 @@ LABEL_19:
           else
           {
             v17[(v22 >> 1) - 1] = 0;
-            v21 = v33;
+            v21 = ResultLength;
           }
         }
-        if ( v12 >= 0 && *(_DWORD *)(Heap + 4) == 2 )
+        if ( v12 >= 0 && *((_DWORD *)Heap + 1) == 2 )
         {
           v23 = -1LL;
           do
             ++v23;
           while ( v17[v23] );
-          v12 = RtlExpandEnvironmentStrings(0, (_DWORD)v17, v23, (_DWORD)a5, v19 >> 1, (__int64)&v26);
+          v12 = RtlExpandEnvironmentStrings(0LL, v17, v23, TargetPath, v19 >> 1, &ReturnLength);
           if ( (int)(v12 + 0x80000000) < 0 || v12 == -1073741789 )
           {
-            if ( a7 )
-              *a7 = 2 * v26;
+            if ( BufferLengthOut )
+              *BufferLengthOut = 2 * ReturnLength;
             if ( v12 == -1073741789 )
               v12 = -2147483643;
           }
           goto LABEL_12;
         }
       }
-      if ( a7 )
-        *a7 = v21;
+      if ( BufferLengthOut )
+        *BufferLengthOut = v21;
       if ( v12 < 0 )
         goto LABEL_12;
       v16 = v21;
@@ -153,27 +149,27 @@ LABEL_25:
   v13 = -1LL;
   do
     ++v13;
-  while ( a3[v13] );
+  while ( DefaultPath[v13] );
   v14 = v13 + 1;
   v15 = 2 * v14;
-  v33 = 2 * v14;
+  ResultLength = 2 * v14;
   if ( 2 * v14 < v14 )
     goto LABEL_25;
-  v12 = a6 < v15 ? 0x80000005 : 0;
-  if ( a7 )
-    *a7 = v15;
-  if ( v15 > a6 )
+  v12 = BufferLengthIn < v15 ? 0x80000005 : 0;
+  if ( BufferLengthOut )
+    *BufferLengthOut = v15;
+  if ( v15 > BufferLengthIn )
     goto LABEL_12;
   v16 = v15;
-  v17 = a3;
+  v17 = DefaultPath;
 LABEL_11:
-  memmove(a5, v17, v16);
+  memmove(TargetPath, v17, v16);
 LABEL_12:
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   if ( Handle )
     NtClose(Handle);
-  if ( v25 )
-    NtClose(v25);
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return (unsigned int)v12;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v12;
 }

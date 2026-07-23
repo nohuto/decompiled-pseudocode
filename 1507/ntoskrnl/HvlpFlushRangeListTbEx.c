@@ -80,8 +80,8 @@ int __fastcall HvlpFlushRangeListTbEx(
   int v63; // [rsp+40h] [rbp-118h]
   char v64; // [rsp+48h] [rbp-110h]
   unsigned int v65; // [rsp+4Ch] [rbp-10Ch]
-  struct _KPRCB *v66; // [rsp+58h] [rbp-100h]
-  struct _SLIST_ENTRY *v67; // [rsp+60h] [rbp-F8h]
+  _SLIST_HEADER *v66; // [rsp+58h] [rbp-100h]
+  _SLIST_ENTRY *v67; // [rsp+60h] [rbp-F8h]
   __int64 v68; // [rsp+70h] [rbp-E8h] BYREF
   __int64 v69; // [rsp+78h] [rbp-E0h]
   __int64 v70; // [rsp+80h] [rbp-D8h]
@@ -116,7 +116,7 @@ int __fastcall HvlpFlushRangeListTbEx(
         v6 = a6;
         LODWORD(v29) = 0;
         v58 = 1;
-        v66 = CurrentPrcb;
+        v66 = (_SLIST_HEADER *)CurrentPrcb;
         goto LABEL_42;
       }
       p_Next = v73;
@@ -250,7 +250,7 @@ LABEL_71:
     if ( (v58 & 1) != 0 )
     {
       ListEntry[1].Next = (_SLIST_ENTRY *)Next;
-      LODWORD(HypercallCachedPages) = (unsigned int)RtlpInterlockedPushEntrySList(&v66->HypercallPageList, ListEntry);
+      LODWORD(HypercallCachedPages) = (unsigned int)RtlpInterlockedPushEntrySList(v66 + 1535, ListEntry);
     }
     else if ( v63 )
     {

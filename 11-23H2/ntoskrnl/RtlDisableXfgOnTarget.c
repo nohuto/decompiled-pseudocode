@@ -1,34 +1,35 @@
 /*
- * XREFs of RtlDisableXfgOnTarget @ 0x1405B1D58
+ * XREFs of RtlDisableXfgOnTarget @ 0x1405B22C8
  * Callers:
- *     RtlCheckXfgFailureInformation @ 0x1405B1A70 (RtlCheckXfgFailureInformation.c)
- *     MiDisableXfgOnPatchedFunctions @ 0x140642560 (MiDisableXfgOnPatchedFunctions.c)
+ *     RtlCheckXfgFailureInformation @ 0x1405B1FE0 (RtlCheckXfgFailureInformation.c)
+ *     MiDisableXfgOnPatchedFunctions @ 0x140642AB0 (MiDisableXfgOnPatchedFunctions.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwSetInformationVirtualMemory @ 0x14041E300 (ZwSetInformationVirtualMemory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwSetInformationVirtualMemory @ 0x14041E690 (ZwSetInformationVirtualMemory.c)
  */
 
-__int64 __fastcall RtlDisableXfgOnTarget(__int64 a1)
+NTSTATUS __fastcall RtlDisableXfgOnTarget(__int64 a1)
 {
   int v2; // [rsp+30h] [rbp-9h] BYREF
-  unsigned __int64 v3; // [rsp+38h] [rbp-1h]
-  __int64 v4; // [rsp+40h] [rbp+7h]
-  __int64 v5; // [rsp+48h] [rbp+Fh]
-  int *v6; // [rsp+50h] [rbp+17h]
-  _QWORD *v7; // [rsp+58h] [rbp+1Fh]
-  __int64 v8; // [rsp+60h] [rbp+27h]
-  __int64 v9; // [rsp+68h] [rbp+2Fh]
-  _QWORD v10[2]; // [rsp+70h] [rbp+37h] BYREF
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+38h] [rbp-1h] BYREF
+  _QWORD VmInformation[5]; // [rsp+48h] [rbp+Fh] BYREF
+  _QWORD v5[2]; // [rsp+70h] [rbp+37h] BYREF
 
-  v10[1] = 16LL;
+  v5[1] = 16LL;
   v2 = 0;
-  v10[0] = a1 & 0xFFF;
-  v8 = 0LL;
-  v3 = a1 & 0xFFFFFFFFFFFFF000uLL;
-  v9 = 0LL;
-  v6 = &v2;
-  v4 = 4096LL;
-  v7 = v10;
-  v5 = 1LL;
-  return ZwSetInformationVirtualMemory(-1LL, 2LL);
+  v5[0] = a1 & 0xFFF;
+  VmInformation[3] = 0LL;
+  VirtualAddresses.VirtualAddress = (PVOID)(a1 & 0xFFFFFFFFFFFFF000uLL);
+  VmInformation[4] = 0LL;
+  VmInformation[1] = &v2;
+  VirtualAddresses.NumberOfBytes = 4096LL;
+  VmInformation[2] = v5;
+  VmInformation[0] = 1LL;
+  return ZwSetInformationVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           VmCfgCallTargetInformation,
+           1uLL,
+           &VirtualAddresses,
+           VmInformation,
+           0x28u);
 }

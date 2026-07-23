@@ -1,10 +1,10 @@
 /*
- * XREFs of Win7PsGetVersion @ 0x140977E90
+ * XREFs of Win7PsGetVersion @ 0x140978090
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PsGetVersion @ 0x1403695D0 (PsGetVersion.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PsGetVersion @ 0x140369770 (PsGetVersion.c)
  */
 
 BOOLEAN __fastcall Win7PsGetVersion(ULONG *a1, ULONG *a2, ULONG *a3, UNICODE_STRING *a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpLeakCallbackRoutine @ 0x1800F5C80
+ * XREFs of RtlpLeakCallbackRoutine @ 0x1800F03A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpPushPageDescriptor @ 0x18003F524 (RtlpPushPageDescriptor.c)
- *     RtlpSetBlockInfo @ 0x18004156C (RtlpSetBlockInfo.c)
+ *     RtlpPushPageDescriptor @ 0x18001FE54 (RtlpPushPageDescriptor.c)
+ *     RtlpSetBlockInfo @ 0x180021E9C (RtlpSetBlockInfo.c)
  */
 
 __int64 __fastcall RtlpLeakCallbackRoutine(__int64 a1)

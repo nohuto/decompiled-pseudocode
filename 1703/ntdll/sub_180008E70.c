@@ -9,43 +9,43 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-_BOOL8 __fastcall sub_180008E70(__int64 a1, _QWORD *a2)
+_BOOL8 __fastcall sub_180008E70(PRTL_RUN_ONCE a1, _QWORD *a2, PVOID *a3)
 {
-  int v3; // edi
-  char *v4; // rbx
-  __int64 v5; // rax
+  NTSTATUS v4; // edi
+  char *v5; // rbx
+  __int64 v6; // rax
 
-  v3 = RtlRunOnceExecuteOnce(&unk_18015C300, sub_180008C50, 0LL, 0LL);
-  if ( v3 >= 0 )
+  v4 = RtlRunOnceExecuteOnce(&RunOnce, (PRTL_RUN_ONCE_INIT_FN)InitFn, 0LL, 0LL);
+  if ( v4 >= 0 )
   {
     memset(a2, 0, 0x28uLL);
-    v4 = (char *)sub_1800093FC(512LL, 0LL);
-    if ( v4 )
+    v5 = (char *)sub_1800093FC(0x200uLL);
+    if ( v5 )
     {
-      v5 = sub_1800093FC(0x2000LL, 1LL);
-      if ( v5 )
+      v6 = sub_1800093FC(0x2000uLL);
+      if ( v6 )
       {
         *a2 = 0LL;
-        a2[3] = v5;
+        a2[3] = v6;
         *((_DWORD *)a2 + 2) = 0;
-        a2[2] = v4;
+        a2[2] = v5;
         *((_DWORD *)a2 + 3) = 2048;
-        if ( (v4 + 512 >= v4 ? 0x40 : 0) != 0 )
-          memset64(v4, (unsigned __int64)(a2 + 1) | 1, v4 + 512 >= v4 ? 0x40 : 0);
-        v4 = 0LL;
-        v3 = 0;
+        if ( (v5 + 512 >= v5 ? 0x40 : 0) != 0 )
+          memset64(v5, (unsigned __int64)(a2 + 1) | 1, v5 + 512 >= v5 ? 0x40 : 0);
+        v5 = 0LL;
+        v4 = 0;
       }
       else
       {
-        v3 = -1073741801;
+        v4 = -1073741801;
       }
-      if ( v4 )
-        sub_18000913C((_DWORD)v4);
+      if ( v5 )
+        sub_18000913C((_DWORD)v5);
     }
     else
     {
-      v3 = -1073741801;
+      v4 = -1073741801;
     }
   }
-  return v3 >= 0;
+  return v4 >= 0;
 }

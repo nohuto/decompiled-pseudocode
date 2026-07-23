@@ -1,5 +1,5 @@
 /*
- * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x1400825B4
+ * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x140083230
  * Callers:
  *     <none>
  * Callees:

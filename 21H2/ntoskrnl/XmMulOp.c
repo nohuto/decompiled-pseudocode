@@ -1,9 +1,9 @@
 /*
- * XREFs of XmMulOp @ 0x1403C37A0
+ * XREFs of XmMulOp @ 0x1403C3BD0
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396F10 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmMulOp(_DWORD *a1)

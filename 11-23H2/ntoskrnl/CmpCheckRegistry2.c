@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpCheckRegistry2 @ 0x1406DFAD0
+ * XREFs of CmpCheckRegistry2 @ 0x1406DFB00
  * Callers:
- *     CmCheckRegistry @ 0x140705210 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x140705420 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     CmpCheckKey @ 0x1406E0710 (CmpCheckKey.c)
- *     CmpCheckLexicographicalOrder @ 0x1407AA3D0 (CmpCheckLexicographicalOrder.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x1407D12C8 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpRemoveSubKeyCellNoCellRef @ 0x140A246EC (CmpRemoveSubKeyCellNoCellRef.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     CmpCheckKey @ 0x1406E0740 (CmpCheckKey.c)
+ *     CmpCheckLexicographicalOrder @ 0x1407AA5C0 (CmpCheckLexicographicalOrder.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x1407D1598 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x140A2499C (CmpRemoveSubKeyCellNoCellRef.c)
  */
 
 __int64 __fastcall CmpCheckRegistry2(
@@ -22,7 +22,7 @@ __int64 __fastcall CmpCheckRegistry2(
         int a3,
         __int64 a4,
         char a5,
-        RTL_BITMAP *BitMapHeader,
+        _RTL_BITMAP *BitMapHeader,
         __int64 a7,
         int *a8)
 {

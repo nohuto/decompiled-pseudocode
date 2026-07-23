@@ -52,24 +52,21 @@ __int64 __fastcall EtwpInitialize(int a1)
   int v8; // eax
   __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  _BYTE v14[8]; // [rsp+40h] [rbp-29h] BYREF
+  _BYTE v11[8]; // [rsp+40h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-21h] BYREF
-  LARGE_INTEGER v16; // [rsp+58h] [rbp-11h] BYREF
-  __int64 v17; // [rsp+60h] [rbp-9h]
+  LARGE_INTEGER v13; // [rsp+58h] [rbp-11h] BYREF
+  __int64 v14; // [rsp+60h] [rbp-9h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
-  int v19; // [rsp+D0h] [rbp+67h] BYREF
-  char v20; // [rsp+D8h] [rbp+6Fh] BYREF
-  LARGE_INTEGER v21; // [rsp+E0h] [rbp+77h] BYREF
-  __int64 v22; // [rsp+E8h] [rbp+7Fh] BYREF
+  int v16; // [rsp+D0h] [rbp+67h] BYREF
+  char v17; // [rsp+D8h] [rbp+6Fh] BYREF
+  LARGE_INTEGER v18; // [rsp+E0h] [rbp+77h] BYREF
+  __int64 v19; // [rsp+E8h] [rbp+7Fh] BYREF
 
   v1 = KeNumberProcessors_0;
   result = 0LL;
-  v16.QuadPart = 0LL;
-  v21.QuadPart = 0LL;
-  v17 = 0LL;
+  v13.QuadPart = 0LL;
+  v18.QuadPart = 0LL;
+  v14 = 0LL;
   if ( a1 )
   {
     if ( a1 == 1 )
@@ -77,15 +74,15 @@ __int64 __fastcall EtwpInitialize(int a1)
   }
   else
   {
-    KeQueryBootTimeValues(&EtwpRefTimeSystem, &v21, &v22);
-    EtwpBootTime = v21.QuadPart - v22;
-    RtlGetMultiTimePrecise(&v16, 3, &v19);
+    KeQueryBootTimeValues(&EtwpRefTimeSystem, &v18, &v19);
+    EtwpBootTime = v18.QuadPart - v19;
+    RtlGetMultiTimePrecise(&v13, 3, &v16);
     EtwpRefQpcDelta = 0LL;
-    if ( (v19 & 1) != 0 )
+    if ( (v16 & 1) != 0 )
     {
-      EtwpRefTimePerfCounter = v16.QuadPart;
-      if ( (v19 & 2) != 0 )
-        EtwpRefQpcDelta = v17 - v16.QuadPart;
+      EtwpRefTimePerfCounter = v13.QuadPart;
+      if ( (v16 & 2) != 0 )
+        EtwpRefQpcDelta = v14 - v13.QuadPart;
     }
     else
     {
@@ -130,7 +127,7 @@ __int64 __fastcall EtwpInitialize(int a1)
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = 0LL;
     *(&ObjectAttributes.Attributes + 1) = 0;
-    if ( (int)KsrGetFirmwareInformation(v14) >= 0 )
+    if ( (int)KsrGetFirmwareInformation(v11) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"\\Callback\\SoftRestart");
       ObjectAttributes.Length = 48;
@@ -189,16 +186,13 @@ LABEL_25:
     EtwRegister(&MS_Windows_Security_Adminless_Provider, 0LL, 0LL, &EtwAdminlessProvRegHandle);
     EtwRegister(&SecurityMitigationsProviderGuid, 0LL, 0LL, &EtwSecurityMitigationsRegHandle);
     EtwpInitialized = 1;
-    ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0LL);
-    EtwpTraceSystemInitialization(v12, v11, v13);
-    result = ((__int64 (__fastcall *)(__int64, __int64, int *, char *, _QWORD, _DWORD, _DWORD))off_140426798[0])(
+    ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
+    EtwpTraceSystemInitialization();
+    result = ((__int64 (__fastcall *)(__int64, __int64, int *, char *))off_140426798[0])(
                44LL,
                4LL,
                &EtwpMaxPmcCounter,
-               &v20,
-               0LL,
-               0,
-               0);
+               &v17);
     if ( (int)result < 0 )
       EtwpMaxPmcCounter = 8;
   }

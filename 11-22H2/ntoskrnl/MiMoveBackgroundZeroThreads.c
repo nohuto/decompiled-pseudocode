@@ -61,7 +61,7 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(__int64 a1, __int64 a2)
     v27 = CurrentIrql;
     __writecr8(2uLL);
     result = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       result = 4LL;
@@ -164,10 +164,10 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(__int64 a1, __int64 a2)
   }
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v21 = CurrentPrcb->SchedulerAssist;

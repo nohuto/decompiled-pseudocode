@@ -1,18 +1,18 @@
 /*
- * XREFs of HalSendNMI @ 0x1405441C0
+ * XREFs of HalSendNMI @ 0x140541B10
  * Callers:
- *     HalpNmiReboot @ 0x140559C54 (HalpNmiReboot.c)
- *     KiSendFreeze @ 0x1405C1F30 (KiSendFreeze.c)
+ *     HalpNmiReboot @ 0x140557884 (HalpNmiReboot.c)
+ *     KiSendFreeze @ 0x1405BF500 (KiSendFreeze.c)
  * Callees:
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     KeAndGroupAffinityEx @ 0x140206990 (KeAndGroupAffinityEx.c)
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KeAndGroupAffinityEx @ 0x14032DF70 (KeAndGroupAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalSendNMI(struct _KAFFINITY_EX *a1)
@@ -30,9 +30,9 @@ __int64 __fastcall HalSendNMI(struct _KAFFINITY_EX *a1)
   bool v12; // di
   bool v13; // di
   bool v14; // di
-  struct _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-D0h] BYREF
+  _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-D0h] BYREF
   __int64 v16; // [rsp+40h] [rbp-C8h] BYREF
-  __int128 v17; // [rsp+48h] [rbp-C0h] BYREF
+  __int128 v17; // [rsp+48h] [rbp-C0h]
   int v18; // [rsp+58h] [rbp-B0h]
   __int128 v19; // [rsp+60h] [rbp-A8h] BYREF
   __int64 v20; // [rsp+70h] [rbp-98h]
@@ -68,7 +68,7 @@ __int64 __fastcall HalSendNMI(struct _KAFFINITY_EX *a1)
     v21[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
     v24 = v16;
     v5 = HalpDisableInterrupts();
-    result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v21, &v17, 0LL);
+    result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v21);
     v4 = result;
     if ( v5 )
       _enable();
@@ -115,7 +115,7 @@ __int64 __fastcall HalSendNMI(struct _KAFFINITY_EX *a1)
         v25 = v7;
         v16 = *(_QWORD *)(HalpInterruptIpiLines + 16);
         v12 = HalpDisableInterrupts();
-        result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), &v16, &v17, 0LL);
+        result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), &v16);
         v4 = result;
         if ( v12 )
           _enable();
@@ -143,7 +143,7 @@ __int64 __fastcall HalSendNMI(struct _KAFFINITY_EX *a1)
   v22[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
   v22[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
   v13 = HalpDisableInterrupts();
-  result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v22, &v17, 0LL);
+  result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v22);
   v4 = result;
   if ( v13 )
     _enable();
@@ -165,7 +165,7 @@ LABEL_30:
       v23[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
       v23[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
       v14 = HalpDisableInterrupts();
-      result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v23, &v17, 0LL);
+      result = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v23);
       v4 = result;
       if ( v14 )
         _enable();

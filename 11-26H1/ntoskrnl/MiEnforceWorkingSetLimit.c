@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEnforceWorkingSetLimit @ 0x14030E1D8
+ * XREFs of MiEnforceWorkingSetLimit @ 0x1402F0258
  * Callers:
- *     MmEnforceWorkingSetLimit @ 0x140B00674 (MmEnforceWorkingSetLimit.c)
+ *     MmEnforceWorkingSetLimit @ 0x140B023A4 (MmEnforceWorkingSetLimit.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkHardLimitWorkingSet @ 0x14030DA88 (MiUnlinkHardLimitWorkingSet.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiInsertHardLimitWorkingSet @ 0x1403BDD0C (MiInsertHardLimitWorkingSet.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkHardLimitWorkingSet @ 0x1402EFB08 (MiUnlinkHardLimitWorkingSet.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiInsertHardLimitWorkingSet @ 0x1403C7B7C (MiInsertHardLimitWorkingSet.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiEnforceWorkingSetLimit(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall MiEnforceWorkingSetLimit(__int64 a1, __int64 a2)
   v4 = 0LL;
   v5 = 0;
   v6 = a2;
-  v8 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v3);
+  v8 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v3);
   if ( (a2 & 1) != 0 && !*(_QWORD *)(*(_QWORD *)(a1 + 16) + 40LL) )
   {
     v14 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];

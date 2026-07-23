@@ -1,22 +1,22 @@
 /*
- * XREFs of MmProbeAndLockSelectedPages @ 0x1403D53C0
+ * XREFs of MmProbeAndLockSelectedPages @ 0x1403D55A0
  * Callers:
- *     NtReadFileScatter @ 0x1407E7070 (NtReadFileScatter.c)
- *     NtWriteFileGather @ 0x1407E82F0 (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1407E7340 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x1407E85C0 (NtWriteFileGather.c)
  * Callees:
- *     MiProbeAndLockPrepare @ 0x140234DB0 (MiProbeAndLockPrepare.c)
- *     MiProbeLockFrame @ 0x140236500 (MiProbeLockFrame.c)
- *     MiProbeAndLockComplete @ 0x140238870 (MiProbeAndLockComplete.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiProbePacketContended @ 0x1402E6584 (MiProbePacketContended.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     MiLockProbePacketWorkingSet @ 0x14034B9F4 (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14034BA3C (MiUnlockProbePacketWorkingSet.c)
- *     MiProbeLeafFrame @ 0x1403D5604 (MiProbeLeafFrame.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiProbeAndLockPrepare @ 0x140234E80 (MiProbeAndLockPrepare.c)
+ *     MiProbeLockFrame @ 0x1402365D0 (MiProbeLockFrame.c)
+ *     MiProbeAndLockComplete @ 0x140238940 (MiProbeAndLockComplete.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiProbePacketContended @ 0x1402E6814 (MiProbePacketContended.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     MiLockProbePacketWorkingSet @ 0x14034BB94 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x14034BBDC (MiUnlockProbePacketWorkingSet.c)
+ *     MiProbeLeafFrame @ 0x1403D57E4 (MiProbeLeafFrame.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

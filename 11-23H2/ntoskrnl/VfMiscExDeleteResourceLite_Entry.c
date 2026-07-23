@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExDeleteResourceLite_Entry @ 0x140ADFAE0
+ * XREFs of VfMiscExDeleteResourceLite_Entry @ 0x140ADFAD0
  * Callers:
  *     <none>
  * Callees:
- *     VfDeleteResource @ 0x140AE4500 (VfDeleteResource.c)
+ *     VfDeleteResource @ 0x140AE44F0 (VfDeleteResource.c)
  */
 
 __int64 __fastcall VfMiscExDeleteResourceLite_Entry(__int64 a1)

@@ -16,131 +16,125 @@
  *     NtGetCompleteWnfStateSubscription @ 0x1800A5F40 (NtGetCompleteWnfStateSubscription.c)
  */
 
-__int64 __fastcall RtlpWnfProcessCurrentDescriptor(__int64 a1, int a2)
+__int64 __fastcall RtlpWnfProcessCurrentDescriptor(_WNF_STATE_NAME *BaseAddress, int a2)
 {
-  unsigned int v4; // edi
+  ULONG v4; // edi
   int v5; // r12d
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // rbx
-  int v10; // ebp
+  unsigned __int64 v6; // rbx
+  int v7; // ebp
+  int v8; // eax
+  unsigned __int64 v9; // rax
+  __int64 v10; // rbx
   int v11; // eax
-  unsigned __int64 v12; // rax
-  __int64 v13; // rbx
-  int v14; // eax
-  __int64 **v15; // r14
-  unsigned __int64 v16; // rdx
-  unsigned __int64 v17; // r8
-  unsigned __int64 v18; // r9
-  __int64 *v19; // rax
-  __int64 v20; // rax
-  volatile signed __int64 *v22; // rcx
+  __int64 **v12; // r14
+  __int64 *v13; // rax
+  _WNF_STATE_NAME *v14; // rax
+  _RTL_SRWLOCK *v16; // rcx
 
   v4 = 0;
   v5 = 0;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_18017AAE0 + 8));
-  v9 = *(_QWORD *)(qword_18017AAE0 + 16);
-  if ( (*(_BYTE *)(qword_18017AAE0 + 24) & 1) != 0 && v9 )
-    v9 ^= qword_18017AAE0 + 16;
-  v10 = *(_BYTE *)(qword_18017AAE0 + 24) & 1;
-  while ( v9 )
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_18017AAE0 + 8));
+  v6 = *(_QWORD *)(qword_18017AAE0 + 16);
+  if ( (*(_BYTE *)(qword_18017AAE0 + 24) & 1) != 0 && v6 )
+    v6 ^= qword_18017AAE0 + 16;
+  v7 = *(_BYTE *)(qword_18017AAE0 + 24) & 1;
+  while ( v6 )
   {
-    v11 = RtlpWnfNameSubscriptionCompareByStateName(a1 + 8, v9);
-    if ( v11 >= 0 )
+    v8 = RtlpWnfNameSubscriptionCompareByStateName(&BaseAddress[1], v6);
+    if ( v8 >= 0 )
     {
-      if ( v11 <= 0 )
+      if ( v8 <= 0 )
         break;
-      v12 = *(_QWORD *)(v9 + 8);
+      v9 = *(_QWORD *)(v6 + 8);
     }
     else
     {
-      v12 = *(_QWORD *)v9;
+      v9 = *(_QWORD *)v6;
     }
-    if ( v10 && v12 )
-      v9 ^= v12;
+    if ( v7 && v9 )
+      v6 ^= v9;
     else
-      v9 = v12;
+      v6 = v9;
   }
-  v13 = (v9 - 32) & -(__int64)(v9 != 0);
-  if ( !v13 || *(_QWORD *)(v13 + 8) != *(_QWORD *)a1 )
+  v10 = (v6 - 32) & -(__int64)(v6 != 0);
+  if ( !v10 || *(_QWORD *)(v10 + 8) != *BaseAddress )
     goto LABEL_34;
-  RtlAcquireSRWLockExclusive(v13 + 64, v6, v7, v8);
-  v14 = *(_DWORD *)(v13 + 136);
-  if ( v14 != 2 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v10 + 64));
+  v11 = *(_DWORD *)(v10 + 136);
+  if ( v11 != 2 )
   {
-    if ( v14 != 1 )
+    if ( v11 != 1 )
       goto LABEL_18;
-    v22 = (volatile signed __int64 *)(v13 + 64);
+    v16 = (_RTL_SRWLOCK *)(v10 + 64);
     if ( !a2 )
     {
-      *(_QWORD *)(v13 + 128) = a1;
-      RtlReleaseSRWLockExclusive(v22);
+      *(_QWORD *)(v10 + 128) = BaseAddress;
+      RtlReleaseSRWLockExclusive(v16);
       v4 = 259;
       goto LABEL_34;
     }
 LABEL_37:
-    RtlReleaseSRWLockExclusive(v22);
+    RtlReleaseSRWLockExclusive(v16);
     v4 = 128;
 LABEL_34:
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(qword_18017AAE0 + 8));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_18017AAE0 + 8));
     return v4;
   }
   if ( a2 )
   {
-    v22 = (volatile signed __int64 *)(v13 + 64);
+    v16 = (_RTL_SRWLOCK *)(v10 + 64);
     goto LABEL_37;
   }
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(_QWORD *)(v13 + 128));
-  *(_QWORD *)(v13 + 128) = 0LL;
-  *(_DWORD *)(v13 + 136) = 0;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(v10 + 128));
+  *(_QWORD *)(v10 + 128) = 0LL;
+  *(_DWORD *)(v10 + 136) = 0;
 LABEL_18:
-  _InterlockedAdd((volatile signed __int32 *)(v13 + 116), 1u);
-  *(_DWORD *)(v13 + 136) = 1;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v13 + 64));
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(qword_18017AAE0 + 8));
-  v15 = (__int64 **)(v13 + 72);
+  _InterlockedAdd((volatile signed __int32 *)(v10 + 116), 1u);
+  *(_DWORD *)(v10 + 136) = 1;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v10 + 64));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_18017AAE0 + 8));
+  v12 = (__int64 **)(v10 + 72);
   while ( 1 )
   {
     v4 = 0;
-    if ( (unsigned int)RtlpWnfWalkUserSubscriptionList(a1, v13, 0LL) == -1073741267 )
+    if ( (unsigned int)RtlpWnfWalkUserSubscriptionList(BaseAddress, v10, 0LL) == -1073741267 )
       v4 = -1073741267;
-    if ( (unsigned int)RtlpWnfWalkUserSubscriptionList(a1, v13, 1LL) == -1073741267 )
+    if ( (unsigned int)RtlpWnfWalkUserSubscriptionList(BaseAddress, v10, 1LL) == -1073741267 )
       v4 = -1073741267;
-    RtlAcquireSRWLockExclusive(v13 + 64, v16, v17, v18);
-    v19 = *v15;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v10 + 64));
+    v13 = *v12;
     ++v5;
-    while ( v19 != (__int64 *)v15 )
+    while ( v13 != (__int64 *)v12 )
     {
-      *((_DWORD *)v19 + 38) = 0;
-      v19 = (__int64 *)*v19;
+      *((_DWORD *)v13 + 38) = 0;
+      v13 = (__int64 *)*v13;
     }
-    v20 = *(_QWORD *)(v13 + 128);
-    if ( !v20 )
+    v14 = *(_WNF_STATE_NAME **)(v10 + 128);
+    if ( !v14 )
       break;
-    *(_QWORD *)(v13 + 128) = 0LL;
-    a1 = v20;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v13 + 64));
+    *(_QWORD *)(v10 + 128) = 0LL;
+    BaseAddress = v14;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v10 + 64));
   }
   if ( v4 )
   {
-    *(_QWORD *)(v13 + 128) = a1;
-    *(_DWORD *)(v13 + 136) = 2;
-    RtlpWnfCalculateRetryTime(v13);
+    *(_QWORD *)(v10 + 128) = BaseAddress;
+    *(_DWORD *)(v10 + 136) = 2;
+    RtlpWnfCalculateRetryTime(v10);
   }
   else
   {
-    *(_DWORD *)(v13 + 136) = 0;
-    if ( !*(_DWORD *)(v13 + 24) || *(_DWORD *)(a1 + 16) - *(_DWORD *)(v13 + 24) > 0 )
-      *(_DWORD *)(v13 + 24) = *(_DWORD *)(a1 + 16);
+    *(_DWORD *)(v10 + 136) = 0;
+    if ( !*(_DWORD *)(v10 + 24) || (signed int)(BaseAddress[2].Data[0] - *(_DWORD *)(v10 + 24)) > 0 )
+      *(_DWORD *)(v10 + 24) = BaseAddress[2].Data[0];
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v13 + 64));
-  RtlpDecRefWnfNameSubscription(v13);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v10 + 64));
+  RtlpDecRefWnfNameSubscription((PVOID)v10);
   if ( v5 > 1 )
   {
-    NtGetCompleteWnfStateSubscription(a1 + 8, a1, *(unsigned int *)(a1 + 24), v4, 0LL, 0);
+    NtGetCompleteWnfStateSubscription(BaseAddress + 1, (ULONG64 *)BaseAddress, BaseAddress[3].Data[0], v4, 0LL, 0);
     if ( !v4 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     return 128;
   }
   return v4;

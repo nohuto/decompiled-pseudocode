@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCmdHiveOpen @ 0x1405B494C
+ * XREFs of CmpCmdHiveOpen @ 0x1405B594C
  * Callers:
- *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmLoadKey @ 0x1406C8B78 (CmLoadKey.c)
- *     CmReplaceKey @ 0x1407EF13C (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
+ *     CmLoadAppKey @ 0x1405D054C (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x1406C9E18 (CmLoadKey.c)
+ *     CmReplaceKey @ 0x1407F033C (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x1407F5250 (CmpFlushBackupHive.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
- *     CmpInitHiveFromFile @ 0x1405B3D68 (CmpInitHiveFromFile.c)
- *     PsReferenceImpersonationTokenEx @ 0x140631BA0 (PsReferenceImpersonationTokenEx.c)
- *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
- *     RtlImpersonateSelfEx @ 0x1406BADF4 (RtlImpersonateSelfEx.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EEDD0 (IoSetThreadHardErrorMode.c)
+ *     CmpInitHiveFromFile @ 0x1405B4D68 (CmpInitHiveFromFile.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140632BC0 (PsReferenceImpersonationTokenEx.c)
+ *     PsImpersonateClient @ 0x140638B90 (PsImpersonateClient.c)
+ *     RtlImpersonateSelfEx @ 0x1406BC094 (RtlImpersonateSelfEx.c)
  */
 
 __int64 __fastcall CmpCmdHiveOpen(
@@ -32,12 +32,12 @@ __int64 __fastcall CmpCmdHiveOpen(
   __int64 v17; // rbx
   int v18; // edx
   unsigned int v19; // ecx
-  int inited; // eax
-  int v21; // edi
+  NTSTATUS inited; // eax
+  NTSTATUS v21; // edi
   unsigned int v22; // eax
   int v23; // ecx
   void *v24; // rbx
-  int v25; // eax
+  NTSTATUS v25; // eax
   struct _KTHREAD *CurrentThread; // rcx
   int v28; // [rsp+30h] [rbp-48h]
   int v29; // [rsp+30h] [rbp-48h]
@@ -83,7 +83,7 @@ __int64 __fastcall CmpCmdHiveOpen(
                         (unsigned int)&a6,
                         (__int64)ImpersonationLevel,
                         0LL);
-        v21 = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
+        v21 = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL);
         if ( v21 >= 0 )
         {
           v25 = CmpInitHiveFromFile(Source, v32, a4, a3, a5, 0LL, v29, v31, a8, a9);

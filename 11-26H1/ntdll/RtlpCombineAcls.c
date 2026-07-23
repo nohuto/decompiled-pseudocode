@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCombineAcls @ 0x18005DEB0
+ * XREFs of RtlpCombineAcls @ 0x180048430
  * Callers:
- *     RtlpSetSecurityObject @ 0x18005BF70 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x18005E6A0 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1800464F0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180048C20 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlCreateAcl @ 0x18005D4F0 (RtlCreateAcl.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlCreateAcl @ 0x180047A70 (RtlCreateAcl.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpCombineAcls(
@@ -22,46 +22,47 @@ __int64 __fastcall RtlpCombineAcls(
 {
   unsigned int v8; // ebx
   unsigned __int16 *v13; // rbp
-  unsigned int v14; // r12d
+  ULONG v14; // r12d
   unsigned __int8 *v15; // r13
   unsigned __int8 *v16; // rcx
   unsigned int v18; // r8d
   unsigned int v19; // r10d
   unsigned __int8 *v20; // rdx
-  __int64 Heap_0; // rax
-  unsigned int v22; // r12d
-  unsigned __int16 *v23; // r9
-  unsigned __int64 v24; // r10
+  unsigned int v21; // eax
+  ACL *Heap_0; // rax
+  unsigned int v23; // r12d
+  unsigned __int16 *v24; // r9
+  unsigned __int16 *v25; // r10
   unsigned int i; // edx
-  unsigned __int16 *v26; // rdi
-  unsigned int v27; // ecx
-  unsigned __int16 *v28; // rax
-  unsigned __int16 *v29; // rdi
+  unsigned __int16 *v27; // rdi
+  unsigned int v28; // ecx
+  unsigned __int16 *v29; // rax
   unsigned __int16 *v30; // rdi
-  unsigned int n; // esi
-  unsigned __int16 *v32; // rsi
-  unsigned int v33; // ecx
-  unsigned __int16 *v34; // rdi
+  unsigned __int16 *v31; // rdi
   unsigned int k; // esi
-  unsigned __int16 *v36; // rax
-  unsigned int v37; // edx
-  unsigned __int16 *v38; // r13
-  unsigned int v39; // ecx
-  unsigned __int8 *v40; // rdx
-  unsigned int v41; // ecx
-  unsigned __int8 *v42; // rdx
-  unsigned int v43; // edx
-  unsigned __int8 *v44; // r9
-  unsigned int v45; // r9d
-  unsigned __int8 *v46; // rdx
-  unsigned int v47; // edx
-  unsigned __int8 *v48; // r9
-  int Acl; // [rsp+20h] [rbp-38h]
-  unsigned __int16 *v50; // [rsp+28h] [rbp-30h]
-  unsigned int v51; // [rsp+60h] [rbp+8h]
-  unsigned int j; // [rsp+60h] [rbp+8h]
-  unsigned int m; // [rsp+60h] [rbp+8h]
-  unsigned int v54; // [rsp+60h] [rbp+8h]
+  unsigned __int16 *v33; // rsi
+  unsigned int v34; // ecx
+  unsigned __int16 *v35; // rdi
+  unsigned int j; // esi
+  unsigned __int16 *v37; // rax
+  unsigned int v38; // edx
+  unsigned __int16 *v39; // r13
+  unsigned int v40; // ecx
+  unsigned __int8 *v41; // rdx
+  unsigned int v42; // ecx
+  unsigned __int8 *v43; // rdx
+  unsigned int v44; // edx
+  unsigned __int8 *v45; // r9
+  unsigned int v46; // r9d
+  unsigned __int8 *v47; // rdx
+  unsigned int v48; // edx
+  unsigned __int8 *v49; // r9
+  NTSTATUS Acl; // [rsp+20h] [rbp-38h]
+  unsigned __int16 *v51; // [rsp+28h] [rbp-30h]
+  unsigned int AclLength; // [rsp+60h] [rbp+8h]
+  ULONG AclLengtha; // [rsp+60h] [rbp+8h]
+  ULONG AclLengthb; // [rsp+60h] [rbp+8h]
+  ULONG AclLengthc; // [rsp+60h] [rbp+8h]
 
   v8 = 0;
   v13 = 0LL;
@@ -84,13 +85,13 @@ __int64 __fastcall RtlpCombineAcls(
   v18 = 8;
   if ( a1 )
   {
-    v45 = 0;
-    v46 = a1 + 8;
-    while ( v45 < *((unsigned __int16 *)a1 + 2) )
+    v46 = 0;
+    v47 = a1 + 8;
+    while ( v46 < *((unsigned __int16 *)a1 + 2) )
     {
-      if ( *v46 != 16 )
+      if ( *v47 != 16 )
       {
-        switch ( *v46 )
+        switch ( *v47 )
         {
           case 2u:
           case 3u:
@@ -104,16 +105,16 @@ __int64 __fastcall RtlpCombineAcls(
             goto LABEL_102;
         }
       }
-      if ( v18 + *((unsigned __int16 *)v46 + 1) < v18 )
+      if ( v18 + *((unsigned __int16 *)v47 + 1) < v18 )
         goto LABEL_40;
-      v18 += *((unsigned __int16 *)v46 + 1);
+      v18 += *((unsigned __int16 *)v47 + 1);
       if ( a8 )
         *a8 |= 8u;
       if ( *a1 > v14 )
         v14 = *a1;
 LABEL_102:
-      ++v45;
-      v46 += *((unsigned __int16 *)v46 + 1);
+      ++v46;
+      v47 += *((unsigned __int16 *)v47 + 1);
     }
     v16 = (unsigned __int8 *)a6;
   }
@@ -139,139 +140,140 @@ LABEL_102:
   }
   if ( v15 )
   {
-    v47 = 0;
-    v48 = v15 + 8;
-    while ( v47 < *((unsigned __int16 *)v15 + 2) )
+    v48 = 0;
+    v49 = v15 + 8;
+    while ( v48 < *((unsigned __int16 *)v15 + 2) )
     {
-      if ( *v48 == 20 )
+      if ( *v49 == 20 )
       {
-        if ( v18 + *((unsigned __int16 *)v48 + 1) < v18 )
+        if ( v18 + *((unsigned __int16 *)v49 + 1) < v18 )
           goto LABEL_40;
-        v18 += *((unsigned __int16 *)v48 + 1);
+        v18 += *((unsigned __int16 *)v49 + 1);
         if ( a8 )
           *a8 |= 0x80u;
         if ( *v15 > v14 )
           v14 = *v15;
       }
-      ++v47;
-      v48 += *((unsigned __int16 *)v48 + 1);
+      ++v48;
+      v49 += *((unsigned __int16 *)v49 + 1);
     }
   }
   if ( v16 )
   {
-    v43 = 0;
-    v44 = v16 + 8;
-    while ( v43 < *((unsigned __int16 *)v16 + 2) )
+    v44 = 0;
+    v45 = v16 + 8;
+    while ( v44 < *((unsigned __int16 *)v16 + 2) )
     {
-      if ( *v44 == 21 )
+      if ( *v45 == 21 )
       {
-        if ( v18 + *((unsigned __int16 *)v44 + 1) < v18 )
+        if ( v18 + *((unsigned __int16 *)v45 + 1) < v18 )
           goto LABEL_40;
-        v18 += *((unsigned __int16 *)v44 + 1);
+        v18 += *((unsigned __int16 *)v45 + 1);
         if ( a8 )
           *a8 |= 0x100u;
         if ( *v16 > v14 )
           v14 = *v16;
       }
-      ++v43;
-      v44 += *((unsigned __int16 *)v44 + 1);
+      ++v44;
+      v45 += *((unsigned __int16 *)v45 + 1);
     }
   }
   if ( a3 )
   {
-    v39 = 0;
-    v40 = a3 + 8;
-    while ( v39 < *((unsigned __int16 *)a3 + 2) )
+    v40 = 0;
+    v41 = a3 + 8;
+    while ( v40 < *((unsigned __int16 *)a3 + 2) )
     {
-      if ( *v40 == 18 )
+      if ( *v41 == 18 )
       {
-        if ( v18 + *((unsigned __int16 *)v40 + 1) < v18 )
+        if ( v18 + *((unsigned __int16 *)v41 + 1) < v18 )
           goto LABEL_40;
-        v18 += *((unsigned __int16 *)v40 + 1);
+        v18 += *((unsigned __int16 *)v41 + 1);
         if ( a8 )
           *a8 |= 0x20u;
         if ( *a3 > v14 )
           v14 = *a3;
       }
-      ++v39;
-      v40 += *((unsigned __int16 *)v40 + 1);
+      ++v40;
+      v41 += *((unsigned __int16 *)v41 + 1);
     }
   }
   if ( a4 )
   {
-    v41 = 0;
-    v42 = a4 + 8;
-    while ( v41 < *((unsigned __int16 *)a4 + 2) )
+    v42 = 0;
+    v43 = a4 + 8;
+    while ( v42 < *((unsigned __int16 *)a4 + 2) )
     {
-      if ( *v42 == 19 )
+      if ( *v43 == 19 )
       {
-        if ( v18 + *((unsigned __int16 *)v42 + 1) < v18 )
+        if ( v18 + *((unsigned __int16 *)v43 + 1) < v18 )
           goto LABEL_40;
-        v18 += *((unsigned __int16 *)v42 + 1);
+        v18 += *((unsigned __int16 *)v43 + 1);
         if ( a8 )
           *a8 |= 0x40u;
         if ( *a4 > v14 )
           v14 = *a4;
       }
-      ++v41;
-      v42 += *((unsigned __int16 *)v42 + 1);
+      ++v42;
+      v43 += *((unsigned __int16 *)v43 + 1);
     }
   }
+  v21 = v18 + 3;
   if ( v18 + 3 < v18 )
   {
 LABEL_40:
-    v22 = -1073741675;
+    v23 = -1073741675;
 LABEL_41:
     *a7 = v13;
-    return v22;
+    return v23;
   }
-  v51 = (v18 + 3) & 0xFFFFFFFC;
-  Heap_0 = RtlAllocateHeap_0();
+  AclLength = v21 & 0xFFFFFFFC;
+  Heap_0 = (ACL *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v21 & 0xFFFFFFFC);
   v13 = (unsigned __int16 *)Heap_0;
   if ( !Heap_0 )
   {
-    v22 = -1073741801;
+    v23 = -1073741801;
     goto LABEL_41;
   }
-  Acl = RtlCreateAcl(Heap_0, v51, v14);
-  v22 = Acl;
+  Acl = RtlCreateAcl(Heap_0, AclLength, v14);
+  v23 = Acl;
   if ( Acl >= 0 )
   {
-    v23 = v13 + 4;
-    v24 = (unsigned __int64)v13 + v13[1];
+    v24 = v13 + 4;
+    v25 = (unsigned __int16 *)((char *)v13 + v13[1]);
     for ( i = 0; i < v13[2]; ++i )
     {
-      if ( (unsigned __int64)v23 >= v24 )
+      if ( v24 >= v25 )
       {
-        v22 = -1073741699;
+        v23 = -1073741699;
         goto LABEL_50;
       }
-      v23 = (unsigned __int16 *)((char *)v23 + v23[1]);
+      v24 = (unsigned __int16 *)((char *)v24 + v24[1]);
     }
-    if ( (unsigned __int64)v23 > v24 )
-      v23 = 0LL;
-    v50 = v23;
+    if ( v24 > v25 )
+      v24 = 0LL;
+    v51 = v24;
     if ( a1 )
     {
-      v37 = 0;
-      v54 = 0;
+      v38 = 0;
+      AclLengthc = 0;
       if ( *((_WORD *)a1 + 2) )
       {
-        v38 = (unsigned __int16 *)(a1 + 8);
+        v39 = (unsigned __int16 *)(a1 + 8);
         do
         {
-          if ( *(_BYTE *)v38 == 16 )
+          if ( *(_BYTE *)v39 == 16 )
           {
 LABEL_69:
-            memmove(v23, v38, v38[1]);
+            memmove(v24, v39, v39[1]);
             ++v13[2];
-            v37 = v54;
-            v23 = (unsigned __int16 *)((char *)v50 + v38[1]);
-            v50 = v23;
+            v38 = AclLengthc;
+            v24 = (unsigned __int16 *)((char *)v51 + v39[1]);
+            v51 = v24;
           }
           else
           {
-            switch ( *(_BYTE *)v38 )
+            switch ( *(_BYTE *)v39 )
             {
               case 2:
               case 3:
@@ -285,101 +287,101 @@ LABEL_69:
                 break;
             }
           }
-          ++v37;
-          v38 = (unsigned __int16 *)((char *)v38 + v38[1]);
-          v54 = v37;
+          ++v38;
+          v39 = (unsigned __int16 *)((char *)v39 + v39[1]);
+          AclLengthc = v38;
         }
-        while ( v37 < *((unsigned __int16 *)a1 + 2) );
-        v22 = Acl;
+        while ( v38 < *((unsigned __int16 *)a1 + 2) );
+        v23 = Acl;
         v15 = (unsigned __int8 *)a5;
       }
     }
     if ( a2 )
     {
-      v26 = (unsigned __int16 *)(a2 + 8);
-      v27 = 0;
-      for ( j = 0; v27 < *((unsigned __int16 *)a2 + 2); j = v27 )
+      v27 = (unsigned __int16 *)(a2 + 8);
+      v28 = 0;
+      for ( AclLengtha = 0; v28 < *((unsigned __int16 *)a2 + 2); AclLengtha = v28 )
       {
-        v28 = v26 + 1;
-        if ( *(_BYTE *)v26 == 17 )
+        v29 = v27 + 1;
+        if ( *(_BYTE *)v27 == 17 )
         {
-          memmove(v23, v26, *v28);
+          memmove(v24, v27, *v29);
           ++v13[2];
-          v27 = j;
-          v23 = (unsigned __int16 *)((char *)v50 + v26[1]);
-          v28 = v26 + 1;
-          v50 = v23;
+          v28 = AclLengtha;
+          v24 = (unsigned __int16 *)((char *)v51 + v27[1]);
+          v29 = v27 + 1;
+          v51 = v24;
         }
-        ++v27;
-        v26 = (unsigned __int16 *)((char *)v26 + *v28);
+        ++v28;
+        v27 = (unsigned __int16 *)((char *)v27 + *v29);
       }
     }
     if ( v15 )
     {
-      v34 = (unsigned __int16 *)(v15 + 8);
-      for ( k = 0; k < *((unsigned __int16 *)v15 + 2); v34 = (unsigned __int16 *)((char *)v34 + *v36) )
+      v35 = (unsigned __int16 *)(v15 + 8);
+      for ( j = 0; j < *((unsigned __int16 *)v15 + 2); v35 = (unsigned __int16 *)((char *)v35 + *v37) )
       {
-        v36 = v34 + 1;
-        if ( *(_BYTE *)v34 == 20 )
+        v37 = v35 + 1;
+        if ( *(_BYTE *)v35 == 20 )
         {
-          memmove(v23, v34, *v36);
+          memmove(v24, v35, *v37);
           ++v13[2];
-          v23 = (unsigned __int16 *)((char *)v50 + v34[1]);
-          v36 = v34 + 1;
-          v50 = v23;
+          v24 = (unsigned __int16 *)((char *)v51 + v35[1]);
+          v37 = v35 + 1;
+          v51 = v24;
         }
-        ++k;
+        ++j;
       }
     }
     if ( a6 )
     {
-      v32 = (unsigned __int16 *)(a6 + 8);
-      v33 = 0;
-      for ( m = 0; v33 < *(unsigned __int16 *)(a6 + 4); m = v33 )
+      v33 = (unsigned __int16 *)(a6 + 8);
+      v34 = 0;
+      for ( AclLengthb = 0; v34 < *(unsigned __int16 *)(a6 + 4); AclLengthb = v34 )
       {
-        if ( *(_BYTE *)v32 == 21 )
+        if ( *(_BYTE *)v33 == 21 )
         {
-          memmove(v23, v32, v32[1]);
+          memmove(v24, v33, v33[1]);
           ++v13[2];
-          v33 = m;
-          v23 = (unsigned __int16 *)((char *)v50 + v32[1]);
-          v50 = v23;
+          v34 = AclLengthb;
+          v24 = (unsigned __int16 *)((char *)v51 + v33[1]);
+          v51 = v24;
         }
-        ++v33;
-        v32 = (unsigned __int16 *)((char *)v32 + v32[1]);
+        ++v34;
+        v33 = (unsigned __int16 *)((char *)v33 + v33[1]);
       }
     }
     if ( a3 )
     {
-      v30 = (unsigned __int16 *)(a3 + 8);
-      for ( n = 0; n < *((unsigned __int16 *)a3 + 2); v30 = (unsigned __int16 *)((char *)v30 + v30[1]) )
+      v31 = (unsigned __int16 *)(a3 + 8);
+      for ( k = 0; k < *((unsigned __int16 *)a3 + 2); v31 = (unsigned __int16 *)((char *)v31 + v31[1]) )
       {
-        if ( *(_BYTE *)v30 == 18 )
+        if ( *(_BYTE *)v31 == 18 )
         {
-          memmove(v23, v30, v30[1]);
+          memmove(v24, v31, v31[1]);
           ++v13[2];
-          v23 = (unsigned __int16 *)((char *)v50 + v30[1]);
-          v50 = v23;
+          v24 = (unsigned __int16 *)((char *)v51 + v31[1]);
+          v51 = v24;
         }
-        ++n;
+        ++k;
       }
     }
     if ( a4 )
     {
-      v29 = (unsigned __int16 *)(a4 + 8);
+      v30 = (unsigned __int16 *)(a4 + 8);
       if ( *((_WORD *)a4 + 2) )
       {
         do
         {
-          if ( *(_BYTE *)v29 == 19 )
+          if ( *(_BYTE *)v30 == 19 )
           {
-            memmove(v23, v29, v29[1]);
+            memmove(v24, v30, v30[1]);
             ++v13[2];
-            v23 = (unsigned __int16 *)((char *)v50 + v29[1]);
-            v50 = v23;
+            v24 = (unsigned __int16 *)((char *)v51 + v30[1]);
+            v51 = v24;
           }
           ++v8;
-          v29 = (unsigned __int16 *)((char *)v29 + v29[1]);
+          v30 = (unsigned __int16 *)((char *)v30 + v30[1]);
         }
         while ( v8 < *((unsigned __int16 *)a4 + 2) );
       }
@@ -387,7 +389,7 @@ LABEL_69:
     goto LABEL_41;
   }
 LABEL_50:
-  RtlFreeHeap_0();
+  RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v13);
   *a7 = 0LL;
-  return v22;
+  return v23;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiObtainPagefileHashes @ 0x14011527C
+ * XREFs of MiObtainPagefileHashes @ 0x1401157EC
  * Callers:
- *     MiValidatePagefilePageHash @ 0x140114E00 (MiValidatePagefilePageHash.c)
+ *     MiValidatePagefilePageHash @ 0x140115370 (MiValidatePagefilePageHash.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MiObtainPagefileHashes(__int64 a1, unsigned int a2, unsigned int a3, _DWORD *a4)

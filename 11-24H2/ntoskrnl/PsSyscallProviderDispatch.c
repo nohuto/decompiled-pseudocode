@@ -1,14 +1,14 @@
 /*
- * XREFs of PsSyscallProviderDispatch @ 0x140A9D400
+ * XREFs of PsSyscallProviderDispatch @ 0x140A98970
  * Callers:
- *     KiSystemCall64 @ 0x1406BDE40 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x1406BED40 (KiSystemCall64.c)
  * Callees:
- *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PspSyscallProviderServiceDispatch @ 0x1406B3710 (PspSyscallProviderServiceDispatch.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x1407712C8 (PspEnsureGuiThreadAndBatchFlush.c)
- *     PspSyscallProviderServiceDispatchGeneric @ 0x1407716B4 (PspSyscallProviderServiceDispatchGeneric.c)
- *     PsPicoSystemCallDispatch @ 0x140A9D598 (PsPicoSystemCallDispatch.c)
+ *     IoThreadToProcess @ 0x140438740 (IoThreadToProcess.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PspSyscallProviderServiceDispatch @ 0x1406B46B0 (PspSyscallProviderServiceDispatch.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1407714E8 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     PspSyscallProviderServiceDispatchGeneric @ 0x1407718D4 (PspSyscallProviderServiceDispatchGeneric.c)
+ *     PsPicoSystemCallDispatch @ 0x140A98B08 (PsPicoSystemCallDispatch.c)
  */
 
 __int64 __fastcall PsSyscallProviderDispatch(__int64 a1)
@@ -60,7 +60,7 @@ __int64 __fastcall PsSyscallProviderDispatch(__int64 a1)
     {
       if ( v11 == -1073741823 )
       {
-        v12 = *(char *)(v9 + 4LL * (unsigned int)xmmword_140FC62B0 + xmmword_140FC62A0);
+        v12 = *(char *)(v9 + 4LL * (unsigned int)xmmword_140FC72F0 + xmmword_140FC72E0);
         if ( v12 == 1 )
           v12 = -1073741796;
       }
@@ -71,7 +71,7 @@ __int64 __fastcall PsSyscallProviderDispatch(__int64 a1)
       v14 = *v7 + ((v10 >> 4) & 0xFFFFFFFFFFFFFF0LL);
       if ( (v10 & 0x10) != 0 )
       {
-        result = PspSyscallProviderServiceDispatchGeneric((_QWORD *)a1, v14, v10 & 0xF, v5, &v15);
+        result = PspSyscallProviderServiceDispatchGeneric(a1, v14, v10 & 0xF, v5, &v15);
         if ( (_DWORD)result )
           return result;
         v13 = v15;

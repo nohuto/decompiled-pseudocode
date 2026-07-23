@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpLoggerDpc @ 0x14049A770
+ * XREFs of EtwpLoggerDpc @ 0x140495190
  * Callers:
  *     <none>
  * Callees:
- *     EtwpRequestFlushTimer @ 0x14024D0B4 (EtwpRequestFlushTimer.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     EtwpRequestFlushTimer @ 0x14027D6C4 (EtwpRequestFlushTimer.c)
  */
 
 void __fastcall EtwpLoggerDpc(

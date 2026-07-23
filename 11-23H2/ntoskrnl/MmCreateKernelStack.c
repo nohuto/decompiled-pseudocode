@@ -1,30 +1,30 @@
 /*
- * XREFs of MmCreateKernelStack @ 0x1402716A0
+ * XREFs of MmCreateKernelStack @ 0x140271930
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271390 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     KiAllocateProcessorStacks @ 0x140376FC0 (KiAllocateProcessorStacks.c)
- *     KiEnableOptionalXStateFeatures @ 0x14057291C (KiEnableOptionalXStateFeatures.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x14073F758 (PspRecheckThreadOptionalXStateFeatures.c)
- *     KeUserModeCallback @ 0x14076E880 (KeUserModeCallback.c)
- *     KeAllocateCalloutStackEx @ 0x1408715A0 (KeAllocateCalloutStackEx.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x1409AE908 (PspEnableProcessOptionalXStateFeatures.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271620 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KiAllocateProcessorStacks @ 0x140377160 (KiAllocateProcessorStacks.c)
+ *     KiEnableOptionalXStateFeatures @ 0x140572E5C (KiEnableOptionalXStateFeatures.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x14073F948 (PspRecheckThreadOptionalXStateFeatures.c)
+ *     KeUserModeCallback @ 0x14076EA70 (KeUserModeCallback.c)
+ *     KeAllocateCalloutStackEx @ 0x1408717E0 (KeAllocateCalloutStackEx.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AEB08 (PspEnableProcessOptionalXStateFeatures.c)
  *     KeInitThread @ 0x140A875D0 (KeInitThread.c)
  * Callees:
  *     MiSetPfnKernelStack @ 0x14021B4D8 (MiSetPfnKernelStack.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAllocateKernelStackPages @ 0x1402732C0 (MiAllocateKernelStackPages.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     KasanTrackAddress @ 0x1403564F0 (KasanTrackAddress.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     FirstEntrySList @ 0x140428EA0 (FirstEntrySList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogKernelStackEvent @ 0x140644F04 (MiLogKernelStackEvent.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAllocateKernelStackPages @ 0x140273550 (MiAllocateKernelStackPages.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     KasanTrackAddress @ 0x140356690 (KasanTrackAddress.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     FirstEntrySList @ 0x140429230 (FirstEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x140645454 (MiLogKernelStackEvent.c)
  */
 
 __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigned __int64 a3)
@@ -134,7 +134,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigne
             CurrentIrql = KeGetCurrentIrql();
             v41 = CurrentIrql;
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -187,10 +187,10 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigne
               v14 = (__int64)v46;
               LOBYTE(v4) = v48;
               LODWORD(v9) = v47;
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v34 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v41 <= 0xFu && v34 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v41 <= 0xFu && v34 >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   v36 = CurrentPrcb->SchedulerAssist;
@@ -208,10 +208,10 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigne
           v19 = v42;
           if ( v42 != 1 )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v29 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && v41 <= 0xFu && v29 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && v41 <= 0xFu && v29 >= 2u )
               {
                 v30 = KeGetCurrentPrcb();
                 v31 = v30->SchedulerAssist;

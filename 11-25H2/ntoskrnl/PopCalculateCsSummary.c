@@ -19,16 +19,16 @@
 
 void __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 {
-  __int64 InterruptTimePrecise; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rbx
   unsigned __int64 v5; // r14
   unsigned int EnergyDrainFromDischage; // eax
   __int64 v7; // rax
   int v8; // r13d
-  int v9; // ecx
+  ULONG v9; // ecx
   unsigned __int64 v10; // r12
   unsigned __int64 v11; // rsi
   unsigned __int64 v12; // rcx
-  __int64 v13; // rbx
+  LONGLONG v13; // rbx
   KIRQL v14; // al
   int v15; // ebx
   char v16; // r10
@@ -58,7 +58,7 @@ void __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   int v40; // [rsp+110h] [rbp+67h]
   int v41; // [rsp+118h] [rbp+6Fh] BYREF
   int v42; // [rsp+120h] [rbp+77h]
-  unsigned __int64 v43; // [rsp+128h] [rbp+7Fh] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+128h] [rbp+7Fh] BYREF
 
   DWORD2(v28) = 0;
   *(_QWORD *)&v28 = 0LL;
@@ -66,8 +66,8 @@ void __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   v37 = 0LL;
   v38 = 0LL;
   PopCalculateIdleInformation(&v37);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v43);
-  v5 = (InterruptTimePrecise - qword_140E279C8) / 0xAuLL;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v5 = (InterruptTimePrecise.QuadPart - qword_140E279C8) / 0xAuLL;
   PopCurrentPowerState(v39);
   if ( v5 )
   {
@@ -89,7 +89,7 @@ void __fastcall PopCalculateCsSummary(__int64 a1, int a2)
     v9 = xmmword_140F0AB18;
   v42 = v7;
   v29 = *((_QWORD *)&v37 + 1) - qword_140E279D0;
-  LODWORD(v43) = v9;
+  PerformanceCounter.LowPart = v9;
   v25 = DWORD2(v38) - dword_140E279E0;
   v35 = PopCalculateTotalHwDripsResidency(qword_140E27A68, v38, v5);
   v10 = v5 + qword_140E279D8 - v37;
@@ -104,9 +104,9 @@ void __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   if ( qword_140E27A10 )
   {
     if ( qword_140E279C8 <= (unsigned __int64)qword_140E27A10 )
-      v13 = InterruptTimePrecise - qword_140E27A10;
+      v13 = InterruptTimePrecise.QuadPart - qword_140E27A10;
     else
-      v13 = InterruptTimePrecise - qword_140E279C8;
+      v13 = InterruptTimePrecise.QuadPart - qword_140E279C8;
     v12 = v13 + qword_140E27A18;
   }
   v30 = v12 / 0xA;
@@ -123,7 +123,7 @@ void __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   v17 = v41 - dword_140E27AD4;
   v18 = v28;
   *(_DWORD *)a1 = v40;
-  *(_DWORD *)(a1 + 28) = v43;
+  *(_DWORD *)(a1 + 28) = PerformanceCounter.LowPart;
   *(_QWORD *)(a1 + 40) = v29;
   *(_DWORD *)(a1 + 56) = v25;
   *(_QWORD *)(a1 + 72) = v27;

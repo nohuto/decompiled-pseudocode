@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHsapInitializeReservedDomain @ 0x1405717FC
+ * XREFs of HalpHsapInitializeReservedDomain @ 0x14056EC8C
  * Callers:
- *     HsaProcessDeviceExceptions @ 0x14057345C (HsaProcessDeviceExceptions.c)
+ *     HsaProcessDeviceExceptions @ 0x1405708EC (HsaProcessDeviceExceptions.c)
  * Callees:
- *     HsaUpdateDeviceTableEntry @ 0x1404465C4 (HsaUpdateDeviceTableEntry.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HsaUpdateDeviceTableEntry @ 0x14043E974 (HsaUpdateDeviceTableEntry.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpHsapInitializeReservedDomain(__int64 a1, int *a2)

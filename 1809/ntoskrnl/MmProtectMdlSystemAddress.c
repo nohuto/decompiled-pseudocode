@@ -1,5 +1,5 @@
 /*
- * XREFs of MmProtectMdlSystemAddress @ 0x1402A9C70
+ * XREFs of MmProtectMdlSystemAddress @ 0x1402A9E60
  * Callers:
  *     <none>
  * Callees:
@@ -8,20 +8,20 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiIoSpaceIsConstant @ 0x1400E63B0 (MiIoSpaceIsConstant.c)
- *     MiMappingHasIoReferences @ 0x1400E63FC (MiMappingHasIoReferences.c)
- *     MiLookupIoPageNode @ 0x1401100E0 (MiLookupIoPageNode.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiMappingHasIoTracker @ 0x140123314 (MiMappingHasIoTracker.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiIoSpaceIsConstant @ 0x1400E6430 (MiIoSpaceIsConstant.c)
+ *     MiMappingHasIoReferences @ 0x1400E647C (MiMappingHasIoReferences.c)
+ *     MiLookupIoPageNode @ 0x140110160 (MiLookupIoPageNode.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiMappingHasIoTracker @ 0x1401233E4 (MiMappingHasIoTracker.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG NewProtect)
@@ -119,12 +119,12 @@ NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG Ne
       if ( (BugCheckParameter4 & 0x800) == 0 || ((BugCheckParameter4 >> 5) & 0x1F) != 0x18 )
         KeBugCheckEx(0x1Au, 0x1235uLL, BugCheckParameter2, (ULONG_PTR)v16, BugCheckParameter4);
       v24 = BugCheckParameter4;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (BugCheckParameter4 & 0x10) != 0 )
           v24 = BugCheckParameter4 & 0xFFFFFFFFFFFFFFEFuLL;
         else
-          v24 = BugCheckParameter4 & ~qword_14043A0C0;
+          v24 = BugCheckParameter4 & ~qword_14043B180;
       }
       v22 = (v24 >> 12) & 0xFFFFFFFFFLL;
       v21 = 0;
@@ -197,7 +197,7 @@ LABEL_68:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v8 = (unsigned int)v28;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
             goto LABEL_64;
         }
         else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
@@ -221,7 +221,7 @@ LABEL_64:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v8 = (unsigned int)v28;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
           goto LABEL_34;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )

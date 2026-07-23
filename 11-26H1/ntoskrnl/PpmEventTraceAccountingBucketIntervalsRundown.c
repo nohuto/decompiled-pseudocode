@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceAccountingBucketIntervalsRundown @ 0x140B2CECC
+ * XREFs of PpmEventTraceAccountingBucketIntervalsRundown @ 0x140B2EF4C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PpmEventTraceAccountingBucketIntervalsRundown()
@@ -20,15 +20,12 @@ void PpmEventTraceAccountingBucketIntervalsRundown()
   __int64 v7; // [rsp+50h] [rbp-F8h]
   _BYTE v8[208]; // [rsp+60h] [rbp-E8h] BYREF
 
-  if ( PpmEtwRegistered
-    && EtwEventEnabled(
-         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-         &PPM_ETW_ACCOUNTING_BUCKET_INTERVALS_RUNDOWN) )
+  if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_ACCOUNTING_BUCKET_INTERVALS_RUNDOWN) )
   {
     v0 = 26LL;
     v1 = v8;
     v4 = 26;
-    v2 = (__int64 *)&unk_140FBE758;
+    v2 = (__int64 *)&unk_140FBF758;
     do
     {
       v3 = *v2;
@@ -41,11 +38,6 @@ void PpmEventTraceAccountingBucketIntervalsRundown()
     *(_QWORD *)&UserData.Size = 4LL;
     v6 = v8;
     v7 = 208LL;
-    EtwWrite(
-      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-      &PPM_ETW_ACCOUNTING_BUCKET_INTERVALS_RUNDOWN,
-      0LL,
-      2u,
-      &UserData);
+    EtwWrite(PpmEtwHandle, &PPM_ETW_ACCOUNTING_BUCKET_INTERVALS_RUNDOWN, 0LL, 2u, &UserData);
   }
 }

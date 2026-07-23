@@ -14,13 +14,7 @@ NTSTATUS __fastcall PspFreeUserFiberShadowStackInternal(PVOID BaseAddress)
   __int64 v3; // [rsp+78h] [rbp+10h] BYREF
 
   memset(v2, 0, 48);
-  result = ZwQueryVirtualMemory(
-             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-             BaseAddress,
-             (MEMORY_INFORMATION_CLASS)3,
-             v2,
-             0x30uLL,
-             0LL);
+  result = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, MemoryRegionInformation, v2, 0x30uLL, 0LL);
   if ( result >= 0 )
   {
     v3 = 0LL;

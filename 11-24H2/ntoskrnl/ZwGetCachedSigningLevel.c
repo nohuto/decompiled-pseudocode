@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwGetCachedSigningLevel @ 0x1406A8330
+ * XREFs of ZwGetCachedSigningLevel @ 0x1406A92D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetCachedSigningLevel(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(File);
 }

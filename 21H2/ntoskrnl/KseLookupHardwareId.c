@@ -1,15 +1,15 @@
 /*
- * XREFs of KseLookupHardwareId @ 0x1408C0B04
+ * XREFs of KseLookupHardwareId @ 0x1408C0C64
  * Callers:
- *     AhcCacheQueryHwId @ 0x1409800CC (AhcCacheQueryHwId.c)
+ *     AhcCacheQueryHwId @ 0x1409802AC (AhcCacheQueryHwId.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     AslStringPatternMatchW @ 0x14075371C (AslStringPatternMatchW.c)
- *     KsepCacheLookup @ 0x14075F7B0 (KsepCacheLookup.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     AslStringPatternMatchW @ 0x1407538DC (AslStringPatternMatchW.c)
+ *     KsepCacheLookup @ 0x14075F970 (KsepCacheLookup.c)
  */
 
 __int64 __fastcall KseLookupHardwareId(WCHAR *SourceString)
@@ -21,23 +21,26 @@ __int64 __fastcall KseLookupHardwareId(WCHAR *SourceString)
   unsigned __int16 v6; // ax
   WCHAR *v7; // rcx
   struct _KTHREAD *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *i; // rsi
-  unsigned __int16 *v12; // rdx
-  _OWORD v13[2]; // [rsp+20h] [rbp-68h] BYREF
+  unsigned __int16 *v15; // rdx
+  _OWORD v16[2]; // [rsp+20h] [rbp-68h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-38h]
+  __int64 v18; // [rsp+50h] [rbp-38h]
 
   v1 = *SourceString;
   v2 = SourceString + 1;
-  v3 = qword_140C50630;
-  v13[0] = 0LL;
+  v3 = qword_140C50670;
+  v16[0] = 0LL;
   if ( v1 != 42 )
     v2 = SourceString;
-  v13[1] = 0LL;
+  v16[1] = 0LL;
   v5 = -1073741275;
   DestinationString = 0LL;
-  v15 = 0LL;
+  v18 = 0LL;
   v6 = *v2;
   if ( *v2 )
   {
@@ -55,14 +58,14 @@ __int64 __fastcall KseLookupHardwareId(WCHAR *SourceString)
     {
       if ( i == (_QWORD *)(v3 + 32) )
         goto LABEL_10;
-      v12 = (unsigned __int16 *)i[3];
+      v15 = (unsigned __int16 *)i[3];
       if ( v1 == 42 )
       {
-        if ( *v12 != 42 )
+        if ( *v15 != 42 )
           continue;
-        ++v12;
+        ++v15;
       }
-      if ( (unsigned int)AslStringPatternMatchW(v2, v12) )
+      if ( (unsigned int)AslStringPatternMatchW(v2, v15) )
       {
         v5 = 0;
         goto LABEL_10;
@@ -74,12 +77,12 @@ LABEL_8:
   v8 = KeGetCurrentThread();
   --v8->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(v3, 0LL);
-  if ( KsepCacheLookup(v3, (__int64)v13) )
+  if ( KsepCacheLookup(v3, (__int64)v16) )
     v5 = 0;
 LABEL_10:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v3);
   KeAbPostRelease(v3);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
   return v5;
 }

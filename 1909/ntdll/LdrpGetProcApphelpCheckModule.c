@@ -26,7 +26,7 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
   int v11; // [rsp+60h] [rbp-A0h] BYREF
   _WORD *v12; // [rsp+68h] [rbp-98h]
   _WORD v13[128]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v14[15]; // [rsp+170h] [rbp+70h] BYREF
+  PWSTR Path[15]; // [rsp+170h] [rbp+70h] BYREF
   char v15; // [rsp+1ECh] [rbp+ECh]
 
   v1 = 0;
@@ -46,14 +46,14 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
   Dll = LdrpBuildSystem32FileName(&v11, (__int64)&v9);
   if ( Dll >= 0 )
   {
-    LdrpInitializeDllPath(0LL, 16385LL, v14);
-    Dll = LdrpLoadDll((__int64)&v11, (int)v14, 0, (__int64)&v8);
+    LdrpInitializeDllPath(0LL, 16385LL, (__int64 *)Path);
+    Dll = LdrpLoadDll((__int64)&v11, (__int64)Path, 0, (__int64)&v8);
     if ( v15 )
-      RtlReleasePath(v14[0]);
+      RtlReleasePath(Path[0]);
     if ( Dll >= 0 )
     {
       *(_DWORD *)(v8 + 104) |= 0x100u;
-      g_pShimEngineModule = *(_QWORD *)(v8 + 48);
+      g_pShimEngineModule = *(PVOID *)(v8 + 48);
       Dll = LdrpGetShimEngineInterface();
       if ( Dll >= 0 )
       {
@@ -96,6 +96,6 @@ LABEL_12:
   }
 LABEL_19:
   if ( v13 != v12 )
-    NtdllpFreeStringRoutine((__int64)v12);
+    NtdllpFreeStringRoutine(v12);
   return (unsigned int)Dll;
 }

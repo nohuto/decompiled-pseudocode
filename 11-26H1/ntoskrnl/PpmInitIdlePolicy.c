@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmInitIdlePolicy @ 0x140CCFE78
+ * XREFs of PpmInitIdlePolicy @ 0x140CD6020
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTimeFrom @ 0x1403E63A8 (PpmConvertTimeFrom.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x140726010 (ZwQueryLicenseValue.c)
+ *     PpmConvertTimeFrom @ 0x1402F3288 (PpmConvertTimeFrom.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x14072ABE0 (ZwQueryLicenseValue.c)
  */
 
-__int64 PpmInitIdlePolicy()
+NTSTATUS PpmInitIdlePolicy()
 {
   ULONGLONG v0; // rax
   __int64 *v1; // r11
@@ -19,28 +19,33 @@ __int64 PpmInitIdlePolicy()
   __int64 v6; // rbx
   __int64 v7; // rcx
   __int64 v8; // rax
+  NTSTATUS result; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v11; // [rsp+58h] [rbp+18h] BYREF
-  int v12; // [rsp+60h] [rbp+20h]
+  ULONG ResultDataSize; // [rsp+50h] [rbp+10h] BYREF
+  ULONG Type; // [rsp+58h] [rbp+18h] BYREF
+  int Data; // [rsp+60h] [rbp+20h] BYREF
 
-  dword_140F0B204 = 50000;
-  dword_140F0B4CC = 50000;
-  v12 = 0;
+  dword_140F0B5C4 = 50000;
+  dword_140F0B88C = 50000;
+  Data = 0;
   v0 = 2 * PopQpcFrequency;
+  ResultDataSize = 0;
   PopIdleTransitionTimeout = 2 * PopQpcFrequency;
-  v11 = 0;
+  Type = 0;
   DestinationString = 0LL;
-  word_140F0B200 = 0;
-  word_140F0B4C8 = 0;
-  word_140F0B209 = 60;
-  word_140F0B4D1 = 60;
-  byte_140F0B208 = 40;
-  byte_140F0B4D0 = 40;
+  word_140F0B5C0 = 0;
+  word_140F0B888 = 0;
+  word_140F0B5C9 = 60;
+  word_140F0B891 = 60;
+  byte_140F0B5C8 = 40;
+  byte_140F0B890 = 40;
   if ( !KdPitchDebugger )
     v0 = 90 * PopQpcFrequency;
-  stru_140FC01F0.WaitBlock[1].Object = (PVOID)v0;
-  if ( dword_140F12D10 )
-    qword_140F12D18 = PpmConvertTimeFrom((unsigned int)dword_140F12D10, 1000000LL);
+  stru_140FC11F0.WaitBlock[2].WaitListEntry.Flink = (struct _LIST_ENTRY *)v0;
+  if ( *(_DWORD *)&stru_140F12EA0.WaitBlockFill11[120] )
+    *(_QWORD *)&stru_140F12EA0.WaitBlockFill11[112] = PpmConvertTimeFrom(
+                                                        *(unsigned int *)&stru_140F12EA0.WaitBlockFill11[120],
+                                                        1000000LL);
   v1 = (__int64 *)&PpmIdleIntervalLimits;
   v2 = 26LL;
   do
@@ -70,5 +75,8 @@ __int64 PpmInitIdlePolicy()
   }
   while ( v6 );
   RtlInitUnicodeString(&DestinationString, L"Power-IdleStatesMax-Enabled");
-  return ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v11);
+  result = ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize);
+  if ( result >= 0 && ResultDataSize == 4 && Type == 4 )
+    PpmIdleRespectIdleStateMax = Data != 0;
+  return result;
 }

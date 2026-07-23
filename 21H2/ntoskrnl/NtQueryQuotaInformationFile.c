@@ -1,34 +1,34 @@
 /*
- * XREFs of NtQueryQuotaInformationFile @ 0x140895B40
+ * XREFs of NtQueryQuotaInformationFile @ 0x140895CA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IopReferenceFileObject @ 0x140348A20 (IopReferenceFileObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IopResetEvent @ 0x140351DE0 (IopResetEvent.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopProbeAndLockPages_2 @ 0x140508820 (IopProbeAndLockPages_2.c)
- *     IopVerifierExAllocatePool_3 @ 0x1405088EC (IopVerifierExAllocatePool_3.c)
- *     IopVerifierExAllocatePoolWithQuota_5 @ 0x140508960 (IopVerifierExAllocatePoolWithQuota_5.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IopReferenceFileObject @ 0x140353770 (IopReferenceFileObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     IopResetEvent @ 0x14035CB30 (IopResetEvent.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopProbeAndLockPages_2 @ 0x140508A5C (IopProbeAndLockPages_2.c)
+ *     IopVerifierExAllocatePool_3 @ 0x140508B28 (IopVerifierExAllocatePool_3.c)
+ *     IopVerifierExAllocatePoolWithQuota_5 @ 0x140508B9C (IopVerifierExAllocatePoolWithQuota_5.c)
  *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
- *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
- *     IopSynchronousApiServiceTail @ 0x140698FCC (IopSynchronousApiServiceTail.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
- *     IopCheckGetQuotaBufferValidity @ 0x14089125C (IopCheckGetQuotaBufferValidity.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopSynchronousApiServiceTail @ 0x1405F7CBC (IopSynchronousApiServiceTail.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
+ *     RtlLengthRequiredSid @ 0x1406CB9E0 (RtlLengthRequiredSid.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140716160 (IopSynchronousServiceTail.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     IopAllocateIrpCleanup @ 0x140890FB4 (IopAllocateIrpCleanup.c)
+ *     IopCheckGetQuotaBufferValidity @ 0x1408913BC (IopCheckGetQuotaBufferValidity.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtQueryQuotaInformationFile(
@@ -65,7 +65,7 @@ NTSTATUS __stdcall NtQueryQuotaInformationFile(
   char v31; // si
   struct _KTHREAD *v32; // rax
   volatile __int32 *v33; // rbx
-  __int64 v34; // r9
+  PRTL_BALANCED_NODE v34; // r9
   __int64 v35; // rdx
   __int64 v36; // r8
   _DWORD *v37; // r9
@@ -238,7 +238,7 @@ LABEL_45:
     else
     {
       if ( v34 )
-        *(_BYTE *)(v34 + 26) |= 1u;
+        BYTE2(v34[1].Left) |= 1u;
       v29 = (struct _DMA_ADAPTER *)Object;
       ObfReferenceObject(Object);
       v38 = 0;
@@ -331,7 +331,7 @@ LABEL_68:
     {
       Mdl = IoAllocateMdl(Buffer, Length, 0, 1u, Irp);
       if ( !Mdl )
-        RtlRaiseStatus(0xC000009A);
+        RtlRaiseStatus(-1073741670);
       IopProbeAndLockPages_2((__int64)Mdl, v54[0], v51, (__int64)v46, CurrentStackLocation[-1].MajorFunction);
     }
     goto LABEL_90;

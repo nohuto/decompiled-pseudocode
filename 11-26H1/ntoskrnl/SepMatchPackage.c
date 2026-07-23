@@ -1,12 +1,13 @@
 /*
- * XREFs of SepMatchPackage @ 0x140468CC0
+ * XREFs of SepMatchPackage @ 0x1402FCF70
  * Callers:
- *     SepMaximumAccessCheckEx @ 0x1402ACD9C (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x1402AF210 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x1402B0BC0 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x14051A140 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x14051B700 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x14051BF40 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x14051D0B0 (SepNormalAccessCheckEx.c)
  * Callees:
- *     SepCanTokenMatchAllPackageSid @ 0x1402B2370 (SepCanTokenMatchAllPackageSid.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x1402FD040 (SepCanTokenMatchAllPackageSid.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 int __fastcall SepMatchPackage(
@@ -32,7 +33,7 @@ int __fastcall SepMatchPackage(
     if ( v13 == 1 )
     {
       v14 = a4 & a2;
-      if ( !SepCanTokenMatchAllPackageSid(a1) )
+      if ( !(unsigned __int8)SepCanTokenMatchAllPackageSid(a1) )
       {
         *a8 |= v14;
         result = (int)a9;

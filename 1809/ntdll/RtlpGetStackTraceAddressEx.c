@@ -2,7 +2,7 @@
  * XREFs of RtlpGetStackTraceAddressEx @ 0x18005C7A0
  * Callers:
  *     RtlDeleteCriticalSection @ 0x18005C6B0 (RtlDeleteCriticalSection.c)
- *     RtlCheckHeldCriticalSections @ 0x180081990 (RtlCheckHeldCriticalSections.c)
+ *     RtlCheckHeldCriticalSections @ 0x1800819A0 (RtlCheckHeldCriticalSections.c)
  *     RtlpGetStackTraceAddress @ 0x1800FDD60 (RtlpGetStackTraceAddress.c)
  * Callees:
  *     <none>

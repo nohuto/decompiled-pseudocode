@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x140119988
+ * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x1401199F8
  * Callers:
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
- *     PpmParkSteerInterrupts @ 0x140063570 (PpmParkSteerInterrupts.c)
+ *     PpmParkSteerInterrupts @ 0x140063560 (PpmParkSteerInterrupts.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KeQuerySystemAllowedCpuSetAffinity(_DWORD *a1, __int64 *a2)

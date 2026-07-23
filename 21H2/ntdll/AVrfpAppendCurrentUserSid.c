@@ -1,40 +1,43 @@
 /*
- * XREFs of AVrfpAppendCurrentUserSid @ 0x1800DA554
+ * XREFs of AVrfpAppendCurrentUserSid @ 0x1800DA514
  * Callers:
- *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800DA44C (AVrfOpenCurrentUserImageFileOptionsKey.c)
+ *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800DA40C (AVrfOpenCurrentUserImageFileOptionsKey.c)
  * Callees:
  *     RtlConvertSidToUnicodeString @ 0x180037250 (RtlConvertSidToUnicodeString.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtQueryInformationToken @ 0x18009DA60 (NtQueryInformationToken.c)
- *     NtOpenProcessTokenEx @ 0x18009DC40 (NtOpenProcessTokenEx.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtQueryInformationToken @ 0x18009DA20 (NtQueryInformationToken.c)
+ *     NtOpenProcessTokenEx @ 0x18009DC00 (NtOpenProcessTokenEx.c)
  */
 
-int __fastcall AVrfpAppendCurrentUserSid(__int16 *a1)
+NTSTATUS __fastcall AVrfpAppendCurrentUserSid(__int16 *a1)
 {
-  int result; // eax
-  int InformationToken; // edi
+  NTSTATUS result; // eax
+  NTSTATUS v3; // edi
   unsigned __int64 v4; // rcx
   __int64 v5; // rax
   unsigned __int16 v6; // cx
   bool v7; // cf
   __int16 v8; // r8
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-31h] BYREF
-  PSID Sid; // [rsp+58h] [rbp-19h]
+  HANDLE TokenHandle; // [rsp+38h] [rbp-39h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-31h] BYREF
+  ULONG ReturnLength; // [rsp+50h] [rbp-21h] BYREF
+  PSID TokenInformation[12]; // [rsp+58h] [rbp-19h] BYREF
 
-  result = NtOpenProcessTokenEx();
+  TokenHandle = 0LL;
+  result = NtOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 8u, 0x200u, &TokenHandle);
   if ( result >= 0 )
   {
-    InformationToken = NtQueryInformationToken();
-    NtClose(0LL);
-    if ( InformationToken >= 0 )
+    v3 = NtQueryInformationToken(TokenHandle, 1u, TokenInformation, 0x58u, &ReturnLength);
+    NtClose(TokenHandle);
+    if ( v3 >= 0 )
     {
       v4 = (unsigned __int16)*a1;
       UnicodeString.MaximumLength = a1[1] - v4;
       v5 = *((_QWORD *)a1 + 1);
       UnicodeString.Length = 0;
       UnicodeString.Buffer = (wchar_t *)(v5 + 2 * (v4 >> 1));
-      result = RtlConvertSidToUnicodeString(&UnicodeString, Sid, 0);
+      result = RtlConvertSidToUnicodeString(&UnicodeString, TokenInformation[0], 0);
       if ( result >= 0 )
       {
         v6 = UnicodeString.Length + *a1;
@@ -50,7 +53,7 @@ int __fastcall AVrfpAppendCurrentUserSid(__int16 *a1)
     }
     else
     {
-      return InformationToken;
+      return v3;
     }
   }
   return result;

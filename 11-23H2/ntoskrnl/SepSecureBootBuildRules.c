@@ -15,14 +15,14 @@ __int64 SepSecureBootBuildRules()
   int v4; // edx
   char v5; // al
 
-  v0 = *((unsigned __int16 *)qword_140D17E68 + 18);
+  v0 = *((unsigned __int16 *)qword_140D17E70 + 18);
   if ( (_WORD)v0 )
   {
-    v1 = (char *)qword_140D17E68 + *((unsigned int *)qword_140D17E68 + 10) + 60;
-    qword_140D1BEC8 = (__int64)v1;
+    v1 = (char *)qword_140D17E70 + *((unsigned int *)qword_140D17E70 + 10) + 60;
+    qword_140D1BEB0 = (__int64)v1;
     v2 = v0;
     v3 = v1 + 4;
-    v4 = dword_140D1BEB4;
+    v4 = dword_140D1BEB8;
     do
     {
       v5 = v3[3];
@@ -31,9 +31,9 @@ __int64 SepSecureBootBuildRules()
       --v2;
     }
     while ( v2 );
-    dword_140D1BEB4 = v4;
+    dword_140D1BEB8 = v4;
   }
-  if ( *((_WORD *)qword_140D17E68 + 19) )
-    qword_140D1BEC0 = (__int64)qword_140D17E68 + *((unsigned int *)qword_140D17E68 + 11) + 60;
+  if ( *((_WORD *)qword_140D17E70 + 19) )
+    qword_140D1BEC8 = (__int64)qword_140D17E70 + *((unsigned int *)qword_140D17E70 + 11) + 60;
   return 0LL;
 }

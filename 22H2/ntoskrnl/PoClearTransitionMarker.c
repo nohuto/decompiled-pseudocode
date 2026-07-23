@@ -19,7 +19,7 @@
 void PoClearTransitionMarker()
 {
   unsigned int v0; // ebx
-  int v1; // eax
+  ULONG32 v1; // eax
   char v2; // [rsp+20h] [rbp-19h] BYREF
   HANDLE FileHandle; // [rsp+28h] [rbp-11h] BYREF
   int v4; // [rsp+30h] [rbp-9h] BYREF
@@ -34,7 +34,7 @@ void PoClearTransitionMarker()
 
   FileHandle = 0LL;
   v2 = 0;
-  if ( (int)RtlLockBootStatusData(&FileHandle) >= 0 )
+  if ( RtlLockBootStatusData(&FileHandle) >= 0 )
   {
     RtlInitializeBootStatusDataBlackBox(FileHandle);
     RtlUnlockBootStatusData(FileHandle);
@@ -64,7 +64,7 @@ void PoClearTransitionMarker()
   BYTE11(PopBsdPowerTransition) = -64;
   dword_140C2094C = 3;
   *(_QWORD *)&xmmword_140C50598 = MEMORY[0xFFFFF78000000014];
-  v1 = RtlComputeCrc32(0, (char *)&xmmword_140C50598, 8u);
+  v1 = RtlComputeCrc32(0, &xmmword_140C50598, 8u);
   BYTE14(PopBsdPowerTransition) &= ~0x10u;
   DWORD2(xmmword_140C50598) = v1;
   RtlpSystemBootStatusRequest(32LL, &v4, v0, 0LL);

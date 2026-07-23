@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteImageHotPatchState @ 0x140854CDC
+ * XREFs of MiDeleteImageHotPatchState @ 0x140855F3C
  * Callers:
- *     MiFinishVadDeletion @ 0x140067770 (MiFinishVadDeletion.c)
- *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     MiFinishVadDeletion @ 0x140067760 (MiFinishVadDeletion.c)
+ *     MiHotPatchImage @ 0x140856590 (MiHotPatchImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     MiDeleteHotPatchEntry @ 0x140854B38 (MiDeleteHotPatchEntry.c)
- *     MiGetProcessHotPatchContext @ 0x1408551F0 (MiGetProcessHotPatchContext.c)
- *     MiHotPatchImageTreeCompare @ 0x1408555E8 (MiHotPatchImageTreeCompare.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     MiDeleteHotPatchEntry @ 0x140855D98 (MiDeleteHotPatchEntry.c)
+ *     MiGetProcessHotPatchContext @ 0x140856450 (MiGetProcessHotPatchContext.c)
+ *     MiHotPatchImageTreeCompare @ 0x140856848 (MiHotPatchImageTreeCompare.c)
  */
 
 void __fastcall MiDeleteImageHotPatchState(__int64 a1)
@@ -21,11 +21,11 @@ void __fastcall MiDeleteImageHotPatchState(__int64 a1)
   __int64 v4; // rsi
   UNICODE_STRING *v5; // r14
   volatile signed __int64 *v6; // rbp
-  unsigned __int64 v7; // rax
+  _RTL_BALANCED_NODE *v7; // rax
   unsigned __int64 v8; // rdi
   int v9; // r12d
   int v10; // eax
-  unsigned __int64 v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
 
   CurrentThread = KeGetCurrentThread();
   ProcessHotPatchContext = MiGetProcessHotPatchContext(CurrentThread->ApcState.Process, 0LL);
@@ -36,16 +36,16 @@ void __fastcall MiDeleteImageHotPatchState(__int64 a1)
     --CurrentThread->SpecialApcDisable;
     v6 = (volatile signed __int64 *)(ProcessHotPatchContext + 16);
     ExAcquirePushLockExclusiveEx(ProcessHotPatchContext + 16, 0LL);
-    v7 = *(_QWORD *)(v4 + 8);
+    v7 = *(_RTL_BALANCED_NODE **)(v4 + 8);
     v8 = *(_QWORD *)v4;
-    if ( (v7 & 1) != 0 )
+    if ( ((unsigned __int8)v7 & 1) != 0 )
     {
       if ( v8 )
         v8 ^= v4;
       else
         v8 = 0LL;
     }
-    v9 = v7 & 1;
+    v9 = (unsigned __int8)v7 & 1;
     if ( v8 )
     {
       do
@@ -55,22 +55,22 @@ void __fastcall MiDeleteImageHotPatchState(__int64 a1)
         {
           if ( v10 <= 0 )
             break;
-          v11 = *(_QWORD *)(v8 + 8);
+          v11 = *(_RTL_BALANCED_NODE **)(v8 + 8);
         }
         else
         {
-          v11 = *(_QWORD *)v8;
+          v11 = *(_RTL_BALANCED_NODE **)v8;
         }
         if ( v9 && v11 )
-          v8 ^= v11;
+          v8 ^= (unsigned __int64)v11;
         else
-          v8 = v11;
+          v8 = (unsigned __int64)v11;
       }
       while ( v8 );
       v6 = (volatile signed __int64 *)(v4 + 16);
       if ( v8 )
       {
-        RtlRbRemoveNode(v4, v8);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v8);
         *(_DWORD *)(v8 + 92) |= 2u;
         v5 = (UNICODE_STRING *)v8;
         if ( (*(_DWORD *)(v8 + 92) & 1) != 0 )

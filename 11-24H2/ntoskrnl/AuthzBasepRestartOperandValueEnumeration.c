@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepRestartOperandValueEnumeration @ 0x1403468B0
+ * XREFs of AuthzBasepRestartOperandValueEnumeration @ 0x140325324
  * Callers:
- *     AuthzBasepValueInSet @ 0x1403466D4 (AuthzBasepValueInSet.c)
- *     AuthzBasepEvaluateSetRelationship @ 0x140347DCC (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepValueInSet @ 0x140325148 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x1403267CC (AuthzBasepEvaluateSetRelationship.c)
  * Callees:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1403442B0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x140323790 (AuthzBasepQuerySecurityAttributeAndValues.c)
  */
 
 __int64 __fastcall AuthzBasepRestartOperandValueEnumeration(__int64 a1)

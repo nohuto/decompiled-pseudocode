@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnPrefetchSections @ 0x14074CB78
+ * XREFs of PfSnPrefetchSections @ 0x14074CD68
  * Callers:
- *     PfSnAsyncPrefetchStep @ 0x14074CAF8 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncPrefetchStep @ 0x14074CCE8 (PfSnAsyncPrefetchStep.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MmPrefetchPagesEx @ 0x14073E6D8 (MmPrefetchPagesEx.c)
- *     PfSnPrefetchSectionsCleanup @ 0x14074CE44 (PfSnPrefetchSectionsCleanup.c)
- *     PfSnLogGetReadListsStop @ 0x14074CF34 (PfSnLogGetReadListsStop.c)
- *     PfSnLogGetReadListsStart @ 0x14074CFAC (PfSnLogGetReadListsStart.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x140304E00 (KeQueryPriorityThread.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmPrefetchPagesEx @ 0x14073E8C8 (MmPrefetchPagesEx.c)
+ *     PfSnPrefetchSectionsCleanup @ 0x14074D034 (PfSnPrefetchSectionsCleanup.c)
+ *     PfSnLogGetReadListsStop @ 0x14074D124 (PfSnLogGetReadListsStop.c)
+ *     PfSnLogGetReadListsStart @ 0x14074D19C (PfSnLogGetReadListsStart.c)
  */
 
 __int64 __fastcall PfSnPrefetchSections(_QWORD *a1, WORK_QUEUE_TYPE a2, int a3, __int64 a4, __int64 a5)

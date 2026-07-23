@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlLocateExtendedFeature2 @ 0x1403D7050
+ * XREFs of RtlLocateExtendedFeature2 @ 0x1403DA020
  * Callers:
- *     KeVerifyContextXStateCetU @ 0x1403D6C44 (KeVerifyContextXStateCetU.c)
- *     RtlLocateExtendedFeature @ 0x1403D7020 (RtlLocateExtendedFeature.c)
+ *     KeVerifyContextXStateCetU @ 0x1403D9C14 (KeVerifyContextXStateCetU.c)
+ *     RtlLocateExtendedFeature @ 0x1403D9FF0 (RtlLocateExtendedFeature.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAndGroupAffinityEx @ 0x140469070
+ * XREFs of KeAndGroupAffinityEx @ 0x140462640
  * Callers:
- *     PpmEventDomainPerfStateChange @ 0x140468D90 (PpmEventDomainPerfStateChange.c)
- *     PnpSetDeviceAffinityThread @ 0x1404A17D4 (PnpSetDeviceAffinityThread.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1404DA4D0 (KeQueryLogicalProcessorRelationship.c)
- *     HalSendNMI @ 0x14057EF50 (HalSendNMI.c)
- *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x140B21C4C (PpmEventTraceProcessorPerformanceDomainRundown.c)
+ *     PpmEventDomainPerfStateChange @ 0x140462364 (PpmEventDomainPerfStateChange.c)
+ *     PnpSetDeviceAffinityThread @ 0x14049B304 (PnpSetDeviceAffinityThread.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1404D3BB0 (KeQueryLogicalProcessorRelationship.c)
+ *     HalSendNMI @ 0x140581470 (HalSendNMI.c)
+ *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x140B2404C (PpmEventTraceProcessorPerformanceDomainRundown.c)
  * Callees:
  *     <none>
  */

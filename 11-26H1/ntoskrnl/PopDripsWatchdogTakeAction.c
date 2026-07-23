@@ -1,24 +1,24 @@
 /*
- * XREFs of PopDripsWatchdogTakeAction @ 0x14061388C
+ * XREFs of PopDripsWatchdogTakeAction @ 0x14061674C
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x1407DE3A0 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1407E2A20 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PopFxLockDevice @ 0x1403B74A4 (PopFxLockDevice.c)
- *     PopFxNextComponentChildRelationSafe @ 0x140471340 (PopFxNextComponentChildRelationSafe.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1404D4110 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDeviceConstraintsEnforced @ 0x140500E54 (PopDeviceConstraintsEnforced.c)
- *     PpmIdlePrevetoWatchdog @ 0x140602330 (PpmIdlePrevetoWatchdog.c)
- *     PopDiagTraceCsDripsWatchdog @ 0x140608374 (PopDiagTraceCsDripsWatchdog.c)
- *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140608564 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopCheckTestsigningEnabled @ 0x1407C8B7C (PopCheckTestsigningEnabled.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140B3FE28 (PopFxDestroyDripsBlockingDeviceList.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PopFxLockDevice @ 0x1403C13A4 (PopFxLockDevice.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x14046AAC0 (PopFxNextComponentChildRelationSafe.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1404CD980 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDeviceConstraintsEnforced @ 0x1404FA644 (PopDeviceConstraintsEnforced.c)
+ *     PpmIdlePrevetoWatchdog @ 0x140604DE0 (PpmIdlePrevetoWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdog @ 0x14060AF34 (PopDiagTraceCsDripsWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x14060B124 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopCheckTestsigningEnabled @ 0x1407CBC1C (PopCheckTestsigningEnabled.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x140B41E58 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, char a3)
@@ -109,7 +109,7 @@ __int64 __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, char a3)
   v37 = 0LL;
   v31 = 0;
   v39 = 0LL;
-  result = PopFxBuildDripsBlockingDeviceList(10000 * v7, (__int64 **)&v33);
+  result = PopFxBuildDripsBlockingDeviceList(10000 * v7, (__int64 *)&v33);
   if ( (int)result >= 0 )
   {
     v10 = (__int128 *)v33;
@@ -316,8 +316,8 @@ __int64 __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, char a3)
         }
         else if ( v31 )
         {
-          if ( stru_140E66FF0.Padding[0] )
-            v25 = *(_QWORD *)(stru_140E66FF0.Padding[0] + 104);
+          if ( qword_140E676E8 )
+            v25 = *(_QWORD *)(qword_140E676E8 + 104);
           else
             v25 = 0LL;
           DbgkWerCaptureLiveKernelDump((unsigned int)L"DripsWatchdog", 351, 3, v31, v39, v25, 0LL, 0LL, 0);

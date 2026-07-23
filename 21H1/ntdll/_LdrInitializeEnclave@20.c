@@ -6,7 +6,12 @@
  *     <none>
  */
 
-int __stdcall LdrInitializeEnclave(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl LdrInitializeEnclave(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
-  return NtInitializeEnclave(a1, a2, a3, a4, a5);
+  return NtInitializeEnclave(ProcessHandle, BaseAddress, EnclaveInformation, EnclaveInformationLength, EnclaveError);
 }

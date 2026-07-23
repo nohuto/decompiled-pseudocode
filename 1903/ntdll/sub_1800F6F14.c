@@ -13,27 +13,34 @@
 
 __int64 __fastcall sub_1800F6F14(PUNICODE_STRING DestinationString, __int64 a2)
 {
-  __int64 v3; // rdx
-  _BYTE v5[32]; // [rsp+50h] [rbp+0h] BYREF
+  unsigned __int64 v2; // rbp
+  void *v4; // rax
+  __int64 v5; // rdx
+  ULONG v7[8]; // [rsp+50h] [rbp+0h] BYREF
 
-  if ( !sub_1800F6E70((__int64)DestinationString, a2) )
+  v2 = (unsigned __int64)v7 & 0xFFFFFFFFFFFFFFE0uLL;
+  v4 = (void *)sub_1800F6E70((__int64)DestinationString, a2);
+  if ( !v4 )
     return 3221225473LL;
-  if ( (int)ZwQueryValueKey() < 0 )
+  if ( ZwQueryValueKey(
+         v4,
+         (PUNICODE_STRING)&stru_1801195E0,
+         KeyValuePartialInformation,
+         (PVOID)(v2 + 32),
+         0xBAu,
+         (PULONG)((unsigned __int64)v7 & 0xFFFFFFFFFFFFFFE0uLL)) < 0 )
     return 3221225473LL;
-  if ( *(_DWORD *)(((unsigned __int64)v5 & 0xFFFFFFFFFFFFFFE0uLL) + 0x24) != 1 )
+  if ( *(_DWORD *)(((unsigned __int64)v7 & 0xFFFFFFFFFFFFFFE0uLL) + 0x24) != 1 )
     return 3221225473LL;
-  v3 = *(_QWORD *)(((unsigned __int64)v5 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28);
-  if ( (v3 & 1) != 0
-    || !(_DWORD)v3
-    || *(_WORD *)(((unsigned __int64)v5 & 0xFFFFFFFFFFFFFFE0uLL) + 0x2A + 2 * ((unsigned __int64)(unsigned int)v3 >> 1))
-    || (unsigned int)v3 > DestinationString->MaximumLength )
+  v5 = *(_QWORD *)(((unsigned __int64)v7 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28);
+  if ( (v5 & 1) != 0
+    || !(_DWORD)v5
+    || *(_WORD *)(((unsigned __int64)v7 & 0xFFFFFFFFFFFFFFE0uLL) + 0x2A + 2 * ((unsigned __int64)(unsigned int)v5 >> 1))
+    || (unsigned int)v5 > DestinationString->MaximumLength )
   {
     return 3221225473LL;
   }
-  memmove(
-    DestinationString->Buffer,
-    (const void *)(((unsigned __int64)v5 & 0xFFFFFFFFFFFFFFE0uLL) + 44),
-    (unsigned int)v3);
+  memmove(DestinationString->Buffer, (const void *)(v2 + 44), (unsigned int)v5);
   RtlInitUnicodeString(DestinationString, DestinationString->Buffer);
   return 0LL;
 }

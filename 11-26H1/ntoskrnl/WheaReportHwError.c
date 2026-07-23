@@ -1,27 +1,27 @@
 /*
- * XREFs of WheaReportHwError @ 0x1403DDD80
+ * XREFs of WheaReportHwError @ 0x1403E0F70
  * Callers:
- *     HalpMcaReportError @ 0x140453F00 (HalpMcaReportError.c)
- *     HalpCheckAndReportGhes @ 0x1404DC5EC (HalpCheckAndReportGhes.c)
- *     HalHandleNMI @ 0x14057EA20 (HalHandleNMI.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x1406D5230 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     HalpMcaReportError @ 0x14044C030 (HalpMcaReportError.c)
+ *     HalpCheckAndReportGhes @ 0x1404D5CCC (HalpCheckAndReportGhes.c)
+ *     HalHandleNMI @ 0x140580F40 (HalHandleNMI.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1406D9310 (WheaHwErrorReportSubmitDeviceDriver.c)
  * Callees:
- *     WheapGetErrorSource @ 0x1403DE1E0 (WheapGetErrorSource.c)
- *     WheapAllocErrorRecord @ 0x1403DE230 (WheapAllocErrorRecord.c)
- *     WheapCallErrorSourceCreateRecord @ 0x1403DE2D8 (WheapCallErrorSourceCreateRecord.c)
- *     WheapWorkQueueAddItem @ 0x1403DE370 (WheapWorkQueueAddItem.c)
- *     WheapApplyThresholdChecks @ 0x1403DF958 (WheapApplyThresholdChecks.c)
- *     WheapFreeErrorRecord @ 0x1403DFC30 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x1403DFC68 (WheapGenerateETWEvents.c)
- *     WheaIsCriticalState @ 0x1403DFCC0 (WheaIsCriticalState.c)
- *     WheapCompressErrorRecord @ 0x1403DFCE8 (WheapCompressErrorRecord.c)
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     WheaRecoveryBugCheck @ 0x1406D4B50 (WheaRecoveryBugCheck.c)
- *     WheapAddToDumpFile @ 0x1406D4C40 (WheapAddToDumpFile.c)
- *     WheapAttemptErrorRecovery @ 0x1406D4D24 (WheapAttemptErrorRecovery.c)
- *     WheapPersistPageForMemoryError @ 0x1406D4DD0 (WheapPersistPageForMemoryError.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     WheapGetErrorSource @ 0x1403E13D0 (WheapGetErrorSource.c)
+ *     WheapAllocErrorRecord @ 0x1403E1420 (WheapAllocErrorRecord.c)
+ *     WheapCallErrorSourceCreateRecord @ 0x1403E14C8 (WheapCallErrorSourceCreateRecord.c)
+ *     WheapWorkQueueAddItem @ 0x1403E1560 (WheapWorkQueueAddItem.c)
+ *     WheapApplyThresholdChecks @ 0x1403E2B48 (WheapApplyThresholdChecks.c)
+ *     WheapFreeErrorRecord @ 0x1403E2E20 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x1403E2E58 (WheapGenerateETWEvents.c)
+ *     WheaIsCriticalState @ 0x1403E2EB0 (WheaIsCriticalState.c)
+ *     WheapCompressErrorRecord @ 0x1403E2ED8 (WheapCompressErrorRecord.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     WheaRecoveryBugCheck @ 0x1406D8C30 (WheaRecoveryBugCheck.c)
+ *     WheapAddToDumpFile @ 0x1406D8D20 (WheapAddToDumpFile.c)
+ *     WheapAttemptErrorRecovery @ 0x1406D8E04 (WheapAttemptErrorRecovery.c)
+ *     WheapPersistPageForMemoryError @ 0x1406D8EB0 (WheapPersistPageForMemoryError.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WheaReportHwError(__int64 a1)
@@ -126,7 +126,7 @@ LABEL_24:
         {
           if ( (*((_DWORD *)v12 + 6) & 1) == 0 || (unsigned __int8)WheaIsCriticalState() )
             goto LABEL_18;
-          if ( WheapEventingInitialized != 1 )
+          if ( *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[48] != 1 )
           {
 LABEL_64:
             WheapFreeErrorRecord(v12);
@@ -186,7 +186,7 @@ LABEL_17:
             return v2;
           }
           if ( (*((_DWORD *)v12 + 6) & 1) == 0
-            || WheapEventingInitialized != 1
+            || *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[48] != 1
             || (unsigned __int8)WheaIsCriticalState()
             || v12[144] < 0 )
           {

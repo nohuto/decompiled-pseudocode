@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlSetEnlightenmentInfo @ 0x14088E5B0
+ * XREFs of HvlSetEnlightenmentInfo @ 0x14088E710
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
  *     <none>
  */

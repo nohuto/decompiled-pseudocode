@@ -92,7 +92,7 @@ __int64 __fastcall RtlpHpAcquireReleaseLockExclusive(ULONG_PTR BugCheckParameter
           {
             v13->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v13->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v5->LockEntries[v12]);
+              KiAbEntryRemoveFromTree(&v5->LockEntries[v12].TreeNode);
             v14 = v13->BoostBitmap.AllFields & 0x1FFFF;
             v15 = v13->BoostBitmap.AllFields & 0xFFFE0000;
             v13->ThreadLocalFlags &= ~1u;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceAccountingBucketIntervalsRundown @ 0x140A9B48C
+ * XREFs of PpmEventTraceAccountingBucketIntervalsRundown @ 0x140A969FC
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PpmEventTraceAccountingBucketIntervalsRundown()
@@ -26,7 +26,7 @@ void PpmEventTraceAccountingBucketIntervalsRundown()
     v0 = 26LL;
     v1 = v9;
     v4 = 26;
-    v2 = (__int64 *)&unk_140FC4738;
+    v2 = (__int64 *)&unk_140FC5748;
     do
     {
       v3 = *v2;

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetProcessorDpcLimits @ 0x1405EB84C
+ * XREFs of KiSetProcessorDpcLimits @ 0x1405EE1BC
  * Callers:
- *     KiApplyProcessorDpcLimits @ 0x140BF3624 (KiApplyProcessorDpcLimits.c)
+ *     KiApplyProcessorDpcLimits @ 0x140BF9624 (KiApplyProcessorDpcLimits.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiSetProcessorDpcLimits(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4)

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpFindSubKeyByNumber @ 0x1404386C0
+ * XREFs of CmpFindSubKeyByNumber @ 0x140437590
  * Callers:
- *     CmDeleteLayeredKey @ 0x1401B5DB0 (CmDeleteLayeredKey.c)
- *     CmpFindSubKeyByNumberEx @ 0x140438CE0 (CmpFindSubKeyByNumberEx.c)
- *     CmpEnumerateLayeredKey @ 0x1405FED24 (CmpEnumerateLayeredKey.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140602464 (CmpDoAccessCheckOnSubtree.c)
- *     CmpClearKeyAccessBits @ 0x140603774 (CmpClearKeyAccessBits.c)
- *     CmpCopySyncTree2 @ 0x140608240 (CmpCopySyncTree2.c)
- *     CmpPreserveSystemHiveData @ 0x140609150 (CmpPreserveSystemHiveData.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140609C5C (CmpSyncSubKeysAfterDelete.c)
- *     CmpMarkAllChildrenDirty @ 0x14060A860 (CmpMarkAllChildrenDirty.c)
- *     CmpUpdateParentForEachSon @ 0x14060B25C (CmpUpdateParentForEachSon.c)
- *     CmpDeleteTree @ 0x14060E1E8 (CmpDeleteTree.c)
+ *     CmDeleteLayeredKey @ 0x1401B5C94 (CmDeleteLayeredKey.c)
+ *     CmpFindSubKeyByNumberEx @ 0x140437BB0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpEnumerateLayeredKey @ 0x1405FEDD8 (CmpEnumerateLayeredKey.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140602518 (CmpDoAccessCheckOnSubtree.c)
+ *     CmpClearKeyAccessBits @ 0x140603828 (CmpClearKeyAccessBits.c)
+ *     CmpCopySyncTree2 @ 0x1406082F4 (CmpCopySyncTree2.c)
+ *     CmpPreserveSystemHiveData @ 0x140609204 (CmpPreserveSystemHiveData.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140609D10 (CmpSyncSubKeysAfterDelete.c)
+ *     CmpMarkAllChildrenDirty @ 0x14060A914 (CmpMarkAllChildrenDirty.c)
+ *     CmpUpdateParentForEachSon @ 0x14060B310 (CmpUpdateParentForEachSon.c)
+ *     CmpDeleteTree @ 0x14060E29C (CmpDeleteTree.c)
  *     CmpFindDrivers @ 0x1407B03C8 (CmpFindDrivers.c)
  *     CmSelectQualifiedInstallLanguage @ 0x1407B06B0 (CmSelectQualifiedInstallLanguage.c)
  * Callees:
- *     CmpDoFindSubKeyByNumber @ 0x140438510 (CmpDoFindSubKeyByNumber.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1404373E0 (CmpDoFindSubKeyByNumber.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumber(__int64 a1, _DWORD *a2, unsigned int a3, _DWORD *a4)

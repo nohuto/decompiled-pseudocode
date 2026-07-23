@@ -1,10 +1,10 @@
 /*
- * XREFs of PsTlsAlloc @ 0x14077A4C0
+ * XREFs of PsTlsAlloc @ 0x14077A5C0
  * Callers:
- *     PspTlsInitialize @ 0x140C35E00 (PspTlsInitialize.c)
+ *     PspTlsInitialize @ 0x140C37F40 (PspTlsInitialize.c)
  * Callees:
- *     PsTlsFree @ 0x14077A520 (PsTlsFree.c)
- *     PspTlsAlloc @ 0x14077A558 (PspTlsAlloc.c)
+ *     PsTlsFree @ 0x14077A620 (PsTlsFree.c)
+ *     PspTlsAlloc @ 0x14077A658 (PspTlsAlloc.c)
  */
 
 __int64 __fastcall PsTlsAlloc(__int64 a1, int a2, unsigned int *a3)

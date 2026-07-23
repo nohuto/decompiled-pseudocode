@@ -7,11 +7,11 @@
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
  *     KeReleaseSpinLock @ 0x1402B1CB0 (KeReleaseSpinLock.c)
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x1402D2864 (PopFxActivateDevice.c)
+ *     sub_1402D25CC @ 0x1402D25CC (sub_1402D25CC.c)
+ *     sub_1402D2864 @ 0x1402D2864 (sub_1402D2864.c)
  *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     PopFxActivateComponent @ 0x1403BA340 (PopFxActivateComponent.c)
+ *     sub_140355350 @ 0x140355350 (sub_140355350.c)
+ *     sub_1403BA340 @ 0x1403BA340 (sub_1403BA340.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
@@ -55,7 +55,7 @@ __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, int
     ExReleaseSpinLockExclusive(v9, v10);
     return (unsigned int)-1073741584;
   }
-  PopFxAddRefDevice(v11);
+  sub_140355350(v11);
   ExReleaseSpinLockExclusive(v9, v12);
   if ( v11 == a1 )
   {
@@ -104,8 +104,8 @@ __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, int
           *(_QWORD *)(Pool2 + 56) = Pool2 + 56;
           *(_QWORD *)(Pool2 + 24) = v15;
           *(_QWORD *)(Pool2 + 48) = a1 + 1240;
-          PopFxActivateComponent(v11, (__int64)v15, 1, 0);
-          PopFxActivateDevice(*(_QWORD *)(a1 + 96), 0, 0);
+          sub_1403BA340(v11, (__int64)v15, 1, 0);
+          sub_1402D2864(*(_QWORD *)(a1 + 96), 0, 0);
           v22 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1240));
           v23 = *(_QWORD **)(a1 + 1272);
           if ( *v23 != a1 + 1264 )
@@ -127,7 +127,7 @@ LABEL_27:
           *v27 = v18;
           v26[1] = v18;
           KeReleaseSpinLock(v24, v25);
-          PoFxIdleDevice(*(_QWORD *)(a1 + 96));
+          sub_1402D25CC(*(_QWORD *)(a1 + 96));
         }
         else
         {

@@ -1,40 +1,40 @@
 /*
- * XREFs of PspInitializeCpuPartitionsDefaultSd @ 0x140C35470
+ * XREFs of PspInitializeCpuPartitionsDefaultSd @ 0x140C375B0
  * Callers:
- *     PspInitializeCpuPartitionsPhase0 @ 0x140C356C8 (PspInitializeCpuPartitionsPhase0.c)
- *     PspInitializeCpuPartitionsPhase1 @ 0x140C35790 (PspInitializeCpuPartitionsPhase1.c)
+ *     PspInitializeCpuPartitionsPhase0 @ 0x140C37808 (PspInitializeCpuPartitionsPhase0.c)
+ *     PspInitializeCpuPartitionsPhase1 @ 0x140C378D0 (PspInitializeCpuPartitionsPhase1.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14085CB30 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     RtlAddAccessAllowedAce @ 0x1409A7460 (RtlAddAccessAllowedAce.c)
- *     RtlInitializeSid @ 0x1409E3B60 (RtlInitializeSid.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140A23FB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1408588A0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     RtlAddAccessAllowedAce @ 0x140911600 (RtlAddAccessAllowedAce.c)
+ *     RtlInitializeSid @ 0x1409DE5C0 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140A18380 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspInitializeCpuPartitionsDefaultSd(_QWORD *a1, char a2)
 {
   ULONG_PTR v3; // r13
-  ULONG_PTR Pool2; // rsi
+  __int64 Pool2; // rsi
   ULONG v5; // eax
-  ULONG_PTR v6; // rax
-  ULONG_PTR v7; // rbp
+  __int64 v6; // rax
+  __int64 v7; // rbp
   NTSTATUS Acl; // ebx
   ULONG v9; // ebx
   size_t v10; // r12
   ACL *v11; // rax
   ACL *v12; // r14
   int v13; // edi
-  ULONG_PTR v14; // rax
+  __int64 v14; // rax
   void *v15; // rdi
   char *v16; // r15
   ACL *v17; // r13
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+18h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+18h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;

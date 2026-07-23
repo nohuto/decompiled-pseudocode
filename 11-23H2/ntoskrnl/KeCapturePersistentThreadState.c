@@ -1,23 +1,23 @@
 /*
- * XREFs of KeCapturePersistentThreadState @ 0x1405542C0
+ * XREFs of KeCapturePersistentThreadState @ 0x140554980
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x14093B86C (DbgkpWerCaptureLiveTriageDump.c)
- *     LkmdTelCreateReport @ 0x140A76B24 (LkmdTelCreateReport.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x14093BA6C (DbgkpWerCaptureLiveTriageDump.c)
+ *     LkmdTelCreateReport @ 0x140A76DD4 (LkmdTelCreateReport.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     RtlGetNtProductType @ 0x1402F7F40 (RtlGetNtProductType.c)
- *     SecureDump_GetSecureDumpSettings @ 0x140395B44 (SecureDump_GetSecureDumpSettings.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoGetLoadedDriverInfo @ 0x140550704 (IoGetLoadedDriverInfo.c)
- *     IopAddCodeRegion @ 0x140551D68 (IopAddCodeRegion.c)
- *     IopValidateSectionSize @ 0x140553E64 (IopValidateSectionSize.c)
- *     IopWriteDriverList @ 0x140554074 (IopWriteDriverList.c)
- *     KdCopyDataBlock @ 0x1405670D0 (KdCopyDataBlock.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
+ *     RtlGetNtProductType @ 0x1402F81D0 (RtlGetNtProductType.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140395D24 (SecureDump_GetSecureDumpSettings.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoGetLoadedDriverInfo @ 0x140550DC4 (IoGetLoadedDriverInfo.c)
+ *     IopAddCodeRegion @ 0x140552428 (IopAddCodeRegion.c)
+ *     IopValidateSectionSize @ 0x140554524 (IopValidateSectionSize.c)
+ *     IopWriteDriverList @ 0x140554734 (IopWriteDriverList.c)
+ *     KdCopyDataBlock @ 0x140567790 (KdCopyDataBlock.c)
  */
 
 __int64 __fastcall KeCapturePersistentThreadState(
@@ -130,7 +130,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
   *(_DWORD *)(v8 + 3992) = 4;
   *(_DWORD *)(v8 + 4152) = 130;
   *(_DWORD *)(v8 + 4176) = 24;
-  RtlGetNtProductType((_DWORD *)(v8 + 4160));
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)(v8 + 4160));
   v19 = 9LL;
   *(_DWORD *)(v8 + 4164) = MEMORY[0xFFFFF780000002D0];
   v20 = 8320;

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopEnumerateEnvironmentVariablesTrEE @ 0x140950850
+ * XREFs of IopEnumerateEnvironmentVariablesTrEE @ 0x140950A50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IopIssueTrEERequest @ 0x14055B960 (IopIssueTrEERequest.c)
- *     IopEfiStatusToNTSTATUS @ 0x1409505E4 (IopEfiStatusToNTSTATUS.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopIssueTrEERequest @ 0x14055C020 (IopIssueTrEERequest.c)
+ *     IopEfiStatusToNTSTATUS @ 0x1409507E4 (IopEfiStatusToNTSTATUS.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -67,7 +67,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   LARGE_INTEGER v43; // [rsp+100h] [rbp-8h] BYREF
   int v44; // [rsp+108h] [rbp+0h]
   char pszDest[128]; // [rsp+118h] [rbp+10h] BYREF
-  char SourceString[128]; // [rsp+198h] [rbp+90h] BYREF
+  CHAR SourceString[128]; // [rsp+198h] [rbp+90h] BYREF
 
   v1 = *(WCHAR ***)(a1 + 232);
   v40 = a1;

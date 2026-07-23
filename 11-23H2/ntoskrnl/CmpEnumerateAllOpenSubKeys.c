@@ -4,7 +4,7 @@
  *     CmpDoesKeyHaveOpenSubkeys @ 0x140699A80 (CmpDoesKeyHaveOpenSubkeys.c)
  *     CmpPrepareForSubtreeInvalidation @ 0x140699DD0 (CmpPrepareForSubtreeInvalidation.c)
  *     CmpInvalidateSubtree @ 0x140699EE8 (CmpInvalidateSubtree.c)
- *     CmpSearchForOpenSubKeys @ 0x140875154 (CmpSearchForOpenSubKeys.c)
+ *     CmpSearchForOpenSubKeys @ 0x140875394 (CmpSearchForOpenSubKeys.c)
  * Callees:
  *     CmpEnumerateKcbCacheBucket @ 0x140699B80 (CmpEnumerateKcbCacheBucket.c)
  *     CmpCleanUpKCBCacheTable @ 0x140699C14 (CmpCleanUpKCBCacheTable.c)

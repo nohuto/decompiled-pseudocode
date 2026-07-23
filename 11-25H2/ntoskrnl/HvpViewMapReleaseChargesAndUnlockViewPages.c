@@ -9,7 +9,7 @@
  *     CmSiUnlockViewOfSection @ 0x14048F8C4 (CmSiUnlockViewOfSection.c)
  */
 
-__int64 __fastcall HvpViewMapReleaseChargesAndUnlockViewPages(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapReleaseChargesAndUnlockViewPages(ULONG_PTR a1, void **a2, void *a3, ULONG_PTR a4)
 {
   CmSiUnlockViewOfSection(a1, a2, a3, a4);
   return CmSiReleaseProcessLockedPagesCharge(a2, a4);

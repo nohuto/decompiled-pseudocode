@@ -1,12 +1,12 @@
 /*
- * XREFs of PspUnlockJobChain @ 0x140469E6C
+ * XREFs of PspUnlockJobChain @ 0x140468D3C
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspUnlockJobsAndProcessExclusive @ 0x1404F2BF0 (PspUnlockJobsAndProcessExclusive.c)
- *     PspImplicitAssignProcessToJob @ 0x1404F3670 (PspImplicitAssignProcessToJob.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x1404D5B7C (PspUnlockJobsAndProcessExclusive.c)
+ *     PspImplicitAssignProcessToJob @ 0x1404D65FC (PspImplicitAssignProcessToJob.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  */
 
 void __fastcall PspUnlockJobChain(__int64 a1, __int64 a2)

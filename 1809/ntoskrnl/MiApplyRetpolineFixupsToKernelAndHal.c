@@ -1,18 +1,18 @@
 /*
- * XREFs of MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744
+ * XREFs of MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D3744
  * Callers:
- *     MiRebaseDynamicRelocationRegions @ 0x1409D241C (MiRebaseDynamicRelocationRegions.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x1409D341C (MiRebaseDynamicRelocationRegions.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
- *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlUpdateImportRelocationsInImage @ 0x1401B600C (RtlUpdateImportRelocationsInImage.c)
- *     RtlLookupImageSectionByName @ 0x1402F4030 (RtlLookupImageSectionByName.c)
- *     RtlCopyRetpolineStubsUnwindInfo @ 0x1402F6834 (RtlCopyRetpolineStubsUnwindInfo.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4 (RtlPerformRetpolineRelocationsOnImageEx.c)
- *     MiSetRetpolineRoutines @ 0x1409AAF7C (MiSetRetpolineRoutines.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA590 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA5F0 (MiIsRetpolineEnabled.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1401B6174 (RtlUpdateImportRelocationsInImage.c)
+ *     RtlLookupImageSectionByName @ 0x1402F4220 (RtlLookupImageSectionByName.c)
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1402F6A24 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F7294 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     MiSetRetpolineRoutines @ 0x1409ABF7C (MiSetRetpolineRoutines.c)
  */
 
 NTSTATUS __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1, __int64 a2, __int64 a3)
@@ -30,11 +30,11 @@ NTSTATUS __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1, __int64 a2,
   _BYTE v15[8]; // [rsp+40h] [rbp-98h] BYREF
   __int64 v16; // [rsp+48h] [rbp-90h]
 
-  dword_140438E34 = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 3428LL) >> 12;
+  dword_140439EF4 = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 3428LL) >> 12;
   if ( MiIsRetpolineEnabled() )
   {
     MiSetRetpolineRoutines(*(char **)(v5 + 48));
-    if ( dword_140438E60 > (unsigned int)dword_140438E34 )
+    if ( dword_140439F20 > (unsigned int)dword_140439EF4 )
       return -1073741811;
   }
   if ( (MiIsRetpolineEnabled() || MiIsImportOptimizationEnabled()) && (MiFlags & 0x10000) != 0 )
@@ -55,8 +55,8 @@ NTSTATUS __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1, __int64 a2,
                  *(char **)(a2 + 48),
                  *(_QWORD *)(a2 + 48),
                  *(_DWORD *)(a2 + 64),
-                 (__int64)qword_140438E50,
-                 (__int64)qword_140438E50,
+                 (__int64)qword_140439F10,
+                 (__int64)qword_140439F10,
                  1,
                  *((_DWORD *)v9 + 3),
                  *((_DWORD *)v9 + 2));
@@ -68,8 +68,8 @@ NTSTATUS __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1, __int64 a2,
                  *(char **)(a3 + 48),
                  *(_QWORD *)(a3 + 48),
                  *(_DWORD *)(a3 + 64),
-                 (__int64)qword_140438E50,
-                 (__int64)qword_140438E50,
+                 (__int64)qword_140439F10,
+                 (__int64)qword_140439F10,
                  1,
                  *((_DWORD *)v11 + 3),
                  *((_DWORD *)v11 + 2));
@@ -78,8 +78,8 @@ NTSTATUS __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1, __int64 a2,
       MiRetpolUnwindInfoCopyStatus = RtlCopyRetpolineStubsUnwindInfo(
                                        *(_QWORD *)(a2 + 48),
                                        *(_QWORD *)(a2 + 48),
-                                       (unsigned int *)qword_140438E50,
-                                       (int)qword_140438E50);
+                                       (unsigned int *)qword_140439F10,
+                                       (int)qword_140439F10);
     }
     if ( !MiIsImportOptimizationEnabled() )
       return 0;
@@ -92,8 +92,8 @@ NTSTATUS __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1, __int64 a2,
                *(_QWORD *)(a2 + 48),
                *(_DWORD *)(a2 + 64),
                v12,
-               (__int64)qword_140438E50,
-               (__int64)qword_140438E50,
+               (__int64)qword_140439F10,
+               (__int64)qword_140439F10,
                1,
                !IsRetpolineEnabled);
     if ( result >= 0 )
@@ -104,8 +104,8 @@ NTSTATUS __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1, __int64 a2,
                  *(_QWORD *)(a3 + 48),
                  *(_DWORD *)(a3 + 64),
                  v12,
-                 (__int64)qword_140438E50,
-                 (__int64)qword_140438E50,
+                 (__int64)qword_140439F10,
+                 (__int64)qword_140439F10,
                  1,
                  !v14);
       if ( result >= 0 )

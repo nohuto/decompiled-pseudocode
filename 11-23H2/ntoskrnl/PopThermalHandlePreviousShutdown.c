@@ -1,19 +1,19 @@
 /*
- * XREFs of PopThermalHandlePreviousShutdown @ 0x140860048
+ * XREFs of PopThermalHandlePreviousShutdown @ 0x140860288
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     PopOpenThermalLoggingKey @ 0x1403B06EC (PopOpenThermalLoggingKey.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     PopOpenThermalLoggingKey @ 0x1403B08CC (PopOpenThermalLoggingKey.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -116,8 +116,8 @@ void PopThermalHandlePreviousShutdown()
             ZwSetValueKey(v6, &v14, 0, 0xBu, &v11, 8u);
           ZwClose(v6);
         }
-        ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL);
-        if ( (unsigned int)dword_140C06510 > 5 && tlgKeywordOn((__int64)&dword_140C06510, 0x800000000000LL) )
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
+        if ( (unsigned int)dword_140C064D0 > 5 && tlgKeywordOn((__int64)&dword_140C064D0, 0x800000000000LL) )
         {
           tlgCreate1Sz_wchar_t((__int64)v19, (const size_t *)v4);
           p_KeyHandle = &KeyHandle;
@@ -130,8 +130,8 @@ void PopThermalHandlePreviousShutdown()
           v15 = 0x1000000LL;
           v25 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C06510,
-            (unsigned __int8 *)byte_14002DC83,
+            (__int64)&dword_140C064D0,
+            (unsigned __int8 *)byte_14002DD6B,
             0LL,
             0LL,
             6u,

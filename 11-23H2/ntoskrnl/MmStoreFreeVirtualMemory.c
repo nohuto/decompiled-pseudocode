@@ -1,11 +1,11 @@
 /*
- * XREFs of MmStoreFreeVirtualMemory @ 0x140A45D24
+ * XREFs of MmStoreFreeVirtualMemory @ 0x140A45FD4
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x1405CB808 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x1405CBD78 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiFreeVadRange @ 0x140309BA0 (MiFreeVadRange.c)
- *     MiUnlockPageTableRange @ 0x14064D1E0 (MiUnlockPageTableRange.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiFreeVadRange @ 0x140309E30 (MiFreeVadRange.c)
+ *     MiUnlockPageTableRange @ 0x14064D730 (MiUnlockPageTableRange.c)
  */
 
 __int64 __fastcall MmStoreFreeVirtualMemory(unsigned __int64 a1)

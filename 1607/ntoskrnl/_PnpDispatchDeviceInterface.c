@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpDispatchDeviceInterface @ 0x1405010E0
+ * XREFs of _PnpDispatchDeviceInterface @ 0x1404E4070
  * Callers:
  *     <none>
  * Callees:
- *     _CmOpenDeviceInterfaceRegKey @ 0x1404F8AF8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmValidateDeviceInterfaceName @ 0x1404FC520 (_CmValidateDeviceInterfaceName.c)
- *     _CmGetDeviceInterfaceMappedProperty @ 0x1405033E0 (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x140576A48 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x14057EE9C (_CmGetMatchingDeviceInterfaceList.c)
- *     _CmCreateDeviceInterface @ 0x1406D7128 (_CmCreateDeviceInterface.c)
- *     _CmDeleteDeviceInterface @ 0x1406D7DE0 (_CmDeleteDeviceInterface.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1406DD150 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x1406DD374 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1404DBA84 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1404DF4B0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1404E6370 (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x140576F88 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x14057F348 (_CmGetMatchingDeviceInterfaceList.c)
+ *     _CmCreateDeviceInterface @ 0x1406D7260 (_CmCreateDeviceInterface.c)
+ *     _CmDeleteDeviceInterface @ 0x1406D7F18 (_CmDeleteDeviceInterface.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1406DD288 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x1406DD4AC (_CmGetDeviceInterfaceMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)

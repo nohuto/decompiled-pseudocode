@@ -1,12 +1,12 @@
 /*
- * XREFs of VslGetSecurePciEnabled @ 0x1403CFC30
+ * XREFs of VslGetSecurePciEnabled @ 0x1403CFDA0
  * Callers:
- *     HvlGetEnlightenmentInfo @ 0x1404F5030 (HvlGetEnlightenmentInfo.c)
+ *     HvlGetEnlightenmentInfo @ 0x1404F4FB0 (HvlGetEnlightenmentInfo.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140277468 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HvlQueryVsmConnection @ 0x140265408 (HvlQueryVsmConnection.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 bool VslGetSecurePciEnabled()

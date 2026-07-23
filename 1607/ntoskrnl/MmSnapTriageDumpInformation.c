@@ -1,12 +1,12 @@
 /*
- * XREFs of MmSnapTriageDumpInformation @ 0x1401E8040
+ * XREFs of MmSnapTriageDumpInformation @ 0x1401E7E6C
  * Callers:
- *     IoWriteCrashDump @ 0x1401C65BC (IoWriteCrashDump.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1401C7E24 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IoWriteCrashDump @ 0x1401C645C (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x1401C7CC4 (IopWriteCapsuleTriageDumpToFirmware.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x1400AA1D0 (HvlQueryVsmConnection.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiAddTriageDumpPtes @ 0x1401E79E8 (MiAddTriageDumpPtes.c)
+ *     HvlQueryVsmConnection @ 0x1400A8750 (HvlQueryVsmConnection.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiAddTriageDumpPtes @ 0x1401E7814 (MiAddTriageDumpPtes.c)
  */
 
 __int64 __fastcall MmSnapTriageDumpInformation(__int64 a1, unsigned __int64 *a2)
@@ -16,16 +16,16 @@ __int64 __fastcall MmSnapTriageDumpInformation(__int64 a1, unsigned __int64 *a2)
   __int64 v6; // rdi
 
   memset(&MiTriageDumpData, 0, 0x38uLL);
-  MiTriageDumpData = qword_140324380;
-  dword_140306D28 = dword_140327128;
-  dword_140306D2C = dword_140327124;
-  dword_140306D30 = dword_14032712C;
-  dword_140306D34 = dword_140327130;
-  dword_140306D38 = dword_14032711C;
-  qword_140306D40 = KeFeatureBits;
-  dword_140306D48 = MEMORY[0xFFFFF78000000240];
-  dword_140306D4C = MiFlags;
-  HvlQueryVsmConnection(qword_140306D50);
+  MiTriageDumpData = qword_1403243C0;
+  dword_140306D68 = dword_140327168;
+  dword_140306D6C = dword_140327164;
+  dword_140306D70 = dword_14032716C;
+  dword_140306D74 = dword_140327170;
+  dword_140306D78 = dword_14032715C;
+  qword_140306D80 = KeFeatureBits;
+  dword_140306D88 = MEMORY[0xFFFFF78000000240];
+  dword_140306D8C = MiFlags;
+  HvlQueryVsmConnection(qword_140306D90);
   v4 = 4LL;
   do
   {

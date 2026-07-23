@@ -77,7 +77,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3
   struct _KPRCB *v43; // rdx
   _DWORD *v44; // r8
   _QWORD *v45; // rdx
-  struct _SLIST_ENTRY *v46; // rcx
+  _SLIST_ENTRY *v46; // rcx
   _SLIST_ENTRY *Next; // rax
   _SLIST_ENTRY *i; // rdx
   __int64 v49; // rax
@@ -490,7 +490,7 @@ LABEL_47:
         if ( v45 )
           KxWaitForLockOwnerShip((__int64)&v84, v45);
       }
-      v46 = (struct _SLIST_ENTRY *)*((_QWORD *)v41 + 5);
+      v46 = (_SLIST_ENTRY *)*((_QWORD *)v41 + 5);
       if ( v46 )
       {
         Next = v46->Next;

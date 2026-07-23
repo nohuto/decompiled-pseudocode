@@ -22,6 +22,8 @@ char __fastcall RtlpPushPageDescriptor(int a1, int a2)
   int v9; // ecx
   int v10; // edx
   _DWORD *v11; // edx
+  SIZE_T v12; // [esp-4h] [ebp-1Ch]
+  size_t v13; // [esp-4h] [ebp-1Ch]
 
   BlockInfo = (const void *)RtlpGetBlockInfo((_DWORD *)RtlpProcessMemoryMap, a1 << 12);
   if ( BlockInfo )
@@ -29,7 +31,8 @@ char __fastcall RtlpPushPageDescriptor(int a1, int a2)
     DbgPrint("Conflicting descriptors %p\n", BlockInfo);
     return 0;
   }
-  Heap = (_DWORD *)RtlAllocateHeap(RtlpLeakHeap, 0, 20 * (RtlpLDNumBlocks - 1) + 32);
+  LODWORD(v12) = 20 * (RtlpLDNumBlocks - 1) + 32;
+  Heap = RtlAllocateHeap(RtlpLeakHeap, 0, v12);
   if ( !Heap )
   {
     DbgPrint("Unable to allocate page descriptor\n");
@@ -41,7 +44,8 @@ char __fastcall RtlpPushPageDescriptor(int a1, int a2)
   Heap[2] = RtlpLDNumBlocks;
   *Heap = 2;
   Heap[1] = v7;
-  memcpy(Heap + 3, RtlpTempBlocks, 20 * v5);
+  LODWORD(v13) = 20 * v5;
+  memcpy(Heap + 3, RtlpTempBlocks, v13);
   if ( v7 != RtlpLeakHeapAddress )
   {
     v8 = RtlpLDNumBlocks;

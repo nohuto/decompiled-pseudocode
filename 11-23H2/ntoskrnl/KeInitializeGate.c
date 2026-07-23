@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInitializeGate @ 0x140293234
+ * XREFs of KeInitializeGate @ 0x1402934C4
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     MiInitializePartition @ 0x1408372A0 (MiInitializePartition.c)
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
- *     MmScrubMemory @ 0x140A46AC4 (MmScrubMemory.c)
- *     KiInitializeProcessor @ 0x140A8EC24 (KiInitializeProcessor.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     MiInitializePartition @ 0x1408375A0 (MiInitializePartition.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
+ *     MmScrubMemory @ 0x140A46D74 (MmScrubMemory.c)
+ *     KiInitializeProcessor @ 0x140A8EA9C (KiInitializeProcessor.c)
  *     sub_140B0F838 @ 0x140B0F838 (sub_140B0F838.c)
  *     sub_140B18070 @ 0x140B18070 (sub_140B18070.c)
  * Callees:

@@ -1,16 +1,16 @@
 /*
- * XREFs of PipMergeDependencyEdgeList @ 0x14089DD70
+ * XREFs of PipMergeDependencyEdgeList @ 0x14089DED0
  * Callers:
- *     PipMergeDependencyNodes @ 0x14089DEF4 (PipMergeDependencyNodes.c)
+ *     PipMergeDependencyNodes @ 0x14089E054 (PipMergeDependencyNodes.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x14050C4F8 (PiListEntryToDependencyEdge.c)
- *     PipFreeDependencyEdge @ 0x14050C720 (PipFreeDependencyEdge.c)
- *     PipMoveListEntries @ 0x14050C918 (PipMoveListEntries.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
- *     PipAddRequestToEdge @ 0x14089D95C (PipAddRequestToEdge.c)
- *     PipNotifyDependenciesChanged @ 0x14089DF6C (PipNotifyDependenciesChanged.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C738 (PiListEntryToDependencyEdge.c)
+ *     PipFreeDependencyEdge @ 0x14050C960 (PipFreeDependencyEdge.c)
+ *     PipMoveListEntries @ 0x14050CB58 (PipMoveListEntries.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PipDeleteDependencyNode @ 0x1407CD820 (PipDeleteDependencyNode.c)
+ *     PipAddRequestToEdge @ 0x14089DABC (PipAddRequestToEdge.c)
+ *     PipNotifyDependenciesChanged @ 0x14089E0CC (PipNotifyDependenciesChanged.c)
  */
 
 void __fastcall PipMergeDependencyEdgeList(__int64 a1, __int64 a2, int a3)

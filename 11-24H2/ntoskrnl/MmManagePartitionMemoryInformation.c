@@ -1,18 +1,18 @@
 /*
- * XREFs of MmManagePartitionMemoryInformation @ 0x1409344F4
+ * XREFs of MmManagePartitionMemoryInformation @ 0x1408F7014
  * Callers:
- *     DifUpdatePluginState @ 0x140618F74 (DifUpdatePluginState.c)
- *     DifGetAvailableSystemPages @ 0x1406196F4 (DifGetAvailableSystemPages.c)
- *     NtManagePartition @ 0x140933FF0 (NtManagePartition.c)
- *     SmCreatePartition @ 0x140A3ECF4 (SmCreatePartition.c)
+ *     DifUpdatePluginState @ 0x140617534 (DifUpdatePluginState.c)
+ *     DifGetAvailableSystemPages @ 0x140617CB4 (DifGetAvailableSystemPages.c)
+ *     NtManagePartition @ 0x1408F6B10 (NtManagePartition.c)
+ *     SmCreatePartition @ 0x140A34664 (SmCreatePartition.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     MiQueryMemoryListInformation @ 0x1403D46B0 (MiQueryMemoryListInformation.c)
- *     MiGetChannelInformation @ 0x1403D54BC (MiGetChannelInformation.c)
- *     MiGetNodeHugeRangeCounts @ 0x1404F9BA4 (MiGetNodeHugeRangeCounts.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiQueryMemoryListInformation @ 0x140262630 (MiQueryMemoryListInformation.c)
+ *     MiGetChannelInformation @ 0x140264320 (MiGetChannelInformation.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     MiGetNodeHugeRangeCounts @ 0x1404F7484 (MiGetNodeHugeRangeCounts.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MmManagePartitionMemoryInformation(ULONG **a1, __int64 a2)

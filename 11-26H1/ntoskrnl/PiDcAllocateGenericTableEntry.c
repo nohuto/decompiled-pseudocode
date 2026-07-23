@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDcAllocateGenericTableEntry @ 0x1407A7A90
+ * XREFs of PiDcAllocateGenericTableEntry @ 0x1407AA640
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 PiDcAllocateGenericTableEntry()

@@ -1,11 +1,11 @@
 /*
- * XREFs of VRegEnabledInJob @ 0x1404E9244
+ * XREFs of VRegEnabledInJob @ 0x1404CB334
  * Callers:
- *     VrpShouldOperateOnCall @ 0x140464780 (VrpShouldOperateOnCall.c)
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     VrpShouldOperateOnCall @ 0x140463650 (VrpShouldOperateOnCall.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
  */
 
 __int64 __fastcall VRegEnabledInJob(unsigned __int64 *a1)

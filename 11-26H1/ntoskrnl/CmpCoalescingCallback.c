@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCoalescingCallback @ 0x14046E740
+ * XREFs of CmpCoalescingCallback @ 0x140467EC0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     CmpEnableLazyFlush @ 0x14046EC80 (CmpEnableLazyFlush.c)
- *     CmpForceFlushForCoalescing @ 0x140AE388C (CmpForceFlushForCoalescing.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     CmpEnableLazyFlush @ 0x140468400 (CmpEnableLazyFlush.c)
+ *     CmpForceFlushForCoalescing @ 0x140AE1394 (CmpForceFlushForCoalescing.c)
  */
 
 void __fastcall CmpCoalescingCallback(int a1)

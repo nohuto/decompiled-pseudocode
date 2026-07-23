@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlIsTotalDeviceFailure @ 0x14008F154
+ * XREFs of FsRtlIsTotalDeviceFailure @ 0x14008E8B4
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MmIsWriteErrorFatal @ 0x14008F0EC (MmIsWriteErrorFatal.c)
- *     MiIsRetryIoStatus @ 0x14008F178 (MiIsRetryIoStatus.c)
- *     IopMountVolume @ 0x1403EC2AC (IopMountVolume.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MmIsWriteErrorFatal @ 0x14008E84C (MmIsWriteErrorFatal.c)
+ *     MiIsRetryIoStatus @ 0x14008E8D8 (MiIsRetryIoStatus.c)
+ *     IopMountVolume @ 0x1403ED8DC (IopMountVolume.c)
  * Callees:
  *     <none>
  */

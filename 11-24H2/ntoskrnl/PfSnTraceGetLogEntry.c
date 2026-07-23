@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnTraceGetLogEntry @ 0x140276790
+ * XREFs of PfSnTraceGetLogEntry @ 0x14022BD20
  * Callers:
- *     PfSnLogPageFaultCommon @ 0x140276060 (PfSnLogPageFaultCommon.c)
- *     PfSnTraceTimerRoutine @ 0x14047FAD0 (PfSnTraceTimerRoutine.c)
- *     PfSnLogScenarioMeasures @ 0x14049E454 (PfSnLogScenarioMeasures.c)
- *     PfSnLogStreamCreate @ 0x1409622A0 (PfSnLogStreamCreate.c)
- *     PfSnLogHelper @ 0x14096290C (PfSnLogHelper.c)
- *     PfSnNameRemoveAll @ 0x140962980 (PfSnNameRemoveAll.c)
- *     PfSnLogIdentifier @ 0x140A630D0 (PfSnLogIdentifier.c)
+ *     PfSnLogPageFaultCommon @ 0x14022B5F0 (PfSnLogPageFaultCommon.c)
+ *     PfSnTraceTimerRoutine @ 0x140314FF0 (PfSnTraceTimerRoutine.c)
+ *     PfSnLogScenarioMeasures @ 0x140499254 (PfSnLogScenarioMeasures.c)
+ *     PfSnLogStreamCreate @ 0x140949D60 (PfSnLogStreamCreate.c)
+ *     PfSnLogHelper @ 0x14094A3CC (PfSnLogHelper.c)
+ *     PfSnNameRemoveAll @ 0x14094A440 (PfSnNameRemoveAll.c)
+ *     PfSnLogIdentifier @ 0x140A5B9D0 (PfSnLogIdentifier.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PfSnTraceBufferAllocate @ 0x1404939D4 (PfSnTraceBufferAllocate.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PfSnTraceBufferAllocate @ 0x14048E3C4 (PfSnTraceBufferAllocate.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)

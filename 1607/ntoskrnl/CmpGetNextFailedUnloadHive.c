@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetNextFailedUnloadHive @ 0x140083CFC
+ * XREFs of CmpGetNextFailedUnloadHive @ 0x140081E5C
  * Callers:
- *     CmpDoReconcileNextHive @ 0x1404806D8 (CmpDoReconcileNextHive.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
+ *     CmpDoReconcileNextHive @ 0x14047F42C (CmpDoReconcileNextHive.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
  * Callees:
- *     CmpLockHiveListShared @ 0x14047D484 (CmpLockHiveListShared.c)
- *     CmpUnlockHiveList @ 0x14049FFBC (CmpUnlockHiveList.c)
+ *     CmpLockHiveListShared @ 0x14047C1D8 (CmpLockHiveListShared.c)
+ *     CmpUnlockHiveList @ 0x1405183C8 (CmpUnlockHiveList.c)
  */
 
 __int64 __fastcall CmpGetNextFailedUnloadHive(__int64 a1)

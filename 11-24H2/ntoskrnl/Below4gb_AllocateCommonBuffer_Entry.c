@@ -1,10 +1,10 @@
 /*
- * XREFs of Below4gb_AllocateCommonBuffer_Entry @ 0x140B9C150
+ * XREFs of Below4gb_AllocateCommonBuffer_Entry @ 0x140B9E150
  * Callers:
- *     VfAllocateCommonBufferEx @ 0x140B85640 (VfAllocateCommonBufferEx.c)
- *     VfAllocateCommonBufferWithBounds @ 0x140B85790 (VfAllocateCommonBufferWithBounds.c)
+ *     VfAllocateCommonBufferEx @ 0x140B87640 (VfAllocateCommonBufferEx.c)
+ *     VfAllocateCommonBufferWithBounds @ 0x140B87790 (VfAllocateCommonBufferWithBounds.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall Below4gb_AllocateCommonBuffer_Entry(__int64 a1, ULONG_PTR *a2, unsigned int a3)

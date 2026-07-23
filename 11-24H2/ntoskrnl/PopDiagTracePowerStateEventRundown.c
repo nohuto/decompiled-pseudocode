@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePowerStateEventRundown @ 0x140A38674
+ * XREFs of PopDiagTracePowerStateEventRundown @ 0x140A2D734
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PopDiagTracePowerStateEventRundown()
@@ -22,7 +22,7 @@ void PopDiagTracePowerStateEventRundown()
 
   if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_STATE_RUNDOWN) )
   {
-    v0 = (char *)&unk_140FD7FE0;
+    v0 = (char *)&unk_140FD8FF0;
     v1 = 56LL;
     do
     {

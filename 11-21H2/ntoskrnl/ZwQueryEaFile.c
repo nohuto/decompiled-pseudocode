@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwQueryEaFile @ 0x14041E0E0
  * Callers:
- *     DifZwQueryEaFileWrapper @ 0x1406243B0 (DifZwQueryEaFileWrapper.c)
+ *     sub_1406243B0 @ 0x1406243B0 (sub_1406243B0.c)
  * Callees:
  *     <none>
  */
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwQueryEaFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return sub_140433F80(FileHandle, IoStatusBlock);
 }

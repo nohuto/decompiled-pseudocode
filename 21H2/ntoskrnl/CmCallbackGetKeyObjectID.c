@@ -1,18 +1,18 @@
 /*
- * XREFs of CmCallbackGetKeyObjectID @ 0x140869A70
+ * XREFs of CmCallbackGetKeyObjectID @ 0x140869BD0
  * Callers:
- *     EtwpRegTraceCallback @ 0x14093B320 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x14093B4F0 (EtwpRegTraceCallback.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpConstructAndCacheName @ 0x1406BB054 (CmpConstructAndCacheName.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpLockKcbStackShared @ 0x1406FB3E0 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpConstructAndCacheName @ 0x14061A324 (CmpConstructAndCacheName.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x14065AB50 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpLockKcbStackShared @ 0x1407127C0 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140712820 (CmpUnlockKcbStack.c)
  */
 
 NTSTATUS __stdcall CmCallbackGetKeyObjectID(
@@ -47,7 +47,7 @@ NTSTATUS __stdcall CmCallbackGetKeyObjectID(
   }
   if ( (v5 & 1) == 0 )
   {
-    CmpAttachToRegistryProcess((__int64)v13, (__int64)Object, (__int64)ObjectID, ObjectName);
+    CmpAttachToRegistryProcess((__int64)v13);
     CmpLockRegistry();
     started = CmpStartKcbStackForTopLayerKcb((__int64)&v11, v5, v7, v8);
     if ( started >= 0 )
@@ -65,7 +65,7 @@ NTSTATUS __stdcall CmCallbackGetKeyObjectID(
       CmpUnlockKcbStack((__int64)&v11);
     }
     CmpUnlockRegistry();
-    KiUnstackDetachProcess((__int64)v13, 0);
+    KiUnstackDetachProcess((__int64)v13, 0LL);
   }
   else
   {

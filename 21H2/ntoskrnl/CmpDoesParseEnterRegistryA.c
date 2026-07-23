@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpDoesParseEnterRegistryA @ 0x1406F9120
+ * XREFs of CmpDoesParseEnterRegistryA @ 0x140710500
  * Callers:
- *     CmpParseKey @ 0x1406F8C10 (CmpParseKey.c)
+ *     CmpParseKey @ 0x14070FFF0 (CmpParseKey.c)
  * Callees:
  *     <none>
  */

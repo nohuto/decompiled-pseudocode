@@ -6,7 +6,16 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwQueryQuotaInformationFile(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)
+NTSTATUS __cdecl ZwQueryQuotaInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        PVOID SidList,
+        ULONG SidListLength,
+        PSID StartSid,
+        BOOLEAN RestartScan)
 {
   return Wow64SystemServiceCall();
 }

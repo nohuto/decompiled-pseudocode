@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroPageWorkMapping @ 0x14029FD70
+ * XREFs of MiZeroPageWorkMapping @ 0x14029F2C0
  * Callers:
- *     MiReplenishPageSlist @ 0x14028A710 (MiReplenishPageSlist.c)
- *     MiPageListCollision @ 0x14048DA4C (MiPageListCollision.c)
- *     MiUnmapZeroedPage @ 0x14051F464 (MiUnmapZeroedPage.c)
- *     MiReleaseScrubProtection @ 0x14070BF60 (MiReleaseScrubProtection.c)
+ *     MiReplenishPageSlist @ 0x140289C70 (MiReplenishPageSlist.c)
+ *     MiPageListCollision @ 0x14048758C (MiPageListCollision.c)
+ *     MiUnmapZeroedPage @ 0x140521B08 (MiUnmapZeroedPage.c)
+ *     MiReleaseScrubProtection @ 0x140710C10 (MiReleaseScrubProtection.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiZeroPageWorkMapping(unsigned int a1, unsigned __int64 a2, int a3)
@@ -139,7 +139,7 @@ unsigned __int64 __fastcall MiZeroPageWorkMapping(unsigned int a1, unsigned __in
     else
     {
       if ( (_DWORD)i != 3 )
-        v15 = *(_QWORD *)(8 * i + v14 + 79736);
+        v15 = *(_QWORD *)(8 * i + v14 + 80512);
       MiInsertTbFlushEntry(&v20, v4, v15);
       return MiFlushTbList(&v20);
     }

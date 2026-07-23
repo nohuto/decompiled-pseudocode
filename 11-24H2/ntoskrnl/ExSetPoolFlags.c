@@ -1,12 +1,12 @@
 /*
- * XREFs of ExSetPoolFlags @ 0x140654824
+ * XREFs of ExSetPoolFlags @ 0x140652F24
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140B83980 (VfInitSystemNoRebootNeeded.c)
- *     VfDriverApplyDifVerification @ 0x140B8A038 (VfDriverApplyDifVerification.c)
- *     ViPtInitCircularPoolTrace @ 0x140B8C974 (ViPtInitCircularPoolTrace.c)
- *     VfDeadlockPluginEntry @ 0x140B98240 (VfDeadlockPluginEntry.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x140B9B220 (VfSettingsApplyMiscellaneousChecks.c)
- *     ViIovInitialization @ 0x140BA4ED4 (ViIovInitialization.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140B85980 (VfInitSystemNoRebootNeeded.c)
+ *     VfDriverApplyDifVerification @ 0x140B8C038 (VfDriverApplyDifVerification.c)
+ *     ViPtInitCircularPoolTrace @ 0x140B8E974 (ViPtInitCircularPoolTrace.c)
+ *     VfDeadlockPluginEntry @ 0x140B9A240 (VfDeadlockPluginEntry.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x140B9D220 (VfSettingsApplyMiscellaneousChecks.c)
+ *     ViIovInitialization @ 0x140BA6ED4 (ViIovInitialization.c)
  * Callees:
  *     <none>
  */

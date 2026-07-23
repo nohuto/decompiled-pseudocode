@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmUpdateTimeAccumulation @ 0x14000D4B0
+ * XREFs of PpmUpdateTimeAccumulation @ 0x14000D030
  * Callers:
- *     PpmContinueActiveTimeAccumulation @ 0x14000D480 (PpmContinueActiveTimeAccumulation.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14000D000 (PpmContinueActiveTimeAccumulation.c)
  * Callees:
- *     PpmConvertTime @ 0x14000E064 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14000DBE4 (PpmConvertTime.c)
  */
 
 __int64 __fastcall PpmUpdateTimeAccumulation(__int64 a1, __int64 a2, char a3)

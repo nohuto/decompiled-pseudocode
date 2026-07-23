@@ -1,7 +1,7 @@
 /*
  * XREFs of CmpFileRead @ 0x140689330
  * Callers:
- *     CmpSaveKeyByFileCopy @ 0x140A0CE80 (CmpSaveKeyByFileCopy.c)
+ *     CmpSaveKeyByFileCopy @ 0x140A0D130 (CmpSaveKeyByFileCopy.c)
  * Callees:
  *     CmpDoFileRead @ 0x140207B68 (CmpDoFileRead.c)
  */

@@ -7,7 +7,7 @@
  *     RtlGetCurrentProcessorNumber @ 0x18009F270 (RtlGetCurrentProcessorNumber.c)
  */
 
-__int64 __fastcall sub_180104C98(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall sub_180104C98(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   unsigned __int8 v8; // al
   char CurrentProcessorNumber; // al
@@ -20,7 +20,7 @@ __int64 __fastcall sub_180104C98(__int64 a1, __int64 a2, unsigned int a3, unsign
   }
   else
   {
-    CurrentProcessorNumber = RtlGetCurrentProcessorNumber(a1);
+    CurrentProcessorNumber = RtlGetCurrentProcessorNumber();
     v10 = *(unsigned __int8 *)(a1 + 48);
     v11 = CurrentProcessorNumber & 0x3F;
     if ( v11 >= v10 )
@@ -32,5 +32,5 @@ __int64 __fastcall sub_180104C98(__int64 a1, __int64 a2, unsigned int a3, unsign
     }
     v8 = *(_BYTE *)(v11 + *(_QWORD *)(a2 + 88));
   }
-  return sub_18001AC70(a1, a2, *(_QWORD *)(*(_QWORD *)(a2 + 96) + 8LL * v8), a3, a4);
+  return sub_18001AC70(a1, (_RTL_SRWLOCK *)a2, *(_QWORD *)(*(_QWORD *)(a2 + 96) + 8LL * v8), a3, a4);
 }

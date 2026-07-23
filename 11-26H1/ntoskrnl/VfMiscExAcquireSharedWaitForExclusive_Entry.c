@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExAcquireSharedWaitForExclusive_Entry @ 0x140C3C870
+ * XREFs of VfMiscExAcquireSharedWaitForExclusive_Entry @ 0x140C42880
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscCheckResourceAcquire @ 0x140C3E2F0 (ViMiscCheckResourceAcquire.c)
+ *     ViMiscCheckResourceAcquire @ 0x140C44300 (ViMiscCheckResourceAcquire.c)
  */
 
 __int64 __fastcall VfMiscExAcquireSharedWaitForExclusive_Entry(__int64 a1)

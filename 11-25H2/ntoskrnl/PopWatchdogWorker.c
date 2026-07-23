@@ -12,24 +12,25 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PopWatchdogWorker(__int64 a1)
+LARGE_INTEGER __fastcall PopWatchdogWorker(__int64 a1)
 {
   KIRQL v2; // di
   ULONG_PTR v3; // rdi
   ULONG_PTR v4; // rsi
   ULONG_PTR v5; // rbp
   ULONG_PTR BugCheckParameter4; // r14
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
   __m128i v8; // [rsp+40h] [rbp-98h]
   __m128i v9; // [rsp+50h] [rbp-88h]
   __m128i v10; // [rsp+60h] [rbp-78h]
   ULONG BugCheckCode[4]; // [rsp+70h] [rbp-68h]
   __int64 v12; // [rsp+B0h] [rbp-28h]
-  unsigned __int64 v13; // [rsp+E0h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+E0h] [rbp+8h] BYREF
 
-  *(_QWORD *)(a1 + 376) = RtlGetInterruptTimePrecise(&v13);
+  *(LARGE_INTEGER *)(a1 + 376) = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v2 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
-  if ( *(_BYTE *)(a1 + 208) && (unsigned __int64)RtlGetInterruptTimePrecise(&v13) >= *(_QWORD *)(a1 + 304) )
+  if ( *(_BYTE *)(a1 + 208)
+    && (unsigned __int64)RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart >= *(_QWORD *)(a1 + 304) )
   {
     *(_OWORD *)BugCheckCode = *(_OWORD *)(a1 + 216);
     v9 = *(__m128i *)(a1 + 232);
@@ -43,7 +44,7 @@ __int64 __fastcall PopWatchdogWorker(__int64 a1)
     BugCheckParameter4 = PopResolveWatchdogParam(
                            _mm_srli_si128(v10, 8).m128i_i64[0],
                            _mm_cvtsi128_si32(_mm_srli_si128(v8, 3)));
-    *(_QWORD *)(a1 + 384) = RtlGetInterruptTimePrecise(&v13);
+    *(LARGE_INTEGER *)(a1 + 384) = RtlGetInterruptTimePrecise(&PerformanceCounter);
     *(_BYTE *)(a1 + 209) = 1;
     if ( !_mm_srli_si128(v8, 8).m128i_u64[0] )
       KeBugCheckEx(BugCheckCode[2], v3, v4, v5, BugCheckParameter4);
@@ -53,7 +54,7 @@ __int64 __fastcall PopWatchdogWorker(__int64 a1)
   *(_BYTE *)(a1 + 21) = 0;
   PopUpdateWatchdogNoWorkersEvent(a1);
   KeReleaseSpinLock(&PopWatchdogLock, v2);
-  result = RtlGetInterruptTimePrecise(&v13);
-  *(_QWORD *)(a1 + 392) = result;
+  result = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  *(LARGE_INTEGER *)(a1 + 392) = result;
   return result;
 }

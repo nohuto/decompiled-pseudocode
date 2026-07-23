@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool __stdcall RtlIsPartialPlaceholder(int a1, int a2)
+BOOLEAN __cdecl RtlIsPartialPlaceholder(ULONG FileAttributes, ULONG ReparseTag)
 {
-  return (a1 & 0x440000) != 0;
+  return (FileAttributes & 0x440000) != 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMcDereferenceBufferEntry @ 0x14055EEC0
+ * XREFs of IopMcDereferenceBufferEntry @ 0x14055F580
  * Callers:
- *     IoTryReleasePage @ 0x14055EA84 (IoTryReleasePage.c)
- *     IopMcReleaseMdl @ 0x14055F174 (IopMcReleaseMdl.c)
- *     IopMcWaitAndCleanupBufferEntry @ 0x14055F468 (IopMcWaitAndCleanupBufferEntry.c)
+ *     IoTryReleasePage @ 0x14055F144 (IoTryReleasePage.c)
+ *     IopMcReleaseMdl @ 0x14055F834 (IopMcReleaseMdl.c)
+ *     IopMcWaitAndCleanupBufferEntry @ 0x14055FB28 (IopMcWaitAndCleanupBufferEntry.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

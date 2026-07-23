@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlGetNtGlobalFlags()
+ULONG RtlGetNtGlobalFlags(void)
 {
   return NtCurrentPeb()->NtGlobalFlag;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmInsertSecureImageActivePatch @ 0x140874B1C
+ * XREFs of MmInsertSecureImageActivePatch @ 0x14087AF00
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     MiAllocateSecureImageActivePatch @ 0x14086DA5C (MiAllocateSecureImageActivePatch.c)
- *     MiInsertSecureImageActivePatch @ 0x140870BC8 (MiInsertSecureImageActivePatch.c)
- *     MiLogInsertSecureImageActivePatch @ 0x140872D50 (MiLogInsertSecureImageActivePatch.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     MiFindHotPatchRecord @ 0x140ABFFE4 (MiFindHotPatchRecord.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     MiAllocateSecureImageActivePatch @ 0x140873E2C (MiAllocateSecureImageActivePatch.c)
+ *     MiInsertSecureImageActivePatch @ 0x140876F28 (MiInsertSecureImageActivePatch.c)
+ *     MiLogInsertSecureImageActivePatch @ 0x1408790B0 (MiLogInsertSecureImageActivePatch.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     MiFindHotPatchRecord @ 0x140AC2084 (MiFindHotPatchRecord.c)
  */
 
 void __fastcall MmInsertSecureImageActivePatch(unsigned int a1, unsigned int a2, int a3, unsigned int a4, int a5)
@@ -27,7 +27,7 @@ void __fastcall MmInsertSecureImageActivePatch(unsigned int a1, unsigned int a2,
   UnicodeString = 0LL;
   RtlInitUnicodeString(&UnicodeString, 0LL);
   HotPatchRecord = MiFindHotPatchRecord(
-                     (unsigned int)&xmmword_140E36540,
+                     (unsigned int)&xmmword_140E366C0,
                      0,
                      a1,
                      a2,
@@ -54,9 +54,9 @@ void __fastcall MmInsertSecureImageActivePatch(unsigned int a1, unsigned int a2,
       HotPatchRecord = -1073741670;
     }
   }
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
   {
     MiLogInsertSecureImageActivePatch(v13, a1, a2, a4, a5, a3, HotPatchRecord);
   }

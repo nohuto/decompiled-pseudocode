@@ -1,17 +1,17 @@
 /*
- * XREFs of VfThunkApplyDriverAddedThunks @ 0x1409D8AA4
+ * XREFs of VfThunkApplyDriverAddedThunks @ 0x1409D9AA4
  * Callers:
- *     ViDriverReApplyVerifierForAll @ 0x1409C8B08 (ViDriverReApplyVerifierForAll.c)
+ *     ViDriverReApplyVerifierForAll @ 0x1409C9B08 (ViDriverReApplyVerifierForAll.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ViThunkFindAllSpecialTables @ 0x1409D908C (ViThunkFindAllSpecialTables.c)
- *     ViThunkReplaceImportEntry @ 0x1409D9470 (ViThunkReplaceImportEntry.c)
+ *     RtlImageDirectoryEntryToData @ 0x140286140 (RtlImageDirectoryEntryToData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ViThunkFindAllSpecialTables @ 0x1409DA08C (ViThunkFindAllSpecialTables.c)
+ *     ViThunkReplaceImportEntry @ 0x1409DA470 (ViThunkReplaceImportEntry.c)
  */
 
 __int64 __fastcall VfThunkApplyDriverAddedThunks(__int64 a1)
 {
-  __int64 v1; // rcx
+  void *v1; // rcx
   __int64 result; // rax
   __int64 v3; // rdi
   __int64 v4; // rsi
@@ -19,11 +19,11 @@ __int64 __fastcall VfThunkApplyDriverAddedThunks(__int64 a1)
   __int64 v6; // rax
   __int64 v7; // rbp
   int v8; // ecx
-  unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
+  ULONG v9; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(void **)(a1 + 48);
   v9 = 0;
-  result = RtlImageDirectoryEntryToData(v1, 1, 12, (int)&v9);
+  result = (__int64)RtlImageDirectoryEntryToData(v1, 1u, 0xCu, &v9);
   v3 = result;
   if ( result )
   {

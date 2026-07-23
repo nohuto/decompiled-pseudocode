@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInitSystemHelper @ 0x14099C0C8
+ * XREFs of HalpInitSystemHelper @ 0x14099D0C8
  * Callers:
- *     HalpInitializeLateSystemActions @ 0x1403AD57C (HalpInitializeLateSystemActions.c)
- *     HalInitializeProcessor @ 0x1403ADB10 (HalInitializeProcessor.c)
- *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
- *     HalpInitSystemPhase1 @ 0x14099C08C (HalpInitSystemPhase1.c)
- *     HalReportResourceUsage @ 0x140A3CE50 (HalReportResourceUsage.c)
- *     HalAllProcessorsStarted @ 0x140A74130 (HalAllProcessorsStarted.c)
- *     HalpInitSystemPhase0 @ 0x140A741F8 (HalpInitSystemPhase0.c)
+ *     HalpInitializeLateSystemActions @ 0x1403AD6CC (HalpInitializeLateSystemActions.c)
+ *     HalInitializeProcessor @ 0x1403ADC60 (HalInitializeProcessor.c)
+ *     HalpDispatchPnp @ 0x140765140 (HalpDispatchPnp.c)
+ *     HalpInitSystemPhase1 @ 0x14099D08C (HalpInitSystemPhase1.c)
+ *     HalReportResourceUsage @ 0x140A3DE50 (HalReportResourceUsage.c)
+ *     HalAllProcessorsStarted @ 0x140A75130 (HalAllProcessorsStarted.c)
+ *     HalpInitSystemPhase0 @ 0x140A751F8 (HalpInitSystemPhase0.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInitSystemHelper(unsigned int a1, int a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmIretOp @ 0x1405768A0
+ * XREFs of XmIretOp @ 0x140573D30
  * Callers:
  *     <none>
  * Callees:
- *     XmPopStack @ 0x140468128 (XmPopStack.c)
+ *     XmPopStack @ 0x140460AD8 (XmPopStack.c)
  */
 
 __int64 __fastcall XmIretOp(__int64 a1)

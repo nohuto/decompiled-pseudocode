@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 AlpcRundownCompletionList()
+NTSTATUS __cdecl AlpcRundownCompletionList(HANDLE PortHandle)
 {
-  return NtAlpcSetInformation();
+  return NtAlpcSetInformation(PortHandle, AlpcCompletionListRundownInformation, 0LL, 0);
 }

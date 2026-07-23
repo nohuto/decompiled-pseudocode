@@ -1,13 +1,13 @@
 /*
- * XREFs of PspInitializeCpuPartitionsPhase1 @ 0x140C35790
+ * XREFs of PspInitializeCpuPartitionsPhase1 @ 0x140C378D0
  * Callers:
- *     PspInitPhase1 @ 0x140C34EC0 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140C37000 (PspInitPhase1.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x1406A7990 (ZwCreateDirectoryObject.c)
- *     ObInsertObject @ 0x140856F80 (ObInsertObject.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PspInitializeCpuPartitionsDefaultSd @ 0x140C35470 (PspInitializeCpuPartitionsDefaultSd.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x1406A8930 (ZwCreateDirectoryObject.c)
+ *     ObInsertObject @ 0x140853260 (ObInsertObject.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PspInitializeCpuPartitionsDefaultSd @ 0x140C375B0 (PspInitializeCpuPartitionsDefaultSd.c)
  */
 
 __int64 PspInitializeCpuPartitionsPhase1()

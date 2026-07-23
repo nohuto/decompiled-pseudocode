@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDecodeMcaFault @ 0x140156830
+ * XREFs of KiDecodeMcaFault @ 0x140156DA0
  * Callers:
- *     KiMachineCheckControl @ 0x140168FE0 (KiMachineCheckControl.c)
+ *     KiMachineCheckControl @ 0x140169550 (KiMachineCheckControl.c)
  * Callees:
- *     KeTestSpinLock @ 0x140092A30 (KeTestSpinLock.c)
+ *     KeTestSpinLock @ 0x140092230 (KeTestSpinLock.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140242000 (FsRtlMdlReadCompleteDevEx.c)
  */
 

@@ -1,32 +1,32 @@
 /*
- * XREFs of PopBootStatRestoreDefaults @ 0x140AABC04
+ * XREFs of PopBootStatRestoreDefaults @ 0x140AA6BD8
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlpAcquireBootStatusLock @ 0x1404A8B8C (RtlpAcquireBootStatusLock.c)
- *     RtlpReleaseBootStatusLock @ 0x1404B6794 (RtlpReleaseBootStatusLock.c)
- *     RtlInitializeBootStatDataCache @ 0x1405E9650 (RtlInitializeBootStatDataCache.c)
- *     RtlpGetBootStatusPath @ 0x1405E976C (RtlpGetBootStatusPath.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     RtlRestoreBootStatusDefaults @ 0x140782ED8 (RtlRestoreBootStatusDefaults.c)
- *     RtlUnlockBootStatusData @ 0x140A3F7A0 (RtlUnlockBootStatusData.c)
- *     PopBootStatAccessCheck @ 0x140AA80F4 (PopBootStatAccessCheck.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlpAcquireBootStatusLock @ 0x1404A2FAC (RtlpAcquireBootStatusLock.c)
+ *     RtlpReleaseBootStatusLock @ 0x1404B0F74 (RtlpReleaseBootStatusLock.c)
+ *     RtlInitializeBootStatDataCache @ 0x1405E6BA0 (RtlInitializeBootStatDataCache.c)
+ *     RtlpGetBootStatusPath @ 0x1405E6CBC (RtlpGetBootStatusPath.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     RtlRestoreBootStatusDefaults @ 0x140782E08 (RtlRestoreBootStatusDefaults.c)
+ *     RtlUnlockBootStatusData @ 0x140A35050 (RtlUnlockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x140AA31F4 (PopBootStatAccessCheck.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopBootStatRestoreDefaults(__int64 a1)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
+  char *v5; // rdi
   WCHAR *v6; // r14
   int v7; // esi
   HANDLE v8; // rdi
@@ -41,13 +41,13 @@ __int64 __fastcall PopBootStatRestoreDefaults(__int64 a1)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((__int64)&PopBootStatLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&PopBootStatLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&PopBootStatLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&PopBootStatLock, (__int64)v3, (__int64)&PopBootStatLock);
+    ExfAcquirePushLockExclusiveEx(&PopBootStatLock, v3, (__int64)&PopBootStatLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   FileHandle = 0LL;
   v6 = 0LL;
   memset(&ObjectAttributes, 0, 44);

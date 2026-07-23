@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14047BB44
+ * XREFs of HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1404754B4
  * Callers:
- *     HalpIommuUnmapLogicalRange @ 0x14047B208 (HalpIommuUnmapLogicalRange.c)
- *     HalpIommuMapLogical @ 0x14047B810 (HalpIommuMapLogical.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14047BD64 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpIommuMapLogicalRange @ 0x14047BE6C (HalpIommuMapLogicalRange.c)
- *     HalpIommuInitializeDmarPageTable @ 0x1405A0B74 (HalpIommuInitializeDmarPageTable.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140474B78 (HalpIommuUnmapLogicalRange.c)
+ *     HalpIommuMapLogical @ 0x140475180 (HalpIommuMapLogical.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404756D4 (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpIommuMapLogicalRange @ 0x1404757DC (HalpIommuMapLogicalRange.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x1405A3384 (HalpIommuInitializeDmarPageTable.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x14024FA80 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1402513E0 (KeInvalidateRangeAllCachesNoIpi.c)
  */
 
 char __fastcall HalpIommuFlushPhysicalPtesFromCacheSize(__int64 a1, unsigned int a2)

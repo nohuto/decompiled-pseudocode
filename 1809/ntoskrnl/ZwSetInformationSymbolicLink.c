@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwSetInformationSymbolicLink @ 0x1401BB3F0
+ * XREFs of ZwSetInformationSymbolicLink @ 0x1401BB550
  * Callers:
- *     ObpInitializeRootNamespace @ 0x14072BC6C (ObpInitializeRootNamespace.c)
+ *     ObpInitializeRootNamespace @ 0x14072CE5C (ObpInitializeRootNamespace.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationSymbolicLink(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(LinkHandle);
 }

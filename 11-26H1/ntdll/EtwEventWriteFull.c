@@ -1,19 +1,28 @@
 /*
- * XREFs of EtwEventWriteFull @ 0x1800E2180
+ * XREFs of EtwEventWriteFull @ 0x1800DFA20
  * Callers:
  *     <none>
  * Callees:
- *     EtwpEventWriteFull @ 0x18000F380 (EtwpEventWriteFull.c)
+ *     EtwpEventWriteFull @ 0x18005AAB0 (EtwpEventWriteFull.c)
  */
 
-__int64 __fastcall EtwEventWriteFull(
-        __int64 a1,
-        __int128 *a2,
-        unsigned __int16 a3,
-        _GUID *a4,
-        __int128 *a5,
-        int a6,
-        __int64 a7)
+ULONG __cdecl EtwEventWriteFull(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        USHORT EventProperty,
+        LPCGUID ActivityId,
+        LPCGUID RelatedActivityId,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return EtwpEventWriteFull(a1, a2, 0LL, 0, a3, a4, a5, a6, a7);
+  return EtwpEventWriteFull(
+           RegHandle,
+           (__int128 *)EventDescriptor,
+           0LL,
+           0,
+           EventProperty,
+           (_GUID *)ActivityId,
+           (__int128 *)RelatedActivityId,
+           UserDataCount,
+           (__int64)UserData);
 }

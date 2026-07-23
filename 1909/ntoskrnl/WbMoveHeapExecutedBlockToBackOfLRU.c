@@ -14,8 +14,8 @@ __int64 __fastcall WbMoveHeapExecutedBlockToBackOfLRU(__int64 a1, __int64 *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rdi
-  __int64 v6; // rax
-  __int64 v7; // rbp
+  _RTL_BALANCED_NODE *v6; // rax
+  _RTL_BALANCED_NODE *v7; // rbp
   __int64 *v8; // rax
   __int64 **v9; // rcx
   __int64 **v10; // rcx
@@ -29,7 +29,7 @@ __int64 __fastcall WbMoveHeapExecutedBlockToBackOfLRU(__int64 a1, __int64 *a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
     ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   if ( (a2[2] & 1) != 0 )
   {
     v8 = (__int64 *)*a2;

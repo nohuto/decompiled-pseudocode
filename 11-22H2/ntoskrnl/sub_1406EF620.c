@@ -443,25 +443,28 @@ __int64 __fastcall sub_1406EF620(unsigned int *a1, unsigned int a2, UINT a3, _QW
   NTSTATUS AccessStatus; // [rsp+128h] [rbp+28h] BYREF
   _BYTE *v363; // [rsp+130h] [rbp+30h]
   unsigned __int8 *v364; // [rsp+138h] [rbp+38h]
-  ACCESS_MASK GrantedAccess[5]; // [rsp+140h] [rbp+40h] BYREF
-  ACCESS_MASK v366; // [rsp+154h] [rbp+54h] BYREF
-  __int64 v367; // [rsp+158h] [rbp+58h] BYREF
-  __int64 v368; // [rsp+160h] [rbp+60h] BYREF
-  __int64 v369; // [rsp+168h] [rbp+68h] BYREF
-  _QWORD *v370; // [rsp+178h] [rbp+78h]
-  UINT *v371; // [rsp+180h] [rbp+80h]
+  ACCESS_MASK GrantedAccess; // [rsp+140h] [rbp+40h] BYREF
+  ULONG ReturnLength[2]; // [rsp+144h] [rbp+44h] BYREF
+  ULONG v367; // [rsp+14Ch] [rbp+4Ch] BYREF
+  ULONG v368; // [rsp+150h] [rbp+50h] BYREF
+  ACCESS_MASK v369; // [rsp+154h] [rbp+54h] BYREF
+  __int64 SystemInformation; // [rsp+158h] [rbp+58h] BYREF
+  __int64 v371; // [rsp+160h] [rbp+60h] BYREF
+  __int64 v372; // [rsp+168h] [rbp+68h] BYREF
+  _QWORD *v373; // [rsp+178h] [rbp+78h]
+  UINT *v374; // [rsp+180h] [rbp+80h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+188h] [rbp+88h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+1A8h] [rbp+A8h] BYREF
-  _OWORD v374[2]; // [rsp+1C8h] [rbp+C8h] BYREF
-  __int64 v375; // [rsp+1E8h] [rbp+E8h]
+  _OWORD v377[2]; // [rsp+1C8h] [rbp+C8h] BYREF
+  __int64 v378; // [rsp+1E8h] [rbp+E8h]
   _OWORD SecurityDescriptor[2]; // [rsp+1F0h] [rbp+F0h] BYREF
-  __int64 v377; // [rsp+210h] [rbp+110h]
-  __int64 v378; // [rsp+238h] [rbp+138h] BYREF
-  __int64 v379; // [rsp+240h] [rbp+140h] BYREF
+  __int64 v380; // [rsp+210h] [rbp+110h]
+  __int64 v381; // [rsp+238h] [rbp+138h] BYREF
+  __int64 v382; // [rsp+240h] [rbp+140h] BYREF
 
   v344 = (ULONGLONG)a1;
-  v370 = a4;
-  v371 = a5;
+  v373 = a4;
+  v374 = a5;
   uAddend[0] = a3;
   v6 = 0LL;
   v7 = 0LL;
@@ -736,7 +739,7 @@ LABEL_56:
     v47 = v344;
     v48 = v46;
     v363 = (_BYTE *)v46;
-    v378 = v44;
+    v381 = v44;
     v361 = v344 & 7;
     v49 = v39;
     v364 = v39;
@@ -780,7 +783,7 @@ LABEL_56:
         v62 = v61[1];
         if ( (unsigned __int8)v62 < 0x1Fu )
         {
-          v63 = funcs_1406EFB8D[v62](v59 + 1, *(v60 - 2), *(v60 - 1), *v60, v60[1], (__int64)&v378, v51);
+          v63 = funcs_1406EFB8D[v62](v59 + 1, *(v60 - 2), *(v60 - 1), *v60, v60[1], (__int64)&v381, v51);
           v58 = (__int64)P;
           v50 ^= v63;
           v61 = (unsigned __int8 *)v356;
@@ -788,7 +791,7 @@ LABEL_56:
         v64 = *v61;
         if ( (unsigned __int8)v64 < 0x1Fu )
         {
-          v65 = funcs_1406EFB8D[v64](v59, *(v60 - 6), *(v60 - 5), *(v60 - 4), *(v60 - 3), (__int64)&v378, v50);
+          v65 = funcs_1406EFB8D[v64](v59, *(v60 - 6), *(v60 - 5), *(v60 - 4), *(v60 - 3), (__int64)&v381, v50);
           v58 = (__int64)P;
           v51 ^= v65;
           v61 = (unsigned __int8 *)v356;
@@ -839,13 +842,13 @@ LABEL_56:
         v76 = 0;
         if ( v69 < 4 )
           v66 = v66 >> (8 * (4 - v69)) << (8 * (4 - v69));
-        LODWORD(v44) = v378;
+        LODWORD(v44) = v381;
         v49 = v364;
         v47 = v344;
       }
       else
       {
-        LODWORD(v44) = v378;
+        LODWORD(v44) = v381;
         v49 = v364;
         v75 = 8 - v69;
         v47 = v344;
@@ -879,30 +882,30 @@ LABEL_56:
         v361 = (ULONGLONG)(v79 + 8);
         puResult[0] = v83;
         v84 = (unsigned __int16)v44;
-        v85 = v82 ^ v44 ^ HIDWORD(v378) ^ v83 ^ v76;
-        v86 = (v85 >> 8) ^ (WORD2(v378) * (v85 ^ WORD1(v378))) ^ v82;
-        v87 = (WORD1(v378) * __ROR4__(HIDWORD(v378) - v86, 11) - __ROR4__(v86, 12)) ^ v85;
-        v88 = ((unsigned __int16)v44 * __ROL4__(v87 ^ HIDWORD(v378), 8) - __ROL4__(v87, 2)) ^ v86;
-        v89 = __ROR4__(v88, 9) ^ (HIWORD(v378) * __ROR4__(v88 - v44, 4)) ^ v87;
-        v90 = (__ROR4__(v89, 4) + WORD2(v378) * __ROR4__(v44 - v89, 10)) ^ v88;
-        v91 = (WORD1(v378) * __ROL4__(HIWORD(v378) ^ v90, 4) - __ROR4__(v90, 16)) ^ v89;
+        v85 = v82 ^ v44 ^ HIDWORD(v381) ^ v83 ^ v76;
+        v86 = (v85 >> 8) ^ (WORD2(v381) * (v85 ^ WORD1(v381))) ^ v82;
+        v87 = (WORD1(v381) * __ROR4__(HIDWORD(v381) - v86, 11) - __ROR4__(v86, 12)) ^ v85;
+        v88 = ((unsigned __int16)v44 * __ROL4__(v87 ^ HIDWORD(v381), 8) - __ROL4__(v87, 2)) ^ v86;
+        v89 = __ROR4__(v88, 9) ^ (HIWORD(v381) * __ROR4__(v88 - v44, 4)) ^ v87;
+        v90 = (__ROR4__(v89, 4) + WORD2(v381) * __ROR4__(v44 - v89, 10)) ^ v88;
+        v91 = (WORD1(v381) * __ROL4__(HIWORD(v381) ^ v90, 4) - __ROR4__(v90, 16)) ^ v89;
         v92 = 30LL;
-        v93 = ((unsigned __int16)v44 * (WORD1(v378) ^ v91) - __ROR4__(v91, 7)) ^ v90;
+        v93 = ((unsigned __int16)v44 * (WORD1(v381) ^ v91) - __ROR4__(v91, 7)) ^ v90;
         v94 = 16LL;
-        v95 = (v93 - v44 - HIWORD(v378)) ^ v91;
+        v95 = (v93 - v44 - HIWORD(v381)) ^ v91;
         v356 = 16LL;
-        v96 = __ROR4__(v95, 11) ^ (WORD2(v378) * __ROR4__(v44 - v95, 9)) ^ v93;
+        v96 = __ROR4__(v95, 11) ^ (WORD2(v381) * __ROR4__(v44 - v95, 9)) ^ v93;
         v97 = (unsigned __int8 *)v354;
-        v98 = (WORD1(v378) * (v96 - WORD2(v378)) - (v96 >> 13)) ^ v95;
+        v98 = (WORD1(v381) * (v96 - WORD2(v381)) - (v96 >> 13)) ^ v95;
         v99 = (unsigned __int8 *)v360;
         P = (PVOID)v360;
-        v100 = (v98 >> 15) ^ (v84 * __ROL4__(v98 - WORD2(v378), 3)) ^ v96;
+        v100 = (v98 >> 15) ^ (v84 * __ROL4__(v98 - WORD2(v381), 3)) ^ v96;
         do
         {
           v101 = v99[1];
           if ( (unsigned __int8)v101 < 0x1Fu )
           {
-            v102 = funcs_1406EFB8D[v101](v92 + 1, *(v97 - 2), *(v97 - 1), *v97, v97[1], (__int64)&v378, v100);
+            v102 = funcs_1406EFB8D[v101](v92 + 1, *(v97 - 2), *(v97 - 1), *v97, v97[1], (__int64)&v381, v100);
             v94 = v356;
             v98 ^= v102;
             v99 = (unsigned __int8 *)P;
@@ -910,7 +913,7 @@ LABEL_56:
           v103 = *v99;
           if ( (unsigned __int8)v103 < 0x1Fu )
           {
-            v104 = funcs_1406EFB8D[v103](v92, *(v97 - 6), *(v97 - 5), *(v97 - 4), *(v97 - 3), (__int64)&v378, v98);
+            v104 = funcs_1406EFB8D[v103](v92, *(v97 - 6), *(v97 - 5), *(v97 - 4), *(v97 - 3), (__int64)&v381, v98);
             v94 = v356;
             v100 ^= v104;
             v99 = (unsigned __int8 *)P;
@@ -947,7 +950,7 @@ LABEL_56:
         v364 = v105 + 8;
         if ( v114 )
           break;
-        LODWORD(v44) = v378;
+        LODWORD(v44) = v381;
         v79 = (unsigned __int8 *)v361;
       }
       v9 = v343;
@@ -1260,8 +1263,8 @@ LABEL_188:
       case 1:
         v154 = (PSID *)qword_140D534B8;
         memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-        v377 = 0LL;
-        GrantedAccess[0] = 0;
+        v380 = 0LL;
+        GrantedAccess = 0;
         memset(&SubjectContext, 0, sizeof(SubjectContext));
         AccessStatus = 0;
         v155 = RtlLengthSid(*(PSID *)(qword_140D534B8 + 384));
@@ -1304,7 +1307,7 @@ LABEL_188:
                              0LL,
                              (PGENERIC_MAPPING)&IopFileMapping,
                              1,
-                             GrantedAccess,
+                             &GrantedAccess,
                              &AccessStatus);
                     SeReleaseSubjectContext(&SubjectContext);
                     if ( !v160 )
@@ -1319,9 +1322,9 @@ LABEL_188:
         if ( Acl < 0 )
           goto LABEL_329;
         v8 = 0LL;
-        GrantedAccess[1] = 0;
-        v367 = 8LL;
-        ZwQuerySystemInformation(103LL, (__int64)&v367);
+        ReturnLength[0] = 0;
+        SystemInformation = 8LL;
+        ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, ReturnLength);
         if ( v6[4] != 160
           || ((v161 = (const void *)*((_QWORD *)v6 + 3), memcmp(qword_140A7C710, v161, 0xA0uLL))
            || v9[4] != 160
@@ -1379,9 +1382,9 @@ LABEL_188:
         goto LABEL_434;
       case 23:
         v163 = (PSID *)qword_140D534B8;
-        memset(v374, 0, sizeof(v374));
-        v375 = 0LL;
-        v366 = 0;
+        memset(v377, 0, sizeof(v377));
+        v378 = 0LL;
+        v369 = 0;
         memset(&SubjectSecurityContext, 0, sizeof(SubjectSecurityContext));
         v357 = 0;
         v164 = RtlLengthSid(*(PSID *)(qword_140D534B8 + 384));
@@ -1408,15 +1411,15 @@ LABEL_188:
               Acl = RtlpAddKnownAce((int)v168, 2, 0, 32, v163[34], 0);
               if ( Acl >= 0 )
               {
-                Acl = RtlCreateSecurityDescriptor(v374, 1u);
+                Acl = RtlCreateSecurityDescriptor(v377, 1u);
                 if ( Acl >= 0 )
                 {
-                  Acl = RtlSetDaclSecurityDescriptor(v374, 1u, v168, 0);
+                  Acl = RtlSetDaclSecurityDescriptor(v377, 1u, v168, 0);
                   if ( Acl >= 0 )
                   {
                     SeCaptureSubjectContext(&SubjectSecurityContext);
                     v169 = SeAccessCheck(
-                             v374,
+                             v377,
                              &SubjectSecurityContext,
                              0,
                              0x20u,
@@ -1424,7 +1427,7 @@ LABEL_188:
                              0LL,
                              (PGENERIC_MAPPING)&IopFileMapping,
                              1,
-                             &v366,
+                             &v369,
                              &v357);
                     SeReleaseSubjectContext(&SubjectSecurityContext);
                     if ( !v169 )
@@ -1438,9 +1441,9 @@ LABEL_188:
         ExFreePoolWithTag(v168, 0);
         if ( Acl < 0 )
           goto LABEL_329;
-        GrantedAccess[4] = 0;
-        v368 = 8LL;
-        ZwQuerySystemInformation(103LL, (__int64)&v368);
+        v368 = 0;
+        v371 = 8LL;
+        ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v371, 8u, &v368);
         v170 = v6[4];
         if ( (_DWORD)v170 != 160
           || ((v171 = (const void *)*((_QWORD *)v6 + 3), memcmp(qword_140A7C670, v171, 0xA0uLL))
@@ -1558,10 +1561,10 @@ LABEL_188:
         v153 = Acl < 0;
         goto LABEL_434;
       case 206:
-        GrantedAccess[3] = 0;
+        v367 = 0;
         Acl = 0;
-        v369 = 8LL;
-        ZwQuerySystemInformation(103LL, (__int64)&v369);
+        v372 = 8LL;
+        ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v372, 8u, &v367);
         v178 = v6[4];
         if ( (_DWORD)v178 != 160
           || ((v179 = (const void *)*((_QWORD *)v6 + 3), memcmp(qword_140A7CA30, v179, 0xA0uLL))
@@ -2084,7 +2087,7 @@ LABEL_528:
       goto LABEL_541;
     }
     v238 = 0;
-    v379 = v234;
+    v382 = v234;
     v239 = v233 & 7;
     v349 = v335;
     v350 = v233 & 7;
@@ -2131,7 +2134,7 @@ LABEL_528:
         }
         else
         {
-          v251 = funcs_1406EFB8D[v250](v249 + 1, *(v248 - 2), *(v248 - 1), *v248, v248[1], (__int64)&v379, v241);
+          v251 = funcs_1406EFB8D[v250](v249 + 1, *(v248 - 2), *(v248 - 1), *v248, v248[1], (__int64)&v382, v241);
           v246 = v344;
           v252 = v251 ^ v352;
           v352 ^= v251;
@@ -2139,7 +2142,7 @@ LABEL_528:
         v253 = *v247;
         if ( (unsigned __int8)v253 < 0x1Fu )
         {
-          v254 = funcs_1406EFB8D[v253](v249, *(v248 - 6), *(v248 - 5), *(v248 - 4), *(v248 - 3), (__int64)&v379, v252);
+          v254 = funcs_1406EFB8D[v253](v249, *(v248 - 6), *(v248 - 5), *(v248 - 4), *(v248 - 3), (__int64)&v382, v252);
           v246 = v344;
           v241 ^= v254;
         }
@@ -2232,14 +2235,14 @@ LABEL_528:
           v278 = *v272;
           if ( (unsigned __int8)v278 < 0x1Fu )
           {
-            v279 = funcs_1406EFB8D[v278](v268, *(v270 - 2), *(v270 - 1), *v270, v270[1], (__int64)&v379, v277);
+            v279 = funcs_1406EFB8D[v278](v268, *(v270 - 2), *(v270 - 1), *v270, v270[1], (__int64)&v382, v277);
             v275 = v344;
             v274 ^= v279;
           }
           v280 = v272[1];
           if ( (unsigned __int8)v280 < 0x1Fu )
           {
-            v281 = funcs_1406EFB8D[v280](v268 + 1, v270[2], v270[3], v270[4], v270[5], (__int64)&v379, v274);
+            v281 = funcs_1406EFB8D[v280](v268 + 1, v270[2], v270[3], v270[4], v270[5], (__int64)&v382, v274);
             v275 = v344;
             v277 ^= v281;
           }
@@ -2249,22 +2252,22 @@ LABEL_528:
           v344 = --v275;
         }
         while ( v275 );
-        v282 = v379;
-        v283 = HIDWORD(v379);
-        v284 = (HIWORD(v379) * ((unsigned __int16)v379 + __ROR4__(~v277, 5))) ^ v274;
-        v285 = (v284 >> 10) ^ (WORD1(v379) * (HIWORD(v379) ^ v284)) ^ v277;
-        v286 = __ROR4__(v285, 10) ^ (WORD2(v379) * __ROR4__(v379 ^ v285, 12)) ^ v284;
-        v287 = (HIWORD(v379) * __ROR4__(v286 - v379, 14) - __ROL4__(v286, 8)) ^ v285;
-        v288 = (__ROL4__(v287, 2) + (unsigned __int16)v379 * __ROR4__(v287 + HIDWORD(v379), 15)) ^ v286;
-        v289 = (WORD1(v379) * (WORD2(v379) ^ v288)) ^ __ROR4__(v288, 6) ^ v287;
-        v290 = (HIDWORD(v379) - (v379 ^ v289)) ^ v288;
-        v291 = (HIWORD(v379) * __ROL4__(WORD1(v379) ^ v290, 6) - __ROL4__(v290, 2)) ^ v289;
-        v292 = ((unsigned __int16)v379 * (v291 - WORD2(v379)) - (v291 >> 13)) ^ v290;
-        v293 = (WORD1(v379) * __ROR4__(v292 + HIDWORD(v379), 9) - __ROL4__(v292, 2)) ^ v291;
+        v282 = v382;
+        v283 = HIDWORD(v382);
+        v284 = (HIWORD(v382) * ((unsigned __int16)v382 + __ROR4__(~v277, 5))) ^ v274;
+        v285 = (v284 >> 10) ^ (WORD1(v382) * (HIWORD(v382) ^ v284)) ^ v277;
+        v286 = __ROR4__(v285, 10) ^ (WORD2(v382) * __ROR4__(v382 ^ v285, 12)) ^ v284;
+        v287 = (HIWORD(v382) * __ROR4__(v286 - v382, 14) - __ROL4__(v286, 8)) ^ v285;
+        v288 = (__ROL4__(v287, 2) + (unsigned __int16)v382 * __ROR4__(v287 + HIDWORD(v382), 15)) ^ v286;
+        v289 = (WORD1(v382) * (WORD2(v382) ^ v288)) ^ __ROR4__(v288, 6) ^ v287;
+        v290 = (HIDWORD(v382) - (v382 ^ v289)) ^ v288;
+        v291 = (HIWORD(v382) * __ROL4__(WORD1(v382) ^ v290, 6) - __ROL4__(v290, 2)) ^ v289;
+        v292 = ((unsigned __int16)v382 * (v291 - WORD2(v382)) - (v291 >> 13)) ^ v290;
+        v293 = (WORD1(v382) * __ROR4__(v292 + HIDWORD(v382), 9) - __ROL4__(v292, 2)) ^ v291;
         v294 = (_BYTE *)Size;
         v295 = (unsigned int)v349;
         v296 = uAddend[0];
-        v297 = (__ROL4__(v293, 10) + WORD2(v379) * __ROL4__(v293 - v379, 5)) ^ v292;
+        v297 = (__ROL4__(v293, 10) + WORD2(v382) * __ROL4__(v293 - v382, 5)) ^ v292;
         v298 = v297 ^ v293;
         v299 = puResult[0] ^ v297;
         *(_BYTE *)(Size - 4) = v299;
@@ -2423,9 +2426,9 @@ LABEL_447:
     v315 = 0LL;
     v324 = 0;
 LABEL_527:
-    *v370 = v315;
+    *v373 = v315;
     v10 = 0LL;
-    *v371 = v324;
+    *v374 = v324;
     goto LABEL_541;
   }
   if ( v11 )

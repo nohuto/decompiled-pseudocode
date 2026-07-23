@@ -1,9 +1,9 @@
 /*
  * XREFs of PoClearPowerRequest @ 0x140369EA0
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x1403698C4 (PopApplyLegacyPowerRequestFlags.c)
+ *     sub_1403698C4 @ 0x1403698C4 (sub_1403698C4.c)
  * Callees:
- *     PopPowerRequestReferenceRelease @ 0x140369FDC (PopPowerRequestReferenceRelease.c)
+ *     sub_140369FDC @ 0x140369FDC (sub_140369FDC.c)
  */
 
 NTSTATUS __stdcall PoClearPowerRequest(PVOID PowerRequest, POWER_REQUEST_TYPE Type)
@@ -13,5 +13,5 @@ NTSTATUS __stdcall PoClearPowerRequest(PVOID PowerRequest, POWER_REQUEST_TYPE Ty
   if ( Type && (v2 = Type - 1) != 0 && (unsigned int)(v2 - 1) >= 2 )
     return -1073741637;
   else
-    return PopPowerRequestReferenceRelease(PowerRequest);
+    return sub_140369FDC(PowerRequest);
 }

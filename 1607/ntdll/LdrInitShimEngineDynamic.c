@@ -1,32 +1,29 @@
 /*
- * XREFs of LdrInitShimEngineDynamic @ 0x1800D1D70
+ * XREFs of LdrInitShimEngineDynamic @ 0x1800D1E30
  * Callers:
  *     <none>
  * Callees:
- *     LdrpDrainWorkQueue @ 0x18000D61C (LdrpDrainWorkQueue.c)
- *     LdrpAcquireLoaderLock @ 0x18002D51C (LdrpAcquireLoaderLock.c)
- *     LdrpReleaseLoaderLock @ 0x18002D55C (LdrpReleaseLoaderLock.c)
- *     LdrFindEntryForAddress @ 0x180076030 (LdrFindEntryForAddress.c)
- *     LdrpDropLastInProgressCount @ 0x18007A61C (LdrpDropLastInProgressCount.c)
- *     LdrpLoadShimEngine @ 0x18007DCE0 (LdrpLoadShimEngine.c)
- *     LdrpGetShimEngineInterface @ 0x18007E068 (LdrpGetShimEngineInterface.c)
- *     LdrpPinModule @ 0x18007E418 (LdrpPinModule.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     LdrpDrainWorkQueue @ 0x18000D60C (LdrpDrainWorkQueue.c)
+ *     LdrpAcquireLoaderLock @ 0x18002D50C (LdrpAcquireLoaderLock.c)
+ *     LdrpReleaseLoaderLock @ 0x18002D54C (LdrpReleaseLoaderLock.c)
+ *     LdrFindEntryForAddress @ 0x180076020 (LdrFindEntryForAddress.c)
+ *     LdrpDropLastInProgressCount @ 0x18007A60C (LdrpDropLastInProgressCount.c)
+ *     LdrpLoadShimEngine @ 0x18007DCD0 (LdrpLoadShimEngine.c)
+ *     LdrpGetShimEngineInterface @ 0x18007E058 (LdrpGetShimEngineInterface.c)
+ *     LdrpPinModule @ 0x18007E408 (LdrpPinModule.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
+__int64 __fastcall LdrInitShimEngineDynamic(PVOID DllHandle, __int64 a2)
 {
   char v4; // di
-  int EntryForAddress; // eax
-  char *v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
+  NTSTATUS EntryForAddress; // eax
+  __int64 v6; // rcx
   unsigned __int8 ShimEngine; // bl
-  int v11; // r8d
-  __int64 v13; // [rsp+50h] [rbp+18h] BYREF
+  int v8; // r8d
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+50h] [rbp+18h] BYREF
 
-  v13 = 0LL;
+  Entry = 0LL;
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
   {
     v4 = 1;
@@ -39,13 +36,13 @@ __int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
   LdrpAcquireLoaderLock();
   if ( !g_pShimEngineModule )
   {
-    g_pShimEngineModule = a1;
+    g_pShimEngineModule = DllHandle;
     LdrpGetShimEngineInterface();
   }
-  EntryForAddress = LdrFindEntryForAddress(a1, &v13);
+  EntryForAddress = LdrFindEntryForAddress(DllHandle, &Entry);
   if ( EntryForAddress < 0 )
   {
-    v9 = (unsigned int)LdrpDebugFlags;
+    v6 = (unsigned int)LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
       LdrpLogDbgPrint(
@@ -55,24 +52,24 @@ __int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
         0,
         "Finding the shim engine entry failed with status 0x%08lx\n",
         EntryForAddress);
-      v9 = (unsigned int)LdrpDebugFlags;
+      v6 = (unsigned int)LdrpDebugFlags;
     }
-    if ( (v9 & 0x10) != 0 )
+    if ( (v6 & 0x10) != 0 )
       __debugbreak();
     ShimEngine = 0;
     goto LABEL_12;
   }
-  LdrpPinModule(v13, v6, v7, v8);
+  LdrpPinModule((__int64)Entry);
   ShimEngine = LdrpLoadShimEngine(*(PCWSTR *)(a2 + 8));
   if ( !ShimEngine )
   {
 LABEL_12:
-    v11 = -1073741823;
+    v8 = -1073741823;
     goto LABEL_13;
   }
-  v11 = 0;
+  v8 = 0;
 LABEL_13:
-  LdrpReleaseLoaderLock(v9, 2, v11);
+  LdrpReleaseLoaderLock(v6, 2, v8);
   if ( !v4 )
     LdrpDropLastInProgressCount();
   return ShimEngine;

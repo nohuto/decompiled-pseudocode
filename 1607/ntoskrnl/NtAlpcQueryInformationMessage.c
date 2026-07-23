@@ -1,39 +1,39 @@
 /*
- * XREFs of NtAlpcQueryInformationMessage @ 0x1404089C0
+ * XREFs of NtAlpcQueryInformationMessage @ 0x140407880
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     AlpcpQuerySidMessage @ 0x1403FEF88 (AlpcpQuerySidMessage.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpCaptureIdMessage @ 0x1404093D8 (AlpcpCaptureIdMessage.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     AlpcpQueryHandleInformationMessage @ 0x1404CBB48 (AlpcpQueryHandleInformationMessage.c)
- *     AlpcpLookupMessage @ 0x14050E300 (AlpcpLookupMessage.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x140655670 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     AlpcpQuerySidMessage @ 0x1403FDE48 (AlpcpQuerySidMessage.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x140408298 (AlpcpCaptureIdMessage.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     AlpcpQueryHandleInformationMessage @ 0x1404B1574 (AlpcpQueryHandleInformationMessage.c)
+ *     AlpcpLookupMessage @ 0x1404F1290 (AlpcpLookupMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x140655754 (AlpcpQueryTokenModifiedIdMessage.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformationMessage(
-        HANDLE Handle,
-        __int64 a2,
-        int a3,
-        volatile void *a4,
-        SIZE_T Length,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // bl
-  __int64 v11; // rsi
+  PULONG v11; // rsi
   __int64 v12; // rcx
   unsigned int v13; // r14d
-  NTSTATUS v14; // ebx
+  int v14; // ebx
   PVOID v15; // r15
   ULONG_PTR v16; // r14
-  int v17; // edi
-  int v18; // edi
-  NTSTATUS TokenModifiedIdMessage; // eax
+  __int32 v17; // edi
+  __int32 v18; // edi
+  int TokenModifiedIdMessage; // eax
   unsigned int v21; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v22; // [rsp+34h] [rbp-34h] BYREF
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
@@ -42,22 +42,22 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  AlpcpCaptureIdMessage(a2, &v21, &v22);
+  AlpcpCaptureIdMessage(PortMessage, &v21, &v22);
   if ( PreviousMode )
   {
-    ProbeForWrite(a4, (unsigned int)Length, 4u);
-    v11 = a6;
-    if ( a6 )
+    ProbeForWrite(MessageInformation, Length, 4u);
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      v12 = a6;
-      if ( a6 >= 0x7FFFFFFF0000LL )
+      v12 = (__int64)ReturnLength;
+      if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
         v12 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v12 = *(_DWORD *)v12;
     }
   }
   else
   {
-    v11 = a6;
+    v11 = ReturnLength;
   }
   v13 = v21;
   if ( !v21 )
@@ -65,7 +65,7 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
     v14 = -1073741811;
     goto LABEL_19;
   }
-  v14 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v14 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v14 >= 0 )
   {
     v15 = Object;
@@ -82,12 +82,17 @@ LABEL_18:
       v14 = -1073740029;
       goto LABEL_17;
     }
-    if ( a3 )
+    if ( MessageInformationClass )
     {
-      v17 = a3 - 1;
+      v17 = MessageInformationClass - 1;
       if ( !v17 )
       {
-        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage((_DWORD)v15, v24[0], (_DWORD)a4, Length, v11);
+        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage(
+                                   (_DWORD)v15,
+                                   v24[0],
+                                   (_DWORD)MessageInformation,
+                                   Length,
+                                   (__int64)v11);
         goto LABEL_16;
       }
       v18 = v17 - 1;
@@ -95,7 +100,12 @@ LABEL_18:
       {
         if ( v18 == 1 )
         {
-          TokenModifiedIdMessage = AlpcpQueryHandleInformationMessage((_DWORD)v15, v24[0], (_DWORD)a4, Length, v11);
+          TokenModifiedIdMessage = AlpcpQueryHandleInformationMessage(
+                                     (_DWORD)v15,
+                                     v24[0],
+                                     (_DWORD)MessageInformation,
+                                     Length,
+                                     (__int64)v11);
 LABEL_16:
           v14 = TokenModifiedIdMessage;
 LABEL_17:
@@ -103,7 +113,7 @@ LABEL_17:
           goto LABEL_18;
         }
       }
-      else if ( !a4 && !(_DWORD)Length && !v11 )
+      else if ( !MessageInformation && !Length && !v11 )
       {
         v14 = 0;
         if ( (*(_DWORD *)(v24[0] + 40) & 7) != 4 )
@@ -113,10 +123,15 @@ LABEL_17:
       v14 = -1073741811;
       goto LABEL_17;
     }
-    TokenModifiedIdMessage = AlpcpQuerySidMessage((__int64)v15, v24[0], (__int64)a4, Length, v11);
+    TokenModifiedIdMessage = AlpcpQuerySidMessage(
+                               (__int64)v15,
+                               v24[0],
+                               (__int64)MessageInformation,
+                               Length,
+                               (__int64)v11);
     goto LABEL_16;
   }
 LABEL_19:
   KeLeaveCriticalRegion();
-  return (unsigned int)v14;
+  return v14;
 }

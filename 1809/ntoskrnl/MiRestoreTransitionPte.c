@@ -1,33 +1,33 @@
 /*
- * XREFs of MiRestoreTransitionPte @ 0x140081010
+ * XREFs of MiRestoreTransitionPte @ 0x140081000
  * Callers:
  *     MiWriteCompletePfn @ 0x14001E770 (MiWriteCompletePfn.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140151F20 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     MiReuseStandbyPage @ 0x1402C0FA0 (MiReuseStandbyPage.c)
+ *     MiRelinkStandbyPage @ 0x1400F0AB8 (MiRelinkStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140152020 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     MiReuseStandbyPage @ 0x1402C1190 (MiReuseStandbyPage.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     MI_IS_RESET_PTE @ 0x140081D40 (MI_IS_RESET_PTE.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
- *     MI_CLEAR_RESET_PTE @ 0x1400938E4 (MI_CLEAR_RESET_PTE.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MI_IS_RESET_PTE @ 0x140081D30 (MI_IS_RESET_PTE.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiGetTopLevelPfn @ 0x140083810 (MiGetTopLevelPfn.c)
+ *     MI_CLEAR_RESET_PTE @ 0x140093824 (MI_CLEAR_RESET_PTE.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
  */
 
 char __fastcall MiRestoreTransitionPte(ULONG_PTR BugCheckParameter2, char a2)
@@ -94,7 +94,7 @@ char __fastcall MiRestoreTransitionPte(ULONG_PTR BugCheckParameter2, char a2)
     if ( (v8 & 0xFFFFFFFFFLL) == (__int64)(BugCheckParameter2 + 0x58000000000LL) / 48 )
       v4 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) | 0x8000000000000000uLL);
   }
-  v9 = *(_QWORD *)(qword_14043A748 + 8 * ((v8 >> 40) & 0x3FF));
+  v9 = *(_QWORD *)(qword_14043B808 + 8 * ((v8 >> 40) & 0x3FF));
   v27 = *(_QWORD *)(BugCheckParameter2 + 16);
   MiSetNonResidentPteHeat(&v27, 0LL);
   if ( v4 )
@@ -122,7 +122,7 @@ LABEL_7:
     *v4 = v14;
     goto LABEL_8;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v14 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v14 & 1) != 0 )
     v14 |= 0x8000000000000000uLL;
   *v4 = v14;
   LOBYTE(CurrentThread) = MiWritePteShadow(v4);
@@ -134,8 +134,8 @@ LABEL_8:
     v17 = *(_QWORD *)(BugCheckParameter2 + 16);
     if ( (v17 & 0x400) != 0 )
     {
-      if ( qword_14043A0C0 && (v17 & 0x10) == 0 )
-        v17 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v17 & 0x10) == 0 )
+        v17 &= ~qword_14043B180;
       LOBYTE(CurrentThread) = MiDereferenceControlAreaPfnList(*(_QWORD *)(v17 >> 16), v17 >> 16, v16, 3LL);
     }
   }
@@ -184,13 +184,13 @@ LABEL_8:
         else
         {
 LABEL_35:
-          v18 = (unsigned int)dword_14043A8E8;
+          v18 = (unsigned int)dword_14043B9A8;
         }
         LOBYTE(CurrentThread) = KxReleaseQueuedSpinLock(v26);
       }
       else
       {
-        v18 = (unsigned int)dword_14043A8E8;
+        v18 = (unsigned int)dword_14043B9A8;
       }
       if ( v18 )
         LOBYTE(CurrentThread) = KeInsertQueueDpc(&Dpc, 0LL, 0LL);

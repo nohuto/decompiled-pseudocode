@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyEnter @ 0x14057119C
+ * XREFs of PopDiagTraceCsResiliencyEnter @ 0x1405713DC
  * Callers:
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA074 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA1D4 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopIsRemoteDesktopEnabled @ 0x1408E1294 (PopIsRemoteDesktopEnabled.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopIsRemoteDesktopEnabled @ 0x1408E13F4 (PopIsRemoteDesktopEnabled.c)
  */
 
 __int64 __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, __int128 *a3)
@@ -23,20 +23,20 @@ __int64 __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, __int128 *
   IsRemoteDesktopEnabled = PopIsRemoteDesktopEnabled();
   v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
   memset(PopCsResiliencyStats, 0, 0x140uLL);
-  byte_140C230E3 = byte_140C23EE5;
-  byte_140C230E1 = dword_140C23E8C == 0;
-  dword_140C2310C = PopNetStandbyReason;
-  byte_140C23111 = PopNetBIRequestActive;
-  dword_140C23100 = PopEsState;
-  dword_140C23104 = PopEsReason;
+  byte_140C236E3 = byte_140C23385;
+  byte_140C236E1 = dword_140C2332C == 0;
+  dword_140C2370C = PopNetStandbyReason;
+  byte_140C23711 = PopNetBIRequestActive;
+  dword_140C23700 = PopEsState;
+  dword_140C23704 = PopEsReason;
   v8 = *(_DWORD *)(a1 + 12);
-  byte_140C230E2 = byte_140C23EE4;
-  dword_140C230E4 = v8;
-  qword_140C23168 = -1LL;
+  byte_140C236E2 = byte_140C23384;
+  dword_140C236E4 = v8;
+  qword_140C23768 = -1LL;
   PopCsResiliencyStats[0] = 1;
-  byte_140C23110 = IsRemoteDesktopEnabled;
-  byte_140C230E8 = a2;
-  xmmword_140C230F0 = *a3;
+  byte_140C23710 = IsRemoteDesktopEnabled;
+  byte_140C236E8 = a2;
+  xmmword_140C236F0 = *a3;
   KxReleaseSpinLock(&PopCsResiliencyStatsLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

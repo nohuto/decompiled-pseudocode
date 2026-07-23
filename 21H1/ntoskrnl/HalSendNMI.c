@@ -34,7 +34,7 @@ __int64 __fastcall HalSendNMI(__int64 a1)
   __int64 v20; // rbx
   unsigned __int64 v21; // rdx
   __int64 (__fastcall *v22)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *); // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-168h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-168h] BYREF
   __int128 v24; // [rsp+38h] [rbp-160h] BYREF
   __int64 v25; // [rsp+48h] [rbp-150h]
   __int64 v26; // [rsp+50h] [rbp-148h]

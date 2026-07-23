@@ -22,25 +22,25 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall sub_180025ACC(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall sub_180025ACC(_DWORD *Instance, __int64 a2, int a3)
 {
-  __int64 v3; // rsi
+  void *v3; // rsi
   int v4; // r12d
   unsigned __int32 v8; // ecx
   signed __int32 v9; // eax
   int v10; // r14d
   int v11; // ebp
   unsigned __int32 v12; // ecx
-  __int64 v13; // rcx
+  void *v13; // rcx
   __int64 v15; // rcx
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
-  __int64 v17; // [rsp+68h] [rbp+10h] BYREF
+  PVOID Cookie; // [rsp+68h] [rbp+10h] BYREF
 
-  v3 = *(_QWORD *)(a2 + 136);
+  v3 = *(void **)(a2 + 136);
   v4 = 0;
-  v17 = 0LL;
+  Cookie = 0LL;
   if ( v3 )
-    LdrLockLoaderLock(0LL, 0LL, &v17);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   _m_prefetchw((const void *)(a2 + 232));
   v8 = *(_DWORD *)(a2 + 232);
   do
@@ -70,7 +70,7 @@ __int64 __fastcall sub_180025ACC(__int64 a1, __int64 a2, int a3)
   {
     if ( v10 )
     {
-      if ( (int)LdrAddRefDll(0LL, v3) < 0 )
+      if ( LdrAddRefDll(0, v3) < 0 )
       {
         v10 = 0;
         v11 = 0;
@@ -78,11 +78,11 @@ __int64 __fastcall sub_180025ACC(__int64 a1, __int64 a2, int a3)
       }
       else
       {
-        *(_DWORD *)(a1 + 144) |= 0x100u;
-        *(_QWORD *)(a1 + 168) = v3;
+        Instance[36] |= 0x100u;
+        *((_QWORD *)Instance + 21) = v3;
       }
     }
-    LdrUnlockLoaderLock(0LL, v17);
+    LdrUnlockLoaderLock(0, Cookie);
     if ( v4 )
     {
       sub_180055584(a2 + 56, 0xFFFFFFFFLL);
@@ -92,8 +92,8 @@ __int64 __fastcall sub_180025ACC(__int64 a1, __int64 a2, int a3)
   if ( v11 )
   {
     _InterlockedExchangeAdd((volatile signed __int32 *)a2, 2u);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v15 = 2147353478LL;
     if ( *(_BYTE *)v15 )
@@ -115,23 +115,23 @@ __int64 __fastcall sub_180025ACC(__int64 a1, __int64 a2, int a3)
   {
     if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      *(_QWORD *)a1 = 72LL;
-      *(_DWORD *)(a1 + 8) = 1;
-      RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 96));
-      *(_BYTE *)(a1 + 76) |= 1u;
+      *(_QWORD *)Instance = 72LL;
+      Instance[2] = 1;
+      RtlActivateActivationContextUnsafeFast(Instance, *(_QWORD *)(a2 + 96));
+      *((_BYTE *)Instance + 76) |= 1u;
     }
-    *(_DWORD *)(a1 + 144) |= 0x240u;
-    *(_QWORD *)(a1 + 184) = a2;
+    Instance[36] |= 0x240u;
+    *((_QWORD *)Instance + 23) = a2;
     if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
-      TpCallbackMayRunLong(a1);
-    v13 = *(_QWORD *)(a2 + 104);
+      TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
+    v13 = *(void **)(a2 + 104);
     if ( v13 )
     {
-      *(_QWORD *)(a1 + 80) = v13;
-      RtlSetThreadSubProcessTag();
+      *((_QWORD *)Instance + 10) = v13;
+      RtlSetThreadSubProcessTag(v13);
     }
-    NtCurrentTeb()->ActivityId = *(struct _GUID *)(a2 + 112);
-    RtlSetThreadWorkOnBehalfTicket(a2 + 128);
+    NtCurrentTeb()->ActivityId = *(GUID *)(a2 + 112);
+    RtlSetThreadWorkOnBehalfTicket((PVOID)(a2 + 128));
     return 1LL;
   }
   else

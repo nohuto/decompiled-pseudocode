@@ -1,10 +1,10 @@
 /*
- * XREFs of PspInitializeSecExtensionHost @ 0x1409ADC78
+ * XREFs of PspInitializeSecExtensionHost @ 0x1409AEC78
  * Callers:
- *     PspInitPhase1 @ 0x1409AB320 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x1409AC320 (PspInitPhase1.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExRegisterHost @ 0x14072885C (ExRegisterHost.c)
  */
 
 __int64 PspInitializeSecExtensionHost()

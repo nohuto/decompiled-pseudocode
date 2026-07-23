@@ -1,11 +1,11 @@
 /*
- * XREFs of VslDriverProxyCreateStateFromImage @ 0x1405C2C00
+ * XREFs of VslDriverProxyCreateStateFromImage @ 0x1405C5470
  * Callers:
- *     MiConfigureDriverProxyState @ 0x1408649B0 (MiConfigureDriverProxyState.c)
+ *     MiConfigureDriverProxyState @ 0x14086AD90 (MiConfigureDriverProxyState.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslDriverProxyCreateStateFromImage(__int64 a1, __int64 a2, __int64 a3)

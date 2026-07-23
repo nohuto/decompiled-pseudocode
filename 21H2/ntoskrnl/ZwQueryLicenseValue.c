@@ -1,26 +1,31 @@
 /*
- * XREFs of ZwQueryLicenseValue @ 0x1403FCE20
+ * XREFs of ZwQueryLicenseValue @ 0x1403FD000
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x1402504F4 (SepDesktopAppxSubProcessToken.c)
- *     RtlGetProductInfo @ 0x1402D0C50 (RtlGetProductInfo.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     RtlpGetWindowsPolicy @ 0x140793200 (RtlpGetWindowsPolicy.c)
- *     ExGetExpirationDate @ 0x1407AA820 (ExGetExpirationDate.c)
- *     MmCreateMirror @ 0x1408C7310 (MmCreateMirror.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140914354 (RtlpGetPolicyValueForSystemCapability.c)
- *     SepIsLockedDown @ 0x14091BF9C (SepIsLockedDown.c)
- *     ExpGenuinePolicyPostProcess @ 0x14094D9C0 (ExpGenuinePolicyPostProcess.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
- *     WheapLoadPolicy @ 0x140A62C18 (WheapLoadPolicy.c)
- *     PpmInitIdlePolicy @ 0x140A6C6A4 (PpmInitIdlePolicy.c)
- *     InitializeDynamicPartitioningPolicy @ 0x140A73288 (InitializeDynamicPartitioningPolicy.c)
+ *     RtlGetProductInfo @ 0x14024F0E0 (RtlGetProductInfo.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1402F4D04 (SepDesktopAppxSubProcessToken.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A24C4 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     RtlpGetWindowsPolicy @ 0x14078EFA0 (RtlpGetWindowsPolicy.c)
+ *     ExGetExpirationDate @ 0x1407AAA20 (ExGetExpirationDate.c)
+ *     MmCreateMirror @ 0x1408C7470 (MmCreateMirror.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x1409144B4 (RtlpGetPolicyValueForSystemCapability.c)
+ *     SepIsLockedDown @ 0x14091C0FC (SepIsLockedDown.c)
+ *     ExpGenuinePolicyPostProcess @ 0x14094DB90 (ExpGenuinePolicyPostProcess.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
+ *     WheapLoadPolicy @ 0x140A63C18 (WheapLoadPolicy.c)
+ *     PpmInitIdlePolicy @ 0x140A6D6A4 (PpmInitIdlePolicy.c)
+ *     InitializeDynamicPartitioningPolicy @ 0x140A74288 (InitializeDynamicPartitioningPolicy.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryLicenseValue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ValueName);
 }

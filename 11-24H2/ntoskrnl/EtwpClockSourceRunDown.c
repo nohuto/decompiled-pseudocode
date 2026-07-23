@@ -1,44 +1,44 @@
 /*
- * XREFs of EtwpClockSourceRunDown @ 0x1407B09CC
+ * XREFs of EtwpClockSourceRunDown @ 0x1407B0E1C
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     KeGetDynamicTickDisableReason @ 0x1404F9794 (KeGetDynamicTickDisableReason.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     KeGetDynamicTickDisableReason @ 0x1404F7074 (KeGetDynamicTickDisableReason.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall EtwpClockSourceRunDown(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall EtwpClockSourceRunDown(__int64 a1, __int64 a2)
 {
   unsigned __int8 DynamicTickDisableReason; // al
-  unsigned int v6; // r8d
-  __int64 v7; // rdx
-  __int64 v8; // [rsp+30h] [rbp-50h] BYREF
-  int v9; // [rsp+38h] [rbp-48h]
-  __int128 v10; // [rsp+40h] [rbp-40h] BYREF
-  __int64 v11; // [rsp+50h] [rbp-30h]
-  int v12; // [rsp+58h] [rbp-28h]
-  char v13; // [rsp+5Ch] [rbp-24h]
-  __int64 *v14; // [rsp+60h] [rbp-20h] BYREF
-  int v15; // [rsp+68h] [rbp-18h]
-  int v16; // [rsp+6Ch] [rbp-14h]
+  unsigned int v4; // r8d
+  __int64 v5; // rdx
+  __int64 v6; // [rsp+30h] [rbp-50h] BYREF
+  int v7; // [rsp+38h] [rbp-48h]
+  __int128 v8; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v9; // [rsp+50h] [rbp-30h]
+  int v10; // [rsp+58h] [rbp-28h]
+  char v11; // [rsp+5Ch] [rbp-24h]
+  __int64 *v12; // [rsp+60h] [rbp-20h] BYREF
+  int v13; // [rsp+68h] [rbp-18h]
+  int v14; // [rsp+6Ch] [rbp-14h]
 
   if ( (_BYTE)a2 )
   {
-    v11 = 0LL;
-    v12 = 0;
-    v13 = 0;
-    v10 = 0LL;
-    guard_dispatch_icall_no_overrides(&v10, a2, a3, a4);
-    v8 = *(_QWORD *)((char *)&v10 + 4);
+    v9 = 0LL;
+    v10 = 0;
+    v11 = 0;
+    v8 = 0LL;
+    guard_dispatch_icall_no_overrides(&v8, a2);
+    v6 = *(_QWORD *)((char *)&v8 + 4);
     DynamicTickDisableReason = KeGetDynamicTickDisableReason();
-    v16 = 0;
-    v6 = *(_DWORD *)a1;
-    v7 = *(_QWORD *)(a1 + 1360);
-    v9 = DynamicTickDisableReason;
-    v14 = &v8;
-    v15 = 12;
-    EtwpLogKernelEvent((__int64)&v14, v7, v6, 1u, 3930, 0x501802u);
+    v14 = 0;
+    v4 = *(_DWORD *)a1;
+    v5 = *(_QWORD *)(a1 + 1360);
+    v7 = DynamicTickDisableReason;
+    v12 = &v6;
+    v13 = 12;
+    EtwpLogKernelEvent((__int64)&v12, v5, v4, 1u, 3930, 0x501802u);
   }
 }

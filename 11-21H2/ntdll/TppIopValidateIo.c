@@ -23,7 +23,7 @@ __int64 __fastcall TppIopValidateIo(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
     LOBYTE(v5) = TppValidateCleanupGroupMember((__int64)Ldr, a2);
     if ( v5 )
     {
-      if ( v4->SsHandle == TppIopCleanupGroupMemberVFuncs )
+      if ( v4->SsHandle == &TppIopCleanupGroupMemberVFuncs )
       {
         Ldr = NtCurrentPeb()->Ldr;
         if ( !Ldr->ShutdownInProgress )

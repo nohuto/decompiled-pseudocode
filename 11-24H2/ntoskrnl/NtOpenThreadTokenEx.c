@@ -1,31 +1,31 @@
 /*
- * XREFs of NtOpenThreadTokenEx @ 0x1408553C0
+ * XREFs of NtOpenThreadTokenEx @ 0x140851680
  * Callers:
- *     NtOpenThreadToken @ 0x1408553A0 (NtOpenThreadToken.c)
+ *     NtOpenThreadToken @ 0x140851660 (NtOpenThreadToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     SeQueryTokenTrustLink @ 0x14046743C (SeQueryTokenTrustLink.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     SepCreateImpersonationTokenDacl @ 0x140855E70 (SepCreateImpersonationTokenDacl.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     PspWriteTebImpersonationInfo @ 0x140911080 (PspWriteTebImpersonationInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SeQueryTokenTrustLink @ 0x14045EEDC (SeQueryTokenTrustLink.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     SepCreateImpersonationTokenDacl @ 0x140852130 (SepCreateImpersonationTokenDacl.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     PspWriteTebImpersonationInfo @ 0x1408E87D0 (PspWriteTebImpersonationInfo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtOpenThreadTokenEx(
@@ -47,8 +47,8 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
   void *v15; // r13
   struct _KTHREAD *v16; // rbx
   char v17; // r12
-  _QWORD *v18; // rax
-  _QWORD *v19; // rdi
+  char *v18; // rax
+  char *v19; // rdi
   __int64 v20; // rcx
   void *v21; // rcx
   __int64 v22; // rax
@@ -68,19 +68,19 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
   __int64 v36; // rcx
   __int64 TokenTrustLink; // rdi
   unsigned __int64 v38; // rbx
-  _QWORD *v39; // rax
+  char *v39; // rax
   struct _KTHREAD *v40; // rbx
   void *v41; // rdi
   volatile signed __int32 *v42; // rbx
   struct _KTHREAD *v43; // r15
   unsigned __int64 *v44; // r15
-  _QWORD *v45; // rax
+  char *v45; // rax
   _QWORD *v46; // rdx
   __int64 v47; // rcx
   PVOID v48; // rcx
   struct _KTHREAD *CurrentThread; // rsi
   signed __int64 *v50; // rdi
-  _QWORD *v51; // rbx
+  char *v51; // rbx
   _DWORD *v52; // rbx
   unsigned int v53; // eax
   unsigned int v54; // r12d
@@ -99,7 +99,7 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
   PVOID Thread; // [rsp+78h] [rbp-C0h]
   ULONG HandleAttributesa[2]; // [rsp+80h] [rbp-B8h]
   struct _KTHREAD *v69; // [rsp+88h] [rbp-B0h]
-  _QWORD *v70; // [rsp+90h] [rbp-A8h]
+  char *v70; // [rsp+90h] [rbp-A8h]
   PVOID P; // [rsp+98h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+A0h] [rbp-98h] BYREF
   __int128 v73; // [rsp+A8h] [rbp-90h] BYREF
@@ -153,11 +153,11 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       v50 = (signed __int64 *)((char *)Object + 1424);
-      v51 = KeAbPreAcquire((__int64)Object + 1424, 0LL);
+      v51 = (char *)KeAbPreAcquire((__int64)Object + 1424, 0LL);
       if ( _InterlockedCompareExchange64(v50, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v50, 0, v51, (__int64)v50);
       if ( v51 )
-        *((_BYTE *)v51 + 10) = 1;
+        v51[10] = 1;
       if ( (*((_DWORD *)Object + 360) & 8) != 0 )
       {
         v52 = Object;
@@ -205,15 +205,12 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
       {
         Thread = KeGetCurrentThread();
         --*((_WORD *)Thread + 242);
-        v18 = KeAbPreAcquire((__int64)&v16[1].WaitBlockList, 0LL);
+        v18 = (char *)KeAbPreAcquire((__int64)&v16[1].WaitBlockList, 0LL);
         v19 = v18;
         if ( _interlockedbittestandset64((volatile signed __int32 *)&v16[1].WaitBlockList, 0LL) )
-          ExfAcquirePushLockExclusiveEx(
-            (unsigned __int64 *)&v16[1].WaitBlockList,
-            (__int64)v18,
-            (__int64)&v16[1].WaitBlockList);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&v16[1].WaitBlockList, v18, (__int64)&v16[1].WaitBlockList);
         if ( v19 )
-          *((_BYTE *)v19 + 10) = 1;
+          v19[10] = 1;
         if ( _interlockedbittestandreset((volatile signed __int32 *)&v16[1].SwapListEntry + 2, 3u) )
         {
           v17 = 1;
@@ -339,7 +336,10 @@ LABEL_47:
               goto LABEL_50;
             }
             v54 = 4 * *((unsigned __int8 *)Src + 1) + 8;
-            Pool2 = (void *)ExAllocatePool2(0x100uLL);
+            Pool2 = (void *)ExAllocatePool2(
+                              0x100uLL,
+                              (4 * *((unsigned __int8 *)Src + 1) + 11) & 0xFFFFFFFC,
+                              0x69536553u);
             if ( Pool2 )
             {
               v55 = 4 * *((unsigned __int8 *)Src + 1) + 8;
@@ -384,18 +384,18 @@ LABEL_52:
             v38 = 0LL;
           }
           --v34->KernelApcDisable;
-          v39 = KeAbPreAcquire((__int64)&v33[1].WaitBlockList, 0LL);
+          v39 = (char *)KeAbPreAcquire((__int64)&v33[1].WaitBlockList, 0LL);
           v70 = v39;
           if ( _interlockedbittestandset64((volatile signed __int32 *)&v33[1].WaitBlockList, 0LL) )
           {
             ExfAcquirePushLockExclusiveEx(
               (unsigned __int64 *)&v33[1].WaitBlockList,
-              (__int64)v39,
+              v39,
               (__int64)&v33[1].WaitBlockList);
             v39 = v70;
           }
           if ( v39 )
-            *((_BYTE *)v39 + 10) = 1;
+            v39[10] = 1;
           if ( (*(_DWORD *)(&v33[1].SwapListEntry + 1) & 8) != 0 )
           {
             *(_QWORD *)HandleAttributesa = *(_QWORD *)((char *)&v33[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL;
@@ -403,7 +403,7 @@ LABEL_52:
           }
           if ( (_QWORD)v65 )
           {
-            *($5FBC9D02EEE85B5272AB6A5488D47FE6 *)((char *)&v33[1].116 + 4) = ($5FBC9D02EEE85B5272AB6A5488D47FE6)v38;
+            *($F6E8E81C3EACE4482EE2626591212BC8 *)((char *)&v33[1].116 + 4) = ($F6E8E81C3EACE4482EE2626591212BC8)v38;
             v33[1].WaitBlock[1].Thread = (struct _KTHREAD *)Src;
             if ( BYTE8(v65) )
               _InterlockedOr((volatile signed __int32 *)&v33[1].SwapListEntry + 2, 0x100u);
@@ -443,15 +443,15 @@ LABEL_52:
         PsReferenceSiloContext(v66);
         --v43->KernelApcDisable;
         v44 = (unsigned __int64 *)((char *)Object + 1424);
-        v45 = KeAbPreAcquire((__int64)Object + 1424, 0LL);
+        v45 = (char *)KeAbPreAcquire((__int64)Object + 1424, 0LL);
         v70 = v45;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v44, 0LL) )
         {
-          ExfAcquirePushLockExclusiveEx(v44, (__int64)v45, (__int64)v44);
+          ExfAcquirePushLockExclusiveEx(v44, v45, (__int64)v44);
           v45 = v70;
         }
         if ( v45 )
-          *((_BYTE *)v45 + 10) = 1;
+          v45[10] = 1;
         if ( (*((_DWORD *)Object + 360) & 8) != 0 )
         {
           v46 = Object;

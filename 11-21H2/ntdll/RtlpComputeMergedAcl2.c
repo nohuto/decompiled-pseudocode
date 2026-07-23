@@ -14,14 +14,14 @@ __int64 __fastcall RtlpComputeMergedAcl2(
         __int16 a4,
         __int64 a5,
         __int64 a6,
-        __int64 a7,
+        GENERIC_MAPPING *a7,
         int a8,
-        unsigned int *a9,
-        __int64 a10,
+        ULONG *a9,
+        PACL Acl,
         _DWORD *a11)
 {
-  unsigned int *v13; // r12
-  __int64 v14; // r15
+  ULONG *v13; // r12
+  PACL v14; // r15
   char v16; // di
   bool v17; // bp
   unsigned int v18; // esi
@@ -29,18 +29,18 @@ __int64 __fastcall RtlpComputeMergedAcl2(
   int v20; // ebx
   __int64 result; // rax
   unsigned int v22; // ecx
-  unsigned int v23; // ecx
-  _DWORD v24[18]; // [rsp+70h] [rbp-48h] BYREF
-  int v26; // [rsp+D8h] [rbp+20h] BYREF
+  ULONG v23; // ecx
+  __int64 v24[9]; // [rsp+70h] [rbp-48h] BYREF
+  __int64 v26; // [rsp+D8h] [rbp+20h] BYREF
 
-  v26 = 0;
-  v24[0] = 0;
+  LODWORD(v26) = 0;
+  LODWORD(v24[0]) = 0;
   v13 = a9;
-  v14 = a10;
+  v14 = Acl;
   v16 = 0;
   v17 = 1;
   v18 = 2;
-  RtlCreateAcl(a10, *a9, 2);
+  RtlCreateAcl(Acl, *a9, 2u);
   v19 = a11;
   *a11 = 1024;
   if ( (a4 & 0x1000) != 0 )
@@ -113,8 +113,8 @@ LABEL_31:
   if ( a8 == 1 )
     return 3221225591LL;
 LABEL_15:
-  v22 = v24[0] + v26;
-  if ( v24[0] + v26 || !v17 )
+  v22 = LODWORD(v24[0]) + v26;
+  if ( LODWORD(v24[0]) + (_DWORD)v26 || !v17 )
   {
     if ( (unsigned __int64)v22 + 8 > 0xFFFF )
       return 3221225597LL;
@@ -122,8 +122,8 @@ LABEL_15:
     *v13 = v23;
     if ( v16 )
       return 3221225507LL;
-    *(_WORD *)(v14 + 2) = v23;
-    *(_BYTE *)v14 = v18;
+    v14->AclSize = v23;
+    v14->AclRevision = v18;
   }
   else
   {

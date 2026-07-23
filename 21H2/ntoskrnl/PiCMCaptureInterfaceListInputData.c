@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCMCaptureInterfaceListInputData @ 0x1406ACF6C
+ * XREFs of PiCMCaptureInterfaceListInputData @ 0x14060B65C
  * Callers:
- *     PiCMGetDeviceInterfaceList @ 0x1406ACD88 (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetDeviceInterfaceList @ 0x14060B478 (PiCMGetDeviceInterfaceList.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x14062A4E0 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureInterfaceListInputData(unsigned __int64 a1, unsigned int a2, int a3, __int64 a4)
@@ -15,9 +15,9 @@ __int64 __fastcall PiCMCaptureInterfaceListInputData(unsigned __int64 a1, unsign
   int UserModeCallersCopy; // ebx
   unsigned __int64 v8; // r8
   _QWORD *v9; // r14
-  void *v10; // rcx
+  __int64 v10; // rcx
   unsigned __int64 v12; // r8
-  unsigned int v13; // r8d
+  __int64 v13; // r8
 
   v5 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -71,7 +71,7 @@ __int64 __fastcall PiCMCaptureInterfaceListInputData(unsigned __int64 a1, unsign
   if ( UserModeCallersCopy < 0 )
     goto LABEL_33;
   v9 = (_QWORD *)(a4 + 24);
-  v10 = *(void **)(a4 + 24);
+  v10 = *(_QWORD *)(a4 + 24);
   *(_QWORD *)(a4 + 24) = 0LL;
   if ( !v10 )
   {
@@ -79,10 +79,10 @@ __int64 __fastcall PiCMCaptureInterfaceListInputData(unsigned __int64 a1, unsign
       goto LABEL_17;
     goto LABEL_32;
   }
-  v13 = *(_DWORD *)(a4 + 32);
-  if ( v13 >= 2 )
+  v13 = *(unsigned int *)(a4 + 32);
+  if ( (unsigned int)v13 >= 2 )
   {
-    UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)(a4 + 24), v10, v13, 2u, PreviousMode, 1);
+    UserModeCallersCopy = PiControlMakeUserModeCallersCopy(a4 + 24, v10, v13, 2LL, PreviousMode, 1);
     if ( UserModeCallersCopy < 0 )
     {
       *v9 = 0LL;

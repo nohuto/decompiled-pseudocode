@@ -1,10 +1,10 @@
 /*
  * XREFs of SeAssignSecurity @ 0x140719100
  * Callers:
- *     CmpCreateChild @ 0x140719278 (CmpCreateChild.c)
- *     CmFcInitSystem2 @ 0x140B152D4 (CmFcInitSystem2.c)
+ *     sub_140719278 @ 0x140719278 (sub_140719278.c)
+ *     sub_140B152D4 @ 0x140B152D4 (sub_140B152D4.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
+ *     sub_1407CE760 @ 0x1407CE760 (sub_1407CE760.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurity(
@@ -29,7 +29,7 @@ NTSTATUS __stdcall SeAssignSecurity(
         v7 |= 2u;
     }
   }
-  return RtlpNewSecurityObject(
+  return sub_1407CE760(
            (_DWORD)ParentDescriptor,
            (_DWORD)ExplicitDescriptor,
            (_DWORD)NewDescriptor,

@@ -2,7 +2,7 @@
  * XREFs of RtlpHpSegSegmentInitialize @ 0x14000DC20
  * Callers:
  *     RtlpHpSegPageRangeAllocate @ 0x14000B270 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x140140EFC (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegContextReserve @ 0x140140FFC (RtlpHpSegContextReserve.c)
  * Callees:
  *     RtlpHpQueryVA @ 0x14000A390 (RtlpHpQueryVA.c)
  */

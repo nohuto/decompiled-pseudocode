@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsPfnCommitNotCharged @ 0x14023C210
+ * XREFs of MiIsPfnCommitNotCharged @ 0x140345F70
  * Callers:
- *     MiCombineCandidate @ 0x14020C0F0 (MiCombineCandidate.c)
- *     MiResolveProtoPteFault @ 0x140214BB0 (MiResolveProtoPteFault.c)
- *     MiLockProtoPoolPageForce @ 0x140215A80 (MiLockProtoPoolPageForce.c)
- *     MiMigratePfn @ 0x14022C0A0 (MiMigratePfn.c)
- *     MiCheckProtoPtePageState @ 0x14023BE50 (MiCheckProtoPtePageState.c)
- *     MiHardFaultPageRelease @ 0x1402F303C (MiHardFaultPageRelease.c)
- *     MiWriteCompletePfn @ 0x14039D574 (MiWriteCompletePfn.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x140674B50 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiHardFaultPageRelease @ 0x140258B7C (MiHardFaultPageRelease.c)
+ *     MiWriteCompletePfn @ 0x1402FA874 (MiWriteCompletePfn.c)
+ *     MiMigratePfn @ 0x1402FF9B0 (MiMigratePfn.c)
+ *     MiLockProtoPoolPageForce @ 0x140333E20 (MiLockProtoPoolPageForce.c)
+ *     MiResolveProtoPteFault @ 0x140334760 (MiResolveProtoPteFault.c)
+ *     MiCombineCandidate @ 0x140344930 (MiCombineCandidate.c)
+ *     MiCheckProtoPtePageState @ 0x140345BB0 (MiCheckProtoPtePageState.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140675D20 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
  *     <none>
  */

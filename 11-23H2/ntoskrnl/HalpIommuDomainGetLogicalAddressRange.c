@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuDomainGetLogicalAddressRange @ 0x14045E726
+ * XREFs of HalpIommuDomainGetLogicalAddressRange @ 0x14045EB26
  * Callers:
- *     IommuMapIdentityRangeEx @ 0x140525F50 (IommuMapIdentityRangeEx.c)
- *     IommuMapLogicalRangeEx @ 0x140526170 (IommuMapLogicalRangeEx.c)
- *     IommuReserveLogicalAddressRange @ 0x1405264F0 (IommuReserveLogicalAddressRange.c)
+ *     IommuMapIdentityRangeEx @ 0x1405264A0 (IommuMapIdentityRangeEx.c)
+ *     IommuMapLogicalRangeEx @ 0x1405266C0 (IommuMapLogicalRangeEx.c)
+ *     IommuReserveLogicalAddressRange @ 0x140526A40 (IommuReserveLogicalAddressRange.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuDomainGetLogicalAddressRange(

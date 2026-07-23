@@ -1,14 +1,14 @@
 /*
- * XREFs of SeComputeCreatorDeniedRights @ 0x1403BDDA0
+ * XREFs of SeComputeCreatorDeniedRights @ 0x1403C7CA0
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140930170 (ObpGrantAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x140931B40 (ObpAdjustCreatorAccessState.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14090BCA0 (ObpGrantAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x14090D710 (ObpAdjustCreatorAccessState.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     SepGetScopedPolicySid @ 0x1403BE380 (SepGetScopedPolicySid.c)
- *     SepRmReferenceFindCap @ 0x1403BE3D8 (SepRmReferenceFindCap.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     SepGetScopedPolicySid @ 0x1403C8280 (SepGetScopedPolicySid.c)
+ *     SepRmReferenceFindCap @ 0x1403C82D8 (SepRmReferenceFindCap.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 __int64 __fastcall SeComputeCreatorDeniedRights(
@@ -23,7 +23,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   char *v8; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
-  unsigned __int64 ThreadLock; // rdx
+  _DWORD *StackBase; // rdx
   char *ClientToken; // rbp
   __int64 v13; // rax
   unsigned __int8 *v14; // rsi
@@ -170,7 +170,7 @@ LABEL_6:
   {
     v8 = 0LL;
   }
-  if ( BYTE1(SepRmCapTableLock.Header.WaitListHead.Flink) )
+  if ( SepRmEnforceCap )
   {
     if ( v8 )
     {
@@ -178,10 +178,10 @@ LABEL_6:
       if ( ScopedPolicySid )
       {
         Cap = SepRmReferenceFindCap(ScopedPolicySid);
-        ThreadLock = 0LL;
+        StackBase = 0LL;
         if ( Cap < 0 )
-          ThreadLock = ExpPlatformBinaryLock.ThreadLock;
-        if ( (*(_DWORD *)(ThreadLock + 56) & 1) != 0 )
+          StackBase = ExpPlatformBinaryLock.StackBase;
+        if ( (StackBase[14] & 1) != 0 )
         {
 LABEL_16:
           ClientToken = (char *)a1->ClientToken;

@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpGetMergeSdbsDisabled @ 0x14066DCF4
+ * XREFs of SdbpGetMergeSdbsDisabled @ 0x14066E244
  * Callers:
- *     SdbpGetManifestedMergeStubAlloc @ 0x140A4EB08 (SdbpGetManifestedMergeStubAlloc.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140A4EDB8 (SdbpGetManifestedMergeStubAlloc.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslRegistryGetKey @ 0x14084E44C (AslRegistryGetKey.c)
- *     AslRegistryGetUInt32 @ 0x140A54480 (AslRegistryGetUInt32.c)
+ *     AslRegistryGetKey @ 0x14084E74C (AslRegistryGetKey.c)
+ *     AslRegistryGetUInt32 @ 0x140A54730 (AslRegistryGetUInt32.c)
  */
 
 __int64 __fastcall SdbpGetMergeSdbsDisabled(_DWORD *a1)

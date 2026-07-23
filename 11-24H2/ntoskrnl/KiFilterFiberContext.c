@@ -1,18 +1,18 @@
 /*
- * XREFs of KiFilterFiberContext @ 0x140BDF530
+ * XREFs of KiFilterFiberContext @ 0x140BE1530
  * Callers:
- *     KeInitAmd64SpecificState @ 0x140BDEB80 (KeInitAmd64SpecificState.c)
+ *     KeInitAmd64SpecificState @ 0x140BE0B80 (KeInitAmd64SpecificState.c)
  * Callees:
- *     ExNotifyCallback @ 0x14024D520 (ExNotifyCallback.c)
- *     KeExpandKernelStackAndCallout @ 0x14027BAB0 (KeExpandKernelStackAndCallout.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExInitializeNPagedLookasideList @ 0x14045FAD0 (ExInitializeNPagedLookasideList.c)
- *     KeKeepData @ 0x14047FAB8 (KeKeepData.c)
- *     KdDisableDebugger @ 0x1405AF900 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x1405AFA40 (KdEnableDebugger.c)
- *     ExCreateCallback @ 0x140A64310 (ExCreateCallback.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     KiSwInterruptPresent @ 0x140BDEBD4 (KiSwInterruptPresent.c)
+ *     KeExpandKernelStackAndCallout @ 0x140231040 (KeExpandKernelStackAndCallout.c)
+ *     ExNotifyCallback @ 0x14027DB30 (ExNotifyCallback.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExInitializeNPagedLookasideList @ 0x140454990 (ExInitializeNPagedLookasideList.c)
+ *     KeKeepData @ 0x14047A848 (KeKeepData.c)
+ *     KdDisableDebugger @ 0x1405AC870 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x1405AC9B0 (KdEnableDebugger.c)
+ *     ExCreateCallback @ 0x140A5CC10 (ExCreateCallback.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     KiSwInterruptPresent @ 0x140BE0BD4 (KiSwInterruptPresent.c)
  */
 
 _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
@@ -86,11 +86,11 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0) >= 0 )
       {
-        ExNotifyCallback(CallbackObject, sub_14050A410, &__24);
+        ExNotifyCallback(CallbackObject, sub_140507CD0, &__24);
         ObfDereferenceObject(CallbackObject);
         if ( __24 )
           __2c = 1;
-        ExInitializeNPagedLookasideList(&stru_140E0F280, 0LL, 0LL, 0x200u, 0xB38uLL, 0x746E494Bu, 0);
+        ExInitializeNPagedLookasideList(&stru_140E0F340, 0LL, 0LL, 0x200u, 0xB38uLL, 0x746E494Bu, 0);
       }
     }
   }
@@ -109,7 +109,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   v11 = ((unsigned __int64)v10 ^ *((_QWORD *)&v10 + 1)) % 6;
   Parameter[1] = v11;
   Parameter[0] = v9 % 0xD;
-  v12 = KeExpandKernelStackAndCallout(sub_140C08680, Parameter, 0xC000uLL);
+  v12 = KeExpandKernelStackAndCallout(sub_140C0A680, Parameter, 0xC000uLL);
   v13 = v31;
   if ( v12 < 0 )
     v13 = 0;
@@ -135,7 +135,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
     v33 = a1;
     v34 = 0;
     v35 = 0;
-    v19 = KeExpandKernelStackAndCallout(sub_140C08680, v32, 0xC000uLL);
+    v19 = KeExpandKernelStackAndCallout(sub_140C0A680, v32, 0xC000uLL);
     v20 = v35;
     if ( v19 < 0 )
       v20 = 0;
@@ -151,8 +151,8 @@ LABEL_21:
       if ( (int)KiSwInterruptPresent() < 0 && !__2c )
       {
 LABEL_30:
-        if ( qword_141007660 )
-          ExFreePool(qword_141007660);
+        if ( qword_141008660 )
+          ExFreePool(qword_141008660);
         v24 = 24;
         v25 = &__25;
         v26 = 3LL;
@@ -172,8 +172,8 @@ LABEL_30:
         __2e = 0;
         __26 = 0;
         __27 = 0LL;
-        dword_140E0F1C0 = 0;
-        qword_141007080 = 0LL;
+        dword_140E0F280 = 0;
+        qword_141008080 = 0LL;
         goto LABEL_37;
       }
       v36[0] = 0;
@@ -183,7 +183,7 @@ LABEL_30:
       v21 = KiSwInterruptPresent();
       v39 = 0;
       v38 = (v21 >> 31) & 8;
-      v22 = KeExpandKernelStackAndCallout(sub_140C08680, v36, 0xC000uLL);
+      v22 = KeExpandKernelStackAndCallout(sub_140C0A680, v36, 0xC000uLL);
       v23 = v39;
       if ( v22 < 0 )
         v23 = 0;

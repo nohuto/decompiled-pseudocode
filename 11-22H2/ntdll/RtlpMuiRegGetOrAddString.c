@@ -19,34 +19,29 @@ __int64 __fastcall RtlpMuiRegGetOrAddString(__int64 a1, _WORD *a2, __int64 a3, _
 {
   __int16 v4; // bp
   char v6; // r15
-  int v9; // edi
-  __int64 v10; // rdx
-  __int64 v11; // r9
   __int64 result; // rax
-  __int64 v13; // rax
-  __int64 v14; // r8
-  unsigned int v15; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v10; // rax
+  __int64 v11; // r8
+  int v12; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = -1;
   v6 = a3;
   if ( !a1 || !a2 || !*a2 )
     goto LABEL_12;
-  v9 = *(_DWORD *)a1 & 2;
-  if ( !(_BYTE)a3 || (LOBYTE(a3) = 1, !v9) )
+  if ( !(_BYTE)a3 || (LOBYTE(a3) = 1, (*(_DWORD *)a1 & 2) == 0) )
     LOBYTE(a3) = 0;
-  v4 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a2, a3, &v15);
+  v4 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a2, a3, &v12);
   if ( v4 >= 0 )
     goto LABEL_7;
   if ( v6 )
   {
-    LOBYTE(v11) = v9 == 0;
-    v13 = RtlpMuiRegGrowStringPool(*(_QWORD *)(a1 + 32), v10, v15, v11);
-    if ( v13 )
+    v10 = RtlpMuiRegGrowStringPool(*(PVOID *)(a1 + 32));
+    if ( v10 )
     {
       *(_DWORD *)a1 |= 2u;
-      LOBYTE(v14) = 1;
-      *(_QWORD *)(a1 + 32) = v13;
-      v4 = RtlpMuiRegGetOrAddStringToPool(v13, a2, v14, 0LL);
+      LOBYTE(v11) = 1;
+      *(_QWORD *)(a1 + 32) = v10;
+      v4 = RtlpMuiRegGetOrAddStringToPool(v10, a2, v11, 0LL);
       if ( v4 >= 0 )
       {
 LABEL_7:

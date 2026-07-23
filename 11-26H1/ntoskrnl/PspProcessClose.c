@@ -1,12 +1,12 @@
 /*
- * XREFs of PspProcessClose @ 0x140A8E3E0
+ * XREFs of PspProcessClose @ 0x140A930B0
  * Callers:
  *     <none>
  * Callees:
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     PsTerminateProcess @ 0x14095690C (PsTerminateProcess.c)
- *     PspRundownProcess @ 0x140B39B8C (PspRundownProcess.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     PsTerminateProcess @ 0x14094A334 (PsTerminateProcess.c)
+ *     PspRundownProcess @ 0x140B3BD9C (PspRundownProcess.c)
  */
 
 void __fastcall PspProcessClose(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

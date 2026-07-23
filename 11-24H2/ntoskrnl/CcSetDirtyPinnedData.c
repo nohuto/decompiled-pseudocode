@@ -1,23 +1,23 @@
 /*
- * XREFs of CcSetDirtyPinnedData @ 0x1402AB6C0
+ * XREFs of CcSetDirtyPinnedData @ 0x1402769E0
  * Callers:
- *     CcZeroDataInCache @ 0x140267564 (CcZeroDataInCache.c)
- *     CcFlushCachePostProcessOneRange @ 0x1402AACA0 (CcFlushCachePostProcessOneRange.c)
- *     CcReleaseByteRangeFromWrite @ 0x1402AB220 (CcReleaseByteRangeFromWrite.c)
- *     CcUnpinRepinnedBcb @ 0x140494980 (CcUnpinRepinnedBcb.c)
- *     CcPreparePinWrite @ 0x140A3EE70 (CcPreparePinWrite.c)
+ *     CcZeroDataInCache @ 0x14025EB44 (CcZeroDataInCache.c)
+ *     CcFlushCachePostProcessOneRange @ 0x140275FC0 (CcFlushCachePostProcessOneRange.c)
+ *     CcReleaseByteRangeFromWrite @ 0x140276540 (CcReleaseByteRangeFromWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x14048F410 (CcUnpinRepinnedBcb.c)
+ *     CcPreparePinWrite @ 0x140A34720 (CcPreparePinWrite.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x140446E98 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcChargeDirtyPagesInternal @ 0x14044B950 (CcChargeDirtyPagesInternal.c)
- *     CcSetDirtyInMask @ 0x1404614E0 (CcSetDirtyInMask.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x14043F66C (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcChargeDirtyPagesInternal @ 0x140442A90 (CcChargeDirtyPagesInternal.c)
+ *     CcSetDirtyInMask @ 0x140456AF0 (CcSetDirtyInMask.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
@@ -32,14 +32,15 @@ void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
   __int64 v10; // rdi
   int v11; // r15d
   unsigned __int8 CurrentIrql; // bp
-  __int64 v13; // rax
-  unsigned int v14; // r15d
-  unsigned __int64 v15; // rax
-  LONGLONG v16; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  unsigned int v15; // r15d
+  unsigned __int64 v16; // rax
+  LONGLONG v17; // rcx
   LONGLONG QuadPart; // rax
-  LONGLONG v18; // rcx
-  __int64 v19; // rax
-  _QWORD v20[2]; // [rsp+30h] [rbp-58h] BYREF
+  LONGLONG v19; // rcx
+  __int64 v20; // rax
+  _QWORD v21[2]; // [rsp+30h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
 
   v2 = (char *)BcbVoid;
@@ -47,9 +48,9 @@ void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( v3 != 765 && v3 != 762 )
     KeBugCheckEx(0x34u, 0xF1DuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  v5 = v20;
-  v20[0] = BcbVoid;
-  v20[1] = 0LL;
+  v5 = v21;
+  v21[0] = BcbVoid;
+  v21[1] = 0LL;
   if ( v3 == 762 )
   {
     BcbVoid = (PVOID)*((_QWORD *)BcbVoid + 2);
@@ -68,7 +69,7 @@ void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
     for ( i = *v5; *v5; i = *v5 )
     {
       ++v5;
-      v20[0] = i;
+      v21[0] = i;
       if ( (i & 1) != 0 )
         KeBugCheckEx(0x34u, 0xF7FuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
       v10 = *(_QWORD *)(i + 176);
@@ -91,8 +92,9 @@ void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
         LockHandle.OldIrql = CurrentIrql;
         if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
         {
-          if ( _InterlockedExchange64((volatile __int64 *)(v7 + 768), (__int64)&LockHandle) )
-            KxWaitForLockOwnerShip(&LockHandle);
+          v13 = _InterlockedExchange64((volatile __int64 *)(v7 + 768), (__int64)&LockHandle);
+          if ( v13 )
+            KxWaitForLockOwnerShip(&LockHandle, v13);
         }
         else
         {
@@ -128,41 +130,41 @@ void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
           CcInsertIntoDirtySharedCacheMapList(v10);
         }
         if ( CcEnablePerVolumeLazyWriter )
-          v13 = *(_QWORD *)(v10 + 600);
+          v14 = *(_QWORD *)(v10 + 600);
         else
-          v13 = 0LL;
-        CcChargeDirtyPagesInternal(v10, 0, 0, v11, *(_QWORD *)(v10 + 536), v13);
+          v14 = 0LL;
+        CcChargeDirtyPagesInternal(v10, 0, 0, v11, *(_QWORD *)(v10 + 536), v14);
         KeReleaseInStackQueuedSpinLock(&LockHandle);
         if ( (*(_DWORD *)(v10 + 152) & 0x10000000) != 0 )
         {
-          v14 = v11 << 12;
-          v15 = KeGetCurrentThread()->Process[3].Padding[4];
-          if ( v15 )
+          v15 = v11 << 12;
+          v16 = KeGetCurrentThread()->Process[3].Padding[4];
+          if ( v16 )
           {
-            if ( v14 )
-              _InterlockedAdd64((volatile signed __int64 *)(v15 + 8), v14);
-            _InterlockedIncrement64((volatile signed __int64 *)(v15 + 24));
+            if ( v15 )
+              _InterlockedAdd64((volatile signed __int64 *)(v16 + 8), v15);
+            _InterlockedIncrement64((volatile signed __int64 *)(v16 + 24));
           }
         }
       }
       if ( Lsn )
       {
-        v16 = *(_QWORD *)(i + 40);
+        v17 = *(_QWORD *)(i + 40);
         QuadPart = Lsn->QuadPart;
-        if ( !v16 || QuadPart < v16 )
+        if ( !v17 || QuadPart < v17 )
         {
           *(_QWORD *)(i + 40) = QuadPart;
           QuadPart = Lsn->QuadPart;
         }
-        v18 = *(_QWORD *)(i + 48);
-        if ( !v18 || QuadPart > v18 )
+        v19 = *(_QWORD *)(i + 48);
+        if ( !v19 || QuadPart > v19 )
           *(_QWORD *)(i + 48) = QuadPart;
         if ( Lsn->QuadPart > *(_QWORD *)(v10 + 264) )
           *(LARGE_INTEGER *)(v10 + 264) = *Lsn;
       }
-      v19 = *(_QWORD *)(i + 32);
-      if ( v19 > *(_QWORD *)(v10 + 48) )
-        *(_QWORD *)(v10 + 48) = v19;
+      v20 = *(_QWORD *)(i + 32);
+      if ( v20 > *(_QWORD *)(v10 + 48) )
+        *(_QWORD *)(v10 + 48) = v20;
       KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v10 + 288));
     }
   }

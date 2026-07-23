@@ -1,16 +1,16 @@
 /*
- * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x1409069DC
+ * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x140A2EC3C
  * Callers:
- *     NtEnumerateDriverEntries @ 0x14083D430 (NtEnumerateDriverEntries.c)
- *     NtEnumerateSystemEnvironmentValuesEx @ 0x14083D8B0 (NtEnumerateSystemEnvironmentValuesEx.c)
- *     NtEnumerateBootEntries @ 0x140A94460 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x140843670 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x140843AF0 (NtEnumerateSystemEnvironmentValuesEx.c)
+ *     NtEnumerateBootEntries @ 0x140A2CCB0 (NtEnumerateBootEntries.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IopOpenSystemVariableDevice @ 0x1409084B8 (IopOpenSystemVariableDevice.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IopOpenSystemVariableDevice @ 0x140A30618 (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoEnumerateEnvironmentVariablesEx(int a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -56,7 +56,7 @@ __int64 __fastcall IoEnumerateEnvironmentVariablesEx(int a1, __int64 a2, __int64
     v21 = &v10;
     v20 = 4LL;
     v22 = 1LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06DC8, (unsigned __int8 *)word_140047C1A, 0LL, 0LL, 6u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06DC8, (unsigned __int8 *)word_140048272, 0LL, 0LL, 6u, &v14);
   }
   return (unsigned int)v7;
 }

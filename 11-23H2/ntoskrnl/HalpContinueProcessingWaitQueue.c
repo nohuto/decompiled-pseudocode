@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpContinueProcessingWaitQueue @ 0x14050FBE4
+ * XREFs of HalpContinueProcessingWaitQueue @ 0x140510134
  * Callers:
- *     HalPutScatterGatherListV3 @ 0x14050F288 (HalPutScatterGatherListV3.c)
- *     IoFreeAdapterChannelV3 @ 0x140510200 (IoFreeAdapterChannelV3.c)
+ *     HalPutScatterGatherListV3 @ 0x14050F7D8 (HalPutScatterGatherListV3.c)
+ *     IoFreeAdapterChannelV3 @ 0x140510750 (IoFreeAdapterChannelV3.c)
  * Callees:
- *     HalpDmaGetNextWcb @ 0x1404FFED4 (HalpDmaGetNextWcb.c)
- *     IoFreeAdapterChannelV3Internal @ 0x140510254 (IoFreeAdapterChannelV3Internal.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514EBC (HalpAllocateDmaResourcesInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaGetNextWcb @ 0x140500424 (HalpDmaGetNextWcb.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x1405107A4 (IoFreeAdapterChannelV3Internal.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14051540C (HalpAllocateDmaResourcesInternal.c)
  */
 
 __int64 __fastcall HalpContinueProcessingWaitQueue(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall HalpContinueProcessingWaitQueue(__int64 a1)
     {
       v7 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v7 == 2 )
@@ -71,10 +71,10 @@ __int64 __fastcall HalpContinueProcessingWaitQueue(__int64 a1)
 LABEL_18:
     if ( v5 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v11 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v13 = CurrentPrcb->SchedulerAssist;
@@ -82,7 +82,7 @@ LABEL_18:
           v15 = (v14 & v13[5]) == 0;
           v13[5] &= v14;
           if ( v15 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(CurrentIrql);

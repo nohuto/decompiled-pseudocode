@@ -1,10 +1,10 @@
 /*
- * XREFs of MmSetPermanentCacheAttribute @ 0x140A30790
+ * XREFs of MmSetPermanentCacheAttribute @ 0x140A30A40
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

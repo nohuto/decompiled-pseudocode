@@ -14,7 +14,7 @@ unsigned __int8 __fastcall KiAbCrossThreadRelease(__int64 a1, __int64 a2, ULONG_
   unsigned __int8 result; // al
   int v8; // [rsp+38h] [rbp+10h] BYREF
 
-  KiAbEntryRemoveFromTree(a2);
+  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a2);
   v6 = *(_DWORD *)(a2 + 88);
   *(_BYTE *)(a2 + 26) &= ~1u;
   v8 = v6 & 0x1FFFF;

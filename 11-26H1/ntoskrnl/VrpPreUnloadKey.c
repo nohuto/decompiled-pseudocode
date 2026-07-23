@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpPreUnloadKey @ 0x140B27FF4
+ * XREFs of VrpPreUnloadKey @ 0x140B29C84
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     VrpFindExactNamespaceNode @ 0x14097778C (VrpFindExactNamespaceNode.c)
- *     VrpUnlockJobContextExclusive @ 0x1409787A4 (VrpUnlockJobContextExclusive.c)
- *     VrpLockJobContextExclusive @ 0x140978CF4 (VrpLockJobContextExclusive.c)
+ *     VrpFindExactNamespaceNode @ 0x14093979C (VrpFindExactNamespaceNode.c)
+ *     VrpUnlockJobContextExclusive @ 0x14093A7B4 (VrpUnlockJobContextExclusive.c)
+ *     VrpLockJobContextExclusive @ 0x14093AD04 (VrpLockJobContextExclusive.c)
  */
 
 __int64 __fastcall VrpPreUnloadKey(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -19,30 +19,31 @@ __int64 __fastcall SepTrustLevelCheck(
         __int64 a2,
         struct _SECURITY_SUBJECT_CONTEXT *a3,
         __int64 a4,
-        __int64 a5,
+        PSID Sid1,
         char a6,
         int *a7)
 {
-  int v7; // esi
+  NTSTATUS v7; // esi
   char v8; // r15
   __int64 ProcessTrustLabelAce; // rax
   int v13; // r14d
-  __int64 v14; // r12
+  void *v14; // r12
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v16; // rbp
+  PSID v16; // rbp
   struct _KTHREAD *v17; // rcx
   __int16 v18; // ax
-  _BYTE v19[56]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+60h] [rbp+8h] BYREF
+  BOOLEAN v19[56]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 DominatesTrust; // [rsp+60h] [rbp+8h] BYREF
 
-  v20 = a1;
+  DominatesTrust = a1;
   v7 = 0;
   v19[0] = 0;
-  LOBYTE(v20) = 0;
+  LOBYTE(DominatesTrust) = 0;
   v8 = 0;
   ProcessTrustLabelAce = SepGetProcessTrustLabelAce(a2);
   if ( !ProcessTrustLabelAce
-    || (v13 = *(_DWORD *)(ProcessTrustLabelAce + 4), v14 = ProcessTrustLabelAce + 8, ProcessTrustLabelAce == -8) )
+    || (v13 = *(_DWORD *)(ProcessTrustLabelAce + 4), v14 = (void *)(ProcessTrustLabelAce + 8),
+                                                     ProcessTrustLabelAce == -8) )
   {
     *a7 = -1;
     return (unsigned int)v7;
@@ -63,13 +64,13 @@ __int64 __fastcall SepTrustLevelCheck(
   }
   if ( a4 )
   {
-    v16 = a5;
+    v16 = Sid1;
     goto LABEL_15;
   }
   if ( !a3->ClientToken )
   {
 LABEL_14:
-    v16 = *((_QWORD *)a3->PrimaryToken + 138);
+    v16 = (PSID)*((_QWORD *)a3->PrimaryToken + 138);
 LABEL_15:
     v7 = RtlSidDominatesForTrust(v16, v14, v19);
     if ( v7 >= 0 )
@@ -81,11 +82,11 @@ LABEL_15:
     }
     goto LABEL_19;
   }
-  v16 = *((_QWORD *)a3->ClientToken + 138);
-  v7 = RtlSidDominatesForTrust(*((_QWORD *)a3->PrimaryToken + 138), v16, &v20);
+  v16 = (PSID)*((_QWORD *)a3->ClientToken + 138);
+  v7 = RtlSidDominatesForTrust(*((PSID *)a3->PrimaryToken + 138), v16, (PBOOLEAN)&DominatesTrust);
   if ( v7 >= 0 )
   {
-    if ( (_BYTE)v20 )
+    if ( (_BYTE)DominatesTrust )
       goto LABEL_15;
     goto LABEL_14;
   }

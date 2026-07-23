@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRestrictSystemCodeProtection @ 0x140529C14
+ * XREFs of MiRestrictSystemCodeProtection @ 0x14052C130
  * Callers:
- *     MiSetSystemCodeProtection @ 0x14038B984 (MiSetSystemCodeProtection.c)
- *     MiProtectLargeKernelHalRange @ 0x1408644C0 (MiProtectLargeKernelHalRange.c)
+ *     MiSetSystemCodeProtection @ 0x14038D734 (MiSetSystemCodeProtection.c)
+ *     MiProtectLargeKernelHalRange @ 0x14086A8A0 (MiProtectLargeKernelHalRange.c)
  * Callees:
  *     <none>
  */

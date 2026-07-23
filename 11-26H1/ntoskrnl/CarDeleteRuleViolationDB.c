@@ -1,21 +1,21 @@
 /*
- * XREFs of CarDeleteRuleViolationDB @ 0x14064C4F0
+ * XREFs of CarDeleteRuleViolationDB @ 0x1406500D0
  * Callers:
- *     CarCleanup @ 0x1406495F0 (CarCleanup.c)
+ *     CarCleanup @ 0x14064D1D0 (CarCleanup.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403B8060 (RtlEnumerateGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     ViPtRaiseIrqlSafe @ 0x140641D9C (ViPtRaiseIrqlSafe.c)
- *     CarAcquireDbLockAtDpcLevelSafe @ 0x14064C038 (CarAcquireDbLockAtDpcLevelSafe.c)
- *     CarCleanDbLockContext @ 0x14064C304 (CarCleanDbLockContext.c)
- *     CarReleaseDbLockFromDpcLevel @ 0x14064C5FC (CarReleaseDbLockFromDpcLevel.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403C1F60 (RtlEnumerateGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     ViPtRaiseIrqlSafe @ 0x14064597C (ViPtRaiseIrqlSafe.c)
+ *     CarAcquireDbLockAtDpcLevelSafe @ 0x14064FC18 (CarAcquireDbLockAtDpcLevelSafe.c)
+ *     CarCleanDbLockContext @ 0x14064FEE4 (CarCleanDbLockContext.c)
+ *     CarReleaseDbLockFromDpcLevel @ 0x1406501DC (CarReleaseDbLockFromDpcLevel.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void CarDeleteRuleViolationDB()
 {
   BOOLEAN i; // dl
-  RTL_AVL_TABLE *v1; // rbx
+  _RTL_AVL_TABLE *v1; // rbx
   PVOID v2; // rax
   __int128 v3; // [rsp+20h] [rbp-18h] BYREF
 

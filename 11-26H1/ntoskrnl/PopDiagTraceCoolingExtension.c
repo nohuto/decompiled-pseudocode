@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDiagTraceCoolingExtension @ 0x140AC1740
+ * XREFs of PopDiagTraceCoolingExtension @ 0x140AC37E0
  * Callers:
- *     PopAssociateThermalRequest @ 0x1407CB7EC (PopAssociateThermalRequest.c)
- *     PopCoolingExtensionPnpNotification @ 0x1407CBA20 (PopCoolingExtensionPnpNotification.c)
- *     PopDeactiveThermalRequest @ 0x1407CBAF8 (PopDeactiveThermalRequest.c)
- *     PopDisableCoolingExtension @ 0x1407CBCE4 (PopDisableCoolingExtension.c)
- *     PopRundownThermalRequests @ 0x140AC135C (PopRundownThermalRequests.c)
+ *     PopAssociateThermalRequest @ 0x1407CE88C (PopAssociateThermalRequest.c)
+ *     PopCoolingExtensionPnpNotification @ 0x1407CEAC0 (PopCoolingExtensionPnpNotification.c)
+ *     PopDeactiveThermalRequest @ 0x1407CEB98 (PopDeactiveThermalRequest.c)
+ *     PopDisableCoolingExtension @ 0x1407CED84 (PopDisableCoolingExtension.c)
+ *     PopRundownThermalRequests @ 0x140AC33FC (PopRundownThermalRequests.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCoolingExtension(__int64 a1, const EVENT_DESCRIPTOR *a2)
@@ -50,9 +50,9 @@ void __fastcall PopDiagTraceCoolingExtension(__int64 a1, const EVENT_DESCRIPTOR 
   v13 = 0;
   v11 = 0;
   v16 = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], a2) )
+    if ( EtwEventEnabled(PopDiagHandle, a2) )
     {
       DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 48), 0x67446F50u);
       v5 = DeviceAttachmentBaseRefWithTag;
@@ -88,7 +88,7 @@ void __fastcall PopDiagTraceCoolingExtension(__int64 a1, const EVENT_DESCRIPTOR 
           v28 = *(_QWORD *)(v6 + 136);
           v29 = v10;
           v30 = 0;
-          EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], a2, 0LL, 7u, &UserData);
+          EtwWrite(PopDiagHandle, a2, 0LL, 7u, &UserData);
         }
         ObfDereferenceObjectWithTag(v5, 0x67446F50u);
       }

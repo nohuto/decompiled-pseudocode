@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwShutdownSystem @ 0x140726CD0
+ * XREFs of ZwShutdownSystem @ 0x14072B8A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwShutdownSystem(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwShutdownSystem(SHUTDOWN_ACTION Action)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Action);
 }

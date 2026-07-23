@@ -1,35 +1,30 @@
 /*
- * XREFs of TpWaitForIoCompletion @ 0x180087A00
+ * XREFs of TpWaitForIoCompletion @ 0x1800879F0
  * Callers:
  *     <none>
  * Callees:
- *     TppIopValidateIo @ 0x18003C170 (TppIopValidateIo.c)
- *     TppBarrierAdjust @ 0x180063E84 (TppBarrierAdjust.c)
+ *     TppIopValidateIo @ 0x18003C160 (TppIopValidateIo.c)
+ *     TppBarrierAdjust @ 0x180063E74 (TppBarrierAdjust.c)
  *     TppETWCallbackCancel @ 0x1800FE67C (TppETWCallbackCancel.c)
  */
 
-__int64 __fastcall TpWaitForIoCompletion(__int64 a1, __int32 a2)
+void __cdecl TpWaitForIoCompletion(PTP_IO Io, LOGICAL CancelPendingCallbacks)
 {
-  __int64 result; // rax
-  __int64 v5; // r9
-
-  result = TppIopValidateIo((_PEB_LDR_DATA *)a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo((_PEB_LDR_DATA *)Io, 0LL, 0LL) )
   {
-    if ( a2 )
-      a2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
-    result = TppBarrierAdjust((volatile signed __int64 *)(a1 + 56), -a2, 1LL, v5);
-    if ( a2 )
+    if ( CancelPendingCallbacks )
+      CancelPendingCallbacks = _InterlockedExchange((volatile __int32 *)Io + 70, 0);
+    TppBarrierAdjust((_RTL_SRWLOCK *)Io + 7, -CancelPendingCallbacks, 1);
+    if ( CancelPendingCallbacks )
     {
       if ( MEMORY[0x7FFE0386] )
-        return TppETWCallbackCancel(
-                 *(_QWORD *)(a1 + 144),
-                 (int)a1 + 200,
-                 (int)a1 + 80,
-                 *(_QWORD *)(a1 + 88),
-                 *(_QWORD *)(a1 + 104),
-                 a2);
+        TppETWCallbackCancel(
+          *((_QWORD *)Io + 18),
+          (_DWORD)Io + 200,
+          (_DWORD)Io + 80,
+          *((_QWORD *)Io + 11),
+          *((_QWORD *)Io + 13),
+          CancelPendingCallbacks);
     }
   }
-  return result;
 }

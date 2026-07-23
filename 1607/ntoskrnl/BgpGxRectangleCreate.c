@@ -1,7 +1,7 @@
 /*
  * XREFs of BgpGxRectangleCreate @ 0x1407276DC
  * Callers:
- *     BgpGxConvertRectangleEx @ 0x1402395E0 (BgpGxConvertRectangleEx.c)
+ *     BgpGxConvertRectangleEx @ 0x1402394C4 (BgpGxConvertRectangleEx.c)
  *     BgpGxParseBitmap @ 0x140725B84 (BgpGxParseBitmap.c)
  *     BgpGxReadRectangle @ 0x140725CE0 (BgpGxReadRectangle.c)
  *     AnFwDisplayFade @ 0x14072664C (AnFwDisplayFade.c)
@@ -10,8 +10,8 @@
  *     BgpGxBlendRectangle @ 0x14072AD60 (BgpGxBlendRectangle.c)
  *     BgpTxtDisplayString @ 0x14072B0B0 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     GxpBitsToBytes @ 0x140129A68 (GxpBitsToBytes.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     GxpBitsToBytes @ 0x140129FD8 (GxpBitsToBytes.c)
  */
 
 __int64 __fastcall BgpGxRectangleCreate(_DWORD *a1, int a2, __int64 *a3)

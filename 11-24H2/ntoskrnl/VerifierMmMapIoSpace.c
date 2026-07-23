@@ -1,50 +1,48 @@
 /*
- * XREFs of VerifierMmMapIoSpace @ 0x140BA0990
+ * XREFs of VerifierMmMapIoSpace @ 0x140BA2990
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ViTargetAddToCounter @ 0x140B8B8F0 (ViTargetAddToCounter.c)
- *     VfFaultsInjectResourceFailure @ 0x140B96568 (VfFaultsInjectResourceFailure.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ViTargetAddToCounter @ 0x140B8D8F0 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x140B98568 (VfFaultsInjectResourceFailure.c)
  */
 
-__int64 __fastcall VerifierMmMapIoSpace(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall VerifierMmMapIoSpace(__int64 a1, unsigned __int64 a2, int a3)
 {
-  unsigned int v4; // edi
-  unsigned int v5; // esi
-  __int64 v9; // rax
-  __int64 v10; // rbx
+  unsigned int v3; // edi
+  __int64 v8; // rax
+  __int64 v9; // rbx
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  v4 = 4;
-  v5 = a3;
+  v3 = 4;
   if ( (VfRuleClasses & 4) != 0 && (unsigned int)VfFaultsInjectResourceFailure(0)
     || (VfRuleClasses & 0x40000) != 0
     && ViFnAutoFailInject
-    && (unsigned __int8)guard_dispatch_icall_no_overrides("MmMapIoSpace", a2, a3, a4) )
+    && (unsigned __int8)guard_dispatch_icall_no_overrides("MmMapIoSpace", a2) )
   {
     return 0LL;
   }
   if ( (MmVerifierData & 0x2000000) != 0 )
   {
-    if ( v5 != 1 )
+    if ( a3 != 1 )
     {
-      v4 = 516;
-      if ( v5 == 2 )
-        v4 = 1028;
+      v3 = 516;
+      if ( a3 == 2 )
+        v3 = 1028;
     }
-    v9 = MmMapIoSpaceEx(a1, a2, v4);
+    v8 = MmMapIoSpaceEx(a1, a2, v3);
   }
   else
   {
-    v9 = guard_dispatch_icall_no_overrides(a1, a2, v5, a4);
+    v8 = guard_dispatch_icall_no_overrides(a1, a2);
   }
-  v10 = v9;
-  if ( v9 )
+  v9 = v8;
+  if ( v8 )
   {
     if ( (MmVerifierData & 0x1000) != 0 )
       ViTargetAddToCounter(retaddr, 216LL, 0xE0u, a2);
   }
-  return v10;
+  return v9;
 }

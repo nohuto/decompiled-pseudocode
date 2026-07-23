@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxIdleWorker @ 0x1400C178C
+ * XREFs of PopFxIdleWorker @ 0x1400BF61C
  * Callers:
- *     PopFxIdleComponent @ 0x1400C1B10 (PopFxIdleComponent.c)
- *     PopFxComponentWork @ 0x140111F94 (PopFxComponentWork.c)
+ *     PopFxIdleComponent @ 0x1400BF9A0 (PopFxIdleComponent.c)
+ *     PopFxComponentWork @ 0x1401124F8 (PopFxComponentWork.c)
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     PopFxIdleWorkerTail @ 0x1400C1860 (PopFxIdleWorkerTail.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     PopFxIdleWorkerTail @ 0x1400BF6F0 (PopFxIdleWorkerTail.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopFxIdleWorker(_QWORD *BugCheckParameter2, unsigned int a2)

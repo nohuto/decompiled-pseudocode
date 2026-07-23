@@ -1,17 +1,20 @@
 /*
- * XREFs of ZwOpenSymbolicLinkObject @ 0x18009FBF0
+ * XREFs of ZwOpenSymbolicLinkObject @ 0x18009FBB0
  * Callers:
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwOpenSymbolicLinkObject()
+NTSTATUS __cdecl ZwOpenSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 302LL;
+  result = 302;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

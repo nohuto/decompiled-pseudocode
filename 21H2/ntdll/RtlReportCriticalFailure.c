@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlReportCriticalFailure @ 0x1800FF47C
+ * XREFs of RtlReportCriticalFailure @ 0x1800FF43C
  * Callers:
  *     RtlpHeapGenerateRandomValue32 @ 0x18000A448 (RtlpHeapGenerateRandomValue32.c)
  *     RtlpHpLfhSubsegmentInitialize @ 0x18002F690 (RtlpHpLfhSubsegmentInitialize.c)
  *     RtlRunOnceExecuteOnce @ 0x180043830 (RtlRunOnceExecuteOnce.c)
- *     RtlRestoreThreadPreferredUILanguages @ 0x1800EF560 (RtlRestoreThreadPreferredUILanguages.c)
- *     RtlpReportHeapFailure @ 0x18010AFE8 (RtlpReportHeapFailure.c)
+ *     RtlRestoreThreadPreferredUILanguages @ 0x1800EF520 (RtlRestoreThreadPreferredUILanguages.c)
+ *     RtlpReportHeapFailure @ 0x18010AFA8 (RtlpReportHeapFailure.c)
  * Callees:
  *     DbgPrintEx @ 0x180051450 (DbgPrintEx.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     RtlIsAnyDebuggerPresent @ 0x1800FF3B0 (RtlIsAnyDebuggerPresent.c)
- *     RtlReportFatalFailure @ 0x1800FF540 (RtlReportFatalFailure.c)
+ *     RtlIsAnyDebuggerPresent @ 0x1800FF370 (RtlIsAnyDebuggerPresent.c)
+ *     RtlReportFatalFailure @ 0x1800FF500 (RtlReportFatalFailure.c)
  */
 
 __int64 __fastcall RtlReportCriticalFailure(int a1, __int64 a2, int a3)
@@ -24,7 +24,7 @@ __int64 __fastcall RtlReportCriticalFailure(int a1, __int64 a2, int a3)
 
   if ( RtlIsAnyDebuggerPresent() )
   {
-    DbgPrintEx(101, 0, "Critical error detected %lx\n", v6);
+    DbgPrintEx(0x65u, 0, "Critical error detected %lx\n", v6);
     if ( a3 )
       __debugbreak();
   }

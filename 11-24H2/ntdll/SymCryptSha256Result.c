@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptSha256Result @ 0x18015B604
+ * XREFs of SymCryptSha256Result @ 0x1801599C4
  * Callers:
- *     SymCryptSha256 @ 0x18015A258 (SymCryptSha256.c)
+ *     SymCryptSha256 @ 0x180158618 (SymCryptSha256.c)
  * Callees:
- *     SymCryptWipeAsm @ 0x180131590 (SymCryptWipeAsm.c)
- *     SymCryptSha256AppendBlocks_ul1 @ 0x18015A3B4 (SymCryptSha256AppendBlocks_ul1.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     SymCryptWipeAsm @ 0x18012F7C0 (SymCryptWipeAsm.c)
+ *     SymCryptSha256AppendBlocks_ul1 @ 0x180158774 (SymCryptSha256AppendBlocks_ul1.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptSha256Result(__m128i *a1, _QWORD *a2)
@@ -42,7 +42,7 @@ __int64 __fastcall SymCryptSha256Result(__m128i *a1, _QWORD *a2)
   }
   while ( v7 );
   result = SymCryptWipeAsm((__int64)a1, 0x80uLL);
-  a1[6] = (__m128i)xmmword_18019A478;
-  a1[7] = (__m128i)xmmword_18019A488;
+  a1[6] = (__m128i)xmmword_1801995A8;
+  a1[7] = (__m128i)xmmword_1801995B8;
   return result;
 }

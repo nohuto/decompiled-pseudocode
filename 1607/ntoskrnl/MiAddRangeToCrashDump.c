@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAddRangeToCrashDump @ 0x1401E763C
+ * XREFs of MiAddRangeToCrashDump @ 0x1401E7468
  * Callers:
- *     MiAddRangeToCrashDump @ 0x1401E763C (MiAddRangeToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1401E7A54 (MmAddRangeToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x1401E7468 (MiAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1401E7880 (MmAddRangeToCrashDump.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     KdCheckForDebugBreak @ 0x1401140F8 (KdCheckForDebugBreak.c)
- *     MiIsPageSecured @ 0x1401E4BEC (MiIsPageSecured.c)
- *     MiAddRangeToCrashDump @ 0x1401E763C (MiAddRangeToCrashDump.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     KdCheckForDebugBreak @ 0x140114668 (KdCheckForDebugBreak.c)
+ *     MiIsPageSecured @ 0x1401E4A18 (MiIsPageSecured.c)
+ *     MiAddRangeToCrashDump @ 0x1401E7468 (MiAddRangeToCrashDump.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiAddRangeToCrashDump(
@@ -84,9 +84,9 @@ __int64 __fastcall MiAddRangeToCrashDump(
         --v12;
       }
       while ( v12 );
-      if ( *(_DWORD *)(a4 + 80) == 1 && v11 >= qword_140326910 && v11 < qword_140326910 + 0x8000000000LL )
+      if ( *(_DWORD *)(a4 + 80) == 1 && v11 >= qword_140326950 && v11 < qword_140326950 + 0x8000000000LL )
         continue;
-      if ( !qword_140326C80 || v11 < qword_140326C80 )
+      if ( !qword_140326CC0 || v11 < qword_140326CC0 )
       {
 LABEL_24:
         IsPfnInline = MiIsPfnInline(v10);
@@ -129,7 +129,7 @@ LABEL_24:
         }
         continue;
       }
-      if ( v11 < qword_140326C80 + (qword_140326C60 << 21) )
+      if ( v11 < qword_140326CC0 + (qword_140326CA0 << 21) )
         continue;
     }
     if ( a5 )
@@ -142,8 +142,8 @@ LABEL_24:
     }
     if ( MiIsPfnInline(v10) && !MiIsPageSecured(48 * v25 - 0x58000000000LL) )
     {
-      if ( v28 < qword_140326AF0
-        || v28 >= qword_140326AF0 + (qword_140326AE0 << 21)
+      if ( v28 < qword_140326B30
+        || v28 >= qword_140326B30 + (qword_140326B20 << 21)
         || (v29 = *(_QWORD *)(v26 + 8) | 0x8000000000000000uLL, v29 > 0xFFFFF6BFFFFFFF78uLL)
         || v29 < 0xFFFFF68000000000uLL
         || (*(_QWORD *)(v26 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1

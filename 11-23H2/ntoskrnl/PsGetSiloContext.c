@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetSiloContext @ 0x1403631E0
+ * XREFs of PsGetSiloContext @ 0x140363380
  * Callers:
  *     <none>
  * Callees:
- *     PspStorageGetObject @ 0x1407D92F0 (PspStorageGetObject.c)
+ *     PspStorageGetObject @ 0x1407D95C0 (PspStorageGetObject.c)
  */
 
 __int64 __fastcall PsGetSiloContext(__int64 a1, __int64 a2, _QWORD *a3)

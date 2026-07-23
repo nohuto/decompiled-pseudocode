@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnBuildDumpFromTrace @ 0x140971DD0
+ * XREFs of PfSnBuildDumpFromTrace @ 0x14095A5E0
  * Callers:
- *     PfSnEndTrace @ 0x140971A58 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x14095A268 (PfSnEndTrace.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfVerifyTraceBuffer @ 0x14097228C (PfVerifyTraceBuffer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfVerifyTraceBuffer @ 0x14095AA9C (PfVerifyTraceBuffer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBuildDumpFromTrace(PVOID *a1, __int64 a2)
 {
   int v2; // r12d
   PVOID *v4; // r14
-  unsigned int v5; // edi
+  ULONG_PTR v5; // rdi
   char *Pool2; // rax
   char *v7; // rbx
   char *v8; // r15
@@ -46,12 +46,12 @@ __int64 __fastcall PfSnBuildDumpFromTrace(PVOID *a1, __int64 a2)
   {
     v5 = ((16 * (*(_DWORD *)(a2 + 120) + *(_DWORD *)(a2 + 344)) + 215) & 0xFFFFFFF8)
        + 8 * (*(_DWORD *)(a2 + 480) + 2 * (*(_DWORD *)(a2 + 480) + 1));
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, v5, 0x44506343u);
     *v4 = Pool2;
     v7 = Pool2;
     if ( Pool2 )
     {
-      memset_0(Pool2, 0, v5);
+      memset_0(Pool2, 0, (unsigned int)v5);
       *((_DWORD *)v7 + 5) = 1128485697;
       v8 = v7 + 16;
       *((_DWORD *)v7 + 4) = 31;

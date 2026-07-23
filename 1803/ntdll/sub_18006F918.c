@@ -14,7 +14,7 @@
  *     ZwClose @ 0x18009ACA0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_18006F918(__int64 a1)
+__int64 __fastcall sub_18006F918(char *a1)
 {
   unsigned int v1; // edx
 

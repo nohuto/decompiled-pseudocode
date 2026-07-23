@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpFindAndCommitPages @ 0x14061C484
+ * XREFs of RtlpFindAndCommitPages @ 0x14061F4D4
  * Callers:
- *     RtlpExtendHeap @ 0x14061C228 (RtlpExtendHeap.c)
+ *     RtlpExtendHeap @ 0x14061F278 (RtlpExtendHeap.c)
  * Callees:
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     RtlpHpHeapCheckCommitLimit @ 0x14047F6B0 (RtlpHpHeapCheckCommitLimit.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHeapHandleError @ 0x140526988 (RtlpHeapHandleError.c)
- *     RtlpCreateUCREntry @ 0x14061BB40 (RtlpCreateUCREntry.c)
- *     RtlpRemoveUCRBlock @ 0x14061D374 (RtlpRemoveUCRBlock.c)
- *     RtlpUpdateHeapRates @ 0x14061D750 (RtlpUpdateHeapRates.c)
- *     RtlpAnalyzeHeapFailure @ 0x14062584C (RtlpAnalyzeHeapFailure.c)
- *     RtlpFindUCREntry @ 0x140625F10 (RtlpFindUCREntry.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x140479020 (RtlpHpHeapCheckCommitLimit.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x140528FF8 (RtlpHeapHandleError.c)
+ *     RtlpCreateUCREntry @ 0x14061EB90 (RtlpCreateUCREntry.c)
+ *     RtlpRemoveUCRBlock @ 0x1406203C4 (RtlpRemoveUCRBlock.c)
+ *     RtlpUpdateHeapRates @ 0x1406207A0 (RtlpUpdateHeapRates.c)
+ *     RtlpAnalyzeHeapFailure @ 0x14062889C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindUCREntry @ 0x140628F60 (RtlpFindUCREntry.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
   else
     v9 = a1;
   BaseAddress = *(PVOID *)(v5 + 32);
-  if ( RtlpBootStatHandleLock.SListFaultAddress != *(void **)(a1 + 360) )
+  if ( RtlpBootStatHandleLock.QuantumTarget != *(_QWORD *)(a1 + 360) )
   {
     updated = guard_dispatch_icall_no_overrides(a1, &BaseAddress);
   }

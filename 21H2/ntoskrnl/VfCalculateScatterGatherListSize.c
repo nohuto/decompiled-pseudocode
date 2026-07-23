@@ -1,10 +1,10 @@
 /*
- * XREFs of VfCalculateScatterGatherListSize @ 0x1409CB520
+ * XREFs of VfCalculateScatterGatherListSize @ 0x1409CC520
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x1409CFA50 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfCalculateScatterGatherListSize(

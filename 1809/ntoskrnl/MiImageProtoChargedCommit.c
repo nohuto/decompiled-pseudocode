@@ -1,11 +1,11 @@
 /*
- * XREFs of MiImageProtoChargedCommit @ 0x14016AF30
+ * XREFs of MiImageProtoChargedCommit @ 0x14016B030
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
  * Callees:
  *     MiGetSubsectionDriverProtos @ 0x14001B7BC (MiGetSubsectionDriverProtos.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MiGetSharedProtosAtDpcLevel @ 0x1401771DC (MiGetSharedProtosAtDpcLevel.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1401772DC (MiGetSharedProtosAtDpcLevel.c)
  */
 
 _BOOL8 __fastcall MiImageProtoChargedCommit(__int64 a1, unsigned __int64 a2)

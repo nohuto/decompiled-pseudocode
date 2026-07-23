@@ -23,7 +23,7 @@ void __fastcall CcRescheduleLazyWriteScanOnVolume(__int64 a1, __int64 *a2)
   }
   if ( a2 && (v2 = *a2, *a2 != 0x7FFFFFFFFFFFFFFFLL) && v2 )
   {
-    v3.QuadPart = v2 * (unsigned int)KeMaximumIncrement;
+    v3.QuadPart = v2 * KeMaximumIncrement;
     if ( v3.QuadPart > 160000000 )
     {
       v3.QuadPart = 160000000LL;

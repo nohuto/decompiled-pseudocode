@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlTraceDatabaseDestroy @ 0x180110950
+ * XREFs of RtlTraceDatabaseDestroy @ 0x180110920
  * Callers:
  *     <none>
  * Callees:
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
  *     RtlDeleteCriticalSection @ 0x18005ACD0 (RtlDeleteCriticalSection.c)
- *     RtlpTraceDatabaseFree @ 0x180110C04 (RtlpTraceDatabaseFree.c)
+ *     RtlpTraceDatabaseFree @ 0x180110BD4 (RtlpTraceDatabaseFree.c)
  */
 
 bool __fastcall RtlTraceDatabaseDestroy(__int64 a1)
@@ -14,7 +14,7 @@ bool __fastcall RtlTraceDatabaseDestroy(__int64 a1)
   char v3; // si
   _QWORD *v4; // rdi
 
-  RtlDeleteCriticalSection((__int64 *)(a1 + 48));
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   v2 = *(_QWORD **)(a1 + 16);
   if ( !v2 )
     return 1;

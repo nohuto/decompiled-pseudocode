@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaAcquireBufferMappings @ 0x1403902DC
+ * XREFs of HalpDmaAcquireBufferMappings @ 0x140389C1C
  * Callers:
- *     HalpDmaSyncMapBuffers @ 0x14038FF20 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaFreeMapRegisters @ 0x1403908D4 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaZeroMapBuffers @ 0x14054F91C (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaSyncMapBuffers @ 0x140389860 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaFreeMapRegisters @ 0x14038A214 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaZeroMapBuffers @ 0x14054D25C (HalpDmaZeroMapBuffers.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x140410510 (MmMapLockedPagesWithReservedMapping.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14041D8B0 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall HalpDmaAcquireBufferMappings(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -65,7 +65,7 @@ __int64 __fastcall HalpDmaAcquireBufferMappings(__int64 a1, __int64 a2, unsigned
   v9 = (_QWORD *)v8;
   Number = KeGetCurrentPrcb()->Number;
   v11 = (unsigned int)Number;
-  v12 = *(struct _MDL **)(qword_140E3EB68 + 8 * Number);
+  v12 = *(struct _MDL **)(qword_140E3ECA8 + 8 * Number);
   v13 = 0;
   v14 = v12 + 1;
   if ( (_DWORD)v5 )
@@ -88,14 +88,14 @@ __int64 __fastcall HalpDmaAcquireBufferMappings(__int64 a1, __int64 a2, unsigned
   v12->StartVa = 0LL;
   v17 = 1;
   v12->ByteOffset = 0;
-  v18 = byte_140E3EB38 == 0;
+  v18 = byte_140E3EC78 == 0;
   v12->ByteCount = v13 << 12;
   if ( !v18 )
   {
-    v16 = *(PSLIST_ENTRY *)(qword_140E3EB70 + 8 * v11);
+    v16 = *(PSLIST_ENTRY *)(qword_140E3ECB0 + 8 * v11);
     goto LABEL_32;
   }
-  v19 = RtlpInterlockedPopEntrySList(&stru_140E3EB40);
+  v19 = RtlpInterlockedPopEntrySList(&stru_140E3EC80);
   if ( v19 )
   {
     *((_DWORD *)&v19[1].Next + 3) = 0;
@@ -114,12 +114,12 @@ LABEL_32:
   v20 = result;
   if ( !result )
   {
-    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140E3EB28, &LockHandle);
+    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140E3EC68, &LockHandle);
     v23 = 1;
-    v24 = *(unsigned int *)(*(_QWORD *)qword_140E3EB70 + 24LL);
-    if ( (unsigned int)dword_140E3EB78 > 1 )
+    v24 = *(unsigned int *)(*(_QWORD *)qword_140E3ECB0 + 24LL);
+    if ( (unsigned int)dword_140E3ECB8 > 1 )
     {
-      v25 = (__int64 *)(qword_140E3EB70 + 8);
+      v25 = (__int64 *)(qword_140E3ECB0 + 8);
       do
       {
         v26 = *v25;
@@ -134,10 +134,10 @@ LABEL_32:
         if ( (int)v24 >= v27 )
           v24 = (unsigned int)v27;
       }
-      while ( v23 < dword_140E3EB78 );
+      while ( v23 < dword_140E3ECB8 );
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle, v24);
-    v16 = *(PSLIST_ENTRY *)(qword_140E3EB70 + 8LL * (unsigned int)v16);
+    v16 = *(PSLIST_ENTRY *)(qword_140E3ECB0 + 8LL * (unsigned int)v16);
     goto LABEL_31;
   }
   v17 = 0;

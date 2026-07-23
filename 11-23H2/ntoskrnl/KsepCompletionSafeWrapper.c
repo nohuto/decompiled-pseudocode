@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCompletionSafeWrapper @ 0x1403A6190
+ * XREFs of KsepCompletionSafeWrapper @ 0x1403A6370
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -46,6 +46,6 @@ LABEL_6:
   }
 LABEL_8:
   ExFreePoolWithTag(a3, 0x6245534Bu);
-  _InterlockedIncrement(&dword_140C4074C);
+  _InterlockedIncrement(&dword_140C4070C);
   return v3;
 }

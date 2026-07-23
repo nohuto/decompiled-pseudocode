@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateControlAreaPartition @ 0x140357234
+ * XREFs of MiValidateControlAreaPartition @ 0x140361F84
  * Callers:
- *     MiReferenceExistingControlArea @ 0x1402743E4 (MiReferenceExistingControlArea.c)
- *     MiReferenceControlArea @ 0x140356824 (MiReferenceControlArea.c)
- *     MiShareExistingControlArea @ 0x140707DEC (MiShareExistingControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x140262384 (MiReferenceExistingControlArea.c)
+ *     MiReferenceControlArea @ 0x140361574 (MiReferenceControlArea.c)
+ *     MiShareExistingControlArea @ 0x14071F1CC (MiShareExistingControlArea.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,13 @@ __int64 __fastcall MiValidateControlAreaPartition(__int64 a1, __int64 a2)
   ULONG_PTR **v3; // rax
   int v5; // eax
 
-  v2 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(a2 + 60) & 0x3FF));
+  v2 = *(ULONG_PTR **)(qword_140C4E688 + 8LL * (*(_WORD *)(a2 + 60) & 0x3FF));
   v3 = *(ULONG_PTR ***)(a1 + 176);
   if ( !v3 )
   {
     if ( (*(_BYTE *)(a2 + 62) & 1) != 0 )
     {
-      if ( v2 == *(ULONG_PTR **)(qword_140C4E648
+      if ( v2 == *(ULONG_PTR **)(qword_140C4E688
                                + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]) )
         return 0LL;
       if ( (*(_DWORD *)a1 & 1) == 0 )

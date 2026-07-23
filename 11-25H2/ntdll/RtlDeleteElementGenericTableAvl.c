@@ -9,52 +9,50 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-char __fastcall RtlDeleteElementGenericTableAvl(unsigned __int16 *a1, unsigned __int16 *a2)
+BOOLEAN __cdecl RtlDeleteElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
-  __int64 v4; // rbx
-  __int64 (__fastcall *v5)(); // rax
-  int v6; // eax
-  int v8; // [rsp+20h] [rbp-18h]
+  _RTL_BALANCED_LINKS *RightChild; // rbx
+  LONG (__cdecl *CompareRoutine)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN); // rax
+  _RTL_BALANCED_LINKS *CaseInSensitive; // r8
+  int v7; // eax
 
-  if ( !*((_DWORD *)a1 + 11) )
+  if ( !Table->NumberGenericTableElements )
     return 0;
-  v4 = *((_QWORD *)a1 + 2);
+  RightChild = Table->BalancedRoot.RightChild;
   while ( 1 )
   {
-    v5 = (__int64 (__fastcall *)())*((_QWORD *)a1 + 9);
-    if ( v5 == RtlCompareUnicodeString )
-    {
-      LOBYTE(v8) = v4 + 32;
-      v6 = RtlCompareUnicodeStrings(
-             *((_QWORD *)a1 + 1),
-             (unsigned __int64)*a1 >> 1,
-             *((_QWORD *)a2 + 1),
-             (unsigned __int64)*a2 >> 1,
-             v8);
-    }
-    else
-    {
-      v6 = ((__int64 (__fastcall *)(unsigned __int16 *, unsigned __int16 *, __int64))v5)(a1, a2, v4 + 32);
-    }
-    if ( v6 )
+    CompareRoutine = (LONG (__cdecl *)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN))Table->CompareRoutine;
+    CaseInSensitive = RightChild + 1;
+    v7 = CompareRoutine == RtlCompareUnicodeString
+       ? RtlCompareUnicodeStrings(
+           (PCWCH)Table->BalancedRoot.LeftChild,
+           (unsigned __int64)LOWORD(Table->BalancedRoot.Parent) >> 1,
+           *((PCWCH *)Buffer + 1),
+           (unsigned __int64)*(unsigned __int16 *)Buffer >> 1,
+           (BOOLEAN)CaseInSensitive)
+       : ((__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID, _RTL_BALANCED_LINKS *))CompareRoutine)(
+           Table,
+           Buffer,
+           CaseInSensitive);
+    if ( v7 )
       break;
-    v4 = *(_QWORD *)(v4 + 8);
+    RightChild = RightChild->LeftChild;
 LABEL_7:
-    if ( !v4 )
+    if ( !RightChild )
       return 0;
   }
-  if ( v6 == 1 )
+  if ( v7 == 1 )
   {
-    v4 = *(_QWORD *)(v4 + 16);
+    RightChild = RightChild->RightChild;
     goto LABEL_7;
   }
-  if ( v4 == *((_QWORD *)a1 + 7) )
-    *((_QWORD *)a1 + 7) = RealPredecessor(v4);
-  ++*((_DWORD *)a1 + 16);
-  DeleteNodeFromTree(a1, v4);
-  --*((_DWORD *)a1 + 11);
-  *((_DWORD *)a1 + 10) = 0;
-  *((_QWORD *)a1 + 4) = 0LL;
-  (*((void (__fastcall **)(unsigned __int16 *, __int64))a1 + 11))(a1, v4);
+  if ( RightChild == Table->RestartKey )
+    Table->RestartKey = (_RTL_BALANCED_LINKS *)RealPredecessor(RightChild);
+  ++Table->DeleteCount;
+  DeleteNodeFromTree(Table, RightChild);
+  --Table->NumberGenericTableElements;
+  Table->WhichOrderedElement = 0;
+  Table->OrderedPointer = 0LL;
+  Table->FreeRoutine(Table, RightChild);
   return 1;
 }

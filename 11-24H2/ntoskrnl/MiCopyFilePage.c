@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCopyFilePage @ 0x14067A640
+ * XREFs of MiCopyFilePage @ 0x14067B820
  * Callers:
- *     MiTransferFileExtent @ 0x1404BEE98 (MiTransferFileExtent.c)
+ *     MiTransferFileExtent @ 0x1404BA3CC (MiTransferFileExtent.c)
  * Callees:
- *     MiGetPteMappingSet @ 0x14020CA90 (MiGetPteMappingSet.c)
- *     MiGetPteFromCopyList @ 0x1402259B0 (MiGetPteFromCopyList.c)
- *     MiReturnPteMappingSet @ 0x140225EF0 (MiReturnPteMappingSet.c)
- *     MiPersistVa @ 0x14067B968 (MiPersistVa.c)
- *     KeCopyPage @ 0x1406B3410 (KeCopyPage.c)
+ *     MiGetPteFromCopyList @ 0x140252D60 (MiGetPteFromCopyList.c)
+ *     MiReturnPteMappingSet @ 0x1402532A0 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x140335DF0 (MiGetPteMappingSet.c)
+ *     MiPersistVa @ 0x14067CB48 (MiPersistVa.c)
+ *     KeCopyPage @ 0x1406B43B0 (KeCopyPage.c)
  */
 
 struct _KPRCB *__fastcall MiCopyFilePage(__int64 a1, __int64 a2, int a3)
 {
-  ULONG_PTR PteFromCopyList; // rdi
+  unsigned __int64 PteFromCopyList; // rdi
   __int64 v7; // rbx
   __int128 v9; // [rsp+20h] [rbp-28h] BYREF
   __int64 v10; // [rsp+30h] [rbp-18h]

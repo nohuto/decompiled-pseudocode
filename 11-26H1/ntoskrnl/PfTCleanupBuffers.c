@@ -1,9 +1,9 @@
 /*
- * XREFs of PfTCleanupBuffers @ 0x1407C6514
+ * XREFs of PfTCleanupBuffers @ 0x1407C9574
  * Callers:
- *     PfTCleanup @ 0x1407C6254 (PfTCleanup.c)
+ *     PfTCleanup @ 0x1407C92B4 (PfTCleanup.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfTCleanupBuffers(__int64 a1)

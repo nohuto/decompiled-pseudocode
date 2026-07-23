@@ -21,7 +21,7 @@ __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, __int6
   __int64 v12; // rbx
   __int64 v13; // r15
   int v14; // eax
-  struct _SLIST_ENTRY *v15; // rax
+  _SLIST_ENTRY *v15; // rax
   unsigned __int8 v17; // [rsp+68h] [rbp+10h]
 
   v4 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 13) & 0x3FFFF;

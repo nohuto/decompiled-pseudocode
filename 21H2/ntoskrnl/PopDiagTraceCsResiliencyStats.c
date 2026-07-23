@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyStats @ 0x1408E99E8
+ * XREFs of PopDiagTraceCsResiliencyStats @ 0x1408E9B48
  * Callers:
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA074 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA1D4 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsResiliencyStats(__int64 a1)
@@ -167,7 +167,7 @@ char __fastcall PopDiagTraceCsResiliencyStats(__int64 a1)
       v76 = 80LL;
       LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C02228,
-                     (unsigned __int8 *)word_14002784A,
+                     (unsigned __int8 *)&word_140027A4E,
                      0LL,
                      0LL,
                      0x19u,

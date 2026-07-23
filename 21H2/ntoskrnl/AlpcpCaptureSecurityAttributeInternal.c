@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x140660844
+ * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x140655664
  * Callers:
- *     AlpcpCaptureSecurityAttribute @ 0x14066076C (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpCaptureSecurityAttribute32 @ 0x14069C3F0 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x1405FB5B0 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14065558C (AlpcpCaptureSecurityAttribute.c)
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
- *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
- *     AlpcReferenceBlobByHandle @ 0x140660940 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpCreateSecurityContext @ 0x14065540C (AlpcpCreateSecurityContext.c)
+ *     AlpcReferenceBlobByHandle @ 0x140655760 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1406D97FC (AlpcpDeleteBlob.c)
  */
 
 __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
@@ -18,7 +18,7 @@ __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
         __int64 a5)
 {
   __int64 v8; // rcx
-  __int64 v9; // rax
+  ULONG_PTR v9; // rax
   ULONG_PTR v10; // rbx
   __int64 result; // rax
   char v12; // di
@@ -41,9 +41,9 @@ __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
         {
           if ( (a2 & 0x10000) != 0 )
           {
-            if ( AlpcpDeleteBlob(v9) )
-              AlpcpDereferenceBlobEx(v10, 1);
-            AlpcpDereferenceBlobEx(v10, 1);
+            if ( (unsigned __int8)AlpcpDeleteBlob(v9) )
+              AlpcpDereferenceBlobEx(v10);
+            AlpcpDereferenceBlobEx(v10);
             v10 = 0LL;
           }
           *(_QWORD *)(a5 + 32) = v10;
@@ -51,7 +51,7 @@ __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
         }
         else
         {
-          AlpcpDereferenceBlobEx(v9, 1);
+          AlpcpDereferenceBlobEx(v9);
           return 3221225506LL;
         }
       }

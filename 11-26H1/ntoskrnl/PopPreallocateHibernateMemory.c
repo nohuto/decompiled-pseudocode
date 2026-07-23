@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPreallocateHibernateMemory @ 0x1407D04CC
+ * XREFs of PopPreallocateHibernateMemory @ 0x1407D356C
  * Callers:
- *     PopEnableHiberFile @ 0x14094353C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x1409BEEB4 (PopEnableHiberFile.c)
  * Callees:
- *     MmGetHighestPhysicalPage @ 0x1404C3B80 (MmGetHighestPhysicalPage.c)
- *     HvlAllocateHibernateResources @ 0x140772C6C (HvlAllocateHibernateResources.c)
- *     MmObtainChargesToLockPagedPool @ 0x14077BA70 (MmObtainChargesToLockPagedPool.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmGetHighestPhysicalPage @ 0x1404BD3D0 (MmGetHighestPhysicalPage.c)
+ *     HvlAllocateHibernateResources @ 0x140775C6C (HvlAllocateHibernateResources.c)
+ *     MmObtainChargesToLockPagedPool @ 0x14077E6B0 (MmObtainChargesToLockPagedPool.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PopPreallocateHibernateMemory()
@@ -34,7 +34,7 @@ __int64 PopPreallocateHibernateMemory()
   __int64 v19; // [rsp+C0h] [rbp+8h]
   __int64 v20; // [rsp+C8h] [rbp+10h]
 
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
     v17 = 102400LL;
   HighestPhysicalPage = MmGetHighestPhysicalPage(0);
   v2 = (HighestPhysicalPage + 32) & 0xFFFFFFFFFFFFFFE0uLL;
@@ -51,7 +51,7 @@ __int64 PopPreallocateHibernateMemory()
   v6 = (v1 + v3 + 7) & 0xFFFFFFF8;
   v7 = ((_DWORD)v6 + 247) & 0xFFFFFFF8;
   v8 = v7 + 2096;
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
   {
     v9 = v8;
     v8 = v7 + 2152;
@@ -78,29 +78,29 @@ __int64 PopPreallocateHibernateMemory()
       ExFreePoolWithTag(v16, 0x72626968u);
       return 3221225626LL;
     }
-    qword_140F0FDC0 = (__int64)v16;
-    qword_140F0FDB8 = ((_DWORD)v13 + 0x3FFF) & 0xFFFFF000;
-    qword_140F0FDB0 = v16;
-    qword_140F0FDC8 = (__int64)(v16 + 4096);
-    if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
-      qword_140F0FE28 = (__int64)&v16[v17];
+    qword_140F10940 = (__int64)v16;
+    Length = ((_DWORD)v13 + 0x3FFF) & 0xFFFFF000;
+    qword_140F10930 = v16;
+    qword_140F10948 = (__int64)(v16 + 4096);
+    if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
+      qword_140F109A8 = (__int64)&v16[v17];
     else
-      qword_140F0FE28 = 0LL;
-    *((_QWORD *)&xmmword_140F0FDD0 + 1) = &v16[v18[0]];
-    *((_QWORD *)&xmmword_140F0FDE0 + 1) = &v16[v19];
-    LODWORD(xmmword_140F0FDD0) = v2;
-    LODWORD(xmmword_140F0FDF0) = v2;
-    *((_QWORD *)&xmmword_140F0FDF0 + 1) = &v16[v18[1]];
-    LODWORD(xmmword_140F0FDE0) = v2;
-    qword_140F0FE00 = (__int64)&v16[v6];
-    if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
-      qword_140F0FE30 = (__int64)&v16[v9];
+      qword_140F109A8 = 0LL;
+    *((_QWORD *)&xmmword_140F10950 + 1) = &v16[v18[0]];
+    *((_QWORD *)&xmmword_140F10960 + 1) = &v16[v19];
+    LODWORD(xmmword_140F10950) = v2;
+    LODWORD(xmmword_140F10970) = v2;
+    *((_QWORD *)&xmmword_140F10970 + 1) = &v16[v18[1]];
+    LODWORD(xmmword_140F10960) = v2;
+    qword_140F10980 = (__int64)&v16[v6];
+    if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
+      qword_140F109B0 = (__int64)&v16[v9];
     else
-      qword_140F0FE30 = 0LL;
-    qword_140F0FE08 = &v16[v12];
-    qword_140F0FE10 = &v16[v13];
-    qword_140F0FE18 = &v16[v20];
-    qword_140F0FE20 = (__int64)&v16[v7];
+      qword_140F109B0 = 0LL;
+    qword_140F10988 = &v16[v12];
+    qword_140F10990 = &v16[v13];
+    qword_140F10998 = &v16[v20];
+    qword_140F109A0 = (__int64)&v16[v7];
     return 0LL;
   }
   return result;

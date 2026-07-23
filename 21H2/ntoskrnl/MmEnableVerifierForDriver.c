@@ -1,11 +1,11 @@
 /*
- * XREFs of MmEnableVerifierForDriver @ 0x1409C5BB4
+ * XREFs of MmEnableVerifierForDriver @ 0x1409C6BB4
  * Callers:
- *     VfAddVerifierEntry @ 0x1409EC9D8 (VfAddVerifierEntry.c)
+ *     VfAddVerifierEntry @ 0x1409ED9D8 (VfAddVerifierEntry.c)
  * Callees:
- *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
- *     VfDriverEnableVerifier @ 0x1409C8620 (VfDriverEnableVerifier.c)
+ *     MmReleaseLoadLock @ 0x1406A83F0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406A8450 (MmAcquireLoadLock.c)
+ *     VfDriverEnableVerifier @ 0x1409C9620 (VfDriverEnableVerifier.c)
  */
 
 __int64 __fastcall MmEnableVerifierForDriver(__int64 a1, _DWORD *a2)

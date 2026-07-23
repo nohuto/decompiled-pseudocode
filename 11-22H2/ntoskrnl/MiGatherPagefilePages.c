@@ -155,10 +155,13 @@ LABEL_147:
     v62 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v1 + 232));
     *(_BYTE *)(v1 + 206) |= 1u;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 232));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v62 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v62 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -232,10 +235,10 @@ LABEL_15:
       v82 = v9;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1036));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v79 <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v79 <= 0xFu && v10 >= 2u )
       {
         v11 = KeGetCurrentPrcb();
         v12 = v11->SchedulerAssist;
@@ -343,10 +346,10 @@ LABEL_155:
       }
       MiUpdatePagefilePeakUsage(v1);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 232));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v80 <= 0xFu && v25 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v80 <= 0xFu && v25 >= 2u )
         {
           v26 = KeGetCurrentPrcb();
           v27 = v26->SchedulerAssist;
@@ -375,10 +378,10 @@ LABEL_155:
         v32 = (unsigned __int8)MiLockPageInline(v31);
         MiWriteCompletePfn(v31, 1);
         _InterlockedAnd64((volatile signed __int64 *)(v31 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v33 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v32 <= 0xFu && v33 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v32 <= 0xFu && v33 >= 2u )
           {
             v34 = KeGetCurrentPrcb();
             v35 = v34->SchedulerAssist;
@@ -429,10 +432,10 @@ LABEL_155:
         }
         *(_QWORD *)(v39 + 16) = MiTransferSoftwarePte(*(_QWORD *)(v39 + 16), v42, v43, v41);
         _InterlockedAnd64((volatile signed __int64 *)(v39 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v44 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v44 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v44 >= 2u )
           {
             v45 = KeGetCurrentPrcb();
             v46 = v45->SchedulerAssist;
@@ -553,10 +556,10 @@ LABEL_137:
     v57 = KeGetCurrentIrql();
     __writecr8(1uLL);
     MiWriteComplete(a1, v56, 0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v58 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && v57 <= 0xFu && v58 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && v57 <= 0xFu && v58 >= 2u )
       {
         v59 = KeGetCurrentPrcb();
         v60 = v59->SchedulerAssist;

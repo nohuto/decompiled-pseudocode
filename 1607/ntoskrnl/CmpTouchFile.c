@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTouchFile @ 0x1406043E4
+ * XREFs of CmpTouchFile @ 0x140604498
  * Callers:
- *     HvViewMapStart @ 0x14060FCB4 (HvViewMapStart.c)
+ *     HvViewMapStart @ 0x14060FD68 (HvViewMapStart.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwReadFile @ 0x140159D40 (ZwReadFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     CmpCreateEvent @ 0x1403F9948 (CmpCreateEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwReadFile @ 0x14015A2B0 (ZwReadFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     CmpCreateEvent @ 0x1403F8808 (CmpCreateEvent.c)
  */
 
 __int64 __fastcall CmpTouchFile(HANDLE FileHandle)

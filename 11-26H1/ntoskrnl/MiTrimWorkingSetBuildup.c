@@ -1,10 +1,10 @@
 /*
- * XREFs of MiTrimWorkingSetBuildup @ 0x140493FC0
+ * XREFs of MiTrimWorkingSetBuildup @ 0x14048DB10
  * Callers:
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
  * Callees:
- *     MiFlushDeferredAgingBucket @ 0x14029CF90 (MiFlushDeferredAgingBucket.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
+ *     MiFlushDeferredAgingBucket @ 0x14029C4F0 (MiFlushDeferredAgingBucket.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
  */
 
 char __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)

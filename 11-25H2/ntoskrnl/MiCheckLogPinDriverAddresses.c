@@ -8,9 +8,9 @@
 
 void MiCheckLogPinDriverAddresses()
 {
-  _DWORD *v0; // rcx
-  int v1; // r9d
-  unsigned __int64 v2; // r10
+  unsigned int *Buffer; // rcx
+  unsigned int v1; // r9d
+  unsigned int *v2; // r10
   bool i; // zf
   int v4; // edx
   bool v5; // zf
@@ -22,13 +22,13 @@ void MiCheckLogPinDriverAddresses()
 
   if ( !*(_QWORD *)&qword_140E372D8 )
     return;
-  if ( !dword_140EF47A0 )
+  if ( !stru_140EF47A0.SizeOfBitMap )
     goto LABEL_25;
-  if ( (unsigned int)dword_140EF47A0 <= 1 )
+  if ( stru_140EF47A0.SizeOfBitMap <= 1 )
   {
-    if ( dword_140EF47A0 == 1 )
+    if ( stru_140EF47A0.SizeOfBitMap == 1 )
     {
-      v6 = !_bittest((const signed __int32 *)qword_140EF47A8, 0);
+      v6 = !_bittest((const signed __int32 *)stru_140EF47A0.Buffer, 0);
       goto LABEL_11;
     }
 LABEL_25:
@@ -41,23 +41,23 @@ LABEL_25:
     }
     return;
   }
-  v0 = (_DWORD *)qword_140EF47A8;
-  v1 = *(_DWORD *)qword_140EF47A8;
-  v2 = qword_140EF47A8 + 4 * ((unsigned __int64)(unsigned int)(dword_140EF47A0 - 1) >> 5);
-  if ( qword_140EF47A8 != v2 )
+  Buffer = stru_140EF47A0.Buffer;
+  v1 = *stru_140EF47A0.Buffer;
+  v2 = &stru_140EF47A0.Buffer[(unsigned __int64)(stru_140EF47A0.SizeOfBitMap - 1) >> 5];
+  if ( stru_140EF47A0.Buffer != v2 )
   {
     for ( i = v1 == 0; i; i = v4 == 0 )
     {
-      v4 = *++v0;
-      if ( v0 == (_DWORD *)v2 )
+      v4 = *++Buffer;
+      if ( Buffer == v2 )
       {
-        v5 = (v4 & (0xFFFFFFFF >> ~(dword_140EF47A0 - 1))) == 0;
+        v5 = (v4 & (0xFFFFFFFF >> ~(LOBYTE(stru_140EF47A0.SizeOfBitMap) - 1))) == 0;
         goto LABEL_10;
       }
     }
     goto LABEL_25;
   }
-  v5 = (v1 & (0xFFFFFFFF >> (32 - dword_140EF47A0))) == 0;
+  v5 = (v1 & (0xFFFFFFFF >> (32 - LOBYTE(stru_140EF47A0.SizeOfBitMap)))) == 0;
 LABEL_10:
   v6 = v5;
 LABEL_11:

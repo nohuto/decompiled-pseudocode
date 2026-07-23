@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeSoftwareInterruptBatch @ 0x1405F175C
+ * XREFs of KiInitializeSoftwareInterruptBatch @ 0x1405F411C
  * Callers:
- *     KiInitPrcb @ 0x140BF3C24 (KiInitPrcb.c)
+ *     KiInitPrcb @ 0x140BF9C24 (KiInitPrcb.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall KiInitializeSoftwareInterruptBatch(_DWORD *a1)

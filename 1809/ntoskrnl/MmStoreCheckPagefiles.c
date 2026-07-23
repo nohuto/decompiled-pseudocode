@@ -1,8 +1,8 @@
 /*
- * XREFs of MmStoreCheckPagefiles @ 0x14074CF5C
+ * XREFs of MmStoreCheckPagefiles @ 0x14074E14C
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88 (-SmFirstTimeInit@@YAJKK@Z.c)
- *     MmStoreRegister @ 0x14074BD2C (MmStoreRegister.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3F08 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     MmStoreRegister @ 0x14074CF1C (MmStoreRegister.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 MmStoreCheckPagefiles()
   if ( Count )
   {
     result = 1LL;
-    for ( i = qword_14043E520; (*(_WORD *)(*i + 204LL) & 0x400) == 0; ++i )
+    for ( i = qword_14043F5E0; (*(_WORD *)(*i + 204LL) & 0x400) == 0; ++i )
     {
       if ( ++v0 >= Count )
         return result;

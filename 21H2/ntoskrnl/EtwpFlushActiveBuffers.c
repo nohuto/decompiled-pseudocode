@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpFlushActiveBuffers @ 0x140643C10
+ * XREFs of EtwpFlushActiveBuffers @ 0x140638A20
  * Callers:
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
  * Callees:
- *     EtwpRequestFlushTimer @ 0x14025FBDC (EtwpRequestFlushTimer.c)
- *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
- *     EtwpIsSingleStreamLogger @ 0x1402663CC (EtwpIsSingleStreamLogger.c)
- *     EtwpPrepareDirtyBuffer @ 0x1402663DC (EtwpPrepareDirtyBuffer.c)
- *     EtwpLockUnlockBufferList @ 0x1402667AC (EtwpLockUnlockBufferList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpAdjustFreeBuffers @ 0x140642D70 (EtwpAdjustFreeBuffers.c)
- *     EtwpCompleteBuffer @ 0x140644ADC (EtwpCompleteBuffer.c)
- *     EtwpFlushBuffer @ 0x140644AFC (EtwpFlushBuffer.c)
- *     EtwpWaitForBufferReferenceCount @ 0x140644C3C (EtwpWaitForBufferReferenceCount.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x1406E0C94 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140253DF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpIsSingleStreamLogger @ 0x14025436C (EtwpIsSingleStreamLogger.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14025437C (EtwpPrepareDirtyBuffer.c)
+ *     EtwpLockUnlockBufferList @ 0x14025474C (EtwpLockUnlockBufferList.c)
+ *     EtwpRequestFlushTimer @ 0x140281350 (EtwpRequestFlushTimer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpAdjustFreeBuffers @ 0x140637B80 (EtwpAdjustFreeBuffers.c)
+ *     EtwpCompleteBuffer @ 0x1406398EC (EtwpCompleteBuffer.c)
+ *     EtwpFlushBuffer @ 0x14063990C (EtwpFlushBuffer.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x140639A4C (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x1406B7F74 (EtwpRealtimeSendEmptyMarker.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)
@@ -34,8 +34,8 @@ __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)
   unsigned __int32 v15; // eax
   signed __int64 i; // rcx
   signed __int64 v17; // rax
-  LARGE_INTEGER *QuadPart; // rax
-  LARGE_INTEGER v19; // rcx
+  unsigned __int64 v18; // rax
+  __int64 v19; // rcx
   unsigned __int64 v20; // rax
   _QWORD **v21; // r14
   __int64 v22; // rbx
@@ -130,26 +130,26 @@ LABEL_34:
       if ( i == v17 )
         break;
     }
-    QuadPart = (LARGE_INTEGER *)(i & 0xFFFFFFFFFFFFFFF0uLL);
+    v18 = i & 0xFFFFFFFFFFFFFFF0uLL;
     if ( (i & 0xFFFFFFFFFFFFFFF0uLL) == v14 )
     {
-      _InterlockedExchangeAdd(&QuadPart[1].HighPart, -(i & 0xF));
-      EtwpPrepareDirtyBuffer((__int64)a1, QuadPart);
+      _InterlockedExchangeAdd((volatile signed __int32 *)(v18 + 12), -(i & 0xF));
+      EtwpPrepareDirtyBuffer((__int64)a1, v18);
     }
     else
     {
-      if ( QuadPart )
+      if ( v18 )
       {
         do
         {
-          v19 = QuadPart[4];
-          if ( v19.QuadPart == v14 )
+          v19 = *(_QWORD *)(v18 + 32);
+          if ( v19 == v14 )
             break;
-          QuadPart = (LARGE_INTEGER *)QuadPart[4].QuadPart;
+          v18 = *(_QWORD *)(v18 + 32);
         }
-        while ( v19.QuadPart );
+        while ( v19 );
       }
-      QuadPart[4].QuadPart = v12;
+      *(_QWORD *)(v18 + 32) = v12;
       v46 = 1;
     }
     *v10 = v14;

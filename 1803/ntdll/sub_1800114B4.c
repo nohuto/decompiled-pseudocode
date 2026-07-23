@@ -17,7 +17,7 @@ __int64 sub_1800114B4()
   {
     if ( !_InterlockedCompareExchange(&dword_18015D2B0, 1, 0) )
     {
-      TpSetTimerEx(qword_18015D008, &qword_18015AAA8, 0LL, 5000LL);
+      TpSetTimerEx(Timer, &DueTime, 0, 0x1388u);
       if ( (byte_18015D028 & 8) != 0 )
         sub_1801022B8();
     }

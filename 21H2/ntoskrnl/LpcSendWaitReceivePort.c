@@ -1,28 +1,24 @@
 /*
- * XREFs of LpcSendWaitReceivePort @ 0x1406AFDD0
+ * XREFs of LpcSendWaitReceivePort @ 0x14060E670
  * Callers:
- *     DbgkpSendApiMessageLpc @ 0x140887240 (DbgkpSendApiMessageLpc.c)
- *     IopSendMessageToTrackService @ 0x1408920C0 (IopSendMessageToTrackService.c)
- *     ExpRaiseHardError @ 0x140956428 (ExpRaiseHardError.c)
+ *     DbgkpSendApiMessageLpc @ 0x1408873A0 (DbgkpSendApiMessageLpc.c)
+ *     IopSendMessageToTrackService @ 0x140892220 (IopSendMessageToTrackService.c)
+ *     ExpRaiseHardError @ 0x1409565F8 (ExpRaiseHardError.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1406D6640 (AlpcpProcessSynchronousRequest.c)
  */
 
-__int64 __fastcall LpcSendWaitReceivePort(
-        __int64 a1,
-        int a2,
-        __int128 *a3,
-        unsigned __int64 a4,
-        unsigned __int64 *a5,
-        LARGE_INTEGER *a6)
+__int64 __fastcall LpcSendWaitReceivePort(int a1, int a2, int a3, __int64 a4, __int64 a5, __int64 a6)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v7; // ebx
+  int v9; // [rsp+40h] [rbp-18h]
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = AlpcpProcessSynchronousRequest(a1, a2 | 2u, a3, 0LL, a4, a5, 0LL, a6, 0);
+  LOBYTE(v9) = 0;
+  v7 = AlpcpProcessSynchronousRequest(a1, a2 | 2u, a3, 0, a4, a5, 0LL, a6, v9);
   if ( v7 == -1073740029 )
     v7 = -1073741769;
   if ( v7 == -1073740031 )

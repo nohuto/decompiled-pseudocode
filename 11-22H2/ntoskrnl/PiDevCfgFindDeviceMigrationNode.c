@@ -32,8 +32,8 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   ULONG v5; // r13d
   int v7; // r14d
   PVOID *v8; // rsi
-  int v9; // ebx
-  ULONG Length; // r12d
+  NTSTATUS v9; // ebx
+  ULONG v10; // r12d
   __int64 v11; // r15
   const UNICODE_STRING *v12; // rcx
   ULONG i; // edx
@@ -104,7 +104,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   _QWORD v80[10]; // [rsp+F0h] [rbp-10h] BYREF
   PVOID **v81; // [rsp+140h] [rbp+40h]
   GUID Guid; // [rsp+148h] [rbp+48h] BYREF
-  __int128 v83; // [rsp+158h] [rbp+58h] BYREF
+  __int128 KeyInformation; // [rsp+158h] [rbp+58h] BYREF
   __int128 v84; // [rsp+168h] [rbp+68h]
   __int64 v85; // [rsp+178h] [rbp+78h]
 
@@ -122,7 +122,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   v66 = 0;
   v8 = 0LL;
   v65 = 0;
-  v83 = 0LL;
+  KeyInformation = 0LL;
   *(_QWORD *)&String2.Length = 0LL;
   v84 = 0LL;
   String2.Buffer = 0LL;
@@ -138,14 +138,14 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void
   ValueName = 0LL;
   Data = 0;
   ResultLength = 0;
-  v9 = NtQueryKey(a3, 4u, (unsigned __int64)&v83, 0x28u, &ResultLength);
+  v9 = NtQueryKey(a3, KeyCachedInformation, &KeyInformation, 0x28u, &ResultLength);
   if ( v9 >= 0 )
   {
     if ( !DWORD1(v84) )
       goto LABEL_146;
-    Length = HIDWORD(v84) + 2 * (DWORD2(v84) + 13);
-    v67 = Length;
-    Pool2 = ExAllocatePool2(256LL, Length, 1667526736LL);
+    v10 = HIDWORD(v84) + 2 * (DWORD2(v84) + 13);
+    v67 = v10;
+    Pool2 = ExAllocatePool2(256LL, v10, 1667526736LL);
     v11 = Pool2;
     if ( !Pool2 )
     {
@@ -159,7 +159,7 @@ LABEL_4:
       for ( i = 0; ; i = v5 )
       {
         v68 = v5;
-        ObjectProperties = ZwEnumerateValueKey(KeyHandle, i, KeyValueFullInformation, (PVOID)v11, Length, &ResultLength);
+        ObjectProperties = ZwEnumerateValueKey(KeyHandle, i, KeyValueFullInformation, (PVOID)v11, v10, &ResultLength);
         v9 = ObjectProperties;
         if ( ObjectProperties == -2147483622 )
         {
@@ -249,7 +249,7 @@ LABEL_146:
         if ( ObjectProperties == -2147483643 )
         {
           ExFreePoolWithTag((PVOID)v11, 0);
-          Length = ResultLength + 2;
+          v10 = ResultLength + 2;
           v67 = ResultLength + 2;
           Pool2 = ExAllocatePool2(256LL, ResultLength + 2, 1667526736LL);
           v11 = Pool2;
@@ -518,7 +518,7 @@ LABEL_117:
         v11 = Pool2;
         v48 = (v20 & 1) == 0;
         v7 = a4;
-        Length = v67;
+        v10 = v67;
         v5 = v68;
         if ( v48 )
           *(_QWORD *)(v27 + 184) = v47 | 1;

@@ -1,60 +1,49 @@
 /*
- * XREFs of RtlpHpLfhPrivateSlotListCompact @ 0x140606C4C
+ * XREFs of RtlpHpLfhPrivateSlotListCompact @ 0x14060428C
  * Callers:
- *     RtlpHpLfhPrivateSlotsCompact @ 0x140606FAC (RtlpHpLfhPrivateSlotsCompact.c)
+ *     RtlpHpLfhPrivateSlotsCompact @ 0x1406045AC (RtlpHpLfhPrivateSlotsCompact.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14020D790 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhHeatMapQuery @ 0x1402B4550 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhOwnerCompact @ 0x1402B461C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x1404F561C (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140606D74 (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140336AF0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpEnvTlsGetValue @ 0x14035F690 (RtlpHpEnvTlsGetValue.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x1404321F4 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1404322C0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1404F2F1C (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140604374 (RtlpHpLfhPrivateSlotShutdown.c)
  */
 
 void __fastcall RtlpHpLfhPrivateSlotListCompact(__int64 a1, __int64 a2)
 {
-  unsigned __int16 *v2; // r12
-  unsigned int v4; // r9d
-  unsigned __int64 v5; // rax
-  unsigned int v6; // ecx
-  __int64 v8; // r8
-  __int64 v9; // rbx
-  char v10; // al
-  int v11; // r9d
-  unsigned __int16 v12; // bp
-  unsigned __int8 v13; // r15
-  _WORD *v14; // rsi
-  int v15; // eax
+  unsigned __int16 *v3; // r12
+  __int64 Value; // rbx
+  char v6; // al
+  int v7; // r9d
+  unsigned __int16 v8; // r14
+  unsigned __int8 v9; // r13
+  _WORD *v10; // rsi
+  signed int v11; // eax
 
-  v2 = (unsigned __int16 *)(a2 + 88);
-  v4 = (*(_DWORD *)(a1 + 76) >> 13) & 0x3FFFF;
-  v5 = (unsigned __int64)*(unsigned int *)(a1 + 76) >> 4;
-  _BitScanReverse(&v6, v4);
-  v8 = v4 ^ (1 << v6);
-  v9 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v6 - 2) + 8 * v8 + 8) + 8 * (v5 & 0x1FF));
-  if ( !v9 )
-    v9 = RtlpHpLfhThreadDataInitializeSet(a1);
-  v10 = RtlpHpAcquireLockExclusive((int *)(a2 + 80), *(unsigned __int8 *)(a1 + 65), v8);
-  v12 = *v2;
-  v13 = v10;
-  while ( v12 )
+  v3 = (unsigned __int16 *)(a2 + 88);
+  Value = RtlpHpEnvTlsGetValue(*(_DWORD *)(a1 + 76));
+  if ( !Value )
+    Value = RtlpHpLfhThreadDataInitializeSet(a1);
+  v6 = RtlpHpAcquireLockExclusive((int *)(a2 + 80), *(unsigned __int8 *)(a1 + 65));
+  v8 = *v3;
+  v9 = v6;
+  while ( v8 )
   {
-    v14 = (_WORD *)(a1 + (v12 << 6));
-    if ( v14 + 8 == v2 )
+    v10 = (_WORD *)(a1 + (v8 << 6));
+    if ( v10 + 8 == v3 )
       break;
-    v12 = v14[8];
-    if ( (_WORD)v9 == v14[2] )
+    v8 = v10[8];
+    if ( (_WORD)Value == v10[2] )
     {
-      v15 = RtlpHpLfhHeatMapQuery(
-              a1,
-              a1 + ((unsigned __int64)(unsigned __int16)v14[3] << 6),
-              (unsigned __int8 *)a2,
-              v11);
-      if ( v15 >= 2 )
-        RtlpHpLfhOwnerCompact(a1, (__int64)v14, (unsigned int)v15);
+      v11 = RtlpHpLfhHeatMapQuery(a1, a1 + ((unsigned __int64)(unsigned __int16)v10[3] << 6), (unsigned __int8 *)a2, v7);
+      if ( v11 >= 2 )
+        RtlpHpLfhOwnerCompact((unsigned __int8 *)a1, (__int64)v10, v11);
       else
-        RtlpHpLfhPrivateSlotShutdown(a1, v14, v9, 1LL);
+        RtlpHpLfhPrivateSlotShutdown(a1, v10, Value, 1LL);
     }
   }
-  RtlpHpReleaseLockExclusive(a2 + 80, *(unsigned __int8 *)(a1 + 65), v13);
+  RtlpHpReleaseLockExclusive(a2 + 80, *(unsigned __int8 *)(a1 + 65), v9);
 }

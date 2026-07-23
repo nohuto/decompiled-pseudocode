@@ -1,13 +1,13 @@
 /*
- * XREFs of VmFlushTb @ 0x1405A274C
+ * XREFs of VmFlushTb @ 0x1405A297C
  * Callers:
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
- *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x1403C951C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140346370 (KeFlushMultipleRangeTb.c)
+ *     KeFlushSingleCurrentTb @ 0x14038A028 (KeFlushSingleCurrentTb.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x1403C96BC (KeFlushMultipleRangeCurrentTb.c)
  * Callees:
- *     VmpFlushTb @ 0x1405A3614 (VmpFlushTb.c)
+ *     VmpFlushTb @ 0x1405A3844 (VmpFlushTb.c)
  */
 
 struct _KTHREAD *__fastcall VmFlushTb(__int64 a1, __int64 a2, int a3)

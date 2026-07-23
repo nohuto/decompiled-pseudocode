@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAppContainerAceProtectionApplies @ 0x1406948B8
+ * XREFs of SepAppContainerAceProtectionApplies @ 0x14069499C
  * Callers:
- *     SeAdjustObjectAppContainerSecurity @ 0x14069479C (SeAdjustObjectAppContainerSecurity.c)
+ *     SeAdjustObjectAppContainerSecurity @ 0x140694880 (SeAdjustObjectAppContainerSecurity.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
  */
 
 char __fastcall SepAppContainerAceProtectionApplies(PCUNICODE_STRING String2)

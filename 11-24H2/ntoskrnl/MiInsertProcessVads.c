@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertProcessVads @ 0x1408F8BD8
+ * XREFs of MiInsertProcessVads @ 0x14091A6A0
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1408F8590 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140AA8538 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x14091A9E8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x140AA3638 (MmInitializeHandBuiltProcess2.c)
  * Callees:
- *     MiInsertVad @ 0x14025FB40 (MiInsertVad.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140405E18 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x140405F18 (LOCK_ADDRESS_SPACE.c)
- *     MiInsertVadCharges @ 0x1408E2418 (MiInsertVadCharges.c)
- *     MiReturnProcessVads @ 0x1408F842C (MiReturnProcessVads.c)
+ *     MiInsertVad @ 0x140290150 (MiInsertVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1403C8374 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403C8474 (LOCK_ADDRESS_SPACE.c)
+ *     MiInsertVadCharges @ 0x140918FC8 (MiInsertVadCharges.c)
+ *     MiReturnProcessVads @ 0x140AB7BB4 (MiReturnProcessVads.c)
  */
 
 __int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD *a2)
@@ -17,6 +17,7 @@ __int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD *a2)
   int inserted; // edi
   __int64 Process; // rbp
   _QWORD *v7; // r15
+  __int64 v8; // r9
 
   CurrentThread = KeGetCurrentThread();
   inserted = 0;
@@ -33,7 +34,7 @@ __int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD *a2)
     inserted = MiInsertVadCharges((__int64)a2, a1);
     if ( inserted < 0 )
       break;
-    MiInsertVad((__int64)a2, a1, 0);
+    MiInsertVad((__int64)a2, a1, 0LL, v8);
     a2 = v7;
   }
   UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);

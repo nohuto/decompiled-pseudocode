@@ -1,15 +1,15 @@
 /*
- * XREFs of PsRegisterSyscallProvider @ 0x1409B4560
+ * XREFs of PsRegisterSyscallProvider @ 0x1409B4760
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PspInitializeSyscallProvider @ 0x1405A4C00 (PspInitializeSyscallProvider.c)
- *     VslPublishSyscallProviderServiceTables @ 0x140942CA8 (VslPublishSyscallProviderServiceTables.c)
- *     PspInsertSyscallProvider @ 0x1409B4CE4 (PspInsertSyscallProvider.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PspInitializeSyscallProvider @ 0x1405A5170 (PspInitializeSyscallProvider.c)
+ *     VslPublishSyscallProviderServiceTables @ 0x140942EA8 (VslPublishSyscallProviderServiceTables.c)
+ *     PspInsertSyscallProvider @ 0x1409B4EE4 (PspInsertSyscallProvider.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

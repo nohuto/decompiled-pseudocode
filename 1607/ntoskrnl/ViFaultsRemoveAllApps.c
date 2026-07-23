@@ -3,7 +3,7 @@
  * Callers:
  *     VfFaultsSetParameters @ 0x140710F7C (VfFaultsSetParameters.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -27,7 +27,7 @@ void ViFaultsRemoveAllApps()
     }
     while ( v3 != &ViFaultApplicationsList );
   }
-  qword_1403005C8 = (__int64)&ViFaultApplicationsList;
+  qword_1403005A8 = (__int64)&ViFaultApplicationsList;
   ViFaultApplicationsList = &ViFaultApplicationsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v2);
 }

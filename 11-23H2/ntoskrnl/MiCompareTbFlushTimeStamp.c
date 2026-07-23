@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCompareTbFlushTimeStamp @ 0x14033DB58
+ * XREFs of MiCompareTbFlushTimeStamp @ 0x14033DDE8
  * Callers:
- *     MiFlushTbAsNeeded @ 0x140279F50 (MiFlushTbAsNeeded.c)
- *     MiAttachSessionGlobal @ 0x14033DA9C (MiAttachSessionGlobal.c)
- *     MiReadyReservedView @ 0x14062EE90 (MiReadyReservedView.c)
+ *     MiFlushTbAsNeeded @ 0x14027A1E0 (MiFlushTbAsNeeded.c)
+ *     MiAttachSessionGlobal @ 0x14033DD2C (MiAttachSessionGlobal.c)
+ *     MiReadyReservedView @ 0x14062F3E0 (MiReadyReservedView.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 char __fastcall MiCompareTbFlushTimeStamp(int a1, int a2)

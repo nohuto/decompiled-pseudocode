@@ -1,23 +1,23 @@
 /*
- * XREFs of TppPoolRemoveWorker @ 0x1800F3110
+ * XREFs of TppPoolRemoveWorker @ 0x1800EDA00
  * Callers:
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall TppPoolRemoveWorker(_QWORD *a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall TppPoolRemoveWorker(_QWORD *a1)
 {
-  __int64 v4; // rdx
-  _QWORD *v5; // rax
+  __int64 v2; // rdx
+  _QWORD *v3; // rax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1[6] + 72LL), a2, a3);
-  v4 = a1[2];
-  v5 = (_QWORD *)a1[3];
-  if ( *(_QWORD **)(v4 + 8) != a1 + 2 || (_QWORD *)*v5 != a1 + 2 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1[6] + 72LL));
+  v2 = a1[2];
+  v3 = (_QWORD *)a1[3];
+  if ( *(_QWORD **)(v2 + 8) != a1 + 2 || (_QWORD *)*v3 != a1 + 2 )
     __fastfail(3u);
-  *v5 = v4;
-  *(_QWORD *)(v4 + 8) = v5;
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1[6] + 72LL));
+  *v3 = v2;
+  *(_QWORD *)(v2 + 8) = v3;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1[6] + 72LL));
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSmartSuspendValidation @ 0x140A8FD44
+ * XREFs of PopDiagTraceSmartSuspendValidation @ 0x140A8C384
  * Callers:
- *     PopSmartSuspendValidateSinglePrediction @ 0x140A8FC14 (PopSmartSuspendValidateSinglePrediction.c)
+ *     PopSmartSuspendValidateSinglePrediction @ 0x140A8C254 (PopSmartSuspendValidateSinglePrediction.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopSystemTimeToLocalTime @ 0x1404B75BC (PopSystemTimeToLocalTime.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopSystemTimeToLocalTime @ 0x1404B1D9C (PopSystemTimeToLocalTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int8 PopDiagTraceSmartSuspendValidation()
@@ -81,9 +81,9 @@ unsigned __int8 PopDiagTraceSmartSuspendValidation()
   PopSystemTimeToLocalTime();
   PopSystemTimeToLocalTime();
   result = (unsigned __int8)PopSystemTimeToLocalTime();
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
     if ( result )
     {
       v22 = 8LL;
@@ -135,8 +135,8 @@ unsigned __int8 PopDiagTraceSmartSuspendValidation()
       v19 = 0x2000000LL;
       v56 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E076F0,
-               (unsigned __int8 *)&byte_14004AA97,
+               (__int64)&dword_140E07680,
+               (unsigned __int8 *)&word_14004B8E6,
                0LL,
                0LL,
                0x14u,

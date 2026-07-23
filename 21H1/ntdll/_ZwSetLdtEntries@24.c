@@ -6,7 +6,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwSetLdtEntries(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl ZwSetLdtEntries(
+        ULONG Selector0,
+        ULONG Entry0Low,
+        ULONG Entry0Hi,
+        ULONG Selector1,
+        ULONG Entry1Low,
+        ULONG Entry1Hi)
 {
   return Wow64SystemServiceCall();
 }

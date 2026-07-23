@@ -65,10 +65,10 @@ __int64 __fastcall PspSetProcessFreezeStateCallback(__int64 a1, _DWORD **a2)
       v5 = (volatile signed __int64 *)(a1 + 2440);
     }
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         a2 = (_DWORD **)(-1LL << (v6 + 1));

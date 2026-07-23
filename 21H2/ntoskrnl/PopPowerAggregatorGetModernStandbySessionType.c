@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPowerAggregatorGetModernStandbySessionType @ 0x1408EE258
+ * XREFs of PopPowerAggregatorGetModernStandbySessionType @ 0x1408EE3B8
  * Callers:
- *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE360 (PopPowerAggregatorHandleModernStandbyIntent.c)
- *     PopPowerAggregatorHandleModernStandbyResumeIntent @ 0x1408EE420 (PopPowerAggregatorHandleModernStandbyResumeIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE4C0 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyResumeIntent @ 0x1408EE580 (PopPowerAggregatorHandleModernStandbyResumeIntent.c)
  * Callees:
  *     <none>
  */

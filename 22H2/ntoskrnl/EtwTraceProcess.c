@@ -27,7 +27,7 @@ void __fastcall EtwTraceProcess(PEPROCESS Process, __int16 a2)
   PVOID v7; // [rsp+38h] [rbp-C8h] BYREF
   PVOID P[2]; // [rsp+40h] [rbp-C0h] BYREF
   _WORD v9[56]; // [rsp+50h] [rbp-B0h] BYREF
-  int v10[104]; // [rsp+C0h] [rbp-40h] BYREF
+  WCHAR v10[208]; // [rsp+C0h] [rbp-40h] BYREF
 
   v7 = 0LL;
   memset(v10, 0, 0x198uLL);

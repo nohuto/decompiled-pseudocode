@@ -13,7 +13,7 @@
  *     RtlpHpExtrasAppend @ 0x180102C7C (RtlpHpExtrasAppend.c)
  */
 
-unsigned __int64 __fastcall RtlpHpAllocateHeap(__int64 a1, size_t a2, int a3, __int16 a4)
+unsigned __int64 __fastcall RtlpHpAllocateHeap(_RTL_SRWLOCK *HeapHandle, size_t a2, int a3, __int16 a4)
 {
   unsigned int v4; // eax
   unsigned int v5; // ebx
@@ -34,16 +34,16 @@ unsigned __int64 __fastcall RtlpHpAllocateHeap(__int64 a1, size_t a2, int a3, __
   unsigned int v24; // [rsp+90h] [rbp+18h] BYREF
 
   v4 = 0;
-  v5 = (a3 | *(_DWORD *)(a1 + 20)) & 0x93000F0B;
+  v5 = (a3 | HIDWORD(HeapHandle[2].Ptr)) & 0x93000F0B;
   v24 = 0;
   v9 = 0;
   if ( (v5 & 0x1000000) == 0 )
   {
-    v9 = *(_DWORD *)(a1 + 56);
+    v9 = (int)HeapHandle[7].0;
     if ( v9 )
     {
       v5 |= 8u;
-      if ( (int)RtlpCallInterceptRoutine(v9, a1, 0, 1, (__int64)&v24) < 0 )
+      if ( (int)RtlpCallInterceptRoutine(v9, (_DWORD)HeapHandle, 0, 1, (__int64)&v24) < 0 )
       {
         v11 = 0LL;
 LABEL_12:
@@ -59,13 +59,13 @@ LABEL_12:
   v11 = RtlpHpCalculateAllocSize(a2 + v4, v10);
   if ( v11 < a2 || a2 > 0x7FFFFFFFFFFFFFFFLL )
     goto LABEL_12;
-  HeapInternal = RtlpHpAllocateHeapInternal(a1, a2, v11, v10 & 0x13000003, (int *)&v23);
+  HeapInternal = RtlpHpAllocateHeapInternal(HeapHandle, a2, v11, v10 & 0x13000003, (int *)&v23);
   v14 = HeapInternal;
   if ( !HeapInternal )
     goto LABEL_8;
   if ( (v10 & 0x30000F08) == 0 )
     goto LABEL_8;
-  v17 = RtlpHpExtrasAppend(a1, HeapInternal, a2, v13, v24, v10, a4);
+  v17 = RtlpHpExtrasAppend((_DWORD)HeapHandle, HeapInternal, a2, v13, v24, v10, a4);
   v19 = v17;
   if ( !v9 )
     goto LABEL_8;
@@ -93,17 +93,17 @@ LABEL_12:
 LABEL_22:
   v22 = v14;
 LABEL_26:
-  if ( (int)RtlpCallInterceptRoutine(v9, a1, v22, 2, v19 + 16) >= 0 )
+  if ( (int)RtlpCallInterceptRoutine(v9, (_DWORD)HeapHandle, v22, 2, v19 + 16) >= 0 )
     goto LABEL_8;
-  RtlFreeHeap(a1, 0, v14);
+  RtlFreeHeap(HeapHandle, 0, (PVOID)v14);
 LABEL_28:
   v14 = 0LL;
 LABEL_8:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v15 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v15 = 2147353472LL;
   if ( *(_BYTE *)v15 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-    RtlpLogHeapAllocateEvent(a1, v14, v11, v23);
+    RtlpLogHeapAllocateEvent(HeapHandle, v14, v11, v23);
   return v14;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of _PnpDispatchInstallerClass @ 0x140918340
+ * XREFs of _PnpDispatchInstallerClass @ 0x140972DA0
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14047A900 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmCreateInstallerClass @ 0x1408962DC (_CmCreateInstallerClass.c)
- *     _CmDeleteInstallerClass @ 0x140896CDC (_CmDeleteInstallerClass.c)
- *     _CmGetMatchingCommonClassList @ 0x140899040 (_CmGetMatchingCommonClassList.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14089BAD4 (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedPropertyLocales @ 0x14089BE20 (_CmGetInstallerClassMappedPropertyLocales.c)
- *     _CmGetInstallerClassMappedProperty @ 0x14091855C (_CmGetInstallerClassMappedProperty.c)
- *     _CmOpenInstallerClassRegKey @ 0x14099E2B4 (_CmOpenInstallerClassRegKey.c)
- *     _CmValidateInstallerClassName @ 0x140AC32D0 (_CmValidateInstallerClassName.c)
- *     _CmSetInstallerClassMappedProperty @ 0x140B3E1DC (_CmSetInstallerClassMappedProperty.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x140474270 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmCreateInstallerClass @ 0x14089C6DC (_CmCreateInstallerClass.c)
+ *     _CmDeleteInstallerClass @ 0x14089D0DC (_CmDeleteInstallerClass.c)
+ *     _CmGetMatchingCommonClassList @ 0x14089F440 (_CmGetMatchingCommonClassList.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408A1ED4 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedPropertyLocales @ 0x1408A2220 (_CmGetInstallerClassMappedPropertyLocales.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14095ED14 (_CmOpenInstallerClassRegKey.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x140972FBC (_CmGetInstallerClassMappedProperty.c)
+ *     _CmValidateInstallerClassName @ 0x140AC4F40 (_CmValidateInstallerClassName.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140B40214 (_CmSetInstallerClassMappedProperty.c)
  */
 
-__int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)
+__int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 (__fastcall *v5)(__int64, __int64, unsigned int); // r8
   __int128 *v6; // r11
   int v7; // r9d
-  int v8; // r9d
+  __int64 v8; // r9
   int v9; // r9d
   int v10; // r9d
   int v11; // r9d
@@ -36,8 +36,8 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
   v7 = a4 - 1;
   if ( v7 )
   {
-    v8 = v7 - 1;
-    if ( v8 )
+    v8 = (unsigned int)(v7 - 1);
+    if ( (_DWORD)v8 )
     {
       v9 = v8 - 1;
       if ( v9 )
@@ -62,11 +62,11 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
                                                      a1,
                                                      a2,
                                                      *(_QWORD *)a5,
-                                                     *((_QWORD *)a5 + 1),
-                                                     *((_QWORD *)a5 + 2),
-                                                     a5[6],
-                                                     *((_QWORD *)a5 + 4),
-                                                     a5[10]);
+                                                     *(_QWORD *)(a5 + 8),
+                                                     *(_QWORD *)(a5 + 16),
+                                                     *(_DWORD *)(a5 + 24),
+                                                     *(_QWORD *)(a5 + 32),
+                                                     *(_DWORD *)(a5 + 40));
                   else
                     InstallerClassMappedProperty = -1073741811;
                 }
@@ -76,12 +76,12 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
                                                    a1,
                                                    a2,
                                                    *(_QWORD *)a5,
-                                                   *((_QWORD *)a5 + 1),
-                                                   *((_QWORD *)a5 + 2),
-                                                   *((_QWORD *)a5 + 3),
-                                                   *((_QWORD *)a5 + 4),
-                                                   a5[10],
-                                                   *((_QWORD *)a5 + 6));
+                                                   *(_QWORD *)(a5 + 8),
+                                                   *(_QWORD *)(a5 + 16),
+                                                   *(_QWORD *)(a5 + 24),
+                                                   *(_QWORD *)(a5 + 32),
+                                                   *(_DWORD *)(a5 + 40),
+                                                   *(_QWORD *)(a5 + 48));
                 }
               }
               else
@@ -90,10 +90,10 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
                                                  a1,
                                                  a2,
                                                  0LL,
-                                                 *((_QWORD *)a5 + 1),
-                                                 *((_WORD **)a5 + 2),
-                                                 a5[6],
-                                                 *((_DWORD **)a5 + 4));
+                                                 *(_QWORD *)(a5 + 8),
+                                                 *(_WORD **)(a5 + 16),
+                                                 *(_DWORD *)(a5 + 24),
+                                                 *(_DWORD **)(a5 + 32));
               }
             }
             else
@@ -103,9 +103,9 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
                                                a2,
                                                *(_QWORD *)a5,
                                                0,
-                                               *((_QWORD *)a5 + 3),
-                                               a5[8],
-                                               *((unsigned int **)a5 + 5));
+                                               *(_QWORD *)(a5 + 24),
+                                               *(_DWORD *)(a5 + 32),
+                                               *(unsigned int **)(a5 + 40));
             }
           }
           else
@@ -115,22 +115,22 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
               *(_QWORD *)&v17 = *(_QWORD *)a5;
               v5 = PnpCmMatchCallbackRoutine;
               v6 = &v17;
-              *((_QWORD *)&v17 + 1) = *((_QWORD *)a5 + 1);
+              *((_QWORD *)&v17 + 1) = *(_QWORD *)(a5 + 8);
             }
             InstallerClassMappedProperty = CmGetMatchingCommonClassList(
                                              a1,
                                              2,
                                              (__int64)v5,
                                              (__int64)v6,
-                                             *((_QWORD *)a5 + 2),
-                                             a5[6],
-                                             *((_QWORD *)a5 + 4),
-                                             a5[10] & 0xFFFF0000);
+                                             *(_QWORD *)(a5 + 16),
+                                             *(_DWORD *)(a5 + 24),
+                                             *(_QWORD *)(a5 + 32),
+                                             *(_DWORD *)(a5 + 40) & 0xFFFF0000);
           }
         }
         else
         {
-          InstallerClassMappedProperty = CmDeleteInstallerClass(a1, a2, *a5 & 0xFFFF0000);
+          InstallerClassMappedProperty = CmDeleteInstallerClass(a1, a2, *(_DWORD *)a5 & 0xFFFF0000);
         }
       }
       else
@@ -138,10 +138,10 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
         InstallerClassMappedProperty = CmCreateInstallerClass(
                                          a1,
                                          a2,
-                                         *a5,
-                                         (HANDLE *)a5 + 1,
-                                         (_BYTE *)a5 + 16,
-                                         a5[5] & 0xFFFF0000);
+                                         *(_DWORD *)a5,
+                                         (HANDLE *)(a5 + 8),
+                                         (_BYTE *)(a5 + 16),
+                                         *(_DWORD *)(a5 + 20) & 0xFFFF0000);
       }
     }
     else
@@ -149,12 +149,12 @@ __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, __int64 a2, __int64 a3,
       InstallerClassMappedProperty = CmOpenInstallerClassRegKey(
                                        a1,
                                        a2,
-                                       0,
-                                       0,
-                                       *a5,
-                                       *((_BYTE *)a5 + 4),
-                                       *((_QWORD *)a5 + 1),
-                                       (__int64)(a5 + 4));
+                                       0LL,
+                                       v8,
+                                       *(_DWORD *)a5,
+                                       *(_BYTE *)(a5 + 4),
+                                       *(_QWORD *)(a5 + 8),
+                                       a5 + 16);
     }
   }
   else

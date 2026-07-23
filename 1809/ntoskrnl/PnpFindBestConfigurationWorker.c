@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpFindBestConfigurationWorker @ 0x14072E1E4
+ * XREFs of PnpFindBestConfigurationWorker @ 0x14072F3D4
  * Callers:
- *     PnpFindBestConfiguration @ 0x14072E18C (PnpFindBestConfiguration.c)
+ *     PnpFindBestConfiguration @ 0x14072F37C (PnpFindBestConfiguration.c)
  * Callees:
- *     IopSelectNextConfiguration @ 0x14072DCF0 (IopSelectNextConfiguration.c)
- *     IopTestConfiguration @ 0x14072E2F8 (IopTestConfiguration.c)
- *     PnpSelectFirstConfiguration @ 0x14072E444 (PnpSelectFirstConfiguration.c)
- *     IopAddRemoveReqDescs @ 0x14072FD54 (IopAddRemoveReqDescs.c)
- *     IopRetestConfiguration @ 0x140826C88 (IopRetestConfiguration.c)
- *     IopSaveRestoreConfiguration @ 0x140826D40 (IopSaveRestoreConfiguration.c)
+ *     IopSelectNextConfiguration @ 0x14072EEE0 (IopSelectNextConfiguration.c)
+ *     IopTestConfiguration @ 0x14072F4E8 (IopTestConfiguration.c)
+ *     PnpSelectFirstConfiguration @ 0x14072F634 (PnpSelectFirstConfiguration.c)
+ *     IopAddRemoveReqDescs @ 0x140730F44 (IopAddRemoveReqDescs.c)
+ *     IopRetestConfiguration @ 0x140827E88 (IopRetestConfiguration.c)
+ *     IopSaveRestoreConfiguration @ 0x140827F40 (IopSaveRestoreConfiguration.c)
  */
 
 __int64 __fastcall PnpFindBestConfigurationWorker(__int64 a1, unsigned int a2, _QWORD *a3)

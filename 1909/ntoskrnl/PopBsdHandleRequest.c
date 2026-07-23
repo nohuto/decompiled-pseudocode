@@ -29,7 +29,7 @@ char __fastcall PopBsdHandleRequest(int a1)
   if ( (a1 & 8) != 0 )
   {
     PopUpdateBsdPowerTransitionReferenceTime();
-    return RtlSetSystemBootStatus(7LL, &PopBsdPowerTransition, 32LL);
+    return RtlSetSystemBootStatus(RtlBsdPowerTransition, &PopBsdPowerTransition, 0x20u, 0LL);
   }
   else
   {

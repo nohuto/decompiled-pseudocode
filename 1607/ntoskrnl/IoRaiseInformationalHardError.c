@@ -1,19 +1,19 @@
 /*
- * XREFs of IoRaiseInformationalHardError @ 0x1401C8F44
+ * XREFs of IoRaiseInformationalHardError @ 0x1401C8DE4
  * Callers:
- *     MiCauseOverCommitPopup @ 0x1401ECD90 (MiCauseOverCommitPopup.c)
+ *     MiCauseOverCommitPopup @ 0x1401ECBBC (MiCauseOverCommitPopup.c)
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     FsRtlLogCcFlushError @ 0x14061DB78 (FsRtlLogCcFlushError.c)
+ *     FsRtlLogCcFlushError @ 0x14061DC2C (FsRtlLogCcFlushError.c)
  * Callees:
- *     KeReleaseSemaphore @ 0x1400529B0 (KeReleaseSemaphore.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     KeInsertQueueApc @ 0x1400C9FD0 (KeInsertQueueApc.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeInitializeApc @ 0x1400F0F58 (KeInitializeApc.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseSemaphore @ 0x140052530 (KeReleaseSemaphore.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     KeInsertQueueApc @ 0x1400C7E70 (KeInsertQueueApc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeInitializeApc @ 0x1400EEDA8 (KeInitializeApc.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -48,7 +48,7 @@ BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_S
   {
     return 0;
   }
-  if ( dword_140320BFC > 25 )
+  if ( dword_140320C1C > 25 )
     return 0;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x72456F49u);
   v8 = PoolWithTag;
@@ -72,7 +72,7 @@ LABEL_16:
   }
   if ( !Thread )
   {
-    v13 = KeAcquireSpinLockRaiseToDpc(&qword_140320BD0);
+    v13 = KeAcquireSpinLockRaiseToDpc(&qword_140320BF0);
     if ( Semaphore.Header.SignalState < 25 )
     {
       if ( !IopCurrentHardError
@@ -81,24 +81,24 @@ LABEL_16:
         && ((v15 = *((_WORD *)v8 + 12), v15 != *(_WORD *)(IopCurrentHardError + 24))
          || memcmp(v14, *(const void **)(IopCurrentHardError + 32), v15)) )
       {
-        v16 = qword_140320BC0;
-        if ( (__int64 *)qword_140320BC0 == &qword_140320BC0 )
+        v16 = qword_140320BE0;
+        if ( (__int64 *)qword_140320BE0 == &qword_140320BE0 )
         {
 LABEL_40:
-          v20 = (_QWORD *)qword_140320BC8;
-          if ( *(__int64 **)qword_140320BC8 != &qword_140320BC0 )
+          v20 = (_QWORD *)qword_140320BE8;
+          if ( *(__int64 **)qword_140320BE8 != &qword_140320BE0 )
             __fastfail(3u);
-          *v8 = &qword_140320BC0;
+          *v8 = &qword_140320BE0;
           v8[1] = v20;
           *v20 = v8;
-          qword_140320BC8 = (__int64)v8;
+          qword_140320BE8 = (__int64)v8;
           KeReleaseSemaphore(&Semaphore, 0, 1, 0);
-          if ( !byte_140320BF8 )
+          if ( !byte_140320C18 )
           {
-            byte_140320BF8 = 1;
+            byte_140320C18 = 1;
             ExQueueWorkItem(&IopHardError, DelayedWorkQueue);
           }
-          KeReleaseSpinLock(&qword_140320BD0, v13);
+          KeReleaseSpinLock(&qword_140320BF0, v13);
           return 1;
         }
         v17 = *((_DWORD *)v8 + 4);
@@ -114,12 +114,12 @@ LABEL_40:
               break;
           }
           v16 = *(_QWORD *)v16;
-          if ( (__int64 *)v16 == &qword_140320BC0 )
+          if ( (__int64 *)v16 == &qword_140320BE0 )
             goto LABEL_40;
         }
       }
     }
-    KeReleaseSpinLock(&qword_140320BD0, v13);
+    KeReleaseSpinLock(&qword_140320BF0, v13);
 LABEL_21:
     v12 = (void *)v8[4];
     if ( v12 )
@@ -129,7 +129,7 @@ LABEL_21:
   v11 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x58uLL, 0x4350414Bu);
   if ( !v11 )
     goto LABEL_21;
-  _InterlockedIncrement(&dword_140320BFC);
+  _InterlockedIncrement(&dword_140320C1C);
   KeInitializeApc(
     (__int64)v11,
     (__int64)Thread,

@@ -1,18 +1,24 @@
 /*
- * XREFs of ZwSetInformationVirtualMemory @ 0x1800A0A30
+ * XREFs of ZwSetInformationVirtualMemory @ 0x1800A09F0
  * Callers:
  *     RtlpGuardGrantSuppressedCallAccess @ 0x180053F24 (RtlpGuardGrantSuppressedCallAccess.c)
  *     LdrpInitializeNode @ 0x18006D154 (LdrpInitializeNode.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetInformationVirtualMemory()
+NTSTATUS __cdecl ZwSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 416LL;
+  result = 416;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

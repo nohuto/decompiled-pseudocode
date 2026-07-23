@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWnfInSupCallback @ 0x1407D72D0
+ * XREFs of PopWnfInSupCallback @ 0x1407DA670
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
- *     PopEvaluatePowerButtonSuppressionState @ 0x140B31ED4 (PopEvaluatePowerButtonSuppressionState.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
+ *     PopEvaluatePowerButtonSuppressionState @ 0x140B34328 (PopEvaluatePowerButtonSuppressionState.c)
  */
 
 __int64 __fastcall PopWnfInSupCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PopWnfInSupCallback(__int64 a1, __int64 a2, __int64 a3, int a
   __int64 v8; // r8
   struct _KLOCK_ENTRIES *v9; // r9
   int v11; // [rsp+20h] [rbp-18h] BYREF
-  _DWORD v12[5]; // [rsp+24h] [rbp-14h] BYREF
+  int v12[5]; // [rsp+24h] [rbp-14h] BYREF
   int v13; // [rsp+58h] [rbp+20h] BYREF
 
   v13 = a4;
@@ -34,8 +34,8 @@ __int64 __fastcall PopWnfInSupCallback(__int64 a1, __int64 a2, __int64 a3, int a
       {
         if ( v11 == 4 )
         {
-          PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock.Process, v7, v8, v9);
-          LODWORD(PopWeakChargerLock.QueueListEntry.Flink) = v12[0];
+          PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerButtonSuppressionLock, v7, v8, v9);
+          dword_140F0D3B8 = v12[0];
           return (unsigned int)PopEvaluatePowerButtonSuppressionState();
         }
         else

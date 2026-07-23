@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCheckHivePrimaryFileReadWriteAccess @ 0x1401B4690
+ * XREFs of CmpCheckHivePrimaryFileReadWriteAccess @ 0x1401B4574
  * Callers:
- *     CmLoadAppKey @ 0x1403FC110 (CmLoadAppKey.c)
+ *     CmLoadAppKey @ 0x1403FAFD0 (CmLoadAppKey.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     IoGetFileObjectGenericMapping @ 0x1404C9720 (IoGetFileObjectGenericMapping.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     IoGetFileObjectGenericMapping @ 0x1404AF4A0 (IoGetFileObjectGenericMapping.c)
  */
 
 BOOLEAN __fastcall CmpCheckHivePrimaryFileReadWriteAccess(PSECURITY_DESCRIPTOR SecurityDescriptor)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiPnpAddDeviceToPdoDeviceListEnumContext @ 0x140A61DE4
+ * XREFs of PiPnpAddDeviceToPdoDeviceListEnumContext @ 0x140A5A6E4
  * Callers:
- *     PiPnpPdoDeviceListEnumCallback @ 0x140A61DA0 (PiPnpPdoDeviceListEnumCallback.c)
+ *     PiPnpPdoDeviceListEnumCallback @ 0x140A5A6A0 (PiPnpPdoDeviceListEnumCallback.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiPnpAddDeviceToPdoDeviceListEnumContext(int *a1, __int64 a2)
+__int64 __fastcall PiPnpAddDeviceToPdoDeviceListEnumContext(unsigned int *a1, __int64 a2)
 {
   const void **v2; // rdi
   _DWORD *v4; // rbx
   unsigned int *v7; // rbp
-  int v8; // r14d
+  __int64 v8; // r14
   _DWORD *Pool2; // rax
   const void **v10; // rax
 
@@ -28,14 +28,14 @@ LABEL_3:
       ++*(_DWORD *)*v2;
       return 0LL;
     }
-    v7 = (unsigned int *)(a1 + 2);
+    v7 = a1 + 2;
   }
   else
   {
-    v7 = (unsigned int *)(a1 + 2);
+    v7 = a1 + 2;
   }
   v8 = *a1 + 256;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 8 * v8 + 8, 0x20207050u);
   v4 = Pool2;
   if ( Pool2 )
   {
@@ -43,7 +43,7 @@ LABEL_3:
     v10 = v2;
     if ( *v2 )
     {
-      memmove(v4, *v2, 8LL * (unsigned int)*a1 + 8);
+      memmove(v4, *v2, 8LL * *a1 + 8);
       ExFreePoolWithTag((PVOID)*v2, 0);
       v10 = (const void **)v7;
     }

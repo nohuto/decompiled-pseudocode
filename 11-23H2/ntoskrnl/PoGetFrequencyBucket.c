@@ -1,18 +1,18 @@
 /*
- * XREFs of PoGetFrequencyBucket @ 0x140249C20
+ * XREFs of PoGetFrequencyBucket @ 0x140249CF0
  * Callers:
  *     KeBoostPriorityThread @ 0x1402039B4 (KeBoostPriorityThread.c)
  *     KiEndDebugAccumulation @ 0x14020E5F0 (KiEndDebugAccumulation.c)
  *     KiAccumulateCycleStats @ 0x14020E7C0 (KiAccumulateCycleStats.c)
  *     KiAccumulateProcessorCycleStats @ 0x14020E890 (KiAccumulateProcessorCycleStats.c)
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
- *     KeYieldExecution @ 0x1402469F0 (KeYieldExecution.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     KiSetQuantumTargetThread @ 0x1402B2AF0 (KiSetQuantumTargetThread.c)
- *     KiStartThreadCycleAccumulation @ 0x1402B2D40 (KiStartThreadCycleAccumulation.c)
- *     KeSetBasePriorityThread @ 0x1402B9DA0 (KeSetBasePriorityThread.c)
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
+ *     KeYieldExecution @ 0x140246AC0 (KeYieldExecution.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     KiSetQuantumTargetThread @ 0x1402B2D80 (KiSetQuantumTargetThread.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402B2FD0 (KiStartThreadCycleAccumulation.c)
+ *     KeSetBasePriorityThread @ 0x1402BA030 (KeSetBasePriorityThread.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
  * Callees:
  *     <none>
  */

@@ -40,7 +40,7 @@ void __fastcall RtlpHpFixedVsFree(unsigned __int64 a1, __int64 a2, unsigned int 
   unsigned __int8 v22; // r14
   unsigned int v23; // r8d
   __int64 v24; // rcx
-  unsigned __int64 v25; // rdi
+  __int64 v25; // rdi
   __int64 v26; // rdx
   __int64 v27; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -154,7 +154,7 @@ LABEL_8:
         i = !_BitScanReverse((unsigned int *)&v24, v23);
         if ( i )
           goto LABEL_29;
-        v25 = (unsigned __int64)&CurrentThread->LockEntries[v24];
+        v25 = (__int64)&CurrentThread->LockEntries[v24];
         v23 &= ~(1 << v24);
         if ( (*(_BYTE *)(v25 + 26) & 1) != 0
           && (*(_DWORD *)(v25 + 32) & 1) == 0
@@ -175,12 +175,12 @@ LABEL_29:
       }
       *(_BYTE *)(v25 + 32) |= 2u;
       if ( *(__int64 *)(v25 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v25);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v25);
       v36 = *(_DWORD *)(v25 + 88) & 0x1FFFF;
       *(_DWORD *)(v25 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v25 + 25) &= ~1u;
       *(_QWORD *)(v25 + 32) = 0LL;
-      v26 = (__int64)(v25 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      v26 = (signed __int64)(v25 - (unsigned __int64)CurrentThread->LockEntries) / 96;
       if ( v22 == 1 )
         CurrentThread->AbEntrySummary |= 1 << v26;
       else

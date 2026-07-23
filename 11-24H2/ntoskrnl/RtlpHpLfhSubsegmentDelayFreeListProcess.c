@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1402B5E60
+ * XREFs of RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1403D8A60
  * Callers:
- *     RtlpHpLfhOwnerRunMaintenance @ 0x1402B5B00 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhOwnerFreeListProcess @ 0x1402B5D24 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhOwnerGetSubsegment @ 0x1402B6AE8 (RtlpHpLfhOwnerGetSubsegment.c)
+ *     RtlpHpLfhOwnerGetSubsegment @ 0x14035EB70 (RtlpHpLfhOwnerGetSubsegment.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1403D8700 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x1403D8924 (RtlpHpLfhOwnerFreeListProcess.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x1402B523C (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
- *     RtlpHpLfhBlockBitmapInitialize @ 0x1402B5A9C (RtlpHpLfhBlockBitmapInitialize.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402B61E0 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x1402B6644 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x1402B93D8 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x140360B18 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403D8DE0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x1403D9244 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
+ *     RtlpHpLfhBlockBitmapInitialize @ 0x1403D96B0 (RtlpHpLfhBlockBitmapInitialize.c)
+ *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x1403D9724 (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
  */
 
-__int64 __fastcall RtlpHpLfhSubsegmentDelayFreeListProcess(ULONG_PTR *a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RtlpHpLfhSubsegmentDelayFreeListProcess(__int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v4; // rbp
   unsigned __int64 v6; // rdi
@@ -39,28 +39,26 @@ __int64 __fastcall RtlpHpLfhSubsegmentDelayFreeListProcess(ULONG_PTR *a1, unsign
   unsigned __int64 v26; // rdx
   unsigned __int64 v27; // r8
   unsigned __int64 v28; // rdx
-  __int64 v29; // rdx
+  int v29; // edx
   bool v30; // zf
-  __int64 v31; // [rsp+20h] [rbp-58h]
-  __int64 v32; // [rsp+28h] [rbp-50h]
-  __int64 v33; // [rsp+30h] [rbp-48h]
-  unsigned __int64 v34; // [rsp+38h] [rbp-40h]
-  int v35; // [rsp+88h] [rbp+10h]
-  unsigned __int64 v36; // [rsp+98h] [rbp+20h]
+  __int64 v31; // [rsp+30h] [rbp-48h]
+  unsigned __int64 v32; // [rsp+38h] [rbp-40h]
+  int v33; // [rsp+88h] [rbp+10h]
+  unsigned __int64 v34; // [rsp+98h] [rbp+20h]
 
   v4 = a2 >> 12;
   v6 = a3 >> 16;
   v7 = *(_BYTE *)(a2 + 51) & 1;
-  v8 = *(_DWORD *)(a2 + 40) ^ qword_140E28208 ^ (a2 >> 12);
+  v8 = *(_DWORD *)(a2 + 40) ^ qword_140E28348 ^ (a2 >> 12);
   v9 = *(unsigned __int16 *)(a2 + 34);
   v10 = (unsigned __int16)v8;
   v11 = a2 + ((unsigned __int64)v8 >> 16);
   v12 = v8;
   result = WORD1(a3) + (unsigned int)*(unsigned __int16 *)(a2 + 32);
-  v36 = a2 >> 12;
-  v35 = v10;
-  v34 = v11;
-  v33 = a3 >> 16;
+  v34 = a2 >> 12;
+  v33 = v10;
+  v32 = v11;
+  v31 = a3 >> 16;
   if ( v9 != (_DWORD)result )
   {
     if ( *(_BYTE *)(a2 + 39) == 1 && !v7 )
@@ -99,7 +97,7 @@ LABEL_3:
           _m_prefetchw(v20);
           v21 = (unsigned __int16)v4;
           LODWORD(v4) = -1;
-          v22 = *(unsigned __int16 *)(a2 + 40) ^ v21 ^ (unsigned __int16)qword_140E28208;
+          v22 = *(unsigned __int16 *)(a2 + 40) ^ v21 ^ (unsigned __int16)qword_140E28348;
           v23 = 0;
           v24 = &v20[2 * (((unsigned int)(v16 - a2 + v22 - 1) >> 12 >> v17) - (unsigned int)v18) + 2];
           if ( v20 < v24 )
@@ -125,9 +123,9 @@ LABEL_3:
             if ( v23 )
               RtlpHpLfhContextUpdateFreeCommitCount(a1, a2, (v23 << 12 << *(_BYTE *)(a2 + 38)) / 4096);
             if ( (_DWORD)v4 != -1 )
-              RtlpHpLfhSubsegmentDecommitPages(a1, a2, (unsigned int)v4, 2LL, v31, v32);
+              RtlpHpLfhSubsegmentDecommitPages(a1, a2, (unsigned int)v4, 2LL);
           }
-          LOWORD(v4) = v36;
+          LOWORD(v4) = v34;
         }
         v26 = __ROL8__(-2LL, v15 & 0x3F);
         v27 = a2 + 8 * ((unsigned __int64)v15 >> 6);
@@ -148,27 +146,27 @@ LABEL_3:
           RtlpLogHeapFailure(17, *a1, v16, a2, v15, 0LL);
           NT_ASSERT("0");
         }
-        v11 = v34;
-        v10 = v35;
+        v11 = v32;
+        v10 = v33;
       }
       while ( v14 );
-      LOWORD(v6) = v33;
+      LOWORD(v6) = v31;
     }
     goto LABEL_22;
   }
   if ( *(_BYTE *)(a2 + 39) != 1 )
     goto LABEL_3;
-  RtlpHpLfhBlockBitmapInitialize((void *)(a2 + 64), v9 + *(unsigned __int8 *)(a2 + 37));
+  RtlpHpLfhBlockBitmapInitialize(a2 + 64, v9 + (unsigned int)*(unsigned __int8 *)(a2 + 37));
   v30 = *(_BYTE *)(a2 + 37) == 0;
   *(_BYTE *)(a2 + 36) = 0;
   if ( !v30 )
     RtlpHpLfhSubsegmentSetWitheldBlocks(
       a2 + 64,
       v29,
-      (__int64)&a1[8 * (unsigned __int64)*(unsigned __int16 *)(a2 + 44)],
+      (_DWORD)a1 + (*(unsigned __int16 *)(a2 + 44) << 6),
       v12,
       HIBYTE(*(unsigned __int16 *)(a2 + 38)) << 12 << *(_WORD *)(a2 + 38));
-  result = v33;
-  *(_WORD *)(a2 + 32) += v33;
+  result = v31;
+  *(_WORD *)(a2 + 32) += v31;
   return result;
 }

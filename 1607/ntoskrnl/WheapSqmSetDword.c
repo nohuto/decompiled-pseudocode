@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapSqmSetDword @ 0x1406BBE40
+ * XREFs of WheapSqmSetDword @ 0x1406BBF78
  * Callers:
- *     WheapSqmCollectWheaOscTelemetry @ 0x140231AD4 (WheapSqmCollectWheaOscTelemetry.c)
+ *     WheapSqmCollectWheaOscTelemetry @ 0x140231900 (WheapSqmCollectWheaOscTelemetry.c)
  * Callees:
  *     <none>
  */

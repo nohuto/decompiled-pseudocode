@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpQueueWorkItem @ 0x140324510
+ * XREFs of ExpQueueWorkItem @ 0x1402CD0A0
  * Callers:
- *     ExQueueWorkItemToPrivatePool @ 0x14024B134 (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemEx @ 0x1402A7430 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     ExQueueWorkItemExFromIo @ 0x140483044 (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x14027B744 (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemEx @ 0x1402D6B60 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemExFromIo @ 0x1403A9120 (ExQueueWorkItemExFromIo.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiWakePriQueueWaiter @ 0x1403248F0 (KiWakePriQueueWaiter.c)
- *     KeIsThreadRunning @ 0x1403BE4C8 (KeIsThreadRunning.c)
- *     EtwTracePriQEnqueueWork @ 0x1404C9BC0 (EtwTracePriQEnqueueWork.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTracePriQEnqueueFailed @ 0x14064DCC0 (EtwTracePriQEnqueueFailed.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiWakePriQueueWaiter @ 0x1402CD480 (KiWakePriQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x1403AD158 (KeIsThreadRunning.c)
+ *     EtwTracePriQEnqueueWork @ 0x1404C3070 (EtwTracePriQEnqueueWork.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTracePriQEnqueueFailed @ 0x14064C2D0 (EtwTracePriQEnqueueFailed.c)
  */
 
 __int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4, int a5)
@@ -171,7 +171,7 @@ LABEL_33:
     if ( ++v9 == (unsigned __int16)KeNumberNodes )
       v11 = -1;
     else
-      v11 = *(_DWORD *)(qword_140E2DAD0 + 4LL * (a4 * (unsigned __int16)KeNumberNodes + v9));
+      v11 = *(_DWORD *)(qword_140E2DC10 + 4LL * (a4 * (unsigned __int16)KeNumberNodes + v9));
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

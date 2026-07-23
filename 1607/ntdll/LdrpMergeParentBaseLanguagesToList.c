@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpMergeParentBaseLanguagesToList @ 0x180067188
+ * XREFs of LdrpMergeParentBaseLanguagesToList @ 0x180067178
  * Callers:
- *     LdrpMergeLangFallbackLists @ 0x180041058 (LdrpMergeLangFallbackLists.c)
- *     RtlGetUserPreferredUILanguages @ 0x180079C00 (RtlGetUserPreferredUILanguages.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007B0E0 (RtlGetSystemPreferredUILanguages.c)
+ *     LdrpMergeLangFallbackLists @ 0x180041048 (LdrpMergeLangFallbackLists.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180079BF0 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007B0D0 (RtlGetSystemPreferredUILanguages.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     LdrpLangFallbackListAppendNode @ 0x180043BE0 (LdrpLangFallbackListAppendNode.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlLCIDToCultureName @ 0x1800448B0 (RtlLCIDToCultureName.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlpFreeTraverseNodes @ 0x18006A7E0 (RtlpFreeTraverseNodes.c)
- *     RtlpTraverseParents @ 0x18006A81C (RtlpTraverseParents.c)
- *     RtlpCreateTraverseNodes @ 0x18006A8B0 (RtlpCreateTraverseNodes.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     LdrpLangFallbackListAppendNode @ 0x180043BD0 (LdrpLangFallbackListAppendNode.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x1800448A0 (RtlLCIDToCultureName.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlpFreeTraverseNodes @ 0x18006A7D0 (RtlpFreeTraverseNodes.c)
+ *     RtlpTraverseParents @ 0x18006A80C (RtlpTraverseParents.c)
+ *     RtlpCreateTraverseNodes @ 0x18006A8A0 (RtlpCreateTraverseNodes.c)
  */
 
 __int64 LdrpMergeParentBaseLanguagesToList(__int64 *a1, __int64 a2, __int64 a3, int a4, ...)
@@ -23,12 +23,12 @@ __int64 LdrpMergeParentBaseLanguagesToList(__int64 *a1, __int64 a2, __int64 a3, 
   __int16 v10; // di
   unsigned __int16 v11; // dx
   __int16 v12; // dx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v15; // [rsp+70h] [rbp+30h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp+30h] BYREF
   va_list va; // [rsp+90h] [rbp+50h] BYREF
 
   va_start(va, a4);
-  v15 = 0LL;
+  BaseAddress = 0LL;
   v6 = a2;
   Heap = 0LL;
   if ( !a1 || !*a1 || !a2 || !a3 )
@@ -36,15 +36,15 @@ __int64 LdrpMergeParentBaseLanguagesToList(__int64 *a1, __int64 a2, __int64 a3, 
     appended = -1073741811;
     goto LABEL_19;
   }
-  appended = RtlpCreateTraverseNodes(&v15);
+  appended = RtlpCreateTraverseNodes(&BaseAddress);
   if ( appended >= 0 )
   {
-    if ( !(unsigned __int8)RtlpTraverseParents(v6, v15, a3, a4, 0, 42) )
+    if ( !(unsigned __int8)RtlpTraverseParents(v6, (_DWORD)BaseAddress, a3, a4, 0, 42) )
     {
       appended = -1073741823;
       goto LABEL_21;
     }
-    Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
     if ( !Heap )
     {
       appended = -1073741801;
@@ -53,26 +53,26 @@ __int64 LdrpMergeParentBaseLanguagesToList(__int64 *a1, __int64 a2, __int64 a3, 
     v10 = 0;
     while ( 1 )
     {
-      if ( v10 && *(_DWORD *)(v15 + 8LL * v10 + 4) )
+      if ( v10 && *((_DWORD *)BaseAddress + 2 * v10 + 1) )
       {
-        v11 = *(_WORD *)(v15 + 8LL * v10);
+        v11 = *((_WORD *)BaseAddress + 4 * v10);
         if ( v11 )
         {
           DestinationString.Buffer = Heap;
           *(_DWORD *)&DestinationString.Length = 11141120;
-          if ( !RtlLCIDToCultureName(v11, (__int64)&DestinationString) )
+          if ( !RtlLCIDToCultureName(v11, &DestinationString) )
           {
 LABEL_18:
             appended = -1073741595;
 LABEL_19:
             if ( Heap )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
             break;
           }
         }
         else
         {
-          v12 = *(_WORD *)(v15 + 8LL * v10 + 2);
+          v12 = *((_WORD *)BaseAddress + 4 * v10 + 1);
           if ( v12 < 0 )
             goto LABEL_18;
           RtlInitUnicodeString(
@@ -89,7 +89,7 @@ LABEL_19:
     }
   }
 LABEL_21:
-  if ( v15 )
-    RtlpFreeTraverseNodes();
+  if ( BaseAddress )
+    RtlpFreeTraverseNodes(BaseAddress);
   return (unsigned int)appended;
 }

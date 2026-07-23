@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpInterruptEnableNmi @ 0x1404A356C
+ * XREFs of HalpInterruptEnableNmi @ 0x14049E4CC
  * Callers:
- *     HalpInterruptInitSystem @ 0x140B4D2D0 (HalpInterruptInitSystem.c)
- *     HalpDpPostReplaceInitialization @ 0x140B4F9EC (HalpDpPostReplaceInitialization.c)
- *     HalpPostSleepMP @ 0x140B6886C (HalpPostSleepMP.c)
+ *     HalpInterruptInitSystem @ 0x140B4F310 (HalpInterruptInitSystem.c)
+ *     HalpDpPostReplaceInitialization @ 0x140B51A3C (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140B70824 (HalpPostSleepMP.c)
  * Callees:
- *     HalpInterruptGsiToLine @ 0x1403B9678 (HalpInterruptGsiToLine.c)
- *     HalpInterruptFindLines @ 0x1403B97B4 (HalpInterruptFindLines.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpInterruptLookupController @ 0x1403B9D14 (HalpInterruptLookupController.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptDestinationToTarget @ 0x1403BAD88 (HalpInterruptDestinationToTarget.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x1403BAEFC (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptSetLineState @ 0x1403BBB90 (HalpInterruptSetLineState.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x140541328 (HalpInterruptSetRemappedLineStateInternal.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpHvMapIoApicDeviceInterrupt @ 0x140B4C838 (HalpHvMapIoApicDeviceInterrupt.c)
+ *     HalpInterruptSetLineState @ 0x1402B4E20 (HalpInterruptSetLineState.c)
+ *     HalpInterruptDestinationToTarget @ 0x140370DAC (HalpInterruptDestinationToTarget.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptLookupController @ 0x1403726E4 (HalpInterruptLookupController.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindLines @ 0x140373298 (HalpInterruptFindLines.c)
+ *     HalpInterruptGsiToLine @ 0x1403733E0 (HalpInterruptGsiToLine.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1403746F4 (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x14053EC28 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpHvMapIoApicDeviceInterrupt @ 0x140B4E878 (HalpHvMapIoApicDeviceInterrupt.c)
  */
 
 __int64 HalpInterruptEnableNmi()
@@ -41,36 +41,35 @@ __int64 HalpInterruptEnableNmi()
   int v17; // eax
   __int64 Number; // rcx
   __int64 v19; // rax
-  _QWORD *Lines; // rax
+  ULONG_PTR *Lines; // rax
   __int64 v21; // rcx
   ULONG_PTR *v22; // rsi
   int v23; // eax
-  __int64 v24; // r9
-  int v25; // eax
-  int v26; // edx
+  int v24; // eax
+  int v25; // edx
   unsigned int BugCheckParameter4; // [rsp+28h] [rbp-79h]
-  char v28; // [rsp+40h] [rbp-61h]
-  unsigned __int64 v29; // [rsp+48h] [rbp-59h] BYREF
-  unsigned int v30; // [rsp+50h] [rbp-51h]
-  __int128 v31; // [rsp+58h] [rbp-49h] BYREF
-  __int128 *v32; // [rsp+68h] [rbp-39h]
-  __int128 v33; // [rsp+70h] [rbp-31h] BYREF
-  __int128 v34; // [rsp+80h] [rbp-21h] BYREF
-  __int128 v35; // [rsp+90h] [rbp-11h]
-  __int64 v36; // [rsp+A0h] [rbp-1h]
-  __int128 v37; // [rsp+A8h] [rbp+7h] BYREF
-  __int128 v38; // [rsp+B8h] [rbp+17h] BYREF
+  char v27; // [rsp+40h] [rbp-61h]
+  unsigned __int64 v28; // [rsp+48h] [rbp-59h] BYREF
+  unsigned int v29; // [rsp+50h] [rbp-51h]
+  __int128 v30; // [rsp+58h] [rbp-49h] BYREF
+  __int128 *v31; // [rsp+68h] [rbp-39h]
+  __int128 v32; // [rsp+70h] [rbp-31h] BYREF
+  __int128 v33; // [rsp+80h] [rbp-21h] BYREF
+  __int128 v34; // [rsp+90h] [rbp-11h]
+  __int64 v35; // [rsp+A0h] [rbp-1h]
+  __int128 v36; // [rsp+A8h] [rbp+7h] BYREF
+  __int128 v37; // [rsp+B8h] [rbp+17h] BYREF
 
-  v31 = 0LL;
-  LODWORD(v32) = 0;
-  v38 = 0LL;
-  v29 = 0LL;
-  v33 = 0LL;
-  v36 = 0LL;
-  v34 = 0LL;
-  v30 = 0;
-  v35 = 0LL;
+  v30 = 0LL;
+  LODWORD(v31) = 0;
   v37 = 0LL;
+  v28 = 0LL;
+  v32 = 0LL;
+  v35 = 0LL;
+  v33 = 0LL;
+  v29 = 0;
+  v34 = 0LL;
+  v36 = 0LL;
   v0 = HalpAcquireHighLevelLock(&HalpInterruptLock);
   CurrentPrcb = KeGetCurrentPrcb();
   v2 = v0;
@@ -113,82 +112,82 @@ __int64 HalpInterruptEnableNmi()
     {
       continue;
     }
-    v33 = 0LL;
-    v36 = 0LL;
-    v34 = 0LL;
+    v32 = 0LL;
     v35 = 0LL;
-    v37 = 0LL;
+    v33 = 0LL;
+    v34 = 0LL;
+    v36 = 0LL;
     v11 = *(_DWORD *)(j + 16);
     v12 = v11 & 0xC;
     if ( *(_BYTE *)(j + 8) )
     {
-      v13 = DWORD2(v33);
+      v13 = DWORD2(v32);
       v14 = 0;
       if ( v12 != 12 )
         v13 = 1;
-      DWORD2(v33) = v13;
+      DWORD2(v32) = v13;
       LOBYTE(v14) = (*(_BYTE *)(j + 16) & 3) == 3;
       v15 = v14 + 1;
     }
     else
     {
       if ( v12 == 4 || (v11 & 0xC) == 0 )
-        DWORD2(v33) = 1;
+        DWORD2(v32) = 1;
       if ( (*(_DWORD *)(j + 16) & 3) == 0 || (v15 = 2, (*(_DWORD *)(j + 16) & 3) == 1) )
         v15 = 1;
     }
-    *(_QWORD *)&v34 = 0x2FFFFFFFFLL;
-    LODWORD(v33) = v15;
-    LODWORD(v37) = v37 & 0x80000000 | 0x40000002;
-    v32 = &v37;
-    v31 = 0uLL;
-    HIDWORD(v33) = 16;
+    *(_QWORD *)&v33 = 0x2FFFFFFFFLL;
+    LODWORD(v32) = v15;
+    LODWORD(v36) = v36 & 0x80000000 | 0x40000002;
+    v31 = &v36;
+    v30 = 0uLL;
+    HIDWORD(v32) = 16;
     if ( !v9 )
       break;
-    LODWORD(v31) = 5;
+    LODWORD(v30) = 5;
     v16 = *(_DWORD *)(HalpInterruptController + 256);
-    HIDWORD(v29) = *(_DWORD *)(j + 20);
-    LODWORD(v29) = v16;
+    HIDWORD(v28) = *(_DWORD *)(j + 20);
+    LODWORD(v28) = v16;
 LABEL_50:
-    v7 = HalpInterruptSetLineState(&v29, 0, 15, SDWORD2(v33), v15, (__int64)&v31, (__int64)&v34, v28);
+    v7 = HalpInterruptSetLineState(&v28, 0, 15, SDWORD2(v32), v15, (__int64)&v30, (__int64)&v33, v27);
     if ( v7 < 0 )
       goto LABEL_7;
 LABEL_34:
     ;
   }
-  v17 = HalpInterruptGsiToLine(*(unsigned int *)(j + 20), &v29);
+  v17 = HalpInterruptGsiToLine(*(_DWORD *)(j + 20), &v28);
   if ( v17 < 0 )
   {
-    HalpInterruptSetProblemEx(0LL, 18, v17, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 0x645u);
+    HalpInterruptSetProblemEx(0LL, 18, v17, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c", 0x648u);
     goto LABEL_34;
   }
   if ( HalpInterruptPhysicalModeOnly )
   {
-    LODWORD(v31) = 3;
+    LODWORD(v30) = 3;
   }
   else
   {
-    v38 = 0LL;
+    v37 = 0LL;
     Number = CurrentPrcb->Number;
-    LODWORD(v31) = 1;
+    LODWORD(v30) = 1;
     v19 = 0LL;
     _bittestandset64(&v19, *((_DWORD *)KiGlobalState + Number) & 0x3F);
-    *(_QWORD *)&v38 = v19;
-    *((_QWORD *)&v31 + 1) = &v38;
+    *(_QWORD *)&v37 = v19;
+    *((_QWORD *)&v30 + 1) = &v37;
   }
-  Lines = HalpInterruptFindLines((unsigned int *)&v29);
+  Lines = HalpInterruptFindLines((int *)&v28);
   if ( Lines )
   {
-    if ( !*(_BYTE *)(Lines[6] + 16LL * v30 + 12) )
+    if ( !*(_BYTE *)(Lines[6] + 16LL * v29 + 12) )
     {
-      v22 = HalpInterruptLookupController(v29);
+      v22 = HalpInterruptLookupController(v28);
       if ( !v22 )
       {
-        BugCheckParameter4 = 1644;
-        v26 = 17;
+        BugCheckParameter4 = 1647;
+        v25 = 17;
         goto LABEL_55;
       }
-      v23 = HalpInterruptDestinationToTarget(v21, (__int64)&v31, (_DWORD *)&v34 + 2);
+      v23 = HalpInterruptDestinationToTarget(v21, (__int64)&v30, (_DWORD *)&v33 + 2);
       if ( v23 < 0 )
       {
         HalpInterruptSetProblemEx(
@@ -196,44 +195,44 @@ LABEL_34:
           19,
           v23,
           (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c",
-          0x681u);
+          0x684u);
         goto LABEL_56;
       }
       if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x100) != 0 && KeGetCurrentPrcb()->CpuVendor != 1 )
       {
-        HalpIommuUpdateRemappingTableEntry(0, v37 & 0x3FFFFFFF, (__int64)&v33, v24);
-        DWORD2(v34) = 7;
-        LODWORD(v35) = v37 & 0x3FFFFFFF;
+        HalpIommuUpdateRemappingTableEntry(0, v36 & 0x3FFFFFFF);
+        DWORD2(v33) = 7;
+        LODWORD(v34) = v36 & 0x3FFFFFFF;
       }
-      if ( qword_140FC0EE8 )
+      if ( qword_140FC1148 )
       {
-        v25 = HalpHvMapIoApicDeviceInterrupt(*((unsigned int *)v22 + 64), &v33, 0LL);
-        v7 = v25;
-        if ( v25 < 0 )
+        v24 = HalpHvMapIoApicDeviceInterrupt(*((unsigned int *)v22 + 64), &v32, 0LL);
+        v7 = v24;
+        if ( v24 < 0 )
         {
           HalpInterruptSetProblemEx(
             (__int64)v22,
             31,
-            v25,
+            v24,
             (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c",
-            0x6B4u);
+            0x6B7u);
           goto LABEL_7;
         }
       }
-      HIDWORD(v33) &= ~0x10u;
-      v7 = HalpInterruptSetRemappedLineStateInternal(v22, &v29, &v33);
+      HIDWORD(v32) &= ~0x10u;
+      v7 = HalpInterruptSetRemappedLineStateInternal(v22, &v28, &v32);
       if ( v7 < 0 )
         goto LABEL_7;
-      v15 = v33;
+      v15 = v32;
     }
     goto LABEL_50;
   }
-  BugCheckParameter4 = 1628;
-  v26 = 18;
+  BugCheckParameter4 = 1631;
+  v25 = 18;
 LABEL_55:
   HalpInterruptSetProblemEx(
     0LL,
-    v26,
+    v25,
     0,
     (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intrupt.c",
     BugCheckParameter4);

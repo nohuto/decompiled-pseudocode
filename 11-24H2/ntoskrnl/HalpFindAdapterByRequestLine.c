@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpFindAdapterByRequestLine @ 0x140553020
+ * XREFs of HalpFindAdapterByRequestLine @ 0x140550960
  * Callers:
- *     HalGetAdapterV3 @ 0x1407000B8 (HalGetAdapterV3.c)
+ *     HalGetAdapterV3 @ 0x1406FDCF8 (HalGetAdapterV3.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _QWORD *__fastcall HalpFindAdapterByRequestLine(__int64 a1, int a2)

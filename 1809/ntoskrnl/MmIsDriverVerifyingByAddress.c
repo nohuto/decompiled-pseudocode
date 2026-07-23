@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIsDriverVerifyingByAddress @ 0x14075C160
+ * XREFs of MmIsDriverVerifyingByAddress @ 0x14075D350
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
  */
 
 LOGICAL __stdcall MmIsDriverVerifyingByAddress(PVOID AddressWithinSection)

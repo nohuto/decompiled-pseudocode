@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDispatchQuerySetIrp @ 0x140486ECC
+ * XREFs of PopDispatchQuerySetIrp @ 0x14048089C
  * Callers:
- *     PoHandleIrp @ 0x140486AFC (PoHandleIrp.c)
+ *     PoHandleIrp @ 0x1404804CC (PoHandleIrp.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
  */
 
 LONG __fastcall PopDispatchQuerySetIrp(_QWORD *a1)
@@ -18,26 +18,26 @@ LONG __fastcall PopDispatchQuerySetIrp(_QWORD *a1)
   *(_BYTE *)(v2 + 3) |= 1u;
   ObfReferenceObjectWithTag(*(PVOID *)(v2 + 40), 0x72496F50u);
   v3 = a1 + 21;
-  if ( a1 == (_QWORD *)qword_140F0FB50 )
+  if ( a1 == (_QWORD *)PopInrushIrp )
   {
-    v5 = qword_140F0FB00;
-    if ( *(__int64 **)(qword_140F0FB00 + 8) != &qword_140F0FB00 )
+    v5 = PopIrpWorkerList;
+    if ( *(__int64 **)(PopIrpWorkerList + 8) != &PopIrpWorkerList )
 LABEL_3:
       __fastfail(3u);
-    *v3 = qword_140F0FB00;
-    a1[22] = &qword_140F0FB00;
+    *v3 = PopIrpWorkerList;
+    a1[22] = &PopIrpWorkerList;
     *(_QWORD *)(v5 + 8) = v3;
-    qword_140F0FB00 = (__int64)(a1 + 21);
+    PopIrpWorkerList = (__int64)(a1 + 21);
   }
   else
   {
-    v4 = (_QWORD *)qword_140F0FB08;
-    if ( *(__int64 **)qword_140F0FB08 != &qword_140F0FB00 )
+    v4 = (_QWORD *)qword_140F103C8;
+    if ( *(__int64 **)qword_140F103C8 != &PopIrpWorkerList )
       goto LABEL_3;
-    *v3 = &qword_140F0FB00;
+    *v3 = &PopIrpWorkerList;
     a1[22] = v4;
     *v4 = v3;
-    qword_140F0FB08 = (__int64)(a1 + 21);
+    qword_140F103C8 = (__int64)(a1 + 21);
   }
-  return KeReleaseSemaphore(&byte_140F0FB20, 0, 1, 0);
+  return KeReleaseSemaphore(&PopIrpWorkerSemaphore, 0, 1, 0);
 }

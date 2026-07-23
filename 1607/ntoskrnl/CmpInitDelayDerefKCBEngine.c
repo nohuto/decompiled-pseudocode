@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInitDelayDerefKCBEngine @ 0x14055B6E8
+ * XREFs of CmpInitDelayDerefKCBEngine @ 0x14055BC28
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     KeInitializeGuardedMutex @ 0x14007D100 (KeInitializeGuardedMutex.c)
- *     KeInitializeTimer2 @ 0x14007DD48 (KeInitializeTimer2.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
+ *     KeInitializeGuardedMutex @ 0x14007D180 (KeInitializeGuardedMutex.c)
+ *     KeInitializeTimer2 @ 0x14007DDC8 (KeInitializeTimer2.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
  */
 
 char CmpInitDelayDerefKCBEngine()
@@ -30,22 +30,22 @@ char CmpInitDelayDerefKCBEngine()
   int v17; // r9d
   __int64 v18; // rax
 
-  qword_140322B38 = (__int64)&CmpDelayDerefKCBListHead;
+  qword_140322B58 = (__int64)&CmpDelayDerefKCBListHead;
   CmpDelayDerefKCBListHead = (__int64)&CmpDelayDerefKCBListHead;
   KeInitializeGuardedMutex((PKGUARDED_MUTEX)&CmpDelayDerefKCBLock);
-  qword_140322B98 = 0LL;
+  qword_140322BB8 = 0LL;
   CmpDelayDerefKCBWorkItem = 0LL;
-  qword_140322B90 = (__int64)CmpDelayDerefKCBWorker;
-  if ( !qword_140326280 )
+  qword_140322BB0 = (__int64)CmpDelayDerefKCBWorker;
+  if ( !qword_1403262C0 )
   {
     v0 = __rdtsc();
     v1 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v0) << 32) | (unsigned int)v0) >> 4)) ^ 0x59CLL;
     if ( !v1 )
       v1 = 1LL;
-    qword_140326280 = v1;
+    qword_1403262C0 = v1;
     v2 = &KeServiceDescriptorTable;
     v3 = (41929663 * (unsigned int)(__rdtsc() >> 4)) ^ 0x59CLL;
-    qword_140326288 = v3;
+    qword_1403262C8 = v3;
     _mm_prefetch((const char *)&KeServiceDescriptorTable, 0);
     v4 = 64;
     v5 = v1;
@@ -68,7 +68,7 @@ char CmpInitDelayDerefKCBEngine()
     v9 = (const char *)KeServiceDescriptorTable;
     v10 = 4 * xmmword_1403AA7D0;
     v11 = KeServiceDescriptorTable + (unsigned int)(4 * xmmword_1403AA7D0);
-    qword_140326298 = v5;
+    qword_1403262D8 = v5;
     if ( (unsigned __int64)KeServiceDescriptorTable < v11 )
     {
       do
@@ -96,7 +96,7 @@ char CmpInitDelayDerefKCBEngine()
       v8 = (_QWORD *)((char *)v8 + 1);
       v12 = __ROR8__(v12 - v14, v3);
     }
-    qword_1403262A0 = v12;
+    qword_1403262E0 = v12;
     v15 = &KeServiceDescriptorTableShadow;
     _mm_prefetch((const char *)&KeServiceDescriptorTableShadow, 0);
     v16 = 4LL;
@@ -115,8 +115,8 @@ char CmpInitDelayDerefKCBEngine()
       v15 = (__int128 *)((char *)v15 + 1);
       v1 = __ROR8__(v1 - v18, v3);
     }
-    qword_1403262A8 = v1;
-    qword_140326290 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+    qword_1403262E8 = v1;
+    qword_1403262D0 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
   }
   return KeInitializeTimer2((__int64)&CmpDelayDerefKCBTimer, (__int64)CmpDelayDerefKCBTimerRoutine, 0LL, 8);
 }

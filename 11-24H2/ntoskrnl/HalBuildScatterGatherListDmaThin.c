@@ -1,10 +1,10 @@
 /*
- * XREFs of HalBuildScatterGatherListDmaThin @ 0x1403E2460
+ * XREFs of HalBuildScatterGatherListDmaThin @ 0x1403CAAD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalBuildScatterGatherListDmaThin(
@@ -36,20 +36,21 @@ __int64 __fastcall HalBuildScatterGatherListDmaThin(
   unsigned int v25; // eax
   unsigned int v26; // r10d
   __int64 v27; // r14
+  ULONG_PTR v28; // rdx
   __int64 Pool2; // r15
-  __int64 v29; // r12
-  __int64 v30; // rdx
-  __int64 v31; // r13
-  __int64 v32; // r14
-  unsigned int v33; // r8d
-  unsigned int v34; // ecx
-  unsigned int v35; // r9d
+  __int64 v30; // r12
+  __int64 v31; // rdx
+  __int64 v32; // r13
+  __int64 v33; // r14
+  unsigned int v34; // r8d
+  unsigned int v35; // ecx
+  unsigned int v36; // r9d
   __int64 *j; // r11
-  __int64 v37; // r10
-  unsigned int v38; // eax
-  unsigned int v39; // r9d
-  __int64 v40; // r14
-  __int64 v41; // r12
+  __int64 v38; // r10
+  unsigned int v39; // eax
+  unsigned int v40; // r9d
+  __int64 v41; // r14
+  __int64 v42; // r12
 
   v11 = a2;
   v12 = a4 - *((unsigned int *)a3 + 11) - a3[4];
@@ -102,15 +103,16 @@ __int64 __fastcall HalBuildScatterGatherListDmaThin(
     v11 = a2;
   }
   v27 = 24 * v18 + 16;
+  v28 = 24 * v18 + 120;
   if ( a9 )
   {
-    if ( a10 < (unsigned __int64)(24 * v18 + 120) )
+    if ( a10 < v28 )
       return 3221225507LL;
     Pool2 = a9;
   }
   else
   {
-    Pool2 = ExAllocatePool2(0x42uLL);
+    Pool2 = ExAllocatePool2(0x42uLL, v28, 0x446C6148u);
     if ( !Pool2 )
       return 3221225626LL;
     v11 = a2;
@@ -118,66 +120,66 @@ __int64 __fastcall HalBuildScatterGatherListDmaThin(
   *(_DWORD *)Pool2 = v18;
   *(_QWORD *)(v27 + Pool2 + 32) = v11;
   *(_BYTE *)(v27 + Pool2 + 97) = a9 == 0;
-  v29 = 0LL;
   v30 = 0LL;
+  v31 = 0LL;
   *(_QWORD *)(v27 + Pool2 + 24) = a1;
   *(_QWORD *)(v27 + Pool2 + 40) = *(_QWORD *)(v11 + 32);
-  v31 = v27 + Pool2;
-  *(_QWORD *)(v31 + 72) = a7;
-  v32 = Pool2 + 16;
-  *(_QWORD *)(v31 + 64) = a6;
-  *(_DWORD *)(v31 + 56) = a5;
-  *(_QWORD *)(v31 + 48) = a3;
-  *(_DWORD *)(v31 + 60) = v12;
-  *(_QWORD *)(v31 + 80) = Pool2;
-  *(_BYTE *)(v31 + 96) = 0;
-  *(_DWORD *)(v31 + 16) = 2;
-  *(_BYTE *)(v31 + 98) = 0;
-  *(_QWORD *)(v31 + 88) = 0LL;
-  *(_QWORD *)(Pool2 + 8) = v31;
+  v32 = v27 + Pool2;
+  *(_QWORD *)(v32 + 72) = a7;
+  v33 = Pool2 + 16;
+  *(_QWORD *)(v32 + 64) = a6;
+  *(_DWORD *)(v32 + 56) = a5;
+  *(_QWORD *)(v32 + 48) = a3;
+  *(_DWORD *)(v32 + 60) = v12;
+  *(_QWORD *)(v32 + 80) = Pool2;
+  *(_BYTE *)(v32 + 96) = 0;
+  *(_DWORD *)(v32 + 16) = 2;
+  *(_BYTE *)(v32 + 98) = 0;
+  *(_QWORD *)(v32 + 88) = 0LL;
+  *(_QWORD *)(Pool2 + 8) = v32;
   if ( a5 )
   {
     while ( a3 )
     {
-      v33 = v16;
+      v34 = v16;
       if ( *((_DWORD *)a3 + 10) - (int)v12 <= v16 )
-        v33 = *((_DWORD *)a3 + 10) - v12;
-      v34 = v12 + *((_DWORD *)a3 + 11);
-      v16 -= v33;
-      v35 = v34 & 0xFFF;
-      for ( j = &a3[((unsigned __int64)v34 >> 12) + 6]; v33; v29 = v37 + v41 )
+        v34 = *((_DWORD *)a3 + 10) - v12;
+      v35 = v12 + *((_DWORD *)a3 + 11);
+      v16 -= v34;
+      v36 = v35 & 0xFFF;
+      for ( j = &a3[((unsigned __int64)v35 >> 12) + 6]; v34; v30 = v38 + v42 )
       {
-        v37 = v35 + (*j << 12);
-        v38 = 4096 - v35;
-        v39 = v33;
-        if ( v38 <= v33 )
-          v39 = v38;
-        if ( v37 != v29 + 1 || !(_DWORD)v30 )
+        v38 = v36 + (*j << 12);
+        v39 = 4096 - v36;
+        v40 = v34;
+        if ( v39 <= v34 )
+          v40 = v39;
+        if ( v38 != v30 + 1 || !(_DWORD)v31 )
         {
-          v40 = v30 + 2 * (v30 + 1);
-          v30 = (unsigned int)(v30 + 1);
-          v32 = Pool2 + 8 * v40;
-          *(_QWORD *)v32 = v37;
-          *(_DWORD *)(v32 + 8) = 0;
-          *(_QWORD *)(v32 + 16) = 0LL;
+          v41 = v31 + 2 * (v31 + 1);
+          v31 = (unsigned int)(v31 + 1);
+          v33 = Pool2 + 8 * v41;
+          *(_QWORD *)v33 = v38;
+          *(_DWORD *)(v33 + 8) = 0;
+          *(_QWORD *)(v33 + 16) = 0LL;
         }
-        *(_DWORD *)(v32 + 8) += v39;
-        v33 -= v39;
+        *(_DWORD *)(v33 + 8) += v40;
+        v34 -= v40;
         ++j;
-        v41 = v39 - 1LL;
-        v35 = 0;
+        v42 = v40 - 1LL;
+        v36 = 0;
       }
       a3 = (__int64 *)*a3;
       LODWORD(v12) = 0;
       if ( !v16 )
         goto LABEL_31;
     }
-    if ( (_DWORD)v30 )
-      *(_DWORD *)(Pool2 + 24 * ((unsigned int)(v30 - 1) + 1LL)) += v16;
+    if ( (_DWORD)v31 )
+      *(_DWORD *)(Pool2 + 24 * ((unsigned int)(v31 - 1) + 1LL)) += v16;
   }
 LABEL_31:
-  *(_DWORD *)Pool2 = v30;
+  *(_DWORD *)Pool2 = v31;
   if ( a6 )
-    guard_dispatch_icall_no_overrides(*(_QWORD *)(v31 + 32), *(_QWORD *)(v31 + 40), Pool2, *(_QWORD *)(v31 + 72));
+    guard_dispatch_icall_no_overrides(*(_QWORD *)(v32 + 32), *(_QWORD *)(v32 + 40));
   return 0LL;
 }

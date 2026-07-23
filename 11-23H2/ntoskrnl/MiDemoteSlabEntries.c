@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDemoteSlabEntries @ 0x1406567B4
+ * XREFs of MiDemoteSlabEntries @ 0x140656D04
  * Callers:
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
  * Callees:
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
- *     KiSetSystemPriorityThread @ 0x140355ED0 (KiSetSystemPriorityThread.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
- *     MiLogSlabEntriesDemote @ 0x1403D6B60 (MiLogSlabEntriesDemote.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x140356070 (KiSetSystemPriorityThread.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
+ *     MiLogSlabEntriesDemote @ 0x1403D6D40 (MiLogSlabEntriesDemote.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall MiDemoteSlabEntries(__int64 a1)

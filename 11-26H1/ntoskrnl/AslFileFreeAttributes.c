@@ -1,10 +1,10 @@
 /*
- * XREFs of AslFileFreeAttributes @ 0x14088C1F4
+ * XREFs of AslFileFreeAttributes @ 0x1408925F0
  * Callers:
- *     SdbpCheckAllAttributes @ 0x140B45B64 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x140B47B94 (SdbpCheckAllAttributes.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
  */
 
 void __fastcall AslFileFreeAttributes(char *a1)

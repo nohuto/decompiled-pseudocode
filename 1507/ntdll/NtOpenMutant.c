@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtOpenMutant()
+NTSTATUS __cdecl NtOpenMutant(PHANDLE MutantHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 272LL;
+  result = 272;
   __asm { syscall; Low latency system call }
   return result;
 }

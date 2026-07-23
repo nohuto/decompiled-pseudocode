@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtCancelTimer()
+NTSTATUS __cdecl NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 97LL;
+  result = 97;
   __asm { syscall; Low latency system call }
   return result;
 }

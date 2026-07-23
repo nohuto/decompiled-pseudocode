@@ -1,18 +1,18 @@
 /*
- * XREFs of VmpPrefetchVirtualAddresses @ 0x1405A4584
+ * XREFs of VmpPrefetchVirtualAddresses @ 0x1405A47B4
  * Callers:
- *     VmPrefetchVirtualAddresses @ 0x14092E850 (VmPrefetchVirtualAddresses.c)
- *     VmpPrefetchWorker @ 0x14092FA30 (VmpPrefetchWorker.c)
+ *     VmPrefetchVirtualAddresses @ 0x14092E9B0 (VmPrefetchVirtualAddresses.c)
+ *     VmpPrefetchWorker @ 0x14092FB90 (VmpPrefetchWorker.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExGetExtensionTable @ 0x14021C858 (ExGetExtensionTable.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VmpFillGpnRanges @ 0x1405A33A0 (VmpFillGpnRanges.c)
- *     VmpProcessContextLockShared @ 0x1405A49D4 (VmpProcessContextLockShared.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VmpFillGpnRanges @ 0x1405A35D0 (VmpFillGpnRanges.c)
+ *     VmpProcessContextLockShared @ 0x1405A4C04 (VmpProcessContextLockShared.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *a2, unsigned __int64 a3)
@@ -131,7 +131,7 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *
       v6 = -1073741670;
     }
 LABEL_34:
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(VmpExtensionHost + 64));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(VmpExtensionHost + 64));
     if ( PoolWithTag )
       ExFreePoolWithTag(PoolWithTag, 0);
   }

@@ -1,28 +1,28 @@
 /*
- * XREFs of CmLoadKey @ 0x14049C9B4
+ * XREFs of CmLoadKey @ 0x1404A4834
  * Callers:
- *     CmLoadDifferencingKey @ 0x14049B648 (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x1404A37E0 (CmLoadDifferencingKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     CmpUnJoinClassOfTrust @ 0x1401B47B0 (CmpUnJoinClassOfTrust.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B4694 (CmpUnJoinClassOfTrust.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpQueryHiveRedirectionFileList @ 0x14049C69C (CmpQueryHiveRedirectionFileList.c)
- *     CmpCmdHiveOpen @ 0x14049C7BC (CmpCmdHiveOpen.c)
- *     CmpCmdHiveClose @ 0x14049FCA0 (CmpCmdHiveClose.c)
- *     CmpDestroySecurityCache @ 0x14049FDD4 (CmpDestroySecurityCache.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
- *     CmpResolveHiveLoadConflict @ 0x1405FF120 (CmpResolveHiveLoadConflict.c)
- *     CmpVERemoveHiveFromSIDMappingTable @ 0x140601C64 (CmpVERemoveHiveFromSIDMappingTable.c)
- *     ObDrainDeferredObjectDeletion @ 0x140665CD0 (ObDrainDeferredObjectDeletion.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpCmdHiveOpen @ 0x1404A4CD8 (CmpCmdHiveOpen.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x1404A4ED0 (CmpQueryHiveRedirectionFileList.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     CmpCmdHiveClose @ 0x1405180AC (CmpCmdHiveClose.c)
+ *     CmpDestroySecurityCache @ 0x1405181E0 (CmpDestroySecurityCache.c)
+ *     CmpResolveHiveLoadConflict @ 0x1405FF1D4 (CmpResolveHiveLoadConflict.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x140601D18 (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     ObDrainDeferredObjectDeletion @ 0x140665DB4 (ObDrainDeferredObjectDeletion.c)
  */
 
 __int64 __fastcall CmLoadKey(
@@ -49,10 +49,10 @@ __int64 __fastcall CmLoadKey(
   struct _KTHREAD *v23; // rcx
   __int16 v24; // ax
   int KeyCommon; // edi
-  char v26; // r11
+  int v26; // r11d
   __int64 v27; // rdx
   __int64 v28; // rcx
-  ULONG_PTR v29; // rbx
+  __int64 v29; // rbx
   __int64 v30; // rdx
   struct _KTHREAD *v31; // rcx
   __int16 v32; // ax
@@ -60,24 +60,23 @@ __int64 __fastcall CmLoadKey(
   int Conflict; // ebx
   __int64 *v35; // r13
   __int64 v36; // r15
-  char v37[4]; // [rsp+50h] [rbp-39h] BYREF
-  int v38; // [rsp+54h] [rbp-35h] BYREF
-  ULONG_PTR v39; // [rsp+58h] [rbp-31h] BYREF
+  int v37; // [rsp+54h] [rbp-35h] BYREF
+  ULONG_PTR v38; // [rsp+58h] [rbp-31h]
   HANDLE Handle; // [rsp+60h] [rbp-29h] BYREF
   PVOID Object; // [rsp+68h] [rbp-21h] BYREF
-  PVOID v42; // [rsp+70h] [rbp-19h] BYREF
+  PVOID v41; // [rsp+70h] [rbp-19h] BYREF
   UNICODE_STRING Destination; // [rsp+78h] [rbp-11h] BYREF
-  __int64 v44; // [rsp+D0h] [rbp+47h] BYREF
-  __int64 v45; // [rsp+E8h] [rbp+5Fh]
+  __int64 v43; // [rsp+D0h] [rbp+47h] BYREF
+  __int64 v44; // [rsp+E8h] [rbp+5Fh]
 
-  v45 = a4;
+  v44 = a4;
   *(_QWORD *)&Destination.MaximumLength = 0LL;
   *(_DWORD *)((char *)&Destination.Buffer + 2) = 0;
   v11 = a4;
   HIWORD(Destination.Buffer) = 0;
   v13 = (_WORD *)a1[2];
-  v39 = 0LL;
-  LOBYTE(v44) = 0;
+  v38 = 0LL;
+  LOBYTE(v43) = 0;
   Destination.Length = 0;
   if ( *v13 >= 2u )
   {
@@ -98,7 +97,7 @@ __int64 __fastcall CmLoadKey(
   v20 = (UNICODE_STRING *)a1[2];
   *(_DWORD *)&Destination.Length = 17039360;
   Destination.Buffer = PoolWithTag;
-  if ( CmpQueryHiveRedirectionFileList(v20, &Destination) )
+  if ( (unsigned __int8)CmpQueryHiveRedirectionFileList(v20, &Destination) )
   {
     p_Destination = &Destination;
     if ( Destination.Length == 2 )
@@ -116,27 +115,23 @@ __int64 __fastcall CmLoadKey(
       v26 |= 8u;
     if ( a5 )
       v26 |= 4u;
-    v37[0] = 1;
     KeyCommon = CmpCmdHiveOpen(
                   a2,
-                  1u,
-                  v37,
-                  &v39,
                   ((a3 & 0x20) << 21) | ((a3 & 0x80) << 20) | ((a3 & 0x200) << 19) | ((a3 & 4) << 27) | ((a3 & 0x400) << 20) | ((a3 & 0xFFFFF000) << 19) | 0x1090001,
                   v26,
-                  (void *)a7,
-                  (__int64)&v44);
+                  a7,
+                  (__int64)&v43);
     v27 = 3221225539LL;
     v28 = KeyCommon + 0x80000000;
     if ( (int)v28 >= 0 )
     {
       if ( KeyCommon != -1073741757 )
       {
-        v29 = v39;
+        v29 = v38;
         goto LABEL_28;
       }
 LABEL_36:
-      if ( (int)CmpOpenHiveFile(a2, 0, &Handle, &v38, 8, (void *)a7, 0LL, 0LL, 0LL) < 0
+      if ( (int)CmpOpenHiveFile(a2, 0, &Handle, &v37, 8, (void *)a7, 0LL, 0LL, 0LL) < 0
         || (v33 = ObReferenceObjectByHandle(Handle, 0, *(POBJECT_TYPE *)CmIoFileObjectType, 0, &Object, 0LL),
             ZwClose(Handle),
             v33 < 0) )
@@ -151,27 +146,27 @@ LABEL_36:
         if ( Conflict < 0 )
           KeyCommon = -1073741757;
       }
-      v29 = v39;
+      v29 = v38;
       goto LABEL_28;
     }
     if ( KeyCommon == -1073741757 )
       goto LABEL_36;
     v35 = a10;
-    v29 = v39;
+    v29 = v38;
     if ( (a3 & 0x2000) != 0 )
     {
       KeyCommon = ObReferenceObjectByHandle(
-                    *(HANDLE *)(v39 + 2664),
+                    *(HANDLE *)(v38 + 2664),
                     0,
                     *(POBJECT_TYPE *)CmIoFileObjectType,
                     0,
-                    &v42,
+                    &v41,
                     0LL);
       if ( KeyCommon < 0 )
         goto LABEL_28;
-      v36 = v45;
-      KeyCommon = CmpResolveHiveLoadConflict((_DWORD)a1, (_DWORD)v42, a3, v45, (__int64)a6, a8, a9, (__int64)v35);
-      ObfDereferenceObject(v42);
+      v36 = v44;
+      KeyCommon = CmpResolveHiveLoadConflict((_DWORD)a1, (_DWORD)v41, a3, v44, (__int64)a6, a8, a9, (__int64)v35);
+      ObfDereferenceObject(v41);
       if ( KeyCommon >= 0 )
         goto LABEL_46;
       if ( KeyCommon != -1073741275 )
@@ -193,9 +188,9 @@ LABEL_28:
     }
     else
     {
-      v36 = v45;
+      v36 = v44;
     }
-    KeyCommon = CmpLoadKeyCommon(v29, a1, a3, v36, a5, a6, a8, v35, v37[0], v44);
+    KeyCommon = CmpLoadKeyCommon(v38, a1, a3, v36, a5, a6, a8, v35, 1, v43);
     v29 = 0LL;
     if ( KeyCommon < 0 )
     {

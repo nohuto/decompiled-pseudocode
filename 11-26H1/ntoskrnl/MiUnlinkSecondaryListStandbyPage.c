@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlinkSecondaryListStandbyPage @ 0x1402CAE00
+ * XREFs of MiUnlinkSecondaryListStandbyPage @ 0x1402ACBC0
  * Callers:
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiReplaceSecondaryListStandbyPage @ 0x1402CA5B0 (MiReplaceSecondaryListStandbyPage.c)
- *     MiUnlinkSingleBatchPage @ 0x1402F80B0 (MiUnlinkSingleBatchPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiReplaceSecondaryListStandbyPage @ 0x1402AC370 (MiReplaceSecondaryListStandbyPage.c)
+ *     MiUnlinkSingleBatchPage @ 0x1402DA130 (MiUnlinkSingleBatchPage.c)
  * Callees:
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2, int a3)
@@ -47,11 +47,11 @@ signed __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2, i
   v6 = (a1 + 0x220000000000LL) / 48;
   v7 = 48 * v6;
   v8 = 48 * v6 - 0x220000000000LL;
-  v9 = dword_140E2D684;
-  v10 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
-  if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-    || (v11 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v6 < *(_QWORD *)v11)
-    || dword_140E2D680 != dword_140E2D684 && v6 >= *((_QWORD *)v11 + 2) )
+  v9 = dword_140E2D804;
+  v10 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+  if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+    || (v11 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v6 < *(_QWORD *)v11)
+    || dword_140E2D800 != dword_140E2D804 && v6 >= *((_QWORD *)v11 + 2) )
   {
     for ( i = 0; ; i = v30 + 1 )
     {
@@ -60,17 +60,17 @@ signed __int64 __fastcall MiUnlinkSecondaryListStandbyPage(__int64 a1, int a2, i
         if ( v9 < i )
           KeBugCheckEx(0x1Au, 0x5180uLL, v6, 0LL, 0LL);
         v30 = (i + v9) >> 1;
-        v11 = (char *)qword_140E2D6E0 + 16 * v30;
+        v11 = (char *)qword_140E2D860 + 16 * v30;
         if ( v6 >= *(_QWORD *)v11 )
           break;
         if ( !v30 )
           KeBugCheckEx(0x1Au, 0x5180uLL, v6, (ULONG_PTR)v11, 0LL);
         v9 = v30 - 1;
       }
-      if ( v30 == dword_140E2D684 || v6 < *((_QWORD *)v11 + 2) )
+      if ( v30 == dword_140E2D804 || v6 < *((_QWORD *)v11 + 2) )
         break;
     }
-    dword_140E2D680 = (i + v9) >> 1;
+    dword_140E2D800 = (i + v9) >> 1;
   }
   v12 = *((unsigned int *)v11 + 2);
   v13 = *(_DWORD *)(v8 + 32);
@@ -83,8 +83,8 @@ LABEL_6:
     goto LABEL_7;
   }
   if ( v8 < 0xFFFFDE0000000000uLL
-    || v8 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
-    || v7 / 48 >= qword_140E347B0 && v7 / 48 < qword_140E347B0 + 2048 )
+    || v8 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
+    || v7 / 48 >= qword_140E34930 && v7 / 48 < qword_140E34930 + 2048 )
   {
 LABEL_47:
     v14 = 5;
@@ -96,7 +96,7 @@ LABEL_47:
     v14 = 5;
   }
 LABEL_7:
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
     v15 = *(_BYTE *)(MiSearchChannelTable(v6) + 12);
   else
     v15 = 0;
@@ -104,7 +104,7 @@ LABEL_7:
   if ( (int)v4 < 9 )
   {
     if ( (_DWORD)v4 == 8 )
-      v31 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)(v7 / 48) >> 9) + 1) & 0x7F;
+      v31 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)(v7 / 48) >> 9) + 1) & 0x7F;
     else
       v31 = 0;
     v17 = *(_QWORD *)(56320 * v12 + v16 + 232 * v4 + 14824) + 88 * (v14 + 8LL * v31);

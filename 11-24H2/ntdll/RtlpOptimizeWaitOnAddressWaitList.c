@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpOptimizeWaitOnAddressWaitList @ 0x18009BA30
+ * XREFs of RtlpOptimizeWaitOnAddressWaitList @ 0x180030880
  * Callers:
- *     RtlWaitOnAddress @ 0x18009B4E0 (RtlWaitOnAddress.c)
- *     RtlpWaitOnAddress @ 0x18009B780 (RtlpWaitOnAddress.c)
+ *     RtlWaitOnAddress @ 0x180030330 (RtlWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x1800305D0 (RtlpWaitOnAddress.c)
  * Callees:
  *     <none>
  */

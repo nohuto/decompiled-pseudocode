@@ -12,10 +12,10 @@
  *     _RtlpAddHeapToUnprotectedList@4 @ 0x4B2E663D (_RtlpAddHeapToUnprotectedList@4.c)
  */
 
-int __fastcall RtlpMoveHeapBetweenLists(int a1, int a2, int a3, int a4)
+NTSTATUS __fastcall RtlpMoveHeapBetweenLists(int a1, int a2, NTSTATUS a3, int a4)
 {
   int v6; // esi
-  int result; // eax
+  NTSTATUS result; // eax
 
   if ( !a4 )
     RtlEnterCriticalSection(&RtlpProcessHeapsListLock);

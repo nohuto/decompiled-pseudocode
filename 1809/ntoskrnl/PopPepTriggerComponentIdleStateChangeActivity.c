@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepTriggerComponentIdleStateChangeActivity @ 0x140177650
+ * XREFs of PopPepTriggerComponentIdleStateChangeActivity @ 0x140177750
  * Callers:
  *     <none>
  * Callees:
- *     PopPepTryPowerUpComponent @ 0x1401000B0 (PopPepTryPowerUpComponent.c)
+ *     PopPepTryPowerUpComponent @ 0x140100130 (PopPepTryPowerUpComponent.c)
  */
 
 void __fastcall PopPepTriggerComponentIdleStateChangeActivity(__int64 a1, __int64 a2, int a3)

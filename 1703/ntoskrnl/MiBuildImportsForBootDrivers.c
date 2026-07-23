@@ -56,11 +56,11 @@ __int64 MiBuildImportsForBootDrivers()
   do
   {
     v5 = v0[6];
-    if ( (PVOID)PsNtosImageBase == v5 )
+    if ( PsNtosImageBase == v5 )
     {
       v3 = v0;
     }
-    else if ( (PVOID)PsHalImageBase == v5 )
+    else if ( PsHalImageBase == v5 )
     {
       v4 = v0;
     }

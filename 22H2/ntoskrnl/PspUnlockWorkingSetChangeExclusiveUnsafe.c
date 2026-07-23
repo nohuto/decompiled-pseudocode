@@ -19,7 +19,7 @@ char PspUnlockWorkingSetChangeExclusiveUnsafe()
   unsigned int SessionId; // edx
   unsigned __int8 v2; // si
   unsigned int v3; // r8d
-  unsigned __int64 v4; // rdi
+  __int64 v4; // rdi
   bool v5; // zf
   __int64 v6; // rcx
   __int64 v7; // rdx
@@ -43,7 +43,7 @@ char PspUnlockWorkingSetChangeExclusiveUnsafe()
     v5 = !_BitScanReverse((unsigned int *)&v6, v3);
     if ( v5 )
       goto LABEL_13;
-    v4 = (unsigned __int64)&CurrentThread->LockEntries[v6];
+    v4 = (__int64)&CurrentThread->LockEntries[v6];
     v3 &= ~(1 << v6);
     if ( (*(_BYTE *)(v4 + 26) & 1) != 0
       && (*(_DWORD *)(v4 + 32) & 1) == 0
@@ -64,12 +64,12 @@ LABEL_13:
   }
   *(_BYTE *)(v4 + 32) |= 2u;
   if ( *(__int64 *)(v4 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v4);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v4);
   v11 = *(_DWORD *)(v4 + 88) & 0x1FFFF;
   *(_DWORD *)(v4 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v4 + 25) &= ~1u;
   *(_QWORD *)(v4 + 32) = 0LL;
-  v7 = (__int64)(v4 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+  v7 = (signed __int64)(v4 - (unsigned __int64)CurrentThread->LockEntries) / 96;
   if ( v2 == 1 )
     CurrentThread->AbEntrySummary |= 1 << v7;
   else

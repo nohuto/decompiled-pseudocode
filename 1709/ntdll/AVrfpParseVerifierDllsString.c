@@ -12,23 +12,23 @@
 __int64 AVrfpParseVerifierDllsString()
 {
   void *ProcessHeap; // rbp
-  void *Heap; // rax
+  PVOID Heap; // rax
   __int64 v2; // rbx
   __int64 *v4; // rax
   bool v5; // zf
   wchar_t *v6; // rbx
   const WCHAR *v7; // rsi
-  void *v8; // rax
+  PVOID v8; // rax
   __int64 v9; // rdi
   __int64 *v10; // rax
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
   v2 = (__int64)Heap;
   if ( !Heap )
     return 3221225495LL;
   memset(Heap, 0, 0x48uLL);
-  *(_OWORD *)(v2 + 16) = VerifierDllString;
+  *(UNICODE_STRING *)(v2 + 16) = VerifierDllString;
   v4 = (__int64 *)qword_18015E5D8;
   if ( *(__int64 **)qword_18015E5D8 != &AVrfpVerifierProvidersList )
     __fastfail(3u);
@@ -63,7 +63,7 @@ __int64 AVrfpParseVerifierDllsString()
         *v6 = 0;
         if ( wcsicmp(v7, L"verifier.dll") )
         {
-          v8 = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+          v8 = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
           v9 = (__int64)v8;
           if ( !v8 )
             return 3221225495LL;

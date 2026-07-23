@@ -1,10 +1,10 @@
 /*
- * XREFs of FindNodeOrParent @ 0x1400C4200
+ * XREFs of FindNodeOrParent @ 0x1400C20A0
  * Callers:
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1400C3D4C (RtlEnumerateGenericTableLikeADirectory.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1400C3FD4 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x1400C4544 (RtlInsertElementGenericTableAvl.c)
- *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x1401352B0 (RtlLookupFirstMatchingElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1400C1BEC (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1400C1E74 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1400C23E4 (RtlInsertElementGenericTableAvl.c)
+ *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x140135820 (RtlLookupFirstMatchingElementGenericTableAvl.c)
  * Callees:
  *     <none>
  */

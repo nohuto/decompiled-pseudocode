@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertPrivateVad @ 0x140316D84
+ * XREFs of MiInsertPrivateVad @ 0x140321AD4
  * Callers:
- *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1405FE4DC (MiAllocateNewSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1FB8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiInsertVad @ 0x140316330 (MiInsertVad.c)
+ *     MiInsertVad @ 0x140321080 (MiInsertVad.c)
  */
 
 void __fastcall MiInsertPrivateVad(__int64 a1, __int64 a2)

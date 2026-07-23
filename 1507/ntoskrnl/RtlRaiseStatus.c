@@ -105,7 +105,7 @@
 void __stdcall __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
   NTSTATUS v2; // eax
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
   CONTEXT Context; // [rsp+C0h] [rbp-4D8h] BYREF
 
   RtlpCaptureContext(&Context);

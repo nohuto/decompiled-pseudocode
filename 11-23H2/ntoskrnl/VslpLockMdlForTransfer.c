@@ -1,11 +1,11 @@
 /*
- * XREFs of VslpLockMdlForTransfer @ 0x1403CEC60
+ * XREFs of VslpLockMdlForTransfer @ 0x1403CEE40
  * Callers:
- *     VslpLockPagesForTransfer @ 0x1403CEA84 (VslpLockPagesForTransfer.c)
- *     VslLoadEnclaveData @ 0x1409428CC (VslLoadEnclaveData.c)
+ *     VslpLockPagesForTransfer @ 0x1403CEC64 (VslpLockPagesForTransfer.c)
+ *     VslLoadEnclaveData @ 0x140942ACC (VslLoadEnclaveData.c)
  * Callees:
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
  */
 
 __int64 __fastcall VslpLockMdlForTransfer(__int64 a1, __int64 a2, char a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmPerfResizeHistoryAll @ 0x14056AC74
+ * XREFs of PpmPerfResizeHistoryAll @ 0x14056B1B4
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     PpmGetHeterogeneousClass @ 0x1400D3FC8 (PpmGetHeterogeneousClass.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     PpmPerfResetHistory @ 0x140144278 (PpmPerfResetHistory.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PpmGetHeterogeneousClass @ 0x1400D1E68 (PpmGetHeterogeneousClass.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     PpmPerfResetHistory @ 0x1401447E8 (PpmPerfResetHistory.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -35,7 +35,7 @@ __int64 PpmPerfResizeHistoryAll()
     if ( (_DWORD)result )
       return result;
     Prcb = KeGetPrcb(v10);
-    v2 = *((_BYTE *)&PpmCurrentProfile[174 * dword_140303E0C + 8] + PpmGetHeterogeneousClass(Prcb));
+    v2 = *((_BYTE *)&PpmCurrentProfile[174 * dword_140303D4C + 8] + PpmGetHeterogeneousClass(Prcb));
     v3 = *(_DWORD **)(Prcb + 24208);
     if ( v3 )
     {

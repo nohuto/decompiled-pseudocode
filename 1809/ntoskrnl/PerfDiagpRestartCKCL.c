@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfDiagpRestartCKCL @ 0x140741AB0
+ * XREFs of PerfDiagpRestartCKCL @ 0x140742CA0
  * Callers:
- *     PerfDiagpProxyWorker @ 0x140742AC0 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpProxyWorker @ 0x140743CB0 (PerfDiagpProxyWorker.c)
  * Callees:
  *     RtlStringCbCatW @ 0x140007428 (RtlStringCbCatW.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwStartAutoLogger @ 0x140741E68 (EtwStartAutoLogger.c)
- *     PerfDiagpIsTracingAllowed @ 0x140742C50 (PerfDiagpIsTracingAllowed.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwStartAutoLogger @ 0x140743058 (EtwStartAutoLogger.c)
+ *     PerfDiagpIsTracingAllowed @ 0x140743E40 (PerfDiagpIsTracingAllowed.c)
  */
 
 __int64 __fastcall PerfDiagpRestartCKCL(NTSTRSAFE_PCWSTR pszSrc)
@@ -60,8 +60,8 @@ __int64 __fastcall PerfDiagpRestartCKCL(NTSTRSAFE_PCWSTR pszSrc)
     KeDelayExecutionThread(0, 0, &Interval);
     if ( !(unsigned int)PerfDiagpIsTracingAllowed() )
       break;
-    wcscpy(&xmmword_14040A76C, L"Circular Kernel Context Logger");
-    started = EtwStartAutoLogger(&xmmword_14040A76C, v6);
+    wcscpy(&xmmword_14040B80C, L"Circular Kernel Context Logger");
+    started = EtwStartAutoLogger(&xmmword_14040B80C, v6);
     if ( started != -1073741771 || v7 >= 0x14 )
       goto LABEL_14;
   }

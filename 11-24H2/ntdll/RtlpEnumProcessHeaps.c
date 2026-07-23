@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpEnumProcessHeaps @ 0x1800469B0
+ * XREFs of RtlpEnumProcessHeaps @ 0x18002A930
  * Callers:
- *     RtlpHeapTrkDumpOutstandingAllocs @ 0x18003F3E0 (RtlpHeapTrkDumpOutstandingAllocs.c)
- *     RtlpQueryExtendedInformationAllHeaps @ 0x180044B7C (RtlpQueryExtendedInformationAllHeaps.c)
- *     RtlQueryProcessHeapInformation @ 0x1800463B0 (RtlQueryProcessHeapInformation.c)
- *     RtlSetHeapDebuggingInformation @ 0x180095C6C (RtlSetHeapDebuggingInformation.c)
- *     RtlSetHeapInformation @ 0x180096E70 (RtlSetHeapInformation.c)
- *     LdrpEnableUMGLTracingStateSync @ 0x1800975E4 (LdrpEnableUMGLTracingStateSync.c)
- *     RtlHeapsStackCollection @ 0x1800E5C44 (RtlHeapsStackCollection.c)
- *     RtlFlushHeaps @ 0x1801117E0 (RtlFlushHeaps.c)
- *     RtlGetProcessHeaps @ 0x180112BD0 (RtlGetProcessHeaps.c)
- *     RtlHeapTrkInitialize @ 0x1801134A0 (RtlHeapTrkInitialize.c)
- *     RtlpHpStackTraceSerialize @ 0x18011F158 (RtlpHpStackTraceSerialize.c)
- *     RtlpHpStackTraceEnable @ 0x18011FBE4 (RtlpHpStackTraceEnable.c)
- *     RtlEnumProcessHeaps @ 0x180141940 (RtlEnumProcessHeaps.c)
- *     RtlValidateProcessHeaps @ 0x180141D80 (RtlValidateProcessHeaps.c)
- *     RtlpHpGCTimerCallback @ 0x1801426E0 (RtlpHpGCTimerCallback.c)
- *     RtlpHpStackTraceDisable @ 0x18014BD40 (RtlpHpStackTraceDisable.c)
- *     LdrpUMGLTracingStateChangeNotification @ 0x18015F000 (LdrpUMGLTracingStateChangeNotification.c)
+ *     RtlpHeapTrkDumpOutstandingAllocs @ 0x18001F660 (RtlpHeapTrkDumpOutstandingAllocs.c)
+ *     RtlQueryProcessHeapInformation @ 0x18002A340 (RtlQueryProcessHeapInformation.c)
+ *     RtlpQueryExtendedInformationAllHeaps @ 0x18002BA78 (RtlpQueryExtendedInformationAllHeaps.c)
+ *     RtlSetHeapInformation @ 0x18002BE70 (RtlSetHeapInformation.c)
+ *     LdrpEnableUMGLTracingStateSync @ 0x18002C434 (LdrpEnableUMGLTracingStateSync.c)
+ *     RtlHeapsStackCollection @ 0x1800E10F4 (RtlHeapsStackCollection.c)
+ *     RtlFlushHeaps @ 0x18010CBF0 (RtlFlushHeaps.c)
+ *     RtlGetProcessHeaps @ 0x18010DE90 (RtlGetProcessHeaps.c)
+ *     RtlHeapTrkInitialize @ 0x18010E7A0 (RtlHeapTrkInitialize.c)
+ *     RtlSetHeapDebuggingInformation @ 0x1801126FC (RtlSetHeapDebuggingInformation.c)
+ *     RtlpHpStackTraceSerialize @ 0x18011D388 (RtlpHpStackTraceSerialize.c)
+ *     RtlpHpStackTraceEnable @ 0x18011DE14 (RtlpHpStackTraceEnable.c)
+ *     RtlEnumProcessHeaps @ 0x18013FB30 (RtlEnumProcessHeaps.c)
+ *     RtlValidateProcessHeaps @ 0x18013FF30 (RtlValidateProcessHeaps.c)
+ *     RtlpHpGCTimerCallback @ 0x180140890 (RtlpHpGCTimerCallback.c)
+ *     RtlpHpStackTraceDisable @ 0x18014A0F0 (RtlpHpStackTraceDisable.c)
+ *     LdrpUMGLTracingStateChangeNotification @ 0x18015D3C0 (LdrpUMGLTracingStateChangeNotification.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpReleaseHeapListLock @ 0x18002AA6C (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x18002AAB4 (RtlpAcquireHeapListLock.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(__int64, __int64, __int64 *), __int64 a2, int a3)
@@ -39,7 +39,7 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(__int64, __int6
   v6 = -1073741823;
   v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlpAcquireHeapListLock();
   v8 = RtlpProcessHeaps;
   v9 = &RtlpProcessHeaps;
   while ( 1 )
@@ -79,7 +79,7 @@ LABEL_10:
       v15 = i;
       if ( (unsigned int)i >= 4 )
         break;
-      v13 = qword_1801D21B8[2 * i];
+      v13 = qword_1801D11A8[2 * i];
       if ( v13 )
       {
         v6 = a1(v13, a2, v9);
@@ -91,6 +91,6 @@ LABEL_10:
   }
 LABEL_25:
   if ( !v7 )
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlpReleaseHeapListLock(0LL);
   return (unsigned int)v6;
 }

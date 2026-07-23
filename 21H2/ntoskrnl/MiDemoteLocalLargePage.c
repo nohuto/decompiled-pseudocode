@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDemoteLocalLargePage @ 0x140232110
+ * XREFs of MiDemoteLocalLargePage @ 0x1402D6960
  * Callers:
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402990B4 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x140215A94 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiInsertDemotedPages @ 0x1402918D0 (MiInsertDemotedPages.c)
- *     MiIsFreeZeroPfnCold @ 0x140303120 (MiIsFreeZeroPfnCold.c)
- *     MiNodeFreeZeroPages @ 0x140318CA4 (MiNodeFreeZeroPages.c)
- *     MiSetFreeZeroPfnCold @ 0x1403B1490 (MiSetFreeZeroPfnCold.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiInsertDemotedPages @ 0x14020F840 (MiInsertDemotedPages.c)
+ *     MiIsFreeZeroPfnCold @ 0x14030DE70 (MiIsFreeZeroPfnCold.c)
+ *     MiNodeFreeZeroPages @ 0x1403239F4 (MiNodeFreeZeroPages.c)
+ *     MiSetFreeZeroPfnCold @ 0x1403B1600 (MiSetFreeZeroPfnCold.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
  *     MiGetFreeZeroLargePages @ 0x1403F6914 (MiGetFreeZeroLargePages.c)
@@ -32,42 +32,41 @@ __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, unsigned 
   _DWORD *v18; // r8
   int v19; // eax
   bool v20; // zf
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  unsigned __int64 v24; // rcx
-  __int64 v25; // rbx
-  __int64 v26; // r9
-  unsigned __int8 v27; // al
-  struct _KPRCB *v28; // rax
-  _DWORD *v29; // r9
-  int v30; // edx
-  unsigned int v31; // [rsp+40h] [rbp-E8h]
-  __int64 v33; // [rsp+48h] [rbp-E0h]
-  __int64 v34; // [rsp+50h] [rbp-D8h] BYREF
-  int v35; // [rsp+58h] [rbp-D0h]
-  __int128 v36; // [rsp+5Ch] [rbp-CCh]
-  __int128 v37; // [rsp+6Ch] [rbp-BCh]
-  __int128 v38; // [rsp+7Ch] [rbp-ACh]
-  __int128 v39; // [rsp+8Ch] [rbp-9Ch]
-  __int128 v40; // [rsp+9Ch] [rbp-8Ch]
-  __int128 v41; // [rsp+ACh] [rbp-7Ch]
-  __int128 v42; // [rsp+BCh] [rbp-6Ch]
-  __int128 v43; // [rsp+CCh] [rbp-5Ch]
-  int v44; // [rsp+DCh] [rbp-4Ch]
+  unsigned __int64 v22; // rcx
+  int v23; // edx
+  __int64 v24; // rbx
+  __int64 v25; // r9
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // rax
+  _DWORD *v28; // r9
+  int v29; // edx
+  unsigned int v30; // [rsp+40h] [rbp-E8h]
+  __int64 v32; // [rsp+48h] [rbp-E0h]
+  __int64 v33; // [rsp+50h] [rbp-D8h] BYREF
+  int v34; // [rsp+58h] [rbp-D0h]
+  __int128 v35; // [rsp+5Ch] [rbp-CCh]
+  __int128 v36; // [rsp+6Ch] [rbp-BCh]
+  __int128 v37; // [rsp+7Ch] [rbp-ACh]
+  __int128 v38; // [rsp+8Ch] [rbp-9Ch]
+  __int128 v39; // [rsp+9Ch] [rbp-8Ch]
+  __int128 v40; // [rsp+ACh] [rbp-7Ch]
+  __int128 v41; // [rsp+BCh] [rbp-6Ch]
+  __int128 v42; // [rsp+CCh] [rbp-5Ch]
+  int v43; // [rsp+DCh] [rbp-4Ch]
 
   v4 = a3;
   if ( (a3 & 1) != 0 )
     return 0LL;
   v6 = 0;
-  v31 = 0;
+  v30 = 0;
   if ( (unsigned int)MmNumberOfChannels > 1 )
   {
-    v6 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_140C4DE8D);
-    v31 = v6;
+    v6 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_140C4DECD);
+    v30 = v6;
   }
-  v7 = a2 >> byte_140C4DE8C;
-  v33 = *(_QWORD *)(a1 + 16) + 4544LL * (a2 >> byte_140C4DE8C);
-  if ( MiNodeFreeZeroPages(v33, v6, a3) >= a4 )
+  v7 = a2 >> byte_140C4DECC;
+  v32 = *(_QWORD *)(a1 + 16) + 4544LL * (a2 >> byte_140C4DECC);
+  if ( MiNodeFreeZeroPages(v32, v6, a3) >= a4 )
     return 0LL;
   if ( (v4 & 0x400) != 0 )
   {
@@ -98,7 +97,7 @@ __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, unsigned 
     v15 = FreeZeroLargePages;
     if ( FreeZeroLargePages )
       break;
-    v6 = v31;
+    v6 = v30;
     if ( !v9 )
     {
       if ( (v10 & 1) == 0 )
@@ -129,31 +128,29 @@ __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, unsigned 
   }
   if ( (v10 & 0x20) != 0 )
   {
-    MiInsertDemotedPages(v33, FreeZeroLargePages, v9, 1, FreeZeroLargePages);
+    MiInsertDemotedPages(v32, FreeZeroLargePages, v9, 1, FreeZeroLargePages);
     v9 = 1;
   }
-  v22 = MiLargePageSizes[v9];
-  v23 = (unsigned __int128)((v15 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
-  v24 = *(_QWORD *)(a1 + 7104);
-  if ( v24 )
-    --v24;
-  if ( v24 >= 0x9F
-    || (v23 = *((unsigned int *)&KeGetCurrentThread()[1].SwapListEntry + 3), (v23 & 0xC) == 8)
-    || (v24 >= 0x20 || (ULONG_PTR *)a1 != &MiSystemPartition)
-    && ((v23 & 2) != 0 && v24 >= 0x21 || (*(_DWORD *)(a1 + 4) & 0x20) != 0) )
+  v22 = *(_QWORD *)(a1 + 7104);
+  if ( v22 )
+    --v22;
+  if ( v22 >= 0x9F
+    || (v23 = *((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3), (v23 & 0xC) == 8)
+    || (v22 >= 0x20 || (ULONG_PTR *)a1 != &MiSystemPartition)
+    && ((v23 & 2) != 0 && v22 >= 0x21 || (*(_DWORD *)(a1 + 4) & 0x20) != 0) )
   {
-    v25 = v15 + 48 * (a2 & (unsigned __int64)(v22 - 1));
+    v24 = v15 + 48 * (a2 & (unsigned __int64)(MiLargePageSizes[v9] - 1));
   }
   else
   {
-    v25 = 0LL;
+    v24 = 0LL;
   }
-  if ( (unsigned int)MiIsFreeZeroPfnCold(v15, v23, v22, (v15 + 0x58000000000LL) / 48)
-    && (HvlEnlightenments & 0x200000) != 0 )
+  if ( (unsigned int)MiIsFreeZeroPfnCold(v15) && (HvlEnlightenments & 0x200000) != 0 )
   {
-    v34 = 1LL;
-    v35 = 1;
-    v44 = 0;
+    v33 = 1LL;
+    v34 = 1;
+    v43 = 0;
+    v35 = 0LL;
     v36 = 0LL;
     v37 = 0LL;
     v38 = 0LL;
@@ -161,28 +158,27 @@ __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, unsigned 
     v40 = 0LL;
     v41 = 0LL;
     v42 = 0LL;
-    v43 = 0LL;
-    MiAddPageToHeatList(&v34, v26, v9);
+    MiAddPageToHeatList(&v33, v25, v9);
     MiSetFreeZeroPfnCold(v15, 0LL);
   }
-  MiConvertEntireLargePageToSmall(v15, v9, 1, (*(_DWORD *)(v15 + 16) & 0x3E0LL) != 0, v25, 0LL);
+  MiConvertEntireLargePageToSmall(v15, v9, 1, (*(_DWORD *)(v15 + 16) & 0x3E0LL) != 0, v24, 0LL);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v27 = KeGetCurrentIrql();
-      if ( v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+      v26 = KeGetCurrentIrql();
+      if ( v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
       {
-        v28 = KeGetCurrentPrcb();
-        v29 = v28->SchedulerAssist;
-        v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v20 = (v30 & v29[5]) == 0;
-        v29[5] &= v30;
+        v27 = KeGetCurrentPrcb();
+        v28 = v27->SchedulerAssist;
+        v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v20 = (v29 & v28[5]) == 0;
+        v28[5] &= v29;
         if ( v20 )
-          KiRemoveSystemWorkPriorityKick(v28);
+          KiRemoveSystemWorkPriorityKick(v27);
       }
     }
   }
   __writecr8(CurrentIrql);
-  return v25;
+  return v24;
 }

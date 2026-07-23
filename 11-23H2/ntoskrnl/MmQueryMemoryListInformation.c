@@ -1,22 +1,22 @@
 /*
- * XREFs of MmQueryMemoryListInformation @ 0x1402F8958
+ * XREFs of MmQueryMemoryListInformation @ 0x1402F8BE8
  * Callers:
- *     PfpMemoryListQuery @ 0x1403D4FA4 (PfpMemoryListQuery.c)
- *     EtwpLogMemInfo @ 0x1405FDE24 (EtwpLogMemInfo.c)
+ *     PfpMemoryListQuery @ 0x1403D5184 (PfpMemoryListQuery.c)
+ *     EtwpLogMemInfo @ 0x1405FE394 (EtwpLogMemInfo.c)
  *     PfpVolumePrefetchMetadata @ 0x140684C04 (PfpVolumePrefetchMetadata.c)
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     PfSnCheckActionsNeeded @ 0x14074DFF8 (PfSnCheckActionsNeeded.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D490 (PfpPrefetchFilesTrickle.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x14075D7E0 (PfpUpdateRepurposedByPrefetch.c)
- *     PfpPfnPrioRequest @ 0x14075DD48 (PfpPfnPrioRequest.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D7B0C (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchPrivatePages @ 0x14097E268 (PfpPrefetchPrivatePages.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     PfSnCheckActionsNeeded @ 0x14074E1E8 (PfSnCheckActionsNeeded.c)
+ *     PfpPrefetchFilesTrickle @ 0x14075D680 (PfpPrefetchFilesTrickle.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x14075D9D0 (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpPfnPrioRequest @ 0x14075DF38 (PfpPfnPrioRequest.c)
+ *     PfpPrefetchDirectoryStream @ 0x1407D7DDC (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchPrivatePages @ 0x14097E468 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     MiQueryMemoryListInformation @ 0x1402F8B40 (MiQueryMemoryListInformation.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiPartitionObjectToPartition @ 0x1402F8D34 (MiPartitionObjectToPartition.c)
+ *     MiQueryMemoryListInformation @ 0x1402F8DD0 (MiQueryMemoryListInformation.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MmQueryMemoryListInformation(

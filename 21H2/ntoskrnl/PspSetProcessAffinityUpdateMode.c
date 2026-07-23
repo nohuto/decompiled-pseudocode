@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetProcessAffinityUpdateMode @ 0x14077CE80
+ * XREFs of PspSetProcessAffinityUpdateMode @ 0x14077D040
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     PspLockUnlockProcessExclusive @ 0x1402C3004 (PspLockUnlockProcessExclusive.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PspUpdateSingleProcessAffinity @ 0x1409087D0 (PspUpdateSingleProcessAffinity.c)
+ *     PspLockUnlockProcessExclusive @ 0x140241524 (PspLockUnlockProcessExclusive.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     PspUpdateSingleProcessAffinity @ 0x140908930 (PspUpdateSingleProcessAffinity.c)
  */
 
 __int64 __fastcall PspSetProcessAffinityUpdateMode(__int64 a1, int *a2)
@@ -21,6 +21,9 @@ __int64 __fastcall PspSetProcessAffinityUpdateMode(__int64 a1, int *a2)
   signed __int32 DirectoryTableBase; // edx
   signed __int32 v8; // eax
   bool v9; // zf
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
 
   Process = KeGetCurrentThread()->ApcState.Process;
   v4 = *a2;
@@ -58,7 +61,7 @@ __int64 __fastcall PspSetProcessAffinityUpdateMode(__int64 a1, int *a2)
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspAffinityUpdateLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&PspAffinityUpdateLock);
     KeAbPostRelease((ULONG_PTR)&PspAffinityUpdateLock);
-    KeLeaveCriticalRegionThread(a1);
+    KeLeaveCriticalRegionThread(a1, v10, v11, v12);
   }
   return 0LL;
 }

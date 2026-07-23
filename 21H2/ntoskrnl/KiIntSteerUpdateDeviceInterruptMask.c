@@ -1,19 +1,19 @@
 /*
- * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x1402C0E20
+ * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x14023F2BC
  * Callers:
- *     KiIntSteerDistributeInterrupts @ 0x140229CB0 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerDisable @ 0x140376E1C (KiIntSteerDisable.c)
- *     KiIntSteerConnect @ 0x140377C24 (KiIntSteerConnect.c)
+ *     KiIntSteerDistributeInterrupts @ 0x1402CE560 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerDisable @ 0x14037696C (KiIntSteerDisable.c)
+ *     KiIntSteerConnect @ 0x140377774 (KiIntSteerConnect.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall KiIntSteerUpdateDeviceInterruptMask(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax
   __int64 Prcb; // rax
-  unsigned __int16 *v7[2]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v7[2]; // [rsp+20h] [rbp-28h] BYREF
   __int16 v8; // [rsp+30h] [rbp-18h]
   int v9; // [rsp+32h] [rbp-16h]
   __int16 v10; // [rsp+36h] [rbp-12h]
@@ -25,7 +25,7 @@ __int64 __fastcall KiIntSteerUpdateDeviceInterruptMask(__int64 a1, int a2, __int
   v10 = 0;
   v11 = 0;
   v8 = *(_WORD *)(a1 + 8);
-  v7[1] = *(unsigned __int16 **)a1;
+  v7[1] = *(_QWORD *)a1;
   v7[0] = 0LL;
   while ( 1 )
   {

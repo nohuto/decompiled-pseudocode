@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWnfGetPermanentDataStoreHandle @ 0x1404F0658
+ * XREFs of ExpWnfGetPermanentDataStoreHandle @ 0x1404D274C
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x140462594 (ExpWnfCreateNameInstance.c)
- *     ExpWnfDeletePermanentStateData @ 0x1406BA198 (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfCreateNameInstance @ 0x140461464 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfDeletePermanentStateData @ 0x1406BA2D0 (ExpWnfDeletePermanentStateData.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x14057FC78 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140580124 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  */
 
 __int64 __fastcall ExpWnfGetPermanentDataStoreHandle(__int64 a1, int a2, int a3, volatile signed __int64 *a4)

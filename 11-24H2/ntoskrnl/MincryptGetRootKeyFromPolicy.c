@@ -1,7 +1,7 @@
 /*
- * XREFs of MincryptGetRootKeyFromPolicy @ 0x140827964
+ * XREFs of MincryptGetRootKeyFromPolicy @ 0x140828134
  * Callers:
- *     SecureDump_ValidateAmeCertChain @ 0x1405A28B0 (SecureDump_ValidateAmeCertChain.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x14059F7F0 (SecureDump_ValidateAmeCertChain.c)
  * Callees:
  *     <none>
  */

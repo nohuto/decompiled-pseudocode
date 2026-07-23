@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPmuArbiterUpdateActiveActorTime @ 0x1406FE3D4
+ * XREFs of HalpPmuArbiterUpdateActiveActorTime @ 0x1406FC014
  * Callers:
- *     HalpNotifyActorIfPmuAvailable @ 0x1406FDEA0 (HalpNotifyActorIfPmuAvailable.c)
- *     HalpRequestPmuAccess @ 0x1406FE420 (HalpRequestPmuAccess.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x1406FBAE0 (HalpNotifyActorIfPmuAvailable.c)
+ *     HalpRequestPmuAccess @ 0x1406FC060 (HalpRequestPmuAccess.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 LONGLONG HalpPmuArbiterUpdateActiveActorTime()
@@ -15,9 +15,9 @@ LONGLONG HalpPmuArbiterUpdateActiveActorTime()
   LARGE_INTEGER PerformanceFrequency; // [rsp+30h] [rbp+8h] BYREF
 
   PerformanceFrequency.QuadPart = 0LL;
-  v0 = *((_QWORD *)&xmmword_140FC1DF0 + 1);
+  v0 = *((_QWORD *)&xmmword_140FC2050 + 1);
   v2 = 1000 * (*(_QWORD *)&KeQueryPerformanceCounter(&PerformanceFrequency) - v0);
   result = v2 / PerformanceFrequency.QuadPart;
-  *(_QWORD *)(xmmword_140FC1DF0 + 40) += result;
+  *(_QWORD *)(xmmword_140FC2050 + 40) += result;
   return result;
 }

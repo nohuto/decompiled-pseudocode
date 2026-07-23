@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpFreeStackCache @ 0x1408A8396
+ * XREFs of EtwpFreeStackCache @ 0x1408A85E6
  * Callers:
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
- *     EtwpEnableStackCaching @ 0x1408A8238 (EtwpEnableStackCaching.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
+ *     EtwpEnableStackCaching @ 0x1408A8488 (EtwpEnableStackCaching.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

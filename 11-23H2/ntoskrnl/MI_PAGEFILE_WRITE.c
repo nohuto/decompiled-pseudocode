@@ -1,8 +1,8 @@
 /*
- * XREFs of MI_PAGEFILE_WRITE @ 0x140661128
+ * XREFs of MI_PAGEFILE_WRITE @ 0x140661678
  * Callers:
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
  *     <none>
  */

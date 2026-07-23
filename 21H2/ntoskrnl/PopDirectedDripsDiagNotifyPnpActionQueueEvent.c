@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsDiagNotifyPnpActionQueueEvent @ 0x14037A3F0
+ * XREFs of PopDirectedDripsDiagNotifyPnpActionQueueEvent @ 0x140379F40
  * Callers:
- *     PopDirectedDripsNotifyPnpActionQueueEvent @ 0x14037A354 (PopDirectedDripsNotifyPnpActionQueueEvent.c)
+ *     PopDirectedDripsNotifyPnpActionQueueEvent @ 0x140379EA4 (PopDirectedDripsNotifyPnpActionQueueEvent.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -21,7 +21,7 @@ __int64 __fastcall PopDirectedDripsDiagNotifyPnpActionQueueEvent(int a1, unsigne
   bool v11; // zf
 
   v3 = a2;
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C1EBB0);
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C1E9F0);
   v5 = MEMORY[0xFFFFF78000000008];
   if ( a1 )
   {
@@ -33,45 +33,45 @@ __int64 __fastcall PopDirectedDripsDiagNotifyPnpActionQueueEvent(int a1, unsigne
       {
         if ( v7 == 1 )
         {
-          if ( byte_140C1EC28 )
+          if ( byte_140C1EA68 )
           {
             *(&PopDirectedDripsDiagSessionContext + v3 + 25) = (char *)*(&PopDirectedDripsDiagSessionContext + v3 + 25)
                                                              + MEMORY[0xFFFFF78000000008]
-                                                             - qword_140C1EC40;
-            qword_140C1EC40 = 0LL;
+                                                             - qword_140C1EA80;
+            qword_140C1EA80 = 0LL;
           }
-          dword_140C1EBBC = 26;
+          dword_140C1E9FC = 26;
         }
       }
       else
       {
-        dword_140C1EBBC = v3;
-        if ( byte_140C1EC28 )
-          qword_140C1EC40 = MEMORY[0xFFFFF78000000008];
+        dword_140C1E9FC = v3;
+        if ( byte_140C1EA68 )
+          qword_140C1EA80 = MEMORY[0xFFFFF78000000008];
       }
     }
     else
     {
-      if ( !--dword_140C1EBB8 && byte_140C1EC28 )
+      if ( !--dword_140C1E9F8 && byte_140C1EA68 )
       {
-        qword_140C1EC30 += MEMORY[0xFFFFF78000000008] - qword_140C1EC38;
-        qword_140C1EC38 = 0LL;
+        qword_140C1EA70 += MEMORY[0xFFFFF78000000008] - qword_140C1EA78;
+        qword_140C1EA78 = 0LL;
       }
       --*((_DWORD *)&PopDirectedDripsDiagSessionContext + v3 + 16);
     }
   }
   else
   {
-    ++dword_140C1EBB8;
+    ++dword_140C1E9F8;
     ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v3 + 16);
-    if ( byte_140C1EC28 )
+    if ( byte_140C1EA68 )
     {
       ++*((_DWORD *)&PopDirectedDripsDiagSessionContext + v3 + 102);
-      if ( dword_140C1EBB8 == 1 )
-        qword_140C1EC38 = v5;
+      if ( dword_140C1E9F8 == 1 )
+        qword_140C1EA78 = v5;
     }
   }
-  KxReleaseSpinLock(&qword_140C1EBB0);
+  KxReleaseSpinLock(&qword_140C1E9F0);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapCallErrorSourceCorrect @ 0x140380C64
+ * XREFs of WheapCallErrorSourceCorrect @ 0x140380E04
  * Callers:
- *     WheapInitializeErrorSource @ 0x14081ED84 (WheapInitializeErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x14081F090 (WheapInitializeErrorSource.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x140380D1C (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     WheapGetErrorSourceFunction @ 0x140380EBC (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapCallErrorSourceCorrect(__int64 a1)

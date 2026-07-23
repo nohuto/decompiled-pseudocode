@@ -1,23 +1,35 @@
 /*
- * XREFs of RtlCreateProcessParametersEx @ 0x1800E6890
+ * XREFs of RtlCreateProcessParametersEx @ 0x1800E1D40
  * Callers:
  *     <none>
  * Callees:
- *     RtlCreateProcessParametersInternal @ 0x1800E6A30 (RtlCreateProcessParametersInternal.c)
+ *     RtlCreateProcessParametersInternal @ 0x1800E1EE0 (RtlCreateProcessParametersInternal.c)
  */
 
-__int64 __fastcall RtlCreateProcessParametersEx(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        void *a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        int a11)
+NTSTATUS __cdecl RtlCreateProcessParametersEx(
+        PRTL_USER_PROCESS_PARAMETERS *pProcessParameters,
+        PUNICODE_STRING ImagePathName,
+        PUNICODE_STRING DllPath,
+        PUNICODE_STRING CurrentDirectory,
+        PUNICODE_STRING CommandLine,
+        PVOID Environment,
+        PUNICODE_STRING WindowTitle,
+        PUNICODE_STRING DesktopInfo,
+        PUNICODE_STRING ShellInfo,
+        PUNICODE_STRING RuntimeData,
+        ULONG Flags)
 {
-  return RtlCreateProcessParametersInternal(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, 0LL, a11);
+  return RtlCreateProcessParametersInternal(
+           (int)pProcessParameters,
+           (int)ImagePathName,
+           (int)DllPath,
+           (int)CurrentDirectory,
+           (__int64)CommandLine,
+           Environment,
+           (__int64)WindowTitle,
+           (__int64)DesktopInfo,
+           (__int64)ShellInfo,
+           (__int64)RuntimeData,
+           0LL,
+           Flags);
 }

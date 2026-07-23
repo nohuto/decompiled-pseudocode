@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCallArbiter @ 0x1407522E4
+ * XREFs of IopCallArbiter @ 0x1407524A4
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1403BDF0C (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PnpReleaseResourcesInternal @ 0x140750F94 (PnpReleaseResourcesInternal.c)
- *     IopSetupArbiterAndTranslators @ 0x140751E1C (IopSetupArbiterAndTranslators.c)
- *     IopQueryConflictListInternal @ 0x1408B98EC (IopQueryConflictListInternal.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1403BF62C (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpReleaseResourcesInternal @ 0x140751154 (PnpReleaseResourcesInternal.c)
+ *     IopSetupArbiterAndTranslators @ 0x140751FDC (IopSetupArbiterAndTranslators.c)
+ *     IopQueryConflictListInternal @ 0x1408B9A4C (IopQueryConflictListInternal.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopCallArbiter(__int64 a1, __int64 a2, __int128 *a3)

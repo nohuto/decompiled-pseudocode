@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipReadSMBiosSysInfo @ 0x1406C34A8
+ * XREFs of WmipReadSMBiosSysInfo @ 0x1406C7088
  * Callers:
- *     WmiMatchSMBiosSysInfo @ 0x140822680 (WmiMatchSMBiosSysInfo.c)
+ *     WmiMatchSMBiosSysInfo @ 0x140828890 (WmiMatchSMBiosSysInfo.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     WmipFindSMBiosStructure @ 0x1408227A4 (WmipFindSMBiosStructure.c)
- *     WmipGetSMBiosString @ 0x140822B8C (WmipGetSMBiosString.c)
- *     WmipReleaseSmbiosLockShared @ 0x140B20274 (WmipReleaseSmbiosLockShared.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     WmipFindSMBiosStructure @ 0x1408289B4 (WmipFindSMBiosStructure.c)
+ *     WmipGetSMBiosString @ 0x140828D9C (WmipGetSMBiosString.c)
+ *     WmipReleaseSmbiosLockShared @ 0x140B22694 (WmipReleaseSmbiosLockShared.c)
  */
 
 __int64 __fastcall WmipReadSMBiosSysInfo(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall WmipReadSMBiosSysInfo(__int64 a1)
   v9 = 0LL;
   v8 = 0LL;
   v7 = 0;
-  if ( LOBYTE(EtwpSecurityLock.KernelShadowStackBase) == 1 )
+  if ( WmipSysInfoStringCached == 1 )
   {
     return 0;
   }
@@ -41,16 +41,12 @@ __int64 __fastcall WmipReadSMBiosSysInfo(__int64 a1)
       {
         if ( *(_BYTE *)(v9 + 5) )
         {
-          SMBiosString = WmipGetSMBiosString(
-                           v9,
-                           *(unsigned __int8 *)(v9 + 4),
-                           v8 + v7 - 1,
-                           &EtwpSecurityLock.Padding[3]);
+          SMBiosString = WmipGetSMBiosString(v9, *(unsigned __int8 *)(v9 + 4), v8 + v7 - 1, &WmipSysInfoManufacturerStr);
           if ( SMBiosString >= 0 )
           {
             SMBiosString = WmipGetSMBiosString(v4, *(unsigned __int8 *)(v4 + 5), v5, &WmipSysInfoProductNameStr);
             if ( SMBiosString >= 0 )
-              LOBYTE(EtwpSecurityLock.KernelShadowStackBase) = 1;
+              WmipSysInfoStringCached = 1;
           }
         }
       }

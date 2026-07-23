@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpLogApplicationEvent @ 0x1402FA074
+ * XREFs of PfpLogApplicationEvent @ 0x1402FA304
  * Callers:
- *     PfCalculateProcessHash @ 0x140760C10 (PfCalculateProcessHash.c)
- *     PfProcessExitNotification @ 0x140760DB4 (PfProcessExitNotification.c)
+ *     PfCalculateProcessHash @ 0x140760E00 (PfCalculateProcessHash.c)
+ *     PfProcessExitNotification @ 0x140760FA4 (PfProcessExitNotification.c)
  * Callees:
- *     PfLogEvent @ 0x14028C088 (PfLogEvent.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MmGetDirectoryFrameFromProcess @ 0x1407E9064 (MmGetDirectoryFrameFromProcess.c)
+ *     PfLogEvent @ 0x14028C318 (PfLogEvent.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MmGetDirectoryFrameFromProcess @ 0x1407E9334 (MmGetDirectoryFrameFromProcess.c)
  */
 
 __int64 __fastcall PfpLogApplicationEvent(__int64 a1, _QWORD *a2, char a3)

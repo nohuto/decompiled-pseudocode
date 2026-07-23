@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     VrpDereferenceJobContext @ 0x1405D2914 (VrpDereferenceJobContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpOriginalKeyNameParameterCleanup(__int64 a1, _QWORD *a2)

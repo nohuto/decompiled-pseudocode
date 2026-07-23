@@ -16,13 +16,13 @@ __int64 DbgkpStartSystemErrorHandler()
   unsigned int v0; // ebx
   int v1; // edi
   EVENT_DESCRIPTOR EventDescriptor; // [rsp+40h] [rbp-18h] BYREF
-  int v4; // [rsp+60h] [rbp+8h]
+  int v4; // [rsp+60h] [rbp+8h] BYREF
   ULONGLONG RegHandle; // [rsp+68h] [rbp+10h] BYREF
 
   v0 = 0;
   v1 = 0;
-  if ( (int)ZwQueryWnfStateNameInformation((__int64)&WNF_WER_SERVICE_START, 1LL, 0LL) >= 0 && v4 )
-    v1 = (int)ZwUpdateWnfStateData((__int64)&WNF_WER_SERVICE_START, 0LL, 0LL) >= 0;
+  if ( ZwQueryWnfStateNameInformation(&WNF_WER_SERVICE_START, WnfInfoSubscribersPresent, 0LL, &v4, 4u) >= 0 && v4 )
+    v1 = ZwUpdateWnfStateData(&WNF_WER_SERVICE_START, 0LL, 0, 0LL, 0LL, 0, 0) >= 0;
   if ( EtwRegister(&ProviderId, 0LL, 0LL, &RegHandle) >= 0 )
   {
     *(_QWORD *)&EventDescriptor.Id = 0LL;

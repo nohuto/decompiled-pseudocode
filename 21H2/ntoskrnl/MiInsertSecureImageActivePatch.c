@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertSecureImageActivePatch @ 0x1408CAAF4
+ * XREFs of MiInsertSecureImageActivePatch @ 0x1408CAC54
  * Callers:
- *     MiLoadHotPatch @ 0x1408CABD0 (MiLoadHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408CAD30 (MiLoadHotPatch.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     MiCompareHotPatchNodes @ 0x1408C9830 (MiCompareHotPatchNodes.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     MiCompareHotPatchNodes @ 0x1408C9990 (MiCompareHotPatchNodes.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiInsertSecureImageActivePatch(_QWORD *a1)

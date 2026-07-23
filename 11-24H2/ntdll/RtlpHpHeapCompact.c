@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpHeapCompact @ 0x180050D34
+ * XREFs of RtlpHpHeapCompact @ 0x180066914
  * Callers:
- *     RtlCompactHeap @ 0x180043EC0 (RtlCompactHeap.c)
- *     RtlpFlushHeapsCallback @ 0x180095D20 (RtlpFlushHeapsCallback.c)
- *     RtlpHpGCTimerEnumProcessHeapsCallback @ 0x1801427F0 (RtlpHpGCTimerEnumProcessHeapsCallback.c)
+ *     RtlpFlushHeapsCallback @ 0x1800A0590 (RtlpFlushHeapsCallback.c)
+ *     RtlCompactHeap @ 0x180106E40 (RtlCompactHeap.c)
+ *     RtlpHpGCTimerEnumProcessHeapsCallback @ 0x1801409A0 (RtlpHpGCTimerEnumProcessHeapsCallback.c)
  * Callees:
- *     RtlpHpVsContextCompact @ 0x18005034C (RtlpHpVsContextCompact.c)
- *     RtlpHpLfhContextCompact @ 0x1800503D0 (RtlpHpLfhContextCompact.c)
- *     RtlpHpSegContextCompact @ 0x180051930 (RtlpHpSegContextCompact.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011CBF4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     RtlpHpVsContextCompact @ 0x180065F2C (RtlpHpVsContextCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x180065FB0 (RtlpHpLfhContextCompact.c)
+ *     RtlpHpSegContextCompact @ 0x180067510 (RtlpHpSegContextCompact.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011AE24 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
  */
 
 __int64 __fastcall RtlpHpHeapCompact(__int64 a1, unsigned int a2)

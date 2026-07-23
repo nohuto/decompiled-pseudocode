@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWin32kActivatorCallback @ 0x14074D2F0
+ * XREFs of PopWin32kActivatorCallback @ 0x14074B620
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     Pdcv2ActivationClientRenewActivation @ 0x14078DB14 (Pdcv2ActivationClientRenewActivation.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     Pdcv2ActivationClientRenewActivation @ 0x14078DA44 (Pdcv2ActivationClientRenewActivation.c)
  */
 
 __int64 __fastcall PopWin32kActivatorCallback(__int64 a1, int a2, __int64 a3, unsigned int a4)
@@ -20,9 +20,9 @@ __int64 __fastcall PopWin32kActivatorCallback(__int64 a1, int a2, __int64 a3, un
   if ( a2 == 100 )
   {
     v11 = 0;
-    PopAcquireRwLockExclusive(&PopWin32kPowerRequestStatus);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopWin32kPowerRequestStatus);
     v6 = *((_DWORD *)&PopWin32kPowerRequestStatus + a4 + 6);
-    result = PopReleaseRwLock((signed __int64 *)&PopWin32kPowerRequestStatus);
+    result = PopReleaseRwLock(&PopWin32kPowerRequestStatus);
     if ( v6 )
     {
       v8[0] = 1;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGetNextNode @ 0x1402936D4
+ * XREFs of MmGetNextNode @ 0x140211644
  * Callers:
- *     PoIdle @ 0x140221ED0 (PoIdle.c)
- *     PpmIdlePrepare @ 0x140224F90 (PpmIdlePrepare.c)
- *     ExpTryQueueWorkItem @ 0x14023BDCC (ExpTryQueueWorkItem.c)
- *     ExpQueueWorkItem @ 0x1402414A0 (ExpQueueWorkItem.c)
- *     KiSearchForNewThread @ 0x140256CB8 (KiSearchForNewThread.c)
- *     PoAllProcessorsDeepIdle @ 0x140293618 (PoAllProcessorsDeepIdle.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
- *     KiChooseTargetProcessor @ 0x140344DE0 (KiChooseTargetProcessor.c)
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
+ *     PoAllProcessorsDeepIdle @ 0x140211588 (PoAllProcessorsDeepIdle.c)
+ *     KiSearchForNewThread @ 0x140278228 (KiSearchForNewThread.c)
+ *     PoIdle @ 0x1402C67D0 (PoIdle.c)
+ *     PpmIdlePrepare @ 0x1402C9890 (PpmIdlePrepare.c)
+ *     ExpTryQueueWorkItem @ 0x1402E061C (ExpTryQueueWorkItem.c)
+ *     ExpQueueWorkItem @ 0x1402E5CF0 (ExpQueueWorkItem.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140346ED0 (ExpAllocatePoolWithTagFromNode.c)
+ *     KiChooseTargetProcessor @ 0x14034FB30 (KiChooseTargetProcessor.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */
@@ -19,5 +19,5 @@ __int64 __fastcall MmGetNextNode(int a1, _DWORD *a2)
   if ( ++*a2 == (unsigned __int16)KeNumberNodes )
     return 0xFFFFFFFFLL;
   else
-    return *(unsigned int *)(qword_140C4DE98 + 4LL * (*a2 + (unsigned int)(unsigned __int16)KeNumberNodes * a1));
+    return *(unsigned int *)(qword_140C4DED8 + 4LL * (*a2 + (unsigned int)(unsigned __int16)KeNumberNodes * a1));
 }

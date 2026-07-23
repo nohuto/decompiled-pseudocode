@@ -1,14 +1,14 @@
 /*
- * XREFs of MiZeroAndConvertPage @ 0x140400700
+ * XREFs of MiZeroAndConvertPage @ 0x1403F8F1C
  * Callers:
- *     MiZeroChainWorker @ 0x14030A258 (MiZeroChainWorker.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1404133A0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
+ *     MiZeroChainWorker @ 0x140314138 (MiZeroChainWorker.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140393A14 (MiInitializeMdlOneNodeBatchPages.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x14021EC40 (MiZeroPhysicalPage.c)
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiZeroLargePage @ 0x140308BDC (MiZeroLargePage.c)
- *     MiPfnBestZeroAttribute @ 0x140400880 (MiPfnBestZeroAttribute.c)
+ *     MiZeroPhysicalPage @ 0x14024B990 (MiZeroPhysicalPage.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiZeroLargePage @ 0x140312ABC (MiZeroLargePage.c)
+ *     MiPfnBestZeroAttribute @ 0x1403F90A0 (MiPfnBestZeroAttribute.c)
  */
 
 char __fastcall MiZeroAndConvertPage(

@@ -8,15 +8,15 @@
  *     @EtwpTraceUmEvent@20 @ 0x4B381076 (@EtwpTraceUmEvent@20.c)
  */
 
-NTSTATUS __stdcall EtwLogTraceEvent(__int64 a1, int a2)
+ULONG __stdcall EtwLogTraceEvent(__int64 a1, PVOID Fields)
 {
-  NTSTATUS result; // eax
+  ULONG result; // eax
 
-  if ( !a2 )
+  if ( !Fields )
     return 87;
   if ( (a1 & 0x1000000) != 0 )
     return EtwpTraceUmEvent(a1, HIDWORD(a1), -1073086464);
-  result = NtTraceEvent((unsigned __int16)a1, 256, 48, a2);
+  result = NtTraceEvent((HANDLE)(unsigned __int16)a1, 0x100u, 0x30u, Fields);
   if ( result )
     return RtlNtStatusToDosError(result);
   return result;

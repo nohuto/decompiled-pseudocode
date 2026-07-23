@@ -60,7 +60,7 @@ __int64 __fastcall IopLiveDumpCollectPages(__int64 a1)
   }
   if ( (v1 & 1) == 0 )
     IoFillDumpHeader(
-      *(char **)(a1 + 560),
+      *(_DWORD **)(a1 + 560),
       6,
       *(_DWORD *)a1,
       *(_QWORD *)(a1 + 8),

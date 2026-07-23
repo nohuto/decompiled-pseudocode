@@ -1,10 +1,10 @@
 /*
- * XREFs of Template_qhzr1z @ 0x1401D0FEC
+ * XREFs of Template_qhzr1z @ 0x1401D0E18
  * Callers:
- *     PnpCallAddDevice @ 0x140543674 (PnpCallAddDevice.c)
+ *     PnpCallAddDevice @ 0x140543BB4 (PnpCallAddDevice.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_qhzr1z(

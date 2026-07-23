@@ -1,5 +1,5 @@
 /*
- * XREFs of PiSwPdoDriverEntry @ 0x140C25570
+ * XREFs of PiSwPdoDriverEntry @ 0x140C275C0
  * Callers:
  *     <none>
  * Callees:

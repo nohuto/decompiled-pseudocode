@@ -1,17 +1,17 @@
 /*
- * XREFs of MiObtainRelocationBits @ 0x14046E834
+ * XREFs of MiObtainRelocationBits @ 0x14046D704
  * Callers:
- *     MiSelectImageBase @ 0x14046E580 (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x14046D450 (MiSelectImageBase.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiSelectRelocationStartHint @ 0x14046E94C (MiSelectRelocationStartHint.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiSelectRelocationStartHint @ 0x14046D81C (MiSelectRelocationStartHint.c)
  */
 
 __int64 __fastcall MiObtainRelocationBits(PRTL_BITMAP *a1, unsigned __int16 a2, ULONG a3, int a4)
@@ -22,19 +22,19 @@ __int64 __fastcall MiObtainRelocationBits(PRTL_BITMAP *a1, unsigned __int16 a2, 
   _BYTE *v10; // rdi
   ULONG ClearBitsAndSet; // eax
   ULONG v12; // esi
-  struct _RTL_BITMAP *v13; // rcx
+  _RTL_BITMAP *v13; // rcx
   ULONG v15; // r15d
   ULONG started; // eax
   ULONG v17; // ebp
-  struct _RTL_BITMAP *v18; // rcx
+  _RTL_BITMAP *v18; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326710, 0LL, 0);
-  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326710, 0LL);
+  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326750, 0LL, 0);
+  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326750, 0LL);
   v10 = v8;
   if ( v9 )
-    ExfAcquirePushLockExclusiveEx(&qword_140326710, v8, (ULONG_PTR)&qword_140326710);
+    ExfAcquirePushLockExclusiveEx(&qword_140326750, v8, (ULONG_PTR)&qword_140326750);
   if ( v10 )
     v10[26] |= 1u;
   ClearBitsAndSet = RtlFindClearBitsAndSet(*a1, a2, a3);
@@ -68,9 +68,9 @@ LABEL_7:
     }
   }
 LABEL_8:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326710, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326710);
-  KeAbPostRelease((ULONG_PTR)&qword_140326710);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326750, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326750);
+  KeAbPostRelease((ULONG_PTR)&qword_140326750);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v12;
 }

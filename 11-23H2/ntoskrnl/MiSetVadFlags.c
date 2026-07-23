@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetVadFlags @ 0x1402876B0
+ * XREFs of MiSetVadFlags @ 0x140287940
  * Callers:
  *     MiRemoveSecureEntry @ 0x1402172F0 (MiRemoveSecureEntry.c)
- *     MiSetVadDeleted @ 0x140289884 (MiSetVadDeleted.c)
- *     MiAddSecureEntry @ 0x140745D84 (MiAddSecureEntry.c)
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
- *     MiGetVadForHotPatchInProgress @ 0x140A3730C (MiGetVadForHotPatchInProgress.c)
+ *     MiSetVadDeleted @ 0x140289B14 (MiSetVadDeleted.c)
+ *     MiAddSecureEntry @ 0x140745F74 (MiAddSecureEntry.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
+ *     MiGetVadForHotPatchInProgress @ 0x140A375BC (MiGetVadForHotPatchInProgress.c)
  * Callees:
- *     MiLockVadCore @ 0x1402877D0 (MiLockVadCore.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockVadCore @ 0x140287A60 (MiLockVadCore.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetVadFlags(__int64 a1, __int64 a2, int a3)
@@ -58,10 +58,13 @@ __int64 __fastcall MiSetVadFlags(__int64 a1, __int64 a2, int a3)
                                                          + 284));
   _InterlockedAnd((volatile signed __int32 *)(a1 + 48), 0xFFFFFFFC);
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

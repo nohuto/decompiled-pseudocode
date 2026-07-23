@@ -1,11 +1,11 @@
 /*
- * XREFs of Amd64AllocateCounter @ 0x140528AF8
+ * XREFs of Amd64AllocateCounter @ 0x140529048
  * Callers:
- *     Amd64EnableMonitoring @ 0x140529160 (Amd64EnableMonitoring.c)
+ *     Amd64EnableMonitoring @ 0x1405296B0 (Amd64EnableMonitoring.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     HalpAllocateHalCounters @ 0x140501C18 (HalpAllocateHalCounters.c)
- *     Amd64CheckCoreEventConstraints @ 0x140528DD0 (Amd64CheckCoreEventConstraints.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     HalpAllocateHalCounters @ 0x140502168 (HalpAllocateHalCounters.c)
+ *     Amd64CheckCoreEventConstraints @ 0x140529320 (Amd64CheckCoreEventConstraints.c)
  */
 
 __int64 __fastcall Amd64AllocateCounter(signed __int32 a1, __int64 a2, unsigned int *a3, _BYTE *a4)

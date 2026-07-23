@@ -1,12 +1,12 @@
 /*
- * XREFs of SshpReferenceBlocker @ 0x140485B6C
+ * XREFs of SshpReferenceBlocker @ 0x14048115C
  * Callers:
- *     SleepstudyHelperSetBlockerParentHandle @ 0x140485B00 (SleepstudyHelperSetBlockerParentHandle.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A24F30 (SleepstudyHelperBuildBlocker.c)
- *     SshNotifySystemSessionChange @ 0x140A4B418 (SshNotifySystemSessionChange.c)
+ *     SleepstudyHelperSetBlockerParentHandle @ 0x1404810F0 (SleepstudyHelperSetBlockerParentHandle.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A18F20 (SleepstudyHelperBuildBlocker.c)
+ *     SshNotifySystemSessionChange @ 0x140A42178 (SshNotifySystemSessionChange.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall SshpReferenceBlocker(PKSPIN_LOCK SpinLock, int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopIoRingDispatchWriteGather @ 0x140798974
+ * XREFs of IopIoRingDispatchWriteGather @ 0x14079B4A4
  * Callers:
- *     IopProcessIoRingEntry @ 0x140B00D00 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x140B02A30 (IopProcessIoRingEntry.c)
  * Callees:
- *     IopCompleteIoRingEntry @ 0x140411574 (IopCompleteIoRingEntry.c)
- *     IopWriteFileGather @ 0x140B01CE0 (IopWriteFileGather.c)
- *     IopIoRingReferenceFileObject @ 0x140B3E9AC (IopIoRingReferenceFileObject.c)
+ *     IopCompleteIoRingEntry @ 0x140410C94 (IopCompleteIoRingEntry.c)
+ *     IopWriteFileGather @ 0x140B03A10 (IopWriteFileGather.c)
+ *     IopIoRingReferenceFileObject @ 0x140B409DC (IopIoRingReferenceFileObject.c)
  */
 
 void __fastcall IopIoRingDispatchWriteGather(PVOID Object, __int64 a2, __int64 a3, __int64 a4)

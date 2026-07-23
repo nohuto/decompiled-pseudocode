@@ -1,9 +1,9 @@
 /*
- * XREFs of wcstok_s @ 0x14053CDA4
+ * XREFs of wcstok_s @ 0x14053F224
  * Callers:
- *     GetOperatorIndexByName @ 0x140A62AF4 (GetOperatorIndexByName.c)
+ *     GetOperatorIndexByName @ 0x140A6FAC4 (GetOperatorIndexByName.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 wchar_t *__cdecl wcstok_s(wchar_t *Str, const wchar_t *Delim, wchar_t **Context)

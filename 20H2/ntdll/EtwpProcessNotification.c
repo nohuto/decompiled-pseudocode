@@ -28,7 +28,7 @@ char __fastcall EtwpProcessNotification(__int64 a1, __int16 *a2, _QWORD *a3, _DW
         v8 = *(_QWORD *)(a1 + 88);
       *a3 = v8;
       *((_QWORD *)a2 + 3) = v8;
-      EtwpUpdateEnableInfoAndCallback(a1, (__int64)a2, (unsigned __int64)a3, (unsigned __int64)a4);
+      EtwpUpdateEnableInfoAndCallback(a1, (__int64)a2);
       goto LABEL_6;
     }
   }

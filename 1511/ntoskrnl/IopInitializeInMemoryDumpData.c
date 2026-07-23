@@ -51,7 +51,7 @@ void IopInitializeInMemoryDumpData()
     v18 = 0LL;
     v1 = 0;
     v19 = 0LL;
-    if ( ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, &SystemInformation, 0x18u, 0LL) >= 0 )
+    if ( ZwQuerySystemInformation(SystemSecureBootPolicyInformation, &SystemInformation, 0x18u, 0LL) >= 0 )
     {
       v2 = SystemInformation - SecBootPolicyPublisherDebug;
       if ( SystemInformation == SecBootPolicyPublisherDebug )

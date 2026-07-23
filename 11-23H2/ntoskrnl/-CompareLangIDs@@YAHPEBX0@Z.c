@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompareLangIDs@@YAHPEBX0@Z @ 0x14036A340
+ * XREFs of ?CompareLangIDs@@YAHPEBX0@Z @ 0x14036A4E0
  * Callers:
  *     <none>
  * Callees:

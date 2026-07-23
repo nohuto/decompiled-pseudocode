@@ -9,7 +9,7 @@
  *     __allshl @ 0x4B2F65F0 (__allshl.c)
  */
 
-int __stdcall RtlGetMultiTimePrecise(_DWORD *a1, int a2, int *a3)
+int __stdcall RtlGetMultiTimePrecise(unsigned int *a1, int a2, int *a3)
 {
   int v3; // esi
   int v4; // edi
@@ -18,8 +18,8 @@ int __stdcall RtlGetMultiTimePrecise(_DWORD *a1, int a2, int *a3)
   int v7; // edi
   unsigned int v8; // esi
   unsigned int v9; // ebx
-  unsigned __int64 v10; // rdi
-  _DWORD *v11; // ecx
+  LARGE_INTEGER v10; // rdi
+  unsigned int *v11; // ecx
   unsigned int v12; // ebx
   int v13; // edx
   __int64 v14; // rdi
@@ -27,7 +27,7 @@ int __stdcall RtlGetMultiTimePrecise(_DWORD *a1, int a2, int *a3)
   char v17; // [esp+13h] [ebp-55h]
   int v18; // [esp+14h] [ebp-54h]
   int v19; // [esp+18h] [ebp-50h]
-  unsigned int v20; // [esp+1Ch] [ebp-4Ch]
+  int v20; // [esp+1Ch] [ebp-4Ch]
   unsigned __int64 v21; // [esp+20h] [ebp-48h]
   unsigned __int64 v22; // [esp+28h] [ebp-40h]
   unsigned int v23; // [esp+2Ch] [ebp-3Ch]
@@ -39,7 +39,7 @@ int __stdcall RtlGetMultiTimePrecise(_DWORD *a1, int a2, int *a3)
   __int64 v29; // [esp+50h] [ebp-18h]
   int v30; // [esp+58h] [ebp-10h]
   int TickLock; // [esp+5Ch] [ebp-Ch]
-  unsigned __int64 v32; // [esp+60h] [ebp-8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [esp+60h] [ebp-8h] BYREF
 
   v22 = 0LL;
   v29 = 0LL;
@@ -82,7 +82,7 @@ int __stdcall RtlGetMultiTimePrecise(_DWORD *a1, int a2, int *a3)
             v8 = *(_DWORD *)(v19 + 24);
             v9 = *(_DWORD *)(v19 + 28);
             v21 = __PAIR64__(v9, v8);
-            RtlQueryPerformanceCounter(&v32);
+            RtlQueryPerformanceCounter(&PerformanceCounter);
           }
           while ( v8 != *(_DWORD *)(v19 + 24) );
         }
@@ -93,20 +93,20 @@ int __stdcall RtlGetMultiTimePrecise(_DWORD *a1, int a2, int *a3)
       }
       else
       {
-        RtlQueryPerformanceCounter(&v32);
+        RtlQueryPerformanceCounter(&PerformanceCounter);
       }
       if ( RtlTryEndReadTickLock((int *)0x7FFE0340, TickLock, v30) )
         break;
       _mm_pause();
     }
-    v10 = v32;
+    v10 = PerformanceCounter;
     v11 = a1;
     v12 = 0;
     if ( (a2 & 1) != 0 )
     {
-      *a1 = v32;
+      *a1 = PerformanceCounter.LowPart;
       v13 = 1;
-      a1[1] = HIDWORD(v10);
+      a1[1] = v10.HighPart;
       v18 = 1;
     }
     else
@@ -115,21 +115,21 @@ int __stdcall RtlGetMultiTimePrecise(_DWORD *a1, int a2, int *a3)
     }
     if ( (a2 & 2) != 0 && !v26 && v21 )
     {
-      a1[2] = v21 + v10 - v20;
+      a1[2] = v21 + v10.LowPart - v20;
       v11 = a1;
       v13 = v18 | 2;
       v18 |= 2u;
-      a1[3] = (v21 + v10 - __PAIR64__(v27, v20)) >> 32;
+      a1[3] = (v21 + v10.QuadPart - __PAIR64__(v27, v20)) >> 32;
     }
     if ( (a2 & 4) != 0 )
     {
-      if ( v10 <= v22 )
+      if ( v10.QuadPart <= v22 )
       {
         v15 = 0;
       }
       else
       {
-        v14 = v10 - v22 - 1;
+        v14 = v10.QuadPart - v22 - 1;
         if ( v17 )
         {
           v11 = a1;

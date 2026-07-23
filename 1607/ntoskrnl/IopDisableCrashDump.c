@@ -1,7 +1,7 @@
 /*
- * XREFs of IopDisableCrashDump @ 0x140143124
+ * XREFs of IopDisableCrashDump @ 0x140143694
  * Callers:
- *     IoConfigureCrashDump @ 0x140142EA0 (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x140143410 (IoConfigureCrashDump.c)
  * Callees:
  *     <none>
  */
@@ -11,9 +11,9 @@ __int64 IopDisableCrashDump()
   __int64 result; // rax
 
   result = 0LL;
-  if ( CrashdmpImageEntry && qword_1403289E8 && CrashdmpInitialized )
+  if ( CrashdmpImageEntry && qword_140328A28 && CrashdmpInitialized )
   {
-    result = qword_1403289E8();
+    result = qword_140328A28();
     if ( (int)result >= 0 )
     {
       CrashdmpDumpBlock = 0LL;

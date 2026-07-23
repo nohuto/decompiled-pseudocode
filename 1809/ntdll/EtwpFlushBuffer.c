@@ -5,22 +5,22 @@
  *     EtwpBufferingModeFlush @ 0x18010F094 (EtwpBufferingModeFlush.c)
  * Callees:
  *     EtwpWriteBufferCompressed @ 0x180001E58 (EtwpWriteBufferCompressed.c)
- *     NtWriteFile @ 0x1800A03E0 (NtWriteFile.c)
+ *     NtWriteFile @ 0x1800A0400 (NtWriteFile.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
 __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
 {
-  int v3; // r9d
+  NTSTATUS v3; // r9d
   int v4; // r10d
   int v7; // eax
   int v8; // esi
   __int64 v9; // r11
-  __int64 v10; // rbp
+  __int64 Length; // rbp
   unsigned __int64 v11; // r9
-  int v13; // eax
+  NTSTATUS v13; // eax
   __int64 v14; // rax
-  _BYTE v15[16]; // [rsp+50h] [rbp-28h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-28h] BYREF
   int v16; // [rsp+88h] [rbp+10h] BYREF
   int v17; // [rsp+98h] [rbp+20h] BYREF
 
@@ -41,12 +41,12 @@ __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
   if ( *(_QWORD *)(a1 + 144) )
   {
     v9 = *(unsigned int *)(a1 + 320);
-    v10 = *(unsigned int *)(a1 + 208);
+    Length = *(unsigned int *)(a1 + 208);
     if ( (_DWORD)v9 )
     {
       v11 = (*(_DWORD *)(a1 + 324) & 0x4000000) != 0
           ? *(_QWORD *)(a1 + 360)
-          : v10 * (*(_DWORD *)(a1 + 336) + ((*(_DWORD *)(a1 + 324) & 8) != 0 ? 2 : 0));
+          : Length * (*(_DWORD *)(a1 + 336) + ((*(_DWORD *)(a1 + 324) & 8) != 0 ? 2 : 0));
       if ( v11 >= v9 * ((-(__int64)((*(_DWORD *)(a1 + 324) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
       {
         switch ( *(_DWORD *)(a1 + 324) & 0xB )
@@ -61,7 +61,7 @@ LABEL_31:
           case 2:
             v14 = *(_QWORD *)(a1 + 352);
             *(_QWORD *)(a1 + 360) = v14;
-            *(_DWORD *)(a1 + 336) = v14 / v10;
+            *(_DWORD *)(a1 + 336) = v14 / Length;
             break;
           case 8:
             *(_DWORD *)(a1 + 332) |= 1u;
@@ -73,18 +73,27 @@ LABEL_31:
     *(_QWORD *)(a2 + 16) = MEMORY[0x7FFE0014];
     if ( (*(_DWORD *)(a1 + 324) & 0x4000000) != 0 )
     {
-      v13 = EtwpWriteBufferCompressed(a1, (_OWORD *)a2, &v17, &v16);
+      v13 = EtwpWriteBufferCompressed(a1, (UCHAR *)a2, &v17, &v16);
       v4 = v16;
       v3 = v13;
     }
     else
     {
-      if ( *(_DWORD *)(a2 + 48) < (unsigned int)v10 )
-        memset((void *)(a2 + *(unsigned int *)(a2 + 48)), 255, (unsigned int)(v10 - *(_DWORD *)(a2 + 48)));
-      v3 = NtWriteFile(*(_QWORD *)(a1 + 144), 0LL, 0LL, 0LL, v15, a2, v10, a1 + 360, 0LL);
+      if ( *(_DWORD *)(a2 + 48) < (unsigned int)Length )
+        memset((void *)(a2 + *(unsigned int *)(a2 + 48)), 255, (unsigned int)(Length - *(_DWORD *)(a2 + 48)));
+      v3 = NtWriteFile(
+             *(HANDLE *)(a1 + 144),
+             0LL,
+             0LL,
+             0LL,
+             &IoStatusBlock,
+             (PVOID)a2,
+             Length,
+             (PLARGE_INTEGER)(a1 + 360),
+             0LL);
       if ( v3 >= 0 )
       {
-        *(_QWORD *)(a1 + 360) += v10;
+        *(_QWORD *)(a1 + 360) += Length;
         v4 = v16;
 LABEL_14:
         if ( v3 >= 0 )

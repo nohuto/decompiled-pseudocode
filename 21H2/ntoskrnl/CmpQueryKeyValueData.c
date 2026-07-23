@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpQueryKeyValueData @ 0x1405F7EB0
+ * XREFs of CmpQueryKeyValueData @ 0x1406E7610
  * Callers:
- *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
- *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x14086F410 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmEnumerateValueKey @ 0x1406E4650 (CmEnumerateValueKey.c)
+ *     CmQueryValueKey @ 0x1406E6E60 (CmQueryValueKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C3C0 (CmEnumerateValueFromLayeredKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x14086F570 (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
- *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpCopyCompressedName @ 0x14065ED94 (CmpCopyCompressedName.c)
+ *     CmpGetValueData @ 0x1406E7B70 (CmpGetValueData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpQueryKeyValueData(
@@ -41,7 +41,7 @@ __int64 __fastcall CmpQueryKeyValueData(
   unsigned int v26; // r8d
   unsigned int i; // eax
   unsigned int v28; // r13d
-  void *v29; // rcx
+  _WORD *v29; // rcx
   int v30; // r9d
   unsigned int v31; // edx
   unsigned int v32; // ecx
@@ -274,7 +274,7 @@ __int64 __fastcall CmpQueryKeyValueData(
         v16 = -2147483643;
       v29 = v12 + 3;
       if ( (*(_BYTE *)(a3 + 16) & 1) != 0 )
-        CmpCopyCompressedName(v29, v28, a3 + 20);
+        CmpCopyCompressedName(v29, v28, (unsigned __int8 *)(a3 + 20), *(unsigned __int16 *)(a3 + 2));
       else
         memmove(v29, (const void *)(a3 + 20), v28);
     }

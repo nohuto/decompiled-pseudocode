@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1405FF7F0 @ 0x1405FF7F0
+ * Callers:
+ *     sub_140A80270 @ 0x140A80270 (sub_140A80270.c)
+ * Callees:
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ */
+
+__int64 __fastcall sub_1405FF7F0(__int64 a1, __int64 a2)
+{
+  return sub_14042A5E0(a1, a2);
+}

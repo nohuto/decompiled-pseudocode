@@ -1,17 +1,17 @@
 /*
- * XREFs of ConstraintEval @ 0x1408B4EA0
+ * XREFs of ConstraintEval @ 0x1408B2790
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B4A8C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B237C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     SimplifyFilter @ 0x1408B347C (SimplifyFilter.c)
- *     FilterEvalStrict @ 0x1408CC720 (FilterEvalStrict.c)
- *     FilterEvalImpliedAnd @ 0x1408D4048 (FilterEvalImpliedAnd.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     SimplifyFilter @ 0x1408B0D6C (SimplifyFilter.c)
+ *     FilterEvalStrict @ 0x1408CA150 (FilterEvalStrict.c)
+ *     FilterEvalImpliedAnd @ 0x1408D1A38 (FilterEvalImpliedAnd.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a4, __int64 a5)
@@ -59,7 +59,7 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
     return (unsigned int)-1073741811;
   if ( !a1 )
     return (unsigned int)-1073741823;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 56LL * a1, 0x52544C46u);
   v11 = Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741801;
@@ -116,9 +116,9 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
       {
         if ( (_DWORD)v38 != 17 )
           goto LABEL_16;
-        v31 = &unk_140EEFBE0;
+        v31 = &unk_140EEFE19;
         if ( **((_BYTE **)&v38 + 1) != 0xFF )
-          v31 = &unk_140E0F090;
+          v31 = &unk_140E0F160;
         *((_QWORD *)&v38 + 1) = v31;
       }
     }
@@ -126,7 +126,7 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
   else
   {
     *(_QWORD *)&v38 = 0x400000007LL;
-    *((_QWORD *)&v38 + 1) = &unk_140EEFBE4;
+    *((_QWORD *)&v38 + 1) = &unk_140EEFE1C;
   }
   for ( j = 0; j < v7; ++j )
   {

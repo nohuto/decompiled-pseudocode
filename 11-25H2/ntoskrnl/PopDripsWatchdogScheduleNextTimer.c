@@ -28,7 +28,7 @@ __int64 __fastcall PopDripsWatchdogScheduleNextTimer(__int64 a1)
       if ( *(_DWORD *)(a1 + 168) )
         PopOkayToQueueNextWorkItem(a1 + 136);
     }
-    result = KeSetTimer2(a1, v3, 0LL, (__int64)v4);
+    result = KeSetTimer2(a1, (LARGE_INTEGER)v3, 0LL, (__int64)v4);
     *(_DWORD *)(a1 + 180) |= 2u;
   }
   return result;

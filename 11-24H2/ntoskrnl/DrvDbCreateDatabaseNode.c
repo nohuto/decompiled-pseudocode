@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbCreateDatabaseNode @ 0x140823A00
+ * XREFs of DrvDbCreateDatabaseNode @ 0x140824140
  * Callers:
- *     DrvDbOpenContext @ 0x140823650 (DrvDbOpenContext.c)
- *     DrvDbRegisterDatabase @ 0x140823800 (DrvDbRegisterDatabase.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbOpenContext @ 0x140823D90 (DrvDbOpenContext.c)
+ *     DrvDbRegisterDatabase @ 0x140823F40 (DrvDbRegisterDatabase.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408226F4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbDestroyDatabaseNode @ 0x140823D38 (DrvDbDestroyDatabaseNode.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140822E34 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140824478 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbCreateDatabaseNode(
@@ -33,7 +33,7 @@ __int64 __fastcall DrvDbCreateDatabaseNode(
   __int64 v15; // rcx
   WCHAR *v16; // r14
   __int64 v17; // rax
-  unsigned __int64 v18; // rbx
+  ULONG_PTR v18; // rbx
   __int64 Pool2; // rax
   struct _ERESOURCE *v21; // rax
   __int64 *v22; // rcx
@@ -56,7 +56,7 @@ __int64 __fastcall DrvDbCreateDatabaseNode(
   {
     v16 = (WCHAR *)SourceString;
 LABEL_24:
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0xA8uLL, 0x42444450u);
     v13 = Pool2;
     if ( Pool2 )
     {
@@ -69,7 +69,8 @@ LABEL_24:
       *(_QWORD *)(Pool2 + 32) = v11;
       if ( RtlCreateUnicodeString((PUNICODE_STRING)(Pool2 + 16), a2)
         && RtlCreateUnicodeString((PUNICODE_STRING)(v13 + 48), v16)
-        && (v21 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL), (*(_QWORD *)(v13 + 152) = v21) != 0LL) )
+        && (v21 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL, 0x68uLL, 0x42444450u),
+            (*(_QWORD *)(v13 + 152) = v21) != 0LL) )
       {
         v14 = ExInitializeResourceLite(v21);
         if ( v14 >= 0 )
@@ -130,7 +131,7 @@ LABEL_24:
     ++v17;
   while ( a2[v17] );
   v18 = (unsigned int)(2 * v17 + 68);
-  v16 = (WCHAR *)ExAllocatePool2(0x100uLL);
+  v16 = (WCHAR *)ExAllocatePool2(0x100uLL, v18, 0x42444450u);
   if ( v16 )
   {
     v14 = RtlStringCchPrintfExW(

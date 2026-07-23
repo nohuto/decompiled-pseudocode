@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTimerExpirationDpc @ 0x1405C7130
+ * XREFs of KiTimerExpirationDpc @ 0x1405C4860
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiTimerExpiration @ 0x140336410 (KiTimerExpiration.c)
- *     KiTimer2Expiration @ 0x1403C1420 (KiTimer2Expiration.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTimerExpiration @ 0x140315160 (KiTimerExpiration.c)
+ *     KiTimer2Expiration @ 0x1403AFFE0 (KiTimer2Expiration.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall KiTimerExpirationDpc(
@@ -27,22 +27,24 @@ void __fastcall KiTimerExpirationDpc(
   signed __int32 *SchedulerAssist; // rdx
   signed __int32 v12; // eax
   signed __int32 v13; // ett
-  __int64 v14; // [rsp+30h] [rbp-1B8h] BYREF
-  int v15; // [rsp+38h] [rbp-1B0h]
-  int v16; // [rsp+3Ch] [rbp-1ACh]
-  unsigned __int64 v17[50]; // [rsp+40h] [rbp-1A8h] BYREF
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v16; // [rsp+30h] [rbp-1B8h] BYREF
+  int v17; // [rsp+38h] [rbp-1B0h]
+  int v18; // [rsp+3Ch] [rbp-1ACh]
+  unsigned __int64 v19[50]; // [rsp+40h] [rbp-1A8h] BYREF
 
   v4 = (int)SystemArgument1;
-  memset_0(v17, 0, sizeof(v17));
+  memset_0(v19, 0, sizeof(v19));
   if ( (DWORD2(PerfGlobalGroupMask) & 0x20000) != 0 )
   {
-    v14 = 0LL;
-    v15 = 0;
-    v16 = 0;
-    EtwTraceKernelEvent((int)&v14, 1, 0x40020000u, 3926, 5245442);
+    v16 = 0LL;
+    v17 = 0;
+    v18 = 0;
+    EtwTraceKernelEvent((int)&v16, 1, 0x40020000u, 3926, 5245442);
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v17[1] = MEMORY[0xFFFFF78000000014];
+  v19[1] = MEMORY[0xFFFFF78000000014];
   _disable();
   v6 = MEMORY[0xFFFFF78000000008];
   if ( KiSerializeTimerExpiration )
@@ -82,8 +84,12 @@ void __fastcall KiTimerExpirationDpc(
       KiRemoveSystemWorkPriorityKick((__int64)v10);
   }
   _enable();
-  KiTimerExpiration((__int64)CurrentPrcb, v4, v6, 1, v17);
+  KiTimerExpiration((__int64)CurrentPrcb, v4, v6, 1, (unsigned __int64)v19);
   CurrentPrcb->DpcData[0].ActiveDpc = 0LL;
   if ( CurrentPrcb->ClockOwner )
-    KiTimer2Expiration((__int64)CurrentPrcb, v6, 1, 1, v17);
+  {
+    LOBYTE(v15) = 1;
+    LOBYTE(v14) = 1;
+    KiTimer2Expiration((__int64)CurrentPrcb, v6, v14, v15, v19);
+  }
 }

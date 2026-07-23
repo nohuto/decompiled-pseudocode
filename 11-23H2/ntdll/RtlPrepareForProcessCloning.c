@@ -14,8 +14,8 @@
  *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800E17E4 (LdrpUnlockTlsDelayedReclaimTable.c)
  *     LdrForkMrdata @ 0x1800E1F60 (LdrForkMrdata.c)
  *     RtlLockHeapManagerForCloning @ 0x1800FEBF0 (RtlLockHeapManagerForCloning.c)
- *     RtlpFlsCloneComplete @ 0x18011981C (RtlpFlsCloneComplete.c)
- *     RtlpFlsClonePrepare @ 0x1801198CC (RtlpFlsClonePrepare.c)
+ *     RtlpFlsCloneComplete @ 0x1801197EC (RtlpFlsCloneComplete.c)
+ *     RtlpFlsClonePrepare @ 0x18011989C (RtlpFlsClonePrepare.c)
  */
 
 __int64 RtlPrepareForProcessCloning()
@@ -28,9 +28,9 @@ __int64 RtlPrepareForProcessCloning()
     return 3221225876LL;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   RtlpFlsClonePrepare();
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   LdrpLockTlsDelayedReclaimTable();
   RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   LdrForkMrdata(0LL);
@@ -47,7 +47,7 @@ __int64 RtlPrepareForProcessCloning()
     LdrForkMrdata(2LL);
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
     LdrpUnlockTlsDelayedReclaimTable(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     RtlpFlsCloneComplete(v2, 0LL);
     LdrpCompleteProcessCloning(0LL);
     return (unsigned int)v1;

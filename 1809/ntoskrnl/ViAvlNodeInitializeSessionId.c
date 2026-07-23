@@ -1,9 +1,9 @@
 /*
- * XREFs of ViAvlNodeInitializeSessionId @ 0x1400F58D8
+ * XREFs of ViAvlNodeInitializeSessionId @ 0x1400F5958
  * Callers:
- *     VfAvlReserveNode @ 0x1400F5850 (VfAvlReserveNode.c)
- *     VfAvlDeleteTreeNode @ 0x14016C378 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
+ *     VfAvlReserveNode @ 0x1400F58D0 (VfAvlReserveNode.c)
+ *     VfAvlDeleteTreeNode @ 0x14016C478 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14016C530 (VfAvlLookupTreeNode.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)

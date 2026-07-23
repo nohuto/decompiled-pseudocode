@@ -1,5 +1,5 @@
 /*
- * XREFs of KeDeregisterProcessorChangeCallback @ 0x14064FA40
+ * XREFs of KeDeregisterProcessorChangeCallback @ 0x14064FB24
  * Callers:
  *     <none>
  * Callees:

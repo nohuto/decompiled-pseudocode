@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierExFreePool @ 0x140C2FE00
+ * XREFs of VerifierExFreePool @ 0x140C35E10
  * Callers:
- *     VerifierExFreePoolEx @ 0x140C2FE60 (VerifierExFreePoolEx.c)
+ *     VerifierExFreePoolEx @ 0x140C35E70 (VerifierExFreePoolEx.c)
  * Callees:
- *     VfEnabledOnKernel @ 0x14047EA30 (VfEnabledOnKernel.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ExFreePoolSanityChecks @ 0x140C4345C (ExFreePoolSanityChecks.c)
+ *     VfEnabledOnKernel @ 0x1404783A0 (VfEnabledOnKernel.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolSanityChecks @ 0x140C4946C (ExFreePoolSanityChecks.c)
  */
 
 void __fastcall VerifierExFreePool(PVOID P)

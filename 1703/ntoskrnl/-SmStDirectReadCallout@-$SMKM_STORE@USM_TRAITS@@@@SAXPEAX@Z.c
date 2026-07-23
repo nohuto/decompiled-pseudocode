@@ -14,10 +14,10 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectReadCallout(__int64 a1)
 
   *(_DWORD *)(a1 + 24) = 0;
   Issue = SMKM_STORE<SM_TRAITS>::SmStDirectReadIssue(*(_QWORD *)a1, *(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16));
-  ST_STORE<SM_TRAITS>::StReleaseReadContext(*(union _SLIST_HEADER **)a1, *(_QWORD *)(a1 + 16));
+  ST_STORE<SM_TRAITS>::StReleaseReadContext(*(_SLIST_HEADER **)a1, *(_QWORD *)(a1 + 16));
   if ( Issue != -1073741550 )
   {
-    SMKM_STORE<SM_TRAITS>::SmStDirectReadComplete(*(_QWORD *)a1, *(struct _SLIST_ENTRY **)(a1 + 8), Issue);
+    SMKM_STORE<SM_TRAITS>::SmStDirectReadComplete(*(_QWORD *)a1, *(_SLIST_ENTRY **)(a1 + 8), Issue);
     *(_DWORD *)(a1 + 24) = 1;
   }
 }

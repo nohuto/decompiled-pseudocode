@@ -1,12 +1,15 @@
 /*
- * XREFs of RtlpReportHeapFailure @ 0x18011F4EC
+ * XREFs of RtlpReportHeapFailure @ 0x18011D71C
  * Callers:
- *     RtlpHeapHandleError @ 0x180031DD0 (RtlpHeapHandleError.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
+ *     RtlpFindAndCommitPages @ 0x18000D030 (RtlpFindAndCommitPages.c)
+ *     RtlpHeapHandleError @ 0x180010460 (RtlpHeapHandleError.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010840 (RtlpDeCommitFreeBlock.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlpCreateUCREntry @ 0x1801173C0 (RtlpCreateUCREntry.c)
  * Callees:
- *     RtlIsAnyDebuggerPresent @ 0x1800F2A08 (RtlIsAnyDebuggerPresent.c)
- *     RtlpGetModifiedProcessCookie @ 0x1800FBBD4 (RtlpGetModifiedProcessCookie.c)
- *     RtlpPrintErrorInformation @ 0x18014C880 (RtlpPrintErrorInformation.c)
+ *     RtlIsAnyDebuggerPresent @ 0x1800ED2F8 (RtlIsAnyDebuggerPresent.c)
+ *     RtlpGetModifiedProcessCookie @ 0x1800F6B04 (RtlpGetModifiedProcessCookie.c)
+ *     RtlpPrintErrorInformation @ 0x18014AC48 (RtlpPrintErrorInformation.c)
  */
 
 char __fastcall RtlpReportHeapFailure(int a1)

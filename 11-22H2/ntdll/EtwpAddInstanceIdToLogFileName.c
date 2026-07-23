@@ -11,22 +11,22 @@
  *     StringCchPrintfW @ 0x1800E8454 (StringCchPrintfW.c)
  */
 
-__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a3)
+__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
-  wchar_t *v4; // r8
+  const WCHAR *v4; // r8
   int UniqueProcess; // r9d
   __int64 result; // rax
   int v7; // [rsp+20h] [rbp-828h]
   wchar_t pszDest[1024]; // [rsp+30h] [rbp-818h] BYREF
 
-  *a3 = 0LL;
-  a3[1] = 0LL;
-  v4 = *(wchar_t **)(a1 + 136);
+  *(_QWORD *)&a3->Length = 0LL;
+  a3->Buffer = 0LL;
+  v4 = *(const WCHAR **)(a1 + 136);
   UniqueProcess = (int)NtCurrentTeb()->ClientId.UniqueProcess;
   *(_DWORD *)(a1 + 100) = UniqueProcess;
   if ( a2 == 1 )
   {
-    if ( RtlCreateUnicodeString((__int64)a3, v4) )
+    if ( RtlCreateUnicodeString(a3, v4) )
       return 0LL;
     else
       return 8LL;
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a3
       LODWORD(result) = StringCchPrintfW(pszDest, 0x400uLL, L"%s_%d", v4, v7);
     }
     if ( (int)result >= 0 )
-      return RtlCreateUnicodeString((__int64)a3, pszDest) == 0 ? 8 : 0;
+      return RtlCreateUnicodeString(a3, pszDest) == 0 ? 8 : 0;
     else
       return (unsigned __int16)result;
   }

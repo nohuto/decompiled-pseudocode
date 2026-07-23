@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetThreadLangIdByIndex @ 0x1400B14A0
+ * XREFs of RtlGetThreadLangIdByIndex @ 0x1400AF3E0
  * Callers:
  *     <none>
  * Callees:
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlGetThreadLangIdByIndex(int a1, unsigned int a2, _DWORD *a3, unsigned int *a4)

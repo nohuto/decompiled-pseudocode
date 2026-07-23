@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwDeleteWnfStateData @ 0x1401B9BD0
+ * XREFs of ZwDeleteWnfStateData @ 0x1401B9D30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteWnfStateData(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(StateName);
 }

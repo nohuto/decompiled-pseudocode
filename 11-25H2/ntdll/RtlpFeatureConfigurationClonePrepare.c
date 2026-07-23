@@ -8,9 +8,9 @@
  *     RtlRunOnceBeginInitialize @ 0x18008E110 (RtlRunOnceBeginInitialize.c)
  */
 
-struct _TEB *RtlpFeatureConfigurationClonePrepare()
+void RtlpFeatureConfigurationClonePrepare()
 {
-  RtlRunOnceBeginInitialize(&qword_1801D5DD0, 0, 0LL);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)RtlpFcProcessManager);
-  return RtlAcquireSRWLockExclusive((volatile signed __int32 *)&qword_1801D5DE0);
+  RtlRunOnceBeginInitialize(&stru_1801D5DD0, 0, 0LL);
+  RtlAcquireSRWLockExclusive(&RtlpFcProcessManager);
+  RtlAcquireSRWLockExclusive(&SRWLock);
 }

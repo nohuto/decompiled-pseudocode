@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsSubsegmentFree @ 0x18004F2C4
+ * XREFs of RtlpHpVsSubsegmentFree @ 0x180064EA4
  * Callers:
- *     RtlpHpVsContextCleanup @ 0x18004F098 (RtlpHpVsContextCleanup.c)
- *     RtlpHpVsSlotFreeList @ 0x18011B418 (RtlpHpVsSlotFreeList.c)
- *     RtlpHpVsSlotCompactChunks @ 0x18011B6CC (RtlpHpVsSlotCompactChunks.c)
+ *     RtlpHpVsContextCleanup @ 0x180064C78 (RtlpHpVsContextCleanup.c)
+ *     RtlpHpVsSlotFreeList @ 0x180119648 (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1801198FC (RtlpHpVsSlotCompactChunks.c)
  * Callees:
  *     <none>
  */

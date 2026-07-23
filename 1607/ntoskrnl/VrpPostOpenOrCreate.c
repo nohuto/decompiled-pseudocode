@@ -1,20 +1,20 @@
 /*
- * XREFs of VrpPostOpenOrCreate @ 0x140615588
+ * XREFs of VrpPostOpenOrCreate @ 0x14061563C
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RegistryCallback @ 0x140464700 (RegistryCallback.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RegistryCallback @ 0x1404635D0 (RegistryCallback.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmSetCallbackObjectContext @ 0x1405FAFAC (CmSetCallbackObjectContext.c)
- *     VrpFreeCallbackContext @ 0x140612EC4 (VrpFreeCallbackContext.c)
- *     VrpFreeKeyContext @ 0x140612F08 (VrpFreeKeyContext.c)
- *     VrpBuildKeyPath @ 0x140617AE4 (VrpBuildKeyPath.c)
+ *     CmSetCallbackObjectContext @ 0x1405FB060 (CmSetCallbackObjectContext.c)
+ *     VrpFreeCallbackContext @ 0x140612F78 (VrpFreeCallbackContext.c)
+ *     VrpFreeKeyContext @ 0x140612FBC (VrpFreeKeyContext.c)
+ *     VrpBuildKeyPath @ 0x140617B98 (VrpBuildKeyPath.c)
  */
 
 __int64 __fastcall VrpPostOpenOrCreate(__int64 a1)
@@ -80,7 +80,7 @@ LABEL_8:
         v24 = v12;
         v25 = 0;
         v27 = 4LL;
-        TlgWrite(&stru_1402F3520, &unk_14027B501, &ActivityId, 0LL, 5u, &pData);
+        TlgWrite(&stru_1402F3520, &unk_14027B601, &ActivityId, 0LL, 5u, &pData);
       }
       if ( v8 )
       {
@@ -123,7 +123,7 @@ LABEL_14:
         v24 = v16;
         v25 = 0;
         v27 = 4LL;
-        TlgWrite(&stru_1402F3520, &unk_14027B766, &ActivityId, 0LL, 5u, &pData);
+        TlgWrite(&stru_1402F3520, &unk_14027B866, &ActivityId, 0LL, 5u, &pData);
       }
     }
     else

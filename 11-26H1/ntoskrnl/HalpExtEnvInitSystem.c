@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpExtEnvInitSystem @ 0x140BEB030
+ * XREFs of HalpExtEnvInitSystem @ 0x140BF1030
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall HalpExtEnvInitSystem(int a1, __int64 a2, struct _LIST_ENTRY *a3)
+__int64 __fastcall HalpExtEnvInitSystem(int a1, __int64 a2, __int64 a3)
 {
   int v3; // ecx
   int v4; // ecx
@@ -18,7 +18,7 @@ __int64 __fastcall HalpExtEnvInitSystem(int a1, __int64 a2, struct _LIST_ENTRY *
   v3 = a1 - 1;
   if ( !v3 )
   {
-    HalpDeviceBlockUnblockPushLock.WaitBlock[2].WaitListEntry.Flink = a3;
+    *(_QWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[64] = a3;
     return 0LL;
   }
   v4 = v3 - 6;
@@ -51,7 +51,7 @@ LABEL_10:
   v8 = v7 - 2;
   if ( !v8 )
   {
-    HalpDeviceBlockUnblockPushLock.WaitBlock[2].WaitListEntry.Flink = 0LL;
+    *(_QWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[64] = 0LL;
     return 0LL;
   }
   if ( v8 == 1 )

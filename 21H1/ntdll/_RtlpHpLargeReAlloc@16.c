@@ -12,11 +12,11 @@
  *     _RtlpHpReallocMove@16 @ 0x4B37981A (_RtlpHpReallocMove@16.c)
  */
 
-int __fastcall RtlpHpLargeReAlloc(int a1, int a2, void *a3, int *a4)
+int __fastcall RtlpHpLargeReAlloc(int a1, int a2, char *a3, int *a4)
 {
   unsigned int v5; // eax
   char v6; // di
-  void *v7; // edi
+  char *v7; // edi
   unsigned int v8; // ecx
   unsigned int v9; // ebx
   unsigned int v10; // edi
@@ -24,10 +24,10 @@ int __fastcall RtlpHpLargeReAlloc(int a1, int a2, void *a3, int *a4)
   int v12; // esi
   int v13; // ecx
   int v14; // eax
-  int v15; // esi
+  _RTL_SRWLOCK *v15; // esi
   int v16; // eax
   bool v17; // zf
-  int v18; // ecx
+  char *v18; // ecx
   int v19; // ecx
   int v21; // [esp-8h] [ebp-38h]
   int v22; // [esp-4h] [ebp-34h]
@@ -37,8 +37,8 @@ int __fastcall RtlpHpLargeReAlloc(int a1, int a2, void *a3, int *a4)
   int v28; // [esp+20h] [ebp-10h]
   unsigned int v29; // [esp+20h] [ebp-10h]
   unsigned int v30; // [esp+24h] [ebp-Ch]
-  int v31; // [esp+28h] [ebp-8h] BYREF
-  int v32; // [esp+2Ch] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+28h] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+2Ch] [ebp-4h] BYREF
 
   v5 = a4[4];
   v6 = a2;
@@ -52,10 +52,10 @@ int __fastcall RtlpHpLargeReAlloc(int a1, int a2, void *a3, int *a4)
     || (*(_DWORD *)(a1 + 12) & 0x4000000) != 0 )
   {
     if ( (a2 & 0x2000000) == 0 )
-      return (int)RtlpHpReallocMove(a1, a3, a4, a2);
+      return (int)RtlpHpReallocMove((unsigned __int16 *)a1, a3, a4, a2);
     return 0;
   }
-  RtlpHpSegLockAcquire(a1, a2);
+  RtlpHpSegLockAcquire((_RTL_SRWLOCK *)a1, a2);
   v9 = *(_DWORD *)(a1 + 68);
   if ( (*(_BYTE *)(a1 + 72) & 1) != 0 )
   {
@@ -89,11 +89,11 @@ int __fastcall RtlpHpLargeReAlloc(int a1, int a2, void *a3, int *a4)
     v12 = ((v10 >> 12) + ((v10 >> 1) & 1)) << 12;
     v13 = (v11 - 1) & (v11 + v12 - 1);
     v14 = v12 - 1;
-    v15 = a1;
+    v15 = (_RTL_SRWLOCK *)a1;
     v28 = v11 - v13 + v14;
     *(_DWORD *)(v9 + 16) = (v26 << 12) | v10 & 0xFFF;
     *(_WORD *)(v9 + 12) = ((_WORD)v26 << 12) - *((_WORD *)a4 + 6);
-    RtlpHpLargeLockRelease(a1, a2, (int)a4);
+    RtlpHpLargeLockRelease((_RTL_SRWLOCK *)a1, a2, (int)a4);
     v7 = a3;
     if ( a4[2] )
       RtlpHpExtrasMove((int)a3, *a4, (int)a3, a4[3], a2);
@@ -101,22 +101,22 @@ int __fastcall RtlpHpLargeReAlloc(int a1, int a2, void *a3, int *a4)
     {
       v22 = *(_DWORD *)(a1 + 4);
       v21 = *(_DWORD *)a1;
-      v31 = (int)a3 + 4096 * (v26 + ((*(_DWORD *)(v9 + 16) >> 1) & 1));
-      v32 = (int)a3 + v28 - v31;
-      RtlpHpFreeVA(&v31, &v32, 0x8000, v21, v22);
+      BaseAddress = &a3[4096 * (v26 + ((*(_DWORD *)(v9 + 16) >> 1) & 1))];
+      LODWORD(RegionSize) = &a3[v28 - (_DWORD)BaseAddress];
+      RtlpHpFreeVA(&BaseAddress, &RegionSize, 0x8000, v21, v22);
       if ( RtlGetCurrentServiceSessionId() )
         v16 = (int)NtCurrentPeb()->SharedData + 558;
       else
         v16 = 2147353480;
       if ( *(_BYTE *)v16 )
-        RtlpHeapLogRangeRelease(a1, v31, v32);
-      v29 = v28 - v32;
-      v18 = v31 - ((_DWORD)a3 + v30);
-      v17 = v31 == (_DWORD)a3 + v30;
-      v31 = (int)a3 + v30;
-      v32 = v18;
+        RtlpHeapLogRangeRelease(a1, (int)BaseAddress, RegionSize);
+      v29 = v28 - RegionSize;
+      v18 = (char *)((_BYTE *)BaseAddress - &a3[v30]);
+      v17 = BaseAddress == &a3[v30];
+      BaseAddress = &a3[v30];
+      LODWORD(RegionSize) = v18;
       if ( !v17 )
-        RtlpHpFreeVA(&v31, &v32, 0x4000, *(_DWORD *)a1, *(_DWORD *)(a1 + 4));
+        RtlpHpFreeVA(&BaseAddress, &RegionSize, 0x4000, *(_DWORD *)a1, *(_DWORD *)(a1 + 4));
       _BitScanForward((unsigned int *)&v19, v29);
       v24 = v19;
       if ( v19 != ((*(_DWORD *)(v9 + 16) >> 2) & 0x3F) )
@@ -125,13 +125,13 @@ int __fastcall RtlpHpLargeReAlloc(int a1, int a2, void *a3, int *a4)
         *(_DWORD *)(v9 + 16) ^= (*(_DWORD *)(v9 + 16) ^ (4 * v24)) & 0xFC;
         RtlpHpLargeLockRelease(v15, a2, v24);
       }
-      _InterlockedExchangeAdd((volatile signed __int32 *)(v15 + 80), v26 - v25);
-      _InterlockedExchangeAdd((volatile signed __int32 *)(v15 + 76), v26 - v25);
+      _InterlockedExchangeAdd((volatile signed __int32 *)&v15[20], v26 - v25);
+      _InterlockedExchangeAdd((volatile signed __int32 *)&v15[19], v26 - v25);
     }
   }
   else
   {
-    RtlpHpLargeLockRelease(a1, v6, v8);
+    RtlpHpLargeLockRelease((_RTL_SRWLOCK *)a1, v6, v8);
     return -1;
   }
   return (int)v7;

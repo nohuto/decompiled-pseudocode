@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpFreeValue @ 0x1405ADB5C
+ * XREFs of CmpFreeValue @ 0x1405AEB5C
  * Callers:
- *     CmpTransMgrFreeVolatileData @ 0x1405A9000 (CmpTransMgrFreeVolatileData.c)
- *     CmpSetValueKeyNew @ 0x1405ACBBC (CmpSetValueKeyNew.c)
- *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpCleanupLightWeightUoWData @ 0x1406948EC (CmpCleanupLightWeightUoWData.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406950E4 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpLightWeightCommitSetValueKeyUoW @ 0x1406954B8 (CmpLightWeightCommitSetValueKeyUoW.c)
- *     CmpSetValueKeyTombstone @ 0x1407F0580 (CmpSetValueKeyTombstone.c)
- *     CmpFreeKeyValueList @ 0x1407FD66C (CmpFreeKeyValueList.c)
- *     CmpFreeKeyValues @ 0x1407FD704 (CmpFreeKeyValues.c)
- *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140803964 (CmpLightWeightCommitDeleteValueKeyUoW.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1405AA000 (CmpTransMgrFreeVolatileData.c)
+ *     CmpSetValueKeyNew @ 0x1405ADBBC (CmpSetValueKeyNew.c)
+ *     CmpFreeKeyByCell @ 0x1405AE6F8 (CmpFreeKeyByCell.c)
+ *     CmDeleteValueKey @ 0x1405B7634 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     CmpCleanupLightWeightUoWData @ 0x140695AAC (CmpCleanupLightWeightUoWData.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406962A4 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightCommitSetValueKeyUoW @ 0x140696678 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmpSetValueKeyTombstone @ 0x1407F1780 (CmpSetValueKeyTombstone.c)
+ *     CmpFreeKeyValueList @ 0x1407FE86C (CmpFreeKeyValueList.c)
+ *     CmpFreeKeyValues @ 0x1407FE904 (CmpFreeKeyValues.c)
+ *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140804B64 (CmpLightWeightCommitDeleteValueKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     CmpFreeValueData @ 0x1405ADF04 (CmpFreeValueData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     CmpFreeValueData @ 0x1405AEF04 (CmpFreeValueData.c)
  */
 
 char __fastcall CmpFreeValue(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

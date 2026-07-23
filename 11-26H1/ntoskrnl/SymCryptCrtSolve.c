@@ -1,21 +1,21 @@
 /*
- * XREFs of SymCryptCrtSolve @ 0x140562634
+ * XREFs of SymCryptCrtSolve @ 0x140564B44
  * Callers:
- *     SymCryptRsaCoreDecCrt @ 0x14055E3DC (SymCryptRsaCoreDecCrt.c)
+ *     SymCryptRsaCoreDecCrt @ 0x140560900 (SymCryptRsaCoreDecCrt.c)
  * Callees:
- *     KeReadStateSemaphore @ 0x140480600 (KeReadStateSemaphore.c)
- *     SymCryptIntAddMixedSize @ 0x14055C118 (SymCryptIntAddMixedSize.c)
- *     SymCryptIntCopyMixedSize @ 0x14055C1D8 (SymCryptIntCopyMixedSize.c)
- *     SymCryptIntCreate @ 0x14055C1F0 (SymCryptIntCreate.c)
- *     SymCryptIntFromModulus @ 0x14055C28C (SymCryptIntFromModulus.c)
- *     SymCryptIntMulMixedSize @ 0x14055C37C (SymCryptIntMulMixedSize.c)
- *     SymCryptIntToModElement @ 0x14055C488 (SymCryptIntToModElement.c)
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModElementToInt @ 0x14055C734 (SymCryptModElementToInt.c)
- *     SymCryptModMul @ 0x14055C82C (SymCryptModMul.c)
- *     SymCryptModSub @ 0x14055C93C (SymCryptModSub.c)
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofModElementFromModulus @ 0x14055C9C0 (SymCryptSizeofModElementFromModulus.c)
+ *     KeReadStateSemaphore @ 0x140479F40 (KeReadStateSemaphore.c)
+ *     SymCryptIntAddMixedSize @ 0x14055E600 (SymCryptIntAddMixedSize.c)
+ *     SymCryptIntCopyMixedSize @ 0x14055E6C0 (SymCryptIntCopyMixedSize.c)
+ *     SymCryptIntCreate @ 0x14055E6D8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x14055E774 (SymCryptIntFromModulus.c)
+ *     SymCryptIntMulMixedSize @ 0x14055E864 (SymCryptIntMulMixedSize.c)
+ *     SymCryptIntToModElement @ 0x14055E970 (SymCryptIntToModElement.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModElementToInt @ 0x14055EC1C (SymCryptModElementToInt.c)
+ *     SymCryptModMul @ 0x14055ED14 (SymCryptModMul.c)
+ *     SymCryptModSub @ 0x14055EE24 (SymCryptModSub.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14055EEA8 (SymCryptSizeofModElementFromModulus.c)
  */
 
 __int64 __fastcall SymCryptCrtSolve(

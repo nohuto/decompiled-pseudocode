@@ -9,13 +9,18 @@
  *     ExpQueryCrossVmEvent @ 0x1409592D0 (ExpQueryCrossVmEvent.c)
  */
 
-__int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtQueryEvent(
+        HANDLE EventHandle,
+        EVENT_INFORMATION_CLASS EventInformationClass,
+        PVOID EventInformation,
+        ULONG EventInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r12
-  _DWORD *v8; // rdi
+  PULONG v8; // rdi
   __int64 v9; // rcx
   NTSTATUS v10; // eax
-  NTSTATUS v11; // esi
+  int v11; // esi
   struct _DMA_ADAPTER *v12; // r14
   int v14; // [rsp+30h] [rbp-38h] BYREF
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
@@ -25,29 +30,29 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned
 
   v18 = 0;
   v14 = 0;
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 8 )
-    return 3221225476LL;
+  if ( EventInformationClass )
+    return -1073741821;
+  if ( EventInformationLength != 8 )
+    return -1073741820;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, 8uLL, 4u);
-    v8 = (_DWORD *)a5;
-    if ( a5 )
+    ProbeForWrite(EventInformation, 8uLL, 4u);
+    v8 = ReturnLength;
+    if ( ReturnLength )
     {
       v9 = 0x7FFFFFFF0000LL;
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v9 = a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v9 = (__int64)ReturnLength;
       *(_DWORD *)v9 = *(_DWORD *)v9;
     }
   }
   else
   {
-    v8 = (_DWORD *)a5;
+    v8 = ReturnLength;
   }
   Object = 0LL;
-  v10 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+  v10 = ObReferenceObjectByHandle(EventHandle, 1u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
   v11 = v10;
   v12 = (struct _DMA_ADAPTER *)Object;
   v17 = Object;
@@ -59,7 +64,7 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned
       if ( ExCrossVmEventObjectType )
       {
         v16 = 0LL;
-        v11 = ObReferenceObjectByHandle(Handle, 1u, ExCrossVmEventObjectType, PreviousMode, &v16, 0LL);
+        v11 = ObReferenceObjectByHandle(EventHandle, 1u, ExCrossVmEventObjectType, PreviousMode, &v16, 0LL);
         v12 = (struct _DMA_ADAPTER *)v16;
         v17 = v16;
         LODWORD(Object) = v11;
@@ -80,20 +85,20 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned
   {
     if ( PreviousMode )
     {
-      *a3 = v18;
-      a3[1] = v14;
+      *(_DWORD *)EventInformation = v18;
+      *((_DWORD *)EventInformation + 1) = v14;
       if ( v8 )
         *v8 = 8;
     }
     else
     {
-      *a3 = v18;
-      a3[1] = v14;
+      *(_DWORD *)EventInformation = v18;
+      *((_DWORD *)EventInformation + 1) = v14;
       if ( v8 )
         *v8 = 8;
     }
   }
   if ( v12 )
     HalPutDmaAdapter(v12);
-  return (unsigned int)v11;
+  return v11;
 }

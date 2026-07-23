@@ -16,7 +16,7 @@
 
 __int64 __fastcall MiReturnNonPagedPoolPde(ULONG_PTR a1, unsigned __int64 a2)
 {
-  union _SLIST_HEADER *v4; // rbp
+  _SLIST_HEADER *v4; // rbp
   unsigned __int64 v5; // r12
   unsigned __int64 v6; // r13
   unsigned __int64 Region; // rax

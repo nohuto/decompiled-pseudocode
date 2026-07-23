@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryValuesThread @ 0x140069D50
+ * XREFs of KeQueryValuesThread @ 0x1400698D0
  * Callers:
- *     PsQueryStatisticsProcess @ 0x14044EBC0 (PsQueryStatisticsProcess.c)
- *     ExpGetProcessInformation @ 0x1404513E0 (ExpGetProcessInformation.c)
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
+ *     PsQueryStatisticsProcess @ 0x14044DA90 (PsQueryStatisticsProcess.c)
+ *     ExpGetProcessInformation @ 0x1404502B0 (ExpGetProcessInformation.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KeQueryValuesThread(__int64 a1, __int64 a2)

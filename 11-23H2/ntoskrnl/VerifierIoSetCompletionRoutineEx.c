@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoSetCompletionRoutineEx @ 0x140ACB020
+ * XREFs of VerifierIoSetCompletionRoutineEx @ 0x140ACB010
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VerifierIoSetCompletionRoutineEx(

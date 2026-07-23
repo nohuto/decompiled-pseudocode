@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDbgMarkPfnModified @ 0x1402BAB30
+ * XREFs of MiDbgMarkPfnModified @ 0x1402BAD20
  * Callers:
- *     MiDbgWriteCheck @ 0x1402BB384 (MiDbgWriteCheck.c)
+ *     MiDbgWriteCheck @ 0x1402BB574 (MiDbgWriteCheck.c)
  * Callees:
  *     MiAddLockedPageCharge @ 0x14002DFAC (MiAddLockedPageCharge.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, __int64 a2)
@@ -106,8 +106,8 @@ LABEL_34:
   }
   if ( !MiIsPfnFileOnly(v4) )
   {
-    if ( qword_14043A0C0 && ((unsigned __int8)v11 & (unsigned __int8)v5) == 0 )
-      v11 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && ((unsigned __int8)v11 & (unsigned __int8)v5) == 0 )
+      v11 &= ~qword_14043B180;
     v13 = v11 >> 16;
     v14 = *(_QWORD *)v13;
     v15 = *(_DWORD *)(*(_QWORD *)v13 + 56LL);
@@ -127,8 +127,8 @@ LABEL_35:
         v5 = 16;
       }
       if ( (*(_BYTE *)(v13 + 32) & 0x3Eu) < 8 && (unsigned int)MiGetSystemRegionType(a1) == 1 )
-        byte_140438F64 = 1;
-      byte_14043A941 = 1;
+        byte_14043A024 = 1;
+      byte_14043BA01 = 1;
     }
 LABEL_33:
     *(_BYTE *)(v4 + 34) = v5 | v10;

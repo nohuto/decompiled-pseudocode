@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSetVerifierInformation @ 0x140ADD818
+ * XREFs of VfSetVerifierInformation @ 0x140ADD808
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
- *     VfFaultsSetParameters @ 0x140AD6178 (VfFaultsSetParameters.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
+ *     VfFaultsSetParameters @ 0x140AD6168 (VfFaultsSetParameters.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     VfInitSystemNoRebootNeeded @ 0x140AC2D18 (VfInitSystemNoRebootNeeded.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfSettingsCheckForChanges @ 0x140ADADD4 (VfSettingsCheckForChanges.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140AC2D08 (VfInitSystemNoRebootNeeded.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfSettingsCheckForChanges @ 0x140ADADC4 (VfSettingsCheckForChanges.c)
  */
 
 __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
 
   if ( a2 < 4 )
     return 3221225476LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return 3221226335LL;
   v4 = 0;
   v5 = &VfRuleClasses;

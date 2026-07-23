@@ -1,11 +1,11 @@
 /*
- * XREFs of PspEnforceLimitsProcessCallback @ 0x1404695D4
+ * XREFs of PspEnforceLimitsProcessCallback @ 0x1404684A4
  * Callers:
  *     <none>
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x14006ADC0 (ObReferenceObjectSafeWithTag.c)
- *     PsQueryStatisticsProcess @ 0x14044EBC0 (PsQueryStatisticsProcess.c)
- *     PspAddAccountingValues @ 0x140469488 (PspAddAccountingValues.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14006A940 (ObReferenceObjectSafeWithTag.c)
+ *     PsQueryStatisticsProcess @ 0x14044DA90 (PsQueryStatisticsProcess.c)
+ *     PspAddAccountingValues @ 0x140468358 (PspAddAccountingValues.c)
  */
 
 __int64 __fastcall PspEnforceLimitsProcessCallback(__int64 a1, _QWORD *a2)

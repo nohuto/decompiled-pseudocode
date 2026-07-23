@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpGetDosDevicesProtection @ 0x1407A1094
+ * XREFs of ObpGetDosDevicesProtection @ 0x1407A1294
  * Callers:
- *     ObpCreateDosDevicesDirectory @ 0x1407A0DF8 (ObpCreateDosDevicesDirectory.c)
+ *     ObpCreateDosDevicesDirectory @ 0x1407A0FF8 (ObpCreateDosDevicesDirectory.c)
  * Callees:
- *     RtlGetAce @ 0x14027EA10 (RtlGetAce.c)
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlGetAce @ 0x14026C9B0 (RtlGetAce.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpGetDosDevicesProtection(PSECURITY_DESCRIPTOR SecurityDescriptor)
@@ -42,19 +42,19 @@ __int64 __fastcall ObpGetDosDevicesProtection(PSECURITY_DESCRIPTOR SecurityDescr
     {
       RtlCreateAcl(PoolWithTag, v5, 2u);
       Src = (unsigned __int8 *)SeWorldSid;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, -1610612736, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, -1610612736, (unsigned __int8 *)SeWorldSid, 0);
       v9 = (unsigned __int8 *)SeLocalSystemSid;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x20000000, Src, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x20000000, Src, 0);
       RtlGetAce(v7, 2u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
       RtlGetAce(v7, 3u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, v9, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, v9, 0);
       RtlGetAce(v7, 4u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeCreatorOwnerSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeCreatorOwnerSid, 0);
       RtlGetAce(v7, 5u, &Ace);
 LABEL_4:
       *((_BYTE *)Ace + 1) |= 0xBu;
@@ -72,9 +72,9 @@ LABEL_4:
     {
       RtlCreateAcl(v13, v12, 2u);
       v14 = (unsigned __int8 *)SeWorldSid;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, -536870912, (unsigned __int8 *)SeWorldSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, v14, 0);
+      RtlpAddKnownAce(v7, 2u, 0, -536870912, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, v14, 0);
       RtlGetAce(v7, 2u, &Ace);
       goto LABEL_4;
     }

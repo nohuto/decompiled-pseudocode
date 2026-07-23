@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102DF8
+ * XREFs of ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102D38
  * Callers:
- *     ResCGetIndexedName @ 0x1800957A0 (ResCGetIndexedName.c)
- *     ResCRequestInitMutex @ 0x180103374 (ResCRequestInitMutex.c)
- *     ResCGetHighestCacheIndex @ 0x180104E9C (ResCGetHighestCacheIndex.c)
- *     ResCGetName @ 0x180105118 (ResCGetName.c)
- *     ResCGetSubIndexedName @ 0x1801054FC (ResCGetSubIndexedName.c)
+ *     ResCGetIndexedName @ 0x180095790 (ResCGetIndexedName.c)
+ *     ResCRequestInitMutex @ 0x1801032B4 (ResCRequestInitMutex.c)
+ *     ResCGetHighestCacheIndex @ 0x180104DDC (ResCGetHighestCacheIndex.c)
+ *     ResCGetName @ 0x180105058 (ResCGetName.c)
+ *     ResCGetSubIndexedName @ 0x18010543C (ResCGetSubIndexedName.c)
  * Callees:
  *     _vsnwprintf_s @ 0x1800A1440 (_vsnwprintf_s.c)
  */

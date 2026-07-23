@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRemovePageDumpRange @ 0x1405535AC
+ * XREFs of IopRemovePageDumpRange @ 0x140553C6C
  * Callers:
- *     IopDumpCallRemovePagesCallbacks @ 0x1405526F0 (IopDumpCallRemovePagesCallbacks.c)
- *     IopRemoveLargeAllocsFromPartialDump @ 0x14055D890 (IopRemoveLargeAllocsFromPartialDump.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140552DB0 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopRemoveLargeAllocsFromPartialDump @ 0x14055DF50 (IopRemoveLargeAllocsFromPartialDump.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     IoFreeDumpRange @ 0x140550480 (IoFreeDumpRange.c)
- *     IopAddAddressRangeToRemovePagesArray @ 0x14055C6A4 (IopAddAddressRangeToRemovePagesArray.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
+ *     IoFreeDumpRange @ 0x140550B40 (IoFreeDumpRange.c)
+ *     IopAddAddressRangeToRemovePagesArray @ 0x14055CD64 (IopAddAddressRangeToRemovePagesArray.c)
  */
 
 __int64 __fastcall IopRemovePageDumpRange(__int64 a1, char *a2)

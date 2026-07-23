@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpPromoteSingleKeyFromKeyNodeStacks @ 0x1401B376C
+ * XREFs of CmpPromoteSingleKeyFromKeyNodeStacks @ 0x1401B3650
  * Callers:
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1401B3C44 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1401B3B28 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x1401B5C7C (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     HvMarkCellDirty @ 0x1403FD480 (HvMarkCellDirty.c)
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     CmpFreeValue @ 0x140401680 (CmpFreeValue.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     CmpAddSubKey @ 0x1404B0A18 (CmpAddSubKey.c)
- *     CmpCopyKeyPartial @ 0x1404EBDEC (CmpCopyKeyPartial.c)
- *     CmpCopyCell @ 0x1404EC0FC (CmpCopyCell.c)
- *     CmpValueEnumStackGetCurrentValueCell @ 0x140581818 (CmpValueEnumStackGetCurrentValueCell.c)
- *     CmpCopyValue @ 0x140608960 (CmpCopyValue.c)
- *     CmpAddValueToList @ 0x14060B334 (CmpAddValueToList.c)
- *     CmpValueEnumStackAdvance @ 0x14060B480 (CmpValueEnumStackAdvance.c)
- *     CmpValueEnumStackCleanup @ 0x14060B58C (CmpValueEnumStackCleanup.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14060B5E4 (CmpValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpValueEnumStackInitialize @ 0x14060B60C (CmpValueEnumStackInitialize.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BCE4 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x1401B5B60 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     HvMarkCellDirty @ 0x1403FC340 (HvMarkCellDirty.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     CmpFreeValue @ 0x140400540 (CmpFreeValue.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     CmpAddSubKey @ 0x14049ADF8 (CmpAddSubKey.c)
+ *     CmpCopyKeyPartial @ 0x1404CDE74 (CmpCopyKeyPartial.c)
+ *     CmpCopyCell @ 0x1404CE184 (CmpCopyCell.c)
+ *     CmpValueEnumStackGetCurrentValueCell @ 0x140581CC8 (CmpValueEnumStackGetCurrentValueCell.c)
+ *     CmpCopyValue @ 0x140608A14 (CmpCopyValue.c)
+ *     CmpAddValueToList @ 0x14060B3E8 (CmpAddValueToList.c)
+ *     CmpValueEnumStackAdvance @ 0x14060B534 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackCleanup @ 0x14060B640 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14060B698 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpValueEnumStackInitialize @ 0x14060B6C0 (CmpValueEnumStackInitialize.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BD98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpPromoteSingleKeyFromKeyNodeStacks(

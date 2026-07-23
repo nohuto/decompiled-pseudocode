@@ -34,8 +34,8 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
   char v12; // al
   unsigned int v13; // edx
   int AcceleratorDescriptor; // eax
-  struct _SLIST_ENTRY *v15; // r14
-  struct _SLIST_ENTRY *v16; // rdx
+  _SLIST_ENTRY *v15; // r14
+  _SLIST_ENTRY *v16; // rdx
   __int64 v17; // rax
   unsigned int v18; // esi
   int v19; // r14d
@@ -100,7 +100,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
       RtlRaiseStatus(-2147483646);
     *(_OWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x170) = 0LL;
     AcceleratorDescriptor = MiAllocateAcceleratorDescriptor(0LL, v9, 0, (_QWORD *)v1 + 1);
-    v15 = *(struct _SLIST_ENTRY **)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 8);
+    v15 = *(_SLIST_ENTRY **)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 8);
     v3 = AcceleratorDescriptor;
     if ( v15 )
     {

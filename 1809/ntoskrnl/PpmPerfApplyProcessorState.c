@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmPerfApplyProcessorState @ 0x14017537C
+ * XREFs of PpmPerfApplyProcessorState @ 0x14017547C
  * Callers:
- *     PpmPerfAction @ 0x14010B9A0 (PpmPerfAction.c)
- *     PpmPerfApplyProcessorStates @ 0x140175190 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfAction @ 0x14010BA20 (PpmPerfAction.c)
+ *     PpmPerfApplyProcessorStates @ 0x140175290 (PpmPerfApplyProcessorStates.c)
  * Callees:
  *     PpmUpdatePerformanceFeedback @ 0x14005FA00 (PpmUpdatePerformanceFeedback.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     PpmContinueActiveTimeAccumulation @ 0x1400A604C (PpmContinueActiveTimeAccumulation.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x1401754E0 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmEventTraceExpectedUtility @ 0x1401757B0 (PpmEventTraceExpectedUtility.c)
- *     PpmScaleIdleStateValues @ 0x140175828 (PpmScaleIdleStateValues.c)
- *     PpmEventProcessorPerfStateChange @ 0x14017584C (PpmEventProcessorPerfStateChange.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PpmGetIdleGenerationCounter @ 0x1402D3FD8 (PpmGetIdleGenerationCounter.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x1400A5F8C (PpmContinueActiveTimeAccumulation.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1401755E0 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmEventTraceExpectedUtility @ 0x1401758B0 (PpmEventTraceExpectedUtility.c)
+ *     PpmScaleIdleStateValues @ 0x140175928 (PpmScaleIdleStateValues.c)
+ *     PpmEventProcessorPerfStateChange @ 0x14017594C (PpmEventProcessorPerfStateChange.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PpmGetIdleGenerationCounter @ 0x1402D41C8 (PpmGetIdleGenerationCounter.c)
  */
 
 char __fastcall PpmPerfApplyProcessorState(struct _KPRCB *a1, char a2)

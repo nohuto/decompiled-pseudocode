@@ -122,7 +122,7 @@ LABEL_28:
       v20 = v18 | v19;
 LABEL_29:
       *Terminator = S;
-      Addr->S_un.S_addr = _byteswap_ulong(v20);
+      *(_DWORD *)Addr = _byteswap_ulong(v20);
       return 0;
     }
     goto LABEL_54;

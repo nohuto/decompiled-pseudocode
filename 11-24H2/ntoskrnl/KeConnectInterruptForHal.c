@@ -1,10 +1,10 @@
 /*
- * XREFs of KeConnectInterruptForHal @ 0x1405BC4E0
+ * XREFs of KeConnectInterruptForHal @ 0x1405B9B10
  * Callers:
- *     HalpCreateInterrupt @ 0x14055A380 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x140557FB0 (HalpCreateInterrupt.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeConnectInterruptForHal(__int64 a1)

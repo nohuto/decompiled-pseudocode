@@ -1,11 +1,11 @@
 /*
- * XREFs of PspQueryForwardersEnabled @ 0x140854708
+ * XREFs of PspQueryForwardersEnabled @ 0x140854A08
  * Callers:
- *     PsBootPhaseComplete @ 0x1408543BC (PsBootPhaseComplete.c)
- *     PspSiloLoadApiSets @ 0x1409AD9F0 (PspSiloLoadApiSets.c)
+ *     PsBootPhaseComplete @ 0x1408546BC (PsBootPhaseComplete.c)
+ *     PspSiloLoadApiSets @ 0x1409ADBF0 (PspSiloLoadApiSets.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
  */
 
 char PspQueryForwardersEnabled()

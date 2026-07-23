@@ -5,8 +5,8 @@
  * Callees:
  *     MiEmptyPteBins @ 0x14021E150 (MiEmptyPteBins.c)
  *     MiPteBinsNeedTrimming @ 0x14021E3B8 (MiPteBinsNeedTrimming.c)
- *     MiAttemptCoalesce @ 0x1403461E0 (MiAttemptCoalesce.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiAttemptCoalesce @ 0x140346470 (MiAttemptCoalesce.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char MiAdjustPteBins()

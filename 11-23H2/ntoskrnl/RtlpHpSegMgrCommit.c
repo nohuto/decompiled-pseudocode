@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpSegMgrCommit @ 0x14024F080
+ * XREFs of RtlpHpSegMgrCommit @ 0x14024F150
  * Callers:
- *     RtlpHpSegPageRangeCommit @ 0x14024E2F0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegMgrAllocate @ 0x140314AFC (RtlpHpSegMgrAllocate.c)
- *     RtlpHpSegMgrRelease @ 0x1403152C8 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegPageRangeCommit @ 0x14024E3C0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegMgrAllocate @ 0x140314D8C (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegMgrRelease @ 0x140315558 (RtlpHpSegMgrRelease.c)
  * Callees:
  *     RtlpHpFreeVA @ 0x140212158 (RtlpHpFreeVA.c)
- *     RtlpHpVaMgrCtxQuery @ 0x14024FA80 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpSegMgrCommitInitiate @ 0x14024FD04 (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpHpAllocVA @ 0x140286AC0 (RtlpHpAllocVA.c)
- *     RtlpHpSegMgrCommitComplete @ 0x1403520F8 (RtlpHpSegMgrCommitComplete.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x14024FB50 (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x14024FDD4 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpAllocVA @ 0x140286D50 (RtlpHpAllocVA.c)
+ *     RtlpHpSegMgrCommitComplete @ 0x140352298 (RtlpHpSegMgrCommitComplete.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, int a5, int a6, int a7)

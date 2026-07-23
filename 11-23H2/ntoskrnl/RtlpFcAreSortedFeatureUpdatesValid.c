@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcAreSortedFeatureUpdatesValid @ 0x1409C7B8C
+ * XREFs of RtlpFcAreSortedFeatureUpdatesValid @ 0x1409C7D8C
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C815C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x1409C835C (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
  *     <none>
  */

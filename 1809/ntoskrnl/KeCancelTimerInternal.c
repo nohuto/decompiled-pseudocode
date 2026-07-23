@@ -1,8 +1,8 @@
 /*
- * XREFs of KeCancelTimerInternal @ 0x140132144
+ * XREFs of KeCancelTimerInternal @ 0x140132214
  * Callers:
- *     ExpTimerPause @ 0x14013207C (ExpTimerPause.c)
- *     ExpTimerAdjust @ 0x14031C990 (ExpTimerAdjust.c)
+ *     ExpTimerPause @ 0x14013214C (ExpTimerPause.c)
+ *     ExpTimerAdjust @ 0x14031CB80 (ExpTimerAdjust.c)
  * Callees:
  *     KiCancelTimer @ 0x14001E100 (KiCancelTimer.c)
  */

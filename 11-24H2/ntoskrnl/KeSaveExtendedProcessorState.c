@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSaveExtendedProcessorState @ 0x1403E5EF0
+ * XREFs of KeSaveExtendedProcessorState @ 0x1403D3A90
  * Callers:
- *     SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater @ 0x14051AD40 (SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater.c)
- *     DifKeSaveExtendedProcessorStateWrapper @ 0x1406307A0 (DifKeSaveExtendedProcessorStateWrapper.c)
+ *     SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater @ 0x140518610 (SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater.c)
+ *     DifKeSaveExtendedProcessorStateWrapper @ 0x14062ED60 (DifKeSaveExtendedProcessorStateWrapper.c)
  * Callees:
- *     KiSaveExtendedAndSupervisorState @ 0x1403E5F5C (KiSaveExtendedAndSupervisorState.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiSaveExtendedAndSupervisorState @ 0x1403D3AFC (KiSaveExtendedAndSupervisorState.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall KeSaveExtendedProcessorState(ULONG64 Mask, PXSTATE_SAVE XStateSave)

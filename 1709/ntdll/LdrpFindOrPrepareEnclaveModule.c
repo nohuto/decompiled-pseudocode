@@ -11,7 +11,7 @@
 
 __int64 __fastcall LdrpFindOrPrepareEnclaveModule(
         _QWORD *a1,
-        unsigned __int16 *a2,
+        _UNICODE_STRING *a2,
         __int64 a3,
         int a4,
         __int64 a5,
@@ -19,9 +19,9 @@ __int64 __fastcall LdrpFindOrPrepareEnclaveModule(
         __int64 a7)
 {
   unsigned int v7; // edi
-  unsigned __int16 *v9; // rsi
-  char v11; // al
-  unsigned __int16 *v12; // rcx
+  _UNICODE_STRING *v9; // rsi
+  BOOLEAN v11; // al
+  _UNICODE_STRING *v12; // rcx
   __int64 **i; // rbx
 
   v7 = 0;
@@ -29,15 +29,15 @@ __int64 __fastcall LdrpFindOrPrepareEnclaveModule(
   *a6 = 0LL;
   if ( (a4 & 0x20) != 0 )
   {
-    if ( RtlEqualUnicodeString(word_180114150, a2, 1) )
+    if ( RtlEqualUnicodeString((PUNICODE_STRING)&String1, a2, 1u) )
     {
       if ( a5 == a1[14] || a5 == a1[15] )
-        v9 = (unsigned __int16 *)&unk_180114190;
+        v9 = (_UNICODE_STRING *)&unk_180114190;
     }
     else
     {
-      v11 = RtlPrefixUnicodeString(L"\b\n", v9, 1);
-      v12 = (unsigned __int16 *)&unk_180114190;
+      v11 = RtlPrefixUnicodeString((PUNICODE_STRING)&stru_180114160, v9, 1u);
+      v12 = (_UNICODE_STRING *)&unk_180114190;
       if ( !v11 )
         v12 = v9;
       v9 = v12;
@@ -47,7 +47,7 @@ __int64 __fastcall LdrpFindOrPrepareEnclaveModule(
   {
     if ( i == a1 + 11 )
       return (unsigned int)LdrpCreatePendingEnclaveModule(a1, (const void **)v9, a4, 8, a3, a5, a6, a7);
-    if ( RtlEqualUnicodeString(v9, (unsigned __int16 *)i[22], 1) )
+    if ( RtlEqualUnicodeString(v9, (PUNICODE_STRING)i[22], 1u) )
       break;
   }
   *a6 = i;

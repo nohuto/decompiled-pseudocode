@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpTimeFieldsToTime @ 0x1404266C8
+ * XREFs of RtlpTimeFieldsToTime @ 0x14041A578
  * Callers:
- *     HalSetRealTimeClock @ 0x140425310 (HalSetRealTimeClock.c)
- *     HalQueryRealTimeClock @ 0x140425810 (HalQueryRealTimeClock.c)
- *     RtlTimeFieldsToTime @ 0x1404266B0 (RtlTimeFieldsToTime.c)
- *     HalEfiGetTime @ 0x14054C53C (HalEfiGetTime.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x14055A494 (HalpCheckWakeupTimeAndAdjust.c)
- *     GetBootSystemTime @ 0x140C0AA8C (GetBootSystemTime.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
- *     SeMakeAnonymousLogonToken @ 0x140C39E0C (SeMakeAnonymousLogonToken.c)
- *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140C3A090 (SeMakeAnonymousLogonTokenNoEveryone.c)
- *     SeMakeSystemToken @ 0x140C3A2F0 (SeMakeSystemToken.c)
+ *     HalSetRealTimeClock @ 0x1404191C0 (HalSetRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x1404196C0 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x14041A560 (RtlTimeFieldsToTime.c)
+ *     HalEfiGetTime @ 0x140549DFC (HalEfiGetTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x1405580C4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     GetBootSystemTime @ 0x140C0CA8C (GetBootSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
+ *     SeMakeAnonymousLogonToken @ 0x140C3BF64 (SeMakeAnonymousLogonToken.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140C3C1E8 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeSystemToken @ 0x140C3C448 (SeMakeSystemToken.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140426768 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14041A618 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
  */
 
 char __fastcall RtlpTimeFieldsToTime(__int64 a1, __int64 *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceStateTransitionFailurePoint @ 0x1407D5360
+ * XREFs of PopDiagTraceStateTransitionFailurePoint @ 0x1407D8518
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceStateTransitionFailurePoint(int a1, int a2)
@@ -43,11 +43,9 @@ char __fastcall PopDiagTraceStateTransitionFailurePoint(int a1, int a2)
   v9 = 0;
   CurrentThread = KeGetCurrentThread();
   v12 = CurrentThread;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(CurrentThread) = EtwEventEnabled(
-                              *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                              &POP_ETW_EVENT_STATE_TRANSITION_FAILURE);
+    LOBYTE(CurrentThread) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_STATE_TRANSITION_FAILURE);
     if ( (_BYTE)CurrentThread )
     {
       UserData.Ptr = (ULONGLONG)&v12;
@@ -57,17 +55,12 @@ char __fastcall PopDiagTraceStateTransitionFailurePoint(int a1, int a2)
       v18 = &v9;
       v17 = 4LL;
       v19 = 4LL;
-      LOBYTE(CurrentThread) = EtwWrite(
-                                *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                                &POP_ETW_EVENT_STATE_TRANSITION_FAILURE,
-                                0LL,
-                                3u,
-                                &UserData);
+      LOBYTE(CurrentThread) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_STATE_TRANSITION_FAILURE, 0LL, 3u, &UserData);
     }
   }
-  if ( dword_140E07598 )
+  if ( dword_140E07560 )
   {
-    LOBYTE(CurrentThread) = tlgKeywordOn((__int64)&dword_140E07598, 0x800000000000LL);
+    LOBYTE(CurrentThread) = tlgKeywordOn((__int64)&dword_140E07560, 0x800000000000LL);
     if ( (_BYTE)CurrentThread )
     {
       if ( v5 > 5 )
@@ -89,7 +82,7 @@ char __fastcall PopDiagTraceStateTransitionFailurePoint(int a1, int a2)
           v28 = 8LL;
           LOBYTE(CurrentThread) = tlgWriteTransfer_EtwWriteTransfer(
                                     v7,
-                                    (unsigned __int8 *)word_140049CCA,
+                                    (unsigned __int8 *)word_14004A2CA,
                                     0LL,
                                     0LL,
                                     6u,

@@ -1,21 +1,24 @@
 /*
- * XREFs of PopInitVideoWnfState @ 0x140CCFBE8
+ * XREFs of PopInitVideoWnfState @ 0x140CD5D90
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
-__int64 PopInitVideoWnfState()
+NTSTATUS PopInitVideoWnfState()
 {
-  int v1; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
+  ZwUpdateWnfStateData(&WNF_PO_VIDEO_INITIALIALIZED, &PopVideoInitialized, 1u, 0LL, 0LL, 0, 0);
   ZwUpdateWnfStateData(
-    (__int64)&WNF_PO_VIDEO_INITIALIALIZED,
-    (__int64)&stru_140F12420.GlobalUpdateVpThreadPriorityListEntry.Blink);
-  ZwUpdateWnfStateData(
-    (__int64)&WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
-    (__int64)&stru_140F12420.InGlobalUpdateVpThreadPriorityList + 1);
-  v1 = 100;
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_BRIGHTNESS_ALS_OFFSET, (__int64)&v1);
+    &WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
+    &PopVideoHighPrecisionBrightnessEnabled,
+    1u,
+    0LL,
+    0LL,
+    0,
+    0);
+  Buffer = 100;
+  return ZwUpdateWnfStateData(&WNF_PO_BRIGHTNESS_ALS_OFFSET, &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

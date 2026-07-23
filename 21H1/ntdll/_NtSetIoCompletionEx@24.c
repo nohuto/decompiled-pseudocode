@@ -6,7 +6,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtSetIoCompletionEx(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl NtSetIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        HANDLE IoCompletionPacketHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
   return Wow64SystemServiceCall();
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of CcUnmapInactiveViews @ 0x140538278
+ * XREFs of CcUnmapInactiveViews @ 0x1405387C8
  * Callers:
- *     CcGetVacbMiss @ 0x14029F110 (CcGetVacbMiss.c)
- *     MiObtainSystemCacheView @ 0x14029FE90 (MiObtainSystemCacheView.c)
- *     MiDereferenceSegmentThread @ 0x1403A7C90 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x140625B24 (MiRemoveUnusedSegments.c)
+ *     CcGetVacbMiss @ 0x14029F3A0 (CcGetVacbMiss.c)
+ *     MiObtainSystemCacheView @ 0x1402A0120 (MiObtainSystemCacheView.c)
+ *     MiDereferenceSegmentThread @ 0x1403A7E70 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x140626074 (MiRemoveUnusedSegments.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     PsGetNextPartitionUnsafe @ 0x140310EF0 (PsGetNextPartitionUnsafe.c)
- *     CcUnmapInactiveViewsInternal @ 0x1405383E0 (CcUnmapInactiveViewsInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     PsGetNextPartitionUnsafe @ 0x140311180 (PsGetNextPartitionUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140538930 (CcUnmapInactiveViewsInternal.c)
  */
 
 __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
@@ -56,10 +56,13 @@ __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
       v3 = 0LL;
     }
     KxReleaseSpinLock((volatile signed __int64 *)&CcGlobalPartitionLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v4 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,7 +70,7 @@ __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
         v9 = (v8 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v8;
         if ( v9 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v4);

@@ -1,8 +1,8 @@
 /*
  * XREFs of ZwCreateTimer @ 0x14041D060
  * Callers:
- *     DifZwCreateTimerWrapper @ 0x14061F0D0 (DifZwCreateTimerWrapper.c)
- *     DbgkpWerInitializeDeferredLiveDump @ 0x14092BEF8 (DbgkpWerInitializeDeferredLiveDump.c)
+ *     sub_14061F0D0 @ 0x14061F0D0 (sub_14061F0D0.c)
+ *     sub_14092BEF8 @ 0x14092BEF8 (sub_14092BEF8.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwCreateTimer(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(TimerHandle, *(_QWORD *)&DesiredAccess);
 }

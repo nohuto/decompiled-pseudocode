@@ -262,9 +262,9 @@ __int64 __fastcall VslpEnterIumSecureMode(unsigned __int8 a1, __int16 a2, int a3
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 15 )
@@ -428,10 +428,10 @@ LABEL_74:
     *(_BYTE *)a4 = 0;
     *(_WORD *)(a4 + 2) = 0;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v25 - 2) <= 0xDu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v25 - 2) <= 0xDu )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v27 = CurrentPrcb->SchedulerAssist;
@@ -453,10 +453,10 @@ LABEL_28:
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( CurrentIrql != 15 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v29 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
         v31 = v30->SchedulerAssist;

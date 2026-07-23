@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtEnableInterrupt @ 0x140BEFC20
+ * XREFs of IvtEnableInterrupt @ 0x140BF5C20
  * Callers:
  *     <none>
  * Callees:
- *     IvtClearPendingFaults @ 0x1405A5DAC (IvtClearPendingFaults.c)
+ *     IvtClearPendingFaults @ 0x1405A85BC (IvtClearPendingFaults.c)
  */
 
 int __fastcall IvtEnableInterrupt(__int64 a1)

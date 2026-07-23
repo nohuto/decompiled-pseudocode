@@ -1,21 +1,22 @@
 /*
- * XREFs of ObpCaptureObjectCreateInformation @ 0x14089CCA0
+ * XREFs of ObpCaptureObjectCreateInformation @ 0x1408A5340
  * Callers:
- *     EtwpRegisterUMProvider @ 0x14083C6F0 (EtwpRegisterUMProvider.c)
- *     NtCreateSemaphore @ 0x14083DDC0 (NtCreateSemaphore.c)
- *     CmpCreateKeyBody @ 0x14083E100 (CmpCreateKeyBody.c)
- *     NtCreateMutant @ 0x14083E8C0 (NtCreateMutant.c)
- *     NtCreateEvent @ 0x140856FC0 (NtCreateEvent.c)
- *     ObReferenceObjectByNameEx @ 0x1408679A4 (ObReferenceObjectByNameEx.c)
- *     IopAllocRealFileObject @ 0x14089A9B0 (IopAllocRealFileObject.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCreateObject @ 0x14098A240 (ObCreateObject.c)
+ *     EtwpRegisterUMProvider @ 0x140838D50 (EtwpRegisterUMProvider.c)
+ *     NtCreateSemaphore @ 0x14083A3C0 (NtCreateSemaphore.c)
+ *     CmpCreateKeyBody @ 0x14083A700 (CmpCreateKeyBody.c)
+ *     NtCreateMutant @ 0x14083AEC0 (NtCreateMutant.c)
+ *     NtCreateWaitCompletionPacket @ 0x14083B1F0 (NtCreateWaitCompletionPacket.c)
+ *     NtCreateEvent @ 0x1408532A0 (NtCreateEvent.c)
+ *     ObReferenceObjectByNameEx @ 0x14086BC94 (ObReferenceObjectByNameEx.c)
+ *     IopAllocRealFileObject @ 0x1408A3050 (IopAllocRealFileObject.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCreateObject @ 0x140973930 (ObCreateObject.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ObpCaptureObjectName @ 0x14089CFB0 (ObpCaptureObjectName.c)
- *     SeCaptureSecurityDescriptor @ 0x14091CE60 (SeCaptureSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ObpCaptureObjectName @ 0x1408A5650 (ObpCaptureObjectName.c)
+ *     SeCaptureSecurityDescriptor @ 0x1409108D0 (SeCaptureSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCaptureObjectCreateInformation(

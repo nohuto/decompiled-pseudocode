@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlLengthRequiredSid @ 0x18007D160
+ * XREFs of RtlLengthRequiredSid @ 0x18007D170
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlLengthRequiredSid(unsigned int a1)
+ULONG __cdecl RtlLengthRequiredSid(ULONG SubAuthorityCount)
 {
-  if ( a1 > 0x3FFFFFF7 )
-    return 0xFFFFFFFFLL;
+  if ( SubAuthorityCount > 0x3FFFFFF7 )
+    return -1;
   else
-    return 4 * a1 + 8;
+    return 4 * SubAuthorityCount + 8;
 }

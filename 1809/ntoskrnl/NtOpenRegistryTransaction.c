@@ -1,22 +1,25 @@
 /*
- * XREFs of NtOpenRegistryTransaction @ 0x1407E9450
+ * XREFs of NtOpenRegistryTransaction @ 0x1407EA650
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     ObOpenObjectByName @ 0x1405BA290 (ObOpenObjectByName.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
  */
 
-__int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes)
 {
   struct _KTHREAD *CurrentThread; // r9
   BOOLEAN v7; // di
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   char PreviousMode; // r14
   __int64 v10; // rax
   HANDLE Handle; // [rsp+40h] [rbp-38h] BYREF
@@ -33,18 +36,25 @@ __int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, __int64 a3)
     if ( PreviousMode == 1 )
     {
       v10 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a1;
+      if ( (unsigned __int64)RegistryTransactionHandle < 0x7FFFFFFF0000LL )
+        v10 = (__int64)RegistryTransactionHandle;
       *(_QWORD *)v10 = 0LL;
     }
     else
     {
-      *a1 = 0LL;
+      *RegistryTransactionHandle = 0LL;
     }
-    v8 = ObOpenObjectByName(a3, (__int64)CmRegistryTransactionType, PreviousMode, 0LL, a2, 0LL, (__int64)&Handle);
+    v8 = ObOpenObjectByName(
+           (__int64)ObjAttributes,
+           (__int64)CmRegistryTransactionType,
+           PreviousMode,
+           0LL,
+           DesiredAccess,
+           0LL,
+           (__int64)&Handle);
     if ( v8 >= 0 )
     {
-      *a1 = Handle;
+      *RegistryTransactionHandle = Handle;
       Handle = 0LL;
       v8 = 0;
     }
@@ -62,5 +72,5 @@ __int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, __int64 a3)
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
   CmCleanupThreadInfo(v13);
-  return (unsigned int)v8;
+  return v8;
 }

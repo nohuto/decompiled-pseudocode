@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlULongSub @ 0x1404D5F4C
+ * XREFs of RtlULongSub @ 0x1404CF71C
  * Callers:
- *     DbgkpTriageDumpSnapData @ 0x1405B4800 (DbgkpTriageDumpSnapData.c)
- *     KiDeduplicateTriageDumpDataArrays @ 0x1405E7E88 (KiDeduplicateTriageDumpDataArrays.c)
- *     BcpDisplayCriticalStringCentered @ 0x140716B84 (BcpDisplayCriticalStringCentered.c)
- *     _RegRtlQueryKeyPathName @ 0x14089D928 (_RegRtlQueryKeyPathName.c)
- *     PiForEachDriverQueryRoutine @ 0x140913514 (PiForEachDriverQueryRoutine.c)
- *     BiGetFilePathFromEfiPath @ 0x1409D0F18 (BiGetFilePathFromEfiPath.c)
+ *     DbgkpTriageDumpSnapData @ 0x1405B7010 (DbgkpTriageDumpSnapData.c)
+ *     KiDeduplicateTriageDumpDataArrays @ 0x1405EA7F8 (KiDeduplicateTriageDumpDataArrays.c)
+ *     BcpDisplayCriticalStringCentered @ 0x14071B874 (BcpDisplayCriticalStringCentered.c)
+ *     _RegRtlQueryKeyPathName @ 0x1408A3D28 (_RegRtlQueryKeyPathName.c)
+ *     BiGetFilePathFromEfiPath @ 0x1409A1EF8 (BiGetFilePathFromEfiPath.c)
+ *     PiForEachDriverQueryRoutine @ 0x1409B55F4 (PiForEachDriverQueryRoutine.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRcuSynchronize @ 0x1407BA200
+ * XREFs of KeRcuSynchronize @ 0x1407BD260
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     KeInitializeGate @ 0x1404D6C58 (KeInitializeGate.c)
- *     KiRcuStartGracePeriod @ 0x1405242A4 (KiRcuStartGracePeriod.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x1404D0428 (KeInitializeGate.c)
+ *     KiRcuStartGracePeriod @ 0x140526914 (KiRcuStartGracePeriod.c)
  */
 
 __int64 KeRcuSynchronize()
 {
   __int128 v1; // [rsp+20h] [rbp-58h] BYREF
   __int64 v2; // [rsp+30h] [rbp-48h]
-  __int64 v3; // [rsp+38h] [rbp-40h] BYREF
+  PVOID *v3; // [rsp+38h] [rbp-40h] BYREF
   __int128 v4; // [rsp+40h] [rbp-38h]
   __int64 v5; // [rsp+50h] [rbp-28h]
   __int128 *v6; // [rsp+58h] [rbp-20h]

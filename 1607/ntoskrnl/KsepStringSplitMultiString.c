@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepStringSplitMultiString @ 0x140653BE4
+ * XREFs of KsepStringSplitMultiString @ 0x140653CC8
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x140485B50 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140514ED8 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x140084D74 (KsepPoolAllocatePaged.c)
- *     RtlAssert @ 0x140213458 (RtlAssert.c)
- *     KsepStringDuplicate @ 0x140485730 (KsepStringDuplicate.c)
- *     KsepStringFree @ 0x140485BF8 (KsepStringFree.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14010B37C (KsepPoolAllocatePaged.c)
+ *     RtlAssert @ 0x140213284 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x140514AB8 (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x140514F80 (KsepStringFree.c)
  */
 
 __int64 __fastcall KsepStringSplitMultiString(__int64 a1, unsigned __int64 a2, _QWORD *a3, _DWORD *a4)

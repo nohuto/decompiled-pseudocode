@@ -6,13 +6,9 @@
  *     <none>
  */
 
-_DWORD *__stdcall RtlGetUnloadEventTraceEx(_DWORD *a1, _DWORD *a2, _DWORD *a3)
+void __cdecl RtlGetUnloadEventTraceEx(PULONG *ElementSize, PULONG *ElementCount, PVOID *EventTrace)
 {
-  _DWORD *result; // eax
-
-  *a1 = &RtlpUnloadEventTraceExSize;
-  *a2 = &RtlpUnloadEventTraceExNumber;
-  result = a3;
-  *a3 = &RtlpUnloadEventTraceEx;
-  return result;
+  *ElementSize = (PULONG)&RtlpUnloadEventTraceExSize;
+  *ElementCount = (PULONG)&RtlpUnloadEventTraceExNumber;
+  *EventTrace = &RtlpUnloadEventTraceEx;
 }

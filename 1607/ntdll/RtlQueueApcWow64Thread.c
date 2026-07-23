@@ -1,12 +1,22 @@
 /*
- * XREFs of RtlQueueApcWow64Thread @ 0x1800D7FE0
+ * XREFs of RtlQueueApcWow64Thread @ 0x1800D80A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlQueueApcWow64Thread()
+NTSTATUS __cdecl RtlQueueApcWow64Thread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  return NtQueueApcThread();
+  return NtQueueApcThread(
+           ThreadHandle,
+           (PPS_APC_ROUTINE)(-4LL * (_QWORD)ApcRoutine),
+           ApcArgument1,
+           ApcArgument2,
+           ApcArgument3);
 }

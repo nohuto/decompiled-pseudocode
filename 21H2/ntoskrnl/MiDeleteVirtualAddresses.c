@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDeleteVirtualAddresses @ 0x1402FE580
+ * XREFs of MiDeleteVirtualAddresses @ 0x1403092D0
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
- *     MiDeleteRotateAndStopFaults @ 0x140298624 (MiDeleteRotateAndStopFaults.c)
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x14076DC9C (MiUnmapLockedPagesInUserSpace.c)
+ *     MiDeleteRotateAndStopFaults @ 0x1402190A4 (MiDeleteRotateAndStopFaults.c)
+ *     MiDeleteFinalPageTables @ 0x14027404C (MiDeleteFinalPageTables.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14076DE5C (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
  */
 
-signed __int64 __fastcall MiDeleteVirtualAddresses(int a1, int a2, int a3, __int64 a4)
+__int64 __fastcall MiDeleteVirtualAddresses(int a1, int a2, int a3, __int64 a4)
 {
   int v5; // r9d
   _KPROCESS *Process; // rdi
-  signed __int64 result; // rax
+  __int64 result; // rax
 
   v5 = a2;
   Process = KeGetCurrentThread()->ApcState.Process;

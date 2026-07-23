@@ -1,18 +1,18 @@
 /*
- * XREFs of MiStoreWriteProcessFailedPages @ 0x140409734
+ * XREFs of MiStoreWriteProcessFailedPages @ 0x140402824
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140408D88 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140401E78 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiStoreWriteProcessFailedPages(__int64 *a1)
@@ -112,10 +112,10 @@ LABEL_14:
     LODWORD(v22) = v22 & ~(1 << (v7 & 7));
     *(_BYTE *)(v20 + v21) = v22;
     v23 = *(_QWORD *)(v6 + 8 * v7 + 48);
-    if ( v23 == qword_140E36038 )
+    if ( v23 == qword_140E361B8 )
     {
       updated = MiUpdatePageFileHighInPte(updated, (int)v7 + *((_DWORD *)a1 + 26));
-      MiReleasePageFileInfo((struct _KEVENT *)v3, updated, 2);
+      MiReleasePageFileInfo((struct _KEVENT *)v3, updated, 2LL);
       result = *(_QWORD *)&CLFS_LSN_NULL_EXT;
       *(_QWORD *)(v32 + 8 * v7 + 96) = *(_QWORD *)&CLFS_LSN_NULL_EXT;
     }

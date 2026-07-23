@@ -1,11 +1,11 @@
 /*
- * XREFs of SepRemoveDisabledGroupsAndPrivileges @ 0x140A54A70
+ * XREFs of SepRemoveDisabledGroupsAndPrivileges @ 0x140A62010
  * Callers:
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
  * Callees:
- *     SepTokenPrivilegeCount @ 0x14047DD34 (SepTokenPrivilegeCount.c)
- *     SepSidInSidAndAttributes @ 0x140A54C28 (SepSidInSidAndAttributes.c)
- *     RtlIsElevatedRid @ 0x140A54CC0 (RtlIsElevatedRid.c)
+ *     SepTokenPrivilegeCount @ 0x1404776A4 (SepTokenPrivilegeCount.c)
+ *     SepSidInSidAndAttributes @ 0x140A621C8 (SepSidInSidAndAttributes.c)
+ *     RtlIsElevatedRid @ 0x140A62260 (RtlIsElevatedRid.c)
  */
 
 char __fastcall SepRemoveDisabledGroupsAndPrivileges(
@@ -44,7 +44,7 @@ char __fastcall SepRemoveDisabledGroupsAndPrivileges(
       {
         goto LABEL_13;
       }
-      if ( (a2 & 4) != 0 && (unsigned __int8)RtlIsElevatedRid(v14 + *(_QWORD *)(a1 + 152)) )
+      if ( (a2 & 4) != 0 && RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(v14 + *(_QWORD *)(a1 + 152))) )
         break;
 LABEL_5:
       if ( ++v9 >= *(_DWORD *)(a1 + 124) )

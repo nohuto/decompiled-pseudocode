@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlReadPerformanceStateCounters @ 0x140445420
+ * XREFs of HvlReadPerformanceStateCounters @ 0x14043D5D0
  * Callers:
  *     <none>
  * Callees:
@@ -26,8 +26,8 @@ LABEL_4:
 LABEL_5:
         _mm_lfence();
         v6 = *((_QWORD *)v5 + 3);
-        v7 = *((unsigned int *)&xmmword_140E3ECD0 + 2 * v4 + 7);
-        *a3 = *(_QWORD *)(v6 + 8LL * *((unsigned int *)&xmmword_140E3ECD0 + 2 * v4 + 6));
+        v7 = *((unsigned int *)&xmmword_140E3EE10 + 2 * v4 + 7);
+        *a3 = *(_QWORD *)(v6 + 8LL * *((unsigned int *)&xmmword_140E3EE10 + 2 * v4 + 6));
         *a4 = *(_QWORD *)(v6 + 8 * v7);
         return;
       }
@@ -43,7 +43,7 @@ LABEL_5:
       }
       if ( !a1 )
       {
-        v5 = &xmmword_140E3EC60;
+        v5 = &xmmword_140E3EDA0;
         goto LABEL_5;
       }
     }

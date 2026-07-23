@@ -1,12 +1,12 @@
 /*
- * XREFs of PipUpdateSetupInProgressNotify @ 0x14079BE08
+ * XREFs of PipUpdateSetupInProgressNotify @ 0x14079E948
  * Callers:
- *     PipUpdateSetupInProgressCallback @ 0x14079BDF0 (PipUpdateSetupInProgressCallback.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     PipUpdateSetupInProgressCallback @ 0x14079E930 (PipUpdateSetupInProgressCallback.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x140725870 (ZwNotifyChangeKey.c)
- *     PipUpdateSetupInProgress @ 0x14079BCE0 (PipUpdateSetupInProgress.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x14072A440 (ZwNotifyChangeKey.c)
+ *     PipUpdateSetupInProgress @ 0x14079E820 (PipUpdateSetupInProgress.c)
  */
 
 void __fastcall PipUpdateSetupInProgressNotify(void *a1, char a2)

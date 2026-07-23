@@ -15,7 +15,7 @@
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
   __int64 v2; // r9
-  struct _RTL_SPLAY_LINKS *v3; // rdi
+  _RTL_SPLAY_LINKS *v3; // rdi
   __int64 v6; // rax
   __int64 v7; // rsi
   unsigned __int8 CurrentIrql; // r14

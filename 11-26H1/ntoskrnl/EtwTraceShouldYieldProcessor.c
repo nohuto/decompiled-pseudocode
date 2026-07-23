@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceShouldYieldProcessor @ 0x1403142E8
+ * XREFs of EtwTraceShouldYieldProcessor @ 0x140316318
  * Callers:
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiPeriodicGoodCitizen @ 0x140313E40 (MiPeriodicGoodCitizen.c)
- *     MiWalkPageTablesEvaluatePte @ 0x140327B30 (MiWalkPageTablesEvaluatePte.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiDeleteVaDirect @ 0x140361EF0 (MiDeleteVaDirect.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiPeriodicGoodCitizen @ 0x140315E70 (MiPeriodicGoodCitizen.c)
+ *     MiWalkPageTablesEvaluatePte @ 0x140329B60 (MiWalkPageTablesEvaluatePte.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiDeleteVaDirect @ 0x140363C90 (MiDeleteVaDirect.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceShouldYieldProcessor(int a1, int a2, int a3)

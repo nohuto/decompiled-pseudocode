@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpAddTriageDumpData @ 0x140A9A1E0
+ * XREFs of IopLiveDumpAddTriageDumpData @ 0x140A9A050
  * Callers:
  *     <none>
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403A8334 (KiValidateTriageDumpDataArray.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x1405694E8 (KeValidateBugCheckCallbackRecord.c)
- *     KiValidateComponentName @ 0x14056AC64 (KiValidateComponentName.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403A8514 (KiValidateTriageDumpDataArray.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140569BA8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiValidateComponentName @ 0x14056B324 (KiValidateComponentName.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)

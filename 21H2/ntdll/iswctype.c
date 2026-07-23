@@ -16,8 +16,8 @@
  *     towlower @ 0x1800923B0 (towlower.c)
  *     _whiteout @ 0x18009AF34 (_whiteout.c)
  *     _winput_s @ 0x18009AF8C (_winput_s.c)
- *     RtlUnicodeStringToLcid @ 0x1800EF718 (RtlUnicodeStringToLcid.c)
- *     RtlEthernetStringToAddressW @ 0x1800FC0F0 (RtlEthernetStringToAddressW.c)
+ *     RtlUnicodeStringToLcid @ 0x1800EF6D8 (RtlUnicodeStringToLcid.c)
+ *     RtlEthernetStringToAddressW @ 0x1800FC0B0 (RtlEthernetStringToAddressW.c)
  * Callees:
  *     <none>
  */

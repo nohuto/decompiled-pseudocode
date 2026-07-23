@@ -1,11 +1,11 @@
 /*
- * XREFs of NtAlertThread @ 0x14088CB70
+ * XREFs of NtAlertThread @ 0x14088DDD0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAlertThread @ 0x1400F2230 (KeAlertThread.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
+ *     KeAlertThread @ 0x1400F22B0 (KeAlertThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtAlertThread(HANDLE ThreadHandle)

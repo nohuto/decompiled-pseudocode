@@ -26,8 +26,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v9; // r12
   LOGICAL_PROCESSOR_RELATIONSHIP v10; // edi
   __int64 v11; // rbx
-  ULONG v12; // ebx
-  ULONG v13; // r9d
+  DWORD v12; // ebx
+  DWORD v13; // r9d
   __int64 v14; // rcx
   unsigned __int64 v15; // r10
   unsigned __int16 v16; // r11
@@ -50,17 +50,17 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v34; // rax
   int v35; // eax
   unsigned __int16 v36; // r9
-  USHORT v37; // dx
+  WORD v37; // dx
   _QWORD *v38; // r8
   __int64 v39; // r10
-  USHORT v40; // ax
+  WORD v40; // ax
   __int64 v41; // rax
   unsigned __int16 v42; // dx
   GROUP_AFFINITY *GroupMask; // rcx
   unsigned __int64 *v44; // r8
   unsigned __int64 v45; // r10
   int v46; // edx
-  ULONG v47; // eax
+  DWORD v47; // eax
   unsigned int v48; // r12d
   __int64 v49; // rdi
   __int64 v50; // r12
@@ -235,7 +235,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
             Information->Processor.Flags = !v53;
             Information->Relationship = RelationProcessorCore;
             Information->Size = 48;
-            Information->Processor.Reserved[0] = *(_BYTE *)(v11 + 23858);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v11 + 23858);
             Information->Processor.GroupCount = 1;
             *(_QWORD *)((char *)&Information->NumaNode.NodeNumber + 2) = 0LL;
             *(_QWORD *)&Information->Group.Reserved[6] = 0LL;
@@ -288,7 +288,7 @@ LABEL_39:
             Information->Relationship = RelationCache;
             Information->Size = 56;
             Information->Processor.Flags = *(_BYTE *)(v11 + 12 * v22 + 24536);
-            Information->Processor.Reserved[0] = *(_BYTE *)(v11 + 12 * v22 + 24537);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v11 + 12 * v22 + 24537);
             Information->Cache.LineSize = *(_WORD *)(v11 + 12 * v22 + 24538);
             Information->Cache.CacheSize = *(_DWORD *)(v11 + 12 * v22 + 24540);
             Information->Cache.Type = *(_DWORD *)(v11 + 12 * v22 + 24544);

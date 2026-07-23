@@ -1,19 +1,19 @@
 /*
- * XREFs of CmUnRegisterCallback @ 0x1405FB13C
+ * XREFs of CmUnRegisterCallback @ 0x1405FB1F0
  * Callers:
- *     RegistryUnload @ 0x140612D80 (RegistryUnload.c)
- *     EtwpRegTraceEnableCallback @ 0x1406A4FAC (EtwpRegTraceEnableCallback.c)
+ *     RegistryUnload @ 0x140612E34 (RegistryUnload.c)
+ *     EtwpRegTraceEnableCallback @ 0x1406A50E4 (EtwpRegTraceEnableCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
- *     ObReferenceObjectSafe @ 0x14008C540 (ObReferenceObjectSafe.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x14008BCA0 (ObReferenceObjectSafe.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
- *     CmpUnlockCallbackList @ 0x14054CEC8 (CmpUnlockCallbackList.c)
- *     CmpLockCallbackListExclusive @ 0x140551298 (CmpLockCallbackListExclusive.c)
- *     CmpLockContextListExclusive @ 0x140603BBC (CmpLockContextListExclusive.c)
- *     CmpUnlockContextList @ 0x140603DB8 (CmpUnlockContextList.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     CmpUnlockCallbackList @ 0x14054D408 (CmpUnlockCallbackList.c)
+ *     CmpLockCallbackListExclusive @ 0x1405517D8 (CmpLockCallbackListExclusive.c)
+ *     CmpLockContextListExclusive @ 0x140603C70 (CmpLockContextListExclusive.c)
+ *     CmpUnlockContextList @ 0x140603E6C (CmpUnlockContextList.c)
  */
 
 NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)

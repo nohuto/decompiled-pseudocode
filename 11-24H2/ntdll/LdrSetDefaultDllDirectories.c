@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrSetDefaultDllDirectories @ 0x18010CDA0
+ * XREFs of LdrSetDefaultDllDirectories @ 0x180107BF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall LdrSetDefaultDllDirectories(int a1)
+NTSTATUS __cdecl LdrSetDefaultDllDirectories(ULONG DirectoryFlags)
 {
-  if ( !a1 || ((~((LdrpPolicyBits & 4 | 0x7A) << 8) | 0x100) & a1) != 0 )
-    return 3221225485LL;
-  LdrpDefaultDllDirectories = a1;
-  return 0LL;
+  if ( !DirectoryFlags || ((~((LdrpPolicyBits & 4 | 0x7A) << 8) | 0x100) & DirectoryFlags) != 0 )
+    return -1073741811;
+  LdrpDefaultDllDirectories = DirectoryFlags;
+  return 0;
 }

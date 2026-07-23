@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlDuplicateUnicodeString @ 0x140926680
+ * XREFs of RtlDuplicateUnicodeString @ 0x1409287C0
  * Callers:
- *     DifRtlDuplicateUnicodeStringWrapper @ 0x140639C30 (DifRtlDuplicateUnicodeStringWrapper.c)
- *     PipAddBindingId @ 0x14071E394 (PipAddBindingId.c)
- *     PipAddRequestToEdge @ 0x14071E418 (PipAddRequestToEdge.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x140737FA4 (PiDrvDbQuerySystemPathWin32.c)
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
- *     PpmRegisterProvSocIdentifier @ 0x140759010 (PpmRegisterProvSocIdentifier.c)
- *     MiGetAllRegisteredPatches @ 0x1407F280C (MiGetAllRegisteredPatches.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetObjectDatabaseNode @ 0x1409267F8 (DrvDbGetObjectDatabaseNode.c)
- *     PiGetServiceNameInfo @ 0x1409CA714 (PiGetServiceNameInfo.c)
- *     MiResolveImageReferences @ 0x140A17C94 (MiResolveImageReferences.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140A326F0 (MiFindProcessImageHotPatchRecord.c)
- *     EtwpCovSampModuleGetName @ 0x140A428E0 (EtwpCovSampModuleGetName.c)
- *     MiFindHotPatchRecord @ 0x140A570A8 (MiFindHotPatchRecord.c)
- *     NtManageHotPatch @ 0x140AE7000 (NtManageHotPatch.c)
- *     PnpEarlyLaunchImageNotificationPreProcess @ 0x140C22B00 (PnpEarlyLaunchImageNotificationPreProcess.c)
+ *     DifRtlDuplicateUnicodeStringWrapper @ 0x1406381F0 (DifRtlDuplicateUnicodeStringWrapper.c)
+ *     PipAddBindingId @ 0x14071BF24 (PipAddBindingId.c)
+ *     PipAddRequestToEdge @ 0x14071BFA8 (PipAddRequestToEdge.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x140735ED4 (PiDrvDbQuerySystemPathWin32.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
+ *     PpmRegisterProvSocIdentifier @ 0x140757490 (PpmRegisterProvSocIdentifier.c)
+ *     MiGetAllRegisteredPatches @ 0x1407F2DDC (MiGetAllRegisteredPatches.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x140928938 (DrvDbGetObjectDatabaseNode.c)
+ *     PiGetServiceNameInfo @ 0x1409B595C (PiGetServiceNameInfo.c)
+ *     MiResolveImageReferences @ 0x140A10E04 (MiResolveImageReferences.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A26708 (MiFindProcessImageHotPatchRecord.c)
+ *     EtwpCovSampModuleGetName @ 0x140A38120 (EtwpCovSampModuleGetName.c)
+ *     MiFindHotPatchRecord @ 0x140A4EF38 (MiFindHotPatchRecord.c)
+ *     NtManageHotPatch @ 0x140AE9BD0 (NtManageHotPatch.c)
+ *     PnpEarlyLaunchImageNotificationPreProcess @ 0x140C24B30 (PnpEarlyLaunchImageNotificationPreProcess.c)
  * Callees:
- *     RtlValidateUnicodeString @ 0x14044ACF0 (RtlValidateUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlValidateUnicodeString @ 0x140441DB0 (RtlValidateUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlDuplicateUnicodeString(ULONG Flags, PCUNICODE_STRING StringIn, PUNICODE_STRING StringOut)
@@ -69,7 +69,7 @@ LABEL_18:
       StringOut->Buffer = v6;
       return 0;
     }
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v10, 0x67727453u);
     v6 = Pool2;
     if ( Pool2 )
     {

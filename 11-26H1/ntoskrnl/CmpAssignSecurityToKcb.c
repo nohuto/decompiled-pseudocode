@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpAssignSecurityToKcb @ 0x140A5B410
+ * XREFs of CmpAssignSecurityToKcb @ 0x140A683D0
  * Callers:
- *     CmpDoBuildVirtualStack @ 0x140859914 (CmpDoBuildVirtualStack.c)
- *     CmpAssignKeySecurity @ 0x14085AB60 (CmpAssignKeySecurity.c)
+ *     CmpDoBuildVirtualStack @ 0x14085FCA4 (CmpDoBuildVirtualStack.c)
+ *     CmpAssignKeySecurity @ 0x140860E54 (CmpAssignKeySecurity.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x140472390 (CmpFindSecurityCellCacheIndex.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CmLockHiveSecurityShared @ 0x140C58B30 (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140C58BA8 (CmUnlockHiveSecurity.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14046BB10 (CmpFindSecurityCellCacheIndex.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CmLockHiveSecurityShared @ 0x140C5EB30 (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140C5EBA8 (CmUnlockHiveSecurity.c)
  */
 
 __int64 __fastcall CmpAssignSecurityToKcb(

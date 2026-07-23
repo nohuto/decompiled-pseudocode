@@ -1,17 +1,17 @@
 /*
- * XREFs of MiHugePurgeZeroList @ 0x1405190A8
+ * XREFs of MiHugePurgeZeroList @ 0x140512B18
  * Callers:
- *     MiMirrorPurgePartitionPages @ 0x1406EFE60 (MiMirrorPurgePartitionPages.c)
+ *     MiMirrorPurgePartitionPages @ 0x1406F4AD0 (MiMirrorPurgePartitionPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiUpdatePageMoveInProgressInternal @ 0x1404448A0 (MiUpdatePageMoveInProgressInternal.c)
- *     MiUnlinkHugeRangeEx @ 0x14048E398 (MiUnlinkHugeRangeEx.c)
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
- *     MiGetColorHeadHugeRangeBase @ 0x14048E87C (MiGetColorHeadHugeRangeBase.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiUpdatePageMoveInProgressInternal @ 0x14043D3B0 (MiUpdatePageMoveInProgressInternal.c)
+ *     MiUnlinkHugeRangeEx @ 0x140487ED8 (MiUnlinkHugeRangeEx.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404883BC (MiGetColorHeadHugeRangeBase.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
@@ -39,7 +39,7 @@ __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
   CurrentIrql = 17;
   v4 = 0;
   v16 = *a1;
-  v13[1] = dword_140E2D780[0];
+  v13[1] = dword_140E2D900[0];
   for ( i = 0; v4 < (unsigned __int16)KeNumberNodes; i = v4 )
   {
     v17 = 0;
@@ -56,9 +56,9 @@ __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
         {
           do
           {
-            if ( _bittest64(*(const signed __int64 **)&stru_140E2EB88.WaitRegister.Flags, v10) )
+            if ( _bittest64(*(const signed __int64 **)&stru_140E2ED08.WaitRegister.Flags, v10) )
             {
-              v11 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v10);
+              v11 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v10);
               if ( CurrentIrql == 17 )
               {
                 CurrentIrql = KeGetCurrentIrql();
@@ -85,10 +85,10 @@ __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
                 MiUnlinkHugeRangeEx(v15, v10, 1);
                 _InterlockedAnd64((volatile signed __int64 *)ColorHeadHugeRangeBase, 0xFFFFFFFFFFFFFFF7uLL);
                 MiInsertHugeRangeInList(0LL, v10, 0);
-                v6 = (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
-                a2 = (unsigned int)~(1 << (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3));
+                v6 = (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
+                a2 = (unsigned int)~(1 << (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3));
                 _InterlockedAnd(
-                  (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber + 4 * (v6 >> 5)),
+                  (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber + 4 * (v6 >> 5)),
                   a2);
                 if ( (++v17 & 0x3F) == 0 && KeShouldYieldProcessor() )
                 {
@@ -101,11 +101,11 @@ __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
               }
               else
               {
-                v12 = (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
+                v12 = (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
                 v6 = (unsigned int)v12;
                 a2 = (unsigned int)~(1 << v12);
                 _InterlockedAnd(
-                  (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+                  (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                             + 4 * ((unsigned __int64)(unsigned int)v12 >> 5)),
                   a2);
               }

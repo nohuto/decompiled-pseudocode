@@ -1,9 +1,9 @@
 /*
- * XREFs of _strset_s @ 0x14019B0B0
+ * XREFs of _strset_s @ 0x14019B1F0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strset_s(char *a1, size_t DstSize, int Value)

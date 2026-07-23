@@ -1,14 +1,14 @@
 /*
- * XREFs of PspRemoveProperty @ 0x14042D240
+ * XREFs of PspRemoveProperty @ 0x14041F5C0
  * Callers:
- *     PspSetPropertyHelper @ 0x14042D138 (PspSetPropertyHelper.c)
- *     PspEmptyPropertySet @ 0x1408A7B34 (PspEmptyPropertySet.c)
+ *     PspSetPropertyHelper @ 0x14041F4B8 (PspSetPropertyHelper.c)
+ *     PspEmptyPropertySet @ 0x1408FDD8C (PspEmptyPropertySet.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PspFindPropertySetEntry @ 0x14042D300 (PspFindPropertySetEntry.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PspFindPropertySetEntry @ 0x14041F680 (PspFindPropertySetEntry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspRemoveProperty(__int64 a1, __int64 a2, _QWORD *a3)

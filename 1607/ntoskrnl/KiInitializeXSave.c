@@ -3,10 +3,10 @@
  * Callers:
  *     KiSystemStartup @ 0x1403C8010 (KiSystemStartup.c)
  * Callees:
- *     KiGetXSaveSupportedFeatures @ 0x140145EB4 (KiGetXSaveSupportedFeatures.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiGetXSaveSupportedFeatures @ 0x140146424 (KiGetXSaveSupportedFeatures.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     KiUpdateXSaveSizeAndVolatileFeatures @ 0x1403D6578 (KiUpdateXSaveSizeAndVolatileFeatures.c)
  *     KiIntersectFeaturesWithPolicy @ 0x1403D65F0 (KiIntersectFeaturesWithPolicy.c)
  *     KiParseLoadOptions @ 0x1403D6814 (KiParseLoadOptions.c)

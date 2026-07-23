@@ -1,13 +1,13 @@
 /*
- * XREFs of MiChangePageHeatImmediate @ 0x140529498
+ * XREFs of MiChangePageHeatImmediate @ 0x14052B92C
  * Callers:
- *     MiDemoteLocalLargePage @ 0x1402844A0 (MiDemoteLocalLargePage.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     MiLargeFreePageToMdl @ 0x1404CF258 (MiLargeFreePageToMdl.c)
+ *     MiDemoteLocalLargePage @ 0x140283A10 (MiDemoteLocalLargePage.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     MiLargeFreePageToMdl @ 0x1404C8C88 (MiLargeFreePageToMdl.c)
  * Callees:
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiChangePageHeatImmediate(__int64 a1, unsigned int a2, int a3)
@@ -20,11 +20,11 @@ void __fastcall MiChangePageHeatImmediate(__int64 a1, unsigned int a2, int a3)
   v5 = 0LL;
   if ( a3 )
   {
-    if ( (stru_140E36558.WaitRegister.Flags & 1) == 0 )
+    if ( (stru_140E366D8.WaitRegister.Flags & 1) == 0 )
       return;
     goto LABEL_7;
   }
-  if ( (stru_140E36558.WaitRegister.Flags & 2) != 0 && (a2 <= 1 || (stru_140E36558.WaitRegister.Flags & 4) == 0) )
+  if ( (stru_140E366D8.WaitRegister.Flags & 2) != 0 && (a2 <= 1 || (stru_140E366D8.WaitRegister.Flags & 4) == 0) )
   {
 LABEL_7:
     MiInitializePageHeatList((__int64)&v5, a3, 0, 1);

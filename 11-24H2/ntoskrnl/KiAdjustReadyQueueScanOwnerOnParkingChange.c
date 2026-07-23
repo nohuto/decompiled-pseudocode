@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x140204120
+ * XREFs of KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14032B704
  * Callers:
- *     KiSoftParkElectionUnparkProcessor @ 0x140201414 (KiSoftParkElectionUnparkProcessor.c)
- *     KiParkCurrentProcessor @ 0x1403E9898 (KiParkCurrentProcessor.c)
- *     KiUnparkCurrentProcessor @ 0x1403E9EF8 (KiUnparkCurrentProcessor.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x140329B04 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiParkCurrentProcessor @ 0x1403D7544 (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x1403D7B98 (KiUnparkCurrentProcessor.c)
  * Callees:
- *     KeIsForceParkingEnabled @ 0x140204250 (KeIsForceParkingEnabled.c)
+ *     KeIsForceParkingEnabled @ 0x14032B830 (KeIsForceParkingEnabled.c)
  */
 
 void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a2, char *a3)
@@ -34,7 +34,7 @@ void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a
   {
     if ( v8 == v5 )
     {
-      *(_DWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78
+      *(_DWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F22998
                                    + 64 * (unsigned __int64)*(unsigned __int8 *)(v3 + 208)
                                    + *(unsigned __int8 *)(v7 + 709))]
                 + 36432) = 0;
@@ -48,7 +48,7 @@ void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a
   else
   {
     v4 = 1;
-    if ( !(unsigned __int8)KeIsForceParkingEnabled(v5, a2, a3) )
+    if ( !(unsigned __int8)KeIsForceParkingEnabled(v5, a2) )
       goto LABEL_5;
     v11 = *(_QWORD *)(v9 + 104);
     if ( (v11 & v10) == 0 )
@@ -61,7 +61,7 @@ void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a
   }
   *(_DWORD *)(v3 + 36432) = 0;
   _BitScanReverse64(&v8, v8);
-  v12 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * *(unsigned __int8 *)(v3 + 208) + (unsigned int)v8)];
+  v12 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * *(unsigned __int8 *)(v3 + 208) + (unsigned int)v8)];
   *(_DWORD *)(v12 + 36432) = 1;
   v13 = *(_BYTE *)(v12 + 209);
 LABEL_15:

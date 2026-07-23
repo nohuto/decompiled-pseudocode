@@ -1,28 +1,26 @@
 /*
- * XREFs of SleepstudyHelper_ComponentActive @ 0x1402575F0
+ * XREFs of SleepstudyHelper_ComponentActive @ 0x1405180D0
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelper_ComponentActiveLocked @ 0x1402574F0 (SleepstudyHelper_ComponentActiveLocked.c)
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x140257660 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SleepstudyHelper_ComponentActiveLocked @ 0x140518130 (SleepstudyHelper_ComponentActiveLocked.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ComponentActive(PKSPIN_LOCK SpinLock)
 {
   unsigned int active; // edi
-  KIRQL v4; // bl
+  KIRQL v3; // bl
 
   active = 0;
   if ( SpinLock )
   {
-    if ( !(unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline()
-      || SpinLock != PsAltSystemCallRegistrationLock.Spare35 )
+    if ( SpinLock != (PKSPIN_LOCK)&unk_140F0A850 )
     {
-      v4 = KeAcquireSpinLockRaiseToDpc(SpinLock);
-      active = SleepstudyHelper_ComponentActiveLocked((__int64)SpinLock);
-      KeReleaseSpinLock(SpinLock, v4);
+      v3 = KeAcquireSpinLockRaiseToDpc(SpinLock);
+      active = SleepstudyHelper_ComponentActiveLocked(SpinLock);
+      KeReleaseSpinLock(SpinLock, v3);
     }
   }
   else

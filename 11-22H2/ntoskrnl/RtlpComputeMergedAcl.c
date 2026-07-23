@@ -10,10 +10,10 @@
  */
 
 __int64 __fastcall RtlpComputeMergedAcl(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        unsigned int a4,
         __int64 a5,
         __int64 a6,
         __int64 a7,
@@ -23,23 +23,23 @@ __int64 __fastcall RtlpComputeMergedAcl(
 {
   unsigned int v10; // eax
   int v15; // esi
-  ACL *Acl; // rax
+  __int64 Pool2; // rax
   unsigned int v17; // edi
-  __int64 v19; // [rsp+60h] [rbp-38h] BYREF
+  int v19[4]; // [rsp+60h] [rbp-38h] BYREF
 
   v10 = 1024;
-  LODWORD(v19) = 1024;
+  v19[0] = 1024;
   v15 = 0;
   while ( 1 )
   {
-    Acl = (ACL *)ExAllocatePool2(256LL, v10, 1665230163LL);
-    *a9 = Acl;
-    if ( !Acl )
+    Pool2 = ExAllocatePool2(256LL, v10, 1665230163LL);
+    *a9 = (PVOID)Pool2;
+    if ( !Pool2 )
       break;
-    v17 = RtlpComputeMergedAcl2(a1, a2, a3, a4, a5, a6, a7, a8, (__int64)&v19, Acl, a10);
+    v17 = RtlpComputeMergedAcl2(a1, a2, a3, a4, a5, a6, a7, a8, v19, Pool2, a10);
     if ( (v17 & 0x80000000) == 0 )
     {
-      if ( !(_DWORD)v19 )
+      if ( !v19[0] )
       {
         ExFreePoolWithTag(*a9, 0);
         *a9 = 0LL;
@@ -52,7 +52,7 @@ __int64 __fastcall RtlpComputeMergedAcl(
       return v17;
     if ( (unsigned int)++v15 >= 2 )
       return v17;
-    v10 = v19;
+    v10 = v19[0];
   }
   return 3221225495LL;
 }

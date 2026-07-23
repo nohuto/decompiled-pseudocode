@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrefetchRestOfCluster @ 0x14047AE34
+ * XREFs of MiPrefetchRestOfCluster @ 0x1403DBB74
  * Callers:
- *     MiWaitForInPageComplete @ 0x140398598 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140350CE8 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiPrefetchVirtualMemory @ 0x1402A98D0 (MiPrefetchVirtualMemory.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E44B0 (MiGetEffectivePagePriorityThread.c)
+ *     MiPrefetchVirtualMemory @ 0x140351B80 (MiPrefetchVirtualMemory.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1403DC8F0 (MiGetEffectivePagePriorityThread.c)
  */
 
 void __fastcall MiPrefetchRestOfCluster(__int64 a1, _QWORD *a2)
@@ -33,13 +33,13 @@ void __fastcall MiPrefetchRestOfCluster(__int64 a1, _QWORD *a2)
       {
         v11[0] = v4;
         v11[1] = v5 + v6 - v4;
-        EffectivePagePriorityThread = MiGetEffectivePagePriorityThread((__int64)KeGetCurrentThread());
+        EffectivePagePriorityThread = MiGetEffectivePagePriorityThread(KeGetCurrentThread());
         v9 = 1LL;
         if ( v10 < 0xFFFF800000000000uLL )
           v9 = v8;
         MiPrefetchVirtualMemory(
           1uLL,
-          (unsigned __int64)v11,
+          (__int64)v11,
           v9,
           EffectivePagePriorityThread & 7 | (8 * (EffectivePagePriorityThread & 7 | 0x8000)));
       }

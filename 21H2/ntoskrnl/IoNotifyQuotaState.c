@@ -4,11 +4,11 @@
  *     <none>
  * Callees:
  *     PsIoRateControlOverQuotaNotify @ 0x1402012D8 (PsIoRateControlOverQuotaNotify.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     IopAcquireReferencesFromIoAttributionHandle @ 0x14028A5C4 (IopAcquireReferencesFromIoAttributionHandle.c)
- *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x140207764 (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     IoDiskIoAttributionDereference @ 0x140207954 (IoDiskIoAttributionDereference.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall IoNotifyQuotaState(__int64 a1, int a2, int a3, int a4, int a5)
@@ -39,7 +39,7 @@ __int64 __fastcall IoNotifyQuotaState(__int64 a1, int a2, int a3, int a4, int a5
   v10 = v13;
   if ( v13 )
   {
-    ExReleaseRundownProtection_0(v13 + 21);
+    ExReleaseRundownProtection(v13 + 21);
     IoDiskIoAttributionDereference(v10);
   }
   return (unsigned int)v8;

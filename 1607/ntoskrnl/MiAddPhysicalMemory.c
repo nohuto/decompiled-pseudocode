@@ -1,33 +1,33 @@
 /*
- * XREFs of MiAddPhysicalMemory @ 0x1406575DC
+ * XREFs of MiAddPhysicalMemory @ 0x1406576C0
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x140657B58 (MiAddPhysicalMemoryChunks.c)
- *     MiAddFileOnlyPfns @ 0x14065A2DC (MiAddFileOnlyPfns.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140657C3C (MiAddPhysicalMemoryChunks.c)
+ *     MiAddFileOnlyPfns @ 0x14065A3C0 (MiAddFileOnlyPfns.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiInitializeNumaRanges @ 0x1400B5C68 (MiInitializeNumaRanges.c)
- *     KePulseEvent @ 0x1400BEF10 (KePulseEvent.c)
- *     MiPageTablesNeeded @ 0x140102518 (MiPageTablesNeeded.c)
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     MiLockDynamicMemoryExclusive @ 0x140132E08 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x140132E74 (MiUnlockDynamicMemoryExclusive.c)
- *     MiDescribePageRun @ 0x14013B2C0 (MiDescribePageRun.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     MiIncreaseCommitLimits @ 0x1401429F8 (MiIncreaseCommitLimits.c)
- *     IoUpdateDumpPhysicalRanges @ 0x1401C6548 (IoUpdateDumpPhysicalRanges.c)
- *     KeConfigureDynamicMemory @ 0x1401D1FBC (KeConfigureDynamicMemory.c)
- *     MiAcquireNonPagedResources @ 0x1401E1B24 (MiAcquireNonPagedResources.c)
- *     MiEnableNewPfns @ 0x1401E1B74 (MiEnableNewPfns.c)
- *     MiPerformMemoryChange @ 0x1401E2170 (MiPerformMemoryChange.c)
- *     MiDeleteExtentPfns @ 0x1401ED590 (MiDeleteExtentPfns.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiInitializeNumaRanges @ 0x1400B3A90 (MiInitializeNumaRanges.c)
+ *     KePulseEvent @ 0x1400BCDA0 (KePulseEvent.c)
+ *     MiPageTablesNeeded @ 0x140100298 (MiPageTablesNeeded.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140133378 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1401333E4 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiDescribePageRun @ 0x14013B830 (MiDescribePageRun.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     MiIncreaseCommitLimits @ 0x140142F68 (MiIncreaseCommitLimits.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x1401C63E8 (IoUpdateDumpPhysicalRanges.c)
+ *     KeConfigureDynamicMemory @ 0x1401D1DE8 (KeConfigureDynamicMemory.c)
+ *     MiAcquireNonPagedResources @ 0x1401E1950 (MiAcquireNonPagedResources.c)
+ *     MiEnableNewPfns @ 0x1401E19A0 (MiEnableNewPfns.c)
+ *     MiPerformMemoryChange @ 0x1401E1F9C (MiPerformMemoryChange.c)
+ *     MiDeleteExtentPfns @ 0x1401ED3BC (MiDeleteExtentPfns.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiSplitMirrorBitMap @ 0x14052F264 (MiSplitMirrorBitMap.c)
- *     MiSplitLargePfnBitMap @ 0x1405760E4 (MiSplitLargePfnBitMap.c)
- *     MiComputeNodeMemory @ 0x14057ADAC (MiComputeNodeMemory.c)
- *     MiConfigureMemoryInsertion @ 0x140657BFC (MiConfigureMemoryInsertion.c)
- *     MiMapNewPfns @ 0x140658128 (MiMapNewPfns.c)
- *     MmIsExtentDangling @ 0x14065AC80 (MmIsExtentDangling.c)
+ *     MiSplitMirrorBitMap @ 0x14052F7A4 (MiSplitMirrorBitMap.c)
+ *     MiSplitLargePfnBitMap @ 0x140576624 (MiSplitLargePfnBitMap.c)
+ *     MiComputeNodeMemory @ 0x14057B258 (MiComputeNodeMemory.c)
+ *     MiConfigureMemoryInsertion @ 0x140657CE0 (MiConfigureMemoryInsertion.c)
+ *     MiMapNewPfns @ 0x14065820C (MiMapNewPfns.c)
+ *     MmIsExtentDangling @ 0x14065AD64 (MmIsExtentDangling.c)
  */
 
 __int64 __fastcall MiAddPhysicalMemory(int *a1, _DWORD *a2, _DWORD *a3, int a4)
@@ -73,9 +73,9 @@ __int64 __fastcall MiAddPhysicalMemory(int *a1, _DWORD *a2, _DWORD *a3, int a4)
   v11 = v10 + v9;
   if ( v9 >= v10 + v9 )
     return 3221225711LL;
-  v12 = qword_140326A90;
-  if ( qword_140326A90 > ((unsigned __int64)qword_140326A00 >> 12) - 1 )
-    v12 = ((unsigned __int64)qword_140326A00 >> 12) - 1;
+  v12 = qword_140326AD0;
+  if ( qword_140326AD0 > ((unsigned __int64)qword_140326A40 >> 12) - 1 )
+    v12 = ((unsigned __int64)qword_140326A40 >> 12) - 1;
   if ( v11 - 1 > v12 )
   {
     if ( (v8 & 2) != 0 )
@@ -85,7 +85,7 @@ __int64 __fastcall MiAddPhysicalMemory(int *a1, _DWORD *a2, _DWORD *a3, int a4)
   }
   if ( v9 >= v11 )
     return 3221225711LL;
-  if ( v10 + v9 >= qword_140327360 && v9 < qword_140327360 + 2048 || v10 + v9 >= 0xFFFFFFFFALL )
+  if ( v10 + v9 >= qword_1403273A0 && v9 < qword_1403273A0 + 2048 || v10 + v9 >= 0xFFFFFFFFALL )
     return 3221225496LL;
   CurrentThread = KeGetCurrentThread();
   *(_QWORD *)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = ((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFE0uLL)
@@ -125,10 +125,10 @@ LABEL_25:
     }
     if ( (v8 & 2) == 0 )
     {
-      if ( qword_140324DD0 + v10 > qword_1403269F0 )
+      if ( qword_140324E10 + v10 > qword_140326A30 )
       {
-        v10 = qword_1403269F0 - qword_140324DD0;
-        v11 = qword_1403269F0 - qword_140324DD0 + v9;
+        v10 = qword_140326A30 - qword_140324E10;
+        v11 = qword_140326A30 - qword_140324E10 + v9;
       }
       v22 = MiReferencePageRuns((__int64)MiSystemPartition, 1u);
       *(_QWORD *)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = v22;
@@ -153,7 +153,7 @@ LABEL_25:
           if ( (unsigned int)MiSplitLargePfnBitMap((__int64)MiSystemPartition, v9, v10) )
           {
             v24 = 0;
-            while ( (unsigned int)MiSplitMirrorBitMap((unsigned __int64 *)&qword_140327068[2 * v24], v9, v10) )
+            while ( (unsigned int)MiSplitMirrorBitMap(&stru_1403270A8.SizeOfBitMap + 2 * v24, v9, v10) )
             {
               if ( ++v24 >= 2 )
               {
@@ -272,14 +272,14 @@ LABEL_75:
       MiPerformMemoryChange(v9, v10, (void **)v4 + 7, (__int64 *)v4 + 3, v8);
       MiComputeNodeMemory((__int64)MiSystemPartition);
       v34 = -1;
-      if ( qword_140324DD0 <= 0xFFFFFFFF )
-        v34 = qword_140324DD0;
+      if ( qword_140324E10 <= 0xFFFFFFFF )
+        v34 = qword_140324E10;
       MEMORY[0xFFFFF780000002E8] = v34;
       if ( (v8 & 0x40) == 0 )
         MiUpdateLargePageBitMap((__int64)MiSystemPartition, v9, ((v11 + 511) >> 9) - (v9 >> 9), 0, 0);
       if ( (v8 & 4) == 0 )
         MiEnableNewPfns(v9, v11);
-      KePulseEvent(qword_140323698, 0, 0);
+      KePulseEvent(qword_1403236D8, 0, 0);
       v14 = *(_QWORD *)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18);
     }
     v16 = 0;

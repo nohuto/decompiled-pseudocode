@@ -1,7 +1,7 @@
 /*
- * XREFs of PopCheckBatteryWake @ 0x140AA0E10
+ * XREFs of PopCheckBatteryWake @ 0x140AA0C80
  * Callers:
- *     PopHandleWakeSources @ 0x140AA0E5C (PopHandleWakeSources.c)
+ *     PopHandleWakeSources @ 0x140AA0CCC (PopHandleWakeSources.c)
  * Callees:
  *     <none>
  */

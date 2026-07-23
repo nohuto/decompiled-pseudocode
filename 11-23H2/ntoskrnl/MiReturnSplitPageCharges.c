@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnSplitPageCharges @ 0x14037644C
+ * XREFs of MiReturnSplitPageCharges @ 0x1403765EC
  * Callers:
- *     MiInitializeDynamicBitmap @ 0x14081C7A4 (MiInitializeDynamicBitmap.c)
- *     MiDeleteSparseRange @ 0x140A4311C (MiDeleteSparseRange.c)
+ *     MiInitializeDynamicBitmap @ 0x14081CA74 (MiInitializeDynamicBitmap.c)
+ *     MiDeleteSparseRange @ 0x140A433CC (MiDeleteSparseRange.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReturnSystemCharges @ 0x1403409F8 (MiReturnSystemCharges.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiReturnSystemCharges @ 0x140340C88 (MiReturnSystemCharges.c)
  */
 
 unsigned __int64 __fastcall MiReturnSplitPageCharges(__int64 a1, unsigned __int64 a2, int a3)

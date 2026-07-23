@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetPastDueIRTimerInfo @ 0x14057D554
+ * XREFs of KiGetPastDueIRTimerInfo @ 0x14057DA44
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x14027DFF0 (KiGetNextTimerExpirationDueTime.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7060 (KeResumeClockTimerFromIdle.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x14027E280 (KiGetNextTimerExpirationDueTime.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C72F0 (KeResumeClockTimerFromIdle.c)
  * Callees:
  *     <none>
  */

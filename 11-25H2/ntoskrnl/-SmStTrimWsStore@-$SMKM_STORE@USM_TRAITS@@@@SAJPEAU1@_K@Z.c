@@ -46,7 +46,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStore(__int64 a1, _QWORD *a2
   _QWORD *v32; // [rsp+48h] [rbp-81h]
   _OWORD v33[3]; // [rsp+50h] [rbp-79h] BYREF
   _DWORD v34[8]; // [rsp+80h] [rbp-49h] BYREF
-  void *v35[8]; // [rsp+A0h] [rbp-29h] BYREF
+  PVOID v35[8]; // [rsp+A0h] [rbp-29h] BYREF
 
   v32 = a2;
   v2 = a2;
@@ -135,7 +135,7 @@ LABEL_21:
               {
                 v27 = v7;
                 v34[v7++] = v9;
-                v35[v27] = (void *)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v9, 0, v8, 4);
+                v35[v27] = (PVOID)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v9, 0, v8, 4);
                 if ( v7 == 8 )
                 {
                   SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(a1, v34, v35, 8u, v28, 0LL);
@@ -160,7 +160,7 @@ LABEL_21:
         {
           v24 = v7;
           v34[v7++] = v21;
-          v35[v24] = (void *)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v21, 0, v8, 4);
+          v35[v24] = (PVOID)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v21, 0, v8, 4);
           if ( v7 == 8 )
           {
             SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(

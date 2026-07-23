@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeToOemN @ 0x14096A6D0
+ * XREFs of RtlUnicodeToOemN @ 0x14097B010
  * Callers:
- *     RtlUnicodeStringToCountedOemString @ 0x14096A750 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUnicodeStringToOemString @ 0x140B3CB50 (RtlUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x14097B090 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x140B3EDD0 (RtlUnicodeStringToOemString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlUnicodeToCustomCPN @ 0x14096B500 (RtlUnicodeToCustomCPN.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlUnicodeToCustomCPN @ 0x14097BE40 (RtlUnicodeToCustomCPN.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToOemN(
@@ -16,7 +16,7 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
-  struct _CPTABLEINFO *p_Blink; // rcx
+  _CPTABLEINFO *p_Blink; // rcx
   signed __int32 v11[8]; // [rsp+0h] [rbp-38h] BYREF
 
   if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
@@ -26,7 +26,7 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
   else
   {
     _InterlockedOr(v11, 0);
-    p_Blink = (struct _CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
   }
   return RtlUnicodeToCustomCPN(
            p_Blink,

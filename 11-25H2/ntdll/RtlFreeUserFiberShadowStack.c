@@ -6,10 +6,14 @@
  *     NtSetInformationProcess @ 0x1801635A0 (NtSetInformationProcess.c)
  */
 
-__int64 __fastcall RtlFreeUserFiberShadowStack(__int64 a1)
+NTSTATUS __fastcall RtlFreeUserFiberShadowStack(__int64 a1)
 {
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
+  __int64 ProcessInformation; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = a1;
-  return NtSetInformationProcess(-1LL, 99LL, &v2, 8LL);
+  ProcessInformation = a1;
+  return NtSetInformationProcess(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           ProcessFreeFiberShadowStackAllocation,
+           &ProcessInformation,
+           8u);
 }

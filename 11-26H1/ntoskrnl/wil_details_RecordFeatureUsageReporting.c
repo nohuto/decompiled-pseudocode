@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_RecordFeatureUsageReporting @ 0x1406E2650
+ * XREFs of wil_details_RecordFeatureUsageReporting @ 0x1406E6930
  * Callers:
  *     <none>
  * Callees:
- *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x1402C59E4 (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
- *     RtlRecordFeatureUsage @ 0x1404D4AD0 (RtlRecordFeatureUsage.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x140310680 (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
+ *     RtlRecordFeatureUsage @ 0x1404CE340 (RtlRecordFeatureUsage.c)
  */
 
 void __fastcall wil_details_RecordFeatureUsageReporting(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)

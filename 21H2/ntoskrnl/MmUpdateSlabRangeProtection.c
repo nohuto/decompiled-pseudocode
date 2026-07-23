@@ -1,17 +1,17 @@
 /*
- * XREFs of MmUpdateSlabRangeProtection @ 0x140A929A8
+ * XREFs of MmUpdateSlabRangeProtection @ 0x140A939A8
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiEnumerateSlabAllocators @ 0x1402B8CCC (MiEnumerateSlabAllocators.c)
- *     MiGetSlabAllocator @ 0x1402E824C (MiGetSlabAllocator.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertSlabEntry @ 0x14039A0CC (MiInsertSlabEntry.c)
+ *     MiEnumerateSlabAllocators @ 0x140236EDC (MiEnumerateSlabAllocators.c)
+ *     MiGetSlabAllocator @ 0x14029959C (MiGetSlabAllocator.c)
+ *     MiMakeProtectionMask @ 0x1402BF320 (MiMakeProtectionMask.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertSlabEntry @ 0x14039A21C (MiInsertSlabEntry.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiRemoveSlabEntry @ 0x140553370 (MiRemoveSlabEntry.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiRemoveSlabEntry @ 0x1405535B0 (MiRemoveSlabEntry.c)
  */
 
 __int64 __fastcall MmUpdateSlabRangeProtection(
@@ -22,7 +22,7 @@ __int64 __fastcall MmUpdateSlabRangeProtection(
   __int64 result; // rax
   ULONG_PTR v4; // rsi
   ULONG_PTR v5; // r13
-  unsigned __int64 v7; // rbp
+  __int64 v7; // rbp
   __int64 v8; // r14
   char ProtectionMask; // al
   __int64 v10; // r12
@@ -33,12 +33,12 @@ __int64 __fastcall MmUpdateSlabRangeProtection(
   int v15; // eax
   bool v16; // zf
   ULONG_PTR v17; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v18; // [rsp+38h] [rbp-30h]
+  __int64 v18; // [rsp+38h] [rbp-30h]
 
-  result = (unsigned int)dword_140C50D84;
+  result = (unsigned int)dword_140C50DC4;
   v4 = BugCheckParameter3;
   v5 = (unsigned int)BugCheckParameter4;
-  if ( (dword_140C50D84 & 8) != 0 && BugCheckParameter3 )
+  if ( (dword_140C50DC4 & 8) != 0 && BugCheckParameter3 )
   {
     do
     {
@@ -62,7 +62,7 @@ __int64 __fastcall MmUpdateSlabRangeProtection(
       if ( result != v8 )
       {
         v11 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v8 + 16));
-        MiRemoveSlabEntry((__int64)&MiSystemPartition, (unsigned __int64 *)v8, v7);
+        MiRemoveSlabEntry((__int64)&MiSystemPartition, (_RTL_RB_TREE *)v8, v7);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v8 + 16));
         if ( KiIrqlFlags )
         {

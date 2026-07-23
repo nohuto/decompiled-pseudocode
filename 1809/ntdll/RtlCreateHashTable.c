@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCreateHashTable @ 0x180077950
+ * XREFs of RtlCreateHashTable @ 0x180077960
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCreateHashTable(__int64 a1, unsigned int a2, unsigned int a3)
+BOOLEAN __cdecl RtlCreateHashTable(PRTL_DYNAMIC_HASH_TABLE *HashTable, ULONG Shift, ULONG Flags)
 {
-  return RtlpCreateHashTable(a1, 128LL, a2, a3);
+  return RtlpCreateHashTable(HashTable, 128LL, Shift, Flags);
 }

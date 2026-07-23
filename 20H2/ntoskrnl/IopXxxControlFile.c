@@ -275,7 +275,7 @@ LABEL_51:
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
           v32 = *(_QWORD *)&DmaAdapter[1];
-          v33 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[1] + 128LL, 0LL, 0LL);
+          v33 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[1] + 128LL, 0LL, 0);
           LOBYTE(DmaAdapter[0]) = 0;
           if ( _InterlockedExchange((volatile __int32 *)(v32 + 116), 1) )
           {
@@ -516,7 +516,7 @@ LABEL_51:
             Mdl = IoAllocateMdl(Address, v17, 0, 1u, v47);
             v47->MdlAddress = Mdl;
             if ( !Mdl )
-              RtlRaiseStatus(0xC000009A);
+              RtlRaiseStatus(-1073741670);
             LOBYTE(v13) = v62 != 1;
             IopProbeAndLockPages((__int64)Mdl, v56, v13, (__int64)DeviceObject, v48->Header.LockNV);
           }

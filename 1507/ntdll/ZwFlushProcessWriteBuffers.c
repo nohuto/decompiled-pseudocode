@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwFlushProcessWriteBuffers()
+NTSTATUS ZwFlushProcessWriteBuffers(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 219LL;
+  result = 219;
   __asm { syscall; Low latency system call }
   return result;
 }

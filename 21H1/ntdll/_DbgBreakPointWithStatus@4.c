@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall DbgBreakPointWithStatus(int a1)
+void __cdecl DbgBreakPointWithStatus(ULONG Status)
 {
-  return RtlpBreakWithStatusInstruction();
+  RtlpBreakWithStatusInstruction();
 }

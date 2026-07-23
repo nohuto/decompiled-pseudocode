@@ -14,7 +14,7 @@ void MiInitializeTopLevelBitmap()
 {
   unsigned __int64 TopPteAddress; // rdi
   unsigned __int64 i; // rbx
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   dword_1403CBA80 = (unsigned __int8)ExGenRandom(1);
   memset(dword_1403CBA60, 0, sizeof(dword_1403CBA60));

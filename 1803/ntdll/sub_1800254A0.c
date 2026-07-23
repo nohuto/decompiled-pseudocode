@@ -15,10 +15,10 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall sub_1800254A0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall sub_1800254A0(_QWORD *Instance, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v7; // rbx
-  __int64 v8; // r15
+  void *v8; // r15
   int v9; // edi
   int v10; // esi
   signed __int32 v11; // ecx
@@ -27,17 +27,17 @@ __int64 __fastcall sub_1800254A0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v14; // rdi
   __int64 v15; // rcx
   __int64 result; // rax
-  __int64 v17; // [rsp+38h] [rbp-40h] BYREF
+  PVOID Cookie; // [rsp+38h] [rbp-40h] BYREF
   __int64 v18; // [rsp+40h] [rbp-38h] BYREF
 
-  v17 = 0LL;
+  Cookie = 0LL;
   v7 = a2 - 200;
-  v8 = *(_QWORD *)(a2 - 200 + 136);
+  v8 = *(void **)(a2 - 200 + 136);
   v9 = 1;
   if ( v8 )
   {
     v10 = 1;
-    LdrLockLoaderLock(0LL, 0LL, &v17);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   }
   else
   {
@@ -57,10 +57,10 @@ __int64 __fastcall sub_1800254A0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 LABEL_6:
   if ( v10 && v9 )
   {
-    if ( (int)LdrAddRefDll(0LL, v8) >= 0 )
+    if ( LdrAddRefDll(0, v8) >= 0 )
     {
-      *(_QWORD *)(a1 + 168) = v8;
-      *(_DWORD *)(a1 + 144) |= 0x100u;
+      Instance[21] = v8;
+      *((_DWORD *)Instance + 36) |= 0x100u;
     }
     else
     {
@@ -68,23 +68,28 @@ LABEL_6:
     }
   }
   if ( v10 )
-    LdrUnlockLoaderLock(0LL, v17);
+    LdrUnlockLoaderLock(0, Cookie);
   if ( v9 )
   {
-    sub_180025A28(a1, v7);
+    sub_180025A28((PTP_CALLBACK_INSTANCE)Instance);
     v14 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v15 = 2147353478LL;
     if ( *(_BYTE *)v15 )
       sub_180001FD0(*(_QWORD *)(v7 + 144), a2, *(_QWORD *)(v7 + 80), *(_QWORD *)(v7 + 88), *(_QWORD *)(v7 + 104));
     sub_18002567C(&v18, *(_QWORD *)(v7 + 80), *(_QWORD *)(v7 + 88), *(_QWORD *)(v7 + 104));
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(v7 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(v7 + 88);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64, __int64))(v7 + 80))(a1, *(_QWORD *)(v7 + 88), a3, a4, v7);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    Instance[11] = *(_QWORD *)(v7 + 80);
+    Instance[12] = *(_QWORD *)(v7 + 88);
+    (*(void (__fastcall **)(_QWORD *, _QWORD, __int64, __int64, __int64))(v7 + 80))(
+      Instance,
+      *(_QWORD *)(v7 + 88),
+      a3,
+      a4,
+      v7);
+    if ( RtlGetCurrentServiceSessionId() )
+      v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     if ( *(_BYTE *)v14 )
       sub_180002050(*(_QWORD *)(v7 + 144), a2, *(_QWORD *)(v7 + 80), *(_QWORD *)(v7 + 88), *(_QWORD *)(v7 + 104));
     return sub_180025644(v18);

@@ -4,7 +4,7 @@
  *     KsepGetShimsForDriver @ 0x140694008 (KsepGetShimsForDriver.c)
  * Callees:
  *     KsepPoolAllocatePaged @ 0x140209EA8 (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
  *     KseShimDatabaseOpen @ 0x140694C20 (KseShimDatabaseOpen.c)
  *     KsepDbFreeDriverShims @ 0x140694D3C (KsepDbFreeDriverShims.c)

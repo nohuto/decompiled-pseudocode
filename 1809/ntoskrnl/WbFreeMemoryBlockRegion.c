@@ -1,22 +1,22 @@
 /*
- * XREFs of WbFreeMemoryBlockRegion @ 0x1406B1C88
+ * XREFs of WbFreeMemoryBlockRegion @ 0x1406B2F28
  * Callers:
- *     WbFreeUserMemory @ 0x1406B1B9C (WbFreeUserMemory.c)
+ *     WbFreeUserMemory @ 0x1406B2E3C (WbFreeUserMemory.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall WbFreeMemoryBlockRegion(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rdi
-  __int64 v6; // rax
-  __int64 v7; // rsi
+  _RTL_BALANCED_NODE *v6; // rax
+  _RTL_BALANCED_NODE *v7; // rsi
   unsigned __int64 v8; // rbx
   __int64 i; // rcx
   __int64 v10; // rcx
@@ -31,7 +31,7 @@ __int64 __fastcall WbFreeMemoryBlockRegion(__int64 a1, __int64 a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
     ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   v8 = (unsigned __int64)(a2 - *(_QWORD *)(a1 + 32)) >> 6;
   if ( (_DWORD)v8 )
   {

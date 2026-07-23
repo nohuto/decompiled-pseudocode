@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQuerySystemInformation @ 0x140626240
+ * XREFs of NtQuerySystemInformation @ 0x140627260
  * Callers:
- *     AlpcpInitSystem @ 0x14075D28C (AlpcpInitSystem.c)
+ *     AlpcpInitSystem @ 0x14075E47C (AlpcpInitSystem.c)
  * Callees:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  */
 
 NTSTATUS __stdcall NtQuerySystemInformation(
@@ -38,12 +38,12 @@ LABEL_3:
     {
       case SystemProcessorPerformanceInformation:
       case SystemInterruptInformation:
-      case SystemPowerInformationNative:
+      case SystemProcessorIdleInformation:
       case SystemProcessorPowerInformation:
       case SystemProcessorIdleCycleTimeInformation:
-      case SystemPrefetchPathInformation|SystemPathInformation:
-      case SystemPrefetchPathInformation|SystemLocksInformation:
-      case SystemStackTraceInformation|0x80:
+      case SystemProcessorPerformanceDistribution:
+      case SystemProcessorCycleTimeInformation:
+      case SystemProcessorPerformanceInformationEx:
         v7 = 2LL;
         Group = KeGetCurrentPrcb()->Group;
         p_Group = &Group;
@@ -65,9 +65,9 @@ LABEL_3:
                  SystemInformation,
                  SystemInformationLength,
                  ReturnLength);
-      case MaxSystemInfoClass|SystemFlagsInformation:
-      case SystemVerifierFaultsInformation|SystemDpcBehaviorInformation:
-      case SystemAddVerifier|0x80:
+      case SystemLogicalProcessorAndGroupInformation:
+      case SystemNodeDistanceInformation:
+      case SystemInterruptSteeringInformation:
         result = -1073741821;
         break;
       default:

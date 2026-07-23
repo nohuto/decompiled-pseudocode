@@ -1,15 +1,15 @@
 /*
- * XREFs of KiFlushViaHypervisor @ 0x1400E1020
+ * XREFs of KiFlushViaHypervisor @ 0x1400DEEC0
  * Callers:
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     KeFlushProcessTb @ 0x140075E7C (KeFlushProcessTb.c)
- *     KeFlushMultipleRangeTb @ 0x1400B5D3C (KeFlushMultipleRangeTb.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14012F798 (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushEntireTb @ 0x14013CFC0 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     KeFlushProcessTb @ 0x140075EFC (KeFlushProcessTb.c)
+ *     KeFlushMultipleRangeTb @ 0x1400B3B64 (KeFlushMultipleRangeTb.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14012FD08 (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushEntireTb @ 0x14013D530 (KeFlushEntireTb.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
  */
 
 _BOOL8 KiFlushViaHypervisor()

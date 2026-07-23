@@ -1,14 +1,14 @@
 /*
- * XREFs of DECREMENT_SCATTER_GATHER_LISTS @ 0x140AC43F0
+ * XREFs of DECREMENT_SCATTER_GATHER_LISTS @ 0x140AC43E0
  * Callers:
- *     VfBuildScatterGatherList @ 0x140AC5680 (VfBuildScatterGatherList.c)
- *     VfBuildScatterGatherListEx @ 0x140AC59E0 (VfBuildScatterGatherListEx.c)
- *     VfGetScatterGatherList @ 0x140AC6830 (VfGetScatterGatherList.c)
- *     VfGetScatterGatherListEx @ 0x140AC6C00 (VfGetScatterGatherListEx.c)
- *     VfPutScatterGatherList @ 0x140AC75F0 (VfPutScatterGatherList.c)
+ *     VfBuildScatterGatherList @ 0x140AC5670 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x140AC59D0 (VfBuildScatterGatherListEx.c)
+ *     VfGetScatterGatherList @ 0x140AC6820 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x140AC6BF0 (VfGetScatterGatherListEx.c)
+ *     VfPutScatterGatherList @ 0x140AC75E0 (VfPutScatterGatherList.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall DECREMENT_SCATTER_GATHER_LISTS(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall DECREMENT_SCATTER_GATHER_LISTS(__int64 a1)
   if ( v2 < 0 )
   {
     ViHalPreprocessOptions(
-      byte_140C0DDC8,
+      byte_140C0DDB8,
       "Driver has freed too many scatter gather lists %x allocated, %x freed.",
       6,
       *(_DWORD *)(a1 + 196));
@@ -29,6 +29,6 @@ void __fastcall DECREMENT_SCATTER_GATHER_LISTS(__int64 a1)
       *(unsigned int *)(a1 + 196),
       (unsigned int)(*(_DWORD *)(a1 + 196) - v2),
       0LL,
-      byte_140C0DDC8);
+      byte_140C0DDB8);
   }
 }

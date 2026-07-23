@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlockProbePacketWorkingSet @ 0x1403A0340
+ * XREFs of MiUnlockProbePacketWorkingSet @ 0x1403A20A0
  * Callers:
- *     MiProbeAndLockPacket @ 0x1402EE280 (MiProbeAndLockPacket.c)
- *     MiProbeLeafPteAccess @ 0x1402EF490 (MiProbeLeafPteAccess.c)
- *     MmStoreProbeAndLockPages @ 0x1402F0670 (MmStoreProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
- *     MiProbeAndLockComplete @ 0x1403A0050 (MiProbeAndLockComplete.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     MiFaultInProbeAddress @ 0x1403A04D0 (MiFaultInProbeAddress.c)
- *     MiSplitReducedCommitClonePage @ 0x14052CA98 (MiSplitReducedCommitClonePage.c)
+ *     MiProbeAndLockPacket @ 0x1402D0300 (MiProbeAndLockPacket.c)
+ *     MiProbeLeafPteAccess @ 0x1402D1510 (MiProbeLeafPteAccess.c)
+ *     MmStoreProbeAndLockPages @ 0x1402D26F0 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockComplete @ 0x1403A1DB0 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     MiFaultInProbeAddress @ 0x1403A2230 (MiFaultInProbeAddress.c)
+ *     MiSplitReducedCommitClonePage @ 0x14052EFB8 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall MiUnlockProbePacketWorkingSet(__int64 a1)
@@ -37,7 +37,7 @@ void __fastcall MiUnlockProbePacketWorkingSet(__int64 a1)
       {
         if ( (*(_DWORD *)(v3 + 184) & 0xF) != 0 && v1 >= 0xFFFFF6FB7DBED000uLL && v1 <= 0xFFFFF6FB7DBEDFFFuLL )
           _InterlockedAnd(
-            (volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4
+            (volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4
                                                                          * ((unsigned __int64)(2
                                                                                              * (unsigned int)((__int64)(v1 + 0x90482413000LL) >> 3)) >> 5)
                                                                          + 4],

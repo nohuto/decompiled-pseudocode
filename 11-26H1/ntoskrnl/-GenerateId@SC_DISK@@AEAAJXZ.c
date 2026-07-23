@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GenerateId@SC_DISK@@AEAAJXZ @ 0x14071AF48
+ * XREFs of ?GenerateId@SC_DISK@@AEAAJXZ @ 0x14071FBD8
  * Callers:
- *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x14071B1A0 (-Initialize@SC_DISK@@UEAAJXZ.c)
+ *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x14071FE30 (-Initialize@SC_DISK@@UEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140790C44 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140793774 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
  */
 
 __int64 __fastcall SC_DISK::GenerateId(SC_DISK *this)

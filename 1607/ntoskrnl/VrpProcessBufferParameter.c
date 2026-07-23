@@ -1,8 +1,8 @@
 /*
- * XREFs of VrpProcessBufferParameter @ 0x140613010
+ * XREFs of VrpProcessBufferParameter @ 0x1406130C4
  * Callers:
- *     VrpPostEnumerateKey @ 0x140614D90 (VrpPostEnumerateKey.c)
- *     VrpPostQueryKey @ 0x140615828 (VrpPostQueryKey.c)
+ *     VrpPostEnumerateKey @ 0x140614E44 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x1406158DC (VrpPostQueryKey.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

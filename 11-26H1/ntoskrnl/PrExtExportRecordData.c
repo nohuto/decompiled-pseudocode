@@ -1,9 +1,9 @@
 /*
- * XREFs of PrExtExportRecordData @ 0x1406DCB78
+ * XREFs of PrExtExportRecordData @ 0x1406E0E18
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
- *     GetMicrocodePatchData @ 0x1406DD430 (GetMicrocodePatchData.c)
+ *     GetMicrocodePatchData @ 0x1406E16D0 (GetMicrocodePatchData.c)
  */
 
 __int64 __fastcall PrExtExportRecordData(_DWORD *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifCmRegisterCallbackWrapper @ 0x1405D65A0
+ * XREFs of DifCmRegisterCallbackWrapper @ 0x1405D6B10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     CmRegisterCallback @ 0x140850CF0 (CmRegisterCallback.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     CmRegisterCallback @ 0x140850FF0 (CmRegisterCallback.c)
  */
 
 NTSTATUS __fastcall DifCmRegisterCallbackWrapper(PEX_CALLBACK_FUNCTION Function, PVOID Context, PLARGE_INTEGER Cookie)

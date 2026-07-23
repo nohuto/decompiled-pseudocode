@@ -15,32 +15,32 @@
  *     memmove @ 0x1800A4340 (memmove.c)
  */
 
-__int64 __fastcall RtlDosSearchPath_Ustr(
-        int a1,
-        unsigned __int16 *a2,
-        unsigned __int16 *a3,
-        unsigned __int16 *a4,
-        __int64 a5,
-        __int64 a6,
-        _QWORD *a7,
-        _QWORD *a8,
-        _QWORD *a9)
+NTSTATUS __cdecl RtlDosSearchPath_Ustr(
+        ULONG Flags,
+        PUNICODE_STRING Path,
+        PUNICODE_STRING FileName,
+        PUNICODE_STRING DefaultExtension,
+        PUNICODE_STRING StaticString,
+        PUNICODE_STRING DynamicString,
+        PCUNICODE_STRING *FullFileNameOut,
+        SIZE_T *FilePartPrefixCch,
+        SIZE_T *BytesRequired)
 {
   char v10; // bl
   unsigned __int64 v12; // rsi
-  int v13; // eax
+  RTL_PATH_TYPE v13; // eax
   __int64 v14; // rdx
-  unsigned __int16 *v15; // r11
+  unsigned __int16 *p_Length; // r11
   unsigned __int64 v16; // rdx
   wchar_t *StringRoutine; // rax
   __int64 v18; // rdx
   int FullPathName_Ustr; // ebx
-  UNICODE_STRING *p_UnicodeString; // rcx
-  int v22; // r9d
-  int v23; // r8d
-  unsigned __int16 v24; // bx
-  unsigned __int64 v25; // rdx
-  _WORD *v26; // rcx
+  _UNICODE_STRING *p_UnicodeString; // rcx
+  PUNICODE_STRING *v22; // r9
+  _UNICODE_STRING *v23; // r8
+  unsigned __int16 Length; // bx
+  wchar_t *v25; // rdx
+  wchar_t *v26; // rcx
   unsigned __int64 v27; // r10
   unsigned __int64 v28; // rdx
   unsigned __int64 v29; // rcx
@@ -59,113 +59,113 @@ __int64 __fastcall RtlDosSearchPath_Ustr(
   unsigned __int64 v42; // rdx
   __int64 v43; // r8
   unsigned __int64 v44; // rax
-  _WORD *v45; // rcx
-  int v46; // eax
-  unsigned __int64 v47; // rdx
-  _WORD *v48; // rcx
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-B0h] BYREF
-  int v50; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD *v51; // [rsp+68h] [rbp-98h]
-  _QWORD *v52; // [rsp+70h] [rbp-90h]
-  __int64 v53; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v54; // [rsp+80h] [rbp-80h]
+  wchar_t *Buffer; // rcx
+  NTSTATUS v46; // eax
+  wchar_t *v47; // rdx
+  wchar_t *v48; // rcx
+  _UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-B0h] BYREF
+  RTL_PATH_TYPE InputPathType; // [rsp+60h] [rbp-A0h] BYREF
+  PSIZE_T RequiredLength; // [rsp+68h] [rbp-98h]
+  PSIZE_T FileNameSize; // [rsp+70h] [rbp-90h]
+  PUNICODE_STRING v53; // [rsp+78h] [rbp-88h]
+  PUNICODE_STRING v54; // [rsp+80h] [rbp-80h]
   int v55; // [rsp+88h] [rbp-78h]
-  __int64 v56; // [rsp+90h] [rbp-70h] BYREF
-  unsigned __int16 *v57; // [rsp+98h] [rbp-68h]
-  _QWORD *v58; // [rsp+A0h] [rbp-60h]
-  __int64 v59; // [rsp+A8h] [rbp-58h]
+  PUNICODE_STRING NewName; // [rsp+90h] [rbp-70h] BYREF
+  PUNICODE_STRING v57; // [rsp+98h] [rbp-68h]
+  PCUNICODE_STRING *v58; // [rsp+A0h] [rbp-60h]
+  PUNICODE_STRING v59; // [rsp+A8h] [rbp-58h]
   _BYTE v60[528]; // [rsp+B0h] [rbp-50h] BYREF
 
-  v54 = (unsigned __int64)a2;
-  v10 = a1;
-  v53 = a5;
+  v54 = Path;
+  v10 = Flags;
+  v53 = StaticString;
   v12 = 0LL;
-  v51 = a9;
+  RequiredLength = BytesRequired;
   UnicodeString.Buffer = (wchar_t *)v60;
-  v57 = a4;
-  v59 = a6;
-  v58 = a7;
-  v52 = a8;
+  v57 = DefaultExtension;
+  v59 = DynamicString;
+  v58 = FullFileNameOut;
+  FileNameSize = FilePartPrefixCch;
   LOWORD(v55) = 0;
   *(_DWORD *)&UnicodeString.Length = 34078720;
-  if ( a7 )
-    *a7 = 0LL;
-  if ( a9 )
-    *a9 = 0LL;
-  if ( a8 )
-    *a8 = 0LL;
-  if ( a6 )
+  if ( FullFileNameOut )
+    *FullFileNameOut = 0LL;
+  if ( BytesRequired )
+    *BytesRequired = 0LL;
+  if ( FilePartPrefixCch )
+    *FilePartPrefixCch = 0LL;
+  if ( DynamicString )
   {
-    *(_DWORD *)a6 = 0;
-    *(_QWORD *)(a6 + 8) = 0LL;
+    *(_DWORD *)&DynamicString->Length = 0;
+    DynamicString->Buffer = 0LL;
   }
-  if ( (a1 & 0xFFFFFFF8) != 0 || !a2 || !a3 || a5 && a6 && !a7 )
+  if ( (Flags & 0xFFFFFFF8) != 0 || !Path || !FileName || StaticString && DynamicString && !FullFileNameOut )
   {
     FullPathName_Ustr = -1073741811;
     goto LABEL_27;
   }
-  v13 = RtlDetermineDosPathNameType_Ustr(a3);
-  v50 = v13;
-  if ( (v10 & 2) != 0 && v13 == 5 && *a3 >= 4u )
+  v13 = (unsigned int)RtlDetermineDosPathNameType_Ustr(FileName);
+  InputPathType = v13;
+  if ( (v10 & 2) != 0 && v13 == RtlPathTypeRelative && FileName->Length >= 4u )
   {
-    v45 = (_WORD *)*((_QWORD *)a3 + 1);
-    if ( *v45 == 46 )
+    Buffer = FileName->Buffer;
+    if ( *Buffer == 46 )
     {
-      if ( v45[1] == 92 || v45[1] == 47 )
+      if ( Buffer[1] == 92 || Buffer[1] == 47 )
       {
-        v13 = 0;
-        v50 = 0;
+        v13 = RtlPathTypeUnknown;
+        InputPathType = RtlPathTypeUnknown;
       }
-      else if ( v45[1] == 46 && *a3 >= 6u && (v45[2] == 92 || v45[2] == 47) )
+      else if ( Buffer[1] == 46 && FileName->Length >= 6u && (Buffer[2] == 92 || Buffer[2] == 47) )
       {
-        v50 = 0;
+        InputPathType = RtlPathTypeUnknown;
         goto LABEL_18;
       }
     }
   }
-  if ( v13 == 5 )
+  if ( v13 == RtlPathTypeRelative )
   {
     if ( (v10 & 1) != 0 )
     {
-      v56 = 0LL;
+      NewName = 0LL;
       v46 = RtlDosApplyFileIsolationRedirection_Ustr(
-              1,
-              (_DWORD)a3,
-              (_DWORD)a4,
+              1u,
+              FileName,
+              DefaultExtension,
               v53,
-              a6,
-              (__int64)&v56,
+              DynamicString,
+              &NewName,
               0LL,
-              (__int64)v52,
-              (__int64)v51);
+              FileNameSize,
+              RequiredLength);
       FullPathName_Ustr = v46;
       if ( v46 >= 0 )
       {
-        if ( a7 )
-          *a7 = v56;
+        if ( FullFileNameOut )
+          *FullFileNameOut = NewName;
 LABEL_34:
         FullPathName_Ustr = 0;
         goto LABEL_27;
       }
       if ( v46 != -1072365560 )
         goto LABEL_27;
-      v15 = (unsigned __int16 *)v54;
+      p_Length = &v54->Length;
     }
-    if ( a4 )
+    if ( DefaultExtension )
     {
-      v24 = *a4;
-      if ( *a3 )
+      Length = DefaultExtension->Length;
+      if ( FileName->Length )
       {
-        v25 = *((_QWORD *)a3 + 1);
-        v26 = (_WORD *)(v25 + 2 * ((unsigned __int64)*a3 >> 1));
-        while ( (unsigned __int64)v26 > v25 )
+        v25 = FileName->Buffer;
+        v26 = &v25[(unsigned __int64)FileName->Length >> 1];
+        while ( v26 > v25 )
         {
           if ( *--v26 == 47 || *v26 == 92 )
             break;
           if ( *v26 == 46 )
           {
             v57 = 0LL;
-            v24 = 0;
+            Length = 0;
             break;
           }
         }
@@ -173,12 +173,12 @@ LABEL_34:
     }
     else
     {
-      v24 = v55;
+      Length = v55;
     }
-    if ( *v15 )
+    if ( *p_Length )
     {
-      v27 = *((_QWORD *)v15 + 1);
-      v28 = v27 + 2 * ((unsigned __int64)*v15 >> 1);
+      v27 = *((_QWORD *)p_Length + 1);
+      v28 = v27 + 2 * ((unsigned __int64)*p_Length >> 1);
       v29 = v28;
       if ( v28 > v27 )
       {
@@ -200,7 +200,7 @@ LABEL_34:
           v29 -= 2LL;
         }
         while ( v30 > v27 );
-        v15 = (unsigned __int16 *)v54;
+        p_Length = &v54->Length;
       }
       v31 = (__int64)(v28 - v29) >> 1;
       if ( (_WORD)v31 && *(_WORD *)(v28 - 2) != 92 && *(_WORD *)(v28 - 2) != 47 )
@@ -210,14 +210,14 @@ LABEL_34:
         v31 = v12;
       v12 = 2 * v31;
     }
-    v32 = v24;
-    v33 = v24 + (unsigned __int64)*a3;
-    v54 = v24;
+    v32 = Length;
+    v33 = Length + (unsigned __int64)FileName->Length;
+    v54 = (PUNICODE_STRING)Length;
     v34 = v33 + v12 + 2;
     if ( v34 <= 0xFFFE )
     {
-      v35 = (_WORD *)*((_QWORD *)v15 + 1);
-      v36 = &v35[(unsigned __int64)*v15 >> 1];
+      v35 = (_WORD *)*((_QWORD *)p_Length + 1);
+      v36 = &v35[(unsigned __int64)*p_Length >> 1];
       if ( v35 < v36 )
       {
         while ( 1 )
@@ -233,7 +233,7 @@ LABEL_34:
           v41 = v40;
           if ( !v39 && *(i - 1) != 92 && *(i - 1) != 47 )
             v40 += 2;
-          v42 = v40 + *a3 + v32;
+          v42 = v40 + FileName->Length + v32;
           if ( UnicodeString.MaximumLength < v42 + 2 )
           {
             if ( (_BYTE *)UnicodeString.Buffer != v60 || v42 > 0xFFFC )
@@ -241,7 +241,7 @@ LABEL_34:
             UnicodeString.MaximumLength = v34;
             UnicodeString.Buffer = (wchar_t *)NtdllpAllocateStringRoutine((unsigned __int16)v34);
             if ( !UnicodeString.Buffer )
-              return (unsigned int)-1073741801;
+              return -1073741801;
           }
           UnicodeString.Length = 0;
           RtlUnicodeStringCbCopyStringN(&UnicodeString, v35, v41);
@@ -250,7 +250,7 @@ LABEL_34:
             UnicodeString.Buffer[(unsigned __int64)UnicodeString.Length >> 1] = 92;
             UnicodeString.Length += 2;
           }
-          RtlUnicodeStringCat(&UnicodeString, a3);
+          RtlUnicodeStringCat(&UnicodeString, FileName);
           if ( v57 )
             RtlUnicodeStringCat(&UnicodeString, v57);
           if ( (unsigned __int64)UnicodeString.Length + 2 > UnicodeString.MaximumLength )
@@ -258,7 +258,7 @@ LABEL_34:
           UnicodeString.Buffer[(unsigned __int64)UnicodeString.Length >> 1] = 0;
           if ( (unsigned __int8)RtlDoesFileExists_UstrEx(&UnicodeString, 0LL) )
           {
-            v22 = (int)v58;
+            v22 = (PUNICODE_STRING *)v58;
             p_UnicodeString = &UnicodeString;
             v23 = v59;
             goto LABEL_33;
@@ -268,7 +268,7 @@ LABEL_34:
             v35 = i;
           if ( v35 >= v36 )
             goto LABEL_26;
-          v32 = v54;
+          v32 = (unsigned __int64)v54;
         }
         FullPathName_Ustr = -1073741595;
         goto LABEL_27;
@@ -279,35 +279,35 @@ LABEL_34:
   }
 LABEL_18:
   LOBYTE(v14) = 1;
-  if ( (unsigned __int8)RtlDoesFileExists_UstrEx(a3, v14) )
+  if ( (unsigned __int8)RtlDoesFileExists_UstrEx(FileName, v14) )
   {
-    LODWORD(p_UnicodeString) = (_DWORD)a3;
+    p_UnicodeString = FileName;
 LABEL_32:
-    v22 = (int)a7;
-    v23 = a6;
+    v22 = (PUNICODE_STRING *)FullFileNameOut;
+    v23 = DynamicString;
 LABEL_33:
     FullPathName_Ustr = RtlGetFullPathName_UstrEx(
-                          (_DWORD)p_UnicodeString,
+                          p_UnicodeString,
                           v53,
                           v23,
                           v22,
-                          (__int64)v52,
+                          FileNameSize,
                           0LL,
-                          (__int64)&v50,
-                          (__int64)v51);
+                          &InputPathType,
+                          RequiredLength);
     if ( FullPathName_Ustr < 0 )
       goto LABEL_27;
     goto LABEL_34;
   }
-  if ( a4 && *a4 )
+  if ( DefaultExtension && DefaultExtension->Length )
   {
     if ( (v10 & 4) == 0 )
     {
-      if ( *a3 )
+      if ( FileName->Length )
       {
-        v47 = *((_QWORD *)a3 + 1);
-        v48 = (_WORD *)(v47 + 2 * ((unsigned __int64)*a3 >> 1));
-        while ( (unsigned __int64)v48 > v47 )
+        v47 = FileName->Buffer;
+        v48 = &v47[(unsigned __int64)FileName->Length >> 1];
+        while ( v48 > v47 )
         {
           if ( *--v48 == 92 || *v48 == 47 )
             break;
@@ -316,26 +316,29 @@ LABEL_33:
         }
       }
     }
-    v16 = *a4 + *a3 + 2LL;
+    v16 = DefaultExtension->Length + FileName->Length + 2LL;
     if ( v16 <= 0xFFFE )
     {
       if ( v16 > UnicodeString.MaximumLength )
       {
-        UnicodeString.MaximumLength = *a4 + *a3 + 2;
+        UnicodeString.MaximumLength = DefaultExtension->Length + FileName->Length + 2;
         StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine((unsigned __int16)v16);
         UnicodeString.Buffer = StringRoutine;
         if ( !StringRoutine )
-          return (unsigned int)-1073741801;
+          return -1073741801;
       }
       else
       {
         StringRoutine = UnicodeString.Buffer;
       }
-      memmove(StringRoutine, *((const void **)a3 + 1), *a3);
-      memmove(&UnicodeString.Buffer[(unsigned __int64)*a3 >> 1], *((const void **)a4 + 1), *a4);
+      memmove(StringRoutine, FileName->Buffer, FileName->Length);
+      memmove(
+        &UnicodeString.Buffer[(unsigned __int64)FileName->Length >> 1],
+        DefaultExtension->Buffer,
+        DefaultExtension->Length);
       LOBYTE(v18) = 1;
-      UnicodeString.Buffer[(*a3 + (unsigned __int64)*a4) >> 1] = 0;
-      UnicodeString.Length = *a3 + *a4;
+      UnicodeString.Buffer[(FileName->Length + (unsigned __int64)DefaultExtension->Length) >> 1] = 0;
+      UnicodeString.Length = FileName->Length + DefaultExtension->Length;
       if ( !(unsigned __int8)RtlDoesFileExists_UstrEx(&UnicodeString, v18) )
         goto LABEL_26;
       p_UnicodeString = &UnicodeString;
@@ -350,5 +353,5 @@ LABEL_26:
 LABEL_27:
   if ( UnicodeString.Buffer && (_BYTE *)UnicodeString.Buffer != v60 )
     RtlFreeAnsiString(&UnicodeString);
-  return (unsigned int)FullPathName_Ustr;
+  return FullPathName_Ustr;
 }

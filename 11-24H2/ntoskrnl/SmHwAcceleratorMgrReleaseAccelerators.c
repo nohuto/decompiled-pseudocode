@@ -1,11 +1,11 @@
 /*
- * XREFs of SmHwAcceleratorMgrReleaseAccelerators @ 0x14079C808
+ * XREFs of SmHwAcceleratorMgrReleaseAccelerators @ 0x14079C918
  * Callers:
- *     SmHwAcceleratorMgrAcquireAccelerators @ 0x14079BE58 (SmHwAcceleratorMgrAcquireAccelerators.c)
- *     SmHwAcceleratorMgrPartitionUnregister @ 0x14079C72C (SmHwAcceleratorMgrPartitionUnregister.c)
+ *     SmHwAcceleratorMgrAcquireAccelerators @ 0x14079BF68 (SmHwAcceleratorMgrAcquireAccelerators.c)
+ *     SmHwAcceleratorMgrPartitionUnregister @ 0x14079C83C (SmHwAcceleratorMgrPartitionUnregister.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmHwAcceleratorCleanup @ 0x14079BBEC (SmHwAcceleratorCleanup.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmHwAcceleratorCleanup @ 0x14079BCFC (SmHwAcceleratorCleanup.c)
  */
 
 __int64 __fastcall SmHwAcceleratorMgrReleaseAccelerators(__int64 a1)

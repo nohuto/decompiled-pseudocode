@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x1401482F0
+ * XREFs of MiReplicatePteChange @ 0x140148860
  * Callers:
- *     MiMakeZeroedPageTableRange @ 0x140020CC8 (MiMakeZeroedPageTableRange.c)
- *     MiDeletePteRange @ 0x1401007D0 (MiDeletePteRange.c)
- *     MiPfnRangeIsZero @ 0x14013E6D4 (MiPfnRangeIsZero.c)
- *     MiInitializeShadowPageTable @ 0x14065B988 (MiInitializeShadowPageTable.c)
+ *     MiMakeZeroedPageTableRange @ 0x140020848 (MiMakeZeroedPageTableRange.c)
+ *     MiDeletePteRange @ 0x1400FE550 (MiDeletePteRange.c)
+ *     MiPfnRangeIsZero @ 0x14013EC44 (MiPfnRangeIsZero.c)
+ *     MiInitializeShadowPageTable @ 0x14065BA6C (MiInitializeShadowPageTable.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiShadowTopLevelPxes @ 0x1401EF5E0 (MiShadowTopLevelPxes.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiShadowTopLevelPxes @ 0x1401EF40C (MiShadowTopLevelPxes.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2)
@@ -52,10 +52,10 @@ void __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2)
   v21 = Process;
   while ( a1 >= 0xFFFFF68000000000uLL && a1 <= 0xFFFFF6FFFFFFFFFFuLL )
     a1 = (__int64)(a1 << 25) >> 16;
-  if ( a1 < qword_140326910 || a1 >= qword_140326910 + 0x8000000000LL )
+  if ( a1 < qword_140326950 || a1 >= qword_140326950 + 0x8000000000LL )
   {
     v6 = 0LL;
-    v7 = &qword_140326978;
+    v7 = &qword_1403269B8;
   }
   else
   {
@@ -63,7 +63,7 @@ void __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2)
     v7 = (__int64 *)(v6 + 16);
   }
   v8 = v7;
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
   v9 = (__int64 *)*v7;
   if ( (__int64 *)*v7 != v7 )
   {

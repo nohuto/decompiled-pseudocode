@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHeapListCompare @ 0x18004C414
+ * XREFs of RtlpHeapListCompare @ 0x18004C404
  * Callers:
- *     RtlpAllocateHeap @ 0x180025060 (RtlpAllocateHeap.c)
- *     RtlpExtendHeap @ 0x180027790 (RtlpExtendHeap.c)
- *     RtlpHeapAddListEntry @ 0x18004C2F4 (RtlpHeapAddListEntry.c)
+ *     RtlpAllocateHeap @ 0x180025050 (RtlpAllocateHeap.c)
+ *     RtlpExtendHeap @ 0x180027780 (RtlpExtendHeap.c)
+ *     RtlpHeapAddListEntry @ 0x18004C2E4 (RtlpHeapAddListEntry.c)
  * Callees:
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  */

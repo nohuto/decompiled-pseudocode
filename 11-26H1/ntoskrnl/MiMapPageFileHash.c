@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMapPageFileHash @ 0x1404A0244
+ * XREFs of MiMapPageFileHash @ 0x140499D94
  * Callers:
- *     MiModwriterIssueWrite @ 0x140408928 (MiModwriterIssueWrite.c)
- *     MiStoreUpdatePagefileHash @ 0x1404A0100 (MiStoreUpdatePagefileHash.c)
+ *     MiModwriterIssueWrite @ 0x140401A18 (MiModwriterIssueWrite.c)
+ *     MiStoreUpdatePagefileHash @ 0x140499C50 (MiStoreUpdatePagefileHash.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInitializePfnForOtherProcess @ 0x14033B798 (MiInitializePfnForOtherProcess.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiWritePageFileHash @ 0x140470698 (MiWritePageFileHash.c)
- *     MiFreePageFileHashPfn @ 0x1404B2BEC (MiFreePageFileHashPfn.c)
- *     MiGetFileHashPage @ 0x1404DC348 (MiGetFileHashPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInitializePfnForOtherProcess @ 0x14033D818 (MiInitializePfnForOtherProcess.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiWritePageFileHash @ 0x140469E18 (MiWritePageFileHash.c)
+ *     MiFreePageFileHashPfn @ 0x1404AC268 (MiFreePageFileHashPfn.c)
+ *     MiGetFileHashPage @ 0x1404D5A28 (MiGetFileHashPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiMapPageFileHash(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int a5)
@@ -76,7 +76,7 @@ unsigned __int64 __fastcall MiMapPageFileHash(__int64 a1, __int64 a2, __int64 a3
   v7 = a4;
   if ( !v6 )
   {
-    MiInitializePageColorBase((__int64)&unk_140E371C0, 3, 0, (__int64)&v47);
+    MiInitializePageColorBase((__int64)&unk_140E37340, 3, 0, (__int64)&v47);
     v45 = (__int64 *)(a2 + 48 + 8 * a3);
     v11 = 17;
     CurrentIrql = KeGetCurrentIrql();
@@ -96,19 +96,19 @@ unsigned __int64 __fastcall MiMapPageFileHash(__int64 a1, __int64 a2, __int64 a3
         v14 = ExAcquireSpinLockExclusive(v13);
       }
       v46 = *(_QWORD *)(a1 + 184);
-      v15 = v46 + dword_140E35F4C * v7;
-      v16 = ((v46 + (unsigned __int64)(unsigned int)(dword_140E35F4C * v7)) >> 9) & 0x7FFFFFFFF8LL;
+      v15 = v46 + dword_140E360CC * v7;
+      v16 = ((v46 + (unsigned __int64)(unsigned int)(dword_140E360CC * v7)) >> 9) & 0x7FFFFFFFF8LL;
       v17 = a5;
       v18 = v16 - 0x98000000000LL;
-      v19 = (4096 - (v15 & 0xFFFu)) / dword_140E35F4C;
+      v19 = (4096 - (v15 & 0xFFFu)) / dword_140E360CC;
       if ( v19 <= a5 )
         v17 = v19;
       if ( (*(_QWORD *)v18 & 1) != 0 )
       {
         v20 = *(_QWORD *)(48 * ((*(_QWORD *)v18 >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFF0LL);
         v21 = HIDWORD(v20);
-        if ( qword_140E2D740 && (v20 & 0x10) == 0 )
-          v21 = HIDWORD(v20) & HIDWORD(qword_140E2D748);
+        if ( qword_140E2D8C0 && (v20 & 0x10) == 0 )
+          v21 = HIDWORD(v20) & HIDWORD(qword_140E2D8C8);
         updated = MiUpdatePageFileHighInPte(v20, (int)v17 + v21);
         *(_QWORD *)(v24 + 8 * v23) = updated;
         v25 = (volatile LONG *)(a1 + 200);
@@ -153,15 +153,15 @@ LABEL_34:
             __writecr8(CurrentIrql);
           }
           MiReleaseNonPagedResources(*(_QWORD *)(a1 + 224), 1LL);
-          _InterlockedDecrement64(&qword_140E378A8);
+          _InterlockedDecrement64(&qword_140E37A28);
         }
         result = a5;
         goto LABEL_45;
       }
       v35 = *(_QWORD *)v18;
       v36 = *(_QWORD *)v18;
-      if ( qword_140E2D740 && (v35 & 0x10) == 0 )
-        HIDWORD(v36) &= HIDWORD(qword_140E2D748);
+      if ( qword_140E2D8C0 && (v35 & 0x10) == 0 )
+        HIDWORD(v36) &= HIDWORD(qword_140E2D8C8);
       v37 = v17 + HIDWORD(v36);
       if ( v29 == -1 )
       {

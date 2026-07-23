@@ -1,15 +1,15 @@
 /*
- * XREFs of BiBindEfiEntryToBcdObject @ 0x1408F22D8
+ * XREFs of BiBindEfiEntryToBcdObject @ 0x1408F3598
  * Callers:
- *     BiBindEfiEntries @ 0x1408F2194 (BiBindEfiEntries.c)
+ *     BiBindEfiEntries @ 0x1408F3454 (BiBindEfiEntries.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
- *     BiGetKeyName @ 0x140713B4C (BiGetKeyName.c)
- *     BiCreateObject @ 0x1408F0BA0 (BiCreateObject.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     BcdCloseObject @ 0x140714240 (BcdCloseObject.c)
+ *     BiGetKeyName @ 0x140714DEC (BiGetKeyName.c)
+ *     BiCreateObject @ 0x1408F1E60 (BiCreateObject.c)
  */
 
 __int64 __fastcall BiBindEfiEntryToBcdObject(__int64 a1, GUID *a2)
@@ -17,13 +17,13 @@ __int64 __fastcall BiBindEfiEntryToBcdObject(__int64 a1, GUID *a2)
   int KeyName; // ebx
   GUID v4; // xmm0
   PCWSTR SourceString; // [rsp+30h] [rbp-40h] BYREF
-  void *v7; // [rsp+38h] [rbp-38h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp-38h] BYREF
   unsigned int v8[2]; // [rsp+40h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-28h] BYREF
   GUID Guid; // [rsp+58h] [rbp-18h] BYREF
 
   SourceString = 0LL;
-  v7 = 0LL;
+  BcdObjectHandle = 0LL;
   if ( (a2[3].Data1 & 4) != 0 )
   {
     return 0;
@@ -32,10 +32,10 @@ __int64 __fastcall BiBindEfiEntryToBcdObject(__int64 a1, GUID *a2)
   {
     v8[1] = 270532607;
     v8[0] = 1;
-    KeyName = BiCreateObject(a1, 0LL, v8, 1LL, &v7);
+    KeyName = BiCreateObject(a1, 0LL, v8, 1LL, &BcdObjectHandle);
     if ( KeyName >= 0 )
     {
-      KeyName = BiGetKeyName(v7, &SourceString);
+      KeyName = BiGetKeyName(BcdObjectHandle, &SourceString);
       if ( KeyName >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);
@@ -50,8 +50,8 @@ __int64 __fastcall BiBindEfiEntryToBcdObject(__int64 a1, GUID *a2)
       if ( SourceString )
         ExFreePoolWithTag((PVOID)SourceString, 0x4B444342u);
     }
-    if ( v7 )
-      BcdCloseObject((__int64)v7);
+    if ( BcdObjectHandle )
+      BcdCloseObject(BcdObjectHandle);
   }
   return (unsigned int)KeyName;
 }

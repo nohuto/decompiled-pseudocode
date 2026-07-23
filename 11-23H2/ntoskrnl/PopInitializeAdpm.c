@@ -4,9 +4,9 @@
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
- *     PopExtendConnectionState @ 0x1408015AC (PopExtendConnectionState.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
+ *     PopExtendConnectionState @ 0x14080187C (PopExtendConnectionState.c)
  *     PopAdaptiveInitializeBootContext @ 0x140B35F44 (PopAdaptiveInitializeBootContext.c)
  */
 
@@ -17,10 +17,10 @@ __int64 PopInitializeAdpm()
 
   ExInitializeResourceLite(&PopAdpmLock);
   memset(&PopAdaptiveContext, 0, 0x50uLL);
-  dword_140C39CF8 = -1;
+  dword_140C39C58 = -1;
   PopMaximumConnectionSessions = 0;
   PopConnectionState = 0LL;
-  dword_140C39CFC = 3;
+  dword_140C39C5C = 3;
   PopExtendConnectionState(0);
   result = ExSubscribeWnfStateChange(
              (__int64)&v1,

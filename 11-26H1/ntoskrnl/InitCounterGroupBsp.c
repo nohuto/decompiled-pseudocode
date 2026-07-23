@@ -1,12 +1,12 @@
 /*
- * XREFs of InitCounterGroupBsp @ 0x140BEAEC0
+ * XREFs of InitCounterGroupBsp @ 0x140BF0EC0
  * Callers:
- *     DefaultInitializeProfiling @ 0x140BEAD10 (DefaultInitializeProfiling.c)
+ *     DefaultInitializeProfiling @ 0x140BF0D10 (DefaultInitializeProfiling.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpMmAllocateMemory @ 0x14057DCD4 (HalpMmAllocateMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocateMemory @ 0x1405801F4 (HalpMmAllocateMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _DWORD *__fastcall InitCounterGroupBsp(int a1, int a2)

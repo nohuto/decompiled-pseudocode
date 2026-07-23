@@ -26,16 +26,16 @@
 
 __int64 __fastcall PopUmpoSendPowerMessage(void *Src, size_t Size, char a3)
 {
-  _WORD *PoolWithTag; // rdi
-  int v7; // eax
-  int v8; // ebx
-  char *MessageAttribute; // rax
-  __int64 v11; // [rsp+40h] [rbp-D8h] BYREF
-  _DWORD v12[40]; // [rsp+50h] [rbp-C8h] BYREF
+  _PORT_MESSAGE *ReceiveMessage; // rdi
+  NTSTATUS v7; // eax
+  NTSTATUS v8; // ebx
+  _ALPC_CONTEXT_ATTR *MessageAttribute; // rax
+  ULONG_PTR BufferLength[2]; // [rsp+40h] [rbp-D8h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES Buffer[20]; // [rsp+50h] [rbp-C8h] BYREF
 
-  v11 = 0LL;
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x6F706D55u);
-  if ( !PoolWithTag )
+  BufferLength[0] = 0LL;
+  ReceiveMessage = (_PORT_MESSAGE *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x6F706D55u);
+  if ( !ReceiveMessage )
     return (unsigned int)-1073741670;
   PopAcquireUmpoPushLock(0LL);
   if ( PopAlpcClientPort )
@@ -45,31 +45,31 @@ __int64 __fastcall PopUmpoSendPowerMessage(void *Src, size_t Size, char a3)
       v8 = -2147483643;
       goto LABEL_7;
     }
-    memset(PoolWithTag + 2, 0, 0xFFCuLL);
-    *PoolWithTag = Size;
-    PoolWithTag[1] = Size + 40;
-    memmove(PoolWithTag + 20, Src, Size);
+    memset(&ReceiveMessage->u2, 0, 0xFFCuLL);
+    ReceiveMessage->u1.s1.DataLength = Size;
+    ReceiveMessage->u1.s1.TotalLength = Size + 40;
+    memmove(&ReceiveMessage[1], Src, Size);
     if ( a3 )
     {
-      memset(v12, 0, sizeof(v12));
-      v11 = 4096LL;
-      v8 = ((__int64 (__fastcall *)(HANDLE, __int64, _WORD *, _QWORD, _WORD *, __int64 *, _DWORD *, _QWORD))ZwAlpcSendWaitReceivePort)(
+      memset(Buffer, 0, sizeof(Buffer));
+      BufferLength[0] = 4096LL;
+      v8 = ZwAlpcSendWaitReceivePort(
              PopAlpcClientPort,
-             0x20000LL,
-             PoolWithTag,
+             0x20000u,
+             ReceiveMessage,
              0LL,
-             PoolWithTag,
-             &v11,
-             v12,
+             ReceiveMessage,
+             BufferLength,
+             Buffer,
              0LL);
       if ( v8 < 0 )
         goto LABEL_7;
-      MessageAttribute = AlpcGetMessageAttribute(v12, 0x20000000);
-      v7 = PopUmpoProcessMessage(PoolWithTag, MessageAttribute);
+      MessageAttribute = (_ALPC_CONTEXT_ATTR *)AlpcGetMessageAttribute(Buffer, 0x20000000u);
+      v7 = PopUmpoProcessMessage(ReceiveMessage, MessageAttribute);
     }
     else
     {
-      v7 = ZwAlpcSendWaitReceivePort(PopAlpcClientPort, 0x10000LL, PoolWithTag, 0LL, 0LL, 0LL, 0LL, 0LL, v11);
+      v7 = ZwAlpcSendWaitReceivePort(PopAlpcClientPort, 0x10000u, ReceiveMessage, 0LL, 0LL, 0LL, 0LL, 0LL);
     }
     v8 = v7;
   }
@@ -79,6 +79,6 @@ __int64 __fastcall PopUmpoSendPowerMessage(void *Src, size_t Size, char a3)
   }
 LABEL_7:
   PopReleaseUmpoPushLock();
-  ExFreePoolWithTag(PoolWithTag, 0);
+  ExFreePoolWithTag(ReceiveMessage, 0);
   return (unsigned int)v8;
 }

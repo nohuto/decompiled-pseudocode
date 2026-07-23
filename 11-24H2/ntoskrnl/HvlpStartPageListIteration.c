@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpStartPageListIteration @ 0x14058C594
+ * XREFs of HvlpStartPageListIteration @ 0x140589934
  * Callers:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x140589B68 (HvlpMarkHypervisorPagesForHibernation.c)
- *     HvlAddPagesCallbackRoutine @ 0x140589CB0 (HvlAddPagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x14058A6E4 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x140586E58 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x140586FA0 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1405879D4 (HvlpGetEncryptedDataFromHypervisor.c)
  * Callees:
- *     HvlpInvokeGetPageListHypercall @ 0x14058C45C (HvlpInvokeGetPageListHypercall.c)
- *     HvlpSetupPageListIteration @ 0x14058C50C (HvlpSetupPageListIteration.c)
+ *     HvlpInvokeGetPageListHypercall @ 0x1405897FC (HvlpInvokeGetPageListHypercall.c)
+ *     HvlpSetupPageListIteration @ 0x1405898AC (HvlpSetupPageListIteration.c)
  */
 
 PHYSICAL_ADDRESS *__fastcall HvlpStartPageListIteration(int a1, char a2)

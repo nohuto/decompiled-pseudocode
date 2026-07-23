@@ -1,23 +1,23 @@
 /*
- * XREFs of MiFreePhysicalPageChain @ 0x1403C73D4
+ * XREFs of MiFreePhysicalPageChain @ 0x1403D12C8
  * Callers:
- *     MiDeletePagablePteRange @ 0x140361860 (MiDeletePagablePteRange.c)
- *     NtFreeUserPhysicalPages @ 0x1408793E0 (NtFreeUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140879900 (NtMapUserPhysicalPagesScatter.c)
- *     NtMapUserPhysicalPages @ 0x140B39FC0 (NtMapUserPhysicalPages.c)
+ *     MiDeletePagablePteRange @ 0x140363600 (MiDeletePagablePteRange.c)
+ *     NtFreeUserPhysicalPages @ 0x14087F7C0 (NtFreeUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14087FCE0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x140B3C1D0 (NtMapUserPhysicalPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MiGetAweInfoPartition @ 0x1403BC1DC (MiGetAweInfoPartition.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiFreeContiguousLargePageRun @ 0x140701770 (MiFreeContiguousLargePageRun.c)
- *     MiFreePhysicalRange @ 0x140701AA0 (MiFreePhysicalRange.c)
- *     MiReadyLargeAwePageForFree @ 0x140702494 (MiReadyLargeAwePageForFree.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiReturnProcessPhysicalPages @ 0x140B457E0 (MiReturnProcessPhysicalPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MiGetAweInfoPartition @ 0x1403C604C (MiGetAweInfoPartition.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiFreeContiguousLargePageRun @ 0x140706440 (MiFreeContiguousLargePageRun.c)
+ *     MiFreePhysicalRange @ 0x140706770 (MiFreePhysicalRange.c)
+ *     MiReadyLargeAwePageForFree @ 0x140707164 (MiReadyLargeAwePageForFree.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiReturnProcessPhysicalPages @ 0x140B47810 (MiReturnProcessPhysicalPages.c)
  */
 
 __int64 __fastcall MiFreePhysicalPageChain(__int64 a1, _QWORD *a2)
@@ -77,13 +77,13 @@ __int64 __fastcall MiFreePhysicalPageChain(__int64 a1, _QWORD *a2)
   {
     if ( v10 )
     {
-      v11 = (__int64)&v10[-*(_QWORD *)((char *)&stru_140E2EB88.116 + 4)] >> 3;
+      v11 = (__int64)&v10[-*(_QWORD *)((char *)&stru_140E2ED08.116 + 4)] >> 3;
       if ( (v11 & 0x3FFFFF) != 0 )
       {
         do
         {
           v11 &= 0x3FFFFFuLL;
-          v12 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v11) >> 17;
+          v12 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v11) >> 17;
           v4 = v12 ^ (v12 ^ v4) & 0xFFFFFFFFFFC00000uLL;
           result = MiFreePhysicalRange(v12, v9 * v11);
           LODWORD(v11) = v4;
@@ -138,7 +138,7 @@ LABEL_14:
       v18 = *((_QWORD *)v10 + 5) >> 43;
 LABEL_15:
       v14 = v9;
-      v31 = *(_WORD **)(stru_140E2EB88.ThreadLock + 8 * (v18 & 0x3FF));
+      v31 = *(_WORD **)(stru_140E2ED08.ThreadLock + 8 * (v18 & 0x3FF));
     }
     v13 = v17;
     goto LABEL_17;

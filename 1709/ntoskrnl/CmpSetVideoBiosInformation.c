@@ -30,9 +30,9 @@ void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandl
   LARGE_INTEGER SectionOffset; // [rsp+58h] [rbp-A8h] BYREF
   ULONG_PTR ViewSize; // [rsp+60h] [rbp-A0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
-  STRING v14; // [rsp+78h] [rbp-88h] BYREF
+  _STRING v14; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  char SourceString[128]; // [rsp+A0h] [rbp-60h] BYREF
+  CHAR SourceString[128]; // [rsp+A0h] [rbp-60h] BYREF
 
   BaseAddress = 0LL;
   SectionOffset.QuadPart = 0LL;

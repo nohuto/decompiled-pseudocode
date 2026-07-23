@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlUnregisterWheaErrorNotification @ 0x1406203C8
+ * XREFs of HvlUnregisterWheaErrorNotification @ 0x14062047C
  * Callers:
  *     <none>
  * Callees:

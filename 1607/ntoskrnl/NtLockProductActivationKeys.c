@@ -1,18 +1,18 @@
 /*
- * XREFs of NtLockProductActivationKeys @ 0x140567998
+ * XREFs of NtLockProductActivationKeys @ 0x140567ED8
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcscat_s @ 0x140152FF8 (wcscat_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     wcsncat_s @ 0x140153118 (wcsncat_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     ZwLockRegistryKey @ 0x14015BC80 (ZwLockRegistryKey.c)
- *     IsRegistryKeyLocked @ 0x140567D2C (IsRegistryKeyLocked.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1401535B8 (wcscat_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1401536D8 (wcsncat_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     ZwLockRegistryKey @ 0x14015C1F0 (ZwLockRegistryKey.c)
+ *     IsRegistryKeyLocked @ 0x14056826C (IsRegistryKeyLocked.c)
  */
 
 NTSTATUS __stdcall NtLockProductActivationKeys(PULONG pPrivateVer, PULONG pSafeMode)
@@ -53,9 +53,9 @@ NTSTATUS __stdcall NtLockProductActivationKeys(PULONG pPrivateVer, PULONG pSafeM
   wchar_t Dst[512]; // [rsp+510h] [rbp-428h] BYREF
 
   KeyHandle = 0LL;
-  *(_OWORD *)SourceString = xmmword_140279758;
-  v29 = xmmword_140279768;
-  v30 = xmmword_140279778;
+  *(_OWORD *)SourceString = xmmword_140279858;
+  v29 = xmmword_140279868;
+  v30 = xmmword_140279878;
   v31 = 0x2C7EFB57828734DALL;
   v32 = 593434642;
   v3 = -21647;

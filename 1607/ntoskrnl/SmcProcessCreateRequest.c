@@ -1,20 +1,20 @@
 /*
- * XREFs of SmcProcessCreateRequest @ 0x140697464
+ * XREFs of SmcProcessCreateRequest @ 0x140697548
  * Callers:
- *     SmSetStoreInformation @ 0x1403E3100 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1403E472C (SmSetStoreInformation.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmcCacheCreatePrepare @ 0x140697364 (SmcCacheCreatePrepare.c)
- *     SmcCacheAdd @ 0x140699D00 (SmcCacheAdd.c)
- *     SmcCacheCleanup @ 0x140699E38 (SmcCacheCleanup.c)
- *     SmcCacheDelete @ 0x140699EB4 (SmcCacheDelete.c)
- *     SmcCacheDereference @ 0x140699F04 (SmcCacheDereference.c)
- *     SmcCacheInitialize @ 0x140699F1C (SmcCacheInitialize.c)
- *     SmcCacheStart @ 0x14069A250 (SmcCacheStart.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmcCacheCreatePrepare @ 0x140697448 (SmcCacheCreatePrepare.c)
+ *     SmcCacheAdd @ 0x140699DE4 (SmcCacheAdd.c)
+ *     SmcCacheCleanup @ 0x140699F1C (SmcCacheCleanup.c)
+ *     SmcCacheDelete @ 0x140699F98 (SmcCacheDelete.c)
+ *     SmcCacheDereference @ 0x140699FE8 (SmcCacheDereference.c)
+ *     SmcCacheInitialize @ 0x14069A000 (SmcCacheInitialize.c)
+ *     SmcCacheStart @ 0x14069A334 (SmcCacheStart.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int a3, char a4)

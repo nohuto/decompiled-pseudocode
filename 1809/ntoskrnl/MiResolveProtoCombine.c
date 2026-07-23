@@ -1,7 +1,7 @@
 /*
- * XREFs of MiResolveProtoCombine @ 0x14007BF74
+ * XREFs of MiResolveProtoCombine @ 0x14007BF64
  * Callers:
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiMakeTransitionPteValid @ 0x14002CF4C (MiMakeTransitionPteValid.c)
@@ -13,15 +13,15 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiIsPteInStore @ 0x140141908 (MiIsPteInStore.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
  */
 
 __int64 __fastcall MiResolveProtoCombine(unsigned __int64 a1, __int64 a2, _QWORD *a3)
@@ -68,7 +68,7 @@ __int64 __fastcall MiResolveProtoCombine(unsigned __int64 a1, __int64 a2, _QWORD
   {
     if ( (v8 & 0x400) == 0 && (v8 & 0x800) != 0 )
     {
-      v11 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v7 + 40) >> 40) & 0x3FFLL));
+      v11 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v7 + 40) >> 40) & 0x3FFLL));
       if ( (*(_BYTE *)(v7 + 34) & 0x20) == 0 )
       {
         if ( (unsigned int)MiUnlinkPageFromList(v7, 0) )
@@ -92,7 +92,7 @@ __int64 __fastcall MiResolveProtoCombine(unsigned __int64 a1, __int64 a2, _QWORD
           if ( (unsigned int)MiPteHasShadow(v28, v27) )
           {
             v9 = 1LL;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
               goto LABEL_34;
           }
           else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
@@ -115,7 +115,7 @@ LABEL_30:
     MiUnlockProtoPoolPage(v6, 0x11u);
     return 0LL;
   }
-  v11 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v7 + 40) >> 40) & 0x3FFLL));
+  v11 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v7 + 40) >> 40) & 0x3FFLL));
 LABEL_5:
   v12 = *(_QWORD *)(v7 + 24);
   *(_QWORD *)(v7 + 24) = v12 ^ ((v12 + 1) ^ v12) & 0x3FFFFFFFFFFFFFFFLL;

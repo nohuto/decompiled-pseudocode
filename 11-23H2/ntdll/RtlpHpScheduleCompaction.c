@@ -5,7 +5,7 @@
  *     RtlpHpSegLfhVsDecommit @ 0x180044E80 (RtlpHpSegLfhVsDecommit.c)
  * Callees:
  *     TpSetTimerEx @ 0x180032C50 (TpSetTimerEx.c)
- *     RtlpHpTlLogGCScheduled @ 0x180119BF4 (RtlpHpTlLogGCScheduled.c)
+ *     RtlpHpTlLogGCScheduled @ 0x180119BC4 (RtlpHpTlLogGCScheduled.c)
  */
 
 __int64 RtlpHpScheduleCompaction()
@@ -16,7 +16,7 @@ __int64 RtlpHpScheduleCompaction()
   {
     if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
     {
-      TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 5000);
+      TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 0x1388u);
       if ( (RtlpHpHeapFeatures & 8) != 0 )
         RtlpHpTlLogGCScheduled();
     }

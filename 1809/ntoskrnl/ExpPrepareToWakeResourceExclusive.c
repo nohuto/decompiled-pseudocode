@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPrepareToWakeResourceExclusive @ 0x140166564
+ * XREFs of ExpPrepareToWakeResourceExclusive @ 0x140166664
  * Callers:
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14016473C (ExpReleaseDisownedFastResourceExclusive.c)
- *     ExpReleaseFastResourceExclusive @ 0x1401663B8 (ExpReleaseFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x14016483C (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseFastResourceExclusive @ 0x1401664B8 (ExpReleaseFastResourceExclusive.c)
  * Callees:
- *     KeCaptureWaitChainHeadEx @ 0x1401665FC (KeCaptureWaitChainHeadEx.c)
+ *     KeCaptureWaitChainHeadEx @ 0x1401666FC (KeCaptureWaitChainHeadEx.c)
  */
 
 __int64 __fastcall ExpPrepareToWakeResourceExclusive(__int64 a1, _QWORD *a2, _QWORD *a3, int *a4)

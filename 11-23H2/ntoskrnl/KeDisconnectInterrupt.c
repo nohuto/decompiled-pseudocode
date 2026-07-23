@@ -1,16 +1,16 @@
 /*
- * XREFs of KeDisconnectInterrupt @ 0x14031F398
+ * XREFs of KeDisconnectInterrupt @ 0x14031F628
  * Callers:
- *     KeConnectInterrupt @ 0x140320A54 (KeConnectInterrupt.c)
- *     IoDisconnectInterrupt @ 0x14078E1D0 (IoDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140320CE4 (KeConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x14078E3C0 (IoDisconnectInterrupt.c)
  * Callees:
- *     KiIntSteerDisable @ 0x14031F490 (KiIntSteerDisable.c)
- *     KeMaskInterrupt @ 0x14031F5B4 (KeMaskInterrupt.c)
- *     KiDisconnectInterruptCommon @ 0x14031F720 (KiDisconnectInterruptCommon.c)
- *     KiIsInterruptTypeSecondary @ 0x140321340 (KiIsInterruptTypeSecondary.c)
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
- *     KiSetSystemPriorityThread @ 0x140355ED0 (KiSetSystemPriorityThread.c)
- *     KiDisconnectSecondaryInterrupt @ 0x140571A38 (KiDisconnectSecondaryInterrupt.c)
+ *     KiIntSteerDisable @ 0x14031F720 (KiIntSteerDisable.c)
+ *     KeMaskInterrupt @ 0x14031F844 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x14031F9B0 (KiDisconnectInterruptCommon.c)
+ *     KiIsInterruptTypeSecondary @ 0x1403215D0 (KiIsInterruptTypeSecondary.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x140356070 (KiSetSystemPriorityThread.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x140571F78 (KiDisconnectSecondaryInterrupt.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -27,9 +27,9 @@
 
 PSLIST_ENTRY __stdcall RtlpInterlockedFlushSList(PSLIST_HEADER ListHead)
 {
-  union _SLIST_HEADER v1; // rax
+  _SLIST_HEADER v1; // rax
   signed __int64 Alignment; // rbx
-  union _SLIST_HEADER v3; // rt0
+  _SLIST_HEADER v3; // rt0
   unsigned __int8 v4; // tt
 
   _m_prefetchw(ListHead);

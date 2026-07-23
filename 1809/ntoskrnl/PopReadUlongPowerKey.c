@@ -1,9 +1,9 @@
 /*
- * XREFs of PopReadUlongPowerKey @ 0x140190C68
+ * XREFs of PopReadUlongPowerKey @ 0x140190DA8
  * Callers:
- *     PopBatteryInitPhaseTwo @ 0x1409DAE54 (PopBatteryInitPhaseTwo.c)
+ *     PopBatteryInitPhaseTwo @ 0x1409DBE54 (PopBatteryInitPhaseTwo.c)
  * Callees:
- *     PopReadRegKeyValue @ 0x140190CA8 (PopReadRegKeyValue.c)
+ *     PopReadRegKeyValue @ 0x140190DE8 (PopReadRegKeyValue.c)
  */
 
 __int64 __fastcall PopReadUlongPowerKey(PCWSTR a1, _DWORD *a2)

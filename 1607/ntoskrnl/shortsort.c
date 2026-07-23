@@ -1,9 +1,9 @@
 /*
- * XREFs of shortsort @ 0x14014E270
+ * XREFs of shortsort @ 0x14014E830
  * Callers:
- *     qsort @ 0x14014DF60 (qsort.c)
+ *     qsort @ 0x14014E520 (qsort.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140166AA0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140167010 (_guard_dispatch_icall.c)
  */
 
 void __fastcall shortsort(unsigned __int64 a1, _BYTE *a2, __int64 a3, int (__fastcall *a4)(unsigned __int64, _BYTE *))

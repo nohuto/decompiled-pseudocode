@@ -20,20 +20,20 @@
  *     PopSleepstudySendWnfNotification @ 0x1408F5CE0 (PopSleepstudySendWnfNotification.c)
  */
 
-void __fastcall PopSleepstudyStartNextSession(int a1, int a2)
+void __fastcall PopSleepstudyStartNextSession(ULONG a1, int a2)
 {
-  char *v4; // r12
+  LARGE_INTEGER *v4; // r12
   __int64 v5; // rax
-  char *v6; // r14
-  __int64 InterruptTimePrecise; // rax
-  __int64 v8; // rsi
+  LARGE_INTEGER *v6; // r14
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v8; // rsi
   int MonitorReasonFromPowerEventId; // eax
-  int v10; // edi
-  int v11; // ebx
+  ULONG v10; // edi
+  ULONG v11; // ebx
   int v12; // r13d
   __int64 v13; // r8
   char LowPart; // di
-  int v15; // r15d
+  ULONG v15; // r15d
   __int64 v16; // r8
   __int64 v17; // rbx
   int v18; // eax
@@ -70,36 +70,36 @@ void __fastcall PopSleepstudyStartNextSession(int a1, int a2)
   v42 = 0LL;
   v43 = 0LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepstudySessionLock);
-  v4 = (char *)&unk_140C1E4B8 + 96 * (unsigned int)dword_140C1E4B0;
+  v4 = (LARGE_INTEGER *)((char *)&unk_140C1E4B8 + 96 * (unsigned int)dword_140C1E4B0);
   v5 = ((_BYTE)dword_140C1E4B0 + 1) & 7;
   dword_140C1E4B0 = ((_BYTE)dword_140C1E4B0 + 1) & 7;
-  v6 = (char *)&unk_140C1E4B8 + 96 * v5;
+  v6 = (LARGE_INTEGER *)((char *)&unk_140C1E4B8 + 96 * v5);
   InterruptTimePrecise = KeQueryInterruptTimePrecise(v38);
   v40 = -2500000LL;
   v8 = InterruptTimePrecise;
   v38[0].LowPart = PopCurrentPowerStatePrecise(v41, &v40) != 258;
   MonitorReasonFromPowerEventId = PopGetMonitorReasonFromPowerEventId(a2);
   v10 = HIDWORD(v41[1]);
-  *((_DWORD *)v4 + 9) = a2;
+  v4[4].HighPart = a2;
   v11 = v41[1];
   v12 = MonitorReasonFromPowerEventId;
-  *((_QWORD *)v4 + 3) = v8;
-  *((_DWORD *)v4 + 11) = v10;
-  *((_DWORD *)v4 + 13) = v11;
-  memset(v6 + 4, 0, 0x5CuLL);
-  *(_DWORD *)v6 = a1;
-  v13 = *((_QWORD *)v4 + 1) + 1LL;
-  *((_QWORD *)v6 + 2) = v8;
-  *((_QWORD *)v6 + 1) = v13;
-  *((_DWORD *)v6 + 10) = v10;
-  *((_DWORD *)v6 + 12) = v11;
-  if ( *(_DWORD *)v4 == 1 )
+  v4[3] = v8;
+  v4[5].HighPart = v10;
+  v4[6].HighPart = v11;
+  memset((char *)&v6->QuadPart + 4, 0, 0x5CuLL);
+  v6->LowPart = a1;
+  v13 = v4[1].QuadPart + 1;
+  v6[2] = v8;
+  v6[1].QuadPart = v13;
+  v6[5].LowPart = v10;
+  v6[6].LowPart = v11;
+  if ( v4->LowPart == 1 )
   {
     LowPart = v38[0].LowPart;
   }
   else
   {
-    if ( *(_DWORD *)v4 != 2 )
+    if ( v4->LowPart != 2 )
     {
       LowPart = v38[0].LowPart;
       goto LABEL_4;
@@ -112,8 +112,8 @@ void __fastcall PopSleepstudyStartNextSession(int a1, int a2)
   v17 = 2LL;
   if ( a1 != 2 )
   {
-    if ( *(_DWORD *)v4 == 1 )
-      ++*((_QWORD *)v6 + 1);
+    if ( v4->LowPart == 1 )
+      ++v6[1].QuadPart;
     if ( ((a1 - 1) & 0xFFFFFFFD) != 0 || (byte_140C4FF0C = 1, a1 != 3) )
     {
       v18 = 17;
@@ -126,7 +126,11 @@ void __fastcall PopSleepstudyStartNextSession(int a1, int a2)
     }
     PopSleepstudyStopReason = v18;
     PopSetModernStandbyTransitionReason(0, v12);
-    PopSleepstudyCaptureSessionStatistics(v19, &NullGuid, *((_QWORD *)v6 + 1), v44);
+    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))PopSleepstudyCaptureSessionStatistics)(
+      v19,
+      &NullGuid,
+      (LARGE_INTEGER)v6[1].QuadPart,
+      v44);
     if ( !PopSleepstudySessionContext )
     {
       v20 = &PopWdiScenarioStopEventData;
@@ -165,7 +169,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, int a2)
       v20[2] = v31;
       v20[3] = v32;
       *((_QWORD *)v20 + 8) = v33;
-      KeSetTimer2((__int64)&unk_140C1E408, -50000000LL, 0LL, v38);
+      KeSetTimer2((__int64)&unk_140C1E408, -50000000LL, 0LL, (__int64)v38);
       PopSleepstudySessionContext = 1;
     }
     PopSleepstudySendWnfNotification(&WNF_PO_UMPO_SCENARIO_CHANGE, &NullGuid);
@@ -175,7 +179,11 @@ LABEL_4:
   if ( !v15 )
   {
     PopSetModernStandbyTransitionReason(1, v12);
-    PopSleepstudyCaptureSessionStatistics(v37, &GUID_SPM_LOW_POWER_CS, *((_QWORD *)v6 + 1), v44);
+    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))PopSleepstudyCaptureSessionStatistics)(
+      v37,
+      &GUID_SPM_LOW_POWER_CS,
+      (LARGE_INTEGER)v6[1].QuadPart,
+      v44);
     if ( !PopSleepstudySessionContext )
       PopDiagTraceSleepStudyStart();
     v36 = &WNF_PO_UMPO_SCENARIO_CHANGE;
@@ -184,10 +192,10 @@ LABEL_4:
   if ( v15 == 1 )
   {
     PopCalculateIdleInformation((__int64)&v42);
-    *((_QWORD *)v6 + 7) = v43;
+    v6[7].QuadPart = v43;
     LOBYTE(v34) = 1;
     LOBYTE(v35) = LowPart;
-    *((_QWORD *)v6 + 10) = *((_QWORD *)&v42 + 1);
+    v6[10] = *(LARGE_INTEGER *)((char *)&v42 + 8);
     PopSleepstudyCaptureResiliencyStatistics(v6, v41, v35, v34);
     v36 = &WNF_PO_SCENARIO_CHANGE;
 LABEL_26:

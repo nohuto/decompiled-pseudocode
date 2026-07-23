@@ -1,14 +1,14 @@
 /*
- * XREFs of PoRegisterCoalescingCallback @ 0x140842F70
+ * XREFs of PoRegisterCoalescingCallback @ 0x140843270
  * Callers:
- *     CmpCmdInit @ 0x140842A94 (CmpCmdInit.c)
+ *     CmpCmdInit @ 0x140842D94 (CmpCmdInit.c)
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
  *     PopCoalescingInitialize @ 0x140B60E60 (PopCoalescingInitialize.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     ExCompareExchangeCallBack @ 0x14039FE58 (ExCompareExchangeCallBack.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     ExCompareExchangeCallBack @ 0x1403A0038 (ExCompareExchangeCallBack.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -31,14 +31,14 @@ __int64 __fastcall PoRegisterCoalescingCallback(__int64 a1, char a2, __int64 *a3
   if ( !ExCompareExchangeCallBack((signed __int64 *)(Pool2 + 64), (struct _EX_RUNDOWN_REF *)Pool2, 0LL) )
     return 3221225485LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopCoalRegistrationListLock);
-  v9 = off_140C064D0;
+  v9 = off_140C06490;
   v10 = (_QWORD *)(Pool2 + 48);
-  if ( *off_140C064D0 != (_UNKNOWN *)&PopCoalRegistrationList )
+  if ( *off_140C06490 != (_UNKNOWN *)&PopCoalRegistrationList )
     __fastfail(3u);
-  *(_QWORD *)(Pool2 + 56) = off_140C064D0;
+  *(_QWORD *)(Pool2 + 56) = off_140C06490;
   *v10 = &PopCoalRegistrationList;
   *v9 = v10;
-  off_140C064D0 = (_UNKNOWN **)(Pool2 + 48);
+  off_140C06490 = (_UNKNOWN **)(Pool2 + 48);
   PopReleaseRwLock((__int64 *)&PopCoalRegistrationListLock);
   result = 0LL;
   *a3 = Pool2;

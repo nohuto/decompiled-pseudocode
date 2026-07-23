@@ -1,15 +1,15 @@
 /*
- * XREFs of ApiSetResolveToHost @ 0x18005B040
+ * XREFs of ApiSetResolveToHost @ 0x180070C20
  * Callers:
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpPreprocessDllName @ 0x18005A570 (LdrpPreprocessDllName.c)
- *     LdrpSnapKernelBaseExtensions @ 0x180070920 (LdrpSnapKernelBaseExtensions.c)
- *     ApiSetQueryApiSetPresence @ 0x1800EF740 (ApiSetQueryApiSetPresence.c)
- *     ApiSetResolveToHost2 @ 0x180135420 (ApiSetResolveToHost2.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpPreprocessDllName @ 0x180070150 (LdrpPreprocessDllName.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18008D200 (LdrpSnapKernelBaseExtensions.c)
+ *     ApiSetQueryApiSetPresence @ 0x1800EA6D0 (ApiSetQueryApiSetPresence.c)
+ *     ApiSetResolveToHost2 @ 0x180133650 (ApiSetResolveToHost2.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x1800C05D0 (ApiSetpSearchForApiSet.c)
- *     ApiSetpSearchForApiSetHost @ 0x1800E0680 (ApiSetpSearchForApiSetHost.c)
- *     ApiSetpResolveHost @ 0x180135C7C (ApiSetpResolveHost.c)
+ *     ApiSetpSearchForApiSet @ 0x1800B8390 (ApiSetpSearchForApiSet.c)
+ *     ApiSetpSearchForApiSetHost @ 0x1800DB780 (ApiSetpSearchForApiSetHost.c)
+ *     ApiSetpResolveHost @ 0x180133EAC (ApiSetpResolveHost.c)
  */
 
 __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)

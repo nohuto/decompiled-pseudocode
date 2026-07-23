@@ -6,10 +6,10 @@
  *     _AlpcGetHeaderSize@4 @ 0x4B2E9EE0 (_AlpcGetHeaderSize@4.c)
  */
 
-char *__stdcall AlpcGetMessageAttribute(_DWORD *a1, int a2)
+PVOID __cdecl AlpcGetMessageAttribute(PALPC_MESSAGE_ATTRIBUTES Buffer, ULONG AttributeFlag)
 {
-  if ( (a2 & *a1) == 0 || ((a2 - 1) & a2) != 0 )
+  if ( (AttributeFlag & Buffer->AllocatedAttributes) == 0 || ((AttributeFlag - 1) & AttributeFlag) != 0 )
     return 0;
   else
-    return (char *)a1 + AlpcGetHeaderSize(*a1 & (-2 * a2));
+    return (char *)Buffer + AlpcGetHeaderSize(Buffer->AllocatedAttributes & (-2 * AttributeFlag));
 }

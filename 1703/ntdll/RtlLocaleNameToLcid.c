@@ -13,24 +13,24 @@
  *     sub_1800F5630 @ 0x1800F5630 (sub_1800F5630.c)
  */
 
-__int64 __fastcall RtlLocaleNameToLcid(PCWSTR SourceString, int *a2, int a3)
+NTSTATUS __cdecl RtlLocaleNameToLcid(PCWSTR LocaleName, PLCID lcid, ULONG Flags)
 {
   char v3; // bp
   __int64 v6; // rdi
   int v7; // eax
 
-  v3 = a3;
-  if ( !SourceString )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  if ( (a3 & 0xFFFFFFFC) != 0 )
-    return 3221225713LL;
+  v3 = Flags;
+  if ( !LocaleName )
+    return -1073741585;
+  if ( !lcid )
+    return -1073741584;
+  if ( (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741583;
   v6 = qword_18015C278;
   if ( qword_18015C278 )
   {
 LABEL_5:
-    v7 = sub_1800462C0(SourceString);
+    v7 = sub_1800462C0(LocaleName);
     if ( v7 >= 0 )
     {
       if ( (v3 & 2) != 0
@@ -41,36 +41,36 @@ LABEL_5:
                       + *(_QWORD *)(qword_18015C278 + 16)
                       + 24LL) & 1) != 0) )
       {
-        *a2 = *(_DWORD *)(*(_QWORD *)(v6 + 32) + 8LL * v7 + 4) & 0x7FFFFFFF;
-        return 0LL;
+        *lcid = *(_DWORD *)(*(_QWORD *)(v6 + 32) + 8LL * v7 + 4) & 0x7FFFFFFF;
+        return 0;
       }
-      return 3221225711LL;
+      return -1073741585;
     }
-    if ( (unsigned __int8)sub_1800F546C(SourceString) )
+    if ( (unsigned __int8)sub_1800F546C(LocaleName) )
     {
-      if ( (v3 & 1) != 0 && (unsigned __int8)sub_1800F5558(SourceString) )
+      if ( (v3 & 1) != 0 && (unsigned __int8)sub_1800F5558(LocaleName) )
       {
-        *a2 = 5120;
-        return 0LL;
+        *lcid = 5120;
+        return 0;
       }
-      if ( (unsigned __int8)sub_1800F5630(SourceString) )
+      if ( (unsigned __int8)sub_1800F5630(LocaleName) )
       {
-        *a2 = 3072;
-        return 0LL;
+        *lcid = 3072;
+        return 0;
       }
-      if ( (v3 & 2) != 0 || (int)sub_1800F5104(SourceString, 0LL, 0LL, 0LL) >= 0 )
+      if ( (v3 & 2) != 0 || (int)sub_1800F5104(LocaleName, 0LL, 0LL, 0LL) >= 0 )
       {
-        *a2 = 4096;
-        return 0LL;
+        *lcid = 4096;
+        return 0;
       }
-      return 3221225473LL;
+      return -1073741823;
     }
-    return 3221225711LL;
+    return -1073741585;
   }
   if ( (unsigned __int8)sub_180080990() )
   {
     v6 = qword_18015C278;
     goto LABEL_5;
   }
-  return 3221225473LL;
+  return -1073741823;
 }

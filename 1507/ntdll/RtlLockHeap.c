@@ -15,33 +15,33 @@
  *     RtlpBreakPointHeap @ 0x1800EDA10 (RtlpBreakPointHeap.c)
  */
 
-char __fastcall RtlLockHeap(__int64 a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
   _WORD *ProcessHeap; // rdi
-  __int64 v2; // rsi
+  char *v2; // rsi
   struct _TEB *v3; // rax
   __int64 v4; // rcx
   signed __int8 v5; // cf
   void *UniqueThread; // rax
-  char v7; // bl
-  _BYTE v9[6]; // [rsp+20h] [rbp-38h] BYREF
+  BOOLEAN v7; // bl
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v10; // [rsp+26h] [rbp-32h]
   _WORD *v11; // [rsp+40h] [rbp-18h]
 
-  ProcessHeap = (_WORD *)a1;
+  ProcessHeap = HeapHandle;
   if ( (RtlpHpHeapFeatures & 2) == 0 )
   {
-    if ( *(_DWORD *)(a1 + 16) != -571548178 )
+    if ( *((_DWORD *)HeapHandle + 4) != -571548178 )
     {
-      if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-        return qword_180143CE0(a1);
-      v2 = a1 + 152;
-      if ( *(_DWORD *)(a1 + 152) == -285217025 )
+      if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
+        return ((__int64 (__fastcall *)(PVOID))qword_180143CE0)(HeapHandle);
+      v2 = (char *)HeapHandle + 152;
+      if ( *((_DWORD *)HeapHandle + 38) == -285217025 )
       {
-        if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+        if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
         {
           v3 = NtCurrentTeb();
-          v4 = *(_QWORD *)(a1 + 352);
+          v4 = *((_QWORD *)HeapHandle + 44);
           v5 = _interlockedbittestandreset((volatile signed __int32 *)(v4 + 8), 0);
           UniqueThread = v3->ClientId.UniqueThread;
           if ( v5 )
@@ -80,12 +80,12 @@ LABEL_9:
       {
         v10 = 4139;
         v11 = ProcessHeap;
-        NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v9);
+        NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
       }
     }
     return 1;
   }
-  if ( (void *)a1 == NtCurrentPeb()->ProcessHeap )
+  if ( HeapHandle == NtCurrentPeb()->ProcessHeap )
     ProcessHeap = (_WORD *)RtlpHpVirtGetProcessHeap(0LL);
   return (unsigned __int8)RtlpLockHeapInternal(ProcessHeap) != 0;
 }

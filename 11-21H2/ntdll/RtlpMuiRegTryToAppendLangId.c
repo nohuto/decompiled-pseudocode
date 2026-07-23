@@ -15,19 +15,19 @@
 __int64 __fastcall RtlpMuiRegTryToAppendLangId(__int64 a1, __int64 a2, unsigned int *a3, wchar_t *a4, unsigned int a5)
 {
   __int64 v7; // r12
-  unsigned int v8; // esi
+  DWORD v8; // esi
   unsigned int v9; // ebx
   __int64 v10; // rdi
   unsigned __int64 v11; // rdi
   unsigned int v12; // esi
-  unsigned int v14; // [rsp+20h] [rbp-68h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-60h] BYREF
+  DWORD Lcid; // [rsp+20h] [rbp-68h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-60h] BYREF
   __int64 Src; // [rsp+38h] [rbp-50h] BYREF
   __int16 v17; // [rsp+40h] [rbp-48h]
 
   Src = 0LL;
   v17 = 0;
-  v14 = 0;
+  Lcid = 0;
   if ( a2 && a1 && a3 )
   {
     v7 = *a3;
@@ -43,9 +43,9 @@ __int64 __fastcall RtlpMuiRegTryToAppendLangId(__int64 a1, __int64 a2, unsigned 
         &DestinationString,
         (PCWSTR)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL)
                + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 2LL * *(__int16 *)(a2 + 6))));
-      if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v14) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         return (unsigned int)-1073741811;
-      v8 = v14;
+      v8 = Lcid;
     }
     v9 = RtlIntegerToUnicode(v8, 0x10u, -4, (char *)&Src);
     if ( (v9 & 0x80000000) != 0 )

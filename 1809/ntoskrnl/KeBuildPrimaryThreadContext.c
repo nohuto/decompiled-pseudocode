@@ -1,11 +1,11 @@
 /*
- * XREFs of KeBuildPrimaryThreadContext @ 0x140845E84
+ * XREFs of KeBuildPrimaryThreadContext @ 0x1408470E4
  * Callers:
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
- *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
+ *     KiSwapToUmsThread @ 0x1408469D0 (KiSwapToUmsThread.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x140890030 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KeBuildPrimaryThreadContext(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6)

@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpLogFaultResolveFailure @ 0x140AB3444
+ * XREFs of VmpLogFaultResolveFailure @ 0x140AAE3B4
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x1409F7BB4 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x1409F0524 (VmpAccessFaultBatchResolve.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall VmpLogFaultResolveFailure(__int64 a1, __int64 *a2, int a3, int a4, __int64 a5, int a6)
@@ -84,7 +84,7 @@ char __fastcall VmpLogFaultResolveFailure(__int64 a1, __int64 *a2, int a3, int a
       v43 = 8;
       v18 = a3;
       v19 = a4;
-      LOBYTE(v6) = tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&byte_1400519AB, v12, 0, v14, v15, 9u, &v23);
+      LOBYTE(v6) = tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&dword_1400526FC, v12, 0, v14, v15, 9u, &v23);
     }
   }
   return (char)v6;

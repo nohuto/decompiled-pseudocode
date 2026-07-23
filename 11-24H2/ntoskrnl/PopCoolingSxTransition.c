@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCoolingSxTransition @ 0x140427860
+ * XREFs of PopCoolingSxTransition @ 0x14041B9F0
  * Callers:
- *     PopThermalSxEntry @ 0x1404D972C (PopThermalSxEntry.c)
- *     PopThermalSxExit @ 0x1405D3D88 (PopThermalSxExit.c)
+ *     PopThermalSxEntry @ 0x1404D31A8 (PopThermalSxEntry.c)
+ *     PopThermalSxExit @ 0x1405D1508 (PopThermalSxExit.c)
  * Callees:
- *     PopTraceThermalRequestPassiveHistogram @ 0x140330D68 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalRequestActiveActivity @ 0x1404AB004 (PopTraceThermalRequestActiveActivity.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140A8FAF8 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140AA26A4 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1402B93A8 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x1404A5290 (PopTraceThermalRequestActiveActivity.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140A8C138 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140A9DA34 (PopThermalUpdateActiveTimeTracking.c)
  */
 
 __int64 __fastcall PopCoolingSxTransition(char a1)
@@ -57,5 +57,5 @@ __int64 __fastcall PopCoolingSxTransition(char a1)
       PopReleaseRwLock((signed __int64 *)(i + 32));
     }
   }
-  return PopReleaseRwLock((signed __int64 *)&PopCoolingExtensionLock);
+  return PopReleaseRwLock(&PopCoolingExtensionLock);
 }

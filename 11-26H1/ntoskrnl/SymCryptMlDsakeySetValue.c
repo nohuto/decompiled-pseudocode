@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptMlDsakeySetValue @ 0x14055E310
+ * XREFs of SymCryptMlDsakeySetValue @ 0x140560834
  * Callers:
- *     SymCryptMlDsaSelftest @ 0x140563120 (SymCryptMlDsaSelftest.c)
- *     HashpVerifyMldsaSignature @ 0x1408ABDEC (HashpVerifyMldsaSignature.c)
+ *     SymCryptMlDsaSelftest @ 0x140565630 (SymCryptMlDsaSelftest.c)
+ *     HashpVerifyMldsaSignature @ 0x1408B2230 (HashpVerifyMldsaSignature.c)
  * Callees:
- *     SymCryptMlDsaKeyGenerateEx @ 0x14055D64C (SymCryptMlDsaKeyGenerateEx.c)
- *     SymCryptMlDsaSelftest @ 0x140563120 (SymCryptMlDsaSelftest.c)
- *     SymCryptMlDsaPkDecode @ 0x140572D9C (SymCryptMlDsaPkDecode.c)
- *     SymCryptMlDsaSkDecode @ 0x140573AF4 (SymCryptMlDsaSkDecode.c)
+ *     SymCryptMlDsaKeyGenerateEx @ 0x14055FB34 (SymCryptMlDsaKeyGenerateEx.c)
+ *     SymCryptMlDsaSelftest @ 0x140565630 (SymCryptMlDsaSelftest.c)
+ *     SymCryptMlDsaPkDecode @ 0x140571FA8 (SymCryptMlDsaPkDecode.c)
+ *     SymCryptMlDsaSkDecode @ 0x140572D4C (SymCryptMlDsaSkDecode.c)
  */
 
 __int64 __fastcall SymCryptMlDsakeySetValue(const void *a1, __int64 a2, int a3, unsigned int a4, __int64 a5)

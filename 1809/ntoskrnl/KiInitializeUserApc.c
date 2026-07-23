@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInitializeUserApc @ 0x1401286A4
+ * XREFs of KiInitializeUserApc @ 0x140128774
  * Callers:
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeContextFromKframes @ 0x1400A2878 (KeContextFromKframes.c)
- *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
- *     KeCopyExceptionRecord @ 0x14013B8E4 (KeCopyExceptionRecord.c)
- *     KiSetupForInstrumentationReturn @ 0x14013F99C (KiSetupForInstrumentationReturn.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     KeContextFromKframes @ 0x1400A27B8 (KeContextFromKframes.c)
+ *     KiDispatchException @ 0x1400A2E90 (KiDispatchException.c)
+ *     KeCopyExceptionRecord @ 0x14013B9E4 (KeCopyExceptionRecord.c)
+ *     KiSetupForInstrumentationReturn @ 0x14013FA9C (KiSetupForInstrumentationReturn.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
  */
 
 unsigned __int64 __fastcall KiInitializeUserApc(
@@ -78,53 +78,53 @@ unsigned __int64 __fastcall KiInitializeUserApc(
     KiSetupForInstrumentationReturn(a2);
   result = KiQueryUnbiasedInterruptTime();
   v22 = result;
-  if ( result >= qword_140438960 )
+  if ( result >= qword_140439A20 )
   {
     __sidt(v20);
     v16 = (_QWORD *)v21;
     for ( i = (const char *)v21; (unsigned __int64)i < v21 + 848; i += 64 )
       _mm_prefetch(i, 0);
     v18 = 848;
-    v19 = qword_140438950;
+    v19 = qword_140439A10;
     while ( v18 >= 8 )
     {
-      v19 = __ROR8__(v19 - *v16++, qword_140438958);
+      v19 = __ROR8__(v19 - *v16++, qword_140439A18);
       v18 -= 8;
     }
     while ( v18 )
     {
-      v19 = __ROR8__(v19 - *(unsigned __int8 *)v16, qword_140438958);
+      v19 = __ROR8__(v19 - *(unsigned __int8 *)v16, qword_140439A18);
       v16 = (_QWORD *)((char *)v16 + 1);
       --v18;
     }
-    if ( qword_140438968 != v19 )
+    if ( qword_140439A28 != v19 )
     {
-      if ( qword_140438920 )
+      if ( qword_1404399E0 )
         goto LABEL_24;
-      qword_140438920 = (unsigned int)__ROR4__(150994945, 88);
-      qword_140438928 = 0LL;
-      qword_140438930 = 0LL;
-      qword_140438938 = 269LL;
-      qword_140438940 = v21;
+      qword_1404399E0 = (unsigned int)__ROR4__(150994945, 88);
+      qword_1404399E8 = 0LL;
+      qword_1404399F0 = 0LL;
+      qword_1404399F8 = 269LL;
+      qword_140439A00 = v21;
     }
-    if ( !qword_140438920 )
+    if ( !qword_1404399E0 )
     {
 LABEL_27:
       result = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
-      qword_140438960 = result;
+      qword_140439A20 = result;
       return result;
     }
 LABEL_24:
-    if ( stru_1404388E0.DeferredRoutine != KiScanQueues )
+    if ( stru_1404399A0.DeferredRoutine != KiScanQueues )
     {
-      stru_1404388E0.TargetInfoAsUlong = 275;
-      stru_1404388E0.DeferredRoutine = KiScanQueues;
-      stru_1404388E0.DeferredContext = &stru_1404388E0;
-      stru_1404388E0.DpcData = 0LL;
-      stru_1404388E0.ProcessorHistory = 0LL;
+      stru_1404399A0.TargetInfoAsUlong = 275;
+      stru_1404399A0.DeferredRoutine = KiScanQueues;
+      stru_1404399A0.DeferredContext = &stru_1404399A0;
+      stru_1404399A0.DpcData = 0LL;
+      stru_1404399A0.ProcessorHistory = 0LL;
     }
-    qword_140438948 = 604032LL;
-    KeInsertQueueDpc(&stru_1404388E0, 0LL, 0LL);
+    qword_140439A08 = 604032LL;
+    KeInsertQueueDpc(&stru_1404399A0, 0LL, 0LL);
     goto LABEL_27;
   }
   return result;

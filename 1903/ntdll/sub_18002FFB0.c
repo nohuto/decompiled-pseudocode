@@ -7,21 +7,21 @@
  *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_18002FFB0(__int64 a1, __int64 a2)
+void __fastcall sub_18002FFB0(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  _QWORD *v4; // rax
-  _QWORD *v5; // rdx
+  _RTL_SRWLOCK *v4; // rax
+  _RTL_SRWLOCK **Ptr; // rdx
 
   *(_DWORD *)(a2 + 40) = NtCurrentTeb()->ClientId.UniqueThread;
   *(_QWORD *)(a2 + 48) = a1;
-  RtlAcquireSRWLockExclusive(a1 + 72);
-  v4 = (_QWORD *)(a2 + 16);
-  v5 = *(_QWORD **)(a1 + 104);
-  if ( *v5 != a1 + 96 )
+  RtlAcquireSRWLockExclusive(a1 + 9);
+  v4 = (_RTL_SRWLOCK *)(a2 + 16);
+  Ptr = (_RTL_SRWLOCK **)a1[13].Ptr;
+  if ( *Ptr != &a1[12] )
     __fastfail(3u);
-  *v4 = a1 + 96;
-  *(_QWORD *)(a2 + 24) = v5;
-  *v5 = v4;
-  *(_QWORD *)(a1 + 104) = v4;
-  return RtlReleaseSRWLockExclusive(a1 + 72);
+  v4->Ptr = &a1[12];
+  *(_QWORD *)(a2 + 24) = Ptr;
+  *Ptr = v4;
+  a1[13].Ptr = v4;
+  RtlReleaseSRWLockExclusive(a1 + 9);
 }

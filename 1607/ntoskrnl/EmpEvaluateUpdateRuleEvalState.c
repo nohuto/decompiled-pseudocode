@@ -1,10 +1,10 @@
 /*
- * XREFs of EmpEvaluateUpdateRuleEvalState @ 0x140146FE0
+ * XREFs of EmpEvaluateUpdateRuleEvalState @ 0x140147550
  * Callers:
- *     EmpUpdateRuleState @ 0x140009504 (EmpUpdateRuleState.c)
+ *     EmpUpdateRuleState @ 0x140009078 (EmpUpdateRuleState.c)
  * Callees:
- *     EmpEvaluateTargetRule @ 0x140008D9C (EmpEvaluateTargetRule.c)
- *     EmpEvaluatePermuteRuleEntries @ 0x14014708C (EmpEvaluatePermuteRuleEntries.c)
+ *     EmpEvaluateTargetRule @ 0x140008910 (EmpEvaluateTargetRule.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x1401475FC (EmpEvaluatePermuteRuleEntries.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

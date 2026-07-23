@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIoSpaceGetBounds @ 0x1403D0398
+ * XREFs of MiIoSpaceGetBounds @ 0x14038F8B0
  * Callers:
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiFillSystemPtes @ 0x140290A30 (MiFillSystemPtes.c)
- *     MiDereferenceIoPages @ 0x1403CE8E0 (MiDereferenceIoPages.c)
- *     MiLookupIoPageNode @ 0x1403D0238 (MiLookupIoPageNode.c)
- *     MiMapMdlWithLargePages @ 0x1404C71D0 (MiMapMdlWithLargePages.c)
- *     MiMapMdlCommon @ 0x1404F0304 (MiMapMdlCommon.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiFillSystemPtes @ 0x1402A0630 (MiFillSystemPtes.c)
+ *     MiDereferenceIoPages @ 0x14038E760 (MiDereferenceIoPages.c)
+ *     MiLookupIoPageNode @ 0x14038F750 (MiLookupIoPageNode.c)
+ *     MiMapMdlWithLargePages @ 0x1404C0630 (MiMapMdlWithLargePages.c)
+ *     MiMapMdlCommon @ 0x1404EDDA4 (MiMapMdlCommon.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ _QWORD *__fastcall MiIoSpaceGetBounds(__int64 a1, unsigned __int64 a2)
   int v7; // ecx
   unsigned __int64 v8; // rax
 
-  if ( qword_140E2FFB8 && _bittest64((const signed __int64 *)qword_140E2FFB8, (a2 >> 18) & 0x3FFFFF) )
+  if ( stru_140E300F0.Buffer && _bittest64((const signed __int64 *)stru_140E300F0.Buffer, (a2 >> 18) & 0x3FFFFF) )
   {
     *(_QWORD *)a1 = a2 & 0xFFFFFFFFFFFC0000uLL;
     v8 = a2 + 0x40000;
@@ -32,7 +32,7 @@ _QWORD *__fastcall MiIoSpaceGetBounds(__int64 a1, unsigned __int64 a2)
   }
   else
   {
-    v3 = (__int64 *)xmmword_140E37200;
+    v3 = (__int64 *)xmmword_140E37340;
     while ( v3 )
     {
       if ( a2 < v3[3] )
@@ -58,7 +58,7 @@ _QWORD *__fastcall MiIoSpaceGetBounds(__int64 a1, unsigned __int64 a2)
     v4 = a2 + 0x40000;
     if ( a2 != ((a2 + 0x3FFFF) & 0xFFFFFFFFFFFC0000uLL) )
       v4 = (a2 + 0x3FFFF) & 0xFFFFFFFFFFFC0000uLL;
-    result = (_QWORD *)xmmword_140E37200;
+    result = (_QWORD *)xmmword_140E37340;
     v6 = v4 - 1;
     while ( result )
     {

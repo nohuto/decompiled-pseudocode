@@ -58,7 +58,7 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
     {
       if ( HIDWORD(NumberOfBytes) == 1
         && (RtlInitUnicodeString(&DestinationString, (PCWSTR)v8),
-            RtlCultureNameToLCID(&DestinationString.Length, (_DWORD *)&NumberOfBytes + 1)) )
+            RtlCultureNameToLCID(&DestinationString, (PLCID)&NumberOfBytes + 1)) )
       {
         v14 = WORD2(NumberOfBytes);
         if ( ((HIDWORD(NumberOfBytes) - 4096) & 0xFFFFFBFF) != 0 )

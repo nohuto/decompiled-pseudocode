@@ -90,7 +90,7 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool
         {
           v18->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v18->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v10->LockEntries[v17]);
+            KiAbEntryRemoveFromTree(&v10->LockEntries[v17].TreeNode);
           v22 = v18->BoostBitmap.AllFields & 0x1FFFF;
           v18->BoostBitmap.AllFields &= 0xFFFE0000;
           v18->ThreadLocalFlags &= ~1u;

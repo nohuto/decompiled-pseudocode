@@ -25,10 +25,7 @@ __int64 __fastcall PiGetDriverStateSubDirectory(__int64 a1, __int64 a2, _QWORD *
   v4 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
-  FileDirectoryRoot = PiGetFileDirectoryRoot(
-                        L"DriverState",
-                        (__int64)L"\\SystemRoot\\System32\\DriverState",
-                        &DestinationString);
+  FileDirectoryRoot = PiGetFileDirectoryRoot(L"DriverState", L"\\SystemRoot\\System32\\DriverState", &DestinationString);
   if ( FileDirectoryRoot >= 0 )
   {
     v7 = -1LL;

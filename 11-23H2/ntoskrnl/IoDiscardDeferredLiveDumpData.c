@@ -1,11 +1,11 @@
 /*
- * XREFs of IoDiscardDeferredLiveDumpData @ 0x14094C278
+ * XREFs of IoDiscardDeferredLiveDumpData @ 0x14094C478
  * Callers:
- *     DbgkpWerCleanupContext @ 0x1408837C4 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerCleanupContext @ 0x140883A04 (DbgkpWerCleanupContext.c)
  * Callees:
- *     IopLiveDumpTraceInterfaceEnd @ 0x14055ACB0 (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x14055AEB4 (IopLiveDumpTraceInterfaceStart.c)
- *     IopLiveDumpReleaseResources @ 0x14094EE18 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x14055B370 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x14055B574 (IopLiveDumpTraceInterfaceStart.c)
+ *     IopLiveDumpReleaseResources @ 0x14094F018 (IopLiveDumpReleaseResources.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlpHpMetadataFree @ 0x18004EF28
+ * XREFs of RtlpHpMetadataFree @ 0x180064B08
  * Callers:
- *     RtlpFreeHeapMetadata @ 0x18004EBD8 (RtlpFreeHeapMetadata.c)
- *     RtlpFlsHeapFree @ 0x18004EEDC (RtlpFlsHeapFree.c)
- *     RtlpHpHeapDestroy @ 0x180090050 (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeFree @ 0x1800938E4 (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x180093F08 (RtlpHpLargeAlloc.c)
- *     RtlpHpTagContextAllocateTag @ 0x1800B79F0 (RtlpHpTagContextAllocateTag.c)
- *     RtlpHpStackTraceAddStack @ 0x1800DF290 (RtlpHpStackTraceAddStack.c)
- *     RtlpHpStackTraceAllocAdd @ 0x1800DF434 (RtlpHpStackTraceAllocAdd.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1800F23FC (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1800FAE54 (RtlpHpLargeAllocationDestroy.c)
- *     RtlpHpTagRunOnceInit @ 0x18010AF10 (RtlpHpTagRunOnceInit.c)
- *     RtlpHpPerHeapStackTraceCleanup @ 0x18014B774 (RtlpHpPerHeapStackTraceCleanup.c)
- *     RtlpHpStackDbFreeRoutine @ 0x18014B9A0 (RtlpHpStackDbFreeRoutine.c)
- *     RtlpHpStackTraceAllocRemove @ 0x18014BBE4 (RtlpHpStackTraceAllocRemove.c)
- *     RtlpHpStackTraceEtwCallback @ 0x18014BDA0 (RtlpHpStackTraceEtwCallback.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180157C64 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpHeapDestroy @ 0x1800270BC (RtlpHpHeapDestroy.c)
+ *     RtlpFreeHeapMetadata @ 0x1800647B8 (RtlpFreeHeapMetadata.c)
+ *     RtlpFlsHeapFree @ 0x180064ABC (RtlpFlsHeapFree.c)
+ *     RtlpHpLargeAlloc @ 0x18009A714 (RtlpHpLargeAlloc.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x18009AC38 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpLargeFree @ 0x18009E878 (RtlpHpLargeFree.c)
+ *     RtlpHpTagContextAllocateTag @ 0x1800A1D38 (RtlpHpTagContextAllocateTag.c)
+ *     RtlpHpStackTraceAddStack @ 0x1800DA400 (RtlpHpStackTraceAddStack.c)
+ *     RtlpHpStackTraceAllocAdd @ 0x1800DA5A4 (RtlpHpStackTraceAllocAdd.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1800F5BB4 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpTagRunOnceInit @ 0x180105CB0 (RtlpHpTagRunOnceInit.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x180149B24 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlpHpStackDbFreeRoutine @ 0x180149D50 (RtlpHpStackDbFreeRoutine.c)
+ *     RtlpHpStackTraceAllocRemove @ 0x180149F94 (RtlpHpStackTraceAllocRemove.c)
+ *     RtlpHpStackTraceEtwCallback @ 0x18014A150 (RtlpHpStackTraceEtwCallback.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180156024 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18002CA00 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpLfhContextFree @ 0x18004F530 (RtlpHpLfhContextFree.c)
- *     RtlpHpSegFreeInternal @ 0x18004F7C0 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLargeFree @ 0x1800938E4 (RtlpHpLargeFree.c)
- *     RtlpLogHeapFreeEvent @ 0x180095BD4 (RtlpLogHeapFreeEvent.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180059400 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLfhContextFree @ 0x180065110 (RtlpHpLfhContextFree.c)
+ *     RtlpHpSegFreeInternal @ 0x1800653A0 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLargeFree @ 0x18009E878 (RtlpHpLargeFree.c)
+ *     RtlpLogHeapFreeEvent @ 0x1800A19C4 (RtlpLogHeapFreeEvent.c)
  */
 
 __int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
@@ -46,14 +46,14 @@ __int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
   v2 = 0;
   v3 = (unsigned __int8)BYTE1(*a2);
   v16 = 0;
-  v5 = qword_1801D21B8[2 * (unsigned int)dword_1801800C8[v3]];
+  v5 = qword_1801D11A8[2 * (unsigned int)dword_18017E8C8[v3]];
   if ( (_WORD)a1 )
   {
     v6 = 0;
   }
   else
   {
-    v7 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801CE930, 2 * ((unsigned __int64)(a1 - qword_1801CE928) >> 20));
+    v7 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)(a1 - qword_1801CD918) >> 20));
     if ( !v7 || (v6 = v7 - 1, (_DWORD)v7 == 3) )
     {
       result = RtlpHpLargeFree(v5, a1);

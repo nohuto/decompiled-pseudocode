@@ -19,7 +19,7 @@ __int64 __fastcall EtwpSendSessionNotification(__int64 a1, int a2, int a3)
   __int64 v7; // rcx
   __int128 v8; // xmm0
   _DWORD v10[10]; // [rsp+20h] [rbp-88h] BYREF
-  __int128 v11; // [rsp+48h] [rbp-60h]
+  GUID v11; // [rsp+48h] [rbp-60h]
   __int128 v12; // [rsp+58h] [rbp-50h]
   int v13; // [rsp+68h] [rbp-40h]
   int v14; // [rsp+6Ch] [rbp-3Ch]

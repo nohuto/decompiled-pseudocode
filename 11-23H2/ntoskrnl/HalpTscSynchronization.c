@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscSynchronization @ 0x14039AB10
+ * XREFs of HalpTscSynchronization @ 0x14039ACF0
  * Callers:
  *     <none>
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     HviIsXboxNanovisorPresent @ 0x1403514C8 (HviIsXboxNanovisorPresent.c)
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
- *     KeIpiGenericCall @ 0x14039AC30 (KeIpiGenericCall.c)
- *     HalpTscInitializeSynchronizationContext @ 0x14039AD64 (HalpTscInitializeSynchronizationContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HviIsXboxNanovisorPresent @ 0x140351668 (HviIsXboxNanovisorPresent.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
+ *     KeIpiGenericCall @ 0x14039AE10 (KeIpiGenericCall.c)
+ *     HalpTscInitializeSynchronizationContext @ 0x14039AF44 (HalpTscInitializeSynchronizationContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 int __fastcall HalpTscSynchronization(char a1, __int64 a2)

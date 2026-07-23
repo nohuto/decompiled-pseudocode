@@ -1,22 +1,22 @@
 /*
- * XREFs of PsThawMultiProcess @ 0x1404EEE60
+ * XREFs of PsThawMultiProcess @ 0x1404E6564
  * Callers:
- *     NtChangeProcessState @ 0x1407755B0 (NtChangeProcessState.c)
- *     PspDeleteProcessStateChange @ 0x140776CB0 (PspDeleteProcessStateChange.c)
- *     DbgkForwardException @ 0x140938C20 (DbgkForwardException.c)
- *     DbgkpResumeProcess @ 0x14093A32C (DbgkpResumeProcess.c)
- *     PspChangeProcessExecutionState @ 0x140AD16D4 (PspChangeProcessExecutionState.c)
+ *     NtChangeProcessState @ 0x1407757D0 (NtChangeProcessState.c)
+ *     PspDeleteProcessStateChange @ 0x140776ED0 (PspDeleteProcessStateChange.c)
+ *     DbgkForwardException @ 0x1408F32F0 (DbgkForwardException.c)
+ *     DbgkpResumeProcess @ 0x140A5A3B4 (DbgkpResumeProcess.c)
+ *     PspChangeProcessExecutionState @ 0x140ACFA40 (PspChangeProcessExecutionState.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     PspLockProcessExclusive @ 0x14045AB10 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x140462E74 (PspUnlockProcessExclusive.c)
- *     KeThawMultiProcess @ 0x1404903A4 (KeThawMultiProcess.c)
- *     PsWow64GetProcessNtdllType @ 0x140908828 (PsWow64GetProcessNtdllType.c)
- *     PspWow64GetSharedInformation @ 0x140908844 (PspWow64GetSharedInformation.c)
- *     EtwTiLogSuspendResumeProcess @ 0x140A61AE0 (EtwTiLogSuspendResumeProcess.c)
- *     EtwTraceFreezeThawProcess @ 0x140A6F33C (EtwTraceFreezeThawProcess.c)
- *     VslUpdateFreezeTimeBias @ 0x140A90A68 (VslUpdateFreezeTimeBias.c)
- *     PspPostFreezeOperationWorkEnqueue @ 0x140A97D04 (PspPostFreezeOperationWorkEnqueue.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     PspLockProcessExclusive @ 0x14044FF38 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140458484 (PspUnlockProcessExclusive.c)
+ *     KeThawMultiProcess @ 0x14048A9E4 (KeThawMultiProcess.c)
+ *     PsWow64GetProcessNtdllType @ 0x1408DFF44 (PsWow64GetProcessNtdllType.c)
+ *     PspWow64GetSharedInformation @ 0x1408DFF60 (PspWow64GetSharedInformation.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x140A5A3D4 (EtwTiLogSuspendResumeProcess.c)
+ *     EtwTraceFreezeThawProcess @ 0x140A687C0 (EtwTraceFreezeThawProcess.c)
+ *     VslUpdateFreezeTimeBias @ 0x140A8D164 (VslUpdateFreezeTimeBias.c)
+ *     PspPostFreezeOperationWorkEnqueue @ 0x140A94554 (PspPostFreezeOperationWorkEnqueue.c)
  */
 
 __int64 __fastcall PsThawMultiProcess(__int64 a1, char a2, unsigned int a3)
@@ -46,7 +46,7 @@ __int64 __fastcall PsThawMultiProcess(__int64 a1, char a2, unsigned int a3)
     }
     else
     {
-      *(_QWORD *)qword_140FC6490 += v7;
+      *(_QWORD *)qword_140FC7510 += v7;
       ProcessNtdllType = PsWow64GetProcessNtdllType(a1);
       if ( ProcessNtdllType )
       {

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateZeroThreadContext @ 0x1403B0C88
+ * XREFs of MiCreateZeroThreadContext @ 0x1403B0DF8
  * Callers:
- *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
- *     MiInitializePartitionThreads @ 0x1408C7C54 (MiInitializePartitionThreads.c)
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiZeroNodePages @ 0x1403B0390 (MiZeroNodePages.c)
+ *     MiInitializePartitionThreads @ 0x1408C7DB4 (MiInitializePartitionThreads.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
- *     MiInitializeColorTable @ 0x1403B0D1C (MiInitializeColorTable.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiCreateUltraThreadContext @ 0x14029444C (MiCreateUltraThreadContext.c)
+ *     MiInitializeColorTable @ 0x1403B0E8C (MiInitializeColorTable.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall MiCreateZeroThreadContext(__int64 a1, int a2)

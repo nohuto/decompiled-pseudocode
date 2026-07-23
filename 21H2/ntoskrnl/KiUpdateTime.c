@@ -1,21 +1,21 @@
 /*
- * XREFs of KiUpdateTime @ 0x140227730
+ * XREFs of KiUpdateTime @ 0x1402CC030
  * Callers:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KiUpdateRunTime @ 0x1402275D0 (KiUpdateRunTime.c)
- *     PoExecutePerfCheck @ 0x140227DA0 (PoExecutePerfCheck.c)
- *     PoExecuteIdleCheck @ 0x140227E50 (PoExecuteIdleCheck.c)
- *     KiForwardTick @ 0x140227FD0 (KiForwardTick.c)
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KiUpdateRunTime @ 0x1402CBED0 (KiUpdateRunTime.c)
+ *     PoExecutePerfCheck @ 0x1402CC6A0 (PoExecutePerfCheck.c)
+ *     PoExecuteIdleCheck @ 0x1402CC750 (PoExecuteIdleCheck.c)
+ *     KiForwardTick @ 0x1402CC8D0 (KiForwardTick.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     HalpTimerScaleCounter @ 0x140396440 (HalpTimerScaleCounter.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiSetForceIdleState @ 0x1405237A0 (KiSetForceIdleState.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiSetForceIdleState @ 0x1405239E0 (KiSetForceIdleState.c)
  */
 
 unsigned __int64 __fastcall KiUpdateTime(char a1, unsigned __int8 a2)
@@ -279,10 +279,10 @@ LABEL_9:
   if ( v20 <= 0 )
   {
     v21 = 1LL;
-    v20 += (unsigned int)KeMaximumIncrement;
+    v20 += KeMaximumIncrement;
     if ( v20 <= 0 )
     {
-      v46 = KeNumberProcessorsGroup0[3];
+      v46 = KeNumberProcessorsGroup0[1];
       v47 = (unsigned __int64)(((unsigned __int64)-v20
                               * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v46;
       LODWORD(v20) = (v47 + 1) * KeMaximumIncrement + v20;
@@ -392,7 +392,7 @@ LABEL_95:
       v27 = v78[0];
     }
     v29 = 0LL;
-    word_140C110B2 = 20;
+    word_140C11092 = 20;
     KiClockCheckPending[0] = *v28;
     v30 = 0;
     if ( v27 )
@@ -410,7 +410,7 @@ LABEL_95:
     }
     for ( ; v30 < (unsigned __int16)*v28; *(_QWORD *)&KiClockCheckPending[4 * v32 + 4] = *(_QWORD *)&v28[4 * v32 + 4] )
       v32 = v30++;
-    for ( dword_140C110B4 = v29; v30 < (unsigned __int16)word_140C110B2; *(_QWORD *)&KiClockCheckPending[4 * v70 + 4] = v29 )
+    for ( dword_140C11094 = v29; v30 < (unsigned __int16)word_140C11092; *(_QWORD *)&KiClockCheckPending[4 * v70 + 4] = v29 )
       v70 = v30++;
   }
   return KiUpdateRunTime(v73, v72);

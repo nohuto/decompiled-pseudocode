@@ -1,10 +1,10 @@
 /*
- * XREFs of Template_hzr0qqhzr4 @ 0x1401CD5AC
+ * XREFs of Template_hzr0qqhzr4 @ 0x1401CD3F8
  * Callers:
- *     IopDeviceRemovalForResetComplete @ 0x14062C698 (IopDeviceRemovalForResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x14062C74C (IopDeviceRemovalForResetComplete.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_hzr0qqhzr4(

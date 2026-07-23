@@ -1,87 +1,83 @@
 /*
- * XREFs of PopThermalSxExit @ 0x140435AC4
+ * XREFs of PopThermalSxExit @ 0x140516740
  * Callers:
- *     PopPolicyWorkerAction @ 0x140A37680 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerAction @ 0x1409F3240 (PopPolicyWorkerAction.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopQueueWorkItem @ 0x1404CEE60 (PopQueueWorkItem.c)
- *     PopPowerLimitSxTransition @ 0x140529A8C (PopPowerLimitSxTransition.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     PopCoolingSxTransition @ 0x140424E88 (PopCoolingSxTransition.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
+ *     PopQueueWorkItem @ 0x1404C8890 (PopQueueWorkItem.c)
+ *     PopPowerLimitSxTransition @ 0x14052BF20 (PopPowerLimitSxTransition.c)
+ *     Feature_Servicing_ThermalSxExitRereadZones__private_IsEnabledDeviceUsageNoInline @ 0x14060A5F4 (Feature_Servicing_ThermalSxExitRereadZones__private_IsEnabledDeviceUsageNoInline.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
-__int64 PopThermalSxExit()
+__int64 __fastcall PopThermalSxExit(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   __int64 result; // rax
-  KIRQL v1; // al
-  void **i; // rdi
-  void *v3; // rax
-  struct _LIST_ENTRY *j; // rbx
-  struct _LIST_ENTRY *k; // rcx
-  struct _LIST_ENTRY *v6; // rax
+  bool v5; // di
+  int IsEnabledDeviceUsageNoInline; // ebx
+  KIRQL v7; // al
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  struct _KLOCK_ENTRIES *v10; // r9
+  struct _SINGLE_LIST_ENTRY *i; // rbx
+  struct _SINGLE_LIST_ENTRY *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  struct _KLOCK_ENTRIES *v15; // r9
 
-  result = (unsigned int)_InterlockedExchange((volatile __int32 *)&stru_140F0F620.WpsFeedback, 0);
+  result = (unsigned int)_InterlockedExchange(&PopThermalStateTransitionInProgress, 0);
+  v5 = 0;
   if ( (_DWORD)result )
   {
-    if ( LOBYTE(stru_140F10828.OtherOperationCount) )
+    if ( PoResumeFromHibernate )
     {
-      PopAcquireRwLockExclusive(&stru_140F0F620.Spare35[1]);
-      if ( BYTE2(stru_140F0F620.SystemAffinityTokenListHead.Next) )
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopThermalStateTransitionContext, a2, a3, a4);
+      if ( byte_140F0FCF2 )
       {
-        BYTE2(stru_140F0F620.SystemAffinityTokenListHead.Next) = 0;
-        ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0LL, 0LL, 0LL, 0, 0);
-      }
-      PopReleaseRwLock((struct _KTHREAD *)&stru_140F0F620.Spare35[1]);
-      v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F0F620.SchedulerApc.ApcListEntry.Blink);
-      stru_140F0F620.SchedulerApcFill3[32] = 1;
-      *(_DWORD *)&stru_140F0F620.SchedulerApcFill5[36] = -1;
-      KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F0F620.SchedulerApc.ApcListEntry.Blink, v1);
-    }
-    PopAcquireRwLockShared(&unk_140F10E30);
-    for ( i = (void **)stru_140F10828.FirstArgument; i != &stru_140F10828.FirstArgument; i = (void **)*i )
-    {
-      PopAcquireRwLockExclusive(i + 54);
-      v3 = (void *)MEMORY[0xFFFFF78000000008];
-      i[64] = (void *)MEMORY[0xFFFFF78000000008];
-      i[65] = v3;
-      *((_BYTE *)i + 504) = 0;
-      PopReleaseRwLock((struct _KTHREAD *)(i + 54));
-    }
-    PopReleaseRwLock(&unk_140F10E30);
-    PopAcquireRwLockExclusive(&stru_140F10828.SavedApcStateFill[32]);
-    for ( j = stru_140F10828.SavedApcState.ApcListHead[1].Flink;
-          j != (struct _LIST_ENTRY *)&stru_140F10828.SavedApcStateFill[16];
-          j = j->Flink )
-    {
-      if ( LOBYTE(j[4].Flink) )
-      {
-        PopAcquireRwLockExclusive(&j[2]);
-        for ( k = j[1].Flink; k != &j[1]; k = k->Flink )
+        byte_140F0FCF2 = 0;
+        IsEnabledDeviceUsageNoInline = Feature_Servicing_ThermalSxExitRereadZones__private_IsEnabledDeviceUsageNoInline();
+        if ( IsEnabledDeviceUsageNoInline )
         {
-          if ( BYTE2(k[1].Flink) )
-          {
-            v6 = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
-            k[3].Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
-            k[3].Blink = v6;
-            LOBYTE(k[2].Blink) = 0;
-          }
+          byte_140F0FCF1 = 0;
+          byte_140F0FCF3 = 0;
         }
-        PopReleaseRwLock((struct _KTHREAD *)&j[2]);
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
+        v5 = IsEnabledDeviceUsageNoInline != 0;
       }
+      PopReleaseRwLock((struct _KTHREAD *)&PopThermalStateTransitionContext);
+      v7 = KeAcquireSpinLockRaiseToDpc(&PopThermalEventTransitionContext);
+      byte_140F0FD08 = 1;
+      dword_140F0FD0C = -1;
+      KeReleaseSpinLock(&PopThermalEventTransitionContext, v7);
     }
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.SavedApcStateFill[32]);
-    PopPowerLimitSxTransition(0LL);
-    PopAcquireRwLockExclusive(&stru_140F0F620.Spare35[1]);
-    LOBYTE(stru_140F0F620.SystemAffinityTokenListHead.Next) = 1;
-    if ( BYTE1(stru_140F0F620.SystemAffinityTokenListHead.Next)
-      || BYTE3(stru_140F0F620.SystemAffinityTokenListHead.Next) )
+    PopAcquireRwLockShared(&PopPolicyDeviceLock, a2, a3, a4);
+    for ( i = PpmIdlePolicyLock.SystemAffinityTokenListHead.Next;
+          i != &PpmIdlePolicyLock.SystemAffinityTokenListHead;
+          i = i->Next )
     {
-      PopQueueWorkItem(&stru_140F0F620.SavedApcStateFill[8], 1LL);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&i[54], v8, v9, v10);
+      v12 = (struct _SINGLE_LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
+      i[64].Next = (struct _SINGLE_LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
+      i[65].Next = v12;
+      LOBYTE(i[63].Next) = 0;
+      if ( (unsigned int)Feature_Servicing_ThermalSxExitRereadZones__private_IsEnabledDeviceUsageNoInline() && v5 )
+        IoCancelIrp((PIRP)i[7].Next);
+      PopReleaseRwLock((struct _KTHREAD *)&i[54]);
     }
-    return PopReleaseRwLock((struct _KTHREAD *)&stru_140F0F620.Spare35[1]);
+    PopReleaseRwLock((struct _KTHREAD *)&PopPolicyDeviceLock);
+    PopCoolingSxTransition(0);
+    PopPowerLimitSxTransition(0LL);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopThermalStateTransitionContext, v13, v14, v15);
+    byte_140F0FCF0 = 1;
+    if ( byte_140F0FCF1 || byte_140F0FCF3 )
+      PopQueueWorkItem((__int64)&PopThermalStateTransitionWorkItem, DelayedWorkQueue);
+    return PopReleaseRwLock((struct _KTHREAD *)&PopThermalStateTransitionContext);
   }
   return result;
 }

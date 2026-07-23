@@ -1,9 +1,9 @@
 /*
- * XREFs of _raise_excf @ 0x140151814
+ * XREFs of _raise_excf @ 0x140151DCC
  * Callers:
- *     _handle_errorf @ 0x1401511A0 (_handle_errorf.c)
+ *     _handle_errorf @ 0x140151758 (_handle_errorf.c)
  * Callees:
- *     _raise_exc_ex @ 0x14015158C (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x140151B44 (_raise_exc_ex.c)
  */
 
 __int64 __fastcall raise_excf(

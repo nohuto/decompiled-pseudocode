@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonAllocateCounterInternal @ 0x140594D9C
+ * XREFs of EmonAllocateCounterInternal @ 0x14059751C
  * Callers:
- *     EmonAllocateCounter @ 0x140594CB8 (EmonAllocateCounter.c)
+ *     EmonAllocateCounter @ 0x140597438 (EmonAllocateCounter.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall EmonAllocateCounterInternal(__int64 a1, int a2, __int64 a3, int a4, int a5)

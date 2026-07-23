@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmUnlockMdl @ 0x1405CBEEC
+ * XREFs of SmKmUnlockMdl @ 0x1405CC45C
  * Callers:
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C23F4 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     SmKmStoreHelperCommandCleanup @ 0x1405CB73C (SmKmStoreHelperCommandCleanup.c)
- *     SmKmStoreHelperCommandProcess @ 0x1405CB808 (SmKmStoreHelperCommandProcess.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C2964 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x1405CBCAC (SmKmStoreHelperCommandCleanup.c)
+ *     SmKmStoreHelperCommandProcess @ 0x1405CBD78 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     SmFpFree @ 0x1404660A8 (SmFpFree.c)
- *     MiUnlockStoreLockedPages @ 0x14065CE10 (MiUnlockStoreLockedPages.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     SmFpFree @ 0x1404664A8 (SmFpFree.c)
+ *     MiUnlockStoreLockedPages @ 0x14065D360 (MiUnlockStoreLockedPages.c)
  */
 
 __int64 __fastcall SmKmUnlockMdl(PMDL MemoryDescriptorList, __int64 a2, __int64 a3)

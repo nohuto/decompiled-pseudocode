@@ -13,7 +13,7 @@ __int64 (__fastcall *__fastcall MmCallDllInitialize(__int64 a1))(UNICODE_STRING 
 {
   __int64 (__fastcall *result)(UNICODE_STRING *); // rax
 
-  result = (__int64 (__fastcall *)(UNICODE_STRING *))RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "DllInitialize");
+  result = (__int64 (__fastcall *)(UNICODE_STRING *))RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "DllInitialize");
   if ( result )
     return (__int64 (__fastcall *)(UNICODE_STRING *))MiIssueDllInitializeCall(a1, result);
   return result;

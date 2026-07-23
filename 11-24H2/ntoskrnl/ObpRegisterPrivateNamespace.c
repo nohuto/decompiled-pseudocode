@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpRegisterPrivateNamespace @ 0x140A0A220
+ * XREFs of ObpRegisterPrivateNamespace @ 0x140A06750
  * Callers:
- *     NtCreatePrivateNamespace @ 0x140A09670 (NtCreatePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x140A05BA0 (NtCreatePrivateNamespace.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ObpLookupNamespaceEntry @ 0x140A0A154 (ObpLookupNamespaceEntry.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObpLookupNamespaceEntry @ 0x140A06684 (ObpLookupNamespaceEntry.c)
  */
 
 __int64 __fastcall ObpRegisterPrivateNamespace(__int64 a1)
@@ -18,8 +18,8 @@ __int64 __fastcall ObpRegisterPrivateNamespace(__int64 a1)
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // r14
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v5; // rbx
-  _QWORD *v6; // rax
-  _QWORD *v7; // rsi
+  char *v6; // rax
+  char *v7; // rsi
   __int64 v8; // rax
   __int64 *v9; // rcx
   signed __int64 v10; // rax
@@ -31,15 +31,15 @@ __int64 __fastcall ObpRegisterPrivateNamespace(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   v5 = (signed __int64 *)&CurrentServerSiloGlobals[45];
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[45], 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[45], 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentServerSiloGlobals[45], 0LL) )
     ExfAcquirePushLockExclusiveEx(
       (unsigned __int64 *)&CurrentServerSiloGlobals[45],
-      (__int64)v6,
+      v6,
       (__int64)&CurrentServerSiloGlobals[45]);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   if ( !ObpLookupNamespaceEntry((__int64)&CurrentServerSiloGlobals[8], a1) )
   {
     v8 = (__int64)&CurrentServerSiloGlobals[*(unsigned __int8 *)(a1 + 40) + 8];

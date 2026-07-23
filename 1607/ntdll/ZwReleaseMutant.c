@@ -1,17 +1,17 @@
 /*
  * XREFs of ZwReleaseMutant @ 0x1800A6820
  * Callers:
- *     TppCallbackEpilog @ 0x18001FBD0 (TppCallbackEpilog.c)
- *     ResCReleaseInitMutex @ 0x18010331C (ResCReleaseInitMutex.c)
+ *     TppCallbackEpilog @ 0x18001FBC0 (TppCallbackEpilog.c)
+ *     ResCReleaseInitMutex @ 0x18010325C (ResCReleaseInitMutex.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwReleaseMutant()
+NTSTATUS __cdecl ZwReleaseMutant(HANDLE MutantHandle, PLONG PreviousCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 32LL;
+  result = 32;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

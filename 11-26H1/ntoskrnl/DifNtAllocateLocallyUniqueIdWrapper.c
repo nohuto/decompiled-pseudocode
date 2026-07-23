@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtAllocateLocallyUniqueIdWrapper @ 0x14066B0C0
+ * XREFs of DifNtAllocateLocallyUniqueIdWrapper @ 0x14066ECA0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtAllocateLocallyUniqueId @ 0x140ABA590 (NtAllocateLocallyUniqueId.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtAllocateLocallyUniqueId @ 0x140ABBA50 (NtAllocateLocallyUniqueId.c)
  */
 
-__int64 __fastcall DifNtAllocateLocallyUniqueIdWrapper(__int64 a1)
+__int64 __fastcall DifNtAllocateLocallyUniqueIdWrapper(PLUID Luid)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -43,7 +43,7 @@ __int64 __fastcall DifNtAllocateLocallyUniqueIdWrapper(__int64 a1)
       *(_QWORD *)&v13 = DifGetReturnAddressForWrappers();
     }
     v6 = 0;
-    *((_QWORD *)&v13 + 1) = a1;
+    *((_QWORD *)&v13 + 1) = Luid;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v6 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -56,7 +56,7 @@ __int64 __fastcall DifNtAllocateLocallyUniqueIdWrapper(__int64 a1)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v14) = NtAllocateLocallyUniqueId(a1);
+  LODWORD(v14) = NtAllocateLocallyUniqueId(Luid);
   if ( v4 )
   {
     if ( (v9 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

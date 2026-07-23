@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpTerminalInactivityTimerDpcRoutine @ 0x1405A3700
+ * XREFs of TtmpTerminalInactivityTimerDpcRoutine @ 0x1405A3BF0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void __fastcall TtmpTerminalInactivityTimerDpcRoutine(

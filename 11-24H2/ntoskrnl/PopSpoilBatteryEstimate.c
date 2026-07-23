@@ -1,21 +1,21 @@
 /*
- * XREFs of PopSpoilBatteryEstimate @ 0x140A26FF0
+ * XREFs of PopSpoilBatteryEstimate @ 0x140A1BA70
  * Callers:
- *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x1407551E0 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x140A26E9C (PopUpdateConsoleDisplayState.c)
+ *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x140753500 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x140A1B91C (PopUpdateConsoleDisplayState.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopBatteryQueueWork @ 0x1404A42EC (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopBatteryQueueWork @ 0x14049F07C (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
+ULONG __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
 {
   int v2; // ebx
   unsigned int v4; // r8d
   const char *v5; // r9
-  NTSTATUS result; // eax
+  ULONG result; // eax
   int v7; // [rsp+30h] [rbp-68h] BYREF
   int v8; // [rsp+34h] [rbp-64h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+40h] [rbp-58h] BYREF
@@ -37,7 +37,7 @@ NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
   if ( !(_BYTE)v2 )
     v5 = "temporarily";
   result = DbgPrintEx(0x92u, 3u, "Battery estimates spoiled %s by %d; mask=%x\n", v5, a1, PopEstimateSpoilerMask);
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
     v12 = 0;
     v15 = 0;
@@ -48,8 +48,8 @@ NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
     v8 = a1;
     v14 = 4;
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140E076F0,
-             (unsigned __int8 *)byte_14004C66D,
+             (__int64)&dword_140E07680,
+             (unsigned __int8 *)byte_14004C6A5,
              0LL,
              0LL,
              4u,

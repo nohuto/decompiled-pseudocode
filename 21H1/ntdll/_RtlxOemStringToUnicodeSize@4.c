@@ -7,11 +7,11 @@
  *     _RtlMultiByteToUnicodeSize@12 @ 0x4B2CE970 (_RtlMultiByteToUnicodeSize@12.c)
  */
 
-char *__thiscall RtlxOemStringToUnicodeSize(char *this, unsigned __int16 *a2)
+ULONG __thiscall RtlxOemStringToUnicodeSize(void *this, PCSTR *a2)
 {
-  char *v3; // [esp+0h] [ebp-4h] BYREF
+  ULONG BytesInUnicodeString; // [esp+0h] [ebp-4h] BYREF
 
-  v3 = this;
-  RtlMultiByteToUnicodeSize(&v3, *((_DWORD *)a2 + 1), *a2);
-  return v3 + 2;
+  BytesInUnicodeString = (ULONG)this;
+  RtlMultiByteToUnicodeSize(&BytesInUnicodeString, a2[1], *(unsigned __int16 *)a2);
+  return BytesInUnicodeString + 2;
 }

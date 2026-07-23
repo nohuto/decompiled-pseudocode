@@ -1,17 +1,17 @@
 /*
- * XREFs of MiProcessTransitionHeatBatch @ 0x1402CEF74
+ * XREFs of MiProcessTransitionHeatBatch @ 0x1402CF164
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103CD0 (ExfTryAcquirePushLockShared.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiProcessTransitionHeatBatch(unsigned int *a1)
@@ -27,9 +27,9 @@ __int64 __fastcall MiProcessTransitionHeatBatch(unsigned int *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v3 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&qword_14043C9F8, 0LL, 1);
-  if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&qword_14043C9F8, 17LL, 0LL)
-    || ExfTryAcquirePushLockShared(&qword_14043C9F8) )
+  v3 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&qword_14043DAB8, 0LL, 1);
+  if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&qword_14043DAB8, 17LL, 0LL)
+    || ExfTryAcquirePushLockShared(&qword_14043DAB8) )
   {
     if ( v3 )
       v3->AcquiredByte |= 1u;
@@ -68,13 +68,13 @@ LABEL_15:
         goto LABEL_15;
     }
 LABEL_18:
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14043C9F8, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&qword_14043C9F8);
-    KeAbPostRelease((ULONG_PTR)&qword_14043C9F8);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14043DAB8, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&qword_14043DAB8);
+    KeAbPostRelease((ULONG_PTR)&qword_14043DAB8);
   }
   else if ( v3 )
   {
-    KeAbPostReleaseEx((ULONG_PTR)&qword_14043C9F8, v3);
+    KeAbPostReleaseEx((ULONG_PTR)&qword_14043DAB8, v3);
   }
   return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 }

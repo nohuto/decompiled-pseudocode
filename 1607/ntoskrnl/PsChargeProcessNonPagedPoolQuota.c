@@ -1,16 +1,16 @@
 /*
- * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x140029BD0
+ * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x140029750
  * Callers:
- *     MiCloneVads @ 0x1400BC560 (MiCloneVads.c)
- *     MiCreateCloneChain @ 0x14010CD00 (MiCreateCloneChain.c)
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiCreateVadEventBitmap @ 0x1404BA9CC (MiCreateVadEventBitmap.c)
- *     MiBuildNewCloneDescriptor @ 0x140527744 (MiBuildNewCloneDescriptor.c)
- *     ExEnableHandleTracing @ 0x1406AD3A4 (ExEnableHandleTracing.c)
- *     ViIrpAllocateLockedPacket @ 0x14070C11C (ViIrpAllocateLockedPacket.c)
+ *     MiCloneVads @ 0x1400BA3F0 (MiCloneVads.c)
+ *     MiCreateCloneChain @ 0x14010AA80 (MiCreateCloneChain.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiCreateVadEventBitmap @ 0x1404A66FC (MiCreateVadEventBitmap.c)
+ *     MiBuildNewCloneDescriptor @ 0x14050A7A4 (MiBuildNewCloneDescriptor.c)
+ *     ExEnableHandleTracing @ 0x1406AD4DC (ExEnableHandleTracing.c)
+ *     ViIrpAllocateLockedPacket @ 0x14070C14C (ViIrpAllocateLockedPacket.c)
  * Callees:
- *     PspExpandQuota @ 0x1400C68C4 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x1400C4764 (PspExpandQuota.c)
  */
 
 __int64 __fastcall PsChargeProcessNonPagedPoolQuota(__int64 a1, unsigned __int64 a2)

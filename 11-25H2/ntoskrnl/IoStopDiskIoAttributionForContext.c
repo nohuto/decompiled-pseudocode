@@ -11,13 +11,13 @@
  *     ExReleaseSpinLockExclusive @ 0x1403A2D40 (ExReleaseSpinLockExclusive.c)
  */
 
-void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
+void __fastcall IoStopDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // bl
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  RtlRbRemoveNode((unsigned __int64)&IopDiskIoAttributionTree, &a1->Count);
-  a1[2].Count = -1LL;
+  RtlRbRemoveNode(&IopDiskIoAttributionTree, Node);
+  Node->ParentValue = -1LL;
   ExReleaseSpinLockExclusive(&IopDiskIoAttributionLock, v2);
-  ExWaitForRundownProtectionRelease(a1 + 21);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&Node[7]);
 }

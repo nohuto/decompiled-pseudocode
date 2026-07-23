@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroPageFile @ 0x14066BEC0
+ * XREFs of MiZeroPageFile @ 0x14066D090
  * Callers:
- *     MiZeroAllPageFiles @ 0x140B6236C (MiZeroAllPageFiles.c)
+ *     MiZeroAllPageFiles @ 0x140B6443C (MiZeroAllPageFiles.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MmZeroPageWrite @ 0x140493B8C (MmZeroPageWrite.c)
- *     MiTransferMemoryPagefileData @ 0x1404D1F70 (MiTransferMemoryPagefileData.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MmZeroPageWrite @ 0x1402604EC (MmZeroPageWrite.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiTransferMemoryPagefileData @ 0x1404CAFB0 (MiTransferMemoryPagefileData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiZeroPageFile(PVOID P)
@@ -25,10 +25,10 @@ LONG __fastcall MiZeroPageFile(PVOID P)
   unsigned int v8; // r15d
   KIRQL i; // r9
   unsigned int v10; // eax
-  __int64 v11; // rcx
+  struct _FILE_OBJECT *v11; // rcx
   unsigned int v13; // [rsp+28h] [rbp-A9h]
   unsigned __int64 v14; // [rsp+30h] [rbp-A1h] BYREF
-  unsigned __int64 v15; // [rsp+38h] [rbp-99h] BYREF
+  LARGE_INTEGER v15; // [rsp+38h] [rbp-99h] BYREF
   PRKEVENT Event; // [rsp+40h] [rbp-91h]
   struct _MDL MemoryDescriptorList; // [rsp+48h] [rbp-89h] BYREF
   _QWORD v18[16]; // [rsp+78h] [rbp-59h] BYREF
@@ -43,7 +43,7 @@ LONG __fastcall MiZeroPageFile(PVOID P)
   if ( v3 )
   {
     *(_DWORD *)&MemoryDescriptorList.Size = 131120;
-    memset64(v18, (unsigned __int64)qword_140E37340[0], 0x10uLL);
+    memset64(v18, (unsigned __int64)qword_140E37480[0], 0x10uLL);
   }
   else
   {
@@ -83,8 +83,8 @@ LABEL_13:
       }
       else
       {
-        v11 = *(_QWORD *)(v2 + 24);
-        v15 = (unsigned __int64)v13 << 12;
+        v11 = *(struct _FILE_OBJECT **)(v2 + 24);
+        v15.QuadPart = (unsigned __int64)v13 << 12;
         v14 = (unsigned __int64)v4 << 12;
         MmZeroPageWrite(v11, &v15, (__int64 *)&v14, 0);
       }

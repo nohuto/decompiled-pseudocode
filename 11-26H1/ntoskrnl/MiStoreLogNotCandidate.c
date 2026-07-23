@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogNotCandidate @ 0x1404C4250
+ * XREFs of MiStoreLogNotCandidate @ 0x1404BDB30
  * Callers:
- *     MiStoreWriteModifiedPagePrepare @ 0x1404091C0 (MiStoreWriteModifiedPagePrepare.c)
+ *     MiStoreWriteModifiedPagePrepare @ 0x1404022B0 (MiStoreWriteModifiedPagePrepare.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogNotCandidate(__int64 a1, int a2)
@@ -20,8 +20,8 @@ void __fastcall MiStoreLogNotCandidate(__int64 a1, int a2)
   __int64 v9[8]; // [rsp+50h] [rbp-58h] BYREF
 
   if ( a2 != -1073741401
-    && *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+    && *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
   {
     v7 = v3;
     v9[5] = 4LL;
@@ -29,6 +29,6 @@ void __fastcall MiStoreLogNotCandidate(__int64 a1, int a2)
     v9[7] = 4LL;
     v9[6] = (__int64)&v8;
     v8 = v2;
-    tlgWriteEx_EtwWriteEx(v4, (int)&byte_14005A479, v2, 1, v5, v6, 4u, (__int64)v9);
+    tlgWriteEx_EtwWriteEx(v4, (int)&byte_14005B197, v2, 1, v5, v6, 4u, (__int64)v9);
   }
 }

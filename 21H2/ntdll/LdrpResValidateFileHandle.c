@@ -1,16 +1,19 @@
 /*
- * XREFs of LdrpResValidateFileHandle @ 0x1800E4E9C
+ * XREFs of LdrpResValidateFileHandle @ 0x1800E4E5C
  * Callers:
  *     LdrResSearchResource @ 0x1800554B0 (LdrResSearchResource.c)
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQueryInformationFile @ 0x18009D860 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x18009D820 (NtQueryInformationFile.c)
  */
 
-__int64 __fastcall LdrpResValidateFileHandle(__int64 a1)
+NTSTATUS __fastcall LdrpResValidateFileHandle(char *a1)
 {
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-48h] BYREF
+  _BYTE FileInformation[40]; // [rsp+40h] [rbp-38h] BYREF
+
   if ( (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225480LL;
+    return -1073741816;
   else
-    return NtQueryInformationFile();
+    return NtQueryInformationFile(a1, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
 }

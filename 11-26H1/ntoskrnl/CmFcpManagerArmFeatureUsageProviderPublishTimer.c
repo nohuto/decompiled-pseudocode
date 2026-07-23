@@ -1,10 +1,10 @@
 /*
- * XREFs of CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140532CA0
+ * XREFs of CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140535140
  * Callers:
- *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x140B03F58 (CmFcpManagerPublishFeatureUsageDataBuffers.c)
- *     CmFcManagerStartRuntimePhase @ 0x140CF0AF0 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x140B05B68 (CmFcpManagerPublishFeatureUsageDataBuffers.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140CF6E68 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ExSetTimer @ 0x14037A420 (ExSetTimer.c)
+ *     ExSetTimer @ 0x14037C1D0 (ExSetTimer.c)
  */
 
 __int64 __fastcall CmFcpManagerArmFeatureUsageProviderPublishTimer(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall CmFcpManagerArmFeatureUsageProviderPublishTimer(__int64 a1)
   __int64 result; // rax
   _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 1544);
+  v1 = *(_QWORD *)(a1 + 1616);
   if ( v1 )
   {
     v3[0] = 0LL;

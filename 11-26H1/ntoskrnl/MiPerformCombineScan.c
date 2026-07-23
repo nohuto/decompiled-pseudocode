@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPerformCombineScan @ 0x1402F4340
+ * XREFs of MiPerformCombineScan @ 0x1402D63C0
  * Callers:
- *     MiComputeCombineHash @ 0x1402F39F0 (MiComputeCombineHash.c)
+ *     MiComputeCombineHash @ 0x1402D5A70 (MiComputeCombineHash.c)
  * Callees:
  *     <none>
  */

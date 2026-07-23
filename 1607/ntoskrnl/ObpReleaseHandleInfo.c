@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpReleaseHandleInfo @ 0x1404B9A50
+ * XREFs of ObpReleaseHandleInfo @ 0x1404A5780
  * Callers:
- *     ObpDecrementHandleCount @ 0x140406420 (ObpDecrementHandleCount.c)
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     ObCloseHandleTableEntry @ 0x14044E380 (ObCloseHandleTableEntry.c)
+ *     ObpDecrementHandleCount @ 0x1404052E0 (ObpDecrementHandleCount.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     ObCloseHandleTableEntry @ 0x14044D250 (ObCloseHandleTableEntry.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSizeHeap @ 0x1405B67B8
+ * XREFs of RtlpHpSizeHeap @ 0x1405B6D28
  * Callers:
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     RtlpHpSizeHeapInternal @ 0x1405B6850 (RtlpHpSizeHeapInternal.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     RtlpHpSizeHeapInternal @ 0x1405B6DC0 (RtlpHpSizeHeapInternal.c)
  */
 
 __int64 __fastcall RtlpHpSizeHeap(__int64 a1, __int64 a2, int a3)

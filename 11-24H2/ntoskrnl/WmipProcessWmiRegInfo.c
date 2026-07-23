@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipProcessWmiRegInfo @ 0x1409D0800
+ * XREFs of WmipProcessWmiRegInfo @ 0x1409B008C
  * Callers:
- *     WmipRegisterOrUpdateDS @ 0x1409D06C8 (WmipRegisterOrUpdateDS.c)
+ *     WmipRegisterOrUpdateDS @ 0x1409AFF54 (WmipRegisterOrUpdateDS.c)
  * Callees:
- *     WmipAddDataSource @ 0x1409CFD60 (WmipAddDataSource.c)
- *     WmipUpdateDataSource @ 0x1409D1534 (WmipUpdateDataSource.c)
+ *     WmipUpdateDataSource @ 0x1409AF500 (WmipUpdateDataSource.c)
+ *     WmipAddDataSource @ 0x1409B01A8 (WmipAddDataSource.c)
  */
 
 __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned int a3, char a4)
@@ -12,9 +12,9 @@ __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned 
   unsigned int v4; // ebx
   int v6; // ebp
   __int64 v10; // rdx
-  unsigned __int16 *v11; // r9
+  int v11; // r9d
   __int64 v12; // rcx
-  unsigned __int16 *v13; // rdx
+  __int64 v13; // rdx
   int updated; // eax
   int v15; // ecx
   int v16; // eax
@@ -29,20 +29,20 @@ __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned 
       break;
     if ( (_DWORD)v10 )
     {
-      v11 = (unsigned __int16 *)((char *)a2 + v10);
+      v11 = (_DWORD)a2 + v10;
       if ( (unsigned int)v10 + *(unsigned __int16 *)((char *)a2 + v10) > a3 )
         break;
     }
     else
     {
-      v11 = 0LL;
+      v11 = 0;
     }
     v12 = a2[3];
     if ( (unsigned int)v12 > a3 || (v12 & 1) != 0 )
       break;
     if ( (_DWORD)v12 )
     {
-      v13 = (unsigned __int16 *)((char *)a2 + v12);
+      v13 = (__int64)a2 + v12;
       if ( (unsigned int)v12 + *(unsigned __int16 *)((char *)a2 + v12) > a3 )
         break;
     }
@@ -53,9 +53,9 @@ __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned 
     if ( 32 * a2[4] + 24 > a3 )
       break;
     if ( a4 )
-      updated = WmipUpdateDataSource(a1, a2, a3);
+      updated = WmipUpdateDataSource(a1, (__int64)a2, a3);
     else
-      updated = WmipAddDataSource(a1, (__int64)a2, a3, v11, v13);
+      updated = WmipAddDataSource(a1, (_DWORD)a2, a3, v11, v13);
     v15 = updated;
     v16 = v6 + 1;
     if ( v15 < 0 )

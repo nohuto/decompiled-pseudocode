@@ -1,13 +1,13 @@
 /*
- * XREFs of KeInitializeGuardedMutex @ 0x14031D870
+ * XREFs of KeInitializeGuardedMutex @ 0x14031DB00
  * Callers:
- *     PiUEventInitClientRegistrationContext @ 0x140781CD4 (PiUEventInitClientRegistrationContext.c)
- *     PiUEventNotifyUserMode @ 0x1407839EC (PiUEventNotifyUserMode.c)
- *     PiDqObjectManagerInit @ 0x140812740 (PiDqObjectManagerInit.c)
- *     PfTInitialize @ 0x140846F2C (PfTInitialize.c)
- *     CmpInitializeDelayedCloseTable @ 0x1408635A8 (CmpInitializeDelayedCloseTable.c)
- *     EtwpInitializeProviderTraits @ 0x140864874 (EtwpInitializeProviderTraits.c)
- *     CmpInitSIDToHiveMapping @ 0x140865ED4 (CmpInitSIDToHiveMapping.c)
+ *     PiUEventInitClientRegistrationContext @ 0x140781EC4 (PiUEventInitClientRegistrationContext.c)
+ *     PiUEventNotifyUserMode @ 0x140783BDC (PiUEventNotifyUserMode.c)
+ *     PiDqObjectManagerInit @ 0x140812A10 (PiDqObjectManagerInit.c)
+ *     PfTInitialize @ 0x14084722C (PfTInitialize.c)
+ *     CmpInitializeDelayedCloseTable @ 0x1408637E8 (CmpInitializeDelayedCloseTable.c)
+ *     EtwpInitializeProviderTraits @ 0x140864AB4 (EtwpInitializeProviderTraits.c)
+ *     CmpInitSIDToHiveMapping @ 0x140866114 (CmpInitSIDToHiveMapping.c)
  * Callees:
  *     <none>
  */

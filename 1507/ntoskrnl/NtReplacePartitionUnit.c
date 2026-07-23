@@ -12,23 +12,26 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtReplacePartitionUnit(unsigned __int64 a1, unsigned __int64 a2, int a3)
+NTSTATUS __cdecl NtReplacePartitionUnit(
+        PUNICODE_STRING TargetInstancePath,
+        PUNICODE_STRING SpareInstancePath,
+        ULONG Flags)
 {
   struct _DEVICE_OBJECT *v6; // rsi
   struct _DEVICE_OBJECT *v7; // rdi
-  NTSTATUS UserModeCallersCopy; // ebx
+  int UserModeCallersCopy; // ebx
   ULONG v9; // r8d
   struct _DEVICE_OBJECT *v10; // rdx
   struct _DEVICE_OBJECT *v11; // rcx
-  _BYTE *v12; // rax
+  UNICODE_STRING *v12; // rax
   __int64 v13; // rax
   __int64 v14; // rax
   __int64 v15; // rax
   __int64 v16; // rax
   int v18; // [rsp+20h] [rbp-68h]
   PVOID v19[3]; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v20; // [rsp+48h] [rbp-40h] BYREF
-  __int128 v21; // [rsp+58h] [rbp-30h] BYREF
+  UNICODE_STRING v20; // [rsp+48h] [rbp-40h] BYREF
+  UNICODE_STRING v21; // [rsp+58h] [rbp-30h] BYREF
   PVOID P; // [rsp+A8h] [rbp+20h] BYREF
 
   P = 0LL;
@@ -47,7 +50,7 @@ __int64 __fastcall NtReplacePartitionUnit(unsigned __int64 a1, unsigned __int64 
     goto LABEL_35;
   }
   v9 = 0x80000000;
-  if ( a3 == 0x80000000 )
+  if ( Flags == 0x80000000 )
   {
     v10 = 0LL;
     v11 = 0LL;
@@ -55,50 +58,44 @@ LABEL_7:
     UserModeCallersCopy = IoReplacePartitionUnit(v11, v10, v9);
     goto LABEL_35;
   }
-  if ( a3 )
+  if ( Flags )
   {
     UserModeCallersCopy = -1073741583;
     goto LABEL_35;
   }
-  if ( (a2 & 7) != 0 )
+  if ( ((unsigned __int8)SpareInstancePath & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  v12 = (_BYTE *)MmUserProbeAddress;
-  if ( a2 + 16 > MmUserProbeAddress || a2 + 16 < a2 )
+  v12 = (UNICODE_STRING *)MmUserProbeAddress;
+  if ( (unsigned __int64)&SpareInstancePath[1] > MmUserProbeAddress || &SpareInstancePath[1] < SpareInstancePath )
   {
     *(_BYTE *)MmUserProbeAddress = 0;
-    v12 = (_BYTE *)MmUserProbeAddress;
+    v12 = (UNICODE_STRING *)MmUserProbeAddress;
   }
-  if ( (a1 & 7) != 0 )
+  if ( ((unsigned __int8)TargetInstancePath & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( a1 + 16 > (unsigned __int64)v12 || a1 + 16 < a1 )
-    *v12 = 0;
-  v20 = *(_OWORD *)a2;
-  v21 = *(_OWORD *)a1;
-  if ( (unsigned __int16)(v21 - 1) > 0xC8u || (BYTE2(v21) & 1) != 0 )
+  if ( &TargetInstancePath[1] > v12 || &TargetInstancePath[1] < TargetInstancePath )
+    LOBYTE(v12->Length) = 0;
+  v20 = *SpareInstancePath;
+  v21 = *TargetInstancePath;
+  if ( (unsigned __int16)(v21.Length - 1) > 0xC8u || (v21.MaximumLength & 1) != 0 )
     goto LABEL_34;
-  if ( (unsigned __int16)(v20 - 1) > 0xC8u || (BYTE2(v20) & 1) != 0 )
+  if ( (unsigned __int16)(v20.Length - 1) > 0xC8u || (v20.MaximumLength & 1) != 0 )
   {
 LABEL_33:
     UserModeCallersCopy = -1073741584;
     goto LABEL_35;
   }
-  UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&P, *((_QWORD *)&v20 + 1), (unsigned __int16)v20, 2LL, 1, 1);
+  UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&P, v20.Buffer, v20.Length, 2LL, 1, 1);
   if ( UserModeCallersCopy >= 0 )
   {
     LOBYTE(v18) = 1;
-    UserModeCallersCopy = PiControlMakeUserModeCallersCopy(
-                            v19,
-                            *((_QWORD *)&v21 + 1),
-                            (unsigned __int16)v21,
-                            2LL,
-                            v18,
-                            1);
+    UserModeCallersCopy = PiControlMakeUserModeCallersCopy(v19, v21.Buffer, v21.Length, 2LL, v18, 1);
     if ( UserModeCallersCopy >= 0 )
     {
-      *((_QWORD *)&v20 + 1) = P;
-      WORD1(v20) = v20;
-      *((PVOID *)&v21 + 1) = v19[0];
-      WORD1(v21) = v21;
+      v20.Buffer = (wchar_t *)P;
+      v20.MaximumLength = v20.Length;
+      v21.Buffer = (wchar_t *)v19[0];
+      v21.MaximumLength = v21.Length;
       v13 = PnpDeviceObjectFromDeviceInstance(&v20);
       v6 = (struct _DEVICE_OBJECT *)v13;
       if ( v13 )
@@ -142,5 +139,5 @@ LABEL_35:
     ExFreePoolWithTag(P, 0);
   if ( v19[0] )
     ExFreePoolWithTag(v19[0], 0);
-  return (unsigned int)UserModeCallersCopy;
+  return UserModeCallersCopy;
 }

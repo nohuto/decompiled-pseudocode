@@ -31,8 +31,8 @@ __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR Secu
   ULONG v14; // ebx
   ULONG v15; // ebx
   ACL *v16; // rax
-  struct _SID_IDENTIFIER_AUTHORITY v19; // [rsp+70h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+78h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v19; // [rsp+70h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+78h] [rbp+58h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 256;
   *(_DWORD *)IdentifierAuthority.Value = 0;

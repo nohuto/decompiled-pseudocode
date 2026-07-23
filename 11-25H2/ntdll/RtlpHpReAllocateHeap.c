@@ -65,7 +65,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(__int64 a1, int a2, __int64 a3, unsigned
       }
       else
       {
-        v12 = RtlCSparseBitmapBitmaskRead(&unk_1801D0980, 2 * ((unsigned __int64)(HeapSlow - qword_1801D0978) >> 20));
+        v12 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)(HeapSlow - qword_1801D0978) >> 20));
         if ( !v12 || (v11 = v12 - 1, v11 == 2) )
         {
           v13 = RtlpHpLargeReAlloc(a1, v10, HeapSlow, &v16);

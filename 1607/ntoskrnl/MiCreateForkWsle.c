@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateForkWsle @ 0x14010C87C
+ * XREFs of MiCreateForkWsle @ 0x14010A5FC
  * Callers:
- *     MiCreateForkWsles @ 0x14010C7A8 (MiCreateForkWsles.c)
- *     MiCreateForkWsle @ 0x14010C87C (MiCreateForkWsle.c)
+ *     MiCreateForkWsles @ 0x14010A528 (MiCreateForkWsles.c)
+ *     MiCreateForkWsle @ 0x14010A5FC (MiCreateForkWsle.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     MiCreateForkWsle @ 0x14010C87C (MiCreateForkWsle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     MiCreateForkWsle @ 0x14010A5FC (MiCreateForkWsle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiCreateForkWsle(__int64 a1, KIRQL a2, unsigned __int64 *a3, unsigned __int64 a4, unsigned int a5)

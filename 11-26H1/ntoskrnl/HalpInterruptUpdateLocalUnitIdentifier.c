@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptUpdateLocalUnitIdentifier @ 0x140BEEA8C
+ * XREFs of HalpInterruptUpdateLocalUnitIdentifier @ 0x140BF4A8C
  * Callers:
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140BEE7C0 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140BF47C0 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptUpdateLocalUnitIdentifier(int a1, int a2, __int64 a3, __int64 a4)
@@ -94,8 +94,7 @@ __int64 __fastcall HalpInterruptUpdateLocalUnitIdentifier(int a1, int a2, __int6
       if ( *(_DWORD *)k == *(_DWORD *)(a3 + 8) )
         break;
     }
-    v24 = *(_QWORD *)(k + 8) & ~(1LL << (*(_BYTE *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                                                  + 4 * v14) & 0x3F));
+    v24 = *(_QWORD *)(k + 8) & ~(1LL << (*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Type + 4 * v14) & 0x3F));
     *(_QWORD *)(k + 8) = v24;
     if ( !v24 )
       *(_DWORD *)k = -1;
@@ -112,9 +111,7 @@ LABEL_24:
       {
         *(_DWORD *)m = *(_DWORD *)(a4 + 8);
         v27 = *(_QWORD *)(m + 8);
-        _bittestandset64(
-          &v27,
-          *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v14) & 0x3F);
+        _bittestandset64(&v27, *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v14) & 0x3F);
         *(_QWORD *)(m + 8) = v27;
         return 0LL;
       }

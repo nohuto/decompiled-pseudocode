@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140940510
+ * XREFs of ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140940710
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     IoFreeIrp @ 0x1402AF210 (IoFreeIrp.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     IoSynchronousCallDriver @ 0x140355260 (IoSynchronousCallDriver.c)
- *     IoBuildAsynchronousFsdRequest @ 0x140371BB0 (IoBuildAsynchronousFsdRequest.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     IoFreeIrp @ 0x1402AF4A0 (IoFreeIrp.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     IoSynchronousCallDriver @ 0x140355400 (IoSynchronousCallDriver.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x140371D50 (IoBuildAsynchronousFsdRequest.c)
  */
 
 __int64 __fastcall NT_DISK::Write(PDEVICE_OBJECT *this, LARGE_INTEGER a2, ULONG a3, unsigned __int8 *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x1402BF0FC
+ * XREFs of KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x140309DBC
  * Callers:
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
  * Callees:
- *     KiIsThreadExemptFromForcePark @ 0x14022F9EC (KiIsThreadExemptFromForcePark.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiScheduleSoftParkElectionIfNecessary @ 0x1402BDF30 (KiScheduleSoftParkElectionIfNecessary.c)
- *     KiArmForceParkDutyCyclingForLocalReadyQueue @ 0x140516424 (KiArmForceParkDutyCyclingForLocalReadyQueue.c)
+ *     KiIsThreadExemptFromForcePark @ 0x14023137C (KiIsThreadExemptFromForcePark.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140308BF0 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KiArmForceParkDutyCyclingForLocalReadyQueue @ 0x14050FE94 (KiArmForceParkDutyCyclingForLocalReadyQueue.c)
  */
 
 char __fastcall KiUpdateLocalReadyQueueStatisticsOnInsertion(__int64 a1, __int64 a2)

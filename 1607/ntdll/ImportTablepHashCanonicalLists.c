@@ -1,11 +1,11 @@
 /*
- * XREFs of ImportTablepHashCanonicalLists @ 0x1800DB4EC
+ * XREFs of ImportTablepHashCanonicalLists @ 0x1800DB5AC
  * Callers:
- *     RtlComputeImportTableHash @ 0x1800DB660 (RtlComputeImportTableHash.c)
+ *     RtlComputeImportTableHash @ 0x1800DB720 (RtlComputeImportTableHash.c)
  * Callees:
- *     MD5Final @ 0x18006B960 (MD5Final.c)
- *     MD5Update @ 0x18006BA30 (MD5Update.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     MD5Final @ 0x18006B950 (MD5Final.c)
+ *     MD5Update @ 0x18006BA20 (MD5Update.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ImportTablepHashCanonicalLists(_QWORD *a1, _OWORD *a2)

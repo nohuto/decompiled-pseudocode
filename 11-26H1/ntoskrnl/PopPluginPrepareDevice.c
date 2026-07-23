@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginPrepareDevice @ 0x1404A1A48
+ * XREFs of PopPluginPrepareDevice @ 0x14049B578
  * Callers:
- *     PoFxPrepareDevice @ 0x1404A1864 (PoFxPrepareDevice.c)
+ *     PoFxPrepareDevice @ 0x14049B394 (PoFxPrepareDevice.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PopPluginPrepareDevice(ULONG_PTR BugCheckParameter3, __int64 a2)

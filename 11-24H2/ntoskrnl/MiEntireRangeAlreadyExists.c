@@ -1,7 +1,7 @@
 /*
- * XREFs of MiEntireRangeAlreadyExists @ 0x14066CD4C
+ * XREFs of MiEntireRangeAlreadyExists @ 0x14066DF1C
  * Callers:
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
  *     <none>
  */

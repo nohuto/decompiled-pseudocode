@@ -1,27 +1,28 @@
 /*
- * XREFs of MiInitializePfnForOtherProcess @ 0x140396C84
+ * XREFs of MiInitializePfnForOtherProcess @ 0x14038FF2C
  * Callers:
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
- *     MiDuplicateCloneLeaf @ 0x140396854 (MiDuplicateCloneLeaf.c)
- *     MiMapPageFileHash @ 0x140486688 (MiMapPageFileHash.c)
- *     MiMakeOutswappedPageResident @ 0x1404A8280 (MiMakeOutswappedPageResident.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140683AC8 (MiDemoteValidLargePageOneLevel.c)
- *     MiInitializeShadowPageTable @ 0x1407F6428 (MiInitializeShadowPageTable.c)
- *     MiAllocateTopLevelPage @ 0x140A5A2FC (MiAllocateTopLevelPage.c)
+ *     MiMakeOutswappedPageResident @ 0x1402EF6F4 (MiMakeOutswappedPageResident.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
+ *     MiDuplicateCloneLeaf @ 0x14038FAFC (MiDuplicateCloneLeaf.c)
+ *     MiMapPageFileHash @ 0x140425FA8 (MiMapPageFileHash.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140684C24 (MiDemoteValidLargePageOneLevel.c)
+ *     MiInitializeShadowPageTable @ 0x1407F6B9C (MiInitializeShadowPageTable.c)
+ *     MiAllocateTopLevelPage @ 0x140A51BBC (MiAllocateTopLevelPage.c)
  * Callees:
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-signed __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, unsigned __int64 a2, __int64 a3, __int16 a4)
+signed __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // r14
+  unsigned __int64 v5; // rsi
   __int64 v6; // r12
   __int64 v7; // rbx
   unsigned __int8 CurrentIrql; // di
@@ -38,6 +39,7 @@ signed __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, unsigned __
   int v20; // [rsp+68h] [rbp+20h]
 
   v4 = a4;
+  v5 = a2;
   v6 = a1;
   v7 = 48 * a1 - 0x220000000000LL;
   if ( (a4 & 0x10) != 0 )
@@ -47,6 +49,7 @@ signed __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, unsigned __
   else
   {
     CurrentIrql = KeGetCurrentIrql();
+    a2 = 2LL;
     __writecr8(2uLL);
     if ( KiIrqlFlags )
     {
@@ -72,9 +75,9 @@ signed __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, unsigned __
     }
     while ( *(__int64 *)(v7 + 24) < 0 );
   }
-  *(_QWORD *)(v7 + 8) = a2;
+  *(_QWORD *)(v7 + 8) = v5;
   *(_QWORD *)(v7 + 24) &= 0xC7FFFFFFFFFFFFFFuLL;
-  *(_QWORD *)(v7 + 16) = MiMakeDemandZeroPte(4);
+  *(_QWORD *)(v7 + 16) = MiMakeDemandZeroPte(4LL, a2, a3, a4);
   HIWORD(v19) = HIWORD(*(_DWORD *)(v7 + 32));
   LOWORD(v19) = 1;
   *(_DWORD *)(v7 + 32) = v19;
@@ -128,7 +131,7 @@ signed __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, unsigned __
     v12 = v16 ^ v17 & 0xC000000000000000uLL;
     *(_QWORD *)(v13 + 24) = v12;
     if ( (v4 & 0x1000) != 0 )
-      result = MiIncreaseUsedPtes(v16, ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 1u, 1);
+      result = MiIncreaseUsedPtes(v16, ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 1LL, 1LL);
     _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   if ( CurrentIrql != 17 )

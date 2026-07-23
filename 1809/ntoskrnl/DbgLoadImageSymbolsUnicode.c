@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgLoadImageSymbolsUnicode @ 0x1400F4C0C
+ * XREFs of DbgLoadImageSymbolsUnicode @ 0x1400F4C8C
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140681BE4 (MiDriverLoadSucceeded.c)
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiDriverLoadSucceeded @ 0x140682DA4 (MiDriverLoadSucceeded.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     DbgUnicodeStringToAnsiString @ 0x1400F4A7C (DbgUnicodeStringToAnsiString.c)
- *     DbgLoadImageSymbols @ 0x1400F4C60 (DbgLoadImageSymbols.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     DbgUnicodeStringToAnsiString @ 0x1400F4AFC (DbgUnicodeStringToAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x1400F4CE0 (DbgLoadImageSymbols.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgLoadImageSymbolsUnicode(PCUNICODE_STRING SourceString, PVOID Base)

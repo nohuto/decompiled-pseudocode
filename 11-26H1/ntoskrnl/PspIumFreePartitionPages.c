@@ -1,12 +1,12 @@
 /*
- * XREFs of PspIumFreePartitionPages @ 0x1403C2D98
+ * XREFs of PspIumFreePartitionPages @ 0x1403CCC98
  * Callers:
- *     PspIumFreePhysicalPages @ 0x1403C2C2C (PspIumFreePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x1403CCB2C (PspIumFreePhysicalPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MmFreeNonChargedSecurePages @ 0x1403C2E54 (MmFreeNonChargedSecurePages.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MmFreeNonChargedSecurePages @ 0x1403CCD54 (MmFreeNonChargedSecurePages.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall PspIumFreePartitionPages(__int64 a1, int a2, __int64 a3)

@@ -1,27 +1,27 @@
 /*
- * XREFs of HvpMarkDirty @ 0x140708560
+ * XREFs of HvpMarkDirty @ 0x14071F940
  * Callers:
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14070999C (HvpRemapAndEnlistHiveBins.c)
- *     HvpEnlistFreeCells @ 0x140709B00 (HvpEnlistFreeCells.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x140720FE0 (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
- *     CmpTransMgrSyncHive @ 0x14076901C (CmpTransMgrSyncHive.c)
- *     HvFoldBackDirtyData @ 0x140876964 (HvFoldBackDirtyData.c)
- *     HvMarkDirty @ 0x14087BD00 (HvMarkDirty.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1406F8838 (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     HvpAddBin @ 0x1406FAA84 (HvpAddBin.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x140720D7C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpEnlistFreeCells @ 0x140720EE0 (HvpEnlistFreeCells.c)
+ *     CmpTransMgrSyncHive @ 0x1407691DC (CmpTransMgrSyncHive.c)
+ *     HvFoldBackDirtyData @ 0x140876AC4 (HvFoldBackDirtyData.c)
+ *     HvMarkDirty @ 0x14087BE60 (HvMarkDirty.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     CmpArmLazyWriter @ 0x140358040 (CmpArmLazyWriter.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpIssueNewDirtyCallback @ 0x1406BD060 (CmpIssueNewDirtyCallback.c)
- *     HvpSetRangeProtection @ 0x140709E78 (HvpSetRangeProtection.c)
- *     CmpLogDirtyVectorUse @ 0x140721BE0 (CmpLogDirtyVectorUse.c)
- *     CmpForceFlushForCoalescing @ 0x140876C60 (CmpForceFlushForCoalescing.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     CmpArmLazyWriter @ 0x140362D90 (CmpArmLazyWriter.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpIssueNewDirtyCallback @ 0x14061C1E0 (CmpIssueNewDirtyCallback.c)
+ *     CmpLogDirtyVectorUse @ 0x1406F9438 (CmpLogDirtyVectorUse.c)
+ *     HvpSetRangeProtection @ 0x140721258 (HvpSetRangeProtection.c)
+ *     CmpForceFlushForCoalescing @ 0x140876DC0 (CmpForceFlushForCoalescing.c)
  */
 
-char __fastcall HvpMarkDirty(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3, int a4)
+char __fastcall HvpMarkDirty(ULONG_PTR BugCheckParameter2, int a2, int a3, int a4)
 {
   int v8; // ebx
   unsigned int v10; // edx
@@ -54,7 +54,7 @@ char __fastcall HvpMarkDirty(ULONG_PTR BugCheckParameter2, int a2, unsigned int 
     return 1;
   v8 = a2 - 1;
   v10 = *(_DWORD *)(BugCheckParameter2 + 136);
-  v11 = (a3 + v8) >> 9;
+  v11 = (unsigned int)(a3 + v8) >> 9;
   v12 = (unsigned int)a2 >> 9;
   if ( v10 <= 1 )
   {
@@ -100,7 +100,7 @@ LABEL_14:
     v22 = *(_DWORD *)(BugCheckParameter2 + 104);
     *(_DWORD *)(BugCheckParameter2 + 104) = v22 + v18;
     RtlSetBits((PRTL_BITMAP)(BugCheckParameter2 + 88), v16, v21 + 1);
-    CmpLogDirtyVectorUse(BugCheckParameter2, 0LL, (unsigned int)a2, a3);
+    CmpLogDirtyVectorUse(BugCheckParameter2, 0, a2, a3);
     v30 = BugCheckParameter2;
     if ( (DWORD2(PerfGlobalGroupMask) & 0x1000000) != 0 )
     {

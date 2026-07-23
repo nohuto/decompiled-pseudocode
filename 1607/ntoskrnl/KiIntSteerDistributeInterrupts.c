@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerDistributeInterrupts @ 0x1400D7010
+ * XREFs of KiIntSteerDistributeInterrupts @ 0x1400D4EB0
  * Callers:
- *     PpmParkSteerInterrupts @ 0x1400D7A40 (PpmParkSteerInterrupts.c)
+ *     PpmParkSteerInterrupts @ 0x1400D58E0 (PpmParkSteerInterrupts.c)
  * Callees:
- *     KiIntSteerSetDestination @ 0x1400A61B0 (KiIntSteerSetDestination.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
+ *     KiIntSteerSetDestination @ 0x1400A4728 (KiIntSteerSetDestination.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
  */
 
 __int64 KiIntSteerDistributeInterrupts()

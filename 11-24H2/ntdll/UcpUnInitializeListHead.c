@@ -1,9 +1,9 @@
 /*
- * XREFs of UcpUnInitializeListHead @ 0x180157B70
+ * XREFs of UcpUnInitializeListHead @ 0x180155F30
  * Callers:
- *     LdrShutdownProcess @ 0x180002B70 (LdrShutdownProcess.c)
+ *     LdrShutdownProcess @ 0x1800ABBC0 (LdrShutdownProcess.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
 void UcpUnInitializeListHead()
@@ -25,7 +25,7 @@ void UcpUnInitializeListHead()
       }
       UcpTriggeredList = *(_QWORD *)UcpTriggeredList;
       *(_QWORD *)(v1 + 8) = &UcpTriggeredList;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v0 - 32);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)(v0 - 32));
     }
     g_isUcpListInitialized = 0;
   }

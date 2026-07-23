@@ -144,7 +144,7 @@ NTSTATUS __stdcall NtUnlockFile(
     v19 = KeGetCurrentThread();
     --v19->KernelApcDisable;
     v20 = *(_QWORD *)&DmaAdapter[7];
-    v21 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[7] + 128LL, 0LL, 0LL);
+    v21 = KeAbPreAcquire(*(_QWORD *)&DmaAdapter[7] + 128LL, 0LL, 0);
     DmaAdapter[0] = 0;
     if ( _InterlockedExchange((volatile __int32 *)(v20 + 116), 1) )
     {

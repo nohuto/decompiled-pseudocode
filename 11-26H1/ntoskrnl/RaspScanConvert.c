@@ -1,16 +1,16 @@
 /*
- * XREFs of RaspScanConvert @ 0x1403551EC
+ * XREFs of RaspScanConvert @ 0x140356F8C
  * Callers:
- *     RaspRasterize @ 0x1404AD80C (RaspRasterize.c)
+ *     RaspRasterize @ 0x1404A6E94 (RaspRasterize.c)
  * Callees:
- *     RaspTestIntersection @ 0x14035563C (RaspTestIntersection.c)
- *     BgpFmRoundUp @ 0x140355950 (BgpFmRoundUp.c)
- *     RaspAllocateMemory @ 0x140355970 (RaspAllocateMemory.c)
- *     RaspCreateSegmentList @ 0x1403559EC (RaspCreateSegmentList.c)
- *     RaspDestroySegmentList @ 0x140355D24 (RaspDestroySegmentList.c)
- *     RaspFreeMemory @ 0x140355DE4 (RaspFreeMemory.c)
- *     BgpGxInitializeRectangle @ 0x14071629C (BgpGxInitializeRectangle.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RaspTestIntersection @ 0x1403573DC (RaspTestIntersection.c)
+ *     BgpFmRoundUp @ 0x1403576F0 (BgpFmRoundUp.c)
+ *     RaspAllocateMemory @ 0x140357710 (RaspAllocateMemory.c)
+ *     RaspCreateSegmentList @ 0x14035778C (RaspCreateSegmentList.c)
+ *     RaspDestroySegmentList @ 0x140357ACC (RaspDestroySegmentList.c)
+ *     RaspFreeMemory @ 0x140357B8C (RaspFreeMemory.c)
+ *     BgpGxInitializeRectangle @ 0x14071AF8C (BgpGxInitializeRectangle.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RaspScanConvert(
@@ -142,8 +142,8 @@ __int64 __fastcall RaspScanConvert(
   v70 = v34;
   if ( v13 )
   {
-    v10 = qword_141048E70;
-    SegmentList = BgpGxInitializeRectangle(&v69, 1LL, qword_141048E70, 3140LL);
+    v10 = qword_141049E70;
+    SegmentList = BgpGxInitializeRectangle(&v69, 1LL, qword_141049E70, 3140LL);
     if ( SegmentList < 0 )
       goto LABEL_32;
   }
@@ -174,9 +174,9 @@ __int64 __fastcall RaspScanConvert(
   {
     if ( v34 <= 104 )
     {
-      v38 = qword_141048CD0;
-      v69 = qword_141048CD0;
-      v37 = qword_141048CD0;
+      v38 = qword_141049CD0;
+      v69 = qword_141049CD0;
+      v37 = qword_141049CD0;
 LABEL_14:
       v77 = 0;
       v72 = 0;
@@ -220,7 +220,7 @@ LABEL_29:
           SegmentList = 0;
           *a6 = v10;
           *a7 = v19;
-          if ( v38 != qword_141048CD0 )
+          if ( v38 != qword_141049CD0 )
           {
             v52 = v38;
             goto LABEL_31;

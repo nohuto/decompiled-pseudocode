@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpIncrementUmLoggerFile @ 0x180076BBC
+ * XREFs of EtwpIncrementUmLoggerFile @ 0x1800653DC
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x180076830 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180065050 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
- *     RtlNtStatusToDosError @ 0x180056660 (RtlNtStatusToDosError.c)
- *     EtwpQueryUmLogger @ 0x180076A54 (EtwpQueryUmLogger.c)
- *     EtwpSynchronizeWithLogger @ 0x1800774FC (EtwpSynchronizeWithLogger.c)
- *     EtwpGetPrivateLoggerContext @ 0x180077F10 (EtwpGetPrivateLoggerContext.c)
+ *     RtlNtStatusToDosError @ 0x180040BE0 (RtlNtStatusToDosError.c)
+ *     EtwpQueryUmLogger @ 0x180065274 (EtwpQueryUmLogger.c)
+ *     EtwpSynchronizeWithLogger @ 0x180065D1C (EtwpSynchronizeWithLogger.c)
+ *     EtwpGetPrivateLoggerContext @ 0x180066730 (EtwpGetPrivateLoggerContext.c)
  */
 
 __int64 __fastcall EtwpIncrementUmLoggerFile(unsigned int a1, _DWORD *a2, _DWORD *a3, __int64 a4)

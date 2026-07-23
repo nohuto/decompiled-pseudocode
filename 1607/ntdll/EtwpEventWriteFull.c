@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpEventWriteFull @ 0x18005AFA4
+ * XREFs of EtwpEventWriteFull @ 0x18005AF94
  * Callers:
- *     EtwEventWriteFull @ 0x180059CB0 (EtwEventWriteFull.c)
- *     EtwEventWriteEx @ 0x18005AED0 (EtwEventWriteEx.c)
- *     EtwEventWrite @ 0x18005AF20 (EtwEventWrite.c)
- *     EtwEventWriteTransfer @ 0x18005AF60 (EtwEventWriteTransfer.c)
+ *     EtwEventWriteFull @ 0x180059CA0 (EtwEventWriteFull.c)
+ *     EtwEventWriteEx @ 0x18005AEC0 (EtwEventWriteEx.c)
+ *     EtwEventWrite @ 0x18005AF10 (EtwEventWrite.c)
+ *     EtwEventWriteTransfer @ 0x18005AF50 (EtwEventWriteTransfer.c)
  * Callees:
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
- *     EtwpReleasePrivateBuffers @ 0x18005B200 (EtwpReleasePrivateBuffers.c)
- *     EtwpWriteToPrivateBuffers @ 0x18005B254 (EtwpWriteToPrivateBuffers.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
+ *     EtwpReleasePrivateBuffers @ 0x18005B1F0 (EtwpReleasePrivateBuffers.c)
+ *     EtwpWriteToPrivateBuffers @ 0x18005B244 (EtwpWriteToPrivateBuffers.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  */
 
@@ -34,11 +34,11 @@ __int64 __fastcall EtwpEventWriteFull(
   __int64 v16; // rdx
   unsigned __int8 v17; // al
   _GUID ActivityId; // xmm0
-  __int64 v20; // rcx
+  void *v20; // rcx
   NTSTATUS v21; // eax
   unsigned __int8 v22; // cl
   __int128 v23; // xmm0
-  _BYTE v26[4]; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE Fields[4]; // [rsp+68h] [rbp-98h] BYREF
   __int16 v27; // [rsp+6Ch] [rbp-94h]
   unsigned __int16 v28; // [rsp+6Eh] [rbp-92h]
   __int128 v29; // [rsp+90h] [rbp-70h]
@@ -111,10 +111,10 @@ LABEL_30:
         v31 = 1;
         v35 = v23;
       }
-      v20 = *(_QWORD *)(v15 + 88);
+      v20 = *(void **)(v15 + 88);
       v32 = v11;
       v36 = v10;
-      v21 = NtTraceEvent(v20, 768LL, 120LL, v26);
+      v21 = NtTraceEvent(v20, 0x300u, 0x78u, Fields);
       if ( v21 )
         v14 = RtlNtStatusToDosError(v21);
       else

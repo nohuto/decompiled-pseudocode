@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpAllocateSecondLevelDir @ 0x14036F80C
+ * XREFs of RtlpAllocateSecondLevelDir @ 0x14036F9AC
  * Callers:
- *     RtlpCreateHashTable @ 0x14036F6A0 (RtlpCreateHashTable.c)
- *     RtlExpandHashTable @ 0x14036FE40 (RtlExpandHashTable.c)
+ *     RtlpCreateHashTable @ 0x14036F840 (RtlpCreateHashTable.c)
+ *     RtlExpandHashTable @ 0x14036FFE0 (RtlExpandHashTable.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

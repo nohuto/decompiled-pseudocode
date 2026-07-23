@@ -24,15 +24,14 @@
 __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)
 {
   char v4; // r13
-  __int64 v5; // r8
-  NTSTATUS v6; // eax
+  NTSTATUS v5; // eax
   int appended; // ebx
   unsigned __int16 i; // cx
   unsigned __int16 Length; // bx
-  unsigned __int16 v10; // si
-  unsigned __int64 v11; // r14
+  unsigned __int16 v9; // si
+  unsigned __int64 v10; // r14
   wchar_t *Buffer; // r15
-  int v13; // eax
+  int v12; // eax
   UNICODE_STRING Destination; // [rsp+58h] [rbp-39h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-19h] BYREF
@@ -61,10 +60,10 @@ __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v6 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-    appended = v6;
+    v5 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+    appended = v5;
 LABEL_9:
-    if ( v6 < 0 )
+    if ( v5 < 0 )
       goto LABEL_38;
 LABEL_34:
     appended = PiDrvDbResolveNodeFilePaths(a1, (__int64)KeyHandle);
@@ -94,9 +93,9 @@ LABEL_5:
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v6 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-    appended = v6;
-    if ( v6 != -1073741772 )
+    v5 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+    appended = v5;
+    if ( v5 != -1073741772 )
       goto LABEL_9;
 LABEL_37:
     appended = 0;
@@ -131,27 +130,26 @@ LABEL_37:
       {
         RtlInitUnicodeString(&String1, L"DRIVERS");
         Length = Destination.Length;
-        v10 = String1.Length;
-        v11 = Destination.Length;
+        v9 = String1.Length;
+        v10 = Destination.Length;
         Buffer = Destination.Buffer;
         if ( Destination.Length > (unsigned __int64)String1.Length + 2
           && RtlSuffixUnicodeString(&String1, &Destination, 1u)
-          && Buffer[((Length - (unsigned __int64)v10) >> 1) - 1] != 92
-          || (RtlInitUnicodeString(&String1, L"SYSTEM"), v10 = String1.Length,
-                                                         v11 > (unsigned __int64)String1.Length + 2)
+          && Buffer[((Length - (unsigned __int64)v9) >> 1) - 1] != 92
+          || (RtlInitUnicodeString(&String1, L"SYSTEM"), v9 = String1.Length, v10 > (unsigned __int64)String1.Length + 2)
           && RtlSuffixUnicodeString(&String1, &Destination, 1u)
-          && Buffer[((Length - (unsigned __int64)v10) >> 1) - 1] != 92 )
+          && Buffer[((Length - (unsigned __int64)v9) >> 1) - 1] != 92 )
         {
-          Destination.Length = Length - v10;
+          Destination.Length = Length - v9;
         }
         appended = RtlAppendUnicodeStringToString(&Destination, &DestinationString);
         if ( appended >= 0 )
         {
-          v13 = PiDrvDbLoadHive(&Destination, (__int64)&UnicodeString, 0x2000LL, &KeyHandle);
-          appended = v13;
-          if ( v13 != -1073741772 )
+          v12 = PiDrvDbLoadHive(&Destination, &UnicodeString, 0x2000, &KeyHandle);
+          appended = v12;
+          if ( v12 != -1073741772 )
           {
-            if ( v13 < 0 )
+            if ( v12 < 0 )
               goto LABEL_38;
             if ( (*(_DWORD *)(a1 + 492) & 2) == 0 || wcsicmp(a2, L"SOFTWARE") )
               v4 = 1;
@@ -178,7 +176,7 @@ LABEL_38:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v4 )
-    PiDrvDbUnloadHive(&Destination, 0LL, v5);
+    PiDrvDbUnloadHive(&Destination, 0LL);
   RtlFreeAnsiString(&UnicodeString);
   RtlFreeAnsiString(&Destination);
   return (unsigned int)appended;

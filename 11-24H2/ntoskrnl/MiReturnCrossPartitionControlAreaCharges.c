@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReturnCrossPartitionControlAreaCharges @ 0x1404CBAD0
+ * XREFs of MiReturnCrossPartitionControlAreaCharges @ 0x1404C4F4C
  * Callers:
- *     MiRemoveMappedPtes @ 0x140260FC0 (MiRemoveMappedPtes.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     MiMapImageInSystemSpace @ 0x1408F5378 (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x1408F560C (MiUnmapImageInSystemSpace.c)
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiRemoveMappedPtes @ 0x1402915D0 (MiRemoveMappedPtes.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     MiMapImageInSystemSpace @ 0x14093E220 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x14093E4B4 (MiUnmapImageInSystemSpace.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementSubsectionViewCount @ 0x140371EA0 (MiDecrementSubsectionViewCount.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiDecrementSubsectionViewCount @ 0x14025A760 (MiDecrementSubsectionViewCount.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 LONG __fastcall MiReturnCrossPartitionControlAreaCharges(__int64 a1)
@@ -30,7 +30,7 @@ LONG __fastcall MiReturnCrossPartitionControlAreaCharges(__int64 a1)
   if ( v4 )
   {
     LOBYTE(v6) = v1 != 0;
-    return MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E2FF88 + (*(_WORD *)(a1 + 60) & 0x3FF)), v6, v4);
+    return MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E300C8 + (*(_WORD *)(a1 + 60) & 0x3FF)), v6, v4);
   }
   return result;
 }

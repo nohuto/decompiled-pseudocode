@@ -1,13 +1,13 @@
 /*
- * XREFs of IoInitializeProcessor @ 0x140793D48
+ * XREFs of IoInitializeProcessor @ 0x140796878
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopQueryProcessorInitValues @ 0x140794008 (IopQueryProcessorInitValues.c)
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopQueryProcessorInitValues @ 0x140796B38 (IopQueryProcessorInitValues.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IoInitializeProcessor(__int64 a1, _BYTE *a2)
@@ -88,7 +88,7 @@ __int64 __fastcall IoInitializeProcessor(__int64 a1, _BYTE *a2)
   else
     Pool2 = (char *)&IopMdlLookasideList;
   *(_QWORD *)(a1 + 2160) = Pool2;
-  if ( ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 3) != 0 )
+  if ( (IopIrpStackProfilerFlags & 3) != 0 )
   {
     memset_0((void *)(a1 + 37760), 0, 0x50uLL);
     *(_DWORD *)(a1 + 37840) = 0;

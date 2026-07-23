@@ -16,17 +16,17 @@
  */
 
 char __fastcall RtlpInitializeHeapSegment(
-        int a1,
+        _DWORD *BaseAddress,
         int a2,
         int a3,
         int a4,
         int a5,
         int a6,
-        unsigned int a7,
+        int *BaseAddressa,
         unsigned int a8)
 {
   unsigned int v9; // ecx
-  unsigned int v11; // ebx
+  int *v11; // ebx
   signed int v12; // eax
   unsigned __int16 *v13; // edx
   unsigned int v14; // eax
@@ -34,117 +34,127 @@ char __fastcall RtlpInitializeHeapSegment(
   unsigned int v16; // eax
   _DWORD *v17; // esi
   _DWORD *v18; // ecx
-  int HeapProtection; // eax
+  ULONG HeapProtection; // eax
   int v21; // eax
   __int16 v22; // ax
-  int v23; // [esp+10h] [ebp-18h]
+  ULONG_PTR v23; // [esp-10h] [ebp-38h]
+  ULONG v24; // [esp+0h] [ebp-28h]
+  int v25; // [esp+10h] [ebp-18h]
   unsigned int NtGlobalFlag; // [esp+14h] [ebp-14h]
-  __int16 v25; // [esp+18h] [ebp-10h]
-  int v26; // [esp+1Ch] [ebp-Ch]
-  unsigned __int16 *v27; // [esp+20h] [ebp-8h]
-  unsigned int v28; // [esp+24h] [ebp-4h] BYREF
+  __int16 v27; // [esp+18h] [ebp-10h]
+  int v28; // [esp+1Ch] [ebp-Ch]
+  unsigned __int16 *v29; // [esp+20h] [ebp-8h]
+  unsigned int v30; // [esp+24h] [ebp-4h] BYREF
 
   v9 = a8;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
   if ( a8 - a6 > 0xFFFFF000 )
     return 0;
-  v11 = a7;
-  v26 = (int)(a8 - a6) / 4096;
+  v11 = BaseAddressa;
+  v28 = (int)(a8 - a6) / 4096;
   v12 = (a3 + 7) & 0xFFFFFFF8;
   v13 = (unsigned __int16 *)(v12 + a2);
-  v25 = v12 >> 3;
+  v27 = v12 >> 3;
   v14 = v12 + a2 + 40;
-  v27 = v13;
-  if ( v14 >= a7 )
+  v29 = v13;
+  if ( v14 >= (unsigned int)BaseAddressa )
   {
     if ( v14 < a8 )
     {
-      v28 = (unsigned int)v13 - a7 + 8;
-      if ( RtlpHpHeapCheckCommitLimit(a1, a1 + 212) )
+      v30 = (char *)v13 - (char *)BaseAddressa + 8;
+      if ( RtlpHpHeapCheckCommitLimit(BaseAddress, BaseAddress + 53) )
       {
-        HeapProtection = RtlpGetHeapProtection(a1, 1);
-        if ( (int)NtAllocateVirtualMemory(-1, &a7, 0, &v28, 4096, HeapProtection) >= 0 )
+        HeapProtection = RtlpGetHeapProtection(BaseAddress, 1);
+        HIDWORD(v23) = &v30;
+        LODWORD(v23) = 0;
+        if ( NtAllocateVirtualMemory(
+               (HANDLE)0xFFFFFFFF,
+               (PVOID *)&BaseAddressa,
+               v23,
+               (PSIZE_T)0x1000,
+               HeapProtection,
+               v24) >= 0 )
         {
           if ( RtlGetCurrentServiceSessionId() )
             v21 = (int)NtCurrentPeb()->SharedData + 550;
           else
             v21 = 2147353472;
           if ( *(_BYTE *)v21 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-            RtlpLogHeapCommit(v28, 3);
-          v11 = v28 + a7;
+            RtlpLogHeapCommit(v30, 3);
+          v11 = (int *)((char *)BaseAddressa + v30);
           v9 = a8;
-          a7 += v28;
+          BaseAddressa = (int *)((char *)BaseAddressa + v30);
           goto LABEL_3;
         }
       }
-      ++*(_DWORD *)(a1 + 548);
+      ++BaseAddress[137];
     }
     return 0;
   }
 LABEL_3:
   *(_WORD *)(a2 + 2) = 1;
   *(_BYTE *)(a2 + 7) = 1;
-  v23 = (int)(v9 - v11) / 4096;
-  *(_WORD *)a2 = v25;
-  *(_WORD *)(a2 + 4) = *(_WORD *)(a1 + 84);
+  v25 = (int)(v9 - (_DWORD)v11) / 4096;
+  *(_WORD *)a2 = v27;
+  *(_WORD *)(a2 + 4) = *((_WORD *)BaseAddress + 42);
   if ( (NtGlobalFlag & 0x1000) != 0 )
   {
     v22 = RtlLogStackBackTraceEx((void *)1);
-    v11 = a7;
+    v11 = BaseAddressa;
     *(_WORD *)(a2 + 52) = v22;
   }
   *(_DWORD *)(a2 + 44) = 0;
-  v15 = v27;
+  v15 = v29;
   *(_DWORD *)(a2 + 12) = a5;
   *(_DWORD *)(a2 + 28) = a6;
-  *(_DWORD *)(a2 + 24) = a1;
-  *(_DWORD *)(a2 + 40) = (v26 << 12) + a6;
-  *(_DWORD *)(a2 + 32) = v26;
+  *(_DWORD *)(a2 + 24) = BaseAddress;
+  *(_DWORD *)(a2 + 40) = (v28 << 12) + a6;
+  *(_DWORD *)(a2 + 32) = v28;
   *(_DWORD *)(a2 + 8) = -1114130;
-  *(_DWORD *)(a2 + 36) = v27;
-  *(_DWORD *)(a1 + 504) += v26 << 12;
-  *(_DWORD *)(a1 + 500) += v26 << 12;
+  *(_DWORD *)(a2 + 36) = v29;
+  BaseAddress[126] += v28 << 12;
+  BaseAddress[125] += v28 << 12;
   *(_DWORD *)(a2 + 60) = a2 + 56;
   *(_DWORD *)(a2 + 56) = a2 + 56;
   *(_BYTE *)(a2 + 6) = *(_DWORD *)(a2 + 24) != a2;
-  v27[2] = *(_WORD *)(a1 + 84) ^ *(_WORD *)a2;
+  v29[2] = *((_WORD *)BaseAddress + 42) ^ *(_WORD *)a2;
   if ( *(_DWORD *)(a2 + 24) == a2 )
   {
     LOBYTE(v16) = 0;
   }
   else
   {
-    v16 = (((unsigned int)v27 - a2) >> 16) + 1;
+    v16 = (((unsigned int)v29 - a2) >> 16) + 1;
     if ( v16 >= 0xFE )
     {
-      RtlpLogHeapFailure(v27, a2, 0, 0);
-      v11 = a7;
-      v15 = v27;
-      LOBYTE(v16) = (((unsigned int)v27 - a2) >> 16) + 1;
+      RtlpLogHeapFailure(v29, a2, 0, 0);
+      v11 = BaseAddressa;
+      v15 = v29;
+      LOBYTE(v16) = (((unsigned int)v29 - a2) >> 16) + 1;
     }
   }
   *((_BYTE *)v15 + 6) = v16;
-  RtlpCreateUCREntry(a1, (char *)a2, (int *)(v11 - 24), v23 << 12, (int *)v15, (int *)&v28);
-  if ( *(_DWORD *)(a1 + 76) )
+  RtlpCreateUCREntry((int)BaseAddress, (char *)a2, v11 - 6, v25 << 12, (int *)v15, (int *)&v30);
+  if ( BaseAddress[19] )
   {
     *(_BYTE *)(a2 + 3) = *(_BYTE *)(a2 + 2) ^ *(_BYTE *)a2 ^ *(_BYTE *)(a2 + 1);
-    *(_DWORD *)a2 ^= *(_DWORD *)(a1 + 80);
+    *(_DWORD *)a2 ^= BaseAddress[20];
   }
-  if ( v28 )
-    RtlpInsertFreeBlock(a1, v27, v28);
+  if ( v30 )
+    RtlpInsertFreeBlock((int)BaseAddress, v29, v30);
   v17 = (_DWORD *)(a2 + 16);
-  v18 = *(_DWORD **)(a1 + 168);
-  if ( *v18 == a1 + 164 )
+  v18 = (_DWORD *)BaseAddress[42];
+  if ( (_DWORD *)*v18 == BaseAddress + 41 )
   {
-    *v17 = a1 + 164;
+    *v17 = BaseAddress + 41;
     v17[1] = v18;
     *v18 = v17;
-    *(_DWORD *)(a1 + 168) = v17;
+    BaseAddress[42] = v17;
   }
   else
   {
-    RtlpLogHeapFailure(a1 + 164, 0, *v18, 0);
+    RtlpLogHeapFailure(BaseAddress + 41, 0, *v18, 0);
   }
-  ++*(_DWORD *)(a1 + 516);
+  ++BaseAddress[129];
   return 1;
 }

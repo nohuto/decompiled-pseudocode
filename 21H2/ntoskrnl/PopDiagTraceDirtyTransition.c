@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDirtyTransition @ 0x140A93168
+ * XREFs of PopDiagTraceDirtyTransition @ 0x140A94168
  * Callers:
- *     PopCheckShutdownMarker @ 0x140A392E4 (PopCheckShutdownMarker.c)
+ *     PopCheckShutdownMarker @ 0x140A3A2E4 (PopCheckShutdownMarker.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PopReadRegKeyValue @ 0x1403CB988 (PopReadRegKeyValue.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     PopReadRegKeyValue @ 0x1403CBAF8 (PopReadRegKeyValue.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceDirtyTransition(

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCreateIRTimer @ 0x140724A10
+ * XREFs of ZwCreateIRTimer @ 0x1407295E0
  * Callers:
- *     DifZwCreateIRTimerWrapper @ 0x14069F290 (DifZwCreateIRTimerWrapper.c)
+ *     DifZwCreateIRTimerWrapper @ 0x1406A2E70 (DifZwCreateIRTimerWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateIRTimer(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateIRTimer(PHANDLE TimerHandle, ACCESS_MASK DesiredAccess)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TimerHandle);
 }

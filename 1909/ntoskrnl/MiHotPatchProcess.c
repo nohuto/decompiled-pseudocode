@@ -66,7 +66,7 @@ LABEL_4:
         MiReferenceVad(i);
         MiUnlockVadShared((__int64)CurrentThread, i);
         UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
-        MiHotPatchImage(v18, v17, i, a2, a3, v16, 0);
+        MiHotPatchImage(v18, v17, (_RTL_BALANCED_NODE *)i, a2, a3, v16, 0);
         LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
         MiLockVadShared((__int64)CurrentThread, i);
         v19 = MiVadDeleted(i);

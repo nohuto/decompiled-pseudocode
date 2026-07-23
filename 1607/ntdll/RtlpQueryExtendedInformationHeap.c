@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpQueryExtendedInformationHeap @ 0x180095020
+ * XREFs of RtlpQueryExtendedInformationHeap @ 0x180095010
  * Callers:
- *     RtlpQueryExtendedHeapInformation @ 0x1800EA6A4 (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x1800EA764 (RtlpQueryExtendedHeapInformation.c)
  * Callees:
- *     RtlpGetHeapProtection @ 0x1800436E4 (RtlpGetHeapProtection.c)
- *     RtlpWalkHeapInternal @ 0x18004D364 (RtlpWalkHeapInternal.c)
- *     RtlpHpLargeAllocGetMetadata @ 0x18004F95C (RtlpHpLargeAllocGetMetadata.c)
- *     RtlpQueryMemoryUsageHeap @ 0x180089A90 (RtlpQueryMemoryUsageHeap.c)
- *     RtlpGetContainingRange @ 0x180089D0C (RtlpGetContainingRange.c)
- *     RtlpGetHeapWalkEntryOverheadBytes @ 0x18008A4C8 (RtlpGetHeapWalkEntryOverheadBytes.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpGetHeapProtection @ 0x1800436D4 (RtlpGetHeapProtection.c)
+ *     RtlpWalkHeapInternal @ 0x18004D354 (RtlpWalkHeapInternal.c)
+ *     RtlpHpLargeAllocGetMetadata @ 0x18004F94C (RtlpHpLargeAllocGetMetadata.c)
+ *     RtlpQueryMemoryUsageHeap @ 0x180089A80 (RtlpQueryMemoryUsageHeap.c)
+ *     RtlpGetContainingRange @ 0x180089CFC (RtlpGetContainingRange.c)
+ *     RtlpGetHeapWalkEntryOverheadBytes @ 0x18008A4B8 (RtlpGetHeapWalkEntryOverheadBytes.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  *     RtlpEstimateAllocatedSize @ 0x1800F7D40 (RtlpEstimateAllocatedSize.c)
  *     RtlpHpSegReportCounters @ 0x1800FA030 (RtlpHpSegReportCounters.c)
  */
 
-__int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpQueryExtendedInformationHeap(_DWORD *BaseAddress, __int64 a2)
 {
   __int64 v2; // r15
   int v3; // ebx
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
   __int16 v25; // si
   int v26; // eax
   unsigned __int64 v27; // r15
-  unsigned __int64 v28; // rsi
+  _DWORD *v28; // rsi
   _DWORD *v29; // rcx
   int v30; // esi
   unsigned __int64 v31; // rax
@@ -72,19 +72,19 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
   v6 = *(_DWORD *)a2;
   v38 = *(_DWORD *)a2;
   v39 = v2;
-  v7 = *(_DWORD *)(a1 + 16) == -571548178;
+  v7 = BaseAddress[4] == -571548178;
   v40 = v4;
   v45 = 0LL;
   if ( v7 )
   {
     v8 = 1;
     v36 = 1;
-    v9 = (_QWORD *)a1;
-    v44 = (_DWORD *)a1;
+    v9 = BaseAddress;
+    v44 = BaseAddress;
   }
   else
   {
-    v7 = (*(_DWORD *)(a1 + 116) & 0x1000000) == 0;
+    v7 = (BaseAddress[29] & 0x1000000) == 0;
     v8 = 0;
     v36 = 0;
     v9 = 0LL;
@@ -97,7 +97,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
     memset(v46, 0, 0xA8uLL);
     LODWORD(v46[0]) = 2;
     v46[1] = 64LL;
-    v46[2] = a1;
+    v46[2] = BaseAddress;
     if ( v8 )
     {
       v46[4] = *v9 << 12;
@@ -109,8 +109,8 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
     }
     else
     {
-      LODWORD(v46[3]) = *(unsigned __int8 *)(a1 + 386);
-      result = RtlpQueryMemoryUsageHeap(a1, &v46[4], &v46[5]);
+      LODWORD(v46[3]) = *((unsigned __int8 *)BaseAddress + 386);
+      result = RtlpQueryMemoryUsageHeap((__int64)BaseAddress, &v46[4], &v46[5]);
     }
     if ( (int)result < 0 )
       return result;
@@ -127,7 +127,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
       while ( 1 )
       {
         LOBYTE(v18) = v38 > 3;
-        result = RtlpWalkHeapInternal(a1, v43, v18);
+        result = RtlpWalkHeapInternal((__int64)BaseAddress, v43, v18);
         if ( (_DWORD)result == -2147483622 )
           return 0LL;
         if ( (int)result < 0 )
@@ -138,15 +138,15 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
         if ( v8 || (v43[2] & 0x80000000) != 0 )
         {
           v27 = v45;
-          v28 = v43[0];
+          v28 = (_DWORD *)v43[0];
         }
         else
         {
           v27 = v43[0];
-          v28 = v43[0];
+          v28 = (_DWORD *)v43[0];
           v45 = v43[0];
-          if ( v43[0] + 24 == *(_QWORD *)(a1 + 288) )
-            v28 = a1;
+          if ( v43[0] + 24 == *((_QWORD *)BaseAddress + 36) )
+            v28 = BaseAddress;
         }
         memset(v46, 0, 0xA8uLL);
         v46[3] = LODWORD(v43[3]) + (unsigned __int64)HIDWORD(v43[3]);
@@ -171,7 +171,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
             v30 = HeapProtection;
             goto LABEL_52;
           }
-          v29 = (_DWORD *)a1;
+          v29 = BaseAddress;
         }
         v19 = v43[0];
         v20 = v43[0] + LODWORD(v43[3]);
@@ -326,7 +326,7 @@ LABEL_78:
     else
     {
       v46[2] = v32;
-      v33 = (_DWORD *)a1;
+      v33 = BaseAddress;
       v34 = *(_QWORD *)(v32 + 32);
     }
     v46[3] = v34;
@@ -348,23 +348,23 @@ LABEL_78:
   }
   else
   {
-    LODWORD(v46[3]) = *(unsigned __int16 *)(a1 + 208);
+    LODWORD(v46[3]) = *((unsigned __int16 *)BaseAddress + 104);
     HIDWORD(v46[2]) = 1;
-    v46[4] = a1;
+    v46[4] = BaseAddress;
     NumberOfHeaps = NtCurrentPeb()->NumberOfHeaps;
-    v46[5] = *(_QWORD *)(a1 + 536);
-    v11 = *(_QWORD *)(a1 + 544) - *(_QWORD *)(a1 + 632);
+    v46[5] = *((_QWORD *)BaseAddress + 67);
+    v11 = *((_QWORD *)BaseAddress + 68) - *((_QWORD *)BaseAddress + 79);
     HIDWORD(v46[3]) = NumberOfHeaps - 1;
     v46[6] = v11;
-    v12 = RtlpEstimateAllocatedSize(a1);
-    v13 = *(_DWORD **)(a1 + 312);
+    v12 = RtlpEstimateAllocatedSize(BaseAddress);
+    v13 = (_DWORD *)*((_QWORD *)BaseAddress + 39);
     v46[10] = v12;
-    v46[11] = 16LL * *(_QWORD *)(a1 + 192);
-    LODWORD(v46[9]) = *(_DWORD *)(a1 + 572);
-    LODWORD(v46[13]) = *(_DWORD *)(a1 + 560);
-    v46[8] = *(_QWORD *)(a1 + 552);
-    LODWORD(v46[7]) = *(_DWORD *)(a1 + 568);
-    HIDWORD(v46[13]) = *(_DWORD *)(a1 + 576);
+    v46[11] = 16LL * *((_QWORD *)BaseAddress + 24);
+    LODWORD(v46[9]) = BaseAddress[143];
+    LODWORD(v46[13]) = BaseAddress[140];
+    v46[8] = *((_QWORD *)BaseAddress + 69);
+    LODWORD(v46[7]) = BaseAddress[142];
+    HIDWORD(v46[13]) = BaseAddress[144];
     LODWORD(v46[14]) = HIDWORD(v46[13]);
     if ( v13 )
     {
@@ -373,8 +373,8 @@ LABEL_78:
       if ( *(_QWORD *)v13 )
         LODWORD(v46[12]) = *(_DWORD *)(*(_QWORD *)v13 + 16LL) + v14;
     }
-    v15 = *(_QWORD *)(a1 + 352);
-    v16 = *(_DWORD *)(a1 + 588);
+    v15 = *((_QWORD *)BaseAddress + 44);
+    v16 = BaseAddress[147];
     HIDWORD(v46[12]) = v16;
     if ( v15 )
     {

@@ -4,13 +4,13 @@
  *     HdlspBugCheckProcessing @ 0x140AE9D84 (HdlspBugCheckProcessing.c)
  *     HdlspDispatch @ 0x140AE9EB0 (HdlspDispatch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     sprintf_s @ 0x1403DF720 (sprintf_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758680 (RtlUnicodeStringToAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     sprintf_s @ 0x1403DF900 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlUnicodeStringToAnsiString @ 0x140758870 (RtlUnicodeStringToAnsiString.c)
  *     HdlspPutMore @ 0x140AEB0B8 (HdlspPutMore.c)
  *     HdlspPutString @ 0x140AEB194 (HdlspPutString.c)
  */
@@ -42,8 +42,8 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
   struct _KPRCB *v23; // r9
   _DWORD *v24; // r8
   int v25; // eax
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v27; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v27; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   char v30; // [rsp+A8h] [rbp+38h] BYREF
 
@@ -72,10 +72,10 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
       if ( v2 != 0xFF )
       {
         KxReleaseSpinLock((volatile signed __int64 *)v3);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -126,10 +126,10 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
         if ( v2 != 0xFF )
         {
           KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v16 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v2 <= 0xFu && v16 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v2 <= 0xFu && v16 >= 2u )
             {
               v17 = KeGetCurrentPrcb();
               v18 = v17->SchedulerAssist;
@@ -173,20 +173,20 @@ LABEL_55:
     v3 = HeadlessGlobals;
 LABEL_57:
     KxReleaseSpinLock((volatile signed __int64 *)v3);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_64;
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || v22 > 0xFu || v2 > 0xFu || v22 < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v22 > 0xFu || v2 > 0xFu || v22 < 2u )
       goto LABEL_64;
     goto LABEL_62;
   }
   if ( v2 == 0xFF )
     return result;
   KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && v2 <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && v2 <= 0xFu && v6 >= 2u )
     {
 LABEL_62:
       v23 = KeGetCurrentPrcb();

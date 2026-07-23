@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDecrementKernelShadowStack @ 0x1404201E0
+ * XREFs of KiDecrementKernelShadowStack @ 0x140420570
  * Callers:
- *     KiFixupControlProtectionKernelModeReturnMismatch @ 0x14057BBA0 (KiFixupControlProtectionKernelModeReturnMismatch.c)
+ *     KiFixupControlProtectionKernelModeReturnMismatch @ 0x14057C090 (KiFixupControlProtectionKernelModeReturnMismatch.c)
  * Callees:
- *     sub_1404201F6 @ 0x1404201F6 (sub_1404201F6.c)
+ *     sub_140420586 @ 0x140420586 (sub_140420586.c)
  */
 
 __int64 KiDecrementKernelShadowStack()
@@ -13,6 +13,6 @@ __int64 KiDecrementKernelShadowStack()
   __asm { rdsspq  rdx }
   _R8 = 0LL;
   __asm { wrssq   qword ptr [rdx], r8 }
-  sub_1404201F6(*_RDX);
-  return sub_1404201F6(v2);
+  sub_140420586(*_RDX);
+  return sub_140420586(v2);
 }

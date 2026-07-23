@@ -1,7 +1,7 @@
 /*
- * XREFs of ExQueryRaiseUMExceptionOnInvalidHandleClose @ 0x14070F780
+ * XREFs of ExQueryRaiseUMExceptionOnInvalidHandleClose @ 0x140710A20
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

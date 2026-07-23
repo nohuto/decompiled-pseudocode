@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIommuMapLogical @ 0x14047B810
+ * XREFs of HalpIommuMapLogical @ 0x140475180
  * Callers:
- *     IommuMapLogicalRangeEx @ 0x14047B4F0 (IommuMapLogicalRangeEx.c)
- *     HalpIommuDomainMapLogical @ 0x14047B6F8 (HalpIommuDomainMapLogical.c)
+ *     IommuMapLogicalRangeEx @ 0x140474E60 (IommuMapLogicalRangeEx.c)
+ *     HalpIommuDomainMapLogical @ 0x140475068 (HalpIommuDomainMapLogical.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpIommuUnmapLogicalRange @ 0x14047B208 (HalpIommuUnmapLogicalRange.c)
- *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14047BB44 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14047BD64 (HalpIommuAllocateAndZeroPageTable.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140474B78 (HalpIommuUnmapLogicalRange.c)
+ *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1404754B4 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404756D4 (HalpIommuAllocateAndZeroPageTable.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuMapLogical(
@@ -97,7 +97,7 @@ __int64 __fastcall HalpIommuMapLogical(
           }
           MmGetPhysicalAddress(v29);
           v30 = (unsigned int)((_DWORD)v16 << v31) + v7;
-          guard_dispatch_icall_no_overrides(v30, (unsigned int)(*(_DWORD *)(a2 + 24) + ~(_DWORD)v8));
+          guard_dispatch_icall_no_overrides(v30, (unsigned int)(*(_DWORD *)(a2 + 24) - v8 - 1));
           HalpIommuFlushPhysicalPtesFromCacheSize(v30, v33);
         }
         KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 8), v28);

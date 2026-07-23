@@ -13,7 +13,7 @@
 bool sub_18000BFBC()
 {
   struct _TEB *v1; // rcx
-  __int64 SpareUlong0; // rax
+  __int64 WowTebOffset; // rax
   __int64 v3; // rcx
 
   if ( byte_18015B388 )
@@ -21,11 +21,11 @@ bool sub_18000BFBC()
   if ( !dword_18015B264 )
     return 0;
   v1 = NtCurrentTeb();
-  SpareUlong0 = (int)v1->SpareUlong0;
-  if ( (_DWORD)SpareUlong0 )
+  WowTebOffset = v1->WowTebOffset;
+  if ( (_DWORD)WowTebOffset )
   {
-    if ( (int)SpareUlong0 >= 0 )
-      v1 = (struct _TEB *)((char *)v1 + SpareUlong0);
+    if ( (int)WowTebOffset >= 0 )
+      v1 = (struct _TEB *)((char *)v1 + WowTebOffset);
   }
   else
   {

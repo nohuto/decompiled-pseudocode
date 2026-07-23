@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInSwapStoreContextDereference @ 0x140710578
+ * XREFs of MiInSwapStoreContextDereference @ 0x1406BEBC8
  * Callers:
- *     MiInSwapStore @ 0x1407103DC (MiInSwapStore.c)
- *     MiInSwapStoreWorker @ 0x1407104D0 (MiInSwapStoreWorker.c)
+ *     MiInSwapStore @ 0x1406BEA2C (MiInSwapStore.c)
+ *     MiInSwapStoreWorker @ 0x1406BEB20 (MiInSwapStoreWorker.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiInSwapStoreContextDereference(volatile signed __int32 *a1)

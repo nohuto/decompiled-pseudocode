@@ -2,11 +2,11 @@
  * XREFs of VrpCleanupNamespace @ 0x1405D61B0
  * Callers:
  *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1405D2FAC (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpJobContextDelete @ 0x1408827E0 (VrpJobContextDelete.c)
+ *     VrpJobContextDelete @ 0x140882940 (VrpJobContextDelete.c)
  * Callees:
  *     VrpDestroyNamespaceNode @ 0x1405D3260 (VrpDestroyNamespaceNode.c)
  *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpCleanupNamespace(__int64 a1)

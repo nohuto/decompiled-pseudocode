@@ -1,15 +1,15 @@
 /*
  * XREFs of RtlCreateSystemVolumeInformationFolder @ 0x1407F7F00
  * Callers:
- *     DifRtlCreateSystemVolumeInformationFolderWrapper @ 0x14061AF50 (DifRtlCreateSystemVolumeInformationFolderWrapper.c)
+ *     sub_14061AF50 @ 0x14061AF50 (sub_14061AF50.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     NtClose @ 0x140731D50 (NtClose.c)
  *     NtCreateFile @ 0x1407E0BC0 (NtCreateFile.c)
- *     RtlpSysVolCreateSecurityDescriptor @ 0x1407F813C (RtlpSysVolCreateSecurityDescriptor.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407F8298 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpSysVolTakeOwnership @ 0x1409BB4D8 (RtlpSysVolTakeOwnership.c)
+ *     sub_1407F813C @ 0x1407F813C (sub_1407F813C.c)
+ *     sub_1407F8298 @ 0x1407F8298 (sub_1407F8298.c)
+ *     sub_1409BB4D8 @ 0x1409BB4D8 (sub_1409BB4D8.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
@@ -73,7 +73,7 @@ NTSTATUS __stdcall RtlCreateSystemVolumeInformationFolder(PCUNICODE_STRING Volum
   memmove((char *)P[1] + (unsigned __int16)v8, DestinationString.Buffer, v3);
   LOWORD(P[0]) += v3;
   *((_WORD *)P[1] + ((unsigned __int64)LOWORD(P[0]) >> 1)) = 0;
-  v9 = RtlpSysVolCreateSecurityDescriptor(&v19, &v18);
+  v9 = sub_1407F813C(&v19, &v18);
   if ( v9 < 0 )
   {
     v11 = P[1];
@@ -92,7 +92,7 @@ NTSTATUS __stdcall RtlCreateSystemVolumeInformationFolder(PCUNICODE_STRING Volum
     v9 = NtCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0LL, 6u, 7u, 3u, 0x21u, 0LL, 0);
     if ( v9 < 0 )
     {
-      RtlpSysVolTakeOwnership(P);
+      sub_1409BB4D8(P);
       v9 = NtCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0LL, 6u, 7u, 3u, 0x21u, 0LL, 0);
     }
     ExFreePoolWithTag(P[1], 0);
@@ -104,7 +104,7 @@ NTSTATUS __stdcall RtlCreateSystemVolumeInformationFolder(PCUNICODE_STRING Volum
     else
     {
       ExFreePoolWithTag(v10, 0);
-      v9 = RtlpSysVolCheckOwnerAndSecurity(FileHandle, (PACL)v18);
+      v9 = sub_1407F8298(FileHandle, (PACL)v18);
       NtClose(FileHandle);
       v11 = v18;
     }

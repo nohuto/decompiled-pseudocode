@@ -1,57 +1,46 @@
 /*
- * XREFs of SdbReleaseDatabase @ 0x1409E6F28
+ * XREFs of SdbReleaseDatabase @ 0x1409D5F00
  * Callers:
- *     PpReleaseBootDDB @ 0x140776E90 (PpReleaseBootDDB.c)
- *     KsepSdbBootRelease @ 0x1407BE614 (KsepSdbBootRelease.c)
- *     KsepSdbUnmapFromMemory @ 0x1409E6EA4 (KsepSdbUnmapFromMemory.c)
- *     PiReleaseDDB @ 0x140A25E84 (PiReleaseDDB.c)
+ *     PpReleaseBootDDB @ 0x140779D38 (PpReleaseBootDDB.c)
+ *     KsepSdbBootRelease @ 0x1407C1674 (KsepSdbBootRelease.c)
+ *     KsepSdbUnmapFromMemory @ 0x1409D5E7C (KsepSdbUnmapFromMemory.c)
+ *     PiReleaseDDB @ 0x140A38F24 (PiReleaseDDB.c)
  * Callees:
- *     SdbCloseDatabaseRead @ 0x1409E6930 (SdbCloseDatabaseRead.c)
- *     SdbpCleanupLocalDatabaseSupport @ 0x1409E69AC (SdbpCleanupLocalDatabaseSupport.c)
- *     SdbpCleanupUserSDBCache @ 0x1409E69FC (SdbpCleanupUserSDBCache.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     SdbpCleanupUserSDBCache @ 0x1409D630C (SdbpCleanupUserSDBCache.c)
+ *     SdbpCleanupLocalDatabaseSupport @ 0x1409D6348 (SdbpCleanupLocalDatabaseSupport.c)
+ *     SdbCloseDatabaseRead @ 0x1409D6398 (SdbCloseDatabaseRead.c)
  */
 
-void __fastcall SdbReleaseDatabase(__int64 a1)
+__int64 __fastcall SdbReleaseDatabase(__int64 a1)
 {
-  __int64 v2; // rdx
+  __int64 v2; // rcx
   __int64 v3; // rcx
   __int64 v4; // rcx
-  __int64 v5; // rcx
 
-  AslLogCallPrintf(3, (unsigned int)"SdbReleaseDatabase", 154, (unsigned int)"Enter.");
+  AslLogCallPrintf(3LL, (__int64)"SdbReleaseDatabase");
   if ( *(_DWORD *)(a1 + 1768) )
   {
-    v5 = *(_QWORD *)(a1 + 1776);
-    if ( _InterlockedDecrement((volatile signed __int32 *)(v5 + 1776)) < 0 )
+    v4 = *(_QWORD *)(a1 + 1776);
+    if ( _InterlockedDecrement((volatile signed __int32 *)(v4 + 1776)) < 0 )
     {
       _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 1776) + 1776LL));
-      AslLogCallPrintf(
-        1,
-        (unsigned int)"SdbReleaseDatabase",
-        171,
-        (unsigned int)"SDB Handle count was decremented after zero.");
+      AslLogCallPrintf(1LL, (__int64)"SdbReleaseDatabase");
     }
-    goto LABEL_8;
+    return AslFree(v4, a1);
   }
   if ( *(int *)(a1 + 1776) <= 0 )
   {
-    SdbpCleanupLocalDatabaseSupport(a1, v2);
-    v3 = *(_QWORD *)(a1 + 8);
+    SdbpCleanupLocalDatabaseSupport(a1);
+    v2 = *(_QWORD *)(a1 + 8);
+    if ( v2 )
+      SdbCloseDatabaseRead(v2);
+    v3 = *(_QWORD *)(a1 + 16);
     if ( v3 )
       SdbCloseDatabaseRead(v3);
-    v4 = *(_QWORD *)(a1 + 16);
-    if ( v4 )
-      SdbCloseDatabaseRead(v4);
     SdbpCleanupUserSDBCache(a1);
-LABEL_8:
-    AslFree(v5, (void *)a1);
-    return;
+    return AslFree(v4, a1);
   }
-  AslLogCallPrintf(
-    1,
-    (unsigned int)"SdbReleaseDatabase",
-    185,
-    (unsigned int)"Attempt to release SDB handle that still has unreleased duplicates.");
+  return AslLogCallPrintf(1LL, (__int64)"SdbReleaseDatabase");
 }

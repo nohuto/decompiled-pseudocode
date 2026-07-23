@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpWakeConditionVariable @ 0x18002B160
+ * XREFs of RtlpWakeConditionVariable @ 0x180016260
  * Callers:
- *     RtlpWakeSingle @ 0x18002A440 (RtlpWakeSingle.c)
- *     RtlSleepConditionVariableSRW @ 0x18002CAF0 (RtlSleepConditionVariableSRW.c)
- *     RtlSleepConditionVariableCS @ 0x18004BCD0 (RtlSleepConditionVariableCS.c)
+ *     RtlpWakeSingle @ 0x180015540 (RtlpWakeSingle.c)
+ *     RtlSleepConditionVariableSRW @ 0x180017BF0 (RtlSleepConditionVariableSRW.c)
+ *     RtlSleepConditionVariableCS @ 0x180036250 (RtlSleepConditionVariableCS.c)
  * Callees:
- *     RtlpQueueWaitBlockToSRWLock @ 0x18002AA00 (RtlpQueueWaitBlockToSRWLock.c)
- *     ZwAlertThreadByThreadId @ 0x18015FD50 (ZwAlertThreadByThreadId.c)
+ *     RtlpQueueWaitBlockToSRWLock @ 0x180015B00 (RtlpQueueWaitBlockToSRWLock.c)
+ *     ZwAlertThreadByThreadId @ 0x18015FC50 (ZwAlertThreadByThreadId.c)
  */
 
 char __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, signed __int64 a2, int a3)
@@ -20,13 +20,14 @@ char __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, signed __int64 a
   unsigned int v11; // eax
   _QWORD *v12; // rcx
   unsigned __int64 *v13; // rcx
-  __int64 v14; // rbx
-  __int64 v15; // rdi
-  volatile signed __int64 *v16; // rdx
-  __int64 v18; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int64 *v14; // r8
+  __int64 v15; // rbx
+  __int64 v16; // rdi
+  volatile signed __int64 *v17; // rdx
+  __int64 v19; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = (unsigned __int64 *)&v18;
-  v18 = 0LL;
+  v3 = (unsigned __int64 *)&v19;
+  v19 = 0LL;
   v4 = 0;
   for ( i = a2; ; a2 = i )
   {
@@ -62,16 +63,16 @@ LABEL_7:
   }
   while ( 1 )
   {
-    v10 = (_QWORD *)v13[2];
-    if ( !v10 )
+    v14 = (unsigned __int64 *)v13[2];
+    if ( !v14 )
       break;
     *v3 = (unsigned __int64)v13;
     ++v4;
     *v13 = 0LL;
     v3 = v13;
-    v13 = v10;
-    *(_QWORD *)(v8 + 8) = v10;
-    *v10 = 0LL;
+    *(_QWORD *)(v8 + 8) = v14;
+    v13 = v14;
+    *v14 = 0LL;
     if ( v11 <= v4 )
       goto LABEL_6;
   }
@@ -82,24 +83,24 @@ LABEL_7:
   *v3 = (unsigned __int64)v13;
   *v13 = 0LL;
 LABEL_12:
-  v14 = v18;
-  if ( v18 )
+  v15 = v19;
+  if ( v19 )
   {
     do
     {
-      v15 = *(_QWORD *)v14;
-      if ( !_interlockedbittestandreset((volatile signed __int32 *)(v14 + 36), 1u) )
+      v16 = *(_QWORD *)v15;
+      if ( !_interlockedbittestandreset((volatile signed __int32 *)(v15 + 36), 1u) )
       {
-        v16 = *(volatile signed __int64 **)(v14 + 40);
-        if ( !v16 || (LOBYTE(v9) = RtlpQueueWaitBlockToSRWLock(v14, v16), !(_BYTE)v9) )
+        v17 = *(volatile signed __int64 **)(v15 + 40);
+        if ( !v17 || (LOBYTE(v9) = RtlpQueueWaitBlockToSRWLock(v15, v17), !(_BYTE)v9) )
         {
-          _InterlockedOr((volatile signed __int32 *)(v14 + 36), 4u);
-          LOBYTE(v9) = ZwAlertThreadByThreadId(*(_QWORD *)(v14 + 24), v16, v10);
+          _InterlockedOr((volatile signed __int32 *)(v15 + 36), 4u);
+          LOBYTE(v9) = ZwAlertThreadByThreadId(*(HANDLE *)(v15 + 24));
         }
       }
-      v14 = v15;
+      v15 = v16;
     }
-    while ( v15 );
+    while ( v16 );
   }
   return v9;
 }

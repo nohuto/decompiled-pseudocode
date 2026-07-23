@@ -21,8 +21,7 @@ __int64 IovUnloadDrivers()
   _DWORD *v7; // rcx
   PVOID *v8; // rdi
   PVOID v9; // rcx
-  int v10; // [rsp+40h] [rbp+8h] BYREF
-  int v11; // [rsp+44h] [rbp+Ch]
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !PopShutdownCleanly )
     return 3221225473LL;
@@ -71,9 +70,8 @@ __int64 IovUnloadDrivers()
     }
     if ( !v4 )
       break;
-    v11 = -1;
-    v10 = -100000000;
-    ZwDelayExecution(0LL, (__int64)&v10);
+    DelayInterval.QuadPart = -100000000LL;
+    ZwDelayExecution(0, &DelayInterval);
     v1 = v5;
     if ( !v5 )
       goto LABEL_17;

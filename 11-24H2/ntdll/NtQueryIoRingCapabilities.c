@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryIoRingCapabilities @ 0x180164860
+ * XREFs of NtQueryIoRingCapabilities @ 0x180162C20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryIoRingCapabilities()
+NTSTATUS __cdecl NtQueryIoRingCapabilities(SIZE_T IoRingCapabilitiesLength, PVOID IoRingCapabilities)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 351LL;
+  result = 351;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

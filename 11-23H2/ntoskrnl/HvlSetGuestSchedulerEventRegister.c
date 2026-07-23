@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlSetGuestSchedulerEventRegister @ 0x1405405B0
+ * XREFs of HvlSetGuestSchedulerEventRegister @ 0x140540C70
  * Callers:
- *     KiHvEnlightenedGuestPriorityKick @ 0x1402B2E20 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1402B30B0 (KiHvEnlightenedGuestPriorityKick.c)
  * Callees:
- *     HvlpSetRegister64 @ 0x140548E30 (HvlpSetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1405494F0 (HvlpSetRegister64.c)
  */
 
 __int64 __fastcall HvlSetGuestSchedulerEventRegister(__int64 a1)

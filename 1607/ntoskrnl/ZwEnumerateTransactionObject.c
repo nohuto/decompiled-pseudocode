@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwEnumerateTransactionObject @ 0x14015B720
+ * XREFs of ZwEnumerateTransactionObject @ 0x14015BC90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwEnumerateTransactionObject(
         HANDLE RootObjectHandle,
         KTMOBJECT_TYPE QueryType,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwEnumerateTransactionObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(RootObjectHandle, *(_QWORD *)&QueryType, ObjectCursor);
+  return KiServiceInternal(RootObjectHandle);
 }

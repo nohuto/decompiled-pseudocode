@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyRetpolineFixups @ 0x140853708
+ * XREFs of MiApplyRetpolineFixups @ 0x140854968
  * Callers:
- *     MiPerformFixups @ 0x1405DFB58 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x1405E0B58 (MiPerformFixups.c)
  * Callees:
- *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
- *     RtlApplyImportRelocationToPage @ 0x1402F6BE8 (RtlApplyImportRelocationToPage.c)
- *     RtlApplyIndirectRelocationToPage @ 0x1402F6C90 (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x1402F6D2C (RtlApplySwitchJumpRelocationToPage.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA5F0 (MiIsRetpolineEnabled.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F6DD8 (RtlApplyImportRelocationToPage.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x1402F6E80 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x1402F6F1C (RtlApplySwitchJumpRelocationToPage.c)
  */
 
 void __fastcall MiApplyRetpolineFixups(
@@ -32,13 +32,13 @@ void __fastcall MiApplyRetpolineFixups(
   {
     case 3u:
       IsRetpolineEnabled = MiIsRetpolineEnabled();
-      RtlApplyImportRelocationToPage(a1, a4, a5, (int)qword_140438E50, (_DWORD *)a6 + 2, v9, v11, !IsRetpolineEnabled);
+      RtlApplyImportRelocationToPage(a1, a4, a5, (int)qword_140439F10, (_DWORD *)a6 + 2, v9, v11, !IsRetpolineEnabled);
       break;
     case 4u:
-      RtlApplyIndirectRelocationToPage(a1, a4, a5, (int)qword_140438E50, a6 + 4, (a7 & 1) == 0, 1);
+      RtlApplyIndirectRelocationToPage(a1, a4, a5, (int)qword_140439F10, a6 + 4, (a7 & 1) == 0, 1);
       break;
     case 5u:
-      RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (int)qword_140438E50, a6 + 4, (a7 & 1) == 0, 1);
+      RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (int)qword_140439F10, a6 + 4, (a7 & 1) == 0, 1);
       break;
   }
   v12 = (char *)(a6 + 6);
@@ -48,17 +48,17 @@ void __fastcall MiApplyRetpolineFixups(
   while ( v12 < v13 )
   {
     v16 = MiIsRetpolineEnabled();
-    RtlApplyImportRelocationToPage(a1, a4, a5, (int)qword_140438E50, v12, v9, 0, !v16);
+    RtlApplyImportRelocationToPage(a1, a4, a5, (int)qword_140439F10, v12, v9, 0, !v16);
     v12 += 4;
   }
   while ( v13 < v14 )
   {
-    RtlApplyIndirectRelocationToPage(a1, a4, a5, (int)qword_140438E50, v13, v9, 0);
+    RtlApplyIndirectRelocationToPage(a1, a4, a5, (int)qword_140439F10, v13, v9, 0);
     v13 += 2;
   }
   while ( v14 < v15 )
   {
-    RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (int)qword_140438E50, v14, v9, 0);
+    RtlApplySwitchJumpRelocationToPage(a1, a4, a5, (int)qword_140439F10, v14, v9, 0);
     v14 += 2;
   }
 }

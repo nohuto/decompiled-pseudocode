@@ -1,11 +1,11 @@
 /*
  * XREFs of EtwpUseDescriptorType @ 0x1800FD3D0
  * Callers:
- *     EtwEventSetInformation @ 0x18002A170 (EtwEventSetInformation.c)
+ *     EtwEventSetInformation @ 0x18002A160 (EtwEventSetInformation.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtTraceControl @ 0x1800A99F0 (NtTraceControl.c)
  */
 
@@ -13,8 +13,11 @@ __int64 __fastcall EtwpUseDescriptorType(__int64 a1, char *a2)
 {
   __int64 v2; // rdi
   char v3; // si
-  ULONG v4; // ebx
+  unsigned __int32 v4; // ebx
   NTSTATUS v5; // eax
+  ULONG ReturnLength; // [rsp+30h] [rbp-38h] BYREF
+  __int64 InputBuffer; // [rsp+38h] [rbp-30h] BYREF
+  char v9; // [rsp+40h] [rbp-28h]
 
   if ( !HIWORD(a1)
     || (v2 = a1 & 0xFFFFFFFFFFFFLL, (a1 & 1) != 0)
@@ -31,7 +34,9 @@ LABEL_11:
     RtlSetLastWin32Error(v4);
     return v4;
   }
-  v5 = NtTraceControl();
+  InputBuffer = *(_QWORD *)((a1 & 0xFFFFFFFFFFFFLL) + 0x58);
+  v9 = v3;
+  v5 = NtTraceControl(EtwUseDescriptorTypeCode, &InputBuffer, 0x10u, 0LL, 0, &ReturnLength);
   if ( v5 )
   {
     v4 = RtlNtStatusToDosError(v5);

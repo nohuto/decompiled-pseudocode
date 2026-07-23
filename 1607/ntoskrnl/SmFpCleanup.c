@@ -1,14 +1,14 @@
 /*
- * XREFs of SmFpCleanup @ 0x140003DB8
+ * XREFs of SmFpCleanup @ 0x140003F2C
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400039C4 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmFpPreAllocate @ 0x1401488D8 (SmFpPreAllocate.c)
- *     SmFirstTimeInit @ 0x1403E3814 (SmFirstTimeInit.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140003B38 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmFpPreAllocate @ 0x140148E48 (SmFpPreAllocate.c)
+ *     SmFirstTimeInit @ 0x1403E4E40 (SmFirstTimeInit.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x140003C90 (SmAcquireReleaseCharges.c)
- *     SmKmFreeMdlForLock @ 0x140124930 (SmKmFreeMdlForLock.c)
+ *     SmAcquireReleaseCharges @ 0x140003E04 (SmAcquireReleaseCharges.c)
+ *     SmKmFreeMdlForLock @ 0x140124EA0 (SmKmFreeMdlForLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MmFreeMappingAddress @ 0x14052C224 (MmFreeMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x14052C764 (MmFreeMappingAddress.c)
  */
 
 void __fastcall SmFpCleanup(__int64 a1)

@@ -11,37 +11,40 @@
  *     NtdllpAllocateStringRoutine @ 0x18006EBB0 (NtdllpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeString(__int64 a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  __int64 v5; // rax
+  __int64 Length; // rax
   unsigned int v6; // ebx
   unsigned int v7; // r10d
-  __int16 v8; // ax
+  wchar_t v8; // ax
   __int64 v9; // r9
-  __int64 StringRoutine; // rax
+  wchar_t *StringRoutine; // rax
 
-  v5 = *a2;
+  Length = SourceString->Length;
   v6 = 0;
-  if ( a3 )
+  if ( AllocateDestinationString )
   {
-    *(_WORD *)(a1 + 2) = v5;
-    StringRoutine = NtdllpAllocateStringRoutine(v5);
-    *(_QWORD *)(a1 + 8) = StringRoutine;
+    DestinationString->MaximumLength = Length;
+    StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(Length);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
-      return 3221225495LL;
-    LOWORD(v5) = *a2;
+      return -1073741801;
+    LOWORD(Length) = SourceString->Length;
   }
-  else if ( (unsigned __int16)v5 > *(_WORD *)(a1 + 2) )
+  else if ( (unsigned __int16)Length > DestinationString->MaximumLength )
   {
-    return 2147483653LL;
+    return -2147483643;
   }
-  v7 = (unsigned __int16)v5 >> 1;
+  v7 = (unsigned __int16)Length >> 1;
   while ( v6 < v7 )
   {
-    v8 = NLS_UPCASE(*(unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * v6));
-    *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * v9) = v8;
+    v8 = NLS_UPCASE(SourceString->Buffer[v6]);
+    DestinationString->Buffer[v9] = v8;
     ++v6;
   }
-  *(_WORD *)a1 = *a2;
-  return 0LL;
+  DestinationString->Length = SourceString->Length;
+  return 0;
 }

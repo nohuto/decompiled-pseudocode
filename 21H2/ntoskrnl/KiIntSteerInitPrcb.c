@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIntSteerInitPrcb @ 0x1402D3E54
+ * XREFs of KiIntSteerInitPrcb @ 0x1402520C4
  * Callers:
- *     KiInitPrcb @ 0x14099C788 (KiInitPrcb.c)
+ *     KiInitPrcb @ 0x14099D788 (KiInitPrcb.c)
  * Callees:
  *     <none>
  */

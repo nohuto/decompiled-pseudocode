@@ -10,62 +10,61 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __fastcall LdrpQueryAndUpdateVerifierLaunchCounter(unsigned __int16 *a1, _DWORD *a2)
+NTSTATUS __fastcall LdrpQueryAndUpdateVerifierLaunchCounter(unsigned __int16 *a1, ULONG *a2)
 {
   __int16 v3; // si
   int v4; // edx
   int v5; // ebx
-  int v6; // eax
-  int v8; // esi
-  UNICODE_STRING DestinationString; // [esp+Ch] [ebp-1Ch] BYREF
-  _WORD v10[2]; // [esp+14h] [ebp-14h] BYREF
-  int v11; // [esp+18h] [ebp-10h]
-  int v12; // [esp+1Ch] [ebp-Ch] BYREF
-  int v13; // [esp+20h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-4h] BYREF
+  wchar_t *v6; // eax
+  NTSTATUS ImageFileKeyOption; // esi
+  _UNICODE_STRING DestinationString; // [esp+Ch] [ebp-1Ch] BYREF
+  _UNICODE_STRING ValueName; // [esp+14h] [ebp-14h] BYREF
+  int v11; // [esp+1Ch] [ebp-Ch] BYREF
+  int Data; // [esp+20h] [ebp-8h] BYREF
+  HANDLE KeyHandle; // [esp+24h] [ebp-4h] BYREF
 
   v3 = *a1;
   v4 = *a1;
   v5 = 0;
-  v6 = v4 + *((_DWORD *)a1 + 1);
+  v6 = (wchar_t *)(v4 + *((_DWORD *)a1 + 1));
   if ( *a1 )
   {
     do
     {
-      if ( *(_WORD *)(v6 - 2) == 92 )
+      if ( *(v6 - 1) == 92 )
         break;
-      v6 -= 2;
+      --v6;
       v4 -= 2;
     }
     while ( v4 );
   }
-  v11 = v6;
-  v10[0] = v3 - v4;
-  v10[1] = v3 - v4 + 2;
+  ValueName.Buffer = v6;
+  ValueName.Length = v3 - v4;
+  ValueName.MaximumLength = v3 - v4 + 2;
   RtlInitUnicodeString(&DestinationString, L"\\VerifierCounter");
-  if ( RtlpOpenImageFileOptionsKeyEx(&DestinationString.Length, 11, 0, &Handle) < 0 )
+  if ( RtlpOpenImageFileOptionsKeyEx(&DestinationString.Length, 0xBu, 0, &KeyHandle) < 0 )
   {
-    if ( RtlpOpenImageFileOptionsKeyEx(&DestinationString.Length, 9, 0, &Handle) < 0 )
+    if ( RtlpOpenImageFileOptionsKeyEx(&DestinationString.Length, 9u, 0, &KeyHandle) < 0 )
     {
       *a2 = 1;
       return 0;
     }
     v5 = 1;
   }
-  v8 = RtlQueryImageFileKeyOption((int)Handle, v11, 4, a2, 4u, &v12);
-  if ( v8 >= 0 )
+  ImageFileKeyOption = RtlQueryImageFileKeyOption(KeyHandle, (PCWSTR)ValueName.Buffer, 4, a2, 4u, (ULONG *)&v11);
+  if ( ImageFileKeyOption >= 0 )
   {
     if ( v5 || !*a2 )
       goto LABEL_14;
-    v13 = *a2 - 1;
-    ZwSetValueKey((int)Handle, (int)v10, 0, 4, (int)&v13, 4);
+    Data = *a2 - 1;
+    ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
   }
   else
   {
     *a2 = 1;
   }
-  v8 = 0;
+  ImageFileKeyOption = 0;
 LABEL_14:
-  NtClose(Handle);
-  return v8;
+  NtClose(KeyHandle);
+  return ImageFileKeyOption;
 }

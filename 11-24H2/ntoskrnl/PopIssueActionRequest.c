@@ -1,53 +1,53 @@
 /*
- * XREFs of PopIssueActionRequest @ 0x140A87C34
+ * XREFs of PopIssueActionRequest @ 0x140A84124
  * Callers:
- *     PopPolicyWorkerAction @ 0x140A87A20 (PopPolicyWorkerAction.c)
- *     PopPolicyWorkerActionPromote @ 0x140AA7360 (PopPolicyWorkerActionPromote.c)
+ *     PopPolicyWorkerAction @ 0x140A83F10 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x140AA2460 (PopPolicyWorkerActionPromote.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     PopSetSystemState @ 0x1403F2B78 (PopSetSystemState.c)
- *     PpmEndHighPerfRequest @ 0x14046BC44 (PpmEndHighPerfRequest.c)
- *     PpmBeginHighPerfRequest @ 0x14046BCB0 (PpmBeginHighPerfRequest.c)
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
- *     PopPrepareSleep @ 0x1404BC8CC (PopPrepareSleep.c)
- *     PopSetPowerActionWatchdogState @ 0x1404BCE5C (PopSetPowerActionWatchdogState.c)
- *     RtlBootStatusDisableFlushing @ 0x1404FAA78 (RtlBootStatusDisableFlushing.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopResumeApps @ 0x140753ABC (PopResumeApps.c)
- *     PopSetSystemAwayMode @ 0x140753DC0 (PopSetSystemAwayMode.c)
- *     PopSuspendApps @ 0x140753EC8 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x140753F1C (PopSuspendServices.c)
- *     EtwShutdown @ 0x1407A67D0 (EtwShutdown.c)
- *     TtmNotifyLowPowerStateExited @ 0x140902F78 (TtmNotifyLowPowerStateExited.c)
- *     PopScreenOff @ 0x1409B8008 (PopScreenOff.c)
- *     PopResumeServices @ 0x1409B9CE8 (PopResumeServices.c)
- *     PopDispatchStateCallout @ 0x1409B9D64 (PopDispatchStateCallout.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     PopDiagTraceHiberStats @ 0x140A5B7EC (PopDiagTraceHiberStats.c)
- *     PopDiagTracePerfTrackData @ 0x140A5BC04 (PopDiagTracePerfTrackData.c)
- *     PopDiagTracePowerTransitionTime @ 0x140A8354C (PopDiagTracePowerTransitionTime.c)
- *     PopReadSystemAwayModePolicy @ 0x140A88148 (PopReadSystemAwayModePolicy.c)
- *     PopSetSleepMarker @ 0x140A910AC (PopSetSleepMarker.c)
- *     PopPotsLogPowerTransitionReliability @ 0x140A9604C (PopPotsLogPowerTransitionReliability.c)
- *     PopDiagTracePowerTransitionStart @ 0x140AA05BC (PopDiagTracePowerTransitionStart.c)
- *     PopPowerAggregatorNotifySuspendResume @ 0x140AA2428 (PopPowerAggregatorNotifySuspendResume.c)
- *     PopDispatchSuperfetchNotification @ 0x140AAC290 (PopDispatchSuperfetchNotification.c)
- *     PopEnableSystemSleepCheckpoint @ 0x140AAD020 (PopEnableSystemSleepCheckpoint.c)
- *     PoBlockConsoleSwitch @ 0x140AB44F8 (PoBlockConsoleSwitch.c)
- *     PopPotsGetActionEntryReason @ 0x140AB4680 (PopPotsGetActionEntryReason.c)
- *     PopDiagTracePowerTransitionEnd @ 0x140AB95B4 (PopDiagTracePowerTransitionEnd.c)
- *     PopTransitionSystemPowerState @ 0x140B4B194 (PopTransitionSystemPowerState.c)
- *     PopCheckpointSystemSleep @ 0x140B6675C (PopCheckpointSystemSleep.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140B6A3B4 (PoDelistPowerStateTransitionBlocker.c)
- *     PfPowerActionNotify @ 0x140B6B9F8 (PfPowerActionNotify.c)
- *     PopReleaseAwaymodeLock @ 0x140B6C224 (PopReleaseAwaymodeLock.c)
- *     PopAcquireAwaymodeLock @ 0x140B6C554 (PopAcquireAwaymodeLock.c)
- *     PopPushPowerStateTransitionRecord @ 0x140B6D1E8 (PopPushPowerStateTransitionRecord.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     PopSetSystemState @ 0x1403E6898 (PopSetSystemState.c)
+ *     PpmEndHighPerfRequest @ 0x1404648C4 (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x140464930 (PpmBeginHighPerfRequest.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
+ *     PopPrepareSleep @ 0x1404B7A3C (PopPrepareSleep.c)
+ *     PopSetPowerActionWatchdogState @ 0x1404B7FCC (PopSetPowerActionWatchdogState.c)
+ *     RtlBootStatusDisableFlushing @ 0x1404F8358 (RtlBootStatusDisableFlushing.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopResumeApps @ 0x140751DDC (PopResumeApps.c)
+ *     PopSetSystemAwayMode @ 0x1407520E0 (PopSetSystemAwayMode.c)
+ *     PopSuspendApps @ 0x1407521E8 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x14075223C (PopSuspendServices.c)
+ *     EtwShutdown @ 0x1407A6910 (EtwShutdown.c)
+ *     TtmNotifyLowPowerStateExited @ 0x14099D528 (TtmNotifyLowPowerStateExited.c)
+ *     PopScreenOff @ 0x14099E658 (PopScreenOff.c)
+ *     PopResumeServices @ 0x1409A0338 (PopResumeServices.c)
+ *     PopDispatchStateCallout @ 0x1409A03B4 (PopDispatchStateCallout.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     PopDiagTraceHiberStats @ 0x140A533BC (PopDiagTraceHiberStats.c)
+ *     PopDiagTracePerfTrackData @ 0x140A537D4 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTracePowerTransitionTime @ 0x140A7E06C (PopDiagTracePowerTransitionTime.c)
+ *     PopReadSystemAwayModePolicy @ 0x140A84638 (PopReadSystemAwayModePolicy.c)
+ *     PopSetSleepMarker @ 0x140A8D7A8 (PopSetSleepMarker.c)
+ *     PopPotsLogPowerTransitionReliability @ 0x140A9287C (PopPotsLogPowerTransitionReliability.c)
+ *     PopDiagTracePowerTransitionStart @ 0x140A9B94C (PopDiagTracePowerTransitionStart.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140A9D7B8 (PopPowerAggregatorNotifySuspendResume.c)
+ *     PopDispatchSuperfetchNotification @ 0x140AA72C8 (PopDispatchSuperfetchNotification.c)
+ *     PopEnableSystemSleepCheckpoint @ 0x140AA80A0 (PopEnableSystemSleepCheckpoint.c)
+ *     PoBlockConsoleSwitch @ 0x140AAF468 (PoBlockConsoleSwitch.c)
+ *     PopPotsGetActionEntryReason @ 0x140AAF5F0 (PopPotsGetActionEntryReason.c)
+ *     PopDiagTracePowerTransitionEnd @ 0x140AB4674 (PopDiagTracePowerTransitionEnd.c)
+ *     PopTransitionSystemPowerState @ 0x140B4D094 (PopTransitionSystemPowerState.c)
+ *     PopCheckpointSystemSleep @ 0x140B6889C (PopCheckpointSystemSleep.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140B6BAC4 (PoDelistPowerStateTransitionBlocker.c)
+ *     PfPowerActionNotify @ 0x140B6CE28 (PfPowerActionNotify.c)
+ *     PopReleaseAwaymodeLock @ 0x140B6DAC8 (PopReleaseAwaymodeLock.c)
+ *     PopAcquireAwaymodeLock @ 0x140B6DDF8 (PopAcquireAwaymodeLock.c)
+ *     PopPushPowerStateTransitionRecord @ 0x140B6EA88 (PopPushPowerStateTransitionRecord.c)
  */
 
-__int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int a3, int a4)
+__int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_STATE a3, int a4)
 {
   unsigned int v5; // edi
   __int64 v9; // rdx
@@ -70,7 +70,7 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
   char v27; // r12
   __int64 v28; // rcx
   char v29; // r15
-  int v30; // ebx
+  POWER_ACTION v30; // ebx
   char v31; // r12
   int v32; // esi
   char v33; // al
@@ -122,15 +122,15 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
   v68 = 0LL;
   PopAcquireAwaymodeLock();
   PopReadSystemAwayModePolicy();
-  if ( (byte_140F0BA50 || byte_140F0BA51)
-    && a2 == 2
-    && (int)a3 < 5
-    && (dword_140F0B114 & 0xFFFFFFFA) == 0
-    && dword_140F0B114 != 1 )
+  if ( (byte_140F0B390 || byte_140F0B391)
+    && a2 == PowerActionSleep
+    && a3 < PowerSystemHibernate
+    && (dword_140F0B994 & 0xFFFFFFFA) == 0
+    && dword_140F0B994 != 1 )
   {
-    if ( !dword_140F0BA58 )
+    if ( !dword_140F0B398 )
     {
-      if ( byte_140F0BA51 )
+      if ( byte_140F0B391 )
       {
         if ( (PopSimulate & 0x4000000) != 0 )
           PopSetSystemState(4LL, 7LL);
@@ -146,9 +146,9 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
     return v5;
   }
   PopReleaseAwaymodeLock();
-  if ( dword_140F0B114 )
+  if ( dword_140F0B994 )
   {
-    if ( dword_140F0B114 == 6 || dword_140F0B114 == 7 || dword_140F0B114 == 11 )
+    if ( dword_140F0B994 == 6 || dword_140F0B994 == 7 || dword_140F0B994 == 11 )
       v16 = 21;
     else
       v16 = 20;
@@ -157,8 +157,8 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
   {
     v16 = 1;
   }
-  ActionEntryReason = PopPotsGetActionEntryReason((unsigned int)dword_140F0B114, (unsigned int)dword_140F0B118);
-  if ( a2 == 8 )
+  ActionEntryReason = PopPotsGetActionEntryReason((unsigned int)dword_140F0B994, (unsigned int)dword_140F0B998);
+  if ( a2 == PowerActionDisplayOff )
   {
     if ( !PopConsoleDisplayState )
       return 3221266435LL;
@@ -167,7 +167,7 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
     PopAcquirePolicyLock(v22, v21);
     return 0LL;
   }
-  if ( a2 - 4 <= 2 )
+  if ( (unsigned int)(a2 - 4) <= 2 )
   {
     v23 = 1;
     LOBYTE(v65) = 1;
@@ -186,7 +186,7 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
     v26 = a4 | 1;
   if ( v25 )
     LOBYTE(PopAction) = PopAction & 0xFD;
-  v27 = byte_140F0B1C0;
+  v27 = byte_140F0BA40;
   PopReleasePolicyLock(v18, v17, v19, v20, v65);
   PpmBeginHighPerfRequest();
   if ( a1 || v25 )
@@ -213,8 +213,8 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
   if ( !(_BYTE)v65 )
   {
     memset_0(&PopSleepStats, 0, 0x368uLL);
-    PopDiagTracePowerTransitionStart((unsigned int)dword_140F0B114, (unsigned int)dword_140F0B118);
-    qword_140F0B308 = KeQueryPerformanceCounter(0LL).QuadPart;
+    PopDiagTracePowerTransitionStart((unsigned int)dword_140F0B994, (unsigned int)dword_140F0B998);
+    qword_140F0BF48 = KeQueryPerformanceCounter(0LL).QuadPart;
     PopEnableSystemSleepCheckpoint();
     PopCheckpointSystemSleep(1LL);
 LABEL_43:
@@ -225,7 +225,7 @@ LABEL_44:
   {
     v30 = a2;
     v31 = a1;
-    v32 = PopTransitionSystemPowerState(a2, a3, (unsigned int)v26);
+    v32 = PopTransitionSystemPowerState((unsigned int)a2, (unsigned int)a3, (unsigned int)v26);
   }
   else
   {
@@ -258,10 +258,10 @@ LABEL_44:
       }
       if ( (v26 & 8) != 0 )
         EtwShutdown(1);
-      PopDispatchSuperfetchNotification((unsigned int)v26, a3);
-      v32 = PopTransitionSystemPowerState(a2, a3, (unsigned int)v26);
+      PopDispatchSuperfetchNotification((unsigned int)v26, (unsigned int)a3);
+      v32 = PopTransitionSystemPowerState((unsigned int)a2, (unsigned int)a3, (unsigned int)v26);
       PopAcquirePolicyLock(v36, v35);
-      v37 = byte_140F0B1C0;
+      v37 = byte_140F0BA40;
       PopReleasePolicyLock(v39, v38, v40, v41, v65);
       PopNoMoreInput = 0;
       _InterlockedOr(v64, 0);
@@ -316,13 +316,13 @@ LABEL_44:
   {
     if ( v32 >= 0 )
     {
-      qword_140F0B330 = KeQueryPerformanceCounter(0LL).QuadPart;
+      qword_140F0BF70 = KeQueryPerformanceCounter(0LL).QuadPart;
       PopDiagTraceHiberStats(v26);
       PopDiagTracePowerTransitionTime();
       PopDiagTracePerfTrackData(v26);
       PopShutdownButtonPressTime = 0LL;
-      dword_140F0B660 = v30;
-      dword_140F0B664 = a3;
+      SystemAction = v30;
+      LightestSystemState = a3;
       PopSleepStats = 1;
     }
     PopCheckpointSystemSleep(41LL);
@@ -330,7 +330,7 @@ LABEL_44:
     RtlBootStatusDisableFlushing(0);
     PopQueueWorkItem((__int64)&PopBsdFlushWorkItem, (WORK_QUEUE_TYPE)(v57 + 1));
     PopDiagTracePowerTransitionEnd((unsigned int)v32);
-    PopPotsLogPowerTransitionReliability((unsigned int)v32, a3, ActionEntryReason);
+    PopPotsLogPowerTransitionReliability((unsigned int)v32, (unsigned int)a3, ActionEntryReason);
   }
   PpmEndHighPerfRequest(2);
   PopAcquirePolicyLock(v59, v58);

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertInvertedFunctionTable @ 0x140084A5C
+ * XREFs of RtlInsertInvertedFunctionTable @ 0x140082BBC
  * Callers:
- *     MiProcessLoaderEntry @ 0x140084B4C (MiProcessLoaderEntry.c)
+ *     MiProcessLoaderEntry @ 0x140082CAC (MiProcessLoaderEntry.c)
  * Callees:
- *     MmLockLoadedModuleListExclusive @ 0x140084CB8 (MmLockLoadedModuleListExclusive.c)
- *     RtlCaptureImageExceptionValues @ 0x140084CD8 (RtlCaptureImageExceptionValues.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140082E18 (MmLockLoadedModuleListExclusive.c)
+ *     RtlCaptureImageExceptionValues @ 0x140082E38 (RtlCaptureImageExceptionValues.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall RtlInsertInvertedFunctionTable(unsigned __int64 a1, int a2)

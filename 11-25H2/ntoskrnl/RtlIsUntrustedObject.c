@@ -10,7 +10,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlIsUntrustedObject(HANDLE Handle, PVOID Object, PBOOLEAN IsUntrustedObject)
 {
   __int16 *Pool2; // rdi
   int v5; // r14d
@@ -30,14 +30,14 @@ NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
 
   LengthNeeded[0] = 0;
   Pool2 = (__int16 *)P;
-  *a3 = 1;
-  v5 = a2;
-  if ( a2 )
+  *IsUntrustedObject = 1;
+  v5 = (int)Object;
+  if ( Object )
   {
     if ( !Handle )
     {
       v7 = 0;
-      result = ObQuerySecurityObject(a2, 16, (unsigned int)P, 124, (__int64)LengthNeeded);
+      result = ObQuerySecurityObject((_DWORD)Object, 16, (unsigned int)P, 124, (__int64)LengthNeeded);
       v9 = result;
       if ( result >= 0 )
         goto LABEL_6;
@@ -117,7 +117,7 @@ LABEL_12:
         }
       }
 LABEL_21:
-      *a3 = 0;
+      *IsUntrustedObject = 0;
 LABEL_22:
       if ( !v7 )
         return v9;

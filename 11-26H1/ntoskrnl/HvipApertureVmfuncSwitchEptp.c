@@ -1,8 +1,8 @@
 /*
- * XREFs of HvipApertureVmfuncSwitchEptp @ 0x140732280
+ * XREFs of HvipApertureVmfuncSwitchEptp @ 0x140736E50
  * Callers:
- *     HviEnterKernelAperture @ 0x140637888 (HviEnterKernelAperture.c)
- *     HviLeaveKernelAperture @ 0x140637960 (HviLeaveKernelAperture.c)
+ *     HviEnterKernelAperture @ 0x14063A88C (HviEnterKernelAperture.c)
+ *     HviLeaveKernelAperture @ 0x14063A964 (HviLeaveKernelAperture.c)
  * Callees:
  *     <none>
  */

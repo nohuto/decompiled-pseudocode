@@ -33,7 +33,7 @@ unsigned __int8 __fastcall KiInterruptSubDispatchNoLock()
   _BYTE v16[40]; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = *(unsigned __int8 *)(v1 + 93);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KzSetIrqlUnsafe(v2);
   }

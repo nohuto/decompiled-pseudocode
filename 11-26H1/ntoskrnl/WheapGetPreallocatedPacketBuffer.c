@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapGetPreallocatedPacketBuffer @ 0x1406D5714
+ * XREFs of WheapGetPreallocatedPacketBuffer @ 0x1406D97F4
  * Callers:
- *     WheapInitErrorReportDeviceDriver @ 0x1406D5814 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1406D98F4 (WheapInitErrorReportDeviceDriver.c)
  * Callees:
- *     WheapGetErrorSource @ 0x1403DE1E0 (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x1406D5664 (WheapErrDescIsDeviceDriver.c)
+ *     WheapGetErrorSource @ 0x1403E13D0 (WheapGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x1406D9744 (WheapErrDescIsDeviceDriver.c)
  */
 
 volatile signed __int32 *__fastcall WheapGetPreallocatedPacketBuffer(unsigned int a1)

@@ -57,10 +57,10 @@ __int64 __fastcall KeQuerySchedulingGroupHistory(__int64 a1, _QWORD *a2, _DWORD 
   *a4 = v16 / PerformanceFrequency.QuadPart / v14;
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v22);
   OldIrql = v22.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v22.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

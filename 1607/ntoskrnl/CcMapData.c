@@ -1,13 +1,13 @@
 /*
- * XREFs of CcMapData @ 0x1404475F0
+ * XREFs of CcMapData @ 0x1404464C0
  * Callers:
- *     HvpViewMapViewOfPrimaryFile @ 0x140610158 (HvpViewMapViewOfPrimaryFile.c)
- *     HvpViewRemapViewOfPrimaryFile @ 0x140610284 (HvpViewRemapViewOfPrimaryFile.c)
+ *     HvpViewMapViewOfPrimaryFile @ 0x14061020C (HvpViewMapViewOfPrimaryFile.c)
+ *     HvpViewRemapViewOfPrimaryFile @ 0x140610338 (HvpViewRemapViewOfPrimaryFile.c)
  * Callees:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1400338E0 (CcMapAndRead.c)
- *     CcUnpinFileDataEx @ 0x1400CF860 (CcUnpinFileDataEx.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x140033460 (CcMapAndRead.c)
+ *     CcUnpinFileDataEx @ 0x1400CD700 (CcUnpinFileDataEx.c)
  */
 
 BOOLEAN __stdcall CcMapData(

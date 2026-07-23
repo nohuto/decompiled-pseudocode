@@ -13,10 +13,10 @@
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall RtlGetNtSystemRoot(__int64 a1, __int64 a2)
+PWSTR RtlGetNtSystemRoot(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
-    return (__int64)NtCurrentPeb()->SharedData + 30;
+  if ( RtlGetCurrentServiceSessionId() )
+    return (PWSTR)((char *)NtCurrentPeb()->SharedData + 30);
   else
-    return 2147352624LL;
+    return (PWSTR)2147352624;
 }

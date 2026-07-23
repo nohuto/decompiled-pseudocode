@@ -8,41 +8,41 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-bool __stdcall RtlValidSecurityDescriptor(int a1)
+BOOLEAN __cdecl RtlValidSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  _BYTE *v1; // ecx
-  _BYTE *v2; // ecx
+  char *v1; // ecx
+  char *v2; // ecx
   __int16 v3; // ax
-  int v4; // ecx
+  ACL *v4; // ecx
   __int16 v5; // ax
-  int v7; // ecx
+  ACL *v7; // ecx
 
-  if ( *(_BYTE *)a1 != 1 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
     return 0;
-  v1 = *(_BYTE **)(a1 + 4);
-  if ( *(__int16 *)(a1 + 2) < 0 )
-    v1 = v1 != 0 ? &v1[a1] : 0;
+  v1 = (char *)*((_DWORD *)SecurityDescriptor + 1);
+  if ( *((__int16 *)SecurityDescriptor + 1) < 0 )
+    v1 = v1 != 0 ? (char *)SecurityDescriptor + (_DWORD)v1 : 0;
   if ( v1 && !RtlValidSid(v1) )
     return 0;
-  v2 = *(_BYTE **)(a1 + 8);
-  if ( *(__int16 *)(a1 + 2) < 0 )
-    v2 = v2 != 0 ? &v2[a1] : 0;
+  v2 = (char *)*((_DWORD *)SecurityDescriptor + 2);
+  if ( *((__int16 *)SecurityDescriptor + 1) < 0 )
+    v2 = v2 != 0 ? (char *)SecurityDescriptor + (_DWORD)v2 : 0;
   if ( v2 && !RtlValidSid(v2) )
     return 0;
-  v3 = *(_WORD *)(a1 + 2);
+  v3 = *((_WORD *)SecurityDescriptor + 1);
   if ( (v3 & 4) != 0 )
   {
-    v4 = *(_DWORD *)(a1 + 16);
+    v4 = (ACL *)*((_DWORD *)SecurityDescriptor + 4);
     if ( v3 < 0 )
-      v4 = v4 != 0 ? v4 + a1 : 0;
+      v4 = v4 != 0 ? (ACL *)((char *)SecurityDescriptor + (_DWORD)v4) : 0;
     if ( v4 && !RtlValidAcl(v4) )
       return 0;
   }
-  v5 = *(_WORD *)(a1 + 2);
+  v5 = *((_WORD *)SecurityDescriptor + 1);
   if ( (v5 & 0x10) == 0 )
     return 1;
-  v7 = *(_DWORD *)(a1 + 12);
+  v7 = (ACL *)*((_DWORD *)SecurityDescriptor + 3);
   if ( v5 < 0 )
-    v7 = v7 != 0 ? v7 + a1 : 0;
+    v7 = v7 != 0 ? (ACL *)((char *)SecurityDescriptor + (_DWORD)v7) : 0;
   return !v7 || RtlValidAcl(v7);
 }

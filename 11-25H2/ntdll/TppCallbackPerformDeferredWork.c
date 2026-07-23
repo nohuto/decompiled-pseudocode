@@ -6,7 +6,7 @@
  *     TppCallbackSendAndDestroyAlpcMessage @ 0x1800E5178 (TppCallbackSendAndDestroyAlpcMessage.c)
  */
 
-__int64 __fastcall TppCallbackPerformDeferredWork(__int64 a1)
+NTSTATUS __fastcall TppCallbackPerformDeferredWork(__int64 a1)
 {
   if ( (*(_BYTE *)(a1 + 228) & 1) != 0 )
   {

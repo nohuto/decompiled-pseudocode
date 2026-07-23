@@ -1,12 +1,12 @@
 /*
- * XREFs of IoPerfReset @ 0x1401CA68C
+ * XREFs of IoPerfReset @ 0x1401CA52C
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1404960E4 (EtwpDisableKernelTrace.c)
- *     IoUnregisterIoTracking @ 0x140625070 (IoUnregisterIoTracking.c)
+ *     EtwpDisableKernelTrace @ 0x140496B74 (EtwpDisableKernelTrace.c)
+ *     IoUnregisterIoTracking @ 0x140625124 (IoUnregisterIoTracking.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     IopUpdateFunctionPointers @ 0x1401C5478 (IopUpdateFunctionPointers.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IopUpdateFunctionPointers @ 0x1401C5318 (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IoPerfReset(char a1)

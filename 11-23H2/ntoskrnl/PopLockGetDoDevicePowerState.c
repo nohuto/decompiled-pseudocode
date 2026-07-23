@@ -1,12 +1,12 @@
 /*
- * XREFs of PopLockGetDoDevicePowerState @ 0x14058F220
+ * XREFs of PopLockGetDoDevicePowerState @ 0x14058F710
  * Callers:
- *     PiControlGetDevicePowerData @ 0x14096D880 (PiControlGetDevicePowerData.c)
- *     NtGetDevicePowerState @ 0x14098B280 (NtGetDevicePowerState.c)
+ *     PiControlGetDevicePowerData @ 0x14096DA80 (PiControlGetDevicePowerData.c)
+ *     NtGetDevicePowerState @ 0x14098B480 (NtGetDevicePowerState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopLockGetDoDevicePowerState(__int64 a1)
@@ -24,10 +24,13 @@ __int64 __fastcall PopLockGetDoDevicePowerState(__int64 a1)
   v3 = (*(_DWORD *)(a1 + 16) >> 4) & 0xF;
   v4 = v2;
   KxReleaseSpinLock((volatile signed __int64 *)&PopIrpSerialLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,50 +1,47 @@
 /*
- * XREFs of RtlCaptureRetpolineImportRvas @ 0x140397BE8
+ * XREFs of RtlCaptureRetpolineImportRvas @ 0x140397D38
  * Callers:
- *     RtlUpdateImportRelocationsInImage @ 0x1403B6C78 (RtlUpdateImportRelocationsInImage.c)
- *     MiCaptureRetpolineImportInfo @ 0x14077DD4C (MiCaptureRetpolineImportInfo.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1403B6DE8 (RtlUpdateImportRelocationsInImage.c)
+ *     MiCaptureRetpolineImportInfo @ 0x14077DF0C (MiCaptureRetpolineImportInfo.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlImageDirectoryEntryToData @ 0x140286140 (RtlImageDirectoryEntryToData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlCaptureRetpolineImportRvas(
-        __int64 a1,
+        char *a1,
         __int64 a2,
         __int64 a3,
         unsigned int (*a4)(void),
         _DWORD *a5,
-        unsigned int *a6)
+        ULONG *a6)
 {
   unsigned int v6; // ebx
-  __int64 v10; // rax
+  __int64 *v10; // rax
   __int64 *v11; // rsi
-  unsigned int *v12; // r14
-  unsigned int v13; // edx
-  unsigned int v14; // ebp
+  ULONG *v12; // r14
+  ULONG v13; // edx
+  ULONG v14; // ebp
   __int64 v16; // r12
   __int64 v17; // rcx
   int v18; // r15d
-  unsigned int v20; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v21; // [rsp+68h] [rbp+10h]
+  ULONG v20[14]; // [rsp+20h] [rbp-38h] BYREF
 
-  v21 = a2;
   v6 = 0;
-  v20 = 0;
-  LOBYTE(a2) = 1;
-  v10 = RtlImageDirectoryEntryToData(a1, a2, 12, (int)&v20);
-  v11 = (__int64 *)v10;
+  v20[0] = 0;
+  v10 = (__int64 *)RtlImageDirectoryEntryToData(a1, 1u, 0xCu, v20);
+  v11 = v10;
   if ( v10 )
   {
-    if ( v10 + (unsigned __int64)v20 > a1 + a3 )
+    if ( (char *)v10 + v20[0] > &a1[a3] )
     {
       return (unsigned int)-1073741701;
     }
     else
     {
       v12 = a6;
-      v13 = v20 >> 3;
-      v14 = 4 * (v20 >> 3);
+      v13 = v20[0] >> 3;
+      v14 = 4 * (v20[0] >> 3);
       if ( v14 > *a6 )
       {
         v6 = -1073741789;
@@ -58,8 +55,8 @@ __int64 __fastcall RtlCaptureRetpolineImportRvas(
           v17 = *v11;
           if ( *v11 )
           {
-            v18 = v17 - v21;
-            if ( (unsigned __int64)(v17 - v21 + 0x80000000LL) <= 0xFFFFFFFF && (!a4 || a4()) )
+            v18 = v17 - a2;
+            if ( (unsigned __int64)(v17 - a2 + 0x80000000LL) <= 0xFFFFFFFF && (!a4 || a4()) )
               *a5 = v18;
           }
           ++v11;

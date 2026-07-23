@@ -1,13 +1,13 @@
 /*
- * XREFs of PopTraceBackgroundActivityPolicyUpdate @ 0x140672628
+ * XREFs of PopTraceBackgroundActivityPolicyUpdate @ 0x14067270C
  * Callers:
- *     PopBackgroundActivityPolicyCallback @ 0x140201E64 (PopBackgroundActivityPolicyCallback.c)
+ *     PopBackgroundActivityPolicyCallback @ 0x140201C90 (PopBackgroundActivityPolicyCallback.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceBackgroundActivityPolicyUpdate(int a1)
@@ -36,9 +36,9 @@ char __fastcall PopTraceBackgroundActivityPolicyUpdate(int a1)
   v1 = &retaddr;
   v21 = a1;
   v8 = PopBackgroundActivityPolicy;
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    LOBYTE(v1) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+    LOBYTE(v1) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
     if ( (_BYTE)v1 )
     {
       v16 = 0;
@@ -49,7 +49,7 @@ char __fastcall PopTraceBackgroundActivityPolicyUpdate(int a1)
       v7 = v3;
       v15 = 4;
       v18 = 4;
-      LOBYTE(v1) = TlgWrite(&pCallbackContext, &unk_14027CCE6, 0LL, 0LL, 4u, &pData);
+      LOBYTE(v1) = TlgWrite(&hProvider, &unk_14027CDE6, 0LL, 0LL, 4u, &pData);
     }
   }
   if ( PopDiagHandleRegistered )

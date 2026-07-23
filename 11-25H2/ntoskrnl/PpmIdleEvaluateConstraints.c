@@ -7,17 +7,17 @@
  *     PoAllProcessorsDeepIdle @ 0x1405C9424 (PoAllProcessorsDeepIdle.c)
  */
 
-unsigned __int64 __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
+LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, LARGE_INTEGER *a2)
 {
   __int64 v2; // rsi
   int v4; // eax
   char v5; // al
-  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v7; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 34880);
-  v7 = 0LL;
+  v7.QuadPart = 0LL;
   *a2 = RtlGetInterruptTimePrecise(&v7);
-  *(_QWORD *)(v2 + 672) = v7;
+  *(LARGE_INTEGER *)(v2 + 672) = v7;
   *(_QWORD *)(v2 + 680) = *(_QWORD *)(a1 + 34904) + *(_QWORD *)(a1 + 35088);
   *(_BYTE *)(v2 + 714) = *(_BYTE *)(a1 + 35340);
   *(_BYTE *)(v2 + 712) = *(_BYTE *)(a1 + 34948);

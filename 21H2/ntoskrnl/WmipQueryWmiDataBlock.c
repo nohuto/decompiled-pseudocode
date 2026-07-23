@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipQueryWmiDataBlock @ 0x140682580
+ * XREFs of WmipQueryWmiDataBlock @ 0x1405E3F50
  * Callers:
- *     IoWMISystemControl @ 0x1406BFA04 (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x14061E914 (IoWMISystemControl.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x1402650E4 (WmipUnreferenceRegEntry.c)
- *     IoGetDeviceInstanceName @ 0x14036FF20 (IoGetDeviceInstanceName.c)
- *     WmipFindRegEntryByDevice @ 0x140370FE4 (WmipFindRegEntryByDevice.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     IoWMICompleteRequest @ 0x140682674 (IoWMICompleteRequest.c)
- *     WmipGetSMBiosTableData @ 0x14068276C (WmipGetSMBiosTableData.c)
- *     WmipGetSMBiosEventlog @ 0x140931A34 (WmipGetSMBiosEventlog.c)
- *     WmipGetSysIds @ 0x140931C28 (WmipGetSysIds.c)
+ *     WmipUnreferenceRegEntry @ 0x140253174 (WmipUnreferenceRegEntry.c)
+ *     IoGetDeviceInstanceName @ 0x1403700D0 (IoGetDeviceInstanceName.c)
+ *     WmipFindRegEntryByDevice @ 0x140370B34 (WmipFindRegEntryByDevice.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoWMICompleteRequest @ 0x1405E4044 (IoWMICompleteRequest.c)
+ *     WmipGetSMBiosTableData @ 0x1405E4738 (WmipGetSMBiosTableData.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     WmipGetSMBiosEventlog @ 0x140931B94 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x140931D88 (WmipGetSysIds.c)
  */
 
 __int64 __fastcall WmipQueryWmiDataBlock(
@@ -188,7 +188,7 @@ LABEL_39:
       v49 = 0LL;
       v54 = 0LL;
       v55 = 0;
-      if ( (int)RtlpQueryRegistryValues(0LL, L"\\Registry\\Machine\\Hardware\\Description\\System", (__int64)&v39, 0LL) < 0 )
+      if ( (int)RtlpQueryRegistryValues(0LL, L"\\Registry\\Machine\\Hardware\\Description\\System", &v39, 0LL) < 0 )
         goto LABEL_44;
       v12 = 12;
       if ( a7 >= 0xC )

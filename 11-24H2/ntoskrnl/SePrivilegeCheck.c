@@ -1,14 +1,14 @@
 /*
- * XREFs of SePrivilegeCheck @ 0x1409B0320
+ * XREFs of SePrivilegeCheck @ 0x14099A020
  * Callers:
- *     FsRtlpOplockTryPrepForAckTimeout @ 0x14070C450 (FsRtlpOplockTryPrepForAckTimeout.c)
- *     CMFCheckAccess @ 0x1407C1620 (CMFCheckAccess.c)
- *     RtlpNewSecurityObject @ 0x14091A290 (RtlpNewSecurityObject.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x140987584 (MiIsUserQueryVmCallerTrusted.c)
- *     PspSinglePrivCheck @ 0x1409B027C (PspSinglePrivCheck.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     FsRtlpOplockTryPrepForAckTimeout @ 0x140709FE4 (FsRtlpOplockTryPrepForAckTimeout.c)
+ *     CMFCheckAccess @ 0x1407C2854 (CMFCheckAccess.c)
+ *     RtlpNewSecurityObject @ 0x14090DD00 (RtlpNewSecurityObject.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x14096FD94 (MiIsUserQueryVmCallerTrusted.c)
+ *     PspSinglePrivCheck @ 0x140999F7C (PspSinglePrivCheck.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x140403670 (SepPrivilegeCheck.c)
+ *     SepPrivilegeCheck @ 0x1403FE430 (SepPrivilegeCheck.c)
  */
 
 BOOLEAN __stdcall SePrivilegeCheck(

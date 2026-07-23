@@ -1,9 +1,9 @@
 /*
- * XREFs of VfDriverProcessUnload @ 0x14061105C
+ * XREFs of VfDriverProcessUnload @ 0x14060F61C
  * Callers:
- *     IopLoadUnloadDriver @ 0x1409C7700 (IopLoadUnloadDriver.c)
+ *     IopLoadUnloadDriver @ 0x140A66EE0 (IopLoadUnloadDriver.c)
  * Callees:
- *     VfDriverRemoveAllDifVerification @ 0x1406110D4 (VfDriverRemoveAllDifVerification.c)
+ *     VfDriverRemoveAllDifVerification @ 0x14060F694 (VfDriverRemoveAllDifVerification.c)
  */
 
 __int64 __fastcall VfDriverProcessUnload(__int64 a1)

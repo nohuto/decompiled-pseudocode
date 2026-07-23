@@ -17,7 +17,7 @@
 __int64 CmpRecordShutdownStopTime()
 {
   struct _PRIVILEGE_SET *v0; // rdi
-  WCHAR *Pool; // rax
+  WCHAR *TargetPath; // rax
   WCHAR *v2; // rsi
   int PersistedStateLocation; // ebx
   LARGE_INTEGER Data; // [rsp+40h] [rbp-19h] BYREF
@@ -38,11 +38,18 @@ __int64 CmpRecordShutdownStopTime()
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
   v12 = 0LL;
-  Pool = (WCHAR *)CmpAllocatePool(0x100uLL);
-  v2 = Pool;
-  if ( Pool )
+  TargetPath = (WCHAR *)CmpAllocatePool(0x100uLL);
+  v2 = TargetPath;
+  if ( TargetPath )
   {
-    PersistedStateLocation = RtlGetPersistedStateLocation(L"ShutdownPath", Pool, 1040, 0LL);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               L"ShutdownPath",
+                               0LL,
+                               L"\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\SHUTDOWN",
+                               LocationTypeRegistry,
+                               TargetPath,
+                               0x410u,
+                               0LL);
     if ( PersistedStateLocation >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, v2);

@@ -1,10 +1,10 @@
 /*
- * XREFs of SmpFlushStorePages @ 0x1409D86B0
+ * XREFs of SmpFlushStorePages @ 0x1409D88B0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiFlushAllStoreSwapPages @ 0x140639DEC (MiFlushAllStoreSwapPages.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiFlushAllStoreSwapPages @ 0x14063A33C (MiFlushAllStoreSwapPages.c)
  */
 
 LONG __fastcall SmpFlushStorePages(__int64 a1)

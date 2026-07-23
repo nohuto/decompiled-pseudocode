@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlAppendStringToString @ 0x1405446F0
+ * XREFs of RtlAppendStringToString @ 0x140544C30
  * Callers:
- *     MiFormFullImageName @ 0x140544648 (MiFormFullImageName.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmpInitBackupHive @ 0x14054DB38 (CmpInitBackupHive.c)
- *     CmpFinishSystemHivesLoad @ 0x14055D110 (CmpFinishSystemHivesLoad.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
+ *     MiFormFullImageName @ 0x140544B88 (MiFormFullImageName.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmpInitBackupHive @ 0x14054DED8 (CmpInitBackupHive.c)
+ *     CmpFinishSystemHivesLoad @ 0x14055D650 (CmpFinishSystemHivesLoad.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
  *     EmInitSystem @ 0x1407A6E60 (EmInitSystem.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlAppendStringToString(PSTRING Destination, const STRING *Source)

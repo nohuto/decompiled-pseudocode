@@ -42,7 +42,7 @@ NTSTATUS __stdcall FsRtlCancellableWaitForMultipleObjects(
            : KeWaitForMultipleObjects(Count, ObjectArray, WaitType, Executive, 0, 1u, Timeout, WaitBlockArray);
     if ( result != 257 )
       break;
-    if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
+    if ( (*((_DWORD *)KeGetCurrentThread() + 344) & 1) != 0 )
       return -1073741749;
     if ( Irp && Irp->Cancel )
       return -1073741536;

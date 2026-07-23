@@ -13,7 +13,7 @@
 
 __int64 HalpTimerConfigureQpcBypass()
 {
-  int v0; // esi
+  NTSTATUS v0; // esi
   char v1; // bl
   ULONG_PTR *Timer; // rax
   unsigned __int64 v3; // rdi
@@ -28,7 +28,7 @@ __int64 HalpTimerConfigureQpcBypass()
 
   v11 = 0LL;
   v10 = 0;
-  v0 = NtQuerySystemInformation(197LL, &v11, 8LL);
+  v0 = NtQuerySystemInformation(SystemHypervisorSharedPageInformation, &v11, 8u, 0LL);
   v1 = 0;
   Timer = HalpFindTimer(5, 0, 0, 0, 1);
   if ( Timer )

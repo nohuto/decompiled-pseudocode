@@ -1,17 +1,17 @@
 /*
- * XREFs of KeUserModeCallback @ 0x140515D20
+ * XREFs of KeUserModeCallback @ 0x1404F9110
  * Callers:
  *     <none>
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140013F00 (MmSessionGetWin32Callouts.c)
- *     MmCreateKernelStack @ 0x1400F17B0 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400F1B80 (MmDeleteKernelStack.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiCallUserMode @ 0x140161440 (KiCallUserMode.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     ExCallCallBack @ 0x140428DC0 (ExCallCallBack.c)
- *     ExRaiseAccessViolation @ 0x1406B6048 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     MmSessionGetWin32Callouts @ 0x140013A80 (MmSessionGetWin32Callouts.c)
+ *     MmCreateKernelStack @ 0x1400EF600 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400EF9D0 (MmDeleteKernelStack.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiCallUserMode @ 0x1401619B0 (KiCallUserMode.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     ExCallCallBack @ 0x140427C90 (ExCallCallBack.c)
+ *     ExRaiseAccessViolation @ 0x1406B6180 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, __int64 a4, __int64 a5)
@@ -32,7 +32,7 @@ __int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, _
   unsigned int v18; // edi
   __int64 v19; // r8
   __int64 v20; // r9
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   unsigned __int8 CurrentIrql; // al
   ULONG_PTR retaddr; // [rsp+98h] [rbp+0h]
 

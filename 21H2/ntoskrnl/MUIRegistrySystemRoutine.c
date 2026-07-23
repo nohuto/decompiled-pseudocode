@@ -1,10 +1,10 @@
 /*
- * XREFs of MUIRegistrySystemRoutine @ 0x1407946F0
+ * XREFs of MUIRegistrySystemRoutine @ 0x140790490
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403AD204 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8878 (RtlpMuiRegCreateKernelRegistryInfo.c)
  */
 
 void __fastcall MUIRegistrySystemRoutine(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall MUIRegistrySystemRoutine(__int64 a1)
                            (ULONG_PTR *)(a1 + 8),
                            (_DWORD *)(a1 + 16),
                            (_DWORD *)(a1 + 20),
-                           (_DWORD *)*(unsigned int *)(a1 + 24),
+                           *(_DWORD *)(a1 + 24),
                            (_DWORD *)(a1 + 28),
                            *(_DWORD *)(a1 + 32),
                            (_DWORD *)(a1 + 36));

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcaReadErrorUncorrectedAMD @ 0x140506038
+ * XREFs of HalpMcaReadErrorUncorrectedAMD @ 0x140506588
  * Callers:
- *     HalpMcaReadError @ 0x1405034B0 (HalpMcaReadError.c)
+ *     HalpMcaReadError @ 0x140503A00 (HalpMcaReadError.c)
  * Callees:
- *     HalpWheaWriteMsrStatus @ 0x140380458 (HalpWheaWriteMsrStatus.c)
+ *     HalpWheaWriteMsrStatus @ 0x1403805F8 (HalpWheaWriteMsrStatus.c)
  */
 
 __int64 __fastcall HalpMcaReadErrorUncorrectedAMD(__int64 *a1, _BYTE *a2)

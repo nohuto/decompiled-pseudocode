@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgPrintReturnControlC @ 0x1800E09E0
+ * XREFs of DbgPrintReturnControlC @ 0x1800E09A0
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ __int64 DbgPrintReturnControlC(char *a1, ...)
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
   va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal(byte_18012277A, 0x65u, 0, a1, va, 0);
+  return vDbgPrintExWithPrefixInternal(&Flags, 0x65u, 0, a1, va, 0);
 }

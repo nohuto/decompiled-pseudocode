@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDripsWatchdogCallbackWorker @ 0x14075FC80
+ * XREFs of PopDripsWatchdogCallbackWorker @ 0x14075EC80
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     PopCalculateIdleInformation @ 0x14032D51C (PopCalculateIdleInformation.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14046C80C (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsSetDisengageReason @ 0x14046D6D0 (PopDirectedDripsSetDisengageReason.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404A4D54 (PopOkayToQueueNextWorkItem.c)
- *     PopDripsWatchdogCallbackHandler @ 0x14075FAE0 (PopDripsWatchdogCallbackHandler.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1408B5444 (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x140A27F14 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PopCalculateIdleInformation @ 0x1402B5AAC (PopCalculateIdleInformation.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x1404673AC (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x140468270 (PopDirectedDripsSetDisengageReason.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14049FAE4 (PopOkayToQueueNextWorkItem.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x14075EAE0 (PopDripsWatchdogCallbackHandler.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1408B2D34 (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x140A1C994 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 void __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
@@ -92,7 +92,7 @@ void __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
       ExReleaseResourceLite(Resource);
       KeLeaveCriticalRegion();
       PopAcquirePolicyLock(v14, v13);
-      if ( v4 || qword_140E27C50 )
+      if ( v4 || qword_140E27D90 )
       {
         PopReleasePolicyLock(v16, v15, v17, v18, v19);
       }

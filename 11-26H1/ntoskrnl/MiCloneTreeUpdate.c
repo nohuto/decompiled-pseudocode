@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCloneTreeUpdate @ 0x1404F4EBC
+ * XREFs of MiCloneTreeUpdate @ 0x1404EE49C
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140961614 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140A07308 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveClone @ 0x1404AFC88 (MiRemoveClone.c)
- *     MiInsertClone @ 0x1404F6B70 (MiInsertClone.c)
- *     MiLockCloneDescriptorTreeExclusive @ 0x140511ADC (MiLockCloneDescriptorTreeExclusive.c)
- *     MiFreeCloneDescriptor @ 0x140B44944 (MiFreeCloneDescriptor.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveClone @ 0x1404A9318 (MiRemoveClone.c)
+ *     MiInsertClone @ 0x1404F0180 (MiInsertClone.c)
+ *     MiLockCloneDescriptorTreeExclusive @ 0x14050B54C (MiLockCloneDescriptorTreeExclusive.c)
+ *     MiFreeCloneDescriptor @ 0x140B46704 (MiFreeCloneDescriptor.c)
  */
 
 void __fastcall MiCloneTreeUpdate(ULONG_PTR *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRegisterFeatureUsageProvider @ 0x140781D80
+ * XREFs of RtlRegisterFeatureUsageProvider @ 0x140781CB0
  * Callers:
  *     <none>
  * Callees:
- *     CmFcManagerRegisterFeatureUsageProvider @ 0x1407E4564 (CmFcManagerRegisterFeatureUsageProvider.c)
+ *     CmFcManagerRegisterFeatureUsageProvider @ 0x1407E4AB4 (CmFcManagerRegisterFeatureUsageProvider.c)
  */
 
 __int64 __fastcall RtlRegisterFeatureUsageProvider(__int64 a1, __int64 a2, __int64 a3)

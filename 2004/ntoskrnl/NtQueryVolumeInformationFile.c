@@ -76,7 +76,7 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   unsigned __int8 v43; // di
   struct _KEVENT *Pool_1; // rax
   _BYTE *v45; // r12
-  signed int DriverPathInformation; // eax
+  NTSTATUS DriverPathInformation; // eax
   char v47; // [rsp+40h] [rbp-78h] BYREF
   KPROCESSOR_MODE v48; // [rsp+41h] [rbp-77h]
   bool v49; // [rsp+42h] [rbp-76h]
@@ -184,7 +184,7 @@ LABEL_30:
       v29 = KeGetCurrentThread();
       --v29->KernelApcDisable;
       v30 = DmaAdapter;
-      v31 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0LL);
+      v31 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0);
       v47 = 0;
       if ( _InterlockedExchange((volatile __int32 *)(&v30[7].Size + 1), 1) )
       {

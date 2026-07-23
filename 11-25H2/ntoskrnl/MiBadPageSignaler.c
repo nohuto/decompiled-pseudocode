@@ -8,12 +8,12 @@
  *     ZwUpdateWnfStateData @ 0x14069ED60 (ZwUpdateWnfStateData.c)
  */
 
-__int64 MiBadPageSignaler()
+NTSTATUS MiBadPageSignaler()
 {
   KIRQL v0; // al
 
   v0 = ExAcquireSpinLockExclusive(dword_140E3A560);
   byte_140E2FF0A = 0;
   MiReleaseSpinLockExclusive(dword_140E3A560, v0);
-  return ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_QUARANTINED, 0LL, 0LL, 0LL, 0LL, 0, 0);
+  return ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_QUARANTINED, 0LL, 0, 0LL, 0LL, 0, 0);
 }

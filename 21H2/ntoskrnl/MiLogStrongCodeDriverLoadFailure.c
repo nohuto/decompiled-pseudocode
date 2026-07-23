@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x1408C7FCC
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x1408C812C
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x14075CF74 (MiProcessKernelCfgImageLoadConfig.c)
- *     MiResolveImageImports @ 0x14075CFC4 (MiResolveImageImports.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x14075D134 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MiResolveImageImports @ 0x14075D184 (MiResolveImageImports.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
@@ -44,11 +44,11 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
   int v30; // [rsp+C8h] [rbp-30h]
   int v31; // [rsp+CCh] [rbp-2Ch]
 
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
-    if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
+    if ( **(_DWORD **)&qword_140C4EF20 > 5u )
     {
-      if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL) )
+      if ( tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 0x400000000000LL) )
       {
         tlgCreate1Sz_char((__int64)v17, Src);
         v20 = 0;
@@ -69,7 +69,7 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
         v29 = &v15;
         v30 = 8;
         v19 = 2;
-        tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_140025D13, v4, 1u, v11, v12, 8u, &v16);
+        tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_140025DD3, v4, 1u, v11, v12, 8u, &v16);
       }
     }
   }
@@ -92,13 +92,13 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
       *(_WORD *)(v8 + 26) = *(_WORD *)(a2 + 88);
       *(_DWORD *)(v8 + 40) = *(_DWORD *)(a2 + 120);
       *(_DWORD *)(v8 + 44) = *(_DWORD *)(a2 + 156);
-      v10 = (__int64 *)qword_140C4CD10;
-      if ( *(PVOID **)qword_140C4CD10 != &qword_140C4CD08 )
+      v10 = (__int64 *)qword_140C4CD50;
+      if ( *(PVOID **)qword_140C4CD50 != &qword_140C4CD48 )
         __fastfail(3u);
-      *(_QWORD *)v8 = &qword_140C4CD08;
+      *(_QWORD *)v8 = &qword_140C4CD48;
       *(_QWORD *)(v8 + 8) = v10;
       *v10 = v8;
-      qword_140C4CD10 = v8;
+      qword_140C4CD50 = v8;
     }
   }
 }

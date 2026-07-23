@@ -1,22 +1,22 @@
 /*
- * XREFs of CcExtendVacbArray @ 0x14012C9C4
+ * XREFs of CcExtendVacbArray @ 0x14012CA94
  * Callers:
- *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x14007CFB0 (CcSetFileSizesEx.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     VacbLevelReference @ 0x140022BAC (VacbLevelReference.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     CcFreeUnusedVacbLevels @ 0x14012CE7C (CcFreeUnusedVacbLevels.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x14012CED4 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x14012CF14 (CcAcquireBcbLockAndVacbLock.c)
- *     CcAllocateVacbLevels @ 0x14012CF48 (CcAllocateVacbLevels.c)
- *     CcAllocateVacbLevel @ 0x14012CFEC (CcAllocateVacbLevel.c)
- *     CcCalculateVacbLevelLockCount @ 0x14015FB6C (CcCalculateVacbLevelLockCount.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     CcFreeUnusedVacbLevels @ 0x14012CF4C (CcFreeUnusedVacbLevels.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14012CFA4 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14012CFE4 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcAllocateVacbLevels @ 0x14012D018 (CcAllocateVacbLevels.c)
+ *     CcAllocateVacbLevel @ 0x14012D0BC (CcAllocateVacbLevel.c)
+ *     CcCalculateVacbLevelLockCount @ 0x14015FC6C (CcCalculateVacbLevelLockCount.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcExtendVacbArray(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSections @ 0x14072B004
+ * XREFs of MiInitializeSections @ 0x14072C1F4
  * Callers:
- *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitializePartition @ 0x14072BD18 (MiInitializePartition.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeSemaphore @ 0x14008A3E0 (KeInitializeSemaphore.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeSemaphore @ 0x14008A3D0 (KeInitializeSemaphore.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
  */
 
 void __fastcall MiInitializeSections(__int64 a1)
@@ -46,5 +46,5 @@ void __fastcall MiInitializeSections(__int64 a1)
   *(_BYTE *)(a1 + 1444) = -1;
   *(_BYTE *)(a1 + 1447) = v3 | 4;
   KeInitializeEvent((PRKEVENT)(a1 + 1416), NotificationEvent, 0);
-  KeInitializeEvent(&stru_140438D50, NotificationEvent, 0);
+  KeInitializeEvent(&stru_140439E10, NotificationEvent, 0);
 }

@@ -10,12 +10,12 @@
  *     PopPdcAreAllPhasesDisengaged @ 0x140883E68 (PopPdcAreAllPhasesDisengaged.c)
  */
 
-__int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
+__int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(LARGE_INTEGER *a1)
 {
   char v2; // bl
   _OWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( *(_QWORD *)(a1 + 64) == *(_QWORD *)(a1 + 32) )
+  if ( a1[8].QuadPart == a1[4].QuadPart )
   {
     PopReleaseRwLock(&PopPowerAggregatorLock);
     v2 = PopPdcAreAllPhasesDisengaged();
@@ -29,7 +29,7 @@ __int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
   }
   else
   {
-    PopPowerAggregatorEnterScreenOff(a1);
+    PopPowerAggregatorEnterScreenOff((__int64)a1);
   }
   return 0LL;
 }

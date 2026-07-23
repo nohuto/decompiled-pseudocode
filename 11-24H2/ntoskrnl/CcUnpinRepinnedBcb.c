@@ -1,19 +1,19 @@
 /*
- * XREFs of CcUnpinRepinnedBcb @ 0x140494980
+ * XREFs of CcUnpinRepinnedBcb @ 0x14048F410
  * Callers:
  *     <none>
  * Callees:
- *     MmSetAddressRangeModifiedEx @ 0x140240600 (MmSetAddressRangeModifiedEx.c)
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14024109C (CcReferenceSharedCacheMapFileObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     CcPostDeferredWrites @ 0x1402AAB14 (CcPostDeferredWrites.c)
- *     CcUnpinFileDataEx @ 0x1402AB380 (CcUnpinFileDataEx.c)
- *     CcSetDirtyPinnedData @ 0x1402AB6C0 (CcSetDirtyPinnedData.c)
- *     CcIsFatalWriteError @ 0x1402CBF04 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushSection @ 0x140470CF4 (CcPerfLogFlushSection.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140208750 (MmSetAddressRangeModifiedEx.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402091EC (CcReferenceSharedCacheMapFileObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     CcIsFatalWriteError @ 0x140260830 (CcIsFatalWriteError.c)
+ *     CcUnpinFileDataEx @ 0x1402766A0 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x1402769E0 (CcSetDirtyPinnedData.c)
+ *     CcPostDeferredWrites @ 0x1402795B0 (CcPostDeferredWrites.c)
+ *     CcPerfLogFlushSection @ 0x14046B5A0 (CcPerfLogFlushSection.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BLOCK IoStatus)
@@ -44,12 +44,12 @@ void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BL
       CcUnpinFileDataEx((char *)Bcb, 1, 2);
       v9 = CcReferenceSharedCacheMapFileObject(v5);
       v10 = v9;
-      if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+      if ( (xmmword_140FC6B50 & 0x20000) != 0 )
       {
         CcPerfLogFlushSection(0LL, v5, (__int64 *)Bcb + 1, *((_DWORD *)Bcb + 1), 1);
         v9 = v10;
       }
-      MmFlushSection(*(__int64 **)(v9 + 40), (__int64 *)Bcb + 1, *((unsigned int *)Bcb + 1), 0LL, IoStatus, 1);
+      MmFlushSection(*(_QWORD *)(v9 + 40), (__int64 *)Bcb + 1, *((unsigned int *)Bcb + 1), 0LL, IoStatus, 1);
       ObFastDereferenceObjectDeferDelete((__int64 *)(v5 + 96), v10);
       if ( IoStatus->Status < 0 && !CcIsFatalWriteError(*((_QWORD *)Bcb + 22), IoStatus->Status) )
         CcSetDirtyPinnedData(Bcb, 0LL);

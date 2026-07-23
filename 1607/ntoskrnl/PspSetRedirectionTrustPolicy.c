@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetRedirectionTrustPolicy @ 0x14067D288
+ * XREFs of PspSetRedirectionTrustPolicy @ 0x14067D36C
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
  * Callees:
- *     SeTokenSetRedirectionTrustPolicy @ 0x14021A6C0 (SeTokenSetRedirectionTrustPolicy.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x14021A4EC (SeTokenSetRedirectionTrustPolicy.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
  */
 
 signed __int64 __fastcall PspSetRedirectionTrustPolicy(struct _KPROCESS *a1, int a2)

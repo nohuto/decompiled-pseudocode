@@ -1,16 +1,16 @@
 /*
- * XREFs of ExWnfHiveUnloaded @ 0x140A2A784
+ * XREFs of ExWnfHiveUnloaded @ 0x140A3D814
  * Callers:
- *     CmUnloadKey @ 0x140B0A63C (CmUnloadKey.c)
+ *     CmUnloadKey @ 0x140A3E88C (CmUnloadKey.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     SeConvertStringSidToSid @ 0x1404F5470 (SeConvertStringSidToSid.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     ExpWnfInvalidateDataStores @ 0x140B31D6C (ExpWnfInvalidateDataStores.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     SeConvertStringSidToSid @ 0x1404EEA30 (SeConvertStringSidToSid.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     ExpWnfInvalidateDataStores @ 0x140B341C0 (ExpWnfInvalidateDataStores.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExWnfHiveUnloaded(PCUNICODE_STRING String2)

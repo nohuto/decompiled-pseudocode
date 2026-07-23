@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceSuspendResume @ 0x140AA24D0
+ * XREFs of PopPowerAggregatorDiagTraceSuspendResume @ 0x140A9D860
  * Callers:
- *     PopPowerAggregatorNotifySuspendResume @ 0x140AA2428 (PopPowerAggregatorNotifySuspendResume.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140A9D7B8 (PopPowerAggregatorNotifySuspendResume.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopPowerAggregatorDiagTraceSuspendResume(unsigned __int8 a1, int a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiStallBugcheckThread @ 0x1405C66D8
+ * XREFs of KiStallBugcheckThread @ 0x1405C3E08
  * Callers:
- *     KiScheduleBugcheckRecovery @ 0x1405C6580 (KiScheduleBugcheckRecovery.c)
+ *     KiScheduleBugcheckRecovery @ 0x1405C3CB0 (KiScheduleBugcheckRecovery.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlRaiseException @ 0x1405E88F0 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlRaiseException @ 0x1405E5EE0 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void KiStallBugcheckThread()
@@ -22,8 +22,8 @@ void KiStallBugcheckThread()
   unsigned __int8 v5; // cl
   int v6; // edx
   unsigned __int8 v7; // cl
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-28h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   Affinity = 0LL;
@@ -40,8 +40,8 @@ void KiStallBugcheckThread()
           KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), 2u);
         __writecr8(2uLL);
       }
-      byte_140F0FB17 |= 4u;
-      RtlRaiseException((ULONG_PTR)&KiRecoverableBugcheckException);
+      byte_140F0FDB7 |= 4u;
+      RtlRaiseException(&KiRecoverableBugcheckException);
       __debugbreak();
     }
     __fastfail(4u);
@@ -61,7 +61,7 @@ void KiStallBugcheckThread()
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), 0);
   __writecr8(0LL);
-  byte_140F0FB17 |= 2u;
+  byte_140F0FDB7 |= 2u;
   KeWaitForSingleObject(&KiBugcheckBlockingEvent, Executive, 0, 0, 0LL);
   v5 = KeGetCurrentIrql();
   __writecr8(2uLL);

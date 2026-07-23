@@ -1,22 +1,22 @@
 /*
- * XREFs of MiConfirmFaultClusterDescriptor @ 0x1402ECD70
+ * XREFs of MiConfirmFaultClusterDescriptor @ 0x1402CEDB0
  * Callers:
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
- *     MiPerformFaultClusterMaintenance @ 0x1402EB0D0 (MiPerformFaultClusterMaintenance.c)
- *     MiLockAndConfirmFaultClusterDescriptor @ 0x14039F79C (MiLockAndConfirmFaultClusterDescriptor.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
+ *     MiPerformFaultClusterMaintenance @ 0x1402CD110 (MiPerformFaultClusterMaintenance.c)
+ *     MiLockAndConfirmFaultClusterDescriptor @ 0x1403A14FC (MiLockAndConfirmFaultClusterDescriptor.c)
  * Callees:
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x1402E5EA0 (MiEmptyDeferredWorkingSetEntries.c)
- *     MiIsPteDecommittedPage @ 0x140312010 (MiIsPteDecommittedPage.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiSetFaultClusterContextBlockEntryState @ 0x14046E324 (MiSetFaultClusterContextBlockEntryState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402C7EE0 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiIsPteDecommittedPage @ 0x140314040 (MiIsPteDecommittedPage.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiSetFaultClusterContextBlockEntryState @ 0x140467AA4 (MiSetFaultClusterContextBlockEntryState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _BOOL8 __fastcall MiConfirmFaultClusterDescriptor(__int64 a1, __int64 a2, unsigned __int64 *a3, char a4)
@@ -93,7 +93,7 @@ _BOOL8 __fastcall MiConfirmFaultClusterDescriptor(__int64 a1, __int64 a2, unsign
   v13 = *(unsigned __int16 *)(v6 + 174);
   v14 = ((v12 & 0x3F) + (v12 >> 16)) << 16;
   v27 = 0LL;
-  v15 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v13);
+  v15 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v13);
   v29 = 0LL;
   v28 = 0;
   v31 = v15;
@@ -120,10 +120,10 @@ _BOOL8 __fastcall MiConfirmFaultClusterDescriptor(__int64 a1, __int64 a2, unsign
     {
       if ( !v18 || (unsigned int)MiIsPteDecommittedPage(*v16) )
         goto LABEL_17;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v24 = v18;
-        v13 = qword_140E2D748 & v18;
+        v13 = qword_140E2D8C8 & v18;
         v18 &= ~0x10uLL;
         if ( (v24 & 0x10) == 0 )
           v18 = v13;

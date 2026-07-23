@@ -1,19 +1,19 @@
 /*
- * XREFs of PsSuspendThread @ 0x14093A4F0
+ * XREFs of PsSuspendThread @ 0x140A0CF10
  * Callers:
- *     DbgkQueueUserExceptionReport @ 0x140707404 (DbgkQueueUserExceptionReport.c)
- *     PspWow64SetContextThread @ 0x140913174 (PspWow64SetContextThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140939BE0 (DbgkpPostFakeThreadMessages.c)
- *     PsSuspendProcess @ 0x14093A350 (PsSuspendProcess.c)
- *     NtSuspendThread @ 0x14093A420 (NtSuspendThread.c)
- *     NtChangeThreadState @ 0x14093ADE0 (NtChangeThreadState.c)
- *     PspWow64GetContextThread @ 0x1409A90C0 (PspWow64GetContextThread.c)
+ *     DbgkQueueUserExceptionReport @ 0x140704FC4 (DbgkQueueUserExceptionReport.c)
+ *     PspWow64SetContextThread @ 0x1408EA8C4 (PspWow64SetContextThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x1408F50E4 (DbgkpPostFakeThreadMessages.c)
+ *     PspWow64GetContextThread @ 0x140992510 (PspWow64GetContextThread.c)
+ *     NtChangeThreadState @ 0x140A0CB20 (NtChangeThreadState.c)
+ *     PsSuspendProcess @ 0x140A0CD70 (PsSuspendProcess.c)
+ *     NtSuspendThread @ 0x140A0CE40 (NtSuspendThread.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeSuspendThread @ 0x140483128 (KeSuspendThread.c)
- *     EtwTiLogSuspendResumeThread @ 0x14093A5E4 (EtwTiLogSuspendResumeThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KeSuspendThread @ 0x14047E25C (KeSuspendThread.c)
+ *     EtwTiLogSuspendResumeThread @ 0x140A0D004 (EtwTiLogSuspendResumeThread.c)
  */
 
 __int64 __fastcall PsSuspendThread(__int64 a1, _DWORD *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall PsSuspendThread(__int64 a1, _DWORD *a2)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v5 = (struct _EX_RUNDOWN_REF *)(a1 + 1416);
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1416)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1416)) )
   {
     if ( (*(_DWORD *)(a1 + 1440) & 1) != 0 )
     {

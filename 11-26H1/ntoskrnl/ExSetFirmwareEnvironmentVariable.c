@@ -1,13 +1,13 @@
 /*
- * XREFs of ExSetFirmwareEnvironmentVariable @ 0x14083AE70
+ * XREFs of ExSetFirmwareEnvironmentVariable @ 0x1408410B0
  * Callers:
- *     NtSetSystemEnvironmentValueEx @ 0x14083EAA0 (NtSetSystemEnvironmentValueEx.c)
- *     PopClearSystemSleepCheckpoint @ 0x140B3F7C0 (PopClearSystemSleepCheckpoint.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140BFE178 (PopCheckpointSystemSleepUnsafe.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x140844CE0 (NtSetSystemEnvironmentValueEx.c)
+ *     PopClearSystemSleepCheckpoint @ 0x140B417F0 (PopClearSystemSleepCheckpoint.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140C041C8 (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
- *     ExpSetFirmwareEnvironmentVariable @ 0x14083CB1C (ExpSetFirmwareEnvironmentVariable.c)
- *     ExpUnicodeStringToNonpagedWStr @ 0x1409078BC (ExpUnicodeStringToNonpagedWStr.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x140842D5C (ExpSetFirmwareEnvironmentVariable.c)
+ *     ExpUnicodeStringToNonpagedWStr @ 0x140A2FA1C (ExpUnicodeStringToNonpagedWStr.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExSetFirmwareEnvironmentVariable(__int64 a1, int a2, __int64 a3, int a4, int a5)
@@ -15,7 +15,7 @@ __int64 __fastcall ExSetFirmwareEnvironmentVariable(__int64 a1, int a2, __int64 
   void *v9; // rdi
   unsigned int v10; // ebx
 
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] != 2 )
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) != 2 )
     return 3221225474LL;
   v9 = (void *)ExpUnicodeStringToNonpagedWStr();
   if ( !v9 )

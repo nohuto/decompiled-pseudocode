@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptSha256Result @ 0x1403EDA20
+ * XREFs of SymCryptSha256Result @ 0x1403EDB90
  * Callers:
- *     SymCryptSha256 @ 0x1403EC158 (SymCryptSha256.c)
+ *     SymCryptSha256 @ 0x1403EC2C8 (SymCryptSha256.c)
  * Callees:
- *     SymCryptSha256AppendBlocks @ 0x1403EC2B0 (SymCryptSha256AppendBlocks.c)
- *     SymCryptWipe @ 0x1403EF634 (SymCryptWipe.c)
+ *     SymCryptSha256AppendBlocks @ 0x1403EC420 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptWipe @ 0x1403EF7A4 (SymCryptWipe.c)
  */
 
 __int64 __fastcall SymCryptSha256Result(unsigned int *a1, _QWORD *a2)

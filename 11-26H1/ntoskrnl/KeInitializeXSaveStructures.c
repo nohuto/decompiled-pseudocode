@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeXSaveStructures @ 0x140BF4294
+ * XREFs of KeInitializeXSaveStructures @ 0x140BFA294
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
  */
 
 __int64 KeInitializeXSaveStructures()

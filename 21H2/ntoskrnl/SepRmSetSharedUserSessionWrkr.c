@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmSetSharedUserSessionWrkr @ 0x140923D30
+ * XREFs of SepRmSetSharedUserSessionWrkr @ 0x140923E90
  * Callers:
- *     SepRmCommandServerThread @ 0x1407AD230 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD430 (SepRmCommandServerThread.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 _QWORD *__fastcall SepRmSetSharedUserSessionWrkr(__int64 a1, __int64 a2)

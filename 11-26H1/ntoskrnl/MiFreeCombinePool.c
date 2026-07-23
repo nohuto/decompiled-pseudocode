@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeCombinePool @ 0x1404ED200
+ * XREFs of MiFreeCombinePool @ 0x1404E67E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFreeProtoPool @ 0x140458808 (MiFreeProtoPool.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFreeProtoPool @ 0x140450078 (MiFreeProtoPool.c)
  */
 
 void __fastcall MiFreeCombinePool(__int64 a1)

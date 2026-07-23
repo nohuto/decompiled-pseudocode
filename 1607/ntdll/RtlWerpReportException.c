@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWerpReportException @ 0x1800069C0
+ * XREFs of RtlWerpReportException @ 0x1800069B0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,20 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlWerpReportException(int a1, int a2, int a3, int a4, int a5, __int64 a6)
+NTSTATUS __cdecl RtlWerpReportException(
+        ULONG ProcessId,
+        HANDLE CrashReportSharedMem,
+        ULONG Flags,
+        PHANDLE CrashVerticalProcessHandle)
 {
-  return ReportExceptionInternal(a1, a2, a3, a4, a5, a6);
+  int v5; // [rsp+28h] [rbp+28h]
+  __int64 v6; // [rsp+30h] [rbp+30h]
+
+  return ReportExceptionInternal(
+           ProcessId,
+           (_DWORD)CrashReportSharedMem,
+           Flags,
+           (_DWORD)CrashVerticalProcessHandle,
+           v5,
+           v6);
 }

@@ -23,22 +23,16 @@ NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
   wchar_t *PoolWithTag; // rax
   wchar_t *v6; // rdi
   struct _LIST_ENTRY *v7; // rbx
-  int SymbolicLinkObject; // esi
+  NTSTATUS v8; // esi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  int v10; // [rsp+30h] [rbp-30h]
-  int v11; // [rsp+34h] [rbp-2Ch]
-  __int64 v12; // [rsp+38h] [rbp-28h]
-  __int64 *v13; // [rsp+40h] [rbp-20h]
-  int v14; // [rsp+48h] [rbp-18h]
-  int v15; // [rsp+4Ch] [rbp-14h]
-  __int128 v16; // [rsp+50h] [rbp-10h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
   USHORT pusResult; // [rsp+98h] [rbp+38h] BYREF
-  HANDLE Handle; // [rsp+A0h] [rbp+40h] BYREF
+  HANDLE LinkHandle; // [rsp+A0h] [rbp+40h] BYREF
 
   pusResult = 0;
-  v11 = 0;
-  v15 = 0;
-  Handle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  LinkHandle = 0LL;
   ServerSiloGlobals = (const UNICODE_STRING *)PsGetServerSiloGlobals((__int64)a1);
   result = RtlUShortAdd(0x14u, ServerSiloGlobals[67].Length, &pusResult);
   if ( result >= 0 )
@@ -53,18 +47,18 @@ NTSTATUS __fastcall PspSiloInitializeSystemRootSymlink(struct _LIST_ENTRY *a1)
       DestinationString.Buffer = PoolWithTag;
       RtlCopyUnicodeString(&DestinationString, &PspSystemRootTargetPrefix);
       RtlAppendUnicodeStringToString(&DestinationString, ServerSiloGlobals + 67);
-      v10 = 48;
-      v13 = &PspSystemRootSymlinkName;
-      v12 = 0LL;
-      v16 = 0LL;
-      v14 = 528;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&PspSystemRootSymlinkName;
+      ObjectAttributes.RootDirectory = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      ObjectAttributes.Attributes = 528;
       v7 = PsAttachSiloToCurrentThread(a1);
-      SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
+      v8 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &DestinationString);
       PsDetachSiloFromCurrentThread(v7);
-      if ( SymbolicLinkObject >= 0 )
-        ZwClose(Handle);
+      if ( v8 >= 0 )
+        ZwClose(LinkHandle);
       ExFreePoolWithTag(v6, 0x70537350u);
-      return SymbolicLinkObject;
+      return v8;
     }
     else
     {

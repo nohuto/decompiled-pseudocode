@@ -1,21 +1,21 @@
 /*
- * XREFs of PpDevCfgInit @ 0x1409C875C
+ * XREFs of PpDevCfgInit @ 0x1409C975C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PiDmEnumObjectsWithCallback @ 0x140596F5C (PiDmEnumObjectsWithCallback.c)
- *     RtlIsStateSeparationEnabled @ 0x1406C31F0 (RtlIsStateSeparationEnabled.c)
- *     PiDevCfgSetObjectProperty @ 0x1406E4D7C (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgQueryObjectProperties @ 0x1406F6240 (PiDevCfgQueryObjectProperties.c)
- *     PipOpenServiceEnumKeys @ 0x140709534 (PipOpenServiceEnumKeys.c)
- *     _PnpCtxRegQueryValue @ 0x14073C304 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
- *     PiDrvDbEnumNodes @ 0x14083D670 (PiDrvDbEnumNodes.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x14083E128 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140597F5C (PiDmEnumObjectsWithCallback.c)
+ *     RtlIsStateSeparationEnabled @ 0x1406C4490 (RtlIsStateSeparationEnabled.c)
+ *     PiDevCfgSetObjectProperty @ 0x1406E601C (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1406F74E0 (PiDevCfgQueryObjectProperties.c)
+ *     PipOpenServiceEnumKeys @ 0x14070A7D4 (PipOpenServiceEnumKeys.c)
+ *     _PnpCtxRegQueryValue @ 0x14073D4F4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x14073D544 (_PnpCtxRegOpenKey.c)
+ *     PiDrvDbEnumNodes @ 0x14083E8D0 (PiDrvDbEnumNodes.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x14083F388 (PiDrvDbQuerySyncNodesUpdated.c)
  */
 
 __int64 PpDevCfgInit()
@@ -27,7 +27,7 @@ __int64 PpDevCfgInit()
   char v4; // al
   __int64 v5; // rcx
   int v7; // eax
-  int v8; // [rsp+30h] [rbp-D8h]
+  int MatchingChangeStamp; // [rsp+30h] [rbp-D8h]
   char v9; // [rsp+68h] [rbp-A0h] BYREF
   char v10; // [rsp+69h] [rbp-9Fh] BYREF
   int v11; // [rsp+6Ch] [rbp-9Ch] BYREF
@@ -88,8 +88,7 @@ __int64 PpDevCfgInit()
           && v13 == 4
           && v15 )
         {
-          v8 = 0;
-          ZwUpdateWnfStateData((__int64)&WNF_PNPC_DEVICE_INSTALL_REQUESTED, 0LL, 0LL);
+          ZwUpdateWnfStateData(&WNF_PNPC_DEVICE_INSTALL_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
         }
         ZwClose(Handle);
       }
@@ -130,7 +129,7 @@ __int64 PpDevCfgInit()
               (__int64)L"SYSTEM",
               7u,
               0LL,
-              v8,
+              MatchingChangeStamp,
               (__int64)&DEVPKEY_DriverDatabase_Updated,
               0,
               0LL,

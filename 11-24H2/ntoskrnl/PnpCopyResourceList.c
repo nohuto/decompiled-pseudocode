@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCopyResourceList @ 0x1407335F0
+ * XREFs of PnpCopyResourceList @ 0x140731524
  * Callers:
- *     PiUpdateDeviceResourceLists @ 0x14073646C (PiUpdateDeviceResourceLists.c)
+ *     PiUpdateDeviceResourceLists @ 0x14073439C (PiUpdateDeviceResourceLists.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x14098E258 (PnpDetermineResourceListSize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x140979290 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void *__fastcall PnpCopyResourceList(void *Src)
@@ -19,7 +19,7 @@ void *__fastcall PnpCopyResourceList(void *Src)
   if ( !v2 )
     return 0LL;
   v3 = v2;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v2, 0x36706E50u);
   v5 = Pool2;
   if ( !Pool2 )
     return 0LL;

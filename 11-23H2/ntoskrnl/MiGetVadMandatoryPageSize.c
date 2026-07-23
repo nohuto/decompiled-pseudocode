@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetVadMandatoryPageSize @ 0x1402EADF0
+ * XREFs of MiGetVadMandatoryPageSize @ 0x1402EB080
  * Callers:
  *     MiCaptureWriteWatchDirtyBit @ 0x1402170B0 (MiCaptureWriteWatchDirtyBit.c)
- *     MiMoveDirtyBitsToPfns @ 0x140285A10 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1402EA260 (NtGetWriteWatch.c)
- *     NtResetWriteWatch @ 0x140747830 (NtResetWriteWatch.c)
- *     MiCreateWriteWatchView @ 0x1407CCB04 (MiCreateWriteWatchView.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140285CA0 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x1402EA4F0 (NtGetWriteWatch.c)
+ *     NtResetWriteWatch @ 0x140747A20 (NtResetWriteWatch.c)
+ *     MiCreateWriteWatchView @ 0x1407CCDD4 (MiCreateWriteWatchView.c)
  * Callees:
  *     <none>
  */

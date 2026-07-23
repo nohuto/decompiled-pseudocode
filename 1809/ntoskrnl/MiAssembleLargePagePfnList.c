@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAssembleLargePagePfnList @ 0x14085CBFC
+ * XREFs of MiAssembleLargePagePfnList @ 0x14085DE5C
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
- *     MiConvertPfnsForLargePage @ 0x1402C51EC (MiConvertPfnsForLargePage.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiSetPfnLink @ 0x140065C94 (MiSetPfnLink.c)
+ *     MiConvertPfnsForLargePage @ 0x1402C53DC (MiConvertPfnsForLargePage.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAssembleLargePagePfnList(_QWORD *a1, __int64 a2)

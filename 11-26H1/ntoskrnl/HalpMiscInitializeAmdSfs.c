@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpMiscInitializeAmdSfs @ 0x140CB4660
+ * XREFs of HalpMiscInitializeAmdSfs @ 0x140CBA6A0
  * Callers:
- *     HalpMiscInitSystem @ 0x140BEB3F0 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x140BF13F0 (HalpMiscInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MmAllocateContiguousNodeMemory @ 0x14034A0F0 (MmAllocateContiguousNodeMemory.c)
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
- *     PrExtControlOperations @ 0x1406DCA28 (PrExtControlOperations.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14034C170 (MmAllocateContiguousNodeMemory.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
+ *     PrExtControlOperations @ 0x1406E0CC8 (PrExtControlOperations.c)
  */
 
 __int64 HalpMiscInitializeAmdSfs()

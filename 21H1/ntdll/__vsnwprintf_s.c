@@ -16,9 +16,9 @@ int __cdecl _vsnwprintf_s(
 {
   int result; // eax
 
-  if ( !Format )
+  if ( !(_DWORD)MaxCount )
     goto LABEL_12;
-  if ( MaxCount )
+  if ( HIDWORD(BufferCount) )
   {
     if ( !Buffer )
     {
@@ -29,20 +29,20 @@ LABEL_12:
   }
   else if ( !Buffer )
   {
-    if ( !BufferCount )
+    if ( !(_DWORD)BufferCount )
       return 0;
     goto LABEL_12;
   }
-  if ( !BufferCount )
+  if ( !(_DWORD)BufferCount )
     goto LABEL_12;
-  if ( BufferCount > MaxCount )
+  if ( (unsigned int)BufferCount > HIDWORD(BufferCount) )
   {
-    result = _swoutput_s(Buffer, MaxCount + 1, Format, ArgList);
+    result = _swoutput_s(Buffer, HIDWORD(BufferCount) + 1, MaxCount, HIDWORD(MaxCount));
     if ( result == -2 )
       return -1;
     goto LABEL_10;
   }
-  result = _swoutput_s(Buffer, BufferCount, Format, ArgList);
+  result = _swoutput_s(Buffer, BufferCount, MaxCount, HIDWORD(MaxCount));
   if ( result != -2 )
   {
 LABEL_10:
@@ -50,7 +50,7 @@ LABEL_10:
       return result;
     goto LABEL_11;
   }
-  if ( MaxCount == -1 )
+  if ( HIDWORD(BufferCount) == -1 )
     return -1;
 LABEL_11:
   *Buffer = 0;

@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlGetHypervisorEncryptionDomain @ 0x140131F34
+ * XREFs of HvlGetHypervisorEncryptionDomain @ 0x1401324A4
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1406266AC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140626760 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
  *     <none>
  */

@@ -1,42 +1,42 @@
 /*
- * XREFs of CmpGetSymbolicLinkTarget @ 0x1405D7CC0
+ * XREFs of CmpGetSymbolicLinkTarget @ 0x1405D8CC0
  * Callers:
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     RtlUnicodeStringCopy @ 0x140017780 (RtlUnicodeStringCopy.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringCat @ 0x14012B4CC (RtlUnicodeStringCat.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmpUnlockHashEntryByKcb @ 0x1405AA470 (CmpUnlockHashEntryByKcb.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x1405CF478 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmpFindNameInListWithStatus @ 0x1405D0670 (CmpFindNameInListWithStatus.c)
- *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpCleanUpKcbValueCache @ 0x1405D432C (CmpCleanUpKcbValueCache.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D8ADC (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpComputeComponentHashes @ 0x1406418F0 (CmpComputeComponentHashes.c)
- *     CmpValidateComponents @ 0x140641C20 (CmpValidateComponents.c)
- *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
- *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
- *     CmpGetComponentNameAtIndex @ 0x140644760 (CmpGetComponentNameAtIndex.c)
- *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
- *     CmpCompareUnicodeString @ 0x1406B6598 (CmpCompareUnicodeString.c)
- *     CmpConstructAndCacheName @ 0x1406C8AA8 (CmpConstructAndCacheName.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x14012B59C (RtlUnicodeStringCat.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmEqualTrans @ 0x1405AA4E8 (CmEqualTrans.c)
+ *     CmpUnlockHashEntryByKcb @ 0x1405AB470 (CmpUnlockHashEntryByKcb.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1405CCDE0 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x1405D0478 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmpFindNameInListWithStatus @ 0x1405D1670 (CmpFindNameInListWithStatus.c)
+ *     CmpGetValueData @ 0x1405D30A0 (CmpGetValueData.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpCleanUpKcbValueCache @ 0x1405D532C (CmpCleanUpKcbValueCache.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405D9AC0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D9ADC (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1405E6320 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpComputeComponentHashes @ 0x140642910 (CmpComputeComponentHashes.c)
+ *     CmpValidateComponents @ 0x140642C40 (CmpValidateComponents.c)
+ *     CmpLockKcbStackShared @ 0x140645050 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406450E0 (CmpUnlockKcbStack.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406451C0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpIsKeyStackDeleted @ 0x140645670 (CmpIsKeyStackDeleted.c)
+ *     CmpGetComponentNameAtIndex @ 0x140645780 (CmpGetComponentNameAtIndex.c)
+ *     CmpFreeKeyControlBlock @ 0x140693DB4 (CmpFreeKeyControlBlock.c)
+ *     CmpCompareUnicodeString @ 0x1406B7838 (CmpCompareUnicodeString.c)
+ *     CmpConstructAndCacheName @ 0x1406C9D48 (CmpConstructAndCacheName.c)
  */
 
 __int64 __fastcall CmpGetSymbolicLinkTarget(
@@ -118,7 +118,7 @@ __int64 __fastcall CmpGetSymbolicLinkTarget(
   const UNICODE_STRING *v76; // rax
   UNICODE_STRING *v77; // rbx
   void *v78; // rcx
-  struct _SLIST_ENTRY *v79; // rdx
+  _SLIST_ENTRY *v79; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *L; // rcx
   int v83; // [rsp+48h] [rbp-C0h] BYREF
@@ -679,7 +679,7 @@ LABEL_159:
     else
     {
       ++L->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(v79);
+      ((void (__fastcall *)(_SLIST_ENTRY *))L->FreeEx)(v79);
     }
   }
   return (unsigned int)NameInListWithStatus;

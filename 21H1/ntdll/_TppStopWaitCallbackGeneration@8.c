@@ -9,22 +9,21 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-signed __int32 __stdcall TppStopWaitCallbackGeneration(int a1, int a2)
+void __stdcall TppStopWaitCallbackGeneration(int a1, int a2)
 {
-  signed __int32 result; // eax
+  int v2; // esi
   unsigned int v3; // ecx
   signed int v4; // [esp+Ch] [ebp-4h] BYREF
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 144));
-  TppCancelWait(a1, a2 != 0 ? 2 : 0, &v4);
+  v2 = *(_DWORD *)(a1 + 92);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 144));
+  TppCancelWait(a1, v2 + 64, a2 != 0 ? 2 : 0, &v4);
   ++*(_BYTE *)(a1 + 223);
-  result = RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 144));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 144));
   if ( v4 < 0 )
   {
     v3 = -v4;
-    result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, v4);
-    if ( result == v3 )
-      return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, v4) == v3 )
+      (**(void (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
   }
-  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTrackQueryRemoveDevices @ 0x140AB4720
+ * XREFs of PnpTrackQueryRemoveDevices @ 0x140AAF690
  * Callers:
- *     PnpProcessCompletedEject @ 0x140723BF0 (PnpProcessCompletedEject.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x140721780 (PnpProcessCompletedEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PipClearDevNodeUserFlags @ 0x14098E9D4 (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeUserFlags @ 0x140AC3794 (PipSetDevNodeUserFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x140979A0C (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeUserFlags @ 0x140ABF118 (PipSetDevNodeUserFlags.c)
  */
 
 void __fastcall PnpTrackQueryRemoveDevices(_QWORD *a1, char a2)

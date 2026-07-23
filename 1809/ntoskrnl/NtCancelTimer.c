@@ -9,19 +9,19 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpSetTimerObject2 @ 0x1400FC0D8 (ExpSetTimerObject2.c)
- *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiAcquireSpinLockInstrumented @ 0x140290E28 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
- *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14008CF10 (KxWaitForSpinLockAndAcquire.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpSetTimerObject2 @ 0x1400FC158 (ExpSetTimerObject2.c)
+ *     ObpDeferObjectDeletion @ 0x140125EA0 (ObpDeferObjectDeletion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140291018 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140291128 (KiReleaseSpinLockInstrumented.c)
+ *     ObpPushStackInfo @ 0x1402D3258 (ObpPushStackInfo.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
@@ -43,8 +43,8 @@ NTSTATUS __stdcall NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
   int v18; // esi
   signed __int64 v19; // rax
   __int64 v21; // rdx
-  __int64 v22; // rax
-  __int64 v23; // rdi
+  _RTL_BALANCED_NODE *v22; // rax
+  _RTL_BALANCED_NODE *v23; // rdi
   _QWORD *v24; // rax
   __int64 v25; // rdx
   _QWORD *v26; // rcx
@@ -152,12 +152,12 @@ NTSTATUS __stdcall NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
         __writecr8(CurrentIrql);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v22 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock);
+        v22 = (_RTL_BALANCED_NODE *)KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL);
         v23 = v22;
         if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
           ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v22, (ULONG_PTR)&ExpWakeTimerLock);
         if ( v23 )
-          *(_BYTE *)(v23 + 26) |= 1u;
+          BYTE2(v23[1].Left) |= 1u;
         v39 = 1;
         CurrentIrql = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v10);
         v14 = *(_QWORD **)&v6[4].Header.Lock;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalUpdateTimerCapabilities @ 0x14055FFB0
+ * XREFs of HalUpdateTimerCapabilities @ 0x14055DBE0
  * Callers:
- *     HalpArtInitialize @ 0x1404A54E0 (HalpArtInitialize.c)
- *     HalpTscInitialize @ 0x1405613F0 (HalpTscInitialize.c)
+ *     HalpArtInitialize @ 0x1404A0270 (HalpArtInitialize.c)
+ *     HalpTscInitialize @ 0x14055F020 (HalpTscInitialize.c)
  * Callees:
- *     HalpTimerSetProblemEx @ 0x1404F98E4 (HalpTimerSetProblemEx.c)
+ *     HalpTimerSetProblemEx @ 0x1404F71C4 (HalpTimerSetProblemEx.c)
  */
 
 __int64 __fastcall HalUpdateTimerCapabilities(__int64 a1, int a2, int a3)

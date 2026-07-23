@@ -1,7 +1,7 @@
 /*
- * XREFs of PoStartPartitionReplace @ 0x1409896A8
+ * XREFs of PoStartPartitionReplace @ 0x1409898A8
  * Callers:
- *     PnprQuiesceDevices @ 0x140A9D304 (PnprQuiesceDevices.c)
+ *     PnprQuiesceDevices @ 0x140A9D174 (PnprQuiesceDevices.c)
  * Callees:
  *     PopDispatchStateCallout @ 0x140682AC8 (PopDispatchStateCallout.c)
  */

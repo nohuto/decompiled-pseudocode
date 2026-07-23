@@ -17,21 +17,21 @@
  *     RtlFlushSecureMemoryCache @ 0x1800F30F0 (RtlFlushSecureMemoryCache.c)
  */
 
-__int64 __fastcall sub_18010D634(__int64 a1)
+__int64 __fastcall sub_18010D634(PVOID BaseAddress)
 {
-  int v2; // eax
-  NTSTATUS v3; // ebx
-  ULONG v4; // eax
+  NTSTATUS v2; // eax
+  int v3; // ebx
+  LONG v4; // eax
 
-  v2 = ZwUnmapViewOfSection();
+  v2 = ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   v3 = v2;
   if ( v2 >= 0 )
     return 1LL;
   if ( v2 == -1073741755 )
   {
-    if ( RtlFlushSecureMemoryCache(a1, 0LL) )
+    if ( RtlFlushSecureMemoryCache(BaseAddress, 0LL) )
     {
-      v3 = ZwUnmapViewOfSection();
+      v3 = ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
       if ( v3 >= 0 )
         return 1LL;
     }

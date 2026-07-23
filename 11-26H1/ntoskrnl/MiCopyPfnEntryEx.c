@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCopyPfnEntryEx @ 0x140294570
+ * XREFs of MiCopyPfnEntryEx @ 0x140293AD0
  * Callers:
- *     MiCopyTradePageMetaData @ 0x1402938DC (MiCopyTradePageMetaData.c)
- *     MiReplaceTransitionPageInitializeTargetPfn @ 0x140293DE0 (MiReplaceTransitionPageInitializeTargetPfn.c)
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
- *     MiSwapHardFaultPage @ 0x14031CCEC (MiSwapHardFaultPage.c)
- *     MiReplacePageTablePage @ 0x14033C35C (MiReplacePageTablePage.c)
- *     MiTradeStackPageFast @ 0x140415F18 (MiTradeStackPageFast.c)
- *     MiSwitchKstackPages @ 0x140530AD0 (MiSwitchKstackPages.c)
- *     MiTradeBootImagePage @ 0x140D00E4C (MiTradeBootImagePage.c)
+ *     MiCopyTradePageMetaData @ 0x140292E3C (MiCopyTradePageMetaData.c)
+ *     MiReplaceTransitionPageInitializeTargetPfn @ 0x140293340 (MiReplaceTransitionPageInitializeTargetPfn.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
+ *     MiSwapHardFaultPage @ 0x14031ED1C (MiSwapHardFaultPage.c)
+ *     MiReplacePageTablePage @ 0x14033E3DC (MiReplacePageTablePage.c)
+ *     MiTradeStackPageFast @ 0x14040A528 (MiTradeStackPageFast.c)
+ *     MiSwitchKstackPages @ 0x140532FD0 (MiSwitchKstackPages.c)
+ *     MiTradeBootImagePage @ 0x140D071EC (MiTradeBootImagePage.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
  */
 
 char __fastcall MiCopyPfnEntryEx(__m128i *a1, const __m128i *a2, char a3)
@@ -65,9 +65,9 @@ char __fastcall MiCopyPfnEntryEx(__m128i *a1, const __m128i *a2, char a3)
   v26.m128i_i32[0] = a1[2].m128i_i32[0] & 0xFFC00000 ^ (v26.m128i_i32[0] ^ a1[2].m128i_i32[0] & 0xFFC00000) & 0xFF3FFFFF;
   v26.m128i_i64[1] = ((unsigned __int64)(unsigned __int16)((unsigned __int64)a1[2].m128i_i64[1] >> 43) << 43) ^ (v26.m128i_i64[1] ^ ((unsigned __int64)(unsigned __int16)((unsigned __int64)a1[2].m128i_i64[1] >> 43) << 43)) & 0xFFE007FFFFFFFFFFuLL;
   if ( (((unsigned __int16)((unsigned __int64)a1[2].m128i_i64[1] >> 43) ^ (unsigned __int16)((unsigned __int64)a2[2].m128i_i64[1] >> 43)) & 0x3FF) != 0
-    && (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)a1[2].m128i_i64[1] >> 43) & 0x3FF))
+    && (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)a1[2].m128i_i64[1] >> 43) & 0x3FF))
                   + 4LL) & 0x20) == 0
-    && (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)a2[2].m128i_i64[1] >> 43) & 0x3FF))
+    && (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)a2[2].m128i_i64[1] >> 43) & 0x3FF))
                   + 4LL) & 0x20) == 0
     && (a2[1].m128i_i32[0] & 0x400LL) == 0 )
   {
@@ -101,8 +101,8 @@ char __fastcall MiCopyPfnEntryEx(__m128i *a1, const __m128i *a2, char a3)
       else
       {
         v14 = v3[1].m128i_i64[0];
-        if ( qword_140E2D740 && (v3[1].m128i_i64[0] & 0x10) == 0 )
-          HIDWORD(v14) &= HIDWORD(qword_140E2D748);
+        if ( qword_140E2D8C0 && (v3[1].m128i_i64[0] & 0x10) == 0 )
+          HIDWORD(v14) &= HIDWORD(qword_140E2D8C8);
         v15 = HIDWORD(v14) == -3;
       }
       v16 = v25.m128i_i64[0];

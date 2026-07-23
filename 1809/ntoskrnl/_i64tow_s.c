@@ -1,9 +1,9 @@
 /*
- * XREFs of _i64tow_s @ 0x14019A6F0
+ * XREFs of _i64tow_s @ 0x14019A830
  * Callers:
- *     LocalGetStringForRelativeAttribute @ 0x1408A9FD4 (LocalGetStringForRelativeAttribute.c)
+ *     LocalGetStringForRelativeAttribute @ 0x1408AB234 (LocalGetStringForRelativeAttribute.c)
  * Callees:
- *     x64tow_s @ 0x14019A78C (x64tow_s.c)
+ *     x64tow_s @ 0x14019A8CC (x64tow_s.c)
  */
 
 errno_t __cdecl i64tow_s(__int64 Val, wchar_t *DstBuf, size_t SizeInWords, int Radix)

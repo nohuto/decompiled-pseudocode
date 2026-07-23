@@ -2,19 +2,19 @@
  * XREFs of MiCaptureWriteWatchDirtyBit @ 0x1402170B0
  * Callers:
  *     MiMakeCombineCandidateClean @ 0x14021743C (MiMakeCombineCandidateClean.c)
- *     MiRevertValidPte @ 0x140278A80 (MiRevertValidPte.c)
- *     MiWsleFlush @ 0x140280E10 (MiWsleFlush.c)
- *     MiMakeVaRangeNoAccess @ 0x14035BC1C (MiMakeVaRangeNoAccess.c)
- *     MiProtectAweRegion @ 0x14064B3A4 (MiProtectAweRegion.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
+ *     MiRevertValidPte @ 0x140278D10 (MiRevertValidPte.c)
+ *     MiWsleFlush @ 0x1402810A0 (MiWsleFlush.c)
+ *     MiMakeVaRangeNoAccess @ 0x14035BDBC (MiMakeVaRangeNoAccess.c)
+ *     MiProtectAweRegion @ 0x14064B8F4 (MiProtectAweRegion.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiLockVadCore @ 0x1402877D0 (MiLockVadCore.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiUnlockVadCore @ 0x1402EAAE4 (MiUnlockVadCore.c)
- *     MiGetVadMandatoryPageSize @ 0x1402EADF0 (MiGetVadMandatoryPageSize.c)
- *     MiLocateLockedVadEvent @ 0x14030B424 (MiLocateLockedVadEvent.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLockVadCore @ 0x140287A60 (MiLockVadCore.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiUnlockVadCore @ 0x1402EAD74 (MiUnlockVadCore.c)
+ *     MiGetVadMandatoryPageSize @ 0x1402EB080 (MiGetVadMandatoryPageSize.c)
+ *     MiLocateLockedVadEvent @ 0x14030B6B4 (MiLocateLockedVadEvent.c)
  */
 
 void __fastcall MiCaptureWriteWatchDirtyBit(__int64 a1, unsigned __int64 a2, __int64 a3)

@@ -98,7 +98,7 @@ __int64 __fastcall ObOpenObjectByName(
   __int64 v38; // r8
   _SLIST_ENTRY *Next; // rax
   _BYTE *v40; // rdi
-  struct _SLIST_ENTRY *v41; // r14
+  _SLIST_ENTRY *v41; // r14
   __int64 v42; // rdx
   __int64 *v43; // r15
   signed __int64 v44; // rax
@@ -113,12 +113,12 @@ __int64 __fastcall ObOpenObjectByName(
   __int64 v53; // rax
   __int64 v54; // rcx
   struct _KPRCB *v55; // rcx
-  struct _SLIST_ENTRY *v56; // rdx
+  _SLIST_ENTRY *v56; // rdx
   _GENERAL_LOOKASIDE *v57; // r8
   int v58; // r14d
   void *v59; // rcx
   _SLIST_ENTRY *v60; // rcx
-  struct _SLIST_ENTRY *v61; // rcx
+  _SLIST_ENTRY *v61; // rcx
   struct _KPRCB *v62; // rdx
   _GENERAL_LOOKASIDE *v63; // r8
   struct _KPRCB *v64; // rcx
@@ -281,7 +281,7 @@ LABEL_85:
           SeReleaseSecurityDescriptor(v60, LOBYTE(v15[11].Next), v38);
           v15[12].Next = 0LL;
         }
-        v61 = (struct _SLIST_ENTRY *)P;
+        v61 = (_SLIST_ENTRY *)P;
         if ( P )
         {
           if ( WORD1(v67) == 248 )
@@ -388,7 +388,7 @@ LABEL_85:
             *(_QWORD *)(*(_QWORD *)(v52 + 32) + 32LL) = 0LL;
           }
           v55 = KeGetCurrentPrcb();
-          v56 = *(struct _SLIST_ENTRY **)(v52 + 32);
+          v56 = *(_SLIST_ENTRY **)(v52 + 32);
           v57 = v55->PPLookasideList[4].P;
           ++v57->TotalFrees;
           if ( LOWORD(v57->ListHead.Alignment) < v57->Depth
@@ -402,7 +402,7 @@ LABEL_85:
           else
           {
             ++v57->FreeMisses;
-            ((void (__fastcall *)(struct _SLIST_ENTRY *))v57->FreeEx)(v56);
+            ((void (__fastcall *)(_SLIST_ENTRY *))v57->FreeEx)(v56);
           }
           *(_QWORD *)(v52 + 32) = 0LL;
           v51 = (void *)v66;

@@ -28,7 +28,7 @@ PSID __fastcall SepSidFromProcessProtection(_BYTE *a1)
         break;
       case 0x62:
       case 0x72:
-        result = (PSID)SeProcTrustWinTcbSid;
+        result = SeProcTrustWinTcbSid;
         break;
       case 0x81:
         result = SeProcTrustLiteAppSid;

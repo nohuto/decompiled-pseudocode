@@ -17,61 +17,56 @@
  *     NtWaitForAlertByThreadId @ 0x180095430 (NtWaitForAlertByThreadId.c)
  */
 
-char __fastcall TppCancelTimer(__int64 a1, volatile signed __int64 *a2, __int64 a3, __int64 a4)
+char __fastcall TppCancelTimer(__int64 a1, _RTL_SRWLOCK *a2, char a3)
 {
-  char v4; // bl
-  char v5; // r12
-  bool v7; // r14
-  __int64 v10; // r15
-  __int64 v11; // rdx
-  char *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  _BYTE v15[40]; // [rsp+20h] [rbp-28h] BYREF
+  char v3; // bl
+  bool v6; // r14
+  __int64 v9; // r15
+  __int64 v10; // rdx
+  _BYTE v11[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = 1;
-  v5 = a3;
-  v7 = (*(_BYTE *)(a1 + 346) & 2) != 0;
+  v3 = 1;
+  v6 = (*(_BYTE *)(a1 + 346) & 2) != 0;
   if ( (*(_BYTE *)(a1 + 346) & 1) != 0 )
   {
-    v10 = (__int64)(a2 + 1);
+    v9 = (__int64)&a2[1];
     if ( (*(_BYTE *)(a1 + 346) & 2) == 0 )
-      v10 = (__int64)(a2 + 16);
+      v9 = (__int64)&a2[16];
     if ( MEMORY[0x7FFE0386] )
-      TppETWTimerCancelled(v10, a1);
-    RtlAcquireSRWLockExclusive(a2, (char *)a2, a3, a4);
+      TppETWTimerCancelled(v9, a1);
+    RtlAcquireSRWLockExclusive(a2);
     if ( *(_BYTE *)(a1 + 344) )
     {
-      TppPHDelete(v10 + 16, a1 + 240);
-      TppPHDelete(v10 + 8, a1 + 280);
-      LOBYTE(v11) = v7;
-      TppUpdateSubQueueTimer(v10, v11);
+      TppPHDelete(v9 + 16, a1 + 240);
+      TppPHDelete(v9 + 8, a1 + 280);
+      LOBYTE(v10) = v6;
+      TppUpdateSubQueueTimer(v9, v10);
       *(_BYTE *)(a1 + 344) = 0;
       RtlReleaseSRWLockExclusive(a2);
       *(_DWORD *)(a1 + 340) = 0;
       *(_QWORD *)(a1 + 320) = 0LL;
       *(_BYTE *)(a1 + 346) = 0;
-      if ( !v5 )
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 232));
+      if ( !a3 )
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
     }
     else
     {
       RtlReleaseSRWLockExclusive(a2);
       *(_BYTE *)(a1 + 346) |= 4u;
-      TppItePush(a1 + 328, v15);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 232));
-      NtWaitForAlertByThreadId(a1 + 328, 0LL);
-      if ( v5 )
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 232), v12, v13, v14);
+      TppItePush(a1 + 328, v11);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
+      NtWaitForAlertByThreadId((PVOID)(a1 + 328), 0LL);
+      if ( a3 )
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
       return 0;
     }
-    return v4;
+    return v3;
   }
   else
   {
     *(_QWORD *)(a1 + 320) = 0LL;
-    if ( !(_BYTE)a3 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 232));
+    if ( !a3 )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
     return 0;
   }
 }

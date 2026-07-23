@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpIsIumEncryptionKeyAvailable @ 0x14094A5F0
+ * XREFs of ExpIsIumEncryptionKeyAvailable @ 0x14094A7C0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1406C08E0 (ExGetFirmwareEnvironmentVariable.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x14061F7F0 (ExGetFirmwareEnvironmentVariable.c)
  */
 
 bool ExpIsIumEncryptionKeyAvailable()

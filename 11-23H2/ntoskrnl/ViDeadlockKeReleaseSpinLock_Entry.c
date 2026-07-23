@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKeReleaseSpinLock_Entry @ 0x140AD94C0
+ * XREFs of ViDeadlockKeReleaseSpinLock_Entry @ 0x140AD94B0
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockReleaseResource @ 0x140AD7EFC (VfDeadlockReleaseResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD7EEC (VfDeadlockReleaseResource.c)
  */
 
 PVOID __fastcall ViDeadlockKeReleaseSpinLock_Entry(__int64 a1)

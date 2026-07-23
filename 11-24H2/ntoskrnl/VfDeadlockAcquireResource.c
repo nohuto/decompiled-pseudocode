@@ -1,40 +1,40 @@
 /*
- * XREFs of VfDeadlockAcquireResource @ 0x140BA83C4
+ * XREFs of VfDeadlockAcquireResource @ 0x140BAA3C4
  * Callers:
- *     ViDeadlockExAcquireFastMutexUnsafe_Exit @ 0x140B993D0 (ViDeadlockExAcquireFastMutexUnsafe_Exit.c)
- *     ViDeadlockExAcquireFastMutex_Exit @ 0x140B99410 (ViDeadlockExAcquireFastMutex_Exit.c)
- *     ViDeadlockExAcquireSharedStarveExclusive_Exit @ 0x140B99450 (ViDeadlockExAcquireSharedStarveExclusive_Exit.c)
- *     ViDeadlockExEnterCriticalRegionAndAcquireResourceExclusive_Exit @ 0x140B99490 (ViDeadlockExEnterCriticalRegionAndAcquireResourceExclusive_Exit.c)
- *     ViDeadlockExTryToAcquireFastMutex_Exit @ 0x140B99530 (ViDeadlockExTryToAcquireFastMutex_Exit.c)
- *     ViDeadlockKeAcquireInStackQueuedSpinLockRaiseToSynch_Exit @ 0x140B996D0 (ViDeadlockKeAcquireInStackQueuedSpinLockRaiseToSynch_Exit.c)
- *     ViDeadlockKeInitializeMutant_Exit @ 0x140B99710 (ViDeadlockKeInitializeMutant_Exit.c)
- *     ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit @ 0x140B99850 (ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit.c)
- *     ViDeadlockObjectAcquired @ 0x140B99AE4 (ViDeadlockObjectAcquired.c)
- *     ViDeadlockKeAcquireSpinLockRaiseToDpc_Exit @ 0x140BA8390 (ViDeadlockKeAcquireSpinLockRaiseToDpc_Exit.c)
+ *     ViDeadlockExAcquireFastMutexUnsafe_Exit @ 0x140B9B3D0 (ViDeadlockExAcquireFastMutexUnsafe_Exit.c)
+ *     ViDeadlockExAcquireFastMutex_Exit @ 0x140B9B410 (ViDeadlockExAcquireFastMutex_Exit.c)
+ *     ViDeadlockExAcquireSharedStarveExclusive_Exit @ 0x140B9B450 (ViDeadlockExAcquireSharedStarveExclusive_Exit.c)
+ *     ViDeadlockExEnterCriticalRegionAndAcquireResourceExclusive_Exit @ 0x140B9B490 (ViDeadlockExEnterCriticalRegionAndAcquireResourceExclusive_Exit.c)
+ *     ViDeadlockExTryToAcquireFastMutex_Exit @ 0x140B9B530 (ViDeadlockExTryToAcquireFastMutex_Exit.c)
+ *     ViDeadlockKeAcquireInStackQueuedSpinLockRaiseToSynch_Exit @ 0x140B9B6D0 (ViDeadlockKeAcquireInStackQueuedSpinLockRaiseToSynch_Exit.c)
+ *     ViDeadlockKeInitializeMutant_Exit @ 0x140B9B710 (ViDeadlockKeInitializeMutant_Exit.c)
+ *     ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit @ 0x140B9B850 (ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit.c)
+ *     ViDeadlockObjectAcquired @ 0x140B9BAE4 (ViDeadlockObjectAcquired.c)
+ *     ViDeadlockKeAcquireSpinLockRaiseToDpc_Exit @ 0x140BAA390 (ViDeadlockKeAcquireSpinLockRaiseToDpc_Exit.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
- *     ViLowerIrql @ 0x140614268 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1406142A0 (ViRaiseIrqlToDpcLevel.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ViDeadlockAddResource @ 0x140B98880 (ViDeadlockAddResource.c)
- *     ViDeadlockAddThread @ 0x140B98AC8 (ViDeadlockAddThread.c)
- *     ViDeadlockAllocate @ 0x140B98B88 (ViDeadlockAllocate.c)
- *     ViDeadlockAnalyze @ 0x140B98BE4 (ViDeadlockAnalyze.c)
- *     ViDeadlockCheckDuplicatesAmongChildren @ 0x140B99048 (ViDeadlockCheckDuplicatesAmongChildren.c)
- *     ViDeadlockCheckDuplicatesAmongRoots @ 0x140B990C8 (ViDeadlockCheckDuplicatesAmongRoots.c)
- *     ViDeadlockDetectionLock @ 0x140B991D4 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140B9920C (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140B99680 (ViDeadlockFree.c)
- *     ViDeadlockPreprocessOptions @ 0x140B99BC4 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveThread @ 0x140B99F9C (ViDeadlockRemoveThread.c)
- *     ViDeadlockSearchResource @ 0x140B9A0E0 (ViDeadlockSearchResource.c)
- *     ViDeadlockSearchThread @ 0x140B9A1BC (ViDeadlockSearchThread.c)
- *     ViDeadlockSimilarNode @ 0x140B9A258 (ViDeadlockSimilarNode.c)
- *     ViDeadlockUpdateChildrenCount @ 0x140B9A2A4 (ViDeadlockUpdateChildrenCount.c)
- *     ViIsThreadInsidePagingCodePaths @ 0x140B9A2E4 (ViIsThreadInsidePagingCodePaths.c)
- *     ViDeadlockCanProceed @ 0x140BA7B94 (ViDeadlockCanProceed.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x140612828 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x140612860 (ViRaiseIrqlToDpcLevel.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ViDeadlockAddResource @ 0x140B9A880 (ViDeadlockAddResource.c)
+ *     ViDeadlockAddThread @ 0x140B9AAC8 (ViDeadlockAddThread.c)
+ *     ViDeadlockAllocate @ 0x140B9AB88 (ViDeadlockAllocate.c)
+ *     ViDeadlockAnalyze @ 0x140B9ABE4 (ViDeadlockAnalyze.c)
+ *     ViDeadlockCheckDuplicatesAmongChildren @ 0x140B9B048 (ViDeadlockCheckDuplicatesAmongChildren.c)
+ *     ViDeadlockCheckDuplicatesAmongRoots @ 0x140B9B0C8 (ViDeadlockCheckDuplicatesAmongRoots.c)
+ *     ViDeadlockDetectionLock @ 0x140B9B1D4 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140B9B20C (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140B9B680 (ViDeadlockFree.c)
+ *     ViDeadlockPreprocessOptions @ 0x140B9BBC4 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveThread @ 0x140B9BF9C (ViDeadlockRemoveThread.c)
+ *     ViDeadlockSearchResource @ 0x140B9C0E0 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x140B9C1BC (ViDeadlockSearchThread.c)
+ *     ViDeadlockSimilarNode @ 0x140B9C258 (ViDeadlockSimilarNode.c)
+ *     ViDeadlockUpdateChildrenCount @ 0x140B9C2A4 (ViDeadlockUpdateChildrenCount.c)
+ *     ViIsThreadInsidePagingCodePaths @ 0x140B9C2E4 (ViIsThreadInsidePagingCodePaths.c)
+ *     ViDeadlockCanProceed @ 0x140BA9B94 (ViDeadlockCanProceed.c)
  */
 
 void __fastcall VfDeadlockAcquireResource(LONG *a1, int a2, unsigned __int64 a3, int a4, void *a5)
@@ -164,13 +164,13 @@ LABEL_25:
           && ((_DWORD)v18 != 7 || (unsigned int)(v6 - 5) > 1) )
         {
           ViDeadlockPreprocessOptions(
-            byte_140E0E9B4,
+            byte_140E0EA74,
             "Acquiring lock 0x%p using mismatched API for this lock type.",
             4104LL,
             (__int64)a1,
             v18,
             v6);
-          VfReportIssueWithOptions(0xC4u, 0x1008uLL, (ULONG_PTR)a1, *(int *)v17, v6, byte_140E0E9B4);
+          VfReportIssueWithOptions(0xC4u, 0x1008uLL, (ULONG_PTR)a1, *(int *)v17, v6, byte_140E0EA74);
 LABEL_36:
           v15 = v41;
           v16 = 0;
@@ -195,13 +195,13 @@ LABEL_36:
           if ( (v46 & 1) != 0 )
             goto LABEL_21;
           ViDeadlockPreprocessOptions(
-            dword_140E0E9D8,
+            dword_140E0EA98,
             "Lock 0x%p doesn't support recursive acquire.",
             4096LL,
             (__int64)a1,
             (__int64)v17,
             (__int64)v9);
-          VfReportIssueWithOptions(0xC4u, 0x1000uLL, (ULONG_PTR)a1, (ULONG_PTR)v17, (ULONG_PTR)v9, dword_140E0E9D8);
+          VfReportIssueWithOptions(0xC4u, 0x1000uLL, (ULONG_PTR)a1, (ULONG_PTR)v17, (ULONG_PTR)v9, dword_140E0EA98);
           goto LABEL_36;
         }
         v22 = a4;

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfCheckImageCompliance @ 0x1409271A4
+ * XREFs of VfCheckImageCompliance @ 0x1409281A4
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x1409377A4 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409387A4 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _stricmp @ 0x1401953E0 (_stricmp.c)
- *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x1409276E0 (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _stricmp @ 0x140195520 (_stricmp.c)
+ *     VfReportIssueWithOptions @ 0x14030B008 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x1409286E0 (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x14093607C (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckImageCompliance(__int64 a1)
@@ -57,7 +57,7 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
               VfReportIssueWithOptions(0xC4u, 0x2003uLL, a1 + 88, v5, (ULONG_PTR)Str1, Response);
               if ( (MmVerifierData & 0x1000) != 0 )
                 ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 276LL);
-              _InterlockedIncrement(&dword_14041AA1C);
+              _InterlockedIncrement(&dword_14041BAFC);
             }
           }
           if ( v2 )
@@ -70,16 +70,16 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
               *(_QWORD *)Str1 = *(_QWORD *)v5;
               v12 = 0;
               ViCiPreprocessOptions(
-                byte_140405434,
+                byte_14040644C,
                 "The image %wZ contains an IAT, 0x%p in executable section (name %s).",
                 8197LL,
                 a1 + 88,
                 v6,
                 Str1);
-              VfReportIssueWithOptions(0xC4u, 0x2005uLL, a1 + 88, (ULONG_PTR)v6, (ULONG_PTR)Str1, byte_140405434);
+              VfReportIssueWithOptions(0xC4u, 0x2005uLL, a1 + 88, (ULONG_PTR)v6, (ULONG_PTR)Str1, byte_14040644C);
               if ( (MmVerifierData & 0x1000) != 0 )
                 ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 284LL);
-              _InterlockedIncrement(&dword_14041AA24);
+              _InterlockedIncrement(&dword_14041BB04);
             }
           }
           Magic = v4->OptionalHeader.Magic;
@@ -92,16 +92,16 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
             *(_QWORD *)Str1 = *(_QWORD *)v5;
             v12 = 0;
             ViCiPreprocessOptions(
-              byte_14040542C,
+              byte_140406444,
               "The image %wZ contains section 0x%p that is not page aligned (name %s).",
               8196LL,
               a1 + 88,
               v5,
               Str1);
-            VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_14040542C);
+            VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_140406444);
             if ( (MmVerifierData & 0x1000) != 0 )
               ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 280LL);
-            _InterlockedIncrement(&dword_14041AA20);
+            _InterlockedIncrement(&dword_14041BB00);
           }
           v5 += 40LL;
           ++v7;

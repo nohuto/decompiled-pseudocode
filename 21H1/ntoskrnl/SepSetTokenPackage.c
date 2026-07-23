@@ -21,7 +21,7 @@ __int64 __fastcall SepSetTokenPackage(__int64 a1, unsigned __int8 *a2)
   void *v8; // rcx
 
   v4 = *(void **)(a1 + 784);
-  if ( v4 && !(unsigned __int8)RtlIsParentOfChildAppContainer(v4, a2) )
+  if ( v4 && !RtlIsParentOfChildAppContainer(v4, a2) )
     return 3221225506LL;
   v5 = (4 * a2[1] + 11) & 0xFFFFFFFC;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5, 0x69536553u);

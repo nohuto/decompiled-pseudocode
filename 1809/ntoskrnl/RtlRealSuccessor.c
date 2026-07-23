@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlRealSuccessor @ 0x14012EF60
+ * XREFs of RtlRealSuccessor @ 0x14012F030
  * Callers:
- *     FsRtlFastUnlockSingleExclusive @ 0x14008C4D0 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlPrivateInsertSharedLock @ 0x14008D22C (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x14008D444 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x140122514 (FsRtlPrivateInsertExclusiveLock.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14012EC64 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlSplitLocks @ 0x14012EFF4 (FsRtlSplitLocks.c)
- *     RtlEnumerateGenericTableWithoutSplaying @ 0x1401342B0 (RtlEnumerateGenericTableWithoutSplaying.c)
- *     RtlEnumerateGenericTable @ 0x1401782B0 (RtlEnumerateGenericTable.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14026EF3C (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlGetNextFileLock @ 0x14026F0F0 (FsRtlGetNextFileLock.c)
- *     FsRtlDeleteKeyFromTunnelCache @ 0x1406B9430 (FsRtlDeleteKeyFromTunnelCache.c)
- *     RtlNextUnicodePrefix @ 0x14071E990 (RtlNextUnicodePrefix.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x14008C4C0 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x14008D16C (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x14008D384 (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x1401225E4 (FsRtlPrivateInsertExclusiveLock.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14012ED34 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlSplitLocks @ 0x14012F0C4 (FsRtlSplitLocks.c)
+ *     RtlEnumerateGenericTableWithoutSplaying @ 0x140134380 (RtlEnumerateGenericTableWithoutSplaying.c)
+ *     RtlEnumerateGenericTable @ 0x1401783B0 (RtlEnumerateGenericTable.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14026F12C (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlGetNextFileLock @ 0x14026F2E0 (FsRtlGetNextFileLock.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x1406BA6D0 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     RtlNextUnicodePrefix @ 0x14071FC30 (RtlNextUnicodePrefix.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlRealSuccessor(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS result; // rax
-  struct _RTL_SPLAY_LINKS *v2; // rdx
+  _RTL_SPLAY_LINKS *v2; // rdx
   _RTL_SPLAY_LINKS *v3; // r8
   _RTL_SPLAY_LINKS *i; // rcx
 

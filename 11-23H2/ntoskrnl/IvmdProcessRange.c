@@ -1,9 +1,9 @@
 /*
- * XREFs of IvmdProcessRange @ 0x140531698
+ * XREFs of IvmdProcessRange @ 0x140531BE8
  * Callers:
- *     HsaProcessIvmd @ 0x14053095C (HsaProcessIvmd.c)
+ *     HsaProcessIvmd @ 0x140530EAC (HsaProcessIvmd.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall IvmdProcessRange(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)

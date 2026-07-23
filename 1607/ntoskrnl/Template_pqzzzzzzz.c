@@ -1,10 +1,10 @@
 /*
- * XREFs of Template_pqzzzzzzz @ 0x1401CE8C0
+ * XREFs of Template_pqzzzzzzz @ 0x1401CE654
  * Callers:
- *     PiDqTraceQueryCreate @ 0x14048CA30 (PiDqTraceQueryCreate.c)
+ *     PiDqTraceQueryCreate @ 0x14048D044 (PiDqTraceQueryCreate.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS Template_pqzzzzzzz(__int64 a1, __int64 a2, const GUID *a3, ...)

@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpRegQueryValueIndirect @ 0x1407BACB0
+ * XREFs of _PnpRegQueryValueIndirect @ 0x1407BAF80
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnalignedStringCbLengthW @ 0x140322F08 (RtlUnalignedStringCbLengthW.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     _PnpParseIndirectResourceString @ 0x14079E424 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1407CB264 (_PnpParseIndirectInfString.c)
+ *     RtlUnalignedStringCbLengthW @ 0x140323198 (RtlUnalignedStringCbLengthW.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     _PnpParseIndirectResourceString @ 0x14079E614 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x1407CB534 (_PnpParseIndirectInfString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

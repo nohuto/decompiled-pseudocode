@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpGetImageSize @ 0x14070F530
+ * XREFs of EtwpGetImageSize @ 0x1407107D0
  * Callers:
- *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0B0 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406BB350 (EtwpLocateDbgIdForRegEntry.c)
  * Callees:
  *     <none>
  */

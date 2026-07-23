@@ -1,25 +1,24 @@
 /*
- * XREFs of CmpUnlockHashEntryByKcb @ 0x14066C050
+ * XREFs of CmpUnlockHashEntryByKcb @ 0x140660E70
  * Callers:
- *     CmpRemoveHiveFromNamespace @ 0x140361788 (CmpRemoveHiveFromNamespace.c)
- *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
- *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
- *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406FC410 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
+ *     CmpRemoveHiveFromNamespace @ 0x140213A9C (CmpRemoveHiveFromNamespace.c)
+ *     CmDeleteLayeredKey @ 0x1404ED2B8 (CmDeleteLayeredKey.c)
+ *     CmDeleteKey @ 0x140660814 (CmDeleteKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1406DE1D0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1407137F0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoBuildVirtualStack @ 0x1408700FC (CmpDoBuildVirtualStack.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
  */
 
-__int64 __fastcall CmpUnlockHashEntryByKcb(__int64 a1)
+void __fastcall CmpUnlockHashEntryByKcb(__int64 a1)
 {
   __int64 v1; // rbx
   unsigned int v2; // eax
   __int64 v3; // r8
   __int64 v4; // rcx
-  __int64 result; // rax
 
   v1 = *(_QWORD *)(a1 + 32);
   v2 = 101027 * (*(_DWORD *)(a1 + 16) ^ (*(_DWORD *)(a1 + 16) >> 9));
@@ -32,8 +31,6 @@ __int64 __fastcall CmpUnlockHashEntryByKcb(__int64 a1)
     *(_QWORD *)(v3 + 1640)
   + 24 * ((unsigned int)(*(_DWORD *)(v3 + 1648) - 1) & (v4 ^ ((unsigned __int64)(unsigned int)v4 >> 9))),
     0LL);
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 4272), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
-    return CmpDeleteHive((PVOID)v1);
-  return result;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 4272), 0xFFFFFFFF) == 1 )
+    CmpDeleteHive((_QWORD *)v1);
 }

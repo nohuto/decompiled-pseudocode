@@ -24,17 +24,15 @@ void __fastcall EtwpQuerySiloRegistrySettings(__int64 a1)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
   int v9; // [rsp+80h] [rbp-80h] BYREF
   void **v10; // [rsp+88h] [rbp-78h]
-  _QWORD v11[4]; // [rsp+A0h] [rbp-60h] BYREF
-  int v12; // [rsp+C0h] [rbp-40h]
-  __int16 *v13; // [rsp+C8h] [rbp-38h]
-  __int16 v14; // [rsp+130h] [rbp+30h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+A0h] [rbp-60h] BYREF
+  __int16 v12; // [rsp+130h] [rbp+30h] BYREF
   HANDLE KeyHandle; // [rsp+138h] [rbp+38h] BYREF
 
   KeyHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
-  v14 = 0;
+  v12 = 0;
   v2 = 0LL;
   *(_OWORD *)Src = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI");
@@ -45,15 +43,15 @@ void __fastcall EtwpQuerySiloRegistrySettings(__int64 a1)
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    memset_0(v11, 0, 0x70uLL);
-    v12 = 1;
-    v11[0] = &EtwpQueryRegistryCallback;
+    memset_0(&QueryTable, 0, 0x70uLL);
+    QueryTable.DefaultType = 1;
+    QueryTable.QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&EtwpQueryRegistryCallback;
     v9 = 1;
-    v11[3] = &v9;
-    v11[2] = L"RTBacklogRoot";
-    v13 = &v14;
+    QueryTable.EntryContext = &v9;
+    QueryTable.Name = L"RTBacklogRoot";
+    QueryTable.DefaultData = &v12;
     v10 = Src;
-    if ( (int)RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v11, 0LL, 0LL) >= 0 )
+    if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, &QueryTable, 0LL, 0LL) >= 0 )
     {
       if ( Src[1] )
       {

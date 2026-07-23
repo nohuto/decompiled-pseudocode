@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerButtonBugcheck @ 0x140873BE0
+ * XREFs of PopDiagTracePowerButtonBugcheck @ 0x140874E40
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1402E47A0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1402E4990 (PopPowerButtonWorkCallback.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140745148 (PopRecordLongPowerButtonPressDetected.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140746338 (PopRecordLongPowerButtonPressDetected.c)
  */
 
 void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
@@ -57,24 +57,24 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
     {
       if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
       {
-        v5 = dword_140410168;
-        v6 = dword_140410164;
-        v2 = byte_1404101A8;
-        v12 = qword_140410170;
+        v5 = dword_140411208;
+        v6 = dword_140411204;
+        v2 = byte_140411248;
+        v12 = qword_140411210;
         v17 = &v5;
-        v7 = dword_140410178;
+        v7 = dword_140411218;
         v19 = &v6;
-        v8 = dword_14041017C;
+        v8 = dword_14041121C;
         v21 = &v2;
-        v13[0] = qword_140410180;
+        v13[0] = qword_140411220;
         v23 = &v12;
-        v9 = dword_1404101AC;
+        v9 = dword_14041124C;
         v31 = &v9;
-        v3[0] = byte_1404101B8;
+        v3[0] = byte_140411258;
         v25 = &v7;
         v33 = v3;
-        v10 = dword_1404101B0;
-        v11 = dword_1404101B4;
+        v10 = dword_140411250;
+        v11 = dword_140411254;
         v27 = &v8;
         v35 = &v10;
         v15 = &v4;
@@ -93,30 +93,30 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
         v36 = 4LL;
         v37 = &v11;
         v38 = 4LL;
-        TlgWrite(&pCallbackContext, &unk_140370F30, 0LL, 0LL, 0xEu, &pData);
+        TlgWrite(&pCallbackContext, &unk_140371EC0, 0LL, 0LL, 0xEu, &pData);
       }
     }
   }
   else if ( a1 == 15000 && pCallbackContext.LevelPlus1 > 5 && TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
   {
-    v10 = dword_140410168;
-    v9 = dword_140410164;
-    v3[0] = byte_1404101A8;
-    v13[0] = qword_140410170;
+    v10 = dword_140411208;
+    v9 = dword_140411204;
+    v3[0] = byte_140411248;
+    v13[0] = qword_140411210;
     v17 = &v10;
-    v8 = dword_140410178;
+    v8 = dword_140411218;
     v19 = &v9;
-    v7 = dword_14041017C;
+    v7 = dword_14041121C;
     v21 = v3;
-    v12 = qword_140410180;
+    v12 = qword_140411220;
     v23 = v13;
-    v6 = dword_1404101AC;
+    v6 = dword_14041124C;
     v31 = &v6;
-    v2 = byte_1404101B8;
+    v2 = byte_140411258;
     v25 = &v8;
     v33 = &v2;
-    v5 = dword_1404101B0;
-    v4 = dword_1404101B4;
+    v5 = dword_140411250;
+    v4 = dword_140411254;
     v27 = &v7;
     v35 = &v5;
     v15 = &v11;
@@ -135,6 +135,6 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
     v36 = 4LL;
     v37 = &v4;
     v38 = 4LL;
-    TlgWrite(&pCallbackContext, &unk_140370E0B, 0LL, 0LL, 0xEu, &pData);
+    TlgWrite(&pCallbackContext, &unk_140371D9B, 0LL, 0LL, 0xEu, &pData);
   }
 }

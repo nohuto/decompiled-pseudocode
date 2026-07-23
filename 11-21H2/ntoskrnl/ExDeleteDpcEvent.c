@@ -4,11 +4,11 @@
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
+ *     sub_140348B40 @ 0x140348B40 (sub_140348B40.c)
  */
 
 __int64 __fastcall ExDeleteDpcEvent(ULONG_PTR BugCheckParameter3)
 {
   ObfDereferenceObjectWithTag(*(PVOID *)(BugCheckParameter3 + 56), 0x65447845u);
-  return ExFreeHeapPool(BugCheckParameter3);
+  return sub_140348B40(BugCheckParameter3);
 }

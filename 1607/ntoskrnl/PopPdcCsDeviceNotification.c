@@ -1,23 +1,23 @@
 /*
- * XREFs of PopPdcCsDeviceNotification @ 0x14066FEEC
+ * XREFs of PopPdcCsDeviceNotification @ 0x14066FFD0
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  *     PopPdcCsCheckSystemVolumeDevice @ 0x1407BD360 (PopPdcCsCheckSystemVolumeDevice.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14057C52C (PopNetUpdateCsConsumptionFlags.c)
- *     PopPdcUpdateDeviceCompliance @ 0x140670110 (PopPdcUpdateDeviceCompliance.c)
- *     PopNetCompliantNicUpdate @ 0x140673664 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x140673764 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x14057C9D8 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x1406701F4 (PopPdcUpdateDeviceCompliance.c)
+ *     PopNetCompliantNicUpdate @ 0x140673748 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140673848 (PopNetNonCompliantDeviceUpdate.c)
  */
 
 __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)

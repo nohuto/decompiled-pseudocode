@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtAggregateKeyCopyFromProcess @ 0x1407B2DDC
+ * XREFs of PopEtAggregateKeyCopyFromProcess @ 0x1407B2FCC
  * Callers:
- *     PopEtProcessSnapshotCreate @ 0x1407B1918 (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotCreate @ 0x1407B1B08 (PopEtProcessSnapshotCreate.c)
  * Callees:
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     PopEtAggregateKeyCopy @ 0x1407B2A50 (PopEtAggregateKeyCopy.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     PopEtAggregateKeyCopy @ 0x1407B2C40 (PopEtAggregateKeyCopy.c)
  */
 
 void __fastcall PopEtAggregateKeyCopyFromProcess(__int64 *a1, struct _KPROCESS *a2, __int64 a3)

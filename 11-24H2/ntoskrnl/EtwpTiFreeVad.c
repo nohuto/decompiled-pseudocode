@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiFreeVad @ 0x1409FBEE4
+ * XREFs of EtwpTiFreeVad @ 0x1409F4C24
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1409FBC80 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1409F49C0 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTiFreeVad(__int64 a1)

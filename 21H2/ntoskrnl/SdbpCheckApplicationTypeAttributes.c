@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbpCheckApplicationTypeAttributes @ 0x1403F9710
+ * XREFs of SdbpCheckApplicationTypeAttributes @ 0x1403F98F0
  * Callers:
  *     SdbpCheckBackupApplicationAttributes @ 0x1405D1D80 (SdbpCheckBackupApplicationAttributes.c)
  * Callees:
  *     SdbpCheckFromStringVersion @ 0x1405D2014 (SdbpCheckFromStringVersion.c)
  *     SdbpCheckUptoStringVersion @ 0x1405D2140 (SdbpCheckUptoStringVersion.c)
- *     AslStringPatternMatchW @ 0x14075371C (AslStringPatternMatchW.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
- *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
- *     SdbpCheckUptoVersion @ 0x1407B3754 (SdbpCheckUptoVersion.c)
- *     SdbReadQWORDTag @ 0x1407B3A20 (SdbReadQWORDTag.c)
- *     SdbpCheckFromVersion @ 0x1409676B0 (SdbpCheckFromVersion.c)
- *     SdbpCheckVersion @ 0x1409676F4 (SdbpCheckVersion.c)
+ *     AslStringPatternMatchW @ 0x1407538DC (AslStringPatternMatchW.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756740 (SdbGetStringTagPtr.c)
+ *     SdbReadDWORDTag @ 0x140759F54 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x14075A5B4 (SdbGetTagFromTagID.c)
+ *     SdbpCheckUptoVersion @ 0x1407B38F4 (SdbpCheckUptoVersion.c)
+ *     SdbReadQWORDTag @ 0x1407B3BC0 (SdbReadQWORDTag.c)
+ *     SdbpCheckFromVersion @ 0x140967890 (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x1409678D4 (SdbpCheckVersion.c)
  */
 
 __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsigned int a3, unsigned __int64 *a4)
@@ -51,7 +51,7 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
   v10 = 1;
   while ( 1 )
   {
-    FirstTag = SdbFindFirstTag(a2, a3, *(unsigned __int16 *)((char *)&unk_140C120F0 + v5));
+    FirstTag = SdbFindFirstTag(a2, a3, *(unsigned __int16 *)((char *)&unk_140C120D0 + v5));
     v12 = FirstTag;
     if ( !FirstTag )
       goto LABEL_48;
@@ -68,7 +68,7 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
         if ( !is_mul_ok(a4[1], v14) || (v17 = a4[5], v15 = v17 + v16, v17 + v16 < v17) )
           v15 = 0LL;
       }
-      if ( *(_WORD *)v15 == *(_WORD *)((char *)&unk_140C120F0 + v5 + 2) )
+      if ( *(_WORD *)v15 == *(_WORD *)((char *)&unk_140C120D0 + v5 + 2) )
         break;
       ++v14;
       v15 = 0LL;
@@ -76,7 +76,7 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
     while ( v14 < v13 );
     if ( !v15 )
       break;
-    v18 = *(unsigned __int16 *)((char *)&unk_140C120F0 + v5);
+    v18 = *(unsigned __int16 *)((char *)&unk_140C120D0 + v5);
     if ( v18 > 0x6001 )
     {
       if ( v18 != 24593 )
@@ -171,7 +171,7 @@ LABEL_48:
       return 1;
     }
   }
-  if ( *(_WORD *)((char *)&unk_140C120F0 + v5) == 24577 )
+  if ( *(_WORD *)((char *)&unk_140C120D0 + v5) == 24577 )
     goto LABEL_48;
   if ( (unsigned __int16)SdbGetTagFromTagID(a2, a3, v14, v12) == 28768 )
   {

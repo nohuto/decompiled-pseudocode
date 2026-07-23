@@ -1,17 +1,17 @@
 /*
- * XREFs of SeInitServerSilo @ 0x1409C8DF0
+ * XREFs of SeInitServerSilo @ 0x1409C8FF0
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x1402AF900 (PsIsHostSilo.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CC90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     SepDeleteLogonSessionTrack @ 0x14076D33C (SepDeleteLogonSessionTrack.c)
- *     SepCreateLogonSessionTrack @ 0x1407BD4AC (SepCreateLogonSessionTrack.c)
- *     SepReferenceLogonSessionSilo @ 0x1407C334C (SepReferenceLogonSessionSilo.c)
- *     SepInitializationPhase1 @ 0x140822A40 (SepInitializationPhase1.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x1402AFB90 (PsIsHostSilo.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14031CF20 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     SepDeleteLogonSessionTrack @ 0x14076D52C (SepDeleteLogonSessionTrack.c)
+ *     SepCreateLogonSessionTrack @ 0x1407BD77C (SepCreateLogonSessionTrack.c)
+ *     SepReferenceLogonSessionSilo @ 0x1407C361C (SepReferenceLogonSessionSilo.c)
+ *     SepInitializationPhase1 @ 0x140822D40 (SepInitializationPhase1.c)
  */
 
 __int64 __fastcall SeInitServerSilo(__int64 a1)

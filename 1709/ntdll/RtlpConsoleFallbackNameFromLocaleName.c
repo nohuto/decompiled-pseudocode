@@ -15,7 +15,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
         wchar_t *String2,
         char a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
   *a3 = 0;
   if ( !v10 || (unsigned __int8)RtlpLoadNlsData() )
   {
-    LcidIndex = RtlpNlsGetLcidIndex((unsigned int)gSystemLocale);
+    LcidIndex = RtlpNlsGetLcidIndex(gSystemLocale);
     if ( LcidIndex >= 0 )
     {
       _mm_lfence();

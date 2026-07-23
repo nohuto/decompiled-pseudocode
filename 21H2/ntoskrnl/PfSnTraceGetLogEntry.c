@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnTraceGetLogEntry @ 0x14031A890
+ * XREFs of PfSnTraceGetLogEntry @ 0x1403255E0
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
- *     PfSnTraceTimerRoutine @ 0x1402C0A50 (PfSnTraceTimerRoutine.c)
- *     PfSnLogPageFaultCommon @ 0x14031B04C (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLogSequenceNumber @ 0x14031B174 (PfSnCheckLogSequenceNumber.c)
- *     PfSnLogStreamDelete @ 0x140698C2C (PfSnLogStreamDelete.c)
- *     PfSnLogIdentifier @ 0x1406B8150 (PfSnLogIdentifier.c)
- *     PfSnLogHelper @ 0x1406CC79C (PfSnLogHelper.c)
+ *     PfSnTraceTimerRoutine @ 0x14023EEC0 (PfSnTraceTimerRoutine.c)
+ *     MiCompleteProtoPteFault @ 0x1402B8690 (MiCompleteProtoPteFault.c)
+ *     PfSnLogPageFaultCommon @ 0x140325D9C (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLogSequenceNumber @ 0x140325EC4 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnLogStreamDelete @ 0x1405F7924 (PfSnLogStreamDelete.c)
+ *     PfSnLogIdentifier @ 0x140617660 (PfSnLogIdentifier.c)
+ *     PfSnLogHelper @ 0x14067B08C (PfSnLogHelper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PfSnTraceBufferAllocate @ 0x140360920 (PfSnTraceBufferAllocate.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PfSnTraceBufferAllocate @ 0x1402A5820 (PfSnTraceBufferAllocate.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
@@ -55,7 +55,7 @@ __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
         return v8;
       }
       _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 16), -a2);
-      v10 = (_QWORD *)PfSnTraceBufferAllocate();
+      v10 = PfSnTraceBufferAllocate();
       if ( !v10 )
       {
         v8 = -1073741670;

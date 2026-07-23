@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAcquireReleaseThreadLock @ 0x140499D24
+ * XREFs of KiAcquireReleaseThreadLock @ 0x140493874
  * Callers:
- *     KeRundownApcQueues @ 0x140955B24 (KeRundownApcQueues.c)
+ *     KeRundownApcQueues @ 0x14094BFD8 (KeRundownApcQueues.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1)

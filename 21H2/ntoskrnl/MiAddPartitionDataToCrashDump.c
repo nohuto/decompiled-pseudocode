@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddPartitionDataToCrashDump @ 0x140537938
+ * XREFs of MiAddPartitionDataToCrashDump @ 0x140537B78
  * Callers:
- *     MmAddPrivateDataToCrashDump @ 0x140538490 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x1405386D0 (MmAddPrivateDataToCrashDump.c)
  * Callees:
- *     MiAddPartitionToCrashDump @ 0x140537B50 (MiAddPartitionToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     MiAddPartitionToCrashDump @ 0x140537D90 (MiAddPartitionToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddPartitionDataToCrashDump(__int64 a1)
@@ -26,26 +26,26 @@ __int64 __fastcall MiAddPartitionDataToCrashDump(__int64 a1)
   int v16; // eax
 
   v1 = 0;
-  LODWORD(v3) = MmAddRangeToCrashDump(a1, qword_140C4E648, 8LL);
+  LODWORD(v3) = MmAddRangeToCrashDump(a1, qword_140C4E688, 8LL);
   if ( (int)v3 >= 0 )
   {
-    LODWORD(v3) = MmAddRangeToCrashDump(a1, qword_140C4E628, 16LL);
+    LODWORD(v3) = MmAddRangeToCrashDump(a1, qword_140C4E668, 16LL);
     if ( (int)v3 >= 0 )
     {
       v4 = MmAddRangeToCrashDump(
              a1,
-             qword_140C4E628->Buffer,
+             qword_140C4E668->Buffer,
              8
-           * (((unsigned __int64)qword_140C4E628->SizeOfBitMap >> 6) + ((qword_140C4E628->SizeOfBitMap & 0x3F) != 0)));
+           * (((unsigned __int64)qword_140C4E668->SizeOfBitMap >> 6) + ((qword_140C4E668->SizeOfBitMap & 0x3F) != 0)));
       v3 = (unsigned int)v4;
       if ( v4 >= 0 )
       {
         do
         {
-          v5 = v1 < qword_140C4E628->SizeOfBitMap ? v1 : 0;
-          v6 = qword_140C4E628->SizeOfBitMap - 1;
-          v7 = ((__int64)qword_140C4E628->Buffer & 4) != 0LL ? 0x20 : 0;
-          v8 = (char *)qword_140C4E628->Buffer - (((__int64)qword_140C4E628->Buffer & 4) != 0 ? 4 : 0);
+          v5 = v1 < qword_140C4E668->SizeOfBitMap ? v1 : 0;
+          v6 = qword_140C4E668->SizeOfBitMap - 1;
+          v7 = ((__int64)qword_140C4E668->Buffer & 4) != 0LL ? 0x20 : 0;
+          v8 = (char *)qword_140C4E668->Buffer - (((__int64)qword_140C4E668->Buffer & 4) != 0 ? 4 : 0);
           while ( 1 )
           {
             v9 = v7 + v6;
@@ -72,8 +72,8 @@ LABEL_6:
             if ( !v5 )
               break;
             SizeOfBitMap = v1 + 1;
-            if ( v1 + 1 > qword_140C4E628->SizeOfBitMap )
-              SizeOfBitMap = qword_140C4E628->SizeOfBitMap;
+            if ( v1 + 1 > qword_140C4E668->SizeOfBitMap )
+              SizeOfBitMap = qword_140C4E668->SizeOfBitMap;
             v6 = SizeOfBitMap - 1;
             v5 = 0;
           }
@@ -85,19 +85,19 @@ LABEL_6:
           if ( v15 == -1 )
             break;
           v1 = v15 + 1;
-          v16 = MiAddPartitionToCrashDump(a1, *(_QWORD *)(qword_140C4E648 + 8LL * v15), v3);
+          v16 = MiAddPartitionToCrashDump(a1, *(_QWORD *)(qword_140C4E688 + 8LL * v15), v3);
           v3 = (unsigned int)v16;
         }
         while ( v16 >= 0 );
         if ( (int)v3 >= 0 )
         {
-          if ( qword_140C4E668 )
+          if ( qword_140C4E6A8 )
             LODWORD(v3) = MmAddRangeToCrashDump(
                             a1,
-                            qword_140C4E668,
-                            8 * (((unsigned __int64)qword_140C4E660 >> 6) + ((qword_140C4E660 & 0x3F) != 0)));
-          if ( (int)v3 >= 0 && qword_140C4E670 )
-            LODWORD(v3) = MmAddRangeToCrashDump(a1, qword_140C4E670, 0x200000LL);
+                            qword_140C4E6A8,
+                            8 * (((unsigned __int64)qword_140C4E6A0 >> 6) + ((qword_140C4E6A0 & 0x3F) != 0)));
+          if ( (int)v3 >= 0 && qword_140C4E6B0 )
+            LODWORD(v3) = MmAddRangeToCrashDump(a1, qword_140C4E6B0, 0x200000LL);
         }
       }
     }

@@ -1,18 +1,16 @@
 /*
- * XREFs of EtwpUnreferenceDataBlock @ 0x140835FF0
+ * XREFs of EtwpUnreferenceDataBlock @ 0x140836678
  * Callers:
- *     SendCaptureStateNotificationsWorker @ 0x1407ADA30 (SendCaptureStateNotificationsWorker.c)
- *     EtwpRundownNotifications @ 0x1408348C0 (EtwpRundownNotifications.c)
- *     EtwpReceiveNotification @ 0x140835D94 (EtwpReceiveNotification.c)
- *     EtwpNotifyGuid @ 0x140836EE4 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
- *     EtwpDeleteRegistrationObject @ 0x14083C380 (EtwpDeleteRegistrationObject.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14083ECD8 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409F6160 (EtwpNotifyDisallowedGuidChange.c)
- *     EtwpQueueReply @ 0x1409F6EB4 (EtwpQueueReply.c)
- *     EtwpReceiveReplyDataBlock @ 0x140A712D0 (EtwpReceiveReplyDataBlock.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1407ADE80 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpQueueReply @ 0x1408320AC (EtwpQueueReply.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1408332EC (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpNotifyGuid @ 0x140834644 (EtwpNotifyGuid.c)
+ *     EtwpReceiveNotification @ 0x14083641C (EtwpReceiveNotification.c)
+ *     EtwpRundownNotifications @ 0x140837D94 (EtwpRundownNotifications.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140837F48 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpDeleteRegistrationObject @ 0x1408389E0 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpUnreferenceDataBlock(volatile signed __int32 *a1)

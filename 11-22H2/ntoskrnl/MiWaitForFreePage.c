@@ -33,7 +33,7 @@
  *     MiDemoteSlabEntries @ 0x140656824 (MiDemoteSlabEntries.c)
  */
 
-__int64 __fastcall MiWaitForFreePage(_QWORD *a1)
+void __fastcall MiWaitForFreePage(_QWORD *a1)
 {
   int v2; // r8d
   unsigned __int64 v3; // r13
@@ -47,20 +47,21 @@ __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
   bool v11; // zf
   unsigned int v12; // r14d
   unsigned int v13; // esi
-  __int64 result; // rax
-  unsigned __int64 v15; // rbx
+  unsigned __int64 v14; // rbx
+  unsigned __int8 v15; // al
   struct _KPRCB *v16; // r9
   _DWORD *v17; // r8
+  int v18; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-79h] BYREF
   LARGE_INTEGER Timeout; // [rsp+50h] [rbp-61h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-59h]
-  _QWORD v21[14]; // [rsp+68h] [rbp-49h] BYREF
+  __int64 v21; // [rsp+58h] [rbp-59h]
+  _QWORD v22[14]; // [rsp+68h] [rbp-49h] BYREF
 
   Timeout.QuadPart = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = *((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2;
   v3 = v2 != 0 ? 34 : 160;
-  v20 = MiNoPagesTimeout / -10000;
+  v21 = MiNoPagesTimeout / -10000;
   v4 = (struct _KEVENT *)((char *)a1 + (-(__int64)(v2 != 0) & 0xFFFFFFFFFFFFFFE0uLL) + 15912);
   KeAcquireInStackQueuedSpinLock(a1 + 1984, &LockHandle);
   while ( !(unsigned int)MiSufficientAvailablePages((__int64)a1, v3) )
@@ -69,10 +70,13 @@ __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
     Lock = v4[1].Header.Lock;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -87,9 +91,9 @@ __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
     MiObtainFreePages((__int64)a1);
     if ( a1[57] )
     {
-      memset(v21, 0, 0x68uLL);
-      v21[1] = a1[25];
-      VslpEnterIumSecureMode(2u, 253, 0, (__int64)v21);
+      memset(v22, 0, 0x68uLL);
+      v22[1] = a1[25];
+      VslpEnterIumSecureMode(2u, 253, 0, (__int64)v22);
     }
     v12 = 0;
     while ( 1 )
@@ -105,7 +109,7 @@ __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
       MiDemoteSlabEntries(a1);
       if ( Lock != v4[1].Header.LockNV )
         break;
-      if ( v12 >= (unsigned int)v20 )
+      if ( v12 >= (unsigned int)v21 )
       {
         MiNoPagesLastChance((__int64)a1, v3);
         break;
@@ -113,25 +117,21 @@ __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
     }
     KeAcquireInStackQueuedSpinLock(a1 + 1984, &LockHandle);
   }
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  v15 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  v14 = LockHandle.OldIrql;
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    v15 = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && LockHandle.OldIrql <= 0xFu && v15 >= 2u )
     {
       v16 = KeGetCurrentPrcb();
       v17 = v16->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v11 = ((unsigned int)result & v17[5]) == 0;
-      v17[5] &= result;
+      v18 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+      v11 = (v18 & v17[5]) == 0;
+      v17[5] &= v18;
       if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v16);
+        KiRemoveSystemWorkPriorityKick((__int64)v16);
     }
   }
-  __writecr8(v15);
-  return result;
+  __writecr8(v14);
 }

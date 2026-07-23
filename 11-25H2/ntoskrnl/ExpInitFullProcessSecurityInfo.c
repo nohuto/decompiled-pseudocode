@@ -14,7 +14,7 @@
  *     RtlpAddKnownAce @ 0x14092B1E0 (RtlpAddKnownAce.c)
  */
 
-_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
+_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   NTSTATUS DaclSecurityDescriptor; // ebx
   char *i; // rdi
@@ -75,7 +75,7 @@ _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Pa
             if ( DaclSecurityDescriptor < 0 )
               goto LABEL_15;
           }
-          *Context = &ExpFullProcessInfoSecurityDescriptor;
+          *a3 = &ExpFullProcessInfoSecurityDescriptor;
         }
         else
         {

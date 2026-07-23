@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpMapEntryGetBlockAddress @ 0x140874580
+ * XREFs of HvpMapEntryGetBlockAddress @ 0x1408788B0
  * Callers:
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpFindNextDirtyBlock @ 0x14097E864 (HvpFindNextDirtyBlock.c)
- *     HvpCopyModifiedData @ 0x140A6EA80 (HvpCopyModifiedData.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpFindNextDirtyBlock @ 0x140967074 (HvpFindNextDirtyBlock.c)
+ *     HvpCopyModifiedData @ 0x140A67F04 (HvpCopyModifiedData.c)
  * Callees:
- *     HvpMapEntryGetBinAddress @ 0x140BB9770 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x140BBB770 (HvpMapEntryGetBinAddress.c)
  */
 
 __int64 HvpMapEntryGetBlockAddress()

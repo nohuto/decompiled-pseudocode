@@ -3,10 +3,10 @@
  * Callers:
  *     BgpFwLibraryInitialize @ 0x140AEDC78 (BgpFwLibraryInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
- *     BgpTxtRegionSize @ 0x1403880DC (BgpTxtRegionSize.c)
- *     BgpGxRectangleSize @ 0x14038813C (BgpGxRectangleSize.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
+ *     BgpTxtRegionSize @ 0x1403882BC (BgpTxtRegionSize.c)
+ *     BgpGxRectangleSize @ 0x14038831C (BgpGxRectangleSize.c)
  *     BgpFoGetFontHandle @ 0x140AEDBC4 (BgpFoGetFontHandle.c)
  *     BgpTxtCreateRegion @ 0x140AEE2AC (BgpTxtCreateRegion.c)
  */

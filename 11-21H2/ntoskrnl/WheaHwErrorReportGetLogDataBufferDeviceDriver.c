@@ -4,7 +4,7 @@
  *     WheaReportFatalHwErrorDeviceDriverEx @ 0x140644510 (WheaReportFatalHwErrorDeviceDriverEx.c)
  *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapErrorHandleIsValid @ 0x1406447EC (WheapErrorHandleIsValid.c)
+ *     sub_1406447EC @ 0x1406447EC (sub_1406447EC.c)
  */
 
 __int64 WheaHwErrorReportGetLogDataBufferDeviceDriver()
@@ -13,7 +13,7 @@ __int64 WheaHwErrorReportGetLogDataBufferDeviceDriver()
   __int64 v1; // rcx
   _QWORD *v2; // r8
 
-  if ( !(unsigned __int8)WheapErrorHandleIsValid() )
+  if ( !(unsigned __int8)sub_1406447EC() )
     return 3221225480LL;
   if ( v0 > 0x24 )
     return 3221225626LL;

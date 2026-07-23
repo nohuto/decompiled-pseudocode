@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSearchChannelTable @ 0x140645750
+ * XREFs of MiSearchChannelTable @ 0x140645CA0
  * Callers:
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     MiPageToChannel @ 0x140375870 (MiPageToChannel.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     MiPageToChannel @ 0x140375A10 (MiPageToChannel.c)
  *     MxPageAlwaysHot @ 0x140B4365C (MxPageAlwaysHot.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiSearchChannelTable(ULONG_PTR BugCheckParameter2)

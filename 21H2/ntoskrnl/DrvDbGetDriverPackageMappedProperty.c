@@ -1,25 +1,25 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC
+ * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x1406306CC
  * Callers:
- *     DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbDispatchDriverPackage @ 0x14063BFD0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140734D40 (DrvDbGetDriverPackageSignerScore.c)
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x14097DB30 (DrvDbGetDriverPackageMappedPropertyKeys.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406306CC (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbDispatchDriverPackage @ 0x140630DE0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140734F00 (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x14097DD10 (DrvDbGetDriverPackageMappedPropertyKeys.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14063B5DC (DrvDbGetRegValueMappedProperty.c)
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x14063EB9C (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140734D40 (DrvDbGetDriverPackageSignerScore.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488 (_PnpCtxRegEnumKeyWithCallback.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x14097DE60 (DrvDbGetObjectDatabaseNodeName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140253448 (RtlStringCchCopyExW.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     _PnpCtxRegQueryValue @ 0x14061A094 (_PnpCtxRegQueryValue.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406303EC (DrvDbGetRegValueMappedProperty.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406306CC (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x1406339AC (DrvDbOpenDriverPackageRegKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140635220 (DrvDbOpenObjectRegKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140734F00 (DrvDbGetDriverPackageSignerScore.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1628 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x14097E040 (DrvDbGetObjectDatabaseNodeName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedProperty(
@@ -50,7 +50,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedProperty(
   __int64 v27; // rax
   char *v28; // r15
   void *v29; // rdx
-  int v30; // eax
+  int Value; // eax
   __int64 v31; // rdx
   unsigned int v32; // eax
   __int64 v33; // rax
@@ -601,7 +601,7 @@ LABEL_156:
       goto LABEL_5;
   }
   v16 = 0;
-  for ( i = &off_140001A80; ; i += 5 )
+  for ( i = &off_1400040B0; ; i += 5 )
   {
     v18 = (__int64 *)*i;
     if ( LODWORD((**i)[2]) == v13 )
@@ -615,7 +615,7 @@ LABEL_156:
     if ( ++v16 >= 0x20 )
       return (unsigned int)-1073741802;
   }
-  v20 = &off_140001A80 + 5 * v16;
+  v20 = &off_1400040B0 + 5 * v16;
   a8 = v20;
   if ( !v20 )
     return (unsigned int)-1073741802;
@@ -639,17 +639,17 @@ LABEL_156:
       v29 = *(void **)v77;
       if ( a3 )
         v29 = a3;
-      v30 = PnpCtxRegQueryValue(v21, v29, L"Version", &v79, v28, &a5);
-      DriverPackageMappedProperty = v30;
-      if ( v30 == -1073741772 )
+      Value = PnpCtxRegQueryValue(v21, v29, (__int64)L"Version", (__int64)&v79, (__int64)v28, (__int64)&a5);
+      DriverPackageMappedProperty = Value;
+      if ( Value == -1073741772 )
       {
         DriverPackageMappedProperty = -1073741275;
       }
-      else if ( v30 == -1073741789 )
+      else if ( Value == -1073741789 )
       {
         DriverPackageMappedProperty = -1073741595;
       }
-      else if ( v30 >= 0 )
+      else if ( Value >= 0 )
       {
         if ( v79 == 3 && (_DWORD)a5 == 48 )
         {

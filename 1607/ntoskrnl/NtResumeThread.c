@@ -1,11 +1,11 @@
 /*
- * XREFs of NtResumeThread @ 0x1404CCD9C
+ * XREFs of NtResumeThread @ 0x1404B27C8
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     PsResumeThread @ 0x1404CCE44 (PsResumeThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsResumeThread @ 0x1404B2870 (PsResumeThread.c)
  */
 
 NTSTATUS __stdcall NtResumeThread(HANDLE ThreadHandle, PULONG SuspendCount)

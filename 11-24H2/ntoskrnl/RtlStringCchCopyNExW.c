@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCchCopyNExW @ 0x1404310C0
+ * XREFs of RtlStringCchCopyNExW @ 0x140423600
  * Callers:
- *     punycode_encode @ 0x140784EA4 (punycode_encode.c)
- *     EtwpQueryTokenPackageInfo @ 0x14094B90C (EtwpQueryTokenPackageInfo.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x140995910 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140A2BFEC (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     _CmSplitDevicePanelId @ 0x140AB6934 (_CmSplitDevicePanelId.c)
+ *     punycode_encode @ 0x140784DD4 (punycode_encode.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1408EFE7C (EtwpQueryTokenPackageInfo.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x140980950 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140A1FEAC (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmSplitDevicePanelId @ 0x140AB0C0C (_CmSplitDevicePanelId.c)
  * Callees:
- *     StringExHandleOtherFlagsW @ 0x14041DE80 (StringExHandleOtherFlagsW.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     StringExHandleOtherFlagsW @ 0x140412250 (StringExHandleOtherFlagsW.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNExW(

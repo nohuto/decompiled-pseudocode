@@ -1,0 +1,89 @@
+/*
+ * XREFs of sub_1403C2CD0 @ 0x1403C2CD0
+ * Callers:
+ *     sub_140B059BC @ 0x140B059BC (sub_140B059BC.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1403C2CD0(unsigned __int64 a1, int a2, __int64 a3)
+{
+  __int64 v4; // r9
+  unsigned __int64 v5; // rdx
+  unsigned __int64 v6; // r10
+  __int64 v8; // rax
+  __int64 v9; // r9
+  unsigned __int64 v10; // rdx
+  volatile signed __int32 *v11; // r8
+  int v12; // r10d
+  unsigned __int64 v13; // rcx
+
+  v4 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
+  if ( !*(_BYTE *)(v4 + 15590) )
+    return 0LL;
+  if ( a2 == 2 )
+  {
+    v5 = a1 >> 9;
+    v6 = a1 >> 18;
+  }
+  else
+  {
+    if ( a2 != 1 )
+      return 0LL;
+    v5 = a1 >> 18;
+    v6 = a1 >> 18;
+  }
+  if ( a3 <= 0 )
+  {
+    if ( a2 == 2 )
+      _InterlockedExchangeAdd8((volatile signed __int8 *)(v5 + *(_QWORD *)(v4 + 15856)), 0xFFu);
+    else
+      _InterlockedAdd16((volatile signed __int16 *)(*(_QWORD *)(v4 + 15880) + 2 * v5), 0xFFFFu);
+    return 0LL;
+  }
+  if ( a2 == 2 )
+  {
+    if ( _InterlockedExchangeAdd8((volatile signed __int8 *)(v5 + *(_QWORD *)(v4 + 15856)), 1u) == 31 )
+    {
+      v8 = *(_QWORD *)(v4 + 15872);
+      v9 = v6 & 0x1F;
+      LOBYTE(v10) = 1;
+      v11 = (volatile signed __int32 *)(v8 + 4 * (v6 >> 5));
+      if ( (unsigned __int64)(v9 + 1) > 0x20 )
+      {
+        if ( (v6 & 0x1F) == 0 )
+          goto LABEL_18;
+        v12 = v6 & 0x1F;
+        _InterlockedOr(v11++, ((1 << (32 - v12)) - 1) << v9);
+        v10 = 1LL - (unsigned int)(32 - v12);
+        if ( v10 >= 0x20 )
+        {
+          v13 = v10 >> 5;
+          v10 += -32LL * (v10 >> 5);
+          do
+          {
+            *v11++ = -1;
+            --v13;
+          }
+          while ( v13 );
+        }
+        if ( v10 )
+LABEL_18:
+          _InterlockedOr(v11, (1 << v10) - 1);
+      }
+      else
+      {
+        _InterlockedOr(v11, 1 << v9);
+      }
+      return 1LL;
+    }
+    return 0LL;
+  }
+  if ( _InterlockedExchangeAdd16((volatile signed __int16 *)(*(_QWORD *)(v4 + 15880) + 2 * v5), 1u) != 511
+    || !_bittest64(&qword_140D068D8, 0x25u) )
+  {
+    return 0LL;
+  }
+  _InterlockedCompareExchange((volatile signed __int32 *)(v4 + 15888), 1, 0);
+  return 1LL;
+}

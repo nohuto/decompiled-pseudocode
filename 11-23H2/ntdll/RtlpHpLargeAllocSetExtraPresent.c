@@ -8,43 +8,38 @@
  *     RtlAcquireSRWLockShared @ 0x180026DB0 (RtlAcquireSRWLockShared.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeAllocSetExtraPresent(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall RtlpHpLargeAllocSetExtraPresent(__int64 a1, unsigned __int64 a2, char a3)
 {
-  int v6; // esi
-  unsigned __int64 result; // rax
-  unsigned __int64 v8; // rbx
+  int v5; // esi
+  unsigned __int64 v6; // rbx
+  unsigned __int64 v7; // rax
+  unsigned __int64 v8; // rax
 
-  v6 = a3 & 1;
+  v5 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64), a2, a3, a4);
-  result = a1 + 72;
-  v8 = *(_QWORD *)(a1 + 72);
-  if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v8 )
-    v8 ^= result;
-  while ( v8 )
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
+  v6 = *(_QWORD *)(a1 + 72);
+  if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v6 )
+    v6 ^= a1 + 72;
+  while ( v6 )
   {
-    result = *(_QWORD *)(v8 + 24) & 0xFFFFFFFFFFFF0000uLL;
-    if ( a2 >= result )
+    v7 = *(_QWORD *)(v6 + 24) & 0xFFFFFFFFFFFF0000uLL;
+    if ( a2 >= v7 )
     {
-      if ( a2 <= result )
+      if ( a2 <= v7 )
         break;
-      result = *(_QWORD *)(v8 + 8);
+      v8 = *(_QWORD *)(v6 + 8);
     }
     else
     {
-      result = *(_QWORD *)v8;
+      v8 = *(_QWORD *)v6;
     }
-    if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && result )
-      v8 ^= result;
+    if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v8 )
+      v6 ^= v8;
     else
-      v8 = result;
+      v6 = v8;
   }
-  if ( !v6 )
-    result = RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 64));
-  *(_QWORD *)(v8 + 32) |= 1uLL;
-  return result;
+  if ( !v5 )
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
+  *(_QWORD *)(v6 + 32) |= 1uLL;
 }

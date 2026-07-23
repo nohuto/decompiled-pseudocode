@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapViewOfPrimaryFile @ 0x140610158
+ * XREFs of HvpViewMapViewOfPrimaryFile @ 0x14061020C
  * Callers:
- *     HvViewMapStart @ 0x14060FCB4 (HvViewMapStart.c)
- *     HvpViewMapGrowFile @ 0x14060FF64 (HvpViewMapGrowFile.c)
+ *     HvViewMapStart @ 0x14060FD68 (HvViewMapStart.c)
+ *     HvpViewMapGrowFile @ 0x140610018 (HvpViewMapGrowFile.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
- *     CcMapData @ 0x1404475F0 (CcMapData.c)
- *     CmpClaimGlobalQuota @ 0x140513F30 (CmpClaimGlobalQuota.c)
- *     CmpReleaseGlobalQuota @ 0x140514570 (CmpReleaseGlobalQuota.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
+ *     CcMapData @ 0x1404464C0 (CcMapData.c)
+ *     CmpClaimGlobalQuota @ 0x1404F7320 (CmpClaimGlobalQuota.c)
+ *     CmpReleaseGlobalQuota @ 0x1404F7960 (CmpReleaseGlobalQuota.c)
  */
 
 __int64 __fastcall HvpViewMapViewOfPrimaryFile(

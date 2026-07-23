@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpGetObjectSecurity @ 0x140406CE0
+ * XREFs of ObpGetObjectSecurity @ 0x140405BA0
  * Callers:
- *     ObCheckCreateObjectAccess @ 0x14040412C (ObCheckCreateObjectAccess.c)
- *     ObCheckObjectAccess @ 0x140405810 (ObCheckObjectAccess.c)
- *     ObpInsertOrLocateNamedObject @ 0x140405EE0 (ObpInsertOrLocateNamedObject.c)
- *     ObpCheckObjectReference @ 0x1404068F0 (ObpCheckObjectReference.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140406AA0 (SepAppendAceToTokenObjectAcl.c)
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     MiAllowImageMap @ 0x14042A544 (MiAllowImageMap.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14048A7F4 (PspAllocateAndQueryNotificationChannel.c)
- *     ObGetObjectSecurity @ 0x1404ED17C (ObGetObjectSecurity.c)
- *     ObpCheckTraverseAccess @ 0x140666238 (ObpCheckTraverseAccess.c)
- *     PspCheckJobAccessState @ 0x140680418 (PspCheckJobAccessState.c)
+ *     ObCheckCreateObjectAccess @ 0x140402FEC (ObCheckCreateObjectAccess.c)
+ *     ObCheckObjectAccess @ 0x1404046D0 (ObCheckObjectAccess.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140404DA0 (ObpInsertOrLocateNamedObject.c)
+ *     ObpCheckObjectReference @ 0x1404057B0 (ObpCheckObjectReference.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140405960 (SepAppendAceToTokenObjectAcl.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     MiAllowImageMap @ 0x140429414 (MiAllowImageMap.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     ObGetObjectSecurity @ 0x1404CF2E8 (ObGetObjectSecurity.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1404D4B6C (PspAllocateAndQueryNotificationChannel.c)
+ *     ObpCheckTraverseAccess @ 0x14066631C (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x1406804FC (PspCheckJobAccessState.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObpReferenceSecurityDescriptor @ 0x140406EB0 (ObpReferenceSecurityDescriptor.c)
+ *     ObpReferenceSecurityDescriptor @ 0x140405D70 (ObpReferenceSecurityDescriptor.c)
  */
 
 __int64 __fastcall ObpGetObjectSecurity(__int64 a1, PVOID *a2, _BYTE *a3, char a4)

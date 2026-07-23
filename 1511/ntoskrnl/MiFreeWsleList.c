@@ -342,7 +342,8 @@ LABEL_109:
             if ( (LONG *)v89 == &dword_1402FFA80 )
             {
               if ( PsNtosImageBase
-                && (v62 >= PsNtosImageBase && v62 < PsNtosImageEnd || v62 >= PsHalImageBase && v62 < PsHalImageEnd) )
+                && (v62 >= (unsigned __int64)PsNtosImageBase && v62 < PsNtosImageEnd
+                 || v62 >= (unsigned __int64)PsHalImageBase && v62 < PsHalImageEnd) )
               {
                 LODWORD(xmmword_1402FE598) = xmmword_1402FE598 - 1;
               }

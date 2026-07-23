@@ -1,10 +1,10 @@
 /*
- * XREFs of PsIsServiceSession @ 0x140A3B080
+ * XREFs of PsIsServiceSession @ 0x1409F6BDC
  * Callers:
- *     PopGetSettingNotificationName @ 0x140A3B2C4 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x1409F6CE4 (PopGetSettingNotificationName.c)
  * Callees:
- *     PsGetServerSiloServiceSessionId @ 0x140487140 (PsGetServerSiloServiceSessionId.c)
- *     PsGetSiloBySessionId @ 0x140A3B134 (PsGetSiloBySessionId.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140480B10 (PsGetServerSiloServiceSessionId.c)
+ *     PsGetSiloBySessionId @ 0x1409F6C94 (PsGetSiloBySessionId.c)
  */
 
 bool __fastcall PsIsServiceSession(__int64 a1)

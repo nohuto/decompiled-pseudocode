@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreFaultComplete @ 0x140398D18
+ * XREFs of MiStoreFaultComplete @ 0x140351468
  * Callers:
- *     MiWaitForInPageComplete @ 0x140398598 (MiWaitForInPageComplete.c)
- *     MiReadPagefilePage @ 0x14066A47C (MiReadPagefilePage.c)
+ *     MiWaitForInPageComplete @ 0x140350CE8 (MiWaitForInPageComplete.c)
+ *     MiReadPagefilePage @ 0x14066B64C (MiReadPagefilePage.c)
  * Callees:
- *     MiIsRetryIoStatus @ 0x1402CBFE0 (MiIsRetryIoStatus.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiStoreLogReadFailure @ 0x14068C600 (MiStoreLogReadFailure.c)
+ *     MiIsRetryIoStatus @ 0x140260570 (MiIsRetryIoStatus.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiStoreLogReadFailure @ 0x14068D730 (MiStoreLogReadFailure.c)
  */
 
 void __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, int *a2)
@@ -41,7 +41,7 @@ void __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, int *a2)
     {
       if ( (_DWORD)v2 == -1073741807 || (_DWORD)v2 == -2147483626 )
         KeBugCheckEx(0x1Au, 0x6002uLL, BugCheckParameter2, v2, 0LL);
-      _InterlockedAdd(&dword_140E37320, 1u);
+      _InterlockedAdd(&dword_140E37460, 1u);
       MiStoreLogReadFailure(BugCheckParameter2);
     }
   }

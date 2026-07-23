@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpWriteToEtw @ 0x14056AD1C
+ * XREFs of AdtpWriteToEtw @ 0x14056B25C
  * Callers:
- *     SepRmCallLsa @ 0x1400B1930 (SepRmCallLsa.c)
+ *     SepRmCallLsa @ 0x1400AF870 (SepRmCallLsa.c)
  * Callees:
- *     AdtpCleanupParameterAllocations @ 0x140144390 (AdtpCleanupParameterAllocations.c)
- *     EtwWriteKMSecurityEvent @ 0x1401443DC (EtwWriteKMSecurityEvent.c)
- *     AdtpPackageParameters @ 0x140144450 (AdtpPackageParameters.c)
- *     AdtpNormalizeAuditInfoHelper @ 0x140147A70 (AdtpNormalizeAuditInfoHelper.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     AdtpGetCategoryAndSubCategoryId @ 0x14056B038 (AdtpGetCategoryAndSubCategoryId.c)
+ *     AdtpCleanupParameterAllocations @ 0x140144900 (AdtpCleanupParameterAllocations.c)
+ *     EtwWriteKMSecurityEvent @ 0x14014494C (EtwWriteKMSecurityEvent.c)
+ *     AdtpPackageParameters @ 0x1401449C0 (AdtpPackageParameters.c)
+ *     AdtpNormalizeAuditInfoHelper @ 0x140147FE0 (AdtpNormalizeAuditInfoHelper.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AdtpGetCategoryAndSubCategoryId @ 0x14056B578 (AdtpGetCategoryAndSubCategoryId.c)
  */
 
 __int64 __fastcall AdtpWriteToEtw(__int64 a1, _BYTE *a2)

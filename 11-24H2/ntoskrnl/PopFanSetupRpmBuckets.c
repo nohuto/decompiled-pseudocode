@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFanSetupRpmBuckets @ 0x140A83C8C
+ * XREFs of PopFanSetupRpmBuckets @ 0x140A7E7AC
  * Callers:
- *     PopFanWorker @ 0x140A83710 (PopFanWorker.c)
+ *     PopFanWorker @ 0x140A7E230 (PopFanWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopFanSetNoiseImpact @ 0x14075CF3C (PopFanSetNoiseImpact.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopFanSetNoiseImpact @ 0x14075BEDC (PopFanSetNoiseImpact.c)
  */
 
 void __fastcall PopFanSetupRpmBuckets(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall PopFanSetupRpmBuckets(__int64 a1)
   unsigned int v10; // eax
   __int64 v11; // rcx
   unsigned int v12; // r8d
-  __int16 *v13; // rdx
+  char *v13; // rdx
   ULONG v14; // [rsp+28h] [rbp-69h]
   unsigned int v15; // [rsp+38h] [rbp-59h] BYREF
   __int64 v16; // [rsp+40h] [rbp-51h] BYREF
@@ -43,11 +43,11 @@ void __fastcall PopFanSetupRpmBuckets(__int64 a1)
   v18 = 5;
   if ( !v1 )
   {
-    if ( (unsigned int)dword_140E076F0 <= 2 )
+    if ( (unsigned int)dword_140E07680 <= 2 )
       return;
     v15 = 0;
     v20 = &v16;
-    v13 = (__int16 *)&byte_14004D17F;
+    v13 = (char *)&unk_14004D850;
     v22 = &v15;
     v14 = 4;
 LABEL_23:
@@ -61,7 +61,7 @@ LABEL_23:
     if ( i >= 4 )
     {
       *(_DWORD *)(a1 + 128) = v3;
-      if ( (unsigned int)dword_140E076F0 > 4 )
+      if ( (unsigned int)dword_140E07680 > 4 )
       {
         v20 = &v16;
         LOWORD(v15) = v3;
@@ -74,8 +74,8 @@ LABEL_23:
         v23 = 16LL;
         v25 = 2LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E076F0,
-          (unsigned __int8 *)byte_14004D01F,
+          (__int64)&dword_140E07680,
+          (unsigned __int8 *)&word_14004D766,
           0LL,
           0LL,
           6u,
@@ -92,17 +92,17 @@ LABEL_13:
   }
   if ( v6 <= v4 || v6 % v1 )
   {
-    if ( (unsigned int)dword_140E076F0 <= 2 )
+    if ( (unsigned int)dword_140E07680 <= 2 )
       return;
     v23 = 16LL;
     v20 = &v16;
-    v13 = word_14004D13A;
+    v13 = byte_14004D80B;
     v22 = (unsigned int *)(a1 + 112);
     v14 = 4;
 LABEL_24:
     v16 = a1;
     v21 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)v13, 0LL, 0LL, v14, v19);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)v13, 0LL, 0LL, v14, v19);
     return;
   }
   v7 = v6 - v4;
@@ -127,11 +127,11 @@ LABEL_24:
     *(_DWORD *)(a1 + 4 * v11 + 132) = v4 + v12;
     ++v8;
   }
-  if ( (unsigned int)dword_140E076F0 > 2 )
+  if ( (unsigned int)dword_140E07680 > 2 )
   {
     v15 = v3;
     v20 = &v16;
-    v13 = word_14004D06A;
+    v13 = byte_14004D7B1;
     v25 = 16LL;
     v22 = &v15;
     v27 = 68LL;

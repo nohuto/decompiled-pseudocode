@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCbCopyExA @ 0x140539FBC
+ * XREFs of RtlStringCbCopyExA @ 0x1405377FC
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     RtlStringCopyWorkerA @ 0x140441450 (RtlStringCopyWorkerA.c)
- *     RtlStringExValidateDestA @ 0x14053A304 (RtlStringExValidateDestA.c)
+ *     RtlStringCopyWorkerA @ 0x140437D90 (RtlStringCopyWorkerA.c)
+ *     RtlStringExValidateDestA @ 0x140537B44 (RtlStringExValidateDestA.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyExA(
@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlStringCbCopyExA(
   else
   {
     pcchNewDestLength &= v7;
-    v6 = RtlStringCopyWorkerA(v8, 0x100uLL, &pcchNewDestLength, &byte_140C68510, v10);
+    v6 = RtlStringCopyWorkerA(v8, 0x100uLL, &pcchNewDestLength, &byte_140C6A670, v10);
     if ( (int)(v6 + 0x80000000) < 0 || v6 == -2147483643 )
     {
       if ( pcbRemaining )

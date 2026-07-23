@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPepRegisterDevice @ 0x140B3B7A8
+ * XREFs of PopPepRegisterDevice @ 0x140B3DA28
  * Callers:
- *     PopFxRegisterDeviceWithPep @ 0x140443B58 (PopFxRegisterDeviceWithPep.c)
+ *     PopFxRegisterDeviceWithPep @ 0x14043C668 (PopFxRegisterDeviceWithPep.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140483CB4 (PopPepComponentGetResidencyIdleState.c)
- *     PopPepComponentGetLatencyIdleState @ 0x14048AECC (PopPepComponentGetLatencyIdleState.c)
- *     PopPepInsertDevice @ 0x1404FDFBC (PopPepInsertDevice.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x14047D624 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepComponentGetLatencyIdleState @ 0x140484A0C (PopPepComponentGetLatencyIdleState.c)
+ *     PopPepInsertDevice @ 0x1404F74FC (PopPepInsertDevice.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned __int64 *a5)
+char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
 {
   char v5; // di
   unsigned int v9; // ebp
@@ -22,7 +22,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
   __int64 v13; // r14
   __int64 v14; // rsi
   __int64 Pool2; // rax
-  unsigned __int64 v16; // rbx
+  __int64 v16; // rbx
   __int64 v17; // r14
   __int64 v18; // r8
   __int64 *v19; // rdx
@@ -32,7 +32,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
   __int64 v23; // rsi
   __int64 *v24; // rax
   __int64 *v25; // rcx
-  unsigned __int64 v26; // r13
+  __int64 v26; // r13
   __int64 v27; // rdx
   _QWORD *v28; // r11
   int v29; // ecx
@@ -95,7 +95,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
         ++v20;
         v21 += 17;
       }
-      while ( (__int64)v21 < (__int64)&qword_140002030 );
+      while ( (__int64)v21 < (__int64)&off_140001D80 );
       *(_QWORD *)(v16 + 16) |= 1uLL;
       v22 = 0;
 LABEL_15:
@@ -106,7 +106,7 @@ LABEL_15:
         if ( a4 == 2 )
           *(_BYTE *)(v16 + 124) = 1;
         *(_DWORD *)(v16 + 168) = 1;
-        PopPepInsertDevice((__int64)v20, v16, v18, (struct _KLOCK_ENTRIES *)&qword_140002030);
+        PopPepInsertDevice((__int64)v20, v16, v18, (struct _KLOCK_ENTRIES *)&off_140001D80);
       }
       else
       {
@@ -128,7 +128,7 @@ LABEL_15:
           v24 += 17;
           ++v25;
         }
-        while ( (__int64)v24 < (__int64)&qword_140002030 );
+        while ( (__int64)v24 < (__int64)&off_140001D80 );
         KeInitializeEvent((PRKEVENT)(v26 + 32), NotificationEvent, 0);
         v28 = v41;
         *(_QWORD *)(v23 + v16 + 208) = *(_QWORD *)(v39 + 16);

@@ -1,16 +1,16 @@
 /*
- * XREFs of IvtFlushTbInternal @ 0x14042706C
+ * XREFs of IvtFlushTbInternal @ 0x14043417C
  * Callers:
- *     IvtFlushDomainTb @ 0x1404267B0 (IvtFlushDomainTb.c)
- *     IvtAttachDeviceDomainInternal @ 0x1405A5968 (IvtAttachDeviceDomainInternal.c)
- *     IvtFlushTb @ 0x1405A6500 (IvtFlushTb.c)
- *     IvtInitializeIommu @ 0x140BEFC90 (IvtInitializeIommu.c)
+ *     IvtFlushDomainTb @ 0x1404338C0 (IvtFlushDomainTb.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1405A8178 (IvtAttachDeviceDomainInternal.c)
+ *     IvtFlushTb @ 0x1405A8D10 (IvtFlushTb.c)
+ *     IvtInitializeIommu @ 0x140BF5C90 (IvtInitializeIommu.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     IvtIommuWaitCommand @ 0x140427808 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x14042795C (IvtIommuSendCommand.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     IvtIommuWaitCommand @ 0x140434918 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x140434A6C (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall IvtFlushTbInternal(

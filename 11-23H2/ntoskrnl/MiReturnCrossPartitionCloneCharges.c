@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnCrossPartitionCloneCharges @ 0x1402F3DC0
+ * XREFs of MiReturnCrossPartitionCloneCharges @ 0x1402F4050
  * Callers:
- *     MiDecrementCloneBlock @ 0x1402F3C28 (MiDecrementCloneBlock.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x140664948 (MiHandleForkTransitionPte.c)
+ *     MiDecrementCloneBlock @ 0x1402F3EB8 (MiDecrementCloneBlock.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x140664E98 (MiHandleForkTransitionPte.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReturnCrossPartitionCharges @ 0x14065B354 (MiReturnCrossPartitionCharges.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiReturnCrossPartitionCharges @ 0x14065B8A4 (MiReturnCrossPartitionCharges.c)
  */
 
 void __fastcall MiReturnCrossPartitionCloneCharges(__int64 a1, char a2)

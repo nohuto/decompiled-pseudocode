@@ -1,36 +1,35 @@
 /*
- * XREFs of ZwQueryKey @ 0x1403FA660
+ * XREFs of ZwQueryKey @ 0x1403FA840
  * Callers:
- *     BiZwQueryKey @ 0x14039B5C8 (BiZwQueryKey.c)
- *     PipIs32bitKey @ 0x14050C28C (PipIs32bitKey.c)
- *     BiOpenStoreKeyFromObject @ 0x1405C3A50 (BiOpenStoreKeyFromObject.c)
+ *     BiZwQueryKey @ 0x14039B718 (BiZwQueryKey.c)
+ *     PipIs32bitKey @ 0x14050C4CC (PipIs32bitKey.c)
+ *     BiOpenStoreKeyFromObject @ 0x1405C3C80 (BiOpenStoreKeyFromObject.c)
  *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1406A51CC (IopApplyMutableTagToRegistryKey.c)
- *     _RegRtlQueryInfoKey @ 0x1406B69A8 (_RegRtlQueryInfoKey.c)
- *     RtlpValidateKeyTrust @ 0x1406B8E8C (RtlpValidateKeyTrust.c)
- *     IopGetDriverNameFromKeyNode @ 0x140742900 (IopGetDriverNameFromKeyNode.c)
- *     IopGetRegistryKeyInformation @ 0x14076A5E4 (IopGetRegistryKeyInformation.c)
- *     PiNormalizeDeviceText @ 0x14076AC40 (PiNormalizeDeviceText.c)
- *     PiRearrangeDeviceInstances @ 0x140781044 (PiRearrangeDeviceInstances.c)
- *     CmpGetAcpiProfileInformation @ 0x1407A601C (CmpGetAcpiProfileInformation.c)
- *     SepLoadNgenLocations @ 0x1407C9334 (SepLoadNgenLocations.c)
- *     SepReadAndPopulateCapes @ 0x1407CDE5C (SepReadAndPopulateCapes.c)
- *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
- *     CmpMoveBiosAliasTable @ 0x140877C18 (CmpMoveBiosAliasTable.c)
- *     PipCallbackHasDeviceOverrides @ 0x14089B298 (PipCallbackHasDeviceOverrides.c)
- *     PiDrvDbOverlayCopyKeys @ 0x1408B6118 (PiDrvDbOverlayCopyKeys.c)
- *     KsepRegistryQueryKeyInformation @ 0x1408C1508 (KsepRegistryQueryKeyInformation.c)
- *     SepReadAndInsertCaps @ 0x1409259CC (SepReadAndInsertCaps.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x14093ABA8 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
- *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
- *     PipInitDeviceOverrideCache @ 0x140A5CBAC (PipInitDeviceOverrideCache.c)
- *     HalpInitChipHacks @ 0x140A629BC (HalpInitChipHacks.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x140602DFC (IopApplyMutableTagToRegistryKey.c)
+ *     _RegRtlQueryInfoKey @ 0x140615E68 (_RegRtlQueryInfoKey.c)
+ *     RtlpValidateKeyTrust @ 0x14061848C (RtlpValidateKeyTrust.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140742AC0 (IopGetDriverNameFromKeyNode.c)
+ *     IopGetRegistryKeyInformation @ 0x14076A7A4 (IopGetRegistryKeyInformation.c)
+ *     PiNormalizeDeviceText @ 0x14076AE00 (PiNormalizeDeviceText.c)
+ *     PiRearrangeDeviceInstances @ 0x140781204 (PiRearrangeDeviceInstances.c)
+ *     CmpGetAcpiProfileInformation @ 0x1407A621C (CmpGetAcpiProfileInformation.c)
+ *     SepLoadNgenLocations @ 0x1407C9654 (SepLoadNgenLocations.c)
+ *     SepReadAndPopulateCapes @ 0x1407CDFCC (SepReadAndPopulateCapes.c)
+ *     CmpCloneHwProfile @ 0x1408772E4 (CmpCloneHwProfile.c)
+ *     CmpMoveBiosAliasTable @ 0x140877D78 (CmpMoveBiosAliasTable.c)
+ *     PipCallbackHasDeviceOverrides @ 0x14089B3F8 (PipCallbackHasDeviceOverrides.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6278 (PiDrvDbOverlayCopyKeys.c)
+ *     KsepRegistryQueryKeyInformation @ 0x1408C1668 (KsepRegistryQueryKeyInformation.c)
+ *     SepReadAndInsertCaps @ 0x140925B2C (SepReadAndInsertCaps.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x14093AD78 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C640 (_RegRtlCopyTreeInternal.c)
+ *     EmInitSystem @ 0x140A4628C (EmInitSystem.c)
+ *     PipInitDeviceOverrideCache @ 0x140A5DBAC (PipInitDeviceOverrideCache.c)
+ *     HalpInitChipHacks @ 0x140A639BC (HalpInitChipHacks.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryKey(
         HANDLE KeyHandle,
         KEY_INFORMATION_CLASS KeyInformationClass,
@@ -40,5 +39,5 @@ NTSTATUS __stdcall ZwQueryKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&KeyInformationClass);
+  return KiServiceInternal(KeyHandle);
 }

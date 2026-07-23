@@ -1,7 +1,7 @@
 /*
- * XREFs of __ascii_strnicmp @ 0x140195428
+ * XREFs of __ascii_strnicmp @ 0x140195568
  * Callers:
- *     _strnicmp @ 0x140195490 (_strnicmp.c)
+ *     _strnicmp @ 0x1401955D0 (_strnicmp.c)
  * Callees:
  *     <none>
  */

@@ -12,18 +12,18 @@ __int64 __fastcall SeQueryMandatoryLabel(__int64 a1)
 {
   unsigned int v1; // ebx
   __int64 v2; // rax
-  __int64 v3; // rdi
+  ACL *v3; // rdi
   PSID v4; // rsi
-  unsigned __int8 *AceByType; // rax
+  char *AceByType; // rax
   PUCHAR v6; // rax
-  unsigned int v8; // [rsp+30h] [rbp+8h] BYREF
+  ULONG Index; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = 0;
   if ( (~(unsigned __int8)*(_WORD *)(a1 + 2) & 0x10) != 0 )
     goto LABEL_11;
   if ( *(__int16 *)(a1 + 2) >= 0 )
   {
-    v3 = *(_QWORD *)(a1 + 24);
+    v3 = *(ACL **)(a1 + 24);
     goto LABEL_5;
   }
   v2 = *(unsigned int *)(a1 + 12);
@@ -31,19 +31,19 @@ __int64 __fastcall SeQueryMandatoryLabel(__int64 a1)
 LABEL_11:
     v3 = 0LL;
   else
-    v3 = a1 + v2;
+    v3 = (ACL *)(a1 + v2);
 LABEL_5:
   v4 = SepDefaultMandatorySid;
-  v8 = 0;
+  Index = 0;
   while ( 1 )
   {
-    AceByType = RtlFindAceByType(v3, 17, &v8);
+    AceByType = (char *)RtlFindAceByType(v3, 0x11u, &Index);
     if ( AceByType )
     {
       if ( (AceByType[1] & 8) == 0 )
         break;
     }
-    ++v8;
+    ++Index;
     if ( !AceByType )
       goto LABEL_8;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpAllocateMultiSZ @ 0x1409FAF04
+ * XREFs of PnpAllocateMultiSZ @ 0x1409F3874
  * Callers:
- *     PiSwPnPInfoInit @ 0x1409FA184 (PiSwPnPInfoInit.c)
- *     PiSwPdoPnPDispatch @ 0x1409FAA40 (PiSwPdoPnPDispatch.c)
+ *     PiSwPnPInfoInit @ 0x1409F2AF4 (PiSwPnPInfoInit.c)
+ *     PiSwPdoPnPDispatch @ 0x1409F33B0 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpGetMultiSzLength @ 0x1409FB2E0 (PnpGetMultiSzLength.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpGetMultiSzLength @ 0x1409F3C50 (PnpGetMultiSzLength.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpAllocateMultiSZ(void *Src, __int64 a2, __int64 a3, _QWORD *a4)
@@ -32,7 +32,7 @@ __int64 __fastcall PnpAllocateMultiSZ(void *Src, __int64 a2, __int64 a3, _QWORD 
         if ( is_mul_ok(v12, 2uLL) )
         {
           MultiSzLength = 0;
-          Pool2 = (void *)ExAllocatePool2(0x100uLL);
+          Pool2 = (void *)ExAllocatePool2(0x100uLL, 2 * v12, 0x57706E50u);
           *a4 = Pool2;
           if ( Pool2 )
           {

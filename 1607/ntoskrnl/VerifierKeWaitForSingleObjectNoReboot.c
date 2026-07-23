@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeWaitForSingleObjectNoReboot @ 0x1407129F0
+ * XREFs of VerifierKeWaitForSingleObjectNoReboot @ 0x1407129A8
  * Callers:
  *     <none>
  * Callees:

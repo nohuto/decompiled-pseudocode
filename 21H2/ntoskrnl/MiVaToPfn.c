@@ -1,14 +1,14 @@
 /*
- * XREFs of MiVaToPfn @ 0x1402A8874
+ * XREFs of MiVaToPfn @ 0x1402269B4
  * Callers:
- *     MiCheckKernelShadow @ 0x1402A8600 (MiCheckKernelShadow.c)
- *     MiGetPhysicalAddress @ 0x1402A8734 (MiGetPhysicalAddress.c)
- *     MiDuplicateCloneLeaf @ 0x14055A234 (MiDuplicateCloneLeaf.c)
- *     MiFreeInitializationCode @ 0x14075EC6C (MiFreeInitializationCode.c)
- *     MiInitializeShadowPageTable @ 0x1407A0368 (MiInitializeShadowPageTable.c)
+ *     MiCheckKernelShadow @ 0x140226740 (MiCheckKernelShadow.c)
+ *     MiGetPhysicalAddress @ 0x140226874 (MiGetPhysicalAddress.c)
+ *     MiDuplicateCloneLeaf @ 0x14055A474 (MiDuplicateCloneLeaf.c)
+ *     MiFreeInitializationCode @ 0x14075EE2C (MiFreeInitializationCode.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0568 (MiInitializeShadowPageTable.c)
  * Callees:
- *     MiFillPteHierarchy @ 0x14030C470 (MiFillPteHierarchy.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFillPteHierarchy @ 0x1403171C0 (MiFillPteHierarchy.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 unsigned __int64 __fastcall MiVaToPfn(unsigned __int64 a1)

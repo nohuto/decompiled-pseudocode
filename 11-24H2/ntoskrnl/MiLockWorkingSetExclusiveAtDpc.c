@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockWorkingSetExclusiveAtDpc @ 0x1402E39BC
+ * XREFs of MiLockWorkingSetExclusiveAtDpc @ 0x14020BEF8
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
- *     MmStealTopLevelPage @ 0x1403116F0 (MmStealTopLevelPage.c)
- *     MiMapWithLargePages @ 0x1403A7068 (MiMapWithLargePages.c)
- *     MiFreedUnusedPfnPagesDpc @ 0x14066D068 (MiFreedUnusedPfnPagesDpc.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
+ *     MiMapWithLargePages @ 0x14026BB00 (MiMapWithLargePages.c)
+ *     MmStealTopLevelPage @ 0x1403F4960 (MmStealTopLevelPage.c)
+ *     MiFreedUnusedPfnPagesDpc @ 0x14066E238 (MiFreedUnusedPfnPagesDpc.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiLockWorkingSetExclusiveAtDpc(__int64 a1)
@@ -16,7 +16,7 @@ void __fastcall MiLockWorkingSetExclusiveAtDpc(__int64 a1)
   volatile LONG *v3; // rbx
   __int64 v4; // rdi
 
-  v1 = (volatile LONG **)&unk_140E38740;
+  v1 = (volatile LONG **)&unk_140E38880;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 1 )
     v1 = (volatile LONG **)(a1 + 192);
   v2 = *v1;

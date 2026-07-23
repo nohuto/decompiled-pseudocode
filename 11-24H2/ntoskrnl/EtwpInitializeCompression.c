@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpInitializeCompression @ 0x1404B6884
+ * XREFs of EtwpInitializeCompression @ 0x1404B1064
  * Callers:
- *     EtwpInitLoggerContext @ 0x1408309D4 (EtwpInitLoggerContext.c)
+ *     EtwpInitLoggerContext @ 0x1409CFDB8 (EtwpInitLoggerContext.c)
  * Callees:
- *     EtwpFreePlaceholderList @ 0x14046420C (EtwpFreePlaceholderList.c)
- *     RtlCompressWorkSpaceSizeXpressLz @ 0x1404B6A20 (RtlCompressWorkSpaceSizeXpressLz.c)
- *     RtlCompressWorkSpaceSizeLZNT1 @ 0x140B69790 (RtlCompressWorkSpaceSizeLZNT1.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpFreePlaceholderList @ 0x14045A93C (EtwpFreePlaceholderList.c)
+ *     RtlCompressWorkSpaceSizeXpressLz @ 0x1404B1200 (RtlCompressWorkSpaceSizeXpressLz.c)
+ *     RtlCompressWorkSpaceSizeLZNT1 @ 0x140B6AEA0 (RtlCompressWorkSpaceSizeLZNT1.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpInitializeCompression(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpInitializeCompression(__int64 a1)
   unsigned int v6; // ebp
   ULONG_PTR v7; // rcx
   __int64 v8; // rax
-  int v9; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v9; // [rsp+50h] [rbp+8h] BYREF
   int v10; // [rsp+58h] [rbp+10h] BYREF
 
   *(_DWORD *)(a1 + 1436) = 5;
@@ -37,7 +37,7 @@ __int64 __fastcall EtwpInitializeCompression(__int64 a1)
   {
     if ( v9 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, v9, 0x5A777445u);
       *(_QWORD *)(a1 + 1424) = Pool2;
       if ( !Pool2 )
         return 3221225495LL;
@@ -57,7 +57,7 @@ __int64 __fastcall EtwpInitializeCompression(__int64 a1)
         v7 = 256LL;
         if ( *(_DWORD *)(a1 + 300) != 1 )
           v7 = 64LL;
-        v8 = ExAllocatePool2(v7);
+        v8 = ExAllocatePool2(v7, 0x48uLL, 0x42777445u);
         if ( !v8 )
         {
           v3 = -1073741801;

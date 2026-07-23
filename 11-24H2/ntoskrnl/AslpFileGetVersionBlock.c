@@ -1,21 +1,21 @@
 /*
- * XREFs of AslpFileGetVersionBlock @ 0x14080E580
+ * XREFs of AslpFileGetVersionBlock @ 0x14080ECC0
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x14080E498 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x14080EBD8 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     RtlVerifyVersionInfo @ 0x1404507B0 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x140463F20 (VerSetConditionMask.c)
- *     RtlFileMapFree @ 0x1404B5148 (RtlFileMapFree.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     RtlFileMapMapView @ 0x1406966E4 (RtlFileMapMapView.c)
- *     Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline @ 0x140696BB0 (Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AslFileMappingEnsure @ 0x14080915C (AslFileMappingEnsure.c)
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlVerifyVersionInfo @ 0x140445A20 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x14045A6A0 (VerSetConditionMask.c)
+ *     RtlFileMapFree @ 0x1404AF948 (RtlFileMapFree.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     RtlFileMapMapView @ 0x1406977B4 (RtlFileMapMapView.c)
+ *     Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline @ 0x140697C80 (Feature_EnsureVerBlockCanHoldFixedInfo__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AslFileMappingEnsure @ 0x14080989C (AslFileMappingEnsure.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
@@ -47,7 +47,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
   __int128 v31; // [rsp+88h] [rbp-190h]
   __int128 v32; // [rsp+98h] [rbp-180h]
   __int64 v33; // [rsp+A8h] [rbp-170h]
-  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
   size_t Size; // [rsp+238h] [rbp+20h] BYREF
 
   Src = 0LL;

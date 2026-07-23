@@ -52,10 +52,13 @@ unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
   }
   while ( qword_140C657E0 == v6 );
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6CF60);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -73,7 +76,7 @@ unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
   v14 = v13 + 48;
   v15 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
   {
     v16 = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v17) = 4;
@@ -100,10 +103,10 @@ unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
     }
     while ( v19 );
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v15 <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v15 <= 0xFu && v20 >= 2u )
     {
       v21 = KeGetCurrentPrcb();
       v22 = v21->SchedulerAssist;

@@ -14,10 +14,13 @@ void __fastcall PsspFreeLinkedHandleList(_QWORD *a1)
   _QWORD *v3; // rdi
   unsigned int *v4; // rdi
   __int64 v5; // rsi
+  PVOID BaseAddress; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
 
   if ( a1 )
   {
     v1 = a1;
+    BaseAddress = a1;
     v2 = a1;
     v3 = a1;
     do
@@ -34,7 +37,9 @@ void __fastcall PsspFreeLinkedHandleList(_QWORD *a1)
         }
         while ( v5 );
       }
-      ZwFreeVirtualMemory();
+      RegionSize = 1LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+      BaseAddress = v1;
       v2 = v1;
       v3 = v1;
     }

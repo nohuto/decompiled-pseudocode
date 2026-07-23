@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_1800789B8(__int64 a1, __int64 a2)
+void __fastcall sub_1800789B8(TP_TRACE_TYPE Type, __int64 a2)
 {
   char v2; // of
   char v3; // al
@@ -18,5 +18,5 @@ __int64 __fastcall sub_1800789B8(__int64 a1, __int64 a2)
   *(double *)(a2 - 44) = v5;
   if ( (char)(*v4 - v3) < 0 )
     JUMPOUT(0x180078986LL);
-  return TpCaptureCaller();
+  TpCaptureCaller(Type);
 }

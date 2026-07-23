@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxQueueWorkOrder @ 0x14028C1CC
+ * XREFs of PopFxQueueWorkOrder @ 0x14028C45C
  * Callers:
- *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
- *     PoFxCompleteDevicePowerNotRequired @ 0x14036E7A0 (PoFxCompleteDevicePowerNotRequired.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x14058ABB8 (PopFxIssueComponentPerfStateChanges.c)
- *     PopFxIssueDirectedPowerTransition @ 0x14058ADF4 (PopFxIssueDirectedPowerTransition.c)
+ *     PopFxIdleComponent @ 0x140313250 (PopFxIdleComponent.c)
+ *     PoFxCompleteDevicePowerNotRequired @ 0x14036E940 (PoFxCompleteDevicePowerNotRequired.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14058B0A8 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x14058B2E4 (PopFxIssueDirectedPowerTransition.c)
  * Callees:
- *     PopFxQueueWorkItem @ 0x14028C22C (PopFxQueueWorkItem.c)
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
+ *     PopFxQueueWorkItem @ 0x14028C4BC (PopFxQueueWorkItem.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
  */
 
 __int64 __fastcall PopFxQueueWorkOrder(__int64 a1, ULONG_PTR a2)

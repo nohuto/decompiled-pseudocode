@@ -1,5 +1,5 @@
 /*
- * XREFs of ViTargetWMIDeregisterCallback @ 0x140710878
+ * XREFs of ViTargetWMIDeregisterCallback @ 0x1407108A8
  * Callers:
  *     <none>
  * Callees:

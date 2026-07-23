@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCreateFile @ 0x1409B3720
+ * XREFs of IoCreateFile @ 0x1409847E0
  * Callers:
- *     DifIoCreateFileWrapper @ 0x14065ACC0 (DifIoCreateFileWrapper.c)
- *     IopInitCrashDumpRegCallback @ 0x140CBD560 (IopInitCrashDumpRegCallback.c)
+ *     DifIoCreateFileWrapper @ 0x14065E8A0 (DifIoCreateFileWrapper.c)
+ *     IopInitCrashDumpRegCallback @ 0x140CC3630 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall IoCreateFile(

@@ -113,10 +113,10 @@ __int64 __fastcall MiSetHugeRangePartitionId(unsigned __int16 *a1, __int64 a2, U
       v21 = (volatile LONG *)(v16 + 23104);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v21);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

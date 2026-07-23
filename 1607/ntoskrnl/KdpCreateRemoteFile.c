@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpCreateRemoteFile @ 0x1406F2438
+ * XREFs of KdpCreateRemoteFile @ 0x1406F20D0
  * Callers:
- *     KdPullRemoteFile @ 0x1406F2368 (KdPullRemoteFile.c)
+ *     KdPullRemoteFile @ 0x1406F2000 (KdPullRemoteFile.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KdEnterDebugger @ 0x1406F2738 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x1406F2838 (KdExitDebugger.c)
- *     KdpCopyMemoryChunks @ 0x1406F2F08 (KdpCopyMemoryChunks.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KdEnterDebugger @ 0x1406F23D0 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1406F24D0 (KdExitDebugger.c)
+ *     KdpCopyMemoryChunks @ 0x1406F2BA0 (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpCreateRemoteFile(_QWORD *a1, __int64 *a2, unsigned __int16 *a3)

@@ -1,22 +1,19 @@
 /*
- * XREFs of AlpcReserveDestroyProcedure @ 0x1409E64A0
+ * XREFs of AlpcReserveDestroyProcedure @ 0x1409E0D30
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140890590 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcDeleteBlobByHandle @ 0x1409E6514 (AlpcDeleteBlobByHandle.c)
- *     AlpcpRemoveResourcePort @ 0x1409E65DC (AlpcpRemoveResourcePort.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14089ED30 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     AlpcDeleteBlobByHandle @ 0x1409E0DA4 (AlpcDeleteBlobByHandle.c)
+ *     AlpcpRemoveResourcePort @ 0x1409E0E6C (AlpcpRemoveResourcePort.c)
  */
 
 __int64 __fastcall AlpcReserveDestroyProcedure(PVOID *a1)
 {
   ULONG_PTR v1; // rdi
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  PVOID v6; // rcx
+  PVOID v3; // rcx
 
   v1 = (ULONG_PTR)a1[3];
   if ( v1 )
@@ -24,11 +21,11 @@ __int64 __fastcall AlpcReserveDestroyProcedure(PVOID *a1)
     AlpcpLockForCachedReferenceBlob((ULONG_PTR)a1[3]);
     *(_QWORD *)(v1 + 96) = 0LL;
     a1[3] = 0LL;
-    AlpcpUnlockMessage(v1, v3, v4, v5);
+    AlpcpUnlockMessage(v1);
   }
-  v6 = a1[1];
-  if ( v6 )
-    AlpcDeleteBlobByHandle(v6, a1[2], a1);
+  v3 = a1[1];
+  if ( v3 )
+    AlpcDeleteBlobByHandle(v3, a1[2], a1);
   if ( *a1 )
   {
     AlpcpRemoveResourcePort(*a1, a1);

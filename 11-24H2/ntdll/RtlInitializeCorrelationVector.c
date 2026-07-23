@@ -1,28 +1,30 @@
 /*
- * XREFs of RtlInitializeCorrelationVector @ 0x180110020
+ * XREFs of RtlInitializeCorrelationVector @ 0x18010B0C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpBase64Encode @ 0x1801100A0 (RtlpBase64Encode.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpBase64Encode @ 0x18010B140 (RtlpBase64Encode.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlInitializeCorrelationVector(char *a1, char a2, __int64 a3)
+DWORD __cdecl RtlInitializeCorrelationVector(PCORRELATION_VECTOR CorrelationVector, int Version, const GUID *Guid)
 {
+  CHAR v4; // di
   __int64 v6; // rdx
-  __int64 result; // rax
+  DWORD result; // eax
 
-  if ( (unsigned __int8)(a2 - 1) > 1u || !a3 )
-    return 3221225485LL;
-  memset_thunk_772440563353939046(a1 + 1, 0, 0x81uLL);
-  *a1 = a2;
-  result = RtlpBase64Encode(a3, v6, a1 + 1);
-  if ( (int)result >= 0 )
+  v4 = Version;
+  if ( (unsigned __int8)(Version - 1) > 1u || !Guid )
+    return -1073741811;
+  memset_thunk_772440563353939046(CorrelationVector->Vector, 0, 0x81uLL);
+  CorrelationVector->Version = v4;
+  result = RtlpBase64Encode(Guid, v6, CorrelationVector->Vector);
+  if ( (result & 0x80000000) == 0 )
   {
-    if ( a2 == 1 )
-      strcpy(a1 + 17, ".0");
+    if ( v4 == 1 )
+      strcpy(&CorrelationVector->Vector[16], ".0");
     else
-      strcpy(a1 + 23, ".0");
+      strcpy(&CorrelationVector->Vector[22], ".0");
   }
   return result;
 }

@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 ZwLoadKey3()
+NTSTATUS __cdecl ZwLoadKey3(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        PCM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount,
+        ACCESS_MASK DesiredAccess,
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 470LL;
+  result = 470;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

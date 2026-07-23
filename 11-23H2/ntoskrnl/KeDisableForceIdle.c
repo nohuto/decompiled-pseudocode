@@ -1,7 +1,7 @@
 /*
- * XREFs of KeDisableForceIdle @ 0x14057CC80
+ * XREFs of KeDisableForceIdle @ 0x14057D170
  * Callers:
- *     KiInitializeForceIdle @ 0x14081DB00 (KiInitializeForceIdle.c)
+ *     KiInitializeForceIdle @ 0x14081DDD0 (KiInitializeForceIdle.c)
  * Callees:
  *     <none>
  */

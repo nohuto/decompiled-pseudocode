@@ -1,10 +1,10 @@
 /*
- * XREFs of PopWin32CalloutWatchdogCallback @ 0x1407DE020
+ * XREFs of PopWin32CalloutWatchdogCallback @ 0x1407E26A0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall PopWin32CalloutWatchdogCallback(

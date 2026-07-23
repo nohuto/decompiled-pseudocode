@@ -1,10 +1,10 @@
 /*
- * XREFs of KiProcessPendingDisconnect @ 0x1402C3D3C
+ * XREFs of KiProcessPendingDisconnect @ 0x14030E9FC
  * Callers:
- *     KiInterruptDispatchCommon @ 0x1402C3218 (KiInterruptDispatchCommon.c)
+ *     KiInterruptDispatchCommon @ 0x14030DED8 (KiInterruptDispatchCommon.c)
  * Callees:
- *     KiDisconnectSecondaryInterruptInternal @ 0x140423208 (KiDisconnectSecondaryInterruptInternal.c)
- *     KiDisconnectInterruptInternal @ 0x140423FBC (KiDisconnectInterruptInternal.c)
+ *     KiDisconnectSecondaryInterruptInternal @ 0x1404302F8 (KiDisconnectSecondaryInterruptInternal.c)
+ *     KiDisconnectInterruptInternal @ 0x1404310AC (KiDisconnectInterruptInternal.c)
  */
 
 _QWORD *__fastcall KiProcessPendingDisconnect(int a1, __int64 a2, __int64 a3)

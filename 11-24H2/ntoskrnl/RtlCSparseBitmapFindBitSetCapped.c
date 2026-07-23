@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCSparseBitmapFindBitSetCapped @ 0x1402C28B4
+ * XREFs of RtlCSparseBitmapFindBitSetCapped @ 0x14035DA98
  * Callers:
- *     RtlSparseArrayElementAllocated @ 0x1402C276C (RtlSparseArrayElementAllocated.c)
- *     RtlpHpVaMgrCtxQuery @ 0x1402C27C8 (RtlpHpVaMgrCtxQuery.c)
- *     RtlSparseArrayElementFindCapped @ 0x1406071C0 (RtlSparseArrayElementFindCapped.c)
+ *     RtlSparseArrayElementAllocated @ 0x14035D950 (RtlSparseArrayElementAllocated.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x14035D9AC (RtlpHpVaMgrCtxQuery.c)
+ *     RtlSparseArrayElementFindCapped @ 0x1406047C0 (RtlSparseArrayElementFindCapped.c)
  * Callees:
- *     RtlLengthCurrentClearRunForwardEx @ 0x1404AA2D0 (RtlLengthCurrentClearRunForwardEx.c)
- *     RtlLengthCurrentClearRunBackwardEx @ 0x1404F5A4C (RtlLengthCurrentClearRunBackwardEx.c)
+ *     RtlLengthCurrentClearRunForwardEx @ 0x1404A44CC (RtlLengthCurrentClearRunForwardEx.c)
+ *     RtlLengthCurrentClearRunBackwardEx @ 0x1404F334C (RtlLengthCurrentClearRunBackwardEx.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapFindBitSetCapped(__int64 a1, unsigned __int64 a2, __int64 a3)

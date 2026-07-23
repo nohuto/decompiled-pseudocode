@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAllocateController @ 0x140479460
+ * XREFs of IoAllocateController @ 0x140472DC0
  * Callers:
- *     DifIoAllocateControllerWrapper @ 0x140658DA0 (DifIoAllocateControllerWrapper.c)
+ *     DifIoAllocateControllerWrapper @ 0x14065C980 (DifIoAllocateControllerWrapper.c)
  * Callees:
- *     KeInsertDeviceQueue @ 0x140479780 (KeInsertDeviceQueue.c)
- *     IoFreeController @ 0x1404FA0B0 (IoFreeController.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeInsertDeviceQueue @ 0x1404730E0 (KeInsertDeviceQueue.c)
+ *     IoFreeController @ 0x1404F36C0 (IoFreeController.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall IoAllocateController(

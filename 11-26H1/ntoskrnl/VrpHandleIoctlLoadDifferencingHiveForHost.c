@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x1408A5504
+ * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x1408AB974
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140977F10 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140939F20 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     VrpLoadDifferencingHive @ 0x14097955C (VrpLoadDifferencingHive.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     VrpLoadDifferencingHive @ 0x14093B56C (VrpLoadDifferencingHive.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3)
@@ -95,14 +95,14 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigne
       }
       else
       {
-        v17 = (AutoBoost *)KeAbPreAcquire((__int64)&WheapPfaLock.ReservedPreviousReadyTimeValue, 0LL, 0LL, v16);
-        v19 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock.ReservedPreviousReadyTimeValue, 0LL);
+        v17 = (AutoBoost *)KeAbPreAcquire((__int64)&WheapPfaLock.WpsFeedback, 0LL, 0LL, v16);
+        v19 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock.WpsFeedback, 0LL);
         v20 = v17;
         if ( v19 )
           ExfAcquirePushLockExclusiveEx(
-            (unsigned __int64 *)&WheapPfaLock.ReservedPreviousReadyTimeValue,
+            (unsigned __int64 *)&WheapPfaLock.WpsFeedback,
             v17,
-            (__int64)&WheapPfaLock.ReservedPreviousReadyTimeValue);
+            (__int64)&WheapPfaLock.WpsFeedback);
         if ( v20 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
@@ -110,13 +110,11 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(__int64 a1, unsigne
           else
             *((_BYTE *)v20 + 10) = 1;
         }
-        *(_QWORD *)Pool2 = WheapPfaLock.KernelWaitTime;
-        WheapPfaLock.KernelWaitTime = (unsigned __int64)Pool2;
-        if ( (_InterlockedExchangeAdd64(
-                (volatile signed __int64 *)&WheapPfaLock.ReservedPreviousReadyTimeValue,
-                0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&WheapPfaLock.ReservedPreviousReadyTimeValue);
-        KeAbPostRelease((unsigned __int64)&WheapPfaLock.ReservedPreviousReadyTimeValue);
+        *(_QWORD *)Pool2 = WheapPfaLock.Spare35[0];
+        WheapPfaLock.Spare35[0] = (unsigned __int64)Pool2;
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapPfaLock.WpsFeedback, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&WheapPfaLock.WpsFeedback);
+        KeAbPostRelease((unsigned __int64)&WheapPfaLock.WpsFeedback);
       }
     }
     else

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetSystemServiceCallback @ 0x14073D130
+ * XREFs of KeSetSystemServiceCallback @ 0x14073B060
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiGetSystemServiceTraceTable @ 0x14073D304 (KiGetSystemServiceTraceTable.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiGetSystemServiceTraceTable @ 0x14073B234 (KiGetSystemServiceTraceTable.c)
  */
 
 __int64 __fastcall KeSetSystemServiceCallback(_BYTE *a1, char a2, __int64 a3, __int64 a4)
@@ -20,9 +20,9 @@ __int64 __fastcall KeSetSystemServiceCallback(_BYTE *a1, char a2, __int64 a3, __
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v15; // rax
+  char *v15; // rax
   signed __int8 v16; // cf
-  _QWORD *v17; // r14
+  char *v17; // r14
   _QWORD *v18; // rcx
   char v19; // bp
   char v20; // dl
@@ -53,16 +53,16 @@ __int64 __fastcall KeSetSystemServiceCallback(_BYTE *a1, char a2, __int64 a3, __
         return (unsigned int)-1073741275;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v15 = KeAbPreAcquire((__int64)&KiSystemServiceTraceCallbackLock, 0LL);
+      v15 = (char *)KeAbPreAcquire((__int64)&KiSystemServiceTraceCallbackLock, 0LL);
       v16 = _interlockedbittestandset64((volatile signed __int32 *)&KiSystemServiceTraceCallbackLock, 0LL);
       v17 = v15;
       if ( v16 )
         ExfAcquirePushLockExclusiveEx(
           &KiSystemServiceTraceCallbackLock,
-          (__int64)v15,
+          v15,
           (__int64)&KiSystemServiceTraceCallbackLock);
       if ( v17 )
-        *((_BYTE *)v17 + 10) = 1;
+        v17[10] = 1;
       v18 = (_QWORD *)(v13 + 48);
       if ( !a2 )
         v18 = (_QWORD *)(v13 + 56);

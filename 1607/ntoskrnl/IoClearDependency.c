@@ -1,15 +1,15 @@
 /*
- * XREFs of IoClearDependency @ 0x14062AA60
+ * XREFs of IoClearDependency @ 0x14062AB14
  * Callers:
  *     <none>
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x1401CD0D8 (PiListEntryToDependencyEdge.c)
- *     PipFreeDependencyEdge @ 0x1401CD294 (PipFreeDependencyEdge.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x1403F22F0 (PipProcessRebuildPowerRelationsQueue.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1403F4194 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x1403F41C4 (PnpReleaseDependencyRelationsLock.c)
- *     PiGetProviderList @ 0x1403F4CC4 (PiGetProviderList.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x1404EB7A0 (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PiListEntryToDependencyEdge @ 0x1401CCF24 (PiListEntryToDependencyEdge.c)
+ *     PipFreeDependencyEdge @ 0x1401CD0E0 (PipFreeDependencyEdge.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1403F11B4 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1403F3058 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1403F3088 (PnpReleaseDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x1403F3B88 (PiGetProviderList.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1404CD828 (PipAddtoRebuildPowerRelationsQueue.c)
  */
 
 __int64 __fastcall IoClearDependency(__int64 a1, __int64 a2)

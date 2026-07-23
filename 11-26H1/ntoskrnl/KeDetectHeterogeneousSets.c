@@ -1,8 +1,8 @@
 /*
- * XREFs of KeDetectHeterogeneousSets @ 0x140A9ED28
+ * XREFs of KeDetectHeterogeneousSets @ 0x140B2663C
  * Callers:
- *     KiAssignSubNodeSharedReadyQueues @ 0x1405EA5A0 (KiAssignSubNodeSharedReadyQueues.c)
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     KiAssignSubNodeSharedReadyQueues @ 0x1405ECF10 (KiAssignSubNodeSharedReadyQueues.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ __int64 __fastcall KeDetectHeterogeneousSets(__int64 a1)
   v4 = v3;
   if ( (unsigned int)KeNumberProcessors_0 <= 1 )
     return 0LL;
-  v5 = &qword_140FC1DC8;
+  v5 = &qword_140FC2DC8;
   v6 = (unsigned int)(KeNumberProcessors_0 - 1);
   do
   {
@@ -54,11 +54,11 @@ __int64 __fastcall KeDetectHeterogeneousSets(__int64 a1)
   if ( a1 )
   {
     v13 = KiProcessorBlock;
-    v14 = (_BYTE *)(a1 + 24);
+    v14 = (_BYTE *)(a1 + 48);
     do
     {
       v15 = *v13;
-      v16 = *(_QWORD *)(a1 + 8);
+      v16 = *(_QWORD *)(a1 + 16);
       ++v13;
       v17 = *(_BYTE *)(v15 + 35352);
       v14[1] = v17;
@@ -66,7 +66,7 @@ __int64 __fastcall KeDetectHeterogeneousSets(__int64 a1)
       v14 += 4;
       *(_BYTE *)(v12 + v16) = v17;
       ++v12;
-      v18 = *(unsigned __int8 **)(a1 + 16);
+      v18 = *(unsigned __int8 **)(a1 + 24);
       *v18 = v4;
       v18[1] = v4;
       --v1;

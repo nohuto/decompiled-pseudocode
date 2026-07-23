@@ -1,16 +1,16 @@
 /*
- * XREFs of PopLoggingInformation @ 0x140AC125C
+ * XREFs of PopLoggingInformation @ 0x140AC32FC
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopDiagTraceControlCallback @ 0x140AC0910 (PopDiagTraceControlCallback.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x140AC29B0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopLoggingInformation(unsigned int **a1, unsigned int *a2)
 {
-  struct _SINGLE_LIST_ENTRY *Next; // r9
+  unsigned int *v2; // r9
   unsigned int v3; // edi
   int v6; // esi
   unsigned int v7; // eax
@@ -18,25 +18,25 @@ __int64 __fastcall PopLoggingInformation(unsigned int **a1, unsigned int *a2)
   unsigned int v10; // ebx
   unsigned int *Pool2; // rax
   _OWORD *v12; // rbp
-  struct _SINGLE_LIST_ENTRY *v13; // r14
+  unsigned int *v13; // r14
   size_t v14; // rbx
 
-  Next = stru_140F10070.SystemAffinityTokenListHead.Next;
+  v2 = *(unsigned int **)&PpmIdlePolicyLock.SystemCallNumber;
   v3 = 0;
   v6 = 0;
   v7 = 4;
   while ( 1 )
   {
     v8 = v7 + 16;
-    if ( Next == &stru_140F10070.SystemAffinityTokenListHead )
+    if ( v2 == &PpmIdlePolicyLock.SystemCallNumber )
       break;
     ++v6;
     if ( v8 < v7 )
       return (unsigned int)-1073741675;
-    v7 = v8 + HIDWORD(Next[3].Next);
+    v7 = v8 + v2[7];
     if ( v7 < v8 )
       return (unsigned int)-1073741675;
-    Next = Next->Next;
+    v2 = *(unsigned int **)v2;
   }
   if ( v6 )
     v8 = v7;
@@ -50,12 +50,12 @@ __int64 __fastcall PopLoggingInformation(unsigned int **a1, unsigned int *a2)
     *Pool2 = v10;
     if ( v6 )
     {
-      v13 = stru_140F10070.SystemAffinityTokenListHead.Next;
-      while ( v13 != &stru_140F10070.SystemAffinityTokenListHead && v6 )
+      v13 = *(unsigned int **)&PpmIdlePolicyLock.SystemCallNumber;
+      while ( v13 != &PpmIdlePolicyLock.SystemCallNumber && v6 )
       {
-        v14 = (unsigned int)(HIDWORD(v13[3].Next) + 16);
-        memmove(v12, &v13[2], v14);
-        v13 = v13->Next;
+        v14 = v13[7] + 16;
+        memmove(v12, v13 + 4, v14);
+        v13 = *(unsigned int **)v13;
         v12 = (_OWORD *)((char *)v12 + v14);
         --v6;
       }

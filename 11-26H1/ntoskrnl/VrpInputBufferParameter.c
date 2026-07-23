@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpInputBufferParameter @ 0x14097747C
+ * XREFs of VrpInputBufferParameter @ 0x14093948C
  * Callers:
- *     VrpPostEnumerateKey @ 0x140976950 (VrpPostEnumerateKey.c)
- *     VrpPostQueryKey @ 0x140976F10 (VrpPostQueryKey.c)
+ *     VrpPostEnumerateKey @ 0x140938960 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x140938F20 (VrpPostQueryKey.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
  */
 
 __int64 __fastcall VrpInputBufferParameter(char a1, void *a2, unsigned int a3, void **a4)

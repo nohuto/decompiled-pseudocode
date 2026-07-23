@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAccessCheckFromState @ 0x1403CBE20
+ * XREFs of SeAccessCheckFromState @ 0x1403B0740
  * Callers:
- *     EtwpAccessCheckFromState @ 0x140920BE0 (EtwpAccessCheckFromState.c)
- *     CmpCheckAdminAccess @ 0x140A33904 (CmpCheckAdminAccess.c)
+ *     EtwpAccessCheckFromState @ 0x1408FC6F0 (EtwpAccessCheckFromState.c)
+ *     CmpCheckAdminAccess @ 0x140A4E864 (CmpCheckAdminAccess.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SepTokenFromAccessInformation @ 0x1403CBF70 (SepTokenFromAccessInformation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SepTokenFromAccessInformation @ 0x1403B0890 (SepTokenFromAccessInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 BOOLEAN __stdcall SeAccessCheckFromState(
@@ -30,8 +30,8 @@ BOOLEAN __stdcall SeAccessCheckFromState(
   _BYTE v20[1184]; // [rsp+90h] [rbp-70h] BYREF
   _BYTE v21[1184]; // [rsp+530h] [rbp+430h] BYREF
 
-  memset_0(v21, 0, 0x498uLL);
-  memset_0(v20, 0, 0x498uLL);
+  memset_0(v21, 0, sizeof(v21));
+  memset_0(v20, 0, sizeof(v20));
   SepTokenFromAccessInformation(PrimaryTokenInformation, v21);
   if ( ClientTokenInformation )
   {
@@ -54,7 +54,7 @@ BOOLEAN __stdcall SeAccessCheckFromState(
   return SeAccessCheckWithHint(
            (__int64)SecurityDescriptor,
            0,
-           (__int64)&v16,
+           (int *)&v16,
            1,
            DesiredAccess,
            PreviouslyGrantedAccess,

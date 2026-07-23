@@ -13,7 +13,7 @@
 __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // r11
+  PVOID v3; // r11
   int v4; // edi
   __int64 v5; // [rsp+40h] [rbp+8h] BYREF
   __int64 v6; // [rsp+48h] [rbp+10h] BYREF

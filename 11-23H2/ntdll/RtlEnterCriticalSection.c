@@ -94,36 +94,36 @@
  *     RtlDebugSetUserValueHeap @ 0x180107524 (RtlDebugSetUserValueHeap.c)
  *     RtlDebugSizeHeap @ 0x180107838 (RtlDebugSizeHeap.c)
  *     RtlDebugZeroHeap @ 0x180107B78 (RtlDebugZeroHeap.c)
- *     RtlTraceDatabaseAdd @ 0x180110790 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x1801109D0 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x180110AB0 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseLock @ 0x180110B30 (RtlTraceDatabaseLock.c)
- *     RtlTraceDatabaseValidate @ 0x180110B80 (RtlTraceDatabaseValidate.c)
- *     EtwpBufferingModeFlush @ 0x1801253B0 (EtwpBufferingModeFlush.c)
+ *     RtlTraceDatabaseAdd @ 0x180110760 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x1801109A0 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x180110A80 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseLock @ 0x180110B00 (RtlTraceDatabaseLock.c)
+ *     RtlTraceDatabaseValidate @ 0x180110B50 (RtlTraceDatabaseValidate.c)
+ *     EtwpBufferingModeFlush @ 0x180125380 (EtwpBufferingModeFlush.c)
  * Callees:
  *     RtlpEnterCriticalSectionContended @ 0x180021B80 (RtlpEnterCriticalSectionContended.c)
  */
 
-__int64 __fastcall RtlEnterCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // rax
   signed __int8 v2; // cf
   void *UniqueThread; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   v1 = NtCurrentTeb();
-  v2 = _interlockedbittestandreset((volatile signed __int32 *)(a1 + 8), 0);
+  v2 = _interlockedbittestandreset(&CriticalSection->LockCount, 0);
   UniqueThread = v1->ClientId.UniqueThread;
   if ( v2 )
   {
-    *(_QWORD *)(a1 + 16) = UniqueThread;
-    result = 0LL;
-    *(_DWORD *)(a1 + 12) = 1;
+    CriticalSection->OwningThread = UniqueThread;
+    result = 0;
+    CriticalSection->RecursionCount = 1;
   }
-  else if ( *(void **)(a1 + 16) == UniqueThread )
+  else if ( CriticalSection->OwningThread == UniqueThread )
   {
-    ++*(_DWORD *)(a1 + 12);
-    return 0LL;
+    ++CriticalSection->RecursionCount;
+    return 0;
   }
   else
   {

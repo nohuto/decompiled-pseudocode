@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreePartitionNodePages @ 0x140659C70
+ * XREFs of MiFreePartitionNodePages @ 0x14065A1C0
  * Callers:
- *     MiFreePartitionTree @ 0x140659E98 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
+ *     MiFreePartitionTree @ 0x14065A3E8 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
  */
 
 __int64 __fastcall MiFreePartitionNodePages(__int16 *a1, __int64 a2, int a3)

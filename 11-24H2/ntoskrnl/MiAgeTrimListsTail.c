@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAgeTrimListsTail @ 0x1402E36B0
+ * XREFs of MiAgeTrimListsTail @ 0x14020B9B0
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
- *     MiReacquireHigherPageTableLock @ 0x1402E2E70 (MiReacquireHigherPageTableLock.c)
- *     MiYieldPageTableWalk @ 0x1402E3540 (MiYieldPageTableWalk.c)
- *     MiTrimWorkingSetTail @ 0x1403CF9A0 (MiTrimWorkingSetTail.c)
- *     MiResetAccessBitsTail @ 0x14049C0A0 (MiResetAccessBitsTail.c)
+ *     MiReacquireHigherPageTableLock @ 0x14020B170 (MiReacquireHigherPageTableLock.c)
+ *     MiYieldPageTableWalk @ 0x14020B840 (MiYieldPageTableWalk.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
+ *     MiTrimWorkingSetTail @ 0x140390A50 (MiTrimWorkingSetTail.c)
+ *     MiResetAccessBitsTail @ 0x140496CD0 (MiResetAccessBitsTail.c)
  * Callees:
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140287894 (MiFreeWsleList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiTrimWorkingSetTailHelper @ 0x1402E3BD0 (MiTrimWorkingSetTailHelper.c)
- *     MiQueryVpabAccessedState @ 0x1403AACE4 (MiQueryVpabAccessedState.c)
- *     MiProcessVpabAccessedInfo @ 0x1403AAE48 (MiProcessVpabAccessedInfo.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiTrimWorkingSetTailHelper @ 0x14020D060 (MiTrimWorkingSetTailHelper.c)
+ *     MiFreeWsleList @ 0x140297494 (MiFreeWsleList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiQueryVpabAccessedState @ 0x1403994CC (MiQueryVpabAccessedState.c)
+ *     MiProcessVpabAccessedInfo @ 0x140480648 (MiProcessVpabAccessedInfo.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall MiAgeTrimListsTail(__int64 a1, __int64 *a2, __int64 (__fastcall *a3)(_QWORD), __int64 a4, __int64 a5)
@@ -22,7 +22,7 @@ void __fastcall MiAgeTrimListsTail(__int64 a1, __int64 *a2, __int64 (__fastcall 
   unsigned int v5; // r15d
   int v9; // r14d
   __int64 v10; // rcx
-  ULONG_PTR v11; // rdx
+  __int64 v11; // rdx
   _DWORD *v12; // rax
   __int64 v13; // rdx
   unsigned __int64 v14; // rbx
@@ -47,7 +47,7 @@ void __fastcall MiAgeTrimListsTail(__int64 a1, __int64 *a2, __int64 (__fastcall 
       MiFlushTbList(v10);
     v11 = a2[1];
     if ( *(_DWORD *)(v11 + 28) )
-      MiFreeWsleList(*(_QWORD *)(a1 + 32), v11, 0);
+      MiFreeWsleList(*(_QWORD *)(a1 + 32), v11, 0LL);
     v12 = (_DWORD *)a2[2];
     if ( !v12
       || !*v12

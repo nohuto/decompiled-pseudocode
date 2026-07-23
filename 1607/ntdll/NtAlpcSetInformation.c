@@ -1,20 +1,24 @@
 /*
  * XREFs of NtAlpcSetInformation @ 0x1800A7530
  * Callers:
- *     AlpcAdjustCompletionListConcurrencyCount @ 0x1800653F0 (AlpcAdjustCompletionListConcurrencyCount.c)
- *     TppAllocAlpcCompletion @ 0x180065614 (TppAllocAlpcCompletion.c)
- *     AlpcRegisterCompletionList @ 0x180088FE0 (AlpcRegisterCompletionList.c)
- *     AlpcRundownCompletionList @ 0x18008A2C0 (AlpcRundownCompletionList.c)
- *     AlpcUnregisterCompletionList @ 0x18008A2E0 (AlpcUnregisterCompletionList.c)
+ *     AlpcAdjustCompletionListConcurrencyCount @ 0x1800653E0 (AlpcAdjustCompletionListConcurrencyCount.c)
+ *     TppAllocAlpcCompletion @ 0x180065604 (TppAllocAlpcCompletion.c)
+ *     AlpcRegisterCompletionList @ 0x180088FD0 (AlpcRegisterCompletionList.c)
+ *     AlpcRundownCompletionList @ 0x18008A2B0 (AlpcRundownCompletionList.c)
+ *     AlpcUnregisterCompletionList @ 0x18008A2D0 (AlpcUnregisterCompletionList.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtAlpcSetInformation()
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 137LL;
+  result = 137;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

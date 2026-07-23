@@ -1,16 +1,16 @@
 /*
- * XREFs of MiChangingSubsectionProtos @ 0x1401ED268
+ * XREFs of MiChangingSubsectionProtos @ 0x1401ED094
  * Callers:
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     KeAbPreWait @ 0x1400C8450 (KeAbPreWait.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x1401EDD58 (MiUnlinkSubsectionWaitBlock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     KeAbPreWait @ 0x1400C62F0 (KeAbPreWait.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x1401EDB84 (MiUnlinkSubsectionWaitBlock.c)
  */
 
 __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, int a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspTlsAlloc @ 0x14084BF94
+ * XREFs of PspTlsAlloc @ 0x14084C294
  * Callers:
- *     PsTlsAlloc @ 0x14084BF60 (PsTlsAlloc.c)
+ *     PsTlsAlloc @ 0x14084C260 (PsTlsAlloc.c)
  * Callees:
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpFlsAlloc @ 0x14084C090 (RtlpFlsAlloc.c)
- *     PsTlsFree @ 0x1409B6170 (PsTlsFree.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsAlloc @ 0x14084C390 (RtlpFlsAlloc.c)
+ *     PsTlsFree @ 0x1409B6370 (PsTlsFree.c)
  */
 
 __int64 __fastcall PspTlsAlloc(__int64 a1, unsigned int a2, int a3, unsigned int *a4)

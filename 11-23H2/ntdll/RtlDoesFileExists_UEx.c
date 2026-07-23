@@ -11,13 +11,13 @@
  *     RtlDoesFileExists_UstrEx @ 0x18001E0B8 (RtlDoesFileExists_UstrEx.c)
  */
 
-char __fastcall RtlDoesFileExists_UEx(__int64 a1, char a2)
+char __fastcall RtlDoesFileExists_UEx(PCWSTR SourceString, char a2)
 {
   __int64 v3; // rdx
-  _BYTE v5[24]; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( (int)RtlInitUnicodeStringEx(v5, a1) < 0 )
+  if ( RtlInitUnicodeStringEx(&DestinationString, SourceString) < 0 )
     return 0;
   LOBYTE(v3) = a2;
-  return RtlDoesFileExists_UstrEx(v5, v3);
+  return RtlDoesFileExists_UstrEx(&DestinationString, v3);
 }

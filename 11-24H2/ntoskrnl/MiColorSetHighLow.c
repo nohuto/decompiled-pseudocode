@@ -1,7 +1,7 @@
 /*
- * XREFs of MiColorSetHighLow @ 0x140455448
+ * XREFs of MiColorSetHighLow @ 0x14044A1F8
  * Callers:
- *     MiInitializePartitionFreeZeroLists @ 0x1407ECDEC (MiInitializePartitionFreeZeroLists.c)
+ *     MiInitializePartitionFreeZeroLists @ 0x1407ED3BC (MiInitializePartitionFreeZeroLists.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapLoadPolicy @ 0x1409AEBE8
+ * XREFs of WheapLoadPolicy @ 0x1409AFBE8
  * Callers:
- *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
+ *     WheaInitialize @ 0x1409B0D68 (WheaInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x1401BAC70 (ZwQueryLicenseValue.c)
  */
 
 __int64 WheapLoadPolicy()
@@ -12,9 +12,9 @@ __int64 WheapLoadPolicy()
   bool v0; // zf
   __int64 result; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  int v3; // [rsp+50h] [rbp+8h] BYREF
-  int v4; // [rsp+58h] [rbp+10h]
-  int v5; // [rsp+60h] [rbp+18h] BYREF
+  ULONG Type; // [rsp+50h] [rbp+8h] BYREF
+  ULONG ResultDataSize; // [rsp+58h] [rbp+10h] BYREF
+  int Data; // [rsp+60h] [rbp+18h] BYREF
 
   if ( WheaRegPolicyDisableOffline != -1 )
     WheapPolicyDisableOffline = WheaRegPolicyDisableOffline != 0;
@@ -24,9 +24,11 @@ __int64 WheapLoadPolicy()
     goto LABEL_8;
   }
   RtlInitUnicodeString(&DestinationString, L"Kernel-PersistDefectiveMemoryList");
-  if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v3, (__int64)&v5) >= 0 && v3 == 4 && v4 == 4 )
+  if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+    && Type == 4
+    && ResultDataSize == 4 )
   {
-    v0 = v5 == 0;
+    v0 = Data == 0;
 LABEL_8:
     WheapPolicyMemPersistOffline = !v0;
   }

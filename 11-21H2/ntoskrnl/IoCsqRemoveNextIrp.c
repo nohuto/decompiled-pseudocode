@@ -3,41 +3,39 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 PIRP __stdcall IoCsqRemoveNextIrp(PIO_CSQ Csq, PVOID PeekContext)
 {
-  PIO_CSQ_ACQUIRE_LOCK CsqAcquireLock; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rax
-  unsigned __int8 v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rbx
+  __int64 v4; // rax
+  unsigned __int8 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  CsqAcquireLock = Csq->CsqAcquireLock;
-  v8 = 0;
+  v6 = 0;
   Csq->ReservePointer = 0LL;
-  ((void (__fastcall *)(PIO_CSQ, unsigned __int8 *))CsqAcquireLock)(Csq, &v8);
-  v5 = ((__int64 (__fastcall *)(PIO_CSQ, _QWORD, PVOID))Csq->CsqPeekNextIrp)(Csq, 0LL, PeekContext);
-  if ( v5 )
+  sub_14042A5E0(Csq, &v6);
+  v3 = sub_14042A5E0(Csq, 0LL);
+  if ( v3 )
   {
-    while ( !_InterlockedExchange64((volatile __int64 *)(v5 + 104), 0LL) )
+    while ( !_InterlockedExchange64((volatile __int64 *)(v3 + 104), 0LL) )
     {
-      v5 = ((__int64 (__fastcall *)(PIO_CSQ, __int64, PVOID))Csq->CsqPeekNextIrp)(Csq, v5, PeekContext);
-      if ( !v5 )
+      v3 = sub_14042A5E0(Csq, v3);
+      if ( !v3 )
         goto LABEL_6;
     }
-    ((void (__fastcall *)(PIO_CSQ, __int64))Csq->CsqRemoveIrp)(Csq, v5);
-    v6 = *(_QWORD *)(v5 + 144);
-    if ( *(_DWORD *)v6 == 1 )
-      *(_QWORD *)(v6 + 8) = 0LL;
-    *(_QWORD *)(v5 + 144) = 0LL;
-    ((void (__fastcall *)(PIO_CSQ, _QWORD))Csq->CsqReleaseLock)(Csq, v8);
-    return (PIRP)v5;
+    sub_14042A5E0(Csq, v3);
+    v4 = *(_QWORD *)(v3 + 144);
+    if ( *(_DWORD *)v4 == 1 )
+      *(_QWORD *)(v4 + 8) = 0LL;
+    *(_QWORD *)(v3 + 144) = 0LL;
+    sub_14042A5E0(Csq, v6);
+    return (PIRP)v3;
   }
   else
   {
 LABEL_6:
-    ((void (__fastcall *)(PIO_CSQ, _QWORD))Csq->CsqReleaseLock)(Csq, v8);
+    sub_14042A5E0(Csq, v6);
     return 0LL;
   }
 }

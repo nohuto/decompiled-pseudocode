@@ -7,7 +7,7 @@
  *     CcPinMappedData @ 0x1407BEEB0 (CcPinMappedData.c)
  *     CcUnpinDataForThread @ 0x14090BB90 (CcUnpinDataForThread.c)
  * Callees:
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
+ *     sub_14028A370 @ 0x14028A370 (sub_14028A370.c)
  *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -25,7 +25,7 @@ void __stdcall CcUnpinData(PVOID Bcb)
     v2 = 1;
     Bcb = (PVOID)((unsigned __int64)Bcb & 0xFFFFFFFFFFFFFFFEuLL);
 LABEL_3:
-    CcUnpinFileDataEx((char *)Bcb, v2, 0);
+    sub_14028A370((char *)Bcb, v2, 0);
     return;
   }
   if ( *(_WORD *)Bcb != 762 )

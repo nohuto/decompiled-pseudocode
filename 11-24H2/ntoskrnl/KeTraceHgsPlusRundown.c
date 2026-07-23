@@ -1,11 +1,11 @@
 /*
- * XREFs of KeTraceHgsPlusRundown @ 0x1405C2288
+ * XREFs of KeTraceHgsPlusRundown @ 0x1405BF858
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceWorkloadClassUpdate @ 0x14064E2D8 (EtwTraceWorkloadClassUpdate.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     PsGetNextProcessThread @ 0x14094A700 (PsGetNextProcessThread.c)
+ *     EtwTraceWorkloadClassUpdate @ 0x14064C8E8 (EtwTraceWorkloadClassUpdate.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     PsGetNextProcessThread @ 0x1408EEC70 (PsGetNextProcessThread.c)
  */
 
 void __fastcall KeTraceHgsPlusRundown(char a1)
@@ -17,7 +17,7 @@ void __fastcall KeTraceHgsPlusRundown(char a1)
   __int64 v5; // rdi
   __int64 NextProcess; // rbx
 
-  if ( KiHgsPlusEnabled && a1 && (WORD2(xmmword_140FC5B10) & 0x100) != 0 )
+  if ( KiHgsPlusEnabled && a1 && (WORD2(xmmword_140FC6B50) & 0x100) != 0 )
   {
     for ( i = 0LL; ; i = (void *)NextProcess )
     {

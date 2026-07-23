@@ -9,11 +9,11 @@
  *     RtlCompareUnicodeStrings @ 0x180035820 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall ApiSetResolveToHost(_DWORD *a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)
+__int64 __fastcall ApiSetResolveToHost(_DWORD *a1, __int16 *a2, __int64 a3, char *a4, __int64 a5)
 {
   char v5; // bp
   unsigned __int16 v9; // r10
-  _QWORD *v10; // r14
+  const WCHAR *v10; // r14
   unsigned __int64 v11; // rax
   unsigned int v12; // r11d
   _WORD *v13; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall ApiSetResolveToHost(_DWORD *a1, unsigned __int16 *a2, __int64
   int v21; // ecx
   __int64 v22; // rdx
   unsigned int v23; // eax
-  _DWORD *v24; // rbx
+  unsigned int *v24; // rbx
   __int64 v25; // rcx
   __int64 result; // rax
 
@@ -35,10 +35,10 @@ __int64 __fastcall ApiSetResolveToHost(_DWORD *a1, unsigned __int16 *a2, __int64
   *(_QWORD *)a5 = 0LL;
   *(_QWORD *)(a5 + 8) = 0LL;
   v9 = *a2;
-  if ( *a2 < 8u )
+  if ( (unsigned __int16)*a2 < 8u )
     goto LABEL_26;
-  v10 = (_QWORD *)*((_QWORD *)a2 + 1);
-  v11 = *v10 & 0xFFFFFFDFFFDFFFDFuLL;
+  v10 = (const WCHAR *)*((_QWORD *)a2 + 1);
+  v11 = *(_QWORD *)v10 & 0xFFFFFFDFFFDFFFDFuLL;
   if ( v11 != 0x2D004900500041LL && v11 != 0x2D005400580045LL )
     goto LABEL_26;
   v12 = v9;
@@ -90,11 +90,11 @@ LABEL_18:
       goto LABEL_26;
   }
   v24 = (_DWORD *)((char *)&a1[6 * *(_DWORD *)((char *)a1 + v22 + 4)] + (unsigned int)a1[4]);
-  if ( v24 && !(unsigned int)RtlCompareUnicodeStrings((_DWORD)v10, v14, (int)a1 + v24[1], v24[3] >> 1, 1) )
+  if ( v24 && !RtlCompareUnicodeStrings(v10, v14, (PCWCH)((char *)a1 + v24[1]), (unsigned __int64)v24[3] >> 1, 1u) )
   {
-    if ( a3 && v24[5] > 1u )
+    if ( a3 && v24[5] > 1 )
     {
-      v25 = ApiSetpSearchForApiSetHost((__int64)v24, *(_QWORD *)(a3 + 8), *(_WORD *)a3 >> 1, (__int64)a1);
+      v25 = ApiSetpSearchForApiSetHost((__int64)v24, *(const WCHAR **)(a3 + 8), *(_WORD *)a3 >> 1, (__int64)a1);
 LABEL_25:
       v5 = 1;
       *(_QWORD *)(a5 + 8) = (char *)a1 + *(unsigned int *)(v25 + 12);
@@ -103,7 +103,7 @@ LABEL_25:
     }
     else if ( v24[5] )
     {
-      v25 = (__int64)a1 + (unsigned int)v24[4];
+      v25 = (__int64)a1 + v24[4];
       goto LABEL_25;
     }
   }

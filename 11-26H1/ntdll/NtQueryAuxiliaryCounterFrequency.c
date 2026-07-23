@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x180161870
+ * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x180161770
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryAuxiliaryCounterFrequency()
+NTSTATUS __cdecl NtQueryAuxiliaryCounterFrequency(PLARGE_INTEGER AuxiliaryCounterFrequency)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 330LL;
+  result = 330;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

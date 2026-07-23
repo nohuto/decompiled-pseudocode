@@ -1,16 +1,16 @@
 /*
- * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x1402869E4
+ * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x140286BD4
  * Callers:
- *     SecureDump_Init @ 0x140180D40 (SecureDump_Init.c)
+ *     SecureDump_Init @ 0x140180E80 (SecureDump_Init.c)
  * Callees:
- *     SecureDump_LogErrorEvent @ 0x140286950 (SecureDump_LogErrorEvent.c)
- *     BCryptGenRandom @ 0x1402FE584 (BCryptGenRandom.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BCryptGetProperty @ 0x140691264 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x14073C080 (BCryptOpenAlgorithmProvider.c)
- *     BCryptGenerateSymmetricKey @ 0x14089B954 (BCryptGenerateSymmetricKey.c)
- *     BCryptSetProperty @ 0x14089BA7C (BCryptSetProperty.c)
+ *     SecureDump_LogErrorEvent @ 0x140286B40 (SecureDump_LogErrorEvent.c)
+ *     BCryptGenRandom @ 0x1402FE774 (BCryptGenRandom.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BCryptGetProperty @ 0x140692424 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x14073D270 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptGenerateSymmetricKey @ 0x14089CBB4 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x14089CCDC (BCryptSetProperty.c)
  */
 
 __int64 SecureDump_SymmetricEncryptionSetup()
@@ -27,7 +27,7 @@ __int64 SecureDump_SymmetricEncryptionSetup()
   int pbOutput; // [rsp+50h] [rbp+8h] BYREF
   ULONG pcbResult; // [rsp+58h] [rbp+10h] BYREF
 
-  dword_140438A18 = 1;
+  dword_140439AD8 = 1;
   SymmetricKey = BCryptOpenAlgorithmProvider(&hAlgorithm, L"XTS-AES", L"Microsoft Primitive Provider", 1u);
   if ( SymmetricKey < 0 )
     goto LABEL_11;

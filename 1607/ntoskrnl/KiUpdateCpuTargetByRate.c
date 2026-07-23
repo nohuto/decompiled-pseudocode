@@ -1,14 +1,14 @@
 /*
- * XREFs of KiUpdateCpuTargetByRate @ 0x1400A6C70
+ * XREFs of KiUpdateCpuTargetByRate @ 0x1400A51E8
  * Callers:
- *     KeInsertSchedulingGroup @ 0x1400A6414 (KeInsertSchedulingGroup.c)
- *     KiUpdateChildrenCpuTarget @ 0x1400A684C (KiUpdateChildrenCpuTarget.c)
- *     KeSetSchedulingGroupCpuRates @ 0x1400A6898 (KeSetSchedulingGroupCpuRates.c)
+ *     KeInsertSchedulingGroup @ 0x1400A498C (KeInsertSchedulingGroup.c)
+ *     KiUpdateChildrenCpuTarget @ 0x1400A4DC4 (KiUpdateChildrenCpuTarget.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x1400A4E10 (KeSetSchedulingGroupCpuRates.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiUpdateChildrenCpuTarget @ 0x1400A684C (KiUpdateChildrenCpuTarget.c)
- *     KiCheckForEffectivePriorityChange @ 0x1400A6E74 (KiCheckForEffectivePriorityChange.c)
- *     KiResetScb @ 0x1400A6EDC (KiResetScb.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiUpdateChildrenCpuTarget @ 0x1400A4DC4 (KiUpdateChildrenCpuTarget.c)
+ *     KiCheckForEffectivePriorityChange @ 0x1400A53EC (KiCheckForEffectivePriorityChange.c)
+ *     KiResetScb @ 0x1400A5454 (KiResetScb.c)
  */
 
 char __fastcall KiUpdateCpuTargetByRate(unsigned __int16 *a1, char a2)

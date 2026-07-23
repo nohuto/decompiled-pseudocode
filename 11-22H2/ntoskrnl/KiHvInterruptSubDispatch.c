@@ -29,7 +29,7 @@ __int64 __fastcall KiHvInterruptSubDispatch(__int64 a1, unsigned __int64 a2)
   __int64 result; // rax
   _BYTE v14[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KzSetIrqlUnsafe(3LL);
   }

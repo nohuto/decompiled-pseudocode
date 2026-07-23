@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcDrainDelayedUsageReportBuffer @ 0x140ABFC3C
+ * XREFs of RtlpFcDrainDelayedUsageReportBuffer @ 0x140AC1CDC
  * Callers:
- *     CmFcpManagerDrainUsageNotifications @ 0x140ABFB10 (CmFcpManagerDrainUsageNotifications.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x140AC1BB0 (CmFcpManagerDrainUsageNotifications.c)
  * Callees:
- *     RtlFindNextForwardRunSet @ 0x140468010 (RtlFindNextForwardRunSet.c)
- *     RtlpFcSendFeatureUsageNotifications @ 0x140ABFD7C (RtlpFcSendFeatureUsageNotifications.c)
+ *     RtlFindNextForwardRunSet @ 0x140462B30 (RtlFindNextForwardRunSet.c)
+ *     RtlpFcSendFeatureUsageNotifications @ 0x140AC1E1C (RtlpFcSendFeatureUsageNotifications.c)
  */
 
 _DWORD *__fastcall RtlpFcDrainDelayedUsageReportBuffer(_DWORD *a1, char a2, __int64 a3, __int64 a4, _DWORD *a5)

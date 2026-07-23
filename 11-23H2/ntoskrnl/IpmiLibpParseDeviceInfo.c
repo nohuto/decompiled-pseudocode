@@ -1,7 +1,7 @@
 /*
- * XREFs of IpmiLibpParseDeviceInfo @ 0x140677BD0
+ * XREFs of IpmiLibpParseDeviceInfo @ 0x140678120
  * Callers:
- *     IpmiHwInitializeContext @ 0x1406777A8 (IpmiHwInitializeContext.c)
+ *     IpmiHwInitializeContext @ 0x140677CF8 (IpmiHwInitializeContext.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall IpmiLibpParseDeviceInfo(__int64 a1, __int64 a2)
   if ( v2 == 16 || v2 != 21 && v2 != 32 )
     return 3221225659LL;
   WheaIpmiContext = 0LL;
-  xmmword_140C2CC30 = 0LL;
+  xmmword_140C2CBF0 = 0LL;
   LOWORD(WheaIpmiContext) = *(unsigned __int8 *)(a2 + 5);
   v4 = *(unsigned __int8 *)(a2 + 4);
   v5 = 0;
@@ -42,8 +42,8 @@ __int64 __fastcall IpmiLibpParseDeviceInfo(__int64 a1, __int64 a2)
     v5 = 1;
   }
   BYTE8(WheaIpmiContext) = v5;
-  *(_QWORD *)&xmmword_140C2CC30 = *(_QWORD *)(a2 + 8) & 0xFFFFFFFFFFFFFFFEuLL;
-  BYTE8(xmmword_140C2CC30) = *(_BYTE *)(a2 + 8) & 1;
-  BYTE9(xmmword_140C2CC30) = *(_BYTE *)(a2 + 6) & 0xFE;
+  *(_QWORD *)&xmmword_140C2CBF0 = *(_QWORD *)(a2 + 8) & 0xFFFFFFFFFFFFFFFEuLL;
+  BYTE8(xmmword_140C2CBF0) = *(_BYTE *)(a2 + 8) & 1;
+  BYTE9(xmmword_140C2CBF0) = *(_BYTE *)(a2 + 6) & 0xFE;
   return 0LL;
 }

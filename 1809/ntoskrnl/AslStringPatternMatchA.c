@@ -1,12 +1,12 @@
 /*
- * XREFs of AslStringPatternMatchA @ 0x14072129C
+ * XREFs of AslStringPatternMatchA @ 0x14072253C
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7C8 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x140721158 (SdbpFindNextIndexedWildCardTag.c)
- *     AslStringPatternMatchA @ 0x14072129C (AslStringPatternMatchA.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x14067D988 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407223F8 (SdbpFindNextIndexedWildCardTag.c)
+ *     AslStringPatternMatchA @ 0x14072253C (AslStringPatternMatchA.c)
  * Callees:
- *     toupper @ 0x140197510 (toupper.c)
- *     AslStringPatternMatchA @ 0x14072129C (AslStringPatternMatchA.c)
+ *     toupper @ 0x140197650 (toupper.c)
+ *     AslStringPatternMatchA @ 0x14072253C (AslStringPatternMatchA.c)
  */
 
 __int64 __fastcall AslStringPatternMatchA(char *a1, _BYTE *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPlInitDevice @ 0x140765394
+ * XREFs of PopPlInitDevice @ 0x140764D64
  * Callers:
- *     PopPlInitDevices @ 0x14076549C (PopPlInitDevices.c)
+ *     PopPlInitDevices @ 0x140764E6C (PopPlInitDevices.c)
  * Callees:
- *     PopPlInitComponents @ 0x140765260 (PopPlInitComponents.c)
- *     PopPlInitWString @ 0x14076570C (PopPlInitWString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopPlInitComponents @ 0x140764C30 (PopPlInitComponents.c)
+ *     PopPlInitWString @ 0x1407650DC (PopPlInitWString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitDevice(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, UNICODE_STRING **a5)
@@ -20,7 +20,7 @@ __int64 __fastcall PopPlInitDevice(__int64 a1, __int64 a2, __int64 a3, unsigned 
   v5 = 0LL;
   if ( a2 + 44 <= a4 )
   {
-    Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL);
+    Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL, 0x58uLL, 0x6C506F50u);
     v5 = Pool2;
     if ( Pool2 )
     {

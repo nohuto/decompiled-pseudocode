@@ -10,17 +10,17 @@
  *     sub_180115154 @ 0x180115154 (sub_180115154.c)
  */
 
-signed __int64 __fastcall sub_180102784(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall sub_180102784(__int64 a1, __int64 a2)
 {
-  __int64 v6; // rax
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v4; // rax
+  __int64 v5; // [rsp+40h] [rbp+18h] BYREF
 
-  RtlAcquireSRWLockShared(&qword_180166390, a2, a3, a4);
-  if ( (dword_180166398 & 1) != 0 && (dword_180166398 & 2) != 0 && (int)sub_18010251C(a1, 0, &v8) >= 0 )
+  RtlAcquireSRWLockShared(&stru_180166390);
+  if ( (dword_180166398 & 1) != 0 && (dword_180166398 & 2) != 0 && sub_18010251C(a1, 0, (PVOID *)&v5) >= 0 )
   {
-    v6 = sub_180102028(v8, a2);
-    if ( v6 )
-      sub_180115154(&qword_1801663A0, v6);
+    v4 = sub_180102028(v5, a2);
+    if ( v4 )
+      sub_180115154(&qword_1801663A0, v4);
   }
-  return RtlReleaseSRWLockShared(&qword_180166390);
+  RtlReleaseSRWLockShared(&stru_180166390);
 }

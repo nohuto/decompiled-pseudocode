@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpOpenThreadToken @ 0x1409D23D4
+ * XREFs of RtlpOpenThreadToken @ 0x1409A33B4
  * Callers:
- *     RtlAcquirePrivilege @ 0x1409D2010 (RtlAcquirePrivilege.c)
+ *     RtlAcquirePrivilege @ 0x1409A2FF0 (RtlAcquirePrivilege.c)
  * Callees:
- *     ZwOpenThreadTokenEx @ 0x1407239D0 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenThreadTokenEx @ 0x1407285A0 (ZwOpenThreadTokenEx.c)
  */
 
 int __fastcall RtlpOpenThreadToken(ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)

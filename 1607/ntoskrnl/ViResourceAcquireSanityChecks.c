@@ -10,7 +10,7 @@
  *     VerifierExAcquireSharedWaitForExclusive @ 0x140717CC4 (VerifierExAcquireSharedWaitForExclusive.c)
  *     VerifierExAcquireSharedWaitForExclusiveNoReboot @ 0x140717D3C (VerifierExAcquireSharedWaitForExclusiveNoReboot.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 struct _KTHREAD *__fastcall ViResourceAcquireSanityChecks(__int64 a1, char a2, int a3)

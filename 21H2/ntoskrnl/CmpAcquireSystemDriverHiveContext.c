@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpAcquireSystemDriverHiveContext @ 0x140A60258
+ * XREFs of CmpAcquireSystemDriverHiveContext @ 0x140A61258
  * Callers:
- *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140A60174 (CmGetSystemDriverList.c)
  * Callees:
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpFindControlSet @ 0x1407ACB40 (CmpFindControlSet.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1406E3E60 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpFindControlSet @ 0x1407ACD40 (CmpFindControlSet.c)
  */
 
 __int64 __fastcall CmpAcquireSystemDriverHiveContext(__int64 a1)

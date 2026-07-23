@@ -8,15 +8,20 @@
  *     ZwFlushVirtualMemory @ 0x1800946C0 (ZwFlushVirtualMemory.c)
  */
 
-__int64 ResCFlushMappedView()
+__int64 __fastcall ResCFlushMappedView(void *a1)
 {
-  NTSTATUS v0; // eax
-  ULONG v1; // eax
+  int v1; // eax
+  LONG v2; // eax
+  _IO_STATUS_BLOCK v4; // [rsp+20h] [rbp-18h] BYREF
+  ULONG_PTR v5; // [rsp+40h] [rbp+8h] BYREF
+  PVOID v6; // [rsp+50h] [rbp+18h] BYREF
 
-  v0 = ZwFlushVirtualMemory();
-  if ( v0 >= 0 )
+  v5 = 0LL;
+  v6 = a1;
+  v1 = ZwFlushVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v6, &v5, &v4);
+  if ( v1 >= 0 )
     return 1LL;
-  v1 = RtlNtStatusToDosError(v0);
-  RtlSetLastWin32Error(v1);
+  v2 = RtlNtStatusToDosError(v1);
+  RtlSetLastWin32Error(v2);
   return 0LL;
 }

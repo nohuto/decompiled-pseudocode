@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140204870 (AuthzBasepSetSecurityAttributesToken.c)
+ *     sub_140204870 @ 0x140204870 (sub_140204870.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
  *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepInternalSetSecurityAttributesToken @ 0x1405F3E6C (SepInternalSetSecurityAttributesToken.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x1405F56A0 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     SepSetSingletonEntry @ 0x1405F577C (SepSetSingletonEntry.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_1405F3E6C @ 0x1405F3E6C (sub_1405F3E6C.c)
+ *     sub_1405F56A0 @ 0x1405F56A0 (sub_1405F56A0.c)
+ *     sub_1405F577C @ 0x1405F577C (sub_1405F577C.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
  */
 
@@ -28,7 +28,7 @@ __int64 __fastcall SeSetSecurityAttributesTokenEx(
   PERESOURCE *v9; // rsi
   _QWORD *v10; // rdi
   __int64 v11; // rcx
-  int ProcUniqueLuidAndIndexFromToken; // eax
+  int v12; // eax
   __int64 v13; // r8
   int *v14; // rdx
   int *v15; // r9
@@ -41,11 +41,11 @@ __int64 __fastcall SeSetSecurityAttributesTokenEx(
   v20 = 0;
   if ( a3 )
     return (unsigned int)-1073741811;
-  if ( !a4 || (SepTokenSingletonAttributesConfig & 3) != 3 )
+  if ( !a4 || (dword_140D01448 & 3) != 3 )
   {
     v15 = a5;
     *a7 = 0;
-    return (unsigned int)SepInternalSetSecurityAttributesToken(a1, a2, 1, v15, a6);
+    return (unsigned int)sub_1405F3E6C(a1, a2, 1, v15, a6);
   }
   if ( a2 )
     return (unsigned int)-1073741790;
@@ -54,35 +54,35 @@ __int64 __fastcall SeSetSecurityAttributesTokenEx(
   if ( v7 >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
+    --*((_WORD *)CurrentThread + 242);
     v9 = (PERESOURCE *)Object;
     ExAcquireResourceExclusiveLite(*((PERESOURCE *)Object + 6), 1u);
     _InterlockedOr(v17, 0);
     v10 = Object;
     LOBYTE(v11) = 1;
-    ProcUniqueLuidAndIndexFromToken = SepGetProcUniqueLuidAndIndexFromTokenEx(v11, Object, &v20, &v19);
+    v12 = sub_1405F56A0(v11, Object, &v20, &v19);
     v13 = a6;
     v14 = a5;
-    if ( ProcUniqueLuidAndIndexFromToken >= 0 )
+    if ( v12 >= 0 )
     {
-      v7 = SepSetSingletonEntry(v20, a5, a6);
+      v7 = sub_1405F577C(v20, a5, a6);
       if ( v7 >= 0 )
       {
         *a7 = 1;
 LABEL_13:
-        v10[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+        v10[7] = _InterlockedIncrement64(&qword_140C0DA70);
       }
     }
     else
     {
       *a7 = 0;
-      v7 = AuthzBasepSetSecurityAttributesToken(v10[97], v14, v13);
+      v7 = sub_140204870(v10[97], v14, v13);
       if ( v7 >= 0 )
         goto LABEL_13;
     }
     _InterlockedOr(v17, 0);
     ExReleaseResourceLite(v9[6]);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    sub_1402F9540((__int64)KeGetCurrentThread());
   }
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);

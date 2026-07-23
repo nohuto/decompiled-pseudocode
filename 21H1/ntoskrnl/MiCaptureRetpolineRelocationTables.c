@@ -13,7 +13,7 @@
  */
 
 __int64 __fastcall MiCaptureRetpolineRelocationTables(
-        __int64 a1,
+        char *a1,
         unsigned int a2,
         __int64 a3,
         unsigned int a4,
@@ -21,8 +21,8 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
 {
   unsigned __int64 v5; // rbx
   unsigned __int64 v6; // r14
-  __int64 v7; // r15
-  __int64 v8; // rax
+  char *v7; // r15
+  PVOID v8; // rax
   unsigned int *v9; // rdi
   unsigned int v10; // eax
   unsigned int v11; // esi
@@ -36,21 +36,18 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   __int64 v20; // rax
   __int64 v21; // [rsp+20h] [rbp-58h] BYREF
   unsigned int *v22; // [rsp+30h] [rbp-48h]
-  unsigned int v24; // [rsp+88h] [rbp+10h]
   int v25; // [rsp+90h] [rbp+18h] BYREF
 
-  v24 = a2;
   v5 = a4;
   v6 = a2;
   v7 = a1;
   v22 = 0LL;
   v25 = 0;
-  LOBYTE(a2) = 1;
-  v8 = RtlImageDirectoryEntryToData(a1, a2, 12, (int)&v21);
+  v8 = RtlImageDirectoryEntryToData(a1, 1u, 0xCu, (PULONG)&v21);
   v9 = a5;
   if ( v8 )
   {
-    v10 = v8 - v7;
+    v10 = (_DWORD)v8 - (_DWORD)v7;
     *a5 = v10;
     if ( v10 > (unsigned int)v6 )
       goto LABEL_31;
@@ -61,7 +58,7 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   }
   if ( v5 + 8 >= v5 && v5 + 8 <= v6 )
   {
-    v21 = *(_QWORD *)(v5 + v7);
+    v21 = *(_QWORD *)&v7[v5];
     v11 = HIDWORD(v21) + v5 + 8;
     if ( v11 >= (unsigned int)v5 && v11 <= (unsigned int)v6 )
     {
@@ -80,7 +77,7 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
         }
         if ( (unsigned __int64)v12 + 12 > v11 )
           break;
-        v13 = (unsigned int *)(v12 + v7);
+        v13 = (unsigned int *)&v7[v12];
         v22 = v13;
         v21 = *(_QWORD *)v13;
         v14 = v13[2];
@@ -124,7 +121,7 @@ LABEL_17:
           v20 = (__int64)*v16;
           *(_QWORD *)v20 = v21;
           *(_DWORD *)(v20 + 8) = v14;
-          v17 = RtlValidateRetpolineRelocation(*v16, v24, &v25);
+          v17 = RtlValidateRetpolineRelocation(*v16, a2, &v25);
           if ( v17 < 0 )
             goto LABEL_20;
           v9[1] += v25;

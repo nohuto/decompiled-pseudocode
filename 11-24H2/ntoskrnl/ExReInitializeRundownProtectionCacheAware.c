@@ -1,10 +1,10 @@
 /*
- * XREFs of ExReInitializeRundownProtectionCacheAware @ 0x14045ADC0
+ * XREFs of ExReInitializeRundownProtectionCacheAware @ 0x140450160
  * Callers:
- *     PfpPartitionInsertToGlobals @ 0x1405CC9C0 (PfpPartitionInsertToGlobals.c)
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
+ *     PfpPartitionInsertToGlobals @ 0x1405CA130 (PfpPartitionInsertToGlobals.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
  * Callees:
- *     ExRundownCompletedCacheAware @ 0x14045AE10 (ExRundownCompletedCacheAware.c)
+ *     ExRundownCompletedCacheAware @ 0x1404501B0 (ExRundownCompletedCacheAware.c)
  */
 
 void __stdcall ExReInitializeRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)

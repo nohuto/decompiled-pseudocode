@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInterlockedClearBitRunEx @ 0x14044F340
+ * XREFs of RtlInterlockedClearBitRunEx @ 0x140447470
  * Callers:
- *     MiMirrorOmitPagesFromCopy @ 0x140C037CC (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140C099DC (MiMirrorOmitPagesFromCopy.c)
  * Callees:
  *     <none>
  */

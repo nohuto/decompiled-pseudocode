@@ -1,14 +1,21 @@
 /*
- * XREFs of ZwTraceControl @ 0x1403FDC40
+ * XREFs of ZwTraceControl @ 0x1403FDE20
  * Callers:
- *     EtwWriteStartScenario @ 0x140788490 (EtwWriteStartScenario.c)
+ *     EtwWriteStartScenario @ 0x140788650 (EtwWriteStartScenario.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwTraceControl(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwTraceControl(
+        ETWTRACECONTROLCODE TraceControlCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&TraceControlCode);
 }

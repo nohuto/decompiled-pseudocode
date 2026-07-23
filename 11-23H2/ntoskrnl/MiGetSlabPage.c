@@ -1,41 +1,41 @@
 /*
- * XREFs of MiGetSlabPage @ 0x14023BD70
+ * XREFs of MiGetSlabPage @ 0x14023BE40
  * Callers:
  *     MiReplenishCombineResources @ 0x140216DCC (MiReplenishCombineResources.c)
- *     MiAllocateMdlPagesByLists @ 0x14023B910 (MiAllocateMdlPagesByLists.c)
- *     MiResolvePrivateZeroFault @ 0x14026A380 (MiResolvePrivateZeroFault.c)
- *     MiAllocateKernelStackPages @ 0x1402732C0 (MiAllocateKernelStackPages.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiGetHardFaultPages @ 0x1402DF274 (MiGetHardFaultPages.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiGetPageTablePages @ 0x1402E40B8 (MiGetPageTablePages.c)
- *     MiGetUltraPage @ 0x1402EC570 (MiGetUltraPage.c)
- *     MiFinalizeImageHeaderPage @ 0x140330434 (MiFinalizeImageHeaderPage.c)
- *     MiProtectDriverSectionPte @ 0x14061A4A0 (MiProtectDriverSectionPte.c)
- *     MiAllocateSlabPageForMdl @ 0x14062315C (MiAllocateSlabPageForMdl.c)
- *     MiCompleteSecureProcessFault @ 0x140645B98 (MiCompleteSecureProcessFault.c)
- *     MmAllocateNonChargedSecurePages @ 0x14065749C (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x1406577AC (MmAllocateSecureKernelPages.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C23C (MmAllocateIndependentPagesEx.c)
+ *     MiAllocateMdlPagesByLists @ 0x14023B9E0 (MiAllocateMdlPagesByLists.c)
+ *     MiResolvePrivateZeroFault @ 0x14026A610 (MiResolvePrivateZeroFault.c)
+ *     MiAllocateKernelStackPages @ 0x140273550 (MiAllocateKernelStackPages.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiGetHardFaultPages @ 0x1402DF504 (MiGetHardFaultPages.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiGetPageTablePages @ 0x1402E4348 (MiGetPageTablePages.c)
+ *     MiGetUltraPage @ 0x1402EC800 (MiGetUltraPage.c)
+ *     MiFinalizeImageHeaderPage @ 0x1403306C4 (MiFinalizeImageHeaderPage.c)
+ *     MiProtectDriverSectionPte @ 0x14061A9F0 (MiProtectDriverSectionPte.c)
+ *     MiAllocateSlabPageForMdl @ 0x1406236AC (MiAllocateSlabPageForMdl.c)
+ *     MiCompleteSecureProcessFault @ 0x1406460E8 (MiCompleteSecureProcessFault.c)
+ *     MmAllocateNonChargedSecurePages @ 0x1406579EC (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x140657CFC (MmAllocateSecureKernelPages.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
+ *     MmAllocateIndependentPagesEx @ 0x14086C47C (MmAllocateIndependentPagesEx.c)
  * Callees:
  *     MiPfnZeroingNeeded @ 0x14021AEF4 (MiPfnZeroingNeeded.c)
- *     RtlInterlockedSetClearRun @ 0x140295D70 (RtlInterlockedSetClearRun.c)
- *     MiAsyncSlabReplenish @ 0x1402B9C84 (MiAsyncSlabReplenish.c)
- *     MiReplenishSlabAllocator @ 0x1402E6AC4 (MiReplenishSlabAllocator.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402E8FBC (MiUpdateSlabPagePlaceholderState.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiGetSlabStandbyPage @ 0x140656E5C (MiGetSlabStandbyPage.c)
+ *     RtlInterlockedSetClearRun @ 0x140296000 (RtlInterlockedSetClearRun.c)
+ *     MiAsyncSlabReplenish @ 0x1402B9F14 (MiAsyncSlabReplenish.c)
+ *     MiReplenishSlabAllocator @ 0x1402E6D54 (MiReplenishSlabAllocator.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402E924C (MiUpdateSlabPagePlaceholderState.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiGetSlabStandbyPage @ 0x1406573AC (MiGetSlabStandbyPage.c)
  */
 
 __int64 __fastcall MiGetSlabPage(__int64 a1, unsigned int a2, unsigned int a3, __int64 SchedulerAssist, __int64 *a5)
@@ -165,7 +165,7 @@ LABEL_9:
   CurrentIrql = KeGetCurrentIrql();
   v88 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -591,10 +591,10 @@ LABEL_23:
     _InterlockedAnd(v16, 0xBFFFFFFF);
     _InterlockedDecrement(v16);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v76 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v76 <= 0xFu && (unsigned __int8)v88 <= 0xFu && v76 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v76 <= 0xFu && (unsigned __int8)v88 <= 0xFu && v76 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       CurrentIrql = -1LL << ((unsigned __int8)v88 + 1);
@@ -622,10 +622,10 @@ LABEL_23:
       _InterlockedAnd64(
         (volatile signed __int64 *)(48 * SlabStandbyPage - 0x220000000000LL + 24),
         0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v81 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v81 <= 0xFu && (unsigned __int8)v80 <= 0xFu && v81 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v81 <= 0xFu && (unsigned __int8)v80 <= 0xFu && v81 >= 2u )
         {
           v82 = KeGetCurrentPrcb();
           v83 = v82->SchedulerAssist;

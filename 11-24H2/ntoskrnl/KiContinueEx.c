@@ -1,15 +1,15 @@
 /*
- * XREFs of KiContinueEx @ 0x1403E6A90
+ * XREFs of KiContinueEx @ 0x1403D4630
  * Callers:
- *     NtContinueEx @ 0x1406AA3F0 (NtContinueEx.c)
+ *     NtContinueEx @ 0x1406AB390 (NtContinueEx.c)
  * Callees:
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
- *     KeTestAlertThread @ 0x1403E6CB0 (KeTestAlertThread.c)
- *     KiContinuePreviousModeUser @ 0x1403E6E30 (KiContinuePreviousModeUser.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeContextToKframes @ 0x1404FBAC0 (KeContextToKframes.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
+ *     KeTestAlertThread @ 0x1403D4850 (KeTestAlertThread.c)
+ *     KiContinuePreviousModeUser @ 0x1403D49D0 (KiContinuePreviousModeUser.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeContextToKframes @ 0x1404F9380 (KeContextToKframes.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, _KTRAP_FRAME *a4)

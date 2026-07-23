@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlWakeAddressAll @ 0x18004D5B0
+ * XREFs of RtlWakeAddressAll @ 0x180037B30
  * Callers:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpReleaseDescriptorPseudoGlobalLock @ 0x180015F38 (RtlpReleaseDescriptorPseudoGlobalLock.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x180079AC0 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlPosixBarrier @ 0x180141868 (RtlPosixBarrier.c)
- *     RtlRcuReadUnlock @ 0x1801499E0 (RtlRcuReadUnlock.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpReleaseDescriptorPseudoGlobalLock @ 0x180061668 (RtlpReleaseDescriptorPseudoGlobalLock.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x1800682E0 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlPosixBarrier @ 0x180141768 (RtlPosixBarrier.c)
+ *     RtlRcuReadUnlock @ 0x180149890 (RtlRcuReadUnlock.c)
  * Callees:
  *     <none>
  */
 
-signed __int64 __fastcall RtlWakeAddressAll(unsigned __int64 a1)
+void __cdecl RtlWakeAddressAll(PVOID Address)
 {
-  signed __int32 v2[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v1[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  _InterlockedOr(v2, 0);
-  return RtlpWakeByAddress(a1, 1, 0LL);
+  _InterlockedOr(v1, 0);
+  RtlpWakeByAddress((unsigned __int64)Address, 1, 0LL);
 }

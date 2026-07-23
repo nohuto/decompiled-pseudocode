@@ -16,7 +16,7 @@
 
 __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  __int64 v2; // rbx
+  PRTL_BALANCED_NODE v2; // rbx
   __int64 result; // rax
 
   v2 = 0LL;
@@ -30,6 +30,6 @@ __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
   if ( (result & 1) != 0 )
     result = ExpAcquireFannedOutPushLockExclusive((unsigned int)result & 0xFFFFFFF8, v2, BugCheckParameter2);
   if ( v2 )
-    *(_BYTE *)(v2 + 26) |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   return result;
 }

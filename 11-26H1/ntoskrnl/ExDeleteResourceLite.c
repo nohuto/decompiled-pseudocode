@@ -1,32 +1,32 @@
 /*
- * XREFs of ExDeleteResourceLite @ 0x140474A20
+ * XREFs of ExDeleteResourceLite @ 0x14046E1A0
  * Callers:
- *     CcDeallocateBcb @ 0x1404749E4 (CcDeallocateBcb.c)
- *     RtlpCreateHeap @ 0x1404E3978 (RtlpCreateHeap.c)
- *     DifExDeleteResourceLiteWrapper @ 0x140650D40 (DifExDeleteResourceLiteWrapper.c)
- *     PiDrvDbDestroyNode @ 0x1407B5328 (PiDrvDbDestroyNode.c)
- *     TtmpDeleteQueue @ 0x1407ED2A0 (TtmpDeleteQueue.c)
- *     _PnpCtxCloseMachine @ 0x140895BF8 (_PnpCtxCloseMachine.c)
- *     DrvDbOpenContext @ 0x14089F29C (DrvDbOpenContext.c)
- *     DrvDbDestroyDatabaseNode @ 0x14089F990 (DrvDbDestroyDatabaseNode.c)
- *     PnpDereferenceNotify @ 0x1409DD548 (PnpDereferenceNotify.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
- *     MUIInitializeResourceLock @ 0x140AE5278 (MUIInitializeResourceLock.c)
- *     RtlDestroyHeap @ 0x140B3BB10 (RtlDestroyHeap.c)
- *     CmpDelayFreeRMWorker @ 0x140B43590 (CmpDelayFreeRMWorker.c)
- *     SepTokenDeleteMethod @ 0x140B7CB10 (SepTokenDeleteMethod.c)
+ *     CcDeallocateBcb @ 0x14046E164 (CcDeallocateBcb.c)
+ *     RtlpCreateHeap @ 0x1404DCF18 (RtlpCreateHeap.c)
+ *     DifExDeleteResourceLiteWrapper @ 0x140654920 (DifExDeleteResourceLiteWrapper.c)
+ *     PiDrvDbDestroyNode @ 0x1407B8388 (PiDrvDbDestroyNode.c)
+ *     TtmpDeleteQueue @ 0x1407F2E00 (TtmpDeleteQueue.c)
+ *     _PnpCtxCloseMachine @ 0x14089BFF8 (_PnpCtxCloseMachine.c)
+ *     DrvDbOpenContext @ 0x1408A569C (DrvDbOpenContext.c)
+ *     DrvDbDestroyDatabaseNode @ 0x1408A5D90 (DrvDbDestroyDatabaseNode.c)
+ *     PnpDereferenceNotify @ 0x140A1A800 (PnpDereferenceNotify.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
+ *     MUIInitializeResourceLock @ 0x140AE3038 (MUIInitializeResourceLock.c)
+ *     RtlDestroyHeap @ 0x140B3DD90 (RtlDestroyHeap.c)
+ *     CmpDelayFreeRMWorker @ 0x140B45480 (CmpDelayFreeRMWorker.c)
+ *     SepTokenDeleteMethod @ 0x140B85580 (SepTokenDeleteMethod.c)
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140205500 (PsBoostThreadIoQoS.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x1402B6320 (ExpResourceEnforcesOwnershipTransfer.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     DifIsPluginEnabled @ 0x14064C7D0 (DifIsPluginEnabled.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsBoostThreadIoQoS @ 0x1402055E0 (PsBoostThreadIoQoS.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x140300FE0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     DifIsPluginEnabled @ 0x1406503B0 (DifIsPluginEnabled.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
@@ -63,7 +63,7 @@ NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
     __fastfail(3u);
   Blink->Flink = Flink;
   Flink->Blink = Blink;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     ExpResourceSpinLock = 0;
   else
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&ExpResourceSpinLock, retaddr);

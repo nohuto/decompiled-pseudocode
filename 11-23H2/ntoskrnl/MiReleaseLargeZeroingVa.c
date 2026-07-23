@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleaseLargeZeroingVa @ 0x1406552B8
+ * XREFs of MiReleaseLargeZeroingVa @ 0x140655808
  * Callers:
- *     MiDecrementHugeContext @ 0x1403D6658 (MiDecrementHugeContext.c)
+ *     MiDecrementHugeContext @ 0x1403D6838 (MiDecrementHugeContext.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiZeroPageWorkMapping @ 0x140368944 (MiZeroPageWorkMapping.c)
- *     MiFreeUltraMapping @ 0x1403C65A8 (MiFreeUltraMapping.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiZeroPageWorkMapping @ 0x140368AE4 (MiZeroPageWorkMapping.c)
+ *     MiFreeUltraMapping @ 0x1403C6788 (MiFreeUltraMapping.c)
  */
 
 void __fastcall MiReleaseLargeZeroingVa(__int64 a1, int a2)

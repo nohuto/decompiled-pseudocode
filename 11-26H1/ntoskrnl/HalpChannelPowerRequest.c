@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpChannelPowerRequest @ 0x140787250
+ * XREFs of HalpChannelPowerRequest @ 0x140789D80
  * Callers:
- *     HaliSetSystemInformation @ 0x1407767B4 (HaliSetSystemInformation.c)
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliSetSystemInformation @ 0x14077965C (HaliSetSystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpStartPccCommand @ 0x140787504 (HalpStartPccCommand.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpStartPccCommand @ 0x14078A034 (HalpStartPccCommand.c)
  */
 
 __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
@@ -39,10 +39,10 @@ __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
   }
   for ( i = 0LL; ; i = (unsigned int)(i + 1) )
   {
-    if ( (unsigned int)i >= HalpChannelMemoryRangeCount )
+    if ( (unsigned int)i >= dword_140F87A80 )
       return (unsigned int)-1073741275;
-    if ( *((_WORD *)HalpChannelMemoryRanges + 8 * (unsigned int)i + 5) == v7
-      && *((_WORD *)HalpChannelMemoryRanges + 8 * (unsigned int)i + 6) == v8 )
+    if ( *((_WORD *)qword_140F87A78 + 8 * (unsigned int)i + 5) == v7
+      && *((_WORD *)qword_140F87A78 + 8 * (unsigned int)i + 6) == v8 )
     {
       break;
     }
@@ -50,24 +50,24 @@ __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
   if ( v6 == 2 )
   {
     if ( v9 == 1 )
-      v9 = *((unsigned __int8 *)HalpChannelMemoryRanges + 16 * (unsigned int)i + 15);
+      v9 = *((unsigned __int8 *)qword_140F87A78 + 16 * (unsigned int)i + 15);
     *((_QWORD *)a1 + 2) = v9;
   }
-  v12 = *((unsigned __int16 *)HalpChannelMemoryRanges + 8 * i + 4);
+  v12 = *((unsigned __int16 *)qword_140F87A78 + 8 * i + 4);
   started = HalpStartPccCommand();
   if ( started >= 0 )
   {
-    *(_DWORD *)(qword_140F87720 + 12) = v12;
-    *(_DWORD *)qword_140F87720 = *((_DWORD *)a1 + 1);
+    *(_DWORD *)(qword_140F87B20 + 12) = v12;
+    *(_DWORD *)qword_140F87B20 = *((_DWORD *)a1 + 1);
     if ( *((_DWORD *)a1 + 1) == 2 )
-      *(_DWORD *)(qword_140F87720 + 8) = *((_DWORD *)a1 + 4);
+      *(_DWORD *)(qword_140F87B20 + 8) = *((_DWORD *)a1 + 4);
     LOBYTE(v13) = 3;
-    started = guard_dispatch_icall_no_overrides(*((__int64 *)&xmmword_140F876D0 + 1), v13);
+    started = guard_dispatch_icall_no_overrides(*((__int64 *)&xmmword_140F87AD0 + 1), v13);
   }
   if ( started >= 0 )
   {
-    v14 = qword_140F87720;
-    *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140F87720 + 4);
+    v14 = qword_140F87B20;
+    *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140F87B20 + 4);
     v15 = *((_DWORD *)a1 + 1);
     switch ( v15 )
     {

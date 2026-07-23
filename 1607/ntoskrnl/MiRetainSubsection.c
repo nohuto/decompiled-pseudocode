@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRetainSubsection @ 0x1400A4194
+ * XREFs of MiRetainSubsection @ 0x1400A2ABC
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiProtoFault @ 0x1400A3E68 (MiProtoFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiProtoFault @ 0x1400A2790 (MiProtoFault.c)
  * Callees:
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiRetainSubsection(__int64 a1)

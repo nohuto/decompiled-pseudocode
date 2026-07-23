@@ -1,35 +1,35 @@
 /*
- * XREFs of KiDispatchException @ 0x1400F3D60
+ * XREFs of KiDispatchException @ 0x1400F1BB0
  * Callers:
- *     KiInitializeUserApc @ 0x1400A7C9C (KiInitializeUserApc.c)
- *     KiRaiseException @ 0x1401100A0 (KiRaiseException.c)
- *     KiExceptionDispatch @ 0x14016FC80 (KiExceptionDispatch.c)
- *     KiFastFailDispatch @ 0x140170080 (KiFastFailDispatch.c)
- *     KiParkUmsThread @ 0x1401DC264 (KiParkUmsThread.c)
- *     PspInitializeThunkContext @ 0x140459784 (PspInitializeThunkContext.c)
- *     KiSwapToUmsThread @ 0x1406508F8 (KiSwapToUmsThread.c)
+ *     KiInitializeUserApc @ 0x1400A6214 (KiInitializeUserApc.c)
+ *     KiRaiseException @ 0x140110604 (KiRaiseException.c)
+ *     KiExceptionDispatch @ 0x140170180 (KiExceptionDispatch.c)
+ *     KiFastFailDispatch @ 0x140170580 (KiFastFailDispatch.c)
+ *     KiParkUmsThread @ 0x1401DC090 (KiParkUmsThread.c)
+ *     PspInitializeThunkContext @ 0x140458654 (PspInitializeThunkContext.c)
+ *     KiSwapToUmsThread @ 0x1406509DC (KiSwapToUmsThread.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400516A4 (KeGetEffectiveIrql.c)
- *     KiSetupForInstrumentationReturn @ 0x1400ADFB4 (KiSetupForInstrumentationReturn.c)
- *     KdTrap @ 0x1400AE7E0 (KdTrap.c)
- *     RtlpCopyExtendedContext @ 0x1400F31F8 (RtlpCopyExtendedContext.c)
- *     KiPreprocessFault @ 0x1400F42E8 (KiPreprocessFault.c)
- *     KeContextFromKframes @ 0x1400F4450 (KeContextFromKframes.c)
- *     RtlGetExtendedContextLength @ 0x1400F4858 (RtlGetExtendedContextLength.c)
- *     RtlInitializeExtendedContext @ 0x1400F490C (RtlInitializeExtendedContext.c)
- *     RtlDispatchException @ 0x1400F4D00 (RtlDispatchException.c)
- *     KdpStub @ 0x1400F67A4 (KdpStub.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwTerminateProcess @ 0x14015A200 (ZwTerminateProcess.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeContextToKframes @ 0x14015D630 (KeContextToKframes.c)
- *     __chkstk @ 0x140167650 (__chkstk.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeCopyExceptionRecord @ 0x1401717BC (KeCopyExceptionRecord.c)
- *     KiCopyInformation @ 0x1401D2B80 (KiCopyInformation.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     DbgkForwardException @ 0x1404DBC50 (DbgkForwardException.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeGetEffectiveIrql @ 0x140051224 (KeGetEffectiveIrql.c)
+ *     KiSetupForInstrumentationReturn @ 0x1400AC51C (KiSetupForInstrumentationReturn.c)
+ *     KdTrap @ 0x1400ACD48 (KdTrap.c)
+ *     RtlpCopyExtendedContext @ 0x1400F1048 (RtlpCopyExtendedContext.c)
+ *     KiPreprocessFault @ 0x1400F2138 (KiPreprocessFault.c)
+ *     KeContextFromKframes @ 0x1400F22A0 (KeContextFromKframes.c)
+ *     RtlGetExtendedContextLength @ 0x1400F26A8 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x1400F275C (RtlInitializeExtendedContext.c)
+ *     RtlDispatchException @ 0x1400F2B50 (RtlDispatchException.c)
+ *     KdpStub @ 0x1400F45F4 (KdpStub.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwTerminateProcess @ 0x14015A770 (ZwTerminateProcess.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeContextToKframes @ 0x14015DBA0 (KeContextToKframes.c)
+ *     __chkstk @ 0x140167BC0 (__chkstk.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeCopyExceptionRecord @ 0x140171CB8 (KeCopyExceptionRecord.c)
+ *     KiCopyInformation @ 0x1401D29AC (KiCopyInformation.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     DbgkForwardException @ 0x1404BF254 (DbgkForwardException.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  *     KdIsThisAKdTrap @ 0x1406F30DC (KdIsThisAKdTrap.c)
  *     KdpTrap @ 0x1406F312C (KdpTrap.c)
  */
@@ -41,7 +41,7 @@ int __fastcall KiDispatchException(PEXCEPTION_RECORD ExceptionRecord, __int64 a2
   char v10; // si
   int ExceptionCode; // esi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v13; // r12d
+  ULONG v13; // r12d
   unsigned __int64 v14; // rax
   void *v15; // rsp
   __int64 v16; // r8
@@ -57,11 +57,11 @@ int __fastcall KiDispatchException(PEXCEPTION_RECORD ExceptionRecord, __int64 a2
   __int64 v26; // r8
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-10h]
   int v29[2]; // [rsp+30h] [rbp+0h] BYREF
-  unsigned int v30; // [rsp+38h] [rbp+8h] BYREF
+  ULONG ContextLength; // [rsp+38h] [rbp+8h] BYREF
   int v31; // [rsp+3Ch] [rbp+Ch]
   unsigned __int64 v32; // [rsp+40h] [rbp+10h]
   unsigned __int64 v33; // [rsp+48h] [rbp+18h]
-  __int64 v34; // [rsp+50h] [rbp+20h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+50h] [rbp+20h] BYREF
   unsigned __int64 v35; // [rsp+58h] [rbp+28h]
   PEXCEPTION_RECORD v36; // [rsp+60h] [rbp+30h]
   unsigned __int64 v37; // [rsp+68h] [rbp+38h]
@@ -112,15 +112,15 @@ int __fastcall KiDispatchException(PEXCEPTION_RECORD ExceptionRecord, __int64 a2
       v13 = 1048671;
     v29[0] = v13;
   }
-  RtlGetExtendedContextLength(v13, &v30);
-  v14 = v30 + 15LL;
-  if ( v14 <= v30 )
+  RtlGetExtendedContextLength(v13, &ContextLength);
+  v14 = ContextLength + 15LL;
+  if ( v14 <= ContextLength )
     v14 = 0xFFFFFFFFFFFFFF0LL;
   v15 = alloca(v14 & 0xFFFFFFFFFFFFFFF0uLL);
   v41 = v29;
   if ( a4 )
-    memset(v29, 0, v30);
-  v31 = RtlInitializeExtendedContext(v29, v13, &v34);
+    memset(v29, 0, ContextLength);
+  v31 = RtlInitializeExtendedContext((PCONTEXT)v29, v13, &ContextEx);
   KeContextFromKframes(a3, v7, v29);
   if ( ExceptionRecord->ExceptionCode == -2147483645 )
     --v45;
@@ -130,8 +130,8 @@ int __fastcall KiDispatchException(PEXCEPTION_RECORD ExceptionRecord, __int64 a2
   {
     if ( !v10
       || (KdpDebugRoutineSelect
-        ? (v17 = KdpTrap(a3, v7, (_DWORD)ExceptionRecord, (unsigned int)v29, a4, a4))
-        : (v17 = KdpStub(a3, v7, (_DWORD)ExceptionRecord, (unsigned int)v29, a4, a4)),
+        ? (v17 = KdpTrap(a3, v7, (_DWORD)ExceptionRecord, (unsigned int)v29, a4, 0, *(_QWORD *)v29))
+        : (v17 = KdpStub(a3, v7, (_DWORD)ExceptionRecord, (unsigned int)v29, a4, 0, *(_QWORD *)v29)),
           !v17 && !RtlDispatchException(ExceptionRecord, (PCONTEXT)v29)) )
     {
       if ( !(unsigned __int8)KdTrap(a3, v7, (int)ExceptionRecord, (int)v29, 0, 1) )
@@ -196,7 +196,7 @@ LABEL_62:
       v33 = v18;
       if ( (v13 & 0x100040) == 0x100040 )
       {
-        v21 = (v18 - *(unsigned int *)(v34 + 20)) & 0xFFFFFFFFFFFFFFC0uLL;
+        v21 = (v18 - ContextEx->XState.Length) & 0xFFFFFFFFFFFFFFC0uLL;
         v33 = v21;
       }
       v32 = (v21 - 40) & 0xFFFFFFFFFFFFFFF0uLL;
@@ -232,7 +232,7 @@ LABEL_62:
       v25[3] = v18;
       *v25 = v45;
       KeCopyExceptionRecord(v40, ExceptionRecord);
-      v31 = RtlpCopyExtendedContext(1, v22, (__int64)&v46, v13, v34, 0LL);
+      v31 = RtlpCopyExtendedContext(1, v22, (__int64)&v46, v13, (__int64)ContextEx, 0LL);
       *(_OWORD *)v22 = v46;
       *(_QWORD *)(v22 + 16) = v47;
       _disable();

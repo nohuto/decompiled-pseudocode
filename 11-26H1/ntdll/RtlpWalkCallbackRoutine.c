@@ -1,53 +1,53 @@
 /*
- * XREFs of RtlpWalkCallbackRoutine @ 0x1800921A0
+ * XREFs of RtlpWalkCallbackRoutine @ 0x1800BAC60
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x180092020 (RtlpCommitQueryDebugInfo.c)
- *     ZwAllocateVirtualMemory @ 0x18015F240 (ZwAllocateVirtualMemory.c)
+ *     RtlpCommitQueryDebugInfo @ 0x1800BB000 (RtlpCommitQueryDebugInfo.c)
+ *     ZwAllocateVirtualMemory @ 0x18015F140 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpWalkCallbackRoutine(__int64 a1, _QWORD **a2)
+__int64 __fastcall RtlpWalkCallbackRoutine(__int64 a1, _QWORD *a2)
 {
   _QWORD *v4; // rsi
   unsigned __int64 v5; // rcx
   unsigned __int64 v6; // rbp
   __int64 v7; // rcx
   char *v8; // rcx
-  _QWORD *v9; // rax
+  __int64 v9; // rax
   int v10; // eax
   __int16 v11; // ax
   __int64 result; // rax
-  char *v13; // rcx
-  _QWORD *v14; // rax
-  char *DebugInfo; // rcx
-  _QWORD *v16; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 DebugInfo; // rcx
+  __int64 v16; // rax
   __int64 v17; // rdx
   __int64 v18; // rcx
   unsigned __int64 i; // rbx
   __int16 v20; // ax
-  unsigned __int64 v21; // [rsp+50h] [rbp+8h] BYREF
-  char *v22; // [rsp+58h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp+10h] BYREF
 
   switch ( *(_DWORD *)a1 )
   {
     case 5:
-      v4 = *a2;
-      if ( ((*a2)[8] & 0x10) != 0 )
+      v4 = (_QWORD *)*a2;
+      if ( (*(_BYTE *)(*a2 + 64LL) & 0x10) != 0 )
       {
         v5 = v4[10];
         v6 = v4[9] + 32LL;
-        v22 = 0LL;
-        v21 = 0LL;
+        BaseAddress = 0LL;
+        RegionSize = 0LL;
         if ( v6 <= v5 )
           goto LABEL_4;
         if ( v6 <= v4[11] )
         {
-          v22 = (char *)v4 + v5;
-          v21 = v6 - v5;
-          if ( (int)ZwAllocateVirtualMemory(-1LL, &v22, 0LL, &v21, 4096, 4) >= 0 )
+          BaseAddress = (char *)v4 + v5;
+          RegionSize = v6 - v5;
+          if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) >= 0 )
           {
-            v4[10] += v21;
+            v4[10] += RegionSize;
 LABEL_4:
             v7 = v4[9];
             v4[9] = v6;
@@ -55,11 +55,11 @@ LABEL_4:
             if ( v8 )
             {
               v9 = a2[3];
-              if ( !v9[10] )
-                v9[10] = v8;
+              if ( !*(_QWORD *)(v9 + 80) )
+                *(_QWORD *)(v9 + 80) = v8;
               *(_OWORD *)v8 = 0LL;
               *((_OWORD *)v8 + 1) = 0LL;
-              ++*((_DWORD *)a2[3] + 9);
+              ++*(_DWORD *)(a2[3] + 36LL);
               *(_QWORD *)v8 = *(_QWORD *)(a1 + 32) + *(_QWORD *)(a1 + 40);
               if ( (*(_BYTE *)(a1 + 24) & 1) != 0 )
                 *((_WORD *)v8 + 4) = 1;
@@ -103,39 +103,39 @@ LABEL_12:
       return 0LL;
     case 2:
       v17 = *((unsigned int *)a2 + 4);
-      v18 = (__int64)&a2[1][12 * v17 + 1];
+      v18 = a2[1] + 8LL + 96 * v17;
       *((_DWORD *)a2 + 4) = v17 + 1;
       result = 0LL;
-      a2[3] = (_QWORD *)v18;
+      a2[3] = v18;
       break;
     case 3:
-      DebugInfo = RtlpCommitQueryDebugInfo(*a2, 0x20u);
+      DebugInfo = RtlpCommitQueryDebugInfo(*a2, 32LL);
       if ( !DebugInfo )
         return 3221225495LL;
       v16 = a2[3];
-      if ( !v16[10] )
-        v16[10] = DebugInfo;
+      if ( !*(_QWORD *)(v16 + 80) )
+        *(_QWORD *)(v16 + 80) = DebugInfo;
       *(_OWORD *)DebugInfo = 0LL;
-      *((_OWORD *)DebugInfo + 1) = 0LL;
-      ++*((_DWORD *)a2[3] + 9);
-      *((_WORD *)DebugInfo + 4) = 2;
-      *((_QWORD *)DebugInfo + 3) = *(_QWORD *)(a1 + 16);
+      *(_OWORD *)(DebugInfo + 16) = 0LL;
+      ++*(_DWORD *)(a2[3] + 36LL);
+      *(_WORD *)(DebugInfo + 8) = 2;
+      *(_QWORD *)(DebugInfo + 24) = *(_QWORD *)(a1 + 16);
       *(_QWORD *)DebugInfo = *(_QWORD *)(a1 + 24);
-      *((_QWORD *)DebugInfo + 2) = *(_QWORD *)(a1 + 32);
+      *(_QWORD *)(DebugInfo + 16) = *(_QWORD *)(a1 + 32);
       return 0LL;
     default:
       if ( *(_DWORD *)a1 != 4 || *(_DWORD *)(a1 + 32) != 2 )
         return 0LL;
-      v13 = RtlpCommitQueryDebugInfo(*a2, 0x20u);
+      v13 = RtlpCommitQueryDebugInfo(*a2, 32LL);
       if ( !v13 )
         return 3221225495LL;
       v14 = a2[3];
-      if ( !v14[10] )
-        v14[10] = v13;
+      if ( !*(_QWORD *)(v14 + 80) )
+        *(_QWORD *)(v14 + 80) = v13;
       *(_OWORD *)v13 = 0LL;
-      *((_OWORD *)v13 + 1) = 0LL;
-      ++*((_DWORD *)a2[3] + 9);
-      *((_WORD *)v13 + 4) = 4096;
+      *(_OWORD *)(v13 + 16) = 0LL;
+      ++*(_DWORD *)(a2[3] + 36LL);
+      *(_WORD *)(v13 + 8) = 4096;
       *(_QWORD *)v13 = *(_QWORD *)(a1 + 24);
       return 0LL;
   }

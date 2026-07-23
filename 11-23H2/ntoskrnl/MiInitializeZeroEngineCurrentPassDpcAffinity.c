@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x14038E0F8
+ * XREFs of MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x14038E2D8
  * Callers:
- *     MiStartDpcZeroingRound @ 0x14038DF48 (MiStartDpcZeroingRound.c)
+ *     MiStartDpcZeroingRound @ 0x14038E128 (MiStartDpcZeroingRound.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
  */

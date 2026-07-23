@@ -1,28 +1,28 @@
 /*
- * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20
+ * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x1406DC580
  * Callers:
- *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
- *     SeOpenObjectAuditAlarm @ 0x1405D99E0 (SeOpenObjectAuditAlarm.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405EA3A4 (CmpCheckKeyBodyAccess.c)
+ *     SeOpenObjectAuditAlarm @ 0x1405EA760 (SeOpenObjectAuditAlarm.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1406DBF40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     SeMaximumAuditMask @ 0x140595E74 (SeMaximumAuditMask.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SepQueryNameString @ 0x14071869C (SepQueryNameString.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x140920200 (SepAdtStagingEvent.c)
- *     SepQueryTypeString @ 0x140920704 (SepQueryTypeString.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SeExamineSacl @ 0x140921420 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x140924A18 (SeExamineGlobalSacl.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924B38 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     SeMaximumAuditMask @ 0x1405960A4 (SeMaximumAuditMask.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140693B00 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140693BD0 (SepAdtAuditThisEventWithContext.c)
+ *     SepQueryNameString @ 0x1406C6CEC (SepQueryNameString.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F5F8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920360 (SepAdtStagingEvent.c)
+ *     SepQueryTypeString @ 0x140920864 (SepQueryTypeString.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920AE0 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SeExamineSacl @ 0x140921580 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140924B78 (SeExamineGlobalSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924C98 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepAuditFailed @ 0x140925A60 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall SeOpenObjectAuditAlarmWithTransaction(
@@ -42,20 +42,20 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
   PUNICODE_STRING v12; // r10
   UNICODE_STRING *v13; // r14
   _BYTE *ClientToken; // rdx
-  __int64 *p_SubjectSecurityContext; // rbx
+  SECURITY_SUBJECT_CONTEXT *p_SubjectSecurityContext; // rbx
   char *AuxData; // r12
   PACCESS_TOKEN PrimaryToken; // rsi
   BOOLEAN v18; // r15
-  bool v19; // r14
+  unsigned __int8 v19; // r14
   int v20; // ebx
   char v21; // di
   BOOLEAN v22; // bl
   SECURITY_SUBJECT_CONTEXT *v23; // r9
-  __int64 v24; // r8
-  BOOLEAN v25; // r10
+  unsigned __int8 v24; // r8
+  unsigned __int8 v25; // r10
   unsigned __int8 v26; // al
   char v27; // al
-  _DWORD *v28; // rcx
+  unsigned int *v28; // rcx
   BOOLEAN v29; // al
   char v30; // al
   SECURITY_SUBJECT_CONTEXT *p_SubjectContext; // r15
@@ -113,7 +113,7 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
   if ( !AccessMode )
     return;
   ClientToken = AccessState->SubjectSecurityContext.ClientToken;
-  p_SubjectSecurityContext = (__int64 *)&AccessState->SubjectSecurityContext;
+  p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
   AuxData = (char *)AccessState->AuxData;
   if ( ClientToken )
     PrimaryToken = AccessState->SubjectSecurityContext.ClientToken;
@@ -129,12 +129,12 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
   v20 = (AccessGranted != 0 ? 3 : 0) | 0x30;
   if ( AccessGranted )
     v20 = AccessGranted != 0 ? 3 : 0;
-  if ( !dword_140C1D568 )
+  if ( !dword_140C1D588 )
   {
     v22 = GenerateAudit;
     goto LABEL_11;
   }
-  if ( (v20 & dword_140C1D568) != 0 )
+  if ( (v20 & dword_140C1D588) != 0 )
   {
 LABEL_58:
     v10 = SepAdtClassifyObjectIntoSubCategory(Object, v12, v18, v19);
@@ -234,7 +234,7 @@ LABEL_89:
     goto LABEL_11;
   }
   v21 = 0;
-  if ( !dword_140C1D728 )
+  if ( !dword_140C1D648 )
   {
     v22 = GenerateAudit;
     v10 = 119;
@@ -298,9 +298,9 @@ LABEL_56:
   v22 = GenerateAudit;
   v10 = 119;
 LABEL_12:
-  v24 = v19;
+  v24 = AccessGranted == 0;
   if ( (AccessState->OriginalDesiredAccess & 0x2000000) != 0 )
-    v24 = 1LL;
+    v24 = 1;
   v25 = 0;
   if ( (AccessState->OriginalDesiredAccess & 0x2000000) == 0 )
     v25 = v18;
@@ -320,16 +320,16 @@ LABEL_20:
   if ( v22 )
     goto LABEL_92;
   v13 = v65;
-  p_SubjectSecurityContext = (__int64 *)&AccessState->SubjectSecurityContext;
+  p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
 LABEL_22:
   if ( v18 )
   {
-    v28 = *(_DWORD **)AuxData;
+    v28 = *(unsigned int **)AuxData;
     if ( *(_QWORD *)AuxData )
     {
       if ( *v28 )
       {
-        v30 = SepAdtAuditPrivilegeUseWithContext((_DWORD)v28, v18, 0, (_DWORD)p_SubjectSecurityContext, (__int64)&v62);
+        v30 = SepAdtAuditPrivilegeUseWithContext(v28, v18, 0, p_SubjectSecurityContext, &v62);
         v10 = v62;
         v11 = SecurityDescriptor;
         if ( v30 )
@@ -344,7 +344,7 @@ LABEL_22:
   {
 LABEL_92:
     v13 = v65;
-    p_SubjectSecurityContext = (__int64 *)&AccessState->SubjectSecurityContext;
+    p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
     v29 = 1;
     goto LABEL_27;
   }
@@ -364,7 +364,7 @@ LABEL_96:
   v49 = Object;
   if ( Object )
   {
-    v63 = SepQueryNameString(Object, &P);
+    v63 = SepQueryNameString((__int64)Object, &P);
     v50 = v63;
     if ( v63 < 0 )
       goto LABEL_130;
@@ -437,7 +437,7 @@ LABEL_113:
         (int)v51,
         (__int64)v48,
         v11,
-        *p_SubjectSecurityContext,
+        (__int64)p_SubjectSecurityContext->ClientToken,
         (__int64)AccessState->SubjectSecurityContext.PrimaryToken,
         AccessState->OriginalDesiredAccess,
         AccessState->PreviouslyGrantedAccess,
@@ -457,7 +457,7 @@ LABEL_113:
         0LL,
         v51,
         SourceString,
-        *p_SubjectSecurityContext,
+        p_SubjectSecurityContext->ClientToken,
         AccessState->SubjectSecurityContext.PrimaryToken,
         AccessState->OriginalDesiredAccess,
         AccessState->PreviouslyGrantedAccess,

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCreateHiberFileSecurityDescriptor @ 0x140792FC4
+ * XREFs of PopCreateHiberFileSecurityDescriptor @ 0x140794574
  * Callers:
- *     PopCreateHiberFile @ 0x1407919C0 (PopCreateHiberFile.c)
+ *     PopCreateHiberFile @ 0x140792F70 (PopCreateHiberFile.c)
  * Callees:
- *     RtlGetAce @ 0x14027EA10 (RtlGetAce.c)
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlGetAce @ 0x14026C9B0 (RtlGetAce.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 ACL *PopCreateHiberFileSecurityDescriptor()
@@ -46,7 +46,7 @@ ACL *PopCreateHiberFileSecurityDescriptor()
       v1 = v5;
       if ( v5 )
       {
-        if ( RtlCreateAcl(v5, v4, 2u) >= 0 && (int)RtlpAddKnownAce((__int64)v1, 2u, 0, 0x10000, Src, 0) >= 0 )
+        if ( RtlCreateAcl(v5, v4, 2u) >= 0 && (int)RtlpAddKnownAce(v1, 2u, 0, 0x10000, Src, 0) >= 0 )
         {
           IdentifierAuthority = 0LL;
           RtlGetAce(v1, 0, (PVOID *)&IdentifierAuthority);

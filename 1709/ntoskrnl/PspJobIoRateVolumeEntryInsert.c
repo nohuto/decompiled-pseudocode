@@ -9,13 +9,13 @@
  *     MiLockTrackerCompare @ 0x14024E650 (MiLockTrackerCompare.c)
  */
 
-__int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   volatile LONG *v2; // r15
   __int64 v4; // r14
   KIRQL v5; // al
-  bool v6; // bl
-  unsigned __int64 v7; // rdi
+  BOOLEAN v6; // bl
+  __int64 v7; // rdi
   int v8; // esi
   unsigned __int64 v9; // r12
   KIRQL v10; // r13
@@ -28,7 +28,7 @@ __int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2
   v6 = 0;
   v7 = *(_QWORD *)v4;
   v8 = *(_BYTE *)(v4 + 8) & 1;
-  v9 = *(_QWORD *)(a2 + 24);
+  v9 = (unsigned __int64)a2[1].Children[0];
   v10 = v5;
   if ( *(_QWORD *)v4 )
   {
@@ -65,7 +65,7 @@ LABEL_7:
       v7 = v11;
     }
   }
-  RtlRbInsertNodeEx(v4, v7, v6, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7, v6, a2);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
   result = v10;
   __writecr8(v10);

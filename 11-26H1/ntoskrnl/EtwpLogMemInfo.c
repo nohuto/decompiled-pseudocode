@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpLogMemInfo @ 0x14034843C
+ * XREFs of EtwpLogMemInfo @ 0x14034A4BC
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1404C3F60 (EtwpLogMemInfoTimerCallback.c)
- *     EtwpLogMemInfoRundown @ 0x14082F528 (EtwpLogMemInfoRundown.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x1404BD840 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoRundown @ 0x140835768 (EtwpLogMemInfoRundown.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     MmQueryMemoryListInformation @ 0x1403485A8 (MmQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     MmQueryMemoryListInformation @ 0x14034A628 (MmQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall EtwpLogMemInfo(__int64 a1, __int64 a2)
@@ -33,6 +33,14 @@ __int64 __fastcall EtwpLogMemInfo(__int64 a1, __int64 a2)
   if ( a1 )
     return EtwpLogKernelEvent((__int64)v9, *(_QWORD *)(a1 + 1360), *(_DWORD *)a1, 2u, 0x270u, 0x501803u);
   if ( EtwpHostSiloState != -4812 && (*(_DWORD *)(EtwpHostSiloState + 4816) & 0x80000) != 0 )
-    EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+    EtwWriteEx(
+      (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+      &KERNEL_MEM_EVENT_MEMINFO,
+      0LL,
+      0,
+      0LL,
+      0LL,
+      3u,
+      &UserData);
   return EtwTraceKernelEvent((int)v9, 2, 0x20080000u, 624, 5249027);
 }

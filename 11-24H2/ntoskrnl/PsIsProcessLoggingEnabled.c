@@ -1,9 +1,9 @@
 /*
- * XREFs of PsIsProcessLoggingEnabled @ 0x14041A430
+ * XREFs of PsIsProcessLoggingEnabled @ 0x14040A430
  * Callers:
- *     NtProtectVirtualMemory @ 0x1408DC680 (NtProtectVirtualMemory.c)
- *     PsImpersonateClient @ 0x1409102D0 (PsImpersonateClient.c)
- *     MiReadWriteVirtualMemory @ 0x1409A9710 (MiReadWriteVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1408DA8B0 (NtProtectVirtualMemory.c)
+ *     PsImpersonateClient @ 0x1408E7A20 (PsImpersonateClient.c)
+ *     MiReadWriteVirtualMemory @ 0x140992B20 (MiReadWriteVirtualMemory.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetProcessWindowStation @ 0x140B19560
+ * XREFs of PsSetProcessWindowStation @ 0x140B1B9B0
  * Callers:
  *     <none>
  * Callees:

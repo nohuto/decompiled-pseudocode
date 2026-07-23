@@ -1,20 +1,20 @@
 /*
- * XREFs of KiComputeThreadAffinity @ 0x1402EBAA0
+ * XREFs of KiComputeThreadAffinity @ 0x14029CDF0
  * Callers:
- *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x1402AAFD4 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiSetSystemAffinityThread @ 0x1402EB8C4 (KiSetSystemAffinityThread.c)
- *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     KiUpdateThreadCpuSets @ 0x1403C628C (KiUpdateThreadCpuSets.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140229114 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiQueueReadyThread @ 0x14027A920 (KiQueueReadyThread.c)
+ *     KiSetSystemAffinityThread @ 0x14029CC14 (KiSetSystemAffinityThread.c)
+ *     KiSetAffinityThread @ 0x14029D724 (KiSetAffinityThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     KiUpdateThreadCpuSets @ 0x1403C642C (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x140230DF0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x140277ED4 (KiUpdateNodeAffinitizedFlag.c)
- *     KeSelectIdealProcessor @ 0x140277F88 (KeSelectIdealProcessor.c)
- *     KiPrcbInGroupAffinity @ 0x1402EBA74 (KiPrcbInGroupAffinity.c)
- *     RtlBeginReadTickLock @ 0x1402EBB60 (RtlBeginReadTickLock.c)
- *     KiComputeCpuSetAffinity @ 0x1402EBB78 (KiComputeCpuSetAffinity.c)
- *     KeSelectNodeForAffinity @ 0x1402ECD60 (KeSelectNodeForAffinity.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x140265E74 (KiUpdateNodeAffinitizedFlag.c)
+ *     KeSelectIdealProcessor @ 0x140265F28 (KeSelectIdealProcessor.c)
+ *     KiPrcbInGroupAffinity @ 0x14029CDC4 (KiPrcbInGroupAffinity.c)
+ *     RtlBeginReadTickLock @ 0x14029CEB0 (RtlBeginReadTickLock.c)
+ *     KiComputeCpuSetAffinity @ 0x14029CEC8 (KiComputeCpuSetAffinity.c)
+ *     KeSelectNodeForAffinity @ 0x14029E0B0 (KeSelectNodeForAffinity.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402D5640 (KiUpdateSharedReadyQueueAffinityThread.c)
  */
 
 __int64 __fastcall KiComputeThreadAffinity(__int64 a1)

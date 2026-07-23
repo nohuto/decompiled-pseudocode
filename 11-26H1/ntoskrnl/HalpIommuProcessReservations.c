@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuProcessReservations @ 0x14058E0CC
+ * XREFs of HalpIommuProcessReservations @ 0x14059084C
  * Callers:
- *     HalpIommuInitSystem @ 0x140BEB6E0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x140BF16E0 (HalpIommuInitSystem.c)
  * Callees:
- *     HalpIommuProcessReservationsInternal @ 0x14058E128 (HalpIommuProcessReservationsInternal.c)
+ *     HalpIommuProcessReservationsInternal @ 0x1405908A8 (HalpIommuProcessReservationsInternal.c)
  */
 
 __int64 __fastcall HalpIommuProcessReservations(__int64 a1)

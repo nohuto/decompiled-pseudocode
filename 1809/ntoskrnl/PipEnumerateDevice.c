@@ -1,19 +1,19 @@
 /*
- * XREFs of PipEnumerateDevice @ 0x1406E7F10
+ * XREFs of PipEnumerateDevice @ 0x1406E91B0
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x1400F5288 (PnpDiagnosticTraceObject.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159D20 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
- *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
- *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14015A000 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
- *     PoFxActivateDevice @ 0x14015A08C (PoFxActivateDevice.c)
- *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14015A2C8 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
- *     PipClearDevNodeFlags @ 0x1406E64E0 (PipClearDevNodeFlags.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E24 (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PnpQueryDeviceRelations @ 0x1406E8020 (PnpQueryDeviceRelations.c)
- *     PnpDeviceCompletionRequestCreate @ 0x1406E8090 (PnpDeviceCompletionRequestCreate.c)
+ *     PnpDiagnosticTraceObject @ 0x1400F5308 (PnpDiagnosticTraceObject.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159E20 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PipSetDevNodeState @ 0x140159ED8 (PipSetDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14015A028 (PoFxIdleDevice.c)
+ *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14015A100 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
+ *     PoFxActivateDevice @ 0x14015A18C (PoFxActivateDevice.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14015A3C8 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PipClearDevNodeFlags @ 0x1406E7780 (PipClearDevNodeFlags.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E90C4 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpQueryDeviceRelations @ 0x1406E92C0 (PnpQueryDeviceRelations.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x1406E9330 (PnpDeviceCompletionRequestCreate.c)
  */
 
 __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)

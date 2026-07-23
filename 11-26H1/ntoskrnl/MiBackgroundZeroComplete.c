@@ -1,18 +1,18 @@
 /*
- * XREFs of MiBackgroundZeroComplete @ 0x1404A543C
+ * XREFs of MiBackgroundZeroComplete @ 0x14049EACC
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiReplenishUltraPageTables @ 0x1402F445C (MiReplenishUltraPageTables.c)
- *     MiLogZeroPageDecision @ 0x14049165C (MiLogZeroPageDecision.c)
- *     MiReduceZeroingThreads @ 0x14051EB08 (MiReduceZeroingThreads.c)
- *     MiAddZeroingThread @ 0x14051F7F0 (MiAddZeroingThread.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiReplenishUltraPageTables @ 0x1402D64DC (MiReplenishUltraPageTables.c)
+ *     MiLogZeroPageDecision @ 0x14048B1AC (MiLogZeroPageDecision.c)
+ *     MiReduceZeroingThreads @ 0x1405211AC (MiReduceZeroingThreads.c)
+ *     MiAddZeroingThread @ 0x140521E94 (MiAddZeroingThread.c)
  */
 
 void __fastcall MiBackgroundZeroComplete(_QWORD *a1)
@@ -57,7 +57,7 @@ void __fastcall MiBackgroundZeroComplete(_QWORD *a1)
     LowPart = v1->LowPart;
     v27 = v1->LowPart;
     v6 = *(unsigned int *)(v4.QuadPart + 56);
-    if ( byte_140E2D71A )
+    if ( byte_140E2D89A )
       MiReplenishUltraPageTables(v1[8].LowPart, 0);
     v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v1[23].QuadPart + 14200));
     if ( v1[20].QuadPart < 0x7D0uLL )
@@ -77,7 +77,7 @@ void __fastcall MiBackgroundZeroComplete(_QWORD *a1)
     if ( PerformanceFrequency.QuadPart != 10000000 )
       v11.QuadPart = 10000000 * v11.QuadPart / PerformanceFrequency.QuadPart;
     v1[7] = v11;
-    v12 = *(_QWORD *)(384 * v6 + qword_140E2D6B8 + 376);
+    v12 = *(_QWORD *)(384 * v6 + qword_140E2D838 + 376);
     v13 = (volatile LONG *)(v12 + 64);
     ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v12 + 64));
     v14 = 168LL * (int)v27;

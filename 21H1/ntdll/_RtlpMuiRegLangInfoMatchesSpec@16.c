@@ -11,7 +11,7 @@
  *     __wcsicmp @ 0x4B2F7990 (__wcsicmp.c)
  */
 
-char __fastcall RtlpMuiRegLangInfoMatchesSpec(int a1, int a2, char a3, unsigned __int16 a4)
+char __fastcall RtlpMuiRegLangInfoMatchesSpec(DWORD a1, int a2, char a3, unsigned __int16 a4)
 {
   const WCHAR *v4; // ebx
   wchar_t *v6; // edi
@@ -25,13 +25,13 @@ char __fastcall RtlpMuiRegLangInfoMatchesSpec(int a1, int a2, char a3, unsigned 
   const wchar_t *v16; // eax
   int v17; // eax
   int v18; // ecx
-  int v19; // [esp-8h] [ebp-28h]
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-10h] BYREF
-  int v21; // [esp+18h] [ebp-8h] BYREF
+  LCID v19; // [esp-8h] [ebp-28h]
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-10h] BYREF
+  DWORD Lcid; // [esp+18h] [ebp-8h] BYREF
   char v22; // [esp+1Fh] [ebp-1h]
 
   v4 = 0;
-  v21 = a1;
+  Lcid = a1;
   v6 = 0;
   if ( a3 == 1 )
   {
@@ -46,8 +46,8 @@ char __fastcall RtlpMuiRegLangInfoMatchesSpec(int a1, int a2, char a3, unsigned 
       if ( v4 )
       {
         RtlInitUnicodeString(&DestinationString, v4);
-        if ( RtlCultureNameToLCID(&DestinationString.Length, &v21) )
-          return (_WORD)v21 == a4;
+        if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+          return (_WORD)Lcid == a4;
       }
     }
     return 0;
@@ -74,12 +74,12 @@ char __fastcall RtlpMuiRegLangInfoMatchesSpec(int a1, int a2, char a3, unsigned 
         v19 = *(unsigned __int16 *)(a2 + 4);
         DestinationString.Buffer = v6;
         *(_DWORD *)&DestinationString.Length = 11141120;
-        if ( RtlLCIDToCultureName(v19, &DestinationString.Length) )
+        if ( RtlLCIDToCultureName(v19, &DestinationString) )
         {
           v12 = a4;
           goto LABEL_26;
         }
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v6);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
       }
     }
     return 0;
@@ -96,7 +96,7 @@ char __fastcall RtlpMuiRegLangInfoMatchesSpec(int a1, int a2, char a3, unsigned 
     return 0;
   RtlInitUnicodeString(&DestinationString, v14);
 LABEL_26:
-  v15 = *(_DWORD *)(v21 + 24);
+  v15 = *(_DWORD *)(Lcid + 24);
   if ( v15 && v12 >= 0 && v12 < (int)*(unsigned __int16 *)(v15 + 6) )
     v16 = (const wchar_t *)(*(_DWORD *)(v15 + 16) + 2 * *(__int16 *)(*(_DWORD *)(v15 + 12) + 2 * v12));
   else
@@ -104,6 +104,6 @@ LABEL_26:
   if ( !v16 || (v17 = _wcsicmp(DestinationString.Buffer, v16), v22 = 1, v17) )
     v22 = 0;
   if ( v6 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v6);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   return v22;
 }

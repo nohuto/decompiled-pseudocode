@@ -54,24 +54,23 @@ __int64 __fastcall sub_14091DCAC(__int64 a1, int a2, int a3, __int64 a4)
   unsigned int v39; // edx
   int v40; // eax
   unsigned int v41; // ecx
-  __int64 v42; // rdx
-  struct _IRP *v43; // r14
-  char *v44; // rax
-  char *v45; // rbx
-  unsigned int v46; // ecx
-  _DWORD *v47; // rdx
-  unsigned int v48; // eax
-  _DWORD *v49; // rax
-  HANDLE v51; // [rsp+48h] [rbp-38h] BYREF
+  struct _IRP *v42; // r14
+  char *v43; // rax
+  char *v44; // rbx
+  unsigned int v45; // ecx
+  _DWORD *v46; // rdx
+  unsigned int v47; // eax
+  _DWORD *v48; // rax
+  HANDLE TargetFile; // [rsp+48h] [rbp-38h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-30h]
   PVOID Object[2]; // [rsp+60h] [rbp-20h] BYREF
-  __int128 v54; // [rsp+70h] [rbp-10h]
-  unsigned int v55; // [rsp+C0h] [rbp+40h]
-  HANDLE v56; // [rsp+C8h] [rbp+48h]
-  __int64 v57; // [rsp+D0h] [rbp+50h] BYREF
+  __int128 v53; // [rsp+70h] [rbp-10h]
+  unsigned int v54; // [rsp+C0h] [rbp+40h]
+  HANDLE v55; // [rsp+C8h] [rbp+48h]
+  __int64 v56; // [rsp+D0h] [rbp+50h] BYREF
 
-  LODWORD(v57) = a3;
-  LODWORD(v56) = a2;
+  LODWORD(v56) = a3;
+  LODWORD(v55) = a2;
   if ( !a1 || !a4 )
     return (unsigned int)-1073741811;
   v6 = *(unsigned int **)(a1 + 8);
@@ -103,7 +102,7 @@ LABEL_17:
       v5 = 0;
       if ( v11 != 8 )
         return (unsigned int)-1073741762;
-      v56 = *v13;
+      v55 = *v13;
       Handle = *v13;
     }
   }
@@ -141,7 +140,7 @@ LABEL_32:
       v5 = 0;
       if ( v18 != 4 )
         return (unsigned int)-1073741789;
-      LODWORD(v56) = *v20;
+      LODWORD(v55) = *v20;
     }
   }
   else
@@ -178,7 +177,7 @@ LABEL_46:
       v5 = 0;
       if ( v25 != 4 )
         return (unsigned int)-1073741789;
-      v55 = *v27;
+      v54 = *v27;
     }
   }
   else
@@ -209,8 +208,8 @@ LABEL_46:
     return (unsigned int)-1073741811;
   v33 = 0LL;
   v34 = 0LL;
-  v54 = 0uLL;
-  v51 = 0LL;
+  v53 = 0uLL;
+  TargetFile = 0LL;
   if ( !Handle || !v32 )
     return (unsigned int)-1073741811;
   v35 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)IoFileObjectType, 1, Object, 0LL);
@@ -227,23 +226,23 @@ LABEL_46:
     v34 = 0LL;
     goto LABEL_74;
   }
-  v5 = FsRtlKernelFsControlFile(v36, 0x900F4u, 0LL, 0, PoolWithTag, 0x248u, (ULONG *)&v57);
+  v5 = FsRtlKernelFsControlFile(v36, 0x900F4u, 0LL, 0, PoolWithTag, 0x248u, (ULONG *)&v56);
   if ( v5 >= 0 )
   {
-    if ( (unsigned int)v57 < 0x40 )
+    if ( (unsigned int)v56 < 0x40 )
     {
 LABEL_66:
       v5 = -1073741762;
       goto LABEL_70;
     }
     Object[0] = *(PVOID *)&PoolWithTag->Type;
-    v5 = FsRtlKernelFsControlFile(v36, 0x900EBu, 0LL, 0, PoolWithTag, 0x248u, (ULONG *)&v57);
+    v5 = FsRtlKernelFsControlFile(v36, 0x900EBu, 0LL, 0, PoolWithTag, 0x248u, (ULONG *)&v56);
     if ( v5 >= 0 )
     {
-      if ( (unsigned int)v57 < 0x40 )
+      if ( (unsigned int)v56 < 0x40 )
         goto LABEL_66;
       Object[1] = PoolWithTag->AssociatedIrp.MasterIrp;
-      v54 = *(_OWORD *)Object;
+      v53 = *(_OWORD *)Object;
       v33 = Object[0];
     }
   }
@@ -255,69 +254,66 @@ LABEL_73:
     v34 = 0LL;
     goto LABEL_74;
   }
-  if ( __PAIR128__(*((unsigned __int64 *)&v54 + 1), (unsigned __int64)v33) != *v32 )
+  if ( __PAIR128__(*((unsigned __int64 *)&v53 + 1), (unsigned __int64)v33) != *v32 )
   {
     v5 = -1073741762;
     goto LABEL_73;
   }
-  if ( !(_DWORD)v56 )
+  if ( !(_DWORD)v55 )
   {
-    if ( ObOpenObjectByPointer(v36, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &v51) >= 0 )
-    {
-      LOBYTE(v42) = v55 - 2 > 1 ? 0 : 6;
-      ZwSetCachedSigningLevel(2LL, v42, (__int64)&v51);
-    }
+    if ( ObOpenObjectByPointer(v36, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &TargetFile) >= 0 )
+      ZwSetCachedSigningLevel(2u, v54 - 2 > 1 ? 0 : 6, &TargetFile, 1u, TargetFile);
     Object[0] = 0LL;
     Object[1] = 0LL;
-    v43 = (struct _IRP *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
-    if ( !v43 )
+    v42 = (struct _IRP *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
+    if ( !v42 )
       goto LABEL_90;
-    v5 = FsRtlKernelFsControlFile(v36, 0x900F4u, 0LL, 0, v43, 0x248u, (ULONG *)&v57);
+    v5 = FsRtlKernelFsControlFile(v36, 0x900F4u, 0LL, 0, v42, 0x248u, (ULONG *)&v56);
     if ( v5 < 0 )
       goto LABEL_97;
-    if ( (unsigned int)v57 < 0x40 )
+    if ( (unsigned int)v56 < 0x40 )
       goto LABEL_93;
-    Object[0] = *(PVOID *)&v43->Type;
-    v5 = FsRtlKernelFsControlFile(v36, 0x900EBu, 0LL, 0, v43, 0x248u, (ULONG *)&v57);
+    Object[0] = *(PVOID *)&v42->Type;
+    v5 = FsRtlKernelFsControlFile(v36, 0x900EBu, 0LL, 0, v42, 0x248u, (ULONG *)&v56);
     if ( v5 >= 0 )
     {
-      if ( (unsigned int)v57 < 0x40 )
+      if ( (unsigned int)v56 < 0x40 )
       {
 LABEL_93:
         v5 = -1073741762;
         goto LABEL_97;
       }
-      Object[1] = v43->AssociatedIrp.MasterIrp;
-      v54 = *(_OWORD *)Object;
+      Object[1] = v42->AssociatedIrp.MasterIrp;
+      v53 = *(_OWORD *)Object;
     }
 LABEL_97:
-    ExFreePoolWithTag(v43, 0x20534C53u);
+    ExFreePoolWithTag(v42, 0x20534C53u);
     if ( v5 < 0 )
       goto LABEL_73;
     goto LABEL_100;
   }
-  *(_QWORD *)&v54 = -1LL;
-  *((_QWORD *)&v54 + 1) = 0x7FFFFFFFFFFFFFFFLL;
+  *(_QWORD *)&v53 = -1LL;
+  *((_QWORD *)&v53 + 1) = 0x7FFFFFFFFFFFFFFFLL;
 LABEL_100:
-  v44 = (char *)ExAllocatePoolWithTag(PagedPool, 0x3AuLL, 0x20534C53u);
-  v45 = v44;
-  if ( !v44 )
+  v43 = (char *)ExAllocatePoolWithTag(PagedPool, 0x3AuLL, 0x20534C53u);
+  v44 = v43;
+  if ( !v43 )
   {
 LABEL_90:
     v5 = -1073741801;
     goto LABEL_73;
   }
-  memset(v44, 0, 0x3AuLL);
-  *((_WORD *)v45 + 3) = 24;
-  v45[5] = 25;
-  qmemcpy(v45 + 8, "$Kernel.Purge.AppxFICache", 25);
-  *(_OWORD *)(v45 + 34) = v54;
-  *(_QWORD *)(v45 + 50) = 0LL;
-  v34 = v45;
-  v5 = FsRtlSetKernelEaFile(v36, v45, 0x3Au);
+  memset(v43, 0, 0x3AuLL);
+  *((_WORD *)v44 + 3) = 24;
+  v44[5] = 25;
+  qmemcpy(v44 + 8, "$Kernel.Purge.AppxFICache", 25);
+  *(_OWORD *)(v44 + 34) = v53;
+  *(_QWORD *)(v44 + 50) = 0LL;
+  v34 = v44;
+  v5 = FsRtlSetKernelEaFile(v36, v44, 0x3Au);
 LABEL_74:
-  if ( v51 )
-    ZwClose(v51);
+  if ( TargetFile )
+    ZwClose(TargetFile);
   if ( v36 )
     ObfDereferenceObject(v36);
   if ( v34 )
@@ -327,20 +323,20 @@ LABEL_74:
     v38 = *(_QWORD *)(a4 + 8);
     if ( v38 )
     {
-      v46 = 0;
-      v47 = *(_DWORD **)(a4 + 8);
+      v45 = 0;
+      v46 = *(_DWORD **)(a4 + 8);
       if ( *(_DWORD *)a4 )
       {
         while ( 1 )
         {
-          v48 = *v47 + 4;
-          if ( *v47 >= 0xFFFFFFFC )
+          v47 = *v46 + 4;
+          if ( *v46 >= 0xFFFFFFFC )
             break;
-          if ( (_DWORD *)((char *)v47 + v48) < v47 )
+          if ( (_DWORD *)((char *)v46 + v47) < v46 )
             return (unsigned int)-1073741675;
-          ++v46;
-          v47 = (_DWORD *)((char *)v47 + v48);
-          if ( v46 >= *(_DWORD *)a4 )
+          ++v45;
+          v46 = (_DWORD *)((char *)v46 + v47);
+          if ( v45 >= *(_DWORD *)a4 )
             goto LABEL_106;
         }
         v5 = -1073741675;
@@ -348,13 +344,13 @@ LABEL_74:
       else
       {
 LABEL_106:
-        if ( v47 + 1 < v47 )
+        if ( v46 + 1 < v46 )
           return (unsigned int)-1073741675;
         v5 = 0;
-        if ( (unsigned __int64)(v47 + 2) > v38 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
+        if ( (unsigned __int64)(v46 + 2) > v38 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
           return (unsigned int)-1073741789;
-        *v47 = 4;
-        v47[1] = 0;
+        *v46 = 4;
+        v46[1] = 0;
         ++*(_DWORD *)a4;
       }
     }
@@ -378,18 +374,18 @@ LABEL_106:
 LABEL_110:
     if ( !*(_DWORD *)(a4 + 4) )
       return (unsigned int)-1073741762;
-    v49 = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a4 + 4), 0x20534C53u);
-    if ( !v49 )
+    v48 = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a4 + 4), 0x20534C53u);
+    if ( !v48 )
       return (unsigned int)-1073741801;
-    *(_QWORD *)(a4 + 8) = v49;
+    *(_QWORD *)(a4 + 8) = v48;
     *(_DWORD *)a4 = 0;
-    if ( v49 + 1 >= v49 )
+    if ( v48 + 1 >= v48 )
     {
       v5 = 0;
-      if ( v49 + 2 <= (_DWORD *)((char *)v49 + *(unsigned int *)(a4 + 4)) )
+      if ( v48 + 2 <= (_DWORD *)((char *)v48 + *(unsigned int *)(a4 + 4)) )
       {
-        *v49 = 4;
-        v49[1] = 0;
+        *v48 = 4;
+        v48[1] = 0;
         ++*(_DWORD *)a4;
         return (unsigned int)v5;
       }

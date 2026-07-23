@@ -7,60 +7,82 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall PsspWalkInfoClass_PSS_WALK_VA_SPACE(_DWORD *a1, _DWORD *a2, _DWORD *a3)
+NTSTATUS __userpurge PsspWalkInfoClass_PSS_WALK_VA_SPACE@<eax>(
+        int a1@<edx>,
+        _DWORD *a2@<ecx>,
+        int a3@<edi>,
+        _DWORD *a4)
 {
-  int v5; // eax
-  int result; // eax
-  unsigned int v7; // eax
-  unsigned int v8; // ebx
-  int v9; // ecx
-  int v10; // eax
-  int v12; // [esp+Ch] [ebp-8h] BYREF
-  unsigned int v13; // [esp+10h] [ebp-4h]
+  void *v6; // eax
+  NTSTATUS result; // eax
+  unsigned int v8; // eax
+  unsigned int v9; // ebx
+  int v10; // ecx
+  int v11; // eax
+  SIZE_T v12; // [esp-14h] [ebp-28h]
+  size_t v13; // [esp-8h] [ebp-1Ch]
+  ULONG v14; // [esp+0h] [ebp-14h]
+  ULONG v15; // [esp+4h] [ebp-10h]
+  int v17; // [esp+Ch] [ebp-8h] BYREF
+  unsigned int v18; // [esp+10h] [ebp-4h]
 
-  v5 = a1[197];
-  if ( !v5 )
+  v6 = (void *)a2[197];
+  if ( !v6 )
     return -1073741275;
-  if ( !a2 )
+  if ( !a1 )
     return -1073741811;
-  if ( !*a2 )
+  if ( !*(_DWORD *)a1 )
   {
-    v12 = 0;
-    result = ZwMapViewOfSection(v5, -1, (int)a2, 0, 0, 0, (int)&v12, 1, 0, 2);
+    v17 = 0;
+    HIDWORD(v12) = &v17;
+    LODWORD(v12) = 0;
+    result = ZwMapViewOfSection(
+               v6,
+               (HANDLE)0xFFFFFFFF,
+               (PVOID *)a1,
+               0LL,
+               v12,
+               (PLARGE_INTEGER)1,
+               0,
+               ViewUnmap,
+               v14,
+               v15);
     if ( result < 0 )
       return result;
-    a2[1] = 0;
+    *(_DWORD *)(a1 + 4) = 0;
   }
-  v7 = a2[1];
-  v13 = v7;
-  if ( v7 >= a1[196] )
+  v8 = *(_DWORD *)(a1 + 4);
+  v18 = v8;
+  if ( v8 >= a2[196] )
     return -2147483622;
-  if ( !a3 )
+  HIDWORD(v13) = a3;
+  if ( !a4 )
     return 261;
-  v8 = v7 + *a2;
-  memset(a3, 0, 0x34u);
-  *a3 = *(_DWORD *)v8;
-  a3[1] = *(_DWORD *)(v8 + 4);
-  a3[2] = *(_DWORD *)(v8 + 8);
-  a3[3] = *(_DWORD *)(v8 + 12);
-  a3[4] = *(_DWORD *)(v8 + 16);
-  a3[5] = *(_DWORD *)(v8 + 20);
-  a3[6] = *(_DWORD *)(v8 + 24);
-  a3[7] = *(_DWORD *)(v8 + 28);
-  a3[8] = *(_DWORD *)(v8 + 32);
-  a3[9] = *(_DWORD *)(v8 + 36);
-  a3[10] = *(_DWORD *)(v8 + 40);
-  v9 = 44;
-  if ( (a1[2] & 0x1000) != 0
-    && v13 + 48 <= a1[196]
-    && (*(_DWORD *)(v8 + 24) == 0x1000000 || *(_DWORD *)(v8 + 24) == 0x40000) )
+  LODWORD(v13) = 52;
+  v9 = v8 + *(_DWORD *)a1;
+  memset(a4, 0, v13);
+  *a4 = *(_DWORD *)v9;
+  a4[1] = *(_DWORD *)(v9 + 4);
+  a4[2] = *(_DWORD *)(v9 + 8);
+  a4[3] = *(_DWORD *)(v9 + 12);
+  a4[4] = *(_DWORD *)(v9 + 16);
+  a4[5] = *(_DWORD *)(v9 + 20);
+  a4[6] = *(_DWORD *)(v9 + 24);
+  a4[7] = *(_DWORD *)(v9 + 28);
+  a4[8] = *(_DWORD *)(v9 + 32);
+  a4[9] = *(_DWORD *)(v9 + 36);
+  a4[10] = *(_DWORD *)(v9 + 40);
+  v10 = 44;
+  if ( (a2[2] & 0x1000) != 0
+    && v18 + 48 <= a2[196]
+    && (*(_DWORD *)(v9 + 24) == 0x1000000 || *(_DWORD *)(v9 + 24) == 0x40000) )
   {
-    v10 = *(unsigned __int16 *)(v8 + 44);
-    *((_WORD *)a3 + 22) = v10;
-    if ( (_WORD)v10 )
-      a3[12] = v8 + 46;
-    v9 = v10 + 46;
+    v11 = *(unsigned __int16 *)(v9 + 44);
+    *((_WORD *)a4 + 22) = v11;
+    if ( (_WORD)v11 )
+      a4[12] = v9 + 46;
+    v10 = v11 + 46;
   }
-  a2[1] = v13 + ((v9 + 7) & 0xFFFFFFF8);
+  *(_DWORD *)(a1 + 4) = v18 + ((v10 + 7) & 0xFFFFFFF8);
   return 0;
 }

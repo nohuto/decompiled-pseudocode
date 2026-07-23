@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIrtExtendApertureRange @ 0x140784880
+ * XREFs of HalpIrtExtendApertureRange @ 0x1407873B4
  * Callers:
- *     HalpIrtAllocateDeviceAperture @ 0x1407844C4 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x140786FF8 (HalpIrtAllocateDeviceAperture.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 HalpIrtExtendApertureRange()
@@ -34,12 +34,12 @@ __int64 HalpIrtExtendApertureRange()
     {
       if ( Pool2 )
       {
-        for ( i = 0; i < v0; qword_140F89918 = v7 )
+        for ( i = 0; i < v0; qword_140F89D08 = v7 )
         {
           v7 = (__int64)Pool2 + 32 * i;
           *(_DWORD *)(v7 + 16) = v4 + i;
-          v8 = (__int64 *)qword_140F89918;
-          if ( *(__int64 **)qword_140F89918 != &HalpIrtFreeDeviceAperturesHead )
+          v8 = (__int64 *)qword_140F89D08;
+          if ( *(__int64 **)qword_140F89D08 != &HalpIrtFreeDeviceAperturesHead )
             __fastfail(3u);
           *(_QWORD *)v7 = &HalpIrtFreeDeviceAperturesHead;
           ++i;

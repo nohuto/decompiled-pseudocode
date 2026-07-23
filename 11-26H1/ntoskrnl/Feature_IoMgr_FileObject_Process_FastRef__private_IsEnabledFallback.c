@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledFallback @ 0x140532EFC
+ * XREFs of Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledFallback @ 0x140535398
  * Callers:
- *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404F4824 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404EDE04 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledFallback(__int64 a1, unsigned int a2)

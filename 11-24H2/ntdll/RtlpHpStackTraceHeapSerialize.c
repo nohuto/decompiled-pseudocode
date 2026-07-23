@@ -1,104 +1,115 @@
 /*
- * XREFs of RtlpHpStackTraceHeapSerialize @ 0x18014BFD0
+ * XREFs of RtlpHpStackTraceHeapSerialize @ 0x18014A380
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlUnlockHeap @ 0x18003FEF0 (RtlUnlockHeap.c)
- *     RtlLockHeap @ 0x1800400E0 (RtlLockHeap.c)
- *     RtlpWalkHeapInternal @ 0x180047BA0 (RtlpWalkHeapInternal.c)
- *     RtlpHpStackTraceHeapGetContext @ 0x18011EEB0 (RtlpHpStackTraceHeapGetContext.c)
- *     RtlpHpStackTraceAllocFindMapping @ 0x18014BB10 (RtlpHpStackTraceAllocFindMapping.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlUnlockHeap @ 0x180020820 (RtlUnlockHeap.c)
+ *     RtlLockHeap @ 0x180020A10 (RtlLockHeap.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlpWalkHeapInternal @ 0x18005E1A0 (RtlpWalkHeapInternal.c)
+ *     RtlpHpStackTraceHeapGetContext @ 0x18011D0E0 (RtlpHpStackTraceHeapGetContext.c)
+ *     RtlpHpStackTraceAllocFindMapping @ 0x180149EC0 (RtlpHpStackTraceAllocFindMapping.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceHeapSerialize(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpHpStackTraceHeapSerialize(_DWORD *HeapHandle, __int64 a2)
 {
-  int Context; // eax
-  __int64 v5; // rdi
+  NTSTATUS Context; // eax
+  _RTL_SRWLOCK *v5; // rcx
   bool v6; // zf
-  int v7; // esi
-  __int64 v8; // r8
-  __int64 Mapping; // rax
+  __int64 v7; // rcx
+  int v8; // esi
+  __int64 v9; // r8
   __int64 v10; // r8
-  __int64 (__fastcall *v11)(__int128 *, __int64, __int64); // rax
-  __int64 v13; // [rsp+20h] [rbp-49h] BYREF
-  __int128 v14; // [rsp+28h] [rbp-41h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-31h]
-  __int128 v16; // [rsp+40h] [rbp-29h] BYREF
-  __int128 v17; // [rsp+50h] [rbp-19h]
-  __int128 v18; // [rsp+60h] [rbp-9h]
-  _QWORD v19[2]; // [rsp+70h] [rbp+7h] BYREF
-  __int64 v20; // [rsp+80h] [rbp+17h]
-  __int64 v21; // [rsp+88h] [rbp+1Fh]
+  _RTL_SRWLOCK *v11; // rdi
+  __int64 Mapping; // rax
+  __int64 v13; // r8
+  __int64 (__fastcall *v14)(__int128 *, __int64, __int64); // rax
+  _RTL_SRWLOCK *v16; // [rsp+20h] [rbp-49h] BYREF
+  __int128 v17; // [rsp+28h] [rbp-41h] BYREF
+  __int64 v18; // [rsp+38h] [rbp-31h]
+  __int128 v19; // [rsp+40h] [rbp-29h] BYREF
+  __int128 v20; // [rsp+50h] [rbp-19h]
+  __int128 v21; // [rsp+60h] [rbp-9h]
+  _QWORD v22[2]; // [rsp+70h] [rbp+7h] BYREF
+  __int64 v23; // [rsp+80h] [rbp+17h]
+  __int64 v24; // [rsp+88h] [rbp+1Fh]
 
-  v13 = 0LL;
-  HIDWORD(v19[0]) = 0;
-  v14 = 0LL;
-  v15 = 0LL;
-  Context = RtlpHpStackTraceHeapGetContext(a1, 0, &v13);
-  v5 = v13;
-  v19[0] = 524290LL;
+  v16 = 0LL;
+  HIDWORD(v22[0]) = 0;
+  v17 = 0LL;
+  v18 = 0LL;
+  Context = RtlpHpStackTraceHeapGetContext((__int64)HeapHandle, 0, (PVOID *)&v16);
+  v5 = v16;
+  v22[0] = 524290LL;
   if ( Context < 0 )
     v5 = 0LL;
-  v19[1] = a1;
-  v6 = *(_DWORD *)(a1 + 16) == -571548178;
-  v13 = v5;
+  v22[1] = HeapHandle;
+  v6 = HeapHandle[4] == -571548178;
+  v16 = v5;
   if ( v6 )
   {
-    v21 = *(_QWORD *)(a1 + 128) << 12;
-    v21 += *(_QWORD *)(a1 + 88) << 12;
-    v20 = *(_QWORD *)(a1 + 136) << 12;
-    v5 = v13;
-    v20 += *(_QWORD *)(a1 + 96) << 12;
+    v24 = *((_QWORD *)HeapHandle + 16) << 12;
+    v24 += *((_QWORD *)HeapHandle + 11) << 12;
+    v23 = *((_QWORD *)HeapHandle + 17) << 12;
+    v23 += *((_QWORD *)HeapHandle + 12) << 12;
   }
   else
   {
-    v20 = *(_QWORD *)(a1 + 576) - *(_QWORD *)(a1 + 664);
-    v21 = *(_QWORD *)(a1 + 568);
+    v7 = *((_QWORD *)HeapHandle + 72) - *((_QWORD *)HeapHandle + 84);
+    v24 = *((_QWORD *)HeapHandle + 71);
+    v23 = v7;
   }
-  v7 = (*(__int64 (__fastcall **)(_QWORD *, __int64, _QWORD))(a2 + 16))(v19, 32LL, *(_QWORD *)(a2 + 24));
-  if ( v7 >= 0 )
+  v8 = (*(__int64 (__fastcall **)(_QWORD *, __int64, _QWORD))(a2 + 16))(v22, 32LL, *(_QWORD *)(a2 + 24));
+  if ( v8 >= 0 )
   {
-    v16 = 0LL;
-    v17 = 0LL;
-    v18 = 0LL;
-    RtlLockHeap(a1);
-    while ( 1 )
+    v19 = 0LL;
+    v20 = 0LL;
+    v21 = 0LL;
+    RtlLockHeap(HeapHandle);
+    LOBYTE(v9) = 1;
+    if ( (int)RtlpWalkHeapInternal((__int64)HeapHandle, (__int64 *)&v19, v9) < 0 )
     {
-      LOBYTE(v8) = 1;
-      if ( (int)RtlpWalkHeapInternal(a1, (__int64)&v16, v8) < 0 )
-        break;
-      if ( (BYTE2(v17) & 1) != 0 )
+LABEL_16:
+      v13 = *(_QWORD *)(a2 + 24);
+      v14 = *(__int64 (__fastcall **)(__int128 *, __int64, __int64))(a2 + 16);
+      v17 = 0x1234CDEFuLL;
+      v18 = 0xFFFFFFFFLL;
+      v8 = v14(&v17, 24LL, v13);
+      if ( v8 >= 0 )
+        v8 = 0;
+    }
+    else
+    {
+      v11 = v16;
+      while ( 1 )
       {
-        v15 = *((_QWORD *)&v16 + 1);
-        v14 = (unsigned __int64)v16;
-        if ( v5 )
+        if ( (BYTE2(v20) & 1) != 0 )
         {
-          RtlAcquireSRWLockShared((volatile signed __int64 *)(v5 + 8));
-          ++*(_DWORD *)v5;
-          Mapping = RtlpHpStackTraceAllocFindMapping(v5, v16);
-          if ( Mapping )
-            *((_QWORD *)&v14 + 1) = *(_QWORD *)(Mapping + 16);
-          --*(_DWORD *)v5;
-          RtlReleaseSRWLockShared((volatile signed __int64 *)(v5 + 8));
+          v18 = *((_QWORD *)&v19 + 1);
+          v17 = (unsigned __int64)v19;
+          if ( v11 )
+          {
+            RtlAcquireSRWLockShared(v11 + 1);
+            ++*(_DWORD *)&v11->0;
+            Mapping = RtlpHpStackTraceAllocFindMapping((__int64)v11, v19);
+            if ( Mapping )
+              *((_QWORD *)&v17 + 1) = *(_QWORD *)(Mapping + 16);
+            --*(_DWORD *)&v11->0;
+            RtlReleaseSRWLockShared(v11 + 1);
+          }
+          v8 = (*(__int64 (__fastcall **)(__int128 *, __int64, _QWORD))(a2 + 16))(&v17, 24LL, *(_QWORD *)(a2 + 24));
+          if ( v8 < 0 )
+            break;
         }
-        v7 = (*(__int64 (__fastcall **)(__int128 *, __int64, _QWORD))(a2 + 16))(&v14, 24LL, *(_QWORD *)(a2 + 24));
-        if ( v7 < 0 )
-          goto LABEL_18;
+        LOBYTE(v10) = 1;
+        if ( (int)RtlpWalkHeapInternal((__int64)HeapHandle, (__int64 *)&v19, v10) < 0 )
+          goto LABEL_16;
       }
     }
-    v10 = *(_QWORD *)(a2 + 24);
-    v11 = *(__int64 (__fastcall **)(__int128 *, __int64, __int64))(a2 + 16);
-    v14 = 0x1234CDEFuLL;
-    v15 = 0xFFFFFFFFLL;
-    v7 = v11(&v14, 24LL, v10);
-    if ( v7 >= 0 )
-      v7 = 0;
-LABEL_18:
-    RtlUnlockHeap(a1);
+    RtlUnlockHeap(HeapHandle);
   }
-  return (unsigned int)v7;
+  return (unsigned int)v8;
 }

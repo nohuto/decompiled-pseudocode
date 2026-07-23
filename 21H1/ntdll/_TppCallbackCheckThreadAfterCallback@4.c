@@ -21,23 +21,29 @@ void __thiscall TppCallbackCheckThreadAfterCallback(int this)
   struct _TEB *v3; // eax
   int v4; // eax
   int v5; // edx
+  size_t v6; // [esp-4h] [ebp-74h]
+  size_t v7; // [esp-4h] [ebp-74h]
   __int64 Buf2; // [esp+Ch] [ebp-64h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [esp+18h] [ebp-58h] BYREF
 
   if ( this )
   {
     p_ActivityId = &NtCurrentTeb()->ActivityId;
+    LODWORD(v6) = 8;
     v3 = NtCurrentTeb();
     p_ActivityId->Data1 = *(_DWORD *)(this + 136);
     p_ActivityId = (_GUID *)((char *)p_ActivityId + 4);
     p_ActivityId->Data1 = *(_DWORD *)(this + 140);
     *(_QWORD *)&p_ActivityId->Data2 = *(_QWORD *)(this + 144);
     Buf2 = 0LL;
-    if ( memcmp(v3->WorkingOnBehalfTicket, &Buf2, 8u) && (int)ZwSetInformationThread(-2, 44, &Buf2, 8) >= 0 )
+    if ( memcmp(v3->WorkingOnBehalfTicket, &Buf2, v6)
+      && ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadWorkOnBehalfTicket, &Buf2, 8u) >= 0 )
+    {
       *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = Buf2;
+    }
     if ( (*(_BYTE *)(this + 40) & 1) != 0 && (*(_BYTE *)(this + 56) & 1) == 0 )
     {
-      RtlDeactivateActivationContextUnsafeFast(this);
+      RtlDeactivateActivationContextUnsafeFast(this, HIDWORD(v7));
       *(_BYTE *)(this + 40) &= ~1u;
     }
     if ( *(_DWORD *)(this + 44) && (*(_BYTE *)(this + 56) & 2) == 0 )
@@ -50,7 +56,8 @@ void __thiscall TppCallbackCheckThreadAfterCallback(int this)
     {
       if ( NtCurrentTeb()->IsImpersonating && (*(_BYTE *)(this + 56) & 4) == 0 )
       {
-        memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+        LODWORD(v7) = 80;
+        memset(&ExceptionRecord, 0, v7);
         ExceptionRecord.ExceptionInformation[0] = *(_DWORD *)(this + 48);
         ExceptionRecord.ExceptionInformation[1] = *(_DWORD *)(this + 52);
         ExceptionRecord.ExceptionCode = -1073740016;
@@ -63,10 +70,10 @@ void __thiscall TppCallbackCheckThreadAfterCallback(int this)
         DbgPrintEx(
           84,
           0,
-          "ThreadPool: callback %p(%p) returned with a transaction uncleared\n",
-          *(const void **)(this + 48),
-          *(const void **)(this + 52));
-        memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+          (int)"ThreadPool: callback %p(%p) returned with a transaction uncleared\n",
+          *(_DWORD *)(this + 48));
+        LODWORD(v7) = 80;
+        memset(&ExceptionRecord, 0, v7);
         ExceptionRecord.ExceptionCode = -1073740003;
         ExceptionRecord.NumberParameters = 0;
         RtlRaiseException(&ExceptionRecord);
@@ -76,10 +83,10 @@ void __thiscall TppCallbackCheckThreadAfterCallback(int this)
         DbgPrintEx(
           84,
           0,
-          "ThreadPool: callback %p(%p) returned with the loader lock held\n",
-          *(const void **)(this + 48),
-          *(const void **)(this + 52));
-        memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+          (int)"ThreadPool: callback %p(%p) returned with the loader lock held\n",
+          *(_DWORD *)(this + 48));
+        LODWORD(v7) = 80;
+        memset(&ExceptionRecord, 0, v7);
         ExceptionRecord.ExceptionCode = -1073740002;
         ExceptionRecord.NumberParameters = 0;
         RtlRaiseException(&ExceptionRecord);
@@ -89,10 +96,10 @@ void __thiscall TppCallbackCheckThreadAfterCallback(int this)
         DbgPrintEx(
           84,
           0,
-          "ThreadPool: callback %p(%p) returned with preferred languages set\n",
-          *(const void **)(this + 48),
-          *(const void **)(this + 52));
-        memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+          (int)"ThreadPool: callback %p(%p) returned with preferred languages set\n",
+          *(_DWORD *)(this + 48));
+        LODWORD(v7) = 80;
+        memset(&ExceptionRecord, 0, v7);
         ExceptionRecord.ExceptionCode = -1073740001;
         ExceptionRecord.NumberParameters = 0;
         RtlRaiseException(&ExceptionRecord);
@@ -104,10 +111,10 @@ void __thiscall TppCallbackCheckThreadAfterCallback(int this)
           DbgPrintEx(
             84,
             0,
-            "ThreadPool: callback %p(%p) returned with background priorities set\n",
-            *(const void **)(this + 48),
-            *(const void **)(this + 52));
-          memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+            (int)"ThreadPool: callback %p(%p) returned with background priorities set\n",
+            *(_DWORD *)(this + 48));
+          LODWORD(v7) = 80;
+          memset(&ExceptionRecord, 0, v7);
           ExceptionRecord.ExceptionCode = -1073740000;
           ExceptionRecord.NumberParameters = 0;
           RtlRaiseException(&ExceptionRecord);

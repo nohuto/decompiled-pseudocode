@@ -1,8 +1,8 @@
 /*
- * XREFs of IoAllocateErrorLogEntry @ 0x140130D68
+ * XREFs of IoAllocateErrorLogEntry @ 0x1401312D8
  * Callers:
- *     IopDisassociateThreadIrp @ 0x1401C4AD8 (IopDisassociateThreadIrp.c)
- *     FsRtlLogCcFlushError @ 0x14061DB78 (FsRtlLogCcFlushError.c)
+ *     IopDisassociateThreadIrp @ 0x1401C49BC (IopDisassociateThreadIrp.c)
+ *     FsRtlLogCcFlushError @ 0x14061DC2C (FsRtlLogCcFlushError.c)
  * Callees:
  *     <none>
  */

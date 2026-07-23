@@ -7,13 +7,13 @@
  *     sub_1801058B8 @ 0x1801058B8 (sub_1801058B8.c)
  */
 
-__int64 __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, __int64 a2)
+NTSTATUS __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, __int64 a2)
 {
-  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
+  __int64 WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = a2;
+  WorkerFactoryInformation = a2;
   if ( a1 && a2 < 0 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return ZwSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 2LL, &v3);
+    return ZwSetInformationWorkerFactory(*(HANDLE *)(a1 + 56), WorkerFactoryIdleTimeout, &WorkerFactoryInformation, 8u);
   sub_1801058B8();
-  return 3221225485LL;
+  return -1073741811;
 }

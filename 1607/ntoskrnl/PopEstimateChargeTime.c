@@ -1,13 +1,13 @@
 /*
- * XREFs of PopEstimateChargeTime @ 0x14066F6A0
+ * XREFs of PopEstimateChargeTime @ 0x14066F784
  * Callers:
- *     PopBatteryWorker @ 0x140543B90 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x1405440D0 (PopBatteryWorker.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PopBatteryEstimatesSpoiled @ 0x14066EE80 (PopBatteryEstimatesSpoiled.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PopBatteryEstimatesSpoiled @ 0x14066EF64 (PopBatteryEstimatesSpoiled.c)
  */
 
 unsigned __int64 PopEstimateChargeTime()
@@ -61,7 +61,7 @@ unsigned __int64 PopEstimateChargeTime()
   }
   else
   {
-    for ( i = qword_140303690; (__int64 *)i != &qword_140303690; i = *(_QWORD *)i )
+    for ( i = qword_1403035D0; (__int64 *)i != &qword_1403035D0; i = *(_QWORD *)i )
     {
       v8 = *(_DWORD *)(i + 64);
       v9 = *(_DWORD *)(i + 88);
@@ -105,7 +105,7 @@ unsigned __int64 PopEstimateChargeTime()
     }
   }
   DbgPrintEx(0x92u, 3u, "Charge time: Rate=%lld CapToChg=%lld MaxRate=%lld Est=%lld\n", v3, v1, v5, v0);
-  if ( pCallbackContext.LevelPlus1 > 5 && TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
+  if ( hProvider.LevelPlus1 > 5 && TlgKeywordOn(&hProvider, 0x400000000000uLL) )
   {
     v21 = 0;
     v24 = 0;
@@ -131,7 +131,7 @@ unsigned __int64 PopEstimateChargeTime()
     v29 = 1;
     v32 = 8;
     v35 = 4;
-    TlgWrite(&pCallbackContext, &unk_14027CB56, 0LL, 0LL, 8u, &pData);
+    TlgWrite(&hProvider, &unk_14027CC56, 0LL, 0LL, 8u, &pData);
   }
   return v0;
 }

@@ -90,7 +90,7 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
   int *v21; // rsi
   __int64 v22; // r12
   int i; // edi
-  union _SLIST_HEADER *v24; // rcx
+  _SLIST_HEADER *v24; // rcx
   PSLIST_ENTRY v25; // rax
   __int64 PerfectColorHeadPage; // rbx
   ULONG_PTR v27; // rsi
@@ -102,7 +102,7 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
   unsigned int v33; // ebp
   int *v34; // rsi
   int j; // edi
-  union _SLIST_HEADER *v36; // rcx
+  _SLIST_HEADER *v36; // rcx
   PSLIST_ENTRY v37; // rax
   ULONG_PTR v38; // rsi
   __int64 FreeOrZeroPageAnyColor; // rax
@@ -212,7 +212,7 @@ LABEL_2:
       v22 = 16 * v5;
       for ( i = *v21; ; i = v21[1] )
       {
-        v24 = (union _SLIST_HEADER *)(v22 + *(_QWORD *)(v4 + 8LL * i + 4072));
+        v24 = (_SLIST_HEADER *)(v22 + *(_QWORD *)(v4 + 8LL * i + 4072));
         if ( LOWORD(v24->Alignment) )
         {
           v25 = RtlpInterlockedPopEntrySList(v24);
@@ -342,7 +342,7 @@ LABEL_64:
         v34 = (int *)&MiFreeThenFree;
       for ( j = *v34; ; j = v34[1] )
       {
-        v36 = (union _SLIST_HEADER *)(v22 + *(_QWORD *)(v4 + 8LL * j + 4072));
+        v36 = (_SLIST_HEADER *)(v22 + *(_QWORD *)(v4 + 8LL * j + 4072));
         if ( LOWORD(v36->Alignment) )
         {
           v37 = RtlpInterlockedPopEntrySList(v36);

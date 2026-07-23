@@ -1,15 +1,15 @@
 /*
- * XREFs of VfGetDmaAdapter @ 0x14092B140
+ * XREFs of VfGetDmaAdapter @ 0x14092C140
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IoGetDmaAdapter @ 0x140755900 (IoGetDmaAdapter.c)
- *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
- *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x14092996C (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
- *     VfIsPCIBus @ 0x14092BA28 (VfIsPCIBus.c)
- *     ViHookDmaAdapter @ 0x14092DF30 (ViHookDmaAdapter.c)
- *     ViReleaseDmaAdapter @ 0x14092E59C (ViReleaseDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IoGetDmaAdapter @ 0x140756AF0 (IoGetDmaAdapter.c)
+ *     VF_ASSERT_IRQL @ 0x14092A6A0 (VF_ASSERT_IRQL.c)
+ *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x14092A96C (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
+ *     VfIsPCIBus @ 0x14092CA28 (VfIsPCIBus.c)
+ *     ViHookDmaAdapter @ 0x14092EF30 (ViHookDmaAdapter.c)
+ *     ViReleaseDmaAdapter @ 0x14092F59C (ViReleaseDmaAdapter.c)
  */
 
 struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
@@ -17,7 +17,7 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
         struct _DEVICE_DESCRIPTION *DeviceDescription,
         PULONG NumberOfMapRegisters)
 {
-  struct _LIST_ENTRY *v6; // rax
+  _LIST_ENTRY *v6; // rax
   _QWORD *v7; // rax
   _QWORD *v8; // rsi
   __int64 v10; // rax
@@ -39,7 +39,7 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
   }
   if ( *NumberOfMapRegisters > 0x20 )
     *NumberOfMapRegisters = 32;
-  ((__int64 (__fastcall *)(struct _KTHREAD *))off_1403FE650)(KeGetCurrentThread());
+  ((__int64 (__fastcall *)(struct _KTHREAD *))off_1403FF650)(KeGetCurrentThread());
   v7 = (_QWORD *)((__int64 (__fastcall *)(PDEVICE_OBJECT, struct _DEVICE_DESCRIPTION *, PULONG))pXdvIoGetDmaAdapter)(
                    PhysicalDeviceObject,
                    DeviceDescription,

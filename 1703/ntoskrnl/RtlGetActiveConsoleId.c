@@ -13,10 +13,10 @@
  *     PsIsCurrentThreadInServerSilo @ 0x1400F0FA0 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   if ( (unsigned __int8)PsIsCurrentThreadInServerSilo() )
-    return *(unsigned int *)(*(_QWORD *)(PsGetServerSiloGlobals(-1LL) + 1072) + 4LL);
+    return *(_DWORD *)(*(_QWORD *)(PsGetServerSiloGlobals(-1LL) + 1072) + 4LL);
   else
     return MEMORY[0xFFFFF780000002D8];
 }

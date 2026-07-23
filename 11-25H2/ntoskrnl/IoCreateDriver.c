@@ -27,7 +27,7 @@
  *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall IoCreateDriver(_OWORD *a1, unsigned __int64 a2)
+__int64 __fastcall IoCreateDriver(_OWORD *a1, void *a2)
 {
   wchar_t *v3; // rax
   __int64 v4; // rdi
@@ -44,7 +44,7 @@ __int64 __fastcall IoCreateDriver(_OWORD *a1, unsigned __int64 a2)
   PVOID *Object; // [rsp+20h] [rbp-E0h]
   void *Src[2]; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID v18; // [rsp+68h] [rbp-98h] BYREF
+  PVOID BaseOfImage; // [rsp+68h] [rbp-98h] BYREF
   PVOID v19; // [rsp+70h] [rbp-90h] BYREF
   __int128 v20; // [rsp+78h] [rbp-88h]
   _DWORD v21[2]; // [rsp+88h] [rbp-78h] BYREF
@@ -59,7 +59,7 @@ __int64 __fastcall IoCreateDriver(_OWORD *a1, unsigned __int64 a2)
   v25 = 0;
   v19 = 0LL;
   Handle = 0LL;
-  v18 = 0LL;
+  BaseOfImage = 0LL;
   *(_OWORD *)Src = 0LL;
   v20 = 0LL;
   if ( a1 )
@@ -108,8 +108,8 @@ LABEL_10:
     *((_DWORD *)v7 + 4) = 4;
     memset64(v7 + 112, (unsigned __int64)IopInvalidDeviceRequest, 0x1CuLL);
     *((_QWORD *)v7 + 11) = a2;
-    RtlPcToFileHeader(a2, &v18);
-    *((_QWORD *)v7 + 3) = v18;
+    RtlPcToFileHeader(a2, &BaseOfImage);
+    *((_QWORD *)v7 + 3) = BaseOfImage;
     Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
     *((_QWORD *)&v20 + 1) = Pool2;
     v9 = Pool2;
@@ -125,9 +125,9 @@ LABEL_10:
       inserted = ObInsertObjectEx(v7, 0LL, 1, 0, 0, 0LL, (__int64)&Handle);
       if ( inserted < 0 )
         return (unsigned int)inserted;
-      v18 = 0LL;
-      v13 = ObReferenceObjectByHandle(Handle, 0, IoDriverObjectType, 0, &v18, 0LL);
-      v7 = (char *)v18;
+      BaseOfImage = 0LL;
+      v13 = ObReferenceObjectByHandle(Handle, 0, IoDriverObjectType, 0, &BaseOfImage, 0LL);
+      v7 = (char *)BaseOfImage;
       inserted = v13;
       if ( v13 < 0 )
       {

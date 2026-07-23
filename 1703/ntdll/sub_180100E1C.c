@@ -14,33 +14,33 @@
  *     sub_1800F22CC @ 0x1800F22CC (sub_1800F22CC.c)
  */
 
-__int64 __fastcall sub_180100E1C(_DWORD *Src, int a2)
+SIZE_T __fastcall sub_180100E1C(PRTL_CRITICAL_SECTION *BaseAddress, int a2)
 {
   char v4; // si
-  __int64 v6; // rbx
-  int v7; // ebx
+  SIZE_T v6; // rbx
+  ULONG v7; // ebx
 
   v4 = 0;
-  if ( (Src[29] & 0x1000000) != 0 )
-    return (unsigned int)((__int64 (__fastcall *)(_DWORD *))qword_180155498)(Src);
-  if ( sub_18001F9B0(Src, "RtlCompactHeap") )
+  if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) != 0 )
+    return (unsigned int)((__int64 (__fastcall *)(PRTL_CRITICAL_SECTION *))qword_180155498)(BaseAddress);
+  if ( sub_18001F9B0(BaseAddress, "RtlCompactHeap") )
   {
-    v7 = Src[29] | 0x10000000 | a2;
+    v7 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | a2;
     if ( (v7 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(BaseAddress[44]);
       v4 = 1;
       v7 |= 1u;
     }
-    sub_180090710((__int64)Src, 0);
-    v6 = RtlCompactHeap((char *)Src, v7);
-    sub_1800610C8((void **)Src, 1);
+    sub_180090710((PVOID *)BaseAddress, 0);
+    v6 = RtlCompactHeap(BaseAddress, v7);
+    sub_1800610C8((PVOID *)BaseAddress, 1);
   }
   else
   {
     v6 = 0LL;
   }
   if ( v4 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(BaseAddress[44]);
   return v6;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogQueueHandleClosed @ 0x1409A8FEC
+ * XREFs of TtmiLogQueueHandleClosed @ 0x1409A91EC
  * Callers:
- *     TtmpCloseQueueHandle @ 0x1409AC420 (TtmpCloseQueueHandle.c)
+ *     TtmpCloseQueueHandle @ 0x1409AC620 (TtmpCloseQueueHandle.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void TtmiLogQueueHandleClosed()
@@ -37,7 +37,7 @@ void TtmiLogQueueHandleClosed()
       v4 = v1;
       v10 = 8LL;
       v12 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53918, (unsigned __int8 *)byte_1400330EB, 0LL, 0LL, 5u, &v6);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53918, (unsigned __int8 *)byte_140032CF7, 0LL, 0LL, 5u, &v6);
     }
   }
 }

@@ -1,9 +1,9 @@
 /*
  * XREFs of HviIsHypervisorVendorMicrosoft @ 0x1403BF790
  * Callers:
- *     KiIsHyperVCr3RspErrataPresent @ 0x14041900C (KiIsHyperVCr3RspErrataPresent.c)
- *     HvipApertureDetectParameters @ 0x1405F2D28 (HvipApertureDetectParameters.c)
- *     EtwpTraceSystemInitialization @ 0x140AFAD4C (EtwpTraceSystemInitialization.c)
+ *     sub_14041900C @ 0x14041900C (sub_14041900C.c)
+ *     sub_1405F2D28 @ 0x1405F2D28 (sub_1405F2D28.c)
+ *     sub_140AFAD4C @ 0x140AFAD4C (sub_140AFAD4C.c)
  * Callees:
  *     HviIsAnyHypervisorPresent @ 0x1403C03A0 (HviIsAnyHypervisorPresent.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)

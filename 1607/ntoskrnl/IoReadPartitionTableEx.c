@@ -1,5 +1,5 @@
 /*
- * XREFs of IoReadPartitionTableEx @ 0x140620064
+ * XREFs of IoReadPartitionTableEx @ 0x140620118
  * Callers:
  *     <none>
  * Callees:

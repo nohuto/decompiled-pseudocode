@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpUpdateLockWordForRelease @ 0x1404167A0
+ * XREFs of ExpUpdateLockWordForRelease @ 0x140416B34
  * Callers:
- *     ExpConvertFastResourceExclusiveToShared2 @ 0x14041532C (ExpConvertFastResourceExclusiveToShared2.c)
- *     ExpPrepareToWakeFastResourceExclusive @ 0x140415E00 (ExpPrepareToWakeFastResourceExclusive.c)
- *     ExpReleaseFastResourceExclusiveSlow @ 0x140416414 (ExpReleaseFastResourceExclusiveSlow.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x1404156C0 (ExpConvertFastResourceExclusiveToShared2.c)
+ *     ExpPrepareToWakeFastResourceExclusive @ 0x140416194 (ExpPrepareToWakeFastResourceExclusive.c)
+ *     ExpReleaseFastResourceExclusiveSlow @ 0x1404167A8 (ExpReleaseFastResourceExclusiveSlow.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiNmiInterruptShadow @ 0x140BBB240
+ * XREFs of KiNmiInterruptShadow @ 0x140BBD240
  * Callers:
  *     <none>
  * Callees:

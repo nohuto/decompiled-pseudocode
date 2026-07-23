@@ -14,8 +14,8 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, unsigned __int16 
 {
   int v4; // r14d
   int v5; // r15d
-  char *v6; // rbx
-  unsigned __int16 *v7; // rdi
+  wchar_t *v6; // rbx
+  WCHAR *v7; // rdi
   int v9; // r10d
   unsigned __int16 v10; // r9
   int v11; // edx
@@ -28,7 +28,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, unsigned __int16 
   unsigned int v18; // eax
   int v19; // ecx
   const char *v20; // rax
-  unsigned __int16 v21; // ax
+  WCHAR v21; // ax
   int v22; // eax
   const wchar_t *v23; // rax
   unsigned __int64 v24; // r9
@@ -48,11 +48,11 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, unsigned __int16 
   __int64 v38; // r10
   int v39; // r10d
   int v40; // r9d
-  char *v41; // rsi
+  UCHAR *v41; // rsi
   int v42; // edi
   int v43; // r9d
   __int64 v44; // r9
-  char *v45; // r10
+  wchar_t *v45; // r10
   int v46; // r9d
   __int64 v47; // r10
   bool i; // zf
@@ -68,9 +68,9 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, unsigned __int16 
   int v59; // [rsp+34h] [rbp-CCh] BYREF
   int v60; // [rsp+38h] [rbp-C8h]
   int v61; // [rsp+3Ch] [rbp-C4h]
-  unsigned __int16 v62[2]; // [rsp+40h] [rbp-C0h] BYREF
+  WCHAR v62[2]; // [rsp+40h] [rbp-C0h] BYREF
   int v63; // [rsp+44h] [rbp-BCh]
-  char v64[4]; // [rsp+48h] [rbp-B8h] BYREF
+  UCHAR v64[4]; // [rsp+48h] [rbp-B8h] BYREF
   _WORD v65[2]; // [rsp+4Ch] [rbp-B4h] BYREF
   int v66; // [rsp+50h] [rbp-B0h]
   int v67; // [rsp+54h] [rbp-ACh]
@@ -79,7 +79,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, unsigned __int16 
   int v70; // [rsp+64h] [rbp-9Ch]
   __int64 v71; // [rsp+68h] [rbp-98h]
   unsigned __int16 *v72; // [rsp+70h] [rbp-90h]
-  _WORD v73[64]; // [rsp+80h] [rbp-80h] BYREF
+  WCHAR v73[64]; // [rsp+80h] [rbp-80h] BYREF
   __int64 v74; // [rsp+100h] [rbp+0h] BYREF
   char v75; // [rsp+27Fh] [rbp+17Fh] BYREF
 
@@ -218,7 +218,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, unsigned __int16 
               {
                 v17 = *(unsigned __int16 **)v7;
                 v68 = v7 + 4;
-                if ( v17 && (v6 = (char *)*((_QWORD *)v17 + 1)) != 0LL )
+                if ( v17 && (v6 = (wchar_t *)*((_QWORD *)v17 + 1)) != 0LL )
                 {
                   v18 = *v17;
                   if ( v17[1] < (unsigned __int16)v18 )
@@ -239,7 +239,7 @@ __int64 __fastcall woutput_s(__int64 a1, unsigned __int16 *a2, unsigned __int16 
                 else
                 {
                   v13 = -1LL;
-                  v6 = "(null)";
+                  v6 = (wchar_t *)"(null)";
                   do
                     ++v13;
                   while ( aNull[v13] );
@@ -335,7 +335,7 @@ LABEL_115:
                   }
                   if ( v63 == v39 && (int)v13 > 0 )
                   {
-                    v41 = v6;
+                    v41 = (UCHAR *)v6;
                     v42 = v13;
                     while ( 1 )
                     {
@@ -368,9 +368,9 @@ LABEL_115:
                     {
                       do
                       {
-                        write_char_2(*(unsigned __int16 *)v45, v31, &v59);
+                        write_char_2(*v45, v31, &v59);
                         v12 = v59;
-                        v45 = (char *)(v47 + 2);
+                        v45 = (wchar_t *)(v47 + 2);
                       }
                       while ( v59 != -1 && v46 > 0 );
                     }
@@ -413,7 +413,7 @@ LABEL_55:
               {
                 v73[0] = v21;
               }
-              v6 = (char *)v73;
+              v6 = v73;
               LODWORD(v13) = 1;
               goto LABEL_106;
             }
@@ -433,17 +433,17 @@ LABEL_76:
           if ( (v4 & 0x830) == 0 )
             v4 |= v14;
 LABEL_44:
-          v6 = *(char **)v7;
+          v6 = *(wchar_t **)v7;
           v19 = v5;
           if ( v5 == -1 )
             v19 = 0x7FFFFFFF;
           v68 = v7 + 4;
           if ( ((unsigned __int8)v4 & (unsigned __int8)v14) != 0 )
           {
-            v20 = v6;
+            v20 = (const char *)v6;
             if ( !v6 )
             {
-              v6 = "(null)";
+              v6 = (wchar_t *)"(null)";
               v20 = "(null)";
             }
             LODWORD(v13) = 0;
@@ -464,8 +464,8 @@ LABEL_44:
             v63 = 1;
             v23 = L"(null)";
             if ( v6 )
-              v23 = (const wchar_t *)v6;
-            v6 = (char *)v23;
+              v23 = v6;
+            v6 = (wchar_t *)v23;
             while ( v19 )
             {
               --v19;
@@ -473,7 +473,7 @@ LABEL_44:
                 break;
               ++v23;
             }
-            LODWORD(v13) = ((char *)v23 - v6) >> 1;
+            LODWORD(v13) = v23 - v6;
           }
           goto LABEL_106;
         }
@@ -538,15 +538,15 @@ LABEL_90:
               LOBYTE(v28) = v25 + v28;
             *j = v28;
           }
-          v6 = j + 1;
+          v6 = (wchar_t *)(j + 1);
           v12 = v59;
           LODWORD(v13) = (unsigned int)&v74 + 383 - (_DWORD)j;
           v61 = v5;
           if ( (v4 & 0x200) != 0 )
           {
-            if ( !(_DWORD)v13 || (v68 = v72, v60 = v67, *v6 != 48) )
+            if ( !(_DWORD)v13 || (v68 = v72, v60 = v67, *(_BYTE *)v6 != 48) )
             {
-              v6 = j;
+              v6 = (wchar_t *)j;
               v68 = v72;
               LODWORD(v13) = v13 + 1;
               v60 = v67;

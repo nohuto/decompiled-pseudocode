@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaFreeTranslationBuffer @ 0x140A8C9C8
+ * XREFs of HalpDmaFreeTranslationBuffer @ 0x140A8D9C8
  * Callers:
- *     HalpDmaInitializeMasterAdapter @ 0x140A65B2C (HalpDmaInitializeMasterAdapter.c)
+ *     HalpDmaInitializeMasterAdapter @ 0x140A66B2C (HalpDmaInitializeMasterAdapter.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
  */
 
 __int64 __fastcall HalpDmaFreeTranslationBuffer(__int64 a1)

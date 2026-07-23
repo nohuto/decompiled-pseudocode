@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierMmUnlockPages @ 0x140944F30
+ * XREFs of VerifierMmUnlockPages @ 0x140945F30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetAddToCounter @ 0x140934E3C (ViTargetAddToCounter.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x140935E3C (ViTargetAddToCounter.c)
  */
 
 __int64 __fastcall VerifierMmUnlockPages(ULONG_PTR BugCheckParameter2)

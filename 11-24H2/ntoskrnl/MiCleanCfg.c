@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCleanCfg @ 0x14048643C
+ * XREFs of MiCleanCfg @ 0x140481A2C
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiUnlockAndDereferenceVadShared @ 0x1402BB330 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockVadShared @ 0x1402FC580 (MiLockVadShared.c)
+ *     MiLockVadShared @ 0x140345480 (MiLockVadShared.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140362A70 (MiUnlockAndDereferenceVadShared.c)
  */
 
 void MiCleanCfg()

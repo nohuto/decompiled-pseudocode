@@ -1,16 +1,16 @@
 /*
- * XREFs of ExConvertExclusiveToSharedLite @ 0x140431900
+ * XREFs of ExConvertExclusiveToSharedLite @ 0x14041E930
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x14026DFE4 (FsRtlAcquireFileForModWriteEx.c)
- *     DifExConvertExclusiveToSharedLiteWrapper @ 0x1406502F0 (DifExConvertExclusiveToSharedLiteWrapper.c)
- *     NtMapCMFModule @ 0x1408446A0 (NtMapCMFModule.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x14091129C (PnpUnlinkDeviceRemovalRelations.c)
- *     PpDevNodeUnlockTree @ 0x140A921A4 (PpDevNodeUnlockTree.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14026D554 (FsRtlAcquireFileForModWriteEx.c)
+ *     DifExConvertExclusiveToSharedLiteWrapper @ 0x140653ED0 (DifExConvertExclusiveToSharedLiteWrapper.c)
+ *     NtMapCMFModule @ 0x140849B30 (NtMapCMFModule.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409B337C (PnpUnlinkDeviceRemovalRelations.c)
+ *     PpDevNodeUnlockTree @ 0x140A96CF4 (PpDevNodeUnlockTree.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
  * Callees:
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1404319B8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     ExpConvertExclusiveToSharedLite @ 0x140431ADC (ExpConvertExclusiveToSharedLite.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x14041E9E8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x14041EB0C (ExpConvertExclusiveToSharedLite.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall ExConvertExclusiveToSharedLite(PERESOURCE Resource)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRecordBlackboxPnpEventInformation @ 0x1406EFF78
+ * XREFs of PnpRecordBlackboxPnpEventInformation @ 0x1406F1218
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PiGetTargetDeviceNode @ 0x1406F00D4 (PiGetTargetDeviceNode.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     PiGetTargetDeviceNode @ 0x1406F1374 (PiGetTargetDeviceNode.c)
  */
 
 void __fastcall PnpRecordBlackboxPnpEventInformation(__int64 a1, int a2, __int64 a3, char a4)
@@ -61,7 +61,7 @@ void __fastcall PnpRecordBlackboxPnpEventInformation(__int64 a1, int a2, __int64
     LODWORD(InputBuffer[3]) = 2;
     InputBuffer[0] = PoolWithTag;
     InputBuffer[1] = v5 + v11;
-    NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
     ExFreePoolWithTag(PoolWithTag, 0x4B706E50u);
   }
 }

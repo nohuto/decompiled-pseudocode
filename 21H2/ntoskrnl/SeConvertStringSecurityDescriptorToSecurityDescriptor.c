@@ -1,13 +1,13 @@
 /*
- * XREFs of SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14039E610
+ * XREFs of SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14039E760
  * Callers:
- *     IoCreateDeviceSecure @ 0x14073C480 (IoCreateDeviceSecure.c)
- *     IopUpdateSecureDeviceClassState @ 0x1407BD834 (IopUpdateSecureDeviceClassState.c)
- *     PspIumVerifyParentSd @ 0x14090CCB4 (PspIumVerifyParentSd.c)
- *     CmFcInitSystem2 @ 0x140A38398 (CmFcInitSystem2.c)
- *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
+ *     IoCreateDeviceSecure @ 0x14073C640 (IoCreateDeviceSecure.c)
+ *     IopUpdateSecureDeviceClassState @ 0x1407BDFC4 (IopUpdateSecureDeviceClassState.c)
+ *     PspIumVerifyParentSd @ 0x14090CE14 (PspIumVerifyParentSd.c)
+ *     CmFcInitSystem2 @ 0x140A39398 (CmFcInitSystem2.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A39784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     LocalConvertStringSDToSD_Rev1 @ 0x1407875B4 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x140787774 (LocalConvertStringSDToSD_Rev1.c)
  */
 
 __int64 __fastcall SeConvertStringSecurityDescriptorToSecurityDescriptor(__int64 a1, int a2, __int64 a3, __int64 a4)

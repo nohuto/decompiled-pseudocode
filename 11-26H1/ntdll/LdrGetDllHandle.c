@@ -1,57 +1,57 @@
 /*
- * XREFs of LdrGetDllHandle @ 0x180050FC0
+ * XREFs of LdrGetDllHandle @ 0x18003B540
  * Callers:
  *     <none>
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpReleaseDllPath @ 0x180051400 (LdrpReleaseDllPath.c)
- *     LdrpFindLoadedDll @ 0x180051680 (LdrpFindLoadedDll.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpLogDllStateEx2 @ 0x18009BA10 (LdrpLogDllStateEx2.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpReleaseDllPath @ 0x18003B980 (LdrpReleaseDllPath.c)
+ *     LdrpFindLoadedDll @ 0x18003BC00 (LdrpFindLoadedDll.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpLogDllStateEx2 @ 0x18009AB40 (LdrpLogDllStateEx2.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrGetDllHandle(__int64 ArgList, __int64 a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl LdrGetDllHandle(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  __int64 v7; // rbp
-  int LoadedDll; // ebx
-  __int64 v10; // rcx
+  wchar_t *Buffer; // rbp
+  NTSTATUS LoadedDll; // ebx
+  PVOID v10; // rcx
   __int64 v11; // rcx
-  __int64 v12; // [rsp+30h] [rbp-B8h] BYREF
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-B8h] BYREF
   _QWORD v13[3]; // [rsp+40h] [rbp-A8h] BYREF
-  int v14; // [rsp+58h] [rbp-90h]
-  __int64 v15; // [rsp+60h] [rbp-88h]
+  unsigned int v14; // [rsp+58h] [rbp-90h]
+  wchar_t *v15; // [rsp+60h] [rbp-88h]
 
-  v12 = 0LL;
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrapi.c", 2312, (__int64)"LdrGetDllHandleEx", 3, "DLL name: %wZ\n", a3);
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrapi.c", 2313, (__int64)"LdrGetDllHandleEx", 5, "%wZ\n", a3);
-  v7 = *(_QWORD *)(a3 + 8);
+  BaseAddress[0] = 0LL;
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 2312, (__int64)"LdrGetDllHandleEx", 3, "DLL name: %wZ\n", DllName);
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 2313, (__int64)"LdrGetDllHandleEx", 5, "%wZ\n", DllName);
+  Buffer = DllName->Buffer;
   memset_thunk_772440563353939046(v13, 0, 0x80uLL);
-  if ( (ArgList & 1) != 0 || !ArgList )
+  if ( ((unsigned __int8)DllPath & 1) != 0 || !DllPath )
   {
-    v15 = v7;
-    v14 = ArgList & 0xFFFFFFFE;
+    v15 = Buffer;
+    v14 = (unsigned int)DllPath & 0xFFFFFFFE;
   }
   else
   {
-    v13[0] = ArgList;
+    v13[0] = DllPath;
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrutil.c",
+      "minkernel\\ldr\\ldrutil.c",
       1552,
       (__int64)"LdrpInitializeDllPath",
       2,
       "DLL search path passed in externally: %ws\n",
-      ArgList);
-    LdrpLogDllStateEx2(v11, v7, ArgList, 5312LL);
+      DllPath);
+    LdrpLogDllStateEx2(v11, Buffer, DllPath, 5312LL);
   }
-  if ( a4 )
+  if ( DllHandle )
   {
-    LoadedDll = LdrpFindLoadedDll(a3, v13, &v12);
+    LoadedDll = LdrpFindLoadedDll(DllName, v13, BaseAddress);
     if ( LoadedDll >= 0 )
     {
-      v10 = v12;
-      *a4 = *(_QWORD *)(v12 + 48);
+      v10 = BaseAddress[0];
+      *DllHandle = (PVOID)*((_QWORD *)BaseAddress[0] + 6);
       LdrpDereferenceModule(v10);
     }
   }
@@ -60,13 +60,7 @@ __int64 __fastcall LdrGetDllHandle(__int64 ArgList, __int64 a2, __int64 a3, _QWO
     LoadedDll = -1073741811;
   }
   LdrpReleaseDllPath(v13);
-  LdrpLogInternal(
-    (int)"minkernel\\ldr\\ldrapi.c",
-    2361,
-    (__int64)"LdrGetDllHandleEx",
-    4,
-    "Status: 0x%08lx\n",
-    LoadedDll);
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrapi.c", 2362, (__int64)"LdrGetDllHandleEx", 6, "%x\n", LoadedDll);
-  return (unsigned int)LoadedDll;
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 2361, (__int64)"LdrGetDllHandleEx", 4, "Status: 0x%08lx\n", LoadedDll);
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 2362, (__int64)"LdrGetDllHandleEx", 6, "%x\n", LoadedDll);
+  return LoadedDll;
 }

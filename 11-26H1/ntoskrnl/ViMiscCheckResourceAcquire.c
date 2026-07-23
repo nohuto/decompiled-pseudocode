@@ -1,9 +1,9 @@
 /*
- * XREFs of ViMiscCheckResourceAcquire @ 0x140C3E2F0
+ * XREFs of ViMiscCheckResourceAcquire @ 0x140C44300
  * Callers:
- *     VfMiscExAcquireSharedWaitForExclusive_Entry @ 0x140C3C870 (VfMiscExAcquireSharedWaitForExclusive_Entry.c)
+ *     VfMiscExAcquireSharedWaitForExclusive_Entry @ 0x140C42880 (VfMiscExAcquireSharedWaitForExclusive_Entry.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 struct _KTHREAD *__fastcall ViMiscCheckResourceAcquire(__int64 a1, char a2, __int64 a3)

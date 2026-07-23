@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteSparseRange @ 0x14087A3B4
+ * XREFs of MiDeleteSparseRange @ 0x1408807B0
  * Callers:
- *     MiDeletePfnBitMaps @ 0x14087A1C4 (MiDeletePfnBitMaps.c)
+ *     MiDeletePfnBitMaps @ 0x1408805C0 (MiDeletePfnBitMaps.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     MiReturnSystemCharges @ 0x1404B3278 (MiReturnSystemCharges.c)
- *     MiReturnPfnList @ 0x1406F5698 (MiReturnPfnList.c)
- *     MiCaptureSparsePages @ 0x140879C14 (MiCaptureSparsePages.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     MiReturnSystemCharges @ 0x1404AC8F8 (MiReturnSystemCharges.c)
+ *     MiReturnPfnList @ 0x1406FA308 (MiReturnPfnList.c)
+ *     MiCaptureSparsePages @ 0x140880010 (MiCaptureSparsePages.c)
  */
 
 void __fastcall MiDeleteSparseRange(unsigned __int64 a1, unsigned int a2)
@@ -25,7 +25,7 @@ void __fastcall MiDeleteSparseRange(unsigned __int64 a1, unsigned int a2)
     v7 = 0LL;
     PteAddress = (unsigned __int64 *)MiGetPteAddress(a1);
     MiCaptureSparsePages(PteAddress, v4, (__int64 *)&v6);
-    MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, PteAddress, a2);
+    MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, PteAddress, a2);
     if ( MiPageChainCount((__int64)&v6) )
     {
       v5 = MiReturnPfnList((__int64)&v6);

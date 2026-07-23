@@ -4,7 +4,7 @@
  *     PipInitializeDriverDependentDLLs @ 0x140B3C8F8 (PipInitializeDriverDependentDLLs.c)
  *     PnpInitializeBootStartDriver @ 0x140B3DA00 (PnpInitializeBootStartDriver.c)
  * Callees:
- *     PnpDiagnosticTraceElamDecision @ 0x140374C74 (PnpDiagnosticTraceElamDecision.c)
+ *     PnpDiagnosticTraceElamDecision @ 0x140374E14 (PnpDiagnosticTraceElamDecision.c)
  */
 
 char __fastcall PnpDoPolicyCheck(int a1, char a2)

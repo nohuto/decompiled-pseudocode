@@ -4,7 +4,7 @@
  *     CmpCreateControlSet @ 0x1407AC02C (CmpCreateControlSet.c)
  *     CmpAddAliasEntry @ 0x1407CD4E0 (CmpAddAliasEntry.c)
  * Callees:
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
  */
 
 int __fastcall CmpAddDockingInfo(HANDLE KeyHandle, __int64 a2)

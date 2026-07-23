@@ -1,11 +1,11 @@
 /*
- * XREFs of SepTokenInitialization @ 0x140C3A880
+ * XREFs of SepTokenInitialization @ 0x140C3C9D8
  * Callers:
- *     SepInitializationPhase0 @ 0x140C39CC4 (SepInitializationPhase0.c)
+ *     SepInitializationPhase0 @ 0x140C3BE1C (SepInitializationPhase0.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
  */
 
 bool SepTokenInitialization()

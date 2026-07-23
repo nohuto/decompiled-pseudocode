@@ -1,26 +1,38 @@
 /*
- * XREFs of LdrpConstructModernAppKeyName @ 0x1800C1CE4
+ * XREFs of LdrpConstructModernAppKeyName @ 0x1800BF994
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x180118558 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x180118308 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x1800C24B0 (RtlQueryPackageClaims.c)
- *     RtlStringCbPrintfExW @ 0x1800C27B4 (RtlStringCbPrintfExW.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlQueryPackageClaims @ 0x1800BFB80 (RtlQueryPackageClaims.c)
+ *     RtlStringCbPrintfExW @ 0x1800BFE84 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpConstructModernAppKeyName(wchar_t *Buffer)
+NTSTATUS __fastcall LdrpConstructModernAppKeyName(wchar_t *Buffer)
 {
-  __int64 result; // rax
-  __int64 v3; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v4[144]; // [rsp+60h] [rbp-A0h] BYREF
-  char v5[256]; // [rsp+F0h] [rbp-10h] BYREF
+  NTSTATUS result; // eax
+  _PS_PKG_CLAIM PkgClaim; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG_PTR PackageSize[2]; // [rsp+50h] [rbp-B0h] BYREF
+  WCHAR AppId[72]; // [rsp+60h] [rbp-A0h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+F0h] [rbp-10h] BYREF
 
-  v3 = 256LL;
-  memset_thunk_772440563353939046(v5, 0, 0x100uLL);
-  memset_thunk_772440563353939046(v4, 0, 0x84uLL);
-  result = RtlQueryPackageClaims(-4LL, v5, &v3);
-  if ( (int)result >= 0 )
-    return RtlStringCbPrintfExW(Buffer, 0, (wchar_t *)L"%s!%s", (char)v5);
+  AppIdSize = 132LL;
+  PackageSize[0] = 256LL;
+  memset_thunk_772440563353939046(PackageFullName, 0, 0x100uLL);
+  memset_thunk_772440563353939046(AppId, 0, 0x84uLL);
+  PkgClaim = 0LL;
+  result = RtlQueryPackageClaims(
+             (HANDLE)0xFFFFFFFFFFFFFFFCLL,
+             PackageFullName,
+             PackageSize,
+             AppId,
+             &AppIdSize,
+             0LL,
+             &PkgClaim,
+             0LL);
+  if ( result >= 0 )
+    return RtlStringCbPrintfExW(Buffer, 0, (wchar_t *)L"%s!%s", (char)PackageFullName);
   return result;
 }

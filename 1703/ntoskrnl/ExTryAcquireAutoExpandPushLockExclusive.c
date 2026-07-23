@@ -22,7 +22,7 @@ char __fastcall ExTryAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   if ( (BugCheckParameter1 & 2) == 0 )
-    v2 = (_KLOCK_ENTRY *)KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+    v2 = (_KLOCK_ENTRY *)KeAbPreAcquire(BugCheckParameter2, 0LL, 1);
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
   {
     v7 = *(_DWORD *)(BugCheckParameter2 + 12);

@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpHeapCreate(unsigned int a1, unsigned __int64 a2, __int6
   __int128 v21; // [rsp+68h] [rbp-9h] BYREF
   __int64 (__fastcall *v22)(int, int, char, int, __int64); // [rsp+78h] [rbp+7h] BYREF
   __int64 (__fastcall *v23)(__int64, __int64, __int64, char); // [rsp+80h] [rbp+Fh]
-  __int64 (__fastcall *v24)(__int64, unsigned __int64, unsigned int); // [rsp+88h] [rbp+17h]
+  __int64 (__fastcall *v24)(__int64, __int64); // [rsp+88h] [rbp+17h]
   __int64 (__fastcall *v25)(__int64, unsigned __int64, unsigned int); // [rsp+90h] [rbp+1Fh]
   __int64 (__fastcall *v26)(__int64); // [rsp+98h] [rbp+27h]
   unsigned int ProcessorCount; // [rsp+E0h] [rbp+6Fh]
@@ -115,20 +115,20 @@ __int64 __fastcall RtlpHpHeapCreate(unsigned int a1, unsigned __int64 a2, __int6
     }
     else
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v13 = (__int64)NtCurrentPeb()->SharedData + 558;
       else
         v13 = 2147353480LL;
       if ( *(_BYTE *)v13 )
         RtlpHeapLogRangeCreate(v8, *(_QWORD *)(v8 + 248) - v8, a1);
       v14 = 2147353472LL;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v15 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v15 = 2147353472LL;
       if ( *(_BYTE *)v15 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v14 = (__int64)NtCurrentPeb()->SharedData + 550;
         RtlpLogHeapCreateEvent(v8, a1, *(_QWORD *)(v8 + 248) - v8, *(_DWORD *)(v8 + 240) - v8, *(unsigned __int8 *)v14);
       }

@@ -3,25 +3,25 @@
  * Callers:
  *     <none>
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
+ *     sub_14026DFC0 @ 0x14026DFC0 (sub_14026DFC0.c)
+ *     sub_14027B080 @ 0x14027B080 (sub_14027B080.c)
+ *     sub_1402B0CE0 @ 0x1402B0CE0 (sub_1402B0CE0.c)
+ *     sub_1402CF4F0 @ 0x1402CF4F0 (sub_1402CF4F0.c)
  *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     MiUnlockLoaderEntry @ 0x1402D94D8 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1402D96AC (MiLockLoaderEntry.c)
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     MiSetSystemCodeProtection @ 0x14033EF50 (MiSetSystemCodeProtection.c)
- *     MiMakeDriverPagesPrivate @ 0x14033F41C (MiMakeDriverPagesPrivate.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
+ *     sub_1402D94D8 @ 0x1402D94D8 (sub_1402D94D8.c)
+ *     sub_1402D96AC @ 0x1402D96AC (sub_1402D96AC.c)
+ *     sub_1402FDA80 @ 0x1402FDA80 (sub_1402FDA80.c)
+ *     sub_1402FDD20 @ 0x1402FDD20 (sub_1402FDD20.c)
+ *     sub_14030CF90 @ 0x14030CF90 (sub_14030CF90.c)
+ *     sub_14033EF50 @ 0x14033EF50 (sub_14033EF50.c)
+ *     sub_14033F41C @ 0x14033F41C (sub_14033F41C.c)
+ *     sub_140358A20 @ 0x140358A20 (sub_140358A20.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     memset @ 0x140435E00 (memset.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     MiSnapDriverRange @ 0x140760B20 (MiSnapDriverRange.c)
+ *     sub_1406F5AF0 @ 0x1406F5AF0 (sub_1406F5AF0.c)
+ *     sub_1406F5B50 @ 0x1406F5B50 (sub_1406F5B50.c)
+ *     sub_140760B20 @ 0x140760B20 (sub_140760B20.c)
  */
 
 __int64 __fastcall MmProtectDriverSection(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
@@ -32,134 +32,132 @@ __int64 __fastcall MmProtectDriverSection(ULONG_PTR BugCheckParameter2, __int64 
   __int64 v10; // r8
   __int64 v11; // r9
   __int64 v12; // rdi
-  ULONG_PTR v13; // rsi
-  __int64 v14; // rdx
-  unsigned __int64 v15; // r14
-  unsigned __int64 v16; // r15
-  unsigned __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // r14
-  __int64 v20; // rcx
+  PVOID v13; // rsi
+  unsigned __int64 v14; // r14
+  unsigned __int64 v15; // r15
+  PVOID v16; // rdx
+  __int64 v17; // rdx
+  __int64 v18; // r14
+  __int64 v19; // rcx
+  __int64 v20; // rdx
   __int64 v21; // rdx
   __int64 v22; // rdx
-  __int64 v23; // rdx
-  __int64 v24; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v25; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v26; // [rsp+48h] [rbp-B8h]
-  __int64 v27; // [rsp+50h] [rbp-B0h]
-  int v28; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v29; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 Lock; // [rsp+68h] [rbp-98h]
-  _QWORD v31[22]; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD v32[14]; // [rsp+120h] [rbp+20h] BYREF
+  __int64 v23; // [rsp+30h] [rbp-D0h] BYREF
+  __int128 v24; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v25; // [rsp+48h] [rbp-B8h]
+  __int64 v26; // [rsp+50h] [rbp-B0h]
+  ULONG Size; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v28; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v29; // [rsp+68h] [rbp-98h]
+  _QWORD v30[22]; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD v31[14]; // [rsp+120h] [rbp+20h] BYREF
 
   v6 = 0;
+  v23 = 0LL;
+  v28 = 0LL;
+  memset(v30, 0, sizeof(v30));
+  Size = 0;
   v24 = 0LL;
-  v29 = 0LL;
-  memset(v31, 0, sizeof(v31));
-  v28 = 0;
   v25 = 0LL;
-  v26 = 0LL;
-  LODWORD(v27) = 0;
-  if ( (MiFlags & 0x4000) == 0 )
+  LODWORD(v26) = 0;
+  if ( (dword_140D06880 & 0x4000) == 0 )
     return 3221225860LL;
   if ( (a3 & 0xFFFFFFFE) == 0 && !a2 )
   {
-    Lock = MmAcquireLoadLock();
-    v8 = MiLookupDataTableEntry(BugCheckParameter2, 1LL);
+    v29 = sub_1406F5B50();
+    v8 = sub_1402FDA80(BugCheckParameter2, 1LL);
     v12 = v8;
     if ( !v8 )
       KeBugCheckEx(0x1Au, 0x1100uLL, BugCheckParameter2, 0LL, 0LL);
-    v13 = *(_QWORD *)(v8 + 48);
-    if ( (unsigned int)MiGetSystemRegionType(v13, v9, v10, v11) != 1
-      && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v13)
-      && v13 != PsNtosImageBase
-      && v13 != PsHalImageBase )
+    v13 = *(PVOID *)(v8 + 48);
+    if ( (unsigned int)sub_14027B080(v13, v9, v10, v11) != 1
+      && !(unsigned int)sub_1402FDD20(v13)
+      && v13 != qword_140D068F0
+      && v13 != qword_140D06988 )
     {
       if ( (*(_DWORD *)(v12 + 104) & 0x80000) != 0 )
       {
         v6 = -1073741757;
 LABEL_30:
-        MmReleaseLoadLock(Lock);
+        sub_1406F5AF0(v29);
         return v6;
       }
-      MiSnapDriverRange(v12, 0, 64, BugCheckParameter2, (__int64)&v24, (__int64)&v29);
-      if ( !v24 )
+      sub_140760B20(v12, 0, 64, BugCheckParameter2, (__int64)&v23, (__int64)&v28);
+      if ( !v23 )
       {
         v6 = -1073741503;
         goto LABEL_30;
       }
-      LOBYTE(v14) = 1;
-      v15 = (v29 << 25 >> 16) + 4095;
-      v16 = v24 << 25 >> 16;
-      v17 = RtlImageDirectoryEntryToData(*(_QWORD *)(v12 + 48), v14, 12LL, &v28);
-      if ( !v17 || !v28 || v17 > v15 || v17 + (unsigned int)(v28 - 1) < v16 )
+      v14 = (v28 << 25 >> 16) + 4095;
+      v15 = v23 << 25 >> 16;
+      v16 = RtlImageDirectoryEntryToData(*(PVOID *)(v12 + 48), 1u, 0xCu, &Size);
+      if ( !v16 || !Size || (unsigned __int64)v16 > v14 || (unsigned __int64)v16 + Size - 1 < v15 )
       {
-        DWORD1(v25) = 0;
-        v31[19] = MiProtectDriverSectionPte;
+        DWORD1(v24) = 0;
+        v30[19] = sub_140582320;
+        v25 = 0LL;
+        v30[21] = &v24;
         v26 = 0LL;
-        v31[21] = &v25;
-        v27 = 0LL;
-        *((_QWORD *)&v25 + 1) = v12;
-        v31[3] = MiGetAnyMultiplexedVm(1LL);
-        v31[4] = v16;
-        v31[5] = v15;
-        LODWORD(v31[0]) = 39;
-        HIBYTE(v31[0]) = MiLockWorkingSetShared(v31[3]);
-        MiWalkPageTables(v31);
-        LOBYTE(v18) = HIBYTE(v31[0]);
-        MiUnlockWorkingSetShared(v31[3], v18);
-        v19 = v29;
-        if ( v26 == (unsigned int)((v29 - v24) >> 3) + 1 )
+        *((_QWORD *)&v24 + 1) = v12;
+        v30[3] = sub_14026DFC0(1LL);
+        v30[4] = v15;
+        v30[5] = v14;
+        LODWORD(v30[0]) = 39;
+        HIBYTE(v30[0]) = sub_1402CF4F0(v30[3]);
+        sub_14030CF90(v30);
+        LOBYTE(v17) = HIBYTE(v30[0]);
+        sub_1402B0CE0(v30[3], v17);
+        v18 = v28;
+        if ( v25 == (unsigned int)((v28 - v23) >> 3) + 1 )
         {
           if ( (a3 & 1) == 0 )
           {
-            memset(v32, 0, 0x68uLL);
-            v32[1] = v13;
-            LOBYTE(v20) = 2;
-            if ( (int)VslpEnterIumSecureMode(v20, 45LL, 0LL, v32) < 0 )
-              KeBugCheckEx(0x1Au, 0x1105uLL, v13, 0LL, 0LL);
+            memset(v31, 0, 0x68uLL);
+            v31[1] = v13;
+            LOBYTE(v19) = 2;
+            if ( (int)sub_140358A20(v19, 45LL, 0LL, v31) < 0 )
+              KeBugCheckEx(0x1Au, 0x1105uLL, (ULONG_PTR)v13, 0LL, 0LL);
           }
-          MiMakeDriverPagesPrivate(v12, v24, v19, 0LL);
-          *(_QWORD *)&v25 = 1LL;
+          sub_14033F41C(v12, v23, v18, 0LL);
+          *(_QWORD *)&v24 = 1LL;
+          v25 = 0LL;
           v26 = 0LL;
-          v27 = 0LL;
-          *((_QWORD *)&v25 + 1) = v12;
-          MiLockLoaderEntry(v12 + 160, 0LL);
-          HIBYTE(v31[0]) = MiLockWorkingSetShared(v31[3]);
-          MiWalkPageTables(v31);
-          LOBYTE(v21) = HIBYTE(v31[0]);
-          MiUnlockWorkingSetShared(v31[3], v21);
-          MiUnlockLoaderEntry(v12 + 160, 0LL);
-          MiSetSystemCodeProtection(v12, v24, v19, 1LL);
+          *((_QWORD *)&v24 + 1) = v12;
+          sub_1402D96AC(v12 + 160, 0LL);
+          HIBYTE(v30[0]) = sub_1402CF4F0(v30[3]);
+          sub_14030CF90(v30);
+          LOBYTE(v20) = HIBYTE(v30[0]);
+          sub_1402B0CE0(v30[3], v20);
+          sub_1402D94D8(v12 + 160, 0LL);
+          sub_14033EF50(v12, v23, v18, 1LL);
           if ( (dword_140C54F84 & 8) != 0 )
           {
-            *(_QWORD *)&v25 = 2LL;
+            *(_QWORD *)&v24 = 2LL;
+            v25 = 0LL;
             v26 = 0LL;
-            v27 = 0LL;
-            *((_QWORD *)&v25 + 1) = v12;
-            HIBYTE(v31[0]) = MiLockWorkingSetShared(v31[3]);
-            MiWalkPageTables(v31);
-            LOBYTE(v22) = HIBYTE(v31[0]);
-            MiUnlockWorkingSetShared(v31[3], v22);
+            *((_QWORD *)&v24 + 1) = v12;
+            HIBYTE(v30[0]) = sub_1402CF4F0(v30[3]);
+            sub_14030CF90(v30);
+            LOBYTE(v21) = HIBYTE(v30[0]);
+            sub_1402B0CE0(v30[3], v21);
           }
-          *(_QWORD *)&v25 = 3LL;
+          *(_QWORD *)&v24 = 3LL;
+          v25 = 0LL;
           v26 = 0LL;
-          v27 = 0LL;
-          *((_QWORD *)&v25 + 1) = v12;
-          HIBYTE(v31[0]) = MiLockWorkingSetShared(v31[3]);
-          MiWalkPageTables(v31);
-          LOBYTE(v23) = HIBYTE(v31[0]);
-          MiUnlockWorkingSetShared(v31[3], v23);
+          *((_QWORD *)&v24 + 1) = v12;
+          HIBYTE(v30[0]) = sub_1402CF4F0(v30[3]);
+          sub_14030CF90(v30);
+          LOBYTE(v22) = HIBYTE(v30[0]);
+          sub_1402B0CE0(v30[3], v22);
           *(_DWORD *)(v12 + 196) |= 0x200u;
         }
-        else if ( (v27 & 1) != 0 )
+        else if ( (v26 & 1) != 0 )
         {
           v6 = -1073741755;
         }
         else
         {
-          v6 = (v27 & 2) != 0 ? -1073741791 : -1073741819;
+          v6 = (v26 & 2) != 0 ? -1073741791 : -1073741819;
         }
         goto LABEL_30;
       }

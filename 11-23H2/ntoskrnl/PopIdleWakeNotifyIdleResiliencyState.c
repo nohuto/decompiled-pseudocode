@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleWakeNotifyIdleResiliencyState @ 0x14059D994
+ * XREFs of PopIdleWakeNotifyIdleResiliencyState @ 0x14059DE84
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x14099807C (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099827C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIdleWakeInsertTimeInterval @ 0x14059D840 (PopIdleWakeInsertTimeInterval.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIdleWakeInsertTimeInterval @ 0x14059DD30 (PopIdleWakeInsertTimeInterval.c)
  */
 
 __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
@@ -25,9 +25,9 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v14; // zf
-  LARGE_INTEGER v15; // [rsp+58h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp+10h] BYREF
 
-  v15.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v3 = (LARGE_INTEGER *)PopIdleWakeContext;
   v4 = v2;
@@ -40,13 +40,13 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
       if ( ((v5 >> 1) & 1) != v6 )
       {
         *(_DWORD *)PopIdleWakeContext = v5 & 0xFFFFFFFD | (2 * v6);
-        RtlGetInterruptTimePrecise(&v15);
-        v7 = v15;
+        RtlGetInterruptTimePrecise(&PerformanceCounter);
+        v7 = PerformanceCounter;
         LowPart = v3->LowPart;
-        v9 = v15.QuadPart - v3[1].QuadPart;
+        v9 = PerformanceCounter.QuadPart - v3[1].QuadPart;
         if ( (v3->LowPart & 8) == 0 )
         {
-          v10 = v15.QuadPart - v3[6].QuadPart;
+          v10 = PerformanceCounter.QuadPart - v3[6].QuadPart;
           if ( v10 > PopIdleWakeSourceSpuriousThresholdQpc )
             v3->LowPart = LowPart | 4;
           PopIdleWakeInsertTimeInterval(
@@ -75,10 +75,10 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopIdleWakeContextLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

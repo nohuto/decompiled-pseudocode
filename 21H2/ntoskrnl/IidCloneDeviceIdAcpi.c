@@ -1,9 +1,9 @@
 /*
- * XREFs of IidCloneDeviceIdAcpi @ 0x1405C643C
+ * XREFs of IidCloneDeviceIdAcpi @ 0x1405C666C
  * Callers:
- *     IidCloneDeviceId @ 0x140974438 (IidCloneDeviceId.c)
+ *     IidCloneDeviceId @ 0x140974618 (IidCloneDeviceId.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall IidCloneDeviceIdAcpi(__int64 a1, __int64 a2)

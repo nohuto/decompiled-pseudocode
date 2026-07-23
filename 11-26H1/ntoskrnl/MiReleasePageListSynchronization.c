@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleasePageListSynchronization @ 0x1402F8AB0
+ * XREFs of MiReleasePageListSynchronization @ 0x1402DAB30
  * Callers:
- *     MiActivateDecayNode @ 0x140299994 (MiActivateDecayNode.c)
+ *     MiActivateDecayNode @ 0x140298EF4 (MiActivateDecayNode.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 unsigned __int64 __fastcall MiReleasePageListSynchronization(__int64 a1, __int64 a2)
@@ -52,7 +52,7 @@ unsigned __int64 __fastcall MiReleasePageListSynchronization(__int64 a1, __int64
     v18 = (volatile signed __int32 *)(*(_QWORD *)(a1 + 48) + 32LL);
     if ( (*(_DWORD *)a1 & 1) != 0 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       {
         _InterlockedAnd(v18, 0xBFFFFFFF);
         _InterlockedDecrement(v18);

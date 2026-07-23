@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessPartition @ 0x1405153C0
+ * XREFs of PsGetProcessPartition @ 0x14050EE30
  * Callers:
  *     <none>
  * Callees:

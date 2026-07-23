@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTiLogProtectExecVm @ 0x1408A75EA
+ * XREFs of EtwTiLogProtectExecVm @ 0x1408A783A
  * Callers:
- *     NtProtectVirtualMemory @ 0x1406F91D0 (NtProtectVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1406F93E0 (NtProtectVirtualMemory.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     EtwpTiFillThreadIdentity @ 0x1403041F8 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiFillZeroVad @ 0x140363A60 (EtwpTiFillZeroVad.c)
- *     EtwpTiFillVad @ 0x1403680D4 (EtwpTiFillVad.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpTiQueryVad @ 0x1407E2720 (EtwpTiQueryVad.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x1403041E4 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x140304420 (EtwProviderEnabled.c)
+ *     EtwpTiFillThreadIdentity @ 0x140304488 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillZeroVad @ 0x140363C00 (EtwpTiFillZeroVad.c)
+ *     EtwpTiFillVad @ 0x140368274 (EtwpTiFillVad.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpTiQueryVad @ 0x1407E29F0 (EtwpTiQueryVad.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

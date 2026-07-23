@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetUmProcessImageInfo @ 0x1800797D0
+ * XREFs of EtwpGetUmProcessImageInfo @ 0x1800797C0
  * Callers:
- *     EtwpUpdateEnableInfoAndCallback @ 0x18002A95C (EtwpUpdateEnableInfoAndCallback.c)
- *     EtwpTrackRegBinaryInfo @ 0x1800840A4 (EtwpTrackRegBinaryInfo.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18002A94C (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpTrackRegBinaryInfo @ 0x180084094 (EtwpTrackRegBinaryInfo.c)
  * Callees:
- *     EtwpProviderArrivalCallback @ 0x180079858 (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x180079848 (EtwpProviderArrivalCallback.c)
  */
 
 __int64 __fastcall EtwpGetUmProcessImageInfo(__int16 a1, __int64 a2)

@@ -3,13 +3,13 @@
  * Callers:
  *     RtlpMuiRegCreateLanguageConfigList @ 0x18000A970 (RtlpMuiRegCreateLanguageConfigList.c)
  *     RtlpMuiRegCreateLanguageList @ 0x180012214 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegCreateLanguages @ 0x180112970 (RtlpMuiRegCreateLanguages.c)
- *     RtlpMuiRegCreateStringPool @ 0x180112A08 (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegCreateLanguages @ 0x180112940 (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1801129D8 (RtlpMuiRegCreateStringPool.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18003CB80 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall SafeAllocBlob(
+PVOID __fastcall SafeAllocBlob(
         unsigned int a1,
         unsigned int a2,
         unsigned int a3,
@@ -21,7 +21,7 @@ __int64 __fastcall SafeAllocBlob(
   unsigned int v7; // edx
   unsigned __int64 v8; // rcx
   unsigned int v9; // ecx
-  __int64 result; // rax
+  PVOID result; // rax
 
   v6 = a3 * (unsigned __int64)a2;
   if ( v6 > 0xFFFFFFFF )
@@ -39,6 +39,6 @@ __int64 __fastcall SafeAllocBlob(
   if ( a6 )
     *a6 = v9;
   if ( v9 )
-    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v9);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9);
   return result;
 }

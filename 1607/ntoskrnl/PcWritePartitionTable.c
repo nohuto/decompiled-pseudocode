@@ -1,17 +1,17 @@
 /*
- * XREFs of PcWritePartitionTable @ 0x14023B81C
+ * XREFs of PcWritePartitionTable @ 0x14023B700
  * Callers:
- *     IoWritePartitionTable @ 0x1406200D4 (IoWritePartitionTable.c)
- *     IoWritePartitionTableEx @ 0x1406201B8 (IoWritePartitionTableEx.c)
+ *     IoWritePartitionTable @ 0x140620188 (IoWritePartitionTable.c)
+ *     IoWritePartitionTableEx @ 0x14062026C (IoWritePartitionTableEx.c)
  * Callees:
- *     ??1PC_DISK@@QEAA@XZ @ 0x1401475A4 (--1PC_DISK@@QEAA@XZ.c)
- *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x1401475BC (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
- *     ?Reset@PC_DISK@@QEAAJXZ @ 0x140147670 (-Reset@PC_DISK@@QEAAJXZ.c)
- *     ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x1401479A4 (-Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B5F0 (-PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z.c)
- *     ?WritePartitionTable@PC_MBR@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023BD7C (-WritePartitionTable@PC_MBR@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
- *     ?WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C894 (-WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
+ *     ??1PC_DISK@@QEAA@XZ @ 0x140147B14 (--1PC_DISK@@QEAA@XZ.c)
+ *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x140147B2C (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
+ *     ?Reset@PC_DISK@@QEAAJXZ @ 0x140147BE0 (-Reset@PC_DISK@@QEAAJXZ.c)
+ *     ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x140147F14 (-Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B4D4 (-PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z.c)
+ *     ?WritePartitionTable@PC_MBR@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023BC60 (-WritePartitionTable@PC_MBR@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C778 (-WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
  */
 
 __int64 __fastcall PcWritePartitionTable(

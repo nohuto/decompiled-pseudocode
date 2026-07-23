@@ -1,18 +1,18 @@
 /*
- * XREFs of MiQueryImageExtensionInformation @ 0x140474954
+ * XREFs of MiQueryImageExtensionInformation @ 0x140470764
  * Callers:
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x1402176A0 (MiMakeSystemAddressValid.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1402BB330 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiGetImageExtensionBaseAddress @ 0x140A2C0F0 (MiGetImageExtensionBaseAddress.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x140244700 (MiMakeSystemAddressValid.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140362A70 (MiUnlockAndDereferenceVadShared.c)
+ *     MiGetImageExtensionBaseAddress @ 0x140A1FFB0 (MiGetImageExtensionBaseAddress.c)
  */
 
-__int64 __fastcall MiQueryImageExtensionInformation(__int128 *a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)
+__int64 __fastcall MiQueryImageExtensionInformation(__int128 *a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   __int64 v5; // r9
   __int64 v7; // rdi
@@ -24,27 +24,29 @@ __int64 __fastcall MiQueryImageExtensionInformation(__int128 *a1, __int64 a2, un
   unsigned __int64 v14; // r15
   ULONG_PTR v15; // rbx
   struct _LIST_ENTRY **p_Blink; // r12
-  unsigned __int8 v17; // r13
-  __int128 v18; // [rsp+28h] [rbp-50h]
-  __int64 v19; // [rsp+38h] [rbp-40h]
-  int v20; // [rsp+88h] [rbp+10h] BYREF
-  int v21; // [rsp+8Ch] [rbp+14h]
-  _QWORD *v22; // [rsp+98h] [rbp+20h]
+  __int64 v17; // rdx
+  __int64 v18; // r9
+  unsigned __int8 v19; // r13
+  __int128 v20; // [rsp+28h] [rbp-50h]
+  __int64 v21; // [rsp+38h] [rbp-40h]
+  int v22; // [rsp+88h] [rbp+10h] BYREF
+  int v23; // [rsp+8Ch] [rbp+14h]
+  _QWORD *v24; // [rsp+98h] [rbp+20h]
 
-  v22 = a4;
-  v21 = HIDWORD(a2);
+  v24 = a4;
+  v23 = HIDWORD(a2);
   v5 = a3;
-  v20 = 0;
+  v22 = 0;
   v7 = 0LL;
-  v18 = *a1;
-  v19 = *((_QWORD *)a1 + 2);
+  v20 = *a1;
+  v21 = *((_QWORD *)a1 + 2);
   if ( HIDWORD(*(_QWORD *)a1) )
     goto LABEL_15;
-  v8 = MiObtainReferencedVadEx(a3, (unsigned int)(HIDWORD(*(_QWORD *)a1) + 2), &v20);
+  v8 = MiObtainReferencedVadEx(a3, (unsigned int)(HIDWORD(*(_QWORD *)a1) + 2), &v22, a3);
   v7 = v8;
   if ( !v8 )
   {
-    v11 = v20;
+    v11 = v22;
     goto LABEL_9;
   }
   if ( (*(_DWORD *)(v8 + 48) & 0x70) != 0x20 )
@@ -54,10 +56,10 @@ __int64 __fastcall MiQueryImageExtensionInformation(__int128 *a1, __int64 a2, un
   }
   a2 = 3LL;
   v9 = 3;
-  if ( (_DWORD)v18 )
+  if ( (_DWORD)v20 )
   {
     a3 = 3LL;
-    if ( (_DWORD)v18 == 1 )
+    if ( (_DWORD)v20 == 1 )
     {
       v11 = -1073741637;
       goto LABEL_9;
@@ -74,24 +76,24 @@ LABEL_15:
     v11 = -1073741811;
     goto LABEL_9;
   }
-  *((_QWORD *)&v18 + 1) = 0LL;
-  v19 = 0LL;
+  *((_QWORD *)&v20 + 1) = 0LL;
+  v21 = 0LL;
   if ( (*(_DWORD *)(v8 + 64) & 0x20) != 0 )
   {
     ImageExtensionBaseAddress = MiGetImageExtensionBaseAddress(v8, 3LL, a3);
-    v14 = (unsigned int)dword_140E2D7A0[v13] + ImageExtensionBaseAddress;
+    v14 = (unsigned int)dword_140E2D8E0[v13] + ImageExtensionBaseAddress;
     v15 = ((v14 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
-    v17 = MiLockWorkingSetShared((__int64)p_Blink);
-    MiMakeSystemAddressValid(v15, (*(_DWORD *)(v7 + 48) >> 12) & 0x7F, v17, 0);
+    v19 = MiLockWorkingSetShared((__int64)p_Blink, v17, v13, v18);
+    MiMakeSystemAddressValid(v15, (*(_DWORD *)(v7 + 48) >> 12) & 0x7F, v19, 0);
     if ( *(_QWORD *)v15 )
     {
-      *((_QWORD *)&v18 + 1) = v14
+      *((_QWORD *)&v20 + 1) = v14
                             - ((*(unsigned int *)(v7 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v7 + 32) << 32)) << 12);
-      v19 = 4096LL;
+      v21 = 4096LL;
     }
     MiUnlockPageTableInternal((__int64)p_Blink, ((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-    MiUnlockWorkingSetShared((__int64)p_Blink, v17);
+    MiUnlockWorkingSetShared((__int64)p_Blink, v19);
   }
   v11 = 0;
 LABEL_9:
@@ -99,8 +101,8 @@ LABEL_9:
     MiUnlockAndDereferenceVadShared(v7, a2, a3, v5);
   if ( v11 >= 0 )
   {
-    *a1 = v18;
-    *((_QWORD *)a1 + 2) = v19;
+    *a1 = v20;
+    *((_QWORD *)a1 + 2) = v21;
     if ( a4 )
       *a4 = 24LL;
   }

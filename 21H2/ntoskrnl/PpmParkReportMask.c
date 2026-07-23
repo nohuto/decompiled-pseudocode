@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkReportMask @ 0x1402B7C90
+ * XREFs of PpmParkReportMask @ 0x140235E70
  * Callers:
  *     <none>
  * Callees:
- *     KeCpuSetReportParkedProcessors @ 0x1402AAD9C (KeCpuSetReportParkedProcessors.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x1403C2250 (KeIsEqualAffinityEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvlParkedVirtualProcessors @ 0x1404F7F50 (HvlParkedVirtualProcessors.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140228EDC (KeCpuSetReportParkedProcessors.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x1403C2680 (KeIsEqualAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvlParkedVirtualProcessors @ 0x1404F7ED0 (HvlParkedVirtualProcessors.c)
  */
 
 char PpmParkReportMask()

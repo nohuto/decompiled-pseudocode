@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetNumberOfSGElementsDmarThin @ 0x14045D050
+ * XREFs of HalpGetNumberOfSGElementsDmarThin @ 0x14045D450
  * Callers:
- *     HalpBuildScatterGatherListDmarThin @ 0x140513D70 (HalpBuildScatterGatherListDmarThin.c)
+ *     HalpBuildScatterGatherListDmarThin @ 0x1405142C0 (HalpBuildScatterGatherListDmarThin.c)
  * Callees:
  *     <none>
  */

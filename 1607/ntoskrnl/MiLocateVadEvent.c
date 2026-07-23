@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLocateVadEvent @ 0x140015564
+ * XREFs of MiLocateVadEvent @ 0x1400150E4
  * Callers:
- *     NtGetWriteWatch @ 0x140014EF0 (NtGetWriteWatch.c)
- *     MiCheckUserVirtualAddress @ 0x14001EED0 (MiCheckUserVirtualAddress.c)
- *     MiFreeVadRange @ 0x1400272B4 (MiFreeVadRange.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1400AA768 (MiCaptureWriteWatchDirtyBit.c)
- *     MiCloneVads @ 0x1400BC560 (MiCloneVads.c)
- *     MiMarkMdlComplete @ 0x1401E8970 (MiMarkMdlComplete.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x140432230 (MmQueryVirtualMemory.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiDeleteTebRange @ 0x1404CD4BC (MiDeleteTebRange.c)
- *     MiMarkPrivateImageCfgBits @ 0x1404F45BC (MiMarkPrivateImageCfgBits.c)
- *     MiGetReadyInPageBlock @ 0x140659C6C (MiGetReadyInPageBlock.c)
- *     MiCopyLargeVad @ 0x1406622EC (MiCopyLargeVad.c)
+ *     NtGetWriteWatch @ 0x140014A70 (NtGetWriteWatch.c)
+ *     MiCheckUserVirtualAddress @ 0x14001EA50 (MiCheckUserVirtualAddress.c)
+ *     MiFreeVadRange @ 0x140026E34 (MiFreeVadRange.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1400A8CE8 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiCloneVads @ 0x1400BA3F0 (MiCloneVads.c)
+ *     MiMarkMdlComplete @ 0x1401E879C (MiMarkMdlComplete.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x140431100 (MmQueryVirtualMemory.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiDeleteTebRange @ 0x1404B2EE8 (MiDeleteTebRange.c)
+ *     MiMarkPrivateImageCfgBits @ 0x1404D7548 (MiMarkPrivateImageCfgBits.c)
+ *     MiGetReadyInPageBlock @ 0x140659D50 (MiGetReadyInPageBlock.c)
+ *     MiCopyLargeVad @ 0x1406623D0 (MiCopyLargeVad.c)
  * Callees:
  *     <none>
  */

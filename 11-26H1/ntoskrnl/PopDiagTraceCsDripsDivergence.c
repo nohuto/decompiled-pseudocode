@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsDripsDivergence @ 0x14060828C
+ * XREFs of PopDiagTraceCsDripsDivergence @ 0x14060AE4C
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x1407DE3A0 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1407E2A20 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceCsDripsDivergence(int a1, __int64 a2, __int64 a3)
@@ -28,11 +28,9 @@ BOOLEAN __fastcall PopDiagTraceCsDripsDivergence(int a1, __int64 a2, __int64 a3)
   v12 = a1;
   result = PopDripsSwHwDivergenceThreshold;
   v4 = PopDripsSwHwDivergenceThreshold;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_CS_DRIPS_DIVERGENCE);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_CS_DRIPS_DIVERGENCE);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v12;
@@ -43,15 +41,7 @@ BOOLEAN __fastcall PopDiagTraceCsDripsDivergence(int a1, __int64 a2, __int64 a3)
       v8 = &v14;
       v10 = &v4;
       v9 = 8LL;
-      return EtwWriteEx(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_CS_DRIPS_DIVERGENCE,
-               0LL,
-               0,
-               0LL,
-               0LL,
-               4u,
-               &UserData);
+      return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_CS_DRIPS_DIVERGENCE, 0LL, 0, 0LL, 0LL, 4u, &UserData);
     }
   }
   return result;

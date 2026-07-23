@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpFreeApcPool @ 0x14049A610
+ * XREFs of EtwpFreeApcPool @ 0x140495034
  * Callers:
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
  * Callees:
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeApcPool(__int64 a1)
 {
   PSLIST_ENTRY v2; // rdi
-  struct _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY *v3; // rcx
 
   if ( *(int *)(a1 + 176) > 0 )
     KeBugCheck(0x11Du);

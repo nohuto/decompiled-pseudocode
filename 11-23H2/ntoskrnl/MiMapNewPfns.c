@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMapNewPfns @ 0x140A2C910
+ * XREFs of MiMapNewPfns @ 0x140A2CBC0
  * Callers:
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
  * Callees:
  *     MiMakeZeroedPageTablesEx @ 0x140214310 (MiMakeZeroedPageTablesEx.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiGetClosestImplicitNode @ 0x1402E5D9C (MiGetClosestImplicitNode.c)
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     MiLockDynamicMemoryShared @ 0x1403463D4 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x140346780 (MiUnlockDynamicMemoryShared.c)
- *     MiIncreaseCommitLimits @ 0x140396064 (MiIncreaseCommitLimits.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeConfigureDynamicMemory @ 0x14056EB7C (KeConfigureDynamicMemory.c)
- *     MiPageToNode @ 0x1406177F0 (MiPageToNode.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
- *     MiPhysicalMemoryEverRemoved @ 0x14061BC60 (MiPhysicalMemoryEverRemoved.c)
- *     MiReduceCommitLimits @ 0x14065655C (MiReduceCommitLimits.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiGetClosestImplicitNode @ 0x1402E602C (MiGetClosestImplicitNode.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     MiLockDynamicMemoryShared @ 0x140346664 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140346A10 (MiUnlockDynamicMemoryShared.c)
+ *     MiIncreaseCommitLimits @ 0x140396244 (MiIncreaseCommitLimits.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeConfigureDynamicMemory @ 0x14056F0BC (KeConfigureDynamicMemory.c)
+ *     MiPageToNode @ 0x140617D40 (MiPageToNode.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
+ *     MiPhysicalMemoryEverRemoved @ 0x14061C1B0 (MiPhysicalMemoryEverRemoved.c)
+ *     MiReduceCommitLimits @ 0x140656AAC (MiReduceCommitLimits.c)
  */
 
 __int64 __fastcall MiMapNewPfns(

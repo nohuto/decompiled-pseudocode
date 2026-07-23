@@ -6,16 +6,16 @@
  *     RtlSetProcessDebugInformation @ 0x1800E3ED0 (RtlSetProcessDebugInformation.c)
  *     WerReportExceptionWorker @ 0x1800E8E00 (WerReportExceptionWorker.c)
  *     RtlpHeapPerformCrossProcessQuery @ 0x180100668 (RtlpHeapPerformCrossProcessQuery.c)
- *     RtlRemoteCall @ 0x18010D320 (RtlRemoteCall.c)
+ *     RtlRemoteCall @ 0x18010D2F0 (RtlRemoteCall.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwResumeThread()
+NTSTATUS __cdecl ZwResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 82LL;
+  result = 82;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

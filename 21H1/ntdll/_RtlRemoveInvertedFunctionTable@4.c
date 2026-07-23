@@ -9,9 +9,9 @@
  *     _RtlxRemoveInvertedFunctionTable@8 @ 0x4B2E6831 (_RtlxRemoveInvertedFunctionTable@8.c)
  */
 
-signed __int32 RtlRemoveInvertedFunctionTable()
+void RtlRemoveInvertedFunctionTable()
 {
   RtlAcquireSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
   RtlxRemoveInvertedFunctionTable();
-  return RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
 }

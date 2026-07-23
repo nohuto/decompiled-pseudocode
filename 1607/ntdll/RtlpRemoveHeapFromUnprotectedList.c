@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpRemoveHeapFromUnprotectedList @ 0x18002CBD8
+ * XREFs of RtlpRemoveHeapFromUnprotectedList @ 0x18002CBC8
  * Callers:
- *     RtlpMoveHeapBetweenLists @ 0x18002D954 (RtlpMoveHeapBetweenLists.c)
+ *     RtlpMoveHeapBetweenLists @ 0x18002D944 (RtlpMoveHeapBetweenLists.c)
  * Callees:
  *     <none>
  */

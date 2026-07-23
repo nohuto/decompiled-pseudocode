@@ -1,20 +1,20 @@
 /*
- * XREFs of MiHardFaultPageRelease @ 0x140334DA8
+ * XREFs of MiHardFaultPageRelease @ 0x140335038
  * Callers:
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     MiAddPageToInsertList @ 0x1402D99D0 (MiAddPageToInsertList.c)
- *     MiUnlockMdlWritePages @ 0x1402D9B30 (MiUnlockMdlWritePages.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     MiAddPageToInsertList @ 0x1402D9C60 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x1402D9DC0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiIsPfnCommitNotCharged @ 0x1402DC180 (MiIsPfnCommitNotCharged.c)
- *     MiMakeFaultPfnActive @ 0x140334EE0 (MiMakeFaultPfnActive.c)
- *     MiInsertProtectedStandbyPage @ 0x140335030 (MiInsertProtectedStandbyPage.c)
- *     MiHandleInPageError @ 0x14033517C (MiHandleInPageError.c)
- *     MiSwapHardFaultPage @ 0x14066C978 (MiSwapHardFaultPage.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DBDB0 (MiRemoveLockedPageCharge.c)
+ *     MiIsPfnCommitNotCharged @ 0x1402DC410 (MiIsPfnCommitNotCharged.c)
+ *     MiMakeFaultPfnActive @ 0x140335170 (MiMakeFaultPfnActive.c)
+ *     MiInsertProtectedStandbyPage @ 0x1403352C0 (MiInsertProtectedStandbyPage.c)
+ *     MiHandleInPageError @ 0x14033540C (MiHandleInPageError.c)
+ *     MiSwapHardFaultPage @ 0x14066CEC8 (MiSwapHardFaultPage.c)
  */
 
 void __fastcall MiHardFaultPageRelease(__int64 *a1, __int64 a2, __int64 a3)

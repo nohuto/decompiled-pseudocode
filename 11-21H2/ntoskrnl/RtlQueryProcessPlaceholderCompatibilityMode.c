@@ -6,11 +6,11 @@
  *     <none>
  */
 
-char RtlQueryProcessPlaceholderCompatibilityMode()
+CHAR RtlQueryProcessPlaceholderCompatibilityMode(void)
 {
-  unsigned __int64 v0; // rax
+  __int64 v0; // rax
 
-  v0 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[24];
+  v0 = *(_QWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 1360LL);
   if ( v0 )
     return *(_BYTE *)(v0 + 1968);
   else

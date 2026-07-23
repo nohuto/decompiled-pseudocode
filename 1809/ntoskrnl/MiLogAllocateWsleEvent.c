@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogAllocateWsleEvent @ 0x1402A7CB4
+ * XREFs of MiLogAllocateWsleEvent @ 0x1402A7EA4
  * Callers:
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x1400A7E30 (MiIdentifyPfnWrapper.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiFillPageExtraInfo @ 0x1402A7C8C (MiFillPageExtraInfo.c)
+ *     MiIdentifyPfnWrapper @ 0x1400A7D70 (MiIdentifyPfnWrapper.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiFillPageExtraInfo @ 0x1402A7E7C (MiFillPageExtraInfo.c)
  */
 
 void __fastcall MiLogAllocateWsleEvent(ULONG_PTR a1, int a2, __int64 a3)

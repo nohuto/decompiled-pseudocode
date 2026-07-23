@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogSlabEntryDemote @ 0x140707868
+ * XREFs of MiLogSlabEntryDemote @ 0x14070C538
  * Callers:
- *     MiDemoteSlabEntry @ 0x1402AA3B4 (MiDemoteSlabEntry.c)
+ *     MiDemoteSlabEntry @ 0x1402A97C4 (MiDemoteSlabEntry.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void MiLogSlabEntryDemote()
@@ -37,7 +37,7 @@ void MiLogSlabEntryDemote()
   __int64 *v24; // [rsp+E0h] [rbp+37h]
   __int64 v25; // [rsp+E8h] [rbp+3Fh]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 1024LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 1024LL) )
   {
     v3 = *(_QWORD *)(v2 + 56);
     v7 = *(_BYTE *)(v3 + 128);
@@ -59,6 +59,6 @@ void MiLogSlabEntryDemote()
     v25 = 8LL;
     v17 = 4LL;
     v10 = v0;
-    tlgWriteEx_EtwWriteEx(v1, (unsigned __int8 *)&word_140059752, v0, 1u, v5, v6, 8u, &v13);
+    tlgWriteEx_EtwWriteEx(v1, (unsigned __int8 *)&word_14005A636, v0, 1u, v5, v6, 8u, &v13);
   }
 }

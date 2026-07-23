@@ -20,7 +20,7 @@ __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
 
   v1 = *(PVOID *)(a1 + 48);
   result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v1);
-  if ( (!(_DWORD)result || v1 == (PVOID)PsNtosImageBase || v1 == PsHalImageBase) && (*(_DWORD *)(a1 + 104) & 0x800) == 0 )
+  if ( (!(_DWORD)result || v1 == PsNtosImageBase || v1 == PsHalImageBase) && (*(_DWORD *)(a1 + 104) & 0x800) == 0 )
   {
     v4 = 0;
     do

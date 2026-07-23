@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpRegisterObject @ 0x14097D3B4
+ * XREFs of ObpRegisterObject @ 0x14097D5B4
  * Callers:
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     IopAllocRealFileObject @ 0x14072F300 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072F810 (CmpCreateKeyBody.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     IopAllocRealFileObject @ 0x14072F500 (IopAllocRealFileObject.c)
+ *     CmpCreateKeyBody @ 0x14072FA00 (CmpCreateKeyBody.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlStringCbCopyA @ 0x140348078 (RtlStringCbCopyA.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpGetObjectRefInfo @ 0x14097CC84 (ObpGetObjectRefInfo.c)
- *     ObpIsObjectPoolTagTraced @ 0x14097D0D4 (ObpIsObjectPoolTagTraced.c)
- *     EtwTraceObject @ 0x1409E5BD8 (EtwTraceObject.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlStringCbCopyA @ 0x140348308 (RtlStringCbCopyA.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpGetObjectRefInfo @ 0x14097CE84 (ObpGetObjectRefInfo.c)
+ *     ObpIsObjectPoolTagTraced @ 0x14097D2D4 (ObpIsObjectPoolTagTraced.c)
+ *     EtwTraceObject @ 0x1409E5E68 (EtwTraceObject.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

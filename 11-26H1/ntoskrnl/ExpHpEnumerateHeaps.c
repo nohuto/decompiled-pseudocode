@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpHpEnumerateHeaps @ 0x1404AABAC
+ * XREFs of ExpHpEnumerateHeaps @ 0x1404A423C
  * Callers:
- *     ExpHpCompactionRoutine @ 0x1404AAB60 (ExpHpCompactionRoutine.c)
- *     ExpHeapInitPhase1 @ 0x1406D2FE8 (ExpHeapInitPhase1.c)
+ *     ExpHpCompactionRoutine @ 0x1404A41F0 (ExpHpCompactionRoutine.c)
+ *     ExpHeapInitPhase1 @ 0x1406D7018 (ExpHeapInitPhase1.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpHpEnumerateHeaps(int a1)
@@ -25,11 +25,11 @@ __int64 __fastcall ExpHpEnumerateHeaps(int a1)
   while ( 1 )
   {
     v4 = v2;
-    if ( v1 >= HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink) )
+    if ( v1 >= HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink) )
       break;
     while ( v4 <= v3 )
     {
-      v5 = *((_QWORD *)&stru_140E6BCE8.SListFaultAddress + 1048 * v1 + v4);
+      v5 = *((_QWORD *)&stru_140E6BFE8.SListFaultAddress + 1048 * v1 + v4);
       if ( v5 )
       {
         result = guard_dispatch_icall_no_overrides(v5, 0LL);
@@ -44,7 +44,7 @@ __int64 __fastcall ExpHpEnumerateHeaps(int a1)
     LODWORD(v3) = 3;
   while ( v4 <= (int)v3 )
   {
-    v7 = qword_140EEED00[v4];
+    v7 = qword_140EEF000[v4];
     if ( v7 )
     {
       result = guard_dispatch_icall_no_overrides(v7, 0LL);

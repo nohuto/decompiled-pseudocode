@@ -1,9 +1,9 @@
 /*
- * XREFs of PsRevertThreadToSelf @ 0x1409B1C80
+ * XREFs of PsRevertThreadToSelf @ 0x1409B1E80
  * Callers:
  *     <none>
  * Callees:
- *     PsImpersonateClient @ 0x140734A30 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x140734C20 (PsImpersonateClient.c)
  */
 
 NTSTATUS __fastcall PsRevertThreadToSelf(struct _KTHREAD *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaDequeueAdapter @ 0x14045C390
+ * XREFs of HalpDmaDequeueAdapter @ 0x14045C790
  * Callers:
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D7EE (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x14050FE78 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045DBEE (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1405103C8 (HalpDmaProcessMapRegisterQueueV3.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
@@ -39,10 +39,13 @@ __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -50,7 +53,7 @@ __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
         v11 = (v10 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v10;
         if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     result = 0LL;
@@ -66,10 +69,10 @@ __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
     *(_QWORD *)(v13 + 8) = v4;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v15 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;
@@ -77,7 +80,7 @@ __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
         v11 = (v19 & v18[5]) == 0;
         v18[5] &= v19;
         if ( v11 )
-          KiRemoveSystemWorkPriorityKick(v17);
+          KiRemoveSystemWorkPriorityKick((__int64)v17);
       }
     }
     __writecr8(v15);

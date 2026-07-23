@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLightWeightPrepareSetKeyUserFlags @ 0x14060F5AC
+ * XREFs of CmpLightWeightPrepareSetKeyUserFlags @ 0x14060F660
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareSetKeyUserFlags(__int64 a1)

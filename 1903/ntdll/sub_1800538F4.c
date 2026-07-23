@@ -7,10 +7,10 @@
  *     RtlRbRemoveNode @ 0x180039FA0 (RtlRbRemoveNode.c)
  */
 
-signed __int64 __fastcall sub_1800538F4(void *a1)
+void __fastcall sub_1800538F4(PRTL_BALANCED_NODE Node)
 {
-  RtlAcquireSRWLockExclusive(&qword_180166440);
-  RtlRbRemoveNode((unsigned __int64 *)&qword_180166430, (unsigned __int64)a1);
-  memset(a1, 171, 24);
-  return RtlReleaseSRWLockExclusive(&qword_180166440);
+  RtlAcquireSRWLockExclusive(&stru_180166440);
+  RtlRbRemoveNode(&Tree, Node);
+  memset(Node, 171, sizeof(_RTL_BALANCED_NODE));
+  RtlReleaseSRWLockExclusive(&stru_180166440);
 }

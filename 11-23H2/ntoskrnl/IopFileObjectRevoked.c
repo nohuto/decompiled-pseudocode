@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFileObjectRevoked @ 0x140301740
+ * XREFs of IopFileObjectRevoked @ 0x1403019D0
  * Callers:
- *     IopReferenceFileObject @ 0x1403016DC (IopReferenceFileObject.c)
- *     NtCopyFileChunk @ 0x140749890 (NtCopyFileChunk.c)
- *     IopIoRingDispatchWrite @ 0x140949C64 (IopIoRingDispatchWrite.c)
+ *     IopReferenceFileObject @ 0x14030196C (IopReferenceFileObject.c)
+ *     NtCopyFileChunk @ 0x140749A80 (NtCopyFileChunk.c)
+ *     IopIoRingDispatchWrite @ 0x140949E64 (IopIoRingDispatchWrite.c)
  * Callees:
- *     PsIsProcessAppContainer @ 0x14077F08C (PsIsProcessAppContainer.c)
+ *     PsIsProcessAppContainer @ 0x14077F27C (PsIsProcessAppContainer.c)
  */
 
 bool __fastcall IopFileObjectRevoked(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapSaveRecordForLiveDump @ 0x140AABAA4
+ * XREFs of WheapSaveRecordForLiveDump @ 0x140AAB914
  * Callers:
- *     WheapCreateLiveDumpFromPreviousSession @ 0x140AAB9F4 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x140AAB864 (WheapCreateLiveDumpFromPreviousSession.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -14,7 +14,7 @@ __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)
   size_t v1; // rsi
   unsigned int v3; // edi
   __int64 Pool2; // rbx
-  struct _DEVICE_OBJECT *NextDevice; // rax
+  __int64 *v5; // rax
 
   v1 = *(unsigned int *)(a1 + 60);
   if ( (int)v1 + 32 < (unsigned int)v1 )
@@ -31,13 +31,13 @@ __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)
       *(_QWORD *)(Pool2 + 24) = Pool2 + 32;
       memmove((void *)(Pool2 + 32), (const void *)(a1 + 40), v1);
       ExAcquireFastMutex((PFAST_MUTEX)&WheapDispatchPtr.AttachedDevice);
-      NextDevice = WheapDispatchPtr.NextDevice;
-      if ( *(struct _DEVICE_OBJECT **)WheapDispatchPtr.NextDevice != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.DriverObject )
+      v5 = *(__int64 **)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels;
+      if ( **(struct _DEVICE_OBJECT ***)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink )
         __fastfail(3u);
-      *(_QWORD *)Pool2 = &WheapDispatchPtr.DriverObject;
-      *(_QWORD *)(Pool2 + 8) = NextDevice;
-      *(_QWORD *)&NextDevice->Type = Pool2;
-      WheapDispatchPtr.NextDevice = (struct _DEVICE_OBJECT *)Pool2;
+      *(_QWORD *)Pool2 = &WheapDispatchPtr.Queue.ListEntry.Blink;
+      *(_QWORD *)(Pool2 + 8) = v5;
+      *v5 = Pool2;
+      *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels = Pool2;
       ExReleaseFastMutex((PFAST_MUTEX)&WheapDispatchPtr.AttachedDevice);
     }
     else

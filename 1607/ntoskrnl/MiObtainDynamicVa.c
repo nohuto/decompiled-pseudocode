@@ -1,16 +1,16 @@
 /*
- * XREFs of MiObtainDynamicVa @ 0x1400A3088
+ * XREFs of MiObtainDynamicVa @ 0x1400A19B0
  * Callers:
- *     MiObtainSystemVa @ 0x1400A3024 (MiObtainSystemVa.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
- *     MiGetLargePageWorkMapping @ 0x14013ADC0 (MiGetLargePageWorkMapping.c)
+ *     MiObtainSystemVa @ 0x1400A194C (MiObtainSystemVa.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
+ *     MiGetLargePageWorkMapping @ 0x14013B330 (MiGetLargePageWorkMapping.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlSetBitsEx @ 0x1400179FC (RtlSetBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiReclaimSystemVa @ 0x1400A38F4 (MiReclaimSystemVa.c)
- *     MiExtendDynamicBitMap @ 0x140149A5C (MiExtendDynamicBitMap.c)
- *     MiFindClearBitsAlignedEx @ 0x14014B510 (MiFindClearBitsAlignedEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlSetBitsEx @ 0x14001757C (RtlSetBitsEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiReclaimSystemVa @ 0x1400A221C (MiReclaimSystemVa.c)
+ *     MiExtendDynamicBitMap @ 0x140149FCC (MiExtendDynamicBitMap.c)
+ *     MiFindClearBitsAlignedEx @ 0x14014BA80 (MiFindClearBitsAlignedEx.c)
  */
 
 __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, int a3, int a4)
@@ -543,12 +543,12 @@ LABEL_33:
   {
     v5[3] = ClearBitsAligned + 1;
   }
-  if ( v5 == &qword_140326C60 )
+  if ( v5 == &qword_140326CA0 )
   {
-    qword_140326AC8 -= v4 << 21;
+    qword_140326B08 -= v4 << 21;
     MiReclaimSystemVa(0LL);
   }
-  _InterlockedExchangeAdd64(&qword_140327EB0[v31], v4);
+  _InterlockedExchangeAdd64(&qword_140327EF0[v31], v4);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   return v5[4] + (ClearBitsAligned << 21);
 }

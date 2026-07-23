@@ -1,32 +1,32 @@
 /*
- * XREFs of ExpSystemErrorHandler2 @ 0x140BFF4E0
+ * XREFs of ExpSystemErrorHandler2 @ 0x140C056F0
  * Callers:
- *     ExpSystemErrorHandler @ 0x140535270 (ExpSystemErrorHandler.c)
+ *     ExpSystemErrorHandler @ 0x1405376F0 (ExpSystemErrorHandler.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     strcat_s @ 0x14053C5C0 (strcat_s.c)
- *     strcpy_s @ 0x14053C650 (strcpy_s.c)
- *     RtlStringCbPrintfA @ 0x140576648 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PoShutdownBugCheck @ 0x1407D0FB0 (PoShutdownBugCheck.c)
- *     PsTerminateServerSilo @ 0x1407EE820 (PsTerminateServerSilo.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlxUnicodeStringToOemSize @ 0x14096C1E0 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     PsQuerySystemDllInfo @ 0x1409EBB38 (PsQuerySystemDllInfo.c)
- *     RtlFindMessage @ 0x140A86CF0 (RtlFindMessage.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     RtlUnicodeStringToOemString @ 0x140B3CB50 (RtlUnicodeStringToOemString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     strcat_s @ 0x14053EA40 (strcat_s.c)
+ *     strcpy_s @ 0x14053EAD0 (strcpy_s.c)
+ *     RtlStringCbPrintfA @ 0x140578AF8 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PoShutdownBugCheck @ 0x1407D4050 (PoShutdownBugCheck.c)
+ *     PsTerminateServerSilo @ 0x1407F4380 (PsTerminateServerSilo.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14097CB20 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     PsQuerySystemDllInfo @ 0x1409E8308 (PsQuerySystemDllInfo.c)
+ *     RtlFindMessage @ 0x140A8DE20 (RtlFindMessage.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     RtlUnicodeStringToOemString @ 0x140B3EDD0 (RtlUnicodeStringToOemString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void __fastcall ExpSystemErrorHandler2(unsigned int a1, __int64 a2, int a3, __int64 a4, char a5)
+void __fastcall ExpSystemErrorHandler2(ULONG MessageId, __int64 a2, int a3, __int64 a4, char a5)
 {
   unsigned int v8; // edx
   const void *v9; // r9
@@ -39,7 +39,7 @@ void __fastcall ExpSystemErrorHandler2(unsigned int a1, __int64 a2, int a3, __in
   char *v16; // r14
   char *v17; // rdi
   __int64 SystemDllInfo; // rax
-  __int64 v19; // r10
+  void *v19; // r10
   unsigned __int16 v20; // r15
   char *Pool2; // rax
   __int64 v22; // r15
@@ -48,25 +48,25 @@ void __fastcall ExpSystemErrorHandler2(unsigned int a1, __int64 a2, int a3, __in
   char *v25; // rbx
   int j; // esi
   __int64 *v27; // rax
-  char *BugCheckParameter4; // rdi
+  char *v28; // rdi
   unsigned __int64 CurrentServerSilo; // rax
   NTSTATUS v30; // [rsp+50h] [rbp-218h]
   char *Src; // [rsp+78h] [rbp-1F0h]
-  rsize_t SizeInBytes; // [rsp+80h] [rbp-1E8h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+80h] [rbp-1E8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-1E0h] BYREF
-  STRING SourceString; // [rsp+98h] [rbp-1D0h] BYREF
-  STRING v35; // [rsp+A8h] [rbp-1C0h] BYREF
+  _STRING SourceString; // [rsp+98h] [rbp-1D0h] BYREF
+  _STRING v35; // [rsp+A8h] [rbp-1C0h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+B8h] [rbp-1B0h]
-  STRING DestinationString; // [rsp+C0h] [rbp-1A8h] BYREF
+  _STRING DestinationString; // [rsp+C0h] [rbp-1A8h] BYREF
   ULONG_PTR BugCheckParameter2[2]; // [rsp+D0h] [rbp-198h] BYREF
   __int128 v39; // [rsp+E0h] [rbp-188h]
   __int64 v40; // [rsp+F0h] [rbp-178h]
   char pszFormat[40]; // [rsp+F8h] [rbp-170h] BYREF
   char pszDest[256]; // [rsp+120h] [rbp-148h] BYREF
 
-  LODWORD(BugCheckParameter1) = a1;
+  LODWORD(BugCheckParameter1) = MessageId;
   *(_QWORD *)&DestinationString.Length = 0LL;
-  SizeInBytes = 0LL;
+  MessageEntry = 0LL;
   SourceString = 0LL;
   UnicodeString = 0LL;
   v35 = 0LL;
@@ -104,18 +104,18 @@ void __fastcall ExpSystemErrorHandler2(unsigned int a1, __int64 a2, int a3, __in
   SystemDllInfo = PsQuerySystemDllInfo(0);
   if ( SystemDllInfo )
   {
-    v19 = *(_QWORD *)(SystemDllInfo + 24);
+    v19 = *(void **)(SystemDllInfo + 24);
     if ( KeGetCurrentThread()->ApcState.Process == PsInitialSystemProcess )
-      v19 = *(_QWORD *)(SystemDllInfo + 32);
-    if ( (int)RtlFindMessage(v19, 0xBu, v10 != 0 ? 0x409 : 0, a1, (unsigned __int16 **)&SizeInBytes) < 0 )
+      v19 = *(void **)(SystemDllInfo + 32);
+    if ( RtlFindMessage(v19, 0xBu, v10 != 0 ? 0x409 : 0, MessageId, &MessageEntry) < 0 )
     {
       v17 = "Unknown Hard Error";
       v15 = "Unknown Hard Error";
       goto LABEL_43;
     }
-    if ( (*(_BYTE *)(SizeInBytes + 2) & 1) != 0 )
+    if ( (MessageEntry->Flags & 1) != 0 )
     {
-      RtlInitUnicodeString(&UnicodeString, (PCWSTR)(SizeInBytes + 4));
+      RtlInitUnicodeString(&UnicodeString, (PCWSTR)MessageEntry->Text);
       SourceString.Length = RtlxUnicodeStringToOemSize(&UnicodeString);
       v20 = SourceString.Length + 16;
       Pool2 = (char *)ExAllocatePool2(0x40uLL);
@@ -140,13 +140,13 @@ LABEL_27:
     }
     else
     {
-      Src = (char *)(SizeInBytes + 4);
+      Src = (char *)MessageEntry->Text;
       v22 = -1LL;
       v23 = -1LL;
       do
         ++v23;
-      while ( *(_BYTE *)(SizeInBytes + 4 + v23) );
-      SizeInBytes = (unsigned int)(v23 + 16);
+      while ( MessageEntry->Text[v23] );
+      MessageEntry = (PMESSAGE_RESOURCE_ENTRY)(unsigned int)(v23 + 16);
       v24 = (char *)ExAllocatePool2(0x40uLL);
       v17 = v24;
       if ( !v24 )
@@ -154,7 +154,7 @@ LABEL_27:
         v15 = "Unknown Hard Error";
         goto LABEL_27;
       }
-      strcpy_s(v24, SizeInBytes, Src);
+      strcpy_s(v24, (rsize_t)MessageEntry, Src);
     }
 LABEL_28:
     if ( v17 != "Unknown Hard Error" )
@@ -174,16 +174,16 @@ LABEL_28:
         LODWORD(i) = i - 1;
       }
     }
-    v27 = qword_140C0E410;
+    v27 = qword_140C14620;
     if ( (_DWORD)i )
       v27 = (__int64 *)v15;
     v15 = (char *)v27;
   }
 LABEL_43:
-  if ( RtlStringCbPrintfA(pszDest, 0x100uLL, "\nSTOP: %lx %s\n", a1, v17) < 0 )
-    RtlStringCbPrintfA(pszDest, 0x100uLL, "\nHardError %lx\n", a1);
+  if ( RtlStringCbPrintfA(pszDest, 0x100uLL, "\nSTOP: %lx %s\n", MessageId, v17) < 0 )
+    RtlStringCbPrintfA(pszDest, 0x100uLL, "\nHardError %lx\n", MessageId);
   MmLockPagableSectionByHandle(ExPageLockHandle);
-  BugCheckParameter4 = "Unknown Hard Error";
+  v28 = "Unknown Hard Error";
   RtlInitAnsiString(&SourceString, pszDest);
   if ( RtlAnsiStringToUnicodeString(&UnicodeString, &SourceString, 1u) >= 0 )
   {
@@ -199,7 +199,7 @@ LABEL_43:
       pszDest,
       0x100uLL,
       "Exception Processing Message %lx Parameters %Ix %Ix %Ix %Ix",
-      a1,
+      MessageId,
       LODWORD(BugCheckParameter2[0]),
       LODWORD(BugCheckParameter2[1]),
       (_DWORD)v39,
@@ -209,9 +209,9 @@ LABEL_43:
   {
     v35.Length = RtlxUnicodeStringToOemSize(&UnicodeString);
     v35.MaximumLength = v35.Length;
-    BugCheckParameter4 = (char *)ExAllocatePool2(0x40uLL);
-    v35.Buffer = BugCheckParameter4;
-    if ( BugCheckParameter4 )
+    v28 = (char *)ExAllocatePool2(0x40uLL);
+    v35.Buffer = v28;
+    if ( v28 )
       RtlUnicodeStringToOemString(&v35, &UnicodeString, 0);
   }
   CurrentServerSilo = PsGetCurrentServerSilo();
@@ -224,13 +224,8 @@ LABEL_43:
         (unsigned int)BugCheckParameter1,
         (ULONG_PTR)BugCheckParameter2,
         (ULONG_PTR)v16,
-        (ULONG_PTR)BugCheckParameter4);
-    KeBugCheckEx(
-      0x4Cu,
-      (unsigned int)BugCheckParameter1,
-      (ULONG_PTR)BugCheckParameter2,
-      (ULONG_PTR)v16,
-      (ULONG_PTR)BugCheckParameter4);
+        (ULONG_PTR)v28);
+    KeBugCheckEx(0x4Cu, (unsigned int)BugCheckParameter1, (ULONG_PTR)BugCheckParameter2, (ULONG_PTR)v16, (ULONG_PTR)v28);
   }
   PsTerminateServerSilo(CurrentServerSilo);
 }

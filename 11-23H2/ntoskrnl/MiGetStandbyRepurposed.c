@@ -3,9 +3,9 @@
  * Callers:
  *     MiComputeSystemTrimCriteria @ 0x1402201BC (MiComputeSystemTrimCriteria.c)
  *     MiUseLowIoPriorityForModifiedPages @ 0x140222ED8 (MiUseLowIoPriorityForModifiedPages.c)
- *     MiAddWorkingSetEntries @ 0x14026BD20 (MiAddWorkingSetEntries.c)
- *     MmQuerySystemWorkingSetInformation @ 0x140362200 (MmQuerySystemWorkingSetInformation.c)
- *     MiWorkingSetVeryLarge @ 0x14061C3D0 (MiWorkingSetVeryLarge.c)
+ *     MiAddWorkingSetEntries @ 0x14026BFB0 (MiAddWorkingSetEntries.c)
+ *     MmQuerySystemWorkingSetInformation @ 0x1403623A0 (MmQuerySystemWorkingSetInformation.c)
+ *     MiWorkingSetVeryLarge @ 0x14061C920 (MiWorkingSetVeryLarge.c)
  * Callees:
  *     <none>
  */

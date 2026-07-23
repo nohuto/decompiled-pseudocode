@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMarkBootGuardPage @ 0x14081D648
+ * XREFs of MiMarkBootGuardPage @ 0x14081D918
  * Callers:
- *     MmAllocateIsrStack @ 0x14081D57C (MmAllocateIsrStack.c)
+ *     MmAllocateIsrStack @ 0x14081D84C (MmAllocateIsrStack.c)
  *     MiInitializeKernelStacks @ 0x140B463B4 (MiInitializeKernelStacks.c)
  * Callees:
  *     MiPartitionIdToPointer @ 0x14020B9C4 (MiPartitionIdToPointer.c)
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 void __fastcall MiMarkBootGuardPage(unsigned __int64 a1)

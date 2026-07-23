@@ -1,11 +1,11 @@
 /*
- * XREFs of VfCtxInit @ 0x140C40BB4
+ * XREFs of VfCtxInit @ 0x140C46BC4
  * Callers:
- *     VfMiscPluginEntry @ 0x140C3D620 (VfMiscPluginEntry.c)
+ *     VfMiscPluginEntry @ 0x140C43630 (VfMiscPluginEntry.c)
  * Callees:
- *     KeFreeXStateContext @ 0x1403D3354 (KeFreeXStateContext.c)
- *     KeAllocateXStateContext @ 0x14046EFE0 (KeAllocateXStateContext.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeFreeXStateContext @ 0x1403D6324 (KeFreeXStateContext.c)
+ *     KeAllocateXStateContext @ 0x140468760 (KeAllocateXStateContext.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall VfCtxInit(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ void __fastcall VfCtxInit(__int64 a1, __int64 a2)
     ViCtxXStateEnabledMask = MEMORY[0xFFFFF780000003D8];
     LODWORD(ViCtxXStateSize) = MEMORY[0xFFFFF780000003E8];
   }
-  v2 = (void **)&unk_140FF3130;
+  v2 = (void **)&unk_140FF4130;
   v3 = 16LL;
   do
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerRegisterQueryCounterHandler @ 0x140582E6C
+ * XREFs of HalpTimerRegisterQueryCounterHandler @ 0x14058538C
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
- *     HalpTimerRegister @ 0x14059816C (HalpTimerRegister.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
+ *     HalpTimerRegister @ 0x14059A8EC (HalpTimerRegister.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpTimerRegisterQueryCounterHandler(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrIsModuleSxsRedirected @ 0x1800CDFE0
+ * XREFs of LdrIsModuleSxsRedirected @ 0x1800CDFA0
  * Callers:
  *     <none>
  * Callees:
@@ -7,21 +7,18 @@
  *     LdrpDereferenceModule @ 0x1800302E4 (LdrpDereferenceModule.c)
  */
 
-bool __fastcall LdrIsModuleSxsRedirected(unsigned __int64 a1)
+BOOLEAN __cdecl LdrIsModuleSxsRedirected(PVOID DllHandle)
 {
-  char v1; // bl
-  unsigned __int64 v2; // rdx
-  unsigned __int64 v3; // r8
-  unsigned __int64 v4; // r9
-  int v5; // ebx
-  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+  BOOLEAN v1; // bl
+  int v2; // ebx
+  PVOID BaseAddress; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = 0;
-  if ( (int)LdrpFindLoadedDllByHandle(a1, &v7, 0LL) >= 0 )
+  if ( (int)LdrpFindLoadedDllByHandle((unsigned __int64)DllHandle, (volatile signed __int32 **)&BaseAddress, 0LL) >= 0 )
   {
-    v5 = *(_DWORD *)(v7 + 104);
-    LdrpDereferenceModule(v7, v2, v3, v4);
-    return (v5 & 0x10000000) != 0;
+    v2 = *((_DWORD *)BaseAddress + 26);
+    LdrpDereferenceModule((char *)BaseAddress);
+    return (v2 & 0x10000000) != 0;
   }
   return v1;
 }

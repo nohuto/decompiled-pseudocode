@@ -1,15 +1,15 @@
 /*
- * XREFs of _RegRtlEnumKeyWithCallback @ 0x1405624B4
+ * XREFs of _RegRtlEnumKeyWithCallback @ 0x1405629F4
  * Callers:
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140562F74 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1405634B4 (_PnpCtxRegEnumKeyWithCallback.c)
  * Callees:
- *     IoGetStackLimits @ 0x14004F360 (IoGetStackLimits.c)
- *     _SysCtxInternalEnumSubkeyCallback @ 0x140140A4C (_SysCtxInternalEnumSubkeyCallback.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     IoGetStackLimits @ 0x14004EEE0 (IoGetStackLimits.c)
+ *     _SysCtxInternalEnumSubkeyCallback @ 0x140140FBC (_SysCtxInternalEnumSubkeyCallback.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _RegRtlQueryInfoKey @ 0x1404E1D04 (_RegRtlQueryInfoKey.c)
- *     _RegRtlEnumKey @ 0x140562664 (_RegRtlEnumKey.c)
+ *     _RegRtlQueryInfoKey @ 0x1404C5308 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140562BA4 (_RegRtlEnumKey.c)
  */
 
 __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int64 a3)

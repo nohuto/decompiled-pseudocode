@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMMandatoryFilterCallback @ 0x1408D21F0
+ * XREFs of PiCMMandatoryFilterCallback @ 0x1408CFBE0
  * Callers:
- *     PiPnpRtlEnumeratorFilterCallback @ 0x1408D1050 (PiPnpRtlEnumeratorFilterCallback.c)
+ *     PiPnpRtlEnumeratorFilterCallback @ 0x1408CEA40 (PiPnpRtlEnumeratorFilterCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PsGetSessionById @ 0x140349430 (PsGetSessionById.c)
- *     PsGetServerSiloServiceSessionId @ 0x1404566C0 (PsGetServerSiloServiceSessionId.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408D1BF0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
- *     PiAuIsLocalSystem @ 0x1408D294C (PiAuIsLocalSystem.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PsGetSessionById @ 0x1403C2E70 (PsGetSessionById.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14044B690 (PsGetServerSiloServiceSessionId.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408CF5E0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiAuIsLocalSystem @ 0x1408D033C (PiAuIsLocalSystem.c)
  */
 
 char __fastcall PiCMMandatoryFilterCallback(

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopTransitionTelemetryOsState @ 0x140545DA0
+ * XREFs of PopTransitionTelemetryOsState @ 0x1405462E0
  * Callers:
- *     PopDiagTraceControlCallback @ 0x14052B2D0 (PopDiagTraceControlCallback.c)
- *     PopNotifyTelemetryOsState @ 0x14053056C (PopNotifyTelemetryOsState.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopDiagTraceControlCallback @ 0x14052BF20 (PopDiagTraceControlCallback.c)
+ *     PopNotifyTelemetryOsState @ 0x140530AAC (PopNotifyTelemetryOsState.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  *     PopDiagInitialize @ 0x1407A91B0 (PopDiagInitialize.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PopTransitionTelemetryOsState(int a1, int a2)
@@ -70,46 +70,46 @@ __int64 __fastcall PopTransitionTelemetryOsState(int a1, int a2)
   __int64 v55; // [rsp+180h] [rbp+78h]
 
   v4 = 0;
-  if ( TraceLoggingProviderEnabled(&pCallbackContext, a2, 0x800000000000uLL) && byte_140302B8C )
+  if ( TraceLoggingProviderEnabled(&hProvider, a2, 0x800000000000uLL) && byte_140302BEC )
   {
     PopAcquireRwLockExclusive((unsigned __int64 *)&PopTelemetryOsState);
-    v4 = dword_140302B88;
-    if ( a1 != 5 || dword_140302B50 == 1 || (unsigned int)(dword_140302B50 - 4) <= 1 )
+    v4 = dword_140302BE8;
+    if ( a1 != 5 || dword_140302BB0 == 1 || (unsigned int)(dword_140302BB0 - 4) <= 1 )
     {
       UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-      v7 = dword_140302B84;
-      v8 = (UnbiasedInterruptTime - qword_140302B68) / 0x2710uLL;
-      v9 = v8 - qword_140302B78;
-      v10 = (MEMORY[0xFFFFF78000000008] - qword_140302B60) / 0x2710uLL;
-      qword_140302B78 = v8;
-      v11 = v10 - qword_140302B70;
-      v24 = v10 - qword_140302B70;
-      qword_140302B70 = v10;
+      v7 = dword_140302BE4;
+      v8 = (UnbiasedInterruptTime - qword_140302BC8) / 0x2710uLL;
+      v9 = v8 - qword_140302BD8;
+      v10 = (MEMORY[0xFFFFF78000000008] - qword_140302BC0) / 0x2710uLL;
+      qword_140302BD8 = v8;
+      v11 = v10 - qword_140302BD0;
+      v24 = v10 - qword_140302BD0;
+      qword_140302BD0 = v10;
       if ( v9 > v11 )
         v9 = v11;
-      v19 = v6 + dword_140302B80;
-      dword_140302B80 += v6;
-      v17 = dword_140302B50;
-      v18 = dword_140302B54;
+      v19 = v6 + dword_140302BE0;
+      dword_140302BE0 += v6;
+      v17 = dword_140302BB0;
+      v18 = dword_140302BB4;
       if ( a1 != 5 )
       {
-        v7 = v6 + dword_140302B84;
-        dword_140302B50 = a1;
-        dword_140302B84 += v6;
-        dword_140302B54 = a2;
+        v7 = v6 + dword_140302BE4;
+        dword_140302BB0 = a1;
+        dword_140302BE4 += v6;
+        dword_140302BB4 = a2;
       }
       if ( a1 == v6 || a1 == 4 )
       {
-        v4 = v6 + dword_140302B88;
-        dword_140302B88 += v6;
+        v4 = v6 + dword_140302BE8;
+        dword_140302BE8 += v6;
       }
       else
       {
-        v4 = dword_140302B88;
+        v4 = dword_140302BE8;
       }
       PopReleaseRwLock(&PopTelemetryOsState);
-      v25 = qword_140302B58;
-      if ( pCallbackContext.LevelPlus1 > 5 && TlgKeywordOn(&pCallbackContext, 0x800000000000uLL) )
+      v25 = qword_140302BB8;
+      if ( hProvider.LevelPlus1 > 5 && TlgKeywordOn(&hProvider, 0x800000000000uLL) )
       {
         v13 = a1;
         v14 = a2;
@@ -148,7 +148,7 @@ __int64 __fastcall PopTransitionTelemetryOsState(int a1, int a2)
         v51 = 4LL;
         v53 = 4LL;
         v55 = 4LL;
-        TlgWrite(&pCallbackContext, &unk_14027CDAF, 0LL, 0LL, 0xFu, &pData);
+        TlgWrite(&hProvider, &unk_14027CEAF, 0LL, 0LL, 0xFu, &pData);
       }
     }
     else

@@ -21,11 +21,11 @@ __int64 __fastcall LdrpBuildSystem32FileName(_WORD *a1, __int64 a2)
   __int64 v9; // r9
   __int64 v10; // r8
   __int64 v11; // r9
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   *a1 = 0;
-  NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   RtlInitUnicodeString(&DestinationString, NtSystemRoot);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, &DestinationString, v6, v7);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, &SlashSystem32SlashString, v8, v9);

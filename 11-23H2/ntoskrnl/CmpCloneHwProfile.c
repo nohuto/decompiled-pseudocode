@@ -1,37 +1,37 @@
 /*
- * XREFs of CmpCloneHwProfile @ 0x140A101B4
+ * XREFs of CmpCloneHwProfile @ 0x140A10464
  * Callers:
- *     CmSetAcpiHwProfile @ 0x14084A314 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x14084A614 (CmSetAcpiHwProfile.c)
  *     CmpCreateHardwareProfiles @ 0x140B6660C (CmpCreateHardwareProfiles.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x14022D4F0 (CmpDrainDelayDerefContext.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wtoi @ 0x1403D9DB0 (_wtoi.c)
- *     swprintf_s @ 0x1403DE3C0 (swprintf_s.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x14041B020 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     ZwQuerySecurityObject @ 0x14041DA20 (ZwQuerySecurityObject.c)
+ *     CmpDrainDelayDerefContext @ 0x14022D600 (CmpDrainDelayDerefContext.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     CmpInitializeDelayDerefContext @ 0x140231594 (CmpInitializeDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wtoi @ 0x1403D9F90 (_wtoi.c)
+ *     swprintf_s @ 0x1403DE5A0 (swprintf_s.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x14041B3B0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     ZwQuerySecurityObject @ 0x14041DDB0 (ZwQuerySecurityObject.c)
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
  *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
- *     CmpRebuildKcbCache @ 0x140769230 (CmpRebuildKcbCache.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpCreateHwProfileFriendlyName @ 0x140A109C0 (CmpCreateHwProfileFriendlyName.c)
- *     CmpCopySyncTree @ 0x140A213F8 (CmpCopySyncTree.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x140769420 (CmpRebuildKcbCache.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x140A10C70 (CmpCreateHwProfileFriendlyName.c)
+ *     CmpCopySyncTree @ 0x140A216A8 (CmpCopySyncTree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
@@ -83,7 +83,7 @@ __int64 __fastcall CmpCloneHwProfile(
   HANDLE v44; // [rsp+80h] [rbp-80h] BYREF
   PVOID Object[2]; // [rsp+88h] [rbp-78h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
-  PVOID v47[2]; // [rsp+C8h] [rbp-38h] BYREF
+  UNICODE_STRING GuidString; // [rsp+C8h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+D8h] [rbp-28h] BYREF
   __int128 v49; // [rsp+E8h] [rbp-18h] BYREF
   __int128 v50; // [rsp+F8h] [rbp-8h] BYREF
@@ -106,7 +106,7 @@ __int64 __fastcall CmpCloneHwProfile(
   Disposition = 0;
   *(_OWORD *)Object = 0LL;
   Data = 0;
-  *(_OWORD *)v47 = 0LL;
+  GuidString = 0LL;
   ResultLength = 0;
   memset(&ObjectAttributes, 0, 44);
   v44 = 0LL;
@@ -246,11 +246,11 @@ LABEL_11:
               Data = 1;
               RtlInitUnicodeString(&ValueName, L"Cloned");
               ZwSetValueKey(v40, &ValueName, 0, 4u, &Data, 4u);
-              if ( ExUuidCreate(&Uuid) >= 0 && (int)RtlStringFromGUIDEx(&Uuid.Data1, (__int64)v47, 1) >= 0 )
+              if ( ExUuidCreate(&Uuid) >= 0 && RtlStringFromGUIDEx(&Uuid, &GuidString, 1u) >= 0 )
               {
                 RtlInitUnicodeString(&ValueName, L"HwProfileGuid");
-                ZwSetValueKey(v40, &ValueName, 0, 1u, v47[1], WORD1(v47[0]));
-                RtlFreeUnicodeString((PUNICODE_STRING)v47);
+                ZwSetValueKey(v40, &ValueName, 0, 1u, GuidString.Buffer, GuidString.MaximumLength);
+                RtlFreeUnicodeString(&GuidString);
               }
               Object[0] = 0LL;
               v12 = ObReferenceObjectByHandle(v8, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, 0, Object, 0LL);

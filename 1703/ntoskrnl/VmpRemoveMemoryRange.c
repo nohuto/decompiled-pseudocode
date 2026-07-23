@@ -12,12 +12,12 @@
 
 __int64 __fastcall VmpRemoveMemoryRange(PEX_SPIN_LOCK SpinLock, _QWORD *a2, __int64 a3)
 {
-  unsigned __int64 *v3; // rbp
+  _RTL_BALANCED_NODE *v3; // rbp
   unsigned int v7; // ebx
   unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rdx
+  _RTL_BALANCED_NODE *v9; // rdx
   unsigned __int64 v10; // rcx
-  unsigned __int64 *v12; // rbx
+  _RTL_BALANCED_NODE *v12; // rbx
   __int64 v13; // [rsp+60h] [rbp+8h] BYREF
   __int64 v14; // [rsp+70h] [rbp+18h] BYREF
   unsigned __int64 v15; // [rsp+78h] [rbp+20h] BYREF
@@ -39,8 +39,8 @@ LABEL_14:
     v7 = -1073741172;
     goto LABEL_15;
   }
-  v9 = a2[6];
-  while ( v9 > *(_QWORD *)(v8 + 32) )
+  v9 = (_RTL_BALANCED_NODE *)a2[6];
+  while ( (unsigned __int64)v9 > *(_QWORD *)(v8 + 32) )
   {
     v10 = *(_QWORD *)(v8 + 8);
 LABEL_9:
@@ -51,16 +51,19 @@ LABEL_9:
     if ( !v8 )
       goto LABEL_14;
   }
-  if ( v9 < *(_QWORD *)(v8 + 24) )
+  if ( (unsigned __int64)v9 < *(_QWORD *)(v8 + 24) )
   {
     v10 = *(_QWORD *)v8;
     goto LABEL_9;
   }
-  v12 = (unsigned __int64 *)(v8 - 24);
-  if ( *(_QWORD *)(v8 - 24 + 48) == v9 && v12[7] == a2[7] && v12[8] == a2[8] && v12[9] == a2[9] )
+  v12 = (_RTL_BALANCED_NODE *)(v8 - 24);
+  if ( *(_RTL_BALANCED_NODE **)(v8 - 24 + 48) == v9
+    && v12[2].Children[1] == (_RTL_BALANCED_NODE *)a2[7]
+    && v12[2].ParentValue == a2[8]
+    && v12[3].Children[0] == (_RTL_BALANCED_NODE *)a2[9] )
   {
-    RtlRbRemoveNode((__int64)(SpinLock + 2), (unsigned __int64 *)v8);
-    RtlRbRemoveNode((__int64)(SpinLock + 6), v12);
+    RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v8);
+    RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 6), v12);
     ++*((_QWORD *)SpinLock + 5);
     if ( !*((_QWORD *)SpinLock + 1) )
       *((_QWORD *)SpinLock + 9) = -1LL;

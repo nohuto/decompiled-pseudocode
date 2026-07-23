@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDecrementZeroEngineThread @ 0x14035D518
+ * XREFs of MiDecrementZeroEngineThread @ 0x14035D6B8
  * Callers:
  *     MiReduceZeroingThreads @ 0x140220A68 (MiReduceZeroingThreads.c)
- *     MiZeroNodePages @ 0x140393AF0 (MiZeroNodePages.c)
+ *     MiZeroNodePages @ 0x140393CD0 (MiZeroNodePages.c)
  * Callees:
  *     <none>
  */

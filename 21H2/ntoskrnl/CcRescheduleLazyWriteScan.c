@@ -1,11 +1,11 @@
 /*
- * XREFs of CcRescheduleLazyWriteScan @ 0x140260454
+ * XREFs of CcRescheduleLazyWriteScan @ 0x140281A20
  * Callers:
- *     CcLazyWriteScan @ 0x1402F5894 (CcLazyWriteScan.c)
- *     CcCoalescingCallBackHelper @ 0x1404E96C0 (CcCoalescingCallBackHelper.c)
+ *     CcLazyWriteScan @ 0x1403005E4 (CcLazyWriteScan.c)
+ *     CcCoalescingCallBackHelper @ 0x1404E9900 (CcCoalescingCallBackHelper.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     CcScheduleLazyWriteScan @ 0x1402F6D5C (CcScheduleLazyWriteScan.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     CcScheduleLazyWriteScan @ 0x140301AAC (CcScheduleLazyWriteScan.c)
  */
 
 BOOLEAN __fastcall CcRescheduleLazyWriteScan(__int64 a1, __int64 *a2)
@@ -23,8 +23,8 @@ BOOLEAN __fastcall CcRescheduleLazyWriteScan(__int64 a1, __int64 *a2)
       if ( a2 && (v3 = *a2, *a2 != 0x7FFFFFFFFFFFFFFFLL) && v3 )
       {
         v4.QuadPart = 160000000LL;
-        if ( v3 * (unsigned int)KeMaximumIncrement <= 160000000 )
-          v4.QuadPart = v3 * (unsigned int)KeMaximumIncrement;
+        if ( v3 * KeMaximumIncrement <= 160000000 )
+          v4.QuadPart = v3 * KeMaximumIncrement;
         if ( v4.QuadPart < 10000000 )
           v4 = CcIdleDelay;
         if ( v4.QuadPart > 0 )

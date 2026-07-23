@@ -1,18 +1,18 @@
 /*
  * XREFs of KeQueryLogicalProcessorRelationship @ 0x140263790
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     sub_14073B5A0 @ 0x14073B5A0 (sub_14073B5A0.c)
  * Callees:
  *     KeQueryMaximumProcessorCountEx @ 0x1402631C0 (KeQueryMaximumProcessorCountEx.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140263260 (KeQueryNodeActiveAffinityEx.c)
+ *     sub_140263260 @ 0x140263260 (sub_140263260.c)
  *     KeAndGroupAffinityEx @ 0x140263350 (KeAndGroupAffinityEx.c)
- *     KeGetNodePrimarySubNode @ 0x140264270 (KeGetNodePrimarySubNode.c)
- *     KiQuerySubNodeActiveAffinity @ 0x14026428C (KiQuerySubNodeActiveAffinity.c)
- *     KiTryPopulateLogicalProcessorInformation @ 0x140264320 (KiTryPopulateLogicalProcessorInformation.c)
+ *     sub_140264270 @ 0x140264270 (sub_140264270.c)
+ *     sub_14026428C @ 0x14026428C (sub_14026428C.c)
+ *     sub_140264320 @ 0x140264320 (sub_140264320.c)
  *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     KiOrAffinityEx @ 0x1402FEC10 (KiOrAffinityEx.c)
- *     KiAndAffinityEx @ 0x1402FF140 (KiAndAffinityEx.c)
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
+ *     sub_1402FEC10 @ 0x1402FEC10 (sub_1402FEC10.c)
+ *     sub_1402FF140 @ 0x1402FF140 (sub_1402FF140.c)
+ *     sub_140300030 @ 0x140300030 (sub_140300030.c)
  *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
  *     KeFirstGroupAffinityEx @ 0x14035C9C0 (KeFirstGroupAffinityEx.c)
  *     memset @ 0x140435E00 (memset.c)
@@ -28,7 +28,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
 {
   LOGICAL_PROCESSOR_RELATIONSHIP v4; // ebx
   PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX v5; // rsi
-  struct _PROCESSOR_NUMBER *v6; // r13
+  _PROCESSOR_NUMBER *v6; // r13
   NTSTATUS v8; // r15d
   unsigned int v9; // r14d
   char *v10; // rdi
@@ -49,9 +49,9 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v25; // r9
   __int64 v26; // rdi
   __int64 v27; // rcx
-  __int64 NodePrimarySubNode; // rax
-  unsigned __int16 v29; // r10
-  unsigned __int64 v30; // r11
+  __int64 v28; // rax
+  WORD v29; // r10
+  KAFFINITY v30; // r11
   int v32; // r8d
   int v33; // eax
   int v34; // edx
@@ -71,8 +71,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v48; // r13
   int v49; // eax
   __int64 v50; // r9
-  unsigned __int16 Group; // r10
-  unsigned __int16 v52; // dx
+  WORD Group; // r10
+  WORD v52; // dx
   unsigned __int16 v53; // cx
   unsigned int v54; // r8d
   __int64 v55; // r13
@@ -80,30 +80,30 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int16 v57; // r15
   _DWORD *v58; // rdi
   size_t v59; // r14
-  unsigned __int64 v60; // rcx
+  KAFFINITY v60; // rcx
   unsigned __int16 v61; // r11
   unsigned __int16 v62; // ax
   unsigned __int16 v63; // dx
   int v64; // r8d
   int v65; // eax
   bool v66; // zf
-  UCHAR v67; // al
+  BYTE v67; // al
   unsigned int v68; // r12d
   unsigned int v69; // ebx
   unsigned __int16 v70; // dx
-  USHORT v71; // cx
+  WORD v71; // cx
   __int64 v72; // r9
   unsigned int v73; // edx
-  unsigned __int64 v74; // rcx
+  KAFFINITY v74; // rcx
   unsigned __int16 v75; // r10
-  unsigned __int16 v76; // r8
+  WORD v76; // r8
   unsigned __int16 v77; // ax
   int v78; // r8d
   int v79; // eax
   __int64 v80; // r12
   size_t v81; // r13
   size_t v82; // r8
-  unsigned __int64 v83; // r9
+  KAFFINITY v83; // r9
   __int64 v84; // rcx
   __int64 v85; // rax
   __int64 v86; // r11
@@ -134,14 +134,14 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   v92 = *Length;
   v8 = 0;
   v9 = 0;
-  LOWORD(v90) = KiMaximumGroups;
+  LOWORD(v90) = word_140D05018;
   v10 = 0LL;
   v11 = 0;
   P = 0LL;
   v12 = 236;
-  Size = 8LL * (unsigned __int16)KiMaximumGroups;
+  Size = 8LL * (unsigned __int16)word_140D05018;
   v13 = Size + 8;
-  if ( (((unsigned int)v4 <= (RelationGroup|RelationProcessorPackage) && _bittest(&v12, v4) || v4 == RelationAll)
+  if ( (((unsigned int)v4 <= RelationProcessorModule && _bittest(&v12, v4) || v4 == RelationAll)
      && (v4 == RelationAll || (v11 = 1, v4 == RelationCache))
      && (v11 = 6, v4 == RelationAll)
      || v4 == RelationProcessorCore)
@@ -150,11 +150,11 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   {
     ++v11;
   }
-  if ( v4 == (RelationGroup|RelationNumaNode) )
+  if ( v4 == RelationProcessorDie )
   {
     ++v11;
   }
-  else if ( v4 == RelationAll || v4 == (RelationGroup|RelationProcessorPackage) )
+  else if ( v4 == RelationAll || v4 == RelationProcessorModule )
   {
     ++v11;
   }
@@ -187,7 +187,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
     v10 = (char *)P;
   }
   v14 = v10;
-  if ( (unsigned int)v4 <= (RelationGroup|RelationProcessorPackage) && _bittest(&v12, v4) || v4 == RelationAll )
+  if ( (unsigned int)v4 <= RelationProcessorModule && _bittest(&v12, v4) || v4 == RelationAll )
   {
     v101[0] = v10;
     v14 = &v10[v13];
@@ -221,11 +221,11 @@ LABEL_109:
     v101[7] = v14;
     v14 += v13;
   }
-  if ( v4 == (RelationGroup|RelationNumaNode) )
+  if ( v4 == RelationProcessorDie )
   {
     v101[8] = v14;
   }
-  else if ( v4 == RelationAll || v4 == (RelationGroup|RelationProcessorPackage) )
+  else if ( v4 == RelationAll || v4 == RelationProcessorModule )
   {
     v101[9] = v14;
   }
@@ -233,12 +233,12 @@ LABEL_109:
   {
     ProcessorIndexFromNumber = 0;
     v91 = 0;
-    v18 = KeNumberProcessors_0 - 1;
+    v18 = dword_140D06884 - 1;
     goto LABEL_30;
   }
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(v6);
   v91 = ProcessorIndexFromNumber;
-  if ( ProcessorIndexFromNumber < (unsigned int)KeNumberProcessors_0 )
+  if ( ProcessorIndexFromNumber < (unsigned int)dword_140D06884 )
   {
     v18 = ProcessorIndexFromNumber;
 LABEL_30:
@@ -257,24 +257,15 @@ LABEL_30:
       v96 = (_WORD *)v101[6];
       while ( 1 )
       {
-        v23 = KiProcessorBlock[ProcessorIndexFromNumber];
+        v23 = qword_140D088C0[ProcessorIndexFromNumber];
         Size = v23;
         if ( v4 == RelationProcessorPackage || v4 == RelationAll )
         {
-          KiCopyAffinityEx(v19, v19[1], v23 + 34576);
+          sub_140300030(v19, v19[1], v23 + 34576);
           LODWORD(v104) = 0;
           v90 = 0;
           LOBYTE(v32) = v6 != 0LL;
-          v33 = KiTryPopulateLogicalProcessorInformation(
-                  (_DWORD)v19,
-                  v98,
-                  v32,
-                  3,
-                  (__int64)v5,
-                  v92,
-                  v9,
-                  (__int64)&v104,
-                  (__int64)&v90);
+          v33 = sub_140264320((_DWORD)v19, v98, v32, 3, (__int64)v5, v92, v9, (__int64)&v104, (__int64)&v90);
           v9 += (unsigned int)v104;
           if ( v33 < 0 )
           {
@@ -299,22 +290,13 @@ LABEL_30:
 LABEL_103:
         v6 = ProcessorNumber;
 LABEL_36:
-        if ( v4 == (RelationGroup|RelationNumaNode) )
+        if ( v4 == RelationProcessorDie )
         {
-          KiCopyAffinityEx(v19, v19[1], v23 + 38720);
+          sub_140300030(v19, v19[1], v23 + 38720);
           LODWORD(v104) = 0;
           v90 = 0;
           LOBYTE(v78) = v6 != 0LL;
-          v79 = KiTryPopulateLogicalProcessorInformation(
-                  (_DWORD)v19,
-                  v99,
-                  v78,
-                  5,
-                  (__int64)v5,
-                  v92,
-                  v9,
-                  (__int64)&v104,
-                  (__int64)&v90);
+          v79 = sub_140264320((_DWORD)v19, v99, v78, 5, (__int64)v5, v92, v9, (__int64)&v104, (__int64)&v90);
           v9 += (unsigned int)v104;
           if ( v79 >= 0 )
           {
@@ -328,22 +310,13 @@ LABEL_36:
         }
         else
         {
-          if ( v4 == RelationAll || v4 == (RelationGroup|RelationProcessorPackage) )
+          if ( v4 == RelationAll || v4 == RelationProcessorModule )
           {
-            KiCopyAffinityEx(v19, v19[1], v23 + 39056);
+            sub_140300030(v19, v19[1], v23 + 39056);
             LODWORD(v104) = 0;
             v90 = 0;
             LOBYTE(v64) = v6 != 0LL;
-            v65 = KiTryPopulateLogicalProcessorInformation(
-                    (_DWORD)v19,
-                    v100,
-                    v64,
-                    7,
-                    (__int64)v5,
-                    v92,
-                    v9,
-                    (__int64)&v104,
-                    (__int64)&v90);
+            v65 = sub_140264320((_DWORD)v19, v100, v64, 7, (__int64)v5, v92, v9, (__int64)&v104, (__int64)&v90);
             v9 += (unsigned int)v104;
             if ( v65 < 0 )
             {
@@ -366,9 +339,9 @@ LABEL_36:
                 v46 = v44;
                 Size = v44;
                 v47 = (_WORD *)(264LL * v44 + v45 + 40632);
-                if ( !KiSplitLargeCaches )
+                if ( !dword_140D06D34 )
                 {
-                  KiCopyAffinityEx(v19, v19[1], v47);
+                  sub_140300030(v19, v19[1], v47);
                   goto LABEL_85;
                 }
                 v80 = *(unsigned __int8 *)(v45 + 208);
@@ -389,13 +362,13 @@ LABEL_171:
                 v46 = Size;
 LABEL_85:
                 v48 = v101[v46 + 1];
-                v49 = KiAndAffinityEx(v19, v48, 0LL, 0LL);
+                v49 = sub_1402FF140(v19, v48, 0LL, 0LL);
                 if ( ProcessorNumber || !v49 )
                 {
                   v50 = 0LL;
                   if ( v48 )
                     v50 = *(unsigned __int16 *)(v48 + 2);
-                  KiOrAffinityEx(v19, v48, v48, v50, v89);
+                  sub_1402FEC10(v19, v48, v48, v50, v89);
                   v6 = ProcessorNumber;
                   if ( ProcessorNumber )
                   {
@@ -430,7 +403,7 @@ LABEL_85:
                     v5->Cache.LineSize = *(_WORD *)(v45 + 12 * v46 + 34394);
                     v5->Cache.CacheSize = *(_DWORD *)(v45 + 12 * v46 + 34396);
                     v5->Cache.Type = *(_DWORD *)(v45 + 12 * v46 + 34400);
-                    *(_WORD *)&v5->Group.GroupInfo[0].Reserved[4] = v52;
+                    v5->Cache.GroupCount = v52;
                     *(_OWORD *)&v5->Group.Reserved[8] = 0LL;
                     *(_WORD *)&v5->Group.GroupInfo[0].Reserved[2] = 0;
                     LOWORD(Size_8[1]) = Group;
@@ -524,7 +497,7 @@ LABEL_79:
           v9 += 48;
           if ( v9 <= (unsigned int)v92 )
           {
-            v66 = KeHeteroSystem == 0;
+            v66 = dword_140D068FC == 0;
             v5->Relationship = RelationProcessorCore;
             v5->Size = 48;
             v5->Processor.Flags = v43;
@@ -555,25 +528,25 @@ LABEL_79:
 LABEL_43:
     if ( v4 == RelationNumaNode )
     {
-      v24 = (unsigned __int16)KeNumberNodes;
+      v24 = (unsigned __int16)word_140D05000;
       v25 = 0LL;
       v26 = (unsigned int)v20;
       do
       {
         v27 = *(_QWORD *)(v21 + 8LL * (unsigned int)v25 + 13833984);
         if ( v6 )
-          NodePrimarySubNode = *(_QWORD *)(v27 + 8LL * v6->Group + 24);
+          v28 = *(_QWORD *)(v27 + 8LL * v6->Group + 24);
         else
-          NodePrimarySubNode = KeGetNodePrimarySubNode(v27, v20, v21, v25);
-        if ( NodePrimarySubNode )
+          v28 = sub_140264270(v27, v20, v21, v25);
+        if ( v28 )
         {
-          KiQuerySubNodeActiveAffinity(NodePrimarySubNode, Size_8, 0LL);
+          sub_14026428C(v28, Size_8, 0LL);
           v29 = Size_8[1];
           v20 = 0LL;
           v30 = Size_8[0];
           if ( !v6
-            || (LOBYTE(v20) = (unsigned int)KiProcessorIndexToNumberMappingTable[v26] >> 6 == LOWORD(Size_8[1]),
-                ((unsigned int)v20 & (unsigned int)(Size_8[0] >> (KiProcessorIndexToNumberMappingTable[v26] & 0x3F))) != 0) )
+            || (LOBYTE(v20) = (unsigned int)dword_140D0E5E0[v26] >> 6 == LOWORD(Size_8[1]),
+                ((unsigned int)v20 & (unsigned int)(Size_8[0] >> (dword_140D0E5E0[v26] & 0x3F))) != 0) )
           {
             v9 += 48;
             v21 = 0x140000000uLL;
@@ -605,20 +578,20 @@ LABEL_43:
       goto LABEL_57;
     }
     v91 = v8;
-    if ( v4 == (RelationGroup|RelationCache) || (v91 = v8, v4 == RelationAll) )
+    if ( v4 == RelationNumaNodeEx || (v91 = v8, v4 == RelationAll) )
     {
       v68 = 0;
-      if ( KeNumberNodes )
+      if ( word_140D05000 )
       {
         v69 = v92;
         do
         {
-          if ( !v6 || *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[(unsigned int)v20] + 192) + 138LL) == v68 )
+          if ( !v6 || *(unsigned __int16 *)(*(_QWORD *)(qword_140D088C0[(unsigned int)v20] + 192) + 138LL) == v68 )
           {
-            KeQueryNodeActiveAffinityEx(v68, v19, 0LL);
+            sub_140263260(v68, v19, 0LL);
             v70 = 0;
             v71 = 0;
-            v72 = *(unsigned __int8 *)(KeNodeBlock[v68] + 12);
+            v72 = *(unsigned __int8 *)(qword_140D31700[v68] + 12);
             if ( *v19 )
             {
               do
@@ -686,7 +659,7 @@ LABEL_43:
           }
           ++v68;
         }
-        while ( v68 < (unsigned __int16)KeNumberNodes );
+        while ( v68 < (unsigned __int16)word_140D05000 );
         v4 = RelationshipType;
         v91 = v8;
       }
@@ -697,8 +670,8 @@ LABEL_43:
         goto LABEL_57;
       v91 = v8;
     }
-    v34 = (unsigned __int16)KiActiveGroups;
-    v35 = (48 * (unsigned __int16)KiActiveGroups + 39) & 0xFFFFFFF8;
+    v34 = (unsigned __int16)word_140D05014;
+    v35 = (48 * (unsigned __int16)word_140D05014 + 39) & 0xFFFFFFF8;
     v9 += v35;
     HIDWORD(v92) = v9;
     if ( v9 > (unsigned int)v92 )
@@ -711,7 +684,7 @@ LABEL_60:
     }
     v5->Size = v35;
     v36 = 0;
-    v5->Group.MaximumGroupCount = KiMaximumGroups;
+    v5->Group.MaximumGroupCount = word_140D05018;
     v5->Relationship = RelationGroup;
     v5->Cache.LineSize = v34;
     *(_OWORD *)v5->Group.Reserved = 0LL;
@@ -731,7 +704,7 @@ LABEL_60:
         *(_DWORD *)&v5->Group.GroupInfo[v38].Reserved[32] = 0;
         *(_WORD *)&v5->Group.GroupInfo[v38].Reserved[36] = 0;
       }
-      while ( v36 < (unsigned __int16)KiActiveGroups );
+      while ( v36 < (unsigned __int16)word_140D05014 );
       v9 = HIDWORD(v92);
       v8 = v91;
     }

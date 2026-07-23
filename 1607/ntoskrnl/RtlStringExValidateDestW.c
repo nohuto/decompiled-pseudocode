@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringExValidateDestW @ 0x1400C3620
+ * XREFs of RtlStringExValidateDestW @ 0x1400C14B0
  * Callers:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
  * Callees:
  *     <none>
  */

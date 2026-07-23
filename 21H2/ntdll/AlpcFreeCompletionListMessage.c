@@ -6,11 +6,11 @@
  *     <none>
  */
 
-void __fastcall AlpcFreeCompletionListMessage(__int64 a1, unsigned __int64 a2)
+void __cdecl AlpcFreeCompletionListMessage(PVOID CompletionList, PPORT_MESSAGE Message)
 {
   unsigned __int64 v3; // r8
   int v4; // ecx
-  unsigned __int64 v5; // rbx
+  _PORT_MESSAGE *v5; // rbx
   unsigned __int64 v6; // r10
   unsigned __int64 v7; // r8
   volatile signed __int32 *v8; // r11
@@ -18,25 +18,27 @@ void __fastcall AlpcFreeCompletionListMessage(__int64 a1, unsigned __int64 a2)
   unsigned int v10; // eax
   unsigned __int64 v11; // rcx
 
-  if ( (a2 & 0x3F) == 0 )
+  if ( ((unsigned __int8)Message & 0x3F) == 0 )
   {
-    v3 = a2 + *(unsigned __int16 *)(a2 + 2);
-    if ( *(_DWORD *)(a1 + 36) )
+    v3 = (unsigned __int64)Message + (unsigned __int16)Message->u1.s1.TotalLength;
+    if ( *((_DWORD *)CompletionList + 9) )
     {
       if ( (v3 & 7) != 0 )
         v4 = 8 - (v3 & 7);
       else
         v4 = 0;
-      v3 += (unsigned int)(v4 + *(_DWORD *)(a1 + 40));
+      v3 += (unsigned int)(v4 + *((_DWORD *)CompletionList + 10));
     }
-    if ( a2 < v3 )
+    if ( (unsigned __int64)Message < v3 )
     {
-      v5 = a1 + *(unsigned int *)(a1 + 28);
-      if ( a2 >= v5 && v3 <= v5 + *(unsigned int *)(a1 + 32) )
+      v5 = (_PORT_MESSAGE *)((char *)CompletionList + *((unsigned int *)CompletionList + 7));
+      if ( Message >= v5 && v3 <= (unsigned __int64)v5 + *((unsigned int *)CompletionList + 8) )
       {
-        v6 = (a2 - v5) >> 6;
-        v7 = ((v3 - v5 + 63) >> 6) - v6;
-        v8 = (volatile signed __int32 *)(a1 + *(unsigned int *)(a1 + 20) + 4 * ((a2 - v5) >> 11));
+        v6 = (unsigned __int64)((char *)Message - (char *)v5) >> 6;
+        v7 = ((v3 - (unsigned __int64)v5 + 63) >> 6) - v6;
+        v8 = (volatile signed __int32 *)((char *)CompletionList
+                                       + 4 * ((unsigned __int64)((char *)Message - (char *)v5) >> 11)
+                                       + *((unsigned int *)CompletionList + 5));
         v9 = v6 & 0x1F;
         if ( v9 )
         {
@@ -59,7 +61,7 @@ void __fastcall AlpcFreeCompletionListMessage(__int64 a1, unsigned __int64 a2)
         }
         if ( v7 )
           _InterlockedAnd(v8, -1 << v7);
-        _InterlockedIncrement((volatile signed __int32 *)(a1 + 192));
+        _InterlockedIncrement((volatile signed __int32 *)CompletionList + 48);
       }
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmCheckComputeEnergy @ 0x140450110
+ * XREFs of PpmCheckComputeEnergy @ 0x140445380
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmEventComputeEnergy @ 0x140450300 (PpmEventComputeEnergy.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PpmEventComputeEnergy @ 0x140445570 (PpmEventComputeEnergy.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char PpmCheckComputeEnergy()
@@ -61,7 +61,7 @@ char PpmCheckComputeEnergy()
         {
           _BitScanForward64(&v8, v6);
           v6 &= ~(1LL << v8);
-          v9 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v7 + (unsigned __int8)v8);
+          v9 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v7 + (unsigned __int8)v8);
           Prcb = KeGetPrcb(v9);
           v11 = PpmComputeEnergyData;
           v12 = (_QWORD *)Prcb;
@@ -114,11 +114,7 @@ char PpmCheckComputeEnergy()
           v22 = 56LL * v0;
           if ( *(_DWORD *)(v22 + v21 + 12) != 64 )
           {
-            guard_dispatch_icall_no_overrides(
-              v0,
-              *(_QWORD *)(v22 + v21 + 16),
-              *(_QWORD *)(v22 + v21 + 24),
-              *(unsigned int *)(v22 + v21 + 8));
+            guard_dispatch_icall_no_overrides(v0, *(_QWORD *)(v22 + v21 + 16));
             PpmEventComputeEnergy(v0, 0LL);
             v23 = KeGetPrcb(*(_DWORD *)(v22 + v21 + 12));
             *(_QWORD *)(v23 + 35344) = *(_QWORD *)(v23 + 35344);

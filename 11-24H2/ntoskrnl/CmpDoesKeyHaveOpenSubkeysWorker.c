@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpDoesKeyHaveOpenSubkeysWorker @ 0x140AAC1F0
+ * XREFs of CmpDoesKeyHaveOpenSubkeysWorker @ 0x140AA71C0
  * Callers:
  *     <none>
  * Callees:

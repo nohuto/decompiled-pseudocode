@@ -27,29 +27,26 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
   __int64 v13; // r8
   int v14; // eax
   int v15; // ebp
-  int v16; // r9d
-  __int64 v17; // rcx
-  int v18; // ebp
-  int v19; // r8d
-  int v20; // r9d
-  unsigned int v21; // ebp
+  __int64 v16; // rcx
+  int v17; // ebp
+  unsigned int v18; // ebp
+  int v19; // eax
+  int v20; // eax
+  unsigned __int8 v21; // r8
   int v22; // eax
-  int v23; // eax
-  unsigned __int8 v24; // r8
-  int v25; // eax
-  int v26; // [rsp+60h] [rbp-48h] BYREF
-  __int64 v27; // [rsp+68h] [rbp-40h]
-  char v28; // [rsp+B0h] [rbp+8h]
-  char v29; // [rsp+B8h] [rbp+10h]
-  char v30; // [rsp+C0h] [rbp+18h] BYREF
-  char v31; // [rsp+C8h] [rbp+20h] BYREF
+  int v23; // [rsp+60h] [rbp-48h] BYREF
+  PVOID Object; // [rsp+68h] [rbp-40h]
+  char v25; // [rsp+B0h] [rbp+8h]
+  char v26; // [rsp+B8h] [rbp+10h]
+  __int64 v27; // [rsp+C0h] [rbp+18h] BYREF
+  __int64 v28; // [rsp+C8h] [rbp+20h] BYREF
 
   v1 = (__int64 *)*((_QWORD *)a1 + 8);
-  v27 = *((_QWORD *)a1 + 7);
+  Object = (PVOID)*((_QWORD *)a1 + 7);
   v3 = 0;
-  v28 = 0;
+  v25 = 0;
   v4 = 0;
-  v29 = 0;
+  v26 = 0;
   if ( (v1[7] & 0x800) != 0 && (*a1 & 0x80000) != 0 )
   {
     dword_140464818 = 12;
@@ -84,28 +81,26 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
   }
   v9 = *v1;
   v10 = v7 & 0x800;
-  v26 = 0;
+  v23 = 0;
   v11 = v8 | 0x10;
   if ( !(_DWORD)v10 )
     v11 = v8;
-  if ( (int)MiRegQueryDWORD(v10, 6LL, &v26) >= 0 && v26 )
+  if ( (int)MiRegQueryDWORD(v10, 6LL, &v23) >= 0 && v23 )
   {
     v14 = *a1;
     if ( (*a1 & 0x400) != 0 && (v14 & 0x10) == 0 && (v14 & 0x800) == 0 )
     {
       v15 = *(_DWORD *)&PsGetCurrentProcess()[2].Spare2[7];
-      LOBYTE(v13) = *((_BYTE *)a1 + 24);
-      if ( (_BYTE)v13 )
+      if ( *((_BYTE *)a1 + 24) )
       {
-        LOBYTE(v16) = *(_BYTE *)(v9 + 15) >> 4;
-        result = SeGetImageRequiredSigningLevel(v27, v11, v13, v16, (__int64)&v30);
+        result = SeGetImageRequiredSigningLevel(Object, (__int64)&v27);
         if ( (int)result < 0 )
         {
 LABEL_25:
           dword_140464818 = 14;
           return result;
         }
-        *((_BYTE *)a1 + 24) = v30;
+        *((_BYTE *)a1 + 24) = v27;
         if ( (v15 & 0x800000) != 0 )
           v4 = 1;
       }
@@ -121,25 +116,23 @@ LABEL_25:
           v3 = 6;
       }
     }
-    v17 = *a1;
+    v16 = *a1;
   }
   else
   {
-    v17 = *a1;
+    v16 = *a1;
     if ( (*a1 & 0x400) != 0 && (*a1 & 0x10) == 0 )
     {
-      v18 = *(_DWORD *)&PsGetCurrentProcess()[2].Spare2[7];
-      LOBYTE(v19) = *((_BYTE *)a1 + 24);
-      LOBYTE(v20) = *(_BYTE *)(v9 + 15) >> 4;
-      result = SeGetImageRequiredSigningLevel(v27, v11, v19, v20, (__int64)&v31);
+      v17 = *(_DWORD *)&PsGetCurrentProcess()[2].Spare2[7];
+      result = SeGetImageRequiredSigningLevel(Object, (__int64)&v28);
       if ( (int)result < 0 )
         goto LABEL_25;
-      v17 = *a1;
-      if ( (v17 & 0x800) == 0 )
+      v16 = *a1;
+      if ( (v16 & 0x800) == 0 )
       {
-        if ( *((_BYTE *)a1 + 24) && (v18 & 0x800000) != 0 )
+        if ( *((_BYTE *)a1 + 24) && (v17 & 0x800000) != 0 )
           v4 = 1;
-        if ( (v18 & 0x1000000) != 0 )
+        if ( (v17 & 0x1000000) != 0 )
         {
           v3 = 8;
         }
@@ -147,74 +140,74 @@ LABEL_25:
         {
           v3 = 0;
           v12 = 6LL;
-          if ( (v18 & 0x2000000) != 0 )
+          if ( (v17 & 0x2000000) != 0 )
             v3 = 6;
         }
       }
-      *((_BYTE *)a1 + 24) = v31;
+      *((_BYTE *)a1 + 24) = v28;
     }
   }
-  if ( (v17 & 0x80000) != 0 )
+  if ( (v16 & 0x80000) != 0 )
   {
     v11 |= 0x40000000u;
     if ( !*((_BYTE *)a1 + 24) )
       *((_BYTE *)a1 + 24) = 4;
   }
-  v21 = v11 | 0x20000000;
-  if ( (v17 & 0x400000) == 0 )
-    v21 = v11;
-  if ( (v17 & 0x400) != 0 )
+  v18 = v11 | 0x20000000;
+  if ( (v16 & 0x400000) == 0 )
+    v18 = v11;
+  if ( (v16 & 0x400) != 0 )
   {
-    if ( (v17 & 0x10) != 0 )
+    if ( (v16 & 0x10) != 0 )
       goto LABEL_61;
-    LOBYTE(v17) = *(_BYTE *)(v9 + 15);
+    LOBYTE(v16) = *(_BYTE *)(v9 + 15);
     LOBYTE(v12) = *((_BYTE *)a1 + 24);
     if ( qword_140436520 )
     {
-      LOBYTE(v13) = (unsigned __int8)v17 >> 4;
-      v22 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD))qword_140436520)(
-              v21,
+      LOBYTE(v13) = (unsigned __int8)v16 >> 4;
+      v19 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD))qword_140436520)(
+              v18,
               v12,
               v13,
-              ((unsigned __int8)v17 >> 1) & 7);
+              ((unsigned __int8)v16 >> 1) & 7);
       LOBYTE(v12) = *((_BYTE *)a1 + 24);
-      LOBYTE(v17) = *(_BYTE *)(v9 + 15);
-      if ( v22 )
+      LOBYTE(v16) = *(_BYTE *)(v9 + 15);
+      if ( v19 )
         goto LABEL_61;
     }
     if ( !qword_1404364C0
-      || (LOBYTE(v17) = (unsigned __int8)v17 >> 4, v23 = qword_1404364C0(v17, v12), v24 = *(_BYTE *)(v9 + 15), !v23)
-      || (v21 & 0x40000000) != 0 && (*((_DWORD *)v1 + 23) & 0xC0000) != 0x80000
-      || (v24 & 0xF0) == 0 && *(char *)(*(_QWORD *)(v9 + 56) + 46LL) < 0 )
+      || (LOBYTE(v16) = (unsigned __int8)v16 >> 4, v20 = qword_1404364C0(v16, v12), v21 = *(_BYTE *)(v9 + 15), !v20)
+      || (v18 & 0x40000000) != 0 && (*((_DWORD *)v1 + 23) & 0xC0000) != 0x80000
+      || (v21 & 0xF0) == 0 && *(char *)(*(_QWORD *)(v9 + 56) + 46LL) < 0 )
     {
 LABEL_61:
-      v24 = *(_BYTE *)(v9 + 15);
-      v28 = 1;
+      v21 = *(_BYTE *)(v9 + 15);
+      v25 = 1;
     }
     else
     {
-      v28 = 0;
+      v25 = 0;
     }
-    v25 = (int)qword_1404364C0;
+    v22 = (int)qword_1404364C0;
     if ( qword_1404364C0 )
     {
       LOBYTE(v12) = v3;
-      LOBYTE(v17) = v24 >> 4;
-      v25 = qword_1404364C0(v17, v12);
+      LOBYTE(v16) = v21 >> 4;
+      v22 = qword_1404364C0(v16, v12);
     }
-    LODWORD(v17) = *a1;
-    v29 = v25 == 0;
+    LODWORD(v16) = *a1;
+    v26 = v22 == 0;
   }
   result = MiValidateSectionSigningPolicy(
              1,
-             v27,
+             (_DWORD)Object,
              (_DWORD)v1,
              a1[42],
              *((_QWORD *)a1 + 20),
-             ((unsigned int)v17 >> 11) & 1,
-             v21,
-             v28,
-             v29,
+             ((unsigned int)v16 >> 11) & 1,
+             v18,
+             v25,
+             v26,
              v4,
              *((_BYTE *)a1 + 24),
              v3);

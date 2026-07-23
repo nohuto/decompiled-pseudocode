@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAllocateCombineProto @ 0x1401F7B48
+ * XREFs of MiAllocateCombineProto @ 0x1401F7974
  * Callers:
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MiGetCrossPartitionCharges @ 0x1401F1AF0 (MiGetCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharges @ 0x1401F1F3C (MiReturnCrossPartitionCharges.c)
- *     MiInsertNewCombineBlocks @ 0x1401F9E44 (MiInsertNewCombineBlocks.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MiGetCrossPartitionCharges @ 0x1401F191C (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x1401F1D68 (MiReturnCrossPartitionCharges.c)
+ *     MiInsertNewCombineBlocks @ 0x1401F9C70 (MiInsertNewCombineBlocks.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -77,7 +77,7 @@ LABEL_8:
   }
 LABEL_16:
   ExReleaseSpinLockShared(v10, v11);
-  if ( a4 && ((_UNKNOWN *)a1 != &unk_140326E18 || (unsigned int)MiGetCrossPartitionCharges(qword_1403266E0, 1LL)) )
+  if ( a4 && ((_UNKNOWN *)a1 != &unk_140326E58 || (unsigned int)MiGetCrossPartitionCharges(qword_140326720, 1LL)) )
   {
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 88), &LockHandle);
     v17 = (__int64 *)(a1 + 72);
@@ -116,8 +116,8 @@ LABEL_32:
       return result;
     }
 LABEL_27:
-    if ( (_UNKNOWN *)a1 == &unk_140326E18 )
-      MiReturnCrossPartitionCharges(qword_1403266E0, 1LL);
+    if ( (_UNKNOWN *)a1 == &unk_140326E58 )
+      MiReturnCrossPartitionCharges(qword_140326720, 1LL);
   }
   return 0LL;
 }

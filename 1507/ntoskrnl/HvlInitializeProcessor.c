@@ -61,7 +61,7 @@ NTSTATUS __fastcall HvlInitializeProcessor(__int64 a1)
           --v3;
         }
         while ( v3 );
-        HvlpSetupCachedHypercallPages((union _SLIST_HEADER *)a1);
+        HvlpSetupCachedHypercallPages((_SLIST_HEADER *)a1);
         return 0;
       }
       if ( v5 )

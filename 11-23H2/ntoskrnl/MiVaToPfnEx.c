@@ -1,16 +1,16 @@
 /*
- * XREFs of MiVaToPfnEx @ 0x14038A270
+ * XREFs of MiVaToPfnEx @ 0x14038A450
  * Callers:
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     MiGetPhysicalAddress @ 0x14028BF20 (MiGetPhysicalAddress.c)
- *     MiCheckKernelShadow @ 0x1403CFEA8 (MiCheckKernelShadow.c)
- *     MiDuplicateCloneLeaf @ 0x140664088 (MiDuplicateCloneLeaf.c)
- *     MiFreeInitializationCode @ 0x140703AFC (MiFreeInitializationCode.c)
- *     MiInitializeShadowPageTable @ 0x14081DF00 (MiInitializeShadowPageTable.c)
+ *     MiGetPhysicalAddress @ 0x14028C1B0 (MiGetPhysicalAddress.c)
+ *     MiCheckKernelShadow @ 0x1403D0088 (MiCheckKernelShadow.c)
+ *     MiDuplicateCloneLeaf @ 0x1406645D8 (MiDuplicateCloneLeaf.c)
+ *     MiFreeInitializationCode @ 0x140703D0C (MiFreeInitializationCode.c)
+ *     MiInitializeShadowPageTable @ 0x14081E1D0 (MiInitializeShadowPageTable.c)
  *     MiInitializeNonPagedPool @ 0x140B5E52C (MiInitializeNonPagedPool.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
  */
 
 unsigned __int64 __fastcall MiVaToPfnEx(unsigned __int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryDirectoryFile @ 0x14015A320
+ * XREFs of ZwQueryDirectoryFile @ 0x14015A890
  * Callers:
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x14064C2B4 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14064C398 (IopFileUtilWalkDirectoryTreeHelper.c)
  * Callees:
  *     <none>
  */
@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwQueryDirectoryFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

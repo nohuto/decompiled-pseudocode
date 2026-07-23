@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDispatchQuerySetIrp @ 0x14028DA74
+ * XREFs of PopDispatchQuerySetIrp @ 0x14028DD04
  * Callers:
- *     PoHandleIrp @ 0x14028D77C (PoHandleIrp.c)
+ *     PoHandleIrp @ 0x14028DA0C (PoHandleIrp.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
  */
 
 __int64 __fastcall PopDispatchQuerySetIrp(_QWORD *a1)
@@ -34,12 +34,12 @@ __int64 __fastcall PopDispatchQuerySetIrp(_QWORD *a1)
 LABEL_7:
     __fastfail(3u);
   }
-  v5 = (_QWORD *)qword_140C3CD98;
-  if ( *(__int64 **)qword_140C3CD98 != &PopIrpWorkerList )
+  v5 = (_QWORD *)qword_140C3CD28;
+  if ( *(__int64 **)qword_140C3CD28 != &PopIrpWorkerList )
     goto LABEL_7;
   *v4 = &PopIrpWorkerList;
   a1[22] = v5;
   *v5 = v4;
-  qword_140C3CD98 = (__int64)(a1 + 21);
+  qword_140C3CD28 = (__int64)(a1 + 21);
   return KeReleaseSemaphoreEx((unsigned int)&PopIrpWorkerSemaphore, 0, 1, v3, 8, (__int64)&v8);
 }

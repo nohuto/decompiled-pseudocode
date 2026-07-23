@@ -1,13 +1,13 @@
 /*
- * XREFs of MiResetAccessBitPte @ 0x1403FA890
+ * XREFs of MiResetAccessBitPte @ 0x140294320
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPagePrivilege @ 0x14021CE30 (MiGetPagePrivilege.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x140231E18 (MiAcquirePrcbAgeTrimLists.c)
- *     MiWalkVaCheckCommon @ 0x1403FA9F0 (MiWalkVaCheckCommon.c)
- *     MiResetAccessBitPteWorker @ 0x1403FB050 (MiResetAccessBitPteWorker.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagePrivilege @ 0x140249B80 (MiGetPagePrivilege.c)
+ *     MiResetAccessBitPteWorker @ 0x1402941D8 (MiResetAccessBitPteWorker.c)
+ *     MiWalkVaCheckCommon @ 0x140295E20 (MiWalkVaCheckCommon.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x140303A64 (MiAcquirePrcbAgeTrimLists.c)
  */
 
 __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -46,7 +46,7 @@ LABEL_4:
         goto LABEL_4;
       }
       if ( *(_QWORD *)(v3 + 24) == 1LL )
-        MiAcquirePrcbAgeTrimLists(v5, (__int64 *)(v3 + 8));
+        MiAcquirePrcbAgeTrimLists(v5, v3 + 8);
       v11 = *(_DWORD **)(v3 + 24);
       *(_QWORD *)&v11[2 * (*v11)++ + 2] = v9 & 0xFFFFFFFFFFFFF000uLL;
     }

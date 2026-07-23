@@ -8,35 +8,33 @@
  *     sub_18004D5BC @ 0x18004D5BC (sub_18004D5BC.c)
  */
 
-__int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+NTSTATUS __cdecl RtlPinAtomInAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
-  unsigned __int16 v4; // si
-  unsigned int v7; // ebx
-  __int64 v8; // rax
-  __int64 v9; // rax
+  NTSTATUS v5; // ebx
+  _RTL_HANDLE_TABLE_ENTRY *v6; // rax
+  char *v7; // rax
 
-  v4 = a2;
-  if ( !sub_18004D594((_DWORD *)a1, a2, a3, a4) )
-    return 3221225485LL;
-  v7 = -1073741816;
-  if ( v4 < 0xC000u )
+  if ( !sub_18004D594((__int64)AtomTableHandle) )
+    return -1073741811;
+  v5 = -1073741816;
+  if ( Atom < 0xC000u )
   {
-    if ( v4 )
-      v7 = 0;
+    if ( Atom )
+      v5 = 0;
   }
   else
   {
-    v8 = sub_18004D5BC(a1, v4 & 0x3FFF);
-    if ( v8 && *(_WORD *)(v8 + 10) == v4 )
+    v6 = sub_18004D5BC((__int64)AtomTableHandle, Atom & 0x3FFF);
+    if ( v6 && WORD1(v6[1].NextFree) == Atom )
     {
-      v9 = v8 + 12;
-      if ( v9 )
+      v7 = (char *)&v6[1].NextFree + 4;
+      if ( v7 )
       {
-        v7 = 0;
-        *(_WORD *)(v9 + 2) |= 1u;
+        v5 = 0;
+        *((_WORD *)v7 + 1) |= 1u;
       }
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-  return v7;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
+  return v5;
 }

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtQueryOpenSubKeys()
+NTSTATUS __cdecl NtQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 317LL;
+  result = 317;
   __asm { syscall; Low latency system call }
   return result;
 }

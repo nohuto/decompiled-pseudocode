@@ -13,19 +13,24 @@
  *     LdrpFreeUnicodeString @ 0x180051B14 (LdrpFreeUnicodeString.c)
  */
 
-__int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 a3, _WORD *a4, _BYTE *a5)
+__int64 __fastcall LdrpApplyFileNameRedirection(
+        __int64 a1,
+        _UNICODE_STRING *a2,
+        __int64 a3,
+        _UNICODE_STRING *a4,
+        _BYTE *a5)
 {
   struct _PEB *v5; // r15
   _BYTE *v7; // r12
-  __int64 v9; // rbp
+  _UNICODE_STRING *v9; // rbp
   void *ApiSetMap; // rdi
   int v11; // eax
   __int16 v12; // di
   int appended; // ebx
   unsigned __int16 v14; // ax
   char v15; // al
-  int v16; // eax
-  unsigned int v17; // edi
+  NTSTATUS v16; // eax
+  unsigned __int32 v17; // edi
   const WCHAR *NtSystemRoot; // rax
   __int64 v20; // r8
   __int64 v21; // r9
@@ -36,8 +41,8 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   bool v27; // zf
   _WORD v28[8]; // [rsp+50h] [rbp-48h] BYREF
-  _BYTE v29[16]; // [rsp+60h] [rbp-38h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-28h] BYREF
+  _UNICODE_STRING DynamicString; // [rsp+60h] [rbp-38h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-28h] BYREF
 
   v5 = NtCurrentPeb();
   v7 = a5;
@@ -45,7 +50,7 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   ApiSetMap = v5->ApiSetMap;
   *a5 = 0;
   LdrpLogDllState(0LL, a2, 5328LL);
-  v11 = ApiSetResolveToHost((_DWORD)ApiSetMap, v9, a1 != 0 ? a1 + 88 : 0, (unsigned int)&a5, (__int64)v28);
+  v11 = ApiSetResolveToHost((_DWORD)ApiSetMap, (_DWORD)v9, a1 != 0 ? a1 + 88 : 0, (unsigned int)&a5, (__int64)v28);
   v12 = v28[0];
   appended = v11;
   if ( v11 >= 0 && (_BYTE)a5 )
@@ -64,8 +69,8 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   {
     if ( !v12 )
       return (unsigned int)-1073740671;
-    *a4 = 0;
-    NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+    a4->Length = 0;
+    NtSystemRoot = RtlGetNtSystemRoot();
     RtlInitUnicodeString(&DestinationString, NtSystemRoot);
     LdrpAppendUnicodeStringToFilenameBuffer(a4, &DestinationString, v20, v21);
     LdrpAppendUnicodeStringToFilenameBuffer(a4, &SlashSystem32SlashString, v22, v23);
@@ -75,7 +80,7 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
     ProcessParameters = v5->ProcessParameters;
     if ( !ProcessParameters || (v27 = (ProcessParameters->Flags & 0x1000) == 0, v15 = 1, v27) )
       v15 = 0;
-    LODWORD(v9) = (_DWORD)a4;
+    v9 = a4;
   }
   else
   {
@@ -85,13 +90,22 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   }
   if ( v15 && !LdrpIsSecureProcess )
   {
-    v16 = RtlDosApplyFileIsolationRedirection_Ustr(1, v9, (unsigned int)L"\b\n", 0, (__int64)v29, 0LL, 0LL, 0LL, 0LL);
+    v16 = RtlDosApplyFileIsolationRedirection_Ustr(
+            1u,
+            v9,
+            (PUNICODE_STRING)&LdrpDefaultExtension,
+            0LL,
+            &DynamicString,
+            0LL,
+            0LL,
+            0LL,
+            0LL);
     v17 = v16;
     if ( v16 >= 0 )
     {
       *v7 = 1;
-      LdrpGetFullPath(v29, a4);
-      LdrpFreeUnicodeString(v29);
+      LdrpGetFullPath(&DynamicString, a4);
+      LdrpFreeUnicodeString(&DynamicString);
     }
     else if ( v16 == -1072365560 )
     {

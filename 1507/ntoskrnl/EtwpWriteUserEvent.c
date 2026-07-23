@@ -139,7 +139,7 @@ __int64 __fastcall EtwpWriteUserEvent(
   char v105; // al
   char v106; // al
   PSLIST_ENTRY v107; // rax
-  struct _SLIST_ENTRY *v108; // rax
+  _SLIST_ENTRY *v108; // rax
   __int64 v109; // rcx
   void *v110; // rsp
   __int64 v111; // rcx

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCrc32c @ 0x18011CEB0
+ * XREFs of RtlpCrc32c @ 0x18011B0E0
  * Callers:
- *     RtlCrc32 @ 0x1800F8A40 (RtlCrc32.c)
+ *     RtlCrc32 @ 0x1800F3610 (RtlCrc32.c)
  * Callees:
  *     <none>
  */

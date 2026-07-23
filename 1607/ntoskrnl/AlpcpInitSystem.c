@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpInitSystem @ 0x14057BD0C
+ * XREFs of AlpcpInitSystem @ 0x14057C1B8
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ExInitializeNPagedLookasideList @ 0x140110BFC (ExInitializeNPagedLookasideList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ExInitializeNPagedLookasideList @ 0x140111160 (ExInitializeNPagedLookasideList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExInitializePagedLookasideList @ 0x1403E3794 (ExInitializePagedLookasideList.c)
- *     NtQuerySystemInformation @ 0x1404154E0 (NtQuerySystemInformation.c)
- *     ExCreateHandleTable @ 0x1404C11BC (ExCreateHandleTable.c)
- *     ObCreateObjectTypeEx @ 0x140552054 (ObCreateObjectTypeEx.c)
- *     AlpcpInitializeMessageLog @ 0x14057BFD4 (AlpcpInitializeMessageLog.c)
+ *     ExInitializePagedLookasideList @ 0x1403E4DC0 (ExInitializePagedLookasideList.c)
+ *     NtQuerySystemInformation @ 0x1404143A0 (NtQuerySystemInformation.c)
+ *     ExCreateHandleTable @ 0x1404ACEEC (ExCreateHandleTable.c)
+ *     ObCreateObjectTypeEx @ 0x140552594 (ObCreateObjectTypeEx.c)
+ *     AlpcpInitializeMessageLog @ 0x14057C480 (AlpcpInitializeMessageLog.c)
  */
 
 __int64 AlpcpInitSystem()
@@ -36,7 +36,7 @@ __int64 AlpcpInitSystem()
   {
     KeInitializeEvent(PoolWithTag, NotificationEvent, 1u);
     AlpcpPortListLock = 0LL;
-    qword_1403072D8 = (__int64)&AlpcpPortList;
+    qword_140307318 = (__int64)&AlpcpPortList;
     AlpcpPortList = (__int64)&AlpcpPortList;
     RtlInitUnicodeString(&DestinationString, L"ALPC Port");
     memset(v5, 0, 0x78uLL);
@@ -63,14 +63,14 @@ __int64 AlpcpInitSystem()
         0x734D6C41u,
         0x20u);
       ExInitializePagedLookasideList(
-        &stru_14033B4C0,
+        &stru_14033B500,
         AlpcpAllocateBuffer,
         (PFREE_FUNCTION)PspQueueApcSpecialApc,
         0,
         0x80uLL,
         0x49436C41u,
         0x20u);
-      ExInitializePagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_14033B540, 0LL, 0LL, 0, 0x80uLL, 0x61486C41u, 0x20u);
+      ExInitializePagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_14033B580, 0LL, 0LL, 0, 0x80uLL, 0x61486C41u, 0x20u);
       ExInitializeNPagedLookasideList(&AlpcpNPLookasides, 0LL, 0LL, 0x200u, 0x20uLL, 0x65536C41u, 0x20u);
       v2 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
       if ( v2 >= 0 )
@@ -85,16 +85,16 @@ __int64 AlpcpInitSystem()
       else
       {
         AlpcpMessageLogLock = 0LL;
-        qword_140307348 = (__int64)&AlpcpMessageLogListHead;
+        qword_140307388 = (__int64)&AlpcpMessageLogListHead;
         AlpcpMessageLogListHead = (__int64)&AlpcpMessageLogListHead;
-        qword_140307338 = (__int64)&AlpcpFreeMessageLogListHead;
+        qword_140307378 = (__int64)&AlpcpFreeMessageLogListHead;
         AlpcpFreeMessageLogListHead = (__int64)&AlpcpFreeMessageLogListHead;
-        qword_140307368 = (__int64)&AlpcpFreeMessageSnapshotListHead;
+        qword_1403073A8 = (__int64)&AlpcpFreeMessageSnapshotListHead;
         AlpcpFreeMessageSnapshotListHead = (__int64)&AlpcpFreeMessageSnapshotListHead;
       }
       AlpcpCompletionListDatabase = 0LL;
-      qword_140307318 = (__int64)&qword_140307310;
-      qword_140307310 = (__int64)&qword_140307310;
+      qword_140307358 = (__int64)&qword_140307350;
+      qword_140307350 = (__int64)&qword_140307350;
     }
   }
   else

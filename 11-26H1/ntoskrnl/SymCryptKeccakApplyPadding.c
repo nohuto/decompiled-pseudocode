@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptKeccakApplyPadding @ 0x14057596C
+ * XREFs of SymCryptKeccakApplyPadding @ 0x140577E1C
  * Callers:
- *     SymCryptKeccakExtract @ 0x1405759D4 (SymCryptKeccakExtract.c)
+ *     SymCryptKeccakExtract @ 0x140577E84 (SymCryptKeccakExtract.c)
  * Callees:
- *     SymCryptKeccakPermute @ 0x140575BC0 (SymCryptKeccakPermute.c)
+ *     SymCryptKeccakPermute @ 0x140578070 (SymCryptKeccakPermute.c)
  */
 
 __int64 __fastcall SymCryptKeccakApplyPadding(__int64 a1)

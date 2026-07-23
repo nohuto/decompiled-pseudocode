@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrCtxDecommit @ 0x140638E44
+ * XREFs of RtlpHpVaMgrCtxDecommit @ 0x14063BE54
  * Callers:
- *     RtlpHpFreeVA @ 0x1403501D8 (RtlpHpFreeVA.c)
+ *     RtlpHpFreeVA @ 0x140352258 (RtlpHpFreeVA.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x1403505B8 (RtlSparseArrayElementAllocated.c)
- *     RtlpHpVaMgrRangeDecommit @ 0x140638F80 (RtlpHpVaMgrRangeDecommit.c)
+ *     RtlSparseArrayElementAllocated @ 0x140352638 (RtlSparseArrayElementAllocated.c)
+ *     RtlpHpVaMgrRangeDecommit @ 0x14063BF90 (RtlpHpVaMgrRangeDecommit.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxDecommit(__int64 a1, __int64 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUmpoSendPowerRequestCreate @ 0x1407A65EC
+ * XREFs of PopUmpoSendPowerRequestCreate @ 0x1407A67DC
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14032BD78 (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestNotificationsBegin @ 0x140981644 (PopPowerRequestNotificationsBegin.c)
+ *     PopPowerRequestCreateCommon @ 0x14032C008 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestNotificationsBegin @ 0x140981844 (PopPowerRequestNotificationsBegin.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x14032D1A0 (PopUmpoSendPowerMessage.c)
- *     PopPowerRequestGetDiagnosticBuffer @ 0x1407A6688 (PopPowerRequestGetDiagnosticBuffer.c)
+ *     PopUmpoSendPowerMessage @ 0x14032D430 (PopUmpoSendPowerMessage.c)
+ *     PopPowerRequestGetDiagnosticBuffer @ 0x1407A6878 (PopPowerRequestGetDiagnosticBuffer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

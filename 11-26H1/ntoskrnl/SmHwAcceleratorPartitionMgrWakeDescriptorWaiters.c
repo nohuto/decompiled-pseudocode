@@ -1,10 +1,10 @@
 /*
- * XREFs of SmHwAcceleratorPartitionMgrWakeDescriptorWaiters @ 0x14064002C
+ * XREFs of SmHwAcceleratorPartitionMgrWakeDescriptorWaiters @ 0x140643C0C
  * Callers:
- *     SmHwAcceleratorPartitionMgrFreeDescriptor @ 0x140443A24 (SmHwAcceleratorPartitionMgrFreeDescriptor.c)
- *     SmHwAcceleratorMgrHotRemoveAccelerator @ 0x14063FBB8 (SmHwAcceleratorMgrHotRemoveAccelerator.c)
+ *     SmHwAcceleratorPartitionMgrFreeDescriptor @ 0x14043C534 (SmHwAcceleratorPartitionMgrFreeDescriptor.c)
+ *     SmHwAcceleratorMgrHotRemoveAccelerator @ 0x140643798 (SmHwAcceleratorMgrHotRemoveAccelerator.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 LONG __fastcall SmHwAcceleratorPartitionMgrWakeDescriptorWaiters(__int64 *a1)

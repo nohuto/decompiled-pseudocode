@@ -1,14 +1,14 @@
 /*
- * XREFs of DifPsSetLoadImageNotifyRoutineWrapper @ 0x140694E30
+ * XREFs of DifPsSetLoadImageNotifyRoutineWrapper @ 0x140698A10
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PsSetLoadImageNotifyRoutine @ 0x1407FCDB0 (PsSetLoadImageNotifyRoutine.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsSetLoadImageNotifyRoutine @ 0x1408027E0 (PsSetLoadImageNotifyRoutine.c)
  */
 
 __int64 __fastcall DifPsSetLoadImageNotifyRoutineWrapper(PLOAD_IMAGE_NOTIFY_ROUTINE NotifyRoutine)

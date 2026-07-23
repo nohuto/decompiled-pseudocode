@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockUnlockSlabContextsForDefrag @ 0x1406884D4
+ * XREFs of MiLockUnlockSlabContextsForDefrag @ 0x140689604
  * Callers:
- *     MiDefragmentSlabWorker @ 0x140686E60 (MiDefragmentSlabWorker.c)
- *     MiEstablishDefragSlabEntries @ 0x14068781C (MiEstablishDefragSlabEntries.c)
+ *     MiDefragmentSlabWorker @ 0x140687F90 (MiDefragmentSlabWorker.c)
+ *     MiEstablishDefragSlabEntries @ 0x14068894C (MiEstablishDefragSlabEntries.c)
  * Callees:
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiLockUnlockSlabContextsForDefrag(__int64 a1, unsigned int a2, int a3)
@@ -29,7 +29,7 @@ __int64 __fastcall MiLockUnlockSlabContextsForDefrag(__int64 a1, unsigned int a2
              *(_QWORD *)a1,
              (__int64)MiLockSlabAllocator,
              v3,
-             *(unsigned int *)(a1 + 68),
+             *(_DWORD *)(a1 + 68),
              *(_DWORD *)(a1 + 72));
   if ( !(_DWORD)v3 && !a3 )
   {

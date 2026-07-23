@@ -1,49 +1,44 @@
 /*
- * XREFs of TpReleaseIoCompletion @ 0x18006A010
+ * XREFs of TpReleaseIoCompletion @ 0x180086700
  * Callers:
  *     <none>
  * Callees:
- *     TppIopValidateIo @ 0x18006A0C0 (TppIopValidateIo.c)
- *     TppCleanupGroupMemberRelease @ 0x18006A160 (TppCleanupGroupMemberRelease.c)
- *     TppSimplepFree @ 0x18006A2D0 (TppSimplepFree.c)
+ *     TppIopValidateIo @ 0x1800867B0 (TppIopValidateIo.c)
+ *     TppCleanupGroupMemberRelease @ 0x180086850 (TppCleanupGroupMemberRelease.c)
+ *     TppSimplepFree @ 0x1800869C0 (TppSimplepFree.c)
  */
 
-__int64 __fastcall TpReleaseIoCompletion(__int64 a1)
+void __cdecl TpReleaseIoCompletion(PTP_IO Io)
 {
-  __int64 result; // rax
-  __int64 v3; // rdx
-  __int64 (__fastcall *v4)(__int64); // rax
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v2; // rdx
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
-  result = TppIopValidateIo(a1, 1LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo(Io, 1LL) )
   {
-    result = TppCleanupGroupMemberRelease(a1, 1LL);
-    if ( (_DWORD)result )
+    if ( (unsigned int)TppCleanupGroupMemberRelease(Io, 1LL) )
     {
-      *(_QWORD *)(a1 + 184) = retaddr;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
+      Io->CleanupGroupMember.ReleaseCaller.ReturnAddress = retaddr;
+      if ( _InterlockedExchangeAdd(&Io->CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
       {
-        v4 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-        if ( (char *)v4 == (char *)TppSimplepFree )
+        Free = Io->CleanupGroupMember.VFuncs->Free;
+        if ( (char *)Free == (char *)TppSimplepFree )
         {
-          return TppSimplepFree(a1, v3);
+          TppSimplepFree(Io, v2);
         }
-        else if ( v4 == TppAlpcpFree )
+        else if ( (char *)Free == (char *)TppAlpcpFree )
         {
-          return TppAlpcpFree(a1);
+          TppAlpcpFree(Io);
         }
-        else if ( v4 == TppWorkpFree )
+        else if ( (char *)Free == (char *)TppWorkpFree )
         {
-          return TppWorkpFree(a1);
+          TppWorkpFree(Io);
         }
         else
         {
-          return v4(a1);
+          Free(&Io->CleanupGroupMember);
         }
       }
     }
   }
-  return result;
 }

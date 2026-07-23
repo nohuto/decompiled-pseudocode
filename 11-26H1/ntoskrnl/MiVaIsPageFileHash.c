@@ -1,8 +1,8 @@
 /*
- * XREFs of MiVaIsPageFileHash @ 0x140455A20
+ * XREFs of MiVaIsPageFileHash @ 0x14044DB50
  * Callers:
- *     MiCopyTradePageMetaData @ 0x1402938DC (MiCopyTradePageMetaData.c)
- *     MiLockStealSystemVm @ 0x140455630 (MiLockStealSystemVm.c)
+ *     MiCopyTradePageMetaData @ 0x140292E3C (MiCopyTradePageMetaData.c)
+ *     MiLockStealSystemVm @ 0x14044D760 (MiLockStealSystemVm.c)
  * Callees:
  *     <none>
  */
@@ -24,7 +24,7 @@ __int64 __fastcall MiVaIsPageFileHash(__int64 a1, unsigned __int64 a2)
     if ( v6 )
     {
       if ( a2 >= v6
-        && a2 < *(_QWORD *)(v5 + 184) + *(unsigned int *)(v5 + 4) * (unsigned __int64)(unsigned int)dword_140E35F4C )
+        && a2 < *(_QWORD *)(v5 + 184) + *(unsigned int *)(v5 + 4) * (unsigned __int64)(unsigned int)dword_140E360CC )
       {
         break;
       }

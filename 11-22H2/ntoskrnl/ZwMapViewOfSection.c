@@ -33,5 +33,5 @@ NTSTATUS __stdcall ZwMapViewOfSection(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SectionHandle, ProcessHandle);
+  return KiServiceInternal(SectionHandle);
 }

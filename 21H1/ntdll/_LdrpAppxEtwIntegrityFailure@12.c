@@ -9,43 +9,49 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall LdrpAppxEtwIntegrityFailure(int a1, const unsigned __int16 *a2, const unsigned __int16 *a3)
+NTSTATUS __fastcall LdrpAppxEtwIntegrityFailure(int a1, const unsigned __int16 *a2, const unsigned __int16 *a3)
 {
-  int *v3; // esi
-  int result; // eax
-  int v5; // [esp+10h] [ebp-48h] BYREF
-  int v6; // [esp+14h] [ebp-44h]
-  int v7; // [esp+1Ch] [ebp-3Ch] BYREF
-  _DWORD v8[13]; // [esp+20h] [ebp-38h] BYREF
+  const EVENT_DESCRIPTOR *v3; // esi
+  NTSTATUS result; // eax
+  ULONGLONG RegHandle; // [esp+10h] [ebp-48h] BYREF
+  int v6; // [esp+1Ch] [ebp-3Ch] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+20h] [ebp-38h] BYREF
+  int *v8; // [esp+30h] [ebp-28h]
+  int v9; // [esp+34h] [ebp-24h]
+  int v10; // [esp+38h] [ebp-20h]
+  int v11; // [esp+3Ch] [ebp-1Ch]
+  const unsigned __int16 *v12; // [esp+40h] [ebp-18h]
+  int v13; // [esp+44h] [ebp-14h]
+  unsigned int v14; // [esp+48h] [ebp-10h]
+  int v15; // [esp+4Ch] [ebp-Ch]
 
-  v7 = a1;
+  v6 = a1;
   if ( a1 == -1073740673 )
   {
-    v3 = AppModelLibraryLoadFailureNgenBinary;
+    v3 = &AppModelLibraryLoadFailureNgenBinary;
   }
   else
   {
-    v3 = AppModelLibraryLoadFailureSystemBinary;
+    v3 = (const EVENT_DESCRIPTOR *)AppModelLibraryLoadFailureSystemBinary;
     if ( a1 != -1073740674 )
-      v3 = AppModelLibraryLoadFailureApplicationBinary;
+      v3 = (const EVENT_DESCRIPTOR *)AppModelLibraryLoadFailureApplicationBinary;
   }
-  v8[0] = a2;
-  v8[1] = 0;
-  v8[3] = 0;
-  v8[5] = 0;
-  v8[6] = 4;
-  v8[2] = 2 * wcslen(a2) + 2;
-  v8[7] = 0;
-  v8[4] = &v7;
-  v8[8] = a3;
-  v8[9] = 0;
-  v8[11] = 0;
-  v8[10] = 2 * wcslen(a3) + 2;
-  result = EtwEventRegister(AppModelRuntimeProviderId, 0, 0, (int)&v5);
+  UserData.Ptr = (unsigned int)a2;
+  UserData.Reserved = 0;
+  v9 = 0;
+  v10 = 4;
+  UserData.Size = 2 * wcslen(a2) + 2;
+  v11 = 0;
+  v8 = &v6;
+  v12 = a3;
+  v13 = 0;
+  v15 = 0;
+  v14 = 2 * wcslen(a3) + 2;
+  result = EtwEventRegister(&AppModelRuntimeProviderId, 0, 0, &RegHandle);
   if ( !result )
   {
-    EtwEventWrite(v5, v6, v3, 3, (int)v8);
-    return EtwNotificationUnregister(v5, v6, 0);
+    EtwEventWrite(RegHandle, v3, 3u, &UserData);
+    return EtwNotificationUnregister(RegHandle, 0);
   }
   return result;
 }

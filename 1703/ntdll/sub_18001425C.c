@@ -26,7 +26,7 @@ __int64 __fastcall sub_18001425C(__int64 a1, char a2, int a3, __int64 a4, __int6
     if ( v6 )
       *(_QWORD *)(a1 + 32) = *(_QWORD *)(v6 + 48);
     if ( *(_QWORD *)(a1 + 16) )
-      sub_180013D14((_QWORD *)a1);
+      sub_180013D14(a1);
     return 0LL;
   }
   return result;

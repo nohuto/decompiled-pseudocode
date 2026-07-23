@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDeleteProcessShadow @ 0x1401EF1E4
+ * XREFs of MiDeleteProcessShadow @ 0x1401EF010
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140075A98 (MiDeleteFinalPageTables.c)
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
- *     MmSynchronizeAddressPolicy @ 0x14065BF18 (MmSynchronizeAddressPolicy.c)
+ *     MiDeleteFinalPageTables @ 0x140075B18 (MiDeleteFinalPageTables.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
+ *     MmSynchronizeAddressPolicy @ 0x14065BFFC (MmSynchronizeAddressPolicy.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KeFlushProcessTb @ 0x140075E7C (KeFlushProcessTb.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     KeMakeUserDirectoryTableBase @ 0x1401DBB9C (KeMakeUserDirectoryTableBase.c)
- *     MiDeleteTopLevelPage @ 0x1401DF9B4 (MiDeleteTopLevelPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KeFlushProcessTb @ 0x140075EFC (KeFlushProcessTb.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     KeMakeUserDirectoryTableBase @ 0x1401DB9C8 (KeMakeUserDirectoryTableBase.c)
+ *     MiDeleteTopLevelPage @ 0x1401DF7E0 (MiDeleteTopLevelPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiDeleteProcessShadow(__int64 a1)
@@ -50,7 +50,7 @@ void __fastcall MiDeleteProcessShadow(__int64 a1)
           LOBYTE(v10) = v11;
           MiUnlockWorkingSetExclusive(a1 + 1280, v10);
         }
-        MiReleasePtes((__int64)&qword_140327870, v7, 1u);
+        MiReleasePtes((__int64)&qword_1403278B0, v7, 1u);
         KeFlushProcessTb(v9 << 12);
         if ( (unsigned int)MiDeleteTopLevelPage(v12, v9) != 3 )
           MiReleaseNonPagedResources((__int64)v3, 1uLL);

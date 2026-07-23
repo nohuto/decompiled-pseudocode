@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitializeProcessorState @ 0x14073CAB0
+ * XREFs of KiInitializeProcessorState @ 0x14073A9E0
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     KiAssignProcessorNumberToPrcb @ 0x1405BB160 (KiAssignProcessorNumberToPrcb.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KiEnableKvaShadowing @ 0x140B5A87C (KiEnableKvaShadowing.c)
+ *     KiAssignProcessorNumberToPrcb @ 0x1405B8790 (KiAssignProcessorNumberToPrcb.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KiEnableKvaShadowing @ 0x140B5C8EC (KiEnableKvaShadowing.c)
  */
 
 __int64 __fastcall KiInitializeProcessorState(unsigned __int64 *a1, _QWORD *a2, __int64 a3)
@@ -82,7 +82,7 @@ __int64 __fastcall KiInitializeProcessorState(unsigned __int64 *a1, _QWORD *a2, 
   *(_QWORD *)(v13 + 35048) = v17 - 80;
   *(_QWORD *)(v10 - 8112 + 4) = *(_QWORD *)(*(_QWORD *)(a3 + 48) + 56LL);
   v18 = *(unsigned int *)(a3 + 20);
-  v19 = (_OWORD *)(0x140000000LL + 824 * v18 + 16621184);
+  v19 = (_OWORD *)(0x140000000LL + 824 * v18 + 16625296);
   if ( (_OWORD *)KeNodeBlock[v18] == v19 )
   {
     v20 = 6LL;

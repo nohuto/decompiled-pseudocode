@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcResolveMicrocodeOperation @ 0x14051BC1C
+ * XREFs of HalpMcResolveMicrocodeOperation @ 0x14051C16C
  * Callers:
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  * Callees:
- *     RtlFindExportedRoutineByName @ 0x1406AD3F0 (RtlFindExportedRoutineByName.c)
+ *     RtlFindExportedRoutineByName @ 0x1406AD420 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall HalpMcResolveMicrocodeOperation(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall HalpMcResolveMicrocodeOperation(__int64 a1)
     if ( a1 )
     {
       McMicrocodeOperation = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))RtlFindExportedRoutineByName(
-                                                                               *(_QWORD *)(a1 + 48),
+                                                                               *(PVOID *)(a1 + 48),
                                                                                "McMicrocodeOperation");
       return McMicrocodeOperation == 0LL ? 0xC00000BB : 0;
     }

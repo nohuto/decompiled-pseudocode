@@ -1,15 +1,15 @@
 /*
- * XREFs of ObDeassignSecurity @ 0x1408471C0
+ * XREFs of ObDeassignSecurity @ 0x140843480
  * Callers:
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     WmipSecurityMethod @ 0x1409A6000 (WmipSecurityMethod.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     WmipSecurityMethod @ 0x140989620 (WmipSecurityMethod.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObDeassignSecurity(__int64 *a1)
@@ -24,8 +24,8 @@ __int64 __fastcall ObDeassignSecurity(__int64 *a1)
   struct _KTHREAD *CurrentThread; // r12
   unsigned __int64 *v10; // rbp
   _QWORD **v11; // r14
-  _QWORD *v12; // rax
-  _QWORD *v13; // r15
+  char *v12; // rax
+  char *v13; // r15
   signed __int64 v14; // rax
   _QWORD *i; // rcx
 
@@ -52,12 +52,12 @@ __int64 __fastcall ObDeassignSecurity(__int64 *a1)
   v10 = (unsigned __int64 *)((char *)&ObsSecurityDescriptorCache + 16 * (unsigned __int8)*((_DWORD *)v4 + 4));
   --CurrentThread->KernelApcDisable;
   v11 = (_QWORD **)(v10 + 1);
-  v12 = KeAbPreAcquire((__int64)v10, 0LL);
+  v12 = (char *)KeAbPreAcquire((__int64)v10, 0LL);
   v13 = v12;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v10, (__int64)v12, (__int64)v10);
+    ExfAcquirePushLockExclusiveEx(v10, v12, (__int64)v10);
   if ( v13 )
-    *((_BYTE *)v13 + 10) = 1;
+    v13[10] = 1;
   v14 = _InterlockedExchangeAdd64(v4 + 1, -v3) - v3;
   if ( v14 > 0 )
   {

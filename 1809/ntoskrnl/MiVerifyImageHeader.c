@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVerifyImageHeader @ 0x1406B48C4
+ * XREFs of MiVerifyImageHeader @ 0x1406B5B64
  * Callers:
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
  * Callees:
- *     memcmp @ 0x140196200 (memcmp.c)
- *     MiCheckDosCalls @ 0x14084E558 (MiCheckDosCalls.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     MiCheckDosCalls @ 0x14084F7B8 (MiCheckDosCalls.c)
  */
 
 __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -141,7 +141,7 @@ __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, unsig
           v20 = *(_DWORD *)(a2 + 220);
 LABEL_64:
           *(_DWORD *)(a1 + 100) = v20;
-          if ( dword_140438E64 && dword_140438E68 == *(_DWORD *)(a1 + 64) && dword_140438E6C == *(_DWORD *)(a1 + 16) )
+          if ( dword_140439F24 && dword_140439F28 == *(_DWORD *)(a1 + 64) && dword_140439F2C == *(_DWORD *)(a1 + 16) )
             __debugbreak();
           v24 = *(_WORD *)(a1 + 48);
           if ( ((v24 - 267) & 0xFEFF) != 0 )

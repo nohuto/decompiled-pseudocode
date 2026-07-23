@@ -1,16 +1,16 @@
 /*
- * XREFs of WbInPlaceEncryptionUnloadModule @ 0x140B12C8C
+ * XREFs of WbInPlaceEncryptionUnloadModule @ 0x140B14A0C
  * Callers:
- *     sub_14088046C @ 0x14088046C (sub_14088046C.c)
+ *     sub_14088686C @ 0x14088686C (sub_14088686C.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     sub_1409EEB04 @ 0x1409EEB04 (sub_1409EEB04.c)
- *     sub_1409EF970 @ 0x1409EF970 (sub_1409EF970.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     sub_1409EB2D4 @ 0x1409EB2D4 (sub_1409EB2D4.c)
+ *     sub_1409EC140 @ 0x1409EC140 (sub_1409EC140.c)
  */
 
 __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -46,10 +46,10 @@ __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2, __int
     {
       if ( *(_QWORD *)(v14 + 32) == a2 )
       {
-        v8 = sub_1409EEB04(a1 + 136, 0, 0, i, 0LL);
+        v8 = sub_1409EB2D4(a1 + 136, 0, 0, i, 0LL);
         if ( v8 >= 0 )
         {
-          sub_1409EF970((volatile signed __int64 *)v14);
+          sub_1409EC140((volatile signed __int64 *)v14);
           --i;
         }
       }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiExtendSection @ 0x140A5838C
+ * XREFs of MiExtendSection @ 0x140A6590C
  * Callers:
- *     MmExtendSection @ 0x140A58080 (MmExtendSection.c)
+ *     MmExtendSection @ 0x140A65600 (MmExtendSection.c)
  * Callees:
- *     MiAppendSubsectionChain @ 0x1404C7AA8 (MiAppendSubsectionChain.c)
- *     MiGetSubsectionContents @ 0x1404CBDF4 (MiGetSubsectionContents.c)
- *     MiSubsectionNeedsExtents @ 0x1406F8148 (MiSubsectionNeedsExtents.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiDeleteExtendSubsections @ 0x140778B40 (MiDeleteExtendSubsections.c)
- *     MiAllocateExtendSubsections @ 0x140A58514 (MiAllocateExtendSubsections.c)
+ *     MiAppendSubsectionChain @ 0x1404C17E8 (MiAppendSubsectionChain.c)
+ *     MiGetSubsectionContents @ 0x1404C5824 (MiGetSubsectionContents.c)
+ *     MiSubsectionNeedsExtents @ 0x1406FCE18 (MiSubsectionNeedsExtents.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiDeleteExtendSubsections @ 0x14077B9E0 (MiDeleteExtendSubsections.c)
+ *     MiAllocateExtendSubsections @ 0x140A65A94 (MiAllocateExtendSubsections.c)
  */
 
 __int64 __fastcall MiExtendSection(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4, __int64 *a5)

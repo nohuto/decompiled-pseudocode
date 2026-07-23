@@ -1,24 +1,24 @@
 /*
- * XREFs of SeAuditProcessCreation @ 0x1408A73CC
+ * XREFs of SeAuditProcessCreation @ 0x1408FD624
  * Callers:
- *     PspInsertProcess @ 0x1408A7074 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x1408FD2CC (PspInsertProcess.c)
  * Callees:
- *     PsQueryProcessCommandLine @ 0x140246E50 (PsQueryProcessCommandLine.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     SepAdtLogAuditRecord @ 0x140348E4C (SepAdtLogAuditRecord.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1408EF560 (PsGetAllocatedFullProcessImageNameEx.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsQueryProcessCommandLine @ 0x1402E1810 (PsQueryProcessCommandLine.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x1403C288C (SepAdtLogAuditRecord.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140860D60 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeAuditProcessCreation(PRKPROCESS PROCESS, UNICODE_STRING *a2)
@@ -27,7 +27,7 @@ void __fastcall SeAuditProcessCreation(PRKPROCESS PROCESS, UNICODE_STRING *a2)
   UNICODE_STRING *Pool2; // rdi
   unsigned int v5; // r13d
   void *v6; // rbx
-  NTSTATUS AllocatedFullProcessImageName; // r14d
+  signed int AllocatedFullProcessImageName; // r14d
   ULONG_PTR v8; // rax
   ULONG_PTR v9; // rsi
   int v10; // ecx
@@ -99,14 +99,14 @@ void __fastcall SeAuditProcessCreation(PRKPROCESS PROCESS, UNICODE_STRING *a2)
   v6 = *(void **)&PROCESS[1].StackCount.Value;
   Flink = PROCESS[1].Header.WaitListHead.Flink;
   v28 = v6;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(PROCESS, &v23);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)PROCESS, (__int64 *)&v23);
   if ( AllocatedFullProcessImageName < 0 )
     goto LABEL_12;
   if ( PsLookupProcessByProcessId(v6, (PEPROCESS *)&v22[1]) >= 0 )
   {
     v21 = *(void **)&v22[1];
     if ( *(_QWORD *)(*(_QWORD *)&v22[1] + 848LL) )
-      PsGetAllocatedFullProcessImageNameEx(*(_QWORD *)&v22[1], &P);
+      PsGetAllocatedFullProcessImageNameEx(*(__int64 *)&v22[1], (__int64 *)&P);
     else
       v5 = 1844;
     ObfDereferenceObjectWithTag(v21, 0x746C6644u);
@@ -216,7 +216,7 @@ LABEL_24:
       }
       if ( (unsigned int)PsQueryProcessCommandLine(PROCESS, 0LL, 0, 0, v22) == -1073741820 )
       {
-        Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
+        Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL, v22[0], 0x4C436553u);
         if ( Pool2 )
         {
           if ( (int)PsQueryProcessCommandLine(PROCESS, (__int64)Pool2, v22[0], 0, v22) >= 0 )
@@ -228,7 +228,7 @@ LABEL_24:
         }
       }
     }
-    RtlInitUnicodeString(&DestinationString, &word_140AEA890);
+    RtlInitUnicodeString(&DestinationString, &word_140AEDAC0);
     Pool2 = &DestinationString;
     goto LABEL_23;
   }

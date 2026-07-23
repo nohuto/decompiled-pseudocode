@@ -1,25 +1,25 @@
 /*
- * XREFs of MiTransferPartitionPageRun @ 0x14068B4FC
+ * XREFs of MiTransferPartitionPageRun @ 0x14068C62C
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140688F24 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x14068A054 (MiActOnPartitionNodePages.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiDrainZeroLookasides @ 0x14022A040 (MiDrainZeroLookasides.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiInvalidPteConforms @ 0x140302590 (MiInvalidPteConforms.c)
- *     MiIsPageOnBadList @ 0x14030492C (MiIsPageOnBadList.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiInsertPossiblyBadPage @ 0x140683470 (MiInsertPossiblyBadPage.c)
- *     MiMoveBadPageChargesCrossPartition @ 0x1406835E0 (MiMoveBadPageChargesCrossPartition.c)
- *     MiMoveBadPagePartition @ 0x14068B054 (MiMoveBadPagePartition.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14068B904 (MiUpdatePartitionChildPageCounts.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiDrainZeroLookasides @ 0x1402FD2B0 (MiDrainZeroLookasides.c)
+ *     MiIsPageOnBadList @ 0x14030E80C (MiIsPageOnBadList.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInvalidPteConforms @ 0x1403461F0 (MiInvalidPteConforms.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiInsertPossiblyBadPage @ 0x14068461C (MiInsertPossiblyBadPage.c)
+ *     MiMoveBadPageChargesCrossPartition @ 0x14068478C (MiMoveBadPageChargesCrossPartition.c)
+ *     MiMoveBadPagePartition @ 0x14068C184 (MiMoveBadPagePartition.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14068CA34 (MiUpdatePartitionChildPageCounts.c)
  */
 
 __int64 __fastcall MiTransferPartitionPageRun(__int64 a1, __int64 a2, ULONG_PTR a3, __int64 a4)
@@ -92,12 +92,12 @@ __int64 __fastcall MiTransferPartitionPageRun(__int64 a1, __int64 a2, ULONG_PTR 
         {
           if ( !MiInvalidPteConforms(*(_QWORD *)(v12 + 16)) )
             goto LABEL_45;
-          if ( qword_140E2DB80 )
+          if ( qword_140E2DCC0 )
           {
             if ( (v14 & 0x10) != 0 )
               v14 &= ~0x10uLL;
             else
-              v14 &= ~qword_140E2DB80;
+              v14 &= ~qword_140E2DCC0;
           }
           if ( HIDWORD(v14) != 4294967294 )
           {
@@ -120,7 +120,7 @@ LABEL_45:
         PfnPageSizeIndex = MiGetPfnPageSizeIndex(48 * v7 - 0x220000000000LL);
         v16 = MiPageSizes[PfnPageSizeIndex];
         v27 = v16;
-        MiUnlinkFreeOrZeroedPage(v7, 0LL, 0LL);
+        MiUnlinkFreeOrZeroedPage(v7, 0LL, 0);
         if ( (ULONG *)a2 != &MiSystemPartition )
         {
           *(_QWORD *)(a2 + 18512) += v16;

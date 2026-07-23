@@ -23,47 +23,34 @@
  *     RtlUnlockHeapManagerForCloning @ 0x1800EF9F8 (RtlUnlockHeapManagerForCloning.c)
  */
 
-__int64 __fastcall RtlCloneUserProcess(int a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4, char *a5)
+NTSTATUS __cdecl RtlCloneUserProcess(
+        ULONG ProcessFlags,
+        PSECURITY_DESCRIPTOR ProcessSecurityDescriptor,
+        PSECURITY_DESCRIPTOR ThreadSecurityDescriptor,
+        HANDLE DebugPort,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  __int64 v7; // rbp
+  PSECURITY_DESCRIPTOR v7; // rbp
   int v9; // esi
-  int v10; // r15d
-  int v11; // r14d
-  int v12; // edi
-  int v13; // ebx
-  char *v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned __int64 v17; // rdx
-  unsigned __int64 *v18; // r8
-  __int64 v19; // r9
-  char *v20; // rbx
-  __int64 v21; // rbp
-  unsigned __int64 v22; // rdx
-  unsigned __int64 *v23; // r8
-  __int64 v24; // r9
-  unsigned __int64 v25; // rdx
-  unsigned __int64 *v26; // r8
-  __int64 v27; // r9
-  unsigned __int64 v28; // rdx
-  unsigned __int64 *v29; // r8
-  __int64 v30; // r9
-  unsigned int UserProcess; // eax
-  unsigned int v32; // ebp
-  unsigned int v33; // ebx
-  unsigned __int64 v34; // rdx
-  unsigned __int64 *v35; // r8
-  __int64 v36; // r9
-  __int64 v37[8]; // [rsp+30h] [rbp-68h] BYREF
+  ULONG v10; // r15d
+  ULONG v11; // r14d
+  ULONG v12; // edi
+  NTSTATUS v13; // ebx
+  _RTL_SRWLOCK *v14; // rbx
+  __int64 v15; // rbp
+  NTSTATUS UserProcess; // eax
+  NTSTATUS v17; // ebp
+  unsigned int v18; // ebx
+  _QWORD v19[8]; // [rsp+30h] [rbp-68h] BYREF
 
-  v7 = a2;
-  if ( (a1 & 0xFFFFFFF8) != 0 )
-    return 3221225711LL;
+  v7 = ProcessSecurityDescriptor;
+  if ( (ProcessFlags & 0xFFFFFFF8) != 0 )
+    return -1073741585;
   v9 = 2;
-  v10 = a1 & 1;
-  v11 = 2 * (a1 & 2);
-  v12 = a1 & 4;
-  if ( (a1 & 4) == 0 )
+  v10 = ProcessFlags & 1;
+  v11 = 2 * (ProcessFlags & 2);
+  v12 = ProcessFlags & 4;
+  if ( (ProcessFlags & 4) == 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
@@ -73,93 +60,93 @@ __int64 __fastcall RtlCloneUserProcess(int a1, unsigned __int64 a2, unsigned __i
     {
       LdrpDrainWorkQueue(0);
       LdrpAcquireLoaderLock();
-      RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlEnterCriticalSection(&LdrpWorkQueueLock);
       v13 = 0;
     }
     if ( v13 >= 0 )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpFlsLock, a2, a3, a4);
+      RtlAcquireSRWLockExclusive(&RtlpFlsLock);
       RtlpLockFlsCallbackVector();
-      RtlEnterCriticalSection((__int64)&FastPebLock);
-      RtlAcquireSRWLockShared(&LdrpTlsLock, v14, v15, v16);
-      v20 = (char *)&unk_1801601B8;
-      v21 = 16LL;
+      RtlEnterCriticalSection(&FastPebLock);
+      RtlAcquireSRWLockShared(&LdrpTlsLock);
+      v14 = &stru_1801601B8;
+      v15 = 16LL;
       do
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)v20, v17, v18, v19);
-        v20 += 16;
-        --v21;
+        RtlAcquireSRWLockExclusive(v14);
+        v14 += 2;
+        --v15;
       }
-      while ( v21 );
-      RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpProtectedPoliciesSRWLock, v17, v18, v19);
-      LdrForkMrdata(0, v22, v23, v24);
+      while ( v15 );
+      RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
+      LdrForkMrdata(0);
       v13 = RtlLockHeapManagerForCloning();
       if ( v13 >= 0 )
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)&RtlCriticalSectionLock, v25, v26, v27);
-        RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpForkActiveLock, v28, v29, v30);
+        RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
+        RtlAcquireSRWLockExclusive(&LdrpForkActiveLock);
         v13 = 0;
         LdrpForkInProgress = 1;
       }
       else
       {
-        LdrForkMrdata(2, v25, v26, v27);
+        LdrForkMrdata(2);
         RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
         LdrpUnlockTlsDelayedReclaimTable(0);
-        RtlLeaveCriticalSection((__int64)&FastPebLock);
+        RtlLeaveCriticalSection(&FastPebLock);
         RtlpUnlockFlsCallbackVector(0LL);
         RtlReleaseSRWLockExclusive(&RtlpFlsLock);
         LdrpCompleteProcessCloning(0);
       }
-      v7 = a2;
+      v7 = ProcessSecurityDescriptor;
     }
     if ( v13 < 0 )
-      return (unsigned int)v13;
+      return v13;
   }
-  memset(v37, 0, 0x38uLL);
-  v37[1] = v7;
-  LOWORD(v37[0]) = 1;
-  v37[2] = (__int64)a3;
-  v37[4] = a4;
-  UserProcess = RtlpCreateUserProcess(0LL, 0LL, v11, v10, (__int64)v37, a5);
-  v32 = UserProcess;
+  memset(v19, 0, 0x38uLL);
+  v19[1] = v7;
+  LOWORD(v19[0]) = 1;
+  v19[2] = ThreadSecurityDescriptor;
+  v19[4] = DebugPort;
+  UserProcess = RtlpCreateUserProcess(0LL, 0LL, v11, v10, (__int64)v19, (HANDLE *)ProcessInformation);
+  v17 = UserProcess;
   if ( !v12 )
   {
     if ( UserProcess == 297 )
     {
-      RtlCriticalSectionLock = 1LL;
-      v33 = 1;
+      RtlCriticalSectionLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
+      v18 = 1;
       v9 = 1;
-      qword_18015EED0 = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-      dword_18015EEC8 = -2;
-      dword_18015EECC = 1;
-      qword_18015EED8 = 0LL;
-      RtlpFlsLock = 1LL;
+      FastPebLock.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+      FastPebLock.LockCount = -2;
+      FastPebLock.RecursionCount = 1;
+      FastPebLock.LockSemaphore = 0LL;
+      RtlpFlsLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
     }
     else
     {
       LdrpForkInProgress = 0;
-      v33 = 0;
+      v18 = 0;
       RtlReleaseSRWLockExclusive(&LdrpForkActiveLock);
     }
     RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
-    LdrForkMrdata(v9, v34, v35, v36);
+    LdrForkMrdata(v9);
     if ( v9 == 1 )
-      RtlpProtectedPoliciesSRWLock = 1LL;
+      RtlpProtectedPoliciesSRWLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
     else
       RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
-    RtlUnlockHeapManagerForCloning(v33);
-    LdrpUnlockTlsDelayedReclaimTable(v33);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlpUnlockFlsCallbackVector(v33);
+    RtlUnlockHeapManagerForCloning(v18);
+    LdrpUnlockTlsDelayedReclaimTable(v18);
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlpUnlockFlsCallbackVector(v18);
     RtlReleaseSRWLockExclusive(&RtlpFlsLock);
-    LdrpCompleteProcessCloning(v33);
-    if ( v33 )
+    LdrpCompleteProcessCloning(v18);
+    if ( v18 )
     {
       LdrpForkInProgress = 0;
       RtlAcquireReleaseSRWLockExclusive(&LdrpForkActiveLock);
       RtlWakeAllConditionVariable(&LdrpForkConditionVariable);
     }
   }
-  return v32;
+  return v17;
 }

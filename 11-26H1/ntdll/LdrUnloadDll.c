@@ -1,54 +1,55 @@
 /*
- * XREFs of LdrUnloadDll @ 0x1800553B0
+ * XREFs of LdrUnloadDll @ 0x18003F930
  * Callers:
- *     TppCallbackEpilog @ 0x18003FD40 (TppCallbackEpilog.c)
- *     LdrpCodeAuthzInitialize @ 0x1800454A0 (LdrpCodeAuthzInitialize.c)
- *     RtlQueueWorkItem @ 0x180066390 (RtlQueueWorkItem.c)
- *     RtlpTpWorkCallback @ 0x180066C90 (RtlpTpWorkCallback.c)
- *     RtlpTpWorkUnposted @ 0x180066FE0 (RtlpTpWorkUnposted.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     RtlWnfDllUnloadCallback @ 0x1801107B0 (RtlWnfDllUnloadCallback.c)
- *     LdrpGetShimEngineInterface @ 0x18011DA94 (LdrpGetShimEngineInterface.c)
- *     RtlLogMessageInEventLogger @ 0x180120950 (RtlLogMessageInEventLogger.c)
+ *     TppCallbackEpilog @ 0x18002A2B0 (TppCallbackEpilog.c)
+ *     LdrpCodeAuthzInitialize @ 0x18002FA10 (LdrpCodeAuthzInitialize.c)
+ *     RtlQueueWorkItem @ 0x1800867E0 (RtlQueueWorkItem.c)
+ *     RtlpTpWorkCallback @ 0x1800870E0 (RtlpTpWorkCallback.c)
+ *     RtlpTpWorkUnposted @ 0x180087430 (RtlpTpWorkUnposted.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     RtlWnfDllUnloadCallback @ 0x180110340 (RtlWnfDllUnloadCallback.c)
+ *     LdrpGetShimEngineInterface @ 0x18011D844 (LdrpGetShimEngineInterface.c)
+ *     RtlLogMessageInEventLogger @ 0x180120700 (RtlLogMessageInEventLogger.c)
  * Callees:
- *     LdrpFindLoadedDllByHandle @ 0x180054BC0 (LdrpFindLoadedDllByHandle.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x180055460 (LdrpDecrementModuleLoadCountEx.c)
- *     LdrpDrainWorkQueue @ 0x180087180 (LdrpDrainWorkQueue.c)
- *     LdrpDropLastInProgressCount @ 0x1800E1CDC (LdrpDropLastInProgressCount.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003F140 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x18003F9E0 (LdrpDecrementModuleLoadCountEx.c)
+ *     LdrpDrainWorkQueue @ 0x18007E4F0 (LdrpDrainWorkQueue.c)
+ *     LdrpDropLastInProgressCount @ 0x1800DF57C (LdrpDropLastInProgressCount.c)
  */
 
-__int64 __fastcall LdrUnloadDll(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl LdrUnloadDll(PVOID DllHandle)
 {
-  __int64 result; // rax
-  __int64 v5; // rdi
-  unsigned int Count; // ebx
-  int v7; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  char *v1; // r9
+  NTSTATUS result; // eax
+  char *v3; // rdi
+  NTSTATUS Count; // ebx
+  int v5; // [rsp+38h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  v8 = 0LL;
-  if ( byte_1801CB8C8 )
-    return 0LL;
-  result = LdrpFindLoadedDllByHandle(a1, &v8, &v7, a4);
-  if ( (int)result >= 0 )
+  BaseAddress = 0LL;
+  if ( byte_1801CA908 )
+    return 0;
+  result = LdrpFindLoadedDllByHandle(DllHandle, (__int64 *)&BaseAddress, &v5, v1);
+  if ( result >= 0 )
   {
-    v5 = v8;
-    Count = LdrpDecrementModuleLoadCountEx(v8, 1LL);
+    v3 = (char *)BaseAddress;
+    Count = LdrpDecrementModuleLoadCountEx(BaseAddress, 1LL);
     if ( Count == -1073741267 )
     {
       if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
       {
-        LdrpDecrementModuleLoadCountEx(v5, 0LL);
+        LdrpDecrementModuleLoadCountEx(v3, 0LL);
       }
       else
       {
         LdrpDrainWorkQueue(0LL);
-        LdrpDecrementModuleLoadCountEx(v5, 0LL);
+        LdrpDecrementModuleLoadCountEx(v3, 0LL);
         LdrpDropLastInProgressCount();
       }
       Count = 0;
     }
-    LdrpDereferenceModule(v5);
+    LdrpDereferenceModule(v3);
     return Count;
   }
   return result;

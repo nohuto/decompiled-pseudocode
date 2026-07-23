@@ -18,9 +18,9 @@ BOOLEAN __fastcall ExpDeleteTimer(__int64 a1)
   __int64 v3; // rcx
   struct _KTHREAD *CurrentThread; // r15
   _QWORD *v6; // r14
-  _BYTE *v7; // rax
+  PRTL_BALANCED_NODE v7; // rax
   signed __int8 v8; // cf
-  _BYTE *v9; // rbp
+  PRTL_BALANCED_NODE v9; // rbp
   __int64 v10; // rdx
   _QWORD *v11; // rax
 
@@ -30,13 +30,13 @@ BOOLEAN __fastcall ExpDeleteTimer(__int64 a1)
     CurrentThread = KeGetCurrentThread();
     v6 = *(_QWORD **)(a1 + 256);
     --CurrentThread->KernelApcDisable;
-    v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL, 0LL);
+    v7 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL, 0);
     v8 = _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL);
     v9 = v7;
     if ( v8 )
       ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v7, (ULONG_PTR)&ExpWakeTimerLock);
     if ( v9 )
-      v9[26] |= 1u;
+      BYTE2(v9[1].Left) |= 1u;
     v10 = *v1;
     v11 = (_QWORD *)v1[1];
     if ( *(_QWORD **)(*v1 + 8LL) != v1 || (_QWORD *)*v11 != v1 )

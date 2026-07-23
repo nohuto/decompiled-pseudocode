@@ -55,17 +55,17 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int
   unsigned int v12; // ebx
   bool i; // zf
   __int64 v14; // rcx
-  __int64 v15; // rdi
+  unsigned __int8 *v15; // rdi
   __int64 v16; // rax
   int v17; // r15d
-  __int128 *LockedHeadEntry; // rax
+  _RTL_RB_TREE *LockedHeadEntry; // rax
   __int64 v19; // r8
   __int64 v20; // rsi
   __int64 v21; // rax
   char v22; // r12
   int v23; // r10d
   char CpuPriorityKey; // r13
-  _DWORD *v25; // rdi
+  unsigned __int8 *v25; // rdi
   char v26; // al
   char v27; // cl
   __int64 ExtensionTable; // rax
@@ -89,7 +89,7 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int
     {
       v12 &= v12 - 1;
       v14 = 96 * a1;
-      v15 = v14 + v11 + 1696;
+      v15 = (unsigned __int8 *)(v14 + v11 + 1696);
       v16 = *(_QWORD *)v15;
       if ( !*(_QWORD *)v15 || (v16 & 2) != 0 || a2 && (v16 & 1) != 0 )
         continue;
@@ -97,22 +97,22 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int
       {
         if ( a2 )
         {
-          if ( (*(_BYTE *)(v15 + 19) & 1) != 0 )
+          if ( (v15[19] & 1) != 0 )
             continue;
-          if ( *(_BYTE *)(v15 + 17) )
+          if ( v15[17] )
           {
-            v27 = *(_BYTE *)(v15 - 96LL * *(unsigned __int8 *)(v15 + 16) - 1501);
+            v27 = v15[-96 * v15[16] - 1501];
             if ( v27 > 30 )
               v27 = 30;
-            if ( v27 == *(_BYTE *)(v15 + 48) )
+            if ( v27 == v15[48] )
               continue;
           }
-          else if ( (unsigned __int8)KiAbOwnerComputeCpuPriorityKey(v14 + v11 + 1696) == *(_BYTE *)(v15 + 48) )
+          else if ( (unsigned __int8)KiAbOwnerComputeCpuPriorityKey(v14 + v11 + 1696) == v15[48] )
           {
             continue;
           }
         }
-        else if ( *(_BYTE *)(v15 + 17) )
+        else if ( v15[17] )
         {
           if ( !v8 )
             continue;
@@ -130,15 +130,15 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int
       v31 = 0;
       v29 = 0;
       memset(&v30, 0, sizeof(v30));
-      LockedHeadEntry = KiAbEntryGetLockedHeadEntry((__int128 *)v15, a2, &v30);
+      LockedHeadEntry = KiAbEntryGetLockedHeadEntry((__int64)v15, a2, &v30);
       v20 = (__int64)LockedHeadEntry;
       if ( LockedHeadEntry )
       {
-        if ( *(_BYTE *)(v15 + 17) )
+        if ( v15[17] )
         {
           if ( !v8 )
             goto LABEL_41;
-          if ( (__int128 *)v15 != LockedHeadEntry )
+          if ( v15 != (unsigned __int8 *)LockedHeadEntry )
             KiAbEntryUpdateWaiterTreePosition(v15, LockedHeadEntry);
           v21 = *(_QWORD *)(v20 + 56);
           if ( v21 )
@@ -151,7 +151,7 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int
             if ( v26 < v22 )
               v22 = v26;
           }
-          KiAbTryIncrementIoWaiterCounts((unsigned __int8 *)v15, v20, v19);
+          KiAbTryIncrementIoWaiterCounts(v15, v20, v19);
           CpuPriorityKey = KiAbEntryGetCpuPriorityKey(v15);
           if ( v22 < CpuPriorityKey )
           {
@@ -165,17 +165,17 @@ LABEL_41:
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&v30);
             if ( v17 )
             {
-              v25 = (_DWORD *)(v15 - 96LL * *(unsigned __int8 *)(v15 + 16) - 1696);
+              v25 = &v15[-96 * v15[16] - 1696];
               if ( (unsigned __int8)ObReferenceObjectSafeWithTag(v25, 1953261124LL) )
               {
                 if ( (v17 & 1) != 0 )
                   IoBoostThreadIoPriority(v25, 2LL, 0x80000000LL);
-                if ( (v17 & 2) != 0 && v25[362] )
+                if ( (v17 & 2) != 0 && *((_DWORD *)v25 + 362) )
                 {
                   ExtensionTable = ExGetExtensionTable(IopIoRateExtensionHost);
                   if ( ExtensionTable )
                   {
-                    (*(void (__fastcall **)(_DWORD *))(ExtensionTable + 16))(v25);
+                    (*(void (__fastcall **)(unsigned __int8 *))(ExtensionTable + 16))(v25);
                     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
                   }
                 }
@@ -193,13 +193,13 @@ LABEL_41:
         {
           if ( !v7 )
             goto LABEL_41;
-          if ( (__int128 *)v15 != LockedHeadEntry )
+          if ( v15 != (unsigned __int8 *)LockedHeadEntry )
             KiAbEntryUpdateOwnerTreePosition(v15, LockedHeadEntry);
           KiAbDetermineMaxWaiterPriority(v20, &v31);
           if ( v31 )
           {
-            if ( (unsigned int)KiAbSetMinimumThreadPriority(v15, (unsigned int)&v31, a5, a6, a7, (__int64)&v29)
-              && v15 != v20 )
+            if ( (unsigned int)KiAbSetMinimumThreadPriority((_DWORD)v15, (unsigned int)&v31, a5, a6, a7, (__int64)&v29)
+              && v15 != (unsigned __int8 *)v20 )
             {
               KiAbEntryUpdateOwnerTreePosition(v15, v20);
             }

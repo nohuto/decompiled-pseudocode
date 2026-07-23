@@ -1,12 +1,12 @@
 /*
- * XREFs of PoDeviceReleaseIrp @ 0x1402A1810
+ * XREFs of PoDeviceReleaseIrp @ 0x1403CC27C
  * Callers:
- *     PoHandleIrp @ 0x1403D99EC (PoHandleIrp.c)
- *     IopfCompleteRequest @ 0x1403DBB10 (IopfCompleteRequest.c)
+ *     PoHandleIrp @ 0x1403CBD64 (PoHandleIrp.c)
+ *     IopfCompleteRequest @ 0x1403CCDE0 (IopfCompleteRequest.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PoDeviceReleaseIrp(__int64 a1, char a2, __int64 a3)

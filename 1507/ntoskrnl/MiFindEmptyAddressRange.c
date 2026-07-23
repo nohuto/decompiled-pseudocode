@@ -35,7 +35,7 @@ __int64 __fastcall MiFindEmptyAddressRange(unsigned __int64 a1, __int64 a2, _BYT
   unsigned int v30; // r10d
   _DWORD *v31; // rcx
   unsigned int i; // eax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-48h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-48h] BYREF
   _KPROCESS *v34; // [rsp+88h] [rbp+10h]
   unsigned int v35; // [rsp+98h] [rbp+20h]
   __int64 v36; // [rsp+A8h] [rbp+30h]

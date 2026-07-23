@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledDeviceUsageNoInline @ 0x140601384
+ * XREFs of Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledDeviceUsageNoInline @ 0x140603E34
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1403EC374 (PpmExitCoordinatedIdle.c)
+ *     PpmExitCoordinatedIdle @ 0x1402F93B8 (PpmExitCoordinatedIdle.c)
  * Callees:
- *     Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledFallback @ 0x1406013C0 (Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledFallback.c)
+ *     Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledFallback @ 0x140603E70 (Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledDeviceUsageNoInline()

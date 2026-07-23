@@ -1,20 +1,20 @@
 /*
- * XREFs of PiIrpQueryRemoveDevice @ 0x140733E34
+ * XREFs of PiIrpQueryRemoveDevice @ 0x140731D68
  * Callers:
- *     PnpDisableDevice @ 0x140723260 (PnpDisableDevice.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x140723D70 (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpDisableDevice @ 0x140720DF0 (PnpDisableDevice.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x140721900 (PnpQueryRemoveLockedDeviceNode.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PnpFindMountableDevice @ 0x1404A752C (PnpFindMountableDevice.c)
- *     PnpMarkDeviceForRemove @ 0x1404BE49C (PnpMarkDeviceForRemove.c)
- *     PnpUnlockMountableDevice @ 0x1404C1E7C (PnpUnlockMountableDevice.c)
- *     PnpLockMountableDevice @ 0x1404C3E64 (PnpLockMountableDevice.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x140595FD4 (IopDecrementDeviceObjectHandleCount.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopInvalidateVolumesForDevice @ 0x1409A4954 (IopInvalidateVolumesForDevice.c)
- *     PnpAsynchronousCall @ 0x140A4D884 (PnpAsynchronousCall.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PnpFindMountableDevice @ 0x1404A1F5C (PnpFindMountableDevice.c)
+ *     PnpMarkDeviceForRemove @ 0x1404B965C (PnpMarkDeviceForRemove.c)
+ *     PnpUnlockMountableDevice @ 0x1404BD46C (PnpUnlockMountableDevice.c)
+ *     PnpLockMountableDevice @ 0x1404BF394 (PnpLockMountableDevice.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x140593004 (IopDecrementDeviceObjectHandleCount.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopInvalidateVolumesForDevice @ 0x1408AEAB4 (IopInvalidateVolumesForDevice.c)
+ *     PnpAsynchronousCall @ 0x140A44414 (PnpAsynchronousCall.c)
  */
 
 __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a2)

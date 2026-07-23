@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmSnapPerformanceAccumulation @ 0x140350130
+ * XREFs of PpmSnapPerformanceAccumulation @ 0x14036E610
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140351020 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmGetThroughputInfoCallback @ 0x1404352D0 (PpmGetThroughputInfoCallback.c)
- *     PpmResetPerfTimes @ 0x140447F1C (PpmResetPerfTimes.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x14047F700 (PpmCapturePerformanceDistributionCallback.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402AFD50 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmGetThroughputInfoCallback @ 0x14036FE50 (PpmGetThroughputInfoCallback.c)
+ *     PpmResetPerfTimes @ 0x14044063C (PpmResetPerfTimes.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x14047A520 (PpmCapturePerformanceDistributionCallback.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     PpmUpdatePerformanceFeedback @ 0x1403505D0 (PpmUpdatePerformanceFeedback.c)
- *     PpmGetIdleGenerationCounter @ 0x140351710 (PpmGetIdleGenerationCounter.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14036EAB0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmGetIdleGenerationCounter @ 0x14036F500 (PpmGetIdleGenerationCounter.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall PpmSnapPerformanceAccumulation(
@@ -38,31 +38,29 @@ char __fastcall PpmSnapPerformanceAccumulation(
   signed __int32 *SchedulerAssist; // rdx
   LARGE_INTEGER *v20; // rdi
   char result; // al
-  __int64 v22; // r8
-  __int64 v23; // r9
-  LARGE_INTEGER v24; // r8
-  LARGE_INTEGER v25; // r9
-  __int64 v26; // rax
+  LARGE_INTEGER v22; // r8
+  LARGE_INTEGER v23; // r9
+  __int64 v24; // rax
   signed __int64 QuadPart; // rax
-  signed __int64 v28; // rtt
-  LARGE_INTEGER v29; // rax
+  signed __int64 v26; // rtt
+  LARGE_INTEGER v27; // rax
   unsigned int LowPart; // r15d
-  unsigned int v31; // edi
+  unsigned int v29; // edi
   unsigned int i; // r11d
-  unsigned int v33; // r9d
-  unsigned int v34; // r10d
-  __int64 v35; // rcx
-  __int64 v36; // r8
-  signed __int32 v37; // eax
-  signed __int32 v38; // ett
-  __int128 v42; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v43; // [rsp+50h] [rbp-48h]
+  unsigned int v31; // r9d
+  unsigned int v32; // r10d
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  signed __int32 v35; // eax
+  signed __int32 v36; // ett
+  __int128 v40; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v41; // [rsp+50h] [rbp-48h]
 
   v6.QuadPart = 0LL;
   v7 = a3;
-  v43 = 0LL;
+  v41 = 0LL;
   v9 = 0LL;
-  v42 = 0LL;
+  v40 = 0LL;
   if ( a3 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
@@ -70,10 +68,10 @@ char __fastcall PpmSnapPerformanceAccumulation(
     QuadPart = a1[4364].QuadPart;
     do
     {
-      v28 = QuadPart;
+      v26 = QuadPart;
       QuadPart = _InterlockedCompareExchange64((volatile signed __int64 *)&a1[4364], QuadPart, QuadPart);
     }
-    while ( v28 != QuadPart );
+    while ( v26 != QuadPart );
     v9 = QuadPart;
     if ( (QuadPart & 1) == 0 )
       return 0;
@@ -81,9 +79,9 @@ char __fastcall PpmSnapPerformanceAccumulation(
     {
       if ( a1[4388].LowPart == 3 )
       {
-        v29 = a1[4474];
-        v9 = *(_QWORD *)(v29.QuadPart + 8LL * DWORD2(xmmword_140E3ECD0)) >> 1;
-        if ( (*(_QWORD *)(v29.QuadPart + 8LL * DWORD2(xmmword_140E3ECD0)) & 1) == 0 )
+        v27 = a1[4474];
+        v9 = *(_QWORD *)(v27.QuadPart + 8LL * DWORD2(xmmword_140E3EE10)) >> 1;
+        if ( (*(_QWORD *)(v27.QuadPart + 8LL * DWORD2(xmmword_140E3EE10)) & 1) == 0 )
           return 0;
       }
     }
@@ -135,7 +133,7 @@ char __fastcall PpmSnapPerformanceAccumulation(
     LowPart = a6[6].LowPart;
     memset_0(a6, 0, (int)(112 * LowPart + 56));
     a6[6].LowPart = LowPart;
-    v31 = 0;
+    v29 = 0;
     a6[1].QuadPart = a1[4309].QuadPart + a1[4335].QuadPart;
     a6[2] = a1[4305];
     a6[3] = a1[4306];
@@ -145,23 +143,23 @@ char __fastcall PpmSnapPerformanceAccumulation(
     {
       for ( i = 0; i < 2; ++i )
       {
-        v33 = 0;
+        v31 = 0;
         if ( LowPart )
         {
-          v34 = i + 2 * v31;
+          v32 = i + 2 * v29;
           do
           {
-            v35 = v33 + KiHgsPlusConfiguration * v34;
-            v36 = v33 + a6[6].LowPart * v34;
-            ++v33;
-            a6[v36 + 7] = *(LARGE_INTEGER *)(a1[4310].QuadPart + 8 * v35);
+            v33 = v31 + KiHgsPlusConfiguration * v32;
+            v34 = v31 + a6[6].LowPart * v32;
+            ++v31;
+            a6[v34 + 7] = *(LARGE_INTEGER *)(a1[4310].QuadPart + 8 * v33);
           }
-          while ( v33 < LowPart );
+          while ( v31 < LowPart );
         }
       }
-      ++v31;
+      ++v29;
     }
-    while ( v31 < 7 );
+    while ( v29 < 7 );
     v7 = a3;
   }
   if ( !v7 )
@@ -171,77 +169,74 @@ char __fastcall PpmSnapPerformanceAccumulation(
     if ( SchedulerAssist )
     {
       _m_prefetchw(SchedulerAssist);
-      v37 = *SchedulerAssist;
+      v35 = *SchedulerAssist;
       do
       {
-        v38 = v37;
-        v37 = _InterlockedCompareExchange(SchedulerAssist, v37 & 0xFFDFFFFF, v37);
+        v36 = v35;
+        v35 = _InterlockedCompareExchange(SchedulerAssist, v35 & 0xFFDFFFFF, v35);
       }
-      while ( v38 != v37 );
-      if ( (v37 & 0x200000) != 0 )
+      while ( v36 != v35 );
+      if ( (v35 & 0x200000) != 0 )
         KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
     _enable();
   }
-  v20 = (LARGE_INTEGER *)&v42;
+  v20 = (LARGE_INTEGER *)&v40;
   if ( a1[4388].LowPart != 3 )
     v20 = 0LL;
   result = PpmUpdatePerformanceFeedback((_DWORD)a1, a2, v7, 0, (__int64)v20);
   if ( result )
   {
     if ( a4 && PopSnapEnergyCounters )
-    {
-      LOBYTE(v22) = 1;
-      guard_dispatch_icall_no_overrides((unsigned int)a1[4].HighPart, v7, v22, v23);
-    }
+      guard_dispatch_icall_no_overrides((unsigned int)a1[4].HighPart, v7);
     if ( v20 )
     {
       PerformanceCounter = *v20;
-      v24 = v20[1];
-      v25 = v20[2];
+      v22 = v20[1];
+      v23 = v20[2];
     }
     else
     {
       v6 = a1[4365];
       if ( PerformanceCounter.QuadPart <= (unsigned __int64)v6.QuadPart )
         PerformanceCounter = a1[4365];
-      v24 = a1[4363];
-      v25 = a1[4372];
+      v22 = a1[4363];
+      v23 = a1[4372];
     }
     if ( a1[4373].QuadPart )
     {
-      v26 = a1[4378].QuadPart;
+      v24 = a1[4378].QuadPart;
     }
     else if ( a1[4374].QuadPart )
     {
-      v26 = a1[4379].QuadPart;
+      v24 = a1[4379].QuadPart;
     }
     else
     {
-      v26 = 100 * a1[4376].QuadPart;
+      v24 = 100 * a1[4376].QuadPart;
     }
-    *(_QWORD *)(a5 + 24) = v26;
+    *(_QWORD *)(a5 + 24) = v24;
     if ( a1[4374].QuadPart )
-      v26 = a1[4379].QuadPart;
-    *(_QWORD *)(a5 + 32) = v26;
+      v24 = a1[4379].QuadPart;
+    *(_QWORD *)(a5 + 32) = v24;
     *(LARGE_INTEGER *)(a5 + 40) = a1[4381];
     *(LARGE_INTEGER *)(a5 + 16) = a1[4386];
     *(_DWORD *)(a5 + 48) = a1[1803].HighPart;
     if ( !v7 )
     {
       if ( !v20 )
-        v24.QuadPart += a1[4362].QuadPart;
+        v22.QuadPart += a1[4362].QuadPart;
       goto LABEL_48;
     }
     if ( v9 == PpmGetIdleGenerationCounter(a1) )
     {
       if ( !v20 )
-        v24.QuadPart += PerformanceCounter.QuadPart - v6.QuadPart;
+        v22.QuadPart += PerformanceCounter.QuadPart - v6.QuadPart;
 LABEL_48:
       *(LARGE_INTEGER *)a5 = PerformanceCounter;
-      *(_QWORD *)(a5 + 8) = PerformanceCounter.QuadPart - v24.QuadPart;
+      *(_QWORD *)(a5 + 8) = PerformanceCounter.QuadPart - v22.QuadPart;
       if ( a6 )
-        *a6 = v25;
+        *a6 = v23;
       return 1;
     }
     return 0;

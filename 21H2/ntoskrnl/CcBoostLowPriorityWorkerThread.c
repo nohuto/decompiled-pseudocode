@@ -1,25 +1,25 @@
 /*
- * XREFs of CcBoostLowPriorityWorkerThread @ 0x1402D083C
+ * XREFs of CcBoostLowPriorityWorkerThread @ 0x14024ECCC
  * Callers:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140336330 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140341080 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     CcUpdateSharedCacheMapFlag @ 0x1402EE374 (CcUpdateSharedCacheMapFlag.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
- *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KeSetPriorityThread @ 0x140279050 (KeSetPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402F90C0 (CcUpdateSharedCacheMapFlag.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x140363380 (IoBoostThreadIoPriority.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
-char __fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
+$C459BD0D405E8E46662177FB3D0A143F *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
 {
   ULONG_PTR v4; // rsi
   char v5; // al
@@ -32,30 +32,29 @@ char __fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
   __int64 v12; // rdi
   unsigned int v13; // ecx
   __int64 v14; // rdx
-  $C459BD0D405E8E46662177FB3D0A143F *v15; // rax
-  __int64 v16; // rcx
-  __int64 v17; // r10
-  __int64 v18; // rax
-  __int64 v19; // r8
+  $C459BD0D405E8E46662177FB3D0A143F *result; // rax
+  __int64 v16; // r10
+  __int64 v17; // rax
+  __int64 v18; // r8
 
   if ( a2 && !*(_DWORD *)(a2 + 4) )
     KeBugCheckEx(0x34u, 0x518uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   v4 = a1 + 952;
   ExAcquirePushLockExclusiveEx(a1 + 952, 0LL);
   if ( *(_QWORD *)(a1 + 928)
-    && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) > 0
+    && (int)PsGetIoPriorityThread(KeGetCurrentThread()) > 0
     && (!a2 || a2 == *(_QWORD *)(a1 + 936)) )
   {
-    IoBoostThreadIoPriority(v17, 2LL, 0LL);
+    IoBoostThreadIoPriority(v16, 2LL);
     *(_DWORD *)(a1 + 944) = KeSetPriorityThread(*(PKTHREAD *)(a1 + 928), 13);
-    v18 = *(_QWORD *)(a1 + 936);
-    if ( !*(_DWORD *)(v18 + 4) )
+    v17 = *(_QWORD *)(a1 + 936);
+    if ( !*(_DWORD *)(v17 + 4) )
       KeBugCheckEx(0x34u, 0x545uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-    if ( (*(_DWORD *)(v18 + 152) & 0x20000000) == 0 )
+    if ( (*(_DWORD *)(v17 + 152) & 0x20000000) == 0 )
     {
       PsBoostThreadIoEx(*(_QWORD *)(a1 + 928), 0LL, 0LL, 0LL);
-      LOBYTE(v19) = 1;
-      CcUpdateSharedCacheMapFlag(*(_QWORD *)(a1 + 936), 0x20000000LL, v19);
+      LOBYTE(v18) = 1;
+      CcUpdateSharedCacheMapFlag(*(_QWORD *)(a1 + 936), 0x20000000LL, v18);
     }
   }
   v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL);
@@ -88,7 +87,7 @@ char __fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
         {
           *(_BYTE *)(v12 + 32) |= 2u;
           if ( *(__int64 *)(v12 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v12);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12);
           v13 = *(_DWORD *)(v12 + 88) & 0xFFFE0000;
           *(_BYTE *)(v12 + 25) &= ~1u;
           *(_DWORD *)(v12 + 88) = v13;
@@ -108,13 +107,13 @@ char __fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
     KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v4, SessionId, 0LL);
 LABEL_19:
   --CurrentThread->AbAllocationRegionCount;
-  LOBYTE(v15) = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+  result = ($C459BD0D405E8E46662177FB3D0A143F *)KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
   v10 = CurrentThread->SpecialApcDisable++ == -1;
   if ( v10 )
   {
-    v15 = &CurrentThread->152;
-    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v15->ApcState.ApcListHead[0].Flink != v15 )
-      LOBYTE(v15) = KiCheckForKernelApcDelivery(v16);
+    result = &CurrentThread->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)result->ApcState.ApcListHead[0].Flink != result )
+      return ($C459BD0D405E8E46662177FB3D0A143F *)KiCheckForKernelApcDelivery();
   }
-  return (char)v15;
+  return result;
 }

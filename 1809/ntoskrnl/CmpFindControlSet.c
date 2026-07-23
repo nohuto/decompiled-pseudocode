@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpFindControlSet @ 0x14073D2BC
+ * XREFs of CmpFindControlSet @ 0x14073E4AC
  * Callers:
- *     CmpAcquireSystemDriverHiveContext @ 0x1409CCEA8 (CmpAcquireSystemDriverHiveContext.c)
- *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
+ *     CmpAcquireSystemDriverHiveContext @ 0x1409CDEA8 (CmpAcquireSystemDriverHiveContext.c)
+ *     CmpGetSystemControlValues @ 0x1409CF008 (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B640 (sprintf_s.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B780 (sprintf_s.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     CmpFindNameInList @ 0x1405D162C (CmpFindNameInList.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073E2EC (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
  */
 
 __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, __int64 a2, int a3, _BYTE *a4)
@@ -40,7 +40,7 @@ __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, __int64 a2, i
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v30; // [rsp+68h] [rbp-98h] BYREF
   __int64 v31; // [rsp+70h] [rbp-90h] BYREF
-  STRING SourceString; // [rsp+78h] [rbp-88h] BYREF
+  ANSI_STRING SourceString; // [rsp+78h] [rbp-88h] BYREF
   char DstBuf[128]; // [rsp+90h] [rbp-70h] BYREF
   char v34; // [rsp+110h] [rbp+10h] BYREF
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlInsertPerFileContext @ 0x14057FEF0
+ * XREFs of FsRtlInsertPerFileContext @ 0x14057D330
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlInsertPerFileContextWithReserve @ 0x14045B800 (FsRtlInsertPerFileContextWithReserve.c)
+ *     FsRtlInsertPerFileContextWithReserve @ 0x140450C00 (FsRtlInsertPerFileContextWithReserve.c)
  */
 
 NTSTATUS __stdcall FsRtlInsertPerFileContext(PVOID *PerFileContextPointer, PFSRTL_PER_FILE_CONTEXT Ptr)

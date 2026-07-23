@@ -3,16 +3,16 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlStringCbCopyW @ 0x14022B004 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14041C8A0 (ZwDeleteKey.c)
- *     ZwOpenKeyEx @ 0x14041D280 (ZwOpenKeyEx.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlStringCbCopyW @ 0x14022B114 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x14041CC30 (ZwDeleteKey.c)
+ *     ZwOpenKeyEx @ 0x14041D610 (ZwOpenKeyEx.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -31,7 +31,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
   UNICODE_STRING ValueName; // [rsp+A0h] [rbp-68h] BYREF
   WCHAR pszDest[256]; // [rsp+B8h] [rbp-50h] BYREF
 
-  qword_140C31B30 = 0LL;
+  Data = 0LL;
   ExpManufacturingInformation = 0LL;
   v1 = *(_QWORD *)(a1 + 240);
   inited = 0;
@@ -48,7 +48,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     return (unsigned int)-1073741811;
   DWORD2(ExpManufacturingInformation) = *(_DWORD *)(v1 + 2840);
   Pool2 = (void *)ExAllocatePool2(256LL, WORD5(ExpManufacturingInformation), 0x5067664Du);
-  qword_140C31B30 = Pool2;
+  Data = Pool2;
   if ( Pool2 )
   {
     inited = RtlStringCbCopyW(
@@ -87,7 +87,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     ZwClose(Handle);
     LODWORD(ExpManufacturingInformation) = ExpManufacturingInformation | 1;
     RtlInitUnicodeStringEx(&ValueName, L"LastProfile");
-    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, qword_140C31B30, WORD5(ExpManufacturingInformation));
+    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, Data, WORD5(ExpManufacturingInformation));
     if ( inited < 0 )
       goto LABEL_22;
     inited = RtlInitUnicodeStringEx(&DestinationString, L"Current");

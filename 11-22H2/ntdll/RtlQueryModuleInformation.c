@@ -110,16 +110,13 @@ LABEL_29:
         goto LABEL_29;
       }
       if ( Heap != (unsigned int *)SystemInformation )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
-      Heap = (unsigned int *)RtlAllocateHeap(
-                               (__int64)NtCurrentPeb()->ProcessHeap,
-                               NtdllBaseTag + 1572864,
-                               ReturnLength[0]);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, ReturnLength[0]);
       if ( !Heap )
         return 3221225626LL;
     }
     if ( Heap != (unsigned int *)SystemInformation )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     return v11;
   }
   return result;

@@ -21,7 +21,7 @@
 
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)
 {
-  int RegistryValue; // ebx
+  NTSTATUS RegistryValue; // ebx
   __int64 v7; // r15
   __int64 v8; // r8
   int ObjectProperty; // eax
@@ -223,7 +223,7 @@ LABEL_56:
       }
       if ( *(_DWORD *)&GuidString.Length != 16 )
         goto LABEL_20;
-      RegistryValue = RtlStringFromGUIDEx((unsigned int *)P, (__int64)&UnicodeString, 1);
+      RegistryValue = RtlStringFromGUIDEx((PGUID)P, &UnicodeString, 1u);
       if ( RegistryValue >= 0 )
       {
         v10 = UnicodeString.Length + 2;

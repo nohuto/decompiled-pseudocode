@@ -8,20 +8,26 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-bool LdrpCompareServiceChecksum()
+bool __fastcall LdrpCompareServiceChecksum(void *a1, void *a2)
 {
   _DWORD *RcConfig; // esi
-  _DWORD *v1; // eax
+  _DWORD *v4; // eax
   bool result; // al
+  size_t v6; // [esp-4h] [ebp-10h]
 
-  RcConfig = (_DWORD *)LdrpGetRcConfig(0, 1);
+  RcConfig = (_DWORD *)LdrpGetRcConfig(a1, 0, 1);
   result = 0;
   if ( RcConfig )
   {
-    v1 = (_DWORD *)LdrpGetRcConfig(0, 0);
-    if ( v1 )
+    v4 = (_DWORD *)LdrpGetRcConfig(a2, 0, 0);
+    if ( v4 )
     {
-      if ( *RcConfig != -20054323 || *v1 != -20054323 || !memcmp(RcConfig + 7, v1 + 7, 0x10u) )
+      if ( *RcConfig != -20054323 )
+        return 1;
+      if ( *v4 != -20054323 )
+        return 1;
+      LODWORD(v6) = 16;
+      if ( !memcmp(RcConfig + 7, v4 + 7, v6) )
         return 1;
     }
   }

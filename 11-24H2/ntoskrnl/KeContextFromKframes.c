@@ -1,14 +1,14 @@
 /*
- * XREFs of KeContextFromKframes @ 0x1403E58C0
+ * XREFs of KeContextFromKframes @ 0x1403D3460
  * Callers:
- *     KiInitializeUserApc @ 0x1403E5264 (KiInitializeUserApc.c)
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
- *     KiSaveProcessorState @ 0x1405CA440 (KiSaveProcessorState.c)
+ *     KiInitializeUserApc @ 0x1403D2E04 (KiInitializeUserApc.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
+ *     KiSaveProcessorState @ 0x1405C7B70 (KiSaveProcessorState.c)
  * Callees:
- *     RtlXSave @ 0x1403E6250 (RtlXSave.c)
- *     RtlCopyXStateArea @ 0x140407A90 (RtlCopyXStateArea.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlXSave @ 0x1403D3DF0 (RtlXSave.c)
+ *     RtlCopyXStateArea @ 0x1403FFF70 (RtlCopyXStateArea.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)

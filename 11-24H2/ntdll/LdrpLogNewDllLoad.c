@@ -1,30 +1,30 @@
 /*
- * XREFs of LdrpLogNewDllLoad @ 0x180073AD0
+ * XREFs of LdrpLogNewDllLoad @ 0x1800903B0
  * Callers:
- *     LdrpMapDllWithSectionHandle @ 0x180072B70 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18008F450 (LdrpMapDllWithSectionHandle.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrpLogNewDllLoadInternal @ 0x1800745A0 (LdrpLogNewDllLoadInternal.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpLogNewDllLoadInternal @ 0x180090E80 (LdrpLogNewDllLoadInternal.c)
  */
 
-unsigned int *__fastcall LdrpLogNewDllLoad(__int64 a1, __int64 a2)
+int __fastcall LdrpLogNewDllLoad(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbp
   __int64 v5; // rcx
   __int64 v6; // rsi
   __int64 v7; // rcx
   __int64 v8; // rdx
-  unsigned int *result; // rax
+  struct _PEB *v9; // rax
 
   v4 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v5 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v5 = 2147353476LL;
   if ( *(_BYTE *)v5 )
   {
     v6 = 2147353477LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v7 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
       v7 = 2147353477LL;
@@ -34,38 +34,39 @@ LABEL_7:
       v8 = 0LL;
       if ( a1 )
         v8 = *(_QWORD *)(a1 + 48);
-      return (unsigned int *)LdrpLogNewDllLoadInternal(
-                               *(_QWORD *)(a2 + 48),
-                               v8,
-                               *(unsigned int *)(a2 + 268),
-                               *(unsigned __int16 *)(a2 + 72),
-                               *(_QWORD *)(a2 + 80));
+      LODWORD(v9) = LdrpLogNewDllLoadInternal(
+                      *(_QWORD *)(a2 + 48),
+                      v8,
+                      *(unsigned int *)(a2 + 268),
+                      *(unsigned __int16 *)(a2 + 72),
+                      *(_QWORD *)(a2 + 80));
+      return (int)v9;
     }
   }
   else
   {
     v6 = 2147353477LL;
   }
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v9) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v9 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v4 = *((_QWORD *)result + 18) + 554LL;
+    v9 = NtCurrentPeb();
+    v4 = (__int64)v9->SharedData + 554;
   }
   if ( *(_BYTE *)v4 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 4) != 0 )
+    v9 = NtCurrentPeb();
+    if ( (v9->TracingFlags & 4) != 0 )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v9) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v9 )
       {
-        result = (unsigned int *)NtCurrentPeb();
-        v6 = *((_QWORD *)result + 18) + 555LL;
+        v9 = NtCurrentPeb();
+        v6 = (__int64)v9->SharedData + 555;
       }
       if ( (*(_BYTE *)v6 & 0x20) != 0 )
         goto LABEL_7;
     }
   }
-  return result;
+  return (int)v9;
 }

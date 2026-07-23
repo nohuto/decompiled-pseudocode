@@ -1,49 +1,45 @@
 /*
- * XREFs of ViThunkReplaceImportIfThunkedOrderDependent @ 0x1409D94E8
+ * XREFs of ViThunkReplaceImportIfThunkedOrderDependent @ 0x1409DA4E8
  * Callers:
- *     ViThunkReplaceAllThunkedImports @ 0x1409D9354 (ViThunkReplaceAllThunkedImports.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x1409DA354 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
- *     MmReplaceImportEntry @ 0x14053591C (MmReplaceImportEntry.c)
+ *     VfIsVerifierEnabled @ 0x140252060 (VfIsVerifierEnabled.c)
+ *     MmReplaceImportEntry @ 0x140535B5C (MmReplaceImportEntry.c)
  */
 
-__int64 __fastcall ViThunkReplaceImportIfThunkedOrderDependent(
-        _QWORD *BugCheckParameter3,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall ViThunkReplaceImportIfThunkedOrderDependent(_QWORD *BugCheckParameter3, __int64 a2, int a3)
 {
-  unsigned int v4; // ebx
-  char **v5; // rdi
-  _QWORD *v6; // rsi
-  char *v7; // rax
-  char v8; // bp
-  int v9; // eax
-  ULONG_PTR v10; // rdx
+  unsigned int v3; // ebx
+  char **v4; // rdi
+  _QWORD *v5; // rsi
+  char *v6; // rax
+  char v7; // bp
+  int v8; // eax
+  ULONG_PTR v9; // rdx
 
-  v4 = 0;
-  v5 = &VfOrderDependentThunks;
-  v6 = BugCheckParameter3;
+  v3 = 0;
+  v4 = &VfOrderDependentThunks;
+  v5 = BugCheckParameter3;
   if ( VfOrderDependentThunks )
   {
-    v7 = (char *)*BugCheckParameter3;
-    while ( !v7 || v7 != v5[2] )
+    v6 = (char *)*BugCheckParameter3;
+    while ( !v6 || v6 != v4[2] )
     {
-      v5 += 7;
-      if ( !*v5 )
-        return v4;
+      v4 += 7;
+      if ( !*v4 )
+        return v3;
     }
-    if ( (_DWORD)a3 )
+    if ( a3 )
     {
-      v10 = (ULONG_PTR)v5[5];
-      if ( v10 )
+      v9 = (ULONG_PTR)v4[5];
+      if ( v9 )
         goto LABEL_22;
     }
     else
     {
-      v8 = BYTE4(VfRuleClasses);
+      v7 = BYTE4(VfRuleClasses);
       if ( (VfRuleClasses & 0x800000000LL) == 0
-        || (unsigned int)VfIsVerifierEnabled() && ((VfRuleClasses & 0xFFAFFFFF) != 0 || (v8 & 2) != 0 || (v8 & 4) != 0) )
+        || (unsigned int)VfIsVerifierEnabled() && ((VfRuleClasses & 0xFFAFFFFF) != 0 || (v7 & 2) != 0 || (v7 & 4) != 0) )
       {
         goto LABEL_17;
       }
@@ -51,24 +47,24 @@ __int64 __fastcall ViThunkReplaceImportIfThunkedOrderDependent(
         return 1;
       if ( !VfDifAPIThunkContextHead )
         return 1;
-      v9 = *((_DWORD *)v5 + 6);
-      if ( (v9 & 1) == 0 )
+      v8 = *((_DWORD *)v4 + 6);
+      if ( (v8 & 1) == 0 )
         return 1;
-      if ( (v9 & 4) != 0 )
+      if ( (v8 & 4) != 0 )
       {
 LABEL_17:
-        v10 = (ULONG_PTR)v5[1];
+        v9 = (ULONG_PTR)v4[1];
 LABEL_18:
-        BugCheckParameter3 = v6;
+        BugCheckParameter3 = v5;
 LABEL_22:
-        MmReplaceImportEntry((ULONG_PTR)BugCheckParameter3, v10, a3, a4);
+        MmReplaceImportEntry((ULONG_PTR)BugCheckParameter3, v9);
         return 1;
       }
-      v10 = *(_QWORD *)v5[4];
-      if ( v10 )
+      v9 = *(_QWORD *)v4[4];
+      if ( v9 )
         goto LABEL_18;
     }
     return 1;
   }
-  return v4;
+  return v3;
 }

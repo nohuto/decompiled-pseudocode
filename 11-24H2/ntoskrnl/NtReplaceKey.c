@@ -1,34 +1,35 @@
 /*
- * XREFs of NtReplaceKey @ 0x1407D0990
+ * XREFs of NtReplaceKey @ 0x1407D0E80
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmReplaceKey @ 0x1407DA2E8 (CmReplaceKey.c)
- *     CmPostCallbackNotificationEx @ 0x140847C20 (CmPostCallbackNotificationEx.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     CmCheckNoTxContext @ 0x14092D620 (CmCheckNoTxContext.c)
- *     CmpNameFromAttributes @ 0x14092D668 (CmpNameFromAttributes.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmObReferenceObjectByHandle @ 0x140BB9350 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140BB9AD0 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140BB9B10 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmReplaceKey @ 0x1407DA838 (CmReplaceKey.c)
+ *     CmPostCallbackNotificationEx @ 0x140843EE0 (CmPostCallbackNotificationEx.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     CmCheckNoTxContext @ 0x14092F760 (CmCheckNoTxContext.c)
+ *     CmpNameFromAttributes @ 0x14092F7A8 (CmpNameFromAttributes.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmObReferenceObjectByHandle @ 0x140BBB350 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140BBBAD0 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140BBBB10 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
-__int64 __fastcall NtReplaceKey(__int64 a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtReplaceKey(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
+  int v5; // r12d
   char v6; // si
   KPROCESSOR_MODE PreviousMode; // di
   char UnloadRundown; // r13
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 v10; // rdx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v12; // rdx
@@ -60,6 +61,7 @@ __int64 __fastcall NtReplaceKey(__int64 a1, int a2, __int64 a3)
   Object = 0LL;
   v29 = 0LL;
   v28 = 0LL;
+  v5 = (int)TargetHandle;
   v6 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v25[1] = v25;
@@ -82,15 +84,15 @@ __int64 __fastcall NtReplaceKey(__int64 a1, int a2, __int64 a3)
         LOBYTE(v10) = PreviousMode;
         v6 = 1;
         --CurrentThread->KernelApcDisable;
-        v9 = CmpNameFromAttributes(a1, v10, v27);
+        v9 = CmpNameFromAttributes(NewFile, v10, v27);
         if ( v9 >= 0 )
         {
           LOBYTE(v12) = PreviousMode;
-          v9 = CmpNameFromAttributes(a3, v12, P);
+          v9 = CmpNameFromAttributes(OldFile, v12, P);
           if ( v9 >= 0 )
           {
             LOBYTE(v14) = PreviousMode;
-            v15 = CmObReferenceObjectByHandle(a2, 0, v13, v14, (__int64)&Object, 0LL);
+            v15 = CmObReferenceObjectByHandle(v5, 0, v13, v14, (__int64)&Object, 0LL);
             v16 = Object;
             v9 = v15;
             if ( v15 >= 0 )
@@ -149,27 +151,27 @@ __int64 __fastcall NtReplaceKey(__int64 a1, int a2, __int64 a3)
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v28);
   if ( v9 >= 0 )
   {
-    if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
     {
       v35 = 8LL;
       p_Object = (PVOID *)&v24;
-      v20 = (unsigned __int8 *)byte_140054560;
+      v20 = (unsigned __int8 *)&word_14005501E;
       v22 = 3;
       goto LABEL_36;
     }
   }
-  else if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+  else if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
   {
     LODWORD(Object) = v9;
     p_Object = &Object;
-    v20 = (unsigned __int8 *)&dword_140054524;
+    v20 = (unsigned __int8 *)&dword_140055054;
     v37 = 8LL;
     v36 = &v24;
     v35 = 4LL;
     v22 = 4;
 LABEL_36:
     v24 = 0x1000000LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, v20, 0LL, 0LL, v22, &v33);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, v20, 0LL, 0LL, v22, &v33);
   }
-  return (unsigned int)v9;
+  return v9;
 }

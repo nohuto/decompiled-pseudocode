@@ -20,17 +20,17 @@ NTSTATUS __stdcall RtlLookupAtomInAtomTable(PRTL_ATOM_TABLE AtomTable, PWSTR Ato
   NTSTATUS v10; // [rsp+40h] [rbp-38h]
   __int64 v11; // [rsp+48h] [rbp-30h] BYREF
   _BYTE v12[40]; // [rsp+50h] [rbp-28h] BYREF
-  USHORT v13; // [rsp+98h] [rbp+20h] BYREF
+  USHORT IntegerAtom; // [rsp+98h] [rbp+20h] BYREF
 
   if ( !(unsigned __int8)RtlpLockAtomTable() )
     return -1073741811;
-  if ( (unsigned __int8)RtlGetIntegerAtom(AtomName, &v13) )
+  if ( RtlGetIntegerAtom(AtomName, &IntegerAtom) )
   {
-    v8 = v13;
-    if ( v13 >= 0xC000u )
+    v8 = IntegerAtom;
+    if ( IntegerAtom >= 0xC000u )
     {
       v8 = 0;
-      v13 = 0;
+      IntegerAtom = 0;
       v10 = -1073741811;
     }
     else

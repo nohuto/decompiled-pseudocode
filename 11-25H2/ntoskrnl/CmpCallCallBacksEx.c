@@ -69,15 +69,15 @@ __int64 __fastcall CmpCallCallBacksEx(
   ULONG_PTR v21; // rtt
   struct _KPRCB *CurrentPrcb; // r14
   _GENERAL_LOOKASIDE *P; // rsi
-  struct _SLIST_ENTRY *v24; // rbx
-  struct _SLIST_ENTRY **v25; // rcx
+  _SLIST_ENTRY *v24; // rbx
+  _SLIST_ENTRY **v25; // rcx
   __int64 v26; // r8
   __int64 v27; // rcx
   int v28; // eax
   struct _KTHREAD *v29; // rax
   __int64 *v30; // rbx
   _SLIST_ENTRY *Next; // rdx
-  struct _SLIST_ENTRY **v32; // rcx
+  _SLIST_ENTRY **v32; // rcx
   struct _KPRCB *v33; // rdx
   _GENERAL_LOOKASIDE *v34; // rcx
   int v35; // ecx
@@ -105,7 +105,7 @@ __int64 __fastcall CmpCallCallBacksEx(
   int v58; // [rsp+24h] [rbp-E4h]
   __int128 *v59; // [rsp+30h] [rbp-D8h]
   __int64 *v60; // [rsp+38h] [rbp-D0h]
-  struct _SLIST_ENTRY ***v61; // [rsp+40h] [rbp-C8h]
+  _SLIST_ENTRY ***v61; // [rsp+40h] [rbp-C8h]
   PSLIST_ENTRY v62; // [rsp+48h] [rbp-C0h]
   __int128 *v63; // [rsp+50h] [rbp-B8h]
   __int128 v64; // [rsp+58h] [rbp-B0h] BYREF
@@ -215,7 +215,7 @@ LABEL_127:
       if ( !v24 )
       {
         ++L->AllocateMisses;
-        v24 = (struct _SLIST_ENTRY *)guard_dispatch_icall_no_overrides((unsigned int)L->Type);
+        v24 = (_SLIST_ENTRY *)guard_dispatch_icall_no_overrides((unsigned int)L->Type);
       }
     }
     if ( v24 )
@@ -229,11 +229,11 @@ LABEL_21:
     v24[2].Next = 0LL;
     v24[1].Next = *p_SparePtr;
     *p_SparePtr = v24 + 1;
-    v25 = *(struct _SLIST_ENTRY ***)(a7 + 8);
-    if ( *v25 != (struct _SLIST_ENTRY *)a7 )
+    v25 = *(_SLIST_ENTRY ***)(a7 + 8);
+    if ( *v25 != (_SLIST_ENTRY *)a7 )
       goto LABEL_23;
     v24->Next = (_SLIST_ENTRY *)a7;
-    v61 = (struct _SLIST_ENTRY ***)(&v24->Next + 1);
+    v61 = (_SLIST_ENTRY ***)(&v24->Next + 1);
     *((_QWORD *)&v24->Next + 1) = v25;
     *v25 = v24;
     *(_QWORD *)(a7 + 8) = v24;
@@ -408,7 +408,7 @@ LABEL_58:
     while ( (_QWORD *)*v18 != v18 )
     {
       v39 = v18[1];
-      v61 = (struct _SLIST_ENTRY ***)v39;
+      v61 = (_SLIST_ENTRY ***)v39;
       v40 = *(_QWORD **)(v39 + 8);
       if ( *(_QWORD **)v39 != v18 || *v40 != v39 )
         goto LABEL_23;

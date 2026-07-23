@@ -1,43 +1,46 @@
 /*
- * XREFs of RtlDeregisterSecureMemoryCacheCallback @ 0x1801448B0
+ * XREFs of RtlDeregisterSecureMemoryCacheCallback @ 0x180142C60
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-char __fastcall RtlDeregisterSecureMemoryCacheCallback(void *a1, volatile signed __int32 **a2, unsigned __int64 a3)
+NTSTATUS __cdecl RtlDeregisterSecureMemoryCacheCallback(PRTL_SECURE_MEMORY_CACHE_CALLBACK Callback)
 {
-  _UNKNOWN **i; // rbx
-  _QWORD *v6; // rdx
-  void **v7; // rax
+  PRTL_SECURE_MEMORY_CACHE_CALLBACK *i; // rbx
+  PRTL_SECURE_MEMORY_CACHE_CALLBACK v4; // rdx
+  PVOID *v5; // rax
+  NTSTATUS result; // eax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpSecMemLock, a2, a3);
-  for ( i = (_UNKNOWN **)RtlpSecMemListHead; ; i = (_UNKNOWN **)*i )
+  RtlAcquireSRWLockExclusive(&RtlpSecMemLock);
+  for ( i = (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)RtlpSecMemListHead; ; i = (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)*i )
   {
-    if ( i == &RtlpSecMemListHead )
+    if ( i == (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)&RtlpSecMemListHead )
     {
       RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
-      return 0;
+      LOBYTE(result) = 0;
+      return result;
     }
-    if ( i[3] == a1 )
+    if ( i[3] == Callback )
       break;
   }
   if ( (*((_DWORD *)i + 4))-- == 1 )
   {
-    v6 = *i;
-    if ( *((_UNKNOWN ***)*i + 1) != i || (v7 = (void **)i[1], *v7 != i) )
+    v4 = *i;
+    if ( *((PRTL_SECURE_MEMORY_CACHE_CALLBACK **)*i + 1) != i || (v5 = (PVOID *)i[1], *v5 != i) )
       __fastfail(3u);
-    *v7 = v6;
-    v6[1] = v7;
+    *v5 = v4;
+    *((_QWORD *)v4 + 1) = v5;
     RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)i);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, i);
   }
   else
   {
     RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
   }
-  return 1;
+  LOBYTE(result) = 1;
+  return result;
 }

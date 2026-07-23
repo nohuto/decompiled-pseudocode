@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwPropagationFailed @ 0x1401BA830
+ * XREFs of ZwPropagationFailed @ 0x1401BA990
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPropagationFailed(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwPropagationFailed(HANDLE ResourceManagerHandle, ULONG RequestCookie, NTSTATUS PropStatus)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ResourceManagerHandle);
 }

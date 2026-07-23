@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmSetDeviceInterfacePathFormat @ 0x1404F6DE0
+ * XREFs of _CmSetDeviceInterfacePathFormat @ 0x1404D9D6C
  * Callers:
- *     IopRegisterDeviceInterface @ 0x14048756C (IopRegisterDeviceInterface.c)
- *     PiUEventCopyEventData @ 0x14048CC98 (PiUEventCopyEventData.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1404C35D0 (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwDeviceInterfaceSetState @ 0x1404C67BC (PiSwDeviceInterfaceSetState.c)
- *     PiUEventSendDeviceInterfaceArrivalETWEvent @ 0x1404ECE6C (PiUEventSendDeviceInterfaceArrivalETWEvent.c)
- *     IopGetDeviceInterfaces @ 0x1404F69DC (IopGetDeviceInterfaces.c)
- *     PiDmObjectCreate @ 0x1405641DC (PiDmObjectCreate.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x140483938 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwDeviceInterfaceSetState @ 0x140486F20 (PiSwDeviceInterfaceSetState.c)
+ *     PiUEventCopyEventData @ 0x14048D2AC (PiUEventCopyEventData.c)
+ *     PiUEventSendDeviceInterfaceArrivalETWEvent @ 0x1404CEFD8 (PiUEventSendDeviceInterfaceArrivalETWEvent.c)
+ *     IopGetDeviceInterfaces @ 0x1404D9968 (IopGetDeviceInterfaces.c)
+ *     IopRegisterDeviceInterface @ 0x14050FDE8 (IopRegisterDeviceInterface.c)
+ *     PiDmObjectCreate @ 0x14056471C (PiDmObjectCreate.c)
  * Callees:
- *     _CmValidateDeviceInterfaceName @ 0x1404FC520 (_CmValidateDeviceInterfaceName.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1404DF4B0 (_CmValidateDeviceInterfaceName.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfacePathFormat(__int64 a1, _QWORD *a2, char a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpTagQueryTags @ 0x1800B7714
+ * XREFs of RtlpHpTagQueryTags @ 0x1800A1A5C
  * Callers:
- *     RtlQueryHeapInformation @ 0x180046B40 (RtlQueryHeapInformation.c)
- *     RtlpExtendedHeapInformationWorkerThread @ 0x180142450 (RtlpExtendedHeapInformationWorkerThread.c)
+ *     RtlQueryHeapInformation @ 0x18002AB10 (RtlQueryHeapInformation.c)
+ *     RtlpExtendedHeapInformationWorkerThread @ 0x180140600 (RtlpExtendedHeapInformationWorkerThread.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpHpTagContextFindMapping @ 0x1800B7C20 (RtlpHpTagContextFindMapping.c)
- *     RtlpHpTagQueryHeapsRemote @ 0x1800B7D40 (RtlpHpTagQueryHeapsRemote.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlpHpTagContextFindMapping @ 0x1800A1F60 (RtlpHpTagContextFindMapping.c)
+ *     RtlpHpTagQueryHeapsRemote @ 0x1800A2080 (RtlpHpTagQueryHeapsRemote.c)
  */
 
-__int64 __fastcall RtlpHpTagQueryTags(_QWORD *a1, unsigned __int64 a2, _QWORD *a3)
+__int64 __fastcall RtlpHpTagQueryTags(_QWORD *a1, SIZE_T a2, _QWORD *a3)
 {
   int v5; // ecx
   __int64 v6; // r8
@@ -82,16 +82,16 @@ __int64 __fastcall RtlpHpTagQueryTags(_QWORD *a1, unsigned __int64 a2, _QWORD *a
         v11 = (a2 - 24) / 0x18;
         v12 = &v10[24 * v11];
         RtlAcquireSRWLockShared(&RtlpHpTagContext);
-        if ( (unsigned int)dword_1801D3C28 > v11 )
+        if ( (unsigned int)dword_1801D2C28 > v11 )
         {
           v7 = -1073741789;
-          *a3 = 8 * (3LL * (unsigned int)dword_1801D3C28 + 3);
+          *a3 = 8 * (3LL * (unsigned int)dword_1801D2C28 + 3);
           RtlReleaseSRWLockShared(&RtlpHpTagContext);
         }
         else
         {
-          v13 = (__int64 *)qword_1801D3C30;
-          v14 = qword_1801D3C30;
+          v13 = (__int64 *)qword_1801D2C30;
+          v14 = qword_1801D2C30;
           if ( v10 < v12 )
           {
             while ( v14 )
@@ -111,7 +111,7 @@ LABEL_15:
               goto LABEL_17;
             }
             for ( ++v13;
-                  (unsigned __int64)v13 < qword_1801D3C30 + 8 * ((unsigned __int64)(unsigned int)dword_1801D3C2C >> 5);
+                  (unsigned __int64)v13 < qword_1801D2C30 + 8 * ((unsigned __int64)(unsigned int)dword_1801D2C2C >> 5);
                   ++v13 )
             {
               v14 = *v13;
@@ -135,7 +135,7 @@ LABEL_17:
   }
   else
   {
-    return (unsigned int)RtlpHpTagQueryHeapsRemote(a1);
+    return (unsigned int)RtlpHpTagQueryHeapsRemote(a1, a2);
   }
   return v7;
 }

@@ -3,10 +3,10 @@
  * Callers:
  *     CmpTransInitializeTransaction @ 0x14069846C (CmpTransInitializeTransaction.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
- *     CmpLockRegistryFreezeAware @ 0x1407537E8 (CmpLockRegistryFreezeAware.c)
- *     CmpStartRMLog @ 0x140872B98 (CmpStartRMLog.c)
+ *     CmpLockRegistryFreezeAware @ 0x1407539D8 (CmpLockRegistryFreezeAware.c)
+ *     CmpStartRMLog @ 0x140872DD8 (CmpStartRMLog.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
  */
 

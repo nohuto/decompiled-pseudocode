@@ -1,8 +1,8 @@
 /*
- * XREFs of MiNewPfnsSuitable @ 0x1407E9C94
+ * XREFs of MiNewPfnsSuitable @ 0x1407EA264
  * Callers:
- *     MiAllocateEntireImageFileExtents @ 0x1407EFC4C (MiAllocateEntireImageFileExtents.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1407F021C (MiAllocateEntireImageFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +19,9 @@ __int64 __fastcall MiNewPfnsSuitable(__int64 a1)
     if ( v2 != 0x8000000000000000uLL )
     {
       v3 = v2 + *(_QWORD *)(a1 + 16LL * i + 16);
-      if ( v3 >= qword_140E35B00 && v2 < qword_140E35B00 + 2048 )
+      if ( v3 >= qword_140E35C40 && v2 < qword_140E35C40 + 2048 )
         return 0LL;
-      if ( v3 > qword_140E2DBE0 + 1 )
+      if ( v3 > qword_140E2DD20 + 1 )
         return 0LL;
     }
   }

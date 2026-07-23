@@ -1,19 +1,19 @@
 /*
- * XREFs of WheaAttemptRowOffline @ 0x1406D5AE0
+ * XREFs of WheaAttemptRowOffline @ 0x1406D9BC0
  * Callers:
- *     WheaPageOfflineAndPersist @ 0x1408482FC (WheaPageOfflineAndPersist.c)
- *     WheapOfflineRow @ 0x140848F3C (WheapOfflineRow.c)
- *     WheapExecuteRowFailureCheck @ 0x140849DB0 (WheapExecuteRowFailureCheck.c)
+ *     WheaPageOfflineAndPersist @ 0x14084E5CC (WheaPageOfflineAndPersist.c)
+ *     WheapOfflineRow @ 0x14084F20C (WheapOfflineRow.c)
+ *     WheapExecuteRowFailureCheck @ 0x1408500C0 (WheapExecuteRowFailureCheck.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     WheaPersistBadPageToBcd @ 0x1406D5E6C (WheaPersistBadPageToBcd.c)
- *     WheaPersistBadPageToRegistry @ 0x1406D6028 (WheaPersistBadPageToRegistry.c)
- *     MmGetPageBadStatus @ 0x1406F2340 (MmGetPageBadStatus.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WheaAddressTranslateAndAddToDefectList @ 0x140847F4C (WheaAddressTranslateAndAddToDefectList.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x140848A48 (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapLogPageOfflineAttemptEvent @ 0x14084944C (WheapLogPageOfflineAttemptEvent.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14086A430 (MmMarkPhysicalMemoryAsBad.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     WheaPersistBadPageToBcd @ 0x1406D9F4C (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x1406DA108 (WheaPersistBadPageToRegistry.c)
+ *     MmGetPageBadStatus @ 0x1406F6FB0 (MmGetPageBadStatus.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WheaAddressTranslateAndAddToDefectList @ 0x14084E21C (WheaAddressTranslateAndAddToDefectList.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x14084ED18 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x14084F764 (WheapLogPageOfflineAttemptEvent.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140870810 (MmMarkPhysicalMemoryAsBad.c)
  */
 
 __int64 __fastcall WheaAttemptRowOffline(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

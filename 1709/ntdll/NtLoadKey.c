@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtLoadKey()
+NTSTATUS __cdecl NtLoadKey(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 256LL;
+  result = 256;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

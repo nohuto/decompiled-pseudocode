@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDsEventDataIrp @ 0x1405FEC2C
+ * XREFs of KsepDsEventDataIrp @ 0x14060167C
  * Callers:
- *     KseDsCallbackHookIrpDeviceControlFunction @ 0x1405FE4E0 (KseDsCallbackHookIrpDeviceControlFunction.c)
- *     KseDsCallbackHookIrpFunction @ 0x1405FE560 (KseDsCallbackHookIrpFunction.c)
+ *     KseDsCallbackHookIrpDeviceControlFunction @ 0x140600F30 (KseDsCallbackHookIrpDeviceControlFunction.c)
+ *     KseDsCallbackHookIrpFunction @ 0x140600FB0 (KseDsCallbackHookIrpFunction.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventDataIrp(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
@@ -32,9 +32,9 @@ char __fastcall KsepDsEventDataIrp(__int64 a1, __int64 a2, __int64 a3, int a4, c
   v19 = a3;
   v18 = a2;
   v17 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v5) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventDataIrp);
+    LOBYTE(v5) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventDataIrp);
     if ( (_BYTE)v5 )
     {
       UserData.Ptr = (ULONGLONG)&v17;
@@ -47,7 +47,7 @@ char __fastcall KsepDsEventDataIrp(__int64 a1, __int64 a2, __int64 a3, int a4, c
       v14 = &a5;
       v13 = 4LL;
       v15 = 4LL;
-      LOBYTE(v5) = EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventDataIrp, 0LL, 0, 0LL, 0LL, 5u, &UserData);
+      LOBYTE(v5) = EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventDataIrp, 0LL, 0, 0LL, 0LL, 5u, &UserData);
     }
   }
   return (char)v5;

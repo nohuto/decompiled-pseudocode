@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQueryRuntimeAttestationReport @ 0x140832F9C
+ * XREFs of ExpQueryRuntimeAttestationReport @ 0x1408391DC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     VslQueryRuntimeAttestationReport @ 0x1407926B0 (VslQueryRuntimeAttestationReport.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     VslQueryRuntimeAttestationReport @ 0x1407951E0 (VslQueryRuntimeAttestationReport.c)
  */
 
 __int64 __fastcall ExpQueryRuntimeAttestationReport(

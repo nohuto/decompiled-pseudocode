@@ -25,7 +25,7 @@ __int64 LdrpInitializeImportRedirection()
   __int64 v4; // rcx
   _BYTE v5[8]; // [rsp+38h] [rbp-49h] BYREF
   __int64 v6; // [rsp+40h] [rbp-41h] BYREF
-  __int64 v7[15]; // [rsp+48h] [rbp-39h] BYREF
+  PWSTR Path[15]; // [rsp+48h] [rbp-39h] BYREF
   char v8; // [rsp+C4h] [rbp+43h]
 
   Dll = 0;
@@ -34,15 +34,15 @@ __int64 LdrpInitializeImportRedirection()
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrredirect.c",
-      558LL,
+      558,
       (__int64)"LdrpInitializeImportRedirection",
-      2LL,
+      2u,
       "Loading import redirection DLL: '%wZ'\n",
       p_RedirectionDllName);
-    LdrpInitializeDllPath(0LL, 0LL, v7);
-    Dll = LdrpLoadDll((__int64)p_RedirectionDllName, (int)v7, 16777217, (__int64)&v6);
+    LdrpInitializeDllPath(0LL, 0LL, (__int64 *)Path);
+    Dll = LdrpLoadDll((__int64)p_RedirectionDllName, (int)Path, 16777217, (__int64)&v6);
     if ( v8 )
-      RtlReleasePath(v7[0]);
+      RtlReleasePath(Path[0]);
     if ( Dll >= 0 )
     {
       v3 = LdrpBuildImportRedirection(v6);
@@ -67,9 +67,9 @@ __int64 LdrpInitializeImportRedirection()
       {
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrredirect.c",
-          585LL,
+          585,
           (__int64)"LdrpInitializeImportRedirection",
-          0LL,
+          0,
           "Unable to build import redirection Table, Status = 0x%x\n",
           v3);
       }

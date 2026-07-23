@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlNotifyChangeDirectory @ 0x14061FC94
+ * XREFs of FsRtlNotifyChangeDirectory @ 0x14061FD48
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlNotifyFilterChangeDirectory @ 0x1404BEA58 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x1404AA788 (FsRtlNotifyFilterChangeDirectory.c)
  */
 
 void __fastcall FsRtlNotifyChangeDirectory(
         struct _REAL_NOTIFY_SYNC *a1,
         void *a2,
         STRING *a3,
-        struct _LIST_ENTRY *a4,
+        _LIST_ENTRY *a4,
         BOOLEAN WatchTree,
         ULONG CompletionFilter,
         IRP *a7)

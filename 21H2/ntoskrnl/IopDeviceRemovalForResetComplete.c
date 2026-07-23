@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDeviceRemovalForResetComplete @ 0x1408A0710
+ * XREFs of IopDeviceRemovalForResetComplete @ 0x1408A0870
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x14036F020 (RtlUnicodeStringValidateDestWorker.c)
- *     McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x14050CC70 (McTemplateK0hzr0qqhzr4_EtwWriteTransfer.c)
- *     IopFreeResetRemovalContext @ 0x1408A08D0 (IopFreeResetRemovalContext.c)
- *     PnpTraceDeviceRemovalForResetComplete @ 0x1408B1840 (PnpTraceDeviceRemovalForResetComplete.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14036F1D0 (RtlUnicodeStringValidateDestWorker.c)
+ *     McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x14050CEB0 (McTemplateK0hzr0qqhzr4_EtwWriteTransfer.c)
+ *     IopFreeResetRemovalContext @ 0x1408A0A30 (IopFreeResetRemovalContext.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x1408B19A0 (PnpTraceDeviceRemovalForResetComplete.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopDeviceRemovalForResetComplete(char *P, __int64 a2, __int64 a3, size_t *a4)
@@ -66,12 +66,12 @@ __int64 __fastcall IopDeviceRemovalForResetComplete(char *P, __int64 a2, __int64
     if ( RtlUnicodeStringValidateDestWorker((PCUNICODE_STRING)(P + 200), &ppszDest, &pcchDest, a4, cchMax, dwFlags) >= 0 )
     {
       v9 = pcchDest;
-      v10 = &word_1407D7BA0;
+      v10 = &word_1407D7CE0;
       v11 = 0x7FFFLL;
       v12 = 0;
       if ( pcchDest )
       {
-        v13 = (char *)ppszDest - (char *)&word_1407D7BA0;
+        v13 = (char *)ppszDest - (char *)&word_1407D7CE0;
         do
         {
           if ( !v11 )

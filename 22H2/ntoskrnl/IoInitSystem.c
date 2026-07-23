@@ -11,7 +11,7 @@
  *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
  */
 
-char __fastcall IoInitSystem(__int64 a1)
+char __fastcall IoInitSystem(_QWORD *a1)
 {
   if ( !IoInitSystemPreDrivers(a1) )
     return 0;

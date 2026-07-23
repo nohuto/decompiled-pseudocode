@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEnableSystemToExecutionRequiredPowerRequests @ 0x14066A9F4
+ * XREFs of PopEnableSystemToExecutionRequiredPowerRequests @ 0x14066AAD8
  * Callers:
- *     PopPowerRequestPowerSourceSettingCallback @ 0x140581300 (PopPowerRequestPowerSourceSettingCallback.c)
+ *     PopPowerRequestPowerSourceSettingCallback @ 0x1405817AC (PopPowerRequestPowerSourceSettingCallback.c)
  * Callees:
- *     PopEnablePowerExecutionRequest @ 0x14051E148 (PopEnablePowerExecutionRequest.c)
- *     PopDisablePowerExecutionRequest @ 0x140520820 (PopDisablePowerExecutionRequest.c)
+ *     PopEnablePowerExecutionRequest @ 0x1405011B0 (PopEnablePowerExecutionRequest.c)
+ *     PopDisablePowerExecutionRequest @ 0x140503888 (PopDisablePowerExecutionRequest.c)
  */
 
 __int64 __fastcall PopEnableSystemToExecutionRequiredPowerRequests(char a1)

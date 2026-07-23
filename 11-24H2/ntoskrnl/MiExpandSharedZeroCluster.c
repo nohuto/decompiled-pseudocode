@@ -1,149 +1,150 @@
 /*
- * XREFs of MiExpandSharedZeroCluster @ 0x1402E548C
+ * XREFs of MiExpandSharedZeroCluster @ 0x14034162C
  * Callers:
- *     MiResolveDemandZeroFault @ 0x1402FC600 (MiResolveDemandZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x140342E30 (MiResolveDemandZeroFault.c)
  * Callees:
- *     MiIsPteEvaluated @ 0x140212B2C (MiIsPteEvaluated.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakePrototypePteDirect @ 0x1402331F0 (MiMakePrototypePteDirect.c)
- *     MiMakePrototypePteVadLookup @ 0x140236340 (MiMakePrototypePteVadLookup.c)
- *     MiGetPagingFileOffset @ 0x1402E5A60 (MiGetPagingFileOffset.c)
- *     MiGetProtoPteAddress @ 0x140301740 (MiGetProtoPteAddress.c)
- *     MiUpdatePageTableUseCount @ 0x1403E3650 (MiUpdatePageTableUseCount.c)
- *     MiComputeZeroClusterMaximum @ 0x1404448BC (MiComputeZeroClusterMaximum.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiMakePrototypePteDirect @ 0x140203600 (MiMakePrototypePteDirect.c)
+ *     MiMakePrototypePteVadLookup @ 0x1402104D0 (MiMakePrototypePteVadLookup.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPteEvaluated @ 0x140305E8C (MiIsPteEvaluated.c)
+ *     MiGetProtoPteAddress @ 0x14030BEC0 (MiGetProtoPteAddress.c)
+ *     MiGetPagingFileOffset @ 0x140341C00 (MiGetPagingFileOffset.c)
+ *     MiUpdatePageTableUseCount @ 0x1403D1B50 (MiUpdatePageTableUseCount.c)
+ *     MiComputeZeroClusterMaximum @ 0x14043CB7C (MiComputeZeroClusterMaximum.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiExpandSharedZeroCluster(__int64 a1)
 {
-  __int64 v2; // rdi
-  unsigned int v3; // r15d
-  unsigned __int64 v4; // rbx
-  __int16 *v5; // rcx
-  _QWORD *v6; // rsi
-  unsigned __int64 v7; // rsi
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // r14
-  __int64 v10; // r12
-  __int64 *v11; // rbx
+  __int64 v2; // r9
+  __int64 v3; // rdi
+  unsigned int v4; // r15d
+  unsigned __int64 v5; // rbx
+  __int16 *v6; // rcx
+  _QWORD *v7; // rsi
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // r14
+  __int64 v11; // r12
+  __int64 *v12; // rbx
   unsigned __int64 ProtoPteAddress; // rax
-  __int64 v13; // rax
-  int v14; // edx
-  __int64 v15; // rax
-  unsigned __int64 v16; // rdi
-  unsigned int v17; // r15d
-  __int64 *v18; // rsi
-  int v19; // r12d
-  int v20; // ecx
+  __int64 v14; // rax
+  int v15; // edx
+  __int64 v16; // rax
+  unsigned __int64 v17; // rdi
+  unsigned int v18; // r15d
+  __int64 *v19; // rsi
+  int v20; // r12d
+  int v21; // ecx
   unsigned __int64 PrototypePteDirect; // rax
-  unsigned __int64 v22; // rbx
-  __int64 v23; // rax
-  unsigned __int64 v25; // [rsp+20h] [rbp-89h]
-  unsigned __int64 v26; // [rsp+28h] [rbp-81h]
-  __int128 v27; // [rsp+30h] [rbp-79h] BYREF
-  __int16 v28; // [rsp+40h] [rbp-69h] BYREF
-  __int128 *v29; // [rsp+48h] [rbp-61h]
-  __int64 v30; // [rsp+50h] [rbp-59h]
-  __int64 v31; // [rsp+58h] [rbp-51h]
-  __int64 v32; // [rsp+60h] [rbp-49h]
-  char v33; // [rsp+110h] [rbp+67h]
-  unsigned __int64 v34; // [rsp+118h] [rbp+6Fh]
-  __int64 v35; // [rsp+120h] [rbp+77h] BYREF
-  unsigned __int64 v36; // [rsp+128h] [rbp+7Fh]
+  unsigned __int64 v23; // rbx
+  __int64 v24; // rax
+  unsigned __int64 v26; // [rsp+20h] [rbp-89h]
+  unsigned __int64 v27; // [rsp+28h] [rbp-81h]
+  __int128 v28; // [rsp+30h] [rbp-79h] BYREF
+  __int16 v29; // [rsp+40h] [rbp-69h] BYREF
+  __int128 *v30; // [rsp+48h] [rbp-61h]
+  __int64 v31; // [rsp+50h] [rbp-59h]
+  __int64 v32; // [rsp+58h] [rbp-51h]
+  __int64 v33; // [rsp+60h] [rbp-49h]
+  char v34; // [rsp+110h] [rbp+67h]
+  __int64 v35; // [rsp+118h] [rbp+6Fh]
+  __int64 v36; // [rsp+120h] [rbp+77h] BYREF
+  unsigned __int64 v37; // [rsp+128h] [rbp+7Fh]
 
-  memset_0(&v28, 0, 0x78uLL);
-  v2 = *(_QWORD *)(a1 + 64);
-  v3 = 0;
-  v4 = *(_QWORD *)(a1 + 16);
-  v5 = *(__int16 **)(a1 + 56);
-  v27 = 0LL;
-  v6 = *(_QWORD **)(v2 + 120);
-  v35 = 0LL;
-  v33 = 0;
-  v36 = v4;
-  if ( (__int64)v6 < 0 )
-    v7 = (unsigned __int64)(*v6 - 1LL) >> 12;
+  memset_0(&v29, 0, 0x78uLL);
+  v3 = *(_QWORD *)(a1 + 64);
+  v4 = 0;
+  v5 = *(_QWORD *)(a1 + 16);
+  v6 = *(__int16 **)(a1 + 56);
+  v28 = 0LL;
+  v7 = *(_QWORD **)(v3 + 120);
+  v36 = 0LL;
+  v34 = 0;
+  v37 = v5;
+  if ( (__int64)v7 < 0 )
+    v8 = (unsigned __int64)(*v7 - 1LL) >> 12;
   else
-    v7 = -1LL;
-  v8 = *(unsigned int *)(v2 + 48);
-  if ( (v8 & 0x200000) == 0 && MiVadPageSizes[(v8 >> 19) & 3] == 16 )
+    v8 = -1LL;
+  v9 = *(unsigned int *)(v3 + 48);
+  if ( (v9 & 0x200000) == 0 && MiVadPageSizes[(v9 >> 19) & 3] == 16 )
   {
-    v4 &= 0xFFFFFFFFFFFF0000uLL;
-    *((_QWORD *)&v27 + 1) = 0x10000LL;
-    *(_QWORD *)&v27 = v4;
-    if ( v4 >> 12 < (*(unsigned int *)(v2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v2 + 32) << 32))
-      || (v4 + 0xFFFF) >> 12 > (*(unsigned int *)(v2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v2 + 33) << 32)) )
+    v5 &= 0xFFFFFFFFFFFF0000uLL;
+    *((_QWORD *)&v28 + 1) = 0x10000LL;
+    *(_QWORD *)&v28 = v5;
+    if ( v5 >> 12 < (*(unsigned int *)(v3 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 32) << 32))
+      || (v5 + 0xFFFF) >> 12 > (*(unsigned int *)(v3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 33) << 32)) )
     {
       return 1LL;
     }
-    v28 = 2;
-    v29 = &v27;
-    v5 = &v28;
-    v30 = 1LL;
-    v31 = 0LL;
+    v29 = 2;
+    v30 = &v28;
+    v6 = &v29;
+    v31 = 1LL;
     v32 = 0LL;
-    v33 = 1;
+    v33 = 0LL;
+    v34 = 1;
   }
-  v26 = MiComputeZeroClusterMaximum(v5, &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink, v2);
-  v9 = 0LL;
+  v27 = MiComputeZeroClusterMaximum(v6, &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink, v3, v2);
   v10 = 0LL;
-  v34 = v4 >> 12;
-  v11 = (__int64 *)(((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  if ( !v26 )
+  v11 = 0LL;
+  v35 = v5 >> 12;
+  v12 = (__int64 *)(((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  if ( !v27 )
     return 1LL;
   do
   {
-    if ( (unsigned int)MiIsPteEvaluated(v11, *(unsigned int *)(a1 + 32)) )
+    if ( (unsigned int)MiIsPteEvaluated(v12, *(unsigned int *)(a1 + 32)) )
       break;
-    ProtoPteAddress = MiGetProtoPteAddress(v2, v34, 12LL, &v35);
-    v25 = ProtoPteAddress;
-    if ( !ProtoPteAddress || !v35 || v10 && v35 != v10 )
+    ProtoPteAddress = MiGetProtoPteAddress(v3, v35, 0xCu, &v36);
+    v26 = ProtoPteAddress;
+    if ( !ProtoPteAddress || !v36 || v11 && v36 != v11 )
       break;
     if ( ((*(_QWORD *)(a1 + 24) ^ ProtoPteAddress) & 0xFFFFFFFFFFFFF000uLL) != 0 )
       break;
-    if ( !v10 )
-      v10 = v35;
-    if ( v34 - (*(unsigned int *)(v2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v2 + 32) << 32)) > v7 )
+    if ( !v11 )
+      v11 = v36;
+    if ( v35 - (*(unsigned int *)(v3 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 32) << 32)) > v8 )
       break;
-    v13 = MI_READ_PTE_LOCK_FREE(ProtoPteAddress);
-    if ( (v13 & 1) != 0 || !v13 || (v13 & 0xC00) != 0 || (unsigned int)MiGetPagingFileOffset(v13) )
+    v14 = MI_READ_PTE_LOCK_FREE(ProtoPteAddress);
+    if ( (v14 & 1) != 0 || !v14 || (v14 & 0xC00) != 0 || (unsigned int)MiGetPagingFileOffset(v14) )
       break;
-    if ( !v3 )
-      v9 = v25;
-    ++v3;
-    ++v34;
-    ++v11;
+    if ( !v4 )
+      v10 = v26;
+    ++v4;
+    ++v35;
+    ++v12;
   }
-  while ( v3 < v26 );
-  if ( v3 <= 1 || v33 && (unsigned __int64)v11 <= ((v36 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+  while ( v4 < v27 );
+  if ( v4 <= 1 || v34 && (unsigned __int64)v12 <= ((v37 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
     return 1LL;
-  v14 = 0;
-  v15 = -(__int64)v3;
-  v16 = v3;
-  v17 = 0;
-  v18 = &v11[v15];
+  v15 = 0;
+  v16 = -(__int64)v4;
+  v17 = v4;
+  v18 = 0;
+  v19 = &v12[v16];
   do
   {
-    v19 = v14;
-    MI_READ_PTE_LOCK_FREE(v9);
-    v20 = *(_DWORD *)(a1 + 32);
-    if ( v20 == 256 )
-      PrototypePteDirect = MiMakePrototypePteDirect(v9);
+    v20 = v15;
+    MI_READ_PTE_LOCK_FREE(v10);
+    v21 = *(_DWORD *)(a1 + 32);
+    if ( v21 == 256 )
+      PrototypePteDirect = MiMakePrototypePteDirect(v10);
     else
-      PrototypePteDirect = MiMakePrototypePteVadLookup(v20);
-    v22 = PrototypePteDirect;
-    v23 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v18);
-    if ( !v23 )
-      *v18 = v22;
-    v14 = v19 + 1;
-    if ( v23 )
-      v14 = v19;
-    ++v17;
+      PrototypePteDirect = MiMakePrototypePteVadLookup(v21);
+    v23 = PrototypePteDirect;
+    v24 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v19);
+    if ( !v24 )
+      *v19 = v23;
+    v15 = v20 + 1;
+    if ( v24 )
+      v15 = v20;
     ++v18;
-    v9 += 8LL;
+    ++v19;
+    v10 += 8LL;
   }
-  while ( v17 < v16 );
-  if ( v14 )
-    MiUpdatePageTableUseCount(v36);
-  return v16;
+  while ( v18 < v17 );
+  if ( v15 )
+    MiUpdatePageTableUseCount(v37);
+  return v17;
 }

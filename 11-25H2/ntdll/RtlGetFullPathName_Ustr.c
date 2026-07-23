@@ -32,19 +32,19 @@
 __int64 __fastcall RtlGetFullPathName_Ustr(
         unsigned __int16 *a1,
         unsigned int a2,
-        _WORD *a3,
+        WCHAR *a3,
         __int64 *a4,
         _BYTE *a5,
         _QWORD *a6)
 {
-  _WORD *v6; // r14
+  WCHAR *v6; // r14
   unsigned int v8; // r12d
   unsigned int v9; // edi
   _WORD *v10; // rdx
   unsigned int v11; // ecx
   __int64 v12; // r8
   __int16 v13; // ax
-  unsigned __int16 v14; // r13
+  WCHAR v14; // r13
   unsigned int IsDosDeviceName_Ustr; // eax
   _WORD *v16; // rax
   unsigned __int16 v17; // cx
@@ -64,30 +64,30 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   __int64 v31; // rdx
   __int64 v32; // rcx
   __int16 v33; // ax
-  __int16 v34; // r8
+  WCHAR v34; // r8
   int v35; // eax
   __int64 v36; // r8
   __int64 v37; // rcx
   unsigned int v38; // ebx
-  _WORD *v39; // rcx
+  WCHAR *v39; // rcx
   unsigned __int16 v40; // r8
   __int64 v41; // r8
   __int16 v42; // r9
   __int64 v43; // rax
-  unsigned __int16 v44; // cx
+  WCHAR v44; // cx
   unsigned int v45; // ecx
   __int64 v46; // r9
-  unsigned __int16 v47; // cx
+  WCHAR v47; // cx
   unsigned __int16 v48; // dx
   unsigned __int64 v49; // rax
   __int16 v50; // r8
-  char *v51; // r13
-  _WORD *v52; // r12
+  PWSTR v51; // r13
+  WCHAR *v52; // r12
   unsigned __int64 v53; // r15
   int v54; // edx
   __int64 v55; // r10
   __int64 v56; // r11
-  __int64 v57; // rax
+  _CURDIR *v57; // rax
   _CURDIR *v58; // rdx
   __m128i DosPath; // xmm1
   unsigned __int64 v60; // r10
@@ -96,9 +96,9 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   int v63; // eax
   unsigned __int64 v64; // r10
   __int64 v65; // r11
-  char *v66; // rcx
+  PWSTR v66; // rcx
   int v67; // eax
-  __int64 v68; // rax
+  _CURDIR *v68; // rax
   _CURDIR *p_CurrentDirectory; // r11
   wchar_t v70; // ax
   __m128i *v71; // r11
@@ -107,25 +107,25 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   size_t v74; // rax
   __int16 v75; // cx
   unsigned __int16 v76; // dx
-  unsigned __int64 v77; // r13
-  int v78; // eax
+  SIZE_T ValueLength; // r13
+  NTSTATUS v78; // eax
   __int64 v79; // rdx
   __int64 v80; // r8
   __int16 v81; // r10
   __int64 v82; // rbx
   unsigned __int16 v83; // cx
   unsigned __int64 v84; // rax
-  __int64 v85; // rax
+  _CURDIR *v85; // rax
   _CURDIR *v86; // r11
   int v87; // eax
   __m128i *v88; // r11
   __int64 v89; // r10
-  _WORD *v90; // r13
+  WCHAR *v90; // r13
   unsigned __int64 v91; // r11
-  char *v92; // rcx
+  PWSTR v92; // rcx
   __int64 v93; // rdx
   __m128i v94; // xmm1
-  char *v95; // r15
+  PWSTR v95; // r15
   __int64 v96; // r13
   unsigned __int64 v97; // rbx
   int v98; // edx
@@ -135,8 +135,8 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   __int64 v102; // r8
   unsigned __int64 v103; // rcx
   __int16 v104; // dx
-  wchar_t *v105; // r11
-  unsigned __int64 v106; // r9
+  PWSTR v105; // r11
+  SIZE_T v106; // r9
   wchar_t *v107; // rcx
   __int64 v108; // r10
   int v109; // eax
@@ -149,7 +149,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   unsigned __int64 v116; // rbx
   int v117; // eax
   __int64 v118; // r8
-  char *v119; // rdi
+  PWSTR v119; // rdi
   int v120; // r11d
   const wchar_t *v121; // r10
   __int64 v122; // r15
@@ -170,17 +170,17 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   int v137; // [rsp+3Ch] [rbp-25Ch]
   unsigned int v138; // [rsp+3Ch] [rbp-25Ch]
   __int64 v139; // [rsp+40h] [rbp-258h] BYREF
-  _WORD *v140; // [rsp+48h] [rbp-250h]
+  WCHAR *v140; // [rsp+48h] [rbp-250h]
   int v141; // [rsp+50h] [rbp-248h]
   int k; // [rsp+54h] [rbp-244h]
   unsigned int v143; // [rsp+58h] [rbp-240h]
-  unsigned __int16 v144; // [rsp+5Ch] [rbp-23Ch]
+  WCHAR v144; // [rsp+5Ch] [rbp-23Ch]
   int v145; // [rsp+60h] [rbp-238h]
   unsigned __int64 v146; // [rsp+68h] [rbp-230h]
-  volatile signed __int32 *v147; // [rsp+70h] [rbp-228h]
+  _CURDIR *v147; // [rsp+70h] [rbp-228h]
   __m128i v148; // [rsp+78h] [rbp-220h] BYREF
-  __int64 v149; // [rsp+88h] [rbp-210h]
-  char *v150; // [rsp+90h] [rbp-208h]
+  PVOID BaseAddress; // [rsp+88h] [rbp-210h]
+  PWSTR Value; // [rsp+90h] [rbp-208h]
   __int64 v151; // [rsp+98h] [rbp-200h]
   unsigned int v152; // [rsp+A0h] [rbp-1F8h]
   unsigned int v153; // [rsp+A4h] [rbp-1F4h]
@@ -194,18 +194,18 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   int v161; // [rsp+C8h] [rbp-1D0h]
   int v162; // [rsp+CCh] [rbp-1CCh]
   unsigned int v163; // [rsp+D0h] [rbp-1C8h]
-  char *v164; // [rsp+D8h] [rbp-1C0h]
-  char *v165; // [rsp+E0h] [rbp-1B8h]
+  PWSTR v164; // [rsp+D8h] [rbp-1C0h]
+  PWSTR v165; // [rsp+E0h] [rbp-1B8h]
   unsigned __int64 v166; // [rsp+E8h] [rbp-1B0h]
-  _WORD *v167; // [rsp+F0h] [rbp-1A8h]
+  WCHAR *v167; // [rsp+F0h] [rbp-1A8h]
   unsigned __int64 v168; // [rsp+F8h] [rbp-1A0h]
-  char *v169; // [rsp+100h] [rbp-198h]
+  PWSTR v169; // [rsp+100h] [rbp-198h]
   unsigned __int64 v170; // [rsp+108h] [rbp-190h]
   unsigned __int64 v171; // [rsp+110h] [rbp-188h]
   unsigned __int64 v172; // [rsp+118h] [rbp-180h]
-  unsigned __int64 v173; // [rsp+120h] [rbp-178h] BYREF
-  char *v174; // [rsp+128h] [rbp-170h]
-  unsigned __int64 v175; // [rsp+130h] [rbp-168h]
+  ULONG_PTR ReturnLength; // [rsp+120h] [rbp-178h] BYREF
+  PWSTR v174; // [rsp+128h] [rbp-170h]
+  SIZE_T v175; // [rsp+130h] [rbp-168h]
   unsigned __int64 v176; // [rsp+138h] [rbp-160h]
   __int64 v177; // [rsp+140h] [rbp-158h]
   unsigned __int64 v178; // [rsp+148h] [rbp-150h]
@@ -213,32 +213,32 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   unsigned __int64 v180; // [rsp+158h] [rbp-140h]
   unsigned __int64 v181; // [rsp+160h] [rbp-138h]
   __int64 *v182; // [rsp+168h] [rbp-130h] BYREF
-  char *v183; // [rsp+170h] [rbp-128h]
+  PWSTR v183; // [rsp+170h] [rbp-128h]
   __int64 v184; // [rsp+178h] [rbp-120h]
   unsigned __int64 v185; // [rsp+180h] [rbp-118h]
   __int64 v186; // [rsp+188h] [rbp-110h]
-  char *v187; // [rsp+190h] [rbp-108h]
+  PWSTR v187; // [rsp+190h] [rbp-108h]
   unsigned __int64 v188; // [rsp+198h] [rbp-100h]
   __int64 v189; // [rsp+1A0h] [rbp-F8h]
   unsigned __int64 v190; // [rsp+1A8h] [rbp-F0h]
   __int64 v191; // [rsp+1B0h] [rbp-E8h]
-  wchar_t *v192; // [rsp+1B8h] [rbp-E0h]
+  PWSTR v192; // [rsp+1B8h] [rbp-E0h]
   wchar_t *v193; // [rsp+1C0h] [rbp-D8h]
-  unsigned __int64 v194; // [rsp+1C8h] [rbp-D0h]
+  SIZE_T v194; // [rsp+1C8h] [rbp-D0h]
   __int64 v195; // [rsp+1D0h] [rbp-C8h]
   __int64 v196; // [rsp+1D8h] [rbp-C0h]
-  char *v197; // [rsp+1E0h] [rbp-B8h]
-  _WORD *v198; // [rsp+1E8h] [rbp-B0h]
+  PWSTR v197; // [rsp+1E0h] [rbp-B8h]
+  WCHAR *v198; // [rsp+1E8h] [rbp-B0h]
   __int64 v199; // [rsp+1F0h] [rbp-A8h]
   unsigned __int64 v200; // [rsp+1F8h] [rbp-A0h]
   __int64 v201; // [rsp+200h] [rbp-98h]
-  char *v202; // [rsp+208h] [rbp-90h]
+  PWSTR v202; // [rsp+208h] [rbp-90h]
   unsigned __int64 v203; // [rsp+210h] [rbp-88h]
   __int64 v204; // [rsp+218h] [rbp-80h]
   unsigned __int64 v205; // [rsp+220h] [rbp-78h]
   __int64 v206; // [rsp+228h] [rbp-70h]
-  char *v207; // [rsp+230h] [rbp-68h]
-  _WORD *v208; // [rsp+238h] [rbp-60h]
+  PWSTR v207; // [rsp+230h] [rbp-68h]
+  WCHAR *v208; // [rsp+238h] [rbp-60h]
   __int16 v209; // [rsp+240h] [rbp-58h]
   __int16 v210; // [rsp+242h] [rbp-56h]
   wchar_t *p_String; // [rsp+248h] [rbp-50h]
@@ -247,7 +247,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
 
   v182 = a4;
   v6 = a3;
-  v150 = (char *)a3;
+  Value = a3;
   v151 = (__int64)a6;
   if ( a4 )
     *a4 = 0LL;
@@ -309,7 +309,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
         v117 = RtlUnicodeStringValidateWorker_0(&v139);
         if ( v117 >= 0 )
           v116 = (unsigned __int64)v14 >> 1;
-        v119 = v150;
+        v119 = Value;
         if ( v117 >= 0 )
         {
           if ( (int)RtlUnicodeStringValidateWorker_0(L"\b\n") >= 0 )
@@ -318,7 +318,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
             v122 = (unsigned int)(v120 + 4);
             if ( v116 )
             {
-              v123 = v119 - (char *)L"\\\\.\\";
+              v123 = (char *)v119 - (char *)L"\\\\.\\";
               v124 = v116 - v122;
               do
               {
@@ -343,7 +343,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
         }
         else
         {
-          v130 = (int)v150;
+          v130 = (int)Value;
           v128 = (unsigned __int64)v14 >> 1;
           v127 = (unsigned __int64)v129 >> 1;
         }
@@ -416,7 +416,7 @@ LABEL_27:
   v22 = 0LL;
   v23 = 0LL;
   v147 = 0LL;
-  v149 = 0LL;
+  BaseAddress = 0LL;
   v134 = 0;
   i = 0;
   if ( v19 != 2 )
@@ -453,13 +453,13 @@ LABEL_27:
         v22 = 0LL;
         goto LABEL_30;
       case 3:
-        v68 = RtlpReferenceCurrentDirectory(0LL, 0LL);
-        v147 = (volatile signed __int32 *)v68;
-        v149 = v68;
+        v68 = (_CURDIR *)RtlpReferenceCurrentDirectory(0LL, 0LL);
+        v147 = v68;
+        BaseAddress = v68;
         v134 = 1;
         if ( v68 )
         {
-          p_CurrentDirectory = (_CURDIR *)(v68 + 24);
+          p_CurrentDirectory = v68 + 1;
         }
         else
         {
@@ -485,8 +485,8 @@ LABEL_27:
             v26 = v139;
             goto LABEL_182;
           }
-          v95 = v150;
-          v169 = v150;
+          v95 = Value;
+          v169 = Value;
           v170 = (unsigned __int64)v14 >> 1;
           v96 = (unsigned int)v22;
           v97 = (unsigned int)v22;
@@ -518,8 +518,7 @@ LABEL_27:
             {
               if ( !v100 )
                 goto LABEL_180;
-              *(_WORD *)v95 = *(_WORD *)v97;
-              v95 += 2;
+              *v95++ = *(_WORD *)v97;
               v187 = v95;
               v97 += 2LL;
               v188 = v97;
@@ -556,13 +555,13 @@ LABEL_180:
           }
           v209 = v74;
           v210 = v75 + 2;
-          v173 = 0LL;
-          v77 = (unsigned __int64)v14 >> 1;
-          v78 = RtlQueryEnvironmentVariable(0LL, &String, (unsigned __int64)v76 >> 1, v150, v77, &v173);
+          ReturnLength = 0LL;
+          ValueLength = (unsigned __int64)v14 >> 1;
+          v78 = RtlQueryEnvironmentVariable(0LL, &String, (unsigned __int64)v76 >> 1, Value, ValueLength, &ReturnLength);
           v155 = v78;
-          v81 = v173;
+          v81 = ReturnLength;
           v82 = 0x7FFFLL;
-          if ( v173 > 0x7FFF )
+          if ( ReturnLength > 0x7FFF )
           {
             v78 = -1073741801;
             v155 = -1073741801;
@@ -571,7 +570,7 @@ LABEL_180:
           else
           {
             if ( v78 == -1073741789 )
-              v81 = v173 - 1;
+              v81 = ReturnLength - 1;
             v26 = 2 * v81;
             LOWORD(v139) = v26;
           }
@@ -586,7 +585,7 @@ LABEL_180:
                 v28 = 0;
                 v136 = 0;
                 v38 = v143;
-                v23 = v147;
+                v23 = (volatile signed __int32 *)v147;
                 goto LABEL_229;
               }
               v148.m128i_i16[0] = v26 + 2;
@@ -604,15 +603,15 @@ LABEL_182:
             v175 = 0LL;
             if ( (int)RtlUnicodeStringValidateWorker(&v139, v79, v80, 0LL) >= 0 )
             {
-              v105 = (wchar_t *)v150;
-              v174 = v150;
-              v106 = v77;
-              v175 = v77;
+              v105 = Value;
+              v174 = Value;
+              v106 = ValueLength;
+              v175 = ValueLength;
               v195 = 0x7FFFLL;
               v107 = &String;
               v193 = &String;
-              v194 = v77;
-              v192 = (wchar_t *)v150;
+              v194 = ValueLength;
+              v192 = Value;
               v160 = 0;
               v108 = 0LL;
               v196 = 0LL;
@@ -654,7 +653,7 @@ LABEL_208:
             }
             else
             {
-              *(_WORD *)&v150[2 * (unsigned int)v84] = 92;
+              Value[(unsigned int)v84] = 92;
               v26 += 2;
               LOWORD(v139) = v83 + 2;
               v146 = (unsigned __int16)(v83 + 2);
@@ -667,13 +666,13 @@ LABEL_208:
         goto LABEL_182;
       case 4:
         LOBYTE(v21) = 1;
-        v85 = RtlpReferenceCurrentDirectory(v21, 0LL);
-        v147 = (volatile signed __int32 *)v85;
-        v149 = v85;
+        v85 = (_CURDIR *)RtlpReferenceCurrentDirectory(v21, 0LL);
+        v147 = v85;
+        BaseAddress = v85;
         v134 = 1;
         if ( v85 )
         {
-          v86 = (_CURDIR *)(v85 + 24);
+          v86 = v85 + 1;
         }
         else
         {
@@ -703,7 +702,7 @@ LABEL_208:
         v176 = 0LL;
         if ( (int)RtlUnicodeStringValidateWorker_0(&v139) < 0 )
           goto LABEL_29;
-        v164 = v150;
+        v164 = Value;
         v176 = (unsigned __int64)v14 >> 1;
         v151 = v22;
         v177 = v22;
@@ -714,12 +713,12 @@ LABEL_208:
         }
         else
         {
-          v90 = (_WORD *)v148.m128i_i64[1];
+          v90 = (WCHAR *)v148.m128i_i64[1];
           v177 = v148.m128i_i64[1];
           v91 = (unsigned __int64)v20 >> 1;
           v178 = v91;
           v200 = v91;
-          v198 = (_WORD *)v148.m128i_i64[1];
+          v198 = (WCHAR *)v148.m128i_i64[1];
           v199 = v89;
           v92 = v164;
           v197 = v164;
@@ -730,8 +729,7 @@ LABEL_208:
           {
             if ( !v91 )
               goto LABEL_171;
-            *(_WORD *)v92 = *v90;
-            v92 += 2;
+            *v92++ = *v90;
             v197 = v92;
             v198 = ++v90;
             v199 = --v89;
@@ -750,14 +748,14 @@ LABEL_171:
         v25 = v137;
         goto LABEL_31;
       case 5:
-        v57 = RtlpReferenceCurrentDirectory(0LL, 0LL);
-        v147 = (volatile signed __int32 *)v57;
-        v149 = v57;
+        v57 = (_CURDIR *)RtlpReferenceCurrentDirectory(0LL, 0LL);
+        v147 = v57;
+        BaseAddress = v57;
         v134 = 1;
         if ( v57 )
         {
-          v58 = (_CURDIR *)(v57 + 24);
-          *(_DWORD *)(v151 + 4) = *(_DWORD *)(v57 + 40);
+          v58 = v57 + 1;
+          *(_DWORD *)(v151 + 4) = v57[1].Handle;
         }
         else
         {
@@ -776,7 +774,7 @@ LABEL_171:
         v179 = 0LL;
         if ( (int)RtlUnicodeStringValidateWorker_0(&v139) >= 0 )
         {
-          v165 = v150;
+          v165 = Value;
           v179 = (unsigned __int64)v14 >> 1;
           v61 = (unsigned int)v60;
           v62 = (unsigned int)v60;
@@ -809,8 +807,7 @@ LABEL_171:
             {
               if ( !v64 )
                 goto LABEL_144;
-              *(_WORD *)v66 = *(_WORD *)v62;
-              v66 += 2;
+              *v66++ = *(_WORD *)v62;
               v202 = v66;
               v62 += 2LL;
               v203 = v62;
@@ -846,8 +843,8 @@ LABEL_144:
         v166 = 0LL;
         if ( (int)RtlUnicodeStringValidateWorker_0(&v139) >= 0 )
         {
-          v51 = v150;
-          v183 = v150;
+          v51 = Value;
+          v183 = Value;
           v166 = (unsigned __int64)v144 >> 1;
           v52 = 0LL;
           v167 = 0LL;
@@ -860,7 +857,7 @@ LABEL_144:
           }
           else
           {
-            v52 = (_WORD *)_mm_srli_si128(*(__m128i *)L"\b\n", 8).m128i_u64[0];
+            v52 = (WCHAR *)_mm_srli_si128(*(__m128i *)L"\b\n", 8).m128i_u64[0];
             v167 = v52;
             v146 = (unsigned int)_mm_cvtsi128_si32(*(__m128i *)L"\b\n");
             v53 = (unsigned __int64)(unsigned __int16)v146 >> 1;
@@ -879,8 +876,7 @@ LABEL_144:
             {
               if ( !v53 )
                 goto LABEL_129;
-              *(_WORD *)v51 = *v52;
-              v51 += 2;
+              *v51++ = *v52;
               v207 = v51;
               v208 = ++v52;
               v184 = --v56;
@@ -937,7 +933,7 @@ LABEL_32:
         v28 = v29 + 2;
       v38 = v143;
       v136 = v28;
-      v23 = v147;
+      v23 = (volatile signed __int32 *)v147;
       goto LABEL_229;
     }
     if ( v9 != 1 )
@@ -948,7 +944,7 @@ LABEL_32:
       v152 = v28;
       v38 = v143;
       v136 = v28;
-      v23 = v147;
+      v23 = (volatile signed __int32 *)v147;
       goto LABEL_229;
     }
     if ( (_WORD)v27 == 8 )
@@ -958,7 +954,7 @@ LABEL_32:
         v28 = 10;
         v38 = v143;
         v136 = 10;
-        v23 = v147;
+        v23 = (volatile signed __int32 *)v147;
         goto LABEL_229;
       }
     }
@@ -968,7 +964,7 @@ LABEL_32:
       {
         v38 = v143;
         v136 = (unsigned __int16)v27;
-        v23 = v147;
+        v23 = (volatile signed __int32 *)v147;
         goto LABEL_229;
       }
       v48 = v26;
@@ -1131,14 +1127,14 @@ LABEL_48:
     *v182 = (__int64)&v6[v45];
     v28 = v40;
     v136 = v40;
-    v23 = v147;
+    v23 = (volatile signed __int32 *)v147;
   }
   else
   {
 LABEL_67:
     v28 = v40;
     v136 = v40;
-    v23 = v147;
+    v23 = (volatile signed __int32 *)v147;
   }
 LABEL_229:
   if ( v134 )
@@ -1147,8 +1143,8 @@ LABEL_229:
     {
       if ( _InterlockedExchangeAdd(v23, 0xFFFFFFFF) == 1 )
       {
-        NtClose(*(HANDLE *)(v149 + 8));
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v149);
+        NtClose(*((HANDLE *)BaseAddress + 1));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
         LOWORD(v22) = 0;
       }
       v28 = v136;

@@ -1,19 +1,16 @@
 /*
- * XREFs of RtlPushFrame @ 0x18006FC90
+ * XREFs of RtlPushFrame @ 0x18006FC80
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_TEB_ACTIVE_FRAME *__fastcall RtlPushFrame(_TEB_ACTIVE_FRAME *a1)
+void __cdecl RtlPushFrame(PTEB_ACTIVE_FRAME Frame)
 {
   struct _TEB *v1; // rdx
-  _TEB_ACTIVE_FRAME *result; // rax
 
   v1 = NtCurrentTeb();
-  result = v1->ActiveFrame;
-  a1->Previous = result;
-  v1->ActiveFrame = a1;
-  return result;
+  Frame->Previous = v1->ActiveFrame;
+  v1->ActiveFrame = Frame;
 }

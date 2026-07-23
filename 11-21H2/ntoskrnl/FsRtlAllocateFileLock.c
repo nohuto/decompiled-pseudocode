@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
+ *     sub_140202234 @ 0x140202234 (sub_140202234.c)
  */
 
 PFILE_LOCK __stdcall FsRtlAllocateFileLock(
@@ -12,7 +12,7 @@ PFILE_LOCK __stdcall FsRtlAllocateFileLock(
 {
   PFILE_LOCK result; // rax
 
-  result = (PFILE_LOCK)ExAllocateFromNPagedLookasideList(&FsRtlFileLockLookasideList);
+  result = (PFILE_LOCK)sub_140202234((__int64)&stru_140CE2700);
   if ( result )
   {
     result->LockInformation = 0LL;

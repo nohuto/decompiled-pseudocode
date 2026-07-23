@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpCompareModuleBaseAddressRange @ 0x180076148
+ * XREFs of LdrpCompareModuleBaseAddressRange @ 0x180076138
  * Callers:
- *     LdrpFindLoadedDllByAddress @ 0x180076080 (LdrpFindLoadedDllByAddress.c)
+ *     LdrpFindLoadedDllByAddress @ 0x180076070 (LdrpFindLoadedDllByAddress.c)
  * Callees:
  *     <none>
  */

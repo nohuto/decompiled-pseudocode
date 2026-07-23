@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWakeExtentDeletionWaiters @ 0x140640394
+ * XREFs of MiWakeExtentDeletionWaiters @ 0x1406408E4
  * Callers:
- *     MiDeleteExtentPfns @ 0x14063CA60 (MiDeleteExtentPfns.c)
+ *     MiDeleteExtentPfns @ 0x14063CFB0 (MiDeleteExtentPfns.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiWakeExtentDeletionWaiters(__int64 a1, unsigned __int8 a2)
@@ -24,10 +24,13 @@ void __fastcall MiWakeExtentDeletionWaiters(__int64 a1, unsigned __int8 a2)
   v3 = a2;
   byte_140C65729 = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6CEA0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

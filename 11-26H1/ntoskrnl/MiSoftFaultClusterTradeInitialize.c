@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSoftFaultClusterTradeInitialize @ 0x1405085E0
+ * XREFs of MiSoftFaultClusterTradeInitialize @ 0x140502088
  * Callers:
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiSoftFaultClusterTradeInitialize(__int64 a1, __int64 a2, _BYTE *a3)
@@ -78,7 +78,7 @@ __int64 __fastcall MiSoftFaultClusterTradeInitialize(__int64 a1, __int64 a2, _BY
   }
   v19 = a2 - v16;
   v20 = 16LL;
-  v21 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v17);
+  v21 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v17);
   v22 = v33;
   *(_QWORD *)(a1 + 56) = v21;
   v23 = v19 - (_QWORD)v33;
@@ -120,7 +120,7 @@ LABEL_31:
 LABEL_28:
   v26 += v11 - (unsigned int)i;
   v29 = 48 * v26;
-  if ( v26 <= qword_140E2D7A0 && ((*(_QWORD *)(v29 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+  if ( v26 <= qword_140E2D920 && ((*(_QWORD *)(v29 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
   {
     v30 = v29 - 0x220000000000LL;
     *(_QWORD *)(a1 + 72) = v30;

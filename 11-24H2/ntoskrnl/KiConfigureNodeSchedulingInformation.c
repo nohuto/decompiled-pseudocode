@@ -1,10 +1,10 @@
 /*
- * XREFs of KiConfigureNodeSchedulingInformation @ 0x1405B6A2C
+ * XREFs of KiConfigureNodeSchedulingInformation @ 0x1405B3CEC
  * Callers:
- *     KiConfigureAllSchedulingInformation @ 0x140C27EA8 (KiConfigureAllSchedulingInformation.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140C29E84 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KiAssignCooperativeIdleSearchContexts @ 0x1405B6014 (KiAssignCooperativeIdleSearchContexts.c)
- *     KiAssignSubNodeSharedReadyQueues @ 0x1405B6308 (KiAssignSubNodeSharedReadyQueues.c)
+ *     KiAssignCooperativeIdleSearchContexts @ 0x1405B32DC (KiAssignCooperativeIdleSearchContexts.c)
+ *     KiAssignSubNodeSharedReadyQueues @ 0x1405B35D0 (KiAssignSubNodeSharedReadyQueues.c)
  */
 
 __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
   for ( i = 4LL * *(unsigned __int16 *)(a1 + 136); v2; v2 &= ~v9 )
   {
     _BitScanForward64((unsigned __int64 *)&v7, v2);
-    v8 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (unsigned int)((v1 << 6) + v7))];
+    v8 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + (unsigned int)((v1 << 6) + v7))];
     if ( v3 )
     {
       v9 = *(_QWORD *)(v8 + 36448);
@@ -54,7 +54,7 @@ __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
   v11 = *(_QWORD *)(a1 + 128);
   for ( j = 0LL;
         v11;
-        v11 &= ~*(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (unsigned int)((v1 << 6) + v13))]
+        v11 &= ~*(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F22998 + (unsigned int)((v1 << 6) + v13))]
                           + 36464) )
   {
     _BitScanForward64(&v13, v11);
@@ -65,19 +65,19 @@ __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
   for ( k = 0LL; v14; v14 &= ~v17 & ~(1LL << v16) )
   {
     _BitScanForward64(&v16, v14);
-    v17 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (unsigned int)((v1 << 6) + v16))] + 36416);
+    v17 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F22998 + (unsigned int)((v1 << 6) + v16))] + 36416);
     k |= v17;
   }
   KiAssignCooperativeIdleSearchContexts(a1);
   *(_QWORD *)(a1 + 160) = v4;
   *(_QWORD *)(a1 + 168) = j;
   *(_QWORD *)(a1 + 152) = k;
-  qword_140FC7810[i] |= v4;
+  qword_140FC8870[i] |= v4;
   result = KeNodeBlock[*(unsigned __int16 *)(a1 + 138)];
   if ( (*(_BYTE *)(result + 10) & 1) != 0 )
   {
     result = *(_QWORD *)(a1 + 128);
-    *(_QWORD *)&algn_140FC7818[i * 8] |= result;
+    *(_QWORD *)((char *)&unk_140FC8878 + i * 8) |= result;
   }
   return result;
 }

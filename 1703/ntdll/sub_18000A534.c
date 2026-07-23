@@ -18,7 +18,7 @@ __int64 __fastcall sub_18000A534(unsigned __int64 a1, __int64 a2, char a3, __int
   __int128 v12; // xmm1
   __m128i v13; // xmm1
   __int64 v14; // rax
-  union _SLIST_HEADER *v15; // rdi
+  _SLIST_HEADER *v15; // rdi
   __int64 v16; // rbx
   unsigned __int8 v17; // al
   int v19; // [rsp+60h] [rbp+18h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall sub_18000A534(unsigned __int64 a1, __int64 a2, char a3, __int
     *(_QWORD *)(a1 + 40) = a1 ^ v10 ^ v14;
   if ( (int)RtlQueryResourcePolicy(0LL, 0LL, &v19, 4LL) >= 0 && v19 <= 10 )
     a3 = 1;
-  v15 = (union _SLIST_HEADER *)(a1 + 80);
+  v15 = (_SLIST_HEADER *)(a1 + 80);
   v16 = 7LL;
   do
   {

@@ -33,7 +33,7 @@ __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
   v11 = 0;
   ServerSiloGlobals = PsGetServerSiloGlobals(a1);
   v4 = PsAttachSiloToCurrentThread(v3);
-  ExpReadTimeZoneInformation((__int64)L"TimeZoneVirtualizationSupported", 0, (__int64)&v11);
+  ExpReadTimeZoneInformation(L"TimeZoneVirtualizationSupported", 0, &v11);
   if ( v11 )
   {
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3F0uLL, 0x5A547845u);
@@ -44,7 +44,7 @@ __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
       v6 = ServerSiloGlobals[132];
       *((_BYTE *)ServerSiloGlobals + 1049) = 1;
       *(_DWORD *)(v6 + 432) = -1;
-      ExpReadTimeZoneInformation((__int64)L"ActiveTimeBias", -1, ServerSiloGlobals[132] + 436LL);
+      ExpReadTimeZoneInformation(L"ActiveTimeBias", -1, (void *)(ServerSiloGlobals[132] + 436LL));
       LOBYTE(v7) = 1;
       ExAcquireTimeRefreshLock(v7);
       LOBYTE(v8) = 1;

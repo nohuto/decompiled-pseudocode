@@ -1,15 +1,15 @@
 /*
- * XREFs of _RtlpMuiRegInitLIPLanguage @ 0x140B2DDF0
+ * XREFs of _RtlpMuiRegInitLIPLanguage @ 0x140B2FE70
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140B2DC3C (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x140B2FCBC (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _RtlMuiRegAddLIPParent @ 0x1408A96A8 (_RtlMuiRegAddLIPParent.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     LdrpQueryValueKey @ 0x140B3C6C8 (LdrpQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _RtlMuiRegAddLIPParent @ 0x1408AFB18 (_RtlMuiRegAddLIPParent.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     LdrpQueryValueKey @ 0x140B3E948 (LdrpQueryValueKey.c)
  */
 
 __int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, void *a2, _BYTE *a3)

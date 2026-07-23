@@ -1,30 +1,30 @@
 /*
- * XREFs of MmGetSessionById @ 0x140206410
+ * XREFs of MmGetSessionById @ 0x1402AAD40
  * Callers:
- *     MmGetSessionObjectById @ 0x140206364 (MmGetSessionObjectById.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
- *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
- *     PopWatchdogWorker @ 0x140578E70 (PopWatchdogWorker.c)
- *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14060F928 (ExpWnfCaptureScopeInstanceId.c)
- *     PsGetSiloBySessionId @ 0x140634520 (PsGetSiloBySessionId.c)
- *     PspAttachSession @ 0x1406835F8 (PspAttachSession.c)
- *     ExCallSessionCallBack @ 0x140683678 (ExCallSessionCallBack.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
- *     EtwpSendDataBlock @ 0x1406E4054 (EtwpSendDataBlock.c)
- *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
- *     PiUEventBroadcastEventWorker @ 0x140773BF0 (PiUEventBroadcastEventWorker.c)
- *     CmFcpChangeSubscriptionWrapper @ 0x14087E3C0 (CmFcpChangeSubscriptionWrapper.c)
- *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x1408A2B00 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x1408A2B8C (PiUEventBroadcastPortsChangedEvent.c)
- *     PopLazySensorActiveInput @ 0x1408F51B4 (PopLazySensorActiveInput.c)
- *     TtmpSessionWorker @ 0x140900030 (TtmpSessionWorker.c)
+ *     MmGetSessionObjectById @ 0x1402AAC94 (MmGetSessionObjectById.c)
+ *     MiTrimSharedPageFromViews @ 0x1402FA994 (MiTrimSharedPageFromViews.c)
+ *     PopPowerButtonWorkCallback @ 0x140578A90 (PopPowerButtonWorkCallback.c)
+ *     PopWatchdogWorker @ 0x1405790B0 (PopWatchdogWorker.c)
+ *     PspAttachSession @ 0x1405E4478 (PspAttachSession.c)
+ *     ExCallSessionCallBack @ 0x1405E44F8 (ExCallSessionCallBack.c)
+ *     PsGetSiloBySessionId @ 0x14068FAB4 (PsGetSiloBySessionId.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14069F3D8 (ExpWnfCaptureScopeInstanceId.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1406BB334 (EtwpSendDataBlock.c)
+ *     PspChangeProcessExecutionState @ 0x1406F5340 (PspChangeProcessExecutionState.c)
+ *     PnpNotifyDriverCallback @ 0x1406FD0AC (PnpNotifyDriverCallback.c)
+ *     PiUEventBroadcastEventWorker @ 0x140773DB0 (PiUEventBroadcastEventWorker.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x14087E520 (CmFcpChangeSubscriptionWrapper.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x1408A2C60 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x1408A2CEC (PiUEventBroadcastPortsChangedEvent.c)
+ *     PopLazySensorActiveInput @ 0x1408F5314 (PopLazySensorActiveInput.c)
+ *     TtmpSessionWorker @ 0x140900190 (TtmpSessionWorker.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
- *     MiSelectSessionAttachProcess @ 0x14020657C (MiSelectSessionAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D24 (KeIsExecutingInArbitraryThreadContext.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PsGetThreadServerSilo @ 0x1402AAE70 (PsGetThreadServerSilo.c)
+ *     MiSelectSessionAttachProcess @ 0x1402AAEAC (MiSelectSessionAttachProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D74 (KeIsExecutingInArbitraryThreadContext.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -51,8 +51,8 @@ __int64 __fastcall MmGetSessionById(__int64 a1, __int64 a2)
   else
     ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v5 = (_QWORD *)qword_140C4DDE8;
-  if ( !qword_140C4DDE8 )
+  v5 = (_QWORD *)qword_140C4DE28;
+  if ( !qword_140C4DE28 )
     goto LABEL_16;
   while ( 1 )
   {

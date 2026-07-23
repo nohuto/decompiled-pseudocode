@@ -6,7 +6,17 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtLockFile(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10)
+NTSTATUS __cdecl NtLockFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER ByteOffset,
+        PLARGE_INTEGER Length,
+        ULONG Key,
+        BOOLEAN FailImmediately,
+        BOOLEAN ExclusiveLock)
 {
   return Wow64SystemServiceCall();
 }

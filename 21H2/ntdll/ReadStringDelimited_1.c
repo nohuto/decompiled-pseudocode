@@ -5,8 +5,8 @@
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     ReadString_1 @ 0x18009AABC (ReadString_1.c)
- *     _alloca_probe @ 0x1800A2900 (_alloca_probe.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     _alloca_probe @ 0x1800A28C0 (_alloca_probe.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall ReadStringDelimited_1(

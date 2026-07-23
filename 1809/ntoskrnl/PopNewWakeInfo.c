@@ -1,14 +1,14 @@
 /*
- * XREFs of PopNewWakeInfo @ 0x140566640
+ * XREFs of PopNewWakeInfo @ 0x140567640
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     PopReleaseWakeSourceSpinLock @ 0x140142ED4 (PopReleaseWakeSourceSpinLock.c)
- *     PopAcquireWakeSourceSpinLock @ 0x140142F08 (PopAcquireWakeSourceSpinLock.c)
- *     PopWakeInfoDereference @ 0x1401585E0 (PopWakeInfoDereference.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x140142FD4 (PopReleaseWakeSourceSpinLock.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x140143008 (PopAcquireWakeSourceSpinLock.c)
+ *     PopWakeInfoDereference @ 0x1401586E0 (PopWakeInfoDereference.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 LONG PopNewWakeInfo()
@@ -67,11 +67,11 @@ LONG PopNewWakeInfo()
     PopCurrentWakeInfo = v1;
     if ( PopWakeInfoCount == 1 )
     {
-      v7 = (_QWORD *)qword_140418558;
-      v8 = *(_QWORD **)(qword_140418558 + 8);
-      if ( *(__int64 **)qword_140418558 == &PopWakeInfoList && *v8 == qword_140418558 )
+      v7 = (_QWORD *)qword_1404195F8;
+      v8 = *(_QWORD **)(qword_1404195F8 + 8);
+      if ( *(__int64 **)qword_1404195F8 == &PopWakeInfoList && *v8 == qword_1404195F8 )
       {
-        qword_140418558 = *(_QWORD *)(qword_140418558 + 8);
+        qword_1404195F8 = *(_QWORD *)(qword_1404195F8 + 8);
         *v8 = &PopWakeInfoList;
         v7[1] = v7;
         *v7 = v7;

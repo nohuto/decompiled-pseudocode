@@ -1,12 +1,12 @@
 /*
- * XREFs of CmInitServerSiloState @ 0x1407A5728
+ * XREFs of CmInitServerSiloState @ 0x1407A5928
  * Callers:
- *     CmpInitSiloSupport @ 0x1407A56F8 (CmpInitSiloSupport.c)
- *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
+ *     CmpInitSiloSupport @ 0x1407A58F8 (CmpInitSiloSupport.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409065D0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     CmpStartSiloRegistryNamespace @ 0x1406C39CC (CmpStartSiloRegistryNamespace.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140715BF8 (CmpGetOrCreateContextForSiloNoRef.c)
- *     CmpStartSiloKeyLockTracker @ 0x1407A5770 (CmpStartSiloKeyLockTracker.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406225AC (CmpStartSiloRegistryNamespace.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x1406C4248 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpStartSiloKeyLockTracker @ 0x1407A5970 (CmpStartSiloKeyLockTracker.c)
  */
 
 __int64 __fastcall CmInitServerSiloState(__int64 a1)

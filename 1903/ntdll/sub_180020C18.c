@@ -12,7 +12,7 @@ __int64 sub_180020C18()
 {
   int v0; // ecx
 
-  if ( !(unsigned __int8)RtlIsProcessorFeaturePresent(28LL) )
+  if ( !RtlIsProcessorFeaturePresent(0x1Cu) )
     return 0LL;
   v0 = 0;
   while ( 1 )

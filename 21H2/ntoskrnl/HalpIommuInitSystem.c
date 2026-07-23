@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpIommuInitSystem @ 0x14099B9D0
+ * XREFs of HalpIommuInitSystem @ 0x14099C9D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuGetRootIommuFaultPolicy @ 0x1402D400C (HalpIommuGetRootIommuFaultPolicy.c)
- *     HalpInterruptIsRemappingRequired @ 0x14037903C (HalpInterruptIsRemappingRequired.c)
- *     HalpIommuInitializeDmaGuardPolicy @ 0x1403A9420 (HalpIommuInitializeDmaGuardPolicy.c)
- *     HalpIommuProcessReservations @ 0x1403AC5A8 (HalpIommuProcessReservations.c)
- *     HalpIommuEnableInterrupts @ 0x1403AC5EC (HalpIommuEnableInterrupts.c)
- *     HalpIommuInitializeDmar @ 0x1403AC628 (HalpIommuInitializeDmar.c)
- *     IommuInitializeLibrary @ 0x1403AC728 (IommuInitializeLibrary.c)
- *     HalpIommuLogEarlyFault @ 0x1403AC768 (HalpIommuLogEarlyFault.c)
- *     IommupHvSetRootFaultReportingReady @ 0x1403F0348 (IommupHvSetRootFaultReportingReady.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetX2ApicPolicy @ 0x1404BC8D8 (HalpInterruptSetX2ApicPolicy.c)
- *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
- *     HalpIommuInitInterrupts @ 0x14099BBB8 (HalpIommuInitInterrupts.c)
- *     HalpIommuInitDiscard @ 0x140A39AE8 (HalpIommuInitDiscard.c)
+ *     HalpIommuGetRootIommuFaultPolicy @ 0x14025227C (HalpIommuGetRootIommuFaultPolicy.c)
+ *     HalpInterruptIsRemappingRequired @ 0x140378B8C (HalpInterruptIsRemappingRequired.c)
+ *     HalpIommuInitializeDmaGuardPolicy @ 0x1403AA1B0 (HalpIommuInitializeDmaGuardPolicy.c)
+ *     HalpIommuProcessReservations @ 0x1403AD338 (HalpIommuProcessReservations.c)
+ *     HalpIommuEnableInterrupts @ 0x1403AD37C (HalpIommuEnableInterrupts.c)
+ *     HalpIommuInitializeDmar @ 0x1403AD3B8 (HalpIommuInitializeDmar.c)
+ *     IommuInitializeLibrary @ 0x1403AD4B8 (IommuInitializeLibrary.c)
+ *     HalpIommuLogEarlyFault @ 0x1403AD4F8 (HalpIommuLogEarlyFault.c)
+ *     IommupHvSetRootFaultReportingReady @ 0x1403F04B8 (IommupHvSetRootFaultReportingReady.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetX2ApicPolicy @ 0x1404BCB18 (HalpInterruptSetX2ApicPolicy.c)
+ *     HalpIommuInitializeAll @ 0x14099C3D4 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitInterrupts @ 0x14099CBB8 (HalpIommuInitInterrupts.c)
+ *     HalpIommuInitDiscard @ 0x140A3AAE8 (HalpIommuInitDiscard.c)
  */
 
 __int64 __fastcall HalpIommuInitSystem(int a1, __int64 a2, __int64 a3)
@@ -32,9 +32,9 @@ __int64 __fastcall HalpIommuInitSystem(int a1, __int64 a2, __int64 a3)
     inited = 0;
     if ( !a1 )
     {
-      qword_140C49DB8 = (__int64)&HalpIommuList;
+      qword_140C49DF8 = (__int64)&HalpIommuList;
       HalpIommuList = (__int64)&HalpIommuList;
-      qword_140C49DA8 = (__int64)&HalpIommuExceptionList;
+      qword_140C49DE8 = (__int64)&HalpIommuExceptionList;
       HalpIommuExceptionList = (__int64)&HalpIommuExceptionList;
       off_140C008B0[0] = (__int64 (__fastcall *)())HalpIommuRegisterDispatchTable;
       RootIommuFaultPolicy = HalpIommuGetRootIommuFaultPolicy(a3);

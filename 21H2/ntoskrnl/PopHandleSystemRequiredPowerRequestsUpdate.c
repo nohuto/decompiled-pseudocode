@@ -1,14 +1,14 @@
 /*
- * XREFs of PopHandleSystemRequiredPowerRequestsUpdate @ 0x1402811BC
+ * XREFs of PopHandleSystemRequiredPowerRequestsUpdate @ 0x14026F3FC
  * Callers:
- *     PopHandleConvergedPowerRequestUpdate @ 0x140679D14 (PopHandleConvergedPowerRequestUpdate.c)
+ *     PopHandleConvergedPowerRequestUpdate @ 0x14066D454 (PopHandleConvergedPowerRequestUpdate.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCheckResiliencyScenarios @ 0x140679DA0 (PopCheckResiliencyScenarios.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopCheckResiliencyScenarios @ 0x14066D4E0 (PopCheckResiliencyScenarios.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopHandleSystemRequiredPowerRequestsUpdate(__int64 a1, __int64 a2)
@@ -45,12 +45,12 @@ __int64 __fastcall PopHandleSystemRequiredPowerRequestsUpdate(__int64 a1, __int6
   PopAcquirePolicyLock(a1, a2);
   KeAcquireInStackQueuedSpinLock(&PopPowerRequestSpinLock, &LockHandle);
   if ( PopPowerRequestAttributes[4 * v3] <= 0 )
-    v5 = ~v4 & dword_140C23384;
+    v5 = ~v4 & dword_140C23984;
   else
-    v5 = v4 | dword_140C23384;
-  dword_140C23384 = v5;
+    v5 = v4 | dword_140C23984;
+  dword_140C23984 = v5;
   if ( !v5 )
-    dword_140C233A0 = dword_140C23368;
+    dword_140C239A0 = dword_140C23968;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )

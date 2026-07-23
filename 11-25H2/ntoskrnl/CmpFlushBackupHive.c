@@ -44,7 +44,7 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
   __int64 v13; // rbx
   __int64 v14; // rcx
   HANDLE v15; // rcx
-  int v17; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned int ObjectInformation; // [rsp+58h] [rbp-B0h] BYREF
   char v18; // [rsp+5Ch] [rbp-ACh]
   char FileInformation[3]; // [rsp+5Dh] [rbp-ABh] BYREF
   int v20; // [rsp+60h] [rbp-A8h] BYREF
@@ -61,7 +61,7 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
   FileInformation[0] = 1;
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   v23 = 0LL;
-  v17 = 0;
+  ObjectInformation = 0;
   DestinationString = 0LL;
   *(_QWORD *)v22 = 0LL;
   v20 = 0;
@@ -98,7 +98,7 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
     CmpLockRegistry();
     v3 = 1;
     HvLockHiveFlusherExclusive(v4);
-    inited = HvAllocateOffsetArraysForHiveSnapshot(v4, &v17, v22, &v20);
+    inited = HvAllocateOffsetArraysForHiveSnapshot(v4, &ObjectInformation, v22, &v20);
     if ( inited < 0 )
       goto LABEL_11;
     v9 = *(_QWORD *)v22;
@@ -109,15 +109,15 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
     CmpUnlockRegistry(v10);
     v3 = 0;
     CmpDetachFromRegistryProcess(&ApcState);
-    inited = CmpWriteOffsetArrayToFile(v11, v17, v9, v20, *v5);
-    CmpFreeOffsetArray((unsigned int)v17, v9);
+    inited = CmpWriteOffsetArrayToFile(v11, ObjectInformation, v9, v20, *v5);
+    CmpFreeOffsetArray(ObjectInformation, v9);
     if ( inited < 0
       || (v12 = *v5,
-          LOWORD(v17) = 0,
-          ZwSetInformationObject((__int64)v12, 4LL),
+          LOWORD(ObjectInformation) = 0,
+          ZwSetInformationObject(v12, ObjectHandleFlagInformation, &ObjectInformation, 2u),
           ZwClose(*v5),
           *v5 = 0LL,
-          LOBYTE(v17) = 0,
+          LOBYTE(ObjectInformation) = 0,
           inited = CmpCmdHiveOpen((int)&Destination, 18415617, 0, 0LL, 0LL, (__int64)v27),
           inited < 0) )
     {
@@ -133,8 +133,8 @@ LABEL_11:
         v15 = *v5;
         if ( *v5 )
         {
-          LOWORD(v17) = 0;
-          ZwSetInformationObject((__int64)v15, 4LL);
+          LOWORD(ObjectInformation) = 0;
+          ZwSetInformationObject(v15, ObjectHandleFlagInformation, &ObjectInformation, 2u);
           ZwClose(*v5);
           *v5 = 0LL;
         }
@@ -152,8 +152,8 @@ LABEL_11:
       CmpDestroyHive(v13);
       CmpDetachFromRegistryProcess(&ApcState);
       ZwSetInformationFile(v6, &IoStatusBlock, FileInformation, 1u, FileDispositionInformation);
-      LOWORD(v17) = 0;
-      ZwSetInformationObject((__int64)v6, 4LL);
+      LOWORD(ObjectInformation) = 0;
+      ZwSetInformationObject(v6, ObjectHandleFlagInformation, &ObjectInformation, 2u);
       ZwClose(v6);
     }
   }

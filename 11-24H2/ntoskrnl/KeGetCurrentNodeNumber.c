@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetCurrentNodeNumber @ 0x14040F1D0
+ * XREFs of KeGetCurrentNodeNumber @ 0x1404073D0
  * Callers:
  *     <none>
  * Callees:

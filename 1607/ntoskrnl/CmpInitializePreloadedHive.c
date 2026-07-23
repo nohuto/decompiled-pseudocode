@@ -3,17 +3,17 @@
  * Callers:
  *     CmpInitializePreloadedHives @ 0x1407AE130 (CmpInitializePreloadedHives.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmpLinkHiveToMaster @ 0x1404A10B4 (CmpLinkHiveToMaster.c)
- *     CmpSetupLoggingState @ 0x14055D100 (CmpSetupLoggingState.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmpLinkHiveToMaster @ 0x1405194C0 (CmpLinkHiveToMaster.c)
+ *     CmpSetupLoggingState @ 0x14055D640 (CmpSetupLoggingState.c)
  */
 
 char __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
@@ -122,14 +122,14 @@ char __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
   v17 = CmpLinkHiveToMaster((__int64)&v24, 0LL, v15, 0, 0x200u, 0, 0LL, a2, 0LL, 0LL, 1);
   if ( v17 < 0 )
     KeBugCheckEx(0x74u, 3uLL, 7uLL, v15, v17);
-  v18 = (_QWORD *)qword_140322E38;
+  v18 = (_QWORD *)qword_140322E58;
   v19 = (_QWORD *)(v15 + 2744);
-  if ( *(__int64 **)qword_140322E38 != &CmpPreloadedHivesList )
+  if ( *(__int64 **)qword_140322E58 != &CmpPreloadedHivesList )
     __fastfail(3u);
-  v19[1] = qword_140322E38;
+  v19[1] = qword_140322E58;
   *v19 = &CmpPreloadedHivesList;
   *v18 = v19;
   result = 1;
-  qword_140322E38 = (__int64)v19;
+  qword_140322E58 = (__int64)v19;
   return result;
 }

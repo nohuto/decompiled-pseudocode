@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCharToInteger @ 0x1800399A0
+ * XREFs of RtlCharToInteger @ 0x180023F10
  * Callers:
- *     LdrpEnclaveAddForwarderModules @ 0x1800382C0 (LdrpEnclaveAddForwarderModules.c)
- *     LdrpResolveForwarder @ 0x180039370 (LdrpResolveForwarder.c)
- *     LdrpResolveProcedureAddress @ 0x1800C5A40 (LdrpResolveProcedureAddress.c)
+ *     LdrpEnclaveAddForwarderModules @ 0x180022830 (LdrpEnclaveAddForwarderModules.c)
+ *     LdrpResolveForwarder @ 0x1800238E0 (LdrpResolveForwarder.c)
+ *     LdrpResolveProcedureAddress @ 0x1800C3200 (LdrpResolveProcedureAddress.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +12,10 @@ NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
 {
   ULONG v3; // r11d
   PCSZ v4; // r10
-  char v5; // al
-  const char *v6; // rcx
+  CHAR v5; // al
+  const CHAR *v6; // rcx
   char v7; // r9
-  char v8; // bl
+  CHAR v8; // bl
   PCSZ v9; // rax
   int v10; // ecx
   unsigned int v11; // eax

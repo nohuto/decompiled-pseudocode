@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlNumberOfClearBits @ 0x1800E4690
+ * XREFs of RtlNumberOfClearBits @ 0x1800E4750
  * Callers:
  *     <none>
  * Callees:
- *     RtlNumberOfSetBits @ 0x1800E46E0 (RtlNumberOfSetBits.c)
+ *     RtlNumberOfSetBits @ 0x1800E47A0 (RtlNumberOfSetBits.c)
  */
 
-__int64 __fastcall RtlNumberOfClearBits(_DWORD *a1)
+ULONG __cdecl RtlNumberOfClearBits(PRTL_BITMAP BitMapHeader)
 {
-  return *a1 - (unsigned int)RtlNumberOfSetBits();
+  return BitMapHeader->SizeOfBitMap - RtlNumberOfSetBits(BitMapHeader);
 }

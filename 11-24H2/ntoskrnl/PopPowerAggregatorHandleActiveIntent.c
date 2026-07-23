@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAggregatorHandleActiveIntent @ 0x140A376A0
+ * XREFs of PopPowerAggregatorHandleActiveIntent @ 0x140A3ABE0
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     PopDiagTraceMonitorOnWithLidClosed @ 0x140A377B8 (PopDiagTraceMonitorOnWithLidClosed.c)
- *     PopIsInputSuppressionEngaged @ 0x140A37828 (PopIsInputSuppressionEngaged.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceMonitorOnWithLidClosed @ 0x140A3ACF8 (PopDiagTraceMonitorOnWithLidClosed.c)
+ *     PopIsInputSuppressionEngaged @ 0x140A3AD68 (PopIsInputSuppressionEngaged.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleActiveIntent(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ LABEL_8:
         return (unsigned int)-1073700861;
 LABEL_7:
       PopDiagTraceMonitorOnWithLidClosed(*(unsigned int *)(a2 + 8), 0LL);
-      ZwUpdateWnfStateData((__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, a2 + 16);
+      ZwUpdateWnfStateData(&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, (const void *)(a2 + 16), 8u, 0LL, 0LL, 0, 0);
       goto LABEL_8;
     }
     if ( !SSHSupportIsPlatformAoAc() || !*(_BYTE *)(v9 + 41) )

@@ -12,13 +12,13 @@ __int64 __fastcall MiUnloadApproved(__int64 a1)
 {
   int SystemRegionType; // eax
   __int64 v2; // r8
-  char *v3; // r9
+  void *v3; // r9
   unsigned int v4; // r10d
   __int16 v5; // ax
   _QWORD *v7; // rax
   int v8; // ecx
   unsigned int v9; // ebx
-  char *ExportedRoutineByName; // rax
+  int (*ExportedRoutineByName)(void); // rax
 
   if ( *(_QWORD *)(a1 + 136) == 1LL )
     return 0LL;
@@ -45,9 +45,9 @@ __int64 __fastcall MiUnloadApproved(__int64 a1)
   v9 = 0;
   if ( *(_QWORD *)(v2 + 272) )
     return v4;
-  ExportedRoutineByName = RtlFindExportedRoutineByName(v3, "DllUnload");
+  ExportedRoutineByName = (int (*)(void))RtlFindExportedRoutineByName(v3, "DllUnload");
   if ( !ExportedRoutineByName )
     return 0LL;
-  LOBYTE(v9) = ((int (*)(void))ExportedRoutineByName)() >= 0;
+  LOBYTE(v9) = ExportedRoutineByName() >= 0;
   return v9;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDevicePanelGroup @ 0x140B480C8
+ * XREFs of _CmGetDevicePanelGroup @ 0x140B49E58
  * Callers:
- *     _CmUpdateDevicePanel @ 0x1409D97C8 (_CmUpdateDevicePanel.c)
- *     _CmUpdateDevicePanelInterface @ 0x140AF175C (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140A151A0 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x140A16A1C (_CmUpdateDevicePanel.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCheckKeyBodyAccess @ 0x140930990
+ * XREFs of CmpCheckKeyBodyAccess @ 0x14090C4C0
  * Callers:
- *     CmpDoAccessCheckOnKCB @ 0x1408597A8 (CmpDoAccessCheckOnKCB.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140930F10 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpDoAccessCheckOnKCB @ 0x14085FB38 (CmpDoAccessCheckOnKCB.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14090CA40 (CmpCheckOpenAccessOnKeyBody.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     CmpTransUowIsEqual @ 0x140776F48 (CmpTransUowIsEqual.c)
- *     SepConcatenatePrivileges @ 0x140904FC0 (SepConcatenatePrivileges.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     CmpTransUowIsEqual @ 0x140779DF0 (CmpTransUowIsEqual.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepConcatenatePrivileges @ 0x140934F50 (SepConcatenatePrivileges.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
  */
 
 __int64 __fastcall CmpCheckKeyBodyAccess(
@@ -53,43 +53,39 @@ __int64 __fastcall CmpCheckKeyBodyAccess(
   _DWORD *v30; // rdi
   int v31; // edx
   ACCESS_MASK v32; // eax
-  __int64 v33; // rdx
-  __int64 v34; // r8
   PERESOURCE *ClientToken; // rcx
-  __int64 v36; // rdx
-  __int64 v37; // r8
-  PVOID *v39; // rdi
-  _DWORD *v40; // rdx
-  unsigned int v41; // eax
-  unsigned int *p_PrivilegeCount; // r8
-  PVOID *v43; // r12
-  __int64 v44; // rdx
-  __int64 v45; // rax
-  PVOID *v46; // rax
-  _QWORD *v47; // rcx
-  __int64 v48; // r8
-  __int64 v49; // r9
-  bool v50; // cl
-  bool v51; // al
+  PVOID *v35; // rdi
+  _DWORD *v36; // rdx
+  unsigned int v37; // eax
+  PPRIVILEGE_SET v38; // r8
+  LUID *v39; // r12
+  __int64 v40; // rdx
+  __int64 v41; // rax
+  LUID *v42; // rax
+  LUID v43; // rcx
+  __int64 v44; // r8
+  __int64 v45; // r9
+  bool v46; // cl
+  bool v47; // al
   NTSTATUS AccessStatus; // [rsp+58h] [rbp-31h] BYREF
-  PVOID *Pool2; // [rsp+60h] [rbp-29h]
+  LUID *Pool2; // [rsp+60h] [rbp-29h]
   ACCESS_MASK GrantedAccess; // [rsp+68h] [rbp-21h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+70h] [rbp-19h] BYREF
   PVOID *AuxData; // [rsp+78h] [rbp-11h]
-  __int128 v57; // [rsp+80h] [rbp-9h]
-  PPRIVILEGE_SET v58[2]; // [rsp+90h] [rbp+7h]
+  __int128 v53; // [rsp+80h] [rbp-9h]
+  PPRIVILEGE_SET v54[2]; // [rsp+90h] [rbp+7h]
 
   AccessMode = a4;
   v7 = 0LL;
   v8 = Object;
   GrantedAccess = 0;
   Privileges = 0LL;
-  v57 = 0LL;
-  WORD1(v57) = -1;
-  *(_OWORD *)v58 = 0LL;
+  v53 = 0LL;
+  WORD1(v53) = -1;
+  *(_OWORD *)v54 = 0LL;
   if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(Object, a2) )
   {
-    Pool = v58[1];
+    Pool = v54[1];
     v21 = 0;
     AccessStatus = -1073741444;
   }
@@ -100,10 +96,10 @@ __int64 __fastcall CmpCheckKeyBodyAccess(
     v11 = *(__int16 *)(v9 + 66);
     if ( v11 < 2 || (Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL)) != 0LL )
     {
-      LOWORD(v57) = v11;
-      v58[1] = Pool;
+      LOWORD(v53) = v11;
+      v54[1] = Pool;
       v12 = *(__int16 *)(v9 + 66);
-      WORD1(v57) = v12;
+      WORD1(v53) = v12;
       if ( (_WORD)v12 )
       {
         for ( i = *(_QWORD *)(v9 + 192); i; LOWORD(v12) = v12 - 1 )
@@ -115,27 +111,27 @@ __int64 __fastcall CmpCheckKeyBodyAccess(
           }
           else
           {
-            v58[(__int16)v12 - 1] = v23;
-            Pool = v58[1];
+            v54[(__int16)v12 - 1] = v23;
+            Pool = v54[1];
           }
           i = *(_QWORD *)(i + 24);
         }
       }
       else
       {
-        v58[v12 - 1] = (PPRIVILEGE_SET)v9;
-        Pool = v58[1];
+        v54[v12 - 1] = (PPRIVILEGE_SET)v9;
+        Pool = v54[1];
       }
-      v13 = WORD1(v57);
+      v13 = WORD1(v53);
       AccessStatus = 0;
-      if ( (SWORD1(v57) & 0x8000u) == 0 )
+      if ( (SWORD1(v53) & 0x8000u) == 0 )
       {
         do
         {
           if ( v13 >= 2u )
             v14 = (PPRIVILEGE_SET)*((_QWORD *)Pool + v13 - 2);
           else
-            v14 = v58[v13 - 1];
+            v14 = v54[v13 - 1];
           if ( HIWORD(v14[3].Control) && BYTE1(v14[3].Control) == 1 )
             break;
           if ( v14[2].PrivilegeCount != -1 )
@@ -144,9 +140,9 @@ __int64 __fastcall CmpCheckKeyBodyAccess(
             if ( !v15
               || a2
               && (a2 == v15
-               || ((v19 = *(_QWORD *)(a2 + 56)) == 0 || (v45 = *(_QWORD *)(v15 + 56)) == 0
+               || ((v19 = *(_QWORD *)(a2 + 56)) == 0 || (v41 = *(_QWORD *)(v15 + 56)) == 0
                  ? (IsEqual = CmpTransUowIsEqual((const void *)(a2 + 88), (const void *)(v15 + 88)))
-                 : (IsEqual = v19 == v45),
+                 : (IsEqual = v19 == v41),
                    IsEqual)) )
             {
               v7 = v14;
@@ -172,28 +168,28 @@ __int64 __fastcall CmpCheckKeyBodyAccess(
         if ( Privilege == v18 )
           goto LABEL_82;
 LABEL_68:
-        v46 = v18 - 4;
+        v42 = (LUID *)(v18 - 4);
         v18 = (PVOID *)v18[1];
         while ( 1 )
         {
-          Pool2 = v46;
-          if ( !v46 )
+          Pool2 = v42;
+          if ( !v42 )
             break;
-          v47 = v46[7];
-          if ( v47 )
+          v43 = v42[7];
+          if ( v43 )
           {
-            if ( v47 == (_QWORD *)a2
-              || ((v48 = v47[7]) == 0 || (v49 = *(_QWORD *)(a2 + 56)) == 0
-                ? (v51 = CmpTransUowIsEqual(v47 + 11, (const void *)(a2 + 88)),
+            if ( v43 == a2
+              || ((v44 = *(_QWORD *)(*(_QWORD *)&v43 + 56LL)) == 0 || (v45 = *(_QWORD *)(a2 + 56)) == 0
+                ? (v47 = CmpTransUowIsEqual((const void *)(*(_QWORD *)&v43 + 88LL), (const void *)(a2 + 88)),
                    Privilege = AuxData,
-                   v50 = v51,
-                   v46 = Pool2)
-                : (PVOID *)(v50 = v48 == v49),
-                  v50) )
+                   v46 = v47,
+                   v42 = Pool2)
+                : (LUID *)(v46 = v44 == v45),
+                  v46) )
             {
-              if ( *((_DWORD *)v46 + 17) == 9 )
+              if ( v42[8].HighPart == 9 )
               {
-                Luid = (LUID)v46[11];
+                Luid = v42[11];
                 break;
               }
             }
@@ -203,7 +199,7 @@ LABEL_68:
           if ( Privilege != v18 )
             goto LABEL_68;
 LABEL_82:
-          v46 = 0LL;
+          v42 = 0LL;
         }
       }
       CurrentThread = KeGetCurrentThread();
@@ -237,29 +233,29 @@ LABEL_82:
         v31 = *(_DWORD *)*AuxData;
         if ( v31 + PrivilegeCount > 3 )
         {
-          Pool2 = (PVOID *)ExAllocatePool2(0x100uLL);
+          Pool2 = (LUID *)ExAllocatePool2(0x100uLL);
           if ( Pool2 )
           {
-            v39 = AuxData;
-            v40 = *AuxData;
+            v35 = AuxData;
+            v36 = *AuxData;
             if ( *AuxData )
             {
-              if ( *v40 )
-                v41 = 12 * *v40 + 8;
+              if ( *v36 )
+                v37 = 12 * *v36 + 8;
               else
-                v41 = 8;
+                v37 = 8;
             }
             else
             {
-              v41 = 0;
+              v37 = 0;
             }
-            memmove(Pool2, v40, v41);
-            p_PrivilegeCount = &v28->PrivilegeCount;
-            v43 = Pool2;
-            SepConcatenatePrivileges(Pool2, v44, p_PrivilegeCount);
+            memmove(Pool2, v36, v37);
+            v38 = v28;
+            v39 = Pool2;
+            SepConcatenatePrivileges(Pool2, v40, v38);
             if ( a3->PrivilegesAllocated )
-              ExFreePoolWithTag(*v39, 0);
-            *v39 = v43;
+              ExFreePoolWithTag(*v35, 0);
+            *v35 = v39;
             a3->PrivilegesAllocated = 1;
           }
         }
@@ -318,17 +314,17 @@ LABEL_82:
       }
       *((_WORD *)v8 + 24) &= ~2u;
       ExReleaseResourceLite(*((PERESOURCE *)a3->SubjectSecurityContext.PrimaryToken + 6));
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v33, v34);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       ClientToken = (PERESOURCE *)a3->SubjectSecurityContext.ClientToken;
       if ( ClientToken )
       {
         ExReleaseResourceLite(ClientToken[6]);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v36, v37);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       }
     }
     else
     {
-      Pool = v58[1];
+      Pool = v54[1];
       v21 = 0;
       AccessStatus = -1073741670;
     }

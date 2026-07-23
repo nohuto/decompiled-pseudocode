@@ -1,10 +1,10 @@
 /*
- * XREFs of HalEfiResetSystem @ 0x1404C3BA0
+ * XREFs of HalEfiResetSystem @ 0x1404C3DE0
  * Callers:
- *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
- *     HalpShutdown @ 0x1404BE490 (HalpShutdown.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE54C (HalpPowerWriteResetCommand.c)
+ *     HalpShutdown @ 0x1404BE6D0 (HalpShutdown.c)
  * Callees:
- *     HalpEfiStartRuntimeCode @ 0x1404C3FA8 (HalpEfiStartRuntimeCode.c)
+ *     HalpEfiStartRuntimeCode @ 0x1404C41E8 (HalpEfiStartRuntimeCode.c)
  */
 
 KPCR *HalEfiResetSystem()

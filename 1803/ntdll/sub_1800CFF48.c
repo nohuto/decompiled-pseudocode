@@ -33,7 +33,7 @@ __int64 __fastcall sub_1800CFF48(const void **a1, _DWORD *a2)
   v5 = 0;
   if ( byte_18015C328 )
     __debugbreak();
-  v6 = (int)RtlReportException(*a1, a1[1], 2LL) < 0;
+  v6 = RtlReportException((PEXCEPTION_RECORD)*a1, (PCONTEXT)a1[1], 2u) < 0;
   result = 1LL;
   LOBYTE(v5) = !v6;
   *a2 = v5;

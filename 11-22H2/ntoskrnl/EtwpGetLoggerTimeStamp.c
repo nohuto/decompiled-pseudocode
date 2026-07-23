@@ -23,7 +23,7 @@ LARGE_INTEGER __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
   if ( v1 > 3 )
     goto LABEL_10;
   if ( !(_DWORD)v1 )
-    return (LARGE_INTEGER)RtlGetSystemTimePrecise();
+    return RtlGetSystemTimePrecise();
   v2 = v1 - 1;
   if ( !v2 )
     return KeQueryPerformanceCounter(0LL);

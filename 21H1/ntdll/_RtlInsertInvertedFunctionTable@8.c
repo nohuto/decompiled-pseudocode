@@ -12,16 +12,16 @@
  *     _LdrProtectMrdata@4 @ 0x4B2E1D36 (_LdrProtectMrdata@4.c)
  */
 
-int __fastcall RtlInsertInvertedFunctionTable(int a1, int a2)
+void __fastcall RtlInsertInvertedFunctionTable(void *a1, int a2)
 {
   int v3; // esi
-  _DWORD v5[2]; // [esp+10h] [ebp-8h] BYREF
+  int v4[2]; // [esp+10h] [ebp-8h] BYREF
 
-  RtlCaptureImageExceptionValues(v5);
-  v3 = __ROR4__(v5[1] ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+  RtlCaptureImageExceptionValues(a1, (int)v4);
+  v3 = __ROR4__(v4[1] ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
   RtlAcquireSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
   LdrProtectMrdata(0);
-  RtlpInsertInvertedFunctionTableEntry(v3, a2, v5[0]);
+  RtlpInsertInvertedFunctionTableEntry(v3, a2, v4[0]);
   LdrProtectMrdata(1);
-  return RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
 }

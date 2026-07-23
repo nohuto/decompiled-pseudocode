@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRecordLargePageCandidate @ 0x1403096C4
+ * XREFs of MiRecordLargePageCandidate @ 0x1403135A4
  * Callers:
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUpdateLargePageCandidates @ 0x14026A2B0 (MiUpdateLargePageCandidates.c)
- *     MiUpdateLargePageCandidateValue @ 0x140272210 (MiUpdateLargePageCandidateValue.c)
- *     MiProcessLargeCoalesceBitmapCandidates @ 0x140309490 (MiProcessLargeCoalesceBitmapCandidates.c)
+ *     MiUpdateLargePageCandidates @ 0x14021F840 (MiUpdateLargePageCandidates.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402277A0 (MiUpdateLargePageCandidateValue.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiProcessLargeCoalesceBitmapCandidates @ 0x140313370 (MiProcessLargeCoalesceBitmapCandidates.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 __int64 __fastcall MiRecordLargePageCandidate(__int64 a1, ULONG_PTR a2, unsigned int a3, char a4)
@@ -26,7 +26,7 @@ __int64 __fastcall MiRecordLargePageCandidate(__int64 a1, ULONG_PTR a2, unsigned
   v5 = a3;
   v8 = 57216LL * (unsigned int)MiPageToNode(a2);
   if ( (_DWORD)v5 == 2 )
-    v9 = v8 + qword_140E38C10;
+    v9 = v8 + qword_140E38D50;
   else
     v9 = v8 + *(_QWORD *)(a1 + 16);
   if ( (a4 & 1) != 0 )

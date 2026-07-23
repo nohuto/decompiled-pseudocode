@@ -56,7 +56,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   const void **v32; // [rsp+50h] [rbp-288h]
   struct _DMA_ADAPTER *v33; // [rsp+58h] [rbp-280h]
   __int64 v34; // [rsp+60h] [rbp-278h]
-  size_t v35[52]; // [rsp+70h] [rbp-268h] BYREF
+  size_t PackageSize[52]; // [rsp+70h] [rbp-268h] BYREF
   _OWORD v36[3]; // [rsp+210h] [rbp-C8h] BYREF
   _BYTE Src[80]; // [rsp+240h] [rbp-98h] BYREF
 
@@ -64,7 +64,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v34 = BugCheckParameter1;
   v31 = a5;
   memset(v36, 0, sizeof(v36));
-  memset(v35, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   memset(Src, 0, 0x44uLL);
   Size = 0;
   *(_OWORD *)P = 0LL;
@@ -77,7 +77,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v10 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
   v33 = v10;
   v28 = 0;
-  EtwpQueryTokenPackageInfo((__int64)v10, (__int64)v35, &v28);
+  EtwpQueryTokenPackageInfo(v10, (WCHAR *)PackageSize, &v28);
   v11 = SeQueryUserSidToken(v10, Src, 68LL, &Size);
   if ( v11 >= 0 )
   {
@@ -90,7 +90,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
       v8 = v29;
     }
-    v15 = Size + 100 + LODWORD(v35[0]) + LODWORD(v35[1]) + *(unsigned __int16 *)v9 + LOWORD(P[0]);
+    v15 = Size + 100 + LODWORD(PackageSize[0]) + LODWORD(PackageSize[1]) + *(unsigned __int16 *)v9 + LOWORD(P[0]);
     v16 = v15;
     if ( v31 )
       *v31 = v15;
@@ -129,11 +129,11 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         memmove(v19, v32[1], *(unsigned __int16 *)v32);
         v21 = &v19[*v20 + 2];
         *((_DWORD *)Address + 20) = (_DWORD)v21 - (_DWORD)Address;
-        memmove(v21, &v35[2], v35[0]);
-        v22 = &v21[v35[0]];
+        memmove(v21, &PackageSize[2], PackageSize[0]);
+        v22 = &v21[PackageSize[0]];
         *((_DWORD *)Address + 21) = (_DWORD)v22 - (_DWORD)Address;
-        memmove(v22, &v35[34], v35[1]);
-        v23 = &v22[v35[1]];
+        memmove(v22, &PackageSize[34], PackageSize[1]);
+        v23 = &v22[PackageSize[1]];
         *((_DWORD *)Address + 22) = (_DWORD)v23 - (_DWORD)Address;
         memmove(v23, P[1], LOWORD(P[0]));
         v11 = 0;

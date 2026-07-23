@@ -1,5 +1,5 @@
 /*
- * XREFs of PsRegisterPicoProvider @ 0x14090BBE0
+ * XREFs of PsRegisterPicoProvider @ 0x14090BD40
  * Callers:
  *     <none>
  * Callees:

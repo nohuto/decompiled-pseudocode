@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepMemAlloc @ 0x14022588C
+ * XREFs of AuthzBasepMemAlloc @ 0x14022599C
  * Callers:
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x14022523C (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepAllocateSecurityAttributeValue @ 0x14022584C (AuthzBasepAllocateSecurityAttributeValue.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x14036AF8C (AuthzBasepAllocateSecurityAttributesList.c)
- *     AuthzBasepAllocateClaimCollectionNoLists @ 0x140A59D64 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140225344 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x14022595C (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x14036B12C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x140A5A014 (AuthzBasepAllocateClaimCollectionNoLists.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

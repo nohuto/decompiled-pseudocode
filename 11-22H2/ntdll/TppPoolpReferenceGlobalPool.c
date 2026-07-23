@@ -18,33 +18,33 @@
  *     TppRaiseInvalidParameter @ 0x180125DC8 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TppPoolpReferenceGlobalPool(
+NTSTATUS __fastcall TppPoolpReferenceGlobalPool(
         volatile signed __int32 **a1,
         _PEB_LDR_DATA *Ldr,
         volatile signed __int32 **a3,
-        unsigned __int64 a4)
+        __int64 a4)
 {
-  volatile signed __int64 *v5; // rsi
+  _RTL_SRWLOCK *v5; // rsi
   char v7; // bl
-  __int64 result; // rax
-  __int64 v9; // rdx
+  NTSTATUS result; // eax
+  ULONG v9; // edx
   int v10; // edx
   int v11; // edx
   __int64 v12; // rdx
-  int v13; // eax
+  NTSTATUS v13; // eax
   int v14; // [rsp+20h] [rbp-28h]
-  __int64 v15; // [rsp+68h] [rbp+20h] BYREF
+  PTP_POOL PoolReturn; // [rsp+68h] [rbp+20h] BYREF
 
-  v5 = (volatile signed __int64 *)Ldr;
+  v5 = (_RTL_SRWLOCK *)Ldr;
   if ( !a3 || !a1 || !Ldr || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
   {
     TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-    return 3221225485LL;
+    return -1073741811;
   }
   if ( *a1 )
   {
     v7 = 0;
-    RtlAcquireSRWLockShared(v5, (unsigned __int64)Ldr, (unsigned __int64)a3, a4);
+    RtlAcquireSRWLockShared(v5);
     if ( *a1 )
     {
       _InterlockedIncrement(*a1);
@@ -53,12 +53,12 @@ __int64 __fastcall TppPoolpReferenceGlobalPool(
     }
     RtlReleaseSRWLockShared(v5);
     if ( v7 )
-      return 0LL;
+      return 0;
   }
-  v15 = 0LL;
-  result = TpAllocPool(&v15, 0LL);
+  PoolReturn = 0LL;
+  result = TpAllocPool(&PoolReturn, 0LL);
   v14 = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     RtlAcquireSRWLockExclusive(v5);
     if ( *a1 )
@@ -70,55 +70,55 @@ __int64 __fastcall TppPoolpReferenceGlobalPool(
     {
       if ( TppPoolpGlobalPoolMaxThreads )
       {
-        TpSetPoolMaxThreads(v15, (unsigned int)TppPoolpGlobalPoolMaxThreads);
+        TpSetPoolMaxThreads(PoolReturn, TppPoolpGlobalPoolMaxThreads);
       }
       else
       {
-        v9 = (unsigned int)TppPoolpGlobalPoolMaxThreadsOverride;
+        v9 = TppPoolpGlobalPoolMaxThreadsOverride;
         if ( !TppPoolpGlobalPoolMaxThreadsOverride )
         {
-          if ( !v15 || (v10 = *(_DWORD *)(v15 + 440)) == 0 )
+          if ( !PoolReturn || (v10 = *((_DWORD *)PoolReturn + 110)) == 0 )
             v10 = MEMORY[0x7FFE03C0];
-          v9 = (unsigned int)(8 * v10);
-          if ( (unsigned int)v9 < 0x300 )
-            v9 = 768LL;
+          v9 = 8 * v10;
+          if ( v9 < 0x300 )
+            v9 = 768;
         }
-        TpSetPoolMaxThreads(v15, v9);
+        TpSetPoolMaxThreads(PoolReturn, v9);
         if ( TppPoolpGlobalPoolMaxThreadsOverride )
         {
           v12 = 0LL;
         }
         else
         {
-          if ( !v15 || (v11 = *(_DWORD *)(v15 + 440)) == 0 )
+          if ( !PoolReturn || (v11 = *((_DWORD *)PoolReturn + 110)) == 0 )
             v11 = MEMORY[0x7FFE03C0];
           v12 = (unsigned int)(4 * v11);
           if ( (unsigned int)v12 < 0x180 )
             v12 = 384LL;
         }
-        TpSetPoolMaxThreadsSoftLimit(v15, v12);
+        TpSetPoolMaxThreadsSoftLimit(PoolReturn, v12);
       }
       if ( !TppPoolpGlobalPoolStackSize )
         goto LABEL_27;
-      v13 = TpSetPoolStackInformation(v15);
+      v13 = TpSetPoolStackInformation(PoolReturn, TppPoolpGlobalPoolStackSize);
     }
     else
     {
       if ( a1 != (volatile signed __int32 **)&TppPoolpSerializedPool )
       {
 LABEL_27:
-        *a1 = (volatile signed __int32 *)v15;
-        v15 = 0LL;
+        *a1 = (volatile signed __int32 *)PoolReturn;
+        PoolReturn = 0LL;
 LABEL_40:
         RtlReleaseSRWLockExclusive(v5);
-        if ( v15 )
-          TpReleasePool(v15);
+        if ( PoolReturn )
+          TpReleasePool(PoolReturn);
         if ( v14 >= 0 )
           *a3 = *a1;
-        return (unsigned int)v14;
+        return v14;
       }
-      TpSetPoolMaxThreads(v15, 1LL);
-      v13 = TpSetPoolMinThreads(v15, 1LL);
+      TpSetPoolMaxThreads(PoolReturn, 1u);
+      v13 = TpSetPoolMinThreads(PoolReturn, 1u);
     }
     v14 = v13;
     if ( v13 < 0 )

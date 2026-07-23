@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpOpenPort @ 0x14069E1E0
+ * XREFs of AlpcpOpenPort @ 0x1405FD3B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
  */
 
 __int64 __fastcall AlpcpOpenPort(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
@@ -30,6 +30,6 @@ __int64 __fastcall AlpcpOpenPort(int a1, __int64 a2, __int64 a3, __int64 a4, _DW
         *a5 &= ~1u;
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3, a4);
   return v6;
 }

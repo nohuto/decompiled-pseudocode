@@ -1,11 +1,11 @@
 /*
- * XREFs of PspFreeSessionId @ 0x14077BBDC
+ * XREFs of PspFreeSessionId @ 0x14077BA8C
  * Callers:
- *     PsSessionCreate @ 0x1406F73F8 (PsSessionCreate.c)
- *     PspReleaseReferenceToSession @ 0x140A86D78 (PspReleaseReferenceToSession.c)
+ *     PsSessionCreate @ 0x1406F53F8 (PsSessionCreate.c)
+ *     PspReleaseReferenceToSession @ 0x140A81850 (PspReleaseReferenceToSession.c)
  * Callees:
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
  */
 
 _QWORD *__fastcall PspFreeSessionId(unsigned int a1)

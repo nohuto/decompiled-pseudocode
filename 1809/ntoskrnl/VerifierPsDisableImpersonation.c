@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierPsDisableImpersonation @ 0x140932CB0
+ * XREFs of VerifierPsDisableImpersonation @ 0x140933CB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierPsDisableImpersonation()

@@ -15,7 +15,7 @@
 
 __int64 __fastcall EtwpInitializeStackTracing(__int64 a1)
 {
-  union _SLIST_HEADER *v1; // rbp
+  _SLIST_HEADER *v1; // rbp
   unsigned int v3; // edi
   ULONG v4; // eax
   unsigned int v5; // ecx
@@ -26,7 +26,7 @@ __int64 __fastcall EtwpInitializeStackTracing(__int64 a1)
   __int64 v10; // rcx
   void *v11; // rcx
 
-  v1 = (union _SLIST_HEADER *)(a1 + 928);
+  v1 = (_SLIST_HEADER *)(a1 + 928);
   v3 = 0;
   InitializeSListHead((PSLIST_HEADER)(a1 + 928));
   v4 = 4 * KeQueryActiveProcessorCountEx(0xFFFFu);

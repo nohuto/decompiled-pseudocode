@@ -1,11 +1,11 @@
 /*
- * XREFs of FsFilterAllocateCompletionStack @ 0x14042F498
+ * XREFs of FsFilterAllocateCompletionStack @ 0x140421668
  * Callers:
- *     FsFilterCtrlInit @ 0x14042F400 (FsFilterCtrlInit.c)
+ *     FsFilterCtrlInit @ 0x1404215D0 (FsFilterCtrlInit.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall FsFilterAllocateCompletionStack(__int64 a1, char a2)
@@ -17,7 +17,7 @@ __int64 __fastcall FsFilterAllocateCompletionStack(__int64 a1, char a2)
 
   v4 = 0LL;
   v5 = 0LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 32LL * *(unsigned __int16 *)(a1 + 72), 0x676D5346u);
   if ( Pool2 )
     goto LABEL_2;
   if ( !a2 )

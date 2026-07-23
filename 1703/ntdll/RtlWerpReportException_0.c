@@ -10,49 +10,54 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall RtlWerpReportException_0(
-        unsigned int a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        unsigned int a5,
-        _QWORD *a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlWerpReportException_0(
+        ULONG ProcessId,
+        HANDLE CrashReportSharedMem,
+        ULONG Flags,
+        PHANDLE CrashVerticalProcessHandle)
 {
-  __int64 v10; // rdx
-  __int64 result; // rax
-  _QWORD v12[176]; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v13[176]; // [rsp+5A0h] [rbp+4A0h] BYREF
+  unsigned int v4; // edi
+  __int64 v5; // rsi
+  __int64 v8; // rdx
+  NTSTATUS result; // eax
+  _PORT_MESSAGE ReceiveMessage[35]; // [rsp+20h] [rbp-E0h] BYREF
+  _PORT_MESSAGE SendMessageA[35]; // [rsp+5A0h] [rbp+4A0h] BYREF
+  unsigned int v12; // [rsp+B90h] [rbp+A90h]
+  HANDLE *v13; // [rsp+B98h] [rbp+A98h]
 
-  *a6 = 0LL;
-  if ( a4 > 5 )
-    return 3221226539LL;
-  memset(v13, 0, 0x578uLL);
-  v10 = 0LL;
-  LODWORD(v13[0]) = 91751760;
-  LODWORD(v13[5]) = 0x20000000;
-  v13[7] = a2;
-  v13[6] = __PAIR64__(a1, a5);
-  if ( a3 )
+  v4 = (unsigned int)CrashVerticalProcessHandle;
+  v5 = *(_QWORD *)&Flags;
+  *v13 = 0LL;
+  if ( (unsigned int)CrashVerticalProcessHandle > 5 )
+    return -1073740757;
+  memset(SendMessageA, 0, sizeof(SendMessageA));
+  v8 = 0LL;
+  SendMessageA[0].u1.Length = 91751760;
+  SendMessageA[1].u1.Length = 0x20000000;
+  SendMessageA[1].ClientId.UniqueThread = CrashReportSharedMem;
+  SendMessageA[1].ClientId.UniqueProcess = (HANDLE)__PAIR64__(ProcessId, v12);
+  if ( v5 )
   {
-    while ( (unsigned int)v10 < a4 && (unsigned int)v10 < 5 )
+    while ( (unsigned int)v8 < v4 && (unsigned int)v8 < 5 )
     {
-      v13[v10 + 8] = *(_QWORD *)(a3 + 8 * v10);
-      v10 = (unsigned int)(v10 + 1);
+      *((_QWORD *)&SendMessageA[1].MessageId + v8) = *(_QWORD *)(v5 + 8 * v8);
+      v8 = (unsigned int)(v8 + 1);
     }
   }
-  memset(v12, 0, 0x578uLL);
-  LODWORD(v12[0]) = 91751760;
-  result = sub_180003CFC(v13, v12);
-  if ( (int)result >= 0 )
+  memset(ReceiveMessage, 0, sizeof(ReceiveMessage));
+  ReceiveMessage[0].u1.Length = 91751760;
+  result = sub_180003CFC(SendMessageA, ReceiveMessage);
+  if ( result >= 0 )
   {
-    if ( (_DWORD)result == 258 )
+    if ( result == 258 )
     {
-      return 3221226048LL;
+      return -1073741248;
     }
     else
     {
-      *a6 = v12[6];
-      return 0LL;
+      *v13 = ReceiveMessage[1].ClientId.UniqueProcess;
+      return 0;
     }
   }
   return result;

@@ -10,10 +10,10 @@
  *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x1404F1AE4 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
  */
 
-__int64 __fastcall KiSetClockIntervalOneShot(__int64 a1, __int64 a2)
+__int64 __fastcall KiSetClockIntervalOneShot(__int64 a1, LARGE_INTEGER a2)
 {
   int IsEnabledNoReportingNoInline; // eax
-  unsigned int ClockIntervalOneShot; // eax
+  unsigned int v5; // eax
   __int64 v6; // r8
 
   KiClockOwnerOneShotRequest = a1;
@@ -26,7 +26,7 @@ __int64 __fastcall KiSetClockIntervalOneShot(__int64 a1, __int64 a2)
   {
     KiSetClockIntervalToMinimumRequested();
   }
-  ClockIntervalOneShot = KiGetClockIntervalOneShot(a1, a2);
+  v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiGetClockIntervalOneShot)(a1, (LARGE_INTEGER)a2.QuadPart);
   LOBYTE(v6) = 1;
-  return PoTraceSystemTimerResolutionKernel(ClockIntervalOneShot, 1397707336LL, v6);
+  return PoTraceSystemTimerResolutionKernel(v5, 1397707336LL, v6);
 }

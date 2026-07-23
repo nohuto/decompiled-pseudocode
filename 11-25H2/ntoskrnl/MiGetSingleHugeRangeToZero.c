@@ -56,7 +56,7 @@ unsigned __int64 __fastcall MiGetSingleHugeRangeToZero(__int64 a1, __int64 a2, v
       v6 = v15 ^ (v15 ^ v6) & 0xFFFFFFFFFFC00000uLL;
       if ( (v15 & 0x3FFFFF) == 0 )
         goto LABEL_8;
-      if ( !_bittest64((const signed __int64 *)qword_140E2FD78, v16) )
+      if ( !_bittest64((const signed __int64 *)stru_140E2FD70.Buffer, v16) )
         goto LABEL_9;
       v17 = (__int64 *)(qword_140E2FD80 + 8 * v16);
       if ( !v13

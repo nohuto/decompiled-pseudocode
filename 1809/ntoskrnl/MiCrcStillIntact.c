@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCrcStillIntact @ 0x140082C54
+ * XREFs of MiCrcStillIntact @ 0x140082C44
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiMakeCombineCandidateClean @ 0x140082B8C (MiMakeCombineCandidateClean.c)
- *     MiRecheckVaVm @ 0x140085570 (MiRecheckVaVm.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiClearPteAccessed @ 0x14006B770 (MiClearPteAccessed.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiMakeCombineCandidateClean @ 0x140082B7C (MiMakeCombineCandidateClean.c)
+ *     MiRecheckVaVm @ 0x140085560 (MiRecheckVaVm.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiCombineCandidate @ 0x1400B2610 (MiCombineCandidate.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
@@ -89,7 +89,7 @@ __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, unsigned int a3, __i
                   v28 = 0LL;
                   v23 = v19;
                   v25 = 20;
-                  if ( (unsigned int)MiClearPteAccessed(v20, v11, v9, (__int64)&v23, dword_14043A8E8, 0) )
+                  if ( (unsigned int)MiClearPteAccessed(v20, v11, v9, (__int64)&v23, dword_14043B9A8, 0) )
                     return 1LL;
                 }
               }

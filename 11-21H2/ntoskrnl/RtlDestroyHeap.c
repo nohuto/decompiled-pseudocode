@@ -6,9 +6,9 @@
  *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
  *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
  *     ZwFreeVirtualMemory @ 0x14041BB20 (ZwFreeVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlpHeapHandleError @ 0x1405F1F34 (RtlpHeapHandleError.c)
- *     RtlpDestroyHeapSegment @ 0x1409BB454 (RtlpDestroyHeapSegment.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_1405F1F34 @ 0x1405F1F34 (sub_1405F1F34.c)
+ *     sub_1409BB454 @ 0x1409BB454 (sub_1409BB454.c)
  */
 
 PVOID __stdcall RtlDestroyHeap(PVOID HeapHandle)
@@ -29,7 +29,7 @@ PVOID __stdcall RtlDestroyHeap(PVOID HeapHandle)
     {
       v3 = *((_DWORD *)HeapHandle + 36);
       if ( v3 && (_WORD)v3 == 1 )
-        ((void (__fastcall *)(PVOID, _QWORD, __int64))CLFS_LSN_NULL_EXT)(HeapHandle, 0LL, 8LL);
+        sub_14042A5E0(HeapHandle, 0LL);
       v4 = (_QWORD *)*((_QWORD *)HeapHandle + 34);
       while ( (char *)HeapHandle + 272 != (char *)v4 )
       {
@@ -49,15 +49,15 @@ PVOID __stdcall RtlDestroyHeap(PVOID HeapHandle)
       do
       {
         v7 = (PVOID)(*((_QWORD *)HeapHandle + 37) - 24LL);
-        RtlpDestroyHeapSegment(v7);
+        sub_1409BB454(v7);
       }
       while ( v7 != HeapHandle );
     }
   }
-  else if ( RtlpHeapErrorHandlerThreshold >= 2 )
+  else if ( dword_140D04920 >= 2 )
   {
     DbgPrint("(HeapHandle != NULL)");
-    RtlpHeapHandleError();
+    sub_1405F1F34();
   }
   return 0LL;
 }

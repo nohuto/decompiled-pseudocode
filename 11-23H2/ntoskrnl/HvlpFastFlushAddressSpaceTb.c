@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpFastFlushAddressSpaceTb @ 0x1403CBFD8
+ * XREFs of HvlpFastFlushAddressSpaceTb @ 0x1403CC1B8
  * Callers:
- *     HvlFlushAddressSpaceTb @ 0x1403CBF98 (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403CC178 (HvlFlushAddressSpaceTb.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlpPrepareFlushHeader @ 0x1403CC248 (HvlpPrepareFlushHeader.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlpPrepareFlushHeader @ 0x1403CC428 (HvlpPrepareFlushHeader.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlpFastFlushAddressSpaceTb(__int64 a1, __int64 a2, char a3, __int64 a4)

@@ -14,5 +14,5 @@ NTSTATUS __stdcall NtOpenTransaction(
         LPGUID Uow,
         HANDLE TmHandle)
 {
-  return __imp_NtOpenTransaction(TransactionHandle, DesiredAccess, ObjectAttributes, Uow, TmHandle);
+  return NtOpenTransaction_0(TransactionHandle, DesiredAccess, ObjectAttributes, Uow, TmHandle);
 }

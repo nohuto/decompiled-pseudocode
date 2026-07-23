@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConvertBaseLargePage @ 0x140459758
+ * XREFs of MiConvertBaseLargePage @ 0x14044E488
  * Callers:
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiFreeLargePageChain @ 0x1403D5A54 (MiFreeLargePageChain.c)
- *     MiConvertLargePfnToSmall @ 0x14041F790 (MiConvertLargePfnToSmall.c)
- *     MiLargePagePromote @ 0x1404316D4 (MiLargePagePromote.c)
- *     MiTryUnlinkNodeLargePages @ 0x1406844A4 (MiTryUnlinkNodeLargePages.c)
+ *     MiFreeLargePageChain @ 0x1402648B8 (MiFreeLargePageChain.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     MiConvertLargePfnToSmall @ 0x1402EE180 (MiConvertLargePfnToSmall.c)
+ *     MiLargePagePromote @ 0x140423C14 (MiLargePagePromote.c)
+ *     MiTryUnlinkNodeLargePages @ 0x1406855D0 (MiTryUnlinkNodeLargePages.c)
  * Callees:
  *     <none>
  */

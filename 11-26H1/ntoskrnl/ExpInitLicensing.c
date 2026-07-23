@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpInitLicensing @ 0x140838930
+ * XREFs of ExpInitLicensing @ 0x14083EB70
  * Callers:
- *     sub_1406CD2F0 @ 0x1406CD2F0 (sub_1406CD2F0.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     sub_1406D1320 @ 0x1406D1320 (sub_1406D1320.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
  *     <none>
  */
@@ -15,9 +15,9 @@ __int64 __fastcall ExpInitLicensing(char *a1)
   v1 = (__int64 *)(a1 + 872);
   if ( a1 == (char *)&PspHostSiloGlobals )
   {
-    qword_141048CC0 = 81920LL;
-    qword_140FD7E80 = (__int64)ExpHostBootLicensingData;
-    *v1 = (__int64)&qword_140FD7E80;
+    qword_141049CC0 = 81920LL;
+    qword_140FD8E90 = (__int64)ExpHostBootLicensingData;
+    *v1 = (__int64)&qword_140FD8E90;
   }
   result = *v1;
   *(_DWORD *)(result + 8) = 0;

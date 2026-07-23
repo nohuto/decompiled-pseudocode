@@ -1,12 +1,12 @@
 /*
- * XREFs of HaliCompleteAcpiAPSleep @ 0x1404B9050
+ * XREFs of HaliCompleteAcpiAPSleep @ 0x1404B2880
  * Callers:
- *     HaliSaveProcessorContextAndSleep @ 0x140723120 (HaliSaveProcessorContextAndSleep.c)
+ *     HaliSaveProcessorContextAndSleep @ 0x140727CF0 (HaliSaveProcessorContextAndSleep.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpFlushAndWait @ 0x140722F50 (HalpFlushAndWait.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     KeWriteProtectPAT @ 0x140BF80B0 (KeWriteProtectPAT.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpFlushAndWait @ 0x140727B20 (HalpFlushAndWait.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeWriteProtectPAT @ 0x140BFE0B0 (KeWriteProtectPAT.c)
  */
 
 __int64 __fastcall HaliCompleteAcpiAPSleep(__int64 a1, __int64 a2)
@@ -24,10 +24,10 @@ __int64 __fastcall HaliCompleteAcpiAPSleep(__int64 a1, __int64 a2)
     v7 = 0;
     while ( 1 )
     {
-      result = (unsigned int)dword_140F87670[0];
-      if ( !dword_140F87670[0] )
+      result = (unsigned int)dword_140F87A50[0];
+      if ( !dword_140F87A50[0] )
         break;
-      if ( (++v7 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+      if ( (++v7 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
         _mm_pause();
       else
         guard_dispatch_icall_no_overrides(v7, a2);
@@ -42,17 +42,17 @@ __int64 __fastcall HaliCompleteAcpiAPSleep(__int64 a1, __int64 a2)
     }
     if ( (unsigned __int8)HalpIsMicrosoftCompatibleHvLoaded() )
     {
-      _InterlockedIncrement(dword_140F87670);
+      _InterlockedIncrement(dword_140F87A50);
       SchedulerAssist = (volatile signed __int32 *)CurrentPrcb->SchedulerAssist;
       if ( SchedulerAssist )
         _InterlockedOr(SchedulerAssist, 0x20000u);
       v5 = 0;
       while ( 1 )
       {
-        result = (unsigned int)dword_140F87670[0];
-        if ( !dword_140F87670[0] )
+        result = (unsigned int)dword_140F87A50[0];
+        if ( !dword_140F87A50[0] )
           break;
-        if ( (++v5 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+        if ( (++v5 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
           _mm_pause();
         else
           guard_dispatch_icall_no_overrides(v5, v3);
@@ -60,7 +60,7 @@ __int64 __fastcall HaliCompleteAcpiAPSleep(__int64 a1, __int64 a2)
     }
     else
     {
-      return HalpFlushAndWait(dword_140F87670);
+      return HalpFlushAndWait(dword_140F87A50);
     }
   }
   return result;

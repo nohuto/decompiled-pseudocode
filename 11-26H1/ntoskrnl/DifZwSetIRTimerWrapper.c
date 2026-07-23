@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwSetIRTimerWrapper @ 0x1406B97B0
+ * XREFs of DifZwSetIRTimerWrapper @ 0x1406BD390
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwSetIRTimer @ 0x140726890 (ZwSetIRTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwSetIRTimer @ 0x14072B460 (ZwSetIRTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwSetIRTimerWrapper(__int64 a1, __int64 a2)
+__int64 __fastcall DifZwSetIRTimerWrapper(HANDLE TimerHandle, PLARGE_INTEGER DueTime)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -43,8 +43,8 @@ __int64 __fastcall DifZwSetIRTimerWrapper(__int64 a1, __int64 a2)
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v8 = 0;
-    *(_QWORD *)&v16 = a1;
-    *((_QWORD *)&v15 + 1) = a2;
+    *(_QWORD *)&v16 = TimerHandle;
+    *((_QWORD *)&v15 + 1) = DueTime;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -57,7 +57,7 @@ __int64 __fastcall DifZwSetIRTimerWrapper(__int64 a1, __int64 a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v16) = ZwSetIRTimer(a1, a2);
+  DWORD2(v16) = ZwSetIRTimer(TimerHandle, DueTime);
   if ( v6 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

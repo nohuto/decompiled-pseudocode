@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x1404A8C20
+ * XREFs of PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x1404A3040
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */

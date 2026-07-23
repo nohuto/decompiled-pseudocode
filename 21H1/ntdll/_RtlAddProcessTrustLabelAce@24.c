@@ -10,48 +10,51 @@
  *     _RtlIsValidProcessTrustLabelSid@4 @ 0x4B3466F0 (_RtlIsValidProcessTrustLabelSid@4.c)
  */
 
-int __stdcall RtlAddProcessTrustLabelAce(
-        unsigned __int8 *a1,
-        unsigned int a2,
-        int a3,
-        unsigned __int8 *Src,
-        char a5,
-        int a6)
+NTSTATUS __cdecl RtlAddProcessTrustLabelAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        PSID ProcessTrustLabelSid,
+        UCHAR AceType,
+        ACCESS_MASK AccessMask)
 {
-  int result; // eax
-  unsigned __int8 v7; // bl
-  unsigned int v8; // edx
+  NTSTATUS result; // eax
+  unsigned __int8 AclRevision; // bl
+  _WORD *v8; // edx
   __int16 v9; // [esp+Ch] [ebp-8h]
-  unsigned int v10; // [esp+10h] [ebp-4h] BYREF
+  PVOID FirstFree; // [esp+10h] [ebp-4h] BYREF
 
-  if ( !a1 || !RtlValidAcl((int)a1) )
+  if ( !Acl || !RtlValidAcl(Acl) )
     return -1073741705;
-  if ( a5 != 20 )
+  if ( AceType != 20 )
     return -1073741811;
-  if ( !RtlValidSid(Src) )
+  if ( !RtlValidSid(ProcessTrustLabelSid) )
     return -1073741704;
-  if ( !RtlIsValidProcessTrustLabelSid((int)Src) )
+  if ( !RtlIsValidProcessTrustLabelSid(ProcessTrustLabelSid) )
     return -1073741811;
-  v7 = *a1;
-  if ( *a1 > 4u || a2 > 4 )
+  AclRevision = Acl->AclRevision;
+  if ( Acl->AclRevision > 4u || AceRevision > 4 )
     return -1073741735;
-  if ( v7 <= a2 )
-    v7 = a2;
-  if ( (a3 & 0xFFFFFFE0) != 0 || (a6 & 0xFF000000) != 0 )
+  if ( AclRevision <= AceRevision )
+    AclRevision = AceRevision;
+  if ( (AceFlags & 0xFFFFFFE0) != 0 || (AccessMask & 0xFF000000) != 0 )
     return -1073741811;
-  if ( !RtlFirstFreeAce((int)a1, &v10) )
+  if ( !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741705;
-  v8 = v10;
-  v9 = 4 * (Src[1] + 4);
-  if ( !v10 || v10 + (unsigned __int16)(4 * (Src[1] + 4)) > (unsigned int)&a1[*((unsigned __int16 *)a1 + 1)] )
+  v8 = FirstFree;
+  v9 = 4 * (*((unsigned __int8 *)ProcessTrustLabelSid + 1) + 4);
+  if ( !FirstFree
+    || (char *)FirstFree + (unsigned __int16)(4 * (*((unsigned __int8 *)ProcessTrustLabelSid + 1) + 4)) > (char *)Acl + Acl->AclSize )
+  {
     return -1073741671;
-  *(_BYTE *)(v10 + 1) = a3;
-  *(_WORD *)(v8 + 2) = v9;
-  *(_DWORD *)(v8 + 4) = a6;
+  }
+  *((_BYTE *)FirstFree + 1) = AceFlags;
+  v8[1] = v9;
+  *((_DWORD *)v8 + 1) = AccessMask;
   *(_BYTE *)v8 = 20;
-  RtlCopySid(4 * Src[1] + 8, (void *)(v8 + 8), Src);
-  ++*((_WORD *)a1 + 2);
+  RtlCopySid(4 * *((unsigned __int8 *)ProcessTrustLabelSid + 1) + 8, v8 + 4, ProcessTrustLabelSid);
+  ++Acl->AceCount;
   result = 0;
-  *a1 = v7;
+  Acl->AclRevision = AclRevision;
   return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpReplicateKeyToVirtual @ 0x140A19FA8
+ * XREFs of CmpReplicateKeyToVirtual @ 0x140A1A258
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1407BA444 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A18238 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x1407BA724 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140A184E8 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2F90 (EtwGetKernelTraceTimestamp.c)
- *     ExConvertExclusiveToSharedLite @ 0x1403476C0 (ExConvertExclusiveToSharedLite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ExTryConvertSharedToExclusiveLite @ 0x14060AA4C (ExTryConvertSharedToExclusiveLite.c)
- *     CmpLockKcbExclusive @ 0x1406D8468 (CmpLockKcbExclusive.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     CmRealKCBToVirtualPath @ 0x140A18608 (CmRealKCBToVirtualPath.c)
- *     CmpBuildVirtualReplicationStack @ 0x140A18C98 (CmpBuildVirtualReplicationStack.c)
- *     CmpDestroyVirtualStack @ 0x140A18EC4 (CmpDestroyVirtualStack.c)
- *     CmpDoBuildVirtualStack @ 0x140A190BC (CmpDoBuildVirtualStack.c)
- *     CmpGetVirtualStoreRoot @ 0x140A19C84 (CmpGetVirtualStoreRoot.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402A3220 (EtwGetKernelTraceTimestamp.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140347950 (ExConvertExclusiveToSharedLite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ExTryConvertSharedToExclusiveLite @ 0x14060AF9C (ExTryConvertSharedToExclusiveLite.c)
+ *     CmpLockKcbExclusive @ 0x1406D8498 (CmpLockKcbExclusive.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     CmRealKCBToVirtualPath @ 0x140A188B8 (CmRealKCBToVirtualPath.c)
+ *     CmpBuildVirtualReplicationStack @ 0x140A18F48 (CmpBuildVirtualReplicationStack.c)
+ *     CmpDestroyVirtualStack @ 0x140A19174 (CmpDestroyVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1936C (CmpDoBuildVirtualStack.c)
+ *     CmpGetVirtualStoreRoot @ 0x140A19F34 (CmpGetVirtualStoreRoot.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     CmpUnlockKcb @ 0x140AF55A0 (CmpUnlockKcb.c)
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdatePageAttributeStamp @ 0x1404CD228
+ * XREFs of MiUpdatePageAttributeStamp @ 0x1404C69C8
  * Callers:
- *     MiCopyHeaderIfResident @ 0x1404B51A4 (MiCopyHeaderIfResident.c)
+ *     MiCopyHeaderIfResident @ 0x1404AE5F4 (MiCopyHeaderIfResident.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiDetermineModifiedPageListHead @ 0x140298990 (MiDetermineModifiedPageListHead.c)
- *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1402C9B5C (MiGetSlabAllocatorRepurposedStandbyList.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiAcquirePageListLock @ 0x1402FB4C0 (MiAcquirePageListLock.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiReleasePageListLock @ 0x140369F10 (MiReleasePageListLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiDetermineModifiedPageListHead @ 0x140297EF0 (MiDetermineModifiedPageListHead.c)
+ *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1402AB91C (MiGetSlabAllocatorRepurposedStandbyList.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiAcquirePageListLock @ 0x1402DD540 (MiAcquirePageListLock.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiReleasePageListLock @ 0x14036BCB0 (MiReleasePageListLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiUpdatePageAttributeStamp(unsigned __int64 a1)
@@ -30,7 +30,7 @@ void __fastcall MiUpdatePageAttributeStamp(unsigned __int64 a1)
   memset_0(v11, 0, 0x68uLL);
   if ( !(unsigned __int16)*(_DWORD *)(a1 + 32) )
   {
-    v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+    v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
     v3 = *(_QWORD *)(v2 + 8LL * (*(_BYTE *)(a1 + 34) & 7) + 7520);
     PfnSlabType = MiGetPfnSlabType(a1);
     if ( (v4 & 7) == 2 )
@@ -52,7 +52,7 @@ LABEL_25:
       if ( (*(_QWORD *)(a1 + 40) & 0x20000000000000LL) != 0
         || (*(_DWORD *)(a1 + 32) & 0x8000000) != 0
         && (a1 < 0xFFFFDE0000000000uLL
-         || a1 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+         || a1 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
          || MiIsDecayPfn((__int64)(a1 + 0x220000000000LL) / 48)
          || (v6 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(a1) == 9) )
       {

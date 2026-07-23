@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpTraceUmEvent @ 0x18003CEA0
+ * XREFs of EtwpTraceUmEvent @ 0x18001D120
  * Callers:
- *     EtwLogTraceEvent @ 0x1800E58D0 (EtwLogTraceEvent.c)
- *     EtwTraceEventInstance @ 0x18015C050 (EtwTraceEventInstance.c)
+ *     EtwLogTraceEvent @ 0x1800E0D80 (EtwLogTraceEvent.c)
+ *     EtwTraceEventInstance @ 0x18015A410 (EtwTraceEventInstance.c)
  * Callees:
- *     EtwpRelogEvent @ 0x18003D220 (EtwpRelogEvent.c)
- *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
- *     EtwpReserveTraceBuffer @ 0x18003D5F0 (EtwpReserveTraceBuffer.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     EtwpRelogEvent @ 0x18001D4A0 (EtwpRelogEvent.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18001D750 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpReserveTraceBuffer @ 0x18001D870 (EtwpReserveTraceBuffer.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, unsigned int a3, int a4)
@@ -30,7 +30,7 @@ __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, u
   int v19; // r12d
   struct _TEB *v20; // rax
   unsigned __int64 *v21; // r9
-  int Reserved; // r8d
+  __int64 Reserved; // r8
   size_t v23; // rdi
   char *v24; // rax
   size_t v25; // r8
@@ -139,11 +139,11 @@ LABEL_43:
       v52 = v20;
       v21 = &v47;
       if ( v19 )
-        LODWORD(v21) = 0;
+        v21 = 0LL;
       Reserved = v20->CurrentIdealProcessor.Reserved;
       v23 = v38;
       LODWORD(Src) = v38;
-      v24 = (char *)EtwpReserveTraceBuffer((_DWORD)v11, v38, Reserved, (_DWORD)v21, (__int64)&v46);
+      v24 = (char *)EtwpReserveTraceBuffer(v11, v38, Reserved, v21, &v46);
       v45 = v24;
       if ( v24 )
       {

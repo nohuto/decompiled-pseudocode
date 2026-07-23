@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpSetSystemBiosInformation @ 0x1409C25D4
+ * XREFs of CmpSetSystemBiosInformation @ 0x1409C35D4
  * Callers:
- *     CmpInitializeMachineDependentConfiguration @ 0x1409C1D98 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x1409C2D98 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpGetBiosVersion @ 0x1409C28D4 (CmpGetBiosVersion.c)
- *     CmpGetBiosDate @ 0x1409C2A94 (CmpGetBiosDate.c)
- *     CmpGetAcpiBiosVersion @ 0x1409C2CAC (CmpGetAcpiBiosVersion.c)
- *     CmpGetRegistryValue @ 0x1409C2D48 (CmpGetRegistryValue.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwMapViewOfSection @ 0x1401B87F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1401B8830 (ZwUnmapViewOfSection.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     CmpGetBiosVersion @ 0x1409C38D4 (CmpGetBiosVersion.c)
+ *     CmpGetBiosDate @ 0x1409C3A94 (CmpGetBiosDate.c)
+ *     CmpGetAcpiBiosVersion @ 0x1409C3CAC (CmpGetAcpiBiosVersion.c)
+ *     CmpGetRegistryValue @ 0x1409C3D48 (CmpGetRegistryValue.c)
  */
 
 void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
@@ -41,12 +41,12 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
   LARGE_INTEGER SectionOffset; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING String2; // [rsp+80h] [rbp-80h] BYREF
-  STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
+  _STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
   ULONG_PTR ViewSize; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v24; // [rsp+A8h] [rbp-58h]
   PVOID Data; // [rsp+B0h] [rbp-50h]
   HANDLE KeyHandle; // [rsp+B8h] [rbp-48h]
-  char SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
+  CHAR SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
 
   v24 = a1;
   KeyHandle = a3;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpAllocateLogBuffers @ 0x140487D44
+ * XREFs of HvpAllocateLogBuffers @ 0x140482DB4
  * Callers:
- *     HvpGenerateLogEntry @ 0x14097EF08 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140967718 (HvpGenerateLogEntry.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HvpAllocateLogBuffers(__int64 *a1, _DWORD *a2, unsigned int a3)
@@ -14,7 +14,7 @@ __int64 __fastcall HvpAllocateLogBuffers(__int64 *a1, _DWORD *a2, unsigned int a
   unsigned int v8; // ebx
   unsigned int v10; // ebx
   unsigned int v11; // ebx
-  unsigned int v12; // ecx
+  __int64 v12; // rcx
   __int64 v13; // rsi
   __int64 v14; // rdi
   void *v15; // r15
@@ -29,10 +29,10 @@ __int64 __fastcall HvpAllocateLogBuffers(__int64 *a1, _DWORD *a2, unsigned int a
   __int64 v24; // r12
   unsigned int v25; // [rsp+20h] [rbp-48h]
 
-  Pool2 = (void *)ExAllocatePool2(0x108uLL);
+  Pool2 = (void *)ExAllocatePool2(0x108uLL, a3, 0x6F494D43u);
   if ( Pool2 )
   {
-    v7 = ExAllocatePool2(0x100uLL);
+    v7 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x6F494D43u);
     if ( v7 )
     {
       *(_DWORD *)v7 = 0;
@@ -53,8 +53,8 @@ __int64 __fastcall HvpAllocateLogBuffers(__int64 *a1, _DWORD *a2, unsigned int a
     v12 = a3 / v11 + 1;
     if ( !(a3 % v11) )
       v12 = a3 / v11;
-    v13 = v12;
-    v14 = ExAllocatePool2(0x100uLL);
+    v13 = (unsigned int)v12;
+    v14 = ExAllocatePool2(0x100uLL, 24 * v12, 0x6F494D43u);
     v15 = (void *)v14;
     if ( !v14 )
       break;
@@ -75,7 +75,7 @@ __int64 __fastcall HvpAllocateLogBuffers(__int64 *a1, _DWORD *a2, unsigned int a
       if ( v16 >= v18 )
         v19 = v18;
       *(_DWORD *)(v14 + 24 * v17 + 16) = v19;
-      v20 = ExAllocatePool2(0x108uLL);
+      v20 = ExAllocatePool2(0x108uLL, v19, 0x6F494D43u);
       *(_QWORD *)(v14 + 24 * v17 + 8) = v20;
       if ( !v20 )
         break;

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClonePteReadonly @ 0x140663224
+ * XREFs of MiClonePteReadonly @ 0x140663774
  * Callers:
- *     MiWsleFlush @ 0x140280E10 (MiWsleFlush.c)
+ *     MiWsleFlush @ 0x1402810A0 (MiWsleFlush.c)
  * Callees:
- *     MiLocateCloneAddress @ 0x140294598 (MiLocateCloneAddress.c)
+ *     MiLocateCloneAddress @ 0x140294828 (MiLocateCloneAddress.c)
  */
 
 _BOOL8 __fastcall MiClonePteReadonly(unsigned __int64 a1)

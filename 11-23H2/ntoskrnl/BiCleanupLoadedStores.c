@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCleanupLoadedStores @ 0x140807BE4
+ * XREFs of BiCleanupLoadedStores @ 0x140807EB4
  * Callers:
- *     BcdOpenStore @ 0x140803098 (BcdOpenStore.c)
- *     BiOpenSystemStore @ 0x1408034C4 (BiOpenSystemStore.c)
+ *     BcdOpenStore @ 0x140803368 (BcdOpenStore.c)
+ *     BiOpenSystemStore @ 0x140803794 (BiOpenSystemStore.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     wcstoul @ 0x1403DBEF0 (wcstoul.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     BiIsSystemStore @ 0x140802F50 (BiIsSystemStore.c)
- *     BiIsWinPEBoot @ 0x140803014 (BiIsWinPEBoot.c)
- *     BiEnumerateSubKeys @ 0x140803B0C (BiEnumerateSubKeys.c)
- *     BiOpenKey @ 0x1408050D0 (BiOpenKey.c)
- *     BiCloseKey @ 0x14080525C (BiCloseKey.c)
- *     BiOpenKeyNonBcd @ 0x140807B14 (BiOpenKeyNonBcd.c)
- *     BcdForciblyUnloadStore @ 0x140A5C290 (BcdForciblyUnloadStore.c)
- *     BiUnloadHiveByHandle @ 0x140A5D504 (BiUnloadHiveByHandle.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     wcstoul @ 0x1403DC0D0 (wcstoul.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     BiIsSystemStore @ 0x140803220 (BiIsSystemStore.c)
+ *     BiIsWinPEBoot @ 0x1408032E4 (BiIsWinPEBoot.c)
+ *     BiEnumerateSubKeys @ 0x140803DDC (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x1408053A0 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14080552C (BiCloseKey.c)
+ *     BiOpenKeyNonBcd @ 0x140807DE4 (BiOpenKeyNonBcd.c)
+ *     BcdForciblyUnloadStore @ 0x140A5C540 (BcdForciblyUnloadStore.c)
+ *     BiUnloadHiveByHandle @ 0x140A5D7B4 (BiUnloadHiveByHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -26,10 +26,10 @@ void __fastcall BiCleanupLoadedStores(char a1)
   bool IsSystemStore; // al
   PVOID P[2]; // [rsp+20h] [rbp-10h] BYREF
   ULONG v7; // [rsp+68h] [rbp+38h] BYREF
-  void *v8; // [rsp+70h] [rbp+40h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+70h] [rbp+40h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp+48h] BYREF
 
-  v8 = 0LL;
+  BcdStoreHandle = 0LL;
   v7 = 0;
   P[0] = 0LL;
   Handle = 0LL;
@@ -44,20 +44,20 @@ void __fastcall BiCleanupLoadedStores(char a1)
       {
         if ( !wcsnicmp(*v3, L"BCD", 3uLL)
           && wcstoul(*v3 + 3, 0LL, 10) != -1
-          && (int)BiOpenKey((__int64)Handle, *v3, 0x20019u, &v8) >= 0 )
+          && (int)BiOpenKey((__int64)Handle, *v3, 0x20019u, &BcdStoreHandle) >= 0 )
         {
-          IsSystemStore = BiIsSystemStore((__int64)v8);
+          IsSystemStore = BiIsSystemStore((__int64)BcdStoreHandle);
           if ( (a1 & 0x10) != 0 && IsSystemStore )
           {
-            BcdForciblyUnloadStore(v8);
+            BcdForciblyUnloadStore(BcdStoreHandle);
           }
           else if ( (a1 & 8) != 0 || IsWinPEBoot || !IsSystemStore )
           {
-            BiUnloadHiveByHandle(v8, 0LL);
+            BiUnloadHiveByHandle(BcdStoreHandle, 0LL);
           }
           else
           {
-            BiCloseKey(v8);
+            BiCloseKey(BcdStoreHandle);
           }
         }
         ++v3;

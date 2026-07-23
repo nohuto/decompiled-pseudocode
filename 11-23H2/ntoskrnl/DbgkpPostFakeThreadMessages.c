@@ -1,29 +1,29 @@
 /*
- * XREFs of DbgkpPostFakeThreadMessages @ 0x140937784
+ * XREFs of DbgkpPostFakeThreadMessages @ 0x140937984
  * Callers:
- *     DbgkpPostFakeProcessCreateMessages @ 0x1409376BC (DbgkpPostFakeProcessCreateMessages.c)
- *     DbgkpSetProcessDebugObject @ 0x140938148 (DbgkpSetProcessDebugObject.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x1409378BC (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkpSetProcessDebugObject @ 0x140938348 (DbgkpSetProcessDebugObject.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PsMultiResumeThread @ 0x140309D88 (PsMultiResumeThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsGetNextProcessThread @ 0x140742AB0 (PsGetNextProcessThread.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsSuspendThread @ 0x1407DB690 (PsSuspendThread.c)
- *     DbgkSendSystemDllMessages @ 0x140936DD4 (DbgkSendSystemDllMessages.c)
- *     DbgkpQueueMessage @ 0x140937E4C (DbgkpQueueMessage.c)
- *     DbgkpSectionToFileHandle @ 0x1409393C8 (DbgkpSectionToFileHandle.c)
- *     PsSynchronizeWithThreadInsertion @ 0x1409AE4F8 (PsSynchronizeWithThreadInsertion.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PsMultiResumeThread @ 0x14030A018 (PsMultiResumeThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsGetNextProcessThread @ 0x140742CA0 (PsGetNextProcessThread.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsSuspendThread @ 0x1407DB960 (PsSuspendThread.c)
+ *     DbgkSendSystemDllMessages @ 0x140936FD4 (DbgkSendSystemDllMessages.c)
+ *     DbgkpQueueMessage @ 0x14093804C (DbgkpQueueMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x1409395C8 (DbgkpSectionToFileHandle.c)
+ *     PsSynchronizeWithThreadInsertion @ 0x1409AE6F8 (PsSynchronizeWithThreadInsertion.c)
  */
 
-__int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2, __int64 a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall DbgkpPostFakeThreadMessages(__int64 a1, struct _KEVENT *a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   void *v7; // r14
   void *v8; // rdi
@@ -33,8 +33,8 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
   _QWORD *NextProcessThread; // rax
   char v13; // si
   char v14; // r13
-  unsigned __int64 v15; // rcx
-  __int64 v16; // rax
+  __int64 v15; // rcx
+  PIMAGE_NT_HEADERS v16; // rax
   char v18; // [rsp+30h] [rbp-1F8h]
   struct _KTHREAD *v21; // [rsp+50h] [rbp-1D8h]
   HANDLE v23[34]; // [rsp+A0h] [rbp-188h] BYREF
@@ -49,7 +49,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
   v10 = -1073741823;
   if ( !a3 )
   {
-    NextProcessThread = PsGetNextProcessThread((__int64)a1, 0LL);
+    NextProcessThread = PsGetNextProcessThread(a1, 0LL);
     v11 = 1;
     v18 = 1;
     goto LABEL_4;
@@ -90,22 +90,22 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
         {
           v14 = 1;
           LODWORD(v23[5]) = 2;
-          v15 = a1[1].Affinity.StaticBitmap[17];
+          v15 = *(_QWORD *)(a1 + 1304);
           if ( v15 )
             v23[7] = (HANDLE)DbgkpSectionToFileHandle(v15);
           else
             v23[7] = 0LL;
-          v23[8] = (HANDLE)a1[1].Affinity.StaticBitmap[18];
-          KiStackAttachProcess(a1, 0, (__int64)&v24);
-          v16 = RtlImageNtHeader(a1[1].Affinity.StaticBitmap[18]);
+          v23[8] = *(HANDLE *)(a1 + 1312);
+          KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)&v24);
+          v16 = RtlImageNtHeader(*(PVOID *)(a1 + 1312));
           if ( v16 )
           {
             v23[11] = 0LL;
-            v23[9] = *(HANDLE *)(v16 + 12);
+            v23[9] = *(HANDLE *)&v16->FileHeader.PointerToSymbolTable;
           }
           KiUnstackDetachProcess(&v24);
         }
-        v10 = DbgkpQueueMessage(a1, (PVOID)a3, a2);
+        v10 = DbgkpQueueMessage((PVOID)a1, (PVOID)a3, a2);
         if ( v10 < 0 )
         {
           if ( (v13 & 0x20) != 0 )
@@ -132,7 +132,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
         CurrentThread = v21;
       }
     }
-    NextProcessThread = PsGetNextProcessThread((__int64)a1, (_QWORD *)a3);
+    NextProcessThread = PsGetNextProcessThread(a1, (_QWORD *)a3);
 LABEL_4:
     a3 = (__int64)NextProcessThread;
   }

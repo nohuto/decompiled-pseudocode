@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSetMicrocodeUpdateOptions @ 0x1404F9810
+ * XREFs of KiSetMicrocodeUpdateOptions @ 0x1404F70F0
  * Callers:
- *     KiRestoreFeatureBits @ 0x1404CD7D0 (KiRestoreFeatureBits.c)
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405BE170 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiRestoreFeatureBits @ 0x1404C6BA0 (KiRestoreFeatureBits.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405BB7A0 (KiOptimizeSpecCtrlSettingsWorker.c)
  * Callees:
  *     <none>
  */

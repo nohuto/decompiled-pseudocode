@@ -4,7 +4,7 @@
  *     VfInitBootDriversLoaded @ 0x1407A52D8 (VfInitBootDriversLoaded.c)
  * Callees:
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140704D5C (VfDriverUnlock.c)
+ *     VfDriverUnlock @ 0x140704D8C (VfDriverUnlock.c)
  *     VfSuspectDriversAllocateEntry @ 0x140715E70 (VfSuspectDriversAllocateEntry.c)
  *     VfSuspectDriversInsert @ 0x1407160E8 (VfSuspectDriversInsert.c)
  *     VfSuspectExcludedDriversAllocateEntry @ 0x140716668 (VfSuspectExcludedDriversAllocateEntry.c)
@@ -111,13 +111,13 @@ LABEL_28:
       if ( Entry )
       {
         VfDriverLock();
-        v11 = (_QWORD *)qword_140300648;
-        if ( *(__int64 **)qword_140300648 != &VfExcludedDriversList )
+        v11 = (_QWORD *)qword_140300628;
+        if ( *(__int64 **)qword_140300628 != &VfExcludedDriversList )
           __fastfail(3u);
         *v10 = &VfExcludedDriversList;
         v10[1] = v11;
         *v11 = v10;
-        qword_140300648 = (__int64)v10;
+        qword_140300628 = (__int64)v10;
         goto LABEL_28;
       }
     }

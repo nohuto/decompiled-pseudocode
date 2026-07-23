@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptFdefMontgomeryReduce @ 0x1405706B0
+ * XREFs of SymCryptFdefMontgomeryReduce @ 0x14056F890
  * Callers:
- *     SymCryptFdefModInvMontgomery @ 0x14056FC10 (SymCryptFdefModInvMontgomery.c)
- *     SymCryptFdefModMulMontgomery @ 0x14056FE30 (SymCryptFdefModMulMontgomery.c)
- *     SymCryptFdefModPreGetMontgomery @ 0x14056FFF0 (SymCryptFdefModPreGetMontgomery.c)
- *     SymCryptFdefModSetPostMontgomery @ 0x1405700B0 (SymCryptFdefModSetPostMontgomery.c)
- *     SymCryptFdefModSquareMontgomery @ 0x140570340 (SymCryptFdefModSquareMontgomery.c)
+ *     SymCryptFdefModInvMontgomery @ 0x14056EDF0 (SymCryptFdefModInvMontgomery.c)
+ *     SymCryptFdefModMulMontgomery @ 0x14056F010 (SymCryptFdefModMulMontgomery.c)
+ *     SymCryptFdefModPreGetMontgomery @ 0x14056F1D0 (SymCryptFdefModPreGetMontgomery.c)
+ *     SymCryptFdefModSetPostMontgomery @ 0x14056F290 (SymCryptFdefModSetPostMontgomery.c)
+ *     SymCryptFdefModSquareMontgomery @ 0x14056F520 (SymCryptFdefModSquareMontgomery.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x1404C9AE8 (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptFdefMontgomeryReduceMulx @ 0x14056A2A0 (SymCryptFdefMontgomeryReduceMulx.c)
- *     SymCryptFdefMontgomeryReduceAsm @ 0x140571C10 (SymCryptFdefMontgomeryReduceAsm.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x1404C3508 (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptFdefMontgomeryReduceMulx @ 0x140569480 (SymCryptFdefMontgomeryReduceMulx.c)
+ *     SymCryptFdefMontgomeryReduceAsm @ 0x140570DF0 (SymCryptFdefMontgomeryReduceAsm.c)
  */
 
 __int64 __fastcall SymCryptFdefMontgomeryReduce(__int64 a1, __m128i *a2, __m128i *a3)

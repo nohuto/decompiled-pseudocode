@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRbInsertNodeEx @ 0x1400BD6B0
+ * XREFs of RtlRbInsertNodeEx @ 0x1400BD5F0
  * Callers:
  *     RtlpHpVaMgrFree @ 0x140009C60 (RtlpHpVaMgrFree.c)
  *     RtlpHpLargeAlloc @ 0x140009ED8 (RtlpHpLargeAlloc.c)
@@ -8,160 +8,160 @@
  *     KiAbEntryUpdateWaiterTreePosition @ 0x140024DA0 (KiAbEntryUpdateWaiterTreePosition.c)
  *     KiAbEntryUpdateOwnerTreePosition @ 0x140024FE4 (KiAbEntryUpdateOwnerTreePosition.c)
  *     MiBitmapsCachedEntryLengthChanged @ 0x140028C34 (MiBitmapsCachedEntryLengthChanged.c)
- *     RtlpHpVsChunkSplit @ 0x1400BC850 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsFreeChunkInsert @ 0x1400BD480 (RtlpHpVsFreeChunkInsert.c)
- *     PfSnGetFileInformation @ 0x1400D4DA0 (PfSnGetFileInformation.c)
- *     KiInsertTimer2WithCollectionLockHeld @ 0x1400FC4C0 (KiInsertTimer2WithCollectionLockHeld.c)
- *     IoStartDiskIoAttributionForContext @ 0x1401052C8 (IoStartDiskIoAttributionForContext.c)
- *     KiInsertSchedulingGroupQueue @ 0x14011709C (KiInsertSchedulingGroupQueue.c)
- *     MiRescanPageFileBitmapPortion @ 0x14012090C (MiRescanPageFileBitmapPortion.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140124574 (MiInvalidatePageFileBitmapsCache.c)
- *     KiSetClockInterval @ 0x14012EAF8 (KiSetClockInterval.c)
- *     MiInitializePagefileBitmapsCache @ 0x140188224 (MiInitializePagefileBitmapsCache.c)
- *     MiInsertSlabEntry @ 0x1402C2AA4 (MiInsertSlabEntry.c)
- *     PspJobIoRateVolumeEntryInsert @ 0x1402EA35C (PspJobIoRateVolumeEntryInsert.c)
- *     VmpFaultEntryInsert @ 0x14030C18C (VmpFaultEntryInsert.c)
- *     VmpInsertMemoryRange @ 0x14030C7A0 (VmpInsertMemoryRange.c)
- *     VmpSplitMemoryRange @ 0x14030D8D4 (VmpSplitMemoryRange.c)
- *     HvpViewMapCreateViewsForRegion @ 0x1405A524C (HvpViewMapCreateViewsForRegion.c)
- *     EtwpSetProviderTraitsCommon @ 0x1405C4A10 (EtwpSetProviderTraitsCommon.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1406BA4B0 (HvpViewMapPromoteRangeToMapping.c)
- *     KiGetSystemServiceTraceTable @ 0x140844B14 (KiGetSystemServiceTraceTable.c)
- *     MiGetHotPatchEntry @ 0x140854FD8 (MiGetHotPatchEntry.c)
- *     EtwpRegisterPrivateSession @ 0x1408C0098 (EtwpRegisterPrivateSession.c)
- *     KeInitializeClock @ 0x1409D8C58 (KeInitializeClock.c)
+ *     RtlpHpVsChunkSplit @ 0x1400BC790 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1400BD3C0 (RtlpHpVsFreeChunkInsert.c)
+ *     PfSnGetFileInformation @ 0x1400D4E20 (PfSnGetFileInformation.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x1400FC540 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     IoStartDiskIoAttributionForContext @ 0x140105348 (IoStartDiskIoAttributionForContext.c)
+ *     KiInsertSchedulingGroupQueue @ 0x14011710C (KiInsertSchedulingGroupQueue.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1401209DC (MiRescanPageFileBitmapPortion.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140124644 (MiInvalidatePageFileBitmapsCache.c)
+ *     KiSetClockInterval @ 0x14012EBC8 (KiSetClockInterval.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140188364 (MiInitializePagefileBitmapsCache.c)
+ *     MiInsertSlabEntry @ 0x1402C2C94 (MiInsertSlabEntry.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x1402EA54C (PspJobIoRateVolumeEntryInsert.c)
+ *     VmpFaultEntryInsert @ 0x14030C37C (VmpFaultEntryInsert.c)
+ *     VmpInsertMemoryRange @ 0x14030C990 (VmpInsertMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x14030DAC4 (VmpSplitMemoryRange.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x1405A624C (HvpViewMapCreateViewsForRegion.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1405C5A10 (EtwpSetProviderTraitsCommon.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406BB750 (HvpViewMapPromoteRangeToMapping.c)
+ *     KiGetSystemServiceTraceTable @ 0x140845D74 (KiGetSystemServiceTraceTable.c)
+ *     MiGetHotPatchEntry @ 0x140856238 (MiGetHotPatchEntry.c)
+ *     EtwpRegisterPrivateSession @ 0x1408C1358 (EtwpRegisterPrivateSession.c)
+ *     KeInitializeClock @ 0x1409D9C58 (KeInitializeClock.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlRbInsertNodeEx(unsigned __int64 a1, unsigned __int64 a2, bool a3, _QWORD *a4)
+BOOLEAN __cdecl RtlRbInsertNodeEx(PRTL_RB_TREE Tree, PRTL_BALANCED_NODE Parent, BOOLEAN Right, PRTL_BALANCED_NODE Node)
 {
-  unsigned __int64 v4; // r14
-  unsigned __int64 v5; // r11
-  bool v7; // si
-  char v8; // cl
+  _RTL_BALANCED_NODE *v4; // r14
+  PRTL_BALANCED_NODE v5; // r11
+  unsigned __int8 v7; // si
+  $7D93978C745EB1C2D28075BAF55422B4 v8; // cl
   char v9; // r9
-  __int64 v10; // rax
-  unsigned __int64 v11; // rcx
+  unsigned __int64 v10; // rax
+  _RTL_BALANCED_NODE *v11; // rcx
   unsigned __int64 v12; // rax
-  __int64 v13; // rcx
-  char v14; // bl
+  _RTL_BALANCED_NODE *Min; // rcx
+  $7D93978C745EB1C2D28075BAF55422B4 v14; // bl
   unsigned __int64 v15; // r8
   char v16; // r9
-  __int64 v17; // rcx
+  unsigned __int64 v17; // rcx
   _BOOL8 v18; // rdi
-  _BOOL8 v19; // rbp
+  unsigned __int64 v19; // rbp
   __int64 v20; // rcx
   __int64 v21; // rcx
   unsigned __int64 v22; // rax
   int v23; // r9d
-  __int64 v24; // rax
-  __int64 v25; // rax
+  unsigned __int64 v24; // rax
+  unsigned __int64 v25; // rax
   unsigned __int64 v26; // rax
-  unsigned __int64 *v27; // rsi
+  _RTL_BALANCED_NODE **v27; // rsi
   unsigned __int64 v28; // rcx
-  unsigned __int64 v29; // rax
+  PRTL_BALANCED_NODE v29; // rax
   unsigned __int64 v30; // rcx
-  __int64 v31; // rbx
+  unsigned __int64 v31; // rbx
   unsigned __int64 v32; // rax
   unsigned __int64 v33; // rax
   unsigned __int64 v34; // rcx
   unsigned __int64 v35; // rax
-  unsigned __int64 v36; // r11
+  unsigned __int64 Root; // r11
   __int64 v37; // rbp
   unsigned __int64 v38; // rax
   int v39; // r9d
-  __int64 *v40; // rsi
-  __int64 v41; // rax
+  _RTL_BALANCED_NODE **v40; // rsi
+  unsigned __int64 v41; // rax
   unsigned __int64 v42; // rcx
   __int64 v43; // rax
   unsigned __int64 v44; // rax
   __int64 v45; // rax
   unsigned __int64 v46; // rax
-  __int64 v47; // rcx
-  __int64 v48; // rbx
+  unsigned __int64 v47; // rcx
+  unsigned __int64 v48; // rbx
   unsigned __int64 v49; // rax
   unsigned __int64 v50; // rax
   unsigned __int64 v51; // rcx
-  unsigned __int64 v52; // rax
+  _RTL_BALANCED_NODE *v52; // rax
 
   v4 = 0LL;
-  v5 = (unsigned __int64)a4;
-  *a4 = 0LL;
-  a4[1] = 0LL;
-  v7 = a3;
-  v8 = *(_BYTE *)(a1 + 8);
-  v9 = v8 & 1;
-  if ( !a2 )
+  v5 = Node;
+  Node->Children[0] = 0LL;
+  Node->Children[1] = 0LL;
+  v7 = Right;
+  v8 = Tree->0;
+  v9 = *(_BYTE *)&v8 & 1;
+  if ( !Parent )
   {
-    v10 = v5 ^ a1;
+    v10 = (unsigned __int64)v5 ^ (unsigned __int64)Tree;
     if ( v9 )
     {
-      *(_QWORD *)a1 = v10;
-      v8 = *(_BYTE *)(a1 + 8);
+      Tree->Root = (_RTL_BALANCED_NODE *)v10;
+      v8 = Tree->0;
     }
     else
     {
-      *(_QWORD *)a1 = v5;
+      Tree->Root = v5;
     }
-    if ( (v8 & 1) != 0 )
+    if ( (*(_BYTE *)&v8 & 1) != 0 )
     {
-      *(_QWORD *)(a1 + 8) = v10;
+      Tree->Min = (_RTL_BALANCED_NODE *)v10;
       LOBYTE(v10) = v10 | 1;
-      *(_BYTE *)(a1 + 8) = v10;
+      Tree->0 = ($7D93978C745EB1C2D28075BAF55422B4)v10;
     }
     else
     {
-      *(_QWORD *)(a1 + 8) = v5;
+      Tree->Min = v5;
     }
-    *(_QWORD *)(v5 + 16) = 0LL;
+    v5->ParentValue = 0LL;
     return v10;
   }
   v11 = v5;
   if ( v9 )
-    v11 = v5 ^ a2;
-  *(_QWORD *)(a2 + 8LL * a3) = v11;
-  v12 = a2;
-  if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-    v12 = v5 ^ a2;
+    v11 = (_RTL_BALANCED_NODE *)((unsigned __int64)v5 ^ (unsigned __int64)Parent);
+  Parent->Children[Right] = v11;
+  v12 = (unsigned __int64)Parent;
+  if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
+    v12 = (unsigned __int64)v5 ^ (unsigned __int64)Parent;
   v10 = v12 | 1;
-  *(_QWORD *)(v5 + 16) = v10;
-  if ( !a3 )
+  v5->ParentValue = v10;
+  if ( !Right )
   {
-    v13 = *(_QWORD *)(a1 + 8);
-    if ( (v13 & 1) != 0 )
-      v10 = v13 == 1 ? 0LL : v13 ^ (a1 | 1);
+    Min = Tree->Min;
+    if ( ((unsigned __int8)Min & 1) != 0 )
+      v10 = Min == (_RTL_BALANCED_NODE *)1 ? 0LL : (unsigned __int64)Min ^ ((unsigned __int64)Tree | 1);
     else
-      v10 = *(_QWORD *)(a1 + 8);
-    if ( a2 == v10 )
+      v10 = (unsigned __int64)Tree->Min;
+    if ( Parent == (PRTL_BALANCED_NODE)v10 )
     {
-      if ( (v13 & 1) != 0 )
+      if ( ((unsigned __int8)Min & 1) != 0 )
       {
-        *(_QWORD *)(a1 + 8) = v5 ^ a1;
-        LOBYTE(v10) = v5 ^ a1 | 1;
-        *(_BYTE *)(a1 + 8) = v10;
+        Tree->Min = (_RTL_BALANCED_NODE *)((unsigned __int64)v5 ^ (unsigned __int64)Tree);
+        LOBYTE(v10) = (unsigned __int8)v5 ^ (unsigned __int8)Tree | 1;
+        Tree->0 = ($7D93978C745EB1C2D28075BAF55422B4)v10;
       }
       else
       {
-        *(_QWORD *)(a1 + 8) = v5;
+        Tree->Min = v5;
       }
     }
   }
-  if ( (*(_BYTE *)(a2 + 16) & 1) != 0 )
+  if ( (*(_BYTE *)&Parent->0 & 1) != 0 )
   {
-    v14 = *(_BYTE *)(a1 + 8);
+    v14 = Tree->0;
     while ( 1 )
     {
-      v15 = *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      v16 = v14 & 1;
-      if ( (v14 & 1) != 0 && v15 )
-        v15 ^= a2;
+      v15 = Parent->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+      v16 = *(_BYTE *)&v14 & 1;
+      if ( (*(_BYTE *)&v14 & 1) != 0 && v15 )
+        v15 ^= (unsigned __int64)Parent;
       v17 = *(_QWORD *)v15;
       if ( v16 && v17 )
         v17 ^= v15;
-      LOBYTE(v10) = v17 != a2;
-      v18 = v17 == a2;
-      v19 = v17 != a2;
+      v10 = v17 != (_QWORD)Parent;
+      v18 = v17 == (_QWORD)Parent;
+      v19 = v10;
       v20 = *(_QWORD *)(v15 + 8 * v18);
       if ( v16 )
       {
@@ -171,56 +171,56 @@ char __fastcall RtlRbInsertNodeEx(unsigned __int64 a1, unsigned __int64 a2, bool
       }
       if ( !v20 || (*(_BYTE *)(v20 + 16) & 1) == 0 )
         break;
-      *(_BYTE *)(a2 + 16) &= ~1u;
-      v5 = v15;
+      *(_BYTE *)&Parent->0 &= ~1u;
+      v5 = (PRTL_BALANCED_NODE)v15;
       *(_BYTE *)(v20 + 16) &= ~1u;
       v21 = *(_QWORD *)(v15 + 16);
-      a2 = v21 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
+      Parent = (PRTL_BALANCED_NODE)(v21 & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
       {
-        if ( !a2 )
+        if ( !Parent )
           return v10;
-        a2 ^= v15;
+        Parent = (PRTL_BALANCED_NODE)(v15 ^ (unsigned __int64)Parent);
       }
-      if ( a2 )
+      if ( Parent )
       {
         *(_BYTE *)(v15 + 16) = v21 | 1;
-        v14 = *(_BYTE *)(a1 + 8);
-        v10 = *(_QWORD *)a2;
-        if ( (v14 & 1) != 0 && v10 )
-          v10 ^= a2;
+        v14 = Tree->0;
+        v10 = (unsigned __int64)Parent->Children[0];
+        if ( (*(_BYTE *)&v14 & 1) != 0 && v10 )
+          v10 ^= (unsigned __int64)Parent;
         v7 = v15 != v10;
-        if ( (*(_BYTE *)(a2 + 16) & 1) != 0 )
+        if ( (*(_BYTE *)&Parent->0 & 1) != 0 )
           continue;
       }
       return v10;
     }
-    if ( v7 == v19 )
+    if ( v7 == (_DWORD)v10 )
     {
 LABEL_81:
-      v36 = *(_QWORD *)a1;
-      if ( (*(_QWORD *)(a1 + 8) & 1) != 0 )
+      Root = (unsigned __int64)Tree->Root;
+      if ( ((__int64)Tree->Min & 1) != 0 )
       {
-        if ( v36 )
-          v36 ^= a1;
+        if ( Root )
+          Root ^= (unsigned __int64)Tree;
         else
-          v36 = 0LL;
+          Root = 0LL;
       }
       v37 = (unsigned int)v19 ^ 1;
-      v38 = *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      v39 = *(_QWORD *)(a1 + 8) & 1;
-      if ( (*(_QWORD *)(a1 + 8) & 1) != 0 && v38 )
-        v38 ^= a2;
+      v38 = Parent->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+      v39 = (__int64)Tree->Min & 1;
+      if ( ((__int64)Tree->Min & 1) != 0 && v38 )
+        v38 ^= (unsigned __int64)Parent;
       if ( v38 != v15 )
         goto LABEL_137;
-      v40 = (__int64 *)(v15 + 8 * ((unsigned int)v37 ^ 1LL));
-      v41 = *v40;
-      if ( (*(_QWORD *)(a1 + 8) & 1) != 0 && v41 )
+      v40 = (_RTL_BALANCED_NODE **)(v15 + 8 * ((unsigned int)v37 ^ 1LL));
+      v41 = (unsigned __int64)*v40;
+      if ( ((__int64)Tree->Min & 1) != 0 && v41 )
         v41 ^= v15;
-      if ( v41 != a2 )
+      if ( (PRTL_BALANCED_NODE)v41 != Parent )
         goto LABEL_137;
       v42 = *(_QWORD *)(v15 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( (*(_QWORD *)(a1 + 8) & 1) != 0 )
+      if ( ((__int64)Tree->Min & 1) != 0 )
       {
         if ( !v42 )
           goto LABEL_97;
@@ -229,37 +229,37 @@ LABEL_81:
       if ( v42 )
       {
         v43 = *(_QWORD *)(v42 + 8);
-        if ( (*(_QWORD *)(a1 + 8) & 1) != 0 && v43 )
+        if ( ((__int64)Tree->Min & 1) != 0 && v43 )
           v43 ^= v42;
         if ( v43 == v15 )
         {
-          v44 = v42 ^ a2;
-          if ( (*(_QWORD *)(a1 + 8) & 1) == 0 )
-            v44 = a2;
+          v44 = v42 ^ (unsigned __int64)Parent;
+          if ( ((__int64)Tree->Min & 1) == 0 )
+            v44 = (unsigned __int64)Parent;
           *(_QWORD *)(v42 + 8) = v44;
         }
         else
         {
           v45 = *(_QWORD *)v42;
-          if ( (*(_QWORD *)(a1 + 8) & 1) != 0 && v45 )
+          if ( ((__int64)Tree->Min & 1) != 0 && v45 )
             v45 ^= v42;
           if ( v45 != v15 )
             goto LABEL_137;
-          v46 = v42 ^ a2;
-          if ( (*(_QWORD *)(a1 + 8) & 1) == 0 )
-            v46 = a2;
+          v46 = v42 ^ (unsigned __int64)Parent;
+          if ( ((__int64)Tree->Min & 1) == 0 )
+            v46 = (unsigned __int64)Parent;
           *(_QWORD *)v42 = v46;
         }
 LABEL_113:
         if ( v39 && v42 )
-          v42 ^= a2;
-        *(_QWORD *)(a2 + 16) = v42 | *(_DWORD *)(a2 + 16) & 3;
-        v47 = *(_QWORD *)(a2 + 8 * v37);
+          v42 ^= (unsigned __int64)Parent;
+        Parent->ParentValue = v42 | *(_DWORD *)&Parent->0 & 3;
+        v47 = (unsigned __int64)Parent->Children[v37];
         if ( v39 )
         {
           if ( !v47 )
             goto LABEL_127;
-          v47 ^= a2;
+          v47 ^= (unsigned __int64)Parent;
         }
         if ( v47 )
         {
@@ -267,7 +267,7 @@ LABEL_113:
           v49 = v48 & 0xFFFFFFFFFFFFFFFCuLL;
           if ( v39 && v49 )
             v49 ^= v47;
-          if ( v49 == a2 )
+          if ( (PRTL_BALANCED_NODE)v49 == Parent )
           {
             v50 = v47 ^ v15;
             if ( !v39 )
@@ -281,93 +281,93 @@ LABEL_137:
 LABEL_127:
         if ( v39 && v47 )
           v47 ^= v15;
-        *v40 = v47;
-        v51 = v15 ^ a2;
-        v52 = v15 ^ a2;
+        *v40 = (_RTL_BALANCED_NODE *)v47;
+        v51 = v15 ^ (unsigned __int64)Parent;
+        v52 = (_RTL_BALANCED_NODE *)(v15 ^ (unsigned __int64)Parent);
         if ( !v39 )
         {
-          v52 = v15;
-          v51 = a2;
+          v52 = (_RTL_BALANCED_NODE *)v15;
+          v51 = (unsigned __int64)Parent;
         }
-        *(_QWORD *)(a2 + 8 * v37) = v52;
+        Parent->Children[v37] = v52;
         v10 = *(_DWORD *)(v15 + 16) & 3;
         *(_QWORD *)(v15 + 16) = v10 | v51;
-        if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
+        if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
         {
-          LOBYTE(v10) = v36 ^ a1;
-          if ( v36 )
-            v4 = v36 ^ a1;
-          *(_QWORD *)a1 = v4;
+          LOBYTE(v10) = Root ^ (unsigned __int8)Tree;
+          if ( Root )
+            v4 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)Tree);
+          Tree->Root = v4;
           *(_BYTE *)(v15 + 16) |= 1u;
-          *(_BYTE *)(a2 + 16) &= ~1u;
+          *(_BYTE *)&Parent->0 &= ~1u;
         }
         else
         {
-          *(_QWORD *)a1 = v36;
+          Tree->Root = (_RTL_BALANCED_NODE *)Root;
           *(_BYTE *)(v15 + 16) |= 1u;
-          *(_BYTE *)(a2 + 16) &= ~1u;
+          *(_BYTE *)&Parent->0 &= ~1u;
         }
         return v10;
       }
 LABEL_97:
-      if ( v36 != v15 )
+      if ( Root != v15 )
         goto LABEL_137;
-      v36 = a2;
+      Root = (unsigned __int64)Parent;
       goto LABEL_113;
     }
-    v22 = *(_QWORD *)(v5 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-    v23 = v14 & 1;
-    if ( (v14 & 1) != 0 && v22 )
-      v22 ^= v5;
-    if ( v22 != a2 )
+    v22 = v5->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+    v23 = *(_BYTE *)&v14 & 1;
+    if ( (*(_BYTE *)&v14 & 1) != 0 && v22 )
+      v22 ^= (unsigned __int64)v5;
+    if ( (PRTL_BALANCED_NODE)v22 != Parent )
       goto LABEL_137;
-    v24 = *(_QWORD *)(a2 + 8 * v18);
-    if ( (v14 & 1) != 0 && v24 )
-      v24 ^= a2;
-    if ( v24 != v5 )
+    v24 = (unsigned __int64)Parent->Children[v18];
+    if ( (*(_BYTE *)&v14 & 1) != 0 && v24 )
+      v24 ^= (unsigned __int64)Parent;
+    if ( (PRTL_BALANCED_NODE)v24 != v5 )
       goto LABEL_137;
     v25 = *(_QWORD *)(v15 + 8 * v19);
-    if ( (v14 & 1) != 0 && v25 )
+    if ( (*(_BYTE *)&v14 & 1) != 0 && v25 )
       v25 ^= v15;
-    if ( v25 != a2 )
+    if ( (PRTL_BALANCED_NODE)v25 != Parent )
       goto LABEL_137;
-    v26 = *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-    if ( (v14 & 1) != 0 && v26 )
-      v26 ^= a2;
+    v26 = Parent->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( (*(_BYTE *)&v14 & 1) != 0 && v26 )
+      v26 ^= (unsigned __int64)Parent;
     if ( v26 != v15 )
       goto LABEL_137;
-    v27 = (unsigned __int64 *)(v5 + 8 * v19);
-    v28 = v15 ^ v5;
-    v29 = v15 ^ v5;
-    if ( (v14 & 1) == 0 )
+    v27 = &v5->Children[v19];
+    v28 = v15 ^ (unsigned __int64)v5;
+    v29 = (PRTL_BALANCED_NODE)(v15 ^ (unsigned __int64)v5);
+    if ( (*(_BYTE *)&v14 & 1) == 0 )
     {
       v29 = v5;
       v28 = v15;
     }
     *(_QWORD *)(v15 + 8 * v19) = v29;
-    *(_QWORD *)(v5 + 16) = *(_DWORD *)(v5 + 16) & 3 | v28;
-    v30 = *v27;
-    if ( (v14 & 1) != 0 )
+    v5->ParentValue = *(_DWORD *)&v5->0 & 3 | v28;
+    v30 = (unsigned __int64)*v27;
+    if ( (*(_BYTE *)&v14 & 1) != 0 )
     {
       if ( !v30 )
       {
 LABEL_75:
         if ( v23 && v30 )
-          v30 ^= a2;
-        *(_QWORD *)(a2 + 8 * !v19) = v30;
-        v34 = a2 ^ v5;
-        v35 = a2 ^ v5;
+          v30 ^= (unsigned __int64)Parent;
+        Parent->Children[v19 ^ 1] = (_RTL_BALANCED_NODE *)v30;
+        v34 = (unsigned __int64)Parent ^ (unsigned __int64)v5;
+        v35 = (unsigned __int64)Parent ^ (unsigned __int64)v5;
         if ( !v23 )
         {
-          v35 = a2;
-          v34 = v5;
+          v35 = (unsigned __int64)Parent;
+          v34 = (unsigned __int64)v5;
         }
-        *v27 = v35;
-        *(_QWORD *)(a2 + 16) = *(_DWORD *)(a2 + 16) & 3 | v34;
-        a2 = v5;
+        *v27 = (_RTL_BALANCED_NODE *)v35;
+        Parent->ParentValue = *(_DWORD *)&Parent->0 & 3 | v34;
+        Parent = v5;
         goto LABEL_81;
       }
-      v30 ^= v5;
+      v30 ^= (unsigned __int64)v5;
     }
     if ( v30 )
     {
@@ -375,11 +375,11 @@ LABEL_75:
       v32 = v31 & 0xFFFFFFFFFFFFFFFCuLL;
       if ( v23 && v32 )
         v32 ^= v30;
-      if ( v32 != v5 )
+      if ( (PRTL_BALANCED_NODE)v32 != v5 )
         goto LABEL_137;
-      v33 = a2 ^ v30;
+      v33 = (unsigned __int64)Parent ^ v30;
       if ( !v23 )
-        v33 = a2;
+        v33 = (unsigned __int64)Parent;
       *(_QWORD *)(v30 + 16) = v31 & 3 | v33;
     }
     goto LABEL_75;

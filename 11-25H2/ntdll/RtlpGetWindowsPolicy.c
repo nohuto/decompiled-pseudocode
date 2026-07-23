@@ -9,23 +9,22 @@
  *     ZwQueryLicenseValue @ 0x180165E10 (ZwQueryLicenseValue.c)
  */
 
-__int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, __int64 a2, _DWORD *a3, __int64 *a4)
+NTSTATUS __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, PULONG Type, PULONG ResultDataSize, _QWORD *a4)
 {
-  __int64 Heap; // rbx
-  __int64 result; // rax
-  __int64 v9; // r9
-  unsigned int v10; // edi
-  UNICODE_STRING v11; // [rsp+30h] [rbp-18h] BYREF
+  PVOID Heap; // rbx
+  NTSTATUS result; // eax
+  NTSTATUS v9; // edi
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
 
   Heap = 0LL;
-  v11 = 0LL;
-  if ( !a2 || !a3 || !a4 || !SourceString )
-    return 3221225485LL;
-  RtlInitUnicodeString(&v11, SourceString);
-  result = ZwQueryLicenseValue(&v11, a2, 0LL, 0LL, a3);
-  if ( (int)result >= 0 )
+  ValueName = 0LL;
+  if ( !Type || !ResultDataSize || !a4 || !SourceString )
+    return -1073741811;
+  RtlInitUnicodeString(&ValueName, SourceString);
+  result = ZwQueryLicenseValue(&ValueName, Type, 0LL, 0, ResultDataSize);
+  if ( result >= 0 )
   {
-    if ( !*a3 )
+    if ( !*ResultDataSize )
     {
       *a4 = 0LL;
       return result;
@@ -33,23 +32,23 @@ __int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, __int64 a2, _DWORD 
   }
   else
   {
-    if ( (_DWORD)result != -1073741789 )
+    if ( result != -1073741789 )
       goto LABEL_9;
-    if ( !*a3 )
-      return 3221225495LL;
+    if ( !*ResultDataSize )
+      return -1073741801;
   }
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)*a3);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *ResultDataSize);
   if ( !Heap )
-    return 3221225495LL;
+    return -1073741801;
 LABEL_9:
-  result = ZwQueryLicenseValue(&v11, a2, Heap, (unsigned int)*a3, a3);
-  v10 = result;
-  if ( (int)result < 0 )
+  result = ZwQueryLicenseValue(&ValueName, Type, Heap, *ResultDataSize, ResultDataSize);
+  v9 = result;
+  if ( result < 0 )
   {
     if ( Heap )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v9);
-      return v10;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      return v9;
     }
   }
   else

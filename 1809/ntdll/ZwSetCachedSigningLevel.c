@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwSetCachedSigningLevel @ 0x1800A3310
+ * XREFs of ZwSetCachedSigningLevel @ 0x1800A3330
  * Callers:
- *     LdrpSetModuleSigningLevel @ 0x18008F4D0 (LdrpSetModuleSigningLevel.c)
+ *     LdrpSetModuleSigningLevel @ 0x18008F4E0 (LdrpSetModuleSigningLevel.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetCachedSigningLevel()
+NTSTATUS __cdecl ZwSetCachedSigningLevel(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 386LL;
+  result = 386;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

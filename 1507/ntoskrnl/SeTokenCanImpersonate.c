@@ -23,7 +23,7 @@
 
 __int64 __fastcall SeTokenCanImpersonate(PACCESS_TOKEN Token, PACCESS_TOKEN a2, int a3, _BYTE *a4)
 {
-  int IsElevated; // ebx
+  NTSTATUS IsElevated; // ebx
   void *v8; // rbx
   void *v9; // rdi
   struct _KTHREAD *CurrentThread; // rax
@@ -39,15 +39,15 @@ __int64 __fastcall SeTokenCanImpersonate(PACCESS_TOKEN Token, PACCESS_TOKEN a2, 
   struct _KTHREAD *v20; // rcx
   __int16 v21; // ax
   char v23; // [rsp+30h] [rbp-88h] BYREF
-  bool v24; // [rsp+31h] [rbp-87h] BYREF
-  _BYTE v25[6]; // [rsp+32h] [rbp-86h] BYREF
-  void *Buf2; // [rsp+38h] [rbp-80h]
-  void *Buf1; // [rsp+48h] [rbp-70h]
+  BOOLEAN Dominates; // [rsp+31h] [rbp-87h] BYREF
+  BOOLEAN DominatesTrust[6]; // [rsp+32h] [rbp-86h] BYREF
+  PSID Sid2; // [rsp+38h] [rbp-80h]
+  PSID Sid1; // [rsp+48h] [rbp-70h]
   EVENT_DATA_DESCRIPTOR pData; // [rsp+58h] [rbp-60h] BYREF
   struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+78h] [rbp-40h] BYREF
 
-  v24 = 0;
-  v25[0] = 0;
+  Dominates = 0;
+  DominatesTrust[0] = 0;
   v23 = 0;
   *a4 = 0;
   if ( a3 < 2 )
@@ -65,10 +65,10 @@ __int64 __fastcall SeTokenCanImpersonate(PACCESS_TOKEN Token, PACCESS_TOKEN a2, 
     }
     return 0;
   }
-  IsElevated = RtlSidDominatesForTrust(*((_QWORD *)Token + 138), *((_QWORD *)a2 + 138), v25);
+  IsElevated = RtlSidDominatesForTrust(*((PSID *)Token + 138), *((PSID *)a2 + 138), DominatesTrust);
   if ( IsElevated < 0 )
     return (unsigned int)IsElevated;
-  if ( !v25[0] )
+  if ( !DominatesTrust[0] )
     *a4 = 1;
   if ( (*((_DWORD *)Token + 18) & 0x20000000) != 0 )
     return 0;
@@ -91,10 +91,10 @@ __int64 __fastcall SeTokenCanImpersonate(PACCESS_TOKEN Token, PACCESS_TOKEN a2, 
   ExAcquireResourceSharedLite(v12, 1u);
   SepCopyTokenIntegrity((__int64)Token);
   SepCopyTokenIntegrity((__int64)a2);
-  IsElevated = RtlSidDominates((char *)Buf1, (char *)Buf2, &v24);
+  IsElevated = RtlSidDominates(Sid1, Sid2, &Dominates);
   if ( IsElevated >= 0 )
   {
-    if ( !v24 )
+    if ( !Dominates )
       goto LABEL_45;
     if ( SepIsImpersonationAllowedDueToCapability((__int64)Token, (__int64)a2) )
     {

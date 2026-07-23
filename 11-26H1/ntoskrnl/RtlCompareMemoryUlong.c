@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlCompareMemoryUlong @ 0x140730E10
+ * XREFs of RtlCompareMemoryUlong @ 0x1407359E0
  * Callers:
- *     RtlScrubMemory @ 0x140413C54 (RtlScrubMemory.c)
- *     MiHashIsCommon @ 0x1404880D8 (MiHashIsCommon.c)
- *     RtlpAllocateHeap @ 0x14052125C (RtlpAllocateHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x14061B020 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x14061B414 (RtlpCreateSplitBlock.c)
- *     MiFreedUnusedPfnPagesDpc @ 0x1406E8B80 (MiFreedUnusedPfnPagesDpc.c)
- *     MiZeroHugeRangeWorker @ 0x1407055C0 (MiZeroHugeRangeWorker.c)
- *     MiQueryInitializeRestrictedVa @ 0x140774004 (MiQueryInitializeRestrictedVa.c)
- *     IopTrackLink @ 0x140ACE24C (IopTrackLink.c)
+ *     RtlScrubMemory @ 0x140408284 (RtlScrubMemory.c)
+ *     MiHashIsCommon @ 0x140481C18 (MiHashIsCommon.c)
+ *     RtlpAllocateHeap @ 0x1405238C8 (RtlpAllocateHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x14061E070 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateSplitBlock @ 0x14061E464 (RtlpCreateSplitBlock.c)
+ *     MiFreedUnusedPfnPagesDpc @ 0x1406ED820 (MiFreedUnusedPfnPagesDpc.c)
+ *     MiZeroHugeRangeWorker @ 0x14070A290 (MiZeroHugeRangeWorker.c)
+ *     MiQueryInitializeRestrictedVa @ 0x140777004 (MiQueryInitializeRestrictedVa.c)
+ *     IopTrackLink @ 0x140AD048C (IopTrackLink.c)
  * Callees:
  *     <none>
  */

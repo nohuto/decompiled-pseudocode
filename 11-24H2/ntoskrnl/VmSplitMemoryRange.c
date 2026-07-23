@@ -1,13 +1,13 @@
 /*
- * XREFs of VmSplitMemoryRange @ 0x140A79A90
+ * XREFs of VmSplitMemoryRange @ 0x140A73D90
  * Callers:
  *     <none>
  * Callees:
- *     VmpSplitMemoryRange @ 0x1403AB5D4 (VmpSplitMemoryRange.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     VmpLogSplitMergeMemoryRange @ 0x1407A0310 (VmpLogSplitMergeMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x140399CE8 (VmpSplitMemoryRange.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     VmpLogSplitMergeMemoryRange @ 0x1407A0420 (VmpLogSplitMergeMemoryRange.c)
  */
 
 __int64 __fastcall VmSplitMemoryRange(unsigned __int64 a1, __int64 a2)

@@ -8,9 +8,9 @@
  *     KiSetClockIntervalToMinimumRequested @ 0x14010F228 (KiSetClockIntervalToMinimumRequested.c)
  */
 
-__int64 __fastcall KiResetClockInterval(unsigned __int64 a1)
+__int64 __fastcall KiResetClockInterval(PRTL_BALANCED_NODE Node)
 {
-  RtlRbRemoveNode((__int64)&KiClockIntervalRequests, a1);
-  *(_BYTE *)(a1 + 24) = 0;
+  RtlRbRemoveNode(&KiClockIntervalRequests, Node);
+  LOBYTE(Node[1].Children[0]) = 0;
   return KiSetClockIntervalToMinimumRequested();
 }

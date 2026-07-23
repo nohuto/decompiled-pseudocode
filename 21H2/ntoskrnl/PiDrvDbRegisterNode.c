@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDrvDbRegisterNode @ 0x1407A3878
+ * XREFs of PiDrvDbRegisterNode @ 0x1407A3A78
  * Callers:
- *     PiDrvDbInit @ 0x1407A350C (PiDrvDbInit.c)
- *     PiDrvDbRegisterNodeCallback @ 0x1407D4850 (PiDrvDbRegisterNodeCallback.c)
+ *     PiDrvDbInit @ 0x1407A370C (PiDrvDbInit.c)
+ *     PiDrvDbRegisterNodeCallback @ 0x1407D49C0 (PiDrvDbRegisterNodeCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     RtlFindUnicodeSubstring @ 0x1405ED870 (RtlFindUnicodeSubstring.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     PiDrvDbCreateNode @ 0x1407A39CC (PiDrvDbCreateNode.c)
- *     DrvDbRegisterDatabase @ 0x1407A41D0 (DrvDbRegisterDatabase.c)
- *     PiDrvDbDestroyNode @ 0x1408B5CF4 (PiDrvDbDestroyNode.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6D68 (PiDrvDbQuerySystemPathWin32.c)
- *     DrvDbUnregisterDatabase @ 0x14097E810 (DrvDbUnregisterDatabase.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlFindUnicodeSubstring @ 0x1406DCFD0 (RtlFindUnicodeSubstring.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     PiDrvDbCreateNode @ 0x1407A3BCC (PiDrvDbCreateNode.c)
+ *     DrvDbRegisterDatabase @ 0x1407A43D0 (DrvDbRegisterDatabase.c)
+ *     PiDrvDbDestroyNode @ 0x1408B5E54 (PiDrvDbDestroyNode.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6EC8 (PiDrvDbQuerySystemPathWin32.c)
+ *     DrvDbUnregisterDatabase @ 0x14097E9F0 (DrvDbUnregisterDatabase.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2)
@@ -31,11 +31,11 @@ __int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2)
   int v12; // esi
   __int64 v13; // rcx
   wchar_t *v15; // rdi
-  char *UnicodeSubstring; // rax
+  PWCHAR UnicodeSubstring; // rax
   unsigned __int16 i; // cx
   UNICODE_STRING String2; // [rsp+50h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-20h] BYREF
-  UNICODE_STRING v20; // [rsp+70h] [rbp-10h] BYREF
+  UNICODE_STRING SearchString; // [rsp+70h] [rbp-10h] BYREF
   PVOID P; // [rsp+C0h] [rbp+40h] BYREF
 
   P = 0LL;
@@ -43,7 +43,7 @@ __int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2)
   PoolWithTag = 0LL;
   v5 = 0;
   DestinationString = 0LL;
-  v20 = 0LL;
+  SearchString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   Node = PiDrvDbCreateNode(Source, (__int64)&P);
   v7 = (char *)P;
@@ -93,8 +93,8 @@ LABEL_8:
   {
     v15 = (wchar_t *)*((_QWORD *)v7 + 7);
     String2.Buffer = v15;
-    RtlInitUnicodeString(&v20, L"\\System32\\config\\");
-    UnicodeSubstring = RtlFindUnicodeSubstring((unsigned __int16 *)v7 + 24, &v20.Length, 1);
+    RtlInitUnicodeString(&SearchString, L"\\System32\\config\\");
+    UnicodeSubstring = RtlFindUnicodeSubstring((PUNICODE_STRING)v7 + 3, &SearchString, 1u);
     if ( UnicodeSubstring )
     {
       i = 2 * ((__int64)(unsigned int)((_DWORD)UnicodeSubstring - *((_DWORD *)v7 + 14)) >> 1);

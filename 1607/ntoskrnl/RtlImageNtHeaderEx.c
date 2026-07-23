@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlImageNtHeaderEx @ 0x140014260
+ * XREFs of RtlImageNtHeaderEx @ 0x140013DE0
  * Callers:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     RtlpImageDirectoryEntryToDataEx @ 0x14007BB14 (RtlpImageDirectoryEntryToDataEx.c)
- *     LdrpFetchAddressOfSecurityCookie @ 0x140484478 (LdrpFetchAddressOfSecurityCookie.c)
- *     EtwpProviderArrivalCallback @ 0x1404D0D5C (EtwpProviderArrivalCallback.c)
- *     LdrpResGetResourceDirectory @ 0x14051B434 (LdrpResGetResourceDirectory.c)
- *     LdrpResGetMappingSize @ 0x14051B7C4 (LdrpResGetMappingSize.c)
- *     LdrRelocateImage @ 0x140554094 (LdrRelocateImage.c)
- *     VfDriverEnableVerifierForAll @ 0x140704C44 (VfDriverEnableVerifierForAll.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x14007BB94 (RtlpImageDirectoryEntryToDataEx.c)
+ *     LdrpFetchAddressOfSecurityCookie @ 0x1404831CC (LdrpFetchAddressOfSecurityCookie.c)
+ *     EtwpProviderArrivalCallback @ 0x1404B47FC (EtwpProviderArrivalCallback.c)
+ *     LdrpResGetResourceDirectory @ 0x1404FE824 (LdrpResGetResourceDirectory.c)
+ *     LdrpResGetMappingSize @ 0x1404FEBB4 (LdrpResGetMappingSize.c)
+ *     LdrRelocateImage @ 0x1405545D4 (LdrRelocateImage.c)
+ *     VfDriverEnableVerifierForAll @ 0x140704C74 (VfDriverEnableVerifierForAll.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ NTSTATUS __stdcall RtlImageNtHeaderEx(ULONG Flags, PVOID BaseAddress, ULONGLONG 
   NTSTATUS v4; // r10d
   char v5; // al
   ULONGLONG v6; // rcx
-  struct _IMAGE_NT_HEADERS64 *v7; // rax
+  _IMAGE_NT_HEADERS64 *v7; // rax
 
   if ( !NtHeader )
     return -1073741811;
@@ -44,7 +44,7 @@ NTSTATUS __stdcall RtlImageNtHeaderEx(ULONG Flags, PVOID BaseAddress, ULONGLONG 
     if ( v6 >= Size || (unsigned int)v6 >= 0xFFFFFFE7 || v6 + 24 >= Size )
       return -1073741701;
   }
-  v7 = (struct _IMAGE_NT_HEADERS64 *)((char *)BaseAddress + v6);
+  v7 = (_IMAGE_NT_HEADERS64 *)((char *)BaseAddress + v6);
   if ( (char *)BaseAddress + v6 < BaseAddress
     || (unsigned __int64)BaseAddress < 0x7FFFFFFEFFFFLL
     && ((unsigned __int64)v7 >= 0x7FFFFFFEFFFFLL || (unsigned __int64)&v7[1] >= 0x7FFFFFFEFFFFLL) )

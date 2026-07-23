@@ -23,19 +23,19 @@
  *     sub_1800CFA48 @ 0x1800CFA48 (sub_1800CFA48.c)
  */
 
-struct _PEB *__fastcall sub_1800255A8(int a1, __int64 a2, unsigned __int16 a3)
+int __fastcall sub_1800255A8(int a1, __int64 a2, unsigned __int16 a3)
 {
-  struct _PEB *result; // rax
-  _DWORD *HotpatchInformation; // r9
+  struct _PEB *v3; // rax
+  _DWORD *p_ServiceSessionId; // r9
   __int64 v8; // r8
   __int64 v9; // rcx
 
-  result = NtCurrentPeb();
-  HotpatchInformation = result->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
+  v3 = NtCurrentPeb();
+  p_ServiceSessionId = &v3->SharedData->ServiceSessionId;
+  if ( p_ServiceSessionId && *p_ServiceSessionId )
   {
-    result = NtCurrentPeb();
-    v8 = (__int64)result->HotpatchInformation + 554;
+    v3 = NtCurrentPeb();
+    v8 = (__int64)&v3->SharedData->UserModeGlobalLogger[2];
   }
   else
   {
@@ -43,22 +43,22 @@ struct _PEB *__fastcall sub_1800255A8(int a1, __int64 a2, unsigned __int16 a3)
   }
   if ( *(_BYTE *)v8 )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 4) != 0 )
+    v3 = NtCurrentPeb();
+    if ( (v3->TracingFlags & 4) != 0 )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v3) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v3 )
       {
-        result = NtCurrentPeb();
-        v9 = (__int64)result->HotpatchInformation + 555;
+        v3 = NtCurrentPeb();
+        v9 = (__int64)&v3->SharedData->UserModeGlobalLogger[2] + 1;
       }
       else
       {
         v9 = 2147353477LL;
       }
       if ( (*(_BYTE *)v9 & 0x20) != 0 )
-        return (struct _PEB *)sub_1800CFA48(a3, a1, 0, 0, a2, 0LL);
+        LODWORD(v3) = sub_1800CFA48(a3, a1, 0, 0, a2, 0LL);
     }
   }
-  return result;
+  return (int)v3;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of CcMapDataForOverwrite @ 0x14045C1D0
+ * XREFs of CcMapDataForOverwrite @ 0x140451570
  * Callers:
- *     CcPreparePinWrite @ 0x140A3EE70 (CcPreparePinWrite.c)
+ *     CcPreparePinWrite @ 0x140A34720 (CcPreparePinWrite.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     CcUnpinFileDataEx @ 0x1402AB380 (CcUnpinFileDataEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcMapDataCommon @ 0x14099CDF0 (CcMapDataCommon.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     CcUnpinFileDataEx @ 0x1402766A0 (CcUnpinFileDataEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcMapDataCommon @ 0x1409781B0 (CcMapDataCommon.c)
  */
 
 __int64 __fastcall CcMapDataForOverwrite(__int64 a1, _DWORD *a2, unsigned int a3, _QWORD *a4, unsigned __int64 *a5)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnalignedStringCbLengthW @ 0x140322F08
+ * XREFs of RtlUnalignedStringCbLengthW @ 0x140323198
  * Callers:
- *     _PnpValidatePropertyData @ 0x140796EB8 (_PnpValidatePropertyData.c)
- *     _PnpRegQueryValueIndirect @ 0x1407BACB0 (_PnpRegQueryValueIndirect.c)
+ *     _PnpValidatePropertyData @ 0x1407970A8 (_PnpValidatePropertyData.c)
+ *     _PnpRegQueryValueIndirect @ 0x1407BAF80 (_PnpRegQueryValueIndirect.c)
  * Callees:
  *     <none>
  */

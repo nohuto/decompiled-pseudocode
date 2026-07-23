@@ -64,9 +64,9 @@ void __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
   struct _KPRCB *v34; // r10
   _DWORD *v35; // r9
   int v36; // eax
-  _QWORD *v37; // rsi
-  unsigned __int64 v38; // rax
-  unsigned __int64 SetBitsAndClear; // r14
+  PVOID v37; // rsi
+  unsigned __int64 *v38; // rax
+  ULONG64 SetBitsAndClear; // r14
   const signed __int64 *v40; // rbx
   __int64 v41; // rdi
   unsigned __int8 v42; // bl
@@ -79,7 +79,7 @@ void __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
   ULONG_PTR v49; // [rsp+30h] [rbp-48h]
   __int64 v50; // [rsp+38h] [rbp-40h]
   const signed __int64 *i; // [rsp+40h] [rbp-38h]
-  unsigned __int64 v52[2]; // [rsp+48h] [rbp-30h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+48h] [rbp-30h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-20h] BYREF
   PVOID P; // [rsp+C0h] [rbp+48h] BYREF
   ULONG_PTR v55; // [rsp+C8h] [rbp+50h]
@@ -92,7 +92,7 @@ void __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
   v48 = a2;
   P = 0LL;
   v4 = (BugCheckParameter2 >> 18) & 0x3FFFFF;
-  v52[0] = v4;
+  BitMapHeader.SizeOfBitMap = v4;
   v5 = a3;
   v6 = a2;
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -154,10 +154,13 @@ LABEL_15:
           (volatile signed __int32 *)(qword_140C67EF8 + 4
                                                       * (((((__int64)v8 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
           ~(1 << ((((__int64)v8 - qword_140C67EF0) >> 3) & 0x1F)));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v17 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -195,7 +198,7 @@ LABEL_24:
   v30 = (_QWORD *)(qword_140C67EF0 + v50);
   v31 = v6 >> 18;
   KeAcquireInStackQueuedSpinLock(&qword_140C67F00, &LockHandle);
-  RtlClearBitsEx((__int64)&qword_140C67EE0, v52[0], v31);
+  RtlClearBitsEx((__int64)&stru_140C67EE0, BitMapHeader.SizeOfBitMap, v31);
   for ( ; v31; --v31 )
   {
     MiLockHugePfnInternal(v30, 0LL);
@@ -207,10 +210,10 @@ LABEL_24:
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && LockHandle.OldIrql <= 0xFu && v33 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && LockHandle.OldIrql <= 0xFu && v33 >= 2u )
     {
       v34 = KeGetCurrentPrcb();
       v35 = v34->SchedulerAssist;
@@ -228,17 +231,17 @@ LABEL_24:
     RtlAvlRemoveNode((unsigned __int64 *)&P, (unsigned __int64 *)P);
     if ( !v5 )
     {
-      v38 = v37[4];
+      v38 = (unsigned __int64 *)*((_QWORD *)v37 + 4);
       SetBitsAndClear = 0LL;
-      v52[0] = 0x40000LL;
-      v52[1] = v38;
-      v40 = (const signed __int64 *)(v38 + 0x8000);
-      for ( i = (const signed __int64 *)(v38 + 0x8000); ; v40 = i )
+      BitMapHeader.SizeOfBitMap = 0x40000LL;
+      BitMapHeader.Buffer = v38;
+      v40 = (const signed __int64 *)(v38 + 4096);
+      for ( i = (const signed __int64 *)(v38 + 4096); ; v40 = i )
       {
-        SetBitsAndClear = RtlFindSetBitsAndClearEx(v52, 1uLL, SetBitsAndClear);
+        SetBitsAndClear = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, SetBitsAndClear);
         if ( SetBitsAndClear == -1LL )
           break;
-        v41 = 48 * (SetBitsAndClear + ((v37[3] & 0x3FFFFFLL) << 18)) - 0x220000000000LL;
+        v41 = 48 * (SetBitsAndClear + ((*((_DWORD *)v37 + 6) & 0x3FFFFFLL) << 18)) - 0x220000000000LL;
         v42 = _bittest64(v40, SetBitsAndClear);
         MiAllocatePool(64, 0x20uLL, 0x6C42694Du);
         v43 = (unsigned __int8)MiLockPageInline(v41);
@@ -246,10 +249,10 @@ LABEL_24:
           *(_BYTE *)(v41 + 35) |= 0x80u;
         MiSetPfnRemovalRequested(v41, 1LL, 0LL);
         _InterlockedAnd64((volatile signed __int64 *)(v41 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v44 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v44 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v44 >= 2u )
           {
             v45 = KeGetCurrentPrcb();
             v46 = v45->SchedulerAssist;
@@ -264,7 +267,7 @@ LABEL_24:
       }
       v5 = v56;
     }
-    ExFreePoolWithTag((PVOID)v37[4], 0);
+    ExFreePoolWithTag(*((PVOID *)v37 + 4), 0);
     ExFreePoolWithTag(v37, 0);
   }
 }

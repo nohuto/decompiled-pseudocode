@@ -1,60 +1,60 @@
 /*
- * XREFs of HvcallFastExtended @ 0x1403AF3C0
+ * XREFs of HvcallFastExtended @ 0x14039DBD0
  * Callers:
- *     HvlDmaUnmapDeviceLogicalRange @ 0x1403AD990 (HvlDmaUnmapDeviceLogicalRange.c)
- *     HvlDmaMapDeviceLogicalRange @ 0x1403ADFF0 (HvlDmaMapDeviceLogicalRange.c)
- *     HvlFlushTbAllPartitions @ 0x1403AEB30 (HvlFlushTbAllPartitions.c)
- *     HvlFlushRangeListTb @ 0x1403AEEF0 (HvlFlushRangeListTb.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x1403C8838 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlParkedVirtualProcessors @ 0x1403C8E74 (HvlParkedVirtualProcessors.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403C9984 (HvlpFastFlushAddressSpaceTbEx.c)
- *     HvlpFastFlushListTbEx @ 0x1403C9B54 (HvlpFastFlushListTbEx.c)
- *     HvlDmaMapDeviceSparsePages @ 0x14046E870 (HvlDmaMapDeviceSparsePages.c)
- *     HvlDmaUnmapDeviceSparsePages @ 0x140477AA0 (HvlDmaUnmapDeviceSparsePages.c)
- *     HvlpFastFlushPasidAddressList @ 0x1404972DC (HvlpFastFlushPasidAddressList.c)
- *     HvlpFlushPasidAddressSpace @ 0x1404973D0 (HvlpFlushPasidAddressSpace.c)
- *     HvlpReadPerfRegister @ 0x14058497C (HvlpReadPerfRegister.c)
- *     HvlpWritePerfRegister @ 0x140585BB0 (HvlpWritePerfRegister.c)
- *     HvlAttachPasidSpace @ 0x140585E00 (HvlAttachPasidSpace.c)
- *     HvlAttachPrQueue @ 0x140585EB0 (HvlAttachPrQueue.c)
- *     HvlClearPrqStalled @ 0x140585F60 (HvlClearPrqStalled.c)
- *     HvlCreatePasidSpace @ 0x140585FC0 (HvlCreatePasidSpace.c)
- *     HvlCreatePrQueue @ 0x140586080 (HvlCreatePrQueue.c)
- *     HvlDeletePrQueue @ 0x140586170 (HvlDeletePrQueue.c)
- *     HvlDetachPasidSpace @ 0x1405861D0 (HvlDetachPasidSpace.c)
- *     HvlDetachPrQueue @ 0x140586220 (HvlDetachPrQueue.c)
- *     HvlDisablePasid @ 0x140586270 (HvlDisablePasid.c)
- *     HvlDmaAllocateDeviceDomain @ 0x1405862F0 (HvlDmaAllocateDeviceDomain.c)
- *     HvlDmaAttachDeviceDomain @ 0x1405863C0 (HvlDmaAttachDeviceDomain.c)
- *     HvlDmaConfigureDeviceDomain @ 0x140586480 (HvlDmaConfigureDeviceDomain.c)
- *     HvlDmaDeleteDeviceDomain @ 0x140586540 (HvlDmaDeleteDeviceDomain.c)
- *     HvlDmaDetachDeviceDomain @ 0x1405865D0 (HvlDmaDetachDeviceDomain.c)
- *     HvlDmaFlushDeviceDomain @ 0x140586630 (HvlDmaFlushDeviceDomain.c)
- *     HvlDmaReserveDeviceDomainAttachment @ 0x140586950 (HvlDmaReserveDeviceDomainAttachment.c)
- *     HvlDmaUnreserveDeviceDomainAttachment @ 0x140586A10 (HvlDmaUnreserveDeviceDomainAttachment.c)
- *     HvlEnablePasid @ 0x140586A60 (HvlEnablePasid.c)
- *     HvlRestoreTime @ 0x140588000 (HvlRestoreTime.c)
- *     HvlSetDeviceCapabilities @ 0x140588160 (HvlSetDeviceCapabilities.c)
- *     HvlSetDeviceDmaEnabled @ 0x140588200 (HvlSetDeviceDmaEnabled.c)
- *     HvlSetPasidAddressSpace @ 0x140588500 (HvlSetPasidAddressSpace.c)
- *     HvlSetRootFaultReportingReady @ 0x1405885B0 (HvlSetRootFaultReportingReady.c)
- *     HvlUnblockDefaultDma @ 0x1405887C0 (HvlUnblockDefaultDma.c)
- *     HvlUnregisterDeviceId @ 0x140588900 (HvlUnregisterDeviceId.c)
- *     HvlpDmaFastFlushDeviceDomainVaList @ 0x140588950 (HvlpDmaFastFlushDeviceDomainVaList.c)
- *     HvlpFastAcknowledgePageRequest @ 0x140588B38 (HvlpFastAcknowledgePageRequest.c)
- *     HvlWakeVirtualProcessors @ 0x1405897E0 (HvlWakeVirtualProcessors.c)
- *     HvlpProcessIommuPrq @ 0x14058B010 (HvlpProcessIommuPrq.c)
- *     HvlpGetVtlCallVa @ 0x1406A0B30 (HvlpGetVtlCallVa.c)
- *     HvlpAddRemovePhysicalMemory @ 0x1406A0D20 (HvlpAddRemovePhysicalMemory.c)
- *     HvlpDynamicUpdateMicrocode @ 0x14070F368 (HvlpDynamicUpdateMicrocode.c)
+ *     HvlDmaUnmapDeviceLogicalRange @ 0x14039C1A0 (HvlDmaUnmapDeviceLogicalRange.c)
+ *     HvlDmaMapDeviceLogicalRange @ 0x14039C800 (HvlDmaMapDeviceLogicalRange.c)
+ *     HvlFlushTbAllPartitions @ 0x14039D340 (HvlFlushTbAllPartitions.c)
+ *     HvlFlushRangeListTb @ 0x14039D700 (HvlFlushRangeListTb.c)
+ *     HvlParkedVirtualProcessors @ 0x1403A3A14 (HvlParkedVirtualProcessors.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1403A4524 (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushListTbEx @ 0x1403A46F4 (HvlpFastFlushListTbEx.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1403A4C68 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlDmaMapDeviceSparsePages @ 0x140468D00 (HvlDmaMapDeviceSparsePages.c)
+ *     HvlDmaUnmapDeviceSparsePages @ 0x1404740A0 (HvlDmaUnmapDeviceSparsePages.c)
+ *     HvlpFastFlushPasidAddressList @ 0x140491C6C (HvlpFastFlushPasidAddressList.c)
+ *     HvlpFlushPasidAddressSpace @ 0x140491D60 (HvlpFlushPasidAddressSpace.c)
+ *     HvlpReadPerfRegister @ 0x140581CFC (HvlpReadPerfRegister.c)
+ *     HvlpWritePerfRegister @ 0x140582F30 (HvlpWritePerfRegister.c)
+ *     HvlAttachPasidSpace @ 0x140583180 (HvlAttachPasidSpace.c)
+ *     HvlAttachPrQueue @ 0x140583230 (HvlAttachPrQueue.c)
+ *     HvlClearPrqStalled @ 0x1405832E0 (HvlClearPrqStalled.c)
+ *     HvlCreatePasidSpace @ 0x140583340 (HvlCreatePasidSpace.c)
+ *     HvlCreatePrQueue @ 0x140583400 (HvlCreatePrQueue.c)
+ *     HvlDeletePrQueue @ 0x1405834F0 (HvlDeletePrQueue.c)
+ *     HvlDetachPasidSpace @ 0x140583550 (HvlDetachPasidSpace.c)
+ *     HvlDetachPrQueue @ 0x1405835A0 (HvlDetachPrQueue.c)
+ *     HvlDisablePasid @ 0x1405835F0 (HvlDisablePasid.c)
+ *     HvlDmaAllocateDeviceDomain @ 0x140583670 (HvlDmaAllocateDeviceDomain.c)
+ *     HvlDmaAttachDeviceDomain @ 0x140583740 (HvlDmaAttachDeviceDomain.c)
+ *     HvlDmaConfigureDeviceDomain @ 0x140583800 (HvlDmaConfigureDeviceDomain.c)
+ *     HvlDmaDeleteDeviceDomain @ 0x1405838C0 (HvlDmaDeleteDeviceDomain.c)
+ *     HvlDmaDetachDeviceDomain @ 0x140583950 (HvlDmaDetachDeviceDomain.c)
+ *     HvlDmaFlushDeviceDomain @ 0x1405839B0 (HvlDmaFlushDeviceDomain.c)
+ *     HvlDmaReserveDeviceDomainAttachment @ 0x140583CD0 (HvlDmaReserveDeviceDomainAttachment.c)
+ *     HvlDmaUnreserveDeviceDomainAttachment @ 0x140583D90 (HvlDmaUnreserveDeviceDomainAttachment.c)
+ *     HvlEnablePasid @ 0x140583DE0 (HvlEnablePasid.c)
+ *     HvlRestoreTime @ 0x140585320 (HvlRestoreTime.c)
+ *     HvlSetDeviceCapabilities @ 0x140585440 (HvlSetDeviceCapabilities.c)
+ *     HvlSetDeviceDmaEnabled @ 0x1405854E0 (HvlSetDeviceDmaEnabled.c)
+ *     HvlSetPasidAddressSpace @ 0x1405857E0 (HvlSetPasidAddressSpace.c)
+ *     HvlSetRootFaultReportingReady @ 0x140585890 (HvlSetRootFaultReportingReady.c)
+ *     HvlUnblockDefaultDma @ 0x140585AA0 (HvlUnblockDefaultDma.c)
+ *     HvlUnregisterDeviceId @ 0x140585BE0 (HvlUnregisterDeviceId.c)
+ *     HvlpDmaFastFlushDeviceDomainVaList @ 0x140585C30 (HvlpDmaFastFlushDeviceDomainVaList.c)
+ *     HvlpFastAcknowledgePageRequest @ 0x140585E18 (HvlpFastAcknowledgePageRequest.c)
+ *     HvlWakeVirtualProcessors @ 0x140586AD0 (HvlWakeVirtualProcessors.c)
+ *     HvlpProcessIommuPrq @ 0x140588300 (HvlpProcessIommuPrq.c)
+ *     HvlpGetVtlCallVa @ 0x1405895B0 (HvlpGetVtlCallVa.c)
+ *     HvlpAddRemovePhysicalMemory @ 0x1406A1D78 (HvlpAddRemovePhysicalMemory.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x14070CEF8 (HvlpDynamicUpdateMicrocode.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     RtlGetSystemTimePrecise @ 0x14034EB80 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     EtwpGetHostPerfCounter @ 0x1403FF27C (EtwpGetHostPerfCounter.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1406B5160 (HvcallpExtendedFastHypercall.c)
- *     HvcallpExtendedFastHypercallWithOutput @ 0x1406B51C0 (HvcallpExtendedFastHypercallWithOutput.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     RtlGetSystemTimePrecise @ 0x14036D060 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1403F98CC (EtwpGetHostPerfCounter.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x1406B6100 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercallWithOutput @ 0x1406B6160 (HvcallpExtendedFastHypercallWithOutput.c)
  */
 
 __int64 __fastcall HvcallFastExtended(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
@@ -88,22 +88,22 @@ __int64 __fastcall HvcallFastExtended(__int64 a1, __int64 a2, unsigned int a3, _
 
   v30 = 0LL;
   v31 = 0LL;
-  if ( (BYTE4(xmmword_140FC5B10) & 0x10) == 0 )
+  if ( (BYTE4(xmmword_140FC6B50) & 0x10) == 0 )
   {
     v9 = 0;
     goto LABEL_3;
   }
   v9 = 1;
   v21 = 0;
-  if ( qword_140FCEC80 )
+  if ( qword_140FCFC80 )
   {
-    v22 = *(_DWORD *)(qword_140FCEC80 + 4520);
+    v22 = *(_DWORD *)(qword_140FCFC80 + 4520);
     for ( i = !_BitScanForward((unsigned int *)&v23, v22); !i; i = !_BitScanForward((unsigned int *)&v23, v22) )
     {
       v22 &= v22 - 1;
-      v24 = qword_140FCEC80 + 32 * v23 + 4556;
+      v24 = qword_140FCFC80 + 32 * v23 + 4556;
       if ( v24 && (*(_DWORD *)(v24 + 20) & 0x10) != 0 )
-        v21 |= 1 << *(_BYTE *)(qword_140FCEC80 + 2 * v23 + 4505);
+        v21 |= 1 << *(_BYTE *)(qword_140FCFC80 + 2 * v23 + 4505);
     }
     if ( (v21 & 2) == 0 )
       goto LABEL_25;
@@ -115,7 +115,7 @@ __int64 __fastcall HvcallFastExtended(__int64 a1, __int64 a2, unsigned int a3, _
   *(LARGE_INTEGER *)&v30 = KeQueryPerformanceCounter(0LL);
 LABEL_25:
   if ( (v21 & 4) != 0 )
-    *((_QWORD *)&v30 + 1) = RtlGetSystemTimePrecise();
+    *((LARGE_INTEGER *)&v30 + 1) = RtlGetSystemTimePrecise();
   else
     *((_QWORD *)&v30 + 1) = 0LL;
   if ( (v21 & 8) != 0 )

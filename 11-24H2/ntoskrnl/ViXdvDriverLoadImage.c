@@ -1,46 +1,42 @@
 /*
- * XREFs of ViXdvDriverLoadImage @ 0x140B8A9B0
+ * XREFs of ViXdvDriverLoadImage @ 0x140B8C9B0
  * Callers:
- *     VfDriverLoadSucceeded @ 0x1404B33E0 (VfDriverLoadSucceeded.c)
- *     ViLogAndLoadXdv @ 0x140B83B40 (ViLogAndLoadXdv.c)
+ *     VfDriverLoadSucceeded @ 0x1404ADC50 (VfDriverLoadSucceeded.c)
+ *     ViLogAndLoadXdv @ 0x140B85B40 (ViLogAndLoadXdv.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     VfUtilDbgPrint @ 0x14061029C (VfUtilDbgPrint.c)
- *     ViXdvSetXdvKernelUtilities @ 0x1406111A4 (ViXdvSetXdvKernelUtilities.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     strcmp @ 0x1406C0400 (strcmp.c)
- *     ViXdvGetFuncAddress @ 0x140B8AB70 (ViXdvGetFuncAddress.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     VfUtilDbgPrint @ 0x14060E85C (VfUtilDbgPrint.c)
+ *     ViXdvSetXdvKernelUtilities @ 0x14060F764 (ViXdvSetXdvKernelUtilities.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     strcmp @ 0x1406C1300 (strcmp.c)
+ *     ViXdvGetFuncAddress @ 0x140B8CB70 (ViXdvGetFuncAddress.c)
  */
 
 char __fastcall ViXdvDriverLoadImage(__int64 a1)
 {
-  unsigned __int64 v1; // r14
-  __int64 v2; // rax
-  __int64 v3; // rdi
+  char *v1; // r14
+  _DWORD *v2; // rax
+  _DWORD *v3; // rdi
   __int64 v4; // rsi
-  unsigned __int64 v5; // r15
+  char *v5; // r15
   char v6; // bl
   const char *v7; // rbp
   __int64 FuncAddress; // rax
   __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  int v16; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v10; // rcx
+  ULONG v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
-  v2 = RtlImageDirectoryEntryToData(v1, 1, 0, &v16);
+  v1 = *(char **)(a1 + 48);
+  v2 = RtlImageDirectoryEntryToData(v1, 1u, 0, &v12);
   v3 = v2;
-  if ( v2 && *(_DWORD *)(v2 + 24) )
+  if ( v2 && v2[6] )
   {
     v4 = 0LL;
-    v5 = v1 + *(unsigned int *)(v2 + 32);
+    v5 = &v1[v2[8]];
     v6 = 1;
     while ( 1 )
     {
-      v7 = (const char *)(v1 + *(unsigned int *)(v5 + 4 * v4));
+      v7 = &v1[*(unsigned int *)&v5[4 * v4]];
       if ( !strcmp("SetXdvKernelUtilities", v7) )
       {
         FuncAddress = ViXdvGetFuncAddress(v1, v3, (unsigned int)v4);
@@ -49,7 +45,7 @@ char __fastcall ViXdvDriverLoadImage(__int64 a1)
           VfUtilDbgPrint("Error on getting XDV utility routine.\n");
           goto LABEL_19;
         }
-        if ( !ViXdvSetXdvKernelUtilities(FuncAddress, v9, v10) )
+        if ( !ViXdvSetXdvKernelUtilities(FuncAddress) )
         {
           VfUtilDbgPrint("Error on binding utility functions.\n");
 LABEL_19:
@@ -91,11 +87,11 @@ LABEL_19:
           VfUtilDbgPrint("Error on calling XDV DIF plugins.\n");
           goto LABEL_19;
         }
-        guard_dispatch_icall_no_overrides(v12, v11, v13, v14);
+        guard_dispatch_icall_no_overrides(v10, v9);
       }
 LABEL_22:
       v4 = (unsigned int)(v4 + 1);
-      if ( (unsigned int)v4 >= *(_DWORD *)(v3 + 24) )
+      if ( (unsigned int)v4 >= v3[6] )
         return v6;
     }
   }

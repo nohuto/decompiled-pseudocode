@@ -1,69 +1,67 @@
 /*
- * XREFs of AuthzBasepInitializeSystemSecurityAttributes @ 0x14088FB44
+ * XREFs of AuthzBasepInitializeSystemSecurityAttributes @ 0x140895F40
  * Callers:
- *     SeRmInitPhase1 @ 0x140D0B16C (SeRmInitPhase1.c)
+ *     SeRmInitPhase1 @ 0x140D1143C (SeRmInitPhase1.c)
  * Callees:
- *     AuthzBasepAllocateSecurityAttributesList @ 0x1403CAE7C (AuthzBasepAllocateSecurityAttributesList.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     RtlIsMultiSessionSku @ 0x140A91D70 (RtlIsMultiSessionSku.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1403B2488 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlIsMultiSessionSku @ 0x140A968C0 (RtlIsMultiSessionSku.c)
  */
 
-__int64 __fastcall AuthzBasepInitializeSystemSecurityAttributes(__int64 a1)
+__int64 __fastcall AuthzBasepInitializeSystemSecurityAttributes(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v2; // rbx
   _DWORD *SecurityAttributesList; // rdi
-  unsigned int v5; // ebx
-  char IsMultiSessionSku; // al
-  char v7; // si
-  _DWORD v9[2]; // [rsp+20h] [rbp-40h] BYREF
-  _QWORD *v10; // [rsp+28h] [rbp-38h]
-  _QWORD v11[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v12; // [rsp+40h] [rbp-20h]
-  __int64 *v13; // [rsp+50h] [rbp-10h]
-  int v14; // [rsp+80h] [rbp+20h] BYREF
-  int v15; // [rsp+84h] [rbp+24h]
-  __int64 v16; // [rsp+88h] [rbp+28h] BYREF
+  unsigned int v4; // ebx
+  BOOLEAN IsMultiSessionSku; // al
+  char v6; // si
+  _DWORD v8[2]; // [rsp+20h] [rbp-40h] BYREF
+  _QWORD *v9; // [rsp+28h] [rbp-38h]
+  _QWORD v10[2]; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v11; // [rsp+40h] [rbp-20h]
+  __int64 *v12; // [rsp+50h] [rbp-10h]
+  int v13; // [rsp+80h] [rbp+20h] BYREF
+  int v14; // [rsp+84h] [rbp+24h]
+  __int64 v15; // [rsp+88h] [rbp+28h] BYREF
 
-  v15 = HIDWORD(a1);
-  v11[0] = 3145774LL;
-  v11[1] = L"WIN://ISMULTISESSIONSKU";
-  v9[0] = 1;
-  v13 = 0LL;
-  v1 = 0LL;
+  v14 = HIDWORD(a1);
+  v10[0] = 3145774LL;
+  v10[1] = L"WIN://ISMULTISESSIONSKU";
+  v8[0] = 1;
   v12 = 0LL;
-  v14 = 2;
-  v9[1] = 1;
-  v10 = v11;
-  SecurityAttributesList = (_DWORD *)AuthzBasepAllocateSecurityAttributesList();
+  v2 = 0LL;
+  v11 = 0LL;
+  v13 = 2;
+  v8[1] = 1;
+  v9 = v10;
+  SecurityAttributesList = (_DWORD *)AuthzBasepAllocateSecurityAttributesList(a1, a2);
   if ( SecurityAttributesList )
   {
-    IsMultiSessionSku = RtlIsMultiSessionSku(v3, v2);
-    DWORD2(v12) = 1;
-    v7 = IsMultiSessionSku;
-    LOWORD(v12) = 6;
-    LOBYTE(v1) = IsMultiSessionSku != 0;
-    v16 = v1;
-    v13 = &v16;
-    v5 = AuthzBasepSetSecurityAttributesToken((__int64)SecurityAttributesList, &v14, (__int64)v9);
+    IsMultiSessionSku = RtlIsMultiSessionSku();
+    DWORD2(v11) = 1;
+    v6 = IsMultiSessionSku;
+    LOWORD(v11) = 6;
+    LOBYTE(v2) = IsMultiSessionSku != 0;
+    v15 = v2;
+    v12 = &v15;
+    v4 = AuthzBasepSetSecurityAttributesToken(SecurityAttributesList, &v13, (__int64)v8);
     if ( _InterlockedCompareExchange64(
-           (volatile signed __int64 *)&WheapPfaLock.600,
+           (volatile signed __int64 *)&WheapPfaLock.SchedulerApc.Reserved[1],
            (signed __int64)SecurityAttributesList,
            0LL) )
     {
-      v5 = -1073741823;
+      v4 = -1073741823;
       AuthzBasepFreeSecurityAttributesList(SecurityAttributesList);
     }
     else
     {
-      SepAllowAccessUponLogoff = v7;
+      SepAllowAccessUponLogoff = v6;
     }
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v5;
+  return v4;
 }

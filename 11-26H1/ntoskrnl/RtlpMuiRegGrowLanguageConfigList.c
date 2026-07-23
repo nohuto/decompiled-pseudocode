@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegGrowLanguageConfigList @ 0x1408A8E54
+ * XREFs of RtlpMuiRegGrowLanguageConfigList @ 0x1408AF2C4
  * Callers:
- *     RtlpMuiRegConfigListAddLanguage @ 0x1408A7D3C (RtlpMuiRegConfigListAddLanguage.c)
+ *     RtlpMuiRegConfigListAddLanguage @ 0x1408AE1AC (RtlpMuiRegConfigListAddLanguage.c)
  * Callees:
- *     _SafeReallocBlob @ 0x14072070C (_SafeReallocBlob.c)
+ *     _SafeReallocBlob @ 0x14072532C (_SafeReallocBlob.c)
  */
 
 unsigned int *__fastcall RtlpMuiRegGrowLanguageConfigList(unsigned int *Src, int a2)

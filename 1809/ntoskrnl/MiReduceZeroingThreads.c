@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReduceZeroingThreads @ 0x1402C1B24
+ * XREFs of MiReduceZeroingThreads @ 0x1402C1D14
  * Callers:
- *     MiReassessZeroThreads @ 0x140185718 (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x140185858 (MiReassessZeroThreads.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReduceZeroingThreads(__int64 a1, int a2)

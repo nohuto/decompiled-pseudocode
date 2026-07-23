@@ -6,7 +6,17 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtCreateTransaction(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10)
+NTSTATUS __cdecl NtCreateTransaction(
+        PHANDLE TransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LPGUID Uow,
+        HANDLE TmHandle,
+        ULONG CreateOptions,
+        ULONG IsolationLevel,
+        ULONG IsolationFlags,
+        PLARGE_INTEGER Timeout,
+        PUNICODE_STRING Description)
 {
   return Wow64SystemServiceCall();
 }

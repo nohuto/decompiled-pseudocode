@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetEffectiveNoWakeCharge @ 0x1407792A4
+ * XREFs of PspGetEffectiveNoWakeCharge @ 0x14077C1D4
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1407F7D20 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1407FD820 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
- *     RtlIsZeroMemory @ 0x1404D9FD0 (RtlIsZeroMemory.c)
+ *     RtlIsZeroMemory @ 0x1404D36B0 (RtlIsZeroMemory.c)
  */
 
 char __fastcall PspGetEffectiveNoWakeCharge(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -14,7 +14,7 @@ char __fastcall PspGetEffectiveNoWakeCharge(__int64 a1, _QWORD *a2, _QWORD *a3)
 
   *a2 = 0LL;
   *a3 = 0LL;
-  LOBYTE(v6) = RtlIsZeroMemory((_BYTE *)(a1 + 1108), 8uLL);
+  LOBYTE(v6) = RtlIsZeroMemory((PVOID)(a1 + 1108), 8uLL);
   if ( (_BYTE)v6 || !*(_DWORD *)(a1 + 1064) )
     goto LABEL_9;
   v7 = *(_QWORD *)(a1 + 1176);

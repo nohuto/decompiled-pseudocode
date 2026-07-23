@@ -1,29 +1,29 @@
 /*
- * XREFs of EtwpCoverageSamplerQuery @ 0x1408C7E64
+ * XREFs of EtwpCoverageSamplerQuery @ 0x1408C9124
  * Callers:
- *     EtwpQueryCoverageSamplerInformation @ 0x1408C91B8 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1408CA478 (EtwpQueryCoverageSamplerInformation.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlStringCchCopyNW @ 0x1400F5094 (RtlStringCchCopyNW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408C396C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampCaptureContextSetPaused @ 0x1408C3D10 (EtwpCovSampCaptureContextSetPaused.c)
- *     EtwpCovSampCaptureFlush @ 0x1408C4220 (EtwpCovSampCaptureFlush.c)
- *     EtwpCovSampCaptureFlushStats @ 0x1408C4298 (EtwpCovSampCaptureFlushStats.c)
- *     EtwpCovSampContextPruneModules @ 0x1408C5CD8 (EtwpCovSampContextPruneModules.c)
- *     EtwpCovSampModuleNameInfoCleanup @ 0x1408C6E60 (EtwpCovSampModuleNameInfoCleanup.c)
- *     EtwpCoverageSamplerFreeTable @ 0x1408C7D54 (EtwpCoverageSamplerFreeTable.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlStringCchCopyNW @ 0x1400F5114 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408C4C2C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampCaptureContextSetPaused @ 0x1408C4FD0 (EtwpCovSampCaptureContextSetPaused.c)
+ *     EtwpCovSampCaptureFlush @ 0x1408C54E0 (EtwpCovSampCaptureFlush.c)
+ *     EtwpCovSampCaptureFlushStats @ 0x1408C5558 (EtwpCovSampCaptureFlushStats.c)
+ *     EtwpCovSampContextPruneModules @ 0x1408C6F98 (EtwpCovSampContextPruneModules.c)
+ *     EtwpCovSampModuleNameInfoCleanup @ 0x1408C8120 (EtwpCovSampModuleNameInfoCleanup.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x1408C9014 (EtwpCoverageSamplerFreeTable.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerQuery(
@@ -143,8 +143,8 @@ __int64 __fastcall EtwpCoverageSamplerQuery(
   v106 = a2;
   v97 = BugCheckParameter2;
   v88 = 0LL;
-  v5 = qword_140409DE8;
-  v92 = qword_140409DE8;
+  v5 = qword_14040AE48;
+  v92 = qword_14040AE48;
   v6 = BugCheckParameter2 + 16;
   v96 = BugCheckParameter2 + 16;
   v7 = 0LL;
@@ -562,7 +562,7 @@ LABEL_5:
   }
   if ( v88 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140409DE0);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_14040AE40);
     KeLeaveCriticalRegion();
   }
   return (unsigned int)v8;

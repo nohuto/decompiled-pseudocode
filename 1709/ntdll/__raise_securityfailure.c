@@ -6,8 +6,8 @@
  *     RtlUnhandledExceptionFilter @ 0x1800F9910 (RtlUnhandledExceptionFilter.c)
  */
 
-__int64 _raise_securityfailure()
+NTSTATUS __fastcall _raise_securityfailure(_EXCEPTION_POINTERS *a1)
 {
-  RtlUnhandledExceptionFilter();
-  return ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter(a1);
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

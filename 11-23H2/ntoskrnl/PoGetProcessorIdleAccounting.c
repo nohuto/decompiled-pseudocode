@@ -1,8 +1,8 @@
 /*
- * XREFs of PoGetProcessorIdleAccounting @ 0x140583CF0
+ * XREFs of PoGetProcessorIdleAccounting @ 0x1405841E0
  * Callers:
- *     EmonOverflowHandler @ 0x14051D650 (EmonOverflowHandler.c)
- *     Amd64OverflowHandler @ 0x140529AC0 (Amd64OverflowHandler.c)
+ *     EmonOverflowHandler @ 0x14051DBA0 (EmonOverflowHandler.c)
+ *     Amd64OverflowHandler @ 0x14052A010 (Amd64OverflowHandler.c)
  * Callees:
  *     <none>
  */

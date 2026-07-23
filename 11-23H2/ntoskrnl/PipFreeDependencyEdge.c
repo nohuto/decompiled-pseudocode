@@ -1,15 +1,15 @@
 /*
- * XREFs of PipFreeDependencyEdge @ 0x14055FBDC
+ * XREFs of PipFreeDependencyEdge @ 0x14056029C
  * Callers:
- *     PipDeleteAllDependencyRelations @ 0x140954410 (PipDeleteAllDependencyRelations.c)
- *     PipMergeDependencyEdgeList @ 0x140954718 (PipMergeDependencyEdgeList.c)
+ *     PipDeleteAllDependencyRelations @ 0x140954610 (PipDeleteAllDependencyRelations.c)
+ *     PipMergeDependencyEdgeList @ 0x140954918 (PipMergeDependencyEdgeList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PipDereferenceDependencyNode @ 0x140838090 (PipDereferenceDependencyNode.c)
- *     PipNotifyDependenciesChanged @ 0x14083827C (PipNotifyDependenciesChanged.c)
- *     PipFreeBindingRequestEntry @ 0x1409546CC (PipFreeBindingRequestEntry.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PipDereferenceDependencyNode @ 0x140838390 (PipDereferenceDependencyNode.c)
+ *     PipNotifyDependenciesChanged @ 0x14083857C (PipNotifyDependenciesChanged.c)
+ *     PipFreeBindingRequestEntry @ 0x1409548CC (PipFreeBindingRequestEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -58,10 +58,13 @@ LABEL_20:
   *v11 = v10;
   v10[1] = v11;
   KxReleaseSpinLock((volatile signed __int64 *)&PiDependencyEdgeWriteLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -69,7 +72,7 @@ LABEL_20:
       v16 = (v15 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v15;
       if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v7);

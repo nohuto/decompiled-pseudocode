@@ -49,7 +49,7 @@ unsigned __int64 __fastcall RtlpHpFixedHeapCreate(
     if ( ZwQueryVirtualMemory(
            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
            (PVOID)v8,
-           MemoryBasicVlmInformation,
+           MemoryRegionInformation,
            MemoryInformation,
            0x28uLL,
            0LL) < 0 )

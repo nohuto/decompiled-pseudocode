@@ -1,10 +1,10 @@
 /*
- * XREFs of IoQuerySystemDeviceName @ 0x1407D1464
+ * XREFs of IoQuerySystemDeviceName @ 0x1407D1734
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     IopRetrieveSystemDeviceName @ 0x1407D14D4 (IopRetrieveSystemDeviceName.c)
- *     IopFindSystemDevice @ 0x14095187C (IopFindSystemDevice.c)
+ *     IopRetrieveSystemDeviceName @ 0x1407D17A4 (IopRetrieveSystemDeviceName.c)
+ *     IopFindSystemDevice @ 0x140951A7C (IopFindSystemDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

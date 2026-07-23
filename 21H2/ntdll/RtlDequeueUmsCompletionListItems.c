@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDequeueUmsCompletionListItems @ 0x1800F71F0
+ * XREFs of RtlDequeueUmsCompletionListItems @ 0x1800F71B0
  * Callers:
  *     <none>
  * Callees:
- *     NtWaitForSingleObject @ 0x18009D6C0 (NtWaitForSingleObject.c)
+ *     NtWaitForSingleObject @ 0x18009D680 (NtWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall RtlDequeueUmsCompletionListItems(__int64 a1, LARGE_INTEGER *a2, __int64 *a3)

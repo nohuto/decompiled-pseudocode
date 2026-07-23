@@ -1,11 +1,11 @@
 /*
- * XREFs of KxContextToKframes @ 0x140081D84
+ * XREFs of KxContextToKframes @ 0x1400847BC
  * Callers:
- *     KiInitializeContextThread @ 0x1400F0C70 (KiInitializeContextThread.c)
- *     KeContextToKframes @ 0x14015D630 (KeContextToKframes.c)
+ *     KiInitializeContextThread @ 0x1400EEAC0 (KiInitializeContextThread.c)
+ *     KeContextToKframes @ 0x14015DBA0 (KeContextToKframes.c)
  * Callees:
- *     RtlXRestore @ 0x140082DAC (RtlXRestore.c)
- *     KiCopyXStateArea @ 0x1401D64B8 (KiCopyXStateArea.c)
+ *     RtlXRestore @ 0x140083A2C (RtlXRestore.c)
+ *     KiCopyXStateArea @ 0x1401D62E4 (KiCopyXStateArea.c)
  */
 
 char __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)

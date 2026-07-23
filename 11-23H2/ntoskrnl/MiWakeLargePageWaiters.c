@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWakeLargePageWaiters @ 0x140650004
+ * XREFs of MiWakeLargePageWaiters @ 0x140650554
  * Callers:
- *     MiInsertLargePageChain @ 0x1402D68E0 (MiInsertLargePageChain.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiDeleteAcceleratorDescriptor @ 0x1406549FC (MiDeleteAcceleratorDescriptor.c)
- *     MiDeleteHardwareAccelerators @ 0x140654B20 (MiDeleteHardwareAccelerators.c)
+ *     MiInsertLargePageChain @ 0x1402D6B70 (MiInsertLargePageChain.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiGetLargePage @ 0x1402D7D10 (MiGetLargePage.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140654F4C (MiDeleteAcceleratorDescriptor.c)
+ *     MiDeleteHardwareAccelerators @ 0x140655070 (MiDeleteHardwareAccelerators.c)
  * Callees:
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
  */
 
 __int64 __fastcall MiWakeLargePageWaiters(_QWORD *a1)

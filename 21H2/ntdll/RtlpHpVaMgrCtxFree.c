@@ -9,13 +9,13 @@
  *     RtlpHpVaMgrRangeSplit @ 0x180005FCC (RtlpHpVaMgrRangeSplit.c)
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
- *     ZwFreeVirtualMemory @ 0x18009DA00 (ZwFreeVirtualMemory.c)
- *     RtlSparseArrayElementFindCapped @ 0x18010F84C (RtlSparseArrayElementFindCapped.c)
+ *     ZwFreeVirtualMemory @ 0x18009D9C0 (ZwFreeVirtualMemory.c)
+ *     RtlSparseArrayElementFindCapped @ 0x18010F80C (RtlSparseArrayElementFindCapped.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, _QWORD *a2, _QWORD *a3)
+void __fastcall RtlpHpVaMgrCtxFree(__int64 a1, PVOID *a2, ULONG_PTR *a3)
 {
-  unsigned __int64 v6; // rdi
+  ULONG_PTR v6; // rdi
   char *v7; // rax
   __int64 v8; // rbx
   char v9; // dl
@@ -23,34 +23,35 @@ __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, _QWORD *a2, _QWORD *a3)
   __int64 v11; // rbp
   char v12; // dl
   __int64 v13; // rax
-  unsigned __int64 v14; // rax
+  ULONG_PTR v14; // rax
   __int64 v15; // rdi
-  __int64 result; // rax
   __int64 Capped; // rbx
 
   v6 = *a3 >> 20;
-  v7 = (char *)RtlSparseArrayElementAllocated(a1 + 16, (*a2 - *(_QWORD *)(a1 + 8)) >> 20);
+  v7 = (char *)RtlSparseArrayElementAllocated(a1 + 16, ((unsigned __int64)*a2 - *(_QWORD *)(a1 + 8)) >> 20);
   v8 = (__int64)v7;
   if ( !v7 )
   {
     Capped = RtlSparseArrayElementFindCapped(
                a1 + 16,
-               (*a2 - *(_QWORD *)(a1 + 8)) / 0x100000LL,
-               ~((*a2 - *(_QWORD *)(a1 + 8)) / 0x100000LL));
-    result = ZwFreeVirtualMemory(-1LL, a2, a3, 0x8000LL);
+               ((__int64)*a2 - *(_QWORD *)(a1 + 8)) / 0x100000,
+               ~(((__int64)*a2 - *(_QWORD *)(a1 + 8)) / 0x100000));
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, 0x8000u);
     *(_QWORD *)(Capped + 24) -= *a3 >> 20;
-    return result;
+    return;
   }
   v9 = *v7;
   v10 = a1 + 48 * ((unsigned __int8)v7[1] + 45LL);
   if ( (*v7 & 4) != 0 )
   {
     *v7 = v9 & 0xFE;
-    return RtlpHpVaMgrRangeFree(v10, v8);
+LABEL_20:
+    RtlpHpVaMgrRangeFree(v10, v8);
+    return;
   }
   if ( (*(_BYTE *)(v10 + 46) & 6u) < 4 )
   {
-    ZwFreeVirtualMemory(-1LL, a2, a3, 0x4000LL);
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, 0x4000u);
     v9 = *(_BYTE *)v8;
   }
   v11 = v8;
@@ -79,12 +80,11 @@ __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, _QWORD *a2, _QWORD *a3)
     else
       v15 = 0LL;
   }
-  RtlAcquireSRWLockExclusive(v10);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v10);
   if ( v15 )
     RtlpHpVaMgrRangeSplit(v10, v8, (v15 - v8) >> 5);
   v8 = RtlpHpVaMgrFree(v10, v11);
-  result = RtlReleaseSRWLockExclusive(v10);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v10);
   if ( v8 )
-    return RtlpHpVaMgrRangeFree(v10, v8);
-  return result;
+    goto LABEL_20;
 }

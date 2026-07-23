@@ -1,12 +1,12 @@
 /*
- * XREFs of Normalization__Normalize @ 0x1409C117C
+ * XREFs of Normalization__Normalize @ 0x1409C137C
  * Callers:
- *     RtlpNormalizeStringWorker @ 0x1409C1CD4 (RtlpNormalizeStringWorker.c)
+ *     RtlpNormalizeStringWorker @ 0x1409C1ED4 (RtlpNormalizeStringWorker.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     NormBuffer__Append @ 0x1405B044C (NormBuffer__Append.c)
- *     Normalization__GuessCharCountBySize @ 0x1409C0A94 (Normalization__GuessCharCountBySize.c)
- *     Normalization__NormalizeCharacter @ 0x1409C1338 (Normalization__NormalizeCharacter.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     NormBuffer__Append @ 0x1405B09BC (NormBuffer__Append.c)
+ *     Normalization__GuessCharCountBySize @ 0x1409C0C94 (Normalization__GuessCharCountBySize.c)
+ *     Normalization__NormalizeCharacter @ 0x1409C1538 (Normalization__NormalizeCharacter.c)
  */
 
 __int64 __fastcall Normalization__Normalize(__int64 a1, __int64 a2, int a3, __int64 a4, unsigned int a5, _DWORD *a6)

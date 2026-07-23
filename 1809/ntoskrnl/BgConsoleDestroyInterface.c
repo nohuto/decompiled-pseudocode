@@ -1,14 +1,14 @@
 /*
- * XREFs of BgConsoleDestroyInterface @ 0x140950E9C
+ * XREFs of BgConsoleDestroyInterface @ 0x140951E9C
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkDestroy @ 0x140951A04 (BgkDestroy.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x1409FBECC (BcpDisplayEarlyBugCheckScreen.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EBE0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkDestroy @ 0x140952A04 (BgkDestroy.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x1409FCECC (BcpDisplayEarlyBugCheckScreen.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
- *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
- *     BgpDisplayCharacterDestroyContext @ 0x140950EF8 (BgpDisplayCharacterDestroyContext.c)
+ *     BgpFwFreeMemory @ 0x14016EDEC (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14016F308 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F358 (BgpFwAcquireLock.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x140951EF8 (BgpDisplayCharacterDestroyContext.c)
  */
 
 void __fastcall BgConsoleDestroyInterface(__int64 (__fastcall **a1)())
@@ -18,16 +18,16 @@ void __fastcall BgConsoleDestroyInterface(__int64 (__fastcall **a1)())
   BgpFwAcquireLock();
   if ( a1 == BgpConsoleInterface )
   {
-    v2 = qword_1404C64D8;
-    if ( qword_1404C64D8 )
+    v2 = qword_1404C7598;
+    if ( qword_1404C7598 )
     {
-      if ( *(_QWORD *)(qword_1404C64D8 + 40) )
+      if ( *(_QWORD *)(qword_1404C7598 + 40) )
       {
-        BgpDisplayCharacterDestroyContext(*(_QWORD *)(qword_1404C64D8 + 40));
-        v2 = qword_1404C64D8;
+        BgpDisplayCharacterDestroyContext(*(_QWORD *)(qword_1404C7598 + 40));
+        v2 = qword_1404C7598;
       }
       BgpFwFreeMemory(v2);
-      qword_1404C64D8 = 0LL;
+      qword_1404C7598 = 0LL;
     }
   }
   BgpFwReleaseLock();

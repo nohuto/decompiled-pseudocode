@@ -21,37 +21,40 @@
  *     _RtlpLogExceptionHandler@16 @ 0x4B368AB5 (_RtlpLogExceptionHandler@16.c)
  */
 
-char __stdcall RtlDispatchException(_EXCEPTION_RECORD *a1, int a2)
+BOOLEAN __cdecl RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   int v3; // edx
-  int v4; // ecx
+  int v4; // eax
+  int v5; // ecx
   _EXCEPTION_REGISTRATION_RECORD *Next; // ecx
-  unsigned int Handler; // ecx
-  int v7; // ecx
-  int v8; // eax
-  _EXCEPTION_REGISTRATION_RECORD *v9; // edx
-  int v11; // eax
-  char v12; // [esp+Fh] [ebp-79h]
+  _EXCEPTION_DISPOSITION (__stdcall *Handler)(_EXCEPTION_RECORD *, void *, _CONTEXT *, void *); // ecx
+  int v8; // ecx
+  int v9; // eax
+  _EXCEPTION_REGISTRATION_RECORD *v10; // edx
+  int v12; // eax
+  char v13; // [esp+Fh] [ebp-79h]
   _EXCEPTION_REGISTRATION_RECORD *ExceptionList; // [esp+14h] [ebp-74h]
-  int v14; // [esp+18h] [ebp-70h] BYREF
-  unsigned int v15; // [esp+1Ch] [ebp-6Ch] BYREF
-  unsigned int v16; // [esp+20h] [ebp-68h] BYREF
-  _EXCEPTION_REGISTRATION_RECORD *v17; // [esp+24h] [ebp-64h]
-  int v18; // [esp+28h] [ebp-60h]
-  _EXCEPTION_REGISTRATION_RECORD *v19; // [esp+2Ch] [ebp-5Ch] BYREF
-  EXCEPTION_RECORD ExceptionRecord; // [esp+30h] [ebp-58h] BYREF
+  int ProcessInformation; // [esp+18h] [ebp-70h] BYREF
+  unsigned int v16; // [esp+1Ch] [ebp-6Ch] BYREF
+  unsigned int v17; // [esp+20h] [ebp-68h] BYREF
+  _EXCEPTION_REGISTRATION_RECORD *v18; // [esp+24h] [ebp-64h]
+  int v19; // [esp+28h] [ebp-60h]
+  _EXCEPTION_REGISTRATION_RECORD *v20; // [esp+2Ch] [ebp-5Ch] BYREF
+  EXCEPTION_RECORD v21; // [esp+30h] [ebp-58h] BYREF
 
   v2 = 0;
-  v12 = 0;
-  if ( a1->ExceptionCode == -1073741818 || !(unsigned __int8)RtlpIsUserCallTargetBitMapCheckFault(a1->ExceptionAddress) )
+  v13 = 0;
+  if ( ExceptionRecord->ExceptionCode == -1073741818
+    || !(unsigned __int8)RtlpIsUserCallTargetBitMapCheckFault(ExceptionRecord->ExceptionAddress) )
   {
     if ( (NtCurrentPeb()->NtGlobalFlag & 0x800000) != 0 )
     {
-      v12 = 1;
-      RtlpLogExceptionDispatch(a1);
+      v13 = 1;
+      RtlpLogExceptionDispatch(ExceptionRecord);
     }
-    if ( LdrControlFlowGuardEnforced() && !RtlGuardIsValidStackPointer(*(_DWORD *)(a2 + 196)) )
+    LOBYTE(v4) = LdrControlFlowGuardEnforced();
+    if ( v4 && !RtlGuardIsValidStackPointer(ContextRecord->Esp) )
       __fastfail(0xDu);
     if ( (unsigned __int8)RtlpCallVectoredHandlers(0) )
     {
@@ -60,68 +63,73 @@ LABEL_26:
     }
     else
     {
-      RtlpGetStackLimits(&v15, &v16);
+      RtlpGetStackLimits(&v16, &v17);
       ExceptionList = NtCurrentTeb()->NtTib.ExceptionList;
-      v14 = 0;
-      if ( (int)ZwQueryInformationProcess(-1, 34, &v14, 4, 0) < 0 )
-        v14 = 0;
-      if ( (v14 & 0x40) != 0 || (unsigned __int8)RtlpIsValidExceptionChain(v16, v4) )
+      ProcessInformation = 0;
+      if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessExecuteFlags, &ProcessInformation, 4u, 0) < 0 )
+        ProcessInformation = 0;
+      if ( (ProcessInformation & 0x40) != 0 || (unsigned __int8)RtlpIsValidExceptionChain(v17, v5) )
       {
 LABEL_11:
         Next = ExceptionList;
-        v17 = 0;
+        v18 = 0;
         while ( Next != (_EXCEPTION_REGISTRATION_RECORD *)-1 )
         {
-          if ( (unsigned int)Next < v15
-            || (unsigned int)&Next[1] > v16
+          if ( (unsigned int)Next < v16
+            || (unsigned int)&Next[1] > v17
             || ((unsigned __int8)Next & 3) != 0
-            || (Handler = (unsigned int)Next->Handler, Handler < v16) && v15 <= Handler
-            || !(unsigned __int8)RtlIsValidHandler(a2) )
+            || (Handler = Next->Handler, (unsigned int)Handler < v17) && v16 <= (unsigned int)Handler
+            || !(unsigned __int8)RtlIsValidHandler(Handler, ContextRecord) )
           {
-            a1->ExceptionFlags |= 8u;
+            ExceptionRecord->ExceptionFlags |= 8u;
             goto LABEL_27;
           }
-          v18 = 0;
-          if ( v12 )
-            v18 = RtlpLogExceptionHandler(v7, ExceptionList->Handler);
-          v8 = RtlpExecuteHandlerForException(a1, ExceptionList, a2, &v19, ExceptionList->Handler);
-          if ( v18 )
-            *(_DWORD *)(v18 + 800) = v8;
-          v9 = v17;
-          if ( v17 == ExceptionList )
+          v19 = 0;
+          if ( v13 )
+            v19 = RtlpLogExceptionHandler(v8, ExceptionList->Handler);
+          v9 = RtlpExecuteHandlerForException(
+                 ExceptionRecord,
+                 ExceptionList,
+                 ContextRecord,
+                 &v20,
+                 ExceptionList->Handler);
+          if ( v19 )
+            *(_DWORD *)(v19 + 800) = v9;
+          v10 = v18;
+          if ( v18 == ExceptionList )
           {
-            a1->ExceptionFlags &= ~0x10u;
-            v9 = 0;
-            v17 = 0;
+            ExceptionRecord->ExceptionFlags &= ~0x10u;
+            v10 = 0;
+            v18 = 0;
           }
-          if ( !v8 )
+          if ( !v9 )
           {
-            if ( (a1->ExceptionFlags & 1) != 0 )
+            if ( (ExceptionRecord->ExceptionFlags & 1) != 0 )
             {
-              ExceptionRecord.ExceptionFlags = 1;
-              ExceptionRecord.ExceptionCode = -1073741787;
-              ExceptionRecord.ExceptionRecord = a1;
-              ExceptionRecord.NumberParameters = 0;
-              RtlRaiseException(&ExceptionRecord);
+              v21.ExceptionFlags = 1;
+              v21.ExceptionCode = -1073741787;
+              v21.ExceptionRecord = ExceptionRecord;
+              v21.NumberParameters = 0;
+              RtlRaiseException(&v21);
             }
             goto LABEL_26;
           }
-          v11 = v8 - 1;
-          if ( v11 )
+          v12 = v9 - 1;
+          if ( v12 )
           {
-            if ( v11 != 1 )
+            if ( v12 != 1 )
             {
-              ExceptionRecord.ExceptionCode = -1073741786;
-              ExceptionRecord.ExceptionFlags = 1;
-              ExceptionRecord.ExceptionRecord = a1;
-              ExceptionRecord.NumberParameters = 0;
-              RtlRaiseException(&ExceptionRecord);
+              v21.ExceptionCode = -1073741786;
+              v21.ExceptionFlags = 1;
+              v21.ExceptionRecord = ExceptionRecord;
+              v21.NumberParameters = 0;
+              RtlRaiseException(&v21);
             }
-            a1->ExceptionFlags |= 0x10u;
-            if ( v19 > v9 )
-              v17 = v19;
+            ExceptionRecord->ExceptionFlags |= 0x10u;
+            if ( v20 > v10 )
+              v18 = v20;
           }
-          else if ( (a1->ExceptionFlags & 8) != 0 )
+          else if ( (ExceptionRecord->ExceptionFlags & 8) != 0 )
           {
             goto LABEL_27;
           }
@@ -130,12 +138,12 @@ LABEL_11:
         }
         goto LABEL_27;
       }
-      a1->ExceptionFlags |= 8u;
+      ExceptionRecord->ExceptionFlags |= 8u;
       if ( RtlpProcessECVPolicy == 2 )
       {
         if ( !_InterlockedCompareExchange(&RtlpECVRecorded, 1, 0) )
-          RtlpReportInvalidExceptionChain(a1, a2);
-        a1->ExceptionFlags &= ~8u;
+          RtlpReportInvalidExceptionChain(ExceptionRecord, ContextRecord);
+        ExceptionRecord->ExceptionFlags &= ~8u;
         goto LABEL_11;
       }
     }
@@ -143,7 +151,7 @@ LABEL_27:
     RtlpCallVectoredHandlers(1);
     return v2;
   }
-  RtlpHandleInvalidUserCallTarget(*(_DWORD *)(v3 + 172));
-  *(_DWORD *)(a2 + 184) = RtlpGetUserCallTargetBitMapRet();
+  RtlpHandleInvalidUserCallTarget(*(PVOID *)(v3 + 172));
+  ContextRecord->Eip = RtlpGetUserCallTargetBitMapRet();
   return 1;
 }

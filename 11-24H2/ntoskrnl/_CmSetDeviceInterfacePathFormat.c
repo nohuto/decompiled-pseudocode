@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmSetDeviceInterfacePathFormat @ 0x140A4AE1C
+ * XREFs of _CmSetDeviceInterfacePathFormat @ 0x140A41A9C
  * Callers:
- *     PiDmObjectCreate @ 0x140AC3894 (PiDmObjectCreate.c)
+ *     PiDmObjectCreate @ 0x140ABF218 (PiDmObjectCreate.c)
  * Callees:
- *     _CmValidateDeviceInterfaceName @ 0x1408C9D90 (_CmValidateDeviceInterfaceName.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1408C77C0 (_CmValidateDeviceInterfaceName.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfacePathFormat(__int64 a1, WCHAR *a2, char a3)

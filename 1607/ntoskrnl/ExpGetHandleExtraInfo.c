@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetHandleExtraInfo @ 0x1406AD554
+ * XREFs of ExpGetHandleExtraInfo @ 0x1406AD68C
  * Callers:
- *     ObCloseHandleTableEntry @ 0x14044E380 (ObCloseHandleTableEntry.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     ExDupHandleTable @ 0x14045E7E0 (ExDupHandleTable.c)
- *     ExpFreeHandleTableEntry @ 0x1404A3C94 (ExpFreeHandleTableEntry.c)
- *     ObpReferenceProcessObjectByHandle @ 0x14050D1B0 (ObpReferenceProcessObjectByHandle.c)
- *     ObpAuditObjectAccess @ 0x140665D20 (ObpAuditObjectAccess.c)
+ *     ObCloseHandleTableEntry @ 0x14044D250 (ObCloseHandleTableEntry.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExDupHandleTable @ 0x14045D6B0 (ExDupHandleTable.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x1404F0140 (ObpReferenceProcessObjectByHandle.c)
+ *     ExpFreeHandleTableEntry @ 0x14051C094 (ExpFreeHandleTableEntry.c)
+ *     ObpAuditObjectAccess @ 0x140665E04 (ObpAuditObjectAccess.c)
  * Callees:
- *     ExpLookupHandleTableEntry @ 0x140451390 (ExpLookupHandleTableEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x140450260 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpGetHandleExtraInfo(unsigned int *a1, __int64 a2)

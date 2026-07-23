@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMappingHasIoTracker @ 0x140281B60
+ * XREFs of MiMappingHasIoTracker @ 0x1402810D0
  * Callers:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MmProtectMdlSystemAddress @ 0x14030FA10 (MmProtectMdlSystemAddress.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MmProtectMdlSystemAddress @ 0x1402F1A90 (MmProtectMdlSystemAddress.c)
  * Callees:
  *     <none>
  */

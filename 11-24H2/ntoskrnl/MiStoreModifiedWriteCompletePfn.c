@@ -1,9 +1,9 @@
 /*
- * XREFs of MiStoreModifiedWriteCompletePfn @ 0x1402E4620
+ * XREFs of MiStoreModifiedWriteCompletePfn @ 0x140215DB8
  * Callers:
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
  * Callees:
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
  */
 
 __int64 __fastcall MiStoreModifiedWriteCompletePfn(__int64 a1, int *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall MiStoreModifiedWriteCompletePfn(__int64 a1, int *a2)
   int v7; // [rsp+30h] [rbp+8h]
 
   result = (*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL;
-  v4 = *((_QWORD *)qword_140E2FF88 + result);
+  v4 = *((_QWORD *)qword_140E300C8 + result);
   v5 = *a2;
   if ( (*a2 & 2) == 0 )
   {

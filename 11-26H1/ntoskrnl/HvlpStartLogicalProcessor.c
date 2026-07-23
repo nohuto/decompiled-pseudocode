@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpStartLogicalProcessor @ 0x1405BB2FC
+ * XREFs of HvlpStartLogicalProcessor @ 0x1405BDB6C
  * Callers:
- *     HvlpEnableNextLogicalProcessor @ 0x1405BA0DC (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1405BC94C (HvlpEnableNextLogicalProcessor.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlpDepositPages @ 0x140516D78 (HvlpDepositPages.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     HvlpDepositPages @ 0x1405107E8 (HvlpDepositPages.c)
  */
 
 __int64 __fastcall HvlpStartLogicalProcessor(int a1, __int64 a2, unsigned __int16 a3, __int64 a4)

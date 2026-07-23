@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpNotifyChangeKey @ 0x1405CF040
+ * XREFs of CmpNotifyChangeKey @ 0x1405D0040
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x1405CE180 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1405CF180 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpPostNotify @ 0x1405DC29C (CmpPostNotify.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     CmpFreePostBlock @ 0x14069502C (CmpFreePostBlock.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpPostNotify @ 0x1405DD29C (CmpPostNotify.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     CmpFreePostBlock @ 0x1406961EC (CmpFreePostBlock.c)
  */
 
 __int64 __fastcall CmpNotifyChangeKey(
@@ -175,15 +175,15 @@ LABEL_25:
 LABEL_33:
     __fastfail(3u);
   }
-  v19 = (_QWORD *)qword_14096D620;
+  v19 = (_QWORD *)qword_14096E620;
   SListFaultAddress = &CmpAsyncKernelPostList;
   v21 = a2 + 2;
-  if ( *(__int64 **)qword_14096D620 != &CmpAsyncKernelPostList )
+  if ( *(__int64 **)qword_14096E620 != &CmpAsyncKernelPostList )
     goto LABEL_33;
   *v21 = &CmpAsyncKernelPostList;
   a2[3] = v19;
   *v19 = v21;
-  qword_14096D620 = (__int64)(a2 + 2);
+  qword_14096E620 = (__int64)(a2 + 2);
 LABEL_16:
   if ( (DWORD2(PerfGlobalGroupMask) & 0x2000000) != 0 )
   {

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180147350
+ * XREFs of RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180145700
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x1800D63CC (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1800D6520 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x1801512EC (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
- *     RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x18017125C (RtlpFcQueryAllGovernedFeaturesFromBufferSet.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x1800D173C (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1800D1890 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x18014F6AC (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
+ *     RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x18017025C (RtlpFcQueryAllGovernedFeaturesFromBufferSet.c)
  */
 
 __int64 __fastcall RtlQueryAllInternalRuntimeFeatureConfigurations(
@@ -16,6 +16,7 @@ __int64 __fastcall RtlQueryAllInternalRuntimeFeatureConfigurations(
         __int64 a4,
         __int64 a5)
 {
+  __int64 v7; // r15
   int AllInternalFeatureConfigurationsFromBufferSet; // ebx
   int AllGovernedFeaturesFromBufferSet; // eax
   __int64 v12; // [rsp+20h] [rbp-18h] BYREF
@@ -23,13 +24,19 @@ __int64 __fastcall RtlQueryAllInternalRuntimeFeatureConfigurations(
 
   v13 = 0LL;
   v12 = 0LL;
-  AllInternalFeatureConfigurationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers((__int64)a1, 1, &v13, &v12);
+  v7 = a2;
+  LOBYTE(a2) = 1;
+  AllInternalFeatureConfigurationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(
+                                                    (__int64)a1,
+                                                    a2,
+                                                    &v13,
+                                                    &v12);
   if ( AllInternalFeatureConfigurationsFromBufferSet >= 0 )
   {
     AllInternalFeatureConfigurationsFromBufferSet = RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet(
                                                       v12,
                                                       1LL,
-                                                      a2,
+                                                      v7,
                                                       a3);
     if ( (int)(AllInternalFeatureConfigurationsFromBufferSet + 0x80000000) < 0
       || AllInternalFeatureConfigurationsFromBufferSet == -2147483643 )
@@ -57,6 +64,6 @@ __int64 __fastcall RtlQueryAllInternalRuntimeFeatureConfigurations(
     }
   }
   if ( v12 )
-    RtlpFcBufferManagerDereferenceBuffers((__int64)&xmmword_1801D3C88, v12);
+    RtlpFcBufferManagerDereferenceBuffers((__int64)&xmmword_1801D2C88, v12);
   return (unsigned int)AllInternalFeatureConfigurationsFromBufferSet;
 }

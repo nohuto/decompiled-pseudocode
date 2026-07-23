@@ -1,10 +1,10 @@
 /*
- * XREFs of VfWmiVerifyIrpStackDownward @ 0x140940FF0
+ * XREFs of VfWmiVerifyIrpStackDownward @ 0x140941FF0
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
- *     VfGetPristineDriverInit @ 0x14092FD4C (VfGetPristineDriverInit.c)
+ *     ViErrorReport1 @ 0x14030B12C (ViErrorReport1.c)
+ *     VfGetPristineDriverInit @ 0x140930D4C (VfGetPristineDriverInit.c)
  */
 
 __int64 (__fastcall *__fastcall VfWmiVerifyIrpStackDownward(

@@ -47,7 +47,7 @@
  *     <none>
  */
 
-__int64 RtlpAllocateAtom()
+PVOID __fastcall RtlpAllocateAtom(SIZE_T a1)
 {
-  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

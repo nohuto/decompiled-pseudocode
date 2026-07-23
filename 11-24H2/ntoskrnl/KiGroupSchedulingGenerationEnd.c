@@ -1,32 +1,32 @@
 /*
- * XREFs of KiGroupSchedulingGenerationEnd @ 0x14030B428
+ * XREFs of KiGroupSchedulingGenerationEnd @ 0x1402DA488
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x14030AEFC (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1402D9F5C (KiGroupSchedulingQuantumEnd.c)
  * Callees:
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     EtwTraceScheduleThread @ 0x140297C7C (EtwTraceScheduleThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiReadyDeferredReadyList @ 0x140299320 (KiReadyDeferredReadyList.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140299510 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     ?KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@KPEAPEAU_KSCB@@@Z @ 0x14029A7B0 (-KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@.c)
- *     KiAddProcessorToSoftwareInterruptBatch @ 0x14030BBBC (KiAddProcessorToSoftwareInterruptBatch.c)
- *     KiResumeThreadCycleAccumulation @ 0x14030CC20 (KiResumeThreadCycleAccumulation.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x14030CC70 (KiTransitionSchedulingGroupGeneration.c)
- *     KiAddThreadToPrcbQueue @ 0x1403102F0 (KiAddThreadToPrcbQueue.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     EtwTraceReadyQueueInsertion @ 0x14034A55C (EtwTraceReadyQueueInsertion.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiIsPrcbThread @ 0x1403CA0D0 (KiIsPrcbThread.c)
- *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1403CA100 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
- *     KiInsertDeferredReadyList @ 0x1403CBE30 (KiInsertDeferredReadyList.c)
- *     ?KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@EE@Z @ 0x1403CBFC0 (-KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHRE.c)
- *     KiProcessScbTracingList @ 0x1404540D4 (KiProcessScbTracingList.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F9C1C (EtwTraceXSchedulerPriorityKickSend.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiIsPrcbThread @ 0x1402A6700 (KiIsPrcbThread.c)
+ *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1402A6730 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
+ *     EtwTraceScheduleThread @ 0x1402A6768 (EtwTraceScheduleThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiReadyDeferredReadyList @ 0x1402A7E10 (KiReadyDeferredReadyList.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402A8000 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     ?KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@KPEAPEAU_KSCB@@@Z @ 0x1402A92A0 (-KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402D7CF0 (KiAddThreadToPrcbQueue.c)
+ *     KiAddProcessorToSoftwareInterruptBatch @ 0x1402DAC1C (KiAddProcessorToSoftwareInterruptBatch.c)
+ *     KiResumeThreadCycleAccumulation @ 0x1402DBC80 (KiResumeThreadCycleAccumulation.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1402DBCD0 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiInsertDeferredReadyList @ 0x1403BC660 (KiInsertDeferredReadyList.c)
+ *     ?KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@EE@Z @ 0x1403BC7F0 (-KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHRE.c)
+ *     EtwTraceReadyQueueInsertion @ 0x1403C1604 (EtwTraceReadyQueueInsertion.c)
+ *     KiProcessScbTracingList @ 0x140449184 (KiProcessScbTracingList.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F74FC (EtwTraceXSchedulerPriorityKickSend.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiGroupSchedulingGenerationEnd(struct _KPRCB *a1, unsigned __int64 *a2)
@@ -55,11 +55,11 @@ __int64 __fastcall KiGroupSchedulingGenerationEnd(struct _KPRCB *a1, unsigned __
   __int64 v25; // r10
   struct _KI_RESCHEDULE_CONTEXT_ENTRY *v26; // r9
   int v27; // eax
-  _KTHREAD *NewThread; // rcx
+  __int64 NewThread; // rcx
   _KPRCB *v29; // r15
   bool v30; // zf
   unsigned __int64 v31; // rax
-  _KTHREAD *SmtIsolationThread; // r12
+  __int64 SmtIsolationThread; // r12
   __int64 v33; // rcx
   char v34; // cl
   __int64 v35; // r12
@@ -83,7 +83,7 @@ __int64 __fastcall KiGroupSchedulingGenerationEnd(struct _KPRCB *a1, unsigned __
   struct _KTHREAD *v53; // rdx
   _KPRCB *v54; // r8
   _KTHREAD *v55; // rax
-  int Priority; // r8d
+  __int64 Priority; // r8
   char v57; // al
   char v58; // al
   char v59; // cl
@@ -129,7 +129,7 @@ LABEL_2:
   memset_0(StaticRescheduleContext, 0, sizeof(_KI_RESCHEDULE_CONTEXT));
   KiStartRescheduleContext((__int64)StaticRescheduleContext, v3);
   v7 = a1->NextThread;
-  if ( v7 && !(unsigned __int8)KiIsPrcbThread(a1->NextThread) )
+  if ( v7 && !KiIsPrcbThread((__int64)a1->NextThread) )
   {
     v18 = a1->CurrentThread;
     v69 = 0LL;
@@ -225,15 +225,15 @@ LABEL_71:
             if ( v20 != v26 )
             {
               v27 = *(&v18->MiscFlags + 1);
-              NewThread = v26->NewThread;
+              NewThread = (__int64)v26->NewThread;
               v69 = 0LL;
               v29 = v26->Prcb;
               v30 = (v27 & 2) == 0;
-              v31 = (unsigned __int64)&NewThread[-1].Padding[4] + 7;
+              v31 = NewThread - 1;
               if ( v30 )
               {
-                SmtIsolationThread = v29->IdleThread;
-                if ( v31 <= 0xFFFFFFFFFFFFFFFCuLL && !(unsigned __int8)KiIsPrcbThread(NewThread) )
+                SmtIsolationThread = (__int64)v29->IdleThread;
+                if ( v31 <= 0xFFFFFFFFFFFFFFFCuLL && !KiIsPrcbThread(NewThread) )
                 {
                   if ( (*((_BYTE *)&v26->0 + 1) & 1) != 0 )
                     *(_DWORD *)(v33 + 116) |= 2u;
@@ -241,14 +241,14 @@ LABEL_71:
                   KiInsertDeferredReadyList(&v69, v33);
                 }
                 v34 = v26->AllCompareThreadStateFlags | 1;
-                v26->CompareThread = SmtIsolationThread;
+                v26->CompareThread = (_KTHREAD *)SmtIsolationThread;
                 v26->AllCompareThreadStateFlags = v34;
-                v26->AllCompareThreadStateFlags = (v34 & 0xFD ^ (2 * ((*((_DWORD *)&SmtIsolationThread->0 + 1) & 2) != 0))) & 0xC3 | 4;
+                v26->AllCompareThreadStateFlags = (v34 & 0xFD ^ (2 * ((*(_DWORD *)(SmtIsolationThread + 120) & 2) != 0))) & 0xC3 | 4;
               }
               else
               {
-                SmtIsolationThread = v29->SmtIsolationThread;
-                if ( v31 <= 0xFFFFFFFFFFFFFFFCuLL && !(unsigned __int8)KiIsPrcbThread(NewThread) )
+                SmtIsolationThread = (__int64)v29->SmtIsolationThread;
+                if ( v31 <= 0xFFFFFFFFFFFFFFFCuLL && !KiIsPrcbThread(NewThread) )
                 {
                   if ( (*((_BYTE *)&v26->0 + 1) & 1) != 0 )
                     *(_DWORD *)(v61 + 116) |= 2u;
@@ -261,14 +261,14 @@ LABEL_71:
                 v58 = (v57 & 0xFD ^ (2 * ((*((_DWORD *)&v18->0 + 1) & 2) != 0))) & 0xE3 | 4;
                 v59 = v58 | 0x20;
                 v60 = v58 & 0xDF;
-                if ( v18 == SmtIsolationThread )
+                if ( v18 == (_KTHREAD *)SmtIsolationThread )
                   v59 = v60;
                 v26->AllCompareThreadStateFlags = v59;
               }
               *((_BYTE *)&v26->0 + 1) &= v22;
-              v26->NewThread = SmtIsolationThread;
-              if ( !(unsigned __int8)KiIsPrcbThread(SmtIsolationThread) )
-                SmtIsolationThread->NextProcessor = v29->Number;
+              v26->NewThread = (_KTHREAD *)SmtIsolationThread;
+              if ( !KiIsPrcbThread(SmtIsolationThread) )
+                *(_DWORD *)(SmtIsolationThread + 536) = v29->Number;
             }
             v25 = (unsigned int)(v25 + 1);
           }
@@ -280,17 +280,17 @@ LABEL_71:
     }
 LABEL_75:
     v7->WaitBlockFill6[68] = 1;
-    Priority = v7->Priority;
+    Priority = (unsigned int)v7->Priority;
     v7->WaitBlock[2].SpareLong = MEMORY[0xFFFFF78000000320];
-    KiAddThreadToPrcbQueue((_DWORD)a1, (_DWORD)v7, Priority, 1, 0, (__int64)&v73);
-    if ( (WORD2(xmmword_140FC5B10) & 0x800) != 0 )
+    KiAddThreadToPrcbQueue((__int64)a1, (__int64)v7, Priority, 1LL, 0, &v73);
+    if ( (WORD2(xmmword_140FC6B50) & 0x800) != 0 )
       EtwTraceReadyQueueInsertion(v7, a1->Number, v73, 0LL);
     CurrentThread = v70;
   }
   KiSearchForNewThreadsForRescheduleContext(StaticRescheduleContext, &v67);
   v9 = 0;
   v10 = 0LL;
-  for ( m = (DWORD1(xmmword_140FC5B10) >> 9) & 2;
+  for ( m = (DWORD1(xmmword_140FC6B50) >> 9) & 2;
         (unsigned int)v10 < StaticRescheduleContext->ProcessorCount;
         v10 = (unsigned int)(v10 + 1) )
   {
@@ -379,7 +379,7 @@ LABEL_39:
               if ( v30 )
                 LODWORD(Number) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * Number + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
               v43[2] = Number;
-              if ( (BYTE4(xmmword_140FC5B10) & 0x20) != 0 )
+              if ( (BYTE4(xmmword_140FC6B50) & 0x20) != 0 )
                 EtwTraceXSchedulerPriorityKickSend(v37->Number, 2LL);
               __writemsr(0x400000C2u, (unsigned int)Number);
             }
@@ -396,14 +396,14 @@ LABEL_39:
   v15 = v68;
   CurrentThread = v70;
 LABEL_47:
-  KiFlushSoftwareInterruptBatch(&a1->DeferredDispatchInterrupts);
+  KiFlushSoftwareInterruptBatch((char *)&a1->DeferredDispatchInterrupts);
   v3 = a2;
 LABEL_48:
   if ( v15 )
     KiProcessScbTracingList(a1, &v68);
   if ( Next )
     KiReadyDeferredReadyList((__int64)a1, &v67);
-  KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1, v3);
+  KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1LL, v3);
 LABEL_11:
   LOBYTE(v8) = v71;
   return KiResumeThreadCycleAccumulation(a1, CurrentThread, v8);

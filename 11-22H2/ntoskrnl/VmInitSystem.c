@@ -35,16 +35,7 @@ __int64 __fastcall VmInitSystem(int a1, __int64 a2)
     result = ExRegisterHost(&VmpExtensionHost, a2, (unsigned __int16 *)v3);
     if ( (int)result < 0 )
       return result;
-    ExInitializeLookasideListExInternal(
-      &VmpLargeFaultBatchLookasideList.L.ListHead,
-      0LL,
-      0LL,
-      512,
-      0,
-      0x8020uLL,
-      1649175894,
-      0,
-      0);
+    ExInitializeLookasideListExInternal(&VmpLargeFaultBatchLookasideList, 0LL, 0LL, 512, 0, 0x8020uLL, 1649175894, 0, 0);
   }
   return 0LL;
 }

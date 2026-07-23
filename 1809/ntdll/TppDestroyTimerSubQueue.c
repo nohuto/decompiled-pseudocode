@@ -1,10 +1,10 @@
 /*
- * XREFs of TppDestroyTimerSubQueue @ 0x180082B9C
+ * XREFs of TppDestroyTimerSubQueue @ 0x180082BAC
  * Callers:
  *     TppInitializeTimerQueue @ 0x1800301C4 (TppInitializeTimerQueue.c)
- *     TppPoolpFree @ 0x180082A8C (TppPoolpFree.c)
+ *     TppPoolpFree @ 0x180082A9C (TppPoolpFree.c)
  * Callees:
- *     NtClose @ 0x1800A04C0 (NtClose.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
  */
 
 NTSTATUS __fastcall TppDestroyTimerSubQueue(__int64 a1)

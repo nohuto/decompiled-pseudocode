@@ -9,38 +9,35 @@
  *     LdrpFindLoadedDllByHandle @ 0x180042010 (LdrpFindLoadedDllByHandle.c)
  */
 
-__int64 __fastcall LdrQueryModuleServiceTags(unsigned __int64 a1, __int64 a2, unsigned int *a3, __int64 a4)
+NTSTATUS __cdecl LdrQueryModuleServiceTags(PVOID DllHandle, PULONG ServiceTagBuffer, PULONG BufferSize)
 {
-  __int64 result; // rax
-  unsigned __int64 v7; // rdx
-  unsigned __int64 *v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rsi
-  __int64 v11; // rbx
-  unsigned int v12; // edi
-  __int64 *v13; // r8
-  __int64 v14[5]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned __int64 v15; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS result; // eax
+  char *v6; // rsi
+  __int64 v7; // rbx
+  ULONG v8; // edi
+  __int64 *v9; // r8
+  PVOID BaseAddress[5]; // [rsp+20h] [rbp-28h] BYREF
+  int v11; // [rsp+68h] [rbp+20h] BYREF
 
-  result = LdrpFindLoadedDllByHandle(a1, v14, &v15, a4);
-  if ( (int)result >= 0 )
+  result = LdrpFindLoadedDllByHandle((unsigned __int64)DllHandle, (__int64 *)BaseAddress, &v11);
+  if ( result >= 0 )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v7, v8, v9);
-    v10 = v14[0];
-    v11 = 0LL;
-    v12 = *a3;
-    v13 = *(__int64 **)(*(_QWORD *)(v14[0] + 152) + 16LL);
-    while ( v13 )
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+    v6 = (char *)BaseAddress[0];
+    v7 = 0LL;
+    v8 = *BufferSize;
+    v9 = *(__int64 **)(*((_QWORD *)BaseAddress[0] + 19) + 16LL);
+    while ( v9 )
     {
-      if ( (unsigned int)v11 < v12 )
-        *(_DWORD *)(a2 + 4 * v11) = *((_DWORD *)v13 + 2);
-      v13 = (__int64 *)*v13;
-      v11 = (unsigned int)(v11 + 1);
+      if ( (unsigned int)v7 < v8 )
+        ServiceTagBuffer[v7] = *((_DWORD *)v9 + 2);
+      v9 = (__int64 *)*v9;
+      v7 = (unsigned int)(v7 + 1);
     }
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-    *a3 = v11;
-    LdrpDereferenceModule(v10);
-    return v12 < (unsigned int)v11 ? 0xC0000023 : 0;
+    *BufferSize = v7;
+    LdrpDereferenceModule(v6);
+    return v8 < (unsigned int)v7 ? 0xC0000023 : 0;
   }
   return result;
 }

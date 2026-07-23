@@ -3,10 +3,10 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitializeGenericTableAvl @ 0x1400C3F7C (RtlInitializeGenericTableAvl.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitializeGenericTableAvl @ 0x1400C1E1C (RtlInitializeGenericTableAvl.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  */
 
 __int64 PopPowerRequestInit()
@@ -16,7 +16,7 @@ __int64 PopPowerRequestInit()
   _QWORD v3[16]; // [rsp+40h] [rbp-29h] BYREF
 
   PopPowerRequestLock = 0LL;
-  qword_140304AA8 = 0LL;
+  qword_140304AD8 = 0LL;
   PopPowerRequestSpinLock = 0LL;
   PopPowerRequestObjectCount = 0LL;
   PopSpecialPowerRequestObjectCount = 0LL;
@@ -37,11 +37,11 @@ __int64 PopPowerRequestInit()
     PopCallbackWorkItem.Parameter = 0LL;
     PopCallbackWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopPowerRequestCallbackWorker;
     PopCallbackWorkItem.List.Flink = 0LL;
-    qword_140304C18 = (__int64)&PopPowerRequestObjectList;
+    qword_140304C58 = (__int64)&PopPowerRequestObjectList;
     PopPowerRequestObjectList = (__int64)&PopPowerRequestObjectList;
-    qword_140304C48 = (__int64)&PopSpecialPowerRequestObjectList;
+    qword_140304C88 = (__int64)&PopSpecialPowerRequestObjectList;
     PopSpecialPowerRequestObjectList = (__int64)&PopSpecialPowerRequestObjectList;
-    qword_140304C38 = (__int64)&PopPowerRequestCallbacks;
+    qword_140304C78 = (__int64)&PopPowerRequestCallbacks;
     PopPowerRequestCallbacks = (__int64)&PopPowerRequestCallbacks;
     RtlInitializeGenericTableAvl(
       &PopPowerRequestTable,
@@ -50,16 +50,16 @@ __int64 PopPowerRequestInit()
       (PRTL_AVL_FREE_ROUTINE)PopPowerRequestFree,
       0LL);
     PopExecutionRequiredTimer = 8LL;
-    qword_140304B90 = (__int64)&qword_140304B88;
-    qword_140304B88 = (__int64)&qword_140304B88;
-    qword_140304B58 = (__int64)PopExecutionRequiredTimeoutCallback;
+    qword_140304BD0 = (__int64)&qword_140304BC8;
+    qword_140304BC8 = (__int64)&qword_140304BC8;
+    qword_140304B98 = (__int64)PopExecutionRequiredTimeoutCallback;
     PopCheckExecutionRequiredWorker.WorkerRoutine = (void (__fastcall *)(void *))PopCheckExecutionRequiredPowerRequests;
-    qword_140304B98 = 0LL;
-    qword_140304BB8 = 0LL;
+    qword_140304BD8 = 0LL;
+    qword_140304BF8 = 0LL;
     PopExecutionRequiredTimeoutDpc = 275;
-    qword_140304B60 = 0LL;
-    qword_140304B78 = 0LL;
-    qword_140304B50 = 0LL;
+    qword_140304BA0 = 0LL;
+    qword_140304BB8 = 0LL;
+    qword_140304B90 = 0LL;
     PopCheckExecutionRequiredWorker.Parameter = 0LL;
     PopCheckExecutionRequiredWorker.List.Flink = 0LL;
   }

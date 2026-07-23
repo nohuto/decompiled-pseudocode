@@ -31,10 +31,13 @@ void __fastcall IoSetDiskIoAttributionOnProcess(__int64 a1, __int64 a2)
     v6 = v4;
     *(_QWORD *)(a2 + 2392) = a1;
     ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

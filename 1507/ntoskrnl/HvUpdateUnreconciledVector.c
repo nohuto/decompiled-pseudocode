@@ -8,7 +8,7 @@
  *     RtlMergeBitMaps @ 0x140117218 (RtlMergeBitMaps.c)
  */
 
-ULONG __fastcall HvUpdateUnreconciledVector(struct _RTL_BITMAP *a1, char a2)
+ULONG __fastcall HvUpdateUnreconciledVector(_RTL_BITMAP *a1, char a2)
 {
   bool v2; // zf
   __int64 p_Buffer; // rdx

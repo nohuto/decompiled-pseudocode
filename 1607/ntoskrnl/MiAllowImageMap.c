@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllowImageMap @ 0x14042A544
+ * XREFs of MiAllowImageMap @ 0x140429414
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     SeGetTrustLabelAce @ 0x14008DA70 (SeGetTrustLabelAce.c)
- *     ObpGetObjectSecurity @ 0x140406CE0 (ObpGetObjectSecurity.c)
- *     ObReleaseObjectSecurity @ 0x1404206A8 (ObReleaseObjectSecurity.c)
- *     SeQueryMandatoryLabel @ 0x1404D9024 (SeQueryMandatoryLabel.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     SeGetTrustLabelAce @ 0x14008D1D0 (SeGetTrustLabelAce.c)
+ *     ObpGetObjectSecurity @ 0x140405BA0 (ObpGetObjectSecurity.c)
+ *     ObReleaseObjectSecurity @ 0x14041F568 (ObReleaseObjectSecurity.c)
+ *     SeQueryMandatoryLabel @ 0x1404BC628 (SeQueryMandatoryLabel.c)
  */
 
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2)

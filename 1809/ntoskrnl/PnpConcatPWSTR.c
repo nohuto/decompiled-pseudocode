@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpConcatPWSTR @ 0x1406FCA88
+ * XREFs of PnpConcatPWSTR @ 0x1406FDD28
  * Callers:
- *     PiSwInstanceInfoInit @ 0x1406D6DD0 (PiSwInstanceInfoInit.c)
- *     PiDqOpenUserObjectRegKey @ 0x1406D9C80 (PiDqOpenUserObjectRegKey.c)
- *     PiSwStopDestroy @ 0x1406ED198 (PiSwStopDestroy.c)
- *     PipCheckForDenyExecute @ 0x140709F50 (PipCheckForDenyExecute.c)
+ *     PiSwInstanceInfoInit @ 0x1406D8070 (PiSwInstanceInfoInit.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406DAF20 (PiDqOpenUserObjectRegKey.c)
+ *     PiSwStopDestroy @ 0x1406EE438 (PiSwStopDestroy.c)
+ *     PipCheckForDenyExecute @ 0x14070B1F0 (PipCheckForDenyExecute.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
  *     RtlStringCbCatW @ 0x140007428 (RtlStringCbCatW.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned __int64 a4)

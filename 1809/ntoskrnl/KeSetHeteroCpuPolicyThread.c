@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetHeteroCpuPolicyThread @ 0x14028E260
+ * XREFs of KeSetHeteroCpuPolicyThread @ 0x14028E450
  * Callers:
  *     <none>
  * Callees:
- *     KiSetHeteroPolicyThread @ 0x14029905C (KiSetHeteroPolicyThread.c)
+ *     KiSetHeteroPolicyThread @ 0x14029924C (KiSetHeteroPolicyThread.c)
  */
 
 __int64 __fastcall KeSetHeteroCpuPolicyThread(__int64 a1, __int64 a2, unsigned int a3)

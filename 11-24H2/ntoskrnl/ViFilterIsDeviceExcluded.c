@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFilterIsDeviceExcluded @ 0x140B9D480
+ * XREFs of ViFilterIsDeviceExcluded @ 0x140B9F480
  * Callers:
- *     VfFilterAttach @ 0x140B9CD90 (VfFilterAttach.c)
+ *     VfFilterAttach @ 0x140B9ED90 (VfFilterAttach.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 _BOOL8 __fastcall ViFilterIsDeviceExcluded(__int64 a1)

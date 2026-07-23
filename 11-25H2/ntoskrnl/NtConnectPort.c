@@ -6,15 +6,24 @@
  *     NtSecureConnectPort @ 0x14098DB40 (NtSecureConnectPort.c)
  */
 
-__int64 __fastcall NtConnectPort(
-        HANDLE *a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5,
-        _DWORD *a6,
-        volatile void *a7,
-        unsigned int *a8)
+NTSTATUS __cdecl NtConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
-  return NtSecureConnectPort(a1, a2, a3, a4, 0LL, a5, a6, a7, a8);
+  return NtSecureConnectPort(
+           PortHandle,
+           PortName,
+           SecurityQos,
+           ClientView,
+           0LL,
+           ServerView,
+           MaxMessageLength,
+           ConnectionInformation,
+           ConnectionInformationLength);
 }

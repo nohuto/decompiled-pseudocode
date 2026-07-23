@@ -1,36 +1,36 @@
 /*
- * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x140844830
+ * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x140840AF0
  * Callers:
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpGetSymbolicLinkTarget @ 0x1408768A0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14087ABD0 (CmpGetSymbolicLinkTarget.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     CmpDrainDelayDerefContext @ 0x14041AEB0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x140424470 (CmpInitializeDelayDerefContext.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     CmpDereferenceHive @ 0x1408443C0 (CmpDereferenceHive.c)
- *     CmpAddToDelayedClose @ 0x140844550 (CmpAddToDelayedClose.c)
- *     CmpReferenceHive @ 0x140844680 (CmpReferenceHive.c)
- *     CmpDeleteHive @ 0x14084475C (CmpDeleteHive.c)
- *     CmpReferenceKeyControlBlock @ 0x140845AD0 (CmpReferenceKeyControlBlock.c)
- *     CmpRecordParseFailure @ 0x140845C40 (CmpRecordParseFailure.c)
- *     CmLockHive @ 0x140845C74 (CmLockHive.c)
- *     CmUnlockHive @ 0x140846740 (CmUnlockHive.c)
- *     CmpLockKcbExclusive @ 0x140870470 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408704E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpDecommisssionKcb @ 0x140870D10 (CmpDecommisssionKcb.c)
- *     CmpDoQueueLateUnloadWorker @ 0x14087E638 (CmpDoQueueLateUnloadWorker.c)
- *     CmpGetComponentNameAtIndex @ 0x1409A6A00 (CmpGetComponentNameAtIndex.c)
- *     CmpLockHashEntrySharedByKcb @ 0x1409E9D78 (CmpLockHashEntrySharedByKcb.c)
- *     CmpWaitForHiveMount @ 0x140AB35B0 (CmpWaitForHiveMount.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmpDrainDelayDerefContext @ 0x14040AEB0 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140418320 (CmpInitializeDelayDerefContext.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     CmpDereferenceHive @ 0x140840680 (CmpDereferenceHive.c)
+ *     CmpAddToDelayedClose @ 0x140840810 (CmpAddToDelayedClose.c)
+ *     CmpReferenceHive @ 0x140840940 (CmpReferenceHive.c)
+ *     CmpDeleteHive @ 0x140840A1C (CmpDeleteHive.c)
+ *     CmpReferenceKeyControlBlock @ 0x140841D90 (CmpReferenceKeyControlBlock.c)
+ *     CmpRecordParseFailure @ 0x140841F00 (CmpRecordParseFailure.c)
+ *     CmLockHive @ 0x140841F34 (CmLockHive.c)
+ *     CmUnlockHive @ 0x140842A00 (CmUnlockHive.c)
+ *     CmpLockKcbExclusive @ 0x1408747A0 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140874810 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpDecommisssionKcb @ 0x140875040 (CmpDecommisssionKcb.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408824E8 (CmpDoQueueLateUnloadWorker.c)
+ *     CmpGetComponentNameAtIndex @ 0x140989B40 (CmpGetComponentNameAtIndex.c)
+ *     CmpLockHashEntrySharedByKcb @ 0x1409E4D38 (CmpLockHashEntrySharedByKcb.c)
+ *     CmpWaitForHiveMount @ 0x140AAE520 (CmpWaitForHiveMount.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
  */
 
 __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
@@ -55,7 +55,7 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
   __int64 v17; // r14
   unsigned __int64 v18; // rbp
   signed __int64 *v19; // rsi
-  _QWORD *v20; // rdi
+  char *v20; // rdi
   signed __int32 v21; // eax
   signed __int32 v22; // ett
   __int64 i; // r15
@@ -96,12 +96,12 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
   unsigned int v59; // ebp
   ULONG_PTR v60; // rbx
   unsigned __int64 *v61; // rdi
-  _QWORD *v62; // rax
-  _QWORD *v63; // rsi
+  char *v62; // rax
+  char *v63; // rsi
   signed __int32 v64; // eax
   signed __int32 v65; // ett
-  _QWORD *v66; // rax
-  _QWORD *v67; // rsi
+  char *v66; // rax
+  char *v67; // rsi
   ULONG_PTR v68; // rdi
   __int64 v69; // rax
   __int64 v70; // rcx
@@ -114,10 +114,10 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
   __int64 v77; // rtt
   WCHAR v78; // ax
   __int64 v79; // rcx
-  _QWORD *v80; // rax
-  _QWORD *v81; // r14
-  _QWORD *v82; // rax
-  _QWORD *v83; // r14
+  char *v80; // rax
+  char *v81; // r14
+  char *v82; // rax
+  char *v83; // r14
   __int16 k; // r12
   __int16 v85; // ax
   WCHAR v86; // cx
@@ -140,12 +140,12 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
   unsigned int v103; // r14d
   ULONG_PTR v104; // rbx
   unsigned __int64 *v105; // rdi
-  _QWORD *v106; // rax
-  _QWORD *v107; // rbp
+  char *v106; // rax
+  char *v107; // rbp
   signed __int32 v108; // eax
   signed __int32 v109; // ett
-  _QWORD *v110; // rax
-  _QWORD *v111; // rbp
+  char *v110; // rax
+  char *v111; // rbp
   ULONG_PTR v112; // rdi
   __int64 v113; // rax
   __int64 v114; // rcx
@@ -215,11 +215,11 @@ LABEL_6:
       v13 = v16 + 37 * v13;
       v18 = (101027 * (v13 ^ (v13 >> 9))) ^ ((unsigned __int64)(101027 * (v13 ^ (v13 >> 9))) >> 9);
       v19 = (signed __int64 *)(*(_QWORD *)(v10 + 1648) + 24LL * ((unsigned int)v18 & (*(_DWORD *)(v10 + 1656) - 1)));
-      v20 = KeAbPreAcquire((__int64)v19, 0LL);
+      v20 = (char *)KeAbPreAcquire((__int64)v19, 0LL);
       if ( _InterlockedCompareExchange64(v19, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v19, 0, v20, (__int64)v19);
       if ( v20 )
-        *((_BYTE *)v20 + 10) = 1;
+        v20[10] = 1;
       _m_prefetchw((const void *)(v10 + 4232));
       v21 = *(_DWORD *)(v10 + 4232);
       do
@@ -509,12 +509,12 @@ LABEL_171:
       v105 = (unsigned __int64 *)(*(_QWORD *)(v104 + 1648)
                                 + 24
                                 * ((unsigned int)(*(_DWORD *)(v104 + 1656) - 1) & ((101027 * (v103 ^ (v103 >> 9))) ^ ((unsigned __int64)(101027 * (v103 ^ (v103 >> 9))) >> 9))));
-      v106 = KeAbPreAcquire((__int64)v105, 0LL);
+      v106 = (char *)KeAbPreAcquire((__int64)v105, 0LL);
       v107 = v106;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v105, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v105, (__int64)v106, (__int64)v105);
+        ExfAcquirePushLockExclusiveEx(v105, v106, (__int64)v105);
       if ( v107 )
-        *((_BYTE *)v107 + 10) = 1;
+        v107[10] = 1;
       v105[1] = (unsigned __int64)KeGetCurrentThread();
       _m_prefetchw((const void *)(v104 + 4232));
       v108 = *(_DWORD *)(v104 + 4232);
@@ -526,15 +526,12 @@ LABEL_171:
         v108 = _InterlockedCompareExchange((volatile signed __int32 *)(v104 + 4232), v108 + 1, v108);
       }
       while ( v109 != v108 );
-      v110 = KeAbPreAcquire(BugCheckParameter4 + 48, 0LL);
+      v110 = (char *)KeAbPreAcquire(BugCheckParameter4 + 48, 0LL);
       v111 = v110;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter4 + 48), 0LL) )
-        ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)(BugCheckParameter4 + 48),
-          (__int64)v110,
-          BugCheckParameter4 + 48);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(BugCheckParameter4 + 48), v110, BugCheckParameter4 + 48);
       if ( v111 )
-        *((_BYTE *)v111 + 10) = 1;
+        v111[10] = 1;
       *(_QWORD *)(BugCheckParameter4 + 56) = KeGetCurrentThread();
       v112 = 0LL;
       v113 = *(_QWORD *)(BugCheckParameter4 + 192);
@@ -673,12 +670,12 @@ LABEL_171:
     v61 = (unsigned __int64 *)(*(_QWORD *)(v60 + 1648)
                              + 24
                              * ((unsigned int)(*(_DWORD *)(v60 + 1656) - 1) & ((101027 * (v59 ^ (v59 >> 9))) ^ ((unsigned __int64)(101027 * (v59 ^ (v59 >> 9))) >> 9))));
-    v62 = KeAbPreAcquire((__int64)v61, 0LL);
+    v62 = (char *)KeAbPreAcquire((__int64)v61, 0LL);
     v63 = v62;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v61, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v61, (__int64)v62, (__int64)v61);
+      ExfAcquirePushLockExclusiveEx(v61, v62, (__int64)v61);
     if ( v63 )
-      *((_BYTE *)v63 + 10) = 1;
+      v63[10] = 1;
     v61[1] = (unsigned __int64)KeGetCurrentThread();
     _m_prefetchw((const void *)(v60 + 4232));
     v64 = *(_DWORD *)(v60 + 4232);
@@ -690,15 +687,12 @@ LABEL_171:
       v64 = _InterlockedCompareExchange((volatile signed __int32 *)(v60 + 4232), v64 + 1, v64);
     }
     while ( v65 != v64 );
-    v66 = KeAbPreAcquire(BugCheckParameter4 + 48, 0LL);
+    v66 = (char *)KeAbPreAcquire(BugCheckParameter4 + 48, 0LL);
     v67 = v66;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter4 + 48), 0LL) )
-      ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)(BugCheckParameter4 + 48),
-        (__int64)v66,
-        BugCheckParameter4 + 48);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(BugCheckParameter4 + 48), v66, BugCheckParameter4 + 48);
     if ( v67 )
-      *((_BYTE *)v67 + 10) = 1;
+      v67[10] = 1;
     v68 = 0LL;
     *(_QWORD *)(BugCheckParameter4 + 56) = KeGetCurrentThread();
     v69 = *(_QWORD *)(BugCheckParameter4 + 192);
@@ -709,22 +703,19 @@ LABEL_171:
       {
         v68 = *(_QWORD *)(v79 + 16);
         CmpUnlockKcb(BugCheckParameter4);
-        v80 = KeAbPreAcquire(v68 + 48, 0LL);
+        v80 = (char *)KeAbPreAcquire(v68 + 48, 0LL);
         v81 = v80;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v68 + 48), 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v68 + 48), (__int64)v80, v68 + 48);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v68 + 48), v80, v68 + 48);
         if ( v81 )
-          *((_BYTE *)v81 + 10) = 1;
+          v81[10] = 1;
         *(_QWORD *)(v68 + 56) = KeGetCurrentThread();
-        v82 = KeAbPreAcquire(BugCheckParameter4 + 48, 0LL);
+        v82 = (char *)KeAbPreAcquire(BugCheckParameter4 + 48, 0LL);
         v83 = v82;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter4 + 48), 0LL) )
-          ExfAcquirePushLockExclusiveEx(
-            (unsigned __int64 *)(BugCheckParameter4 + 48),
-            (__int64)v82,
-            BugCheckParameter4 + 48);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(BugCheckParameter4 + 48), v82, BugCheckParameter4 + 48);
         if ( v83 )
-          *((_BYTE *)v83 + 10) = 1;
+          v83[10] = 1;
         v46 = v127;
         *(_QWORD *)(BugCheckParameter4 + 56) = KeGetCurrentThread();
       }

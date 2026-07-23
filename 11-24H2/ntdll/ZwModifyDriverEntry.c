@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwModifyDriverEntry @ 0x180164080
+ * XREFs of ZwModifyDriverEntry @ 0x180162440
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwModifyDriverEntry()
+NTSTATUS __cdecl ZwModifyDriverEntry(PEFI_DRIVER_ENTRY DriverEntry)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 288LL;
+  result = 288;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -33,7 +33,7 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
       SeCiDebugOptions |= 2u;
     if ( SeILSigningPolicy )
     {
-      if ( (v6 = ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, SystemInformation, 0x18u, 0LL), v6 >= 0)
+      if ( (v6 = ZwQuerySystemInformation(SystemSecureBootPolicyInformation, SystemInformation, 0x18u, 0LL), v6 >= 0)
         && (v10 & 0x10) != 0
         || v6 == -2143092730 )
       {

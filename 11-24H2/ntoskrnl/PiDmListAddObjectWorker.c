@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmListAddObjectWorker @ 0x1408B4124
+ * XREFs of PiDmListAddObjectWorker @ 0x1408B1A14
  * Callers:
- *     PiDmListAddObject @ 0x1408B33F4 (PiDmListAddObject.c)
- *     PiDmListAddList @ 0x140A86260 (PiDmListAddList.c)
+ *     PiDmListAddObject @ 0x1408B0CE4 (PiDmListAddObject.c)
+ *     PiDmListAddList @ 0x140A80DA0 (PiDmListAddList.c)
  * Callees:
- *     PiDmObjectManagerReleaseLock @ 0x1408B523C (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1408B5444 (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x140A71808 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1408B2B2C (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1408B2D34 (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140A6ABE8 (PiDmListUpdateAggregationCountWorker.c)
  */
 
 char *__fastcall PiDmListAddObjectWorker(int a1, __int64 a2, __int64 a3, __int64 a4, char *a5)

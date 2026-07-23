@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecrementHugeContext @ 0x140397E18
+ * XREFs of MiDecrementHugeContext @ 0x140397F68
  * Callers:
- *     MiGetHugePageToZero @ 0x14022FCB0 (MiGetHugePageToZero.c)
- *     MiGetUltraHugeAlreadyActive @ 0x140397CF0 (MiGetUltraHugeAlreadyActive.c)
- *     MiZeroLargePageThread @ 0x1403B3D10 (MiZeroLargePageThread.c)
- *     MiDereferenceAnyActiveHugeContext @ 0x14054FC60 (MiDereferenceAnyActiveHugeContext.c)
+ *     MiGetHugePageToZero @ 0x1402D4500 (MiGetHugePageToZero.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x140397E40 (MiGetUltraHugeAlreadyActive.c)
+ *     MiZeroLargePageThread @ 0x1403B3E80 (MiZeroLargePageThread.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x14054FEA0 (MiDereferenceAnyActiveHugeContext.c)
  * Callees:
- *     MiRemoveFaultNode @ 0x1402C71BC (MiRemoveFaultNode.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiRemoveFaultNode @ 0x1402458FC (MiRemoveFaultNode.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargeZeroingVa @ 0x14054FE78 (MiReleaseLargeZeroingVa.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReleaseLargeZeroingVa @ 0x1405500B8 (MiReleaseLargeZeroingVa.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDecrementHugeContext(char *P, __int64 a2, __int64 a3, _DWORD *a4)

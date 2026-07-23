@@ -6,17 +6,18 @@
  *     NtQueryInformationToken @ 0x18009D4D0 (NtQueryInformationToken.c)
  */
 
-__int64 __fastcall RtlCheckSandboxedToken(__int64 a1, _BYTE *a2)
+NTSTATUS __cdecl RtlCheckSandboxedToken(HANDLE TokenHandle, PBOOLEAN IsSandboxed)
 {
-  __int64 result; // rax
-  int v4; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  int TokenInformation; // [rsp+48h] [rbp+10h] BYREF
+  ULONG ReturnLength; // [rsp+50h] [rbp+18h] BYREF
 
-  *a2 = 0;
-  result = NtQueryInformationToken(a1, 47LL, &v4);
-  if ( (int)result >= 0 )
+  *IsSandboxed = 0;
+  result = NtQueryInformationToken(TokenHandle, 0x2Fu, &TokenInformation, 4u, &ReturnLength);
+  if ( result >= 0 )
   {
-    if ( v4 )
-      *a2 = 1;
+    if ( TokenInformation )
+      *IsSandboxed = 1;
   }
   return result;
 }

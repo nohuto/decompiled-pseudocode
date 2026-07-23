@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaHandleInterrupt @ 0x1404E3C10
+ * XREFs of HsaHandleInterrupt @ 0x1404E3E50
  * Callers:
  *     <none>
  * Callees:

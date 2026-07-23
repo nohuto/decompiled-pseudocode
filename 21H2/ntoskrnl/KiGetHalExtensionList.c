@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetHalExtensionList @ 0x140A742C8
+ * XREFs of KiGetHalExtensionList @ 0x140A752C8
  * Callers:
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
  * Callees:
  *     <none>
  */

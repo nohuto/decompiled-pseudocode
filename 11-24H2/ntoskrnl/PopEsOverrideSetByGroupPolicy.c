@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEsOverrideSetByGroupPolicy @ 0x140AC94EC
+ * XREFs of PopEsOverrideSetByGroupPolicy @ 0x140AC740C
  * Callers:
- *     PopEsEvaluateNextStateV2 @ 0x140AC9360 (PopEsEvaluateNextStateV2.c)
+ *     PopEsEvaluateNextStateV2 @ 0x140AC7298 (PopEsEvaluateNextStateV2.c)
  * Callees:
- *     PopReadRegKeyValue @ 0x1404AC224 (PopReadRegKeyValue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PopReadRegKeyValue @ 0x1404A667C (PopReadRegKeyValue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PopEsOverrideSetByGroupPolicy(bool *a1)

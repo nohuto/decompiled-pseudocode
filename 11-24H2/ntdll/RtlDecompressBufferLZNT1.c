@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDecompressBufferLZNT1 @ 0x180112180
+ * XREFs of RtlDecompressBufferLZNT1 @ 0x18010D5F0
  * Callers:
  *     <none>
  * Callees:
- *     LZNT1DecompressChunk @ 0x180166480 (LZNT1DecompressChunk.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     LZNT1DecompressChunk @ 0x180164840 (LZNT1DecompressChunk.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlDecompressBufferLZNT1(char *a1, int a2, __int16 *a3, unsigned int a4, int a5, int *a6)

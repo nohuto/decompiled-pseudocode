@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInsertUnusedSubsection @ 0x140026DCC
+ * XREFs of MiInsertUnusedSubsection @ 0x14002694C
  * Callers:
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     MiRemoveViewsFromSection @ 0x1400227E4 (MiRemoveViewsFromSection.c)
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiAddViewsForSection @ 0x14002C690 (MiAddViewsForSection.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiDereferenceControlAreaPfnList @ 0x14008FC70 (MiDereferenceControlAreaPfnList.c)
- *     MiAppendSubsectionChain @ 0x1400FD188 (MiAppendSubsectionChain.c)
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     MiRemoveViewsFromSection @ 0x140022364 (MiRemoveViewsFromSection.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiAddViewsForSection @ 0x14002C210 (MiAddViewsForSection.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x14008F3D0 (MiDereferenceControlAreaPfnList.c)
+ *     MiAppendSubsectionChain @ 0x1400FAF08 (MiAppendSubsectionChain.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
  */
 
 __int64 __fastcall MiInsertUnusedSubsection(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -62,7 +62,7 @@ LABEL_4:
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v6 + 1664));
   *(_WORD *)(a1 + 34) |= 8u;
   *(_QWORD *)(v8 + 1536) += v12;
-  _InterlockedExchangeAdd64(&qword_140326568, v12);
+  _InterlockedExchangeAdd64(&qword_1403265A8, v12);
   v15 = 0LL;
   if ( !(unsigned int)MiSubsectionUsingExtents(a1, v14) && *(_DWORD *)(a1 + 48) )
   {

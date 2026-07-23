@@ -6,11 +6,11 @@
  *     RtlpAllocateHeapInternal @ 0x18000F320 (RtlpAllocateHeapInternal.c)
  *     RtlpHpTagContextAllocateTag @ 0x180064ED0 (RtlpHpTagContextAllocateTag.c)
  *     RtlpHpTagContextFindMapping @ 0x1800650DC (RtlpHpTagContextFindMapping.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlpHeapExceptionFilter @ 0x18010C5C8 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpHpAllocWithExceptionProtection(unsigned __int16 *HeapHandle, unsigned __int64 a2, int a3)
 {
   __int64 HeapInternal; // r8
   unsigned int v7; // ecx
@@ -29,12 +29,12 @@ __int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, unsigned __int
   _QWORD v21[2]; // [rsp+70h] [rbp-48h] BYREF
 
   if ( (RtlpHpHeapFeatures & 2) == 0 )
-    return RtlpAllocateHeapInternal(a1, a2, a3, 0);
+    return RtlpAllocateHeapInternal(HeapHandle, a2, a3, 0);
   if ( BYTE1(RtlpHpEnvHandle) >= 2u )
     v7 = 2;
   else
     v7 = BYTE1(RtlpHpEnvHandle);
-  if ( *(_DWORD *)(a1 + 16) != -571548178 || a1 == *((_QWORD *)&unk_180169990 + 2 * v7) )
+  if ( *((_DWORD *)HeapHandle + 4) != -571548178 || HeapHandle == *((unsigned __int16 **)&unk_180169990 + 2 * v7) )
     goto LABEL_26;
   v21[0] = 0LL;
   v21[1] = 0LL;
@@ -130,7 +130,7 @@ LABEL_35:
 LABEL_16:
     word_180163AC4 = Tag;
 LABEL_17:
-  HeapInternal = RtlpAllocateHeapInternal(a1, a2, a3, Tag);
+  HeapInternal = RtlpAllocateHeapInternal(HeapHandle, a2, a3, Tag);
   if ( !HeapInternal && Tag )
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(_QWORD *)(qword_180163AB8 + 8LL * Tag - 8) + 32LL),

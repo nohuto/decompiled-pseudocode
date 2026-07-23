@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsContextCompact @ 0x140347BE4
+ * XREFs of RtlpHpVsContextCompact @ 0x140349C64
  * Callers:
- *     RtlpHpHeapCompact @ 0x1403473E4 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x140349464 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpVsSlotFreeList @ 0x140352F9C (RtlpHpVsSlotFreeList.c)
- *     RtlpHpVsContextGetSlotInfo @ 0x140354454 (RtlpHpVsContextGetSlotInfo.c)
- *     RtlpHpVsSlotCompactChunks @ 0x14041BD80 (RtlpHpVsSlotCompactChunks.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpVsSlotFreeList @ 0x14035501C (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x1403561FC (RtlpHpVsContextGetSlotInfo.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1404135D0 (RtlpHpVsSlotCompactChunks.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpVsContextCompact(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpHpVsContextCompact(__int64 a1)
   __int64 result; // rax
   unsigned __int16 *v3; // rdi
   __int64 v4; // rsi
-  union _SLIST_HEADER *v5; // rbp
+  _SLIST_HEADER *v5; // rbp
   PSLIST_ENTRY v6; // rax
   __int64 v7; // rcx
   _BYTE v8[256]; // [rsp+20h] [rbp-128h] BYREF
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpVsContextCompact(__int64 a1)
     v4 = (unsigned int)result;
     do
     {
-      v5 = (union _SLIST_HEADER *)(a1 + ((unsigned __int64)*v3 << 6));
+      v5 = (_SLIST_HEADER *)(a1 + ((unsigned __int64)*v3 << 6));
       v6 = RtlpInterlockedFlushSList(v5 + 4);
       if ( v6 )
         RtlpHpVsSlotFreeList(a1, v5, v6);

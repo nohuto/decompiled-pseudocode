@@ -12,11 +12,11 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __fastcall LdrpGetLoadAsEntry(int a1, void *a2)
+int __fastcall LdrpGetLoadAsEntry(int a1, char *a2)
 {
   int v3; // edi
   int v4; // eax
-  int v5; // edx
+  _DWORD *v5; // edx
 
   if ( !a1 || !a2 )
     return -1073741811;
@@ -29,11 +29,11 @@ int __fastcall LdrpGetLoadAsEntry(int a1, void *a2)
     v5 = LoadAsDataTable;
     while ( v4 > 0 )
     {
-      if ( *(_DWORD *)(24 * v4 + v5 - 24) == a1 )
+      if ( v5[6 * v4 - 6] == a1 )
       {
-        if ( *(_DWORD *)(24 * v4 + v5 - 20) )
+        if ( v5[6 * v4 - 5] )
         {
-          qmemcpy(a2, (const void *)(24 * v4 + v5 - 24), 0x18u);
+          qmemcpy(a2, &v5[6 * v4 - 6], 0x18u);
           v3 = 0;
         }
       }

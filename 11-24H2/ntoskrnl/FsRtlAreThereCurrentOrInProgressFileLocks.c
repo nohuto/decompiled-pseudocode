@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlAreThereCurrentOrInProgressFileLocks @ 0x140580040
+ * XREFs of FsRtlAreThereCurrentOrInProgressFileLocks @ 0x14057D480
  * Callers:
  *     <none>
  * Callees:

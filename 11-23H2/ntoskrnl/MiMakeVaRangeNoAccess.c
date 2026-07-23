@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMakeVaRangeNoAccess @ 0x14035BC1C
+ * XREFs of MiMakeVaRangeNoAccess @ 0x14035BDBC
  * Callers:
- *     MiProtectPrivateMemory @ 0x1402A2880 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x1402A2B10 (MiProtectPrivateMemory.c)
  * Callees:
  *     MiInsertLargeTbFlushEntry @ 0x140211C2C (MiInsertLargeTbFlushEntry.c)
  *     MiGetWsleContents @ 0x140216FB0 (MiGetWsleContents.c)
  *     MiCaptureWriteWatchDirtyBit @ 0x1402170B0 (MiCaptureWriteWatchDirtyBit.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiUpdatePfnProtection @ 0x1402A2E84 (MiUpdatePfnProtection.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiUnlockVa @ 0x140350D44 (MiUnlockVa.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiRotatedToFrameBuffer @ 0x140632E54 (MiRotatedToFrameBuffer.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiUpdatePfnProtection @ 0x1402A3114 (MiUpdatePfnProtection.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiUnlockVa @ 0x140350EE4 (MiUnlockVa.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiRotatedToFrameBuffer @ 0x1406333A4 (MiRotatedToFrameBuffer.c)
  */
 
 __int64 __fastcall MiMakeVaRangeNoAccess(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4, _DWORD *a5)

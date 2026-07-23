@@ -1,10 +1,10 @@
 /*
- * XREFs of VmPreallocateForRangeCreate @ 0x1409DCA00
+ * XREFs of VmPreallocateForRangeCreate @ 0x1409DCC00
  * Callers:
  *     <none>
  * Callees:
- *     VmpAllocateMemoryRanges @ 0x1409DCFB4 (VmpAllocateMemoryRanges.c)
- *     VmpProcessContextSetup @ 0x1409DD720 (VmpProcessContextSetup.c)
+ *     VmpAllocateMemoryRanges @ 0x1409DD1B4 (VmpAllocateMemoryRanges.c)
+ *     VmpProcessContextSetup @ 0x1409DD920 (VmpProcessContextSetup.c)
  */
 
 __int64 __fastcall VmPreallocateForRangeCreate(__int64 *a1, __int64 a2)

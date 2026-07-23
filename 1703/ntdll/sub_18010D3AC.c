@@ -10,21 +10,23 @@
  *     ZwQueryInformationFile @ 0x1800A5520 (ZwQueryInformationFile.c)
  */
 
-__int64 __fastcall sub_18010D3AC(__int64 a1, _QWORD *a2)
+__int64 __fastcall sub_18010D3AC(void *a1, _QWORD *a2)
 {
-  NTSTATUS InformationFile; // eax
-  ULONG v4; // eax
-  __int64 v6; // [rsp+48h] [rbp-20h]
+  int v3; // eax
+  LONG v4; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE FileInformation[8]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+48h] [rbp-20h]
 
-  InformationFile = ZwQueryInformationFile();
-  if ( InformationFile >= 0 )
+  v3 = ZwQueryInformationFile(a1, &IoStatusBlock, FileInformation, 0x18u, FileStandardInformation);
+  if ( v3 >= 0 )
   {
-    *a2 = v6;
+    *a2 = v8;
     return 1LL;
   }
   else
   {
-    v4 = RtlNtStatusToDosError(InformationFile);
+    v4 = RtlNtStatusToDosError(v3);
     RtlSetLastWin32Error(v4);
     return 0LL;
   }

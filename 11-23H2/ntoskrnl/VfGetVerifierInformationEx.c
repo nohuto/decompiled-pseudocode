@@ -1,7 +1,7 @@
 /*
- * XREFs of VfGetVerifierInformationEx @ 0x140ADD7A8
+ * XREFs of VfGetVerifierInformationEx @ 0x140ADD798
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

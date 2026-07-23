@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtDeleteDevice @ 0x140578BE0
+ * XREFs of IvtDeleteDevice @ 0x140576070
  * Callers:
- *     HalpIvtCreateReservedDevice @ 0x140578D34 (HalpIvtCreateReservedDevice.c)
+ *     HalpIvtCreateReservedDevice @ 0x1405761C4 (HalpIvtCreateReservedDevice.c)
  * Callees:
- *     ExtEnvFreeMemory @ 0x14055FCA0 (ExtEnvFreeMemory.c)
- *     IvtFreeScalableModePasidTables @ 0x14056E600 (IvtFreeScalableModePasidTables.c)
+ *     ExtEnvFreeMemory @ 0x14055D8D0 (ExtEnvFreeMemory.c)
+ *     IvtFreeScalableModePasidTables @ 0x14056BA90 (IvtFreeScalableModePasidTables.c)
  */
 
 void __fastcall IvtDeleteDevice(__int64 a1, unsigned __int64 a2)

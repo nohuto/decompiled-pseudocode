@@ -12,38 +12,40 @@
  *     RtlRaiseStatus @ 0x1800FBE10 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall LdrpFatalExceptionFilter(_DWORD **a1)
+__int64 __fastcall LdrpFatalExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
   struct _TEB *v2; // rcx
-  unsigned int v3; // eax
-  __int64 v4; // rsi
-  NTSTATUS v5; // eax
-  void (__fastcall *v6)(_DWORD **); // rsi
+  NTSTATUS ExceptionCode; // ebp
+  unsigned int v4; // eax
+  __int64 v5; // rsi
+  int v6; // eax
+  void (__fastcall *v7)(PEXCEPTION_POINTERS); // rsi
   int ProcessInformation; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = NtCurrentTeb();
-  if ( **a1 == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
+  ExceptionCode = ExceptionPointers->ExceptionRecord->ExceptionCode;
+  if ( ExceptionCode == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
   {
-    RtlReportSilentProcessExit(-1LL, -1073741571);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741571);
   }
   else
   {
-    v3 = `RtlpGetCookieValue'::`2'::CookieValue;
-    v4 = RtlpUnhandledExceptionFilter;
+    v4 = `RtlpGetCookieValue'::`2'::CookieValue;
+    v5 = RtlpUnhandledExceptionFilter;
     if ( !`RtlpGetCookieValue'::`2'::CookieValue )
     {
-      v5 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
-      if ( v5 < 0 )
-        RtlRaiseStatus((unsigned int)v5);
-      v3 = ProcessInformation;
+      v6 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
+      if ( v6 < 0 )
+        RtlRaiseStatus(v6);
+      v4 = ProcessInformation;
       `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
     }
-    v6 = (void (__fastcall *)(_DWORD **))(v3 ^ __ROR8__(v4, 64 - (v3 & 0x3F)));
-    if ( v6 )
-      v6(a1);
+    v7 = (void (__fastcall *)(PEXCEPTION_POINTERS))(v4 ^ __ROR8__(v5, 64 - (v4 & 0x3F)));
+    if ( v7 )
+      v7(ExceptionPointers);
     else
-      RtlUnhandledExceptionFilter2(a1, &unk_18011D492);
+      RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&Flags);
   }
-  ZwTerminateProcess();
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionCode);
   return 0LL;
 }

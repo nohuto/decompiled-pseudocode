@@ -1,14 +1,14 @@
 /*
- * XREFs of IopWriteResourceList @ 0x140AF8FD4
+ * XREFs of IopWriteResourceList @ 0x140AFB6B4
  * Callers:
- *     PnpBuildCmResourceList @ 0x140AF8B10 (PnpBuildCmResourceList.c)
- *     IoReportHalResourceUsage @ 0x140CC4140 (IoReportHalResourceUsage.c)
- *     IopInitializeResourceMap @ 0x140CC4328 (IopInitializeResourceMap.c)
+ *     PnpBuildCmResourceList @ 0x140AFB1F0 (PnpBuildCmResourceList.c)
+ *     IoReportHalResourceUsage @ 0x140CCA220 (IoReportHalResourceUsage.c)
+ *     IopInitializeResourceMap @ 0x140CCA408 (IopInitializeResourceMap.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     IopCreateRegistryKeyEx @ 0x140AF90BC (IopCreateRegistryKeyEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     IopCreateRegistryKeyEx @ 0x140AFB79C (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall IopWriteResourceList(

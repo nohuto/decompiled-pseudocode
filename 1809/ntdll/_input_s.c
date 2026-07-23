@@ -1,13 +1,13 @@
 /*
- * XREFs of _input_s @ 0x18009CB6C
+ * XREFs of _input_s @ 0x18009CB7C
  * Callers:
- *     _sinput_s @ 0x18009D4DC (_sinput_s.c)
+ *     _sinput_s @ 0x18009D4EC (_sinput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _ungetc_nolock @ 0x180099E90 (_ungetc_nolock.c)
- *     ReadString_0 @ 0x18009C800 (ReadString_0.c)
- *     ReadStringDelimited_0 @ 0x18009C9AC (ReadStringDelimited_0.c)
- *     _inc_0 @ 0x18009CB38 (_inc_0.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _ungetc_nolock @ 0x180099EA0 (_ungetc_nolock.c)
+ *     ReadString_0 @ 0x18009C810 (ReadString_0.c)
+ *     ReadStringDelimited_0 @ 0x18009C9BC (ReadStringDelimited_0.c)
+ *     _inc_0 @ 0x18009CB48 (_inc_0.c)
  */
 
 __int64 __fastcall input_s(FILE *Stream, unsigned __int8 *a2, __int64 a3)

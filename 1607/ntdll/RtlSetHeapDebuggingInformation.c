@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlSetHeapDebuggingInformation @ 0x18008F850
+ * XREFs of RtlSetHeapDebuggingInformation @ 0x18008F840
  * Callers:
- *     RtlSetHeapInformation @ 0x18007E700 (RtlSetHeapInformation.c)
- *     RtlHeapTrkInitialize @ 0x18008F3E0 (RtlHeapTrkInitialize.c)
+ *     RtlSetHeapInformation @ 0x18007E6F0 (RtlSetHeapInformation.c)
+ *     RtlHeapTrkInitialize @ 0x18008F3D0 (RtlHeapTrkInitialize.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpEnumProcessHeaps @ 0x18004E4CC (RtlpEnumProcessHeaps.c)
- *     RtlpIsProtectedHeap @ 0x18007E874 (RtlpIsProtectedHeap.c)
- *     RtlpSetHeapDebuggingInformation @ 0x18008F1D0 (RtlpSetHeapDebuggingInformation.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpEnumProcessHeaps @ 0x18004E4BC (RtlpEnumProcessHeaps.c)
+ *     RtlpIsProtectedHeap @ 0x18007E864 (RtlpIsProtectedHeap.c)
+ *     RtlpSetHeapDebuggingInformation @ 0x18008F1C0 (RtlpSetHeapDebuggingInformation.c)
  */
 
-__int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
+__int64 __fastcall RtlSetHeapDebuggingInformation(_DWORD *HeapHandle, __int64 a2)
 {
   unsigned int v5; // ebx
 
-  if ( a1 )
+  if ( HeapHandle )
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (HeapHandle[29] & 0x1000000) != 0 )
     {
       return 3221225474LL;
     }
     else
     {
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-      if ( RtlpIsProtectedHeap(a1) )
+      RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+      if ( RtlpIsProtectedHeap((__int64)HeapHandle) )
         v5 = -1073741811;
       else
-        v5 = RtlpSetHeapDebuggingInformation(a1, a2);
-      RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+        v5 = RtlpSetHeapDebuggingInformation(HeapHandle, a2);
+      RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
       return v5;
     }
   }

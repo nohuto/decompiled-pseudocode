@@ -15,18 +15,18 @@
 
 __int64 __fastcall sub_1800FFDA8(__int64 a1)
 {
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   __int64 result; // rax
   unsigned int v4; // ecx
-  __int64 v5; // rax
-  __int64 v6; // rax
+  _QWORD *v5; // rax
+  _QWORD *v6; // rax
 
   InstallUILanguage = 0;
   if ( !a1 )
     return 3221225485LL;
-  if ( (int)ZwIsUILanguageComitted() >= 0 )
+  if ( ZwIsUILanguageComitted() >= 0 )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage();
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_13;
     sub_18008B794(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));

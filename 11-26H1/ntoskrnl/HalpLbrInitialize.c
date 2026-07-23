@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpLbrInitialize @ 0x140BEF224
+ * XREFs of HalpLbrInitialize @ 0x140BF5224
  * Callers:
- *     HalpInitializeProfiling @ 0x140BED728 (HalpInitializeProfiling.c)
+ *     HalpInitializeProfiling @ 0x140BF3728 (HalpInitializeProfiling.c)
  * Callees:
- *     HalpIsHvPresent @ 0x1404B9338 (HalpIsHvPresent.c)
- *     HalpGetCpuInfo @ 0x1404C55D0 (HalpGetCpuInfo.c)
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HalpLbrInitializeIntel @ 0x140BEF394 (HalpLbrInitializeIntel.c)
+ *     HalpIsHvPresent @ 0x1404B2B68 (HalpIsHvPresent.c)
+ *     HalpGetCpuInfo @ 0x1404BEF80 (HalpGetCpuInfo.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HalpLbrInitializeIntel @ 0x140BF5394 (HalpLbrInitializeIntel.c)
  */
 
 char HalpLbrInitialize()
@@ -24,7 +24,7 @@ char HalpLbrInitialize()
   v16[0] = 0;
   v15 = 0;
   v14 = 0;
-  byte_140F87640 = 0;
+  byte_140F87A20 = 0;
   v17 = 0LL;
   if ( (HalpFeatureBits & 1) != 0 )
   {
@@ -52,9 +52,9 @@ char HalpLbrInitialize()
           __asm { cpuid }
           if ( (_RAX & 2) == 0 )
             goto LABEL_9;
-          dword_140F87664 = 3;
-          dword_140F87654 = ((unsigned int)_RBX >> 4) & 0x3F;
-          if ( dword_140F87654 )
+          dword_140F87A40 = 3;
+          dword_140F87A2C = ((unsigned int)_RBX >> 4) & 0x3F;
+          if ( dword_140F87A2C )
           {
             HalpLbrMostSignificantFromAddrBit = 62;
             LOBYTE(v0) = 1;
@@ -68,7 +68,7 @@ LABEL_9:
         }
         if ( (_BYTE)v0 )
         {
-          byte_140F87640 = 1;
+          byte_140F87A20 = 1;
           off_140E00BE8[0] = (__int64 (__fastcall *)())HalpLbrCaptureStack;
           off_140E00BF0[0] = (__int64 (__fastcall *)())HalpLbrClearStack;
           off_140E00BF8[0] = (__int64 (__fastcall *)())HalpLbrConfigureRecording;

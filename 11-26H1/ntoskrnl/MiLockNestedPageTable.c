@@ -1,28 +1,28 @@
 /*
- * XREFs of MiLockNestedPageTable @ 0x14029EBE0
+ * XREFs of MiLockNestedPageTable @ 0x14029E130
  * Callers:
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiEvictPageTableLock @ 0x14029E998 (MiEvictPageTableLock.c)
- *     MiDeleteEmptyPageTableWorker @ 0x14029F288 (MiDeleteEmptyPageTableWorker.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiResolvePageTablePage @ 0x1402ECA70 (MiResolvePageTablePage.c)
- *     MiClearPteAccessed @ 0x1402FF9B0 (MiClearPteAccessed.c)
- *     MiDeleteVa @ 0x140322AC0 (MiDeleteVa.c)
- *     MiGetNextPageTablePte @ 0x140328700 (MiGetNextPageTablePte.c)
- *     MiWsleFlush @ 0x14032A510 (MiWsleFlush.c)
- *     MiCreateSystemPageTable @ 0x140339800 (MiCreateSystemPageTable.c)
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
- *     MiOutPageSingleKernelStack @ 0x140368960 (MiOutPageSingleKernelStack.c)
- *     MiValidWriteFaultProcess @ 0x1403A76E0 (MiValidWriteFaultProcess.c)
- *     MiMakeSystemLeavesNonZero @ 0x140518F50 (MiMakeSystemLeavesNonZero.c)
- *     MiDeleteBootRange @ 0x1406E35D0 (MiDeleteBootRange.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiEvictPageTableLock @ 0x14029DEE8 (MiEvictPageTableLock.c)
+ *     MiDeleteEmptyPageTableWorker @ 0x14029E7D8 (MiDeleteEmptyPageTableWorker.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiResolvePageTablePage @ 0x1402CEAB0 (MiResolvePageTablePage.c)
+ *     MiClearPteAccessed @ 0x1402E1A30 (MiClearPteAccessed.c)
+ *     MiDeleteVa @ 0x140324AF0 (MiDeleteVa.c)
+ *     MiGetNextPageTablePte @ 0x14032A730 (MiGetNextPageTablePte.c)
+ *     MiWsleFlush @ 0x14032C540 (MiWsleFlush.c)
+ *     MiCreateSystemPageTable @ 0x14033B880 (MiCreateSystemPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
+ *     MiOutPageSingleKernelStack @ 0x14036A700 (MiOutPageSingleKernelStack.c)
+ *     MiValidWriteFaultProcess @ 0x1403A9440 (MiValidWriteFaultProcess.c)
+ *     MiMakeSystemLeavesNonZero @ 0x1405129C0 (MiMakeSystemLeavesNonZero.c)
+ *     MiDeleteBootRange @ 0x1406E827C (MiDeleteBootRange.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 void __fastcall MiLockNestedPageTable(signed __int64 a1, unsigned __int64 a2)
@@ -78,7 +78,7 @@ void __fastcall MiLockNestedPageTable(signed __int64 a1, unsigned __int64 a2)
     v12 = &CurrentPrcb->SelfmapLockHandle[0].LockQueue.Next + 2 * v11 + v11;
     *((_QWORD *)v12 + 1) = v10;
     *v12 = 0LL;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _InterlockedExchange64(v10, (__int64)v12) )
         KxWaitForLockOwnerShip(v12);

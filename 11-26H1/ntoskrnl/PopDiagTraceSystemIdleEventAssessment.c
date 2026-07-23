@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSystemIdleEventAssessment @ 0x140A3BE3C
+ * XREFs of PopDiagTraceSystemIdleEventAssessment @ 0x1409F785C
  * Callers:
- *     PopAssessSystemIdleEvent @ 0x140A3BDA8 (PopAssessSystemIdleEvent.c)
+ *     PopAssessSystemIdleEvent @ 0x1409F77C8 (PopAssessSystemIdleEvent.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSystemIdleEventAssessment(int a1, int a2, int a3, unsigned __int8 a4, char a5)
@@ -32,11 +32,9 @@ char __fastcall PopDiagTraceSystemIdleEventAssessment(int a1, int a2, int a3, un
   v20 = a2;
   v19 = a1;
   v6 = a4;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v5) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_SYSTEM_IDLE_EVENT_ASSESSMENT);
+    LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SYSTEM_IDLE_EVENT_ASSESSMENT);
     if ( (_BYTE)v5 )
     {
       UserData.Ptr = (ULONGLONG)&v19;
@@ -50,12 +48,7 @@ char __fastcall PopDiagTraceSystemIdleEventAssessment(int a1, int a2, int a3, un
       v8 = v6;
       v15 = 4LL;
       v17 = 4LL;
-      LOBYTE(v5) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_SYSTEM_IDLE_EVENT_ASSESSMENT,
-                     0LL,
-                     5u,
-                     &UserData);
+      LOBYTE(v5) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SYSTEM_IDLE_EVENT_ASSESSMENT, 0LL, 5u, &UserData);
     }
   }
   return (char)v5;

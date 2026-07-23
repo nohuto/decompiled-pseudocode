@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoCreateDevice @ 0x140933ED0
+ * XREFs of VerifierIoCreateDevice @ 0x140934ED0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViDevObjAdd @ 0x140934340 (ViDevObjAdd.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViDevObjAdd @ 0x140935340 (ViDevObjAdd.c)
  */
 
 __int64 __fastcall VerifierIoCreateDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char a6, _QWORD *a7)

@@ -38,7 +38,7 @@ void __fastcall EtwpTraceFileName(
   {
     ThreadServerSilo = *(_QWORD *)(a1 + 2160);
   }
-  else if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(0LL, a2) )
+  else if ( (unsigned int)KeIsExecutingInArbitraryThreadContext() )
   {
     ThreadServerSilo = 0LL;
   }

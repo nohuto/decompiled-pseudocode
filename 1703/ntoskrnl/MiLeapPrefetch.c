@@ -64,7 +64,7 @@ LABEL_32:
     return 1LL;
   Process = CurrentThread->ApcState.Process;
   --CurrentThread->SpecialApcDisable;
-  v8 = KeAbPreAcquire((ULONG_PTR)&Process[1].Affinity.Bitmap[7]);
+  v8 = KeAbPreAcquire((ULONG_PTR)&Process[1].Affinity.Bitmap[7], 0LL);
   if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&Process[1].Affinity.Bitmap[7], 17LL, 0LL)
     || ExfTryAcquirePushLockShared((signed __int64 *)&Process[1].Affinity.Bitmap[7]) )
   {

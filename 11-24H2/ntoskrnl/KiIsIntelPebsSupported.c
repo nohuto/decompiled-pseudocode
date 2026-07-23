@@ -1,8 +1,8 @@
 /*
- * XREFs of KiIsIntelPebsSupported @ 0x1405B763C
+ * XREFs of KiIsIntelPebsSupported @ 0x1405B4C0C
  * Callers:
- *     KeAllocateProcessorProfileStructures @ 0x1405B0460 (KeAllocateProcessorProfileStructures.c)
- *     KeProcessorProfileControlArea @ 0x1405B07FC (KeProcessorProfileControlArea.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1405AD3D0 (KeAllocateProcessorProfileStructures.c)
+ *     KeProcessorProfileControlArea @ 0x1405AD76C (KeProcessorProfileControlArea.c)
  * Callees:
  *     <none>
  */

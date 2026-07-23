@@ -43,26 +43,26 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryInformationJobObject(
-        ULONG_PTR a1,
-        int a2,
-        unsigned __int64 a3,
-        unsigned int a4,
-        unsigned int *a5)
+NTSTATUS __cdecl NtQueryInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength,
+        PULONG ReturnLength)
 {
   __int64 v5; // rbx
-  int v8; // edx
-  unsigned int v9; // r14d
+  __int32 v8; // edx
+  ULONG v9; // r14d
   int v10; // r15d
   struct _KTHREAD *CurrentThread; // r9
   char PreviousMode; // al
   __int64 v13; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char *v15; // rbx
   bool *v16; // r12
-  signed int JobIoAttribution; // esi
-  unsigned int *v18; // r15
-  void *v19; // r13
+  NTSTATUS JobIoAttribution; // esi
+  PULONG v18; // r15
+  PVOID v19; // r13
   bool v20; // zf
   char *v21; // rcx
   int v22; // eax
@@ -96,16 +96,16 @@ __int64 __fastcall NtQueryInformationJobObject(
   _DWORD *v50; // rax
   _DWORD *v51; // r8
   int v52; // edx
-  int v53; // r13d
-  int v54; // r13d
-  int v55; // r13d
+  __int32 v53; // r13d
+  __int32 v54; // r13d
+  __int32 v55; // r13d
   int v56; // r13d
   __int64 v57; // rax
   int v58; // r8d
   int j; // edx
   int v60; // edx
   __int64 v61; // rsi
-  unsigned int v62; // r13d
+  ULONG v62; // r13d
   int v63; // r14d
   unsigned __int16 v64; // r8
   _QWORD *v65; // rdx
@@ -142,11 +142,11 @@ __int64 __fastcall NtQueryInformationJobObject(
   bool v97; // [rsp+61h] [rbp-8B7h] BYREF
   char v98; // [rsp+62h] [rbp-8B6h]
   unsigned __int16 v99; // [rsp+64h] [rbp-8B4h] BYREF
-  unsigned int v100; // [rsp+68h] [rbp-8B0h]
+  ULONG v100; // [rsp+68h] [rbp-8B0h]
   struct _KTHREAD *v101; // [rsp+70h] [rbp-8A8h]
-  unsigned int v102; // [rsp+78h] [rbp-8A0h] BYREF
+  ULONG v102; // [rsp+78h] [rbp-8A0h] BYREF
   PVOID Object; // [rsp+80h] [rbp-898h] BYREF
-  unsigned int Size; // [rsp+88h] [rbp-890h]
+  ULONG Size; // [rsp+88h] [rbp-890h]
   __int16 Size_4; // [rsp+8Ch] [rbp-88Ch] BYREF
   char Size_6; // [rsp+8Eh] [rbp-88Ah]
   ULONG_PTR BugCheckParameter1; // [rsp+90h] [rbp-888h]
@@ -156,8 +156,8 @@ __int64 __fastcall NtQueryInformationJobObject(
   int v111; // [rsp+A8h] [rbp-870h] BYREF
   int v112; // [rsp+ACh] [rbp-86Ch] BYREF
   int v113; // [rsp+B0h] [rbp-868h] BYREF
-  unsigned __int64 v114; // [rsp+B8h] [rbp-860h]
-  unsigned int *v115; // [rsp+C0h] [rbp-858h]
+  PVOID v114; // [rsp+B8h] [rbp-860h]
+  PULONG v115; // [rsp+C0h] [rbp-858h]
   int v116; // [rsp+C8h] [rbp-850h] BYREF
   __int64 v117; // [rsp+D0h] [rbp-848h] BYREF
   __int64 v118; // [rsp+D8h] [rbp-840h] BYREF
@@ -196,11 +196,11 @@ __int64 __fastcall NtQueryInformationJobObject(
   _BYTE v151[320]; // [rsp+770h] [rbp-1A8h] BYREF
   _WORD v152[20]; // [rsp+8B0h] [rbp-68h] BYREF
 
-  v5 = a4;
-  v100 = a4;
-  BugCheckParameter1 = a1;
-  v114 = a3;
-  v115 = a5;
+  v5 = JobObjectInformationLength;
+  v100 = JobObjectInformationLength;
+  BugCheckParameter1 = (ULONG_PTR)JobHandle;
+  v114 = JobObjectInformation;
+  v115 = ReturnLength;
   memset(Src, 0, sizeof(Src));
   memset(&v149[5], 0, 0xA8uLL);
   v96 = 0;
@@ -243,56 +243,62 @@ __int64 __fastcall NtQueryInformationJobObject(
   v108 = 0LL;
   v94 = 0;
   v97 = 0;
-  v8 = a2 - 1;
-  if ( (unsigned int)(a2 - 1) > 0x2E )
-    return 3221225475LL;
-  switch ( a2 )
+  v8 = JobObjectInformationClass - 1;
+  if ( (unsigned int)(JobObjectInformationClass - 1) > 0x2E )
+    return -1073741821;
+  switch ( JobObjectInformationClass )
   {
-    case 9:
+    case JobObjectExtendedLimitInformation:
       if ( (_DWORD)v5 == 144 || (_DWORD)v5 == 152 )
         goto LABEL_7;
-      return 3221225476LL;
-    case 12:
+      return -1073741820;
+    case JobObjectNotificationLimitInformation:
       if ( (_DWORD)v5 == 48 )
         goto LABEL_7;
       v20 = (_DWORD)v5 == 56;
       goto LABEL_88;
-    case 13:
+    case JobObjectLimitViolationInformation:
       if ( (_DWORD)v5 == 80 )
         goto LABEL_7;
       v20 = (_DWORD)v5 == 88;
 LABEL_88:
       if ( v20 )
         goto LABEL_7;
-      return 3221225476LL;
-    case 19:
+      return -1073741820;
+    case JobObjectExtendedAccountingInformation:
       if ( (_DWORD)v5 == 432 )
         goto LABEL_7;
       v20 = (_DWORD)v5 == 448;
       goto LABEL_88;
-    case 20:
+    case JobObjectWakeInformation:
       if ( (_DWORD)v5 == 40 )
         goto LABEL_7;
       v20 = (_DWORD)v5 == 64;
       goto LABEL_88;
-    case 28:
+    case JobObjectMemoryUsageInformation:
       if ( (_DWORD)v5 == 16 )
         goto LABEL_7;
       v20 = (_DWORD)v5 == 40;
       goto LABEL_88;
-    case 30:
+    case JobObjectContainerId:
       if ( (_DWORD)v5 == 16 )
         goto LABEL_7;
       v20 = (_DWORD)v5 == 36;
       goto LABEL_88;
   }
-  if ( a2 != 43 )
+  if ( JobObjectInformationClass != JobObjectMemoryPartitionInformation )
   {
     v9 = PspJobInfoLengths[v8];
     v95 = v9;
     if ( (_DWORD)v5 == v9 )
       goto LABEL_8;
-    if ( (a2 == 3 || a2 == 5 || a2 == 11 || a2 == 14 || a2 == 31 || a2 == 37) && (unsigned int)v5 >= v9 )
+    if ( (JobObjectInformationClass == JobObjectBasicProcessIdList
+       || JobObjectInformationClass == JobObjectSecurityLimitInformation
+       || JobObjectInformationClass == JobObjectGroupInformation
+       || JobObjectInformationClass == JobObjectGroupInformationEx
+       || JobObjectInformationClass == JobObjectIoRateControlInformation
+       || JobObjectInformationClass == JobObjectSiloRootDirectory)
+      && (unsigned int)v5 >= v9 )
     {
 LABEL_7:
       v95 = v5;
@@ -301,10 +307,10 @@ LABEL_8:
       v10 = 1;
       goto LABEL_9;
     }
-    return 3221225476LL;
+    return -1073741820;
   }
   if ( (_DWORD)v5 != 1 )
-    return 3221225476LL;
+    return -1073741820;
   v10 = 1;
   v9 = 1;
   v95 = 1;
@@ -318,15 +324,18 @@ LABEL_9:
   {
     if ( (_DWORD)v5 )
     {
-      if ( ((PspJobInfoAlign[v8] - 1) & (unsigned int)a3) != 0 )
+      if ( ((PspJobInfoAlign[v8] - 1) & (unsigned int)JobObjectInformation) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( a3 + v5 > 0x7FFFFFFF0000LL || a3 + v5 < a3 )
+      if ( (unsigned __int64)JobObjectInformation + v5 > 0x7FFFFFFF0000LL
+        || (char *)JobObjectInformation + v5 < JobObjectInformation )
+      {
         MEMORY[0x7FFFFFFF0000] = 0;
+      }
     }
-    if ( a5 )
+    if ( ReturnLength )
     {
-      v13 = (__int64)a5;
-      if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+      v13 = (__int64)ReturnLength;
+      if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
         v13 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v13 = *(_DWORD *)v13;
     }
@@ -343,7 +352,7 @@ LABEL_9:
                &Object,
                0LL,
                0LL);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v15 = (char *)Object;
     goto LABEL_25;
@@ -358,18 +367,18 @@ LABEL_25:
     CurrentThread = v101;
     goto LABEL_26;
   }
-  if ( ((a2 - 31) & 0xFFFFFFF7) != 0 )
-    return 3221225506LL;
+  if ( ((JobObjectInformationClass - 31) & 0xFFFFFFF7) != 0 )
+    return -1073741790;
 LABEL_26:
   v102 = v9;
   v92 = 0;
   v16 = 0LL;
   JobIoAttribution = 0;
-  if ( a2 > 20 )
+  if ( JobObjectInformationClass > JobObjectWakeInformation )
   {
-    if ( a2 > 36 )
+    if ( JobObjectInformationClass > JobObjectSiloBasicInformation )
     {
-      v53 = a2 - 37;
+      v53 = JobObjectInformationClass - 37;
       if ( v53 )
       {
         v54 = v53 - 1;
@@ -388,10 +397,10 @@ LABEL_26:
               v86 = HalSystemVectorDispatchEntry();
             }
             ServerSiloGlobals = (const void **)PsGetServerSiloGlobals(v86);
-            v19 = (void *)a3;
-            memmove((void *)a3, ServerSiloGlobals[141], v88);
+            v19 = JobObjectInformation;
+            memmove(JobObjectInformation, ServerSiloGlobals[141], v88);
             v92 = 1;
-            v18 = a5;
+            v18 = ReturnLength;
             goto LABEL_40;
           }
           v56 = v55 - 3;
@@ -478,19 +487,19 @@ LABEL_26:
             if ( v9 > v100 )
             {
               JobIoAttribution = -1073741789;
-              v19 = (void *)a3;
-              v18 = a5;
+              v19 = JobObjectInformation;
+              v18 = ReturnLength;
             }
             else
             {
-              v19 = (void *)a3;
-              *(_WORD *)a3 = v122;
-              *(_WORD *)(a3 + 2) = v91;
-              *(_QWORD *)(a3 + 8) = a3 + 16;
-              memmove((void *)(a3 + 16), P, v91);
-              v18 = a5;
-              if ( a5 )
-                *a5 = v9;
+              v19 = JobObjectInformation;
+              *(_WORD *)JobObjectInformation = v122;
+              *((_WORD *)JobObjectInformation + 1) = v91;
+              *((_QWORD *)JobObjectInformation + 1) = (char *)JobObjectInformation + 16;
+              memmove((char *)JobObjectInformation + 16, P, v91);
+              v18 = ReturnLength;
+              if ( ReturnLength )
+                *ReturnLength = v9;
             }
             ExFreePoolWithTag(P, 0);
             goto LABEL_40;
@@ -501,16 +510,16 @@ LABEL_26:
     }
     else
     {
-      if ( a2 != 36 )
+      if ( JobObjectInformationClass != JobObjectSiloBasicInformation )
       {
-        switch ( a2 )
+        switch ( JobObjectInformationClass )
         {
-          case 21:
+          case JobObjectBackgroundInformation:
             v96 = (*((_DWORD *)v15 + 330) & 0x400) != 0;
             v16 = &v96;
             goto LABEL_37;
-          case 26:
-            v19 = (void *)a3;
+          case JobObjectInterferenceInformation:
+            v19 = JobObjectInformation;
             JobIoAttribution = PspQueryJobHierarchyInterferenceCount(v15);
             if ( JobIoAttribution < 0 )
             {
@@ -523,7 +532,7 @@ LABEL_26:
             }
             v102 = v80;
             goto LABEL_62;
-          case 28:
+          case JobObjectMemoryUsageInformation:
             *(_OWORD *)&v140[24] = 0LL;
             PspLockJobMemoryLimitsShared(v15, CurrentThread);
             *(_QWORD *)&v140[8] = *((_QWORD *)v15 + 76) << 12;
@@ -533,13 +542,13 @@ LABEL_26:
             PspUnlockJobMemoryLimitsShared(Object, v101);
             v16 = v140;
             goto LABEL_37;
-          case 29:
+          case JobObjectSharedCommit:
             v119 = *((_QWORD *)v15 + 167);
             v16 = (bool *)&v119;
             JobIoAttribution = 0;
             v15 = (char *)Object;
             goto LABEL_38;
-          case 30:
+          case JobObjectContainerId:
             v141 = *(_OWORD *)(v15 + 1240);
             if ( v100 == 36 )
             {
@@ -548,10 +557,10 @@ LABEL_26:
             }
             v16 = (bool *)&v141;
             goto LABEL_37;
-          case 31:
+          case JobObjectIoRateControlInformation:
             JobIoAttribution = -1073741822;
             goto LABEL_38;
-          case 32:
+          case JobObjectNetRateControlInformation:
             PspLockJobShared(v15, CurrentThread);
             v78 = *((_QWORD *)v15 + 164);
             if ( v78 )
@@ -573,9 +582,9 @@ LABEL_26:
             PspUnlockJob(v15, v101);
             v16 = (bool *)&v130;
             goto LABEL_37;
-          case 33:
+          case JobObjectNotificationLimitInformation2:
             goto LABEL_125;
-          case 34:
+          case JobObjectLimitViolationInformation2:
             goto LABEL_94;
         }
         goto LABEL_213;
@@ -597,11 +606,11 @@ LABEL_26:
     JobIoAttribution = -1073740535;
     goto LABEL_38;
   }
-  if ( a2 == 20 )
+  if ( JobObjectInformationClass == JobObjectWakeInformation )
   {
     JobIoAttribution = PspAllocateAndQueryNotificationChannel(CurrentThread, v15, v148);
-    v19 = (void *)a3;
-    v18 = a5;
+    v19 = JobObjectInformation;
+    v18 = ReturnLength;
     if ( JobIoAttribution >= 0 )
     {
       v16 = v148;
@@ -609,17 +618,17 @@ LABEL_26:
     }
     goto LABEL_40;
   }
-  if ( a2 > 11 )
+  if ( JobObjectInformationClass > JobObjectGroupInformation )
   {
-    if ( a2 != 12 )
+    if ( JobObjectInformationClass != JobObjectNotificationLimitInformation )
     {
-      if ( a2 != 13 )
+      if ( JobObjectInformationClass != JobObjectLimitViolationInformation )
       {
-        if ( a2 != 14 )
+        if ( JobObjectInformationClass != JobObjectGroupInformationEx )
         {
-          switch ( a2 )
+          switch ( JobObjectInformationClass )
           {
-            case 15:
+            case JobObjectCpuRateControlInformation:
               PspLockJobShared(v15, CurrentThread);
               v57 = *((_QWORD *)v15 + 126);
               if ( v57 )
@@ -643,15 +652,15 @@ LABEL_26:
               PspUnlockJob(v15, v101);
               v16 = (bool *)&v117;
               goto LABEL_37;
-            case 16:
+            case JobObjectCompletionFilter:
               v111 = *((_DWORD *)v15 + 219);
               v16 = (bool *)&v111;
               goto LABEL_37;
-            case 17:
+            case JobObjectCompletionCounter:
               v118 = *((_QWORD *)v15 + 59);
               v16 = (bool *)&v118;
               goto LABEL_37;
-            case 18:
+            case JobObjectFreezeInformation:
               LODWORD(v129) = 7;
               WORD3(v129) = 0;
               PspLockJobShared(v15, CurrentThread);
@@ -665,7 +674,7 @@ LABEL_26:
           }
           goto LABEL_36;
         }
-        if ( a5 )
+        if ( ReturnLength )
         {
           v71 = v100;
           if ( (v100 & 0xF) == 0 )
@@ -712,9 +721,9 @@ LABEL_26:
               v9 = v77;
             Size = v9;
             v92 = 1;
-            v19 = (void *)a3;
-            memmove((void *)a3, v151, v9);
-            v18 = a5;
+            v19 = JobObjectInformation;
+            memmove(JobObjectInformation, v151, v9);
+            v18 = ReturnLength;
             goto LABEL_40;
           }
         }
@@ -860,7 +869,7 @@ LABEL_94:
       }
       JobIoAttribution = 0;
       if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-        EtwTraceJobSetQuery((_DWORD)v15, a2, (unsigned int)v128, (unsigned int)&v113, 0, 1830);
+        EtwTraceJobSetQuery((_DWORD)v15, JobObjectInformationClass, (unsigned int)v128, (unsigned int)&v113, 0, 1830);
       goto LABEL_38;
     }
 LABEL_125:
@@ -905,9 +914,9 @@ LABEL_125:
     }
     goto LABEL_37;
   }
-  if ( a2 == 11 )
+  if ( JobObjectInformationClass == JobObjectGroupInformation )
   {
-    if ( a5 )
+    if ( ReturnLength )
     {
       v62 = v100;
       if ( (v100 & 1) == 0 )
@@ -936,19 +945,19 @@ LABEL_125:
         if ( v9 > v62 )
           v9 = Size;
         Size = v9;
-        v19 = (void *)a3;
-        memmove((void *)a3, v152, v9);
-        v18 = a5;
+        v19 = JobObjectInformation;
+        memmove(JobObjectInformation, v152, v9);
+        v18 = ReturnLength;
         goto LABEL_40;
       }
     }
     goto LABEL_189;
   }
-  if ( a2 != 1 )
+  if ( JobObjectInformationClass != JobObjectBasicAccountingInformation )
   {
-    switch ( a2 )
+    switch ( JobObjectInformationClass )
     {
-      case 2:
+      case JobObjectBasicLimitInformation:
 LABEL_79:
         PspLockJobShared(v15, CurrentThread);
         v147[3] = *((_QWORD *)v15 + 30);
@@ -962,8 +971,8 @@ LABEL_79:
           v147[6] = 0LL;
         v147[0] = *((_QWORD *)v15 + 28);
         v147[1] = *((_QWORD *)v15 + 29);
-        LODWORD(v147[2]) = (PspGetJobLimitInformationValidFlags(a2, v100) | 0x7FFF) & *((_DWORD *)v15 + 64);
-        if ( a2 == 9 )
+        LODWORD(v147[2]) = (PspGetJobLimitInformationValidFlags(JobObjectInformationClass, v100) | 0x7FFF) & *((_DWORD *)v15 + 64);
+        if ( JobObjectInformationClass == JobObjectExtendedLimitInformation )
         {
           ExAcquirePushLockSharedEx((ULONG_PTR)(v15 + 1032), 0LL);
           v147[14] = *((_QWORD *)v15 + 72) << 12;
@@ -981,38 +990,38 @@ LABEL_79:
         JobIoAttribution = 0;
         v16 = (bool *)v147;
         goto LABEL_38;
-      case 3:
+      case JobObjectBasicProcessIdList:
         v102 = 0;
-        v19 = (void *)a3;
-        JobIoAttribution = PspQueryJobHierarchyProcessIdList(v15, (_DWORD *)a3, v100, &v102);
+        v19 = JobObjectInformation;
+        JobIoAttribution = PspQueryJobHierarchyProcessIdList(v15, JobObjectInformation, v100, &v102);
         v92 = 1;
 LABEL_62:
-        v18 = a5;
+        v18 = ReturnLength;
         goto LABEL_40;
-      case 4:
+      case JobObjectBasicUIRestrictions:
         PspLockJobShared(v15, CurrentThread);
         v110 = *((_DWORD *)v15 + 112);
         PspUnlockJob(v15, v101);
         v16 = (bool *)&v110;
         goto LABEL_37;
-      case 5:
+      case JobObjectSecurityLimitInformation:
         v127 = 0LL;
         v92 = 1;
-        *(_OWORD *)a3 = 0LL;
-        *(_OWORD *)(a3 + 16) = 0LL;
-        *(_QWORD *)(a3 + 32) = v127;
-        v18 = a5;
+        *(_OWORD *)JobObjectInformation = 0LL;
+        *((_OWORD *)JobObjectInformation + 1) = 0LL;
+        *((_QWORD *)JobObjectInformation + 4) = v127;
+        v18 = ReturnLength;
         goto LABEL_39;
-      case 6:
+      case JobObjectEndOfJobTimeInformation:
         v109 = *((_DWORD *)v15 + 113);
         v16 = (bool *)&v109;
         goto LABEL_37;
     }
-    if ( a2 != 8 )
+    if ( JobObjectInformationClass != JobObjectBasicAndIoAccountingInformation )
     {
-      if ( a2 == 9 )
+      if ( JobObjectInformationClass == JobObjectExtendedLimitInformation )
         goto LABEL_79;
-      if ( a2 == 10 )
+      if ( JobObjectInformationClass == JobObjectJobSetInformation )
       {
         --CurrentThread->SpecialApcDisable;
         ExAcquirePushLockSharedEx((ULONG_PTR)&PspJobListLock, 0LL);
@@ -1031,9 +1040,9 @@ LABEL_36:
 LABEL_37:
   JobIoAttribution = 0;
 LABEL_38:
-  v18 = a5;
+  v18 = ReturnLength;
 LABEL_39:
-  v19 = (void *)a3;
+  v19 = JobObjectInformation;
 LABEL_40:
   if ( v15 )
     ObfDereferenceObjectWithTag(v15, 0x79517350u);
@@ -1041,5 +1050,5 @@ LABEL_40:
     memmove(v19, v16, v9);
   if ( v18 )
     *v18 = v102;
-  return (unsigned int)JobIoAttribution;
+  return JobIoAttribution;
 }

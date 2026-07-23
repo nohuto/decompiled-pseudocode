@@ -1,9 +1,9 @@
 /*
- * XREFs of PsBoostThreadIoQoS @ 0x14010A67C
+ * XREFs of PsBoostThreadIoQoS @ 0x14010A6FC
  * Callers:
- *     KiAbThreadBoostIoPriority @ 0x14010ED14 (KiAbThreadBoostIoPriority.c)
+ *     KiAbThreadBoostIoPriority @ 0x14010ED94 (KiAbThreadBoostIoPriority.c)
  * Callees:
- *     KeAbProcessEffectiveIoPriorityChange @ 0x1400D13BC (KeAbProcessEffectiveIoPriorityChange.c)
+ *     KeAbProcessEffectiveIoPriorityChange @ 0x1400D143C (KeAbProcessEffectiveIoPriorityChange.c)
  */
 
 void __fastcall PsBoostThreadIoQoS(__int64 a1, int a2)

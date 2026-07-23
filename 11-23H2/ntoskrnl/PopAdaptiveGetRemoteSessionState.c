@@ -1,9 +1,9 @@
 /*
- * XREFs of PopAdaptiveGetRemoteSessionState @ 0x140860A10
+ * XREFs of PopAdaptiveGetRemoteSessionState @ 0x140860C50
  * Callers:
- *     PopAdaptiveGetSessionStateUnsafe @ 0x1407EBDA0 (PopAdaptiveGetSessionStateUnsafe.c)
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x1407EC070 (PopAdaptiveGetSessionStateUnsafe.c)
  * Callees:
- *     PopSetSessionUserStatus @ 0x1407A5DBC (PopSetSessionUserStatus.c)
+ *     PopSetSessionUserStatus @ 0x1407A5FAC (PopSetSessionUserStatus.c)
  */
 
 __int64 __fastcall PopAdaptiveGetRemoteSessionState(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)

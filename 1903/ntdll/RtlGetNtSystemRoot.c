@@ -14,10 +14,10 @@
  *     RtlGetCurrentServiceSessionId @ 0x180040780 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    return (__int64)NtCurrentPeb()->HotpatchInformation + 30;
+  if ( RtlGetCurrentServiceSessionId() )
+    return NtCurrentPeb()->SharedData->NtSystemRoot;
   else
-    return 2147352624LL;
+    return (PWSTR)2147352624;
 }

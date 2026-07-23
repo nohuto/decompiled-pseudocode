@@ -3,13 +3,13 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     RtlStringCchPrintfA @ 0x14013BE10 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     RtlStringCchPrintfA @ 0x14013C380 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
  *     IopCreateArcNamesCd @ 0x140798420 (IopCreateArcNamesCd.c)
  *     IopCreateArcNamesDisk @ 0x1407985F0 (IopCreateArcNamesDisk.c)
  */
@@ -20,7 +20,7 @@ __int64 __fastcall IopCreateArcNames(__int64 a1)
   SIZE_T v3; // rbx
   PVOID PoolWithTagPriority; // rax
   __int64 result; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-A8h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-A8h] BYREF
   char pszDest[128]; // [rsp+30h] [rbp-98h] BYREF
 
   RtlStringCchPrintfA(pszDest, 0x80uLL, "\\ArcName\\%s", *(const char **)(a1 + 192));

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpSetCmosData @ 0x140425294
+ * XREFs of HalpSetCmosData @ 0x140419144
  * Callers:
- *     HalWriteBootRegister @ 0x140B50AB0 (HalWriteBootRegister.c)
+ *     HalWriteBootRegister @ 0x140B52B00 (HalWriteBootRegister.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140425E04 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140425EE8 (HalpAcquireCmosSpinLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseCmosSpinLock @ 0x140419CB4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140419D98 (HalpAcquireCmosSpinLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpSetCmosData(__int64 a1, unsigned int a2, _BYTE *a3, int a4)
@@ -15,7 +15,6 @@ __int64 __fastcall HalpSetCmosData(__int64 a1, unsigned int a2, _BYTE *a3, int a
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
-  __int64 v11; // r9
 
   v4 = HalpCmosBusParameterTable;
   v7 = a2;
@@ -25,7 +24,7 @@ __int64 __fastcall HalpSetCmosData(__int64 a1, unsigned int a2, _BYTE *a3, int a
   for ( ; v7 <= v4; ++a3 )
   {
     LOBYTE(v8) = *a3;
-    guard_dispatch_icall_no_overrides(v7++, v8, v10, v11);
+    guard_dispatch_icall_no_overrides(v7++, v8);
   }
   HalpReleaseCmosSpinLock(v9, v8, v10);
   return v7 - a2;

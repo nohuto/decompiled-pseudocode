@@ -1,33 +1,28 @@
 /*
- * XREFs of MiTradeTransitionPage @ 0x1402F718C
+ * XREFs of MiTradeTransitionPage @ 0x14033F5E8
  * Callers:
- *     MiTradePage @ 0x14022B650 (MiTradePage.c)
+ *     MiTradePage @ 0x1402FEF60 (MiTradePage.c)
  * Callees:
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiReleaseFreshPage @ 0x140221FC0 (MiReleaseFreshPage.c)
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiGetPfnChannel @ 0x14026ED40 (MiGetPfnChannel.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402F6568 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiCanPageMove @ 0x1402F7730 (MiCanPageMove.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiGetPfnChannel @ 0x1402242D0 (MiGetPfnChannel.c)
+ *     MiReleaseFreshPage @ 0x14024ED10 (MiReleaseFreshPage.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14033E678 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiCanPageMove @ 0x14033FB90 (MiCanPageMove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall MiTradeTransitionPage(
-        __int64 BugCheckParameter2,
-        unsigned __int8 a2,
-        unsigned int a3,
-        int a4,
-        __int64 *a5)
+__int64 __fastcall MiTradeTransitionPage(__int64 a1, unsigned __int8 a2, unsigned int a3, int a4, __int64 *a5)
 {
   unsigned __int64 v6; // r12
   __int16 v7; // di
   ULONG_PTR v8; // rsi
   __int64 v9; // rdx
-  __int64 v10; // r8
+  int v10; // r8d
   unsigned int v11; // r14d
   unsigned __int64 v12; // r15
   __int64 Page; // r13
@@ -37,51 +32,49 @@ __int64 __fastcall MiTradeTransitionPage(
   unsigned int v17; // r8d
   int v18; // ebx
   unsigned __int8 v19; // al
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  unsigned __int64 v22; // r12
-  int v23; // r9d
-  __int64 v24; // r10
+  unsigned __int64 v20; // r12
+  int v21; // r9d
+  __int64 v22; // r10
   int PfnSlabType; // eax
-  int v26; // r8d
-  int v27; // r8d
-  unsigned __int64 v28; // r10
-  unsigned __int8 v29; // r11
-  __int64 v30; // rdx
-  int v31; // r8d
-  unsigned __int8 v33; // cl
-  unsigned __int8 v34; // dl
-  __int64 v35; // [rsp+20h] [rbp-38h]
-  int v36; // [rsp+60h] [rbp+8h]
-  __int64 v37; // [rsp+60h] [rbp+8h]
+  int v24; // r8d
+  int v25; // r8d
+  unsigned __int64 v26; // r10
+  unsigned __int8 v27; // r11
+  __int64 v28; // rdx
+  int v29; // r8d
+  unsigned __int8 v31; // cl
+  unsigned __int8 v32; // dl
+  __int64 v33; // [rsp+20h] [rbp-38h]
+  int v34; // [rsp+60h] [rbp+8h]
+  __int64 v35; // [rsp+60h] [rbp+8h]
 
   v6 = a2;
   v7 = a4;
-  v8 = BugCheckParameter2;
-  if ( (unsigned __int16)*(_DWORD *)(BugCheckParameter2 + 32) )
+  v8 = a1;
+  if ( (unsigned __int16)*(_DWORD *)(a1 + 32) )
   {
-    ++dword_140EF4E94;
+    ++dword_140EF50B4;
 LABEL_48:
-    MiUnlockPage(BugCheckParameter2, v6);
+    MiUnlockPage(a1, v6);
     return 0LL;
   }
-  if ( !(unsigned int)MiCanPageMove(BugCheckParameter2) )
+  if ( !(unsigned int)MiCanPageMove(a1) )
   {
-    ++dword_140EF4E9C;
-    BugCheckParameter2 = v8;
+    ++dword_140EF50BC;
+    a1 = v8;
     goto LABEL_48;
   }
-  v35 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
-  v36 = (unsigned __int8)BYTE2(*(_DWORD *)(v8 + 32)) >> 6;
+  v33 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+  v34 = (unsigned __int8)BYTE2(*(_DWORD *)(v8 + 32)) >> 6;
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   v11 = v10 + 2;
   if ( (unsigned __int8)v6 < (unsigned __int8)(v10 + 2) )
   {
-    if ( KiIrqlFlags != (_DWORD)v10 )
+    if ( KiIrqlFlags != v10 )
     {
       LOBYTE(v9) = v6;
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);
-      v10 = 0LL;
+      v10 = 0;
     }
     __writecr8(v6);
   }
@@ -96,15 +89,15 @@ LABEL_48:
     {
       v17 = 12288;
       v16 = a3 ^ (unsigned __int8)(a3 ^ (v12
-                                       % (unsigned int)dword_140E2DBCC
-                                       % (unsigned int)dword_140E2DBC0[HIWORD(a3) & 3]));
+                                       % (unsigned int)dword_140E2DD0C
+                                       % (unsigned int)dword_140E2DD00[HIWORD(a3) & 3]));
     }
     else
     {
-      v14 = v12 % (unsigned int)dword_140E2DBCC;
+      v14 = v12 % (unsigned int)dword_140E2DD0C;
       PfnChannel = MiGetPfnChannel(v8);
       v16 = (unsigned __int8)v14 | ((PfnChannel & 1 | (2
-                                                     * ((v36 << 9) | MiPageToNode(
+                                                     * ((v34 << 9) | MiPageToNode(
                                                                        0xAAAAAAAAAAAAAAABuLL
                                                                      * ((__int64)(v8 + 0x220000000000LL) >> 4)) & 0x3F | 0x180))) << 8);
       v17 = (131073 - ((unsigned __int8)v6 < (unsigned __int8)v11)) | 0x8000;
@@ -113,17 +106,17 @@ LABEL_48:
       if ( (a4 & 0x2000000) != 0 )
         v17 |= 0x800u;
     }
-    Page = MiGetPage(v35, v16, v17);
+    Page = MiGetPage(v33, v16, v17);
     v18 = 1;
     if ( Page == -1 )
     {
-      ++dword_140EF4EC8;
+      ++dword_140EF50E8;
       return 1LL;
     }
   }
-  v37 = 48 * Page - 0x220000000000LL;
-  v19 = MiSafeLockPage(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v8 + 0x220000000000LL) >> 4), v9, v10);
-  v22 = v19;
+  v35 = 48 * Page - 0x220000000000LL;
+  v19 = MiSafeLockPage(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v8 + 0x220000000000LL) >> 4));
+  v20 = v19;
   if ( v19 == 17 )
   {
     v11 = 0;
@@ -131,65 +124,65 @@ LABEL_48:
   }
   if ( (*(_DWORD *)(v8 + 32) & 0x40000000) != 0 && (a4 & 0x10000000) == 0 )
   {
-    ++dword_140EF4EA8;
+    ++dword_140EF50C8;
     v11 = 0;
     goto LABEL_40;
   }
-  if ( v37 == v8 )
+  if ( v35 == v8 )
   {
     Page = -1LL;
   }
   else
   {
     MiGetPfnSlabType(v8);
-    v23 = 0;
+    v21 = 0;
     if ( _bittest64((const signed __int64 *)(v8 + 40), 0x35u)
       || (unsigned __int16)*(_DWORD *)(v8 + 32)
       || *(char *)(v8 + 35) < 0
-      || v35 != *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL))
+      || v33 != *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL))
       || !(unsigned int)MiCanPageMove(v8)
-      || (PfnSlabType = MiGetPfnSlabType(v24), v26 != PfnSlabType)
+      || (PfnSlabType = MiGetPfnSlabType(v22), v24 != PfnSlabType)
       || (unsigned int)MiGetPfnSlabType(v8) == 8
-      && (v33 = *(_BYTE *)(qword_140E3D140 + 2 * (v12 >> 9) + 1) & 0x7F,
-          v34 = *(_BYTE *)(qword_140E3D140 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((48 * Page) >> 4)) >> 9) + 1) & 0x7F,
-          v33 != v34)
-      && v33 < v29
-      && v34 < v29 )
+      && (v31 = *(_BYTE *)(qword_140E3D280 + 2 * (v12 >> 9) + 1) & 0x7F,
+          v32 = *(_BYTE *)(qword_140E3D280 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((48 * Page) >> 4)) >> 9) + 1) & 0x7F,
+          v31 != v32)
+      && v31 < v27
+      && v32 < v27 )
     {
-      v11 = v23;
+      v11 = v21;
       goto LABEL_39;
     }
     if ( (unsigned __int8)((*(_BYTE *)(v8 + 34) & 7) - v11) > (unsigned __int8)v11 )
     {
 LABEL_39:
-      ++dword_140EF4E94;
+      ++dword_140EF50B4;
 LABEL_40:
-      MiUnlockPage(v8, v22);
+      MiUnlockPage(v8, v20);
 LABEL_41:
       if ( v18 )
-        MiReleaseFreshPage(v37, v20, v21);
+        MiReleaseFreshPage(v35);
       return v11;
     }
-    if ( !(unsigned int)MiReplaceTransitionPage(v8, v28, v27, v23) )
+    if ( !(unsigned int)MiReplaceTransitionPage(v8, v26, v25, v21) )
     {
-      ++dword_140EF4E98;
+      ++dword_140EF50B8;
       if ( !v18 )
         v11 = 0;
       goto LABEL_40;
     }
   }
-  ++dword_140EF4E50;
+  ++dword_140EF5070;
   *(_QWORD *)(v8 + 16) = CLFS_LSN_NULL_EXT;
   MiSetOriginalPtePfnFromFreeList((__int64 *)(v8 + 16));
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( (unsigned __int8)v22 < (unsigned __int8)v11 )
+  if ( (unsigned __int8)v20 < (unsigned __int8)v11 )
   {
-    if ( KiIrqlFlags != v31 )
+    if ( KiIrqlFlags != v29 )
     {
-      LOBYTE(v30) = v22;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v30);
+      LOBYTE(v28) = v20;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v28);
     }
-    __writecr8(v22);
+    __writecr8(v20);
   }
   if ( a5 )
     *a5 = Page;

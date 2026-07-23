@@ -6,23 +6,23 @@
  *     <none>
  */
 
-char __fastcall RtlSetThreadPlaceholderCompatibilityMode(unsigned __int8 a1)
+CHAR __cdecl RtlSetThreadPlaceholderCompatibilityMode(CHAR Mode)
 {
   struct _KTHREAD *CurrentThread; // rdx
-  _BYTE *Teb; // r8
-  char result; // al
+  __int64 v2; // r8
+  CHAR result; // al
 
-  if ( a1 > 3u )
+  if ( (unsigned __int8)Mode > 3u )
     return -1;
   CurrentThread = KeGetCurrentThread();
-  if ( (CurrentThread->MiscFlags & 0x400) != 0 )
+  if ( (*((_DWORD *)CurrentThread + 29) & 0x400) != 0 )
     return -2;
-  if ( CurrentThread->ApcStateIndex == 1 )
+  if ( *((_BYTE *)CurrentThread + 586) == 1 )
     return -2;
-  Teb = CurrentThread->Teb;
-  if ( !Teb )
+  v2 = *((_QWORD *)CurrentThread + 30);
+  if ( !v2 )
     return -2;
-  result = Teb[640];
-  Teb[640] = a1;
+  result = *(_BYTE *)(v2 + 640);
+  *(_BYTE *)(v2 + 640) = Mode;
   return result;
 }

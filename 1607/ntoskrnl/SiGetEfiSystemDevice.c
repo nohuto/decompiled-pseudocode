@@ -1,23 +1,23 @@
 /*
- * XREFs of SiGetEfiSystemDevice @ 0x1406D646C
+ * XREFs of SiGetEfiSystemDevice @ 0x1406D65A4
  * Callers:
- *     SiGetSystemPartition @ 0x140542030 (SiGetSystemPartition.c)
- *     SiGetSystemDisk @ 0x1406D5FB4 (SiGetSystemDisk.c)
+ *     SiGetSystemPartition @ 0x140542570 (SiGetSystemPartition.c)
+ *     SiGetSystemDisk @ 0x1406D60EC (SiGetSystemDisk.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14015A780 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x14015C2A0 (ZwQueryDirectoryObject.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x14015ACF0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x14015C810 (ZwQueryDirectoryObject.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SiGetDriveLayoutInformation @ 0x1406D6188 (SiGetDriveLayoutInformation.c)
- *     SiIssueSynchronousIoctl @ 0x1406D62E8 (SiIssueSynchronousIoctl.c)
- *     SiDisambiguateSystemDevice @ 0x1406D63C8 (SiDisambiguateSystemDevice.c)
- *     SiGetEspFromFirmware @ 0x1406D67C8 (SiGetEspFromFirmware.c)
- *     SiIsValidDiskDevice @ 0x1406D69FC (SiIsValidDiskDevice.c)
+ *     SiGetDriveLayoutInformation @ 0x1406D62C0 (SiGetDriveLayoutInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x1406D6420 (SiIssueSynchronousIoctl.c)
+ *     SiDisambiguateSystemDevice @ 0x1406D6500 (SiDisambiguateSystemDevice.c)
+ *     SiGetEspFromFirmware @ 0x1406D6900 (SiGetEspFromFirmware.c)
+ *     SiIsValidDiskDevice @ 0x1406D6B34 (SiIsValidDiskDevice.c)
  */
 
 __int64 __fastcall SiGetEfiSystemDevice(int a1, __int64 a2, wchar_t **a3)

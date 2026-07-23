@@ -1,8 +1,8 @@
 /*
- * XREFs of CvmDebugLog @ 0x1404FB5F4
+ * XREFs of CvmDebugLog @ 0x1404F8EB8
  * Callers:
- *     HalpDmaFreeChildAdapter @ 0x14054F560 (HalpDmaFreeChildAdapter.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140550340 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpDmaFreeChildAdapter @ 0x14054CEA0 (HalpDmaFreeChildAdapter.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14054DC80 (HalpAllocateDomainCommonBufferInternal.c)
  * Callees:
  *     <none>
  */

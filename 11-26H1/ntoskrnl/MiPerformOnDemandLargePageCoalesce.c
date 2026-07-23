@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPerformOnDemandLargePageCoalesce @ 0x1403C8EC4
+ * XREFs of MiPerformOnDemandLargePageCoalesce @ 0x1403D2D74
  * Callers:
- *     MiGetLargePageDemoteAsNeeded @ 0x1403C7FF0 (MiGetLargePageDemoteAsNeeded.c)
- *     MiGetLargePage @ 0x14051E3C4 (MiGetLargePage.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1403D1EE0 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiGetLargePage @ 0x1405209D4 (MiGetLargePage.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     MiProcessLargeCoalesceCandidates @ 0x1403C8674 (MiProcessLargeCoalesceCandidates.c)
- *     MiLargeCoalesceCandidatesExist @ 0x1403C91BC (MiLargeCoalesceCandidatesExist.c)
- *     MiCheckLargePagesExist @ 0x1403C9224 (MiCheckLargePagesExist.c)
- *     MiAccumulateTimeBoundTime @ 0x1403C96CC (MiAccumulateTimeBoundTime.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x1403D2564 (MiProcessLargeCoalesceCandidates.c)
+ *     MiLargeCoalesceCandidatesExist @ 0x1403D306C (MiLargeCoalesceCandidatesExist.c)
+ *     MiCheckLargePagesExist @ 0x1403D30D4 (MiCheckLargePagesExist.c)
+ *     MiAccumulateTimeBoundTime @ 0x1403D357C (MiAccumulateTimeBoundTime.c)
  */
 
 __int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a2, unsigned int a3, int a4, _QWORD *a5)
@@ -84,7 +84,7 @@ __int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a
       if ( !v15 )
         goto LABEL_11;
       if ( (_DWORD)v7 == 2 )
-        v17 = v11 + qword_140E37CD0 + 56216;
+        v17 = v11 + qword_140E37E50 + 56216;
       else
         v17 = v12 + 56216;
       if ( *(__int64 *)(v17 + 8 * v7) <= 0

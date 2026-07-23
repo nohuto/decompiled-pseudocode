@@ -1,7 +1,7 @@
 /*
  * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x140212860
  * Callers:
- *     HvpTruncateBins @ 0x140689848 (HvpTruncateBins.c)
+ *     sub_140689848 @ 0x140689848 (sub_140689848.c)
  * Callees:
  *     ExIsFastResourceHeldExclusive @ 0x14039C670 (ExIsFastResourceHeldExclusive.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)

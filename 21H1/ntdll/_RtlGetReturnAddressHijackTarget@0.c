@@ -9,7 +9,10 @@
  *     <none>
  */
 
-int __stdcall RtlGetReturnAddressHijackTarget()
+ULONG_PTR RtlGetReturnAddressHijackTarget(void)
 {
-  return 0;
+  ULONG_PTR result; // rax
+
+  LODWORD(result) = 0;
+  return result;
 }

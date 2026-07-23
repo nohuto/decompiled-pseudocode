@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqSerializationAlloc @ 0x1407DAF70
+ * XREFs of PiDqSerializationAlloc @ 0x1407DB240
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

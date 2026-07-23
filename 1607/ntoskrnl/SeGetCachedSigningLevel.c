@@ -1,7 +1,7 @@
 /*
- * XREFs of SeGetCachedSigningLevel @ 0x1404D40C4
+ * XREFs of SeGetCachedSigningLevel @ 0x1404B7B64
  * Callers:
- *     NtGetCachedSigningLevel @ 0x1404D3E88 (NtGetCachedSigningLevel.c)
+ *     NtGetCachedSigningLevel @ 0x1404B7928 (NtGetCachedSigningLevel.c)
  * Callees:
  *     <none>
  */

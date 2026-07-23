@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbSetDriverFileMappedProperty @ 0x14089EF08
+ * XREFs of DrvDbSetDriverFileMappedProperty @ 0x1408A5308
  * Callers:
- *     DrvDbDispatchDriverFile @ 0x140B55610 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverFile @ 0x140B57EB0 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     DrvDbSetRegValueMappedProperty @ 0x14077B9CC (DrvDbSetRegValueMappedProperty.c)
- *     DrvDbOpenDriverFileRegKey @ 0x14089E8F0 (DrvDbOpenDriverFileRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x14077E60C (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbOpenDriverFileRegKey @ 0x1408A4CF0 (DrvDbOpenDriverFileRegKey.c)
  */
 
 __int64 __fastcall DrvDbSetDriverFileMappedProperty(int a1, int a2, HANDLE a3, __int64 a4, int a5, int *a6, int a7)

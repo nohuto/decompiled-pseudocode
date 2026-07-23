@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCheckPackageAttributes @ 0x140883D00
+ * XREFs of SdbpCheckPackageAttributes @ 0x14088A100
  * Callers:
  *     <none>
  * Callees:
- *     SdbpCheckApplicationTypeAttributes @ 0x140714174 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x140718E64 (SdbpCheckApplicationTypeAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckPackageAttributes(int *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)

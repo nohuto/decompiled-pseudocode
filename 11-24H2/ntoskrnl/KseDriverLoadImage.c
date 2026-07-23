@@ -1,16 +1,16 @@
 /*
- * XREFs of KseDriverLoadImage @ 0x140959DBC
+ * XREFs of KseDriverLoadImage @ 0x14094187C
  * Callers:
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
- *     IopInitializeBuiltinDriver @ 0x140C66284 (IopInitializeBuiltinDriver.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
+ *     IopInitializeBuiltinDriver @ 0x140C68400 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     KsepLogInfo @ 0x14048E6C8 (KsepLogInfo.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     KsepEvntLogShimsApplied @ 0x1405CA6B4 (KsepEvntLogShimsApplied.c)
- *     KsepApplyShimsToDriver @ 0x14073F3A4 (KsepApplyShimsToDriver.c)
- *     KsepGetShimsForDriver @ 0x140959F74 (KsepGetShimsForDriver.c)
- *     KsepStringDuplicateUnicode @ 0x14095A274 (KsepStringDuplicateUnicode.c)
+ *     KsepLogInfo @ 0x140488AF8 (KsepLogInfo.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     KsepEvntLogShimsApplied @ 0x1405C7DDC (KsepEvntLogShimsApplied.c)
+ *     KsepApplyShimsToDriver @ 0x14073D2D4 (KsepApplyShimsToDriver.c)
+ *     KsepGetShimsForDriver @ 0x140941A34 (KsepGetShimsForDriver.c)
+ *     KsepStringDuplicateUnicode @ 0x140941D34 (KsepStringDuplicateUnicode.c)
  */
 
 __int64 __fastcall KseDriverLoadImage(__int64 a1, _DWORD *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall KseDriverLoadImage(__int64 a1, _DWORD *a2)
   v9 = 0LL;
   v10 = 0LL;
   *a2 = 0;
-  if ( !a1 || dword_140E66AE4 != 2 || (KseEngine & 1) != 0 )
+  if ( !a1 || dword_140E66C14 != 2 || (KseEngine & 1) != 0 )
     goto LABEL_3;
   ShimsForDriver = KsepStringDuplicateUnicode(&v8, a1 + 88);
   if ( ShimsForDriver >= 0 )
@@ -60,8 +60,8 @@ __int64 __fastcall KseDriverLoadImage(__int64 a1, _DWORD *a2)
   }
   if ( !ShimsForDriver )
   {
-    dword_140E66AE8 |= 0x800u;
-    qword_140E66B38 = *(_QWORD *)(a1 + 48);
+    dword_140E66C18 |= 0x800u;
+    qword_140E66C68 = *(_QWORD *)(a1 + 48);
     goto LABEL_10;
   }
   if ( ShimsForDriver >= 0 )

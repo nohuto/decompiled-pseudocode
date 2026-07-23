@@ -1,9 +1,9 @@
 /*
- * XREFs of CcWrapperMmCopyToCachedPage @ 0x1402EDA00
+ * XREFs of CcWrapperMmCopyToCachedPage @ 0x14034F040
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
  * Callees:
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
  */
 
 __int64 __fastcall CcWrapperMmCopyToCachedPage(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, bool *a6)

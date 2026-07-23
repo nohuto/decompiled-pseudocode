@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmCreateOrdinalInstanceKey @ 0x1406D77C4
+ * XREFs of _CmCreateOrdinalInstanceKey @ 0x1406D78FC
  * Callers:
- *     _CmGetDeviceSoftwareKey @ 0x1404D3ADC (_CmGetDeviceSoftwareKey.c)
+ *     _CmGetDeviceSoftwareKey @ 0x1404B757C (_CmGetDeviceSoftwareKey.c)
  * Callees:
- *     wcstoul @ 0x14014F48C (wcstoul.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     _ultow_s @ 0x140151D08 (_ultow_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _PnpCtxRegCreateKey @ 0x14048706C (_PnpCtxRegCreateKey.c)
+ *     wcstoul @ 0x14014FA4C (wcstoul.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     _ultow_s @ 0x1401522C8 (_ultow_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x140512D88 (_PnpCtxRegCreateKey.c)
  */
 
-__int64 __fastcall CmCreateOrdinalInstanceKey(__int64 a1, __int64 a2, wchar_t *a3, int a4, __int64 a5, HANDLE *a6)
+__int64 __fastcall CmCreateOrdinalInstanceKey(__int64 a1, char *a2, wchar_t *a3, ULONG a4, __int64 a5, HANDLE *a6)
 {
   unsigned int v9; // ebx
   unsigned int v10; // ebp
@@ -21,14 +21,14 @@ __int64 __fastcall CmCreateOrdinalInstanceKey(__int64 a1, __int64 a2, wchar_t *a
   int v16; // esi
   wchar_t *v17; // rcx
   bool v18; // zf
-  int Key; // eax
+  int v19; // eax
   __int64 v20; // rcx
   int v21; // eax
-  HANDLE Handle[2]; // [rsp+40h] [rbp-38h] BYREF
-  int v23; // [rsp+98h] [rbp+20h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-38h] BYREF
+  ULONG v23; // [rsp+98h] [rbp+20h] BYREF
 
   v23 = a4;
-  Handle[0] = 0LL;
+  Handle = 0LL;
   v9 = 0;
   v10 = wcstoul(L"999A", 0LL, 36);
   v11 = wcstoul(L"ZZZZ", 0LL, 36);
@@ -100,24 +100,24 @@ LABEL_29:
     }
     break;
   }
-  Key = PnpCtxRegCreateKey(a1, a2, (__int64)a3, v13, 1u, 0LL, (__int64)Handle, (__int64)&v23);
-  if ( Key == -1073741444 )
+  v19 = PnpCtxRegCreateKey(a1, a2, a3, v13, 1u, 0LL, &Handle, &v23);
+  if ( v19 == -1073741444 )
     return (unsigned int)-1073741595;
-  if ( Key < 0 )
+  if ( v19 < 0 )
   {
-    return (unsigned int)Key;
+    return (unsigned int)v19;
   }
   else
   {
     if ( v23 != 1 )
     {
-      ZwClose(Handle[0]);
-      Handle[0] = 0LL;
+      ZwClose(Handle);
+      Handle = 0LL;
 LABEL_35:
       i += v16;
       goto LABEL_4;
     }
-    *a6 = Handle[0];
+    *a6 = Handle;
   }
   return v9;
 }

@@ -19,10 +19,14 @@
  *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800FB500 (RtlpGetUserOrMachineUILanguage4NLS.c)
  */
 
-__int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char a4)
+NTSTATUS __cdecl RtlLcidToLocaleName(
+        LCID lcid,
+        PUNICODE_STRING LocaleName,
+        ULONG Flags,
+        BOOLEAN AllocateDestinationString)
 {
   char v5; // r14
-  unsigned int v7; // ebx
+  LCID v7; // ebx
   int LcidIndex; // eax
   __int64 v9; // r9
   __int64 v10; // rax
@@ -34,21 +38,21 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
   __int64 v16; // r8
   wchar_t *Buffer; // rdx
   __int64 v19; // [rsp+20h] [rbp-A9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-A1h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-A1h] BYREF
   _BYTE v21[176]; // [rsp+40h] [rbp-89h] BYREF
 
   v19 = 85LL;
-  v5 = a3;
-  v7 = a1;
-  if ( (a1 & 0xFFFFEFFF) != 0 )
+  v5 = Flags;
+  v7 = lcid;
+  if ( (lcid & 0xFFFFEFFF) != 0 )
   {
-    if ( !a2 )
-      return 3221225712LL;
-    if ( (a3 & 0xFFFFFFFD) != 0 )
-      return 3221225713LL;
-    if ( !a4 && !*(_QWORD *)(a2 + 8) )
-      return 3221225712LL;
-    if ( a1 == 5120 )
+    if ( !LocaleName )
+      return -1073741584;
+    if ( (Flags & 0xFFFFFFFD) != 0 )
+      return -1073741583;
+    if ( !AllocateDestinationString && !LocaleName->Buffer )
+      return -1073741584;
+    if ( lcid == 5120 )
     {
       if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, v21, &v19) >= 0 )
       {
@@ -57,7 +61,7 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
         goto LABEL_21;
       }
     }
-    else if ( ((a1 - 1024) & 0xFFFFF7FF) != 0 )
+    else if ( ((lcid - 1024) & 0xFFFFF7FF) != 0 )
     {
       if ( pTblPtrs || (unsigned __int8)RtlpLoadNlsData() )
       {
@@ -66,7 +70,7 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
         LcidIndex = RtlpNlsGetLcidIndex(v7);
         v9 = LcidIndex;
         if ( LcidIndex < 0 )
-          return 3221225711LL;
+          return -1073741585;
         if ( (v5 & 2) == 0 )
         {
           _mm_lfence();
@@ -74,7 +78,7 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
                          * *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 24) + 8LL * LcidIndex + 4)
                          + *(_QWORD *)(pTblPtrs + 16)
                          + 24LL) & 1) == 0 )
-            return 3221225711LL;
+            return -1073741585;
         }
         _mm_lfence();
         v10 = *(_QWORD *)(pTblPtrs + 40) + 2LL;
@@ -104,8 +108,8 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
           v16 = v15;
           Buffer = v11;
 LABEL_21:
-          LOBYTE(v14) = a4;
-          return RtlpInitUnicodeStringUsingBuffer(v14, Buffer, v16, a2);
+          LOBYTE(v14) = AllocateDestinationString;
+          return RtlpInitUnicodeStringUsingBuffer(v14, Buffer, v16, LocaleName);
         }
       }
     }
@@ -120,7 +124,7 @@ LABEL_21:
         goto LABEL_21;
       }
     }
-    return 3221225473LL;
+    return -1073741823;
   }
-  return 3221225711LL;
+  return -1073741585;
 }

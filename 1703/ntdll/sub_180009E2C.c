@@ -19,8 +19,8 @@ __int64 __fastcall sub_180009E2C(__int64 a1, int a2, unsigned int a3)
   __int64 (__fastcall *v9)(__int64, _QWORD, unsigned int *, _QWORD); // rax
   __int64 v10; // rax
   __int64 v11; // rsi
-  __int64 v12; // rcx
-  __int64 (__fastcall *v13)(__int64, __int64, __int64); // rax
+  void *v12; // rcx
+  __int64 (__fastcall *v13)(PVOID); // rax
   int v14; // eax
   unsigned __int64 v15; // rbx
   __int64 v16; // rbx
@@ -53,12 +53,12 @@ __int64 __fastcall sub_180009E2C(__int64 a1, int a2, unsigned int a3)
     if ( v18 < v6 )
       goto LABEL_17;
   }
-  v12 = *(_QWORD *)(a1 + 56);
-  v13 = (__int64 (__fastcall *)(__int64, __int64, __int64))(a1 ^ qword_18015BFA8 ^ *(_QWORD *)(a1 + 80));
+  v12 = *(void **)(a1 + 56);
+  v13 = (__int64 (__fastcall *)(PVOID))(a1 ^ qword_18015BFA8 ^ *(_QWORD *)(a1 + 80));
   if ( v13 == sub_180020D20 )
-    v14 = sub_180020D20(v12, v11, 4096LL);
+    v14 = sub_180020D20(v12);
   else
-    v14 = v13(v12, v11, 4096LL);
+    v14 = ((__int64 (__fastcall *)(void *, __int64, __int64))v13)(v12, v11, 4096LL);
   if ( v14 >= 0 )
   {
     _InterlockedIncrement64((volatile signed __int64 *)(a1 + 40));

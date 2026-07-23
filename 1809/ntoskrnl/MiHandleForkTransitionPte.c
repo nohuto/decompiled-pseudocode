@@ -1,7 +1,7 @@
 /*
- * XREFs of MiHandleForkTransitionPte @ 0x1402CA118
+ * XREFs of MiHandleForkTransitionPte @ 0x1402CA308
  * Callers:
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -14,23 +14,23 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A210 (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     MiDuplicateCloneLeaf @ 0x1402C99D8 (MiDuplicateCloneLeaf.c)
- *     MiGetCrossPartitionCloneCharges @ 0x1402CA0AC (MiGetCrossPartitionCloneCharges.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402CABB8 (MiReturnCrossPartitionCloneCharges.c)
- *     MiWriteUselessChildPte @ 0x1402CB038 (MiWriteUselessChildPte.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A2E0 (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     MiDuplicateCloneLeaf @ 0x1402C9BC8 (MiDuplicateCloneLeaf.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x1402CA29C (MiGetCrossPartitionCloneCharges.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402CADA8 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiWriteUselessChildPte @ 0x1402CB228 (MiWriteUselessChildPte.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiHandleForkTransitionPte(
@@ -129,10 +129,10 @@ __int64 __fastcall MiHandleForkTransitionPte(
   v20 = 0;
   v81 = ZeroPte;
   v75 = 0;
-  v21 = *(_QWORD *)(qword_14043A748 + 8 * v19);
+  v21 = *(_QWORD *)(qword_14043B808 + 8 * v19);
   v23 = *(unsigned __int16 *)(v22 + 1454);
   v82 = v21;
-  v78 = *(_QWORD *)(qword_14043A748 + 8 * v23);
+  v78 = *(_QWORD *)(qword_14043B808 + 8 * v23);
   if ( v78 != v21 )
   {
     v17 = 1;
@@ -252,7 +252,7 @@ LABEL_79:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v44 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_30;
       v46 = (v43 & 1) == 0;
     }
@@ -321,7 +321,7 @@ LABEL_30:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v60 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_52;
       v62 = (v15 & 1) == 0;
     }
@@ -353,7 +353,7 @@ LABEL_52:
   if ( (unsigned int)MiPteHasShadow() )
   {
     v64 = 1;
-    if ( !HIBYTE(word_14043A1AC) )
+    if ( !HIBYTE(word_14043B26C) )
     {
       v66 = (v15 & 1) == 0;
       goto LABEL_67;

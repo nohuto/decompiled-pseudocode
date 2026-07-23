@@ -6,14 +6,18 @@
  *     RtlpSystemBootStatusRequest @ 0x1405AC0A4 (RtlpSystemBootStatusRequest.c)
  */
 
-__int64 __fastcall RtlGetSystemBootStatus(int a1, __int64 a2, int a3)
+NTSTATUS __cdecl RtlGetSystemBootStatus(
+        RTL_BSD_ITEM_TYPE BootStatusInformationClass,
+        PVOID DataBuffer,
+        ULONG DataLength,
+        PULONG ReturnLength)
 {
-  int v4; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-20h]
-  int v6; // [rsp+30h] [rbp-18h]
+  RTL_BSD_ITEM_TYPE v5; // [rsp+20h] [rbp-28h] BYREF
+  PVOID v6; // [rsp+28h] [rbp-20h]
+  ULONG v7; // [rsp+30h] [rbp-18h]
 
-  v6 = a3;
-  v4 = a1;
-  v5 = a2;
-  return RtlpSystemBootStatusRequest(31LL, &v4, 1LL);
+  v7 = DataLength;
+  v5 = BootStatusInformationClass;
+  v6 = DataBuffer;
+  return RtlpSystemBootStatusRequest(31LL, &v5, 1LL);
 }

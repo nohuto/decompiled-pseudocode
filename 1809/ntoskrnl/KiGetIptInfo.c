@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetIptInfo @ 0x140294538
+ * XREFs of KiGetIptInfo @ 0x140294728
  * Callers:
- *     KiInitializeXSave @ 0x1405732C0 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x1405742C0 (KiInitializeXSave.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiGetCpuVendor @ 0x14056F6EC (KiGetCpuVendor.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiGetCpuVendor @ 0x1405706EC (KiGetCpuVendor.c)
  */
 
 signed __int32 *__fastcall KiGetIptInfo(_DWORD *a1, _DWORD *a2)

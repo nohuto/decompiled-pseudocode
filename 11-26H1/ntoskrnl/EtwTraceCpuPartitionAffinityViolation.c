@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceCpuPartitionAffinityViolation @ 0x1406C461C
+ * XREFs of EtwTraceCpuPartitionAffinityViolation @ 0x1406C825C
  * Callers:
- *     KiCpuPartitionCheckAffinitization @ 0x1405F416C (KiCpuPartitionCheckAffinitization.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405F6B2C (KiCpuPartitionCheckAffinitization.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall EtwTraceCpuPartitionAffinityViolation(int a1, __int64 a2, __int64 a3, unsigned __int16 *a4, __int64 a5)
@@ -23,7 +23,8 @@ void __fastcall EtwTraceCpuPartitionAffinityViolation(int a1, __int64 a2, __int6
   int v18; // [rsp+80h] [rbp+8h] BYREF
 
   v18 = a1;
-  if ( qword_140F03590 && EtwEventEnabled(qword_140F03590, &CPU_PARTITION_EVENT_AFFINITY_VIOLATION) )
+  if ( stru_140F03830.SchedulerApc.Thread
+    && EtwEventEnabled((REGHANDLE)stru_140F03830.SchedulerApc.Thread, &CPU_PARTITION_EVENT_AFFINITY_VIOLATION) )
   {
     v8 = a5;
     UserData = *(struct _EVENT_DATA_DESCRIPTOR **)(a5 + 16);
@@ -70,7 +71,7 @@ void __fastcall EtwTraceCpuPartitionAffinityViolation(int a1, __int64 a2, __int6
     UserData[3].Ptr = (ULONGLONG)&v15;
     *(_QWORD *)&UserData[3].Size = 2LL;
     EtwWriteEx(
-      qword_140F03590,
+      (REGHANDLE)stru_140F03830.SchedulerApc.Thread,
       &CPU_PARTITION_EVENT_AFFINITY_VIOLATION,
       0LL,
       0,

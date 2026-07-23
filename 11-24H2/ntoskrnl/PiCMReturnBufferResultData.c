@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMReturnBufferResultData @ 0x1408C5620
+ * XREFs of PiCMReturnBufferResultData @ 0x1408C3020
  * Callers:
- *     PiCMGetDeviceInterfaceAlias @ 0x1408B58C0 (PiCMGetDeviceInterfaceAlias.c)
- *     PiCMGetObjectList @ 0x1408BE080 (PiCMGetObjectList.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1408BE750 (PiCMGetRelatedDeviceInstance.c)
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
- *     PiCMEnumerateSubKeys @ 0x14099245C (PiCMEnumerateSubKeys.c)
- *     PiCMGetDeviceInterfaceList @ 0x1409FE7EC (PiCMGetDeviceInterfaceList.c)
- *     PiCMGetDeviceIdList @ 0x140A19E98 (PiCMGetDeviceIdList.c)
- *     PiCMGetObjectPropertyKeys @ 0x140A65294 (PiCMGetObjectPropertyKeys.c)
- *     PiCMRegisterDeviceInterface @ 0x140A6E630 (PiCMRegisterDeviceInterface.c)
- *     PiCMCreateDevice @ 0x140AB4970 (PiCMCreateDevice.c)
- *     PiCMQueryRemove @ 0x140ABB70C (PiCMQueryRemove.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x1408B31B0 (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetObjectList @ 0x1408BB9D0 (PiCMGetObjectList.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1408BC0A0 (PiCMGetRelatedDeviceInstance.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
+ *     PiCMEnumerateSubKeys @ 0x14097D49C (PiCMEnumerateSubKeys.c)
+ *     PiCMGetDeviceInterfaceList @ 0x1409FF400 (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetDeviceIdList @ 0x140A15D5C (PiCMGetDeviceIdList.c)
+ *     PiCMGetObjectPropertyKeys @ 0x140A5DA64 (PiCMGetObjectPropertyKeys.c)
+ *     PiCMRegisterDeviceInterface @ 0x140A79094 (PiCMRegisterDeviceInterface.c)
+ *     PiCMCreateDevice @ 0x140AB39A4 (PiCMCreateDevice.c)
+ *     PiCMQueryRemove @ 0x140AB672C (PiCMQueryRemove.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
  */
 
 __int64 __fastcall PiCMReturnBufferResultData(

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryEffectivePriorityThread @ 0x140140130
+ * XREFs of KeQueryEffectivePriorityThread @ 0x140140230
  * Callers:
  *     <none>
  * Callees:
- *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1500 (KiIsThreadRankNonZero.c)
  */
 
 __int64 __fastcall KeQueryEffectivePriorityThread(__int64 a1)

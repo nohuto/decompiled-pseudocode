@@ -1,22 +1,22 @@
 /*
- * XREFs of MiFreeMdlPageRun @ 0x1403A1D8C
+ * XREFs of MiFreeMdlPageRun @ 0x1402189BC
  * Callers:
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     MiFreePartitionPageRun @ 0x14068A4D0 (MiFreePartitionPageRun.c)
- *     MiDeleteAweInfoPages @ 0x1407F96E0 (MiDeleteAweInfoPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MiFreePartitionPageRun @ 0x14068B600 (MiFreePartitionPageRun.c)
+ *     MiDeleteAweInfoPages @ 0x1407F9E50 (MiDeleteAweInfoPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1402EE2CC (MiConvertSmallPageRangeToLarge.c)
- *     MiFreeSmallPageFromMdl @ 0x1403A2098 (MiFreeSmallPageFromMdl.c)
- *     MiUpdateLargePageBitMap @ 0x1403A29EC (MiUpdateLargePageBitMap.c)
- *     MiFreeLargePageMemory @ 0x1403A3588 (MiFreeLargePageMemory.c)
- *     MiResidentPageDangleFree @ 0x1403A9C78 (MiResidentPageDangleFree.c)
- *     MiIsPfnRangeFromSlabAllocation @ 0x14048925C (MiIsPfnRangeFromSlabAllocation.c)
+ *     MiFreeSmallPageFromMdl @ 0x140218CC8 (MiFreeSmallPageFromMdl.c)
+ *     MiUpdateLargePageBitMap @ 0x140219EE0 (MiUpdateLargePageBitMap.c)
+ *     MiFreeLargePageMemory @ 0x14021B56C (MiFreeLargePageMemory.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x14034F90C (MiConvertSmallPageRangeToLarge.c)
+ *     MiResidentPageDangleFree @ 0x140398908 (MiResidentPageDangleFree.c)
+ *     MiIsPfnRangeFromSlabAllocation @ 0x14048421C (MiIsPfnRangeFromSlabAllocation.c)
  */
 
 __int64 __fastcall MiFreeMdlPageRun(
@@ -38,29 +38,33 @@ __int64 __fastcall MiFreeMdlPageRun(
   __int64 v16; // r10
   __int64 v17; // rsi
   __int64 *v18; // r10
-  ULONG_PTR v19; // rbx
-  unsigned __int8 v20; // al
-  __int64 v21; // rax
-  ULONG_PTR *v22; // rcx
-  unsigned int v23; // r13d
-  __int64 v24; // [rsp+20h] [rbp-48h]
-  ULONG_PTR v25; // [rsp+28h] [rbp-40h]
-  int v26; // [rsp+78h] [rbp+10h]
-  int v28; // [rsp+88h] [rbp+20h]
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  ULONG_PTR v23; // rbx
+  char v24; // al
+  __int64 v25; // rax
+  ULONG_PTR *v26; // rcx
+  unsigned int v27; // r13d
+  __int64 v28; // [rsp+20h] [rbp-48h]
+  ULONG_PTR v29; // [rsp+28h] [rbp-40h]
+  int v30; // [rsp+78h] [rbp+10h]
+  int v32; // [rsp+88h] [rbp+20h]
 
   v5 = -1LL;
   v6 = a2;
-  v25 = -1LL;
+  v29 = -1LL;
   v7 = a3;
   v9 = a3 & 1;
-  v26 = v9;
+  v30 = v9;
   v10 = 12;
   if ( KeGetCurrentIrql() != 2 )
     v10 = 4;
   if ( (a4 & 1) != 0 )
     v10 |= 0x10u;
   v11 = 0LL;
-  v24 = 0LL;
+  v28 = 0LL;
   if ( a2 )
   {
     v12 = a5;
@@ -89,76 +93,77 @@ __int64 __fastcall MiFreeMdlPageRun(
         break;
       if ( v9 && v12 )
       {
-        MiConvertSmallPageRangeToLarge(BugCheckParameter2, (unsigned int)v17);
-        v19 = 48 * BugCheckParameter2 - 0x220000000000LL;
+        MiConvertSmallPageRangeToLarge(BugCheckParameter2, (unsigned int)v17, v13);
+        v23 = 48 * BugCheckParameter2 - 0x220000000000LL;
         if ( (v10 & 8) != 0 )
         {
-          v23 = 0;
-          while ( _interlockedbittestandset64((volatile signed __int32 *)(v19 + 24), 0x3FuLL) )
+          v27 = 0;
+          while ( _interlockedbittestandset64((volatile signed __int32 *)(v23 + 24), 0x3FuLL) )
           {
             do
             {
-              if ( (++v23 & HvlLongSpinCountMask) == 0
+              if ( (++v27 & HvlLongSpinCountMask) == 0
                 && (HvlEnlightenments & 0x40) != 0
-                && KiCheckVpBackingLongSpinWaitHypercall() )
+                && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v20, v19, v21, v22) )
               {
-                HvlNotifyLongSpinWait(v23);
+                HvlNotifyLongSpinWait(v27);
               }
               else
               {
                 _mm_pause();
               }
             }
-            while ( *(__int64 *)(v19 + 24) < 0 );
+            while ( *(__int64 *)(v23 + 24) < 0 );
           }
-          v20 = 17;
+          v24 = 17;
         }
         else
         {
-          v20 = MiLockPageInline(48 * BugCheckParameter2 - 0x220000000000LL);
+          v24 = MiLockPageInline(48 * BugCheckParameter2 - 0x220000000000LL);
         }
-        v28 = *(_DWORD *)(v19 + 32);
-        BYTE2(v28) = BYTE2(v28) & 0xF8 | 5;
-        *(_DWORD *)(v19 + 32) = v28;
-        MiUnlockPage(48 * BugCheckParameter2 - 0x220000000000LL, v20);
-        v21 = a5 + 24 * v17;
-        v22 = *(ULONG_PTR **)(v21 + 8);
-        if ( *v22 != v21 )
+        LOBYTE(v19) = v24;
+        v32 = *(_DWORD *)(v23 + 32);
+        BYTE2(v32) = BYTE2(v32) & 0xF8 | 5;
+        *(_DWORD *)(v23 + 32) = v32;
+        MiUnlockPage(48 * BugCheckParameter2 - 0x220000000000LL, v19);
+        v25 = a5 + 24 * v17;
+        v26 = *(ULONG_PTR **)(v25 + 8);
+        if ( *v26 != v25 )
           __fastfail(3u);
         v12 = a5;
-        *(_QWORD *)v19 = v21;
-        *(_QWORD *)(v19 + 8) = v22;
-        *v22 = v19;
-        *(_QWORD *)(v21 + 8) = v19;
-        ++*(_QWORD *)(v21 + 16);
-        v11 = v24;
+        *(_QWORD *)v23 = v25;
+        *(_QWORD *)(v23 + 8) = v26;
+        *v26 = v23;
+        *(_QWORD *)(v25 + 8) = v23;
+        ++*(_QWORD *)(v25 + 16);
+        v11 = v28;
       }
       else
       {
         v11 += MiFreeLargePageMemory(BugCheckParameter2);
-        v24 = v11;
+        v28 = v11;
       }
       v6 -= v14;
 LABEL_10:
       BugCheckParameter2 += v14;
       if ( !v6 )
         return v11;
-      v9 = v26;
-      v5 = v25;
+      v9 = v30;
+      v5 = v29;
       v7 = a3;
     }
-    v5 = v25;
+    v5 = v29;
     v7 = a3;
 LABEL_8:
     if ( v5 != (BugCheckParameter2 & 0xFFFFFFFFFFFFFE00uLL) )
     {
-      v25 = BugCheckParameter2 & 0xFFFFFFFFFFFFFE00uLL;
+      v29 = BugCheckParameter2 & 0xFFFFFFFFFFFFFE00uLL;
       if ( (unsigned int)MiGetPfnSlabType(48 * BugCheckParameter2 - 0x220000000000LL) == 9 )
         MiUpdateLargePageBitMap(v16, BugCheckParameter2 & 0xFFFFFFFFFFFFFE00uLL, 512LL, 0LL);
     }
     v12 = a5;
     v11 += MiFreeSmallPageFromMdl(BugCheckParameter2, v7, v10, a5);
-    v24 = v11;
+    v28 = v11;
     --v6;
     v14 = 1LL;
     goto LABEL_10;

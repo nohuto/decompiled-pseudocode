@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpRemoveProfileSourceFromList @ 0x140546088
+ * XREFs of HalpRemoveProfileSourceFromList @ 0x140543948
  * Callers:
- *     EmonRemoveProfileSourceEnhanced @ 0x14055DB40 (EmonRemoveProfileSourceEnhanced.c)
- *     EmonRemoveProfileSourceOriginal @ 0x14055DC40 (EmonRemoveProfileSourceOriginal.c)
- *     Amd64RemoveProfileSource @ 0x14056C580 (Amd64RemoveProfileSource.c)
+ *     EmonRemoveProfileSourceEnhanced @ 0x14055B770 (EmonRemoveProfileSourceEnhanced.c)
+ *     EmonRemoveProfileSourceOriginal @ 0x14055B870 (EmonRemoveProfileSourceOriginal.c)
+ *     Amd64RemoveProfileSource @ 0x140569A10 (Amd64RemoveProfileSource.c)
  * Callees:
- *     KeSubtractAffinityEx2 @ 0x140354F10 (KeSubtractAffinityEx2.c)
- *     HalpGetProfileDescriptor @ 0x1404B0FE4 (HalpGetProfileDescriptor.c)
+ *     KeSubtractAffinityEx2 @ 0x1402B2C40 (KeSubtractAffinityEx2.c)
+ *     HalpGetProfileDescriptor @ 0x1404AB874 (HalpGetProfileDescriptor.c)
  */
 
 char __fastcall HalpRemoveProfileSourceFromList(int *a1, __int64 a2, _QWORD *a3)

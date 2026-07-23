@@ -1,23 +1,23 @@
 /*
- * XREFs of BiTranslateFilePath @ 0x1406D58FC
+ * XREFs of BiTranslateFilePath @ 0x1406D5A34
  * Callers:
- *     BiCreateBootEntry @ 0x1406D3FB4 (BiCreateBootEntry.c)
- *     BiCreateMergedBootEntry @ 0x1406D4498 (BiCreateMergedBootEntry.c)
- *     BiGetDeviceFromEfiPath @ 0x1406D4E9C (BiGetDeviceFromEfiPath.c)
+ *     BiCreateBootEntry @ 0x1406D40EC (BiCreateBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x1406D45D0 (BiCreateMergedBootEntry.c)
+ *     BiGetDeviceFromEfiPath @ 0x1406D4FD4 (BiGetDeviceFromEfiPath.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x14015D280 (ZwTranslateFilePath.c)
+ *     ZwTranslateFilePath @ 0x14015D7F0 (ZwTranslateFilePath.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  */
 
-__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, struct _FILE_PATH **a3)
+__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, _FILE_PATH **a3)
 {
-  struct _FILE_PATH *v5; // rdi
-  int v7; // ebx
+  _FILE_PATH *v5; // rdi
+  NTSTATUS v7; // ebx
   NTSTATUS v8; // eax
-  struct _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *PoolWithTag; // rax
   unsigned int v11[10]; // [rsp+20h] [rbp-28h] BYREF
   ULONG OutputFilePathLength; // [rsp+68h] [rbp+20h] BYREF
 
@@ -30,7 +30,7 @@ __int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputTyp
     v7 = v8;
     if ( v8 == -1073741789 )
     {
-      PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B444342u);
+      PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B444342u);
       v5 = PoolWithTag;
       if ( PoolWithTag )
         v7 = ZwTranslateFilePath(InputFilePath, OutputType, PoolWithTag, (ULONG)&OutputFilePathLength);

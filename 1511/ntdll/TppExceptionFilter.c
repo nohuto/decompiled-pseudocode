@@ -10,20 +10,20 @@
  *     RtlUnhandledExceptionFilter2 @ 0x1800E8AF0 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall TppExceptionFilter(__int64 a1)
+LONG __fastcall TppExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  __int64 (__fastcall *v2)(__int64); // rax
-  __int64 result; // rax
+  __int64 (__fastcall *v2)(PEXCEPTION_POINTERS); // rax
+  LONG result; // eax
 
-  v2 = (__int64 (__fastcall *)(__int64))RtlDecodePointer(RtlpUnhandledExceptionFilter);
+  v2 = (__int64 (__fastcall *)(PEXCEPTION_POINTERS))RtlDecodePointer(RtlpUnhandledExceptionFilter);
   if ( v2 )
-    result = v2(a1);
+    result = v2(ExceptionPointers);
   else
-    result = RtlUnhandledExceptionFilter2((const void **)a1);
-  if ( !(_DWORD)result && **(_DWORD **)a1 == -1073741571 )
+    result = RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&Flags);
+  if ( !result && ExceptionPointers->ExceptionRecord->ExceptionCode == -1073741571 )
   {
-    RtlReportException(*(_QWORD *)a1, *(_QWORD *)(a1 + 8), 3u);
-    return 1LL;
+    RtlReportException(ExceptionPointers->ExceptionRecord, ExceptionPointers->ContextRecord, 3u);
+    return 1;
   }
   return result;
 }

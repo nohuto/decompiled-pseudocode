@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpSetTimer2 @ 0x1403A9844
+ * XREFs of ExpSetTimer2 @ 0x1403B3454
  * Callers:
- *     NtSetIRTimer @ 0x1403A97E0 (NtSetIRTimer.c)
- *     NtCancelTimer2 @ 0x1403A9800 (NtCancelTimer2.c)
- *     NtSetTimer2 @ 0x1403A9820 (NtSetTimer2.c)
- *     DifNtCancelTimer2Wrapper @ 0x14066E600 (DifNtCancelTimer2Wrapper.c)
- *     DifNtSetIRTimerWrapper @ 0x14068B450 (DifNtSetIRTimerWrapper.c)
+ *     NtSetIRTimer @ 0x1403B33F0 (NtSetIRTimer.c)
+ *     NtCancelTimer2 @ 0x1403B3410 (NtCancelTimer2.c)
+ *     NtSetTimer2 @ 0x1403B3430 (NtSetTimer2.c)
+ *     DifNtCancelTimer2Wrapper @ 0x1406721E0 (DifNtCancelTimer2Wrapper.c)
+ *     DifNtSetIRTimerWrapper @ 0x14068F030 (DifNtSetIRTimerWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExpSetTimerObject2 @ 0x1403A9988 (ExpSetTimerObject2.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1408F9EF0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExpSetTimerObject2 @ 0x1403B3598 (ExpSetTimerObject2.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140929E80 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer2(HANDLE Handle, _QWORD *a2, __int64 a3, __int128 *a4)

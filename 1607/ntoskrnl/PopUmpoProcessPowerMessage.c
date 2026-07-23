@@ -1,23 +1,23 @@
 /*
- * XREFs of PopUmpoProcessPowerMessage @ 0x1403F7C58
+ * XREFs of PopUmpoProcessPowerMessage @ 0x1403F6B18
  * Callers:
- *     PopUmpoProcessMessage @ 0x1403F7B28 (PopUmpoProcessMessage.c)
+ *     PopUmpoProcessMessage @ 0x1403F69E8 (PopUmpoProcessMessage.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     PopProcessPowerRequestOverrideQueryResponse @ 0x1400FB954 (PopProcessPowerRequestOverrideQueryResponse.c)
- *     PopIdleCancelAoAcDozeS4Timer @ 0x1401121A4 (PopIdleCancelAoAcDozeS4Timer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14020D4E4 (PopIdleArmAoAcDozeS4Timer.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     PopProcessPowerRequestOverrideQueryResponse @ 0x1400F96D4 (PopProcessPowerRequestOverrideQueryResponse.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x140112708 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14020D310 (PopIdleArmAoAcDozeS4Timer.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopSetNewPolicyValue @ 0x1403F7D98 (PopSetNewPolicyValue.c)
- *     PfIoPowerEventNotify @ 0x140530748 (PfIoPowerEventNotify.c)
- *     PopBroadcastSessionInfo @ 0x14057BCC8 (PopBroadcastSessionInfo.c)
- *     PopPowerRequestOverrideInitialize @ 0x1405809E8 (PopPowerRequestOverrideInitialize.c)
+ *     PopSetNewPolicyValue @ 0x1403F6C58 (PopSetNewPolicyValue.c)
+ *     PfIoPowerEventNotify @ 0x140530C88 (PfIoPowerEventNotify.c)
+ *     PopBroadcastSessionInfo @ 0x14057C174 (PopBroadcastSessionInfo.c)
+ *     PopPowerRequestOverrideInitialize @ 0x140580E94 (PopPowerRequestOverrideInitialize.c)
  */
 
 __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1)
@@ -50,14 +50,14 @@ __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1)
       *(_DWORD *)(v4 + 32) = *(_DWORD *)(a1 + 24);
       *(_OWORD *)(v4 + 16) = *(_OWORD *)(a1 + 8);
       ExAcquireFastMutex(&PopBrightnessNotifyMutex);
-      v5 = (__int64 *)qword_140302568;
-      if ( *(PVOID **)qword_140302568 != &PopBrightnessChangeWorkList )
+      v5 = (__int64 *)qword_1403025E8;
+      if ( *(PVOID **)qword_1403025E8 != &PopBrightnessChangeWorkList )
         __fastfail(3u);
       v6 = PopBrightnessWorkItemQueued == 0;
       *(_QWORD *)v4 = &PopBrightnessChangeWorkList;
       *(_QWORD *)(v4 + 8) = v5;
       *v5 = v4;
-      qword_140302568 = v4;
+      qword_1403025E8 = v4;
       if ( v6 )
       {
         PopBrightnessWorkItemQueued = 1;
@@ -85,8 +85,8 @@ __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1)
     case 0x11:
       v7 = *(_DWORD *)(a1 + 8);
       PopAcquirePolicyLock();
-      dword_1403033B0 = v7;
-      if ( byte_1403033D1 )
+      dword_1403032F0 = v7;
+      if ( byte_140303311 )
       {
         PopIdleCancelAoAcDozeS4Timer(4u);
         PopIdleArmAoAcDozeS4Timer();

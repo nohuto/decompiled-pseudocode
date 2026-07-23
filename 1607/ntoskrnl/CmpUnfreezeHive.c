@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUnfreezeHive @ 0x1401B47F4
+ * XREFs of CmpUnfreezeHive @ 0x1401B46D8
  * Callers:
- *     NtUnloadKey2 @ 0x140549F84 (NtUnloadKey2.c)
- *     CmpIsHiveAlreadyLoaded @ 0x1405FEFD8 (CmpIsHiveAlreadyLoaded.c)
+ *     NtUnloadKey2 @ 0x14054A4C4 (NtUnloadKey2.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x1405FF08C (CmpIsHiveAlreadyLoaded.c)
  * Callees:
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x140437B40 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmWorkerEngineDequeueWorkItem @ 0x1405FCC88 (CmWorkerEngineDequeueWorkItem.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140436A10 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmWorkerEngineDequeueWorkItem @ 0x1405FCD3C (CmWorkerEngineDequeueWorkItem.c)
  */
 
 void __fastcall CmpUnfreezeHive(__int64 a1)

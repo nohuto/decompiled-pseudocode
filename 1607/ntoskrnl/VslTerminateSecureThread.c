@@ -1,11 +1,11 @@
 /*
- * XREFs of VslTerminateSecureThread @ 0x140620B5C
+ * XREFs of VslTerminateSecureThread @ 0x140620C10
  * Callers:
- *     KeUnsecureThread @ 0x1401D305C (KeUnsecureThread.c)
+ *     KeUnsecureThread @ 0x1401D2E88 (KeUnsecureThread.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VslTerminateSecureThread(unsigned int a1, _QWORD *a2)

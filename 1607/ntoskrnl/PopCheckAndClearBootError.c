@@ -3,9 +3,9 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PopTraceBootError @ 0x1402097EC (PopTraceBootError.c)
- *     RtlGetSetBootStatusData @ 0x140543314 (RtlGetSetBootStatusData.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PopTraceBootError @ 0x140209618 (PopTraceBootError.c)
+ *     RtlGetSetBootStatusData @ 0x140543854 (RtlGetSetBootStatusData.c)
  */
 
 int __fastcall PopCheckAndClearBootError(HANDLE FileHandle)

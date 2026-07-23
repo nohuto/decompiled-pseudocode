@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpTransSearchAddTrans @ 0x14087A4F0
+ * XREFs of CmpTransSearchAddTrans @ 0x14087E39C
  * Callers:
- *     CmQueryKey @ 0x140877890 (CmQueryKey.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140879368 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpTransInitializeTransaction @ 0x140A04118 (CmpTransInitializeTransaction.c)
- *     CmpTransSearchAddTransFromRm @ 0x140A4B224 (CmpTransSearchAddTransFromRm.c)
+ *     CmQueryKey @ 0x14087BBC0 (CmQueryKey.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14087D698 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransInitializeTransaction @ 0x140A00648 (CmpTransInitializeTransaction.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140A41F84 (CmpTransSearchAddTransFromRm.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     ExBlockOnAddressPushLock @ 0x1402C6C40 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     CmpTransReferenceTransaction @ 0x140879088 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x14087925C (CmpTransDereferenceTransaction.c)
- *     LOCK_TRANSACTION_LIST @ 0x14087B17C (LOCK_TRANSACTION_LIST.c)
- *     CmpSearchForTrans @ 0x14087B1AC (CmpSearchForTrans.c)
- *     CmpBindHiveToTrans @ 0x14087B228 (CmpBindHiveToTrans.c)
- *     CmpTransInitializeTransaction @ 0x140A04118 (CmpTransInitializeTransaction.c)
- *     CmpTransAllocateTrans @ 0x140A7F5EC (CmpTransAllocateTrans.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExBlockOnAddressPushLock @ 0x1402BB7C0 (ExBlockOnAddressPushLock.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     CmpTransReferenceTransaction @ 0x14087D3B8 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x14087D58C (CmpTransDereferenceTransaction.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14087F02C (LOCK_TRANSACTION_LIST.c)
+ *     CmpSearchForTrans @ 0x14087F05C (CmpSearchForTrans.c)
+ *     CmpBindHiveToTrans @ 0x14087F0D8 (CmpBindHiveToTrans.c)
+ *     CmpTransInitializeTransaction @ 0x140A00648 (CmpTransInitializeTransaction.c)
+ *     CmpTransAllocateTrans @ 0x140A78D9C (CmpTransAllocateTrans.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTrans(
@@ -107,7 +107,7 @@ LABEL_11:
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v20 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(a3 + 80) + 1640LL));
+    v20 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(a3 + 80) + 1640LL));
     v7 = v20;
     if ( !v20 )
     {

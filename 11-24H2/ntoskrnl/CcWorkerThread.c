@@ -1,32 +1,32 @@
 /*
- * XREFs of CcWorkerThread @ 0x1404DB3D0
+ * XREFs of CcWorkerThread @ 0x1404D4DF0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcFindNextWorkQueueEntry @ 0x1402A788C (CcFindNextWorkQueueEntry.c)
- *     CcWriteBehind @ 0x1402A7ADC (CcWriteBehind.c)
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x1402A7D0C (CcIsWriteBehindThreadpoolAtLowPriority.c)
- *     CcFreeWorkQueueEntry @ 0x1402A7E6C (CcFreeWorkQueueEntry.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1402A7FF0 (CcPerfLogWorkItemEnqueue.c)
- *     CcPerfLogWorkItemComplete @ 0x1402A8CC0 (CcPerfLogWorkItemComplete.c)
- *     CcPerfLogWorkItemDequeue @ 0x1402A8D2C (CcPerfLogWorkItemDequeue.c)
- *     CcShouldWorkOnThisQueue @ 0x1402A8D98 (CcShouldWorkOnThisQueue.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD54C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD5E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcLazyWriteScan @ 0x14043BAE8 (CcLazyWriteScan.c)
- *     CcNotifyWriteBehindVolume @ 0x14043CB2C (CcNotifyWriteBehindVolume.c)
- *     CcLazyWriteScanVolume @ 0x1404B5560 (CcLazyWriteScanVolume.c)
- *     CcLogExtraWBThreadAction @ 0x1404CD4DC (CcLogExtraWBThreadAction.c)
- *     CcReEngageWorkerThreads @ 0x1404DB200 (CcReEngageWorkerThreads.c)
- *     CcPerformReadAhead @ 0x1404DDEB0 (CcPerformReadAhead.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CcDebugExceptionFilter @ 0x14057A414 (CcDebugExceptionFilter.c)
- *     CcOkToAddWriteBehindThread @ 0x14057A49C (CcOkToAddWriteBehindThread.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcNotifyWriteBehindVolume @ 0x1402650BC (CcNotifyWriteBehindVolume.c)
+ *     CcLazyWriteScan @ 0x1402654C8 (CcLazyWriteScan.c)
+ *     CcWriteBehind @ 0x1402798D4 (CcWriteBehind.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140279B04 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcFreeWorkQueueEntry @ 0x140279C5C (CcFreeWorkQueueEntry.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140279DE0 (CcPerfLogWorkItemEnqueue.c)
+ *     CcFindNextWorkQueueEntry @ 0x14027ACDC (CcFindNextWorkQueueEntry.c)
+ *     CcPerfLogWorkItemComplete @ 0x14027AD94 (CcPerfLogWorkItemComplete.c)
+ *     CcPerfLogWorkItemDequeue @ 0x14027AE00 (CcPerfLogWorkItemDequeue.c)
+ *     CcShouldWorkOnThisQueue @ 0x14027B03C (CcShouldWorkOnThisQueue.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402E624C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402E62E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcLazyWriteScanVolume @ 0x1404AFE00 (CcLazyWriteScanVolume.c)
+ *     CcLogExtraWBThreadAction @ 0x1404C68AC (CcLogExtraWBThreadAction.c)
+ *     CcReEngageWorkerThreads @ 0x1404D4C20 (CcReEngageWorkerThreads.c)
+ *     CcPerformReadAhead @ 0x1404D78D0 (CcPerformReadAhead.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CcDebugExceptionFilter @ 0x1405778A4 (CcDebugExceptionFilter.c)
+ *     CcOkToAddWriteBehindThread @ 0x14057792C (CcOkToAddWriteBehindThread.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall CcWorkerThread(__int64 a1)
@@ -222,9 +222,9 @@ LABEL_16:
       v22 = (volatile signed __int32 *)(v5 + 188);
     _InterlockedIncrement(v22);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    if ( (xmmword_140FC5B10 & 0x20000) != 0 && v21 )
+    if ( (xmmword_140FC6B50 & 0x20000) != 0 && v21 )
       CcLogExtraWBThreadAction(v4, v5, 2);
-    if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+    if ( (xmmword_140FC6B50 & 0x20000) != 0 )
       CcPerfLogWorkItemDequeue((__int64)NextWorkQueueEntry);
     switch ( *((_DWORD *)NextWorkQueueEntry + 32) )
     {
@@ -265,14 +265,14 @@ LABEL_16:
     _InterlockedDecrement(v31);
     if ( v38 == (_QWORD *)35422 )
     {
-      if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+      if ( (xmmword_140FC6B50 & 0x20000) != 0 )
         CcPerfLogWorkItemEnqueue((__int64)v1, (__int64)NextWorkQueueEntry, 1, 0);
     }
     else
     {
-      if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+      if ( (xmmword_140FC6B50 & 0x20000) != 0 )
         CcPerfLogWorkItemComplete((__int64)NextWorkQueueEntry);
-      CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)NextWorkQueueEntry, v23, v24, v25);
+      CcFreeWorkQueueEntry((_SLIST_ENTRY *)NextWorkQueueEntry, v23, v24, v25);
     }
   }
   if ( !*(_BYTE *)(v5 + 225) )
@@ -322,7 +322,7 @@ LABEL_84:
     CcNotifyWriteBehindVolume(v36, 32);
     KeReleaseInStackQueuedSpinLock(&v47);
   }
-  if ( (xmmword_140FC5B10 & 0x20000) != 0 && v3 == 2 )
+  if ( (xmmword_140FC6B50 & 0x20000) != 0 && v3 == 2 )
     CcLogExtraWBThreadAction(v4, v5, 3);
   return CcDereferencePartitionAndPrivateVolumeCacheMap(v4, v36);
 }

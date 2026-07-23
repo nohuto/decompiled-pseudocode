@@ -23,31 +23,32 @@
  *     ObpReferenceObjectByHandleWithTag @ 0x1405A4770 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtCreateWorkerFactory(
-        __int64 *a1,
-        unsigned int a2,
-        int a3,
-        void *a4,
-        ULONG_PTR BugCheckParameter1,
-        __int64 a6,
-        __int64 a7,
-        int a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl NtCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
+  int v11; // r12d
   char PreviousMode; // di
   __int64 v15; // r8
   _QWORD *PoolWithQuotaTag; // rax
   PVOID v17; // rsi
-  int v18; // ebx
+  NTSTATUS v18; // ebx
   volatile signed __int32 *v19; // rcx
   PVOID v20; // r14
   __int64 MiniCompletionPacket; // rax
   _QWORD *v22; // rdi
-  __int64 v23; // rcx
-  __int64 v24; // rcx
+  SIZE_T v23; // rcx
+  SIZE_T v24; // rcx
   PVOID v25; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v27; // rcx
   PVOID *Object; // [rsp+20h] [rbp-98h]
   HANDLE Handle; // [rsp+58h] [rbp-60h] BYREF
@@ -57,33 +58,34 @@ __int64 __fastcall NtCreateWorkerFactory(
   __int64 v33; // [rsp+78h] [rbp-40h] BYREF
   _QWORD v34[3]; // [rsp+88h] [rbp-30h] BYREF
 
+  v11 = (int)ObjectAttributes;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v15 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v15 = (__int64)a1;
+    if ( (unsigned __int64)WorkerFactoryHandleReturn < 0x7FFFFFFF0000LL )
+      v15 = (__int64)WorkerFactoryHandleReturn;
     *(_QWORD *)v15 = *(_QWORD *)v15;
   }
   PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x28uLL, 0x63577054u);
   v17 = PoolWithQuotaTag;
   if ( !PoolWithQuotaTag )
-    return (unsigned int)-1073741801;
+    return -1073741801;
   *PoolWithQuotaTag = 0LL;
   PoolWithQuotaTag[3] = 0LL;
   *((_WORD *)PoolWithQuotaTag + 16) = 0;
   *((_BYTE *)PoolWithQuotaTag + 34) = 0;
-  v18 = ObReferenceObjectByHandle(a4, 2u, IoCompletionObjectType, PreviousMode, &v30, 0LL);
+  v18 = ObReferenceObjectByHandle(CompletionPortHandle, 2u, IoCompletionObjectType, PreviousMode, &v30, 0LL);
   v19 = (volatile signed __int32 *)v30;
   *((_QWORD *)v17 + 1) = v30;
   if ( v18 < 0 )
   {
 LABEL_26:
     ExFreePoolWithTag(v17, 0);
-    return (unsigned int)v18;
+    return v18;
   }
   KeDisableQueueingPriorityIncrement(v19);
-  v18 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x66577845u, (__int64)&v31, 0LL, 0LL);
+  v18 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)WorkerProcessHandle, 0x66577845u, (__int64)&v31, 0LL, 0LL);
   if ( v18 < 0 )
   {
 LABEL_25:
@@ -115,7 +117,7 @@ LABEL_23:
   v18 = ObCreateObjectEx(
           PreviousMode,
           ExpWorkerFactoryObjectType,
-          a3,
+          v11,
           PreviousMode,
           (__int64)Object,
           416,
@@ -134,20 +136,20 @@ LABEL_23:
   *((_QWORD *)v32 + 2) = v17;
   v22[14] = -10000000LL * ExpWorkerFactoryThreadIdleTimeoutInSeconds;
   *((_DWORD *)v22 + 30) = 0;
-  *((_DWORD *)v22 + 31) = a8;
+  *((_DWORD *)v22 + 31) = MaxThreadCount;
   *(_QWORD *)((char *)v22 + 140) = 0LL;
   v22[16] = 0LL;
   v23 = 0x10000LL;
-  if ( a9 )
-    v23 = a9;
+  if ( StackReserve )
+    v23 = StackReserve;
   v22[7] = v23;
   v22[19] = 0LL;
   v24 = 4096LL;
-  if ( a10 )
-    v24 = a10;
+  if ( StackCommit )
+    v24 = StackCommit;
   v22[8] = v24;
-  v22[3] = a6;
-  v22[4] = a7;
+  v22[3] = StartRoutine;
+  v22[4] = StartParameter;
   *((_DWORD *)v22 + 37) = 0;
   *((_DWORD *)v22 + 40) = 0;
   v22[5] = Handle;
@@ -163,11 +165,8 @@ LABEL_23:
   v34[0] = 0LL;
   v34[1] = -1LL;
   KeSetTimer2((__int64)(v22 + 21), v22[14], -v22[14], (__int64)v34);
-  result = ObInsertObjectEx(v22, 0LL, a2, 0, 0, 0LL, &v33);
-  if ( (int)result >= 0 )
-  {
-    *a1 = v33;
-    return (unsigned int)result;
-  }
+  result = ObInsertObjectEx(v22, 0LL, DesiredAccess, 0, 0, 0LL, &v33);
+  if ( result >= 0 )
+    *WorkerFactoryHandleReturn = (HANDLE)v33;
   return result;
 }

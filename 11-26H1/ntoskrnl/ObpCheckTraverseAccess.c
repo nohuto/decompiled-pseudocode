@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpCheckTraverseAccess @ 0x14093C7C8
+ * XREFs of ObpCheckTraverseAccess @ 0x140918368
  * Callers:
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
  * Callees:
- *     SeFastTraverseCheck @ 0x14025EE28 (SeFastTraverseCheck.c)
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SeLockSubjectContext @ 0x1408EE720 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1408EE780 (SeUnlockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x1408EF250 (ObpGetObjectSecurity.c)
- *     SeAppendPrivileges @ 0x140903960 (SeAppendPrivileges.c)
- *     ObReleaseObjectSecurityEx @ 0x14093C920 (ObReleaseObjectSecurityEx.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     SeFastTraverseCheck @ 0x14040500C (SeFastTraverseCheck.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SeLockSubjectContext @ 0x1408F4CE0 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1408F4D40 (SeUnlockSubjectContext.c)
+ *     ObpGetObjectSecurity @ 0x1408F5810 (ObpGetObjectSecurity.c)
+ *     ObReleaseObjectSecurityEx @ 0x1409184C0 (ObReleaseObjectSecurityEx.c)
+ *     SeAppendPrivileges @ 0x1409338F0 (SeAppendPrivileges.c)
  */
 
 BOOLEAN __fastcall ObpCheckTraverseAccess(

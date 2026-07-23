@@ -1,28 +1,28 @@
 /*
- * XREFs of MiQueryAddressState @ 0x140043000
+ * XREFs of MiQueryAddressState @ 0x140042B80
  * Callers:
- *     MiQueryAddressSpan @ 0x140042CC0 (MiQueryAddressSpan.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiAllowProtectionChange @ 0x1400B74B0 (MiAllowProtectionChange.c)
- *     MiComparePteProtections @ 0x1401E9164 (MiComparePteProtections.c)
+ *     MiQueryAddressSpan @ 0x140042840 (MiQueryAddressSpan.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiAllowProtectionChange @ 0x1400B5348 (MiAllowProtectionChange.c)
+ *     MiComparePteProtections @ 0x1401E8F90 (MiComparePteProtections.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiVadPureReserve @ 0x14002BA90 (MiVadPureReserve.c)
- *     MiLocatePagefileSubsection @ 0x14002D040 (MiLocatePagefileSubsection.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089C20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiGetPageProtection @ 0x1400BD710 (MiGetPageProtection.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
- *     MiGetSharedProtos @ 0x1401F5088 (MiGetSharedProtos.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DDDC (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DEBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiVadPureReserve @ 0x14002B610 (MiVadPureReserve.c)
+ *     MiLocatePagefileSubsection @ 0x14002CBC0 (MiLocatePagefileSubsection.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089320 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiGetPageProtection @ 0x1400BB5A0 (MiGetPageProtection.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
+ *     MiGetSharedProtos @ 0x1401F4EB4 (MiGetSharedProtos.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DC08 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DCE8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiQueryAddressState(
@@ -271,14 +271,14 @@ LABEL_82:
           else
           {
             v60 = v69;
-            v61 = &dword_140327C80;
+            v61 = &dword_140327CC0;
             if ( (_DWORD)v69 )
             {
               MiUnlockWorkingSetExclusive(v9, v70);
             }
             else
             {
-              v62 = &dword_140327C80;
+              v62 = &dword_140327CC0;
               if ( (*(_BYTE *)(v9 + 184) & 7) != 2 )
                 v62 = (volatile signed __int32 *)(v9 + 192);
               if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )

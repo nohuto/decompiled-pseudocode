@@ -8,7 +8,7 @@
 
 void __fastcall VerifierFsRtlNotifyFilterChangeDirectory(
         struct _REAL_NOTIFY_SYNC *a1,
-        struct _LIST_ENTRY *a2,
+        _LIST_ENTRY *a2,
         void *a3,
         STRING *a4,
         BOOLEAN WatchTree,

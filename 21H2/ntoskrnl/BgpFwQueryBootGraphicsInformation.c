@@ -1,30 +1,30 @@
 /*
- * XREFs of BgpFwQueryBootGraphicsInformation @ 0x14039C364
+ * XREFs of BgpFwQueryBootGraphicsInformation @ 0x14039C4B4
  * Callers:
- *     BgQueryBootGraphicsInformation @ 0x14039BE14 (BgQueryBootGraphicsInformation.c)
+ *     BgQueryBootGraphicsInformation @ 0x14039BF64 (BgQueryBootGraphicsInformation.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BgpFwFreeMemory @ 0x14039BEB0 (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x14039C6D4 (BgpFwAllocateMemory.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2)
 {
-  unsigned int v4; // edi
-  __int64 v5; // rsi
-  int v7; // eax
-  int v9; // ecx
-  PVOID v10; // r14
-  size_t v11; // rbp
+  unsigned int v2; // edi
+  __int64 v3; // rsi
+  int v5; // eax
+  int v7; // ecx
+  PVOID v8; // r14
+  size_t v9; // rbp
   void *Memory; // rax
   _DWORD *PoolWithTag; // rax
-  _DWORD *v14; // r12
+  _DWORD *v12; // r12
 
-  v4 = 0;
-  v5 = 0LL;
+  v2 = 0;
+  v3 = 0LL;
   if ( a1 )
   {
     if ( a1 == 2 )
@@ -45,42 +45,42 @@ __int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2, __int64
     }
     else if ( qword_140C13538 || qword_140C13540 )
     {
-      v10 = qword_140C13540;
-      v11 = (unsigned int)Size;
+      v8 = qword_140C13540;
+      v9 = (unsigned int)Size;
       if ( !qword_140C13540 )
       {
         Memory = (void *)BgpFwAllocateMemory((unsigned int)Size);
-        v5 = (__int64)Memory;
+        v3 = (__int64)Memory;
         if ( !Memory )
           return (unsigned int)-1073741801;
-        v10 = Memory;
-        memmove(Memory, qword_140C13538, v11);
+        v8 = Memory;
+        memmove(Memory, qword_140C13538, v9);
       }
-      if ( (int)v11 + 8 < (unsigned int)v11 )
+      if ( (int)v9 + 8 < (unsigned int)v9 )
       {
-        v4 = -1073741675;
+        v2 = -1073741675;
       }
       else
       {
         BgpFwReleaseLock();
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v11 + 8), 0x4B494742u);
-        v14 = PoolWithTag;
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v9 + 8), 0x4B494742u);
+        v12 = PoolWithTag;
         if ( PoolWithTag )
         {
           *PoolWithTag = ((unsigned int)dword_140C134F0 >> 23) & 1;
           PoolWithTag[1] = 8;
-          memmove(PoolWithTag + 2, v10, v11);
+          memmove(PoolWithTag + 2, v8, v9);
           BgpFwAcquireLock();
-          *(_QWORD *)a2 = v14;
+          *(_QWORD *)a2 = v12;
         }
         else
         {
           BgpFwAcquireLock();
-          v4 = -1073741801;
+          v2 = -1073741801;
         }
       }
-      if ( v5 )
-        BgpFwFreeMemory(v5, a2, a3, a4);
+      if ( v3 )
+        BgpFwFreeMemory(v3);
     }
     else
     {
@@ -92,17 +92,17 @@ __int64 __fastcall BgpFwQueryBootGraphicsInformation(int a1, __int64 a2, __int64
     *(_OWORD *)a2 = xmmword_140C134D0;
     *(_OWORD *)(a2 + 16) = xmmword_140C134E0;
     *(_DWORD *)(a2 + 20) = 0;
-    v7 = *(_DWORD *)(a2 + 20);
+    v5 = *(_DWORD *)(a2 + 20);
     if ( (dword_140C134F0 & 2) != 0 )
-      v7 = 1;
-    *(_DWORD *)(a2 + 20) = v7;
+      v5 = 1;
+    *(_DWORD *)(a2 + 20) = v5;
     if ( ((BYTE2(BgInternal) - 1) & 0xFD) == 0 )
     {
-      v9 = *(_DWORD *)(a2 + 8);
+      v7 = *(_DWORD *)(a2 + 8);
       *(_DWORD *)(a2 + 8) = *(_DWORD *)(a2 + 12);
-      *(_DWORD *)(a2 + 12) = v9;
+      *(_DWORD *)(a2 + 12) = v7;
     }
     *(_DWORD *)(a2 + 28) = BYTE2(BgInternal);
   }
-  return v4;
+  return v2;
 }

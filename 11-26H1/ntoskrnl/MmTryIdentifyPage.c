@@ -1,13 +1,13 @@
 /*
- * XREFs of MmTryIdentifyPage @ 0x1406EF388
+ * XREFs of MmTryIdentifyPage @ 0x1406F4028
  * Callers:
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1405D0970 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1405D3180 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiIsPageSecured @ 0x1405328B8 (MiIsPageSecured.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiIsPageSecured @ 0x140534D58 (MiIsPageSecured.c)
  */
 
 __int64 __fastcall MmTryIdentifyPage(unsigned __int64 a1, unsigned __int64 *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MmTryIdentifyPage(unsigned __int64 a1, unsigned __int64 *a2)
     __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
-  if ( a1 > qword_140E2D7A0
+  if ( a1 > qword_140E2D920
     || ((*(_QWORD *)(8 * v5 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0
     || _interlockedbittestandset64((volatile signed __int32 *)(v6 + 24), 0x3FuLL) )
   {

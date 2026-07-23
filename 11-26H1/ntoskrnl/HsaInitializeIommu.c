@@ -1,18 +1,18 @@
 /*
- * XREFs of HsaInitializeIommu @ 0x140BF0BE0
+ * XREFs of HsaInitializeIommu @ 0x140BF6BE0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     HalSocRequestApi @ 0x1404EF27C (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
- *     HsaBuildDeviceTableEntry @ 0x1405A918C (HsaBuildDeviceTableEntry.c)
- *     HsaGetBlockedDomain @ 0x1405A9AB8 (HsaGetBlockedDomain.c)
- *     HsaProcessDeviceExceptions @ 0x1405AA2F8 (HsaProcessDeviceExceptions.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HsaInitializeInterruptRemapping @ 0x140BF0A38 (HsaInitializeInterruptRemapping.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     HalSocRequestApi @ 0x1404E885C (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
+ *     HsaBuildDeviceTableEntry @ 0x1405AB99C (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x1405AC2C8 (HsaGetBlockedDomain.c)
+ *     HsaProcessDeviceExceptions @ 0x1405ACB08 (HsaProcessDeviceExceptions.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HsaInitializeInterruptRemapping @ 0x140BF6A38 (HsaInitializeInterruptRemapping.c)
  */
 
 __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
@@ -73,7 +73,7 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
   v49 = 0LL;
   if ( !a2 )
   {
-    result = HalSocRequestApi(a1, 0LL, 4, 8LL, &qword_140F87380);
+    result = HalSocRequestApi(a1, 0LL, 4, 8LL, &qword_140F87870);
     if ( (int)result < 0 )
       return result;
     if ( !v4 && !v3 )
@@ -81,7 +81,7 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
     if ( v4 == 2 && !HsaBlockedPageTable )
     {
       v7 = guard_dispatch_icall_no_overrides(-1LL, 1LL);
-      qword_140F87390 = v7;
+      qword_140F87878 = v7;
       if ( !v7 )
         return 3221225473LL;
       v8 = HalMapIoSpace((LARGE_INTEGER)v7, 0x1000uLL, (MEMORY_CACHING_TYPE)((*(unsigned __int8 *)(a1 + 16) >> 5) & 1));
@@ -173,7 +173,7 @@ __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
                 v25,
                 v22,
                 0LL,
-                (__int64)&EmpParseLock.1144,
+                (__int64)&xmmword_140F87720,
                 v20 + 32LL * v18);
               v18 = v44 + 1;
               v45 = v18;

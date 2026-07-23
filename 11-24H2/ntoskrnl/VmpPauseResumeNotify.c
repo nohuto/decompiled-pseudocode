@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpPauseResumeNotify @ 0x14079F238
+ * XREFs of VmpPauseResumeNotify @ 0x14079F348
  * Callers:
- *     VmPauseResumeNotify @ 0x14079EC40 (VmPauseResumeNotify.c)
+ *     VmPauseResumeNotify @ 0x14079ED50 (VmPauseResumeNotify.c)
  * Callees:
- *     SmStoreExistsForProcess @ 0x140245744 (SmStoreExistsForProcess.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     MmProcessWorkingSetControl @ 0x140A4C914 (MmProcessWorkingSetControl.c)
+ *     SmStoreExistsForProcess @ 0x14020DF24 (SmStoreExistsForProcess.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     MmProcessWorkingSetControl @ 0x140A434A4 (MmProcessWorkingSetControl.c)
  */
 
 __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)

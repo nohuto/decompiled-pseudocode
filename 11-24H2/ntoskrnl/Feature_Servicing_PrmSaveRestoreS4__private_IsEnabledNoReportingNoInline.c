@@ -1,23 +1,17 @@
 /*
- * XREFs of Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledNoReportingNoInline @ 0x14054CAE4
+ * XREFs of Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledNoReportingNoInline @ 0x14054A3A4
  * Callers:
- *     HaliLocateHiberRanges @ 0x140B6E700 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140B705C0 (HaliLocateHiberRanges.c)
  * Callees:
- *     Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledFallback @ 0x14054CAC8 (Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledFallback.c)
+ *     Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledFallback @ 0x14054A388 (Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledFallback.c)
  */
 
-__int64 __fastcall Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledNoReportingNoInline(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+__int64 Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledNoReportingNoInline()
 {
   if ( (Feature_Servicing_PrmSaveRestoreS4__private_featureState & 2) != 0 )
     return Feature_Servicing_PrmSaveRestoreS4__private_featureState & 1;
   else
     return Feature_Servicing_PrmSaveRestoreS4__private_IsEnabledFallback(
              (unsigned int)Feature_Servicing_PrmSaveRestoreS4__private_featureState,
-             0,
-             a3,
-             a4);
+             0);
 }

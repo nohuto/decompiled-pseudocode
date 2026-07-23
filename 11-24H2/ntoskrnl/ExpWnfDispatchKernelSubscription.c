@@ -1,32 +1,32 @@
 /*
- * XREFs of ExpWnfDispatchKernelSubscription @ 0x1408AE2C0
+ * XREFs of ExpWnfDispatchKernelSubscription @ 0x140904520
  * Callers:
- *     ExpWnfNotifyNameSubscribers @ 0x1408ADF30 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfWorkItemRoutine @ 0x1408AE260 (ExpWnfWorkItemRoutine.c)
- *     ExpWnfStartKernelDispatcher @ 0x1409F4874 (ExpWnfStartKernelDispatcher.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140904190 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfWorkItemRoutine @ 0x1409044C0 (ExpWnfWorkItemRoutine.c)
+ *     ExpWnfStartKernelDispatcher @ 0x1409E8BD4 (ExpWnfStartKernelDispatcher.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExfReleaseRundownProtection @ 0x1402456A0 (ExfReleaseRundownProtection.c)
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1408ADF30 (ExpWnfNotifyNameSubscribers.c)
- *     PopWnfSprActiveSessionChangeCallback @ 0x1408AE6C0 (PopWnfSprActiveSessionChangeCallback.c)
- *     ExpWnfValidateKernelCallbackEnvironment @ 0x1408AE7A8 (ExpWnfValidateKernelCallbackEnvironment.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExfReleaseRundownProtection @ 0x14020DE80 (ExfReleaseRundownProtection.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140904190 (ExpWnfNotifyNameSubscribers.c)
+ *     PopWnfSprActiveSessionChangeCallback @ 0x140904920 (PopWnfSprActiveSessionChangeCallback.c)
+ *     ExpWnfValidateKernelCallbackEnvironment @ 0x140904A08 (ExpWnfValidateKernelCallbackEnvironment.c)
  */
 
 __int64 ExpWnfDispatchKernelSubscription()
 {
   __int64 v0; // r15
   volatile signed __int64 *v1; // rsi
-  _QWORD *v2; // rax
-  _QWORD *v3; // rbx
+  char *v2; // rax
+  char *v3; // rbx
   _QWORD **v4; // r14
   _QWORD *v5; // rdi
   ULONG_PTR v6; // rbp
@@ -35,7 +35,7 @@ __int64 ExpWnfDispatchKernelSubscription()
   _QWORD *v9; // rax
   signed __int64 *v11; // r12
   unsigned int v12; // r15d
-  _QWORD *v13; // rdi
+  char *v13; // rdi
   __int64 v14; // rdi
   unsigned __int64 v15; // rtt
   unsigned int v16; // eax
@@ -43,11 +43,11 @@ __int64 ExpWnfDispatchKernelSubscription()
   int v18; // r12d
   __int64 v19; // r9
   unsigned __int64 v20; // rtt
-  _QWORD *v21; // rax
-  _QWORD *v22; // rdi
+  char *v21; // rax
+  char *v22; // rdi
   unsigned __int64 v23; // rtt
-  _QWORD *v24; // rax
-  _QWORD *v25; // rdi
+  char *v24; // rax
+  char *v25; // rdi
   __int64 v26; // [rsp+48h] [rbp-50h]
   signed __int64 *v27; // [rsp+50h] [rbp-48h]
   __int64 v28; // [rsp+58h] [rbp-40h] BYREF
@@ -56,12 +56,12 @@ __int64 ExpWnfDispatchKernelSubscription()
   v0 = *(_QWORD *)&PsInitialSystemProcess[3].BasePriority;
   v26 = v0;
   v1 = (volatile signed __int64 *)(v0 + 104);
-  v2 = KeAbPreAcquire(v0 + 104, 0LL);
+  v2 = (char *)KeAbPreAcquire(v0 + 104, 0LL);
   v3 = v2;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v0 + 104), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v0 + 104), (__int64)v2, v0 + 104);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v0 + 104), v2, v0 + 104);
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   v4 = (_QWORD **)(v0 + 112);
 LABEL_6:
   v5 = *v4;
@@ -87,11 +87,11 @@ LABEL_6:
       if ( (_InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v1);
       KeAbPostRelease((ULONG_PTR)v1);
-      v13 = KeAbPreAcquire((__int64)v11, 0LL);
+      v13 = (char *)KeAbPreAcquire((__int64)v11, 0LL);
       if ( _InterlockedCompareExchange64(v11, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v11, 0, v13, (__int64)v11);
       if ( v13 )
-        *((_BYTE *)v13 + 10) = 1;
+        v13[10] = 1;
       v14 = *(_QWORD *)(v6 + 48);
       if ( v14 )
       {
@@ -140,7 +140,7 @@ LABEL_36:
         if ( *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(v6 + 80) == PopWnfSprActiveSessionChangeCallback )
           PopWnfSprActiveSessionChangeCallback(v6, &v28, v12, v19, v17, *(_QWORD *)(v6 + 88));
         else
-          guard_dispatch_icall_no_overrides(v6, &v28, v12, v19);
+          guard_dispatch_icall_no_overrides(v6, &v28);
         ExpWnfValidateKernelCallbackEnvironment(v6);
         if ( v18 && _InterlockedExchangeAdd((volatile signed __int32 *)(v14 + 164), 0xFFFFFFFF) == 1 )
           ExpWnfNotifyNameSubscribers(v14, 8u, 0, 0);
@@ -151,12 +151,12 @@ LABEL_36:
           if ( v20 != _InterlockedCompareExchange64((volatile signed __int64 *)(v14 + 8), v20 - 2, v20) )
             ExfReleaseRundownProtection((PEX_RUNDOWN_REF)(v14 + 8));
         }
-        v21 = KeAbPreAcquire((__int64)v1, 0LL);
+        v21 = (char *)KeAbPreAcquire((__int64)v1, 0LL);
         v22 = v21;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v1, (__int64)v21, (__int64)v1);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v1, v21, (__int64)v1);
         if ( v22 )
-          *((_BYTE *)v22 + 10) = 1;
+          v22[10] = 1;
         if ( !*(_DWORD *)(v6 + 124) )
         {
           *(_DWORD *)(v6 + 120) = 0;
@@ -176,12 +176,12 @@ LABEL_36:
         KeAbPostRelease((ULONG_PTR)v11);
         if ( v14 )
           ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v14 + 8));
-        v24 = KeAbPreAcquire((__int64)v1, 0LL);
+        v24 = (char *)KeAbPreAcquire((__int64)v1, 0LL);
         v25 = v24;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v1, (__int64)v24, (__int64)v1);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v1, v24, (__int64)v1);
         if ( v25 )
-          *((_BYTE *)v25 + 10) = 1;
+          v25[10] = 1;
         if ( !*(_DWORD *)(v6 + 124) )
         {
           *(_DWORD *)(v6 + 120) = 0;

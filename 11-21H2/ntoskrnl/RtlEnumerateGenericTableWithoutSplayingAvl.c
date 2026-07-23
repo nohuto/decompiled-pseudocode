@@ -3,7 +3,7 @@
  * Callers:
  *     RtlEnumerateGenericTableAvl @ 0x1402DE820 (RtlEnumerateGenericTableAvl.c)
  * Callees:
- *     RealSuccessor @ 0x1402DEC9C (RealSuccessor.c)
+ *     sub_1402DEC9C @ 0x1402DEC9C (sub_1402DEC9C.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table, PVOID *RestartKey)
@@ -17,7 +17,7 @@ PVOID __stdcall RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table,
     return 0LL;
   if ( *RestartKey )
   {
-    RightChild = (_RTL_BALANCED_LINKS *)RealSuccessor(*RestartKey, RestartKey, v2, RestartKey);
+    RightChild = (_RTL_BALANCED_LINKS *)sub_1402DEC9C(*RestartKey, RestartKey, v2, RestartKey);
     if ( RightChild )
       *v4 = RightChild;
   }

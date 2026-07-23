@@ -10,7 +10,7 @@
 NTSTATUS __fastcall VfZwSetTimer(
         HANDLE TimerHandle,
         LARGE_INTEGER *a2,
-        void (__stdcall *a3)(PVOID TimerContext, ULONG TimerLowValue, LONG TimerHighValue),
+        void (__cdecl *a3)(PVOID, ULONG, LONG),
         void *a4,
         BOOLEAN a5,
         LONG a6,

@@ -1,16 +1,16 @@
 /*
- * XREFs of SepDeReferenceSharedSidEntries @ 0x140794A18
+ * XREFs of SepDeReferenceSharedSidEntries @ 0x140794AA0
  * Callers:
- *     SepFreeTokenCapabilities @ 0x14046FF38 (SepFreeTokenCapabilities.c)
+ *     SepFreeTokenCapabilities @ 0x14046A360 (SepFreeTokenCapabilities.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlRemoveEntryHashTable @ 0x140357120 (RtlRemoveEntryHashTable.c)
- *     SepFindSharedSidEntry @ 0x140794C18 (SepFindSharedSidEntry.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlRemoveEntryHashTable @ 0x1403E3160 (RtlRemoveEntryHashTable.c)
+ *     SepFindSharedSidEntry @ 0x140794CA0 (SepFindSharedSidEntry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepDeReferenceSharedSidEntries(PSID *a1, unsigned int a2)
@@ -18,8 +18,8 @@ void __fastcall SepDeReferenceSharedSidEntries(PSID *a1, unsigned int a2)
   struct _KTHREAD *CurrentThread; // rax
   __int64 v4; // rbp
   unsigned __int64 *v5; // rsi
-  _QWORD *v6; // rax
-  _QWORD *v7; // rdi
+  char *v6; // rax
+  char *v7; // rdi
   __int64 v8; // rsi
   __int64 SharedSidEntry; // rax
   void *v10; // rdi
@@ -30,12 +30,12 @@ void __fastcall SepDeReferenceSharedSidEntries(PSID *a1, unsigned int a2)
   v4 = a2;
   --CurrentThread->KernelApcDisable;
   v5 = (unsigned __int64 *)g_SepSidMapping;
-  v6 = KeAbPreAcquire(g_SepSidMapping, 0LL);
+  v6 = (char *)KeAbPreAcquire(g_SepSidMapping, 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v5, (__int64)v6, (__int64)v5);
+    ExfAcquirePushLockExclusiveEx(v5, v6, (__int64)v5);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   if ( (_DWORD)v4 )
   {
     v8 = v4;

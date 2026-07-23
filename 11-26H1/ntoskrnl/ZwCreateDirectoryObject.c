@@ -1,19 +1,18 @@
 /*
- * XREFs of ZwCreateDirectoryObject @ 0x140724970
+ * XREFs of ZwCreateDirectoryObject @ 0x140729540
  * Callers:
- *     DifZwCreateDirectoryObjectWrapper @ 0x14069EA40 (DifZwCreateDirectoryObjectWrapper.c)
- *     ObpInitializeRootNamespace @ 0x1407C2F9C (ObpInitializeRootNamespace.c)
- *     SepInitializationPhase1 @ 0x140810284 (SepInitializationPhase1.c)
- *     ObpGetSilosRootDirectory @ 0x1408A7480 (ObpGetSilosRootDirectory.c)
- *     SeGetTokenDeviceMap @ 0x140A18788 (SeGetTokenDeviceMap.c)
- *     ExInitializeNls @ 0x140B6CCE4 (ExInitializeNls.c)
- *     PspInitializeCpuPartitionsPhase1 @ 0x140CD8A70 (PspInitializeCpuPartitionsPhase1.c)
- *     CmpInitializeDriverStores @ 0x140CEAB70 (CmpInitializeDriverStores.c)
+ *     DifZwCreateDirectoryObjectWrapper @ 0x1406A2620 (DifZwCreateDirectoryObjectWrapper.c)
+ *     ObpInitializeRootNamespace @ 0x1407C5FFC (ObpInitializeRootNamespace.c)
+ *     SepInitializationPhase1 @ 0x140815D14 (SepInitializationPhase1.c)
+ *     ObpGetSilosRootDirectory @ 0x1408AD8F0 (ObpGetSilosRootDirectory.c)
+ *     SeGetTokenDeviceMap @ 0x140A21DB8 (SeGetTokenDeviceMap.c)
+ *     ExInitializeNls @ 0x140B700B4 (ExInitializeNls.c)
+ *     PspInitializeCpuPartitionsPhase1 @ 0x140CDEDF0 (PspInitializeCpuPartitionsPhase1.c)
+ *     CmpInitializeDriverStores @ 0x140CF0F10 (CmpInitializeDriverStores.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateDirectoryObject(
         PHANDLE DirectoryHandle,
         ACCESS_MASK DesiredAccess,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwCreateDirectoryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DirectoryHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(DirectoryHandle);
 }

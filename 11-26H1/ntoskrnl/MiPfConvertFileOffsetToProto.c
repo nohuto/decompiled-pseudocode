@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPfConvertFileOffsetToProto @ 0x14036CC30
+ * XREFs of MiPfConvertFileOffsetToProto @ 0x14036E9D0
  * Callers:
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
- *     MiLocateSubsectionNode @ 0x1402E48B0 (MiLocateSubsectionNode.c)
- *     MiEndingOffsetWithLock @ 0x14036D000 (MiEndingOffsetWithLock.c)
- *     MiStartingOffsetNeedLock @ 0x14036D190 (MiStartingOffsetNeedLock.c)
- *     MiPfReferenceDataSubsection @ 0x140396C90 (MiPfReferenceDataSubsection.c)
+ *     MiLocateSubsectionNode @ 0x1402C68F0 (MiLocateSubsectionNode.c)
+ *     MiEndingOffsetWithLock @ 0x14036EDA0 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffsetNeedLock @ 0x14036EF30 (MiStartingOffsetNeedLock.c)
+ *     MiPfReferenceDataSubsection @ 0x140398A10 (MiPfReferenceDataSubsection.c)
  */
 
 __int64 __fastcall MiPfConvertFileOffsetToProto(__int64 a1, unsigned __int64 a2)

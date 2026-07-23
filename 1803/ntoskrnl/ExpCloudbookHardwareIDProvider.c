@@ -20,7 +20,7 @@ int __fastcall ExpCloudbookHardwareIDProvider(_DWORD *a1, void *a2, unsigned int
   if ( (int)(result + 0x80000000) >= 0 && result != -1073741789 )
   {
     *a4 = 32;
-    result = ZwQuerySystemInformation(SystemEmulationBasicInformation|0x80, SystemInformation, 0x24u, 0LL);
+    result = ZwQuerySystemInformation(SystemCodeIntegrityUnlockInformation, SystemInformation, 0x24u, 0LL);
     if ( result >= 0 )
     {
       if ( (SystemInformation[0] & 8) != 0 )

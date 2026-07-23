@@ -15,27 +15,27 @@
  *     LdrpLoadEnclaveModule @ 0x1800D0B74 (LdrpLoadEnclaveModule.c)
  */
 
-__int64 __fastcall LdrLoadEnclaveModule(unsigned __int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl LdrLoadEnclaveModule(PVOID BaseAddress, PWSTR DllPath, PUNICODE_STRING DllName)
 {
   __int64 *v5; // r14
   _QWORD *v7; // rsi
-  int PendingEnclaveModule; // ebx
+  NTSTATUS EnclaveModule; // ebx
   _QWORD *i; // rdi
-  int v10; // [rsp+40h] [rbp-C0h] BYREF
-  int v11[3]; // [rsp+44h] [rbp-BCh] BYREF
-  __int64 v12[15]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v10; // [rsp+40h] [rbp-C0h] BYREF
+  NTSTATUS v11[3]; // [rsp+44h] [rbp-BCh] BYREF
+  PWSTR Path[15]; // [rsp+50h] [rbp-B0h] BYREF
   char v13; // [rsp+CCh] [rbp-34h]
   int v14; // [rsp+D0h] [rbp-30h] BYREF
   __int16 *v15; // [rsp+D8h] [rbp-28h]
   __int16 v16; // [rsp+E0h] [rbp-20h] BYREF
 
-  v5 = LdrpObtainLockedEnclave(a1, 1);
+  v5 = LdrpObtainLockedEnclave((unsigned __int64)BaseAddress, 1);
   if ( !v5 )
-    return 3221225632LL;
-  LdrpInitializeDllPath(*(_QWORD *)(a3 + 8), a2, v12);
+    return -1073741664;
+  LdrpInitializeDllPath((__int64)DllName->Buffer, (__int64)DllPath, (__int64 *)Path);
   if ( v5[10] || (v7 = v5 + 11, (_QWORD *)*v7 != v7) )
   {
-    PendingEnclaveModule = -1073741800;
+    EnclaveModule = -1073741800;
   }
   else
   {
@@ -43,36 +43,28 @@ __int64 __fastcall LdrLoadEnclaveModule(unsigned __int64 a1, __int64 a2, __int64
     v15 = &v16;
     v16 = 0;
     v10 = 0x800000;
-    PendingEnclaveModule = LdrpPreprocessDllName((unsigned __int16 *)a3, (unsigned __int16 *)&v14, 0LL, &v10);
-    if ( PendingEnclaveModule >= 0 )
+    EnclaveModule = LdrpPreprocessDllName(&DllName->Length, (unsigned __int16 *)&v14, 0LL, &v10);
+    if ( EnclaveModule >= 0 )
     {
       v11[0] = 0;
-      PendingEnclaveModule = LdrpCreatePendingEnclaveModule(
-                               (_DWORD)v5,
-                               (unsigned int)&v14,
-                               v10,
-                               7,
-                               (__int64)v12,
-                               0LL,
-                               0LL,
-                               (__int64)v11);
-      if ( PendingEnclaveModule >= 0 )
+      EnclaveModule = LdrpCreatePendingEnclaveModule(v5, &v14, v10, 7LL, Path, 0LL, 0LL, v11);
+      if ( EnclaveModule >= 0 )
       {
         for ( i = (_QWORD *)*v7; i != v7; i = (_QWORD *)*i )
         {
-          PendingEnclaveModule = LdrpLoadEnclaveModule(i[22]);
-          if ( PendingEnclaveModule < 0 )
+          EnclaveModule = LdrpLoadEnclaveModule(i[22]);
+          if ( EnclaveModule < 0 )
             goto LABEL_13;
         }
-        PendingEnclaveModule = v11[0];
+        EnclaveModule = v11[0];
       }
     }
   }
 LABEL_13:
-  LdrpCleanupEnclaveLoadState(v5, (unsigned int)PendingEnclaveModule);
-  RtlLeaveCriticalSection((__int64)(v5 + 2));
+  LdrpCleanupEnclaveLoadState(v5, (unsigned int)EnclaveModule);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v5 + 2));
   LdrpDereferenceEnclave(v5);
   if ( v13 )
-    RtlReleasePath(v12[0]);
-  return (unsigned int)PendingEnclaveModule;
+    RtlReleasePath(Path[0]);
+  return EnclaveModule;
 }

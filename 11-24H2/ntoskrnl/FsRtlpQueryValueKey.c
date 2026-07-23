@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpQueryValueKey @ 0x14070D910
+ * XREFs of FsRtlpQueryValueKey @ 0x14070B4B0
  * Callers:
- *     FsRtlHeatInit @ 0x14070D410 (FsRtlHeatInit.c)
+ *     FsRtlHeatInit @ 0x14070AFB0 (FsRtlHeatInit.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall FsRtlpQueryValueKey(UNICODE_STRING *a1, UNICODE_STRING *a2, ULONG *a3, PVOID *a4, _BYTE *a5)
@@ -44,7 +44,7 @@ NTSTATUS __fastcall FsRtlpQueryValueKey(UNICODE_STRING *a1, UNICODE_STRING *a2, 
         if ( Length != *a3 )
           break;
         Length = ResultLength;
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, ResultLength, 0x68745346u);
         if ( !Pool2 )
         {
           v12 = -1073741670;

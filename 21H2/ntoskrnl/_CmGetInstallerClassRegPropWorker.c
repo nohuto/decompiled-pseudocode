@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmGetInstallerClassRegPropWorker @ 0x14073F90C
+ * XREFs of _CmGetInstallerClassRegPropWorker @ 0x14073FACC
  * Callers:
- *     _CmGetInstallerClassRegProp @ 0x14073F798 (_CmGetInstallerClassRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x14073F958 (_CmGetInstallerClassRegProp.c)
  * Callees:
- *     _MapCmClassPropertyToRegValue @ 0x14036F688 (_MapCmClassPropertyToRegValue.c)
- *     _CmClassPropertyRead @ 0x14036F700 (_CmClassPropertyRead.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x140641970 (_PnpCtxRegQueryValueIndirect.c)
- *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
+ *     _MapCmClassPropertyToRegValue @ 0x14036F838 (_MapCmClassPropertyToRegValue.c)
+ *     _CmClassPropertyRead @ 0x14036F8B0 (_CmClassPropertyRead.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x140636780 (_PnpCtxRegQueryValueIndirect.c)
+ *     _PnpOpenPropertiesKey @ 0x14063A2D4 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
  */
 
 __int64 __fastcall CmGetInstallerClassRegPropWorker(
@@ -23,7 +23,7 @@ __int64 __fastcall CmGetInstallerClassRegPropWorker(
 {
   int v8; // ebx
   unsigned int v11; // r13d
-  __int64 v12; // rdx
+  const WCHAR *v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // r8
   __int64 v15; // r9

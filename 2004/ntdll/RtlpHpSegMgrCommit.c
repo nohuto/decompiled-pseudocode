@@ -27,11 +27,11 @@ __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, __int64 a2, unsigned int a3, i
   unsigned __int64 v16; // rdx
   _WORD *v17; // r15
   void *v18; // rax
-  unsigned __int64 v19; // rdi
+  size_t v19; // rdi
   int v20; // r13d
-  __int64 v21; // rcx
+  _DWORD *v21; // rcx
   bool v22; // cf
-  int v23; // eax
+  ULONG v23; // eax
   int v24; // eax
   int v25; // ecx
   int v26; // edi
@@ -40,24 +40,24 @@ __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, __int64 a2, unsigned int a3, i
   int v30; // eax
   unsigned __int64 v31; // rcx
   __int16 v32; // [rsp+28h] [rbp-58h]
-  void *v33; // [rsp+30h] [rbp-50h] BYREF
-  unsigned __int64 v34; // [rsp+38h] [rbp-48h] BYREF
-  __int64 v35; // [rsp+40h] [rbp-40h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-50h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp-48h] BYREF
+  _RTL_SRWLOCK SRWLock; // [rsp+40h] [rbp-40h] BYREF
   size_t Size; // [rsp+48h] [rbp-38h]
   __int64 v37; // [rsp+50h] [rbp-30h] BYREF
   void *v38; // [rsp+58h] [rbp-28h]
-  __int128 v39; // [rsp+60h] [rbp-20h] BYREF
+  __int16 v39[8]; // [rsp+60h] [rbp-20h] BYREF
   __int128 v40; // [rsp+70h] [rbp-10h] BYREF
-  char v41; // [rsp+C0h] [rbp+40h] BYREF
+  __int64 v41; // [rsp+C0h] [rbp+40h] BYREF
   __int64 v42; // [rsp+C8h] [rbp+48h]
 
   v42 = a2;
-  v35 = 0LL;
+  SRWLock.0 = 0LL;
   v8 = a5;
   v9 = a6 & 0x40000000;
   v10 = a6 & 0xBFFFFFFF;
   v11 = a3;
-  v41 = 0;
+  LOBYTE(v41) = 0;
   if ( a5 > 0 )
   {
     v13 = *(_QWORD **)(a1 + 56);
@@ -84,7 +84,7 @@ __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, __int64 a2, unsigned int a3, i
   }
   if ( (*(_BYTE *)(a1 + 13) & 7) != 0 )
   {
-    v33 = (void *)(a2 & 0xFFFFFFFFFFE00000uLL);
+    BaseAddress = (PVOID)(a2 & 0xFFFFFFFFFFE00000uLL);
     RtlpHpQueryVA(a2 & 0xFFFFFFFFFFE00000uLL, a2, &v37, 0LL);
     v17 = (_WORD *)(v37 + 2 * (v11 >> 9));
   }
@@ -99,18 +99,18 @@ __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, __int64 a2, unsigned int a3, i
   v38 = v18;
   while ( 1 )
   {
-    v33 = v18;
-    v34 = v19;
+    BaseAddress = v18;
+    RegionSize = v19;
     if ( !v17 )
       goto LABEL_10;
-    v29 = RtlpHpSegMgrCommitInitiate(a1, (_DWORD)v17, v8, v20, (__int64)&v35, (__int64)&v41);
+    v29 = RtlpHpSegMgrCommitInitiate(a1, (int)v17, v8, v20, &SRWLock, (__int64)&v41);
     if ( v29 == -1073741568 )
       break;
     if ( v29 == -1073741566 )
     {
-      v33 = (void *)((unsigned __int64)v33 & 0xFFFFFFFFFFE00000uLL);
+      BaseAddress = (PVOID)((unsigned __int64)BaseAddress & 0xFFFFFFFFFFE00000uLL);
       v30 = v10 | 0x20000000;
-      v34 = 0x200000LL;
+      RegionSize = 0x200000LL;
       if ( (int)v8 <= 0 )
         v30 = v10;
       v10 = v30;
@@ -119,20 +119,20 @@ LABEL_10:
     if ( (int)v8 <= 0 )
     {
       v40 = *(_OWORD *)(a1 + 40);
-      v26 = RtlpHpFreeVA((unsigned __int64 *)&v33, &v34, v10, &v40);
+      v26 = RtlpHpFreeVA(&BaseAddress, &RegionSize, v10, &v40);
     }
     else
     {
       if ( v9 && (v10 & 0x20000000) == 0 )
         v10 |= 0x40000000u;
-      v21 = *(_QWORD *)(a1 + 56);
-      v22 = (*(_DWORD *)(v21 + 20) & 0x40000000) != 0;
-      v39 = *(_OWORD *)(a1 + 40);
+      v21 = *(_DWORD **)(a1 + 56);
+      v22 = (v21[5] & 0x40000000) != 0;
+      *(_OWORD *)v39 = *(_OWORD *)(a1 + 40);
       v23 = RtlpHpHeapValidateProtection(v21, v22 ? 64 : 4);
-      v24 = RtlpHpAllocVA(&v33, &v34, 0LL, v10, v23, &v39);
+      v24 = RtlpHpAllocVA(&BaseAddress, &RegionSize, 0LL, v10, v23, (__int128 *)v39);
       v26 = v24;
       if ( v9 && v24 >= 0 && (v10 & 0x40000000) == 0 )
-        memset(v33, 0, Size);
+        memset(BaseAddress, 0, Size);
     }
     if ( !v17 )
       return (unsigned int)v26;
@@ -144,7 +144,7 @@ LABEL_10:
       _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1 + 8), v31);
       v25 = _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1), v8);
     }
-    RtlpHpSegMgrCommitComplete(v25, (_DWORD)v17, v8, v26 >= 0, (__int64)&v35, v32);
+    RtlpHpSegMgrCommitComplete(v25, (int)v17, v8, v26 >= 0, &SRWLock, v32);
     if ( (v10 & 0x20000000) == 0 || v26 >= 0 || (v20 & 2) != 0 )
       return (unsigned int)v26;
     v19 = Size;
@@ -154,6 +154,6 @@ LABEL_10:
   }
   _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1), v8);
   if ( v9 )
-    memset(v33, 0, v19);
+    memset(BaseAddress, 0, v19);
   return 0;
 }

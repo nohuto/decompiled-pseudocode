@@ -1,14 +1,14 @@
 /*
- * XREFs of PnprMarkOrMirrorPages @ 0x1409ADEC8
+ * XREFs of PnprMarkOrMirrorPages @ 0x1409AEDF8
  * Callers:
- *     PnprMirrorPhysicalMemory @ 0x14050F5C0 (PnprMirrorPhysicalMemory.c)
- *     PnprRecopyAddress @ 0x14050F7C0 (PnprRecopyAddress.c)
- *     PnprRecopyMappingReserve @ 0x14050F818 (PnprRecopyMappingReserve.c)
+ *     PnprMirrorPhysicalMemory @ 0x14050F800 (PnprMirrorPhysicalMemory.c)
+ *     PnprRecopyAddress @ 0x14050FA00 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x14050FA58 (PnprRecopyMappingReserve.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -16,7 +16,7 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
   __int64 v4; // rcx
   unsigned __int64 v5; // r14
   __int64 v7; // rax
-  RTL_BITMAP *v8; // rsi
+  _RTL_BITMAP *v8; // rsi
   unsigned __int64 v9; // r13
   unsigned __int64 v10; // r15
   unsigned __int64 v11; // rbp
@@ -32,10 +32,10 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
   v5 = a1 >> 12;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v7 = PnprContext + 152;
-  v8 = *(RTL_BITMAP **)(PnprContext + 152);
+  v8 = *(_RTL_BITMAP **)(PnprContext + 152);
   v9 = (a2 >> 12) + v5;
   v10 = v9 - 1;
-  while ( v8 != (RTL_BITMAP *)v7 )
+  while ( v8 != (_RTL_BITMAP *)v7 )
   {
     v11 = *(_QWORD *)&v8[1].SizeOfBitMap;
     if ( v10 < v11 )
@@ -75,7 +75,7 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
       }
     }
     v4 = PnprContext;
-    v8 = *(RTL_BITMAP **)&v8->SizeOfBitMap;
+    v8 = *(_RTL_BITMAP **)&v8->SizeOfBitMap;
     v7 = PnprContext + 152;
   }
   return 0LL;

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpSegPageRangeAllocate @ 0x180051620
+ * XREFs of RtlpHpSegPageRangeAllocate @ 0x180067200
  * Callers:
- *     RtlpHpSegAlloc @ 0x180051440 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegAlloc @ 0x180067020 (RtlpHpSegAlloc.c)
  * Callees:
- *     RtlpHpSegPageRangeCountCommittedPages @ 0x1800518C0 (RtlpHpSegPageRangeCountCommittedPages.c)
- *     RtlpHpSegFreeRangeRemove @ 0x180051C60 (RtlpHpSegFreeRangeRemove.c)
- *     RtlpHpSegFreeRangeInsert @ 0x180053980 (RtlpHpSegFreeRangeInsert.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpSegSegmentInitialize @ 0x180090724 (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegHeapAddSegment @ 0x1800907F8 (RtlpHpSegHeapAddSegment.c)
- *     RtlpHpSegSegmentAllocate @ 0x1800910C4 (RtlpHpSegSegmentAllocate.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x1800D7EE8 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegPageRangeCountCommittedPages @ 0x1800674A0 (RtlpHpSegPageRangeCountCommittedPages.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x180067840 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x180069560 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpSegSegmentInitialize @ 0x18009B2B0 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegHeapAddSegment @ 0x18009B384 (RtlpHpSegHeapAddSegment.c)
+ *     RtlpHpSegSegmentAllocate @ 0x18009BC50 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x1800D3258 (RtlpHpSegLargeRangeAllocate.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
@@ -39,7 +39,7 @@ __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
 
   v4 = 1;
   v6 = (unsigned int)(a2 - 1 + (1 << *(_BYTE *)(a1 + 9))) >> *(_BYTE *)(a1 + 9);
-  RtlAcquireSRWLockExclusive(a1 + 64);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   v7 = *(_QWORD *)(a1 + 104);
   v8 = *(_QWORD *)(a1 + 96);
   v9 = v6 << 24;
@@ -84,14 +84,14 @@ LABEL_7:
   if ( v8 )
     goto LABEL_10;
 LABEL_20:
-  RtlReleaseSRWLockExclusive(a1 + 64);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   result = RtlpHpSegSegmentAllocate(a1, 0LL, v12 != 0 ? 2 : 0);
   v24 = result;
   if ( !result )
     return result;
   RtlpHpSegSegmentInitialize(a1, result, 0LL);
   v8 = v24 + 32LL * *(unsigned __int8 *)(a1 + 10);
-  RtlAcquireSRWLockExclusive(a1 + 64);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   RtlpHpSegHeapAddSegment(a1, v24);
   if ( v12 )
     v8 = RtlpHpSegLargeRangeAllocate(a1, v8, v6, 0LL);
@@ -122,7 +122,7 @@ LABEL_10:
   }
   *(_BYTE *)(v8 + 24) |= HIBYTE(a3) & 0xC | 1;
   *(_BYTE *)(32LL * v19 + v8 + 24) |= 1u;
-  RtlReleaseSRWLockExclusive(a1 + 64);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   *(_BYTE *)(v8 + 26) = 0;
   if ( v19 > 1 )
   {

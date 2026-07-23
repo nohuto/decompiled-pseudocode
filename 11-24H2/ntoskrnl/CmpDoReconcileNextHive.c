@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpDoReconcileNextHive @ 0x14097B2F0
+ * XREFs of CmpDoReconcileNextHive @ 0x140963B00
  * Callers:
  *     <none>
  * Callees:
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     CmpIsHiveEligibleForLazyReconcile @ 0x14097B454 (CmpIsHiveEligibleForLazyReconcile.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x14097EC14 (HvGetEffectiveLogSizeCapForHive.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x140AA07B0 (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x140963C64 (CmpIsHiveEligibleForLazyReconcile.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140967424 (HvGetEffectiveLogSizeCapForHive.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x140A9BB40 (CmpFlushUnsupportedOperationTelemetry.c)
  */
 
 char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)

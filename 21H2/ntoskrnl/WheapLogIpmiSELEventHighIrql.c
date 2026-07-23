@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapLogIpmiSELEventHighIrql @ 0x1405BD5D8
+ * XREFs of WheapLogIpmiSELEventHighIrql @ 0x1405BD808
  * Callers:
- *     WheapLogIpmiSELEvent @ 0x1405BD538 (WheapLogIpmiSELEvent.c)
+ *     WheapLogIpmiSELEvent @ 0x1405BD768 (WheapLogIpmiSELEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD510 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD740 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
  */
 
 void WheapLogIpmiSELEventHighIrql()

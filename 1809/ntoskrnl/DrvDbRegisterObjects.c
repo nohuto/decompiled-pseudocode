@@ -1,7 +1,7 @@
 /*
- * XREFs of DrvDbRegisterObjects @ 0x14073B2D8
+ * XREFs of DrvDbRegisterObjects @ 0x14073C4C8
  * Callers:
- *     DrvDbOpenContext @ 0x14073B198 (DrvDbOpenContext.c)
+ *     DrvDbOpenContext @ 0x14073C388 (DrvDbOpenContext.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall DrvDbRegisterObjects(__int64 a1, __int64 a2)
   int v6; // r8d
   __int64 v7; // rcx
 
-  v3 = (int *)&unk_140355380;
+  v3 = (int *)&unk_140356380;
   for ( i = 0; i < 5; ++i )
   {
     v5 = *v3;

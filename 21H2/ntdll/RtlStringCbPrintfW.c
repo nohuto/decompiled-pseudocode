@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCbPrintfW @ 0x1800D86C0
+ * XREFs of RtlStringCbPrintfW @ 0x1800D8680
  * Callers:
- *     RtlQueryProcessHeapInformation @ 0x1800D7D90 (RtlQueryProcessHeapInformation.c)
- *     RtlpGetTagName @ 0x1800F4078 (RtlpGetTagName.c)
+ *     RtlQueryProcessHeapInformation @ 0x1800D7D50 (RtlQueryProcessHeapInformation.c)
+ *     RtlpGetTagName @ 0x1800F4038 (RtlpGetTagName.c)
  * Callees:
  *     _vsnwprintf @ 0x18008E270 (_vsnwprintf.c)
  */

@@ -1,43 +1,45 @@
 /*
- * XREFs of BgkDrawText @ 0x140BB02DC
+ * XREFs of BgkDrawText @ 0x140BB22DC
  * Callers:
- *     NtDrawText @ 0x140653A40 (NtDrawText.c)
+ *     NtDrawText @ 0x1406521A0 (NtDrawText.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1404A9ACC (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1404A9CA4 (BgpFwAcquireLock.c)
- *     BgpTxtDisplayString @ 0x140BB2BB0 (BgpTxtDisplayString.c)
+ *     BgpFwReleaseLock @ 0x1404A3D9C (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1404A3F74 (BgpFwAcquireLock.c)
+ *     BgpTxtDisplayString @ 0x140BB4BB0 (BgpTxtDisplayString.c)
  */
 
-__int64 __fastcall BgkDrawText(int a1)
+__int64 __fastcall BgkDrawText(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v2; // ebx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  int v5; // r8d
-  int v6; // r9d
+  int v4; // ebx
+  unsigned int v5; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // r8d
+  int v9; // r9d
 
-  if ( !byte_140E65DA8 || !byte_140E65DB1 )
+  v4 = a1;
+  if ( !byte_140E65EE0 || !byte_140E65EE8 )
     return 3221225473LL;
   if ( KeGetCurrentIrql() <= 2u )
   {
-    BgpFwAcquireLock();
-    if ( (dword_140EF0050 & 1) == 0 || (dword_140EF0050 & 0x100) != 0 )
+    BgpFwAcquireLock(a1, a2, a3, a4);
+    if ( (dword_140EF0270 & 1) == 0 || (dword_140EF0270 & 0x100) != 0 )
     {
-      v2 = -1073741823;
+      v5 = -1073741823;
     }
-    else if ( qword_140EF0100 && (v4 = qword_140EF0118) != 0 )
+    else if ( qword_140EF0320 && (v7 = qword_140EF0338) != 0 )
     {
-      v2 = BgpTxtDisplayString(qword_140EF0118, a1, v5, v6);
+      v5 = BgpTxtDisplayString(qword_140EF0338, v4, v8, v9);
     }
     else
     {
-      v2 = -1073741670;
+      v5 = -1073741670;
     }
-    BgpFwReleaseLock(v4, v3);
+    BgpFwReleaseLock(v7, v6);
   }
   else
   {
     return (unsigned int)-1073741823;
   }
-  return v2;
+  return v5;
 }

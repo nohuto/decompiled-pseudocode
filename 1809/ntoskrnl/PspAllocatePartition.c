@@ -1,23 +1,23 @@
 /*
- * XREFs of PspAllocatePartition @ 0x14075CA48
+ * XREFs of PspAllocatePartition @ 0x14075DC38
  * Callers:
- *     NtCreatePartition @ 0x14088D100 (NtCreatePartition.c)
- *     PspInitializeSystemPartitionPhase0 @ 0x1409D94B0 (PspInitializeSystemPartitionPhase0.c)
+ *     NtCreatePartition @ 0x14088E360 (NtCreatePartition.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x1409DA4B0 (PspInitializeSystemPartitionPhase0.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     PspAddPartitionToGlobalList @ 0x1401908F4 (PspAddPartitionToGlobalList.c)
- *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ExpPartitionStart @ 0x1407547FC (ExpPartitionStart.c)
- *     ExpPartitionInitialize @ 0x140754A64 (ExpPartitionInitialize.c)
- *     PspCreatePartitionSystemProcess @ 0x14088D2E8 (PspCreatePartitionSystemProcess.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     PspAddPartitionToGlobalList @ 0x140190A34 (PspAddPartitionToGlobalList.c)
+ *     MmCreatePartition @ 0x140190AB0 (MmCreatePartition.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     ExpPartitionStart @ 0x1407559EC (ExpPartitionStart.c)
+ *     ExpPartitionInitialize @ 0x140755C54 (ExpPartitionInitialize.c)
+ *     PspCreatePartitionSystemProcess @ 0x14088E548 (PspCreatePartitionSystemProcess.c)
  */
 
 __int64 __fastcall PspAllocatePartition(

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroNodeConductorWait @ 0x1406900D8
+ * XREFs of MiZeroNodeConductorWait @ 0x1406911A8
  * Callers:
- *     MiZeroNodeExiting @ 0x1406901F4 (MiZeroNodeExiting.c)
- *     MiNodeZeroConductor @ 0x1407FF7C0 (MiNodeZeroConductor.c)
+ *     MiZeroNodeExiting @ 0x1406912C4 (MiZeroNodeExiting.c)
+ *     MiNodeZeroConductor @ 0x1407FFF00 (MiNodeZeroConductor.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     MiDeleteThreadContext @ 0x14068F644 (MiDeleteThreadContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     MiDeleteThreadContext @ 0x140690714 (MiDeleteThreadContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiZeroNodeConductorWait(__int64 a1, LARGE_INTEGER *a2)

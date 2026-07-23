@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefRawNeg @ 0x140568FEC
+ * XREFs of SymCryptFdefRawNeg @ 0x1405681CC
  * Callers:
- *     SymCryptFdefIntNeg @ 0x1405688EC (SymCryptFdefIntNeg.c)
- *     SymCryptFdefIntSubMixedSize @ 0x140568990 (SymCryptFdefIntSubMixedSize.c)
- *     SymCryptFdefModulusInitMontgomeryInternal @ 0x1405705E0 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ *     SymCryptFdefIntNeg @ 0x140567ACC (SymCryptFdefIntNeg.c)
+ *     SymCryptFdefIntSubMixedSize @ 0x140567B70 (SymCryptFdefIntSubMixedSize.c)
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x14056F7C0 (SymCryptFdefModulusInitMontgomeryInternal.c)
  * Callees:
  *     <none>
  */

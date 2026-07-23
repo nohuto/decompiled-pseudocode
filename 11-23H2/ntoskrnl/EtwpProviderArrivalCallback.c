@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpProviderArrivalCallback @ 0x14077DC5C
+ * XREFs of EtwpProviderArrivalCallback @ 0x14077DE4C
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x1406BE810 (EtwpAddRegEntryToGroup.c)
- *     EtwpTrackProviderRegistration @ 0x1406BFB90 (EtwpTrackProviderRegistration.c)
- *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
- *     EtwpTrackProviderBinary @ 0x14085A910 (EtwpTrackProviderBinary.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1409F55E4 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BE840 (EtwpAddRegEntryToGroup.c)
+ *     EtwpTrackProviderRegistration @ 0x1406BFBC0 (EtwpTrackProviderRegistration.c)
+ *     EtwpEnableGuid @ 0x14077FEF0 (EtwpEnableGuid.c)
+ *     EtwpTrackProviderBinary @ 0x14085AB50 (EtwpTrackProviderBinary.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x1409F5874 (EtwpTrackGuidEntryRegistrations.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x14077DD7C (EtwpLocateDbgIdForRegEntry.c)
- *     EtwpTrackDebugIdForSession @ 0x14077E150 (EtwpTrackDebugIdForSession.c)
- *     RtlPcToFilePath @ 0x1408A6090 (RtlPcToFilePath.c)
- *     EtwpTrackBinaryForSession @ 0x1408AB250 (EtwpTrackBinaryForSession.c)
- *     MmGetFileNameForAddress @ 0x1408ABD0E (MmGetFileNameForAddress.c)
- *     EtwpEventWriteDebugLookupFailed @ 0x1409E3440 (EtwpEventWriteDebugLookupFailed.c)
- *     EtwpSendDbgId @ 0x1409EBE84 (EtwpSendDbgId.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x14077DF6C (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpTrackDebugIdForSession @ 0x14077E340 (EtwpTrackDebugIdForSession.c)
+ *     RtlPcToFilePath @ 0x1408A62E0 (RtlPcToFilePath.c)
+ *     EtwpTrackBinaryForSession @ 0x1408AB4A0 (EtwpTrackBinaryForSession.c)
+ *     MmGetFileNameForAddress @ 0x1408ABF5E (MmGetFileNameForAddress.c)
+ *     EtwpEventWriteDebugLookupFailed @ 0x1409E36D0 (EtwpEventWriteDebugLookupFailed.c)
+ *     EtwpSendDbgId @ 0x1409EC114 (EtwpSendDbgId.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of ViInitSystemPhase0 @ 0x1409DAF34
+ * XREFs of ViInitSystemPhase0 @ 0x1409DBF34
  * Callers:
- *     VerifierInitSystem @ 0x1409DAED4 (VerifierInitSystem.c)
+ *     VerifierInitSystem @ 0x1409DBED4 (VerifierInitSystem.c)
  * Callees:
- *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
- *     strstr @ 0x140194EC0 (strstr.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
- *     VfDisableCodeIntegrityBreaks @ 0x1409276B8 (VfDisableCodeIntegrityBreaks.c)
- *     VfSetVerifierRunningMode @ 0x140937490 (VfSetVerifierRunningMode.c)
- *     ViInitPickRandomTargets @ 0x1409DB108 (ViInitPickRandomTargets.c)
- *     VfTriageSystem @ 0x1409DB150 (VfTriageSystem.c)
- *     VfInitSetVerifyDriverTargets @ 0x1409F8498 (VfInitSetVerifyDriverTargets.c)
+ *     KiInitializeMutant @ 0x1400DD3F8 (KiInitializeMutant.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409275A0 (VfInitSystemNoRebootNeeded.c)
+ *     VfDisableCodeIntegrityBreaks @ 0x1409286B8 (VfDisableCodeIntegrityBreaks.c)
+ *     VfSetVerifierRunningMode @ 0x140938490 (VfSetVerifierRunningMode.c)
+ *     ViInitPickRandomTargets @ 0x1409DC108 (ViInitPickRandomTargets.c)
+ *     VfTriageSystem @ 0x1409DC150 (VfTriageSystem.c)
+ *     VfInitSetVerifyDriverTargets @ 0x1409F9498 (VfInitSetVerifyDriverTargets.c)
  */
 
 void __fastcall ViInitSystemPhase0(__int64 a1, __int64 a2, __int64 a3)
@@ -46,16 +46,16 @@ void __fastcall ViInitSystemPhase0(__int64 a1, __int64 a2, __int64 a3)
     VfDisableCodeIntegrityBreaks();
   LOBYTE(a3) = 1;
   KiInitializeMutant((__int64)&ViDriversLoadLock, 0LL, a3);
-  qword_14040D778 = (__int64)&VfSuspectDriversList;
+  qword_14040E7E8 = (__int64)&VfSuspectDriversList;
   VfSuspectDriversList = (__int64)&VfSuspectDriversList;
-  qword_14040D2A8 = (__int64)&VfExcludedDriversList;
+  qword_14040E2F8 = (__int64)&VfExcludedDriversList;
   VfExcludedDriversList = (__int64)&VfExcludedDriversList;
-  qword_14040D298 = (__int64)&VfXdvExcludedDriversList;
+  qword_14040E2E8 = (__int64)&VfXdvExcludedDriversList;
   VfXdvExcludedDriversList = (__int64)&VfXdvExcludedDriversList;
   if ( VfVerifyMode == -1 )
   {
     VfVerifyMode = (MmVerifierData & 0x400000) != 0 ? 2 : 4;
-    dword_14041A9FC = VfVerifyMode;
+    dword_14041BADC = VfVerifyMode;
   }
   if ( MmVerifyDriverLevel != -1 )
     VfRuleClasses[0] = MmVerifyDriverLevel;
@@ -63,9 +63,9 @@ void __fastcall ViInitSystemPhase0(__int64 a1, __int64 a2, __int64 a3)
   {
     *(_QWORD *)&VfBugcheckTmpData = *(unsigned int *)(v6 + 56);
     BugCheckParameter1 = *(_QWORD *)(v6 + 64);
-    qword_140985A70 = *(_QWORD *)(v6 + 72);
-    qword_140985A78 = *(_QWORD *)(v6 + 80);
-    qword_140985A80 = *(_QWORD *)(v6 + 88);
+    qword_140986A70 = *(_QWORD *)(v6 + 72);
+    qword_140986A78 = *(_QWORD *)(v6 + 80);
+    qword_140986A80 = *(_QWORD *)(v6 + 88);
   }
   if ( (VfOptionFlags & 0x410) == 0
     || MmVerifyDriverLevel == -1

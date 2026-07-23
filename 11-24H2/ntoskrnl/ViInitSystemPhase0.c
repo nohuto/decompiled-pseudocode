@@ -1,18 +1,18 @@
 /*
- * XREFs of ViInitSystemPhase0 @ 0x140C3B6E4
+ * XREFs of ViInitSystemPhase0 @ 0x140C3D83C
  * Callers:
- *     VerifierInitSystem @ 0x140C3B1B8 (VerifierInitSystem.c)
+ *     VerifierInitSystem @ 0x140C3D310 (VerifierInitSystem.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x14044FEB0 (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VfInitSystemNoRebootNeeded @ 0x140B83980 (VfInitSystemNoRebootNeeded.c)
- *     ViDisableVerification @ 0x140B83B0C (ViDisableVerification.c)
- *     VfSetVerifierRunningMode @ 0x140B9B1F8 (VfSetVerifierRunningMode.c)
- *     VfInitSetVerifyDriverTargets @ 0x140C3B544 (VfInitSetVerifyDriverTargets.c)
- *     ViInitPickRandomTargets @ 0x140C3B598 (ViInitPickRandomTargets.c)
- *     VfTriageSystem @ 0x140C3C068 (VfTriageSystem.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x140445120 (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140B85980 (VfInitSystemNoRebootNeeded.c)
+ *     ViDisableVerification @ 0x140B85B0C (ViDisableVerification.c)
+ *     VfSetVerifierRunningMode @ 0x140B9D1F8 (VfSetVerifierRunningMode.c)
+ *     VfInitSetVerifyDriverTargets @ 0x140C3D69C (VfInitSetVerifyDriverTargets.c)
+ *     ViInitPickRandomTargets @ 0x140C3D6F0 (ViInitPickRandomTargets.c)
+ *     VfTriageSystem @ 0x140C3E1C0 (VfTriageSystem.c)
  */
 
 void __fastcall ViInitSystemPhase0(__int64 a1)
@@ -41,18 +41,18 @@ void __fastcall ViInitSystemPhase0(__int64 a1)
   v3 = *(_QWORD *)(v1 + 280);
   v4 = *(_DWORD *)(v1 + 132) & 2;
   LOBYTE(VfExtendedParameters) = 1;
-  dword_140E67EF8 = 32;
+  dword_140E680C8 = 32;
   KiInitializeMutant(&ViDriversLoadLock, 0LL, 1u, 0);
-  qword_140F045D8 = (__int64)&VfSuspectDriversList;
+  qword_140F04728 = (__int64)&VfSuspectDriversList;
   VfSuspectDriversList = (__int64)&VfSuspectDriversList;
-  qword_140F04528 = (__int64)&VfExcludedDriversList;
+  qword_140F04238 = (__int64)&VfExcludedDriversList;
   VfExcludedDriversList = (__int64)&VfExcludedDriversList;
-  qword_140F04548 = (__int64)&VfXdvExcludedDriversList;
+  qword_140F04298 = (__int64)&VfXdvExcludedDriversList;
   VfXdvExcludedDriversList = (__int64)&VfXdvExcludedDriversList;
   if ( VfVerifyMode == -1 )
   {
     VfVerifyMode = (VfRuleClasses & 0x400000) != 0 ? 2 : 4;
-    dword_140F03F04 = VfVerifyMode;
+    dword_140F04864 = VfVerifyMode;
   }
   if ( MmVerifyDriverLevel == -1 )
   {
@@ -72,8 +72,8 @@ void __fastcall ViInitSystemPhase0(__int64 a1)
   {
     *(_QWORD *)&VfBugcheckTmpData = *(unsigned int *)(v3 + 56);
     BugCheckParameter1 = *(_QWORD *)(v3 + 64);
-    qword_140FFCA40 = *(_QWORD *)(v3 + 72);
-    *(_OWORD *)&xmmword_140FFCA48 = *(_OWORD *)(v3 + 80);
+    qword_140FFDA40 = *(_QWORD *)(v3 + 72);
+    *(_OWORD *)&xmmword_140FFDA48 = *(_OWORD *)(v3 + 80);
   }
   VfRuleClassesRecord = VfRuleClasses;
   if ( (VfOptionFlags & 0x410) == 0

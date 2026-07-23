@@ -1,16 +1,16 @@
 /*
- * XREFs of UcOnUnexpectedCodePath @ 0x14069466C
+ * XREFs of UcOnUnexpectedCodePath @ 0x14069573C
  * Callers:
- *     RtlLogUnexpectedCodepath @ 0x1405EFCD0 (RtlLogUnexpectedCodepath.c)
+ *     RtlLogUnexpectedCodepath @ 0x1405ED2B0 (RtlLogUnexpectedCodepath.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     UcpFindOrCreateTelemetryRecord @ 0x140694900 (UcpFindOrCreateTelemetryRecord.c)
- *     UcpLogEventGenerateDump @ 0x140694AAC (UcpLogEventGenerateDump.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     UcpFindOrCreateTelemetryRecord @ 0x1406959D0 (UcpFindOrCreateTelemetryRecord.c)
+ *     UcpLogEventGenerateDump @ 0x140695B7C (UcpLogEventGenerateDump.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
@@ -48,7 +48,7 @@ __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
   {
     ++*(_DWORD *)(v7 + 16);
     ++*(_DWORD *)(v7 + 20);
-    v9 = MEMORY[0xFFFFF78000000320] * (unsigned int)KeMaximumIncrement / 10000LL;
+    v9 = MEMORY[0xFFFFF78000000320] * KeMaximumIncrement / 10000LL;
     if ( (unsigned __int64)(v9 - *(_QWORD *)(v7 + 8)) > 0xEA60 )
     {
       UcpLockOwningThread = 0LL;
@@ -56,7 +56,7 @@ __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
       KeReleaseSpinLock(&UcSpinLock, v6);
       if ( KeGetCurrentIrql() )
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 0xF0uLL, 0x70616355u);
         if ( Pool2 )
         {
           *(_QWORD *)(Pool2 + 8) = KeGetCurrentThread();

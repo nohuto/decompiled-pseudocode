@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpEnumerateAddressSpace @ 0x14061A45C
+ * XREFs of EtwpEnumerateAddressSpace @ 0x1406840BC
  * Callers:
- *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
- *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwTraceProcess @ 0x1406F2A40 (EtwTraceProcess.c)
+ *     EtwpProcessEnumCallback @ 0x140797940 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpTraceImageUnload @ 0x14025A6BC (EtwpTraceImageUnload.c)
- *     KeAreAllApcsDisabled @ 0x14025AC80 (KeAreAllApcsDisabled.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E590 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     EtwpTraceImageRundown @ 0x1407ADFE8 (EtwpTraceImageRundown.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     EtwpTraceImageUnload @ 0x14027BC2C (EtwpTraceImageUnload.c)
+ *     KeAreAllApcsDisabled @ 0x14027C1F0 (KeAreAllApcsDisabled.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140688200 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     EtwpTraceImageRundown @ 0x1407AE1E8 (EtwpTraceImageRundown.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpEnumerateAddressSpace(ULONG_PTR a1, __int64 a2, int *a3)
@@ -35,10 +35,10 @@ void __fastcall EtwpEnumerateAddressSpace(ULONG_PTR a1, __int64 a2, int *a3)
   int v15; // edx
   unsigned __int64 v16; // rax
   __int64 v17; // r13
-  __int64 v18; // rax
-  int v19; // r8d
-  int v20; // edx
-  __int64 v21; // r9
+  PIMAGE_NT_HEADERS v18; // rax
+  int CheckSum; // r8d
+  int TimeDateStamp; // edx
+  __int64 ImageBase; // r9
   struct _DMA_ADAPTER *v22; // r8
   unsigned int v23; // eax
   int v24; // ecx
@@ -266,21 +266,21 @@ LABEL_35:
       v46 = v52;
       v62 = *(_QWORD *)(i + 16);
       v59 = v62;
-      v18 = RtlImageNtHeader(*(_QWORD *)(i + 8));
+      v18 = RtlImageNtHeader(*(PVOID *)(i + 8));
       if ( v18 )
       {
-        v19 = *(_DWORD *)(v18 + 88);
-        v46 = v19;
-        v20 = *(_DWORD *)(v18 + 8);
-        v41 = v20;
-        v21 = *(_QWORD *)(v18 + 48);
-        v59 = v21;
+        CheckSum = v18->OptionalHeader.CheckSum;
+        v46 = CheckSum;
+        TimeDateStamp = v18->FileHeader.TimeDateStamp;
+        v41 = TimeDateStamp;
+        ImageBase = v18->OptionalHeader.ImageBase;
+        v59 = ImageBase;
       }
       else
       {
-        v20 = v41;
-        v19 = v52;
-        v21 = v62;
+        TimeDateStamp = v41;
+        CheckSum = v52;
+        ImageBase = v62;
       }
       if ( NameStringMode >= 0 )
       {
@@ -299,11 +299,11 @@ LABEL_35:
             BugCheckParameter1,
             *(_QWORD *)(i + 8),
             *(_QWORD *)(i + 24),
-            v19,
-            v20,
+            CheckSum,
+            TimeDateStamp,
             v17,
             v63,
-            v21,
+            ImageBase,
             0);
       }
       if ( v54 )

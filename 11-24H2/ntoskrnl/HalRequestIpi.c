@@ -1,16 +1,16 @@
 /*
- * XREFs of HalRequestIpi @ 0x1403B67D0
+ * XREFs of HalRequestIpi @ 0x140371AA0
  * Callers:
- *     PoExecuteIdleCheck @ 0x14029D050 (PoExecuteIdleCheck.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     PpmIdleUpdateSystemLatencyLimit @ 0x1403B5810 (PpmIdleUpdateSystemLatencyLimit.c)
- *     PpmUnlockProcessors @ 0x1403B66C4 (PpmUnlockProcessors.c)
- *     PpmWakeClockOwnerIfNeeded @ 0x1404C8608 (PpmWakeClockOwnerIfNeeded.c)
- *     PoInitiateProcessorWake @ 0x1405CDBE0 (PoInitiateProcessorWake.c)
+ *     PoExecuteIdleCheck @ 0x1402ABB40 (PoExecuteIdleCheck.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x1402AEDA4 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     PpmUnlockProcessors @ 0x140371990 (PpmUnlockProcessors.c)
+ *     PpmWakeClockOwnerIfNeeded @ 0x1404C1C54 (PpmWakeClockOwnerIfNeeded.c)
+ *     PoInitiateProcessorWake @ 0x1405CB300 (PoInitiateProcessorWake.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalRequestIpi(int a1, unsigned __int16 *a2)

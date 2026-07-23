@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetProcessorNodeNumberByIndex @ 0x1404684D0
+ * XREFs of KeGetProcessorNodeNumberByIndex @ 0x140461B80
  * Callers:
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
  * Callees:
  *     <none>
  */

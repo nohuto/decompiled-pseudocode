@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitializeTRng @ 0x1800EDCF0
+ * XREFs of RtlInitializeTRng @ 0x1800E8ED0
  * Callers:
- *     LdrInitializePerThreadRng @ 0x180066C98 (LdrInitializePerThreadRng.c)
+ *     LdrInitializePerThreadRng @ 0x1800AEE78 (LdrInitializePerThreadRng.c)
  * Callees:
  *     <none>
  */

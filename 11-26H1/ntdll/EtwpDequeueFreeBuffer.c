@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpDequeueFreeBuffer @ 0x1800126E8
+ * XREFs of EtwpDequeueFreeBuffer @ 0x18005DE18
  * Callers:
- *     EtwpGetFreeBuffer @ 0x180011CC0 (EtwpGetFreeBuffer.c)
+ *     EtwpGetFreeBuffer @ 0x18005D3F0 (EtwpGetFreeBuffer.c)
  * Callees:
  *     <none>
  */

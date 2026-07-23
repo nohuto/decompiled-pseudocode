@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaAlwaysReserveLogicalAddressRangeInternal @ 0x140550AD0
+ * XREFs of HalpDmaAlwaysReserveLogicalAddressRangeInternal @ 0x14054E410
  * Callers:
- *     HalpDmaInitEarly @ 0x140C1085C (HalpDmaInitEarly.c)
+ *     HalpDmaInitEarly @ 0x140C1285C (HalpDmaInitEarly.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14055FA30 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocateMemory @ 0x14055D660 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall HalpDmaAlwaysReserveLogicalAddressRangeInternal(unsigned __int64 a1, unsigned __int64 a2)

@@ -19,7 +19,7 @@ _QWORD *NormalizationList__Unlock()
   unsigned int SessionId; // edx
   unsigned __int8 v2; // si
   unsigned int v3; // r8d
-  unsigned __int64 v4; // rdi
+  __int64 v4; // rdi
   bool v5; // zf
   __int64 v6; // rcx
   int v7; // eax
@@ -44,7 +44,7 @@ _QWORD *NormalizationList__Unlock()
     v5 = !_BitScanReverse((unsigned int *)&v6, v3);
     if ( v5 )
       goto LABEL_13;
-    v4 = (unsigned __int64)&CurrentThread->LockEntries[v6];
+    v4 = (__int64)&CurrentThread->LockEntries[v6];
     v3 &= ~(1 << v6);
     if ( (*(_BYTE *)(v4 + 26) & 1) != 0
       && (*(_DWORD *)(v4 + 32) & 1) == 0
@@ -65,14 +65,14 @@ LABEL_13:
   }
   *(_BYTE *)(v4 + 32) |= 2u;
   if ( *(__int64 *)(v4 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v4);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v4);
   v7 = *(_DWORD *)(v4 + 88) & 0x1FFFF;
   v8 = *(_DWORD *)(v4 + 88) & 0xFFFE0000;
   *(_BYTE *)(v4 + 25) &= ~1u;
   v12 = v7;
   *(_DWORD *)(v4 + 88) = v8;
   *(_QWORD *)(v4 + 32) = 0LL;
-  v9 = (__int64)(v4 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+  v9 = (signed __int64)(v4 - (unsigned __int64)CurrentThread->LockEntries) / 96;
   if ( v2 == 1 )
     CurrentThread->AbEntrySummary |= 1 << v9;
   else

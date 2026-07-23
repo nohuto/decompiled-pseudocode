@@ -13,75 +13,67 @@
  *     RtlpWnfCalculateAndSetNextTimer @ 0x1800DDBD0 (RtlpWnfCalculateAndSetNextTimer.c)
  */
 
-void __fastcall RtlpWnfRetryTimerCallback(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpWnfRetryTimerCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  int v4; // r14d
-  __int64 v5; // rcx
-  __int64 v6; // r9
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // rdx
-  unsigned __int64 *v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 *v14; // rbx
-  char *v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  int v19; // eax
+  int v3; // r14d
+  _RTL_SRWLOCK *v4; // rcx
+  _WNF_STATE_NAME *Value; // rdi
+  unsigned __int64 v6; // rsi
+  _RTL_SRWLOCK *v7; // rcx
+  __int64 v8; // rax
+  _RTL_SRWLOCK *v9; // rbx
+  int v10; // eax
 
   if ( qword_1801600A8 )
   {
-    v4 = 0;
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801600A8 + 8), a2, a3, a4);
-    v5 = qword_1801600A8;
+    v3 = 0;
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801600A8 + 8));
+    v4 = (_RTL_SRWLOCK *)qword_1801600A8;
     *(_QWORD *)(qword_1801600A8 + 88) = 0LL;
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(v5 + 8));
+    RtlReleaseSRWLockShared(v4 + 1);
     while ( 1 )
     {
-      v7 = 0LL;
-      v8 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000;
-      RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801600A8 + 8), MEMORY[0x7FFE03B0], 2147352584LL, v6);
-      v12 = qword_1801600A8;
-      v13 = qword_1801600A8 + 16;
-      v14 = *(__int64 **)(qword_1801600A8 + 16);
-      while ( v14 != (__int64 *)v13 )
+      Value = 0LL;
+      v6 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias + 500000;
+      RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801600A8 + 8));
+      v7 = (_RTL_SRWLOCK *)qword_1801600A8;
+      v8 = qword_1801600A8 + 16;
+      v9 = *(_RTL_SRWLOCK **)(qword_1801600A8 + 16);
+      while ( v9 != (_RTL_SRWLOCK *)v8 )
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)(v14 + 3), v9, v10, v11);
-        if ( *((_DWORD *)v14 + 24) == 2 && v8 >= v14[13] )
+        RtlAcquireSRWLockExclusive(v9 + 3);
+        if ( v9[12].0 == 2 && v6 >= v9[13].Value )
         {
-          v7 = v14[11];
-          v14[11] = 0LL;
-          *((_DWORD *)v14 + 24) = 0;
-          RtlReleaseSRWLockExclusive(v14 + 3);
-          v12 = qword_1801600A8;
+          Value = (_WNF_STATE_NAME *)v9[11].Value;
+          v9[11].Value = 0LL;
+          *(_DWORD *)&v9[12].0 = 0;
+          RtlReleaseSRWLockExclusive(v9 + 3);
+          v7 = (_RTL_SRWLOCK *)qword_1801600A8;
           break;
         }
-        RtlReleaseSRWLockExclusive(v14 + 3);
-        v12 = qword_1801600A8;
-        v14 = (__int64 *)*v14;
-        v13 = qword_1801600A8 + 16;
+        RtlReleaseSRWLockExclusive(v9 + 3);
+        v7 = (_RTL_SRWLOCK *)qword_1801600A8;
+        v9 = (_RTL_SRWLOCK *)v9->Value;
+        v8 = qword_1801600A8 + 16;
       }
-      RtlReleaseSRWLockShared((volatile signed __int64 *)(v12 + 8));
-      if ( !v7 )
+      RtlReleaseSRWLockShared(v7 + 1);
+      if ( !Value )
         break;
-      RtlpWnfCalculateAndSetNextTimer(v16, v15, v17, v18);
-      v4 = 0;
-      v19 = RtlpWnfProcessCurrentDescriptor(v7, 1);
-      if ( v19 == -1073741267 )
+      RtlpWnfCalculateAndSetNextTimer();
+      v3 = 0;
+      v10 = RtlpWnfProcessCurrentDescriptor(Value, 1);
+      if ( v10 == -1073741267 )
       {
-        v4 = 1;
+        v3 = 1;
       }
       else
       {
-        if ( !v19 )
-          NtGetCompleteWnfStateSubscription();
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+        if ( !v10 )
+          NtGetCompleteWnfStateSubscription(Value + 1, (ULONG64 *)Value, Value[3].Data[0], 0, 0LL, 0);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Value);
       }
     }
-    if ( v4 )
-      RtlpWnfCalculateAndSetNextTimer(v16, v15, v17, v18);
+    if ( v3 )
+      RtlpWnfCalculateAndSetNextTimer();
   }
 }

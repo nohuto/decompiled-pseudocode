@@ -1,12 +1,12 @@
 /*
- * XREFs of IovUtilIsWdmStack @ 0x140AD2CE0
+ * XREFs of IovUtilIsWdmStack @ 0x140AD2CD0
  * Callers:
- *     VfPnpVerifyIrpStackDownward @ 0x140AE6FE0 (VfPnpVerifyIrpStackDownward.c)
- *     VfPnpVerifyIrpStackUpward @ 0x140AE7170 (VfPnpVerifyIrpStackUpward.c)
+ *     VfPnpVerifyIrpStackDownward @ 0x140AE6FD0 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x140AE7160 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PpvUtilIsPdo @ 0x140AC2058 (PpvUtilIsPdo.c)
- *     IovUtilGetBottomDeviceObjectWithTag @ 0x140AD2A30 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PpvUtilIsPdo @ 0x140AC2048 (PpvUtilIsPdo.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x140AD2A20 (IovUtilGetBottomDeviceObjectWithTag.c)
  */
 
 _BOOL8 __fastcall IovUtilIsWdmStack(_QWORD *a1)

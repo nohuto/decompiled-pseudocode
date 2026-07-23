@@ -19,7 +19,7 @@ BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, US
   Mcb->PoolType = PoolType;
   Mcb->Flags = Flags;
   if ( PoolType == PagedPool )
-    v5 = ExAllocateFromPagedLookasideList(&FsRtlFirstPagedMappingLookasideList);
+    v5 = ExAllocateFromPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList);
   else
     v5 = ExAllocateFromNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList);
   Mcb->Mapping = v5;

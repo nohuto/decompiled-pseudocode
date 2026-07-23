@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCanSelectSoftParkedProcessor @ 0x140525A94
+ * XREFs of KiCanSelectSoftParkedProcessor @ 0x140525CD4
  * Callers:
- *     KiHeteroChooseTargetProcessor @ 0x14051F500 (KiHeteroChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F740 (KiHeteroChooseTargetProcessor.c)
  * Callees:
- *     KeQueryReadyQueueStatsProcessor @ 0x1405144D8 (KeQueryReadyQueueStatsProcessor.c)
+ *     KeQueryReadyQueueStatsProcessor @ 0x140514718 (KeQueryReadyQueueStatsProcessor.c)
  */
 
 bool __fastcall KiCanSelectSoftParkedProcessor(__int64 a1, __int64 a2)

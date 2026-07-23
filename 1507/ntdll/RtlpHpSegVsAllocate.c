@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *__fastcall RtlpHpSegVsAllocate(__int64 a1, unsigned int a2, char a3)
+void *__fastcall RtlpHpSegVsAllocate(void *a1, unsigned int a2, char a3)
 {
   unsigned int v3; // r8d
 

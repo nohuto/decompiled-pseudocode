@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpDidUnicodeToOemWork @ 0x18007C8B8
+ * XREFs of RtlpDidUnicodeToOemWork @ 0x18007C8A8
  * Callers:
- *     RtlDnsHostNameToComputerName @ 0x18007C3E0 (RtlDnsHostNameToComputerName.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x18007C7C0 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1800E31F0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800E3460 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlDnsHostNameToComputerName @ 0x18007C3D0 (RtlDnsHostNameToComputerName.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x18007C7B0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1800E32B0 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800E3520 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
  *     <none>
  */

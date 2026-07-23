@@ -1,16 +1,16 @@
 /*
- * XREFs of PspQueryQuotaLimits @ 0x1409B7AE0
+ * XREFs of PspQueryQuotaLimits @ 0x1409AF220
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     MmQueryWorkingSetInformation @ 0x1402E1DB0 (MmQueryWorkingSetInformation.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MmQueryWorkingSetInformation @ 0x1404103B0 (MmQueryWorkingSetInformation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PspQueryQuotaLimits(
@@ -26,23 +26,25 @@ __int64 __fastcall PspQueryQuotaLimits(
   _QWORD *v10; // rcx
   PVOID v11; // r15
   int v12; // esi
-  int v13; // r8d
-  int v14; // r8d
-  int v15; // [rsp+40h] [rbp-E8h] BYREF
+  __int64 v13; // r8
+  __int64 v14; // r9
+  int v15; // r8d
+  int v16; // r8d
+  int v17; // [rsp+40h] [rbp-E8h] BYREF
   PVOID Object; // [rsp+48h] [rbp-E0h] BYREF
   _QWORD Src[2]; // [rsp+50h] [rbp-D8h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-C8h] BYREF
-  _QWORD v19[7]; // [rsp+68h] [rbp-C0h] BYREF
-  int v20; // [rsp+A0h] [rbp-88h]
-  __int64 v21; // [rsp+B0h] [rbp-78h] BYREF
-  __int64 v22; // [rsp+B8h] [rbp-70h] BYREF
-  _OWORD v23[3]; // [rsp+C0h] [rbp-68h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-C8h] BYREF
+  _QWORD v21[7]; // [rsp+68h] [rbp-C0h] BYREF
+  int v22; // [rsp+A0h] [rbp-88h]
+  __int64 v23; // [rsp+B0h] [rbp-78h] BYREF
+  __int64 v24; // [rsp+B8h] [rbp-70h] BYREF
+  _OWORD v25[3]; // [rsp+C0h] [rbp-68h] BYREF
 
   v6 = a4;
   memset_0(Src, 0, 0x58uLL);
   Object = 0LL;
-  v15 = 0;
-  memset(v23, 0, sizeof(v23));
+  v17 = 0;
+  memset(v25, 0, sizeof(v25));
   if ( (_DWORD)v6 != 48 && (_DWORD)v6 != 88 )
     return 3221225476LL;
   result = ObpReferenceObjectByHandleWithTag(
@@ -59,19 +61,19 @@ __int64 __fastcall PspQueryQuotaLimits(
     v10 = (_QWORD *)*((_QWORD *)Object + 95);
     Src[0] = v10[24];
     Src[1] = v10[8];
-    v19[1] = v10[40];
-    v19[3] = v10[56];
-    v19[2] = -1LL;
+    v21[1] = v10[40];
+    v21[3] = v10[56];
+    v21[2] = -1LL;
     v11 = Object;
-    KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)v23);
-    v12 = MmQueryWorkingSetInformation(&v22, &v21, &Object, &v18, v19, &v15);
-    KiUnstackDetachProcess((__int64)v23, 0);
-    v13 = 2 - ((v15 & 4) != 0);
-    if ( (v15 & 1) != 0 )
-      v14 = v13 | 4;
+    KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)v25);
+    v12 = MmQueryWorkingSetInformation(&v24, &v23, &Object, &v20, v21, &v17);
+    KiUnstackDetachProcess((__int64)v25, 0, v13, v14);
+    v15 = 2 - ((v17 & 4) != 0);
+    if ( (v17 & 1) != 0 )
+      v16 = v15 | 4;
     else
-      v14 = v13 | 8;
-    v20 = v14;
+      v16 = v15 | 8;
+    v22 = v16;
     ObfDereferenceObjectWithTag(v11, 0x79517350u);
     if ( v12 >= 0 )
     {

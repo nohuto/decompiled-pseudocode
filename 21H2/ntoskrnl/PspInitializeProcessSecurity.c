@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitializeProcessSecurity @ 0x1406D6400
+ * XREFs of PspInitializeProcessSecurity @ 0x1406AD6E0
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     MmGetSessionId @ 0x1402863C0 (MmGetSessionId.c)
  *     PspIdentityBasedJobBreakaway @ 0x1405D9294 (PspIdentityBasedJobBreakaway.c)
- *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
- *     ObInitializeFastReference @ 0x1406D65FC (ObInitializeFastReference.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SeAssignPrimaryToken @ 0x1407BBBD0 (SeAssignPrimaryToken.c)
+ *     ObInitializeFastReference @ 0x1406AD8DC (ObInitializeFastReference.c)
+ *     SeSubProcessToken @ 0x1406F328C (SeSubProcessToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SeAssignPrimaryToken @ 0x1407BC360 (SeAssignPrimaryToken.c)
  */
 
 __int64 __fastcall PspInitializeProcessSecurity(
@@ -20,9 +20,9 @@ __int64 __fastcall PspInitializeProcessSecurity(
         int a5,
         int a6,
         int a7,
-        unsigned int a8,
+        int a8,
         __int64 a9,
-        unsigned int a10,
+        int a10,
         __int64 a11,
         int a12,
         __int64 a13,
@@ -36,7 +36,7 @@ __int64 __fastcall PspInitializeProcessSecurity(
   int v23; // r12d
   int v24; // eax
   signed __int64 v25; // rax
-  PADAPTER_OBJECT v27; // [rsp+68h] [rbp-29h] BYREF
+  void *v27; // [rsp+68h] [rbp-29h] BYREF
   _DWORD v28[4]; // [rsp+70h] [rbp-21h] BYREF
   PEPROCESS v29; // [rsp+80h] [rbp-11h]
   __int64 v30; // [rsp+88h] [rbp-9h]
@@ -60,7 +60,18 @@ __int64 __fastcall PspInitializeProcessSecurity(
     v30 = a13;
     v29 = Process;
     SessionId = MmGetSessionId(a2);
-    v23 = SeSubProcessToken(a2, a3, &v27, v22 != 0 ? 1 : 3, SessionId, (__int64)v28, a8, a9, a10, a11, &v31);
+    v23 = SeSubProcessToken(
+            a2,
+            a3,
+            (unsigned int)&v27,
+            v22 != 0 ? 1 : 3,
+            SessionId,
+            (__int64)v28,
+            a8,
+            a9,
+            a10,
+            a11,
+            (__int64)&v31);
     if ( v23 >= 0 )
     {
       ObInitializeFastReference(a2 + 1208, v27);
@@ -78,7 +89,7 @@ __int64 __fastcall PspInitializeProcessSecurity(
       if ( !v24 && v32 )
       {
         v20 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-        v23 = PspIdentityBasedJobBreakaway((int)v20, (int)v27, v14 + 1);
+        v23 = PspIdentityBasedJobBreakaway(v20, v27, v14 + 1);
       }
     }
     if ( *v14

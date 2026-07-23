@@ -7,11 +7,11 @@
  *     PopDiagTraceAdaptiveBootOverride @ 0x140C1E064 (PopDiagTraceAdaptiveBootOverride.c)
  */
 
-__int64 PopAdaptiveInitializeBootContext()
+NTSTATUS PopAdaptiveInitializeBootContext()
 {
   __int64 v0; // rax
   __int64 v1; // rcx
-  int v3; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   v0 = *(_QWORD *)&KeNumberProcessorsGroup0[1];
   v1 = *(_QWORD *)(v0 + 240);
@@ -23,8 +23,8 @@ __int64 PopAdaptiveInitializeBootContext()
     if ( (qword_140FD7240 & 7) != 0 )
       PopAdaptiveBootContext = 1;
   }
-  v3 = 0;
+  Buffer = 0;
   if ( PopAdaptiveBootContext )
-    v3 = 2;
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_INITIAL_GLOBAL_USER_PRESENCE, (__int64)&v3);
+    Buffer = 2;
+  return ZwUpdateWnfStateData(&WNF_PO_INITIAL_GLOBAL_USER_PRESENCE, &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MxMarkValidMappings @ 0x140CF40A8
+ * XREFs of MxMarkValidMappings @ 0x140CFA428
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
- *     MxMarkValidMappings @ 0x140CF40A8 (MxMarkValidMappings.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
+ *     MxMarkValidMappings @ 0x140CFA428 (MxMarkValidMappings.c)
  * Callees:
- *     MxMarkValidMappings @ 0x140CF40A8 (MxMarkValidMappings.c)
- *     MxIsRegularMemory @ 0x140CF7C60 (MxIsRegularMemory.c)
+ *     MxMarkValidMappings @ 0x140CFA428 (MxMarkValidMappings.c)
+ *     MxIsRegularMemory @ 0x140CFDFE0 (MxIsRegularMemory.c)
  */
 
 void __fastcall MxMarkValidMappings(_QWORD *a1, unsigned __int64 a2, int a3, __int64 a4)

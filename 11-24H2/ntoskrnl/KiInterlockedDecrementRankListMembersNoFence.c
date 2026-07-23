@@ -1,8 +1,8 @@
 /*
- * XREFs of KiInterlockedDecrementRankListMembersNoFence @ 0x14041CFF0
+ * XREFs of KiInterlockedDecrementRankListMembersNoFence @ 0x1404118E0
  * Callers:
- *     KiUpdateThreadQosGroupingSummaries @ 0x1404E9670 (KiUpdateThreadQosGroupingSummaries.c)
- *     KiSetProcessorIdle @ 0x1404EA0F8 (KiSetProcessorIdle.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x1404E0370 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiSetProcessorIdle @ 0x1404E10A8 (KiSetProcessorIdle.c)
  * Callees:
  *     <none>
  */

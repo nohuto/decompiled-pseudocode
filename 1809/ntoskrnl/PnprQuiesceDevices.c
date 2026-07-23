@@ -1,16 +1,16 @@
 /*
- * XREFs of PnprQuiesceDevices @ 0x14057A1E0
+ * XREFs of PnprQuiesceDevices @ 0x14057B1E0
  * Callers:
- *     PnprQuiesceWorker @ 0x14057ABC0 (PnprQuiesceWorker.c)
- *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceWorker @ 0x14057BBC0 (PnprQuiesceWorker.c)
+ *     PnpReplacePartitionUnit @ 0x1408349E0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
- *     PnprGetMillisecondCounter @ 0x1405797BC (PnprGetMillisecondCounter.c)
- *     PoStartPowerStateTasks @ 0x1406DDBD0 (PoStartPowerStateTasks.c)
- *     PoBlockConsoleSwitch @ 0x1406DDC10 (PoBlockConsoleSwitch.c)
- *     PoInitializeBroadcast @ 0x1406E0AA4 (PoInitializeBroadcast.c)
- *     PoStartPartitionReplace @ 0x14086BFB4 (PoStartPartitionReplace.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
+ *     PnprGetMillisecondCounter @ 0x14057A7BC (PnprGetMillisecondCounter.c)
+ *     PoStartPowerStateTasks @ 0x1406DEE70 (PoStartPowerStateTasks.c)
+ *     PoBlockConsoleSwitch @ 0x1406DEEB0 (PoBlockConsoleSwitch.c)
+ *     PoInitializeBroadcast @ 0x1406E1D44 (PoInitializeBroadcast.c)
+ *     PoStartPartitionReplace @ 0x14086D214 (PoStartPartitionReplace.c)
  */
 
 __int64 __fastcall PnprQuiesceDevices(char *a1)

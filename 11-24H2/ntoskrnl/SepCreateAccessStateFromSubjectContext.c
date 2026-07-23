@@ -1,20 +1,20 @@
 /*
- * XREFs of SepCreateAccessStateFromSubjectContext @ 0x1403EBC80
+ * XREFs of SepCreateAccessStateFromSubjectContext @ 0x1403E0270
  * Callers:
- *     SeCreateAccessState @ 0x14083F490 (SeCreateAccessState.c)
- *     PsOpenThread @ 0x14083F680 (PsOpenThread.c)
- *     PsOpenProcess @ 0x140854350 (PsOpenProcess.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     SeCreateAccessStateEx @ 0x1408A64E0 (SeCreateAccessStateEx.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14090CE40 (CmKeyBodyRemapToVirtualForEnum.c)
- *     PspCombineSecurityDomains @ 0x14094706C (PspCombineSecurityDomains.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x14094DFD4 (PspOneDirectionSecurityDomainCombine.c)
- *     SeSubProcessToken @ 0x140A30C24 (SeSubProcessToken.c)
- *     SeCreateAccessStateFromSubjectContext @ 0x140A74EC8 (SeCreateAccessStateFromSubjectContext.c)
+ *     SeCreateAccessState @ 0x14083B750 (SeCreateAccessState.c)
+ *     PsOpenThread @ 0x14083B940 (PsOpenThread.c)
+ *     PsOpenProcess @ 0x140850610 (PsOpenProcess.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     PspCombineSecurityDomains @ 0x1408AB200 (PspCombineSecurityDomains.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1408E4560 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x1408F2544 (PspOneDirectionSecurityDomainCombine.c)
+ *     SeCreateAccessStateEx @ 0x1408FCAF0 (SeCreateAccessStateEx.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x140A6F1E8 (SeCreateAccessStateFromSubjectContext.c)
+ *     SeSubProcessToken @ 0x140AD660C (SeSubProcessToken.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall SepCreateAccessStateFromSubjectContext(_OWORD *a1, _QWORD *a2, _QWORD *a3, int a4, _DWORD *a5)

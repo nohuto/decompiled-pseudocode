@@ -23,11 +23,16 @@
  *     <none>
  */
 
-__int64 ZwQueryInformationThread()
+NTSTATUS __cdecl ZwQueryInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 37LL;
+  result = 37;
   __asm { syscall; Low latency system call }
   return result;
 }

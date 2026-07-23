@@ -7,10 +7,10 @@
  *     _RtlImageDirectoryEntryToData@16 @ 0x4B2BDDE0 (_RtlImageDirectoryEntryToData@16.c)
  */
 
-unsigned int __thiscall LdrpCorValidateImage(void *this)
+unsigned int __thiscall LdrpCorValidateImage(PVOID BaseOfImage)
 {
-  void *v2; // [esp+0h] [ebp-4h] BYREF
+  ULONG Size; // [esp+0h] [ebp-4h] BYREF
 
-  v2 = this;
-  return RtlImageDirectoryEntryToData(this, 1, 9, &v2) != 0 ? 0xC000007B : 0;
+  Size = (ULONG)BaseOfImage;
+  return RtlImageDirectoryEntryToData(BaseOfImage, 1u, 9u, &Size) != 0 ? 0xC000007B : 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x1405D6D5C
+ * XREFs of Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x1405D4328
  * Callers:
- *     PpmHeteroHgsCalculateContainmentCount @ 0x1404EBB30 (PpmHeteroHgsCalculateContainmentCount.c)
+ *     PpmHeteroHgsCalculateContainmentCount @ 0x1404E2A70 (PpmHeteroHgsCalculateContainmentCount.c)
  * Callees:
- *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledFallback @ 0x1405D6D94 (Feature_WpsHybridToNoneZoneFix__private_IsEnabledFallback.c)
+ *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledFallback @ 0x1405D4360 (Feature_WpsHybridToNoneZoneFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline()

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockAndMapEntireDriver @ 0x140A342C8
+ * XREFs of MiLockAndMapEntireDriver @ 0x140A34578
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406408E8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640E38 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     IoAllocateMdl @ 0x14022E2A0 (IoAllocateMdl.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14027E8C0 (MiFillSystemPtes.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     MiLockDriverPageRange @ 0x140619E30 (MiLockDriverPageRange.c)
- *     MiPrepareDriverPatchState @ 0x140A2B624 (MiPrepareDriverPatchState.c)
+ *     IoAllocateMdl @ 0x14022E3B0 (IoAllocateMdl.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x14027EB50 (MiFillSystemPtes.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     MiLockDriverPageRange @ 0x14061A380 (MiLockDriverPageRange.c)
+ *     MiPrepareDriverPatchState @ 0x140A2B8D4 (MiPrepareDriverPatchState.c)
  */
 
 __int64 __fastcall MiLockAndMapEntireDriver(__int64 a1, __int64 *a2, struct _MDL **a3)

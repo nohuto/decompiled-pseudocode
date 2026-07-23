@@ -6,15 +6,15 @@
  *     _RtlActivateActivationContextEx@16 @ 0x4B2E3500 (_RtlActivateActivationContextEx@16.c)
  */
 
-int __stdcall RtlActivateActivationContext(int a1, int a2, _DWORD *a3)
+NTSTATUS __cdecl RtlActivateActivationContext(ULONG Flags, PACTIVATION_CONTEXT ActivationContext, PULONG_PTR Cookie)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
-  if ( a3 )
-    *a3 = 0;
-  if ( a1 || !a3 )
+  if ( Cookie )
+    *(_DWORD *)Cookie = 0;
+  if ( Flags || !Cookie )
     return -1073741811;
-  result = RtlActivateActivationContextEx(0, NtCurrentTeb(), a2, a3);
+  result = RtlActivateActivationContextEx(0, NtCurrentTeb(), ActivationContext, Cookie);
   if ( result >= 0 )
     return 0;
   return result;

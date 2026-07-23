@@ -13,23 +13,23 @@ __int64 __fastcall HvlUnmapDeviceInterrupt(__int64 a1, _OWORD *a2)
 {
   char v4; // bp
   char v5; // r15
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _QWORD *p_Next; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // r14
+  _SLIST_ENTRY *v10; // r14
   __int16 v11; // bx
   __int64 HypercallCachedPages; // rax
   struct _KPRCB *v13; // rcx
-  union _SLIST_HEADER *v15; // [rsp+28h] [rbp-90h]
-  struct _SLIST_ENTRY *v16; // [rsp+30h] [rbp-88h]
+  _SLIST_HEADER *v15; // [rsp+28h] [rbp-90h]
+  _SLIST_ENTRY *v16; // [rsp+30h] [rbp-88h]
   _BYTE v17[7]; // [rsp+40h] [rbp-78h] BYREF
   _BYTE v18[89]; // [rsp+5Fh] [rbp-59h] BYREF
 
   v4 = 1;
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v9 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v9->Next;
     if ( v9 )

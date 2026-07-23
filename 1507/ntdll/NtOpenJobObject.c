@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtOpenJobObject()
+NTSTATUS __cdecl NtOpenJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 267LL;
+  result = 267;
   __asm { syscall; Low latency system call }
   return result;
 }

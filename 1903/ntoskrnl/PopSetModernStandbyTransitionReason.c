@@ -9,7 +9,7 @@
 
 void __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
 {
-  LARGE_INTEGER v2; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+18h] BYREF
 
   if ( a1 )
   {
@@ -18,6 +18,6 @@ void __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
   else
   {
     PopPdcLastCsExitReason = a2;
-    PopPdcLastCsExitTime = RtlGetInterruptTimePrecise(&v2);
+    PopPdcLastCsExitTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   }
 }

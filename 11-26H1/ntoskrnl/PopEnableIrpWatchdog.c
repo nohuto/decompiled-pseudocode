@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEnableIrpWatchdog @ 0x1403AACCC
+ * XREFs of PopEnableIrpWatchdog @ 0x1403B49DC
  * Callers:
- *     PopQueueQuerySetIrp @ 0x1403B2B18 (PopQueueQuerySetIrp.c)
- *     PopDequeueQuerySetIrp @ 0x1403B3D2C (PopDequeueQuerySetIrp.c)
- *     PoHandleIrp @ 0x140486AFC (PoHandleIrp.c)
+ *     PopQueueQuerySetIrp @ 0x1403BC828 (PopQueueQuerySetIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x1403BDC38 (PopDequeueQuerySetIrp.c)
+ *     PoHandleIrp @ 0x1404804CC (PoHandleIrp.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopComputeWatchdogTimeout @ 0x1403AAE28 (PopComputeWatchdogTimeout.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopComputeWatchdogTimeout @ 0x1403B4B38 (PopComputeWatchdogTimeout.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
  */
 
 void __fastcall PopEnableIrpWatchdog(__int64 a1)

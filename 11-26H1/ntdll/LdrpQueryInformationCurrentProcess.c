@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpQueryInformationCurrentProcess @ 0x18010ECD0
+ * XREFs of LdrpQueryInformationCurrentProcess @ 0x18010E820
  * Callers:
  *     <none>
  * Callees:

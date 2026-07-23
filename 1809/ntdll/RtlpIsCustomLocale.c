@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlpIsCustomLocale @ 0x18008A4DC
+ * XREFs of RtlpIsCustomLocale @ 0x18008A4EC
  * Callers:
  *     RtlGetParentLocaleName @ 0x18003B4B0 (RtlGetParentLocaleName.c)
  *     RtlLocaleNameToLcid @ 0x180041310 (RtlLocaleNameToLcid.c)
  *     RtlIsValidLocaleName @ 0x1800F8FC0 (RtlIsValidLocaleName.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenKey @ 0x1800A0520 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x1800A05C0 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenKey @ 0x1800A0540 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x1800A05E0 (NtQueryValueKey.c)
  */
 
 bool __fastcall RtlpIsCustomLocale(PCWSTR SourceString)
 {
   unsigned __int64 v1; // rbp
   bool v3; // zf
-  __int64 v4; // rbx
+  HANDLE v4; // rbx
   bool result; // al
-  HANDLE Handle; // [rsp+50h] [rbp+0h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp+0h] BYREF
 
-  v1 = (unsigned __int64)&Handle & 0xFFFFFFFFFFFFFFE0uLL;
-  v3 = gCustomCultureRegKey == 0;
-  *(_QWORD *)((unsigned __int64)&Handle & 0xFFFFFFFFFFFFFFE0uLL) = 0LL;
+  v1 = (unsigned __int64)&KeyHandle & 0xFFFFFFFFFFFFFFE0uLL;
+  v3 = gCustomCultureRegKey == 0LL;
+  *(_QWORD *)((unsigned __int64)&KeyHandle & 0xFFFFFFFFFFFFFFE0uLL) = 0LL;
   if ( v3
-    && (int)NtOpenKey(
-              (unsigned __int64)&Handle & 0xFFFFFFFFFFFFFFE0uLL,
-              1LL,
-              &`RtlpGetCustomCultureRegKey'::`2'::ObjAttribute) >= 0
-    && _InterlockedCompareExchange64(&gCustomCultureRegKey, *(_QWORD *)v1, 0LL) )
+    && NtOpenKey(
+         (PHANDLE)((unsigned __int64)&KeyHandle & 0xFFFFFFFFFFFFFFE0uLL),
+         1u,
+         (POBJECT_ATTRIBUTES)&`RtlpGetCustomCultureRegKey'::`2'::ObjAttribute) >= 0
+    && _InterlockedCompareExchange64((volatile signed __int64 *)&gCustomCultureRegKey, *(_QWORD *)v1, 0LL) )
   {
     NtClose(*(HANDLE *)v1);
   }
@@ -39,7 +39,13 @@ bool __fastcall RtlpIsCustomLocale(PCWSTR SourceString)
     if ( *SourceString )
     {
       RtlInitUnicodeString((PUNICODE_STRING)(v1 + 16), SourceString);
-      if ( (int)NtQueryValueKey(v4, v1 + 16, 2LL, v1 + 32, 120, v1 + 8) >= 0 )
+      if ( NtQueryValueKey(
+             v4,
+             (PUNICODE_STRING)(v1 + 16),
+             KeyValuePartialInformation,
+             (PVOID)(v1 + 32),
+             0x78u,
+             (PULONG)(v1 + 8)) >= 0 )
         return 1;
     }
   }

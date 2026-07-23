@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLockHugePfnInternal @ 0x140621468
+ * XREFs of MiLockHugePfnInternal @ 0x1406219B8
  * Callers:
- *     MiGetUltraHugeAlreadyActive @ 0x1403C0884 (MiGetUltraHugeAlreadyActive.c)
- *     MiGetHugeRangeFromNode @ 0x1403C50E4 (MiGetHugeRangeFromNode.c)
- *     MiInitializeNewUltraHugeContext @ 0x1403C5AE8 (MiInitializeNewUltraHugeContext.c)
- *     MiDereferenceIoHugeRange @ 0x14061F988 (MiDereferenceIoHugeRange.c)
- *     MiGetHugeBadRangeFromNode @ 0x14061FC40 (MiGetHugeBadRangeFromNode.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiSetHugeRangePartitionId @ 0x140622808 (MiSetHugeRangePartitionId.c)
- *     MiDeleteVadAwePtes @ 0x140649968 (MiDeleteVadAwePtes.c)
- *     MiValidateAndLockAweMapCountPage @ 0x14064C18C (MiValidateAndLockAweMapCountPage.c)
- *     MiWriteAwePtes @ 0x14064C5BC (MiWriteAwePtes.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1403C0A64 (MiGetUltraHugeAlreadyActive.c)
+ *     MiGetHugeRangeFromNode @ 0x1403C52C4 (MiGetHugeRangeFromNode.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403C5CC8 (MiInitializeNewUltraHugeContext.c)
+ *     MiDereferenceIoHugeRange @ 0x14061FED8 (MiDereferenceIoHugeRange.c)
+ *     MiGetHugeBadRangeFromNode @ 0x140620190 (MiGetHugeBadRangeFromNode.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiSetHugeRangePartitionId @ 0x140622D58 (MiSetHugeRangePartitionId.c)
+ *     MiDeleteVadAwePtes @ 0x140649EB8 (MiDeleteVadAwePtes.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x14064C6DC (MiValidateAndLockAweMapCountPage.c)
+ *     MiWriteAwePtes @ 0x14064CB0C (MiWriteAwePtes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockHugePfnInternal(__int64 a1, char a2)

@@ -24,29 +24,31 @@
  *     _memmove @ 0x4B2F8BF0 (_memmove.c)
  */
 
-int __stdcall RtlAppendUnicodeToString(unsigned __int16 *a1, const unsigned __int16 *Src)
+NTSTATUS __cdecl RtlAppendUnicodeToString(PUNICODE_STRING Destination, PCWSTR Source)
 {
   unsigned int v2; // eax
-  size_t v3; // esi
-  unsigned int v4; // ebx
-  void *v5; // ebx
-  __int16 v7; // [esp+Ch] [ebp-4h]
+  unsigned int v3; // esi
+  unsigned int Length; // ebx
+  wchar_t *v5; // ebx
+  size_t v7; // [esp-4h] [ebp-14h]
+  __int16 v8; // [esp+Ch] [ebp-4h]
 
-  if ( !Src )
+  if ( !Source )
     return 0;
-  v2 = wcslen(Src);
+  v2 = wcslen((const unsigned __int16 *)Source);
   if ( v2 <= 0x7FFE )
   {
     v3 = (unsigned __int16)(2 * v2);
-    v7 = 2 * v2;
-    v4 = *a1;
-    if ( v3 + v4 <= a1[1] )
+    v8 = 2 * v2;
+    Length = Destination->Length;
+    if ( v3 + Length <= Destination->MaximumLength )
     {
-      v5 = (void *)(*((_DWORD *)a1 + 1) + 2 * (v4 >> 1));
-      memmove(v5, Src, v3);
-      *a1 += v7;
-      if ( (unsigned int)*a1 + 1 < a1[1] )
-        *((_WORD *)v5 + (v3 >> 1)) = 0;
+      LODWORD(v7) = (unsigned __int16)(2 * v2);
+      v5 = &Destination->Buffer[Length >> 1];
+      memmove(v5, Source, v7);
+      Destination->Length += v8;
+      if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+        v5[v3 >> 1] = 0;
       return 0;
     }
   }

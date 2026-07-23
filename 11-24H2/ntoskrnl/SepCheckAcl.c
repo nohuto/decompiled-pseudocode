@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCheckAcl @ 0x14099EC10
+ * XREFs of SepCheckAcl @ 0x1409838D0
  * Callers:
- *     SeCaptureAcl @ 0x14099EADC (SeCaptureAcl.c)
+ *     SeCaptureAcl @ 0x1409837A4 (SeCaptureAcl.c)
  * Callees:
- *     RtlpValidAccessFilterAce @ 0x140780754 (RtlpValidAccessFilterAce.c)
- *     RtlpValidCompoundAce @ 0x1407808C0 (RtlpValidCompoundAce.c)
- *     RtlpValidAttributeAce @ 0x14099EDA8 (RtlpValidAttributeAce.c)
- *     RtlpValidObjectAce @ 0x14099EF7C (RtlpValidObjectAce.c)
+ *     RtlpValidAccessFilterAce @ 0x140780684 (RtlpValidAccessFilterAce.c)
+ *     RtlpValidCompoundAce @ 0x1407807F0 (RtlpValidCompoundAce.c)
+ *     RtlpValidObjectAce @ 0x14098353C (RtlpValidObjectAce.c)
+ *     RtlpValidAttributeAce @ 0x1409835D0 (RtlpValidAttributeAce.c)
  */
 
 char __fastcall SepCheckAcl(__int64 a1, unsigned int a2)
@@ -70,12 +70,12 @@ char __fastcall SepCheckAcl(__int64 a1, unsigned int a2)
     }
     else if ( (unsigned __int8)v12 <= 0x10u && _bittest(&v8, v12) )
     {
-      if ( *(_BYTE *)a1 < 4u || !(unsigned __int8)RtlpValidObjectAce(v5) )
+      if ( *(_BYTE *)a1 < 4u || !RtlpValidObjectAce((__int64)v5) )
         return 0;
     }
     else if ( (_BYTE)v12 == 18 )
     {
-      if ( !(unsigned __int8)RtlpValidAttributeAce(v5) )
+      if ( !RtlpValidAttributeAce((__int64)v5) )
         return 0;
     }
     else if ( (_BYTE)v12 == 21 )

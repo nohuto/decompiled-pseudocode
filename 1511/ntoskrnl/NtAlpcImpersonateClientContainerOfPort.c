@@ -14,11 +14,11 @@
  *     AlpcpProbeAndCaptureMessageHeader @ 0x14047E410 (AlpcpProbeAndCaptureMessageHeader.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // si
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   ULONG_PTR v8; // rdi
   unsigned __int64 v9; // rcx
   __int64 v10; // rax
@@ -27,13 +27,13 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, __int64 a2, 
   ULONG_PTR v14; // [rsp+30h] [rbp-38h] BYREF
   _BYTE v15[16]; // [rsp+38h] [rbp-30h] BYREF
   __int128 v16; // [rsp+48h] [rbp-20h]
-  __int64 v17; // [rsp+58h] [rbp-10h]
+  unsigned __int64 ClientViewSize; // [rsp+58h] [rbp-10h]
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v7 = ObReferenceObjectByHandle(a1, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v7 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v7 >= 0 )
   {
     if ( (*((_BYTE *)Object + 416) & 6) != 6
@@ -43,14 +43,14 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, __int64 a2, 
     }
     if ( PreviousMode )
     {
-      AlpcpProbeAndCaptureMessageHeader((__m128i *)a2, (__int64)v15, a3);
+      AlpcpProbeAndCaptureMessageHeader((__m128i *)Message, (__int64)v15, Flags);
     }
     else
     {
-      v16 = *(_OWORD *)(a2 + 16);
-      v17 = *(_QWORD *)(a2 + 32);
+      v16 = *(__int128 *)((char *)&Message->8 + 8);
+      ClientViewSize = Message->ClientViewSize;
     }
-    v7 = AlpcpLookupMessage((__int64)Object, DWORD2(v16), v17, &v14);
+    v7 = AlpcpLookupMessage((__int64)Object, DWORD2(v16), ClientViewSize, &v14);
     if ( v7 < 0 )
       goto LABEL_18;
     v8 = v14;
@@ -87,5 +87,5 @@ LABEL_18:
   if ( Object )
     ObfDereferenceObject(Object);
   KeLeaveCriticalRegion();
-  return (unsigned int)v7;
+  return v7;
 }

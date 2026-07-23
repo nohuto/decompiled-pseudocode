@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalDeferedTraceThermalZoneEnumeration @ 0x1403A18E8
+ * XREFs of PopThermalDeferedTraceThermalZoneEnumeration @ 0x1403A1AC8
  * Callers:
  *     PopDiagInitialize @ 0x140B4F1E0 (PopDiagInitialize.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceThermalZoneEnumeration @ 0x1403A197C (PopDiagTraceThermalZoneEnumeration.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1403A1B5C (PopDiagTraceThermalZoneEnumeration.c)
  */
 
 void PopThermalDeferedTraceThermalZoneEnumeration()

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveMappingNode @ 0x1404D7514
+ * XREFs of MiRemoveMappingNode @ 0x1404D0CE4
  * Callers:
- *     MmFreeMappingAddress @ 0x140B12E50 (MmFreeMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x140B14CF0 (MmFreeMappingAddress.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -20,11 +20,11 @@ _QWORD *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR B
   ULONG_PTR v8; // rcx
 
   v3 = (unsigned int)BugCheckParameter3;
-  v4 = ExAcquireSpinLockExclusive(&dword_140E34B68);
-  v5 = (_QWORD *)qword_140E34B70;
+  v4 = ExAcquireSpinLockExclusive(&dword_140E34CE8);
+  v5 = (_QWORD *)qword_140E34CF0;
   v6 = BugCheckParameter2 & 0xFFFFFFFFFFFFF000uLL;
   v7 = v4;
-  if ( !qword_140E34B70 )
+  if ( !qword_140E34CF0 )
     goto LABEL_12;
   do
   {
@@ -44,10 +44,10 @@ _QWORD *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR B
   if ( !v5 )
 LABEL_12:
     KeBugCheckEx(0xDAu, 0x106uLL, BugCheckParameter2, v3, 0LL);
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140E34B70, (__int64)v5);
+  RtlAvlRemoveNode((unsigned __int64 *)&qword_140E34CF0, (__int64)v5);
   if ( v7 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34B68);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34CE8);
   else
-    ExReleaseSpinLockExclusive(&dword_140E34B68, v7);
+    ExReleaseSpinLockExclusive(&dword_140E34CE8, v7);
   return v5;
 }

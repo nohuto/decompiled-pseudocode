@@ -1,10 +1,10 @@
 /*
- * XREFs of KeVerifyContextRecord @ 0x1400F2FB0
+ * XREFs of KeVerifyContextRecord @ 0x1400F0E00
  * Callers:
- *     KiContinuePreviousModeUser @ 0x1400F6624 (KiContinuePreviousModeUser.c)
- *     PspSetContextThreadInternal @ 0x140517374 (PspSetContextThreadInternal.c)
+ *     KiContinuePreviousModeUser @ 0x1400F4474 (KiContinuePreviousModeUser.c)
+ *     PspSetContextThreadInternal @ 0x1404FA764 (PspSetContextThreadInternal.c)
  * Callees:
- *     RtlGuardIsValidStackPointer @ 0x14051760C (RtlGuardIsValidStackPointer.c)
+ *     RtlGuardIsValidStackPointer @ 0x1404FA9FC (RtlGuardIsValidStackPointer.c)
  */
 
 __int64 __fastcall KeVerifyContextRecord(__int64 a1, __int64 a2)

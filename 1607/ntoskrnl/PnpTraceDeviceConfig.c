@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceDeviceConfig @ 0x140648CE4
+ * XREFs of PnpTraceDeviceConfig @ 0x140648DC8
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x140639900 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406399B4 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     _TlgCreateWsz @ 0x140133CE4 (_TlgCreateWsz.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     _TlgCreateWsz @ 0x140134254 (_TlgCreateWsz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceDeviceConfig(
@@ -85,7 +85,7 @@ void __fastcall PnpTraceDeviceConfig(
       v35 = 1;
       v38 = 1;
       v41 = 4;
-      TlgWrite(&stru_1402F3230, &unk_14027BF81, 0LL, 0LL, 0xEu, &pData);
+      TlgWrite(&stru_1402F3230, &unk_14027C081, 0LL, 0LL, 0xEu, &pData);
     }
   }
 }

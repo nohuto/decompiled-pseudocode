@@ -1,11 +1,11 @@
 /*
- * XREFs of VfNotifyOfHibernate @ 0x140B87628
+ * XREFs of VfNotifyOfHibernate @ 0x140B89628
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140B6552C (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140B6766C (PopInvokeSystemStateHandler.c)
  * Callees:
- *     VfIsVerifierExtensionEnabled @ 0x1406101EC (VfIsVerifierExtensionEnabled.c)
- *     VfDisableHalVerifier @ 0x140610C18 (VfDisableHalVerifier.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     VfIsVerifierExtensionEnabled @ 0x14060E7AC (VfIsVerifierExtensionEnabled.c)
+ *     VfDisableHalVerifier @ 0x14060F1D8 (VfDisableHalVerifier.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall VfNotifyOfHibernate(char a1)
@@ -13,8 +13,7 @@ void __fastcall VfNotifyOfHibernate(char a1)
   int IsVerifierExtensionEnabled; // eax
   __int64 v2; // rdx
   __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
+  int v4; // r8d
 
   if ( a1 )
   {
@@ -32,9 +31,9 @@ void __fastcall VfNotifyOfHibernate(char a1)
     ViEnableAfterHibernate = 0;
   }
   IsVerifierExtensionEnabled = VfIsVerifierExtensionEnabled();
-  if ( IsVerifierExtensionEnabled == (_DWORD)v4 )
+  if ( IsVerifierExtensionEnabled == v4 )
   {
     if ( ViFnExtensionHiberFunc )
-      guard_dispatch_icall_no_overrides(v3, v2, v4, v5);
+      guard_dispatch_icall_no_overrides(v3, v2);
   }
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiValidateInPage @ 0x1402DC480
+ * XREFs of MiValidateInPage @ 0x1402DC710
  * Callers:
- *     MiWaitForInPageComplete @ 0x1402A17A0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x1402A1A30 (MiWaitForInPageComplete.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiValidateImagePfn @ 0x1406B0FF8 (MiValidateImagePfn.c)
- *     SeValidateImageData @ 0x1406B1210 (SeValidateImageData.c)
- *     MiRelocateImagePfn @ 0x1407442C0 (MiRelocateImagePfn.c)
- *     MiGetSectionStrongImageReference @ 0x140A43794 (MiGetSectionStrongImageReference.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiValidateImagePfn @ 0x1406B1028 (MiValidateImagePfn.c)
+ *     SeValidateImageData @ 0x1406B1240 (SeValidateImageData.c)
+ *     MiRelocateImagePfn @ 0x1407444B0 (MiRelocateImagePfn.c)
+ *     MiGetSectionStrongImageReference @ 0x140A43A44 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MiValidateInPage(__int64 a1, __int64 a2)

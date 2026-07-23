@@ -1,49 +1,49 @@
 /*
- * XREFs of IopCompleteRequest @ 0x140342B20
+ * XREFs of IopCompleteRequest @ 0x14034D870
  * Callers:
- *     IoRemoveIoCompletion @ 0x1402043D0 (IoRemoveIoCompletion.c)
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
- *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
- *     IopAbortRequest @ 0x140890E00 (IopAbortRequest.c)
+ *     IoRemoveIoCompletion @ 0x1402A8D10 (IoRemoveIoCompletion.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x140716160 (IopSynchronousServiceTail.c)
+ *     IopAbortRequest @ 0x140890F60 (IopAbortRequest.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
- *     KeInsertQueueEx @ 0x1402901A0 (KeInsertQueueEx.c)
- *     ExReturnPoolQuota @ 0x1402AEBCC (ExReturnPoolQuota.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopInterlockedAdd @ 0x1402C493C (IopInterlockedAdd.c)
- *     IopDequeueIrpFromFileObject @ 0x1402E9538 (IopDequeueIrpFromFileObject.c)
- *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     IopFreeIrp @ 0x140353570 (IopFreeIrp.c)
- *     IopDequeueIrpFromThread @ 0x140353760 (IopDequeueIrpFromThread.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
- *     IopDecrementCompletionContextUsageCount @ 0x1403F0F30 (IopDecrementCompletionContextUsageCount.c)
- *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1403F0FF8 (IopIncrementCompletionContextUsageCountAndReadData.c)
- *     IopProcessBufferedIoCompletion @ 0x1403F112C (IopProcessBufferedIoCompletion.c)
- *     IopUpdateIrpTransferCount @ 0x1403F123C (IopUpdateIrpTransferCount.c)
+ *     IopFreeIrpExtension @ 0x14020D178 (IopFreeIrpExtension.c)
+ *     KeInsertQueueEx @ 0x14020E110 (KeInsertQueueEx.c)
+ *     ExReturnPoolQuota @ 0x14022CF2C (ExReturnPoolQuota.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopInterlockedAdd @ 0x140242EBC (IopInterlockedAdd.c)
+ *     KeInitializeApc @ 0x140266E00 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     IopDequeueIrpFromFileObject @ 0x14029A888 (IopDequeueIrpFromFileObject.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     IopFreeIrp @ 0x14035E2C0 (IopFreeIrp.c)
+ *     IopDequeueIrpFromThread @ 0x14035E4B0 (IopDequeueIrpFromThread.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140363010 (KxWaitForSpinLockAndAcquire.c)
+ *     IopDecrementCompletionContextUsageCount @ 0x1403F0E60 (IopDecrementCompletionContextUsageCount.c)
+ *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1403F0F28 (IopIncrementCompletionContextUsageCountAndReadData.c)
+ *     IopProcessBufferedIoCompletion @ 0x1403F105C (IopProcessBufferedIoCompletion.c)
+ *     IopUpdateIrpTransferCount @ 0x1403F116C (IopUpdateIrpTransferCount.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopExceptionFilter @ 0x140500A60 (IopExceptionFilter.c)
- *     IopFreeReserveIrp @ 0x140500B24 (IopFreeReserveIrp.c)
- *     KiAcquireSpinLockInstrumented @ 0x14051688C (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     IovFreeIrpPrivate @ 0x1409C51D0 (IovFreeIrpPrivate.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopExceptionFilter @ 0x1405009E0 (IopExceptionFilter.c)
+ *     IopFreeReserveIrp @ 0x140500AA4 (IopFreeReserveIrp.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140516ACC (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516BD8 (KiReleaseSpinLockInstrumented.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     IovFreeIrpPrivate @ 0x1409C61D0 (IovFreeIrpPrivate.c)
  */
 
 void __fastcall IopCompleteRequest(__int64 a1, __int64 a2, _QWORD *a3, ULONG_PTR *a4, _QWORD *a5)
 {
-  struct _SLIST_ENTRY *v6; // r14
+  _SLIST_ENTRY *v6; // r14
   ULONG_PTR v7; // rsi
   int v8; // eax
   unsigned __int64 v9; // r12
@@ -96,7 +96,7 @@ void __fastcall IopCompleteRequest(__int64 a1, __int64 a2, _QWORD *a3, ULONG_PTR
   int v56; // ecx
   __int64 v57; // rdx
   int v58; // r8d
-  __int64 v59; // r8
+  int v59; // r8d
   int v60; // ecx
   unsigned __int64 v61; // rax
   unsigned __int64 v62; // r8
@@ -115,13 +115,13 @@ void __fastcall IopCompleteRequest(__int64 a1, __int64 a2, _QWORD *a3, ULONG_PTR
   char v75; // al
   struct _KTHREAD *CurrentThread; // [rsp+48h] [rbp-70h]
   __int64 v77; // [rsp+50h] [rbp-68h]
-  struct _SLIST_ENTRY *v78; // [rsp+58h] [rbp-60h]
+  _SLIST_ENTRY *v78; // [rsp+58h] [rbp-60h]
   void *retaddr; // [rsp+B8h] [rbp+0h]
   char v80; // [rsp+C0h] [rbp+8h]
   struct _DMA_ADAPTER *Object; // [rsp+D8h] [rbp+20h]
 
-  v6 = (struct _SLIST_ENTRY *)(a1 - 120);
-  v78 = (struct _SLIST_ENTRY *)(a1 - 120);
+  v6 = (_SLIST_ENTRY *)(a1 - 120);
+  v78 = (_SLIST_ENTRY *)(a1 - 120);
   CurrentThread = KeGetCurrentThread();
   v7 = *a4;
   if ( !a3 || (v80 = 1, *a3 != 1LL) )
@@ -427,13 +427,13 @@ LABEL_134:
              || *(_BYTE *)(a1 - 55)
              || (*(_DWORD *)(a1 - 72) & 0xC0000000) == 0x80000000) )
           {
-            v59 = 0LL;
+            v59 = 0;
             v60 = *(_DWORD *)(*(_QWORD *)(v7 + 8) + 72LL);
             if ( v60 == 8 || v60 == 20 )
-              v59 = 1LL;
+              v59 = 1;
             *(_QWORD *)a1 = v77;
             *(_DWORD *)(a1 + 64) = 0;
-            KeInsertQueueEx((__int64)Object, a1 + 48, v59, 0LL);
+            KeInsertQueueEx((__int64)Object, (_QWORD *)(a1 + 48), v59, 0);
             goto LABEL_185;
           }
           if ( v56 )

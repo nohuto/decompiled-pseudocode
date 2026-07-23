@@ -40,7 +40,7 @@ __int64 __fastcall SepMaximumAccessCheckEx(
   unsigned int v21; // r13d
   char *v22; // rdi
   char v23; // al
-  __int64 v24; // rcx
+  _SID_AND_ATTRIBUTES_HASH *v24; // rcx
   char v25; // al
   unsigned int v26; // r8d
   _DWORD *v27; // r11
@@ -134,14 +134,14 @@ LABEL_24:
             goto LABEL_13;
           }
 LABEL_7:
-          v24 = a1 + 232;
+          v24 = (_SID_AND_ATTRIBUTES_HASH *)(a1 + 232);
         }
         else
         {
           if ( !v15 )
             goto LABEL_7;
 LABEL_26:
-          v24 = a1 + 504;
+          v24 = (_SID_AND_ATTRIBUTES_HASH *)(a1 + 504);
         }
         v25 = SepSidInTokenSidHash(v24, 0LL, v22 + 8, 0, v15, a12);
         goto LABEL_9;
@@ -160,7 +160,8 @@ LABEL_26:
                                    0LL,
                                    (__int64)&v22[16 * (*((_DWORD *)v22 + 2) & 1) + 12 + 8 * (*((_DWORD *)v22 + 2) & 2)],
                                    a4,
-                                   v15) )
+                                   v15,
+                                   a12) )
             goto LABEL_13;
           if ( (*((_DWORD *)v22 + 2) & 1) != 0 )
             v39 = v22 + 12;
@@ -227,7 +228,7 @@ LABEL_11:
             goto LABEL_13;
 LABEL_97:
           LOBYTE(a4) = 1;
-          if ( !(unsigned __int8)SepSidInToken(a1, 0LL, (__int64)(v22 + 8), a4, v15) )
+          if ( !(unsigned __int8)SepSidInToken(a1, 0LL, (__int64)(v22 + 8), a4, v15, a12) )
             goto LABEL_13;
           goto LABEL_98;
         }
@@ -280,9 +281,9 @@ LABEL_25:
         goto LABEL_34;
       }
       v38 = a12;
-      if ( !(unsigned __int8)SepSidInToken(a1, 0LL, (__int64)&v22[4 * (unsigned __int8)v22[13] + 20], 0LL, v15) )
+      if ( !(unsigned __int8)SepSidInToken(a1, 0LL, (__int64)&v22[4 * (unsigned __int8)v22[13] + 20], 0LL, v15, a12) )
         goto LABEL_13;
-      v25 = SepSidInTokenSidHash(v60 + 232, 0LL, v22 + 12, 0, 0, v38);
+      v25 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v60 + 232), 0LL, v22 + 12, 0, 0, v38);
 LABEL_9:
       if ( v25 )
       {
@@ -307,7 +308,13 @@ LABEL_13:
     if ( v36 )
     {
       if ( !a9
-        || !(unsigned __int8)SepSidInToken(a1, 0LL, (__int64)&v22[8 * (v34 & 2) + 12 + (v35 != 0 ? 0x10 : 0)], 0LL, v15)
+        || !(unsigned __int8)SepSidInToken(
+                               a1,
+                               0LL,
+                               (__int64)&v22[8 * (v34 & 2) + 12 + (v35 != 0 ? 0x10 : 0)],
+                               0LL,
+                               v15,
+                               a12)
         || !(unsigned __int8)AuthzBasepObjectInTypeList(v36, v17, (unsigned int)v18, &a11) )
       {
         goto LABEL_13;
@@ -317,7 +324,7 @@ LABEL_13:
     }
     v37 = (__int64)&v22[8 * (v34 & 2) + 12 + (v35 != 0 ? 0x10 : 0)];
 LABEL_34:
-    v25 = SepSidInToken(a1, 0LL, v37, 0LL, v15);
+    v25 = SepSidInToken(a1, 0LL, v37, 0LL, v15, a12);
     goto LABEL_9;
   }
 LABEL_14:

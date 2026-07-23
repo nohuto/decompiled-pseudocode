@@ -17,7 +17,7 @@
 __int64 __fastcall PnpSetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         unsigned int a6,
@@ -30,11 +30,10 @@ __int64 __fastcall PnpSetDevicePropertyData(
   struct _KTHREAD *v13; // rcx
   __int16 v14; // ax
   __int64 v16; // rax
-  _BYTE v17[8]; // [rsp+50h] [rbp-108h] BYREF
-  _WORD *v18; // [rsp+58h] [rbp-100h]
-  _WORD v19[88]; // [rsp+60h] [rbp-F8h] BYREF
+  UNICODE_STRING String; // [rsp+50h] [rbp-108h] BYREF
+  _WORD v18[88]; // [rsp+60h] [rbp-F8h] BYREF
 
-  memset(v19, 0, 170);
+  memset(v18, 0, 170);
   if ( a1 )
     v9 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
@@ -43,18 +42,18 @@ __int64 __fastcall PnpSetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    v18 = v19;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, v17) )
+    String.Buffer = v18;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v18 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PnpDevicePropertyLock, 1u);
-  v12 = PiPnpRtlSetObjectProperty(v11, *(const WCHAR **)(v9 + 48), 1, 0LL, (__int64)v18, a2, a5, a7, a6);
+  v12 = PiPnpRtlSetObjectProperty(v11, *(const WCHAR **)(v9 + 48), 1, 0LL, (__int64)String.Buffer, a2, a5, a7, a6);
   if ( v12 >= 0 && *(_DWORD *)(a2 + 16) == 2 )
   {
     v16 = *(_QWORD *)a2 - *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1;

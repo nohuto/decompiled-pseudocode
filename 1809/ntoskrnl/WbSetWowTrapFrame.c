@@ -1,14 +1,14 @@
 /*
- * XREFs of WbSetWowTrapFrame @ 0x1408E552C
+ * XREFs of WbSetWowTrapFrame @ 0x1408E67EC
  * Callers:
- *     WbSetTrapFrame @ 0x140624794 (WbSetTrapFrame.c)
+ *     WbSetTrapFrame @ 0x1406257B4 (WbSetTrapFrame.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     PspWow64GetContextThread @ 0x1406A82B8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1406A89BC (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406A9558 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1406A9C5C (PspWow64SetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(unsigned int *a1, unsigned int *a2)
+__int64 __fastcall WbSetWowTrapFrame(ULONG *a1, ULONG *a2)
 {
   unsigned __int64 v4; // rax
   __int16 v5; // di

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeExecuteVerw @ 0x140171240
+ * XREFs of KeExecuteVerw @ 0x140171740
  * Callers:
- *     PoIdle @ 0x1400D9F40 (PoIdle.c)
- *     PpmIdleDefaultExecute @ 0x140140CF4 (PpmIdleDefaultExecute.c)
+ *     PoIdle @ 0x1400D7DE0 (PoIdle.c)
+ *     PpmIdleDefaultExecute @ 0x140141264 (PpmIdleDefaultExecute.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x14027761C
+ * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x14027780C
  * Callers:
- *     HvlAddSecureHvPagesCallbackRoutine @ 0x140277600 (HvlAddSecureHvPagesCallbackRoutine.c)
- *     HvlAddSecureSkPagesCallbackRoutine @ 0x140277770 (HvlAddSecureSkPagesCallbackRoutine.c)
+ *     HvlAddSecureHvPagesCallbackRoutine @ 0x1402777F0 (HvlAddSecureHvPagesCallbackRoutine.c)
+ *     HvlAddSecureSkPagesCallbackRoutine @ 0x140277960 (HvlAddSecureSkPagesCallbackRoutine.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlpEndSecurePageListIteration @ 0x14027A234 (HvlpEndSecurePageListIteration.c)
- *     HvlpGetSecurePageList @ 0x14027A3A0 (HvlpGetSecurePageList.c)
- *     HvlpStartSecurePageListIteration @ 0x14027A600 (HvlpStartSecurePageListIteration.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlpEndSecurePageListIteration @ 0x14027A424 (HvlpEndSecurePageListIteration.c)
+ *     HvlpGetSecurePageList @ 0x14027A590 (HvlpGetSecurePageList.c)
+ *     HvlpStartSecurePageListIteration @ 0x14027A7F0 (HvlpStartSecurePageListIteration.c)
  */
 
 __int64 __fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, __int64 a4)
@@ -33,14 +33,14 @@ __int64 __fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, 
   }
   if ( HvlpCrashdumpIterationState )
   {
-    while ( dword_140437560 )
+    while ( dword_140438620 )
     {
 LABEL_8:
-      *(_QWORD *)(a4 + 24) = (*(_QWORD *)qword_140437558 >> 40) + 1LL;
+      *(_QWORD *)(a4 + 24) = (*(_QWORD *)qword_140438618 >> 40) + 1LL;
       result = 0xFFFFFFFFFFLL;
-      *(_QWORD *)(a4 + 16) = *(_QWORD *)qword_140437558 & 0xFFFFFFFFFFLL;
-      qword_140437558 += 8LL;
-      --dword_140437560;
+      *(_QWORD *)(a4 + 16) = *(_QWORD *)qword_140438618 & 0xFFFFFFFFFFLL;
+      qword_140438618 += 8LL;
+      --dword_140438620;
       if ( *(_QWORD *)(a4 + 24) )
       {
         *(_DWORD *)(a4 + 8) = -2147483646;
@@ -53,9 +53,9 @@ LABEL_8:
     }
     while ( (int)HvlpGetSecurePageList(1LL, 0LL, 0LL, &v9, 0LL, &v8) >= 0 )
     {
-      dword_140437560 = *(unsigned __int16 *)(v9 + 8);
-      qword_140437558 = v9 + 16;
-      if ( dword_140437560 )
+      dword_140438620 = *(unsigned __int16 *)(v9 + 8);
+      qword_140438618 = v9 + 16;
+      if ( dword_140438620 )
         goto LABEL_8;
     }
     result = HvlpEndSecurePageListIteration(1LL, 0LL, 0LL);

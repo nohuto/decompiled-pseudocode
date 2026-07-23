@@ -42,14 +42,14 @@ char __fastcall SeAccessCheckWithHint(
         __int64 a8,
         char a9,
         int *a10,
-        int *a11)
+        NTSTATUS *a11)
 {
   int *v11; // r14
   __int64 v12; // rsi
   int v14; // ebx
   unsigned int v16; // r13d
   __int16 v17; // r11
-  __int64 v18; // r8
+  unsigned int v18; // r8d
   __int64 v19; // rax
   __int64 v20; // rax
   __int64 v21; // rcx
@@ -62,7 +62,7 @@ char __fastcall SeAccessCheckWithHint(
   unsigned __int8 *v28; // r14
   __int64 v29; // rdi
   __int64 v30; // rax
-  unsigned __int8 v31; // r8
+  BOOLEAN v31; // r8
   __int16 v32; // r9
   unsigned int v33; // r10d
   unsigned __int64 v34; // r15
@@ -97,9 +97,9 @@ char __fastcall SeAccessCheckWithHint(
   unsigned int v63; // ecx
   int v64; // eax
   int v65; // r14d
-  __int64 v66; // rdi
-  __int64 v67; // rsi
-  int v68; // eax
+  void *v66; // rdi
+  void *v67; // rsi
+  NTSTATUS v68; // eax
   char v69; // bl
   char v70; // r13
   int v71; // eax
@@ -118,7 +118,7 @@ char __fastcall SeAccessCheckWithHint(
   __int64 v84; // rax
   __int16 v85; // cx
   __int64 v86; // rax
-  __int64 v87; // rcx
+  ACL *v87; // rcx
   __int64 v88; // rdx
   bool v89; // sf
   unsigned int v90; // r12d
@@ -143,8 +143,8 @@ char __fastcall SeAccessCheckWithHint(
   __int16 v109; // [rsp+A0h] [rbp-80h]
   char v110; // [rsp+A0h] [rbp-80h]
   char v111; // [rsp+A2h] [rbp-7Eh]
-  unsigned __int8 v112; // [rsp+A3h] [rbp-7Dh] BYREF
-  char v113; // [rsp+A4h] [rbp-7Ch] BYREF
+  BOOLEAN DominatesTrust; // [rsp+A3h] [rbp-7Dh] BYREF
+  BOOLEAN v113; // [rsp+A4h] [rbp-7Ch] BYREF
   char v114; // [rsp+A5h] [rbp-7Bh]
   char v115; // [rsp+A6h] [rbp-7Ah] BYREF
   char v116; // [rsp+A7h] [rbp-79h]
@@ -161,7 +161,7 @@ char __fastcall SeAccessCheckWithHint(
   __int64 v127; // [rsp+E4h] [rbp-3Ch]
   unsigned int v128; // [rsp+ECh] [rbp-34h]
   int v129; // [rsp+F0h] [rbp-30h] BYREF
-  __int64 v130; // [rsp+F8h] [rbp-28h]
+  ACL *v130; // [rsp+F8h] [rbp-28h]
   int v131; // [rsp+100h] [rbp-20h] BYREF
   __int64 v132; // [rsp+108h] [rbp-18h] BYREF
   __int64 v133; // [rsp+110h] [rbp-10h]
@@ -241,8 +241,8 @@ char __fastcall SeAccessCheckWithHint(
   if ( !a4 )
     SeLockSubjectContext((PSECURITY_SUBJECT_CONTEXT)a3);
   v17 = *(_WORD *)(v12 + 2);
-  LODWORD(v18) = 0;
-  v112 = 0;
+  v18 = 0;
+  DominatesTrust = 0;
   v113 = 0;
   while ( 1 )
   {
@@ -259,7 +259,7 @@ char __fastcall SeAccessCheckWithHint(
 LABEL_19:
     v21 = 0LL;
 LABEL_20:
-    v18 = (unsigned int)(v18 + 1);
+    ++v18;
     if ( !v21 )
       goto LABEL_21;
   }
@@ -271,7 +271,7 @@ LABEL_14:
   v22 = 0;
   if ( !*(_WORD *)(v20 + 4) )
     goto LABEL_19;
-  while ( v22 < (unsigned int)v18 || *(_BYTE *)v21 != 20 )
+  while ( v22 < v18 || *(_BYTE *)v21 != 20 )
   {
     ++v22;
     v21 += *(unsigned __int16 *)(v21 + 2);
@@ -289,7 +289,7 @@ LABEL_21:
     goto LABEL_22;
   }
   v65 = *(_DWORD *)(v21 + 4);
-  v66 = v21 + 8;
+  v66 = (void *)(v21 + 8);
   if ( v21 == -8 )
   {
     v11 = a11;
@@ -297,17 +297,17 @@ LABEL_21:
   }
   if ( !*(_QWORD *)a3 )
     goto LABEL_150;
-  v67 = *(_QWORD *)(*(_QWORD *)a3 + 1104LL);
-  v68 = RtlSidDominatesForTrust(*(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL), v67, &v113);
+  v67 = *(void **)(*(_QWORD *)a3 + 1104LL);
+  v68 = RtlSidDominatesForTrust(*(PSID *)(*((_QWORD *)a3 + 2) + 1104LL), v67, &v113);
   if ( v68 >= 0 )
   {
     if ( !v113 )
 LABEL_150:
-      v67 = *(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL);
-    v68 = RtlSidDominatesForTrust(v67, v66, &v112);
+      v67 = *(void **)(*((_QWORD *)a3 + 2) + 1104LL);
+    v68 = RtlSidDominatesForTrust(v67, v66, &DominatesTrust);
     if ( v68 >= 0 )
     {
-      if ( v112 )
+      if ( DominatesTrust )
         v14 = -1;
       else
         v14 = v65 | 0x1000000;
@@ -420,16 +420,16 @@ LABEL_34:
         v130 = 0LL;
         goto LABEL_208;
       }
-      v87 = v12 + v86;
+      v87 = (ACL *)(v12 + v86);
     }
     else
     {
-      v87 = *(_QWORD *)(v12 + 24);
+      v87 = *(ACL **)(v12 + 24);
     }
     v130 = v87;
     if ( v87 )
     {
-      ScopedPolicySid = (void *)SepGetScopedPolicySid(v87, 0x8000LL, v18);
+      ScopedPolicySid = (void *)SepGetScopedPolicySid(v87);
       if ( ScopedPolicySid )
       {
         LODWORD(ScopedPolicySid) = SepRmReferenceFindCap(ScopedPolicySid);
@@ -476,7 +476,7 @@ LABEL_35:
   v31 = 0;
   v32 = *(_WORD *)v28;
   v109 = *(_WORD *)v28;
-  v112 = 0;
+  DominatesTrust = 0;
   v33 = 4 * v30 + 8;
   LODWORD(v30) = v28[4 * v30 + 4];
   v118 = v33;
@@ -619,11 +619,11 @@ LABEL_69:
         continue;
       break;
     }
-    v31 = v112;
+    v31 = DominatesTrust;
 LABEL_114:
     v31 += 8;
     v34 >>= 8;
-    v112 = v31;
+    DominatesTrust = v31;
     if ( v34 )
       continue;
     break;

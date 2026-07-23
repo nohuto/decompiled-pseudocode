@@ -1,13 +1,13 @@
 /*
- * XREFs of VslVerifyPage @ 0x14054CC80
+ * XREFs of VslVerifyPage @ 0x14054D340
  * Callers:
- *     CcBcbProfiler @ 0x1403E3340 (CcBcbProfiler.c)
- *     VslpVerifySessionSpace @ 0x14054CFD0 (VslpVerifySessionSpace.c)
+ *     CcBcbProfiler @ 0x1403E3520 (CcBcbProfiler.c)
+ *     VslpVerifySessionSpace @ 0x14054D690 (VslpVerifySessionSpace.c)
  *     sub_14067E010 @ 0x14067E010 (sub_14067E010.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslVerifyPage(__int64 a1, int a2)

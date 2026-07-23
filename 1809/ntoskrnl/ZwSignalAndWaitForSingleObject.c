@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSignalAndWaitForSingleObject @ 0x1401BB770
+ * XREFs of ZwSignalAndWaitForSingleObject @ 0x1401BB8D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSignalAndWaitForSingleObject(
         HANDLE SignalObject,
         HANDLE WaitObject,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSignalAndWaitForSingleObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SignalObject, WaitObject, Alertable);
+  return KiServiceInternal(SignalObject);
 }

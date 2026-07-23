@@ -1,12 +1,12 @@
 /*
- * XREFs of PspPrepareSystemDllInitBlock @ 0x14051A834
+ * XREFs of PspPrepareSystemDllInitBlock @ 0x1404FDC24
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspSetupUserProcessAddressSpace @ 0x14051A604 (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1404FD9F4 (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     MmGetCfgBitMapInformation @ 0x14051A9C0 (MmGetCfgBitMapInformation.c)
- *     PsWow64GetProcessMachine @ 0x14051AA00 (PsWow64GetProcessMachine.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     MmGetCfgBitMapInformation @ 0x1404FDDB0 (MmGetCfgBitMapInformation.c)
+ *     PsWow64GetProcessMachine @ 0x1404FDDF0 (PsWow64GetProcessMachine.c)
  */
 
 __int64 __fastcall PspPrepareSystemDllInitBlock(__int64 a1, __int64 a2, __int64 a3)

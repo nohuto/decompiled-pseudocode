@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B3E8
+ * XREFs of KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B8D8
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     IoSaveBugCheckRecoveryStatus @ 0x140550ABC (IoSaveBugCheckRecoveryStatus.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x14057B878 (KiUpdateBugcheckRecoveryProgress.c)
+ *     IoSaveBugCheckRecoveryStatus @ 0x14055117C (IoSaveBugCheckRecoveryStatus.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x14057BD68 (KiUpdateBugcheckRecoveryProgress.c)
  */
 
 __int64 __fastcall KiSaveBugCheckRecoveryStatusPhase1(unsigned __int8 a1, int a2)

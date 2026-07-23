@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwIrpGetLifetime @ 0x140645760
+ * XREFs of PiSwIrpGetLifetime @ 0x140645844
  * Callers:
- *     PiSwDispatch @ 0x140489CB0 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x140489090 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
  */
 
 __int64 __fastcall PiSwIrpGetLifetime(PIRP Irp)

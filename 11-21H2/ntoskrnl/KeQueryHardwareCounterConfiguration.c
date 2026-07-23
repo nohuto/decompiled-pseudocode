@@ -16,8 +16,8 @@ NTSTATUS __stdcall KeQueryHardwareCounterConfiguration(
   ULONG64 v7; // rax
   __int64 v8; // rcx
 
-  v3 = KiHwCountersCount;
-  *Count = KiHwCountersCount;
+  v3 = dword_140D01954;
+  *Count = dword_140D01954;
   if ( v3 > MaximumCount )
     return -1073741789;
   v6 = 0LL;
@@ -25,7 +25,7 @@ NTSTATUS __stdcall KeQueryHardwareCounterConfiguration(
   {
     do
     {
-      v7 = KiHwCounters[v6];
+      v7 = dword_140C2AEC0[v6];
       v8 = (unsigned int)v6;
       v6 = (unsigned int)(v6 + 1);
       CounterArray[v8].Type = PMCCounter;

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnmapLargePages @ 0x1402C5BA4
+ * XREFs of MiUnmapLargePages @ 0x1402C5D94
  * Callers:
  *     MiRemoveFromSystemSpace @ 0x140026F90 (MiRemoveFromSystemSpace.c)
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
- *     MiUnmapLargeDriver @ 0x14085D97C (MiUnmapLargeDriver.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
+ *     MiUnmapLargeDriver @ 0x14085EBDC (MiUnmapLargeDriver.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, signed int a3)
@@ -44,7 +44,7 @@ __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, s
         if ( (unsigned int)MiPteHasShadow() )
         {
           v11 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
           {
             v13 = (v10 & 1) == 0;
             goto LABEL_12;

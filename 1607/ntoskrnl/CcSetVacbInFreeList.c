@@ -1,12 +1,12 @@
 /*
- * XREFs of CcSetVacbInFreeList @ 0x1400182B4
+ * XREFs of CcSetVacbInFreeList @ 0x140017E34
  * Callers:
- *     CcUnmapVacbArray @ 0x140017FC0 (CcUnmapVacbArray.c)
- *     CcGetVacbMiss @ 0x14001872C (CcGetVacbMiss.c)
- *     CcUnmapInactiveViews @ 0x14014199C (CcUnmapInactiveViews.c)
+ *     CcUnmapVacbArray @ 0x140017B40 (CcUnmapVacbArray.c)
+ *     CcGetVacbMiss @ 0x1400182AC (CcGetVacbMiss.c)
+ *     CcUnmapInactiveViews @ 0x140141F0C (CcUnmapInactiveViews.c)
  * Callees:
- *     CcDereferenceVacbArray @ 0x140018314 (CcDereferenceVacbArray.c)
- *     CcSetVacbIntoList @ 0x1401B29B8 (CcSetVacbIntoList.c)
+ *     CcDereferenceVacbArray @ 0x140017E94 (CcDereferenceVacbArray.c)
+ *     CcSetVacbIntoList @ 0x1401B289C (CcSetVacbIntoList.c)
  */
 
 __int64 __fastcall CcSetVacbInFreeList(_QWORD *a1, char a2)

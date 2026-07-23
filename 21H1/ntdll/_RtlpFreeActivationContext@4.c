@@ -9,10 +9,10 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __thiscall RtlpFreeActivationContext(int this)
+LOGICAL __thiscall RtlpFreeActivationContext(int this)
 {
   void (__thiscall *v2)(_DWORD, int, int, _DWORD, _DWORD, _DWORD, char *); // edi
-  int result; // eax
+  LOGICAL result; // eax
   char v4; // [esp+Bh] [ebp-1h] BYREF
 
   v4 = 0;
@@ -21,6 +21,6 @@ int __thiscall RtlpFreeActivationContext(int this)
     v2(*(_DWORD *)(this + 20), 1, this, *(_DWORD *)(this + 16), *(_DWORD *)(this + 24), 0, &v4);
   result = RtlpUninitializeAssemblyStorageMap(this + 92);
   if ( (*(_BYTE *)(this + 4) & 2) == 0 )
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this - 4);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)(this - 4));
   return result;
 }

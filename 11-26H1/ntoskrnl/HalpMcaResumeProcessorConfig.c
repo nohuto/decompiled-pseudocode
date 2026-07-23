@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpMcaResumeProcessorConfig @ 0x140C0A7E0
+ * XREFs of HalpMcaResumeProcessorConfig @ 0x140C109F0
  * Callers:
- *     HalpPostSleepMP @ 0x140BECEF0 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140BEE0F0 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140BF2EF0 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140BF40F0 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     HalpCmciInitProcessor @ 0x140453268 (HalpCmciInitProcessor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpMcaSetProcessorConfig @ 0x140BE91B8 (HalpMcaSetProcessorConfig.c)
- *     HalpIsCmciImplemented @ 0x140BEA724 (HalpIsCmciImplemented.c)
+ *     HalpCmciInitProcessor @ 0x14044B398 (HalpCmciInitProcessor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpMcaSetProcessorConfig @ 0x140BEF1B8 (HalpMcaSetProcessorConfig.c)
+ *     HalpIsCmciImplemented @ 0x140BF0724 (HalpIsCmciImplemented.c)
  */
 
 char __fastcall HalpMcaResumeProcessorConfig(int a1)

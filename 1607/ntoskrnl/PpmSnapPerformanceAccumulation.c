@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmSnapPerformanceAccumulation @ 0x1400D9590
+ * XREFs of PpmSnapPerformanceAccumulation @ 0x1400D7430
  * Callers:
- *     PpmPerfSnapUtility @ 0x1400D9180 (PpmPerfSnapUtility.c)
- *     PpmResetPerfTimes @ 0x1401301F8 (PpmResetPerfTimes.c)
- *     PoGetPerfStateAndParkingInfo @ 0x14020A2B8 (PoGetPerfStateAndParkingInfo.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x14020A5F0 (PpmCapturePerformanceDistributionCallback.c)
- *     PpmGetThroughputInfoCallback @ 0x14020A744 (PpmGetThroughputInfoCallback.c)
+ *     PpmPerfSnapUtility @ 0x1400D7020 (PpmPerfSnapUtility.c)
+ *     PpmResetPerfTimes @ 0x140130768 (PpmResetPerfTimes.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x14020A0E4 (PoGetPerfStateAndParkingInfo.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x14020A41C (PpmCapturePerformanceDistributionCallback.c)
+ *     PpmGetThroughputInfoCallback @ 0x14020A570 (PpmGetThroughputInfoCallback.c)
  * Callees:
- *     PpmConvertTime @ 0x14000E064 (PpmConvertTime.c)
- *     PpmUpdatePerformanceFeedback @ 0x1400DB9C0 (PpmUpdatePerformanceFeedback.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PpmConvertTime @ 0x14000DBE4 (PpmConvertTime.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1400D9860 (PpmUpdatePerformanceFeedback.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 char __fastcall PpmSnapPerformanceAccumulation(

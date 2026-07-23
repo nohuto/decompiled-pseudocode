@@ -126,9 +126,9 @@
  *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402BA844 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-char __fastcall KiAbEntryRemoveFromTree(__int64 a1, __int64 a2)
+char __fastcall KiAbEntryRemoveFromTree(PRTL_BALANCED_NODE Node, __int64 a2)
 {
-  unsigned int v3; // edi
+  unsigned int ParentValue; // edi
   unsigned __int64 v4; // rsi
   __int64 v5; // rcx
   volatile LONG *v6; // r14
@@ -146,8 +146,8 @@ char __fastcall KiAbEntryRemoveFromTree(__int64 a1, __int64 a2)
   _DWORD *SchedulerAssist; // rdx
   int v19; // eax
   _QWORD *v20; // rdx
-  unsigned __int64 *v21; // rcx
-  unsigned __int64 v22; // rdi
+  _RTL_RB_TREE *v21; // rcx
+  unsigned __int64 Root; // rdi
   __int16 v23; // cx
   struct _KPRCB *v24; // rcx
   _DWORD *v25; // rdx
@@ -158,19 +158,19 @@ char __fastcall KiAbEntryRemoveFromTree(__int64 a1, __int64 a2)
   int v30; // eax
   __int64 v31; // rax
   unsigned __int16 v32; // ax
-  __int64 v33; // rdx
+  char *v33; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE v36; // [rsp+38h] [rbp-40h] BYREF
   void *retaddr; // [rsp+78h] [rbp+0h]
 
-  v3 = *(_DWORD *)(a1 + 40);
-  v4 = *(_QWORD *)(a1 + 32) & 0x7FFFFFFFFFFFFFFCLL;
+  ParentValue = Node[1].ParentValue;
+  v4 = (__int64)Node[1].Children[1] & 0x7FFFFFFFFFFFFFFCLL;
   v5 = ((v4 >> 4) & 0x3FF) << 6;
   v6 = (volatile LONG *)((char *)&KiAbTreeArray + v5 + 16);
   v7 = (unsigned __int64 *)((char *)&KiAbTreeArray + v5);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  for ( i = *(_BYTE *)(a1 + 27) & 1; ; i = 1 )
+  for ( i = BYTE3(Node[1].Left) & 1; ; i = 1 )
   {
     if ( i )
     {
@@ -202,9 +202,9 @@ char __fastcall KiAbEntryRemoveFromTree(__int64 a1, __int64 a2)
       if ( v13 > v4 )
         goto LABEL_15;
       v14 = *(_DWORD *)(v11 + 40);
-      if ( v14 == v3 )
+      if ( v14 == ParentValue )
         break;
-      if ( v14 < v3 )
+      if ( v14 < ParentValue )
 LABEL_17:
         v15 = *(_QWORD *)(v11 + 8);
       else
@@ -240,23 +240,23 @@ LABEL_15:
       if ( v20 )
         KxWaitForLockOwnerShip((__int64)&LockHandle, v20);
     }
-    if ( v11 != a1 )
+    if ( (PRTL_BALANCED_NODE)v11 != Node )
     {
       if ( i )
         ExReleaseSpinLockExclusiveFromDpcLevel(v6);
       else
         ExReleaseSpinLockSharedFromDpcLevel(v6);
-      *(_BYTE *)(a1 + 39) &= ~0x80u;
-      if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
+      HIBYTE(Node[1].Right) &= ~0x80u;
+      if ( (BYTE1(Node[1].Children[0]) & 1) != 0 )
       {
-        KiAbTryDecrementIoWaiterCounts(a1, v11);
+        KiAbTryDecrementIoWaiterCounts(Node, v11);
         v31 = 64LL;
       }
       else
       {
         v31 = 48LL;
       }
-      RtlRbRemoveNode(v31 + v11, a1);
+      RtlRbRemoveNode((PRTL_RB_TREE)(v31 + v11), Node);
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       goto LABEL_70;
     }
@@ -267,35 +267,35 @@ LABEL_15:
   }
   if ( *(_QWORD *)(v11 + 64) )
   {
-    v21 = (unsigned __int64 *)(v11 + 64);
+    v21 = (_RTL_RB_TREE *)(v11 + 64);
   }
   else
   {
-    v21 = (unsigned __int64 *)(v11 + 48);
+    v21 = (_RTL_RB_TREE *)(v11 + 48);
     if ( !*(_QWORD *)(v11 + 48) )
       goto LABEL_41;
   }
   if ( v21 )
   {
-    v22 = *v21;
-    RtlRbRemoveNode(v21, *v21);
-    RtlRbReplaceNode(v7, v11, v22);
-    v36.LockQueue.Lock = (unsigned __int64 *volatile)(v22 + 80);
+    Root = (unsigned __int64)v21->Root;
+    RtlRbRemoveNode(v21, v21->Root);
+    RtlRbReplaceNode(v7, v11, Root);
+    v36.LockQueue.Lock = (unsigned __int64 *volatile)(Root + 80);
     v36.LockQueue.Next = 0LL;
-    KxAcquireQueuedSpinLock((__int64)&v36, (volatile __int64 *)(v22 + 80));
+    KxAcquireQueuedSpinLock((__int64)&v36, (volatile __int64 *)(Root + 80));
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-    v23 = *(_WORD *)(v22 + 90);
-    *(_OWORD *)(v22 + 48) = *(_OWORD *)(v11 + 48);
-    *(_OWORD *)(v22 + 64) = *(_OWORD *)(v11 + 64);
-    *(_WORD *)(v22 + 90) ^= (*(_WORD *)(v11 + 90) ^ v23) & 0x1FE;
-    *(_WORD *)(v22 + 90) = *(_WORD *)(v11 + 90) ^ (*(_WORD *)(v22 + 90) ^ *(_WORD *)(v11 + 90)) & 0x1FF;
-    KiAbTryDecrementIoWaiterCounts(v11, v22);
-    *(_BYTE *)(v22 + 27) |= 1u;
+    v23 = *(_WORD *)(Root + 90);
+    *(_OWORD *)(Root + 48) = *(_OWORD *)(v11 + 48);
+    *(_OWORD *)(Root + 64) = *(_OWORD *)(v11 + 64);
+    *(_WORD *)(Root + 90) ^= (*(_WORD *)(v11 + 90) ^ v23) & 0x1FE;
+    *(_WORD *)(Root + 90) = *(_WORD *)(v11 + 90) ^ (*(_WORD *)(Root + 90) ^ *(_WORD *)(v11 + 90)) & 0x1FF;
+    KiAbTryDecrementIoWaiterCounts(v11, Root);
+    *(_BYTE *)(Root + 27) |= 1u;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&v36);
     goto LABEL_51;
   }
 LABEL_41:
-  RtlRbRemoveNode(v7, v11);
+  RtlRbRemoveNode((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v11);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v6, retaddr);
   else
@@ -348,12 +348,12 @@ LABEL_57:
     }
   }
 LABEL_70:
-  v32 = 16 * *(unsigned __int8 *)(a1 + 24);
-  v33 = a1 - v32;
-  if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
-    --*(_BYTE *)(v33 + 793);
+  v32 = 16 * LOBYTE(Node[1].Children[0]);
+  v33 = (char *)Node - v32;
+  if ( (BYTE1(Node[1].Children[0]) & 1) != 0 )
+    --v33[793];
   else
-    LOBYTE(v32) = _InterlockedExchangeAdd8((volatile signed __int8 *)(v33 + 1423), 0xFFu);
+    LOBYTE(v32) = _InterlockedExchangeAdd8(v33 + 1423, 0xFFu);
   __writecr8(CurrentIrql);
   return v32;
 }

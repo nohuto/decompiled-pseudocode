@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeMdlSinglePage @ 0x14046BA6C
+ * XREFs of MiInitializeMdlSinglePage @ 0x14046BE6C
  * Callers:
- *     MiAllocateKernelStackPages @ 0x1402732C0 (MiAllocateKernelStackPages.c)
+ *     MiAllocateKernelStackPages @ 0x140273550 (MiAllocateKernelStackPages.c)
  * Callees:
- *     MiInitializeMdlPfn @ 0x14038C220 (MiInitializeMdlPfn.c)
- *     MiConvertLargePfnToSmall @ 0x14038FB8C (MiConvertLargePfnToSmall.c)
+ *     MiInitializeMdlPfn @ 0x14038C400 (MiInitializeMdlPfn.c)
+ *     MiConvertLargePfnToSmall @ 0x14038FD6C (MiConvertLargePfnToSmall.c)
  */
 
 char __fastcall MiInitializeMdlSinglePage(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int a5)

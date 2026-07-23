@@ -1,14 +1,22 @@
 /*
- * XREFs of ZwNotifyChangeSession @ 0x1407258B0
+ * XREFs of ZwNotifyChangeSession @ 0x14072A480
  * Callers:
- *     DifZwNotifyChangeSessionWrapper @ 0x1406AB020 (DifZwNotifyChangeSessionWrapper.c)
+ *     DifZwNotifyChangeSessionWrapper @ 0x1406AEC00 (DifZwNotifyChangeSessionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwNotifyChangeSession(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwNotifyChangeSession(
+        HANDLE SessionHandle,
+        ULONG ChangeSequenceNumber,
+        PLARGE_INTEGER ChangeTimeStamp,
+        IO_SESSION_EVENT Event,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SessionHandle);
 }

@@ -11,17 +11,21 @@
  *     BiCreateObject @ 0x14070D5EC (BiCreateObject.c)
  */
 
-NTSTATUS __fastcall BcdCreateObject(int a1, int a2, int a3, __int64 a4)
+NTSTATUS __cdecl BcdCreateObject(
+        HANDLE BcdStoreHandle,
+        PGUID Identifier,
+        PBCD_OBJECT_DESCRIPTION Description,
+        PHANDLE BcdObjectHandle)
 {
   char IsOfflineHandle; // di
   NTSTATUS result; // eax
-  int Object; // ebx
+  NTSTATUS Object; // ebx
 
-  IsOfflineHandle = BiIsOfflineHandle(a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdStoreHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    Object = BiCreateObject(a1, a2, a3, 0, a4);
+    Object = BiCreateObject(BcdStoreHandle, Identifier, Description, 0LL, BcdObjectHandle);
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return Object;
   }

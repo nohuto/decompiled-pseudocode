@@ -1,18 +1,21 @@
 /*
- * XREFs of ZwAlpcCreatePort @ 0x1406A73B0
+ * XREFs of ZwAlpcCreatePort @ 0x1406A8350
  * Callers:
- *     DifZwAlpcCreatePortWrapper @ 0x14063BFF0 (DifZwAlpcCreatePortWrapper.c)
- *     PopUmpoInitializeChannel @ 0x140C32438 (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140C326B4 (PopUmpoInitializeMonitorChannel.c)
- *     SshpAlpcInitialize @ 0x140C34404 (SshpAlpcInitialize.c)
- *     SeRmInitPhase1 @ 0x140C6024C (SeRmInitPhase1.c)
+ *     DifZwAlpcCreatePortWrapper @ 0x14063A5B0 (DifZwAlpcCreatePortWrapper.c)
+ *     PopUmpoInitializeChannel @ 0x140C34578 (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140C347F4 (PopUmpoInitializeMonitorChannel.c)
+ *     SshpAlpcInitialize @ 0x140C36544 (SshpAlpcInitialize.c)
+ *     SeRmInitPhase1 @ 0x140C6239C (SeRmInitPhase1.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreatePort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

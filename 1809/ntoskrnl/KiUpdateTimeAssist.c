@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateTimeAssist @ 0x140117838
+ * XREFs of KiUpdateTimeAssist @ 0x1401178A8
  * Callers:
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
- *     KeSynchronizeTimeToQpc @ 0x140159A70 (KeSynchronizeTimeToQpc.c)
+ *     KeSynchronizeTimeToQpc @ 0x140159B70 (KeSynchronizeTimeToQpc.c)
  * Callees:
- *     KiComputeNewSystemTime @ 0x1401179FC (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x140117A70 (RtlWriteAcquireTickLock.c)
+ *     KiComputeNewSystemTime @ 0x140117A6C (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x140117AE0 (RtlWriteAcquireTickLock.c)
  */
 
 __int64 __fastcall KiUpdateTimeAssist(__int64 a1, __int64 a2, __int64 a3)

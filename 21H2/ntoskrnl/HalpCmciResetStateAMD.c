@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCmciResetStateAMD @ 0x1404BCD20
+ * XREFs of HalpCmciResetStateAMD @ 0x1404BCF60
  * Callers:
- *     HalpCmciResetState @ 0x1404BCCD0 (HalpCmciResetState.c)
+ *     HalpCmciResetState @ 0x1404BCF10 (HalpCmciResetState.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpCmciSetProcessorConfigAMD @ 0x1404BCE00 (HalpCmciSetProcessorConfigAMD.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x1404BD040 (HalpCmciSetProcessorConfigAMD.c)
  */
 
 __int64 __fastcall HalpCmciResetStateAMD(__int64 a1, __int64 a2)

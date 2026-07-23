@@ -1,25 +1,25 @@
 /*
- * XREFs of _RegRtlCreateKeyTransacted @ 0x14091E5D4
+ * XREFs of _RegRtlCreateKeyTransacted @ 0x140979034
  * Callers:
- *     _SysCtxOpenControlSet @ 0x14089CA30 (_SysCtxOpenControlSet.c)
- *     _RegRtlCopyTreeInternal @ 0x14089D400 (_RegRtlCopyTreeInternal.c)
- *     _PnpSetPropertyWorker @ 0x14090A5FC (_PnpSetPropertyWorker.c)
- *     _RegRtlCreateTreeTransacted @ 0x14091E278 (_RegRtlCreateTreeTransacted.c)
- *     _CmAddDeviceToContainerWorker @ 0x140AE82D0 (_CmAddDeviceToContainerWorker.c)
- *     _CmCreateOrdinalInstanceKey @ 0x140AE8928 (_CmCreateOrdinalInstanceKey.c)
- *     _SysCtxRegCreateKey @ 0x140AEABF8 (_SysCtxRegCreateKey.c)
- *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140AF342C (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _SysCtxOpenControlSet @ 0x1408A2E30 (_SysCtxOpenControlSet.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408A3800 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlCreateTreeTransacted @ 0x140978CD8 (_RegRtlCreateTreeTransacted.c)
+ *     _PnpSetPropertyWorker @ 0x1409ACBB4 (_PnpSetPropertyWorker.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140AE6180 (_CmAddDeviceToContainerWorker.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x140AE67D8 (_CmCreateOrdinalInstanceKey.c)
+ *     _SysCtxRegCreateKey @ 0x140AED6E8 (_SysCtxRegCreateKey.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140AF5C1C (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     NtCreateKeyTransacted_Stub @ 0x14089DB44 (NtCreateKeyTransacted_Stub.c)
- *     _RegRtlIsPredefinedKey @ 0x14091E728 (_RegRtlIsPredefinedKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x140AE8C08 (_RegRtlOpenPredefinedKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     NtCreateKeyTransacted_Stub @ 0x1408A3F44 (NtCreateKeyTransacted_Stub.c)
+ *     _RegRtlIsPredefinedKey @ 0x140979188 (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140AE6AB8 (_RegRtlOpenPredefinedKey.c)
  */
 
 __int64 __fastcall RegRtlCreateKeyTransacted(
-        void *a1,
+        HANDLE a1,
         const WCHAR *a2,
         ULONG a3,
         ACCESS_MASK a4,
@@ -29,7 +29,6 @@ __int64 __fastcall RegRtlCreateKeyTransacted(
         ULONG *Disposition,
         PUNICODE_STRING a9)
 {
-  HANDLE v12; // rdi
   __int64 v13; // rcx
   int inited; // ebx
   int v15; // ecx
@@ -40,8 +39,7 @@ __int64 __fastcall RegRtlCreateKeyTransacted(
   memset(&ObjectAttributes, 0, 44);
   Handle = 0LL;
   DestinationString = 0LL;
-  v12 = a1;
-  if ( !(unsigned __int8)RegRtlIsPredefinedKey(a1) || (inited = RegRtlOpenPredefinedKey(v13, &Handle), inited >= 0) )
+  if ( !(unsigned __int8)RegRtlIsPredefinedKey() || (inited = RegRtlOpenPredefinedKey(v13, &Handle), inited >= 0) )
   {
     inited = RtlInitUnicodeStringEx(&DestinationString, a2);
     if ( inited >= 0 )
@@ -52,11 +50,11 @@ __int64 __fastcall RegRtlCreateKeyTransacted(
       if ( !a6 )
         v15 = 32 * (a3 & 8 | 6);
       if ( Handle )
-        v12 = Handle;
+        a1 = Handle;
       ObjectAttributes.Attributes = v15 | 0x200;
       ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.SecurityDescriptor = a5;
-      ObjectAttributes.RootDirectory = v12;
+      ObjectAttributes.RootDirectory = a1;
       if ( a9 )
       {
         inited = NtCreateKeyTransacted_Stub((__int64)KeyHandle, a4);

@@ -13,7 +13,7 @@ void __fastcall MiLockdownSections(__int64 a1)
   void *v1; // r14
   int v2; // ebx
   PIMAGE_NT_HEADERS v4; // rax
-  struct _RTL_BITMAP *v5; // rbp
+  _RTL_BITMAP *v5; // rbp
   int NumberOfSections; // esi
   __int64 v7; // rdi
   int v8; // eax
@@ -28,7 +28,7 @@ void __fastcall MiLockdownSections(__int64 a1)
   if ( v2 )
   {
     v4 = RtlImageNtHeader(v1);
-    v5 = *(struct _RTL_BITMAP **)(a1 + 240);
+    v5 = *(_RTL_BITMAP **)(a1 + 240);
     NumberOfSections = v4->FileHeader.NumberOfSections;
     v7 = (__int64)&v4->OptionalHeader + v4->FileHeader.SizeOfOptionalHeader;
     while ( NumberOfSections > 0 )

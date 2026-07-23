@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x14075393C
+ * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x140754B2C
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1406D2780 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbLoadDatabaseNode @ 0x1406D3150 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406D3A20 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406D43F0 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x1406D3A7C (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbFindDatabaseNode @ 0x1406D3B78 (DrvDbFindDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ABC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D3F18 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406D4D1C (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbFindDatabaseNode @ 0x1406D4E18 (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140754CAC (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
@@ -61,7 +61,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
     goto LABEL_19;
   }
   v13 = *(_DWORD *)(a4 + 16);
-  v14 = &off_140400390;
+  v14 = &off_140401390;
   for ( i = 0; i < 5; ++i )
   {
     v16 = *v14;
@@ -163,7 +163,7 @@ LABEL_53:
   }
   v17 = 0LL;
   v18 = 0LL;
-  v19 = &off_1403534A0;
+  v19 = &off_1403544A0;
   while ( 1 )
   {
     v20 = *v19;
@@ -181,7 +181,7 @@ LABEL_53:
       goto LABEL_13;
   }
   v12 = 5 * v18;
-  v17 = &off_1403534A0 + 5 * v18;
+  v17 = &off_1403544A0 + 5 * v18;
 LABEL_13:
   if ( v17 )
   {
@@ -202,7 +202,7 @@ LABEL_14:
   else
   {
     v33 = 0LL;
-    v34 = &off_140356510;
+    v34 = &off_140357500;
     while ( 1 )
     {
       v35 = *v34;
@@ -219,7 +219,7 @@ LABEL_14:
       if ( (unsigned int)v33 >= 2 )
         goto LABEL_75;
     }
-    v17 = &off_140356510 + 5 * v33;
+    v17 = &off_140357500 + 5 * v33;
 LABEL_75:
     if ( v17 )
     {

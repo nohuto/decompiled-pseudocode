@@ -14,15 +14,15 @@
  *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall HalFreeCommonBufferV3(__int64 a1, __int64 a2, ULONG_PTR a3, void *a4)
+void __fastcall HalFreeCommonBufferV3(__int64 a1, __int64 a2, ULONG_PTR a3, _RTL_BALANCED_NODE *a4)
 {
-  void *v4; // r14
+  _RTL_BALANCED_NODE *v4; // r14
   unsigned __int64 v6; // r15
   ULONG_PTR v7; // rsi
-  unsigned __int64 v8; // rdi
+  ULONG_PTR v8; // rdi
   void *v9; // rbp
   unsigned __int64 v10; // r12
-  unsigned __int64 v11; // rax
+  ULONG_PTR v11; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -62,7 +62,7 @@ void __fastcall HalFreeCommonBufferV3(__int64 a1, __int64 a2, ULONG_PTR a3, void
   v8 = *(_QWORD *)(v7 + 80);
   if ( (*(_BYTE *)(v7 + 88) & 1) != 0 && v8 )
     v8 ^= v7 + 80;
-  while ( v8 && *(void **)(v8 + 24) != v4 )
+  while ( v8 && *(_RTL_BALANCED_NODE **)(v8 + 24) != v4 )
   {
     if ( *(_QWORD *)(v8 + 24) <= (unsigned __int64)v4 )
       v11 = *(_QWORD *)(v8 + 8);
@@ -117,7 +117,7 @@ LABEL_28:
         {
           do
           {
-            if ( *(void **)(v8 + 24) == a4 )
+            if ( *(_RTL_BALANCED_NODE **)(v8 + 24) == a4 )
               break;
             v18 = *(_QWORD *)(v8 + 24) <= (unsigned __int64)a4 ? *(_QWORD *)(v8 + 8) : *(_QWORD *)v8;
             if ( (*(_BYTE *)(v17 + 88) & 1) != 0 && v18 )
@@ -188,7 +188,7 @@ LABEL_54:
   }
   if ( v27 == 2 )
     HalpDomainLaDelete(v7, a3);
-  RtlRbRemoveNode((unsigned __int64 *)(v7 + 80), v8);
+  RtlRbRemoveNode((PRTL_RB_TREE)(v7 + 80), (PRTL_BALANCED_NODE)v8);
   KxReleaseSpinLock((PKSPIN_LOCK)(v7 + 96));
   if ( KiIrqlFlags )
   {

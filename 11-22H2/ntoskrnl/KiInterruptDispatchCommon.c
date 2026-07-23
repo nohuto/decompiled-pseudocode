@@ -52,7 +52,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   unsigned __int8 v37; // [rsp+20h] [rbp-61h]
   char v38; // [rsp+21h] [rbp-60h]
   char v39; // [rsp+22h] [rbp-5Fh]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+28h] [rbp-59h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+28h] [rbp-59h] BYREF
   unsigned int v42; // [rsp+2Ch] [rbp-55h]
   unsigned int v43; // [rsp+30h] [rbp-51h]
   PKSPIN_LOCK SpinLock; // [rsp+38h] [rbp-49h]
@@ -60,9 +60,9 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   __int128 *v46; // [rsp+48h] [rbp-39h]
   __int64 CurrentIrql; // [rsp+50h] [rbp-31h]
   int *v48; // [rsp+58h] [rbp-29h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+60h] [rbp-21h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+60h] [rbp-21h] BYREF
   __int128 v50; // [rsp+70h] [rbp-11h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-1h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-1h] BYREF
 
   v42 = a2;
   v37 = 0;
@@ -101,7 +101,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
     KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
     v11 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v11 == 15 )
@@ -155,10 +155,10 @@ LABEL_55:
       if ( a1 )
       {
         KxReleaseSpinLock((volatile signed __int64 *)SpinLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v22 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v11 <= 0xFu && v22 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v11 <= 0xFu && v22 >= 2u )
           {
 LABEL_66:
             CurrentPrcb = KeGetCurrentPrcb();
@@ -172,10 +172,10 @@ LABEL_66:
           }
         }
       }
-      else if ( KiIrqlFlags )
+      else if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v11 <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v11 <= 0xFu && v21 >= 2u )
           goto LABEL_66;
       }
       __writecr8(v11);
@@ -191,7 +191,7 @@ LABEL_66:
       {
         v11 = KeGetCurrentIrql();
         __writecr8(0xFuLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
         {
           v26 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v11 == 15 )
@@ -247,10 +247,10 @@ LABEL_28:
   if ( a1 )
   {
     KxReleaseSpinLock((volatile signed __int64 *)SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v33 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v11 <= 0xFu && v33 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v11 <= 0xFu && v33 >= 2u )
       {
         v34 = KeGetCurrentPrcb();
         v35 = v34->SchedulerAssist;
@@ -266,10 +266,10 @@ LABEL_28:
   }
   else
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v11 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v11 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;

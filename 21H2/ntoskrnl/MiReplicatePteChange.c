@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x1403A4544
+ * XREFs of MiReplicatePteChange @ 0x1403A4694
  * Callers:
- *     MiZeroAndFlushPtes @ 0x140297640 (MiZeroAndFlushPtes.c)
- *     MiDeleteSystemPageTable @ 0x1402B6DC0 (MiDeleteSystemPageTable.c)
- *     MiCreateSystemPageTable @ 0x1402E5210 (MiCreateSystemPageTable.c)
- *     MiDeleteVaTail @ 0x14033AB30 (MiDeleteVaTail.c)
- *     MiDecommitLargePoolVa @ 0x140370CE0 (MiDecommitLargePoolVa.c)
- *     MiReplicatePfnDatabaseMappings @ 0x14052EF2C (MiReplicatePfnDatabaseMappings.c)
- *     MiInitializeShadowPageTable @ 0x1407A0368 (MiInitializeShadowPageTable.c)
+ *     MiZeroAndFlushPtes @ 0x1402180C0 (MiZeroAndFlushPtes.c)
+ *     MiDeleteSystemPageTable @ 0x140234FA0 (MiDeleteSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x140296560 (MiCreateSystemPageTable.c)
+ *     MiDeleteVaTail @ 0x140345880 (MiDeleteVaTail.c)
+ *     MiDecommitLargePoolVa @ 0x140370830 (MiDecommitLargePoolVa.c)
+ *     MiReplicatePfnDatabaseMappings @ 0x14052F16C (MiReplicatePfnDatabaseMappings.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0568 (MiInitializeShadowPageTable.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     MiReplicatePteChangeToProcess @ 0x1403A46A8 (MiReplicatePteChangeToProcess.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     MiReplicatePteChangeToProcess @ 0x1403A47F8 (MiReplicatePteChangeToProcess.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -55,7 +55,7 @@ __int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2
   else
   {
     v7 = 0LL;
-    v8 = &qword_140C4DE28;
+    v8 = &qword_140C4DE68;
   }
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
   for ( i = (__int64 *)*v8; i != v8; i = (__int64 *)*i )

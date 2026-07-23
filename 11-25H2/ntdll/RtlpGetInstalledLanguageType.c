@@ -7,7 +7,7 @@
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180089F60 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */
 
-__int64 __fastcall RtlpGetInstalledLanguageType(__int64 a1, const wchar_t *a2, int *a3, __int16 **a4)
+__int64 __fastcall RtlpGetInstalledLanguageType(__int64 a1, wchar_t *a2, int *a3, __int16 **a4)
 {
   __int64 result; // rax
   __int16 *v8; // r8

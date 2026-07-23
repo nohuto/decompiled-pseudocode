@@ -11,7 +11,7 @@ void __fastcall IoGetDumpHiberRanges(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx
   void *v4; // r8
-  __int64 v5; // rax
+  PIMAGE_NT_HEADERS v5; // rax
   __int64 ***v6; // rdi
   __int64 **j; // rbx
   __int64 *v8; // rsi
@@ -62,8 +62,8 @@ LABEL_24:
 LABEL_7:
   if ( CrashdmpImageBase )
   {
-    v5 = RtlImageNtHeader((__int64)CrashdmpImageBase);
-    PoSetHiberRange(0LL, 0x10000u, CrashdmpImageBase, *(unsigned int *)(v5 + 80), 0x676D4944u);
+    v5 = RtlImageNtHeader(CrashdmpImageBase);
+    PoSetHiberRange(0LL, 0x10000u, CrashdmpImageBase, v5->OptionalHeader.SizeOfImage, 0x676D4944u);
   }
   v6 = (__int64 ***)(a2 + 296);
   for ( j = *v6; j != (__int64 **)v6; j = (__int64 **)*j )

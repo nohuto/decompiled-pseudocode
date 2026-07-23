@@ -1,15 +1,15 @@
 /*
- * XREFs of MmStoreFlushOutstandingEvictions @ 0x14065D034
+ * XREFs of MmStoreFlushOutstandingEvictions @ 0x14065D584
  * Callers:
- *     MiStoreDeletePartition @ 0x14065C038 (MiStoreDeletePartition.c)
- *     SmStoreCompressionStart @ 0x1409D7828 (SmStoreCompressionStart.c)
+ *     MiStoreDeletePartition @ 0x14065C588 (MiStoreDeletePartition.c)
+ *     SmStoreCompressionStart @ 0x1409D7A28 (SmStoreCompressionStart.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall MmStoreFlushOutstandingEvictions(_QWORD *a1)
@@ -30,10 +30,13 @@ NTSTATUS __fastcall MmStoreFlushOutstandingEvictions(_QWORD *a1)
     KeResetEvent((PRKEVENT)(v1 + 1312));
   ++*(_DWORD *)(v1 + 1200);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

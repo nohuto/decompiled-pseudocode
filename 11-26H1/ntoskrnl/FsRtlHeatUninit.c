@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlHeatUninit @ 0x1407904E0
+ * XREFs of FsRtlHeatUninit @ 0x140793010
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpHeatUnregisterVolume @ 0x1407906DC (FsRtlpHeatUnregisterVolume.c)
+ *     FsRtlpHeatUnregisterVolume @ 0x14079320C (FsRtlpHeatUnregisterVolume.c)
  */
 
 __int64 __fastcall FsRtlHeatUninit(__int64 a1, __int64 a2)

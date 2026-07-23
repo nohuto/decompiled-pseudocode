@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitializeSessionGlobals @ 0x1406F7578
+ * XREFs of PspInitializeSessionGlobals @ 0x1406F5578
  * Callers:
- *     PsSessionCreate @ 0x1406F73F8 (PsSessionCreate.c)
+ *     PsSessionCreate @ 0x1406F53F8 (PsSessionCreate.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     PspIsSessionLeaderProcess @ 0x140A7782C (PspIsSessionLeaderProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     PspIsSessionLeaderProcess @ 0x140A7194C (PspIsSessionLeaderProcess.c)
  */
 
 __int64 PspInitializeSessionGlobals()

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializePteInfo @ 0x140CFEE68
+ * XREFs of MiInitializePteInfo @ 0x140D05208
  * Callers:
- *     MiInitializeSystemSpaceMap @ 0x140CF9FBC (MiInitializeSystemSpaceMap.c)
- *     MiInitializeKernelStacks @ 0x140CFC600 (MiInitializeKernelStacks.c)
- *     MiInitializeNonCachedMappingRegion @ 0x140CFEDA4 (MiInitializeNonCachedMappingRegion.c)
- *     MiInitializeSystemPtes @ 0x140CFF020 (MiInitializeSystemPtes.c)
+ *     MiInitializeSystemSpaceMap @ 0x140D0033C (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeKernelStacks @ 0x140D02980 (MiInitializeKernelStacks.c)
+ *     MiInitializeNonCachedMappingRegion @ 0x140D05144 (MiInitializeNonCachedMappingRegion.c)
+ *     MiInitializeSystemPtes @ 0x140D053C0 (MiInitializeSystemPtes.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiInitializeDynamicBitmap @ 0x1406F50F4 (MiInitializeDynamicBitmap.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiInitializeDynamicBitmap @ 0x1406F9D64 (MiInitializeDynamicBitmap.c)
  */
 
 __int64 __fastcall MiInitializePteInfo(
@@ -33,12 +33,12 @@ __int64 __fastcall MiInitializePteInfo(
   v12 = (a7 + (a6 >> 12) - 1) / a7;
   v13 = 0LL;
   v14 = ((((v12 + 7) >> 3) + 4095) & 0xFFFFFFFFFFFFF000uLL) >> 12;
-  v15 = (dword_140FBE20C & 2) != 0 ? 3 : 1;
+  v15 = (dword_140FBF20C & 2) != 0 ? 3 : 1;
   if ( !a3 )
   {
-    if ( (dword_140FBE20C & 2) != 0 )
+    if ( (dword_140FBF20C & 2) != 0 )
     {
-      v13 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, (int)v14 * v15, a7, a4);
+      v13 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, (int)v14 * v15, a7, a4);
       if ( v13 )
       {
 LABEL_6:
@@ -47,7 +47,7 @@ LABEL_6:
       }
       v15 = 1;
     }
-    v13 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, v14, v9, a4);
+    v13 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, v14, v9, a4);
     if ( !v13 )
       return 0LL;
     goto LABEL_6;
@@ -56,7 +56,7 @@ LABEL_7:
   if ( !(unsigned int)MiInitializeDynamicBitmap(a1, a3, v12, v11) )
   {
     if ( v13 )
-      MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v13, v14);
+      MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v13, v14);
     return 0LL;
   }
   *(_DWORD *)(a1 + 40) = 0;

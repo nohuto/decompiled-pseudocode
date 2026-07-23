@@ -1,13 +1,13 @@
 /*
- * XREFs of PipGetDeviceObjectLocation @ 0x140952F54
+ * XREFs of PipGetDeviceObjectLocation @ 0x140953154
  * Callers:
- *     IoReserveKsrPersistentMemoryEx @ 0x1409529C0 (IoReserveKsrPersistentMemoryEx.c)
- *     PipMatchPersistentMemory @ 0x140953A08 (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x140953AEC (PipMatchPersistentMemoryV1.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x140952BC0 (IoReserveKsrPersistentMemoryEx.c)
+ *     PipMatchPersistentMemory @ 0x140953C08 (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x140953CEC (PipMatchPersistentMemoryV1.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

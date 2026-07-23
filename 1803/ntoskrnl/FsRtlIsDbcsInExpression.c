@@ -19,7 +19,7 @@ BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING 
   void *v6; // r10
   char v7; // r11
   unsigned __int16 v8; // bp
-  STRING v10; // xmm0
+  _STRING v10; // xmm0
   char *v11; // rsi
   __int64 v12; // rdi
   unsigned int v13; // ecx
@@ -69,7 +69,7 @@ BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING 
   __int16 v58; // [rsp+24h] [rbp-C4h]
   __int16 v59; // [rsp+28h] [rbp-C0h]
   unsigned int v61; // [rsp+38h] [rbp-B0h]
-  STRING Namea; // [rsp+40h] [rbp-A8h] BYREF
+  _STRING Namea; // [rsp+40h] [rbp-A8h] BYREF
   _OWORD *v63; // [rsp+50h] [rbp-98h]
   int v64; // [rsp+58h] [rbp-90h]
   PANSI_STRING v65; // [rsp+60h] [rbp-88h]

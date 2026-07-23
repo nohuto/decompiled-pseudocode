@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpCopyDataToOffsetArray @ 0x14026A190
+ * XREFs of HvpCopyDataToOffsetArray @ 0x140258130
  * Callers:
- *     HvpGenerateLogEntryDirtyData @ 0x140268570 (HvpGenerateLogEntryDirtyData.c)
- *     HvpGenerateLogEntryMetadata @ 0x1403622A4 (HvpGenerateLogEntryMetadata.c)
- *     HvpGenerateLogEntryHeader @ 0x140362310 (HvpGenerateLogEntryHeader.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x140256510 (HvpGenerateLogEntryDirtyData.c)
+ *     HvpGenerateLogEntryMetadata @ 0x1402F7104 (HvpGenerateLogEntryMetadata.c)
+ *     HvpGenerateLogEntryHeader @ 0x1402F7170 (HvpGenerateLogEntryHeader.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 _UNKNOWN **__fastcall HvpCopyDataToOffsetArray(

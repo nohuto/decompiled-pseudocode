@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgInitDeviceCallback @ 0x14072A1C0
+ * XREFs of PiDevCfgInitDeviceCallback @ 0x140727E10
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     PiDevCfgInitDeviceContext @ 0x140997624 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgFreeDeviceContext @ 0x140997788 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14099B580 (PiDevCfgSetDeviceRegProp.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072650C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     PiDevCfgInitDeviceContext @ 0x1409C9D7C (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgFreeDeviceContext @ 0x1409C9EF4 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1409CDCF0 (PiDevCfgSetDeviceRegProp.c)
  */
 
 __int64 __fastcall PiDevCfgInitDeviceCallback(__int64 a1, __int64 a2, _BYTE *a3)
@@ -19,14 +19,14 @@ __int64 __fastcall PiDevCfgInitDeviceCallback(__int64 a1, __int64 a2, _BYTE *a3)
   __int64 v6; // rdx
   __int64 v7; // rdx
   int v8; // ecx
-  int v10; // [rsp+40h] [rbp-9h] BYREF
-  unsigned int v11; // [rsp+44h] [rbp-5h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-1h] BYREF
-  _BYTE v13[80]; // [rsp+50h] [rbp+7h] BYREF
-  int v14; // [rsp+B0h] [rbp+67h] BYREF
-  int v15; // [rsp+C8h] [rbp+7Fh] BYREF
+  int v10; // [rsp+40h] [rbp-19h] BYREF
+  unsigned int v11; // [rsp+44h] [rbp-15h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-11h] BYREF
+  _BYTE v13[96]; // [rsp+50h] [rbp-9h] BYREF
+  int v14; // [rsp+C0h] [rbp+67h] BYREF
+  int v15; // [rsp+D8h] [rbp+7Fh] BYREF
 
-  memset_0(v13, 0, 0x48uLL);
+  memset_0(v13, 0, 0x58uLL);
   v5 = *(_DWORD *)(a1 + 28);
   v6 = *(_QWORD *)(a1 + 16);
   Handle = 0LL;

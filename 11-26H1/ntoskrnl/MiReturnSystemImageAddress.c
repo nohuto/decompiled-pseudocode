@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnSystemImageAddress @ 0x140A80014
+ * XREFs of MiReturnSystemImageAddress @ 0x140A85E84
  * Callers:
- *     MiReturnImageBase @ 0x140A7FE38 (MiReturnImageBase.c)
- *     MiGetSystemAddressForImage @ 0x140AC6DF4 (MiGetSystemAddressForImage.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiReturnImageBase @ 0x140A85CA8 (MiReturnImageBase.c)
+ *     MiGetSystemAddressForImage @ 0x140AC89E4 (MiGetSystemAddressForImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiReleaseDriverPtes @ 0x140A80038 (MiReleaseDriverPtes.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiReleaseDriverPtes @ 0x140A85EA8 (MiReleaseDriverPtes.c)
  */
 
 __int64 __fastcall MiReturnSystemImageAddress(unsigned __int64 a1)

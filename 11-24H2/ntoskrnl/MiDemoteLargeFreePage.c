@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDemoteLargeFreePage @ 0x14042F57C
+ * XREFs of MiDemoteLargeFreePage @ 0x1402EFE44
  * Callers:
- *     MiTradePage @ 0x14022B650 (MiTradePage.c)
+ *     MiTradePage @ 0x1402FEF60 (MiTradePage.c)
  * Callees:
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiGetBaseResidentPage @ 0x140307100 (MiGetBaseResidentPage.c)
- *     MiObtainedPageIsGood @ 0x14042F73C (MiObtainedPageIsGood.c)
- *     MiInsertDemotedPages @ 0x14042F7AC (MiInsertDemotedPages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertDemotedPages @ 0x1402EF010 (MiInsertDemotedPages.c)
+ *     MiObtainedPageIsGood @ 0x1402F0004 (MiObtainedPageIsGood.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiGetBaseResidentPage @ 0x140310FE0 (MiGetBaseResidentPage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, unsigned __int8 a2)
 {
   unsigned __int64 v2; // rsi
-  __int64 v3; // rbx
+  unsigned __int64 v3; // rbx
   unsigned int IsGood; // ebp
   __int64 v5; // r15
   __int64 BaseResidentPage; // rdi
@@ -34,7 +34,7 @@ __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, unsigned __int8 a2)
   v2 = a2;
   v3 = 48 * a1 - 0x220000000000LL;
   IsGood = 0;
-  v5 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
+  v5 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
   BaseResidentPage = MiGetBaseResidentPage(v3);
   PfnPageSizeIndex = MiGetPfnPageSizeIndex(BaseResidentPage);
   if ( BaseResidentPage != v3 )
@@ -55,9 +55,9 @@ __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, unsigned __int8 a2)
     }
     while ( v13 != v12 );
     _InterlockedOr(v18, 0);
-    MiUnlinkFreeOrZeroedPage(0xAAAAAAAAAAAAAAABuLL * ((BaseResidentPage + 0x220000000000LL) >> 4), 0LL, 0LL);
+    MiUnlinkFreeOrZeroedPage(0xAAAAAAAAAAAAAAABuLL * ((BaseResidentPage + 0x220000000000LL) >> 4), 0LL, 0);
     _InterlockedAnd64((volatile signed __int64 *)(BaseResidentPage + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    MiInsertDemotedPages(v10, BaseResidentPage, v3, 3LL);
+    MiInsertDemotedPages(v10, BaseResidentPage, v3, 3u);
     v14 = PfnPageSizeIndex < 2 ? 8 : 0;
     v15 = *(_QWORD *)(v14 + v10 + 15192);
     do

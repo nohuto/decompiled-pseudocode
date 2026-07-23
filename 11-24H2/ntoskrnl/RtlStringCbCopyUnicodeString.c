@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCbCopyUnicodeString @ 0x14041C99C
+ * XREFs of RtlStringCbCopyUnicodeString @ 0x1404109F4
  * Callers:
- *     PoStoreRequester @ 0x140331734 (PoStoreRequester.c)
- *     PopSafeCopyUnicodeString @ 0x14041C8E4 (PopSafeCopyUnicodeString.c)
+ *     PoStoreRequester @ 0x1402BAE34 (PoStoreRequester.c)
+ *     PopSafeCopyUnicodeString @ 0x14041093C (PopSafeCopyUnicodeString.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_0 @ 0x14041CA50 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x140410AA0 (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyUnicodeString(NTSTRSAFE_PWSTR pszDest, size_t cbDest, PCUNICODE_STRING SourceString)

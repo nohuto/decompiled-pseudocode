@@ -8,38 +8,41 @@
  *     NtdllpFreeStringRoutine @ 0x180025BF0 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall RtlDowncaseUnicodeString(_WORD *a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlDowncaseUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  _WORD *v5; // rsi
+  PUNICODE_STRING v5; // rsi
   __int64 v6; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v8; // r15
-  _WORD *v9; // r9
-  _WORD *v10; // r8
+  unsigned __int16 *p_MaximumLength; // r9
+  wchar_t **p_Buffer; // r8
   unsigned int v11; // r10d
 
-  v5 = a1;
+  v5 = DestinationString;
   v6 = 0LL;
-  if ( !a3 && !*a2 )
+  if ( !AllocateDestinationString && !SourceString->Length )
   {
-    *a1 = 0;
-    return 0LL;
+    DestinationString->Length = 0;
+    return 0;
   }
   v8 = qword_180177700;
-  v9 = a1 + 1;
-  v10 = a1 + 4;
-  LOBYTE(a1) = a3;
-  result = AllocateOrValidateUnicodeStringBuffer(a1, *a2, v10, v9);
-  if ( (int)result >= 0 )
+  p_MaximumLength = &DestinationString->MaximumLength;
+  p_Buffer = &DestinationString->Buffer;
+  LOBYTE(DestinationString) = AllocateDestinationString;
+  result = AllocateOrValidateUnicodeStringBuffer(DestinationString, SourceString->Length, p_Buffer, p_MaximumLength);
+  if ( result >= 0 )
   {
-    v11 = *a2 >> 1;
+    v11 = SourceString->Length >> 1;
     while ( (unsigned int)v6 < v11 )
     {
-      *(_WORD *)(*((_QWORD *)v5 + 1) + 2 * v6) = NLS_DOWNCASE(v8, *(unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2 * v6));
+      v5->Buffer[v6] = NLS_DOWNCASE(v8, SourceString->Buffer[v6]);
       v6 = (unsigned int)(v6 + 1);
     }
-    *v5 = *a2;
-    return 0LL;
+    v5->Length = SourceString->Length;
+    return 0;
   }
   return result;
 }

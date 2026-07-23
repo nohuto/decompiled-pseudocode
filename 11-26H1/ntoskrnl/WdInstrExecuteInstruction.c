@@ -1,10 +1,10 @@
 /*
- * XREFs of WdInstrExecuteInstruction @ 0x1405135A0
+ * XREFs of WdInstrExecuteInstruction @ 0x14050D010
  * Callers:
- *     WdInstrExecuteAction @ 0x1404FCF34 (WdInstrExecuteAction.c)
- *     HalpWdatExecuteActionBeforeInitialize @ 0x140597730 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     WdInstrExecuteAction @ 0x1404F6474 (WdInstrExecuteAction.c)
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x140599EB0 (HalpWdatExecuteActionBeforeInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall WdInstrExecuteInstruction(__int64 a1, __int64 a2, unsigned int *a3)

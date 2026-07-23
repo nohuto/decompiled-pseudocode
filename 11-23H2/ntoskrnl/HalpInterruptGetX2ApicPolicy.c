@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptGetX2ApicPolicy @ 0x1403785AC
+ * XREFs of HalpInterruptGetX2ApicPolicy @ 0x14037874C
  * Callers:
- *     HalSocRequestConfigurationData @ 0x140377DC8 (HalSocRequestConfigurationData.c)
+ *     HalSocRequestConfigurationData @ 0x140377F68 (HalSocRequestConfigurationData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalpHvIsX2ApicRecommended @ 0x14050B5D8 (HalpHvIsX2ApicRecommended.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalpHvIsX2ApicRecommended @ 0x14050BB28 (HalpHvIsX2ApicRecommended.c)
  */
 
 bool HalpInterruptGetX2ApicPolicy()

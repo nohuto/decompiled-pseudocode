@@ -1,21 +1,21 @@
 /*
- * XREFs of strlen @ 0x180164FE0
+ * XREFs of strlen @ 0x180164EE0
  * Callers:
- *     RtlCreateUnicodeStringFromAsciiz @ 0x180039B60 (RtlCreateUnicodeStringFromAsciiz.c)
- *     RtlGetVersion @ 0x1800638F0 (RtlGetVersion.c)
- *     LdrpSnapKernelBaseExtensions @ 0x180082DF0 (LdrpSnapKernelBaseExtensions.c)
- *     LdrpGetDelayloadExportDll @ 0x1800C57B0 (LdrpGetDelayloadExportDll.c)
- *     AVrfpDetectVerifiedExports @ 0x1800C6D0C (AVrfpDetectVerifiedExports.c)
- *     LdrpLogDelayLoadTrigger @ 0x1800C9070 (LdrpLogDelayLoadTrigger.c)
- *     RtlInitAnsiStringEx @ 0x1800CBE40 (RtlInitAnsiStringEx.c)
- *     RtlInitAnsiString @ 0x1800D5DB0 (RtlInitAnsiString.c)
- *     LdrpReportError @ 0x1800DA620 (LdrpReportError.c)
- *     LdrpMapAndSnapDependency @ 0x18011A660 (LdrpMapAndSnapDependency.c)
- *     LdrpGetShimEngineInterface @ 0x18011DA94 (LdrpGetShimEngineInterface.c)
- *     mbstowcs @ 0x18012B180 (mbstowcs.c)
- *     vscan_fn @ 0x18012C888 (vscan_fn.c)
- *     sscanf_s @ 0x180133CF0 (sscanf_s.c)
- *     RtlAppendAsciizToString @ 0x180140790 (RtlAppendAsciizToString.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x1800240D0 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18007A190 (LdrpSnapKernelBaseExtensions.c)
+ *     RtlGetVersion @ 0x180083D40 (RtlGetVersion.c)
+ *     LdrpGetDelayloadExportDll @ 0x1800C2F70 (LdrpGetDelayloadExportDll.c)
+ *     AVrfpDetectVerifiedExports @ 0x1800C44CC (AVrfpDetectVerifiedExports.c)
+ *     LdrpLogDelayLoadTrigger @ 0x1800C6830 (LdrpLogDelayLoadTrigger.c)
+ *     RtlInitAnsiStringEx @ 0x1800C95B0 (RtlInitAnsiStringEx.c)
+ *     RtlInitAnsiString @ 0x1800D2D70 (RtlInitAnsiString.c)
+ *     LdrpReportError @ 0x1800D75E0 (LdrpReportError.c)
+ *     LdrpMapAndSnapDependency @ 0x18011A410 (LdrpMapAndSnapDependency.c)
+ *     LdrpGetShimEngineInterface @ 0x18011D844 (LdrpGetShimEngineInterface.c)
+ *     mbstowcs @ 0x18012AEF0 (mbstowcs.c)
+ *     vscan_fn @ 0x18012C5F8 (vscan_fn.c)
+ *     sscanf_s @ 0x180133A60 (sscanf_s.c)
+ *     RtlAppendAsciizToString @ 0x180140690 (RtlAppendAsciizToString.c)
  * Callees:
  *     <none>
  */

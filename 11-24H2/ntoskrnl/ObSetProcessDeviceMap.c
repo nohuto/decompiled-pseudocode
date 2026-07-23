@@ -1,10 +1,10 @@
 /*
- * XREFs of ObSetProcessDeviceMap @ 0x140744600
+ * XREFs of ObSetProcessDeviceMap @ 0x1407428F0
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x140445660 (PsGetProcessServerSilo.c)
- *     ObpSetDeviceMap @ 0x140A79B78 (ObpSetDeviceMap.c)
+ *     PsGetProcessServerSilo @ 0x14043D810 (PsGetProcessServerSilo.c)
+ *     ObpSetDeviceMap @ 0x140A73E78 (ObpSetDeviceMap.c)
  */
 
 __int64 __fastcall ObSetProcessDeviceMap(__int64 a1)

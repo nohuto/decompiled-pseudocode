@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpValidateFlagExtension @ 0x14065B56C
+ * XREFs of EtwpValidateFlagExtension @ 0x14065C72C
  * Callers:
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140726D7C (EtwpUpdateTrace.c)
  * Callees:
  *     <none>
  */

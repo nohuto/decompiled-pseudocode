@@ -1,14 +1,14 @@
 /*
- * XREFs of HvViewMapCleanup @ 0x1404EEEA8
+ * XREFs of HvViewMapCleanup @ 0x1404D0F70
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
  * Callees:
- *     MmReleaseResourceCharge @ 0x140003CD8 (MmReleaseResourceCharge.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     CcClearPrivateWriteFile @ 0x1401B1FD8 (CcClearPrivateWriteFile.c)
- *     HvpViewUnmapViewOfPrimaryFile @ 0x140610488 (HvpViewUnmapViewOfPrimaryFile.c)
+ *     MmReleaseResourceCharge @ 0x140003E4C (MmReleaseResourceCharge.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     CcClearPrivateWriteFile @ 0x1401B1EBC (CcClearPrivateWriteFile.c)
+ *     HvpViewUnmapViewOfPrimaryFile @ 0x14061053C (HvpViewUnmapViewOfPrimaryFile.c)
  */
 
 void __fastcall HvViewMapCleanup(__int64 a1, __int64 a2, char a3)

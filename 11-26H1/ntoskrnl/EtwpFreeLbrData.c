@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpFreeLbrData @ 0x140830124
+ * XREFs of EtwpFreeLbrData @ 0x140836364
  * Callers:
- *     EtwpFreeLoggerContext @ 0x140A6CBB4 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x140A16604 (EtwpFreeLoggerContext.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeLbrData(__int64 a1, __int64 a2)
@@ -13,7 +13,7 @@ void __fastcall EtwpFreeLbrData(__int64 a1, __int64 a2)
   __int64 v4; // rcx
 
   if ( (*(_DWORD *)(a1 + 816) & 0x8000) != 0 )
-    _InterlockedDecrement((volatile signed __int32 *)&stru_140E28440.MutantListHead.Blink);
+    _InterlockedDecrement((volatile signed __int32 *)&stru_140E285C0.PriorityFloorCounts[8]);
   v3 = *(unsigned int **)(a1 + 1072);
   if ( v3 )
   {

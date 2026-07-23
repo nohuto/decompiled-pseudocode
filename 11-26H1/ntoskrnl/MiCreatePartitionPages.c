@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreatePartitionPages @ 0x14087BBEC
+ * XREFs of MiCreatePartitionPages @ 0x140881FEC
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiAddPhysicalMemoryChunks @ 0x140865468 (MiAddPhysicalMemoryChunks.c)
- *     MiHotAddHugeRange @ 0x140867C50 (MiHotAddHugeRange.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiAddPhysicalMemoryChunks @ 0x14086B848 (MiAddPhysicalMemoryChunks.c)
+ *     MiHotAddHugeRange @ 0x14086E030 (MiHotAddHugeRange.c)
  */
 
 __int64 __fastcall MiCreatePartitionPages(

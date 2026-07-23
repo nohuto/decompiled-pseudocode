@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerFindIdealPerformanceCounterSource @ 0x1403AA16C
+ * XREFs of HalpTimerFindIdealPerformanceCounterSource @ 0x1403AAEFC
  * Callers:
- *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x1403AAB2C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
- *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
+ *     HalpFindTimer @ 0x14039D5A8 (HalpFindTimer.c)
+ *     HalpIsHvPresent @ 0x1403A2128 (HalpIsHvPresent.c)
  */
 
 ULONG_PTR *HalpTimerFindIdealPerformanceCounterSource()
@@ -26,7 +26,7 @@ ULONG_PTR *HalpTimerFindIdealPerformanceCounterSource()
     if ( !result )
     {
 LABEL_22:
-      if ( !HalpHvCpuManager || qword_140C4A188 || (result = HalpFindTimer(3, 2, 24576, 0, 0)) == 0LL )
+      if ( !HalpHvCpuManager || qword_140C4A1C8 || (result = HalpFindTimer(3, 2, 24576, 0, 0)) == 0LL )
       {
         result = HalpFindTimer(8, 2, 0, 0, 0);
         if ( !result )

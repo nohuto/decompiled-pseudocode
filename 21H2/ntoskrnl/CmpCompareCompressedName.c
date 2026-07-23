@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCompareCompressedName @ 0x1405EE720
+ * XREFs of CmpCompareCompressedName @ 0x1406DDE80
  * Callers:
- *     CmpDoCompareKeyName @ 0x1405EE600 (CmpDoCompareKeyName.c)
- *     CmpFindKcbInHashEntryByName @ 0x1405EFB44 (CmpFindKcbInHashEntryByName.c)
- *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
- *     CmpCheckValueList @ 0x1405F0460 (CmpCheckValueList.c)
- *     CmpCheckLexicographicalOrder @ 0x1405F2E10 (CmpCheckLexicographicalOrder.c)
- *     CmpFindNameInListCellWithStatus @ 0x140666030 (CmpFindNameInListCellWithStatus.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x14086EF30 (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpCompareKeysByName @ 0x140875D54 (CmpCompareKeysByName.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x14087BA10 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpFindNameInListCellWithStatus @ 0x14065AE50 (CmpFindNameInListCellWithStatus.c)
+ *     CmpDoCompareKeyName @ 0x1406DDD60 (CmpDoCompareKeyName.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1406DF2A4 (CmpFindKcbInHashEntryByName.c)
+ *     CmpGetNameControlBlock @ 0x1406DF370 (CmpGetNameControlBlock.c)
+ *     CmpCheckValueList @ 0x1406DFBC0 (CmpCheckValueList.c)
+ *     CmpCheckLexicographicalOrder @ 0x1406E2570 (CmpCheckLexicographicalOrder.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x14086F090 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpCompareKeysByName @ 0x140875EB4 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x14087BB70 (CmpSortedValueEnumStackValueCompareFunction.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CmpCompareCompressedName(__int64 a1, unsigned __int8 *a2, unsigned __int16 a3, char a4)

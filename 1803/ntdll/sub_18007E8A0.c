@@ -14,34 +14,31 @@
  *     ZwClose @ 0x18009ACA0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_18007E8A0(unsigned __int64 *a1)
+LOGICAL __fastcall sub_18007E8A0(char *BaseAddress)
 {
-  unsigned __int64 v2; // rcx
-  unsigned __int64 v3; // rdx
-  unsigned __int64 *v4; // r8
-  __int64 v5; // r9
-  unsigned __int64 v6; // r8
-  unsigned __int64 **v7; // rdx
+  void *v2; // rcx
+  char **v3; // r8
+  PVOID *v4; // rdx
 
-  v2 = a1[7];
+  v2 = (void *)*((_QWORD *)BaseAddress + 7);
   if ( v2 )
   {
     ZwClose(v2);
-    a1[7] = 0LL;
+    *((_QWORD *)BaseAddress + 7) = 0LL;
   }
-  sub_18007E9AC(a1 + 15);
-  sub_18007E9AC(a1 + 30);
-  ZwClose(a1[8]);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, a1[2]);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, a1[5]);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, a1[6]);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D398, v3, v4, v5);
-  v6 = a1[48];
-  v7 = (unsigned __int64 **)a1[49];
-  if ( *(unsigned __int64 **)(v6 + 8) != a1 + 48 || *v7 != a1 + 48 )
+  sub_18007E9AC(BaseAddress + 120);
+  sub_18007E9AC(BaseAddress + 240);
+  ZwClose(*((HANDLE *)BaseAddress + 8));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, *((PVOID *)BaseAddress + 2));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, *((PVOID *)BaseAddress + 5));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, *((PVOID *)BaseAddress + 6));
+  RtlAcquireSRWLockExclusive(&stru_18015D398);
+  v3 = (char **)*((_QWORD *)BaseAddress + 48);
+  v4 = (PVOID *)*((_QWORD *)BaseAddress + 49);
+  if ( v3[1] != BaseAddress + 384 || *v4 != BaseAddress + 384 )
     __fastfail(3u);
-  *v7 = (unsigned __int64 *)v6;
-  *(_QWORD *)(v6 + 8) = v7;
-  RtlReleaseSRWLockExclusive(&qword_18015D398);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, (unsigned __int64)a1);
+  *v4 = v3;
+  v3[1] = (char *)v4;
+  RtlReleaseSRWLockExclusive(&stru_18015D398);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015D050 + 786432, BaseAddress);
 }

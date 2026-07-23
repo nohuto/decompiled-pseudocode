@@ -3,8 +3,8 @@
  * Callers:
  *     _snprintf_s @ 0x1403E6530 (_snprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _soutput_s @ 0x1403E8394 (_soutput_s.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
+ *     sub_1403E8394 @ 0x1403E8394 (sub_1403E8394.c)
  */
 
 int __cdecl vsnprintf_s(char *DstBuf, size_t SizeInBytes, size_t MaxCount, const char *Format, va_list ArgList)
@@ -18,7 +18,7 @@ int __cdecl vsnprintf_s(char *DstBuf, size_t SizeInBytes, size_t MaxCount, const
     if ( !DstBuf )
     {
 LABEL_12:
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return -1;
     }
   }
@@ -32,12 +32,12 @@ LABEL_12:
     goto LABEL_12;
   if ( SizeInBytes > MaxCount )
   {
-    result = soutput_s(DstBuf, MaxCount + 1, Format, ArgList);
+    result = sub_1403E8394(DstBuf, MaxCount + 1, Format, ArgList);
     if ( result == -2 )
       return -1;
     goto LABEL_10;
   }
-  result = soutput_s(DstBuf, SizeInBytes, Format, ArgList);
+  result = sub_1403E8394(DstBuf, SizeInBytes, Format, ArgList);
   if ( result != -2 )
   {
 LABEL_10:

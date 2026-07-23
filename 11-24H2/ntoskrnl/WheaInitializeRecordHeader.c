@@ -1,13 +1,13 @@
 /*
- * XREFs of WheaInitializeRecordHeader @ 0x140425FF0
+ * XREFs of WheaInitializeRecordHeader @ 0x140419EA0
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x14053F058 (HalpCreateMcaMemoryErrorRecord.c)
- *     HalpCreateMcaProcessorErrorRecord @ 0x14053F418 (HalpCreateMcaProcessorErrorRecord.c)
- *     HalpCreateNMIErrorRecord @ 0x140543CE8 (HalpCreateNMIErrorRecord.c)
- *     WheapCreateRecordFromGenericErrorData @ 0x14065D7A4 (WheapCreateRecordFromGenericErrorData.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x14053C958 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x14053CD18 (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpCreateNMIErrorRecord @ 0x140541638 (HalpCreateNMIErrorRecord.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x14065BEC4 (WheapCreateRecordFromGenericErrorData.c)
  * Callees:
- *     WheapGetTimestamp @ 0x14042605C (WheapGetTimestamp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     WheapGetTimestamp @ 0x140419F0C (WheapGetTimestamp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall WheaInitializeRecordHeader(_DWORD *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhOwnerCompact @ 0x1401B65F0
+ * XREFs of RtlpHpLfhOwnerCompact @ 0x1401B6758
  * Callers:
- *     RtlpHpLfhContextCompact @ 0x1401B6554 (RtlpHpLfhContextCompact.c)
- *     RtlpHpLfhOwnerCompact @ 0x1401B65F0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x1401B66BC (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1401B6758 (RtlpHpLfhOwnerCompact.c)
  * Callees:
  *     RtlpHpReleaseLockShared @ 0x14000817C (RtlpHpReleaseLockShared.c)
  *     RtlpHpAcquireLockShared @ 0x140009644 (RtlpHpAcquireLockShared.c)
- *     RtlpHpLfhOwnerCompact @ 0x1401B65F0 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD6FC (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1401B6758 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD8EC (RtlpHpLfhSubsegmentDecommitPages.c)
  */
 
 _QWORD *__fastcall RtlpHpLfhOwnerCompact(__int64 a1, __int64 a2, unsigned int a3)

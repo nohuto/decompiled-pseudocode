@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlCrc32 @ 0x1404CA030
+ * XREFs of RtlCrc32 @ 0x1404C3A60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCrc32(unsigned __int64 *a1, unsigned __int64 a2, int a3)
+DWORD __cdecl RtlCrc32(const void *Buffer, size_t Size, DWORD InitialCrc)
 {
-  unsigned __int64 v3; // rbp
-  unsigned int i; // r8d
-  unsigned __int64 v6; // rcx
+  size_t v3; // rbp
+  DWORD i; // r8d
+  size_t v6; // rcx
   unsigned __int64 v7; // rax
   unsigned __int8 v8; // al
   unsigned __int8 v10; // al
-  unsigned __int64 v11; // r15
+  size_t v11; // r15
   unsigned __int64 v12; // rcx
   unsigned __int64 *v13; // r9
   unsigned __int64 v14; // rsi
@@ -24,13 +24,13 @@ __int64 __fastcall RtlCrc32(unsigned __int64 *a1, unsigned __int64 a2, int a3)
   unsigned __int64 v18; // r10
   unsigned __int64 v19; // rdx
 
-  v3 = a2;
-  for ( i = ~a3; v3; --v3 )
+  v3 = Size;
+  for ( i = ~InitialCrc; v3; --v3 )
   {
-    if ( ((unsigned __int8)a1 & 7) == 0 )
+    if ( ((unsigned __int8)Buffer & 7) == 0 )
       break;
-    v10 = *(_BYTE *)a1;
-    a1 = (unsigned __int64 *)((char *)a1 + 1);
+    v10 = *(_BYTE *)Buffer;
+    Buffer = (char *)Buffer + 1;
     i = _mm_crc32_u8(i, v10);
   }
   if ( v3 >= 0x40 )
@@ -39,15 +39,15 @@ __int64 __fastcall RtlCrc32(unsigned __int64 *a1, unsigned __int64 a2, int a3)
     v3 += -64LL * (v3 >> 6);
     do
     {
-      v12 = *a1;
-      v13 = a1 + 7;
-      v14 = a1[1];
-      v15 = a1[2];
-      v16 = a1[3];
-      v17 = a1[4];
-      v18 = a1[5];
-      v19 = a1[6];
-      a1 += 8;
+      v12 = *(_QWORD *)Buffer;
+      v13 = (unsigned __int64 *)((char *)Buffer + 56);
+      v14 = *((_QWORD *)Buffer + 1);
+      v15 = *((_QWORD *)Buffer + 2);
+      v16 = *((_QWORD *)Buffer + 3);
+      v17 = *((_QWORD *)Buffer + 4);
+      v18 = *((_QWORD *)Buffer + 5);
+      v19 = *((_QWORD *)Buffer + 6);
+      Buffer = (char *)Buffer + 64;
       i = _mm_crc32_u64(
             _mm_crc32_u64(
               _mm_crc32_u64(
@@ -65,7 +65,8 @@ __int64 __fastcall RtlCrc32(unsigned __int64 *a1, unsigned __int64 a2, int a3)
     v3 += -8LL * (v3 >> 3);
     do
     {
-      v7 = *a1++;
+      v7 = *(_QWORD *)Buffer;
+      Buffer = (char *)Buffer + 8;
       i = _mm_crc32_u64(i, v7);
       --v6;
     }
@@ -73,8 +74,8 @@ __int64 __fastcall RtlCrc32(unsigned __int64 *a1, unsigned __int64 a2, int a3)
   }
   for ( ; v3; --v3 )
   {
-    v8 = *(_BYTE *)a1;
-    a1 = (unsigned __int64 *)((char *)a1 + 1);
+    v8 = *(_BYTE *)Buffer;
+    Buffer = (char *)Buffer + 1;
     i = _mm_crc32_u8(i, v8);
   }
   return ~i;

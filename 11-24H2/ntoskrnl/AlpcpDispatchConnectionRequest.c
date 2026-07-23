@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpDispatchConnectionRequest @ 0x14088D0AC
+ * XREFs of AlpcpDispatchConnectionRequest @ 0x14089032C
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x14086392C (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x14088AF50 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x140867F3C (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x140890D60 (NtSecureConnectPort.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x14046EFC0 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1405E5308 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpSetOwnerPortMessage @ 0x14088D3C0 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x1408912A0 (AlpcpCompleteDispatchMessage.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1404696D0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1405E2830 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpSetOwnerPortMessage @ 0x140890C40 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14089A890 (AlpcpCompleteDispatchMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1)
@@ -23,10 +23,10 @@ __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1)
   int v4; // r13d
   __int64 *v5; // r12
   volatile signed __int64 *v6; // rbx
-  _QWORD *v7; // rdi
+  char *v7; // rdi
   __int64 v8; // rbp
   volatile signed __int64 *v9; // rdi
-  _QWORD *v10; // r15
+  char *v10; // r15
   __int64 v11; // rcx
   struct _KTHREAD *CurrentThread; // rcx
   signed __int32 v13; // eax
@@ -43,21 +43,21 @@ __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1)
   v5 = *(__int64 **)(v1 + 16);
   v17 = v1;
   v6 = v5 - 2;
-  v7 = KeAbPreAcquire((__int64)(v5 - 2), 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)(v5 - 2), 0LL);
   if ( _InterlockedCompareExchange64(v5 - 2, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v5 - 2, 0, v7, (__int64)(v5 - 2));
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   v8 = *v5;
   if ( *v5 && ObReferenceObjectSafe(*v5) )
   {
     v9 = (volatile signed __int64 *)(v8 + 352);
-    v10 = KeAbPreAcquire(v8 + 352, 0LL);
+    v10 = (char *)KeAbPreAcquire(v8 + 352, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 352), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)(v8 + 352), 0, v10, v8 + 352);
     v11 = 0LL;
     if ( v10 )
-      *((_BYTE *)v10 + 10) = 1;
+      v10[10] = 1;
     if ( (*(_DWORD *)(v8 + 416) & 0x20) != 0 )
     {
       if ( _InterlockedCompareExchange64(v6, 0LL, 17LL) != 17 )

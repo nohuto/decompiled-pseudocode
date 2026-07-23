@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwRegister @ 0x140549F44
+ * XREFs of EtwRegister @ 0x14054A484
  * Callers:
- *     KiIntSteerConnect @ 0x14012D37C (KiIntSteerConnect.c)
- *     BapdRegisterEtwProvider @ 0x1401322E0 (BapdRegisterEtwProvider.c)
- *     McGenEventRegister @ 0x14013C3BC (McGenEventRegister.c)
- *     HvlpEtwRegister @ 0x1401C0BF0 (HvlpEtwRegister.c)
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
+ *     KiIntSteerConnect @ 0x14012D8EC (KiIntSteerConnect.c)
+ *     BapdRegisterEtwProvider @ 0x140132850 (BapdRegisterEtwProvider.c)
+ *     McGenEventRegister @ 0x14013C92C (McGenEventRegister.c)
+ *     HvlpEtwRegister @ 0x1401C0AD4 (HvlpEtwRegister.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
  *     PfSnBeginBootPhase @ 0x1403D3020 (PfSnBeginBootPhase.c)
- *     TraceLoggingRegisterEx @ 0x140546994 (TraceLoggingRegisterEx.c)
- *     PopDiagSleepStudyInitialize @ 0x1405545C8 (PopDiagSleepStudyInitialize.c)
- *     WdipSemEnableSemProvider @ 0x140564A64 (WdipSemEnableSemProvider.c)
- *     DbgkpStartSystemErrorHandler @ 0x14061A9C8 (DbgkpStartSystemErrorHandler.c)
- *     DbgkCaptureLiveDump @ 0x14061ADEC (DbgkCaptureLiveDump.c)
- *     SepSqmInformation @ 0x140695354 (SepSqmInformation.c)
- *     sub_1406AEF3C @ 0x1406AEF3C (sub_1406AEF3C.c)
- *     sub_1406AF784 @ 0x1406AF784 (sub_1406AF784.c)
- *     ExpTriggerFastCacheReeval @ 0x1406AFB08 (ExpTriggerFastCacheReeval.c)
+ *     TraceLoggingRegisterEx @ 0x140546ED4 (TraceLoggingRegisterEx.c)
+ *     PopDiagSleepStudyInitialize @ 0x140554B08 (PopDiagSleepStudyInitialize.c)
+ *     WdipSemEnableSemProvider @ 0x140564FA4 (WdipSemEnableSemProvider.c)
+ *     DbgkpStartSystemErrorHandler @ 0x14061AA7C (DbgkpStartSystemErrorHandler.c)
+ *     DbgkCaptureLiveDump @ 0x14061AEA0 (DbgkCaptureLiveDump.c)
+ *     SepSqmInformation @ 0x140695438 (SepSqmInformation.c)
+ *     sub_1406AF074 @ 0x1406AF074 (sub_1406AF074.c)
+ *     sub_1406AF8BC @ 0x1406AF8BC (sub_1406AF8BC.c)
+ *     ExpTriggerFastCacheReeval @ 0x1406AFC40 (ExpTriggerFastCacheReeval.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  *     PnpDiagInitialize @ 0x14079CC74 (PnpDiagInitialize.c)
  *     KseInitialize @ 0x14079DAE8 (KseInitialize.c)
@@ -26,8 +26,8 @@
  *     PerfDiagInitialize @ 0x1407BBA24 (PerfDiagInitialize.c)
  *     WheapInitializeEventing @ 0x1407BD098 (WheapInitializeEventing.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpRegisterProvider @ 0x140492024 (EtwpRegisterProvider.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpRegisterProvider @ 0x140492AB4 (EtwpRegisterProvider.c)
  */
 
 NTSTATUS __stdcall EtwRegister(

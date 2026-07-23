@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48
+ * XREFs of FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0A78
  * Callers:
- *     FsRtlpRequestShareableOplock @ 0x1402057F0 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpOplockCleanup @ 0x1402AD5D0 (FsRtlpOplockCleanup.c)
- *     FsRtlpCancelOplockRHIrp @ 0x1402AD9F0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlUninitializeOplock @ 0x1402AEF00 (FsRtlUninitializeOplock.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpRequestExclusiveOplock @ 0x140374AD0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpOplockCleanup @ 0x14022B930 (FsRtlpOplockCleanup.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x14022BD50 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlUninitializeOplock @ 0x14022D260 (FsRtlUninitializeOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402AA120 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14035FB50 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x140374620 (FsRtlpRequestExclusiveOplock.c)
  * Callees:
- *     FsRtlpOplockEnqueueRH @ 0x140206224 (FsRtlpOplockEnqueueRH.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     IoReleaseCancelSpinLock @ 0x140285860 (IoReleaseCancelSpinLock.c)
- *     IoAcquireCancelSpinLock @ 0x14029CF20 (IoAcquireCancelSpinLock.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x1402C7DD4 (FsRtlpOplockSendModernAppTermination.c)
- *     FsRtlpOplockDequeueRH @ 0x140356AA0 (FsRtlpOplockDequeueRH.c)
- *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IoReleaseCancelSpinLock @ 0x140202A00 (IoReleaseCancelSpinLock.c)
+ *     IoAcquireCancelSpinLock @ 0x140219A60 (IoAcquireCancelSpinLock.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140246634 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpOplockEnqueueRH @ 0x1402AAB54 (FsRtlpOplockEnqueueRH.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     FsRtlpOplockDequeueRH @ 0x1403617F0 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpClearOwner @ 0x140374DC8 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403799C4 (FsRtlpModifyThreadPriorities.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall FsRtlpRemoveAndCompleteRHIrp(
@@ -31,10 +31,8 @@ char __fastcall FsRtlpRemoveAndCompleteRHIrp(
 {
   __int64 v7; // rsi
   char v12; // r15
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // rcx
-  __int64 v16; // rbx
+  __int64 v13; // rcx
+  __int64 v14; // rbx
 
   v7 = P[2];
   P[2] = 0LL;
@@ -42,7 +40,7 @@ char __fastcall FsRtlpRemoveAndCompleteRHIrp(
   IoAcquireCancelSpinLock((PKIRQL)(v7 + 69));
   _InterlockedExchange64((volatile __int64 *)(v7 + 104), 0LL);
   IoReleaseCancelSpinLock(*(_BYTE *)(v7 + 69));
-  FsRtlpOplockDequeueRH((__int64)P, v13, v14);
+  FsRtlpOplockDequeueRH((__int64)P);
   if ( *(_BYTE *)(v7 + 68) )
   {
     a3 = -1073741536;
@@ -51,21 +49,21 @@ char __fastcall FsRtlpRemoveAndCompleteRHIrp(
     if ( P[5] )
       FsRtlpClearOwner(a2, (__int64)P);
     ExFreePoolWithTag(P, 0);
-    v16 = 0LL;
+    v14 = 0LL;
   }
   else
   {
-    v15 = *(_QWORD *)(v7 + 24);
-    v16 = 24LL;
-    *(_QWORD *)(v15 + 16) = 0LL;
-    *(_DWORD *)v15 = 1572865;
-    *(_DWORD *)(v15 + 4) = 3;
-    *(_DWORD *)(v15 + 8) = (a4 >> 12) & 7;
-    *(_DWORD *)(v15 + 12) = a5;
+    v13 = *(_QWORD *)(v7 + 24);
+    v14 = 24LL;
+    *(_QWORD *)(v13 + 16) = 0LL;
+    *(_DWORD *)v13 = 1572865;
+    *(_DWORD *)(v13 + 4) = 3;
+    *(_DWORD *)(v13 + 8) = (a4 >> 12) & 7;
+    *(_DWORD *)(v13 + 12) = a5;
     if ( (a5 & 2) != 0 )
     {
-      *(_DWORD *)(v15 + 16) = a6;
-      *(_WORD *)(v15 + 20) = a7;
+      *(_DWORD *)(v13 + 16) = a6;
+      *(_WORD *)(v13 + 20) = a7;
     }
     if ( (a5 & 1) != 0 )
     {
@@ -82,7 +80,7 @@ char __fastcall FsRtlpRemoveAndCompleteRHIrp(
       ExFreePoolWithTag(P, 0);
     }
   }
-  *(_QWORD *)(v7 + 56) = v16;
+  *(_QWORD *)(v7 + 56) = v14;
   *(_DWORD *)(v7 + 48) = a3;
   IofCompleteRequest((PIRP)v7, 1);
   return v12;

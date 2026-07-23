@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTrimPte @ 0x140321400
+ * XREFs of MiTrimPte @ 0x140323430
  * Callers:
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
  * Callees:
- *     MiAcquirePrcbAgeTrimLists @ 0x14029CE20 (MiAcquirePrcbAgeTrimLists.c)
- *     MiFlushDeferredAgingBucket @ 0x14029CF90 (MiFlushDeferredAgingBucket.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiLogPageAccess @ 0x140320930 (MiLogPageAccess.c)
- *     MiTrimThisWsle @ 0x140322190 (MiTrimThisWsle.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiCompressTbFlushList @ 0x1404DAB9C (MiCompressTbFlushList.c)
- *     qsort @ 0x140536F00 (qsort.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x14029C380 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiFlushDeferredAgingBucket @ 0x14029C4F0 (MiFlushDeferredAgingBucket.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiLogPageAccess @ 0x140322960 (MiLogPageAccess.c)
+ *     MiTrimThisWsle @ 0x1403241C0 (MiTrimThisWsle.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiCompressTbFlushList @ 0x1404D427C (MiCompressTbFlushList.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 __int64 __fastcall MiTrimPte(__int64 a1, ULONG_PTR a2, int a3)
@@ -212,13 +212,13 @@ __int64 __fastcall MiTrimPte(__int64 a1, ULONG_PTR a2, int a3)
       {
         if ( v81 == 7 )
         {
-          v82 = &unk_140E2E920;
+          v82 = &unk_140E2EAA0;
         }
         else
         {
-          v82 = &unk_140E2E930;
+          v82 = &unk_140E2EAB0;
           if ( v81 == 5 )
-            v82 = &unk_140E2E918;
+            v82 = &unk_140E2EA98;
         }
       }
       else
@@ -236,7 +236,7 @@ __int64 __fastcall MiTrimPte(__int64 a1, ULONG_PTR a2, int a3)
       if ( (*(_DWORD *)(v87 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
       {
         v86 = 2 * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3);
-        if ( ((*(_DWORD *)&stru_140E2D930.PriorityFloorCounts[4 * (v86 >> 5) + 4] >> (v86 & 0x1F)) & 1) != 0 )
+        if ( ((*(_DWORD *)&stru_140E2DAB0.PriorityFloorCounts[4 * (v86 >> 5) + 4] >> (v86 & 0x1F)) & 1) != 0 )
           goto LABEL_16;
       }
       else
@@ -506,7 +506,7 @@ LABEL_77:
           if ( *(_QWORD *)(v20 + 624) || (*(_QWORD *)(v20 - 656) & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
             goto LABEL_77;
 LABEL_87:
-          MiLogPageAccess(v20, a2);
+          MiLogPageAccess(v20, a2, v47);
         }
       }
     }

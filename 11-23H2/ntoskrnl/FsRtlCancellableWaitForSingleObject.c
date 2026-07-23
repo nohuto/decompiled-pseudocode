@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlCancellableWaitForSingleObject @ 0x140773570
+ * XREFs of FsRtlCancellableWaitForSingleObject @ 0x140773760
  * Callers:
  *     FsRtlpWaitOnIrp @ 0x1402010B8 (FsRtlpWaitOnIrp.c)
  * Callees:
- *     FsRtlCancellableWaitForMultipleObjects @ 0x1407737C0 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1407739B0 (FsRtlCancellableWaitForMultipleObjects.c)
  */
 
 NTSTATUS __stdcall FsRtlCancellableWaitForSingleObject(PVOID Object, PLARGE_INTEGER Timeout, PIRP Irp)

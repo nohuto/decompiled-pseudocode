@@ -21,11 +21,11 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
   __int64 v12; // r8
   const WCHAR *v13; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  int v16; // [rsp+40h] [rbp+8h] BYREF
+  DWORD Lcid; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = 0;
   v5 = a3;
-  v16 = 0;
+  Lcid = 0;
   DestinationString = 0LL;
   if ( !a1 )
     return (unsigned int)-1073741811;
@@ -51,9 +51,9 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
         if ( v13 )
         {
           RtlInitUnicodeString(&DestinationString, v13);
-          if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v16) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            LOWORD(v5) = v16;
+            LOWORD(v5) = Lcid;
             LOBYTE(v9) = 0;
             return (unsigned int)RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, (unsigned __int16)v5, v9, a4);
           }

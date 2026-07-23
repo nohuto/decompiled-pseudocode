@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegSegmentInitialize @ 0x1403503FC
+ * XREFs of RtlpHpSegSegmentInitialize @ 0x14035247C
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14034B898 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x1406392C4 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14034D918 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14063C2D4 (RtlpHpSegContextReserve.c)
  * Callees:
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentInitialize(_BYTE *a1, __int64 a2, unsigned int a3)
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpHpSegSegmentInitialize(_BYTE *a1, __int64 a2, unsigned in
   {
     v13 = 0LL;
     v14 = 0LL;
-    RtlpHpVaMgrCtxQuery(&ExpUuidLock.FirstArgument, a2 & 0xFFFFFFFFFFE00000uLL, &v13);
+    RtlpHpVaMgrCtxQuery(&ExpUuidLock.TrapFrame, a2 & 0xFFFFFFFFFFE00000uLL, &v13);
     *(_QWORD *)(a2 + 24) = v14;
   }
   v6 = a3;

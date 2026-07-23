@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpFinalizeHeader @ 0x1407F5E38
+ * XREFs of EtwpFinalizeHeader @ 0x1407F6108
  * Callers:
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
- *     EtwpCreateLogFile @ 0x1407F66D0 (EtwpCreateLogFile.c)
- *     EtwpBufferingModeFlush @ 0x1408A7A28 (EtwpBufferingModeFlush.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
+ *     EtwpCreateLogFile @ 0x1407F69A0 (EtwpCreateLogFile.c)
+ *     EtwpBufferingModeFlush @ 0x1408A7C78 (EtwpBufferingModeFlush.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x140228124 (EtwpQueryUsedProcessorCount.c)
- *     KeQuerySystemTimePrecise @ 0x1402BE530 (KeQuerySystemTimePrecise.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwReadFile @ 0x14041AE20 (ZwReadFile.c)
- *     ZwWriteFile @ 0x14041AE60 (ZwWriteFile.c)
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041B680 (ZwQueryVolumeInformationFile.c)
- *     EtwpAddLastDroppedEvent @ 0x140601018 (EtwpAddLastDroppedEvent.c)
- *     EtwpAddDebugInfoEvents @ 0x1407F616C (EtwpAddDebugInfoEvents.c)
- *     EtwpIsWow64Logger @ 0x1407F7A8C (EtwpIsWow64Logger.c)
- *     EtwpAddBinaryInfoEvents @ 0x1409EC12C (EtwpAddBinaryInfoEvents.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140228234 (EtwpQueryUsedProcessorCount.c)
+ *     KeQuerySystemTimePrecise @ 0x1402BE7C0 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x14041B1B0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x14041B1F0 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x14041BA10 (ZwQueryVolumeInformationFile.c)
+ *     EtwpAddLastDroppedEvent @ 0x140601568 (EtwpAddLastDroppedEvent.c)
+ *     EtwpAddDebugInfoEvents @ 0x1407F643C (EtwpAddDebugInfoEvents.c)
+ *     EtwpIsWow64Logger @ 0x1407F7D5C (EtwpIsWow64Logger.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1409EC3BC (EtwpAddBinaryInfoEvents.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

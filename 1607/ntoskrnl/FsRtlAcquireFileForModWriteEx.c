@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlAcquireFileForModWriteEx @ 0x14009F9F8
+ * XREFs of FsRtlAcquireFileForModWriteEx @ 0x14009E320
  * Callers:
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
  * Callees:
- *     FsFilterCtrlFree @ 0x140026254 (FsFilterCtrlFree.c)
- *     FsFilterPerformCompletionCallbacks @ 0x140026270 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1400262E0 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlInit @ 0x140026580 (FsFilterCtrlInit.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x14002660C (IoGetBaseFileSystemDeviceObject.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExConvertExclusiveToSharedLite @ 0x1400A5C20 (ExConvertExclusiveToSharedLite.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1401326C8 (ExAcquireSharedWaitForExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     FsFilterCtrlFree @ 0x140025DD4 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x140025DF0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140025E60 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlInit @ 0x140026100 (FsFilterCtrlInit.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x14002618C (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExConvertExclusiveToSharedLite @ 0x1400A4198 (ExConvertExclusiveToSharedLite.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x140132C38 (ExAcquireSharedWaitForExclusive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileForModWriteEx(PFILE_OBJECT FileObject, _QWORD *a2, struct _ERESOURCE **a3)

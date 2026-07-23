@@ -1,19 +1,19 @@
 /*
- * XREFs of DifNtGetNotificationResourceManagerWrapper @ 0x1406797B0
+ * XREFs of DifNtGetNotificationResourceManagerWrapper @ 0x14067D390
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifNtGetNotificationResourceManagerWrapper(
         void *a1,
-        struct _TRANSACTION_NOTIFICATION *a2,
+        _TRANSACTION_NOTIFICATION *a2,
         ULONG a3,
         LARGE_INTEGER *a4,
         ULONG *ReturnLength,
@@ -35,7 +35,7 @@ __int64 __fastcall DifNtGetNotificationResourceManagerWrapper(
   ULONG *v23; // [rsp+60h] [rbp-19h]
   LARGE_INTEGER *v24; // [rsp+68h] [rbp-11h]
   ULONG v25; // [rsp+70h] [rbp-9h]
-  struct _TRANSACTION_NOTIFICATION *v26; // [rsp+78h] [rbp-1h]
+  _TRANSACTION_NOTIFICATION *v26; // [rsp+78h] [rbp-1h]
   void *v27; // [rsp+80h] [rbp+7h]
   unsigned int NotificationResourceManager; // [rsp+88h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+47h]

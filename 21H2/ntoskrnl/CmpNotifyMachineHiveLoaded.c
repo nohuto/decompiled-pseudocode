@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpNotifyMachineHiveLoaded @ 0x1403B7E80
+ * XREFs of CmpNotifyMachineHiveLoaded @ 0x1403B7FF0
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A74B0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void __fastcall CmpNotifyMachineHiveLoaded(unsigned int a1)

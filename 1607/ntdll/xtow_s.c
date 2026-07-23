@@ -5,7 +5,7 @@
  *     _ltow_s @ 0x1800A0F00 (_ltow_s.c)
  *     _ultow_s @ 0x1800A0F50 (_ultow_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  */
 
 __int64 __fastcall xtow_s(unsigned int a1, __int16 *a2, unsigned __int64 a3, unsigned int a4, int a5)

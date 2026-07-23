@@ -7,11 +7,16 @@
  *     <none>
  */
 
-__int64 ZwQueryKey()
+NTSTATUS __cdecl ZwQueryKey(
+        HANDLE KeyHandle,
+        KEY_INFORMATION_CLASS KeyInformationClass,
+        PVOID KeyInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 22LL;
+  result = 22;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -10,11 +10,11 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrVaCtxAlloc(__int64 a1, int a2, char a3)
@@ -128,7 +128,7 @@ LABEL_53:
         }
         v34->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v34->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v33], SessionId);
+          KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v33].TreeNode, SessionId);
         v40 = 0;
         v40 = v34->BoostBitmap.AllFields & 0x1FFFF;
         v34->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -208,7 +208,7 @@ LABEL_23:
       }
       v24->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v24->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v16->LockEntries[v23], v17);
+        KiAbEntryRemoveFromTree(&v16->LockEntries[v23].TreeNode, v17);
       v38 = 0;
       v38 = v24->BoostBitmap.AllFields & 0x1FFFF;
       v24->BoostBitmap.AllFields &= 0xFFFE0000;

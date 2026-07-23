@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x14030D724
+ * XREFs of KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x1402D8EC4
  * Callers:
- *     KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x14030D370 (KiRemoveCurrentThreadSharedReadyQueueEnumerator.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x14030D3E8 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x14030D510 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
- *     KiRemoveThreadFromSharedReadyQueue @ 0x14030D6C0 (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x1402D8B1C (KiRemoveCurrentThreadSharedReadyQueueEnumerator.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1402D8B94 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x1402D8CB0 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x1402D8E60 (KiRemoveThreadFromSharedReadyQueue.c)
  * Callees:
- *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x1403CBEA0 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
+ *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x1403BC6D0 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
  */
 
 __int64 __fastcall KiUpdateSharedReadyQueueStatisticsOnRemoval(__int64 a1, __int64 a2)

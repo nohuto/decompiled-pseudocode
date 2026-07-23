@@ -12,28 +12,30 @@
  *     RtlpHeapExceptionFilter @ 0x18010A6B0 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlCompactHeap(char *Src, int a2, __int64 a3, __int64 a4)
+SIZE_T __cdecl RtlCompactHeap(PVOID HeapHandle, ULONG Flags)
 {
-  int v6; // edx
-  unsigned __int64 v7; // rbx
+  __int64 v2; // r8
+  __int64 v3; // r9
+  ULONG v6; // edx
+  SIZE_T v7; // rbx
   __int64 v8; // rax
   __int64 v9; // rax
   struct _TEB *v10; // rbx
   char v11; // [rsp+20h] [rbp-18h]
-  unsigned __int64 v12; // [rsp+28h] [rbp-10h]
+  SIZE_T v12; // [rsp+28h] [rbp-10h]
 
   v11 = 0;
-  if ( *((_DWORD *)Src + 4) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    RtlpHpHeapCompact((__int64)Src, a2 & 1, a3, a4);
+    RtlpHpHeapCompact((__int64)HeapHandle, Flags & 1, v2, v3);
     return 16LL;
   }
   else
   {
-    v6 = *((_DWORD *)Src + 29) | a2;
+    v6 = *((_DWORD *)HeapHandle + 29) | Flags;
     if ( (v6 & 0x61000000) != 0 && (v6 & 0x10000000) == 0 )
     {
-      return RtlDebugCompactHeap(Src);
+      return RtlDebugCompactHeap(HeapHandle);
     }
     else
     {
@@ -41,23 +43,23 @@ __int64 __fastcall RtlCompactHeap(char *Src, int a2, __int64 a3, __int64 a4)
       v12 = 0LL;
       if ( (v6 & 1) == 0 )
       {
-        RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+        RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
         v11 = 1;
       }
-      v8 = RtlpCoalesceHeap(Src);
+      v8 = RtlpCoalesceHeap((int)HeapHandle);
       if ( v8 )
       {
         v7 = 16LL * *(unsigned __int16 *)(v8 + 8);
         v12 = v7;
-        if ( *((_DWORD *)Src + 31) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
           *(_BYTE *)(v8 + 11) = *(_BYTE *)(v8 + 8) ^ *(_BYTE *)(v8 + 9) ^ *(_BYTE *)(v8 + 10);
-          *(_DWORD *)(v8 + 8) ^= *((_DWORD *)Src + 34);
+          *(_DWORD *)(v8 + 8) ^= *((_DWORD *)HeapHandle + 34);
         }
       }
-      if ( *((char **)Src + 30) != Src + 240 )
+      if ( *((PVOID *)HeapHandle + 30) != (char *)HeapHandle + 240 )
       {
-        v9 = *((_QWORD *)Src + 31);
+        v9 = *((_QWORD *)HeapHandle + 31);
         if ( *(_QWORD *)(v9 + 40) > v7 )
           v7 = *(_QWORD *)(v9 + 40);
         v12 = v7;
@@ -70,7 +72,7 @@ __int64 __fastcall RtlCompactHeap(char *Src, int a2, __int64 a3, __int64 a4)
         v7 = v12;
       }
       if ( v11 )
-        RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+        RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
       return v7;
     }
   }

@@ -2,7 +2,7 @@
  * XREFs of IoUnregisterShutdownNotification @ 0x140A65430
  * Callers:
  *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     DifIoUnregisterShutdownNotificationWrapper @ 0x1406113D0 (DifIoUnregisterShutdownNotificationWrapper.c)
+ *     sub_1406113D0 @ 0x1406113D0 (sub_1406113D0.c)
  * Callees:
  *     MmUnlockPagableImageSection @ 0x140241620 (MmUnlockPagableImageSection.c)
  *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
@@ -25,11 +25,11 @@ void __stdcall IoUnregisterShutdownNotification(PDEVICE_OBJECT DeviceObject)
   PVOID *v10; // rax
   PVOID **v11; // rdx
 
-  MmLockPagableSectionByHandle(ExPageLockHandle);
+  MmLockPagableSectionByHandle(ImageSectionHandle);
   v2 = KeAcquireQueuedSpinLock(0xAuLL);
-  v3 = (PVOID *)IopNotifyShutdownQueueHead;
+  v3 = (PVOID *)qword_140C46F50;
   v4 = v2;
-  while ( v3 != &IopNotifyShutdownQueueHead )
+  while ( v3 != &qword_140C46F50 )
   {
     v5 = v3;
     if ( v3[2] == DeviceObject )
@@ -46,7 +46,7 @@ LABEL_16:
     }
     v3 = (PVOID *)*v3;
   }
-  for ( i = (PVOID *)IopNotifyLastChanceShutdownQueueHead; i != &IopNotifyLastChanceShutdownQueueHead; i = (PVOID *)*i )
+  for ( i = (PVOID *)qword_140C46F60; i != &qword_140C46F60; i = (PVOID *)*i )
   {
     v9 = i;
     if ( i[2] == DeviceObject )
@@ -65,6 +65,6 @@ LABEL_16:
     }
   }
   KeReleaseQueuedSpinLock(0xAuLL, v4);
-  MmUnlockPagableImageSection(ExPageLockHandle);
+  MmUnlockPagableImageSection(ImageSectionHandle);
   DeviceObject->Flags &= ~0x800u;
 }

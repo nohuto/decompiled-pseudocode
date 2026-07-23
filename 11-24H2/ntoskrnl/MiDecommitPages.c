@@ -1,109 +1,107 @@
 /*
- * XREFs of MiDecommitPages @ 0x140288300
+ * XREFs of MiDecommitPages @ 0x140297F00
  * Callers:
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
- *     MiRemoveMappedPtes @ 0x140260FC0 (MiRemoveMappedPtes.c)
- *     MiMapImageScpCfgPages @ 0x140264810 (MiMapImageScpCfgPages.c)
- *     MiDeleteKernelStackPages @ 0x14026A1A4 (MiDeleteKernelStackPages.c)
- *     MmStoreDecommitVirtualMemory @ 0x140397A6C (MmStoreDecommitVirtualMemory.c)
- *     MiDeleteBootRange @ 0x140669130 (MiDeleteBootRange.c)
- *     MiDecommitRegion @ 0x1408DC180 (MiDecommitRegion.c)
- *     MmStoreAllocateVirtualMemory @ 0x140A5115C (MmStoreAllocateVirtualMemory.c)
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
- *     MmReturnChargesToLockPagedPool @ 0x140ABABD0 (MmReturnChargesToLockPagedPool.c)
- *     MiFreeInitializationCode @ 0x140AE67EC (MiFreeInitializationCode.c)
- *     MiFreeBootDriverPages @ 0x140C66B6C (MiFreeBootDriverPages.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
+ *     MiDeleteKernelStackPages @ 0x14021F734 (MiDeleteKernelStackPages.c)
+ *     MiRemoveMappedPtes @ 0x1402915D0 (MiRemoveMappedPtes.c)
+ *     MiMapImageScpCfgPages @ 0x140294080 (MiMapImageScpCfgPages.c)
+ *     MmStoreDecommitVirtualMemory @ 0x1402F62C8 (MmStoreDecommitVirtualMemory.c)
+ *     MiDeleteBootRange @ 0x14066A308 (MiDeleteBootRange.c)
+ *     MiDecommitRegion @ 0x1408DA3B0 (MiDecommitRegion.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1409145E8 (MmStoreAllocateVirtualMemory.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
+ *     MmReturnChargesToLockPagedPool @ 0x140AB5BF0 (MmReturnChargesToLockPagedPool.c)
+ *     MiFreeInitializationCode @ 0x140AE80CC (MiFreeInitializationCode.c)
+ *     MiFreeBootDriverPages @ 0x140C68CE8 (MiFreeBootDriverPages.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDecommitHandleTransitionPte @ 0x140286C5C (MiDecommitHandleTransitionPte.c)
- *     MiReturnPagedPoolLockCharge @ 0x140286EA0 (MiReturnPagedPoolLockCharge.c)
- *     MiDecommitAddToList @ 0x1402889A0 (MiDecommitAddToList.c)
- *     MiDecommitHandlePageFileFormatPte @ 0x140289270 (MiDecommitHandlePageFileFormatPte.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiDecommitHandleProtoFormatPte @ 0x140289580 (MiDecommitHandleProtoFormatPte.c)
- *     MiDecommitInitializePacket @ 0x1402899B0 (MiDecommitInitializePacket.c)
- *     MiDecommitLockNewPageTable @ 0x140289DC0 (MiDecommitLockNewPageTable.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402DBE00 (EtwTraceShouldYieldProcessor.c)
- *     MiDecommitPagesTail @ 0x1402DBE74 (MiDecommitPagesTail.c)
- *     MiDecommitLargePte @ 0x1404C7F24 (MiDecommitLargePte.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwTraceShouldYieldProcessor @ 0x14023D6E0 (EtwTraceShouldYieldProcessor.c)
+ *     MiDecommitPagesTail @ 0x14023D754 (MiDecommitPagesTail.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecommitHandleTransitionPte @ 0x14029685C (MiDecommitHandleTransitionPte.c)
+ *     MiReturnPagedPoolLockCharge @ 0x140296AA0 (MiReturnPagedPoolLockCharge.c)
+ *     MiDecommitAddToList @ 0x1402985A0 (MiDecommitAddToList.c)
+ *     MiDecommitHandlePageFileFormatPte @ 0x140298E70 (MiDecommitHandlePageFileFormatPte.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiDecommitHandleProtoFormatPte @ 0x140299180 (MiDecommitHandleProtoFormatPte.c)
+ *     MiDecommitInitializePacket @ 0x1402995B0 (MiDecommitInitializePacket.c)
+ *     MiDecommitLockNewPageTable @ 0x1402999C0 (MiDecommitLockNewPageTable.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiDecommitLargePte @ 0x1404C1658 (MiDecommitLargePte.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiDecommitPages(int a1, int a2, int a3, __int64 a4, __int64 a5, int a6, __int64 a7, __int64 a8)
 {
   _KPROCESS *Process; // rcx
-  unsigned __int64 *v13; // rbx
-  unsigned __int64 v14; // rbx
+  __int64 v13; // r8
+  unsigned __int64 *v14; // rbx
+  unsigned __int64 v15; // rbx
   unsigned __int64 KernelWaitTime; // rdx
-  int v16; // r8d
-  unsigned int v17; // r8d
-  unsigned __int64 v18; // rdx
-  int v19; // r8d
-  __int64 v20; // r9
+  int v17; // r8d
+  unsigned int v18; // r8d
+  unsigned __int64 v19; // rdx
   int UserWaitTime_high; // edx
-  unsigned int v22; // edi
-  unsigned int v23; // esi
+  unsigned int v21; // edi
+  unsigned int v22; // esi
   struct _LIST_ENTRY *Blink; // rax
-  unsigned int v25; // ebx
-  __int64 v27; // rax
-  unsigned __int64 v28; // rbx
+  int v24; // ebx
+  __int64 v26; // rax
+  unsigned __int64 v27; // rbx
   unsigned __int64 i; // rdx
-  _QWORD *v30; // rcx
+  _QWORD *v29; // rcx
   __int64 ProcessorFlushList; // rax
-  __int64 v32; // r8
-  BOOL v33; // ecx
-  signed __int32 *v34; // r8
-  __int64 *v35; // rax
-  __int64 v36; // rcx
+  __int64 v31; // r8
+  BOOL v32; // ecx
+  __int64 *v33; // rax
+  __int64 v34; // rcx
   unsigned int *MmInternal; // rax
-  __int64 v38; // rax
-  signed __int32 v39; // eax
-  signed __int32 v40; // ett
-  __int64 v41; // r9
-  unsigned __int64 v42; // rcx
-  _BYTE v43[16]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v44; // [rsp+70h] [rbp-90h]
-  _KPROCESS *v45; // [rsp+78h] [rbp-88h]
-  __int64 v46; // [rsp+80h] [rbp-80h]
-  int v47; // [rsp+88h] [rbp-78h]
-  char v48; // [rsp+8Ch] [rbp-74h]
-  __int64 v49; // [rsp+98h] [rbp-68h]
-  __int64 v50; // [rsp+A0h] [rbp-60h]
-  unsigned __int64 v51; // [rsp+A8h] [rbp-58h]
-  unsigned __int64 v52; // [rsp+B0h] [rbp-50h]
-  unsigned __int64 v53; // [rsp+B8h] [rbp-48h]
-  unsigned int v54; // [rsp+C0h] [rbp-40h]
-  unsigned int v55; // [rsp+E4h] [rbp-1Ch]
-  int v56; // [rsp+E8h] [rbp-18h]
-  __int64 v57; // [rsp+F0h] [rbp-10h]
-  char v58; // [rsp+FCh] [rbp-4h]
-  __int64 v59; // [rsp+110h] [rbp+10h]
-  unsigned __int64 v60; // [rsp+118h] [rbp+18h]
-  unsigned __int64 v61; // [rsp+120h] [rbp+20h]
-  unsigned int v62; // [rsp+12Ch] [rbp+2Ch]
-  unsigned __int64 v63; // [rsp+130h] [rbp+30h]
-  __int64 v64; // [rsp+138h] [rbp+38h]
+  __int64 v36; // rax
+  signed __int32 v37; // eax
+  signed __int32 v38; // ett
+  __int64 v39; // r9
+  unsigned __int64 v40; // rcx
+  _BYTE v41[16]; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v42; // [rsp+70h] [rbp-90h]
+  _KPROCESS *v43; // [rsp+78h] [rbp-88h]
+  __int64 v44; // [rsp+80h] [rbp-80h]
+  int v45; // [rsp+88h] [rbp-78h]
+  char v46; // [rsp+8Ch] [rbp-74h]
+  __int64 v47; // [rsp+98h] [rbp-68h]
+  __int64 v48; // [rsp+A0h] [rbp-60h]
+  unsigned __int64 v49; // [rsp+A8h] [rbp-58h]
+  unsigned __int64 v50; // [rsp+B0h] [rbp-50h]
+  unsigned __int64 v51; // [rsp+B8h] [rbp-48h]
+  unsigned int v52; // [rsp+C0h] [rbp-40h]
+  unsigned int v53; // [rsp+E4h] [rbp-1Ch]
+  int v54; // [rsp+E8h] [rbp-18h]
+  __int64 v55; // [rsp+F0h] [rbp-10h]
+  char v56; // [rsp+FCh] [rbp-4h]
+  __int64 v57; // [rsp+110h] [rbp+10h]
+  unsigned __int64 v58; // [rsp+118h] [rbp+18h]
+  unsigned __int64 v59; // [rsp+120h] [rbp+20h]
+  unsigned int v60; // [rsp+12Ch] [rbp+2Ch]
+  unsigned __int64 v61; // [rsp+130h] [rbp+30h]
+  __int64 v62; // [rsp+138h] [rbp+38h]
 
-  memset_0(v43, 0, 0xE0uLL);
-  MiDecommitInitializePacket((unsigned int)v43, a1, a2, a3, a4, a5, a6, a7, a8);
-  if ( v51 <= v52 )
+  memset_0(v41, 0, 0xE0uLL);
+  MiDecommitInitializePacket((unsigned int)v41, a1, a2, a3, a4, a5, a6, a7, a8);
+  if ( v49 <= v50 )
   {
     while ( 1 )
     {
-      if ( v48 == 17 || (v13 = (unsigned __int64 *)v53, (v53 & 0xFFF) == 0) )
+      if ( v46 == 17 || (v14 = (unsigned __int64 *)v51, (v51 & 0xFFF) == 0) )
       {
-        MiDecommitPagesTail(v43);
-        if ( !(unsigned int)MiDecommitLockNewPageTable(v43) )
+        MiDecommitPagesTail((__int64)v41);
+        if ( !(unsigned int)MiDecommitLockNewPageTable(v41) )
           goto LABEL_35;
-        v13 = (unsigned __int64 *)v53;
+        v14 = (unsigned __int64 *)v51;
       }
-      v14 = *v13;
-      KernelWaitTime = v53;
-      if ( v53 >= 0xFFFFF6FB7DBED000uLL && v53 <= 0xFFFFF6FB7DBED7F8uLL && (v14 & 1) != 0 )
+      v15 = *v14;
+      KernelWaitTime = v51;
+      if ( v51 >= 0xFFFFF6FB7DBED000uLL && v51 <= 0xFFFFF6FB7DBED7F8uLL && (v15 & 1) != 0 )
       {
-        LOBYTE(Process) = (v14 & 0x42) != 0;
-        if ( ((unsigned __int8)Process & ((v14 & 0x20) != 0)) == 0 && (MiFlags & 0x600000) != 0 )
+        LOBYTE(Process) = (v15 & 0x42) != 0;
+        if ( ((unsigned __int8)Process & ((v15 & 0x20) != 0)) == 0 && (MiFlags & 0x600000) != 0 )
         {
           Process = KeGetCurrentThread()->ApcState.Process;
           if ( Process->AddressPolicy != 1 )
@@ -111,165 +109,164 @@ __int64 __fastcall MiDecommitPages(int a1, int a2, int a3, __int64 a4, __int64 a
             KernelWaitTime = Process[2].KernelWaitTime;
             if ( KernelWaitTime )
             {
-              v27 = *(_QWORD *)(KernelWaitTime + 8 * ((v53 >> 3) & 0x1FF));
-              if ( (v27 & 0x20) != 0 )
-                v14 |= 0x20uLL;
-              Process = (_KPROCESS *)v14;
-              v14 |= 0x42uLL;
-              if ( (v27 & 0x42) == 0 )
-                v14 = (unsigned __int64)Process;
+              v26 = *(_QWORD *)(KernelWaitTime + 8 * ((v51 >> 3) & 0x1FF));
+              if ( (v26 & 0x20) != 0 )
+                v15 |= 0x20uLL;
+              Process = (_KPROCESS *)v15;
+              v15 |= 0x42uLL;
+              if ( (v26 & 0x42) == 0 )
+                v15 = (unsigned __int64)Process;
             }
           }
         }
       }
-      if ( !v14 )
+      if ( !v15 )
       {
-        if ( !v47 )
+        if ( !v45 )
         {
-          v28 = v61;
-          if ( v54 )
-            v28 = 1LL;
-          if ( v51 > v60 )
+          v27 = v59;
+          if ( v52 )
+            v27 = 1LL;
+          if ( v49 > v58 )
           {
-            Process = v45;
-            v45->ProfileListHead.Flink = (struct _LIST_ENTRY *)((char *)v45->ProfileListHead.Flink + v57);
+            Process = v43;
+            v43->ProfileListHead.Flink = (struct _LIST_ENTRY *)((char *)v43->ProfileListHead.Flink + v55);
           }
-          if ( v59 )
+          if ( v57 )
           {
-            MiIncreaseUsedPtes(Process, v50, (unsigned int)v28, 0LL);
-            for ( i = 0LL; i < v28; *v30 = v59 )
-              v30 = (_QWORD *)(v53 + 8 * i++);
+            MiIncreaseUsedPtes(Process, v48, (unsigned int)v27);
+            for ( i = 0LL; i < v27; *v29 = v57 )
+              v29 = (_QWORD *)(v51 + 8 * i++);
           }
         }
         goto LABEL_19;
       }
-      if ( (v14 & 1) == 0 )
+      if ( (v15 & 1) == 0 )
       {
-        if ( (v14 & 0x400) != 0 )
+        if ( (v15 & 0x400) != 0 )
         {
-          MiDecommitHandleProtoFormatPte(v43, v14);
+          MiDecommitHandleProtoFormatPte(v41, v15);
         }
-        else if ( (v14 & 0x800) != 0 )
+        else if ( (v15 & 0x800) != 0 )
         {
-          if ( !(unsigned int)MiDecommitHandleTransitionPte((__int64)v43, v14) )
+          if ( !(unsigned int)MiDecommitHandleTransitionPte((__int64)v41, v15) )
             goto LABEL_34;
         }
         else
         {
-          MiDecommitHandlePageFileFormatPte(v43, v14);
+          MiDecommitHandlePageFileFormatPte(v41, v15);
         }
         goto LABEL_19;
       }
-      if ( (v58 & 8) != 0 )
+      if ( (v56 & 8) != 0 )
       {
-        MiReturnPagedPoolLockCharge((__int64)v43, v14);
+        MiReturnPagedPoolLockCharge((__int64)v41, v15);
         goto LABEL_19;
       }
-      if ( !v44 )
+      if ( !v42 )
       {
-        ProcessorFlushList = MiGetProcessorFlushList(Process, KernelWaitTime);
-        v32 = v46;
-        v44 = ProcessorFlushList;
+        ProcessorFlushList = MiGetProcessorFlushList(Process, KernelWaitTime, v13);
+        v31 = v44;
+        v42 = ProcessorFlushList;
         *(_DWORD *)(ProcessorFlushList + 16) = 0;
         *(_DWORD *)(ProcessorFlushList + 20) = 1;
-        *(_QWORD *)ProcessorFlushList = v32;
-        *(_BYTE *)(ProcessorFlushList + 24) = (*(_DWORD *)(v32 + 184) & 0x800) != 0;
-        if ( (*(_DWORD *)(v32 + 184) & 0xF) != 0
-          || (struct _LIST_ENTRY **)v32 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
+        *(_QWORD *)ProcessorFlushList = v31;
+        *(_BYTE *)(ProcessorFlushList + 24) = (*(_DWORD *)(v31 + 184) & 0x800) != 0;
+        if ( (*(_DWORD *)(v31 + 184) & 0xF) != 0
+          || (struct _LIST_ENTRY **)v31 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
         {
-          v33 = (*(_DWORD *)(v32 + 184) & 0xF) == 0;
+          v32 = (*(_DWORD *)(v31 + 184) & 0xF) == 0;
         }
         else
         {
           *(_DWORD *)(ProcessorFlushList + 16) |= 9u;
-          v33 = 0;
+          v32 = 0;
         }
         *(_DWORD *)(ProcessorFlushList + 16) &= 0xFFFFFFDB;
-        *(_DWORD *)(ProcessorFlushList + 8) = v33;
+        *(_DWORD *)(ProcessorFlushList + 8) = v32;
         *(_WORD *)(ProcessorFlushList + 25) = 0;
         *(_DWORD *)(ProcessorFlushList + 28) = 0;
         *(_QWORD *)(ProcessorFlushList + 32) = 0LL;
         *(_QWORD *)(ProcessorFlushList + 40) = 0LL;
       }
-      if ( (v14 & 0x80u) != 0LL && v54 )
+      if ( (v15 & 0x80u) != 0LL && v52 )
         break;
-      if ( v54 )
+      if ( v52 )
       {
-        v16 = 2;
+        v17 = 2;
       }
       else
       {
-        if ( v61 != 1 )
+        if ( v59 != 1 )
           break;
-        v16 = 1;
+        v17 = 1;
       }
 LABEL_16:
-      if ( v56 )
+      if ( v54 )
       {
-        if ( v16 == 2 )
+        if ( v17 == 2 )
         {
 LABEL_18:
-          MiDecommitAddToList(v43, v49);
+          MiDecommitAddToList(v41, v47);
           goto LABEL_19;
         }
-        v42 = v63;
-        if ( !v63 )
-          v42 = v53;
-        v63 = v42;
-        v64 = (__int64)(v53 + 8 * v61 - v42) >> 3;
+        v40 = v61;
+        if ( !v61 )
+          v40 = v51;
+        v61 = v40;
+        v62 = (__int64)(v51 + 8 * v59 - v40) >> 3;
       }
-      if ( v16 )
+      if ( v17 )
         goto LABEL_18;
-      MiDecommitLargePte(v43);
+      MiDecommitLargePte(v41);
 LABEL_19:
-      v51 += 8 * v57;
-      v17 = 0;
-      v49 = (__int64)(v51 << 25) >> 16;
-      v18 = v51;
-      if ( v62 <= 1 )
+      v49 += 8 * v55;
+      v18 = 0;
+      v47 = (__int64)(v49 << 25) >> 16;
+      v19 = v49;
+      if ( v60 <= 1 )
       {
-        v17 = 2 - v62;
-        v41 = 2 - v62;
+        v18 = 2 - v60;
+        v39 = 2 - v60;
         do
         {
-          v18 = ((v18 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-          --v41;
+          v19 = ((v19 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+          --v39;
         }
-        while ( v41 );
+        while ( v39 );
       }
-      v53 = v18;
-      v54 = v17;
-      if ( (v51 & 0x78) == 0 && (*(_DWORD *)(v46 + 184) & 0xFu) <= 5 )
+      v51 = v19;
+      v52 = v18;
+      if ( (v49 & 0x78) == 0 && (*(_DWORD *)(v44 + 184) & 0xFu) <= 5 )
       {
-        v35 = (*(_DWORD *)(v46 + 184) & 0xF) == 1 ? (__int64 *)&unk_140E38740 : (__int64 *)(v46 + 192);
-        v36 = *v35;
+        v33 = (*(_DWORD *)(v44 + 184) & 0xF) == 1 ? (__int64 *)&unk_140E38880 : (__int64 *)(v44 + 192);
+        v34 = *v33;
         MmInternal = (unsigned int *)KeGetCurrentPrcb()->MmInternal;
-        v38 = MmInternal ? MmInternal[81] : 0LL;
-        if ( (*(_DWORD *)(v36 + (v38 << 6)) & 0x40000000) != 0 )
+        v36 = MmInternal ? MmInternal[81] : 0LL;
+        if ( (*(_DWORD *)(v34 + (v36 << 6)) & 0x40000000) != 0 )
           goto LABEL_85;
       }
       Process = (_KPROCESS *)KeGetCurrentPrcb();
-      v19 = 0;
-      v20 = 0LL;
+      v13 = 0LL;
       UserWaitTime_high = HIDWORD(Process[31].UserWaitTime);
-      v22 = *(_DWORD *)&Process[73].Spare3[1];
-      v23 = HIDWORD(Process[75].Padding[0]);
+      v21 = *(_DWORD *)&Process[73].Spare3[1];
+      v22 = HIDWORD(Process[75].Padding[0]);
       if ( (UserWaitTime_high & 1) != 0 )
       {
-        v19 = 1;
-        if ( v23 > 7 )
+        v13 = 1LL;
+        if ( v22 > 7 )
         {
           if ( BYTE1(Process[31].UserWaitTime) )
           {
-            v25 = 1;
+            v24 = 1;
             goto LABEL_31;
           }
           goto LABEL_28;
         }
 LABEL_26:
-        if ( v22 > 7 )
+        if ( v21 > 7 )
         {
-          if ( v19 )
+          if ( (_DWORD)v13 )
             goto LABEL_28;
           goto LABEL_73;
         }
@@ -279,39 +276,38 @@ LABEL_26:
       {
         if ( (UserWaitTime_high & 0x1E) != 0 )
         {
-          v25 = 2;
+          v24 = 2;
           goto LABEL_31;
         }
         if ( BYTE1(Process[31].UserWaitTime) )
         {
-          v25 = 3;
+          v24 = 3;
           goto LABEL_31;
         }
         Blink = Process->Header.WaitListHead.Blink;
         if ( Blink && Blink != Process->Header.WaitListHead.Flink )
         {
-          v25 = 4;
+          v24 = 4;
           goto LABEL_31;
         }
         goto LABEL_26;
       }
-      v20 = 1LL;
-      if ( v22 > 7 )
+      if ( v21 > 7 )
       {
         if ( BYTE1(Process[31].UserWaitTime) )
         {
-          v25 = 7;
+          v24 = 7;
           goto LABEL_31;
         }
 LABEL_28:
         if ( (UserWaitTime_high & 0x1E) != 0 )
         {
-          v25 = 5;
+          v24 = 5;
           goto LABEL_31;
         }
         if ( Process->Header.WaitListHead.Flink != Process->ProfileListHead.Flink )
         {
-          v25 = 6;
+          v24 = 6;
           goto LABEL_31;
         }
 LABEL_73:
@@ -319,38 +315,38 @@ LABEL_73:
         *(_DWORD *)&Process[73].Spare3[1] = 0;
         HIDWORD(Process[75].Padding[0]) = 0;
         Process = (_KPROCESS *)KeGetCurrentPrcb();
-        v34 = (signed __int32 *)Process[80].ThreadListHead.Blink;
-        if ( v34 )
+        v13 = (__int64)Process[80].ThreadListHead.Blink;
+        if ( v13 )
         {
-          _m_prefetchw(v34);
-          v39 = *v34;
+          _m_prefetchw((const void *)v13);
+          v37 = *(_DWORD *)v13;
           do
           {
-            v40 = v39;
-            v39 = _InterlockedCompareExchange(v34, v39 & 0xFFDFFFFF, v39);
+            v38 = v37;
+            v37 = _InterlockedCompareExchange((volatile signed __int32 *)v13, v37 & 0xFFDFFFFF, v37);
           }
-          while ( v40 != v39 );
-          if ( (v39 & 0x200000) != 0 )
+          while ( v38 != v37 );
+          if ( (v37 & 0x200000) != 0 )
             KiRemoveSystemWorkPriorityKick((__int64)Process);
         }
         _enable();
-        v25 = 0;
+        v24 = 0;
 LABEL_31:
         if ( (DWORD1(PerfGlobalGroupMask) & 0x4000000) != 0 )
-          EtwTraceShouldYieldProcessor(v25, v22, v23, v20);
-        if ( !v25 )
+          EtwTraceShouldYieldProcessor(v24, v21, v22);
+        if ( !v24 )
           goto LABEL_34;
 LABEL_85:
-        MiDecommitPagesTail(v43);
+        MiDecommitPagesTail((__int64)v41);
       }
 LABEL_34:
-      if ( v51 > v52 )
+      if ( v49 > v50 )
         goto LABEL_35;
     }
-    v16 = 0;
+    v17 = 0;
     goto LABEL_16;
   }
 LABEL_35:
-  MiDecommitPagesTail(v43);
-  return v55;
+  MiDecommitPagesTail((__int64)v41);
+  return v53;
 }

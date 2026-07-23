@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpPoolRunDown @ 0x1406A7568
+ * XREFs of EtwpPoolRunDown @ 0x1406A76A0
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140495B04 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140496594 (EtwpKernelTraceRundown.c)
  * Callees:
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetNextSession @ 0x140086620 (MmGetNextSession.c)
- *     ExGetSessionPoolTagInfo @ 0x14008672C (ExGetSessionPoolTagInfo.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExGetBigPoolInfo @ 0x14022CD84 (ExGetBigPoolInfo.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetNextSession @ 0x140087F10 (MmGetNextSession.c)
+ *     ExGetSessionPoolTagInfo @ 0x14008801C (ExGetSessionPoolTagInfo.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x14022CBB0 (ExGetBigPoolInfo.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExGetPoolTagInfo @ 0x1404C9814 (ExGetPoolTagInfo.c)
+ *     ExGetPoolTagInfo @ 0x1404AF594 (ExGetPoolTagInfo.c)
  */
 
 void __fastcall EtwpPoolRunDown(unsigned int a1, char a2)

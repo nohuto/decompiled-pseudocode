@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpHeapTrkLeakCallback @ 0x1800F0000 (RtlpHeapTrkLeakCallback.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHeapTrkHash @ 0x18008F088 (RtlpHeapTrkHash.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHeapTrkHash @ 0x18008F078 (RtlpHeapTrkHash.c)
  */
 
 __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
 
   v2 = RtlpHeapTrkHash(a1);
   v3 = v2 & 0xF;
-  if ( _interlockedbittestandset64(*(volatile signed __int32 **)(qword_180153460 + 8 * v3), 0LL) )
+  if ( _interlockedbittestandset64(*(volatile signed __int32 **)(qword_180153468 + 8 * v3), 0LL) )
     return 0LL;
   v5 = (_QWORD *)(16LL * v2 + qword_1801530F0);
   for ( i = (_QWORD *)*v5; ; i = (_QWORD *)*i )
@@ -33,6 +33,6 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
   v7 = i[4];
   i[3] = 0LL;
 LABEL_8:
-  RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180153460 + 8 * v3));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180153468 + 8 * v3));
   return v7;
 }

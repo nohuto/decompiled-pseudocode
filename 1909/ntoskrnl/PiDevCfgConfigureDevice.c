@@ -83,7 +83,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   __int64 v44; // r8
   __int64 v45; // rax
   __int64 v46; // rax
-  PVOID v47; // [rsp+20h] [rbp-E0h]
+  PVOID Environment; // [rsp+20h] [rbp-E0h]
   __int64 v48; // [rsp+28h] [rbp-D8h]
   char v49; // [rsp+60h] [rbp-A0h] BYREF
   char v50; // [rsp+61h] [rbp-9Fh] BYREF
@@ -127,7 +127,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   __int64 Source2; // [rsp+1D0h] [rbp+D0h] BYREF
   __int64 v89; // [rsp+1D8h] [rbp+D8h]
   _QWORD v90[20]; // [rsp+1E0h] [rbp+E0h] BYREF
-  _QWORD v91[22]; // [rsp+280h] [rbp+180h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[3]; // [rsp+280h] [rbp+180h] BYREF
 
   *(_QWORD *)v61 = a1;
   v6 = a1;
@@ -295,17 +295,17 @@ LABEL_156:
       v51 |= 0x400u;
     }
   }
-  memset(v91, 0, 0xA8uLL);
-  v91[2] = L"Description";
-  LODWORD(v91[1]) = 288;
-  LODWORD(v91[4]) = 0x1000000;
-  v91[3] = &v64;
-  LODWORD(v91[11]) = 0x1000000;
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].Name = L"Description";
+  QueryTable[0].Flags = 288;
+  QueryTable[0].DefaultType = 0x1000000;
+  QueryTable[0].EntryContext = &v64;
+  QueryTable[1].DefaultType = 0x1000000;
   v14 = *(const WCHAR **)(a3 + 24);
-  v91[9] = L"Manufacturer";
-  LODWORD(v91[8]) = 288;
-  v91[10] = &v65;
-  DriverConfiguration = RtlQueryRegistryValuesEx(0xC0000000, v14, (__int64)v91, 0LL);
+  QueryTable[1].Name = L"Manufacturer";
+  QueryTable[1].Flags = 288;
+  QueryTable[1].EntryContext = &v65;
+  DriverConfiguration = RtlQueryRegistryValuesEx(0xC0000000, v14, QueryTable, 0LL, 0LL);
   if ( DriverConfiguration < 0 )
     goto LABEL_138;
   Buffer = v65.Buffer;
@@ -566,8 +566,8 @@ LABEL_44:
       v6,
       a2,
       a3 != 0 ? a3 + 240 : 0,
-      (_DWORD)Handle,
-      (unsigned __int64)&Source2 & -(__int64)(v53 != 0));
+      (int)Handle,
+      (PGUID)((unsigned __int64)&Source2 & -(__int64)(v53 != 0)));
     PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v10, L"Devices");
     PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v10, L"Filters");
   }
@@ -917,13 +917,13 @@ LABEL_73:
     v24 = *(unsigned __int16 *)(a3 + 124);
     v82.Length = 0;
     LODWORD(v48) = v22;
-    LODWORD(v47) = v23;
+    LODWORD(Environment) = v23;
     DriverConfiguration = RtlUnicodeStringPrintf(
                             &v82,
                             L"%u.%u.%u.%u",
                             (unsigned __int16)HIWORD(*(_DWORD *)(a3 + 124)),
                             v24,
-                            v47,
+                            Environment,
                             v48);
     if ( DriverConfiguration < 0 )
       goto LABEL_138;

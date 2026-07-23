@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerSettingPendingUpdateWatchdog @ 0x140606EA0
+ * XREFs of PopPowerSettingPendingUpdateWatchdog @ 0x1406099A0
  * Callers:
- *     PopDeepSleepWatchdogTakeAction @ 0x1407E3A00 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x1407E8D4C (PopDeepSleepWatchdogTakeAction.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 bool __fastcall PopPowerSettingPendingUpdateWatchdog(unsigned __int64 a1)
@@ -13,9 +13,9 @@ bool __fastcall PopPowerSettingPendingUpdateWatchdog(unsigned __int64 a1)
   KIRQL v3; // al
 
   v2 = 0;
-  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F10828.WriteTransferCount);
-  if ( *(_QWORD *)&stru_140F10828.SchedulerAssistPriorityFloor )
-    v2 = MEMORY[0xFFFFF78000000008] - *(_QWORD *)&stru_140F10828.SchedulerAssistPriorityFloor >= a1;
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F10828.WriteTransferCount, v3);
+  v3 = KeAcquireSpinLockRaiseToDpc(&PopPendingPowerSettingUpdateLock);
+  if ( PopPendingPowerSettingUpdateTime )
+    v2 = MEMORY[0xFFFFF78000000008] - PopPendingPowerSettingUpdateTime >= a1;
+  KeReleaseSpinLock(&PopPendingPowerSettingUpdateLock, v3);
   return v2;
 }

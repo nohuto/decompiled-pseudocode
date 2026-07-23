@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprLoadPluginDriver @ 0x1408ADE48
+ * XREFs of PnprLoadPluginDriver @ 0x1408ADFA8
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC3D0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
- *     MmUnloadSystemImage @ 0x140772150 (MmUnloadSystemImage.c)
- *     PnprGetPluginDriverImagePath @ 0x1408AD71C (PnprGetPluginDriverImagePath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
+ *     MmUnloadSystemImage @ 0x140772310 (MmUnloadSystemImage.c)
+ *     PnprGetPluginDriverImagePath @ 0x1408AD87C (PnprGetPluginDriverImagePath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprLoadPluginDriver(ULONG_PTR *a1, __int64 a2)

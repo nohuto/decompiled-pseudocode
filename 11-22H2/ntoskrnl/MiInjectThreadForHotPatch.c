@@ -14,27 +14,22 @@
  *     MiLogHotPatchOperationStatus @ 0x140A38FC8 (MiLogHotPatchOperationStatus.c)
  */
 
-__int64 __fastcall MiInjectThreadForHotPatch(int a1, int a2, int a3)
+__int64 __fastcall MiInjectThreadForHotPatch(PVOID Argument, int a2, int a3)
 {
   struct _KTHREAD *v6; // rdi
   struct _EX_RUNDOWN_REF *p_Blink; // rsi
   BOOLEAN v8; // al
   int v9; // r14d
   unsigned int v10; // ebx
-  int Thread; // eax
+  NTSTATUS ThreadExitStatus; // eax
   PVOID Object; // [rsp+68h] [rbp-9h] BYREF
   LARGE_INTEGER Timeout; // [rsp+70h] [rbp-1h] BYREF
-  __int128 v15; // [rsp+78h] [rbp+7h]
-  __int128 v16; // [rsp+88h] [rbp+17h]
-  __int128 v17; // [rsp+98h] [rbp+27h]
-  HANDLE Handle; // [rsp+F0h] [rbp+7Fh] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+7h] BYREF
+  HANDLE ThreadHandle; // [rsp+F0h] [rbp+7Fh] BYREF
 
-  *(_QWORD *)&v17 = 0LL;
-  v15 = 0LL;
-  DWORD2(v17) = 0;
-  v16 = 0LL;
+  memset(&ObjectAttributes, 0, 44);
   Timeout.QuadPart = 0LL;
-  Handle = 0LL;
+  ThreadHandle = 0LL;
   v6 = 0LL;
   p_Blink = (struct _EX_RUNDOWN_REF *)&KeGetCurrentThread()->ApcState.Process[1].ProfileListHead.Blink;
   v8 = ExAcquireRundownProtection_0(p_Blink);
@@ -44,53 +39,64 @@ __int64 __fastcall MiInjectThreadForHotPatch(int a1, int a2, int a3)
     v10 = -1073741558;
     goto LABEL_16;
   }
-  LODWORD(v15) = 48;
-  *((_QWORD *)&v15 + 1) = 0LL;
-  DWORD2(v16) = 512;
-  *(_QWORD *)&v16 = 0LL;
-  v17 = 0LL;
-  Thread = ZwCreateThreadEx((__int64)&Handle, 0x1FFFFFLL);
-  if ( Thread >= 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ThreadExitStatus = ZwCreateThreadEx(
+                       &ThreadHandle,
+                       0x1FFFFFu,
+                       &ObjectAttributes,
+                       (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                       qword_140D1F3C0,
+                       Argument,
+                       0,
+                       0LL,
+                       0LL,
+                       0LL,
+                       0LL);
+  if ( ThreadExitStatus >= 0 )
   {
     Object = 0LL;
-    Thread = ObReferenceObjectByHandle(Handle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
+    ThreadExitStatus = ObReferenceObjectByHandle(ThreadHandle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
     v6 = (struct _KTHREAD *)Object;
-    v10 = Thread;
-    if ( Thread >= 0 )
+    v10 = ThreadExitStatus;
+    if ( ThreadExitStatus >= 0 )
     {
       ExReleaseRundownProtection_0(p_Blink);
       v9 = 0;
       if ( v6->SuspendCount || (*((_DWORD *)&v6->0 + 1) & 0x4000) != 0 )
       {
-        Thread = 1073741825;
+        ThreadExitStatus = 1073741825;
       }
       else
       {
         Timeout.QuadPart = -100000000LL;
         if ( KeWaitForSingleObject(v6, WrKernel, 0, 0, &Timeout) != 258 )
         {
-          Thread = PsGetThreadExitStatus(v6);
+          ThreadExitStatus = PsGetThreadExitStatus(v6);
           v10 = 0;
-          if ( Thread >= 0 )
+          if ( ThreadExitStatus >= 0 )
             goto LABEL_16;
           goto LABEL_14;
         }
-        Thread = -1073740675;
+        ThreadExitStatus = -1073740675;
       }
       v10 = 0;
     }
   }
   else
   {
-    v10 = Thread;
+    v10 = ThreadExitStatus;
   }
 LABEL_14:
-  MiLogHotPatchOperationStatus(a2, a3, a1, Thread, 4);
+  MiLogHotPatchOperationStatus(a2, a3, (_DWORD)Argument, ThreadExitStatus, 4);
   if ( v9 )
     ExReleaseRundownProtection_0(p_Blink);
 LABEL_16:
-  if ( Handle )
-    ZwClose(Handle);
+  if ( ThreadHandle )
+    ZwClose(ThreadHandle);
   if ( v6 )
     ObfDereferenceObject(v6);
   return v10;

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTpHandleTrap @ 0x1405FC460
+ * XREFs of KiTpHandleTrap @ 0x1405FEEB0
  * Callers:
- *     KiDispatchException @ 0x1403D3400 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1403D63D0 (KiDispatchException.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     KiTpWriteBreakpoint @ 0x1405FC6F8 (KiTpWriteBreakpoint.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     KiTpCompletion @ 0x140C56010 (KiTpCompletion.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     KiTpWriteBreakpoint @ 0x1405FF148 (KiTpWriteBreakpoint.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiTpCompletion @ 0x140C5C010 (KiTpCompletion.c)
  */
 
 bool __fastcall KiTpHandleTrap(__int64 a1, __int64 a2, char a3, __int64 a4)
@@ -34,10 +34,8 @@ bool __fastcall KiTpHandleTrap(__int64 a1, __int64 a2, char a3, __int64 a4)
   CurrentPrcb = 0LL;
   v10 = *(_QWORD *)(a2 + 248);
   Process = KeGetCurrentThread()->Process;
-  _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[112], 1u);
-  for ( i = (__int64 *)*((_QWORD *)&KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink->Flink + ((v10 >> 4) & 0x3FFF));
-        ;
-        i = (__int64 *)*i )
+  _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[80], 1u);
+  for ( i = (__int64 *)*((_QWORD *)KsepShimDbLock.WaitBlock[1].SparePtr + ((v10 >> 4) & 0x3FFF)); ; i = (__int64 *)*i )
   {
     if ( !i )
     {
@@ -125,6 +123,6 @@ LABEL_42:
 LABEL_44:
   if ( CurrentPrcb )
     CurrentPrcb->PrcbFlagsReserved &= ~0x400u;
-  _InterlockedDecrement((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[112]);
+  _InterlockedDecrement((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[80]);
   return v8;
 }

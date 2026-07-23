@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDefragmentAllSlabsHelper @ 0x140686C80
+ * XREFs of MiDefragmentAllSlabsHelper @ 0x140687DB0
  * Callers:
- *     MiDefragmentAllSlabAllocators @ 0x140686B6C (MiDefragmentAllSlabAllocators.c)
+ *     MiDefragmentAllSlabAllocators @ 0x140687C9C (MiDefragmentAllSlabAllocators.c)
  * Callees:
- *     MiDefragmentSlabAllocator @ 0x140686DD0 (MiDefragmentSlabAllocator.c)
- *     MiDefragmentSlabWorker @ 0x140686E60 (MiDefragmentSlabWorker.c)
- *     MiInitializeSlabDefragmentContext @ 0x14068824C (MiInitializeSlabDefragmentContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiDefragmentSlabAllocator @ 0x140687F00 (MiDefragmentSlabAllocator.c)
+ *     MiDefragmentSlabWorker @ 0x140687F90 (MiDefragmentSlabWorker.c)
+ *     MiInitializeSlabDefragmentContext @ 0x14068937C (MiInitializeSlabDefragmentContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiDefragmentAllSlabsHelper(__int64 a1, __int64 a2, __int64 a3)

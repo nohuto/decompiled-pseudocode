@@ -1,18 +1,18 @@
 /*
- * XREFs of BiDeleteBootEntry @ 0x1406D47C4
+ * XREFs of BiDeleteBootEntry @ 0x1406D48FC
  * Callers:
- *     BiExportBcdObjects @ 0x1406D499C (BiExportBcdObjects.c)
+ *     BiExportBcdObjects @ 0x1406D4AD4 (BiExportBcdObjects.c)
  * Callees:
- *     ZwDeleteBootEntry @ 0x14015B520 (ZwDeleteBootEntry.c)
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     ZwDeleteBootEntry @ 0x14015BA90 (ZwDeleteBootEntry.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiDeleteBootEntry(PUNICODE_STRING EntryName)
 {
   unsigned int v1; // edi
   UNICODE_STRING *v2; // rdx
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = (unsigned int)EntryName;

@@ -1,18 +1,19 @@
 /*
- * XREFs of IommupPasidDeviceCreate @ 0x140588434
+ * XREFs of IommupPasidDeviceCreate @ 0x14058AAEC
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
- *     IommuPasidDeviceCreate @ 0x140787070 (IommuPasidDeviceCreate.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommuPasidDeviceCreate @ 0x140789BA0 (IommuPasidDeviceCreate.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     IommuGetLibraryContext @ 0x14059C4B0 (IommuGetLibraryContext.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     Feature_DmaAdapterStage1DirectAttach__private_IsEnabledDeviceUsageNoInline @ 0x140589CFC (Feature_DmaAdapterStage1DirectAttach__private_IsEnabledDeviceUsageNoInline.c)
+ *     IommuGetLibraryContext @ 0x14059EC30 (IommuGetLibraryContext.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IommupPasidDeviceCreate(__int64 a1, unsigned int a2, __int64 *a3)
@@ -38,6 +39,11 @@ __int64 __fastcall IommupPasidDeviceCreate(__int64 a1, unsigned int a2, __int64 
   if ( v8 )
   {
     memset_0(v8, 0, 0x40uLL);
+    if ( (unsigned int)Feature_DmaAdapterStage1DirectAttach__private_IsEnabledDeviceUsageNoInline() )
+    {
+      *(_QWORD *)(v9 + 40) = v9 + 32;
+      *(_QWORD *)(v9 + 32) = v9 + 32;
+    }
     v11 = HalpHvIommu == 0;
     *(_DWORD *)(v9 + 48) = a2;
     if ( v11 )
@@ -46,7 +52,7 @@ __int64 __fastcall IommupPasidDeviceCreate(__int64 a1, unsigned int a2, __int64 
       if ( LibraryContext < 0 )
       {
         HalpMmAllocCtxFree(v12, v9);
-        goto LABEL_18;
+        goto LABEL_20;
       }
       *(_QWORD *)(v9 + 56) = v18;
     }
@@ -83,7 +89,7 @@ __int64 __fastcall IommupPasidDeviceCreate(__int64 a1, unsigned int a2, __int64 
   {
     LibraryContext = -1073741670;
   }
-LABEL_18:
+LABEL_20:
   *a3 = v3;
   return (unsigned int)LibraryContext;
 }

@@ -7,20 +7,26 @@
  *     LdrpGenericExceptionFilter @ 0x1800D5908 (LdrpGenericExceptionFilter.c)
  */
 
-__int64 __fastcall LdrpTouchThreadStack(unsigned __int64 a1)
+NTSTATUS __fastcall LdrpTouchThreadStack(unsigned __int64 a1)
 {
   struct _TEB *v2; // rdi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v4; // rax
   unsigned __int64 v5; // rcx
   unsigned __int64 v6; // [rsp+30h] [rbp-48h]
   __int64 v7; // [rsp+38h] [rbp-40h] BYREF
   __int64 v8; // [rsp+40h] [rbp-38h]
-  __int64 v9; // [rsp+88h] [rbp+10h] BYREF
+  ULONG_PTR v9; // [rsp+88h] [rbp+10h] BYREF
 
   v2 = NtCurrentTeb();
-  result = ZwQueryVirtualMemory(-1LL, v2->NtTib.StackLimit, 0LL, &v7, 48LL, &v9);
-  if ( (int)result >= 0 )
+  result = ZwQueryVirtualMemory(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             v2->NtTib.StackLimit,
+             MemoryBasicInformation,
+             &v7,
+             0x30uLL,
+             &v9);
+  if ( result >= 0 )
   {
     v4 = (unsigned __int64)v2->NtTib.StackBase - 4096;
     v6 = v4;
@@ -39,7 +45,7 @@ __int64 __fastcall LdrpTouchThreadStack(unsigned __int64 a1)
       v4 = v6 - 4096;
       v6 -= 4096LL;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

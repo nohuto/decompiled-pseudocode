@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetNonPagedPoolNoSteal @ 0x1406418A8
+ * XREFs of MiSetNonPagedPoolNoSteal @ 0x140641DF8
  * Callers:
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     MiGetPhysicalAddress @ 0x14028BF20 (MiGetPhysicalAddress.c)
+ *     MiGetPhysicalAddress @ 0x14028C1B0 (MiGetPhysicalAddress.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 signed __int64 __fastcall MiSetNonPagedPoolNoSteal(volatile signed __int64 *a1)

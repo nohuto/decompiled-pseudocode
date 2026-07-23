@@ -25,7 +25,7 @@
  */
 
 __int64 __fastcall DbgkpPostFakeThreadMessages(
-        struct _KPROCESS *a1,
+        __int64 a1,
         struct _KEVENT *a2,
         struct _EX_RUNDOWN_REF *a3,
         struct _EX_RUNDOWN_REF **a4,
@@ -38,8 +38,8 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(
   bool v11; // r13
   char v12; // si
   char v13; // r13
-  unsigned __int64 v14; // rcx
-  __int64 v15; // rax
+  __int64 v14; // rcx
+  PIMAGE_NT_HEADERS v15; // rax
   __int64 v16; // r8
   _DWORD *v17; // r9
   bool v19; // [rsp+30h] [rbp-1E8h]
@@ -61,7 +61,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(
   }
   else
   {
-    NextProcessThread = (struct _EX_RUNDOWN_REF *)PsGetNextProcessThread((__int64)a1, 0LL);
+    NextProcessThread = (struct _EX_RUNDOWN_REF *)PsGetNextProcessThread(a1, 0LL);
   }
   v11 = a3 == 0LL;
   v19 = a3 == 0LL;
@@ -97,22 +97,22 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(
         {
           v13 = 1;
           LODWORD(v24[5]) = 2;
-          v14 = a1[1].Affinity.Bitmap[17];
+          v14 = *(_QWORD *)(a1 + 1304);
           if ( v14 )
             v24[7] = (HANDLE)DbgkpSectionToFileHandle(v14);
           else
             v24[7] = 0LL;
-          v24[8] = (HANDLE)a1[1].Affinity.Bitmap[18];
-          KeStackAttachProcess(a1, &ApcState);
-          v15 = RtlImageNtHeader(a1[1].Affinity.Bitmap[18]);
+          v24[8] = *(HANDLE *)(a1 + 1312);
+          KeStackAttachProcess((PRKPROCESS)a1, &ApcState);
+          v15 = RtlImageNtHeader(*(PVOID *)(a1 + 1312));
           if ( v15 )
           {
             v24[11] = 0LL;
-            v24[9] = *(HANDLE *)(v15 + 12);
+            v24[9] = *(HANDLE *)&v15->FileHeader.PointerToSymbolTable;
           }
           KeUnstackDetachProcess(&ApcState);
         }
-        v10 = DbgkpQueueMessage(a1, NextProcessThread, a2);
+        v10 = DbgkpQueueMessage((PVOID)a1, NextProcessThread, a2);
         if ( v10 < 0 )
         {
           if ( (v12 & 0x20) != 0 )
@@ -138,7 +138,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(
         }
       }
     }
-    NextProcessThread = (struct _EX_RUNDOWN_REF *)PsGetNextProcessThread((__int64)a1, NextProcessThread);
+    NextProcessThread = (struct _EX_RUNDOWN_REF *)PsGetNextProcessThread(a1, NextProcessThread);
   }
   if ( v10 >= 0 )
   {

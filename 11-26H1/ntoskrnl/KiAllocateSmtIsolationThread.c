@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAllocateSmtIsolationThread @ 0x1405F6524
+ * XREFs of KiAllocateSmtIsolationThread @ 0x1405F8EE4
  * Callers:
- *     KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405E9AB4 (KiAllocateAndStartBootProcessorSchedulerStructures.c)
- *     KiAllocateProcessorSchedulerStructures @ 0x1405E9EDC (KiAllocateProcessorSchedulerStructures.c)
+ *     KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405EC424 (KiAllocateAndStartBootProcessorSchedulerStructures.c)
+ *     KiAllocateProcessorSchedulerStructures @ 0x1405EC84C (KiAllocateProcessorSchedulerStructures.c)
  * Callees:
- *     PsAssignThreadId @ 0x1404A266C (PsAssignThreadId.c)
- *     KiAllocatePrcbThread @ 0x1405EC38C (KiAllocatePrcbThread.c)
+ *     PsAssignThreadId @ 0x14049C08C (PsAssignThreadId.c)
+ *     KiAllocatePrcbThread @ 0x1405EECFC (KiAllocatePrcbThread.c)
  */
 
 __int64 __fastcall KiAllocateSmtIsolationThread(__int64 *a1, int a2, __int64 a3, __int64 a4)

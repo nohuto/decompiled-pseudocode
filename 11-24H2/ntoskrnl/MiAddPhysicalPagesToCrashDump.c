@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddPhysicalPagesToCrashDump @ 0x1406772A4
+ * XREFs of MiAddPhysicalPagesToCrashDump @ 0x140678474
  * Callers:
- *     MmGetDumpRange @ 0x140677B48 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x140678D28 (MmGetDumpRange.c)
  * Callees:
- *     MiGetPagesRemainingInResidentPage @ 0x140684318 (MiGetPagesRemainingInResidentPage.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x140685444 (MiGetPagesRemainingInResidentPage.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _DWORD *__fastcall MiAddPhysicalPagesToCrashDump(__int64 a1)
@@ -53,7 +53,7 @@ LABEL_18:
             goto LABEL_17;
           }
 LABEL_16:
-          guard_dispatch_icall_no_overrides(a1, v5, PagesRemainingInResidentPage, 2LL);
+          guard_dispatch_icall_no_overrides(a1, v5);
           goto LABEL_17;
         }
         if ( (unsigned __int8)(v9 - 2) <= 1u )

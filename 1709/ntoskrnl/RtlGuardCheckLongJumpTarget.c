@@ -10,29 +10,34 @@
  *     LdrImageDirectoryEntryToLoadConfig @ 0x140543168 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, char a2)
+NTSTATUS __cdecl RtlGuardCheckLongJumpTarget(PVOID PcValue, BOOL IsFastFail, PBOOL IsLongJumpTarget)
 {
   __int64 Config; // rax
-  rsize_t v5; // r8
+  rsize_t v6; // r8
   PVOID BaseAddress[5]; // [rsp+30h] [rbp-28h] BYREF
   int Key; // [rsp+68h] [rbp+10h] BYREF
 
-  LOBYTE(Key) = a2;
+  LOBYTE(Key) = IsFastFail;
   if ( (VslGetNestedPageProtectionFlags() & 0x80u) != 0LL )
   {
-    if ( a1 < *(&xmmword_140418020 + 1) || a1 >= *(&xmmword_140418020 + 1) + (unsigned int)qword_140418030 )
-      RtlpxLookupFunctionTable(a1, (__int64 *)BaseAddress);
+    if ( (unsigned __int64)PcValue < *(&xmmword_140418020 + 1)
+      || (unsigned __int64)PcValue >= *(&xmmword_140418020 + 1) + (unsigned int)qword_140418030 )
+    {
+      RtlpxLookupFunctionTable((unsigned __int64)PcValue, (__int64 *)BaseAddress);
+    }
     else
+    {
       *(_OWORD *)BaseAddress = *(_OWORD *)&xmmword_140418020;
+    }
     if ( !BaseAddress[1]
       || (Config = LdrImageDirectoryEntryToLoadConfig(BaseAddress[1])) != 0
       && *(_DWORD *)Config >= 0xC0u
       && (*(_DWORD *)(Config + 144) & 0x10000) != 0
-      && ((Key = a1 - LODWORD(BaseAddress[1]), (v5 = *(_QWORD *)(Config + 184)) == 0)
+      && ((Key = (_DWORD)PcValue - LODWORD(BaseAddress[1]), (v6 = *(_QWORD *)(Config + 184)) == 0)
        || !bsearch_s(
              &Key,
              *(const void **)(Config + 176),
-             v5,
+             v6,
              (unsigned int)((*(_DWORD *)(Config + 144) >> 28) + 4),
              (int (__cdecl *)(void *, const void *, const void *))RtlpTargetCompare,
              0LL)) )
@@ -40,5 +45,5 @@ __int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, char a2)
       RtlFailFast2(0x26u);
     }
   }
-  return 0LL;
+  return 0;
 }

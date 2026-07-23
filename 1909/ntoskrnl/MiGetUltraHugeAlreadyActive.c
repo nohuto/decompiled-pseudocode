@@ -15,8 +15,8 @@ unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1, __int64 a2, in
   ULONG ClearBitsAndSet; // eax
   __int16 v7; // r15
   unsigned int *v8; // rbx
-  struct _RTL_BITMAP **v10; // r14
-  struct _RTL_BITMAP *i; // rsi
+  _RTL_BITMAP **v10; // r14
+  _RTL_BITMAP *i; // rsi
   ULONG v12; // eax
   __int64 v13; // [rsp+50h] [rbp+8h] BYREF
   int v14; // [rsp+60h] [rbp+18h] BYREF
@@ -46,10 +46,10 @@ unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1, __int64 a2, in
     MiDecrementHugeContext(p_Buffer);
     *(_QWORD *)(a2 + 216) = 0LL;
   }
-  v10 = (struct _RTL_BITMAP **)(v5 + 32);
-  for ( i = *v10; ; i = *(struct _RTL_BITMAP **)&i->SizeOfBitMap )
+  v10 = (_RTL_BITMAP **)(v5 + 32);
+  for ( i = *v10; ; i = *(_RTL_BITMAP **)&i->SizeOfBitMap )
   {
-    if ( i == (struct _RTL_BITMAP *)v10 )
+    if ( i == (_RTL_BITMAP *)v10 )
       return 0LL;
     p_Buffer = &i[-5].Buffer;
     v12 = RtlFindClearBitsAndSet(i + 1, 1u, 0);

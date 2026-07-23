@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAllocateProcessorStacks @ 0x1405B5D00
+ * XREFs of KiAllocateProcessorStacks @ 0x1405B2FC8
  * Callers:
- *     KiAllocateProcessorStateInitializationParameters @ 0x1405B5EB0 (KiAllocateProcessorStateInitializationParameters.c)
+ *     KiAllocateProcessorStateInitializationParameters @ 0x1405B3178 (KiAllocateProcessorStateInitializationParameters.c)
  * Callees:
- *     MmCreateKernelStack @ 0x14026B230 (MmCreateKernelStack.c)
- *     MmSetPageProtection @ 0x1404D6CF0 (MmSetPageProtection.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmAllocateIsrStack @ 0x1407F6B68 (MmAllocateIsrStack.c)
- *     KiCreateKernelShadowStack @ 0x140A0B9A0 (KiCreateKernelShadowStack.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
+ *     MmCreateKernelStack @ 0x1402207C0 (MmCreateKernelStack.c)
+ *     MmSetPageProtection @ 0x1404D0140 (MmSetPageProtection.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmAllocateIsrStack @ 0x1407F72DC (MmAllocateIsrStack.c)
+ *     KiCreateKernelShadowStack @ 0x140A0ABE0 (KiCreateKernelShadowStack.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 __fastcall KiAllocateProcessorStacks(__int64 a1, unsigned int a2)

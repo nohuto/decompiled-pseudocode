@@ -49,13 +49,13 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CLFS_LSN plsn2; // [rsp+50h] [rbp-79h] BYREF
   PVOID pvCursorContext; // [rsp+58h] [rbp-71h] BYREF
   PVOID P; // [rsp+60h] [rbp-69h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-61h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-61h] BYREF
   PVOID pvReadContext; // [rsp+78h] [rbp-51h] BYREF
   PCUNICODE_STRING Source; // [rsp+80h] [rbp-49h]
   ULONG pcbReadBuffer; // [rsp+88h] [rbp-41h] BYREF
   ULONG pcbInfoBuffer; // [rsp+8Ch] [rbp-3Dh] BYREF
   ULONG pcbRestartBuffer; // [rsp+90h] [rbp-39h] BYREF
-  UNICODE_STRING v39; // [rsp+98h] [rbp-31h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+98h] [rbp-31h] BYREF
   PVOID ppvRestartBuffer; // [rsp+A8h] [rbp-21h] BYREF
   CLFS_LSN plsnRecord; // [rsp+B0h] [rbp-19h] BYREF
   CLFS_LSN plsnPrevious; // [rsp+B8h] [rbp-11h] BYREF
@@ -69,10 +69,10 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   ULONG pcbWritten; // [rsp+148h] [rbp+7Fh] BYREF
 
   v49 = 1;
-  *(_DWORD *)&v39.Length = 0;
-  v39.Buffer = 0LL;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   pcbRestartBuffer = 0;
   pvCursorContext = 0LL;
   P = 0LL;
@@ -104,10 +104,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
         Source = &CmpLogPath;
         if ( a2 )
           *(_OWORD *)(*(_QWORD *)(qword_1403168C0 + 64) + 128LL) = *a2;
-        started = RtlStringFromGUIDEx(
-                    (unsigned int *)(*(_QWORD *)(qword_1403168C0 + 64) + 128LL),
-                    (__int64)&UnicodeString,
-                    1);
+        started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_1403168C0 + 64) + 128LL), &GuidString, 1u);
         if ( started < 0 )
           goto LABEL_33;
         v7 = (__int64)(a1 + 72);
@@ -116,16 +113,13 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
       }
       else
       {
-        started = CmpQueryNameString(*(void **)(*((_QWORD *)a1 + 10) + 2664LL), &v39);
+        started = CmpQueryNameString(*(void **)(*((_QWORD *)a1 + 10) + 2664LL), &UnicodeString);
         if ( started < 0 )
           goto LABEL_33;
-        Source = &v39;
+        Source = &UnicodeString;
         if ( a2 )
           *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
-        started = RtlStringFromGUIDEx(
-                    (unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
-                    (__int64)&UnicodeString,
-                    1);
+        started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL), &GuidString, 1u);
         if ( started < 0 )
           goto LABEL_33;
         v8 = *((_QWORD *)a1 + 10);
@@ -145,7 +139,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
         {
           started = CmpStartCLFSLog(
                       Source,
-                      &UnicodeString,
+                      &GuidString,
                       ppvReadContext,
                       v7,
                       (__int64)i,
@@ -278,10 +272,10 @@ LABEL_33:
       {
         KiCheckForKernelApcDelivery();
       }
-      if ( v39.Buffer )
-        RtlFreeAnsiString(&v39);
       if ( UnicodeString.Buffer )
         RtlFreeAnsiString(&UnicodeString);
+      if ( GuidString.Buffer )
+        RtlFreeAnsiString(&GuidString);
       ExFreePoolWithTag(PoolWithTag, 0);
       if ( P )
         ExFreePoolWithTag(P, 0);

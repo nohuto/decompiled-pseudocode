@@ -11,33 +11,33 @@
  *     _LdrpMergeNodes@8 @ 0x4B2E21AC (_LdrpMergeNodes@8.c)
  */
 
-signed __int32 __fastcall LdrpCondenseGraphRecurse(_DWORD *a1, _DWORD *a2, signed __int32 *a3)
+void __fastcall LdrpCondenseGraphRecurse(_DWORD *a1, _DWORD *a2, _DWORD *a3)
 {
   int v3; // eax
-  signed __int32 **v5; // ecx
-  signed __int32 *v6; // eax
+  _DWORD *v5; // ecx
+  _DWORD *v6; // eax
   _DWORD *v7; // ecx
   _DWORD *v8; // esi
   unsigned int v9; // eax
-  signed __int32 result; // eax
-  signed __int32 *v11; // edx
-  signed __int32 *v12; // esi
-  signed __int32 *v13; // ecx
+  _DWORD *v10; // edx
+  _DWORD *v11; // eax
+  _DWORD *v12; // esi
+  _DWORD *v13; // ecx
   _DWORD *v14; // esi
   _DWORD *v15; // ecx
   _DWORD *v16; // [esp+Ch] [ebp-Ch]
   _DWORD *v17; // [esp+10h] [ebp-8h] BYREF
-  signed __int32 *v18; // [esp+14h] [ebp-4h]
+  _DWORD *v18; // [esp+14h] [ebp-4h]
 
   v3 = ++*a2;
   v17 = a2;
-  v5 = (signed __int32 **)(a1 + 9);
+  v5 = a1 + 9;
   a1[10] = v3;
   a1[5] = v3;
-  v6 = (signed __int32 *)*a3;
-  v18 = (signed __int32 *)v5;
+  v6 = (_DWORD *)*a3;
+  v18 = v5;
   *v5 = v6;
-  *a3 = (signed __int32)v5;
+  *a3 = v5;
   v7 = (_DWORD *)a1[6];
   if ( v7 )
   {
@@ -74,38 +74,37 @@ LABEL_7:
     goto LABEL_7;
   }
 LABEL_10:
-  result = a1[5];
-  if ( result == a1[10] )
+  if ( a1[5] == a1[10] )
   {
-    v11 = (signed __int32 *)*a3;
+    v10 = (_DWORD *)*a3;
     if ( *a3 )
-      *a3 = *v11;
-    result = 0;
-    if ( a1 + 9 != v11 )
+      *a3 = *v10;
+    v11 = 0;
+    if ( a1 + 9 != v10 )
     {
       do
       {
-        v12 = (signed __int32 *)*a3;
-        *v11 = result;
-        result = (signed __int32)v11;
+        v12 = (_DWORD *)*a3;
+        *v10 = v11;
+        v11 = v10;
         if ( v12 )
           *a3 = *v12;
-        v13 = v11;
-        v11 = v12;
+        v13 = v10;
+        v10 = v12;
       }
       while ( v18 != v12 );
-      v17 = (_DWORD *)result;
+      v17 = v11;
       if ( v13 )
       {
         RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
         LdrpMergeNodes(a1, &v17);
-        result = RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+        RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
         v14 = v17;
         while ( v14 )
         {
           v15 = v14;
           v14 = (_DWORD *)*v14;
-          result = LdrpDestroyNode(v15 - 9);
+          LdrpDestroyNode(v15 - 9);
         }
       }
     }
@@ -113,5 +112,4 @@ LABEL_10:
     if ( a1[8] == 5 )
       a1[8] = 6;
   }
-  return result;
 }

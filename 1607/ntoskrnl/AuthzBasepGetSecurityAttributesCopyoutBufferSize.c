@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E570
+ * XREFs of AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E0F0
  * Callers:
- *     AuthzBasepQuerySecurityAttributesToken @ 0x14000D3BC (AuthzBasepQuerySecurityAttributesToken.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000E3E0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x14000CF3C (AuthzBasepQuerySecurityAttributesToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000DF60 (SepInternalQuerySecurityAttributesTokenEx.c)
  * Callees:
- *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x14000EA70 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
- *     AuthzBasepEqualUnicodeString @ 0x1400A045C (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1400ACA60 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x14000E5F0 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
+ *     AuthzBasepEqualUnicodeString @ 0x14009ED84 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1400AAFC8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepGetSecurityAttributesCopyoutBufferSize(

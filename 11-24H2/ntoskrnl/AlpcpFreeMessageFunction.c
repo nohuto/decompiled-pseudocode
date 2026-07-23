@@ -1,30 +1,26 @@
 /*
- * XREFs of AlpcpFreeMessageFunction @ 0x140989F90
+ * XREFs of AlpcpFreeMessageFunction @ 0x140896B30
  * Callers:
- *     ExFreeToPagedLookasideList @ 0x1403E03E0 (ExFreeToPagedLookasideList.c)
- *     FsRtlUninitializeBaseMcb @ 0x1404408F0 (FsRtlUninitializeBaseMcb.c)
- *     AlpcpReleaseAttributes @ 0x140890220 (AlpcpReleaseAttributes.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockBlob @ 0x140890620 (AlpcpUnlockBlob.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcMessageDestroyProcedure @ 0x1409B08F0 (AlpcMessageDestroyProcedure.c)
+ *     ExFreeToPagedLookasideList @ 0x1403C00D0 (ExFreeToPagedLookasideList.c)
+ *     FsRtlUninitializeBaseMcb @ 0x1404365C0 (FsRtlUninitializeBaseMcb.c)
+ *     AlpcMessageDestroyProcedure @ 0x140897C10 (AlpcMessageDestroyProcedure.c)
+ *     AlpcpUnlockBlob @ 0x1408980A0 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExDestroyHandle @ 0x14098A050 (ExDestroyHandle.c)
- *     ExMapHandleToPointerEx @ 0x14098A1A0 (ExMapHandleToPointerEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExMapHandleToPointerEx @ 0x140896120 (ExMapHandleToPointerEx.c)
+ *     ExDestroyHandle @ 0x1408961C0 (ExDestroyHandle.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpFreeMessageFunction(_DWORD *P)
 {
   unsigned int v2; // ebx
   struct _KTHREAD *CurrentThread; // rsi
-  ULONG_PTR v4; // rdi
+  unsigned int *v4; // rdi
   unsigned int v5; // ebx
-  __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int64 *v6; // rax
 
   v2 = P[78] & 0x7FFFFFFF;
   if ( v2 )
@@ -35,16 +31,16 @@ void __fastcall AlpcpFreeMessageFunction(_DWORD *P)
     {
       v4 = 0LL;
       if ( AlpcpSecondaryMessageTables )
-        v4 = *(_QWORD *)(AlpcpSecondaryMessageTables + 8 * ((unsigned __int64)v2 >> 26));
+        v4 = *(unsigned int **)(AlpcpSecondaryMessageTables + 8 * ((unsigned __int64)v2 >> 26));
     }
     else
     {
-      v4 = AlpcMessageTable;
+      v4 = (unsigned int *)AlpcMessageTable;
     }
     v5 = v2 & 0x3FFFFFF;
-    v6 = ExMapHandleToPointerEx(v4, v5);
-    ExDestroyHandle(v4, v5, v6);
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v7, v8, v9);
+    v6 = ExMapHandleToPointerEx(v4, v5, KeGetCurrentThread()->PreviousMode);
+    ExDestroyHandle((__int64)v4, v5, v6);
+    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
   }
   ExFreePoolWithTag(P, 0);
 }

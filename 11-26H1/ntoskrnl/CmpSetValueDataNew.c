@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpSetValueDataNew @ 0x1408DE068
+ * XREFs of CmpSetValueDataNew @ 0x1408E4628
  * Callers:
- *     CmpSetValueKeyExisting @ 0x1408BD1FC (CmpSetValueKeyExisting.c)
- *     CmpCopyValue @ 0x1408DCE6C (CmpCopyValue.c)
- *     CmpAddValueKeyNew @ 0x1408DD5DC (CmpAddValueKeyNew.c)
- *     CmpSetValueKeyNew @ 0x1408DDA24 (CmpSetValueKeyNew.c)
+ *     CmpSetValueKeyExisting @ 0x1408C37CC (CmpSetValueKeyExisting.c)
+ *     CmpCopyValue @ 0x1408E342C (CmpCopyValue.c)
+ *     CmpAddValueKeyNew @ 0x1408E3B9C (CmpAddValueKeyNew.c)
+ *     CmpSetValueKeyNew @ 0x1408E3FE4 (CmpSetValueKeyNew.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvFreeCell @ 0x1408D1528 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvFreeCell @ 0x1408D7AE8 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpSetValueDataNew(

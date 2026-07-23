@@ -1,10 +1,10 @@
 /*
- * XREFs of KdPowerTransition @ 0x14028C1E0
+ * XREFs of KdPowerTransition @ 0x14028C3D0
  * Callers:
- *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
+ *     PopHandleNextState @ 0x14056A410 (PopHandleNextState.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
  * Callees:
- *     KdPowerTransitionEx @ 0x14028C200 (KdPowerTransitionEx.c)
+ *     KdPowerTransitionEx @ 0x14028C3F0 (KdPowerTransitionEx.c)
  */
 
 __int64 __fastcall KdPowerTransition(__int64 a1, __int64 a2)

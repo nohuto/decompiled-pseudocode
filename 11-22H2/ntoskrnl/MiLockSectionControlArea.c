@@ -50,10 +50,13 @@ __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
     }
     v10 = *a3;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,10 +70,10 @@ __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
     __writecr8(v10);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

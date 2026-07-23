@@ -15,32 +15,32 @@ __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int
   unsigned int v4; // esi
   int *v5; // rax
   unsigned int v6; // edi
-  int v8; // [rsp+30h] [rbp-40h] BYREF
-  int v9; // [rsp+34h] [rbp-3Ch]
-  _BYTE v10[24]; // [rsp+38h] [rbp-38h] BYREF
-  __int128 v11; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+60h] [rbp-10h]
+  _RTL_FEATURE_USAGE_REPORT FeatureUsageReport; // [rsp+30h] [rbp-40h] BYREF
+  _BYTE v9[24]; // [rsp+38h] [rbp-38h] BYREF
+  __int128 v10; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v11; // [rsp+60h] [rbp-10h]
 
   v3 = a2;
   v4 = a3;
   v5 = wil_details_FeatureReporting_RecordUsageInCache(
-         (__int64)v10,
+         (__int64)v9,
          (volatile signed __int32 *)&Feature_SearchPackagePaths__private_reporting,
          a3,
          SHIDWORD(a2));
   v6 = 0;
-  v11 = *(_OWORD *)v5;
-  v12 = *((_QWORD *)v5 + 2);
+  v10 = *(_OWORD *)v5;
+  v11 = *((_QWORD *)v5 + 2);
   if ( g_wil_details_recordFeatureUsage )
-    g_wil_details_recordFeatureUsage(24394929LL, v4, 1LL, &Feature_SearchPackagePaths__private_reporting, &v11);
+    g_wil_details_recordFeatureUsage(24394929LL, v4, 1LL, &Feature_SearchPackagePaths__private_reporting, &v10);
   if ( (v3 & 0x400) != 0 && v4 != 254 )
   {
-    v8 = 24394929;
-    v9 = (unsigned __int16)v4;
+    FeatureUsageReport.ReportingOptions = 0;
+    FeatureUsageReport.FeatureId = 24394929;
+    FeatureUsageReport.ReportingKind = v4;
     if ( (v3 & 0x800) != 0 )
-      HIWORD(v9) |= 1u;
-    RtlNotifyFeatureUsage(&v8);
+      FeatureUsageReport.ReportingOptions |= 1u;
+    RtlNotifyFeatureUsage(&FeatureUsageReport);
   }
-  LOBYTE(v6) = (_DWORD)v12 == 0;
+  LOBYTE(v6) = (_DWORD)v11 == 0;
   return v6;
 }

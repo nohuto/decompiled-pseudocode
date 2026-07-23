@@ -1,23 +1,23 @@
 /*
- * XREFs of MiPartitionTrimmedEnough @ 0x1404C212C
+ * XREFs of MiPartitionTrimmedEnough @ 0x1404BB97C
  * Callers:
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiUpdatePartitionMemoryUsage @ 0x1402A6CA0 (MiUpdatePartitionMemoryUsage.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiTrimDelayNeeded @ 0x1403E116C (MiTrimDelayNeeded.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiPurgePartitionStandby @ 0x14046886C (MiPurgePartitionStandby.c)
- *     MiLogContinueTrim @ 0x1406F7D24 (MiLogContinueTrim.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiUpdatePartitionMemoryUsage @ 0x1402A60BC (MiUpdatePartitionMemoryUsage.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiTrimDelayNeeded @ 0x1403E435C (MiTrimDelayNeeded.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiPurgePartitionStandby @ 0x140461F1C (MiPurgePartitionStandby.c)
+ *     MiLogContinueTrim @ 0x1406FC9F0 (MiLogContinueTrim.c)
  */
 
 __int64 __fastcall MiPartitionTrimmedEnough(__int64 a1, __int64 a2, int a3, KIRQL a4)
@@ -102,9 +102,9 @@ LABEL_22:
       {
         MiUpdatePartitionMemoryUsage(a1);
         ++*(_BYTE *)(a2 + 24);
-        if ( stru_140E36558.FirstArgument
-          && *(_DWORD *)stru_140E36558.FirstArgument
-          && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 1LL) )
+        if ( stru_140E366D8.FirstArgument
+          && *(_DWORD *)stru_140E366D8.FirstArgument
+          && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 1LL) )
         {
           MiLogContinueTrim(v17, a1, a2);
         }

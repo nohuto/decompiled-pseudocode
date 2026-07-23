@@ -94,7 +94,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(__int64 a1, unsigned int a2
     {
       if ( a2 < 0x10 )
         return 3221225476LL;
-      result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+      result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
       if ( (int)result < 0 )
         return result;
       if ( !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, a3) )
@@ -169,7 +169,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(__int64 a1, unsigned int a2
       {
         if ( ((a2 - 16) & 0xFFFFFFFB) != 0 )
           return 3221225476LL;
-        result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+        result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
         v13 = result;
         if ( (int)result < 0 )
           return result;
@@ -254,7 +254,7 @@ LABEL_39:
         }
         if ( a2 != 16 )
           return 3221225476LL;
-        result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+        result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
         v13 = result;
         if ( (int)result < 0 )
           return result;

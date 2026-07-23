@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedProperty @ 0x1407C5EB0
+ * XREFs of _CmGetInterfaceClassMappedProperty @ 0x1407C6180
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1407C5DA0 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchInterfaceClass @ 0x1407C6070 (_PnpDispatchInterfaceClass.c)
  * Callees:
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1407C5FA0 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x140A690E0 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1407C6270 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x140A69390 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
  */
 
 __int64 __fastcall CmGetInterfaceClassMappedProperty(
@@ -31,7 +31,7 @@ __int64 __fastcall CmGetInterfaceClassMappedProperty(
   *a9 = 0;
   if ( !a4 )
   {
-    v13 = &off_140A77AB8;
+    v13 = &off_140A77D68;
     while ( 1 )
     {
       v14 = *v13;
@@ -60,7 +60,7 @@ __int64 __fastcall CmGetInterfaceClassMappedProperty(
     if ( InterfaceClassMappedPropertyFromRegValue != -1073741802 )
       return InterfaceClassMappedPropertyFromRegValue;
 LABEL_11:
-    v17 = &off_140A77B68;
+    v17 = &off_140A77E18;
     v18 = 0;
     while ( 1 )
     {

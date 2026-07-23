@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpGetSecurityDescriptorNode @ 0x1406D0B28
+ * XREFs of CmpGetSecurityDescriptorNode @ 0x1406D1DC8
  * Callers:
- *     CmpCopySaclToVirtualKey @ 0x1407F4B50 (CmpCopySaclToVirtualKey.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407F5D50 (CmpCopySaclToVirtualKey.c)
  * Callees:
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
  */
 
 __int64 __fastcall CmpGetSecurityDescriptorNode(

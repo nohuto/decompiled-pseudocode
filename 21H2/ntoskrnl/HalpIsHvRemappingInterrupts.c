@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIsHvRemappingInterrupts @ 0x1407D1EC4
+ * XREFs of HalpIsHvRemappingInterrupts @ 0x1407D2034
  * Callers:
- *     HalpUpdatePerDeviceMsiLimitInformation @ 0x140A72004 (HalpUpdatePerDeviceMsiLimitInformation.c)
+ *     HalpUpdatePerDeviceMsiLimitInformation @ 0x140A73004 (HalpUpdatePerDeviceMsiLimitInformation.c)
  * Callees:
  *     <none>
  */
 
 bool HalpIsHvRemappingInterrupts()
 {
-  return qword_140C4A1A8 != 0;
+  return qword_140C4A1E8 != 0;
 }

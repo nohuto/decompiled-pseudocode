@@ -30,7 +30,7 @@ __int64 PopThermalSxExit()
       if ( byte_140F0A4D2 )
       {
         byte_140F0A4D2 = 0;
-        ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0LL, 0LL, 0LL, 0, 0);
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
       }
       PopReleaseRwLock(&PopThermalStateTransitionContext);
       v1 = KeAcquireSpinLockRaiseToDpc(&PopThermalEventTransitionContext);

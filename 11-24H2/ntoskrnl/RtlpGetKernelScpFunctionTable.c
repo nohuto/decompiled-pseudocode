@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpGetKernelScpFunctionTable @ 0x1405F0E94
+ * XREFs of RtlpGetKernelScpFunctionTable @ 0x1405EE4D4
  * Callers:
- *     RtlCopyKernelScpUnwindInfo @ 0x1405F0CBC (RtlCopyKernelScpUnwindInfo.c)
- *     RtlCreateKernelScpFunctionTable @ 0x1405F0D9C (RtlCreateKernelScpFunctionTable.c)
+ *     RtlCopyKernelScpUnwindInfo @ 0x1405EE2FC (RtlCopyKernelScpUnwindInfo.c)
+ *     RtlCreateKernelScpFunctionTable @ 0x1405EE3DC (RtlCreateKernelScpFunctionTable.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall RtlpGetKernelScpFunctionTable(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4, int *a5)
+unsigned int *__fastcall RtlpGetKernelScpFunctionTable(void *a1, __int64 a2, __int64 a3, unsigned int a4, int *a5)
 {
   __int64 v6; // rsi
-  __int64 v8; // rdi
+  unsigned int *v8; // rdi
   unsigned __int64 v9; // r10
   unsigned __int64 v10; // rbx
   int v11; // r8d
@@ -24,12 +24,12 @@ __int64 __fastcall RtlpGetKernelScpFunctionTable(unsigned __int64 a1, __int64 a2
   int v19; // r9d
   int v20; // r8d
   unsigned int *v21; // rdx
-  __int64 result; // rax
-  _DWORD v23[6]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int *result; // rax
+  ULONG v23[6]; // [rsp+20h] [rbp-18h] BYREF
 
   v23[0] = 0;
   v6 = a4;
-  v8 = RtlImageDirectoryEntryToData(a1, 1, 3u, v23);
+  v8 = (unsigned int *)RtlImageDirectoryEntryToData(a1, 1u, 3u, v23);
   if ( v8 )
   {
     if ( v23[0] )
@@ -45,17 +45,17 @@ __int64 __fastcall RtlpGetKernelScpFunctionTable(unsigned __int64 a1, __int64 a2
         {
           v14 = (v11 + v12) >> 1;
           v15 = v14;
-          v16 = *(unsigned int *)(v8 + 12LL * v14);
+          v16 = v8[3 * v14];
           if ( v13 > v16 )
           {
-            v17 = *(unsigned int *)(v8 + 12LL * v14 + 4);
+            v17 = v8[3 * v14 + 1];
             if ( v10 < v17 )
             {
               if ( v10 > v16 || v13 < v17 )
                 return 0LL;
               if ( v14 > 0 )
               {
-                v18 = (unsigned int *)(v8 - 12 + 12LL * v14);
+                v18 = &v8[3 * v14 - 3];
                 do
                 {
                   if ( *v18 < v10 )
@@ -70,7 +70,7 @@ __int64 __fastcall RtlpGetKernelScpFunctionTable(unsigned __int64 a1, __int64 a2
               v20 = 1;
               if ( v14 + 1 < v9 )
               {
-                v21 = (unsigned int *)(v8 + 12LL * v14 + 16);
+                v21 = &v8[3 * v14 + 4];
                 do
                 {
                   if ( *v21 > v13 )
@@ -81,7 +81,7 @@ __int64 __fastcall RtlpGetKernelScpFunctionTable(unsigned __int64 a1, __int64 a2
                 }
                 while ( v19 < v9 );
               }
-              result = v8 + 12LL * v14;
+              result = &v8[3 * v14];
               *a5 = v20;
               return result;
             }

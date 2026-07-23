@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInSwapSingleProcess @ 0x1400CEC04
+ * XREFs of KiInSwapSingleProcess @ 0x1400CCAA4
  * Callers:
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiAttachProcess @ 0x1400CD4F0 (KiAttachProcess.c)
- *     KeReadyThread @ 0x1400F2F6C (KeReadyThread.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiAttachProcess @ 0x1400CB390 (KiAttachProcess.c)
+ *     KeReadyThread @ 0x1400F0DBC (KeReadyThread.c)
  * Callees:
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     KiRequestProcessInSwap @ 0x1400CECA0 (KiRequestProcessInSwap.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     KiRequestProcessInSwap @ 0x1400CCB40 (KiRequestProcessInSwap.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 char __fastcall KiInSwapSingleProcess(__int64 a1, __int64 a2, unsigned __int8 a3)

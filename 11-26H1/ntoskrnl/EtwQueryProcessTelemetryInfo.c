@@ -1,35 +1,35 @@
 /*
- * XREFs of EtwQueryProcessTelemetryInfo @ 0x14096F92C
+ * XREFs of EtwQueryProcessTelemetryInfo @ 0x1409D1C14
  * Callers:
- *     PfSnLogScenarioDecision @ 0x14096F6B4 (PfSnLogScenarioDecision.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     PfSnLogScenarioDecision @ 0x1409D199C (PfSnLogScenarioDecision.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     PsGetProcessStartKey @ 0x1404838E0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     EtwpQueryTokenPackageInfo @ 0x14096DBF8 (EtwpQueryTokenPackageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x14096DF08 (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryProcessCommandLine @ 0x14096DF60 (EtwpQueryProcessCommandLine.c)
- *     PsAcquireProcessExitSynchronization @ 0x140971910 (PsAcquireProcessExitSynchronization.c)
- *     PsGetSessionCreateTime @ 0x140AB69C0 (PsGetSessionCreateTime.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     PsGetProcessStartKey @ 0x14047D210 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1408FBFFC (EtwpQueryTokenPackageInfo.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PsGetSessionCreateTime @ 0x1409D1144 (PsGetSessionCreateTime.c)
+ *     EtwpQueryProcessCommandLine @ 0x1409D37CC (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x1409D3984 (EtwpQueryProcessOtherInfo.c)
+ *     PsAcquireProcessExitSynchronization @ 0x1409D39E0 (PsAcquireProcessExitSynchronization.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwQueryProcessTelemetryInfo(
@@ -46,7 +46,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   __int64 *v12; // rcx
   int v13; // r14d
   struct _KTHREAD *CurrentThread; // rcx
-  unsigned __int8 *v15; // rdx
+  unsigned __int8 *Flink; // rdx
   unsigned int v16; // eax
   unsigned int v17; // r14d
   SIZE_T v18; // r8
@@ -83,11 +83,11 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   unsigned int Size; // [rsp+20h] [rbp-3A8h] BYREF
   int Size_4; // [rsp+24h] [rbp-3A4h]
   __int64 v52; // [rsp+28h] [rbp-3A0h] BYREF
-  ULONG_PTR v53; // [rsp+30h] [rbp-398h]
+  PERESOURCE *v53; // [rsp+30h] [rbp-398h]
   PVOID P[2]; // [rsp+38h] [rbp-390h] BYREF
   __int64 *v55; // [rsp+48h] [rbp-380h]
   __int64 v56; // [rsp+50h] [rbp-378h]
-  size_t v57; // [rsp+60h] [rbp-368h] BYREF
+  size_t PackageSize; // [rsp+60h] [rbp-368h] BYREF
   size_t v58; // [rsp+68h] [rbp-360h]
   _BYTE v59[256]; // [rsp+78h] [rbp-350h] BYREF
   _BYTE v60[392]; // [rsp+178h] [rbp-250h] BYREF
@@ -97,7 +97,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v6 = (unsigned int)Length;
   v56 = BugCheckParameter1;
   memset(v61, 0, sizeof(v61));
-  memset_0(&v57, 0, 0x2A0uLL);
+  memset_0(&PackageSize, 0, 0x2A0uLL);
   memset_0(Src, 0, 0x44uLL);
   *(_OWORD *)P = 0LL;
   v11 = 0;
@@ -106,35 +106,35 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   if ( *(_QWORD *)(BugCheckParameter1 + 848) )
     v12 = *(__int64 **)(BugCheckParameter1 + 848);
   v55 = v12;
-  v53 = PsReferencePrimaryTokenWithTag(BugCheckParameter1, 0x746C6644u, v9, v10);
+  v53 = (PERESOURCE *)PsReferencePrimaryTokenWithTag(BugCheckParameter1, 0x746C6644u, v9, v10);
   Size = 0;
-  EtwpQueryTokenPackageInfo(v53, (__int64)&v57, &Size);
+  EtwpQueryTokenPackageInfo(v53, (WCHAR *)&PackageSize, &Size);
   v13 = -1073741789;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceSharedLite(*(PERESOURCE *)(v53 + 48), 1u);
-  v15 = **(unsigned __int8 ***)(v53 + 152);
-  v16 = 4 * v15[1] + 8;
+  ExAcquireResourceSharedLite(v53[6], 1u);
+  Flink = (unsigned __int8 *)v53[19]->SystemResourcesList.Flink;
+  v16 = 4 * Flink[1] + 8;
   Size = v16;
   if ( v16 <= 0x44 )
   {
-    memmove(Src, v15, v16);
+    memmove(Src, Flink, v16);
     v13 = 0;
   }
-  ExReleaseResourceLite(*(PERESOURCE *)(v53 + 48));
+  ExReleaseResourceLite(v53[6]);
   KeLeaveCriticalRegion();
   if ( v13 >= 0 )
   {
     if ( (int)PsAcquireProcessExitSynchronization(BugCheckParameter1) >= 0 )
     {
       KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v61);
-      EtwpQueryProcessOtherInfo(BugCheckParameter1, (__int64)&v52);
-      EtwpQueryProcessCommandLine(BugCheckParameter1, (__int64)P);
+      EtwpQueryProcessOtherInfo(BugCheckParameter1, &v52);
+      EtwpQueryProcessCommandLine(BugCheckParameter1, P);
       KiUnstackDetachProcess((__int64)v61, 0);
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 488));
       v11 = v52;
     }
-    v17 = v57 + 100 + v58 + Size + *(unsigned __int16 *)v55 + LOWORD(P[0]);
+    v17 = PackageSize + 100 + v58 + Size + *(unsigned __int16 *)v55 + LOWORD(P[0]);
     if ( a5 )
     {
       if ( a4 )
@@ -254,10 +254,10 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         else
           *v43 = v42;
         if ( a4 )
-          RtlCopyToUser(v41, v59, v57);
+          RtlCopyToUser(v41, v59, PackageSize);
         else
-          RtlCopyVolatileMemory(v41, v59, v57);
-        v44 = &v41[v57];
+          RtlCopyVolatileMemory(v41, v59, PackageSize);
+        v44 = &v41[PackageSize];
         v45 = (_DWORD)v44 - (_DWORD)a2;
         v46 = a2 + 21;
         if ( a4 )
@@ -289,6 +289,6 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   }
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0);
-  ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 584), v53, 0x746C6644u);
+  ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 584), (ULONG_PTR)v53, 0x746C6644u);
   return (unsigned int)v13;
 }

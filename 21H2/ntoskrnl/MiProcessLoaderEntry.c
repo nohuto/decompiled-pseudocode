@@ -1,19 +1,19 @@
 /*
- * XREFs of MiProcessLoaderEntry @ 0x140372360
+ * XREFs of MiProcessLoaderEntry @ 0x140371EB0
  * Callers:
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x14075DF90 (MiConstructLoaderEntry.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     RtlInsertInvertedFunctionTable @ 0x1403721F8 (RtlInsertInvertedFunctionTable.c)
- *     MiReleaseResourceLite @ 0x14037253C (MiReleaseResourceLite.c)
- *     MmLockLoadedModuleListExclusive @ 0x140372568 (MmLockLoadedModuleListExclusive.c)
- *     RtlRemoveInvertedFunctionTable @ 0x140372864 (RtlRemoveInvertedFunctionTable.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlInsertInvertedFunctionTable @ 0x140371D48 (RtlInsertInvertedFunctionTable.c)
+ *     MiReleaseResourceLite @ 0x14037208C (MiReleaseResourceLite.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1403720B8 (MmLockLoadedModuleListExclusive.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x1403723B4 (RtlRemoveInvertedFunctionTable.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiProcessLoaderEntry(unsigned __int64 *a1, int a2)
@@ -55,7 +55,7 @@ __int64 __fastcall MiProcessLoaderEntry(unsigned __int64 *a1, int a2)
     {
       *v14 = (unsigned __int64 *)v13;
       *(_QWORD *)(v13 + 8) = v14;
-      RtlAvlRemoveNode(&qword_140C4CD60, a1 + 29);
+      RtlAvlRemoveNode(&qword_140C4CDA0, a1 + 29);
       ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
       {
@@ -90,10 +90,10 @@ LABEL_24:
   v6 = 0;
   a1[1] = (unsigned __int64)v5;
   *v5 = a1;
-  v7 = (_QWORD *)qword_140C4CD60;
+  v7 = (_QWORD *)qword_140C4CDA0;
   *(&PsLoadedModuleList + 1) = a1;
   v8 = a1[6];
-  if ( qword_140C4CD60 )
+  if ( qword_140C4CDA0 )
   {
     while ( 1 )
     {
@@ -121,7 +121,7 @@ LABEL_24:
       v7 = v10;
     }
   }
-  RtlAvlInsertNodeEx(&qword_140C4CD60, (unsigned __int64)v7, v6, a1 + 29);
+  RtlAvlInsertNodeEx(&qword_140C4CDA0, (unsigned __int64)v7, v6, a1 + 29);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v16 = KeGetCurrentIrql(), v16 <= 0xFu) )
   {

@@ -77,7 +77,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   char *v14; // r14
   ULONG MaximumLength; // esi
   WCHAR *v16; // rbx
-  struct _CPTABLEINFO *p_Blink; // rdx
+  _CPTABLEINFO *p_Blink; // rdx
   ULONG v18; // esi
   ULONG v19; // r8d
   unsigned __int16 *MultiByteTable; // r10
@@ -166,7 +166,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
     else
     {
       _InterlockedOr(v30, 0);
-      p_Blink = (struct _CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
+      p_Blink = (_CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
     }
     v33 = UTF8StringByteCount;
     v37 = v14;

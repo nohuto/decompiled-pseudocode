@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceContextSwap @ 0x1400D6460
+ * XREFs of EtwTraceContextSwap @ 0x1400D4300
  * Callers:
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     SwapContext @ 0x140166000 (SwapContext.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     SwapContext @ 0x140166570 (SwapContext.c)
  * Callees:
- *     EtwpReleaseTraceBuffer @ 0x1400749B0 (EtwpReleaseTraceBuffer.c)
- *     EtwpCCSwapTrace @ 0x1400D6590 (EtwpCCSwapTrace.c)
- *     EtwpReserveTraceBuffer @ 0x1400D68F0 (EtwpReserveTraceBuffer.c)
- *     EtwpReserveWithPebsIndex @ 0x140226D88 (EtwpReserveWithPebsIndex.c)
- *     EtwpReserveWithPmcCounters @ 0x140226E18 (EtwpReserveWithPmcCounters.c)
- *     EtwpStackTraceDispatcher @ 0x1402293E4 (EtwpStackTraceDispatcher.c)
+ *     EtwpReleaseTraceBuffer @ 0x140074B60 (EtwpReleaseTraceBuffer.c)
+ *     EtwpCCSwapTrace @ 0x1400D4430 (EtwpCCSwapTrace.c)
+ *     EtwpReserveTraceBuffer @ 0x1400D4790 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveWithPebsIndex @ 0x140226BB4 (EtwpReserveWithPebsIndex.c)
+ *     EtwpReserveWithPmcCounters @ 0x140226C44 (EtwpReserveWithPmcCounters.c)
+ *     EtwpStackTraceDispatcher @ 0x140229210 (EtwpStackTraceDispatcher.c)
  */
 
 signed __int64 __fastcall EtwTraceContextSwap(__int64 a1, __int64 a2)

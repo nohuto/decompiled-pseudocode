@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLockStealSystemVm @ 0x140298704
+ * XREFs of MiLockStealSystemVm @ 0x1402150E4
  * Callers:
- *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
+ *     MiStealPage @ 0x140259C44 (MiStealPage.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiUnlockStealVm @ 0x14026D310 (MiUnlockStealVm.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     MiReferenceOwningSession @ 0x14029947C (MiReferenceOwningSession.c)
- *     MiSmallVaStillMapsFrame @ 0x1402CE1F8 (MiSmallVaStillMapsFrame.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
- *     MiVaIsPageFileHash @ 0x140302FFC (MiVaIsPageFileHash.c)
- *     MiSynchronizeSystemVa @ 0x140311C40 (MiSynchronizeSystemVa.c)
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     MiReferenceOwningSession @ 0x140215E5C (MiReferenceOwningSession.c)
+ *     MiSmallVaStillMapsFrame @ 0x14024C6F8 (MiSmallVaStillMapsFrame.c)
+ *     MiUnlockStealVm @ 0x14025B2B0 (MiUnlockStealVm.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
+ *     MiVaIsPageFileHash @ 0x14030DD4C (MiVaIsPageFileHash.c)
+ *     MiSynchronizeSystemVa @ 0x14031C990 (MiSynchronizeSystemVa.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
@@ -41,41 +41,37 @@ __int64 __fastcall MiLockStealSystemVm(__int64 a1, unsigned __int8 a2, __int64 a
   _DWORD *v23; // r8
   int v24; // eax
   ULONG_PTR v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
   __int64 SessionVm; // rax
-  unsigned __int8 v30; // al
-  struct _KPRCB *v31; // r10
-  _DWORD *v32; // r8
-  int v33; // eax
-  __int64 v34; // rax
-  unsigned __int8 v35; // al
-  struct _KPRCB *v36; // r10
-  _DWORD *v37; // r8
-  int v38; // eax
-  int v39; // r11d
-  unsigned __int8 v40; // al
-  struct _KPRCB *v41; // r10
-  _DWORD *v42; // r8
-  int v43; // eax
-  unsigned __int64 v44; // rbx
-  __int64 v46; // rcx
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r10
+  _DWORD *v29; // r8
+  int v30; // eax
+  __int64 v31; // rax
+  unsigned __int8 v32; // al
+  struct _KPRCB *v33; // r10
+  _DWORD *v34; // r8
+  int v35; // eax
+  int v36; // r11d
+  unsigned __int8 v37; // al
+  struct _KPRCB *v38; // r10
+  _DWORD *v39; // r8
+  int v40; // eax
+  unsigned __int64 v41; // rbx
   int IsPfnFileOnly; // eax
-  int v48; // r8d
-  unsigned int v49; // r8d
-  unsigned __int8 v50; // al
-  struct _KPRCB *v51; // r10
-  _DWORD *v52; // r8
-  int v53; // eax
-  __int64 v54; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v55; // [rsp+80h] [rbp+18h]
-  __int64 v56; // [rsp+88h] [rbp+20h]
+  int v44; // r8d
+  unsigned int v45; // r8d
+  unsigned __int8 v46; // al
+  struct _KPRCB *v47; // r10
+  _DWORD *v48; // r8
+  int v49; // eax
+  __int64 v50; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v51; // [rsp+80h] [rbp+18h]
+  __int64 v52; // [rsp+88h] [rbp+20h]
 
-  v55 = a3;
+  v51 = a3;
   v6 = a2;
-  v7 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
-  v56 = v7;
+  v7 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
+  v52 = v7;
   v8 = a3 << 25 >> 16;
   SystemRegionType = MiGetSystemRegionType(v8);
   v10 = 0;
@@ -123,23 +119,23 @@ __int64 __fastcall MiLockStealSystemVm(__int64 a1, unsigned __int8 a2, __int64 a
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v30 = KeGetCurrentIrql();
-          if ( v30 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v30 >= 2u )
+          v27 = KeGetCurrentIrql();
+          if ( v27 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v27 >= 2u )
           {
-            v31 = KeGetCurrentPrcb();
-            v32 = v31->SchedulerAssist;
-            v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-            v13 = (v33 & v32[5]) == 0;
-            v32[5] &= v33;
+            v28 = KeGetCurrentPrcb();
+            v29 = v28->SchedulerAssist;
+            v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+            v13 = (v30 & v29[5]) == 0;
+            v29[5] &= v30;
             if ( v13 )
-              KiRemoveSystemWorkPriorityKick(v31);
+              KiRemoveSystemWorkPriorityKick(v28);
           }
         }
       }
       __writecr8(v6);
-      v34 = MiGetAnyMultiplexedVm(2LL);
+      v31 = MiGetAnyMultiplexedVm(2LL);
       *(_DWORD *)(a4 + 8) |= 0x10u;
-      v20 = v34;
+      v20 = v31;
     }
     else if ( SystemRegionType == 12 )
     {
@@ -148,22 +144,22 @@ __int64 __fastcall MiLockStealSystemVm(__int64 a1, unsigned __int8 a2, __int64 a
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v35 = KeGetCurrentIrql();
-          if ( v35 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v35 >= 2u )
+          v32 = KeGetCurrentIrql();
+          if ( v32 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v32 >= 2u )
           {
-            v36 = KeGetCurrentPrcb();
-            v37 = v36->SchedulerAssist;
-            v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-            v13 = (v38 & v37[5]) == 0;
-            v37[5] &= v38;
+            v33 = KeGetCurrentPrcb();
+            v34 = v33->SchedulerAssist;
+            v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+            v13 = (v35 & v34[5]) == 0;
+            v34[5] &= v35;
             if ( v13 )
-              KiRemoveSystemWorkPriorityKick(v36);
+              KiRemoveSystemWorkPriorityKick(v33);
           }
         }
       }
       __writecr8(v6);
       v20 = MiGetAnyMultiplexedVm(1LL);
-      *(_DWORD *)(a4 + 48) = v39;
+      *(_DWORD *)(a4 + 48) = v36;
     }
     else
     {
@@ -176,16 +172,16 @@ LABEL_74:
         {
           if ( (v14 & 1) != 0 )
           {
-            v50 = KeGetCurrentIrql();
-            if ( v50 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v50 >= 2u )
+            v46 = KeGetCurrentIrql();
+            if ( v46 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v46 >= 2u )
             {
-              v51 = KeGetCurrentPrcb();
-              v52 = v51->SchedulerAssist;
-              v53 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-              v13 = (v53 & v52[5]) == 0;
-              v52[5] &= v53;
+              v47 = KeGetCurrentPrcb();
+              v48 = v47->SchedulerAssist;
+              v49 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+              v13 = (v49 & v48[5]) == 0;
+              v48[5] &= v49;
               if ( v13 )
-                KiRemoveSystemWorkPriorityKick(v51);
+                KiRemoveSystemWorkPriorityKick(v47);
             }
           }
         }
@@ -199,16 +195,16 @@ LABEL_74:
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v40 = KeGetCurrentIrql();
-          if ( v40 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v40 >= 2u )
+          v37 = KeGetCurrentIrql();
+          if ( v37 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v37 >= 2u )
           {
-            v41 = KeGetCurrentPrcb();
-            v42 = v41->SchedulerAssist;
-            v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-            v13 = (v43 & v42[5]) == 0;
-            v42[5] &= v43;
+            v38 = KeGetCurrentPrcb();
+            v39 = v38->SchedulerAssist;
+            v40 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+            v13 = (v40 & v39[5]) == 0;
+            v39[5] &= v40;
             if ( v13 )
-              KiRemoveSystemWorkPriorityKick(v41);
+              KiRemoveSystemWorkPriorityKick(v38);
           }
         }
       }
@@ -217,7 +213,7 @@ LABEL_74:
 LABEL_54:
     if ( !(unsigned int)MiSynchronizeSystemVa(v20, v8, SystemRegionType, v11, a4) )
       goto LABEL_58;
-    v44 = (a1 + 0x58000000000LL) / 48;
+    v41 = (a1 + 0x58000000000LL) / 48;
     if ( v11 )
     {
       if ( !(unsigned int)MiSmallVaStillMapsFrame(v8, (a1 + 0x58000000000LL) / 48) )
@@ -233,21 +229,21 @@ LABEL_58:
     }
     else
     {
-      v54 = MI_READ_PTE_LOCK_FREE(v55);
-      if ( (v54 & 1) == 0 || (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v54) >> 12) & 0xFFFFFFFFFLL) != v44 )
+      v50 = MI_READ_PTE_LOCK_FREE(v51);
+      if ( (v50 & 1) == 0 || (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v50) >> 12) & 0xFFFFFFFFFLL) != v41 )
         goto LABEL_57;
     }
     if ( ((unsigned int)(*(_DWORD *)(a4 + 48) - 2) <= 1
        || (*(_DWORD *)(a4 + 8) & 0x20) != 0
        || (*(_BYTE *)a1 & 1) != 0 && (*(_BYTE *)(a1 + 35) & 8) == 0)
-      && v44 <= 0xFFFFFFFFFLL
-      && (*(_QWORD *)(48 * v44 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0
-      && *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)) == v56
+      && v41 <= 0xFFFFFFFFFLL
+      && (*(_QWORD *)(48 * v41 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0
+      && *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)) == v52
       && !(unsigned int)MI_PFN_IS_PROTO(a1) )
     {
-      IsPfnFileOnly = MiIsPfnFileOnly(v46);
-      if ( IsPfnFileOnly != v48 && !(unsigned int)MiIsPfnFromSlabAllocation(a1) )
-        return v49;
+      IsPfnFileOnly = MiIsPfnFileOnly();
+      if ( IsPfnFileOnly != v44 && !(unsigned int)MiIsPfnFromSlabAllocation(a1) )
+        return v45;
     }
     goto LABEL_58;
   }
@@ -276,7 +272,7 @@ LABEL_58:
   {
     if ( (int)MmAttachSession(v25) >= 0 )
     {
-      SessionVm = MiGetSessionVm(v27, v26, v28);
+      SessionVm = MiGetSessionVm();
       *(_DWORD *)(a4 + 8) |= 0x80u;
       v20 = SessionVm;
       goto LABEL_54;

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBatteryRemove @ 0x14086D4E0
+ * XREFs of PopBatteryRemove @ 0x14086E740
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
- *     PopBatteryQueueWork @ 0x1401762CC (PopBatteryQueueWork.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopResetCurrentPolicies @ 0x1407475EC (PopResetCurrentPolicies.c)
+ *     IoCancelIrp @ 0x140121F00 (IoCancelIrp.c)
+ *     PopBatteryQueueWork @ 0x1401763CC (PopBatteryQueueWork.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopResetCurrentPolicies @ 0x1407487DC (PopResetCurrentPolicies.c)
  */
 
 void __fastcall PopBatteryRemove(__int64 a1)
@@ -31,19 +31,19 @@ void __fastcall PopBatteryRemove(__int64 a1)
     *v4 = (__int64 *)v3;
     *(_QWORD *)(v3 + 8) = v4;
     *v2 = 0LL;
-    --dword_140417914;
-    ++dword_140417978;
-    byte_140417918 = 1;
+    --dword_1404189B4;
+    ++dword_140418A18;
+    byte_1404189B8 = 1;
     PopBatteryQueueWork(3u);
   }
   PopBatteryQueueWork(8u);
   PopReleaseRwLock((ULONG_PTR)&PopCB);
-  if ( !--dword_140417910 )
+  if ( !--dword_1404189B0 )
   {
     PopAcquirePolicyLock();
-    if ( byte_14041823E )
+    if ( byte_1404192FE )
     {
-      byte_14041823E = 0;
+      byte_1404192FE = 0;
       PopResetCurrentPolicies();
     }
     PopReleasePolicyLock();

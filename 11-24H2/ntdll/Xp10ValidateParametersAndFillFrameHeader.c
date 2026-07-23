@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10ValidateParametersAndFillFrameHeader @ 0x18015042C
+ * XREFs of Xp10ValidateParametersAndFillFrameHeader @ 0x18014E7EC
  * Callers:
- *     Xp10CompressBuffer @ 0x18014E970 (Xp10CompressBuffer.c)
+ *     Xp10CompressBuffer @ 0x18014CD30 (Xp10CompressBuffer.c)
  * Callees:
  *     <none>
  */

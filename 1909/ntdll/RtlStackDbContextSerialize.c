@@ -30,12 +30,12 @@ __int64 __fastcall RtlStackDbContextSerialize(
   unsigned int v20; // [rsp+20h] [rbp-40h] BYREF
   _QWORD *v21; // [rsp+28h] [rbp-38h] BYREF
   _QWORD *v22; // [rsp+30h] [rbp-30h] BYREF
-  volatile signed __int64 *v23; // [rsp+38h] [rbp-28h]
+  PRTL_SRWLOCK SRWLock; // [rsp+38h] [rbp-28h]
   _DWORD v24[4]; // [rsp+40h] [rbp-20h] BYREF
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
-  v23 = (volatile signed __int64 *)(a1 + 40);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
+  SRWLock = (PRTL_SRWLOCK)(a1 + 40);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   v24[0] = *(_DWORD *)a1;
   v24[1] = *(_DWORD *)(a1 + 16);
   v24[2] = 524289;
@@ -175,7 +175,7 @@ LABEL_50:
     v6 = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))a2)(0LL, 0LL, a3, 0LL);
   }
 LABEL_41:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
-  RtlReleaseSRWLockExclusive(v23);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
+  RtlReleaseSRWLockExclusive(SRWLock);
   return (unsigned int)v6;
 }

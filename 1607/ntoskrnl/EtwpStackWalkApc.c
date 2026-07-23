@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpStackWalkApc @ 0x140229524
+ * XREFs of EtwpStackWalkApc @ 0x140229350
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     EtwpTraceStackWalk @ 0x140229620 (EtwpTraceStackWalk.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpTraceStackWalk @ 0x14022944C (EtwpTraceStackWalk.c)
  */
 
 __int64 __fastcall EtwpStackWalkApc(PSLIST_ENTRY ListEntry, _QWORD *a2, unsigned int *a3, int *a4, int *a5)

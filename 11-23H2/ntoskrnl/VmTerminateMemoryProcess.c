@@ -1,11 +1,11 @@
 /*
- * XREFs of VmTerminateMemoryProcess @ 0x1409DCBC0
+ * XREFs of VmTerminateMemoryProcess @ 0x1409DCDC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     PsTerminateMinimalProcess @ 0x1409B3850 (PsTerminateMinimalProcess.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     PsTerminateMinimalProcess @ 0x1409B3A50 (PsTerminateMinimalProcess.c)
  */
 
 NTSTATUS __fastcall VmTerminateMemoryProcess(void *a1, int a2)

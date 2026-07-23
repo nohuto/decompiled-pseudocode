@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiLibpHandleSendInterrupt @ 0x14071E220
+ * XREFs of IpmiLibpHandleSendInterrupt @ 0x140722EB0
  * Callers:
- *     IpmiLibpKcsSendRequestToBMC @ 0x14071DD20 (IpmiLibpKcsSendRequestToBMC.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x1407229B0 (IpmiLibpKcsSendRequestToBMC.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 IpmiLibpHandleSendInterrupt()

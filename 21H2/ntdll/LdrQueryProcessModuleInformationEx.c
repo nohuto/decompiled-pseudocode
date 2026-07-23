@@ -2,9 +2,9 @@
  * XREFs of LdrQueryProcessModuleInformationEx @ 0x180001458
  * Callers:
  *     LdrQueryProcessModuleInformation @ 0x180001430 (LdrQueryProcessModuleInformation.c)
- *     RtlQueryProcessModuleInformation @ 0x1800D8410 (RtlQueryProcessModuleInformation.c)
+ *     RtlQueryProcessModuleInformation @ 0x1800D83D0 (RtlQueryProcessModuleInformation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall LdrQueryProcessModuleInformationEx(

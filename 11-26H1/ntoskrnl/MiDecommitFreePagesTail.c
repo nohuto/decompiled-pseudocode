@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDecommitFreePagesTail @ 0x1402DA750
+ * XREFs of MiDecommitFreePagesTail @ 0x1402BC510
  * Callers:
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiDeleteVaTail @ 0x140361270 (MiDeleteVaTail.c)
- *     MiDecommitPagesTail @ 0x14044B7AC (MiDecommitPagesTail.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiDeleteVaTail @ 0x140363010 (MiDeleteVaTail.c)
+ *     MiDecommitPagesTail @ 0x1404438DC (MiDecommitPagesTail.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiReduceShareCount @ 0x1402DAC20 (MiReduceShareCount.c)
- *     MiDecommitPrivatePageTail @ 0x1402DB300 (MiDecommitPrivatePageTail.c)
- *     MiDecommitSharedPageTail @ 0x1402DBF60 (MiDecommitSharedPageTail.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiShowBadMapper @ 0x1403669CC (MiShowBadMapper.c)
- *     MiDeleteClusterPage @ 0x1403C6268 (MiDeleteClusterPage.c)
- *     MiDecommitPagesCoalesce @ 0x140449D60 (MiDecommitPagesCoalesce.c)
- *     MiIsPfnLocked @ 0x14049A9D4 (MiIsPfnLocked.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiReduceShareCount @ 0x1402BC9E0 (MiReduceShareCount.c)
+ *     MiDecommitPrivatePageTail @ 0x1402BD0C0 (MiDecommitPrivatePageTail.c)
+ *     MiDecommitSharedPageTail @ 0x1402BDD20 (MiDecommitSharedPageTail.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiShowBadMapper @ 0x14036876C (MiShowBadMapper.c)
+ *     MiDeleteClusterPage @ 0x1403D0168 (MiDeleteClusterPage.c)
+ *     MiDecommitPagesCoalesce @ 0x140441E90 (MiDecommitPagesCoalesce.c)
+ *     MiIsPfnLocked @ 0x140494524 (MiIsPfnLocked.c)
  */
 
 __int64 __fastcall MiDecommitFreePagesTail(__int64 a1)
@@ -38,28 +38,30 @@ __int64 __fastcall MiDecommitFreePagesTail(__int64 a1)
   __int64 v14; // r8
   __int64 v15; // r14
   unsigned __int64 ContainingPageTable; // r14
-  __int64 v17; // rbx
-  ULONG_PTR v18; // rsi
+  __int64 v17; // rdx
+  __int64 v18; // r8
   __int64 v19; // rbx
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // [rsp+20h] [rbp-68h]
-  unsigned __int64 v23; // [rsp+30h] [rbp-58h]
-  int v25; // [rsp+98h] [rbp+10h] BYREF
+  ULONG_PTR v20; // rsi
+  __int64 v21; // rbx
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // [rsp+20h] [rbp-68h]
+  unsigned __int64 v25; // [rsp+30h] [rbp-58h]
+  int v27; // [rsp+98h] [rbp+10h] BYREF
   ULONG_PTR BugCheckParameter4; // [rsp+A0h] [rbp+18h]
-  __int64 v27; // [rsp+A8h] [rbp+20h]
+  __int64 v29; // [rsp+A8h] [rbp+20h]
 
   v1 = *(_QWORD *)(a1 + 16);
   v2 = a1;
   v3 = *(_DWORD *)(a1 + 116);
   v4 = 0;
-  v27 = 0LL;
+  v29 = 0LL;
   v5 = 0;
-  v22 = -1LL;
+  v24 = -1LL;
   result = 0xFFFFF68000000000uLL;
   v7 = 0;
   v8 = (((*(_QWORD *)(v1 + 16480) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 0xFFFFFFFFFFFFF000uLL;
-  v23 = v8;
+  v25 = v8;
   if ( !*(_DWORD *)(v1 + 16488) )
     return result;
   do
@@ -75,7 +77,7 @@ __int64 __fastcall MiDecommitFreePagesTail(__int64 a1)
       v14 = 0LL;
       if ( (v3 & 0x60) != 0
         || (v3 & 8) != 0
-        && (v12 > qword_140E2D7A0 || (*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0) )
+        && (v12 > qword_140E2D920 || (*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0) )
       {
         v9 = 1LL;
       }
@@ -84,7 +86,7 @@ __int64 __fastcall MiDecommitFreePagesTail(__int64 a1)
     {
       v14 = 1LL;
     }
-    if ( v12 <= qword_140E2D7A0 && (*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
+    if ( v12 <= qword_140E2D920 && (*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
       v15 = 48 * v12 - 0x220000000000LL;
     else
       v15 = 0LL;
@@ -96,14 +98,14 @@ __int64 __fastcall MiDecommitFreePagesTail(__int64 a1)
           MiShowBadMapper(v12, 0LL);
         if ( (v3 & 0x40) != 0 )
         {
-          v25 = 0;
+          v27 = 0;
           while ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 24), 0x3FuLL) )
           {
             do
-              KeYieldProcessorEx(&v25);
+              KeYieldProcessorEx(&v27);
             while ( *(__int64 *)(v15 + 24) < 0 );
           }
-          MiRemoveLockedPageChargeAndDecRef(v15, v20, v21);
+          MiRemoveLockedPageChargeAndDecRef(v15, v22, v23);
           _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         }
       }
@@ -121,25 +123,25 @@ __int64 __fastcall MiDecommitFreePagesTail(__int64 a1)
       ContainingPageTable = MiGetContainingPageTable(BugCheckParameter4);
       result = MiDecommitSharedPageTail(a1, BugCheckParameter4, v11);
 LABEL_11:
-      if ( ContainingPageTable != v22 )
+      if ( ContainingPageTable != v24 )
       {
-        v19 = v27;
-        if ( v27 )
+        v21 = v29;
+        if ( v29 )
         {
-          v25 = 0;
-          while ( _interlockedbittestandset64((volatile signed __int32 *)(v19 + 24), 0x3FuLL) )
+          v27 = 0;
+          while ( _interlockedbittestandset64((volatile signed __int32 *)(v21 + 24), 0x3FuLL) )
           {
             do
-              KeYieldProcessorEx(&v25);
-            while ( *(__int64 *)(v19 + 24) < 0 );
+              KeYieldProcessorEx(&v27);
+            while ( *(__int64 *)(v21 + 24) < 0 );
           }
-          MiReduceShareCount(v19, v5);
-          _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          MiReduceShareCount(v21, v5);
+          _InterlockedAnd64((volatile signed __int64 *)(v21 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           v5 = 0;
         }
         result = 0xFFFFDE0000000000uLL;
-        v22 = ContainingPageTable;
-        v27 = 48 * ContainingPageTable - 0x220000000000LL;
+        v24 = ContainingPageTable;
+        v29 = 48 * ContainingPageTable - 0x220000000000LL;
       }
       ++v5;
       goto LABEL_13;
@@ -151,19 +153,19 @@ LABEL_11:
       || (*(_DWORD *)(v2 + 100) & 0xF0) != 0
       || v7 + 16 > *(_DWORD *)(v1 + 16488) )
     {
-      v18 = BugCheckParameter4;
+      v20 = BugCheckParameter4;
 LABEL_21:
-      result = MiDecommitPrivatePageTail(v2, v18, v11);
+      result = MiDecommitPrivatePageTail(v2, v20, v11);
       goto LABEL_11;
     }
     if ( !(unsigned int)MiDecommitPagesCoalesce(*(_QWORD *)(v2 + 8), v1, v7) )
     {
-      v18 = BugCheckParameter4;
+      v20 = BugCheckParameter4;
 LABEL_40:
       v2 = a1;
       goto LABEL_21;
     }
-    v18 = BugCheckParameter4;
+    v20 = BugCheckParameter4;
     if ( !(unsigned int)MiDeleteClusterPage(*(_QWORD *)(a1 + 8), BugCheckParameter4, (v11 >> 12) & 0xFFFFFFFFFFLL) )
       goto LABEL_40;
     _InterlockedAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 32) - 376LL), 0xFFFFFFFFFFFFFFF0uLL);
@@ -172,21 +174,22 @@ LABEL_40:
       v7 += 16;
     --v7;
 LABEL_13:
-    v8 = v23;
+    v8 = v25;
     ++v7;
     v2 = a1;
+    v18 = 0LL;
   }
   while ( v7 < *(_DWORD *)(v1 + 16488) );
   if ( v5 )
   {
-    v17 = v27;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v17 + 24), 0x3FuLL) )
+    v19 = v29;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v19 + 24), 0x3FuLL) )
     {
       do
       {
         if ( (++v4 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && KiCheckVpBackingLongSpinWaitHypercall() )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v8, v17, v18) )
         {
           HvlNotifyLongSpinWait(v4);
         }
@@ -195,11 +198,11 @@ LABEL_13:
           _mm_pause();
         }
       }
-      while ( *(__int64 *)(v17 + 24) < 0 );
+      while ( *(__int64 *)(v19 + 24) < 0 );
     }
-    MiReduceShareCount(v17, v5);
+    MiReduceShareCount(v19, v5);
     result = 0x7FFFFFFFFFFFFFFFLL;
-    _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   return result;
 }

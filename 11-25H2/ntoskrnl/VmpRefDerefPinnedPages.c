@@ -138,7 +138,7 @@ LABEL_37:
       }
       if ( v21 == v22 )
       {
-        RtlRbRemoveNode(a1 + 40, (unsigned __int64 *)v13);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), (PRTL_BALANCED_NODE)v13);
         result = *(unsigned __int64 **)(a5 + 8);
         if ( *result != a5 )
           __fastfail(3u);

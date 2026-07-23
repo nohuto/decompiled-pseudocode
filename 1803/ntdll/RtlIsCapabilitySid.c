@@ -6,10 +6,10 @@
  *     RtlCompareMemory @ 0x18009F080 (RtlCompareMemory.c)
  */
 
-bool __fastcall RtlIsCapabilitySid(__int64 a1)
+BOOLEAN __cdecl RtlIsCapabilitySid(PSID Sid)
 {
-  return *(_BYTE *)(a1 + 1) >= 2u
-      && *(_BYTE *)a1 == 1
-      && RtlCompareMemory((const void *)(a1 + 2), &unk_180114628, 6uLL) == 6
-      && *(_DWORD *)(a1 + 8) == 3;
+  return *((_BYTE *)Sid + 1) >= 2u
+      && *(_BYTE *)Sid == 1
+      && RtlCompareMemory((char *)Sid + 2, &Source2, 6uLL) == 6
+      && *((_DWORD *)Sid + 2) == 3;
 }

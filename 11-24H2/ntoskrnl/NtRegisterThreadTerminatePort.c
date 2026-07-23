@@ -1,14 +1,14 @@
 /*
- * XREFs of NtRegisterThreadTerminatePort @ 0x140A661B0
+ * XREFs of NtRegisterThreadTerminatePort @ 0x140A5E890
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
+NTSTATUS __cdecl NtRegisterThreadTerminatePort(HANDLE PortHandle)
 {
   struct _KTHREAD *CurrentThread; // rbx
   NTSTATUS result; // eax
@@ -18,10 +18,10 @@ NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
 
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, LpcPortObjectType, CurrentThread->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(PortHandle, 1u, LpcPortObjectType, CurrentThread->PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
-    Pool2 = (void **)ExAllocatePool2(0x101uLL);
+    Pool2 = (void **)ExAllocatePool2(0x101uLL, 0x10uLL, 0x70547350u);
     v4 = Pool2;
     if ( Pool2 )
     {

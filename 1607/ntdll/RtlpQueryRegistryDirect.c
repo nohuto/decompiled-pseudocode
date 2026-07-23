@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpQueryRegistryDirect @ 0x1800581B4
+ * XREFs of RtlpQueryRegistryDirect @ 0x1800581A4
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x180057DE8 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x180057DD8 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -12,7 +12,7 @@ __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, si
   unsigned __int16 v4; // bx
   void *v8; // rcx
   unsigned __int64 v10; // rax
-  __int64 StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v4 = a3;
   if ( a1 - 1 > 1 && a1 != 7 )

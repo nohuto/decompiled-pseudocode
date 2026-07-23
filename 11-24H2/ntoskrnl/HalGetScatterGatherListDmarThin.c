@@ -1,12 +1,12 @@
 /*
- * XREFs of HalGetScatterGatherListDmarThin @ 0x14045EAF0
+ * XREFs of HalGetScatterGatherListDmarThin @ 0x1404539B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetNumberOfSGElementsDmarThin @ 0x14045EDE4 (HalpGetNumberOfSGElementsDmarThin.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x14045EE40 (HalpConstructScatterGatherListDmarThin.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpGetNumberOfSGElementsDmarThin @ 0x140453CA4 (HalpGetNumberOfSGElementsDmarThin.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140453D00 (HalpConstructScatterGatherListDmarThin.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalGetScatterGatherListDmarThin(
@@ -21,12 +21,13 @@ __int64 __fastcall HalGetScatterGatherListDmarThin(
   __int64 *v7; // rbx
   unsigned __int64 v8; // rdi
   unsigned __int64 v11; // rax
-  __int64 v12; // rsi
+  unsigned int NumberOfSGElementsDmarThin; // eax
+  __int64 v13; // rsi
   __int64 Pool2; // rax
-  void *v14; // rbp
-  __int64 v15; // rsi
-  __int64 v16; // rax
-  int v17; // ebx
+  void *v15; // rbp
+  __int64 v16; // rsi
+  __int64 v17; // rax
+  int v18; // ebx
 
   v7 = a3;
   v8 = a4 - *((unsigned int *)a3 + 11) - a3[4];
@@ -41,30 +42,31 @@ __int64 __fastcall HalGetScatterGatherListDmarThin(
   while ( v7 );
   if ( v7 )
   {
-    v12 = 3LL * (unsigned int)HalpGetNumberOfSGElementsDmarThin(v7, v8, a5);
-    Pool2 = ExAllocatePool2(0x42uLL);
-    v14 = (void *)Pool2;
+    NumberOfSGElementsDmarThin = HalpGetNumberOfSGElementsDmarThin(v7, v8, a5);
+    v13 = 3LL * NumberOfSGElementsDmarThin;
+    Pool2 = ExAllocatePool2(0x42uLL, 24LL * NumberOfSGElementsDmarThin + 120, 0x446C6148u);
+    v15 = (void *)Pool2;
     if ( Pool2 )
     {
-      v15 = Pool2 + 8 * v12;
-      *(_BYTE *)(v15 + 113) = 1;
-      *(_QWORD *)(v15 + 40) = a1;
-      *(_QWORD *)(v15 + 48) = a2;
-      v16 = *(_QWORD *)(a2 + 32);
-      *(_QWORD *)(v15 + 104) = 0LL;
-      *(_QWORD *)(v15 + 56) = v16;
-      *(_QWORD *)(v15 + 80) = a6;
-      *(_QWORD *)(v15 + 88) = a7;
-      *(_DWORD *)(v15 + 72) = a5;
-      *(_QWORD *)(v15 + 64) = v7;
-      *(_DWORD *)(v15 + 76) = v8;
-      *(_QWORD *)(v15 + 96) = v14;
-      *(_BYTE *)(v15 + 112) = 0;
-      *(_DWORD *)(v15 + 32) = 1;
-      *(_BYTE *)(v15 + 114) = 0;
-      v17 = HalpConstructScatterGatherListDmarThin(v15 + 16);
-      if ( v17 < 0 && *(_BYTE *)(v15 + 113) )
-        ExFreePoolWithTag(v14, 0);
+      v16 = Pool2 + 8 * v13;
+      *(_BYTE *)(v16 + 113) = 1;
+      *(_QWORD *)(v16 + 40) = a1;
+      *(_QWORD *)(v16 + 48) = a2;
+      v17 = *(_QWORD *)(a2 + 32);
+      *(_QWORD *)(v16 + 104) = 0LL;
+      *(_QWORD *)(v16 + 56) = v17;
+      *(_QWORD *)(v16 + 80) = a6;
+      *(_QWORD *)(v16 + 88) = a7;
+      *(_DWORD *)(v16 + 72) = a5;
+      *(_QWORD *)(v16 + 64) = v7;
+      *(_DWORD *)(v16 + 76) = v8;
+      *(_QWORD *)(v16 + 96) = v15;
+      *(_BYTE *)(v16 + 112) = 0;
+      *(_DWORD *)(v16 + 32) = 1;
+      *(_BYTE *)(v16 + 114) = 0;
+      v18 = HalpConstructScatterGatherListDmarThin(v16 + 16);
+      if ( v18 < 0 && *(_BYTE *)(v16 + 113) )
+        ExFreePoolWithTag(v15, 0);
     }
     else
     {
@@ -75,5 +77,5 @@ __int64 __fastcall HalGetScatterGatherListDmarThin(
   {
     return (unsigned int)-1073741811;
   }
-  return (unsigned int)v17;
+  return (unsigned int)v18;
 }

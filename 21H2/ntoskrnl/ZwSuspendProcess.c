@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSuspendProcess @ 0x1403FDB40
+ * XREFs of ZwSuspendProcess @ 0x1403FDD20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSuspendProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSuspendProcess(HANDLE ProcessHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpStdGetSpaceForTrace @ 0x18007C79C
+ * XREFs of RtlpStdGetSpaceForTrace @ 0x18006AFBC
  * Callers:
- *     RtlpStdLogCapturedStackTrace @ 0x18007C648 (RtlpStdLogCapturedStackTrace.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x18006AE68 (RtlpStdLogCapturedStackTrace.c)
  * Callees:
- *     RtlpStdExtendLowerWatermark @ 0x1800FC45C (RtlpStdExtendLowerWatermark.c)
- *     RtlpInterlockedPopEntrySList @ 0x180162CD0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpStdExtendLowerWatermark @ 0x1800FBBAC (RtlpStdExtendLowerWatermark.c)
+ *     RtlpInterlockedPopEntrySList @ 0x180162BD0 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall RtlpStdGetSpaceForTrace(__int64 a1, unsigned __int16 a2)

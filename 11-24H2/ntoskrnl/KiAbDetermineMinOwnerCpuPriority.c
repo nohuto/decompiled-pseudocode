@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbDetermineMinOwnerCpuPriority @ 0x140418590
+ * XREFs of KiAbDetermineMinOwnerCpuPriority @ 0x140408340
  * Callers:
- *     KiAbForceProcessLockEntry @ 0x1404183E4 (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140408194 (KiAbForceProcessLockEntry.c)
  * Callees:
  *     <none>
  */

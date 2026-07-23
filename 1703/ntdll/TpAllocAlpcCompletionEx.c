@@ -6,7 +6,15 @@
  *     sub_18007F460 @ 0x18007F460 (sub_18007F460.c)
  */
 
-__int64 __fastcall TpAllocAlpcCompletionEx(int a1, int a2, int a3, int a4, __int64 a5)
+NTSTATUS __cdecl TpAllocAlpcCompletionEx(
+        PTP_ALPC *AlpcReturn,
+        HANDLE AlpcPort,
+        PTP_ALPC_CALLBACK_EX Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  return sub_18007F460(a1, a2, a3, a4, a5, 1);
+  char v6; // [rsp+28h] [rbp-10h]
+
+  v6 = 1;
+  return sub_18007F460(AlpcReturn, AlpcPort, Callback, Context, CallbackEnviron, v6);
 }

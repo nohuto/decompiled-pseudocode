@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceHeteroResponse @ 0x14042382C
+ * XREFs of PpmEventTraceHeteroResponse @ 0x1404176DC
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmCheckComputeHeteroResponse @ 0x1404EC390 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140416940 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x1404E3AD0 (PpmCheckComputeHeteroResponse.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char PpmEventTraceHeteroResponse(__int64 a1, __int64 a2, _QWORD *a3, ...)
@@ -85,7 +85,7 @@ char PpmEventTraceHeteroResponse(__int64 a1, __int64 a2, _QWORD *a3, ...)
       if ( v9 > 1 )
       {
         v12 = v9 - 1;
-        v13 = (_BYTE *)(*(_QWORD *)(a1 + 1280) + 646LL);
+        v13 = (_BYTE *)(*(_QWORD *)(a1 + 1288) + 646LL);
         v14 = 0;
         do
         {
@@ -97,7 +97,7 @@ char PpmEventTraceHeteroResponse(__int64 a1, __int64 a2, _QWORD *a3, ...)
         while ( v12 );
       }
       if ( PpmHeteroHgsParkingEnabled )
-        v16 = *(_BYTE *)(*(_QWORD *)(a1 + 1280) + 646LL);
+        v16 = *(_BYTE *)(*(_QWORD *)(a1 + 1288) + 646LL);
       UserData.Ptr = a1 + 4;
       *(_QWORD *)&UserData.Size = 2LL;
       v20 = a1 + 16;

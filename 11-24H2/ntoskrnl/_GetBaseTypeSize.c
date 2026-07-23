@@ -1,7 +1,7 @@
 /*
- * XREFs of _GetBaseTypeSize @ 0x14045D58C
+ * XREFs of _GetBaseTypeSize @ 0x14045264C
  * Callers:
- *     _PnpValidatePropertyData @ 0x1408B8DD0 (_PnpValidatePropertyData.c)
+ *     _PnpValidatePropertyData @ 0x1408B6740 (_PnpValidatePropertyData.c)
  * Callees:
  *     <none>
  */

@@ -24,9 +24,9 @@ _QWORD *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
   unsigned __int64 v4; // rsi
   char v5; // al
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v8; // bp
-  __int64 v9; // r8
+  unsigned int v9; // r8d
   bool v10; // zf
   __int64 v11; // rcx
   __int64 v12; // rdi
@@ -64,23 +64,23 @@ _QWORD *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
   v20 = 0;
   CurrentThread = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v4) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+    SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --CurrentThread->SpecialApcDisable;
   v8 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v9) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v9 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v10 = !_BitScanReverse((unsigned int *)&v11, v9);
     if ( v10 )
       break;
     v12 = (__int64)&CurrentThread->LockEntries[v11];
-    v9 = ~(1 << v11) & (unsigned int)v9;
+    v9 &= ~(1 << v11);
     if ( (*(_BYTE *)(v12 + 26) & 1) != 0
       && (*(_DWORD *)(v12 + 32) & 1) == 0
       && (*(_QWORD *)(v12 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v4 & 0x7FFFFFFFFFFFFFFCLL)
-      && *(_DWORD *)(v12 + 40) == (_DWORD)SessionId )
+      && *(_DWORD *)(v12 + 40) == SessionId )
     {
       *(_BYTE *)(v12 + 26) &= ~1u;
       if ( *(_QWORD *)(v12 + 32) )
@@ -89,7 +89,7 @@ _QWORD *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
         {
           *(_BYTE *)(v12 + 32) |= 2u;
           if ( *(__int64 *)(v12 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v12, SessionId, v9);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12);
           v13 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
           v14 = *(_DWORD *)(v12 + 88) & 0xFFFE0000;
           *(_BYTE *)(v12 + 25) &= ~1u;
@@ -108,7 +108,7 @@ _QWORD *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
     }
   }
   if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v4, (unsigned int)SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v4, SessionId, 0LL);
 LABEL_19:
   --CurrentThread->AbAllocationRegionCount;
   result = (_QWORD *)KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, v4, &v20);

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransMgrCommit @ 0x1404DA7A0
+ * XREFs of CmpTransMgrCommit @ 0x1404BDDA4
  * Callers:
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
- *     CmpLazyCommitWorker @ 0x140603320 (CmpLazyCommitWorker.c)
- *     CmpRmUnDoPhase @ 0x14060597C (CmpRmUnDoPhase.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
+ *     CmpLazyCommitWorker @ 0x1406033D4 (CmpLazyCommitWorker.c)
+ *     CmpRmUnDoPhase @ 0x140605A30 (CmpRmUnDoPhase.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmpCommitLightWeightTransaction @ 0x14053A870 (CmpCommitLightWeightTransaction.c)
- *     CmpInitializeLightWeightTransaction @ 0x140603750 (CmpInitializeLightWeightTransaction.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpCommitLightWeightTransaction @ 0x14053ADB0 (CmpCommitLightWeightTransaction.c)
+ *     CmpInitializeLightWeightTransaction @ 0x140603804 (CmpInitializeLightWeightTransaction.c)
  */
 
 __int64 __fastcall CmpTransMgrCommit(__int64 a1, __int64 a2, _DWORD *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall CmpTransMgrCommit(__int64 a1, __int64 a2, _DWORD *a3)
   *a3 = 0;
   Interval.LowPart = -1000000;
   if ( stru_1402F34E0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F34E0, 1uLL) )
-    TlgWrite(&stru_1402F34E0, &unk_14027B083, 0LL, 0LL, 2u, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027B183, 0LL, 0LL, 2u, &pData);
   v4 = CmpInitializeLightWeightTransaction(v9);
   if ( v4 >= 0 )
   {
@@ -59,6 +59,6 @@ __int64 __fastcall CmpTransMgrCommit(__int64 a1, __int64 a2, _DWORD *a3)
     while ( v4 < 0 );
   }
   if ( stru_1402F34E0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F34E0, 1uLL) )
-    TlgWrite(&stru_1402F34E0, &unk_14027B061, 0LL, 0LL, 2u, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027B161, 0LL, 0LL, 2u, &pData);
   return (unsigned int)v4;
 }

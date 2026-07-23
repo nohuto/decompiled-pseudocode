@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C27C
+ * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C43C
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x14076BE54 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076C014 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PnpDuplicateUnicodeString @ 0x14036EEA0 (PnpDuplicateUnicodeString.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x14050E0D8 (PiDevCfgGetDriverConfigurationKeyScope.c)
- *     PiDevCfgPushDriverNodeEntry @ 0x14050E434 (PiDevCfgPushDriverNodeEntry.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x14076BE54 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgAppendMultiSz @ 0x1408A4C8C (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7648 (PiDevCfgQueryIncludedDriverNode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PnpDuplicateUnicodeString @ 0x14036F050 (PnpDuplicateUnicodeString.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     wcsrchr @ 0x1403D4270 (wcsrchr.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x14050E318 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PiDevCfgPushDriverNodeEntry @ 0x14050E674 (PiDevCfgPushDriverNodeEntry.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076C014 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgAppendMultiSz @ 0x1408A4DEC (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A77A8 (PiDevCfgQueryIncludedDriverNode.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryIncludedDriverConfigurations(__int64 a1)

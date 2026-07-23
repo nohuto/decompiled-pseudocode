@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpWakeWriteQueueWaiters @ 0x1403F9010
+ * XREFs of CmpWakeWriteQueueWaiters @ 0x1403F7ED0
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14054DCC4 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14054E064 (CmpFinishBeingActiveFlusherAndReconciler.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 LONG __fastcall CmpWakeWriteQueueWaiters(struct _KEVENT *a1, LONG a2)

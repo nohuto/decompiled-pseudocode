@@ -1,18 +1,18 @@
 /*
- * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x14092996C
+ * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x14092A96C
  * Callers:
- *     VfGetDmaAdapter @ 0x14092B140 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x14092C140 (VfGetDmaAdapter.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
+_LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  struct _LIST_ENTRY *v2; // rdi
+  _LIST_ENTRY *v2; // rdi
   KIRQL v3; // bl
-  struct _LIST_ENTRY *i; // rax
+  _LIST_ENTRY *i; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx

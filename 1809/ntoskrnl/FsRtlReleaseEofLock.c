@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlReleaseEofLock @ 0x140103100
+ * XREFs of FsRtlReleaseEofLock @ 0x140103180
  * Callers:
  *     <none>
  * Callees:
@@ -10,11 +10,11 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     FsRtlReleaseHeaderMutex @ 0x1400511C0 (FsRtlReleaseHeaderMutex.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
- *     KeSetEventBoostPriorityEx @ 0x1401034C8 (KeSetEventBoostPriorityEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     PsBoostThreadIoEx @ 0x1400BBED0 (PsBoostThreadIoEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x140103548 (KeSetEventBoostPriorityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 _QWORD *__fastcall FsRtlReleaseEofLock(__int64 a1, volatile signed __int32 *a2)
@@ -88,7 +88,7 @@ LABEL_51:
     _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x10u);
     goto LABEL_8;
   }
-  if ( v5 >= 0xFFFF800000000000uLL && byte_14043B950[((v5 >> 39) & 0x1FF) - 256] == 1 )
+  if ( v5 >= 0xFFFF800000000000uLL && byte_14043CA10[((v5 >> 39) & 0x1FF) - 256] == 1 )
     SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
   else
     SessionId = -1;
@@ -103,7 +103,7 @@ LABEL_8:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset((volatile signed __int32 *)v5, 0) )
-    ExpAcquireFastMutexContended(v5, v8);
+    ExpAcquireFastMutexContended(v5, (PRTL_BALANCED_NODE)v8);
   if ( v8 )
     *(_BYTE *)(v8 + 26) |= 1u;
   *(_QWORD *)(v5 + 8) = KeGetCurrentThread();

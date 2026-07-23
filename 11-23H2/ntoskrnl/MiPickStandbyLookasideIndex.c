@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPickStandbyLookasideIndex @ 0x140651504
+ * XREFs of MiPickStandbyLookasideIndex @ 0x140651A54
  * Callers:
- *     MiLockStandbyLookasidePage @ 0x14046CE70 (MiLockStandbyLookasidePage.c)
+ *     MiLockStandbyLookasidePage @ 0x14046D270 (MiLockStandbyLookasidePage.c)
  * Callees:
  *     <none>
  */

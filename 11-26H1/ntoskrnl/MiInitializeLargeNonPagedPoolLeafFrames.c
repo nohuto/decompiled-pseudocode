@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeLargeNonPagedPoolLeafFrames @ 0x1404D9628
+ * XREFs of MiInitializeLargeNonPagedPoolLeafFrames @ 0x1404D2D08
  * Callers:
- *     MiLinkPoolCommitChain @ 0x140365560 (MiLinkPoolCommitChain.c)
+ *     MiLinkPoolCommitChain @ 0x140367300 (MiLinkPoolCommitChain.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
  */
 
 __int64 __fastcall MiInitializeLargeNonPagedPoolLeafFrames(unsigned __int64 a1, __int64 a2)

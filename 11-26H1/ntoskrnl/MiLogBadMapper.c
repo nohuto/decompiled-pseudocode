@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogBadMapper @ 0x140459AC0
+ * XREFs of MiLogBadMapper @ 0x140451340
  * Callers:
- *     MiShowBadMapper @ 0x1403669CC (MiShowBadMapper.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     MiShowBadMapper @ 0x14036876C (MiShowBadMapper.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ExtractAggregateFieldTypes @ 0x140459D30 (ExtractAggregateFieldTypes.c)
- *     InsertEventEntryInLookUpTable @ 0x140459DC4 (InsertEventEntryInLookUpTable.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ExtractAggregateFieldTypes @ 0x1404515B0 (ExtractAggregateFieldTypes.c)
+ *     InsertEventEntryInLookUpTable @ 0x140451644 (InsertEventEntryInLookUpTable.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogBadMapper(__int64 a1, __int64 a2, int a3, EVENT_DESCRIPTOR *a4)
@@ -28,7 +28,7 @@ char __fastcall MiLogBadMapper(__int64 a1, __int64 a2, int a3, EVENT_DESCRIPTOR 
   __int64 v19; // [rsp+70h] [rbp-98h] BYREF
   __int64 v20; // [rsp+78h] [rbp-90h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+88h] [rbp-80h] BYREF
-  __int16 *v22; // [rsp+98h] [rbp-70h]
+  int *v22; // [rsp+98h] [rbp-70h]
   int v23; // [rsp+A0h] [rbp-68h]
   int v24; // [rsp+A4h] [rbp-64h]
   __int64 *p_EventDescriptor; // [rsp+A8h] [rbp-60h]
@@ -49,15 +49,15 @@ char __fastcall MiLogBadMapper(__int64 a1, __int64 a2, int a3, EVENT_DESCRIPTOR 
   p_EventDescriptor_8 = &EventDescriptor_8;
   if ( a4 )
     p_EventDescriptor_8 = a4;
-  v8 = *(_DWORD *)stru_140E36558.FirstArgument <= 5u;
+  v8 = *(_DWORD *)stru_140E366D8.FirstArgument <= 5u;
   EventDescriptor_8 = 0LL;
   if ( !v8 )
   {
-    LOBYTE(v4) = *((_BYTE *)stru_140E36558.FirstArgument + 16);
+    LOBYTE(v4) = *((_BYTE *)stru_140E366D8.FirstArgument + 16);
     if ( (char)v4 < 0 )
     {
-      v4 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*((_QWORD *)stru_140E36558.FirstArgument + 3) & 0x80LL);
-      if ( v4 == *((void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))stru_140E36558.FirstArgument
+      v4 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*((_QWORD *)stru_140E366D8.FirstArgument + 3) & 0x80LL);
+      if ( v4 == *((void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))stru_140E366D8.FirstArgument
                  + 3) )
       {
         EventDescriptor = a2;
@@ -67,8 +67,8 @@ char __fastcall MiLogBadMapper(__int64 a1, __int64 a2, int a3, EVENT_DESCRIPTOR 
         LODWORD(v15) = a3;
         v28 = 4LL;
         LOBYTE(v4) = tlgWriteEx_EtwWriteEx(
-                       (int)stru_140E36558.FirstArgument,
-                       (int)&dword_140057D1C,
+                       (int)stru_140E366D8.FirstArgument,
+                       (int)&word_140058C8A,
                        a3,
                        1,
                        ActivityId,
@@ -78,12 +78,12 @@ char __fastcall MiLogBadMapper(__int64 a1, __int64 a2, int a3, EVENT_DESCRIPTOR 
       }
     }
   }
-  FirstArgument = stru_140E36558.FirstArgument;
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000000080LL) != 0 )
+  FirstArgument = stru_140E366D8.FirstArgument;
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000000080LL) != 0 )
   {
-    v4 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*((_QWORD *)stru_140E36558.FirstArgument + 3) & 0x400000000080LL);
-    if ( v4 == *((void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))stru_140E36558.FirstArgument
+    v4 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*((_QWORD *)stru_140E366D8.FirstArgument + 3) & 0x400000000080LL);
+    if ( v4 == *((void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))stru_140E366D8.FirstArgument
                + 3) )
     {
       v18 = a2;
@@ -96,7 +96,7 @@ char __fastcall MiLogBadMapper(__int64 a1, __int64 a2, int a3, EVENT_DESCRIPTOR 
       v34[0] = p_EventDescriptor_8->Id;
       v20 = 2164260864LL;
       v35 = &v20;
-      UserData.Ptr = *((_QWORD *)stru_140E36558.FirstArgument + 1);
+      UserData.Ptr = *((_QWORD *)stru_140E366D8.FirstArgument + 1);
       v26 = 8LL;
       v19 = a2;
       v28 = 8LL;
@@ -107,13 +107,13 @@ char __fastcall MiLogBadMapper(__int64 a1, __int64 a2, int a3, EVENT_DESCRIPTOR 
       *(_QWORD *)&EventDescriptor_8.Id = 0x50B000000LL;
       EventDescriptor_8.Keyword = 0x400000000080LL;
       UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-      v22 = word_140057CA2;
+      v22 = &dword_140058CD4;
       UserData.Reserved = 2;
       v23 = 121;
       v24 = 1;
       LODWORD(EventDescriptor) = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
       v4 = TlgAggregateInternalRegisteredProviderEtwCallback;
-      if ( *((void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))stru_140E36558.FirstArgument
+      if ( *((void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))stru_140E366D8.FirstArgument
            + 5) == TlgAggregateInternalRegisteredProviderEtwCallback )
       {
         v10 = ExtractAggregateFieldTypes(&TraceLoggingMetadata, &UserData);

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuNotifyWorkerSelectAndQueue @ 0x1405F5818
+ * XREFs of KiSrcuNotifyWorkerSelectAndQueue @ 0x1405F81D8
  * Callers:
- *     KiSrcuNotifyGracePeriodStarted @ 0x1405290A4 (KiSrcuNotifyGracePeriodStarted.c)
- *     KeSrcuFree @ 0x1405F4FC0 (KeSrcuFree.c)
- *     KiSrcuNotifyWorkerDpcRoutine @ 0x1405F5700 (KiSrcuNotifyWorkerDpcRoutine.c)
+ *     KiSrcuNotifyGracePeriodStarted @ 0x14052B694 (KiSrcuNotifyGracePeriodStarted.c)
+ *     KeSrcuFree @ 0x1405F7980 (KeSrcuFree.c)
+ *     KiSrcuNotifyWorkerDpcRoutine @ 0x1405F80C0 (KiSrcuNotifyWorkerDpcRoutine.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
  */
 
 void __fastcall KiSrcuNotifyWorkerSelectAndQueue(ULONG_PTR BugCheckParameter2, __int64 a2)

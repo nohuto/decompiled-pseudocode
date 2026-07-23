@@ -10,128 +10,126 @@
  *     sub_180083BCC @ 0x180083BCC (sub_180083BCC.c)
  */
 
-char __fastcall sub_18002D594(__int64 a1, char a2)
+BOOLEAN __fastcall sub_18002D594(__int64 a1, char a2)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int64 v5; // r13
-  __int64 v6; // r8
-  char v7; // al
-  unsigned __int64 v8; // rdi
-  unsigned __int64 v9; // rsi
-  int v10; // r14d
-  int v11; // eax
-  unsigned __int64 v12; // rax
-  int v14; // esi
-  unsigned __int64 v15; // rax
-  _QWORD *v16; // rcx
-  _QWORD *v17; // rax
+  char Min; // al
+  unsigned __int64 Root; // rdi
+  unsigned __int64 v8; // rsi
+  int v9; // r14d
+  int v10; // eax
+  unsigned __int64 v11; // rax
+  int v13; // esi
+  unsigned __int64 v14; // rax
+  _QWORD *v15; // rcx
+  _QWORD *v16; // rax
 
   v2 = 0;
   if ( !*(_QWORD *)(a1 + 168) && (*(_DWORD *)(a1 + 32) & 0x4100000) == 0 )
   {
     v5 = *(_QWORD *)(a1 + 56);
-    RtlEnterCriticalSection((__int64)&unk_1801652C0);
-    v7 = BYTE8(xmmword_1801661A0);
-    v8 = xmmword_1801661A0;
-    if ( (BYTE8(xmmword_1801661A0) & 1) != 0 )
+    RtlEnterCriticalSection(&stru_1801652C0);
+    Min = (char)stru_1801661A0.Min;
+    Root = (unsigned __int64)stru_1801661A0.Root;
+    if ( ((__int64)stru_1801661A0.Min & 1) != 0 )
     {
-      if ( (_QWORD)xmmword_1801661A0 )
-        v9 = (unsigned __int64)&xmmword_1801661A0 ^ xmmword_1801661A0;
+      if ( stru_1801661A0.Root )
+        v8 = (unsigned __int64)&stru_1801661A0 ^ (unsigned __int64)stru_1801661A0.Root;
       else
-        v9 = 0LL;
+        v8 = 0LL;
     }
     else
     {
-      v9 = xmmword_1801661A0;
+      v8 = (unsigned __int64)stru_1801661A0.Root;
     }
-    v10 = BYTE8(xmmword_1801661A0) & 1;
-    if ( v9 )
+    v9 = (__int64)stru_1801661A0.Min & 1;
+    if ( v8 )
     {
       do
       {
-        v11 = sub_180083BCC(v5, v9);
-        if ( v11 >= 0 )
+        v10 = sub_180083BCC(v5, v8);
+        if ( v10 >= 0 )
         {
-          if ( v11 <= 0 )
+          if ( v10 <= 0 )
             break;
-          v12 = *(_QWORD *)(v9 + 8);
+          v11 = *(_QWORD *)(v8 + 8);
         }
         else
         {
-          v12 = *(_QWORD *)v9;
+          v11 = *(_QWORD *)v8;
         }
-        if ( v10 && v12 )
-          v9 ^= v12;
+        if ( v9 && v11 )
+          v8 ^= v11;
         else
-          v9 = v12;
+          v8 = v11;
       }
-      while ( v9 );
-      if ( v9 )
+      while ( v8 );
+      if ( v8 )
         goto LABEL_38;
-      v7 = BYTE8(xmmword_1801661A0);
-      v8 = xmmword_1801661A0;
+      Min = (char)stru_1801661A0.Min;
+      Root = (unsigned __int64)stru_1801661A0.Root;
     }
     if ( !a2 )
     {
 LABEL_14:
-      RtlLeaveCriticalSection(&unk_1801652C0);
+      RtlLeaveCriticalSection(&stru_1801652C0);
       return v2;
     }
-    if ( (v7 & 1) != 0 )
+    if ( (Min & 1) != 0 )
     {
-      if ( v8 )
-        v8 ^= (unsigned __int64)&xmmword_1801661A0;
+      if ( Root )
+        Root ^= (unsigned __int64)&stru_1801661A0;
       else
-        v8 = 0LL;
+        Root = 0LL;
     }
-    v14 = v7 & 1;
-    if ( v8 )
+    v13 = Min & 1;
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( (int)sub_180083BCC(v5, v8) < 0 )
+        if ( (int)sub_180083BCC(v5, Root) < 0 )
         {
-          v15 = *(_QWORD *)v8;
-          if ( v14 )
+          v14 = *(_QWORD *)Root;
+          if ( v13 )
           {
-            if ( !v15 )
+            if ( !v14 )
               break;
-            v15 ^= v8;
+            v14 ^= Root;
           }
-          if ( !v15 )
+          if ( !v14 )
             break;
         }
         else
         {
-          v15 = *(_QWORD *)(v8 + 8);
-          if ( v14 )
+          v14 = *(_QWORD *)(Root + 8);
+          if ( v13 )
           {
-            if ( !v15 )
+            if ( !v14 )
               goto LABEL_36;
-            v15 ^= v8;
+            v14 ^= Root;
           }
-          if ( !v15 )
+          if ( !v14 )
           {
 LABEL_36:
             v2 = 1;
             break;
           }
         }
-        v8 = v15;
+        Root = v14;
       }
     }
-    LOBYTE(v6) = v2;
-    RtlRbInsertNodeEx(&xmmword_1801661A0, v8, v6, v5 + 224);
+    RtlRbInsertNodeEx(&stru_1801661A0, (PRTL_BALANCED_NODE)Root, v2, (PRTL_BALANCED_NODE)(v5 + 224));
 LABEL_38:
     *(_DWORD *)(a1 + 32) |= 0x100000u;
-    v16 = (_QWORD *)qword_1801652A8;
-    v17 = (_QWORD *)(a1 + 64);
+    v15 = (_QWORD *)qword_1801652A8;
+    v16 = (_QWORD *)(a1 + 64);
     if ( *(__int64 **)qword_1801652A8 != &qword_1801652A0 )
       __fastfail(3u);
-    *v17 = &qword_1801652A0;
+    *v16 = &qword_1801652A0;
     v2 = 1;
-    *(_QWORD *)(a1 + 72) = v16;
-    *v16 = v17;
+    *(_QWORD *)(a1 + 72) = v15;
+    *v15 = v16;
     qword_1801652A8 = a1 + 64;
     goto LABEL_14;
   }

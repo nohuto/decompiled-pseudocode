@@ -11,18 +11,18 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PopBcdSetupResumeObject(void *a1)
+__int64 __fastcall PopBcdSetupResumeObject(HANDLE BcdObjectHandle)
 {
-  unsigned int v2; // esi
+  ULONG BufferSize; // esi
   _DWORD *Pool2; // rax
   void *v4; // rdi
-  __int64 v5; // r8
-  int v6; // ebx
-  __int64 v7; // r8
-  __int64 v8; // r8
+  BCD_FLAGS v5; // r8d
+  NTSTATUS v6; // ebx
+  BCD_FLAGS v7; // r8d
+  BCD_FLAGS v8; // r8d
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
-  v2 = PoHiberFileRoot.Length + 22;
+  BufferSize = PoHiberFileRoot.Length + 22;
   DestinationString = 0LL;
   Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
   v4 = Pool2;
@@ -30,18 +30,18 @@ __int64 __fastcall PopBcdSetupResumeObject(void *a1)
   {
     *Pool2 = 2;
     memmove(Pool2 + 5, PoHiberFileRoot.Buffer, PoHiberFileRoot.Length);
-    v6 = BcdSetElementDataWithFlags(a1, 553648129LL, v5, (__int64)v4, v2);
+    v6 = BcdSetElementDataWithFlags(BcdObjectHandle, 0x21000001u, v5, v4, BufferSize);
     if ( v6 >= 0 )
     {
-      v6 = BcdSetElementDataWithFlags(a1, 553648166LL, v7, (__int64)v4, v2);
+      v6 = BcdSetElementDataWithFlags(BcdObjectHandle, 0x21000026u, v7, v4, BufferSize);
       if ( v6 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"\\hiberfil.sys");
         v6 = BcdSetElementDataWithFlags(
-               a1,
-               570425346LL,
+               BcdObjectHandle,
+               0x22000002u,
                v8,
-               (__int64)DestinationString.Buffer,
+               DestinationString.Buffer,
                DestinationString.Length + 2);
       }
     }

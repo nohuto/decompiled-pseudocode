@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpQueryDiskSpacePolicyByHandle @ 0x18015D3A4
+ * XREFs of RtlpQueryDiskSpacePolicyByHandle @ 0x18015B764
  * Callers:
- *     RtlpQueryDiskSpacePolicy @ 0x18015D254 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x18015B614 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
- *     ZwQueryVolumeInformationFile @ 0x1801625B0 (ZwQueryVolumeInformationFile.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     ZwQueryVolumeInformationFile @ 0x180160970 (ZwQueryVolumeInformationFile.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpQueryDiskSpacePolicyByHandle(__int64 a1, int *a2)
+NTSTATUS __fastcall RtlpQueryDiskSpacePolicyByHandle(void *a1, int *a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v4; // rcx
   int v5; // eax
-  __int128 v6; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v7; // [rsp+40h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-48h] BYREF
+  __int128 FsInformation; // [rsp+40h] [rbp-38h] BYREF
   __int128 v8; // [rsp+50h] [rbp-28h]
 
-  v6 = 0LL;
-  v7 = 0LL;
+  IoStatusBlock = 0LL;
+  FsInformation = 0LL;
   v8 = 0LL;
-  result = ZwQueryVolumeInformationFile(a1, &v6, &v7, 32LL, 7);
-  if ( (int)result >= 0 )
+  result = ZwQueryVolumeInformationFile(a1, &IoStatusBlock, &FsInformation, 0x20u, FileFsFullSizeInformation);
+  if ( result >= 0 )
   {
-    v4 = v7 * DWORD2(v8) * (unsigned __int64)HIDWORD(v8);
+    v4 = FsInformation * DWORD2(v8) * (unsigned __int64)HIDWORD(v8);
     if ( v4 > 0x200000000LL )
     {
       if ( v4 > 0x800000000LL )
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpQueryDiskSpacePolicyByHandle(__int64 a1, int *a2)
     {
       *a2 = 5;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

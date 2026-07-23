@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpGetBootStatusPath @ 0x140619F0C
+ * XREFs of RtlpGetBootStatusPath @ 0x14061CF5C
  * Callers:
- *     PopBootStatSet @ 0x140ACB570 (PopBootStatSet.c)
- *     RtlLockBootStatusData @ 0x140B12DA0 (RtlLockBootStatusData.c)
- *     PopBootStatRestoreDefaults @ 0x140B516E4 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x140ACD7B0 (PopBootStatSet.c)
+ *     RtlLockBootStatusData @ 0x140B14C40 (RtlLockBootStatusData.c)
+ *     PopBootStatRestoreDefaults @ 0x140B53F84 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     RtlpGetBootStatusPathFromRegistry @ 0x140619F68 (RtlpGetBootStatusPathFromRegistry.c)
- *     RtlIsStateSeparationEnabled @ 0x140AF47C0 (RtlIsStateSeparationEnabled.c)
+ *     RtlpGetBootStatusPathFromRegistry @ 0x14061CFB8 (RtlpGetBootStatusPathFromRegistry.c)
+ *     RtlIsStateSeparationEnabled @ 0x140AF6E60 (RtlIsStateSeparationEnabled.c)
  */
 
-__int64 __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)
+char __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)
 {
-  __int64 result; // rax
+  int BootStatusPathFromRegistry; // eax
   char v5; // bl
   const wchar_t *v6; // rcx
 
-  result = RtlpGetBootStatusPathFromRegistry();
+  BootStatusPathFromRegistry = RtlpGetBootStatusPathFromRegistry();
   v5 = 0;
-  if ( (int)result < 0 )
+  if ( BootStatusPathFromRegistry < 0 )
   {
-    result = RtlIsStateSeparationEnabled();
+    LOBYTE(BootStatusPathFromRegistry) = RtlIsStateSeparationEnabled();
     v6 = L"\\OSDataRoot\\Windows\\bootstat.dat";
-    if ( !(_BYTE)result )
+    if ( !(_BYTE)BootStatusPathFromRegistry )
       v6 = L"\\SystemRoot\\bootstat.dat";
     *a1 = v6;
   }
@@ -30,5 +30,5 @@ __int64 __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)
     v5 = 1;
   }
   *a2 = v5;
-  return result;
+  return BootStatusPathFromRegistry;
 }

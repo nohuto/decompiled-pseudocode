@@ -11,13 +11,13 @@
 
 __int64 __fastcall MiIsPageInIoHugeRangeTransition(unsigned __int64 a1)
 {
-  int IsPageInHugePfn; // eax
+  unsigned int v1; // eax
   unsigned __int64 v2; // rdx
   unsigned int v3; // r8d
 
-  IsPageInHugePfn = MiIsPageInHugePfn(a1);
+  v1 = (unsigned int)MiIsPageInHugePfn(a1);
   v3 = 0;
-  if ( !IsPageInHugePfn )
+  if ( !v1 )
     return 0LL;
   LOBYTE(v3) = (*(_QWORD *)(qword_140E2FD80 + 8 * ((v2 >> 18) & 0x3FFFFF)) & 7) == 5;
   return v3;

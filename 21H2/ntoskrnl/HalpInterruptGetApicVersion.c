@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptGetApicVersion @ 0x1403785A0
+ * XREFs of HalpInterruptGetApicVersion @ 0x1403780F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378AF8 (HalpInterruptFindLinesForGsiRange.c)
  */
 
 __int64 __fastcall HalpInterruptGetApicVersion(__int64 a1)

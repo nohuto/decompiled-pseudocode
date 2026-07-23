@@ -1,12 +1,12 @@
 /*
- * XREFs of KiVerifyContextIpForUserCet @ 0x1403E8138
+ * XREFs of KiVerifyContextIpForUserCet @ 0x1403D5CD8
  * Callers:
- *     KeVerifyContextIpForUserCet @ 0x1403E69D0 (KeVerifyContextIpForUserCet.c)
- *     KiContinuePreviousModeUser @ 0x1403E6E30 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextRecord @ 0x1403E7FA0 (KeVerifyContextRecord.c)
+ *     KeVerifyContextIpForUserCet @ 0x1403D4570 (KeVerifyContextIpForUserCet.c)
+ *     KiContinuePreviousModeUser @ 0x1403D49D0 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextRecord @ 0x1403D5B40 (KeVerifyContextRecord.c)
  * Callees:
- *     RtlGetImageBaseAndLoadConfig @ 0x140463C24 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlVerifyUserUnwindTarget @ 0x140A12F3C (RtlVerifyUserUnwindTarget.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x14045A364 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlVerifyUserUnwindTarget @ 0x140A0B69C (RtlVerifyUserUnwindTarget.c)
  */
 
 __int64 __fastcall KiVerifyContextIpForUserCet(__int64 a1, __int64 a2, unsigned int *a3, char a4, unsigned __int64 *a5)
@@ -44,7 +44,7 @@ LABEL_44:
     if ( !v17 )
       return 0LL;
   }
-  if ( !v10 && v8 == qword_140FC6440 )
+  if ( !v10 && v8 == qword_140FC74C0 )
   {
     *a3 = 1;
     v10 = 1;

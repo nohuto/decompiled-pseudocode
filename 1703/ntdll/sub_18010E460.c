@@ -6,17 +6,17 @@
  *     RtlFreeHeap @ 0x1800244A0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_18010E460(unsigned __int64 a1)
+LOGICAL __fastcall sub_18010E460(_QWORD *BaseAddress)
 {
-  unsigned __int64 v1; // r8
-  __int64 result; // rax
+  void *v1; // r8
+  LOGICAL result; // eax
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    v1 = *(_QWORD *)(a1 + 8);
+    v1 = (void *)BaseAddress[1];
     if ( v1 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllHkINLPCWPSTRUCT_A @ 0x180161AF0
+ * XREFs of NtdllHkINLPCWPSTRUCT_A @ 0x18015FEB0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllHkINLPCWPSTRUCT_A()
 {
-  off_1801E71B8();
+  off_1801E61B8();
 }

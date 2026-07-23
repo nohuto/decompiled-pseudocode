@@ -17,33 +17,33 @@
  *     RtlpReadExtendedContext @ 0x1405E7EB4 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall KiRaiseException(void *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+int __fastcall KiRaiseException(void *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   char PreviousMode; // r12
   __int64 v9; // rax
-  __int64 result; // rax
-  unsigned int v11; // ebx
+  int result; // eax
+  ULONG v11; // ebx
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rcx
   void *v14; // rsp
   void *v15; // rsp
   int v16; // edx
   int v17; // ecx
-  __int64 v18; // rsi
+  CONTEXT_CHUNK *p_XState; // rsi
   __int64 v19; // rax
   unsigned int v20; // ebx
   char *v21; // rax
-  struct _EXCEPTION_RECORD *v22; // rcx
+  EXCEPTION_RECORD *v22; // rcx
   struct _KTHREAD *CurrentThread; // rdx
   unsigned __int8 CurrentIrql; // bl
   unsigned __int8 v25; // r9
   struct _KPRCB *CurrentPrcb; // rcx
   __int64 v27; // [rsp+20h] [rbp-10h]
-  unsigned int v28; // [rsp+30h] [rbp+0h] BYREF
-  unsigned int v29; // [rsp+34h] [rbp+4h]
+  ULONG ContextFlags; // [rsp+30h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+34h] [rbp+4h] BYREF
   void *Src; // [rsp+38h] [rbp+8h]
   unsigned int v31; // [rsp+40h] [rbp+10h]
-  __int64 v32; // [rsp+48h] [rbp+18h]
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+18h] BYREF
   _DWORD v33[40]; // [rsp+50h] [rbp+20h] BYREF
 
   Src = a1;
@@ -54,7 +54,7 @@ __int64 __fastcall KiRaiseException(void *a1, __int64 a2, __int64 a3, __int64 a4
 LABEL_18:
     LOBYTE(v27) = PreviousMode;
     KeContextToKframes(a4, a3, a2, *(_DWORD *)(a2 + 48), v27);
-    v22 = (struct _EXCEPTION_RECORD *)Src;
+    v22 = (EXCEPTION_RECORD *)Src;
     *(_DWORD *)Src &= ~0x10000000u;
     KiDispatchException(v22, a3, a4, PreviousMode, a5);
     if ( PreviousMode )
@@ -75,43 +75,43 @@ LABEL_18:
         __writecr8(CurrentIrql);
       }
     }
-    return 0LL;
+    return 0;
   }
   v9 = a2 + 48;
   if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
     v9 = 0x7FFFFFFF0000LL;
-  v28 = *(_DWORD *)v9;
-  result = RtlpSanitizeContextFlags(&v28);
-  if ( (int)result >= 0 )
+  ContextFlags = *(_DWORD *)v9;
+  result = RtlpSanitizeContextFlags(&ContextFlags);
+  if ( result >= 0 )
   {
-    v11 = v28;
-    result = RtlGetExtendedContextLength(v28);
-    if ( (int)result >= 0 )
+    v11 = ContextFlags;
+    result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+    if ( result >= 0 )
     {
-      v12 = v29 + 15LL;
-      if ( v12 <= v29 )
+      v12 = ContextLength + 15LL;
+      if ( v12 <= ContextLength )
         v12 = 0xFFFFFFFFFFFFFF0LL;
       v13 = v12 & 0xFFFFFFFFFFFFFFF0uLL;
       v14 = alloca(v13);
       v15 = alloca(v13);
-      result = RtlInitializeExtendedContext((__int64)&v28, v11);
-      if ( (int)result >= 0 )
+      result = RtlInitializeExtendedContext((PCONTEXT)&ContextFlags, v11, &ContextEx);
+      if ( result >= 0 )
       {
-        v18 = v32 - 1232;
+        p_XState = &ContextEx[-39].XState;
         LOBYTE(v16) = 1;
-        result = RtlpReadExtendedContext(v17, v16, v32, v11, a2, 0LL);
-        if ( (int)result >= 0 )
+        result = RtlpReadExtendedContext(v17, v16, (_DWORD)ContextEx, v11, a2, 0LL);
+        if ( result >= 0 )
         {
-          a2 = v18;
+          a2 = (__int64)p_XState;
           v19 = (__int64)Src + 24;
           if ( (unsigned __int64)Src + 24 >= 0x7FFFFFFF0000LL )
             v19 = 0x7FFFFFFF0000LL;
           v20 = *(_DWORD *)v19;
           v31 = v20;
           if ( v20 > 0xF )
-            return 3221225485LL;
-          v29 = 8 * v20 + 32;
-          v21 = (char *)Src + v29;
+            return -1073741811;
+          ContextLength = 8 * v20 + 32;
+          v21 = (char *)Src + ContextLength;
           if ( (unsigned __int64)v21 > 0x7FFFFFFF0000LL || v21 < Src )
             MEMORY[0x7FFFFFFF0000] = 0;
           memmove(v33, Src, 8 * v20 + 32);

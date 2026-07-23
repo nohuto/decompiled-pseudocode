@@ -125,7 +125,7 @@ void __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 a2, unsigned __
   if ( v8 )
   {
     v23 = *(PVOID *)(a1 + 48);
-    if ( v23 == (PVOID)PsNtosImageBase || v23 == PsHalImageBase )
+    if ( v23 == PsNtosImageBase || v23 == PsHalImageBase )
       _InterlockedExchangeAdd((_DWORD *)&xmmword_1403CB5A0 + 2, v8);
     else
       _InterlockedExchangeAdd((_DWORD *)&xmmword_1403CB5A0 + 3, v8);

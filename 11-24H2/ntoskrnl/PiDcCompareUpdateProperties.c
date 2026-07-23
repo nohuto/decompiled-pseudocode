@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDcCompareUpdateProperties @ 0x140A4A4C0
+ * XREFs of PiDcCompareUpdateProperties @ 0x140A411E0
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 __int64 __fastcall PiDcCompareUpdateProperties(__int64 a1, const void *a2, const void *a3)

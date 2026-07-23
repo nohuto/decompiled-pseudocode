@@ -1,33 +1,33 @@
 /*
- * XREFs of MiAllocatePartitionPhysicalPages @ 0x1407FB6A4
+ * XREFs of MiAllocatePartitionPhysicalPages @ 0x1407FBE14
  * Callers:
- *     MiReleasePartitionHugeIoSpace @ 0x1406717FC (MiReleasePartitionHugeIoSpace.c)
- *     MmManagePartitionMoveMemory @ 0x1407FCEC4 (MmManagePartitionMoveMemory.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x1406729CC (MiReleasePartitionHugeIoSpace.c)
+ *     MmManagePartitionMoveMemory @ 0x1407FD634 (MmManagePartitionMoveMemory.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiZeroLargePage @ 0x140308BDC (MiZeroLargePage.c)
- *     MiInitializeDemandCoalesceContext @ 0x14036EEE0 (MiInitializeDemandCoalesceContext.c)
- *     MiFreeMdlPageRun @ 0x1403A1D8C (MiFreeMdlPageRun.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     MiReleaseNonPagedResourcesNotExposed @ 0x1403A9CCC (MiReleaseNonPagedResourcesNotExposed.c)
- *     MiFindLargeNodePage @ 0x1403D6288 (MiFindLargeNodePage.c)
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
- *     MiGetNextPageColor @ 0x14043D550 (MiGetNextPageColor.c)
- *     MiInitializeFoundLargeNodePage @ 0x1404F869C (MiInitializeFoundLargeNodePage.c)
- *     MiGetHugeBadRangeFromNode @ 0x14066FF88 (MiGetHugeBadRangeFromNode.c)
- *     MiGetHugeRange @ 0x1406700C4 (MiGetHugeRange.c)
- *     MiHugeRangeIsZeroed @ 0x140670B6C (MiHugeRangeIsZeroed.c)
- *     MiHugePageOperation @ 0x140685BC0 (MiHugePageOperation.c)
- *     MiAddMdlToPartitionTree @ 0x140689850 (MiAddMdlToPartitionTree.c)
- *     MiAddRangeToPartitionTree @ 0x14068993C (MiAddRangeToPartitionTree.c)
- *     MiFreePartitionTree @ 0x14068A580 (MiFreePartitionTree.c)
- *     MiInsertHugeRangeInPartition @ 0x14068A658 (MiInsertHugeRangeInPartition.c)
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x1407FC820 (MiUpdatePartitionLargePfnBitMap.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreeMdlPageRun @ 0x1402189BC (MiFreeMdlPageRun.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MiInitializeDemandCoalesceContext @ 0x14026AE60 (MiInitializeDemandCoalesceContext.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiZeroLargePage @ 0x140312ABC (MiZeroLargePage.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
+ *     MiReleaseNonPagedResourcesNotExposed @ 0x14039895C (MiReleaseNonPagedResourcesNotExposed.c)
+ *     MiGetNextPageColor @ 0x1404317F0 (MiGetNextPageColor.c)
+ *     MiFindLargeNodePage @ 0x1404CB09C (MiFindLargeNodePage.c)
+ *     MiInitializeFoundLargeNodePage @ 0x1404F5F7C (MiInitializeFoundLargeNodePage.c)
+ *     MiGetHugeBadRangeFromNode @ 0x140671158 (MiGetHugeBadRangeFromNode.c)
+ *     MiGetHugeRange @ 0x140671294 (MiGetHugeRange.c)
+ *     MiHugeRangeIsZeroed @ 0x140671D3C (MiHugeRangeIsZeroed.c)
+ *     MiHugePageOperation @ 0x140686CF0 (MiHugePageOperation.c)
+ *     MiAddMdlToPartitionTree @ 0x14068A980 (MiAddMdlToPartitionTree.c)
+ *     MiAddRangeToPartitionTree @ 0x14068AA6C (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionTree @ 0x14068B6B0 (MiFreePartitionTree.c)
+ *     MiInsertHugeRangeInPartition @ 0x14068B788 (MiInsertHugeRangeInPartition.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x1407FCF90 (MiUpdatePartitionLargePfnBitMap.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocatePartitionPhysicalPages(ULONG *a1, __int64 a2, unsigned __int64 a3, int a4, __int16 a5)
@@ -130,7 +130,7 @@ __int64 __fastcall MiAllocatePartitionPhysicalPages(ULONG *a1, __int64 a2, unsig
   v55 = v11;
   if ( (a5 & 0x200) == 0 )
   {
-    if ( (int)MiAcquireNonPagedResources(v6, a3, 0LL, 8u) < 0 )
+    if ( (int)MiAcquireNonPagedResources(v6, a3, 0LL, 8LL) < 0 )
       return 3221225626LL;
     v8 = a3;
   }
@@ -139,7 +139,7 @@ __int64 __fastcall MiAllocatePartitionPhysicalPages(ULONG *a1, __int64 a2, unsig
   v65 = a5 & 1;
   if ( (a5 & 1) != 0 )
   {
-    v15 = (unsigned int *)(qword_140E2DAD0 + 4LL * a4 * (unsigned int)(unsigned __int16)KeNumberNodes);
+    v15 = (unsigned int *)(qword_140E2DC10 + 4LL * a4 * (unsigned int)(unsigned __int16)KeNumberNodes);
     v67 = (__int64)&v15[(unsigned __int16)KeNumberNodes];
   }
   else
@@ -210,9 +210,9 @@ LABEL_53:
     else
     {
       v54 = (v5 & 0x580) == 0;
-      for ( j = MiFindLargeNodePage((__int64)v6, v14, v22, v54, v11, 1, (__int64)v71);
+      for ( j = MiFindLargeNodePage((unsigned __int64)v6, v14, v22, v54, v11, 1, (__int64)v71);
             ;
-            j = MiFindLargeNodePage((__int64)v6, *v15, v50, v54, v11, 1, (__int64)v71) )
+            j = MiFindLargeNodePage((unsigned __int64)v6, *v15, v50, v54, v11, 1, (__int64)v71) )
       {
         v59 = j;
         v32 = j;
@@ -240,7 +240,7 @@ LABEL_52:
         if ( (v55 & 1) == 0 )
         {
           if ( v52 )
-            MiZeroLargePage(0LL, v59, v52, 1u, 0);
+            MiZeroLargePage(0LL, v59, v52, 1, 0);
           else
             MiHugePageOperation((__int64)v6, v28);
           IsZeroed = 1;

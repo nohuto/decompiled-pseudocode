@@ -1,14 +1,13 @@
 /*
- * XREFs of ZwSetInformationKey @ 0x1403FD6E0
+ * XREFs of ZwSetInformationKey @ 0x1403FD8C0
  * Callers:
- *     IopApplyMutableTagToRegistryKey @ 0x1406A51CC (IopApplyMutableTagToRegistryKey.c)
- *     CmpDoReDoSetKeyUserFlags @ 0x1408820FC (CmpDoReDoSetKeyUserFlags.c)
- *     CmpDoReDoSetLastWriteTime @ 0x14088216C (CmpDoReDoSetLastWriteTime.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x140602DFC (IopApplyMutableTagToRegistryKey.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x14088225C (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x1408822CC (CmpDoReDoSetLastWriteTime.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationKey(
         HANDLE KeyHandle,
         KEY_SET_INFORMATION_CLASS KeySetInformationClass,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwSetInformationKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&KeySetInformationClass);
+  return KiServiceInternal(KeyHandle);
 }

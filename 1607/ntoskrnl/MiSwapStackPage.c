@@ -1,33 +1,33 @@
 /*
- * XREFs of MiSwapStackPage @ 0x14010BCFC
+ * XREFs of MiSwapStackPage @ 0x140109A7C
  * Callers:
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiClearPfnReuseFields @ 0x140022220 (MiClearPfnReuseFields.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetPteFromCopyList @ 0x140034B80 (MiGetPteFromCopyList.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     KeGenericCallDpc @ 0x1400A04BC (KeGenericCallDpc.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400F0FE0 (KeExpandKernelStackAndCalloutInternal.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     MiSwapStackPageNoDpc @ 0x14010BB54 (MiSwapStackPageNoDpc.c)
- *     MiCanStealKernelStack @ 0x14010C1CC (MiCanStealKernelStack.c)
- *     KeTryToFreezeThreadStack @ 0x1401D2FA4 (KeTryToFreezeThreadStack.c)
- *     MiCopyKstack @ 0x1401E6208 (MiCopyKstack.c)
- *     MiSwitchKstackPages @ 0x1401E680C (MiSwitchKstackPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiLockNestedPageAtDpc @ 0x1401F2B78 (MiLockNestedPageAtDpc.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiClearPfnReuseFields @ 0x140021DA0 (MiClearPfnReuseFields.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetPteFromCopyList @ 0x140034700 (MiGetPteFromCopyList.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     KeGenericCallDpc @ 0x14009EDE4 (KeGenericCallDpc.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400EEE30 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     MiSwapStackPageNoDpc @ 0x1401098D4 (MiSwapStackPageNoDpc.c)
+ *     MiCanStealKernelStack @ 0x140109F4C (MiCanStealKernelStack.c)
+ *     KeTryToFreezeThreadStack @ 0x1401D2DD0 (KeTryToFreezeThreadStack.c)
+ *     MiCopyKstack @ 0x1401E6034 (MiCopyKstack.c)
+ *     MiSwitchKstackPages @ 0x1401E6638 (MiSwitchKstackPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiLockNestedPageAtDpc @ 0x1401F29A4 (MiLockNestedPageAtDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -79,7 +79,7 @@ __int64 __fastcall MiSwapStackPage(__int64 a1, unsigned int *a2, int a3, __int64
 
   CurrentThread = (unsigned __int64)KeGetCurrentThread();
   v48 = CurrentThread;
-  if ( !byte_140327798 )
+  if ( !byte_1403277D8 )
     return 0LL;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x734B694Du);
   if ( !PoolWithTag )
@@ -90,14 +90,14 @@ __int64 __fastcall MiSwapStackPage(__int64 a1, unsigned int *a2, int a3, __int64
     v13 = (*(_QWORD *)(a1 + 40) >> 36) & 3LL;
     v14 = MiPageToNode((a1 + 0x58000000000LL) / 48, 0);
     v10 = 0;
-    v12 = v14 << byte_1403269C9;
-    v11 = dword_1403269F8 & v9 | ((_DWORD)v13 << byte_1403269D8);
+    v12 = v14 << byte_140326A09;
+    v11 = dword_140326A38 & v9 | ((_DWORD)v13 << byte_140326A18);
   }
   else
   {
     v10 = 16;
-    v11 = a3 & ~dword_1403269F8;
-    v12 = dword_1403269F8 & v9;
+    v11 = a3 & ~dword_140326A38;
+    v12 = dword_140326A38 & v9;
   }
   Page = MiGetPage((__int64)MiSystemPartition, v12 | (unsigned int)v11, v10);
   v45 = Page;

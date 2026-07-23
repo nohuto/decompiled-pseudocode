@@ -30,7 +30,7 @@ char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
     }
     return 0;
   }
-  v6 = (char *)ExAllocateFromNPagedLookasideList(&FsRtlSharedLockLookasideList);
+  v6 = (char *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList);
   v7 = v6;
   if ( !v6 )
     return 0;
@@ -40,7 +40,7 @@ char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
   *(_OWORD *)(v6 + 40) = a3[2];
   if ( !(unsigned __int8)FsRtlPrivateInsertSharedLock(a1 + 3, v6) )
   {
-    ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v7);
+    ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, v7);
     return 0;
   }
 LABEL_4:

@@ -9,20 +9,14 @@
  *     sub_1800202C0 @ 0x1800202C0 (sub_1800202C0.c)
  */
 
-_DWORD *__fastcall sub_18000108C(__int64 a1, __int64 a2, __int64 a3)
+_DWORD *__fastcall sub_18000108C(__int64 a1, __int64 a2, void *a3)
 {
   _DWORD *v4; // rdi
   __int64 v5; // rax
-  __int64 v7; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-20h]
-  __int64 v9; // [rsp+30h] [rbp-18h]
 
   v4 = (_DWORD *)((__int64 (*)(void))sub_1800010F0)();
-  v7 = 0LL;
-  v8 = 0LL;
-  v9 = 0LL;
-  v5 = sub_1800202C0(a3, &v7);
-  if ( v5 && *v4 == *(_DWORD *)sub_1800010F0(v5, v8) )
+  v5 = sub_1800202C0(a3);
+  if ( v5 && *v4 == *(_DWORD *)sub_1800010F0(v5, 0LL) )
     return v4;
   else
     return 0LL;

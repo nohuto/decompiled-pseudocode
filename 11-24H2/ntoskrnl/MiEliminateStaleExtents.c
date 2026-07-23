@@ -1,51 +1,52 @@
 /*
- * XREFs of MiEliminateStaleExtents @ 0x14067A858
+ * XREFs of MiEliminateStaleExtents @ 0x14067BA38
  * Callers:
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     MiLockProtoPoolPageForce @ 0x140215A80 (MiLockProtoPoolPageForce.c)
- *     MiUnlockProtoPoolPage @ 0x14028CBF0 (MiUnlockProtoPoolPage.c)
- *     MiLockLeafPage @ 0x1402E8100 (MiLockLeafPage.c)
+ *     MiUnlockProtoPoolPage @ 0x14029C7F0 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPageForce @ 0x140333E20 (MiLockProtoPoolPageForce.c)
+ *     MiLockLeafPage @ 0x140349740 (MiLockLeafPage.c)
  */
 
-void __fastcall MiEliminateStaleExtents(ULONG_PTR a1, __int64 a2, unsigned __int64 a3)
+void __fastcall MiEliminateStaleExtents(ULONG_PTR BugCheckParameter1, __int64 a2, unsigned __int64 a3)
 {
   unsigned int v3; // esi
   __int64 v4; // rdi
   unsigned __int64 v8; // rdx
   __int64 v9; // r8
-  ULONG_PTR v10; // r12
-  __int64 v11; // r14
-  ULONG_PTR v12; // rax
-  unsigned __int8 v13; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v10; // r9
+  __int64 v11; // r12
+  __int64 v12; // r14
+  __int64 v13; // rax
+  unsigned __int8 v14; // [rsp+60h] [rbp+18h] BYREF
 
   if ( a3 )
   {
     v3 = 0;
-    v13 = 17;
+    v14 = 17;
     v4 = 0LL;
     do
     {
-      v10 = MiLockProtoPoolPageForce(a1, &v13);
+      v11 = MiLockProtoPoolPageForce(BugCheckParameter1, &v14);
       do
       {
-        v11 = *(_QWORD *)(a2 + 8 * v4);
-        if ( v11 != 0x8000000000000000uLL )
+        v12 = *(_QWORD *)(a2 + 8 * v4);
+        if ( v12 != 0x8000000000000000uLL )
         {
-          v12 = MiLockLeafPage((unsigned __int64 *)a1, 0);
-          if ( v12 )
+          v13 = MiLockLeafPage((unsigned __int64 *)BugCheckParameter1, 0);
+          if ( v13 )
           {
-            _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            *(_QWORD *)(a2 + 8 * v4) = v11 | 0x4000000000000000LL;
+            _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+            *(_QWORD *)(a2 + 8 * v4) = v12 | 0x4000000000000000LL;
           }
         }
         ++v3;
-        a1 += 8LL;
+        BugCheckParameter1 += 8LL;
         v4 = v3;
       }
-      while ( v3 < a3 && (a1 & 0xFFF) != 0 );
-      LOBYTE(v8) = v13;
-      MiUnlockProtoPoolPage(v10, v8, v9);
+      while ( v3 < a3 && (BugCheckParameter1 & 0xFFF) != 0 );
+      LOBYTE(v8) = v14;
+      MiUnlockProtoPoolPage(v11, v8, v9, v10);
     }
     while ( v3 < a3 );
   }

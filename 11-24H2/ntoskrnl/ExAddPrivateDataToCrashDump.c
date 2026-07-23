@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAddPrivateDataToCrashDump @ 0x140653D7C
+ * XREFs of ExAddPrivateDataToCrashDump @ 0x1406524DC
  * Callers:
- *     IopLiveDumpAddPoolTrackTables @ 0x140597F30 (IopLiveDumpAddPoolTrackTables.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405A03BC (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddPoolTrackTables @ 0x140594EB0 (IopLiveDumpAddPoolTrackTables.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14059D2EC (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall ExAddPrivateDataToCrashDump(__int64 a1)

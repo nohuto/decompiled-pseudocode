@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesInformation @ 0x1408880F8
+ * XREFs of SepCaptureTokenSecurityAttributesInformation @ 0x14088BFA8
  * Callers:
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140887F4C (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
- *     NtCreateTokenEx @ 0x140936AB0 (NtCreateTokenEx.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14088BDFC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     NtCreateTokenEx @ 0x140983E20 (NtCreateTokenEx.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SepCaptureFqbnArray @ 0x140792088 (SepCaptureFqbnArray.c)
- *     SepCaptureOctetStringArray @ 0x1407922BC (SepCaptureOctetStringArray.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     SepCaptureInt64Array @ 0x140888CC4 (SepCaptureInt64Array.c)
- *     SepCaptureUnicodeStringArray @ 0x1408890B0 (SepCaptureUnicodeStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SepCaptureFqbnArray @ 0x140792058 (SepCaptureFqbnArray.c)
+ *     SepCaptureOctetStringArray @ 0x14079228C (SepCaptureOctetStringArray.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     SepCaptureInt64Array @ 0x14088CB74 (SepCaptureInt64Array.c)
+ *     SepCaptureUnicodeStringArray @ 0x14088CF60 (SepCaptureUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
@@ -73,7 +73,7 @@ __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
   P = 0LL;
   if ( !a4 )
     return 3221225659LL;
-  Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x74416553u);
   v11 = Pool2;
   v42 = Pool2;
   if ( !Pool2 )
@@ -109,7 +109,7 @@ __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
     ExFreePoolWithTag(Pool2, 0);
     return (unsigned int)v8;
   }
-  v7 = (PVOID *)ExAllocatePool2(0x100uLL);
+  v7 = (PVOID *)ExAllocatePool2(0x100uLL, (unsigned int)v14, 0x74416553u);
   v41 = v7;
   if ( !v7 )
   {
@@ -141,7 +141,7 @@ __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
       v39 = 0LL;
       goto LABEL_70;
     }
-    v18 = (void *)ExAllocatePool2(0x100uLL);
+    v18 = (void *)ExAllocatePool2(0x100uLL, *(unsigned __int16 *)v40, 0x74416553u);
     v39 = v18;
     if ( !v18 )
     {

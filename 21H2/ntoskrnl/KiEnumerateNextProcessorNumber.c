@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEnumerateNextProcessorNumber @ 0x1402284F0
+ * XREFs of KiEnumerateNextProcessorNumber @ 0x1402CCDF0
  * Callers:
- *     PoExecuteIdleCheck @ 0x140227E50 (PoExecuteIdleCheck.c)
- *     KeGenericProcessorCallback @ 0x1402EB178 (KeGenericProcessorCallback.c)
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
+ *     KeGenericProcessorCallback @ 0x14029C4C8 (KeGenericProcessorCallback.c)
+ *     PoExecuteIdleCheck @ 0x1402CC750 (PoExecuteIdleCheck.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpShrinkMap @ 0x1407E3A08
+ * XREFs of HvpShrinkMap @ 0x1407E3F58
  * Callers:
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpFreeMap @ 0x140A51610 (HvpFreeMap.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpFreeMap @ 0x140A486DC (HvpFreeMap.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
  */
 
-__int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, __int64 a4)
+__int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, unsigned int a4)
 {
   __int64 v4; // rdi
   unsigned int v5; // r10d
@@ -24,11 +24,11 @@ __int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, __int64 a4)
   v4 = a2;
   v5 = a4;
   v7 = a1;
-  if ( !(_DWORD)a4 )
+  if ( !a4 )
   {
     v8 = *(_QWORD *)(632LL * a2 + a1 + 296);
     if ( v8 == *(_QWORD *)(632LL * a2 + v7 + 288) )
-      return guard_dispatch_icall_no_overrides(v8, 12288LL, 632LL * a2, a4);
+      return guard_dispatch_icall_no_overrides(v8, 12288LL);
   }
   v10 = (a2 << 31) + a4;
   while ( v10 < ((_DWORD)v4 << 31) + a3 )

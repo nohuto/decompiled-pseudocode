@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x140593788
+ * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x140593C78
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14058BBFC (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14058C0EC (PopFxStopDeviceAccounting.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1)
@@ -37,9 +37,9 @@ void __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1)
   int v26; // [rsp+C8h] [rbp+3Fh]
   int v27; // [rsp+CCh] [rbp+43h]
 
-  if ( !PopDiagFxAccountingTelemetryDisabled && (unsigned int)dword_140C064D8 > 5 )
+  if ( !PopDiagFxAccountingTelemetryDisabled && (unsigned int)dword_140C06498 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C064D8, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C06498, 0x400000000000LL) )
     {
       v12 = 0;
       v15 = 0;
@@ -63,13 +63,7 @@ void __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1)
       v16 = v3;
       v7 = v4;
       v8 = 0x1000000LL;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C064D8,
-        (unsigned __int8 *)&word_14002F6B6,
-        0LL,
-        0LL,
-        8u,
-        &v9);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C06498, (unsigned __int8 *)byte_14002F2C0, 0LL, 0LL, 8u, &v9);
     }
   }
 }

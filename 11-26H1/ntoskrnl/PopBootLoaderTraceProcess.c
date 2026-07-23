@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBootLoaderTraceProcess @ 0x1407CFAB0
+ * XREFs of PopBootLoaderTraceProcess @ 0x1407D2B50
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     BapdWriteEtwEvents @ 0x1406C9F80 (BapdWriteEtwEvents.c)
- *     BapdRecordFirmwareBootStats @ 0x140C07A44 (BapdRecordFirmwareBootStats.c)
+ *     BapdWriteEtwEvents @ 0x1406CDFBC (BapdWriteEtwEvents.c)
+ *     BapdRecordFirmwareBootStats @ 0x140C0DC54 (BapdRecordFirmwareBootStats.c)
  */
 
 void PopBootLoaderTraceProcess()
@@ -14,8 +14,8 @@ void PopBootLoaderTraceProcess()
   _DWORD *v2; // rax
   unsigned int v3; // r8d
 
-  v0 = qword_140F0FBB0;
-  if ( qword_140F0FBB0 )
+  v0 = qword_140F10470;
+  if ( qword_140F10470 )
   {
     BapdRecordFirmwareBootStats(0LL);
     v1 = *(_QWORD *)(v0 + 232);
@@ -27,7 +27,7 @@ void PopBootLoaderTraceProcess()
         v3 = v2[3];
         if ( v3 )
           BapdWriteEtwEvents(
-            (ULONGLONG)&ExpSysDbgLock.SchedulerApc.Reserved[2],
+            (ULONGLONG)&ExpSysDbgLock.SuspendEvent.Header.WaitListHead.Blink,
             (unsigned __int64)v2 + (unsigned int)v2[2],
             v3);
       }

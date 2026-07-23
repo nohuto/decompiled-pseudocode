@@ -1,10 +1,10 @@
 /*
- * XREFs of KiActivateScb @ 0x140238544
+ * XREFs of KiActivateScb @ 0x140239EA4
  * Callers:
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x140237F74 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     ?KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140238460 (-KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@.c)
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
- *     KiAddThreadToScbQueue @ 0x1404AC16C (KiAddThreadToScbQueue.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1402398D4 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     ?KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140239DC0 (-KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
+ *     KiAddThreadToScbQueue @ 0x1404A57FC (KiAddThreadToScbQueue.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSetBasePriorityThread @ 0x14007ED94
+ * XREFs of KeSetBasePriorityThread @ 0x14007EE14
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
- *     PfTLoggingWorker @ 0x14055B15C (PfTLoggingWorker.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
+ *     PfTLoggingWorker @ 0x14055B69C (PfTLoggingWorker.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x14007EFD8 (KiSetBasePriorityAndClearDecrement.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1400A7AB0 (KiPriQueueThreadPriorityChanged.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D14F4 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiComputeNewPriority @ 0x1400D2410 (KiComputeNewPriority.c)
- *     KiSetPriorityThread @ 0x1400D2BA0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     EtwTracePriority @ 0x140226010 (EtwTracePriority.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14007F058 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1400A6028 (KiPriQueueThreadPriorityChanged.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400CF394 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiComputeNewPriority @ 0x1400D02B0 (KiComputeNewPriority.c)
+ *     KiSetPriorityThread @ 0x1400D0A40 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     EtwTracePriority @ 0x140225E3C (EtwTracePriority.c)
  */
 
 LONG __stdcall KeSetBasePriorityThread(PKTHREAD Thread, LONG Increment)

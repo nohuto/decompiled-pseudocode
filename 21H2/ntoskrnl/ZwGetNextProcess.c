@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwGetNextProcess @ 0x1403FC2A0
+ * XREFs of ZwGetNextProcess @ 0x1403FC480
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetNextProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

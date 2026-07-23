@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmGetHeterogeneousClass @ 0x1400D3FC8
+ * XREFs of PpmGetHeterogeneousClass @ 0x1400D1E68
  * Callers:
- *     PpmPerfApplyDomainState @ 0x1400D40C0 (PpmPerfApplyDomainState.c)
- *     PpmPerfApplyLatencyHint @ 0x140110624 (PpmPerfApplyLatencyHint.c)
- *     PpmPerfCalculateMinMaxStates @ 0x1401441AC (PpmPerfCalculateMinMaxStates.c)
- *     PpmPerfResizeHistoryAll @ 0x14056AC74 (PpmPerfResizeHistoryAll.c)
+ *     PpmPerfApplyDomainState @ 0x1400D1F60 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyLatencyHint @ 0x140110B88 (PpmPerfApplyLatencyHint.c)
+ *     PpmPerfCalculateMinMaxStates @ 0x14014471C (PpmPerfCalculateMinMaxStates.c)
+ *     PpmPerfResizeHistoryAll @ 0x14056B1B4 (PpmPerfResizeHistoryAll.c)
  * Callees:
  *     <none>
  */

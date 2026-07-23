@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGenerateHeteroSets @ 0x14029861C
+ * XREFs of KiGenerateHeteroSets @ 0x14029880C
  * Callers:
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KiCheckPreferredHeteroProcessor @ 0x1400D0CB4 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x14029868C (KiHeteroChooseTargetProcessor.c)
- *     KiSetHeteroPolicyThread @ 0x14029905C (KiSetHeteroPolicyThread.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1400D0D34 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14029887C (KiHeteroChooseTargetProcessor.c)
+ *     KiSetHeteroPolicyThread @ 0x14029924C (KiSetHeteroPolicyThread.c)
  * Callees:
  *     <none>
  */

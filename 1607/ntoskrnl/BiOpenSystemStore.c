@@ -1,24 +1,24 @@
 /*
- * XREFs of BiOpenSystemStore @ 0x14053BF5C
+ * XREFs of BiOpenSystemStore @ 0x14053C49C
  * Callers:
- *     BcdOpenSystemStore @ 0x14053BF2C (BcdOpenSystemStore.c)
+ *     BcdOpenSystemStore @ 0x14053C46C (BcdOpenSystemStore.c)
  * Callees:
- *     BiSetFirmwareModified @ 0x14012DF80 (BiSetFirmwareModified.c)
- *     BiWasFirmwareModified @ 0x14012DFC4 (BiWasFirmwareModified.c)
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     wcstoul @ 0x14014F48C (wcstoul.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     BiSetFirmwareModified @ 0x14012E4F0 (BiSetFirmwareModified.c)
+ *     BiWasFirmwareModified @ 0x14012E534 (BiWasFirmwareModified.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     wcstoul @ 0x14014FA4C (wcstoul.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     BiLoadSystemStore @ 0x14053B5E0 (BiLoadSystemStore.c)
- *     BiCloseStore @ 0x14053B6F4 (BiCloseStore.c)
- *     BiGetFirmwareType @ 0x14053C0EC (BiGetFirmwareType.c)
- *     BiCleanupLoadedStores @ 0x14053C160 (BiCleanupLoadedStores.c)
- *     BiEnumerateSubKeys @ 0x14053C2A0 (BiEnumerateSubKeys.c)
- *     BiOpenKeyNonBcd @ 0x14053C580 (BiOpenKeyNonBcd.c)
- *     BiIsSystemStore @ 0x14053D3D8 (BiIsSystemStore.c)
- *     BiOpenKey @ 0x14053DE4C (BiOpenKey.c)
- *     BiCloseKey @ 0x14053DFCC (BiCloseKey.c)
- *     BiBindEfiNamespaceObjects @ 0x1406D39C0 (BiBindEfiNamespaceObjects.c)
+ *     BiLoadSystemStore @ 0x14053BB20 (BiLoadSystemStore.c)
+ *     BiCloseStore @ 0x14053BC34 (BiCloseStore.c)
+ *     BiGetFirmwareType @ 0x14053C62C (BiGetFirmwareType.c)
+ *     BiCleanupLoadedStores @ 0x14053C6A0 (BiCleanupLoadedStores.c)
+ *     BiEnumerateSubKeys @ 0x14053C7E0 (BiEnumerateSubKeys.c)
+ *     BiOpenKeyNonBcd @ 0x14053CAC0 (BiOpenKeyNonBcd.c)
+ *     BiIsSystemStore @ 0x14053D918 (BiIsSystemStore.c)
+ *     BiOpenKey @ 0x14053E38C (BiOpenKey.c)
+ *     BiCloseKey @ 0x14053E50C (BiCloseKey.c)
+ *     BiBindEfiNamespaceObjects @ 0x1406D3AF8 (BiBindEfiNamespaceObjects.c)
  */
 
 __int64 __fastcall BiOpenSystemStore(_QWORD *a1, unsigned int a2)

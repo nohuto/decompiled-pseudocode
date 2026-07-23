@@ -18,16 +18,17 @@ void __fastcall sub_1800E6C88(ULONG_PTR a1)
 {
   __int64 v2; // rdi
   unsigned int v3; // edx
-  int InformationProcess; // eax
+  int v4; // eax
   __int64 v5; // rdi
-  __int64 (__fastcall *v6)(__int64); // rcx
+  LONG (__cdecl *v6)(PEXCEPTION_POINTERS); // rcx
   int v7; // edi
   signed __int32 v8; // ecx
   int v9; // eax
   _QWORD *v10; // r9
-  int v11; // [rsp+30h] [rbp-5E8h]
+  int ProcessInformation; // [rsp+30h] [rbp-5E8h] BYREF
   _QWORD v12[3]; // [rsp+38h] [rbp-5E0h] BYREF
-  int v13; // [rsp+70h] [rbp-5A8h]
+  _BYTE v13[32]; // [rsp+50h] [rbp-5C8h] BYREF
+  int v14; // [rsp+70h] [rbp-5A8h]
   EXCEPTION_RECORD ExceptionRecord; // [rsp+90h] [rbp-588h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+130h] [rbp-4E8h] BYREF
 
@@ -35,14 +36,14 @@ void __fastcall sub_1800E6C88(ULONG_PTR a1)
   v3 = dword_180166018;
   if ( !dword_180166018 )
   {
-    InformationProcess = ZwQueryInformationProcess();
-    if ( InformationProcess < 0 )
-      RtlRaiseStatus((unsigned int)InformationProcess);
-    v3 = v11;
-    dword_180166018 = v11;
+    v4 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
+    if ( v4 < 0 )
+      RtlRaiseStatus(v4);
+    v3 = ProcessInformation;
+    dword_180166018 = ProcessInformation;
   }
   v5 = __ROR8__(v2, 64 - (v3 & 0x3F));
-  v6 = (__int64 (__fastcall *)(__int64))(v5 ^ v3);
+  v6 = (LONG (__cdecl *)(PEXCEPTION_POINTERS))(v5 ^ v3);
   if ( v3 == v5 )
     v6 = RtlUnhandledExceptionFilter;
   v12[1] = v6;
@@ -64,10 +65,15 @@ void __fastcall sub_1800E6C88(ULONG_PTR a1)
     v12[0] = 0LL;
     if ( !byte_180165430 )
     {
-      if ( (int)ZwQueryInformationProcess() >= 0 && v13 == 1 )
+      if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageInformation, v13, 0x40u, 0LL) >= 0
+        && v14 == 1 )
+      {
         v12[0] = -300000000LL;
+      }
       else
+      {
         v7 = 0;
+      }
       v10 = v12;
       if ( !v7 )
         v10 = 0LL;

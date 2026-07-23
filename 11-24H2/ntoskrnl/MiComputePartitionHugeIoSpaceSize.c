@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputePartitionHugeIoSpaceSize @ 0x14066FB48
+ * XREFs of MiComputePartitionHugeIoSpaceSize @ 0x140670D18
  * Callers:
- *     MiCreatePartitionOffsets @ 0x1407EC4FC (MiCreatePartitionOffsets.c)
+ *     MiCreatePartitionOffsets @ 0x1407ECACC (MiCreatePartitionOffsets.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 MiComputePartitionHugeIoSpaceSize()
 {
-  return 16 * (unsigned __int16)KeNumberNodes * (unsigned __int64)(unsigned int)dword_140E2DBC0[0];
+  return 16 * (unsigned __int16)KeNumberNodes * (unsigned __int64)(unsigned int)dword_140E2DD00[0];
 }

@@ -1,39 +1,39 @@
 /*
- * XREFs of RtlDeleteRegistryValue @ 0x1800B73A0
+ * XREFs of RtlDeleteRegistryValue @ 0x180083C40
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetRegistryHandle @ 0x1800B6868 (RtlpGetRegistryHandle.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwDeleteValueKey @ 0x180163860 (ZwDeleteValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x180083108 (RtlpGetRegistryHandle.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwDeleteValueKey @ 0x180161C20 (ZwDeleteValueKey.c)
  */
 
-__int64 __fastcall RtlDeleteRegistryValue(int a1, const wchar_t *a2, const wchar_t *a3)
+NTSTATUS __cdecl RtlDeleteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   size_t v6; // rax
-  unsigned int v7; // ebx
-  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp+20h] BYREF
+  NTSTATUS v7; // ebx
+  _UNICODE_STRING ValueNamea; // [rsp+20h] [rbp-18h] BYREF
+  HANDLE KeyHandle; // [rsp+58h] [rbp+20h] BYREF
 
-  Handle = 0LL;
-  result = RtlpGetRegistryHandle(a1, a2, 1, (const wchar_t **)&Handle);
-  if ( (int)result >= 0 )
+  KeyHandle = 0LL;
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &KeyHandle);
+  if ( result >= 0 )
   {
-    v8[0] = 0LL;
-    v8[1] = a3;
-    if ( a3 )
+    *(_QWORD *)&ValueNamea.Length = 0LL;
+    ValueNamea.Buffer = (wchar_t *)ValueName;
+    if ( ValueName )
     {
-      v6 = 2 * wcslen(a3);
+      v6 = 2 * wcslen(ValueName);
       if ( v6 >= 0xFFFE )
         LOWORD(v6) = -4;
-      LOWORD(v8[0]) = v6;
-      WORD1(v8[0]) = v6 + 2;
+      ValueNamea.Length = v6;
+      ValueNamea.MaximumLength = v6 + 2;
     }
-    v7 = ZwDeleteValueKey(Handle, v8);
-    if ( (a1 & 0x40000000) == 0 )
-      NtClose(Handle);
+    v7 = ZwDeleteValueKey(KeyHandle, &ValueNamea);
+    if ( (RelativeTo & 0x40000000) == 0 )
+      NtClose(KeyHandle);
     return v7;
   }
   return result;

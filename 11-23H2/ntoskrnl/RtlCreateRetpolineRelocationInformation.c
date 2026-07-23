@@ -5,9 +5,9 @@
  * Callees:
  *     RtlpCopyRetpolineRelocationBlockEntryArray @ 0x14020CE10 (RtlpCopyRetpolineRelocationBlockEntryArray.c)
  *     RtlSizeOfRetpolineRelocationEntry @ 0x14020CEBC (RtlSizeOfRetpolineRelocationEntry.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlSizeOfRetpolineIndirectFixup @ 0x14046FB6A (RtlSizeOfRetpolineIndirectFixup.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlSizeOfRetpolineIndirectFixup @ 0x14046FF6A (RtlSizeOfRetpolineIndirectFixup.c)
  */
 
 __int64 __fastcall RtlCreateRetpolineRelocationInformation(

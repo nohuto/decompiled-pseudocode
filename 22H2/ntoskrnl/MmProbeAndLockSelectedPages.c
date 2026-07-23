@@ -33,7 +33,7 @@ void __stdcall MmProbeAndLockSelectedPages(
   size_t v10; // rbx
   unsigned __int64 *v11; // r12
   unsigned int v12; // r13d
-  signed int v13; // ebx
+  NTSTATUS v13; // ebx
   unsigned __int64 *v14; // r15
   _QWORD *v15; // rsi
   unsigned __int64 v16; // rcx
@@ -54,7 +54,7 @@ void __stdcall MmProbeAndLockSelectedPages(
   {
     Pool = (unsigned __int64 *)MiAllocatePool(64, 8LL * (unsigned int)v9, 0x72506D4Du);
     if ( !Pool )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
   }
   v11 = &Pool[v10];
   v12 = 0;

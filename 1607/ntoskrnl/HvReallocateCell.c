@@ -1,18 +1,18 @@
 /*
- * XREFs of HvReallocateCell @ 0x1403FFDEC
+ * XREFs of HvReallocateCell @ 0x1403FECAC
  * Callers:
- *     CmpAddValueToListEx @ 0x1403FFCDC (CmpAddValueToListEx.c)
- *     CmpSetValueKeyExisting @ 0x1403FFF64 (CmpSetValueKeyExisting.c)
- *     CmpAddToLeaf @ 0x1404B0DF0 (CmpAddToLeaf.c)
- *     CmpRemoveValueFromList @ 0x1404DC880 (CmpRemoveValueFromList.c)
- *     CmpSetValueDataExisting @ 0x1404ECA34 (CmpSetValueDataExisting.c)
- *     CmpSplitLeaf @ 0x14060AFB4 (CmpSplitLeaf.c)
- *     CmRestoreKey @ 0x14060C24C (CmRestoreKey.c)
+ *     CmpAddValueToListEx @ 0x1403FEB9C (CmpAddValueToListEx.c)
+ *     CmpSetValueKeyExisting @ 0x1403FEE24 (CmpSetValueKeyExisting.c)
+ *     CmpAddToLeaf @ 0x14049B1D0 (CmpAddToLeaf.c)
+ *     CmpRemoveValueFromList @ 0x1404BFE84 (CmpRemoveValueFromList.c)
+ *     CmpSetValueDataExisting @ 0x1404CEBA0 (CmpSetValueDataExisting.c)
+ *     CmpSplitLeaf @ 0x14060B068 (CmpSplitLeaf.c)
+ *     CmRestoreKey @ 0x14060C300 (CmRestoreKey.c)
  * Callees:
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     HvpDoAllocateCell @ 0x140401D70 (HvpDoAllocateCell.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     HvpDoAllocateCell @ 0x140400C30 (HvpDoAllocateCell.c)
  */
 
 __int64 __fastcall HvReallocateCell(

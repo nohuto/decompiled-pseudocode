@@ -17,57 +17,57 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  __int64 v6; // rsi
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v8; // rcx
-  __int64 v10; // rcx
-  _BYTE v11[6]; // [rsp+20h] [rbp-38h] BYREF
-  __int16 v12; // [rsp+26h] [rbp-32h]
-  __int64 v13; // [rsp+40h] [rbp-18h]
+  __int64 v3; // rsi
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
+  _RTL_CRITICAL_SECTION *v7; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
+  __int16 v9; // [rsp+26h] [rbp-32h]
+  PVOID v10; // [rsp+40h] [rbp-18h]
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    if ( (*(_BYTE *)(a1 + 20) & 1) == 0 && (*(_WORD *)(a1 + 38))-- == 1 )
+    if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 && (*((_WORD *)HeapHandle + 19))-- == 1 )
     {
-      *(_DWORD *)(a1 + 40) = 0;
-      RtlReleaseSRWLockExclusive(a1 + 48);
-      if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+      *((_DWORD *)HeapHandle + 10) = 0;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 6);
+      if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive(a1 + 88);
-        if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-          RtlReleaseSRWLockExclusive(a1 + 176);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 11);
+        if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 )
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 22);
       }
-      RtlReleaseSRWLockExclusive(a1 + 336);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 42);
     }
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180155458)();
-    if ( !sub_18001F9B0((_DWORD *)a1, "RtlUnlockHeap") )
+    if ( !sub_18001F9B0(HeapHandle, "RtlUnlockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      v10 = *(_QWORD *)(a1 + 352);
-      --*(_WORD *)(a1 + 384);
-      RtlLeaveCriticalSection(v10);
+      v7 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+      --*((_WORD *)HeapHandle + 192);
+      RtlLeaveCriticalSection(v7);
     }
   }
-  v6 = 2147353472LL;
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  v3 = 2147353472LL;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v8 = 2147353472LL;
-  if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    v13 = a1;
-    v12 = 4140;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8, a2, a3, a4) )
-      v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-    ZwTraceEvent(*(unsigned __int8 *)v6, 1026LL, 8LL, v11);
+    v10 = HeapHandle;
+    v9 = 4140;
+    if ( RtlGetCurrentServiceSessionId() )
+      v3 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+    ZwTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x402u, 8u, Fields);
   }
   return 1;
 }

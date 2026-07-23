@@ -1,10 +1,10 @@
 /*
- * XREFs of ConsumerPeekAndConsumeBuffer @ 0x140569F90
+ * XREFs of ConsumerPeekAndConsumeBuffer @ 0x14056AF90
  * Callers:
- *     PopDecompressHiberBlocks @ 0x140569E60 (PopDecompressHiberBlocks.c)
+ *     PopDecompressHiberBlocks @ 0x14056AE60 (PopDecompressHiberBlocks.c)
  * Callees:
- *     PopHiberCheckForDebugBreak @ 0x14056AFF8 (PopHiberCheckForDebugBreak.c)
- *     PopHiberPeekRangeTable @ 0x14057CD74 (PopHiberPeekRangeTable.c)
+ *     PopHiberCheckForDebugBreak @ 0x14056BFF8 (PopHiberCheckForDebugBreak.c)
+ *     PopHiberPeekRangeTable @ 0x14057DD74 (PopHiberPeekRangeTable.c)
  */
 
 unsigned __int64 __fastcall ConsumerPeekAndConsumeBuffer(__int64 a1, unsigned int *a2, char a3, __int64 a4, __int64 a5)

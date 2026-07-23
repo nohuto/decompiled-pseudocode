@@ -1,15 +1,15 @@
 /*
- * XREFs of MiBuildMappedClusterFillMdl @ 0x14040DB58
+ * XREFs of MiBuildMappedClusterFillMdl @ 0x14042AA84
  * Callers:
- *     MiBuildMappedCluster @ 0x14040D8F0 (MiBuildMappedCluster.c)
+ *     MiBuildMappedCluster @ 0x14042A81C (MiBuildMappedCluster.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiReferencePageForModifiedWrite @ 0x1402F4B50 (MiReferencePageForModifiedWrite.c)
- *     MiPteContentsOkToMappedWrite @ 0x14040DDD0 (MiPteContentsOkToMappedWrite.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiReleaseMappedPages @ 0x140502058 (MiReleaseMappedPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402D6BD0 (MiReferencePageForModifiedWrite.c)
+ *     MiPteContentsOkToMappedWrite @ 0x14042ACFC (MiPteContentsOkToMappedWrite.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiReleaseMappedPages @ 0x1404FB928 (MiReleaseMappedPages.c)
  */
 
 unsigned __int64 __fastcall MiBuildMappedClusterFillMdl(unsigned __int64 *a1, __int64 a2)
@@ -64,7 +64,7 @@ LABEL_14:
     result = MiPteContentsOkToMappedWrite(*v5, v8);
     if ( !(_DWORD)result )
       break;
-    v20 = (v10 >> 12) & ((unsigned __int64)qword_140E2D748 >> 12) & 0xFFFFFFFFFFLL;
+    v20 = (v10 >> 12) & ((unsigned __int64)qword_140E2D8C8 >> 12) & 0xFFFFFFFFFFLL;
     v11 = 48 * v20 - 0x220000000000LL;
     v19 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v11 + 24), 0x3FuLL) )

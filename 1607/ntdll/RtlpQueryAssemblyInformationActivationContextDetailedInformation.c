@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DABCC
+ * XREFs of RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DAC8C
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18003DAF0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryInformationActivationContext @ 0x18003DAE0 (RtlQueryInformationActivationContext.c)
  * Callees:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     RtlpLocateActivationContextSectionForQuery @ 0x18007BEB0 (RtlpLocateActivationContextSectionForQuery.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     RtlpLocateActivationContextSectionForQuery @ 0x18007BEA0 (RtlpLocateActivationContextSectionForQuery.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -126,7 +126,7 @@ __int64 __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformat
   else
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
       "RtlpQueryAssemblyInformationActivationContextDetailedInformation",

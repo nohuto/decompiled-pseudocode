@@ -232,10 +232,13 @@ LABEL_39:
           v43 = (unsigned __int8)MiLockPageInline(a2);
           *(_QWORD *)(a2 + 24) &= 0xC000000000000000uLL;
           _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v43 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v43 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -256,10 +259,10 @@ LABEL_39:
           v37 = (unsigned __int8)MiLockPageInline(v36);
           MiRemoveLockedPageChargeAndDecRef(v10[6]);
           _InterlockedAnd64((volatile signed __int64 *)(v10[6] + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v38 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v37 <= 0xFu && v38 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v37 <= 0xFu && v38 >= 2u )
             {
               v39 = KeGetCurrentPrcb();
               v40 = v39->SchedulerAssist;

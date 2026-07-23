@@ -1,17 +1,17 @@
 /*
- * XREFs of CmOpenKeyForBugCheckRecovery @ 0x140A0D0A0
+ * XREFs of CmOpenKeyForBugCheckRecovery @ 0x140A0D350
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmpUnlockKcbStack @ 0x1406D5368 (CmpUnlockKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B6C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmOpenKey @ 0x1406E2A60 (CmOpenKey.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x14070FB48 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     CmpLockKeyBodyIntoMemory @ 0x140A174D8 (CmpLockKeyBodyIntoMemory.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     CmpUnlockKcbStack @ 0x1406D5398 (CmpUnlockKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B9C (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmOpenKey @ 0x1406E2A90 (CmOpenKey.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x14070FD58 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     CmpLockKeyBodyIntoMemory @ 0x140A17788 (CmpLockKeyBodyIntoMemory.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x140AF5160 (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)
  *     CmObReferenceObjectByHandle @ 0x140AF53D0 (CmObReferenceObjectByHandle.c)

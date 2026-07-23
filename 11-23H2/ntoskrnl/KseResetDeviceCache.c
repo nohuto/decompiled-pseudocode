@@ -1,14 +1,14 @@
 /*
- * XREFs of KseResetDeviceCache @ 0x140976AAC
+ * XREFs of KseResetDeviceCache @ 0x140976CAC
  * Callers:
- *     KseQueryDeviceData @ 0x140808000 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x140976900 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x1408082D0 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x140976B00 (KseQueryDeviceDataList.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KsepCacheReset @ 0x14097771C (KsepCacheReset.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KsepCacheReset @ 0x14097791C (KsepCacheReset.c)
  */
 
 __int64 KseResetDeviceCache()

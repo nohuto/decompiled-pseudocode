@@ -1,11 +1,11 @@
 /*
- * XREFs of PrpWriteTraceLoggingEvent @ 0x1406DE09C
+ * XREFs of PrpWriteTraceLoggingEvent @ 0x1406E233C
  * Callers:
- *     PrExtLogToTelemetry @ 0x1406DCD54 (PrExtLogToTelemetry.c)
+ *     PrExtLogToTelemetry @ 0x1406E0FF4 (PrExtLogToTelemetry.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PrpWriteTraceLoggingEvent()
@@ -49,7 +49,7 @@ void PrpWriteTraceLoggingEvent()
   __int64 *v36; // [rsp+140h] [rbp+40h]
   __int64 v37; // [rsp+148h] [rbp+48h]
 
-  if ( (unsigned int)dword_140E097A0 > 5 && tlgKeywordOn((__int64)&dword_140E097A0, 0x800000000000LL) )
+  if ( (unsigned int)dword_140E097C0 > 5 && tlgKeywordOn((__int64)&dword_140E097C0, 0x800000000000LL) )
   {
     v2 = *v0;
     v22 = &v6;
@@ -88,8 +88,8 @@ void PrpWriteTraceLoggingEvent()
     v12 = 0x2000000LL;
     v37 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E097A0,
-      (unsigned __int8 *)word_1400559EA,
+      (__int64)&dword_140E097C0,
+      (unsigned __int8 *)byte_1400569DD,
       0LL,
       0LL,
       0xEu,

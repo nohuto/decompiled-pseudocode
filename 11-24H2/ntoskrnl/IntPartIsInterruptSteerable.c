@@ -1,9 +1,9 @@
 /*
- * XREFs of IntPartIsInterruptSteerable @ 0x1403B80E0
+ * XREFs of IntPartIsInterruptSteerable @ 0x1402B4170
  * Callers:
- *     KeIntSteerGetSteeringMode @ 0x1403B8024 (KeIntSteerGetSteeringMode.c)
+ *     KeIntSteerGetSteeringMode @ 0x1402B40E4 (KeIntSteerGetSteeringMode.c)
  * Callees:
- *     KeQueryInterruptPartitionInformation @ 0x1403B8860 (KeQueryInterruptPartitionInformation.c)
+ *     KeQueryInterruptPartitionInformation @ 0x1402B48F0 (KeQueryInterruptPartitionInformation.c)
  */
 
 __int64 __fastcall IntPartIsInterruptSteerable(__int64 a1, bool *a2)

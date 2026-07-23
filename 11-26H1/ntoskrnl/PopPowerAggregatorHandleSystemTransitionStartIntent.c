@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerAggregatorHandleSystemTransitionStartIntent @ 0x1407D6BC0
+ * XREFs of PopPowerAggregatorHandleSystemTransitionStartIntent @ 0x1407D9D30
  * Callers:
  *     <none>
  * Callees:

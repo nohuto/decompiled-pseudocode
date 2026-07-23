@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRequestFlushTimer @ 0x14024D0B4
+ * XREFs of EtwpRequestFlushTimer @ 0x14027D6C4
  * Callers:
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwpLoggerDpc @ 0x14049A770 (EtwpLoggerDpc.c)
- *     EtwpFlushActiveBuffers @ 0x1409D8040 (EtwpFlushActiveBuffers.c)
- *     EtwpLogger @ 0x1409D88E0 (EtwpLogger.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwpLoggerDpc @ 0x140495190 (EtwpLoggerDpc.c)
+ *     EtwpFlushActiveBuffers @ 0x1409D1730 (EtwpFlushActiveBuffers.c)
+ *     EtwpLogger @ 0x1409D33F0 (EtwpLogger.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
  */
 
 char __fastcall EtwpRequestFlushTimer(__int64 a1, __int64 a2)

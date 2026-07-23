@@ -256,13 +256,13 @@
  *     _RtlpLogHeapFailure@24 @ 0x4B375E3D (_RtlpLogHeapFailure@24.c)
  */
 
-int __stdcall RtlAllocateHeap(int a1, int a2, int a3)
+PVOID __cdecl RtlAllocateHeap(PVOID HeapHandle, ULONG Flags, SIZE_T Size)
 {
-  if ( !a1 )
+  if ( !HeapHandle )
     RtlpLogHeapFailure(0, 0, 0, 0);
-  if ( *(_DWORD *)(a1 + 8) == -571548178 )
-    return RtlpHpAllocWithExceptionProtection(a2);
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
+    return (PVOID)RtlpHpAllocWithExceptionProtection(Flags);
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpTagAllocateHeap(a2);
-  return RtlpAllocateHeapInternal(a2, 0);
+    return (PVOID)RtlpHpTagAllocateHeap(Flags);
+  return (PVOID)RtlpAllocateHeapInternal(HeapHandle, Size, Flags, 0);
 }

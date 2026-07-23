@@ -55,10 +55,10 @@ LABEL_7:
 LABEL_8:
   Timer[2].TimerListEntry.Blink = (struct _LIST_ENTRY *)v6;
   result = KxReleaseSpinLock(p_DueTime);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

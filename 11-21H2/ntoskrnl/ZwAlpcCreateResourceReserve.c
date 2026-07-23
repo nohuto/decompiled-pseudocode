@@ -1,14 +1,19 @@
 /*
  * XREFs of ZwAlpcCreateResourceReserve @ 0x14041C700
  * Callers:
- *     DifZwAlpcCreateResourceReserveWrapper @ 0x14061D320 (DifZwAlpcCreateResourceReserveWrapper.c)
+ *     sub_14061D320 @ 0x14061D320 (sub_14061D320.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreateResourceReserve(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwAlpcCreateResourceReserve(
+        HANDLE PortHandle,
+        ULONG Flags,
+        SIZE_T MessageSize,
+        PALPC_HANDLE ResourceId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(PortHandle, *(_QWORD *)&Flags);
 }

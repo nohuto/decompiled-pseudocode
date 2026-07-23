@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIsLmceSupported @ 0x140380364
+ * XREFs of HalpIsLmceSupported @ 0x140380504
  * Callers:
  *     HalpMcaSetProcessorConfig @ 0x140A8ABB4 (HalpMcaSetProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
  */
 
 bool HalpIsLmceSupported()

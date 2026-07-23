@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwMapUserPhysicalPagesScatter @ 0x140159CE0
+ * XREFs of ZwMapUserPhysicalPagesScatter @ 0x14015A250
  * Callers:
  *     <none>
  * Callees:
@@ -13,5 +13,5 @@ NTSTATUS __stdcall ZwMapUserPhysicalPagesScatter(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(VirtualAddresses, NumberOfPages, UserPfnArray);
+  return KiServiceInternal(VirtualAddresses);
 }

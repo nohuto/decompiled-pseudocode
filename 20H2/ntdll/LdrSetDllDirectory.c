@@ -12,44 +12,42 @@
  *     wcschr @ 0x180091E60 (wcschr.c)
  */
 
-__int64 __fastcall LdrSetDllDirectory(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl LdrSetDllDirectory(PUNICODE_STRING DllDirectory)
 {
-  const wchar_t *v5; // rcx
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  __int64 v9; // rdi
-  __int64 v10; // rbx
-  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
+  wchar_t *Buffer; // rcx
+  void *v3; // rdi
+  void *v4; // rbx
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
 
   if ( (LdrpPolicyBits & 4) == 0 )
-    return 3221225485LL;
-  v5 = *(const wchar_t **)(a1 + 8);
-  if ( v5 )
+    return -1073741811;
+  Buffer = DllDirectory->Buffer;
+  if ( Buffer )
   {
-    if ( !wcschr(v5, 0x3Bu) )
+    if ( !wcschr(Buffer, 0x3Bu) )
     {
-      if ( !RtlCreateUnicodeString((__int64)&v12, *(_WORD **)(a1 + 8)) )
-        return 3221225495LL;
+      if ( !RtlCreateUnicodeString(&DestinationString, DllDirectory->Buffer) )
+        return -1073741801;
       goto LABEL_5;
     }
-    return 3221225485LL;
+    return -1073741811;
   }
-  v12 = 0uLL;
+  *(_QWORD *)&DestinationString.Length = 0LL;
+  DestinationString.Buffer = 0LL;
 LABEL_5:
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpDllDirectoryLock, a2, a3, a4);
-  UnicodeString = (UNICODE_STRING)LdrpDllDirectory;
-  LdrpDllDirectory = v12;
+  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
+  UnicodeString = LdrpDllDirectory;
+  LdrpDllDirectory = DestinationString;
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpCachedPathLock, v6, v7, v8);
-  v9 = RtlpInvalidatePathCache(&RtlpDllSearchPath);
-  v10 = RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
+  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+  v3 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPath);
+  v4 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
   RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   RtlFreeAnsiString(&UnicodeString);
-  if ( v9 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
-  if ( v10 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
-  return 1LL;
+  if ( v3 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+  if ( v4 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
+  return 1;
 }

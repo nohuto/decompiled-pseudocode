@@ -26,21 +26,20 @@ char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULO
   ULONG_PTR v11; // r9
   ULONG_PTR v12; // r9
   unsigned __int8 v13; // r15
-  __int64 v14; // rax
+  PRTL_BALANCED_NODE v14; // rax
   __int64 v15; // rdx
   char v16; // bp
-  __int64 v17; // r8
-  _QWORD *v18; // r8
-  _QWORD *v19; // rdx
-  __int64 v20; // rdx
-  _QWORD *v22; // rcx
-  _QWORD *v23; // rdx
-  __int64 v24; // rdx
+  _QWORD *v17; // r8
+  _QWORD *v18; // rdx
+  __int64 v19; // rdx
+  _QWORD *v21; // rcx
+  _QWORD *v22; // rdx
+  __int64 v23; // rdx
   __int64 FastOwnerEntryForThread; // rax
-  ULONG_PTR *v26; // rcx
-  __int64 v27; // rax
+  ULONG_PTR *v25; // rcx
+  __int64 v26; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-68h] BYREF
-  _QWORD v29[5]; // [rsp+48h] [rbp-50h] BYREF
+  _QWORD v28[5]; // [rsp+48h] [rbp-50h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v7 = 0LL;
@@ -72,38 +71,38 @@ char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULO
     FastOwnerEntryForThread = ExpFindFastOwnerEntryForThread(CurrentThread, BugCheckParameter2, 0LL, 0LL);
     if ( FastOwnerEntryForThread )
     {
-      v26 = *(ULONG_PTR **)(FastOwnerEntryForThread + 48);
-      v27 = FastOwnerEntryForThread + 40;
-      if ( *v26 != v27 )
+      v25 = *(ULONG_PTR **)(FastOwnerEntryForThread + 48);
+      v26 = FastOwnerEntryForThread + 40;
+      if ( *v25 != v26 )
         __fastfail(3u);
-      *(_QWORD *)a2 = v27;
+      *(_QWORD *)a2 = v26;
       v16 = 1;
-      *(_QWORD *)(a2 + 8) = v26;
-      *v26 = a2;
-      *(_QWORD *)(v27 + 8) = a2;
+      *(_QWORD *)(a2 + 8) = v25;
+      *v25 = a2;
+      *(_QWORD *)(v26 + 8) = a2;
       goto LABEL_14;
     }
   }
   v14 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
   v7 = (_KLOCK_ENTRY *)v14;
   if ( v14 )
-    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (*(_BYTE *)(v14 + 24) - 50)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (LOBYTE(v14[1].Children[0]) - 50)) / 96)) | 1;
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
   v16 = ExpTryAcquireResourceExclusive(BugCheckParameter2);
   if ( v16 )
   {
-    v18 = *(_QWORD **)(BugCheckParameter2 + 56);
-    v19 = (_QWORD *)(a2 + 56);
-    if ( *v18 != BugCheckParameter2 + 48 )
+    v17 = *(_QWORD **)(BugCheckParameter2 + 56);
+    v18 = (_QWORD *)(a2 + 56);
+    if ( *v17 != BugCheckParameter2 + 48 )
       __fastfail(3u);
-    *v19 = BugCheckParameter2 + 48;
-    *(_QWORD *)(a2 + 64) = v18;
-    *v18 = v19;
-    *(_QWORD *)(BugCheckParameter2 + 56) = v19;
+    *v18 = BugCheckParameter2 + 48;
+    *(_QWORD *)(a2 + 64) = v17;
+    *v17 = v18;
+    *(_QWORD *)(BugCheckParameter2 + 56) = v18;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    ExpAddFastOwnerEntryToThreadList(CurrentThread, v20, 0LL, a2);
+    ExpAddFastOwnerEntryToThreadList(CurrentThread, v19, 0LL, a2);
     goto LABEL_14;
   }
   if ( !a3 )
@@ -117,24 +116,24 @@ LABEL_14:
     goto LABEL_15;
   }
   if ( v7 )
-    KeAbPreWait((__int64)v7, v15, v17);
-  v22 = *(_QWORD **)(BugCheckParameter2 + 56);
-  v23 = (_QWORD *)(a2 + 56);
-  if ( *v22 != BugCheckParameter2 + 48 )
+    KeAbPreWait((__int64)v7, v15);
+  v21 = *(_QWORD **)(BugCheckParameter2 + 56);
+  v22 = (_QWORD *)(a2 + 56);
+  if ( *v21 != BugCheckParameter2 + 48 )
     __fastfail(3u);
-  *(_QWORD *)(a2 + 64) = v22;
-  *v23 = BugCheckParameter2 + 48;
-  *v22 = v23;
-  *(_QWORD *)(BugCheckParameter2 + 56) = v23;
+  *(_QWORD *)(a2 + 64) = v21;
+  *v22 = BugCheckParameter2 + 48;
+  *v21 = v22;
+  *(_QWORD *)(BugCheckParameter2 + 56) = v22;
   *(_BYTE *)(a2 + 19) = 1;
-  ExpPrepareToWaitForResourceExclusive(BugCheckParameter2, v29);
+  ExpPrepareToWaitForResourceExclusive(BugCheckParameter2, v28);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  ExpAddFastOwnerEntryToThreadList(CurrentThread, v24, 0LL, a2);
+  ExpAddFastOwnerEntryToThreadList(CurrentThread, v23, 0LL, a2);
   __writecr8(v13);
-  ExpWaitForResource((_DWORD *)BugCheckParameter2, (__int64)v29, 0x10224u, 0LL);
+  ExpWaitForResource((_DWORD *)BugCheckParameter2, (__int64)v28, 0x10224u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v7 )
-    KeAbPreAcquire(BugCheckParameter2, (__int64)v7, 0LL);
+    KeAbPreAcquire(BugCheckParameter2, &v7->TreeNode, 0);
   v16 = 1;
 LABEL_15:
   if ( v7 )

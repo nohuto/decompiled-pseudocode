@@ -9,7 +9,7 @@
 void __cdecl _splitpath(const char *FullPath, char *Drive, char *Dir, char *Filename, char *Ext)
 {
   splitpath_helper(
-    (char *)FullPath,
+    FullPath,
     Drive,
     Drive != 0 ? 3 : 0,
     Dir,

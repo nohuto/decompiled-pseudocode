@@ -14,9 +14,17 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
 {
   __int64 result; // rax
   int v3; // eax
-  __int64 v4; // r8
-  int v5; // eax
+  void *v4; // r8
+  void *v5; // rcx
+  void *v6; // rcx
+  void *v7; // rcx
+  void *v8; // rcx
+  void *v9; // rcx
+  void *v10; // rcx
+  int v11; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
   result = PssNtValidateDescriptor(a1, retaddr);
   if ( (int)result >= 0 )
@@ -24,10 +32,10 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
     v3 = *(_DWORD *)(a1 + 4);
     if ( (v3 & 2) != 0 )
     {
-      v4 = *(_QWORD *)(a1 + 904);
+      v4 = *(void **)(a1 + 904);
       if ( v4 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
         v3 = *(_DWORD *)(a1 + 4);
         *(_QWORD *)(a1 + 904) = 0LL;
       }
@@ -35,51 +43,63 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
     }
     else if ( (v3 & 4) != 0 && *(_QWORD *)(a1 + 904) )
     {
-      ZwFreeVirtualMemory();
+      BaseAddress = *(PVOID *)(a1 + 904);
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
       *(_DWORD *)(a1 + 4) &= ~4u;
       *(_QWORD *)(a1 + 904) = 0LL;
     }
-    if ( *(_QWORD *)(a1 + 1008) )
+    v5 = *(void **)(a1 + 1008);
+    if ( v5 )
     {
-      ZwClose();
+      ZwClose(v5);
       *(_QWORD *)(a1 + 1008) = 0LL;
     }
-    if ( *(_QWORD *)(a1 + 976) )
+    v6 = *(void **)(a1 + 976);
+    if ( v6 )
     {
-      ZwClose();
+      ZwClose(v6);
       *(_QWORD *)(a1 + 976) = 0LL;
     }
-    if ( *(_QWORD *)(a1 + 920) )
+    v7 = *(void **)(a1 + 920);
+    if ( v7 )
     {
-      ZwClose();
+      ZwClose(v7);
       *(_QWORD *)(a1 + 920) = 0LL;
     }
-    if ( *(_QWORD *)(a1 + 944) )
+    v8 = *(void **)(a1 + 944);
+    if ( v8 )
     {
-      ZwClose();
+      ZwClose(v8);
       *(_QWORD *)(a1 + 944) = 0LL;
     }
-    if ( *(_QWORD *)(a1 + 896) )
+    v9 = *(void **)(a1 + 896);
+    if ( v9 )
     {
-      ZwClose();
+      ZwClose(v9);
       *(_QWORD *)(a1 + 896) = 0LL;
     }
-    if ( *(_QWORD *)(a1 + 872) )
+    v10 = *(void **)(a1 + 872);
+    if ( v10 )
     {
-      ZwClose();
+      ZwClose(v10);
       *(_QWORD *)(a1 + 872) = 0LL;
     }
-    v5 = *(_DWORD *)(a1 + 4);
-    if ( (v5 & 0x10) != 0 )
+    v11 = *(_DWORD *)(a1 + 4);
+    if ( (v11 & 0x10) != 0 )
     {
-      ZwClose();
+      ZwClose(*(HANDLE *)(a1 + 1128));
       *(_DWORD *)(a1 + 4) &= ~0x10u;
-      v5 = *(_DWORD *)(a1 + 4);
+      v11 = *(_DWORD *)(a1 + 4);
       *(_QWORD *)(a1 + 1128) = 0LL;
       *(_DWORD *)(a1 + 1136) = 0;
     }
-    if ( (v5 & 1) != 0 )
-      ZwFreeVirtualMemory();
+    if ( (v11 & 1) != 0 )
+    {
+      BaseAddress = (PVOID)a1;
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    }
     return 0LL;
   }
   return result;

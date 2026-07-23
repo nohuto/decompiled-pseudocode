@@ -1,30 +1,30 @@
 /*
- * XREFs of MiAddWorkingSetEntries @ 0x1402EBAC0
+ * XREFs of MiAddWorkingSetEntries @ 0x1402CDB00
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x1402D6770 (MiCompletePrivateZeroFault.c)
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiCompleteProtoPteFault @ 0x1402D8E50 (MiCompleteProtoPteFault.c)
- *     MiUnlockSystemVa @ 0x1402E5200 (MiUnlockSystemVa.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x1402E5EA0 (MiEmptyDeferredWorkingSetEntries.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiReleaseCachedPageLocks @ 0x1402E9F30 (MiReleaseCachedPageLocks.c)
- *     MiQueueCoreWorkingSetEntries @ 0x1402EA360 (MiQueueCoreWorkingSetEntries.c)
- *     MiPerformFaultClusterMaintenance @ 0x1402EB0D0 (MiPerformFaultClusterMaintenance.c)
- *     MiUnlockFaultPageTable @ 0x1402EB810 (MiUnlockFaultPageTable.c)
- *     MiReleaseFaultState @ 0x14038DD90 (MiReleaseFaultState.c)
+ *     MiCompletePrivateZeroFault @ 0x1402B8530 (MiCompletePrivateZeroFault.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiCompleteProtoPteFault @ 0x1402BAC10 (MiCompleteProtoPteFault.c)
+ *     MiUnlockSystemVa @ 0x1402C7240 (MiUnlockSystemVa.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402C7EE0 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiReleaseCachedPageLocks @ 0x1402CBF70 (MiReleaseCachedPageLocks.c)
+ *     MiQueueCoreWorkingSetEntries @ 0x1402CC3A0 (MiQueueCoreWorkingSetEntries.c)
+ *     MiPerformFaultClusterMaintenance @ 0x1402CD110 (MiPerformFaultClusterMaintenance.c)
+ *     MiUnlockFaultPageTable @ 0x1402CD850 (MiUnlockFaultPageTable.c)
+ *     MiReleaseFaultState @ 0x14038FB40 (MiReleaseFaultState.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiRebuildPageTableAges @ 0x14029E1F0 (MiRebuildPageTableAges.c)
- *     MiInsertActivePageTableLinksTail @ 0x1402EC620 (MiInsertActivePageTableLinksTail.c)
- *     MiRemoveActivePageTableLinks @ 0x1402EC880 (MiRemoveActivePageTableLinks.c)
- *     MiComputeHardTrimSize @ 0x1402ED1E8 (MiComputeHardTrimSize.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiGetAvailablePagesForTrimPass @ 0x1403B9C08 (MiGetAvailablePagesForTrimPass.c)
- *     MiIsDriverPage @ 0x1404BD140 (MiIsDriverPage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiRebuildPageTableAges @ 0x14029D740 (MiRebuildPageTableAges.c)
+ *     MiInsertActivePageTableLinksTail @ 0x1402CE660 (MiInsertActivePageTableLinksTail.c)
+ *     MiRemoveActivePageTableLinks @ 0x1402CE8C0 (MiRemoveActivePageTableLinks.c)
+ *     MiComputeHardTrimSize @ 0x1402CF228 (MiComputeHardTrimSize.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiGetAvailablePagesForTrimPass @ 0x1403C3B08 (MiGetAvailablePagesForTrimPass.c)
+ *     MiIsDriverPage @ 0x1404B6920 (MiIsDriverPage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
@@ -118,25 +118,25 @@ char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned
   v6 = a2;
   _InterlockedAdd((volatile signed __int32 *)(a1 + 4), a3);
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-    _InterlockedAdd(&dword_140E37880, a3);
+    _InterlockedAdd(&dword_140E37A00, a3);
   v8 = 1;
-  if ( !dword_140E360C0 )
+  if ( !dword_140E36240 )
   {
     v81 = *(_DWORD *)(a1 + 184) & 0xF;
     if ( v81 )
-      dword_140E360C0 = v81 <= 4u;
+      dword_140E36240 = v81 <= 4u;
   }
   __addgsdword(0x2E90u, a3);
   if ( a2 < 0xFFFFF68000000000uLL || a2 > 0xFFFFF6FFFFFFFFFFuLL )
     v9 = a3;
   else
     v9 = 0LL;
-  v10 = (volatile signed __int32 *)&unk_140E37840;
+  v10 = (volatile signed __int32 *)&unk_140E379C0;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-    i = (unsigned __int64)&unk_140E37840;
+    i = (unsigned __int64)&unk_140E379C0;
   else
     i = a1 + 256;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw((const void *)i);
     v12 = *(_DWORD *)i & 0x7FFFFFFF;
@@ -179,17 +179,17 @@ char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned
   }
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
   {
-    _InterlockedAdd64(&qword_140E37888, v5);
+    _InterlockedAdd64(&qword_140E37A08, v5);
     if ( v9 )
     {
-      v17 = qword_140E37898;
-      i = v9 + _InterlockedExchangeAdd64(&qword_140E37890, v9);
-      if ( i > qword_140E37898 )
+      v17 = qword_140E37A18;
+      i = v9 + _InterlockedExchangeAdd64(&qword_140E37A10, v9);
+      if ( i > qword_140E37A18 )
       {
         do
         {
           v74 = v17;
-          v17 = _InterlockedCompareExchange64(&qword_140E37898, i, v17);
+          v17 = _InterlockedCompareExchange64(&qword_140E37A18, i, v17);
         }
         while ( v74 != v17 && i > v17 );
       }
@@ -204,7 +204,7 @@ char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned
   v18 = *(_DWORD *)(a1 + 184);
   if ( (v18 & 0xF) != 0 )
   {
-    v70 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+    v70 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
     v71 = *(_QWORD *)(v70 + 7616) + *(_QWORD *)(a1 + 152);
     i = v70 + 8LL * ((*(_DWORD *)(a1 + 184) & 0xFu) - 1);
     v72 = *(_QWORD *)(i + 7624);
@@ -220,14 +220,15 @@ char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned
     if ( (v18 & 0xF) == 3 )
     {
       if ( PsNtosImageBase
-        && (v6 < PsNtosImageEnd && v6 >= PsNtosImageBase || v6 >= PsHalImageBase && v6 < PsHalImageEnd) )
+        && (v6 < PsNtosImageEnd && v6 >= (unsigned __int64)PsNtosImageBase
+         || v6 >= (unsigned __int64)PsHalImageBase && v6 < PsHalImageEnd) )
       {
-        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[72], v5);
+        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[72], v5);
       }
       else if ( (unsigned int)MiGetSystemRegionType(v6) == 11
              && MiIsDriverPage(((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 1LL) )
       {
-        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[76], v5);
+        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[76], v5);
       }
     }
   }
@@ -241,7 +242,7 @@ char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned
   if ( v20 > v21 )
   {
     i = *(unsigned __int16 *)(a1 + 174);
-    v22 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * i);
+    v22 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * i);
     v23 = *(_QWORD *)(v22 + 22288);
     if ( v5 && ((v20 ^ (v5 + v20)) & 0xFFFFFFFFFFFFFFC0uLL) == 0 )
     {
@@ -252,7 +253,7 @@ char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned
     else
     {
       v24 = 0;
-      AvailablePagesForTrimPass = MiGetAvailablePagesForTrimPass(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * i));
+      AvailablePagesForTrimPass = MiGetAvailablePagesForTrimPass(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * i));
       if ( AvailablePagesForTrimPass < v23 >> 4 && AvailablePagesForTrimPass < 0x800000 )
         v24 = v25 >= v23 >> 4;
       v27 = v25 - v21;
@@ -293,7 +294,7 @@ LABEL_52:
       goto LABEL_53;
     }
 LABEL_36:
-    i = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+    i = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
     v32 = *(_QWORD *)(i + 18400);
     if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 )
     {
@@ -528,21 +529,21 @@ LABEL_73:
       _InterlockedAdd64((volatile signed __int64 *)(a1 + 8LL * v46 + 56), v49);
       if ( v46 != 7 )
         break;
-      v65 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+      v65 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
       if ( *(_QWORD *)(a1 + 112) >= *(_QWORD *)(v65 + 21216) )
         _InterlockedCompareExchange((volatile signed __int32 *)(v65 + 21392), 5, 0);
     }
   }
   while ( v46 );
-  v10 = (volatile signed __int32 *)&unk_140E37840;
+  v10 = (volatile signed __int32 *)&unk_140E379C0;
 LABEL_76:
   result = *(_DWORD *)(a1 + 184) & 0xF;
   if ( result != 1 )
     v10 = (volatile signed __int32 *)(a1 + 256);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
-    result = stru_140F11D08.WaitStatus;
-    if ( !LODWORD(stru_140F11D08.WaitStatus) )
+    result = PopHibernateInProgress;
+    if ( !PopHibernateInProgress )
       return ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v10, retaddr);
   }
   _InterlockedAnd(v10, 0xBFFFFFFF);

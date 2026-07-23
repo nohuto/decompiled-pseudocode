@@ -1,43 +1,44 @@
 /*
- * XREFs of NtQueryMultipleValueKey @ 0x1409790C0
+ * XREFs of NtQueryMultipleValueKey @ 0x1409618D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
- *     CmQueryMultipleValueKey @ 0x14086C850 (CmQueryMultipleValueKey.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14090CE40 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpCaptureKeyValueArray @ 0x140979750 (CmpCaptureKeyValueArray.c)
- *     CmpBounceContextCleanup @ 0x14097A1D0 (CmpBounceContextCleanup.c)
- *     CmpBounceContextStart @ 0x14097A220 (CmpBounceContextStart.c)
- *     CmObReferenceObjectByHandle @ 0x140BB9350 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
+ *     CmQueryMultipleValueKey @ 0x140870B80 (CmQueryMultipleValueKey.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1408E4560 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpCaptureKeyValueArray @ 0x140961F60 (CmpCaptureKeyValueArray.c)
+ *     CmpBounceContextCleanup @ 0x1409629E0 (CmpBounceContextCleanup.c)
+ *     CmpBounceContextStart @ 0x140962A30 (CmpBounceContextStart.c)
+ *     CmObReferenceObjectByHandle @ 0x140BBB350 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtQueryMultipleValueKey(
-        int a1,
-        volatile void *a2,
-        unsigned int a3,
-        volatile void *a4,
-        unsigned int *a5,
-        _DWORD *a6)
+NTSTATUS __cdecl NtQueryMultipleValueKey(
+        HANDLE KeyHandle,
+        PKEY_VALUE_ENTRY ValueEntries,
+        ULONG EntryCount,
+        PVOID ValueBuffer,
+        PULONG BufferLength,
+        PULONG RequiredBufferLength)
 {
   __int64 v6; // r14
+  int v8; // edi
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
@@ -46,9 +47,9 @@ __int64 __fastcall NtQueryMultipleValueKey(
   __int64 i; // r8
   int v15; // r9d
   unsigned int PreviousMode; // r15d
-  int v17; // edi
+  NTSTATUS v17; // edi
   __int64 v18; // rdi
-  __int64 v19; // rax
+  PULONG v19; // rax
   struct _KTHREAD *CurrentThread; // rax
   int v21; // eax
   __int64 v22; // rcx
@@ -56,9 +57,9 @@ __int64 __fastcall NtQueryMultipleValueKey(
   __int64 v25; // rcx
   char v26; // [rsp+40h] [rbp-218h]
   char v27; // [rsp+41h] [rbp-217h]
-  unsigned int Length; // [rsp+44h] [rbp-214h] BYREF
+  ULONG Length; // [rsp+44h] [rbp-214h] BYREF
   char Length_4; // [rsp+48h] [rbp-210h]
-  unsigned int v30; // [rsp+50h] [rbp-208h]
+  ULONG v30; // [rsp+50h] [rbp-208h]
   __int128 Object; // [rsp+58h] [rbp-200h] BYREF
   unsigned int v32[2]; // [rsp+68h] [rbp-1F0h] BYREF
   volatile void *Address; // [rsp+70h] [rbp-1E8h]
@@ -74,11 +75,12 @@ __int64 __fastcall NtQueryMultipleValueKey(
   __int64 v43; // [rsp+F0h] [rbp-168h]
   _KAFFINITY_EX v44; // [rsp+F8h] [rbp-160h] BYREF
 
-  Address = a4;
-  v6 = a3;
-  v35[2] = a2;
-  v30 = a3;
-  v35[3] = a5;
+  Address = ValueBuffer;
+  v6 = EntryCount;
+  v8 = (int)KeyHandle;
+  v35[2] = ValueEntries;
+  v30 = EntryCount;
+  v35[3] = BufferLength;
   memset(&v44, 0, 24);
   Length = 0;
   v32[0] = 0;
@@ -106,7 +108,7 @@ __int64 __fastcall NtQueryMultipleValueKey(
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(v15) = PreviousMode;
-  v17 = CmObReferenceObjectByHandle(a1, 1, i, v15, (__int64)&Object, 0LL);
+  v17 = CmObReferenceObjectByHandle(v8, 1, i, v15, (__int64)&Object, 0LL);
   if ( v17 >= 0 )
   {
     if ( CmpTraceRoutine && (_QWORD)Object )
@@ -114,27 +116,27 @@ __int64 __fastcall NtQueryMultipleValueKey(
     if ( (_BYTE)PreviousMode == 1 )
     {
       v18 = 0x7FFFFFFF0000LL;
-      v19 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v19 = (__int64)a5;
-      Length = *(_DWORD *)v19;
+      v19 = (PULONG)0x7FFFFFFF0000LL;
+      if ( (unsigned __int64)BufferLength < 0x7FFFFFFF0000LL )
+        v19 = BufferLength;
+      Length = *v19;
       if ( (unsigned int)v6 > 0x10000 )
         RtlRaiseStatus(-1073741670);
-      ProbeForWrite(a2, 24 * v6, 4u);
-      if ( a6 )
+      ProbeForWrite(ValueEntries, 24 * v6, 4u);
+      if ( RequiredBufferLength )
       {
-        if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-          v18 = (__int64)a6;
+        if ( (unsigned __int64)RequiredBufferLength < 0x7FFFFFFF0000LL )
+          v18 = (__int64)RequiredBufferLength;
         *(_DWORD *)v18 = *(_DWORD *)v18;
       }
       ProbeForWrite(Address, Length, 4u);
     }
     else
     {
-      Length = *a5;
+      Length = *BufferLength;
     }
     LOBYTE(i) = PreviousMode;
-    v17 = CmpCaptureKeyValueArray((_DWORD)a2, v6, i, (unsigned int)&Object + 8, (__int64)&v37, (__int64)&v38);
+    v17 = CmpCaptureKeyValueArray((_DWORD)ValueEntries, v6, i, (unsigned int)&Object + 8, (__int64)&v37, (__int64)&v38);
     if ( v17 >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
@@ -159,8 +161,8 @@ LABEL_22:
                     &Length,
                     v32);
             CmpDetachFromRegistryProcess(&v44.StaticBitmap[16]);
-            if ( a6 )
-              *a6 = v32[0];
+            if ( RequiredBufferLength )
+              *RequiredBufferLength = v32[0];
             if ( (int)(v17 + 0x80000000) < 0 || v17 == -2147483643 )
             {
               i = Length;
@@ -176,7 +178,7 @@ LABEL_22:
       LODWORD(v44.StaticBitmap[4]) = v6;
       v44.StaticBitmap[5] = (unsigned __int64)Address;
       v44.StaticBitmap[6] = (unsigned __int64)&Length;
-      v44.StaticBitmap[7] = (unsigned __int64)a6;
+      v44.StaticBitmap[7] = (unsigned __int64)RequiredBufferLength;
       v21 = CmpCallCallBacksEx(9u, (__int64)&v44.StaticBitmap[2], 0LL, 1, 0x18u, Object, (__int64)v35);
       if ( v21 >= 0 )
       {
@@ -204,7 +206,7 @@ LABEL_30:
   }
   if ( *((_QWORD *)&Object + 1) )
   {
-    *a5 = Length;
+    *BufferLength = Length;
     if ( ((v17 + 0x80000000) & 0x80000000) != 0 || v17 == -2147483643 )
     {
       for ( i = 0LL; ; i = (unsigned int)(i + 1) )
@@ -214,9 +216,9 @@ LABEL_30:
           break;
         v13 = 3 * i;
         v24 = *((_QWORD *)&Object + 1);
-        *((_DWORD *)a2 + 2 * v13 + 2) = *(_DWORD *)(*((_QWORD *)&Object + 1) + 24 * i + 8);
-        *((_DWORD *)a2 + 2 * v13 + 3) = *(_DWORD *)(v24 + 24 * i + 12);
-        *((_DWORD *)a2 + 2 * v13 + 4) = *(_DWORD *)(v24 + 24 * i + 16);
+        *(&ValueEntries->DataLength + 2 * v13) = *(_DWORD *)(*((_QWORD *)&Object + 1) + 24 * i + 8);
+        *(&ValueEntries->DataOffset + 2 * v13) = *(_DWORD *)(v24 + 24 * i + 12);
+        *(&ValueEntries->Type + 2 * v13) = *(_DWORD *)(v24 + 24 * i + 16);
       }
     }
   }
@@ -229,7 +231,7 @@ LABEL_30:
   {
     v25 = v36;
     LOBYTE(v25) = 19;
-    guard_dispatch_icall_no_overrides(v25, &v44.StaticBitmap[12], (unsigned int)v17, (unsigned int)v6);
+    guard_dispatch_icall_no_overrides(v25, &v44.StaticBitmap[12]);
   }
   if ( Length_4 )
     CmpReleaseShutdownRundown(v22);
@@ -240,5 +242,5 @@ LABEL_30:
   if ( v38 )
     CmSiFreeMemory(v38);
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v44);
-  return (unsigned int)v17;
+  return v17;
 }

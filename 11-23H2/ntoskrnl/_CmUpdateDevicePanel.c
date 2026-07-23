@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmUpdateDevicePanel @ 0x140798CFC
+ * XREFs of _CmUpdateDevicePanel @ 0x140798EEC
  * Callers:
- *     PiUpdateDevicePanel @ 0x140798C40 (PiUpdateDevicePanel.c)
+ *     PiUpdateDevicePanel @ 0x140798E30 (PiUpdateDevicePanel.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
- *     _CmQueryDevicePanelPldProperty @ 0x1407997F8 (_CmQueryDevicePanelPldProperty.c)
- *     _CmIsRootDevice @ 0x14079A498 (_CmIsRootDevice.c)
- *     _CmGetParentDeviceContainerId @ 0x1408607B4 (_CmGetParentDeviceContainerId.c)
- *     _CmBuildDevicePanelId @ 0x140862D28 (_CmBuildDevicePanelId.c)
- *     _CmGetDevicePanelGroup @ 0x140864544 (_CmGetDevicePanelGroup.c)
- *     _CmAddPanelDevice @ 0x140A6585C (_CmAddPanelDevice.c)
- *     _CmCreateDevicePanel @ 0x140A65B58 (_CmCreateDevicePanel.c)
- *     _CmRemovePanelDevice @ 0x140A66BC0 (_CmRemovePanelDevice.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x1407999E8 (_CmQueryDevicePanelPldProperty.c)
+ *     _CmIsRootDevice @ 0x14079A688 (_CmIsRootDevice.c)
+ *     _CmGetParentDeviceContainerId @ 0x1408609F4 (_CmGetParentDeviceContainerId.c)
+ *     _CmBuildDevicePanelId @ 0x140862F68 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x140864784 (_CmGetDevicePanelGroup.c)
+ *     _CmAddPanelDevice @ 0x140A65B0C (_CmAddPanelDevice.c)
+ *     _CmCreateDevicePanel @ 0x140A65E08 (_CmCreateDevicePanel.c)
+ *     _CmRemovePanelDevice @ 0x140A66E70 (_CmRemovePanelDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -160,7 +160,7 @@ LABEL_105:
   DevicePanelGroup = CmGetDevicePanelGroup(v4, 0LL);
   v23 = 0;
   if ( ((v4[2] >> 3) & 7) != 7 )
-    v23 = dword_140021220[(v4[2] >> 3) & 7];
+    v23 = dword_1400212A0[(v4[2] >> 3) & 7];
   v62 = v23;
   Pool2 = ExAllocatePool2(256LL, 114LL, 1380994640LL);
   v5 = (wchar_t *)Pool2;
@@ -641,7 +641,7 @@ LABEL_51:
   v19 = 0;
   v20 = (v4[2] >> 10) & 0xF;
   if ( (unsigned int)v20 < 9 )
-    v19 = dword_140021240[v20];
+    v19 = dword_1400212C0[v20];
   v52 = v19;
   ParentDeviceContainerId = PnpSetObjectProperty(
                               v3,
@@ -727,7 +727,7 @@ LABEL_58:
     v33 = 0LL;
     v34 = (*(_DWORD *)(v32 + 8) >> 3) & 7;
     if ( (unsigned int)v34 < 7 )
-      v33 = (unsigned int)dword_140021220[v34];
+      v33 = (unsigned int)dword_1400212A0[v34];
     v62 = v33;
     if ( !v5 )
     {
@@ -1047,7 +1047,7 @@ LABEL_231:
     v39 = 0;
     v40 = (*v15 >> 5) & 0xF;
     if ( v40 < 5 )
-      v39 = dword_14004D078[v40];
+      v39 = dword_14004D130[v40];
     v52 = v39;
     ParentDeviceContainerId = PnpSetObjectProperty(
                                 v3,
@@ -1065,7 +1065,7 @@ LABEL_231:
     v41 = 0;
     v42 = (*v15 >> 9) & 7;
     if ( (unsigned int)v42 < 5 )
-      v41 = dword_14004D060[v42];
+      v41 = dword_14004D118[v42];
     v52 = v41;
     ParentDeviceContainerId = PnpSetObjectProperty(
                                 v3,
@@ -1090,7 +1090,7 @@ LABEL_231:
     }
     v44 = 0LL;
     if ( ((*v15 >> 20) & 7) != 7 )
-      v44 = (unsigned int)dword_140021220[(*v15 >> 20) & 7];
+      v44 = (unsigned int)dword_1400212A0[(*v15 >> 20) & 7];
     v52 = v44;
     ParentDeviceContainerId = CmBuildDevicePanelId(&v74, (unsigned __int8)(*v15 >> 12), v44, v43);
     if ( ParentDeviceContainerId < 0 )
@@ -1115,7 +1115,7 @@ LABEL_231:
     v46 = 0;
     v47 = (*v15 >> 23) & 7;
     if ( (unsigned int)v47 < 5 )
-      v46 = dword_14004D060[v47];
+      v46 = dword_14004D118[v47];
     v52 = v46;
     ParentDeviceContainerId = PnpSetObjectProperty(
                                 v3,
@@ -1269,7 +1269,7 @@ LABEL_231:
                                 0);
     if ( ParentDeviceContainerId < 0 )
       goto LABEL_27;
-    v52 = dword_14004D058[(unsigned __int64)(unsigned int)*v15 >> 31];
+    v52 = dword_14004D148[(unsigned __int64)(unsigned int)*v15 >> 31];
     ParentDeviceContainerId = PnpSetObjectProperty(
                                 v3,
                                 (__int64)v5,

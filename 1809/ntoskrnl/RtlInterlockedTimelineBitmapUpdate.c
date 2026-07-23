@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInterlockedTimelineBitmapUpdate @ 0x14008F9B0
+ * XREFs of RtlInterlockedTimelineBitmapUpdate @ 0x14008F8D0
  * Callers:
- *     PsUpdateComponentPower @ 0x14008F910 (PsUpdateComponentPower.c)
+ *     PsUpdateComponentPower @ 0x14008F830 (PsUpdateComponentPower.c)
  * Callees:
  *     <none>
  */

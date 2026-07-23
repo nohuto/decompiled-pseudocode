@@ -1,38 +1,35 @@
 /*
- * XREFs of TpWaitForTimer @ 0x180068120
+ * XREFs of TpWaitForTimer @ 0x180088570
  * Callers:
- *     RtlDeleteTimer @ 0x180067850 (RtlDeleteTimer.c)
+ *     RtlDeleteTimer @ 0x180087CA0 (RtlDeleteTimer.c)
  * Callees:
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     TppCancelTimer @ 0x1800686D0 (TppCancelTimer.c)
- *     TppETWCallbackCancel @ 0x18010DD60 (TppETWCallbackCancel.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     TppCancelTimer @ 0x180088B20 (TppCancelTimer.c)
+ *     TppETWCallbackCancel @ 0x18010D8B0 (TppETWCallbackCancel.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall TpWaitForTimer(__int64 a1, __int64 a2)
+void __cdecl TpWaitForTimer(PTP_TIMER Timer, LOGICAL CancelPendingCallbacks)
 {
-  int v2; // edi
-  int v4; // eax
+  volatile int Flags; // eax
   char v5; // bp
   char v6; // si
-  __int64 v7; // rdx
+  _TP_POOL *Pool; // rdx
   __int64 v8; // r8
-  unsigned __int32 v9; // eax
+  unsigned __int32 Exchange; // eax
   unsigned __int32 v10; // edi
-  __int64 v11; // rdx
   _DWORD *SharedData; // rcx
-  __int64 v13; // rcx
-  unsigned __int32 v14; // ett
+  __int64 v12; // rcx
+  unsigned __int32 v13; // ett
 
-  v2 = a2;
-  if ( !a1
-    || *(_BYTE *)(a1 + 353)
-    || (v4 = *(_DWORD *)(a1 + 168), (v4 & 0x10000) != 0)
-    || (v4 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppTimerpCleanupGroupMemberVFuncs
+  if ( !Timer
+    || Timer->WaitTimer
+    || (Flags = Timer->Work.CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)(PVOID))Timer->Work.CleanupGroupMember.VFuncs != &TppTimerpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
@@ -42,60 +39,60 @@ void __fastcall TpWaitForTimer(__int64 a1, __int64 a2)
   {
     v5 = 0;
     v6 = 0;
-    if ( (_DWORD)a2 )
+    if ( CancelPendingCallbacks )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240), a2);
-      v7 = *(_QWORD *)(a1 + 144);
+      RtlAcquireSRWLockExclusive(&Timer->Lock);
+      Pool = Timer->Work.CleanupGroupMember.Pool;
       LOBYTE(v8) = 1;
-      ++*(_BYTE *)(a1 + 355);
-      v6 = TppCancelTimer(a1, v7 + 112, v8);
-      if ( *(_DWORD *)(a1 + 56) )
+      ++Timer->BlockInsert;
+      v6 = TppCancelTimer(Timer, &Pool->TimerQueue, v8);
+      if ( Timer->Work.CleanupGroupMember.CallbackBarrier.Ptr.0 )
         v5 = 1;
       else
-        --*(_BYTE *)(a1 + 355);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+        --Timer->BlockInsert;
+      RtlReleaseSRWLockExclusive(&Timer->Lock);
     }
-    _m_prefetchw((const void *)(a1 + 232));
-    v9 = *(_DWORD *)(a1 + 232);
-    if ( v2 )
+    _m_prefetchw((const void *)&Timer->Work.WorkState);
+    Exchange = Timer->Work.WorkState.Exchange;
+    if ( CancelPendingCallbacks )
     {
       while ( 1 )
       {
-        v10 = v9 >> 1;
-        if ( !(v9 >> 1) )
+        v10 = Exchange >> 1;
+        if ( !(Exchange >> 1) )
           break;
-        v14 = v9;
-        v9 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 232), v9 & 1, v9);
-        if ( v14 == v9 )
+        v13 = Exchange;
+        Exchange = _InterlockedCompareExchange(&Timer->Work.WorkState.Exchange, Exchange & 1, Exchange);
+        if ( v13 == Exchange )
           goto LABEL_14;
       }
     }
     v10 = 0;
 LABEL_14:
-    TppBarrierAdjust((signed __int64 *)(a1 + 56), -v10, 1);
+    TppBarrierAdjust((_RTL_SRWLOCK *)&Timer->Work.CleanupGroupMember.CallbackBarrier, -v10, 1);
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
-      v13 = (__int64)NtCurrentPeb()->SharedData + 556;
+      v12 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v13 = 2147353478LL;
-    if ( *(_BYTE *)v13 && v10 )
+      v12 = 2147353478LL;
+    if ( *(_BYTE *)v12 && v10 )
       TppETWCallbackCancel(
-        *(_QWORD *)(a1 + 144),
-        a1 + 200,
-        *(_QWORD *)(a1 + 80),
-        *(_QWORD *)(a1 + 88),
-        *(_QWORD *)(a1 + 104),
+        Timer->Work.CleanupGroupMember.Pool,
+        (_DWORD)Timer + 200,
+        Timer->Work.CleanupGroupMember.Callback,
+        Timer->Work.CleanupGroupMember.Context,
+        (__int64)Timer->Work.CleanupGroupMember.SubProcessTag,
         v10);
     if ( v5 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240), v11);
-      --*(_BYTE *)(a1 + 355);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+      RtlAcquireSRWLockExclusive(&Timer->Lock);
+      --Timer->BlockInsert;
+      RtlReleaseSRWLockExclusive(&Timer->Lock);
     }
     if ( v6 )
     {
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
-        (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
+      if ( _InterlockedExchangeAdd(&Timer->Work.CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
+        Timer->Work.CleanupGroupMember.VFuncs->Free(&Timer->Work.CleanupGroupMember);
     }
   }
 }

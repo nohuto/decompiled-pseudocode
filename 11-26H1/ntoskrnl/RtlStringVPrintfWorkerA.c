@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringVPrintfWorkerA @ 0x1405769A8
+ * XREFs of RtlStringVPrintfWorkerA @ 0x140578E58
  * Callers:
- *     RtlStringCbPrintfA @ 0x140576648 (RtlStringCbPrintfA.c)
- *     RtlStringCbPrintfExA @ 0x14057669C (RtlStringCbPrintfExA.c)
+ *     RtlStringCbPrintfA @ 0x140578AF8 (RtlStringCbPrintfA.c)
+ *     RtlStringCbPrintfExA @ 0x140578B4C (RtlStringCbPrintfExA.c)
  * Callees:
- *     _vsnprintf @ 0x1405354D0 (_vsnprintf.c)
+ *     _vsnprintf @ 0x140537950 (_vsnprintf.c)
  */
 
 NTSTATUS __stdcall RtlStringVPrintfWorkerA(

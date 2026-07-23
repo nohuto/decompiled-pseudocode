@@ -1,31 +1,32 @@
 /*
- * XREFs of KeRegisterBugCheckReasonCallback @ 0x14024D7A0
+ * XREFs of KeRegisterBugCheckReasonCallback @ 0x14024F100
  * Callers:
- *     SmHpBufferProtectEx @ 0x14024CCB0 (SmHpBufferProtectEx.c)
- *     SmHpChunkUnprotect @ 0x14024D5B0 (SmHpChunkUnprotect.c)
- *     SmPrepareForFatalHeapCorruption @ 0x14024F434 (SmPrepareForFatalHeapCorruption.c)
- *     HvlPhase1Initialize @ 0x1405B89CC (HvlPhase1Initialize.c)
- *     HvlpInitializeHvCrashdump @ 0x1405C0B08 (HvlpInitializeHvCrashdump.c)
- *     CarInit @ 0x140649ADC (CarInit.c)
- *     IopInitializeBugCheckDriverData @ 0x140793560 (IopInitializeBugCheckDriverData.c)
- *     IopInitializeTriageDumpData @ 0x140793B40 (IopInitializeTriageDumpData.c)
- *     PspCriticalProcessDeathInfoCollect @ 0x1407FAC80 (PspCriticalProcessDeathInfoCollect.c)
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
- *     SmGlobalsStart @ 0x140C7F428 (SmGlobalsStart.c)
- *     HalpEfiInitialization @ 0x140CAEEE0 (HalpEfiInitialization.c)
- *     HalpMiscInitDiscard @ 0x140CAF9F0 (HalpMiscInitDiscard.c)
- *     PopRecorderInit @ 0x140CD52A4 (PopRecorderInit.c)
- *     PopWatchdogInit @ 0x140CD5E24 (PopWatchdogInit.c)
- *     PopBSDiagInitialize @ 0x140CD5F20 (PopBSDiagInitialize.c)
- *     PspIumInitialize @ 0x140CD913C (PspIumInitialize.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     SmHpBufferProtectEx @ 0x14024E610 (SmHpBufferProtectEx.c)
+ *     SmHpChunkUnprotect @ 0x14024EF10 (SmHpChunkUnprotect.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x140250D94 (SmPrepareForFatalHeapCorruption.c)
+ *     HvlPhase1Initialize @ 0x1405BB23C (HvlPhase1Initialize.c)
+ *     HvlpInitializeHvCrashdump @ 0x1405C3378 (HvlpInitializeHvCrashdump.c)
+ *     CarInit @ 0x14064D6BC (CarInit.c)
+ *     IopInitializeBugCheckDriverData @ 0x140796090 (IopInitializeBugCheckDriverData.c)
+ *     IopInitializeTriageDumpData @ 0x140796670 (IopInitializeTriageDumpData.c)
+ *     PspCriticalProcessDeathInfoCollect @ 0x1408006B0 (PspCriticalProcessDeathInfoCollect.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
+ *     SmGlobalsStart @ 0x140C85428 (SmGlobalsStart.c)
+ *     HalpEfiInitialization @ 0x140CB4F20 (HalpEfiInitialization.c)
+ *     HalpMiscInitDiscard @ 0x140CB5A30 (HalpMiscInitDiscard.c)
+ *     PopRecorderInit @ 0x140CDB644 (PopRecorderInit.c)
+ *     PopWatchdogInit @ 0x140CDC178 (PopWatchdogInit.c)
+ *     PopBSDiagInitialize @ 0x140CDC274 (PopBSDiagInitialize.c)
+ *     PspIumInitialize @ 0x140CDF4BC (PspIumInitialize.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
+ *     CmFcInitSystem1 @ 0x140CF3E50 (CmFcInitSystem1.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x1404A5E10 (KiCheckForDuplicateBugCheckCallback.c)
- *     KiRegisterBugcheckRecoveryCallback @ 0x1404F8014 (KiRegisterBugcheckRecoveryCallback.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x14049F4A0 (KiCheckForDuplicateBugCheckCallback.c)
+ *     KiRegisterBugcheckRecoveryCallback @ 0x1404F1624 (KiRegisterBugcheckRecoveryCallback.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
@@ -38,9 +39,9 @@ BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
   PKBUGCHECK_REASON_CALLBACK_RECORD v7; // rbx
   BOOLEAN v8; // si
   unsigned __int8 CurrentIrql; // bp
-  __int64 *v11; // rdi
-  struct _LIST_ENTRY *v12; // rax
-  struct _LIST_ENTRY *v13; // rax
+  struct _LIST_ENTRY *p_Blink; // rdi
+  struct _LIST_ENTRY *Flink; // rax
+  struct _LIST_ENTRY *Blink; // rax
 
   v5 = Reason;
   v7 = CallbackRecord;
@@ -53,12 +54,15 @@ BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
     LOBYTE(CallbackRecord) = CurrentIrql;
     KiRaiseIrqlProcessIrqlFlags(CallbackRecord, 15LL);
   }
-  KxAcquireSpinLock(&KeBugCheckCallbackLock);
+  KxAcquireSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Blink);
   if ( v7->State )
     goto LABEL_6;
-  if ( (_DWORD)v5 == 4 || (v11 = (__int64 *)&KeBugCheckReasonCallbackListHead, (_DWORD)v5 == 6) )
-    v11 = &KeBugCheckAddRemovePagesCallbackListHead;
-  if ( (unsigned __int8)KiCheckForDuplicateBugCheckCallback(v11, v7) )
+  if ( (_DWORD)v5 == 4
+    || (p_Blink = (struct _LIST_ENTRY *)&KiSupervisorXStateFeaturesLock.QuantumTarget, (_DWORD)v5 == 6) )
+  {
+    p_Blink = (struct _LIST_ENTRY *)&KiSupervisorXStateFeaturesLock.Header.WaitListHead.Blink;
+  }
+  if ( (unsigned __int8)KiCheckForDuplicateBugCheckCallback(p_Blink, v7) )
   {
 LABEL_6:
     v8 = 0;
@@ -73,27 +77,27 @@ LABEL_6:
     KiRegisterBugcheckRecoveryCallback(v7);
     if ( (_DWORD)v5 == 7 )
     {
-      v13 = (struct _LIST_ENTRY *)v11[1];
-      if ( (__int64 *)v13->Flink != v11 )
+      Blink = p_Blink->Blink;
+      if ( Blink->Flink != p_Blink )
 LABEL_16:
         __fastfail(3u);
-      v7->Entry.Flink = (struct _LIST_ENTRY *)v11;
-      v7->Entry.Blink = v13;
-      v13->Flink = &v7->Entry;
-      v11[1] = (__int64)v7;
+      v7->Entry.Flink = p_Blink;
+      v7->Entry.Blink = Blink;
+      Blink->Flink = &v7->Entry;
+      p_Blink->Blink = &v7->Entry;
     }
     else
     {
-      v12 = (struct _LIST_ENTRY *)*v11;
-      if ( *(__int64 **)(*v11 + 8) != v11 )
+      Flink = p_Blink->Flink;
+      if ( p_Blink->Flink->Blink != p_Blink )
         goto LABEL_16;
-      v7->Entry.Flink = v12;
-      v7->Entry.Blink = (struct _LIST_ENTRY *)v11;
-      v12->Blink = &v7->Entry;
-      *v11 = (__int64)v7;
+      v7->Entry.Flink = Flink;
+      v7->Entry.Blink = p_Blink;
+      Flink->Blink = &v7->Entry;
+      p_Blink->Flink = &v7->Entry;
     }
   }
-  KxReleaseSpinLock(&KeBugCheckCallbackLock);
+  KxReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Blink);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);

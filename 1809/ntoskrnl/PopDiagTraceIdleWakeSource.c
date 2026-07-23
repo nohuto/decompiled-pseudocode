@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceIdleWakeSource @ 0x1402E15AC
+ * XREFs of PopDiagTraceIdleWakeSource @ 0x1402E179C
  * Callers:
  *     PpmExitCoordinatedIdle @ 0x14005F330 (PpmExitCoordinatedIdle.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1400FE8C0 (KeGetCurrentProcessorNumberEx.c)
- *     PopDiagAreIdenticalWakeSources @ 0x1402DF568 (PopDiagAreIdenticalWakeSources.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1400FE940 (KeGetCurrentProcessorNumberEx.c)
+ *     PopDiagAreIdenticalWakeSources @ 0x1402DF758 (PopDiagAreIdenticalWakeSources.c)
  */
 
 __int64 __fastcall PopDiagTraceIdleWakeSource(int a1, unsigned __int64 a2, int a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall PopDiagTraceIdleWakeSource(int a1, unsigned __int64 a2, int a
   result = MEMORY[0xFFFFF78000000008];
   if ( PopDiagGlobalIdleWakeAccounting && a1 == PpmDripsStateIndex && a3 >= 0 )
   {
-    v8 = &unk_1404110A8;
+    v8 = &unk_140412068;
     if ( a3 > 4 )
     {
       if ( a3 == 6 && *(_BYTE *)a4 == 3 )
@@ -46,7 +46,7 @@ __int64 __fastcall PopDiagTraceIdleWakeSource(int a1, unsigned __int64 a2, int a
         RtlStringCbCopyW((NTSTRSAFE_PWSTR)(a4 + 2), 0x80uLL, v12);
       }
       v13 = 0;
-      v14 = (int *)&unk_1404111F8;
+      v14 = (int *)&unk_1404121B8;
       v15 = 5;
       while ( 1 )
       {
@@ -76,14 +76,14 @@ __int64 __fastcall PopDiagTraceIdleWakeSource(int a1, unsigned __int64 a2, int a
       *((_OWORD *)v14 + 9) = *(_OWORD *)(a4 + 112);
       *((_QWORD *)v14 + 20) = *(_QWORD *)(a4 + 128);
 LABEL_23:
-      v16 = (char *)&unk_1404110A8;
+      v16 = (char *)&unk_140412068;
       if ( v13 )
         v16 = v9;
       v9 = v16;
     }
     else
     {
-      v9 = (char *)&unk_140410B68 + 336 * a3;
+      v9 = (char *)&unk_140411B28 + 336 * a3;
     }
 LABEL_26:
     if ( v9 )

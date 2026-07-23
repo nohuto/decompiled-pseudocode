@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFailDeviceNode @ 0x1401319A0
+ * XREFs of VfFailDeviceNode @ 0x140131F10
  * Callers:
  *     <none>
  * Callees:
- *     VfIsVerificationEnabled @ 0x1401319D0 (VfIsVerificationEnabled.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VfIsVerificationEnabled @ 0x140131F40 (VfIsVerificationEnabled.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfFailDeviceNode(__int64 a1, int a2, int a3)

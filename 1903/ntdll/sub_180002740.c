@@ -14,7 +14,7 @@
  *     wcsstr @ 0x1800925B0 (wcsstr.c)
  */
 
-ULONG __fastcall sub_180002740(const wchar_t **a1, volatile signed __int32 *a2, UNICODE_STRING *a3)
+ULONG __fastcall sub_180002740(const wchar_t **a1, volatile signed __int32 *a2, _UNICODE_STRING *a3)
 {
   wchar_t *v6; // rsi
   NTSTATUS v8; // ecx

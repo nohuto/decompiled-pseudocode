@@ -1,10 +1,10 @@
 /*
- * XREFs of TppDestroyTimer @ 0x18003B578
+ * XREFs of TppDestroyTimer @ 0x18003B568
  * Callers:
- *     TppTimerpFree @ 0x18003A540 (TppTimerpFree.c)
- *     TppFreeWait @ 0x180064E00 (TppFreeWait.c)
+ *     TppTimerpFree @ 0x18003A530 (TppTimerpFree.c)
+ *     TppFreeWait @ 0x180064DF0 (TppFreeWait.c)
  * Callees:
- *     TpAdjustBindingCount @ 0x18003D308 (TpAdjustBindingCount.c)
+ *     TpAdjustBindingCount @ 0x18003D2F8 (TpAdjustBindingCount.c)
  */
 
 __int64 __fastcall TppDestroyTimer(__int64 a1)

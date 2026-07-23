@@ -1,11 +1,11 @@
 /*
- * XREFs of iswspace @ 0x1403D2850
+ * XREFs of iswspace @ 0x1403D29C0
  * Callers:
- *     GetNextNoneWhiteSpace @ 0x140927488 (GetNextNoneWhiteSpace.c)
- *     LocalGetConditionForString @ 0x140927EF4 (LocalGetConditionForString.c)
- *     LocalGetRelativeAttributeForString @ 0x1409285E0 (LocalGetRelativeAttributeForString.c)
+ *     GetNextNoneWhiteSpace @ 0x1409275E8 (GetNextNoneWhiteSpace.c)
+ *     LocalGetConditionForString @ 0x140928054 (LocalGetConditionForString.c)
+ *     LocalGetRelativeAttributeForString @ 0x140928740 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     iswctype @ 0x1403D496C (iswctype.c)
+ *     iswctype @ 0x1403D4ADC (iswctype.c)
  */
 
 int __cdecl iswspace(wint_t C)

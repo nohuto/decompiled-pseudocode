@@ -1,31 +1,31 @@
 /*
- * XREFs of VfHandlePoolAlloc @ 0x140AD0FE0
+ * XREFs of VfHandlePoolAlloc @ 0x140AD0FD0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     IovAllocateMdl @ 0x140AC0DE0 (IovAllocateMdl.c)
- *     IovAllocateWorkItem @ 0x140AC0F20 (IovAllocateWorkItem.c)
- *     ViIrpAllocateLockedPacket @ 0x140ACDC94 (ViIrpAllocateLockedPacket.c)
- *     VfSpIoSetCompletionRoutineEx_Exit @ 0x140AE86A0 (VfSpIoSetCompletionRoutineEx_Exit.c)
- *     ViSpRtlReplaceStringBuffer @ 0x140AE87A4 (ViSpRtlReplaceStringBuffer.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     IovAllocateMdl @ 0x140AC0DD0 (IovAllocateMdl.c)
+ *     IovAllocateWorkItem @ 0x140AC0F10 (IovAllocateWorkItem.c)
+ *     ViIrpAllocateLockedPacket @ 0x140ACDC84 (ViIrpAllocateLockedPacket.c)
+ *     VfSpIoSetCompletionRoutineEx_Exit @ 0x140AE8690 (VfSpIoSetCompletionRoutineEx_Exit.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140AE8794 (ViSpRtlReplaceStringBuffer.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithTagPriority @ 0x14034EA00 (ExAllocatePoolWithTagPriority.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     ViGrowPoolAllocation @ 0x1405CFBD0 (ViGrowPoolAllocation.c)
- *     ExIsSpecialPoolAddress @ 0x14060F088 (ExIsSpecialPoolAddress.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14034EBA0 (ExAllocatePoolWithTagPriority.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     ViGrowPoolAllocation @ 0x1405D0140 (ViGrowPoolAllocation.c)
+ *     ExIsSpecialPoolAddress @ 0x14060F5D8 (ExIsSpecialPoolAddress.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     ExpPoolFlagsToPoolType @ 0x140AAEB60 (ExpPoolFlagsToPoolType.c)
- *     VfTargetDriversGetVerifierData @ 0x140ACB558 (VfTargetDriversGetVerifierData.c)
- *     ViTargetIncrementCounter @ 0x140ACBC0C (ViTargetIncrementCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViPostPoolAllocation @ 0x140AD1638 (ViPostPoolAllocation.c)
- *     VfFaultsInjectPoolAllocationFailure @ 0x140AD5EF8 (VfFaultsInjectPoolAllocationFailure.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140AD6118 (VfFaultsIsSystemSufficientlyBooted.c)
- *     VfFillAllocatedMemory @ 0x140ADA03C (VfFillAllocatedMemory.c)
- *     ViPtLogStackTrace @ 0x140ADF08C (ViPtLogStackTrace.c)
- *     ExAllocatePoolSanityChecks @ 0x140AE7CAC (ExAllocatePoolSanityChecks.c)
+ *     VfTargetDriversGetVerifierData @ 0x140ACB548 (VfTargetDriversGetVerifierData.c)
+ *     ViTargetIncrementCounter @ 0x140ACBBFC (ViTargetIncrementCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViPostPoolAllocation @ 0x140AD1628 (ViPostPoolAllocation.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x140AD5EE8 (VfFaultsInjectPoolAllocationFailure.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140AD6108 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     VfFillAllocatedMemory @ 0x140ADA02C (VfFillAllocatedMemory.c)
+ *     ViPtLogStackTrace @ 0x140ADF07C (ViPtLogStackTrace.c)
+ *     ExAllocatePoolSanityChecks @ 0x140AE7C9C (ExAllocatePoolSanityChecks.c)
  */
 
 PVOID __fastcall VfHandlePoolAlloc(
@@ -40,7 +40,7 @@ PVOID __fastcall VfHandlePoolAlloc(
 {
   __int64 v10; // rbx
   POOL_TYPE v11; // esi
-  union _SLIST_HEADER *VerifierData; // r15
+  _SLIST_HEADER *VerifierData; // r15
   __int64 v13; // rcx
   unsigned int v14; // r8d
   ULONG_PTR v15; // rdx
@@ -103,7 +103,7 @@ LABEL_4:
     else
     {
       LODWORD(NumberOfBytes) = 1;
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
       if ( !VerifierData )
       {
         v14 = a4;
@@ -139,7 +139,7 @@ LABEL_4:
     if ( !(_DWORD)NumberOfBytes )
     {
       LODWORD(NumberOfBytes) = 1;
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(v17);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(v17);
     }
     if ( VerifierData )
     {
@@ -176,7 +176,7 @@ LABEL_28:
     && (_DWORD)v19 != 1316118851 )
   {
     if ( !(_DWORD)NumberOfBytes )
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
     if ( VerifierData && (NumberOfBytes = a3 + 8, a3 + 8 >= a3) )
     {
       v22 = RtlpInterlockedPopEntrySList(VerifierData + 5);

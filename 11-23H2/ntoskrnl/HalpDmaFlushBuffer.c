@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpDmaFlushBuffer @ 0x140510C10
+ * XREFs of HalpDmaFlushBuffer @ 0x140511160
  * Callers:
- *     HalBuildScatterGatherListV2 @ 0x1403CCDE0 (HalBuildScatterGatherListV2.c)
- *     IoMapTransferInternal @ 0x14045B4BE (IoMapTransferInternal.c)
- *     IoFlushAdapterBuffersV2 @ 0x14045D560 (IoFlushAdapterBuffersV2.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x14045DF76 (HalpDmaFlushContiguousTransferV2.c)
- *     HalpDmaFlushScatterTransferV2 @ 0x14045E08C (HalpDmaFlushScatterTransferV2.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x14045E1E8 (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaMapScatterTransferV2 @ 0x14045E328 (HalpDmaMapScatterTransferV2.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x1404FFA24 (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x1404FFB74 (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaMapContiguousTransferV3 @ 0x1404FFFBC (HalpDmaMapContiguousTransferV3.c)
- *     HalpDmaMapScatterTransferV3 @ 0x1405000E0 (HalpDmaMapScatterTransferV3.c)
- *     HalMapTransferEx @ 0x140514670 (HalMapTransferEx.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403CCFC0 (HalBuildScatterGatherListV2.c)
+ *     IoMapTransferInternal @ 0x14045B8BE (IoMapTransferInternal.c)
+ *     IoFlushAdapterBuffersV2 @ 0x14045D960 (IoFlushAdapterBuffersV2.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x14045E376 (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x14045E48C (HalpDmaFlushScatterTransferV2.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x14045E5E8 (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x14045E728 (HalpDmaMapScatterTransferV2.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404FFF74 (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1405000C4 (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x14050050C (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x140500630 (HalpDmaMapScatterTransferV3.c)
+ *     HalMapTransferEx @ 0x140514BC0 (HalMapTransferEx.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     IoBuildPartialMdl @ 0x140324B40 (IoBuildPartialMdl.c)
- *     KeFlushIoBuffers @ 0x1403472B0 (KeFlushIoBuffers.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140510E48 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoBuildPartialMdl @ 0x140324DD0 (IoBuildPartialMdl.c)
+ *     KeFlushIoBuffers @ 0x140347540 (KeFlushIoBuffers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x140511398 (HalpDmaFlushBufferWithEmergencyResources.c)
  */
 
 void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsigned int a4, char a5, char a6)
@@ -53,9 +53,9 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
     {
       v12 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           v14 = 4;
@@ -77,10 +77,10 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
       KeFlushIoBuffers((ULONG_PTR)v15, a5 == 0, 1, v16);
     if ( CurrentIrql < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v12 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v12 <= 0xFu && v17 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v19 = CurrentPrcb->SchedulerAssist;
@@ -88,7 +88,7 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
           v21 = (v20 & v19[5]) == 0;
           v19[5] &= v20;
           if ( v21 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v12);

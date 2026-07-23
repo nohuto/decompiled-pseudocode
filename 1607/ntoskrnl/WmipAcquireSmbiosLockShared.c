@@ -1,8 +1,8 @@
 /*
- * XREFs of WmipAcquireSmbiosLockShared @ 0x1404BE95C
+ * XREFs of WmipAcquireSmbiosLockShared @ 0x1404AA68C
  * Callers:
- *     WmipGetSMBiosTableData @ 0x1404BE7E0 (WmipGetSMBiosTableData.c)
- *     WmipFindSMBiosStructure @ 0x14069D294 (WmipFindSMBiosStructure.c)
+ *     WmipGetSMBiosTableData @ 0x1404AA510 (WmipGetSMBiosTableData.c)
+ *     WmipFindSMBiosStructure @ 0x14069D378 (WmipFindSMBiosStructure.c)
  * Callees:
  *     <none>
  */

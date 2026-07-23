@@ -45,7 +45,7 @@ __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
   v8 = 0;
   memset(InputBuffer, 0, 0x60uLL);
   LODWORD(InputBuffer[0]) = 21;
-  if ( ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, &OutputBuffer, 8u) >= 0 )
+  if ( ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, &OutputBuffer, 8u) >= 0 )
   {
     NextSession = MmGetNextSession(0LL);
     v10 = OutputBuffer;
@@ -84,7 +84,7 @@ __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
         InputBuffer[4] = KeGetCurrentThread();
         InputBuffer[10] = InputBuffer;
         InputBuffer[9] = PopWin32CalloutWatchdogCallbackLiveDump;
-        ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+        ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
       }
       v14 = PsInvokeWin32Callout(a1, a2, v12, (__int64)p_SessionId);
       v10 = OutputBuffer;
@@ -94,7 +94,7 @@ __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
         memset(InputBuffer, 0, 0x60uLL);
         LODWORD(InputBuffer[0]) = 21;
         InputBuffer[1] = OutputBuffer;
-        ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+        ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
         v10 = OutputBuffer;
       }
       v5 = a3;
@@ -106,7 +106,7 @@ __int64 __fastcall PopInvokeWin32Callout(int a1, __int64 a2, int a3, int *a4)
       LODWORD(InputBuffer[0]) = 21;
       InputBuffer[1] = v10;
       LOBYTE(InputBuffer[11]) = 1;
-      ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+      ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
     }
   }
   return v4;

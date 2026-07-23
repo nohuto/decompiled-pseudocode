@@ -1,7 +1,7 @@
 /*
- * XREFs of VfDifCallbackReplacementRequested @ 0x140613F58
+ * XREFs of VfDifCallbackReplacementRequested @ 0x140612518
  * Callers:
- *     VfSuspectApplyDifVolatileVerification @ 0x140B9A568 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140B9C568 (VfSuspectApplyDifVolatileVerification.c)
  * Callees:
  *     <none>
  */

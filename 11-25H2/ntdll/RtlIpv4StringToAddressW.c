@@ -136,7 +136,7 @@ LONG __stdcall RtlIpv4StringToAddressW(PCWSTR S, BOOLEAN Strict, LPCWSTR *Termin
     v18 = (unsigned __int8)v27 | (((unsigned __int8)v26 | (((v24 << 8) | (unsigned __int8)v25) << 8)) << 8);
 LABEL_21:
     *Terminator = S;
-    Addr->S_un.S_addr = _byteswap_ulong(v18);
+    *(_DWORD *)Addr = _byteswap_ulong(v18);
     return 0;
   }
 LABEL_36:

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpMetadataHeapCreate @ 0x140140AA0
+ * XREFs of RtlpHpMetadataHeapCreate @ 0x140140BA0
  * Callers:
- *     RtlHpHeapManagerStart @ 0x140170268 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x140170368 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140140BE0 (RtlpHpHeapCreate.c)
  */
 
 __int64 __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE a1, __int128 *a2, PVOID *a3)
 {
-  union _RTL_RUN_ONCE v4; // rdx
+  _RTL_RUN_ONCE v4; // rdx
   __int64 result; // rax
   __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 

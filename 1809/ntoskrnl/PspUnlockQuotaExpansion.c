@@ -1,10 +1,10 @@
 /*
- * XREFs of PspUnlockQuotaExpansion @ 0x14012A9C8
+ * XREFs of PspUnlockQuotaExpansion @ 0x14012AA98
  * Callers:
- *     PspReturnResourceQuota @ 0x14012A88C (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x14012A908 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x140190DA0 (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x1402E998C (PspExpandLimit.c)
+ *     PspReturnResourceQuota @ 0x14012A95C (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x14012A9D8 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x140190EE0 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x1402E9B7C (PspExpandLimit.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,10 +12,10 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
@@ -87,7 +87,7 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
           {
             v14->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v14->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v6->LockEntries[v13], SessionId);
+              KiAbEntryRemoveFromTree(&v6->LockEntries[v13].TreeNode, SessionId);
             v18 = 0;
             v18 = v14->BoostBitmap.AllFields & 0x1FFFF;
             v14->BoostBitmap.AllFields &= 0xFFFE0000;

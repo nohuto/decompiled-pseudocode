@@ -1,22 +1,22 @@
 /*
- * XREFs of NtDuplicateToken @ 0x140705150
+ * XREFs of NtDuplicateToken @ 0x14071C530
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x14035663C (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x14036138C (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
  *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
- *     SeCaptureSecurityQos @ 0x140705604 (SeCaptureSecurityQos.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x1407175BC (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x1406C5C0C (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
+ *     SeCaptureSecurityQos @ 0x14071C9E4 (SeCaptureSecurityQos.c)
  */
 
 NTSTATUS __stdcall NtDuplicateToken(
@@ -37,25 +37,31 @@ NTSTATUS __stdcall NtDuplicateToken(
   NTSTATUS inserted; // ebx
   __int64 v17; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  char v19; // [rsp+41h] [rbp-A7h] BYREF
-  _BYTE v20[6]; // [rsp+42h] [rbp-A6h] BYREF
+  int v19; // ecx
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  char v23; // [rsp+40h] [rbp-A8h] BYREF
+  char v24; // [rsp+41h] [rbp-A7h] BYREF
+  _BYTE v25[6]; // [rsp+42h] [rbp-A6h] BYREF
   PVOID Token; // [rsp+48h] [rbp-A0h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-98h] BYREF
   struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+58h] [rbp-90h] BYREF
-  __int64 v24; // [rsp+60h] [rbp-88h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-80h] BYREF
-  int v26; // [rsp+70h] [rbp-78h]
+  __int64 v29; // [rsp+60h] [rbp-88h] BYREF
+  __int64 v30; // [rsp+68h] [rbp-80h] BYREF
+  int v31; // [rsp+70h] [rbp-78h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+78h] [rbp-70h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT v28; // [rsp+98h] [rbp-50h] BYREF
+  struct _SECURITY_SUBJECT_CONTEXT v33; // [rsp+98h] [rbp-50h] BYREF
 
-  v25 = 0LL;
-  v26 = 0;
-  v19 = 0;
-  v20[0] = 0;
-  v24 = 0LL;
+  v30 = 0LL;
+  v31 = 0;
+  v24 = 0;
+  v25[0] = 0;
+  v29 = 0LL;
   HandleInformation = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  memset(&v28, 0, sizeof(v28));
+  v23 = 0;
+  memset(&v33, 0, sizeof(v33));
   v9 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
   if ( v9 )
   {
@@ -73,10 +79,10 @@ NTSTATUS __stdcall NtDuplicateToken(
     v10 = NewTokenHandle;
     v11 = TokenType;
   }
-  result = SeCaptureSecurityQos(ObjectAttributes, v9, &v19, &v25);
+  result = SeCaptureSecurityQos(ObjectAttributes, v9, &v24, &v30);
   if ( result >= 0 )
   {
-    result = SeCaptureObjectAttributeSecurityDescriptorPresent((__int64)ObjectAttributes, v9, v20);
+    result = SeCaptureObjectAttributeSecurityDescriptorPresent((__int64)ObjectAttributes, v9, v25);
     if ( result >= 0 )
     {
       Token = 0LL;
@@ -92,19 +98,19 @@ NTSTATUS __stdcall NtDuplicateToken(
         if ( DesiredAccess )
         {
           SeCaptureSubjectContextEx(KeGetCurrentThread(), KeGetCurrentThread()->ApcState.Process, &SubjectContext);
-          v28.PrimaryToken = SubjectContext.PrimaryToken;
-          if ( (unsigned __int8)RtlIsSandboxedToken(&SubjectContext) && (unsigned __int8)RtlIsSandboxedToken(&v28) )
+          v33.PrimaryToken = SubjectContext.PrimaryToken;
+          if ( (unsigned __int8)RtlIsSandboxedToken(&SubjectContext) && (unsigned __int8)RtlIsSandboxedToken(&v33) )
           {
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
             ExAcquireResourceSharedLite(*((PERESOURCE *)SubjectContext.PrimaryToken + 6), 1u);
-            SepNewTokenAsRestrictedAsProcessToken(Token, SubjectContext.PrimaryToken);
-            if ( Token == SubjectContext.PrimaryToken )
+            v19 = SepNewTokenAsRestrictedAsProcessToken(Token, (_DWORD *)SubjectContext.PrimaryToken, &v23);
+            if ( Token == SubjectContext.PrimaryToken || v19 >= 0 && v23 )
               GrantedAccess = DesiredAccess;
             else
               GrantedAccess = DesiredAccess & (HandleInformation.GrantedAccess | 0x2001F);
             ExReleaseResourceLite(*((PERESOURCE *)SubjectContext.PrimaryToken + 6));
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
           }
           else
           {
@@ -117,8 +123,8 @@ NTSTATUS __stdcall NtDuplicateToken(
           GrantedAccess = HandleInformation.GrantedAccess;
         }
         v14 = (struct _DMA_ADAPTER *)Token;
-        if ( v19 )
-          v15 = HIDWORD(v25);
+        if ( v24 )
+          v15 = HIDWORD(v30);
         else
           v15 = *((_DWORD *)Token + 49);
         if ( *((_DWORD *)Token + 48) == 2
@@ -142,17 +148,17 @@ NTSTATUS __stdcall NtDuplicateToken(
                        &DmaAdapter);
           if ( inserted >= 0 )
           {
-            inserted = ObInsertObjectEx((char *)DmaAdapter, 0LL, GrantedAccess, 1, 0, 0LL, (unsigned __int64 *)&v24);
+            inserted = ObInsertObjectEx((char *)DmaAdapter, 0LL, GrantedAccess, 1, 0, 0LL, (unsigned __int64 *)&v29);
             if ( inserted >= 0 )
             {
-              if ( !v20[0] )
+              if ( !v25[0] )
                 SepFinalizeTokenAcls(DmaAdapter);
               HalPutDmaAdapter(DmaAdapter);
             }
           }
           HalPutDmaAdapter(v14);
           if ( inserted >= 0 )
-            *v10 = (HANDLE)v24;
+            *v10 = (HANDLE)v29;
           return inserted;
         }
       }

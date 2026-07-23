@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearMirrorBitmaps @ 0x1406729C0
+ * XREFs of MiClearMirrorBitmaps @ 0x140673B90
  * Callers:
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140261AD0 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x1402920E0 (RtlClearBitsEx.c)
  */
 
 void __fastcall MiClearMirrorBitmaps(unsigned __int64 a1, unsigned __int64 a2)
@@ -33,11 +33,11 @@ void __fastcall MiClearMirrorBitmaps(unsigned __int64 a1, unsigned __int64 a2)
   unsigned __int64 v26; // r8
   unsigned __int64 v27; // rbx
 
-  v3 = &xmmword_140E30090;
+  v3 = &xmmword_140E301D0;
   v5 = 2LL;
   do
   {
-    if ( dword_140E300B0 )
+    if ( dword_140E301F0 )
     {
       v6 = a1;
       v7 = a2;

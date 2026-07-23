@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x140320130
+ * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x1403203C0
  * Callers:
- *     KiIntSteerConnect @ 0x140320F2C (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x1403211BC (KiIntSteerConnect.c)
  * Callees:
  *     KiIntPartGetLowestClassProcessorInMask @ 0x140221BB4 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KeIntSteerGetSteeringMode @ 0x140320388 (KeIntSteerGetSteeringMode.c)
- *     KiIntRedirectConnnect @ 0x140580878 (KiIntRedirectConnnect.c)
+ *     KeIntSteerGetSteeringMode @ 0x140320618 (KeIntSteerGetSteeringMode.c)
+ *     KiIntRedirectConnnect @ 0x140580D68 (KiIntRedirectConnnect.c)
  */
 
 __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
@@ -65,7 +65,7 @@ LABEL_6:
       }
       LOWORD(KiIntSteerAffinitizedInterrupts) = v14 + 1;
     }
-    qword_140C415A8[v14] |= v18;
+    qword_140C415C8[v14] |= v18;
     goto LABEL_6;
   }
   return (unsigned int)v11;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaProcessEventLogEntry @ 0x1405AA420
+ * XREFs of HsaProcessEventLogEntry @ 0x1405ACC30
  * Callers:
- *     HsaIommuEventLogWorkerRoutine @ 0x1405A9FC0 (HsaIommuEventLogWorkerRoutine.c)
+ *     HsaIommuEventLogWorkerRoutine @ 0x1405AC7D0 (HsaIommuEventLogWorkerRoutine.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall HsaProcessEventLogEntry(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

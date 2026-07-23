@@ -6,8 +6,8 @@
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiGetEnclavePage @ 0x1402BDD48 (MiGetEnclavePage.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiGetEnclavePage @ 0x1402BDF38 (MiGetEnclavePage.c)
  */
 
 __int64 __fastcall MiAllocateMdlPagesByLists(
@@ -103,8 +103,8 @@ LABEL_21:
     LODWORD(v15) = *(_QWORD *)(v21 + 40) >> 58;
     ++v8;
     *v27++ = v22;
-    v25 = v22 & dword_14043A088 | (*(_QWORD *)(v21 + 40) >> 58 << byte_14043A049) | (((*(_QWORD *)(v21 + 40) >> 36) & 3) << byte_14043A04A);
-    v13 = v25 & ~dword_14043A040 | dword_14043A040 & (v25 + 1);
+    v25 = v22 & dword_14043B148 | (*(_QWORD *)(v21 + 40) >> 58 << byte_14043B109) | (((*(_QWORD *)(v21 + 40) >> 36) & 3) << byte_14043B10A);
+    v13 = v25 & ~dword_14043B100 | dword_14043B100 & (v25 + 1);
     if ( v8 >= a6 )
       goto LABEL_21;
     v16 = a3;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiProcessHaltDevice @ 0x140649834
+ * XREFs of PiProcessHaltDevice @ 0x140649918
  * Callers:
- *     PnpDeviceActionWorker @ 0x1400AFA3C (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1400865A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PnpRequestDeviceRemoval @ 0x1404C3E90 (PnpRequestDeviceRemoval.c)
+ *     PnpRequestDeviceRemoval @ 0x140484BC8 (PnpRequestDeviceRemoval.c)
  */
 
 __int64 __fastcall PiProcessHaltDevice(__int64 a1)

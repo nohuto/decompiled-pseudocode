@@ -102,7 +102,7 @@ __int64 __fastcall ExpKdPullRemoteFileForUser(_OWORD *a1)
     goto LABEL_35;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = KeAbPreAcquire((ULONG_PTR)&ExpSysDbgLock, 0LL, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&ExpSysDbgLock, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpSysDbgLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&ExpSysDbgLock, v7, (ULONG_PTR)&ExpSysDbgLock);
   if ( v7 )
@@ -148,7 +148,7 @@ LABEL_30:
 LABEL_35:
   v17 = KeGetCurrentThread();
   --v17->KernelApcDisable;
-  v18 = KeAbPreAcquire((ULONG_PTR)&ExpSysDbgLock, 0LL, 0LL);
+  v18 = KeAbPreAcquire((ULONG_PTR)&ExpSysDbgLock, 0LL, 0);
   v19 = v18;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpSysDbgLock, v18, (ULONG_PTR)&ExpSysDbgLock);

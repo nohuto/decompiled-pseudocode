@@ -1,18 +1,18 @@
 /*
- * XREFs of PiUEventNotifyTargetDeviceChange @ 0x14099A54C
+ * XREFs of PiUEventNotifyTargetDeviceChange @ 0x14095AFAC
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1409D6560 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x1409A7450 (PiUEventProcessEventWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PiUEventHashStringIntoBucket @ 0x1404B4FE4 (PiUEventHashStringIntoBucket.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiUEventNotifyClient @ 0x14099A7E8 (PiUEventNotifyClient.c)
- *     PiUEventApplyAdditionalFilters @ 0x14099A920 (PiUEventApplyAdditionalFilters.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PiUEventHashStringIntoBucket @ 0x1404AE434 (PiUEventHashStringIntoBucket.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiUEventNotifyClient @ 0x14095B248 (PiUEventNotifyClient.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14095B380 (PiUEventApplyAdditionalFilters.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
@@ -33,15 +33,16 @@ __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
   _QWORD *v15; // r14
   char v16; // al
   _QWORD *v17; // rsi
-  __int64 v19; // rdx
-  char v20; // [rsp+80h] [rbp+8h]
-  char v21; // [rsp+88h] [rbp+10h]
+  ULONG v19; // r8d
+  __int64 v20; // rdx
+  char v21; // [rsp+80h] [rbp+8h]
+  char v22; // [rsp+88h] [rbp+10h]
 
   Pool2 = 0LL;
   v2 = 0;
-  v20 = 0;
-  v3 = 0;
   v21 = 0;
+  v3 = 0;
+  v22 = 0;
   v4 = 0;
   v6 = *(_QWORD *)(a1 + 80) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
   if ( !v6 )
@@ -74,7 +75,7 @@ LABEL_16:
     {
       if ( v11 != 2 )
         return (unsigned int)v3;
-      v20 = 1;
+      v21 = 1;
       v12 = 136LL;
     }
     else
@@ -94,7 +95,7 @@ LABEL_16:
     v15 = *v14;
     if ( *v14 != v14 )
     {
-      v16 = v20;
+      v16 = v21;
       do
       {
         v17 = v15;
@@ -105,25 +106,25 @@ LABEL_16:
             || !(unsigned __int8)PiUEventApplyAdditionalFilters(a1, v17)
             || (v3 = PiUEventNotifyClient(a1, v17), v3 < 0) )
           {
-            v16 = v20;
+            v16 = v21;
           }
           else
           {
-            v16 = v20;
+            v16 = v21;
             if ( Pool2 )
             {
               if ( v4 >= 0x400 )
               {
                 v2 = 1;
-                v21 = 1;
+                v22 = 1;
                 continue;
               }
-              v19 = v4++;
-              Pool2[v19] = *((_DWORD *)v17 + 12);
+              v20 = v4++;
+              Pool2[v20] = *((_DWORD *)v17 + 12);
             }
           }
         }
-        v2 = v21;
+        v2 = v22;
       }
       while ( v15 != v14 );
     }
@@ -132,13 +133,15 @@ LABEL_16:
       if ( v2 )
       {
         memset_0(Pool2 + 1, 0, 0xFFCuLL);
+        v19 = 4;
         *Pool2 = -1;
       }
       else
       {
+        v19 = 4096;
         *Pool2 = v4 - 1;
       }
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)Pool2);
+      ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, Pool2, v19, 0LL, 0LL, 0, 0);
     }
     KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
     if ( Pool2 )

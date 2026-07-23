@@ -9,17 +9,18 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall ExpCheckForLookasideList(_QWORD *a1, __int64 a2, _QWORD **a3, KSPIN_LOCK *a4)
+void __fastcall ExpCheckForLookasideList(_QWORD *a1, __int64 a2, _QWORD **a3, KSPIN_LOCK *a4)
 {
   unsigned __int64 v5; // r12
   int v8; // r15d
   KIRQL v9; // al
   _QWORD *v10; // rbx
   unsigned __int64 v11; // rdi
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v15; // zf
+  int v15; // eax
+  bool v16; // zf
 
   v5 = (unsigned __int64)a1 + a2;
   v8 = a2;
@@ -40,24 +41,23 @@ __int64 __fastcall ExpCheckForLookasideList(_QWORD *a1, __int64 a2, _QWORD **a3,
     }
     v10 = (_QWORD *)*v10;
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)a4);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)a4);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v11 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-      v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v15 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+      v16 = (v15 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v15;
+      if ( v16 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v11);
-  return result;
 }

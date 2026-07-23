@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIntSteerComputeCpuSet @ 0x140355440
+ * XREFs of KiIntSteerComputeCpuSet @ 0x1404A16C4
  * Callers:
- *     KiIntSteerCalculateDistribution @ 0x140353BC0 (KiIntSteerCalculateDistribution.c)
- *     KiIntSteerAssignCpuSet @ 0x1405C423C (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerCalculateDistribution @ 0x1402B1990 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerAssignCpuSet @ 0x1405C1860 (KiIntSteerAssignCpuSet.c)
  * Callees:
- *     KiComputeCpuSetAffinityMask @ 0x1403554CC (KiComputeCpuSetAffinityMask.c)
+ *     KiComputeCpuSetAffinityMask @ 0x1404A1750 (KiComputeCpuSetAffinityMask.c)
  */
 
 __int64 __fastcall KiIntSteerComputeCpuSet(__int64 a1)

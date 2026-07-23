@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpRemoveNamespaceFromTable @ 0x140A1468C
+ * XREFs of ObpRemoveNamespaceFromTable @ 0x140A0D56C
  * Callers:
- *     NtDeletePrivateNamespace @ 0x1406F7940 (NtDeletePrivateNamespace.c)
- *     ObpCloseDirectoryObject @ 0x140A14660 (ObpCloseDirectoryObject.c)
+ *     NtDeletePrivateNamespace @ 0x1406F5940 (NtDeletePrivateNamespace.c)
+ *     ObpCloseDirectoryObject @ 0x140A0D540 (ObpCloseDirectoryObject.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall ObpRemoveNamespaceFromTable(volatile signed __int32 *Object)
@@ -19,8 +19,8 @@ __int64 __fastcall ObpRemoveNamespaceFromTable(volatile signed __int32 *Object)
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // r14
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v5; // rbx
-  _QWORD *v6; // rax
-  _QWORD *v7; // rsi
+  char *v6; // rax
+  char *v7; // rsi
   _QWORD *v8; // rax
   __int64 v9; // rdx
   _QWORD *v10; // rcx
@@ -33,15 +33,15 @@ __int64 __fastcall ObpRemoveNamespaceFromTable(volatile signed __int32 *Object)
   CurrentThread = KeGetCurrentThread();
   v5 = (signed __int64 *)&CurrentServerSiloGlobals[45];
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[45], 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[45], 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentServerSiloGlobals[45], 0LL) )
     ExfAcquirePushLockExclusiveEx(
       (unsigned __int64 *)&CurrentServerSiloGlobals[45],
-      (__int64)v6,
+      v6,
       (__int64)&CurrentServerSiloGlobals[45]);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   _InterlockedOr(Object + 84, 2u);
   v8 = (_QWORD *)*((_QWORD *)Object + 40);
   if ( v8 )

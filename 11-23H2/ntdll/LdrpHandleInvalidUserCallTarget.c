@@ -9,7 +9,7 @@
  *     LdrpDispatchUserCallTargetXFG @ 0x18008F4F0 (LdrpDispatchUserCallTargetXFG.c)
  *     LdrpTableDispatchUserCallTargetXFG @ 0x18008F600 (LdrpTableDispatchUserCallTargetXFG.c)
  * Callees:
- *     RtlpHandleInvalidUserCallTarget @ 0x18010BB50 (RtlpHandleInvalidUserCallTarget.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x18010BB20 (RtlpHandleInvalidUserCallTarget.c)
  */
 
 void __fastcall LdrpHandleInvalidUserCallTarget()

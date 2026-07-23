@@ -1,12 +1,12 @@
 /*
- * XREFs of MiConvertLargePfnToSmall @ 0x140206D40
+ * XREFs of MiConvertLargePfnToSmall @ 0x140206E20
  * Callers:
- *     MiConvertActiveLargePageToSmall @ 0x140206BB8 (MiConvertActiveLargePageToSmall.c)
- *     MiInitializeMdlSinglePage @ 0x14033BB38 (MiInitializeMdlSinglePage.c)
- *     MiConvertLargeFreePageToActive @ 0x1404CF3A8 (MiConvertLargeFreePageToActive.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
+ *     MiConvertActiveLargePageToSmall @ 0x140206C98 (MiConvertActiveLargePageToSmall.c)
+ *     MiInitializeMdlSinglePage @ 0x14033DBB8 (MiInitializeMdlSinglePage.c)
+ *     MiConvertLargeFreePageToActive @ 0x1404C8DD8 (MiConvertLargeFreePageToActive.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F720C (MiDemoteValidLargePageOneLevel.c)
  * Callees:
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
  */
 
 __int64 __fastcall MiConvertLargePfnToSmall(__int64 a1, __int64 a2, char a3)

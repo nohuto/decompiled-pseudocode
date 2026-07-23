@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlArmFeatureUsageProviderFlushNotification @ 0x140411580
+ * XREFs of RtlArmFeatureUsageProviderFlushNotification @ 0x1404117C0
  * Callers:
  *     <none>
  * Callees:
- *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x140419BCC (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x140419F5C (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
  */
 
 __int64 __fastcall RtlArmFeatureUsageProviderFlushNotification(__int64 a1, __int64 a2)

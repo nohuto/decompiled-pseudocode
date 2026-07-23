@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMcaPopulateErrorData @ 0x14050332C
+ * XREFs of HalpMcaPopulateErrorData @ 0x14050387C
  * Callers:
- *     HalpMcaReadError @ 0x1405034B0 (HalpMcaReadError.c)
+ *     HalpMcaReadError @ 0x140503A00 (HalpMcaReadError.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpMcaInitializeErrorSection @ 0x140503258 (HalpMcaInitializeErrorSection.c)
- *     HalpReadExtendedMcaRegistersAMD @ 0x140506094 (HalpReadExtendedMcaRegistersAMD.c)
- *     HalpReadExtendedMcaRegistersIntel @ 0x140506218 (HalpReadExtendedMcaRegistersIntel.c)
- *     HalpHvGetMachineCheckContext @ 0x14050BED4 (HalpHvGetMachineCheckContext.c)
- *     HalpWheaReadMsrAddress @ 0x1405189B0 (HalpWheaReadMsrAddress.c)
- *     HalpWheaReadMsrMisc @ 0x140518A08 (HalpWheaReadMsrMisc.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpMcaInitializeErrorSection @ 0x1405037A8 (HalpMcaInitializeErrorSection.c)
+ *     HalpReadExtendedMcaRegistersAMD @ 0x1405065E4 (HalpReadExtendedMcaRegistersAMD.c)
+ *     HalpReadExtendedMcaRegistersIntel @ 0x140506768 (HalpReadExtendedMcaRegistersIntel.c)
+ *     HalpHvGetMachineCheckContext @ 0x14050C424 (HalpHvGetMachineCheckContext.c)
+ *     HalpWheaReadMsrAddress @ 0x140518F00 (HalpWheaReadMsrAddress.c)
+ *     HalpWheaReadMsrMisc @ 0x140518F58 (HalpWheaReadMsrMisc.c)
  */
 
 char __fastcall HalpMcaPopulateErrorData(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)

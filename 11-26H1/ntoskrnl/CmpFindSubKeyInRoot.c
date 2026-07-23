@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpFindSubKeyInRoot @ 0x1408D1B40
+ * XREFs of CmpFindSubKeyInRoot @ 0x1408D8100
  * Callers:
- *     CmpMarkIndexDirtyInStorageType @ 0x1408BD924 (CmpMarkIndexDirtyInStorageType.c)
- *     CmpRemoveSubKeyFromList @ 0x1408BDBF0 (CmpRemoveSubKeyFromList.c)
- *     CmpSelectLeaf @ 0x1408BFCCC (CmpSelectLeaf.c)
- *     CmpWalkOneLevel @ 0x1408D5620 (CmpWalkOneLevel.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1408D7490 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpMarkIndexDirtyInStorageType @ 0x1408C3EF4 (CmpMarkIndexDirtyInStorageType.c)
+ *     CmpRemoveSubKeyFromList @ 0x1408C41C0 (CmpRemoveSubKeyFromList.c)
+ *     CmpSelectLeaf @ 0x1408C629C (CmpSelectLeaf.c)
+ *     CmpWalkOneLevel @ 0x1408DBBE0 (CmpWalkOneLevel.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1408DDA50 (CmpFindSubKeyByNameWithStatus.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpCompareInIndex @ 0x1408D27E0 (CmpCompareInIndex.c)
- *     CmpDoCompareKeyName @ 0x1408D4080 (CmpDoCompareKeyName.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     CmpCompareTwoCompressedNames @ 0x140A47130 (CmpCompareTwoCompressedNames.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpCompareInIndex @ 0x1408D8DA0 (CmpCompareInIndex.c)
+ *     CmpDoCompareKeyName @ 0x1408DA640 (CmpDoCompareKeyName.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     CmpCompareTwoCompressedNames @ 0x140A50420 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpFindSubKeyInRoot(

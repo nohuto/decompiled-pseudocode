@@ -13,32 +13,32 @@
 
 __int64 __fastcall VfThunkApplyThunksCurrentSession(__int64 a1)
 {
-  unsigned __int64 v1; // rbp
+  void *v1; // rbp
   unsigned int v3; // ebx
   __int64 Node; // rax
   _QWORD *v5; // rdi
-  __int64 v6; // r14
-  unsigned int v7; // ebp
+  PVOID v6; // r14
+  ULONG v7; // ebp
   unsigned int IsDriverSuspectForVerifier; // eax
   ULONG v9; // eax
   ULONG v10; // eax
   ULONG v11; // eax
-  unsigned int v13; // [rsp+40h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(void **)(a1 + 48);
   v3 = 0;
-  v13 = 0;
-  Node = VfTargetDriversGetNode(v1);
+  Size = 0;
+  Node = VfTargetDriversGetNode((__int64)v1);
   v5 = (_QWORD *)Node;
   if ( Node )
   {
     if ( (*(_DWORD *)(Node + 16) & 1) == 0 )
     {
-      v6 = RtlImageDirectoryEntryToData(v1, 1, 0xCu, &v13);
+      v6 = RtlImageDirectoryEntryToData(v1, 1u, 0xCu, &Size);
       if ( v6 )
       {
-        v7 = v13;
-        if ( v13 )
+        v7 = Size;
+        if ( Size )
         {
           IsDriverSuspectForVerifier = ViIsDriverSuspectForVerifier(a1);
           if ( (unsigned int)ViThunkReplaceAllThunkedImports(a1, v6, v7 >> 3, IsDriverSuspectForVerifier) )

@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpDiagnosticTraceObject @ 0x1400084E8
+ * XREFs of PnpDiagnosticTraceObject @ 0x14000805C
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x14000882C (PnpDeviceCompletionRoutine.c)
- *     PnpStartDeviceNode @ 0x1403F10D4 (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x1403F1CBC (PipEnumerateDevice.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x1403F1DC4 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x1403F1F94 (PiDrvDbUnloadNodeWorkerCallback.c)
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
- *     IopUnloadDriver @ 0x140544E28 (IopUnloadDriver.c)
- *     PnpRebalance @ 0x1406303D0 (PnpRebalance.c)
- *     PiDevCfgProcessDevice @ 0x14063B128 (PiDevCfgProcessDevice.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14064B3CC (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpDeviceCompletionRoutine @ 0x1400083A0 (PnpDeviceCompletionRoutine.c)
+ *     PnpStartDeviceNode @ 0x1403EFF98 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x1403F0B80 (PipEnumerateDevice.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x1403F0C88 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x1403F0E58 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
+ *     IopUnloadDriver @ 0x140545368 (IopUnloadDriver.c)
+ *     PnpRebalance @ 0x140630484 (PnpRebalance.c)
+ *     PiDevCfgProcessDevice @ 0x14063B1DC (PiDevCfgProcessDevice.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14064B4B0 (PnpQueueQueryAndRemoveEvent.c)
  *     PnpInitializeBootStartDriver @ 0x14079BA3C (PnpInitializeBootStartDriver.c)
  *     PnpEarlyLaunchImageNotificationPreProcess @ 0x1407B427C (PnpEarlyLaunchImageNotificationPreProcess.c)
  *     PnpEarlyLaunchImageNotificationPostProcess @ 0x1407B6254 (PnpEarlyLaunchImageNotificationPostProcess.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTraceObject(PCEVENT_DESCRIPTOR EventDescriptor, unsigned __int16 *a2)

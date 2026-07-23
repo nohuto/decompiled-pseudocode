@@ -1,10 +1,10 @@
 /*
- * XREFs of IopConstructInMemoryDumpHeader @ 0x1402810DC
+ * XREFs of IopConstructInMemoryDumpHeader @ 0x1402812CC
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x140180C80 (IopInitializeOfflineCrashDump.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140280528 (IoUpdateDumpPhysicalRanges.c)
+ *     IopInitializeOfflineCrashDump @ 0x140180DC0 (IopInitializeOfflineCrashDump.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140280718 (IoUpdateDumpPhysicalRanges.c)
  * Callees:
- *     IoFillDumpHeader @ 0x14027F5D4 (IoFillDumpHeader.c)
+ *     IoFillDumpHeader @ 0x14027F7C4 (IoFillDumpHeader.c)
  */
 
 __int64 IopConstructInMemoryDumpHeader()
@@ -16,21 +16,21 @@ __int64 IopConstructInMemoryDumpHeader()
   result = (unsigned int)_InterlockedExchange(InMemData, 1);
   if ( (_DWORD)result != 1 )
   {
-    dword_14043C798 = 0;
-    if ( dword_14043C764
-      && (result = qword_14043C780 & 1, (v1 = *(_DWORD **)&InMemData[2 * result + 2]) != 0LL)
-      && (v2 = *(_QWORD *)&InMemData[2 * (((_BYTE)qword_14043C780 - 1) & 1) + 2]) != 0 )
+    dword_14043D858 = 0;
+    if ( dword_14043D824
+      && (result = qword_14043D840 & 1, (v1 = *(_DWORD **)&InMemData[2 * result + 2]) != 0LL)
+      && (v2 = *(_QWORD *)&InMemData[2 * (((_BYTE)qword_14043D840 - 1) & 1) + 2]) != 0 )
     {
-      IoFillDumpHeader((enum _NT_PRODUCT_TYPE *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
-      *(_QWORD *)(v2 + 4040) = qword_14043C788;
+      IoFillDumpHeader((_NT_PRODUCT_TYPE *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
+      *(_QWORD *)(v2 + 4040) = qword_14043D848;
       *(_QWORD *)(v2 + 40) = PsInitialSystemProcess->DirectoryTableBase & 0xFFFFFFFFFFFFF000uLL;
       result = (unsigned int)_InterlockedExchange((volatile __int32 *)v2, 1397967163);
       *v1 = result;
-      LODWORD(qword_14043C780) = qword_14043C780 + 1;
+      LODWORD(qword_14043D840) = qword_14043D840 + 1;
     }
     else
     {
-      dword_14043C798 = -1073741823;
+      dword_14043D858 = -1073741823;
     }
     _InterlockedExchange(InMemData, 0);
   }

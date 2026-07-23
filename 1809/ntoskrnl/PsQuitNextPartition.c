@@ -1,10 +1,10 @@
 /*
- * XREFs of PsQuitNextPartition @ 0x1402EBDAC
+ * XREFs of PsQuitNextPartition @ 0x1402EBF9C
  * Callers:
- *     ExpNodeHotAddProcessorWorker @ 0x1408D6210 (ExpNodeHotAddProcessorWorker.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x1408D74D0 (ExpNodeHotAddProcessorWorker.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
  */
 
 LONG_PTR __fastcall PsQuitNextPartition(PVOID Object)

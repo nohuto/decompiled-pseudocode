@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmParkReportParkedCores @ 0x14025A2F0
+ * XREFs of PpmParkReportParkedCores @ 0x14025BAD0
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckQueuePhaseActions @ 0x140252698 (PpmCheckQueuePhaseActions.c)
- *     ?RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025A790 (-RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025B1B0 (-RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     KeUpdateSoftParkRankList @ 0x14025B508 (KeUpdateSoftParkRankList.c)
- *     PpmEventSoftParkRankListChanged @ 0x14025B7C0 (PpmEventSoftParkRankListChanged.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PpmCheckQueuePhaseActions @ 0x140253FF8 (PpmCheckQueuePhaseActions.c)
+ *     ?RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025BF70 (-RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025C98C (-RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     KeUpdateSoftParkRankList @ 0x14025CCE8 (KeUpdateSoftParkRankList.c)
+ *     PpmEventSoftParkRankListChanged @ 0x14025CFA0 (PpmEventSoftParkRankListChanged.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned int PpmParkReportParkedCores()
@@ -22,7 +22,7 @@ unsigned int PpmParkReportParkedCores()
   unsigned int v4; // ebx
   __int64 v5; // rcx
   __int64 v6; // rcx
-  struct _LIST_ENTRY *Flink; // rcx
+  void *v7; // rcx
   struct _KAFFINITY_EX v8; // [rsp+28h] [rbp-E0h] BYREF
   struct _KAFFINITY_EX v9; // [rsp+138h] [rbp+30h] BYREF
   struct _KAFFINITY_EX v10; // [rsp+248h] [rbp+140h] BYREF
@@ -32,7 +32,7 @@ unsigned int PpmParkReportParkedCores()
   memset_0(&v11.8, 0, sizeof(v11.8));
   memset_0(&v10.8, 0, sizeof(v10.8));
   result = (unsigned int)memset_0(&v8.8, 0, sizeof(v8.8));
-  if ( PopModernStandbyStateNotify.ReadyTime )
+  if ( PpmIsParkingEnabled )
   {
     *(_QWORD *)&v11.Count = 2097153LL;
     memset_0(&v11.8, 0, sizeof(v11.8));
@@ -55,14 +55,14 @@ unsigned int PpmParkReportParkedCores()
       PpmCheckQueuePhaseActions((__int64)&v11, 3);
       PpmCheckQueuePhaseActions((__int64)&v8, 5);
       result = PpmCheckQueuePhaseActions((__int64)&v9, 4);
-      if ( BYTE4(PopModernStandbyStateNotify.TrapFrame) )
+      if ( PpmParkSoftParkRankListChanged )
       {
         KeUpdateSoftParkRankList(v5);
         PpmEventSoftParkRankListChanged(v6);
-        result = *(_DWORD *)&PopModernStandbyStateNotify.ApcStateFill[8];
-        Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[0].Flink;
-        PopModernStandbyStateNotify.ApcState.ApcListHead[0].Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[0].Blink;
-        PopModernStandbyStateNotify.ApcState.ApcListHead[0].Blink = Flink;
+        v7 = PpmParkOldSoftParkRankList;
+        result = (unsigned int)PpmParkNewSoftParkRankList;
+        PpmParkOldSoftParkRankList = PpmParkNewSoftParkRankList;
+        PpmParkNewSoftParkRankList = v7;
       }
     }
   }

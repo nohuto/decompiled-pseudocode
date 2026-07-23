@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpIsHvRemappingInterrupts @ 0x140863CC8
+ * XREFs of HalpIsHvRemappingInterrupts @ 0x140863F08
  * Callers:
  *     HalpUpdatePerDeviceMsiLimitInformation @ 0x140B6F9A4 (HalpUpdatePerDeviceMsiLimitInformation.c)
  * Callees:

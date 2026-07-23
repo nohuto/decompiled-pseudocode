@@ -1,11 +1,11 @@
 /*
- * XREFs of PoQueryPowerLimitAttributes @ 0x1407CA3B0
+ * XREFs of PoQueryPowerLimitAttributes @ 0x1407CD450
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall PoQueryPowerLimitAttributes(__int64 a1, __int64 a2, void *a3, struct _KLOCK_ENTRIES *a4)

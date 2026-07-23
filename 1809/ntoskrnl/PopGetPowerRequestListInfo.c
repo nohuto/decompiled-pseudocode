@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetPowerRequestListInfo @ 0x140868C8C
+ * XREFs of PopGetPowerRequestListInfo @ 0x140869EEC
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PoStoreDiagnosticContext @ 0x1402D3270 (PoStoreDiagnosticContext.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
+ *     PoStoreDiagnosticContext @ 0x1402D3460 (PoStoreDiagnosticContext.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14058AD50 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PopGetPowerRequestListInfo(_QWORD *a1, _DWORD *a2)

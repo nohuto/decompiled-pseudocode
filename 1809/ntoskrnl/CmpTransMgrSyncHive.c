@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpTransMgrSyncHive @ 0x1406FD114
+ * XREFs of CmpTransMgrSyncHive @ 0x1406FE3B4
  * Callers:
- *     CmpTransMgrPrepare @ 0x1406FCDDC (CmpTransMgrPrepare.c)
+ *     CmpTransMgrPrepare @ 0x1406FE07C (CmpTransMgrPrepare.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     HvpMarkDirty @ 0x1405FBD2C (HvpMarkDirty.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpTransMgrSyncHive(ULONG_PTR BugCheckParameter2)

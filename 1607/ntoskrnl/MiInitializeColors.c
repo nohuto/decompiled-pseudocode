@@ -13,15 +13,15 @@ __int64 MiInitializeColors()
   int v2; // edx
   __int64 result; // rax
 
-  v0 = (unsigned int)dword_1403269FC >> 12;
-  dword_1403269FC = v0;
+  v0 = (unsigned int)dword_140326A3C >> 12;
+  dword_140326A3C = v0;
   if ( !v0 )
   {
-    if ( qword_140324DD0 < 0x80000 )
+    if ( qword_140324E10 < 0x80000 )
     {
-      v0 = qword_140324DD0 < 0x40000 ? 64 : 128;
+      v0 = qword_140324E10 < 0x40000 ? 64 : 128;
 LABEL_11:
-      dword_1403269FC = v0;
+      dword_140326A3C = v0;
       goto LABEL_5;
     }
 LABEL_9:
@@ -38,8 +38,8 @@ LABEL_9:
 LABEL_5:
   _BitScanReverse((unsigned int *)&v1, v0);
   LOBYTE(v2) = 1;
-  byte_1403269D8 = v1;
-  dword_1403269F8 = v0 - 1;
+  byte_140326A18 = v1;
+  dword_140326A38 = v0 - 1;
   MiChannelMaximumPowerOf2 = 1;
   if ( (unsigned int)MmNumberOfChannels > 1 )
   {
@@ -50,9 +50,9 @@ LABEL_5:
   }
   MiChannelMaximumPowerOf2Mask = v2 - 1;
   _BitScanReverse((unsigned int *)&v2, (unsigned __int8)v2);
-  byte_1403269C9 = v2 + v1;
-  dword_1403269A0 = (1 << (v2 + v1)) - 1;
-  result = (unsigned int)dword_1403269F8;
-  KeGetCurrentPrcb()->SecondaryColorMask = dword_1403269F8;
+  byte_140326A09 = v2 + v1;
+  dword_1403269E0 = (1 << (v2 + v1)) - 1;
+  result = (unsigned int)dword_140326A38;
+  KeGetCurrentPrcb()->SecondaryColorMask = dword_140326A38;
   return result;
 }

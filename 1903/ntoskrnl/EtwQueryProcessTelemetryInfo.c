@@ -55,7 +55,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   __int64 v31; // [rsp+58h] [rbp-280h]
   PACCESS_TOKEN v32; // [rsp+60h] [rbp-278h]
   __int64 v33; // [rsp+68h] [rbp-270h]
-  size_t v34[52]; // [rsp+70h] [rbp-268h] BYREF
+  size_t PackageSize[52]; // [rsp+70h] [rbp-268h] BYREF
   _BYTE v35[48]; // [rsp+210h] [rbp-C8h] BYREF
   _BYTE Src[80]; // [rsp+240h] [rbp-98h] BYREF
 
@@ -63,7 +63,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v33 = BugCheckParameter1;
   v30 = a5;
   memset(v35, 0, sizeof(v35));
-  memset(v34, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   memset(Src, 0, 0x44uLL);
   v27 = 0LL;
   v8 = 0LL;
@@ -77,7 +77,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v11 = PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
   v32 = v11;
   Sizea = 0;
-  EtwpQueryTokenPackageInfo(v11, v34, &Sizea);
+  EtwpQueryTokenPackageInfo(v11, PackageSize);
   v12 = SeQueryUserSidToken(v11, Src, 68LL, &Sizea);
   if ( v12 >= 0 )
   {
@@ -91,7 +91,12 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       v8 = v28;
       v9 = v26;
     }
-    v13 = Sizea + 100 + LODWORD(v34[0]) + LODWORD(v34[1]) + *(unsigned __int16 *)v29 + (unsigned __int16)v27;
+    v13 = Sizea
+        + 100
+        + LODWORD(PackageSize[0])
+        + LODWORD(PackageSize[1])
+        + *(unsigned __int16 *)v29
+        + (unsigned __int16)v27;
     v14 = v13;
     v31 = v13;
     if ( v30 )
@@ -134,11 +139,11 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         memmove(v17, v29[1], *(unsigned __int16 *)v29);
         v19 = &v17[*v18 + 2];
         *((_DWORD *)a2 + 20) = (_DWORD)v19 - (_DWORD)a2;
-        memmove(v19, &v34[2], v34[0]);
-        v20 = &v19[v34[0]];
+        memmove(v19, &PackageSize[2], PackageSize[0]);
+        v20 = &v19[PackageSize[0]];
         *((_DWORD *)a2 + 21) = (_DWORD)v20 - (_DWORD)a2;
-        memmove(v20, &v34[34], v34[1]);
-        v21 = &v20[v34[1]];
+        memmove(v20, &PackageSize[34], PackageSize[1]);
+        v21 = &v20[PackageSize[1]];
         *((_DWORD *)a2 + 22) = (_DWORD)v21 - (_DWORD)a2;
         memmove(v21, v8, (unsigned __int16)v27);
         v12 = 0;

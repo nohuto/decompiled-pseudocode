@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTiAsyncVadQueryEventWrite @ 0x140228D7C
+ * XREFs of EtwpTiAsyncVadQueryEventWrite @ 0x140228BA8
  * Callers:
- *     EtwpTiVadQueryEventWrite @ 0x140228F94 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiVadQueryEventWrite @ 0x140228DC0 (EtwpTiVadQueryEventWrite.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x140228BEC (EtwpTiAllocVadQueryEventWriteWorkItemContext.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x140228A18 (EtwpTiAllocVadQueryEventWriteWorkItemContext.c)
  */
 
 void __fastcall EtwpTiAsyncVadQueryEventWrite(

@@ -1,34 +1,34 @@
 /*
- * XREFs of CmpOpenHiveFile @ 0x1403F9400
+ * XREFs of CmpOpenHiveFile @ 0x1403F82C0
  * Callers:
- *     CmpInitHiveFromFile @ 0x1403F9AEC (CmpInitHiveFromFile.c)
- *     CmLoadAppKey @ 0x1403FC110 (CmLoadAppKey.c)
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14055E464 (CmpMountPreloadedHives.c)
+ *     CmpInitHiveFromFile @ 0x1403F89AC (CmpInitHiveFromFile.c)
+ *     CmLoadAppKey @ 0x1403FAFD0 (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x14055E9A4 (CmpMountPreloadedHives.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14015A160 (ZwSetInformationFile.c)
- *     ZwFsControlFile @ 0x14015A3A0 (ZwFsControlFile.c)
- *     ZwCreateFile @ 0x14015A720 (ZwCreateFile.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x14015A6D0 (ZwSetInformationFile.c)
+ *     ZwFsControlFile @ 0x14015A910 (ZwFsControlFile.c)
+ *     ZwCreateFile @ 0x14015AC90 (ZwCreateFile.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1403F6164 (CmpQueryFileSecurityDescriptor.c)
- *     CmpCreateEvent @ 0x1403F9948 (CmpCreateEvent.c)
- *     CmpGetVolumeClusterSize @ 0x140481F90 (CmpGetVolumeClusterSize.c)
- *     PsReferenceImpersonationToken @ 0x140499D10 (PsReferenceImpersonationToken.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x1404EC5F0 (CmpGetVolumeLogFileSizeCap.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x1404EF4C0 (CmpOpenFileWithExtremePrejudice.c)
- *     PsImpersonateClient @ 0x14050F3C0 (PsImpersonateClient.c)
- *     SeTokenImpersonationLevel @ 0x14054CA50 (SeTokenImpersonationLevel.c)
- *     PsRevertToSelf @ 0x14067EFCC (PsRevertToSelf.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1403F5028 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpCreateEvent @ 0x1403F8808 (CmpCreateEvent.c)
+ *     CmpGetVolumeClusterSize @ 0x140480CE4 (CmpGetVolumeClusterSize.c)
+ *     PsReferenceImpersonationToken @ 0x1404A5010 (PsReferenceImpersonationToken.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x1404CE678 (CmpGetVolumeLogFileSizeCap.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x1404D1584 (CmpOpenFileWithExtremePrejudice.c)
+ *     PsImpersonateClient @ 0x1404F2350 (PsImpersonateClient.c)
+ *     SeTokenImpersonationLevel @ 0x14054CF90 (SeTokenImpersonationLevel.c)
+ *     PsRevertToSelf @ 0x14067F0B0 (PsRevertToSelf.c)
  */
 
 __int64 __fastcall CmpOpenHiveFile(
@@ -67,7 +67,7 @@ __int64 __fastcall CmpOpenHiveFile(
   BOOLEAN CopyOnOpen[6]; // [rsp+62h] [rbp-9Eh] BYREF
   HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
   ULONG FileAttributes; // [rsp+70h] [rbp-90h]
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+74h] [rbp-8Ch] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+74h] [rbp-8Ch] BYREF
   unsigned int v36; // [rsp+78h] [rbp-88h]
   int InputBuffer; // [rsp+7Ch] [rbp-84h] BYREF
   PACCESS_TOKEN Token; // [rsp+80h] [rbp-80h]

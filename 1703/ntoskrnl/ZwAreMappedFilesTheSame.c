@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwAreMappedFilesTheSame(PVOID File1MappedAsAnImage, PVOID File2MappedAsFile)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(File1MappedAsAnImage, File2MappedAsFile, v2);
+  return KiServiceInternal(File1MappedAsAnImage);
 }

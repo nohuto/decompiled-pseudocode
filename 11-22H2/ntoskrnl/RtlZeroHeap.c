@@ -13,11 +13,12 @@
  *     RtlpHeapRemoveListEntry @ 0x1405B5850 (RtlpHeapRemoveListEntry.c)
  */
 
-__int64 __fastcall RtlZeroHeap(ULONG_PTR a1, unsigned __int8 a2, __int64 Entry)
+NTSTATUS __cdecl RtlZeroHeap(PVOID HeapHandle, ULONG Flags)
 {
+  __int64 Entry; // r8
   _BYTE *v4; // r14
-  _QWORD *v6; // rcx
-  _QWORD *v7; // rax
+  char *v6; // rcx
+  char *v7; // rax
   ULONG_PTR v8; // r15
   _BYTE *v9; // r13
   unsigned __int8 v10; // cl
@@ -45,45 +46,45 @@ __int64 __fastcall RtlZeroHeap(ULONG_PTR a1, unsigned __int8 a2, __int64 Entry)
   ULONG_PTR v32; // [rsp+48h] [rbp-90h]
   ULONG_PTR v33; // [rsp+60h] [rbp-78h]
   int v34; // [rsp+90h] [rbp-48h]
-  _QWORD *v35; // [rsp+F8h] [rbp+20h]
+  char *v35; // [rsp+F8h] [rbp+20h]
 
   v4 = 0LL;
   v30 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    return 0LL;
-  if ( ((*(_BYTE *)(a1 + 116) | a2) & 1) == 0 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    return 0;
+  if ( ((*((_BYTE *)HeapHandle + 116) | (unsigned __int8)Flags) & 1) == 0 )
   {
-    ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 352), 1u);
+    ExAcquireResourceExclusiveLite(*((PERESOURCE *)HeapHandle + 44), 1u);
     v30 = 1;
   }
-  v6 = (_QWORD *)(a1 + 288);
-  v7 = *(_QWORD **)(a1 + 288);
+  v6 = (char *)HeapHandle + 288;
+  v7 = (char *)*((_QWORD *)HeapHandle + 36);
 LABEL_6:
   v35 = v7;
   if ( v7 != v6 )
   {
-    v8 = v7[5];
+    v8 = *((_QWORD *)v7 + 5);
     v32 = v8;
     while ( 1 )
     {
-      if ( v8 >= v7[6] )
+      if ( v8 >= *((_QWORD *)v7 + 6) )
       {
-        v7 = (_QWORD *)*v7;
-        v6 = (_QWORD *)(a1 + 288);
+        v7 = *(char **)v7;
+        v6 = (char *)HeapHandle + 288;
         goto LABEL_6;
       }
       if ( v4 )
       {
-        if ( !*(_DWORD *)(a1 + 124) )
+        if ( !*((_DWORD *)HeapHandle + 31) )
           goto LABEL_15;
         v4[11] = v4[8] ^ v4[9] ^ v4[10];
-        *((_DWORD *)v4 + 2) ^= *(_DWORD *)(a1 + 136);
+        *((_DWORD *)v4 + 2) ^= *((_DWORD *)HeapHandle + 34);
       }
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( *((_DWORD *)HeapHandle + 31) )
       {
-        *(_DWORD *)(v8 + 8) ^= *(_DWORD *)(a1 + 136);
+        *(_DWORD *)(v8 + 8) ^= *((_DWORD *)HeapHandle + 34);
         if ( *(_BYTE *)(v8 + 11) != (*(_BYTE *)(v8 + 8) ^ (unsigned __int8)(*(_BYTE *)(v8 + 9) ^ *(_BYTE *)(v8 + 10))) )
-          RtlpAnalyzeHeapFailure(a1, v8);
+          RtlpAnalyzeHeapFailure((ULONG_PTR)HeapHandle, v8);
       }
 LABEL_15:
       v4 = (_BYTE *)v8;
@@ -96,7 +97,7 @@ LABEL_15:
       {
         v27 = 16LL * *(unsigned __int16 *)(v8 + 8) - 32;
         Entry = v8 + 32;
-        if ( ((v10 >> 2) & ((*(_BYTE *)(a1 + 112) & 0x40) != 0)) != 0 )
+        if ( ((v10 >> 2) & ((*((_BYTE *)HeapHandle + 112) & 0x40) != 0)) != 0 )
         {
           v28 = v27 >> 2;
           if ( v28 )
@@ -152,8 +153,8 @@ LABEL_65:
       v15 = *(_QWORD *)(v12 + 8);
       if ( *v13 == v15 && (__int64 *)v14 == v11 )
       {
-        *(_QWORD *)(a1 + 192) -= *(unsigned __int16 *)(v8 + 8);
-        v16 = *(_QWORD *)(a1 + 312);
+        *((_QWORD *)HeapHandle + 24) -= *(unsigned __int16 *)(v8 + 8);
+        v16 = *((_QWORD *)HeapHandle + 39);
         if ( v16 )
         {
           v17 = *(unsigned __int16 *)v9;
@@ -169,7 +170,7 @@ LABEL_65:
             }
             v16 = *(_QWORD *)v16;
           }
-          RtlpHeapRemoveListEntry(a1, v16, Entry, (__int64 *)(v8 + 16), v17, *(unsigned __int16 *)v9);
+          RtlpHeapRemoveListEntry((ULONG_PTR)HeapHandle, v16, Entry, (__int64 *)(v8 + 16), v17, *(unsigned __int16 *)v9);
           v13 = v31;
         }
         *v13 = v12;
@@ -177,19 +178,19 @@ LABEL_65:
         v19 = *(unsigned __int16 *)v9;
         *(_BYTE *)(v8 + 10) = 0;
         *(_BYTE *)(v8 + 15) = 0;
-        v20 = (__int64 *)(a1 + 336);
-        if ( *(_QWORD *)(a1 + 312) )
-          Entry = RtlpFindEntry(a1, (unsigned int)v19);
+        v20 = (__int64 *)((char *)HeapHandle + 336);
+        if ( *((_QWORD *)HeapHandle + 39) )
+          Entry = RtlpFindEntry((__int64)HeapHandle, (unsigned int)v19);
         else
           Entry = *v20;
         while ( v20 != (__int64 *)Entry )
         {
-          if ( *(_DWORD *)(a1 + 124) )
+          if ( *((_DWORD *)HeapHandle + 31) )
           {
             v21 = *(_DWORD *)(Entry - 8);
             LOWORD(v34) = v21;
-            if ( (v21 & *(_DWORD *)(a1 + 124)) != 0 )
-              v34 = *(_DWORD *)(a1 + 136) ^ v21;
+            if ( (v21 & *((_DWORD *)HeapHandle + 31)) != 0 )
+              v34 = *((_DWORD *)HeapHandle + 34) ^ v21;
             v22 = v34;
             v8 = v32;
           }
@@ -213,8 +214,8 @@ LABEL_65:
         {
           RtlpLogHeapFailure(13, 0LL, Entry, 0LL, *v23, 0LL);
         }
-        *(_QWORD *)(a1 + 192) += *(unsigned __int16 *)v9;
-        v24 = *(_QWORD *)(a1 + 312);
+        *((_QWORD *)HeapHandle + 24) += *(unsigned __int16 *)v9;
+        v24 = *((_QWORD *)HeapHandle + 39);
         if ( v24 )
         {
           v25 = *(unsigned __int16 *)v9;
@@ -230,29 +231,29 @@ LABEL_65:
             }
             v24 = *(_QWORD *)v24;
           }
-          RtlpHeapAddListEntry(a1, v24, Entry, (__int64)v11, v25, *(unsigned __int16 *)v9);
+          RtlpHeapAddListEntry((__int64)HeapHandle, v24, Entry, (__int64)v11, v25, *(unsigned __int16 *)v9);
         }
-        if ( *(_DWORD *)(a1 + 124) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
           *(_BYTE *)(v33 + 11) = *v9 ^ v9[1] ^ v9[2];
-          *(_DWORD *)v9 ^= *(_DWORD *)(a1 + 136);
+          *(_DWORD *)v9 ^= *((_DWORD *)HeapHandle + 34);
         }
       }
       else
       {
-        RtlpLogHeapFailure(13, a1, v8 + 16, v15, v14, 0LL);
+        RtlpLogHeapFailure(13, (ULONG_PTR)HeapHandle, v8 + 16, v15, v14, 0LL);
       }
       v4 = 0LL;
 LABEL_51:
       v7 = v35;
     }
   }
-  if ( v4 && *(_DWORD *)(a1 + 124) )
+  if ( v4 && *((_DWORD *)HeapHandle + 31) )
   {
     v4[11] = v4[8] ^ v4[9] ^ v4[10];
-    *((_DWORD *)v4 + 2) ^= *(_DWORD *)(a1 + 136);
+    *((_DWORD *)v4 + 2) ^= *((_DWORD *)HeapHandle + 34);
   }
   if ( v30 )
-    ExReleaseResourceLite(*(PERESOURCE *)(a1 + 352));
-  return 0LL;
+    ExReleaseResourceLite(*((PERESOURCE *)HeapHandle + 44));
+  return 0;
 }

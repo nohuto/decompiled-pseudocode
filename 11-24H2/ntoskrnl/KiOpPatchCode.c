@@ -1,25 +1,25 @@
 /*
- * XREFs of KiOpPatchCode @ 0x1405C535C
+ * XREFs of KiOpPatchCode @ 0x1405C2A90
  * Callers:
- *     KiOp_MOVAPS @ 0x1405C5670 (KiOp_MOVAPS.c)
- *     KiOp_MOVDQA @ 0x1405C56F0 (KiOp_MOVDQA.c)
+ *     KiOp_MOVAPS @ 0x1405C2DA0 (KiOp_MOVAPS.c)
+ *     KiOp_MOVDQA @ 0x1405C2E20 (KiOp_MOVDQA.c)
  * Callees:
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwProtectVirtualMemory @ 0x1406A6E10 (ZwProtectVirtualMemory.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwProtectVirtualMemory @ 0x1406A7DB0 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall KiOpPatchCode(__int64 a1, unsigned __int64 a2, char a3)
 {
-  int v5; // edi
+  NTSTATUS v5; // edi
   _BYTE *v6; // rax
-  unsigned int v8; // [rsp+30h] [rbp-78h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-70h] BYREF
-  __int64 v10; // [rsp+40h] [rbp-68h] BYREF
+  ULONG NewProtect; // [rsp+30h] [rbp-78h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp-70h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-68h] BYREF
   __int64 MemoryDescriptorList; // [rsp+48h] [rbp-60h] BYREF
   __int16 MemoryDescriptorList_8; // [rsp+50h] [rbp-58h]
   __int16 MemoryDescriptorList_10; // [rsp+52h] [rbp-56h]
@@ -30,11 +30,11 @@ __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
 
   memset(MemoryDescriptorList_12, 0, sizeof(MemoryDescriptorList_12));
   *(_QWORD *)&MemoryDescriptorList_44[4] = 0LL;
-  v8 = 0;
-  v10 = a2;
-  v9 = 1LL;
+  NewProtect = 0;
+  BaseAddress = (PVOID)a2;
+  RegionSize = 1LL;
   ExAcquireFastMutex(&KiUserCodePatchMutex);
-  v5 = ZwProtectVirtualMemory(-1LL, &v10, &v9, 64LL, &v8);
+  v5 = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x40u, &NewProtect);
   if ( v5 >= 0 )
   {
     memset(MemoryDescriptorList_12, 0, sizeof(MemoryDescriptorList_12));
@@ -56,7 +56,7 @@ __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
     else
       v5 = -1073741670;
     MmUnlockPages((PMDL)&MemoryDescriptorList);
-    ZwProtectVirtualMemory(-1LL, &v10, &v9, v8, &v8);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, NewProtect, &NewProtect);
   }
   KeReleaseGuardedMutex(&KiUserCodePatchMutex);
   return (unsigned int)v5;

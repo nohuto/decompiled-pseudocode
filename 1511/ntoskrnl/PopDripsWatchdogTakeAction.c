@@ -85,7 +85,7 @@ char __fastcall PopDripsWatchdogTakeAction(int *a1, char a2)
     }
     if ( (unsigned int)VfIsVerifierEnabled()
       || (SystemInformation = v13,
-          ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &SystemInformation, v13, &ReturnLength) >= 0)
+          ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, v13, &ReturnLength) >= 0)
       && (SystemInformation & 0x200000000LL) != 0 )
     {
       if ( v6 && (a2 & 0x20) != 0 )

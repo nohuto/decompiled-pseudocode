@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpUpdateHeapRates @ 0x18007F5DC
+ * XREFs of RtlpUpdateHeapRates @ 0x18007F5EC
  * Callers:
  *     RtlpReAllocateHeap @ 0x18000C610 (RtlpReAllocateHeap.c)
  *     RtlpAllocateHeap @ 0x180011AF0 (RtlpAllocateHeap.c)

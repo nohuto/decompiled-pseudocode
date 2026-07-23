@@ -1,11 +1,11 @@
 /*
- * XREFs of PsIumGetOnDemandDebugChallenge @ 0x140B0ADD8
+ * XREFs of PsIumGetOnDemandDebugChallenge @ 0x140B0C524
  * Callers:
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     VslGetOnDemandDebugChallenge @ 0x140B0AE88 (VslGetOnDemandDebugChallenge.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     VslGetOnDemandDebugChallenge @ 0x140B0C5D4 (VslGetOnDemandDebugChallenge.c)
  */
 
 __int64 __fastcall PsIumGetOnDemandDebugChallenge(ULONG_PTR a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -16,8 +16,8 @@ __int64 __fastcall PsIumGetOnDemandDebugChallenge(ULONG_PTR a1, __int64 a2, unsi
   Object[0] = 0LL;
   v7 = ObpReferenceObjectByHandleWithTag(
          a1,
-         4096LL,
-         PsProcessType,
+         4096,
+         (__int64)PsProcessType,
          KeGetCurrentThread()->PreviousMode,
          0x79517350u,
          Object,

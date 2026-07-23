@@ -1,9 +1,9 @@
 /*
- * XREFs of CcNotifyWriteBehindHelper @ 0x140159AC0
+ * XREFs of CcNotifyWriteBehindHelper @ 0x140159BC0
  * Callers:
  *     <none>
  * Callees:
- *     CcNotifyWriteBehindInternal @ 0x14012BF3C (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindInternal @ 0x14012C00C (CcNotifyWriteBehindInternal.c)
  */
 
 char __fastcall CcNotifyWriteBehindHelper(struct _KEVENT *a1, char a2)

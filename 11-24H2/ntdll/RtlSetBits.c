@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlSetBits @ 0x180006260
+ * XREFs of RtlSetBits @ 0x180032C60
  * Callers:
- *     LdrpAcquireTlsIndex @ 0x180006038 (LdrpAcquireTlsIndex.c)
- *     RtlpValidateRange @ 0x18004723C (RtlpValidateRange.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpInitializeTls @ 0x18008ECD0 (LdrpInitializeTls.c)
- *     RtlTlsAlloc @ 0x1800B9670 (RtlTlsAlloc.c)
+ *     LdrpInitializeTls @ 0x1800266A4 (LdrpInitializeTls.c)
+ *     RtlpValidateRange @ 0x18002B23C (RtlpValidateRange.c)
+ *     LdrpAcquireTlsIndex @ 0x180032A38 (LdrpAcquireTlsIndex.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     RtlTlsAlloc @ 0x1800B1410 (RtlTlsAlloc.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-void __fastcall RtlSetBits(__int64 a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlSetBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToSet)
 {
   unsigned __int64 v3; // rbx
   __int64 v4; // rdx
@@ -18,23 +18,23 @@ void __fastcall RtlSetBits(__int64 a1, unsigned int a2, unsigned int a3)
   __int64 v6; // rsi
   char v7; // al
 
-  if ( a3 )
+  if ( NumberToSet )
   {
-    v3 = a2;
-    v4 = a2 & 7;
-    v5 = (_BYTE *)(*(_QWORD *)(a1 + 8) + (v3 >> 3));
-    v6 = a3;
-    if ( (unsigned int)v4 + a3 <= 8 )
+    v3 = StartingIndex;
+    v4 = StartingIndex & 7;
+    v5 = (char *)BitMapHeader->Buffer + (v3 >> 3);
+    v6 = NumberToSet;
+    if ( (unsigned int)v4 + NumberToSet <= 8 )
     {
-      v7 = byte_180192060[a3] << v4;
+      v7 = byte_180191058[NumberToSet] << v4;
 LABEL_4:
       *v5 |= v7;
       return;
     }
     if ( (_DWORD)v4 )
     {
-      v6 = (unsigned int)v4 + a3 - 8;
-      *v5++ |= byte_180180328[v4];
+      v6 = (unsigned int)v4 + NumberToSet - 8;
+      *v5++ |= byte_18017EB08[v4];
     }
     if ( (unsigned int)v6 > 8 )
     {
@@ -44,7 +44,7 @@ LABEL_4:
     }
     if ( (_DWORD)v6 )
     {
-      v7 = byte_180192060[v6];
+      v7 = byte_180191058[v6];
       goto LABEL_4;
     }
   }

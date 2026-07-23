@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpGxCopyBitmapToRectangle @ 0x140C54290
+ * XREFs of BgpGxCopyBitmapToRectangle @ 0x140C5A290
  * Callers:
- *     BgpGxParseBitmap @ 0x140C4F4E8 (BgpGxParseBitmap.c)
+ *     BgpGxParseBitmap @ 0x140C554E8 (BgpGxParseBitmap.c)
  * Callees:
- *     BgpGxMarkClean @ 0x14052F2EC (BgpGxMarkClean.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     BgpGxMarkClean @ 0x14053180C (BgpGxMarkClean.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall BgpGxCopyBitmapToRectangle(__int64 a1, __int64 a2)

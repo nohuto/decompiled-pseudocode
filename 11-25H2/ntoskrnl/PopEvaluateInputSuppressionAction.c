@@ -31,12 +31,12 @@ __int64 PopEvaluateInputSuppressionAction()
   int v12; // ecx
   int v13; // r8d
   int v14; // r9d
-  __int64 v16; // [rsp+20h] [rbp-68h]
-  BOOL v17; // [rsp+40h] [rbp-48h] BYREF
+  void *ExplicitScope; // [rsp+20h] [rbp-68h]
+  BOOL Buffer; // [rsp+40h] [rbp-48h] BYREF
   GUID v18; // [rsp+48h] [rbp-40h] BYREF
   BOOL v19; // [rsp+58h] [rbp-30h]
 
-  v17 = 0;
+  Buffer = 0;
   v18 = 0LL;
   v19 = 0;
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopInputSuppressionLock);
@@ -55,7 +55,7 @@ __int64 PopEvaluateInputSuppressionAction()
   }
   if ( !PopEnableInputSuppression && v10 == 1 )
     v10 = 2;
-  PopReleasePolicyLock(v3, v2, v4, v5, v16);
+  PopReleasePolicyLock(v3, v2, v4, v5, ExplicitScope);
   if ( PopInputSuppressionRequired != v10 )
   {
     LOBYTE(v14) = v6;
@@ -63,14 +63,14 @@ __int64 PopEvaluateInputSuppressionAction()
     LOBYTE(v11) = v7;
     PopInputSuppressionRequired = v10;
     PopTraceInputSuppressionActionUpdate(v12, v11, v13, v14, v9);
-    ZwUpdateWnfStateData((__int64)&WNF_PO_INPUT_SUPPRESS_NOTIFICATION_EX, (__int64)&PopInputSuppressionRequired);
+    ZwUpdateWnfStateData(&WNF_PO_INPUT_SUPPRESS_NOTIFICATION_EX, &PopInputSuppressionRequired, 4u, 0LL, 0LL, 0, 0);
     if ( PopEnableInputSuppression )
     {
       if ( (unsigned int)PopInputSuppressionRequired <= 1 )
         _InterlockedIncrement(&PopInputSuppressionActionCount);
-      v17 = PopInputSuppressionRequired == 1;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_INPUT_SUPPRESS_NOTIFICATION, (__int64)&v17);
-      v19 = v17;
+      Buffer = PopInputSuppressionRequired == 1;
+      ZwUpdateWnfStateData(&WNF_PO_INPUT_SUPPRESS_NOTIFICATION, &Buffer, 4u, 0LL, 0LL, 0, 0);
+      v19 = Buffer;
       v18 = GUID_INPUT_SUPPRESS_REQUESTED;
       PopBroadcastSessionInfo(0, 20, (__int64)&v18);
     }

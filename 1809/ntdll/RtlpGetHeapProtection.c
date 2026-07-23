@@ -12,18 +12,18 @@
  *     RtlProtectHeap @ 0x1800606A0 (RtlProtectHeap.c)
  *     RtlpInitializeHeapSegment @ 0x1800617A8 (RtlpInitializeHeapSegment.c)
  *     RtlpLowFragHeapFlushCaches @ 0x180068C90 (RtlpLowFragHeapFlushCaches.c)
- *     RtlpQueryExtendedInformationHeap @ 0x18007D320 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x18007D330 (RtlpQueryExtendedInformationHeap.c)
  *     RtlpGetContainingRange @ 0x1800F3544 (RtlpGetContainingRange.c)
  * Callees:
  *     RtlpHpHeapValidateProtection @ 0x180060C34 (RtlpHpHeapValidateProtection.c)
  */
 
-__int64 __fastcall RtlpGetHeapProtection(__int64 a1, int a2)
+__int64 __fastcall RtlpGetHeapProtection(_DWORD *a1, int a2)
 {
   __int64 result; // rax
 
-  result = (*(_DWORD *)(a1 + 112) & 0x40000) != 0 ? 64 : 4;
+  result = (a1[28] & 0x40000) != 0 ? 64 : 4;
   if ( a2 )
-    return RtlpHpHeapValidateProtection(a1, (unsigned int)result);
+    return RtlpHpHeapValidateProtection(a1);
   return result;
 }

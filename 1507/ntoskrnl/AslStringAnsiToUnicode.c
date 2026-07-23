@@ -14,7 +14,7 @@
  *     RtlxOemStringToUnicodeSize @ 0x1406C7C48 (RtlxOemStringToUnicodeSize.c)
  */
 
-__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
+__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const CHAR *a2)
 {
   __int64 v3; // rcx
   ULONG v4; // edi
@@ -22,7 +22,7 @@ __int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
   NTSTATUS v6; // esi
   __int64 v7; // rcx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  STRING OemString; // [rsp+40h] [rbp-18h] BYREF
+  OEM_STRING OemString; // [rsp+40h] [rbp-18h] BYREF
 
   RtlInitString(&OemString, a2);
   if ( (_BYTE)NlsMbCodePageTag )

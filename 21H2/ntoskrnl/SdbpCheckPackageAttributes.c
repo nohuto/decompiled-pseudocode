@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpCheckPackageAttributes @ 0x1409655E0
+ * XREFs of SdbpCheckPackageAttributes @ 0x1409657C0
  * Callers:
  *     <none>
  * Callees:
- *     AslStringPatternMatchW @ 0x14075371C (AslStringPatternMatchW.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
- *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     SdbpCheckUptoVersion @ 0x1407B3754 (SdbpCheckUptoVersion.c)
- *     SdbReadQWORDTag @ 0x1407B3A20 (SdbReadQWORDTag.c)
- *     SdbpCheckFromVersion @ 0x1409676B0 (SdbpCheckFromVersion.c)
- *     SdbpCheckVersion @ 0x1409676F4 (SdbpCheckVersion.c)
+ *     AslStringPatternMatchW @ 0x1407538DC (AslStringPatternMatchW.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756740 (SdbGetStringTagPtr.c)
+ *     SdbReadDWORDTag @ 0x140759F54 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     SdbpCheckUptoVersion @ 0x1407B38F4 (SdbpCheckUptoVersion.c)
+ *     SdbReadQWORDTag @ 0x1407B3BC0 (SdbReadQWORDTag.c)
+ *     SdbpCheckFromVersion @ 0x140967890 (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x1409678D4 (SdbpCheckVersion.c)
  */
 
 __int64 __fastcall SdbpCheckPackageAttributes(int *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)
@@ -41,7 +41,7 @@ __int64 __fastcall SdbpCheckPackageAttributes(int *a1, __int64 a2, __int64 a3, _
   *a1 = 0;
   while ( 1 )
   {
-    FirstTag = SdbFindFirstTag(*(_QWORD *)(a2 + 8), a5, *(_WORD *)((char *)&unk_140C12FD0 + v10));
+    FirstTag = SdbFindFirstTag(*(_QWORD *)(a2 + 8), a5, *(_WORD *)((char *)&unk_140C12FB0 + v10));
     if ( FirstTag )
       break;
 LABEL_33:
@@ -65,7 +65,7 @@ LABEL_33:
         if ( !is_mul_ok(v11[1], v14) || (v17 = v11[5], v15 = v17 + v16, v17 + v16 < v17) )
           v15 = 0LL;
       }
-      if ( *(_WORD *)v15 == *(_WORD *)((char *)&unk_140C12FD0 + v10 + 2) )
+      if ( *(_WORD *)v15 == *(_WORD *)((char *)&unk_140C12FB0 + v10 + 2) )
         break;
       ++v14;
       v15 = 0LL;
@@ -73,7 +73,7 @@ LABEL_33:
     while ( v14 < v13 );
     if ( v15 )
     {
-      v18 = *(_WORD *)((char *)&unk_140C12FD0 + v10);
+      v18 = *(_WORD *)((char *)&unk_140C12FB0 + v10);
       if ( v18 == 16453 )
       {
         DWORDTag = SdbReadDWORDTag(*(_QWORD *)(a2 + 8), FirstTag, 0xFFFFFFFFLL, v13);

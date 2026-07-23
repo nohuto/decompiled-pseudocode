@@ -3,7 +3,7 @@
  * Callers:
  *     ViThunkCreateSharedExportInformation @ 0x1406FDEAC (ViThunkCreateSharedExportInformation.c)
  * Callees:
- *     RtlFindNextForwardRunClear @ 0x140084724 (RtlFindNextForwardRunClear.c)
+ *     RtlFindNextForwardRunClear @ 0x140082884 (RtlFindNextForwardRunClear.c)
  *     ViThunkSnapSharedExportByName @ 0x1406FE014 (ViThunkSnapSharedExportByName.c)
  */
 
@@ -11,7 +11,7 @@ __int64 __fastcall ViThunkSnapSharedExports(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        struct _RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         unsigned int a5,
         __int64 a6)
 {

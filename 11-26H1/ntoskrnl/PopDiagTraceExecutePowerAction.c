@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceExecutePowerAction @ 0x140A382A0
+ * XREFs of PopDiagTraceExecutePowerAction @ 0x1409F3E60
  * Callers:
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     PsGetProcessImageFileName @ 0x14047F3D0 (PsGetProcessImageFileName.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     PsGetProcessImageFileName @ 0x140478D40 (PsGetProcessImageFileName.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceExecutePowerAction(
@@ -118,11 +118,9 @@ char __fastcall PopDiagTraceExecutePowerAction(
   while ( ProcessImageFileName[v13] );
   LODWORD(v13) = v13 + 1;
   v15 = v13;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v13) = EtwEventEnabled(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    &POP_ETW_EVENT_EXECUTE_POWER_ACTION);
+    LOBYTE(v13) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_EXECUTE_POWER_ACTION);
     if ( (_BYTE)v13 )
     {
       UserData.Ptr = (ULONGLONG)&v89;
@@ -154,22 +152,17 @@ char __fastcall PopDiagTraceExecutePowerAction(
       v55 = 4LL;
       v56 = ProcessImageFileName;
       v58 = 0;
-      LOBYTE(v13) = EtwWrite(
-                      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                      &POP_ETW_EVENT_EXECUTE_POWER_ACTION,
-                      0LL,
-                      0xEu,
-                      &UserData);
+      LOBYTE(v13) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_EXECUTE_POWER_ACTION, 0LL, 0xEu, &UserData);
     }
   }
-  if ( dword_140E07598 )
+  if ( dword_140E07560 )
   {
-    if ( (qword_140E075A8 & 0x800000000000LL) != 0 )
+    if ( (qword_140E07570 & 0x800000000000LL) != 0 )
     {
-      v13 = qword_140E075B0 & 0x800000000000LL;
-      if ( (qword_140E075B0 & 0x800000000000LL) == qword_140E075B0
-        && (unsigned int)dword_140E07598 > 5
-        && v13 == qword_140E075B0 )
+      v13 = qword_140E07578 & 0x800000000000LL;
+      if ( (qword_140E07578 & 0x800000000000LL) == qword_140E07578
+        && (unsigned int)dword_140E07560 > 5
+        && v13 == qword_140E07578 )
       {
         v17 = v89;
         v61 = 4LL;
@@ -215,8 +208,8 @@ char __fastcall PopDiagTraceExecutePowerAction(
         v87 = &v30;
         v88 = 8LL;
         LOBYTE(v13) = tlgWriteTransfer_EtwWriteTransfer(
-                        (__int64)&dword_140E07598,
-                        (unsigned __int8 *)&word_14004AF8E,
+                        (__int64)&dword_140E07560,
+                        (unsigned __int8 *)&dword_14004B59C,
                         0LL,
                         0LL,
                         0x11u,

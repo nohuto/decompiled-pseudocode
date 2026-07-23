@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReInitializeFreeSlabPfn @ 0x1403390FC
+ * XREFs of MiReInitializeFreeSlabPfn @ 0x14033938C
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x140338F50 (MiFreePageToSlabAllocator.c)
- *     MiGetSlabStandbyPage @ 0x140656E5C (MiGetSlabStandbyPage.c)
+ *     MiFreePageToSlabAllocator @ 0x1403391E0 (MiFreePageToSlabAllocator.c)
+ *     MiGetSlabStandbyPage @ 0x1406573AC (MiGetSlabStandbyPage.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 char __fastcall MiReInitializeFreeSlabPfn(_QWORD *a1, __int64 a2)

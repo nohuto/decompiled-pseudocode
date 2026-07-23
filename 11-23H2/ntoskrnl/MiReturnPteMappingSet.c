@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnPteMappingSet @ 0x140284188
+ * XREFs of MiReturnPteMappingSet @ 0x140284418
  * Callers:
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiSlowRotateCopy @ 0x140632F64 (MiSlowRotateCopy.c)
- *     MiFillPageWithImageExtentContents @ 0x14063D090 (MiFillPageWithImageExtentContents.c)
- *     MiCopyMemoryPagefileData @ 0x14065FB28 (MiCopyMemoryPagefileData.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiSlowRotateCopy @ 0x1406334B4 (MiSlowRotateCopy.c)
+ *     MiFillPageWithImageExtentContents @ 0x14063D5E0 (MiFillPageWithImageExtentContents.c)
+ *     MiCopyMemoryPagefileData @ 0x140660078 (MiCopyMemoryPagefileData.c)
  * Callees:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReturnPteMappingSet(__int64 a1)
@@ -23,10 +23,10 @@ __int64 __fastcall MiReturnPteMappingSet(__int64 a1)
   result = (__int64)KeGetCurrentPrcb();
   *(_QWORD *)(*(_QWORD *)(result + 33592) + 12344LL) = 0LL;
   v2 = *(unsigned __int8 *)(a1 + 8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipPrepareWnodeSI @ 0x1409CEBB0
+ * XREFs of WmipPrepareWnodeSI @ 0x1409B3B80
  * Callers:
- *     WmipQuerySetExecuteSI @ 0x1409CDA80 (WmipQuerySetExecuteSI.c)
+ *     WmipQuerySetExecuteSI @ 0x1409B2A54 (WmipQuerySetExecuteSI.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     _wtoi @ 0x1404FE710 (_wtoi.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     WmipAddProviderIdToPIList @ 0x1409CF0AC (WmipAddProviderIdToPIList.c)
- *     WmipCountedToSz @ 0x1409CF68C (WmipCountedToSz.c)
- *     WmipIsNumber @ 0x1409CF6FC (WmipIsNumber.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     _wtoi @ 0x1404FBFD0 (_wtoi.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     WmipAddProviderIdToPIList @ 0x1409B407C (WmipAddProviderIdToPIList.c)
+ *     WmipCountedToSz @ 0x1409B5550 (WmipCountedToSz.c)
+ *     WmipIsNumber @ 0x1409B55C0 (WmipIsNumber.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4, _BYTE *a5, _BYTE *a6)
@@ -36,32 +36,35 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
   unsigned __int64 v20; // rax
   const wchar_t *v22; // rdi
   unsigned int v23; // ebx
-  _BYTE *v24; // rax
-  __int64 v25; // rdi
+  __int64 v24; // rdx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  _BYTE *v27; // rax
+  __int64 v28; // rdi
   unsigned int i; // ebx
-  volatile signed __int64 **v27; // rsi
-  _BYTE *v28; // rax
+  volatile signed __int64 **v30; // rsi
+  _BYTE *v31; // rax
   wchar_t *Str1; // [rsp+30h] [rbp-59h]
-  unsigned int v30; // [rsp+38h] [rbp-51h] BYREF
-  volatile signed __int64 **v31; // [rsp+40h] [rbp-49h]
-  int v32; // [rsp+48h] [rbp-41h] BYREF
-  volatile signed __int64 **v33; // [rsp+50h] [rbp-39h] BYREF
-  _BYTE *v34; // [rsp+58h] [rbp-31h]
-  int *v35; // [rsp+60h] [rbp-29h]
-  void **v36; // [rsp+68h] [rbp-21h]
-  __int64 v37; // [rsp+70h] [rbp-19h]
+  unsigned int v33; // [rsp+38h] [rbp-51h] BYREF
+  volatile signed __int64 **v34; // [rsp+40h] [rbp-49h]
+  int v35; // [rsp+48h] [rbp-41h] BYREF
+  volatile signed __int64 **v36; // [rsp+50h] [rbp-39h] BYREF
+  _BYTE *v37; // [rsp+58h] [rbp-31h]
+  int *v38; // [rsp+60h] [rbp-29h]
+  void **v39; // [rsp+68h] [rbp-21h]
+  __int64 v40; // [rsp+70h] [rbp-19h]
   wchar_t pszDest[8]; // [rsp+78h] [rbp-11h] BYREF
 
-  v35 = a3;
-  v36 = a4;
+  v38 = a3;
+  v39 = a4;
   v7 = 0LL;
   v8 = 0LL;
   v9 = 0LL;
-  v34 = a5;
-  v31 = 0LL;
+  v37 = a5;
+  v34 = 0LL;
   *a5 = 1;
   v10 = *(_QWORD *)(a1 + 56);
-  v30 = 0;
+  v33 = 0;
   if ( v10 && *(_DWORD *)(v10 + 36) )
   {
     v11 = 0;
@@ -77,16 +80,16 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
       v12 = Str1;
       if ( Str1 )
       {
-        v31 = (volatile signed __int64 **)*v36;
-        v7 = v31;
-        v33 = v31;
-        v32 = *v35;
+        v34 = (volatile signed __int64 **)*v39;
+        v7 = v34;
+        v36 = v34;
+        v35 = *v38;
         KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
         if ( *(_DWORD *)(v10 + 36) )
         {
           v13 = v10 + 56;
           v14 = *(_QWORD *)(v10 + 56);
-          v37 = v13;
+          v40 = v13;
           if ( v14 != v13 )
           {
             do
@@ -117,7 +120,7 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
                   {
                     v22 = &Str1[v17];
                     v23 = wtoi(v22);
-                    if ( (unsigned __int8)WmipIsNumber(v22) )
+                    if ( (unsigned __int8)WmipIsNumber(v22, v24, v25, v26) )
                     {
                       if ( v23 >= v18 && v23 < 0xF423F && v23 < v18 + *(_DWORD *)(v14 + 72) )
                       {
@@ -127,9 +130,9 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
                           *(_DWORD *)(a2 + 44) |= 0x80u;
                           LOBYTE(v9) = 1;
                           *(_DWORD *)(a2 + 4) = *(_DWORD *)(v14 + 80);
-                          v24 = v34;
+                          v27 = v37;
                           *(_DWORD *)(a2 + 52) = v23 - v18;
-                          *v24 = 0;
+                          *v27 = 0;
                         }
                       }
                     }
@@ -138,17 +141,17 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
                 }
                 else if ( (v15 & 2) != 0 )
                 {
-                  v25 = *(_QWORD *)(v14 + 88);
+                  v28 = *(_QWORD *)(v14 + 88);
                   for ( i = 0; i < *(_DWORD *)(v14 + 72); ++i )
                   {
-                    if ( !wcsicmp(*(const wchar_t **)(v25 + 8LL * i), v12) )
+                    if ( !wcsicmp(*(const wchar_t **)(v28 + 8LL * i), v12) )
                     {
                       *(_DWORD *)(a2 + 44) |= 0x80u;
                       LOBYTE(v9) = 1;
                       *(_DWORD *)(a2 + 4) = *(_DWORD *)(v14 + 80);
-                      v28 = v34;
+                      v31 = v37;
                       *(_DWORD *)(a2 + 52) = i;
-                      *v28 = 0;
+                      *v31 = 0;
                       break;
                     }
                   }
@@ -157,19 +160,19 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
                 {
                   WmipReferenceEntry(v14);
                   v11 = WmipAddProviderIdToPIList(
+                          (unsigned int)&v36,
                           (unsigned int)&v33,
-                          (unsigned int)&v30,
-                          (unsigned int)&v32,
-                          (_DWORD)v31,
+                          (unsigned int)&v35,
+                          (_DWORD)v34,
                           v14);
                   LOBYTE(v9) = v11 < 0;
                 }
               }
               v14 = *(_QWORD *)v14;
             }
-            while ( v14 != v37 );
-            v7 = v33;
-            v8 = v30;
+            while ( v14 != v40 );
+            v7 = v36;
+            v8 = v33;
           }
         }
         else
@@ -178,29 +181,29 @@ __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4
         }
         ExFreePoolWithTag(v12, 0);
         KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
-        v9 = v31;
+        v9 = v34;
       }
       else
       {
         v11 = -1073741670;
       }
-      if ( *v34 )
+      if ( *v37 )
       {
-        *v35 = v8;
-        *v36 = v7;
+        *v38 = v8;
+        *v39 = v7;
       }
       else if ( v7 )
       {
         if ( (_DWORD)v8 )
         {
-          v27 = v7;
+          v30 = v7;
           do
           {
-            WmipUnreferenceEntry((__int64)&WmipISChunkInfo, *v27++);
+            WmipUnreferenceEntry((__int64)&WmipISChunkInfo, *v30++);
             --v8;
           }
           while ( v8 );
-          v9 = v31;
+          v9 = v34;
         }
         if ( v7 != v9 )
           ExFreePoolWithTag(v7, 0);

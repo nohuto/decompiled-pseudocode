@@ -1,11 +1,11 @@
 /*
- * XREFs of SecureDump_PrepareForInit @ 0x1401CBC5C
+ * XREFs of SecureDump_PrepareForInit @ 0x1401CBB40
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     SecureDump_LogErrorEvent @ 0x1401CBBDC (SecureDump_LogErrorEvent.c)
- *     SecureDump_ReadRegistry @ 0x1401CBE50 (SecureDump_ReadRegistry.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SecureDump_LogErrorEvent @ 0x1401CBAC0 (SecureDump_LogErrorEvent.c)
+ *     SecureDump_ReadRegistry @ 0x1401CBD34 (SecureDump_ReadRegistry.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -35,7 +35,7 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
   if ( !a2 )
     return;
   *a2 = 0;
-  memset(&dword_140323468, 0, 0x28uLL);
+  memset(&dword_1403234A8, 0, 0x28uLL);
   Registry = SecureDump_ReadRegistry(
                (unsigned int)&v8,
                (unsigned int)L"GuardedHost",
@@ -49,10 +49,10 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
   }
   else
   {
-    dword_140323468 = *(_DWORD *)P;
+    dword_1403234A8 = *(_DWORD *)P;
     ExFreePoolWithTag(P, 0);
     P = 0LL;
-    if ( dword_140323468 )
+    if ( dword_1403234A8 )
     {
       v3 = 0;
       goto LABEL_16;
@@ -74,9 +74,9 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
   }
   else
   {
-    dword_14032346C = *(_DWORD *)P;
+    dword_1403234AC = *(_DWORD *)P;
     ExFreePoolWithTag(P, 0);
-    if ( !dword_14032346C
+    if ( !dword_1403234AC
       || (*a2 = 1,
           (int)SecureDump_ReadRegistry(
                  (unsigned int)&v6,
@@ -88,8 +88,8 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
                 (unsigned int)&v6,
                 (unsigned int)L"Thumbprint",
                 1,
-                (unsigned int)&qword_140323480,
-                (__int64)&dword_140323488) >= 0 )
+                (unsigned int)&qword_1403234C0,
+                (__int64)&dword_1403234C8) >= 0 )
     {
       ForceDumpDisabled = 0;
 LABEL_9:

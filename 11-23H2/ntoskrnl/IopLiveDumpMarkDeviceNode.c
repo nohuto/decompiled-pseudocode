@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpMarkDeviceNode @ 0x140A9B9A0
+ * XREFs of IopLiveDumpMarkDeviceNode @ 0x140A9B810
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BDA4 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BC14 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkDeviceNode(__int64 a1, unsigned __int64 a2)

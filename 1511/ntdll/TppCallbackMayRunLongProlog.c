@@ -9,7 +9,7 @@
 
 __int64 __fastcall TppCallbackMayRunLongProlog(
         __int64 a1,
-        __int64 a2,
+        int a2,
         volatile signed __int32 **a3,
         signed __int32 *a4,
         signed __int32 *a5)
@@ -25,7 +25,7 @@ __int64 __fastcall TppCallbackMayRunLongProlog(
 
   if ( !a1 || *(_DWORD *)(a1 + 72) )
   {
-    TppRaiseInvalidParameter(a1, a2, (unsigned int)a2, a4);
+    TppRaiseInvalidParameter(a1);
     return 3221225485LL;
   }
   v8 = *(_QWORD *)(a1 + 184);

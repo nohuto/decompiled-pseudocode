@@ -3,14 +3,14 @@
  * Callers:
  *     KeInsertSchedulingGroup @ 0x1402050DC (KeInsertSchedulingGroup.c)
  *     KeSetSchedulingGroupCpuRates @ 0x140205474 (KeSetSchedulingGroupCpuRates.c)
- *     KiUpdateChildrenCpuTarget @ 0x14057D500 (KiUpdateChildrenCpuTarget.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14057D9F0 (KiUpdateChildrenCpuTarget.c)
  * Callees:
  *     KiCheckForEffectivePriorityChange @ 0x1402064E4 (KiCheckForEffectivePriorityChange.c)
  *     KiResetScb @ 0x140206598 (KiResetScb.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiUpdateChildrenCpuTarget @ 0x14057D500 (KiUpdateChildrenCpuTarget.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14057D9F0 (KiUpdateChildrenCpuTarget.c)
  */
 
 char __fastcall KiUpdateCpuTargetByRate(unsigned __int16 *a1, char a2)

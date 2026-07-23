@@ -1,11 +1,11 @@
 /*
- * XREFs of PoInitializePrcb @ 0x140572004
+ * XREFs of PoInitializePrcb @ 0x140573004
  * Callers:
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     PpmHvUseNativeAlgorithms @ 0x14017DC88 (PpmHvUseNativeAlgorithms.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     PpmHvUseNativeAlgorithms @ 0x14017DDC8 (PpmHvUseNativeAlgorithms.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 char __fastcall PoInitializePrcb(char *DeferredContext)

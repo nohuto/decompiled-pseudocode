@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpNumaQueryNodeCapacity @ 0x1403B6690
+ * XREFs of HalpNumaQueryNodeCapacity @ 0x1403B6870
  * Callers:
  *     <none>
  * Callees:

@@ -1,21 +1,21 @@
 /*
- * XREFs of ArbBuildAssignmentOrdering @ 0x140813A78
+ * XREFs of ArbBuildAssignmentOrdering @ 0x140813D48
  * Callers:
- *     ArbInitializeArbiterInstance @ 0x140813748 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x140813A18 (ArbInitializeArbiterInstance.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ArbAddOrdering @ 0x140813F54 (ArbAddOrdering.c)
- *     ArbpGetRegistryValue @ 0x140814028 (ArbpGetRegistryValue.c)
- *     ArbInitializeOrderingList @ 0x1408140F4 (ArbInitializeOrderingList.c)
- *     ArbFreeOrderingList @ 0x140814138 (ArbFreeOrderingList.c)
- *     ArbPruneOrdering @ 0x140814174 (ArbPruneOrdering.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ArbAddOrdering @ 0x140814224 (ArbAddOrdering.c)
+ *     ArbpGetRegistryValue @ 0x1408142F8 (ArbpGetRegistryValue.c)
+ *     ArbInitializeOrderingList @ 0x1408143C4 (ArbInitializeOrderingList.c)
+ *     ArbFreeOrderingList @ 0x140814408 (ArbFreeOrderingList.c)
+ *     ArbPruneOrdering @ 0x140814444 (ArbPruneOrdering.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

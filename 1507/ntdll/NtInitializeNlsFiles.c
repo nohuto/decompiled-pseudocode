@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtInitializeNlsFiles()
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 239LL;
+  result = 239;
   __asm { syscall; Low latency system call }
   return result;
 }

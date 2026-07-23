@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x1407DE3A0
+ * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x1407E2A20
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PopCalculateIdleInformation @ 0x140434E0C (PopCalculateIdleInformation.c)
- *     PopDeepSleepEnabled @ 0x1404D1DFC (PopDeepSleepEnabled.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404DE3B8 (PopOkayToQueueNextWorkItem.c)
- *     Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline @ 0x1404F7B44 (Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline.c)
- *     PopDiagTraceCsDripsDivergence @ 0x14060828C (PopDiagTraceCsDripsDivergence.c)
- *     PopDripsWatchdogTakeAction @ 0x14061388C (PopDripsWatchdogTakeAction.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x1407DE2B0 (PopDripsWatchdogCheckHwDivergence.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x1407E3A00 (PopDeepSleepWatchdogTakeAction.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409D92BC (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x140A3C818 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x140B668A8 (PopDripsWatchdogUpdateMetrics.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopCalculateIdleInformation @ 0x140423CE4 (PopCalculateIdleInformation.c)
+ *     PopDeepSleepEnabled @ 0x1404CB9AC (PopDeepSleepEnabled.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1404D7A98 (PopOkayToQueueNextWorkItem.c)
+ *     Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline @ 0x1404F1154 (Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x14060AE4C (PopDiagTraceCsDripsDivergence.c)
+ *     PopDripsWatchdogTakeAction @ 0x14061674C (PopDripsWatchdogTakeAction.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x1407E2930 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x1407E8D4C (PopDeepSleepWatchdogTakeAction.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409AA1AC (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1409F8238 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x140B69834 (PopDripsWatchdogUpdateMetrics.c)
  */
 
 void __fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
@@ -112,7 +112,7 @@ void __fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
       if ( !v14 && PopDeepSleepEnabled() )
         PopDeepSleepWatchdogTakeAction(&v19, Flink_high);
     }
-    else if ( !qword_140E26F90 )
+    else if ( !qword_140E270D0 )
     {
       PopDripsWatchdogTakeAction((__int64)&v19, Flink_high, SharedWaiters);
     }

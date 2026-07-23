@@ -1,72 +1,72 @@
 /*
- * XREFs of ResCDirectoryFree @ 0x1800FFE18
+ * XREFs of ResCDirectoryFree @ 0x1800FFD50
  * Callers:
- *     ResCKeOpenRuntimeView @ 0x18005A014 (ResCKeOpenRuntimeView.c)
+ *     ResCKeOpenRuntimeView @ 0x18005A004 (ResCKeOpenRuntimeView.c)
  *     ResCCloseRuntimeView @ 0x1800FEF5C (ResCCloseRuntimeView.c)
  *     ResCKeCreateRuntimeView @ 0x1800FF07C (ResCKeCreateRuntimeView.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     _ResCloseHandle @ 0x180103AE0 (_ResCloseHandle.c)
- *     _ResUnmapViewOfFile @ 0x180104DDC (_ResUnmapViewOfFile.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     _ResCloseHandle @ 0x180103A20 (_ResCloseHandle.c)
+ *     _ResUnmapViewOfFile @ 0x180104D1C (_ResUnmapViewOfFile.c)
  */
 
-__int64 __fastcall ResCDirectoryFree(_QWORD *a1)
+__int64 __fastcall ResCDirectoryFree(PVOID BaseAddress)
 {
-  unsigned int v2; // ecx
-  unsigned __int64 v4; // r8
+  LONG v2; // ecx
+  void *v4; // r8
   bool v5; // zf
   void *ProcessHeap; // rcx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // r8
+  void *v7; // r8
+  void *v8; // r8
+  void *v9; // r8
 
-  if ( !a1 )
+  if ( !BaseAddress )
   {
     v2 = 87;
 LABEL_3:
     RtlSetLastWin32Error(v2);
     return 0LL;
   }
-  v4 = a1[3];
+  v4 = (void *)*((_QWORD *)BaseAddress + 3);
   if ( !v4 )
   {
     v2 = 13;
     goto LABEL_3;
   }
-  if ( (*(_BYTE *)a1 & 1) != 0 )
+  if ( (*(_BYTE *)BaseAddress & 1) != 0 )
   {
-    ResUnmapViewOfFile(a1[3]);
-    if ( a1[1] )
+    ResUnmapViewOfFile(*((PVOID *)BaseAddress + 3));
+    if ( *((_QWORD *)BaseAddress + 1) )
       ResCloseHandle();
-    if ( a1[2] != -1LL )
+    if ( *((_QWORD *)BaseAddress + 2) != -1LL )
       ResCloseHandle();
   }
   else
   {
-    v5 = (*(_BYTE *)a1 & 4) == 0;
+    v5 = (*(_BYTE *)BaseAddress & 4) == 0;
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
     if ( !v5 )
     {
-      RtlFreeHeap((__int64)ProcessHeap, 0, v4);
-      v7 = a1[4];
+      RtlFreeHeap(ProcessHeap, 0, v4);
+      v7 = (void *)*((_QWORD *)BaseAddress + 4);
       if ( v7 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
-      v8 = a1[5];
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+      v8 = (void *)*((_QWORD *)BaseAddress + 5);
       if ( v8 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
-      v9 = a1[6];
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+      v9 = (void *)*((_QWORD *)BaseAddress + 6);
       if ( v9 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
-      v4 = a1[7];
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
+      v4 = (void *)*((_QWORD *)BaseAddress + 7);
       if ( !v4 )
         goto LABEL_21;
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
     }
-    RtlFreeHeap((__int64)ProcessHeap, 0, v4);
+    RtlFreeHeap(ProcessHeap, 0, v4);
   }
 LABEL_21:
-  memset(a1, 0, 0x48uLL);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)a1);
+  memset(BaseAddress, 0, 0x48uLL);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return 1LL;
 }

@@ -1,50 +1,50 @@
 /*
- * XREFs of SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0
+ * XREFs of SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50
  * Callers:
- *     SeAccessCheckByType @ 0x14027DF60 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x14026BF00 (SeAccessCheckByType.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
- *     SepFreeResourceInfo @ 0x14027E088 (SepFreeResourceInfo.c)
- *     SeCaptureObjectTypeList @ 0x14027E0C0 (SeCaptureObjectTypeList.c)
- *     SepMandatoryToDiscretionary @ 0x14027E2D0 (SepMandatoryToDiscretionary.c)
- *     SepTrustLevelCheck @ 0x14027E310 (SepTrustLevelCheck.c)
- *     SePrivilegePolicyCheck @ 0x14027E410 (SePrivilegePolicyCheck.c)
- *     SepTokenIsOwner @ 0x14027E590 (SepTokenIsOwner.c)
- *     RtlpOwnerAcesPresent @ 0x14029C4D0 (RtlpOwnerAcesPresent.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepConstrainByConstraintMask @ 0x1402B7D20 (SepConstrainByConstraintMask.c)
- *     SepConstrainByMandatory @ 0x1402B8C54 (SepConstrainByMandatory.c)
- *     SeLogAccessFailure @ 0x1402BAB40 (SeLogAccessFailure.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SepLpacCausedAccessFailure @ 0x1402C7B88 (SepLpacCausedAccessFailure.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     SepMandatoryIntegrityCheck @ 0x14034E820 (SepMandatoryIntegrityCheck.c)
- *     SepFilterCheck @ 0x14034ECD0 (SepFilterCheck.c)
- *     SepAccessCheck @ 0x14034F410 (SepAccessCheck.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SeFreeCapturedObjectTypeList @ 0x140595E58 (SeFreeCapturedObjectTypeList.c)
- *     SepBuildCapeSecurityDescriptor @ 0x140595F6C (SepBuildCapeSecurityDescriptor.c)
- *     SepCopyObjectTypeList @ 0x140596010 (SepCopyObjectTypeList.c)
- *     SepGetScopedPolicySid @ 0x1405960C8 (SepGetScopedPolicySid.c)
- *     SepLogLpacAccessFailure @ 0x140596228 (SepLogLpacAccessFailure.c)
- *     SepMergeObjectTypeListAccesses @ 0x14059633C (SepMergeObjectTypeListAccesses.c)
- *     SepRmDereferenceCap @ 0x140596370 (SepRmDereferenceCap.c)
- *     SepRmReferenceFindCap @ 0x140597E54 (SepRmReferenceFindCap.c)
- *     SeCaptureSid @ 0x1405DE46C (SeCaptureSid.c)
- *     SeReleaseSid @ 0x1405DE570 (SeReleaseSid.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCaptureSecurityDescriptor @ 0x14065BB60 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlpOwnerAcesPresent @ 0x140214630 (RtlpOwnerAcesPresent.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepConstrainByConstraintMask @ 0x140235F00 (SepConstrainByConstraintMask.c)
+ *     SepConstrainByMandatory @ 0x140236E64 (SepConstrainByMandatory.c)
+ *     SeLogAccessFailure @ 0x140238D50 (SeLogAccessFailure.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepLpacCausedAccessFailure @ 0x1402463DC (SepLpacCausedAccessFailure.c)
+ *     SepReferenceTokenByHandle @ 0x14026A9C0 (SepReferenceTokenByHandle.c)
+ *     SepFreeResourceInfo @ 0x14026C028 (SepFreeResourceInfo.c)
+ *     SeCaptureObjectTypeList @ 0x14026C060 (SeCaptureObjectTypeList.c)
+ *     SepMandatoryToDiscretionary @ 0x14026C270 (SepMandatoryToDiscretionary.c)
+ *     SepTrustLevelCheck @ 0x14026C2B0 (SepTrustLevelCheck.c)
+ *     SePrivilegePolicyCheck @ 0x14026C3B0 (SePrivilegePolicyCheck.c)
+ *     SepTokenIsOwner @ 0x14026C530 (SepTokenIsOwner.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     SepMandatoryIntegrityCheck @ 0x140359570 (SepMandatoryIntegrityCheck.c)
+ *     SepFilterCheck @ 0x140359A20 (SepFilterCheck.c)
+ *     SepAccessCheck @ 0x14035A160 (SepAccessCheck.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SeFreeCapturedObjectTypeList @ 0x140596088 (SeFreeCapturedObjectTypeList.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x14059619C (SepBuildCapeSecurityDescriptor.c)
+ *     SepCopyObjectTypeList @ 0x140596240 (SepCopyObjectTypeList.c)
+ *     SepGetScopedPolicySid @ 0x1405962F8 (SepGetScopedPolicySid.c)
+ *     SepLogLpacAccessFailure @ 0x140596458 (SepLogLpacAccessFailure.c)
+ *     SepMergeObjectTypeListAccesses @ 0x14059656C (SepMergeObjectTypeListAccesses.c)
+ *     SepRmDereferenceCap @ 0x1405965A0 (SepRmDereferenceCap.c)
+ *     SepRmReferenceFindCap @ 0x140598084 (SepRmReferenceFindCap.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCaptureSecurityDescriptor @ 0x140650980 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x140651570 (SeReleaseSecurityDescriptor.c)
+ *     SeCaptureSid @ 0x1406CDBCC (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x1406CDCD0 (SeReleaseSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
@@ -71,13 +71,13 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   __int64 v20; // rcx
   __int64 v21; // rcx
   __int64 result; // rax
-  unsigned int v23; // r14d
+  int v23; // r14d
   int v24; // edi
   PADAPTER_OBJECT v25; // rsi
   __int64 v26; // rax
-  __int64 v27; // rax
+  ULONGLONG v27; // rax
   __int64 v28; // rax
-  __int64 v29; // rax
+  ULONGLONG v29; // rax
   __int64 v30; // rax
   unsigned __int8 v31; // r13
   int v32; // eax
@@ -91,9 +91,9 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   int v40; // edi
   int v41; // eax
   int *v42; // rcx
-  int *v43; // r15
+  char *v43; // r15
   __int64 v44; // rdi
-  _DWORD *v45; // r13
+  char *v45; // r13
   char v46; // r12
   _DWORD *v47; // rdi
   __int64 v48; // rax
@@ -109,7 +109,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   unsigned int v58; // eax
   unsigned int v59; // eax
   struct _KTHREAD *v60; // rax
-  __int64 v61; // r9
+  ULONGLONG v61; // r9
   unsigned int v62; // ecx
   _DWORD *v63; // rax
   unsigned int v64; // ecx
@@ -125,7 +125,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   unsigned int v74; // ecx
   _DWORD *v75; // r9
   __int64 v76; // rcx
-  __int64 v77; // rax
+  ACL *v77; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v80; // rdx
@@ -134,19 +134,19 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   int v83; // r10d
   char *v84; // rax
   unsigned int v85; // eax
-  PVOID v86; // r8
+  int v86; // r8d
   _DMA_OPERATIONS *v87; // rax
   __int64 v88; // r10
   __int64 v89; // rdx
   __int64 v90; // rcx
-  __int64 v91; // r9
+  void *(__fastcall *GetDmaDomain)(_DMA_ADAPTER *); // r9
   int v92; // eax
   int v93; // ecx
   _DMA_OPERATIONS *v94; // rax
   __int64 GetCommonBufferFromVectorByIndex; // r8
   __int64 AllocateCommonBufferWithBounds; // rdx
   __int64 AllocateCommonBufferVector; // rcx
-  __int64 GetDmaDomain; // r9
+  void *(__fastcall *v98)(_DMA_ADAPTER *); // r9
   int v99; // ecx
   int v100; // eax
   unsigned int v101; // edi
@@ -167,7 +167,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   int v116; // [rsp+CCh] [rbp-1ECh]
   PADAPTER_OBJECT DmaAdapter; // [rsp+D0h] [rbp-1E8h] BYREF
   unsigned int v118; // [rsp+D8h] [rbp-1E0h]
-  __int64 v119; // [rsp+E0h] [rbp-1D8h] BYREF
+  ULONGLONG v119; // [rsp+E0h] [rbp-1D8h] BYREF
   int v120; // [rsp+E8h] [rbp-1D0h] BYREF
   int v121; // [rsp+ECh] [rbp-1CCh]
   char v122; // [rsp+F2h] [rbp-1C6h]
@@ -181,7 +181,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   PVOID v130; // [rsp+130h] [rbp-188h] BYREF
   unsigned __int64 v131; // [rsp+138h] [rbp-180h]
   int v132; // [rsp+140h] [rbp-178h] BYREF
-  __int64 v133; // [rsp+148h] [rbp-170h]
+  ACL *v133; // [rsp+148h] [rbp-170h]
   PVOID P; // [rsp+150h] [rbp-168h]
   __int64 v135; // [rsp+158h] [rbp-160h]
   __int64 v136; // [rsp+160h] [rbp-158h] BYREF
@@ -582,7 +582,7 @@ LABEL_172:
   {
     if ( *v138 >= 0 )
     {
-      v77 = *(_QWORD *)(v119 + 24);
+      v77 = *(ACL **)(v119 + 24);
     }
     else
     {
@@ -592,7 +592,7 @@ LABEL_172:
         v133 = 0LL;
         goto LABEL_55;
       }
-      v77 = v119 + v76;
+      v77 = (ACL *)(v119 + v76);
     }
     v133 = v77;
     if ( v77 )
@@ -620,7 +620,7 @@ LABEL_55:
       : (v53 = *(_DWORD *)(v119 + 16)) == 0
       ? (v54 = 0LL)
       : (v54 = v119 + v53),
-        !(unsigned __int8)RtlpOwnerAcesPresent(0LL, v54)) )
+        !RtlpOwnerAcesPresent(0, v54)) )
   {
     if ( (v23 & 0x2000000) != 0 )
     {
@@ -716,14 +716,14 @@ LABEL_55:
       v51 = v105;
       goto LABEL_172;
     }
-    v43 = &PoolWithTag[v81];
+    v43 = (char *)&PoolWithTag[v81];
     v41 = v116;
   }
   else
   {
     v42 = &v141;
     P = &v141;
-    v43 = &v142;
+    v43 = (char *)&v142;
   }
   LODWORD(v158) = v41;
   v104 = v40;
@@ -749,7 +749,7 @@ LABEL_55:
     0LL,
     0LL,
     a14);
-  if ( SepRmEnforceCap && (v83 = *v43, v116 = v83, v83 >= 0) && v110 )
+  if ( SepRmEnforceCap && (v83 = *(_DWORD *)v43, v116 = v83, v83 >= 0) && v110 )
   {
     if ( a13 )
     {
@@ -768,8 +768,8 @@ LABEL_55:
         goto LABEL_172;
       }
       v126 = (int *)&v84[4 * v44];
-      v83 = *v43;
-      v116 = *v43;
+      v83 = *(_DWORD *)v43;
+      v116 = *(_DWORD *)v43;
     }
     else
     {
@@ -802,33 +802,36 @@ LABEL_55:
       v131 = *(_QWORD *)(v135 + 8LL * v85 + 64);
       if ( !*(_QWORD *)(v131 + 24) )
         goto LABEL_278;
-      v86 = v130;
+      v86 = (int)v130;
       if ( !v130 )
       {
         LODWORD(v44) = (unsigned __int8)v44;
-        if ( (int)AuthzBasepInitializeResourceClaimsFromSacl(v133, &v130) < 0 )
+        if ( (int)AuthzBasepInitializeResourceClaimsFromSacl((__int64)v133, &v130) < 0 )
           LODWORD(v44) = 1;
         v121 = v44;
-        v86 = v130;
+        v86 = (int)v130;
       }
       v87 = v25[68].DmaOperations;
       v88 = v87 ? (__int64)v87[1].GetCommonBufferFromVectorByIndex : 0LL;
       v89 = v87 ? (__int64)v87[1].AllocateCommonBufferWithBounds : 0LL;
       v90 = v87 ? (__int64)v87[1].AllocateCommonBufferVector : 0LL;
-      v91 = v87 ? (__int64)v87[1].GetDmaDomain : 0LL;
+      if ( v87 )
+        GetDmaDomain = v87[1].GetDmaDomain;
+      else
+        LODWORD(GetDmaDomain) = 0;
       v92 = AuthzBasepEvaluateAceCondition(
-              (__int64)v25,
-              (__int64)v25[48].DmaOperations,
-              (__int64)v86,
-              v91,
+              (_DWORD)v25,
+              v25[48].DmaOperations,
+              v86,
+              (_DWORD)GetDmaDomain,
               v90,
               v89,
               v88,
-              *(_DWORD **)(v131 + 24),
+              *(_QWORD *)(v131 + 24),
               *(_DWORD *)(v131 + 16),
-              1u,
+              1,
               0,
-              &v125);
+              (__int64)&v125);
       v24 = v92;
       v106 = v92;
       v93 = v125;
@@ -852,22 +855,22 @@ LABEL_55:
         else
           AllocateCommonBufferVector = 0LL;
         if ( v94 )
-          GetDmaDomain = (__int64)v94[1].GetDmaDomain;
+          v98 = v94[1].GetDmaDomain;
         else
-          GetDmaDomain = 0LL;
+          LODWORD(v98) = 0;
         v24 = AuthzBasepEvaluateAceCondition(
-                (__int64)v25,
-                (__int64)v25[48].DmaOperations,
-                (__int64)v130,
-                GetDmaDomain,
+                (_DWORD)v25,
+                v25[48].DmaOperations,
+                (_DWORD)v130,
+                (_DWORD)v98,
                 AllocateCommonBufferVector,
                 AllocateCommonBufferWithBounds,
                 GetCommonBufferFromVectorByIndex,
-                *(_DWORD **)(v131 + 24),
+                *(_QWORD *)(v131 + 24),
                 *(_DWORD *)(v131 + 16),
-                1u,
-                1u,
-                &v125);
+                1,
+                1,
+                (__int64)&v125);
         v106 = v24;
         if ( v24 < 0 )
         {
@@ -943,15 +946,15 @@ LABEL_278:
       }
       v85 = ++v128;
     }
-    *v43 = v83;
-    v45 = P;
+    *(_DWORD *)v43 = v83;
+    v45 = (char *)P;
     *(_DWORD *)P &= (unsigned int)Privileges;
   }
   else
   {
     v25 = DmaAdapter;
     v23 = v109;
-    v45 = P;
+    v45 = (char *)P;
   }
   ExReleaseResourceLite(*v36);
   KeLeaveCriticalRegion();
@@ -965,7 +968,7 @@ LABEL_278:
         v56 = v114;
       else
         v56 = 0;
-      SepConstrainByMandatory((unsigned int)v148, v23, (_DWORD)v45, (_DWORD)v43, 0LL, v56);
+      SepConstrainByMandatory((__int64)v148, v23, v45, v43, 0LL, v56);
       goto LABEL_66;
     }
   }
@@ -1005,21 +1008,21 @@ LABEL_66:
       v58 = v114;
     else
       v58 = 0;
-    SepConstrainByConstraintMask(v132, v23, (_DWORD)v45, (_DWORD)v43, 0LL, v58, (__int64)&v111);
+    SepConstrainByConstraintMask(v132, v23, v45, v43, 0LL, v58, &v111);
     if ( v46 )
       v59 = v57;
     else
       v59 = 0;
-    SepConstrainByConstraintMask(v139, v23, (_DWORD)v45, (_DWORD)v43, 0LL, v59, (__int64)&v112);
+    SepConstrainByConstraintMask(v139, v23, v45, v43, 0LL, v59, &v112);
   }
   v18 = (__int64)v124;
-  *v124 = *v43;
+  *v124 = *(_DWORD *)v43;
   v16 = v123;
-  *(_DWORD *)v123 = *v45;
-  v115 = *v43;
+  *(_DWORD *)v123 = *(_DWORD *)v45;
+  v115 = *(_DWORD *)v43;
   v17 = v126;
   v47 = v127;
-  if ( SepRmEnforceCap && v108 && *v43 >= 0 )
+  if ( SepRmEnforceCap && v108 && *(int *)v43 >= 0 )
   {
     *(_DWORD *)v18 = *v126;
     *v16 &= *v47;
@@ -1034,10 +1037,10 @@ LABEL_66:
       v118 = v48;
       if ( (unsigned int)v48 >= v49 )
         break;
-      v50 = v48;
-      *(_DWORD *)(v18 + v50 * 4) = v43[v48];
-      v16[v50] = v45[v48];
-      if ( SepRmEnforceCap && v108 && v43[v50] >= 0 )
+      v50 = 4 * v48;
+      *(_DWORD *)(v18 + v50) = *(_DWORD *)&v43[4 * v48];
+      v16[(unsigned __int64)v50 / 4] = *(_DWORD *)&v45[4 * v48];
+      if ( SepRmEnforceCap && v108 && *(int *)&v43[v50] >= 0 )
       {
         *(_DWORD *)(v18 + 4 * v48) = v17[v48];
         v16[v48] &= v47[v48];
@@ -1061,11 +1064,11 @@ LABEL_129:
       v25 = DmaAdapter;
       ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
       if ( v113[0] )
-        LODWORD(v61) = v145;
+        v61 = v145;
       else
         v61 = *(_QWORD *)&v25[69].Version;
       v23 = v109;
-      SeLogAccessFailure((_DWORD)v25, 0, 0, v61, v119, v120 | v109, v115 >= 0, 0);
+      SeLogAccessFailure((__int64)v25, 0LL, 0LL, v61, v119, v120 | v109, v115 >= 0, 0);
       ExReleaseResourceLite(*(PERESOURCE *)&v25[3].Version);
       KeLeaveCriticalRegion();
       v24 = v106;
@@ -1075,7 +1078,7 @@ LABEL_86:
         && v115 < 0
         && !v52
         && ((__int64)v25[12].DmaOperations & 0x4000) != 0
-        && (unsigned __int8)SepLpacCausedAccessFailure(&v158, v23, v16, v17) )
+        && SepLpacCausedAccessFailure((__int64)&v158, v23) )
       {
         SepLogLpacAccessFailure();
       }

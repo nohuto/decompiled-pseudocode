@@ -1,20 +1,20 @@
 /*
- * XREFs of PiCMGetDeviceStatus @ 0x14069FD88
+ * XREFs of PiCMGetDeviceStatus @ 0x1405FF0C8
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     PiCMReleaseObjectInputData @ 0x140638B40 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnStatusResultData @ 0x14069FE90 (PiCMReturnStatusResultData.c)
- *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
+ *     PiCMReturnStatusResultData @ 0x1405FF1D0 (PiCMReturnStatusResultData.c)
+ *     _CmGetDeviceStatus @ 0x1405FF680 (_CmGetDeviceStatus.c)
+ *     PiCMReleaseObjectInputData @ 0x14062D950 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14062D984 (PiCMCaptureObjectInputData.c)
  */
 
 __int64 __fastcall PiCMGetDeviceStatus(
-        unsigned __int64 a1,
-        unsigned int a2,
+        __int64 a1,
+        __int64 a2,
         volatile void *a3,
         unsigned int a4,
-        int a5,
+        unsigned int a5,
         __int64 a6)
 {
   _DWORD *v6; // r14
@@ -35,7 +35,7 @@ __int64 __fastcall PiCMGetDeviceStatus(
   v15 = 0LL;
   *(_QWORD *)v17 = 0LL;
   v16 = 0LL;
-  v9 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v15);
+  v9 = PiCMCaptureObjectInputData(a1, a2, a5, &v15);
   if ( v9 >= 0 )
   {
     if ( (_QWORD)v16 && *(_QWORD *)((char *)&v15 + 4) == 0x100000000LL && !HIDWORD(v16) && a3 && a4 >= 0x14 )
@@ -45,6 +45,6 @@ __int64 __fastcall PiCMGetDeviceStatus(
     LODWORD(Length) = a4;
     v9 = PiCMReturnStatusResultData(DeviceStatus, v14, v13, a6, v17[0], a3, Length, (__int64)v6);
   }
-  PiCMReleaseObjectInputData((__int64)&v15);
+  PiCMReleaseObjectInputData(&v15);
   return (unsigned int)v9;
 }

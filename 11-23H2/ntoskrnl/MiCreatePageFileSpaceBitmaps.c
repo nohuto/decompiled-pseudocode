@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreatePageFileSpaceBitmaps @ 0x140833E0C
+ * XREFs of MiCreatePageFileSpaceBitmaps @ 0x14083410C
  * Callers:
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiCreatePagefile @ 0x140833A94 (MiCreatePagefile.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x140833D94 (MiCreatePagefile.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
  */
 
 _QWORD *__fastcall MiCreatePageFileSpaceBitmaps(unsigned int a1)

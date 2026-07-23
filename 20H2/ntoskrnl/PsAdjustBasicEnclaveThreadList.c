@@ -34,7 +34,7 @@ __int64 __fastcall PsAdjustBasicEnclaveThreadList(__int64 a1, __int64 a2, int a3
   unsigned int SessionId; // edx
   unsigned __int8 v18; // r14
   unsigned int v19; // r8d
-  unsigned __int64 v20; // rsi
+  __int64 v20; // rsi
   __int64 v21; // rcx
   __int64 v22; // rdx
   __int64 v23; // rcx
@@ -114,7 +114,7 @@ LABEL_20:
     v11 = !_BitScanReverse((unsigned int *)&v21, v19);
     if ( v11 )
       goto LABEL_32;
-    v20 = (unsigned __int64)&v16->LockEntries[v21];
+    v20 = (__int64)&v16->LockEntries[v21];
     v19 &= ~(1 << v21);
     if ( (*(_BYTE *)(v20 + 26) & 1) != 0
       && (*(_DWORD *)(v20 + 32) & 1) == 0
@@ -135,12 +135,12 @@ LABEL_32:
   }
   *(_BYTE *)(v20 + 32) |= 2u;
   if ( *(__int64 *)(v20 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v20);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
   v24 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
   *(_DWORD *)(v20 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v20 + 25) &= ~1u;
   *(_QWORD *)(v20 + 32) = 0LL;
-  v22 = (__int64)(v20 - (unsigned __int64)v16->LockEntries) / 96;
+  v22 = (signed __int64)(v20 - (unsigned __int64)v16->LockEntries) / 96;
   if ( v18 == 1 )
     v16->AbEntrySummary |= 1 << v22;
   else

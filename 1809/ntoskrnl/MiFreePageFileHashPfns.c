@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFreePageFileHashPfns @ 0x1400F04F8
+ * XREFs of MiFreePageFileHashPfns @ 0x1400F0578
  * Callers:
- *     MiScanPagefiles @ 0x1400F04C4 (MiScanPagefiles.c)
- *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
+ *     MiScanPagefiles @ 0x1400F0544 (MiScanPagefiles.c)
+ *     MiDeletePagefile @ 0x140854350 (MiDeletePagefile.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
  */
 
 unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
 {
   unsigned __int64 result; // rax
   unsigned __int64 v2; // rdi
-  union _SLIST_HEADER **v3; // r14
+  _SLIST_HEADER **v3; // r14
   __int64 v4; // rbp
-  union _SLIST_HEADER *v5; // rcx
+  _SLIST_HEADER *v5; // rcx
   __int64 v6; // r15
   __int64 v7; // r13
   unsigned __int8 v8; // r12
@@ -30,7 +30,7 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
   v2 = 0LL;
   if ( (_DWORD)result )
   {
-    v3 = (union _SLIST_HEADER **)(a1 + 7136);
+    v3 = (_SLIST_HEADER **)(a1 + 7136);
     v12 = *(unsigned int *)(a1 + 7128);
     v4 = (unsigned int)result;
     do
@@ -77,7 +77,7 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
       else
         _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7360), v2);
       result = MiReturnCommit(a1, v2);
-      _InterlockedExchangeAdd64(&qword_14043B7A8, -(__int64)v2);
+      _InterlockedExchangeAdd64(&qword_14043C868, -(__int64)v2);
     }
   }
   return result;

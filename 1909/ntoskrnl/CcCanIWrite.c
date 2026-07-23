@@ -96,7 +96,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   struct _KPRCB *v68; // rcx
   unsigned __int16 *v69; // r10
   KSPIN_LOCK *v70; // r8
-  struct _LIST_ENTRY *v71; // rcx
+  _LIST_ENTRY *v71; // rcx
   __int64 v72; // rdx
   unsigned __int8 v73; // di
   struct _KPRCB *v74; // rcx
@@ -112,7 +112,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   __int64 v84; // [rsp+A0h] [rbp-60h]
   PFILE_OBJECT v85; // [rsp+A8h] [rbp-58h]
   ULONG v86; // [rsp+B0h] [rbp-50h]
-  struct _LIST_ENTRY ListEntry; // [rsp+B4h] [rbp-4Ch] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+B4h] [rbp-4Ch] BYREF
   int v88; // [rsp+C4h] [rbp-3Ch]
   __int64 *p_Object; // [rsp+C8h] [rbp-38h]
   __int128 v90; // [rsp+D0h] [rbp-30h]
@@ -539,7 +539,7 @@ LABEL_156:
   ListEntry.Blink = 0LL;
   v70 = (KSPIN_LOCK *)(v17 + 768);
   v88 = 0;
-  v71 = (struct _LIST_ENTRY *)(v17 + 744);
+  v71 = (_LIST_ENTRY *)(v17 + 744);
   v91 = 0LL;
   v82[1] = v82;
   v82[0] = v82;

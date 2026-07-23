@@ -1,21 +1,21 @@
 /*
- * XREFs of SeExamineSacl @ 0x140889B70
+ * XREFs of SeExamineSacl @ 0x14088DA20
  * Callers:
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140790124 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     CmpExamineSaclForAuditEvent @ 0x1407DCEC0 (CmpExamineSaclForAuditEvent.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1408508E0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     ObpCheckObjectReference @ 0x14086802C (ObpCheckObjectReference.c)
- *     SeExamineGlobalSacl @ 0x140889DD8 (SeExamineGlobalSacl.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088A000 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     NtOpenObjectAuditAlarm @ 0x140920280 (NtOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140A75700 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1407900F4 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     CmpExamineSaclForAuditEvent @ 0x1407DD410 (CmpExamineSaclForAuditEvent.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14084CBA0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     ObpCheckObjectReference @ 0x14086C31C (ObpCheckObjectReference.c)
+ *     SeExamineGlobalSacl @ 0x14088DC88 (SeExamineGlobalSacl.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088DEB0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     NtOpenObjectAuditAlarm @ 0x140911F00 (NtOpenObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140A6FBA0 (SeOpenObjectAuditAlarmForNonObObject.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x1403450F0 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x14035C750 (AuthzBasepFreeSecurityAttributesList.c)
- *     SepSidInToken @ 0x1403624E0 (SepSidInToken.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403642B0 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140323B60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1403B95E0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403BADD4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x1403CB430 (SepSidInToken.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall SeExamineSacl(
@@ -41,9 +41,9 @@ void __stdcall SeExamineSacl(
   signed int v20; // r10d
   _QWORD *v21; // rax
   void *v22; // r9
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  __int64 v25; // r8
+  void *v23; // rcx
+  void *v24; // rdx
+  void *v25; // r8
   __int64 v26; // rax
   int v27; // [rsp+60h] [rbp-58h] BYREF
   unsigned int AceCount; // [rsp+64h] [rbp-54h]
@@ -131,9 +131,9 @@ LABEL_17:
             if ( v21 )
             {
               v22 = (void *)v21[72];
-              v23 = v21[74];
-              v24 = v21[73];
-              v25 = v21[75];
+              v23 = (void *)v21[74];
+              v24 = (void *)v21[73];
+              v25 = (void *)v21[75];
             }
             else
             {
@@ -154,7 +154,7 @@ LABEL_17:
               v25,
               (ACL *)((char *)v18 + v26),
               v20,
-              1,
+              1u,
               0,
               &v27);
             if ( ((v27 + 1) & 0xFFFFFFFD) != 0

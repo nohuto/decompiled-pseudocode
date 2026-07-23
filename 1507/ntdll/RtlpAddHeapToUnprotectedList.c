@@ -24,7 +24,7 @@ __int64 __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
   {
     v5 = 2 * MaximumNumberOfHeaps;
     v1->MaximumNumberOfHeaps = v5;
-    Heap = (void **)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 8LL * v5);
+    Heap = (void **)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * v5);
     v7 = Heap;
     if ( !Heap )
     {
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
     memmove(Heap, v1->ProcessHeaps, 8LL * v1->NumberOfHeaps);
     ProcessHeaps = v1->ProcessHeaps;
     if ( ProcessHeaps != (void **)&RtlpProcessHeapsListBuffer )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, ProcessHeaps);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ProcessHeaps);
     v1->ProcessHeaps = v7;
   }
   v1->ProcessHeaps[v1->NumberOfHeaps++] = (void *)a1;

@@ -1,29 +1,29 @@
 /*
- * XREFs of WdipSemLoadScenarioTable @ 0x140820244
+ * XREFs of WdipSemLoadScenarioTable @ 0x140826454
  * Callers:
- *     WdipSemCleanStart @ 0x14081F4F0 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x140825700 (WdipSemCleanStart.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlVerifyVersionInfo @ 0x1404959C0 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x1404AF400 (VerSetConditionMask.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WdipSemAddScenarioToTable @ 0x14081F430 (WdipSemAddScenarioToTable.c)
- *     WdipSemLoadNextScenario @ 0x14081FD4C (WdipSemLoadNextScenario.c)
- *     WdipSemRollBackProviderTable @ 0x140820854 (WdipSemRollBackProviderTable.c)
- *     WdipSemFreeScenario @ 0x140820E2C (WdipSemFreeScenario.c)
- *     WdipSemWriteMisconfigEvent @ 0x140821304 (WdipSemWriteMisconfigEvent.c)
- *     WdipSemWriteScenarioLimitExceededEvent @ 0x1408213FC (WdipSemWriteScenarioLimitExceededEvent.c)
- *     WdipSemOpenRegistryKey @ 0x140821610 (WdipSemOpenRegistryKey.c)
- *     WdipSemQueryValueFromRegistry @ 0x1408216A0 (WdipSemQueryValueFromRegistry.c)
- *     WdipSemEnableAllProviders @ 0x140821870 (WdipSemEnableAllProviders.c)
- *     WdipSemUpdateProviderEntryForEvent @ 0x140821A6C (WdipSemUpdateProviderEntryForEvent.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     WdipSemFastAllocate @ 0x140ADB300 (WdipSemFastAllocate.c)
- *     WdipSemUpdateProviderTableWithEvent @ 0x140B60058 (WdipSemUpdateProviderTableWithEvent.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlVerifyVersionInfo @ 0x14048F510 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x1404A8A90 (VerSetConditionMask.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WdipSemAddScenarioToTable @ 0x140825640 (WdipSemAddScenarioToTable.c)
+ *     WdipSemLoadNextScenario @ 0x140825F5C (WdipSemLoadNextScenario.c)
+ *     WdipSemRollBackProviderTable @ 0x140826A64 (WdipSemRollBackProviderTable.c)
+ *     WdipSemFreeScenario @ 0x14082703C (WdipSemFreeScenario.c)
+ *     WdipSemWriteMisconfigEvent @ 0x140827514 (WdipSemWriteMisconfigEvent.c)
+ *     WdipSemWriteScenarioLimitExceededEvent @ 0x14082760C (WdipSemWriteScenarioLimitExceededEvent.c)
+ *     WdipSemOpenRegistryKey @ 0x140827820 (WdipSemOpenRegistryKey.c)
+ *     WdipSemQueryValueFromRegistry @ 0x1408278B0 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemEnableAllProviders @ 0x140827A80 (WdipSemEnableAllProviders.c)
+ *     WdipSemUpdateProviderEntryForEvent @ 0x140827C7C (WdipSemUpdateProviderEntryForEvent.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     WdipSemFastAllocate @ 0x140AD7DB0 (WdipSemFastAllocate.c)
+ *     WdipSemUpdateProviderTableWithEvent @ 0x140B630F4 (WdipSemUpdateProviderTableWithEvent.c)
  */
 
 __int64 WdipSemLoadScenarioTable()
@@ -120,14 +120,15 @@ LABEL_3:
           RtlInitUnicodeString(&v31, SourceString);
           if ( RtlGUIDFromString(&v31, &Guid) >= 0 )
           {
-            if ( stru_140F066E8.Header.WaitListHead.Blink )
+            if ( stru_140F042A0.Timer.Header.WaitListHead.Blink )
             {
-              for ( i = 0; i < LODWORD(stru_140F066E8.Header.WaitListHead.Blink[64].Flink); ++i )
+              for ( i = 0; i < LODWORD(stru_140F042A0.Timer.Header.WaitListHead.Blink[64].Flink); ++i )
               {
                 v6 = i;
-                v7 = *(_QWORD *)&Guid.Data1 - (unsigned __int64)stru_140F066E8.Header.WaitListHead.Blink[v6].Flink;
-                if ( *(struct _LIST_ENTRY **)&Guid.Data1 == stru_140F066E8.Header.WaitListHead.Blink[v6].Flink )
-                  v7 = *(_QWORD *)Guid.Data4 - (unsigned __int64)stru_140F066E8.Header.WaitListHead.Blink[v6].Blink;
+                v7 = *(_QWORD *)&Guid.Data1 - (unsigned __int64)stru_140F042A0.Timer.Header.WaitListHead.Blink[v6].Flink;
+                if ( *(struct _LIST_ENTRY **)&Guid.Data1 == stru_140F042A0.Timer.Header.WaitListHead.Blink[v6].Flink )
+                  v7 = *(_QWORD *)Guid.Data4
+                     - (unsigned __int64)stru_140F042A0.Timer.Header.WaitListHead.Blink[v6].Blink;
                 if ( !v7 )
                   goto LABEL_3;
               }
@@ -177,16 +178,12 @@ LABEL_29:
                   goto LABEL_3;
                 if ( NextScenario >= 0 )
                   break;
-                if ( EtwEventEnabled(
-                       (REGHANDLE)stru_140F03F40.Timer.TimerListEntry.Flink,
-                       &WDI_SEM_EVENT_INIT_MISCONFIG) )
-                {
+                if ( EtwEventEnabled((REGHANDLE)stru_140F06A28.Header.WaitListHead.Flink, &WDI_SEM_EVENT_INIT_MISCONFIG) )
                   WdipSemWriteMisconfigEvent(v0, *(unsigned __int16 *)(v0 + 16), v12);
-                }
               }
-              if ( stru_140F060A8.NextProcessor >= 0x40 )
+              if ( LODWORD(stru_140F042A0.SchedulerSharedSystemSlot) >= 0x40 )
                 break;
-              v13 = dword_140F060A0;
+              v13 = dword_140F06A20;
               if ( (int)WdipSemUpdateProviderTableWithEvent(v0) < 0 )
                 goto LABEL_49;
               for ( j = 0LL; (unsigned int)j < *(_DWORD *)(v0 + 48); j = (unsigned int)(j + 1) )
@@ -228,7 +225,7 @@ LABEL_50:
                   v0 = 0LL;
               }
             }
-            if ( EtwEventEnabled((REGHANDLE)stru_140F03F40.Timer.TimerListEntry.Flink, &WDI_SEM_EVENT_INIT_SCENARIO_MAX) )
+            if ( EtwEventEnabled((REGHANDLE)stru_140F06A28.Header.WaitListHead.Flink, &WDI_SEM_EVENT_INIT_SCENARIO_MAX) )
               WdipSemWriteScenarioLimitExceededEvent(
                 &WDI_SEM_EVENT_INIT_SCENARIO_MAX,
                 v0,

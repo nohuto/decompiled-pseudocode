@@ -1,16 +1,16 @@
 /*
- * XREFs of IopInitializeResourceMap @ 0x140CC4328
+ * XREFs of IopInitializeResourceMap @ 0x140CCA408
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlCmEncodeMemIoResource @ 0x14061A0F0 (RtlCmEncodeMemIoResource.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     IopWriteResourceList @ 0x140AF8FD4 (IopWriteResourceList.c)
- *     IopCreateRegistryKeyEx @ 0x140AF90BC (IopCreateRegistryKeyEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     MmInitializeMemoryLimits @ 0x140CFB3A8 (MmInitializeMemoryLimits.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlCmEncodeMemIoResource @ 0x14061D140 (RtlCmEncodeMemIoResource.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     IopWriteResourceList @ 0x140AFB6B4 (IopWriteResourceList.c)
+ *     IopCreateRegistryKeyEx @ 0x140AFB79C (IopCreateRegistryKeyEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     MmInitializeMemoryLimits @ 0x140D01728 (MmInitializeMemoryLimits.c)
  */
 
 void __fastcall IopInitializeResourceMap(__int64 a1)

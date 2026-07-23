@@ -1,47 +1,47 @@
 /*
- * XREFs of MiIsDriverPage @ 0x14031C6C0
+ * XREFs of MiIsDriverPage @ 0x140327410
  * Callers:
- *     MiProbeLeafPteAccess @ 0x14020B6F0 (MiProbeLeafPteAccess.c)
- *     MiAddWorkingSetEntries @ 0x1402123C0 (MiAddWorkingSetEntries.c)
- *     MiRemoveWsleList @ 0x14028EBD0 (MiRemoveWsleList.c)
+ *     MiRemoveWsleList @ 0x14020BD70 (MiRemoveWsleList.c)
+ *     MiProbeLeafPteAccess @ 0x1402AFFF0 (MiProbeLeafPteAccess.c)
+ *     MiAddWorkingSetEntries @ 0x1402B6CC0 (MiAddWorkingSetEntries.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x14031C754 (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x14031C888 (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1403274A4 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x1403275D8 (MmLockLoadedModuleListShared.c)
  */
 
-_QWORD *__fastcall MiIsDriverPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+_QWORD *__fastcall MiIsDriverPage(__int64 a1)
 {
-  unsigned __int64 v4; // rbx
-  _QWORD *v5; // rax
-  unsigned __int64 v6; // r8
-  _QWORD *v7; // rbx
-  unsigned __int8 v9; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v1; // rbx
+  _QWORD *v2; // rax
+  unsigned __int64 v3; // r8
+  _QWORD *v4; // rbx
+  unsigned __int8 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v9 = 17;
-  v4 = a1 << 25 >> 16;
-  MmLockLoadedModuleListShared(&v9, a2, a3, a4);
-  v5 = (_QWORD *)qword_140C4CD60;
-  if ( qword_140C4CD60 )
+  v6 = 17;
+  v1 = a1 << 25 >> 16;
+  MmLockLoadedModuleListShared(&v6);
+  v2 = (_QWORD *)qword_140C4CDA0;
+  if ( qword_140C4CDA0 )
   {
     do
     {
-      v6 = *(v5 - 23);
-      if ( v4 > v6 + (unsigned int)(*((_DWORD *)v5 - 42) - 1) )
+      v3 = *(v2 - 23);
+      if ( v1 > v3 + (unsigned int)(*((_DWORD *)v2 - 42) - 1) )
       {
-        v5 = (_QWORD *)v5[1];
+        v2 = (_QWORD *)v2[1];
       }
       else
       {
-        if ( v4 >= v6 )
+        if ( v1 >= v3 )
           break;
-        v5 = (_QWORD *)*v5;
+        v2 = (_QWORD *)*v2;
       }
     }
-    while ( v5 );
+    while ( v2 );
   }
-  v7 = v5 - 29;
-  if ( !v5 )
-    v7 = 0LL;
-  MmUnlockLoadedModuleListShared(v9);
-  return v7;
+  v4 = v2 - 29;
+  if ( !v2 )
+    v4 = 0LL;
+  MmUnlockLoadedModuleListShared(v6);
+  return v4;
 }

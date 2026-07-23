@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpCheckMatchingRegistry @ 0x140803020
+ * XREFs of SdbpCheckMatchingRegistry @ 0x140803760
  * Callers:
  *     <none>
  * Callees:
- *     SdbpCheckMatchingRegistryEntry @ 0x14080314C (SdbpCheckMatchingRegistryEntry.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x140804A5C (SdbpGetRegistryMatchingAttributes.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x14080388C (SdbpCheckMatchingRegistryEntry.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x14080519C (SdbpGetRegistryMatchingAttributes.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingRegistry(_DWORD *a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6)

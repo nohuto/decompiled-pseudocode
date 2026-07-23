@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpPrefetchForVirtualFault @ 0x14081CF2C
+ * XREFs of VmpPrefetchForVirtualFault @ 0x14082313C
  * Callers:
- *     VmpAccessFault @ 0x14081C2B4 (VmpAccessFault.c)
+ *     VmpAccessFault @ 0x1408224C4 (VmpAccessFault.c)
  * Callees:
- *     MmPrefetchVirtualAddresses @ 0x140A4E9F0 (MmPrefetchVirtualAddresses.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmPrefetchVirtualAddresses @ 0x140A57CE0 (MmPrefetchVirtualAddresses.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPrefetchForVirtualFault(unsigned __int64 a1, __int64 *a2, __int64 a3)

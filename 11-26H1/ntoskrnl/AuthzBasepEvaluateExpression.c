@@ -1,14 +1,14 @@
 /*
- * XREFs of AuthzBasepEvaluateExpression @ 0x1403CF1B4
+ * XREFs of AuthzBasepEvaluateExpression @ 0x1402FB3B8
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x1403CDD60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402FBC90 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepEvaluateSetRelationship @ 0x1403CD69C (AuthzBasepEvaluateSetRelationship.c)
- *     AuthzBasepOperandValueTypesCompatible @ 0x1403CF34C (AuthzBasepOperandValueTypesCompatible.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x1403CF40C (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepCompareFQBNOperands @ 0x1403D040C (AuthzBasepCompareFQBNOperands.c)
- *     AuthzBasepCompareOctetStringOperands @ 0x1404F345C (AuthzBasepCompareOctetStringOperands.c)
- *     AuthzBasepCompareIntegerOperands @ 0x14071519C (AuthzBasepCompareIntegerOperands.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x1402FA0CC (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1402FA444 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x1402FB550 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14045FD34 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareOctetStringOperands @ 0x1404ECA3C (AuthzBasepCompareOctetStringOperands.c)
+ *     AuthzBasepCompareIntegerOperands @ 0x140719E8C (AuthzBasepCompareIntegerOperands.c)
  */
 
 __int64 __fastcall AuthzBasepEvaluateExpression(unsigned __int8 a1, __int64 a2, _DWORD *a3)
@@ -23,8 +23,7 @@ __int64 __fastcall AuthzBasepEvaluateExpression(unsigned __int8 a1, __int64 a2, 
   __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 v15; // rcx
-  __int64 v16; // rcx
-  int v17; // eax
+  int v16; // eax
 
   v3 = 0;
   v4 = a1;
@@ -64,29 +63,27 @@ LABEL_19:
     if ( v10 == 1 || (v13 = (unsigned int)(v10 - 2), v10 == 2) )
     {
       LOBYTE(v13) = v4;
-      v17 = AuthzBasepCompareIntegerOperands(v13, a2);
+      v16 = AuthzBasepCompareIntegerOperands(v13, a2);
     }
     else
     {
-      v14 = (unsigned int)(v10 - 3);
       if ( v10 == 3 )
       {
-        LODWORD(v14) = (unsigned __int8)v4;
-        v12 = AuthzBasepCompareUnicodeStringOperands(v14, a2, a3);
+        v12 = AuthzBasepCompareUnicodeStringOperands(v4, a2, a3);
 LABEL_12:
         v9 = v12;
         if ( v12 >= 0 )
           return v9;
         goto LABEL_5;
       }
-      v15 = (unsigned int)(v10 - 4);
+      v14 = (unsigned int)(v10 - 4);
       if ( v10 == 4 )
       {
-        LODWORD(v15) = (unsigned __int8)v4;
-        v12 = AuthzBasepCompareFQBNOperands(v15, a2, a3);
+        LODWORD(v14) = (unsigned __int8)v4;
+        v12 = AuthzBasepCompareFQBNOperands(v14, a2, a3);
         goto LABEL_12;
       }
-      v16 = (unsigned int)(v10 - 5);
+      v15 = (unsigned int)(v10 - 5);
       if ( v10 != 5 && v10 != 16 )
       {
 LABEL_4:
@@ -95,10 +92,10 @@ LABEL_5:
         *a3 = -1;
         return v9;
       }
-      LOBYTE(v16) = v4;
-      v17 = AuthzBasepCompareOctetStringOperands(v16, a2);
+      LOBYTE(v15) = v4;
+      v16 = AuthzBasepCompareOctetStringOperands(v15, a2);
     }
-    *a3 = v17;
+    *a3 = v16;
     return v9;
   }
   if ( v4 == 128 || v4 == 129 )

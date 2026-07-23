@@ -1,19 +1,19 @@
 /*
- * XREFs of PopHiberCheckResume @ 0x1409988A0
+ * XREFs of PopHiberCheckResume @ 0x1409998A0
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x140407740 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x140407920 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     MmMapMemoryDumpMdlEx2 @ 0x1403839D0 (MmMapMemoryDumpMdlEx2.c)
- *     HalInitializeOnResume @ 0x14038CBA0 (HalInitializeOnResume.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x1404F17EC (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlRestoreEnlightenment @ 0x1404F1E60 (HvlRestoreEnlightenment.c)
- *     HvlNotifyDebugDeviceAvailable @ 0x1404F5D40 (HvlNotifyDebugDeviceAvailable.c)
- *     HvlNotifyAcpiReenabled @ 0x1404F7EE8 (HvlNotifyAcpiReenabled.c)
- *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
- *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x140383B80 (MmMapMemoryDumpMdlEx2.c)
+ *     HalInitializeOnResume @ 0x14038CCF0 (HalInitializeOnResume.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x1404F176C (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlRestoreEnlightenment @ 0x1404F1DE0 (HvlRestoreEnlightenment.c)
+ *     HvlNotifyDebugDeviceAvailable @ 0x1404F5CC0 (HvlNotifyDebugDeviceAvailable.c)
+ *     HvlNotifyAcpiReenabled @ 0x1404F7E68 (HvlNotifyAcpiReenabled.c)
+ *     PopCheckpointSystemSleep @ 0x140994484 (PopCheckpointSystemSleep.c)
+ *     KdInitSystem @ 0x1409B6160 (KdInitSystem.c)
  */
 
 char PopHiberCheckResume()
@@ -34,9 +34,9 @@ char PopHiberCheckResume()
   _OWORD v14[20]; // [rsp+20h] [rbp-158h] BYREF
 
   memset(v14, 0, 0x138uLL);
-  v0 = qword_140C23480;
+  v0 = qword_140C23AA0;
   v1 = 0;
-  v2 = *(_QWORD *)(qword_140C23480 + 200);
+  v2 = *(_QWORD *)(qword_140C23AA0 + 200);
   if ( *(_DWORD *)v2 )
   {
     PopCheckpointSystemSleep(25);
@@ -84,9 +84,9 @@ char PopHiberCheckResume()
       MmMapMemoryDumpMdlEx2(v13, v4, (__int64)v14, 1);
       memset(*(void **)(*(_QWORD *)(v0 + 264) + 8LL), 0, 0x4000uLL);
     }
-    v5 = &qword_140C23998;
+    v5 = &qword_140C23FB8;
     v6 = 3LL;
-    qword_140C19858 = *(_QWORD *)(v2 + 904);
+    qword_140C197B8 = *(_QWORD *)(v2 + 904);
     v7 = (_OWORD *)(v2 + 136);
     do
     {
@@ -113,8 +113,8 @@ char PopHiberCheckResume()
     *((_OWORD *)v5 + 6) = v7[6];
     v5[14] = *((_QWORD *)v7 + 14);
     *(_BYTE *)(v0 + 4) = 0;
-    qword_140C23A68 = v3;
-    qword_140C239F8 = v3 - qword_140C23A00;
+    qword_140C24088 = v3;
+    qword_140C24018 = v3 - qword_140C24020;
     if ( (HvlpFlags & 2) != 0 )
       *(_DWORD *)(v0 + 20) = 0;
     return 1;

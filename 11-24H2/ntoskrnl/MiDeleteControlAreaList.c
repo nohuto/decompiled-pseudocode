@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteControlAreaList @ 0x1403F7F80
+ * XREFs of MiDeleteControlAreaList @ 0x1403EDEF0
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x1403EDB20 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteControlArea @ 0x14036F6E8 (MiDeleteControlArea.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteControlArea @ 0x14043F354 (MiDeleteControlArea.c)
  */
 
 void __fastcall MiDeleteControlAreaList(__int64 a1)

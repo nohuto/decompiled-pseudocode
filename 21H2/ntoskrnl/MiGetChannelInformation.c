@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetChannelInformation @ 0x14069256C
+ * XREFs of MiGetChannelInformation @ 0x14067D1AC
  * Callers:
- *     MmManagePartitionMemoryInformation @ 0x1406922BC (MmManagePartitionMemoryInformation.c)
- *     MmGetChannelInformation @ 0x14077DC94 (MmGetChannelInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x14067CEFC (MmManagePartitionMemoryInformation.c)
+ *     MmGetChannelInformation @ 0x14077DE54 (MmGetChannelInformation.c)
  * Callees:
- *     MiUnlockDynamicMemoryExclusive @ 0x1402AC034 (MiUnlockDynamicMemoryExclusive.c)
- *     MiGetNodeChannelPageCounts @ 0x1402AC224 (MiGetNodeChannelPageCounts.c)
- *     MiLockDynamicMemoryExclusive @ 0x1402AC3F4 (MiLockDynamicMemoryExclusive.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1402745E0 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiGetNodeChannelPageCounts @ 0x1402747D0 (MiGetNodeChannelPageCounts.c)
+ *     MiLockDynamicMemoryExclusive @ 0x1402749A0 (MiLockDynamicMemoryExclusive.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 __int64 __fastcall MiGetChannelInformation(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

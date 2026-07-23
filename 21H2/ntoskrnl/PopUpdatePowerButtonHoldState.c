@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUpdatePowerButtonHoldState @ 0x140578B54
+ * XREFs of PopUpdatePowerButtonHoldState @ 0x140578D94
  * Callers:
- *     PoSetPowerButtonHoldState @ 0x140568C50 (PoSetPowerButtonHoldState.c)
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PoSetPowerButtonHoldState @ 0x140568E90 (PoSetPowerButtonHoldState.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopQueueWorkItem @ 0x140251CA4 (PopQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -24,30 +24,30 @@ __int64 __fastcall PopUpdatePowerButtonHoldState(char a1)
   v2 = KeAcquireSpinLockRaiseToDpc(&PopPowerButtonHold);
   v3 = 0;
   v4 = v2;
-  v5 = 1LL << ((dword_140C20804 + dword_140C20808) & 0x3F);
+  v5 = 1LL << ((dword_140C20924 + dword_140C20928) & 0x3F);
   if ( a1 )
   {
-    qword_140C20810 |= v5;
+    qword_140C20930 |= v5;
     v3 = 1;
-    ++dword_140C20808;
+    ++dword_140C20928;
   }
   else
   {
-    qword_140C20810 &= ~v5;
-    ++dword_140C20804;
+    qword_140C20930 &= ~v5;
+    ++dword_140C20924;
   }
-  if ( v3 != (qword_140C20938 & 1) )
+  if ( v3 != (qword_140C208B8 & 1) )
   {
     if ( a1 )
     {
-      ++HIDWORD(qword_140C20938);
-      LODWORD(qword_140C20938) = qword_140C20938 | 1;
+      ++HIDWORD(qword_140C208B8);
+      LODWORD(qword_140C208B8) = qword_140C208B8 | 1;
     }
     else
     {
-      LODWORD(qword_140C20938) = 0;
+      LODWORD(qword_140C208B8) = 0;
     }
-    PopQueueWorkItem((__int64)&unk_140C20910, CriticalWorkQueue);
+    PopQueueWorkItem((__int64)&unk_140C20890, CriticalWorkQueue);
   }
   KxReleaseSpinLock(&PopPowerButtonHold);
   result = (unsigned int)KiIrqlFlags;

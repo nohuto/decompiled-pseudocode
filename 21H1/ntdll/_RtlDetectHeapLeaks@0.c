@@ -11,62 +11,58 @@
  *     _RtlpScanProcessVirtualMemory@0 @ 0x4B35ECB4 (_RtlpScanProcessVirtualMemory@0.c)
  */
 
-int *__stdcall RtlDetectHeapLeaks()
+void RtlDetectHeapLeaks(void)
 {
-  int *result; // eax
-  struct _PEB *v1; // esi
-  struct _PEB *v2; // eax
+  struct _PEB *v0; // esi
+  struct _PEB *v1; // eax
+  void *v2; // [esp+0h] [ebp-Ch]
+  void *v3; // [esp+4h] [ebp-8h]
 
-  result = (int *)NtCurrentPeb();
-  if ( (result[26] & 0x100) == 0 )
+  if ( (NtCurrentPeb()->NtGlobalFlag & 0x100) == 0
+    && (NtCurrentPeb()->NtGlobalFlag & 0x2000000) == 0
+    && (dword_4B3A4898 || (RtlpShutdownProcessFlags & 3) != 0) )
   {
-    result = (int *)NtCurrentPeb();
-    if ( (result[26] & 0x2000000) == 0 && (dword_4B3A4898 || (RtlpShutdownProcessFlags & 3) != 0) )
+    RtlpLeaksCount = 0;
+    RtlpLeakHeap = RtlCreateHeap(3u, 0, 0LL, 0LL, v2, v3);
+    if ( RtlpLeakHeap )
     {
-      RtlpLeaksCount = 0;
-      result = RtlCreateHeap(3, 0, 0, 0, 0, 0);
-      RtlpLeakHeap = (int)result;
-      if ( result )
+      v0 = NtCurrentPeb();
+      if ( v0->Ldr )
+        DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+      else
+        DbgPrint("HEAP: ");
+      DbgPrint("Inspecting leaks at process shutdown ...\n");
+      if ( (unsigned __int8)RtlpInitializeLeakDetection() )
       {
+        RtlpLeakHeapAddress = (int)v0->ProcessHeaps[v0->NumberOfHeaps - 1];
+        RtlpReadProcessHeaps();
+        RtlpScanProcessVirtualMemory();
+        RtlDestroyHeap(RtlpLeakHeap);
         v1 = NtCurrentPeb();
-        if ( v1->Ldr )
-          DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-        else
-          DbgPrint("HEAP: ");
-        DbgPrint("Inspecting leaks at process shutdown ...\n");
-        if ( (unsigned __int8)RtlpInitializeLeakDetection() )
+        RtlpLeakHeap = 0;
+        if ( RtlpLeaksCount )
         {
-          RtlpLeakHeapAddress = (int)v1->ProcessHeaps[v1->NumberOfHeaps - 1];
-          RtlpReadProcessHeaps();
-          RtlpScanProcessVirtualMemory();
-          RtlDestroyHeap(RtlpLeakHeap);
-          v2 = NtCurrentPeb();
-          RtlpLeakHeap = 0;
-          if ( RtlpLeaksCount )
-          {
-            if ( v2->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-            else
-              DbgPrint("HEAP: ");
-            result = (int *)DbgPrint("%ld leaks detected.\n", RtlpLeaksCount);
-            if ( (RtlpShutdownProcessFlags & 2) != 0 )
-              __debugbreak();
-          }
+          if ( v1->Ldr )
+            DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
           else
-          {
-            if ( v2->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-            else
-              DbgPrint("HEAP: ");
-            return (int *)DbgPrint("No leaks detected.\n");
-          }
+            DbgPrint("HEAP: ");
+          DbgPrint("%ld leaks detected.\n", RtlpLeaksCount);
+          if ( (RtlpShutdownProcessFlags & 2) != 0 )
+            __debugbreak();
         }
         else
         {
-          return (int *)RtlDestroyHeap(RtlpLeakHeap);
+          if ( v1->Ldr )
+            DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+          else
+            DbgPrint("HEAP: ");
+          DbgPrint("No leaks detected.\n");
         }
+      }
+      else
+      {
+        RtlDestroyHeap(RtlpLeakHeap);
       }
     }
   }
-  return result;
 }

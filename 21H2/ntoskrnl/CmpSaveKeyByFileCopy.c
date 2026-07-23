@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpSaveKeyByFileCopy @ 0x14087D8A0
+ * XREFs of CmpSaveKeyByFileCopy @ 0x14087DA00
  * Callers:
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     CmpFileWrite @ 0x1406720B0 (CmpFileWrite.c)
- *     CmpFileRead @ 0x1406B48F0 (CmpFileRead.c)
- *     CmpFileFlush @ 0x14071DA34 (CmpFileFlush.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EBD8 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F5B4 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     CmpFileRead @ 0x140613AC0 (CmpFileRead.c)
+ *     CmpFileWrite @ 0x140618FF0 (CmpFileWrite.c)
+ *     CmpFileFlush @ 0x1406FC904 (CmpFileFlush.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EDD8 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F7B4 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)
@@ -46,7 +46,7 @@ __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)
         ++PoolWithQuotaTag[1];
         v13 = PoolWithQuotaTag;
         v14 = 4096;
-        if ( (int)CmpFileWrite(a1, 2LL, (__int64)v12, (struct _LOOKASIDE_LIST_EX *)1, 0) >= 0 )
+        if ( (int)CmpFileWrite(a1, 2u, (int)v12, 1, 0) >= 0 )
         {
           v7 = 0;
           if ( v6 )
@@ -61,7 +61,7 @@ __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)
               v12[0] = v7 + 4096;
               v13 = PoolWithQuotaTag;
               v14 = v8;
-              if ( (int)CmpFileWrite(a1, 2LL, (__int64)v12, (struct _LOOKASIDE_LIST_EX *)1, 0) < 0 )
+              if ( (int)CmpFileWrite(a1, 2u, (int)v12, 1, 0) < 0 )
                 break;
               v7 += v8;
               if ( v7 >= v6 )
@@ -78,7 +78,7 @@ LABEL_14:
               v12[0] = 0;
               v13 = PoolWithQuotaTag;
               v14 = 4096;
-              if ( (int)CmpFileWrite(a1, 2LL, (__int64)v12, (struct _LOOKASIDE_LIST_EX *)1, 0) >= 0 )
+              if ( (int)CmpFileWrite(a1, 2u, (int)v12, 1, 0) >= 0 )
               {
                 v9 = CmpFileFlush(a1, 2u);
                 v10 = 0;

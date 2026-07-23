@@ -16,123 +16,125 @@
  *     ExpWnfRegisterPermanentName @ 0x1407E8530 (ExpWnfRegisterPermanentName.c)
  */
 
-__int64 __fastcall NtCreateWnfStateName(
-        __int64 *a1,
-        unsigned int a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned __int64 a5,
-        unsigned int a6,
-        PSECURITY_DESCRIPTOR a7)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtCreateWnfStateName(
+        PWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_LIFETIME NameLifetime,
+        WNF_DATA_SCOPE DataScope,
+        BOOLEAN PersistData,
+        PCWNF_TYPE_ID TypeId,
+        ULONG MaximumStateSize,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  char v7; // bl
-  unsigned __int64 v11; // r8
+  PCWNF_TYPE_ID v11; // r8
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
   __int64 v14; // rdx
   __int64 v15; // rcx
   BOOL v16; // eax
   int v17; // eax
-  __int64 v18; // rbx
+  __int64 v18; // r9
+  __int64 v19; // rbx
   _KPROCESS *Process; // rdi
-  int NameInstance; // [rsp+34h] [rbp-B4h]
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+40h] [rbp-A8h] BYREF
-  __int64 v23; // [rsp+48h] [rbp-A0h] BYREF
-  int v24[2]; // [rsp+50h] [rbp-98h] BYREF
-  __int128 *v25; // [rsp+58h] [rbp-90h]
-  _QWORD v26[2]; // [rsp+60h] [rbp-88h] BYREF
-  _DWORD v27[2]; // [rsp+70h] [rbp-78h] BYREF
-  __int128 *v28; // [rsp+78h] [rbp-70h]
-  PSECURITY_DESCRIPTOR v29; // [rsp+80h] [rbp-68h]
-  __int128 v30; // [rsp+98h] [rbp-50h] BYREF
+  NTSTATUS NameInstance; // [rsp+34h] [rbp-B4h]
+  PSECURITY_DESCRIPTOR v23; // [rsp+40h] [rbp-A8h] BYREF
+  __int64 v24; // [rsp+48h] [rbp-A0h] BYREF
+  int v25[2]; // [rsp+50h] [rbp-98h] BYREF
+  PCWNF_TYPE_ID v26; // [rsp+58h] [rbp-90h]
+  _QWORD v27[2]; // [rsp+60h] [rbp-88h] BYREF
+  _DWORD v28[2]; // [rsp+70h] [rbp-78h] BYREF
+  PCWNF_TYPE_ID v29; // [rsp+78h] [rbp-70h]
+  PSECURITY_DESCRIPTOR v30; // [rsp+80h] [rbp-68h]
+  __int128 v31; // [rsp+98h] [rbp-50h] BYREF
 
-  v7 = a4;
-  v11 = a5;
-  v26[1] = a7;
-  v30 = 0LL;
-  v23 = 0LL;
-  v26[0] = 0LL;
-  v27[1] = 0;
+  v11 = TypeId;
+  v27[1] = SecurityDescriptor;
+  v31 = 0LL;
+  v24 = 0LL;
+  v27[0] = 0LL;
+  v28[1] = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  *(_QWORD *)v24 = 0LL;
-  SecurityDescriptor = 0LL;
-  v25 = (__int128 *)a5;
+  *(_QWORD *)v25 = 0LL;
+  v23 = 0LL;
+  v26 = TypeId;
   if ( !PreviousMode )
   {
-    LOBYTE(a4) = 1;
-    NameInstance = SeCaptureSecurityDescriptor((_DWORD)a7, 0, 1, a4, (__int64)&SecurityDescriptor);
+    NameInstance = SeCaptureSecurityDescriptor((_DWORD)SecurityDescriptor, 0, 1, 1, (__int64)&v23);
     if ( NameInstance < 0 )
       goto LABEL_33;
     goto LABEL_13;
   }
   v14 = 0x7FFFFFFF0000LL;
   v15 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-    v15 = (__int64)a1;
+  if ( (unsigned __int64)StateName < 0x7FFFFFFF0000LL )
+    v15 = (__int64)StateName;
   *(_BYTE *)v15 = *(_BYTE *)v15;
   *(_BYTE *)(v15 + 7) = *(_BYTE *)(v15 + 7);
-  if ( a5 )
+  if ( TypeId )
   {
-    if ( a5 < 0x7FFFFFFF0000LL )
-      v14 = a5;
-    v30 = *(_OWORD *)v14;
-    v25 = &v30;
+    if ( (unsigned __int64)TypeId < 0x7FFFFFFF0000LL )
+      v14 = (__int64)TypeId;
+    v31 = *(_OWORD *)v14;
+    v26 = (PCWNF_TYPE_ID)&v31;
   }
-  if ( !a7 )
+  if ( !SecurityDescriptor )
   {
     NameInstance = -1073741819;
     goto LABEL_33;
   }
-  LOBYTE(a4) = 1;
   LOBYTE(v14) = PreviousMode;
-  NameInstance = SeCaptureSecurityDescriptor((_DWORD)a7, v14, 1, a4, (__int64)&SecurityDescriptor);
+  NameInstance = SeCaptureSecurityDescriptor((_DWORD)SecurityDescriptor, v14, 1, 1, (__int64)&v23);
   if ( NameInstance >= 0 )
   {
 LABEL_13:
-    ExpWnfSpecializeSecurityDescriptor(SecurityDescriptor);
-    v16 = a2 < 2 || a2 - 2 <= 1;
+    ExpWnfSpecializeSecurityDescriptor(v23);
+    v16 = (unsigned int)NameLifetime < WnfPersistentStateName || (unsigned int)(NameLifetime - 2) <= 1;
     if ( !v16
-      || !a2
-      || (a3 < 4 || a3 - 4 < 2 ? (v17 = 1) : (v17 = 0),
-          !v17 || v7 && ((a3 & 0xFFFFFFFB) != 0 || a2 != 1) || a6 > 0x1000 || a3 == 3 && a2 == 3 || a3 == 5) )
+      || NameLifetime == WnfWellKnownStateName
+      || ((unsigned int)DataScope < WnfDataScopeMachine || (unsigned int)(DataScope - 4) < 2 ? (v17 = 1) : (v17 = 0),
+          !v17
+       || PersistData && ((DataScope & 0xFFFFFFFB) != 0 || NameLifetime != WnfPermanentStateName)
+       || MaximumStateSize > 0x1000
+       || DataScope == WnfDataScopeProcess && NameLifetime == WnfTemporaryStateName
+       || DataScope == WnfDataScopePhysicalMachine) )
     {
       NameInstance = -1073741811;
     }
-    else if ( a2 == 3 || SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, PreviousMode) )
+    else if ( NameLifetime == WnfTemporaryStateName || SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, PreviousMode) )
     {
-      LOBYTE(a4) = v7;
-      NameInstance = ExpWnfGenerateStateName(&v23, a2, a3, a4);
+      LOBYTE(v18) = PersistData;
+      NameInstance = ExpWnfGenerateStateName(&v24, (unsigned int)NameLifetime, (unsigned int)DataScope, v18);
       if ( NameInstance >= 0 )
       {
-        v18 = v23;
-        *a1 = v23 ^ 0x41C64E6DA3BC0074LL;
-        v27[0] = a6;
-        v28 = v25;
-        v29 = SecurityDescriptor;
-        if ( a2 == 3 )
+        v19 = v24;
+        *StateName = (_WNF_STATE_NAME)(v24 ^ 0x41C64E6DA3BC0074LL);
+        v28[0] = MaximumStateSize;
+        v29 = v26;
+        v30 = v23;
+        if ( NameLifetime == WnfTemporaryStateName )
         {
           if ( PreviousMode )
           {
             Process = KeGetCurrentThread()->ApcState.Process;
-            LODWORD(v18) = v23;
+            LODWORD(v19) = v24;
           }
           else
           {
             LODWORD(Process) = (_DWORD)PsInitialSystemProcess;
           }
-          NameInstance = ExpWnfResolveScopeInstance((int)v24, (int)Process, 0, a3, 0LL);
+          NameInstance = ExpWnfResolveScopeInstance((int)v25, (int)Process, 0, DataScope, 0LL);
           if ( NameInstance >= 0 )
           {
-            NameInstance = ExpWnfCreateNameInstance(v24[0], v18, (unsigned int)v27, (_DWORD)Process, (__int64)v26);
+            NameInstance = ExpWnfCreateNameInstance(v25[0], v19, (unsigned int)v28, (_DWORD)Process, (__int64)v27);
             if ( NameInstance >= 0 )
-              ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v26[0] + 8LL));
+              ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v27[0] + 8LL));
           }
         }
         else
         {
-          NameInstance = ExpWnfRegisterPermanentName(v18, v27);
+          NameInstance = ExpWnfRegisterPermanentName(v19, v28);
         }
       }
     }
@@ -142,14 +144,14 @@ LABEL_13:
     }
   }
 LABEL_33:
-  if ( *(_QWORD *)v24 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)v24 + 8LL));
-  if ( SecurityDescriptor && SecurityDescriptor != a7 )
+  if ( *(_QWORD *)v25 )
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)v25 + 8LL));
+  if ( v23 && v23 != SecurityDescriptor )
   {
     LOBYTE(v11) = 1;
     LOBYTE(v14) = PreviousMode;
-    SeReleaseSecurityDescriptor(SecurityDescriptor, v14, v11, a4);
+    SeReleaseSecurityDescriptor(v23, v14, v11, PersistData);
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)NameInstance;
+  return NameInstance;
 }

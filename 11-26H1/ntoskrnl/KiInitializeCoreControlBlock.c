@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeCoreControlBlock @ 0x1405EFAE4
+ * XREFs of KiInitializeCoreControlBlock @ 0x1405F2454
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall KiInitializeCoreControlBlock(__int64 a1, _QWORD *a2)

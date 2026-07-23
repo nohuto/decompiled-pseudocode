@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIumGetVariable @ 0x1404D6540
+ * XREFs of HalpIumGetVariable @ 0x1404D6780
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD *a3, size_t *a4, void *a5)
@@ -24,7 +24,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   unsigned __int64 v20; // rbx
   size_t v21; // r8
 
-  if ( !qword_140C4A250 )
+  if ( !qword_140C4A290 )
     return 0x8000000000000003uLL;
   v10 = -1LL;
   do
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   v16[6] = v11 + v17;
   *((_OWORD *)v16 + 1) = v18;
   v16[5] = *a4;
-  v19 = ((__int64 (__fastcall *)(__int64, __int64 *, SIZE_T))qword_140C4A250)(3LL, v16, v14);
+  v19 = ((__int64 (__fastcall *)(__int64, __int64 *, SIZE_T))qword_140C4A290)(3LL, v16, v14);
   v20 = v19;
   if ( a3 )
     *a3 = *((_DWORD *)v16 + 8);

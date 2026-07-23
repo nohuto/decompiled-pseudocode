@@ -18,8 +18,8 @@ __int64 __fastcall WbDecryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3
   int v3; // esi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rdi
-  __int64 v6; // rax
-  __int64 v7; // rsi
+  _RTL_BALANCED_NODE *v6; // rax
+  _RTL_BALANCED_NODE *v7; // rsi
   __int64 v9; // [rsp+48h] [rbp+20h] BYREF
 
   v9 = 0LL;
@@ -40,7 +40,7 @@ __int64 __fastcall WbDecryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3
       if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
         ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
       if ( v7 )
-        *(_BYTE *)(v7 + 26) |= 1u;
+        BYTE2(v7[1].Left) |= 1u;
       v3 = WbDecryptWarbirdEncryptionSegment(v9);
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)v5);

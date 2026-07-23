@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlDisableEnlightenment @ 0x1401BA884
+ * XREFs of HvlDisableEnlightenment @ 0x1401BA768
  * Callers:
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDeviceIdlePolicySettingCallback @ 0x1407D3850
+ * XREFs of PopDeviceIdlePolicySettingCallback @ 0x1407D39C0
  * Callers:
  *     <none>
  * Callees:
@@ -17,6 +17,6 @@ __int64 __fastcall PopDeviceIdlePolicySettingCallback(_QWORD *a1, int *a2, int a
   result = 0LL;
   if ( v3 || a3 != 4 || !a2 || (unsigned int)*a2 > 1 )
     return 3221225485LL;
-  dword_140C23EA8 = *a2;
+  dword_140C23348 = *a2;
   return result;
 }

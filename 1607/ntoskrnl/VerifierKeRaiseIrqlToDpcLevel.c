@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x1407130E8 (ViKeRaiseIrqlSanityChecks.c)
  */
 
@@ -17,7 +17,7 @@ __int64 VerifierKeRaiseIrqlToDpcLevel()
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v0 = (__int64 (*)(void))pXdvKeRaiseIrqlToDpcLevel;
-  ++dword_140307204;
+  ++dword_140307244;
   v1 = MmVerifierData;
   v2 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )

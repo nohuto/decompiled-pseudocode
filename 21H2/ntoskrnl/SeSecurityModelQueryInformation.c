@@ -1,13 +1,13 @@
 /*
- * XREFs of SeSecurityModelQueryInformation @ 0x14091CD6C
+ * XREFs of SeSecurityModelQueryInformation @ 0x14091CECC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     SepIsAdminlessEnforcementModeEnabled @ 0x140252EF8 (SepIsAdminlessEnforcementModeEnabled.c)
- *     SepIsSModeEnabled @ 0x14028FE30 (SepIsSModeEnabled.c)
- *     memset @ 0x140414200 (memset.c)
- *     SepIsAdminlessAuditModeEnabled @ 0x140596C74 (SepIsAdminlessAuditModeEnabled.c)
- *     SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x140596C88 (SepIsDeviceOwnerProtectionDowngradeAllowed.c)
+ *     SepIsSModeEnabled @ 0x14020DDA0 (SepIsSModeEnabled.c)
+ *     SepIsAdminlessEnforcementModeEnabled @ 0x140285D68 (SepIsAdminlessEnforcementModeEnabled.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SepIsAdminlessAuditModeEnabled @ 0x140596EA4 (SepIsAdminlessAuditModeEnabled.c)
+ *     SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x140596EB8 (SepIsDeviceOwnerProtectionDowngradeAllowed.c)
  */
 
 __int64 __fastcall SeSecurityModelQueryInformation(_DWORD *a1, unsigned int a2, _DWORD *a3)

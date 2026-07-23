@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAdjustTimerDelayProcess @ 0x14056F4C8
+ * XREFs of KeAdjustTimerDelayProcess @ 0x14056FA08
  * Callers:
- *     PspSetProcessTimerDelayForKTimers @ 0x1405A47B0 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x1405A4D20 (PspSetProcessTimerDelayForKTimers.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiAdjustThreadTimer @ 0x140576DD8 (KiAdjustThreadTimer.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiAdjustThreadTimer @ 0x1405772C8 (KiAdjustThreadTimer.c)
  */
 
 __int64 __fastcall KeAdjustTimerDelayProcess(__int64 a1, __int64 a2, unsigned int a3)
@@ -20,7 +20,7 @@ __int64 __fastcall KeAdjustTimerDelayProcess(__int64 a1, __int64 a2, unsigned in
   CurrentPrcb = KeGetCurrentPrcb();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v9 = 4;
@@ -33,5 +33,5 @@ __int64 __fastcall KeAdjustTimerDelayProcess(__int64 a1, __int64 a2, unsigned in
     KiAdjustThreadTimer(i - 95, CurrentPrcb, a2, a3);
   *(_DWORD *)(a1 + 68) = a3;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  return KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  return KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
 }

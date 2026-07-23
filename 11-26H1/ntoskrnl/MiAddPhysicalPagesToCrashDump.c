@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddPhysicalPagesToCrashDump @ 0x1406F6058
+ * XREFs of MiAddPhysicalPagesToCrashDump @ 0x1406FACC8
  * Callers:
- *     MmGetDumpRange @ 0x1406F6934 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1406FB5A4 (MmGetDumpRange.c)
  * Callees:
- *     MiGetPagesRemainingInResidentPage @ 0x140703334 (MiGetPagesRemainingInResidentPage.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x140708004 (MiGetPagesRemainingInResidentPage.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _DWORD *__fastcall MiAddPhysicalPagesToCrashDump(__int64 a1)

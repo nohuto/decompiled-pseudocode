@@ -1,19 +1,19 @@
 /*
- * XREFs of MmManagePartitionMoveMemory @ 0x1407FCEC4
+ * XREFs of MmManagePartitionMoveMemory @ 0x1407FD634
  * Callers:
- *     NtManagePartition @ 0x140933FF0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1408F6B10 (NtManagePartition.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeGetIdealNodeNumberThread @ 0x14048652C (KeGetIdealNodeNumberThread.c)
- *     MiHugePagesSupported @ 0x140495838 (MiHugePagesSupported.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
- *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x1407FE2A8 (MiFindSpecialPurposeMemoryTypeByPartition.c)
- *     MiSpecialPurposeMemoryChangePrepare @ 0x1407FEBA0 (MiSpecialPurposeMemoryChangePrepare.c)
- *     MiSpecialPurposeMemoryTypeDereference @ 0x1407FEE24 (MiSpecialPurposeMemoryTypeDereference.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeGetIdealNodeNumberThread @ 0x140481B1C (KeGetIdealNodeNumberThread.c)
+ *     MiHugePagesSupported @ 0x1404900F8 (MiHugePagesSupported.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x1407FEA18 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     MiSpecialPurposeMemoryChangePrepare @ 0x1407FF310 (MiSpecialPurposeMemoryChangePrepare.c)
+ *     MiSpecialPurposeMemoryTypeDereference @ 0x1407FF594 (MiSpecialPurposeMemoryTypeDereference.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall MmManagePartitionMoveMemory(ULONG **a1, ULONG **a2, __int64 a3, KPROCESSOR_MODE a4)
@@ -30,19 +30,17 @@ __int64 __fastcall MmManagePartitionMoveMemory(ULONG **a1, ULONG **a2, __int64 a
   bool v15; // zf
   int v16; // edx
   int PartitionPhysicalPages; // esi
-  __int64 v18; // rdx
-  __int64 v19; // rcx
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR BugCheckParameter2; // [rsp+70h] [rbp+40h] BYREF
-  __int64 v22; // [rsp+78h] [rbp+48h] BYREF
-  __int64 v23; // [rsp+80h] [rbp+50h] BYREF
+  __int64 v20; // [rsp+78h] [rbp+48h] BYREF
+  __int64 v21; // [rsp+80h] [rbp+50h] BYREF
 
   v4 = *a2;
   v5 = *(_QWORD *)a3;
   v7 = *a1;
   v8 = 0LL;
-  v22 = 0LL;
-  v23 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
   if ( !v5 )
     return 0LL;
   IdealNodeNumberThread = *(_DWORD *)(a3 + 8);
@@ -123,11 +121,11 @@ LABEL_37:
   if ( v7 != v4 )
   {
 LABEL_52:
-    PartitionPhysicalPages = MiSpecialPurposeMemoryChangePrepare(v7, v4 + 4410, &v22);
+    PartitionPhysicalPages = MiSpecialPurposeMemoryChangePrepare(v7, v4 + 4410, &v20);
     if ( PartitionPhysicalPages < 0 )
       goto LABEL_55;
     v8 = v7;
-    v7 = *(ULONG **)(v22 + 64);
+    v7 = *(ULONG **)(v20 + 64);
     do
 LABEL_54:
       PartitionPhysicalPages = MiAllocatePartitionPhysicalPages(
@@ -138,28 +136,28 @@ LABEL_54:
                                  v11);
     while ( PartitionPhysicalPages == -1073740023 );
 LABEL_55:
-    if ( v22 )
-      MiSpecialPurposeMemoryTypeDereference(v8, v22);
+    if ( v20 )
+      MiSpecialPurposeMemoryTypeDereference(v8, v20);
     goto LABEL_57;
   }
   BugCheckParameter2 = 0LL;
-  if ( MiFindSpecialPurposeMemoryTypeByPartition(v7, &v23, &BugCheckParameter2) )
+  if ( MiFindSpecialPurposeMemoryTypeByPartition(v7, &v21, &BugCheckParameter2) )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
     KeAbPostRelease(BugCheckParameter2);
     CurrentThread = KeGetCurrentThread();
     v13 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v13 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v19, v18);
-    v7 = (ULONG *)v23;
-    if ( (ULONG *)v23 == v4 )
+    if ( v13 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
+    v7 = (ULONG *)v21;
+    if ( (ULONG *)v21 == v4 )
       goto LABEL_54;
     goto LABEL_52;
   }
   PartitionPhysicalPages = -1073740640;
 LABEL_57:
-  if ( v23 )
-    PsDereferencePartition(*(_QWORD *)(v23 + 184));
+  if ( v21 )
+    PsDereferencePartition(*(_QWORD *)(v21 + 184));
   return (unsigned int)PartitionPhysicalPages;
 }

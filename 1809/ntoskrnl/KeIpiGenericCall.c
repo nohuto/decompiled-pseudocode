@@ -1,22 +1,22 @@
 /*
- * XREFs of KeIpiGenericCall @ 0x140175930
+ * XREFs of KeIpiGenericCall @ 0x140175A30
  * Callers:
- *     KeAdjustInterruptTime @ 0x140159888 (KeAdjustInterruptTime.c)
- *     KiDynamicProcessorInitialization @ 0x14028D538 (KiDynamicProcessorInitialization.c)
- *     KeStartProfile @ 0x140295C2C (KeStartProfile.c)
- *     KeStopProfile @ 0x140295D40 (KeStopProfile.c)
- *     KeRestoreMtrrBroadcast @ 0x140573264 (KeRestoreMtrrBroadcast.c)
- *     KiUpdateNumberProcessors @ 0x14057B428 (KiUpdateNumberProcessors.c)
- *     KiUpdateSavedSupervisorState @ 0x14057B5E0 (KiUpdateSavedSupervisorState.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     KeAdjustInterruptTime @ 0x140159988 (KeAdjustInterruptTime.c)
+ *     KiDynamicProcessorInitialization @ 0x14028D728 (KiDynamicProcessorInitialization.c)
+ *     KeStartProfile @ 0x140295E1C (KeStartProfile.c)
+ *     KeStopProfile @ 0x140295F30 (KeStopProfile.c)
+ *     KeRestoreMtrrBroadcast @ 0x140574264 (KeRestoreMtrrBroadcast.c)
+ *     KiUpdateNumberProcessors @ 0x14057C428 (KiUpdateNumberProcessors.c)
+ *     KiUpdateSavedSupervisorState @ 0x14057C5E0 (KiUpdateSavedSupervisorState.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     KiIpiSendPacket @ 0x1400ED184 (KiIpiSendPacket.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, ULONG_PTR Context)

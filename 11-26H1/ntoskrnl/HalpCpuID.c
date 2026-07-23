@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpCpuID @ 0x1404D7220
+ * XREFs of HalpCpuID @ 0x1404D09F0
  * Callers:
- *     HalpGetProcessorBrandString @ 0x140785D34 (HalpGetProcessorBrandString.c)
- *     HalpMcaSetFeatureFlags @ 0x140BEA844 (HalpMcaSetFeatureFlags.c)
+ *     HalpGetProcessorBrandString @ 0x140788864 (HalpGetProcessorBrandString.c)
+ *     HalpMcaSetFeatureFlags @ 0x140BF0844 (HalpMcaSetFeatureFlags.c)
  * Callees:
  *     <none>
  */

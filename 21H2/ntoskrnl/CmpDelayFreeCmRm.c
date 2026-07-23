@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDelayFreeCmRm @ 0x1406BB61C
+ * XREFs of CmpDelayFreeCmRm @ 0x1405E0FFC
  * Callers:
- *     CmpRunDownCmRM @ 0x1406BB4A0 (CmpRunDownCmRM.c)
+ *     CmpRunDownCmRM @ 0x1405E0E80 (CmpRunDownCmRM.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 void __fastcall CmpDelayFreeCmRm(_QWORD *a1)
@@ -14,14 +14,14 @@ void __fastcall CmpDelayFreeCmRm(_QWORD *a1)
   bool v3; // zf
 
   ExAcquireFastMutex(&CmpDelayFreeRMLock);
-  v2 = (_QWORD *)qword_140C47B88;
-  if ( *(PVOID **)qword_140C47B88 != &CmpDelayFreeRMListHead )
+  v2 = (_QWORD *)qword_140C47CA8;
+  if ( *(PVOID **)qword_140C47CA8 != &CmpDelayFreeRMListHead )
     __fastfail(3u);
   v3 = CmpDelayFreeRMWorkItemActive == 0;
   *a1 = &CmpDelayFreeRMListHead;
   a1[1] = v2;
   *v2 = a1;
-  qword_140C47B88 = (__int64)a1;
+  qword_140C47CA8 = (__int64)a1;
   if ( v3 )
   {
     CmpDelayFreeRMWorkItemActive = 1;

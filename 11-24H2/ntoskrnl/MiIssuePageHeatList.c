@@ -1,57 +1,57 @@
 /*
- * XREFs of MiIssuePageHeatList @ 0x14043F9FC
+ * XREFs of MiIssuePageHeatList @ 0x140435CBC
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
- *     MiGetLargePagesForChain @ 0x1402F32E0 (MiGetLargePagesForChain.c)
- *     MiGetLargePage @ 0x1402F35A0 (MiGetLargePage.c)
- *     MiGetPerfectColorHeadPage @ 0x1402F59B0 (MiGetPerfectColorHeadPage.c)
- *     MiDemoteLocalLargePage @ 0x1402F6020 (MiDemoteLocalLargePage.c)
- *     MmSetPfnListInfo @ 0x140308064 (MmSetPfnListInfo.c)
- *     MiCoalesceFreeLargePages @ 0x140308844 (MiCoalesceFreeLargePages.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
- *     MiGetLargePageChain @ 0x1403D4E10 (MiGetLargePageChain.c)
- *     MiAddPageToHeatList @ 0x14043F8DC (MiAddPageToHeatList.c)
- *     MiFlushZeroPageHeatBatch @ 0x140469FF0 (MiFlushZeroPageHeatBatch.c)
- *     MiReplenishPageSlist @ 0x1404F40C0 (MiReplenishPageSlist.c)
- *     MiZeroPageMakeHot @ 0x1406903F8 (MiZeroPageMakeHot.c)
- *     MmPrefetchPagesEx @ 0x140955430 (MmPrefetchPagesEx.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
+ *     MiGetLargePagesForChain @ 0x140251524 (MiGetLargePagesForChain.c)
+ *     MiGetLargePage @ 0x1402517B0 (MiGetLargePage.c)
+ *     MiGetLargePageChain @ 0x140263C74 (MiGetLargePageChain.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
+ *     MmSetPfnListInfo @ 0x140311F44 (MmSetPfnListInfo.c)
+ *     MiCoalesceFreeLargePages @ 0x140312724 (MiCoalesceFreeLargePages.c)
+ *     MiGetPerfectColorHeadPage @ 0x14033D740 (MiGetPerfectColorHeadPage.c)
+ *     MiDemoteLocalLargePage @ 0x14033E130 (MiDemoteLocalLargePage.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
+ *     MiAddPageToHeatList @ 0x140435B9C (MiAddPageToHeatList.c)
+ *     MiFlushZeroPageHeatBatch @ 0x140462F20 (MiFlushZeroPageHeatBatch.c)
+ *     MiReplenishPageSlist @ 0x1404F1A70 (MiReplenishPageSlist.c)
+ *     MiZeroPageMakeHot @ 0x1406914C8 (MiZeroPageMakeHot.c)
+ *     MmPrefetchPagesEx @ 0x140938DE0 (MmPrefetchPagesEx.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     MiUnlockDynamicMemoryShared @ 0x1403D57CC (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1403D5830 (MiLockDynamicMemoryShared.c)
- *     MiTryAcquirePushLockUnordered @ 0x1406755CC (MiTryAcquirePushLockUnordered.c)
- *     MiLogNotifyPageHeat @ 0x140685780 (MiLogNotifyPageHeat.c)
- *     HvlNotifyPageHeat @ 0x1406A10E8 (HvlNotifyPageHeat.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140264630 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockDynamicMemoryShared @ 0x140264694 (MiLockDynamicMemoryShared.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiTryAcquirePushLockUnordered @ 0x14067679C (MiTryAcquirePushLockUnordered.c)
+ *     MiLogNotifyPageHeat @ 0x1406868B0 (MiLogNotifyPageHeat.c)
+ *     HvlNotifyPageHeat @ 0x1406A2140 (HvlNotifyPageHeat.c)
  */
 
-__int64 __fastcall MiIssuePageHeatList(_DWORD *a1, unsigned __int64 a2)
+__int64 __fastcall MiIssuePageHeatList(__int64 a1)
 {
-  _DWORD *v2; // rbx
-  int v3; // ebp
+  int v2; // ebp
   struct _KTHREAD *CurrentThread; // rdi
   __int64 result; // rax
-  int v6; // esi
-  __int64 v7; // r10
+  int v5; // esi
+  __int64 v6; // r10
+  _QWORD *v7; // rcx
   unsigned __int64 v8; // r9
-  __int64 v9; // rax
-  __int64 v10; // r8
-  unsigned __int64 v11; // r11
-  _QWORD *v12; // r8
-  __int64 v13; // rdx
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // r8
+  unsigned __int64 v12; // r11
+  _QWORD *v13; // r8
+  __int64 v14; // rdx
 
-  v2 = a1;
-  v3 = 0;
+  v2 = 0;
   CurrentThread = 0LL;
-  result = *a1 & 6;
+  result = *(_DWORD *)a1 & 6;
   if ( !(_DWORD)result )
   {
-    v6 = 0;
+    v5 = 0;
     goto LABEL_22;
   }
   CurrentThread = KeGetCurrentThread();
@@ -60,87 +60,87 @@ __int64 __fastcall MiIssuePageHeatList(_DWORD *a1, unsigned __int64 a2)
     if ( KeGetCurrentIrql() <= 1u )
     {
       --CurrentThread->SpecialApcDisable;
-      v3 = 1;
+      v2 = 1;
     }
-    result = MiTryAcquirePushLockUnordered((ULONG_PTR)&qword_140E38CC0);
-    v6 = (unsigned __int8)result;
+    result = MiTryAcquirePushLockUnordered((ULONG_PTR)&qword_140E38E00);
+    v5 = (unsigned __int8)result;
     if ( !(_BYTE)result )
     {
-      v2[1] = 0;
+      *(_DWORD *)(a1 + 4) = 0;
       goto LABEL_22;
     }
   }
   else
   {
-    v6 = 1;
+    v5 = 1;
     result = MiLockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
   }
-  v7 = qword_140E2EBF8;
-  if ( qword_140E2EBF8 != *((_QWORD *)v2 + 1) )
+  v6 = qword_140E2ED38;
+  if ( qword_140E2ED38 != *(_QWORD *)(a1 + 8) )
   {
-    result = (unsigned int)v2[1];
-    a1 = v2 + 4;
-    v8 = (unsigned __int64)&v2[2 * result + 4];
-    while ( (unsigned __int64)a1 < v8 )
+    result = *(unsigned int *)(a1 + 4);
+    v7 = (_QWORD *)(a1 + 16);
+    v8 = a1 + 16 + 8 * result;
+    while ( (unsigned __int64)v7 < v8 )
     {
-      a2 = *(_QWORD *)a1 >> 12;
-      v9 = (*(_QWORD *)a1 & 0x3FFLL) + 1;
-      v10 = (*(_QWORD *)a1 >> 10) & 3LL;
-      if ( ((*(_QWORD *)a1 >> 10) & 3) != 0 )
+      v9 = *v7 >> 12;
+      v10 = (*v7 & 0x3FFLL) + 1;
+      v11 = (*v7 >> 10) & 3LL;
+      if ( ((*v7 >> 10) & 3) != 0 )
       {
         do
         {
-          v9 <<= 9;
-          LODWORD(v10) = v10 - 1;
+          v10 <<= 9;
+          LODWORD(v11) = v11 - 1;
         }
-        while ( (_DWORD)v10 );
+        while ( (_DWORD)v11 );
       }
-      v11 = v9 + a2;
+      v12 = v10 + v9;
       result = 0xFFFFDE0000000028uLL;
-      v12 = (_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL);
-      while ( a2 < v11 )
+      v13 = (_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL);
+      while ( v9 < v12 )
       {
-        if ( a2 > qword_140E2DBE0 || (result = *v12 >> 54, (*v12 & 0x40000000000000LL) == 0) )
+        if ( v9 > qword_140E2DD20 || (result = *v13 >> 54, (*v13 & 0x40000000000000LL) == 0) )
         {
-          v2[1] = 0;
-          a1 = (_DWORD *)v8;
+          *(_DWORD *)(a1 + 4) = 0;
+          v7 = (_QWORD *)v8;
           break;
         }
-        ++a2;
-        v12 += 6;
+        ++v9;
+        v13 += 6;
       }
-      a1 += 2;
+      ++v7;
     }
-    *((_QWORD *)v2 + 1) = v7;
+    *(_QWORD *)(a1 + 8) = v6;
   }
 LABEL_22:
-  if ( v2[1] )
+  if ( *(_DWORD *)(a1 + 4) )
   {
-    MiLogNotifyPageHeat(v2);
-    LOBYTE(v13) = KeGetCurrentIrql() < 2u;
-    result = HvlNotifyPageHeat(*v2 & 1, v13, (unsigned int)v2[1], v2 + 4);
-    v2[1] = 0;
+    MiLogNotifyPageHeat(a1);
+    LOBYTE(v14) = KeGetCurrentIrql() < 2u;
+    result = HvlNotifyPageHeat(*(_DWORD *)a1 & 1, v14, *(unsigned int *)(a1 + 4), a1 + 16);
+    *(_DWORD *)(a1 + 4) = 0;
   }
-  if ( v6 )
+  if ( v5 )
   {
-    if ( (*v2 & 6) == 4 )
+    if ( (*(_DWORD *)a1 & 6) == 4 )
     {
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E38CC0, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)&qword_140E38CC0);
-      result = KeAbPostRelease((ULONG_PTR)&qword_140E38CC0);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140E38E00, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)&qword_140E38E00);
+      result = KeAbPostRelease((ULONG_PTR)&qword_140E38E00);
     }
     else
     {
       result = (__int64)MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
     }
   }
-  if ( v3 )
+  if ( v2 )
   {
     if ( CurrentThread->SpecialApcDisable++ == -1 )
     {
       result = (__int64)&CurrentThread->152;
       if ( *(_QWORD *)result != result )
-        return KiCheckForKernelApcDelivery((__int64)a1, a2);
+        return KiCheckForKernelApcDelivery();
     }
   }
   return result;

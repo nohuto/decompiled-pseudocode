@@ -1,19 +1,24 @@
 /*
- * XREFs of NtQueryInformationWorkerFactory @ 0x1406D3520
+ * XREFs of NtQueryInformationWorkerFactory @ 0x1406D7550
  * Callers:
- *     DifNtQueryInformationWorkerFactoryWrapper @ 0x140683B30 (DifNtQueryInformationWorkerFactoryWrapper.c)
+ *     DifNtQueryInformationWorkerFactoryWrapper @ 0x140687710 (DifNtQueryInformationWorkerFactoryWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, volatile void *a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
   NTSTATUS result; // eax
@@ -48,21 +53,21 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, volat
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 != 7 )
+  if ( WorkerFactoryInformationClass != WorkerFactoryBasicInformation )
     return -1073741821;
   if ( PreviousMode )
-    ProbeForWrite(a3, 0x78uLL, 4u);
-  if ( a5 )
+    ProbeForWrite(WorkerFactoryInformation, 0x78uLL, 4u);
+  if ( ReturnLength )
   {
     if ( PreviousMode )
-      RtlWriteULongToUser(a5, 120LL);
+      RtlWriteULongToUser(ReturnLength, 120LL);
     else
-      *a5 = 120;
+      *ReturnLength = 120;
   }
-  if ( a4 != 120 )
+  if ( WorkerFactoryInformationLength != 120 )
     return -1073741820;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 8u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(WorkerFactoryHandle, 8u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v20 = 0;
@@ -95,9 +100,9 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, volat
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     ObfDereferenceObjectWithTag(v10, 0x746C6644u);
     if ( PreviousMode )
-      RtlCopyToUser((void *)a3, &Src, 0x78uLL);
+      RtlCopyToUser(WorkerFactoryInformation, &Src, 0x78uLL);
     else
-      RtlCopyVolatileMemory((void *)a3, &Src, 0x78uLL);
+      RtlCopyVolatileMemory(WorkerFactoryInformation, &Src, 0x78uLL);
     return 0;
   }
   return result;

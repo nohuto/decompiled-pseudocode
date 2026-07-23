@@ -1,24 +1,28 @@
 /*
- * XREFs of RtlGetSystemBootStatus @ 0x180113EC0
+ * XREFs of RtlGetSystemBootStatus @ 0x18010F1C0
  * Callers:
  *     <none>
  * Callees:
- *     NtPowerInformation @ 0x180162860 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x180160C20 (NtPowerInformation.c)
  */
 
-__int64 __fastcall RtlGetSystemBootStatus(int a1, __int64 a2, int a3)
+NTSTATUS __cdecl RtlGetSystemBootStatus(
+        RTL_BSD_ITEM_TYPE BootStatusInformationClass,
+        PVOID DataBuffer,
+        ULONG DataLength,
+        PULONG ReturnLength)
 {
-  _DWORD v4[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v5; // [rsp+38h] [rbp-28h]
-  int v6; // [rsp+40h] [rbp-20h]
-  _QWORD v7[3]; // [rsp+48h] [rbp-18h] BYREF
+  _DWORD v5[2]; // [rsp+30h] [rbp-30h] BYREF
+  PVOID v6; // [rsp+38h] [rbp-28h]
+  ULONG v7; // [rsp+40h] [rbp-20h]
+  _QWORD InputBuffer[3]; // [rsp+48h] [rbp-18h] BYREF
 
-  v4[0] = a1;
-  v5 = a2;
-  v6 = a3;
-  v4[1] = 0;
-  v7[0] = 31LL;
-  v7[1] = 1LL;
-  v7[2] = v4;
-  return NtPowerInformation(87LL, v7);
+  v5[0] = BootStatusInformationClass;
+  v6 = DataBuffer;
+  v7 = DataLength;
+  v5[1] = 0;
+  InputBuffer[0] = 31LL;
+  InputBuffer[1] = 1LL;
+  InputBuffer[2] = v5;
+  return NtPowerInformation(PowerInformationInternal, InputBuffer, 0x18u, ReturnLength, ReturnLength != 0LL ? 4 : 0);
 }

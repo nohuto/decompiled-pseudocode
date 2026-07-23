@@ -17,7 +17,7 @@
 __int64 PiCreateDriverDataDirectoryRoot()
 {
   void *v0; // rdi
-  int FileDirectoryRoot; // ebx
+  NTSTATUS FileDirectoryRoot; // ebx
   unsigned int v2; // esi
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING v5; // [rsp+70h] [rbp-19h] BYREF
@@ -36,7 +36,7 @@ __int64 PiCreateDriverDataDirectoryRoot()
   RtlInitUnicodeString(&DestinationString, 0LL);
   FileDirectoryRoot = PiGetFileDirectoryRoot(
                         L"DriverData",
-                        (__int64)L"\\SystemRoot\\System32\\Drivers\\DriverData",
+                        L"\\SystemRoot\\System32\\Drivers\\DriverData",
                         &DestinationString);
   if ( FileDirectoryRoot >= 0 )
   {

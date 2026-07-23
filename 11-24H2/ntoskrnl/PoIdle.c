@@ -1,18 +1,18 @@
 /*
- * XREFs of PoIdle @ 0x140449020
+ * XREFs of PoIdle @ 0x140441770
  * Callers:
- *     KiIdleLoop @ 0x1406ABC30 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x1406ACBD0 (KiIdleLoop.c)
  * Callees:
- *     PpmUpdateProcessorIdleAccounting @ 0x14032CE98 (PpmUpdateProcessorIdleAccounting.c)
- *     PpmResetProcessorIdleAccounting @ 0x14032D0D4 (PpmResetProcessorIdleAccounting.c)
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
- *     PpmEventIdleStateChange @ 0x140497768 (PpmEventIdleStateChange.c)
- *     PpmPerfSetProcessorIdle @ 0x1404C3EC0 (PpmPerfSetProcessorIdle.c)
- *     PpmWakeClockOwnerIfNeeded @ 0x1404C8608 (PpmWakeClockOwnerIfNeeded.c)
- *     KeIdleSpecCtrl @ 0x1404E75A0 (KeIdleSpecCtrl.c)
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
- *     HalProcessorIdle @ 0x1406A5AA0 (HalProcessorIdle.c)
- *     KeExecuteVerw @ 0x1406BFAC0 (KeExecuteVerw.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x1404371A8 (PpmUpdateProcessorIdleAccounting.c)
+ *     PpmResetProcessorIdleAccounting @ 0x1404373E4 (PpmResetProcessorIdleAccounting.c)
+ *     PpmEventIdleStateChange @ 0x1404920F8 (PpmEventIdleStateChange.c)
+ *     PpmPerfSetProcessorIdle @ 0x1404BF3F0 (PpmPerfSetProcessorIdle.c)
+ *     PpmWakeClockOwnerIfNeeded @ 0x1404C1C54 (PpmWakeClockOwnerIfNeeded.c)
+ *     KeIdleSpecCtrl @ 0x1404DE260 (KeIdleSpecCtrl.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
+ *     HalProcessorIdle @ 0x1406A6AA0 (HalProcessorIdle.c)
+ *     KeExecuteVerw @ 0x1406C09C0 (KeExecuteVerw.c)
  */
 
 char __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
@@ -38,7 +38,7 @@ char __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   char v20; // [rsp+E0h] [rbp+77h] BYREF
   __int64 v21; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  result = dword_140F0BA4C;
+  result = dword_140F0B38C;
   v14 = 0;
   v16 = 0LL;
   v17 = 0LL;
@@ -48,7 +48,7 @@ char __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   v15 = 0;
   v13 = 0;
   LOBYTE(v19) = 0;
-  if ( !BYTE5(PpmCurrentProfile[0][61 * dword_140F0BA4C + 25]) )
+  if ( !BYTE5(PpmCurrentProfile[0][61 * dword_140F0B38C + 25]) )
   {
     v3 = *(_QWORD *)(BugCheckParameter4 + 34880);
     v4 = *(unsigned int **)(BugCheckParameter4 + 34888);

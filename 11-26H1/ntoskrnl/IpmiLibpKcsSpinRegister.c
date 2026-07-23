@@ -1,14 +1,14 @@
 /*
- * XREFs of IpmiLibpKcsSpinRegister @ 0x14071DF0C
+ * XREFs of IpmiLibpKcsSpinRegister @ 0x140722B9C
  * Callers:
- *     IpmiLibpKcsHandleError @ 0x14071D9AC (IpmiLibpKcsHandleError.c)
- *     IpmiLibpKcsReceiveResponseFromBmc @ 0x14071DAFC (IpmiLibpKcsReceiveResponseFromBmc.c)
- *     IpmiLibpKcsSendRequestToBMC @ 0x14071DD20 (IpmiLibpKcsSendRequestToBMC.c)
+ *     IpmiLibpKcsHandleError @ 0x14072263C (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x14072278C (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x1407229B0 (IpmiLibpKcsSendRequestToBMC.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x14071D3B4 (IpmiLibReadOneByte.c)
- *     IpmiLibpDelay @ 0x14071D864 (IpmiLibpDelay.c)
- *     IpmiLibpGetTimeout @ 0x14071D8AC (IpmiLibpGetTimeout.c)
- *     IpmiLibpTimeAfter @ 0x14071DFCC (IpmiLibpTimeAfter.c)
+ *     IpmiLibReadOneByte @ 0x140722044 (IpmiLibReadOneByte.c)
+ *     IpmiLibpDelay @ 0x1407224F4 (IpmiLibpDelay.c)
+ *     IpmiLibpGetTimeout @ 0x14072253C (IpmiLibpGetTimeout.c)
+ *     IpmiLibpTimeAfter @ 0x140722C5C (IpmiLibpTimeAfter.c)
  */
 
 __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __int16 a3)

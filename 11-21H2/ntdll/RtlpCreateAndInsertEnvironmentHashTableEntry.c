@@ -17,15 +17,15 @@ __int64 __fastcall RtlpCreateAndInsertEnvironmentHashTableEntry(
         __int64 a5)
 {
   _QWORD *EnvironmentHashTable; // rax
-  __int64 v10; // rbx
+  _QWORD *v10; // rbx
   int inserted; // edi
   __int64 v12; // r9
   unsigned __int16 *v13; // r10
   __int64 v14; // r9
   unsigned __int16 v16; // [rsp+20h] [rbp-18h]
 
-  EnvironmentHashTable = (_QWORD *)RtlpAllocateEnvironmentHashTable(48LL);
-  v10 = (__int64)EnvironmentHashTable;
+  EnvironmentHashTable = RtlpAllocateEnvironmentHashTable(0x30uLL);
+  v10 = EnvironmentHashTable;
   if ( EnvironmentHashTable )
   {
     EnvironmentHashTable[2] = a2;
@@ -39,10 +39,10 @@ __int64 __fastcall RtlpCreateAndInsertEnvironmentHashTableEntry(
       v16 = NLS_UPCASE(qword_1801776F8, *a2++);
       v12 = HIBYTE(v16) + 37 * ((unsigned __int8)v16 + 37 * v14);
     }
-    *(_QWORD *)(v10 + 8) = v12;
+    v10[1] = v12;
     inserted = RtlpInsertEnvironmentHashTableEntry(a1, v10);
     if ( inserted < 0 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
   }
   else
   {

@@ -6,64 +6,64 @@
  *     RtlUpperChar @ 0x180065330 (RtlUpperChar.c)
  */
 
-__int64 __fastcall RtlCompareString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+LONG __cdecl RtlCompareString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  int v3; // ebp
+  int Length; // ebp
   int v4; // r12d
-  char *v5; // rbx
-  __int64 v6; // rdi
+  char *Buffer; // rbx
+  char *v6; // rdi
   int v7; // eax
   char *v8; // rsi
-  __int64 v9; // rdi
-  char v10; // r14
+  signed __int64 v9; // rdi
+  CHAR v10; // r14
   unsigned __int8 v12; // r15
   unsigned __int8 v13; // al
   int v14; // ecx
-  __int64 v15; // rdi
+  signed __int64 v15; // rdi
 
-  v3 = *a1;
-  v4 = *a2;
-  v5 = (char *)*((_QWORD *)a1 + 1);
-  v6 = *((_QWORD *)a2 + 1);
+  Length = String1->Length;
+  v4 = String2->Length;
+  Buffer = String1->Buffer;
+  v6 = String2->Buffer;
   v7 = v4;
-  if ( v3 <= v4 )
-    v7 = *a1;
-  v8 = &v5[v7];
-  if ( !a3 )
+  if ( Length <= v4 )
+    v7 = String1->Length;
+  v8 = &Buffer[v7];
+  if ( !CaseInSensitive )
   {
-    if ( v5 < v8 )
+    if ( Buffer < v8 )
     {
-      v15 = v6 - (_QWORD)v5;
+      v15 = v6 - Buffer;
       while ( 1 )
       {
-        LOBYTE(v14) = *v5;
-        v13 = v5[v15];
-        if ( *v5 != v13 )
+        LOBYTE(v14) = *Buffer;
+        v13 = Buffer[v15];
+        if ( *Buffer != v13 )
           break;
-        if ( ++v5 >= v8 )
-          return (unsigned int)(v3 - v4);
+        if ( ++Buffer >= v8 )
+          return Length - v4;
       }
       v14 = (unsigned __int8)v14;
-      return v14 - (unsigned int)v13;
+      return v14 - v13;
     }
-    return (unsigned int)(v3 - v4);
+    return Length - v4;
   }
-  if ( v5 >= v8 )
-    return (unsigned int)(v3 - v4);
-  v9 = v6 - (_QWORD)v5;
+  if ( Buffer >= v8 )
+    return Length - v4;
+  v9 = v6 - Buffer;
   while ( 1 )
   {
-    v10 = v5[v9];
-    if ( *v5 != v10 )
+    v10 = Buffer[v9];
+    if ( *Buffer != v10 )
     {
-      v12 = RtlUpperChar(*v5);
+      v12 = RtlUpperChar(*Buffer);
       v13 = RtlUpperChar(v10);
       if ( v12 != v13 )
         break;
     }
-    if ( ++v5 >= v8 )
-      return (unsigned int)(v3 - v4);
+    if ( ++Buffer >= v8 )
+      return Length - v4;
   }
   v14 = v12;
-  return v14 - (unsigned int)v13;
+  return v14 - v13;
 }

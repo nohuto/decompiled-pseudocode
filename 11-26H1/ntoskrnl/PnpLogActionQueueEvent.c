@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpLogActionQueueEvent @ 0x140483158
+ * XREFs of PnpLogActionQueueEvent @ 0x14047CAC8
  * Callers:
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
  * Callees:
- *     McTemplateK0zd_EtwWriteTransfer @ 0x14049F9B0 (McTemplateK0zd_EtwWriteTransfer.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404A0040 (McTemplateK0z_EtwWriteTransfer.c)
- *     McTemplateK0zdq_EtwWriteTransfer @ 0x1405DB68C (McTemplateK0zdq_EtwWriteTransfer.c)
+ *     McTemplateK0zd_EtwWriteTransfer @ 0x140499500 (McTemplateK0zd_EtwWriteTransfer.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x140499B90 (McTemplateK0z_EtwWriteTransfer.c)
+ *     McTemplateK0zdq_EtwWriteTransfer @ 0x1405DDF3C (McTemplateK0zdq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall PnpLogActionQueueEvent(__int64 a1, int a2, __int64 a3, char a4)
@@ -27,21 +27,21 @@ __int64 __fastcall PnpLogActionQueueEvent(__int64 a1, int a2, __int64 a3, char a
       {
         if ( (_DWORD)a3 == 1 )
         {
-          if ( (byte_140EF3DC9 & 0x40) != 0 )
+          if ( (byte_140EF4129 & 0x40) != 0 )
           {
             if ( a1 )
               v8 = *(_QWORD *)(a1 + 48);
             return McTemplateK0zd_EtwWriteTransfer(a1, (unsigned int)KMPnPEvt_ConfigureDevice_Start, 1, v8, a2);
           }
         }
-        else if ( (_DWORD)a3 == 2 && (byte_140EF3DC9 & 0x40) != 0 )
+        else if ( (_DWORD)a3 == 2 && (byte_140EF4129 & 0x40) != 0 )
         {
           if ( a1 )
             v8 = *(_QWORD *)(a1 + 48);
           return McTemplateK0zdq_EtwWriteTransfer(a1, (unsigned int)KMPnPEvt_ConfigureDevice_Stop, 2, v8, a2, a4);
         }
       }
-      else if ( (byte_140EF3DC9 & 0x40) != 0 )
+      else if ( (byte_140EF4129 & 0x40) != 0 )
       {
         if ( a1 )
           v8 = *(_QWORD *)(a1 + 48);
@@ -60,7 +60,7 @@ __int64 __fastcall PnpLogActionQueueEvent(__int64 a1, int a2, __int64 a3, char a
         {
           if ( (_DWORD)a3 == 1 )
           {
-            if ( (byte_140EF3DCB & 0x10) == 0 )
+            if ( (byte_140EF412B & 0x10) == 0 )
               return result;
             if ( a1 )
               v6 = *(_QWORD *)(a1 + 48);
@@ -68,7 +68,7 @@ __int64 __fastcall PnpLogActionQueueEvent(__int64 a1, int a2, __int64 a3, char a
           }
           else
           {
-            if ( (_DWORD)a3 != 2 || (byte_140EF3DCB & 0x10) == 0 )
+            if ( (_DWORD)a3 != 2 || (byte_140EF412B & 0x10) == 0 )
               return result;
             if ( a1 )
               v6 = *(_QWORD *)(a1 + 48);
@@ -77,7 +77,7 @@ __int64 __fastcall PnpLogActionQueueEvent(__int64 a1, int a2, __int64 a3, char a
         }
         else
         {
-          if ( (byte_140EF3DCB & 0x10) == 0 )
+          if ( (byte_140EF412B & 0x10) == 0 )
             return result;
           if ( a1 )
             v6 = *(_QWORD *)(a1 + 48);
@@ -97,21 +97,21 @@ LABEL_8:
         {
           if ( (_DWORD)a3 == 1 )
           {
-            if ( (byte_140EF3DCB & 0x10) != 0 )
+            if ( (byte_140EF412B & 0x10) != 0 )
             {
               if ( a1 )
                 v5 = *(_QWORD *)(a1 + 48);
               return McTemplateK0zd_EtwWriteTransfer(a1, (unsigned int)KMPnPEvt_ReenumerateDeviceTree_Start, 1, v5, a2);
             }
           }
-          else if ( (_DWORD)a3 == 2 && (byte_140EF3DCB & 0x10) != 0 )
+          else if ( (_DWORD)a3 == 2 && (byte_140EF412B & 0x10) != 0 )
           {
             if ( a1 )
               v5 = *(_QWORD *)(a1 + 48);
             return McTemplateK0zd_EtwWriteTransfer(a1, (unsigned int)KMPnPEvt_ReenumerateDeviceTree_Stop, 2, v5, a2);
           }
         }
-        else if ( (byte_140EF3DCB & 0x10) != 0 )
+        else if ( (byte_140EF412B & 0x10) != 0 )
         {
           if ( a1 )
             v5 = *(_QWORD *)(a1 + 48);
@@ -125,21 +125,21 @@ LABEL_8:
     {
       if ( (_DWORD)a3 == 1 )
       {
-        if ( (byte_140EF3DCB & 0x20) != 0 )
+        if ( (byte_140EF412B & 0x20) != 0 )
         {
           if ( a1 )
             v7 = *(_QWORD *)(a1 + 48);
           return McTemplateK0zd_EtwWriteTransfer(a1, (unsigned int)KMPnPEvt_DeviceAction_Start, 1, v7, a2);
         }
       }
-      else if ( (_DWORD)a3 == 2 && (byte_140EF3DCB & 0x20) != 0 )
+      else if ( (_DWORD)a3 == 2 && (byte_140EF412B & 0x20) != 0 )
       {
         if ( a1 )
           v7 = *(_QWORD *)(a1 + 48);
         return McTemplateK0zdq_EtwWriteTransfer(a1, (unsigned int)KMPnPEvt_DeviceAction_Stop, 2, v7, a2, a4);
       }
     }
-    else if ( (byte_140EF3DCB & 0x20) != 0 )
+    else if ( (byte_140EF412B & 0x20) != 0 )
     {
       if ( a1 )
         v7 = *(_QWORD *)(a1 + 48);

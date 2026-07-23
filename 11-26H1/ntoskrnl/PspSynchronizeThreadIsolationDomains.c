@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSynchronizeThreadIsolationDomains @ 0x1404C6128
+ * XREFs of PspSynchronizeThreadIsolationDomains @ 0x1404BFAD8
  * Callers:
- *     PspAssignPrimaryToken @ 0x140773B18 (PspAssignPrimaryToken.c)
- *     PspDisablePrimaryTokenExchange @ 0x1409EB314 (PspDisablePrimaryTokenExchange.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1409FE890 (PspOneDirectionSecurityDomainCombine.c)
- *     PspCombineSecurityDomains @ 0x140A0021C (PspCombineSecurityDomains.c)
- *     PsSetVmProcessorHostProcess @ 0x140B688F0 (PsSetVmProcessorHostProcess.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspAssignPrimaryToken @ 0x140776B18 (PspAssignPrimaryToken.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x14091B690 (PspOneDirectionSecurityDomainCombine.c)
+ *     PspCombineSecurityDomains @ 0x14091CFB8 (PspCombineSecurityDomains.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409E7AE4 (PspDisablePrimaryTokenExchange.c)
+ *     PsSetVmProcessorHostProcess @ 0x140B6B880 (PsSetVmProcessorHostProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiAdjustUserIsolationDomainThread @ 0x1404D35B4 (KiAdjustUserIsolationDomainThread.c)
- *     PsGetNextProcessThread @ 0x1409573A0 (PsGetNextProcessThread.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAdjustUserIsolationDomainThread @ 0x1404CCE24 (KiAdjustUserIsolationDomainThread.c)
+ *     PsGetNextProcessThread @ 0x14094ADD0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PspSynchronizeThreadIsolationDomains(__int64 a1)

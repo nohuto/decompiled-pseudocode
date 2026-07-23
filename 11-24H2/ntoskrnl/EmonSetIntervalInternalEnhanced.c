@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonSetIntervalInternalEnhanced @ 0x14055E824
+ * XREFs of EmonSetIntervalInternalEnhanced @ 0x14055C454
  * Callers:
- *     EmonSetIntervalEnhanced @ 0x14055E730 (EmonSetIntervalEnhanced.c)
+ *     EmonSetIntervalEnhanced @ 0x14055C360 (EmonSetIntervalEnhanced.c)
  * Callees:
  *     <none>
  */

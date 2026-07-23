@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmpInsertPowerRequestToSession @ 0x1407E70BC
+ * XREFs of TtmpInsertPowerRequestToSession @ 0x1407ECC14
  * Callers:
- *     TtmNotifySessionPowerRequestCreated @ 0x1407E6400 (TtmNotifySessionPowerRequestCreated.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x1407E65B8 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestCreated @ 0x1407EBF60 (TtmNotifySessionPowerRequestCreated.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1407EC118 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmpPowerRequestHashAllocator @ 0x1407E73D8 (TtmpPowerRequestHashAllocator.c)
- *     TtmpPowerRequestHashDeallocator @ 0x1407E73FC (TtmpPowerRequestHashDeallocator.c)
- *     TtmpAcquireSessionById @ 0x140A3AA34 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmpPowerRequestHashAllocator @ 0x1407ECF30 (TtmpPowerRequestHashAllocator.c)
+ *     TtmpPowerRequestHashDeallocator @ 0x1407ECF54 (TtmpPowerRequestHashDeallocator.c)
+ *     TtmpAcquireSessionById @ 0x1409F6634 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall TtmpInsertPowerRequestToSession(unsigned int a1, int a2, int a3, __int64 a4, __int64 a5)
@@ -161,7 +161,7 @@ LABEL_27:
 LABEL_28:
   if ( v10 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   return v8;

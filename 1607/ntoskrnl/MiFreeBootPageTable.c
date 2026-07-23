@@ -3,10 +3,10 @@
  * Callers:
  *     MxZeroBootMappings @ 0x1407B2838 (MxZeroBootMappings.c)
  * Callees:
- *     MiPageToChannel @ 0x14001BA40 (MiPageToChannel.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiPageToChannel @ 0x14001B5C0 (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFreeBootPageTable(ULONG_PTR BugCheckParameter2)

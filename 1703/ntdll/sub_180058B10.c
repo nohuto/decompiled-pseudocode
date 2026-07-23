@@ -10,28 +10,33 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-__int64 __fastcall sub_180058B10(__int64 a1)
+NTSTATUS __fastcall sub_180058B10(__int64 a1)
 {
-  unsigned int v2; // ebx
-  __int64 result; // rax
+  int v2; // ebx
+  NTSTATUS result; // eax
   _QWORD *v4; // rax
   char v5; // al
-  __int64 v6; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v6; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = 0;
   if ( !*(_QWORD *)(a1 + 96)
-    || (result = ZwProtectVirtualMemory(-1LL, a1 + 96, a1 + 104, *(unsigned int *)(a1 + 128), &v6),
+    || (result = ZwProtectVirtualMemory(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   (PVOID *)(a1 + 96),
+                   (PSIZE_T)(a1 + 104),
+                   *(_DWORD *)(a1 + 128),
+                   &v6),
         v2 = result,
-        (int)result >= 0) )
+        result >= 0) )
   {
     v4 = *(_QWORD **)(a1 + 144);
     if ( v4 && *v4 != *(_QWORD *)(a1 + 136) )
       __fastfail(0x13u);
-    if ( *(_WORD *)(*(_QWORD *)(a1 + 48) + 110LL) || (result = sub_180058BC8(), v2 = result, (int)result >= 0) )
+    if ( *(_WORD *)(*(_QWORD *)(a1 + 48) + 110LL) || (result = sub_180058BC8(), v2 = result, result >= 0) )
     {
       if ( sub_180030138() )
       {
-        v2 = sub_180001328(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 48LL), 0, 0);
+        v2 = sub_180001328(*(char **)(*(_QWORD *)(a1 + 48) + 48LL), 0, 0);
         v5 = dword_180155A10;
         if ( (dword_180155A10 & 3) != 0 )
         {

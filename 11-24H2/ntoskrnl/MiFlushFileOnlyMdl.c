@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFlushFileOnlyMdl @ 0x1404C7B90
+ * XREFs of MiFlushFileOnlyMdl @ 0x1404C0FF0
  * Callers:
- *     MiFlushSection @ 0x14023A550 (MiFlushSection.c)
- *     MiGatherMappedPages @ 0x140369B20 (MiGatherMappedPages.c)
+ *     MiFlushSection @ 0x140272630 (MiFlushSection.c)
+ *     MiGatherMappedPages @ 0x1402EB8C0 (MiGatherMappedPages.c)
  * Callees:
- *     MiTransferFileExtent @ 0x1404BEE98 (MiTransferFileExtent.c)
- *     MiPersistMdl @ 0x1404C7C68 (MiPersistMdl.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiTransferFileExtent @ 0x1404BA3CC (MiTransferFileExtent.c)
+ *     MiPersistMdl @ 0x1404C10C8 (MiPersistMdl.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFlushFileOnlyMdl(

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFileFlush @ 0x140604204
+ * XREFs of CmpFileFlush @ 0x1406042B8
  * Callers:
- *     CmpFileFlushAndPurge @ 0x140506A2C (CmpFileFlushAndPurge.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140605D14 (HvExtendHivePrimaryFileValidDataLength.c)
- *     HvWriteExternal @ 0x1406064F4 (HvWriteExternal.c)
- *     CmpSaveKeyByFileCopy @ 0x14060DA94 (CmpSaveKeyByFileCopy.c)
+ *     CmpFileFlushAndPurge @ 0x1404E99BC (CmpFileFlushAndPurge.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvWriteExternal @ 0x1406065A8 (HvWriteExternal.c)
+ *     CmpSaveKeyByFileCopy @ 0x14060DB48 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     ZwFlushBuffersFile @ 0x14015A5E0 (ZwFlushBuffersFile.c)
+ *     ZwFlushBuffersFile @ 0x14015AB50 (ZwFlushBuffersFile.c)
  */
 
 char __fastcall CmpFileFlush(__int64 a1, unsigned int a2)

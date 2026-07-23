@@ -1,7 +1,7 @@
 /*
- * XREFs of RawComputeFileSystemInformationChecksum @ 0x1409B8820
+ * XREFs of RawComputeFileSystemInformationChecksum @ 0x1409B8A20
  * Callers:
- *     RawQueryFileSystemInformation @ 0x1409B8874 (RawQueryFileSystemInformation.c)
+ *     RawQueryFileSystemInformation @ 0x1409B8A74 (RawQueryFileSystemInformation.c)
  * Callees:
  *     <none>
  */

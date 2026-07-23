@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetPreviousProcessThread @ 0x1409572D8
+ * XREFs of PspGetPreviousProcessThread @ 0x14094AD00
  * Callers:
- *     PspTerminateAllThreads @ 0x14095705C (PspTerminateAllThreads.c)
+ *     PspTerminateAllThreads @ 0x14094AA84 (PspTerminateAllThreads.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspLockProcessShared @ 0x140276700 (PspLockProcessShared.c)
- *     PspUnlockProcessShared @ 0x14027CFB0 (PspUnlockProcessShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspLockProcessShared @ 0x140275C70 (PspLockProcessShared.c)
+ *     PspUnlockProcessShared @ 0x14027C520 (PspUnlockProcessShared.c)
  */
 
 __int64 __fastcall PspGetPreviousProcessThread(__int64 a1, _QWORD *a2)

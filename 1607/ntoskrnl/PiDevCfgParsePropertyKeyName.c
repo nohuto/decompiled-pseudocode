@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgParsePropertyKeyName @ 0x1401CEED8
+ * XREFs of PiDevCfgParsePropertyKeyName @ 0x1401CEC6C
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x140636298 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14063634C (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x140084FB0 (RtlStringCchCopyNW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     PnpStringToDwordValue @ 0x1401CF58C (PnpStringToDwordValue.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
+ *     RtlStringCchCopyNW @ 0x14010B264 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     PnpStringToDwordValue @ 0x1401CF320 (PnpStringToDwordValue.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
  */
 
 char __fastcall PiDevCfgParsePropertyKeyName(unsigned __int16 *a1, GUID *a2, _DWORD *a3)

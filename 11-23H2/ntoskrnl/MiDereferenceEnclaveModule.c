@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDereferenceEnclaveModule @ 0x140A3DE04
+ * XREFs of MiDereferenceEnclaveModule @ 0x140A3E0B4
  * Callers:
- *     MiFreeEnclaveModules @ 0x140A3DE28 (MiFreeEnclaveModules.c)
- *     NtLoadEnclaveData @ 0x140A3F270 (NtLoadEnclaveData.c)
+ *     MiFreeEnclaveModules @ 0x140A3E0D8 (MiFreeEnclaveModules.c)
+ *     NtLoadEnclaveData @ 0x140A3F520 (NtLoadEnclaveData.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

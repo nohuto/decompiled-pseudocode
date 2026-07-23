@@ -15,24 +15,34 @@
 __int64 __fastcall RtlpHeapTrkLeakCallback(__int64 a1, __int64 a2, unsigned __int64 a3, const void *a4)
 {
   __int64 Stack; // rbx
-  __int64 v8; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v9; // [rsp+58h] [rbp-10h] BYREF
+  ULONG_PTR ViewSize; // [rsp+50h] [rbp-18h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+58h] [rbp-10h] BYREF
   const void *Src; // [rsp+80h] [rbp+18h] BYREF
 
   Src = (const void *)a3;
-  v8 = 0x10000LL;
-  v9 = 0LL;
+  ViewSize = 0x10000LL;
+  SectionOffset.QuadPart = 0LL;
   if ( !byte_1801D0868 )
   {
     if ( byte_1801CF0C8 )
     {
       byte_1801CF0C8 = 0;
       _InterlockedExchange(&dword_1801D0878, 1);
-      if ( (int)ZwMapViewOfSection(Handle, -1LL, &TrkContext, 0LL, 0LL, &v9, &v8, 1, 0, 4) < 0 )
+      if ( ZwMapViewOfSection(
+             SectionHandle,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             &TrkContext,
+             0LL,
+             0LL,
+             &SectionOffset,
+             &ViewSize,
+             ViewShare,
+             0,
+             4u) < 0 )
         return 0LL;
       if ( !TrkContext )
         return 0LL;
-      *(_DWORD *)(TrkContext + 48) = NtCurrentTeb()->ClientId.UniqueProcess;
+      *((_DWORD *)TrkContext + 12) = NtCurrentTeb()->ClientId.UniqueProcess;
       if ( !(unsigned __int8)RtlpHeapTrkDumpStacks() )
         return 0LL;
       a3 = (unsigned __int64)Src;
@@ -59,11 +69,11 @@ __int64 __fastcall RtlpHeapTrkLeakCallback(__int64 a1, __int64 a2, unsigned __in
       else
       {
         RtlpHeapTrkDumpOutstandingAllocs();
-        if ( *(_DWORD *)(TrkContext + 60) )
+        if ( *((_DWORD *)TrkContext + 15) )
         {
           if ( !(unsigned __int8)RtlpHeapTrkSyncWithDiagnoser() )
             return 0LL;
-          *(_DWORD *)(TrkContext + 60) = 0;
+          *((_DWORD *)TrkContext + 15) = 0;
           dword_1801CF0CC = 0;
         }
         RtlpHeapTrkSyncWithDiagnoser();

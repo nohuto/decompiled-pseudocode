@@ -10,7 +10,7 @@
 __int64 __fastcall sub_180076D50(
         char a1,
         __int64 a2,
-        __int128 *a3,
+        _UNICODE_STRING *a3,
         unsigned __int16 *a4,
         unsigned __int16 *a5,
         _QWORD *a6)

@@ -42,7 +42,7 @@ bool __fastcall RtlIsSandboxedToken(PSECURITY_SUBJECT_CONTEXT SubjectContext, ch
   ClientToken = p_SubjectContexta->ClientToken;
   if ( !p_SubjectContexta->ClientToken )
     ClientToken = p_SubjectContexta->PrimaryToken;
-  if ( SeQueryInformationToken(ClientToken, MaxTokenInfoClass, &TokenInformation) >= 0 )
+  if ( SeQueryInformationToken(ClientToken, TokenIsSandboxed, &TokenInformation) >= 0 )
     v2 = (_BYTE)TokenInformation == 0;
   if ( p_SubjectContexta == &SubjectContexta )
     SeReleaseSubjectContext(p_SubjectContexta);

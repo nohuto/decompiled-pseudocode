@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInSwapStoreContextDereference @ 0x1404F1934
+ * XREFs of MiInSwapStoreContextDereference @ 0x1404D3A28
  * Callers:
- *     MiInSwapStore @ 0x1404F17D0 (MiInSwapStore.c)
- *     MiInSwapStoreWorker @ 0x1404F18A4 (MiInSwapStoreWorker.c)
+ *     MiInSwapStore @ 0x1404D38C4 (MiInSwapStore.c)
+ *     MiInSwapStoreWorker @ 0x1404D3998 (MiInSwapStoreWorker.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

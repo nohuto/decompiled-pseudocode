@@ -1,10 +1,10 @@
 /*
- * XREFs of PpSystemHiveLimitCallback @ 0x1408A19F0
+ * XREFs of PpSystemHiveLimitCallback @ 0x1408A1B50
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
- *     PpResetProblemDevices @ 0x1408A28F0 (PpResetProblemDevices.c)
+ *     PnpRequestDeviceAction @ 0x1403703A4 (PnpRequestDeviceAction.c)
+ *     PpResetProblemDevices @ 0x1408A2A50 (PpResetProblemDevices.c)
  */
 
 __int64 __fastcall PpSystemHiveLimitCallback(__int64 a1, unsigned int a2)

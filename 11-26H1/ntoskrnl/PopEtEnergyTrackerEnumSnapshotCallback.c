@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtEnergyTrackerEnumSnapshotCallback @ 0x140950DF8
+ * XREFs of PopEtEnergyTrackerEnumSnapshotCallback @ 0x1409CC738
  * Callers:
- *     PopEtEnumEnergyTrackers @ 0x140950D08 (PopEtEnumEnergyTrackers.c)
+ *     PopEtEnumEnergyTrackers @ 0x1409CC648 (PopEtEnumEnergyTrackers.c)
  * Callees:
- *     PopEtProcessSnapshotUpdate @ 0x140951054 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1409CC994 (PopEtProcessSnapshotUpdate.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerEnumSnapshotCallback(__int64 a1, __int64 a2)

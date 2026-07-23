@@ -221,72 +221,71 @@
  *     NtWaitForAlertByThreadId @ 0x1800A3970 (NtWaitForAlertByThreadId.c)
  */
 
-void __fastcall RtlAcquireSRWLockExclusive(
-        unsigned __int64 UniqueThread,
-        unsigned __int64 a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+void __cdecl RtlAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  volatile signed __int64 *v4; // rdi
-  unsigned __int64 v5; // rbx
+  unsigned __int64 v1; // rdx
+  unsigned __int64 *v2; // r8
+  __int64 v3; // r9
+  PRTL_SRWLOCK v4; // rdi
+  unsigned __int64 Value; // rbx
   __int64 v6; // rdx
   bool v7; // zf
   signed __int64 v8; // rax
   unsigned __int64 v10; // [rsp+20h] [rbp-48h] BYREF
   unsigned __int64 *v11; // [rsp+28h] [rbp-40h]
   __int64 v12; // [rsp+30h] [rbp-38h]
-  unsigned __int64 v13; // [rsp+38h] [rbp-30h]
+  PRTL_SRWLOCK v13; // [rsp+38h] [rbp-30h]
   int v14; // [rsp+40h] [rbp-28h]
   signed __int32 v15[3]; // [rsp+44h] [rbp-24h] BYREF
   int v16; // [rsp+70h] [rbp+8h] BYREF
 
-  v4 = (volatile signed __int64 *)UniqueThread;
+  v4 = SRWLock;
   v16 = 0;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)UniqueThread, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL) )
   {
-    v5 = *(_QWORD *)UniqueThread;
+    Value = SRWLock->Value;
     while ( 1 )
     {
-      if ( (v5 & 1) != 0 )
+      if ( (Value & 1) != 0 )
       {
-        if ( (unsigned __int8)RtlpWaitCouldDeadlock(UniqueThread, a2, a3, a4) )
-          ZwTerminateProcess(-1LL, 3221225547LL);
-        UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-        v13 = UniqueThread;
-        LOBYTE(UniqueThread) = 0;
+        if ( (unsigned __int8)RtlpWaitCouldDeadlock(SRWLock, v1, v2, v3) )
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+        SRWLock = (PRTL_SRWLOCK)NtCurrentTeb()->ClientId.UniqueThread;
+        v13 = SRWLock;
+        LOBYTE(SRWLock) = 0;
         v15[0] = 3;
         v12 = 0LL;
-        if ( (v5 & 2) != 0 )
+        if ( (Value & 2) != 0 )
         {
           v11 = 0LL;
           v14 = -1;
-          UniqueThread = (unsigned __int8)v5;
-          v10 = v5 & 0xFFFFFFFFFFFFFFF0uLL;
-          a2 = (unsigned __int64)&v10 | v5 & 8 | 7;
-          LOBYTE(UniqueThread) = (v5 & 4) == 0;
+          SRWLock = (PRTL_SRWLOCK)(unsigned __int8)Value;
+          v10 = Value & 0xFFFFFFFFFFFFFFF0uLL;
+          v1 = (unsigned __int64)&v10 | Value & 8 | 7;
+          LOBYTE(SRWLock) = (Value & 4) == 0;
         }
         else
         {
           v6 = 11LL;
           v11 = &v10;
-          a3 = &v10;
-          v14 = v5 >> 4;
+          v2 = &v10;
+          v14 = Value >> 4;
           if ( v14 <= 1 )
             v6 = 3LL;
-          a2 = (unsigned __int64)&v10 | v6;
-          if ( !(unsigned int)(v5 >> 4) )
+          v1 = (unsigned __int64)&v10 | v6;
+          if ( !(unsigned int)(Value >> 4) )
             v14 = -2;
         }
-        v8 = _InterlockedCompareExchange64(v4, a2, v5);
-        v7 = v5 == v8;
-        v5 = v8;
+        v8 = _InterlockedCompareExchange64((volatile signed __int64 *)v4, v1, Value);
+        v7 = Value == v8;
+        Value = v8;
         if ( !v7 )
           goto LABEL_13;
-        if ( (_BYTE)UniqueThread )
+        if ( (_BYTE)SRWLock )
           RtlpOptimizeSRWLockList(v4);
         if ( MEMORY[0x7FFE036A] > 1u )
         {
-          UniqueThread = (unsigned int)SRWLockSpinCount;
+          SRWLock = (PRTL_SRWLOCK)(unsigned int)SRWLockSpinCount;
           if ( SRWLockSpinCount )
           {
             do
@@ -294,8 +293,8 @@ void __fastcall RtlAcquireSRWLockExclusive(
               if ( (v15[0] & 2) == 0 )
                 break;
               _mm_pause();
-              v7 = (_DWORD)UniqueThread == 1;
-              UniqueThread = (unsigned int)(UniqueThread - 1);
+              v7 = (_DWORD)SRWLock == 1;
+              SRWLock = (PRTL_SRWLOCK)(unsigned int)((_DWORD)SRWLock - 1);
             }
             while ( !v7 );
           }
@@ -309,12 +308,12 @@ void __fastcall RtlAcquireSRWLockExclusive(
       }
       else
       {
-        if ( v5 == _InterlockedCompareExchange64(v4, v5 + 1, v5) )
+        if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)v4, Value + 1, Value) )
           return;
 LABEL_13:
         RtlBackoff(&v16);
-        _m_prefetchw((const void *)v4);
-        v5 = *v4;
+        _m_prefetchw(v4);
+        Value = v4->Value;
       }
     }
   }

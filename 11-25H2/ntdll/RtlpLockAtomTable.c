@@ -15,6 +15,6 @@ char __fastcall RtlpLockAtomTable(__int64 a1)
 {
   if ( !a1 || *(_DWORD *)a1 != 1836020801 )
     return 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   return 1;
 }

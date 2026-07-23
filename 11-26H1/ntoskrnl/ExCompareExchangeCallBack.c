@@ -1,25 +1,25 @@
 /*
- * XREFs of ExCompareExchangeCallBack @ 0x140463604
+ * XREFs of ExCompareExchangeCallBack @ 0x14045C5C4
  * Callers:
- *     IoRegisterPriorityCallback @ 0x1405CB360 (IoRegisterPriorityCallback.c)
- *     IoUnregisterPriorityCallback @ 0x1405CB4D0 (IoUnregisterPriorityCallback.c)
- *     KeDeregisterBoundCallback @ 0x1405E4820 (KeDeregisterBoundCallback.c)
- *     KeRegisterBoundCallback @ 0x1405E4DD0 (KeRegisterBoundCallback.c)
- *     DbgkLkmdRegisterCallback @ 0x14078B4D0 (DbgkLkmdRegisterCallback.c)
- *     DbgkLkmdUnregisterCallback @ 0x14078B5C0 (DbgkLkmdUnregisterCallback.c)
- *     PoUnregisterCoalescingCallback @ 0x1407CF1F0 (PoUnregisterCoalescingCallback.c)
- *     PsEstablishWin32Callouts @ 0x1407F0BF0 (PsEstablishWin32Callouts.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x1407FCBE0 (PsRemoveLoadImageNotifyRoutine.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x1407FCDC8 (PspSetCreateThreadNotifyRoutine.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x140B2BAE0 (PsRemoveCreateThreadNotifyRoutine.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140B2CF9C (PspSetCreateProcessNotifyRoutine.c)
- *     PsSetLoadImageNotifyRoutineEx @ 0x140B30BB0 (PsSetLoadImageNotifyRoutineEx.c)
- *     PoRegisterCoalescingCallback @ 0x140B5D720 (PoRegisterCoalescingCallback.c)
+ *     IoRegisterPriorityCallback @ 0x1405CDC30 (IoRegisterPriorityCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x1405CDDA0 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x1405E7190 (KeDeregisterBoundCallback.c)
+ *     KeRegisterBoundCallback @ 0x1405E7740 (KeRegisterBoundCallback.c)
+ *     DbgkLkmdRegisterCallback @ 0x14078E000 (DbgkLkmdRegisterCallback.c)
+ *     DbgkLkmdUnregisterCallback @ 0x14078E0F0 (DbgkLkmdUnregisterCallback.c)
+ *     PoUnregisterCoalescingCallback @ 0x1407D2290 (PoUnregisterCoalescingCallback.c)
+ *     PsEstablishWin32Callouts @ 0x1407F6750 (PsEstablishWin32Callouts.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x140802610 (PsRemoveLoadImageNotifyRoutine.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x1408027F8 (PspSetCreateThreadNotifyRoutine.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x140B2DB60 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140B2F01C (PspSetCreateProcessNotifyRoutine.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140B32DB0 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PoRegisterCoalescingCallback @ 0x140B608A0 (PoRegisterCoalescingCallback.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
- *     ExpReleaseRundownProtection @ 0x140463F50 (ExpReleaseRundownProtection.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
+ *     ExpReleaseRundownProtection @ 0x14045CF10 (ExpReleaseRundownProtection.c)
  */
 
 char __fastcall ExCompareExchangeCallBack(signed __int64 *a1, struct _EX_RUNDOWN_REF *a2, __int64 a3)
@@ -51,8 +51,8 @@ char __fastcall ExCompareExchangeCallBack(signed __int64 *a1, struct _EX_RUNDOWN
   }
   if ( v10 )
   {
-    v11 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead);
-    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead, v11);
+    v11 = ExAcquireSpinLockExclusive(dword_140EFF2B8);
+    ExReleaseSpinLockExclusive(dword_140EFF2B8, v11);
     ExpReleaseRundownProtection(v10, (i & 0xF) + 1);
   }
   return 1;

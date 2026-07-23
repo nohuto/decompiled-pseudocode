@@ -6,11 +6,12 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-char *__fastcall RtlpDeleteData(int a1, size_t a2, size_t a3)
+char *__fastcall RtlpDeleteData(int a1, unsigned int a2, unsigned int a3)
 {
-  size_t v4; // esi
-  size_t v5; // ecx
+  unsigned int v4; // esi
+  int v5; // ecx
   char *result; // eax
+  size_t v7; // [esp-4h] [ebp-Ch]
 
   v4 = a2;
   if ( a2 < a3 )
@@ -25,6 +26,9 @@ char *__fastcall RtlpDeleteData(int a1, size_t a2, size_t a3)
   }
   result = (char *)(a3 - a2);
   if ( a3 >= a2 )
-    return (char *)memset(&result[a1], 0, a2);
+  {
+    LODWORD(v7) = a2;
+    return (char *)memset(&result[a1], 0, v7);
+  }
   return result;
 }

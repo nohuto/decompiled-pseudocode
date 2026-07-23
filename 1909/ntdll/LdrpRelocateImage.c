@@ -9,12 +9,12 @@
  *     LdrpLogDbgPrint @ 0x1800CE3D8 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpRelocateImage(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall LdrpRelocateImage(PVOID BaseOfImage, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v8; // ebx
-  int v9; // eax
+  NTSTATUS v9; // eax
   __int64 v10; // rcx
-  int v12; // eax
+  NTSTATUS v12; // eax
   __int64 v13; // rcx
   __int64 v14[5]; // [rsp+30h] [rbp-28h] BYREF
   unsigned int v15; // [rsp+70h] [rbp+18h] BYREF
@@ -30,21 +30,21 @@ __int64 __fastcall LdrpRelocateImage(unsigned __int64 a1, __int64 a2, __int64 a3
   v8 = 0;
   if ( (*(_BYTE *)(a3 + 22) & 1) != 0 )
     goto LABEL_11;
-  v9 = RtlpImageDirectoryEntryToDataEx(a1, 1, 5u, &v15, v14);
+  v9 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage, 1, 5u, &v15, v14);
   v10 = v14[0];
   if ( v9 < 0 )
     v10 = 0LL;
   if ( v10 && v15 )
   {
 LABEL_11:
-    v12 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xEu, &v15, v14);
+    v12 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage, 1, 0xEu, &v15, v14);
     v13 = v14[0];
     if ( v12 < 0 )
       v13 = 0LL;
     if ( !v13 || v15 < 0x48 || (*(_BYTE *)(v13 + 16) & 1) == 0 )
     {
-      LdrpLogDllRelocationEtwEvent(a4, *(_QWORD *)(a3 + 48), a1, a2);
-      v8 = LdrpProtectAndRelocateImage(a1);
+      LdrpLogDllRelocationEtwEvent(a4, *(_QWORD *)(a3 + 48), BaseOfImage, a2);
+      v8 = LdrpProtectAndRelocateImage(BaseOfImage);
     }
   }
   if ( (LdrpDebugFlags & 9) != 0 )

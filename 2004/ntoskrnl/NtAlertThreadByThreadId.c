@@ -8,10 +8,10 @@
  *     PsLookupThreadByThreadId @ 0x140666140 (PsLookupThreadByThreadId.c)
  */
 
-NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
+NTSTATUS __cdecl NtAlertThreadByThreadId(HANDLE ThreadId)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  int v2; // edi
+  NTSTATUS v2; // edi
   NTSTATUS result; // eax
   __int64 v4; // rdx
   _KPROCESS *Process; // rax
@@ -21,7 +21,7 @@ NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
   CurrentThread = KeGetCurrentThread();
   v2 = 0;
   Thread = 0LL;
-  result = PsLookupThreadByThreadId(a1, &Thread);
+  result = PsLookupThreadByThreadId(ThreadId, &Thread);
   if ( result >= 0 )
   {
     Process = CurrentThread->Process;

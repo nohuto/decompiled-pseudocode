@@ -1,9 +1,9 @@
 /*
- * XREFs of _strtoui64 @ 0x14014D6C8
+ * XREFs of _strtoui64 @ 0x14014DC38
  * Callers:
  *     <none>
  * Callees:
- *     strtoxq @ 0x14014D474 (strtoxq.c)
+ *     strtoxq @ 0x14014D9E4 (strtoxq.c)
  */
 
 unsigned __int64 __cdecl strtoui64(const char *String, char **EndPtr, int Radix)

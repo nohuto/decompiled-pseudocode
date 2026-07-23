@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefModMulMontgomeryMulxP384Asm @ 0x140531E50
+ * XREFs of SymCryptFdefModMulMontgomeryMulxP384Asm @ 0x14052C2F0
  * Callers:
- *     SymCryptFdefModSetPostMontgomeryMulxP384 @ 0x1405368B0 (SymCryptFdefModSetPostMontgomeryMulxP384.c)
+ *     SymCryptFdefModSetPostMontgomeryMulxP384 @ 0x140530D50 (SymCryptFdefModSetPostMontgomeryMulxP384.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsProtectedProcess @ 0x14048D330
+ * XREFs of PsIsProtectedProcess @ 0x140486E70
  * Callers:
  *     <none>
  * Callees:

@@ -11,11 +11,13 @@ errno_t __cdecl _strlwr_s(char *String, size_t Size)
 {
   char *v2; // esi
   char v4; // cl
+  size_t v5; // [esp-4h] [ebp-8h]
 
   v2 = String;
   if ( !String )
     goto LABEL_2;
-  if ( strnlen(String, Size) >= Size )
+  LODWORD(v5) = Size;
+  if ( (unsigned int)strnlen(String, v5) >= (unsigned int)Size )
   {
     *String = 0;
 LABEL_2:

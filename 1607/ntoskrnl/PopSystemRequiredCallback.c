@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSystemRequiredCallback @ 0x1405206C0
+ * XREFs of PopSystemRequiredCallback @ 0x140503728
  * Callers:
  *     <none>
  * Callees:
- *     PopSystemRequiredPowerRequest @ 0x140009BA8 (PopSystemRequiredPowerRequest.c)
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     RtlLookupElementGenericTableAvl @ 0x1400C3B20 (RtlLookupElementGenericTableAvl.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
- *     PopExecutionRequiredPowerRequest @ 0x140520970 (PopExecutionRequiredPowerRequest.c)
+ *     PopSystemRequiredPowerRequest @ 0x140009728 (PopSystemRequiredPowerRequest.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1400C19B0 (RtlLookupElementGenericTableAvl.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
+ *     PopExecutionRequiredPowerRequest @ 0x1405039D8 (PopExecutionRequiredPowerRequest.c)
  */
 
 __int64 __fastcall PopSystemRequiredCallback(char a1, unsigned int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PopSystemRequiredCallback(char a1, unsigned int a2)
   PopSystemRequiredPowerRequest(a1, 1);
   LOBYTE(v4) = 1;
   PopAcquirePowerRequestPushLock(v4);
-  if ( byte_140303F74 )
+  if ( byte_140303EB4 )
   {
     if ( PopPowerRequestConvertSystemToExecution )
     {

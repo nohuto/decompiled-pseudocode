@@ -3,10 +3,10 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     PpmBeginProfileAccumulation @ 0x1404F1624 (PpmBeginProfileAccumulation.c)
- *     PpmEnableProfile @ 0x140577728 (PpmEnableProfile.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     PpmBeginProfileAccumulation @ 0x1404D3718 (PpmBeginProfileAccumulation.c)
+ *     PpmEnableProfile @ 0x140577C68 (PpmEnableProfile.c)
  */
 
 LONG PpmInitPolicyConfiguration()

@@ -1,23 +1,23 @@
 /*
- * XREFs of PopFxAcpiForwardPepWorkRequest @ 0x1404F588C
+ * XREFs of PopFxAcpiForwardPepWorkRequest @ 0x1404F318C
  * Callers:
- *     PopFxProcessWork @ 0x1403172E0 (PopFxProcessWork.c)
+ *     PopFxProcessWork @ 0x1402BFE70 (PopFxProcessWork.c)
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x140270610 (IoReleaseRemoveLockEx.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoReleaseRemoveLockEx @ 0x140225BA0 (IoReleaseRemoveLockEx.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall PopFxAcpiForwardPepWorkRequest(ULONG_PTR BugCheckParameter2, int *a2, __int64 a3, __int64 a4)
+void __fastcall PopFxAcpiForwardPepWorkRequest(ULONG_PTR BugCheckParameter2, int *a2)
 {
-  struct _IO_REMOVE_LOCK *v4; // rbx
-  _QWORD v5[5]; // [rsp+20h] [rbp-28h] BYREF
+  struct _IO_REMOVE_LOCK *v2; // rbx
+  _QWORD v3[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  HIDWORD(v5[0]) = 0;
+  HIDWORD(v3[0]) = 0;
   if ( !*(_QWORD *)(BugCheckParameter2 + 80) )
     PopFxBugCheck(0x668uLL, BugCheckParameter2, *a2, 0LL);
-  v4 = (struct _IO_REMOVE_LOCK *)(BugCheckParameter2 + 312);
+  v2 = (struct _IO_REMOVE_LOCK *)(BugCheckParameter2 + 312);
   _InterlockedIncrement((volatile signed __int32 *)(BugCheckParameter2 + 316));
   if ( *(_BYTE *)(BugCheckParameter2 + 312) )
   {
@@ -26,11 +26,11 @@ void __fastcall PopFxAcpiForwardPepWorkRequest(ULONG_PTR BugCheckParameter2, int
   }
   else
   {
-    v5[0] = 0LL;
-    v5[2] = 0LL;
-    v5[1] = *((_QWORD *)&PopFxPlatformInterface + 1);
-    v5[3] = a2;
-    guard_dispatch_icall_no_overrides(v5, a2, a3, a4);
-    IoReleaseRemoveLockEx(v4, (PVOID)0x77466F50, 0x20u);
+    v3[0] = 0LL;
+    v3[2] = 0LL;
+    v3[1] = *((_QWORD *)&PopFxPlatformInterface + 1);
+    v3[3] = a2;
+    guard_dispatch_icall_no_overrides(v3, a2);
+    IoReleaseRemoveLockEx(v2, (PVOID)0x77466F50, 0x20u);
   }
 }

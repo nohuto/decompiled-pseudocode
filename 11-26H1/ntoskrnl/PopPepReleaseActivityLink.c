@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepReleaseActivityLink @ 0x1403B0E80
+ * XREFs of PopPepReleaseActivityLink @ 0x1403BAB90
  * Callers:
- *     PopPepProcessEvent @ 0x1403AFCF0 (PopPepProcessEvent.c)
- *     PopPepUpdateConstraints @ 0x1403B37EC (PopPepUpdateConstraints.c)
- *     PopPepSurprisePowerOn @ 0x1403B755C (PopPepSurprisePowerOn.c)
- *     PopPepComponentSetWakeHint @ 0x1404F524C (PopPepComponentSetWakeHint.c)
- *     PopPepCompleteComponentIdleState @ 0x140506C08 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetResidency @ 0x140611524 (PopPepComponentSetResidency.c)
+ *     PopPepProcessEvent @ 0x1403B9A00 (PopPepProcessEvent.c)
+ *     PopPepUpdateConstraints @ 0x1403BD4FC (PopPepUpdateConstraints.c)
+ *     PopPepSurprisePowerOn @ 0x1403C145C (PopPepSurprisePowerOn.c)
+ *     PopPepComponentSetWakeHint @ 0x1404EE82C (PopPepComponentSetWakeHint.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405005E4 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetResidency @ 0x140614364 (PopPepComponentSetResidency.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 void __fastcall PopPepReleaseActivityLink(__int64 a1, _DWORD *a2, char a3, KIRQL a4)
@@ -35,18 +35,18 @@ void __fastcall PopPepReleaseActivityLink(__int64 a1, _DWORD *a2, char a3, KIRQL
     }
     if ( *(_BYTE *)(a1 + 136) )
       *(_BYTE *)(a1 + 125) = 0;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)(a1 + 64) = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(a1 + 64), retaddr);
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *a2 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(a2, retaddr);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd((volatile signed __int32 *)(a1 + 64), 0xBFFFFFFF);
       _InterlockedDecrement((volatile signed __int32 *)(a1 + 64));

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExfTryAcquirePushLockShared @ 0x140656110
+ * XREFs of ExfTryAcquirePushLockShared @ 0x140654810
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryAcquirePushLockSharedEx @ 0x1404736D4 (ExfTryAcquirePushLockSharedEx.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1404704C4 (ExfTryAcquirePushLockSharedEx.c)
  */
 
 char __fastcall ExfTryAcquirePushLockShared(signed __int64 *a1)

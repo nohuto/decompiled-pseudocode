@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x140233C00
+ * XREFs of AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x140233A2C
  * Callers:
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14009ED7C (RtlStringCbLengthW.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlStringCbLengthW @ 0x140085E34 (RtlStringCbLengthW.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall AuthzBasepConvertRelativeToAbsoluteTokenAttribute(

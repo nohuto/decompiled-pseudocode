@@ -1,23 +1,23 @@
 /*
- * XREFs of MiPrefetchVirtualMemory @ 0x1400EA140
+ * XREFs of MiPrefetchVirtualMemory @ 0x1400EA1C0
  * Callers:
- *     MmCopyMemory @ 0x1400EA870 (MmCopyMemory.c)
- *     MiPrefetchRestOfCluster @ 0x140139098 (MiPrefetchRestOfCluster.c)
- *     MiInPageSingleKernelStack @ 0x14013D4A0 (MiInPageSingleKernelStack.c)
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
- *     NtSetInformationVirtualMemory @ 0x1405F6680 (NtSetInformationVirtualMemory.c)
- *     MiPrefetchDriverPages @ 0x14061F120 (MiPrefetchDriverPages.c)
- *     MmPrefetchVirtualMemory @ 0x14066BDA8 (MmPrefetchVirtualMemory.c)
+ *     MmCopyMemory @ 0x1400EA8F0 (MmCopyMemory.c)
+ *     MiPrefetchRestOfCluster @ 0x140139198 (MiPrefetchRestOfCluster.c)
+ *     MiInPageSingleKernelStack @ 0x14013D5A0 (MiInPageSingleKernelStack.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
+ *     NtSetInformationVirtualMemory @ 0x1405F7680 (NtSetInformationVirtualMemory.c)
+ *     MiPrefetchDriverPages @ 0x140620120 (MiPrefetchDriverPages.c)
+ *     MmPrefetchVirtualMemory @ 0x14066CF68 (MmPrefetchVirtualMemory.c)
  * Callees:
  *     MiPfCompletePrefetchIos @ 0x14001A020 (MiPfCompletePrefetchIos.c)
  *     MiAdvanceFaultList @ 0x14002B6E0 (MiAdvanceFaultList.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiVaIsUltra @ 0x1400EA5F4 (MiVaIsUltra.c)
- *     MiPfCoalesceAndIssueIOs @ 0x14012E278 (MiPfCoalesceAndIssueIOs.c)
- *     MiLeapPrefetch @ 0x1402AEAE8 (MiLeapPrefetch.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiVaIsUltra @ 0x1400EA674 (MiVaIsUltra.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x14012E348 (MiPfCoalesceAndIssueIOs.c)
+ *     MiLeapPrefetch @ 0x1402AECD8 (MiLeapPrefetch.c)
  */
 
 __int64 __fastcall MiPrefetchVirtualMemory(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
@@ -102,9 +102,9 @@ __int64 __fastcall MiPrefetchVirtualMemory(unsigned __int64 a1, __int64 a2, __in
     if ( !v10 )
       break;
     v11 = *(_QWORD *)(a2 + 16 * v44) + (v45 << 12);
-    if ( v11 >= qword_14043BAC0 && v11 <= qword_14043A530
+    if ( v11 >= qword_14043CB80 && v11 <= qword_14043B5F0
       || v11 >= 0xFFFF800000000000uLL && (unsigned int)MiVaIsUltra(*(_QWORD *)(a2 + 16 * v44) + (v45 << 12))
-      || (unsigned int)MiGetSystemRegionType(v11) == 1 && v14 >= qword_140439FC0 && v14 < qword_140439FC0 + 4485120 )
+      || (unsigned int)MiGetSystemRegionType(v11) == 1 && v14 >= qword_14043B080 && v14 < qword_14043B080 + 4485120 )
     {
       goto LABEL_69;
     }
@@ -124,7 +124,7 @@ LABEL_10:
       }
       goto LABEL_69;
     }
-    if ( byte_14043B950[((LeafVa >> 39) & 0x1FF) - 256] == 1 )
+    if ( byte_14043CA10[((LeafVa >> 39) & 0x1FF) - 256] == 1 )
     {
       if ( a3 != 1 && (*(_BYTE *)(a3 + 184) & 7) == 1 )
       {
@@ -133,7 +133,7 @@ LABEL_10:
         {
           v16 = *(unsigned __int16 *)(v30 + 3182);
 LABEL_13:
-          v17 = *(ULONG_PTR **)(qword_14043A748 + 8 * v16);
+          v17 = *(ULONG_PTR **)(qword_14043B808 + 8 * v16);
 LABEL_14:
           if ( (v49 & 0x80u) == 0 )
           {
@@ -147,7 +147,7 @@ LABEL_14:
                 v37 = *v35;
                 v38 = 0;
                 v39 = v36;
-                if ( dword_14043A08C )
+                if ( dword_14043B14C )
                   break;
 LABEL_77:
                 ++v36;
@@ -165,7 +165,7 @@ LABEL_77:
                   break;
                 ++v38;
                 v37 += 8;
-                if ( v38 >= dword_14043A08C )
+                if ( v38 >= dword_14043B14C )
                   goto LABEL_77;
               }
               v4 = v50;

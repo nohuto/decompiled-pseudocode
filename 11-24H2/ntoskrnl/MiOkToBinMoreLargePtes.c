@@ -1,9 +1,9 @@
 /*
- * XREFs of MiOkToBinMoreLargePtes @ 0x1403FC4B4
+ * XREFs of MiOkToBinMoreLargePtes @ 0x1403F5E74
  * Callers:
- *     MiInsertCachedPte @ 0x14028E4E0 (MiInsertCachedPte.c)
+ *     MiInsertCachedPte @ 0x14029E0E0 (MiInsertCachedPte.c)
  * Callees:
- *     MiEmptyPteBins @ 0x1403FCDF4 (MiEmptyPteBins.c)
+ *     MiEmptyPteBins @ 0x1403F67B4 (MiEmptyPteBins.c)
  */
 
 __int64 __fastcall MiOkToBinMoreLargePtes(__int64 a1, __int64 a2, unsigned int a3)

@@ -196,17 +196,10 @@ LABEL_26:
     EtwRegister(&MS_Windows_Security_Adminless_Provider, 0LL, 0LL, &EtwAdminlessProvRegHandle);
     EtwRegister(&SecurityMitigationsProviderGuid, 0LL, 0LL, &EtwSecurityMitigationsRegHandle);
     EtwpInitialized = 1;
-    ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL);
+    ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
     EtwpTraceSystemInitialization();
     v21 = 0;
-    if ( ((int (__fastcall *)(__int64, __int64, int *, int *, _QWORD, _DWORD, _DWORD))off_140C00A68[0])(
-           44LL,
-           4LL,
-           &EtwpMaxPmcCounter,
-           &v21,
-           0LL,
-           0,
-           0) < 0 )
+    if ( ((int (__fastcall *)(__int64, __int64, int *, int *))off_140C00A68[0])(44LL, 4LL, &EtwpMaxPmcCounter, &v21) < 0 )
       EtwpMaxPmcCounter = 8;
     result = (unsigned int)EtwpMaxPmcCounter;
     EtwpMaxProfilingSources = EtwpMaxPmcCounter;

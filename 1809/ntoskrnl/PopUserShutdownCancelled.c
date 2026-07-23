@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUserShutdownCancelled @ 0x1406E2270
+ * XREFs of PopUserShutdownCancelled @ 0x1406E3510
  * Callers:
- *     PoUserShutdownCancelled @ 0x1406E2240 (PoUserShutdownCancelled.c)
- *     PopUserShutdownDelayWorkerCallback @ 0x14086C260 (PopUserShutdownDelayWorkerCallback.c)
+ *     PoUserShutdownCancelled @ 0x1406E34E0 (PoUserShutdownCancelled.c)
+ *     PopUserShutdownDelayWorkerCallback @ 0x14086D4C0 (PopUserShutdownDelayWorkerCallback.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     PpmEndHighPerfRequest @ 0x140177B08 (PpmEndHighPerfRequest.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     PpmEndHighPerfRequest @ 0x140177C08 (PpmEndHighPerfRequest.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 (__fastcall *__fastcall PopUserShutdownCancelled(char a1))(_QWORD)
@@ -27,11 +27,11 @@ __int64 (__fastcall *__fastcall PopUserShutdownCancelled(char a1))(_QWORD)
     v2 = 1;
   }
   PopReleasePolicyLock();
-  result = qword_14043FF70;
-  if ( qword_14043FF70 )
+  result = qword_140441030;
+  if ( qword_140441030 )
   {
     LOBYTE(v3) = a1;
-    result = (__int64 (__fastcall *)(_QWORD))qword_14043FF70(v3);
+    result = (__int64 (__fastcall *)(_QWORD))qword_140441030(v3);
     v2 = (char)result;
   }
   if ( v2 )

@@ -1,19 +1,18 @@
 /*
- * XREFs of CmpUnlockDeletedHashEntryByKcb @ 0x14066CA24
+ * XREFs of CmpUnlockDeletedHashEntryByKcb @ 0x140661844
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpDiscardKcb @ 0x14066C928 (CmpDiscardKcb.c)
+ *     CmpDiscardKcb @ 0x140661748 (CmpDiscardKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406DDFD4 (CmpCleanUpKcbCacheWithLock.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
  */
 
-__int64 __fastcall CmpUnlockDeletedHashEntryByKcb(__int64 a1)
+void __fastcall CmpUnlockDeletedHashEntryByKcb(__int64 a1)
 {
   __int64 v1; // rbx
   __int64 v2; // r9
   __int64 v3; // rcx
-  __int64 result; // rax
 
   v1 = *(_QWORD *)(a1 + 32);
   *(_QWORD *)(*(_QWORD *)(v1 + 1656)
@@ -27,8 +26,6 @@ __int64 __fastcall CmpUnlockDeletedHashEntryByKcb(__int64 a1)
     *(_QWORD *)(v2 + 1656)
   + 24 * ((unsigned int)(*(_DWORD *)(v2 + 1664) - 1) & (v3 ^ ((unsigned __int64)(unsigned int)v3 >> 9))),
     0LL);
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 4272), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
-    return CmpDeleteHive((PVOID)v1);
-  return result;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 4272), 0xFFFFFFFF) == 1 )
+    CmpDeleteHive((_QWORD *)v1);
 }

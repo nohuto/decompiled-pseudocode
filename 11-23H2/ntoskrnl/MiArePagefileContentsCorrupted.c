@@ -1,14 +1,14 @@
 /*
- * XREFs of MiArePagefileContentsCorrupted @ 0x1406659BC
+ * XREFs of MiArePagefileContentsCorrupted @ 0x140665F0C
  * Callers:
- *     MiValidatePagefilePageHash @ 0x14046F37A (MiValidatePagefilePageHash.c)
- *     MiIsStandbyPageCorrupted @ 0x14066602C (MiIsStandbyPageCorrupted.c)
+ *     MiValidatePagefilePageHash @ 0x14046F77A (MiValidatePagefilePageHash.c)
+ *     MiIsStandbyPageCorrupted @ 0x14066657C (MiIsStandbyPageCorrupted.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     MiComputePageHash @ 0x14046F13C (MiComputePageHash.c)
- *     MiObtainPagefileHashes @ 0x14046F254 (MiObtainPagefileHashes.c)
- *     MiLateWritePageHash @ 0x1406660C8 (MiLateWritePageHash.c)
- *     MiPageHashBugCheck @ 0x140666BB8 (MiPageHashBugCheck.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     MiComputePageHash @ 0x14046F53C (MiComputePageHash.c)
+ *     MiObtainPagefileHashes @ 0x14046F654 (MiObtainPagefileHashes.c)
+ *     MiLateWritePageHash @ 0x140666618 (MiLateWritePageHash.c)
+ *     MiPageHashBugCheck @ 0x140667108 (MiPageHashBugCheck.c)
  */
 
 __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2)

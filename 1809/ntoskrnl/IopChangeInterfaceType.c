@@ -1,11 +1,11 @@
 /*
- * XREFs of IopChangeInterfaceType @ 0x1408265DC
+ * XREFs of IopChangeInterfaceType @ 0x1408277DC
  * Callers:
- *     IoReportResourceUsageInternal @ 0x1408264B8 (IoReportResourceUsageInternal.c)
+ *     IoReportResourceUsageInternal @ 0x1408276B8 (IoReportResourceUsageInternal.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PnpDetermineResourceListSize @ 0x1406FBA8C (PnpDetermineResourceListSize.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PnpDetermineResourceListSize @ 0x1406FCD2C (PnpDetermineResourceListSize.c)
  */
 
 char __fastcall IopChangeInterfaceType(__int64 a1, unsigned int **a2)

@@ -2,11 +2,11 @@
  * XREFs of MiAllocatePagesForMdl @ 0x140011048
  * Callers:
  *     MmAllocatePartitionNodePagesForMdlEx @ 0x140010F40 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmAllocatePagesForMdl @ 0x1401776A0 (MmAllocatePagesForMdl.c)
- *     MiPopulateCombineMdls @ 0x1406B8B58 (MiPopulateCombineMdls.c)
- *     MmAllocateNonCachedMemory @ 0x14084DC40 (MmAllocateNonCachedMemory.c)
- *     NtAllocateUserPhysicalPages @ 0x140850690 (NtAllocateUserPhysicalPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x14085FE64 (MiAllocatePartitionPhysicalPages.c)
+ *     MmAllocatePagesForMdl @ 0x1401777A0 (MmAllocatePagesForMdl.c)
+ *     MiPopulateCombineMdls @ 0x1406B9DF8 (MiPopulateCombineMdls.c)
+ *     MmAllocateNonCachedMemory @ 0x14084EEA0 (MmAllocateNonCachedMemory.c)
+ *     NtAllocateUserPhysicalPages @ 0x1408518F0 (NtAllocateUserPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408610C4 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
  *     MiInitializeMdlPages @ 0x140011258 (MiInitializeMdlPages.c)
  *     MiInitializeMdlBatchPages @ 0x140011478 (MiInitializeMdlBatchPages.c)
@@ -17,14 +17,14 @@
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiLogGetDurationSince @ 0x1402A92AC (MiLogGetDurationSince.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiRemoveMdlPages @ 0x14084DEE0 (MiRemoveMdlPages.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiLogGetDurationSince @ 0x1402A949C (MiLogGetDurationSince.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiRemoveMdlPages @ 0x14084F140 (MiRemoveMdlPages.c)
  */
 
 _DWORD *__fastcall MiAllocatePagesForMdl(
@@ -177,7 +177,7 @@ LABEL_32:
     _InterlockedExchangeAdd64((volatile signed __int64 *)(v37 + 7360), v26);
   }
   if ( v25 == &MiSystemPartition )
-    _InterlockedExchangeAdd64(&qword_14043B018, -(__int64)v26);
+    _InterlockedExchangeAdd64(&qword_14043C0D8, -(__int64)v26);
   MiReturnCommit(v25, v26);
   if ( !v41 )
   {
@@ -250,7 +250,7 @@ LABEL_14:
           v57 = 2LL;
           v59 = 4LL;
           v61 = 8LL;
-          TlgWriteEx(v32, &unk_14036DC63, 0LL, v30 - 63, 0LL, 0LL, 0xAu, &pData);
+          TlgWriteEx(v32, &unk_14036EBF3, 0LL, v30 - 63, 0LL, 0LL, 0xAu, &pData);
         }
       }
     }

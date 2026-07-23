@@ -1,13 +1,13 @@
 /*
- * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x1406F50FC
+ * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x1406F639C
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1406F5020 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1406F62C0 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetRegValueMappedProperty @ 0x1406D3A7C (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x1406F5320 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D3F18 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406D4D1C (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1406F65C0 (DrvDbGetDeviceIdDriverInfMatches.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdMappedProperty(
@@ -79,7 +79,7 @@ LABEL_42:
     {
 LABEL_59:
       v29 = 0;
-      for ( i = &off_1403564D0; ; i += 5 )
+      for ( i = &off_140357478; ; i += 5 )
       {
         v31 = *i;
         if ( *((_DWORD *)*i + 4) == v12 )
@@ -94,7 +94,7 @@ LABEL_59:
           return (unsigned int)-1073741802;
       }
       v33 = 5LL * v29;
-      v34 = &(&off_1403564D0)[5 * v29];
+      v34 = &(&off_140357478)[5 * v29];
       if ( v34 )
       {
         if ( !a3 )

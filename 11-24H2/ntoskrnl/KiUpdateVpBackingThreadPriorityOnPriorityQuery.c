@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404B4E30
+ * XREFs of KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404AF630
  * Callers:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     KeQueryEffectivePriorityThread @ 0x1404302D0 (KeQueryEffectivePriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     KeQueryEffectivePriorityThread @ 0x1404DD960 (KeQueryEffectivePriorityThread.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402A1A20 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14049E5FC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1402D1150 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1404993FC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  */
 
 char __fastcall KiUpdateVpBackingThreadPriorityOnPriorityQuery(ULONG_PTR BugCheckParameter1)

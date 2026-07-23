@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDaDriverEntry @ 0x140A72BE0
+ * XREFs of PiDaDriverEntry @ 0x140A73BE0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoCreateDevice @ 0x1406C9950 (IoCreateDevice.c)
  */
 
 __int64 __fastcall PiDaDriverEntry(PDRIVER_OBJECT DriverObject)
@@ -22,7 +22,7 @@ __int64 __fastcall PiDaDriverEntry(PDRIVER_OBJECT DriverObject)
   DriverObject->MajorFunction[14] = (PDRIVER_DISPATCH)PiDaDispatch;
   memset(&FastIoDispatch, 0, 0xE0uLL);
   FastIoDispatch = 224;
-  qword_140C43250 = (__int64)PiDaFastIoDispatch;
+  qword_140C431F0 = (__int64)PiDaFastIoDispatch;
   DriverObject->FastIoDispatch = (PFAST_IO_DISPATCH)&FastIoDispatch;
   DeviceName.Buffer = L"\\Device\\DeviceApi";
   *(_DWORD *)&DeviceName.Length = 2359330;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetFirstBuffer @ 0x1404EF620
+ * XREFs of EtwpGetFirstBuffer @ 0x1404ECB34
  * Callers:
- *     EtwpBugCheckMultiPartCallback @ 0x14064FFD0 (EtwpBugCheckMultiPartCallback.c)
- *     EtwpPreserveLogger @ 0x1407AFA4C (EtwpPreserveLogger.c)
- *     EtwpFindAndLockBufferForFlushing @ 0x1409E2830 (EtwpFindAndLockBufferForFlushing.c)
+ *     EtwpBugCheckMultiPartCallback @ 0x14064E610 (EtwpBugCheckMultiPartCallback.c)
+ *     EtwpPreserveLogger @ 0x1407AFE9C (EtwpPreserveLogger.c)
+ *     EtwpFindAndLockBufferForFlushing @ 0x1409DC5E0 (EtwpFindAndLockBufferForFlushing.c)
  * Callees:
  *     <none>
  */

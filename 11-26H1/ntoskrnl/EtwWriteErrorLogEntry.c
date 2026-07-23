@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwWriteErrorLogEntry @ 0x140ADBE80
+ * XREFs of EtwWriteErrorLogEntry @ 0x140AD93D0
  * Callers:
- *     IopErrorLogThread @ 0x140ADBA70 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x140AD8FC0 (IopErrorLogThread.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall EtwWriteErrorLogEntry(
@@ -50,7 +50,7 @@ __int64 __fastcall EtwWriteErrorLogEntry(
   __int16 v38; // [rsp+9Ch] [rbp-7Ch] BYREF
   unsigned int v39; // [rsp+A0h] [rbp-78h] BYREF
   _BYTE v40[40]; // [rsp+A8h] [rbp-70h] BYREF
-  __int128 v41; // [rsp+D0h] [rbp-48h]
+  GUID v41; // [rsp+D0h] [rbp-48h]
   int v42; // [rsp+128h] [rbp+10h]
   char v43; // [rsp+12Ch] [rbp+14h]
   __int16 v44; // [rsp+12Eh] [rbp+16h]
@@ -182,7 +182,7 @@ __int64 __fastcall EtwWriteErrorLogEntry(
   v45 = 64;
   result = EtwpEventWriteFull(
              (__int64)v40,
-             1,
+             1u,
              0,
              0,
              (unsigned __int16 *)&v48,

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlQueryProcessorTopology @ 0x1405B9690
+ * XREFs of HvlQueryProcessorTopology @ 0x1405BBF00
  * Callers:
  *     <none>
  * Callees:
- *     HvlQueryProcessorTopologyEx @ 0x1405B96B0 (HvlQueryProcessorTopologyEx.c)
+ *     HvlQueryProcessorTopologyEx @ 0x1405BBF20 (HvlQueryProcessorTopologyEx.c)
  */
 
 __int64 __fastcall HvlQueryProcessorTopology(int a1, int a2, int a3, int a4)

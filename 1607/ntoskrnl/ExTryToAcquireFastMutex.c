@@ -1,13 +1,13 @@
 /*
- * XREFs of ExTryToAcquireFastMutex @ 0x140099E78
+ * XREFs of ExTryToAcquireFastMutex @ 0x140099678
  * Callers:
- *     FsRtlTryToAcquireHeaderMutex @ 0x140099E3C (FsRtlTryToAcquireHeaderMutex.c)
- *     KeTryToAcquireGuardedMutex @ 0x140099E70 (KeTryToAcquireGuardedMutex.c)
- *     RawScanDeletedList @ 0x1404EF3DC (RawScanDeletedList.c)
+ *     FsRtlTryToAcquireHeaderMutex @ 0x14009963C (FsRtlTryToAcquireHeaderMutex.c)
+ *     KeTryToAcquireGuardedMutex @ 0x140099670 (KeTryToAcquireGuardedMutex.c)
+ *     RawScanDeletedList @ 0x1404D14A0 (RawScanDeletedList.c)
  *     CreateMiniNtBootKey @ 0x1407CCE70 (CreateMiniNtBootKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
  */
 
 BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)

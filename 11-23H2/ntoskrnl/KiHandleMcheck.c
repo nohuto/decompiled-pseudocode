@@ -1,24 +1,24 @@
 /*
- * XREFs of KiHandleMcheck @ 0x14056BFF0
+ * XREFs of KiHandleMcheck @ 0x14056C6B0
  * Callers:
- *     KxMcheckAbort @ 0x140430EC0 (KxMcheckAbort.c)
+ *     KxMcheckAbort @ 0x1404312C0 (KxMcheckAbort.c)
  * Callees:
- *     KiFlushCurrentRsb @ 0x140435500 (KiFlushCurrentRsb.c)
- *     HalHandleMcheck @ 0x1405056C0 (HalHandleMcheck.c)
+ *     KiFlushCurrentRsb @ 0x140435900 (KiFlushCurrentRsb.c)
+ *     HalHandleMcheck @ 0x140505C10 (HalHandleMcheck.c)
  */
 
 /*
- * Hex-Rays decompilation failed for KiHandleMcheck @ 0x14056BFF0
- * Reason: Hex-Rays returned no pseudocode for 0x14056BFF0
+ * Hex-Rays decompilation failed for KiHandleMcheck @ 0x14056C6B0
+ * Reason: Hex-Rays returned no pseudocode for 0x14056C6B0
  * Fallback: raw IDA disassembly follows.
  *
- * 000000014056BFF0: sub     rsp, 28h
- * 000000014056BFF4: call    HalHandleMcheck
- * 000000014056BFF9: mov     rax, qword ptr cs:KiSpeculationFeatures
- * 000000014056C000: bt      rax, 29h ; ')'
- * 000000014056C005: jnb     short loc_14056C00C
- * 000000014056C007: call    KiFlushCurrentRsb
- * 000000014056C00C: lfence
- * 000000014056C00F: add     rsp, 28h
- * 000000014056C013: retn
+ * 000000014056C6B0: sub     rsp, 28h
+ * 000000014056C6B4: call    HalHandleMcheck
+ * 000000014056C6B9: mov     rax, qword ptr cs:KiSpeculationFeatures
+ * 000000014056C6C0: bt      rax, 29h ; ')'
+ * 000000014056C6C5: jnb     short loc_14056C6CC
+ * 000000014056C6C7: call    KiFlushCurrentRsb
+ * 000000014056C6CC: lfence
+ * 000000014056C6CF: add     rsp, 28h
+ * 000000014056C6D3: retn
  */

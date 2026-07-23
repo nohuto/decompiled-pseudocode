@@ -10,27 +10,27 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __stdcall RtlQueryImageFileExecutionOptions(
+NTSTATUS __stdcall RtlQueryImageFileExecutionOptions(
         unsigned __int16 *a1,
-        int a2,
+        PCWSTR SourceString,
         int a3,
-        _DWORD *a4,
+        PULONG Value,
         unsigned int a5,
-        int *a6,
+        ULONG *a6,
         int a7)
 {
   int v7; // eax
-  int ImageFileKeyOption; // esi
+  NTSTATUS ImageFileKeyOption; // esi
   HANDLE Handle; // [esp+8h] [ebp-4h] BYREF
 
   if ( a1 )
-    v7 = RtlpOpenImageFileOptionsKeyEx(a1, 9, 0, &Handle);
+    v7 = RtlpOpenImageFileOptionsKeyEx(a1, 9u, 0, &Handle);
   else
-    v7 = RtlpOpenBaseImageFileOptionsKey((int *)&Handle);
+    v7 = RtlpOpenBaseImageFileOptionsKey(&Handle);
   ImageFileKeyOption = v7;
   if ( v7 >= 0 )
   {
-    ImageFileKeyOption = RtlQueryImageFileKeyOption((int)Handle, a2, a3, a4, a5, a6);
+    ImageFileKeyOption = RtlQueryImageFileKeyOption(Handle, SourceString, a3, Value, a5, a6);
     if ( a1 )
       NtClose(Handle);
   }

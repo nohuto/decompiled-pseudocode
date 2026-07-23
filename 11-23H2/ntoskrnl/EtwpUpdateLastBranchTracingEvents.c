@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateLastBranchTracingEvents @ 0x1409F05A0
+ * XREFs of EtwpUpdateLastBranchTracingEvents @ 0x1409F0830
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1E84 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409E2114 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpAllocateLbrData @ 0x1409F041C (EtwpAllocateLbrData.c)
+ *     EtwpAllocateLbrData @ 0x1409F06AC (EtwpAllocateLbrData.c)
  */
 
 __int64 __fastcall EtwpUpdateLastBranchTracingEvents(__int64 a1, __int64 a2, unsigned int a3)

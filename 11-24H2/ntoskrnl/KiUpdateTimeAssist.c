@@ -1,16 +1,16 @@
 /*
- * XREFs of KiUpdateTimeAssist @ 0x14029EBAC
+ * XREFs of KiUpdateTimeAssist @ 0x1402AD69C
  * Callers:
- *     KeClockInterruptNotify @ 0x14033A5E0 (KeClockInterruptNotify.c)
- *     KeSynchronizeTimeToQpc @ 0x1404F8930 (KeSynchronizeTimeToQpc.c)
- *     KeResumeClockTimerFromIdle @ 0x1405B9944 (KeResumeClockTimerFromIdle.c)
+ *     KeClockInterruptNotify @ 0x140319AC0 (KeClockInterruptNotify.c)
+ *     KeSynchronizeTimeToQpc @ 0x1404F6210 (KeSynchronizeTimeToQpc.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405B6F84 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x14029D200 (RtlBeginReadTickLock.c)
- *     KiComputeNewSystemTime @ 0x14029D3EC (KiComputeNewSystemTime.c)
- *     KiComputeNewInterruptTime @ 0x14029D460 (KiComputeNewInterruptTime.c)
- *     RtlWriteAcquireTickLock @ 0x14029D4E4 (RtlWriteAcquireTickLock.c)
- *     RtlWriteTryAcquireTickLock @ 0x14029D508 (RtlWriteTryAcquireTickLock.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     RtlBeginReadTickLock @ 0x1402ABCF0 (RtlBeginReadTickLock.c)
+ *     KiComputeNewSystemTime @ 0x1402ABEDC (KiComputeNewSystemTime.c)
+ *     KiComputeNewInterruptTime @ 0x1402ABF50 (KiComputeNewInterruptTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1402ABFD4 (RtlWriteAcquireTickLock.c)
+ *     RtlWriteTryAcquireTickLock @ 0x1402ABFF8 (RtlWriteTryAcquireTickLock.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall KiUpdateTimeAssist(LARGE_INTEGER *a1, char a2, __int64 *a3, _QWORD *a4)
@@ -109,7 +109,7 @@ LABEL_10:
   *a4 = MEMORY[0xFFFFF78000000320];
   if ( v21 <= 0 )
   {
-    v21 += (unsigned int)KeMaximumIncrement;
+    v21 += KeMaximumIncrement;
     if ( v21 <= 0 )
     {
       v9 = ((unsigned __int64)(((unsigned __int64)-v21

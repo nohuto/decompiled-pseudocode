@@ -1,24 +1,24 @@
 /*
- * XREFs of NtTerminateThread @ 0x18015F9A0
+ * XREFs of NtTerminateThread @ 0x18015F8A0
  * Callers:
- *     RtlAssert @ 0x180070F80 (RtlAssert.c)
- *     EtwpCreateEtwThread @ 0x180076130 (EtwpCreateEtwThread.c)
- *     RtlExitUserThread @ 0x180086970 (RtlExitUserThread.c)
- *     RtlExitUserProcess @ 0x1800869E0 (RtlExitUserProcess.c)
- *     RtlQueryProcessDebugInformation @ 0x18008F550 (RtlQueryProcessDebugInformation.c)
- *     RtlpHeapPerformCrossProcessQuery @ 0x180113660 (RtlpHeapPerformCrossProcessQuery.c)
- *     RtlSetProcessDebugInformation @ 0x18013A320 (RtlSetProcessDebugInformation.c)
- *     WerReportExceptionWorker @ 0x18013AE00 (WerReportExceptionWorker.c)
- *     LdrpGenericExceptionFilter @ 0x18015B768 (LdrpGenericExceptionFilter.c)
+ *     EtwpCreateEtwThread @ 0x180064950 (EtwpCreateEtwThread.c)
+ *     RtlQueryProcessDebugInformation @ 0x1800742B0 (RtlQueryProcessDebugInformation.c)
+ *     RtlExitUserThread @ 0x18007DD10 (RtlExitUserThread.c)
+ *     RtlExitUserProcess @ 0x18007DD80 (RtlExitUserProcess.c)
+ *     RtlAssert @ 0x1800913D0 (RtlAssert.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1800926EC (RtlpHeapPerformCrossProcessQuery.c)
+ *     RtlSetProcessDebugInformation @ 0x18013A090 (RtlSetProcessDebugInformation.c)
+ *     WerReportExceptionWorker @ 0x18013AB70 (WerReportExceptionWorker.c)
+ *     LdrpGenericExceptionFilter @ 0x18015B628 (LdrpGenericExceptionFilter.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtTerminateThread()
+NTSTATUS __cdecl NtTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 83LL;
+  result = 83;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

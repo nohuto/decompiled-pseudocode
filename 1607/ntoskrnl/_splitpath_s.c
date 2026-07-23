@@ -1,10 +1,10 @@
 /*
- * XREFs of _splitpath_s @ 0x140152274
+ * XREFs of _splitpath_s @ 0x140152834
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     strncpy_s @ 0x140152DA8 (strncpy_s.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     strncpy_s @ 0x140153368 (strncpy_s.c)
  */
 
 errno_t __cdecl splitpath_s(

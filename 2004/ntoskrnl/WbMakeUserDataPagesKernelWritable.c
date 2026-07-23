@@ -15,15 +15,19 @@ __int64 __fastcall WbMakeUserDataPagesKernelWritable(PVOID VirtualAddress, ULONG
 {
   struct _MDL *v8; // rbx
   int v9; // esi
-  int v10; // edi
+  NTSTATUS v10; // edi
   struct _MDL *Mdl; // rax
   PVOID MappedSystemVa; // rax
-  _QWORD v14[3]; // [rsp+48h] [rbp-40h] BYREF
+  PVOID v14[3]; // [rsp+48h] [rbp-40h] BYREF
+  ULONG_PTR v15; // [rsp+90h] [rbp+8h] BYREF
+  ULONG v16; // [rsp+98h] [rbp+10h] BYREF
 
   v8 = 0LL;
   v9 = 0;
+  v16 = 0;
   v14[0] = VirtualAddress;
-  v10 = ZwProtectVirtualMemory(-1LL, (__int64)v14);
+  v15 = Length;
+  v10 = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v14, &v15, 4u, &v16);
   if ( v10 >= 0 )
   {
     Mdl = IoAllocateMdl(VirtualAddress, Length, 0, 0, 0LL);

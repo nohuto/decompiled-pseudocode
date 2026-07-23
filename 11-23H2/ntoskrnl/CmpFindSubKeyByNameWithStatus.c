@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpFindSubKeyByNameWithStatus @ 0x140825970
+ * XREFs of CmpFindSubKeyByNameWithStatus @ 0x140825C70
  * Callers:
  *     CmpFindPathByNameEx @ 0x14067EED0 (CmpFindPathByNameEx.c)
- *     CmpFindSubKeyByName @ 0x14082594C (CmpFindSubKeyByName.c)
- *     CmpWalkUnicodeStringPath @ 0x140825BB0 (CmpWalkUnicodeStringPath.c)
- *     CmpFindControlSet @ 0x140825D40 (CmpFindControlSet.c)
- *     CmpMarkCurrentValueDirty @ 0x1408273B4 (CmpMarkCurrentValueDirty.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpCopySyncTree2 @ 0x140A214A8 (CmpCopySyncTree2.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140A2309C (CmpSyncSubKeysAfterDelete.c)
+ *     CmpFindSubKeyByName @ 0x140825C4C (CmpFindSubKeyByName.c)
+ *     CmpWalkUnicodeStringPath @ 0x140825EB0 (CmpWalkUnicodeStringPath.c)
+ *     CmpFindControlSet @ 0x140826040 (CmpFindControlSet.c)
+ *     CmpMarkCurrentValueDirty @ 0x1408276B4 (CmpMarkCurrentValueDirty.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpCopySyncTree2 @ 0x140A21758 (CmpCopySyncTree2.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140A2334C (CmpSyncSubKeysAfterDelete.c)
  * Callees:
- *     CmpFindSubKeyInRoot @ 0x1406D7E8C (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1406D94E0 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x140825AB8 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpFindSubKeyInRoot @ 0x1406D7EBC (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1406D9510 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x140825DB8 (CmpFindSubKeyByHashWithStatus.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNameWithStatus(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, _DWORD *a4)

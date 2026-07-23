@@ -1,13 +1,13 @@
 /*
- * XREFs of CmDoVirtualTest @ 0x1401294CC
+ * XREFs of CmDoVirtualTest @ 0x14012959C
  * Callers:
- *     NtDeleteKey @ 0x1405A9940 (NtDeleteKey.c)
- *     NtDeleteValueKey @ 0x1405B6030 (NtDeleteValueKey.c)
- *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
- *     NtSetInformationKey @ 0x140696FE0 (NtSetInformationKey.c)
- *     NtRenameKey @ 0x1407E9B80 (NtRenameKey.c)
+ *     NtDeleteKey @ 0x1405AA940 (NtDeleteKey.c)
+ *     NtDeleteValueKey @ 0x1405B7030 (NtDeleteValueKey.c)
+ *     NtSetValueKey @ 0x1405CD8E0 (NtSetValueKey.c)
+ *     NtSetInformationKey @ 0x1406981A0 (NtSetInformationKey.c)
+ *     NtRenameKey @ 0x1407EAD80 (NtRenameKey.c)
  * Callees:
- *     CmpIsSystemEntity @ 0x1406B1FD4 (CmpIsSystemEntity.c)
+ *     CmpIsSystemEntity @ 0x1406B3274 (CmpIsSystemEntity.c)
  */
 
 bool __fastcall CmDoVirtualTest(__int64 a1, __int64 a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpIsSecurityEtwLoggingEnabled @ 0x18000DD04
+ * XREFs of LdrpIsSecurityEtwLoggingEnabled @ 0x18000DCF4
  * Callers:
- *     LdrpMapDllSearchPath @ 0x18000E5C8 (LdrpMapDllSearchPath.c)
- *     LdrpSearchPath @ 0x18000EBF0 (LdrpSearchPath.c)
+ *     LdrpMapDllSearchPath @ 0x18000E5B8 (LdrpMapDllSearchPath.c)
+ *     LdrpSearchPath @ 0x18000EBE0 (LdrpSearchPath.c)
  * Callees:
  *     <none>
  */

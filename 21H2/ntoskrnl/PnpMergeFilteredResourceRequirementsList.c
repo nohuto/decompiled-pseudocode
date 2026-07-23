@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpMergeFilteredResourceRequirementsList @ 0x1407D0B54
+ * XREFs of PnpMergeFilteredResourceRequirementsList @ 0x1407D0CC4
  * Callers:
- *     IopQueryDeviceResources @ 0x14075046C (IopQueryDeviceResources.c)
+ *     IopQueryDeviceResources @ 0x14075062C (IopQueryDeviceResources.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpMergeFilteredResourceRequirementsList(_DWORD *Src, unsigned int *a2, unsigned int **a3)

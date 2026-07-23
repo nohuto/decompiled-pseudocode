@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPtMmFreeContiguousMemory_Entry @ 0x140C2A1A0
+ * XREFs of VfPtMmFreeContiguousMemory_Entry @ 0x140C301B0
  * Callers:
  *     <none>
  * Callees:
- *     VfEnabledOnKernel @ 0x14047EA30 (VfEnabledOnKernel.c)
- *     VfPtMiscPoolNotification @ 0x14050C738 (VfPtMiscPoolNotification.c)
+ *     VfEnabledOnKernel @ 0x1404783A0 (VfEnabledOnKernel.c)
+ *     VfPtMiscPoolNotification @ 0x1405061A8 (VfPtMiscPoolNotification.c)
  */
 
 char __fastcall VfPtMmFreeContiguousMemory_Entry(__int64 a1)

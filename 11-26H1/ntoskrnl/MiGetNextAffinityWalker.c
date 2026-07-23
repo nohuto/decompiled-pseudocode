@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetNextAffinityWalker @ 0x1403E99EC
+ * XREFs of MiGetNextAffinityWalker @ 0x1402F68CC
  * Callers:
- *     MiFindBestZeroingProcessor @ 0x1403E9158 (MiFindBestZeroingProcessor.c)
- *     MiDoParentWork @ 0x140503998 (MiDoParentWork.c)
- *     MiLaunchChildWorkers @ 0x1405172B8 (MiLaunchChildWorkers.c)
+ *     MiFindBestZeroingProcessor @ 0x1402F6038 (MiFindBestZeroingProcessor.c)
+ *     MiDoParentWork @ 0x1404FD268 (MiDoParentWork.c)
+ *     MiLaunchChildWorkers @ 0x140510D28 (MiLaunchChildWorkers.c)
  * Callees:
- *     MiEvaluateProcessorGroups @ 0x1403E9BE4 (MiEvaluateProcessorGroups.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiEvaluateProcessorGroups @ 0x1402F6AC4 (MiEvaluateProcessorGroups.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetNextAffinityWalker(ULONG_PTR BugCheckParameter2, __int64 a2)

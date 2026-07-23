@@ -1,5 +1,5 @@
 /*
- * XREFs of RaspRectangleDestroy @ 0x140140CEC
+ * XREFs of RaspRectangleDestroy @ 0x14014125C
  * Callers:
  *     RaspDestroyCachedBitmap @ 0x1407283D4 (RaspDestroyCachedBitmap.c)
  * Callees:

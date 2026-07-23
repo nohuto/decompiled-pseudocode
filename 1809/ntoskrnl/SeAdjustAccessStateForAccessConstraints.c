@@ -1,12 +1,12 @@
 /*
- * XREFs of SeAdjustAccessStateForAccessConstraints @ 0x140631880
+ * XREFs of SeAdjustAccessStateForAccessConstraints @ 0x1406328A0
  * Callers:
  *     <none>
  * Callees:
  *     SepFilterCheck @ 0x140052760 (SepFilterCheck.c)
- *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
- *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
- *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A8F44 (SepLocateTokenTrustLevel.c)
+ *     SeGetTrustLabelAce @ 0x1400AA890 (SeGetTrustLabelAce.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD0E0 (RtlSidDominatesForTrust.c)
  */
 
 __int64 __fastcall SeAdjustAccessStateForAccessConstraints(__int64 a1, __int64 a2, __int64 a3)
@@ -22,13 +22,13 @@ __int64 __fastcall SeAdjustAccessStateForAccessConstraints(__int64 a1, __int64 a
   __int64 v13; // rbp
   int v14; // r14d
   int v15; // r15d
-  __int64 v16; // r13
-  __int64 TokenTrustLevel; // rax
+  void *v16; // r13
+  void *TokenTrustLevel; // rax
   int v18; // ecx
-  char v19; // [rsp+80h] [rbp+18h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+80h] [rbp+18h] BYREF
   __int64 v20; // [rsp+88h] [rbp+20h] BYREF
 
-  v19 = 0;
+  DominatesTrust = 0;
   v20 = 0LL;
   v3 = -1;
   result = *(unsigned int *)(a3 + 12);
@@ -61,11 +61,11 @@ __int64 __fastcall SeAdjustAccessStateForAccessConstraints(__int64 a1, __int64 a
     v13 = TrustLabelAce;
     if ( TrustLabelAce )
     {
-      v16 = TrustLabelAce + 8;
+      v16 = (void *)(TrustLabelAce + 8);
       if ( TrustLabelAce == -8
-        || (TokenTrustLevel = SepLocateTokenTrustLevel((__int64 *)(a3 + 32)),
-            RtlSidDominatesForTrust(TokenTrustLevel, v16, &v19),
-            !v19) )
+        || (TokenTrustLevel = (void *)SepLocateTokenTrustLevel((__int64 *)(a3 + 32)),
+            RtlSidDominatesForTrust(TokenTrustLevel, v16, &DominatesTrust),
+            !DominatesTrust) )
       {
         v7 = *(_DWORD *)(v13 + 4);
       }

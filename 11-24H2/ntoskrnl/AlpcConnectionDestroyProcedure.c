@@ -1,61 +1,61 @@
 /*
- * XREFs of AlpcConnectionDestroyProcedure @ 0x140A1EAA0
+ * XREFs of AlpcConnectionDestroyProcedure @ 0x140A13BA0
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExFreeToPagedLookasideList @ 0x1403E03E0 (ExFreeToPagedLookasideList.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockBlobUncachedExclusive @ 0x1408963A0 (AlpcpUnlockBlobUncachedExclusive.c)
- *     AlpcpLockBlobExclusive @ 0x14089666C (AlpcpLockBlobExclusive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreeToPagedLookasideList @ 0x1403C00D0 (ExFreeToPagedLookasideList.c)
+ *     AlpcpUnlockBlobUncachedExclusive @ 0x14089E840 (AlpcpUnlockBlobUncachedExclusive.c)
+ *     AlpcpLockBlobExclusive @ 0x14089EB0C (AlpcpLockBlobExclusive.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AlpcConnectionDestroyProcedure(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall AlpcConnectionDestroyProcedure(__int64 a1)
 {
-  _QWORD *v4; // rsi
-  _QWORD *v6; // rax
-  _QWORD *v7; // rbp
-  __int64 v8; // rdx
-  _QWORD *v9; // rcx
-  void *v10; // rcx
-  ULONG_PTR v11; // rcx
+  _QWORD *v1; // rsi
+  char *v3; // rax
+  char *v4; // rbp
+  __int64 v5; // rdx
+  _QWORD *v6; // rcx
+  void *v7; // rcx
+  ULONG_PTR v8; // rcx
 
-  v4 = *(_QWORD **)a1;
+  v1 = *(_QWORD **)a1;
   if ( *(_QWORD *)a1 )
   {
-    AlpcpLockBlobExclusive(v4[2]);
-    v6 = KeAbPreAcquire((__int64)(v4 + 44), 0LL);
-    v7 = v6;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v4 + 88, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v4 + 44, (__int64)v6, (__int64)(v4 + 44));
-    if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
-    v8 = *(_QWORD *)(a1 + 24);
-    if ( *(_QWORD *)(v8 + 8) != a1 + 24 || (v9 = *(_QWORD **)(a1 + 32), *v9 != a1 + 24) )
+    AlpcpLockBlobExclusive(v1[2]);
+    v3 = (char *)KeAbPreAcquire((__int64)(v1 + 44), 0LL);
+    v4 = v3;
+    if ( _interlockedbittestandset64((volatile signed __int32 *)v1 + 88, 0LL) )
+      ExfAcquirePushLockExclusiveEx(v1 + 44, v3, (__int64)(v1 + 44));
+    if ( v4 )
+      v4[10] = 1;
+    v5 = *(_QWORD *)(a1 + 24);
+    if ( *(_QWORD *)(v5 + 8) != a1 + 24 || (v6 = *(_QWORD **)(a1 + 32), *v6 != a1 + 24) )
       __fastfail(3u);
-    *v9 = v8;
-    *(_QWORD *)(v8 + 8) = v9;
-    if ( (_InterlockedExchangeAdd64(v4 + 44, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v4 + 44);
-    KeAbPostRelease((ULONG_PTR)(v4 + 44));
-    AlpcpUnlockBlobUncachedExclusive(v4[2]);
+    *v6 = v5;
+    *(_QWORD *)(v5 + 8) = v6;
+    if ( (_InterlockedExchangeAdd64(v1 + 44, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v1 + 44);
+    KeAbPostRelease((ULONG_PTR)(v1 + 44));
+    AlpcpUnlockBlobUncachedExclusive(v1[2]);
     ObfDereferenceObject(*(PVOID *)a1);
   }
-  v10 = *(void **)(a1 + 40);
-  if ( v10 )
+  v7 = *(void **)(a1 + 40);
+  if ( v7 )
   {
     if ( *(_QWORD *)(a1 + 56) == 16LL )
-      ExFreeToPagedLookasideList(&stru_140E27100, *(PVOID *)(a1 + 40));
+      ExFreeToPagedLookasideList(&stru_140E27240, *(PVOID *)(a1 + 40));
     else
-      ExFreePoolWithTag(v10, 0x61486C41u);
+      ExFreePoolWithTag(v7, 0x61486C41u);
   }
-  v11 = _InterlockedExchange64((volatile __int64 *)(a1 + 72), 0LL);
-  if ( v11 )
-    AlpcpDereferenceBlobEx(v11, 1, a3, a4);
+  v8 = _InterlockedExchange64((volatile __int64 *)(a1 + 72), 0LL);
+  if ( v8 )
+    AlpcpDereferenceBlobEx(v8, 1);
   return 0LL;
 }

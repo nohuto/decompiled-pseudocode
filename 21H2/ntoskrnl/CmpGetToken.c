@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetToken @ 0x140A62394
+ * XREFs of CmpGetToken @ 0x140A63394
  * Callers:
- *     CmpParseInfBuffer @ 0x140A6206C (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x140A6306C (CmpParseInfBuffer.c)
  * Callees:
- *     isspace @ 0x1403D2760 (isspace.c)
- *     strchr @ 0x1403D36F0 (strchr.c)
- *     strncpy_s @ 0x1403D7F10 (strncpy_s.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     isspace @ 0x1403D28D0 (isspace.c)
+ *     strchr @ 0x1403D3860 (strchr.c)
+ *     strncpy_s @ 0x1403D8080 (strncpy_s.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall CmpGetToken(const char **a1, unsigned __int64 a2, __int64 a3)

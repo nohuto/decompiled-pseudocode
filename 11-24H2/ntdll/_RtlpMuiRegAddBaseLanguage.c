@@ -1,14 +1,14 @@
 /*
- * XREFs of _RtlpMuiRegAddBaseLanguage @ 0x180149E98
+ * XREFs of _RtlpMuiRegAddBaseLanguage @ 0x180148248
  * Callers:
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x18014A770 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x180148B20 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlpLangNameInMultiSzString @ 0x18007D7B0 (RtlpLangNameInMultiSzString.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x1800D294C (RtlpMuiRegGetLanguageSpec.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     RtlpMuiRegGetOrAddLangInfo @ 0x180149894 (RtlpMuiRegGetOrAddLangInfo.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x18014A1D8 (_RtlpMuiRegInitAnyLanguage.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x1800992DC (RtlpMuiRegGetLanguageSpec.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     RtlpLangNameInMultiSzString @ 0x1800CB1D0 (RtlpLangNameInMultiSzString.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x180147C44 (RtlpMuiRegGetOrAddLangInfo.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x180148588 (_RtlpMuiRegInitAnyLanguage.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 *a1, _WORD *a2, unsigned int a3, __int64 a4, wchar_t *String2)
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 *a1, _WORD *a2, unsigned in
   int inited; // [rsp+48h] [rbp-39h]
   signed int v33; // [rsp+4Ch] [rbp-35h]
   _WORD *v34; // [rsp+50h] [rbp-31h]
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-29h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-29h] BYREF
   __int128 v36; // [rsp+68h] [rbp-19h] BYREF
   __int64 v37; // [rsp+78h] [rbp-9h]
   int v38; // [rsp+80h] [rbp-1h]

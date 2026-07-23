@@ -9,45 +9,53 @@
  *     RtlxUnicodeStringToOemSize @ 0x18007FB30 (RtlxUnicodeStringToOemSize.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(unsigned __int16 *a1, PWCH *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned int v6; // eax
-  __int64 v8; // rax
+  CHAR *v8; // rax
   int v9; // edi
-  unsigned int v10; // [rsp+78h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+78h] [rbp+20h] BYREF
 
   if ( NlsMbCodePageTag )
-    v6 = RtlxUnicodeStringToOemSize(a2);
+    v6 = RtlxUnicodeStringToOemSize((PWCH *)SourceString);
   else
-    v6 = ((unsigned int)*(unsigned __int16 *)a2 + 2) >> 1;
+    v6 = ((unsigned int)SourceString->Length + 2) >> 1;
   if ( v6 > 0xFFFF )
-    return 3221225712LL;
-  *a1 = v6 - 1;
-  if ( a3 )
+    return -1073741584;
+  DestinationString->Length = v6 - 1;
+  if ( AllocateDestinationString )
   {
-    a1[1] = v6;
-    v8 = sub_180043FE0(v6);
-    *((_QWORD *)a1 + 1) = v8;
+    DestinationString->MaximumLength = v6;
+    v8 = (CHAR *)sub_180043FE0(v6);
+    DestinationString->Buffer = v8;
     if ( !v8 )
-      return 3221225495LL;
+      return -1073741801;
   }
-  else if ( (unsigned __int16)(v6 - 1) >= a1[1] )
+  else if ( (unsigned __int16)(v6 - 1) >= DestinationString->MaximumLength )
   {
-    return 2147483653LL;
+    return -2147483643;
   }
-  v9 = RtlUpcaseUnicodeToMultiByteN(*((_BYTE **)a1 + 1), *a1, &v10, a2[1], *(unsigned __int16 *)a2);
+  v9 = RtlUpcaseUnicodeToMultiByteN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInMultiByteString,
+         SourceString->Buffer,
+         SourceString->Length);
   if ( v9 >= 0 )
   {
-    *(_BYTE *)(v10 + *((_QWORD *)a1 + 1)) = 0;
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
     v9 = 0;
   }
   if ( v9 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor();
-      *((_QWORD *)a1 + 1) = 0LL;
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+      DestinationString->Buffer = 0LL;
     }
   }
-  return (unsigned int)v9;
+  return v9;
 }

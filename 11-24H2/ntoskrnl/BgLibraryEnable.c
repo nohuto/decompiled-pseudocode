@@ -1,31 +1,31 @@
 /*
- * XREFs of BgLibraryEnable @ 0x140697D44
+ * XREFs of BgLibraryEnable @ 0x140698DC4
  * Callers:
- *     BgkAcquireDisplayOwnership @ 0x14058FBA0 (BgkAcquireDisplayOwnership.c)
- *     BgkNotifyDisplayOwnershipChange @ 0x14058FDC0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkAcquireDisplayOwnership @ 0x14058CBC0 (BgkAcquireDisplayOwnership.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14058CDE0 (BgkNotifyDisplayOwnershipChange.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1404A9ACC (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1404A9CA4 (BgpFwAcquireLock.c)
- *     BgpFwLibraryEnable @ 0x140698104 (BgpFwLibraryEnable.c)
+ *     BgpFwReleaseLock @ 0x1404A3D9C (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1404A3F74 (BgpFwAcquireLock.c)
+ *     BgpFwLibraryEnable @ 0x140699184 (BgpFwLibraryEnable.c)
  */
 
-__int64 __fastcall BgLibraryEnable(__int64 a1, char a2)
+__int64 __fastcall BgLibraryEnable(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  unsigned int v8; // ebx
 
-  if ( a2 )
-    dword_140EF0050 |= 0xC00u;
+  if ( (_BYTE)a2 )
+    dword_140EF0270 |= 0xC00u;
   if ( !a1 )
-    return (dword_140EF0050 & 2) == 0 ? 0xC00000EF : 0;
-  if ( !a2 && KeGetCurrentIrql() )
+    return (dword_140EF0270 & 2) == 0 ? 0xC00000EF : 0;
+  if ( !(_BYTE)a2 && KeGetCurrentIrql() )
     return 3221225473LL;
-  BgpFwAcquireLock();
-  if ( (dword_140EF0050 & 1) != 0 )
-    v6 = BgpFwLibraryEnable(a1);
+  BgpFwAcquireLock(a1, a2, a3, a4);
+  if ( (dword_140EF0270 & 1) != 0 )
+    v8 = BgpFwLibraryEnable(a1);
   else
-    v6 = -1073741637;
-  BgpFwReleaseLock(v5, v4);
-  return v6;
+    v8 = -1073741637;
+  BgpFwReleaseLock(v7, v6);
+  return v8;
 }

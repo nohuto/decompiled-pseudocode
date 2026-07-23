@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitializeImageSystemOverride @ 0x140AC8D6C
+ * XREFs of RtlInitializeImageSystemOverride @ 0x140ACA95C
  * Callers:
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
- *     MiApplyFunctionOverrideToBootDriver @ 0x140CFF854 (MiApplyFunctionOverrideToBootDriver.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
+ *     MiApplyFunctionOverrideToBootDriver @ 0x140D05BF4 (MiApplyFunctionOverrideToBootDriver.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _DWORD *__fastcall RtlInitializeImageSystemOverride(_DWORD *a1, int a2, int a3)
@@ -22,10 +22,10 @@ _DWORD *__fastcall RtlInitializeImageSystemOverride(_DWORD *a1, int a2, int a3)
   __int64 v16; // r8
 
   memset_0(a1, 0, 0xD4uLL);
-  LastXStateSaveDebugInfo = stru_140E2D150.LastXStateSaveDebugInfo;
+  LastXStateSaveDebugInfo = stru_140E2D2D0.LastXStateSaveDebugInfo;
   v7 = (a2 + 4095) & 0xFFFFF000;
-  v8 = a2 + LODWORD(stru_140E36558.QuantumTarget) + HIDWORD(stru_140E36558.SListFaultAddress);
-  if ( v7 + LODWORD(stru_140E2D150.LastXStateSaveDebugInfo) + 4095 < 0x7FFFFFFF )
+  v8 = a2 + LODWORD(stru_140E366D8.QuantumTarget) + HIDWORD(stru_140E366D8.SListFaultAddress);
+  if ( v7 + LODWORD(stru_140E2D2D0.LastXStateSaveDebugInfo) + 4095 < 0x7FFFFFFF )
   {
     v15 = a1;
     v16 = 4LL;
@@ -39,11 +39,11 @@ _DWORD *__fastcall RtlInitializeImageSystemOverride(_DWORD *a1, int a2, int a3)
   }
   if ( (unsigned int)(v8 + 0x1FFF) < 0x7FFFFFFF )
   {
-    v9 = *(_QWORD *)&stru_140E2D150.WaitBlockFill11[64];
+    v9 = *(_QWORD *)&stru_140E2D2D0.WaitBlockFill11[64];
     if ( (KeFeatureBits & 1) != 0 )
-      v10 = *(_DWORD *)(*(_QWORD *)&stru_140E2D150.WaitBlockFill11[64] + 84LL);
+      v10 = *(_DWORD *)(*(_QWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 84LL);
     else
-      v10 = *(_DWORD *)(*(_QWORD *)&stru_140E2D150.WaitBlockFill11[64] + 88LL);
+      v10 = *(_DWORD *)(*(_QWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 88LL);
     v11 = 15LL;
     a1[4] = v8 + v10;
     v12 = v9 - (_QWORD)a1;
@@ -51,8 +51,8 @@ _DWORD *__fastcall RtlInitializeImageSystemOverride(_DWORD *a1, int a2, int a3)
     do
     {
       *v13 = a2
-           + HIDWORD(stru_140E36558.SListFaultAddress)
-           + LODWORD(stru_140E36558.QuantumTarget)
+           + HIDWORD(stru_140E366D8.SListFaultAddress)
+           + LODWORD(stru_140E366D8.QuantumTarget)
            + *(_DWORD *)((char *)v13 + v12 + 68);
       ++v13;
       --v11;

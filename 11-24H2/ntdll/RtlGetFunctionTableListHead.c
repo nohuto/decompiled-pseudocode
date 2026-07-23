@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetFunctionTableListHead @ 0x180120760
+ * XREFs of RtlGetFunctionTableListHead @ 0x18011E990
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 *RtlGetFunctionTableListHead()
+PLIST_ENTRY RtlGetFunctionTableListHead(void)
 {
-  return &RtlpDynamicFunctionTable;
+  return (PLIST_ENTRY)&RtlpDynamicFunctionTable;
 }

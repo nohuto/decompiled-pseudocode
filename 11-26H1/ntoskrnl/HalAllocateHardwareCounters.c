@@ -1,16 +1,16 @@
 /*
- * XREFs of HalAllocateHardwareCounters @ 0x140780E50
+ * XREFs of HalAllocateHardwareCounters @ 0x140783950
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     HalpGetFullPmuOwnership @ 0x14057A690 (HalpGetFullPmuOwnership.c)
- *     HalpReleasePmuAccessRequest @ 0x1405807A0 (HalpReleasePmuAccessRequest.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpRequestPmuAccess @ 0x140B5BF20 (HalpRequestPmuAccess.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     HalpGetFullPmuOwnership @ 0x14057CBC0 (HalpGetFullPmuOwnership.c)
+ *     HalpReleasePmuAccessRequest @ 0x140582CC0 (HalpReleasePmuAccessRequest.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpRequestPmuAccess @ 0x140B5F240 (HalpRequestPmuAccess.c)
  */
 
 NTSTATUS __stdcall HalAllocateHardwareCounters(

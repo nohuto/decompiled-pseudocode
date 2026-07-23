@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0
+ * XREFs of RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x180010830 (RtlpHpMetadataAlloc.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpHpTagFreeHeap @ 0x1800274C0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpFreeHeap @ 0x18002B020 (RtlpHpFreeHeap.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhContextFree @ 0x18004F530 (RtlpHpLfhContextFree.c)
- *     RtlpHpReallocMove @ 0x180094540 (RtlpHpReallocMove.c)
- *     RtlpHpTagAllocateHeap @ 0x180094EF0 (RtlpHpTagAllocateHeap.c)
- *     RtlpHpSegReAlloc @ 0x1800A3160 (RtlpHpSegReAlloc.c)
- *     RtlpHpAllocateHeapSlow @ 0x1800ACEF0 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpLfhPrivateSlotListCompact @ 0x1800E8930 (RtlpHpLfhPrivateSlotListCompact.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180119830 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpMetadataAlloc @ 0x18003D230 (RtlpHpMetadataAlloc.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpHpTagFreeHeap @ 0x180053EC0 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpFreeHeap @ 0x180057A20 (RtlpHpFreeHeap.c)
+ *     RtlpHpSegReAlloc @ 0x18005CF10 (RtlpHpSegReAlloc.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhContextFree @ 0x180065110 (RtlpHpLfhContextFree.c)
+ *     RtlpHpTagAllocateHeap @ 0x180083CE0 (RtlpHpTagAllocateHeap.c)
+ *     RtlpHpReallocMove @ 0x18009EFF0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeapSlow @ 0x18009FA50 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x1800E4020 (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117A60 (RtlpHpLfhBucketUpdateAffinityMapping.c)
  * Callees:
- *     RtlpHpEnvTlsSetValue @ 0x18004EB3C (RtlpHpEnvTlsSetValue.c)
- *     RtlpHpGetCurrentProcessorNumber @ 0x18004EBB4 (RtlpHpGetCurrentProcessorNumber.c)
+ *     RtlpHpEnvTlsSetValue @ 0x18006471C (RtlpHpEnvTlsSetValue.c)
+ *     RtlpHpGetCurrentProcessorNumber @ 0x180064794 (RtlpHpGetCurrentProcessorNumber.c)
  */
 
 __int64 __fastcall RtlpHpLfhThreadDataInitializeSet(__int64 a1)

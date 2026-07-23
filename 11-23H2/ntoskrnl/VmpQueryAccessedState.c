@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpQueryAccessedState @ 0x140466E0A
+ * XREFs of VmpQueryAccessedState @ 0x14046720A
  * Callers:
- *     MiQueryEPTAccessedState @ 0x14046C08C (MiQueryEPTAccessedState.c)
+ *     MiQueryEPTAccessedState @ 0x14046C48C (MiQueryEPTAccessedState.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     VmpProcessContextLockShared @ 0x140466D94 (VmpProcessContextLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F8CDC (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpProcessAccessedBatch @ 0x1405FA95C (VmpProcessAccessedBatch.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockShared @ 0x140467194 (VmpProcessContextLockShared.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F924C (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpProcessAccessedBatch @ 0x1405FAECC (VmpProcessAccessedBatch.c)
  */
 
 __int64 __fastcall VmpQueryAccessedState(PEX_SPIN_LOCK SpinLock, _QWORD *a2, int a3, int a4)
@@ -74,10 +74,10 @@ __int64 __fastcall VmpQueryAccessedState(PEX_SPIN_LOCK SpinLock, _QWORD *a2, int
 LABEL_10:
           v11 = *((_QWORD *)SpinLock + 5);
           ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -85,7 +85,7 @@ LABEL_10:
               v16 = (v15 & SchedulerAssist[5]) == 0;
               SchedulerAssist[5] &= v15;
               if ( v16 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
             }
           }
           __writecr8(v9);
@@ -114,10 +114,10 @@ LABEL_19:
     while ( (unsigned __int64)v4 < v23 );
   }
   ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v9 <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v9 <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;
@@ -125,7 +125,7 @@ LABEL_19:
       v16 = (v20 & v19[5]) == 0;
       v19[5] &= v20;
       if ( v16 )
-        KiRemoveSystemWorkPriorityKick(v18);
+        KiRemoveSystemWorkPriorityKick((__int64)v18);
     }
   }
   result = v9;

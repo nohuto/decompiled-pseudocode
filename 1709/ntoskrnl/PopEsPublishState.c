@@ -20,6 +20,6 @@ __int64 PopEsPublishState()
   if ( PopEsState == 1 )
     v0 = 2;
   v2 = v0 | 1;
-  ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_STATE, (__int64)&v2, 8LL);
+  ZwUpdateWnfStateData(&WNF_PO_ENERGY_SAVER_STATE, &v2, 8u, 0LL, 0LL, 0, 0);
   return PopSetPowerSettingValueAcDc(&GUID_POWER_SAVING_STATUS, 4u, &PopEsState);
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpGetUmProcessImageInfo @ 0x18003E8EC
+ * XREFs of EtwpGetUmProcessImageInfo @ 0x18001EB6C
  * Callers:
- *     EtwpCheckForPrivatePreEnable @ 0x18001D9C0 (EtwpCheckForPrivatePreEnable.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
- *     EtwpTrackRegBinaryInfo @ 0x1800F69B4 (EtwpTrackRegBinaryInfo.c)
+ *     EtwpCheckForPrivatePreEnable @ 0x18004A3C0 (EtwpCheckForPrivatePreEnable.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpTrackRegBinaryInfo @ 0x1800F0F14 (EtwpTrackRegBinaryInfo.c)
  * Callees:
- *     EtwpProviderArrivalCallback @ 0x18001B9D0 (EtwpProviderArrivalCallback.c)
- *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18001D750 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpProviderArrivalCallback @ 0x1800483D0 (EtwpProviderArrivalCallback.c)
  */
 
 __int64 __fastcall EtwpGetUmProcessImageInfo(unsigned __int16 a1, __int64 a2)
 {
   __int64 v2; // r8
-  ULONG v3; // ebx
+  unsigned int v3; // ebx
   unsigned int v5; // eax
   __int64 v6; // rcx
   __int64 v7; // rdi

@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateMergedBootEntry @ 0x1408F2F78
+ * XREFs of BiCreateMergedBootEntry @ 0x1408F4238
  * Callers:
- *     BiUpdateEfiEntry @ 0x1408F4BC8 (BiUpdateEfiEntry.c)
+ *     BiUpdateEfiEntry @ 0x1408F5E88 (BiUpdateEfiEntry.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiGetDeviceFromEfiPath @ 0x1408F3AFC (BiGetDeviceFromEfiPath.c)
- *     BiGetFilePathFromEfiPath @ 0x1408F3C88 (BiGetFilePathFromEfiPath.c)
- *     BiTranslateFilePath @ 0x1408F4788 (BiTranslateFilePath.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiGetDeviceFromEfiPath @ 0x1408F4DBC (BiGetDeviceFromEfiPath.c)
+ *     BiGetFilePathFromEfiPath @ 0x1408F4F48 (BiGetFilePathFromEfiPath.c)
+ *     BiTranslateFilePath @ 0x1408F5A48 (BiTranslateFilePath.c)
  */
 
 __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, char *a2, _DWORD *a3, _WORD *a4, _QWORD *a5)
@@ -19,7 +19,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, char *a2, _DWORD *a3, _WO
   __int64 v7; // r12
   _DWORD *v9; // rdi
   _WORD *v10; // r14
-  struct _FILE_PATH *v11; // r15
+  _FILE_PATH *v11; // r15
   signed int DeviceFromEfiPath; // ebx
   int FilePathFromEfiPath; // eax
   __int64 v15; // rax
@@ -29,7 +29,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, char *a2, _DWORD *a3, _WO
   unsigned int v19; // ecx
   unsigned int v20; // eax
   unsigned int v21; // eax
-  struct _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *PoolWithTag; // rax
   __int64 v23; // rbx
   void *v24; // rdx
   size_t v25; // r8
@@ -125,7 +125,7 @@ LABEL_14:
     Size[0] = v18;
     if ( v21 < v19 )
       goto LABEL_37;
-    PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v18, 0x4B444342u);
+    PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v18, 0x4B444342u);
     v11 = PoolWithTag;
     if ( !PoolWithTag )
     {

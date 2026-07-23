@@ -1,11 +1,11 @@
 /*
- * XREFs of MmAllocateDumpHibernateResources @ 0x1408012CC
+ * XREFs of MmAllocateDumpHibernateResources @ 0x14080159C
  * Callers:
- *     PopEnableHiberFile @ 0x1408016DC (PopEnableHiberFile.c)
- *     IopLiveDumpAllocateMappingResources @ 0x14094DD88 (IopLiveDumpAllocateMappingResources.c)
- *     PopHiberInitializeResources @ 0x140988824 (PopHiberInitializeResources.c)
+ *     PopEnableHiberFile @ 0x1408019AC (PopEnableHiberFile.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x14094DF88 (IopLiveDumpAllocateMappingResources.c)
+ *     PopHiberInitializeResources @ 0x140988A24 (PopHiberInitializeResources.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
  */
 
 ULONG_PTR __fastcall MmAllocateDumpHibernateResources(unsigned __int64 a1)

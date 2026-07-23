@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetHalNumaConversionFactor @ 0x140CC9B74
+ * XREFs of KiGetHalNumaConversionFactor @ 0x140CCFC5C
  * Callers:
- *     KiComputeNumaCosts @ 0x140CC93EC (KiComputeNumaCosts.c)
+ *     KiComputeNumaCosts @ 0x140CCF47C (KiComputeNumaCosts.c)
  * Callees:
  *     <none>
  */

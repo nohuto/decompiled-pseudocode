@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpRefreshSystemTime @ 0x1407B6864
+ * XREFs of ExpRefreshSystemTime @ 0x1407B6CB4
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     CmCompleteRegistryInitialization @ 0x1407CF20C (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1407CF6FC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x140347CE0 (ExSystemTimeToLocalTime.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ExLocalTimeToSystemTime @ 0x140348040 (ExLocalTimeToSystemTime.c)
- *     HalSetRealTimeClock @ 0x140425310 (HalSetRealTimeClock.c)
- *     HalQueryRealTimeClock @ 0x140425810 (HalQueryRealTimeClock.c)
- *     RtlTimeToTimeFields @ 0x1404260F0 (RtlTimeToTimeFields.c)
- *     RtlTimeFieldsToTime @ 0x1404266B0 (RtlTimeFieldsToTime.c)
- *     KeSetSystemTime @ 0x1404B3F6C (KeSetSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x1404CA740 (PoNotifySystemTimeSet.c)
- *     ExAcquireTimeRefreshLockExclusive @ 0x1409B1FC0 (ExAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x1409B2024 (ExReleaseTimeRefreshLockExclusive.c)
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
+ *     KeSetSystemTime @ 0x140270898 (KeSetSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x1403266E0 (ExSystemTimeToLocalTime.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     ExLocalTimeToSystemTime @ 0x140326A40 (ExLocalTimeToSystemTime.c)
+ *     HalSetRealTimeClock @ 0x1404191C0 (HalSetRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x1404196C0 (HalQueryRealTimeClock.c)
+ *     RtlTimeToTimeFields @ 0x140419FA0 (RtlTimeToTimeFields.c)
+ *     RtlTimeFieldsToTime @ 0x14041A560 (RtlTimeFieldsToTime.c)
+ *     PoNotifySystemTimeSet @ 0x1404C3C60 (PoNotifySystemTimeSet.c)
+ *     ExAcquireTimeRefreshLockExclusive @ 0x1409A9310 (ExAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x1409A9374 (ExReleaseTimeRefreshLockExclusive.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
  */
 
 __int64 ExpRefreshSystemTime()
@@ -25,7 +25,7 @@ __int64 ExpRefreshSystemTime()
   int Flink_high; // esi
   LARGE_INTEGER v3; // rax
   int v5; // [rsp+28h] [rbp-28h]
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+70h] [rbp+20h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+78h] [rbp+28h] BYREF
   LARGE_INTEGER v9; // [rsp+80h] [rbp+30h] BYREF

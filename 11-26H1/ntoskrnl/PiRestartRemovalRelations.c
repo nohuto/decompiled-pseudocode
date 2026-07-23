@@ -1,10 +1,10 @@
 /*
- * XREFs of PiRestartRemovalRelations @ 0x140B39AAC
+ * XREFs of PiRestartRemovalRelations @ 0x140B3BCBC
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
  */
 
 __int64 __fastcall PiRestartRemovalRelations(__int64 a1, __int64 a2, __int64 a3)
@@ -42,7 +42,7 @@ __int64 __fastcall PiRestartRemovalRelations(__int64 a1, __int64 a2, __int64 a3)
       result = *(unsigned int *)(a1 + 152);
       if ( (result & 2) == 0 && v11[75] == 788 && (v11[99] & 0x2000) != 0 && v11[101] == 21 )
       {
-        PipClearDevNodeProblem((__int64)v11, v10);
+        PipClearDevNodeProblem((__int64)v11);
         goto LABEL_17;
       }
     }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsReturnPoolQuota @ 0x1403BD700
+ * XREFs of PsReturnPoolQuota @ 0x1403C7570
  * Callers:
  *     <none>
  * Callees:
- *     PspUnlockQuotaExpansion @ 0x1403BDC0C (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x1403BDC84 (PspLockQuotaExpansion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspUnlockQuotaExpansion @ 0x1403C7A7C (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x1403C7AF4 (PspLockQuotaExpansion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
@@ -24,7 +24,7 @@ void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PT
   signed __int64 v15; // rdx
   signed __int64 v16; // rax
   unsigned __int64 v17; // rtt
-  unsigned __int8 *v18; // rbx
+  char *v18; // rbx
   _KSCHEDULING_GROUP *SchedulingGroup; // [rsp+30h] [rbp-48h]
   unsigned __int8 v20; // [rsp+80h] [rbp+8h] BYREF
   __int64 v21; // [rsp+98h] [rbp+20h]
@@ -34,7 +34,7 @@ void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PT
     v5 = PoolType == PagedPool;
     v6 = v5 << 7;
     SchedulingGroup = Process[1].SchedulingGroup;
-    v7 = stru_140FC01F0.SchedulerApcFill3[8 * v5 + 48];
+    v7 = stru_140FC11F0.SchedulerApcFill3[8 * v5 + 40];
     v8 = (unsigned __int64 *)(&SchedulingGroup->Policy + 16 * v5);
     _m_prefetchw(v8);
     v9 = *v8;
@@ -44,21 +44,21 @@ void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PT
       v11 = 56 * v5;
       if ( v10 > v9 )
       {
-        v12 = *(ULONG_PTR *)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink + v11);
+        v12 = *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v11);
         if ( v10 - v9 > v12 )
         {
           if ( v12 > Amount )
             v12 = Amount;
           v17 = v8[8];
           if ( v17 == _InterlockedCompareExchange64((volatile signed __int64 *)v8 + 8, v10 - v12, v10)
-            && (struct _LIST_ENTRY *)(v12 + _InterlockedExchangeAdd64((volatile signed __int64 *)v8 + 9, v12)) > *(struct _LIST_ENTRY **)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink + v11) )
+            && v12 + _InterlockedExchangeAdd64((volatile signed __int64 *)v8 + 9, v12) > *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v11) )
           {
             v21 = _InterlockedExchange64((volatile __int64 *)v8 + 9, 0LL);
             if ( v21 )
             {
               v20 = 0;
-              v18 = &PsAltSystemCallRegistrationLock.ApcStateFill[v11 + 16];
-              PspLockQuotaExpansion(&PsAltSystemCallRegistrationLock.ApcStateFill[v11 + 16], &v20);
+              v18 = (char *)&PsAltSystemCallRegistrationLock.Timer.Dpc + v11;
+              PspLockQuotaExpansion((char *)&PsAltSystemCallRegistrationLock.Timer.Dpc + v11, &v20);
               guard_dispatch_icall_no_overrides((unsigned int)v5, v21);
               PspUnlockQuotaExpansion(v18, v20);
             }

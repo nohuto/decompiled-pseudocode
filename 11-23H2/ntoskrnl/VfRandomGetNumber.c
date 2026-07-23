@@ -1,12 +1,12 @@
 /*
- * XREFs of VfRandomGetNumber @ 0x140AC2388
+ * XREFs of VfRandomGetNumber @ 0x140AC2378
  * Callers:
- *     VfPendingShouldForce @ 0x140AD1ABC (VfPendingShouldForce.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
- *     DifpLwSPProcessPrePoolAlloc @ 0x140AE7C1C (DifpLwSPProcessPrePoolAlloc.c)
+ *     VfPendingShouldForce @ 0x140AD1AAC (VfPendingShouldForce.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
+ *     DifpLwSPProcessPrePoolAlloc @ 0x140AE7C0C (DifpLwSPProcessPrePoolAlloc.c)
  *     ViInitPickRandomTargets @ 0x140B69C84 (ViInitPickRandomTargets.c)
  * Callees:
- *     RtlRandomEx @ 0x1402925A0 (RtlRandomEx.c)
+ *     RtlRandomEx @ 0x140292830 (RtlRandomEx.c)
  */
 
 ULONG __fastcall VfRandomGetNumber(unsigned int a1, unsigned int a2)

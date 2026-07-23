@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRmAnalysisPhase @ 0x14085E2FC
+ * XREFs of CmpRmAnalysisPhase @ 0x1408645EC
  * Callers:
- *     CmpStartRMLog @ 0x1408AC340 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x1408B2784 (CmpStartRMLog.c)
  * Callees:
- *     CmpTransSearchAddTransFromRm @ 0x140AE0F20 (CmpTransSearchAddTransFromRm.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140ADE378 (CmpTransSearchAddTransFromRm.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpRmAnalysisPhase(__int64 a1, CLFS_LSN a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmInstallFeedbackCounters @ 0x14014367C
+ * XREFs of PpmInstallFeedbackCounters @ 0x140143BEC
  * Callers:
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
  * Callees:
- *     PpmContinueActiveTimeAccumulation @ 0x14000D480 (PpmContinueActiveTimeAccumulation.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     PpmPerfFeedbackCounterRead @ 0x1401437BC (PpmPerfFeedbackCounterRead.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14000D000 (PpmContinueActiveTimeAccumulation.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     PpmPerfFeedbackCounterRead @ 0x140143D2C (PpmPerfFeedbackCounterRead.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmInstallFeedbackCounters(__int64 a1, _QWORD *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveFaultNode @ 0x1402C71BC
+ * XREFs of MiRemoveFaultNode @ 0x1402458FC
  * Callers:
- *     MiMapPagesToZero @ 0x140234070 (MiMapPagesToZero.c)
- *     MiDecrementHugeContext @ 0x140397E18 (MiDecrementHugeContext.c)
- *     MiScrubNodeLargePageList @ 0x140556E38 (MiScrubNodeLargePageList.c)
+ *     MiMapPagesToZero @ 0x1402D88C0 (MiMapPagesToZero.c)
+ *     MiDecrementHugeContext @ 0x140397F68 (MiDecrementHugeContext.c)
+ *     MiScrubNodeLargePageList @ 0x140557078 (MiScrubNodeLargePageList.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiRemoveFaultNode(__int64 a1)
@@ -17,14 +17,14 @@ void __fastcall MiRemoveFaultNode(__int64 a1)
   __int64 *v4; // rcx
 
   v1 = *(_BYTE *)(a1 + 71);
-  v3 = &dword_140C4E570;
+  v3 = &dword_140C4E5B0;
   if ( v1 )
-    v3 = &dword_140C4E560;
+    v3 = &dword_140C4E5A0;
   ExAcquireSpinLockExclusiveAtDpcLevel(v3);
-  v4 = &qword_140C4E578;
+  v4 = &qword_140C4E5B8;
   if ( v1 )
-    v4 = &qword_140C4E568;
-  RtlAvlRemoveNode((unsigned __int64 *)v4, (unsigned __int64 *)a1);
+    v4 = &qword_140C4E5A8;
+  RtlAvlRemoveNode(v4, a1);
   *(_BYTE *)(a1 + 68) = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetSaclSecurityDescriptor @ 0x140A2C790
+ * XREFs of RtlGetSaclSecurityDescriptor @ 0x140A211D0
  * Callers:
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140696FE4 (AdtpBuildContextFromSecurityDescriptor.c)
- *     RtlReplaceSidInSd @ 0x140780E60 (RtlReplaceSidInSd.c)
- *     SepSDContainsAttributeACE @ 0x1407949C0 (SepSDContainsAttributeACE.c)
- *     CmpCopySaclToVirtualKey @ 0x1407DCB7C (CmpCopySaclToVirtualKey.c)
- *     CmpExamineSaclForAuditEvent @ 0x1407DCEC0 (CmpExamineSaclForAuditEvent.c)
- *     NtSetSecurityObject @ 0x14087A070 (NtSetSecurityObject.c)
- *     IopGetSecurityDescriptorInformation @ 0x1409A1904 (IopGetSecurityDescriptorInformation.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x140698064 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     RtlReplaceSidInSd @ 0x140780D90 (RtlReplaceSidInSd.c)
+ *     SepSDContainsAttributeACE @ 0x140795224 (SepSDContainsAttributeACE.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407DD0CC (CmpCopySaclToVirtualKey.c)
+ *     CmpExamineSaclForAuditEvent @ 0x1407DD410 (CmpExamineSaclForAuditEvent.c)
+ *     NtSetSecurityObject @ 0x1409118E0 (NtSetSecurityObject.c)
+ *     IopGetSecurityDescriptorInformation @ 0x140A6073C (IopGetSecurityDescriptorInformation.c)
  * Callees:
  *     <none>
  */

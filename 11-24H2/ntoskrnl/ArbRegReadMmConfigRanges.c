@@ -1,14 +1,14 @@
 /*
- * XREFs of ArbRegReadMmConfigRanges @ 0x1407060AC
+ * XREFs of ArbRegReadMmConfigRanges @ 0x140703C6C
  * Callers:
- *     ArbLibraryInitialize @ 0x140705A80 (ArbLibraryInitialize.c)
+ *     ArbLibraryInitialize @ 0x140703640 (ArbLibraryInitialize.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ArbpGetRegistryValue @ 0x140706A24 (ArbpGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ArbpGetRegistryValue @ 0x1407045E4 (ArbpGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 ArbRegReadMmConfigRanges()
@@ -19,7 +19,7 @@ __int64 ArbRegReadMmConfigRanges()
   int v3; // eax
   __int64 v4; // rsi
   int v5; // eax
-  unsigned int v6; // r14d
+  ULONG_PTR v6; // r14
   void *Pool2; // rax
   _DWORD v9[2]; // [rsp+20h] [rbp-50h] BYREF
   const wchar_t *v10; // [rsp+28h] [rbp-48h]
@@ -66,11 +66,11 @@ __int64 ArbRegReadMmConfigRanges()
         v5 = *(_DWORD *)((char *)P + v4 + 36);
         if ( v5 )
         {
-          v6 = 32 * v5 + 8;
-          Pool2 = (void *)ExAllocatePool2(0x40uLL);
+          v6 = (unsigned int)(32 * v5 + 8);
+          Pool2 = (void *)ExAllocatePool2(0x40uLL, v6, 0x4E627241u);
           ArbMmConfigRange = (__int64)Pool2;
           if ( Pool2 )
-            memmove(Pool2, &v2[v4 + 32], v6);
+            memmove(Pool2, &v2[v4 + 32], (unsigned int)v6);
           else
             v0 = -1073741670;
         }

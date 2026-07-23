@@ -1,14 +1,14 @@
 /*
- * XREFs of DifPopSegment @ 0x14064D034
+ * XREFs of DifPopSegment @ 0x140650C14
  * Callers:
- *     DifPushThreadContextData @ 0x14064A880 (DifPushThreadContextData.c)
- *     DifSetCallerContext @ 0x14064A9C0 (DifSetCallerContext.c)
- *     DifObjTrkAllocNode @ 0x14064AE40 (DifObjTrkAllocNode.c)
+ *     DifPushThreadContextData @ 0x14064E460 (DifPushThreadContextData.c)
+ *     DifSetCallerContext @ 0x14064E5A0 (DifSetCallerContext.c)
+ *     DifObjTrkAllocNode @ 0x14064EA20 (DifObjTrkAllocNode.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     DifAllocSegments @ 0x14064CE30 (DifAllocSegments.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     DifAllocSegments @ 0x140650A10 (DifAllocSegments.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 PSLIST_ENTRY __fastcall DifPopSegment(__int64 a1)

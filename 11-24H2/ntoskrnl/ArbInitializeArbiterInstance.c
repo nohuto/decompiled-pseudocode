@@ -1,16 +1,16 @@
 /*
- * XREFs of ArbInitializeArbiterInstance @ 0x1407055B4
+ * XREFs of ArbInitializeArbiterInstance @ 0x140703174
  * Callers:
- *     IopMemInitialize @ 0x140725C18 (IopMemInitialize.c)
- *     IopPortInitialize @ 0x1407260A0 (IopPortInitialize.c)
- *     IopDmaInitialize @ 0x1407261D4 (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x1407262F8 (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x1407263C8 (IopBusNumberInitialize.c)
+ *     IopMemInitialize @ 0x1407237A8 (IopMemInitialize.c)
+ *     IopPortInitialize @ 0x140723C30 (IopPortInitialize.c)
+ *     IopDmaInitialize @ 0x140723D64 (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x140723E88 (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x140723F58 (IopBusNumberInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     ArbBuildAssignmentOrdering @ 0x140704D3C (ArbBuildAssignmentOrdering.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407028FC (ArbBuildAssignmentOrdering.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -31,22 +31,22 @@ __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, 
 
   *(_DWORD *)a1 = 1935831617;
   *(_QWORD *)(a1 + 320) = 0LL;
-  Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x4D627241u);
   *(_QWORD *)(a1 + 8) = Pool2;
   if ( Pool2 )
   {
     KeInitializeEvent(Pool2, SynchronizationEvent, 1u);
-    v10 = ExAllocatePool2(0x100uLL);
+    v10 = ExAllocatePool2(0x100uLL, 0x1000uLL, 0x41627241u);
     v9 = (PVOID *)(a1 + 112);
     *(_QWORD *)(a1 + 112) = v10;
     if ( !v10 )
       goto LABEL_4;
     *(_DWORD *)(a1 + 104) = 4096;
-    v11 = ExAllocatePool2(0x100uLL);
+    v11 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x52627241u);
     *(_QWORD *)(a1 + 40) = v11;
     if ( !v11 )
       goto LABEL_4;
-    v12 = ExAllocatePool2(0x100uLL);
+    v12 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x52627241u);
     *(_QWORD *)(a1 + 48) = v12;
     if ( !v12 )
       goto LABEL_4;
@@ -61,7 +61,7 @@ __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, 
     *(_QWORD *)(v14 + 16) = 0LL;
     *(_DWORD *)(v14 + 24) = 0;
     *(_BYTE *)(a1 + 296) = 0;
-    v15 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
+    v15 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x4D627241u);
     *(_QWORD *)(a1 + 304) = v15;
     if ( v15 )
     {

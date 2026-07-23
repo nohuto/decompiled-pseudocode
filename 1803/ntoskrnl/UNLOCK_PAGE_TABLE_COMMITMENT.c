@@ -67,7 +67,7 @@ $005F0E83B22994B61E86C72E0CE43C71 *__fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int
         {
           v12->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v12->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v11]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v11].TreeNode);
           v15 = 0;
           v15 = v12->BoostBitmap.AllFields & 0x1FFFF;
           v12->BoostBitmap.AllFields &= 0xFFFE0000;

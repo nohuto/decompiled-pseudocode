@@ -1,14 +1,14 @@
 /*
- * XREFs of RawVerifyVolume @ 0x1402EC294
+ * XREFs of RawVerifyVolume @ 0x1402EC484
  * Callers:
- *     RawFileSystemControl @ 0x1405A25C0 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x1405A35C0 (RawFileSystemControl.c)
  * Callees:
  *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14000E780 (ExWaitForRundownProtectionReleaseCacheAware.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     RawInitiateDeleteVolume @ 0x14010C63C (RawInitiateDeleteVolume.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     RawInitiateDeleteVolume @ 0x14010C6BC (RawInitiateDeleteVolume.c)
  */
 
 __int64 __fastcall RawVerifyVolume(__int64 a1, __int64 a2)

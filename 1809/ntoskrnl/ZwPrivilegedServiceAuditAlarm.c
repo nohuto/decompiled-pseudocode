@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x1401BA7F0
+ * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x1401BA950
  * Callers:
  *     <none>
  * Callees:
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwPrivilegedServiceAuditAlarm(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SubsystemName, ServiceName, ClientToken);
+  return KiServiceInternal(SubsystemName);
 }

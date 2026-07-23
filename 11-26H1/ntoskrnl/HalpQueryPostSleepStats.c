@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpQueryPostSleepStats @ 0x1407853EC
+ * XREFs of HalpQueryPostSleepStats @ 0x140787F1C
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall HalpQueryPostSleepStats(_DWORD *a1)
@@ -14,13 +14,13 @@ __int64 __fastcall HalpQueryPostSleepStats(_DWORD *a1)
   PerformanceFrequency.QuadPart = 0LL;
   KeQueryPerformanceCounter(&PerformanceFrequency);
   v2 = PerformanceFrequency;
-  *a1 = (unsigned __int64)(1000 * (qword_140F87EA8 + qword_140F87ED0 - qword_140F87EB0 - HalpHiberResumePerf))
+  *a1 = (unsigned __int64)(1000 * (qword_140F882A8 + qword_140F882D0 - qword_140F882B0 - HalpHiberResumePerf))
       / PerformanceFrequency.QuadPart;
-  a1[1] = (unsigned __int64)(1000 * (qword_140F87EE0 + qword_140F87EF8 - qword_140F87EE8 - qword_140F87ED8))
+  a1[1] = (unsigned __int64)(1000 * (qword_140F882E0 + qword_140F882F8 - qword_140F882E8 - qword_140F882D8))
         / v2.QuadPart;
-  a1[2] = (unsigned __int64)(1000 * qword_140F87EB8) / v2.QuadPart;
-  a1[3] = (unsigned __int64)(1000 * qword_140F87EC0) / v2.QuadPart;
-  a1[4] = (unsigned __int64)(1000 * qword_140F87EC8) / v2.QuadPart;
-  a1[5] = (unsigned __int64)(1000 * qword_140F87EF0) / v2.QuadPart;
+  a1[2] = (unsigned __int64)(1000 * qword_140F882B8) / v2.QuadPart;
+  a1[3] = (unsigned __int64)(1000 * qword_140F882C0) / v2.QuadPart;
+  a1[4] = (unsigned __int64)(1000 * qword_140F882C8) / v2.QuadPart;
+  a1[5] = (unsigned __int64)(1000 * qword_140F882F0) / v2.QuadPart;
   return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExAcquirePushLockSharedEx @ 0x1400C7ED0
+ * XREFs of ExAcquirePushLockSharedEx @ 0x1400C5D70
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExAcquirePushLockSharedEx(__int64 BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -59,8 +59,8 @@ LABEL_26:
     _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0xFu);
     goto LABEL_9;
   }
-  if ( v2 < qword_140326910
-    || v2 >= qword_140326910 + 0x8000000000LL
+  if ( v2 < qword_140326950
+    || v2 >= qword_140326950 + 0x8000000000LL
     || (Process = CurrentThread->ApcState.Process, (v11 = Process[1].ActiveProcessors.Bitmap[2]) == 0)
     || Process == PsInitialSystemProcess )
   {

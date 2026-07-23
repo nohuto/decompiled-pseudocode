@@ -1,17 +1,17 @@
 /*
- * XREFs of NtAllocateVirtualMemory @ 0x1409F2980
+ * XREFs of NtAllocateVirtualMemory @ 0x1409EF150
  * Callers:
- *     DifNtAllocateVirtualMemoryWrapper @ 0x14066BA20 (DifNtAllocateVirtualMemoryWrapper.c)
+ *     DifNtAllocateVirtualMemoryWrapper @ 0x14066F600 (DifNtAllocateVirtualMemoryWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1409F2C94 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1409EF464 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 NTSTATUS __stdcall NtAllocateVirtualMemory(
@@ -109,9 +109,9 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
       VirtualMemoryPrepare = -1073741811;
 LABEL_29:
       if ( v26[0] )
-        ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[60];
+        ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[60];
       else
-        ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[56];
+        ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[56];
       goto LABEL_14;
     }
     VirtualMemoryPrepare = MiAllocateVirtualMemory((unsigned int)v26, v17, 0, 0, (__int64)&v18);

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlConfigureMemoryZeroingOnReset @ 0x1404F17EC
+ * XREFs of HvlConfigureMemoryZeroingOnReset @ 0x1404F176C
  * Callers:
- *     HvlPhase1Initialize @ 0x1403CFB58 (HvlPhase1Initialize.c)
- *     PopSaveHiberContext @ 0x1409937A0 (PopSaveHiberContext.c)
- *     PopHiberCheckResume @ 0x1409988A0 (PopHiberCheckResume.c)
- *     PopShutdownSystem @ 0x1409B2624 (PopShutdownSystem.c)
+ *     HvlPhase1Initialize @ 0x1403CFCC8 (HvlPhase1Initialize.c)
+ *     PopSaveHiberContext @ 0x1409947A0 (PopSaveHiberContext.c)
+ *     PopHiberCheckResume @ 0x1409998A0 (PopHiberCheckResume.c)
+ *     PopShutdownSystem @ 0x1409B3554 (PopShutdownSystem.c)
  * Callees:
- *     HvlpSetRegister64 @ 0x1404FA300 (HvlpSetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404FA280 (HvlpSetRegister64.c)
  */
 
 __int64 __fastcall HvlConfigureMemoryZeroingOnReset(char a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearHintSlabEntry @ 0x1402A9900
+ * XREFs of MiClearHintSlabEntry @ 0x1402A8D10
  * Callers:
- *     MiRemoveSlabEntry @ 0x1402A9800 (MiRemoveSlabEntry.c)
- *     MiChangeSlabEntryIdentity @ 0x140705BF8 (MiChangeSlabEntryIdentity.c)
- *     MiEstablishDefragSlabEntries @ 0x140706AC4 (MiEstablishDefragSlabEntries.c)
+ *     MiRemoveSlabEntry @ 0x1402A8C10 (MiRemoveSlabEntry.c)
+ *     MiChangeSlabEntryIdentity @ 0x14070A8C8 (MiChangeSlabEntryIdentity.c)
+ *     MiEstablishDefragSlabEntries @ 0x14070B794 (MiEstablishDefragSlabEntries.c)
  * Callees:
  *     <none>
  */

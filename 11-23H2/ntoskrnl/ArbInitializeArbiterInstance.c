@@ -1,14 +1,14 @@
 /*
- * XREFs of ArbInitializeArbiterInstance @ 0x140813748
+ * XREFs of ArbInitializeArbiterInstance @ 0x140813A18
  * Callers:
- *     IopPortInitialize @ 0x140810B58 (IopPortInitialize.c)
- *     IopDmaInitialize @ 0x1408125F8 (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x140812670 (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x1408126D8 (IopBusNumberInitialize.c)
- *     IopMemInitialize @ 0x1408144D4 (IopMemInitialize.c)
+ *     IopPortInitialize @ 0x140810E28 (IopPortInitialize.c)
+ *     IopDmaInitialize @ 0x1408128C8 (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x140812940 (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x1408129A8 (IopBusNumberInitialize.c)
+ *     IopMemInitialize @ 0x1408147A4 (IopMemInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ArbBuildAssignmentOrdering @ 0x140813A78 (ArbBuildAssignmentOrdering.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ArbBuildAssignmentOrdering @ 0x140813D48 (ArbBuildAssignmentOrdering.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

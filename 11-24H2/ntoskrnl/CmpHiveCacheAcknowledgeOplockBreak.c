@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpHiveCacheAcknowledgeOplockBreak @ 0x1407E51FC
+ * XREFs of CmpHiveCacheAcknowledgeOplockBreak @ 0x1407E57CC
  * Callers:
- *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5970 (CmpHiveCachePopulateHiveEntryThread.c)
+ *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5F40 (CmpHiveCachePopulateHiveEntryThread.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x1406A6B30 (ZwFsControlFile.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1406A7AD0 (ZwFsControlFile.c)
  */
 
 __int64 __fastcall CmpHiveCacheAcknowledgeOplockBreak(_QWORD *a1, int a2)

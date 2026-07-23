@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpFinalizePendingApc @ 0x1405A6BAC
+ * XREFs of EtwpFinalizePendingApc @ 0x1405A6DDC
  * Callers:
- *     EtwpCancelPendingStackwalkApcs @ 0x1402C7F88 (EtwpCancelPendingStackwalkApcs.c)
- *     EtwpCancelStackWalkApc @ 0x1405A6B90 (EtwpCancelStackWalkApc.c)
- *     EtwpStackWalkApc @ 0x1405A7060 (EtwpStackWalkApc.c)
+ *     EtwpCancelPendingStackwalkApcs @ 0x1402467E8 (EtwpCancelPendingStackwalkApcs.c)
+ *     EtwpCancelStackWalkApc @ 0x1405A6DC0 (EtwpCancelStackWalkApc.c)
+ *     EtwpStackWalkApc @ 0x1405A7290 (EtwpStackWalkApc.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402A5670 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall EtwpFinalizePendingApc(unsigned int *a1, __int64 a2)

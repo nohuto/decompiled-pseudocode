@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1404D843C
+ * XREFs of _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1404BBA40
  * Callers:
- *     _CmGetInstallerClassMappedProperty @ 0x1404D82B4 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x1406DDEB8 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x1404BB8B8 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1406DDFF0 (_CmGetInstallerClassMappedPropertyKeys.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _CmOpenInstallerClassRegKey @ 0x1404F7A60 (_CmOpenInstallerClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x140501594 (_PnpCtxRegQueryValueIndirect.c)
- *     _PnpCtxRegQueryValue @ 0x140504098 (_PnpCtxRegQueryValue.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1404DA9EC (_CmOpenInstallerClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x1404E4524 (_PnpCtxRegQueryValueIndirect.c)
+ *     _PnpCtxRegQueryValue @ 0x1404E7028 (_PnpCtxRegQueryValue.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegValue(
@@ -65,7 +65,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegValue(
   v9 = (_BYTE *)a6;
   v45 = a1;
   v47 = a8;
-  v12 = &off_1406EB2A0;
+  v12 = &off_1406EB3D0;
   v13 = *(_DWORD *)(a4 + 16);
   v14 = 0;
   Handle = 0LL;
@@ -189,7 +189,7 @@ LABEL_64:
       {
         if ( v32 )
         {
-          v33 = &word_140583CF0;
+          v33 = &word_1405841A0;
         }
         else
         {

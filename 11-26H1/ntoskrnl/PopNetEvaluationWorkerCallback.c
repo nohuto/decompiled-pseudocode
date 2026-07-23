@@ -1,17 +1,17 @@
 /*
- * XREFs of PopNetEvaluationWorkerCallback @ 0x1404EA630
+ * XREFs of PopNetEvaluationWorkerCallback @ 0x1404E39E0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x140B30410 (PopNetUpdateCsConsumptionFlags.c)
- *     PopNetPublishWnfStateUpdate @ 0x140B39F5C (PopNetPublishWnfStateUpdate.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x140B3DAFC (PopTraceStandbyConnectivityUpdate.c)
- *     PopNetEvaluateStateMask @ 0x140B455B0 (PopNetEvaluateStateMask.c)
- *     PopNetSetResiliencyPhaseBias @ 0x140B4AC80 (PopNetSetResiliencyPhaseBias.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x140B32614 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopNetPublishWnfStateUpdate @ 0x140B3C16C (PopNetPublishWnfStateUpdate.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x140B3FBDC (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetEvaluateStateMask @ 0x140B475EC (PopNetEvaluateStateMask.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140B4CA10 (PopNetSetResiliencyPhaseBias.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopNetEvaluationWorkerCallback(__int64 a1, __int64 a2)
@@ -55,7 +55,7 @@ __int64 __fastcall PopNetEvaluationWorkerCallback(__int64 a1, __int64 a2)
         goto LABEL_3;
       v5 = 1;
     }
-    if ( BYTE4(stru_140F0C428.Header.WaitListHead.Flink) && qword_140E67580 )
+    if ( PopPdcDeviceListLock.SchedulerApcFill3[40] && qword_140E677E0 )
     {
       LOBYTE(v7) = 1;
       v12 = 1;
@@ -66,11 +66,11 @@ LABEL_3:
     if ( v14 != v3 )
     {
       v4 = 1;
-      v11 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.Spare35[1]);
+      v11 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
       PopNetStandbyReason = v9;
-      if ( LOBYTE(stru_140F10828.Spare35[0]) && !stru_140F10828.SchedulerSharedOffset )
-        stru_140F10828.SchedulerSharedOffset = v9;
-      KeReleaseSpinLock(&stru_140F10070.Spare35[1], v11);
+      if ( PopCsResiliencyStats[0] && !dword_140F100AC )
+        dword_140F100AC = v9;
+      KeReleaseSpinLock(&PopCsResiliencyStatsLock, v11);
     }
     if ( v8 != v2 )
     {
@@ -87,11 +87,11 @@ LABEL_3:
     }
     if ( !v4 )
       break;
-    if ( byte_140E67628 )
+    if ( PopDiagHandleRegistered )
       PopTraceStandbyConnectivityUpdate(v8, v9);
     else
-      stru_140F0C428.WaitBlockFill6[108] = 1;
+      PopPdcDeviceListLock.SchedulerApcFill3[53] = 1;
   }
-  _InterlockedExchange((volatile __int32 *)&stru_140F0C428.WaitBlockFill11[96], 0);
+  _InterlockedExchange((volatile __int32 *)&PopPdcDeviceListLock.InGlobalForegroundList, 0);
   return PopReleasePolicyLock();
 }

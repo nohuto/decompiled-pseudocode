@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoWMIAllocateInstanceIdsWrapper @ 0x1405E1A30
+ * XREFs of DifIoWMIAllocateInstanceIdsWrapper @ 0x1405E1FA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoWMIAllocateInstanceIds @ 0x1409DEAE0 (IoWMIAllocateInstanceIds.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoWMIAllocateInstanceIds @ 0x1409DECE0 (IoWMIAllocateInstanceIds.c)
  */
 
 NTSTATUS __fastcall DifIoWMIAllocateInstanceIdsWrapper(LPCGUID Guid, ULONG InstanceCount, ULONG *FirstInstanceId)

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockKeyBodyIntoMemory @ 0x1407DB030
+ * XREFs of CmpLockKeyBodyIntoMemory @ 0x1407DB580
  * Callers:
- *     CmOpenKeyForBugCheckRecovery @ 0x1407CF3E0 (CmOpenKeyForBugCheckRecovery.c)
+ *     CmOpenKeyForBugCheckRecovery @ 0x1407CF8D0 (CmOpenKeyForBugCheckRecovery.c)
  * Callees:
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
  */
 
 __int64 __fastcall CmpLockKeyBodyIntoMemory(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall CmpLockKeyBodyIntoMemory(__int64 a1)
   struct _MDL *v4; // rbx
 
   v2 = *(_QWORD *)(a1 + 8);
-  Pool = (struct _MDL *)CmpAllocatePool(0x40uLL);
+  Pool = (struct _MDL *)CmpAllocatePool(0x40uLL, 0x80uLL, 0x34394D43u);
   v4 = Pool;
   if ( Pool )
   {

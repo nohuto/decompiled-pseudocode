@@ -1,15 +1,15 @@
 /*
- * XREFs of ExQueueWorkItemEx @ 0x1400A8A00
+ * XREFs of ExQueueWorkItemEx @ 0x1400A6F80
  * Callers:
- *     PopFxResidentTimeoutDpcRoutine @ 0x1400A89D0 (PopFxResidentTimeoutDpcRoutine.c)
- *     KeTerminateThread @ 0x1400F2454 (KeTerminateThread.c)
- *     PopPepIdleTimeoutDpcRoutine @ 0x140206288 (PopPepIdleTimeoutDpcRoutine.c)
- *     ExpHotAddProcessorToWorkers @ 0x14022E9FC (ExpHotAddProcessorToWorkers.c)
+ *     PopFxResidentTimeoutDpcRoutine @ 0x1400A6F50 (PopFxResidentTimeoutDpcRoutine.c)
+ *     KeTerminateThread @ 0x1400F02A4 (KeTerminateThread.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x1402060B4 (PopPepIdleTimeoutDpcRoutine.c)
+ *     ExpHotAddProcessorToWorkers @ 0x14022E828 (ExpHotAddProcessorToWorkers.c)
  *     ExpWorkerHotAddProcessor @ 0x1403DFF80 (ExpWorkerHotAddProcessor.c)
- *     MmScrubMemory @ 0x14066528C (MmScrubMemory.c)
+ *     MmScrubMemory @ 0x140665370 (MmScrubMemory.c)
  * Callees:
- *     ExpValidateWorkItem @ 0x14005FEAC (ExpValidateWorkItem.c)
- *     ExpTypeToPriority @ 0x1400D11BC (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x14005FA2C (ExpValidateWorkItem.c)
+ *     ExpTypeToPriority @ 0x1400CF05C (ExpTypeToPriority.c)
  */
 
 __int64 __fastcall ExQueueWorkItemEx(_QWORD *a1, unsigned int a2, unsigned int a3)

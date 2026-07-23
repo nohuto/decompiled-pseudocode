@@ -9,19 +9,25 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall RtlpLogHeapAffinitySlotAssign(int a1, int a2, int a3)
+NTSTATUS __fastcall RtlpLogHeapAffinitySlotAssign(int a1, int a2, int a3)
 {
   int v5; // eax
-  _DWORD v7[11]; // [esp+8h] [ebp-30h] BYREF
+  size_t v7; // [esp-4h] [ebp-3Ch]
+  _BYTE Fields[6]; // [esp+8h] [ebp-30h] BYREF
+  __int16 v9; // [esp+Eh] [ebp-2Ah]
+  int v10; // [esp+28h] [ebp-10h]
+  int v11; // [esp+2Ch] [ebp-Ch]
+  int v12; // [esp+30h] [ebp-8h]
 
-  memset(v7, 0, sizeof(v7));
-  v7[8] = a1;
-  HIWORD(v7[1]) = 4153;
-  v7[9] = a2;
-  v7[10] = a3;
+  LODWORD(v7) = 44;
+  memset(Fields, 0, v7);
+  v10 = a1;
+  v9 = 4153;
+  v11 = a2;
+  v12 = a3;
   if ( RtlGetCurrentServiceSessionId() )
     v5 = (int)NtCurrentPeb()->SharedData + 550;
   else
     v5 = 2147353472;
-  return NtTraceEvent(*(unsigned __int8 *)v5, 132098, 12, (int)v7);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v5, 0x20402u, 0xCu, Fields);
 }

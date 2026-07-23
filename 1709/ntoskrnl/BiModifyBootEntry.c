@@ -10,7 +10,7 @@
 
 __int64 __fastcall BiModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   unsigned int v4; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = BiAcquirePrivilege(0x16u, (__int64)&v4);

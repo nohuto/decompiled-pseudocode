@@ -48,7 +48,7 @@ __int64 __fastcall PspAllocateThread(
         unsigned __int8 a3,
         __int64 a4,
         __int64 a5,
-        __int64 *a6,
+        _INITIAL_TEB **a6,
         __int64 a7,
         __int64 a8,
         int *a9,
@@ -59,7 +59,7 @@ __int64 __fastcall PspAllocateThread(
   unsigned __int8 v13; // bl
   _DMA_OPERATIONS **v16; // r8
   struct _KTHREAD *CurrentThread; // r9
-  __int64 v18; // rax
+  _INITIAL_TEB *v18; // rax
   __int64 v19; // rdx
   int v20; // r14d
   _QWORD *v21; // r11
@@ -89,7 +89,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v46; // rax
   __int64 v47; // rcx
   _DMA_OPERATIONS *PoolWithTag; // rax
-  char *ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   __int64 v50; // rdx
   __int64 v51; // rcx
   _DMA_OPERATIONS **v52; // r8
@@ -101,15 +101,15 @@ __int64 __fastcall PspAllocateThread(
   char v58; // [rsp+54h] [rbp-134h]
   __int16 v59; // [rsp+54h] [rbp-134h]
   int v60; // [rsp+58h] [rbp-130h]
-  __int64 v61; // [rsp+60h] [rbp-128h]
+  _INITIAL_TEB *v61; // [rsp+60h] [rbp-128h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-120h] BYREF
   __int64 v63; // [rsp+70h] [rbp-118h] BYREF
   char *v64; // [rsp+78h] [rbp-110h]
   _DMA_OPERATIONS **p_DmaOperations; // [rsp+80h] [rbp-108h]
-  SIZE_T NumberOfBytes; // [rsp+88h] [rbp-100h] BYREF
+  ULONG ContextLength; // [rsp+88h] [rbp-100h] BYREF
   __int64 v67; // [rsp+90h] [rbp-F8h]
   __int64 v68; // [rsp+98h] [rbp-F0h]
-  __int64 v69; // [rsp+A0h] [rbp-E8h]
+  _INITIAL_TEB *v69; // [rsp+A0h] [rbp-E8h]
   struct _KTHREAD *v70; // [rsp+A8h] [rbp-E0h]
   ULONG_PTR v71; // [rsp+B0h] [rbp-D8h]
   __int64 v72; // [rsp+B8h] [rbp-D0h]
@@ -148,7 +148,7 @@ __int64 __fastcall PspAllocateThread(
   v76 = 0;
   v77 = 0;
   v78 = 0;
-  LODWORD(NumberOfBytes) = 0;
+  ContextLength = 0;
   CurrentThread = KeGetCurrentThread();
   v70 = CurrentThread;
   v60 = 0;
@@ -293,7 +293,7 @@ LABEL_24:
   v28[96].DmaOperations = (_DMA_OPERATIONS *)-3LL;
   if ( KeQuerySystemTimeUnsafe() )
   {
-    KeQuerySystemTimePrecise((__int64 *)&v28[67]);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)&v28[67]);
   }
   else
   {
@@ -346,10 +346,10 @@ LABEL_24:
           && (*(_DWORD *)(a5 + 48) & 0x100040) == 0x100040
           && (*(_DWORD *)(*(int *)(a5 + 1248) + a5 + 1232) & 0x800LL) != 0 )
         {
-          ExtendedFeature = RtlLocateExtendedFeature((_DWORD *)(a5 + 1232), 0xBu, 0LL);
+          ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a5 + 1232), 0xBu, 0LL);
           if ( ExtendedFeature )
           {
-            if ( (*ExtendedFeature & 1) != 0 && *((_QWORD *)ExtendedFeature + 1) )
+            if ( (*(_BYTE *)ExtendedFeature & 1) != 0 && ExtendedFeature[1] )
               *(_DWORD *)(&v28[7].Size + 1) |= 0x100000u;
           }
         }
@@ -426,8 +426,8 @@ LABEL_110:
       v28[94].DmaOperations = *(_DMA_OPERATIONS **)(v67 + 8);
       *(_QWORD *)&v28[95].Version = *(_QWORD *)(v47 + 16);
       _interlockedbittestandset((volatile signed __int32 *)v28, 0x1Au);
-      RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &NumberOfBytes);
-      PoolWithTag = (_DMA_OPERATIONS *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x63537350u);
+      RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &ContextLength);
+      PoolWithTag = (_DMA_OPERATIONS *)ExAllocatePoolWithTag(PagedPool, ContextLength, 0x63537350u);
       v28 = DmaAdapter;
       DmaAdapter[97].DmaOperations = PoolWithTag;
       if ( !PoolWithTag )
@@ -449,14 +449,14 @@ LABEL_111:
       v80 = 0x8000LL;
       v81 = 0x40000LL;
       v79 = 0LL;
-      v22 = PspSetupUserStack(BugCheckParameter1, a5, v61, &v75);
+      v22 = PspSetupUserStack(BugCheckParameter1, a5, v61, &v75, v60);
       v57 = v22;
       if ( v22 >= 0 )
       {
         v40 = (int)v64;
         *v64 ^= (v75 ^ *v64) & 2;
-        v41 = v61;
-        v42 = PspWow64SetupUserStack(BugCheckParameter1, v34, v61, v40, v60);
+        v41 = (__int64)v61;
+        v42 = PspWow64SetupUserStack(BugCheckParameter1, v34, (_DWORD)v61, v40, v60);
 LABEL_68:
         v22 = v42;
         v57 = v42;
@@ -507,16 +507,16 @@ LABEL_73:
     }
     else
     {
-      v22 = PspSetupUserStack(BugCheckParameter1, a5, v61, v39);
+      v22 = PspSetupUserStack(BugCheckParameter1, a5, v61, v39, v60);
       v57 = v22;
       if ( v22 >= 0 && (*(_DWORD *)(&v28[7].Size + 1) & 0x100000) != 0 )
       {
-        v41 = v61;
+        v41 = (__int64)v61;
         v42 = PspSetupUserShadowStack(BugCheckParameter1, v60);
         goto LABEL_68;
       }
     }
-    v41 = v61;
+    v41 = (__int64)v61;
     goto LABEL_73;
   }
   *(_QWORD *)&v28[69].Version = a7;

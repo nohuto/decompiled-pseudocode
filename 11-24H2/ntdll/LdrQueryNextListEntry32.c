@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrQueryNextListEntry32 @ 0x1800AF970
+ * XREFs of LdrQueryNextListEntry32 @ 0x18007C210
  * Callers:
- *     LdrQueryProcessModuleInformationEx2 @ 0x1800AFEE0 (LdrQueryProcessModuleInformationEx2.c)
- *     LdrQueryProcessModuleInformationEx @ 0x1800B0720 (LdrQueryProcessModuleInformationEx.c)
+ *     LdrQueryProcessModuleInformationEx2 @ 0x18007C780 (LdrQueryProcessModuleInformationEx2.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x18007CFC0 (LdrQueryProcessModuleInformationEx.c)
  * Callees:
- *     LdrpReadMemory @ 0x1800B0B90 (LdrpReadMemory.c)
+ *     LdrpReadMemory @ 0x18007D430 (LdrpReadMemory.c)
  */
 
 __int64 __fastcall LdrQueryNextListEntry32(__int64 a1, __int64 a2, _QWORD *a3)

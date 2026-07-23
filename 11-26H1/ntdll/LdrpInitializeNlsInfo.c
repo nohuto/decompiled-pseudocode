@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpInitializeNlsInfo @ 0x1800D5244
+ * XREFs of LdrpInitializeNlsInfo @ 0x1800DCF9C
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlpInitCodePageTables @ 0x1800D52E0 (RtlpInitCodePageTables.c)
- *     LdrpFusionManifestCodePages @ 0x1800D55E8 (LdrpFusionManifestCodePages.c)
- *     RtlpQueryNlsSystemCodePages @ 0x1800D594C (RtlpQueryNlsSystemCodePages.c)
+ *     RtlpInitCodePageTables @ 0x1800DD038 (RtlpInitCodePageTables.c)
+ *     LdrpFusionManifestCodePages @ 0x1800DD338 (LdrpFusionManifestCodePages.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x1800DD69C (RtlpQueryNlsSystemCodePages.c)
  */
 
 __int64 __fastcall LdrpInitializeNlsInfo(__int64 a1)
 {
   __int16 v2; // cx
   __int16 v3; // dx
-  int v5; // [rsp+30h] [rbp+8h] BYREF
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  ULONG Value; // [rsp+30h] [rbp+8h] BYREF
+  ULONG v6; // [rsp+38h] [rbp+10h] BYREF
 
   if ( (*(_DWORD *)(*(_QWORD *)(a1 + 32) + 8LL) & 0x8000000) != 0 )
   {
@@ -21,11 +21,11 @@ __int64 __fastcall LdrpInitializeNlsInfo(__int64 a1)
   }
   else
   {
-    v5 = 0;
+    Value = 0;
     v6 = 0;
-    if ( (unsigned __int8)LdrpFusionManifestCodePages(&v5, &v6) || (int)RtlpQueryNlsSystemCodePages(&v5, &v6) >= 0 )
+    if ( (unsigned __int8)LdrpFusionManifestCodePages(&Value, &v6) || (int)RtlpQueryNlsSystemCodePages(&Value, &v6) >= 0 )
     {
-      v2 = v5;
+      v2 = Value;
       v3 = v6;
     }
     else

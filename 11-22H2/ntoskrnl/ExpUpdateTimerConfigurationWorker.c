@@ -31,7 +31,7 @@ char __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)
   v3 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -43,15 +43,15 @@ char __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)
   *(_DWORD *)(a2 + 24) = 0;
   if ( *(_QWORD *)a2 )
   {
-    v7 = KiSetClockInterval(ExpLastRequestedTime, 1, (unsigned __int64)&ExpClockIntervalRequest);
+    v7 = KiSetClockInterval(ExpLastRequestedTime, 1, (__int64)&ExpClockIntervalRequest);
     KiSendClockInterruptToClockOwner();
     **(_DWORD **)a2 = v7;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v10 - 2) <= 0xDu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v10 - 2) <= 0xDu )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = CurrentPrcb->SchedulerAssist;
@@ -71,10 +71,10 @@ char __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)
     LOBYTE(v6) = *v6;
     KeTimeSynchronization = (char)v6;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v6) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)v6 >= 2u )

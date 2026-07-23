@@ -17,39 +17,41 @@ int __fastcall PiUEventBroadcastPortsChangedEvent(int a1, _OWORD *a2, __int64 a3
 {
   __int64 SessionById; // rax
   void *v6; // rbx
+  int ExplicitScope; // [rsp+40h] [rbp-9h] BYREF
   unsigned int v9; // [rsp+48h] [rbp-1h] BYREF
   int v10; // [rsp+4Ch] [rbp+3h] BYREF
-  HANDLE Handle; // [rsp+50h] [rbp+7h] BYREF
-  _OWORD v12[3]; // [rsp+58h] [rbp+Fh] BYREF
+  LOGICAL v11[2]; // [rsp+50h] [rbp+7h] BYREF
+  _OWORD Buffer[3]; // [rsp+58h] [rbp+Fh] BYREF
 
-  memset(v12, 0, sizeof(v12));
-  Handle = 0LL;
+  ExplicitScope = a1;
+  memset(Buffer, 0, sizeof(Buffer));
+  *(_QWORD *)v11 = 0LL;
   v10 = 0;
-  LODWORD(SessionById) = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, a3, 0x11u, 0, 131097, 0, (__int64)&Handle, 0LL);
+  LODWORD(SessionById) = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, a3, 0x11u, 0, 131097, 0, (__int64)v11, 0LL);
   if ( (int)SessionById >= 0 )
   {
     v9 = 32;
-    LODWORD(SessionById) = RegRtlQueryValue(Handle, L"PortName", &v10, &v12[1], &v9);
+    LODWORD(SessionById) = RegRtlQueryValue(*(HANDLE *)v11, L"PortName", &v10, &Buffer[1], &v9);
     if ( (int)SessionById >= 0 )
     {
-      v12[0] = *a2;
-      if ( a1 == -1 )
+      Buffer[0] = *a2;
+      if ( ExplicitScope == -1 )
       {
-        LODWORD(SessionById) = ZwUpdateWnfStateData((__int64)&WNF_PNPA_PORTS_CHANGED, (__int64)v12, 48LL);
+        LODWORD(SessionById) = ZwUpdateWnfStateData(&WNF_PNPA_PORTS_CHANGED, Buffer, 0x30u, 0LL, 0LL, 0, 0);
       }
       else
       {
-        SessionById = MmGetSessionById(a1);
+        SessionById = MmGetSessionById(ExplicitScope);
         v6 = (void *)SessionById;
         if ( SessionById )
         {
-          ZwUpdateWnfStateData((__int64)&WNF_PNPA_PORTS_CHANGED_SESSION, (__int64)v12, 48LL);
+          ZwUpdateWnfStateData(&WNF_PNPA_PORTS_CHANGED_SESSION, Buffer, 0x30u, 0LL, &ExplicitScope, 0, 0);
           LODWORD(SessionById) = ObfDereferenceObject(v6);
         }
       }
     }
   }
-  if ( Handle )
-    LODWORD(SessionById) = ZwClose(Handle);
+  if ( *(_QWORD *)v11 )
+    LODWORD(SessionById) = ZwClose(*(HANDLE *)v11);
   return SessionById;
 }

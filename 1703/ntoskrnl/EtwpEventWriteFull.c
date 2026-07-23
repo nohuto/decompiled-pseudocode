@@ -65,7 +65,7 @@ __int64 __fastcall EtwpEventWriteFull(
   __int64 v18; // r12
   _WORD *v19; // rcx
   unsigned int v20; // esi
-  struct _SLIST_ENTRY *v21; // r15
+  _SLIST_ENTRY *v21; // r15
   unsigned __int16 v22; // r8
   void *v23; // rax
   char v24; // di
@@ -328,7 +328,7 @@ LABEL_16:
                                 *((_QWORD *)v122 + 1)) )
         {
           v93 = EtwpApplyEventNameFilter(v37, v65, a10, v131, 0, EffectiveIrql, v64, i);
-          v21 = (struct _SLIST_ENTRY *)v119;
+          v21 = (_SLIST_ENTRY *)v119;
           if ( !v93 )
           {
 LABEL_172:
@@ -338,7 +338,7 @@ LABEL_172:
         }
         else
         {
-          v21 = (struct _SLIST_ENTRY *)v119;
+          v21 = (_SLIST_ENTRY *)v119;
         }
         v34 = 8;
       }
@@ -568,7 +568,7 @@ LABEL_49:
         }
         if ( v45 )
           ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(v126 + 8LL * v125 + 408), 1u);
-        v21 = (struct _SLIST_ENTRY *)v119;
+        v21 = (_SLIST_ENTRY *)v119;
         if ( ReserveTraceBufferStatus == -1073741675 )
         {
           v124 = -1073741675;
@@ -825,7 +825,7 @@ LABEL_56:
         EtwpSendTraceEvent(v128, &v148);
       }
       v59 = v143;
-      v21 = (struct _SLIST_ENTRY *)v119;
+      v21 = (_SLIST_ENTRY *)v119;
       v18 = (__int64)v122;
       if ( v143 )
       {
@@ -838,7 +838,7 @@ LABEL_56:
     v103 = v125;
     if ( v45 )
       ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(v126 + 8LL * v125 + 408), 1u);
-    v21 = (struct _SLIST_ENTRY *)v119;
+    v21 = (_SLIST_ENTRY *)v119;
     v18 = (__int64)v122;
   }
   while ( v103 != 3 );
@@ -889,7 +889,7 @@ LABEL_72:
     else
     {
       ++v86->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *, struct _KPRCB *, size_t, __int64))v86->FreeEx)(v21, v85, v26, i);
+      ((void (__fastcall *)(_SLIST_ENTRY *, struct _KPRCB *, size_t, __int64))v86->FreeEx)(v21, v85, v26, i);
     }
   }
   return (unsigned int)v124;

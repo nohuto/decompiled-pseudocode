@@ -91,8 +91,8 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
       goto LABEL_52;
     }
     v12 = 128;
-    v25 = (int)EtwpCheckCurrentUserGuidAccess(PrivateLoggerSecurityGuid, 128LL) < 0;
-    *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+    v25 = (int)EtwpCheckCurrentUserGuidAccess(&PrivateLoggerSecurityGuid, 128LL) < 0;
+    *(GUID *)(a2 + 40) = PrivateLoggerNotificationGuid;
   }
   else
   {

@@ -25,8 +25,8 @@ void __fastcall KiDynamicProcessorInitialization(__int64 a1)
   bool v10; // zf
   ULONG Context; // [rsp+20h] [rbp-30h] BYREF
   ULONG Context_4; // [rsp+24h] [rbp-2Ch]
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   v1 = *(unsigned int *)(a1 + 36);
   Affinity = 0LL;

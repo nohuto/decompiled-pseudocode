@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitializeTimeRefresh @ 0x140C4058C
+ * XREFs of ExInitializeTimeRefresh @ 0x140C426DC
  * Callers:
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KiInitializeTimer2 @ 0x1403BF498 (KiInitializeTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     ZwLockProductActivationKeys @ 0x1406A86B0 (ZwLockProductActivationKeys.c)
- *     ExGetExpirationDate @ 0x1407B7EC8 (ExGetExpirationDate.c)
+ *     KiInitializeTimer2 @ 0x1403AE058 (KiInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     ZwLockProductActivationKeys @ 0x1406A9650 (ZwLockProductActivationKeys.c)
+ *     ExGetExpirationDate @ 0x1407B8318 (ExGetExpirationDate.c)
  */
 
 __int64 *ExInitializeTimeRefresh()
@@ -30,15 +30,15 @@ __int64 *ExInitializeTimeRefresh()
   ExpTimeRefreshWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ExpTimeRefreshWork;
   ExpTimeRefreshWorkItem.Parameter = 0LL;
   ExpTimeRefreshWorkItem.List.Flink = 0LL;
-  word_140EFE962 = 0;
+  word_140EFEC02 = 0;
   KiInitializeTimer2((unsigned __int64)&ExpTimeRefreshTimer, (__int64)ExpTimeRefreshCallback, 0LL, 8);
   v1[1] = -1LL;
   v1[0] = 0LL;
   ExpTimeRefreshInterval = -36000000000LL;
-  KeSetTimer2((__int64)&ExpTimeRefreshTimer, -36000000000LL, 0LL, (__int64)v1);
+  KeSetTimer2((__int64)&ExpTimeRefreshTimer, (LARGE_INTEGER)-36000000000LL, 0LL, (__int64)v1);
   result = &ExpTimerResolutionListHead;
   ExpTimeRefreshLock = 0LL;
-  qword_140EFEA68 = (__int64)&ExpTimerResolutionListHead;
+  qword_140EFED48 = (__int64)&ExpTimerResolutionListHead;
   ExpTimerResolutionListHead = (__int64)&ExpTimerResolutionListHead;
   return result;
 }

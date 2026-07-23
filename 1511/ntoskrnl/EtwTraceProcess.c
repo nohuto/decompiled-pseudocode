@@ -78,7 +78,7 @@ void __fastcall EtwTraceProcess(__int64 BugCheckParameter1, __int16 a2)
     v2 + 24,
     v2 + 1360,
     v2 + 16,
-    v2 + 368,
+    (PSIZE_T)(v2 + 368),
     (PANSI_STRING)(v2 + 160),
     v2 + 40,
     (PVOID)(v2 + 56));

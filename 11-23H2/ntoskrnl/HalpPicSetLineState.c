@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPicSetLineState @ 0x140527C70
+ * XREFs of HalpPicSetLineState @ 0x1405281C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIoDelay @ 0x14041A6A0 (HalpIoDelay.c)
- *     WRITE_PORT_USHORT_PAIR @ 0x1405066D8 (WRITE_PORT_USHORT_PAIR.c)
- *     READ_PORT_USHORT_PAIR @ 0x140527D9C (READ_PORT_USHORT_PAIR.c)
+ *     HalpIoDelay @ 0x14041AA30 (HalpIoDelay.c)
+ *     WRITE_PORT_USHORT_PAIR @ 0x140506C28 (WRITE_PORT_USHORT_PAIR.c)
+ *     READ_PORT_USHORT_PAIR @ 0x1405282EC (READ_PORT_USHORT_PAIR.c)
  */
 
 __int64 __fastcall HalpPicSetLineState(_DWORD *a1, __int64 a2, __int64 a3)

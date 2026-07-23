@@ -11,24 +11,23 @@
  *     sub_1800D5848 @ 0x1800D5848 (sub_1800D5848.c)
  */
 
-__int64 __fastcall sub_180082190(const void *a1)
+__int64 __fastcall sub_180082190(void *a1)
 {
   bool v2; // di
-  int v3; // ecx
+  NTSTATUS v3; // ecx
   int v4; // eax
   int v5; // ebx
-  __int64 v6; // rdx
-  char v8; // al
-  int v9; // edx
-  const void *v10; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-20h]
+  char v7; // al
+  int v8; // edx
+  void *v9; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+48h] [rbp-20h]
 
   v2 = 0;
-  v10 = a1;
-  v3 = ZwQueryVirtualMemory(-1LL, 0LL, 4LL, &v10, 16LL, 0LL);
+  v9 = a1;
+  v3 = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, MemoryWorkingSetExInformation, &v9, 0x10uLL, 0LL);
   if ( v3 < 0 )
   {
-    v8 = dword_18015FAB0;
+    v7 = dword_18015FAB0;
     if ( (dword_18015FAB0 & 3) != 0 )
     {
       sub_1800CE318(
@@ -38,44 +37,43 @@ __int64 __fastcall sub_180082190(const void *a1)
         0,
         (__int64)"Querying large page info failed with status 0x%08lx\n",
         v3);
-      v8 = dword_18015FAB0;
+      v7 = dword_18015FAB0;
     }
-    if ( (v8 & 0x10) != 0 )
+    if ( (v7 & 0x10) != 0 )
       __debugbreak();
   }
-  else if ( (v11 & 1) != 0 )
+  else if ( (v10 & 1) != 0 )
   {
-    v2 = (v11 & 0x800000) != 0;
+    v2 = (v10 & 0x800000) != 0;
   }
   if ( !v2 )
   {
-    v4 = sub_18008226C(a1, 0LL);
+    v4 = sub_18008226C(a1);
     v5 = v4;
     if ( v4 < 0 )
     {
       if ( (dword_18015FAB0 & 3) == 0 )
         goto LABEL_21;
-      v9 = 1981;
+      v8 = 1981;
       goto LABEL_20;
     }
   }
-  v5 = sub_180083108(a1);
+  v5 = sub_180083108((int)a1);
   if ( v5 < 0 )
     goto LABEL_9;
   if ( v2 )
     goto LABEL_9;
-  LOBYTE(v6) = 1;
-  v4 = sub_18008226C(a1, v6);
+  v4 = sub_18008226C(a1);
   v5 = v4;
   if ( v4 >= 0 )
     goto LABEL_9;
   if ( (dword_18015FAB0 & 3) != 0 )
   {
-    v9 = 2005;
+    v8 = 2005;
 LABEL_20:
     sub_1800CE318(
       (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-      v9,
+      v8,
       (unsigned int)"LdrpProtectAndRelocateImage",
       0,
       (__int64)"Changing the protection of the executable at %p failed with status 0x%08lx\n",

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfQueryDispatchTable @ 0x1405A0BC0
+ * XREFs of VfQueryDispatchTable @ 0x1405A0DF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void *__fastcall VfQueryDispatchTable(int a1, unsigned int a2)
@@ -18,14 +18,14 @@ void *__fastcall VfQueryDispatchTable(int a1, unsigned int a2)
   if ( !a1 )
   {
     v5 = &VfWdmDispatchTable;
-    if ( a2 > dword_140C05344 )
+    if ( a2 > dword_140C05324 )
       return 0LL;
     return v5;
   }
   v4 = a1 - 2;
   if ( v4 )
   {
-    if ( v4 == 1 && a2 <= dword_140C0531C )
+    if ( v4 == 1 && a2 <= dword_140C05374 )
       return &VfXdvDispatchTable;
     return (void *)v2;
   }

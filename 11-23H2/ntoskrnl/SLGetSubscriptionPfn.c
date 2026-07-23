@@ -1,17 +1,17 @@
 /*
- * XREFs of SLGetSubscriptionPfn @ 0x1409FA328
+ * XREFs of SLGetSubscriptionPfn @ 0x1409FA5B8
  * Callers:
- *     SLQueryLicenseValueInternal @ 0x14080F294 (SLQueryLicenseValueInternal.c)
+ *     SLQueryLicenseValueInternal @ 0x14080F564 (SLQueryLicenseValueInternal.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     sub_1403748D0 @ 0x1403748D0 (sub_1403748D0.c)
- *     _local_unwind @ 0x1403D9510 (_local_unwind.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     sub_140374A70 @ 0x140374A70 (sub_140374A70.c)
+ *     _local_unwind @ 0x1403D96F0 (_local_unwind.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -49,7 +49,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
       if ( !Pool2 )
       {
         v11 = -1073741595;
-        local_unwind((ULONG_PTR)v14, (__int64)&loc_1409FA3F6);
+        local_unwind(v14, &loc_1409FA686);
       }
       *Pool2 = *(_OWORD *)(a1 + 46858);
       Pool2[1] = *(_OWORD *)(a1 + 46874);
@@ -66,7 +66,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
   }
   else
   {
-    v11 = sub_1403748D0(a1, (__int64)&qword_140A78150, 0LL, 0LL, 0, (__int64)&v15);
+    v11 = sub_140374A70(a1, (__int64)&qword_140A783F0, 0LL, 0LL, 0, (__int64)&v15);
     if ( v11 == -1073741789 )
     {
       v4 = v15;
@@ -77,7 +77,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
         v11 = -1073741595;
         goto LABEL_7;
       }
-      v11 = sub_1403748D0(a1, (__int64)&qword_140A78150, 0LL, (__int64)v5, v4, (__int64)&v15);
+      v11 = sub_140374A70(a1, (__int64)&qword_140A783F0, 0LL, (__int64)v5, v4, (__int64)&v15);
     }
     v16 = KeGetCurrentThread();
     --v16->KernelApcDisable;

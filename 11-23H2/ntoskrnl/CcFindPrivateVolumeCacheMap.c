@@ -1,11 +1,11 @@
 /*
- * XREFs of CcFindPrivateVolumeCacheMap @ 0x140341AF8
+ * XREFs of CcFindPrivateVolumeCacheMap @ 0x140341D88
  * Callers:
- *     CcCreatePrivateVolumeCacheMap @ 0x140341A04 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x140341C94 (CcCreatePrivateVolumeCacheMap.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall CcFindPrivateVolumeCacheMap(__int64 a1, __int64 a2)
@@ -36,10 +36,10 @@ _QWORD *__fastcall CcFindPrivateVolumeCacheMap(__int64 a1, __int64 a2)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v14);
   OldIrql = v14.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v14.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v14.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

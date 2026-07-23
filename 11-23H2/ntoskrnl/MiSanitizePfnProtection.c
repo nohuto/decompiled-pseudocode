@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSanitizePfnProtection @ 0x140278A00
+ * XREFs of MiSanitizePfnProtection @ 0x140278C90
  * Callers:
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiProtectPrivateMemory @ 0x1402A2880 (MiProtectPrivateMemory.c)
- *     MiUpdatePfnProtection @ 0x1402A2E84 (MiUpdatePfnProtection.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiSetProtectionOnTransitionPte @ 0x140358670 (MiSetProtectionOnTransitionPte.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x1402A2B10 (MiProtectPrivateMemory.c)
+ *     MiUpdatePfnProtection @ 0x1402A3114 (MiUpdatePfnProtection.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiSetProtectionOnTransitionPte @ 0x140358810 (MiSetProtectionOnTransitionPte.c)
  * Callees:
  *     <none>
  */

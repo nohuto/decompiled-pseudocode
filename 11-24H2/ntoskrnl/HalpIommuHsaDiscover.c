@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuHsaDiscover @ 0x140C15508
+ * XREFs of HalpIommuHsaDiscover @ 0x140C17508
  * Callers:
- *     HalpIommuRegisterBuiltinPlugins @ 0x140567690 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x14056511C (HalpIommuRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     HalpIommuProcessIvhdEntry @ 0x140571BB8 (HalpIommuProcessIvhdEntry.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     HalpIommuProcessIvhdEntry @ 0x14056F048 (HalpIommuProcessIvhdEntry.c)
  */
 
 int __fastcall HalpIommuHsaDiscover(unsigned __int64 *a1)
@@ -25,12 +25,12 @@ int __fastcall HalpIommuHsaDiscover(unsigned __int64 *a1)
   char v15; // [rsp+40h] [rbp+8h] BYREF
 
   *a1 = 0LL;
-  qword_140F8E8E8 = (__int64)&HsaIvhdList;
+  qword_140F8EAC8 = (__int64)&HsaIvhdList;
   HsaIvhdList = (__int64)&HsaIvhdList;
   v15 = 0;
   if ( HalpExtEnvLoaderBlock )
   {
-    Table = HalpAcpiGetTable(HalpExtEnvLoaderBlock, 1397904969, 0LL, 0LL);
+    Table = HalpAcpiGetTable(HalpExtEnvLoaderBlock, 1397904969, 0, 0);
     v3 = Table;
     if ( Table )
     {

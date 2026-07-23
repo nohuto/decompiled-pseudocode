@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpLoadMicrocode @ 0x140934B30
+ * XREFs of HalpLoadMicrocode @ 0x140934D30
  * Callers:
  *     <none>
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x140377F3C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     KeIpiGenericCall @ 0x14039AC30 (KeIpiGenericCall.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpMcGetLoadConfiguration @ 0x14051B9E4 (HalpMcGetLoadConfiguration.c)
- *     HalpMcParallelLoadSupported @ 0x14051BB3C (HalpMcParallelLoadSupported.c)
- *     HalpMcPatchConfiguration @ 0x14051BB74 (HalpMcPatchConfiguration.c)
- *     HalpMcResolveMicrocodeOperation @ 0x14051BC1C (HalpMcResolveMicrocodeOperation.c)
- *     HalpMcUpdateLock @ 0x14051BC6C (HalpMcUpdateLock.c)
- *     HalpMcUpdateUnlock @ 0x14051BCC4 (HalpMcUpdateUnlock.c)
- *     HalpSetMicrocodeSelfhostFlag @ 0x14051BD10 (HalpSetMicrocodeSelfhostFlag.c)
- *     PrExtControlOperations @ 0x140615588 (PrExtControlOperations.c)
- *     HalpMcUpdateInitialize @ 0x14081E114 (HalpMcUpdateInitialize.c)
- *     HalpMcExportAllData @ 0x140860920 (HalpMcExportAllData.c)
- *     HalpLoadMicrocodeSerialized @ 0x140934CD8 (HalpLoadMicrocodeSerialized.c)
- *     HalpUnloadMicrocode @ 0x140934DB0 (HalpUnloadMicrocode.c)
- *     PoDisableSleepStates @ 0x140983FB0 (PoDisableSleepStates.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403780DC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     KeIpiGenericCall @ 0x14039AE10 (KeIpiGenericCall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpMcGetLoadConfiguration @ 0x14051BF34 (HalpMcGetLoadConfiguration.c)
+ *     HalpMcParallelLoadSupported @ 0x14051C08C (HalpMcParallelLoadSupported.c)
+ *     HalpMcPatchConfiguration @ 0x14051C0C4 (HalpMcPatchConfiguration.c)
+ *     HalpMcResolveMicrocodeOperation @ 0x14051C16C (HalpMcResolveMicrocodeOperation.c)
+ *     HalpMcUpdateLock @ 0x14051C1BC (HalpMcUpdateLock.c)
+ *     HalpMcUpdateUnlock @ 0x14051C214 (HalpMcUpdateUnlock.c)
+ *     HalpSetMicrocodeSelfhostFlag @ 0x14051C260 (HalpSetMicrocodeSelfhostFlag.c)
+ *     PrExtControlOperations @ 0x140615AD8 (PrExtControlOperations.c)
+ *     HalpMcUpdateInitialize @ 0x14081E3E4 (HalpMcUpdateInitialize.c)
+ *     HalpMcExportAllData @ 0x140860B60 (HalpMcExportAllData.c)
+ *     HalpLoadMicrocodeSerialized @ 0x140934ED8 (HalpLoadMicrocodeSerialized.c)
+ *     HalpUnloadMicrocode @ 0x140934FB0 (HalpUnloadMicrocode.c)
+ *     PoDisableSleepStates @ 0x1409841B0 (PoDisableSleepStates.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

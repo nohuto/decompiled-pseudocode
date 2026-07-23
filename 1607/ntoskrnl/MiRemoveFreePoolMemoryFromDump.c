@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveFreePoolMemoryFromDump @ 0x1401EC878
+ * XREFs of MiRemoveFreePoolMemoryFromDump @ 0x1401EC6A4
  * Callers:
- *     MmGetDumpRange @ 0x1401E7BA8 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1401E79D4 (MmGetDumpRange.c)
  * Callees:
- *     MiScanNonPagedPoolVa @ 0x14001AA60 (MiScanNonPagedPoolVa.c)
+ *     MiScanNonPagedPoolVa @ 0x14001A5E0 (MiScanNonPagedPoolVa.c)
  */
 
 __int64 __fastcall MiRemoveFreePoolMemoryFromDump(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall MiRemoveFreePoolMemoryFromDump(__int64 a1)
     MiScanNonPagedPoolVa(1LL, v3, 0LL, (__int64)v6);
     result = (unsigned __int16)KeNumberNodes;
   }
-  v4 = (_QWORD *)qword_140326460;
+  v4 = (_QWORD *)qword_1403264A0;
   while ( v4 )
   {
     v5 = v4;

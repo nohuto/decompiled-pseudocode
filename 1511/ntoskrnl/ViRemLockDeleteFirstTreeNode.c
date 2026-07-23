@@ -13,7 +13,7 @@
 
 __int64 ViRemLockDeleteFirstTreeNode()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   unsigned __int64 v1; // r8
   __int64 v2; // r9
   __int64 *v3; // rax
@@ -25,7 +25,7 @@ __int64 ViRemLockDeleteFirstTreeNode()
   v3 = (__int64 *)VfAvlLookupTreeNode(&ViRemLockAvl, (__int64)v6, v1, v2);
   v4 = v3;
   if ( v3 )
-    v0 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViRemLockAvl, (__int64)v6, *v3, 0LL);
+    v0 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViRemLockAvl, (__int64)v6, *v3, 0LL);
   VfAvlCleanupLockContext((__int64)v6);
   if ( !v4 )
     return 0LL;

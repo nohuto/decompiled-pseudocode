@@ -1,9 +1,9 @@
 /*
- * XREFs of IoInitializeIrpEx @ 0x140473900
+ * XREFs of IoInitializeIrpEx @ 0x14046D080
  * Callers:
  *     <none>
  * Callees:
- *     IoInitializeIrpPriv @ 0x140473960 (IoInitializeIrpPriv.c)
+ *     IoInitializeIrpPriv @ 0x14046D0E0 (IoInitializeIrpPriv.c)
  */
 
 __int64 __fastcall IoInitializeIrpEx(_QWORD *a1, __int64 a2)

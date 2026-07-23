@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierEtwRegister @ 0x140945D00
+ * XREFs of VerifierEtwRegister @ 0x140946D00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfTargetEtwRegister @ 0x140934B08 (VfTargetEtwRegister.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfTargetEtwRegister @ 0x140935B08 (VfTargetEtwRegister.c)
  */
 
 __int64 __fastcall VerifierEtwRegister(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)

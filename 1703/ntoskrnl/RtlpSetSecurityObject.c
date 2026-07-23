@@ -45,7 +45,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int64 v15; // rcx
   __int16 v16; // dx
   __int64 v17; // rax
-  unsigned __int16 *v18; // r15
+  ACL *v18; // r15
   bool v19; // dl
   unsigned int v20; // eax
   unsigned __int8 *v21; // r14
@@ -95,7 +95,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int64 v66; // rax
   __int64 v67; // rcx
   unsigned __int8 *AceBySid; // rax
-  unsigned __int8 *AceByType; // rax
+  char *AceByType; // rax
   __int16 v70; // ax
   __int16 v71; // r8
   unsigned int v72; // eax
@@ -105,7 +105,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int16 v76; // ax
   int v77; // ebx
   unsigned int v78; // eax
-  unsigned __int8 *v79; // rax
+  _DWORD *v79; // rax
   __int64 v80; // r8
   unsigned int v81; // ecx
   unsigned int v82; // ecx
@@ -119,7 +119,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   int v90; // eax
   unsigned __int8 v91; // cl
   __int16 v92; // [rsp+50h] [rbp-B0h]
-  unsigned int v93; // [rsp+54h] [rbp-ACh] BYREF
+  ULONG Index; // [rsp+54h] [rbp-ACh] BYREF
   char v94; // [rsp+58h] [rbp-A8h]
   char v95; // [rsp+59h] [rbp-A7h]
   bool v96; // [rsp+5Ah] [rbp-A6h]
@@ -140,7 +140,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int64 v111; // [rsp+88h] [rbp-78h]
   PVOID v112; // [rsp+90h] [rbp-70h]
   PVOID v113; // [rsp+98h] [rbp-68h]
-  struct _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+A0h] [rbp-60h] BYREF
+  _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+A0h] [rbp-60h] BYREF
   _QWORD *v115; // [rsp+A8h] [rbp-58h]
   unsigned int v116; // [rsp+B0h] [rbp-50h]
   _DWORD Size[3]; // [rsp+B4h] [rbp-4Ch] BYREF
@@ -155,7 +155,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   PVOID P; // [rsp+F8h] [rbp-8h] BYREF
   PVOID v127; // [rsp+100h] [rbp+0h] BYREF
   PVOID v128; // [rsp+108h] [rbp+8h] BYREF
-  unsigned __int8 *v129; // [rsp+110h] [rbp+10h] BYREF
+  _DWORD *v129; // [rsp+110h] [rbp+10h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+118h] [rbp+18h] BYREF
 
   v8 = 0;
@@ -222,13 +222,13 @@ __int64 __fastcall RtlpSetSecurityObject(
   }
   else if ( v16 >= 0 )
   {
-    v18 = *(unsigned __int16 **)(v15 + 24);
+    v18 = *(ACL **)(v15 + 24);
   }
   else
   {
     v17 = *(unsigned int *)(v15 + 12);
     if ( (_DWORD)v17 )
-      v18 = (unsigned __int16 *)(v15 + v17);
+      v18 = (ACL *)(v15 + v17);
     else
       v18 = 0LL;
   }
@@ -334,17 +334,17 @@ __int64 __fastcall RtlpSetSecurityObject(
     return (unsigned int)-1073741733;
   if ( (a2 & 0x1F8) == 0 )
   {
-    v13 = v18;
+    v13 = (unsigned __int16 *)v18;
     Src = v18;
     goto LABEL_23;
   }
   Size[0] = a2 & 0x10;
   if ( (a2 & 0x10) != 0 )
   {
-    v93 = 0;
+    Index = 0;
     while ( 1 )
     {
-      AceByType = RtlFindAceByType((__int64)Src, 17, &v93);
+      AceByType = (char *)RtlFindAceByType((PACL)Src, 0x11u, &Index);
       v112 = AceByType;
       if ( AceByType )
       {
@@ -355,13 +355,13 @@ __int64 __fastcall RtlpSetSecurityObject(
           break;
       }
       SeCaptureSubjectContext(&SubjectContext);
-      if ( !SepValidLabelSubjectContext((__int64 *)&SubjectContext, *(char **)&Size[1], v95) )
+      if ( !SepValidLabelSubjectContext((__int64 *)&SubjectContext, *(void **)&Size[1], v95) )
       {
         SeReleaseSubjectContext(&SubjectContext);
         break;
       }
       SeReleaseSubjectContext(&SubjectContext);
-      ++v93;
+      ++Index;
       if ( !v112 )
         goto LABEL_84;
     }
@@ -380,8 +380,8 @@ LABEL_85:
       Size[1] = a2 & 0x100;
       if ( (a2 & 0x100) != 0 )
       {
-        valid = RtlpValidFilterAclSubjectContext(Src, TokenTrustLevel);
-        if ( valid < 0 || (a5 & 2) == 0 && (valid = RtlpValidFilterAclSubjectContext(v18, v112), valid < 0) )
+        valid = RtlpValidFilterAclSubjectContext((PACL)Src);
+        if ( valid < 0 || (a5 & 2) == 0 && (valid = RtlpValidFilterAclSubjectContext(v18), valid < 0) )
         {
 LABEL_191:
           SeReleaseSubjectContext(&SubjectContext);
@@ -418,7 +418,7 @@ LABEL_191:
                   a7,
                   2,
                   (__int64)&v121,
-                  (__int64)&v93);
+                  (__int64)&Index);
         if ( valid < 0 )
         {
           v112 = (PVOID)v121;
@@ -426,7 +426,7 @@ LABEL_191:
         }
         v9 = v115;
         v100 = 1;
-        v54 = 2 * (v93 & 0x1400 | (2 * (v93 & 8 | 0x2004)));
+        v54 = 2 * (Index & 0x1400 | (2 * (Index & 8 | 0x2004)));
         v112 = (PVOID)v121;
         v92 = v54;
       }
@@ -453,7 +453,7 @@ LABEL_89:
                     a7,
                     2,
                     (__int64)&v122,
-                    (__int64)&v93);
+                    (__int64)&Index);
           if ( valid < 0 )
           {
             v47 = (void *)v122;
@@ -464,7 +464,7 @@ LABEL_89:
           v108 = (PVOID)v122;
           v56 = v111;
           v101 = 1;
-          v54 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+          v54 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
           v92 = v54;
         }
         else
@@ -498,7 +498,7 @@ LABEL_89:
                     a7,
                     2,
                     (__int64)&v123,
-                    (__int64)&v93);
+                    (__int64)&Index);
           if ( valid < 0 )
           {
             v48 = (void *)v123;
@@ -509,7 +509,7 @@ LABEL_89:
           v56 = v111;
           v55 = Src;
           v109 = (PVOID)v123;
-          v54 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+          v54 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
           v102 = 1;
           v92 = v54;
         }
@@ -544,7 +544,7 @@ LABEL_89:
                     a7,
                     2,
                     (__int64)&v124,
-                    (__int64)&v93);
+                    (__int64)&Index);
           if ( valid < 0 )
           {
             v49 = (void *)v124;
@@ -557,7 +557,7 @@ LABEL_89:
           v56 = v111;
           v55 = Src;
           v103 = 1;
-          v54 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+          v54 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
           v110 = (PVOID)v124;
           v92 = v54;
         }
@@ -594,7 +594,7 @@ LABEL_89:
                     a7,
                     2,
                     (__int64)&v125,
-                    (__int64)&v93);
+                    (__int64)&Index);
           if ( valid < 0 )
           {
             v50 = (void *)v125;
@@ -623,7 +623,7 @@ LABEL_67:
           v55 = Src;
           v58 = (unsigned __int8 *)v110;
           v104 = 1;
-          v54 = (2 * (v93 & 0x1400 | (2 * (v93 & 8 | 4)))) | v92;
+          v54 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v92;
           v113 = (PVOID)v125;
           v92 = v54;
         }
@@ -832,7 +832,7 @@ LABEL_60:
                 goto LABEL_61;
               }
               SubjectContext.ImpersonationLevel = 4;
-              v93 = 0;
+              Index = 0;
               while ( 1 )
               {
                 v65 = *((_WORD *)v35 + 1);
@@ -852,11 +852,11 @@ LABEL_60:
                 {
                   v67 = 0LL;
                 }
-                AceBySid = RtlFindAceBySid(v67, &SubjectContext, &v93);
+                AceBySid = RtlFindAceBySid(v67, &SubjectContext, &Index);
                 if ( !AceBySid )
                   break;
                 v91 = AceBySid[1] & 0xF4 | 8;
-                ++v93;
+                ++Index;
                 AceBySid[1] = v91;
               }
             }
@@ -932,12 +932,12 @@ LABEL_61:
                 a7,
                 1,
                 (__int64)&v127,
-                (__int64)&v93);
+                (__int64)&Index);
       if ( valid >= 0 )
       {
         v26 = (unsigned __int16 *)v127;
         v99 = 1;
-        v92 |= v93 & 0x1408 | 4;
+        v92 |= Index & 0x1408 | 4;
         goto LABEL_30;
       }
 LABEL_63:
@@ -952,28 +952,25 @@ LABEL_66:
     }
     if ( TokenTrustLevel )
     {
-      v93 = 0;
+      Index = 0;
       while ( 1 )
       {
-        v79 = RtlFindAceByType((__int64)Src, 20, &v93);
+        v79 = RtlFindAceByType((PACL)Src, 0x14u, &Index);
         v129 = v79;
         if ( v79 )
         {
-          if ( (*((_DWORD *)v79 + 1) & 0xFF000000) != 0 )
+          if ( (v79[1] & 0xFF000000) != 0 )
           {
             valid = -1073740730;
             goto LABEL_191;
           }
-          if ( !RtlpValidTrustSubjectContext((__int64)v112, (__int64)(v79 + 8), v80, &Size[1]) )
+          if ( !RtlpValidTrustSubjectContext(v112, v79 + 2, v80, &Size[1]) )
             break;
           v79 = v129;
         }
-        ++v93;
+        ++Index;
         if ( !v79 )
-        {
-          TokenTrustLevel = v112;
           goto LABEL_85;
-        }
       }
     }
     valid = -1073741790;

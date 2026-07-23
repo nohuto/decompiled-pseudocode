@@ -1,9 +1,9 @@
 /*
- * XREFs of ViFilterYieldInitialization @ 0x140647EF0
+ * XREFs of ViFilterYieldInitialization @ 0x14064BAD0
  * Callers:
- *     ViFilterDispatchGeneric @ 0x140C3BFD0 (ViFilterDispatchGeneric.c)
- *     ViFilterDispatchPnp @ 0x140C3C0A0 (ViFilterDispatchPnp.c)
- *     ViFilterDispatchPower @ 0x140C3C260 (ViFilterDispatchPower.c)
+ *     ViFilterDispatchGeneric @ 0x140C41FE0 (ViFilterDispatchGeneric.c)
+ *     ViFilterDispatchPnp @ 0x140C420B0 (ViFilterDispatchPnp.c)
+ *     ViFilterDispatchPower @ 0x140C42270 (ViFilterDispatchPower.c)
  * Callees:
  *     <none>
  */

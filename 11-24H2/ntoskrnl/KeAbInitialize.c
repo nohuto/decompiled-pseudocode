@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAbInitialize @ 0x1405C4078
+ * XREFs of KeAbInitialize @ 0x1405C1648
  * Callers:
- *     KiInitSystem @ 0x140C28258 (KiInitSystem.c)
+ *     KiInitSystem @ 0x140C2A2B4 (KiInitSystem.c)
  * Callees:
- *     Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledDeviceUsageNoInline @ 0x1405C3B88 (Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledDeviceUsageNoInline @ 0x1405C1158 (Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 KeAbInitialize()

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkUnusedSubsection @ 0x14020F984
+ * XREFs of MiUnlinkUnusedSubsection @ 0x140338CE4
  * Callers:
- *     MiReferenceActiveSubsection @ 0x14020E140 (MiReferenceActiveSubsection.c)
- *     MiReferenceSubsection @ 0x14020F750 (MiReferenceSubsection.c)
- *     MiRemoveUnusedSubsection @ 0x1403700B0 (MiRemoveUnusedSubsection.c)
- *     MiDeleteEmptySubsections @ 0x1403F7FC0 (MiDeleteEmptySubsections.c)
- *     MiDeleteCachedEntry @ 0x1403F836C (MiDeleteCachedEntry.c)
- *     MiDeleteDeleteOnCloseSubsections @ 0x140672168 (MiDeleteDeleteOnCloseSubsections.c)
+ *     MiDeleteEmptySubsections @ 0x140292788 (MiDeleteEmptySubsections.c)
+ *     MiReferenceActiveSubsection @ 0x1403374A0 (MiReferenceActiveSubsection.c)
+ *     MiReferenceSubsection @ 0x140338AB0 (MiReferenceSubsection.c)
+ *     MiDeleteCachedEntry @ 0x1403EE484 (MiDeleteCachedEntry.c)
+ *     MiRemoveUnusedSubsection @ 0x140441E80 (MiRemoveUnusedSubsection.c)
+ *     MiDeleteDeleteOnCloseSubsections @ 0x140673338 (MiDeleteDeleteOnCloseSubsections.c)
  * Callees:
  *     <none>
  */
@@ -35,7 +35,7 @@ __int64 __fastcall MiUnlinkUnusedSubsection(__int64 a1)
   *(_DWORD *)(a1 + 32) = v1 & 0xFFF7FFFF;
   v2[1] = v2;
   *v2 = v2;
-  v6 = *((_QWORD *)qword_140E2FF88 + (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+  v6 = *((_QWORD *)qword_140E300C8 + (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
   v7 = *(unsigned int *)(a1 + 44);
   v8 = 8 * v7;
   if ( (unsigned __int64)(8 * v7) > 0xFE0 )
@@ -55,7 +55,7 @@ __int64 __fastcall MiUnlinkUnusedSubsection(__int64 a1)
   v10 = v9 & 0xFFFFFFFFFFFFFFF0uLL;
 LABEL_7:
   result = -(__int64)v10;
-  _InterlockedAdd64(&qword_140E2CC18, -(__int64)v10);
+  _InterlockedAdd64(&qword_140E2CD58, -(__int64)v10);
   *(_QWORD *)(v6 + 2088) -= v10;
   return result;
 }

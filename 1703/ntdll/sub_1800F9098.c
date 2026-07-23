@@ -9,18 +9,18 @@
  *     sub_1800F8D00 @ 0x1800F8D00 (sub_1800F8D00.c)
  */
 
-__int64 __fastcall sub_1800F9098(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+__int64 __fastcall sub_1800F9098(void *a1, ULONG_PTR a2, ULONG_PTR a3)
 {
-  int v4; // ebx
-  signed __int64 v5; // [rsp+20h] [rbp-28h] BYREF
+  NTSTATUS v4; // ebx
+  _QWORD *v5; // [rsp+20h] [rbp-28h] BYREF
   _DWORD v6[4]; // [rsp+28h] [rbp-20h] BYREF
 
   if ( qword_180159A08 )
     return 3221225994LL;
   v4 = sub_1800F8D00(a1, a2, a3, &v5);
-  if ( v4 >= 0 && _InterlockedCompareExchange64(&qword_180159A08, v5, 0LL) )
+  if ( v4 >= 0 && _InterlockedCompareExchange64(&qword_180159A08, (signed __int64)v5, 0LL) )
   {
-    sub_1800F8CC0();
+    sub_1800F8CC0(v5);
     return 3221225994LL;
   }
   if ( v4 >= 0 && dword_18015C018 == 3 )

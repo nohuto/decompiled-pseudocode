@@ -1,14 +1,14 @@
 /*
- * XREFs of VmUnpinMemoryRange @ 0x14079EF60
+ * XREFs of VmUnpinMemoryRange @ 0x14079F070
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PfLockSharedAcquire @ 0x14047FC44 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     VmpUnpinMemoryRange @ 0x14079F79C (VmpUnpinMemoryRange.c)
- *     VmpLogPin @ 0x1407A00D0 (VmpLogPin.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PfLockSharedAcquire @ 0x14047A884 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     VmpUnpinMemoryRange @ 0x14079F8AC (VmpUnpinMemoryRange.c)
+ *     VmpLogPin @ 0x1407A01E0 (VmpLogPin.c)
  */
 
 __int64 __fastcall VmUnpinMemoryRange(int a1, int a2, __int64 a3, __int64 a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpAdjustHiveFreeDisplay @ 0x1405A4FA8
+ * XREFs of HvpAdjustHiveFreeDisplay @ 0x1405A5FA8
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
- *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
- *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvLoadHive @ 0x1405A5C9C (HvLoadHive.c)
+ *     HvFreeHivePartial @ 0x1405A9240 (HvFreeHivePartial.c)
+ *     HvHiveStartMemoryBacked @ 0x14073DCFC (HvHiveStartMemoryBacked.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     HvpAdjustBitmap @ 0x1405A5024 (HvpAdjustBitmap.c)
+ *     HvpAdjustBitmap @ 0x1405A6024 (HvpAdjustBitmap.c)
  */
 
 __int64 __fastcall HvpAdjustHiveFreeDisplay(__int64 a1, unsigned int a2, int a3)

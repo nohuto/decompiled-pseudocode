@@ -3,10 +3,10 @@
  * Callers:
  *     FsRtlCheckLockForReadAccess @ 0x14021DA60 (FsRtlCheckLockForReadAccess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14021DC48 (FsRtlCheckNoExclusiveConflict.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
+ *     sub_14021DC48 @ 0x14021DC48 (sub_14021DC48.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForRead(
@@ -29,12 +29,12 @@ BOOLEAN __stdcall FsRtlFastCheckLockForRead(
   BOOLEAN v17; // si
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r8
+  __int64 v20; // r8
   int v21; // eax
   bool v22; // zf
   unsigned __int8 v23; // cl
   struct _KPRCB *v24; // r10
-  _DWORD *v25; // r8
+  __int64 v25; // r8
   int v26; // eax
   unsigned __int64 v27; // [rsp+30h] [rbp-38h] BYREF
   unsigned __int64 v28; // [rsp+70h] [rbp+8h] BYREF
@@ -60,28 +60,28 @@ BOOLEAN __stdcall FsRtlFastCheckLockForRead(
     && *((_DWORD *)LastLock + 5) == Key
     && (PVOID)LastLock[4] == ProcessId )
   {
-    KxReleaseSpinLock(LockInformation + 3);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel(LockInformation + 3);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v20 = *((_QWORD *)CurrentPrcb + 4375);
           v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-          v22 = (v21 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v21;
+          v22 = (v21 & *(_DWORD *)(v20 + 20)) == 0;
+          *(_DWORD *)(v20 + 20) &= v21;
           if ( v22 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
     }
   }
   else
   {
-    v15 = FsRtlCheckNoExclusiveConflict(
+    v15 = sub_14021DC48(
             (int)LockInformation + 24,
             (unsigned int)&v27,
             (unsigned int)&v28,
@@ -90,21 +90,21 @@ BOOLEAN __stdcall FsRtlFastCheckLockForRead(
             (__int64)ProcessId);
     v16 = LockInformation + 3;
     v17 = v15;
-    KxReleaseSpinLock(v16);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel(v16);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         v23 = KeGetCurrentIrql();
         if ( v23 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v23 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
-          v25 = v24->SchedulerAssist;
+          v25 = *((_QWORD *)v24 + 4375);
           v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-          v22 = (v26 & v25[5]) == 0;
-          v25[5] &= v26;
+          v22 = (v26 & *(_DWORD *)(v25 + 20)) == 0;
+          *(_DWORD *)(v25 + 20) &= v26;
           if ( v22 )
-            KiRemoveSystemWorkPriorityKick(v24);
+            sub_140418E4C(v24);
         }
       }
     }

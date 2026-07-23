@@ -27,8 +27,8 @@ char __fastcall MmInitSystem(int a1, ULONG_PTR a2)
 
   if ( a1 == -1 )
   {
-    dword_140C29E60 = 2048;
-    qword_140C29E68 = (__int64)&unk_140C29E70;
+    stru_140C29E60.SizeOfBitMap = 2048;
+    stru_140C29E60.Buffer = (unsigned int *)&unk_140C29E70;
     word_140C29FD2 |= 1u;
     NestedPageProtectionFlags = VslGetNestedPageProtectionFlags();
     v5 = NestedPageProtectionFlags;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiFillVad @ 0x140460450
+ * XREFs of EtwpTiFillVad @ 0x140455330
  * Callers:
- *     EtwpTiFillVadEventWrite @ 0x140460324 (EtwpTiFillVadEventWrite.c)
- *     EtwTiLogProtectExecVm @ 0x1408DD430 (EtwTiLogProtectExecVm.c)
- *     EtwTiLogReadWriteVm @ 0x1409A99F8 (EtwTiLogReadWriteVm.c)
+ *     EtwpTiFillVadEventWrite @ 0x140455204 (EtwpTiFillVadEventWrite.c)
+ *     EtwTiLogProtectExecVm @ 0x1408DB660 (EtwTiLogProtectExecVm.c)
+ *     EtwTiLogReadWriteVm @ 0x140992E08 (EtwTiLogReadWriteVm.c)
  * Callees:
  *     <none>
  */
@@ -34,7 +34,7 @@ __int64 __fastcall EtwpTiFillVad(__int64 a1, __int64 a2)
   else
   {
     v3 = 2;
-    v4 = &qword_140019868;
+    v4 = qword_140019A90;
   }
   *(_QWORD *)(a1 + 96) = v4;
   *(_DWORD *)(a1 + 104) = v3;

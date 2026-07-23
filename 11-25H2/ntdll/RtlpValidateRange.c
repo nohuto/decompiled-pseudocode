@@ -6,15 +6,20 @@
  *     RtlSetBits @ 0x180025530 (RtlSetBits.c)
  */
 
-char __fastcall RtlpValidateRange(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
+char __fastcall RtlpValidateRange(
+        unsigned __int64 a1,
+        __int64 a2,
+        unsigned __int64 a3,
+        __int64 a4,
+        PRTL_BITMAP BitMapHeader)
 {
   unsigned __int64 v5; // rdx
-  unsigned int v6; // r10d
+  ULONG v6; // r10d
   bool v7; // al
-  __int64 v9; // rcx
-  int *v10; // rdx
-  int v11; // edi
-  int *v12; // rsi
+  unsigned int *Buffer; // rcx
+  unsigned int *v10; // rdx
+  unsigned int v11; // edi
+  unsigned int *v12; // rsi
   bool v13; // zf
   bool i; // zf
   int v15; // eax
@@ -31,16 +36,16 @@ char __fastcall RtlpValidateRange(unsigned __int64 a1, __int64 a2, unsigned __in
   if ( a3 + a4 > v5 )
     return 0;
   v6 = a3 - a1;
-  if ( (unsigned int)(a3 - a1) >= *(_DWORD *)a5 )
+  if ( (unsigned int)(a3 - a1) >= BitMapHeader->SizeOfBitMap )
     return 0;
   if ( (unsigned int)a4 > 1 )
   {
-    if ( *(_DWORD *)a5 - v6 < (unsigned int)a4 )
+    if ( BitMapHeader->SizeOfBitMap - v6 < (unsigned int)a4 )
       return 0;
-    v9 = *(_QWORD *)(a5 + 8);
-    v10 = (int *)(v9 + 4 * ((unsigned __int64)v6 >> 5));
+    Buffer = BitMapHeader->Buffer;
+    v10 = &Buffer[(unsigned __int64)v6 >> 5];
     v11 = *v10;
-    v12 = (int *)(v9 + 4 * ((unsigned __int64)(v6 + (_DWORD)a4 - 1) >> 5));
+    v12 = &Buffer[(unsigned __int64)(v6 + (_DWORD)a4 - 1) >> 5];
     if ( v10 != v12 )
     {
       for ( i = (v11 & (-1 << v6)) == 0; i; i = v15 == 0 )
@@ -62,11 +67,11 @@ LABEL_16:
   {
     if ( (_DWORD)a4 != 1 )
       return 0;
-    v7 = !_bittest((const signed __int32 *)(*(_QWORD *)(a5 + 8) + 4 * ((unsigned __int64)v6 >> 5)), v6 & 0x1F);
+    v7 = !_bittest((const signed __int32 *)&BitMapHeader->Buffer[(unsigned __int64)v6 >> 5], v6 & 0x1F);
   }
   if ( v7 )
   {
-    RtlSetBits(a5, v6, a4);
+    RtlSetBits(BitMapHeader, v6, a4);
     return 1;
   }
   return 0;

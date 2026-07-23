@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpAllocateHeapMetadata @ 0x180094660
+ * XREFs of RtlpAllocateHeapMetadata @ 0x1800BCC20
  * Callers:
- *     RtlpTlsHeapAlloc @ 0x180093918 (RtlpTlsHeapAlloc.c)
+ *     RtlpTlsHeapAlloc @ 0x1800BCC00 (RtlpTlsHeapAlloc.c)
  * Callees:
- *     RtlpHpMetadataAlloc @ 0x180043620 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpMetadataAlloc @ 0x18002DB90 (RtlpHpMetadataAlloc.c)
  */
 
-__int64 __fastcall RtlpAllocateHeapMetadata(__int64 a1, unsigned __int64 a2)
+PVOID __fastcall RtlpAllocateHeapMetadata(__int128 *a1, SIZE_T a2)
 {
   __int128 v3; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( *(_DWORD *)(a1 + 16) != -571548178 )
-    return RtlAllocateHeap_0();
-  v3 = *(_OWORD *)a1;
-  return RtlpHpMetadataAlloc(a2, a2, 2, &v3);
+  if ( *((_DWORD *)a1 + 4) != -571548178 )
+    return RtlAllocateHeap_0(a1, 0, a2);
+  v3 = *a1;
+  return (PVOID)RtlpHpMetadataAlloc(a2, a2, 2, &v3);
 }

@@ -42,7 +42,7 @@ char ExpWnfDispatchKernelSubscription()
   v19 = 0LL;
   v0 = (unsigned __int64 *)PsInitialSystemProcess[1].EndPadding[7];
   v1 = (volatile signed __int64 *)(v0 + 13);
-  v2 = KeAbPreAcquire((ULONG_PTR)(v0 + 13), 0LL, 0LL);
+  v2 = KeAbPreAcquire((ULONG_PTR)(v0 + 13), 0LL, 0);
   v3 = v2;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v0 + 26, 0LL) )
     ExfAcquirePushLockExclusiveEx(v0 + 13, v2, (ULONG_PTR)(v0 + 13));
@@ -72,7 +72,7 @@ char ExpWnfDispatchKernelSubscription()
       if ( (_InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)v0 + 13);
       KeAbPostRelease((ULONG_PTR)(v0 + 13));
-      v10 = KeAbPreAcquire((ULONG_PTR)(v0 + 10), 0LL, 0LL);
+      v10 = KeAbPreAcquire((ULONG_PTR)(v0 + 10), 0LL, 0);
       if ( _InterlockedCompareExchange64(v8, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v0 + 10, v10, (ULONG_PTR)(v0 + 10));
       if ( v10 )
@@ -123,7 +123,7 @@ char ExpWnfDispatchKernelSubscription()
       }
       if ( v11 )
         ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v11 + 8));
-      v16 = KeAbPreAcquire((ULONG_PTR)(v0 + 13), 0LL, 0LL);
+      v16 = KeAbPreAcquire((ULONG_PTR)(v0 + 13), 0LL, 0);
       v17 = v16;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
         ExfAcquirePushLockExclusiveEx(v0 + 13, v16, (ULONG_PTR)(v0 + 13));

@@ -20,7 +20,7 @@ _QWORD *__fastcall MiIoSpaceGetBounds(__int64 a1, unsigned __int64 a2)
   int v7; // ecx
   unsigned __int64 v8; // rax
 
-  if ( qword_140E2FD78 && _bittest64((const signed __int64 *)qword_140E2FD78, (a2 >> 18) & 0x3FFFFF) )
+  if ( stru_140E2FD70.Buffer && _bittest64((const signed __int64 *)stru_140E2FD70.Buffer, (a2 >> 18) & 0x3FFFFF) )
   {
     *(_QWORD *)a1 = a2 & 0xFFFFFFFFFFFC0000uLL;
     v8 = a2 + 0x40000;

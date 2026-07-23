@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateTransactionManager @ 0x1404FBF90
+ * XREFs of NtCreateTransactionManager @ 0x1404F9850
  * Callers:
  *     <none>
  * Callees:

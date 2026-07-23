@@ -27,14 +27,14 @@ __int64 __fastcall SepMaximumAccessCheck(
         __int64 a8,
         int a9,
         int a10,
-        unsigned __int8 a11,
+        char a11,
         char a12,
         __int64 a13)
 {
   unsigned int v13; // edi
   void *v14; // r10
   int v15; // ebp
-  unsigned __int8 v16; // si
+  char v16; // si
   __int64 v17; // r12
   __int64 v18; // r14
   __int64 result; // rax
@@ -71,48 +71,34 @@ __int64 __fastcall SepMaximumAccessCheck(
   void *v50; // r9
   unsigned int v51; // r15d
   __int64 v52; // r12
-  int v53; // ecx
-  char *v54; // rdi
-  int v55; // edx
-  __int64 v56; // rax
-  __int64 v57; // rcx
-  bool v58; // zf
-  __int64 v59; // r8
-  __int64 v60; // rdx
-  __int64 v61; // r8
-  __int64 v62; // rcx
-  char *v63; // r8
-  __int64 v64; // rax
-  __int64 v65; // rcx
-  __int64 v66; // r8
-  unsigned int v67; // r8d
-  __int64 v68; // rax
-  __int64 v69; // rax
-  int v70; // ecx
-  __int64 v71; // r8
-  char *v72; // rcx
-  __int64 v73; // rax
-  int v74; // [rsp+20h] [rbp-A8h]
-  int v75; // [rsp+28h] [rbp-A0h]
-  unsigned int v76; // [rsp+60h] [rbp-68h] BYREF
-  unsigned int v77; // [rsp+64h] [rbp-64h]
-  int v78; // [rsp+68h] [rbp-60h] BYREF
-  int v79; // [rsp+6Ch] [rbp-5Ch]
-  unsigned int v80; // [rsp+70h] [rbp-58h]
-  int v81; // [rsp+74h] [rbp-54h]
-  __int64 v82; // [rsp+78h] [rbp-50h]
-  __int16 v85; // [rsp+E0h] [rbp+18h]
-  __int64 v86; // [rsp+E8h] [rbp+20h]
+  char *v53; // rdi
+  __int64 v55; // rax
+  char v56; // al
+  __int64 v57; // rax
+  unsigned int v58; // r8d
+  __int64 v59; // rax
+  __int64 v60; // rax
+  char *v61; // rcx
+  __int64 v62; // rax
+  unsigned int v63; // [rsp+60h] [rbp-68h] BYREF
+  unsigned int v64; // [rsp+64h] [rbp-64h]
+  int v65; // [rsp+68h] [rbp-60h] BYREF
+  int v66; // [rsp+6Ch] [rbp-5Ch]
+  unsigned int v67; // [rsp+70h] [rbp-58h]
+  int v68; // [rsp+74h] [rbp-54h]
+  __int64 v69; // [rsp+78h] [rbp-50h]
+  __int16 v72; // [rsp+E0h] [rbp+18h]
+  __int64 v73; // [rsp+E8h] [rbp+20h]
 
-  v86 = a4;
+  v73 = a4;
   v13 = a7;
   v14 = 0LL;
   v15 = *(_DWORD *)(a1 + 200) & 0x2000;
   v16 = a11;
   v17 = a2;
   v18 = a1;
-  v81 = v15;
-  v78 = -1;
+  v68 = v15;
+  v65 = -1;
   if ( a11 && a7 )
   {
     v40 = a7;
@@ -127,7 +113,7 @@ __int64 __fastcall SepMaximumAccessCheck(
   }
   result = *(unsigned __int16 *)(a3 + 4);
   v20 = (char *)(a3 + 8);
-  v80 = result;
+  v67 = result;
   v21 = 0;
   if ( !(_DWORD)result )
     goto LABEL_30;
@@ -142,85 +128,52 @@ __int64 __fastcall SepMaximumAccessCheck(
       switch ( v23 )
       {
         case 5:
-          v53 = *((_DWORD *)v20 + 2);
-          v54 = v20 + 12;
-          v55 = v53 & 1;
-          if ( (v53 & 1) == 0 )
-            v54 = 0LL;
-          if ( v54 )
+          v53 = v20 + 12;
+          if ( !(*((_DWORD *)v20 + 2) & 1) )
+            v53 = 0LL;
+          if ( v53 )
           {
             if ( a9 )
             {
-              v64 = 232LL;
-              v65 = 8LL * (v53 & 2);
+              v57 = 232LL;
               if ( v16 )
-                v64 = 504LL;
-              v66 = 28LL;
-              if ( !v55 )
-                v66 = 12LL;
-              LOBYTE(v75) = a12;
-              LOBYTE(v74) = v16;
-              if ( (unsigned __int8)SepSidInTokenSidHash(v64 + v18, v22, &v20[v65 + v66], 0LL, v74, v75) )
+                v57 = 504LL;
+              if ( (unsigned __int8)SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v57 + v18), v16, a12) )
               {
-                if ( (unsigned __int8)AuthzBasepObjectInTypeList(v54, a8, a7, &v76) )
+                if ( (unsigned __int8)AuthzBasepObjectInTypeList(v53, a8, a7, &v63) )
                 {
                   v13 = a7;
-                  AuthzBasepAddAccessTypeList(a8, a7, v76, v21, *((_DWORD *)v20 + 1), 1);
+                  AuthzBasepAddAccessTypeList(a8, a7, v63, v21, *((_DWORD *)v20 + 1), 1);
                 }
                 else
                 {
-                  v13 = v67;
+                  v13 = v58;
                 }
                 goto LABEL_27;
               }
               goto LABEL_26;
             }
-            goto LABEL_140;
+            goto LABEL_134;
           }
-          v56 = 232LL;
-          v57 = 8LL * (v53 & 2);
+          v55 = 232LL;
           if ( v16 )
-            v56 = 504LL;
-          v58 = v55 == 0;
-          v59 = 28LL;
-          v60 = v22;
-          if ( v58 )
-            v59 = 12LL;
-          v61 = v57 + v59;
-          v62 = v56 + v18;
-          v63 = &v20[v61];
-          LOBYTE(v75) = a12;
-          LOBYTE(v74) = v16;
+            v55 = 504LL;
+          v56 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v55 + v18), v16, a12);
           break;
         case 4:
-          v68 = 232LL;
+          v59 = 232LL;
           if ( v16 )
-            v68 = 504LL;
-          LOBYTE(v75) = a12;
-          LOBYTE(v74) = v16;
-          if ( !(unsigned __int8)SepSidInTokenSidHash(
-                                   v68 + v18,
-                                   v22,
-                                   &v20[4 * (unsigned __int8)v20[13] + 20],
-                                   0LL,
-                                   v74,
-                                   v75) )
+            v59 = 504LL;
+          if ( !(unsigned __int8)SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v59 + v18), v16, a12) )
             goto LABEL_26;
-          LOBYTE(v75) = a12;
-          v60 = 0LL;
-          LOBYTE(v74) = 0;
-          v63 = v20 + 12;
-          v62 = v17 + 232;
+          v56 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v17 + 232), 0, a12);
           break;
         case 1:
           if ( v16 )
             v44 = 504LL;
           else
             v44 = 232LL;
-          LOBYTE(a4) = 1;
-          LOBYTE(v75) = a12;
-          LOBYTE(v74) = v16;
-          if ( !(unsigned __int8)SepSidInTokenSidHash(v44 + v18, v22, v20 + 8, a4, v74, v75) )
+          if ( !(unsigned __int8)SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v44 + v18), v16, a12) )
             goto LABEL_27;
           v45 = a8;
           if ( v13 == 1 )
@@ -228,33 +181,26 @@ __int64 __fastcall SepMaximumAccessCheck(
             *(_DWORD *)(a8 + 32) |= *((_DWORD *)v20 + 1) & ~*(_DWORD *)(a8 + 28);
             goto LABEL_27;
           }
-          goto LABEL_110;
+          goto LABEL_106;
         case 6:
-          v69 = 232LL;
-          v70 = *((_DWORD *)v20 + 2);
-          LOBYTE(a4) = 1;
+          v60 = 232LL;
           if ( v16 )
-            v69 = 504LL;
-          v71 = 28LL;
-          if ( (v70 & 1) == 0 )
-            v71 = 12LL;
-          LOBYTE(v75) = a12;
-          LOBYTE(v74) = v16;
-          if ( !(unsigned __int8)SepSidInTokenSidHash(v69 + v18, v22, &v20[8 * (v70 & 2) + v71], a4, v74, v75) )
+            v60 = 504LL;
+          if ( !(unsigned __int8)SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v60 + v18), v16, a12) )
             goto LABEL_27;
-          v72 = v20 + 12;
+          v61 = v20 + 12;
           v14 = 0LL;
           if ( (*((_DWORD *)v20 + 2) & 1) == 0 )
-            v72 = 0LL;
-          if ( v72 )
+            v61 = 0LL;
+          if ( v61 )
           {
             if ( !a9 )
             {
               *(_DWORD *)(a8 + 32) |= *((_DWORD *)v20 + 1) & ~*(_DWORD *)(a8 + 28);
               goto LABEL_28;
             }
-            if ( (unsigned __int8)AuthzBasepObjectInTypeList(v72, a8, v13, &v76) )
-              AuthzBasepAddAccessTypeList(a8, a7, v76, v21, *((_DWORD *)v20 + 1), 2);
+            if ( (unsigned __int8)AuthzBasepObjectInTypeList(v61, a8, v13, &v63) )
+              AuthzBasepAddAccessTypeList(a8, a7, v63, v21, *((_DWORD *)v20 + 1), 2);
             goto LABEL_26;
           }
           v45 = a8;
@@ -263,7 +209,7 @@ __int64 __fastcall SepMaximumAccessCheck(
             *(_DWORD *)(a8 + 32) |= *((_DWORD *)v20 + 1) & ~*(_DWORD *)(a8 + 28);
             goto LABEL_28;
           }
-LABEL_110:
+LABEL_106:
           AuthzBasepAddAccessTypeList(v45, v13, 0, v21, *((_DWORD *)v20 + 1), 2);
           goto LABEL_27;
         case 9:
@@ -305,16 +251,16 @@ LABEL_110:
               *((unsigned __int16 *)v20 + 1) - v46 - 8,
               0,
               v16,
-              &v78);
-            if ( v78 != 1 )
+              &v65);
+            if ( v65 != 1 )
               goto LABEL_26;
             if ( v15 )
             {
               if ( !v16 )
               {
-LABEL_135:
-                v73 = 232LL;
-                goto LABEL_136;
+LABEL_129:
+                v62 = 232LL;
+                goto LABEL_130;
               }
             }
             else
@@ -351,26 +297,24 @@ LABEL_43:
                   goto LABEL_25;
                 }
                 v16 = a11;
-                goto LABEL_135;
+                goto LABEL_129;
               }
             }
-            v73 = 504LL;
-LABEL_136:
-            LOBYTE(v75) = a12;
-            LOBYTE(v74) = v16;
+            v62 = 504LL;
+LABEL_130:
             v13 = a7;
-            if ( (unsigned __int8)SepSidInTokenSidHash(v73 + v18, v22, v20 + 8, 0LL, v74, v75) )
+            if ( (unsigned __int8)SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v62 + v18), v16, a12) )
               AuthzBasepAddAccessTypeList(a8, a7, 0, v21, *((_DWORD *)v20 + 1), 1);
             goto LABEL_27;
           }
-LABEL_140:
+LABEL_134:
           v13 = a7;
           goto LABEL_29;
         default:
           goto LABEL_29;
       }
       v13 = a7;
-      if ( (unsigned __int8)SepSidInTokenSidHash(v62, v60, v63, 0LL, v74, v75) )
+      if ( v56 )
         goto LABEL_22;
       goto LABEL_27;
     }
@@ -414,9 +358,9 @@ LABEL_9:
     v27 = v26[1];
     v28 = 0;
     v29 = *(_WORD *)v26;
-    v85 = *(_WORD *)v26;
+    v72 = *(_WORD *)v26;
     v30 = 4 * v27 + 8;
-    v77 = v30;
+    v64 = v30;
     v31 = v26[4 * v27 + 4];
     v32 = *(_QWORD *)(v25 + 8LL * (v31 & 0xF) + 16) & *(_QWORD *)(v25 + 8LL * ((v31 >> 4) + 16) + 16);
     if ( !v32 )
@@ -434,8 +378,8 @@ LABEL_24:
           {
             if ( !memcmp(v26, *(const void **)v36, v30) )
               goto LABEL_18;
-            v29 = v85;
-            v30 = v77;
+            v29 = v72;
+            v30 = v64;
           }
           ++v51;
         }
@@ -459,25 +403,25 @@ LABEL_34:
         goto LABEL_24;
     }
     v34 = *(_QWORD *)(v25 + 8);
-    v82 = v34;
+    v69 = v34;
     v35 = v28;
     while ( 1 )
     {
-      v79 = (unsigned __int8)SidHashByteToIndexLookupTable[(unsigned __int8)v33];
-      v36 = v34 + 16LL * (unsigned int)(v35 + v79);
+      v66 = (unsigned __int8)SidHashByteToIndexLookupTable[(unsigned __int8)v33];
+      v36 = v34 + 16LL * (unsigned int)(v35 + v66);
       if ( **(_WORD **)v36 == v29 )
         break;
 LABEL_33:
-      v33 = (unsigned __int8)v33 ^ (1 << v79);
+      v33 = (unsigned __int8)v33 ^ (1 << v66);
       v35 = v28;
       if ( !(_BYTE)v33 )
         goto LABEL_34;
     }
     if ( memcmp(v26, *(const void **)v36, v30) )
     {
-      v34 = v82;
-      v29 = v85;
-      v30 = v77;
+      v34 = v69;
+      v29 = v72;
+      v30 = v64;
       goto LABEL_33;
     }
 LABEL_18:
@@ -494,17 +438,17 @@ LABEL_22:
 LABEL_27:
     v14 = 0LL;
 LABEL_28:
-    a4 = v86;
+    a4 = v73;
 LABEL_29:
     result = *((unsigned __int16 *)v20 + 1);
     ++v21;
-    v15 = v81;
+    v15 = v68;
     v20 += result;
     v18 = a1;
     v22 = a6;
     v17 = a2;
   }
-  while ( v21 < v80 );
+  while ( v21 < v67 );
 LABEL_30:
   if ( v16 && v13 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFanUpdateSpeed @ 0x140847E90
+ * XREFs of PopFanUpdateSpeed @ 0x140848190
  * Callers:
- *     PopFanWorker @ 0x140847C10 (PopFanWorker.c)
+ *     PopFanWorker @ 0x140847F10 (PopFanWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopSendFanNoiseChangeWnf @ 0x1408642AC (PopSendFanNoiseChangeWnf.c)
- *     PopFanFindBucketIndex @ 0x14099726C (PopFanFindBucketIndex.c)
- *     PopFanUpdateStatistics @ 0x140997754 (PopFanUpdateStatistics.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopSendFanNoiseChangeWnf @ 0x1408644EC (PopSendFanNoiseChangeWnf.c)
+ *     PopFanFindBucketIndex @ 0x14099746C (PopFanFindBucketIndex.c)
+ *     PopFanUpdateStatistics @ 0x140997954 (PopFanUpdateStatistics.c)
  */
 
 unsigned __int8 __fastcall PopFanUpdateSpeed(__int64 a1, unsigned int a2)
@@ -89,7 +89,7 @@ LABEL_4:
       v37 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C03950,
-        (unsigned __int8 *)word_1400314A2,
+        (unsigned __int8 *)byte_1400316D1,
         0LL,
         0LL,
         7u,
@@ -98,7 +98,7 @@ LABEL_4:
     return v4;
   }
   *(_DWORD *)(a1 + 84) = a2;
-  if ( dword_140C3C948 == 1 )
+  if ( dword_140C3C908 == 1 )
   {
     if ( a2 )
     {
@@ -118,11 +118,11 @@ LABEL_4:
       v5 = 0;
     }
 LABEL_16:
-    if ( dword_140C3C94C != v5 )
+    if ( dword_140C3C90C != v5 )
     {
       if ( (unsigned int)dword_140C03950 > 5 )
       {
-        v14 = dword_140C3C94C;
+        v14 = dword_140C3C90C;
         v21 = &v17;
         v23 = &v14;
         v17 = a1;
@@ -133,25 +133,25 @@ LABEL_16:
         v26 = 4LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C03950,
-          (unsigned __int8 *)byte_140031625,
+          (unsigned __int8 *)&byte_14003153F,
           0LL,
           0LL,
           5u,
           v20);
       }
       PopSendFanNoiseChangeWnf(v5);
-      dword_140C3C94C = v5;
+      dword_140C3C90C = v5;
     }
   }
   else if ( (unsigned int)dword_140C03950 > 2 )
   {
     v17 = a1;
     v21 = &v17;
-    v13 = dword_140C3C948;
+    v13 = dword_140C3C908;
     v22 = 8LL;
     v23 = &v13;
     v24 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_14003157D, 0LL, 0LL, 4u, v20);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)&dword_1400317AC, 0LL, 0LL, 4u, v20);
   }
   PopFanFindBucketIndex(a1, a2, &v16, &v15);
   v9 = v16;
@@ -173,7 +173,7 @@ LABEL_16:
     v40 = 8LL;
     v42 = 4LL;
     v44 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)&byte_1400315D7, 0LL, 0LL, 5u, &v38);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)&word_140031806, 0LL, 0LL, 5u, &v38);
     goto LABEL_4;
   }
   return v4;

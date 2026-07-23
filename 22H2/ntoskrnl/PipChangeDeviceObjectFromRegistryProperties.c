@@ -32,7 +32,7 @@ __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, __int
   int v20; // r15d
   int v21; // ebx
   __int64 v22; // rdx
-  unsigned int v23; // r15d
+  int v23; // r15d
   void *RegistrySecurityWithFallback; // rax
   char v25; // r8
   void *v26; // r14

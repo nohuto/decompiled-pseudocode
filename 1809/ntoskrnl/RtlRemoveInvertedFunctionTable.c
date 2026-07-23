@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlRemoveInvertedFunctionTable @ 0x14016B83C
+ * XREFs of RtlRemoveInvertedFunctionTable @ 0x14016B93C
  * Callers:
- *     MiProcessLoaderEntry @ 0x1400F5BAC (MiProcessLoaderEntry.c)
- *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1409CF77C (RtlCreateInvertedFunctionTableCacheEntry.c)
+ *     MiProcessLoaderEntry @ 0x1400F5C2C (MiProcessLoaderEntry.c)
+ *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1409D077C (RtlCreateInvertedFunctionTableCacheEntry.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmLockLoadedModuleListExclusive @ 0x1400F5D80 (MmLockLoadedModuleListExclusive.c)
- *     RtlxRemoveInvertedFunctionTable @ 0x14016B888 (RtlxRemoveInvertedFunctionTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1400F5E00 (MmLockLoadedModuleListExclusive.c)
+ *     RtlxRemoveInvertedFunctionTable @ 0x14016B988 (RtlxRemoveInvertedFunctionTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)

@@ -263,28 +263,26 @@
  *     _RtlpWakeSRWLock@12 @ 0x4B2E3BAB (_RtlpWakeSRWLock@12.c)
  */
 
-signed __int32 __stdcall RtlReleaseSRWLockExclusive(volatile signed __int32 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int32 result; // eax
-  signed __int32 v2; // ecx
-  int v3; // ebx
-  signed __int32 v4; // edx
+  signed __int32 v1; // ecx
+  int v2; // ebx
+  signed __int32 v3; // edx
+  signed __int32 v4; // eax
 
-  result = _InterlockedCompareExchange(a1, 0, 1);
-  v2 = result;
-  if ( result != 1 )
+  v1 = _InterlockedCompareExchange((volatile signed __int32 *)SRWLock, 0, 1);
+  if ( v1 != 1 )
   {
     while ( 1 )
     {
-      v3 = v2 & 6;
-      v4 = v2 + 4 * (v3 == 2) - 1;
-      result = _InterlockedCompareExchange(a1, v4, v2);
-      if ( result == v2 )
+      v2 = v1 & 6;
+      v3 = v1 + 4 * (v2 == 2) - 1;
+      v4 = _InterlockedCompareExchange((volatile signed __int32 *)SRWLock, v3, v1);
+      if ( v4 == v1 )
         break;
-      v2 = result;
+      v1 = v4;
     }
-    if ( v3 == 2 )
-      return RtlpWakeSRWLock(v4);
+    if ( v2 == 2 )
+      RtlpWakeSRWLock(v3);
   }
-  return result;
 }

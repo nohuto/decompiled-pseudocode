@@ -1,17 +1,17 @@
 /*
- * XREFs of MiEndingOffsetWithLock @ 0x14031C790
+ * XREFs of MiEndingOffsetWithLock @ 0x1403274E0
  * Callers:
- *     MiViewMayContainPage @ 0x1402EF97C (MiViewMayContainPage.c)
- *     MiFinishMdlForMappedFileFault @ 0x14031A46C (MiFinishMdlForMappedFileFault.c)
- *     MiReadyFlushMdlToWrite @ 0x14031C3A8 (MiReadyFlushMdlToWrite.c)
- *     MiCopyImageExtentContents @ 0x140540134 (MiCopyImageExtentContents.c)
- *     MiPfAllocateMdls @ 0x1406E8CA0 (MiPfAllocateMdls.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiViewMayContainPage @ 0x1402FA6CC (MiViewMayContainPage.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1403251BC (MiFinishMdlForMappedFileFault.c)
+ *     MiReadyFlushMdlToWrite @ 0x1403270F8 (MiReadyFlushMdlToWrite.c)
+ *     MiCopyImageExtentContents @ 0x140540374 (MiCopyImageExtentContents.c)
+ *     MiPfAllocateMdls @ 0x140700080 (MiPfAllocateMdls.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiEndingOffset @ 0x14031C840 (MiEndingOffset.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiEndingOffset @ 0x140327590 (MiEndingOffset.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

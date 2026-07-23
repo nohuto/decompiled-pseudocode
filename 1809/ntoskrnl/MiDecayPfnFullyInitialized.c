@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecayPfnFullyInitialized @ 0x14011BD70
+ * XREFs of MiDecayPfnFullyInitialized @ 0x14011BDE0
  * Callers:
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiDeleteVaTail @ 0x140075880 (MiDeleteVaTail.c)
+ *     MiDeleteVaTail @ 0x140075870 (MiDeleteVaTail.c)
  * Callees:
  *     MiRemoveDecayClusterTimer @ 0x1400293F0 (MiRemoveDecayClusterTimer.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
@@ -29,11 +29,11 @@ PSLIST_ENTRY __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
   v2 = 0;
   v3 = (__int64)(BugCheckParameter2 + 0x58000000000LL) / 48;
   KeAcquireInStackQueuedSpinLock(
-    (PKSPIN_LOCK)(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)) + 2600LL),
+    (PKSPIN_LOCK)(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)) + 2600LL),
     &LockHandle);
   v4 = *(_QWORD *)(BugCheckParameter2 + 16);
-  if ( qword_14043A0C0 && (v4 & 0x10) == 0 )
-    v4 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v4 & 0x10) == 0 )
+    v4 &= ~qword_14043B180;
   v5 = (v4 >> 12) & 0xFFFFFFFFFLL;
   v6 = *(_BYTE *)(BugCheckParameter2 + 35);
   if ( (v6 & 8) == 0 )

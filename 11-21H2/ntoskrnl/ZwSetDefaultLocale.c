@@ -6,9 +6,10 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetDefaultLocale(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetDefaultLocale(BOOLEAN UserProfile, LCID DefaultLocaleId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(UserProfile, *(_QWORD *)&DefaultLocaleId);
 }

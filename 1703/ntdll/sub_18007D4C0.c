@@ -15,19 +15,15 @@ __int64 __fastcall sub_18007D4C0(__int64 a1, _DWORD *a2)
   __int64 v3; // rax
   wchar_t *v4; // rdx
   __int16 v5; // cx
-  int v6; // ebx
-  __int64 v8; // [rsp+60h] [rbp-A0h] BYREF
+  NTSTATUS v6; // ebx
+  HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
   int v9; // [rsp+68h] [rbp-98h] BYREF
   wchar_t *v10; // [rsp+70h] [rbp-90h]
-  int v11; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v12; // [rsp+80h] [rbp-80h]
-  int *v13; // [rsp+88h] [rbp-78h]
-  int v14; // [rsp+90h] [rbp-70h]
-  __int128 v15; // [rsp+98h] [rbp-68h]
-  _BYTE v16[24]; // [rsp+A8h] [rbp-58h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-58h] BYREF
   wchar_t Buffer[264]; // [rsp+C0h] [rbp-40h] BYREF
 
-  v8 = 0LL;
+  FileHandle = 0LL;
   if ( BYTE2(qword_18015C428) )
   {
     v6 = 0;
@@ -58,20 +54,20 @@ __int64 __fastcall sub_18007D4C0(__int64 a1, _DWORD *a2)
       HIWORD(v9) = 2 * v5 + 2;
       v10 = Buffer;
     }
-    v11 = 48;
-    v12 = 0LL;
-    v14 = 64;
-    v13 = &v9;
-    v15 = 0LL;
-    v6 = ZwCreateFile(&v8, 1048704LL, &v11, v16, 0LL, 0, 7, 1, 32, 0LL, 0);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v9;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v6 = ZwCreateFile(&FileHandle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x20u, 0LL, 0);
     if ( v6 >= 0 )
     {
-      v6 = sub_18007D620(v8, a2);
+      v6 = sub_18007D620(FileHandle, a2);
       if ( v6 >= 0 )
         v6 = 0;
     }
-    if ( v8 )
-      ZwClose(v8);
+    if ( FileHandle )
+      ZwClose(FileHandle);
   }
   return (unsigned int)v6;
 }

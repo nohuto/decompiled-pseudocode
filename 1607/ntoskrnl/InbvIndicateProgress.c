@@ -12,10 +12,10 @@ __int64 InbvIndicateProgress()
   __int64 result; // rax
   __int64 (*v1)(void); // rcx
 
-  result = qword_140328DD0;
-  if ( qword_140328DD0 )
+  result = qword_140328E10;
+  if ( qword_140328E10 )
   {
-    v1 = *(__int64 (**)(void))(qword_140328DD0 + 120);
+    v1 = *(__int64 (**)(void))(qword_140328E10 + 120);
     if ( v1 )
       return v1();
   }

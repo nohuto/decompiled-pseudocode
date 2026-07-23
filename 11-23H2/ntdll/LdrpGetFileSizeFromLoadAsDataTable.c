@@ -22,14 +22,14 @@ __int64 __fastcall LdrpGetFileSizeFromLoadAsDataTable(__int64 a1)
   v6 = 0LL;
   LdrpInitMuiCritsRtlInitOnce();
   v2 = NtCurrentTeb();
-  if ( _interlockedbittestandreset(&dword_180186368, 0) )
+  if ( _interlockedbittestandreset(&LoadAsDataCrits.LockCount, 0) )
   {
-    qword_180186370 = (__int64)v2->ClientId.UniqueThread;
-    dword_18018636C = 1;
+    LoadAsDataCrits.OwningThread = v2->ClientId.UniqueThread;
+    LoadAsDataCrits.RecursionCount = 1;
   }
-  else if ( (void *)qword_180186370 == v2->ClientId.UniqueThread )
+  else if ( LoadAsDataCrits.OwningThread == v2->ClientId.UniqueThread )
   {
-    ++dword_18018636C;
+    ++LoadAsDataCrits.RecursionCount;
   }
   else
   {
@@ -41,9 +41,9 @@ __int64 __fastcall LdrpGetFileSizeFromLoadAsDataTable(__int64 a1)
     while ( v3 > 0 )
     {
       v4 = 48LL * --v3;
-      if ( *(_QWORD *)(v4 + LoadAsDataTable) == a1 )
+      if ( *(_QWORD *)((char *)LoadAsDataTable + v4) == a1 )
       {
-        v6 = *(_QWORD *)(v4 + LoadAsDataTable + 16);
+        v6 = *(_QWORD *)((char *)LoadAsDataTable + v4 + 16);
         break;
       }
     }

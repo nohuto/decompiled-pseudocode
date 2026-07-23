@@ -53,7 +53,7 @@ __int64 __fastcall KiUpdateTimeAssist(__int64 a1, __int64 a2, __int64 a3)
   *(_QWORD *)a3 = MEMORY[0xFFFFF78000000320];
   if ( v13 <= 0 )
   {
-    v13 += (unsigned int)KeMaximumIncrement;
+    v13 += KeMaximumIncrement;
     if ( v13 <= 0 )
     {
       v15 = KeNumberProcessorsGroup0[2];

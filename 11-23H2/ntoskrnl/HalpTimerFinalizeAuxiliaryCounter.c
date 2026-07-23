@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerFinalizeAuxiliaryCounter @ 0x1403AC830
+ * XREFs of HalpTimerFinalizeAuxiliaryCounter @ 0x1403ACA10
  * Callers:
- *     HalpTimerInitSystem @ 0x14037AA30 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x14037ABD0 (HalpTimerInitSystem.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x1403AC8AC (HalpTimerCaptureCloestAuxiliaryQpcPair.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x1403ACA8C (HalpTimerCaptureCloestAuxiliaryQpcPair.c)
  */
 
 void HalpTimerFinalizeAuxiliaryCounter()

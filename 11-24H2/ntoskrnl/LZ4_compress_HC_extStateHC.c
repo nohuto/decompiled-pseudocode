@@ -1,10 +1,10 @@
 /*
- * XREFs of LZ4_compress_HC_extStateHC @ 0x1404D8864
+ * XREFs of LZ4_compress_HC_extStateHC @ 0x1404D1CB4
  * Callers:
- *     RtlCompressBufferLz4 @ 0x14038A3F0 (RtlCompressBufferLz4.c)
+ *     RtlCompressBufferLz4 @ 0x140383D30 (RtlCompressBufferLz4.c)
  * Callees:
- *     LZ4_initStreamHC @ 0x1404F9F64 (LZ4_initStreamHC.c)
- *     LZ4_compress_HC_extStateHC_fastReset @ 0x1406018E0 (LZ4_compress_HC_extStateHC_fastReset.c)
+ *     LZ4_initStreamHC @ 0x1404F7844 (LZ4_initStreamHC.c)
+ *     LZ4_compress_HC_extStateHC_fastReset @ 0x1405FEF20 (LZ4_compress_HC_extStateHC_fastReset.c)
  */
 
 __int64 __fastcall LZ4_compress_HC_extStateHC(int a1, int a2, int a3, int a4, int a5)

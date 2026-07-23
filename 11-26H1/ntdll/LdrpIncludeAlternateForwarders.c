@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpIncludeAlternateForwarders @ 0x18012126C
+ * XREFs of LdrpIncludeAlternateForwarders @ 0x18012101C
  * Callers:
- *     RtlpComputePath @ 0x18009C0E0 (RtlpComputePath.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     RtlpComputePath @ 0x18009B210 (RtlpComputePath.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
  *     <none>
  */

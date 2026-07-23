@@ -19,7 +19,7 @@ __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, __in
   v3 = RtlStdInitializeStackDatabase(a1, a2, a3, &v5);
   if ( v3 >= 0 )
   {
-    if ( _InterlockedCompareExchange64(&RtlpStackTraceDatabase, v5, 0LL) )
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpStackTraceDatabase, v5, 0LL) )
     {
       RtlStdDeleteStackDatabase(v5);
       return 3221225994LL;

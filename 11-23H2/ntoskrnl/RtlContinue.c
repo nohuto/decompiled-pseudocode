@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlContinue @ 0x1405B1FF8
+ * XREFs of RtlContinue @ 0x1405B2568
  * Callers:
  *     <none>
  * Callees:
- *     NtContinueEx @ 0x14041F190 (NtContinueEx.c)
+ *     NtContinueEx @ 0x14041F520 (NtContinueEx.c)
  */
 
-__int64 __fastcall RtlContinue(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlContinue(_CONTEXT *a1, void *a2)
 {
   return NtContinueEx(a1, a2);
 }

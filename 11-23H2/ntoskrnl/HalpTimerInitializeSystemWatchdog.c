@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerInitializeSystemWatchdog @ 0x14050B9DC
+ * XREFs of HalpTimerInitializeSystemWatchdog @ 0x14050BF2C
  * Callers:
- *     HalpTimerInitSystem @ 0x14037AA30 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x14037ABD0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetClockRates @ 0x1403B3720 (HalpTimerGetClockRates.c)
- *     HalpInterruptConnect @ 0x1405041C0 (HalpInterruptConnect.c)
- *     HalpTimerWatchdogStart @ 0x14050BB30 (HalpTimerWatchdogStart.c)
+ *     HalpTimerGetClockRates @ 0x1403B3900 (HalpTimerGetClockRates.c)
+ *     HalpInterruptConnect @ 0x140504710 (HalpInterruptConnect.c)
+ *     HalpTimerWatchdogStart @ 0x14050C080 (HalpTimerWatchdogStart.c)
  */
 
 int HalpTimerInitializeSystemWatchdog()

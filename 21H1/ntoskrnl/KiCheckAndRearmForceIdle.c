@@ -22,9 +22,9 @@ void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3, __i
   int v10; // eax
   int v11; // eax
   int v12; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v13; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
-  v13.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( KiForceIdleDisabled )
     return;
   _disable();
@@ -69,7 +69,8 @@ void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3, __i
   {
     goto LABEL_7;
   }
-  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v13);
+  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                       + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
 LABEL_7:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
   v6 = KeGetCurrentPrcb();

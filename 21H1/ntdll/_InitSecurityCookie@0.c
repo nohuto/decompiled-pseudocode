@@ -12,24 +12,23 @@ signed __int32 *__stdcall InitSecurityCookie()
 {
   signed __int32 *result; // eax
   int v1; // eax
-  _DWORD v2[2]; // [esp+0h] [ebp-Ch] BYREF
+  LARGE_INTEGER DelayInterval; // [esp+0h] [ebp-Ch] BYREF
   signed __int32 v3; // [esp+8h] [ebp-4h] BYREF
 
   result = (signed __int32 *)_InterlockedIncrement(&SecurityCookieInitCount);
   if ( result == (signed __int32 *)1 )
   {
     v1 = LdrpGenRandom();
-    LdrInitSecurityCookie((int *)&__security_cookie, dword_4B3A92E0 ^ v1, 0);
+    LdrInitSecurityCookie(0, (unsigned int *)&__security_cookie, dword_4B3A92E0 ^ v1, 0);
     result = &v3;
     _InterlockedOr(&v3, 0);
     SecurityCookieInitialized = 1;
   }
   else
   {
-    v2[1] = -1;
-    v2[0] = -300000;
+    DelayInterval.QuadPart = -300000LL;
     while ( !SecurityCookieInitialized )
-      result = (signed __int32 *)ZwDelayExecution(0, (int)v2);
+      result = (signed __int32 *)ZwDelayExecution(0, &DelayInterval);
   }
   return result;
 }

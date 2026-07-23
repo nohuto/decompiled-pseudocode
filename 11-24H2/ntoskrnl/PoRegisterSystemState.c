@@ -1,15 +1,15 @@
 /*
- * XREFs of PoRegisterSystemState @ 0x1403310B0
+ * XREFs of PoRegisterSystemState @ 0x1402B9710
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTraceRegisterSystemState @ 0x140330FEC (PopDiagTraceRegisterSystemState.c)
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x140331D38 (PoCaptureReasonContext.c)
- *     PoSetSystemState @ 0x1403F2B30 (PoSetSystemState.c)
- *     PopApplyLegacyPowerRequestFlags @ 0x14046BB18 (PopApplyLegacyPowerRequestFlags.c)
- *     PopGetLegacyPowerRequestFlags @ 0x14047C988 (PopGetLegacyPowerRequestFlags.c)
+ *     PopDiagTraceRegisterSystemState @ 0x1402B97DC (PopDiagTraceRegisterSystemState.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1402BC6B8 (PoCaptureReasonContext.c)
+ *     PoSetSystemState @ 0x1403E6850 (PoSetSystemState.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x140464798 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopGetLegacyPowerRequestFlags @ 0x140477B10 (PopGetLegacyPowerRequestFlags.c)
  */
 
 PVOID __stdcall PoRegisterSystemState(PVOID StateHandle, EXECUTION_STATE Flags)
@@ -32,7 +32,7 @@ PVOID __stdcall PoRegisterSystemState(PVOID StateHandle, EXECUTION_STATE Flags)
     }
     else
     {
-      PopDiagTraceRegisterSystemState(Flags, (__int64)StateHandle);
+      PopDiagTraceRegisterSystemState(Flags, StateHandle);
       v2 = StateHandle;
       v10 = StateHandle;
       if ( StateHandle

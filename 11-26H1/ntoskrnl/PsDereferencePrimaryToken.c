@@ -1,9 +1,9 @@
 /*
- * XREFs of PsDereferencePrimaryToken @ 0x140A48F50
+ * XREFs of PsDereferencePrimaryToken @ 0x140A52240
  * Callers:
- *     DifIoDeleteControllerWrapper @ 0x14065B4C0 (DifIoDeleteControllerWrapper.c)
+ *     DifIoDeleteControllerWrapper @ 0x14065F0A0 (DifIoDeleteControllerWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
  */
 
 void __stdcall PsDereferencePrimaryToken(PACCESS_TOKEN PrimaryToken)

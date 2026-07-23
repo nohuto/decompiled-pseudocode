@@ -1,21 +1,21 @@
 /*
  * XREFs of PsReturnProcessPagedPoolQuota @ 0x1402085B0
  * Callers:
- *     MiPerformVadSplitting @ 0x14030B5F4 (MiPerformVadSplitting.c)
- *     FsRtlCancelNotify @ 0x14035E1C0 (FsRtlCancelNotify.c)
+ *     MiPerformVadSplitting @ 0x14030B884 (MiPerformVadSplitting.c)
+ *     FsRtlCancelNotify @ 0x14035E360 (FsRtlCancelNotify.c)
  *     LpcExitProcess @ 0x140688B4C (LpcExitProcess.c)
  *     FsRtlNotifyFilterReportChangeLiteEx @ 0x14068A3A0 (FsRtlNotifyFilterReportChangeLiteEx.c)
  *     FsRtlNotifyCompleteIrp @ 0x14068AA8C (FsRtlNotifyCompleteIrp.c)
  *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
  *     ExpFreeTablePagedPool @ 0x14068AD30 (ExpFreeTablePagedPool.c)
- *     MiReturnVadQuota @ 0x1406FB394 (MiReturnVadQuota.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14071DBC0 (AlpcpReleasePagedPoolQuota.c)
- *     ExpAllocateHandleTable @ 0x1407B069C (ExpAllocateHandleTable.c)
- *     FsRtlNotifyCleanupOneEntry @ 0x1407C4E38 (FsRtlNotifyCleanupOneEntry.c)
- *     FsRtlNotifyFilterReportChange @ 0x14084B490 (FsRtlNotifyFilterReportChange.c)
- *     MiReturnVadCharges @ 0x140A3C4A4 (MiReturnVadCharges.c)
+ *     MiReturnVadQuota @ 0x1406FB5A4 (MiReturnVadQuota.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x14071DDC0 (AlpcpReleasePagedPoolQuota.c)
+ *     ExpAllocateHandleTable @ 0x1407B088C (ExpAllocateHandleTable.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x1407C5108 (FsRtlNotifyCleanupOneEntry.c)
+ *     FsRtlNotifyFilterReportChange @ 0x14084B790 (FsRtlNotifyFilterReportChange.c)
+ *     MiReturnVadCharges @ 0x140A3C754 (MiReturnVadCharges.c)
  * Callees:
- *     PspReturnQuota @ 0x1402AD0A0 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x1402AD330 (PspReturnQuota.c)
  */
 
 __int64 __fastcall PsReturnProcessPagedPoolQuota(struct _KPROCESS *a1, __int64 a2)

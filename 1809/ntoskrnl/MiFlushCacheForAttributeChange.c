@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlushCacheForAttributeChange @ 0x140138EC8
+ * XREFs of MiFlushCacheForAttributeChange @ 0x140138FC8
  * Callers:
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiFlushCacheRange @ 0x1402C3E7C (MiFlushCacheRange.c)
- *     MiInitializeCacheFlushing @ 0x1409BC02C (MiInitializeCacheFlushing.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiFlushCacheRange @ 0x1402C406C (MiFlushCacheRange.c)
+ *     MiInitializeCacheFlushing @ 0x1409BD02C (MiInitializeCacheFlushing.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140082710 (KeInvalidateRangeAllCachesNoIpi.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiFlushHyperSpace @ 0x140175F54 (MiFlushHyperSpace.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x140082700 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiFlushHyperSpace @ 0x140176054 (MiFlushHyperSpace.c)
  */
 
 _UNKNOWN **__fastcall MiFlushCacheForAttributeChange(__int64 a1, __int64 a2, __int64 a3)

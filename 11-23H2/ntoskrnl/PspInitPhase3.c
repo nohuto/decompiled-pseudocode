@@ -3,11 +3,11 @@
  * Callers:
  *     PsInitSystem @ 0x140B4DE90 (PsInitSystem.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     VslRegisterSecureSystemDlls @ 0x14054C1B8 (VslRegisterSecureSystemDlls.c)
- *     PspMapSystemDll @ 0x1407A32E0 (PspMapSystemDll.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     VslRegisterSecureSystemDlls @ 0x14054C878 (VslRegisterSecureSystemDlls.c)
+ *     PspMapSystemDll @ 0x1407A34D0 (PspMapSystemDll.c)
  *     PspGetSystemDllSecureHandle @ 0x140B96B2C (PspGetSystemDllSecureHandle.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCountLeadingZeroes64 @ 0x140620198
+ * XREFs of RtlpCountLeadingZeroes64 @ 0x1406231E8
  * Callers:
- *     RtlpComputeFraction @ 0x1405330F0 (RtlpComputeFraction.c)
+ *     RtlpComputeFraction @ 0x140535570 (RtlpComputeFraction.c)
  * Callees:
  *     <none>
  */

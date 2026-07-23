@@ -12,7 +12,7 @@
  *     HvlpEnableRootVirtualProcessor @ 0x1406877C4 (HvlpEnableRootVirtualProcessor.c)
  */
 
-__int64 __fastcall HvlInitializeProcessor(union _SLIST_HEADER *a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall HvlInitializeProcessor(_SLIST_HEADER *a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 result; // rax
   char v5; // al

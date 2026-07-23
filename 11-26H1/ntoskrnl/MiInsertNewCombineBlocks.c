@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertNewCombineBlocks @ 0x1404D13A8
+ * XREFs of MiInsertNewCombineBlocks @ 0x1404CADD8
  * Callers:
- *     MiAllocateCombineBlock @ 0x14048F2C0 (MiAllocateCombineBlock.c)
+ *     MiAllocateCombineBlock @ 0x140488D08 (MiAllocateCombineBlock.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 _QWORD *__fastcall MiInsertNewCombineBlocks(__int64 a1, _QWORD *a2)

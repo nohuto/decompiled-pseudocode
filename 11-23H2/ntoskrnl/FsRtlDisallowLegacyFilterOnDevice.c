@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlDisallowLegacyFilterOnDevice @ 0x14040FBE0
+ * XREFs of FsRtlDisallowLegacyFilterOnDevice @ 0x14040FDC0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall FsRtlDisallowLegacyFilterOnDevice(__int64 a1)

@@ -2,10 +2,10 @@
  * XREFs of KiFindBiasedProcessorIndex @ 0x140201890
  * Callers:
  *     ?KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x140201520 (-KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET.c)
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x1402351F0 (KiHeteroAttemptPreemptionSwapOnSubNode.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140235418 (KiHeteroScanQueueForPreemptionSwapTarget.c)
- *     KiHeteroSelectIdleProcessorFromSubNode @ 0x140417D10 (KiHeteroSelectIdleProcessorFromSubNode.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x140236B50 (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140236D78 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiHeteroSelectIdleProcessorFromSubNode @ 0x14040C320 (KiHeteroSelectIdleProcessorFromSubNode.c)
  * Callees:
  *     <none>
  */
@@ -23,6 +23,6 @@ __int64 __fastcall KiFindBiasedProcessorIndex(int a1, unsigned __int64 a2, unsig
     v3 += v5 + 1;
     a3 >>= (unsigned __int8)v5 + 1;
   }
-  return *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+  return *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
          + (unsigned int)(v3 + (a1 << 6) - 1));
 }

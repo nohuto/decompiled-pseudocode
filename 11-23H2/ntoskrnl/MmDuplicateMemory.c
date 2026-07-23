@@ -1,34 +1,34 @@
 /*
- * XREFs of MmDuplicateMemory @ 0x140AAC84C
+ * XREFs of MmDuplicateMemory @ 0x140AAC6BC
  * Callers:
- *     IopLiveDumpCapture @ 0x14094DE5C (IopLiveDumpCapture.c)
- *     MmCreateMirror @ 0x140A2F140 (MmCreateMirror.c)
- *     PnprInitiateReplaceOperation @ 0x140A9C914 (PnprInitiateReplaceOperation.c)
- *     PopTransitionToSleep @ 0x140AA5340 (PopTransitionToSleep.c)
+ *     IopLiveDumpCapture @ 0x14094E05C (IopLiveDumpCapture.c)
+ *     MmCreateMirror @ 0x140A2F3F0 (MmCreateMirror.c)
+ *     PnprInitiateReplaceOperation @ 0x140A9C784 (PnprInitiateReplaceOperation.c)
+ *     PopTransitionToSleep @ 0x140AA51B0 (PopTransitionToSleep.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     MmUnlockPagableImageSection @ 0x14025A440 (MmUnlockPagableImageSection.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     CcNotifyWriteBehind @ 0x1405369D8 (CcNotifyWriteBehind.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockDynamicMemoryExclusive @ 0x14061B5A4 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14061BFAC (MiUnlockDynamicMemoryExclusive.c)
- *     MiMirrorBlackPhase @ 0x140626BE4 (MiMirrorBlackPhase.c)
- *     MiMirrorVerify @ 0x1406285E0 (MiMirrorVerify.c)
- *     MiResumeFromHibernate @ 0x14062881C (MiResumeFromHibernate.c)
- *     MiLockAllMemoryLists @ 0x140650938 (MiLockAllMemoryLists.c)
- *     MiUnlockAllMemoryLists @ 0x140652804 (MiUnlockAllMemoryLists.c)
- *     MmLockPagableSectionByHandle @ 0x1406F5750 (MmLockPagableSectionByHandle.c)
- *     MiActOnMirrorBitmap @ 0x140A2EFF8 (MiActOnMirrorBitmap.c)
- *     MiUpdateMirrorBitmaps @ 0x140A2F0F8 (MiUpdateMirrorBitmaps.c)
- *     MiMirrorBrownPhase @ 0x140AAC62C (MiMirrorBrownPhase.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     MmUnlockPagableImageSection @ 0x14025A6D0 (MmUnlockPagableImageSection.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     CcNotifyWriteBehind @ 0x140536F28 (CcNotifyWriteBehind.c)
+ *     MiLockDynamicMemoryExclusive @ 0x14061BAF4 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14061C4FC (MiUnlockDynamicMemoryExclusive.c)
+ *     MiMirrorBlackPhase @ 0x140627134 (MiMirrorBlackPhase.c)
+ *     MiMirrorVerify @ 0x140628B30 (MiMirrorVerify.c)
+ *     MiResumeFromHibernate @ 0x140628D6C (MiResumeFromHibernate.c)
+ *     MiLockAllMemoryLists @ 0x140650E88 (MiLockAllMemoryLists.c)
+ *     MiUnlockAllMemoryLists @ 0x140652D54 (MiUnlockAllMemoryLists.c)
+ *     MmLockPagableSectionByHandle @ 0x1406F5960 (MmLockPagableSectionByHandle.c)
+ *     MiActOnMirrorBitmap @ 0x140A2F2A8 (MiActOnMirrorBitmap.c)
+ *     MiUpdateMirrorBitmaps @ 0x140A2F3A8 (MiUpdateMirrorBitmaps.c)
+ *     MiMirrorBrownPhase @ 0x140AAC49C (MiMirrorBrownPhase.c)
  */
 
 NTSTATUS __fastcall MmDuplicateMemory(__int64 a1)
@@ -116,10 +116,10 @@ LABEL_60:
       {
         if ( v4 != 17 )
           MiUnlockAllMemoryLists();
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -188,7 +188,7 @@ LABEL_35:
       {
         v12 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
         {
           v13 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v12 == 2 )

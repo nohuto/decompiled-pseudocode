@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializePriQueue @ 0x1403C6D54
+ * XREFs of KeInitializePriQueue @ 0x1403C6EF4
  * Callers:
- *     ExpWorkQueueInitialize @ 0x1407C26E8 (ExpWorkQueueInitialize.c)
+ *     ExpWorkQueueInitialize @ 0x1407C2C08 (ExpWorkQueueInitialize.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
  */
 
 int __fastcall KeInitializePriQueue(__int64 a1, int a2)

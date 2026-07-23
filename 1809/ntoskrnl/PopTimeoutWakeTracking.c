@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTimeoutWakeTracking @ 0x1401583EC
+ * XREFs of PopTimeoutWakeTracking @ 0x1401584EC
  * Callers:
- *     PopWakeSourceTimeoutWorker @ 0x1406E0FD0 (PopWakeSourceTimeoutWorker.c)
+ *     PopWakeSourceTimeoutWorker @ 0x1406E2270 (PopWakeSourceTimeoutWorker.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     PopWakeInfoDereference @ 0x1401585E0 (PopWakeInfoDereference.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFinalizeWakeInfo @ 0x1406E1160 (PopFinalizeWakeInfo.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     PopWakeInfoDereference @ 0x1401586E0 (PopWakeInfoDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFinalizeWakeInfo @ 0x1406E2400 (PopFinalizeWakeInfo.c)
  */
 
 __int64 __fastcall PopTimeoutWakeTracking(__int64 *a1)
@@ -42,7 +42,7 @@ __int64 __fastcall PopTimeoutWakeTracking(__int64 *a1)
     PopPendingWakeInfo = (__int64)a1;
     if ( PopWakeSourceWorkInProgress )
     {
-      for ( i = qword_140418578; (PVOID *)i != &PopWakeSourceWorkList; i = *(_QWORD *)(i + 8) )
+      for ( i = qword_140419638; (PVOID *)i != &PopWakeSourceWorkList; i = *(_QWORD *)(i + 8) )
       {
         if ( *(__int64 **)(i + 24) == a1 )
         {

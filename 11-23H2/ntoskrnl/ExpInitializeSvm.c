@@ -3,7 +3,7 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x140B49FE4 (ExpInitSystemPhase1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -72,7 +72,7 @@ LABEL_7:
   v7[14] = ExpSvmDereferenceAsid;
   v7[15] = ExpSvmServicePageFault;
   result = &ExpAtsSvmDevices;
-  qword_140C2D4B8 = (__int64)&ExpAtsSvmDevices;
+  qword_140C2D458 = (__int64)&ExpAtsSvmDevices;
   ExpAtsSvmDevices = (__int64)&ExpAtsSvmDevices;
   qword_140C2D438 = 0LL;
   ExpAtsSvmDeviceListLock = 0LL;

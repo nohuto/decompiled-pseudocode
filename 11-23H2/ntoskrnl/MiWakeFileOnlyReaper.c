@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWakeFileOnlyReaper @ 0x14064044C
+ * XREFs of MiWakeFileOnlyReaper @ 0x14064099C
  * Callers:
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiQueueExtentPfnDeletion @ 0x14063F0B8 (MiQueueExtentPfnDeletion.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiQueueExtentPfnDeletion @ 0x14063F608 (MiQueueExtentPfnDeletion.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void MiWakeFileOnlyReaper()

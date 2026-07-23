@@ -14,7 +14,7 @@ char __fastcall AlpcpTryLockForCachedReferenceBlob(ULONG_PTR BugCheckParameter2)
   ULONG_PTR v2; // rax
   signed __int64 BugCheckParameter4; // rax
 
-  v2 = KeAbPreAcquire(BugCheckParameter2 - 16, 0LL, 1LL);
+  v2 = KeAbPreAcquire(BugCheckParameter2 - 16, 0LL, 1);
   if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 - 16), 0LL) )
   {
     if ( v2 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of AVrfpQueryProcessVerifierOptions @ 0x1800DB264
+ * XREFs of AVrfpQueryProcessVerifierOptions @ 0x1800DB224
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x1800D78B0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x1800D7870 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlpCommitQueryDebugInfo @ 0x1800D8A38 (RtlpCommitQueryDebugInfo.c)
- *     RtlpDeCommitQueryDebugInfo @ 0x1800D8C8C (RtlpDeCommitQueryDebugInfo.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlpCommitQueryDebugInfo @ 0x1800D89F8 (RtlpCommitQueryDebugInfo.c)
+ *     RtlpDeCommitQueryDebugInfo @ 0x1800D8C4C (RtlpDeCommitQueryDebugInfo.c)
  */
 
 __int64 __fastcall AVrfpQueryProcessVerifierOptions(_QWORD *a1)

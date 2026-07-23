@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllowControlAreaDelete @ 0x1401DE430
+ * XREFs of MiAllowControlAreaDelete @ 0x1401DE25C
  * Callers:
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 __int64 __fastcall MiAllowControlAreaDelete(__int64 a1)

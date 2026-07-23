@@ -1,9 +1,9 @@
 /*
- * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x1403CD090
+ * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x1403CD270
  * Callers:
  *     <none>
  * Callees:
- *     KiTryToAcquireSpinLockInstrumented @ 0x1404604EC (KiTryToAcquireSpinLockInstrumented.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x1404608EC (KiTryToAcquireSpinLockInstrumented.c)
  */
 
 BOOLEAN __stdcall KeTryToAcquireSpinLockAtDpcLevel(PKSPIN_LOCK SpinLock)

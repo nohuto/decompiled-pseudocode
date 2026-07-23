@@ -7,26 +7,32 @@
  *     RtlAddressInSectionTable @ 0x1800782B0 (RtlAddressInSectionTable.c)
  */
 
-__int64 __fastcall sub_1800E4978(__int64 a1, char a2, unsigned __int16 a3, _DWORD *a4, __int64 a5, __int64 *a6)
+__int64 __fastcall sub_1800E4978(
+        char *BaseOfImage,
+        char a2,
+        unsigned __int16 a3,
+        _DWORD *a4,
+        PIMAGE_NT_HEADERS NtHeaders,
+        _QWORD *a6)
 {
   __int64 v8; // rdx
-  __int64 v9; // rax
+  PVOID v9; // rax
 
-  if ( (unsigned int)a3 >= *(_DWORD *)(a5 + 116) )
+  if ( (unsigned int)a3 >= HIDWORD(NtHeaders->OptionalHeader.SizeOfHeapReserve) )
     return 3221225485LL;
-  v8 = *(unsigned int *)(a5 + 8LL * a3 + 120);
+  v8 = *((unsigned int *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * a3);
   if ( !(_DWORD)v8 )
     return 3221225474LL;
-  *a4 = *(_DWORD *)(a5 + 8LL * a3 + 124);
-  if ( a2 || (unsigned int)v8 < *(_DWORD *)(a5 + 84) )
+  *a4 = *((_DWORD *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * a3 + 1);
+  if ( a2 || (unsigned int)v8 < NtHeaders->OptionalHeader.SizeOfHeaders )
   {
-    *a6 = a1 + v8;
+    *a6 = &BaseOfImage[v8];
     return 0LL;
   }
   else
   {
-    v9 = RtlAddressInSectionTable(a5, a1, v8);
+    v9 = RtlAddressInSectionTable(NtHeaders, BaseOfImage, v8);
     *a6 = v9;
-    return v9 == 0 ? 0xC000000D : 0;
+    return v9 == 0LL ? 0xC000000D : 0;
   }
 }

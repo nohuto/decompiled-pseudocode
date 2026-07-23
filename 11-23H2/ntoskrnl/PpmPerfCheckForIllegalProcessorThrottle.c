@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfCheckForIllegalProcessorThrottle @ 0x140255308
+ * XREFs of PpmPerfCheckForIllegalProcessorThrottle @ 0x1402553C8
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140255F80 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140256040 (PpmPerfSnapDeliveredPerformance.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopDiagTraceIllegalProcessorThrottle @ 0x140593F54 (PopDiagTraceIllegalProcessorThrottle.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopDiagTraceIllegalProcessorThrottle @ 0x140594444 (PopDiagTraceIllegalProcessorThrottle.c)
  */
 
 void __fastcall PpmPerfCheckForIllegalProcessorThrottle(__int64 a1)

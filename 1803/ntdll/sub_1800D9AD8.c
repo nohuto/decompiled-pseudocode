@@ -7,13 +7,13 @@
  *     RtlEnterCriticalSection @ 0x18001EE90 (RtlEnterCriticalSection.c)
  */
 
-__int64 sub_1800D9AD8()
+NTSTATUS sub_1800D9AD8()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !qword_18015D4C8 )
   {
-    RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
     if ( !qword_18015D4C8 )
     {
       qword_18015D4D0 = (__int64)&qword_18015D4C8;
@@ -21,7 +21,7 @@ __int64 sub_1800D9AD8()
       qword_18015D4C0 = (__int64)&qword_18015D4B8;
       qword_18015D4B8 = (__int64)&qword_18015D4B8;
     }
-    return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
   }
   return result;
 }

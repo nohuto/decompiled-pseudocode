@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoFreeMdlWrapper @ 0x1405DF3F0
+ * XREFs of DifIoFreeMdlWrapper @ 0x1405DF960
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoFreeMdlWrapper(PMDL Mdl)

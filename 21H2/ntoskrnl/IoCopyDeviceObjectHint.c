@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCopyDeviceObjectHint @ 0x140893870
+ * XREFs of IoCopyDeviceObjectHint @ 0x1408939D0
  * Callers:
  *     <none>
  * Callees:
- *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
- *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     IopGetFileObjectExtension @ 0x140361530 (IopGetFileObjectExtension.c)
+ *     IopGetSetSpecificExtension @ 0x140361838 (IopGetSetSpecificExtension.c)
  */
 
 __int64 __fastcall IoCopyDeviceObjectHint(__int64 a1, __int64 a2)

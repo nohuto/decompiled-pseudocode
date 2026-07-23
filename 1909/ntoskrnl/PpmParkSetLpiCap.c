@@ -21,8 +21,6 @@ __int64 __fastcall PpmParkSetLpiCap(int a1, int a2, unsigned int *a3)
   __int64 v13; // r10
   _BYTE *v14; // r8
   char v15; // al
-  __int64 v16; // rdx
-  __int64 v17; // r8
 
   if ( KeGetCurrentPrcb()->PowerState.Hypervisor >= ProcHypervisorPower && (HvlEnlightenments & 0x40000) == 0 )
     return 3221225473LL;
@@ -89,7 +87,7 @@ __int64 __fastcall PpmParkSetLpiCap(int a1, int a2, unsigned int *a3)
   {
     PpmParkApplyPolicy();
     PpmCheckReInit();
-    PpmCheckCustomRun(4u, v16, v17);
+    PpmCheckCustomRun(4);
   }
   else
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiDoubleFaultAbort @ 0x1406B85C0
+ * XREFs of KiDoubleFaultAbort @ 0x1406B94C0
  * Callers:
- *     KiDoubleFaultAbortShadow @ 0x140BBB540 (KiDoubleFaultAbortShadow.c)
+ *     KiDoubleFaultAbortShadow @ 0x140BBD540 (KiDoubleFaultAbortShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x14041B1F0 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KiDoubleFaultAbort @ 0x1406B85C0 (KiDoubleFaultAbort.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406BF740 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14040ED30 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KiDoubleFaultAbort @ 0x1406B94C0 (KiDoubleFaultAbort.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406C0640 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiDoubleFaultAbort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -94,7 +94,7 @@ void __fastcall __noreturn KiDoubleFaultAbort(__int64 a1, __int64 a2, __int64 a3
       v19 = KeGetPcr()->Prcb.PrcbPad12a[1];
     }
     if ( (v19 & 2) != 0 )
-      JUMPOUT(0x1406B8825LL);
+      JUMPOUT(0x1406B9725LL);
     if ( v19 < 0 )
     {
       _mm_lfence();

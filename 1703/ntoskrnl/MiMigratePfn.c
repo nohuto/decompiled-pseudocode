@@ -207,7 +207,8 @@ LABEL_45:
   if ( (a5 & 1) != 0 && *(_BYTE *)(a5 & 0xFFFFFFFFFFFFFFFEuLL) == 4
     || (unsigned int)MiGetSystemRegionType(v50) == 12
     || PsNtosImageBase
-    && (v34 >= PsNtosImageBase && v34 < PsNtosImageEnd || v34 >= PsHalImageBase && v34 < PsHalImageEnd) )
+    && (v34 >= (unsigned __int64)PsNtosImageBase && v34 < PsNtosImageEnd
+     || v34 >= (unsigned __int64)PsHalImageBase && v34 < PsHalImageEnd) )
   {
     v35 = 9;
   }

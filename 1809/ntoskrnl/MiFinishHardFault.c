@@ -25,26 +25,26 @@
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
- *     MiDecayPfnFullyInitialized @ 0x14011BD70 (MiDecayPfnFullyInitialized.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
- *     MiSyncCommitSignals @ 0x140187FEC (MiSyncCommitSignals.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiMakeProtoReadOnly @ 0x1402AFEF8 (MiMakeProtoReadOnly.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
- *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiRestoreTransitionPte @ 0x140081000 (MiRestoreTransitionPte.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiInvalidateCollidedIos @ 0x140117DB8 (MiInvalidateCollidedIos.c)
+ *     MiDecayPfnFullyInitialized @ 0x14011BDE0 (MiDecayPfnFullyInitialized.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiIsPteInStore @ 0x140141908 (MiIsPteInStore.c)
+ *     MiSyncCommitSignals @ 0x14018812C (MiSyncCommitSignals.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiMakeProtoReadOnly @ 0x1402B00E8 (MiMakeProtoReadOnly.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
+ *     MiSwapHardFaultPage @ 0x1402D014C (MiSwapHardFaultPage.c)
  */
 
 __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -301,7 +301,7 @@ __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, _QWORD 
     CachedCommit = 0x10000000000000LL;
     v32 = 48LL * *v13;
     v33 = v32 - 0x58000000000LL;
-    if ( v32 - 0x58000000000LL == qword_14043ADD0 )
+    if ( v32 - 0x58000000000LL == qword_14043BE90 )
       goto LABEL_78;
     if ( v29 )
     {
@@ -366,7 +366,7 @@ LABEL_142:
       v34 |= 0x10u;
     }
 LABEL_44:
-    if ( byte_14043DBDE && _bittest64((const signed __int64 *)qword_14043E218, (unsigned __int64)(v32 / 48) >> 9) )
+    if ( byte_14043EC9E && _bittest64((const signed __int64 *)qword_14043F2D8, (unsigned __int64)(v32 / 48) >> 9) )
     {
       v36 = v98;
       v8 = v34 | 0x40;
@@ -429,7 +429,7 @@ LABEL_50:
           && (v8 & 4) != 0
           && !(unsigned int)MiIsPfnCommitNotCharged(v33, v36) )
         {
-          MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v33 + 40) >> 40) & 0x3FFLL)), 1LL, 4LL);
+          MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v33 + 40) >> 40) & 0x3FFLL)), 1LL, 4LL);
         }
         MiRestoreTransitionPte(v33);
         *(_QWORD *)(v33 + 24) |= 0x4000000000000000uLL;
@@ -490,7 +490,7 @@ LABEL_203:
         *(_BYTE *)(v33 + 34) = v64 | 6;
         MiRemoveLockedPageChargeAndDecRef(v33);
         v65 = *(_QWORD *)(v33 + 40);
-        v66 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((v65 >> 40) & 0x3FF));
+        v66 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((v65 >> 40) & 0x3FF));
         v67 = *(_DWORD *)(v33 + 16);
         v100 = v66;
         if ( (v67 & 0x400) == 0 && (unsigned int)MiIsPteInStore(v66, *(_QWORD *)(v33 + 16)) )
@@ -517,7 +517,7 @@ LABEL_203:
               }
               goto LABEL_123;
             }
-            if ( !HIBYTE(word_14043A1AC) && (v73 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v73 & 1) != 0 )
               v71 |= 0x8000000000000000uLL;
             *v68 = v71;
             MiWritePteShadow(v68);
@@ -604,7 +604,7 @@ LABEL_156:
       {
         v46 = 1;
       }
-      v47 = *(_QWORD *)(qword_14043A748 + 8 * ((v41 >> 40) & 0x3FF));
+      v47 = *(_QWORD *)(qword_14043B808 + 8 * ((v41 >> 40) & 0x3FF));
       if ( v46 == 1 )
       {
         v48 = *(_QWORD *)(v47 + 6464);
@@ -671,7 +671,7 @@ LABEL_135:
             CachedCommit = (int)CachedResidentAvailable - 192 + 1LL;
           }
 LABEL_138:
-          CachedCommit = _InterlockedExchangeAdd64(&qword_14043E600, CachedCommit);
+          CachedCommit = _InterlockedExchangeAdd64(&qword_14043F6C0, CachedCommit);
           goto LABEL_74;
         }
         while ( 1 )
@@ -780,7 +780,7 @@ LABEL_93:
   MiFreeInPageSupportBlock((char *)v5);
   if ( v99 )
   {
-    v91 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v99 + 40) >> 40) & 0x3FFLL));
+    v91 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v99 + 40) >> 40) & 0x3FFLL));
     MiReleaseFreshPage(v99);
     if ( (ULONG_PTR *)v91 == &MiSystemPartition )
       MiReturnResidentAvailable(1uLL);

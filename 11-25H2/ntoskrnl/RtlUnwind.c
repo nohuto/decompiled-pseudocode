@@ -11,22 +11,22 @@
  *     _alloca_probe @ 0x1406A89B0 (_alloca_probe.c)
  */
 
-__int64 __fastcall RtlUnwind(ULONG_PTR a1, __int64 a2, int *a3, __int64 a4)
+void __cdecl RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue)
 {
-  int v7; // edi
+  ULONG v7; // edi
   unsigned __int64 v9; // rax
   void *v10; // rsp
-  __int64 v12; // [rsp+30h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextLength; // [rsp+30h] [rbp+0h] BYREF
 
-  LODWORD(v12) = 0;
+  LODWORD(ContextLength) = 0;
   v7 = 1048587;
   if ( (_BYTE)KiKernelCetEnabled )
     v7 = 1048715;
-  RtlGetExtendedContextLength2(v7, &v12, 0LL);
-  v9 = (unsigned int)v12 + 15LL;
-  if ( v9 <= (unsigned int)v12 )
+  RtlGetExtendedContextLength2(v7, (PULONG)&ContextLength, 0LL);
+  v9 = (unsigned int)ContextLength + 15LL;
+  if ( v9 <= (unsigned int)ContextLength )
     v9 = 0xFFFFFFFFFFFFFF0LL;
   v10 = alloca(v9 & 0xFFFFFFFFFFFFFFF0uLL);
-  RtlInitializeExtendedContext2((__int64)&v12, v7, &v12, 0LL);
-  return RtlUnwindEx(a1, a2, a3, a4, (int *)&v12, 0LL);
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextLength, v7, &ContextLength, 0LL);
+  RtlUnwindEx(TargetFrame, TargetIp, ExceptionRecord, ReturnValue, (PCONTEXT)&ContextLength, 0LL);
 }

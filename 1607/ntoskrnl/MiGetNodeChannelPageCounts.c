@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetNodeChannelPageCounts @ 0x140135078
+ * XREFs of MiGetNodeChannelPageCounts @ 0x1401355E8
  * Callers:
- *     MmGetChannelInformation @ 0x14054C23C (MmGetChannelInformation.c)
+ *     MmGetChannelInformation @ 0x14054C77C (MmGetChannelInformation.c)
  * Callees:
  *     <none>
  */

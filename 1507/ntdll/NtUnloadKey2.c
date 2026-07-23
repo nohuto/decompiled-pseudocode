@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtUnloadKey2()
+NTSTATUS __cdecl NtUnloadKey2(POBJECT_ATTRIBUTES TargetKey, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 427LL;
+  result = 427;
   __asm { syscall; Low latency system call }
   return result;
 }

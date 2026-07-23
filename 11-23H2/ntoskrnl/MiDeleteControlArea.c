@@ -2,21 +2,21 @@
  * XREFs of MiDeleteControlArea @ 0x1402199D0
  * Callers:
  *     MiDereferenceControlAreaProbe @ 0x140219894 (MiDereferenceControlAreaProbe.c)
- *     MiWaitForInPageComplete @ 0x1402A17A0 (MiWaitForInPageComplete.c)
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
- *     MiDeleteControlAreaList @ 0x140624464 (MiDeleteControlAreaList.c)
- *     MiFlushControlArea @ 0x140624534 (MiFlushControlArea.c)
+ *     MiWaitForInPageComplete @ 0x1402A1A30 (MiWaitForInPageComplete.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
+ *     MiDeleteControlAreaList @ 0x1406249B4 (MiDeleteControlAreaList.c)
+ *     MiFlushControlArea @ 0x140624A84 (MiFlushControlArea.c)
  * Callees:
  *     MiDecrementControlAreaCount @ 0x140219AA0 (MiDecrementControlAreaCount.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B494 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     MiDeleteFileExtents @ 0x1406B0AB0 (MiDeleteFileExtents.c)
- *     SeReleaseImageValidationContext @ 0x1407EAC78 (SeReleaseImageValidationContext.c)
- *     MiFreeRelocations @ 0x140A480B8 (MiFreeRelocations.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B9E4 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiDeleteFileExtents @ 0x1406B0AE0 (MiDeleteFileExtents.c)
+ *     SeReleaseImageValidationContext @ 0x1407EAF48 (SeReleaseImageValidationContext.c)
+ *     MiFreeRelocations @ 0x140A48368 (MiFreeRelocations.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -65,10 +65,13 @@ void __fastcall MiDeleteControlArea(PVOID P)
           v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)P + 18);
           v1 += MiDecrementSubsectionViewCount(v6);
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)P + 18);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v9 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,8 +1,8 @@
 /*
- * XREFs of SdbpIsSdbCapabilityPresent @ 0x140A51500
+ * XREFs of SdbpIsSdbCapabilityPresent @ 0x140A517B0
  * Callers:
- *     SdbpMatchList @ 0x14075751C (SdbpMatchList.c)
- *     SdbpCheckSdbCapability @ 0x140A50A40 (SdbpCheckSdbCapability.c)
+ *     SdbpMatchList @ 0x14075770C (SdbpMatchList.c)
+ *     SdbpCheckSdbCapability @ 0x140A50CF0 (SdbpCheckSdbCapability.c)
  * Callees:
  *     <none>
  */

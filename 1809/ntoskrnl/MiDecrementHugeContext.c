@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDecrementHugeContext @ 0x140185A48
+ * XREFs of MiDecrementHugeContext @ 0x140185B88
  * Callers:
- *     MiDeleteZeroThreadContext @ 0x1401850B4 (MiDeleteZeroThreadContext.c)
- *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
- *     MiGetUltraHugeAlreadyActive @ 0x1401855F4 (MiGetUltraHugeAlreadyActive.c)
+ *     MiDeleteZeroThreadContext @ 0x1401851F4 (MiDeleteZeroThreadContext.c)
+ *     MiGetHugePageToZero @ 0x1401855A4 (MiGetHugePageToZero.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x140185734 (MiGetUltraHugeAlreadyActive.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiRemoveFaultNode @ 0x1400F96C4 (MiRemoveFaultNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargeZeroingVa @ 0x1402C1C60 (MiReleaseLargeZeroingVa.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiRemoveFaultNode @ 0x1400F9744 (MiRemoveFaultNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargeZeroingVa @ 0x1402C1E50 (MiReleaseLargeZeroingVa.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDecrementHugeContext(_QWORD *P, __int64 a2)

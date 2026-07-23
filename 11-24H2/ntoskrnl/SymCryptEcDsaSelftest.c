@@ -1,22 +1,22 @@
 /*
- * XREFs of SymCryptEcDsaSelftest @ 0x14052972C
+ * XREFs of SymCryptEcDsaSelftest @ 0x14052704C
  * Callers:
- *     SymCryptEckeySetValue @ 0x140522F10 (SymCryptEckeySetValue.c)
+ *     SymCryptEckeySetValue @ 0x140520824 (SymCryptEckeySetValue.c)
  * Callees:
- *     SymCryptRestoreXmm @ 0x1404999F8 (SymCryptRestoreXmm.c)
- *     SymCryptEcurveAllocate @ 0x140522320 (SymCryptEcurveAllocate.c)
- *     SymCryptEcurveFree @ 0x140522428 (SymCryptEcurveFree.c)
- *     SymCryptEckeyAllocate @ 0x140522CE8 (SymCryptEckeyAllocate.c)
- *     SymCryptEckeyFree @ 0x140522DD4 (SymCryptEckeyFree.c)
- *     SymCryptEckeySetValue @ 0x140522F10 (SymCryptEckeySetValue.c)
- *     SymCryptIntAllocate @ 0x14052379C (SymCryptIntAllocate.c)
- *     SymCryptIntFree @ 0x1405238A0 (SymCryptIntFree.c)
- *     SymCryptIntSetValue @ 0x140523A08 (SymCryptIntSetValue.c)
- *     SymCryptEcDsaSignEx @ 0x140524044 (SymCryptEcDsaSignEx.c)
- *     SymCryptEcDsaVerify @ 0x1405246D8 (SymCryptEcDsaVerify.c)
- *     SymCryptFatal @ 0x1405B1490 (SymCryptFatal.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     SymCryptRestoreXmm @ 0x140494460 (SymCryptRestoreXmm.c)
+ *     SymCryptEcurveAllocate @ 0x14051FC64 (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveFree @ 0x14051FD6C (SymCryptEcurveFree.c)
+ *     SymCryptEckeyAllocate @ 0x1405205FC (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeyFree @ 0x1405206E8 (SymCryptEckeyFree.c)
+ *     SymCryptEckeySetValue @ 0x140520824 (SymCryptEckeySetValue.c)
+ *     SymCryptIntAllocate @ 0x1405210B4 (SymCryptIntAllocate.c)
+ *     SymCryptIntFree @ 0x1405211B8 (SymCryptIntFree.c)
+ *     SymCryptIntSetValue @ 0x140521320 (SymCryptIntSetValue.c)
+ *     SymCryptEcDsaSignEx @ 0x14052195C (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaVerify @ 0x140521FF0 (SymCryptEcDsaVerify.c)
+ *     SymCryptFatal @ 0x1405AE400 (SymCryptFatal.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 __int64 SymCryptEcDsaSelftest()
@@ -39,7 +39,7 @@ __int64 SymCryptEcDsaSelftest()
     SymCryptFatal(1179209811LL);
   if ( (unsigned int)SymCryptIntSetValue() )
     SymCryptFatal(1179209811LL);
-  if ( (unsigned int)SymCryptEckeySetValue((__int64)qword_1400200C0, 32LL, (__int64)eckey1, 64LL, 2u, 2, 4352, v2) )
+  if ( (unsigned int)SymCryptEckeySetValue((__int64)qword_140020440, 32LL, (__int64)eckey1, 64LL, 2u, 2, 4352, v2) )
     SymCryptFatal(1179209811LL);
   if ( (unsigned int)SymCryptEcDsaSignEx(v2, (int)rgbSha256Hash, 32, v3, 2, 1, (__int64)Buf1, 0x40uLL) )
     SymCryptFatal(1179209811LL);

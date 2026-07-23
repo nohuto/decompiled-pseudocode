@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueueCopyWrite @ 0x1404C6D40
+ * XREFs of IopQueueCopyWrite @ 0x1404C06F0
  * Callers:
  *     <none>
  * Callees:
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
  */
 
 __int64 __fastcall IopQueueCopyWrite(__int64 a1)

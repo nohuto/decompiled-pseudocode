@@ -35,7 +35,7 @@ NTSTATUS __fastcall EtwpEventWriteFull(
   unsigned __int8 v17; // cl
   char v19; // [esp+Bh] [ebp-E5h]
   NTSTATUS v20; // [esp+Ch] [ebp-E4h]
-  _BYTE v22[4]; // [esp+28h] [ebp-C8h] BYREF
+  _BYTE Fields[4]; // [esp+28h] [ebp-C8h] BYREF
   __int16 v23; // [esp+2Ch] [ebp-C4h]
   __int16 v24; // [esp+2Eh] [ebp-C2h]
   int v25; // [esp+50h] [ebp-A0h]
@@ -136,7 +136,7 @@ LABEL_7:
         }
         v33 = a5;
         v41 = a2;
-        result = NtTraceEvent(*(_DWORD *)(v12 + 48), 768, 120, v22);
+        result = NtTraceEvent(*(HANDLE *)(v12 + 48), 0x300u, 0x78u, Fields);
         if ( result )
           result = RtlNtStatusToDosError(result);
         v20 = result;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MmStoreRegister @ 0x140832E04
+ * XREFs of MmStoreRegister @ 0x140833104
  * Callers:
- *     SmFirstTimeInit @ 0x1407B7D14 (SmFirstTimeInit.c)
+ *     SmFirstTimeInit @ 0x1407B7FF4 (SmFirstTimeInit.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiMoveModifiedPagesToCompressList @ 0x1403966B4 (MiMoveModifiedPagesToCompressList.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
- *     MiCreatePagefile @ 0x140833A94 (MiCreatePagefile.c)
- *     MiInsertPageFileInList @ 0x140834090 (MiInsertPageFileInList.c)
- *     MmStoreCheckPagefiles @ 0x140834374 (MmStoreCheckPagefiles.c)
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiMoveModifiedPagesToCompressList @ 0x140396894 (MiMoveModifiedPagesToCompressList.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
+ *     MiCreatePagefile @ 0x140833D94 (MiCreatePagefile.c)
+ *     MiInsertPageFileInList @ 0x140834390 (MiInsertPageFileInList.c)
+ *     MmStoreCheckPagefiles @ 0x140834674 (MmStoreCheckPagefiles.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -27,8 +27,8 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
   struct _KEVENT *v10; // rbp
   _DWORD *v11; // r15
   int SystemThread; // esi
-  RTL_BITMAP *v13; // rax
-  RTL_BITMAP *v14; // r14
+  _RTL_BITMAP *v13; // rax
+  _RTL_BITMAP *v14; // r14
   unsigned int v15; // edx
   unsigned __int64 v16; // r9
   __int64 *v17; // r8
@@ -72,10 +72,10 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
                    0LL);
   if ( SystemThread >= 0 )
   {
-    v13 = (RTL_BITMAP *)MiAllocatePool(
-                          64,
-                          8 * (((unsigned int)dword_140D1D1DC >> 6) + ((dword_140D1D1DC & 0x3F) != 0) + 2),
-                          0x20206D4Du);
+    v13 = (_RTL_BITMAP *)MiAllocatePool(
+                           64,
+                           8 * (((unsigned int)dword_140D1D1DC >> 6) + ((dword_140D1D1DC & 0x3F) != 0) + 2),
+                           0x20206D4Du);
     v14 = v13;
     if ( v13 )
     {

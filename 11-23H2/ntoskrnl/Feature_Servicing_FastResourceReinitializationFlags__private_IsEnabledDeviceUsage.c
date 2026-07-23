@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledDeviceUsage @ 0x14041697C
+ * XREFs of Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledDeviceUsage @ 0x140416D10
  * Callers:
- *     ExReinitializeFastResource2 @ 0x140413CB8 (ExReinitializeFastResource2.c)
+ *     ExReinitializeFastResource2 @ 0x14041404C (ExReinitializeFastResource2.c)
  * Callees:
- *     Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledFallback @ 0x1404169B4 (Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledFallback.c)
+ *     Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledFallback @ 0x140416D48 (Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledDeviceUsage()

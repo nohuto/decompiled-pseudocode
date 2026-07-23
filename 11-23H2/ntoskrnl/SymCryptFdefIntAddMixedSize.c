@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefIntAddMixedSize @ 0x1404030DC
+ * XREFs of SymCryptFdefIntAddMixedSize @ 0x1404032BC
  * Callers:
- *     SymCryptIntAddMixedSize @ 0x1403F9288 (SymCryptIntAddMixedSize.c)
+ *     SymCryptIntAddMixedSize @ 0x1403F9468 (SymCryptIntAddMixedSize.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     SymCryptFdefRawAddAsm @ 0x140405D20 (SymCryptFdefRawAddAsm.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     SymCryptFdefRawAddAsm @ 0x140405F00 (SymCryptFdefRawAddAsm.c)
  */
 
 __int64 __fastcall SymCryptFdefIntAddMixedSize(__int64 a1, __int64 a2, __int64 a3)

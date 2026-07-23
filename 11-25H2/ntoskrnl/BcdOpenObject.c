@@ -33,47 +33,47 @@
  *     ExFreePool @ 0x140B62CB0 (ExFreePool.c)
  */
 
-__int64 __fastcall BcdOpenObject(__int64 a1, unsigned int *a2, _QWORD *a3)
+NTSTATUS __cdecl BcdOpenObject(HANDLE BcdStoreHandle, const GUID *Identifier, PHANDLE BcdObjectHandle)
 {
   __int64 v6; // rcx
   char v7; // r13
-  __int64 result; // rax
-  int v9; // eax
-  unsigned int v10; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v9; // eax
+  NTSTATUS v10; // ebx
   wchar_t *Buffer; // rdi
   unsigned int v12; // esi
-  int AliasedIdentifier; // eax
+  NTSTATUS AliasedIdentifier; // eax
   const wchar_t *v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // rcx
-  int v17; // eax
+  NTSTATUS v17; // eax
   __int64 v18; // [rsp+20h] [rbp-30h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+28h] [rbp-28h] BYREF
-  unsigned int v20[6]; // [rsp+38h] [rbp-18h] BYREF
+  UNICODE_STRING GuidString; // [rsp+28h] [rbp-28h] BYREF
+  GUID Guid; // [rsp+38h] [rbp-18h] BYREF
   int v21; // [rsp+98h] [rbp+48h] BYREF
 
-  *(_QWORD *)&UnicodeString.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   v21 = 0;
-  *(_OWORD *)v20 = 0LL;
-  LOBYTE(v6) = BiIsOfflineHandle(a1);
+  Guid = 0LL;
+  LOBYTE(v6) = BiIsOfflineHandle((char)BcdStoreHandle);
   v7 = v6;
   result = BiAcquireBcdSyncMutant(v6);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
-  *a3 = 0LL;
+  *BcdObjectHandle = 0LL;
   v18 = 0LL;
-  UnicodeString.Buffer = 0LL;
-  v9 = RtlStringFromGUIDEx(a2, (__int64)&UnicodeString, 1);
+  GuidString.Buffer = 0LL;
+  v9 = RtlStringFromGUIDEx((PGUID)Identifier, &GuidString, 1u);
   v10 = v9;
   if ( v9 < 0 )
   {
     BiLogMessage(4LL, L"Failed to get object identifier. Status: %x", (unsigned int)v9);
     goto LABEL_19;
   }
-  Buffer = UnicodeString.Buffer;
+  Buffer = GuidString.Buffer;
   v12 = 2;
-  BiLogMessage(2LL, L"Opening object %s", UnicodeString.Buffer);
-  AliasedIdentifier = BiOpenKey(a1, L"Objects", 131097LL, &v18);
+  BiLogMessage(2LL, L"Opening object %s", GuidString.Buffer);
+  AliasedIdentifier = BiOpenKey(BcdStoreHandle, L"Objects", 131097LL, &v18);
   v10 = AliasedIdentifier;
   if ( AliasedIdentifier < 0 )
   {
@@ -82,32 +82,32 @@ LABEL_5:
     v15 = 4LL;
     goto LABEL_6;
   }
-  if ( (unsigned __int8)BiIsObjectAliased(a2, &v21) )
+  if ( (unsigned __int8)BiIsObjectAliased(Identifier, &v21) )
   {
-    AliasedIdentifier = BiGetAliasedIdentifier(a1, v21, v20);
+    AliasedIdentifier = BiGetAliasedIdentifier((__int64)BcdStoreHandle, v21, &Guid);
     v10 = AliasedIdentifier;
     if ( AliasedIdentifier < 0 )
     {
       v14 = L"Failed to get aliased identifier. Status: %x";
       goto LABEL_5;
     }
-    RtlFreeAnsiString(&UnicodeString);
-    UnicodeString.Buffer = 0LL;
-    v17 = RtlStringFromGUIDEx(v20, (__int64)&UnicodeString, 1);
+    RtlFreeAnsiString(&GuidString);
+    GuidString.Buffer = 0LL;
+    v17 = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
     v10 = v17;
     if ( v17 >= 0 )
     {
-      Buffer = UnicodeString.Buffer;
-      BiLogMessage(2LL, L"Object alias resolves to %s", UnicodeString.Buffer);
+      Buffer = GuidString.Buffer;
+      BiLogMessage(2LL, L"Object alias resolves to %s", GuidString.Buffer);
       goto LABEL_14;
     }
     BiLogMessage(4LL, L"Failed to update object GUID string. Status: %x", (unsigned int)v17);
 LABEL_19:
-    Buffer = UnicodeString.Buffer;
+    Buffer = GuidString.Buffer;
     goto LABEL_7;
   }
 LABEL_14:
-  AliasedIdentifier = BiOpenKey(v18, Buffer, 983103LL, a3);
+  AliasedIdentifier = BiOpenKey(v18, Buffer, 983103LL, BcdObjectHandle);
   v10 = AliasedIdentifier;
   if ( AliasedIdentifier >= 0 )
     goto LABEL_7;

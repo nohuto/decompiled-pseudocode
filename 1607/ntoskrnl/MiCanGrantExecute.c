@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCanGrantExecute @ 0x1401EF6B4
+ * XREFs of MiCanGrantExecute @ 0x1401EF4E0
  * Callers:
- *     MiValidFault @ 0x1400E6250 (MiValidFault.c)
- *     MiLargePageFault @ 0x1401EF82C (MiLargePageFault.c)
+ *     MiValidFault @ 0x1400E40F0 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1401EF658 (MiLargePageFault.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
  */
 
 __int64 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2)

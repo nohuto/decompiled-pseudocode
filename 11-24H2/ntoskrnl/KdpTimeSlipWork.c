@@ -1,15 +1,15 @@
 /*
- * XREFs of KdpTimeSlipWork @ 0x140B78650
+ * XREFs of KdpTimeSlipWork @ 0x140B7A650
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     ExTryAcquireTimeRefreshLockExclusive @ 0x1407B6080 (ExTryAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x1409B2024 (ExReleaseTimeRefreshLockExclusive.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140B68020 (ExUpdateSystemTimeFromCmos.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     ExTryAcquireTimeRefreshLockExclusive @ 0x1407B64D0 (ExTryAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x1409A9374 (ExReleaseTimeRefreshLockExclusive.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140B6A160 (ExUpdateSystemTimeFromCmos.c)
  */
 
 __int64 KdpTimeSlipWork()

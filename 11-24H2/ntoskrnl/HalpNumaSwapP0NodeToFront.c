@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpNumaSwapP0NodeToFront @ 0x140558940
+ * XREFs of HalpNumaSwapP0NodeToFront @ 0x140556280
  * Callers:
- *     HalpAcpiInitSystem @ 0x140B4D110 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x140B4F150 (HalpAcpiInitSystem.c)
  * Callees:
- *     HalpInterruptGetIdentifiers @ 0x1404BACE0 (HalpInterruptGetIdentifiers.c)
- *     HalpGetNumaProcMemoryCount @ 0x140C1146C (HalpGetNumaProcMemoryCount.c)
+ *     HalpInterruptGetIdentifiers @ 0x1404B5B80 (HalpInterruptGetIdentifiers.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140C13460 (HalpGetNumaProcMemoryCount.c)
  */
 
 void HalpNumaSwapP0NodeToFront()

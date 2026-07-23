@@ -1,14 +1,21 @@
 /*
- * XREFs of ZwGetWriteWatch @ 0x140725470
+ * XREFs of ZwGetWriteWatch @ 0x14072A040
  * Callers:
- *     DifZwGetWriteWatchWrapper @ 0x1406A8180 (DifZwGetWriteWatchWrapper.c)
+ *     DifZwGetWriteWatchWrapper @ 0x1406ABD60 (DifZwGetWriteWatchWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetWriteWatch(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetWriteWatch(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        SIZE_T RegionSize,
+        PVOID *UserAddressArray,
+        PULONG_PTR EntriesInUserAddressArray,
+        PULONG Granularity)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

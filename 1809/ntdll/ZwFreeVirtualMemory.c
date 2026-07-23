@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwFreeVirtualMemory @ 0x1800A06A0
+ * XREFs of ZwFreeVirtualMemory @ 0x1800A06C0
  * Callers:
  *     EtwpShutdownCompression @ 0x1800029B8 (EtwpShutdownCompression.c)
  *     EtwpAllocateTraceBufferPool @ 0x18005125C (EtwpAllocateTraceBufferPool.c)
@@ -13,12 +13,12 @@
  *     RtlpHpVaMgrCtxFree @ 0x180065734 (RtlpHpVaMgrCtxFree.c)
  *     RtlpHpVaMgrRangeFree @ 0x180065B04 (RtlpHpVaMgrRangeFree.c)
  *     RtlpCSparseBitmapPageDecommit @ 0x180065F00 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlpInitParameterBlock @ 0x180081230 (RtlpInitParameterBlock.c)
- *     RtlFreeUserStack @ 0x180081530 (RtlFreeUserStack.c)
- *     RtlCreateQueryDebugBuffer @ 0x180085F30 (RtlCreateQueryDebugBuffer.c)
- *     RtlDestroyMemoryZone @ 0x180088000 (RtlDestroyMemoryZone.c)
- *     RtlDestroyHandleTable @ 0x180088850 (RtlDestroyHandleTable.c)
- *     PssNtFreeSnapshot @ 0x180089520 (PssNtFreeSnapshot.c)
+ *     RtlpInitParameterBlock @ 0x180081240 (RtlpInitParameterBlock.c)
+ *     RtlFreeUserStack @ 0x180081540 (RtlFreeUserStack.c)
+ *     RtlCreateQueryDebugBuffer @ 0x180085F40 (RtlCreateQueryDebugBuffer.c)
+ *     RtlDestroyMemoryZone @ 0x180088010 (RtlDestroyMemoryZone.c)
+ *     RtlDestroyHandleTable @ 0x180088860 (RtlDestroyHandleTable.c)
+ *     PssNtFreeSnapshot @ 0x180089530 (PssNtFreeSnapshot.c)
  *     LdrCreateEnclave @ 0x1800CEBB0 (LdrCreateEnclave.c)
  *     LdrDeleteEnclave @ 0x1800CECB0 (LdrDeleteEnclave.c)
  *     RtlCreateProcessReflection @ 0x1800D7C30 (RtlCreateProcessReflection.c)
@@ -37,16 +37,16 @@
  *     PsspCaptureHandleInformation @ 0x18011302C (PsspCaptureHandleInformation.c)
  *     PsspFreeLinkedHandleList @ 0x18011403C (PsspFreeLinkedHandleList.c)
  *     PsspDuplicateSnapshotLocalToRemote @ 0x180114174 (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x180114744 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18011470C (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwFreeVirtualMemory()
+NTSTATUS __cdecl ZwFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 30LL;
+  result = 30;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

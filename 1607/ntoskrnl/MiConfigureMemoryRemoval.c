@@ -1,7 +1,7 @@
 /*
- * XREFs of MiConfigureMemoryRemoval @ 0x140657F38
+ * XREFs of MiConfigureMemoryRemoval @ 0x14065801C
  * Callers:
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

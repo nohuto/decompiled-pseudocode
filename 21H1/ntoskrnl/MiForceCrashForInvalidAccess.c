@@ -25,11 +25,13 @@ _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process, __int64 a2, _
   signed __int32 DirectoryTableBase; // eax
   signed __int32 v8; // ett
   HANDLE ProcessId; // rax
-  _QWORD v11[24]; // [rsp+90h] [rbp-70h] BYREF
-  HANDLE Handle; // [rsp+170h] [rbp+70h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v12[24]; // [rsp+90h] [rbp-70h] BYREF
+  HANDLE ThreadHandle; // [rsp+170h] [rbp+70h] BYREF
   PVOID Object; // [rsp+178h] [rbp+78h] BYREF
 
-  Handle = 0LL;
+  ThreadHandle = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( CurrentThread->ApcStateIndex == 1 || (CurrentThread->MiscFlags & 0x400) != 0 )
@@ -55,23 +57,39 @@ _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process, __int64 a2, _
       }
       else
       {
-        memset(v11, 0, 0x98uLL);
-        LODWORD(v11[0]) = -1073739994;
-        LODWORD(v11[3]) = 1;
-        v11[4] = PsGetProcessId(Process);
-        DbgkQueueUserExceptionReport(CurrentThread, 0xEu, (__int64)v11);
+        memset(v12, 0, 0x98uLL);
+        LODWORD(v12[0]) = -1073739994;
+        LODWORD(v12[3]) = 1;
+        v12[4] = PsGetProcessId(Process);
+        DbgkQueueUserExceptionReport(CurrentThread, 0xEu, (__int64)v12);
       }
       PsFreezeProcess((__int64)Process, 0);
-      if ( (int)ZwCreateThreadEx((__int64)&Handle, 0x1FFFFFLL) < 0 )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 512;
+      ObjectAttributes.ObjectName = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      if ( ZwCreateThreadEx(
+             &ThreadHandle,
+             0x1FFFFFu,
+             &ObjectAttributes,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             0LL,
+             0LL,
+             1u,
+             0LL,
+             0x1000uLL,
+             0x1000uLL,
+             0LL) < 0 )
       {
         PsTerminateProcess((ULONG_PTR)Process);
       }
       else
       {
         Object = 0LL;
-        ObReferenceObjectByHandle(Handle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
+        ObReferenceObjectByHandle(ThreadHandle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
         KeRequestTerminationProcess((__int64)Object, 3);
-        ObCloseHandle(Handle, 0);
+        ObCloseHandle(ThreadHandle, 0);
         HalPutDmaAdapter((PADAPTER_OBJECT)Object);
       }
     }

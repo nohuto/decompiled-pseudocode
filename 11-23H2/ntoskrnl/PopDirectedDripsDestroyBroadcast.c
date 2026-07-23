@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsDestroyBroadcast @ 0x1409834A8
+ * XREFs of PopDirectedDripsDestroyBroadcast @ 0x1409836A8
  * Callers:
- *     PopDirectedDripsResumeDevices @ 0x140983BC4 (PopDirectedDripsResumeDevices.c)
- *     PopDirectedDripsSuspendDevices @ 0x140983E14 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsResumeDevices @ 0x140983DC4 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140984014 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     PoClearBroadcast @ 0x14098BB8C (PoClearBroadcast.c)
+ *     PoClearBroadcast @ 0x14098BD8C (PoClearBroadcast.c)
  */
 
 __int64 PopDirectedDripsDestroyBroadcast()

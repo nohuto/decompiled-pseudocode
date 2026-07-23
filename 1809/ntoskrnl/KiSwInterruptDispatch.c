@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSwInterruptDispatch @ 0x1401A0550
+ * XREFs of KiSwInterruptDispatch @ 0x1401A0690
  * Callers:
- *     KiSwInterrupt @ 0x1401C2AA0 (KiSwInterrupt.c)
+ *     KiSwInterrupt @ 0x1401C2C00 (KiSwInterrupt.c)
  * Callees:
- *     KeExitRetpoline @ 0x14013916C (KeExitRetpoline.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     KiGetTrapFrameMode @ 0x14028D76C (KiGetTrapFrameMode.c)
- *     KiReadKernelDr7 @ 0x14028DA28 (KiReadKernelDr7.c)
- *     SdbpCheckDll @ 0x14034A890 (SdbpCheckDll.c)
- *     KeGuardDispatchICall @ 0x14034AB40 (KeGuardDispatchICall.c)
- *     KeGuardCheckICall @ 0x14034AB50 (KeGuardCheckICall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeExitRetpoline @ 0x14013926C (KeExitRetpoline.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     KiGetTrapFrameMode @ 0x14028D95C (KiGetTrapFrameMode.c)
+ *     KiReadKernelDr7 @ 0x14028DC18 (KiReadKernelDr7.c)
+ *     SdbpCheckDll @ 0x14034B890 (SdbpCheckDll.c)
+ *     KeGuardDispatchICall @ 0x14034BB40 (KeGuardDispatchICall.c)
+ *     KeGuardCheckICall @ 0x14034BB50 (KeGuardCheckICall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 const signed __int32 *__fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -187,7 +187,7 @@ const signed __int32 *__fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, _
   PoolWithTag = ExAllocatePoolWithTag(
                   NonPagedPoolNx,
                   v4[332] + 2759LL,
-                  dword_1404056A0[((unsigned __int8)v7 ^ (unsigned __int8)v151) & 0xF]);
+                  dword_1404066A0[((unsigned __int8)v7 ^ (unsigned __int8)v151) & 0xF]);
   v150 = PoolWithTag;
   v9 = PoolWithTag;
   if ( PoolWithTag )
@@ -195,7 +195,7 @@ const signed __int32 *__fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, _
     *PoolWithTag = 0LL;
     v10 = PoolWithTag + 4;
     PoolWithTag[3] = PoolWithTag;
-    PoolWithTag[2] = sub_1401AD6E0;
+    PoolWithTag[2] = sub_1401AD820;
     v160 = PoolWithTag + 4;
     memmove(PoolWithTag + 4, v4, 0xA70uLL);
     v9[333] = v4;
@@ -268,14 +268,14 @@ const signed __int32 *__fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, _
       }
       while ( !v83 );
     }
-    if ( v22 != qword_140541290 )
+    if ( v22 != qword_140542290 )
     {
       v30 = v9[180];
       *(_QWORD *)v30 = v14;
       *(_DWORD *)(v30 + 16) = v21;
       if ( !*((_DWORD *)v9 + 574) )
       {
-        *(_QWORD *)(v9[180] + 24LL) = v22 ^ qword_140541290;
+        *(_QWORD *)(v9[180] + 24LL) = v22 ^ qword_140542290;
         if ( !*((_DWORD *)v9 + 574) )
         {
           v9[289] = 0LL;
@@ -876,7 +876,7 @@ LABEL_202:
       *(_QWORD *)(v113 + v10[207]) = 0LL;
       *(_QWORD *)(v113 + v10[209]) = 0LL;
       SdbpCheckDll(265, v109, v108, v107, v110, v10[42], v112);
-      JUMPOUT(0x1401A13EALL);
+      JUMPOUT(0x1401A152ALL);
     }
     v126 = *((_DWORD *)v10 + 49);
     *((_DWORD *)v10 + 49) = 0;

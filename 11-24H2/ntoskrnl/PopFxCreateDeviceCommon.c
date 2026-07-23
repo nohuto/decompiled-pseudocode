@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxCreateDeviceCommon @ 0x1405D0C24
+ * XREFs of PopFxCreateDeviceCommon @ 0x1405CE344
  * Callers:
- *     PopFxAcpiRegisterDevice @ 0x1405DC684 (PopFxAcpiRegisterDevice.c)
- *     PopFxRegisterDeviceWorker @ 0x14074EBF0 (PopFxRegisterDeviceWorker.c)
+ *     PopFxAcpiRegisterDevice @ 0x1405D9554 (PopFxAcpiRegisterDevice.c)
+ *     PopFxRegisterDeviceWorker @ 0x14074CF20 (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     IoInitializeRemoveLockEx @ 0x1404BD4B0 (IoInitializeRemoveLockEx.c)
- *     PopFxDuplicateUniqueId @ 0x1405D1250 (PopFxDuplicateUniqueId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoInitializeRemoveLockEx @ 0x1404B8620 (IoInitializeRemoveLockEx.c)
+ *     PopFxDuplicateUniqueId @ 0x1405CE970 (PopFxDuplicateUniqueId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxCreateDeviceCommon(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
@@ -22,7 +22,7 @@ __int64 __fastcall PopFxCreateDeviceCommon(__int64 a1, __int64 a2, __int64 a3, i
   v6 = PopFxDuplicateUniqueId(a1, &v11);
   if ( v6 >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x528uLL, 0x4D584650u);
     v8 = Pool2;
     if ( Pool2 )
     {

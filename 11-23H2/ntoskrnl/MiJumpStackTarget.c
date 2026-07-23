@@ -1,20 +1,20 @@
 /*
- * XREFs of MiJumpStackTarget @ 0x14062CF80
+ * XREFs of MiJumpStackTarget @ 0x14062D4D0
  * Callers:
- *     MiDoStackCopy @ 0x14062CDA0 (MiDoStackCopy.c)
+ *     MiDoStackCopy @ 0x14062D2F0 (MiDoStackCopy.c)
  * Callees:
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     MiCanStealKernelStack @ 0x14039A23C (MiCanStealKernelStack.c)
- *     MiSwapStackPageNoDpc @ 0x14039A2CC (MiSwapStackPageNoDpc.c)
- *     MiStackTheftFreezeProcessors @ 0x14062D31C (MiStackTheftFreezeProcessors.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     MiCanStealKernelStack @ 0x14039A41C (MiCanStealKernelStack.c)
+ *     MiSwapStackPageNoDpc @ 0x14039A4AC (MiSwapStackPageNoDpc.c)
+ *     MiStackTheftFreezeProcessors @ 0x14062D86C (MiStackTheftFreezeProcessors.c)
  */
 
 volatile signed __int32 *__fastcall MiJumpStackTarget(ULONG_PTR *a1)

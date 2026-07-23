@@ -1,17 +1,17 @@
 /*
  * XREFs of ZwCancelWaitCompletionPacket @ 0x1800A7610
  * Callers:
- *     TppCancelWait @ 0x18003BE78 (TppCancelWait.c)
- *     TppSingleTimerExpiration @ 0x18003CC28 (TppSingleTimerExpiration.c)
+ *     TppCancelWait @ 0x18003BE68 (TppCancelWait.c)
+ *     TppSingleTimerExpiration @ 0x18003CC18 (TppSingleTimerExpiration.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCancelWaitCompletionPacket()
+NTSTATUS __cdecl ZwCancelWaitCompletionPacket(HANDLE WaitCompletionPacketHandle, BOOLEAN RemoveSignaledPacket)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 144LL;
+  result = 144;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -13,7 +13,7 @@
  *     strlen @ 0x180169260 (strlen.c)
  */
 
-unsigned int *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)
+int __fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)
 {
   _DWORD *SharedData; // rcx
   __int64 v9; // rcx
@@ -33,7 +33,7 @@ unsigned int *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, _
   unsigned __int16 *v23; // r14
   unsigned int v24; // r13d
   unsigned int v25; // r15d
-  unsigned int *result; // rax
+  struct _PEB *Heap; // rax
   int v27; // ebp
   unsigned int v28; // esi
   _WORD *v29; // rdi
@@ -105,10 +105,10 @@ unsigned int *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, _
   _DWORD *v95; // rcx
   __int64 v96; // rcx
   __int64 v97; // rcx
-  unsigned int v98; // [rsp+20h] [rbp-88h]
-  unsigned int v99; // [rsp+24h] [rbp-84h]
-  unsigned __int64 v100; // [rsp+28h] [rbp-80h]
-  unsigned int *v101; // [rsp+30h] [rbp-78h]
+  unsigned int v99; // [rsp+20h] [rbp-88h]
+  unsigned int v100; // [rsp+24h] [rbp-84h]
+  unsigned __int64 v101; // [rsp+28h] [rbp-80h]
+  struct _PEB *Fields; // [rsp+30h] [rbp-78h]
   char Buffer[16]; // [rsp+40h] [rbp-68h] BYREF
 
   SharedData = NtCurrentPeb()->SharedData;
@@ -127,11 +127,11 @@ unsigned int *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, _
     if ( (*(_BYTE *)v12 & 0x10) != 0 )
       goto LABEL_7;
   }
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(Heap) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)Heap )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v97 = *((_QWORD *)result + 18) + 554LL;
+    Heap = NtCurrentPeb();
+    v97 = (__int64)Heap->SharedData + 554;
   }
   else
   {
@@ -139,14 +139,14 @@ unsigned int *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, _
   }
   if ( *(_BYTE *)v97 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 4) != 0 )
+    Heap = NtCurrentPeb();
+    if ( (Heap->TracingFlags & 4) != 0 )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(Heap) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)Heap )
       {
-        result = (unsigned int *)NtCurrentPeb();
-        v10 = *((_QWORD *)result + 18) + 555LL;
+        Heap = NtCurrentPeb();
+        v10 = (__int64)Heap->SharedData + 555;
       }
       if ( (*(_BYTE *)v10 & 0x20) != 0 )
       {
@@ -154,7 +154,7 @@ LABEL_7:
         v13 = a2[1];
         v14 = *(_QWORD *)(a1 + 48) + v13 == 0;
         v15 = (const char *)(*(_QWORD *)(a1 + 48) + v13);
-        v100 = (unsigned __int64)v15;
+        v101 = (unsigned __int64)v15;
         if ( v14 )
         {
           LOWORD(v16) = 0;
@@ -190,19 +190,19 @@ LABEL_13:
         }
         v22 = a1 + 72;
         v23 = (unsigned __int16 *)(a3 + 72);
-        v98 = (unsigned __int16)v21;
+        v99 = (unsigned __int16)v21;
         v24 = (unsigned __int16)v16;
         v25 = *v23 + *(unsigned __int16 *)(a1 + 72) + 8 + 2 * ((unsigned __int16)v16 + (unsigned __int16)v21);
-        v99 = v25 + 36;
-        result = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap);
-        v101 = result;
-        if ( result )
+        v100 = v25 + 36;
+        Heap = (struct _PEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v25 + 36);
+        Fields = Heap;
+        if ( Heap )
         {
-          *((_WORD *)result + 3) = 5334;
+          *(_WORD *)&Heap->Padding0[2] = 5334;
           v27 = 0;
-          result[8] = 3;
+          LODWORD(Heap->ProcessParameters) = 3;
           v28 = 2;
-          v29 = result + 9;
+          v29 = (_WORD *)&Heap->ProcessParameters + 2;
           if ( v22 && *(_WORD *)v22 )
           {
             v30 = *(_QWORD *)(v22 + 8);
@@ -212,7 +212,7 @@ LABEL_13:
               v32 = 0;
               v33 = (unsigned __int64)v25 >> 1;
               v34 = v30 - (_QWORD)v29;
-              v35 = result + 9;
+              v35 = (_WORD *)&Heap->ProcessParameters + 2;
               do
               {
                 if ( !(2147483646 - v31 + v33) )
@@ -312,37 +312,37 @@ LABEL_13:
               if ( v24 < 4 )
                 goto LABEL_60;
               v60 = v24 - 1;
-              if ( (unsigned __int64)v55 <= v100 + v60 && (unsigned __int64)&v55[2 * v60] >= v100 )
+              if ( (unsigned __int64)v55 <= v101 + v60 && (unsigned __int64)&v55[2 * v60] >= v101 )
                 goto LABEL_60;
               if ( v24 < 0x20 )
-                goto LABEL_108;
+                goto LABEL_109;
               v61 = v24 & 0x1F;
               v62 = 16;
               do
               {
                 v63 = v59;
                 v59 += 32;
-                v64 = _mm_loadl_epi64((const __m128i *)(v63 + v100));
+                v64 = _mm_loadl_epi64((const __m128i *)(v63 + v101));
                 *(__m128i *)&v55[2 * v63] = _mm_srai_epi16(_mm_unpacklo_epi8(v64, v64), 8u);
                 v65 = v62 - 8;
-                v66 = _mm_loadl_epi64((const __m128i *)(v65 + v100));
+                v66 = _mm_loadl_epi64((const __m128i *)(v65 + v101));
                 *(__m128i *)&v55[2 * v65] = _mm_srai_epi16(_mm_unpacklo_epi8(v66, v66), 8u);
-                v67 = _mm_loadl_epi64((const __m128i *)(v62 + v100));
+                v67 = _mm_loadl_epi64((const __m128i *)(v62 + v101));
                 *(__m128i *)&v55[2 * v62] = _mm_srai_epi16(_mm_unpacklo_epi8(v67, v67), 8u);
                 v68 = v62 + 8;
                 v62 += 32;
-                v69 = _mm_loadl_epi64((const __m128i *)(v68 + v100));
+                v69 = _mm_loadl_epi64((const __m128i *)(v68 + v101));
                 *(__m128i *)&v55[2 * v68] = _mm_srai_epi16(_mm_unpacklo_epi8(v69, v69), 8u);
               }
               while ( v59 < v24 - v61 );
               if ( v61 >= 4 )
               {
-LABEL_108:
+LABEL_109:
                 do
                 {
                   v70 = v59;
                   v59 += 4;
-                  v71 = _mm_cvtsi32_si128(*(_DWORD *)(v70 + v100));
+                  v71 = _mm_cvtsi32_si128(*(_DWORD *)(v70 + v101));
                   *(_QWORD *)&v55[2 * v70] = _mm_srai_epi16(_mm_unpacklo_epi8(v71, v71), 8u).m128i_u64[0];
                 }
                 while ( v59 < (v24 & 0xFFFC) );
@@ -354,7 +354,7 @@ LABEL_60:
                 v73 = v24 - v59;
                 v59 = v24;
                 v74 = &v55[2 * v72];
-                v75 = (char *)(v72 + v100);
+                v75 = (char *)(v72 + v101);
                 do
                 {
                   v76 = *v75++;
@@ -369,19 +369,19 @@ LABEL_60:
             *(_WORD *)&v55[2 * v59] = 0;
           }
           v77 = &v55[v57];
-          if ( 2 * v98 + 2 <= v56 - v57 )
+          if ( 2 * v99 + 2 <= v56 - v57 )
           {
             v78 = 0;
-            if ( v98 )
+            if ( v99 )
             {
-              if ( v98 < 4 )
+              if ( v99 < 4 )
                 goto LABEL_74;
-              v79 = v98 - 1;
+              v79 = v99 - 1;
               if ( v77 <= &v20[v79] && &v77[2 * v79] >= v20 )
                 goto LABEL_74;
-              if ( v98 < 0x20 )
-                goto LABEL_109;
-              v80 = v98 & 0x1F;
+              if ( v99 < 0x20 )
+                goto LABEL_110;
+              v80 = v99 & 0x1F;
               do
               {
                 v81 = v78;
@@ -398,10 +398,10 @@ LABEL_60:
                 v87 = _mm_loadl_epi64((const __m128i *)&v20[v86]);
                 *(__m128i *)&v77[2 * v86] = _mm_srai_epi16(_mm_unpacklo_epi8(v87, v87), 8u);
               }
-              while ( v78 < v98 - v80 );
+              while ( v78 < v99 - v80 );
               if ( v80 >= 4 )
               {
-LABEL_109:
+LABEL_110:
                 do
                 {
                   v88 = v78;
@@ -409,14 +409,14 @@ LABEL_109:
                   v89 = _mm_cvtsi32_si128(*(_DWORD *)&v20[v88]);
                   *(_QWORD *)&v77[2 * v88] = _mm_srai_epi16(_mm_unpacklo_epi8(v89, v89), 8u).m128i_u64[0];
                 }
-                while ( v78 < (v98 & 0xFFFC) );
+                while ( v78 < (v99 & 0xFFFC) );
               }
-              if ( v78 < v98 )
+              if ( v78 < v99 )
               {
 LABEL_74:
                 v90 = v78;
-                v91 = v98 - v78;
-                v78 = v98;
+                v91 = v99 - v78;
+                v78 = v99;
                 v92 = &v77[2 * v90];
                 v93 = &v20[v90];
                 do
@@ -436,11 +436,11 @@ LABEL_74:
             v96 = (__int64)NtCurrentPeb()->SharedData + 554;
           else
             v96 = 2147353476LL;
-          NtTraceEvent(*(unsigned __int8 *)v96, 1026LL, v99 - 32, v101);
-          return (unsigned int *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v101);
+          NtTraceEvent((HANDLE)*(unsigned __int8 *)v96, 0x402u, v100 - 32, Fields);
+          LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Fields);
         }
       }
     }
   }
-  return result;
+  return (int)Heap;
 }

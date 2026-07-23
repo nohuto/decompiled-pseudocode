@@ -1,10 +1,10 @@
 /*
- * XREFs of IntpAssignProcessorsToPartitions @ 0x140D0240C
+ * XREFs of IntpAssignProcessorsToPartitions @ 0x140D087AC
  * Callers:
- *     IntPartCreate @ 0x140D02274 (IntPartCreate.c)
+ *     IntPartCreate @ 0x140D08614 (IntPartCreate.c)
  * Callees:
- *     IntPartCriticalFailure @ 0x1405F3528 (IntPartCriticalFailure.c)
- *     IntpAddNextProcessorToPartition @ 0x140D024B8 (IntpAddNextProcessorToPartition.c)
+ *     IntPartCriticalFailure @ 0x1405F5EE8 (IntPartCriticalFailure.c)
+ *     IntpAddNextProcessorToPartition @ 0x140D08858 (IntpAddNextProcessorToPartition.c)
  */
 
 __int64 __fastcall IntpAssignProcessorsToPartitions(__int64 a1, ULONG_PTR a2, unsigned __int8 a3)

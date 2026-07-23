@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetSessionIdForVa @ 0x1402ED220
+ * XREFs of MiGetSessionIdForVa @ 0x14034E860
  * Callers:
- *     MiCompleteRestrictedImageFault @ 0x140238F64 (MiCompleteRestrictedImageFault.c)
- *     MiResolveMappedFileFault @ 0x140239490 (MiResolveMappedFileFault.c)
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
- *     MiCopyDataPageToImagePage @ 0x1403142D8 (MiCopyDataPageToImagePage.c)
- *     MiFaultGetFileExtents @ 0x14036F4C8 (MiFaultGetFileExtents.c)
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
+ *     MiCompleteRestrictedImageFault @ 0x140213BC4 (MiCompleteRestrictedImageFault.c)
+ *     MiResolveMappedFileFault @ 0x140214824 (MiResolveMappedFileFault.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
+ *     MiCopyDataPageToImagePage @ 0x1403F1624 (MiCopyDataPageToImagePage.c)
+ *     MiFaultGetFileExtents @ 0x140426C40 (MiFaultGetFileExtents.c)
  * Callees:
  *     <none>
  */

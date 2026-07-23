@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmVirtualLockCtxLockMemory @ 0x14063F6DC
+ * XREFs of SmKmVirtualLockCtxLockMemory @ 0x1406432BC
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x14063F544 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14063F848 (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     ZwLockVirtualMemory @ 0x1407256D0 (ZwLockVirtualMemory.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x140643124 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140643428 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     ZwLockVirtualMemory @ 0x14072A2A0 (ZwLockVirtualMemory.c)
  */
 
-__int64 __fastcall SmKmVirtualLockCtxLockMemory(struct _KTHREAD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+__int64 __fastcall SmKmVirtualLockCtxLockMemory(struct _KTHREAD *a1, void *a2, ULONG_PTR a3, struct _KLOCK_ENTRIES *a4)
 {
   int v5; // ebp
   struct _KTHREAD *CurrentThread; // rax
@@ -24,15 +24,15 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(struct _KTHREAD *a1, __int64 a2,
   struct _LIST_ENTRY *Flink; // rax
   unsigned __int64 i; // rdx
   struct _LIST_ENTRY *v12; // rtt
-  int v13; // eax
+  NTSTATUS v13; // eax
   int v14; // edi
   struct _LIST_ENTRY *v15; // rdi
   struct _KLOCK_ENTRIES *v16; // r9
-  __int64 v18; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v19; // [rsp+70h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp+18h] BYREF
 
-  v19 = a3;
-  v18 = a2;
+  RegionSize = a3;
+  BaseAddress = a2;
   v5 = 0;
   while ( 1 )
   {
@@ -57,7 +57,9 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(struct _KTHREAD *a1, __int64 a2,
     if ( !v5 )
     {
       Flink = a1->Header.WaitListHead.Flink;
-      for ( i = (unsigned __int64)Flink + v19; i <= (unsigned __int64)*p_Blink; i = (unsigned __int64)Flink + v19 )
+      for ( i = (unsigned __int64)Flink + RegionSize;
+            i <= (unsigned __int64)*p_Blink;
+            i = (unsigned __int64)Flink + RegionSize )
       {
         v12 = Flink;
         Flink = (struct _LIST_ENTRY *)_InterlockedCompareExchange64(
@@ -73,7 +75,7 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(struct _KTHREAD *a1, __int64 a2,
       goto LABEL_16;
     }
 LABEL_14:
-    v13 = ZwLockVirtualMemory(-1LL, &v18, &v19, 1LL);
+    v13 = ZwLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     v14 = v13;
     if ( v13 >= 0 )
       break;
@@ -85,7 +87,7 @@ LABEL_16:
       ExfReleasePushLockShared((signed __int64 *)&a1->Header.Lock);
     KeAbPostRelease((unsigned __int64)a1);
     KeLeaveCriticalRegion();
-    v14 = SmKmVirtualLockContextIncreaseWsMin(a1, v19, v15, v16);
+    v14 = SmKmVirtualLockContextIncreaseWsMin(a1, RegionSize, v15, v16);
     if ( v14 < 0 )
       goto LABEL_24;
   }

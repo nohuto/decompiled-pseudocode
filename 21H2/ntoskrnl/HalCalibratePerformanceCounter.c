@@ -1,14 +1,14 @@
 /*
- * XREFs of HalCalibratePerformanceCounter @ 0x140383F60
+ * XREFs of HalCalibratePerformanceCounter @ 0x1403840B0
  * Callers:
- *     HalpTscFallback @ 0x1404C1610 (HalpTscFallback.c)
- *     KiCalibrateTimeAdjustment @ 0x140994B90 (KiCalibrateTimeAdjustment.c)
+ *     HalpTscFallback @ 0x1404C1850 (HalpTscFallback.c)
+ *     KiCalibrateTimeAdjustment @ 0x140995B90 (KiCalibrateTimeAdjustment.c)
  * Callees:
- *     HalpSetVirtualRtc @ 0x1402B617C (HalpSetVirtualRtc.c)
- *     HalpQueryVirtualRtc @ 0x14038402C (HalpQueryVirtualRtc.c)
- *     HalpTimerResetProfileAdjustment @ 0x1403962A0 (HalpTimerResetProfileAdjustment.c)
- *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x1403A5C64 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpSetVirtualRtc @ 0x14023435C (HalpSetVirtualRtc.c)
+ *     HalpQueryVirtualRtc @ 0x14038417C (HalpQueryVirtualRtc.c)
+ *     HalpTimerResetProfileAdjustment @ 0x1403963F0 (HalpTimerResetProfileAdjustment.c)
+ *     HalpTimerScaleCounter @ 0x140396440 (HalpTimerScaleCounter.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403A5DB4 (HalpTimerCalibratePerformanceCounter.c)
  */
 
 __int64 __fastcall HalCalibratePerformanceCounter(volatile signed __int32 *a1, __int64 a2)
@@ -23,12 +23,12 @@ __int64 __fastcall HalCalibratePerformanceCounter(volatile signed __int32 *a1, _
   ULONG_PTR v10; // rbp
   __int64 v11; // rdx
   __int64 v12; // rax
-  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER v13; // [rsp+40h] [rbp+8h] BYREF
 
   Number = KeGetPcr()->Prcb.Number;
   v3 = a2;
   v4 = HalpPerformanceCounter;
-  v13 = 0LL;
+  v13.QuadPart = 0LL;
   if ( *(_DWORD *)(HalpPerformanceCounter + 228) == 5 )
     v3 = HalpTimerScaleCounter(a2, 10000000LL, *(_QWORD *)(HalpPerformanceCounter + 192));
   if ( v4 != HalpOriginalPerformanceCounter )

@@ -3,7 +3,7 @@
  * Callers:
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     WheapInitializeInUsePageOfflineNotifications @ 0x140822F90 (WheapInitializeInUsePageOfflineNotifications.c)
+ *     WheapInitializeInUsePageOfflineNotifications @ 0x140823290 (WheapInitializeInUsePageOfflineNotifications.c)
  *     WheapSetDefaultErrorSourceConfiguration @ 0x140B545DC (WheapSetDefaultErrorSourceConfiguration.c)
  */
 
@@ -19,9 +19,9 @@ PVOID *WheaInitializeServices()
   WheapPfaInitialized = 1;
   WheapDispatchPtr.DeviceExtension = &WheapDispatchPtr.Vpb;
   WheapDispatchPtr.Vpb = (PVPB)&WheapDispatchPtr.Vpb;
-  WheapDispatchPtr.NextDevice = (struct _DEVICE_OBJECT *)&WheapDispatchPtr.DriverObject;
-  WheapDispatchPtr.DriverObject = (struct _DRIVER_OBJECT *)&WheapDispatchPtr.DriverObject;
-  qword_140C2CAF8 = (__int64)WheapDeferredRecoveryServiceDpcRoutine;
+  *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels = &WheapDispatchPtr.Queue.ListEntry.Blink;
+  WheapDispatchPtr.Queue.ListEntry.Blink = (struct _LIST_ENTRY *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink;
+  qword_140C2CAD8 = (__int64)WheapDeferredRecoveryServiceDpcRoutine;
   WheaDrsWorkItem.WorkerRoutine = (void (__fastcall *)(void *))WheapDeferredRecoveryServiceWorker;
   LODWORD(WheapDispatchPtr.AttachedDevice) = 1;
   WheapDispatchPtr.CurrentIrp = 0LL;
@@ -31,9 +31,9 @@ PVOID *WheaInitializeServices()
   WheapDispatchPtr.Characteristics = 0;
   WheaPassiveDrsListLock = 0LL;
   LODWORD(WheaDrsDpc) = 275;
-  qword_140C2CB00 = 0LL;
-  qword_140C2CB18 = 0LL;
-  qword_140C2CAF0 = 0LL;
+  qword_140C2CAE0 = 0LL;
+  qword_140C2CAF8 = 0LL;
+  qword_140C2CAD0 = 0LL;
   WheaDrsWorkItem.Parameter = 0LL;
   WheaDrsWorkItem.List.Flink = 0LL;
   _InterlockedOr(v1, 0);

@@ -1,7 +1,7 @@
 /*
- * XREFs of MincryptGetLeafKeyFromPolicy @ 0x1408A3CB0
+ * XREFs of MincryptGetLeafKeyFromPolicy @ 0x1408AA0C0
  * Callers:
- *     SecureDump_ValidateAmeCertChain @ 0x1405D7424 (SecureDump_ValidateAmeCertChain.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x1405D9C14 (SecureDump_ValidateAmeCertChain.c)
  * Callees:
  *     <none>
  */

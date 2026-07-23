@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDequeueBufferPendingCompression @ 0x1406C7FC4
+ * XREFs of EtwpDequeueBufferPendingCompression @ 0x1406CBFA4
  * Callers:
- *     EtwpCompressPendingBuffers @ 0x1406C7D5C (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressPendingBuffers @ 0x1406CBD3C (EtwpCompressPendingBuffers.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x140219C44 (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140219CD0 (EtwpLockBufferList.c)
- *     EtwpDequeueBufferPendingCompressionFromQueue @ 0x1406C80C8 (EtwpDequeueBufferPendingCompressionFromQueue.c)
- *     EtwpDisableCompression @ 0x1406C8138 (EtwpDisableCompression.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     EtwpUnlockBufferList @ 0x14021A2DC (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x14021B348 (EtwpLockBufferList.c)
+ *     EtwpDequeueBufferPendingCompressionFromQueue @ 0x1406CC0A8 (EtwpDequeueBufferPendingCompressionFromQueue.c)
+ *     EtwpDisableCompression @ 0x1406CC118 (EtwpDisableCompression.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpDequeueBufferPendingCompression(__int64 a1)

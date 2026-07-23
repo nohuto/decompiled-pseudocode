@@ -1,20 +1,20 @@
 /*
- * XREFs of KsepSdbMapToMemory @ 0x140755A54
+ * XREFs of KsepSdbMapToMemory @ 0x140755C14
  * Callers:
- *     KseShimDatabaseOpen @ 0x14075B0E0 (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseOpen @ 0x14075B2A0 (KseShimDatabaseOpen.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     MmMapViewInSystemSpace @ 0x1406BF880 (MmMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     SdbInitDatabaseInMemory @ 0x140756110 (SdbInitDatabaseInMemory.c)
- *     SdbGetDatabaseEdition @ 0x1407564B0 (SdbGetDatabaseEdition.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1403FAEC0 (ZwCreateSection.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     MmMapViewInSystemSpace @ 0x14061E6F0 (MmMapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     SdbInitDatabaseInMemory @ 0x1407562D0 (SdbInitDatabaseInMemory.c)
+ *     SdbGetDatabaseEdition @ 0x140756670 (SdbGetDatabaseEdition.c)
  */
 
 __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)

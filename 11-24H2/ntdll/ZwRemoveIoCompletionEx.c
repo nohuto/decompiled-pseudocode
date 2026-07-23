@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwRemoveIoCompletionEx @ 0x180164C60
+ * XREFs of ZwRemoveIoCompletionEx @ 0x180163020
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwRemoveIoCompletionEx()
+NTSTATUS __cdecl ZwRemoveIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        PFILE_IO_COMPLETION_INFORMATION IoCompletionInformation,
+        ULONG Count,
+        PULONG NumEntriesRemoved,
+        PLARGE_INTEGER Timeout,
+        BOOLEAN Alertable)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 383LL;
+  result = 383;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

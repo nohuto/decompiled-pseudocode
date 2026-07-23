@@ -1,8 +1,8 @@
 /*
- * XREFs of KeComplementAffinityEx @ 0x1400DC800
+ * XREFs of KeComplementAffinityEx @ 0x1400DC880
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140063570 (PpmParkSteerInterrupts.c)
- *     KiGetDeepIdleProcessors @ 0x1400DBF1C (KiGetDeepIdleProcessors.c)
+ *     PpmParkSteerInterrupts @ 0x140063560 (PpmParkSteerInterrupts.c)
+ *     KiGetDeepIdleProcessors @ 0x1400DBF9C (KiGetDeepIdleProcessors.c)
  * Callees:
  *     <none>
  */

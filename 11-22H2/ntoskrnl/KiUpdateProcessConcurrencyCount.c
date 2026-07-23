@@ -56,7 +56,7 @@ __int64 __fastcall KiUpdateProcessConcurrencyCount(ULONG_PTR BugCheckParameter1,
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -108,10 +108,10 @@ __int64 __fastcall KiUpdateProcessConcurrencyCount(ULONG_PTR BugCheckParameter1,
       KiCopyAffinityEx(BugCheckParameter1 + 2576, *(_WORD *)(BugCheckParameter1 + 2578), (unsigned __int16 *)v29);
       *(_QWORD *)(BugCheckParameter1 + 2564) = v27;
       ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v19 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v21 = CurrentPrcb->SchedulerAssist;
@@ -138,10 +138,10 @@ __int64 __fastcall KiUpdateProcessConcurrencyCount(ULONG_PTR BugCheckParameter1,
     else
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(BugCheckParameter1 + 64));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v11 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
         {
           v12 = KeGetCurrentPrcb();
           v13 = v12->SchedulerAssist;

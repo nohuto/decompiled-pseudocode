@@ -38,10 +38,10 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   unsigned int v21; // r8d
   __int64 v22; // r15
   int v23; // eax
-  unsigned int v24; // edx
+  ULONG v24; // edx
   __int64 v25; // r12
-  __int64 *v26; // rcx
-  _OWORD *v27; // rcx
+  _SID_AND_ATTRIBUTES *v26; // rcx
+  unsigned __int64 *Hash; // rcx
   _OWORD *v28; // rax
   __int64 v29; // rdx
   __int128 v30; // xmm1
@@ -51,15 +51,15 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   __int128 v34; // xmm1
   __int128 v35; // xmm0
   __int128 v36; // xmm1
-  _QWORD *v37; // rbx
-  _QWORD *v38; // r15
+  _SID_AND_ATTRIBUTES_HASH *v37; // rbx
+  _SID_AND_ATTRIBUTES *v38; // r15
   ULONG v39; // ecx
   int v40; // eax
-  unsigned int v41; // edx
-  __int64 *v42; // rcx
-  _OWORD *v43; // rcx
+  ULONG v41; // edx
+  _SID_AND_ATTRIBUTES *v42; // rcx
+  unsigned __int64 *v43; // rcx
   __int64 v44; // rdx
-  _OWORD *v45; // rax
+  unsigned __int64 *v45; // rax
   __int128 v46; // xmm1
   __int128 v47; // xmm0
   __int128 v48; // xmm1
@@ -67,14 +67,14 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   __int128 v50; // xmm1
   __int128 v51; // xmm0
   __int128 v52; // xmm1
-  _QWORD *v53; // rbx
-  _QWORD *v54; // r15
+  _SID_AND_ATTRIBUTES_HASH *v53; // rbx
+  _SID_AND_ATTRIBUTES *v54; // r15
   ULONG v55; // ecx
   int v56; // eax
-  unsigned int v57; // edx
-  __int64 *v58; // rcx
-  _OWORD *v59; // rcx
-  _OWORD *v60; // rax
+  ULONG v57; // edx
+  _SID_AND_ATTRIBUTES *v58; // rcx
+  unsigned __int64 *v59; // rcx
+  unsigned __int64 *v60; // rax
   __int128 v61; // xmm1
   __int128 v62; // xmm0
   __int128 v63; // xmm1
@@ -102,8 +102,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   unsigned int v86; // [rsp+64h] [rbp-9Ch]
   unsigned int v87; // [rsp+68h] [rbp-98h]
   __int64 v88; // [rsp+70h] [rbp-90h]
-  _QWORD v89[2]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v90[256]; // [rsp+90h] [rbp-70h] BYREF
+  _SID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+80h] [rbp-80h] BYREF
 
   v82 = a5;
   v81 = a7;
@@ -144,31 +143,31 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   LOBYTE(v23) = EvaluateCurrentState((int **)&g_Feature_3914897721_58329124_FeatureDescriptorDetails);
   v24 = *(_DWORD *)(a1 + 124);
   v25 = 2LL;
-  v26 = *(__int64 **)(a1 + 152);
+  v26 = *(_SID_AND_ATTRIBUTES **)(a1 + 152);
   if ( v23 )
   {
-    RtlSidHashInitialize(v26, v24, v89);
+    RtlSidHashInitialize(v26, v24, &SidAttrHash);
     memset((void *)(a2 + 88), 0, 0x110uLL);
-    v27 = v90;
-    *(_DWORD *)(a2 + 88) = v89[0];
+    Hash = SidAttrHash.Hash;
+    *(_DWORD *)(a2 + 88) = SidAttrHash.SidCount;
     v28 = (_OWORD *)(a2 + 104);
     v29 = 2LL;
     do
     {
-      v30 = v27[1];
-      *v28 = *v27;
-      v31 = v27[2];
+      v30 = *((_OWORD *)Hash + 1);
+      *v28 = *(_OWORD *)Hash;
+      v31 = *((_OWORD *)Hash + 2);
       v28[1] = v30;
-      v32 = v27[3];
+      v32 = *((_OWORD *)Hash + 3);
       v28[2] = v31;
-      v33 = v27[4];
+      v33 = *((_OWORD *)Hash + 4);
       v28[3] = v32;
-      v34 = v27[5];
+      v34 = *((_OWORD *)Hash + 5);
       v28[4] = v33;
-      v35 = v27[6];
+      v35 = *((_OWORD *)Hash + 6);
       v28[5] = v34;
-      v36 = v27[7];
-      v27 += 8;
+      v36 = *((_OWORD *)Hash + 7);
+      Hash += 16;
       v28[6] = v35;
       v28 += 8;
       *(v28 - 1) = v36;
@@ -178,13 +177,13 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   }
   else
   {
-    RtlSidHashInitialize(v26, v24, (_QWORD *)(a2 + 88));
+    RtlSidHashInitialize(v26, v24, (PSID_AND_ATTRIBUTES_HASH)(a2 + 88));
   }
   *(_QWORD *)(a2 + 96) = v22;
-  v37 = (_QWORD *)(v22 + v82);
-  *(_DWORD *)v37 = *(_DWORD *)(a1 + 128);
-  v38 = v37 + 34;
-  v37[1] = v37 + 34;
+  v37 = (_SID_AND_ATTRIBUTES_HASH *)(v22 + v82);
+  v37->SidCount = *(_DWORD *)(a1 + 128);
+  v38 = (_SID_AND_ATTRIBUTES *)&v37[1];
+  v37->SidAttr = (_SID_AND_ATTRIBUTES *)&v37[1];
   *(_QWORD *)(a2 + 8) = v37;
   v39 = *(_DWORD *)(a1 + 128);
   if ( v39 )
@@ -193,40 +192,40 @@ __int64 __fastcall SepCopyTokenAccessInformation(
       v39,
       *(PSID_AND_ATTRIBUTES *)(a1 + 160),
       v81 - v85,
-      (PSID_AND_ATTRIBUTES)v37 + 17,
+      (PSID_AND_ATTRIBUTES)&v37[1],
       (char *)v38 + v85,
       &RemainingSidArea,
       (PULONG)&RemainingSidArea);
     LOBYTE(v40) = EvaluateCurrentState((int **)&g_Feature_3914897721_58329124_FeatureDescriptorDetails);
     v41 = *(_DWORD *)(a1 + 128);
-    v42 = *(__int64 **)(a1 + 160);
+    v42 = *(_SID_AND_ATTRIBUTES **)(a1 + 160);
     if ( v40 )
     {
-      RtlSidHashInitialize(v42, v41, v89);
-      memset(v37, 0, 0x110uLL);
-      v43 = v90;
-      *(_DWORD *)v37 = v89[0];
+      RtlSidHashInitialize(v42, v41, &SidAttrHash);
+      memset(v37, 0, sizeof(_SID_AND_ATTRIBUTES_HASH));
+      v43 = SidAttrHash.Hash;
+      v37->SidCount = SidAttrHash.SidCount;
       v44 = 2LL;
-      v45 = v37 + 2;
+      v45 = v37->Hash;
       do
       {
-        v46 = v43[1];
-        *v45 = *v43;
-        v47 = v43[2];
-        v45[1] = v46;
-        v48 = v43[3];
-        v45[2] = v47;
-        v49 = v43[4];
-        v45[3] = v48;
-        v50 = v43[5];
-        v45[4] = v49;
-        v51 = v43[6];
-        v45[5] = v50;
-        v52 = v43[7];
-        v43 += 8;
-        v45[6] = v51;
-        v45 += 8;
-        *(v45 - 1) = v52;
+        v46 = *((_OWORD *)v43 + 1);
+        *(_OWORD *)v45 = *(_OWORD *)v43;
+        v47 = *((_OWORD *)v43 + 2);
+        *((_OWORD *)v45 + 1) = v46;
+        v48 = *((_OWORD *)v43 + 3);
+        *((_OWORD *)v45 + 2) = v47;
+        v49 = *((_OWORD *)v43 + 4);
+        *((_OWORD *)v45 + 3) = v48;
+        v50 = *((_OWORD *)v43 + 5);
+        *((_OWORD *)v45 + 4) = v49;
+        v51 = *((_OWORD *)v43 + 6);
+        *((_OWORD *)v45 + 5) = v50;
+        v52 = *((_OWORD *)v43 + 7);
+        v43 += 16;
+        *((_OWORD *)v45 + 6) = v51;
+        v45 += 16;
+        *((_OWORD *)v45 - 1) = v52;
         --v44;
       }
       while ( v44 );
@@ -235,12 +234,12 @@ __int64 __fastcall SepCopyTokenAccessInformation(
     {
       RtlSidHashInitialize(v42, v41, v37);
     }
-    v37[1] = v38;
+    v37->SidAttr = v38;
   }
-  v53 = (_QWORD *)((char *)v38 + v81);
-  *(_DWORD *)v53 = *(_DWORD *)(a1 + 800);
-  v54 = v53 + 34;
-  v53[1] = v53 + 34;
+  v53 = (_SID_AND_ATTRIBUTES_HASH *)((char *)v38 + v81);
+  v53->SidCount = *(_DWORD *)(a1 + 800);
+  v54 = (_SID_AND_ATTRIBUTES *)&v53[1];
+  v53->SidAttr = (_SID_AND_ATTRIBUTES *)&v53[1];
   *(_QWORD *)(a2 + 64) = v53;
   v55 = *(_DWORD *)(a1 + 800);
   if ( v55 )
@@ -249,39 +248,39 @@ __int64 __fastcall SepCopyTokenAccessInformation(
       v55,
       *(PSID_AND_ATTRIBUTES *)(a1 + 792),
       v79 - v83,
-      (PSID_AND_ATTRIBUTES)v53 + 17,
+      (PSID_AND_ATTRIBUTES)&v53[1],
       (char *)v54 + v83,
       &RemainingSidArea,
       (PULONG)&RemainingSidArea);
     LOBYTE(v56) = EvaluateCurrentState((int **)&g_Feature_3914897721_58329124_FeatureDescriptorDetails);
     v57 = *(_DWORD *)(a1 + 800);
-    v58 = *(__int64 **)(a1 + 792);
+    v58 = *(_SID_AND_ATTRIBUTES **)(a1 + 792);
     if ( v56 )
     {
-      RtlSidHashInitialize(v58, v57, v89);
-      memset(v53, 0, 0x110uLL);
-      v59 = v90;
-      *(_DWORD *)v53 = v89[0];
-      v60 = v53 + 2;
+      RtlSidHashInitialize(v58, v57, &SidAttrHash);
+      memset(v53, 0, sizeof(_SID_AND_ATTRIBUTES_HASH));
+      v59 = SidAttrHash.Hash;
+      v53->SidCount = SidAttrHash.SidCount;
+      v60 = v53->Hash;
       do
       {
-        v61 = v59[1];
-        *v60 = *v59;
-        v62 = v59[2];
-        v60[1] = v61;
-        v63 = v59[3];
-        v60[2] = v62;
-        v64 = v59[4];
-        v60[3] = v63;
-        v65 = v59[5];
-        v60[4] = v64;
-        v66 = v59[6];
-        v60[5] = v65;
-        v67 = v59[7];
-        v59 += 8;
-        v60[6] = v66;
-        v60 += 8;
-        *(v60 - 1) = v67;
+        v61 = *((_OWORD *)v59 + 1);
+        *(_OWORD *)v60 = *(_OWORD *)v59;
+        v62 = *((_OWORD *)v59 + 2);
+        *((_OWORD *)v60 + 1) = v61;
+        v63 = *((_OWORD *)v59 + 3);
+        *((_OWORD *)v60 + 2) = v62;
+        v64 = *((_OWORD *)v59 + 4);
+        *((_OWORD *)v60 + 3) = v63;
+        v65 = *((_OWORD *)v59 + 5);
+        *((_OWORD *)v60 + 4) = v64;
+        v66 = *((_OWORD *)v59 + 6);
+        *((_OWORD *)v60 + 5) = v65;
+        v67 = *((_OWORD *)v59 + 7);
+        v59 += 16;
+        *((_OWORD *)v60 + 6) = v66;
+        v60 += 16;
+        *((_OWORD *)v60 - 1) = v67;
         --v25;
       }
       while ( v25 );
@@ -290,7 +289,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
     {
       RtlSidHashInitialize(v58, v57, v53);
     }
-    v53[1] = v54;
+    v53->SidAttr = v54;
   }
   v68 = v80;
   v69 = (char *)v54 + v79;

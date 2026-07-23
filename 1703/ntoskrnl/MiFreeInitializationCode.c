@@ -31,7 +31,7 @@ unsigned __int64 __fastcall MiFreeInitializationCode(unsigned __int64 *a1, ULONG
   __int64 v12; // rcx
   unsigned __int64 v13; // rax
   unsigned __int64 result; // rax
-  unsigned __int64 v15; // rcx
+  PVOID v15; // rcx
   __int64 v16; // r10
   unsigned __int64 v17; // rax
   __int64 v18; // rcx
@@ -82,7 +82,7 @@ LABEL_6:
   {
     a1[25] -= v20[3];
     a1[26] -= result;
-    v15 = a1[6];
+    v15 = (PVOID)a1[6];
     if ( v15 == PsNtosImageBase || v15 == PsHalImageBase )
       qword_14036D118 -= result;
     else

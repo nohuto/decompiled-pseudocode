@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404F4824
+ * XREFs of Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404EDE04
  * Callers:
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
- *     PspThreadDelete @ 0x140AA21E0 (PspThreadDelete.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
+ *     PspThreadDelete @ 0x140AA3CB0 (PspThreadDelete.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledFallback @ 0x140532EFC (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledFallback.c)
+ *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledFallback @ 0x140535398 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline()

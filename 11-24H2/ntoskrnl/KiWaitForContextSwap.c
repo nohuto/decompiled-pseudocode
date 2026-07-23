@@ -1,27 +1,27 @@
 /*
- * XREFs of KiWaitForContextSwap @ 0x140269978
+ * XREFs of KiWaitForContextSwap @ 0x14021EF04
  * Callers:
- *     KiOutSwapKernelStacks @ 0x140268FB8 (KiOutSwapKernelStacks.c)
- *     KeDeleteThread @ 0x140269E64 (KeDeleteThread.c)
+ *     KeDeleteThread @ 0x14021F3F4 (KeDeleteThread.c)
+ *     KiOutSwapKernelStacks @ 0x1402600D4 (KiOutSwapKernelStacks.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
-char __fastcall KiWaitForContextSwap(__int64 a1)
+char __fastcall KiWaitForContextSwap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char result; // al
-  unsigned int v3; // ebx
+  unsigned int v6; // ebx
 
   result = *(_BYTE *)(a1 + 113);
-  v3 = 0;
+  v6 = 0;
   while ( result )
   {
-    if ( (++v3 & HvlLongSpinCountMask) == 0
+    if ( (++v6 & HvlLongSpinCountMask) == 0
       && (HvlEnlightenments & 0x40) != 0
-      && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+      && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1, a2, a3, a4) )
     {
-      HvlNotifyLongSpinWait(v3);
+      HvlNotifyLongSpinWait(v6);
     }
     else
     {

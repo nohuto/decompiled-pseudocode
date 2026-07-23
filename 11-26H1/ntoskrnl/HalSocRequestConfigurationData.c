@@ -1,14 +1,14 @@
 /*
- * XREFs of HalSocRequestConfigurationData @ 0x14059955C
+ * XREFs of HalSocRequestConfigurationData @ 0x14059BCDC
  * Callers:
- *     HalpApicSetupRegisterAccess @ 0x1405913A8 (HalpApicSetupRegisterAccess.c)
- *     HalpHvDiscover @ 0x140597190 (HalpHvDiscover.c)
- *     HalpHpetDiscover @ 0x140598928 (HalpHpetDiscover.c)
- *     HalpTscGetAttributes @ 0x1405992E4 (HalpTscGetAttributes.c)
+ *     HalpApicSetupRegisterAccess @ 0x140593B28 (HalpApicSetupRegisterAccess.c)
+ *     HalpHvDiscover @ 0x140599910 (HalpHvDiscover.c)
+ *     HalpHpetDiscover @ 0x14059B0A8 (HalpHpetDiscover.c)
+ *     HalpTscGetAttributes @ 0x14059BA64 (HalpTscGetAttributes.c)
  * Callees:
- *     HalpIsHvPresent @ 0x1404B9338 (HalpIsHvPresent.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsPartitionCpuManager @ 0x140585200 (HalpIsPartitionCpuManager.c)
+ *     HalpIsHvPresent @ 0x1404B2B68 (HalpIsHvPresent.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsPartitionCpuManager @ 0x140587720 (HalpIsPartitionCpuManager.c)
  */
 
 __int64 __fastcall HalSocRequestConfigurationData(int a1, int a2, char *a3)

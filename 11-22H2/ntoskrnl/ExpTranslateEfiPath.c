@@ -25,7 +25,7 @@ __int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, __int64 a3, __int64 a
   __int64 result; // rax
   _QWORD *v6; // rdi
   unsigned int v7; // r14d
-  int OutputSIGNATURE; // eax
+  int v8; // eax
   int DiskSignature; // ebx
   int v10; // esi
   unsigned __int64 v11; // r13
@@ -42,21 +42,21 @@ __int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, __int64 a3, __int64 a
   PVOID P; // [rsp+50h] [rbp-49h] BYREF
   unsigned int v23; // [rsp+58h] [rbp-41h] BYREF
   __int64 v24; // [rsp+60h] [rbp-39h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-31h] BYREF
-  int v26[2]; // [rsp+70h] [rbp-29h]
-  int v27[2]; // [rsp+78h] [rbp-21h]
-  wchar_t *Src[2]; // [rsp+80h] [rbp-19h]
+  unsigned __int64 v25; // [rsp+68h] [rbp-31h] BYREF
+  __int64 v26; // [rsp+70h] [rbp-29h]
+  __int64 v27; // [rsp+78h] [rbp-21h]
+  UNICODE_STRING GuidString; // [rsp+80h] [rbp-19h]
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-9h] BYREF
   __int128 v30; // [rsp+A0h] [rbp+7h] BYREF
   __int64 v31; // [rsp+B0h] [rbp+17h]
 
-  *(_QWORD *)v26 = a4;
-  *(_QWORD *)v27 = a3;
+  v26 = a4;
+  v27 = a3;
   P = 0LL;
   v25 = 0LL;
   v24 = 0LL;
   v31 = 0LL;
-  *(_OWORD *)Src = 0LL;
+  GuidString = 0LL;
   DestinationString = 0LL;
   v30 = 0LL;
   result = ExpParseEfiPath((void *)(a1 + 12));
@@ -114,7 +114,7 @@ LABEL_20:
         }
         if ( a2 == 3 )
         {
-          OutputSIGNATURE = ExpCreateOutputNT(*(_QWORD *)v27, *(_QWORD *)v26, &DestinationString, 0LL);
+          v8 = ExpCreateOutputNT(v27, v26, &DestinationString, 0LL);
         }
         else if ( a2 == 2 )
         {
@@ -129,21 +129,13 @@ LABEL_20:
           v20 = v6[2] * v7;
           v25 = v6[1] * v7;
           v24 = v20;
-          OutputSIGNATURE = ExpCreateOutputSIGNATURE(
-                              v27[0],
-                              v26[0],
-                              (int)v6 + 24,
-                              (int)&P,
-                              (__int64)&v25,
-                              (__int64)&v24,
-                              0LL,
-                              0);
+          v8 = ExpCreateOutputSIGNATURE(v27, v26, v6 + 3, &P, &v25, &v24, 0LL, 0);
         }
         else
         {
-          OutputSIGNATURE = ExpCreateOutputARC(*(_QWORD *)v27, *(_QWORD *)v26, &DestinationString, 0LL);
+          v8 = ExpCreateOutputARC(v27, v26, &DestinationString, 0LL);
         }
-        DiskSignature = OutputSIGNATURE;
+        DiskSignature = v8;
 LABEL_6:
         ExFreePoolWithTag(DestinationString.Buffer, 0);
 LABEL_7:

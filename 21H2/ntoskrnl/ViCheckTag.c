@@ -1,14 +1,14 @@
 /*
- * XREFs of ViCheckTag @ 0x1409CDE50
+ * XREFs of ViCheckTag @ 0x1409CEE50
  * Callers:
- *     ViCheckAdapterBuffers @ 0x1409CDB2C (ViCheckAdapterBuffers.c)
- *     ViCheckPadding @ 0x1409CDCA0 (ViCheckPadding.c)
- *     ViFreeMapRegistersToFile @ 0x1409CE57C (ViFreeMapRegistersToFile.c)
+ *     ViCheckAdapterBuffers @ 0x1409CEB2C (ViCheckAdapterBuffers.c)
+ *     ViCheckPadding @ 0x1409CECA0 (ViCheckPadding.c)
+ *     ViFreeMapRegistersToFile @ 0x1409CF57C (ViFreeMapRegistersToFile.c)
  * Callees:
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     memset @ 0x140414200 (memset.c)
- *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x1409CEC60 (ViHalPreprocessOptions.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405A2024 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x1409CFC60 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViCheckTag(ULONG_PTR a1, unsigned int a2, int a3, char a4)
@@ -28,11 +28,11 @@ void __fastcall ViCheckTag(ULONG_PTR a1, unsigned int a2, int a3, char a4)
     if ( RtlCompareMemory((const void *)(a1 - 8), &ViDmaVerifierTag, 8uLL) != 8 )
     {
       ViHalPreprocessOptions(
-        byte_140C12EBC,
+        byte_140C12E88,
         "Area before %x byte allocation at %p has been modified.",
         268435471,
         (const void *)1);
-      VfReportIssueWithOptions(0xE6u, 0xFuLL, 1uLL, (unsigned int)v4, a1, byte_140C12EBC);
+      VfReportIssueWithOptions(0xE6u, 0xFuLL, 1uLL, (unsigned int)v4, a1, byte_140C12E88);
     }
     v6 += 8LL;
   }
@@ -41,11 +41,11 @@ void __fastcall ViCheckTag(ULONG_PTR a1, unsigned int a2, int a3, char a4)
     if ( RtlCompareMemory(v10, &ViDmaVerifierTag, 8uLL) != 8 )
     {
       ViHalPreprocessOptions(
-        byte_140C12EB8,
+        byte_140C12E84,
         "Area after %x byte allocation at %p has been modified.",
         268435471,
         (const void *)2);
-      VfReportIssueWithOptions(0xE6u, 0xFuLL, 2uLL, v4, a1, byte_140C12EB8);
+      VfReportIssueWithOptions(0xE6u, 0xFuLL, 2uLL, v4, a1, byte_140C12E84);
     }
     v6 += 8LL;
   }

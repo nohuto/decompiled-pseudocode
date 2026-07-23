@@ -30,7 +30,7 @@ __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, u
   int v19; // r12d
   struct _TEB *v20; // rax
   unsigned __int64 *v21; // r9
-  int Reserved; // r8d
+  __int64 Reserved; // r8
   size_t v23; // rdi
   char *v24; // rax
   size_t v25; // r8
@@ -139,11 +139,11 @@ LABEL_43:
       v52 = v20;
       v21 = &v47;
       if ( v19 )
-        LODWORD(v21) = 0;
+        v21 = 0LL;
       Reserved = v20->CurrentIdealProcessor.Reserved;
       v23 = v38;
       LODWORD(Src) = v38;
-      v24 = (char *)EtwpReserveTraceBuffer((_DWORD)v11, v38, Reserved, (_DWORD)v21, (__int64)&v46);
+      v24 = (char *)EtwpReserveTraceBuffer(v11, v38, Reserved, v21, &v46);
       v45 = v24;
       if ( v24 )
       {

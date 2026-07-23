@@ -1,25 +1,25 @@
 /*
- * XREFs of PnprGetPageDestination @ 0x1405A7A70
+ * XREFs of PnprGetPageDestination @ 0x1405A4A60
  * Callers:
- *     PnprCopyReservedMapping @ 0x1405A7704 (PnprCopyReservedMapping.c)
+ *     PnprCopyReservedMapping @ 0x1405A46F4 (PnprCopyReservedMapping.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PnprGetPageDestination(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall PnprGetPageDestination(unsigned __int64 a1)
 {
-  unsigned int v3; // r8d
-  __int64 v4; // r9
-  unsigned __int64 v5; // rdx
+  unsigned int v1; // r8d
+  __int64 v2; // r9
+  unsigned __int64 v3; // rdx
 
-  v3 = 0;
-  v4 = *(_QWORD *)(PnprContext + 24);
-  while ( v3 < *(_DWORD *)(v4 + 4) )
+  v1 = 0;
+  v2 = *(_QWORD *)(PnprContext + 24);
+  while ( v1 < *(_DWORD *)(v2 + 4) )
   {
-    v5 = *(_QWORD *)(v4 + 16LL * v3 + 16);
-    if ( a1 >= v5 && a1 <= *(_QWORD *)(v4 + 16LL * v3 + 24) + v5 - 1 )
-      return guard_dispatch_icall_no_overrides(*(_QWORD *)(PnprContext + 33184), a1, a2, v4);
-    ++v3;
+    v3 = *(_QWORD *)(v2 + 16LL * v1 + 16);
+    if ( a1 >= v3 && a1 <= *(_QWORD *)(v2 + 16LL * v1 + 24) + v3 - 1 )
+      return guard_dispatch_icall_no_overrides(*(_QWORD *)(PnprContext + 33184), a1);
+    ++v1;
   }
   return 3221226021LL;
 }

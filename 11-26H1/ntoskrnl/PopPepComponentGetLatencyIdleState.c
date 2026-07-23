@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPepComponentGetLatencyIdleState @ 0x14048AECC
+ * XREFs of PopPepComponentGetLatencyIdleState @ 0x140484A0C
  * Callers:
- *     PopPepRegisterDevice @ 0x140B3B7A8 (PopPepRegisterDevice.c)
+ *     PopPepRegisterDevice @ 0x140B3DA28 (PopPepRegisterDevice.c)
  * Callees:
  *     <none>
  */

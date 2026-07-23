@@ -1,5 +1,5 @@
 /*
- * XREFs of strstr @ 0x18009BBA0
+ * XREFs of strstr @ 0x18009BB90
  * Callers:
  *     <none>
  * Callees:

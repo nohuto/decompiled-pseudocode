@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAddProcessThreadsToDump @ 0x14055C500
+ * XREFs of IoAddProcessThreadsToDump @ 0x14055CBC0
  * Callers:
- *     IopPartialDumpAddProcessesCallback @ 0x14055D870 (IopPartialDumpAddProcessesCallback.c)
- *     IopLiveDumpAddProcessesCallback @ 0x140A9A180 (IopLiveDumpAddProcessesCallback.c)
+ *     IopPartialDumpAddProcessesCallback @ 0x14055DF30 (IopPartialDumpAddProcessesCallback.c)
+ *     IopLiveDumpAddProcessesCallback @ 0x140A99FF0 (IopLiveDumpAddProcessesCallback.c)
  * Callees:
  *     KeEnumerateKernelStackSegments @ 0x140222B70 (KeEnumerateKernelStackSegments.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IoAddProcessThreadsToDump(__int64 a1, __int64 a2)

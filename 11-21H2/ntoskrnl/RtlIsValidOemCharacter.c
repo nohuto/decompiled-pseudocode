@@ -1,16 +1,16 @@
 /*
  * XREFs of RtlIsValidOemCharacter @ 0x1409BBB30
  * Callers:
- *     GetNextWchar @ 0x1406AA3A0 (GetNextWchar.c)
+ *     sub_1406AA3A0 @ 0x1406AA3A0 (sub_1406AA3A0.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     sub_1403477B0 @ 0x1403477B0 (sub_1403477B0.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
+ *     sub_1407CDA20 @ 0x1407CDA20 (sub_1407CDA20.c)
  */
 
 BOOLEAN __stdcall RtlIsValidOemCharacter(PWCHAR Char)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
+  _QWORD *v2; // rax
   __int64 v3; // r8
   char *v4; // rax
   char v5; // dl
@@ -27,11 +27,11 @@ BOOLEAN __stdcall RtlIsValidOemCharacter(PWCHAR Char)
   __int64 v16; // r10
   signed __int32 v18[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  RtlpIsUtf8Process();
+  sub_1407CDA20();
   _InterlockedOr(v18, 0);
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v3 = CurrentServerSiloGlobals[154];
-  v4 = (char *)(CurrentServerSiloGlobals + 133);
+  v2 = sub_140347DB0();
+  v3 = v2[154];
+  v4 = (char *)(v2 + 133);
   if ( v5 != 1 )
   {
     v6 = *((_QWORD *)v4 + 12);
@@ -45,12 +45,12 @@ BOOLEAN __stdcall RtlIsValidOemCharacter(PWCHAR Char)
         v15 = *(_WORD *)(*((_QWORD *)v4 + 15) + 2 * (v14 + (unsigned __int8)v13));
       else
         v15 = *(_WORD *)(v6 + 2LL * (unsigned __int8)v13);
-      v9 = NLS_UPCASE(v3, v15);
+      v9 = sub_1403477B0(v3, v15);
       v12 = *(_WORD *)(v16 + 2LL * v9);
     }
     else
     {
-      v9 = NLS_UPCASE(v3, *(_WORD *)(v6 + 2LL * *(unsigned __int8 *)(v8 + v7)));
+      v9 = sub_1403477B0(v3, *(_WORD *)(v6 + 2LL * *(unsigned __int8 *)(v8 + v7)));
       v12 = *(char *)(v9 + v11);
     }
     if ( v12 != v10 )
@@ -62,6 +62,6 @@ BOOLEAN __stdcall RtlIsValidOemCharacter(PWCHAR Char)
   }
   if ( *Char > 0x7Fu )
     return 0;
-  *Char = NLS_UPCASE(v3, *Char);
+  *Char = sub_1403477B0(v3, *Char);
   return 1;
 }

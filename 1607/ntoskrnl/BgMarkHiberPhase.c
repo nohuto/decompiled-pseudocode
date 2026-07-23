@@ -3,8 +3,8 @@
  * Callers:
  *     BgkResumePrepare @ 0x1403CA94C (BgkResumePrepare.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
  *     BgpFwMarkHiberPhase @ 0x1407253AC (BgpFwMarkHiberPhase.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlValidateRetpolineRelocation @ 0x14035EC8C
+ * XREFs of RtlValidateRetpolineRelocation @ 0x1402A3BBC
  * Callers:
- *     MiCaptureRetpolineRelocationTables @ 0x140712C50 (MiCaptureRetpolineRelocationTables.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x1406C12A0 (MiCaptureRetpolineRelocationTables.c)
  * Callees:
- *     RtlSizeOfRetpolineRelocationEntry @ 0x14035F08C (RtlSizeOfRetpolineRelocationEntry.c)
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x1402A3FBC (RtlSizeOfRetpolineRelocationEntry.c)
  */
 
 __int64 __fastcall RtlValidateRetpolineRelocation(_QWORD *a1, unsigned int a2, _DWORD *a3)

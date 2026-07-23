@@ -1,19 +1,19 @@
 /*
- * XREFs of VslpSkStartProfiling @ 0x140890A20
+ * XREFs of VslpSkStartProfiling @ 0x140890B80
  * Callers:
- *     VslpEtwClassicCallback @ 0x1408907D0 (VslpEtwClassicCallback.c)
+ *     VslpEtwClassicCallback @ 0x140890930 (VslpEtwClassicCallback.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     WmiQueryTraceInformation @ 0x140788A80 (WmiQueryTraceInformation.c)
- *     VslpSkCreateBuffers @ 0x140890814 (VslpSkCreateBuffers.c)
- *     VslpSkMapBuffers @ 0x140890958 (VslpSkMapBuffers.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WmiQueryTraceInformation @ 0x140788C40 (WmiQueryTraceInformation.c)
+ *     VslpSkCreateBuffers @ 0x140890974 (VslpSkCreateBuffers.c)
+ *     VslpSkMapBuffers @ 0x140890AB8 (VslpSkMapBuffers.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall VslpSkStartProfiling(unsigned __int16 *a1)

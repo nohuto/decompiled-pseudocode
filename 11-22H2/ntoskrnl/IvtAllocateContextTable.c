@@ -75,7 +75,7 @@ __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)
     memmove(v25, *(const void **)(v3 + 40), 0x1000uLL);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -89,10 +89,10 @@ __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v14 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v15 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v14 = (unsigned int)CurrentIrql + 1;
@@ -112,10 +112,10 @@ __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)
       *v8 = v25;
       *v9 = ((v26.QuadPart / 4096) << 12) | 1;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;

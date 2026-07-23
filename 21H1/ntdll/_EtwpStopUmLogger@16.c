@@ -23,26 +23,26 @@ ULONG __stdcall EtwpStopUmLogger(int a1, _DWORD *a2)
   NTSTATUS v5; // eax
   HANDLE v6; // edi
   char v8; // [esp+Fh] [ebp-19h]
-  int v9; // [esp+10h] [ebp-18h] BYREF
+  PVOID BaseAddress; // [esp+10h] [ebp-18h] BYREF
   int v10; // [esp+14h] [ebp-14h]
   int v11; // [esp+18h] [ebp-10h]
   int v12; // [esp+1Ch] [ebp-Ch]
   int v13; // [esp+20h] [ebp-8h]
   HANDLE Handle; // [esp+24h] [ebp-4h]
 
-  v9 = 0;
+  BaseAddress = 0;
   v8 = 0;
   v10 = 0;
   v11 = 0;
-  PrivateLoggerContext = EtwpGetPrivateLoggerContext(a2, &v9);
+  PrivateLoggerContext = EtwpGetPrivateLoggerContext(a2, &BaseAddress);
   if ( !PrivateLoggerContext )
   {
-    v3 = (_DWORD *)v9;
+    v3 = BaseAddress;
     v12 = 1;
-    v13 = *(_DWORD *)(v9 + 20);
-    Handle = *(HANDLE *)(v9 + 28);
+    v13 = *((_DWORD *)BaseAddress + 5);
+    Handle = (HANDLE)*((_DWORD *)BaseAddress + 7);
     v4 = (a2[16] & 0x10000) == 0;
-    v9 = *(_DWORD *)(v9 + 212) & 0x400;
+    BaseAddress = (PVOID)(*((_DWORD *)BaseAddress + 53) & 0x400);
     if ( !v4 )
     {
       v10 = v3[68];
@@ -59,12 +59,12 @@ ULONG __stdcall EtwpStopUmLogger(int a1, _DWORD *a2)
     PrivateLoggerContext = EtwpStopLoggerInstance(v3);
     if ( !PrivateLoggerContext )
     {
-      if ( v9 || (v5 = EtwpSynchronizeWithLogger(v3, 8), v5 >= 0) )
+      if ( BaseAddress || (v5 = EtwpSynchronizeWithLogger(v3, 8), v5 >= 0) )
       {
         EtwpGetUmLoggerInfoFromContext(0);
         _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v13 + 4));
         LOBYTE(v12) = 0;
-        if ( v9 )
+        if ( BaseAddress )
           EtwpFreeLoggerContext(v3);
         v6 = Handle;
         v3 = 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpRecordBlackboxPnpEventInformation @ 0x1408678D8
+ * XREFs of PnpRecordBlackboxPnpEventInformation @ 0x140867B18
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867478 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408676B8 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PiGetTargetDeviceNode @ 0x140867A24 (PiGetTargetDeviceNode.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PiGetTargetDeviceNode @ 0x140867C64 (PiGetTargetDeviceNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

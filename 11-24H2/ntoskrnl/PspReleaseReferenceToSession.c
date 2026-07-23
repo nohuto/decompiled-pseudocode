@@ -1,14 +1,14 @@
 /*
- * XREFs of PspReleaseReferenceToSession @ 0x140A86D78
+ * XREFs of PspReleaseReferenceToSession @ 0x140A81850
  * Callers:
- *     PsSessionObjectDelete @ 0x14077BA40 (PsSessionObjectDelete.c)
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
+ *     PsSessionObjectDelete @ 0x14077B8F0 (PsSessionObjectDelete.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PspFreeSessionId @ 0x14077BBDC (PspFreeSessionId.c)
- *     PspUnlinkSessionId @ 0x14077C0FC (PspUnlinkSessionId.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PspFreeSessionId @ 0x14077BA8C (PspFreeSessionId.c)
+ *     PspUnlinkSessionId @ 0x14077BFAC (PspUnlinkSessionId.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspReleaseReferenceToSession(__int64 P)

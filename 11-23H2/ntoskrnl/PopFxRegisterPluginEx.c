@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxRegisterPluginEx @ 0x1403A8CD8
+ * XREFs of PopFxRegisterPluginEx @ 0x1403A8EB8
  * Callers:
- *     PoFxRegisterPluginEx @ 0x1403A8CC0 (PoFxRegisterPluginEx.c)
- *     PoFxRegisterPlugin @ 0x140984890 (PoFxRegisterPlugin.c)
+ *     PoFxRegisterPluginEx @ 0x1403A8EA0 (PoFxRegisterPluginEx.c)
+ *     PoFxRegisterPlugin @ 0x140984A90 (PoFxRegisterPlugin.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PopFxInitializeWorkPool @ 0x14084F82C (PopFxInitializeWorkPool.c)
- *     PopDiagTraceFxPluginRegistration @ 0x14084F980 (PopDiagTraceFxPluginRegistration.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PopFxInitializeWorkPool @ 0x14084FB2C (PopFxInitializeWorkPool.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x14084FC80 (PopDiagTraceFxPluginRegistration.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

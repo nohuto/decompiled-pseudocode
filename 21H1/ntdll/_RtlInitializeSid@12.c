@@ -21,13 +21,12 @@
  *     <none>
  */
 
-int __stdcall RtlInitializeSid(int a1, int a2, unsigned __int8 a3)
+NTSTATUS __cdecl RtlInitializeSid(PSID Sid, PSID_IDENTIFIER_AUTHORITY IdentifierAuthority, UCHAR SubAuthorityCount)
 {
-  if ( a3 > 0xFu )
+  if ( SubAuthorityCount > 0xFu )
     return -1073741811;
-  *(_BYTE *)(a1 + 1) = a3;
-  *(_BYTE *)a1 = 1;
-  *(_DWORD *)(a1 + 2) = *(_DWORD *)a2;
-  *(_WORD *)(a1 + 6) = *(_WORD *)(a2 + 4);
+  *((_BYTE *)Sid + 1) = SubAuthorityCount;
+  *(_BYTE *)Sid = 1;
+  *(_SID_IDENTIFIER_AUTHORITY *)((char *)Sid + 2) = *IdentifierAuthority;
   return 0;
 }

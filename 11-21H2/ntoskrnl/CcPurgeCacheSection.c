@@ -1,24 +1,24 @@
 /*
  * XREFs of CcPurgeCacheSection @ 0x14027F0E0
  * Callers:
- *     CcPurgeAndClearCacheSection @ 0x14023C1EC (CcPurgeAndClearCacheSection.c)
+ *     sub_14023C1EC @ 0x14023C1EC (sub_14023C1EC.c)
  *     CcUninitializeCacheMap @ 0x1402761B0 (CcUninitializeCacheMap.c)
- *     CcUnmapAndPurge @ 0x140276BF8 (CcUnmapAndPurge.c)
+ *     sub_140276BF8 @ 0x140276BF8 (sub_140276BF8.c)
  *     CcCoherencyFlushAndPurgeCache @ 0x14027EF40 (CcCoherencyFlushAndPurgeCache.c)
  *     CcSetFileSizesEx @ 0x1402823F0 (CcSetFileSizesEx.c)
- *     CcZeroEndOfLastPage @ 0x14028866C (CcZeroEndOfLastPage.c)
+ *     sub_14028866C @ 0x14028866C (sub_14028866C.c)
  * Callees:
  *     CcUninitializeCacheMap @ 0x1402761B0 (CcUninitializeCacheMap.c)
- *     MmTrimSection @ 0x14027F03C (MmTrimSection.c)
- *     MmPurgeSection @ 0x14027F360 (MmPurgeSection.c)
+ *     sub_14027F03C @ 0x14027F03C (sub_14027F03C.c)
+ *     sub_14027F360 @ 0x14027F360 (sub_14027F360.c)
  *     MmCanFileBeTruncated @ 0x14027F960 (MmCanFileBeTruncated.c)
- *     MmGetControlAreaPartition @ 0x14027FC48 (MmGetControlAreaPartition.c)
- *     CcDecrementOpenCount @ 0x140282AF4 (CcDecrementOpenCount.c)
+ *     sub_14027FC48 @ 0x14027FC48 (sub_14027FC48.c)
+ *     sub_140282AF4 @ 0x140282AF4 (sub_140282AF4.c)
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcUnmapVacbArray @ 0x1402853B0 (CcUnmapVacbArray.c)
+ *     sub_1402853B0 @ 0x1402853B0 (sub_1402853B0.c)
  *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -43,25 +43,25 @@ BOOLEAN __stdcall CcPurgeCacheSection(
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v23; // r9
   int v24; // edx
   unsigned __int8 v25; // al
   struct _KPRCB *v26; // r10
-  _DWORD *v27; // r9
+  __int64 v27; // r9
   int v28; // eax
   unsigned __int8 v29; // al
   struct _KPRCB *v30; // r10
-  _DWORD *v31; // r9
+  __int64 v31; // r9
   int v32; // eax
   _QWORD *i; // r15
   unsigned __int64 v34; // rbx
   unsigned __int8 v35; // al
   struct _KPRCB *v36; // r9
-  _DWORD *v37; // r8
+  __int64 v37; // r8
   int v38; // eax
   unsigned __int8 v39; // al
   struct _KPRCB *v40; // r9
-  _DWORD *v41; // r8
+  __int64 v41; // r8
   int v42; // eax
   _BYTE v43[4]; // [rsp+30h] [rbp-50h] BYREF
   int v44; // [rsp+34h] [rbp-4Ch]
@@ -79,7 +79,7 @@ BOOLEAN __stdcall CcPurgeCacheSection(
   v45 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   memset(&v47, 0, sizeof(v47));
-  KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
   SharedCacheMap = (char *)SectionObjectPointer->SharedCacheMap;
   v46 = SharedCacheMap;
   if ( SharedCacheMap )
@@ -93,20 +93,20 @@ BOOLEAN __stdcall CcPurgeCacheSection(
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( dword_140D06B08 )
         {
-          if ( (KiIrqlFlags & 1) != 0 )
+          if ( (dword_140D06B08 & 1) != 0 )
           {
             CurrentIrql = KeGetCurrentIrql();
             if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v23 = *((_QWORD *)CurrentPrcb + 4375);
               v24 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-              v12 = (v24 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v24;
+              v12 = (v24 & *(_DWORD *)(v23 + 20)) == 0;
+              *(_DWORD *)(v23 + 20) &= v24;
               if ( v12 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                sub_140418E4C(CurrentPrcb);
             }
           }
         }
@@ -120,20 +120,20 @@ BOOLEAN __stdcall CcPurgeCacheSection(
     ++*((_DWORD *)SharedCacheMap + 134);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&v47);
     v14 = v47.OldIrql;
-    if ( KiIrqlFlags )
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         v25 = KeGetCurrentIrql();
         if ( v25 <= 0xFu && v47.OldIrql <= 0xFu && v25 >= 2u )
         {
           v26 = KeGetCurrentPrcb();
-          v27 = v26->SchedulerAssist;
+          v27 = *((_QWORD *)v26 + 4375);
           v28 = ~(unsigned __int16)(-1LL << (v47.OldIrql + 1));
-          v12 = (v28 & v27[5]) == 0;
-          v27[5] &= v28;
+          v12 = (v28 & *(_DWORD *)(v27 + 20)) == 0;
+          *(_DWORD *)(v27 + 20) &= v28;
           if ( v12 )
-            KiRemoveSystemWorkPriorityKick(v26);
+            sub_140418E4C(v26);
         }
       }
     }
@@ -141,20 +141,20 @@ BOOLEAN __stdcall CcPurgeCacheSection(
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   v9 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v29 = KeGetCurrentIrql();
       if ( v29 <= 0xFu && LockHandle.OldIrql <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
-        v31 = v30->SchedulerAssist;
+        v31 = *((_QWORD *)v30 + 4375);
         v32 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v12 = (v32 & v31[5]) == 0;
-        v31[5] &= v32;
+        v12 = (v32 & *(_DWORD *)(v31 + 20)) == 0;
+        *(_DWORD *)(v31 + 20) &= v32;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick(v30);
+          sub_140418E4C(v30);
       }
     }
   }
@@ -162,7 +162,7 @@ BOOLEAN __stdcall CcPurgeCacheSection(
   if ( !SharedCacheMap )
     goto LABEL_4;
   v15 = (int)SectionObjectPointer;
-  if ( v45 != *(_QWORD *)(MmGetControlAreaPartition(SectionObjectPointer) + 8) )
+  if ( v45 != *(_QWORD *)(sub_14027FC48(SectionObjectPointer) + 8) )
     KeBugCheckEx(0x34u, 0x139EuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   v16 = v51;
   if ( (v51 & 1) != 0 )
@@ -174,10 +174,10 @@ BOOLEAN __stdcall CcPurgeCacheSection(
   }
   if ( (v16 & 8) == 0 )
   {
-    CcUnmapVacbArray((_DWORD)SharedCacheMap, (_DWORD)FileOffset, Length, 0, 1, 0);
+    sub_1402853B0((_DWORD)SharedCacheMap, (_DWORD)FileOffset, Length, 0, 1, 0);
     goto LABEL_16;
   }
-  if ( (int)MmTrimSection(v15, (__int64 *)FileOffset, Length, 0) >= 0 )
+  if ( (int)sub_14027F03C(v15, (__int64 *)FileOffset, Length, 0) >= 0 )
   {
 LABEL_16:
     if ( FileOffset )
@@ -188,7 +188,7 @@ LABEL_4:
       v44 = 5;
       v7 |= 2u;
     }
-    v10 = MmPurgeSection((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, Length, v7, (__int64)v43);
+    v10 = sub_14027F360((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, Length, v7, (__int64)v43);
     if ( !v10 )
     {
       v19 = v44;
@@ -200,10 +200,10 @@ LABEL_4:
           break;
         if ( (v51 & 2) != 0 )
           break;
-        KeDelayExecutionThread(0, 0, &CcCollisionDelay);
+        KeDelayExecutionThread(0, 0, &stru_140C0CAC8);
         if ( !--v19 )
           break;
-        v10 = MmPurgeSection((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, 0, v7, (__int64)v43);
+        v10 = sub_14027F360((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, 0, v7, (__int64)v43);
       }
       while ( !v10 );
       SharedCacheMap = v46;
@@ -228,23 +228,23 @@ LABEL_4:
         }
       }
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v45 + 704), &v47);
-      CcDecrementOpenCount(SharedCacheMap);
+      sub_140282AF4(SharedCacheMap);
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&v47);
       v17 = v47.OldIrql;
-      if ( KiIrqlFlags )
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( (dword_140D06B08 & 1) != 0 )
         {
           v39 = KeGetCurrentIrql();
           if ( v39 <= 0xFu && v47.OldIrql <= 0xFu && v39 >= 2u )
           {
             v40 = KeGetCurrentPrcb();
-            v41 = v40->SchedulerAssist;
+            v41 = *((_QWORD *)v40 + 4375);
             v42 = ~(unsigned __int16)(-1LL << (v47.OldIrql + 1));
-            v12 = (v42 & v41[5]) == 0;
-            v41[5] &= v42;
+            v12 = (v42 & *(_DWORD *)(v41 + 20)) == 0;
+            *(_DWORD *)(v41 + 20) &= v42;
             if ( v12 )
-              KiRemoveSystemWorkPriorityKick(v40);
+              sub_140418E4C(v40);
           }
         }
       }
@@ -253,23 +253,23 @@ LABEL_4:
     return v10;
   }
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v45 + 704), &v47);
-  CcDecrementOpenCount(SharedCacheMap);
+  sub_140282AF4(SharedCacheMap);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&v47);
   v34 = v47.OldIrql;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v35 = KeGetCurrentIrql();
       if ( v35 <= 0xFu && v47.OldIrql <= 0xFu && v35 >= 2u )
       {
         v36 = KeGetCurrentPrcb();
-        v37 = v36->SchedulerAssist;
+        v37 = *((_QWORD *)v36 + 4375);
         v38 = ~(unsigned __int16)(-1LL << (v47.OldIrql + 1));
-        v12 = (v38 & v37[5]) == 0;
-        v37[5] &= v38;
+        v12 = (v38 & *(_DWORD *)(v37 + 20)) == 0;
+        *(_DWORD *)(v37 + 20) &= v38;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick(v36);
+          sub_140418E4C(v36);
       }
     }
   }

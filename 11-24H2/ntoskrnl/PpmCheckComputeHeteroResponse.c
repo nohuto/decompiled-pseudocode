@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmCheckComputeHeteroResponse @ 0x1404EC390
+ * XREFs of PpmCheckComputeHeteroResponse @ 0x1404E3AD0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x140417BE0 (PpmHeteroIsMultiClassParkingEnabled.c)
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x140423814 (PpmHeteroUtilityToNormalizedUtility.c)
- *     PpmEventTraceHeteroResponse @ 0x14042382C (PpmEventTraceHeteroResponse.c)
- *     PpmParkCalculateUnparkCount @ 0x140423BD0 (PpmParkCalculateUnparkCount.c)
- *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140423FEC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmCheckComputeHeteroResponseEx @ 0x1405DF774 (PpmCheckComputeHeteroResponseEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x140407990 (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140416940 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1404176C4 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     PpmEventTraceHeteroResponse @ 0x1404176DC (PpmEventTraceHeteroResponse.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417A80 (PpmParkCalculateUnparkCount.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140417E9C (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmCheckComputeHeteroResponseEx @ 0x1405DC8E0 (PpmCheckComputeHeteroResponseEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmCheckComputeHeteroResponse(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -73,7 +73,7 @@ char __fastcall PpmCheckComputeHeteroResponse(__int64 a1, __int64 a2, __int64 a3
   v49 = 0LL;
   if ( !(unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline(a1, a2, a3, a4) )
   {
-    v47 = &PpmCurrentProfile[0][61 * dword_140F0BA4C + 5];
+    v47 = &PpmCurrentProfile[0][61 * dword_140F0B38C + 5];
     if ( PpmHeteroPolicy != 4 )
       goto LABEL_55;
     if ( PpmHeteroIsMultiClassParkingEnabled() )
@@ -92,16 +92,16 @@ LABEL_55:
     while ( 1 )
     {
       v5 = 0;
-      v6 = PpmParkNodes + 1288LL * v4;
+      v6 = PpmParkNodes + 1296LL * v4;
       v50 = v6;
-      if ( !PpmHeteroHgsParkingEnabled || *(_WORD *)(*(_QWORD *)(v6 + 1280) + 640LL) || PpmHeteroPolicy )
+      if ( !PpmHeteroHgsParkingEnabled || *(_WORD *)(*(_QWORD *)(v6 + 1288) + 640LL) || PpmHeteroPolicy )
         break;
 LABEL_54:
       LODWORD(v46) = ++v4;
       if ( v4 >= PpmParkNumNodes )
         goto LABEL_55;
     }
-    v7 = *(_QWORD *)(v6 + 1280);
+    v7 = *(_QWORD *)(v6 + 1288);
     v8 = 0LL;
     v9 = *(_WORD *)(v6 + 4);
     v10 = 0LL;
@@ -161,7 +161,7 @@ LABEL_54:
       }
       while ( v28 );
     }
-    v30 = *(_BYTE *)(*(_QWORD *)(v6 + 1280) + 640LL);
+    v30 = *(_BYTE *)(*(_QWORD *)(v6 + 1288) + 640LL);
     if ( PpmHeteroHgsParkingEnabled )
       v30 = *(_BYTE *)(v6 + 10);
     v31 = v30;
@@ -236,7 +236,7 @@ LABEL_39:
     {
       v5 |= 0x10u;
 LABEL_50:
-      *(_WORD *)(*(_QWORD *)(v6 + 1280) + 646LL) = (unsigned __int8)v32;
+      *(_WORD *)(*(_QWORD *)(v6 + 1288) + 646LL) = (unsigned __int8)v32;
       goto LABEL_51;
     }
     if ( v36 == 2 )
@@ -258,8 +258,8 @@ LABEL_51:
     if ( !v41 )
     {
       v5 |= 0x80u;
-      *(_WORD *)(*(_QWORD *)(v6 + 1280) + 648LL) = *(_WORD *)(*(_QWORD *)(v6 + 1280) + 646LL);
-      *(_WORD *)(v6 + 1256) = *(_WORD *)(*(_QWORD *)(v6 + 1280) + 646LL);
+      *(_WORD *)(*(_QWORD *)(v6 + 1288) + 648LL) = *(_WORD *)(*(_QWORD *)(v6 + 1288) + 646LL);
+      *(_WORD *)(v6 + 1264) = *(_WORD *)(*(_QWORD *)(v6 + 1288) + 646LL);
     }
     LODWORD(v44) = v5 | 1;
     LOBYTE(v43) = v32;

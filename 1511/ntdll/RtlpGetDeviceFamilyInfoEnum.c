@@ -17,39 +17,40 @@
 void __fastcall RtlpGetDeviceFamilyInfoEnum(_QWORD *a1, unsigned int *a2, unsigned int *a3)
 {
   __int64 v6; // r14
-  unsigned int v7; // [rsp+30h] [rbp-D0h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
-  int v10; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v11[5]; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE v12[16]; // [rsp+80h] [rbp-80h] BYREF
-  _DWORD v13[72]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int Data; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG Type[2]; // [rsp+38h] [rbp-C8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG ResultDataSize[4]; // [rsp+80h] [rbp-80h] BYREF
+  _OSVERSIONINFOEXW VersionInformation; // [rsp+90h] [rbp-70h] BYREF
 
   if ( a1 )
   {
-    memset(v11, 0, sizeof(v11));
+    memset(&ObjectAttributes.RootDirectory, 0, 0x28uLL);
     DestinationString.Length = 0;
     *(_QWORD *)&DestinationString.MaximumLength = 0LL;
     *(_DWORD *)((char *)&DestinationString.Buffer + 2) = 0;
     HIWORD(DestinationString.Buffer) = 0;
     v6 = 0LL;
-    Handle = 0LL;
-    v7 = 0;
+    *(_QWORD *)Type = 0LL;
+    Data = 0;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
-    v10 = 48;
-    v11[1] = &DestinationString;
-    v11[0] = 0LL;
-    LODWORD(v11[2]) = 64;
-    *(_OWORD *)&v11[3] = 0LL;
-    if ( (int)NtOpenKey(&Handle, 131353LL, &v10) >= 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( NtOpenKey((PHANDLE)Type, 0x20119u, &ObjectAttributes) >= 0 )
     {
-      if ( (int)ReadUlongFromKey(Handle, L"UBR", &v7) >= 0 )
-        v6 = v7;
-      NtClose(Handle);
+      if ( (int)ReadUlongFromKey(*(HANDLE *)Type) >= 0 )
+        v6 = Data;
+      NtClose(*(HANDLE *)Type);
     }
-    v13[0] = 284;
-    RtlGetVersion(v13);
-    *a1 = v6 + ((v13[3] + ((v13[2] + ((unsigned __int64)v13[1] << 16)) << 16)) << 16);
+    VersionInformation.dwOSVersionInfoSize = 284;
+    RtlGetVersion(&VersionInformation);
+    *a1 = v6
+        + ((VersionInformation.dwBuildNumber
+          + ((VersionInformation.dwMinorVersion + ((unsigned __int64)VersionInformation.dwMajorVersion << 16)) << 16)) << 16);
   }
   if ( a2 )
   {
@@ -57,34 +58,34 @@ void __fastcall RtlpGetDeviceFamilyInfoEnum(_QWORD *a1, unsigned int *a2, unsign
     *(_QWORD *)&DestinationString.MaximumLength = 0LL;
     *(_DWORD *)((char *)&DestinationString.Buffer + 2) = 0;
     HIWORD(DestinationString.Buffer) = 0;
-    v7 = 3;
+    Data = 3;
     RtlInitUnicodeString(&DestinationString, L"Kernel-OneCore-DeviceFamilyID");
-    ZwQueryLicenseValue(&DestinationString, &Handle, &v7, 4LL, v12);
-    *a2 = v7;
+    ZwQueryLicenseValue(&DestinationString, Type, &Data, 4u, ResultDataSize);
+    *a2 = Data;
   }
   if ( a3 )
   {
-    memset(v11, 0, sizeof(v11));
+    memset(&ObjectAttributes.RootDirectory, 0, 0x28uLL);
     DestinationString.Length = 0;
     *(_QWORD *)&DestinationString.MaximumLength = 0LL;
     *(_DWORD *)((char *)&DestinationString.Buffer + 2) = 0;
     HIWORD(DestinationString.Buffer) = 0;
-    Handle = 0LL;
-    v7 = 0;
+    *(_QWORD *)Type = 0LL;
+    Data = 0;
     *a3 = 0;
     RtlInitUnicodeString(
       &DestinationString,
       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM");
-    v10 = 48;
-    v11[1] = &DestinationString;
-    v11[0] = 0LL;
-    LODWORD(v11[2]) = 64;
-    *(_OWORD *)&v11[3] = 0LL;
-    if ( (int)NtOpenKey(&Handle, 131353LL, &v10) >= 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( NtOpenKey((PHANDLE)Type, 0x20119u, &ObjectAttributes) >= 0 )
     {
-      if ( (int)ReadUlongFromKey(Handle, L"DeviceForm", &v7) >= 0 )
-        *a3 = v7;
-      NtClose(Handle);
+      if ( (int)ReadUlongFromKey(*(HANDLE *)Type) >= 0 )
+        *a3 = Data;
+      NtClose(*(HANDLE *)Type);
     }
   }
 }

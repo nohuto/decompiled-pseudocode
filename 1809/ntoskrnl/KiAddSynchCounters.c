@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAddSynchCounters @ 0x140843490
+ * XREFs of KiAddSynchCounters @ 0x1408446F0
  * Callers:
- *     KiSynchNumaCounterSetCallback @ 0x1408435E0 (KiSynchNumaCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140844840 (KiSynchNumaCounterSetCallback.c)
  * Callees:
  *     <none>
  */

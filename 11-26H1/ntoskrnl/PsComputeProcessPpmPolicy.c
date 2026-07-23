@@ -1,12 +1,12 @@
 /*
- * XREFs of PsComputeProcessPpmPolicy @ 0x140614E6C
+ * XREFs of PsComputeProcessPpmPolicy @ 0x140617D08
  * Callers:
- *     PsSetProcessPowerThrottlingState @ 0x14061502C (PsSetProcessPowerThrottlingState.c)
- *     PspRefreshProcessUserPresencePpmPolicyCallback @ 0x140615350 (PspRefreshProcessUserPresencePpmPolicyCallback.c)
- *     PspSetProcessBamPpmPolicy @ 0x1407F0990 (PspSetProcessBamPpmPolicy.c)
+ *     PsSetProcessPowerThrottlingState @ 0x140617EEC (PsSetProcessPowerThrottlingState.c)
+ *     PspRefreshProcessUserPresencePpmPolicyCallback @ 0x140618260 (PspRefreshProcessUserPresencePpmPolicyCallback.c)
+ *     PspSetProcessBamPpmPolicy @ 0x1407F64F0 (PspSetProcessBamPpmPolicy.c)
  * Callees:
- *     Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x140455510 (Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060636C (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x14044D640 (Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140608E6C (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall PsComputeProcessPpmPolicy(_DWORD *a1)
@@ -26,7 +26,8 @@ __int64 __fastcall PsComputeProcessPpmPolicy(_DWORD *a1)
       if ( (unsigned int)Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline() )
       {
         if ( v1 == 9
-          && (BYTE2(PsAltSystemCallRegistrationLock.TrapFrame) || HIDWORD(PsAltSystemCallRegistrationLock.TrapFrame)) )
+          && (BYTE2(PsAltSystemCallRegistrationLock.Timer.DueTime.u.LowPart)
+           || PsAltSystemCallRegistrationLock.Timer.DueTime.HighPart) )
         {
           return 7;
         }
@@ -34,7 +35,7 @@ __int64 __fastcall PsComputeProcessPpmPolicy(_DWORD *a1)
       else if ( v1 == 9 )
       {
         v2 = 9;
-        if ( HIDWORD(PsAltSystemCallRegistrationLock.TrapFrame) )
+        if ( PsAltSystemCallRegistrationLock.Timer.DueTime.HighPart )
           return 7;
         return v2;
       }

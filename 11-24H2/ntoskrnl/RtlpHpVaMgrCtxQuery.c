@@ -1,21 +1,20 @@
 /*
- * XREFs of RtlpHpVaMgrCtxQuery @ 0x1402C27C8
+ * XREFs of RtlpHpVaMgrCtxQuery @ 0x14035D9AC
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExGetHeapFromVA @ 0x1402B3750 (ExGetHeapFromVA.c)
- *     RtlpHpSegMgrRelease @ 0x1402BCD10 (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x1402C0D68 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegSegmentInitialize @ 0x1402C1530 (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegMgrCommit @ 0x1402C21D4 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x1402C2AA8 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpSegMgrVaCtxInitialize @ 0x1402C2BFC (RtlpHpSegMgrVaCtxInitialize.c)
- *     RtlpHpLargeAlloc @ 0x140420250 (RtlpHpLargeAlloc.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140B72670 (ExpAllocatePoolWithQuotaTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExGetHeapFromVA @ 0x14035C310 (ExGetHeapFromVA.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x14035CE60 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x14035D390 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x14035D4AC (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegSegmentInitialize @ 0x14035D894 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegMgrCommit @ 0x14035E694 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrRelease @ 0x140364450 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpLargeAlloc @ 0x1404585E4 (RtlpHpLargeAlloc.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140B74210 (ExpAllocatePoolWithQuotaTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlCSparseBitmapFindBitSetCapped @ 0x1402C28B4 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x14035DA98 (RtlCSparseBitmapFindBitSetCapped.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxQuery(__int64 a1, ULONG_PTR a2, __int64 a3)

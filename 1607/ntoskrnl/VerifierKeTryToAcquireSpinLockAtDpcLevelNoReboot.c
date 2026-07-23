@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeTryToAcquireSpinLockAtDpcLevelNoReboot @ 0x1407128B0
+ * XREFs of VerifierKeTryToAcquireSpinLockAtDpcLevelNoReboot @ 0x140712868
  * Callers:
  *     <none>
  * Callees:

@@ -11,39 +11,38 @@
 
 __int64 __fastcall LdrpCreateSoftwareEnclave(__int64 a1, __int64 a2, int a3)
 {
-  __int64 Heap; // rax
-  __int64 v7; // r9
-  __int64 v8; // rbx
-  __int64 v10; // rcx
-  _QWORD *v11; // rax
-  __int64 *v12; // rax
+  char *Heap; // rax
+  __int64 v7; // rbx
+  _RTL_CRITICAL_SECTION *v9; // rcx
+  _QWORD *v10; // rax
+  __int64 *v11; // rax
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 136LL);
-  v8 = Heap;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x88uLL);
+  v7 = (__int64)Heap;
   if ( !Heap )
     return 3221225626LL;
-  *(_QWORD *)(Heap + 88) = 0LL;
-  v10 = Heap + 16;
-  *(_QWORD *)(Heap + 112) = 0LL;
-  *(_QWORD *)(Heap + 72) = a1;
-  *(_QWORD *)(Heap + 80) = a2;
-  *(_DWORD *)(Heap + 56) = a3;
-  v11 = (_QWORD *)(Heap + 96);
-  v11[1] = v11;
-  *v11 = v11;
-  RtlInitializeCriticalSectionEx(v10, 0LL, 0LL, v7);
-  *(_DWORD *)(v8 + 64) = 0;
-  *(_QWORD *)(v8 + 120) = 0LL;
-  *(_QWORD *)(v8 + 128) = 0LL;
-  *(_DWORD *)(v8 + 60) = 1;
-  RtlEnterCriticalSection((__int64)&LdrpEnclaveListLock);
-  v12 = (__int64 *)qword_18017A888;
-  if ( *(__int64 **)qword_18017A888 != &LdrpEnclaveList )
+  *((_QWORD *)Heap + 11) = 0LL;
+  v9 = (_RTL_CRITICAL_SECTION *)(Heap + 16);
+  *((_QWORD *)Heap + 14) = 0LL;
+  *((_QWORD *)Heap + 9) = a1;
+  *((_QWORD *)Heap + 10) = a2;
+  *((_DWORD *)Heap + 14) = a3;
+  v10 = Heap + 96;
+  v10[1] = v10;
+  *v10 = v10;
+  RtlInitializeCriticalSectionEx(v9, 0, 0);
+  *(_DWORD *)(v7 + 64) = 0;
+  *(_QWORD *)(v7 + 120) = 0LL;
+  *(_QWORD *)(v7 + 128) = 0LL;
+  *(_DWORD *)(v7 + 60) = 1;
+  RtlEnterCriticalSection(&LdrpEnclaveListLock);
+  v11 = (__int64 *)qword_18017A888;
+  if ( *(PVOID **)qword_18017A888 != &LdrpEnclaveList )
     __fastfail(3u);
-  *(_QWORD *)v8 = &LdrpEnclaveList;
-  *(_QWORD *)(v8 + 8) = v12;
-  *v12 = v8;
-  qword_18017A888 = v8;
-  RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock);
+  *(_QWORD *)v7 = &LdrpEnclaveList;
+  *(_QWORD *)(v7 + 8) = v11;
+  *v11 = v7;
+  qword_18017A888 = v7;
+  RtlLeaveCriticalSection(&LdrpEnclaveListLock);
   return 0LL;
 }

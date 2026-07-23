@@ -5,11 +5,11 @@
  *     CmpOpenHiveFiles @ 0x14068B784 (CmpOpenHiveFiles.c)
  *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
  *     CmpLogHiveFileInaccessible @ 0x14068F4C0 (CmpLogHiveFileInaccessible.c)
- *     CmpStartRMLog @ 0x140872B98 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x140872DD8 (CmpStartRMLog.c)
  * Callees:
  *     CmSiAllocateMemory @ 0x1402089E0 (CmSiAllocateMemory.c)
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ZwQuerySecurityObject @ 0x14041DA20 (ZwQuerySecurityObject.c)
+ *     ZwQuerySecurityObject @ 0x14041DDB0 (ZwQuerySecurityObject.c)
  */
 
 __int64 __fastcall CmpQueryFileSecurityDescriptor(HANDLE Handle, struct _PRIVILEGE_SET **a2)

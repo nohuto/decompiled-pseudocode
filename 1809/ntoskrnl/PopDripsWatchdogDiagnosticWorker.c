@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x14086E420
+ * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x14086F680
  * Callers:
  *     <none>
  * Callees:
  *     PopDeepSleepEnabled @ 0x140003A5C (PopDeepSleepEnabled.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
- *     PopDiagTraceCsDripsDivergence @ 0x1402DF7B0 (PopDiagTraceCsDripsDivergence.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x14086E1F4 (PopDripsWatchdogCheckHwDivergence.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x14086E7C0 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x14086EAA8 (PopDripsWatchdogUpdateMetrics.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x14087947C (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopCalculateIdleInformation @ 0x1402DF198 (PopCalculateIdleInformation.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x1402DF9A0 (PopDiagTraceCsDripsDivergence.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x14086F454 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x14086FA20 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x14086FD08 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x14087A6DC (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x14087A9E8 (PopDripsWatchdogTakeAction.c)
  */
 
 _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
@@ -91,7 +91,7 @@ _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
         if ( !v17 && PopDeepSleepEnabled() )
           PopDeepSleepWatchdogTakeAction(&v21, Flink_high);
       }
-      else if ( !qword_14043C3D8 )
+      else if ( !qword_14043D498 )
       {
         PopDripsWatchdogTakeAction(&v21, Flink_high, Blink);
       }

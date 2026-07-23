@@ -233,17 +233,14 @@ LABEL_43:
     0LL,
     &EtwCpuStarvationProvRegHandle);
   ++EtwpBootPhase;
-  ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL);
+  ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
   EtwpTraceSystemInitialization();
   v24 = 0;
-  if ( ((int (__fastcall *)(__int64, __int64, char *, int *, _QWORD, _DWORD, _DWORD))off_140C020E8[0])(
+  if ( ((int (__fastcall *)(__int64, __int64, char *, int *))off_140C020E8[0])(
          44LL,
          4LL,
          (char *)&NlsMbCodePageTag + 6,
-         &v24,
-         0LL,
-         0,
-         0) < 0 )
+         &v24) < 0 )
     *(_DWORD *)((char *)&NlsMbCodePageTag + 6) = 8;
   EtwpMaxProfilingSources = *(_DWORD *)((char *)&NlsMbCodePageTag + 6);
 }

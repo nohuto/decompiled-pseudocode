@@ -1,24 +1,24 @@
 /*
- * XREFs of MiRemoveVadCharges @ 0x1405EC820
+ * XREFs of MiRemoveVadCharges @ 0x1405ED820
  * Callers:
- *     MiFinishVadDeletion @ 0x140067770 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140067760 (MiFinishVadDeletion.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)
- *     MiFreePhysicalView @ 0x1400684E8 (MiFreePhysicalView.c)
- *     MiFillCommitReturnInfo @ 0x140068550 (MiFillCommitReturnInfo.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiIsVadLarge @ 0x140070D90 (MiIsVadLarge.c)
- *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
- *     MiDereferenceControlArea @ 0x14013B57C (MiDereferenceControlArea.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiResidentPagesForSpan @ 0x1406C3330 (MiResidentPagesForSpan.c)
- *     MiComputeAweCharges @ 0x14084F850 (MiComputeAweCharges.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiGetVadWakeList @ 0x140068260 (MiGetVadWakeList.c)
+ *     MiFreePhysicalView @ 0x1400684D8 (MiFreePhysicalView.c)
+ *     MiFillCommitReturnInfo @ 0x140068540 (MiFillCommitReturnInfo.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140068560 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiIsVadLarge @ 0x140070D80 (MiIsVadLarge.c)
+ *     MiReturnFullProcessCharges @ 0x14007FF00 (MiReturnFullProcessCharges.c)
+ *     MiDereferenceControlArea @ 0x14013B67C (MiDereferenceControlArea.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0230 (MiReturnPartitionResidentAvailable.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiResidentPagesForSpan @ 0x1406C45D0 (MiResidentPagesForSpan.c)
+ *     MiComputeAweCharges @ 0x140850AB0 (MiComputeAweCharges.c)
  */
 
 void __fastcall MiRemoveVadCharges(__int64 a1, struct _KPROCESS *a2, __int64 a3)

@@ -1,41 +1,41 @@
 /*
- * XREFs of FsRtlpHeatRegisterVolume @ 0x14079052C
+ * XREFs of FsRtlpHeatRegisterVolume @ 0x14079305C
  * Callers:
- *     FsRtlHeatInit @ 0x140790270 (FsRtlHeatInit.c)
+ *     FsRtlHeatInit @ 0x140792DA0 (FsRtlHeatInit.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     McTemplateK0jq_EtwWriteTransfer @ 0x1405B7EA4 (McTemplateK0jq_EtwWriteTransfer.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x1405BA714 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned int *a3)
 {
-  unsigned int *i; // r9
+  __int64 i; // r9
   __int64 v7; // rcx
   __int64 Pool2; // r8
   int v9; // ebx
-  unsigned int *p_PriorityFloorSummary; // rax
+  __int64 WriteOperationCount; // rax
   unsigned int v11; // edx
   __int128 v12; // xmm0
   __int64 *v13; // rcx
   __int64 v14; // rdx
-  __int64 v16; // [rsp+20h] [rbp-28h]
+  void *ExplicitScope; // [rsp+20h] [rbp-28h]
 
-  ExAcquireResourceExclusiveLite((PERESOURCE)&VslpReservedTransferLock.ForegroundLossTime, 1u);
-  for ( i = *(unsigned int **)&VslpReservedTransferLock.PriorityFloorSummary;
-        i != &VslpReservedTransferLock.PriorityFloorSummary;
-        i = *(unsigned int **)i )
+  ExAcquireResourceExclusiveLite((PERESOURCE)&VslpReservedTransferLock.ReadTransferCount, 1u);
+  for ( i = VslpReservedTransferLock.WriteOperationCount;
+        (__int64 *)i != &VslpReservedTransferLock.WriteOperationCount;
+        i = *(_QWORD *)i )
   {
-    v7 = *(_QWORD *)(i + 5) - *(_QWORD *)a1;
+    v7 = *(_QWORD *)(i + 20) - *(_QWORD *)a1;
     if ( !v7 )
-      v7 = *(_QWORD *)(i + 7) - *(_QWORD *)(a1 + 8);
+      v7 = *(_QWORD *)(i + 28) - *(_QWORD *)(a1 + 8);
     if ( !v7 )
     {
-      ++i[4];
-      *a3 = i[9];
+      ++*(_DWORD *)(i + 16);
+      *a3 = *(_DWORD *)(i + 36);
       goto LABEL_21;
     }
   }
@@ -45,32 +45,32 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned
     v9 = -1073741670;
     goto LABEL_22;
   }
-  p_PriorityFloorSummary = *(unsigned int **)&VslpReservedTransferLock.PriorityFloorSummary;
+  WriteOperationCount = VslpReservedTransferLock.WriteOperationCount;
   v11 = *(_DWORD *)a1 ^ (*(unsigned __int16 *)(a1 + 6) | (*(unsigned __int16 *)(a1 + 4) << 16)) ^ (*(unsigned __int8 *)(a1 + 15) | (*(unsigned __int8 *)(a1 + 10) << 24));
-  while ( p_PriorityFloorSummary != &VslpReservedTransferLock.PriorityFloorSummary )
+  while ( (__int64 *)WriteOperationCount != &VslpReservedTransferLock.WriteOperationCount )
   {
-    if ( p_PriorityFloorSummary[9] == v11 )
+    if ( *(_DWORD *)(WriteOperationCount + 36) == v11 )
     {
       if ( !++v11 )
-        p_PriorityFloorSummary = &VslpReservedTransferLock.PriorityFloorSummary;
+        WriteOperationCount = (__int64)&VslpReservedTransferLock.WriteOperationCount;
     }
-    else if ( p_PriorityFloorSummary[9] > v11 )
+    else if ( *(_DWORD *)(WriteOperationCount + 36) > v11 )
     {
       break;
     }
-    p_PriorityFloorSummary = *(unsigned int **)p_PriorityFloorSummary;
+    WriteOperationCount = *(_QWORD *)WriteOperationCount;
   }
   v12 = *(_OWORD *)a1;
   *(_DWORD *)(Pool2 + 36) = v11;
   *(_DWORD *)(Pool2 + 16) = 1;
   *(_OWORD *)(Pool2 + 20) = v12;
-  v13 = (__int64 *)*((_QWORD *)p_PriorityFloorSummary + 1);
-  if ( (unsigned int *)*v13 != p_PriorityFloorSummary )
+  v13 = *(__int64 **)(WriteOperationCount + 8);
+  if ( *v13 != WriteOperationCount )
     __fastfail(3u);
-  *(_QWORD *)Pool2 = p_PriorityFloorSummary;
+  *(_QWORD *)Pool2 = WriteOperationCount;
   *(_QWORD *)(Pool2 + 8) = v13;
   *v13 = Pool2;
-  *((_QWORD *)p_PriorityFloorSummary + 1) = Pool2;
+  *(_QWORD *)(WriteOperationCount + 8) = Pool2;
   *a3 = v11;
   if ( !MS_StorageTiering_Provider_Context[0] )
     EtwRegister(
@@ -81,15 +81,15 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned
 LABEL_21:
   v9 = 0;
 LABEL_22:
-  ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.ForegroundLossTime);
+  ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.ReadTransferCount);
   if ( v9 >= 0 )
   {
-    if ( (VslpReservedTransferLock.PriorityFloorCounts[24] & 1) != 0 )
+    if ( (VslpReservedTransferLock.ReadOperationCount & 1) != 0 )
     {
-      LODWORD(v16) = *a3;
-      McTemplateK0jq_EtwWriteTransfer(MS_StorageTiering_Provider_Context, v14, a2, a1, v16);
+      LODWORD(ExplicitScope) = *a3;
+      McTemplateK0jq_EtwWriteTransfer(MS_StorageTiering_Provider_Context, v14, a2, a1, (__int64)ExplicitScope);
     }
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v9;
 }

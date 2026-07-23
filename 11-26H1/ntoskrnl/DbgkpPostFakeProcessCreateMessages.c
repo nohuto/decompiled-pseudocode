@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkpPostFakeProcessCreateMessages @ 0x140985F5C
+ * XREFs of DbgkpPostFakeProcessCreateMessages @ 0x140947C5C
  * Callers:
- *     NtDebugActiveProcess @ 0x140985620 (NtDebugActiveProcess.c)
+ *     NtDebugActiveProcess @ 0x140947620 (NtDebugActiveProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     DbgkpPostFakeThreadMessages @ 0x1409556F0 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpPostModuleMessages @ 0x140B27048 (DbgkpPostModuleMessages.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140949760 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140B290F8 (DbgkpPostModuleMessages.c)
  */
 
-__int64 __fastcall DbgkpPostFakeProcessCreateMessages(_KPROCESS *BugCheckParameter1, struct _KEVENT *a2, _QWORD *a3)
+__int64 __fastcall DbgkpPostFakeProcessCreateMessages(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD *a3)
 {
   __int64 v4; // rbx
   __int64 result; // rax

@@ -1,26 +1,26 @@
 /*
- * XREFs of NtAlpcCreateSecurityContext @ 0x140A99EA0
+ * XREFs of NtAlpcCreateSecurityContext @ 0x140A9E020
  * Callers:
- *     DifNtAlpcCreateSecurityContextWrapper @ 0x14066C9A0 (DifNtAlpcCreateSecurityContextWrapper.c)
+ *     DifNtAlpcCreateSecurityContextWrapper @ 0x140670580 (DifNtAlpcCreateSecurityContextWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpCreateSecurityContext @ 0x1409BC550 (AlpcpCreateSecurityContext.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1409C1AB4 (AlpcpDeleteBlob.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpCreateSecurityContext @ 0x14098D530 (AlpcpCreateSecurityContext.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x140992A94 (AlpcpDeleteBlob.c)
  */
 
-__int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, _QWORD *a3)
+NTSTATUS __cdecl NtAlpcCreateSecurityContext(HANDLE PortHandle, ULONG Flags, PALPC_SECURITY_ATTR SecurityAttribute)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // di
-  int SecurityContext; // ebx
+  NTSTATUS SecurityContext; // ebx
   ULONG_PTR v8; // rsi
   PVOID Object; // [rsp+38h] [rbp-60h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-50h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, _QWORD *a3
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     SecurityContext = -1073741811;
   }
@@ -45,13 +45,13 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, _QWORD *a3
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode )
     {
-      if ( ((unsigned __int8)a3 & 7) != 0 )
+      if ( ((unsigned __int8)SecurityAttribute & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      RtlCopyFromUser(Src, a3, 0x18uLL);
+      RtlCopyFromUser(Src, SecurityAttribute, 0x18uLL);
     }
     else
     {
-      RtlCopyVolatileMemory(Src, a3, 0x18uLL);
+      RtlCopyVolatileMemory(Src, SecurityAttribute, 0x18uLL);
     }
     if ( Src[1] )
     {
@@ -61,7 +61,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, _QWORD *a3
         RtlCopyVolatileMemory(&v14, Src[1], 0xCuLL);
     }
     Object = 0LL;
-    SecurityContext = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    SecurityContext = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( SecurityContext >= 0 )
     {
       if ( !Src[1] )
@@ -79,14 +79,14 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, _QWORD *a3
       {
         v8 = BugCheckParameter2;
         if ( PreviousMode )
-          RtlWriteULong64ToUser(a3 + 2, *(_QWORD *)(BugCheckParameter2 + 8));
+          RtlWriteULong64ToUser(&SecurityAttribute->ContextHandle, *(_QWORD *)(BugCheckParameter2 + 8));
         else
-          a3[2] = *(_QWORD *)(BugCheckParameter2 + 8);
+          SecurityAttribute->ContextHandle = *(ALPC_HANDLE *)(BugCheckParameter2 + 8);
         AlpcpDereferenceBlobEx(v8, 1);
       }
       ObfDereferenceObject(Object);
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)SecurityContext;
+  return SecurityContext;
 }

@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-int __stdcall RtlGetCurrentProcessorNumberEx(int a1)
+void __cdecl RtlGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
-  return NtWow64GetCurrentProcessorNumberEx(a1);
+  NtWow64GetCurrentProcessorNumberEx(ProcessorNumber);
 }

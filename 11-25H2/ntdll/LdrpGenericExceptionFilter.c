@@ -20,40 +20,43 @@
  *     NtTerminateThread @ 0x180163C80 (NtTerminateThread.c)
  */
 
-__int64 __fastcall LdrpGenericExceptionFilter(unsigned int **a1, char a2)
+__int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
 {
-  unsigned int v3; // edi
+  NTSTATUS v3; // edi
   bool v4; // zf
   int v5; // ecx
   int v6; // ecx
   int v7; // ecx
-  char v9; // [rsp+60h] [rbp+8h] BYREF
+  CHAR Response; // [rsp+60h] [rbp+8h] BYREF
 
-  v3 = **a1;
+  v3 = *(_DWORD *)*a1;
   LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrutil.c",
+    "minkernel\\ldr\\ldrutil.c",
     564,
     (__int64)"LdrpGenericExceptionFilter",
     0,
     "Function %s raised exception 0x%08lx\n\tException record: .exr %p\n\tContext record: .cxr %p\n",
-    a2);
+    a2,
+    v3,
+    *a1,
+    a1[1]);
   if ( (LdrpDebugFlags & 0x30) == 0x20 )
   {
     while ( 1 )
     {
       DbgPrint("\n***Exception thrown within loader***\n");
-      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &v9, 2LL);
-      if ( v9 > 98 )
+      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &Response, 2u);
+      if ( Response > 98 )
       {
-        v5 = v9 - 105;
-        v4 = v9 == 105;
+        v5 = Response - 105;
+        v4 = Response == 105;
       }
       else
       {
-        if ( v9 == 98 || v9 == 66 )
+        if ( Response == 98 || Response == 66 )
           goto LABEL_13;
-        v5 = v9 - 73;
-        v4 = v9 == 73;
+        v5 = Response - 73;
+        v4 = Response == 73;
       }
       if ( v4 )
         return 1LL;
@@ -69,18 +72,14 @@ LABEL_13:
       {
         if ( v7 == 4 )
         {
-          LdrpLogFatalLdrEtwEvent(
-            &NtCurrentPeb()->ProcessParameters->ImagePathName.Length,
-            (__int64)&LoaderFatalErrorThread);
-          NtTerminateThread(-2LL, v3);
+          LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &LoaderFatalErrorThread);
+          NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, v3);
         }
       }
       else
       {
-        LdrpLogFatalLdrEtwEvent(
-          &NtCurrentPeb()->ProcessParameters->ImagePathName.Length,
-          (__int64)&LoaderFatalErrorProc);
-        ZwTerminateProcess(-1LL, v3);
+        LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &LoaderFatalErrorProc);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3);
       }
     }
   }

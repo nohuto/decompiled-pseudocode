@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403CA600
+ * XREFs of ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403CA7E0
  * Callers:
- *     ExConvertExclusiveToSharedLite @ 0x1403476C0 (ExConvertExclusiveToSharedLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140347950 (ExConvertExclusiveToSharedLite.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA8F4 (ExpFindFastOwnerEntryForThread.c)
- *     ExpConvertFastResourceExclusiveToShared @ 0x1403CB2B8 (ExpConvertFastResourceExclusiveToShared.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140415608 (ExpFastResourceLegacyConvertExclusiveToShared2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x1403CAAD4 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1403CB498 (ExpConvertFastResourceExclusiveToShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x14041599C (ExpFastResourceLegacyConvertExclusiveToShared2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared(
@@ -34,7 +34,7 @@ __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared(
   CurrentThread = KeGetCurrentThread();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v8 = 4;
@@ -46,7 +46,7 @@ __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared(
   FastOwnerEntryForThread = ExpFindFastOwnerEntryForThread(CurrentThread, BugCheckParameter2, 0LL, SchedulerAssist);
   if ( !FastOwnerEntryForThread )
     KeBugCheckEx(0xE3u, BugCheckParameter2, (ULONG_PTR)CurrentThread, 0LL, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & v10) != 0 && v13 <= v12 && CurrentIrql <= v12 && v13 >= 2u )

@@ -42,10 +42,10 @@ __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
     RtlLeaveCriticalSection(&LdrpEnclaveListLock);
     if ( !i )
       return 0LL;
-    RtlEnterCriticalSection(i + 2);
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
     if ( i[9] )
       break;
-    RtlLeaveCriticalSection(i + 2);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   }
   return i;
 }

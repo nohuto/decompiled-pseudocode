@@ -11,14 +11,18 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlUserThreadStart(__int64 (__fastcall *a1)(__int64), __int64 a2)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
-  unsigned int v3; // eax
+  NTSTATUS v2; // eax
 
   if ( !qword_180164EF0 )
   {
-    v3 = a1(a2);
-    RtlExitUserThread(v3);
+    v2 = ((__int64 (__fastcall *)(PVOID))Function)(Parameter);
+    RtlExitUserThread(v2);
   }
-  return qword_180164EF0(0LL, a1, a2, a1);
+  ((void (__fastcall *)(_QWORD, PTHREAD_START_ROUTINE, PVOID, PTHREAD_START_ROUTINE))qword_180164EF0)(
+    0LL,
+    Function,
+    Parameter,
+    Function);
 }

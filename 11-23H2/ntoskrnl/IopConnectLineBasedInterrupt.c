@@ -1,12 +1,12 @@
 /*
- * XREFs of IopConnectLineBasedInterrupt @ 0x140856F70
+ * XREFs of IopConnectLineBasedInterrupt @ 0x1408571B0
  * Callers:
- *     IoConnectInterruptEx @ 0x14078EE70 (IoConnectInterruptEx.c)
+ *     IoConnectInterruptEx @ 0x14078F060 (IoConnectInterruptEx.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     IoDisconnectInterrupt @ 0x14078E1D0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x14078E760 (IopConnectInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x14078F190 (IopGetInterruptConnectionData.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoDisconnectInterrupt @ 0x14078E3C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14078E950 (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x14078F380 (IopGetInterruptConnectionData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

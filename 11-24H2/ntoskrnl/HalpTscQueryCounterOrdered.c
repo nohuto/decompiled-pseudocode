@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTscQueryCounterOrdered @ 0x14033A470
+ * XREFs of HalpTscQueryCounterOrdered @ 0x140319950
  * Callers:
- *     HalpTimerStallExecutionProcessor @ 0x14033B670 (HalpTimerStallExecutionProcessor.c)
+ *     HalpTimerStallExecutionProcessor @ 0x14031AB50 (HalpTimerStallExecutionProcessor.c)
  * Callees:
  *     <none>
  */

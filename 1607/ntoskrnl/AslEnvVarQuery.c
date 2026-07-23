@@ -1,12 +1,12 @@
 /*
- * XREFs of AslEnvVarQuery @ 0x1406C6894
+ * XREFs of AslEnvVarQuery @ 0x1406C69CC
  * Callers:
- *     SdbpGetProcessHistory @ 0x1406C4010 (SdbpGetProcessHistory.c)
- *     AslEnvExpandStrings @ 0x1406C6348 (AslEnvExpandStrings.c)
+ *     SdbpGetProcessHistory @ 0x1406C4148 (SdbpGetProcessHistory.c)
+ *     AslEnvExpandStrings @ 0x1406C6480 (AslEnvExpandStrings.c)
  * Callees:
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall AslEnvVarQuery(

@@ -3,10 +3,10 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1400A4D20 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalGetInterruptTranslator @ 0x1404E926C (xHalGetInterruptTranslator.c)
+ *     RtlTimeFieldsToTime @ 0x1400A3298 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalGetInterruptTranslator @ 0x1404CB35C (xHalGetInterruptTranslator.c)
  */
 
 char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
@@ -22,7 +22,7 @@ char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
   bool v12; // zf
   LARGE_INTEGER Time; // [rsp+20h] [rbp-30h] BYREF
   unsigned __int64 v15; // [rsp+28h] [rbp-28h]
-  struct _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 2248);
   if ( (*(_BYTE *)(a1 + 2272) & 1) == 0 && !ExpRealTimeIsUniversal )
@@ -56,7 +56,7 @@ char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
     RtlTimeToTimeFields(&Time, &TimeFields);
     LOBYTE(v8) = HalSetRealTimeClock(&TimeFields);
   }
-  else if ( (qword_1402FD0D8 & 4) == 0 )
+  else if ( (qword_1402FD038 & 4) == 0 )
   {
     LOBYTE(v8) = HalQueryRealTimeClock(&TimeFields);
     if ( (_BYTE)v8 )

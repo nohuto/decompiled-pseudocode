@@ -1,59 +1,59 @@
 /*
- * XREFs of CmpFlushHive @ 0x1403FA0CC
+ * XREFs of CmpFlushHive @ 0x1403F8F8C
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpDoFlushAll @ 0x140125F38 (CmpDoFlushAll.c)
- *     CmpDoFlushNextHive @ 0x1403FB594 (CmpDoFlushNextHive.c)
- *     CmpDoReconcileNextHive @ 0x1404806D8 (CmpDoReconcileNextHive.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmpTransMgrPrepare @ 0x1404DA8E8 (CmpTransMgrPrepare.c)
- *     CmpTransMgrSyncHive @ 0x1404DAA3C (CmpTransMgrSyncHive.c)
- *     NtFlushKey @ 0x1404E88CC (NtFlushKey.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
- *     CmReplaceKey @ 0x1405FE0FC (CmReplaceKey.c)
- *     CmFreezeRegistry @ 0x140602BC0 (CmFreezeRegistry.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpDoFlushAll @ 0x1401264A8 (CmpDoFlushAll.c)
+ *     CmpDoFlushNextHive @ 0x1403FA454 (CmpDoFlushNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x14047F42C (CmpDoReconcileNextHive.c)
+ *     CmpTransMgrPrepare @ 0x1404BDEEC (CmpTransMgrPrepare.c)
+ *     CmpTransMgrSyncHive @ 0x1404BE040 (CmpTransMgrSyncHive.c)
+ *     NtFlushKey @ 0x1404CAC58 (NtFlushKey.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
+ *     CmReplaceKey @ 0x1405FE1B0 (CmReplaceKey.c)
+ *     CmFreezeRegistry @ 0x140602C74 (CmFreezeRegistry.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlMergeBitMaps @ 0x14009CD90 (RtlMergeBitMaps.c)
- *     HvSynchronizeAndDropTemporaryBins @ 0x1400B4C7C (HvSynchronizeAndDropTemporaryBins.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     CmpArmLazyWriter @ 0x1400F0130 (CmpArmLazyWriter.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvWriteLogFile @ 0x1403F5A70 (HvWriteLogFile.c)
- *     CmpWakeWriteQueueWaiters @ 0x1403F9010 (CmpWakeWriteQueueWaiters.c)
- *     CmpLogFlushPhaseStart @ 0x1403F99E4 (CmpLogFlushPhaseStart.c)
- *     CmpLogFlushPhaseEnd @ 0x1403F9A58 (CmpLogFlushPhaseEnd.c)
- *     CmpLockRegistryFreezeAware @ 0x1403FB854 (CmpLockRegistryFreezeAware.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpBoostActiveHiveWriter @ 0x14047D444 (CmpBoostActiveHiveWriter.c)
- *     HvSwapLogFiles @ 0x14047E6A8 (HvSwapLogFiles.c)
- *     HvIsCurrentLogSwappable @ 0x14047E890 (HvIsCurrentLogSwappable.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x140480A78 (HvTruncateCurrentLogFileIfRequired.c)
- *     CmpGenerateFlushControlData @ 0x140480AF4 (CmpGenerateFlushControlData.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140480DF4 (HvpLogTypeToLogArrayIndex.c)
- *     HvStoreModifiedData @ 0x140480EEC (HvStoreModifiedData.c)
- *     HvWriteHivePrimaryFile @ 0x140483AA4 (HvWriteHivePrimaryFile.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140484068 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvFreeDirtyData @ 0x1404A1F50 (HvFreeDirtyData.c)
- *     HvUpdateUnreconciledVector @ 0x1404BEA20 (HvUpdateUnreconciledVector.c)
- *     HvFreeUnreconciledData @ 0x1404E2FD8 (HvFreeUnreconciledData.c)
- *     CmpReleaseWriteQueue @ 0x1404E7034 (CmpReleaseWriteQueue.c)
- *     HvResetLogFileStatusAll @ 0x1404F0AF4 (HvResetLogFileStatusAll.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1404F0B4C (HvTruncateAllLogFilesIfRequired.c)
- *     CmpFileFlushAndPurge @ 0x140506A2C (CmpFileFlushAndPurge.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
- *     CmpWaitOnHiveWriteQueue @ 0x1406030E0 (CmpWaitOnHiveWriteQueue.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140605D14 (HvExtendHivePrimaryFileValidDataLength.c)
- *     HvFoldBackDirtyData @ 0x140605E40 (HvFoldBackDirtyData.c)
- *     HvFoldBackUnreconciledData @ 0x140605EFC (HvFoldBackUnreconciledData.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlMergeBitMaps @ 0x14009C590 (RtlMergeBitMaps.c)
+ *     HvSynchronizeAndDropTemporaryBins @ 0x1400B2AB4 (HvSynchronizeAndDropTemporaryBins.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     CmpArmLazyWriter @ 0x1400EDFB0 (CmpArmLazyWriter.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvWriteLogFile @ 0x1403F4934 (HvWriteLogFile.c)
+ *     CmpWakeWriteQueueWaiters @ 0x1403F7ED0 (CmpWakeWriteQueueWaiters.c)
+ *     CmpLogFlushPhaseStart @ 0x1403F88A4 (CmpLogFlushPhaseStart.c)
+ *     CmpLogFlushPhaseEnd @ 0x1403F8918 (CmpLogFlushPhaseEnd.c)
+ *     CmpLockRegistryFreezeAware @ 0x1403FA714 (CmpLockRegistryFreezeAware.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpBoostActiveHiveWriter @ 0x14047C198 (CmpBoostActiveHiveWriter.c)
+ *     HvSwapLogFiles @ 0x14047D3FC (HvSwapLogFiles.c)
+ *     HvIsCurrentLogSwappable @ 0x14047D5E4 (HvIsCurrentLogSwappable.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x14047F7CC (HvTruncateCurrentLogFileIfRequired.c)
+ *     CmpGenerateFlushControlData @ 0x14047F848 (CmpGenerateFlushControlData.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x14047FB48 (HvpLogTypeToLogArrayIndex.c)
+ *     HvStoreModifiedData @ 0x14047FC40 (HvStoreModifiedData.c)
+ *     HvWriteHivePrimaryFile @ 0x1404827F8 (HvWriteHivePrimaryFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140482DBC (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvUpdateUnreconciledVector @ 0x1404AA750 (HvUpdateUnreconciledVector.c)
+ *     HvFreeUnreconciledData @ 0x1404C5F3C (HvFreeUnreconciledData.c)
+ *     CmpReleaseWriteQueue @ 0x1404C9704 (CmpReleaseWriteQueue.c)
+ *     HvResetLogFileStatusAll @ 0x1404D2BE8 (HvResetLogFileStatusAll.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x1404D2C40 (HvTruncateAllLogFilesIfRequired.c)
+ *     CmpFileFlushAndPurge @ 0x1404E99BC (CmpFileFlushAndPurge.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
+ *     HvFreeDirtyData @ 0x14051A35C (HvFreeDirtyData.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x140603194 (CmpWaitOnHiveWriteQueue.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvFoldBackDirtyData @ 0x140605EF4 (HvFoldBackDirtyData.c)
+ *     HvFoldBackUnreconciledData @ 0x140605FB0 (HvFoldBackUnreconciledData.c)
  */
 
 __int64 __fastcall CmpFlushHive(ULONG_PTR BugCheckParameter2, unsigned int a2)
@@ -171,7 +171,7 @@ __int64 __fastcall CmpFlushHive(ULONG_PTR BugCheckParameter2, unsigned int a2)
     v81 = 2LL;
     v83[1] = 0;
     v85 = 4LL;
-    TlgWrite(&stru_1402F34E0, &unk_14027ACFC, 0LL, 0LL, 7u, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027ADFC, 0LL, 0LL, 7u, &pData);
   }
   v66 = v3;
   EventDescriptor = (EVENT_DESCRIPTOR)REGISTRY_PERF_EVENT_HIVE_FLUSH_START;
@@ -275,7 +275,7 @@ LABEL_125:
     v67 = v58;
     v88 = 4;
     v91 = 4;
-    TlgWrite(&stru_1402F34E0, &unk_14027ACB1, 0LL, 0LL, 4u, &v86);
+    TlgWrite(&stru_1402F34E0, &unk_14027ADB1, 0LL, 0LL, 4u, &v86);
   }
   if ( (v12 & 0x358) == 0 )
     goto LABEL_19;
@@ -592,7 +592,7 @@ LABEL_5:
     v94 = &v70;
     v70 = valid;
     v95 = 4;
-    TlgWrite(&stru_1402F34E0, &unk_14027AC8E, 0LL, 0LL, 3u, &v93);
+    TlgWrite(&stru_1402F34E0, &unk_14027AD8E, 0LL, 0LL, 3u, &v93);
   }
   return (unsigned int)valid;
 }

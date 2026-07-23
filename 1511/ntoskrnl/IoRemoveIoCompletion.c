@@ -38,7 +38,7 @@ PLIST_ENTRY __fastcall IoRemoveIoCompletion(
   struct _LIST_ENTRY *v15; // r15
   __int64 v16; // rsi
   struct _LIST_ENTRY **p_Blink; // r13
-  struct _LIST_ENTRY *v18; // rcx
+  _LIST_ENTRY *v18; // rcx
   int v19; // eax
   ULONG_PTR v20; // r12
   __int128 v22; // [rsp+38h] [rbp-D0h]

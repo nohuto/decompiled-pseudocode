@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeJobStructures @ 0x140C35CF8
+ * XREFs of PspInitializeJobStructures @ 0x140C37E38
  * Callers:
- *     PspInitPhase0 @ 0x140C65530 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140C676AC (PspInitPhase0.c)
  * Callees:
- *     ExCreateHandleTable @ 0x14093BEF4 (ExCreateHandleTable.c)
+ *     ExCreateHandleTable @ 0x14094D1CC (ExCreateHandleTable.c)
  */
 
 char PspInitializeJobStructures()
@@ -17,7 +17,7 @@ char PspInitializeJobStructures()
   {
     *(_BYTE *)(HandleTable + 44) |= 1u;
     v1 = PspJobTimeLimitsPeriodSeconds;
-    qword_140FD9060 = (__int64)&PspJobList;
+    qword_140FDA070 = (__int64)&PspJobList;
     PspJobList = (__int64)&PspJobList;
     PspJobListLock = 0LL;
     PspJobAssignmentLock = 0LL;

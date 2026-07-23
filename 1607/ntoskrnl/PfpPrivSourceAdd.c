@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpPrivSourceAdd @ 0x1405090A8
+ * XREFs of PfpPrivSourceAdd @ 0x1404EC038
  * Callers:
- *     PfpPrivSourceEnum @ 0x140508A08 (PfpPrivSourceEnum.c)
+ *     PfpPrivSourceEnum @ 0x1404EB998 (PfpPrivSourceEnum.c)
  * Callees:
  *     <none>
  */

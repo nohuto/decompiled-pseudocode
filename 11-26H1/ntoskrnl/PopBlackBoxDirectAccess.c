@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBlackBoxDirectAccess @ 0x140B58654
+ * XREFs of PopBlackBoxDirectAccess @ 0x140B5B474
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopBlackBoxDirectAccess(__int64 a1, _QWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -38,14 +38,14 @@ __int64 __fastcall PopBlackBoxDirectAccess(__int64 a1, _QWORD *a2, __int64 a3, s
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v8 = (AutoBoost *)KeAbPreAcquire((__int64)&PopModernStandbyStateNotify.SchedulerAssist, 0LL, 0LL, a4);
-    v10 = _interlockedbittestandset64((volatile signed __int32 *)&PopModernStandbyStateNotify.SchedulerAssist, 0LL);
+    v8 = (AutoBoost *)KeAbPreAcquire((__int64)&PopPdcDeviceListLock.152, 0LL, 0LL, a4);
+    v10 = _interlockedbittestandset64((volatile signed __int32 *)&PopPdcDeviceListLock.152, 0LL);
     v11 = v8;
     if ( v10 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&PopModernStandbyStateNotify.SchedulerAssist,
+        (unsigned __int64 *)&PopPdcDeviceListLock.152,
         v8,
-        (__int64)&PopModernStandbyStateNotify.SchedulerAssist);
+        (__int64)&PopPdcDeviceListLock.152);
     if ( v11 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -70,11 +70,9 @@ __int64 __fastcall PopBlackBoxDirectAccess(__int64 a1, _QWORD *a2, __int64 a3, s
     {
       v4 = -1073741670;
     }
-    if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&PopModernStandbyStateNotify.SchedulerAssist,
-            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&PopModernStandbyStateNotify.SchedulerAssist);
-    KeAbPostRelease((unsigned __int64)&PopModernStandbyStateNotify.SchedulerAssist);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopPdcDeviceListLock.152, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&PopPdcDeviceListLock.152);
+    KeAbPostRelease((unsigned __int64)&PopPdcDeviceListLock.152);
     KeLeaveCriticalRegion();
   }
   return v4;

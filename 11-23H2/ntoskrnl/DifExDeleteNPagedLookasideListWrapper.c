@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExDeleteNPagedLookasideListWrapper @ 0x1405D8360
+ * XREFs of DifExDeleteNPagedLookasideListWrapper @ 0x1405D88D0
  * Callers:
  *     <none>
  * Callees:
- *     ExDeleteNPagedLookasideList @ 0x1403C6CD0 (ExDeleteNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ExDeleteNPagedLookasideList @ 0x1403C6EB0 (ExDeleteNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifExDeleteNPagedLookasideListWrapper(PNPAGED_LOOKASIDE_LIST Lookaside)

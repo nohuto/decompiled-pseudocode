@@ -14,11 +14,11 @@
 __int64 __fastcall MiCreateVadEventBitmap(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)
 {
   SIZE_T v8; // rdi
-  char *PoolWithTag; // rbx
+  _RTL_BITMAP_EX *PoolWithTag; // rbx
   int v10; // edi
 
   v8 = 8 * (((a3 & 0x3F) != 0) + (a3 >> 6)) + 64;
-  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x77776D4Du);
+  PoolWithTag = (_RTL_BITMAP_EX *)ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x77776D4Du);
   if ( !PoolWithTag )
     return 3221225626LL;
   v10 = PsChargeProcessNonPagedPoolQuota(a1, v8);
@@ -29,10 +29,10 @@ __int64 __fastcall MiCreateVadEventBitmap(__int64 a1, __int64 a2, unsigned __int
   }
   else
   {
-    *((_DWORD *)PoolWithTag + 2) = a4;
-    *((_QWORD *)PoolWithTag + 2) = a3;
-    *((_QWORD *)PoolWithTag + 3) = PoolWithTag + 64;
-    RtlClearAllBitsEx((__int64)(PoolWithTag + 16));
+    LODWORD(PoolWithTag->Buffer) = a4;
+    PoolWithTag[1].SizeOfBitMap = a3;
+    PoolWithTag[1].Buffer = &PoolWithTag[4].SizeOfBitMap;
+    RtlClearAllBitsEx(PoolWithTag + 1);
     MiInsertVadEvent(a2, PoolWithTag, 1LL);
     return 0LL;
   }

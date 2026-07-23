@@ -6,13 +6,15 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-_DWORD *__fastcall RtlpAllocateListLookup(int a1, int a2, int a3, int a4)
+_DWORD *__fastcall RtlpAllocateListLookup(PVOID HeapHandle, int a2, int a3, int a4)
 {
   unsigned int v5; // esi
   _DWORD *result; // eax
+  SIZE_T v7; // [esp-4h] [ebp-10h]
 
   v5 = (a3 + 31) & 0xFFFFFFE0;
-  result = (_DWORD *)RtlAllocateHeap(a1, 8388618, (v5 >> 3) + 4 * (v5 + 9));
+  LODWORD(v7) = (v5 >> 3) + 4 * (v5 + 9);
+  result = RtlAllocateHeap(HeapHandle, 0x80000Au, v7);
   if ( result )
   {
     *((_BYTE *)result - 1) = 1;

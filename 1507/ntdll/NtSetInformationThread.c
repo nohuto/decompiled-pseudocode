@@ -26,11 +26,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationThread()
+NTSTATUS __cdecl NtSetInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 13LL;
+  result = 13;
   __asm { syscall; Low latency system call }
   return result;
 }

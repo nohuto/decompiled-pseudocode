@@ -19,7 +19,7 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
   unsigned __int16 v6; // r14
   UNICODE_STRING *Paged; // rax
   UNICODE_STRING *v8; // rsi
-  char *v9; // rdi
+  wchar_t *p_Length; // rdi
   UNICODE_STRING *v10; // rbx
   unsigned __int16 *v11; // r15
   wchar_t *Buffer; // rbx
@@ -48,15 +48,15 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
     v8 = Paged;
     if ( Paged )
     {
-      v9 = (char *)&Paged[v15];
+      p_Length = &Paged[v15].Length;
       do
       {
         v10 = &v8[v3];
         *v10 = 0LL;
-        v10->Buffer = (wchar_t *)v9;
-        v9 += 78;
+        v10->Buffer = p_Length;
+        p_Length += 39;
         v10->MaximumLength = 78;
-        RtlStringFromGUIDEx(a2 + 80LL * v3++, v10, 0LL);
+        RtlStringFromGUIDEx((PGUID)(a2 + 80LL * v3++), v10, 0);
         v6 += v10->Length + 4;
       }
       while ( v3 < v15 );

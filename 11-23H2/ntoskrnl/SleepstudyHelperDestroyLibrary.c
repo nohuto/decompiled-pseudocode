@@ -1,14 +1,14 @@
 /*
- * XREFs of SleepstudyHelperDestroyLibrary @ 0x1409A1E90
+ * XREFs of SleepstudyHelperDestroyLibrary @ 0x1409A2090
  * Callers:
- *     SleepstudyHelper_Uninitialize @ 0x1409A2460 (SleepstudyHelper_Uninitialize.c)
+ *     SleepstudyHelper_Uninitialize @ 0x1409A2660 (SleepstudyHelper_Uninitialize.c)
  *     SshInitialize @ 0x140B51B2C (SshInitialize.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D320 (SSHSupportReleasePushLockExclusive.c)
- *     SshpDereferenceBlocker @ 0x1407A831C (SshpDereferenceBlocker.c)
- *     SshpFreeDataEntry @ 0x1409A1708 (SshpFreeDataEntry.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x14032D5B0 (SSHSupportReleasePushLockExclusive.c)
+ *     SshpDereferenceBlocker @ 0x1407A850C (SshpDereferenceBlocker.c)
+ *     SshpFreeDataEntry @ 0x1409A1908 (SshpFreeDataEntry.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyLibrary(ULONG *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetPerfectFreeOrZeroHugeRange @ 0x1406704EC
+ * XREFs of MiGetPerfectFreeOrZeroHugeRange @ 0x1406716BC
  * Callers:
- *     MiGetBestHugeRangeFromNode @ 0x14066FE80 (MiGetBestHugeRangeFromNode.c)
+ *     MiGetBestHugeRangeFromNode @ 0x140671050 (MiGetBestHugeRangeFromNode.c)
  * Callees:
- *     MiGetPerfectColorHeadHugeRange @ 0x140670378 (MiGetPerfectColorHeadHugeRange.c)
+ *     MiGetPerfectColorHeadHugeRange @ 0x140671548 (MiGetPerfectColorHeadHugeRange.c)
  */
 
 __int64 *__fastcall MiGetPerfectFreeOrZeroHugeRange(__int64 a1, __int64 a2, int a3)
@@ -20,7 +20,7 @@ __int64 *__fastcall MiGetPerfectFreeOrZeroHugeRange(__int64 a1, __int64 a2, int 
   v6 = 0;
   v9 = 0;
   v10 = 0LL;
-  v3 = MiZeroThenZero;
+  v3 = &MiZeroThenZero;
   v5[0] = a1;
   if ( (a3 & 0x10) == 0 )
     v3 = &MiFreeThenFree;

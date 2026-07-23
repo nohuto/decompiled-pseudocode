@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeNonPagedPoolThresholds @ 0x140398790
+ * XREFs of MiInitializeNonPagedPoolThresholds @ 0x140398970
  * Callers:
- *     MiPerformMemoryChange @ 0x14061BAC4 (MiPerformMemoryChange.c)
+ *     MiPerformMemoryChange @ 0x14061C014 (MiPerformMemoryChange.c)
  *     MiInitializeNonPagedPool @ 0x140B5E52C (MiInitializeNonPagedPool.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSignalNonPagedPoolWatchers @ 0x140398808 (MiSignalNonPagedPoolWatchers.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x1403989E8 (MiSignalNonPagedPoolWatchers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiInitializeNonPagedPoolThresholds()
@@ -29,10 +29,13 @@ __int64 MiInitializeNonPagedPoolThresholds()
   MiState[0] = v0;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

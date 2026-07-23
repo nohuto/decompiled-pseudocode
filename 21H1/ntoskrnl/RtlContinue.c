@@ -6,9 +6,7 @@
  *     NtContinueEx @ 0x1403F6580 (NtContinueEx.c)
  */
 
-__int64 __fastcall RtlContinue(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlContinue(_CONTEXT *a1, void *a2)
 {
-  char v5; // [rsp+20h] [rbp-8h]
-
-  return NtContinueEx(a1, a2, a3, a4, v5);
+  return NtContinueEx(a1, a2);
 }

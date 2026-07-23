@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTraceDatabaseValidate @ 0x180110B80
+ * XREFs of RtlTraceDatabaseValidate @ 0x180110B50
  * Callers:
  *     <none>
  * Callees:
@@ -9,8 +9,8 @@
 
 char __fastcall RtlTraceDatabaseValidate(__int64 a1)
 {
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
-  RtlLeaveCriticalSection(a1 + 48);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return 1;
 }

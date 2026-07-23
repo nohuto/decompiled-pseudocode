@@ -1,12 +1,12 @@
 /*
- * XREFs of PspAssignProcessToJobList @ 0x14067F334
+ * XREFs of PspAssignProcessToJobList @ 0x14067F418
  * Callers:
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     PsAssignProcessToJobObject @ 0x1404F29F0 (PsAssignProcessToJobObject.c)
- *     EtwTraceJobAssignProcess @ 0x1406A1848 (EtwTraceJobAssignProcess.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     PsAssignProcessToJobObject @ 0x1404D597C (PsAssignProcessToJobObject.c)
+ *     EtwTraceJobAssignProcess @ 0x1406A1980 (EtwTraceJobAssignProcess.c)
  */
 
 __int64 __fastcall PspAssignProcessToJobList(ULONG_PTR a1, __int64 a2, unsigned __int64 a3, KPROCESSOR_MODE a4)

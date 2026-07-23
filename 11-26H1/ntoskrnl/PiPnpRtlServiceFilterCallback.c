@@ -1,18 +1,18 @@
 /*
- * XREFs of PiPnpRtlServiceFilterCallback @ 0x140A82F30
+ * XREFs of PiPnpRtlServiceFilterCallback @ 0x140A88DA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _CmIsDevicePresent @ 0x140A8332C (_CmIsDevicePresent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     _CmIsDevicePresent @ 0x140A8919C (_CmIsDevicePresent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PiPnpRtlServiceFilterCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -87,7 +87,7 @@ char __fastcall PiPnpRtlServiceFilterCallback(__int64 a1, __int64 a2, __int64 a3
         *(_QWORD *)(a4 + 16) = Pool2;
       }
       v10 = 0;
-      for ( i = &qword_140004668; ; i += 2 )
+      for ( i = &qword_140004688; ; i += 2 )
       {
         v7 = 0;
         if ( v10 >= 4 )

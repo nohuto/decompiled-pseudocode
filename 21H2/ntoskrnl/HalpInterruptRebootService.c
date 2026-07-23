@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptRebootService @ 0x1404D2650
+ * XREFs of HalpInterruptRebootService @ 0x1404D2890
  * Callers:
- *     HalpNmiReboot @ 0x1404D2C88 (HalpNmiReboot.c)
- *     HalpPreprocessNmi @ 0x1404D2D80 (HalpPreprocessNmi.c)
+ *     HalpNmiReboot @ 0x1404D2EC8 (HalpNmiReboot.c)
+ *     HalpPreprocessNmi @ 0x1404D2FC0 (HalpPreprocessNmi.c)
  * Callees:
- *     HalpInterruptResetThisProcessor @ 0x1404BC480 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptResetThisProcessor @ 0x1404BC6C0 (HalpInterruptResetThisProcessor.c)
  */
 
 void __noreturn HalpInterruptRebootService()

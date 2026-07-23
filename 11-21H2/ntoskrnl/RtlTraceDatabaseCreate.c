@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     memset @ 0x140435E00 (memset.c)
- *     RtlpTraceDatabaseAllocate @ 0x1405EE240 (RtlpTraceDatabaseAllocate.c)
+ *     sub_1405EE240 @ 0x1405EE240 (sub_1405EE240.c)
  */
 
 __int64 __fastcall RtlTraceDatabaseCreate(
@@ -23,7 +23,7 @@ __int64 __fastcall RtlTraceDatabaseCreate(
 
   if ( a1 > 0x100000 )
     return 0LL;
-  v9 = RtlpTraceDatabaseAllocate((8LL * a1 + 4368) & 0xFFFFFFFFFFFFF000uLL);
+  v9 = sub_1405EE240((8LL * a1 + 4368) & 0xFFFFFFFFFFFFF000uLL);
   v10 = v9;
   if ( !v9 )
     return 0LL;
@@ -52,7 +52,7 @@ __int64 __fastcall RtlTraceDatabaseCreate(
     *(_WORD *)(v10 + 80) = 1;
     *(_BYTE *)(v10 + 82) = 6;
   }
-  v12 = RtlStackTraceHashFunction;
+  v12 = sub_140419F70;
   *(_DWORD *)(v10 + 112) = a1;
   if ( a5 )
     v12 = a5;

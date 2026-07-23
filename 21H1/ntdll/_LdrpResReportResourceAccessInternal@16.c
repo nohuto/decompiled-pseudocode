@@ -13,19 +13,19 @@
  *     __tlgWriteTransfer_EtwEventWriteTransfer@24 @ 0x4B330F4C (__tlgWriteTransfer_EtwEventWriteTransfer@24.c)
  */
 
-char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int a4)
+char __fastcall LdrpResReportResourceAccessInternal(PVOID BaseOfImage, int a2, int *a3, int a4)
 {
-  int RCConfig; // eax
+  NTSTATUS RCConfig; // eax
   int v7; // ecx
   int v8; // ebx
-  int v9; // edi
+  NTSTATUS v9; // edi
   int v10; // ecx
   int v11; // ecx
   int *v12; // ecx
   int v13; // eax
   int v14; // eax
-  int v16; // [esp-8h] [ebp-F0h]
-  int v17; // [esp+Ch] [ebp-DCh] BYREF
+  ULONG v16; // [esp-8h] [ebp-F0h]
+  NTSTATUS v17; // [esp+Ch] [ebp-DCh] BYREF
   int v18; // [esp+10h] [ebp-D8h] BYREF
   int v19; // [esp+14h] [ebp-D4h]
   int v20; // [esp+18h] [ebp-D0h] BYREF
@@ -37,7 +37,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
   int v26; // [esp+30h] [ebp-B8h] BYREF
   int v27; // [esp+34h] [ebp-B4h]
   _DWORD v28[2]; // [esp+38h] [ebp-B0h] BYREF
-  _BYTE v29[32]; // [esp+40h] [ebp-A8h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+40h] [ebp-A8h] BYREF
   int *v30; // [esp+60h] [ebp-88h]
   int v31; // [esp+64h] [ebp-84h]
   int v32; // [esp+68h] [ebp-80h]
@@ -58,20 +58,24 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
   int v47; // [esp+A4h] [ebp-44h]
   int v48; // [esp+A8h] [ebp-40h]
   int v49; // [esp+ACh] [ebp-3Ch]
-  int *v50; // [esp+B0h] [ebp-38h]
+  NTSTATUS *v50; // [esp+B0h] [ebp-38h]
   int v51; // [esp+B4h] [ebp-34h]
   int v52; // [esp+B8h] [ebp-30h]
   int v53; // [esp+BCh] [ebp-2Ch]
-  int *v54; // [esp+C0h] [ebp-28h]
+  NTSTATUS *v54; // [esp+C0h] [ebp-28h]
   int v55; // [esp+C4h] [ebp-24h]
   int v56; // [esp+C8h] [ebp-20h]
   int v57; // [esp+CCh] [ebp-1Ch]
-  int v58; // [esp+D0h] [ebp-18h]
+  NTSTATUS v58; // [esp+D0h] [ebp-18h]
   int v59; // [esp+D4h] [ebp-14h]
   int v60; // [esp+D8h] [ebp-10h]
   int v61; // [esp+DCh] [ebp-Ch]
 
-  RCConfig = RtlRunOnceExecuteOnce(&unk_4B3A6670, LdrpResReportResourceAccessInternalInitOnce, 0, 0);
+  RCConfig = RtlRunOnceExecuteOnce(
+               &stru_4B3A6670,
+               (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce,
+               0,
+               0);
   if ( RCConfig >= 0 )
   {
     v7 = (unsigned __int16)dword_4B3A65EC;
@@ -83,7 +87,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
       if ( a2 )
       {
         v8 = 1;
-        RCConfig = LdrResGetRCConfig(a1, a2, &v17, 4096, 0);
+        RCConfig = LdrResGetRCConfig(BaseOfImage, a2, &v17, 4096, 0);
         if ( RCConfig >= 0 )
           v9 = v17;
         else
@@ -91,7 +95,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
       }
       else
       {
-        RCConfig = LdrpGetRcConfig(0, 1);
+        RCConfig = LdrpGetRcConfig(BaseOfImage, 0, 1);
         v9 = RCConfig;
       }
       if ( v9 )
@@ -116,7 +120,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
             v40 = 4;
             LOWORD(v17) = 4;
             v46 = &v17;
-            v50 = (int *)(v9 + 28);
+            v50 = (NTSTATUS *)(v9 + 28);
             v23 = 0;
             v35 = 0;
             v37 = 0;
@@ -162,7 +166,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
               v44 = 4;
               LOWORD(v17) = 4;
               v50 = &v17;
-              v54 = (int *)(v9 + 28);
+              v54 = (NTSTATUS *)(v9 + 28);
               v21 = 0;
               v39 = 0;
               v41 = 0;
@@ -237,7 +241,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
           v49 = 0;
           v51 = 0;
           v53 = 0;
-          LOBYTE(RCConfig) = _tlgWriteTransfer_EtwEventWriteTransfer(v12, v12, v16, v29);
+          LOBYTE(RCConfig) = _tlgWriteTransfer_EtwEventWriteTransfer((int)v12, (int)v12, v16, &UserData);
           return RCConfig;
         }
         if ( (unsigned int)dword_4B3A3318 > 5 )
@@ -252,7 +256,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
             v30 = &v18;
             v32 = 8;
             _tlgCreate1Sz_wchar_t(&v34, L"ResIdCount less than 2.");
-            LOBYTE(RCConfig) = _tlgWriteTransfer_EtwEventWriteTransfer(v11, v11, 4, v29);
+            LOBYTE(RCConfig) = _tlgWriteTransfer_EtwEventWriteTransfer(v11, v11, 4u, &UserData);
           }
         }
       }
@@ -268,7 +272,7 @@ char __fastcall LdrpResReportResourceAccessInternal(int a1, int a2, int *a3, int
           v30 = &v18;
           v32 = 8;
           _tlgCreate1Sz_wchar_t(&v34, L"Failed to retrieve service checksum.");
-          LOBYTE(RCConfig) = _tlgWriteTransfer_EtwEventWriteTransfer(v10, v10, 4, v29);
+          LOBYTE(RCConfig) = _tlgWriteTransfer_EtwEventWriteTransfer(v10, v10, 4u, &UserData);
         }
       }
     }

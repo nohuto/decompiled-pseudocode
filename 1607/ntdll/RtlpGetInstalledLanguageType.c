@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGetInstalledLanguageType @ 0x18008DA9C
+ * XREFs of RtlpGetInstalledLanguageType @ 0x18008DA8C
  * Callers:
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008D890 (RtlpVerifyAndCommitUILanguageSettings.c)
- *     RtlpSetInstallLanguage @ 0x1800E76F0 (RtlpSetInstallLanguage.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008D880 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpSetInstallLanguage @ 0x1800E77B0 (RtlpSetInstallLanguage.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180040C30 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180040C20 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */
 
 __int64 __fastcall RtlpGetInstalledLanguageType(__int64 a1, const WCHAR *a2, int *a3, __int16 **a4)

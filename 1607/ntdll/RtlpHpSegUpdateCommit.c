@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegUpdateCommit @ 0x1800418F8
+ * XREFs of RtlpHpSegUpdateCommit @ 0x1800418E8
  * Callers:
- *     RtlpHpSegPageRangeDecommit @ 0x180041808 (RtlpHpSegPageRangeDecommit.c)
+ *     RtlpHpSegPageRangeDecommit @ 0x1800417F8 (RtlpHpSegPageRangeDecommit.c)
  * Callees:
  *     <none>
  */

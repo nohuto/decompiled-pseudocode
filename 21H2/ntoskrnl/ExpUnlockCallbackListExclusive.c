@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpUnlockCallbackListExclusive @ 0x1403A666C
+ * XREFs of ExpUnlockCallbackListExclusive @ 0x1403A67BC
  * Callers:
- *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
- *     ExpDeleteCallback @ 0x140779DE0 (ExpDeleteCallback.c)
+ *     ExCreateCallback @ 0x14061C450 (ExCreateCallback.c)
+ *     ExpDeleteCallback @ 0x140779FA0 (ExpDeleteCallback.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 char __fastcall ExpUnlockCallbackListExclusive(__int64 a1)

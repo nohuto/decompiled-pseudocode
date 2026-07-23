@@ -1,10 +1,10 @@
 /*
- * XREFs of VfIoPendingUnload @ 0x140645520
+ * XREFs of VfIoPendingUnload @ 0x140649100
  * Callers:
- *     VfIoPendingEntry @ 0x140645440 (VfIoPendingEntry.c)
+ *     VfIoPendingEntry @ 0x140649020 (VfIoPendingEntry.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     PpvUtilInit @ 0x140C21144 (PpvUtilInit.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     PpvUtilInit @ 0x140C27154 (PpvUtilInit.c)
  */
 
 void VfIoPendingUnload()

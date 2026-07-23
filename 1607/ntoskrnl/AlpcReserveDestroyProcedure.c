@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcReserveDestroyProcedure @ 0x1404C0D64
+ * XREFs of AlpcReserveDestroyProcedure @ 0x1404ACA94
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14040B470 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpRemoveResourcePort @ 0x14042B344 (AlpcpRemoveResourcePort.c)
- *     AlpcDeleteBlobByHandle @ 0x1404C0ED8 (AlpcDeleteBlobByHandle.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14040A330 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpRemoveResourcePort @ 0x14042A214 (AlpcpRemoveResourcePort.c)
+ *     AlpcDeleteBlobByHandle @ 0x1404ACC08 (AlpcDeleteBlobByHandle.c)
  */
 
 __int64 __fastcall AlpcReserveDestroyProcedure(__int64 *a1)

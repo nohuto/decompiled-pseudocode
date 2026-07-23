@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliGetDmaAdapter @ 0x14057CF40
+ * XREFs of HaliGetDmaAdapter @ 0x14057F460
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaFindDeviceObjectByToken @ 0x14057A3F8 (HalpDmaFindDeviceObjectByToken.c)
- *     HalpGetAdapter @ 0x140780C9C (HalpGetAdapter.c)
+ *     HalpDmaFindDeviceObjectByToken @ 0x14057C928 (HalpDmaFindDeviceObjectByToken.c)
+ *     HalpGetAdapter @ 0x14078379C (HalpGetAdapter.c)
  */
 
 __int64 __fastcall HaliGetDmaAdapter(__int64 a1, __int64 a2, __int64 a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetBugMessageText @ 0x1401D4E10
+ * XREFs of KeGetBugMessageText @ 0x1401D4C3C
  * Callers:
- *     KiDisplayBlueScreen @ 0x1401D516C (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x1401D4F98 (KiDisplayBlueScreen.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of SmHwAcceleratorMgrAcquireAccelerators @ 0x14081AA98
+ * XREFs of SmHwAcceleratorMgrAcquireAccelerators @ 0x140820CA8
  * Callers:
- *     SmHwAcceleratorMgrPartitionRegister @ 0x14081B298 (SmHwAcceleratorMgrPartitionRegister.c)
+ *     SmHwAcceleratorMgrPartitionRegister @ 0x1408214A8 (SmHwAcceleratorMgrPartitionRegister.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SmHwAcceleratorCreate @ 0x14081A864 (SmHwAcceleratorCreate.c)
- *     SmHwAcceleratorMgrReleaseAccelerators @ 0x14081B4C0 (SmHwAcceleratorMgrReleaseAccelerators.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SmHwAcceleratorCreate @ 0x140820A74 (SmHwAcceleratorCreate.c)
+ *     SmHwAcceleratorMgrReleaseAccelerators @ 0x1408216D0 (SmHwAcceleratorMgrReleaseAccelerators.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall SmHwAcceleratorMgrAcquireAccelerators(__int64 a1)

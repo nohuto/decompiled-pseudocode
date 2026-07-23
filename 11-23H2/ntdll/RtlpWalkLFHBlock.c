@@ -10,7 +10,7 @@
 
 char __fastcall RtlpWalkLFHBlock(__int64 a1, __int64 a2)
 {
-  __int64 v4; // r14
+  _RTL_SRWLOCK *v4; // r14
   __int64 v5; // rsi
   unsigned __int64 v6; // rdi
   __int64 v7; // rax
@@ -35,7 +35,7 @@ char __fastcall RtlpWalkLFHBlock(__int64 a1, __int64 a2)
   unsigned __int16 v27; // ax
   int v28; // eax
   __int64 v29; // rcx
-  __int64 v30; // rcx
+  unsigned __int64 Value; // rcx
   int v31; // eax
   unsigned __int16 v32; // ax
   unsigned __int64 *v33; // rax
@@ -59,10 +59,10 @@ char __fastcall RtlpWalkLFHBlock(__int64 a1, __int64 a2)
   unsigned __int16 v51; // ax
   int v52; // eax
   __int64 v53; // rcx
-  __int64 v54; // rax
+  unsigned __int64 v54; // rax
   unsigned __int8 v55; // r8
   char v56; // dl
-  __int64 v57; // rcx
+  unsigned __int64 v57; // rcx
   int v58; // eax
   unsigned __int16 v59; // ax
   int v60; // [rsp+28h] [rbp-20h]
@@ -74,7 +74,7 @@ char __fastcall RtlpWalkLFHBlock(__int64 a1, __int64 a2)
 
   if ( *(_BYTE *)(a1 + 418) != 2 )
     return 0;
-  v4 = *(_QWORD *)(a1 + 408);
+  v4 = *(_RTL_SRWLOCK **)(a1 + 408);
   v5 = 0LL;
   if ( !v4 )
     return 0;
@@ -229,15 +229,15 @@ LABEL_21:
     v29 = 16LL * *(unsigned __int16 *)(v9 + 36) - v26;
     goto LABEL_58;
   }
-  v30 = *(_QWORD *)(v4 + 24);
-  if ( ((*(_BYTE *)(v6 + 10) ^ (unsigned __int8)(*(_BYTE *)(v30 + 138) & (*(_DWORD *)(v30 + 124) >> 20))) & 1) == 0 )
+  Value = v4[3].Value;
+  if ( ((*(_BYTE *)(v6 + 10) ^ (unsigned __int8)(*(_BYTE *)(Value + 138) & (*(_DWORD *)(Value + 124) >> 20))) & 1) == 0 )
     goto LABEL_122;
-  if ( *(_DWORD *)(v30 + 124) )
+  if ( *(_DWORD *)(Value + 124) )
   {
     v31 = *(_DWORD *)(v6 + 8);
     LOWORD(v62) = v31;
-    if ( (v31 & *(_DWORD *)(v30 + 124)) != 0 )
-      v62 = *(_DWORD *)(v30 + 136) ^ v31;
+    if ( (v31 & *(_DWORD *)(Value + 124)) != 0 )
+      v62 = *(_DWORD *)(Value + 136) ^ v31;
     v32 = v62;
   }
   else
@@ -389,9 +389,9 @@ LABEL_83:
     goto LABEL_59;
   }
 LABEL_122:
-  if ( !RtlpIsLFHZoneAllocation(v4, v6) && v4 != *(_QWORD *)a2 )
+  if ( !RtlpIsLFHZoneAllocation(v4, v6) && v4 != *(_RTL_SRWLOCK **)a2 )
   {
-    v54 = *(_QWORD *)(v4 + 24);
+    v54 = v4[3].Value;
     v55 = *(_BYTE *)(v6 + 10);
     v56 = *(_BYTE *)(v54 + 138);
     if ( ((v55 ^ (unsigned __int8)(v56 & (*(_DWORD *)(v54 + 124) >> 20))) & 1) == 0
@@ -403,7 +403,7 @@ LABEL_122:
   *(_BYTE *)(a2 + 16) = 16;
   *(_WORD *)(a2 + 18) = 8193;
   *(_QWORD *)(a2 + 36) = 16LL;
-  v57 = *(_QWORD *)(v4 + 24);
+  v57 = v4[3].Value;
   if ( *(_DWORD *)(v57 + 124) )
   {
     v58 = *(_DWORD *)(v6 + 8);

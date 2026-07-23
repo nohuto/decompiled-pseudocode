@@ -1,10 +1,10 @@
 /*
- * XREFs of ViHalTrackDomainCommonBuffer @ 0x1409CED54
+ * XREFs of ViHalTrackDomainCommonBuffer @ 0x1409CFD54
  * Callers:
- *     VfAllocateDomainCommonBuffer @ 0x1405A0EB0 (VfAllocateDomainCommonBuffer.c)
+ *     VfAllocateDomainCommonBuffer @ 0x1405A10E0 (VfAllocateDomainCommonBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

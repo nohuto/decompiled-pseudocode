@@ -3,8 +3,8 @@
  * Callers:
  *     MiCreatePfnDatabase @ 0x14078F270 (MiCreatePfnDatabase.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
  */
 
 void __fastcall MiInitializeNumaGraph(__int64 a1)
@@ -91,7 +91,7 @@ void __fastcall MiInitializeNumaGraph(__int64 a1)
             v22 = v20 + v18;
             p_Base += 8;
             ++v18;
-            *((_WORD *)qword_1403269A8 + v22) = v21;
+            *((_WORD *)qword_1403269E8 + v22) = v21;
           }
           while ( v18 < v9 );
         }
@@ -109,7 +109,7 @@ void __fastcall MiInitializeNumaGraph(__int64 a1)
   v4 = v3;
   while ( v1 < v4 )
   {
-    for ( j = v1; j < v4 + v1; *((_WORD *)qword_1403269A8 + v6) = (v7 % v4) & 0x3F )
+    for ( j = v1; j < v4 + v1; *((_WORD *)qword_1403269E8 + v6) = (v7 % v4) & 0x3F )
     {
       v6 = v1 * (v4 - 1) + j;
       v7 = j++;

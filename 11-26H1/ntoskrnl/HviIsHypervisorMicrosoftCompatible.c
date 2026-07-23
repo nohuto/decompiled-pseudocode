@@ -1,18 +1,18 @@
 /*
- * XREFs of HviIsHypervisorMicrosoftCompatible @ 0x1406DC944
+ * XREFs of HviIsHypervisorMicrosoftCompatible @ 0x1406E0BE4
  * Callers:
- *     HvlpTryConfigureInterface @ 0x1405C17EC (HvlpTryConfigureInterface.c)
- *     KiDetectHardwareSpecControlFeatures @ 0x1405F1AD8 (KiDetectHardwareSpecControlFeatures.c)
- *     HviGetEnlightenmentInformation @ 0x1406DC6E8 (HviGetEnlightenmentInformation.c)
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     HviGetHypervisorVersion @ 0x1406DC7C0 (HviGetHypervisorVersion.c)
- *     HviGetImplementationLimits @ 0x1406DC808 (HviGetImplementationLimits.c)
- *     HviGetIptFeatures @ 0x1406DC8A8 (HviGetIptFeatures.c)
- *     HalpDmaInitializeCvmSupport @ 0x140CB0B80 (HalpDmaInitializeCvmSupport.c)
- *     MiInitializeSystemDefaults @ 0x140CF3840 (MiInitializeSystemDefaults.c)
+ *     HvlpTryConfigureInterface @ 0x1405C405C (HvlpTryConfigureInterface.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1405F4498 (KiDetectHardwareSpecControlFeatures.c)
+ *     HviGetEnlightenmentInformation @ 0x1406E0980 (HviGetEnlightenmentInformation.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     HviGetHypervisorVersion @ 0x1406E0A60 (HviGetHypervisorVersion.c)
+ *     HviGetImplementationLimits @ 0x1406E0AA8 (HviGetImplementationLimits.c)
+ *     HviGetIptFeatures @ 0x1406E0B48 (HviGetIptFeatures.c)
+ *     HalpDmaInitializeCvmSupport @ 0x140CB6BC0 (HalpDmaInitializeCvmSupport.c)
+ *     MiInitializeSystemDefaults @ 0x140CF9BC0 (MiInitializeSystemDefaults.c)
  * Callees:
- *     HviGetHypervisorInterface @ 0x1406DC778 (HviGetHypervisorInterface.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HviGetHypervisorInterface @ 0x1406E0A18 (HviGetHypervisorInterface.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 bool HviIsHypervisorMicrosoftCompatible()

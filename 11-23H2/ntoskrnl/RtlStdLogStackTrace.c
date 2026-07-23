@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStdLogStackTrace @ 0x1405A94F4
+ * XREFs of RtlStdLogStackTrace @ 0x1405A9A64
  * Callers:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x1403C4FB0 (ExpInitializeResource.c)
- *     ExInitializeFastResource2 @ 0x140413770 (ExInitializeFastResource2.c)
+ *     ExpInitializeResource @ 0x1403C5190 (ExpInitializeResource.c)
+ *     ExInitializeFastResource2 @ 0x140413B04 (ExInitializeFastResource2.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpStdLogCapturedStackTrace @ 0x1405A9B64 (RtlpStdLogCapturedStackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x1405AA0D4 (RtlpStdLogCapturedStackTrace.c)
  */
 
 __int64 __fastcall RtlStdLogStackTrace(__int64 a1, int a2)

@@ -6,21 +6,23 @@
  *     _memmove @ 0x4B2F8BF0 (_memmove.c)
  */
 
-int __stdcall RtlAppendAsciizToString(unsigned __int16 *a1, const char *Src)
+NTSTATUS __cdecl RtlAppendAsciizToString(PSTRING Destination, PCSTR Source)
 {
-  size_t v2; // esi
-  int v3; // ebx
+  unsigned int v2; // esi
+  int Length; // ebx
+  size_t v5; // [esp-4h] [ebp-10h]
 
-  if ( !Src )
+  if ( !Source )
     return 0;
-  v2 = strlen(Src);
+  v2 = strlen(Source);
   if ( v2 <= 0xFFFF )
   {
-    v3 = *a1;
-    if ( v3 + v2 <= a1[1] )
+    Length = Destination->Length;
+    if ( Length + v2 <= Destination->MaximumLength )
     {
-      memmove((void *)(v3 + *((_DWORD *)a1 + 1)), Src, v2);
-      *a1 += v2;
+      LODWORD(v5) = v2;
+      memmove(&Destination->Buffer[Length], Source, v5);
+      Destination->Length += v2;
       return 0;
     }
   }

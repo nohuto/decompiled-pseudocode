@@ -23,7 +23,7 @@ __int64 __fastcall sub_180016BD8(__int64 a1)
   int v7; // r9d
   bool v8; // zf
   __int64 result; // rax
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v11; // rcx
   __int64 v12; // rbx
 
@@ -34,7 +34,7 @@ __int64 __fastcall sub_180016BD8(__int64 a1)
   {
     if ( v2 )
     {
-      RtlReleaseSRWLockExclusive(a1 + 64);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
       v2 = 0;
     }
     v4 = v3;
@@ -43,7 +43,7 @@ __int64 __fastcall sub_180016BD8(__int64 a1)
     {
       v5 &= ~0x8000000000000000uLL;
       v2 = 1;
-      RtlAcquireSRWLockExclusive(a1 + 64);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     }
     v3 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 56), v5, v4);
   }
@@ -52,7 +52,7 @@ __int64 __fastcall sub_180016BD8(__int64 a1)
   {
     v12 = *(_QWORD *)(a1 + 72);
     *(_QWORD *)(a1 + 72) = 0LL;
-    RtlReleaseSRWLockExclusive(a1 + 64);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     sub_180073700(v12);
   }
   _m_prefetchw((const void *)(a1 + 232));
@@ -68,10 +68,10 @@ __int64 __fastcall sub_180016BD8(__int64 a1)
   if ( v7 )
   {
     _InterlockedExchangeAdd((volatile signed __int32 *)a1, 2u);
-    *(_QWORD *)(a1 + 128) = NtCurrentTeb()->SystemReserved1[53];
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    *(_QWORD *)(a1 + 128) = *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket;
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      v11 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v11 = 2147353478LL;
     if ( *(_BYTE *)v11 )

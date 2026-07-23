@@ -1,32 +1,32 @@
 /*
- * XREFs of WheaInitialize @ 0x140CE7AB8
+ * XREFs of WheaInitialize @ 0x140CEDE58
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1406D4708 (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     WheapCheckForClzeroSupport @ 0x1406D4824 (WheapCheckForClzeroSupport.c)
- *     WheapCallErrorSourceInitialize @ 0x1406D67EC (WheapCallErrorSourceInitialize.c)
- *     WheapInitializeWorkQueue @ 0x1406D7F60 (WheapInitializeWorkQueue.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExGetPrmInterface @ 0x14083ED30 (ExGetPrmInterface.c)
- *     WheapLogInitEvent @ 0x140849228 (WheapLogInitEvent.c)
- *     WheaInitializeRegChangeNotify @ 0x140849894 (WheaInitializeRegChangeNotify.c)
- *     WheapInitWnfCallbacks @ 0x14084A47C (WheapInitWnfCallbacks.c)
- *     IoWMIRegistrationControl @ 0x140ACD740 (IoWMIRegistrationControl.c)
- *     WheapCreatePerProcessorInfo @ 0x140CE8088 (WheapCreatePerProcessorInfo.c)
- *     WheapInitializeErrorSourceTable @ 0x140CE8128 (WheapInitializeErrorSourceTable.c)
- *     WheapInitializePshedInterface @ 0x140CE8288 (WheapInitializePshedInterface.c)
- *     WheapQueryPshedForErrorSources @ 0x140CE82F8 (WheapQueryPshedForErrorSources.c)
- *     WheapInitializeEventing @ 0x140CE84C0 (WheapInitializeEventing.c)
- *     WheapLoadPolicy @ 0x140CE85FC (WheapLoadPolicy.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1406D8788 (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForClzeroSupport @ 0x1406D88A4 (WheapCheckForClzeroSupport.c)
+ *     WheapCallErrorSourceInitialize @ 0x1406DA8CC (WheapCallErrorSourceInitialize.c)
+ *     WheapInitializeWorkQueue @ 0x1406DC0F0 (WheapInitializeWorkQueue.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExGetPrmInterface @ 0x140844F70 (ExGetPrmInterface.c)
+ *     WheapLogInitEvent @ 0x14084F4F8 (WheapLogInitEvent.c)
+ *     WheaInitializeRegChangeNotify @ 0x14084FBA4 (WheaInitializeRegChangeNotify.c)
+ *     WheapInitWnfCallbacks @ 0x14085078C (WheapInitWnfCallbacks.c)
+ *     IoWMIRegistrationControl @ 0x140ACF980 (IoWMIRegistrationControl.c)
+ *     WheapCreatePerProcessorInfo @ 0x140CEE428 (WheapCreatePerProcessorInfo.c)
+ *     WheapInitializeErrorSourceTable @ 0x140CEE4C8 (WheapInitializeErrorSourceTable.c)
+ *     WheapInitializePshedInterface @ 0x140CEE628 (WheapInitializePshedInterface.c)
+ *     WheapQueryPshedForErrorSources @ 0x140CEE698 (WheapQueryPshedForErrorSources.c)
+ *     WheapInitializeEventing @ 0x140CEE860 (WheapInitializeEventing.c)
+ *     WheapLoadPolicy @ 0x140CEE99C (WheapLoadPolicy.c)
  */
 
 __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
@@ -114,7 +114,7 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
       **(_DWORD **)(Prcb + 35808) = v20;
       *(_QWORD *)(*(_QWORD *)(Prcb + 35808) + 16LL) = &WheapConfigTableLock.QuantumTarget;
     }
-    for ( j = qword_140EEEDC8; (__int64 *)j != &qword_140EEEDC8; j = *(_QWORD *)j )
+    for ( j = qword_140EEF0D8; (__int64 *)j != &qword_140EEF0D8; j = *(_QWORD *)j )
     {
       if ( *(_DWORD *)(j + 104) == 7 )
       {
@@ -131,9 +131,9 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
     WheapCheckForClzeroSupport();
     if ( (*(_BYTE *)(*(_QWORD *)(a1 + 240) + 2648LL) & 4) == 0 && PshedIsSystemWheaEnabled() )
       WheapCheckForAndReportErrorsFromPreviousSession();
-    v26 = qword_140EEEDC8;
+    v26 = qword_140EEF0D8;
     v27 = 1;
-    while ( (__int64 *)v26 != &qword_140EEEDC8 )
+    while ( (__int64 *)v26 != &qword_140EEF0D8 )
     {
       v28 = *(_DWORD *)(v26 + 104) == 7;
       *(_DWORD *)(v26 + 124) = v27;
@@ -151,11 +151,11 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
       v26 = *(_QWORD *)v26;
       ++v27;
     }
-    if ( (int)ExGetPrmInterface(1, (__int64)&CmpCallbackListLock.SavedApcState.ApcListHead[1]) >= 0 )
+    if ( (int)ExGetPrmInterface(1, (__int64)&CmpContextListLock.SavedApcState.ApcListHead[0].Blink) >= 0 )
       WheapPrmInitialized = 1;
     WheapLogInitEvent();
-    CmpCallbackListLock.WaitBlock[1].Object = WheaWmiDispatch;
-    IoWMIRegistrationControl((PDEVICE_OBJECT)&CmpCallbackListLock.WaitBlockFill11[80], 0x80000001);
+    CmpContextListLock.WaitBlock[1].Thread = (struct _KTHREAD *)WheaWmiDispatch;
+    IoWMIRegistrationControl((PDEVICE_OBJECT)&CmpContextListLock.WaitBlockFill11[72], 0x80000001);
     WheaInitializeRegChangeNotify();
     WheapInitializationComplete = 1;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapConfigTableLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -181,14 +181,14 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
     if ( v7 < 0 )
       KeBugCheckEx(0x122u, 5uLL, v7, 0LL, 0LL);
     WheapErrorSourceTable = 1279410516LL;
-    stru_140EEEDD8.Header.WaitListHead.Blink = &stru_140EEEDD8.Header.WaitListHead;
-    qword_140EEEDD0 = (__int64)&qword_140EEEDC8;
-    qword_140EEEDC8 = (__int64)&qword_140EEEDC8;
-    stru_140EEEDD8.Header.WaitListHead.Flink = &stru_140EEEDD8.Header.WaitListHead;
-    dword_140EEEDC0 = 1;
-    LOWORD(stru_140EEEDD8.Header.Lock) = 1;
-    stru_140EEEDD8.Header.Size = 6;
-    stru_140EEEDD8.Header.SignalState = 1;
+    stru_140EEF0E8.Header.WaitListHead.Blink = &stru_140EEF0E8.Header.WaitListHead;
+    qword_140EEF0E0 = (__int64)&qword_140EEF0D8;
+    qword_140EEF0D8 = (__int64)&qword_140EEF0D8;
+    stru_140EEF0E8.Header.WaitListHead.Flink = &stru_140EEF0E8.Header.WaitListHead;
+    dword_140EEF0D0 = 1;
+    LOWORD(stru_140EEF0E8.Header.Lock) = 1;
+    stru_140EEF0E8.Header.Size = 6;
+    stru_140EEF0E8.Header.SignalState = 1;
     WheapInitializeEventing();
     v8 = v33;
     v9 = (unsigned int *)Address;

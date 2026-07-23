@@ -1,23 +1,23 @@
 /*
- * XREFs of SeCreateClientSecurity @ 0x14065DD70
+ * XREFs of SeCreateClientSecurity @ 0x140652B90
  * Callers:
- *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
- *     AlpcpImpersonateMessage @ 0x1405E9BE0 (AlpcpImpersonateMessage.c)
- *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
- *     NtImpersonateThread @ 0x1406E0D70 (NtImpersonateThread.c)
- *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
+ *     AlpcpCreateSecurityContext @ 0x14065540C (AlpcpCreateSecurityContext.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
+ *     NtImpersonateThread @ 0x1406B8050 (NtImpersonateThread.c)
+ *     AlpcpCreateClientPort @ 0x1406CFCAC (AlpcpCreateClientPort.c)
+ *     AlpcpImpersonateMessage @ 0x1406D9340 (AlpcpImpersonateMessage.c)
+ *     EtwpUpdateTrace @ 0x140796F68 (EtwpUpdateTrace.c)
  * Callees:
- *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ObFastReferenceObject @ 0x14027C6E0 (ObFastReferenceObject.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x14027DE60 (SepReconcileTrustSidWithProcessProtection.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PsReferenceImpersonationTokenEx @ 0x140656960 (PsReferenceImpersonationTokenEx.c)
- *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastReferenceObject @ 0x14026A680 (ObFastReferenceObject.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x14026BE00 (SepReconcileTrustSidWithProcessProtection.c)
+ *     ObFastReferenceObjectLocked @ 0x1402AAC68 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14064B780 (PsReferenceImpersonationTokenEx.c)
+ *     SepCreateClientSecurityEx @ 0x140652F80 (SepCreateClientSecurityEx.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurity(
@@ -33,27 +33,30 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   char v11; // r12
   NTSTATUS result; // eax
   NTSTATUS v13; // esi
-  char v14; // [rsp+60h] [rbp-38h] BYREF
-  char v15; // [rsp+61h] [rbp-37h] BYREF
-  _BYTE v16[2]; // [rsp+62h] [rbp-36h] BYREF
-  int v17; // [rsp+64h] [rbp-34h] BYREF
-  __int64 v18; // [rsp+68h] [rbp-30h] BYREF
-  char v19; // [rsp+A0h] [rbp+8h] BYREF
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  char v17; // [rsp+60h] [rbp-38h] BYREF
+  char v18; // [rsp+61h] [rbp-37h] BYREF
+  _BYTE v19[2]; // [rsp+62h] [rbp-36h] BYREF
+  int v20; // [rsp+64h] [rbp-34h] BYREF
+  __int64 v21; // [rsp+68h] [rbp-30h] BYREF
+  char v22; // [rsp+A0h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v14 = 0;
   v17 = 0;
-  v19 = 0;
-  v15 = 0;
-  v18 = 0LL;
+  v20 = 0;
+  v22 = 0;
+  v18 = 0;
+  v21 = 0LL;
   if ( ClientThread == CurrentThread )
     Process = CurrentThread->ApcState.Process;
   else
     Process = ClientThread->Process;
-  v9 = (ULONG_PTR)PsReferenceImpersonationTokenEx((__int64)ClientThread, 0, v16, (bool *)&v14, &v17, &v19);
+  v9 = (ULONG_PTR)PsReferenceImpersonationTokenEx((__int64)ClientThread, 0, v19, (bool *)&v17, &v20, &v22);
   if ( v9 )
   {
-    v11 = v14;
+    v11 = v17;
     v10 = 2;
   }
   else
@@ -67,24 +70,24 @@ NTSTATUS __stdcall SeCreateClientSecurity(
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Process[1].Header.Lock, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)&Process[1].Header.Lock);
       KeAbPostRelease((ULONG_PTR)&Process[1]);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread, v14, v15, v16);
     }
     v10 = 1;
-    v19 = BYTE2(Process[2].Header.WaitListHead.Flink);
+    v22 = BYTE2(Process[2].Header.WaitListHead.Flink);
     v11 = 0;
   }
-  SepReconcileTrustSidWithProcessProtection(*(_QWORD *)(v9 + 1104), (__int64)&v19, &v15, &v18);
+  SepReconcileTrustSidWithProcessProtection(*(_QWORD *)(v9 + 1104), (__int64)&v22, &v18, &v21);
   result = SepCreateClientSecurityEx(
              v9,
              (_DWORD)ClientSecurityQos,
              RemoteSession,
              v10,
              v11,
-             v17,
+             v20,
              0,
              0LL,
-             v15,
              v18,
+             v21,
              (__int64)ClientContext);
   v13 = result;
   if ( result < 0 || !ClientSecurityQos->ContextTrackingMode )

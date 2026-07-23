@@ -15,7 +15,7 @@ __int64 __fastcall sub_18006ABB8(
         wchar_t *String2,
         char a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {
@@ -55,7 +55,7 @@ __int64 __fastcall sub_18006ABB8(
     *a3 = 0;
     if ( v11 && !(unsigned __int8)sub_18007B398() )
       return 3221225473LL;
-    v12 = sub_180016D34(dword_180163B88);
+    v12 = sub_180016D34(DefaultLocaleId);
     if ( v12 < 0 )
       return 3221225473LL;
     _mm_lfence();

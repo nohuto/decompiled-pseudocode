@@ -8,7 +8,7 @@
 
 void __stdcall ExReleaseRundownProtectionEx(PEX_RUNDOWN_REF RunRef, ULONG Count)
 {
-  unsigned __int64 v2; // r9
+  ULONG_PTR v2; // r9
   bool v3; // zf
   signed __int64 v4; // rax
   unsigned __int64 v5; // r9

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPluginQueryComponentPerfSet @ 0x1405D2368
+ * XREFs of PopPluginQueryComponentPerfSet @ 0x1405CFA88
  * Callers:
- *     PopFxPepPerfInfoQuery @ 0x14074E334 (PopFxPepPerfInfoQuery.c)
+ *     PopFxPepPerfInfoQuery @ 0x14074C664 (PopFxPepPerfInfoQuery.c)
  * Callees:
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPluginQueryComponentPerfSet(
         __int64 a1,
         int a2,
-        __int64 a3,
+        int a3,
         _DWORD *a4,
         _DWORD *a5,
         _DWORD *a6,
@@ -37,7 +37,7 @@ __int64 __fastcall PopPluginQueryComponentPerfSet(
   v13 = a2;
   v12 = v8;
   v14 = a3;
-  if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(29LL, &v12, a3, a4) )
+  if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(29LL, &v12) )
     PopFxBugCheck(0x605uLL, 0x1DuLL, v10, 0LL);
   *a4 = v16;
   *a5 = HIDWORD(v16);

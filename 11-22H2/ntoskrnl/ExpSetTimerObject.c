@@ -190,7 +190,7 @@ __int64 __fastcall ExpSetTimerObject(
   v90 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v23 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -210,10 +210,13 @@ __int64 __fastcall ExpSetTimerObject(
     KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter2 + 64));
     if ( v90 )
       KxReleaseSpinLock((volatile signed __int64 *)&Process[2].Affinity.StaticBitmap[24]);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v48 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v48 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v48 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && (unsigned __int8)v48 <= 0xFu
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v48 >= 2u )
       {
         v49 = KeGetCurrentPrcb();
         v50 = v49->SchedulerAssist;
@@ -269,7 +272,7 @@ __int64 __fastcall ExpSetTimerObject(
       *(_BYTE *)(v54 + 18) = 1;
     v62 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v62 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v62 <= 0xFu )
     {
       v63 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v62 == 2 )
@@ -392,10 +395,10 @@ LABEL_10:
   KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter2 + 64));
   if ( v90 )
     KxReleaseSpinLock((volatile signed __int64 *)Object + 305);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v69 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v69 <= 0xFu && CurrentIrql <= 0xFu && v69 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v69 <= 0xFu && CurrentIrql <= 0xFu && v69 >= 2u )
     {
       v70 = KeGetCurrentPrcb();
       v71 = v70->SchedulerAssist;

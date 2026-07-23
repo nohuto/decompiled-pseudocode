@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindAceBySid @ 0x1800E19DC
+ * XREFs of RtlFindAceBySid @ 0x1800E1A9C
  * Callers:
  *     RtlpSetSecurityObject @ 0x180003850 (RtlpSetSecurityObject.c)
  * Callees:
  *     RtlEqualSid @ 0x1800043F0 (RtlEqualSid.c)
  */
 
-unsigned __int8 *__fastcall RtlFindAceBySid(__int64 a1, _WORD *a2, unsigned int *a3)
+unsigned __int8 *__fastcall RtlFindAceBySid(__int64 a1, void *a2, unsigned int *a3)
 {
   unsigned int v5; // ebp
   unsigned __int8 *v6; // rbx

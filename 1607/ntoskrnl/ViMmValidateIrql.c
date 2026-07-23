@@ -6,7 +6,7 @@
  *     VerifierMmAllocatePagesForMdlEx @ 0x14071BB84 (VerifierMmAllocatePagesForMdlEx.c)
  *     VerifierMmFreePagesFromMdl @ 0x14071BE44 (VerifierMmFreePagesFromMdl.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ViMmValidateIrql(char a1)

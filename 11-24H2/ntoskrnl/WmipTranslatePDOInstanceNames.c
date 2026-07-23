@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipTranslatePDOInstanceNames @ 0x140A5249C
+ * XREFs of WmipTranslatePDOInstanceNames @ 0x140A4A4E8
  * Callers:
- *     WmipForwardWmiIrp @ 0x1409CE2C0 (WmipForwardWmiIrp.c)
+ *     WmipForwardWmiIrp @ 0x1409B3294 (WmipForwardWmiIrp.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     IoGetDeviceInstanceName @ 0x1404A117C (IoGetDeviceInstanceName.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     IoGetDeviceInstanceName @ 0x14049B9DC (IoGetDeviceInstanceName.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall WmipTranslatePDOInstanceNames(__int64 a1, char a2, int a3, __int64 a4)

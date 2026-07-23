@@ -9,13 +9,13 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtGetDevicePowerState(HANDLE Handle, _DWORD *a2)
+NTSTATUS __cdecl NtGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE State)
 {
   __int64 *v4; // rbx
   __int64 v5; // rcx
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
-  int RelatedTargetDevice; // edi
+  NTSTATUS RelatedTargetDevice; // edi
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
   __int64 v10; // [rsp+68h] [rbp+20h] BYREF
 
@@ -23,13 +23,13 @@ NTSTATUS __fastcall NtGetDevicePowerState(HANDLE Handle, _DWORD *a2)
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)State < 0x7FFFFFFF0000LL )
+      v5 = (__int64)State;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(Device, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v10 = 0LL;
@@ -39,7 +39,7 @@ NTSTATUS __fastcall NtGetDevicePowerState(HANDLE Handle, _DWORD *a2)
     ObfDereferenceObject(Object);
     if ( RelatedTargetDevice >= 0 )
     {
-      *a2 = PopLockGetDoDevicePowerState(v4[39]);
+      *State = PopLockGetDoDevicePowerState(v4[39]);
       ObfDereferenceObject(v4);
     }
     return RelatedTargetDevice;

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionRundown @ 0x140885544
+ * XREFs of TtmiLogSessionRundown @ 0x1408867A4
  * Callers:
- *     TtmiSessionsRundown @ 0x140880254 (TtmiSessionsRundown.c)
+ *     TtmiSessionsRundown @ 0x1408814B4 (TtmiSessionsRundown.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionRundown()
@@ -43,9 +43,9 @@ void TtmiLogSessionRundown()
   int *v30; // [rsp+110h] [rbp+10h]
   __int64 v31; // [rsp+118h] [rbp+18h]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       v1 = *v0;
       v2 = v0[1];
@@ -77,7 +77,7 @@ void TtmiLogSessionRundown()
       v27 = 4LL;
       v29 = 4LL;
       v31 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_140372872, 0LL, 0LL, 0xCu, &pData);
+      TlgWrite(&stru_14096E820, &unk_1403737EC, 0LL, 0LL, 0xCu, &pData);
     }
   }
 }

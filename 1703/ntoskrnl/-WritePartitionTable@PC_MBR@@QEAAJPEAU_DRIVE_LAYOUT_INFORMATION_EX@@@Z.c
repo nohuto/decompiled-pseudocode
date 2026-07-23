@@ -22,13 +22,13 @@ __int64 __fastcall PC_MBR::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
   unsigned int v7; // r15d
   int v8; // esi
   char v9; // r14
-  ULONG Signature; // eax
+  DWORD Signature; // eax
   __int8 *v11; // r13
   __int8 *v12; // rdi
   unsigned int v13; // r12d
   BYTE PartitionType; // cl
   unsigned int v15; // r10d
-  ULONG v16; // eax
+  DWORD v16; // eax
   unsigned int v17; // ecx
   int Sectors; // eax
   DWORD v20; // [rsp+20h] [rbp-68h]
@@ -59,7 +59,7 @@ __int64 __fastcall PC_MBR::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
   {
     v6[27].m128i_i32[2] = Signature;
     v9 = 1;
-    *(_DWORD *)&a2->Gpt.DiskId.Data2 = MBR::CheckSum(v6);
+    a2->Mbr.CheckSum = MBR::CheckSum(v6);
   }
   while ( 2 )
   {
@@ -84,7 +84,7 @@ __int64 __fastcall PC_MBR::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
       }
       v16 = a2->Mbr.Signature;
       *(_DWORD *)&a2->PartitionEntry[v4].Gpt.PartitionType.Data4[4] = 0;
-      *(_DWORD *)a2->PartitionEntry[v4].Gpt.PartitionType.Data4 = v16;
+      a2->PartitionEntry[v4].Mbr.PartitionId.Data1 = v16;
       *(_QWORD *)&a2->PartitionEntry[v4].Gpt.PartitionId.Data1 = a2->PartitionEntry[v4].StartingOffset.QuadPart;
       if ( a2->PartitionEntry[v4].RewritePartition != (_BYTE)v2 )
       {

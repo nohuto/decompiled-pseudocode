@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetupHighPerfPowerRequest @ 0x14058163C
+ * XREFs of PopSetupHighPerfPowerRequest @ 0x140581AE8
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     PpmEndHighPerfRequest @ 0x14013155C (PpmEndHighPerfRequest.c)
- *     PpmBeginHighPerfRequest @ 0x140131E88 (PpmBeginHighPerfRequest.c)
+ *     PpmEndHighPerfRequest @ 0x140131ACC (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1401323F8 (PpmBeginHighPerfRequest.c)
  */
 
 __int64 PopSetupHighPerfPowerRequest()

@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnPrefetchScenario @ 0x140962D70
+ * XREFs of PfSnPrefetchScenario @ 0x14094A830
  * Callers:
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     ExfWaitForRundownProtectionRelease @ 0x1402C6ABC (ExfWaitForRundownProtectionRelease.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PfSnAsyncContextInitialize @ 0x140962E58 (PfSnAsyncContextInitialize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfWaitForRundownProtectionRelease @ 0x1402BB63C (ExfWaitForRundownProtectionRelease.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
+ *     PfSnAsyncContextInitialize @ 0x14094A918 (PfSnAsyncContextInitialize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnPrefetchScenario(PVOID P, unsigned int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall PfSnPrefetchScenario(PVOID P, unsigned int a2)
   struct _EX_RUNDOWN_REF RunRef; // [rsp+40h] [rbp+8h] BYREF
 
   RunRef.Count = 0LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0xF8uLL, 0x61506343u);
   v5 = (struct _WORK_QUEUE_ITEM *)Pool2;
   if ( Pool2 )
   {

@@ -1,22 +1,22 @@
 /*
- * XREFs of SeCaptureSidAndAttributesArray @ 0x1405DD560
+ * XREFs of SeCaptureSidAndAttributesArray @ 0x1406CCCC0
  * Callers:
- *     NtFilterToken @ 0x1405D9FB0 (NtFilterToken.c)
- *     NtAdjustGroupsToken @ 0x1405DA5F0 (NtAdjustGroupsToken.c)
- *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
- *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
- *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
- *     SepLengthSidAndAttributesArray @ 0x1405DD4AC (SepLengthSidAndAttributesArray.c)
- *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
- *     SepDuplicateClaimAttributes @ 0x140925070 (SepDuplicateClaimAttributes.c)
+ *     NtAdjustGroupsToken @ 0x1406087B0 (NtAdjustGroupsToken.c)
+ *     NtCreateLowBoxToken @ 0x140669C50 (NtCreateLowBoxToken.c)
+ *     NtSetInformationToken @ 0x140694530 (NtSetInformationToken.c)
+ *     NtFilterToken @ 0x1406C7EA0 (NtFilterToken.c)
+ *     SepCreateClaimAttributes @ 0x1406CBEA4 (SepCreateClaimAttributes.c)
+ *     NtCreateTokenEx @ 0x1406CC0B0 (NtCreateTokenEx.c)
+ *     SepSetTokenCapabilities @ 0x1406CCA98 (SepSetTokenCapabilities.c)
+ *     SepLengthSidAndAttributesArray @ 0x1406CCC08 (SepLengthSidAndAttributesArray.c)
+ *     SepDuplicateClaimAttributes @ 0x1409251D0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSidAndAttributesArray(

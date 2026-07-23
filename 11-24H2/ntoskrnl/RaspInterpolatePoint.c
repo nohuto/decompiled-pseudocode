@@ -1,9 +1,9 @@
 /*
- * XREFs of RaspInterpolatePoint @ 0x140466668
+ * XREFs of RaspInterpolatePoint @ 0x14045DFC4
  * Callers:
- *     RaspCreateSegmentList @ 0x140466E68 (RaspCreateSegmentList.c)
+ *     RaspCreateSegmentList @ 0x14045E7C4 (RaspCreateSegmentList.c)
  * Callees:
- *     RaspAllocateMemory @ 0x140467288 (RaspAllocateMemory.c)
+ *     RaspAllocateMemory @ 0x14045EBE4 (RaspAllocateMemory.c)
  */
 
 __int64 __fastcall RaspInterpolatePoint(__int64 a1, __int64 a2, __int64 a3)

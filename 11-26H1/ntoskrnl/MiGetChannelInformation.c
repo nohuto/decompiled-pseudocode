@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetChannelInformation @ 0x1404A43F4
+ * XREFs of MiGetChannelInformation @ 0x14049DA84
  * Callers:
- *     MmManagePartitionMemoryInformation @ 0x140AB9F38 (MmManagePartitionMemoryInformation.c)
- *     MmGetChannelInformation @ 0x140B0D228 (MmGetChannelInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x140ABB3FC (MmManagePartitionMemoryInformation.c)
+ *     MmGetChannelInformation @ 0x140B0E978 (MmGetChannelInformation.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiGetNodeChannelPageCounts @ 0x1403C831C (MiGetNodeChannelPageCounts.c)
- *     MiLockDynamicMemoryShared @ 0x1404CB6E0 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1404D0330 (MiUnlockDynamicMemoryShared.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiGetNodeChannelPageCounts @ 0x1403D220C (MiGetNodeChannelPageCounts.c)
+ *     MiLockDynamicMemoryShared @ 0x1404C5110 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1404C9D60 (MiUnlockDynamicMemoryShared.c)
  */
 
 __int64 __fastcall MiGetChannelInformation(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -31,11 +31,11 @@ __int64 __fastcall MiGetChannelInformation(__int64 a1, unsigned int a2, __int64 
   v17 = 0LL;
   v18 = 0LL;
   v8 = *(_QWORD *)(a1 + 16) + 56320LL * a2;
-  *a4 = 40LL * (unsigned __int8)byte_140E2D718;
+  *a4 = 40LL * (unsigned __int8)byte_140E2D898;
   CurrentThread = KeGetCurrentThread();
   MiLockDynamicMemoryShared(a1, CurrentThread);
   v10 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(v8 + 14132));
-  if ( byte_140E2D718 )
+  if ( byte_140E2D898 )
   {
     v11 = a3 + 4;
     do
@@ -44,11 +44,11 @@ __int64 __fastcall MiGetChannelInformation(__int64 a1, unsigned int a2, __int64 
       if ( (*(_DWORD *)(v8 + 14096) & 1) != 0 )
       {
         v12 = 0;
-        if ( byte_140E2D718 )
+        if ( byte_140E2D898 )
         {
           while ( *(_BYTE *)(v12 + v8 + 14145) != v5 )
           {
-            if ( ++v12 >= (unsigned __int8)byte_140E2D718 )
+            if ( ++v12 >= (unsigned __int8)byte_140E2D898 )
               goto LABEL_10;
           }
           *(_DWORD *)v11 = v12;
@@ -70,7 +70,7 @@ LABEL_10:
       ++v5;
       v11 += 40LL;
     }
-    while ( v5 < (unsigned __int8)byte_140E2D718 );
+    while ( v5 < (unsigned __int8)byte_140E2D898 );
   }
   v14 = (volatile LONG *)(v8 + 14132);
   if ( v10 == 17 )

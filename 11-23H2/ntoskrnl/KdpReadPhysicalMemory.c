@@ -4,8 +4,8 @@
  *     KdpSendWaitContinue @ 0x140AB07C8 (KdpSendWaitContinue.c)
  *     KdpReadPhysicalMemoryLong @ 0x140AB42D4 (KdpReadPhysicalMemoryLong.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x1402E5DB0 (MmDbgCopyMemory.c)
- *     RunLengthEncode @ 0x140567AF8 (RunLengthEncode.c)
+ *     MmDbgCopyMemory @ 0x1402E6040 (MmDbgCopyMemory.c)
+ *     RunLengthEncode @ 0x1405681B8 (RunLengthEncode.c)
  *     KdpCopyMemoryChunks @ 0x140AB02A4 (KdpCopyMemoryChunks.c)
  */
 

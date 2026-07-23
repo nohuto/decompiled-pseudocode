@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140993660
+ * XREFs of PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140993860
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopPowerAggregatorStartNextSession @ 0x140877C84 (PopPowerAggregatorStartNextSession.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140877DE8 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140877EC4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140878028 (PopPowerAggregatorSetCurrentState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDisplayPoweringOnStateHandler(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall PopPowerAggregatorDisplayPoweringOnStateHandler(__int64 a1)
   if ( *(_BYTE *)(a1 + 72) )
   {
     memset(v4, 0, sizeof(v4));
-    PopPowerAggregatorSetCurrentState(a1, (__int64)v4);
+    PopPowerAggregatorSetCurrentState((LARGE_INTEGER *)a1, (__int64)v4);
     v2 = *(_DWORD *)(a1 + 24);
     PoModernStandbyActionInProgress = 0;
     PopPowerAggregatorStartNextSession(0, v2);

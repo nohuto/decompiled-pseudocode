@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateSection @ 0x140722B00
+ * XREFs of MiCreateSection @ 0x140722D00
  * Callers:
- *     MiCreateSystemSection @ 0x14035F7A0 (MiCreateSystemSection.c)
- *     MmCreateSpecialImageSection @ 0x1406B9664 (MmCreateSpecialImageSection.c)
- *     MiCreateSectionCommon @ 0x140722710 (MiCreateSectionCommon.c)
- *     MmCreateSectionEx @ 0x14076C6A8 (MmCreateSectionEx.c)
- *     MmCreateCacheManagerSection @ 0x1407BE00C (MmCreateCacheManagerSection.c)
+ *     MiCreateSystemSection @ 0x14035F940 (MiCreateSystemSection.c)
+ *     MmCreateSpecialImageSection @ 0x1406B9694 (MmCreateSpecialImageSection.c)
+ *     MiCreateSectionCommon @ 0x140722910 (MiCreateSectionCommon.c)
+ *     MmCreateSectionEx @ 0x14076C898 (MmCreateSectionEx.c)
+ *     MmCreateCacheManagerSection @ 0x1407BE2DC (MmCreateCacheManagerSection.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MmExtendSection @ 0x140706504 (MmExtendSection.c)
- *     MiFinishCreateSection @ 0x140722D30 (MiFinishCreateSection.c)
- *     MiInitializeCreateSectionPacket @ 0x140723010 (MiInitializeCreateSectionPacket.c)
- *     MiCreateImageOrDataSection @ 0x140723350 (MiCreateImageOrDataSection.c)
- *     MiCreatePagingFileMap @ 0x140747994 (MiCreatePagingFileMap.c)
- *     MiLogSectionObjectEvent @ 0x140A2F77C (MiLogSectionObjectEvent.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmExtendSection @ 0x140706714 (MmExtendSection.c)
+ *     MiFinishCreateSection @ 0x140722F30 (MiFinishCreateSection.c)
+ *     MiInitializeCreateSectionPacket @ 0x140723210 (MiInitializeCreateSectionPacket.c)
+ *     MiCreateImageOrDataSection @ 0x140723550 (MiCreateImageOrDataSection.c)
+ *     MiCreatePagingFileMap @ 0x140747B84 (MiCreatePagingFileMap.c)
+ *     MiLogSectionObjectEvent @ 0x140A2FA2C (MiLogSectionObjectEvent.c)
  */
 
 __int64 __fastcall MiCreateSection(

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpLogUnsupportedOperation @ 0x14060BD0C
+ * XREFs of CmpLogUnsupportedOperation @ 0x14060BDC0
  * Callers:
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     NtUnloadKey2 @ 0x140549F84 (NtUnloadKey2.c)
- *     NtCompactKeys @ 0x1405F9400 (NtCompactKeys.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1405FE35C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1405FE7F4 (CmSetLastWriteTimeKey.c)
- *     CmDumpKey @ 0x14060C0B8 (CmDumpKey.c)
- *     CmRestoreKey @ 0x14060C24C (CmRestoreKey.c)
- *     CmSaveKey @ 0x14060CC1C (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x14060CE74 (CmSaveMergedKeys.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     NtUnloadKey2 @ 0x14054A4C4 (NtUnloadKey2.c)
+ *     NtCompactKeys @ 0x1405F94B4 (NtCompactKeys.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1405FE410 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1405FE8A8 (CmSetLastWriteTimeKey.c)
+ *     CmDumpKey @ 0x14060C16C (CmDumpKey.c)
+ *     CmRestoreKey @ 0x14060C300 (CmRestoreKey.c)
+ *     CmSaveKey @ 0x14060CCD0 (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x14060CF28 (CmSaveMergedKeys.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmpSendUnsupportedOperationTelemetryEvent @ 0x14060BEB4 (CmpSendUnsupportedOperationTelemetryEvent.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpSendUnsupportedOperationTelemetryEvent @ 0x14060BF68 (CmpSendUnsupportedOperationTelemetryEvent.c)
  */
 
 TLG_STATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
@@ -36,7 +36,7 @@ TLG_STATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
     v5 = (int *)&v3;
     v3 = a1;
     v6 = 4;
-    return TlgWrite(&stru_1402F34E0, &unk_14027B17F, 0LL, 0LL, 3u, &pData);
+    return TlgWrite(&stru_1402F34E0, &unk_14027B27F, 0LL, 0LL, 3u, &pData);
   }
   return result;
 }

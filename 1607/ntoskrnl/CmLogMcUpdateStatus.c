@@ -1,20 +1,20 @@
 /*
- * XREFs of CmLogMcUpdateStatus @ 0x1401B53F8
+ * XREFs of CmLogMcUpdateStatus @ 0x1401B52DC
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlIntegerToChar @ 0x1403F5D28 (RtlIntegerToChar.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     CmpInitializeRegistryNode @ 0x14055CDF0 (CmpInitializeRegistryNode.c)
+ *     RtlIntegerToChar @ 0x1403F4BEC (RtlIntegerToChar.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     CmpInitializeRegistryNode @ 0x14055D330 (CmpInitializeRegistryNode.c)
  */
 
 __int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
   UNICODE_STRING ValueName; // [rsp+48h] [rbp-B8h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
-  STRING v15; // [rsp+90h] [rbp-70h] BYREF
+  _STRING v15; // [rsp+90h] [rbp-70h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
   _DWORD v17[18]; // [rsp+B0h] [rbp-50h] BYREF
   CHAR String[16]; // [rsp+100h] [rbp+0h] BYREF

@@ -17,52 +17,52 @@
  *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlGetImageFileMachines(__int64 a1, _DWORD *a2)
+NTSTATUS __cdecl RtlGetImageFileMachines(PCWSTR FileName, PUSHORT FileMachines)
 {
   int Section; // edi
   __int16 v5; // ax
   unsigned __int16 v6; // dx
   bool v7; // zf
   unsigned __int16 v8; // r14
-  unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rax
+  PIMAGE_NT_HEADERS v9; // rax
+  PIMAGE_NT_HEADERS v10; // rcx
+  ULONG_PTR SizeOfImage; // rax
   __int64 v12; // r14
-  int v13; // eax
+  NTSTATUS v13; // eax
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rax
   __int64 v16; // rcx
   __int64 v17; // rcx
-  unsigned __int64 v19; // [rsp+58h] [rbp-130h] BYREF
-  HANDLE Handle[2]; // [rsp+68h] [rbp-120h] BYREF
-  unsigned __int64 v21; // [rsp+78h] [rbp-110h] BYREF
+  PVOID BaseOfImage; // [rsp+58h] [rbp-130h] BYREF
+  HANDLE SectionHandle; // [rsp+68h] [rbp-120h] BYREF
+  ULONG_PTR ViewSize; // [rsp+78h] [rbp-110h] BYREF
   HANDLE FileHandle; // [rsp+80h] [rbp-108h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-100h] BYREF
-  __int64 v24; // [rsp+98h] [rbp-F0h] BYREF
-  unsigned __int64 v25[3]; // [rsp+A0h] [rbp-E8h] BYREF
-  __int128 v26; // [rsp+B8h] [rbp-D0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-B0h] BYREF
-  unsigned __int64 v28; // [rsp+108h] [rbp-80h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+118h] [rbp-70h] BYREF
-  _BYTE v30[48]; // [rsp+130h] [rbp-58h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-100h] BYREF
+  PVOID BaseAddress; // [rsp+98h] [rbp-F0h] BYREF
+  __int64 v25[3]; // [rsp+A0h] [rbp-E8h] BYREF
+  MEM_EXTENDED_PARAMETER ExtendedParameters; // [rsp+B8h] [rbp-D0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-B0h] BYREF
+  PIMAGE_NT_HEADERS v28; // [rsp+108h] [rbp-80h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+118h] [rbp-70h] BYREF
+  _BYTE SectionInformation[48]; // [rsp+130h] [rbp-58h] BYREF
   unsigned __int16 v31; // [rsp+160h] [rbp-28h]
   char v32; // [rsp+163h] [rbp-25h]
   unsigned int v33; // [rsp+198h] [rbp+10h] BYREF
-  int v34; // [rsp+1A0h] [rbp+18h]
+  NTSTATUS v34; // [rsp+1A0h] [rbp+18h]
   int v35; // [rsp+1A8h] [rbp+20h]
 
   UnicodeString = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   IoStatusBlock = 0LL;
   FileHandle = 0LL;
-  Handle[0] = 0LL;
-  memset_thunk_772440563353939046(v30, 0, 0x40uLL);
-  v26 = 0LL;
-  v24 = 0LL;
-  v19 = 0LL;
-  v21 = 0LL;
-  *a2 = 0;
-  Section = RtlpDosPathNameToRelativeNtPathName_U(0, a1, (int)&UnicodeString, 0LL, 0LL);
+  SectionHandle = 0LL;
+  memset_thunk_772440563353939046(SectionInformation, 0, 0x40uLL);
+  ExtendedParameters = 0LL;
+  BaseAddress = 0LL;
+  BaseOfImage = 0LL;
+  ViewSize = 0LL;
+  *(_DWORD *)FileMachines = 0;
+  Section = RtlpDosPathNameToRelativeNtPathName_U(0, FileName, (int)&UnicodeString, 0LL, 0LL);
   if ( Section < 0 )
     goto LABEL_37;
   ObjectAttributes.Length = 48;
@@ -73,16 +73,16 @@ __int64 __fastcall RtlGetImageFileMachines(__int64 a1, _DWORD *a2)
   Section = NtOpenFile(&FileHandle, 0x120089u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
   if ( Section < 0 )
     goto LABEL_37;
-  Section = NtCreateSection(Handle, 5LL, 0LL, 0LL, 2, 285212672, FileHandle);
+  Section = NtCreateSection(&SectionHandle, 5u, 0LL, 0LL, 2u, 0x11000000u, FileHandle);
   if ( Section < 0 )
     goto LABEL_37;
-  Section = NtQuerySection(Handle[0], 1LL, v30, 64LL, 0LL);
+  Section = NtQuerySection(SectionHandle, SectionImageInformation, SectionInformation, 0x40uLL, 0LL);
   if ( Section < 0 )
     goto LABEL_37;
-  v5 = RtlpSetMachineBit(a2, v31);
+  v5 = RtlpSetMachineBit(FileMachines, v31);
   if ( (v32 & 2) != 0 && (v32 & 1) != 0 && v5 == 332 )
   {
-    RtlpSetMachineBit(a2, 452LL);
+    RtlpSetMachineBit(FileMachines, 452LL);
     RtlpSetMachineBit(v16, 34404LL);
     RtlpSetMachineBit(v17, 43620LL);
     goto LABEL_37;
@@ -98,34 +98,57 @@ __int64 __fastcall RtlGetImageFileMachines(__int64 a1, _DWORD *a2)
   if ( !v7 )
     v6 = -31132;
   v8 = v6;
-  *(_QWORD *)&v26 = v26 & 0xFFFFFFFFFFFFFF00uLL | 6;
-  DWORD2(v26) = v6;
-  v34 = ZwMapViewOfSectionEx(Handle[0], -1LL, &v24, 0LL, &v21, 0, 2, &v26, 1);
+  ExtendedParameters.0 = (MEM_EXTENDED_PARAMETER::$373F0C482CA2C07D4A7B2B94C5EA8081)(*(_QWORD *)&ExtendedParameters.0 & 0xFFFFFFFFFFFFFF00uLL | 6);
+  ExtendedParameters.ULong = v6;
+  v34 = ZwMapViewOfSectionEx(
+          SectionHandle,
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          &BaseAddress,
+          0LL,
+          &ViewSize,
+          0,
+          2u,
+          &ExtendedParameters,
+          1u);
   if ( v34 >= 0 )
   {
-    RtlpSetMachineBit(a2, v8);
-    NtUnmapViewOfSectionEx(-1LL, v24, 0LL);
+    RtlpSetMachineBit(FileMachines, v8);
+    NtUnmapViewOfSectionEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, 0);
   }
 LABEL_11:
-  if ( (*(_BYTE *)a2 & 2) == 0 )
+  if ( (*(_BYTE *)FileMachines & 2) == 0 )
     goto LABEL_37;
-  Section = ZwMapViewOfSectionEx(Handle[0], -1LL, &v19, 0LL, &v21, 0, 2, 0LL, 0);
+  Section = ZwMapViewOfSectionEx(
+              SectionHandle,
+              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+              &BaseOfImage,
+              0LL,
+              &ViewSize,
+              0,
+              2u,
+              0LL,
+              0);
   if ( Section < 0 )
     goto LABEL_37;
   Section = 0;
-  v9 = RtlImageNtHeader(v19);
+  v9 = RtlImageNtHeader(BaseOfImage);
   v28 = v9;
-  v10 = v9 + 264;
-  if ( v21 + v19 <= v19 || v10 <= v9 || v9 < v19 || v10 > v21 + v19 )
+  v10 = v9 + 1;
+  if ( (char *)BaseOfImage + ViewSize <= BaseOfImage
+    || v10 <= v9
+    || v9 < BaseOfImage
+    || v10 > (PIMAGE_NT_HEADERS)((char *)BaseOfImage + ViewSize) )
+  {
     goto LABEL_30;
-  if ( *(_WORD *)(v9 + 24) == 267 )
+  }
+  if ( v9->OptionalHeader.Magic == 267 )
     goto LABEL_37;
-  v11 = *(unsigned int *)(v9 + 80);
-  v35 = v11;
-  v12 = (unsigned int)v11;
-  if ( v11 > v21 )
+  SizeOfImage = v9->OptionalHeader.SizeOfImage;
+  v35 = SizeOfImage;
+  v12 = (unsigned int)SizeOfImage;
+  if ( SizeOfImage > ViewSize )
     goto LABEL_30;
-  v13 = RtlpImageDirectoryEntryToDataEx(v19, 1, 0xAu, &v33, (__int64 *)v25);
+  v13 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage, 1, 0xAu, &v33, v25);
   v14 = v25[0];
   if ( v13 < 0 )
     v14 = 0LL;
@@ -133,12 +156,16 @@ LABEL_11:
   if ( v14 )
   {
     v15 = v14 + v33;
-    if ( v12 + v19 > v19 && v15 > v14 && v14 >= v19 && v15 <= v12 + v19 && *(_DWORD *)v14 == v33 )
+    if ( (char *)BaseOfImage + v12 > BaseOfImage
+      && v15 > v14
+      && v14 >= (unsigned __int64)BaseOfImage
+      && v15 <= (unsigned __int64)BaseOfImage + v12
+      && *(_DWORD *)v14 == v33 )
     {
       if ( v33 >= 0xD0 && *(_QWORD *)(v14 + 200) )
       {
-        *a2 &= ~2u;
-        *a2 |= 0x10u;
+        *(_DWORD *)FileMachines &= ~2u;
+        *(_DWORD *)FileMachines |= 0x10u;
       }
       goto LABEL_37;
     }
@@ -146,13 +173,13 @@ LABEL_30:
     Section = -1073741701;
   }
 LABEL_37:
-  if ( v19 )
-    NtUnmapViewOfSectionEx(-1LL, v19, 0LL);
-  if ( Handle[0] )
-    NtClose(Handle[0]);
+  if ( BaseOfImage )
+    NtUnmapViewOfSectionEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseOfImage, 0);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
   if ( FileHandle )
     NtClose(FileHandle);
   if ( UnicodeString.Buffer )
     RtlFreeUnicodeString(&UnicodeString);
-  return (unsigned int)Section;
+  return Section;
 }

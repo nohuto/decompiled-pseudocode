@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveSpecialPoolRange @ 0x1402AC8D0
+ * XREFs of MiRemoveSpecialPoolRange @ 0x1402ACAC0
  * Callers:
- *     MmFreeSpecialPool @ 0x1402AD178 (MmFreeSpecialPool.c)
+ *     MmFreeSpecialPool @ 0x1402AD368 (MmFreeSpecialPool.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     InsertTailListPte @ 0x140079D00 (InsertTailListPte.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     RemoveListEntryPte @ 0x14012973C (RemoveListEntryPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     InsertTailListPte @ 0x140079CF0 (InsertTailListPte.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     RemoveListEntryPte @ 0x14012980C (RemoveListEntryPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiRemoveSpecialPoolRange(PKSPIN_LOCK SpinLock, char a2, unsigned __int64 *a3)
@@ -43,8 +43,8 @@ __int64 __fastcall MiRemoveSpecialPoolRange(PKSPIN_LOCK SpinLock, char a2, unsig
   KeAcquireInStackQueuedSpinLock(SpinLock, &LockHandle);
   v9 = *(_QWORD *)(v8 + 16);
   v10 = v9;
-  if ( qword_14043A0C0 && (v9 & 0x10) == 0 )
-    v10 = v9 & ~qword_14043A0C0;
+  if ( qword_14043B180 && (v9 & 0x10) == 0 )
+    v10 = v9 & ~qword_14043B180;
   updated = MiUpdatePageFileHighInPte(v9, HIDWORD(v10) - 1);
   *(_QWORD *)(v8 + 16) = updated;
   v13 = updated;
@@ -85,7 +85,7 @@ __int64 __fastcall MiRemoveSpecialPoolRange(PKSPIN_LOCK SpinLock, char a2, unsig
       }
       while ( (unsigned __int64)v17 < v18 );
     }
-    if ( SpinLock != &qword_14043AF00 )
+    if ( SpinLock != &qword_14043BFC0 )
     {
       v19 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
       --*(_DWORD *)(v19 + 8128);
@@ -99,8 +99,8 @@ __int64 __fastcall MiRemoveSpecialPoolRange(PKSPIN_LOCK SpinLock, char a2, unsig
       KiRemoveSystemWorkPriorityKick((__int64)v21);
     }
     __writecr8(v20);
-    if ( SpinLock == &qword_14043AF00 )
-      _InterlockedDecrement(&dword_140438B10);
+    if ( SpinLock == &qword_14043BFC0 )
+      _InterlockedDecrement(&dword_140439BD0);
     else
       v6 = 1;
     return MiReturnSystemVa(

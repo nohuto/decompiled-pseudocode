@@ -37,14 +37,14 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   __int64 v21; // r8
   _BYTE *v22; // rdx
   char *v23; // rcx
-  int VirtualMemory; // eax
+  NTSTATUS VirtualMemory; // eax
   unsigned int *v25; // r13
   unsigned int v26; // r15d
-  __int64 v27; // r9
+  ULONG_PTR v27; // r9
   _BYTE *v28; // rcx
   char *v29; // r12
   int v30; // ebx
-  __int64 v31; // r14
+  ULONG_PTR v31; // r14
   unsigned int v32; // esi
   _BYTE *v33; // rdx
   unsigned int v34; // eax
@@ -84,7 +84,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   char v68; // al
   char *v69; // rcx
   char *v70; // r9
-  _QWORD v72[6]; // [rsp+0h] [rbp-658h] BYREF
+  _BYTE v72[32]; // [rsp+0h] [rbp-658h] BYREF
   char v73; // [rsp+40h] [rbp-618h] BYREF
   int v74; // [rsp+44h] [rbp-614h]
   char v75; // [rsp+48h] [rbp-610h]
@@ -96,7 +96,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   unsigned __int64 v81; // [rsp+68h] [rbp-5F0h] BYREF
   unsigned int v82; // [rsp+70h] [rbp-5E8h]
   unsigned __int16 v83; // [rsp+74h] [rbp-5E4h]
-  int v84; // [rsp+78h] [rbp-5E0h]
+  NTSTATUS v84; // [rsp+78h] [rbp-5E0h]
   unsigned int i; // [rsp+7Ch] [rbp-5DCh]
   int v86; // [rsp+80h] [rbp-5D8h]
   int v87; // [rsp+84h] [rbp-5D4h]
@@ -104,74 +104,76 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   char *v89; // [rsp+90h] [rbp-5C8h]
   unsigned int v90; // [rsp+98h] [rbp-5C0h]
   int v91; // [rsp+9Ch] [rbp-5BCh]
-  __int128 v92; // [rsp+A0h] [rbp-5B8h] BYREF
-  __int64 v93; // [rsp+B0h] [rbp-5A8h]
-  unsigned int v94; // [rsp+B8h] [rbp-5A0h]
-  int v95; // [rsp+BCh] [rbp-59Ch]
-  int v96; // [rsp+C0h] [rbp-598h]
-  _BYTE *v97; // [rsp+C8h] [rbp-590h]
-  char *v98; // [rsp+D0h] [rbp-588h]
-  unsigned int *v99; // [rsp+D8h] [rbp-580h]
-  __int64 v100; // [rsp+E0h] [rbp-578h]
-  char *v101; // [rsp+E8h] [rbp-570h]
-  unsigned int *v102; // [rsp+F8h] [rbp-560h]
-  _BYTE *v103; // [rsp+108h] [rbp-550h]
-  _BYTE *v104; // [rsp+118h] [rbp-540h]
-  _BYTE v105[48]; // [rsp+120h] [rbp-538h] BYREF
-  _BYTE v106[152]; // [rsp+150h] [rbp-508h] BYREF
-  char *v107; // [rsp+1E8h] [rbp-470h]
-  char *v108; // [rsp+248h] [rbp-410h]
-  _QWORD v109[102]; // [rsp+2F0h] [rbp-368h] BYREF
+  PS_MITIGATION_OPTIONS_MAP MitigationOptionsMap; // [rsp+A0h] [rbp-5B8h]
+  unsigned int v93; // [rsp+B8h] [rbp-5A0h]
+  int v94; // [rsp+BCh] [rbp-59Ch]
+  int v95; // [rsp+C0h] [rbp-598h]
+  _BYTE *v96; // [rsp+C8h] [rbp-590h]
+  char *v97; // [rsp+D0h] [rbp-588h]
+  unsigned int *v98; // [rsp+D8h] [rbp-580h]
+  __int64 v99; // [rsp+E0h] [rbp-578h]
+  char *v100; // [rsp+E8h] [rbp-570h]
+  unsigned int *v101; // [rsp+F8h] [rbp-560h]
+  _BYTE *v102; // [rsp+108h] [rbp-550h]
+  _BYTE *v103; // [rsp+118h] [rbp-540h]
+  _BYTE MemoryInformation[48]; // [rsp+120h] [rbp-538h] BYREF
+  _BYTE v105[152]; // [rsp+150h] [rbp-508h] BYREF
+  char *v106; // [rsp+1E8h] [rbp-470h]
+  PVOID BaseAddress; // [rsp+248h] [rbp-410h]
+  _QWORD v108[102]; // [rsp+2F0h] [rbp-368h] BYREF
 
   v4 = a4;
   v82 = a4;
   v5 = a2;
-  v94 = a2;
+  v93 = a2;
   v6 = a1;
-  v100 = a1;
+  v99 = a1;
   v7 = 0;
   if ( !RtlpGetStackLimits(&v81, (void **)&v80) )
     return 0LL;
-  RtlpCaptureContext(v106);
+  RtlpCaptureContext(v105);
   v73 = 0;
   v87 = 0;
-  v92 = xmmword_180155330;
-  v93 = qword_180155340;
-  v8 = v107;
+  MitigationOptionsMap = LdrSystemDllInitBlock.MitigationOptionsMap;
+  v8 = v106;
 LABEL_51:
   if ( ((unsigned __int8)v8 & 7) == 0 && (unsigned __int64)v8 >= v81 && v8 < v80 )
   {
     v75 = 1;
-    v25 = (unsigned int *)RtlpLookupFunctionEntryForStackWalks(v108, &v92);
-    v102 = v25;
+    v25 = (unsigned int *)RtlpLookupFunctionEntryForStackWalks(BaseAddress);
+    v101 = v25;
     if ( !v25 )
       return v7;
     v26 = 0;
     VirtualMemory = 0;
     v88 = 0;
-    v27 = *((_QWORD *)&v92 + 1);
-    v28 = (_BYTE *)(*((_QWORD *)&v92 + 1) + v25[2]);
-    v103 = v28;
+    v27 = MitigationOptionsMap.Map[1];
+    v28 = (_BYTE *)(MitigationOptionsMap.Map[1] + v25[2]);
+    v102 = v28;
     if ( !v28[2] && !v28[1] && (*v28 & 0x20) == 0 )
     {
-      v72[5] = 0LL;
-      v72[4] = 48LL;
-      VirtualMemory = ZwQueryVirtualMemory(-1LL, v108, 0LL, v105);
+      VirtualMemory = ZwQueryVirtualMemory(
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        BaseAddress,
+                        MemoryBasicInformation,
+                        MemoryInformation,
+                        0x30uLL,
+                        0LL);
       v88 = VirtualMemory;
-      if ( VirtualMemory >= 0 && (v105[36] & 0x40) != 0 )
+      if ( VirtualMemory >= 0 && (MemoryInformation[36] & 0x40) != 0 )
       {
         v88 = -1073741823;
         return v7;
       }
-      v27 = *((_QWORD *)&v92 + 1);
+      v27 = MitigationOptionsMap.Map[1];
     }
     if ( VirtualMemory < 0 )
     {
-      v8 = v107;
+      v8 = v106;
       goto LABEL_46;
     }
-    v29 = v108;
-    v99 = v25;
+    v29 = (char *)BaseAddress;
+    v98 = v25;
     v30 = 0;
     v91 = 0;
     v31 = v27 + v25[2];
@@ -181,8 +183,8 @@ LABEL_51:
       v30 = 1;
       v91 = 1;
     }
-    v95 = 0;
-    v9 = (_DWORD)v108 - DWORD2(v92) - *v25;
+    v94 = 0;
+    v9 = (_DWORD)BaseAddress - LODWORD(MitigationOptionsMap.Map[1]) - *v25;
     v10 = *(_BYTE *)(v31 + 3);
     if ( (v10 & 0xF) != 0 )
     {
@@ -190,7 +192,7 @@ LABEL_51:
       {
         v37 = *(_BYTE *)(v31 + 3);
         v38 = v10;
-        v8 = v107;
+        v8 = v106;
       }
       else
       {
@@ -203,11 +205,11 @@ LABEL_51:
           v26 += RtlpUnwindOpSlots(v65);
         }
         v66 = *(unsigned __int8 *)(v31 + 2LL * v26 + 4);
-        v8 = v107;
-        v27 = *((_QWORD *)&v92 + 1);
+        v8 = v106;
+        v27 = MitigationOptionsMap.Map[1];
         if ( v9 < v66 )
         {
-          v89 = v107;
+          v89 = v106;
 LABEL_6:
           if ( v30 )
             goto LABEL_20;
@@ -246,7 +248,7 @@ LABEL_98:
                         v86 = v51,
                         v50) )
                   {
-                    v27 = *((_QWORD *)&v92 + 1);
+                    v27 = MitigationOptionsMap.Map[1];
                     goto LABEL_20;
                   }
                   v46 = v25[1] - v51;
@@ -257,17 +259,17 @@ LABEL_98:
                 v78 = 1;
               }
               RtlpUnwindEpilogue(
-                DWORD2(v92),
+                MitigationOptionsMap.Map[1],
                 v46,
                 v45 - v46,
                 (_DWORD)v25,
-                (__int64)v106,
+                (__int64)v105,
                 0LL,
                 (__int64)&v81,
                 (__int64)&v80);
-              if ( v72 != (_QWORD *)-64LL )
+              if ( v72 != (_BYTE *)-64LL )
                 v73 = 0;
-              v8 = v107;
+              v8 = v106;
               goto LABEL_44;
             }
             v86 = 0;
@@ -276,7 +278,7 @@ LABEL_98:
           v13 = v29;
           v79 = v29;
           v14 = 0;
-          v96 = 0;
+          v95 = 0;
           v15 = *v29;
           if ( *v29 == 72 )
           {
@@ -292,7 +294,7 @@ LABEL_98:
           {
             v52 = v29[2];
             v14 = v52 & 7 | (8 * (v15 & 1));
-            v96 = v14;
+            v95 = v14;
             if ( v14 )
             {
               if ( v14 == (*(_BYTE *)(v31 + 3) & 0xF) )
@@ -347,24 +349,24 @@ LABEL_125:
           }
           else
           {
-            v97 = &v13[-v27];
+            v96 = &v13[-v27];
             if ( v16 == -21 )
               v39 = (char)v13[1] + 2;
             else
               v39 = *(_DWORD *)(v13 + 1) + 5;
             v40 = (unsigned __int64)&v13[v39 - v27];
-            v97 = (_BYTE *)v40;
+            v96 = (_BYTE *)v40;
             v41 = *v25;
             if ( v40 < v41 || v40 >= v25[1] )
             {
               v67 = (_DWORD *)RtlpSameFunction(v25, v27, &v13[v39]);
               if ( !v67 || v40 == *v67 )
               {
-                v8 = v107;
+                v8 = v106;
                 goto LABEL_125;
               }
-              v8 = v107;
-              v27 = *((_QWORD *)&v92 + 1);
+              v8 = v106;
+              v27 = MitigationOptionsMap.Map[1];
             }
             else if ( v40 == v41 && (*(_BYTE *)v31 & 0x20) == 0 )
             {
@@ -400,8 +402,8 @@ LABEL_20:
                       v23 = &v89[v76];
                       if ( &v81 && ((unsigned __int64)v23 < v81 || v23 > v80 - 8) )
                         goto LABEL_201;
-                      *(_QWORD *)&v106[8 * v21 + 120] = *(_QWORD *)v23;
-                      v8 = v107;
+                      *(_QWORD *)&v105[8 * v21 + 120] = *(_QWORD *)v23;
+                      v8 = v106;
                       goto LABEL_33;
                     }
                     switch ( v20[2 * (unsigned int)v17 + 5] & 0xF )
@@ -428,8 +430,8 @@ LABEL_20:
                         v8 += (unsigned int)(8 * v21 + 8);
                         break;
                       case 3:
-                        v107 = *(char **)&v106[8 * (v20[3] & 0xF) + 120];
-                        v8 = &v107[-(v20[3] & 0xF0)];
+                        v106 = *(char **)&v105[8 * (v20[3] & 0xF) + 120];
+                        v8 = &v106[-(v20[3] & 0xF0)];
                         break;
                       case 5:
                         v17 = (unsigned int)(v17 + 2);
@@ -439,8 +441,8 @@ LABEL_20:
                         v69 = &v89[v76];
                         if ( &v81 && ((unsigned __int64)v69 < v81 || v69 > v80 - 8) )
                           goto LABEL_201;
-                        *(_QWORD *)&v106[8 * v21 + 120] = *(_QWORD *)v69;
-                        v8 = v107;
+                        *(_QWORD *)&v105[8 * v21 + 120] = *(_QWORD *)v69;
+                        v8 = v106;
                         goto LABEL_33;
                       case 6:
                         LODWORD(v17) = v17 + 1;
@@ -458,7 +460,7 @@ LABEL_20:
                         if ( &v81 && ((unsigned __int64)v53 < v81 || v53 > v80 - 16) )
                           goto LABEL_201;
                         v54 = 2LL * (unsigned int)v21;
-                        v109[2 * (unsigned int)v21] = *(_QWORD *)v53;
+                        v108[2 * (unsigned int)v21] = *(_QWORD *)v53;
                         v55 = *((_QWORD *)v53 + 1);
                         goto LABEL_112;
                       case 9:
@@ -470,25 +472,25 @@ LABEL_20:
                         if ( &v81 && ((unsigned __int64)v70 < v81 || v70 > v80 - 16) )
                           goto LABEL_201;
                         v54 = 2LL * (unsigned int)v21;
-                        v109[2 * (unsigned int)v21] = *(_QWORD *)v70;
+                        v108[2 * (unsigned int)v21] = *(_QWORD *)v70;
                         v55 = *((_QWORD *)v70 + 1);
 LABEL_112:
-                        v109[v54 + 1] = v55;
-                        v8 = v107;
+                        v108[v54 + 1] = v55;
+                        v8 = v106;
                         goto LABEL_33;
                       case 0xA:
                         v18 = 1;
                         v77 = 1;
                         v59 = v8;
-                        v98 = v8;
+                        v97 = v8;
                         v60 = (char **)(v8 + 24);
-                        v101 = v8 + 24;
+                        v100 = v8 + 24;
                         if ( (_DWORD)v21 )
                         {
                           v59 = v8 + 8;
-                          v98 = v8 + 8;
+                          v97 = v8 + 8;
                           v60 = (char **)(v8 + 32);
-                          v101 = v8 + 32;
+                          v100 = v8 + 32;
                         }
                         if ( &v81 )
                         {
@@ -504,27 +506,27 @@ LABEL_112:
                         }
                         if ( &v81 && ((unsigned __int64)v60 < v81 || v60 > v61 - 1) )
                           goto LABEL_201;
-                        v108 = *(char **)v59;
+                        BaseAddress = *(PVOID *)v59;
                         v8 = *v60;
                         break;
                       default:
-                        RtlRaiseStatus(3221225727LL);
+                        RtlRaiseStatus(-1073741569);
                     }
                   }
                   else
                   {
                     if ( &v81 && ((unsigned __int64)v8 < v81 || v8 > v80 - 8) )
                       goto LABEL_201;
-                    *(_QWORD *)&v106[8 * v21 + 120] = *(_QWORD *)v8;
-                    v8 = v107 + 8;
+                    *(_QWORD *)&v105[8 * v21 + 120] = *(_QWORD *)v8;
+                    v8 = v106 + 8;
                   }
-                  v107 = v8;
+                  v106 = v8;
 LABEL_33:
                   LODWORD(v17) = v17 + 1;
                   goto LABEL_34;
                 }
                 LODWORD(v17) = RtlpUnwindOpSlots(*((_WORD *)v22 + 2)) + v17;
-                v8 = v107;
+                v8 = v106;
 LABEL_34:
                 v74 = v17;
               }
@@ -546,24 +548,24 @@ LABEL_201:
                       goto LABEL_45;
                     }
                   }
-                  v108 = *(char **)v8;
+                  BaseAddress = *(PVOID *)v8;
                   v8 += 8;
-                  v107 = v8;
+                  v106 = v8;
                 }
                 if ( &v73 )
                   v73 = v18;
-                v99 = v25;
-                if ( v95 )
+                v98 = v25;
+                if ( v94 )
                 {
-                  v33 = (_BYTE *)(*((_QWORD *)&v92 + 1) + v25[2]);
-                  if ( (unsigned int)v29 - *v25 - DWORD2(v92) >= (unsigned __int8)v33[1]
-                    && ((*v33 >> 3) & (unsigned __int8)v95) != 0 )
+                  v33 = (_BYTE *)(MitigationOptionsMap.Map[1] + v25[2]);
+                  if ( (unsigned int)v29 - *v25 - LODWORD(MitigationOptionsMap.Map[1]) >= (unsigned __int8)v33[1]
+                    && ((*v33 >> 3) & (unsigned __int8)v94) != 0 )
                   {
                     v34 = (unsigned __int8)v33[2];
                     i = v34;
                     if ( (v34 & 1) != 0 )
                       i = ++v34;
-                    v104 = &v33[2 * v34 + 8];
+                    v103 = &v33[2 * v34 + 8];
                   }
                 }
                 goto LABEL_44;
@@ -574,9 +576,9 @@ LABEL_201:
                 v74 = ++v56;
               v25 = (unsigned int *)&v20[2 * v56 + 4];
               ++v90;
-              v27 = *((_QWORD *)&v92 + 1);
+              v27 = MitigationOptionsMap.Map[1];
               if ( v90 > 0x20 )
-                RtlRaiseStatus(3221225727LL);
+                RtlRaiseStatus(-1073741569);
             }
           }
 LABEL_126:
@@ -600,22 +602,22 @@ LABEL_126:
           v68 = v29[2] & 0xF8;
           if ( v68 == 96 )
           {
-            v107 = *(char **)&v106[8 * v14 + 120];
-            v8 = &v107[v29[3]];
+            v106 = *(char **)&v105[8 * v14 + 120];
+            v8 = &v106[v29[3]];
             v29 += 4;
             goto LABEL_129;
           }
           if ( v68 == -96 )
           {
             v63 = (unsigned __int8)v29[3] | (((unsigned __int8)v29[4] | (*(unsigned __int16 *)(v29 + 5) << 8)) << 8);
-            v8 = *(char **)&v106[8 * v14 + 120];
-            v107 = v8;
+            v8 = *(char **)&v105[8 * v14 + 120];
+            v106 = v8;
 LABEL_158:
             v8 += v63;
             v29 += 7;
 LABEL_129:
             v79 = v29;
-            v107 = v8;
+            v106 = v8;
             goto LABEL_130;
           }
           while ( 1 )
@@ -626,8 +628,8 @@ LABEL_130:
             {
               if ( &v81 && ((unsigned __int64)v8 < v81 || v8 > v80 - 8) )
                 goto LABEL_201;
-              *(_QWORD *)&v106[8 * (v58 & 7) + 120] = *(_QWORD *)v8;
-              v8 = v107 + 8;
+              *(_QWORD *)&v105[8 * (v58 & 7) + 120] = *(_QWORD *)v8;
+              v8 = v106 + 8;
               ++v29;
             }
             else
@@ -644,10 +646,10 @@ LABEL_130:
                     goto LABEL_45;
                   }
                 }
-                v108 = *(char **)v8;
+                BaseAddress = *(PVOID *)v8;
                 v8 += 8;
-                v107 = v8;
-                if ( v72 != (_QWORD *)-64LL )
+                v106 = v8;
+                if ( v72 != (_BYTE *)-64LL )
                   v73 = 0;
 LABEL_44:
                 VirtualMemory = 0;
@@ -656,15 +658,15 @@ LABEL_45:
                 v84 = VirtualMemory;
                 v88 = VirtualMemory;
                 v7 = v87;
-                v5 = v94;
-                v6 = v100;
+                v5 = v93;
+                v6 = v99;
 LABEL_46:
-                if ( VirtualMemory < 0 || !v108 )
+                if ( VirtualMemory < 0 || !BaseAddress )
                   return v7;
                 if ( v7 >= v4 )
                 {
-                  *(_QWORD *)(v6 + 8LL * (v7 - v4)) = v108;
-                  v8 = v107;
+                  *(_QWORD *)(v6 + 8LL * (v7 - v4)) = BaseAddress;
+                  v8 = v106;
                 }
                 v87 = ++v7;
                 if ( v7 >= v5 )
@@ -681,23 +683,23 @@ LABEL_46:
                   goto LABEL_45;
                 }
               }
-              *(_QWORD *)&v106[8 * (v62 & 7 | (8 * (v58 & 1))) + 120] = *(_QWORD *)v8;
-              v8 = v107 + 8;
+              *(_QWORD *)&v105[8 * (v62 & 7 | (8 * (v58 & 1))) + 120] = *(_QWORD *)v8;
+              v8 = v106 + 8;
               v29 += 2;
             }
             v79 = v29;
-            v107 = v8;
+            v106 = v8;
           }
         }
         v38 = *(unsigned __int8 *)(v31 + 3);
         v37 = *(_BYTE *)(v31 + 3);
       }
-      v11 = (char *)(*(_QWORD *)&v106[8 * (v37 & 0xF) + 120] - (int)(v38 & 0xFFFFFFF0));
+      v11 = (char *)(*(_QWORD *)&v105[8 * (v37 & 0xF) + 120] - (int)(v38 & 0xFFFFFFF0));
     }
     else
     {
-      v8 = v107;
-      v11 = v107;
+      v8 = v106;
+      v11 = v106;
     }
     v89 = v11;
     goto LABEL_6;

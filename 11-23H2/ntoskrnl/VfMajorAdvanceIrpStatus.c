@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorAdvanceIrpStatus @ 0x140AD2E9C
+ * XREFs of VfMajorAdvanceIrpStatus @ 0x140AD2E8C
  * Callers:
- *     IovpCompleteRequest2 @ 0x140ACCB2C (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x140ACCB1C (IovpCompleteRequest2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfMajorAdvanceIrpStatus(_BYTE *a1, unsigned int a2, __int64 a3)

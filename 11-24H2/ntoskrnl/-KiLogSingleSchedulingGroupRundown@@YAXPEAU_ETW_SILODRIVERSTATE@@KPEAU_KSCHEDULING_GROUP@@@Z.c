@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KiLogSingleSchedulingGroupRundown@@YAXPEAU_ETW_SILODRIVERSTATE@@KPEAU_KSCHEDULING_GROUP@@@Z @ 0x1405C7634
+ * XREFs of ?KiLogSingleSchedulingGroupRundown@@YAXPEAU_ETW_SILODRIVERSTATE@@KPEAU_KSCHEDULING_GROUP@@@Z @ 0x1405C4D64
  * Callers:
- *     KeTraceSchedulingGroupRundown @ 0x1405C7810 (KeTraceSchedulingGroupRundown.c)
+ *     KeTraceSchedulingGroupRundown @ 0x1405C4F40 (KeTraceSchedulingGroupRundown.c)
  * Callees:
- *     EtwTraceScbRundown @ 0x14064DE6C (EtwTraceScbRundown.c)
- *     EtwTraceSchedulingGroupRundown @ 0x14064DF8C (EtwTraceSchedulingGroupRundown.c)
+ *     EtwTraceScbRundown @ 0x14064C47C (EtwTraceScbRundown.c)
+ *     EtwTraceSchedulingGroupRundown @ 0x14064C59C (EtwTraceSchedulingGroupRundown.c)
  */
 
 void __fastcall KiLogSingleSchedulingGroupRundown(

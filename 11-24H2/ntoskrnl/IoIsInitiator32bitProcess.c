@@ -1,10 +1,10 @@
 /*
- * XREFs of IoIsInitiator32bitProcess @ 0x140409FB0
+ * XREFs of IoIsInitiator32bitProcess @ 0x140402490
  * Callers:
  *     <none>
  * Callees:
- *     IoGetInitiatorProcess @ 0x14040A020 (IoGetInitiatorProcess.c)
- *     IoIs32bitProcess @ 0x14040A050 (IoIs32bitProcess.c)
+ *     IoGetInitiatorProcess @ 0x140402500 (IoGetInitiatorProcess.c)
+ *     IoIs32bitProcess @ 0x140402530 (IoIs32bitProcess.c)
  */
 
 BOOLEAN __fastcall IoIsInitiator32bitProcess(PIRP Irp)

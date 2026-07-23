@@ -9,11 +9,8 @@
  *     RtlReleaseSRWLockExclusive @ 0x180023A90 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpLargeLockRelease(__int64 a1, char a2)
+void __fastcall RtlpHpLargeLockRelease(_RTL_SRWLOCK *a1, char a2)
 {
-  signed __int64 result; // rax
-
   if ( (a2 & 1) == 0 )
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 48));
-  return result;
+    RtlReleaseSRWLockExclusive(a1 + 6);
 }

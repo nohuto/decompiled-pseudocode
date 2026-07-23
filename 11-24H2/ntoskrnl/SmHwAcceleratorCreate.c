@@ -1,14 +1,14 @@
 /*
- * XREFs of SmHwAcceleratorCreate @ 0x14079BC3C
+ * XREFs of SmHwAcceleratorCreate @ 0x14079BD4C
  * Callers:
- *     SmHwAcceleratorMgrAcquireAccelerators @ 0x14079BE58 (SmHwAcceleratorMgrAcquireAccelerators.c)
+ *     SmHwAcceleratorMgrAcquireAccelerators @ 0x14079BF68 (SmHwAcceleratorMgrAcquireAccelerators.c)
  * Callees:
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     AccelInitializeCompressionWorkspace @ 0x140665974 (AccelInitializeCompressionWorkspace.c)
- *     AccelInitializeDescriptor @ 0x140665AB0 (AccelInitializeDescriptor.c)
- *     AccelQueryDescriptorSize @ 0x140665BF4 (AccelQueryDescriptorSize.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     AccelInitializeCompressionWorkspace @ 0x140664264 (AccelInitializeCompressionWorkspace.c)
+ *     AccelInitializeDescriptor @ 0x1406643A0 (AccelInitializeDescriptor.c)
+ *     AccelQueryDescriptorSize @ 0x1406644E4 (AccelQueryDescriptorSize.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 SmHwAcceleratorCreate(__int64 a1, __int64 *a2, int a3, ...)
@@ -54,7 +54,7 @@ __int64 SmHwAcceleratorCreate(__int64 a1, __int64 *a2, int a3, ...)
   if ( DescriptorSize >= 0 )
   {
     v7 = v29;
-    v8 = (struct _PRIVILEGE_SET *)SmAllocEx((unsigned int)v29, 1682009459LL, -1);
+    v8 = (struct _PRIVILEGE_SET *)SmAllocEx((unsigned int)v29, 0x64416D73u, -1);
     if ( v8 )
     {
       for ( i = 0LL; (unsigned int)i < 2; i = (unsigned int)(i + 1) )
@@ -85,7 +85,7 @@ __int64 SmHwAcceleratorCreate(__int64 a1, __int64 *a2, int a3, ...)
           goto LABEL_12;
         *((_DWORD *)&v28 + i) = v25;
       }
-      v12 = (_QWORD *)SmAllocEx(72LL, 1749118323LL, a3 | 0x80000000);
+      v12 = (_QWORD *)SmAllocEx(0x48uLL, 0x68416D73u, a3 | 0x80000000);
       v13 = v12;
       if ( v12 )
       {

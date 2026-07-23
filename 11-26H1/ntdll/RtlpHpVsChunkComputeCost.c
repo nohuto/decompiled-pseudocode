@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsChunkComputeCost @ 0x18006B794
+ * XREFs of RtlpHpVsChunkComputeCost @ 0x18008BBE4
  * Callers:
- *     RtlpHpVsChunkFree @ 0x18006B040 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsFreeChunkInsert @ 0x1800E797C (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsFreeChunkRemove @ 0x1800ECD3C (RtlpHpVsFreeChunkRemove.c)
- *     RtlpHpVsSlotCompactChunks @ 0x1800F8860 (RtlpHpVsSlotCompactChunks.c)
+ *     RtlpHpVsChunkFree @ 0x18008B490 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1800E63DC (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x1800EC12C (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1800F8030 (RtlpHpVsSlotCompactChunks.c)
  * Callees:
  *     <none>
  */

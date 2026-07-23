@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateFileOnlyImageFixupExtents @ 0x140507310
+ * XREFs of MiCreateFileOnlyImageFixupExtents @ 0x140500CE0
  * Callers:
- *     MiRelocateImage @ 0x1409CA7A4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14099B784 (MiRelocateImage.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiLockLeafPage @ 0x140298E10 (MiLockLeafPage.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiLockProtoPoolPageForce @ 0x1403A10E0 (MiLockProtoPoolPageForce.c)
- *     MiPageHasRelocations @ 0x1409CF740 (MiPageHasRelocations.c)
- *     MiGetMaximumRelocationVpn @ 0x140A7D960 (MiGetMaximumRelocationVpn.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiLockLeafPage @ 0x140298370 (MiLockLeafPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiLockProtoPoolPageForce @ 0x1403A2E40 (MiLockProtoPoolPageForce.c)
+ *     MiPageHasRelocations @ 0x1409A0720 (MiPageHasRelocations.c)
+ *     MiGetMaximumRelocationVpn @ 0x140A837D0 (MiGetMaximumRelocationVpn.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateFileOnlyImageFixupExtents(volatile LONG *a1, __int64 a2)
@@ -36,31 +36,33 @@ __int64 __fastcall MiCreateFileOnlyImageFixupExtents(volatile LONG *a1, __int64 
   __int64 v17; // r15
   unsigned __int64 v18; // rbp
   unsigned __int64 v19; // r11
-  unsigned __int64 v20; // r10
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // rdi
-  _QWORD *v23; // r8
-  __int64 j; // r9
+  _QWORD *v20; // r8
+  bool v21; // cf
+  _QWORD *v22; // r14
+  unsigned __int64 v23; // r10
+  unsigned __int64 v24; // rdx
   unsigned __int64 v25; // rdi
-  unsigned __int64 v26; // rdx
-  ULONG_PTR v27; // rbx
-  __int64 v28; // rax
-  ULONG_PTR v29; // rax
-  __int64 v30; // r8
-  ULONG_PTR v31; // rbp
-  __int64 v32; // rbx
-  KIRQL v33; // al
-  volatile LONG *v34; // rcx
-  __int64 v36; // [rsp+20h] [rbp-68h]
-  __int64 v37; // [rsp+28h] [rbp-60h]
-  __int64 *v38; // [rsp+30h] [rbp-58h]
-  __int64 v39; // [rsp+38h] [rbp-50h]
-  unsigned __int64 v40; // [rsp+40h] [rbp-48h]
-  unsigned __int8 v42; // [rsp+A0h] [rbp+18h] BYREF
-  unsigned __int64 v43; // [rsp+A8h] [rbp+20h]
+  __int64 j; // r9
+  unsigned __int64 v27; // rdi
+  unsigned __int64 v28; // rdx
+  __int64 v29; // rdx
+  ULONG_PTR v30; // rbx
+  __int64 v31; // rax
+  ULONG_PTR v32; // rax
+  ULONG_PTR v33; // rbp
+  __int64 v34; // rbx
+  KIRQL v35; // al
+  volatile LONG *v36; // rcx
+  __int64 v38; // [rsp+20h] [rbp-68h]
+  __int64 v39; // [rsp+28h] [rbp-60h]
+  __int64 *v40; // [rsp+30h] [rbp-58h]
+  __int64 v41; // [rsp+38h] [rbp-50h]
+  unsigned __int64 v42; // [rsp+40h] [rbp-48h]
+  unsigned __int8 v44; // [rsp+A0h] [rbp+18h] BYREF
+  unsigned __int64 v45; // [rsp+A8h] [rbp+20h]
 
   v3 = *(_QWORD *)a1;
-  v40 = *((_QWORD *)a1 + 12) & 0xFFFFFFFFFFFFFFF8uLL;
+  v42 = *((_QWORD *)a1 + 12) & 0xFFFFFFFFFFFFFFF8uLL;
   v5 = 0LL;
   v6 = *(unsigned int *)(*(_QWORD *)a1 + 8LL);
   PoolMm = (__int64 *)ExAllocatePoolMm(
@@ -68,13 +70,13 @@ __int64 __fastcall MiCreateFileOnlyImageFixupExtents(volatile LONG *a1, __int64 
                         8 * ((v6 >> 6) + ((v6 & 0x3F) != 0) + 2LL),
                         1833068877,
                         KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000);
-  v38 = PoolMm;
+  v40 = PoolMm;
   v8 = PoolMm;
   if ( !PoolMm )
     return (unsigned int)-1073741670;
   *PoolMm = v6;
   PoolMm[1] = (__int64)(PoolMm + 2);
-  v36 = *(_QWORD *)(v3 + 64);
+  v38 = *(_QWORD *)(v3 + 64);
   MaximumRelocationVpn = (unsigned int)MiGetMaximumRelocationVpn(a2, 1LL);
   for ( i = (__int64 *)(a1 + 32); i; i = (__int64 *)i[2] )
   {
@@ -86,7 +88,7 @@ __int64 __fastcall MiCreateFileOnlyImageFixupExtents(volatile LONG *a1, __int64 
       {
         RtlSetBitsEx((__int64)v8, v12, *((unsigned int *)i + 11));
 LABEL_12:
-        v9 = v36;
+        v9 = v38;
         continue;
       }
     }
@@ -102,12 +104,12 @@ LABEL_12:
       goto LABEL_12;
     }
   }
-  v39 = RtlNumberOfSetBitsEx(v8);
-  if ( !v39 )
+  v41 = RtlNumberOfSetBitsEx(v8);
+  if ( !v41 )
     goto LABEL_51;
   v5 = (_DWORD *)ExAllocatePoolMm(
                    64LL,
-                   8 * v39 + 8,
+                   8 * v41 + 8,
                    1884449101,
                    KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000);
   if ( !v5 )
@@ -118,101 +120,111 @@ LABEL_12:
   v15 = 0;
   v16 = 0LL;
   v17 = 0LL;
-  v42 = 0;
+  v44 = 0;
   v18 = 0LL;
 LABEL_19:
   do
   {
     v19 = *v8;
-    v37 = v8[1];
-    v20 = v18 & -(__int64)(v18 < *v8);
-    v21 = *v8 - 1;
+    v20 = (_QWORD *)v8[1];
+    v21 = v18 < *v8;
+    v39 = (__int64)v20;
+    v22 = v20;
+    v23 = v18 & -(__int64)v21;
+    v24 = v19 - 1;
     while ( 1 )
     {
-      LODWORD(v43) = 0;
-      if ( v21 - v20 == -1LL )
+      LODWORD(v45) = 0;
+      if ( v24 - v23 == -1LL )
         goto LABEL_21;
-      v23 = (_QWORD *)(v37 + 8 * (v20 >> 6));
-      for ( j = ~*v23 | ((1LL << v20) - 1); j == -1; j = ~*v23 )
+      v20 = &v22[v23 >> 6];
+      for ( j = ~*v20 | ((1LL << v23) - 1); j == -1; j = ~*v20 )
       {
-        if ( (unsigned __int64)++v23 > v37 + 8 * (v21 >> 6) )
+        if ( ++v20 > &v22[v24 >> 6] )
           goto LABEL_21;
       }
-      _BitScanForward64(&v25, ~j);
-      v22 = (((__int64)v23 - v37) >> 3 << 6) + v25;
-      if ( v22 > v21 )
+      _BitScanForward64(&v27, ~j);
+      v20 = (_QWORD *)((v20 - v22) << 6);
+      v25 = (unsigned __int64)v20 + v27;
+      if ( v25 > v24 )
       {
 LABEL_21:
-        v22 = -1LL;
+        v25 = -1LL;
       }
       else
       {
-        v43 = v22;
-        if ( v22 != -1LL )
+        v45 = v25;
+        if ( v25 != -1LL )
           break;
       }
-      if ( !v20 )
+      if ( !v23 )
         break;
-      v26 = v18 + 1;
+      v28 = v18 + 1;
       if ( v18 + 1 > v19 )
-        v26 = v19;
-      v21 = v26 - 1;
-      v20 = 0LL;
+        v28 = v19;
+      v24 = v28 - 1;
+      v23 = 0LL;
     }
-    v8 = v38;
-    if ( v22 < v18 || v22 == 0xFFFFFFFF )
+    v8 = v40;
+    if ( v25 < v18 || v25 == 0xFFFFFFFF )
       break;
-    *(_BYTE *)((v22 >> 3) + v37) &= ~(1 << (v22 & 7));
-    v43 = v22 + 1;
-    v27 = v36 + 8 * v22;
+    v29 = v25 >> 3;
+    *(_BYTE *)((v25 >> 3) + v39) &= ~(1 << (v25 & 7));
+    v45 = v25 + 1;
+    v30 = v38 + 8 * v25;
     if ( v17 )
     {
-      if ( v16 == (v27 & 0xFFFFFFFFFFFFF000uLL) )
+      if ( v16 == (v30 & 0xFFFFFFFFFFFFF000uLL) )
         goto LABEL_39;
-      MiUnlockProtoPoolPage(v17, v15);
-      v16 = v27 & 0xFFFFFFFFFFFFF000uLL;
+      LOBYTE(v29) = v15;
+      MiUnlockProtoPoolPage(v17, v29, v39);
+      v16 = v30 & 0xFFFFFFFFFFFFF000uLL;
     }
     else
     {
-      v16 = v27 & 0xFFFFFFFFFFFFF000uLL;
+      v16 = v30 & 0xFFFFFFFFFFFFF000uLL;
     }
-    v28 = MiLockProtoPoolPageForce(v27, &v42);
-    v15 = v42;
-    v17 = v28;
+    v31 = MiLockProtoPoolPageForce(v30, &v44);
+    v15 = v44;
+    v17 = v31;
 LABEL_39:
-    v29 = MiLockLeafPage((unsigned __int64 *)v27, 0);
-    v31 = v29;
-    if ( v29 )
+    v32 = MiLockLeafPage((unsigned __int64 *)v30, 0);
+    v33 = v32;
+    if ( v32 )
     {
-      v32 = v29;
-      MiRestoreTransitionPte(v29, 0, v30);
-      *(_DWORD *)(v31 + 32) |= 0x70000u;
-      *(_DWORD *)(v31 + 32) = *(_DWORD *)(v31 + 32) & 0xFFFF0000 | 1;
-      _InterlockedAnd64((volatile signed __int64 *)(v31 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v34 = v32;
+      MiRestoreTransitionPte(v32, 0, (__int64)v20);
+      *(_DWORD *)(v33 + 32) |= 0x70000u;
+      *(_DWORD *)(v33 + 32) = *(_DWORD *)(v33 + 32) & 0xFFFF0000 | 1;
+      _InterlockedAnd64((volatile signed __int64 *)(v33 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
     else
     {
-      v18 = v43;
-      if ( (*(_QWORD *)v27 & 0x400LL) == 0 )
+      v18 = v45;
+      if ( (*(_QWORD *)v30 & 0x400LL) == 0 )
         goto LABEL_19;
-      v32 = v27 | 1;
+      v34 = v30 | 1;
     }
-    v18 = v43;
-    *(_QWORD *)&v5[2 * (*v5)++ + 2] = v32;
-    *(_BYTE *)((v22 >> 3) + v38[1]) |= 1 << (v22 & 7);
+    v18 = v45;
+    v24 = v25 >> 3;
+    *(_QWORD *)&v5[2 * (*v5)++ + 2] = v34;
+    *(_BYTE *)((v25 >> 3) + v40[1]) |= 1 << (v25 & 7);
   }
-  while ( *v5 != v39 );
+  while ( *v5 != v41 );
   if ( v17 )
-    MiUnlockProtoPoolPage(v17, v15);
+  {
+    LOBYTE(v24) = v15;
+    MiUnlockProtoPoolPage(v17, v24, (__int64)v20);
+  }
   if ( *v5 )
   {
-    v33 = ExAcquireSpinLockExclusive(a1 + 18);
-    *(_QWORD *)(v40 + 48) = v5;
-    v34 = a1 + 18;
-    if ( v33 == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(v34);
+    v35 = ExAcquireSpinLockExclusive(a1 + 18);
+    *(_QWORD *)(v42 + 48) = v5;
+    v36 = a1 + 18;
+    if ( v35 == 17 )
+      ExReleaseSpinLockExclusiveFromDpcLevel(v36);
     else
-      ExReleaseSpinLockExclusive(v34, v33);
+      ExReleaseSpinLockExclusive(v36, v35);
     v5 = 0LL;
   }
 LABEL_51:

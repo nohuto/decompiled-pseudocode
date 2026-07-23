@@ -16,9 +16,9 @@ NTSTATUS __stdcall IoCheckQuerySetFileInformation(
 
   if ( (unsigned int)FileInformationClass >= (FileMaximumInformation|FileDirectoryInformation) )
     return -1073741821;
-  v3 = IopSetOperationLength;
+  v3 = qword_140A39470;
   if ( !SetOperation )
-    v3 = IopQueryOperationLength;
+    v3 = qword_140A394C0;
   v4 = *((char *)v3 + (int)FileInformationClass);
   if ( (_BYTE)v4 )
     return Length < v4 ? 0xC0000004 : 0;

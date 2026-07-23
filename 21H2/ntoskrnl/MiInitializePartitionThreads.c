@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializePartitionThreads @ 0x1408C7C54
+ * XREFs of MiInitializePartitionThreads @ 0x1408C7DB4
  * Callers:
- *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x1403CAB14 (MmCreatePartition.c)
  * Callees:
- *     MiCreateZeroThreadContext @ 0x1403B0C88 (MiCreateZeroThreadContext.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     MiCreateZeroThreadContext @ 0x1403B0DF8 (MiCreateZeroThreadContext.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FE54 (MiDeleteZeroThreadContext.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInitializePartitionThreads(__int64 a1)

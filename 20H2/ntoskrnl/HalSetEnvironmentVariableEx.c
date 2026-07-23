@@ -30,7 +30,7 @@ __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int6
   unsigned int v19; // edx
   unsigned int v20; // ebx
   wchar_t Dst[8]; // [rsp+30h] [rbp+0h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp+10h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp+10h] BYREF
 
   *(_OWORD *)Dst = 0LL;
   PreviousAffinity = 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonDisableMonitoring @ 0x140595280
+ * XREFs of EmonDisableMonitoring @ 0x140597A00
  * Callers:
  *     <none>
  * Callees:
- *     EmonConfigureCounter @ 0x1405950D0 (EmonConfigureCounter.c)
- *     EmonFindCounterToDisable @ 0x1405955A8 (EmonFindCounterToDisable.c)
- *     EmonFreeCounter @ 0x140595658 (EmonFreeCounter.c)
+ *     EmonConfigureCounter @ 0x140597850 (EmonConfigureCounter.c)
+ *     EmonFindCounterToDisable @ 0x140597D28 (EmonFindCounterToDisable.c)
+ *     EmonFreeCounter @ 0x140597DD8 (EmonFreeCounter.c)
  */
 
 __int64 __fastcall EmonDisableMonitoring(unsigned int a1, unsigned int *a2)

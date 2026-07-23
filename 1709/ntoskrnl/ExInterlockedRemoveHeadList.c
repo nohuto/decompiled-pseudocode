@@ -9,7 +9,7 @@
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  struct _LIST_ENTRY *v2; // rsi
+  _LIST_ENTRY *v2; // rsi
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *v7; // rax
   __int16 v8; // [rsp+30h] [rbp-8h]

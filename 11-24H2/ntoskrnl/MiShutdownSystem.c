@@ -1,71 +1,69 @@
 /*
- * XREFs of MiShutdownSystem @ 0x140B62174
+ * XREFs of MiShutdownSystem @ 0x140B64244
  * Callers:
- *     MmShutdownSystem @ 0x140B625C0 (MmShutdownSystem.c)
+ *     MmShutdownSystem @ 0x140B64690 (MmShutdownSystem.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     MmUnlockPagableImageSection @ 0x1402C7030 (MmUnlockPagableImageSection.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404D2990 (MmAcquireLoadLock.c)
- *     MiFlushAllFilesystemPages @ 0x1404D6B8C (MiFlushAllFilesystemPages.c)
- *     CcNotifyWriteBehind @ 0x14057A440 (CcNotifyWriteBehind.c)
- *     MiDeleteHardwareAccelerators @ 0x140690ACC (MiDeleteHardwareAccelerators.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     MiDeletePagingFiles @ 0x1407EF0A4 (MiDeletePagingFiles.c)
- *     MmLockPagableSectionByHandle @ 0x140A3FE90 (MmLockPagableSectionByHandle.c)
- *     MiFreeLoadedImportList @ 0x140A9ED10 (MiFreeLoadedImportList.c)
- *     MiZeroAllPageFiles @ 0x140B6236C (MiZeroAllPageFiles.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140B634EC (MiDeleteAllHardwareEnclaves.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MmUnlockPagableImageSection @ 0x1402BBBB0 (MmUnlockPagableImageSection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404CBB50 (MmAcquireLoadLock.c)
+ *     MiFlushAllFilesystemPages @ 0x1404CFFDC (MiFlushAllFilesystemPages.c)
+ *     CcNotifyWriteBehind @ 0x1405778D0 (CcNotifyWriteBehind.c)
+ *     MiDeleteHardwareAccelerators @ 0x140691B9C (MiDeleteHardwareAccelerators.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     MiDeletePagingFiles @ 0x1407EF674 (MiDeletePagingFiles.c)
+ *     MmLockPagableSectionByHandle @ 0x140A35770 (MmLockPagableSectionByHandle.c)
+ *     MiFreeLoadedImportList @ 0x140A9A0D8 (MiFreeLoadedImportList.c)
+ *     MiZeroAllPageFiles @ 0x140B6443C (MiZeroAllPageFiles.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140B655BC (MiDeleteAllHardwareEnclaves.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char MiShutdownSystem()
 {
   struct _KTHREAD *CurrentThread; // rbx
-  _QWORD *v1; // rax
+  char *v1; // rax
   signed __int8 v2; // cf
-  _QWORD *v3; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  bool v6; // zf
+  char *v3; // rdi
+  bool v4; // zf
   struct _KTHREAD *Lock; // rax
-  PVOID *v8; // rbx
-  struct _KTHREAD *v9; // r14
-  _QWORD *v10; // rdi
-  ULONG_PTR v11; // rbp
+  PVOID *v6; // rbx
+  struct _KTHREAD *v7; // r14
+  _QWORD *v8; // rdi
+  ULONG_PTR v9; // rbp
   void *Pool; // rax
-  void *v13; // rsi
-  PVOID v14; // rcx
+  void *v11; // rsi
+  PVOID v12; // rcx
 
-  if ( !dword_140E30044 )
+  if ( !dword_140E30184 )
   {
     MiDeleteHardwareAccelerators(0LL, 1);
     CcNotifyWriteBehind();
     MiFlushAllFilesystemPages(0);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v1 = KeAbPreAcquire((__int64)qword_140E39040, 0LL);
-    v2 = _interlockedbittestandset64((volatile signed __int32 *)qword_140E39040, 0LL);
+    v1 = (char *)KeAbPreAcquire((__int64)qword_140E39180, 0LL);
+    v2 = _interlockedbittestandset64((volatile signed __int32 *)qword_140E39180, 0LL);
     v3 = v1;
     if ( v2 )
-      ExfAcquirePushLockExclusiveEx(qword_140E39040, (__int64)v1, (__int64)qword_140E39040);
+      ExfAcquirePushLockExclusiveEx(qword_140E39180, v1, (__int64)qword_140E39180);
     if ( v3 )
-      *((_BYTE *)v3 + 10) = 1;
-    dword_140E30044 = 1;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140E39040, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)qword_140E39040);
-    KeAbPostRelease((ULONG_PTR)qword_140E39040);
-    v6 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v6 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v5, v4);
-    KeSetEvent(&stru_140E38C58, 0, 0);
-    if ( byte_140E30042 )
+      v3[10] = 1;
+    dword_140E30184 = 1;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140E39180, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)qword_140E39180);
+    KeAbPostRelease((ULONG_PTR)qword_140E39180);
+    v4 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v4 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
+    KeSetEvent(&stru_140E38D98, 0, 0);
+    if ( byte_140E30182 )
     {
       if ( (MiFlags & 4) == 0 )
         MmLockPagableSectionByHandle(ExPageLockHandle);
@@ -78,34 +76,34 @@ char MiShutdownSystem()
   if ( PopShutdownCleanly )
   {
     Lock = MmAcquireLoadLock();
-    v8 = (PVOID *)PsLoadedModuleList;
-    v9 = Lock;
-    while ( v8 != &PsLoadedModuleList )
+    v6 = (PVOID *)PsLoadedModuleList;
+    v7 = Lock;
+    while ( v6 != &PsLoadedModuleList )
     {
-      v10 = v8[17];
-      if ( v10 != (_QWORD *)1 && v10 != (_QWORD *)-2LL && ((unsigned __int8)v10 & 1) == 0 )
+      v8 = v6[17];
+      if ( v8 != (_QWORD *)1 && v8 != (_QWORD *)-2LL && ((unsigned __int8)v8 & 1) == 0 )
       {
-        v11 = 8LL * *v10 + 8;
-        Pool = (void *)MiAllocatePool(0x40uLL, v11, 1413770573);
-        v13 = Pool;
+        v9 = 8LL * *v8 + 8;
+        Pool = (void *)MiAllocatePool(0x40uLL, v9, 1413770573);
+        v11 = Pool;
         if ( !Pool )
         {
           PopShutdownCleanly = 0;
           break;
         }
-        memmove(Pool, v10, v11);
-        MiFreeLoadedImportList(v10);
-        v8[17] = v13;
+        memmove(Pool, v8, v9);
+        MiFreeLoadedImportList(v8);
+        v6[17] = v11;
       }
-      v14 = v8[10];
-      if ( v14 )
+      v12 = v6[10];
+      if ( v12 )
       {
-        ExFreePoolWithTag(v14, 0);
-        v8[10] = 0LL;
+        ExFreePoolWithTag(v12, 0);
+        v6[10] = 0LL;
       }
-      v8 = (PVOID *)*v8;
+      v6 = (PVOID *)*v6;
     }
-    MmReleaseLoadLock(v9);
+    MmReleaseLoadLock(v7);
     MiDeletePagingFiles((__int64)&MiSystemPartition);
   }
   return 1;

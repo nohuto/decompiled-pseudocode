@@ -18,21 +18,19 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppSingleTimerExpiration(__int64 a1, volatile signed __int32 *a2, char a3)
+LOGICAL __fastcall TppSingleTimerExpiration(_RTL_SRWLOCK *BaseAddress, PRTL_SRWLOCK SRWLock, char a3)
 {
   _DWORD *SharedData; // rcx
   __int64 v7; // rcx
-  volatile signed __int64 *v8; // rsi
+  _RTL_SRWLOCK *v8; // rsi
   __int64 v9; // rdi
   char v10; // al
-  __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 result; // rax
-  __int64 (__fastcall *v15)(); // rax
-  __int64 v16; // rdx
-  _QWORD *v17; // rdi
-  __int64 v18; // rcx
+  __int64 Ptr_high; // rax
+  LOGICAL result; // eax
+  __int64 (__fastcall *v13)(); // rax
+  __int64 v14; // rdx
+  __int64 **Value; // rdi
+  __int64 v16; // rcx
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
@@ -41,77 +39,77 @@ __int64 __fastcall TppSingleTimerExpiration(__int64 a1, volatile signed __int32 
     v7 = 2147353478LL;
   if ( *(_BYTE *)v7 )
   {
-    v18 = 2LL;
+    v16 = 1LL;
     if ( !a3 )
-      v18 = 32LL;
-    TppETWTimerExpiration(&a2[v18], a1);
+      v16 = 16LL;
+    TppETWTimerExpiration(&SRWLock[v16], BaseAddress);
   }
-  v8 = (volatile signed __int64 *)(a1 + 240);
+  v8 = BaseAddress + 30;
   v9 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0];
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
-  v10 = *(_BYTE *)(a1 + 354);
-  *(_BYTE *)(a1 + 354) = 0;
+  RtlAcquireSRWLockExclusive(BaseAddress + 30);
+  v10 = BYTE2(BaseAddress[44].Value);
+  BYTE2(BaseAddress[44].Value) = 0;
   if ( (v10 & 4) == 0 )
   {
-    if ( *(_BYTE *)(a1 + 353) )
+    if ( *((_BYTE *)&BaseAddress[44].0 + 1) )
     {
-      *(_QWORD *)(a1 + 328) = 0LL;
-      if ( !(unsigned __int8)TppWaitTimerExpiration(a1) )
+      BaseAddress[41].Value = 0LL;
+      if ( !(unsigned __int8)TppWaitTimerExpiration(BaseAddress) )
         goto LABEL_8;
     }
     else
     {
-      v11 = *(unsigned int *)(a1 + 348);
-      if ( (_DWORD)v11 )
+      Ptr_high = HIDWORD(BaseAddress[43].Ptr);
+      if ( (_DWORD)Ptr_high )
       {
         if ( a3 )
         {
-          *(_QWORD *)(a1 + 328) = v9;
-          v8 = (volatile signed __int64 *)(a1 + 240);
+          BaseAddress[41].Value = v9;
+          v8 = BaseAddress + 30;
         }
-        v16 = 10000 * v11 + *(_QWORD *)(a1 + 328);
-        *(_QWORD *)(a1 + 328) = v16;
-        if ( v16 <= v9 )
-          *(_QWORD *)(a1 + 328) = v9 + 10000 * v11 - (v9 - v16) % (10000 * v11);
-        _InterlockedIncrement((volatile signed __int32 *)a1);
-        RtlAcquireSRWLockExclusive(a2);
-        TppEnqueueTimer((__int64)(a2 + 32), a1);
-        TppUpdateSubQueueTimer(a2 + 32, 0LL);
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+        v14 = 10000 * Ptr_high + BaseAddress[41].Value;
+        BaseAddress[41].Value = v14;
+        if ( v14 <= v9 )
+          BaseAddress[41].Value = v9 + 10000 * Ptr_high - (v9 - v14) % (10000 * Ptr_high);
+        _InterlockedIncrement((volatile signed __int32 *)BaseAddress);
+        RtlAcquireSRWLockExclusive(SRWLock);
+        TppEnqueueTimer((__int64)&SRWLock[16], (__int64)BaseAddress);
+        TppUpdateSubQueueTimer(&SRWLock[16], 0LL);
+        RtlReleaseSRWLockExclusive(SRWLock);
       }
     }
-    TppWorkPost(a1);
+    TppWorkPost(BaseAddress);
 LABEL_8:
     RtlReleaseSRWLockExclusive(v8);
     goto LABEL_9;
   }
-  *(_DWORD *)(a1 + 348) = 0;
-  *(_QWORD *)(a1 + 328) = 0LL;
-  v17 = *(_QWORD **)(a1 + 336);
-  *(_QWORD *)(a1 + 336) = 0LL;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-  TppIteWakeWaiters(v17);
+  HIDWORD(BaseAddress[43].Ptr) = 0;
+  BaseAddress[41].Value = 0LL;
+  Value = (__int64 **)BaseAddress[42].Value;
+  BaseAddress[42].Value = 0LL;
+  RtlReleaseSRWLockExclusive(BaseAddress + 30);
+  TppIteWakeWaiters(Value);
 LABEL_9:
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    v15 = **(__int64 (__fastcall ***)())(a1 + 8);
-    if ( v15 == TppSimplepFree )
+    v13 = *(__int64 (__fastcall **)())BaseAddress[1].Value;
+    if ( v13 == TppSimplepFree )
     {
-      TppCleanupGroupMemberDestroy(a1);
-      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a1);
+      TppCleanupGroupMemberDestroy(BaseAddress);
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
     }
-    else if ( (char *)v15 == (char *)TppAlpcpFree )
+    else if ( (char *)v13 == (char *)TppAlpcpFree )
     {
-      return TppAlpcpFree(a1, v12, v13);
+      return TppAlpcpFree(BaseAddress);
     }
-    else if ( (char *)v15 == (char *)TppWorkpFree )
+    else if ( (char *)v13 == (char *)TppWorkpFree )
     {
-      return TppWorkpFree(a1, v12, v13);
+      return TppWorkpFree(BaseAddress);
     }
     else
     {
-      return ((__int64 (__fastcall *)(__int64))v15)(a1);
+      return ((__int64 (__fastcall *)(_RTL_SRWLOCK *))v13)(BaseAddress);
     }
   }
   return result;

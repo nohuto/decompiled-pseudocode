@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetStandbyLookasideState @ 0x14041CE60
+ * XREFs of MiSetStandbyLookasideState @ 0x140410EB0
  * Callers:
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
  * Callees:
  *     <none>
  */

@@ -1,41 +1,43 @@
 /*
- * XREFs of RtlCompareExchangePropertyStore @ 0x180143020
+ * XREFs of RtlCompareExchangePropertyStore @ 0x1801413D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     bsearch @ 0x180123D40 (bsearch.c)
- *     qsort @ 0x180125BE0 (qsort.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     bsearch @ 0x180121F70 (bsearch.c)
+ *     qsort @ 0x180123E10 (qsort.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, volatile signed __int32 **a2, __int64 *a3, _QWORD *a4)
+NTSTATUS __cdecl RtlCompareExchangePropertyStore(
+        ULONG_PTR Key,
+        PULONG_PTR Comperand,
+        PULONG_PTR Exchange,
+        PULONG_PTR Context)
 {
   int v4; // r12d
-  unsigned __int64 v6; // r15
+  void *v6; // r15
   _OWORD *i; // rbp
   char *Heap; // rbx
   char *v10; // rax
   int v11; // esi
   unsigned int v12; // edi
   unsigned int v13; // ebp
-  volatile signed __int32 **v14; // rdx
-  unsigned __int64 v15; // r8
-  unsigned int v16; // edi
-  void *v17; // rsi
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  __int64 v20; // rcx
-  unsigned int v21; // ebx
+  unsigned int v14; // edi
+  void *v15; // rsi
+  __int64 v16; // rax
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // rcx
+  NTSTATUS v19; // ebx
 
   v4 = 0;
   v6 = 0LL;
-  for ( i = Key; ; i = Key )
+  for ( i = (_OWORD *)Key; ; i = (_OWORD *)Key )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpPropStoreLock, a2, (unsigned __int64)a3);
+    RtlAcquireSRWLockExclusive(&RtlpPropStoreLock);
     Heap = (char *)RtlpPropStoreEntries;
     if ( RtlpPropStoreEntries )
     {
@@ -48,7 +50,7 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, volatile signed 
       Heap = (char *)RtlpPropStoreEntries;
       if ( v10 )
       {
-        v16 = RtlpPropStoreEntriesActiveCount;
+        v14 = RtlpPropStoreEntriesActiveCount;
         goto LABEL_20;
       }
     }
@@ -70,60 +72,60 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, volatile signed 
       v13 = 16;
     }
     RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
-    Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 24LL * v13);
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 24LL * v13);
     if ( !Heap )
     {
 LABEL_28:
-      v21 = -1073741801;
+      v19 = -1073741801;
       goto LABEL_29;
     }
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpPropStoreLock, v14, v15);
+    RtlAcquireSRWLockExclusive(&RtlpPropStoreLock);
     if ( v11 == RtlpPropStoreEntriesTotalCount )
     {
-      v17 = RtlpPropStoreEntries;
+      v15 = RtlpPropStoreEntries;
       v12 = RtlpPropStoreEntriesActiveCount;
       if ( RtlpPropStoreEntries )
       {
         memmove(Heap, RtlpPropStoreEntries, 24LL * (unsigned int)RtlpPropStoreEntriesActiveCount);
-        v6 = (unsigned __int64)v17;
+        v6 = v15;
       }
       RtlpPropStoreEntriesTotalCount = v13;
-      i = Key;
+      i = (_OWORD *)Key;
       RtlpPropStoreEntries = Heap;
       break;
     }
     RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
-  v18 = v12;
+  v16 = v12;
   v4 = 1;
-  v16 = v12 + 1;
-  LODWORD(RtlpPropStoreEntriesActiveCount) = v16;
-  v10 = &Heap[24 * v18];
-  if ( a3 )
-    v19 = *a3;
+  v14 = v12 + 1;
+  LODWORD(RtlpPropStoreEntriesActiveCount) = v14;
+  v10 = &Heap[24 * v16];
+  if ( Exchange )
+    v17 = *Exchange;
   else
-    v19 = 0LL;
-  *((_QWORD *)v10 + 2) = v19;
+    v17 = 0LL;
+  *((_QWORD *)v10 + 2) = v17;
   *(_OWORD *)v10 = *i;
 LABEL_20:
-  v20 = *((_QWORD *)v10 + 2);
-  if ( !a3 || v20 == *a3 )
-    *((_QWORD *)v10 + 2) = a2;
-  if ( a4 )
-    *a4 = v20;
+  v18 = *((_QWORD *)v10 + 2);
+  if ( !Exchange || v18 == *Exchange )
+    *((_QWORD *)v10 + 2) = Comperand;
+  if ( Context )
+    *Context = v18;
   if ( v4 )
   {
-    qsort(Heap, v16, 0x18uLL, (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry);
-    v21 = 0;
+    qsort(Heap, v14, 0x18uLL, (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry);
+    v19 = 0;
   }
   else
   {
-    v21 = 0x40000000;
+    v19 = 0x40000000;
   }
 LABEL_29:
   RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
   if ( v6 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
-  return v21;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
+  return v19;
 }

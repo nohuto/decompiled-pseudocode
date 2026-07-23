@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetProcessorSignature @ 0x140BFEEB4
+ * XREFs of RtlGetProcessorSignature @ 0x140C050BC
  * Callers:
- *     KiGetProcessorSignature @ 0x1405F6C6C (KiGetProcessorSignature.c)
- *     RtlpInitFunctionOverrideCapabilities @ 0x14080F35C (RtlpInitFunctionOverrideCapabilities.c)
- *     RtlDetectProcessorFeatures @ 0x140BFE6A4 (RtlDetectProcessorFeatures.c)
- *     RtlGetCpuMaxPhysicalBits @ 0x140BFED2C (RtlGetCpuMaxPhysicalBits.c)
- *     SpcDetectKvaLeakage @ 0x140C01E7C (SpcDetectKvaLeakage.c)
+ *     KiGetProcessorSignature @ 0x1405F962C (KiGetProcessorSignature.c)
+ *     RtlpInitFunctionOverrideCapabilities @ 0x140814DEC (RtlpInitFunctionOverrideCapabilities.c)
+ *     RtlDetectProcessorFeatures @ 0x140C048AC (RtlDetectProcessorFeatures.c)
+ *     RtlGetCpuMaxPhysicalBits @ 0x140C04F34 (RtlGetCpuMaxPhysicalBits.c)
+ *     SpcDetectKvaLeakage @ 0x140C0808C (SpcDetectKvaLeakage.c)
  * Callees:
- *     RtlGetCpuVendor @ 0x140BFEDD8 (RtlGetCpuVendor.c)
+ *     RtlGetCpuVendor @ 0x140C04FE0 (RtlGetCpuVendor.c)
  */
 
 __int64 __fastcall RtlGetProcessorSignature(char *a1, int *a2, int *a3, _DWORD *a4)

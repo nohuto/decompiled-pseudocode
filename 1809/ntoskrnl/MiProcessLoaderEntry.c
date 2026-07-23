@@ -1,20 +1,20 @@
 /*
- * XREFs of MiProcessLoaderEntry @ 0x1400F5BAC
+ * XREFs of MiProcessLoaderEntry @ 0x1400F5C2C
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x140683630 (MiConstructLoaderEntry.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlInsertInvertedFunctionTable @ 0x1400F5A34 (RtlInsertInvertedFunctionTable.c)
- *     MmLockLoadedModuleListExclusive @ 0x1400F5D80 (MmLockLoadedModuleListExclusive.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14016B83C (RtlRemoveInvertedFunctionTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlInsertInvertedFunctionTable @ 0x1400F5AB4 (RtlInsertInvertedFunctionTable.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1400F5E00 (MmLockLoadedModuleListExclusive.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x14016B93C (RtlRemoveInvertedFunctionTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiProcessLoaderEntry(unsigned __int64 *a1, int a2)
@@ -109,7 +109,7 @@ LABEL_22:
   }
   __writecr8(v16);
   if ( (MiFlags & 0x80000) == 0 )
-    RtlInsertInvertedFunctionTable(a1[6], *((_DWORD *)a1 + 16));
+    RtlInsertInvertedFunctionTable(a1[6], *((unsigned int *)a1 + 16));
 LABEL_14:
   ExReleaseResourceLite(&PsLoadedModuleResource);
   return KeLeaveCriticalRegionThread((__int64)CurrentThread);

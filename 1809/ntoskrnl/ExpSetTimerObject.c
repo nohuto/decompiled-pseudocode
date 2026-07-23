@@ -2,7 +2,7 @@
  * XREFs of ExpSetTimerObject @ 0x14001D7C0
  * Callers:
  *     NtSetTimerEx @ 0x14001D530 (NtSetTimerEx.c)
- *     ExpSetTimer @ 0x1401402B8 (ExpSetTimer.c)
+ *     ExpSetTimer @ 0x1401403B8 (ExpSetTimer.c)
  * Callees:
  *     PoDestroyReasonContext @ 0x140003730 (PoDestroyReasonContext.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -13,29 +13,29 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KiInsertTimerTable @ 0x1400581E0 (KiInsertTimerTable.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiTimerWaitTest @ 0x1400C7B70 (KiTimerWaitTest.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
- *     PsInsertVirtualizedTimer @ 0x14012D09C (PsInsertVirtualizedTimer.c)
- *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
- *     KiRemoveEntryTimer @ 0x1401318CC (KiRemoveEntryTimer.c)
- *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiAcquireSpinLockInstrumented @ 0x140290E28 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
- *     KiTraceSetTimer @ 0x14029B968 (KiTraceSetTimer.c)
- *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
- *     ExpCheckTestsigningEnabled @ 0x140706FD4 (ExpCheckTestsigningEnabled.c)
- *     ExpCheckWakeTimerAccess @ 0x14071EAAC (ExpCheckWakeTimerAccess.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeInitializeApc @ 0x14008A350 (KeInitializeApc.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14008CF10 (KxWaitForSpinLockAndAcquire.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiTimerWaitTest @ 0x1400C7AB0 (KiTimerWaitTest.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     ObpDeferObjectDeletion @ 0x140125EA0 (ObpDeferObjectDeletion.c)
+ *     PsInsertVirtualizedTimer @ 0x14012D16C (PsInsertVirtualizedTimer.c)
+ *     KeRemoveQueueApc @ 0x14012F428 (KeRemoveQueueApc.c)
+ *     KiRemoveEntryTimer @ 0x14013199C (KiRemoveEntryTimer.c)
+ *     KeRemoveQueueDpcEx @ 0x140132AD0 (KeRemoveQueueDpcEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140291018 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140291128 (KiReleaseSpinLockInstrumented.c)
+ *     KiTraceSetTimer @ 0x14029BB58 (KiTraceSetTimer.c)
+ *     ObpPushStackInfo @ 0x1402D3258 (ObpPushStackInfo.c)
+ *     ExpCheckTestsigningEnabled @ 0x140708274 (ExpCheckTestsigningEnabled.c)
+ *     ExpCheckWakeTimerAccess @ 0x14071FD4C (ExpCheckWakeTimerAccess.c)
  */
 
 __int64 __fastcall ExpSetTimerObject(
@@ -89,8 +89,8 @@ __int64 __fastcall ExpSetTimerObject(
   char *v48; // rax
   void **p_StackBase; // rbx
   char **v50; // rdx
-  __int64 v51; // rax
-  __int64 v52; // rbx
+  _RTL_BALANCED_NODE *v51; // rax
+  _RTL_BALANCED_NODE *v52; // rbx
   char v53; // al
   _QWORD *v54; // rax
   _QWORD *v55; // rcx
@@ -101,8 +101,8 @@ __int64 __fastcall ExpSetTimerObject(
   int v60; // eax
   __int64 v61; // rdx
   struct _KPRCB *v62; // rcx
-  __int64 v63; // rax
-  __int64 v64; // rbx
+  _RTL_BALANCED_NODE *v63; // rax
+  _RTL_BALANCED_NODE *v64; // rbx
   unsigned __int8 v65; // dl
   __int64 v66; // rbx
   __int64 v67; // r8
@@ -185,18 +185,18 @@ __int64 __fastcall ExpSetTimerObject(
         }
       }
     }
-    if ( (int)qword_140418260 >= 2 || byte_140418233 )
+    if ( (int)qword_140419320 >= 2 || byte_1404192F3 )
     {
       v13 = 1;
       v95 = 1;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v51 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock);
+      v51 = (_RTL_BALANCED_NODE *)KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL);
       v52 = v51;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
         ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v51, (ULONG_PTR)&ExpWakeTimerLock);
       if ( v52 )
-        *(_BYTE *)(v52 + 26) |= 1u;
+        BYTE2(v52[1].Left) |= 1u;
     }
     else
     {
@@ -270,12 +270,12 @@ __int64 __fastcall ExpSetTimerObject(
     v95 = 1;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v63 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock);
+    v63 = (_RTL_BALANCED_NODE *)KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL);
     v64 = v63;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
       ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v63, (ULONG_PTR)&ExpWakeTimerLock);
     if ( v64 )
-      *(_BYTE *)(v64 + 26) |= 1u;
+      BYTE2(v64[1].Left) |= 1u;
     v65 = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v65 < 2u )
@@ -666,13 +666,13 @@ LABEL_35:
     if ( !v35 )
       goto LABEL_77;
     v54 = (_QWORD *)(BugCheckParameter2 + 264);
-    v55 = (_QWORD *)qword_140407098;
-    if ( *(__int64 **)qword_140407098 == &ExpWakeTimerList )
+    v55 = (_QWORD *)qword_1404080F8;
+    if ( *(__int64 **)qword_1404080F8 == &ExpWakeTimerList )
     {
       *v54 = &ExpWakeTimerList;
       *(_QWORD *)(BugCheckParameter2 + 272) = v55;
       *v55 = v54;
-      qword_140407098 = BugCheckParameter2 + 264;
+      qword_1404080F8 = BugCheckParameter2 + 264;
       goto LABEL_77;
     }
 LABEL_208:

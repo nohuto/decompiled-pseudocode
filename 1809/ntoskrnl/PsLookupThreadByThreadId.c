@@ -1,19 +1,19 @@
 /*
- * XREFs of PsLookupThreadByThreadId @ 0x1406487A0
+ * XREFs of PsLookupThreadByThreadId @ 0x140649960
  * Callers:
- *     PsOpenThread @ 0x140611DF0 (PsOpenThread.c)
- *     NtAlertThreadByThreadId @ 0x140649FA0 (NtAlertThreadByThreadId.c)
- *     PsLookupProcessThreadByCid @ 0x1406B2F90 (PsLookupProcessThreadByCid.c)
- *     PfpServiceMainThreadBoostPrep @ 0x1406E22E4 (PfpServiceMainThreadBoostPrep.c)
- *     PspFindThreadForTeb @ 0x14088AC78 (PspFindThreadForTeb.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x14088F14C (PspRundownUmsThreadForApcDelivery.c)
+ *     PsOpenThread @ 0x140612DF0 (PsOpenThread.c)
+ *     NtAlertThreadByThreadId @ 0x14064B160 (NtAlertThreadByThreadId.c)
+ *     PsLookupProcessThreadByCid @ 0x1406B4230 (PsLookupProcessThreadByCid.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x1406E3584 (PfpServiceMainThreadBoostPrep.c)
+ *     PspFindThreadForTeb @ 0x14088BED8 (PspFindThreadForTeb.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1408903AC (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     PsIsProcessInSilo @ 0x1400CB108 (PsIsProcessInSilo.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14012F300 (ExfAcquireReleasePushLockExclusive.c)
- *     PspReferenceCidTableEntry @ 0x140646D10 (PspReferenceCidTableEntry.c)
+ *     PsIsProcessInSilo @ 0x1400CB1E8 (PsIsProcessInSilo.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14012F3D0 (ExfAcquireReleasePushLockExclusive.c)
+ *     PspReferenceCidTableEntry @ 0x140647D30 (PspReferenceCidTableEntry.c)
  */
 
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)

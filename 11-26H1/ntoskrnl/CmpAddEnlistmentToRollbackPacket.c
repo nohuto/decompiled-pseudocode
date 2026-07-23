@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpAddEnlistmentToRollbackPacket @ 0x14085DBAC
+ * XREFs of CmpAddEnlistmentToRollbackPacket @ 0x140863E9C
  * Callers:
- *     CmSnapshotRMTxArray @ 0x1408ACD84 (CmSnapshotRMTxArray.c)
+ *     CmSnapshotRMTxArray @ 0x1408B31C4 (CmSnapshotRMTxArray.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     CmpAddPointerToRollbackPacket @ 0x14085DC00 (CmpAddPointerToRollbackPacket.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     CmpAddPointerToRollbackPacket @ 0x140863EF0 (CmpAddPointerToRollbackPacket.c)
  */
 
 __int64 __fastcall CmpAddEnlistmentToRollbackPacket(__int64 a1, void *a2)

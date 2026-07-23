@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCheckForIdleness @ 0x140280EE0
+ * XREFs of PopCheckForIdleness @ 0x14026F120
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     PopCheckForWork @ 0x140281280 (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x140281B10 (PopGetPolicyWorker.c)
- *     PopDiagTraceIdleCheck @ 0x140281E10 (PopDiagTraceIdleCheck.c)
- *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140251CA4 (PopQueueWorkItem.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     PopCheckForWork @ 0x14026F4C0 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14026FD50 (PopGetPolicyWorker.c)
+ *     PopDiagTraceIdleCheck @ 0x140270050 (PopDiagTraceIdleCheck.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -32,7 +32,7 @@ __int64 PopCheckForIdleness()
   signed int v15; // eax
   int v17; // [rsp+20h] [rbp-30h] BYREF
   __int64 v18; // [rsp+28h] [rbp-28h]
-  unsigned __int16 *v19; // [rsp+30h] [rbp-20h] BYREF
+  __int16 *v19; // [rsp+30h] [rbp-20h] BYREF
   __int64 v20; // [rsp+38h] [rbp-18h]
   __int16 v21; // [rsp+40h] [rbp-10h]
   int v22; // [rsp+42h] [rbp-Eh]
@@ -49,7 +49,7 @@ __int64 PopCheckForIdleness()
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  v3 = qword_140C23398;
+  v3 = qword_140C23998;
   v4 = MEMORY[0xFFFFF78000000320];
   v18 = MEMORY[0xFFFFF78000000320];
   if ( KiIrqlFlags )
@@ -70,18 +70,18 @@ __int64 PopCheckForIdleness()
     }
   }
   __writecr8(CurrentIrql);
-  if ( byte_140C23395 )
+  if ( byte_140C23995 )
   {
     v10 = v4 - v3;
     if ( (int)v4 - v3 <= 0 )
     {
-      byte_140C23395 = 0;
+      byte_140C23995 = 0;
       goto LABEL_36;
     }
     v20 = qword_140CFC848[0];
     v21 = 0;
     v11 = 100;
-    v19 = (unsigned __int16 *)KeActiveProcessors;
+    v19 = &KeActiveProcessors;
     v12 = 0;
     v13 = 100;
     if ( !(unsigned int)KeEnumerateNextProcessor(&v17, &v19) )
@@ -116,29 +116,29 @@ __int64 PopCheckForIdleness()
       if ( v12 / ActiveProcessorCount < 0 )
         v11 = 0;
     }
-    dword_140C23364 = v13;
+    dword_140C23964 = v13;
     PopSIdle = v11;
     if ( !PopPlatformAoAc )
     {
-      if ( dword_140C2336C )
+      if ( dword_140C2396C )
       {
-        dword_140C23368 += PopIdleScanInterval;
+        dword_140C23968 += PopIdleScanInterval;
         PopDiagTraceIdleCheck(v14, (unsigned int)v13, v11);
         if ( !PopPlatformAoAc
-          && PopPreSleepNotificationSeconds + 120 <= (unsigned int)dword_140C2336C
-          && dword_140C23368 + PopPreSleepNotificationSeconds >= (unsigned int)dword_140C2336C
+          && PopPreSleepNotificationSeconds + 120 <= (unsigned int)dword_140C2396C
+          && dword_140C23968 + PopPreSleepNotificationSeconds >= (unsigned int)dword_140C2396C
           && !PopIsAboutToSleep )
         {
           PopIsAboutToSleep = 1;
-          PopQueueWorkItem(&PopPreSleepNotifyWorkItem, 1LL);
+          PopQueueWorkItem((__int64)&PopPreSleepNotifyWorkItem, DelayedWorkQueue);
         }
       }
     }
   }
   v20 = qword_140CFC848[0];
-  v19 = (unsigned __int16 *)KeActiveProcessors;
-  qword_140C23398 = v4;
-  byte_140C23395 = 1;
+  v19 = &KeActiveProcessors;
+  qword_140C23998 = v4;
+  byte_140C23995 = 1;
   v21 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v17, &v19) )
     *(_DWORD *)(KiProcessorBlock[v17] + 32988) = *(_DWORD *)(*(_QWORD *)(KiProcessorBlock[v17] + 24) + 652LL);

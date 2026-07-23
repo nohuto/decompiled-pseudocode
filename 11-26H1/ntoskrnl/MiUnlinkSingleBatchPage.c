@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkSingleBatchPage @ 0x1402F80B0
+ * XREFs of MiUnlinkSingleBatchPage @ 0x1402DA130
  * Callers:
- *     MiUnlinkProtoPages @ 0x140297A00 (MiUnlinkProtoPages.c)
- *     MiActivateDecayNode @ 0x140299994 (MiActivateDecayNode.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
+ *     MiUnlinkProtoPages @ 0x140296F60 (MiUnlinkProtoPages.c)
+ *     MiActivateDecayNode @ 0x140298EF4 (MiActivateDecayNode.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
  * Callees:
- *     MiUnlinkSecondaryListStandbyPage @ 0x1402CAE00 (MiUnlinkSecondaryListStandbyPage.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     MiReplaceStandbyLookaside @ 0x1402FBC30 (MiReplaceStandbyLookaside.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiUnlinkProtectedStandbyPfn @ 0x14046229C (MiUnlinkProtectedStandbyPfn.c)
- *     MiRemoveDecayClusterTimer @ 0x1404625B8 (MiRemoveDecayClusterTimer.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiUnlinkSecondaryListStandbyPage @ 0x1402ACBC0 (MiUnlinkSecondaryListStandbyPage.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     MiReplaceStandbyLookaside @ 0x1402DDCB0 (MiReplaceStandbyLookaside.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiUnlinkProtectedStandbyPfn @ 0x14045B25C (MiUnlinkProtectedStandbyPfn.c)
+ *     MiRemoveDecayClusterTimer @ 0x14045B578 (MiRemoveDecayClusterTimer.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlinkSingleBatchPage(__int64 a1, unsigned __int64 a2)
@@ -87,8 +87,8 @@ __int64 __fastcall MiUnlinkSingleBatchPage(__int64 a1, unsigned __int64 a2)
     if ( (*(_DWORD *)(a2 + 32) & 0x8000000) == 0 )
       goto LABEL_19;
     if ( a2 < 0xFFFFDE0000000000uLL
-      || a2 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
-      || (v12 = (__int64)(a2 + 0x220000000000LL) / 48, v12 >= qword_140E347B0) && v12 < qword_140E347B0 + 2048 )
+      || a2 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
+      || (v12 = (__int64)(a2 + 0x220000000000LL) / 48, v12 >= qword_140E34930) && v12 < qword_140E34930 + 2048 )
     {
 LABEL_10:
       v13 = 5;
@@ -110,10 +110,10 @@ LABEL_20:
     }
     v14 = *(_QWORD *)a2 & 0xFFFFFFFFFFLL;
     v15 = *(_QWORD *)(a2 + 24) & 0xFFFFFFFFFFLL;
-    if ( v14 == v8 || v14 >= qword_140E347B0 && v14 < qword_140E347B0 + 2048 )
+    if ( v14 == v8 || v14 >= qword_140E34930 && v14 < qword_140E34930 + 2048 )
     {
 LABEL_38:
-      if ( v15 == v8 || v15 >= qword_140E347B0 && v15 < qword_140E347B0 + 2048 )
+      if ( v15 == v8 || v15 >= qword_140E34930 && v15 < qword_140E34930 + 2048 )
       {
 LABEL_54:
         v24 = *(_DWORD *)(a1 + 4);
@@ -136,8 +136,8 @@ LABEL_54:
       if ( (*(_DWORD *)(v21 + 32) & 0x8000000) != 0 )
       {
         if ( v21 < 0xFFFFDE0000000000uLL
-          || v21 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
-          || (v23 = (__int64)(48 * v15) / 48, v23 >= qword_140E347B0) && v23 < qword_140E347B0 + 2048 )
+          || v21 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
+          || (v23 = (__int64)(48 * v15) / 48, v23 >= qword_140E34930) && v23 < qword_140E34930 + 2048 )
         {
 LABEL_42:
           v22 = v11;
@@ -149,9 +149,9 @@ LABEL_52:
             {
               if ( (*(_DWORD *)(v21 + 32) & 0x8000000) == 0
                 || v21 >= 0xFFFFDE0000000000uLL
-                && v21 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
-                && ((v48 = (__int64)(v21 + 0x220000000000LL) / 48, v48 < qword_140E347B0)
-                 || v48 >= qword_140E347B0 + 2048)
+                && v21 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
+                && ((v48 = (__int64)(v21 + 0x220000000000LL) / 48, v48 < qword_140E34930)
+                 || v48 >= qword_140E34930 + 2048)
                 && ((v47 & 0x70000) == 0x60000 || (unsigned int)MiGetPfnSlabType(v21) != 9) )
               {
                 LODWORD(v11) = HIBYTE(v47) & 7;
@@ -178,8 +178,8 @@ LABEL_52:
     if ( (*(_DWORD *)(v17 + 32) & 0x8000000) != 0 )
     {
       if ( v17 < 0xFFFFDE0000000000uLL
-        || v17 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
-        || (v19 = (__int64)(48 * v14) / 48, v19 >= qword_140E347B0) && v19 < qword_140E347B0 + 2048 )
+        || v17 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
+        || (v19 = (__int64)(48 * v14) / 48, v19 >= qword_140E34930) && v19 < qword_140E34930 + 2048 )
       {
 LABEL_26:
         v18 = v11;
@@ -191,8 +191,8 @@ LABEL_36:
           {
             if ( (*(_DWORD *)(v17 + 32) & 0x8000000) == 0
               || v17 >= 0xFFFFDE0000000000uLL
-              && v17 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
-              && ((v46 = (__int64)(v17 + 0x220000000000LL) / 48, v46 < qword_140E347B0) || v46 >= qword_140E347B0 + 2048)
+              && v17 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
+              && ((v46 = (__int64)(v17 + 0x220000000000LL) / 48, v46 < qword_140E34930) || v46 >= qword_140E34930 + 2048)
               && ((v45 & 0x70000) == 0x60000 || (unsigned int)MiGetPfnSlabType(v17) != 9) )
             {
               LODWORD(v11) = HIBYTE(v45) & 7;
@@ -295,11 +295,11 @@ LABEL_73:
   else if ( (*(_QWORD *)(a2 + 40) & 0x20000000000000LL) == 0 )
   {
     v35 = (__int64)(a2 + 0x220000000000LL) / 48;
-    if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+    if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
     {
       v36 = ((__int64)(a2 + 0x220000000000LL) / 48) & 0x1F;
       LOBYTE(v37) = 1;
-      v38 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v35 >> 5);
+      v38 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v35 >> 5);
       if ( (unsigned __int64)(v36 + 1) > 0x20 )
       {
         if ( (v35 & 0x1F) == 0 )
@@ -327,11 +327,11 @@ LABEL_98:
         _InterlockedOr(v38, 1 << v36);
       }
     }
-    else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+    else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
     {
       v40 = ((__int64)(a2 + 0x220000000000LL) / 48) & 0x1F;
       LOBYTE(v41) = 1;
-      v42 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v35 >> 5);
+      v42 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v35 >> 5);
       if ( (unsigned __int64)(v40 + 1) > 0x20 )
       {
         if ( (v35 & 0x1F) == 0 )

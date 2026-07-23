@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReferenceControlArea @ 0x140026064
+ * XREFs of MiReferenceControlArea @ 0x140025BE4
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  * Callees:
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140026D70 (MiBuildWakeList.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     KeAbPreWait @ 0x1400C8450 (KeAbPreWait.c)
- *     FsRtlReleaseFile @ 0x14042DE60 (FsRtlReleaseFile.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1400268F0 (MiBuildWakeList.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     KeAbPreWait @ 0x1400C62F0 (KeAbPreWait.c)
+ *     FsRtlReleaseFile @ 0x14042CD30 (FsRtlReleaseFile.c)
  */
 
 __int64 __fastcall MiReferenceControlArea(int a1, struct _FILE_OBJECT *a2, __int64 a3, int a4, _QWORD *a5)
@@ -40,7 +40,7 @@ __int64 __fastcall MiReferenceControlArea(int a1, struct _FILE_OBJECT *a2, __int
     p_DataSectionObject += 2;
   while ( 1 )
   {
-    v9 = ExAcquireSpinLockExclusive(&dword_140326540);
+    v9 = ExAcquireSpinLockExclusive(&dword_140326580);
     v10 = *p_DataSectionObject;
     v11 = v9;
     if ( !*p_DataSectionObject )
@@ -49,15 +49,15 @@ __int64 __fastcall MiReferenceControlArea(int a1, struct _FILE_OBJECT *a2, __int
       v15 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject);
       if ( v15 )
         *(_BYTE *)(v15 + 26) |= 1u;
-      ExReleaseSpinLockExclusive(&dword_140326540, v11);
+      ExReleaseSpinLockExclusive(&dword_140326580, v11);
       *a5 = a3;
       return 1LL;
     }
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v10 + 72) )
       break;
-    ExReleaseSpinLockExclusive(&dword_140326540, v11);
+    ExReleaseSpinLockExclusive(&dword_140326580, v11);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
   if ( !(*(_BYTE *)(v10 + 56) & 1 | ((*(_DWORD *)(v10 + 56) & 2) != 0)) )
   {
     v12 = MiBuildWakeList(v10, 4LL);

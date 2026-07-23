@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwGetDevicePowerState()
+NTSTATUS __cdecl ZwGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE State)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 230LL;
+  result = 230;
   __asm { syscall; Low latency system call }
   return result;
 }

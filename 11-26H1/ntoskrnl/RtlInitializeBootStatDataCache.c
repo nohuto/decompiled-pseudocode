@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlInitializeBootStatDataCache @ 0x140619DE4
+ * XREFs of RtlInitializeBootStatDataCache @ 0x14061CE34
  * Callers:
- *     PopBootStatSet @ 0x140ACB570 (PopBootStatSet.c)
- *     RtlLockBootStatusData @ 0x140B12DA0 (RtlLockBootStatusData.c)
- *     PopBootStatRestoreDefaults @ 0x140B516E4 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x140ACD7B0 (PopBootStatSet.c)
+ *     RtlLockBootStatusData @ 0x140B14C40 (RtlLockBootStatusData.c)
+ *     PopBootStatRestoreDefaults @ 0x140B53F84 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     ZwReadFile @ 0x1407234B0 (ZwReadFile.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ZwReadFile @ 0x140728080 (ZwReadFile.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 RtlInitializeBootStatDataCache()
 {
   NTSTATUS v0; // edx
-  void *Pool2; // rax
+  _XSAVE_FORMAT *Pool2; // rax
   unsigned int v2; // ecx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-10h] BYREF
   ULONG Buffer; // [rsp+70h] [rbp+10h] BYREF
@@ -20,7 +20,7 @@ __int64 RtlInitializeBootStatDataCache()
 
   IoStatusBlock = 0LL;
   Buffer = 0;
-  if ( NormalizationListLock.KernelStack )
+  if ( NormalizationListLock.StateSaveArea )
   {
     return 0;
   }
@@ -28,7 +28,7 @@ __int64 RtlInitializeBootStatDataCache()
   {
     ByteOffset.QuadPart = 0LL;
     v0 = ZwReadFile(
-           (HANDLE)NormalizationListLock.CycleTime,
+           *(HANDLE *)&NormalizationListLock.CurrentRunTime,
            0LL,
            0LL,
            0LL,
@@ -41,12 +41,12 @@ __int64 RtlInitializeBootStatDataCache()
     {
       if ( Buffer && Buffer <= 0x800 )
       {
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
-        NormalizationListLock.KernelStack = Pool2;
+        Pool2 = (_XSAVE_FORMAT *)ExAllocatePool2(0x100uLL);
+        NormalizationListLock.StateSaveArea = Pool2;
         if ( Pool2 )
         {
           v0 = ZwReadFile(
-                 (HANDLE)NormalizationListLock.CycleTime,
+                 *(HANDLE *)&NormalizationListLock.CurrentRunTime,
                  0LL,
                  0LL,
                  0LL,

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char __stdcall RtlTestBit(int a1, unsigned int a2)
+BOOLEAN __cdecl RtlTestBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
-  return (*(char *)((a2 >> 3) + *(_DWORD *)(a1 + 4)) >> (a2 & 7)) & 1;
+  return (*((char *)BitMapHeader->Buffer + (BitNumber >> 3)) >> (BitNumber & 7)) & 1;
 }

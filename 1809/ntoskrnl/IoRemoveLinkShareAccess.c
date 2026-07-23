@@ -1,8 +1,8 @@
 /*
- * XREFs of IoRemoveLinkShareAccess @ 0x14068F870
+ * XREFs of IoRemoveLinkShareAccess @ 0x140690A30
  * Callers:
- *     RawCleanup @ 0x14068F78C (RawCleanup.c)
- *     IoRemoveShareAccess @ 0x14068F850 (IoRemoveShareAccess.c)
+ *     RawCleanup @ 0x14069094C (RawCleanup.c)
+ *     IoRemoveShareAccess @ 0x140690A10 (IoRemoveShareAccess.c)
  * Callees:
  *     <none>
  */

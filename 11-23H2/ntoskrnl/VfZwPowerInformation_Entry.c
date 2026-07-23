@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwPowerInformation_Entry @ 0x140AD4040
+ * XREFs of VfZwPowerInformation_Entry @ 0x140AD4030
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckVirtualAddress @ 0x140AD503C (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140AD5078 (ViZwShouldCheck.c)
+ *     ViZwCheckVirtualAddress @ 0x140AD502C (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140AD5068 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwPowerInformation_Entry(ULONG_PTR *a1)

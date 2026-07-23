@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage @ 0x140411424
+ * XREFs of Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage @ 0x140411630
  * Callers:
- *     PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x140392418 (PpmHeteroGetHgsPlusParkingEnablementStatus.c)
+ *     PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x1403925F8 (PpmHeteroGetHgsPlusParkingEnablementStatus.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage()

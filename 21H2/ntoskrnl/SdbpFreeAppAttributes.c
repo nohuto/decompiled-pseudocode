@@ -1,10 +1,10 @@
 /*
  * XREFs of SdbpFreeAppAttributes @ 0x1405D1E50
  * Callers:
- *     SdbpReleaseSearchDBContext @ 0x140754BFC (SdbpReleaseSearchDBContext.c)
+ *     SdbpReleaseSearchDBContext @ 0x140754DBC (SdbpReleaseSearchDBContext.c)
  * Callees:
- *     AslFree @ 0x14075477C (AslFree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     AslFree @ 0x14075493C (AslFree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SdbpFreeAppAttributes(__int64 a1)

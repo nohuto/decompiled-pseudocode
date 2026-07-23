@@ -65,7 +65,7 @@ void __stdcall KeSetSystemGroupAffinityThread(PGROUP_AFFINITY Affinity, PGROUP_A
   _DWORD *SchedulerAssist; // r9
   __int64 v11; // rax
   struct _SINGLE_LIST_ENTRY *Next; // rdx
-  struct _GROUP_AFFINITY v13; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY v13; // [rsp+30h] [rbp-38h] BYREF
   int v14; // [rsp+70h] [rbp+8h] BYREF
   __int64 v15; // [rsp+78h] [rbp+10h] BYREF
 
@@ -85,7 +85,7 @@ void __stdcall KeSetSystemGroupAffinityThread(PGROUP_AFFINITY Affinity, PGROUP_A
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v11) = 4;

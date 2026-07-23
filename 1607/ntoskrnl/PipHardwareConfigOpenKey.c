@@ -1,15 +1,15 @@
 /*
- * XREFs of PipHardwareConfigOpenKey @ 0x14054FB84
+ * XREFs of PipHardwareConfigOpenKey @ 0x1405500C4
  * Callers:
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x14054FA20 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     PipHardwareConfigGetIndex @ 0x14054FB00 (PipHardwareConfigGetIndex.c)
- *     PipHardwareConfigGetLastUseTime @ 0x1406298E8 (PipHardwareConfigGetLastUseTime.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x14054FF60 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     PipHardwareConfigGetIndex @ 0x140550040 (PipHardwareConfigGetIndex.c)
+ *     PipHardwareConfigGetLastUseTime @ 0x14062999C (PipHardwareConfigGetLastUseTime.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlStringCchCatExW @ 0x14013BD00 (RtlStringCchCatExW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCatExW @ 0x14013C270 (RtlStringCchCatExW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigOpenKey(__int64 a1, __int64 a2, _QWORD *a3)

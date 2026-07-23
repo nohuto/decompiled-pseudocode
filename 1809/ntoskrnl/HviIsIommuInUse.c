@@ -1,10 +1,10 @@
 /*
- * XREFs of HviIsIommuInUse @ 0x1403224B0
+ * XREFs of HviIsIommuInUse @ 0x1403226A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x140322350 (HviGetHardwareFeatures.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x140322540 (HviGetHardwareFeatures.c)
  */
 
 bool __fastcall HviIsIommuInUse(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

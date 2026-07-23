@@ -1,11 +1,11 @@
 /*
- * XREFs of AccelpSiovIaaQueryCompletionInformation @ 0x140666630
+ * XREFs of AccelpSiovIaaQueryCompletionInformation @ 0x140664F20
  * Callers:
- *     AccelpSiovIaaOperationHandler @ 0x140666390 (AccelpSiovIaaOperationHandler.c)
- *     AccelpSiovIaaQueryCompletionInformation @ 0x140666630 (AccelpSiovIaaQueryCompletionInformation.c)
+ *     AccelpSiovIaaOperationHandler @ 0x140664C80 (AccelpSiovIaaOperationHandler.c)
+ *     AccelpSiovIaaQueryCompletionInformation @ 0x140664F20 (AccelpSiovIaaQueryCompletionInformation.c)
  * Callees:
- *     AccelpSiovIaaQueryCompletionInformation @ 0x140666630 (AccelpSiovIaaQueryCompletionInformation.c)
- *     IaaGetStatusFromCompletionRecord @ 0x140666E74 (IaaGetStatusFromCompletionRecord.c)
+ *     AccelpSiovIaaQueryCompletionInformation @ 0x140664F20 (AccelpSiovIaaQueryCompletionInformation.c)
+ *     IaaGetStatusFromCompletionRecord @ 0x140665764 (IaaGetStatusFromCompletionRecord.c)
  */
 
 __int64 __fastcall AccelpSiovIaaQueryCompletionInformation(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)

@@ -1,35 +1,38 @@
 /*
- * XREFs of PspSendNoWakeChargeLimitNotification @ 0x14077C4E4
+ * XREFs of PspSendNoWakeChargeLimitNotification @ 0x14077EFD8
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1407F7D20 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1407FD820 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
-__int64 __fastcall PspSendNoWakeChargeLimitNotification(void *a1)
+NTSTATUS __fastcall PspSendNoWakeChargeLimitNotification(void *a1)
 {
-  __int64 result; // rax
-  int v2; // [rsp+50h] [rbp+8h] BYREF
-  int v3; // [rsp+54h] [rbp+Ch]
-  __int64 v4; // [rsp+58h] [rbp+10h] BYREF
+  ULONG v1; // r8d
+  NTSTATUS result; // eax
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
+  int v4; // [rsp+54h] [rbp+Ch]
+  __int64 v5; // [rsp+58h] [rbp+10h] BYREF
 
   if ( !a1 )
   {
-    v2 = -1;
-    v3 = 0;
-    return ZwUpdateWnfStateData((__int64)&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, (__int64)&v2);
+    Buffer = -1;
+    v1 = 4;
+    v4 = 0;
+    return ZwUpdateWnfStateData(&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, &Buffer, v1, 0LL, 0LL, 0, 0);
   }
-  if ( !PspSiloMonitorLock.Affinity )
+  if ( !PspSiloMonitorLock.AffinityVersion )
   {
-    v4 = 0LL;
-    result = PspEnumJobsAndProcessesInJobHierarchy(a1, (__int64)&v4, 0);
-    if ( v4 )
+    v5 = 0LL;
+    result = PspEnumJobsAndProcessesInJobHierarchy(a1, (__int64)&v5, 0);
+    if ( v5 )
     {
-      v2 = 1;
-      v3 = *(_DWORD *)(v4 + 464);
-      PspSiloMonitorLock.Affinity = (_KAFFINITY_EX *)v4;
-      return ZwUpdateWnfStateData((__int64)&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, (__int64)&v2);
+      Buffer = 1;
+      v1 = 8;
+      v4 = *(_DWORD *)(v5 + 464);
+      PspSiloMonitorLock.AffinityVersion = v5;
+      return ZwUpdateWnfStateData(&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, &Buffer, v1, 0LL, 0LL, 0, 0);
     }
   }
   return result;

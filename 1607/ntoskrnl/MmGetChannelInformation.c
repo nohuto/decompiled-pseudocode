@@ -1,18 +1,18 @@
 /*
- * XREFs of MmGetChannelInformation @ 0x14054C23C
+ * XREFs of MmGetChannelInformation @ 0x14054C77C
  * Callers:
- *     ExpQueryNumaAvailableMemory @ 0x14054C0E4 (ExpQueryNumaAvailableMemory.c)
- *     MiManagePartition @ 0x1406609A4 (MiManagePartition.c)
- *     ExpQueryChannelInformation @ 0x1406AB750 (ExpQueryChannelInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x14054C624 (ExpQueryNumaAvailableMemory.c)
+ *     MiManagePartition @ 0x140660A88 (MiManagePartition.c)
+ *     ExpQueryChannelInformation @ 0x1406AB888 (ExpQueryChannelInformation.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     MiLockDynamicMemoryExclusive @ 0x140132E08 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x140132E74 (MiUnlockDynamicMemoryExclusive.c)
- *     MiGetNodeChannelPageCounts @ 0x140135078 (MiGetNodeChannelPageCounts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140133378 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1401333E4 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiGetNodeChannelPageCounts @ 0x1401355E8 (MiGetNodeChannelPageCounts.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -40,7 +40,7 @@ __int64 __fastcall MmGetChannelInformation(unsigned int a1, unsigned int a2, _QW
 
   if ( a2 >= (unsigned __int16)KeNumberNodes )
     return 3221225711LL;
-  v5 = *(_QWORD *)(qword_140326FF8 + 8LL * a1);
+  v5 = *(_QWORD *)(qword_140327038 + 8LL * a1);
   v6 = *(_QWORD *)(v5 + 48) + 2184LL * a2;
   v7 = 40LL * (unsigned int)MmNumberOfChannels;
   *a4 = v7;

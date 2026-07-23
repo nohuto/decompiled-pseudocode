@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertMappingNode @ 0x1402C2818
+ * XREFs of MiInsertMappingNode @ 0x140240CB8
  * Callers:
- *     MmAllocateMappingAddressEx @ 0x1406AE4A0 (MmAllocateMappingAddressEx.c)
+ *     MmAllocateMappingAddressEx @ 0x14060CD40 (MmAllocateMappingAddressEx.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -23,11 +23,11 @@ __int64 __fastcall MiInsertMappingNode(__int64 a1)
   bool v11; // zf
 
   v1 = *(_QWORD *)(a1 + 24);
-  v3 = ExAcquireSpinLockExclusive(&dword_140C4EBC0);
-  v4 = (_QWORD *)qword_140C4EBC8;
+  v3 = ExAcquireSpinLockExclusive(&dword_140C4EC00);
+  v4 = (_QWORD *)qword_140C4EC08;
   LOBYTE(v5) = 0;
   v6 = v3;
-  if ( qword_140C4EBC8 )
+  if ( qword_140C4EC08 )
   {
     while ( 1 )
     {
@@ -49,8 +49,8 @@ __int64 __fastcall MiInsertMappingNode(__int64 a1)
       v4 = v7;
     }
   }
-  RtlAvlInsertNodeEx(&qword_140C4EBC8, v4, v5, a1);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EBC0);
+  RtlAvlInsertNodeEx(&qword_140C4EC08, v4, v5, a1);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC00);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiFillVadEventWrite @ 0x140312E2C
+ * XREFs of EtwpTiFillVadEventWrite @ 0x14031301C
  * Callers:
- *     EtwpTiVadQueryEventWrite @ 0x140312F64 (EtwpTiVadQueryEventWrite.c)
- *     EtwpTiVadQueryEventWriteCallback @ 0x1408BD680 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWrite @ 0x140313154 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1408BE940 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     EtwpTiFillVad @ 0x140312D8C (EtwpTiFillVad.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     EtwpTiFillVad @ 0x140312F7C (EtwpTiFillVad.c)
  */
 
 NTSTATUS __fastcall EtwpTiFillVadEventWrite(
@@ -35,26 +35,26 @@ NTSTATUS __fastcall EtwpTiFillVadEventWrite(
       {
         v13 = &UserData[UserDataCount];
         v13->Reserved = 0;
-        v13->Ptr = (ULONGLONG)&unk_14037DFE8;
+        v13->Ptr = (ULONGLONG)&unk_14037EF80;
         v13->Size = 4;
         v13[1].Reserved = 0;
-        v13[1].Ptr = (ULONGLONG)&unk_14037DFE8;
+        v13[1].Ptr = (ULONGLONG)&unk_14037EF80;
         v13[1].Size = 8;
         v13[2].Reserved = 0;
-        v13[2].Ptr = (ULONGLONG)&unk_14037DFE8;
+        v13[2].Ptr = (ULONGLONG)&unk_14037EF80;
         v13[2].Size = 4;
         v13[3].Reserved = 0;
-        v13[3].Ptr = (ULONGLONG)&unk_14037DFE8;
+        v13[3].Ptr = (ULONGLONG)&unk_14037EF80;
         v13[3].Size = 4;
         v13[4].Reserved = 0;
-        v13[4].Ptr = (ULONGLONG)&unk_14037DFE8;
+        v13[4].Ptr = (ULONGLONG)&unk_14037EF80;
         v13[4].Size = 8;
         v13[5].Reserved = 0;
-        v13[5].Ptr = (ULONGLONG)&unk_14037DFE8;
+        v13[5].Ptr = (ULONGLONG)&unk_14037EF80;
         v13[5].Size = 8;
         v13[6].Reserved = 0;
         UserDataCount += 7;
-        v13[6].Ptr = (ULONGLONG)&unk_14037DFE8;
+        v13[6].Ptr = (ULONGLONG)&unk_14037EF80;
         v13[6].Size = 2;
       }
       v7 = (unsigned int)(v7 + 1);

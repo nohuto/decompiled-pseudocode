@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpSysWriteBusData @ 0x1409B8F00
+ * XREFs of KdpSysWriteBusData @ 0x1409B9F00
  * Callers:
- *     KdSystemDebugControl @ 0x1408B9B60 (KdSystemDebugControl.c)
- *     KdpSetBusData @ 0x1409B8CF0 (KdpSetBusData.c)
+ *     KdSystemDebugControl @ 0x1408B9CC0 (KdSystemDebugControl.c)
+ *     KdpSetBusData @ 0x1409B9CF0 (KdpSetBusData.c)
  * Callees:
- *     HalSetBusDataByOffset @ 0x14039E860 (HalSetBusDataByOffset.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalSetBusDataByOffset @ 0x14039E9B0 (HalSetBusDataByOffset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KdpSysWriteBusData(

@@ -5,7 +5,7 @@
  *     RtlpIsSubSegmentReuseable @ 0x180023574 (RtlpIsSubSegmentReuseable.c)
  *     RtlpLowFragHeapAllocFromContext @ 0x18002B650 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
- *     RtlpLogHeapReuseThresholdActivate @ 0x18010A474 (RtlpLogHeapReuseThresholdActivate.c)
+ *     RtlpLogHeapReuseThresholdActivate @ 0x18010A434 (RtlpLogHeapReuseThresholdActivate.c)
  */
 
 bool __fastcall RtlpIsSubSegmentReuseThresholdExceeded(__int64 a1, __int64 a2)

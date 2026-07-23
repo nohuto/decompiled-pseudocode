@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIsStoreVirtualPagefileFull @ 0x1404D7630
+ * XREFs of MiIsStoreVirtualPagefileFull @ 0x1404D0E00
  * Callers:
- *     MiFillNoReservationCluster @ 0x1402F29A4 (MiFillNoReservationCluster.c)
- *     MiCanFlushMakeProgress @ 0x1403E0D04 (MiCanFlushMakeProgress.c)
- *     MiModwriterConfigureMode @ 0x140406DD0 (MiModwriterConfigureMode.c)
- *     MiStoreWriteModifiedPagePrepare @ 0x1404091C0 (MiStoreWriteModifiedPagePrepare.c)
- *     MiStoreExtendVirtualPagefile @ 0x1405117D8 (MiStoreExtendVirtualPagefile.c)
+ *     MiFillNoReservationCluster @ 0x1402D4A24 (MiFillNoReservationCluster.c)
+ *     MiCanFlushMakeProgress @ 0x1403E3EF4 (MiCanFlushMakeProgress.c)
+ *     MiModwriterConfigureMode @ 0x1403FFEC0 (MiModwriterConfigureMode.c)
+ *     MiStoreWriteModifiedPagePrepare @ 0x1404022B0 (MiStoreWriteModifiedPagePrepare.c)
+ *     MiStoreExtendVirtualPagefile @ 0x14050B248 (MiStoreExtendVirtualPagefile.c)
  * Callees:
  *     <none>
  */

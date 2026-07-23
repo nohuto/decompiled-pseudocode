@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeleteValidSystemPage @ 0x14007A860
+ * XREFs of MiDeleteValidSystemPage @ 0x14007A850
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiDeleteKernelStack @ 0x14007A5B0 (MiDeleteKernelStack.c)
- *     MiTerminateWsleCluster @ 0x14007B968 (MiTerminateWsleCluster.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteKernelStack @ 0x14007A5A0 (MiDeleteKernelStack.c)
+ *     MiTerminateWsleCluster @ 0x14007B958 (MiTerminateWsleCluster.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiDecrementCombinedPte @ 0x14011F9F4 (MiDecrementCombinedPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiIsPfnSystemCharged @ 0x14016B7F0 (MiIsPfnSystemCharged.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiDriverPageIsDangling @ 0x1402AB104 (MiDriverPageIsDangling.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiDecrementCombinedPte @ 0x14011FA64 (MiDecrementCombinedPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiIsPfnSystemCharged @ 0x14016B8F0 (MiIsPfnSystemCharged.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiDriverPageIsDangling @ 0x1402AB2F4 (MiDriverPageIsDangling.c)
  */
 
 int __fastcall MiDeleteValidSystemPage(__int64 a1, unsigned __int64 a2, char a3, __int64 a4)
@@ -93,7 +93,7 @@ int __fastcall MiDeleteValidSystemPage(__int64 a1, unsigned __int64 a2, char a3,
   }
   v10 = *(unsigned __int16 *)(a1 + 174);
   v48 = v4;
-  v11 = *(struct _KEVENT **)(qword_14043A748 + 8 * v10);
+  v11 = *(struct _KEVENT **)(qword_14043B808 + 8 * v10);
   if ( (unsigned __int64)&v48 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)&v48 <= 0xFFFFF6FB7DBED7F8uLL )
   {
     v12 = v4;
@@ -123,7 +123,7 @@ int __fastcall MiDeleteValidSystemPage(__int64 a1, unsigned __int64 a2, char a3,
   v47 = v13;
   v14 = *(_QWORD *)(v13 - 0x58000000000LL + 40);
   v15 = v13 - 0x58000000000LL;
-  v49 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((v14 >> 40) & 0x3FF));
+  v49 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((v14 >> 40) & 0x3FF));
   if ( (v14 & 0x200000000000000LL) != 0 )
   {
     v30 = *(_QWORD *)(v15 + 8);
@@ -148,8 +148,8 @@ int __fastcall MiDeleteValidSystemPage(__int64 a1, unsigned __int64 a2, char a3,
     }
     else
     {
-      if ( qword_14043A0C0 && (v16 & 0x10) == 0 )
-        v16 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v16 & 0x10) == 0 )
+        v16 &= ~qword_14043B180;
       v20 = v52;
       v16 = *(_DWORD *)(*(_QWORD *)(v16 >> 16) + 56LL) & 0x820;
       if ( (_DWORD)v16 == 2080 )
@@ -162,7 +162,7 @@ int __fastcall MiDeleteValidSystemPage(__int64 a1, unsigned __int64 a2, char a3,
     v13 = v47;
     goto LABEL_17;
   }
-  if ( v15 != qword_14043ADC0 )
+  if ( v15 != qword_14043BE80 )
   {
     v16 = *(_QWORD *)(v15 + 8);
     if ( (v16 | 0x8000000000000000uLL) != a2 )
@@ -220,7 +220,7 @@ LABEL_17:
     {
       if ( (unsigned int)MiPteHasShadow(v16, ZeroPte) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v21 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v21 & 1) != 0 )
           v21 |= v43;
         *(_QWORD *)a2 = v21;
         MiWritePteShadow(a2);
@@ -300,7 +300,7 @@ LABEL_94:
     }
     goto LABEL_94;
   }
-  if ( HIBYTE(word_14043A1AC) == v40 && (v38 & 1) != 0 )
+  if ( HIBYTE(word_14043B26C) == v40 && (v38 & 1) != 0 )
     v38 |= 0x8000000000000000uLL;
   *(_QWORD *)a2 = v38;
   LODWORD(CurrentThread) = MiWritePteShadow(a2);

@@ -12,7 +12,7 @@
  *     DbgkpWakeTarget @ 0x1409BB05C (DbgkpWakeTarget.c)
  */
 
-NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
+NTSTATUS __cdecl NtDebugContinue(HANDLE DebugObjectHandle, PCLIENT_ID ClientId, NTSTATUS ContinueStatus)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
@@ -23,15 +23,22 @@ NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
   char *i; // rcx
   char *v11; // rdx
   void **v12; // rax
-  __int128 v13; // [rsp+40h] [rbp-28h]
+  CLIENT_ID v13; // [rsp+40h] [rbp-28h]
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v13 = *a2;
-  if ( a3 != 65538 && a3 != -2147418111 && a3 != 65537 && a3 != 1073807361 && a3 != 1073807363 && a3 != 1073807364 )
+  v13 = *ClientId;
+  if ( ContinueStatus != 65538
+    && ContinueStatus != -2147418111
+    && ContinueStatus != 65537
+    && ContinueStatus != 1073807361
+    && ContinueStatus != 1073807363
+    && ContinueStatus != 1073807364 )
+  {
     return -1073741811;
+  }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(DebugObjectHandle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
   v6 = result;
   if ( result >= 0 )
   {
@@ -41,7 +48,7 @@ NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
     ExAcquireFastMutex((PKGUARDED_MUTEX)((char *)Object + 24));
     for ( i = (char *)*((_QWORD *)v9 + 10); i != v9 + 80; i = *(char **)i )
     {
-      if ( *((_QWORD *)i + 5) == (_QWORD)v13 )
+      if ( (HANDLE)*((_QWORD *)i + 5) == v13.UniqueProcess )
       {
         if ( v7 )
         {
@@ -49,7 +56,7 @@ NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
           KeSetEvent((PRKEVENT)v9, 0, 0);
           break;
         }
-        if ( *((_QWORD *)i + 6) == *((_QWORD *)&v13 + 1) && (*((_DWORD *)i + 19) & 1) != 0 )
+        if ( (HANDLE)*((_QWORD *)i + 6) == v13.UniqueThread && (*((_DWORD *)i + 19) & 1) != 0 )
         {
           v11 = *(char **)i;
           v12 = (void **)*((_QWORD *)i + 1);
@@ -68,7 +75,7 @@ NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
       return -1073741811;
     if ( (PerfGlobalGroupMask[0] & 0x400000) != 0 )
       EtwTraceDebuggerEvent(*((_QWORD *)v8 + 7), *((_QWORD *)v8 + 8), 2);
-    *((_DWORD *)v8 + 33) = a3;
+    *((_DWORD *)v8 + 33) = ContinueStatus;
     *((_DWORD *)v8 + 18) = 0;
     DbgkpWakeTarget(v8);
     return v6;

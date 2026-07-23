@@ -1,22 +1,22 @@
 /*
- * XREFs of IoFillDumpHeader @ 0x14027F5D4
+ * XREFs of IoFillDumpHeader @ 0x14027F7C4
  * Callers:
- *     IopConstructInMemoryDumpHeader @ 0x1402810DC (IopConstructInMemoryDumpHeader.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028227C (IopWriteCapsuleTriageDumpToFirmware.c)
- *     KeInitializeCrashDumpHeader @ 0x140282CE0 (KeInitializeCrashDumpHeader.c)
- *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
- *     DbgkpTriageDumpFillHeaders @ 0x140813270 (DbgkpTriageDumpFillHeaders.c)
+ *     IopConstructInMemoryDumpHeader @ 0x1402812CC (IopConstructInMemoryDumpHeader.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028246C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     KeInitializeCrashDumpHeader @ 0x140282ED0 (KeInitializeCrashDumpHeader.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140579890 (IopLiveDumpEndMirroringCallback.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x140814470 (DbgkpTriageDumpFillHeaders.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     RtlGetNtProductType @ 0x14012AC40 (RtlGetNtProductType.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmGetPhysicalMemoryRanges @ 0x14075B660 (MmGetPhysicalMemoryRanges.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x14012AD10 (RtlGetNtProductType.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmGetPhysicalMemoryRanges @ 0x14075C850 (MmGetPhysicalMemoryRanges.c)
  */
 
 __int64 __fastcall IoFillDumpHeader(
-        enum _NT_PRODUCT_TYPE *a1,
+        _NT_PRODUCT_TYPE *a1,
         int a2,
         int a3,
         __int64 a4,
@@ -25,7 +25,7 @@ __int64 __fastcall IoFillDumpHeader(
         __int64 a7,
         __int64 a8)
 {
-  enum _NT_PRODUCT_TYPE *v10; // r11
+  _NT_PRODUCT_TYPE *v10; // r11
   unsigned __int64 v11; // r10
   unsigned __int64 v12; // rcx
   size_t v13; // r8

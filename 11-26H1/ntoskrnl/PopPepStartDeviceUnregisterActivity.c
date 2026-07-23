@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepStartDeviceUnregisterActivity @ 0x140611B70
+ * XREFs of PopPepStartDeviceUnregisterActivity @ 0x1406149B0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 char __fastcall PopPepStartDeviceUnregisterActivity(__int64 a1)

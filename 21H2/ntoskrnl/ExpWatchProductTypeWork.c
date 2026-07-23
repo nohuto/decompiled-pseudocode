@@ -1,27 +1,27 @@
 /*
- * XREFs of ExpWatchProductTypeWork @ 0x1406B3870
+ * XREFs of ExpWatchProductTypeWork @ 0x140612A40
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     CmOpenKey @ 0x140655330 (CmOpenKey.c)
- *     NtNotifyChangeKey @ 0x1406631C0 (NtNotifyChangeKey.c)
- *     NtSetValueKey @ 0x140663DC0 (NtSetValueKey.c)
- *     NtDeleteValueKey @ 0x140669100 (NtDeleteValueKey.c)
- *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
- *     NtFlushKey @ 0x1406B3C40 (NtFlushKey.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     NtQueryValueKey @ 0x1406F7AE0 (NtQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     NtFlushKey @ 0x140612E10 (NtFlushKey.c)
+ *     CmOpenKey @ 0x14064A150 (CmOpenKey.c)
+ *     NtNotifyChangeKey @ 0x140657FE0 (NtNotifyChangeKey.c)
+ *     NtSetValueKey @ 0x140658BE0 (NtSetValueKey.c)
+ *     NtDeleteValueKey @ 0x14065DF20 (NtDeleteValueKey.c)
+ *     CmpLockRegistryFreezeAware @ 0x140667920 (CmpLockRegistryFreezeAware.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     NtQueryValueKey @ 0x14070EEC0 (NtQueryValueKey.c)
  */
 
 char ExpWatchProductTypeWork()
@@ -31,7 +31,7 @@ char ExpWatchProductTypeWork()
   char v2; // di
   HANDLE v3; // r14
   int v4; // eax
-  int ValueKey; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // rdx
   char *v7; // rcx
   const wchar_t *v8; // rax
@@ -49,52 +49,48 @@ char ExpWatchProductTypeWork()
   HANDLE v20; // rsi
   int v21; // edi
   __int64 v22; // rcx
-  int v23; // eax
-  unsigned int *v24; // rdi
-  int v25; // eax
-  unsigned int v26; // eax
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  ULONG_PTR v29; // rdi
+  __int64 v23; // rcx
+  NTSTATUS v24; // eax
+  ULONG *v25; // rdi
+  NTSTATUS v26; // eax
+  unsigned int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  ULONG_PTR v30; // rdi
   char result; // al
-  __int64 v31; // rcx
-  size_t BugCheckParameter4; // [rsp+28h] [rbp-89h]
-  size_t BugCheckParameter4a; // [rsp+28h] [rbp-89h]
-  size_t Size; // [rsp+30h] [rbp-81h]
-  size_t Sizea; // [rsp+30h] [rbp-81h]
-  size_t Sizeb; // [rsp+30h] [rbp-81h]
+  __int64 v32; // rcx
   LARGE_INTEGER Interval; // [rsp+58h] [rbp-59h] BYREF
-  __int64 v38; // [rsp+60h] [rbp-51h] BYREF
-  UNICODE_STRING v39; // [rsp+68h] [rbp-49h] BYREF
-  HANDLE v40; // [rsp+78h] [rbp-39h] BYREF
+  ULONG ResultLength; // [rsp+60h] [rbp-51h] BYREF
+  UNICODE_STRING ValueName; // [rsp+68h] [rbp-49h] BYREF
+  void *v36; // [rsp+78h] [rbp-39h] BYREF
   HANDLE Handle; // [rsp+80h] [rbp-31h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-29h] BYREF
-  _QWORD v43[4]; // [rsp+98h] [rbp-19h] BYREF
-  __int128 v44; // [rsp+B8h] [rbp+7h]
-  _OWORD v45[2]; // [rsp+C8h] [rbp+17h] BYREF
-  __int16 v46; // [rsp+E8h] [rbp+37h]
+  _QWORD v39[4]; // [rsp+98h] [rbp-19h] BYREF
+  __int128 v40; // [rsp+B8h] [rbp+7h]
+  _OWORD KeyValueInformation[2]; // [rsp+C8h] [rbp+17h] BYREF
+  __int16 v42; // [rsp+E8h] [rbp+37h]
 
-  v43[0] = 48LL;
-  v43[3] = 576LL;
+  v39[0] = 48LL;
+  v39[3] = 576LL;
   Handle = 0LL;
   DestinationString = 0LL;
-  LODWORD(v38) = 0;
+  ResultLength = 0;
   v0 = 1;
-  v40 = 0LL;
-  v39 = 0LL;
+  v36 = 0LL;
+  ValueName = 0LL;
   v1 = 0;
   v2 = 0;
   v3 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions");
-  v43[1] = 0LL;
-  v43[2] = &DestinationString;
-  v44 = 0LL;
+  v39[1] = 0LL;
+  v39[2] = &DestinationString;
+  v40 = 0LL;
   ExAcquirePushLockSharedEx((ULONG_PTR)&ExpKeyManipLock, 0LL);
   if ( ExpProductTypeKey )
   {
     while ( 1 )
     {
-      v4 = CmOpenKey(&v40, 131103, (__int64)v43, 0, 0LL);
+      v4 = CmOpenKey((unsigned int)&v36, 131103, (unsigned int)v39, 0, 0LL);
       if ( v4 != -1073741670 )
         break;
       Interval.QuadPart = -10000000LL;
@@ -103,29 +99,39 @@ char ExpWatchProductTypeWork()
     if ( v4 < 0 )
       KeBugCheckEx(0x9Au, 0xDuLL, (unsigned int)v4, 0LL, 0LL);
     v3 = ExpProductTypeKey;
-    ExpProductTypeKey = v40;
+    ExpProductTypeKey = v36;
     if ( !ExpSetupModeDetected )
     {
-      RtlInitUnicodeString(&v39, L"ProductType");
-      LODWORD(BugCheckParameter4) = 34;
-      ValueKey = NtQueryValueKey(ExpProductTypeKey, BugCheckParameter4, (__int64)&v38);
-      if ( ValueKey == -1073741670 )
+      RtlInitUnicodeString(&ValueName, L"ProductType");
+      v5 = NtQueryValueKey(
+             ExpProductTypeKey,
+             &ValueName,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x22u,
+             &ResultLength);
+      if ( v5 == -1073741670 )
       {
         Interval.QuadPart = -10000000LL;
         do
         {
           KeDelayExecutionThread(0, 0, &Interval);
-          LODWORD(BugCheckParameter4a) = 34;
-          ValueKey = NtQueryValueKey(ExpProductTypeKey, BugCheckParameter4a, (__int64)&v38);
+          v5 = NtQueryValueKey(
+                 ExpProductTypeKey,
+                 &ValueName,
+                 KeyValuePartialInformation,
+                 KeyValueInformation,
+                 0x22u,
+                 &ResultLength);
         }
-        while ( ValueKey == -1073741670 );
+        while ( v5 == -1073741670 );
       }
-      if ( ValueKey >= 0 )
+      if ( v5 >= 0 )
       {
         v8 = L"LanmanNT";
         do
         {
-          v9 = *(const wchar_t *)((char *)v8 + (char *)v45 + 12 - (char *)L"LanmanNT");
+          v9 = *(const wchar_t *)((char *)v8 + (char *)KeyValueInformation + 12 - (char *)L"LanmanNT");
           v10 = *v8 - v9;
           if ( v10 )
             break;
@@ -137,7 +143,7 @@ char ExpWatchProductTypeWork()
         v11 = L"ServerNT";
         do
         {
-          v12 = *(const wchar_t *)((char *)v11 + (char *)v45 + 12 - (char *)L"ServerNT");
+          v12 = *(const wchar_t *)((char *)v11 + (char *)KeyValueInformation + 12 - (char *)L"ServerNT");
           v13 = *v11 - v12;
           if ( v13 )
             break;
@@ -161,13 +167,13 @@ LABEL_48:
         while ( v16 );
         if ( v17 && v14 )
         {
-          v31 = ExpProductTypeValueInfo;
+          v32 = ExpProductTypeValueInfo;
           v0 = 0;
-          *(_OWORD *)ExpProductTypeValueInfo = v45[0];
-          *(_OWORD *)(v31 + 16) = v45[1];
-          *(_WORD *)(v31 + 32) = v46;
+          *(_OWORD *)ExpProductTypeValueInfo = KeyValueInformation[0];
+          *(_OWORD *)(v32 + 16) = KeyValueInformation[1];
+          *(_WORD *)(v32 + 32) = v42;
         }
-        v7 = (char *)v45 - v6 + 12;
+        v7 = (char *)KeyValueInformation - v6 + 12;
         while ( 1 )
         {
           v18 = *(_WORD *)v6;
@@ -189,89 +195,86 @@ LABEL_23:
       v22 = *((_QWORD *)PsGetCurrentServerSiloGlobals((__int64)v7, v6) + 113);
       if ( !qword_140D2D4D8 || (v21 = qword_140D2D4D8(v22, v20), v21 < 0) )
         KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v21, 1uLL, 0LL);
-      CmpLockRegistryFreezeAware(1);
+      LOBYTE(v23) = 1;
+      CmpLockRegistryFreezeAware(v23);
       v1 = 1;
-      LODWORD(Size) = *(_DWORD *)(ExpProductTypeValueInfo + 8);
-      v23 = NtSetValueKey(
-              (__int64)ExpProductTypeKey,
-              (unsigned __int64)&v39,
+      v24 = NtSetValueKey(
+              ExpProductTypeKey,
+              &ValueName,
               0,
               *(_DWORD *)(ExpProductTypeValueInfo + 4),
-              (void *)(ExpProductTypeValueInfo + 12),
-              Size);
-      if ( v23 == -1073741670 )
+              (PVOID)(ExpProductTypeValueInfo + 12),
+              *(_DWORD *)(ExpProductTypeValueInfo + 8));
+      if ( v24 == -1073741670 )
       {
         Interval.QuadPart = -10000000LL;
         do
         {
           KeDelayExecutionThread(0, 0, &Interval);
-          LODWORD(Sizea) = *(_DWORD *)(ExpProductTypeValueInfo + 8);
-          v23 = NtSetValueKey(
-                  (__int64)ExpProductTypeKey,
-                  (unsigned __int64)&v39,
+          v24 = NtSetValueKey(
+                  ExpProductTypeKey,
+                  &ValueName,
                   0,
                   *(_DWORD *)(ExpProductTypeValueInfo + 4),
-                  (void *)(ExpProductTypeValueInfo + 12),
-                  Sizea);
+                  (PVOID)(ExpProductTypeValueInfo + 12),
+                  *(_DWORD *)(ExpProductTypeValueInfo + 8));
         }
-        while ( v23 == -1073741670 );
+        while ( v24 == -1073741670 );
       }
-      if ( v23 < 0 )
-        KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v23, 1uLL, 0LL);
-      v24 = (unsigned int *)qword_140C542A0;
-      RtlInitUnicodeString(&v39, L"ProductSuite");
-      if ( v24 )
+      if ( v24 < 0 )
+        KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v24, 1uLL, 0LL);
+      v25 = (ULONG *)qword_140C542E0;
+      RtlInitUnicodeString(&ValueName, L"ProductSuite");
+      if ( v25 )
       {
-        LODWORD(Sizea) = v24[2];
-        v25 = NtSetValueKey((__int64)ExpProductTypeKey, (unsigned __int64)&v39, 0, v24[1], v24 + 3, Sizea);
-        if ( v25 == -1073741670 )
+        v26 = NtSetValueKey(ExpProductTypeKey, &ValueName, 0, v25[1], v25 + 3, v25[2]);
+        if ( v26 == -1073741670 )
         {
           Interval.QuadPart = -10000000LL;
           do
           {
             KeDelayExecutionThread(0, 0, &Interval);
-            LODWORD(Sizeb) = *((_DWORD *)qword_140C542A0 + 2);
-            v25 = NtSetValueKey(
-                    (__int64)ExpProductTypeKey,
-                    (unsigned __int64)&v39,
+            v26 = NtSetValueKey(
+                    ExpProductTypeKey,
+                    &ValueName,
                     0,
-                    *((_DWORD *)qword_140C542A0 + 1),
-                    (char *)qword_140C542A0 + 12,
-                    Sizeb);
+                    *((_DWORD *)qword_140C542E0 + 1),
+                    (char *)qword_140C542E0 + 12,
+                    *((_DWORD *)qword_140C542E0 + 2));
           }
-          while ( v25 == -1073741670 );
+          while ( v26 == -1073741670 );
         }
-        if ( v25 < 0 )
-          KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v25, 2uLL, 0LL);
+        if ( v26 < 0 )
+          KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v26, 2uLL, 0LL);
       }
       else
       {
-        NtDeleteValueKey(ExpProductTypeKey, (unsigned __int64)&v39);
+        NtDeleteValueKey(ExpProductTypeKey, &ValueName);
       }
     }
     while ( 1 )
     {
-      v26 = NtNotifyChangeKey(
-              (int)ExpProductTypeKey,
-              0,
-              (__int64)&ExpWatchProductTypeWorkItem,
-              1LL,
+      v27 = NtNotifyChangeKey(
+              ExpProductTypeKey,
+              0LL,
+              ExpWatchProductTypeWorkItem,
+              (PVOID)1,
               &ExpProductTypeIoSb,
-              268435461,
+              0x10000005u,
               0,
               &ExpProductTypeChangeBuffer,
-              4,
-              1);
-      v29 = v26;
-      if ( v26 != -1073741670 )
+              4u,
+              1u);
+      v30 = v27;
+      if ( v27 != -1073741670 )
         break;
       Interval.QuadPart = -10000000LL;
       KeDelayExecutionThread(0, 0, &Interval);
     }
     if ( v1 )
-      CmpUnlockRegistry(v28, v27);
-    if ( (v29 & 0x80000000) != 0LL )
-      KeBugCheckEx(0x9Au, 0x11uLL, v29, 4uLL, 0LL);
+      CmpUnlockRegistry(v29, v28);
+    if ( (v30 & 0x80000000) != 0LL )
+      KeBugCheckEx(0x9Au, 0x11uLL, v30, 4uLL, 0LL);
     v2 = v1;
     if ( !ExpSetupModeDetected
       && v0

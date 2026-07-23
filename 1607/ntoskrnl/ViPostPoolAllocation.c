@@ -1,7 +1,7 @@
 /*
- * XREFs of ViPostPoolAllocation @ 0x1407026B4
+ * XREFs of ViPostPoolAllocation @ 0x1407026E4
  * Callers:
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
  * Callees:
  *     <none>
  */
@@ -89,12 +89,12 @@ LABEL_18:
     v14 = _InterlockedIncrement((volatile signed __int32 *)(v8 + 80));
     if ( v14 > *(_DWORD *)(v8 + 88) )
       *(_DWORD *)(v8 + 88) = v14;
-    v15 = v10 + _InterlockedExchangeAdd64(&qword_140307250, v10);
-    if ( v15 > qword_140307260 )
-      qword_140307260 = v15;
-    v16 = _InterlockedIncrement(&dword_140307240);
-    if ( v16 > dword_140307248 )
-      dword_140307248 = v16;
+    v15 = v10 + _InterlockedExchangeAdd64(&qword_140307290, v10);
+    if ( v15 > qword_1403072A0 )
+      qword_1403072A0 = v15;
+    v16 = _InterlockedIncrement(&dword_140307280);
+    if ( v16 > dword_140307288 )
+      dword_140307288 = v16;
   }
   else
   {
@@ -104,12 +104,12 @@ LABEL_18:
     v18 = _InterlockedIncrement((volatile signed __int32 *)(v8 + 84));
     if ( v18 > *(_DWORD *)(v8 + 92) )
       *(_DWORD *)(v8 + 92) = v18;
-    v19 = v10 + _InterlockedExchangeAdd64(&qword_140307258, v10);
-    if ( v19 > qword_140307268 )
-      qword_140307268 = v19;
-    v20 = _InterlockedIncrement(&dword_140307244);
-    if ( v20 > dword_14030724C )
-      dword_14030724C = v20;
+    v19 = v10 + _InterlockedExchangeAdd64(&qword_140307298, v10);
+    if ( v19 > qword_1403072A8 )
+      qword_1403072A8 = v19;
+    v20 = _InterlockedIncrement(&dword_140307284);
+    if ( v20 > dword_14030728C )
+      dword_14030728C = v20;
   }
   result = v2;
   *v12 = a1;

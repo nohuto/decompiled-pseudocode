@@ -3,37 +3,37 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  */
 
 __int64 MiInitializeSessionIds()
 {
   unsigned __int64 v0; // rbp
-  struct _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *PoolWithTag; // rax
   char v2; // al
   __int64 result; // rax
   int v4; // [rsp+50h] [rbp+0h] BYREF
 
   v0 = (unsigned __int64)&v4 & 0xFFFFFFFFFFFFFFE0uLL;
-  qword_1403268D8 = 0LL;
+  qword_140326918 = 0LL;
   *(_DWORD *)v0 = 1048590;
   *(_QWORD *)(v0 + 8) = L"Session";
-  PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x20206D4Du);
-  qword_140327820 = PoolWithTag;
+  PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x20206D4Du);
+  qword_140327860 = PoolWithTag;
   if ( !PoolWithTag
-    || (PoolWithTag->SizeOfBitMap = 128, PoolWithTag->Buffer = &PoolWithTag[1].SizeOfBitMap, !qword_140327820) )
+    || (PoolWithTag->SizeOfBitMap = 128, PoolWithTag->Buffer = &PoolWithTag[1].SizeOfBitMap, !qword_140327860) )
   {
-    KeBugCheckEx(0x7Du, qword_140324DD0, qword_140324DC0, BugCheckParameter3, 0x200uLL);
+    KeBugCheckEx(0x7Du, qword_140324E10, qword_140324E00, BugCheckParameter3, 0x200uLL);
   }
   memset(
-    qword_140327820->Buffer,
+    qword_140327860->Buffer,
     0,
-    4 * (((qword_140327820->SizeOfBitMap & 0x1F) != 0) + (qword_140327820->SizeOfBitMap >> 5)));
-  qword_140326920 = 0LL;
+    4 * (((qword_140327860->SizeOfBitMap & 0x1F) != 0) + (qword_140327860->SizeOfBitMap >> 5)));
+  qword_140326960 = 0LL;
   memset((void *)(v0 + 16), 0, 0x78uLL);
   v2 = *(_BYTE *)(((unsigned __int64)&v4 & 0xFFFFFFFFFFFFFFE0uLL) + 0x12);
   *(_DWORD *)(((unsigned __int64)&v4 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18) = 0;

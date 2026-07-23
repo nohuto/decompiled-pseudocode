@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessSequenceNumber @ 0x140365B20
+ * XREFs of PsGetProcessSequenceNumber @ 0x140365CC0
  * Callers:
  *     <none>
  * Callees:

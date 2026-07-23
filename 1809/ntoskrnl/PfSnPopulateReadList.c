@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnPopulateReadList @ 0x14065F740
+ * XREFs of PfSnPopulateReadList @ 0x140660900
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtCreateEvent @ 0x14062CF50 (NtCreateEvent.c)
- *     PsSetCurrentThreadPrefetching @ 0x14065FC50 (PsSetCurrentThreadPrefetching.c)
- *     PfSnGetSectionObject @ 0x14065FC98 (PfSnGetSectionObject.c)
- *     PfSnFindPrefetchVolumeInfoInList @ 0x140660104 (PfSnFindPrefetchVolumeInfoInList.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x140660298 (PfSnCleanupPrefetchSectionInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtCreateEvent @ 0x14062DF70 (NtCreateEvent.c)
+ *     PsSetCurrentThreadPrefetching @ 0x140660E10 (PsSetCurrentThreadPrefetching.c)
+ *     PfSnGetSectionObject @ 0x140660E58 (PfSnGetSectionObject.c)
+ *     PfSnFindPrefetchVolumeInfoInList @ 0x1406612C4 (PfSnFindPrefetchVolumeInfoInList.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x140661458 (PfSnCleanupPrefetchSectionInfo.c)
  */
 
 void __fastcall PfSnPopulateReadList(__int64 a1)

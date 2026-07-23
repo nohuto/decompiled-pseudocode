@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpWheaNativeWriteMsr @ 0x140372000
+ * XREFs of HalpWheaNativeWriteMsr @ 0x1403721A0
  * Callers:
  *     <none>
  * Callees:

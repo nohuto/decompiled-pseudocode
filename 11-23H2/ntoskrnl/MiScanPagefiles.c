@@ -4,9 +4,9 @@
  *     MiWorkingSetManager @ 0x14021D5F0 (MiWorkingSetManager.c)
  * Callees:
  *     MiFreePageFileHashPfns @ 0x14021D960 (MiFreePageFileHashPfns.c)
- *     ExQueueWorkItemToPartition @ 0x1402B959C (ExQueueWorkItemToPartition.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B982C (ExQueueWorkItemToPartition.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
+ *     PsReferencePartitionSafe @ 0x1402F9EAC (PsReferencePartitionSafe.c)
  */
 
 __int64 __fastcall MiScanPagefiles(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDqTraceQueryCreate @ 0x140990524
+ * XREFs of PiDqTraceQueryCreate @ 0x140950F84
  * Callers:
- *     PiDqIrpQueryCreate @ 0x14098EFF8 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14094FA58 (PiDqIrpQueryCreate.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1404575B0 (PsGetCurrentThreadProcessId.c)
- *     McTemplateK0pqzzzzzzz_EtwWriteTransfer @ 0x14049F0FC (McTemplateK0pqzzzzzzz_EtwWriteTransfer.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     FilterConvertToString @ 0x14089FFCC (FilterConvertToString.c)
- *     PnpConvertDevpropcompkeyArrayToString @ 0x140A3CF38 (PnpConvertDevpropcompkeyArrayToString.c)
- *     PiDqConvertQueryFlagsToString @ 0x140B0FD7C (PiDqConvertQueryFlagsToString.c)
- *     PiDqConvertObjectTypeToString @ 0x140B3451C (PiDqConvertObjectTypeToString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcessId @ 0x14044EE20 (PsGetCurrentThreadProcessId.c)
+ *     McTemplateK0pqzzzzzzz_EtwWriteTransfer @ 0x140498C4C (McTemplateK0pqzzzzzzz_EtwWriteTransfer.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     FilterConvertToString @ 0x1408A63CC (FilterConvertToString.c)
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x1409F8958 (PnpConvertDevpropcompkeyArrayToString.c)
+ *     PiDqConvertQueryFlagsToString @ 0x140B115AC (PiDqConvertQueryFlagsToString.c)
+ *     PiDqConvertObjectTypeToString @ 0x140B3696C (PiDqConvertObjectTypeToString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqTraceQueryCreate(__int64 a1)
@@ -43,7 +43,7 @@ __int64 __fastcall PiDqTraceQueryCreate(__int64 a1)
   char *v27; // [rsp+D8h] [rbp+60h]
 
   v1 = 0;
-  if ( byte_140EF3DCA >= 0 )
+  if ( byte_140EF412A >= 0 )
     return (unsigned int)v1;
   v3 = *(_QWORD *)(a1 + 24);
   v4 = 0LL;
@@ -200,7 +200,7 @@ LABEL_60:
   {
     v1 = 0;
 LABEL_20:
-    if ( byte_140EF3DCA < 0 )
+    if ( byte_140EF412A < 0 )
     {
       LODWORD(v22) = PsGetCurrentThreadProcessId();
       v1 = McTemplateK0pqzzzzzzz_EtwWriteTransfer(v23[0], v14, v3, a1, v22, v23[0], v26, v27, v12, v5, v6, v4);

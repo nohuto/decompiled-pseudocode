@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x140869480
+ * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x14086A6E0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
- *     PopFxReleaseDevice @ 0x1402D9304 (PopFxReleaseDevice.c)
- *     PopPepGetMinimumDevicePowerState @ 0x1402DCF54 (PopPepGetMinimumDevicePowerState.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     PopFxAddRefDevice @ 0x1400FE348 (PopFxAddRefDevice.c)
+ *     PopFxReleaseDevice @ 0x1402D94F4 (PopFxReleaseDevice.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x1402DD144 (PopPepGetMinimumDevicePowerState.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PoFxSetTargetDripsDevicePowerState(struct _IO_REMOVE_LOCK *a1, int a2)
@@ -24,8 +24,8 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(struct _IO_REMOVE_LOCK *a1
   {
     if ( a2 == 1 || a2 > 4 )
       return (unsigned int)-1073741811;
-    v5 = dword_14043C4C0;
-    if ( dword_14043C4C0 == -1 )
+    v5 = dword_14043D580;
+    if ( dword_14043D580 == -1 )
       return (unsigned int)-1073741823;
     if ( !a1 )
       return (unsigned int)-1073741811;

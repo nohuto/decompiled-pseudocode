@@ -9,13 +9,13 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlpLogHeapAffinityManagerEnable(__int64 a1, int a2)
+NTSTATUS __fastcall RtlpLogHeapAffinityManagerEnable(__int64 a1, int a2)
 {
-  _DWORD v5[10]; // [rsp+24h] [rbp-44h] BYREF
+  _QWORD Fields[6]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(v5, 0, sizeof(v5));
-  *(_QWORD *)&v5[7] = a1;
-  HIWORD(v5[0]) = 4150;
-  v5[9] = a2;
-  return NtTraceEvent();
+  memset(Fields, 0, 44);
+  Fields[4] = a1;
+  HIWORD(Fields[0]) = 4150;
+  LODWORD(Fields[5]) = a2;
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x20402u, 0xCu, Fields);
 }

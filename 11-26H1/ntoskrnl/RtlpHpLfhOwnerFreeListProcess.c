@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhOwnerFreeListProcess @ 0x1403493F0
+ * XREFs of RtlpHpLfhOwnerFreeListProcess @ 0x14034B470
  * Callers:
- *     RtlpHpLfhOwnerRunMaintenance @ 0x140346820 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x140347D20 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1403488A0 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x140349DA0 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x14034952C (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x1403498B0 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14034B5AC (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x14034B930 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
  */
 
 void __fastcall RtlpHpLfhOwnerFreeListProcess(__int64 a1, __int64 a2, unsigned __int64 *a3, char a4)

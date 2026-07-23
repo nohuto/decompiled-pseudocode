@@ -1,11 +1,11 @@
 /*
- * XREFs of KiStartForceParkSingleDutyCycleTimerCallback @ 0x1405F8B80
+ * XREFs of KiStartForceParkSingleDutyCycleTimerCallback @ 0x1405FB5A0
  * Callers:
  *     <none>
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall KiStartForceParkSingleDutyCycleTimerCallback(__int64 a1, __int64 a2)

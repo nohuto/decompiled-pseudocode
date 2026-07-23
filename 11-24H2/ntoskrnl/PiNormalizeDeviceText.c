@@ -1,24 +1,24 @@
 /*
- * XREFs of PiNormalizeDeviceText @ 0x1409C8004
+ * XREFs of PiNormalizeDeviceText @ 0x1409B8420
  * Callers:
- *     PnpQueryDeviceText @ 0x1409C75AC (PnpQueryDeviceText.c)
+ *     PnpQueryDeviceText @ 0x1409B91CC (PnpQueryDeviceText.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140356698 (RtlStringCbPrintfExW.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     _wcstoi64 @ 0x140500974 (_wcstoi64.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     PiGetDefaultMessageString @ 0x1409C8444 (PiGetDefaultMessageString.c)
- *     IopBuildFullDriverPath @ 0x1409C8E18 (IopBuildFullDriverPath.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfExW @ 0x140423038 (RtlStringCbPrintfExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     _wcstoi64 @ 0x1404FE234 (_wcstoi64.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     IopBuildFullDriverPath @ 0x1409B78C8 (IopBuildFullDriverPath.c)
+ *     PiGetDefaultMessageString @ 0x1409B8860 (PiGetDefaultMessageString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
@@ -26,7 +26,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   void *v3; // r14
   unsigned __int16 *v4; // r13
   wchar_t *v5; // rsi
-  NTSTATUS inited; // ebx
+  int inited; // ebx
   void *Pool2; // rax
   const wchar_t *v8; // rbx
   wchar_t *v9; // rax
@@ -37,14 +37,15 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   __int64 v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // rax
-  size_t v17; // rbx
+  ULONG_PTR v17; // rbx
   wchar_t *v18; // rax
   UNICODE_STRING String2; // [rsp+50h] [rbp-59h] BYREF
   wchar_t *EndPtr; // [rsp+60h] [rbp-49h] BYREF
   void *v22; // [rsp+68h] [rbp-41h]
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-39h] BYREF
-  size_t pcbRemaining[2]; // [rsp+80h] [rbp-29h] BYREF
-  wchar_t *v25; // [rsp+90h] [rbp-19h]
+  size_t pcbRemaining; // [rsp+80h] [rbp-29h] BYREF
+  ULONG MessageId[2]; // [rsp+88h] [rbp-21h]
+  wchar_t *v26; // [rsp+90h] [rbp-19h]
   PVOID P; // [rsp+98h] [rbp-11h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-9h] BYREF
   ULONG Length; // [rsp+120h] [rbp+77h] BYREF
@@ -55,7 +56,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   v3 = 0LL;
   Length = 0;
   DestinationString = 0LL;
-  pcbRemaining[0] = 0LL;
+  pcbRemaining = 0LL;
   v4 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   v22 = 0LL;
@@ -71,7 +72,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
     inited = 0;
     goto LABEL_24;
   }
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, String2.Length + 2LL, 0x20207050u);
   P = Pool2;
   v8 = (const wchar_t *)Pool2;
   if ( !Pool2 )
@@ -93,7 +94,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
     *v11 = 0;
     v12 = v11 + 1;
   }
-  pcbRemaining[1] = wcstoi64(v10, &EndPtr, 10);
+  *(_QWORD *)MessageId = wcstoi64(v10, &EndPtr, 10);
   if ( *EndPtr )
     goto LABEL_35;
   RtlInitUnicodeString(&String2, v8);
@@ -108,7 +109,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
     inited = ZwQueryKey(KeyHandle, KeyBasicInformation, 0LL, 0, &Length);
     if ( inited == -1073741789 )
     {
-      v4 = (unsigned __int16 *)ExAllocatePool2(0x100uLL);
+      v4 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, Length, 0x20207050u);
       if ( !v4 )
       {
 LABEL_21:
@@ -129,8 +130,8 @@ LABEL_21:
           if ( RtlPrefixUnicodeString(&String2, &DestinationString, 1u) )
           {
             v13 = DestinationString.Length - 24;
-            v25 = DestinationString.Buffer + 12;
-            inited = PiGetDefaultMessageString(KeyHandle);
+            v26 = DestinationString.Buffer + 12;
+            inited = PiGetDefaultMessageString(KeyHandle, MessageId[0]);
             if ( inited < 0 )
             {
               v3 = v22;
@@ -155,14 +156,14 @@ LABEL_21:
                 while ( v12[v14] );
                 v17 += 2 * v14 + 6;
               }
-              v18 = (wchar_t *)ExAllocatePool2(0x100uLL);
+              v18 = (wchar_t *)ExAllocatePool2(0x100uLL, v17, 0x20207050u);
               v5 = v18;
               if ( !v18 )
                 goto LABEL_21;
-              inited = RtlStringCbPrintfExW(v18, v17, &EndPtr, pcbRemaining, 0, L"@%s,#%s;%s", v25, v10, v3);
+              inited = RtlStringCbPrintfExW(v18, v17, &EndPtr, &pcbRemaining, 0, L"@%s,#%s;%s", v26, v10, v3);
               if ( inited >= 0 )
               {
-                if ( !v12 || (inited = RtlStringCbPrintfW(EndPtr, pcbRemaining[0], L";(%s)", v12), inited >= 0) )
+                if ( !v12 || (inited = RtlStringCbPrintfW(EndPtr, pcbRemaining, L";(%s)", v12), inited >= 0) )
                 {
                   *a2 = v5;
 LABEL_35:

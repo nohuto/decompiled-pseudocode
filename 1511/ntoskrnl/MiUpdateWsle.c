@@ -125,7 +125,9 @@ ULONG_PTR __fastcall MiUpdateWsle(
   v9 = BugCheckParameter4;
   if ( (LONG *)a3 == &dword_1402FFA80 )
   {
-    if ( PsNtosImageBase && (a2 >= PsNtosImageBase && a2 < PsNtosImageEnd || a2 >= PsHalImageBase && a2 < PsHalImageEnd) )
+    if ( PsNtosImageBase
+      && (a2 >= (unsigned __int64)PsNtosImageBase && a2 < PsNtosImageEnd
+       || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
     {
       LODWORD(xmmword_1402FE598) = xmmword_1402FE598 + 1;
     }

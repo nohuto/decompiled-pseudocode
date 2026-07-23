@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMapViewInSessionSpace @ 0x1407DE9B0
+ * XREFs of MmMapViewInSessionSpace @ 0x1407DEC80
  * Callers:
- *     LdrpMapResourceFile @ 0x1403A7DC4 (LdrpMapResourceFile.c)
+ *     LdrpMapResourceFile @ 0x1403A7FA4 (LdrpMapResourceFile.c)
  *     MiInitializeApiSets @ 0x140B45520 (MiInitializeApiSets.c)
  * Callees:
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x1406AD6D4 (MiMapViewInSystemSpace.c)
  */
 
 NTSTATUS __stdcall MmMapViewInSessionSpace(PVOID Section, PVOID *MappedBase, PSIZE_T ViewSize)

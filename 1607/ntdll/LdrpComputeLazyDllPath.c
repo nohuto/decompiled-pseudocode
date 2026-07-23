@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpComputeLazyDllPath @ 0x18000D37C
+ * XREFs of LdrpComputeLazyDllPath @ 0x18000D36C
  * Callers:
- *     LdrpSearchPath @ 0x18000EBF0 (LdrpSearchPath.c)
+ *     LdrpSearchPath @ 0x18000EBE0 (LdrpSearchPath.c)
  * Callees:
- *     LdrpGetDllPath @ 0x18000C808 (LdrpGetDllPath.c)
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     LdrpGetDllPath @ 0x18000C7F8 (LdrpGetDllPath.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpComputeLazyDllPath(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall LdrpComputeLazyDllPath(__int64 a1)
   if ( !*(_QWORD *)a1 )
   {
     DllPath = LdrpGetDllPath(
-                *(WCHAR **)(a1 + 32),
+                *(_QWORD *)(a1 + 32),
                 *(_DWORD *)(a1 + 24),
                 &v8,
                 &v9,

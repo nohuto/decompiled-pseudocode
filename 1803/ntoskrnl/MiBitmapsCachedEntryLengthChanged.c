@@ -8,24 +8,23 @@
  *     RtlRbRemoveNode @ 0x1400E9770 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, __int64 a2, int a3)
+char __fastcall MiBitmapsCachedEntryLengthChanged(_RTL_RB_TREE *a1, unsigned __int64 a2, int a3)
 {
-  char v3; // bl
-  __int64 result; // rax
+  BOOLEAN v3; // bl
+  unsigned __int64 j; // rax
   unsigned __int64 v7; // r9
   _QWORD *v8; // rdx
   __int64 i; // r9
-  __int64 j; // r9
+  __int64 k; // r9
   unsigned int v11; // ecx
-  unsigned __int64 *v12; // rsi
-  __int64 v13; // r8
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rdx
-  int v16; // ecx
-  unsigned __int64 v17; // rax
+  _RTL_RB_TREE *v12; // rsi
+  _RTL_BALANCED_NODE *Min; // rax
+  unsigned __int64 Root; // rdx
+  int v15; // ecx
+  unsigned __int64 v16; // rax
 
   v3 = 0;
-  result = a2;
+  j = a2;
   if ( a3 )
   {
     v7 = *(_QWORD *)(a2 + 8);
@@ -47,9 +46,9 @@ __int64 __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, __int64 a2, int
       for ( i = *(_QWORD *)(a2 + 16); ; i = *(_QWORD *)(v7 + 16) )
       {
         v7 = i & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v7 || *(_QWORD *)v7 == result )
+        if ( !v7 || *(_QWORD *)v7 == j )
           break;
-        result = v7;
+        j = v7;
       }
     }
   }
@@ -58,81 +57,80 @@ __int64 __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, __int64 a2, int
     v7 = *(_QWORD *)a2;
     if ( *(_QWORD *)a2 )
     {
-      for ( result = *(_QWORD *)(v7 + 8); result; result = *(_QWORD *)(result + 8) )
-        v7 = result;
+      for ( j = *(_QWORD *)(v7 + 8); j; j = *(_QWORD *)(j + 8) )
+        v7 = j;
     }
     else
     {
-      for ( j = *(_QWORD *)(a2 + 16); ; j = *(_QWORD *)(v7 + 16) )
+      for ( k = *(_QWORD *)(a2 + 16); ; k = *(_QWORD *)(v7 + 16) )
       {
-        v7 = j & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v7 || *(_QWORD *)(v7 + 8) == result )
+        v7 = k & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !v7 || *(_QWORD *)(v7 + 8) == j )
           break;
-        result = v7;
+        j = v7;
       }
     }
     if ( !v7 )
-      return result;
+      return j;
   }
-  result = *(unsigned int *)(v7 + 52);
+  LODWORD(j) = *(_DWORD *)(v7 + 52);
   v11 = *(_DWORD *)(a2 + 52);
   if ( a3 )
   {
-    if ( (unsigned int)result > v11 )
-      return result;
+    if ( (unsigned int)j > v11 )
+      return j;
   }
-  else if ( (unsigned int)result < v11 )
+  else if ( (unsigned int)j < v11 )
   {
-    return result;
+    return j;
   }
-  v12 = (unsigned __int64 *)(a1 + 144);
-  RtlRbRemoveNode(v12, a2);
-  v14 = v12[1];
-  v15 = *v12;
-  if ( (v14 & 1) != 0 )
+  v12 = a1 + 9;
+  RtlRbRemoveNode(v12, (PRTL_BALANCED_NODE)a2);
+  Min = v12->Min;
+  Root = (unsigned __int64)v12->Root;
+  if ( ((unsigned __int8)Min & 1) != 0 )
   {
-    if ( v15 )
-      v15 ^= (unsigned __int64)v12;
+    if ( Root )
+      Root ^= (unsigned __int64)v12;
     else
-      v15 = 0LL;
+      Root = 0LL;
   }
-  v16 = v14 & 1;
-  if ( v15 )
+  v15 = (unsigned __int8)Min & 1;
+  if ( Root )
   {
-    v13 = *(unsigned int *)(a2 + 52);
     while ( 1 )
     {
-      if ( *(_QWORD *)(a2 + 48) < *(_QWORD *)(v15 + 48) )
+      if ( *(_QWORD *)(a2 + 48) < *(_QWORD *)(Root + 48) )
       {
-        v17 = *(_QWORD *)v15;
-        if ( v16 )
+        v16 = *(_QWORD *)Root;
+        if ( v15 )
         {
-          if ( !v17 )
+          if ( !v16 )
             break;
-          v17 ^= v15;
+          v16 ^= Root;
         }
-        if ( !v17 )
+        if ( !v16 )
           break;
       }
       else
       {
-        v17 = *(_QWORD *)(v15 + 8);
-        if ( v16 )
+        v16 = *(_QWORD *)(Root + 8);
+        if ( v15 )
         {
-          if ( !v17 )
-            goto LABEL_36;
-          v17 ^= v15;
+          if ( !v16 )
+            goto LABEL_35;
+          v16 ^= Root;
         }
-        if ( !v17 )
+        if ( !v16 )
         {
-LABEL_36:
+LABEL_35:
           v3 = 1;
           break;
         }
       }
-      v15 = v17;
+      Root = v16;
     }
   }
-  LOBYTE(v13) = v3;
-  return RtlRbInsertNodeEx(v12, v15, v13, a2);
+  LOBYTE(j) = RtlRbInsertNodeEx(v12, (PRTL_BALANCED_NODE)Root, v3, (PRTL_BALANCED_NODE)a2);
+  return j;
 }

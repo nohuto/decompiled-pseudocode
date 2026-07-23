@@ -1,9 +1,9 @@
 /*
- * XREFs of StringListElementSubstringMatch @ 0x140B6CBE0
+ * XREFs of StringListElementSubstringMatch @ 0x140B6FFB0
  * Callers:
- *     PropertyEval @ 0x1409A8E30 (PropertyEval.c)
+ *     PropertyEval @ 0x140969840 (PropertyEval.c)
  * Callees:
- *     SubstringMatch @ 0x140AA9A5C (SubstringMatch.c)
+ *     SubstringMatch @ 0x140AA4E68 (SubstringMatch.c)
  */
 
 __int64 __fastcall StringListElementSubstringMatch(const wchar_t *a1, int a2, const wchar_t *a3, int a4, int a5)

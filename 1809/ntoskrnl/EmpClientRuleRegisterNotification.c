@@ -1,18 +1,18 @@
 /*
- * XREFs of EmpClientRuleRegisterNotification @ 0x140813660
+ * XREFs of EmpClientRuleRegisterNotification @ 0x140814860
  * Callers:
- *     EmClientRuleRegisterNotification @ 0x140813640 (EmClientRuleRegisterNotification.c)
+ *     EmClientRuleRegisterNotification @ 0x140814840 (EmClientRuleRegisterNotification.c)
  * Callees:
  *     EmpSearchTargetRuleList @ 0x1400106FC (EmpSearchTargetRuleList.c)
  *     EmpSearchRuleDatabase @ 0x140010720 (EmpSearchRuleDatabase.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x14017FBE0 (EmpQueueRuleUpdateState.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     EmpQueueRuleUpdateState @ 0x14017FD20 (EmpQueueRuleUpdateState.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EmpClientRuleRegisterNotification(PVOID Object, __int64 a2, unsigned int a3, _QWORD *a4)

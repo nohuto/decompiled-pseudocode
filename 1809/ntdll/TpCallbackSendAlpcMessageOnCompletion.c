@@ -12,12 +12,12 @@ __int64 __fastcall TpCallbackSendAlpcMessageOnCompletion(__int64 a1, __int64 a2,
 {
   __int64 v8; // rax
   unsigned int v9; // r14d
-  void *Heap; // rax
+  PVOID Heap; // rax
 
   if ( a1 && (v8 = *(_QWORD *)(a1 + 136)) != 0 && *(_QWORD *)(v8 + 272) == a2 && (*(_BYTE *)(a1 + 228) & 1) == 0 )
   {
     v9 = a4[1];
-    Heap = (void *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x80000), a4[1]);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x80000, a4[1]);
     *(_QWORD *)(a1 + 208) = Heap;
     if ( Heap )
     {

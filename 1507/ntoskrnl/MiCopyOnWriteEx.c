@@ -181,7 +181,9 @@ __int64 __fastcall MiCopyOnWriteEx(
   if ( v7 + 0x70000000000LL > 0x7FFFFFFFFFLL )
   {
     if ( v7 + 0x80000000000LL <= 0x7FFFFFFFFFLL
-      || PsNtosImageBase && (v7 >= PsNtosImageBase && v7 < PsNtosImageEnd || v7 >= PsHalImageBase && v7 < PsHalImageEnd) )
+      || PsNtosImageBase
+      && (v7 >= (unsigned __int64)PsNtosImageBase && v7 < PsNtosImageEnd
+       || v7 >= (unsigned __int64)PsHalImageBase && v7 < PsHalImageEnd) )
     {
       v17 = 0;
       v70 = 0;

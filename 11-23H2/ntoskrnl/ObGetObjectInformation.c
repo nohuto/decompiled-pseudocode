@@ -1,16 +1,16 @@
 /*
- * XREFs of ObGetObjectInformation @ 0x14097B914
+ * XREFs of ObGetObjectInformation @ 0x14097BB14
  * Callers:
- *     ExpGetObjectInformation @ 0x1409F6634 (ExpGetObjectInformation.c)
+ *     ExpGetObjectInformation @ 0x1409F68C4 (ExpGetObjectInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8670 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x14036BF10 (OBJECT_HEADER_TO_PROCESS_INFO.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
- *     ObpCreateTypeArray @ 0x14097BF7C (ObpCreateTypeArray.c)
- *     ObpDestroyTypeArray @ 0x14097C084 (ObpDestroyTypeArray.c)
- *     ObQueryTypeName @ 0x14097C37C (ObQueryTypeName.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8900 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x14036C0B0 (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
+ *     ObpCreateTypeArray @ 0x14097C17C (ObpCreateTypeArray.c)
+ *     ObpDestroyTypeArray @ 0x14097C284 (ObpDestroyTypeArray.c)
+ *     ObQueryTypeName @ 0x14097C57C (ObQueryTypeName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

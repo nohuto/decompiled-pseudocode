@@ -21,7 +21,7 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r13
   _QWORD *v3; // r12
-  wchar_t *PoolWithTag; // r14
+  WCHAR *PoolWithTag; // r14
   unsigned int MinorFunction; // r8d
   NTSTATUS DeviceRegProperty; // ebx
   unsigned int v10; // r8d
@@ -37,13 +37,13 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
   LARGE_INTEGER ByteOffset; // rax
   int Length; // eax
   __int64 v22; // rdx
-  wchar_t *Src; // rdi
-  wchar_t *v24; // rcx
+  WCHAR *Src; // rdi
+  WCHAR *v24; // rcx
   int v25; // r9d
-  wchar_t *v26; // r8
-  wchar_t v27; // dx
-  wchar_t *v28; // rax
-  wchar_t *v29; // rbx
+  WCHAR *v26; // r8
+  WCHAR v27; // dx
+  WCHAR *v28; // rax
+  WCHAR *v29; // rbx
   LARGE_INTEGER v30; // rdx
   void *v31; // rax
   _DWORD *v32; // rcx
@@ -66,7 +66,7 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
   char v49; // r8
   int v50[4]; // [rsp+40h] [rbp-10h] BYREF
   SIZE_T NumberOfBytes; // [rsp+98h] [rbp+48h] BYREF
-  wchar_t *v52; // [rsp+A0h] [rbp+50h] BYREF
+  WCHAR *v52; // [rsp+A0h] [rbp+50h] BYREF
   int v53; // [rsp+A8h] [rbp+58h] BYREF
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
@@ -131,13 +131,13 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
             else
               v46 = 0LL;
             LODWORD(NumberOfBytes) = 0;
-            PiGetDeviceRegProperty(v46[6], (__int64)a2, 1, 14, 0LL, (int *)&NumberOfBytes);
+            PiGetDeviceRegProperty(v46[6], (__int64)a2, 1, 14, 0LL, (PULONG)&NumberOfBytes);
             if ( !(_DWORD)NumberOfBytes )
               goto LABEL_77;
-            PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
+            PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
             if ( !PoolWithTag )
               goto LABEL_76;
-            DeviceRegProperty = PiGetDeviceRegProperty(v46[6], v47, 1, 14, PoolWithTag, (int *)&NumberOfBytes);
+            DeviceRegProperty = PiGetDeviceRegProperty(v46[6], v47, 1, 14, PoolWithTag, (PULONG)&NumberOfBytes);
             if ( DeviceRegProperty < 0 )
             {
               if ( DeviceRegProperty == -1073741275 )
@@ -148,7 +148,7 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
             goto LABEL_11;
           }
 LABEL_10:
-          PoolWithTag = (wchar_t *)a2->IoStatus.Information;
+          PoolWithTag = (WCHAR *)a2->IoStatus.Information;
           DeviceRegProperty = a2->IoStatus.Status;
           goto LABEL_11;
         }
@@ -185,10 +185,10 @@ LABEL_10:
                                     7,
                                     (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
                                     0LL,
-                                    (int *)&NumberOfBytes);
+                                    (PULONG)&NumberOfBytes);
               if ( DeviceRegProperty == -1073741789 )
               {
-                Src = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
+                Src = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
                 if ( Src )
                 {
                   DeviceRegProperty = PiGetDeviceRegProperty(
@@ -197,7 +197,7 @@ LABEL_10:
                                         7,
                                         (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
                                         Src,
-                                        (int *)&NumberOfBytes);
+                                        (PULONG)&NumberOfBytes);
                   v24 = Src;
                   if ( DeviceRegProperty < 0 )
                   {
@@ -207,7 +207,7 @@ LABEL_10:
                   {
                     v25 = NumberOfBytes;
                     v26 = 0LL;
-                    if ( Src < (wchar_t *)((char *)Src + ((unsigned int)NumberOfBytes & 0xFFFFFFFE)) )
+                    if ( Src < (WCHAR *)((char *)Src + ((unsigned int)NumberOfBytes & 0xFFFFFFFE)) )
                     {
                       do
                       {
@@ -228,7 +228,7 @@ LABEL_10:
                         }
                         ++v24;
                       }
-                      while ( v24 < (wchar_t *)((char *)Src + (v25 & 0xFFFFFFFE)) );
+                      while ( v24 < (WCHAR *)((char *)Src + (v25 & 0xFFFFFFFE)) );
                     }
                     PoolWithTag = Src;
                   }
@@ -240,7 +240,7 @@ LABEL_10:
               }
               if ( DeviceRegProperty == -1073741275 )
               {
-                PoolWithTag = (wchar_t *)a2->IoStatus.Information;
+                PoolWithTag = (WCHAR *)a2->IoStatus.Information;
                 DeviceRegProperty = a2->IoStatus.Status;
               }
             }
@@ -261,7 +261,7 @@ LABEL_10:
               goto LABEL_76;
             }
 LABEL_95:
-            PoolWithTag = (wchar_t *)a2->IoStatus.Information;
+            PoolWithTag = (WCHAR *)a2->IoStatus.Information;
             goto LABEL_11;
           }
         }
@@ -271,7 +271,7 @@ LABEL_95:
           goto LABEL_76;
         memset(v34, 0, *((unsigned __int16 *)v3 + 20));
         v36 = (__int16 *)v3[6];
-        PoolWithTag = (wchar_t *)v35;
+        PoolWithTag = (WCHAR *)v35;
         DeviceRegProperty = 0;
         v37 = *v36;
         if ( CurrentStackLocation->Parameters.Read.Length )
@@ -382,7 +382,7 @@ LABEL_62:
         }
         if ( CurrentStackLocation->Parameters.Read.Length != 4 )
           goto LABEL_10;
-        v28 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x64647050u);
+        v28 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x64647050u);
         v29 = v28;
         if ( v28 )
         {

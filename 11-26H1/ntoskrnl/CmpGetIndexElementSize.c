@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetIndexElementSize @ 0x140A0A718
+ * XREFs of CmpGetIndexElementSize @ 0x140A207E8
  * Callers:
- *     CmpCheckKey @ 0x140A08360 (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x140A1E430 (CmpCheckKey.c)
  * Callees:
  *     <none>
  */

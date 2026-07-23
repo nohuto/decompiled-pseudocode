@@ -1,15 +1,15 @@
 /*
- * XREFs of ExIsRestrictedCaller @ 0x1406AD9EC
+ * XREFs of ExIsRestrictedCaller @ 0x1406AEC8C
  * Callers:
- *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
- *     PspQueryWorkingSetWatch @ 0x140888CD8 (PspQueryWorkingSetWatch.c)
- *     ExpProfileCreate @ 0x1408D9BCC (ExpProfileCreate.c)
+ *     ExpGetProcessInformation @ 0x1405E7B60 (ExpGetProcessInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
+ *     PspQueryWorkingSetWatch @ 0x140889F38 (PspQueryWorkingSetWatch.c)
+ *     ExpProfileCreate @ 0x1408DAE8C (ExpProfileCreate.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
  */
 
 _BOOL8 __fastcall ExIsRestrictedCaller(char a1)

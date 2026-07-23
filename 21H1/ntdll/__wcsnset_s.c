@@ -8,24 +8,24 @@
 
 errno_t __cdecl _wcsnset_s(wchar_t *Destination, size_t SizeInWords, wchar_t Value, size_t MaxCount)
 {
-  size_t v4; // edi
-  size_t v6; // esi
+  int v4; // edi
+  int v6; // esi
   wchar_t *i; // edx
 
-  v4 = MaxCount;
-  if ( MaxCount )
+  v4 = Value;
+  if ( Value )
   {
     if ( !Destination )
       goto LABEL_18;
   }
   else if ( !Destination )
   {
-    if ( !SizeInWords )
+    if ( !(_DWORD)SizeInWords )
       return 0;
     goto LABEL_18;
   }
   v6 = SizeInWords;
-  if ( SizeInWords )
+  if ( (_DWORD)SizeInWords )
   {
     for ( i = Destination; *i; --v4 )
     {
@@ -33,7 +33,7 @@ errno_t __cdecl _wcsnset_s(wchar_t *Destination, size_t SizeInWords, wchar_t Val
         break;
       if ( !--v6 )
         break;
-      *i++ = Value;
+      *i++ = WORD2(SizeInWords);
     }
     if ( !v4 )
     {

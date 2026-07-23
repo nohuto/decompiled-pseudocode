@@ -2,10 +2,10 @@
  * XREFs of MD5Update @ 0x18005D420
  * Callers:
  *     MD5Final @ 0x18005D350 (MD5Final.c)
- *     ImportTablepHashCanonicalLists @ 0x1800E0588 (ImportTablepHashCanonicalLists.c)
+ *     ImportTablepHashCanonicalLists @ 0x1800E0548 (ImportTablepHashCanonicalLists.c)
  * Callees:
  *     TransformMD5 @ 0x18005D570 (TransformMD5.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 void *__fastcall MD5Update(__int64 a1, _OWORD *a2, unsigned int a3)

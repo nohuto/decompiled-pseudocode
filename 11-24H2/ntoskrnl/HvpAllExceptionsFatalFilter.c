@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpAllExceptionsFatalFilter @ 0x1407DEDD4
+ * XREFs of HvpAllExceptionsFatalFilter @ 0x1407DF324
  * Callers:
- *     HvpViewMapMigrateCOWData @ 0x1407DEE3C (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMigrateCOWData @ 0x1407DF38C (HvpViewMapMigrateCOWData.c)
  * Callees:
- *     CmSiBugCheck @ 0x140668C6C (CmSiBugCheck.c)
+ *     CmSiBugCheck @ 0x140669E44 (CmSiBugCheck.c)
  */
 
 void __fastcall __noreturn HvpAllExceptionsFatalFilter(ULONG_PTR *a1)

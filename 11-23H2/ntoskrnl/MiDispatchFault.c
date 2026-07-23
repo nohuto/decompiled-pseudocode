@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDispatchFault @ 0x140237F30
+ * XREFs of MiDispatchFault @ 0x140238000
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiInPagePageTable @ 0x1402E4D70 (MiInPagePageTable.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiInPagePageTable @ 0x1402E5000 (MiInPagePageTable.c)
  * Callees:
- *     MiComputeMaximumFaultCluster @ 0x1402385F0 (MiComputeMaximumFaultCluster.c)
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
- *     MiResolveProtoPteFault @ 0x140267ED0 (MiResolveProtoPteFault.c)
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
- *     MiPageTableLockIsContended @ 0x1402E6A30 (MiPageTableLockIsContended.c)
- *     MiAdvanceFaultList @ 0x1402EE7F4 (MiAdvanceFaultList.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiCheckProtoAccess @ 0x140349FB0 (MiCheckProtoAccess.c)
- *     MiAdjustFaultList @ 0x14034C9A4 (MiAdjustFaultList.c)
- *     MiAccessCheck @ 0x1403510BC (MiAccessCheck.c)
- *     KiRspInIstStack @ 0x14035AB90 (KiRspInIstStack.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
+ *     MiComputeMaximumFaultCluster @ 0x1402386C0 (MiComputeMaximumFaultCluster.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
+ *     MiResolveProtoPteFault @ 0x140268160 (MiResolveProtoPteFault.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
+ *     MiPageTableLockIsContended @ 0x1402E6CC0 (MiPageTableLockIsContended.c)
+ *     MiAdvanceFaultList @ 0x1402EEA84 (MiAdvanceFaultList.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiCheckProtoAccess @ 0x14034A148 (MiCheckProtoAccess.c)
+ *     MiAdjustFaultList @ 0x14034CB44 (MiAdjustFaultList.c)
+ *     MiAccessCheck @ 0x14035125C (MiAccessCheck.c)
+ *     KiRspInIstStack @ 0x14035AD30 (KiRspInIstStack.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
  */
 
 __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
@@ -248,7 +248,7 @@ LABEL_22:
               }
               v21 = &ExpInterlockedPopEntrySListFault;
               v29 = *(_QWORD *)(v39.m128i_i64[0] + 360);
-              v20 = KiDynamicTraceEnabled && v29 >= qword_140D1F2A8 && v29 < qword_140D1F2B0 && KeGetCurrentIrql() == 15;
+              v20 = KiDynamicTraceEnabled && v29 >= ControlPc && v29 < qword_140D1F2B0 && KeGetCurrentIrql() == 15;
             }
             else
             {

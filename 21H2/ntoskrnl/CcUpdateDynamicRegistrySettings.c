@@ -1,12 +1,12 @@
 /*
- * XREFs of CcUpdateDynamicRegistrySettings @ 0x14039A210
+ * XREFs of CcUpdateDynamicRegistrySettings @ 0x14039A360
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     CcQueryRegKeyValue @ 0x14039A520 (CcQueryRegKeyValue.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     CcQueryRegKeyValue @ 0x14039A670 (CcQueryRegKeyValue.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcUpdateDynamicRegistrySettings(__int64 a1)

@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlImageRvaToSection @ 0x1800CBB70
+ * XREFs of RtlImageRvaToSection @ 0x1800C92E0
  * Callers:
- *     RtlImageRvaToVa @ 0x1800CBAE0 (RtlImageRvaToVa.c)
- *     LdrVerifyImageMatchesChecksumEx @ 0x18010CE10 (LdrVerifyImageMatchesChecksumEx.c)
+ *     RtlImageRvaToVa @ 0x1800C9250 (RtlImageRvaToVa.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18010C960 (LdrVerifyImageMatchesChecksumEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlImageRvaToSection(__int64 a1, __int64 a2, unsigned int a3)
+PIMAGE_SECTION_HEADER __cdecl RtlImageRvaToSection(PIMAGE_NT_HEADERS NtHeaders, PVOID BaseOfImage, ULONG Rva)
 {
-  __int64 v3; // r10
+  _IMAGE_SECTION_HEADER *v3; // r10
   unsigned int i; // eax
-  unsigned int v5; // edx
+  ULONG VirtualAddress; // edx
 
-  v3 = a1 + *(unsigned __int16 *)(a1 + 20) + 24LL;
+  v3 = (_IMAGE_SECTION_HEADER *)((char *)&NtHeaders->OptionalHeader + NtHeaders->FileHeader.SizeOfOptionalHeader);
   for ( i = 0; ; ++i )
   {
-    if ( i >= *(unsigned __int16 *)(a1 + 6) )
+    if ( i >= NtHeaders->FileHeader.NumberOfSections )
       return 0LL;
-    v5 = *(_DWORD *)(v3 + 12);
-    if ( a3 >= v5 && a3 < *(_DWORD *)(v3 + 16) + v5 )
+    VirtualAddress = v3->VirtualAddress;
+    if ( Rva >= VirtualAddress && Rva < v3->SizeOfRawData + VirtualAddress )
       break;
-    v3 += 40LL;
+    ++v3;
   }
   return v3;
 }

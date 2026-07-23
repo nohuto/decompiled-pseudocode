@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaInitializeObjectType @ 0x14055103C
+ * XREFs of HalpDmaInitializeObjectType @ 0x14054E97C
  * Callers:
- *     HalpDmaInitEarly @ 0x140C1085C (HalpDmaInitEarly.c)
+ *     HalpDmaInitEarly @ 0x140C1285C (HalpDmaInitEarly.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
  */
 
 __int64 HalpDmaInitializeObjectType()
@@ -18,7 +18,7 @@ __int64 HalpDmaInitializeObjectType()
   __int128 v5; // [rsp+3Ch] [rbp-2Dh]
   int v6; // [rsp+4Ch] [rbp-1Dh]
   int v7; // [rsp+54h] [rbp-15h]
-  void (__fastcall *v8)(__int64, __int64, __int64, __int64); // [rsp+78h] [rbp+Fh]
+  void (__fastcall *v8)(__int64, __int64); // [rsp+78h] [rbp+Fh]
 
   DestinationString = 0LL;
   memset_0(&v2, 0, 0x78uLL);

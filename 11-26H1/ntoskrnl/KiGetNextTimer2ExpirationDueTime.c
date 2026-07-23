@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetNextTimer2ExpirationDueTime @ 0x1405F7D78
+ * XREFs of KiGetNextTimer2ExpirationDueTime @ 0x1405FA798
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x1404FC8E0 (KiGetNextTimerExpirationDueTime.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1404F5E20 (KiGetNextTimerExpirationDueTime.c)
  * Callees:
- *     KiReadNextTimer2DueTimeForHrCollections @ 0x140477330 (KiReadNextTimer2DueTimeForHrCollections.c)
+ *     KiReadNextTimer2DueTimeForHrCollections @ 0x140470AB0 (KiReadNextTimer2DueTimeForHrCollections.c)
  */
 
 unsigned __int64 __fastcall KiGetNextTimer2ExpirationDueTime(
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall KiGetNextTimer2ExpirationDueTime(
     while ( 1 )
     {
       result = 3 * v9;
-      v11 = qword_140F26C10[3 * v9];
+      v11 = qword_140F26DB0[3 * v9];
       if ( v9 != 3 )
         break;
       v9 = 4LL;
@@ -49,7 +49,7 @@ unsigned __int64 __fastcall KiGetNextTimer2ExpirationDueTime(
     if ( v11 < v8 )
     {
       result = v9 - 5;
-      v8 = qword_140F26C10[3 * v9];
+      v8 = qword_140F26DB0[3 * v9];
       if ( (unsigned __int64)(v9 - 5) <= 1 )
         *a5 = 1;
     }

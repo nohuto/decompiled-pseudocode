@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestNotifyMobileHotspotChanged @ 0x1408E1B6C
+ * XREFs of PopPowerRequestNotifyMobileHotspotChanged @ 0x1408E1CCC
  * Callers:
- *     PopWnfMobileHotspotCallback @ 0x140568ED0 (PopWnfMobileHotspotCallback.c)
+ *     PopWnfMobileHotspotCallback @ 0x140569110 (PopWnfMobileHotspotCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopHandleExecutionRequiredEnablementUpdate @ 0x140772464 (PopHandleExecutionRequiredEnablementUpdate.c)
- *     PopStatsScenarioStateChange @ 0x1407724B0 (PopStatsScenarioStateChange.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopHandleExecutionRequiredEnablementUpdate @ 0x140772624 (PopHandleExecutionRequiredEnablementUpdate.c)
+ *     PopStatsScenarioStateChange @ 0x140772670 (PopStatsScenarioStateChange.c)
  */
 
 void __fastcall PopPowerRequestNotifyMobileHotspotChanged(char a1)

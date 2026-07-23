@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpLockDirectoryShared @ 0x140109F58
+ * XREFs of ObpLockDirectoryShared @ 0x140109FD8
  * Callers:
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     ObpLookupDirectoryEntryEx @ 0x140624DC0 (ObpLookupDirectoryEntryEx.c)
- *     ObpLookupDirectoryUsingHash @ 0x140624F14 (ObpLookupDirectoryUsingHash.c)
- *     NtQueryDirectoryObject @ 0x14068DCD0 (NtQueryDirectoryObject.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140625DE0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpLookupDirectoryUsingHash @ 0x140625F34 (ObpLookupDirectoryUsingHash.c)
+ *     NtQueryDirectoryObject @ 0x14068EE90 (NtQueryDirectoryObject.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ObpIncrPointerCount @ 0x14005B360 (ObpIncrPointerCount.c)
- *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1402D3258 (ObpPushStackInfo.c)
  */
 
 signed __int64 __fastcall ObpLockDirectoryShared(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopAddKernelSpacePagesToPartialDump @ 0x14055C7F4
+ * XREFs of IopAddKernelSpacePagesToPartialDump @ 0x14055CEB4
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055C86C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055CF2C (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmGetDumpRange @ 0x140630380 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1406308D0 (MmGetDumpRange.c)
  */
 
 __int64 IopAddKernelSpacePagesToPartialDump()

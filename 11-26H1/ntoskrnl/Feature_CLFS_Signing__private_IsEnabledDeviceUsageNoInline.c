@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x1404FA69C
+ * XREFs of Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x1404F3CAC
  * Callers:
- *     CmpStartCLFSLog @ 0x140863388 (CmpStartCLFSLog.c)
- *     CmpStartRMLog @ 0x1408AC340 (CmpStartRMLog.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
+ *     CmpStartCLFSLog @ 0x140869768 (CmpStartCLFSLog.c)
+ *     CmpStartRMLog @ 0x1408B2784 (CmpStartRMLog.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
  * Callees:
- *     Feature_CLFS_Signing__private_IsEnabledFallback @ 0x1405315B0 (Feature_CLFS_Signing__private_IsEnabledFallback.c)
+ *     Feature_CLFS_Signing__private_IsEnabledFallback @ 0x140533AB0 (Feature_CLFS_Signing__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline()

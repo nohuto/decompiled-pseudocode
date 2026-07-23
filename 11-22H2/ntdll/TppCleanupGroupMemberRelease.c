@@ -29,6 +29,6 @@ bool __fastcall TppCleanupGroupMemberRelease(__int64 a1, __int64 a2)
   while ( v4 != v2 );
   if ( !(_DWORD)a2 || (v2 & 0x10000) == 0 )
     return (v2 & 0x30000) == 0;
-  TppRaiseInvalidParameter(v2, a2, v3, 0x10000LL);
+  TppRaiseInvalidParameter(v2, a2, v3);
   return 0;
 }

@@ -2,7 +2,7 @@
  * XREFs of XpressDoHuffmanPass @ 0x1800566A0
  * Callers:
  *     RtlCompressBufferXpressHuffStandard @ 0x180055E80 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1801205DC (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x1801205AC (RtlCompressBufferXpressHuffMax.c)
  * Callees:
  *     <none>
  */

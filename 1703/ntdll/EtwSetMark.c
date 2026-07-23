@@ -7,14 +7,14 @@
  *     ZwTraceEvent @ 0x1800A5EB0 (ZwTraceEvent.c)
  */
 
-ULONG EtwSetMark()
+ULONG __cdecl EtwSetMark(TRACEHANDLE TraceHandle, PETW_SET_MARK_INFORMATION MarkInfo, ULONG Size)
 {
-  NTSTATUS v0; // ecx
+  NTSTATUS v3; // ecx
   ULONG result; // eax
 
-  v0 = ZwTraceEvent();
+  v3 = ZwTraceEvent((HANDLE)TraceHandle, 0x600u, Size, MarkInfo);
   result = 0;
-  if ( v0 )
-    return RtlNtStatusToDosError(v0);
+  if ( v3 )
+    return RtlNtStatusToDosError(v3);
   return result;
 }

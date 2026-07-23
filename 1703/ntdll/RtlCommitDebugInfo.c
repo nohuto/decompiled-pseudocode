@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-char *__fastcall RtlCommitDebugInfo(_QWORD *a1, unsigned int a2)
+PVOID __cdecl RtlCommitDebugInfo(PRTL_DEBUG_INFORMATION Buffer, SIZE_T Size)
 {
-  return RtlCommitDebugInfo_0(a1, a2);
+  return RtlCommitDebugInfo_0(Buffer, Size);
 }

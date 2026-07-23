@@ -1,11 +1,11 @@
 /*
- * XREFs of PopIntSteerSetMode @ 0x140189490
+ * XREFs of PopIntSteerSetMode @ 0x1401895D0
  * Callers:
  *     <none>
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PpmCheckCustomRun @ 0x140141B74 (PpmCheckCustomRun.c)
- *     PpmCheckReInit @ 0x14074F114 (PpmCheckReInit.c)
+ *     PpmCheckCustomRun @ 0x140141C74 (PpmCheckCustomRun.c)
+ *     PpmCheckReInit @ 0x140750304 (PpmCheckReInit.c)
  */
 
 __int64 __fastcall PopIntSteerSetMode(__int64 a1, int *a2, int a3)

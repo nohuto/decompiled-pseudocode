@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUpdateDriverDBCache @ 0x14049D278
+ * XREFs of PiUpdateDriverDBCache @ 0x140515734
  * Callers:
- *     PiIsDriverBlocked @ 0x14049D1BC (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x140515678 (PiIsDriverBlocked.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     RtlNumberGenericTableElementsAvl @ 0x140087424 (RtlNumberGenericTableElementsAvl.c)
- *     RtlLookupElementGenericTableAvl @ 0x1400C3B20 (RtlLookupElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1400C3FD4 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x1400C4544 (RtlInsertElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcsrchr @ 0x14014F0D4 (wcsrchr.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1400C19B0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1400C1E74 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1400C23E4 (RtlInsertElementGenericTableAvl.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x14010B6FC (RtlNumberGenericTableElementsAvl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x14014F694 (wcsrchr.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of VfDriverUnloadImage @ 0x140B8A5C0
+ * XREFs of VfDriverUnloadImage @ 0x140B8C5C0
  * Callers:
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  * Callees:
- *     VfTargetDriversRemove @ 0x1403F0E5C (VfTargetDriversRemove.c)
- *     VfIsVerifierEnabled @ 0x1404BC290 (VfIsVerifierEnabled.c)
- *     VfVolatileClearDifRuleClass @ 0x1406148D0 (VfVolatileClearDifRuleClass.c)
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x140617E90 (DifObjTrkQeuryInvokeDeleteRange.c)
- *     VfSuspectDriversUnloadCallback @ 0x140B9AF44 (VfSuspectDriversUnloadCallback.c)
- *     VfFreeMemoryNotification @ 0x140BA7A7C (VfFreeMemoryNotification.c)
- *     VfThunkCheckDriverUnloading @ 0x140BA8F14 (VfThunkCheckDriverUnloading.c)
+ *     VfTargetDriversRemove @ 0x1403E4B7C (VfTargetDriversRemove.c)
+ *     VfIsVerifierEnabled @ 0x1404B71A0 (VfIsVerifierEnabled.c)
+ *     VfVolatileClearDifRuleClass @ 0x140612E90 (VfVolatileClearDifRuleClass.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x140616450 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     VfSuspectDriversUnloadCallback @ 0x140B9CF44 (VfSuspectDriversUnloadCallback.c)
+ *     VfFreeMemoryNotification @ 0x140BA9A7C (VfFreeMemoryNotification.c)
+ *     VfThunkCheckDriverUnloading @ 0x140BAAF14 (VfThunkCheckDriverUnloading.c)
  */
 
 __int64 *__fastcall VfDriverUnloadImage(__int64 a1)

@@ -6,7 +6,10 @@
  *     <none>
  */
 
-void __stdcall LdrQueryProcessModuleInformation(int a1, int a2, int a3)
+NTSTATUS __cdecl LdrQueryProcessModuleInformation(
+        PRTL_PROCESS_MODULES ModuleInformation,
+        ULONG Size,
+        PULONG ReturnedSize)
 {
   JUMPOUT(0x4B32ED46);
 }

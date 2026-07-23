@@ -25,14 +25,14 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
   __int64 v12; // rax
   __int64 v13; // rbp
   unsigned int v14; // edi
-  __int64 v16; // rcx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  LCID v16; // ecx
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
 
   v5 = 0;
   if ( !a2 || !a1 || !a3 )
     return 3221225485LL;
   v10 = *a3;
-  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 170LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( Heap )
   {
     v12 = *(__int16 *)(a2 + 6);
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
       v16 = *(unsigned __int16 *)(a2 + 4);
       DestinationString.Buffer = Heap;
       *(_DWORD *)&DestinationString.Length = 11141120;
-      if ( !(unsigned __int8)RtlLCIDToCultureName(v16, &DestinationString) )
+      if ( !RtlLCIDToCultureName(v16, &DestinationString) )
       {
         v5 = -1073741595;
         goto LABEL_13;
@@ -67,7 +67,7 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
 LABEL_12:
         *a3 = v14;
 LABEL_13:
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         return v5;
       }
     }

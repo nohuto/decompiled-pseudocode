@@ -1,10 +1,10 @@
 /*
- * XREFs of XmPopOp @ 0x140396970
+ * XREFs of XmPopOp @ 0x140396AC0
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
- *     XmPopStack @ 0x140396EBC (XmPopStack.c)
+ *     XmStoreResult @ 0x140396F10 (XmStoreResult.c)
+ *     XmPopStack @ 0x14039700C (XmPopStack.c)
  */
 
 __int64 __fastcall XmPopOp(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of SepVerifyDesktopAppxImage @ 0x140219CAC
+ * XREFs of SepVerifyDesktopAppxImage @ 0x140219AD8
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x14007BF38 (SepDesktopAppxSubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14007BFB8 (SepDesktopAppxSubProcessToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     SeGetTrustLabelAce @ 0x14008DA70 (SeGetTrustLabelAce.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SepVerifyDesktopAppxPackageName @ 0x140219E60 (SepVerifyDesktopAppxPackageName.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     SeGetTrustLabelAce @ 0x14008D1D0 (SeGetTrustLabelAce.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x140219C8C (SepVerifyDesktopAppxPackageName.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     PsReferenceProcessFilePointer @ 0x14046EFC0 (PsReferenceProcessFilePointer.c)
- *     ObQuerySecurityObject @ 0x14052121C (ObQuerySecurityObject.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     PsReferenceProcessFilePointer @ 0x14046DE90 (PsReferenceProcessFilePointer.c)
+ *     ObQuerySecurityObject @ 0x140504284 (ObQuerySecurityObject.c)
  */
 
 __int64 __fastcall SepVerifyDesktopAppxImage(__int64 a1, int a2, char a3, _BYTE *a4)

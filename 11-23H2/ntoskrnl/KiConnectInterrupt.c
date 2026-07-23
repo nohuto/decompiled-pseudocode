@@ -1,13 +1,13 @@
 /*
- * XREFs of KiConnectInterrupt @ 0x140320C8C
+ * XREFs of KiConnectInterrupt @ 0x140320F1C
  * Callers:
- *     KeConnectInterrupt @ 0x140320A54 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140320CE4 (KeConnectInterrupt.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KiAcquireInterruptConnectLock @ 0x140320EA0 (KiAcquireInterruptConnectLock.c)
- *     KiInsertInterruptObjectOrdered @ 0x1403A6F2C (KiInsertInterruptObjectOrdered.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KiAcquireInterruptConnectLock @ 0x140321130 (KiAcquireInterruptConnectLock.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1403A710C (KiInsertInterruptObjectOrdered.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiConnectInterrupt(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
   bool v20; // zf
   char v21[8]; // [rsp+20h] [rbp-48h] BYREF
   __int64 (__fastcall *v22)(); // [rsp+28h] [rbp-40h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   v1 = *(unsigned int *)(a1 + 88);
   v2 = 0;
@@ -117,7 +117,9 @@ LABEL_27:
       }
     }
   }
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v14 = v21[0];
     if ( v21[0] <= 0xFu && CurrentIrql >= 2u )

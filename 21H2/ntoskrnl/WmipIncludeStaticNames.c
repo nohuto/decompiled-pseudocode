@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipIncludeStaticNames @ 0x1409327DC
+ * XREFs of WmipIncludeStaticNames @ 0x14093293C
  * Callers:
- *     WmipProcessEvent @ 0x140757D80 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140757F40 (WmipProcessEvent.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     WmipAlign @ 0x140264F60 (WmipAlign.c)
- *     RtlStringCbCatW @ 0x140265118 (RtlStringCbCatW.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     WmipInsertStaticNames @ 0x140638E70 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x14063904C (WmipStaticInstanceNameSize.c)
- *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
- *     WmipFindGEByGuid @ 0x14063F1D0 (WmipFindGEByGuid.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     WmipAlign @ 0x140252FF0 (WmipAlign.c)
+ *     RtlStringCbCatW @ 0x1402531A8 (RtlStringCbCatW.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     WmipInsertStaticNames @ 0x14062DC80 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x14062DE5C (WmipStaticInstanceNameSize.c)
+ *     WmipUnreferenceEntry @ 0x14062E428 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x1406339F4 (WmipReferenceEntry.c)
+ *     WmipFindGEByGuid @ 0x140633FE0 (WmipFindGEByGuid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 int *__fastcall WmipIncludeStaticNames(int *Src, unsigned int a2)

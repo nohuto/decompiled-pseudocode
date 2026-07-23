@@ -1,32 +1,32 @@
 /*
- * XREFs of FsRtlUninitializeBaseMcb @ 0x1403B6010
+ * XREFs of FsRtlUninitializeBaseMcb @ 0x1403BFF10
  * Callers:
- *     FsRtlUninitializeLargeMcb @ 0x1403B5EB0 (FsRtlUninitializeLargeMcb.c)
+ *     FsRtlUninitializeLargeMcb @ 0x1403BFDB0 (FsRtlUninitializeLargeMcb.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlUninitializeBaseMcb(PBASE_MCB Mcb)
 {
-  struct _SLIST_ENTRY *Mapping; // rdx
+  _SLIST_ENTRY *Mapping; // rdx
   PVOID v3; // rcx
 
   if ( Mcb->MaximumPairCount == 15 )
   {
-    Mapping = (struct _SLIST_ENTRY *)Mcb->Mapping;
+    Mapping = (_SLIST_ENTRY *)Mcb->Mapping;
     if ( Mcb->PoolType == 1 )
     {
-      ++FsRtlFirstPagedMappingLookasideList.L.TotalFrees;
-      if ( LOWORD(FsRtlFirstPagedMappingLookasideList.L.ListHead.Alignment) < FsRtlFirstPagedMappingLookasideList.L.Depth )
+      ++unk_140E112DC;
+      if ( LOWORD(FsRtlFirstPagedMappingLookasideList.Alignment) < unk_140E112D0 )
       {
-        RtlpInterlockedPushEntrySList(&FsRtlFirstPagedMappingLookasideList.L.ListHead, Mapping);
+        RtlpInterlockedPushEntrySList(&FsRtlFirstPagedMappingLookasideList, Mapping);
       }
       else
       {
-        ++FsRtlFirstPagedMappingLookasideList.L.FreeMisses;
+        ++unk_140E112E0;
         guard_dispatch_icall_no_overrides(Mapping, Mapping);
       }
     }

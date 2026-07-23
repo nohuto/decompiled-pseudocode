@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpIommuUnblockDevice @ 0x1404BB2D0
+ * XREFs of HalpIommuUnblockDevice @ 0x1404B6140
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x1404B2420 (HalpIommuQueryAcpiDeviceMapping.c)
- *     HalpIommuCheckDpptException @ 0x1404BB4F8 (HalpIommuCheckDpptException.c)
- *     HalpIommuCheckExceptionList @ 0x1404C3CB4 (HalpIommuCheckExceptionList.c)
- *     HalpIommuCreateDevice @ 0x14054D63C (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x14054DC10 (HalpIommuDeleteDevice.c)
- *     HalpIommuCreateIncreaseAliasTrack @ 0x140553870 (HalpIommuCreateIncreaseAliasTrack.c)
- *     HalpIommuGetAcpiDeviceMapCount @ 0x140553D7C (HalpIommuGetAcpiDeviceMapCount.c)
- *     HalpIommuJoinDmaDomain @ 0x1405540A8 (HalpIommuJoinDmaDomain.c)
- *     IommupHvAttachDeviceDomain @ 0x14056548C (IommupHvAttachDeviceDomain.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1404ACCB0 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuCheckDpptException @ 0x1404B6368 (HalpIommuCheckDpptException.c)
+ *     HalpIommuCheckExceptionList @ 0x1404BF1E4 (HalpIommuCheckExceptionList.c)
+ *     HalpIommuCreateDevice @ 0x14054AEFC (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x14054B4BC (HalpIommuDeleteDevice.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x1405511B0 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpIommuGetAcpiDeviceMapCount @ 0x1405516BC (HalpIommuGetAcpiDeviceMapCount.c)
+ *     HalpIommuJoinDmaDomain @ 0x1405519E8 (HalpIommuJoinDmaDomain.c)
+ *     IommupHvAttachDeviceDomain @ 0x1405630BC (IommupHvAttachDeviceDomain.c)
  */
 
 __int64 __fastcall HalpIommuUnblockDevice(__int128 *Src, int a2, _QWORD *a3)
@@ -28,8 +28,8 @@ __int64 __fastcall HalpIommuUnblockDevice(__int128 *Src, int a2, _QWORD *a3)
   __int128 *v11; // rcx
   int Device; // eax
   int IncreaseAliasTrack; // edi
-  _QWORD *v14; // rax
-  _QWORD *v15; // rdi
+  char *v14; // rax
+  char *v15; // rdi
   __int64 v16; // rbx
   __int128 v17; // [rsp+38h] [rbp-18h] BYREF
   __int64 v18; // [rsp+48h] [rbp-8h]
@@ -61,15 +61,12 @@ __int64 __fastcall HalpIommuUnblockDevice(__int128 *Src, int a2, _QWORD *a3)
     v6 = 1;
     if ( *(_DWORD *)Src != 1 || (unsigned int)HalpIommuGetAcpiDeviceMapCount(Src) <= 1 && (*((_BYTE *)Src + 4) & 1) == 0 )
       goto LABEL_28;
-    v14 = KeAbPreAcquire((__int64)&HalpDeviceBlockUnblockPushLock, 0LL);
+    v14 = (char *)KeAbPreAcquire((__int64)&HalpDeviceBlockUnblockPushLock, 0LL);
     v15 = v14;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(
-        &HalpDeviceBlockUnblockPushLock,
-        (__int64)v14,
-        (__int64)&HalpDeviceBlockUnblockPushLock);
+      ExfAcquirePushLockExclusiveEx(&HalpDeviceBlockUnblockPushLock, v14, (__int64)&HalpDeviceBlockUnblockPushLock);
     if ( v15 )
-      *((_BYTE *)v15 + 10) = 1;
+      v15[10] = 1;
     v7 = 1;
     IncreaseAliasTrack = HalpIommuCreateIncreaseAliasTrack(Src);
     if ( IncreaseAliasTrack >= 0 && MEMORY[0x18] <= 1 )

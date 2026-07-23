@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwMakeTemporaryObject()
+NTSTATUS __cdecl ZwMakeTemporaryObject(HANDLE Handle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 263LL;
+  result = 263;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

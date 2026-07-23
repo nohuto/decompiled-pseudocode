@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpVsContextAllocate @ 0x1402B7840
+ * XREFs of RtlpHpVsContextAllocate @ 0x14036781C
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     RtlpHpAllocateHeap @ 0x1402B7A40 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapSlow @ 0x1402B819C (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
- *     RtlpAllocateNTHeapInternal @ 0x14047A23C (RtlpAllocateNTHeapInternal.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     RtlpAllocateNTHeapInternal @ 0x14036876C (RtlpAllocateNTHeapInternal.c)
+ *     RtlpHpAllocateHeap @ 0x1403E93B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpMetadataAlloc @ 0x140458A08 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1404D2B7C (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14020D900 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpTryAcquireQueuedLockExclusive @ 0x1402B6C98 (RtlpHpTryAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1402BB160 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsSlotAllocate @ 0x1402C00DC (RtlpHpVsSlotAllocate.c)
- *     RtlpHpVsContextHandleContention @ 0x14048946C (RtlpHpVsContextHandleContention.c)
- *     RtlHeapZero @ 0x1406B4F30 (RtlHeapZero.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140336C60 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1403628A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSlotAllocate @ 0x140367A10 (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpTryAcquireQueuedLockExclusive @ 0x14036810C (RtlpHpTryAcquireQueuedLockExclusive.c)
+ *     RtlpHpVsContextHandleContention @ 0x1403687F4 (RtlpHpVsContextHandleContention.c)
+ *     RtlHeapZero @ 0x1406B5ED0 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpVsContextAllocate(_BYTE *a1, unsigned int a2, int a3, char a4)
@@ -50,7 +50,7 @@ __int64 __fastcall RtlpHpVsContextAllocate(_BYTE *a1, unsigned int a2, int a3, c
   v13 = (a1[5] & 1) == 0;
   v21 = 0LL;
   v22 = 0LL;
-  if ( v13 && !(unsigned int)RtlpHpTryAcquireQueuedLockExclusive(v12 + 2, *v9, (__int64)&v21) )
+  if ( v13 && !(unsigned int)RtlpHpTryAcquireQueuedLockExclusive((ULONG_PTR)(v12 + 2)) )
   {
     v10 = 1;
     if ( (a1[5] & 1) == 0 )
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpHpVsContextAllocate(_BYTE *a1, unsigned int a2, int a3, c
   if ( v14 )
   {
     if ( (a1[5] & 1) == 0 )
-      RtlpHpReleaseQueuedLockExclusive(*v9, &v21);
+      RtlpHpReleaseQueuedLockExclusive(*v9, (__int64)&v21);
     v15 = v14 + 16;
     v16 = 16 * (WORD1(RtlpHpHeapGlobals) ^ WORD1(v14) ^ *(unsigned __int16 *)(v14 + 2)) - 16;
     if ( (a1[4] & 1) != 0 && ((v14 + 32) & 0xFFF) == 0 )

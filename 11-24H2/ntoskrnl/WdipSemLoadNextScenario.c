@@ -1,24 +1,24 @@
 /*
- * XREFs of WdipSemLoadNextScenario @ 0x1407A1610
+ * XREFs of WdipSemLoadNextScenario @ 0x1407A1720
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x1407A1B08 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x1407A1C18 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WdipSemFastFree @ 0x1406F99A0 (WdipSemFastFree.c)
- *     WdipSemLoadNextContextProvider @ 0x1407A1050 (WdipSemLoadNextContextProvider.c)
- *     WdipSemLoadNextEndEvent @ 0x1407A1300 (WdipSemLoadNextEndEvent.c)
- *     WdipSemWriteScenarioLimitExceededEvent @ 0x1407A2DDC (WdipSemWriteScenarioLimitExceededEvent.c)
- *     WdipSemOpenRegistryKey @ 0x1407A2FF8 (WdipSemOpenRegistryKey.c)
- *     WdipSemQueryValueFromRegistry @ 0x1407A308C (WdipSemQueryValueFromRegistry.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     RtlUnicodeStringToInteger @ 0x1409933D0 (RtlUnicodeStringToInteger.c)
- *     WdipSemFastAllocate @ 0x140A48E64 (WdipSemFastAllocate.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WdipSemFastFree @ 0x1406F75E0 (WdipSemFastFree.c)
+ *     WdipSemLoadNextContextProvider @ 0x1407A1160 (WdipSemLoadNextContextProvider.c)
+ *     WdipSemLoadNextEndEvent @ 0x1407A1410 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemWriteScenarioLimitExceededEvent @ 0x1407A2EEC (WdipSemWriteScenarioLimitExceededEvent.c)
+ *     WdipSemOpenRegistryKey @ 0x1407A3108 (WdipSemOpenRegistryKey.c)
+ *     WdipSemQueryValueFromRegistry @ 0x1407A319C (WdipSemQueryValueFromRegistry.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     RtlUnicodeStringToInteger @ 0x14097E410 (RtlUnicodeStringToInteger.c)
+ *     WdipSemFastAllocate @ 0x140A3FB7C (WdipSemFastAllocate.c)
  */
 
 __int64 __fastcall WdipSemLoadNextScenario(HANDLE KeyHandle, ULONG Index, GUID *Guid)
@@ -262,6 +262,6 @@ LABEL_17:
   if ( v36 )
     ZwClose(v36);
   if ( v6 )
-    WdipSemFastFree(0, (struct _SLIST_ENTRY *)v6);
+    WdipSemFastFree(0, (_SLIST_ENTRY *)v6);
   return (unsigned int)v8;
 }

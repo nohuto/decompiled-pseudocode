@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventHgsContainmentThresholdCheck @ 0x14041E588
+ * XREFs of PpmEventHgsContainmentThresholdCheck @ 0x140415DCC
  * Callers:
- *     PpmHeteroHgsContainmentCheckThresholds @ 0x14041EEC4 (PpmHeteroHgsContainmentCheckThresholds.c)
+ *     PpmHeteroHgsContainmentCheckThresholds @ 0x140416704 (PpmHeteroHgsContainmentCheckThresholds.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventHgsContainmentThresholdCheck(__int64 a1, __int64 a2, int a3, int a4, char a5, char a6)
@@ -34,9 +34,7 @@ BOOLEAN __fastcall PpmEventHgsContainmentThresholdCheck(__int64 a1, __int64 a2, 
   result = PpmHeteroHgsContainmentState;
   if ( (PpmHeteroHgsContainmentState & 4) != 0 && PpmEtwRegistered )
   {
-    result = EtwEventEnabled(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_WPS_CONTAINMENT_THRESHOLD_CHECK);
+    result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_WPS_CONTAINMENT_THRESHOLD_CHECK);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v18;
@@ -51,15 +49,7 @@ BOOLEAN __fastcall PpmEventHgsContainmentThresholdCheck(__int64 a1, __int64 a2, 
       v13 = 4LL;
       v15 = 4LL;
       v17 = 4LL;
-      return EtwWriteEx(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_WPS_CONTAINMENT_THRESHOLD_CHECK,
-               0LL,
-               0,
-               0LL,
-               0LL,
-               6u,
-               &UserData);
+      return EtwWriteEx(PpmEtwHandle, &PPM_ETW_WPS_CONTAINMENT_THRESHOLD_CHECK, 0LL, 0, 0LL, 0LL, 6u, &UserData);
     }
   }
   return result;

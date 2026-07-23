@@ -40,12 +40,12 @@ NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
   int v12; // eax
   int v13; // eax
   struct _KTHREAD *CurrentThread; // r15
-  __int64 v15; // rax
-  __int64 v16; // r14
+  _RTL_BALANCED_NODE *v15; // rax
+  _RTL_BALANCED_NODE *v16; // r14
   char v18; // bl
   NTSTATUS v19; // ebx
   NTSTATUS AccessStatus; // [rsp+54h] [rbp-A4h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-A0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-A0h] BYREF
   int v24; // [rsp+64h] [rbp-94h]
   __int16 v25; // [rsp+68h] [rbp-90h]
   int v26; // [rsp+6Ch] [rbp-8Ch]
@@ -135,7 +135,7 @@ NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v15, (ULONG_PTR)&ExpUuidLock);
   if ( v16 )
-    *(_BYTE *)(v16 + 26) |= 1u;
+    BYTE2(v16[1].Left) |= 1u;
   *(int *)((char *)&dword_1409AD30C + 2) = v24;
   HIWORD(dword_1409AD310) = v25;
   ExpUuidCacheValid = (unsigned __int8)v24 >> 7 == 0;

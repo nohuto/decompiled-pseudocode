@@ -1,9 +1,9 @@
 /*
- * XREFs of XmInt1aFindPciClassCode @ 0x140578FD8
+ * XREFs of XmInt1aFindPciClassCode @ 0x140576468
  * Callers:
- *     XmExecuteInt1a @ 0x140578F24 (XmExecuteInt1a.c)
+ *     XmExecuteInt1a @ 0x1405763B4 (XmExecuteInt1a.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall XmInt1aFindPciClassCode(__int64 a1)
@@ -16,12 +16,11 @@ void __fastcall XmInt1aFindPciClassCode(__int64 a1)
   unsigned int j; // r14d
   unsigned int v8; // ecx
   int v9; // eax
-  int v10; // eax
-  int v11; // [rsp+68h] [rbp+10h] BYREF
+  int v10; // [rsp+68h] [rbp+10h]
 
   v1 = 0;
   v3 = 0;
-  v11 = 0;
+  v10 = 0;
   v4 = 0;
   for ( i = 0; ; ++i )
   {
@@ -44,13 +43,12 @@ LABEL_4:
       goto LABEL_4;
     }
     v4 = v6 & 0x1F | v4 & 0xFFFFFF00 | (32 * (j & 7));
-    v8 = (unsigned int)guard_dispatch_icall_no_overrides(i, v4, &v11, 8LL) == 4 ? v11 : -1;
-    v9 = *(_DWORD *)(a1 + 28) & 0xFFFFFF;
-    v11 = v8 >> 8;
-    if ( v8 >> 8 == v9 )
+    v8 = (unsigned int)guard_dispatch_icall_no_overrides(i, v4) == 4 ? v10 : -1;
+    v10 = v8 >> 8;
+    if ( v8 >> 8 == (*(_DWORD *)(a1 + 28) & 0xFFFFFF) )
     {
-      v10 = v3++;
-      if ( v10 == *(unsigned __int16 *)(a1 + 48) )
+      v9 = v3++;
+      if ( v9 == *(unsigned __int16 *)(a1 + 48) )
         break;
     }
   }

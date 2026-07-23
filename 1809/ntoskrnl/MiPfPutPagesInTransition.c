@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPfPutPagesInTransition @ 0x140064E70
+ * XREFs of MiPfPutPagesInTransition @ 0x140064E60
  * Callers:
- *     MmPrefetchPagesEx @ 0x140662438 (MmPrefetchPagesEx.c)
- *     MmPrefetchForCacheManager @ 0x140662638 (MmPrefetchForCacheManager.c)
- *     MiPrefetchControlArea @ 0x1406C7244 (MiPrefetchControlArea.c)
+ *     MmPrefetchPagesEx @ 0x1406635F8 (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x1406637F8 (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x1406C84E4 (MiPrefetchControlArea.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
@@ -18,27 +18,27 @@
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MiInitializeReadInProgressPfn @ 0x1400656E0 (MiInitializeReadInProgressPfn.c)
- *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiSetInPagePriority @ 0x140113BE4 (MiSetInPagePriority.c)
- *     MiReduceMdl @ 0x14011A934 (MiReduceMdl.c)
- *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
- *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiRefillPurgedExtents @ 0x1402B6C50 (MiRefillPurgedExtents.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiFreeReadListPages @ 0x140662960 (MiFreeReadListPages.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
+ *     MiInitializeReadInProgressPfn @ 0x1400656D0 (MiInitializeReadInProgressPfn.c)
+ *     MiUseSlabAllocator @ 0x140065C80 (MiUseSlabAllocator.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiUpdatePfnPriority @ 0x140082AA8 (MiUpdatePfnPriority.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiSetInPagePriority @ 0x140113C54 (MiSetInPagePriority.c)
+ *     MiReduceMdl @ 0x14011A9A4 (MiReduceMdl.c)
+ *     MiReturnFaultCharges @ 0x140134924 (MiReturnFaultCharges.c)
+ *     MiIsPteInStore @ 0x140141908 (MiIsPteInStore.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiRefillPurgedExtents @ 0x1402B6E40 (MiRefillPurgedExtents.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiFreeReadListPages @ 0x140663B20 (MiFreeReadListPages.c)
  */
 
 __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, _QWORD *a2, int a3)
@@ -171,7 +171,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, _QWORD *a2, int a3)
   v88 = 0LL;
   v104 = 0LL;
   LOBYTE(v117) = 17;
-  v91 = *(_QWORD *)(qword_14043A748 + 8 * v9);
+  v91 = *(_QWORD *)(qword_14043B808 + 8 * v9);
   v101[1] = *(_DWORD *)(a1 + 64) + 1;
   IoPriorityThread = PsGetIoPriorityThread(KeGetCurrentThread());
   v12 = *(_QWORD **)(v5 + 96);
@@ -213,7 +213,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, _QWORD *a2, int a3)
         do
         {
           ++v19;
-          *(_QWORD *)v18 = qword_14043ADD8;
+          *(_QWORD *)v18 = qword_14043BE98;
           v18 += 8;
         }
         while ( v19 < v20 );
@@ -284,8 +284,8 @@ LABEL_83:
           if ( MiInvalidPteConforms(*(_QWORD *)v24) )
           {
             v26 = v25;
-            if ( qword_14043A0C0 && (v25 & 0x10) == 0 )
-              v26 = v25 & ~qword_14043A0C0;
+            if ( qword_14043B180 && (v25 & 0x10) == 0 )
+              v26 = v25 & ~qword_14043B180;
             goto LABEL_83;
           }
         }
@@ -321,8 +321,8 @@ LABEL_17:
         if ( (v28 & 0x400) != 0 )
         {
           v29 = v28;
-          if ( qword_14043A0C0 && (v28 & 0x10) == 0 )
-            v29 = v28 & ~qword_14043A0C0;
+          if ( qword_14043B180 && (v28 & 0x10) == 0 )
+            v29 = v28 & ~qword_14043B180;
           v30 = v29 >> 16;
           if ( (*(_DWORD *)(*(_QWORD *)(v5 + 8) + 56LL) & 0x40000000) == 0 )
           {

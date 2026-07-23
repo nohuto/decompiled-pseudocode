@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwRemoveIoCompletionEx @ 0x1406A93F0
+ * XREFs of ZwRemoveIoCompletionEx @ 0x1406AA390
  * Callers:
- *     DifZwRemoveIoCompletionExWrapper @ 0x140646F80 (DifZwRemoveIoCompletionExWrapper.c)
+ *     DifZwRemoveIoCompletionExWrapper @ 0x140645540 (DifZwRemoveIoCompletionExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRemoveIoCompletionEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRemoveIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        PFILE_IO_COMPLETION_INFORMATION IoCompletionInformation,
+        ULONG Count,
+        PULONG NumEntriesRemoved,
+        PLARGE_INTEGER Timeout,
+        BOOLEAN Alertable)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoCompletionHandle);
 }

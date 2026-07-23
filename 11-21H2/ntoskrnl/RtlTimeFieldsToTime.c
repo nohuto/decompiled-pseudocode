@@ -2,21 +2,21 @@
  * XREFs of RtlTimeFieldsToTime @ 0x14022D4D0
  * Callers:
  *     HalSetRealTimeClock @ 0x140503420 (HalSetRealTimeClock.c)
- *     ExGetExpirationDate @ 0x14082D70C (ExGetExpirationDate.c)
- *     ExpRefreshSystemTime @ 0x1408357A0 (ExpRefreshSystemTime.c)
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x140835D14 (RtlCutoverTimeToSystemTime.c)
- *     HalpAcpiRealTimeToUtcTime @ 0x14090805C (HalpAcpiRealTimeToUtcTime.c)
- *     PiDevCfgSplitDriverConfigurationId @ 0x14094E74C (PiDevCfgSplitDriverConfigurationId.c)
- *     NtSetSystemTime @ 0x1409F8350 (NtSetSystemTime.c)
- *     I_MinAsn1AdjustFileTime @ 0x140A33434 (I_MinAsn1AdjustFileTime.c)
- *     MinAsn1DecodeGeneralizedTime @ 0x140A33600 (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x140A33AD0 (MinAsn1DecodeUtcTime.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140A47884 (ExUpdateSystemTimeFromCmos.c)
- *     HaliSetWakeAlarm @ 0x140A523B0 (HaliSetWakeAlarm.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     sub_14082D70C @ 0x14082D70C (sub_14082D70C.c)
+ *     sub_1408357A0 @ 0x1408357A0 (sub_1408357A0.c)
+ *     sub_140835844 @ 0x140835844 (sub_140835844.c)
+ *     sub_140835D14 @ 0x140835D14 (sub_140835D14.c)
+ *     sub_14090805C @ 0x14090805C (sub_14090805C.c)
+ *     sub_14094E74C @ 0x14094E74C (sub_14094E74C.c)
+ *     sub_1409F8350 @ 0x1409F8350 (sub_1409F8350.c)
+ *     sub_140A33434 @ 0x140A33434 (sub_140A33434.c)
+ *     sub_140A33600 @ 0x140A33600 (sub_140A33600.c)
+ *     sub_140A33AD0 @ 0x140A33AD0 (sub_140A33AD0.c)
+ *     sub_140A47884 @ 0x140A47884 (sub_140A47884.c)
+ *     sub_140A523B0 @ 0x140A523B0 (sub_140A523B0.c)
+ *     sub_140AFBDF4 @ 0x140AFBDF4 (sub_140AFBDF4.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14022D554 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     sub_14022D554 @ 0x14022D554 (sub_14022D554.c)
  */
 
 BOOLEAN __stdcall RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time)
@@ -32,14 +32,14 @@ BOOLEAN __stdcall RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Ti
   signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
   LONGLONG v13; // [rsp+40h] [rbp+18h] BYREF
 
-  v2 = (char *)ExLeapSecondData;
+  v2 = (char *)qword_140C15B58;
   v3 = 0;
   v13 = 0LL;
-  if ( !ExLeapSecondData || !*(_BYTE *)ExLeapSecondData )
-    return RtlpTimeFieldsToTimeNoLeapSeconds(TimeFields, Time);
-  v5 = *((_DWORD *)ExLeapSecondData + 1);
+  if ( !qword_140C15B58 || !*(_BYTE *)qword_140C15B58 )
+    return sub_14022D554(TimeFields, Time);
+  v5 = *((_DWORD *)qword_140C15B58 + 1);
   _InterlockedOr(v12, 0);
-  if ( (unsigned __int8)RtlpTimeFieldsToTimeNoLeapSeconds(TimeFields, &v13) )
+  if ( (unsigned __int8)sub_14022D554(TimeFields, &v13) )
   {
     v6 = v13;
     v7 = 0;

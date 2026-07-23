@@ -15,35 +15,37 @@
 __int64 PopInitPlatformSettings()
 {
   _BYTE *v0; // rdi
-  int SystemInformation; // ebx
+  NTSTATUS v1; // ebx
   _DWORD *PoolWithTag; // rax
   int v3; // eax
   int v5; // edx
-  _DWORD v6[6]; // [rsp+38h] [rbp-28h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-30h] BYREF
+  _DWORD SystemInformation[6]; // [rsp+38h] [rbp-28h] BYREF
 
-  v6[4] = 0;
+  SystemInformation[4] = 0;
   v0 = 0LL;
-  v6[0] = 1094930505;
-  v6[3] = 0;
-  v6[1] = 1;
-  v6[2] = 1346584902;
-  SystemInformation = ZwQuerySystemInformation(76LL, (__int64)v6);
-  if ( SystemInformation != -1073741789 )
+  SystemInformation[0] = 1094930505;
+  SystemInformation[3] = 0;
+  ReturnLength = 0;
+  SystemInformation[1] = 1;
+  SystemInformation[2] = 1346584902;
+  v1 = ZwQuerySystemInformation(SystemFirmwareTableInformation, SystemInformation, 0x14u, &ReturnLength);
+  if ( v1 != -1073741789 )
     goto LABEL_19;
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0LL, 0x206D654Du);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x206D654Du);
   v0 = PoolWithTag;
   if ( !PoolWithTag )
   {
-    SystemInformation = -1073741670;
+    v1 = -1073741670;
 LABEL_24:
-    KeBugCheckEx(0xA0u, 0xEuLL, SystemInformation, 0LL, 0LL);
+    KeBugCheckEx(0xA0u, 0xEuLL, v1, 0LL, 0LL);
   }
   *PoolWithTag = 1094930505;
   PoolWithTag[1] = 1;
   PoolWithTag[2] = 1346584902;
-  PoolWithTag[3] = -16;
-  SystemInformation = ZwQuerySystemInformation(76LL, (__int64)PoolWithTag);
-  if ( SystemInformation < 0 )
+  PoolWithTag[3] = ReturnLength - 16;
+  v1 = ZwQuerySystemInformation(SystemFirmwareTableInformation, PoolWithTag, ReturnLength, &ReturnLength);
+  if ( v1 < 0 )
     goto LABEL_24;
   if ( v0[24] >= 3u )
     PopFirmwarePlatformRole = (unsigned __int8)v0[61];
@@ -62,7 +64,7 @@ LABEL_24:
   }
   if ( PopPlatformAoAc )
   {
-    if ( !(_DWORD)InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
+    if ( !InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
       goto LABEL_16;
   }
   else
@@ -78,11 +80,11 @@ LABEL_16:
     PopFirmwarePlatformRole = 0;
   }
   PopPlatformRole = v3;
-  SystemInformation = 0;
+  v1 = 0;
 LABEL_19:
-  if ( SystemInformation < 0 )
+  if ( v1 < 0 )
     goto LABEL_24;
   if ( v0 )
     ExFreePoolWithTag(v0, 0x206D654Du);
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v1;
 }

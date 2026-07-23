@@ -4,7 +4,7 @@
  *     RtlpGetNormalization @ 0x180080F40 (RtlpGetNormalization.c)
  * Callees:
  *     Normalization__LoadClassMapExceptions @ 0x180081208 (Normalization__LoadClassMapExceptions.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall Normalization__LoadTables(__int64 a1, unsigned __int16 *a2, unsigned __int64 a3, _DWORD *a4)

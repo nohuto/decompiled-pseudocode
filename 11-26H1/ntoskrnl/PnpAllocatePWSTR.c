@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpAllocatePWSTR @ 0x140990AC0
+ * XREFs of PnpAllocatePWSTR @ 0x140951520
  * Callers:
- *     PiSwQueuedCreateInfoCreate @ 0x1407B05E8 (PiSwQueuedCreateInfoCreate.c)
- *     PiSwPdoPnPDispatch @ 0x14090C0D0 (PiSwPdoPnPDispatch.c)
- *     PiSwCompleteCreate @ 0x14090F730 (PiSwCompleteCreate.c)
- *     PiDmObjectCreate @ 0x140987A90 (PiDmObjectCreate.c)
- *     PiDqActionDataCreate @ 0x1409907EC (PiDqActionDataCreate.c)
- *     PiPnpRtlObjectEventWorker @ 0x140990D44 (PiPnpRtlObjectEventWorker.c)
- *     PiSwInterfaceCreate @ 0x140A7B574 (PiSwInterfaceCreate.c)
- *     PiSwPnPInfoInit @ 0x140A7C254 (PiSwPnPInfoInit.c)
- *     PiSwInstanceInfoInit @ 0x140A7C318 (PiSwInstanceInfoInit.c)
- *     PiSwBusRelationAdd @ 0x140A7C3EC (PiSwBusRelationAdd.c)
- *     PnpCopyDevProperty @ 0x140A7C674 (PnpCopyDevProperty.c)
- *     PiSwDeviceInterfaceSetState @ 0x140AF9604 (PiSwDeviceInterfaceSetState.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x140AF971C (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwIrpPropertySet @ 0x140B055EC (PiSwIrpPropertySet.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x1407B3648 (PiSwQueuedCreateInfoCreate.c)
+ *     PiDqActionDataCreate @ 0x14095124C (PiDqActionDataCreate.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1409517A4 (PiPnpRtlObjectEventWorker.c)
+ *     PiDmObjectCreate @ 0x1409AB728 (PiDmObjectCreate.c)
+ *     PiSwPdoPnPDispatch @ 0x1409AE200 (PiSwPdoPnPDispatch.c)
+ *     PiSwCompleteCreate @ 0x1409B1860 (PiSwCompleteCreate.c)
+ *     PiSwInterfaceCreate @ 0x140A8C6B4 (PiSwInterfaceCreate.c)
+ *     PiSwPnPInfoInit @ 0x140A8D384 (PiSwPnPInfoInit.c)
+ *     PiSwInstanceInfoInit @ 0x140A8D448 (PiSwInstanceInfoInit.c)
+ *     PiSwBusRelationAdd @ 0x140A8D51C (PiSwBusRelationAdd.c)
+ *     PnpCopyDevProperty @ 0x140A8D7A4 (PnpCopyDevProperty.c)
+ *     PiSwIrpPropertySet @ 0x140B071FC (PiSwIrpPropertySet.c)
+ *     PiSwDeviceInterfaceSetState @ 0x140B1284C (PiSwDeviceInterfaceSetState.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x140B14B14 (PiSwDeviceInterfacesUpdateState.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpAllocatePWSTR(_WORD *a1, unsigned __int64 a2, ULONG a3, PVOID *a4)

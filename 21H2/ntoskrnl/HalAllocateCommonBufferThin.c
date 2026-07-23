@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferThin @ 0x1404CAAA0
+ * XREFs of HalAllocateCommonBufferThin @ 0x1404CACE0
  * Callers:
  *     <none>
  * Callees:
- *     HalAllocateCommonBufferExThin @ 0x1404CAA00 (HalAllocateCommonBufferExThin.c)
+ *     HalAllocateCommonBufferExThin @ 0x1404CAC40 (HalAllocateCommonBufferExThin.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferThin(__int64 a1, unsigned int a2, _QWORD *a3)

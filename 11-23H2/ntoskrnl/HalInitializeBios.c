@@ -1,19 +1,19 @@
 /*
- * XREFs of HalInitializeBios @ 0x14039F060
+ * XREFs of HalInitializeBios @ 0x14039F240
  * Callers:
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     x86BiosInitializeBiosEx @ 0x14039F344 (x86BiosInitializeBiosEx.c)
- *     x86BiosTranslateAddress @ 0x1403BEFC0 (x86BiosTranslateAddress.c)
- *     _strupr @ 0x1403D8960 (_strupr.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     x86BiosInitializeBiosEx @ 0x14039F524 (x86BiosInitializeBiosEx.c)
+ *     x86BiosTranslateAddress @ 0x1403BF1A0 (x86BiosTranslateAddress.c)
+ *     _strupr @ 0x1403D8B40 (_strupr.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

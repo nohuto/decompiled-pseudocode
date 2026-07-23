@@ -14,7 +14,7 @@
  *     RtlMultiByteToUnicodeSize @ 0x1408E61A0 (RtlMultiByteToUnicodeSize.c)
  */
 
-__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
+__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const CHAR *a2)
 {
   __int64 v3; // rcx
   ULONG v4; // esi

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopAssociateThermalRequest @ 0x14074C028
+ * XREFs of PopAssociateThermalRequest @ 0x14074A358
  * Callers:
- *     PoCreateThermalRequest @ 0x14074BDA0 (PoCreateThermalRequest.c)
+ *     PoCreateThermalRequest @ 0x14074A0D0 (PoCreateThermalRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopGetDope @ 0x1403F2908 (PopGetDope.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x1405D4014 (PopThermalUpdateTelemetryClientCount.c)
- *     PopAcquireCoolingInterface @ 0x14074BFA0 (PopAcquireCoolingInterface.c)
- *     PopRegisterCoolingExtensionProtection @ 0x14074C4D4 (PopRegisterCoolingExtensionProtection.c)
- *     PopDiagTraceCoolingExtension @ 0x140A38BFC (PopDiagTraceCoolingExtension.c)
- *     PopDiagTraceThermalRequest @ 0x140A73644 (PopDiagTraceThermalRequest.c)
- *     PopCleanCoolingExtension @ 0x140AB1600 (PopCleanCoolingExtension.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopGetDope @ 0x1403E6628 (PopGetDope.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1405D17D4 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopAcquireCoolingInterface @ 0x14074A2D0 (PopAcquireCoolingInterface.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x14074A804 (PopRegisterCoolingExtensionProtection.c)
+ *     PopDiagTraceCoolingExtension @ 0x140A2DCBC (PopDiagTraceCoolingExtension.c)
+ *     PopDiagTraceThermalRequest @ 0x140A6CC64 (PopDiagTraceThermalRequest.c)
+ *     PopCleanCoolingExtension @ 0x140AAC570 (PopCleanCoolingExtension.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
@@ -31,11 +31,11 @@ __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
   Dope = PopGetDope(a2);
   if ( !Dope )
     return (unsigned int)-1073741670;
-  PopAcquireRwLockExclusive(&PopCoolingExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock);
   if ( *(_QWORD *)(Dope + 64) )
     goto LABEL_11;
-  PopReleaseRwLock((signed __int64 *)&PopCoolingExtensionLock);
-  Pool2 = ExAllocatePool2(0x100uLL);
+  PopReleaseRwLock(&PopCoolingExtensionLock);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x90uLL, 0x6C6F4350u);
   v6 = (_QWORD *)Pool2;
   if ( Pool2 )
   {
@@ -56,16 +56,16 @@ __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
       if ( v8 < 0 )
         goto LABEL_21;
     }
-    PopAcquireRwLockExclusive(&PopCoolingExtensionLock);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock);
     if ( !*(_QWORD *)(Dope + 64) )
     {
-      v11 = (_QWORD *)qword_140F0BC58;
-      if ( *(__int64 **)qword_140F0BC58 != &PopCoolingExtensionList )
+      v11 = (_QWORD *)qword_140F0B768;
+      if ( *(__int64 **)qword_140F0B768 != &PopCoolingExtensionList )
         goto LABEL_14;
       *v6 = &PopCoolingExtensionList;
       v6[1] = v11;
       *v11 = v6;
-      qword_140F0BC58 = (__int64)v6;
+      qword_140F0B768 = (__int64)v6;
       *(_QWORD *)(Dope + 64) = v6;
       PopDiagTraceCoolingExtension(v6, POP_ETW_EVENT_COOLING_EXTENSION_ADD);
       v6 = 0LL;
@@ -78,7 +78,7 @@ LABEL_11:
       if ( v8 < 0 )
       {
 LABEL_20:
-        PopReleaseRwLock((signed __int64 *)&PopCoolingExtensionLock);
+        PopReleaseRwLock(&PopCoolingExtensionLock);
         if ( !v6 )
           return (unsigned int)v8;
 LABEL_21:

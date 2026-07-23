@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpDisableDelayedRemoveWorkerWatchdog @ 0x140289AB8
+ * XREFs of PnpDisableDelayedRemoveWorkerWatchdog @ 0x140289CA8
  * Callers:
- *     PnpDelayedRemoveWorker @ 0x1406EE820 (PnpDelayedRemoveWorker.c)
+ *     PnpDelayedRemoveWorker @ 0x1406EFAC0 (PnpDelayedRemoveWorker.c)
  * Callees:
  *     PnpDisableWatchdog @ 0x140005B60 (PnpDisableWatchdog.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)

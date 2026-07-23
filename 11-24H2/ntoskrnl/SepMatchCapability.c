@@ -1,12 +1,12 @@
 /*
- * XREFs of SepMatchCapability @ 0x140432DE8
+ * XREFs of SepMatchCapability @ 0x140424F30
  * Callers:
- *     SepNormalAccessCheck @ 0x140344500 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x140362354 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x14036292C (SepNormalAccessCheckEx.c)
- *     SepMaximumAccessCheck @ 0x140363250 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x1404E8A30 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1404E9F90 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x1404EA720 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x1404EB6BC (SepNormalAccessCheckEx.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 void __fastcall SepMatchCapability(__int64 a1, int a2, unsigned __int8 *a3, int a4, _BYTE *a5, _DWORD *a6)

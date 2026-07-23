@@ -13,16 +13,16 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __fastcall LdrpGetProcedureAddress(int a1, const char *a2, int a3, unsigned int *a4)
+int __fastcall LdrpGetProcedureAddress(char *BaseOfImage, const char *a2, int a3, char **a4)
 {
-  _DWORD *v6; // esi
+  char *v6; // esi
   int v7; // ebx
-  unsigned int v8; // ecx
-  int v10; // [esp+10h] [ebp-8h] BYREF
+  char *v8; // ecx
+  ULONG Size; // [esp+10h] [ebp-8h] BYREF
   const char *v11; // [esp+14h] [ebp-4h]
 
   v11 = a2;
-  v6 = (_DWORD *)RtlImageDirectoryEntryToData(a1, 1, 0, &v10);
+  v6 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0, &Size);
   if ( !v6 )
     return -1073741702;
   if ( a2 )
@@ -35,7 +35,11 @@ int __fastcall LdrpGetProcedureAddress(int a1, const char *a2, int a3, unsigned 
         2,
         "Locating procedure \"%s\" by name\n",
         a2);
-    v7 = LdrpNameToOrdinal(a1, v6[6], a1 + v6[8], a1 + v6[9]);
+    v7 = LdrpNameToOrdinal(
+           BaseOfImage,
+           *((_DWORD *)v6 + 6),
+           &BaseOfImage[*((_DWORD *)v6 + 8)],
+           &BaseOfImage[*((_DWORD *)v6 + 9)]);
     if ( v7 >= 0 )
       goto LABEL_6;
     return -1073741702;
@@ -50,13 +54,13 @@ int __fastcall LdrpGetProcedureAddress(int a1, const char *a2, int a3, unsigned 
       a3);
   if ( !a3 )
     return -1073741811;
-  v7 = a3 - v6[4];
+  v7 = a3 - *((_DWORD *)v6 + 4);
 LABEL_6:
-  if ( (unsigned int)v7 >= v6[5] )
+  if ( (unsigned int)v7 >= *((_DWORD *)v6 + 5) )
     return (v11 != 0) - 1073741512;
-  v8 = a1 + *(_DWORD *)(v6[7] + 4 * v7 + a1);
+  v8 = &BaseOfImage[*(_DWORD *)&BaseOfImage[4 * v7 + *((_DWORD *)v6 + 7)]];
   *a4 = v8;
-  if ( v8 < (unsigned int)v6 || v8 >= (unsigned int)v6 + v10 )
+  if ( v8 < v6 || v8 >= &v6[Size] )
     return 0;
   else
     return -1073741267;

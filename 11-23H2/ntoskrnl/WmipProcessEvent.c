@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipProcessEvent @ 0x14086AE10
+ * XREFs of WmipProcessEvent @ 0x14086B050
  * Callers:
- *     WmipGenerateMofResourceNotification @ 0x140850260 (WmipGenerateMofResourceNotification.c)
- *     WmipGenerateBinaryMofNotification @ 0x14085240C (WmipGenerateBinaryMofNotification.c)
- *     WmipEventNotification @ 0x1408559F0 (WmipEventNotification.c)
- *     WmipSendGuidUpdateNotifications @ 0x14086ACAC (WmipSendGuidUpdateNotifications.c)
+ *     WmipGenerateMofResourceNotification @ 0x140850560 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14085270C (WmipGenerateBinaryMofNotification.c)
+ *     WmipEventNotification @ 0x140855CF0 (WmipEventNotification.c)
+ *     WmipSendGuidUpdateNotifications @ 0x14086AEEC (WmipSendGuidUpdateNotifications.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     ObReferenceObjectSafe @ 0x140337710 (ObReferenceObjectSafe.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     WmipWriteWnodeToObject @ 0x1405FBBB4 (WmipWriteWnodeToObject.c)
- *     WmipFindGEByGuid @ 0x1406C6404 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
- *     WmipDereferenceEvent @ 0x1409E0580 (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x1409E0984 (WmipIncludeStaticNames.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     ObReferenceObjectSafe @ 0x1403379A0 (ObReferenceObjectSafe.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     WmipWriteWnodeToObject @ 0x1405FC124 (WmipWriteWnodeToObject.c)
+ *     WmipFindGEByGuid @ 0x1406C6434 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
+ *     WmipDereferenceEvent @ 0x1409E0780 (WmipDereferenceEvent.c)
+ *     WmipIncludeStaticNames @ 0x1409E0B84 (WmipIncludeStaticNames.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReferenceCfgVad @ 0x1407A4C0C
+ * XREFs of MiReferenceCfgVad @ 0x1407A4DFC
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
- *     MiCfgInitializeProcess @ 0x1407A4AB4 (MiCfgInitializeProcess.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
+ *     MiCfgInitializeProcess @ 0x1407A4CA4 (MiCfgInitializeProcess.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiUnlockVadShared @ 0x14032A3E4 (MiUnlockVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiUnlockVadShared @ 0x14032A674 (MiUnlockVadShared.c)
  */
 
 char __fastcall MiReferenceCfgVad(__int64 a1, unsigned __int64 a2, int a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalEfiQueryCapsuleCapabilities @ 0x14050D07C
+ * XREFs of HalEfiQueryCapsuleCapabilities @ 0x14050D5CC
  * Callers:
- *     HalpQueryCapsuleCapabilities @ 0x1405212C0 (HalpQueryCapsuleCapabilities.c)
+ *     HalpQueryCapsuleCapabilities @ 0x140521810 (HalpQueryCapsuleCapabilities.c)
  * Callees:
- *     HalpEfiDecrementEfiCall @ 0x14035EB04 (HalpEfiDecrementEfiCall.c)
- *     HalpConvertEfiToNtStatus @ 0x14035EB2C (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14035EB60 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035EB88 (HalpEfiStartRuntimeCode.c)
+ *     HalpEfiDecrementEfiCall @ 0x14035ECA4 (HalpEfiDecrementEfiCall.c)
+ *     HalpConvertEfiToNtStatus @ 0x14035ECCC (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x14035ED00 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x14035ED28 (HalpEfiStartRuntimeCode.c)
  */
 
 __int64 __fastcall HalEfiQueryCapsuleCapabilities(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeletePhysicalProcessPages @ 0x14065C48C
+ * XREFs of MiDeletePhysicalProcessPages @ 0x14065C570
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140460678 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x14045F548 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x140027B7C (PsReturnProcessPagedPoolQuota.c)
- *     ExCleanupAutoExpandPushLock @ 0x14009CDFC (ExCleanupAutoExpandPushLock.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400276FC (PsReturnProcessPagedPoolQuota.c)
+ *     ExCleanupAutoExpandPushLock @ 0x14009C5FC (ExCleanupAutoExpandPushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

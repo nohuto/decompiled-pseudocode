@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x1402E12B0
+ * XREFs of ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x140292600
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x1402E0400 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140291750 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     MmStoreProbeAndLockPages @ 0x1402B7720 (MmStoreProbeAndLockPages.c)
+ *     MmStoreProbeAndLockPages @ 0x140235900 (MmStoreProbeAndLockPages.c)
  */
 
 __int64 __fastcall SmKmProbeAndLockAddress(unsigned __int64 a1, __int64 a2, struct _MDL *a3, int a4)
@@ -16,7 +16,7 @@ __int64 __fastcall SmKmProbeAndLockAddress(unsigned __int64 a1, __int64 a2, stru
   a3->Size = 8 * ((((a1 & 0xFFF) + a2 + 4095) >> 12) + 6);
   a3->MdlFlags = 0;
   a3->ByteOffset = a1 & 0xFFF;
-  result = MmStoreProbeAndLockPages((ULONG_PTR)a3, a4);
+  result = MmStoreProbeAndLockPages(a3, a4);
   if ( (int)result >= 0 )
     return 0LL;
   if ( (_DWORD)result == -1073741801 )

@@ -1,33 +1,33 @@
 /*
- * XREFs of KiExpireTimer2 @ 0x14024B5C0
+ * XREFs of KiExpireTimer2 @ 0x1402EFE10
  * Callers:
- *     KiTimer2Expiration @ 0x1402487E0 (KiTimer2Expiration.c)
+ *     KiTimer2Expiration @ 0x1402ED030 (KiTimer2Expiration.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
- *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
- *     PsTimerResolutionActive @ 0x140260174 (PsTimerResolutionActive.c)
- *     KiUpdateTimer2Flags @ 0x14027FE44 (KiUpdateTimer2Flags.c)
- *     KiFinalizeTimer2Disablement @ 0x14027FF5C (KiFinalizeTimer2Disablement.c)
- *     KiInsertTimer2 @ 0x140292CA0 (KiInsertTimer2.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1402940C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x1402AEDFC (EtwTraceTimedEvent.c)
- *     KiTryUnwaitThread @ 0x140342820 (KiTryUnwaitThread.c)
- *     KiUpdateTimer2Collections @ 0x1403A0904 (KiUpdateTimer2Collections.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
+ *     KiInsertTimer2 @ 0x140210C10 (KiInsertTimer2.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x140212038 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402129F0 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14022D15C (EtwTraceTimedEvent.c)
+ *     KiUpdateTimer2Flags @ 0x14026E084 (KiUpdateTimer2Flags.c)
+ *     KiFinalizeTimer2Disablement @ 0x14026E19C (KiFinalizeTimer2Disablement.c)
+ *     PsTimerResolutionActive @ 0x1402818E4 (PsTimerResolutionActive.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     KiWakeOtherQueueWaiters @ 0x1402E7B60 (KiWakeOtherQueueWaiters.c)
+ *     KiProcessThreadWaitList @ 0x1402EFB20 (KiProcessThreadWaitList.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402F0D40 (KiWakeQueueWaiter.c)
+ *     KiTryUnwaitThread @ 0x14034D570 (KiTryUnwaitThread.c)
+ *     KiUpdateTimer2Collections @ 0x1403A0A54 (KiUpdateTimer2Collections.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeIsThreadRunning @ 0x140513294 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A79F0 (EtwTraceEnqueueWork.c)
  */
 
-__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
+__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, LARGE_INTEGER a3, _DWORD *a4)
 {
   __int64 v4; // r15
-  unsigned __int64 v6; // r11
+  LARGE_INTEGER v6; // r11
   __int64 v7; // r12
   int v8; // r13d
   __int64 v9; // rcx
@@ -37,7 +37,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   _QWORD *v13; // rax
   _QWORD *v14; // rdi
   _QWORD *v15; // rcx
-  __int64 v16; // rdx
+  char v16; // dl
   __int64 v17; // r10
   char v18; // di
   __int64 v19; // rax
@@ -50,7 +50,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   bool v26; // zf
   unsigned __int64 v27; // r14
   ULONG_PTR v28; // rsi
-  signed __int32 v29; // ecx
+  volatile signed __int32 v29; // ecx
   int v30; // r13d
   unsigned int v31; // edx
   signed __int32 v32; // eax
@@ -70,12 +70,12 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   signed __int32 v46; // ett
   __int64 v47; // rax
   unsigned __int64 v48; // rax
-  char *v49; // r8
-  char *v50; // r9
+  __int64 *v49; // r8
+  unsigned __int64 v50; // r9
   bool v51; // cc
-  char *v52; // rax
+  __int64 *v52; // rax
   unsigned __int64 v53; // rcx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   char v55; // dl
   unsigned __int64 v56; // rax
   __int64 v57; // rdx
@@ -107,7 +107,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   __int64 v83; // [rsp+40h] [rbp-69h]
   __int64 v84; // [rsp+48h] [rbp-61h]
   ULONG_PTR BugCheckParameter3; // [rsp+50h] [rbp-59h]
-  LARGE_INTEGER v86; // [rsp+58h] [rbp-51h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-51h] BYREF
   _DWORD *v87; // [rsp+60h] [rbp-49h]
   __int64 v88; // [rsp+68h] [rbp-41h] BYREF
   __int64 v89; // [rsp+70h] [rbp-39h]
@@ -131,7 +131,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   v93 = 0LL;
   v94 = 0LL;
   memset(v95, 0, sizeof(v95));
-  v86.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   LODWORD(BugCheckParameter3) = *(_DWORD *)(v4 + 484);
   v90 = 0LL;
   v80 = 0;
@@ -153,16 +153,16 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   }
   if ( !v9 || (*(_BYTE *)(a1 + 1) & 0x20) != 0 )
     goto LABEL_4;
-  v16 = *(unsigned __int8 *)(a1 + 129);
+  v16 = *(_BYTE *)(a1 + 129);
   if ( (v16 & 4) != 0 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v86);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v9 = *(_QWORD *)(a1 + 88);
     v6 = InterruptTimePrecise;
-    v16 = *(unsigned __int8 *)(a1 + 129);
+    v16 = *(_BYTE *)(a1 + 129);
   }
-  v17 = v9 + v6;
-  if ( v9 + v6 < v6 || v17 == -1 )
+  v17 = v9 + v6.QuadPart;
+  if ( (unsigned __int64)(v9 + v6.QuadPart) < v6.QuadPart || v17 == -1 )
   {
     v17 = -2LL;
     v18 = 1;
@@ -176,9 +176,9 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   {
     if ( (KiVelocityFlags & 0x2000) != 0 )
     {
-      v49 = *(char **)(a1 + 8);
-      v50 = (char *)(a1 + 8);
-      if ( v49 == (char *)(a1 + 8) )
+      v49 = *(__int64 **)(a1 + 8);
+      v50 = a1 + 8;
+      if ( v49 == (__int64 *)(a1 + 8) )
       {
 LABEL_66:
         if ( (v16 & 0x10) == 0 )
@@ -188,15 +188,12 @@ LABEL_66:
       }
       while ( 1 )
       {
-        v51 = (unsigned __int8)v49[16] <= 1u;
+        v51 = *((_BYTE *)v49 + 16) <= 1u;
         v52 = v49;
-        v49 = *(char **)v49;
-        if ( v51 )
-        {
-          if ( (unsigned __int8)PsTimerResolutionActive(*(_QWORD *)(*((_QWORD *)v52 + 3) + 544LL), v16, v49) )
-            break;
-        }
-        if ( v49 == v50 )
+        v49 = (__int64 *)*v49;
+        if ( v51 && PsTimerResolutionActive(*(_QWORD *)(v52[3] + 544)) )
+          break;
+        if ( v49 == (__int64 *)v50 )
           goto LABEL_66;
       }
       if ( (v16 & 0x10) != 0 )
@@ -218,8 +215,8 @@ LABEL_15:
     v47 = v19 - *(_QWORD *)(a1 + 72);
     if ( v47 )
     {
-      v53 = v47 + v6;
-      if ( v47 + v6 < v6 || v53 == -1LL )
+      v53 = v47 + v6.QuadPart;
+      if ( (unsigned __int64)(v47 + v6.QuadPart) < v6.QuadPart || v53 == -1LL )
         v53 = -2LL;
       v48 = v53 + *(_QWORD *)(a1 + 88);
       if ( v48 < v53 || v48 == -1LL )
@@ -232,7 +229,7 @@ LABEL_15:
     *(_QWORD *)(a1 + 80) = v48;
   }
   *(_QWORD *)(a1 + 72) = v17;
-  while ( !(unsigned __int8)KiInsertTimer2(a1, 0LL, &v80) )
+  while ( !KiInsertTimer2(a1, 0, (__int64)&v80) )
   {
     if ( v18 )
       goto LABEL_4;
@@ -426,12 +423,12 @@ LABEL_32:
   if ( v28 )
   {
     v27 = KiWaitAlways ^ _byteswap_uint64(a1 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(a1 + 104), KiWaitNever));
-    KiUpdateTimer2Flags(a1, v8 | 0x10u);
+    KiUpdateTimer2Flags((volatile signed __int32 *)a1, v8 | 0x10, 0);
     if ( *(_QWORD *)(v7 + 11528) )
       KiProcessThreadWaitList(v7, 1u, 0, 2u);
     v33 = v78;
     if ( v78 )
-      EtwGetKernelTraceTimestamp(v95, 1073872896LL);
+      EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v95, 0x40020000u);
     v40 = v87;
     v41 = v84;
     v42 = v84;
@@ -500,8 +497,8 @@ LABEL_32:
     if ( v90 )
       LOBYTE(v94) = v77 | 2;
     if ( !v28 )
-      EtwGetKernelTraceTimestamp(v95, 1073872896LL);
-    return EtwTraceTimedEvent(3945, 1073872896, (unsigned int)&v88, 56, 4197890, (__int64)v95);
+      EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v95, 0x40020000u);
+    return EtwTraceTimedEvent(3945, 0x40020000u, (__int64)&v88, 56, 4197890, (__int64)v95);
   }
   return result;
 }

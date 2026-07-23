@@ -87,11 +87,7 @@ __int64 __fastcall CmpCopySaclToVirtualKey(__int64 a1, __int64 a2, ULONG_PTR a3,
         if ( SaclSecurityDescriptor >= 0 )
         {
           WORD1(SecurityDescriptor[0]) = v16[1] & 0x7FFF;
-          SaclSecurityDescriptor = RtlSetSaclSecurityDescriptor(
-                                     (__int64)SecurityDescriptor,
-                                     SaclPresent,
-                                     (__int64)Sacl,
-                                     SaclDefaulted);
+          SaclSecurityDescriptor = RtlSetSaclSecurityDescriptor(SecurityDescriptor, SaclPresent, Sacl, SaclDefaulted);
           if ( SaclSecurityDescriptor >= 0 )
           {
             SaclSecurityDescriptor = RtlGetOwnerSecurityDescriptor(v16, &Owner, &SaclDefaulted);

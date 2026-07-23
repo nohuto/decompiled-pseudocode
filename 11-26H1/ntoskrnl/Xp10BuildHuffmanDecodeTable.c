@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10BuildHuffmanDecodeTable @ 0x14080B778
+ * XREFs of Xp10BuildHuffmanDecodeTable @ 0x140811208
  * Callers:
- *     Xp10ReadAndDecodeHuffmanTables @ 0x14080DFDC (Xp10ReadAndDecodeHuffmanTables.c)
+ *     Xp10ReadAndDecodeHuffmanTables @ 0x140813A6C (Xp10ReadAndDecodeHuffmanTables.c)
  * Callees:
  *     <none>
  */
@@ -128,13 +128,13 @@ __int64 __fastcall Xp10BuildHuffmanDecodeTable(
                   v34 = (unsigned __int8)v32;
                   v31 -= 8;
                   v32 >>= 8;
-                  v33 = *((unsigned __int8 *)qword_140035910 + v34) | (v33 << 8);
+                  v33 = *((unsigned __int8 *)qword_140035EA0 + v34) | (v33 << 8);
                   --v25;
                 }
                 while ( v25 );
               }
               if ( v31 )
-                v33 = (*((unsigned __int8 *)qword_140035910 + (unsigned __int8)v32) | (v33 << 8)) >> (8 - v31);
+                v33 = (*((unsigned __int8 *)qword_140035EA0 + (unsigned __int8)v32) | (v33 << 8)) >> (8 - v31);
               *(_WORD *)(a9 + 2LL * (v33 + v13)) = v28;
             }
             while ( v24 > v30 );

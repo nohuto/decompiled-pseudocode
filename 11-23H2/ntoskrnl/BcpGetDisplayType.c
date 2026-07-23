@@ -1,9 +1,9 @@
 /*
- * XREFs of BcpGetDisplayType @ 0x140672CA0
+ * XREFs of BcpGetDisplayType @ 0x1406731F0
  * Callers:
- *     BgpDisplaySafeToPowerOffScreen @ 0x140672E44 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140672F08 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1406730C4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140673394 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140673458 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140673614 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
  *     <none>
  */

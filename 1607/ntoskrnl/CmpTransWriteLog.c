@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransWriteLog @ 0x1404A1ACC
+ * XREFs of CmpTransWriteLog @ 0x140519ED8
  * Callers:
- *     CmAddLogForAction @ 0x1404A1450 (CmAddLogForAction.c)
- *     CmLogTmRmAction @ 0x1404DA104 (CmLogTmRmAction.c)
+ *     CmLogTmRmAction @ 0x1404BD708 (CmLogTmRmAction.c)
+ *     CmAddLogForAction @ 0x14051985C (CmAddLogForAction.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     CmpComputeLogFillLevel @ 0x1404A1B88 (CmpComputeLogFillLevel.c)
- *     CmpDoTransWriteLogRecord @ 0x1404A1CA4 (CmpDoTransWriteLogRecord.c)
- *     LockRMLog @ 0x1404A1D3C (LockRMLog.c)
- *     CmpLogCheckpoint @ 0x1404DA2D4 (CmpLogCheckpoint.c)
- *     CmpAddRemoveRMLogContainer @ 0x140605258 (CmpAddRemoveRMLogContainer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     CmpLogCheckpoint @ 0x1404BD8D8 (CmpLogCheckpoint.c)
+ *     CmpComputeLogFillLevel @ 0x140519F94 (CmpComputeLogFillLevel.c)
+ *     CmpDoTransWriteLogRecord @ 0x14051A0B0 (CmpDoTransWriteLogRecord.c)
+ *     LockRMLog @ 0x14051A148 (LockRMLog.c)
+ *     CmpAddRemoveRMLogContainer @ 0x14060530C (CmpAddRemoveRMLogContainer.c)
  */
 
 __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, PCLFS_LSN plsnFinish)
@@ -19,17 +19,15 @@ __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, uns
   CLFS_LSN *v10; // rbp
   __int64 v11; // rdx
   int v12; // esi
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v17; // rdx
+  __int64 v18; // [rsp+60h] [rbp+8h] BYREF
 
   v5 = 0;
-  LODWORD(v20) = 0;
-  LockRMLog();
+  LODWORD(v18) = 0;
+  LockRMLog(a1);
   v10 = plsnFinish;
   while ( 1 )
   {
@@ -41,18 +39,16 @@ __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, uns
       if ( v5 != 1 )
         goto LABEL_6;
 LABEL_11:
-      LODWORD(v20) = ++v5;
+      LODWORD(v18) = ++v5;
       if ( (int)CmpAddRemoveRMLogContainer(a1) < 0 )
         goto LABEL_6;
-      LOBYTE(v19) = 1;
-      CmpLogCheckpoint(a1, v18, v19);
+      CmpLogCheckpoint(a1, v17, 1);
     }
     else
     {
       v5 = 1;
-      LOBYTE(v13) = 1;
-      LODWORD(v20) = 1;
-      if ( (int)CmpLogCheckpoint(a1, v11, v13) < 0 )
+      LODWORD(v18) = 1;
+      if ( (int)CmpLogCheckpoint(a1, v11, 1) < 0 )
         goto LABEL_11;
     }
   }
@@ -62,13 +58,13 @@ LABEL_11:
               v10,
               *(_DWORD *)(a1 + 72),
               *(_DWORD *)(a1 + 68),
-              (__int64)&v20) >= 0
-    && (unsigned int)v20 >= 0x50 )
+              (__int64)&v18) >= 0
+    && (unsigned int)v18 >= 0x50 )
   {
     CmpAddRemoveRMLogContainer(a1);
   }
 LABEL_6:
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 128));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v14, v15, v16);
+  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v13, v14, v15);
   return (unsigned int)v12;
 }

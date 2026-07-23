@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x14035BDF4
+ * XREFs of SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x14035BF94
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C928 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesTokenEx @ 0x1403A1E40 (SeSetSecurityAttributesTokenEx.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022CA38 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x1403A2020 (SeSetSecurityAttributesTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x14035BEA8 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x14035C048 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
  */
 
 __int64 __fastcall SepGetProcUniqueLuidAndIndexFromTokenEx(char a1, __int64 a2, __int64 a3, __int64 a4)

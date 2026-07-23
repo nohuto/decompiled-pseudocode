@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIpiSendRequestEx @ 0x140329D60
+ * XREFs of KiIpiSendRequestEx @ 0x14032BD90
  * Callers:
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
- *     KxFlushNonGlobalTb @ 0x140250FF0 (KxFlushNonGlobalTb.c)
- *     KeInvalidateRangeAllCaches @ 0x1404B8E20 (KeInvalidateRangeAllCaches.c)
- *     KxFlushSingleTb @ 0x1405FC9F8 (KxFlushSingleTb.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
+ *     KxFlushNonGlobalTb @ 0x140252950 (KxFlushNonGlobalTb.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404B2650 (KeInvalidateRangeAllCaches.c)
+ *     KxFlushSingleTb @ 0x1405FF448 (KxFlushSingleTb.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiIpiSendRequestEx(

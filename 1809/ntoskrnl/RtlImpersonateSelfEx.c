@@ -1,32 +1,35 @@
 /*
- * XREFs of RtlImpersonateSelfEx @ 0x1406BADF4
+ * XREFs of RtlImpersonateSelfEx @ 0x1406BC094
  * Callers:
- *     CmpCmdHiveOpen @ 0x1405B494C (CmpCmdHiveOpen.c)
- *     RtlAcquirePrivilege @ 0x1406BABCC (RtlAcquirePrivilege.c)
- *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     CmpCmdHiveOpen @ 0x1405B594C (CmpCmdHiveOpen.c)
+ *     RtlAcquirePrivilege @ 0x1406BBE6C (RtlAcquirePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140712794 (BiAcquirePrivilege.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x1401B8330 (ZwSetInformationThread.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenProcessTokenEx @ 0x1401B8790 (ZwOpenProcessTokenEx.c)
- *     ZwDuplicateToken @ 0x1401B89D0 (ZwDuplicateToken.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1401B8490 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenProcessTokenEx @ 0x1401B88F0 (ZwOpenProcessTokenEx.c)
+ *     ZwDuplicateToken @ 0x1401B8B30 (ZwDuplicateToken.c)
  */
 
-__int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
+NTSTATUS __cdecl RtlImpersonateSelfEx(
+        SECURITY_IMPERSONATION_LEVEL ImpersonationLevel,
+        ACCESS_MASK AdditionalAccess,
+        PHANDLE ThreadToken)
 {
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   HANDLE ThreadInformation; // [rsp+30h] [rbp-19h] BYREF
   HANDLE TokenHandle; // [rsp+38h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-9h] BYREF
   _DWORD v10[2]; // [rsp+70h] [rbp+27h] BYREF
   __int16 v11; // [rsp+78h] [rbp+2Fh]
 
-  if ( !a3 && a2 )
-    return 3221225712LL;
+  if ( !ThreadToken && AdditionalAccess )
+    return -1073741584;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = 0LL;
   ObjectAttributes.SecurityDescriptor = 0LL;
-  v10[1] = a1;
+  v10[1] = ImpersonationLevel;
   ObjectAttributes.Attributes = 512;
   ObjectAttributes.SecurityQualityOfService = v10;
   ObjectAttributes.Length = 48;
@@ -35,16 +38,22 @@ __int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
   v5 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 2u, 0x200u, &TokenHandle);
   if ( v5 >= 0 )
   {
-    v5 = ZwDuplicateToken(TokenHandle, a2 | 4, &ObjectAttributes, 0, TokenImpersonation, &ThreadInformation);
+    v5 = ZwDuplicateToken(
+           TokenHandle,
+           AdditionalAccess | 4,
+           &ObjectAttributes,
+           0,
+           TokenImpersonation,
+           &ThreadInformation);
     if ( v5 >= 0 )
     {
       v5 = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
-      if ( v5 >= 0 && a3 )
-        *a3 = ThreadInformation;
+      if ( v5 >= 0 && ThreadToken )
+        *ThreadToken = ThreadInformation;
       else
         ZwClose(ThreadInformation);
     }
     ZwClose(TokenHandle);
   }
-  return (unsigned int)v5;
+  return v5;
 }

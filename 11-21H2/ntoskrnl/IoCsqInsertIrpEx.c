@@ -3,20 +3,22 @@
  * Callers:
  *     IoCsqInsertIrp @ 0x14022F010 (IoCsqInsertIrp.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 NTSTATUS __stdcall IoCsqInsertIrpEx(PIO_CSQ Csq, PIRP Irp, PIO_CSQ_IRP_CONTEXT Context, PVOID InsertContext)
 {
   NTSTATUS v4; // esi
-  PIO_CSQ_ACQUIRE_LOCK CsqAcquireLock; // rax
-  PIO_CSQ_INSERT_IRP CsqInsertIrp; // rax
+  __int64 v9; // r8
+  __int64 v10; // r8
   PIO_CSQ v11; // rcx
-  __int64 v13; // rdx
-  unsigned __int8 v14; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v13; // r8
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  unsigned __int8 v16; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = 0;
-  v14 = 0;
+  v16 = 0;
   if ( Context )
   {
     Irp->Tail.Overlay.DriverContext[3] = Context;
@@ -28,39 +30,37 @@ NTSTATUS __stdcall IoCsqInsertIrpEx(PIO_CSQ Csq, PIRP Irp, PIO_CSQ_IRP_CONTEXT C
   {
     Irp->Tail.Overlay.DriverContext[3] = Csq;
   }
-  CsqAcquireLock = Csq->CsqAcquireLock;
   Csq->ReservePointer = 0LL;
-  ((void (__fastcall *)(PIO_CSQ, unsigned __int8 *))CsqAcquireLock)(Csq, &v14);
-  CsqInsertIrp = Csq->CsqInsertIrp;
+  sub_14042A5E0(Csq, &v16, Context);
   if ( Csq->Type == 3 )
   {
-    v4 = ((__int64 (__fastcall *)(PIO_CSQ, PIRP, PVOID))CsqInsertIrp)(Csq, Irp, InsertContext);
+    v4 = sub_14042A5E0(Csq, Irp, InsertContext);
     if ( v4 < 0 )
     {
 LABEL_6:
       v11 = Csq;
 LABEL_7:
-      ((void (__fastcall *)(PIO_CSQ, _QWORD))Csq->CsqReleaseLock)(v11, v14);
+      sub_14042A5E0(v11, v16, v10);
       return v4;
     }
   }
   else
   {
-    ((void (__fastcall *)(PIO_CSQ, PIRP))CsqInsertIrp)(Csq, Irp);
+    sub_14042A5E0(Csq, Irp, v9);
   }
   Irp->Tail.Overlay.CurrentStackLocation->Control |= 1u;
-  _InterlockedExchange64((volatile __int64 *)&Irp->CancelRoutine, (__int64)IopCsqCancelRoutine);
+  _InterlockedExchange64((volatile __int64 *)&Irp->CancelRoutine, (__int64)sub_14025BB20);
   if ( !Irp->Cancel )
     goto LABEL_6;
   v11 = Csq;
   if ( !_InterlockedExchange64((volatile __int64 *)&Irp->CancelRoutine, 0LL) )
     goto LABEL_7;
-  ((void (__fastcall *)(PIO_CSQ, PIRP))Csq->CsqRemoveIrp)(Csq, Irp);
+  sub_14042A5E0(Csq, Irp, v10);
   if ( Context )
     Context->Irp = 0LL;
-  v13 = v14;
+  v14 = v16;
   Irp->Tail.Overlay.DriverContext[3] = 0LL;
-  ((void (__fastcall *)(PIO_CSQ, __int64))Csq->CsqReleaseLock)(Csq, v13);
-  ((void (__fastcall *)(PIO_CSQ, PIRP))Csq->CsqCompleteCanceledIrp)(Csq, Irp);
+  sub_14042A5E0(Csq, v14, v13);
+  sub_14042A5E0(Csq, Irp, v15);
   return v4;
 }

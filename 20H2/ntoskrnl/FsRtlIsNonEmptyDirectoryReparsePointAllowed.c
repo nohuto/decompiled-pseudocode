@@ -6,7 +6,7 @@
  *     RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140327DB0 (RtlIsNonEmptyDirectoryReparsePointAllowed.c)
  */
 
-__int64 FsRtlIsNonEmptyDirectoryReparsePointAllowed()
+BOOLEAN __fastcall FsRtlIsNonEmptyDirectoryReparsePointAllowed(ULONG a1)
 {
-  return RtlIsNonEmptyDirectoryReparsePointAllowed();
+  return RtlIsNonEmptyDirectoryReparsePointAllowed(a1);
 }

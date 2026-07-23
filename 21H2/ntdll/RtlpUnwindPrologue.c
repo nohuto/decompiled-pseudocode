@@ -5,7 +5,7 @@
  * Callees:
  *     RtlLocateExtendedFeature2 @ 0x1800725D0 (RtlLocateExtendedFeature2.c)
  *     RtlpUnwindOpSlots @ 0x180088B78 (RtlpUnwindOpSlots.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
 __int64 __fastcall RtlpUnwindPrologue(
@@ -225,7 +225,7 @@ __int64 __fastcall RtlpUnwindPrologue(
     v11 = a1;
     if ( v9 > 0x20 )
 LABEL_71:
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( !v14 )
   {

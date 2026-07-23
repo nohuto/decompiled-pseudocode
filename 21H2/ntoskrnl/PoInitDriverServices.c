@@ -1,9 +1,9 @@
 /*
- * XREFs of PoInitDriverServices @ 0x140A71D64
+ * XREFs of PoInitDriverServices @ 0x140A72D64
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x140673180 (IoRegisterPlugPlayNotification.c)
  */
 
 NTSTATUS PoInitDriverServices()

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiTpWriteMemory @ 0x14029C318
+ * XREFs of KiTpWriteMemory @ 0x14029C508
  * Callers:
- *     KiTpHandleTrap @ 0x14029C1C4 (KiTpHandleTrap.c)
- *     KeSetTracepoint @ 0x140844E00 (KeSetTracepoint.c)
+ *     KiTpHandleTrap @ 0x14029C3B4 (KiTpHandleTrap.c)
+ *     KeSetTracepoint @ 0x140846060 (KeSetTracepoint.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MmDbgCopyMemory @ 0x1402BB5E0 (MmDbgCopyMemory.c)
- *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140915E88 (KdExitDebugger.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MmDbgCopyMemory @ 0x1402BB7D0 (MmDbgCopyMemory.c)
+ *     KdEnterDebugger @ 0x140916D40 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x140916E88 (KdExitDebugger.c)
  */
 
 __int64 __fastcall KiTpWriteMemory(_KPROCESS *a1, void *a2)

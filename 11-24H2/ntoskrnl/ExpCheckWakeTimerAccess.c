@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCheckWakeTimerAccess @ 0x140A96318
+ * XREFs of ExpCheckWakeTimerAccess @ 0x140A92B48
  * Callers:
- *     ExpSetTimerObject @ 0x1403329C0 (ExpSetTimerObject.c)
- *     ExpCheckIRTimerAccess @ 0x140A20CBC (ExpCheckIRTimerAccess.c)
+ *     ExpSetTimerObject @ 0x1402BD850 (ExpSetTimerObject.c)
+ *     ExpCheckIRTimerAccess @ 0x140A16AEC (ExpCheckIRTimerAccess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall ExpCheckWakeTimerAccess(char a1)
@@ -37,7 +37,7 @@ __int64 __fastcall ExpCheckWakeTimerAccess(char a1)
   }
   SeAccessCheckWithHint(
     (__int64)ExpWakeTimerSecurityDescriptor,
-    7u,
+    7,
     (int *)&SubjectContext,
     0,
     1u,

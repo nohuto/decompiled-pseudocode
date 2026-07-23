@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetPreviousVad @ 0x1402FBEB4
+ * XREFs of MiGetPreviousVad @ 0x1402FC144
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x140764990 (MiReturnPageTablePageCommitment.c)
+ *     MiReturnPageTablePageCommitment @ 0x140764B80 (MiReturnPageTablePageCommitment.c)
  * Callees:
  *     <none>
  */

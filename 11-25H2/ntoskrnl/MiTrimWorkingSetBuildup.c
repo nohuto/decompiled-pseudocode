@@ -41,7 +41,7 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
   unsigned int v29; // esi
   unsigned int v30; // edi
   unsigned int SizeOfBitMap; // eax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
   __int64 v33; // [rsp+90h] [rbp+18h]
 
   LODWORD(BitMapHeader.Buffer) = 0;

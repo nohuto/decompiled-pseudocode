@@ -43,11 +43,11 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStWorker(__int64 a1)
   bool v10; // zf
   __int64 v11; // rcx
   __int64 v12; // rsi
-  __int64 v13; // r8
+  unsigned int v13; // r8d
   __int64 v14; // rdx
   __int16 v15; // ax
   __int64 v16; // rcx
-  struct _SLIST_ENTRY *v17; // r15
+  _SLIST_ENTRY *v17; // r15
   unsigned __int64 v18; // rdx
   NTSTATUS v19; // eax
   NTSTATUS v20; // ecx
@@ -58,7 +58,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStWorker(__int64 a1)
   struct _KTHREAD *v25; // rdi
   __int64 v26; // rdx
   unsigned __int8 v27; // r15
-  __int64 v28; // r8
+  unsigned int v28; // r8d
   __int64 v29; // rcx
   int v30; // eax
   __int64 v31; // rcx
@@ -72,7 +72,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStWorker(__int64 a1)
   struct _KTHREAD *v39; // rdi
   __int64 v40; // rdx
   unsigned __int8 v41; // r15
-  __int64 v42; // r8
+  unsigned int v42; // r8d
   __int64 v43; // rcx
   int v44; // eax
   __int64 v45; // rcx
@@ -156,7 +156,7 @@ LABEL_28:
           KeResetEvent((PRKEVENT)Object[0]);
           v21 = SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(v1, &v49);
           v18 = v1 + 6552;
-          v17 = (struct _SLIST_ENTRY *)v21;
+          v17 = (_SLIST_ENTRY *)v21;
           if ( v21 )
           {
             while ( 1 )
@@ -181,7 +181,7 @@ LABEL_33:
                       SessionId = 0xFFFFFFFFLL;
                     --v22->SpecialApcDisable;
                     v24 = ++v22->AbAllocationRegionCount;
-                    LODWORD(v13) = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
+                    v13 = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
                     while ( 1 )
                     {
                       v10 = !_BitScanReverse((unsigned int *)&v11, v13);
@@ -189,7 +189,7 @@ LABEL_33:
                       if ( v10 )
                         break;
                       v12 = (__int64)&v22->LockEntries[v11];
-                      v13 = ~(1 << v11) & (unsigned int)v13;
+                      v13 &= ~(1 << v11);
                       if ( (*(_BYTE *)(v12 + 26) & 1) != 0
                         && (*(_DWORD *)(v12 + 32) & 1) == 0
                         && (*(_QWORD *)(v12 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((v1 + 5992) & 0x7FFFFFFFFFFFFFFCLL)
@@ -202,7 +202,7 @@ LABEL_33:
                           {
                             *(_BYTE *)(v12 + 32) |= 2u;
                             if ( *(__int64 *)(v12 + 32) < 0 )
-                              KiAbEntryRemoveFromTree(v12, SessionId, v13);
+                              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12, SessionId);
                             v58 = 0;
                             v58 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
                             *(_DWORD *)(v12 + 88) &= 0xFFFE0000;
@@ -254,7 +254,7 @@ LABEL_20:
                   v26 = 0xFFFFFFFFLL;
                 --v25->SpecialApcDisable;
                 v27 = ++v25->AbAllocationRegionCount;
-                LODWORD(v28) = ((char)v25->AbEntrySummary | (char)v25->AbOrphanedEntrySummary) ^ 0x3F;
+                v28 = ((char)v25->AbEntrySummary | (char)v25->AbOrphanedEntrySummary) ^ 0x3F;
                 while ( 1 )
                 {
                   v10 = !_BitScanReverse((unsigned int *)&v29, v28);
@@ -264,7 +264,7 @@ LABEL_20:
                   v30 = 1 << v29;
                   v31 = v29;
                   v32 = &v25->LockEntries[v31];
-                  v28 = ~v30 & (unsigned int)v28;
+                  v28 &= ~v30;
                   if ( (v32->AcquiredByte & 1) != 0
                     && (*(_DWORD *)&v32->LockState.0 & 1) == 0
                     && (*(_QWORD *)&v32->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((v1 + 5992) & 0x7FFFFFFFFFFFFFFCLL)
@@ -277,7 +277,7 @@ LABEL_20:
                       {
                         v32->CrossThreadReleasableAndBusyByte |= 2u;
                         if ( (__int64)v32->LockState.LockState < 0 )
-                          KiAbEntryRemoveFromTree((__int64)&v25->LockEntries[v31], v26, v28);
+                          KiAbEntryRemoveFromTree(&v25->LockEntries[v31].TreeNode, v26);
                         v59 = 0;
                         v59 = v32->BoostBitmap.AllFields & 0x1FFFF;
                         v32->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -306,7 +306,7 @@ LABEL_57:
                 KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
               }
 LABEL_25:
-              v17 = (struct _SLIST_ENTRY *)SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(v1, &v49);
+              v17 = (_SLIST_ENTRY *)SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(v1, &v49);
               if ( !v17 )
                 goto LABEL_26;
             }
@@ -317,7 +317,7 @@ LABEL_25:
       if ( v19 == 258 )
       {
         SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(v1);
-        ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)v1);
+        ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)v1);
         LOBYTE(v37) = 1;
         *(_QWORD *)(v1 + 5896) += *(_QWORD *)(v1 + 5888);
         UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(v37);
@@ -334,7 +334,7 @@ LABEL_25:
             v40 = 0xFFFFFFFFLL;
           --v39->SpecialApcDisable;
           v41 = ++v39->AbAllocationRegionCount;
-          LODWORD(v42) = ((char)v39->AbEntrySummary | (char)v39->AbOrphanedEntrySummary) ^ 0x3F;
+          v42 = ((char)v39->AbEntrySummary | (char)v39->AbOrphanedEntrySummary) ^ 0x3F;
           v10 = !_BitScanReverse((unsigned int *)&v43, v42);
           v50 = v43;
           if ( v10 )
@@ -344,7 +344,7 @@ LABEL_25:
             v44 = 1 << v43;
             v45 = v43;
             v46 = &v39->LockEntries[v45];
-            v42 = ~v44 & (unsigned int)v42;
+            v42 &= ~v44;
             if ( (v46->AcquiredByte & 1) != 0
               && (*(_DWORD *)&v46->LockState.0 & 1) == 0
               && (*(_QWORD *)&v46->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((v1 + 5992) & 0x7FFFFFFFFFFFFFFCLL)
@@ -369,7 +369,7 @@ LABEL_97:
           {
             v46->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v46->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v39->LockEntries[v45], v40, v42);
+              KiAbEntryRemoveFromTree(&v39->LockEntries[v45].TreeNode, v40);
             v57 = 0;
             v57 = v46->BoostBitmap.AllFields & 0x1FFFF;
             v46->BoostBitmap.AllFields &= 0xFFFE0000;

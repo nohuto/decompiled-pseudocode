@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     FsRtlpHeatRegisterVolume @ 0x14092FB38 (FsRtlpHeatRegisterVolume.c)
- *     FsRtlpQueryValueKey @ 0x14092FD6C (FsRtlpQueryValueKey.c)
+ *     sub_14092FB38 @ 0x14092FB38 (sub_14092FB38.c)
+ *     sub_14092FD6C @ 0x14092FD6C (sub_14092FD6C.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -33,18 +33,17 @@ __int64 __fastcall FsRtlHeatInit(__int64 a1, __int64 a2, __int64 a3)
   v15[0] = 8519808;
   v14 = L"Enabled";
   v13[0] = 1048590;
-  if ( (int)FsRtlpQueryValueKey(v15, v13, &v11, &P, v10) < 0
-    || (v6 = P, *(_DWORD *)((char *)P + *((unsigned int *)P + 2))) )
+  if ( (int)sub_14092FD6C(v15, v13, &v11, &P, v10) < 0 || (v6 = P, *(_DWORD *)((char *)P + *((unsigned int *)P + 2))) )
   {
     v13[0] = 2490404;
     v14 = L"MeasuredOperations";
-    v8 = FsRtlpQueryValueKey(v15, v13, &v11, &P, v10);
+    v8 = sub_14092FD6C(v15, v13, &v11, &P, v10);
     v6 = P;
     if ( v8 < 0 )
       *(_DWORD *)(a1 + 4) |= 7u;
     else
       *(_DWORD *)(a1 + 4) |= *(_DWORD *)((_BYTE *)P + *((unsigned int *)P + 2)) & 7;
-    v7 = FsRtlpHeatRegisterVolume(a2, a3, a1);
+    v7 = sub_14092FB38(a2, a3, a1);
   }
   else
   {

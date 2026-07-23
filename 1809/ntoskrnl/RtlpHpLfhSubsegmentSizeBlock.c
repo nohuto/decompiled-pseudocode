@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1400BED70
+ * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1400BECB0
  * Callers:
- *     RtlpHpSegSizeInternal @ 0x1400BEC50 (RtlpHpSegSizeInternal.c)
+ *     RtlpHpSegSizeInternal @ 0x1400BEB90 (RtlpHpSegSizeInternal.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1400BF950 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
+ *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1400BF890 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, __int64 a2, __int64 
   unsigned __int64 v13; // r10
   int v14; // r8d
 
-  v7 = qword_14040E088 ^ *(_DWORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12);
+  v7 = qword_14040F0E8 ^ *(_DWORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12);
   v8 = a3 - HIWORD(v7) - a2;
   v9 = *(_QWORD *)(a1
                  + 8LL * RtlpLfhBucketIndexMap[(unsigned __int64)((unsigned int)(unsigned __int16)v7 + 15) >> 4]

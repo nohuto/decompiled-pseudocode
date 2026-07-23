@@ -1,18 +1,18 @@
 /*
- * XREFs of PspLockProcessShared @ 0x14033E760
+ * XREFs of PspLockProcessShared @ 0x14031DC40
  * Callers:
- *     PsSwapProcessWorkingSet @ 0x140774624 (PsSwapProcessWorkingSet.c)
- *     PspApplyCoreIsolationPolicy @ 0x1407767F8 (PspApplyCoreIsolationPolicy.c)
- *     PspAssignPrimaryToken @ 0x140777070 (PspAssignPrimaryToken.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
- *     DbgkForwardException @ 0x140938C20 (DbgkForwardException.c)
- *     PspGetPreviousProcessThread @ 0x14094ABFC (PspGetPreviousProcessThread.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PsCaptureExceptionPort @ 0x140A2095C (PsCaptureExceptionPort.c)
- *     PspInheritSyscallProvider @ 0x140A5611C (PspInheritSyscallProvider.c)
+ *     PsSwapProcessWorkingSet @ 0x140774844 (PsSwapProcessWorkingSet.c)
+ *     PspApplyCoreIsolationPolicy @ 0x140776A18 (PspApplyCoreIsolationPolicy.c)
+ *     PspAssignPrimaryToken @ 0x140777290 (PspAssignPrimaryToken.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     PspGetPreviousProcessThread @ 0x1408EF16C (PspGetPreviousProcessThread.c)
+ *     DbgkForwardException @ 0x1408F32F0 (DbgkForwardException.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PsCaptureExceptionPort @ 0x140A15A5C (PsCaptureExceptionPort.c)
+ *     PspInheritSyscallProvider @ 0x140A4E06C (PspInheritSyscallProvider.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspLockProcessShared(__int64 a1, __int64 a2)

@@ -14,21 +14,21 @@
 
 __int64 __fastcall AslEnvGetProcessWowInfo(_WORD *a1, _WORD *a2)
 {
-  int SystemInformation; // ebx
+  NTSTATUS v4; // ebx
   int v6; // r8d
   __int64 v7; // [rsp+30h] [rbp-38h] BYREF
   int v8; // [rsp+38h] [rbp-30h]
-  __int64 v9; // [rsp+40h] [rbp-28h] BYREF
+  __int64 SystemInformation; // [rsp+40h] [rbp-28h] BYREF
   int v10; // [rsp+48h] [rbp-20h]
 
   v7 = 0LL;
-  v9 = 0LL;
+  SystemInformation = 0LL;
   v8 = 0;
   v10 = 0;
   if ( a1 )
   {
-    SystemInformation = ZwQuerySystemInformation(1LL, (__int64)&v7);
-    if ( SystemInformation < 0 )
+    v4 = ZwQuerySystemInformation(SystemProcessorInformation, &v7, 0xCu, 0LL);
+    if ( v4 < 0 )
     {
       v6 = 1783;
       goto LABEL_11;
@@ -37,10 +37,10 @@ __int64 __fastcall AslEnvGetProcessWowInfo(_WORD *a1, _WORD *a2)
   }
   if ( a2 )
   {
-    SystemInformation = ZwQuerySystemInformation(1LL, (__int64)&v9);
-    if ( SystemInformation >= 0 )
+    v4 = ZwQuerySystemInformation(SystemProcessorInformation, &SystemInformation, 0xCu, 0LL);
+    if ( v4 >= 0 )
     {
-      *a2 = v9;
+      *a2 = SystemInformation;
       return 0;
     }
     v6 = 1826;
@@ -50,7 +50,7 @@ LABEL_11:
       (unsigned int)"AslEnvGetProcessWowInfo",
       v6,
       (unsigned int)"ZwQuerySystemInformation failed [%x]");
-    return (unsigned int)SystemInformation;
+    return (unsigned int)v4;
   }
   return 0;
 }

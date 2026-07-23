@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlRunOnceExecuteOnce(
   NTSTATUS v8; // ebx
   signed __int64 v10; // rcx
   signed __int64 v11; // rcx
-  NTSTATUS v12; // edi
+  int v12; // edi
   PVOID v13; // r8
 
   CurrentThread = KeGetCurrentThread();

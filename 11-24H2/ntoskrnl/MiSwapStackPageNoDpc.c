@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSwapStackPageNoDpc @ 0x1404307F4
+ * XREFs of MiSwapStackPageNoDpc @ 0x1404221A4
  * Callers:
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x140480E20 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x14047B8F0 (MiJumpStackTarget.c)
  * Callees:
- *     MiCopyPfnEntryEx @ 0x1402247E0 (MiCopyPfnEntryEx.c)
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402F6568 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiClearPfnReuseFields @ 0x1403A1D30 (MiClearPfnReuseFields.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiClearPfnReuseFields @ 0x140218960 (MiClearPfnReuseFields.c)
+ *     MiCopyPfnEntryEx @ 0x140251B90 (MiCopyPfnEntryEx.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14033E678 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 __int64 __fastcall MiSwapStackPageNoDpc(__int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MiSwapStackPageNoDpc(__int64 a1, __int64 a2)
   if ( (MiFlags & 0x2000000) != 0 )
     _mm_lfence();
   if ( _bittest64(&MiFlags, 0x24u) && (*(_BYTE *)v2 & 1) == 1 && v2 >= 0xFFFFF6C000000000uLL )
-    MiCheckLinearProtectedPteAccessedBit(v2, *(_QWORD *)v2 & 0xFFFFFFFFFFFFFFDFuLL, 128);
+    MiCheckLinearProtectedPteAccessedBit(v2, *(_QWORD *)v2 & 0xFFFFFFFFFFFFFFDFuLL, 128LL);
   if ( v5 == _InterlockedCompareExchange64((volatile signed __int64 *)v2, v6, v5) )
   {
     MiFlushSingleTbEntry((__int64)(v2 << 25) >> 16, 2, 2);

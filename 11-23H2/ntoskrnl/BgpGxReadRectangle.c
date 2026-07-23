@@ -3,7 +3,7 @@
  * Callers:
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
  * Callees:
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
  *     GxpReadFrameBufferPixels @ 0x140AEC548 (GxpReadFrameBufferPixels.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  *     BgpGxRectangleCreate @ 0x140AEDA94 (BgpGxRectangleCreate.c)

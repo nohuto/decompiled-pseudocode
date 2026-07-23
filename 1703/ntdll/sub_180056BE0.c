@@ -12,7 +12,7 @@ __int64 __fastcall sub_180056BE0(unsigned int a1, unsigned int *a2, size_t a3, u
   unsigned __int16 v4; // bx
   void *v8; // rcx
   unsigned __int64 v10; // rax
-  __int64 v11; // rax
+  PVOID v11; // rax
 
   v4 = a3;
   if ( a1 - 1 > 1 && a1 != 7 )

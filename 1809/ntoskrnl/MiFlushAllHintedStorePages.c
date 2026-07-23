@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushAllHintedStorePages @ 0x1402B8034
+ * XREFs of MiFlushAllHintedStorePages @ 0x1402B8224
  * Callers:
- *     MmStoreFlushAllHintedPages @ 0x14085C2E4 (MmStoreFlushAllHintedPages.c)
+ *     MmStoreFlushAllHintedPages @ 0x14085D544 (MmStoreFlushAllHintedPages.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     MiStoreUpdateMemoryConditions @ 0x1400EEDCC (MiStoreUpdateMemoryConditions.c)
- *     MiWakeModifiedPageWriter @ 0x1401532D8 (MiWakeModifiedPageWriter.c)
- *     MiCanFlushMakeProgress @ 0x140153330 (MiCanFlushMakeProgress.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1400EEE4C (MiStoreUpdateMemoryConditions.c)
+ *     MiWakeModifiedPageWriter @ 0x1401533D8 (MiWakeModifiedPageWriter.c)
+ *     MiCanFlushMakeProgress @ 0x140153430 (MiCanFlushMakeProgress.c)
  */
 
 __int64 __fastcall MiFlushAllHintedStorePages(__int64 a1, __int64 a2, __int64 a3)
@@ -23,13 +23,13 @@ __int64 __fastcall MiFlushAllHintedStorePages(__int64 a1, __int64 a2, __int64 a3
 
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
-  if ( !dword_14043CDB8 )
+  if ( !dword_14043DE78 )
     return 1LL;
   --CurrentThread->SpecialApcDisable;
   v6 = KeSetActualBasePriorityThread((__int64)CurrentThread, 18LL, a3);
   v7 = MEMORY[0xFFFFF78000000008];
-  _InterlockedExchangeAdd(&dword_14043CDB0, 2u);
-  v8 = 5LL * (unsigned int)dword_14043CDB4;
+  _InterlockedExchangeAdd(&dword_14043DE70, 2u);
+  v8 = 5LL * (unsigned int)dword_14043DE74;
   while ( *(&MiSystemPartition + v8 + 344) )
   {
     if ( (unsigned int)MiCanFlushMakeProgress((__int64)&MiSystemPartition, 1) )
@@ -44,9 +44,9 @@ __int64 __fastcall MiFlushAllHintedStorePages(__int64 a1, __int64 a2, __int64 a3
   }
   v4 = 1;
 LABEL_8:
-  _InterlockedOr(&dword_14043CDB0, 1u);
-  _InterlockedExchangeAdd(&dword_14043CDB0, 0xFFFFFFFE);
-  KeSetEvent(&stru_14043CCA0, 0, 0);
+  _InterlockedOr(&dword_14043DE70, 1u);
+  _InterlockedExchangeAdd(&dword_14043DE70, 0xFFFFFFFE);
+  KeSetEvent(&stru_14043DD60, 0, 0);
   KeSetActualBasePriorityThread((__int64)CurrentThread, v6, v9);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v4;

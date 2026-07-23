@@ -1,7 +1,7 @@
 /*
- * XREFs of ImportTablepHashCanonicalLists @ 0x1800E0588
+ * XREFs of ImportTablepHashCanonicalLists @ 0x1800E0548
  * Callers:
- *     RtlComputeImportTableHash @ 0x1800E06F0 (RtlComputeImportTableHash.c)
+ *     RtlComputeImportTableHash @ 0x1800E06B0 (RtlComputeImportTableHash.c)
  * Callees:
  *     MD5Final @ 0x18005D350 (MD5Final.c)
  *     MD5Update @ 0x18005D420 (MD5Update.c)

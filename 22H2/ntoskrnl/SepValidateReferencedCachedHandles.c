@@ -19,14 +19,14 @@
  *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, char **a2, unsigned int a3, HANDLE *a4)
+__int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, PSID *a2, unsigned int a3, HANDLE *a4)
 {
   unsigned int v4; // esi
   int v6; // ecx
-  int AppContainerSidType; // ebx
+  NTSTATUS v8; // ebx
   struct _DMA_ADAPTER *v9; // r14
   unsigned int v10; // r12d
-  char *v11; // r12
+  PSID v11; // r12
   __int64 v12; // r9
   const UNICODE_STRING *v13; // r13
   NTSTATUS v14; // eax
@@ -40,32 +40,30 @@ __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, char **a2, uns
   PULONG v23; // rbx
   PULONG v24; // rax
   __int64 v25; // r9
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  ULONG v28; // [rsp+30h] [rbp-D0h]
-  char v29; // [rsp+40h] [rbp-C0h]
-  int v30; // [rsp+44h] [rbp-BCh] BYREF
-  int v31; // [rsp+48h] [rbp-B8h]
-  unsigned int v32; // [rsp+4Ch] [rbp-B4h]
+  ULONG v26; // [rsp+30h] [rbp-D0h]
+  char v27; // [rsp+40h] [rbp-C0h]
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+44h] [rbp-BCh] BYREF
+  int v29; // [rsp+48h] [rbp-B8h]
+  unsigned int v30; // [rsp+4Ch] [rbp-B4h]
   PVOID P; // [rsp+50h] [rbp-B0h] BYREF
   PVOID Object[2]; // [rsp+58h] [rbp-A8h] BYREF
-  HANDLE *v35; // [rsp+68h] [rbp-98h]
+  HANDLE *v33; // [rsp+68h] [rbp-98h]
   UNICODE_STRING UnicodeString; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v38[8]; // [rsp+90h] [rbp-70h]
-  UNICODE_STRING v39; // [rsp+98h] [rbp-68h] BYREF
-  char v40; // [rsp+A8h] [rbp-58h]
+  _BYTE v36[8]; // [rsp+90h] [rbp-70h]
+  UNICODE_STRING v37; // [rsp+98h] [rbp-68h] BYREF
+  char v38; // [rsp+A8h] [rbp-58h]
   wchar_t pszDest[256]; // [rsp+B0h] [rbp-50h] BYREF
   wchar_t SourceString[256]; // [rsp+2B0h] [rbp+1B0h] BYREF
 
   v4 = 0;
-  v35 = a4;
-  v32 = a3;
+  v33 = a4;
+  v30 = a3;
   v6 = *(_DWORD *)a2;
-  v31 = 0;
   v29 = 0;
-  AppContainerSidType = 0;
-  v30 = 0;
+  v27 = 0;
+  v8 = 0;
+  AppContainerSidType = NotAppContainerSidType;
   v9 = 0LL;
   P = 0LL;
   v10 = 0;
@@ -77,29 +75,29 @@ __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, char **a2, uns
       goto LABEL_9;
     v25 = *(unsigned int *)(a1 + 120);
     Object[0] = a2 + 1;
-    AppContainerSidType = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v25);
-    if ( AppContainerSidType < 0 )
+    v8 = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v25);
+    if ( v8 < 0 )
       goto LABEL_34;
     RtlInitUnicodeString(&DestinationString, pszDest);
-    v38[0] = 1;
+    v36[0] = 1;
     v10 = 1;
-    if ( *(_DWORD *)(a1 + 120) != (unsigned int)RtlGetCurrentServiceSessionId(v27, v26) )
+    if ( *(_DWORD *)(a1 + 120) != RtlGetCurrentServiceSessionId() )
       goto LABEL_9;
-    RtlInitUnicodeString(&v39, L"\\BaseNamedObjects");
-    v40 = 1;
+    RtlInitUnicodeString(&v37, L"\\BaseNamedObjects");
+    v38 = 1;
   }
   else
   {
-    AppContainerSidType = RtlGetAppContainerSidType(a2[1], &v30);
-    if ( AppContainerSidType < 0 )
+    v8 = RtlGetAppContainerSidType(a2[1], &AppContainerSidType);
+    if ( v8 < 0 )
       goto LABEL_34;
     v11 = a2[1];
-    if ( v30 == 2 )
+    if ( AppContainerSidType == ParentAppContainerSidType )
     {
-      AppContainerSidType = RtlConvertSidToUnicodeString(&UnicodeString, v11, 1u);
-      if ( AppContainerSidType < 0 )
+      v8 = RtlConvertSidToUnicodeString(&UnicodeString, v11, 1u);
+      if ( v8 < 0 )
         goto LABEL_34;
-      v29 = 1;
+      v27 = 1;
     }
     else
     {
@@ -107,26 +105,26 @@ __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, char **a2, uns
       v22 = RtlSubAuthoritySid(v11, 0xAu);
       v23 = RtlSubAuthoritySid(v11, 9u);
       v24 = RtlSubAuthoritySid(v11, 8u);
-      v28 = *v21;
+      v26 = *v21;
       v4 = 0;
-      AppContainerSidType = RtlStringCchPrintfW(SourceString, 0x100uLL, L"%u-%u-%u-%u", *v24, *v23, *v22, v28);
-      if ( AppContainerSidType < 0 )
+      v8 = RtlStringCchPrintfW(SourceString, 0x100uLL, L"%u-%u-%u-%u", *v24, *v23, *v22, v26);
+      if ( v8 < 0 )
         goto LABEL_34;
       RtlInitUnicodeString(&UnicodeString, SourceString);
     }
     v12 = *(unsigned int *)(a1 + 120);
     Object[0] = &UnicodeString;
-    AppContainerSidType = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v12);
-    if ( AppContainerSidType < 0 )
+    v8 = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v12);
+    if ( v8 < 0 )
       goto LABEL_34;
     RtlInitUnicodeString(&DestinationString, pszDest);
-    v38[0] = 1;
-    RtlInitUnicodeString(&v39, L"\\Device\\NamedPipe");
-    v40 = 0;
+    v36[0] = 1;
+    RtlInitUnicodeString(&v37, L"\\Device\\NamedPipe");
+    v38 = 0;
   }
   v10 = 2;
 LABEL_9:
-  if ( !v32 )
+  if ( !v30 )
     goto LABEL_34;
   v13 = (const UNICODE_STRING *)Object[0];
   while ( 1 )
@@ -134,9 +132,9 @@ LABEL_9:
     if ( v9 )
       HalPutDmaAdapter(v9);
     Object[0] = 0LL;
-    v14 = ObReferenceObjectByHandle(*v35, 0, 0LL, 0, Object, 0LL);
+    v14 = ObReferenceObjectByHandle(*v33, 0, 0LL, 0, Object, 0LL);
     v9 = (struct _DMA_ADAPTER *)Object[0];
-    AppContainerSidType = v14;
+    v8 = v14;
     if ( v14 < 0 )
       goto LABEL_33;
     v15 = (char *)Object[0] - 48;
@@ -152,8 +150,8 @@ LABEL_9:
       ExFreePoolWithTag(P, 0);
       P = 0LL;
     }
-    AppContainerSidType = SepQueryNameString(v9, &P);
-    if ( AppContainerSidType < 0 )
+    v8 = SepQueryNameString(v9, &P);
+    if ( v8 < 0 )
       goto LABEL_34;
     if ( !P )
       break;
@@ -172,7 +170,7 @@ LABEL_9:
     }
     v17 = 3LL * v4;
     v4 = 0;
-    if ( v38[8 * v17] )
+    if ( v36[8 * v17] )
     {
       if ( (v15[26] & 2) != 0 )
         v18 = &v15[-ObpInfoMaskToOffset[v15[26] & 3]];
@@ -195,18 +193,18 @@ LABEL_9:
       }
     }
 LABEL_33:
-    ++v35;
-    if ( ++v31 >= v32 )
+    ++v33;
+    if ( ++v29 >= v30 )
       goto LABEL_34;
   }
 LABEL_53:
-  AppContainerSidType = -1073741811;
+  v8 = -1073741811;
 LABEL_34:
   if ( P )
     ExFreePoolWithTag(P, 0);
   if ( v9 )
     HalPutDmaAdapter(v9);
-  if ( v29 )
+  if ( v27 )
     RtlFreeAnsiString(&UnicodeString);
-  return (unsigned int)AppContainerSidType;
+  return (unsigned int)v8;
 }

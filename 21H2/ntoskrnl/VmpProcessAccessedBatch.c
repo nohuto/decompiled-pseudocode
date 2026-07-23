@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpProcessAccessedBatch @ 0x1405A4840
+ * XREFs of VmpProcessAccessedBatch @ 0x1405A4A70
  * Callers:
- *     VmpQueryAccessedState @ 0x1405A4BEC (VmpQueryAccessedState.c)
+ *     VmpQueryAccessedState @ 0x1405A4E1C (VmpQueryAccessedState.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlGetSparseGpaPagesAccessState @ 0x1405C98FC (HvlGetSparseGpaPagesAccessState.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlGetSparseGpaPagesAccessState @ 0x1405C9B2C (HvlGetSparseGpaPagesAccessState.c)
  */
 
 unsigned __int64 __fastcall VmpProcessAccessedBatch(__int64 a1, __int64 a2, int a3, unsigned __int64 *a4, int a5)

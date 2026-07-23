@@ -1,15 +1,15 @@
 /*
- * XREFs of PopReadSimulatedArchitecturalClasses @ 0x140CD39DC
+ * XREFs of PopReadSimulatedArchitecturalClasses @ 0x140CD9B7C
  * Callers:
- *     PopDetectSimulatedHeteroProcessors @ 0x140CD3474 (PopDetectSimulatedHeteroProcessors.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x140CD9614 (PopDetectSimulatedHeteroProcessors.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     RtlUnicodeStringToInteger @ 0x14091AAE0 (RtlUnicodeStringToInteger.c)
- *     PopReadLegacySimulatedArchitecturalClasses @ 0x140CD3884 (PopReadLegacySimulatedArchitecturalClasses.c)
- *     PopReadSimulatedProcessorDetail @ 0x140CD40E8 (PopReadSimulatedProcessorDetail.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140975540 (RtlUnicodeStringToInteger.c)
+ *     PopReadLegacySimulatedArchitecturalClasses @ 0x140CD9A24 (PopReadLegacySimulatedArchitecturalClasses.c)
+ *     PopReadSimulatedProcessorDetail @ 0x140CDA288 (PopReadSimulatedProcessorDetail.c)
  */
 
 char __fastcall PopReadSimulatedArchitecturalClasses(bool *a1, unsigned int a2)

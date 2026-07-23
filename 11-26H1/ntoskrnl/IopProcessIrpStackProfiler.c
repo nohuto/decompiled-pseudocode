@@ -1,7 +1,7 @@
 /*
- * XREFs of IopProcessIrpStackProfiler @ 0x1404BB0A4
+ * XREFs of IopProcessIrpStackProfiler @ 0x1404B4884
  * Callers:
- *     IopIrpStackProfilerDpcRoutine @ 0x1404BAE80 (IopIrpStackProfilerDpcRoutine.c)
+ *     IopIrpStackProfilerDpcRoutine @ 0x1404B4660 (IopIrpStackProfilerDpcRoutine.c)
  * Callees:
  *     <none>
  */
@@ -9,8 +9,8 @@
 __int64 __fastcall IopProcessIrpStackProfiler(__int64 a1)
 {
   unsigned __int64 v1; // r9
-  unsigned int SchedulerSharedSwappablePage_high; // edx
-  unsigned int SchedulerSharedSwappablePage; // r8d
+  unsigned int AffinityVersion; // edx
+  unsigned int AffinityVersion_high; // r8d
   signed __int64 v5; // rsi
   __int64 v6; // rbp
   unsigned int v7; // r11d
@@ -26,11 +26,11 @@ __int64 __fastcall IopProcessIrpStackProfiler(__int64 a1)
   signed __int64 v17; // rcx
 
   v1 = 0LL;
-  SchedulerSharedSwappablePage_high = HIDWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage);
-  SchedulerSharedSwappablePage = (unsigned int)IopSessionNotificationLock.SchedulerSharedSwappablePage;
+  AffinityVersion = IopPerfIoTrackingLock.AffinityVersion;
+  AffinityVersion_high = HIDWORD(IopPerfIoTrackingLock.AffinityVersion);
   v5 = 0LL;
   v6 = 0LL;
-  if ( ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 1) != 0 )
+  if ( (IopIrpStackProfilerFlags & 1) != 0 )
   {
     v7 = 10;
     v8 = (unsigned __int64 *)(a1 + 80);
@@ -44,20 +44,19 @@ __int64 __fastcall IopProcessIrpStackProfiler(__int64 a1)
       if ( v11 || v12 )
       {
         v13 = v1;
-        v10 = SchedulerSharedSwappablePage_high;
+        v10 = AffinityVersion;
       }
       ++v7;
-      SchedulerSharedSwappablePage_high = v10;
+      AffinityVersion = v10;
       v1 = v13;
     }
     while ( v7 < 0x14 );
-    if ( v13 < *(unsigned int *)&IopSessionNotificationLock.PriorityFloorCounts[20] )
-      SchedulerSharedSwappablePage_high = HIDWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage);
+    if ( v13 < LODWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) )
+      AffinityVersion = IopPerfIoTrackingLock.AffinityVersion;
   }
-  result = LODWORD(IopSessionNotificationLock.Timer.Header.WaitListHead.Blink);
+  result = (unsigned int)IopIrpStackProfilerFlags;
   v15 = 2;
-  if ( ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 2) != 0
-    && SchedulerSharedSwappablePage_high > 2 )
+  if ( (IopIrpStackProfilerFlags & 2) != 0 && AffinityVersion > 2 )
   {
     v16 = (_QWORD *)(a1 + 16);
     do
@@ -65,20 +64,20 @@ __int64 __fastcall IopProcessIrpStackProfiler(__int64 a1)
       v6 += *v16;
       result = v15;
       ++v16;
-      v17 = v6 * (v15 - (unsigned __int64)SchedulerSharedSwappablePage_high);
+      v17 = v6 * (v15 - (unsigned __int64)AffinityVersion);
       if ( v17 >= v5 )
-        result = SchedulerSharedSwappablePage;
+        result = AffinityVersion_high;
       ++v15;
-      SchedulerSharedSwappablePage = result;
+      AffinityVersion_high = result;
       if ( v17 >= v5 )
         v17 = v5;
       v5 = v17;
     }
-    while ( v15 < SchedulerSharedSwappablePage_high );
+    while ( v15 < AffinityVersion );
   }
-  if ( HIDWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) != SchedulerSharedSwappablePage_high )
-    HIDWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) = SchedulerSharedSwappablePage_high;
-  if ( LODWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) != SchedulerSharedSwappablePage )
-    LODWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) = SchedulerSharedSwappablePage;
+  if ( LODWORD(IopPerfIoTrackingLock.AffinityVersion) != AffinityVersion )
+    LODWORD(IopPerfIoTrackingLock.AffinityVersion) = AffinityVersion;
+  if ( HIDWORD(IopPerfIoTrackingLock.AffinityVersion) != AffinityVersion_high )
+    HIDWORD(IopPerfIoTrackingLock.AffinityVersion) = AffinityVersion_high;
   return result;
 }

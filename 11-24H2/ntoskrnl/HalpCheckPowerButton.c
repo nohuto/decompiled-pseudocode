@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCheckPowerButton @ 0x140544A30
+ * XREFs of HalpCheckPowerButton @ 0x1405422F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterRead @ 0x14041D360 (HalpAcpiPmRegisterRead.c)
- *     HalpShutdown @ 0x140544D7C (HalpShutdown.c)
- *     InbvCheckDisplayOwnership @ 0x14058F290 (InbvCheckDisplayOwnership.c)
+ *     HalpAcpiPmRegisterRead @ 0x140411C50 (HalpAcpiPmRegisterRead.c)
+ *     HalpShutdown @ 0x14054263C (HalpShutdown.c)
+ *     InbvCheckDisplayOwnership @ 0x14058C2B0 (InbvCheckDisplayOwnership.c)
  */
 
 void HalpCheckPowerButton()
@@ -18,7 +18,7 @@ void HalpCheckPowerButton()
   {
     HalpAcpiPmRegisterRead(0, 0, (__int64)&v1, 2u, 0LL);
     v0 = v1;
-    if ( byte_140F8F110 )
+    if ( byte_140F8F310 )
     {
       HalpAcpiPmRegisterRead(3, 0, (__int64)&v1, 2u, 0LL);
       v0 |= v1;

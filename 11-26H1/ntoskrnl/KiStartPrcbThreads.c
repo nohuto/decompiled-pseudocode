@@ -1,9 +1,9 @@
 /*
- * XREFs of KiStartPrcbThreads @ 0x1405EB9A4
+ * XREFs of KiStartPrcbThreads @ 0x1405EE314
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
- *     KiStartPrcbThread @ 0x1405EC620 (KiStartPrcbThread.c)
+ *     KiStartPrcbThread @ 0x1405EEF90 (KiStartPrcbThread.c)
  */
 
 __int64 __fastcall KiStartPrcbThreads(__int64 a1)

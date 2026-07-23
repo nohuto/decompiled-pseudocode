@@ -1,17 +1,17 @@
 /*
- * XREFs of PopIdleCancelAoAcDozeS4Timer @ 0x14032EFC0
+ * XREFs of PopIdleCancelAoAcDozeS4Timer @ 0x14032F250
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1407A6C54 (PopUmpoProcessPowerMessage.c)
- *     PopIdleGlobalUserPresenceCallback @ 0x1407A8CB0 (PopIdleGlobalUserPresenceCallback.c)
- *     PopUpdateSystemIdleContext @ 0x140824978 (PopUpdateSystemIdleContext.c)
- *     PopIdleCsStateChanged @ 0x14099BE3C (PopIdleCsStateChanged.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14099BF6C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407A6E44 (PopUmpoProcessPowerMessage.c)
+ *     PopIdleGlobalUserPresenceCallback @ 0x1407A8EA0 (PopIdleGlobalUserPresenceCallback.c)
+ *     PopUpdateSystemIdleContext @ 0x140824C78 (PopUpdateSystemIdleContext.c)
+ *     PopIdleCsStateChanged @ 0x14099C03C (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x14099C16C (PopUpdateSmartUserPresencePredictions.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerCancelled @ 0x140992D78 (PopTraceSystemIdleS0LowPowerDozeTimerCancelled.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerCancelled @ 0x140992F78 (PopTraceSystemIdleS0LowPowerDozeTimerCancelled.c)
  */
 
 char __fastcall PopIdleCancelAoAcDozeS4Timer(unsigned int a1)
@@ -26,17 +26,20 @@ char __fastcall PopIdleCancelAoAcDozeS4Timer(unsigned int a1)
 
   v2 = 0;
   v3 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  if ( byte_140C3CD44 )
+  if ( byte_140C3CCE4 )
   {
     KeCancelTimer2((__int64)&PopIdleAoAcDozeS4Timer);
-    byte_140C3CD44 = 0;
+    byte_140C3CCE4 = 0;
     v2 = 1;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

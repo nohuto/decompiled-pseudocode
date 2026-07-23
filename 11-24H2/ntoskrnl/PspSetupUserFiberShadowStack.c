@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetupUserFiberShadowStack @ 0x1408DDED4
+ * XREFs of PspSetupUserFiberShadowStack @ 0x140914A90
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     MmFreeVirtualMemory @ 0x1408DB8A0 (MmFreeVirtualMemory.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1408DE18C (PspReserveAndCommitUserShadowStack.c)
+ *     MmFreeVirtualMemory @ 0x1408D9AD0 (MmFreeVirtualMemory.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x140914D48 (PspReserveAndCommitUserShadowStack.c)
  */
 
 __int64 __fastcall PspSetupUserFiberShadowStack(int a1, int a2, int a3, _QWORD *a4)
@@ -19,7 +19,7 @@ __int64 __fastcall PspSetupUserFiberShadowStack(int a1, int a2, int a3, _QWORD *
   if ( v4 >= 0 )
   {
     _RCX = v11[0] - 8LL;
-    _RAX = qword_140FC6448;
+    _RAX = qword_140FC74C8;
     __asm { wrussq  qword ptr [rcx], rax }
     _RDX = v11[0] - 16LL;
     *a4 = v11[0] - 16LL;

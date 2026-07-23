@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLoadUnloadDriver @ 0x1406C6750
+ * XREFs of IopLoadUnloadDriver @ 0x1406C79F0
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1400DA90C (IopCompleteUnloadOrDelete.c)
- *     IopLoadDriverImage @ 0x1401354A0 (IopLoadDriverImage.c)
+ *     IopCompleteUnloadOrDelete @ 0x1400DA98C (IopCompleteUnloadOrDelete.c)
+ *     IopLoadDriverImage @ 0x140135570 (IopLoadDriverImage.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
- *     IopCallDriverReinitializationRoutines @ 0x1406C67F0 (IopCallDriverReinitializationRoutines.c)
- *     IopOpenRegistryKey @ 0x1406C68B0 (IopOpenRegistryKey.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopLoadDriver @ 0x140680BF4 (IopLoadDriver.c)
+ *     IopCallDriverReinitializationRoutines @ 0x1406C7A90 (IopCallDriverReinitializationRoutines.c)
+ *     IopOpenRegistryKey @ 0x1406C7B50 (IopOpenRegistryKey.c)
  */
 
 LONG __fastcall IopLoadUnloadDriver(__int64 a1)

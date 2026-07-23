@@ -1,11 +1,11 @@
 /*
  * XREFs of MiDetermineNewPfnHeatState @ 0x1403F7D80
  * Callers:
- *     MiCreatePfnTemplate @ 0x1403B1424 (MiCreatePfnTemplate.c)
+ *     MiCreatePfnTemplate @ 0x1403B1594 (MiCreatePfnTemplate.c)
  *     MiLargePagePromote @ 0x1403F6D98 (MiLargePagePromote.c)
- *     MiEnableNewPfns @ 0x14052E060 (MiEnableNewPfns.c)
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
+ *     MiEnableNewPfns @ 0x14052E2A0 (MiEnableNewPfns.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
  * Callees:
  *     MiColdPageSizeSupported @ 0x1403F7D58 (MiColdPageSizeSupported.c)
  */

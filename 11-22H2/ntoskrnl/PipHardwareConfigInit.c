@@ -160,7 +160,7 @@ LABEL_14:
                   CachedContextBaseKey = ZwSetValueKey(v24, &CmSymbolicLinkValueName, 0, 6u, v28, 2 * (_DWORD)v21 - 2);
                   if ( CachedContextBaseKey >= 0 )
                   {
-                    if ( (_DWORD)InitSafeBootMode
+                    if ( InitSafeBootMode
                       || IopGetRegistryValue(v8, L"Reset", 0, &v18) >= 0
                       && (v18[1] != 4 || v18[3] != 4
                         ? (v16 = 0)

@@ -1,28 +1,28 @@
 /*
- * XREFs of KeUserModeCallback @ 0x140A59280
+ * XREFs of KeUserModeCallback @ 0x140923D90
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     PsSessionGetWin32Callouts @ 0x14048806C (PsSessionGetWin32Callouts.c)
- *     KeGetIdealNodeNumberThread @ 0x14048C2AC (KeGetIdealNodeNumberThread.c)
- *     KeExitRetpoline @ 0x14048D73C (KeExitRetpoline.c)
- *     KeCallbackValidationEpilogue @ 0x1404E07B8 (KeCallbackValidationEpilogue.c)
- *     KeCallbackValidationPrologue @ 0x1404E921C (KeCallbackValidationPrologue.c)
- *     PspUpdateCalloutParameters @ 0x1404FB6E0 (PspUpdateCalloutParameters.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KiCallUserMode @ 0x140728580 (KiCallUserMode.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExRaiseAccessViolation @ 0x1408F5DA0 (ExRaiseAccessViolation.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     PsSessionGetWin32Callouts @ 0x140481BAC (PsSessionGetWin32Callouts.c)
+ *     KeGetIdealNodeNumberThread @ 0x140485DEC (KeGetIdealNodeNumberThread.c)
+ *     KeExitRetpoline @ 0x14048727C (KeExitRetpoline.c)
+ *     KeCallbackValidationEpilogue @ 0x1404D9E98 (KeCallbackValidationEpilogue.c)
+ *     KeCallbackValidationPrologue @ 0x1404E22FC (KeCallbackValidationPrologue.c)
+ *     PspUpdateCalloutParameters @ 0x140518394 (PspUpdateCalloutParameters.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KiCallUserMode @ 0x14072D150 (KiCallUserMode.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExRaiseAccessViolation @ 0x140925D30 (ExRaiseAccessViolation.c)
  */
 
 __int64 __fastcall KeUserModeCallback(int a1, void *a2, unsigned int a3, int a4, __int64 a5)
@@ -63,7 +63,7 @@ __int64 __fastcall KeUserModeCallback(int a1, void *a2, unsigned int a3, int a4,
   int ULongFromUser; // [rsp+88h] [rbp-70h]
   int v40; // [rsp+8Ch] [rbp-6Ch]
   signed __int64 *v41; // [rsp+90h] [rbp-68h]
-  union _RTL_RUN_ONCE *Win32Callouts; // [rsp+98h] [rbp-60h]
+  _RTL_RUN_ONCE *Win32Callouts; // [rsp+98h] [rbp-60h]
   __int64 v43; // [rsp+A0h] [rbp-58h]
   struct _KTHREAD *v44; // [rsp+A8h] [rbp-50h]
   _OWORD v45[4]; // [rsp+B0h] [rbp-48h] BYREF
@@ -147,7 +147,7 @@ LABEL_27:
       TrapFrame = (unsigned __int64)CurrentThread->TrapFrame;
       v31 = (unsigned __int64 *)(TrapFrame + 384);
       v41 = *(signed __int64 **)(TrapFrame + 384);
-      Win32Callouts = (union _RTL_RUN_ONCE *)v41;
+      Win32Callouts = (_RTL_RUN_ONCE *)v41;
       v13 = ((a3 + 15LL) & 0xFFFFFFFFFFFFFFF0uLL) + 88;
       v14 = ((unsigned __int64)v41 - v13) & 0xFFFFFFFFFFFFFFF0uLL;
       v15 = v14;

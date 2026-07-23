@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInterruptConnect @ 0x14057B950
+ * XREFs of HalpInterruptConnect @ 0x14057DE80
  * Callers:
- *     HalpTimerInitializeSystemWatchdog @ 0x140585404 (HalpTimerInitializeSystemWatchdog.c)
- *     HalpRegisterPeiErrorSource @ 0x14058E3B8 (HalpRegisterPeiErrorSource.c)
- *     HalpDmaConfigureInterrupt @ 0x1405A0DCC (HalpDmaConfigureInterrupt.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x140587924 (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpRegisterPeiErrorSource @ 0x140590B38 (HalpRegisterPeiErrorSource.c)
+ *     HalpDmaConfigureInterrupt @ 0x1405A35DC (HalpDmaConfigureInterrupt.c)
  * Callees:
- *     HalpInterruptApplyOverrides @ 0x140426138 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x14042638C (HalpInterruptGsiToLine.c)
- *     HalpInterruptLineToGsi @ 0x1404E2B0C (HalpInterruptLineToGsi.c)
- *     HalpInterruptRemap @ 0x14057BD44 (HalpInterruptRemap.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoSetDevicePropertyData @ 0x1409DB790 (IoSetDevicePropertyData.c)
- *     IoConnectInterruptEx @ 0x140A98030 (IoConnectInterruptEx.c)
+ *     HalpInterruptApplyOverrides @ 0x140433248 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x14043349C (HalpInterruptGsiToLine.c)
+ *     HalpInterruptLineToGsi @ 0x140435864 (HalpInterruptLineToGsi.c)
+ *     HalpInterruptRemap @ 0x14057E274 (HalpInterruptRemap.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoSetDevicePropertyData @ 0x140A189E0 (IoSetDevicePropertyData.c)
+ *     IoConnectInterruptEx @ 0x140A9C1B0 (IoConnectInterruptEx.c)
  */
 
 int __fastcall HalpInterruptConnect(

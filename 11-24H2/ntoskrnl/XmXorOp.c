@@ -1,9 +1,9 @@
 /*
- * XREFs of XmXorOp @ 0x1404684D0
+ * XREFs of XmXorOp @ 0x140460E80
  * Callers:
  *     <none>
  * Callees:
- *     XmSetLogicalResult @ 0x140469500 (XmSetLogicalResult.c)
+ *     XmSetLogicalResult @ 0x140461EB0 (XmSetLogicalResult.c)
  */
 
 __int64 __fastcall XmXorOp(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlLocateExtendedFeature @ 0x140464210
+ * XREFs of RtlLocateExtendedFeature @ 0x140464610
  * Callers:
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
- *     PspSetupUserShadowStack @ 0x1409B1B0C (PspSetupUserShadowStack.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
+ *     PspSetupUserShadowStack @ 0x1409B1D0C (PspSetupUserShadowStack.c)
  * Callees:
- *     RtlLocateExtendedFeature2 @ 0x140464240 (RtlLocateExtendedFeature2.c)
+ *     RtlLocateExtendedFeature2 @ 0x140464640 (RtlLocateExtendedFeature2.c)
  */
 
-__int64 __fastcall RtlLocateExtendedFeature(__int64 a1, __int64 a2)
+PVOID __cdecl RtlLocateExtendedFeature(PCONTEXT_EX ContextEx, ULONG FeatureId, PULONG Length)
 {
-  return RtlLocateExtendedFeature2(a1, a2, 0xFFFFF780000003D8uLL);
+  return (PVOID)RtlLocateExtendedFeature2(ContextEx, FeatureId, 0xFFFFF780000003D8uLL);
 }

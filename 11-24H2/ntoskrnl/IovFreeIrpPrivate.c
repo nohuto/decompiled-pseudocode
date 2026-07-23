@@ -1,20 +1,20 @@
 /*
- * XREFs of IovFreeIrpPrivate @ 0x140BA6F30
+ * XREFs of IovFreeIrpPrivate @ 0x140BA8F30
  * Callers:
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
  * Callees:
- *     IopFreeIrp @ 0x14031AC50 (IopFreeIrp.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     ViErrorReport1 @ 0x140612574 (ViErrorReport1.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1406156C8 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x140615710 (ViIrpDatabaseReleaseLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140B831B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140BA3FE4 (VfIrpDatabaseEntryReleaseLock.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140BA7084 (VfIrpDatabaseEntryFindAndLock.c)
+ *     IopFreeIrp @ 0x1402C37E0 (IopFreeIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ViErrorReport1 @ 0x140610B34 (ViErrorReport1.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x140613C88 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x140613CD0 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140B851B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140BA5FE4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140BA9084 (VfIrpDatabaseEntryFindAndLock.c)
  */
 
 void __fastcall IovFreeIrpPrivate(_BYTE *BugCheckParameter2, __int64 a2, __int64 a3)
@@ -25,12 +25,10 @@ void __fastcall IovFreeIrpPrivate(_BYTE *BugCheckParameter2, __int64 a2, __int64
   int v7; // eax
   bool v8; // zf
   unsigned __int64 v9; // rbx
-  __int64 v10; // r9
-  unsigned __int64 v11; // rbx
-  __int64 v12; // r9
+  unsigned __int64 v10; // rbx
   const void *retaddr; // [rsp+58h] [rbp+0h]
-  KIRQL v14; // [rsp+60h] [rbp+8h] BYREF
-  KIRQL v15; // [rsp+68h] [rbp+10h] BYREF
+  KIRQL v12; // [rsp+60h] [rbp+8h] BYREF
+  KIRQL v13; // [rsp+68h] [rbp+10h] BYREF
 
   if ( (MmVerifierData & 0x10) != 0 && !IovpDisabledWithoutReboot )
   {
@@ -73,17 +71,17 @@ LABEL_4:
   if ( (v7 & 8) == 0 )
   {
     v8 = (*((_DWORD *)v5 + 6))-- == 1;
-    v14 = 0;
+    v12 = 0;
     if ( v8 )
     {
-      ViIrpDatabaseAcquireLockExclusive(&v14);
+      ViIrpDatabaseAcquireLockExclusive(&v12);
       v9 = *v5;
-      guard_dispatch_icall_no_overrides(v5, *v5, 1LL, v10);
+      guard_dispatch_icall_no_overrides(v5, *v5);
       *v5 = 0LL;
       VfUtilAddressRangeRemoveCheckEmpty(
         (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v9 >> 12))),
         v9);
-      ViIrpDatabaseReleaseLockExclusive(v14);
+      ViIrpDatabaseReleaseLockExclusive(v12);
     }
     _InterlockedDecrement((volatile signed __int32 *)v5 + 5);
     goto LABEL_22;
@@ -96,17 +94,17 @@ LABEL_4:
     ObfDereferenceObjectWithTag((PVOID)v5[11], 0x49667256u);
   }
   v8 = (*((_DWORD *)v5 + 6))-- == 1;
-  v15 = 0;
+  v13 = 0;
   if ( v8 )
   {
-    ViIrpDatabaseAcquireLockExclusive(&v15);
-    v11 = *v5;
-    guard_dispatch_icall_no_overrides(v5, *v5, 1LL, v12);
+    ViIrpDatabaseAcquireLockExclusive(&v13);
+    v10 = *v5;
+    guard_dispatch_icall_no_overrides(v5, *v5);
     *v5 = 0LL;
     VfUtilAddressRangeRemoveCheckEmpty(
-      (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v11 >> 12))),
-      v11);
-    ViIrpDatabaseReleaseLockExclusive(v15);
+      (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (v10 >> 12))),
+      v10);
+    ViIrpDatabaseReleaseLockExclusive(v13);
   }
   _InterlockedDecrement((volatile signed __int32 *)v5 + 5);
   VfIrpDatabaseEntryReleaseLock(v5);

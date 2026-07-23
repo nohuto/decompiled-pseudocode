@@ -3,8 +3,8 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlGetNtProductType @ 0x1402F7F40 (RtlGetNtProductType.c)
- *     AstInitializeBloomFilter @ 0x140863AF8 (AstInitializeBloomFilter.c)
+ *     RtlGetNtProductType @ 0x1402F81D0 (RtlGetNtProductType.c)
+ *     AstInitializeBloomFilter @ 0x140863D38 (AstInitializeBloomFilter.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -13,10 +13,10 @@ __int64 AstInitialize()
   __int64 Pool2; // rax
   __int64 v1; // rdx
   __int64 v2; // rcx
-  int v4; // [rsp+30h] [rbp+8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = 0;
-  if ( !RtlGetNtProductType(&v4) || v4 != 1 )
+  NtProductType = 0;
+  if ( !RtlGetNtProductType(&NtProductType) || NtProductType != NtProductWinNt )
   {
     AstIsActive = 0;
     return 0LL;

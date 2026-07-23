@@ -1,33 +1,33 @@
 /*
- * XREFs of AlpcpCaptureAttributes @ 0x1405E6290
+ * XREFs of AlpcpCaptureAttributes @ 0x1406D59F0
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x1405E033C (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     AlpcpFormatConnectionRequest @ 0x1406CFA9C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x1406D079C (AlpcpAcceptConnectPort.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
  * Callees:
- *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x140205674 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
- *     PoEnergyEstimationEnabled @ 0x140205710 (PoEnergyEstimationEnabled.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpReleaseAttributes @ 0x1405E39F0 (AlpcpReleaseAttributes.c)
- *     AlpcpCaptureContextAttribute @ 0x1405E6E80 (AlpcpCaptureContextAttribute.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     AlpcpCaptureSecurityAttribute @ 0x14066076C (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpCaptureViewAttribute @ 0x140661E2C (AlpcpCaptureViewAttribute.c)
- *     AlpcpCaptureHandleAttribute @ 0x1406850E8 (AlpcpCaptureHandleAttribute.c)
- *     AlpcpCaptureDirectAttribute @ 0x1406995C8 (AlpcpCaptureDirectAttribute.c)
- *     AlpcpCaptureDirectAttribute32 @ 0x14069BBAC (AlpcpCaptureDirectAttribute32.c)
- *     AlpcpCaptureSecurityAttribute32 @ 0x14069C3F0 (AlpcpCaptureSecurityAttribute32.c)
- *     AlpcpCaptureContextAttribute32 @ 0x14069C4F0 (AlpcpCaptureContextAttribute32.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1406A15FC (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     AlpcpCaptureViewAttribute32 @ 0x1406B834C (AlpcpCaptureViewAttribute32.c)
- *     AlpcpCaptureHandleAttribute32 @ 0x1407732E4 (AlpcpCaptureHandleAttribute32.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     IoThreadToProcess @ 0x140224230 (IoThreadToProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402A9F0C (PsGetWorkOnBehalfThread.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1402A9FB4 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     PoEnergyEstimationEnabled @ 0x1402AA040 (PoEnergyEstimationEnabled.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpCaptureHandleAttribute @ 0x1405E22FC (AlpcpCaptureHandleAttribute.c)
+ *     AlpcpCaptureDirectAttribute @ 0x1405F82B8 (AlpcpCaptureDirectAttribute.c)
+ *     AlpcpCaptureDirectAttribute32 @ 0x1405FAD6C (AlpcpCaptureDirectAttribute32.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x1405FB5B0 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureContextAttribute32 @ 0x1405FB6B0 (AlpcpCaptureContextAttribute32.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x140600D8C (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x14061776C (AlpcpCaptureViewAttribute32.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14065558C (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpCaptureViewAttribute @ 0x140656C4C (AlpcpCaptureViewAttribute.c)
+ *     AlpcpReleaseAttributes @ 0x1406D3150 (AlpcpReleaseAttributes.c)
+ *     AlpcpCaptureContextAttribute @ 0x1406D65E0 (AlpcpCaptureContextAttribute.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x1407734A4 (AlpcpCaptureHandleAttribute32.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall AlpcpCaptureAttributes(__int64 a1, int a2, int *a3, __int64 a4, void *a5)
+__int64 __fastcall AlpcpCaptureAttributes(void *a1, int a2, int *a3, __int64 a4, void *a5)
 {
   _QWORD *v8; // r15
   __int64 v9; // rdx
@@ -53,20 +53,18 @@ __int64 __fastcall AlpcpCaptureAttributes(__int64 a1, int a2, int *a3, __int64 a
   __int64 v29; // rcx
   __int64 v31; // rdx
   signed int v32; // esi
-  int v33; // eax
-  int v34; // ecx
-  int v35; // eax
-  int v36; // ecx
+  __int64 v33; // rax
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rcx
   signed int v37; // esi
-  int v38; // eax
-  int v39; // ecx
-  int v40; // eax
-  int v41; // ecx
+  __int64 v38; // rax
+  __int64 v39; // rcx
+  __int64 v40; // rax
+  __int64 v41; // rcx
   __int64 v42; // rax
   __int64 v43; // rcx
-  __int64 v44; // rax
-  __int64 v45; // rcx
-  __int64 v47; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v45; // [rsp+80h] [rbp+18h] BYREF
 
   v8 = a5;
   memset(a5, 0, 0x48uLL);
@@ -147,7 +145,7 @@ LABEL_46:
   }
   else
   {
-    LODWORD(v9) = v19;
+    v9 = (unsigned int)v19;
     if ( v20 > 0xFFFE )
     {
       if ( (_DWORD)v19 )
@@ -177,43 +175,41 @@ LABEL_48:
     v24 = 0;
     if ( a2 < 0 )
     {
-      if ( v23 >= 0 || (v24 = AlpcpCaptureSecurityAttribute32(a1, a3 + 2, v8), v24 >= 0) )
+      if ( v23 >= 0 || (v24 = AlpcpCaptureSecurityAttribute32(a1, (__int64)(a3 + 2), (__int64)v8), v24 >= 0) )
       {
         if ( (v23 & 0x40000000) == 0
           || (v24 = AlpcpCaptureViewAttribute32(
-                      a1,
-                      (char *)a3 + (((__int64)(v11 & 0xFFFFFFFF80000000uLL) >> 63) & 0xC) + 8,
-                      a4,
-                      v8),
+                      (__int64)a1,
+                      (int *)((char *)a3 + (((__int64)(v11 & 0xFFFFFFFF80000000uLL) >> 63) & 0xC) + 8)),
               v24 >= 0) )
         {
           if ( (v23 & 0x20000000) == 0 )
-            goto LABEL_124;
+            goto LABEL_120;
           v31 = (((int)(v11 & 0xC0000000) >> 31) & 0xC) + 24LL;
           if ( (v11 & 0x40000000) == 0 )
             v31 = (((int)(v11 & 0xC0000000) >> 31) & 0xC) + 8LL;
-          v24 = AlpcpCaptureContextAttribute32(a1, (char *)a3 + v31, a4, v8);
+          v24 = AlpcpCaptureContextAttribute32((__int64)a1, (int *)((char *)a3 + v31), a4, v8);
           if ( v24 >= 0 )
           {
-LABEL_124:
+LABEL_120:
             if ( (v23 & 0x10000000) == 0 )
-              goto LABEL_125;
-            v44 = (((int)(v11 & 0xE0000000) >> 31) & 0xC) + 24LL;
+              goto LABEL_121;
+            v42 = (((int)(v11 & 0xE0000000) >> 31) & 0xC) + 24LL;
             if ( (v11 & 0x40000000) == 0 )
-              v44 = (((int)(v11 & 0xE0000000) >> 31) & 0xC) + 8LL;
-            v45 = v44 + 20;
+              v42 = (((int)(v11 & 0xE0000000) >> 31) & 0xC) + 8LL;
+            v43 = v42 + 20;
             if ( (v11 & 0x20000000) == 0 )
-              v45 = v44;
-            v24 = AlpcpCaptureHandleAttribute32((char *)a3 + v45, v8);
+              v43 = v42;
+            v24 = AlpcpCaptureHandleAttribute32((char *)a3 + v43, v8);
             if ( v24 >= 0 )
             {
-LABEL_125:
+LABEL_121:
               if ( (v23 & 0x4000000) == 0 )
                 goto LABEL_89;
               v32 = v11 & 0xF8000000;
-              v33 = ((v32 >> 31) & 0xC) + 24;
+              v33 = ((v32 >> 31) & 0xC) + 24LL;
               if ( (v32 & 0x40000000) == 0 )
-                v33 = ((v32 >> 31) & 0xC) + 8;
+                v33 = ((v32 >> 31) & 0xC) + 8LL;
               v34 = v33 + 20;
               if ( (v32 & 0x20000000) == 0 )
                 v34 = v33;
@@ -223,55 +219,43 @@ LABEL_125:
               v36 = v35 + 24;
               if ( (v32 & 0x8000000) == 0 )
                 v36 = v35;
-              v24 = AlpcpCaptureDirectAttribute32((int)a3 + v36, v9, (_DWORD)v8, a2, v23);
+              v24 = AlpcpCaptureDirectAttribute32((unsigned int *)((char *)a3 + v36), (void *)v9, (__int64)v8, a2, v23);
               if ( v24 >= 0 )
               {
 LABEL_89:
                 if ( (v23 & 0x2000000) != 0 )
-                  v24 = AlpcpCaptureWorkOnBehalfAttribute(v8);
+                  v24 = AlpcpCaptureWorkOnBehalfAttribute((__int64)v8);
               }
             }
           }
         }
       }
     }
-    else if ( v23 >= 0 || (v24 = AlpcpCaptureSecurityAttribute(a1, a3 + 2, v8), v24 >= 0) )
+    else if ( v23 >= 0 || (v24 = AlpcpCaptureSecurityAttribute(a1, (__int64)(a3 + 2), (__int64)v8), v24 >= 0) )
     {
       if ( (v23 & 0x40000000) == 0
         || (v24 = AlpcpCaptureViewAttribute(
-                    a1,
-                    (char *)a3 + (((__int64)(v11 & 0xFFFFFFFF80000000uLL) >> 63) & 0x18) + 8,
-                    a4,
-                    v8),
+                    (__int64)a1,
+                    (__int128 *)((char *)a3 + (((__int64)(v11 & 0xFFFFFFFF80000000uLL) >> 63) & 0x18) + 8)),
             v24 >= 0) )
       {
         if ( (v23 & 0x20000000) == 0 )
-          goto LABEL_56;
+          goto LABEL_122;
         v25 = (((int)(v11 & 0xC0000000) >> 31) & 0x18) + 40LL;
         if ( (v11 & 0x40000000) == 0 )
           v25 = (((int)(v11 & 0xC0000000) >> 31) & 0x18) + 8LL;
         v24 = AlpcpCaptureContextAttribute(a1, (char *)a3 + v25, a4, v8);
         if ( v24 >= 0 )
         {
-LABEL_56:
-          if ( (v23 & 0x10000000) == 0 )
-            goto LABEL_58;
-          v42 = (((int)(v11 & 0xE0000000) >> 31) & 0x18) + 40LL;
-          if ( (v11 & 0x40000000) == 0 )
-            v42 = (((int)(v11 & 0xE0000000) >> 31) & 0x18) + 8LL;
-          v43 = v42 + 32;
-          if ( (v11 & 0x20000000) == 0 )
-            v43 = v42;
-          v24 = AlpcpCaptureHandleAttribute((char *)a3 + v43, v8);
-          if ( v24 >= 0 )
+LABEL_122:
+          if ( (v23 & 0x10000000) == 0 || (v24 = AlpcpCaptureHandleAttribute(), v24 >= 0) )
           {
-LABEL_58:
             if ( (v23 & 0x4000000) == 0 )
-              goto LABEL_126;
+              goto LABEL_58;
             v37 = v11 & 0xF8000000;
-            v38 = ((v37 >> 31) & 0x18) + 40;
+            v38 = ((v37 >> 31) & 0x18) + 40LL;
             if ( (v37 & 0x40000000) == 0 )
-              v38 = ((v37 >> 31) & 0x18) + 8;
+              v38 = ((v37 >> 31) & 0x18) + 8LL;
             v39 = v38 + 32;
             if ( (v37 & 0x20000000) == 0 )
               v39 = v38;
@@ -281,14 +265,14 @@ LABEL_58:
             v41 = v40 + 24;
             if ( (v37 & 0x8000000) == 0 )
               v41 = v40;
-            v24 = AlpcpCaptureDirectAttribute((int)a3 + v41, v9, (_DWORD)v8, a2, v23);
+            v24 = AlpcpCaptureDirectAttribute((unsigned __int64 *)((char *)a3 + v41), (void *)v9, (__int64)v8, a2, v23);
             if ( v24 >= 0 )
             {
-LABEL_126:
+LABEL_58:
               if ( (v23 & 0x2000000) != 0 )
               {
                 LODWORD(a5) = 0;
-                v47 = 0LL;
+                v45 = 0LL;
                 CurrentThread = KeGetCurrentThread();
                 WorkOnBehalfThread = (struct _DMA_ADAPTER *)PsGetWorkOnBehalfThread(CurrentThread, &a5);
                 v28 = WorkOnBehalfThread;
@@ -303,12 +287,12 @@ LABEL_126:
 LABEL_64:
                     if ( (_DWORD)a5 )
                       HalPutDmaAdapter(v28);
-                    v8[8] = v47;
+                    v8[8] = v45;
                     return 0;
                   }
                   v29 = (__int64)CurrentThread;
                 }
-                PsEncodeThreadWorkOnBehalfTicket(v29, &v47);
+                PsEncodeThreadWorkOnBehalfTicket(v29, &v45);
                 goto LABEL_64;
               }
             }

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopConnectLineBasedInterrupt @ 0x1407C98D4
+ * XREFs of IopConnectLineBasedInterrupt @ 0x1407C9BF4
  * Callers:
- *     IoConnectInterruptEx @ 0x140761BD0 (IoConnectInterruptEx.c)
+ *     IoConnectInterruptEx @ 0x140761D90 (IoConnectInterruptEx.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x1407628FC (IopGetInterruptConnectionData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoDisconnectInterrupt @ 0x140761BD0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x140762ABC (IopGetInterruptConnectionData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopConnectLineBasedInterrupt(

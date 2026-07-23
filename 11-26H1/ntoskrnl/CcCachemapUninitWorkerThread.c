@@ -1,20 +1,20 @@
 /*
- * XREFs of CcCachemapUninitWorkerThread @ 0x1403850A0
+ * XREFs of CcCachemapUninitWorkerThread @ 0x140386E50
  * Callers:
  *     <none>
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcWriteBehind @ 0x14038338C (CcWriteBehind.c)
- *     CcFreeWorkQueueEntry @ 0x14038364C (CcFreeWorkQueueEntry.c)
- *     CcFindNextWorkQueueEntry @ 0x1403852F0 (CcFindNextWorkQueueEntry.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039C160 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcPerfLogWorkItemDequeue @ 0x1404BF4EC (CcPerfLogWorkItemDequeue.c)
- *     CcPerfLogWorkItemComplete @ 0x1404C23E0 (CcPerfLogWorkItemComplete.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CcDebugExceptionFilter @ 0x1405B0D14 (CcDebugExceptionFilter.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcWriteBehind @ 0x14038513C (CcWriteBehind.c)
+ *     CcFreeWorkQueueEntry @ 0x1403853FC (CcFreeWorkQueueEntry.c)
+ *     CcFindNextWorkQueueEntry @ 0x1403870A0 (CcFindNextWorkQueueEntry.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039DEC0 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcPerfLogWorkItemDequeue @ 0x1404B8D3C (CcPerfLogWorkItemDequeue.c)
+ *     CcPerfLogWorkItemComplete @ 0x1404BBC30 (CcPerfLogWorkItemComplete.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CcDebugExceptionFilter @ 0x1405B3524 (CcDebugExceptionFilter.c)
  */
 
 __int64 __fastcall CcCachemapUninitWorkerThread(__int64 a1, __int64 a2, __int64 a3)
@@ -60,7 +60,7 @@ __int64 __fastcall CcCachemapUninitWorkerThread(__int64 a1, __int64 a2, __int64 
       KiRaiseIrqlProcessIrqlFlags(a1, a2);
     }
     LockHandle.OldIrql = CurrentIrql;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v9 = _InterlockedExchange64((volatile __int64 *)v7, (__int64)&LockHandle);
       if ( v9 )
@@ -74,7 +74,7 @@ __int64 __fastcall CcCachemapUninitWorkerThread(__int64 a1, __int64 a2, __int64 
     if ( !NextWorkQueueEntry )
       break;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+    if ( (xmmword_140FC0C10 & 0x20000) != 0 )
       CcPerfLogWorkItemDequeue(NextWorkQueueEntry);
     if ( *(_DWORD *)(NextWorkQueueEntry + 128) == 2 )
     {
@@ -82,7 +82,7 @@ __int64 __fastcall CcCachemapUninitWorkerThread(__int64 a1, __int64 a2, __int64 
       CcWriteBehind(*(_QWORD *)(NextWorkQueueEntry + 16), (__int64)&v13, v6);
     }
     v5 = v16;
-    if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+    if ( (xmmword_140FC0C10 & 0x20000) != 0 )
       CcPerfLogWorkItemComplete(NextWorkQueueEntry);
     CcFreeWorkQueueEntry((PSLIST_ENTRY)NextWorkQueueEntry);
   }

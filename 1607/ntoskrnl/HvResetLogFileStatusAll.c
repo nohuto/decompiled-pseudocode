@@ -1,11 +1,11 @@
 /*
- * XREFs of HvResetLogFileStatusAll @ 0x1404F0AF4
+ * XREFs of HvResetLogFileStatusAll @ 0x1404D2BE8
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
- *     HvSyncHive @ 0x14060635C (HvSyncHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
+ *     HvSyncHive @ 0x140606410 (HvSyncHive.c)
  * Callees:
- *     HvpLogTypeToLogArrayIndex @ 0x140480DF4 (HvpLogTypeToLogArrayIndex.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x14047FB48 (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall HvResetLogFileStatusAll(__int64 a1)

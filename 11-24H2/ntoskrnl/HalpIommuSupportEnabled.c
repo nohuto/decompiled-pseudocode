@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpIommuSupportEnabled @ 0x1405524E0
+ * XREFs of HalpIommuSupportEnabled @ 0x14054FE20
  * Callers:
  *     <none>
  * Callees:

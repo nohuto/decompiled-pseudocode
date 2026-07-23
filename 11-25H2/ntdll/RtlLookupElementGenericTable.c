@@ -7,29 +7,32 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTable(__int64 *a1, __int64 a2)
+PVOID __cdecl RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  __int64 v2; // rbx
+  PRTL_SPLAY_LINKS TableRoot; // rbx
   int v5; // eax
 
-  v2 = *a1;
-  if ( !*a1 )
+  TableRoot = Table->TableRoot;
+  if ( !Table->TableRoot )
     return 0LL;
   while ( 1 )
   {
-    v5 = ((__int64 (__fastcall *)(__int64 *, __int64, __int64))a1[5])(a1, a2, v2 + 40);
+    v5 = ((__int64 (__fastcall *)(PRTL_GENERIC_TABLE, PVOID, _RTL_SPLAY_LINKS **))Table->CompareRoutine)(
+           Table,
+           Buffer,
+           &TableRoot[1].RightChild);
     if ( v5 )
       break;
-    v2 = *(_QWORD *)(v2 + 8);
+    TableRoot = TableRoot->LeftChild;
 LABEL_4:
-    if ( !v2 )
+    if ( !TableRoot )
       return 0LL;
   }
   if ( v5 == 1 )
   {
-    v2 = *(_QWORD *)(v2 + 16);
+    TableRoot = TableRoot->RightChild;
     goto LABEL_4;
   }
-  *a1 = RtlSplay(v2);
-  return v2 + 40;
+  Table->TableRoot = RtlSplay(TableRoot);
+  return &TableRoot[1].RightChild;
 }

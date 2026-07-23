@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAccessCheck @ 0x14009E284
+ * XREFs of NtAccessCheck @ 0x14009DA84
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckByType @ 0x14005FEF0 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x14005FA70 (SeAccessCheckByType.c)
  */
 
 NTSTATUS __stdcall NtAccessCheck(

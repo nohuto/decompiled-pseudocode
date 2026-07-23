@@ -1,13 +1,13 @@
 /*
- * XREFs of MmReleaseResourceCharge @ 0x140003CD8
+ * XREFs of MmReleaseResourceCharge @ 0x140003E4C
  * Callers:
- *     SmAcquireReleaseCharges @ 0x140003C90 (SmAcquireReleaseCharges.c)
- *     MmChargeResources @ 0x140003D14 (MmChargeResources.c)
- *     HvViewMapCleanup @ 0x1404EEEA8 (HvViewMapCleanup.c)
- *     HvpViewMapReleaseChargesForPinnedPages @ 0x140610128 (HvpViewMapReleaseChargesForPinnedPages.c)
+ *     SmAcquireReleaseCharges @ 0x140003E04 (SmAcquireReleaseCharges.c)
+ *     MmChargeResources @ 0x140003E88 (MmChargeResources.c)
+ *     HvViewMapCleanup @ 0x1404D0F70 (HvViewMapCleanup.c)
+ *     HvpViewMapReleaseChargesForPinnedPages @ 0x1406101DC (HvpViewMapReleaseChargesForPinnedPages.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
  */
 
 __int64 __fastcall MmReleaseResourceCharge(__int64 a1, char a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnAltProfileTreeCompareByProcess @ 0x14097F66C
+ * XREFs of PfSnAltProfileTreeCompareByProcess @ 0x14097F86C
  * Callers:
- *     PfProcessExitNotification @ 0x140760DB4 (PfProcessExitNotification.c)
- *     PfSnSetAltPrefetchParam @ 0x14097F9F8 (PfSnSetAltPrefetchParam.c)
+ *     PfProcessExitNotification @ 0x140760FA4 (PfProcessExitNotification.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097FBF8 (PfSnSetAltPrefetchParam.c)
  * Callees:
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  */
 
 int __fastcall PfSnAltProfileTreeCompareByProcess(__int64 a1, __int64 a2)

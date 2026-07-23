@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCslInitialize @ 0x140CC75C0
+ * XREFs of PiCslInitialize @ 0x140CCD6B0
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
  */
 
 __int64 PiCslInitialize()

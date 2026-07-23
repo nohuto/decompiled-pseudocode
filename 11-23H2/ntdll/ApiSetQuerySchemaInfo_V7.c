@@ -31,16 +31,14 @@ __int64 __fastcall ApiSetQuerySchemaInfo_V7(__int64 a1, unsigned __int16 *a2, bo
   signed int v23; // r8d
   int v24; // eax
   unsigned __int16 v26; // [rsp+30h] [rbp-30h] BYREF
-  unsigned __int16 v27[4]; // [rsp+38h] [rbp-28h] BYREF
-  __int64 v28; // [rsp+40h] [rbp-20h]
-  int v29; // [rsp+48h] [rbp-18h] BYREF
-  const wchar_t *v30; // [rsp+50h] [rbp-10h]
-  char v31; // [rsp+A8h] [rbp+48h] BYREF
-  bool *v32; // [rsp+B0h] [rbp+50h]
-  bool *v33; // [rsp+B8h] [rbp+58h]
+  _UNICODE_STRING String1; // [rsp+38h] [rbp-28h] BYREF
+  _UNICODE_STRING String2; // [rsp+48h] [rbp-18h] BYREF
+  char v29; // [rsp+A8h] [rbp+48h] BYREF
+  bool *v30; // [rsp+B0h] [rbp+50h]
+  bool *v31; // [rsp+B8h] [rbp+58h]
 
-  v33 = a4;
-  v32 = a3;
+  v31 = a4;
+  v30 = a3;
   v4 = 0;
   *a3 = 0;
   v6 = 0;
@@ -62,9 +60,9 @@ __int64 __fastcall ApiSetQuerySchemaInfo_V7(__int64 a1, unsigned __int16 *a2, bo
                              (unsigned __int16)v8 >> 1,
                              (_DWORD)a3,
                              (unsigned int)&v26,
-                             (__int64)&v31) )
+                             (__int64)&v29) )
       goto LABEL_28;
-    if ( v31 )
+    if ( v29 )
     {
       v13 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 40, v11, v26);
       if ( v13 == -1 )
@@ -114,27 +112,27 @@ __int64 __fastcall ApiSetQuerySchemaInfo_V7(__int64 a1, unsigned __int16 *a2, bo
     v6 = 1;
     goto LABEL_28;
   }
-  v28 = *((_QWORD *)a2 + 1);
+  String1.Buffer = (wchar_t *)*((_QWORD *)a2 + 1);
   if ( (unsigned __int16)v8 >= 0x14u )
   {
     v12 = 20;
-    v27[0] = 20;
+    String1.Length = 20;
   }
   else
   {
     v12 = v8;
-    v27[0] = v8;
+    String1.Length = v8;
   }
-  v27[1] = v12;
-  v29 = 1310740;
-  v30 = L"schemaext-";
-  if ( !(unsigned int)RtlCompareUnicodeString(v27, (unsigned __int16 *)&v29, 1) )
+  String1.MaximumLength = v12;
+  *(_DWORD *)&String2.Length = 1310740;
+  String2.Buffer = L"schemaext-";
+  if ( !RtlCompareUnicodeString(&String1, &String2, 1u) )
   {
     v6 = (unsigned int)ApiSetpSearchForSectionIndex_V7(a1, a1 + 64, v11, (unsigned __int16)v8 >> 1) != -1;
     v7 = v6;
 LABEL_28:
-    *v32 = v6;
-    *v33 = v7;
+    *v30 = v6;
+    *v31 = v7;
     return v4;
   }
   return (unsigned int)-1073741811;

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCmdRenameHive @ 0x1407D5930
+ * XREFs of CmpCmdRenameHive @ 0x1407D5E20
  * Callers:
- *     CmReplaceKey @ 0x1407DA2E8 (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1407DC2B8 (CmpFlushBackupHive.c)
+ *     CmReplaceKey @ 0x1407DA838 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x1407DC808 (CmpFlushBackupHive.c)
  * Callees:
- *     ZwQueryObject @ 0x1406A6610 (ZwQueryObject.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQueryObject @ 0x1406A75B0 (ZwQueryObject.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpCmdRenameHive(HANDLE FileHandle, PVOID ObjectInformation, const void **a3, ULONG a4, char a5)
@@ -25,7 +25,7 @@ NTSTATUS __fastcall CmpCmdRenameHive(HANDLE FileHandle, PVOID ObjectInformation,
   if ( !ObjectInformation
     || (result = ZwQueryObject(FileHandle, ObjectNameInformation, ObjectInformation, a4, &ReturnLength), result >= 0) )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, *(unsigned __int16 *)a3 + 24LL, 0x20204D43u);
     v9 = (void *)Pool2;
     if ( Pool2 )
     {

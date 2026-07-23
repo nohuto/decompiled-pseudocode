@@ -1,16 +1,16 @@
 /*
- * XREFs of PopIdlePhaseWatchdogCallback @ 0x1405765D0
+ * XREFs of PopIdlePhaseWatchdogCallback @ 0x140576810
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     memset @ 0x140414200 (memset.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140888B30 (DbgkWerCaptureLiveKernelDump.c)
- *     PopPowerAggregatorSnapDiagnosticContext @ 0x1408EEB04 (PopPowerAggregatorSnapDiagnosticContext.c)
- *     PopPdcSnapDiagnosticContext @ 0x1408F0158 (PopPdcSnapDiagnosticContext.c)
- *     PopSnapSystemIdleContext @ 0x1408F0FCC (PopSnapSystemIdleContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888C90 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPowerAggregatorSnapDiagnosticContext @ 0x1408EEC64 (PopPowerAggregatorSnapDiagnosticContext.c)
+ *     PopPdcSnapDiagnosticContext @ 0x1408F02B8 (PopPdcSnapDiagnosticContext.c)
+ *     PopSnapSystemIdleContext @ 0x1408F112C (PopSnapSystemIdleContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -28,12 +28,12 @@ __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, __int64 a2, __int64 
   memset(P, 0, sizeof(P));
   PopSnapSystemIdleContext(&P[2], &P[3]);
   PopPdcSnapDiagnosticContext(&v9);
-  PopAcquireRwLockExclusive((ULONG_PTR)&unk_140C21388);
-  v6 = qword_140C21398;
-  qword_140C21398 = 0LL;
-  dword_140C213A0 = 0;
+  PopAcquireRwLockExclusive((ULONG_PTR)&unk_140C213C8);
+  v6 = qword_140C213D8;
+  qword_140C213D8 = 0LL;
+  dword_140C213E0 = 0;
   P[0] = v6;
-  PopReleaseRwLock((ULONG_PTR)&unk_140C21388);
+  PopReleaseRwLock((ULONG_PTR)&unk_140C213C8);
   *(_OWORD *)&P[4] = v9;
   *(_OWORD *)&P[6] = v10;
   P[8] = v11;

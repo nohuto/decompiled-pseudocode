@@ -1,16 +1,16 @@
 /*
- * XREFs of MiScrubProcessPhysicalPages @ 0x140850350
+ * XREFs of MiScrubProcessPhysicalPages @ 0x1408515B0
  * Callers:
- *     MiScrubProcesses @ 0x14085FBC0 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x140860E20 (MiScrubProcesses.c)
  * Callees:
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
- *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     MiLockAwePagesExclusive @ 0x1402B1294 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x1402B12DC (MiLockAweVadsExclusive.c)
- *     MiScrubAwePage @ 0x1402B1C5C (MiScrubAwePage.c)
- *     MiUnlockAwePagesExclusive @ 0x1402B20B8 (MiUnlockAwePagesExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1402B210C (MiUnlockAweVadsExclusive.c)
- *     MiMakePageBad @ 0x1402CF128 (MiMakePageBad.c)
+ *     ExGetCallBackBlockRoutine @ 0x140088BA0 (ExGetCallBackBlockRoutine.c)
+ *     MiLockAwePagesExclusive @ 0x1402B1484 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x1402B14CC (MiLockAweVadsExclusive.c)
+ *     MiScrubAwePage @ 0x1402B1E4C (MiScrubAwePage.c)
+ *     MiUnlockAwePagesExclusive @ 0x1402B22A8 (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1402B22FC (MiUnlockAweVadsExclusive.c)
+ *     MiMakePageBad @ 0x1402CF318 (MiMakePageBad.c)
  */
 
 __int64 __fastcall MiScrubProcessPhysicalPages(__int64 a1, __int64 a2)
@@ -20,10 +20,10 @@ __int64 __fastcall MiScrubProcessPhysicalPages(__int64 a1, __int64 a2)
   _KPROCESS *Process; // rbx
   __int64 v5; // rax
   __int64 v6; // rbx
-  unsigned __int64 v7; // rsi
+  ULONG64 v7; // rsi
   unsigned __int64 v8; // r12
   __int64 v9; // rcx
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   unsigned __int64 v11; // rbp
   __int64 v12; // r14
   ULONG_PTR v13; // rsi
@@ -44,7 +44,7 @@ __int64 __fastcall MiScrubProcessPhysicalPages(__int64 a1, __int64 a2)
     {
       if ( *(_DWORD *)(v3 + 4) )
         break;
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)(v6 + 16), 1uLL, v7);
+      SetBits = RtlFindSetBitsEx((PRTL_BITMAP_EX)(v6 + 16), 1uLL, v7);
       v11 = SetBits;
       if ( SetBits < v7 || SetBits == -1LL )
         break;

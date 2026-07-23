@@ -3,10 +3,10 @@
  * Callers:
  *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiCreateSessionDriverProtos @ 0x140A45DD0 (MiCreateSessionDriverProtos.c)
+ *     MiCreateSessionDriverProtos @ 0x140A46080 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MiGetSubsectionDriverProtos @ 0x1402A26E4 (MiGetSubsectionDriverProtos.c)
- *     MiDeletePerSessionProtos @ 0x14033EBC4 (MiDeletePerSessionProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x1402A2974 (MiGetSubsectionDriverProtos.c)
+ *     MiDeletePerSessionProtos @ 0x14033EE54 (MiDeletePerSessionProtos.c)
  */
 
 __int64 __fastcall MiDeleteSessionDriverProtos(__int64 *a1)

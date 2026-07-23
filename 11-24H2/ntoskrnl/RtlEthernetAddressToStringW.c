@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEthernetAddressToStringW @ 0x1404CA270
+ * XREFs of RtlEthernetAddressToStringW @ 0x1404C35C0
  * Callers:
- *     AdtpBuildMacStrings @ 0x140810A64 (AdtpBuildMacStrings.c)
+ *     AdtpBuildMacStrings @ 0x1408111A4 (AdtpBuildMacStrings.c)
  * Callees:
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
  */
 
 PWSTR __stdcall RtlEthernetAddressToStringW(const DL_EUI48 *Addr, PWSTR S)

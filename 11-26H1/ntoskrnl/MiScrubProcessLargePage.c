@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScrubProcessLargePage @ 0x14087DEB8
+ * XREFs of MiScrubProcessLargePage @ 0x1408842B8
  * Callers:
- *     MiScrubActiveLargePage @ 0x14087DD8C (MiScrubActiveLargePage.c)
+ *     MiScrubActiveLargePage @ 0x14088418C (MiScrubActiveLargePage.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiIdentifyPfnWrapper @ 0x1402F0D20 (MiIdentifyPfnWrapper.c)
- *     MiIsVadLargePrivate @ 0x14030B6CC (MiIsVadLargePrivate.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiScrubLargeMappedPage @ 0x14070C03C (MiScrubLargeMappedPage.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiIdentifyPfnWrapper @ 0x1402D2DA0 (MiIdentifyPfnWrapper.c)
+ *     MiIsVadLargePrivate @ 0x1402ED74C (MiIsVadLargePrivate.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiScrubLargeMappedPage @ 0x140710CEC (MiScrubLargeMappedPage.c)
  */
 
 __int64 __fastcall MiScrubProcessLargePage(__int64 a1, __int64 a2, unsigned int a3)

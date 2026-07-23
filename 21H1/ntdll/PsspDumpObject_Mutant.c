@@ -6,17 +6,26 @@
  *     _NtQueryMutant@20 @ 0x4B2F3ED0 (_NtQueryMutant@20.c)
  */
 
-int __stdcall PsspDumpObject_Mutant(int a1, int a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __stdcall PsspDumpObject_Mutant(
+        HANDLE MutantHandle,
+        char *MutantInformation,
+        unsigned int a3,
+        PULONG ReturnLength)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 < 0x10 )
     return -1073741789;
-  result = NtQueryMutant(a1, 0, a2, 8, (int)a4);
-  if ( result >= 0 && (result = NtQueryMutant(a1, 1, a2 + 8, 8, 0), result >= 0) )
-    *a4 += 8;
+  result = NtQueryMutant(MutantHandle, MutantBasicInformation, MutantInformation, 8u, ReturnLength);
+  if ( result >= 0
+    && (result = NtQueryMutant(MutantHandle, MutantOwnerInformation, MutantInformation + 8, 8u, 0), result >= 0) )
+  {
+    *ReturnLength += 8;
+  }
   else
-    *a4 = 0;
+  {
+    *ReturnLength = 0;
+  }
   return result;
 }

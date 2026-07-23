@@ -6,11 +6,15 @@
  *     MiCreatePagingFile @ 0x1407A267C (MiCreatePagingFile.c)
  */
 
-__int64 __fastcall NtCreatePagingFile(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl NtCreatePagingFile(
+        PUNICODE_STRING PageFileName,
+        PLARGE_INTEGER MinimumSize,
+        PLARGE_INTEGER MaximumSize,
+        ULONG Priority)
 {
-  int v4; // r10d
+  ULONG v4; // r10d
 
-  v4 = a4;
-  LOBYTE(a4) = KeGetCurrentThread()->PreviousMode;
-  return MiCreatePagingFile(a1, a2, a3, a4, v4, &MiSystemPartition);
+  v4 = Priority;
+  LOBYTE(Priority) = KeGetCurrentThread()->PreviousMode;
+  return MiCreatePagingFile(PageFileName, MinimumSize, MaximumSize, Priority, v4, &MiSystemPartition);
 }

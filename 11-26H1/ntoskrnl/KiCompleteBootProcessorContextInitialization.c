@@ -1,12 +1,12 @@
 /*
- * XREFs of KiCompleteBootProcessorContextInitialization @ 0x1405EA85C
+ * XREFs of KiCompleteBootProcessorContextInitialization @ 0x1405ED1CC
  * Callers:
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405E9AB4 (KiAllocateAndStartBootProcessorSchedulerStructures.c)
- *     KiResetBootProcessorApicMask @ 0x1407B98C8 (KiResetBootProcessorApicMask.c)
- *     MmAllocateIsrStack @ 0x140875DEC (MmAllocateIsrStack.c)
- *     KiInitializePrcbContext @ 0x140BF430C (KiInitializePrcbContext.c)
+ *     KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405EC424 (KiAllocateAndStartBootProcessorSchedulerStructures.c)
+ *     KiResetBootProcessorApicMask @ 0x1407BC928 (KiResetBootProcessorApicMask.c)
+ *     MmAllocateIsrStack @ 0x14087C1D0 (MmAllocateIsrStack.c)
+ *     KiInitializePrcbContext @ 0x140BFA30C (KiInitializePrcbContext.c)
  */
 
 __int64 KiCompleteBootProcessorContextInitialization()

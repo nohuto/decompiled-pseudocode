@@ -129,7 +129,7 @@ LABEL_21:
   }
   v20 = ImpersonationLevel;
   LODWORD(v37) = ImpersonationLevel;
-  if ( (int)SeTokenCanImpersonate((__int64)v19, v9, ImpersonationLevel, &v36) < 0 )
+  if ( SeTokenCanImpersonate((__int64)v19, v9, ImpersonationLevel, &v36) < 0 )
   {
     v16 = *(_DWORD *)(v9 + 192) == 2;
     v32 = 1;

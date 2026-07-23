@@ -1,15 +1,15 @@
 /*
- * XREFs of NtDebugContinue @ 0x14080FE40
+ * XREFs of NtDebugContinue @ 0x140811040
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     EtwTraceDebuggerEvent @ 0x14030FBF0 (EtwTraceDebuggerEvent.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     DbgkpWakeTarget @ 0x14080F9E0 (DbgkpWakeTarget.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     EtwTraceDebuggerEvent @ 0x14030FDE0 (EtwTraceDebuggerEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     DbgkpWakeTarget @ 0x140810BE0 (DbgkpWakeTarget.c)
  */
 
 NTSTATUS __stdcall NtDebugContinue(HANDLE DebugObject, PCLIENT_ID AppClientId, NTSTATUS ContinueStatus)

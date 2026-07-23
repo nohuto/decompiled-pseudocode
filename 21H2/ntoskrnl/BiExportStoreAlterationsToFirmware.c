@@ -1,14 +1,14 @@
 /*
- * XREFs of BiExportStoreAlterationsToFirmware @ 0x14077950C
+ * XREFs of BiExportStoreAlterationsToFirmware @ 0x1407796CC
  * Callers:
- *     BcdForciblyUnloadStore @ 0x1407792D8 (BcdForciblyUnloadStore.c)
- *     BiCloseStore @ 0x140781D00 (BiCloseStore.c)
+ *     BcdForciblyUnloadStore @ 0x140779498 (BcdForciblyUnloadStore.c)
+ *     BiCloseStore @ 0x140781EC0 (BiCloseStore.c)
  * Callees:
- *     BiGetFirmwareType @ 0x1407849DC (BiGetFirmwareType.c)
- *     BiExportStoreAlterationsToEfi @ 0x140971F30 (BiExportStoreAlterationsToEfi.c)
+ *     BiGetFirmwareType @ 0x140784B9C (BiGetFirmwareType.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140972110 (BiExportStoreAlterationsToEfi.c)
  */
 
-__int64 __fastcall BiExportStoreAlterationsToFirmware(__int64 a1)
+__int64 __fastcall BiExportStoreAlterationsToFirmware(HANDLE BcdStoreHandle)
 {
   int v2; // eax
   int v4; // eax
@@ -18,7 +18,7 @@ __int64 __fastcall BiExportStoreAlterationsToFirmware(__int64 a1)
     return 0LL;
   v4 = v2 - 1;
   if ( !v4 )
-    return BiExportStoreAlterationsToEfi(a1);
+    return BiExportStoreAlterationsToEfi(BcdStoreHandle);
   if ( v4 == 1 )
     return 0LL;
   return 3221225659LL;

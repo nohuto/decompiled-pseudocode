@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpSetupLoggingState @ 0x14084D128
+ * XREFs of CmpSetupLoggingState @ 0x140853434
  * Callers:
- *     CmpInitializePreloadedHive @ 0x140CEAEF0 (CmpInitializePreloadedHive.c)
- *     CmpInitializeSystemHive @ 0x140CEB618 (CmpInitializeSystemHive.c)
+ *     CmpInitializePreloadedHive @ 0x140CF1290 (CmpInitializePreloadedHive.c)
+ *     CmpInitializeSystemHive @ 0x140CF19B8 (CmpInitializeSystemHive.c)
  * Callees:
  *     <none>
  */

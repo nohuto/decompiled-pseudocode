@@ -1,14 +1,14 @@
 /*
- * XREFs of PiControlGetDevicePowerData @ 0x1408B3494
+ * XREFs of PiControlGetDevicePowerData @ 0x1408B35F4
  * Callers:
- *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x14060C640 (PiControlGetPropertyData.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x1402651F8 (PipIsDevNodeDNStarted.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopLockGetDoDevicePowerState @ 0x14056F4EC (PopLockGetDoDevicePowerState.c)
- *     PpIrpQueryCapabilities @ 0x14074B408 (PpIrpQueryCapabilities.c)
+ *     PipIsDevNodeDNStarted @ 0x140253288 (PipIsDevNodeDNStarted.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopLockGetDoDevicePowerState @ 0x14056F72C (PopLockGetDoDevicePowerState.c)
+ *     PpIrpQueryCapabilities @ 0x14074B5C8 (PpIrpQueryCapabilities.c)
  */
 
 __int64 __fastcall PiControlGetDevicePowerData(__int64 a1, __int64 a2, unsigned int a3, _OWORD *a4, _DWORD *a5)

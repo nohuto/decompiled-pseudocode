@@ -1,20 +1,20 @@
 /*
- * XREFs of MiExtendPagingFileMaximum @ 0x140638FD4
+ * XREFs of MiExtendPagingFileMaximum @ 0x140639524
  * Callers:
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140638EFC (MiDerefPageFileSpaceBitmaps.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14063944C (MiDerefPageFileSpaceBitmaps.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -109,10 +109,13 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   v19 = (volatile LONG *)(a1 + 232);
   *v8 = v44;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 232));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -155,10 +158,10 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
               *(_QWORD *)(v28 + 8) = v12;
             }
             ExReleaseSpinLockExclusiveFromDpcLevel(v19);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v31 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v31 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v31 >= 2u )
               {
                 v32 = KeGetCurrentPrcb();
                 v33 = v32->SchedulerAssist;
@@ -171,10 +174,10 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
             }
             __writecr8(v30);
             _InterlockedAnd64((volatile signed __int64 *)(v28 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v35 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v29 <= 0xFu && v35 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v29 <= 0xFu && v35 >= 2u )
               {
                 v36 = KeGetCurrentPrcb();
                 v37 = v36->SchedulerAssist;

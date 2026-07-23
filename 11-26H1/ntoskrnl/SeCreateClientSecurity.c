@@ -1,21 +1,21 @@
 /*
- * XREFs of SeCreateClientSecurity @ 0x140929880
+ * XREFs of SeCreateClientSecurity @ 0x140905390
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     NtImpersonateThread @ 0x140AE31F0 (NtImpersonateThread.c)
- *     EtwpFixBootLoggers @ 0x140CE1DAC (EtwpFixBootLoggers.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     NtImpersonateThread @ 0x140AE0D70 (NtImpersonateThread.c)
+ *     EtwpFixBootLoggers @ 0x140CE814C (EtwpFixBootLoggers.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402AC7A0 (SepReconcileTrustSidWithProcessProtection.c)
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1403ABEF0 (SepReconcileTrustSidWithProcessProtection.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -96,7 +96,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   LOBYTE(v20) = BYTE2(Process[3].ActiveGroupsMask.Masks[1]);
   LOBYTE(v14) = 0;
 LABEL_12:
-  SepReconcileTrustSidWithProcessProtection(v12[138], (unsigned __int8 *)&v20, v17, (unsigned __int64 *)SourceSid);
+  SepReconcileTrustSidWithProcessProtection(v12[138], (unsigned __int8 *)&v20, v17, SourceSid);
   result = SepCreateClientSecurityEx((int)v12, v14, v7, 0, 0LL, v17[0], SourceSid[0], (__int64)ClientContext);
   v16 = result;
   if ( result < 0 || !ClientSecurityQos->ContextTrackingMode )

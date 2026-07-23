@@ -15,41 +15,35 @@
  *     LdrpLogDbgPrint @ 0x1800CDAE8 (LdrpLogDbgPrint.c)
  */
 
-_UNKNOWN **__fastcall LdrShutdownProcess(
-        struct _RTLP_FLS_CONTEXT *a1,
-        __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __noreturn LdrShutdownProcess(void)
 {
-  _UNKNOWN **result; // rax
-  struct _TEB *v5; // rbx
+  struct _RTLP_FLS_CONTEXT *v0; // rcx
+  struct _TEB *v1; // rbx
   _PEB *ProcessEnvironmentBlock; // rdi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   struct _RTLP_FLS_DATA *FlsData; // rdx
-  char v9; // si
-  __int64 *v10; // rdi
-  __int64 v11; // rbx
-  __int64 (__fastcall *v12)(__int64, _QWORD, __int64); // r14
-  struct _PEB *v13; // rax
-  unsigned __int64 v14; // rcx
+  char v5; // si
+  __int64 *v6; // rdi
+  __int64 v7; // rbx
+  __int64 (__fastcall *v8)(__int64, _QWORD, __int64); // r14
+  struct _PEB *v9; // rax
+  REGHANDLE v10; // rcx
   _UNICODE_STRING CommandLine; // [rsp+40h] [rbp-B8h] BYREF
-  __int64 v16; // [rsp+50h] [rbp-A8h] BYREF
-  int v17; // [rsp+58h] [rbp-A0h]
-  __int128 v18; // [rsp+60h] [rbp-98h]
-  __int128 v19; // [rsp+70h] [rbp-88h]
-  __int128 v20; // [rsp+80h] [rbp-78h]
-  __int64 v21; // [rsp+90h] [rbp-68h]
-  __int64 v22; // [rsp+A0h] [rbp-58h] BYREF
-  int v23; // [rsp+A8h] [rbp-50h]
-  __int128 v24; // [rsp+B0h] [rbp-48h]
-  __int128 v25; // [rsp+C0h] [rbp-38h]
-  __int128 v26; // [rsp+D0h] [rbp-28h]
-  __int64 v27; // [rsp+E0h] [rbp-18h]
-  _UNKNOWN *retaddr; // [rsp+F8h] [rbp+0h] BYREF
+  __int64 v12; // [rsp+50h] [rbp-A8h] BYREF
+  int v13; // [rsp+58h] [rbp-A0h]
+  __int128 v14; // [rsp+60h] [rbp-98h]
+  __int128 v15; // [rsp+70h] [rbp-88h]
+  __int128 v16; // [rsp+80h] [rbp-78h]
+  __int64 v17; // [rsp+90h] [rbp-68h]
+  __int64 v18; // [rsp+A0h] [rbp-58h] BYREF
+  int v19; // [rsp+A8h] [rbp-50h]
+  __int128 v20; // [rsp+B0h] [rbp-48h]
+  __int128 v21; // [rsp+C0h] [rbp-38h]
+  __int128 v22; // [rsp+D0h] [rbp-28h]
+  __int64 v23; // [rsp+E0h] [rbp-18h]
 
-  result = &retaddr;
-  v5 = NtCurrentTeb();
-  ProcessEnvironmentBlock = v5->ProcessEnvironmentBlock;
+  v1 = NtCurrentTeb();
+  ProcessEnvironmentBlock = v1->ProcessEnvironmentBlock;
   if ( !byte_18016A508 )
   {
     CommandLine = ProcessEnvironmentBlock->ProcessParameters->CommandLine;
@@ -63,70 +57,69 @@ _UNKNOWN **__fastcall LdrShutdownProcess(
         (unsigned int)"LdrShutdownProcess",
         2,
         (__int64)"Process 0x%p (%wZ) exiting\n",
-        v5->ClientId.UniqueProcess,
+        v1->ClientId.UniqueProcess,
         &CommandLine);
-    qword_18016A510 = (__int64)v5->ClientId.UniqueThread;
+    qword_18016A510 = (__int64)v1->ClientId.UniqueThread;
     byte_18016A508 = 1;
     if ( g_ShimsEnabled )
       ((void (*)(void))(__ROR8__(g_pfnSE_ProcessDying, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))();
-    FlsData = (struct _RTLP_FLS_DATA *)v5->FlsData;
+    FlsData = (struct _RTLP_FLS_DATA *)v1->FlsData;
     if ( FlsData )
-      RtlpFlsDataCleanup(a1, FlsData, 1u);
+      RtlpFlsDataCleanup(v0, FlsData, 1u);
     if ( (LdrpPolicyBits & 2) != 0
       || (ProcessEnvironmentBlock->ProcessParameters->Flags & 0x40000000) != 0
       || (AvrfAppVerifierMode & 1) != 0 )
     {
-      v9 = 0;
-      v10 = (__int64 *)qword_18016A4F8;
-      while ( v10 != &qword_18016A4F0 )
+      v5 = 0;
+      v6 = (__int64 *)qword_18016A4F8;
+      while ( v6 != &qword_18016A4F0 )
       {
-        v11 = (__int64)(v10 - 4);
-        v10 = (__int64 *)v10[1];
-        v12 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v11 + 56);
-        if ( v12 && (*(_DWORD *)(v11 + 104) & 0x80000) != 0 )
+        v7 = (__int64)(v6 - 4);
+        v6 = (__int64 *)v6[1];
+        v8 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v7 + 56);
+        if ( v8 && (*(_DWORD *)(v7 + 104) & 0x80000) != 0 )
         {
-          v16 = 72LL;
-          v17 = 1;
-          v18 = 0LL;
-          v19 = 0LL;
-          v20 = 0LL;
-          v21 = 0LL;
-          RtlActivateActivationContextUnsafeFast((__int64)&v16, *(_QWORD *)(v11 + 136));
-          if ( *(_WORD *)(v11 + 110) )
-            LdrpCallTlsInitializers(0, v11);
-          LdrpCallInitRoutine(v12, *(_QWORD *)(v11 + 48), 0, 1LL);
-          RtlDeactivateActivationContextUnsafeFast((__int64)&v16);
+          v12 = 72LL;
+          v13 = 1;
+          v14 = 0LL;
+          v15 = 0LL;
+          v16 = 0LL;
+          v17 = 0LL;
+          RtlActivateActivationContextUnsafeFast((__int64)&v12, *(_QWORD *)(v7 + 136));
+          if ( *(_WORD *)(v7 + 110) )
+            LdrpCallTlsInitializers(0, v7);
+          LdrpCallInitRoutine(v8, *(_QWORD *)(v7 + 48), 0, 1LL);
+          RtlDeactivateActivationContextUnsafeFast((__int64)&v12);
         }
       }
       if ( *(_WORD *)(LdrpImageEntry + 110) )
       {
-        v22 = 72LL;
-        v23 = 1;
-        v24 = 0LL;
-        v25 = 0LL;
-        v26 = 0LL;
-        v27 = 0LL;
-        RtlActivateActivationContextUnsafeFast((__int64)&v22, *(_QWORD *)(LdrpImageEntry + 136));
+        v18 = 72LL;
+        v19 = 1;
+        v20 = 0LL;
+        v21 = 0LL;
+        v22 = 0LL;
+        v23 = 0LL;
+        RtlActivateActivationContextUnsafeFast((__int64)&v18, *(_QWORD *)(LdrpImageEntry + 136));
         LdrpCallTlsInitializers(0, LdrpImageEntry);
-        RtlDeactivateActivationContextUnsafeFast((__int64)&v22);
+        RtlDeactivateActivationContextUnsafeFast((__int64)&v18);
       }
     }
     else
     {
-      v9 = 1;
+      v5 = 1;
     }
-    v13 = NtCurrentPeb();
-    if ( VSMEnclaveProvidersRegistered && v13->ProcessHeap )
+    v9 = NtCurrentPeb();
+    if ( VSMEnclaveProvidersRegistered && v9->ProcessHeap )
     {
-      v14 = qword_1801644E0;
+      v10 = RegHandle;
       dword_1801644C0 = 0;
-      qword_1801644E0 = 0LL;
-      EtwNotificationUnregister(v14, 0LL, a3, a4);
+      RegHandle = 0LL;
+      EtwNotificationUnregister(v10, 0LL);
       VSMEnclaveProvidersRegistered = 0;
     }
-    if ( !v9 )
+    if ( !v5 )
       RtlDetectHeapLeaks();
-    return (_UNKNOWN **)SbCleanupTrace();
+    SbCleanupTrace();
   }
-  return result;
 }

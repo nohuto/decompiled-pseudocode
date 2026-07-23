@@ -1,24 +1,24 @@
 /*
- * XREFs of LdrpFreeUnicodeString @ 0x18000E8FC
+ * XREFs of LdrpFreeUnicodeString @ 0x18000E8EC
  * Callers:
- *     LdrpAppCompatRedirect @ 0x18000E064 (LdrpAppCompatRedirect.c)
- *     LdrpMapDllSearchPath @ 0x18000E5C8 (LdrpMapDllSearchPath.c)
- *     LdrpSearchPath @ 0x18000EBF0 (LdrpSearchPath.c)
- *     LdrpResolveDllName @ 0x18000FA94 (LdrpResolveDllName.c)
- *     LdrpFindLoadedDllInternal @ 0x1800123F8 (LdrpFindLoadedDllInternal.c)
- *     LdrpApplyFileNameRedirection @ 0x180015A34 (LdrpApplyFileNameRedirection.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     LdrpDereferenceModule @ 0x180032238 (LdrpDereferenceModule.c)
+ *     LdrpAppCompatRedirect @ 0x18000E054 (LdrpAppCompatRedirect.c)
+ *     LdrpMapDllSearchPath @ 0x18000E5B8 (LdrpMapDllSearchPath.c)
+ *     LdrpSearchPath @ 0x18000EBE0 (LdrpSearchPath.c)
+ *     LdrpResolveDllName @ 0x18000FA84 (LdrpResolveDllName.c)
+ *     LdrpFindLoadedDllInternal @ 0x1800123E8 (LdrpFindLoadedDllInternal.c)
+ *     LdrpApplyFileNameRedirection @ 0x180015A24 (LdrpApplyFileNameRedirection.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     LdrpDereferenceModule @ 0x180032228 (LdrpDereferenceModule.c)
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall LdrpFreeUnicodeString(__int64 a1)
+LOGICAL __fastcall LdrpFreeUnicodeString(__int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
+  LOGICAL result; // eax
 
-  v2 = *(_QWORD *)(a1 + 8);
+  v2 = *(void **)(a1 + 8);
   if ( v2 )
   {
     result = NtdllpFreeStringRoutine(v2);

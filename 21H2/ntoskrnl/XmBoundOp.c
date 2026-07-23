@@ -1,11 +1,11 @@
 /*
- * XREFs of XmBoundOp @ 0x1404E6BD0
+ * XREFs of XmBoundOp @ 0x1404E6E10
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
- *     XmGetOffsetAddress @ 0x1403C920C (XmGetOffsetAddress.c)
- *     longjmp @ 0x1403D0670 (longjmp.c)
+ *     XmSetSourceValue @ 0x140397058 (XmSetSourceValue.c)
+ *     XmGetOffsetAddress @ 0x1403C93AC (XmGetOffsetAddress.c)
+ *     longjmp @ 0x1403D07E0 (longjmp.c)
  */
 
 __int64 __fastcall XmBoundOp(__int64 a1)

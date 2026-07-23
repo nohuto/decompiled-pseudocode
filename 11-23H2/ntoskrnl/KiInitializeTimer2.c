@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitializeTimer2 @ 0x14031E51C
+ * XREFs of KiInitializeTimer2 @ 0x14031E7AC
  * Callers:
- *     ExAllocateTimerInternal2 @ 0x14031E390 (ExAllocateTimerInternal2.c)
- *     KeInitializeTimer2 @ 0x14031E500 (KeInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x14036F5F8 (KeInitializeIRTimer.c)
- *     MiStoreEvictThread @ 0x1403A8650 (MiStoreEvictThread.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403A890C (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     KiInitializeIdealProcessorRebalancer @ 0x1403B4718 (KiInitializeIdealProcessorRebalancer.c)
+ *     ExAllocateTimerInternal2 @ 0x14031E620 (ExAllocateTimerInternal2.c)
+ *     KeInitializeTimer2 @ 0x14031E790 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14036F798 (KeInitializeIRTimer.c)
+ *     MiStoreEvictThread @ 0x1403A8830 (MiStoreEvictThread.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403A8AEC (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     KiInitializeIdealProcessorRebalancer @ 0x1403B48F8 (KiInitializeIdealProcessorRebalancer.c)
  *     ExInitializeTimeRefresh @ 0x140B394EC (ExInitializeTimeRefresh.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  *     KiInitializeDpcRuntimeHistoryHashTables @ 0x140B4EC40 (KiInitializeDpcRuntimeHistoryHashTables.c)
@@ -16,7 +16,7 @@
  *     SshpAlpcInitialize @ 0x140B66D04 (SshpAlpcInitialize.c)
  *     HalpBlkWdInitialize @ 0x140B92E18 (HalpBlkWdInitialize.c)
  * Callees:
- *     PsTimerResolutionActive @ 0x140255200 (PsTimerResolutionActive.c)
+ *     PsTimerResolutionActive @ 0x1402552C0 (PsTimerResolutionActive.c)
  */
 
 char __fastcall KiInitializeTimer2(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)

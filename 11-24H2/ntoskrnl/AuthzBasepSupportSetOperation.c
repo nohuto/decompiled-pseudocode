@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepSupportSetOperation @ 0x140346410
+ * XREFs of AuthzBasepSupportSetOperation @ 0x140324D04
  * Callers:
- *     AuthzBasepIsValidExpression @ 0x1403461E8 (AuthzBasepIsValidExpression.c)
+ *     AuthzBasepIsValidExpression @ 0x140324ADC (AuthzBasepIsValidExpression.c)
  * Callees:
  *     <none>
  */

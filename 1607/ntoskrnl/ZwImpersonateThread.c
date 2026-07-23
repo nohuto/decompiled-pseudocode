@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwImpersonateThread @ 0x14015BAA0
+ * XREFs of ZwImpersonateThread @ 0x14015C010
  * Callers:
  *     <none>
  * Callees:
@@ -13,5 +13,5 @@ NTSTATUS __stdcall ZwImpersonateThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, ThreadToImpersonate, SecurityQualityOfService);
+  return KiServiceInternal(ThreadHandle);
 }

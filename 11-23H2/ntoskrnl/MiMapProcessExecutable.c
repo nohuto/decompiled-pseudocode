@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMapProcessExecutable @ 0x1407A3090
+ * XREFs of MiMapProcessExecutable @ 0x1407A3280
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MmMapViewOfSectionEx @ 0x14032A35C (MmMapViewOfSectionEx.c)
- *     PsMapSystemDlls @ 0x1407A31C8 (PsMapSystemDlls.c)
- *     MiCommitInitialVadMetadataBits @ 0x1407A3E5C (MiCommitInitialVadMetadataBits.c)
- *     MiCfgInitializeProcess @ 0x1407A4AB4 (MiCfgInitializeProcess.c)
- *     MiSessionCreate @ 0x1407A900C (MiSessionCreate.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MmMapViewOfSectionEx @ 0x14032A5EC (MmMapViewOfSectionEx.c)
+ *     PsMapSystemDlls @ 0x1407A33B8 (PsMapSystemDlls.c)
+ *     MiCommitInitialVadMetadataBits @ 0x1407A404C (MiCommitInitialVadMetadataBits.c)
+ *     MiCfgInitializeProcess @ 0x1407A4CA4 (MiCfgInitializeProcess.c)
+ *     MiSessionCreate @ 0x1407A91FC (MiSessionCreate.c)
  */
 
 __int64 __fastcall MiMapProcessExecutable(__int64 a1, __int64 a2, unsigned int *a3)

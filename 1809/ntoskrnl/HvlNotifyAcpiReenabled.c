@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlNotifyAcpiReenabled @ 0x140276C0C
+ * XREFs of HvlNotifyAcpiReenabled @ 0x140276DFC
  * Callers:
- *     PopHiberCheckResume @ 0x14056B320 (PopHiberCheckResume.c)
+ *     PopHiberCheckResume @ 0x14056C320 (PopHiberCheckResume.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 HvlNotifyAcpiReenabled()

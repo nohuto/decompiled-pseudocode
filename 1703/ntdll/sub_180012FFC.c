@@ -15,16 +15,16 @@
  *     ZwClose @ 0x1800A54E0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_180012FFC(__int64 a1)
+NTSTATUS __fastcall sub_180012FFC(void *a1)
 {
-  __int64 result; // rax
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  HANDLE ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a1 )
   {
-    v2 = a1;
-    ZwSetInformationThread(-2LL, 5LL, &v2);
-    return ZwClose(v2);
+    ThreadInformation = a1;
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+    return ZwClose(ThreadInformation);
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhContextInitialize @ 0x1800DF1E0
+ * XREFs of RtlpHpLfhContextInitialize @ 0x1800DC150
  * Callers:
- *     RtlpHpHeapCreate @ 0x18008DE64 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180104964 (RtlpHpHeapCreate.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextInitialize(
@@ -49,12 +49,12 @@ __int64 __fastcall RtlpHpLfhContextInitialize(
   v15 = *(_QWORD *)(a1 + 56);
   if ( v15 )
     *(_QWORD *)(a1 + 56) = a1 ^ RtlpHpHeapGlobals ^ v15;
-  v16 = qword_1801C6F00;
+  v16 = qword_1801C5F00;
   do
   {
     v17 = v16 ^ (v16 >> 12) ^ ((v16 ^ (v16 >> 12)) << 25) ^ ((v16 ^ (v16 >> 12) ^ ((v16 ^ (v16 >> 12)) << 25)) >> 27);
     v18 = v16;
-    v16 = _InterlockedCompareExchange64(&qword_1801C6F00, v17, v16);
+    v16 = _InterlockedCompareExchange64(&qword_1801C5F00, v17, v16);
   }
   while ( v18 != v16 );
   *(_QWORD *)(a1 + 88) = 0x2545F4914F6CDD1DLL * v17;
@@ -63,7 +63,7 @@ __int64 __fastcall RtlpHpLfhContextInitialize(
     v19 = a3;
   *(_BYTE *)(a1 + 72) = v19;
   if ( v19 > 1u )
-    *(_QWORD *)(a1 + 64) = (char *)&unk_18017D210
+    *(_QWORD *)(a1 + 64) = (char *)&unk_18017BF30
                          + ((unsigned __int64)((64 - v19 + 61) * (62 - (64 - (unsigned int)v19))) >> 1);
   memset64((void *)(a1 + 448), 1uLL, 0x80uLL);
   *(_WORD *)(a1 + 76) = 0;

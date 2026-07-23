@@ -1,23 +1,23 @@
 /*
- * XREFs of KiSendClockInterruptToTargetProcessor @ 0x1403793EC
+ * XREFs of KiSendClockInterruptToTargetProcessor @ 0x14037B19C
  * Callers:
- *     KiTimer2Expiration @ 0x140336A40 (KiTimer2Expiration.c)
- *     KiAdjustTimer2DueTimes @ 0x1403374E8 (KiAdjustTimer2DueTimes.c)
- *     ExpUpdateTimerConfigurationWorker @ 0x1403790A0 (ExpUpdateTimerConfigurationWorker.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     KiInsertTimerTable @ 0x1403ACC88 (KiInsertTimerTable.c)
- *     KeSetClockInterval @ 0x14041880C (KeSetClockInterval.c)
- *     KeResumeClockTimerFromIdle @ 0x1405EDA84 (KeResumeClockTimerFromIdle.c)
+ *     KiTimer2Expiration @ 0x140338AC0 (KiTimer2Expiration.c)
+ *     KiAdjustTimer2DueTimes @ 0x140339568 (KiAdjustTimer2DueTimes.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x14037AE50 (ExpUpdateTimerConfigurationWorker.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     KiInsertTimerTable @ 0x1403B6998 (KiInsertTimerTable.c)
+ *     KeSetClockInterval @ 0x14040CD44 (KeSetClockInterval.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405F03F4 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PoInitiateProcessorWake @ 0x1406014A0 (PoInitiateProcessorWake.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PoInitiateProcessorWake @ 0x140603F50 (PoInitiateProcessorWake.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiSendClockInterruptToTargetProcessor(unsigned int a1)
@@ -52,7 +52,7 @@ __int64 __fastcall KiSendClockInterruptToTargetProcessor(unsigned int a1)
   memset_0(Src, 0, 0x100uLL);
   v24 = 2097153LL;
   memset_0(Src, 0, 0x100uLL);
-  v2 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v1);
+  v2 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v1);
   v3 = 1;
   v4 = v2 & 0x3F;
   v5 = v2 >> 6;
@@ -125,12 +125,11 @@ LABEL_3:
     {
       _BitScanForward64(&v18, v16);
       v16 &= ~(1LL << v18);
-      result = (__int64)KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread;
-      v19 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v17
+      result = (__int64)KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink;
+      v19 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v17].Flink
             + (unsigned __int8)v18);
       if ( (_DWORD)v19 == Number
-        || (result = *(unsigned int *)(*((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink->Flink
+        || (result = *(unsigned int *)(*((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink->Flink
                                        + v19)
                                      + 228LL),
             (result & 1) == 0)

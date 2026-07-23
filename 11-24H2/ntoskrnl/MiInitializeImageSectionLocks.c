@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializeImageSectionLocks @ 0x140AA19BC
+ * XREFs of MiInitializeImageSectionLocks @ 0x140A9CD4C
  * Callers:
- *     MiConstructLoaderEntry @ 0x140A92FE4 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x140A8F794 (MiConstructLoaderEntry.c)
  * Callees:
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
  */
 
 __int64 __fastcall MiInitializeImageSectionLocks(__int64 a1)
 {
   __int64 BaseLoaderPortion; // rax
   __int64 v2; // rcx
-  unsigned __int64 v3; // rdi
+  void *v3; // rdi
   __int64 v4; // rbx
-  unsigned __int64 v5; // rax
+  PIMAGE_NT_HEADERS v5; // rax
   _DWORD *v6; // r15
-  __int16 v7; // dx
+  unsigned __int16 NumberOfSections; // dx
   __int64 result; // rax
   __int64 PteAddress; // rax
   __int64 v10; // r8
@@ -32,23 +32,23 @@ __int64 __fastcall MiInitializeImageSectionLocks(__int64 a1)
   __int64 v20; // r11
 
   BaseLoaderPortion = MiGetBaseLoaderPortion(a1);
-  v3 = *(_QWORD *)(v2 + 48);
+  v3 = *(void **)(v2 + 48);
   v4 = BaseLoaderPortion;
   v5 = RtlImageNtHeader(v3);
   v6 = *(_DWORD **)(v4 + 200);
-  v7 = *(_WORD *)(v5 + 6);
-  *(_QWORD *)(v4 + 288) = *(unsigned __int16 *)(v5 + 20) + v5 + 24;
+  NumberOfSections = v5->FileHeader.NumberOfSections;
+  *(_QWORD *)(v4 + 288) = (char *)&v5->OptionalHeader + v5->FileHeader.SizeOfOptionalHeader;
   result = 0LL;
-  if ( v7 )
+  if ( NumberOfSections )
   {
-    PteAddress = MiGetPteAddress(v3);
+    PteAddress = MiGetPteAddress((unsigned __int64)v3);
     v11 = v10 + 8;
     v12 = -8 - PteAddress;
     v13 = PteAddress;
     v15 = v14;
     do
     {
-      *v6 = (MiGetPteAddress(v3 + *(unsigned int *)(v11 + 4)) - v13) >> 3;
+      *v6 = (MiGetPteAddress((unsigned __int64)v3 + *(unsigned int *)(v11 + 4)) - v13) >> 3;
       if ( v18 < v16 )
         v18 = v16;
       v6 += 3;

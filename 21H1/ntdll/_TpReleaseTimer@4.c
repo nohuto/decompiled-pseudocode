@@ -12,28 +12,20 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpReleaseTimer(int a1)
+void __cdecl TpReleaseTimer(PTP_TIMER Timer)
 {
   int v1; // edi
-  int result; // eax
   _UNKNOWN *retaddr; // [esp+Ch] [ebp+4h]
 
   v1 = 1;
-  result = TppTimerpValidateTimer(0);
-  if ( result )
+  if ( TppTimerpValidateTimer(0) && TppCleanupGroupMemberRelease((int)Timer, 1) )
   {
-    result = TppCleanupGroupMemberRelease(a1, 1);
-    if ( result )
-    {
-      *(_DWORD *)(a1 + 112) = retaddr;
-      RtlAcquireSRWLockExclusive(a1 + 144);
-      ++*(_BYTE *)(a1 + 223);
-      if ( (unsigned __int8)TppCancelTimer(0) )
-        v1 = 2;
-      result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, -v1);
-      if ( result == v1 )
-        return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
-    }
+    *((_DWORD *)Timer + 28) = retaddr;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
+    ++*((_BYTE *)Timer + 223);
+    if ( (unsigned __int8)TppCancelTimer(Timer, *((_DWORD *)Timer + 23) + 64, 0) )
+      v1 = 2;
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, -v1) == v1 )
+      (**((void (__thiscall ***)(_DWORD, PTP_TIMER))Timer + 1))(**((_DWORD **)Timer + 1), Timer);
   }
-  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopRemoveRelationFromList @ 0x14083ACD4
+ * XREFs of IopRemoveRelationFromList @ 0x14083BF34
  * Callers:
- *     PnpProcessRelation @ 0x1406EC68C (PnpProcessRelation.c)
- *     PipRemoveDevicesInRelationList @ 0x1406EF680 (PipRemoveDevicesInRelationList.c)
+ *     PnpProcessRelation @ 0x1406ED92C (PnpProcessRelation.c)
+ *     PipRemoveDevicesInRelationList @ 0x1406F0920 (PipRemoveDevicesInRelationList.c)
  * Callees:
- *     PipDeviceObjectListIndexOf @ 0x1406ECA84 (PipDeviceObjectListIndexOf.c)
- *     PipDeviceObjectListRemove @ 0x140706A24 (PipDeviceObjectListRemove.c)
+ *     PipDeviceObjectListIndexOf @ 0x1406EDD24 (PipDeviceObjectListIndexOf.c)
+ *     PipDeviceObjectListRemove @ 0x140707CC4 (PipDeviceObjectListRemove.c)
  */
 
 __int64 __fastcall IopRemoveRelationFromList(__int64 *a1, __int64 a2)

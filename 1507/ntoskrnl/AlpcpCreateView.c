@@ -72,7 +72,7 @@ __int64 __fastcall AlpcpCreateView(ULONG_PTR BugCheckParameter2, unsigned __int6
   signed __int64 v50; // rcx
   __int64 v51; // rbx
   int (__fastcall *v52)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v53; // r8
+  _SLIST_HEADER *v53; // r8
   __int64 v55; // [rsp+60h] [rbp-68h] BYREF
   PVOID Objecta; // [rsp+68h] [rbp-60h]
   ULONG_PTR BugCheckParameter2a; // [rsp+70h] [rbp-58h]

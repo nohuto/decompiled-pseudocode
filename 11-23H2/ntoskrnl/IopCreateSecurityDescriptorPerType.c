@@ -1,20 +1,20 @@
 /*
- * XREFs of IopCreateSecurityDescriptorPerType @ 0x14076B5C0
+ * XREFs of IopCreateSecurityDescriptorPerType @ 0x14076B7B0
  * Callers:
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B49C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B68C (IopCreateDefaultDeviceSecurityDescriptor.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1407365B0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlAddMandatoryAce @ 0x1407F2E70 (RtlAddMandatoryAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1407367A0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlAddMandatoryAce @ 0x1407F3140 (RtlAddMandatoryAce.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         int a2,
-        __int64 *a3,
+        ACL **a3,
         int *a4)
 {
   char v4; // di
@@ -26,7 +26,7 @@ NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
   int v13; // edx
   unsigned __int16 v14; // bp
   ACL *Pool2; // rax
-  __int64 v16; // r15
+  ACL *v16; // r15
   int v17; // ecx
 
   v4 = 0;
@@ -67,12 +67,12 @@ LABEL_4:
   {
     v14 = 4 * (*((unsigned __int8 *)SeLowMandatorySid + 1) + 6);
     Pool2 = (ACL *)ExAllocatePool2(256LL, v14, 1699966793LL);
-    v16 = (__int64)Pool2;
+    v16 = Pool2;
     if ( !Pool2 )
       return -1073741670;
     RtlCreateAcl(Pool2, v14, 2u);
-    RtlAddMandatoryAce(v16, 2LL, 0LL, SeLowMandatorySid, 17, 1);
-    RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, v16, 0);
+    RtlAddMandatoryAce(v16, 2u, 0, SeLowMandatorySid, 0x11u, 1u);
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, v16, 0);
     *a3 = v16;
   }
   result = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v10, 0);

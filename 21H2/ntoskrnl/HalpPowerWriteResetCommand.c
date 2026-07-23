@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpPowerWriteResetCommand @ 0x1404BE30C
+ * XREFs of HalpPowerWriteResetCommand @ 0x1404BE54C
  * Callers:
- *     HalpInterruptResetThisProcessor @ 0x1404BC480 (HalpInterruptResetThisProcessor.c)
- *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
- *     HalpInterruptResetAllProcessors @ 0x1404D2BEC (HalpInterruptResetAllProcessors.c)
+ *     HalpInterruptResetThisProcessor @ 0x1404BC6C0 (HalpInterruptResetThisProcessor.c)
+ *     HalReturnToFirmware @ 0x1404BE3E0 (HalReturnToFirmware.c)
+ *     HalpInterruptResetAllProcessors @ 0x1404D2E2C (HalpInterruptResetAllProcessors.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     HalpAcpiPmRegisterWrite @ 0x14037C760 (HalpAcpiPmRegisterWrite.c)
- *     HalpMiscIsLegacyPcType @ 0x140386A24 (HalpMiscIsLegacyPcType.c)
- *     HalpMap @ 0x1403BB938 (HalpMap.c)
- *     VslTerminateSecureServices @ 0x1403F0ED4 (VslTerminateSecureServices.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalEfiResetSystem @ 0x1404C3BA0 (HalEfiResetSystem.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C2B0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpMiscIsLegacyPcType @ 0x140386B74 (HalpMiscIsLegacyPcType.c)
+ *     HalpMap @ 0x1403BBAA8 (HalpMap.c)
+ *     VslTerminateSecureServices @ 0x1403F0E04 (VslTerminateSecureServices.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalEfiResetSystem @ 0x1404C3DE0 (HalEfiResetSystem.c)
  */
 
 void __fastcall __noreturn HalpPowerWriteResetCommand(int a1, volatile signed __int32 *a2)
@@ -47,9 +47,9 @@ void __fastcall __noreturn HalpPowerWriteResetCommand(int a1, volatile signed __
       v5 = 0LL;
       __writemsr(0x40000003u, 1uLL);
     }
-    if ( byte_140C491E0 )
+    if ( byte_140C49220 )
     {
-      HalpAcpiPmRegisterWrite(8, 0, (__int64)&unk_140C4A060, 1u, 0LL);
+      HalpAcpiPmRegisterWrite(8, 0, (__int64)&unk_140C4A0A0, 1u, 0LL);
       KeStallExecutionProcessor(0x1F4u);
     }
     if ( (HalpPlatformFlags & 2) != 0 )

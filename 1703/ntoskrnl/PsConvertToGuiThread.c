@@ -16,9 +16,9 @@ __int64 PsConvertToGuiThread()
   _KPROCESS *Process; // rdi
   __int64 v2; // rdx
   __int64 v3; // rcx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 result; // rax
-  union _RTL_RUN_ONCE *v6; // rax
+  _RTL_RUN_ONCE *v6; // rax
   int v7; // esi
   _KPROCESS *v8; // [rsp+20h] [rbp-28h] BYREF
   int v9; // [rsp+28h] [rbp-20h]

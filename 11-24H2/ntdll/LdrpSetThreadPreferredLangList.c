@@ -1,94 +1,89 @@
 /*
- * XREFs of LdrpSetThreadPreferredLangList @ 0x18007CA30
+ * XREFs of LdrpSetThreadPreferredLangList @ 0x180011370
  * Callers:
- *     LdrpLoadResourceFromAlternativeModule @ 0x18005F740 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpSearchResourceSection_U @ 0x180061FF0 (LdrpSearchResourceSection_U.c)
- *     LdrResFallbackLangList @ 0x18007BF40 (LdrResFallbackLangList.c)
- *     LdrLoadAlternateResourceModule @ 0x1800F16E0 (LdrLoadAlternateResourceModule.c)
+ *     LdrResFallbackLangList @ 0x180011F70 (LdrResFallbackLangList.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x180075320 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpSearchResourceSection_U @ 0x180077BD0 (LdrpSearchResourceSection_U.c)
+ *     LdrLoadAlternateResourceModule @ 0x1800EC360 (LdrLoadAlternateResourceModule.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlGetThreadPreferredUILanguages @ 0x180037120 (RtlGetThreadPreferredUILanguages.c)
- *     RtlpInitMuiCriticalSection @ 0x18007CC94 (RtlpInitMuiCriticalSection.c)
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18007CD08 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlpInitMuiCriticalSection @ 0x1800115D4 (RtlpInitMuiCriticalSection.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180011648 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x1800173A0 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
  */
 
-bool __fastcall LdrpSetThreadPreferredLangList(__int64 a1, __int64 a2)
+bool LdrpSetThreadPreferredLangList()
 {
-  char *MergedPrefLanguages; // rcx
-  __int64 v3; // rax
+  _DWORD *v0; // rax
   int RegistryInfo; // ebx
-  struct _TEB *v5; // rdx
+  struct _TEB *v2; // rdx
   int WowTebOffset; // eax
-  struct _TEB *v7; // r8
-  __int64 v8; // rax
-  struct _TEB *v9; // rcx
-  __int64 v10; // rax
+  struct _TEB *v4; // r8
+  __int64 v5; // rax
+  struct _TEB *v6; // rcx
+  __int64 v7; // rax
   unsigned int MuiImpersonation; // eax
-  _DWORD *v13; // rcx
-  int ThreadPreferredUILanguages; // eax
-  unsigned int v15; // [rsp+30h] [rbp+8h] BYREF
-  int v16; // [rsp+38h] [rbp+10h] BYREF
+  _DWORD *MergedPrefLanguages; // rcx
+  NTSTATUS ThreadPreferredUILanguages; // eax
+  ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
+  ULONG NumberOfLanguages; // [rsp+38h] [rbp+10h] BYREF
 
-  v16 = 0;
-  if ( NtCurrentTeb()->MergedPrefLanguages )
+  NumberOfLanguages = 0;
+  if ( NtCurrentTeb()->MergedPrefLanguages && *((char *)NtCurrentTeb()->MergedPrefLanguages + 40) >= 0 )
   {
-    MergedPrefLanguages = (char *)NtCurrentTeb()->MergedPrefLanguages;
-    if ( MergedPrefLanguages[40] >= 0 )
+    v0 = g_RegInfo;
+    if ( !g_RegInfo )
     {
-      v3 = g_RegInfo;
+      RtlpInitMuiCriticalSection();
+      RtlEnterCriticalSection(&RegistryInfoCritSect);
+      RegistryInfo = 0;
       if ( !g_RegInfo )
+        RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
+      RtlLeaveCriticalSection(&RegistryInfoCritSect);
+      if ( RegistryInfo < 0 )
+        return 0;
+      v0 = g_RegInfo;
+      if ( !g_RegInfo )
+        return 0;
+    }
+    if ( !*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2)
+      || *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2) + 12LL) == MEMORY[0x7FFE03A4]
+      && NtCurrentTeb()->MuiGeneration == v0[4] )
+    {
+      v2 = NtCurrentTeb();
+      WowTebOffset = v2->WowTebOffset;
+      if ( WowTebOffset < 0 )
+        LODWORD(v2) = WowTebOffset + (_DWORD)v2;
+      v4 = NtCurrentTeb();
+      v5 = v4->WowTebOffset;
+      if ( (int)v5 < 0 )
+        v4 = (struct _TEB *)((char *)v4 + v5);
+      v6 = NtCurrentTeb();
+      v7 = v6->WowTebOffset;
+      if ( (_DWORD)v2 == LODWORD(v4->NtTib.SubSystemTib) )
       {
-        RtlpInitMuiCriticalSection(MergedPrefLanguages, a2);
-        RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
-        RegistryInfo = 0;
-        if ( !g_RegInfo )
-          RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
-        RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
-        if ( RegistryInfo < 0 )
-          return 0;
-        v3 = g_RegInfo;
-        if ( !g_RegInfo )
-          return 0;
-      }
-      if ( !*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2)
-        || *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2) + 12LL) == MEMORY[0x7FFE03A4]
-        && NtCurrentTeb()->MuiGeneration == *(_DWORD *)(v3 + 16) )
-      {
-        v5 = NtCurrentTeb();
-        WowTebOffset = v5->WowTebOffset;
-        if ( WowTebOffset < 0 )
-          LODWORD(v5) = WowTebOffset + (_DWORD)v5;
-        v7 = NtCurrentTeb();
-        v8 = v7->WowTebOffset;
-        if ( (int)v8 < 0 )
-          v7 = (struct _TEB *)((char *)v7 + v8);
-        v9 = NtCurrentTeb();
-        v10 = v9->WowTebOffset;
-        if ( (_DWORD)v5 == LODWORD(v7->NtTib.SubSystemTib) )
-        {
-          if ( (int)v10 < 0 )
-            v9 = (struct _TEB *)((char *)v9 + v10);
-          MuiImpersonation = HIDWORD(v9->glDispatchTable[186]);
-        }
-        else
-        {
-          if ( (int)v10 < 0 )
-            v9 = (struct _TEB *)((char *)v9 + v10);
-          MuiImpersonation = v9->MuiImpersonation;
-        }
-        if ( MuiImpersonation )
-          return 1;
+        if ( (int)v7 < 0 )
+          v6 = (struct _TEB *)((char *)v6 + v7);
+        MuiImpersonation = HIDWORD(v6->glDispatchTable[186]);
       }
       else
       {
-        v13 = NtCurrentTeb()->MergedPrefLanguages;
-        v13[10] |= 0x80u;
+        if ( (int)v7 < 0 )
+          v6 = (struct _TEB *)((char *)v6 + v7);
+        MuiImpersonation = v6->MuiImpersonation;
       }
+      if ( MuiImpersonation )
+        return 1;
+    }
+    else
+    {
+      MergedPrefLanguages = NtCurrentTeb()->MergedPrefLanguages;
+      MergedPrefLanguages[10] |= 0x80u;
     }
   }
-  v15 = 0;
-  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages((void *)0x30, (unsigned __int64)&v16, 0LL, &v15);
+  ReturnLength = 0;
+  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, &ReturnLength);
   return ((int)(ThreadPreferredUILanguages + 0x80000000) < 0 || ThreadPreferredUILanguages == -1073741789)
       && NtCurrentTeb()->MergedPrefLanguages;
 }

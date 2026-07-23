@@ -3,9 +3,9 @@
  * Callers:
  *     PoCaptureReasonContext @ 0x140209BF8 (PoCaptureReasonContext.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PopUnicodeStringDeepCopy @ 0x1408597A0 (PopUnicodeStringDeepCopy.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PopUnicodeStringDeepCopy @ 0x1408599E0 (PopUnicodeStringDeepCopy.c)
  */
 
 __int64 __fastcall PoGetRequester(char a1, void *a2, __int64 a3)

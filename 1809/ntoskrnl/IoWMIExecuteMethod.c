@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIExecuteMethod @ 0x1408B1EC0
+ * XREFs of IoWMIExecuteMethod @ 0x1408B3120
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipQuerySetExecuteSI @ 0x1405FBF88 (WmipQuerySetExecuteSI.c)
- *     WmipAllocateSingleInstanceWnode @ 0x1408B26E8 (WmipAllocateSingleInstanceWnode.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WmipQuerySetExecuteSI @ 0x1405FCF88 (WmipQuerySetExecuteSI.c)
+ *     WmipAllocateSingleInstanceWnode @ 0x1408B3948 (WmipAllocateSingleInstanceWnode.c)
  */
 
 NTSTATUS __stdcall IoWMIExecuteMethod(

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x14038D8C0
+ * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x14038DA10
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpTimerQueryAndResetRtcErrors(char a1)
@@ -36,7 +36,7 @@ bool __fastcall HalpTimerQueryAndResetRtcErrors(char a1)
       v11 = &v8;
       v8 = v1;
       v12 = 4;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02E38, (unsigned __int8 *)&byte_140022779, v4, 1u, v6, v7, 3u, &v10);
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02E38, (unsigned __int8 *)&byte_140022839, v4, 1u, v6, v7, 3u, &v10);
     }
     v2 = 9;
   }
@@ -48,7 +48,7 @@ bool __fastcall HalpTimerQueryAndResetRtcErrors(char a1)
       v15 = &v9;
       v9 = v1;
       v16 = 4;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02E38, (unsigned __int8 *)&word_14002273E, v5, 1u, v6, v7, 3u, &v14);
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02E38, (unsigned __int8 *)&word_1400227FE, v5, 1u, v6, v7, 3u, &v14);
     }
     v2 = 31;
   }

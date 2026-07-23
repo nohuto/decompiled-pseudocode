@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLocateXStateChunk @ 0x14042FDD0
+ * XREFs of RtlpLocateXStateChunk @ 0x140421880
  * Callers:
- *     RtlLocateExtendedFeature @ 0x140281BD0 (RtlLocateExtendedFeature.c)
+ *     RtlLocateExtendedFeature @ 0x140237160 (RtlLocateExtendedFeature.c)
  * Callees:
  *     <none>
  */

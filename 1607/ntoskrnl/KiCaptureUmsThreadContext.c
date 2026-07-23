@@ -1,12 +1,12 @@
 /*
- * XREFs of KiCaptureUmsThreadContext @ 0x140651B0C
+ * XREFs of KiCaptureUmsThreadContext @ 0x140651BF0
  * Callers:
- *     KiParkUmsThread @ 0x1401DC264 (KiParkUmsThread.c)
+ *     KiParkUmsThread @ 0x1401DC090 (KiParkUmsThread.c)
  * Callees:
- *     RtlXSave @ 0x14008308C (RtlXSave.c)
- *     KeContextFromKframes @ 0x1400F4450 (KeContextFromKframes.c)
- *     KeCopyLastBranchInformation @ 0x1400F47E4 (KeCopyLastBranchInformation.c)
- *     KeSaveLegacyFloatingPointControlWord @ 0x14015DB70 (KeSaveLegacyFloatingPointControlWord.c)
+ *     RtlXSave @ 0x140083D0C (RtlXSave.c)
+ *     KeContextFromKframes @ 0x1400F22A0 (KeContextFromKframes.c)
+ *     KeCopyLastBranchInformation @ 0x1400F2634 (KeCopyLastBranchInformation.c)
+ *     KeSaveLegacyFloatingPointControlWord @ 0x14015E0E0 (KeSaveLegacyFloatingPointControlWord.c)
  */
 
 __int64 __fastcall KiCaptureUmsThreadContext(__int64 a1, __int64 a2)

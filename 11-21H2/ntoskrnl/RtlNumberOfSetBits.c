@@ -2,28 +2,28 @@
  * XREFs of RtlNumberOfSetBits @ 0x140209960
  * Callers:
  *     RtlNumberOfClearBits @ 0x140209930 (RtlNumberOfClearBits.c)
- *     HvpGenerateLogEntryDirtyData @ 0x14020A620 (HvpGenerateLogEntryDirtyData.c)
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x140237ABC (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140262650 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1403865C4 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1405038DC (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1405189C4 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
- *     SepAddLuidToIndexEntry @ 0x140672348 (SepAddLuidToIndexEntry.c)
- *     PspQueryRateControlHistory @ 0x14068578C (PspQueryRateControlHistory.c)
- *     HvpGenerateLogEntry @ 0x140688318 (HvpGenerateLogEntry.c)
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
- *     HvFreeHivePartial @ 0x140689900 (HvFreeHivePartial.c)
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
- *     HvWriteHivePrimaryFile @ 0x14068F1F8 (HvWriteHivePrimaryFile.c)
- *     SepGetLowBoxNumberEntry @ 0x140696750 (SepGetLowBoxNumberEntry.c)
- *     MiReleaseDriverPtes @ 0x14076200C (MiReleaseDriverPtes.c)
- *     PopEvaluateGlobalUserStatus @ 0x1407EF514 (PopEvaluateGlobalUserStatus.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14081C05C (EtwQueryPerformanceTraceInformation.c)
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     HvpPerformLogFileRecovery @ 0x14091ADA0 (HvpPerformLogFileRecovery.c)
- *     HvFoldBackUnreconciledData @ 0x14091D4B0 (HvFoldBackUnreconciledData.c)
- *     HvpApplyLegacyLogFile @ 0x140924E08 (HvpApplyLegacyLogFile.c)
+ *     sub_14020A620 @ 0x14020A620 (sub_14020A620.c)
+ *     sub_140237ABC @ 0x140237ABC (sub_140237ABC.c)
+ *     sub_140262650 @ 0x140262650 (sub_140262650.c)
+ *     sub_1403865C4 @ 0x1403865C4 (sub_1403865C4.c)
+ *     sub_1405038DC @ 0x1405038DC (sub_1405038DC.c)
+ *     sub_1405189C4 @ 0x1405189C4 (sub_1405189C4.c)
+ *     sub_140672348 @ 0x140672348 (sub_140672348.c)
+ *     sub_14068578C @ 0x14068578C (sub_14068578C.c)
+ *     sub_140688318 @ 0x140688318 (sub_140688318.c)
+ *     sub_1406885A4 @ 0x1406885A4 (sub_1406885A4.c)
+ *     sub_140689900 @ 0x140689900 (sub_140689900.c)
+ *     sub_14068C820 @ 0x14068C820 (sub_14068C820.c)
+ *     sub_14068F1F8 @ 0x14068F1F8 (sub_14068F1F8.c)
+ *     sub_140696750 @ 0x140696750 (sub_140696750.c)
+ *     sub_14076200C @ 0x14076200C (sub_14076200C.c)
+ *     sub_1407EF514 @ 0x1407EF514 (sub_1407EF514.c)
+ *     sub_14081C05C @ 0x14081C05C (sub_14081C05C.c)
+ *     sub_14083200C @ 0x14083200C (sub_14083200C.c)
+ *     sub_14083C870 @ 0x14083C870 (sub_14083C870.c)
+ *     sub_14091ADA0 @ 0x14091ADA0 (sub_14091ADA0.c)
+ *     sub_14091D4B0 @ 0x14091D4B0 (sub_14091D4B0.c)
+ *     sub_140924E08 @ 0x140924E08 (sub_140924E08.c)
  * Callees:
  *     <none>
  */
@@ -31,16 +31,16 @@
 ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
 {
   ULONG v1; // r9d
-  unsigned int *Buffer; // rax
-  unsigned int v3; // r10d
-  unsigned int SizeOfBitMap; // r14d
-  unsigned int v5; // ebp
+  PULONG Buffer; // rax
+  ULONG v3; // r10d
+  ULONG SizeOfBitMap; // r14d
+  ULONG v5; // ebp
   int v6; // r11d
-  unsigned int v7; // edi
-  unsigned int v8; // r8d
+  ULONG v7; // edi
+  ULONG v8; // r8d
   int v9; // r10d
   int v10; // esi
-  unsigned int v11; // r11d
+  ULONG v11; // r11d
   int i; // ebx
   char v13; // dl
   unsigned int v14; // ecx
@@ -73,11 +73,11 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
   for ( i = 0; v8; --v8 )
   {
     v13 = *(_BYTE *)Buffer;
-    Buffer = (unsigned int *)((char *)Buffer + 1);
+    Buffer = (PULONG)((char *)Buffer + 1);
     if ( i == v7 - 1 && v5 )
       v13 &= byte_140018DF0[SizeOfBitMap & 7];
     ++i;
-    v1 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v13);
+    v1 += *((unsigned __int8 *)qword_14001BA70 + (unsigned __int8)~v13);
   }
   if ( v11 )
   {
@@ -100,11 +100,11 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
   for ( ; v10; --v10 )
   {
     v18 = *(_BYTE *)Buffer;
-    Buffer = (unsigned int *)((char *)Buffer + 1);
+    Buffer = (PULONG)((char *)Buffer + 1);
     if ( i == v7 - 1 && v5 )
       v18 &= byte_140018DF0[SizeOfBitMap & 7];
     ++i;
-    v1 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v18);
+    v1 += *((unsigned __int8 *)qword_14001BA70 + (unsigned __int8)~v18);
   }
   return v1;
 }

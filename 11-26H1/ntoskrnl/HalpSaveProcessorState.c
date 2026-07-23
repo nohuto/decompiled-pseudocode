@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSaveProcessorState @ 0x140722EF0
+ * XREFs of HalpSaveProcessorState @ 0x140727AC0
  * Callers:
- *     HaliSaveProcessorContextAndSleep @ 0x140723120 (HaliSaveProcessorContextAndSleep.c)
+ *     HaliSaveProcessorContextAndSleep @ 0x140727CF0 (HaliSaveProcessorContextAndSleep.c)
  * Callees:
- *     KasanHibernationGetStackLow @ 0x1405DD630 (KasanHibernationGetStackLow.c)
- *     KeSaveStateForHibernate @ 0x140727DD0 (KeSaveStateForHibernate.c)
+ *     KasanHibernationGetStackLow @ 0x1405DFFA0 (KasanHibernationGetStackLow.c)
+ *     KeSaveStateForHibernate @ 0x14072C9A0 (KeSaveStateForHibernate.c)
  */
 
 __int64 __fastcall HalpSaveProcessorState(__int64 a1)

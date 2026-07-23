@@ -1,11 +1,11 @@
 /*
- * XREFs of VmMapSectionExecuteNoAcg @ 0x14081BBB0
+ * XREFs of VmMapSectionExecuteNoAcg @ 0x140821DC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     MmMapViewOfSectionEx @ 0x1404BCA5C (MmMapViewOfSectionEx.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     MmMapViewOfSectionEx @ 0x1404B623C (MmMapViewOfSectionEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall VmMapSectionExecuteNoAcg(void *a1, __int64 a2, __int64 a3, __int64 a4)

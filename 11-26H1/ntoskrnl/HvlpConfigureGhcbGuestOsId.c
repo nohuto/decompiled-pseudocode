@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpConfigureGhcbGuestOsId @ 0x1405BFB54
+ * XREFs of HvlpConfigureGhcbGuestOsId @ 0x1405C23C4
  * Callers:
- *     HvlPhase1Initialize @ 0x1405B89CC (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1405BB23C (HvlPhase1Initialize.c)
  * Callees:
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     HvlSevVmgExit @ 0x1407231F0 (HvlSevVmgExit.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     HvlSevVmgExit @ 0x140727DC0 (HvlSevVmgExit.c)
  */
 
 __int64 HvlpConfigureGhcbGuestOsId()

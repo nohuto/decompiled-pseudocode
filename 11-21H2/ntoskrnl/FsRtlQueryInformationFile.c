@@ -11,7 +11,7 @@
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
  *     FsRtlCancellableWaitForMultipleObjects @ 0x1407A11A0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14092EF10 (FsRtlpFreeMdlChain.c)
+ *     sub_14092EF10 @ 0x14092EF10 (sub_14092EF10.c)
  */
 
 NTSTATUS __stdcall FsRtlQueryInformationFile(
@@ -61,7 +61,7 @@ NTSTATUS __stdcall FsRtlQueryInformationFile(
       Irp->Flags |= 4u;
       Irp->RequestorMode = 0;
       v15 = *v13;
-      *(_QWORD *)(v15 - 16) = SmKmGenericCompletion;
+      *(_QWORD *)(v15 - 16) = sub_140248550;
       *(_QWORD *)(v15 - 8) = &Object;
       *(_BYTE *)(v15 - 69) = 0;
       *(_BYTE *)(v15 - 69) = 64;
@@ -89,7 +89,7 @@ NTSTATUS __stdcall FsRtlQueryInformationFile(
     MdlAddress = v9->MdlAddress;
     if ( MdlAddress )
     {
-      FsRtlpFreeMdlChain(MdlAddress);
+      sub_14092EF10(MdlAddress);
       v9->MdlAddress = 0LL;
     }
     IoFreeIrp(v9);

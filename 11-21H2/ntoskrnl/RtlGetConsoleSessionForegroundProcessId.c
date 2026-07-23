@@ -4,13 +4,13 @@
  *     <none>
  * Callees:
  *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
-__int64 RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 8LL);
+    return *(_QWORD *)(*((_QWORD *)sub_140347DB0() + 165) + 8LL);
   else
     return MEMORY[0xFFFFF78000000338];
 }

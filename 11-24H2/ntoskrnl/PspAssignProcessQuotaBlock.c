@@ -1,26 +1,26 @@
 /*
- * XREFs of PspAssignProcessQuotaBlock @ 0x140A36D98
+ * XREFs of PspAssignProcessQuotaBlock @ 0x140A2BBE8
  * Callers:
- *     PspSetQuotaLimits @ 0x1409AFD58 (PspSetQuotaLimits.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspSetQuotaLimits @ 0x140999A58 (PspSetQuotaLimits.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     PspLockQuotaListShared @ 0x1404945CC (PspLockQuotaListShared.c)
- *     PspUnlockQuotaListShared @ 0x140499BA4 (PspUnlockQuotaListShared.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspInitializeQuotaBlock @ 0x140773C50 (PspInitializeQuotaBlock.c)
- *     PspDereferenceQuota @ 0x1408A9418 (PspDereferenceQuota.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     PspLookupProcessQuotaBlock @ 0x140A36C94 (PspLookupProcessQuotaBlock.c)
- *     PspHashKeyValue @ 0x140A37038 (PspHashKeyValue.c)
- *     PspReadUserQuotaLimits @ 0x140A3706C (PspReadUserQuotaLimits.c)
- *     PspSafeReferenceQuotaBlock @ 0x140A3719C (PspSafeReferenceQuotaBlock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     PspLockQuotaListShared @ 0x14048F05C (PspLockQuotaListShared.c)
+ *     PspUnlockQuotaListShared @ 0x140494604 (PspUnlockQuotaListShared.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspInitializeQuotaBlock @ 0x140773E70 (PspInitializeQuotaBlock.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     PspDereferenceQuota @ 0x1408FF678 (PspDereferenceQuota.c)
+ *     PspLookupProcessQuotaBlock @ 0x140A2BAE4 (PspLookupProcessQuotaBlock.c)
+ *     PspHashKeyValue @ 0x140A2BE88 (PspHashKeyValue.c)
+ *     PspReadUserQuotaLimits @ 0x140A2BEBC (PspReadUserQuotaLimits.c)
+ *     PspSafeReferenceQuotaBlock @ 0x140A2BFEC (PspSafeReferenceQuotaBlock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3)
@@ -29,14 +29,14 @@ __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3
   char v7; // di
   _BYTE *v8; // rsi
   unsigned __int8 *v9; // rdx
-  ULONG v10; // ebp
+  __int64 v10; // rbp
   volatile signed __int32 *v11; // rbx
   __int64 v12; // r15
   __int64 v13; // r11
   int UserQuotaLimits; // edi
   _QWORD *i; // rdi
   int *v17; // rdi
-  __int64 *Pool2; // rax
+  volatile signed __int32 *Pool2; // rax
   __int64 v19; // rdi
   unsigned __int8 v20; // [rsp+20h] [rbp-C8h]
   struct _KTHREAD *v21; // [rsp+30h] [rbp-B8h]
@@ -51,15 +51,15 @@ __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(*(PERESOURCE *)(a3 + 48), 1u);
   v9 = **(unsigned __int8 ***)(a3 + 152);
-  v10 = 4 * v9[1] + 8;
-  if ( v10 <= 0x44 )
-    memmove(Sid1, v9, v10);
+  v10 = 4 * (unsigned int)v9[1] + 8;
+  if ( (unsigned int)v10 <= 0x44 )
+    memmove(Sid1, v9, (unsigned int)v10);
   ExReleaseResourceLite(*(PERESOURCE *)(a3 + 48));
   KeLeaveCriticalRegion();
   if ( a1 && (*(_DWORD *)(a1 + 80) & 0x10) != 0 )
   {
     v7 = 1;
-    v10 = 0;
+    v10 = 0LL;
     v20 = 1;
   }
   else
@@ -68,7 +68,7 @@ __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3
   }
   v21 = KeGetCurrentThread();
   v11 = 0LL;
-  v12 = PspQuotaBlockTable + 24LL * (unsigned int)PspHashKeyValue(v8, v10);
+  v12 = PspQuotaBlockTable + 24LL * (unsigned int)PspHashKeyValue(v8, (unsigned int)v10);
   PspLockQuotaListShared(v13, (volatile signed __int64 *)v12);
   if ( v8 )
   {
@@ -107,8 +107,8 @@ LABEL_27:
         return (unsigned int)UserQuotaLimits;
       v17 = (int *)&v23;
     }
-    Pool2 = (__int64 *)ExAllocatePool2(0x48uLL);
-    v11 = (volatile signed __int32 *)Pool2;
+    Pool2 = (volatile signed __int32 *)ExAllocatePool2(0x48uLL, v10 + 576, 0x62517350u);
+    v11 = Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;
     UserQuotaLimits = PspInitializeQuotaBlock(a1, v17, Pool2);
@@ -120,7 +120,7 @@ LABEL_25:
     }
     if ( v8 )
       RtlCopySid(v10, (PSID)(v11 + 144), Sid1);
-    v19 = PspLookupProcessQuotaBlock(v8, v10, v20, (__int64)v11);
+    v19 = PspLookupProcessQuotaBlock(v8, (unsigned int)v10, v20, (__int64)v11);
     if ( v19 )
     {
       PspDereferenceQuota(v11);

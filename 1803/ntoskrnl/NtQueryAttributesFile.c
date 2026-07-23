@@ -114,15 +114,15 @@ NTSTATUS __stdcall NtQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes, PF
       }
       if ( (*(_DWORD *)(v8 + 4) & 4) != 0 )
       {
-        ++FsRtlEcpListLookaside.L.TotalFrees;
-        if ( LOWORD(FsRtlEcpListLookaside.L.ListHead.Alignment) >= FsRtlEcpListLookaside.L.Depth )
+        ++unk_1403D191C;
+        if ( LOWORD(FsRtlEcpListLookaside.Alignment) >= unk_1403D1910 )
         {
-          ++FsRtlEcpListLookaside.L.FreeMisses;
-          ((void (__fastcall *)(__int64))FsRtlEcpListLookaside.L.FreeEx)(v8);
+          ++unk_1403D1920;
+          unk_1403D1938(v8);
         }
         else
         {
-          RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside.L.ListHead, (PSLIST_ENTRY)v8);
+          RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside, (PSLIST_ENTRY)v8);
         }
       }
       else

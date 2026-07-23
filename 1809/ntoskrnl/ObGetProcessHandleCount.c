@@ -1,14 +1,14 @@
 /*
- * XREFs of ObGetProcessHandleCount @ 0x1405B3960
+ * XREFs of ObGetProcessHandleCount @ 0x1405B4960
  * Callers:
- *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
- *     EtwpProcessPerfCtrsRundown @ 0x1408BF46C (EtwpProcessPerfCtrsRundown.c)
+ *     EtwTraceAppStateChange @ 0x1405B3C80 (EtwTraceAppStateChange.c)
+ *     EtwpPsProvTraceProcess @ 0x14066D210 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x1408C072C (EtwpProcessPerfCtrsRundown.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExHandleTableQuery @ 0x1405B39B8 (ExHandleTableQuery.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
+ *     ExHandleTableQuery @ 0x1405B49B8 (ExHandleTableQuery.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
  */
 
 __int64 __fastcall ObGetProcessHandleCount(struct _EX_RUNDOWN_REF *a1, _DWORD *a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiComputeHgsScore @ 0x1403EF0C4
+ * XREFs of KiComputeHgsScore @ 0x140453BF4
  * Callers:
- *     KiUpdateHgsScores @ 0x1403EEE40 (KiUpdateHgsScores.c)
+ *     KiUpdateHgsScores @ 0x140453970 (KiUpdateHgsScores.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtDataSectionCopyData @ 0x140A0B570
+ * XREFs of PopEtDataSectionCopyData @ 0x140A0A7B0
  * Callers:
- *     PopEtEnergyTrackerQuery @ 0x140AC9770 (PopEtEnergyTrackerQuery.c)
+ *     PopEtEnergyTrackerQuery @ 0x140AC7690 (PopEtEnergyTrackerQuery.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void *__fastcall PopEtDataSectionCopyData(__int64 a1, const void *a2, unsigned int a3)

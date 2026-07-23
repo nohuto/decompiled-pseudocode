@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateCpuPartition @ 0x1409B00C0
+ * XREFs of NtCreateCpuPartition @ 0x1409B02C0
  * Callers:
  *     <none>
  * Callees:

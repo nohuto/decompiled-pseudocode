@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPlLookupDevicePowerProfile @ 0x14057E528
+ * XREFs of PopPlLookupDevicePowerProfile @ 0x14057E768
  * Callers:
- *     PopPlRegisterDevice @ 0x1403BEE58 (PopPlRegisterDevice.c)
- *     PopPlActivateDeviceIterator @ 0x14057E320 (PopPlActivateDeviceIterator.c)
- *     PopPlIdleDeviceIterator @ 0x14057E470 (PopPlIdleDeviceIterator.c)
+ *     PopPlRegisterDevice @ 0x1403BE7B8 (PopPlRegisterDevice.c)
+ *     PopPlActivateDeviceIterator @ 0x14057E560 (PopPlActivateDeviceIterator.c)
+ *     PopPlIdleDeviceIterator @ 0x14057E6B0 (PopPlIdleDeviceIterator.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
  */
 
 PCUNICODE_STRING __fastcall PopPlLookupDevicePowerProfile(__int64 a1, const UNICODE_STRING *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxReinitializeAccountingInstance @ 0x140397C14
+ * XREFs of PopFxReinitializeAccountingInstance @ 0x140397DF4
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x1403979C0 (PoFxStartDevicePowerManagement.c)
- *     PopFxClearDeviceConstraints @ 0x140589280 (PopFxClearDeviceConstraints.c)
- *     PopFxDisableBasicAccountingWorker @ 0x14058A0D0 (PopFxDisableBasicAccountingWorker.c)
- *     PopPepInitializeVetoMasks @ 0x14059F2C4 (PopPepInitializeVetoMasks.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x14059FE64 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PoFxStartDevicePowerManagement @ 0x140397BA0 (PoFxStartDevicePowerManagement.c)
+ *     PopFxClearDeviceConstraints @ 0x140589770 (PopFxClearDeviceConstraints.c)
+ *     PopFxDisableBasicAccountingWorker @ 0x14058A5C0 (PopFxDisableBasicAccountingWorker.c)
+ *     PopPepInitializeVetoMasks @ 0x14059F7B4 (PopPepInitializeVetoMasks.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x1405A0354 (PopPepUpdateDripsDeviceVetoMask.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall PopFxReinitializeAccountingInstance(__int64 a1, int a2)

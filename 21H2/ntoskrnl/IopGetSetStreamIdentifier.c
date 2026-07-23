@@ -1,14 +1,14 @@
 /*
- * XREFs of IopGetSetStreamIdentifier @ 0x140506824
+ * XREFs of IopGetSetStreamIdentifier @ 0x1405067A4
  * Callers:
- *     IoAllocateSfioStreamIdentifier @ 0x1405058B0 (IoAllocateSfioStreamIdentifier.c)
- *     IoGetSfioStreamIdentifier @ 0x140505C10 (IoGetSfioStreamIdentifier.c)
+ *     IoAllocateSfioStreamIdentifier @ 0x140505830 (IoAllocateSfioStreamIdentifier.c)
+ *     IoGetSfioStreamIdentifier @ 0x140505B90 (IoGetSfioStreamIdentifier.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     IopGetSetSpecificExtension @ 0x140361838 (IopGetSetSpecificExtension.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetSetStreamIdentifier(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4, char a5)

@@ -1,16 +1,23 @@
 /*
- * XREFs of NtQueueApcThreadEx2 @ 0x1800A0310
+ * XREFs of NtQueueApcThreadEx2 @ 0x1800A02D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueueApcThreadEx2()
+NTSTATUS __cdecl NtQueueApcThreadEx2(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        ULONG ApcFlags,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 359LL;
+  result = 359;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

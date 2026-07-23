@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSectionProtectPageFilePte @ 0x1402CF8E8
+ * XREFs of MiSectionProtectPageFilePte @ 0x1402B16A8
  * Callers:
- *     MiSectionProtectAllPtes @ 0x140303F00 (MiSectionProtectAllPtes.c)
+ *     MiSectionProtectAllPtes @ 0x1402E5F80 (MiSectionProtectAllPtes.c)
  * Callees:
- *     MiSectionProtectZeroPte @ 0x1402CFA48 (MiSectionProtectZeroPte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiSanitizePfnProtection @ 0x14033CE50 (MiSanitizePfnProtection.c)
- *     MiDecreaseUsedPtes @ 0x14033F020 (MiDecreaseUsedPtes.c)
+ *     MiSectionProtectZeroPte @ 0x1402B1808 (MiSectionProtectZeroPte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiSanitizePfnProtection @ 0x14033EED0 (MiSanitizePfnProtection.c)
+ *     MiDecreaseUsedPtes @ 0x1403410A0 (MiDecreaseUsedPtes.c)
  */
 
 unsigned __int64 __fastcall MiSectionProtectPageFilePte(__int64 *a1, unsigned __int64 *a2, unsigned __int64 a3)
@@ -54,8 +54,8 @@ unsigned __int64 __fastcall MiSectionProtectPageFilePte(__int64 *a1, unsigned __
 LABEL_12:
   if ( (v4 & 1) != 0 )
     goto LABEL_22;
-  if ( qword_140E2D740 && (v4 & 0x10) == 0 )
-    LOWORD(v4) = qword_140E2D748 & v4;
+  if ( qword_140E2D8C0 && (v4 & 0x10) == 0 )
+    LOWORD(v4) = qword_140E2D8C8 & v4;
   if ( (v4 & 0x400) != 0 || (v4 & 0x800) != 0 || (v4 & 8) != 0 )
   {
 LABEL_22:

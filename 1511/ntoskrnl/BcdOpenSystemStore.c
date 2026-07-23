@@ -12,15 +12,15 @@
  *     BiAcquireBcdSyncMutant @ 0x1404FD784 (BiAcquireBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdOpenSystemStore(__int64 a1)
+NTSTATUS __cdecl BcdOpenSystemStore(PHANDLE BcdStoreHandle)
 {
-  __int64 result; // rax
-  unsigned int v3; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v3; // ebx
 
   result = BiAcquireBcdSyncMutant(0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v3 = BiOpenSystemStore(a1);
+    v3 = BiOpenSystemStore(BcdStoreHandle);
     BiReleaseBcdSyncMutant(0LL);
     return v3;
   }

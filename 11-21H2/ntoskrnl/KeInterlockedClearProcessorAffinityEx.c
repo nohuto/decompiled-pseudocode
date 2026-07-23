@@ -1,15 +1,15 @@
 /*
  * XREFs of KeInterlockedClearProcessorAffinityEx @ 0x1403B49A0
  * Callers:
- *     KiTransitionSchedulingGroupGeneration @ 0x140291710 (KiTransitionSchedulingGroupGeneration.c)
- *     KiProcessNMI @ 0x14029B9A0 (KiProcessNMI.c)
- *     PpmIdleExecuteTransition @ 0x140306100 (PpmIdleExecuteTransition.c)
- *     KeWakeProcessor @ 0x1403B4940 (KeWakeProcessor.c)
- *     KiForceIdleParkUnparkProcessor @ 0x140579F48 (KiForceIdleParkUnparkProcessor.c)
- *     PpmTestAndLockProcessor @ 0x1405C8D78 (PpmTestAndLockProcessor.c)
- *     PpmUnlockProcessors @ 0x1405C8FE4 (PpmUnlockProcessors.c)
- *     PpmParkReportSoftParkChange @ 0x1405DD260 (PpmParkReportSoftParkChange.c)
- *     PpmParkReportUnparkedCore @ 0x1405DD2E0 (PpmParkReportUnparkedCore.c)
+ *     sub_140291710 @ 0x140291710 (sub_140291710.c)
+ *     sub_14029B9A0 @ 0x14029B9A0 (sub_14029B9A0.c)
+ *     sub_140306100 @ 0x140306100 (sub_140306100.c)
+ *     sub_1403B4940 @ 0x1403B4940 (sub_1403B4940.c)
+ *     sub_140579F48 @ 0x140579F48 (sub_140579F48.c)
+ *     sub_1405C8D78 @ 0x1405C8D78 (sub_1405C8D78.c)
+ *     sub_1405C8FE4 @ 0x1405C8FE4 (sub_1405C8FE4.c)
+ *     sub_1405DD260 @ 0x1405DD260 (sub_1405DD260.c)
+ *     sub_1405DD2E0 @ 0x1405DD2E0 (sub_1405DD2E0.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ _BOOL8 __fastcall KeInterlockedClearProcessorAffinityEx(__int64 a1, int a2)
   unsigned int v4; // eax
   unsigned int v5; // ecx
 
-  v3 = KiProcessorIndexToNumberMappingTable[a2];
+  v3 = dword_140D0E5E0[a2];
   v4 = *(unsigned __int16 *)(a1 + 2);
   v5 = v3 >> 6;
   if ( v4 <= v3 >> 6 )

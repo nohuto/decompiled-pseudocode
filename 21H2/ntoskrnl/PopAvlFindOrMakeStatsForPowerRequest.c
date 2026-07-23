@@ -1,16 +1,16 @@
 /*
- * XREFs of PopAvlFindOrMakeStatsForPowerRequest @ 0x14062B9E4
+ * XREFs of PopAvlFindOrMakeStatsForPowerRequest @ 0x1406705BC
  * Callers:
- *     PopStatsCreatePowerRequest @ 0x14062B98C (PopStatsCreatePowerRequest.c)
+ *     PopStatsCreatePowerRequest @ 0x140670564 (PopStatsCreatePowerRequest.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopAvlGetPowerRequestKey @ 0x14062BAEC (PopAvlGetPowerRequestKey.c)
- *     PopFreeUnicodeString @ 0x1406C17D8 (PopFreeUnicodeString.c)
- *     PopUnicodeStringDeepCopy @ 0x1406C1BA0 (PopUnicodeStringDeepCopy.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x140252950 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140252BB0 (RtlInsertElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopAvlGetPowerRequestKey @ 0x1406706C4 (PopAvlGetPowerRequestKey.c)
+ *     PopFreeUnicodeString @ 0x1406713A4 (PopFreeUnicodeString.c)
+ *     PopUnicodeStringDeepCopy @ 0x140671F50 (PopUnicodeStringDeepCopy.c)
  */
 
 char *__fastcall PopAvlFindOrMakeStatsForPowerRequest(__int64 a1)

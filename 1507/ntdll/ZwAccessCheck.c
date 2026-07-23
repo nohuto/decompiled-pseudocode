@@ -9,11 +9,19 @@
  *     <none>
  */
 
-__int64 ZwAccessCheck()
+NTSTATUS __cdecl ZwAccessCheck(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 0LL;
+  result = 0;
   __asm { syscall; Low latency system call }
   return result;
 }

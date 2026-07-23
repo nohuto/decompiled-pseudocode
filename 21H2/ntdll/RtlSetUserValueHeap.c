@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlSetUserValueHeap @ 0x180001F60
  * Callers:
- *     RtlDebugSetUserValueHeap @ 0x1800FA120 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x1800FA0E0 (RtlDebugSetUserValueHeap.c)
  * Callees:
  *     RtlpProbeUserBufferSafe @ 0x180001E7C (RtlpProbeUserBufferSafe.c)
  *     RtlpHpExtrasGet @ 0x1800021A0 (RtlpHpExtrasGet.c)
@@ -10,23 +10,23 @@
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
  *     RtlNtStatusToDosError @ 0x180051950 (RtlNtStatusToDosError.c)
- *     RtlDebugSetUserValueHeap @ 0x1800FA120 (RtlDebugSetUserValueHeap.c)
- *     RtlpAnalyzeHeapFailure @ 0x180107EA4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlDebugSetUserValueHeap @ 0x1800FA0E0 (RtlDebugSetUserValueHeap.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180107E64 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
-char __fastcall RtlSetUserValueHeap(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+BOOLEAN __cdecl RtlSetUserValueHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, PVOID UserValue)
 {
-  char v6; // r15
+  BOOLEAN v6; // r15
   char v7; // r12
   __int64 v8; // r10
   int v9; // r11d
   int v10; // edx
   int v11; // ecx
-  char v12; // si
+  BOOLEAN v12; // si
   int v13; // edx
   __int64 v14; // rcx
-  unsigned int v16; // r14d
+  ULONG v16; // r14d
   int v17; // ecx
   unsigned __int8 *v18; // rbx
   char v19; // al
@@ -38,10 +38,10 @@ char __fastcall RtlSetUserValueHeap(__int64 a1, unsigned int a2, __int64 a3, __i
   v6 = 0;
   v7 = 0;
   v23 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    v9 = RtlpHpConvertFlagsToSegmentFlags(a2);
-    v10 = *(_DWORD *)(a1 + 220);
+    v9 = RtlpHpConvertFlagsToSegmentFlags(Flags);
+    v10 = *((_DWORD *)HeapHandle + 55);
     v11 = 0;
     if ( v10 )
       LOBYTE(v11) = v10 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread);
@@ -51,11 +51,11 @@ char __fastcall RtlSetUserValueHeap(__int64 a1, unsigned int a2, __int64 a3, __i
       v13 = v9;
     if ( (RtlpHpAppCompatFlags & 2) != 0 && v8 )
       v8 -= *(_QWORD *)(v8 - 16);
-    v14 = RtlpHpExtrasGet(a1, v8, (unsigned int)v13 | *(_DWORD *)(a1 + 20), 0LL);
+    v14 = RtlpHpExtrasGet(HeapHandle, v8, (unsigned int)v13 | *((_DWORD *)HeapHandle + 5), 0LL);
     if ( (unsigned __int64)(v14 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
       v12 = 0;
     else
-      *(_QWORD *)(v14 + 8) = a4;
+      *(_QWORD *)(v14 + 8) = UserValue;
     if ( !v12 )
     {
       NtCurrentTeb()->LastStatusValue = -1073741811;
@@ -64,30 +64,30 @@ char __fastcall RtlSetUserValueHeap(__int64 a1, unsigned int a2, __int64 a3, __i
     }
     return v12;
   }
-  v16 = *(_DWORD *)(a1 + 116) | a2;
+  v16 = *((_DWORD *)HeapHandle + 29) | Flags;
   if ( (v16 & 0x61000000) != 0 && (v16 & 0x10000000) == 0 )
-    return RtlDebugSetUserValueHeap(a1, v16);
-  if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+    return RtlDebugSetUserValueHeap(HeapHandle);
+  if ( (*((_BYTE *)HeapHandle + 120) & 1) != 0 )
   {
-    v18 = RtlpProbeUserBufferSafe(a1, a3);
+    v18 = RtlpProbeUserBufferSafe((int)HeapHandle, (__int64)BaseAddress);
   }
   else
   {
-    if ( (a3 & 0xF) != 0 )
+    if ( ((unsigned __int8)BaseAddress & 0xF) != 0 )
     {
       v17 = 9;
 LABEL_16:
-      RtlpLogHeapFailure(v17, a1, a3, 0, 0LL, 0LL);
+      RtlpLogHeapFailure(v17, (_DWORD)HeapHandle, (_DWORD)BaseAddress, 0, 0LL, 0LL);
       v18 = 0LL;
       goto LABEL_17;
     }
-    v18 = (unsigned __int8 *)(a3 - 16);
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    v18 = (unsigned __int8 *)BaseAddress - 16;
+    _m_prefetchw((char *)BaseAddress - 16);
+    if ( *((char *)BaseAddress - 1) == 5 )
       v18 -= 16 * v18[14];
     if ( (v18[15] & 0x3F) == 0 )
     {
-      LODWORD(a3) = (_DWORD)v18;
+      LODWORD(BaseAddress) = (_DWORD)v18;
       v17 = 8;
       goto LABEL_16;
     }
@@ -102,7 +102,7 @@ LABEL_17:
   }
   if ( (v16 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
     v7 = 1;
     v23 = 1;
   }
@@ -111,15 +111,15 @@ LABEL_17:
   {
     if ( v19 >= 0 )
     {
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( *((_DWORD *)HeapHandle + 31) )
       {
-        *((_DWORD *)v18 + 2) ^= *(_DWORD *)(a1 + 136);
+        *((_DWORD *)v18 + 2) ^= *((_DWORD *)HeapHandle + 34);
         if ( v18[11] != (v18[8] ^ (unsigned __int8)(v18[9] ^ v18[10])) )
-          RtlpAnalyzeHeapFailure(a1, v18);
+          RtlpAnalyzeHeapFailure(HeapHandle, v18);
       }
       if ( (v18[10] & 2) != 0 )
       {
-        *(_QWORD *)(RtlpGetExtraStuffPointer(v18) + 8) = a4;
+        *(_QWORD *)(RtlpGetExtraStuffPointer(v18) + 8) = UserValue;
         v6 = 1;
       }
       goto LABEL_29;
@@ -135,12 +135,12 @@ LABEL_17:
   }
   v18 = 0LL;
 LABEL_29:
-  if ( v18 && *(_DWORD *)(a1 + 124) )
+  if ( v18 && *((_DWORD *)HeapHandle + 31) )
   {
     v18[11] = v18[8] ^ v18[9] ^ v18[10];
-    *((_DWORD *)v18 + 2) ^= *(_DWORD *)(a1 + 136);
+    *((_DWORD *)v18 + 2) ^= *((_DWORD *)HeapHandle + 34);
   }
   if ( v7 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
   return v6;
 }

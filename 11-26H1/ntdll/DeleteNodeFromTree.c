@@ -1,10 +1,10 @@
 /*
- * XREFs of DeleteNodeFromTree @ 0x1800BDF90
+ * XREFs of DeleteNodeFromTree @ 0x1800BB9F0
  * Callers:
- *     RtlDeleteElementGenericTableAvl @ 0x1800BDE70 (RtlDeleteElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvlEx @ 0x1800BDF30 (RtlDeleteElementGenericTableAvlEx.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1800BB8D0 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvlEx @ 0x1800BB990 (RtlDeleteElementGenericTableAvlEx.c)
  * Callees:
- *     RebalanceNode @ 0x1800BE490 (RebalanceNode.c)
+ *     RebalanceNode @ 0x1800BBEF0 (RebalanceNode.c)
  */
 
 __int64 __fastcall DeleteNodeFromTree(__int64 a1, __int64 a2)

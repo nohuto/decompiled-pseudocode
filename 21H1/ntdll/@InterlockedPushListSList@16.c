@@ -11,10 +11,10 @@
 
 int __fastcall InterlockedPushListSList(unsigned int a1, int a2, _DWORD *a3, __int16 a4)
 {
-  volatile signed __int32 *v5; // edi
+  _RTL_SRWLOCK *v5; // edi
   int v6; // esi
 
-  v5 = &RtlpSlistLockedAltLocks[(a1 >> 2) & 0x1F];
+  v5 = &RtlpSlistLockedAltLocks + ((a1 >> 2) & 0x1F);
   RtlAcquireSRWLockExclusive(v5);
   v6 = *(_DWORD *)a1;
   *a3 = *(_DWORD *)a1;

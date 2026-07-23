@@ -1,38 +1,38 @@
 /*
- * XREFs of NtAlpcOpenSenderProcess @ 0x1408E6510
+ * XREFs of NtAlpcOpenSenderProcess @ 0x1408ECAD0
  * Callers:
- *     DifNtAlpcOpenSenderProcessWrapper @ 0x14066CFA0 (DifNtAlpcOpenSenderProcessWrapper.c)
+ *     DifNtAlpcOpenSenderProcessWrapper @ 0x140670B80 (DifNtAlpcOpenSenderProcessWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x1408E68E0 (AlpcpProbeAndCaptureMessageHeader.c)
- *     PsOpenProcess @ 0x1408EFC40 (PsOpenProcess.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpLookupMessage @ 0x1409BEA70 (AlpcpLookupMessage.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1408ECEA0 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     PsOpenProcess @ 0x1408F6200 (PsOpenProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x14098FA50 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
  */
 
-__int64 __fastcall NtAlpcOpenSenderProcess(
-        _QWORD *a1,
-        void *a2,
-        __int128 *a3,
-        __int64 a4,
-        unsigned int a5,
-        __int128 *Src)
+NTSTATUS __cdecl NtAlpcOpenSenderProcess(
+        PHANDLE ProcessHandle,
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ULONG Flags,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r13
-  NTSTATUS v10; // ebx
+  int v10; // ebx
   int v11; // r9d
   __int64 ULong64FromUser; // rax
   PVOID v13; // rsi
@@ -51,48 +51,41 @@ __int64 __fastcall NtAlpcOpenSenderProcess(
   int HandleInformation; // [rsp+28h] [rbp-A0h]
   ULONG_PTR BugCheckParameter2[2]; // [rsp+38h] [rbp-90h] BYREF
   PVOID v29; // [rsp+48h] [rbp-80h] BYREF
-  __int64 v30; // [rsp+50h] [rbp-78h] BYREF
+  void *v30; // [rsp+50h] [rbp-78h] BYREF
   __int128 v31; // [rsp+58h] [rbp-70h] BYREF
   __int128 v32; // [rsp+68h] [rbp-60h]
-  __int64 v33; // [rsp+78h] [rbp-50h]
-  __int128 v34; // [rsp+80h] [rbp-48h] BYREF
-  __int128 v35; // [rsp+90h] [rbp-38h]
-  __int128 v36; // [rsp+A0h] [rbp-28h]
+  unsigned __int64 ClientViewSize; // [rsp+78h] [rbp-50h]
+  OBJECT_ATTRIBUTES v34; // [rsp+80h] [rbp-48h] BYREF
 
   v31 = 0LL;
   v32 = 0LL;
-  v33 = 0LL;
-  v34 = 0LL;
-  v35 = 0LL;
-  *(_QWORD *)&v36 = 0LL;
-  DWORD2(v36) = 0;
+  ClientViewSize = 0LL;
+  memset(&v34, 0, 44);
   v30 = 0LL;
   BugCheckParameter2[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v29 = 0LL;
-  v10 = ObReferenceObjectByHandle(a2, 0x20000u, AlpcPortObjectType, PreviousMode, &v29, 0LL);
+  v10 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &v29, 0LL);
   if ( v10 < 0 )
     goto LABEL_12;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
-    AlpcpProbeAndCaptureMessageHeader(a3, &v31);
-    RtlCopyFromUser(&v34, Src, 0x30uLL);
+    ULong64FromUser = RtlReadULong64FromUser(ProcessHandle);
+    RtlWriteULong64ToUser(ProcessHandle, ULong64FromUser);
+    AlpcpProbeAndCaptureMessageHeader(PortMessage, &v31);
+    RtlCopyFromUser(&v34, ObjectAttributes, 0x30uLL);
   }
   else
   {
-    v31 = *a3;
-    v32 = a3[1];
-    v33 = *((_QWORD *)a3 + 4);
-    v34 = *Src;
-    v35 = Src[1];
-    v36 = Src[2];
+    v31 = *(_OWORD *)&PortMessage->u1.s1.DataLength;
+    v32 = *(__int128 *)((char *)&PortMessage->8 + 8);
+    ClientViewSize = PortMessage->ClientViewSize;
+    v34 = *ObjectAttributes;
   }
   v13 = v29;
-  v10 = AlpcpLookupMessage((_DWORD)v29, DWORD2(v32), v33, v11, (__int64)BugCheckParameter2);
+  v10 = AlpcpLookupMessage((_DWORD)v29, DWORD2(v32), ClientViewSize, v11, (__int64)BugCheckParameter2);
   if ( v10 < 0 )
   {
     ObfDereferenceObject(v13);
@@ -162,15 +155,15 @@ LABEL_11:
       *(_QWORD *)&v32 = 0LL;
       LOBYTE(HandleInformation) = PreviousMode;
       LOBYTE(Object) = 0;
-      v10 = PsOpenProcess(&v30, a5, &v34, (char *)&v31 + 8, Object, HandleInformation);
+      v10 = PsOpenProcess(&v30, DesiredAccess, &v34, (char *)&v31 + 8, Object, HandleInformation);
       ObfDereferenceObjectWithTag(v18, 0x63706C41u);
       ObfDereferenceObject(v13);
       if ( v10 >= 0 )
       {
         if ( PreviousMode )
-          RtlWriteULong64ToUser(a1, v30);
+          RtlWriteULong64ToUser(ProcessHandle, (__int64)v30);
         else
-          *a1 = v30;
+          *ProcessHandle = v30;
       }
       goto LABEL_12;
     }
@@ -187,5 +180,5 @@ LABEL_11:
   v10 = -1073741769;
 LABEL_12:
   KeLeaveCriticalRegion();
-  return (unsigned int)v10;
+  return v10;
 }

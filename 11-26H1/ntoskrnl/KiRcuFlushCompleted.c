@@ -1,25 +1,25 @@
 /*
- * XREFs of KiRcuFlushCompleted @ 0x140503B7C
+ * XREFs of KiRcuFlushCompleted @ 0x1404FD44C
  * Callers:
- *     KiCheckWaitNext @ 0x1402200D0 (KiCheckWaitNext.c)
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiRcuFlushCompletedDpcRoutine @ 0x140503B60 (KiRcuFlushCompletedDpcRoutine.c)
- *     KiRcuStartGracePeriod @ 0x1405242A4 (KiRcuStartGracePeriod.c)
- *     KiRcuFlushCompletedWorkerRoutine @ 0x1405F0100 (KiRcuFlushCompletedWorkerRoutine.c)
+ *     KiCheckWaitNext @ 0x140221A60 (KiCheckWaitNext.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiRcuFlushCompletedDpcRoutine @ 0x1404FD430 (KiRcuFlushCompletedDpcRoutine.c)
+ *     KiRcuStartGracePeriod @ 0x140526914 (KiRcuStartGracePeriod.c)
+ *     KiRcuFlushCompletedWorkerRoutine @ 0x1405F2A70 (KiRcuFlushCompletedWorkerRoutine.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D9AC0 (KiSrcuCompareGraceSequence.c)
- *     KiRcuRebalance @ 0x1405F014C (KiRcuRebalance.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404D31A0 (KiSrcuCompareGraceSequence.c)
+ *     KiRcuRebalance @ 0x1405F2ABC (KiRcuRebalance.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiRcuFlushCompleted(int a1)
@@ -28,7 +28,7 @@ void __fastcall KiRcuFlushCompleted(int a1)
   unsigned __int64 v3; // rbx
   int v4; // edi
   __int64 v5; // r11
-  __int64 *i; // r8
+  unsigned __int8 *i; // r8
   __int64 v7; // r8
   _QWORD **v8; // r9
   __int64 *v9; // r10
@@ -46,7 +46,7 @@ void __fastcall KiRcuFlushCompleted(int a1)
   v3 = EffectiveIrql;
   if ( EffectiveIrql > 2u )
   {
-    KiInsertQueueDpc((ULONG_PTR)&dword_140F24F40, 0LL, 0LL, 0LL, 0);
+    KiInsertQueueDpc((ULONG_PTR)&KiDpcCorralLock.WaitBlock[3], 0LL, 0LL, 0LL, 0);
     return;
   }
   v4 = 0;
@@ -56,20 +56,20 @@ void __fastcall KiRcuFlushCompleted(int a1)
     v4 = KiRcuRebalance();
   if ( (unsigned __int8)v3 < 2u )
   {
-    KeAcquireSpinLockRaiseToDpc(&qword_140F24F18);
+    KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&KiDpcCorralLock.WaitBlock[2].WaitListEntry.Blink);
   }
-  else if ( !KxTryToAcquireSpinLock((volatile signed __int32 *)&qword_140F24F18) )
+  else if ( !KxTryToAcquireSpinLock((volatile signed __int32 *)&KiDpcCorralLock.WaitBlockFill11[104]) )
   {
 LABEL_34:
-    _InterlockedOr(&dword_140F24FA0, 2u);
-    if ( _InterlockedCompareExchange(&dword_140F24FA0, 3, 2) == 2 )
-      ExQueueWorkItem(&stru_140F24F80, CriticalWorkQueue);
+    _InterlockedOr((volatile signed __int32 *)&KiDpcCorralLock.UserAffinityPrimaryGroup, 2u);
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)&KiDpcCorralLock.UserAffinityPrimaryGroup, 3, 2) == 2 )
+      ExQueueWorkItem((PWORK_QUEUE_ITEM)&KiDpcCorralLock.QueueListEntry.Blink, CriticalWorkQueue);
     return;
   }
-  v5 = qword_140F24F20;
-  for ( i = (__int64 *)qword_140F24F30;
-        i != &qword_140F24F30 && (int)KiSrcuCompareGraceSequence(v5, i[2]) >= 0;
-        i = *(__int64 **)v7 )
+  v5 = *(_QWORD *)&KiDpcCorralLock.WaitBlockFill11[112];
+  for ( i = (unsigned __int8 *)KiDpcCorralLock.WaitBlock[2].Object;
+        i != &KiDpcCorralLock.WaitBlockFill11[128] && (int)KiSrcuCompareGraceSequence(v5, *((_QWORD *)i + 2)) >= 0;
+        i = *(unsigned __int8 **)v7 )
   {
     if ( v3 > (*(_QWORD *)(v7 + 24) & 3uLL) )
       v4 = 1;
@@ -96,9 +96,9 @@ LABEL_32:
     }
   }
   if ( (unsigned __int8)v3 < 2u )
-    KeReleaseSpinLock(&qword_140F24F18, v3);
+    KeReleaseSpinLock((PKSPIN_LOCK)&KiDpcCorralLock.WaitBlock[2].WaitListEntry.Blink, v3);
   else
-    KxReleaseSpinLock(&qword_140F24F18);
+    KxReleaseSpinLock((PKSPIN_LOCK)&KiDpcCorralLock.WaitBlock[2].WaitListEntry.Blink);
   while ( 1 )
   {
     v14 = v17;

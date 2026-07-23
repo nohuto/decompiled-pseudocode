@@ -1,24 +1,24 @@
 /*
- * XREFs of KeInitializeApc @ 0x140422520
+ * XREFs of KeInitializeApc @ 0x1404163D0
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x140268580 (IopCopyCompleteReadIrp.c)
- *     IoRaiseHardError @ 0x1403D5B40 (IoRaiseHardError.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140650A6C (EtwpTraceThreadRundownWithStack.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140651B10 (EtwpCovSampCaptureQueueApc.c)
- *     DbgkpLkmdLaunchSnapApc @ 0x140708144 (DbgkpLkmdLaunchSnapApc.c)
- *     PsUpdateSvmProcessPasidAllThreads @ 0x1407741A4 (PsUpdateSvmProcessPasidAllThreads.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x1407748A0 (PspEnableProcessOptionalXStateFeatures.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x1408A644C (PspRecheckThreadOptionalXStateFeatures.c)
- *     PspRecheckThreadPasidMsrState @ 0x1408A6880 (PspRecheckThreadPasidMsrState.c)
- *     NtNotifyChangeMultipleKeys @ 0x1408BF750 (NtNotifyChangeMultipleKeys.c)
- *     PerfLogImageUnload @ 0x1408E6808 (PerfLogImageUnload.c)
- *     PspSetContextThreadInternal @ 0x1408FD220 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1408FD570 (PspGetContextThreadInternal.c)
- *     IopCancelIrpsInThreadList @ 0x14094A824 (IopCancelIrpsInThreadList.c)
- *     NtQueueApcThreadEx2 @ 0x1409F6A40 (NtQueueApcThreadEx2.c)
- *     ExSwapinWorkerThreads @ 0x140A51B34 (ExSwapinWorkerThreads.c)
- *     KeSpecialUserApcKernelRoutine @ 0x140A95740 (KeSpecialUserApcKernelRoutine.c)
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
+ *     IopCopyCompleteReadIrp @ 0x14025FA30 (IopCopyCompleteReadIrp.c)
+ *     IoRaiseHardError @ 0x1403C1290 (IoRaiseHardError.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x14064F0A4 (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140650210 (EtwpCovSampCaptureQueueApc.c)
+ *     DbgkpLkmdLaunchSnapApc @ 0x140705D04 (DbgkpLkmdLaunchSnapApc.c)
+ *     PsUpdateSvmProcessPasidAllThreads @ 0x1407743C4 (PsUpdateSvmProcessPasidAllThreads.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140774AC0 (PspEnableProcessOptionalXStateFeatures.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1408BD110 (NtNotifyChangeMultipleKeys.c)
+ *     IopCancelIrpsInThreadList @ 0x1408EED94 (IopCancelIrpsInThreadList.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x1408FCA64 (PspRecheckThreadOptionalXStateFeatures.c)
+ *     PspRecheckThreadPasidMsrState @ 0x1408FCE90 (PspRecheckThreadPasidMsrState.c)
+ *     PspSetContextThreadInternal @ 0x14091FB00 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x14091FE50 (PspGetContextThreadInternal.c)
+ *     NtQueueApcThreadEx2 @ 0x1409EA990 (NtQueueApcThreadEx2.c)
+ *     PerfLogImageUnload @ 0x140A0E50C (PerfLogImageUnload.c)
+ *     ExSwapinWorkerThreads @ 0x140A48C04 (ExSwapinWorkerThreads.c)
+ *     KeSpecialUserApcKernelRoutine @ 0x140A91F70 (KeSpecialUserApcKernelRoutine.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
  * Callees:
  *     <none>
  */

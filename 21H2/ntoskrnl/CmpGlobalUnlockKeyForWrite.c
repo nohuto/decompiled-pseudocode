@@ -1,26 +1,32 @@
 /*
- * XREFs of CmpGlobalUnlockKeyForWrite @ 0x1408727F4
+ * XREFs of CmpGlobalUnlockKeyForWrite @ 0x140872954
  * Callers:
- *     CmpFreeSiloKeyLockEntry @ 0x1408727B4 (CmpFreeSiloKeyLockEntry.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x140872914 (CmpFreeSiloKeyLockEntry.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
  */
 
-void __fastcall CmpGlobalUnlockKeyForWrite(ULONG_PTR a1, _QWORD *a2)
+void __fastcall CmpGlobalUnlockKeyForWrite(ULONG_PTR BugCheckParameter2, _QWORD *a2)
 {
   signed __int64 v4; // rax
   signed __int64 i; // rdx
   signed __int64 v6; // rtt
   struct _KTHREAD *CurrentThread; // rax
   __int64 v8; // rax
-  __int64 v9; // rax
-  _QWORD *v10; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rax
+  _QWORD *v13; // rdx
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
 
   _m_prefetchw(a2 + 2);
   v4 = a2[2];
@@ -33,7 +39,7 @@ void __fastcall CmpGlobalUnlockKeyForWrite(ULONG_PTR a1, _QWORD *a2)
   }
   if ( i )
     __fastfail(0xEu);
-  CmpLockKcbExclusive(a1);
+  CmpLockKcbExclusive(BugCheckParameter2);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
@@ -41,22 +47,22 @@ void __fastcall CmpGlobalUnlockKeyForWrite(ULONG_PTR a1, _QWORD *a2)
   if ( v8 > 0 )
   {
     ExReleasePushLockEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    CmpUnlockKcb(a1);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
+    CmpUnlockKcb(BugCheckParameter2);
   }
   else
   {
     if ( v8 )
       __fastfail(0xEu);
-    v9 = *a2;
-    if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v10 = (_QWORD *)a2[1], (_QWORD *)*v10 != a2) )
+    v12 = *a2;
+    if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v13 = (_QWORD *)a2[1], (_QWORD *)*v13 != a2) )
       __fastfail(3u);
-    *v10 = v9;
-    *(_QWORD *)(v9 + 8) = v10;
+    *v13 = v12;
+    *(_QWORD *)(v12 + 8) = v13;
     ExReleasePushLockEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    *(_WORD *)(a1 + 8) &= ~0x80u;
-    CmpUnlockKcb(a1);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
+    *(_WORD *)(BugCheckParameter2 + 8) &= ~0x80u;
+    CmpUnlockKcb(BugCheckParameter2);
     CmpDereferenceKeyControlBlock(a2[3]);
     CmpFreeTransientPoolWithTag(a2, 0x33374D43u);
   }

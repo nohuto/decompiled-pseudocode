@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDemoteLocalLargePage @ 0x1402F6020
+ * XREFs of MiDemoteLocalLargePage @ 0x14033E130
  * Callers:
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402F75B8 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x14033FA14 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiIsFreeZeroPfnCold @ 0x14022418C (MiIsFreeZeroPfnCold.c)
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     MiCacheAttributeHasValue @ 0x1402F5FFC (MiCacheAttributeHasValue.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiInsertDemotedPages @ 0x14042F7AC (MiInsertDemotedPages.c)
- *     MiAddPageToHeatRanges @ 0x14043F904 (MiAddPageToHeatRanges.c)
- *     MiIssuePageHeatList @ 0x14043F9FC (MiIssuePageHeatList.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiIsFreeZeroPfnCold @ 0x140250EDC (MiIsFreeZeroPfnCold.c)
+ *     MiInsertDemotedPages @ 0x1402EF010 (MiInsertDemotedPages.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiCacheAttributeHasValue @ 0x14033DD8C (MiCacheAttributeHasValue.c)
+ *     MiAddPageToHeatRanges @ 0x140435BC4 (MiAddPageToHeatRanges.c)
+ *     MiIssuePageHeatList @ 0x140435CBC (MiIssuePageHeatList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-unsigned __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, int a3)
 {
   unsigned int v3; // ebx
   __int64 v4; // r13
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, 
   __int64 v20; // rax
   unsigned int v21; // ebx
   __int64 v23; // rcx
-  unsigned __int64 v24; // rdi
+  __int64 v24; // rdi
   int v25; // r8d
   int v26; // r9d
   unsigned int v27; // edx
@@ -81,7 +81,7 @@ unsigned __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, 
       v10 = *(int *)(*(_QWORD *)(v6 + 14984) + 16976LL);
       if ( v10 >= 0x10 )
         v10 = 16LL;
-      v9 = (unsigned int)(dword_140E2DBC0[v4] - 1) * v10;
+      v9 = (unsigned int)(dword_140E2DD00[v4] - 1) * v10;
       if ( v9 < 0x10 )
         v9 = 16LL;
     }
@@ -163,7 +163,7 @@ LABEL_37:
         v21 ^= (v21 ^ ((_DWORD)v5 << 16)) & 0x30000 ^ (unsigned __int8)((_InterlockedExchangeAdd(
                                                                            (volatile signed __int32 *)(v39 + 1280 * v5),
                                                                            1u)
-                                                                       % (unsigned int)dword_140E2DBC0[v5 & 3]) ^ v21);
+                                                                       % (unsigned int)dword_140E2DD00[v5 & 3]) ^ v21);
         if ( !(_DWORD)v5 || (_DWORD)v5 == 1 && v34 != 1 && v34 != 2 )
           v12 |= 8u;
         Page = MiGetPage(a1, v21, v12);
@@ -200,12 +200,12 @@ LABEL_30:
     v20 = *(_QWORD *)(v19 + 16);
     if ( v20 )
     {
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
         if ( (v20 & 0x10) != 0 )
           LODWORD(v20) = v20 & 0xFFFFFFEF;
         else
-          LODWORD(v20) = ~(_DWORD)qword_140E2DB80 & v20;
+          LODWORD(v20) = ~(_DWORD)qword_140E2DCC0 & v20;
       }
     }
     else
@@ -213,12 +213,12 @@ LABEL_30:
       LODWORD(v20) = 0;
     }
     v23 = (unsigned int)v20;
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
-      if ( ((unsigned int)v20 & (unsigned int)qword_140E2DB80) != 0 )
+      if ( ((unsigned int)v20 & (unsigned int)qword_140E2DCC0) != 0 )
         v23 = (unsigned int)v20 | 0x10LL;
       else
-        v23 = qword_140E2DB80 | (unsigned int)v20;
+        v23 = qword_140E2DCC0 | (unsigned int)v20;
     }
     *(_QWORD *)(v19 + 16) = v23;
   }

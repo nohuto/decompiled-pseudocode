@@ -10,18 +10,14 @@
 PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
 {
   PVOID result; // rax
-  __int128 v4; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v5; // [rsp+30h] [rbp-18h]
 
-  v5 = 0LL;
-  v4 = 0LL;
   if ( (unsigned __int64)PcValue < *((_QWORD *)&xmmword_1801E9430 + 1)
     || (unsigned __int64)PcValue >= *((_QWORD *)&xmmword_1801E9430 + 1)
                                   + (unsigned __int64)(unsigned int)qword_1801E9440 )
   {
-    RtlpxLookupFunctionTable(PcValue, &v4);
-    result = (PVOID)*((_QWORD *)&v4 + 1);
-    *BaseOfImage = (PVOID)*((_QWORD *)&v4 + 1);
+    RtlpxLookupFunctionTable(PcValue);
+    result = 0LL;
+    *BaseOfImage = 0LL;
   }
   else
   {

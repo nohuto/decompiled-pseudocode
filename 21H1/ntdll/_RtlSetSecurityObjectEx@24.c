@@ -6,7 +6,19 @@
  *     _RtlpSetSecurityObject@32 @ 0x4B3491B6 (_RtlpSetSecurityObject@32.c)
  */
 
-int __stdcall RtlSetSecurityObjectEx(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl RtlSetSecurityObjectEx(
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR ModificationDescriptor,
+        PSECURITY_DESCRIPTOR *ObjectsSecurityDescriptor,
+        ULONG AutoInheritFlags,
+        PGENERIC_MAPPING GenericMapping,
+        HANDLE TokenHandle)
 {
-  return RtlpSetSecurityObject(a2, a3, a4, 1, a5, a6);
+  return RtlpSetSecurityObject(
+           ModificationDescriptor,
+           ObjectsSecurityDescriptor,
+           AutoInheritFlags,
+           1,
+           GenericMapping,
+           TokenHandle);
 }

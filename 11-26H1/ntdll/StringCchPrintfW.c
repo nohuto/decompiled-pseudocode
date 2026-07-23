@@ -1,9 +1,9 @@
 /*
- * XREFs of StringCchPrintfW @ 0x180077D64
+ * XREFs of StringCchPrintfW @ 0x180066584
  * Callers:
- *     EtwpAddInstanceIdToLogFileName @ 0x180077C48 (EtwpAddInstanceIdToLogFileName.c)
+ *     EtwpAddInstanceIdToLogFileName @ 0x180066468 (EtwpAddInstanceIdToLogFileName.c)
  * Callees:
- *     _vsnwprintf @ 0x180128E20 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x180128B90 (_vsnwprintf.c)
  */
 
 HRESULT StringCchPrintfW(STRSAFE_LPWSTR pszDest, size_t cchDest, STRSAFE_LPCWSTR pszFormat, ...)

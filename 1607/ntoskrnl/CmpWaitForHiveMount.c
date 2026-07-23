@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpWaitForHiveMount @ 0x1405752DC
+ * XREFs of CmpWaitForHiveMount @ 0x14057581C
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1404A000C (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140518418 (CmpPerformCompleteKcbCacheLookup.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
  */
 
 char __fastcall CmpWaitForHiveMount(__m128i *a1, __int64 a2, __int64 a3, _DWORD *a4)

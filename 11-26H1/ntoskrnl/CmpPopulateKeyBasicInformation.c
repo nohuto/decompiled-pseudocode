@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpPopulateKeyBasicInformation @ 0x140A23820
+ * XREFs of CmpPopulateKeyBasicInformation @ 0x140A36330
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x1404925D8 (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x14048C128 (CmpQueryKeyDataFromKeyNodeStack.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall CmpPopulateKeyBasicInformation(

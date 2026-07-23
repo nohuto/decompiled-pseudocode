@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetMaximumUserAddress @ 0x140472910
+ * XREFs of MmGetMaximumUserAddress @ 0x14046C090
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

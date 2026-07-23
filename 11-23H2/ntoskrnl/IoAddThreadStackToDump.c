@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAddThreadStackToDump @ 0x14055C670
+ * XREFs of IoAddThreadStackToDump @ 0x14055CD30
  * Callers:
  *     <none>
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 void __fastcall IoAddThreadStackToDump(__int64 a1, _QWORD *a2, __int64 a3)

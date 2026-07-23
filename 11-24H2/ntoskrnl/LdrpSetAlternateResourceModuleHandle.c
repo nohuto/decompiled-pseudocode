@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x14044F4B4
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x140489DDC
  * Callers:
- *     LdrpGetRcConfig @ 0x14044EB54 (LdrpGetRcConfig.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x14044EDC4 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrResGetRCConfig @ 0x140A68F0C (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1402DC5EC (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402DCE08 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x140A622BC (LdrResGetRCConfig.c)
  * Callees:
- *     KeReleaseMutant @ 0x140337970 (KeReleaseMutant.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     LdrpInitMuiCrits @ 0x14044F178 (LdrpInitMuiCrits.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     MmUnmapViewInSystemSpace @ 0x140A4AE00 (MmUnmapViewInSystemSpace.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     LdrpInitMuiCrits @ 0x1402DCF84 (LdrpInitMuiCrits.c)
+ *     KeReleaseMutant @ 0x1402DEA20 (KeReleaseMutant.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     MmUnmapViewInSystemSpace @ 0x140A41A80 (MmUnmapViewInSystemSpace.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall LdrpSetAlternateResourceModuleHandle(
@@ -99,7 +99,10 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   {
     if ( AlternateResourceModuleCount >= (unsigned int)AltResMemBlockCount )
     {
-      Pool2 = (char *)ExAllocatePool2(0x100uLL);
+      Pool2 = (char *)ExAllocatePool2(
+                        0x100uLL,
+                        (unsigned __int64)(unsigned int)(AltResMemBlockCount + 32) << 6,
+                        0x69507472u);
       v16 = Pool2;
       if ( !Pool2 )
         goto LABEL_63;
@@ -111,7 +114,7 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   }
   else
   {
-    v17 = (char *)ExAllocatePool2(0x100uLL);
+    v17 = (char *)ExAllocatePool2(0x100uLL, 0x800uLL, 0x69507472u);
     v16 = v17;
     if ( !v17 )
       goto LABEL_63;

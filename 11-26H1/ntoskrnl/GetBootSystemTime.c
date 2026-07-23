@@ -1,15 +1,15 @@
 /*
- * XREFs of GetBootSystemTime @ 0x140CAA5C4
+ * XREFs of GetBootSystemTime @ 0x140CB05C4
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     HalQueryRealTimeClock @ 0x140451480 (HalQueryRealTimeClock.c)
- *     RtlpTimeToTimeFields @ 0x140451D40 (RtlpTimeToTimeFields.c)
- *     RtlpTimeFieldsToTime @ 0x1404522F8 (RtlpTimeFieldsToTime.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     HalSetRealTimeClock @ 0x140578300 (HalSetRealTimeClock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     HalQueryRealTimeClock @ 0x1404495B0 (HalQueryRealTimeClock.c)
+ *     RtlpTimeToTimeFields @ 0x140449E70 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeFieldsToTime @ 0x14044A428 (RtlpTimeFieldsToTime.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     HalSetRealTimeClock @ 0x14057A830 (HalSetRealTimeClock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall GetBootSystemTime(__int64 a1, struct _LIST_ENTRY **a2)
@@ -69,7 +69,7 @@ __int64 __fastcall GetBootSystemTime(__int64 a1, struct _LIST_ENTRY **a2)
     RealTimeClock = HalSetRealTimeClock((unsigned __int8 *)&v21);
     v6 = 0;
   }
-  else if ( (ExpSysDbgLock.SchedulerApcFill5[72] & 4) == 0 )
+  else if ( ((__int64)ExpSysDbgLock.MutantListHead.Flink & 4) == 0 )
   {
     v6 = 0;
     RealTimeClock = HalQueryRealTimeClock((__int64)&v21);
@@ -99,14 +99,14 @@ __int64 __fastcall GetBootSystemTime(__int64 a1, struct _LIST_ENTRY **a2)
   }
   *a2 = (struct _LIST_ENTRY *)v17;
   v18 = guard_dispatch_icall_no_overrides(Blink, v12);
-  stru_140FC01F0.Header.WaitListHead.Flink = *a2;
-  stru_140FC01F0.Header.WaitListHead.Blink = v2;
+  stru_140FC11F0.Header.WaitListHead.Flink = *a2;
+  stru_140FC11F0.Header.WaitListHead.Blink = v2;
   v19 = *(void **)(a1 + 2656);
-  LODWORD(stru_140FC01F0.QuantumTarget) = v18;
+  LODWORD(stru_140FC11F0.QuantumTarget) = v18;
   result = RealTimeClock;
-  HIDWORD(stru_140FC01F0.InitialStack) = RealTimeClock;
-  stru_140FC01F0.SListFaultAddress = v19;
-  LODWORD(stru_140FC01F0.InitialStack) = v6;
-  LODWORD(stru_140FC01F0.StackLimit) = v3;
+  HIDWORD(stru_140FC11F0.InitialStack) = RealTimeClock;
+  stru_140FC11F0.SListFaultAddress = v19;
+  LODWORD(stru_140FC11F0.InitialStack) = v6;
+  LODWORD(stru_140FC11F0.StackLimit) = v3;
   return result;
 }

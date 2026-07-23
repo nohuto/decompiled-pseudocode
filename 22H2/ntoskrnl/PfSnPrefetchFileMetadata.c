@@ -16,7 +16,7 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
         __int64 a3,
         unsigned int a4,
         unsigned int a5,
-        HANDLE Handle)
+        HANDLE EventHandle)
 {
   unsigned int v6; // r10d
   unsigned int v10; // ebx
@@ -59,13 +59,13 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
           *(_DWORD *)(v13 + 4) = v16;
           memmove(v15, (const void *)(a3 + 16 + 8LL * (v14 + a4)), (unsigned int)(8 * v16));
           v17 = 8 * *(_DWORD *)(v13 + 4) + 16;
-          NtResetEvent(Handle);
+          NtResetEvent(EventHandle, 0LL);
           LOBYTE(v20) = 0;
           LODWORD(Length) = 0;
           LODWORD(Size) = v17;
           v6 = IopXxxControlFile(
                  a2,
-                 Handle,
+                 EventHandle,
                  0LL,
                  0LL,
                  (unsigned __int64)&v21,
@@ -77,7 +77,7 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
                  v20);
           if ( v6 == 259 )
           {
-            NtWaitForSingleObject((int)Handle, 0, 0LL);
+            NtWaitForSingleObject(EventHandle, 0, 0LL);
             v6 = v21;
           }
           if ( (v6 & 0xC0000000) == 0xC0000000 )
@@ -91,10 +91,10 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
       {
         *(_QWORD *)(a3 + 8) = v11;
         *(_DWORD *)(a3 + 4) = a5;
-        NtResetEvent(Handle);
+        NtResetEvent(EventHandle, 0LL);
         v6 = IopXxxControlFile(
                a2,
-               Handle,
+               EventHandle,
                0LL,
                0LL,
                (unsigned __int64)&v21,
@@ -106,7 +106,7 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
                a4);
         if ( v6 == 259 )
         {
-          NtWaitForSingleObject((int)Handle, 0, 0LL);
+          NtWaitForSingleObject(EventHandle, 0, 0LL);
           v6 = v21;
         }
         *(_DWORD *)(a3 + 4) = v10;

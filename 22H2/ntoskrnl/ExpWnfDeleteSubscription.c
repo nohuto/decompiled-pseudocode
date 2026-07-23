@@ -43,7 +43,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2
   v4 = 1;
   if ( v2 )
   {
-    v5 = KeAbPreAcquire(v2 + 80, 0LL, 0LL);
+    v5 = KeAbPreAcquire(v2 + 80, 0LL, 0);
     v6 = v5;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 80), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 80), v5, v2 + 80);
@@ -60,7 +60,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2
   v23 = 0;
   if ( Count )
   {
-    v9 = KeAbPreAcquire(Count + 112, 0LL, 0LL);
+    v9 = KeAbPreAcquire(Count + 112, 0LL, 0);
     v10 = v9;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(Count + 112), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(Count + 112), v9, Count + 112);
@@ -87,7 +87,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2
     goto LABEL_60;
   *v15 = v14;
   v14[1] = (struct _EX_RUNDOWN_REF *)v15;
-  v16 = KeAbPreAcquire(v2 + 104, 0LL, 0LL);
+  v16 = KeAbPreAcquire(v2 + 104, 0LL, 0);
   v17 = v16;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 104), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 104), v16, v2 + 104);

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSrcuReadUnlock @ 0x1405C0D30
+ * XREFs of KeSrcuReadUnlock @ 0x1405BE300
  * Callers:
- *     KiSrcuReadUnlockIpi @ 0x1405C16F0 (KiSrcuReadUnlockIpi.c)
- *     KiSrcuReadUnlockRemote @ 0x1405C170C (KiSrcuReadUnlockRemote.c)
+ *     KiSrcuReadUnlockIpi @ 0x1405BECC0 (KiSrcuReadUnlockIpi.c)
+ *     KiSrcuReadUnlockRemote @ 0x1405BECDC (KiSrcuReadUnlockRemote.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiSrcuFlushCompleted @ 0x1405C0EA4 (KiSrcuFlushCompleted.c)
- *     KiSrcuReadUnlockRemote @ 0x1405C170C (KiSrcuReadUnlockRemote.c)
- *     KiSrcuReportQuiescent @ 0x1405C17F8 (KiSrcuReportQuiescent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiSrcuFlushCompleted @ 0x1405BE474 (KiSrcuFlushCompleted.c)
+ *     KiSrcuReadUnlockRemote @ 0x1405BECDC (KiSrcuReadUnlockRemote.c)
+ *     KiSrcuReportQuiescent @ 0x1405BEDC8 (KiSrcuReportQuiescent.c)
  */
 
 __int64 __fastcall KeSrcuReadUnlock(__int64 a1, _DWORD *a2)

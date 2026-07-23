@@ -27,18 +27,14 @@
  *     RtlRaiseStatus @ 0x180102310 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlpxLookupFunctionTable(
-        unsigned __int64 UniqueThread,
-        signed __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+__int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 BaseAddress, signed __int64 a2, char *a3, char *a4)
 {
   signed __int64 v4; // rsi
   bool v5; // zf
-  unsigned __int64 v6; // r14
+  PVOID v6; // r14
   __int64 v7; // rbp
   __int64 v8; // r13
-  unsigned __int64 v9; // rdi
+  unsigned __int64 Value; // rdi
   int v10; // r9d
   int v11; // ebx
   int v12; // eax
@@ -70,7 +66,7 @@ __int64 __fastcall RtlpxLookupFunctionTable(
 
   v4 = a2;
   v5 = LdrInitState == 3;
-  v6 = UniqueThread;
+  v6 = (PVOID)BaseAddress;
   v7 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
   *(_DWORD *)(a2 + 16) = 0;
@@ -78,8 +74,8 @@ __int64 __fastcall RtlpxLookupFunctionTable(
   {
     v8 = -1LL;
     v38 = 0;
-    v9 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, 17LL, 0LL);
-    if ( !v9 )
+    Value = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 17LL, 0LL);
+    if ( !Value )
     {
 LABEL_3:
       if ( LdrpInvertedFunctionTable[0] != 1 )
@@ -91,7 +87,7 @@ LABEL_3:
           v12 = (v11 + v10) >> 1;
           v13 = *((_QWORD *)&xmmword_18017F510 + 3 * v12 + 1);
           v14 = (char *)&xmmword_18017F510 + 24 * v12;
-          if ( v6 < v13 )
+          if ( (unsigned __int64)v6 < v13 )
           {
             if ( !v12 )
               break;
@@ -99,7 +95,7 @@ LABEL_3:
           }
           else
           {
-            if ( v6 < v13 + *((unsigned int *)v14 + 4) )
+            if ( (unsigned __int64)v6 < v13 + *((unsigned int *)v14 + 4) )
             {
               *(_OWORD *)v4 = *(_OWORD *)v14;
               *(_QWORD *)(v4 + 16) = *((_QWORD *)v14 + 2);
@@ -110,11 +106,11 @@ LABEL_3:
           }
         }
       }
-      v15 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, 0LL, 17LL);
+      v15 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 0LL, 17LL);
       if ( v15 != 17 )
       {
         if ( (v15 & 1) == 0 )
-          RtlRaiseStatus(3221226084LL);
+          RtlRaiseStatus(-1073741212);
         if ( (v15 & 2) != 0 )
         {
 LABEL_38:
@@ -136,11 +132,11 @@ LABEL_38:
               v23 = v8;
             v24 = v15 + v23;
             v25 = v15;
-            v15 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v24, v15);
+            v15 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, v24, v15);
           }
           while ( v25 != v15 );
           if ( v22 == 2 )
-            RtlpWakeSRWLock(&LdrpInvertedFunctionTableSRWLock, v24, 0);
+            RtlpWakeSRWLock((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, v24, 0);
           goto LABEL_14;
         }
         while ( 1 )
@@ -149,7 +145,7 @@ LABEL_38:
           if ( (v15 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
             v20 = v15 - 16;
           v21 = v15;
-          v15 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v20, v15);
+          v15 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, v20, v15);
           if ( v21 == v15 )
             break;
           if ( (v15 & 2) != 0 )
@@ -163,23 +159,23 @@ LABEL_14:
     }
     while ( 1 )
     {
-      v18 = (v9 >> 1) & 1;
-      if ( (v9 & 1) != 0 && (v18 || (v9 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
+      v18 = (Value >> 1) & 1;
+      if ( (Value & 1) != 0 && (v18 || (Value & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
       {
-        if ( (unsigned __int8)RtlpWaitCouldDeadlock(UniqueThread, a2, a3, a4, v31) )
-          ZwTerminateProcess(-1LL, 3221225547LL);
-        UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-        v35 = UniqueThread;
-        LOBYTE(UniqueThread) = 0;
+        if ( (unsigned __int8)RtlpWaitCouldDeadlock(BaseAddress, a2, a3, a4, v31) )
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+        BaseAddress = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
+        v35 = BaseAddress;
+        LOBYTE(BaseAddress) = 0;
         v37[0] = 2;
         v34 = 0LL;
         if ( v18 )
         {
           v33 = 0LL;
           v36 = -1;
-          v32 = v9 & 0xFFFFFFFFFFFFFFF0uLL;
-          a2 = (unsigned __int64)&v32 | v9 & 8 | 7;
-          LOBYTE(UniqueThread) = (v9 & 4) == 0;
+          v32 = Value & 0xFFFFFFFFFFFFFFF0uLL;
+          a2 = (unsigned __int64)&v32 | Value & 8 | 7;
+          LOBYTE(BaseAddress) = (Value & 4) == 0;
         }
         else
         {
@@ -187,43 +183,43 @@ LABEL_14:
           v33 = &v32;
           a2 = (signed __int64)&v32 + 3;
         }
-        v26 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, a2, v9);
-        v5 = v9 == v26;
-        v9 = v26;
+        v26 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, a2, Value);
+        v5 = Value == v26;
+        Value = v26;
         if ( !v5 )
           goto LABEL_49;
-        if ( (_BYTE)UniqueThread )
+        if ( (_BYTE)BaseAddress )
           RtlpOptimizeSRWLockList(&LdrpInvertedFunctionTableSRWLock);
         if ( MEMORY[0x7FFE036A] > 1u )
         {
           if ( MEMORY[0x7FFE0297] )
           {
-            a3 = __rdtsc();
-            a4 = a3 + (unsigned int)SRWLockSpinCycleCount;
+            a3 = (char *)__rdtsc();
+            a4 = &a3[SRWLockSpinCycleCount];
             while ( 1 )
             {
-              UniqueThread = 0LL;
+              BaseAddress = 0LL;
               a2 = 0LL;
               __asm { monitorx rax, rcx, rdx }
               if ( (v37[0] & 2) == 0 )
                 break;
-              UniqueThread = a3;
+              BaseAddress = (unsigned __int64)a3;
               v28 = __rdtsc();
               a2 = (unsigned __int64)HIDWORD(v28) << 32;
-              a3 = v28;
-              if ( v28 <= UniqueThread || v28 >= a4 )
+              a3 = (char *)v28;
+              if ( v28 <= BaseAddress || v28 >= (unsigned __int64)a4 )
                 break;
               __asm { mwaitx  rax, rcx, rbx }
             }
           }
           else
           {
-            UniqueThread = 0LL;
+            BaseAddress = 0LL;
             a2 = SRWLockSpinCycleCount / (unsigned int)MEMORY[0x7FFE02D6];
-            while ( (v37[0] & 2) != 0 && (_DWORD)UniqueThread != (_DWORD)a2 )
+            while ( (v37[0] & 2) != 0 && (_DWORD)BaseAddress != (_DWORD)a2 )
             {
               _mm_pause();
-              UniqueThread = (unsigned int)(UniqueThread + 1);
+              BaseAddress = (unsigned int)(BaseAddress + 1);
             }
           }
         }
@@ -236,24 +232,32 @@ LABEL_14:
       }
       else
       {
-        v19 = v9 | 1;
+        v19 = Value | 1;
         if ( !v18 )
           v19 += 16LL;
-        if ( v9 == _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v19, v9) )
+        if ( Value == _InterlockedCompareExchange64(
+                        (volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock,
+                        v19,
+                        Value) )
           goto LABEL_3;
 LABEL_49:
         RtlBackoff(&v38);
         _m_prefetchw(&LdrpInvertedFunctionTableSRWLock);
-        v9 = LdrpInvertedFunctionTableSRWLock;
+        Value = LdrpInvertedFunctionTableSRWLock.Value;
       }
     }
   }
 LABEL_16:
-  ImageBaseViaQueryVirtualMemory = RtlpGetImageBaseViaQueryVirtualMemory(v6, v4 + 16);
+  ImageBaseViaQueryVirtualMemory = RtlpGetImageBaseViaQueryVirtualMemory(v6);
   *(_QWORD *)(v4 + 8) = ImageBaseViaQueryVirtualMemory;
   if ( ImageBaseViaQueryVirtualMemory )
   {
-    if ( (int)RtlpImageDirectoryEntryToDataEx(ImageBaseViaQueryVirtualMemory, 1, 3u, (_DWORD *)(v4 + 20), &v39) < 0 )
+    if ( RtlpImageDirectoryEntryToDataEx(
+           ImageBaseViaQueryVirtualMemory,
+           1,
+           3u,
+           (unsigned int *)(v4 + 20),
+           (char **)&v39) < 0 )
       v7 = 0LL;
     else
       v7 = v39;

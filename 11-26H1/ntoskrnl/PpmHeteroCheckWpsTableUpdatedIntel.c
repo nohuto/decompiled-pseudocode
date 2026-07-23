@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmHeteroCheckWpsTableUpdatedIntel @ 0x1404F6830
+ * XREFs of PpmHeteroCheckWpsTableUpdatedIntel @ 0x1404EFE40
  * Callers:
  *     <none>
  * Callees:

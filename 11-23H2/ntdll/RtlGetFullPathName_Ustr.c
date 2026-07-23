@@ -28,7 +28,7 @@
 __int64 __fastcall RtlGetFullPathName_Ustr(
         unsigned __int16 *a1,
         unsigned int a2,
-        _WORD *a3,
+        wchar_t *Buffer,
         _QWORD *a4,
         _BYTE *a5,
         __int64 a6)
@@ -46,17 +46,17 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   unsigned int v18; // r10d
   volatile signed __int32 *v19; // rdx
   unsigned int j; // ebx
-  unsigned int Length; // r13d
+  unsigned int v21; // r13d
   unsigned int v22; // edx
   unsigned int k; // ecx
   __int64 v24; // rdx
   __int64 v25; // r8
   int v26; // ecx
   int v27; // ecx
-  __int16 v28; // ax
+  wchar_t v28; // ax
   __int64 v30; // r8
   unsigned int v31; // ebx
-  _WORD *v32; // rcx
+  wchar_t *v32; // rcx
   unsigned __int16 v33; // r8
   unsigned int m; // ecx
   unsigned int v35; // edx
@@ -66,20 +66,20 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   __int16 v39; // cx
   __int16 v40; // cx
   __int16 v41; // cx
-  __int64 v42; // rax
+  _CURDIR *v42; // rax
   _CURDIR *v43; // rcx
-  __int64 v44; // rax
+  _CURDIR *v44; // rax
   _CURDIR *v45; // rsi
   int v46; // eax
-  __int64 v47; // rax
+  _CURDIR *v47; // rax
   _CURDIR *p_CurrentDirectory; // rbx
   WCHAR v49; // ax
   WCHAR v50; // si
   __int16 v51; // r10
   int v52; // edx
   __int16 v53; // r8
-  int v54; // eax
-  __int16 v55; // cx
+  NTSTATUS v54; // eax
+  unsigned __int16 Length; // cx
   unsigned __int64 v56; // rax
   unsigned __int64 v57; // rax
   __int16 v59; // dx
@@ -91,28 +91,27 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   bool v65; // [rsp+21h] [rbp-E7h]
   unsigned int v66; // [rsp+28h] [rbp-E0h]
   unsigned int v67; // [rsp+2Ch] [rbp-DCh]
-  __int64 v68; // [rsp+38h] [rbp-D0h] BYREF
-  _WORD *v69; // [rsp+40h] [rbp-C8h]
-  unsigned int v70; // [rsp+48h] [rbp-C0h]
-  volatile signed __int32 *v71; // [rsp+50h] [rbp-B8h]
+  _UNICODE_STRING Value; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned int v69; // [rsp+48h] [rbp-C0h]
+  _CURDIR *v70; // [rsp+50h] [rbp-B8h]
   unsigned int Size; // [rsp+58h] [rbp-B0h]
   int Size_4; // [rsp+5Ch] [rbp-ACh]
-  __int64 v74; // [rsp+60h] [rbp-A8h]
+  PVOID BaseAddress; // [rsp+60h] [rbp-A8h]
   _UNICODE_STRING DosPath; // [rsp+68h] [rbp-A0h] BYREF
-  _CURDIR *v76; // [rsp+78h] [rbp-90h]
-  __int16 v77; // [rsp+80h] [rbp-88h]
-  WCHAR v78; // [rsp+84h] [rbp-84h]
-  int v79; // [rsp+88h] [rbp-80h]
-  unsigned int v80; // [rsp+8Ch] [rbp-7Ch]
-  unsigned int v81; // [rsp+90h] [rbp-78h]
-  int v82; // [rsp+94h] [rbp-74h]
-  unsigned __int64 v83; // [rsp+98h] [rbp-70h]
-  _QWORD *v84; // [rsp+A0h] [rbp-68h]
-  UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-60h] BYREF
+  _CURDIR *v75; // [rsp+78h] [rbp-90h]
+  __int16 v76; // [rsp+80h] [rbp-88h]
+  WCHAR v77; // [rsp+84h] [rbp-84h]
+  int v78; // [rsp+88h] [rbp-80h]
+  unsigned int v79; // [rsp+8Ch] [rbp-7Ch]
+  unsigned int v80; // [rsp+90h] [rbp-78h]
+  NTSTATUS v81; // [rsp+94h] [rbp-74h]
+  unsigned __int64 v82; // [rsp+98h] [rbp-70h]
+  _QWORD *v83; // [rsp+A0h] [rbp-68h]
+  _UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-60h] BYREF
   WCHAR SourceString; // [rsp+B8h] [rbp-50h] BYREF
-  _BYTE v87[6]; // [rsp+BAh] [rbp-4Eh]
+  _BYTE v86[6]; // [rsp+BAh] [rbp-4Eh]
 
-  v84 = a4;
+  v83 = a4;
   v8 = 0;
   if ( a4 )
     *a4 = 0LL;
@@ -123,26 +122,26 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
     v9 = a2;
   Size = v9;
   *(_QWORD *)a6 = 0LL;
-  v80 = *a1;
-  v10 = v80 >> 1;
-  if ( !(v80 >> 1) )
+  v79 = *a1;
+  v10 = v79 >> 1;
+  if ( !(v79 >> 1) )
     return 0LL;
   v11 = (_WORD *)*((_QWORD *)a1 + 1);
   if ( !*v11 )
     return 0LL;
-  for ( i = v80 >> 1; i && v11[i - 1] == 32; --i )
+  for ( i = v79 >> 1; i && v11[i - 1] == 32; --i )
     ;
   if ( !i )
     return 0LL;
   v13 = v11[v10 - 1];
   v65 = v13 != 92 && v13 != 47;
-  v70 = Size >> 1;
-  v81 = Size >> 1;
-  v83 = Size;
-  memset_thunk_772440563353939046(a3, 0, Size);
-  v68 = 0LL;
-  *(_DWORD *)((char *)&v68 + 2) = (unsigned __int16)(2 * (Size >> 1));
-  v69 = a3;
+  v69 = Size >> 1;
+  v80 = Size >> 1;
+  v82 = Size;
+  memset_thunk_772440563353939046(Buffer, 0, Size);
+  *(_QWORD *)&Value.Length = 0LL;
+  *(_DWORD *)&Value.MaximumLength = (unsigned __int16)(2 * (Size >> 1));
+  Value.Buffer = Buffer;
   IsDosDeviceName_Ustr = RtlpIsDosDeviceName_Ustr(a1);
   if ( IsDosDeviceName_Ustr )
   {
@@ -158,8 +157,8 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
       }
       else
       {
-        RtlUnicodeStringCopy(&v68, L"\b\n");
-        RtlUnicodeStringCbCatStringN(&v68, *((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)v62 >> 1), v63);
+        RtlUnicodeStringCopy(&Value, L"\b\n");
+        RtlUnicodeStringCbCatStringN(&Value, *((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)v62 >> 1), v63);
         return (unsigned int)(v63 + 8);
       }
     }
@@ -217,8 +216,8 @@ LABEL_27:
   *(_DWORD *)a6 = v17;
   DosPath = 0LL;
   v19 = 0LL;
-  v71 = 0LL;
-  v74 = 0LL;
+  v70 = 0LL;
+  BaseAddress = 0LL;
   v64 = 0;
   j = 0;
   if ( v17 != 2 )
@@ -227,13 +226,13 @@ LABEL_27:
     {
       case 1:
         v52 = 0;
-        v79 = 0;
+        v78 = 0;
         for ( j = 2; j < v10; ++j )
         {
           v53 = *(_WORD *)(*((_QWORD *)a1 + 1) + 2LL * j);
           if ( v53 == 92 || v53 == 47 )
           {
-            v79 = ++v52;
+            v78 = ++v52;
             if ( v52 == 2 )
               break;
           }
@@ -245,80 +244,80 @@ LABEL_27:
         DosPath.MaximumLength = a1[1];
         goto LABEL_106;
       case 3:
-        v47 = RtlpReferenceCurrentDirectory(0LL, 0LL, 0x180000000uLL);
-        v71 = (volatile signed __int32 *)v47;
-        v74 = v47;
+        v47 = (_CURDIR *)RtlpReferenceCurrentDirectory(0LL, 0LL, 0x180000000uLL);
+        v70 = v47;
+        BaseAddress = v47;
         v64 = 1;
         if ( v47 )
         {
-          p_CurrentDirectory = (_CURDIR *)(v47 + 24);
+          p_CurrentDirectory = v47 + 1;
         }
         else
         {
           p_CurrentDirectory = &NtCurrentPeb()->ProcessParameters->CurrentDirectory;
-          v71 = 0LL;
+          v70 = 0LL;
         }
-        v76 = p_CurrentDirectory;
-        v77 = NLS_UPCASE(qword_180184808, *p_CurrentDirectory->DosPath.Buffer);
+        v75 = p_CurrentDirectory;
+        v76 = NLS_UPCASE(qword_180184808, *p_CurrentDirectory->DosPath.Buffer);
         v49 = NLS_UPCASE(qword_180184808, **((unsigned __int16 **)a1 + 1));
         v50 = v49;
-        v78 = v49;
+        v77 = v49;
         if ( v51 == v49 )
         {
           DosPath = p_CurrentDirectory->DosPath;
-          RtlUnicodeStringCopy(&v68, &DosPath);
-          a3 = v69;
+          RtlUnicodeStringCopy(&Value, &DosPath);
+          Buffer = Value.Buffer;
         }
         else
         {
           RtlpCheckRelativeDrive(v49);
           SourceString = 61;
-          *(_WORD *)v87 = v50;
-          *(_DWORD *)&v87[2] = 58;
+          *(_WORD *)v86 = v50;
+          *(_DWORD *)&v86[2] = 58;
           RtlInitUnicodeString(&DestinationString, &SourceString);
-          v54 = RtlQueryEnvironmentVariable_U(0LL, &DestinationString, &v68);
-          v82 = v54;
+          v54 = RtlQueryEnvironmentVariable_U(0LL, &DestinationString, &Value);
+          v81 = v54;
           if ( v54 < 0 )
           {
             if ( v54 == -1073741789 )
             {
-              if ( (unsigned int)(unsigned __int16)v68 + 2 > 0xFFFF )
+              if ( (unsigned int)Value.Length + 2 > 0xFFFF )
               {
-                Length = 0;
+                v21 = 0;
                 v66 = 0;
-                a3 = v69;
-                v31 = v70;
+                Buffer = Value.Buffer;
+                v31 = v69;
                 goto LABEL_65;
               }
-              DosPath.Length = v68 + 2;
-              a3 = v69;
+              DosPath.Length = Value.Length + 2;
+              Buffer = Value.Buffer;
             }
             else
             {
-              LOWORD(v68) = 0;
+              Value.Length = 0;
               SourceString = v50;
-              *(_DWORD *)v87 = 6029370;
-              *(_WORD *)&v87[4] = 0;
-              RtlUnicodeStringCopyString(&v68, &SourceString);
+              *(_DWORD *)v86 = 6029370;
+              *(_WORD *)&v86[4] = 0;
+              RtlUnicodeStringCopyString(&Value, &SourceString);
               DosPath.Length = 8;
-              a3 = v69;
+              Buffer = Value.Buffer;
             }
           }
           else
           {
-            v55 = v68;
-            v56 = (unsigned __int64)(unsigned __int16)v68 >> 1;
-            if ( (unsigned int)v56 <= 3 || (unsigned int)v56 >= v70 )
+            Length = Value.Length;
+            v56 = (unsigned __int64)Value.Length >> 1;
+            if ( (unsigned int)v56 <= 3 || (unsigned int)v56 >= v69 )
             {
-              a3 = v69;
+              Buffer = Value.Buffer;
             }
             else
             {
-              a3 = v69;
-              v69[(unsigned int)v56] = 92;
-              LOWORD(v68) = v55 + 2;
+              Buffer = Value.Buffer;
+              Value.Buffer[(unsigned int)v56] = 92;
+              Value.Length = Length + 2;
             }
-            DosPath.Length = v68;
+            DosPath.Length = Value.Length;
           }
         }
         v18 = 3;
@@ -327,21 +326,21 @@ LABEL_27:
         goto LABEL_29;
       case 4:
         LOBYTE(v16) = 1;
-        v44 = RtlpReferenceCurrentDirectory(v16, 0LL, 0x180000000uLL);
-        v71 = (volatile signed __int32 *)v44;
-        v74 = v44;
+        v44 = (_CURDIR *)RtlpReferenceCurrentDirectory(v16, 0LL, 0x180000000uLL);
+        v70 = v44;
+        BaseAddress = v44;
         v64 = 1;
         if ( v44 )
         {
-          v45 = (_CURDIR *)(v44 + 24);
+          v45 = v44 + 1;
         }
         else
         {
           v45 = &NtCurrentPeb()->ProcessParameters->CurrentDirectory;
-          v71 = 0LL;
+          v70 = 0LL;
           j = 0;
         }
-        v76 = v45;
+        v75 = v45;
         v46 = RtlpComputeBackupIndex(v45);
         v67 = v46;
         Size_4 = v46;
@@ -352,28 +351,28 @@ LABEL_27:
           DosPath.Length = 2 * v46;
         goto LABEL_106;
       case 5:
-        v42 = RtlpReferenceCurrentDirectory(0LL, 0LL, 0x180000000uLL);
-        v71 = (volatile signed __int32 *)v42;
-        v74 = v42;
+        v42 = (_CURDIR *)RtlpReferenceCurrentDirectory(0LL, 0LL, 0x180000000uLL);
+        v70 = v42;
+        BaseAddress = v42;
         v64 = 1;
         if ( v42 )
         {
-          v43 = (_CURDIR *)(v42 + 24);
-          *(_DWORD *)(a6 + 4) = *(_DWORD *)(v42 + 40);
+          v43 = v42 + 1;
+          *(_DWORD *)(a6 + 4) = v42[1].Handle;
         }
         else
         {
           v43 = &NtCurrentPeb()->ProcessParameters->CurrentDirectory;
-          v71 = 0LL;
+          v70 = 0LL;
           j = 0;
         }
-        v76 = v43;
+        v75 = v43;
         DosPath = v43->DosPath;
         v67 = RtlpComputeBackupIndex(v43);
         Size_4 = v67;
 LABEL_106:
-        RtlUnicodeStringCopy(&v68, &DosPath);
-        a3 = v69;
+        RtlUnicodeStringCopy(&Value, &DosPath);
+        Buffer = Value.Buffer;
         v18 = v67;
         goto LABEL_29;
       case 6:
@@ -383,56 +382,56 @@ LABEL_106:
         if ( v10 < 4 )
           j = v10;
         DosPath = *(_UNICODE_STRING *)L"\b\n";
-        RtlUnicodeStringCopy(&v68, &DosPath);
-        a3 = v69;
-        if ( (unsigned __int16)v68 >= 6u )
-          v69[2] = *(_WORD *)(*((_QWORD *)a1 + 1) + 4LL);
+        RtlUnicodeStringCopy(&Value, &DosPath);
+        Buffer = Value.Buffer;
+        if ( Value.Length >= 6u )
+          Value.Buffer[2] = *(_WORD *)(*((_QWORD *)a1 + 1) + 4LL);
         v18 = 4;
         if ( *(_DWORD *)a6 == 7 )
           v65 = 0;
         goto LABEL_29;
       default:
-        Length = 0;
+        v21 = 0;
         v66 = 0;
-        v31 = v70;
+        v31 = v69;
         goto LABEL_158;
     }
   }
   Size_4 = 3;
 LABEL_29:
-  Length = DosPath.Length;
-  v22 = v80 + DosPath.Length - 2 * j;
-  if ( (unsigned __int64)v22 + 2 <= v83 )
+  v21 = DosPath.Length;
+  v22 = v79 + DosPath.Length - 2 * j;
+  if ( (unsigned __int64)v22 + 2 <= v82 )
     goto LABEL_30;
   if ( v10 > 1 || **((_WORD **)a1 + 1) != 46 )
   {
     v35 = v22 + 2;
     if ( v35 > 0xFFFF )
       v35 = 0;
-    Length = v35;
+    v21 = v35;
     v66 = v35;
-    v31 = v70;
-    v19 = v71;
+    v31 = v69;
+    v19 = (volatile signed __int32 *)v70;
     goto LABEL_158;
   }
   if ( v10 != 1 )
   {
-    Length = 0;
+    v21 = 0;
     if ( v22 <= 0xFFFF )
-      Length = v80 + DosPath.Length - 2 * j;
-    v31 = v70;
+      v21 = v79 + DosPath.Length - 2 * j;
+    v31 = v69;
     goto LABEL_64;
   }
   if ( DosPath.Length == 8 )
   {
     if ( Size <= DosPath.Length )
     {
-      Length = DosPath.Length + 2;
-      v31 = v70;
+      v21 = DosPath.Length + 2;
+      v31 = v69;
 LABEL_64:
-      v66 = Length;
+      v66 = v21;
 LABEL_65:
-      v19 = v71;
+      v19 = (volatile signed __int32 *)v70;
       goto LABEL_158;
     }
   }
@@ -440,20 +439,20 @@ LABEL_65:
   {
     if ( Size < DosPath.Length )
     {
-      v31 = v70;
+      v31 = v69;
       goto LABEL_64;
     }
-    v57 = (unsigned __int64)(unsigned __int16)v68 >> 1;
-    if ( (_DWORD)v57 && a3[(unsigned int)(v57 - 1)] == 92 )
-      LOWORD(v68) = v68 - 2;
+    v57 = (unsigned __int64)Value.Length >> 1;
+    if ( (_DWORD)v57 && Buffer[(unsigned int)(v57 - 1)] == 92 )
+      Value.Length -= 2;
   }
 LABEL_30:
-  for ( k = 0; k < (unsigned __int16)v68 >> 1; ++k )
+  for ( k = 0; k < Value.Length >> 1; ++k )
   {
-    if ( a3[k] == 47 )
-      a3[k] = 92;
+    if ( Buffer[k] == 47 )
+      Buffer[k] = 92;
   }
-  v24 = (unsigned __int16)v68 >> 1;
+  v24 = Value.Length >> 1;
   while ( j < v10 )
   {
     v25 = *((_QWORD *)a1 + 1);
@@ -466,9 +465,9 @@ LABEL_30:
       if ( v27 != 1 )
         goto LABEL_37;
 LABEL_48:
-      if ( !(_DWORD)v24 || a3[(unsigned int)(v24 - 1)] != 92 )
+      if ( !(_DWORD)v24 || Buffer[(unsigned int)(v24 - 1)] != 92 )
       {
-        a3[v24] = 92;
+        Buffer[v24] = 92;
         v24 = (unsigned int)(v24 + 1);
       }
       goto LABEL_47;
@@ -486,16 +485,16 @@ LABEL_48:
       {
         while ( (unsigned int)v24 >= v18 )
         {
-          LOWORD(Size) = a3[v24];
+          LOWORD(Size) = Buffer[v24];
           v40 = Size;
-          a3[v24] = 0;
+          Buffer[v24] = 0;
           if ( v40 == 92 )
           {
             while ( (unsigned int)v24 >= v18 )
             {
-              LOWORD(Size) = a3[v24];
+              LOWORD(Size) = Buffer[v24];
               v41 = Size;
-              a3[v24] = 0;
+              Buffer[v24] = 0;
               if ( v41 == 92 )
               {
                 if ( (unsigned int)v24 < v18 )
@@ -524,12 +523,12 @@ LABEL_37:
         if ( j < v10 && (unsigned int)v24 >= 2 )
         {
           v30 = (unsigned int)(v24 - 1);
-          if ( a3[v30] == 46 && a3[(unsigned int)(v24 - 2)] != 46 )
+          if ( Buffer[v30] == 46 && Buffer[(unsigned int)(v24 - 2)] != 46 )
             v24 = (unsigned int)v30;
         }
         break;
       }
-      a3[v24] = v28;
+      Buffer[v24] = v28;
       v24 = (unsigned int)(v24 + 1);
       ++j;
     }
@@ -537,15 +536,15 @@ LABEL_37:
 LABEL_47:
     ++j;
   }
-  if ( v65 && (unsigned int)v24 > v18 && a3[(unsigned int)(v24 - 1)] == 92 )
+  if ( v65 && (unsigned int)v24 > v18 && Buffer[(unsigned int)(v24 - 1)] == 92 )
     LODWORD(v24) = v24 - 1;
-  v31 = v70;
-  if ( (unsigned int)v24 < v70 )
-    a3[(unsigned int)v24] = 0;
+  v31 = v69;
+  if ( (unsigned int)v24 < v69 )
+    Buffer[(unsigned int)v24] = 0;
   while ( (_DWORD)v24 )
   {
     v24 = (unsigned int)(v24 - 1);
-    v32 = &a3[v24];
+    v32 = &Buffer[v24];
     if ( *v32 != 32 && *v32 != 46 )
     {
       LODWORD(v24) = v24 + 1;
@@ -554,24 +553,24 @@ LABEL_47:
     *v32 = 0;
   }
   v33 = 2 * v24;
-  LOWORD(v68) = 2 * v24;
-  if ( !v84 )
+  Value.Length = 2 * v24;
+  if ( !v83 )
   {
 LABEL_63:
-    Length = v33;
+    v21 = v33;
     goto LABEL_64;
   }
-  for ( m = v24; m && a3[m - 1] != 92; --m )
+  for ( m = v24; m && Buffer[m - 1] != 92; --m )
     ;
   if ( m >= (unsigned int)v24 || m < v18 )
   {
-    *v84 = 0LL;
+    *v83 = 0LL;
     goto LABEL_63;
   }
-  *v84 = &a3[m];
-  Length = v33;
+  *v83 = &Buffer[m];
+  v21 = v33;
   v66 = v33;
-  v19 = v71;
+  v19 = (volatile signed __int32 *)v70;
 LABEL_158:
   if ( v64 )
   {
@@ -579,18 +578,18 @@ LABEL_158:
     {
       if ( _InterlockedExchangeAdd(v19, 0xFFFFFFFF) == 1 )
       {
-        NtClose(*(HANDLE *)(v74 + 8));
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v74);
+        NtClose(*((HANDLE *)BaseAddress + 1));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       }
-      Length = v66;
-      a3 = v69;
+      v21 = v66;
+      Buffer = Value.Buffer;
     }
     else
     {
       RtlLeaveCriticalSection(&FastPebLock);
     }
   }
-  if ( Length >= 2 * (unsigned __int64)v31 && v31 )
-    *a3 = 0;
-  return Length;
+  if ( v21 >= 2 * (unsigned __int64)v31 && v31 )
+    *Buffer = 0;
+  return v21;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockStealSystemVm @ 0x140455630
+ * XREFs of MiLockStealSystemVm @ 0x14044D760
  * Callers:
- *     MiInitializePageTradePacket @ 0x140293510 (MiInitializePageTradePacket.c)
+ *     MiInitializePageTradePacket @ 0x140292A70 (MiInitializePageTradePacket.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     MiSynchronizeSystemVa @ 0x1402E3870 (MiSynchronizeSystemVa.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiSmallVaStillMapsFrame @ 0x1403147CC (MiSmallVaStillMapsFrame.c)
- *     MiVaIsPageFileHash @ 0x140455A20 (MiVaIsPageFileHash.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     MiSynchronizeSystemVa @ 0x1402C58B0 (MiSynchronizeSystemVa.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403167FC (MiSmallVaStillMapsFrame.c)
+ *     MiVaIsPageFileHash @ 0x14044DB50 (MiVaIsPageFileHash.c)
  */
 
 __int64 __fastcall MiLockStealSystemVm(__int64 a1, unsigned __int8 a2, _QWORD *a3, _DWORD *a4)
@@ -30,7 +30,7 @@ __int64 __fastcall MiLockStealSystemVm(__int64 a1, unsigned __int8 a2, _QWORD *a
 
   v5 = a2;
   v7 = 1;
-  v8 = *(_WORD **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+  v8 = *(_WORD **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
   v9 = (__int64)((_QWORD)a3 << 25) >> 16;
   SystemRegionType = MiGetSystemRegionType(v9);
   if ( v9 < 0xFFFFF68000000000uLL || (v11 = 1, v9 > 0xFFFFF6FFFFFFFFFFuLL) )
@@ -95,10 +95,10 @@ LABEL_41:
       break;
     default:
       v17 = (*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL;
-      v8 = *(_WORD **)(stru_140E2EB88.ThreadLock + 8 * v17);
-      if ( SystemRegionType != 8 || !MiVaIsPageFileHash(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v17), v9) )
+      v8 = *(_WORD **)(stru_140E2ED08.ThreadLock + 8 * v17);
+      if ( SystemRegionType != 8 || !MiVaIsPageFileHash(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v17), v9) )
       {
-        _InterlockedIncrement(&dword_140EF8CBC);
+        _InterlockedIncrement(&dword_140EF901C);
         _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         goto LABEL_41;
       }
@@ -132,7 +132,7 @@ LABEL_14:
     || (a4[2] & 0x20) != 0
     || (*(_QWORD *)a1 & 1) != 0 && (*(_DWORD *)(a1 + 32) & 0x8000000) == 0 )
   {
-    if ( v14 <= qword_140E2D7A0
+    if ( v14 <= qword_140E2D920
       && ((*(_QWORD *)(48 * v14 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0
       && ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FF) == *v8
       && *(__int64 *)(a1 + 40) >= 0
@@ -144,15 +144,15 @@ LABEL_14:
   }
   else
   {
-    _InterlockedIncrement(&dword_140EF8CC8);
+    _InterlockedIncrement(&dword_140EF9028);
   }
 LABEL_26:
   MiUnlockStealVm((__int64)a4);
   if ( ((_DWORD)v18[23] & 0xF) != 2 )
   {
-    _InterlockedIncrement(&dword_140EF8CBC);
+    _InterlockedIncrement(&dword_140EF901C);
     return v7;
   }
-  _InterlockedIncrement(&dword_140EF8D58);
+  _InterlockedIncrement(&dword_140EF90B8);
   return 1LL;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDbgTranslatePhysicalAddress @ 0x1401470C4
+ * XREFs of MiDbgTranslatePhysicalAddress @ 0x140147634
  * Callers:
- *     MiDbgCopyMemory @ 0x1400836B8 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x140084338 (MiDbgCopyMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14010B068 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeFlushSingleCurrentTb @ 0x14012C860 (KeFlushSingleCurrentTb.c)
- *     MiCheckPhysicalAddressRange @ 0x140147220 (MiCheckPhysicalAddressRange.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1401487C8 (MiDbgUnTranslatePhysicalAddress.c)
- *     KeFlushCurrentTbOnly @ 0x1401D60C4 (KeFlushCurrentTbOnly.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140108DE8 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeFlushSingleCurrentTb @ 0x14012CDD0 (KeFlushSingleCurrentTb.c)
+ *     MiCheckPhysicalAddressRange @ 0x140147790 (MiCheckPhysicalAddressRange.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140148D38 (MiDbgUnTranslatePhysicalAddress.c)
+ *     KeFlushCurrentTbOnly @ 0x1401D5EF0 (KeFlushCurrentTbOnly.c)
  */
 
 unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, unsigned __int8 a2, __int64 a3)
@@ -40,8 +40,8 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, u
   __int16 v26; // [rsp+60h] [rbp+8h]
 
   v26 = a1;
-  v3 = qword_140327208;
-  if ( !qword_140327208 || !(unsigned int)MiCheckPhysicalAddressRange(a1, 1LL) )
+  v3 = qword_140327248;
+  if ( !qword_140327248 || !(unsigned int)MiCheckPhysicalAddressRange(a1, 1LL) )
     return 0LL;
   v8 = a1 >> 12;
   v9 = v3 << 25 >> 16;
@@ -67,7 +67,7 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, u
       {
         if ( (a2 & 0x41) != 0 || (KiBugCheckActive & 3) == 0 )
           return 0LL;
-        dword_140327210 += v11;
+        dword_140327250 += v11;
         *(_DWORD *)a3 = 4;
       }
     }
@@ -86,15 +86,15 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, u
   if ( (a2 & 4) != 0 )
   {
     *(_DWORD *)a3 = 8;
-    if ( !(unsigned int)KeTryToAcquireInStackQueuedSpinLockAtDpcLevel((__int64)&qword_1403275C0, v19) )
+    if ( !(unsigned int)KeTryToAcquireInStackQueuedSpinLockAtDpcLevel((__int64)&qword_140327600, v19) )
       return 0LL;
   }
   else
   {
     *(_DWORD *)a3 = 16;
-    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_1403275C0, v19);
+    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327600, v19);
   }
-  v21 = (_QWORD *)qword_1403275D0;
+  v21 = (_QWORD *)qword_140327610;
   v22 = 3;
   while ( v21 )
   {
@@ -118,7 +118,7 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, u
   if ( !v21 )
   {
 LABEL_38:
-    v21 = (_QWORD *)qword_1403275D8;
+    v21 = (_QWORD *)qword_140327618;
     while ( v21 )
     {
       v24 = v21[5];
@@ -179,14 +179,14 @@ LABEL_64:
     }
   }
   if ( v22 == 3 )
-    ++dword_140327210;
+    ++dword_140327250;
 LABEL_10:
-  ValidKernelPte = MiMakeValidKernelPte(v8, ProtectionPfnCompatible, qword_140327208);
+  ValidKernelPte = MiMakeValidKernelPte(v8, ProtectionPfnCompatible, qword_140327248);
   v16 = ValidKernelPte;
   if ( (ProtectionPfnCompatible & 4) != 0 )
     v16 = ValidKernelPte | 0x42;
   if ( (a2 & 0x41) != 0 )
-    byte_140327200 = 1;
+    byte_140327240 = 1;
   if ( _InterlockedCompareExchange64(v15, v16, 0LL) )
     goto LABEL_64;
   *(_DWORD *)a3 |= 0x20u;

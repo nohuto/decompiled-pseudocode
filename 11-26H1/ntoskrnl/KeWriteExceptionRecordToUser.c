@@ -1,10 +1,10 @@
 /*
- * XREFs of KeWriteExceptionRecordToUser @ 0x1404B8260
+ * XREFs of KeWriteExceptionRecordToUser @ 0x1404B1A90
  * Callers:
- *     KiDispatchException @ 0x1403D3400 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1403D63D0 (KiDispatchException.c)
  * Callees:
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
  */
 
 __int64 __fastcall KeWriteExceptionRecordToUser(char *a1, char *Src)

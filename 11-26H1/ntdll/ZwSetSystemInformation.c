@@ -1,18 +1,21 @@
 /*
- * XREFs of ZwSetSystemInformation @ 0x1801626D0
+ * XREFs of ZwSetSystemInformation @ 0x1801625D0
  * Callers:
- *     RtlSetFeatureConfigurations @ 0x18010EA40 (RtlSetFeatureConfigurations.c)
- *     RtlpFcUpdateUsageSubscriptions @ 0x1801119C0 (RtlpFcUpdateUsageSubscriptions.c)
- *     RtlOverwriteFeatureConfigurationBuffer @ 0x180148AB0 (RtlOverwriteFeatureConfigurationBuffer.c)
+ *     RtlSetFeatureConfigurations @ 0x18010E590 (RtlSetFeatureConfigurations.c)
+ *     RtlpFcUpdateUsageSubscriptions @ 0x180111530 (RtlpFcUpdateUsageSubscriptions.c)
+ *     RtlOverwriteFeatureConfigurationBuffer @ 0x180148960 (RtlOverwriteFeatureConfigurationBuffer.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetSystemInformation()
+NTSTATUS __cdecl ZwSetSystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 445LL;
+  result = 445;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

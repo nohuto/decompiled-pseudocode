@@ -42,7 +42,7 @@ char __fastcall ExpWnfNotifyNameSubscribers(__int64 a1, unsigned int a2, int a3,
   v8 = 0;
   v9 = 1;
   v10 = 1;
-  v11 = KeAbPreAcquire(a1 + 112, 0LL, 0LL);
+  v11 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v4, v11, (ULONG_PTR)v4);
   if ( v11 )

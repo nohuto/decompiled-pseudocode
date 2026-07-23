@@ -6,17 +6,17 @@
  *     _ZwCreateDebugObject@16 @ 0x4B2F33D0 (_ZwCreateDebugObject@16.c)
  */
 
-int __stdcall DbgUiConnectToDbg()
+NTSTATUS DbgUiConnectToDbg(void)
 {
-  int v0; // ecx
-  _DWORD v2[6]; // [esp+0h] [ebp-18h] BYREF
+  NTSTATUS v0; // ecx
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+0h] [ebp-18h] BYREF
 
   v0 = 0;
   if ( !NtCurrentTeb()->DbgSsReserved[1] )
   {
-    memset(&v2[1], 0, 20);
-    v2[0] = 24;
-    return ZwCreateDebugObject((int)&NtCurrentTeb()->DbgSsReserved[1], 2031631, (int)v2, 1);
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    ObjectAttributes.Length = 24;
+    return ZwCreateDebugObject(&NtCurrentTeb()->DbgSsReserved[1], 0x1F000Fu, &ObjectAttributes, 1u);
   }
   return v0;
 }

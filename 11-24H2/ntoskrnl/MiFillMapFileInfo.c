@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFillMapFileInfo @ 0x1408E3144
+ * XREFs of MiFillMapFileInfo @ 0x140919CF4
  * Callers:
- *     MiLogMapFileEvent @ 0x1408E2B54 (MiLogMapFileEvent.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140967B50 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiLogMapFileEvent @ 0x140919704 (MiLogMapFileEvent.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1409505E0 (MmEnumerateAddressSpaceAndReferenceImages.c)
  * Callees:
- *     MiStartingOffset @ 0x140244020 (MiStartingOffset.c)
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     MiGetProtoPteAddress @ 0x140301740 (MiGetProtoPteAddress.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     MiVadMapsLargeImage @ 0x140404B60 (MiVadMapsLargeImage.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
- *     MiReadVadFlags2 @ 0x14044BF3C (MiReadVadFlags2.c)
+ *     MiStartingOffset @ 0x14020C7B0 (MiStartingOffset.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     MiGetProtoPteAddress @ 0x14030BEC0 (MiGetProtoPteAddress.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     MiVadMapsLargeImage @ 0x1403C7440 (MiVadMapsLargeImage.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
+ *     MiReadVadFlags2 @ 0x14044307C (MiReadVadFlags2.c)
  */
 
 unsigned __int64 __fastcall MiFillMapFileInfo(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ unsigned __int64 __fastcall MiFillMapFileInfo(__int64 a1, __int64 a2)
   unsigned __int64 v18; // rcx
   __int64 v19; // rcx
   unsigned __int64 LockedVadEvent; // rax
-  unsigned __int64 *v21; // [rsp+50h] [rbp+8h] BYREF
+  __int64 *v21; // [rsp+50h] [rbp+8h] BYREF
 
   v21 = 0LL;
   v4 = **(_QWORD **)(a1 + 72);
@@ -53,9 +53,9 @@ unsigned __int64 __fastcall MiFillMapFileInfo(__int64 a1, __int64 a2)
   v14 = MiReferenceControlAreaFile(v4);
   *(_QWORD *)(a2 + 8) = *(_QWORD *)(v14 + 24);
   MiDereferenceControlAreaFile(v4, v14);
-  MiGetProtoPteAddress(a1, v7, 0, &v21);
+  MiGetProtoPteAddress(a1, v7, 0, (__int64 *)&v21);
   SessionId = PsGetSessionIdEx(v5);
-  v16 = MiStartingOffset((__int64 *)v21, *(_QWORD *)(a1 + 80), SessionId);
+  v16 = MiStartingOffset(v21, *(_QWORD *)(a1 + 80), SessionId);
   v17 = v16 ^ (*(_QWORD *)(a2 + 16) ^ v16) & 0xFFFF000000000000uLL;
   *(_QWORD *)(a2 + 16) = v17;
   if ( (v6 & 0x70) != 0x20 )

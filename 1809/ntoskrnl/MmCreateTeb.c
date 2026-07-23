@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCreateTeb @ 0x1405F8848
+ * XREFs of MmCreateTeb @ 0x1405F9848
  * Callers:
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiCreatePebOrTeb @ 0x1405F8B40 (MiCreatePebOrTeb.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiCreatePebOrTeb @ 0x1405F9B40 (MiCreatePebOrTeb.c)
  */
 
 __int64 __fastcall MmCreateTeb(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD *a3, __int64 a4, _QWORD *a5)

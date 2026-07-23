@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSetPlatformFlags @ 0x140A65198
+ * XREFs of HalpSetPlatformFlags @ 0x140A66198
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A64D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     strstr @ 0x1403D1880 (strstr.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
  */
 
 void __fastcall HalpSetPlatformFlags(__int64 a1, __int64 a2)

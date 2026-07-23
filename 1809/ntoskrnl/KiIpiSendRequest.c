@@ -1,18 +1,18 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x1400ED370
+ * XREFs of KiIpiSendRequest @ 0x1400ED3F0
  * Callers:
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x140075BB0 (KeFlushMultipleRangeTb.c)
- *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
- *     KiIpiSendRequestEx @ 0x1400ED160 (KiIpiSendRequestEx.c)
- *     KxFlushNonGlobalTb @ 0x1400ED220 (KxFlushNonGlobalTb.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140075BA0 (KeFlushMultipleRangeTb.c)
+ *     KiIpiSendPacket @ 0x1400ED184 (KiIpiSendPacket.c)
+ *     KiIpiSendRequestEx @ 0x1400ED1E0 (KiIpiSendRequestEx.c)
+ *     KxFlushNonGlobalTb @ 0x1400ED2A0 (KxFlushNonGlobalTb.c)
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     KeSubtractAffinityEx @ 0x1400ED840 (KeSubtractAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeSubtractAffinityEx @ 0x1400ED8C0 (KeSubtractAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KiIpiSendRequest(
@@ -72,7 +72,7 @@ __int64 __fastcall KiIpiSendRequest(
   {
     v48[0] = KeActiveProcessors[0];
     if ( LOWORD(KeActiveProcessors[0]) )
-      memmove(v49, qword_1405416A8, 8LL * LOWORD(KeActiveProcessors[0]));
+      memmove(v49, qword_1405426A8, 8LL * LOWORD(KeActiveProcessors[0]));
     if ( a2 == 1 )
     {
       v37 = (unsigned int)KiProcessorIndexToNumberMappingTable[v8[9]] >> 6;

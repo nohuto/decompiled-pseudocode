@@ -1,10 +1,10 @@
 /*
- * XREFs of PsReplaceSiloContext @ 0x14067E000
+ * XREFs of PsReplaceSiloContext @ 0x14067E0E4
  * Callers:
  *     <none>
  * Callees:
- *     PspIsSiloContext @ 0x14055FBC8 (PspIsSiloContext.c)
- *     PspStorageReplaceObject @ 0x140682CE8 (PspStorageReplaceObject.c)
+ *     PspIsSiloContext @ 0x140560108 (PspIsSiloContext.c)
+ *     PspStorageReplaceObject @ 0x140682DCC (PspStorageReplaceObject.c)
  */
 
 __int64 __fastcall PsReplaceSiloContext(__int64 a1, unsigned int a2, __int64 a3)

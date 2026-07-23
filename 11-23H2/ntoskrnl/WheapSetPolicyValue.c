@@ -1,8 +1,8 @@
 /*
- * XREFs of WheapSetPolicyValue @ 0x140A099F8
+ * XREFs of WheapSetPolicyValue @ 0x140A09CA8
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x14061429C (WheapWmiExecutePolicyManagementMethod.c)
- *     WheapResetPolicyDefaults @ 0x140A099B0 (WheapResetPolicyDefaults.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1406147EC (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapResetPolicyDefaults @ 0x140A09C60 (WheapResetPolicyDefaults.c)
  * Callees:
  *     <none>
  */
@@ -36,10 +36,10 @@ __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
     v2 = *a2;
     v3 = 4LL * a1;
     v4 = a1;
-    if ( *a2 >= LODWORD(qword_140A7A0F0[v3]) && v2 <= HIDWORD(qword_140A7A0F0[v3]) )
+    if ( *a2 >= LODWORD(qword_140A7A3A0[v3]) && v2 <= HIDWORD(qword_140A7A3A0[v3]) )
     {
       _mm_lfence();
-      v5 = (&off_140A7A0E8)[v3];
+      v5 = (&off_140A7A398)[v3];
       if ( *v5 != -1 )
       {
         if ( *v5 == v2 )

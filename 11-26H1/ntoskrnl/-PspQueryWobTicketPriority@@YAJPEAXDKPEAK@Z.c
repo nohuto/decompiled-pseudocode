@@ -1,15 +1,15 @@
 /*
- * XREFs of ?PspQueryWobTicketPriority@@YAJPEAXDKPEAK@Z @ 0x1407FF740
+ * XREFs of ?PspQueryWobTicketPriority@@YAJPEAXDKPEAK@Z @ 0x140805170
  * Callers:
- *     NtManageWobTicket @ 0x1407FF940 (NtManageWobTicket.c)
+ *     NtManageWobTicket @ 0x140805370 (NtManageWobTicket.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x1402052D0 (KeQueryPriorityThread.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     PspThreadFromTicket @ 0x140A191C0 (PspThreadFromTicket.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     PspThreadFromTicket @ 0x140A227F0 (PspThreadFromTicket.c)
  */
 
 __int64 __fastcall PspQueryWobTicketPriority(void *a1, char a2, unsigned int a3, unsigned int *a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDeleteCorruptedFile @ 0x140668CA8
+ * XREFs of CmpDeleteCorruptedFile @ 0x140669E80
  * Callers:
- *     CmpDeleteCorruptedLogfile @ 0x1407E6620 (CmpDeleteCorruptedLogfile.c)
+ *     CmpDeleteCorruptedLogfile @ 0x1407E6BF0 (CmpDeleteCorruptedLogfile.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
  */
 
 NTSTATUS __fastcall CmpDeleteCorruptedFile(UNICODE_STRING *a1)

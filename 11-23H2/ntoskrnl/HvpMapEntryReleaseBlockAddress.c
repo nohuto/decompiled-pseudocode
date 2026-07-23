@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpMapEntryReleaseBlockAddress @ 0x1407E8710
+ * XREFs of HvpMapEntryReleaseBlockAddress @ 0x1407E89E0
  * Callers:
- *     HvpCopyModifiedData @ 0x1407FE680 (HvpCopyModifiedData.c)
+ *     HvpCopyModifiedData @ 0x1407FE950 (HvpCopyModifiedData.c)
  * Callees:
  *     HvpMapEntryReleaseBinAddress @ 0x140AF52DC (HvpMapEntryReleaseBinAddress.c)
  */

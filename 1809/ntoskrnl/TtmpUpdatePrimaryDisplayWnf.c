@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmpUpdatePrimaryDisplayWnf @ 0x14087E75C
+ * XREFs of TtmpUpdatePrimaryDisplayWnf @ 0x14087F9BC
  * Callers:
- *     TtmpPushTerminalDisplayStateOntoDevice @ 0x14087E368 (TtmpPushTerminalDisplayStateOntoDevice.c)
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x14087F5C8 (TtmpPushTerminalDisplayStateOntoDevice.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     TtmpStartCallout @ 0x14087F840 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x14087F92C (TtmpStopCallout.c)
  */
 
 char __fastcall TtmpUpdatePrimaryDisplayWnf(unsigned int *a1, __int64 a2, unsigned int a3)
 {
   int v6; // eax
   _BYTE v8[48]; // [rsp+40h] [rbp-38h] BYREF
-  unsigned int v9; // [rsp+90h] [rbp+18h] BYREF
+  unsigned int Buffer; // [rsp+90h] [rbp+18h] BYREF
 
-  v9 = a3;
+  Buffer = a3;
   if ( *(_DWORD *)(a2 + 16) == 1 )
   {
     v6 = *(_DWORD *)(a2 + 72);
@@ -23,7 +23,7 @@ char __fastcall TtmpUpdatePrimaryDisplayWnf(unsigned int *a1, __int64 a2, unsign
     {
       memset(v8, 0, 0x28uLL);
       TtmpStartCallout((__int64)v8, a1, a2, 6, (__int64)ZwUpdateWnfStateData, a3);
-      ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v9, 4LL);
+      ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
       LOBYTE(v6) = TtmpStopCallout((__int64)v8, 0);
     }
   }

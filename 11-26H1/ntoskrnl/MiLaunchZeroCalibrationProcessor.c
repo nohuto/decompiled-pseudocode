@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLaunchZeroCalibrationProcessor @ 0x1407109E4
+ * XREFs of MiLaunchZeroCalibrationProcessor @ 0x1407156E0
  * Callers:
- *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x140710C20 (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
+ *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14071591C (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
  * Callees:
- *     MiAllocateAcceleratorDescriptor @ 0x1405319C8 (MiAllocateAcceleratorDescriptor.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x140533E70 (MiAllocateAcceleratorDescriptor.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiLaunchZeroCalibrationProcessor(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,31 +1,31 @@
 /*
- * XREFs of SepLocateTokenTrustLevel @ 0x1400A9004
+ * XREFs of SepLocateTokenTrustLevel @ 0x1400A8F44
  * Callers:
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
- *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
- *     SeAdjustAccessStateForAccessConstraints @ 0x140631880 (SeAdjustAccessStateForAccessConstraints.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x1406319B0 (SeShouldCheckForAccessRightsFromParent.c)
- *     SepAdjustAccessStateForConstraints @ 0x1407056BC (SepAdjustAccessStateForConstraints.c)
- *     SepGetDefaultsSubjectContext @ 0x1408A0294 (SepGetDefaultsSubjectContext.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B7C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BB530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     RtlpSetSecurityObject @ 0x1405CB240 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14062E650 (RtlpNewSecurityObject.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x1406328A0 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x1406329D0 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14070695C (SepAdjustAccessStateForConstraints.c)
+ *     SepGetDefaultsSubjectContext @ 0x1408A14F4 (SepGetDefaultsSubjectContext.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD0E0 (RtlSidDominatesForTrust.c)
  */
 
 __int64 __fastcall SepLocateTokenTrustLevel(__int64 *a1)
 {
   __int64 v1; // rbx
   __int64 v2; // r11
-  char v4; // [rsp+30h] [rbp+8h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *a1;
   v2 = a1[2];
   if ( *a1 )
   {
-    RtlSidDominatesForTrust(*(_QWORD *)(v2 + 1104), *(_QWORD *)(v1 + 1104), &v4);
-    if ( v4 )
+    RtlSidDominatesForTrust(*(PSID *)(v2 + 1104), *(PSID *)(v1 + 1104), &DominatesTrust);
+    if ( DominatesTrust )
       v2 = v1;
   }
   return *(_QWORD *)(v2 + 1104);

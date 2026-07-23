@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeScrubPacket @ 0x1407FD6E0
+ * XREFs of MiInitializeScrubPacket @ 0x1407FDE50
  * Callers:
- *     MiScrubMemoryWorker @ 0x1407FDAD0 (MiScrubMemoryWorker.c)
+ *     MiScrubMemoryWorker @ 0x1407FE240 (MiScrubMemoryWorker.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiReleaseScrubPacket @ 0x1407FD9F4 (MiReleaseScrubPacket.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MiReleaseScrubPacket @ 0x1407FE164 (MiReleaseScrubPacket.c)
  */
 
 __int64 __fastcall MiInitializeScrubPacket(__int64 *a1)

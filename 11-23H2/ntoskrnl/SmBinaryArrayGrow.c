@@ -1,9 +1,9 @@
 /*
- * XREFs of SmBinaryArrayGrow @ 0x1405C9FAC
+ * XREFs of SmBinaryArrayGrow @ 0x1405CA51C
  * Callers:
- *     SmHpBufferAlloc @ 0x1405CA114 (SmHpBufferAlloc.c)
+ *     SmHpBufferAlloc @ 0x1405CA684 (SmHpBufferAlloc.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

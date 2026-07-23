@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpCovSampModuleReference @ 0x140945478
+ * XREFs of EtwpCovSampModuleReference @ 0x140945648
  * Callers:
- *     ProcessForExeModule @ 0x1405B0278 (ProcessForExeModule.c)
- *     EtwpCovSampProcessAddModule @ 0x1409454B8 (EtwpCovSampProcessAddModule.c)
+ *     ProcessForExeModule @ 0x1405B04A8 (ProcessForExeModule.c)
+ *     EtwpCovSampProcessAddModule @ 0x140945688 (EtwpCovSampProcessAddModule.c)
  * Callees:
  *     <none>
  */

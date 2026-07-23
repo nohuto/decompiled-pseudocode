@@ -1,36 +1,36 @@
 /*
- * XREFs of strstr @ 0x140535B20
+ * XREFs of strstr @ 0x140537FA0
  * Callers:
- *     HalInitializeBios @ 0x1405784A0 (HalInitializeBios.c)
- *     HalpIommuInitializeDmaGuardPolicy @ 0x14058DB34 (HalpIommuInitializeDmaGuardPolicy.c)
- *     HvlDebuggerSupportInitialize @ 0x1405B83B0 (HvlDebuggerSupportInitialize.c)
- *     InbvDetermineFunction @ 0x1405C4B30 (InbvDetermineFunction.c)
- *     KiIsSafeBoot @ 0x1405F22E4 (KiIsSafeBoot.c)
- *     KiIsWinPEBoot @ 0x1405F2434 (KiIsWinPEBoot.c)
- *     HvlPhase0Initialize @ 0x14079166C (HvlPhase0Initialize.c)
- *     SepInitializeCodeIntegrity @ 0x14080FD8C (SepInitializeCodeIntegrity.c)
- *     KiMatchLoadOption @ 0x140BF4B7C (KiMatchLoadOption.c)
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
- *     KdInitSystem @ 0x140C12B60 (KdInitSystem.c)
- *     CcInitializeBcbProfiler @ 0x140C80424 (CcInitializeBcbProfiler.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     HalpProcIsSmtDisabled @ 0x140CAF4C8 (HalpProcIsSmtDisabled.c)
- *     HalpMiscGetParameters @ 0x140CAF604 (HalpMiscGetParameters.c)
- *     HalpSetPlatformFlags @ 0x140CB387C (HalpSetPlatformFlags.c)
- *     InbvDriverInitialize @ 0x140CBA030 (InbvDriverInitialize.c)
- *     BvgaDriverInitialize @ 0x140CBA110 (BvgaDriverInitialize.c)
- *     KiPerformGroupConfiguration @ 0x140CCA97C (KiPerformGroupConfiguration.c)
- *     KiInitializeNxSupportDiscard @ 0x140CCB288 (KiInitializeNxSupportDiscard.c)
- *     ViInitSystemPhase0 @ 0x140CDEDA4 (ViInitSystemPhase0.c)
- *     KitpInitAitSampleRate @ 0x140CE6D90 (KitpInitAitSampleRate.c)
- *     CmpGetBiosVersion @ 0x140CECCE4 (CmpGetBiosVersion.c)
- *     MiInitializeBootDefaults @ 0x140CF1C18 (MiInitializeBootDefaults.c)
- *     MiCompensateForProcessorErrata @ 0x140D0162C (MiCompensateForProcessorErrata.c)
- *     VhdInitialize @ 0x140D02894 (VhdInitialize.c)
- *     RamdiskStart @ 0x140D03E44 (RamdiskStart.c)
- *     KeInitializeClock @ 0x140D0B7A4 (KeInitializeClock.c)
+ *     HalInitializeBios @ 0x14057A9D0 (HalInitializeBios.c)
+ *     HalpIommuInitializeDmaGuardPolicy @ 0x1405902B4 (HalpIommuInitializeDmaGuardPolicy.c)
+ *     HvlDebuggerSupportInitialize @ 0x1405BAC20 (HvlDebuggerSupportInitialize.c)
+ *     InbvDetermineFunction @ 0x1405C73A0 (InbvDetermineFunction.c)
+ *     KiIsSafeBoot @ 0x1405F4CA4 (KiIsSafeBoot.c)
+ *     KiIsWinPEBoot @ 0x1405F4DF4 (KiIsWinPEBoot.c)
+ *     HvlPhase0Initialize @ 0x14079419C (HvlPhase0Initialize.c)
+ *     SepInitializeCodeIntegrity @ 0x14081581C (SepInitializeCodeIntegrity.c)
+ *     KiMatchLoadOption @ 0x140BFAB7C (KiMatchLoadOption.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
+ *     KdInitSystem @ 0x140C18B60 (KdInitSystem.c)
+ *     CcInitializeBcbProfiler @ 0x140C86424 (CcInitializeBcbProfiler.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     HalpProcIsSmtDisabled @ 0x140CB5508 (HalpProcIsSmtDisabled.c)
+ *     HalpMiscGetParameters @ 0x140CB5644 (HalpMiscGetParameters.c)
+ *     HalpSetPlatformFlags @ 0x140CB98BC (HalpSetPlatformFlags.c)
+ *     InbvDriverInitialize @ 0x140CC0070 (InbvDriverInitialize.c)
+ *     BvgaDriverInitialize @ 0x140CC0150 (BvgaDriverInitialize.c)
+ *     KiPerformGroupConfiguration @ 0x140CD0A5C (KiPerformGroupConfiguration.c)
+ *     KiInitializeNxSupportDiscard @ 0x140CD1368 (KiInitializeNxSupportDiscard.c)
+ *     ViInitSystemPhase0 @ 0x140CE513C (ViInitSystemPhase0.c)
+ *     KitpInitAitSampleRate @ 0x140CED130 (KitpInitAitSampleRate.c)
+ *     CmpGetBiosVersion @ 0x140CF2FE8 (CmpGetBiosVersion.c)
+ *     MiInitializeBootDefaults @ 0x140CF7F98 (MiInitializeBootDefaults.c)
+ *     MiCompensateForProcessorErrata @ 0x140D079CC (MiCompensateForProcessorErrata.c)
+ *     VhdInitialize @ 0x140D08C34 (VhdInitialize.c)
+ *     RamdiskStart @ 0x140D0A114 (RamdiskStart.c)
+ *     KeInitializeClock @ 0x140D117AC (KeInitializeClock.c)
  * Callees:
  *     <none>
  */
@@ -60,7 +60,6 @@ char *__cdecl strstr(const char *Str, const char *SubStr)
   __m128i v23; // xmm1
   __m128i v24; // xmm2
   unsigned __int8 v25; // sf
-  __int64 v26; // rax
 
   v2 = SubStr;
   v3 = (const __m128i *)Str;
@@ -158,7 +157,7 @@ LABEL_9:
         return 0LL;
       if ( v3->m128i_i8[0] == *v2 )
         goto LABEL_37;
-LABEL_47:
+LABEL_46:
       v3 = (const __m128i *)((char *)v3 + 1);
     }
     v19 = _mm_loadu_si128(v3);
@@ -167,34 +166,30 @@ LABEL_47:
       break;
     ++v3;
   }
-  if ( v20 )
-  {
-    v3 = (const __m128i *)((char *)v3 + _mm_cmpistri(inserted, v19, 12));
+  if ( !v20 )
+    return 0LL;
+  v3 = (const __m128i *)((char *)v3 + _mm_cmpistri(inserted, v19, 12));
 LABEL_37:
-    v21 = v3;
-    for ( j = (const __m128i *)v2; ; j = (const __m128i *)((char *)j + v26) )
+  v21 = v3;
+  for ( j = (const __m128i *)v2; ; ++j )
+  {
+    while ( ((unsigned __int16)v21 & 0xFFFu) > 0xFF0uLL || ((unsigned __int16)j & 0xFFFu) > 0xFF0uLL )
     {
-      if ( ((unsigned __int16)v21 & 0xFFFu) > 0xFF0uLL || ((unsigned __int16)j & 0xFFFu) > 0xFF0uLL )
-      {
-        if ( !j->m128i_i8[0] )
-          return v3->m128i_i8;
-        if ( v21->m128i_i8[0] != j->m128i_i8[0] )
-          goto LABEL_47;
-        v26 = 1LL;
-      }
-      else
-      {
-        v23 = _mm_loadu_si128(v21);
-        v24 = _mm_loadu_si128(j);
-        v25 = _mm_cmpistrs(v24, v23, 12);
-        if ( !_mm_cmpistro(v24, v23, 12) )
-          goto LABEL_47;
-        if ( v25 )
-          return v3->m128i_i8;
-        v26 = 16LL;
-      }
-      v21 = (const __m128i *)((char *)v21 + v26);
+      if ( !j->m128i_i8[0] )
+        return v3->m128i_i8;
+      if ( v21->m128i_i8[0] != j->m128i_i8[0] )
+        goto LABEL_46;
+      v21 = (const __m128i *)((char *)v21 + 1);
+      j = (const __m128i *)((char *)j + 1);
     }
+    v23 = _mm_loadu_si128(v21);
+    v24 = _mm_loadu_si128(j);
+    v25 = _mm_cmpistrs(v24, v23, 12);
+    if ( !_mm_cmpistro(v24, v23, 12) )
+      goto LABEL_46;
+    if ( v25 )
+      break;
+    ++v21;
   }
-  return 0LL;
+  return v3->m128i_i8;
 }

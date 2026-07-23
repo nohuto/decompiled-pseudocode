@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockAndMapEntireDriver @ 0x1408D0AF4
+ * XREFs of MiLockAndMapEntireDriver @ 0x1408D0C54
  * Callers:
- *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054452C (MmRemoveImportOptimizationForDriverVerifier.c)
+ *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054476C (MmRemoveImportOptimizationForDriverVerifier.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x140226EF0 (MiFillSystemPtes.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiLockDriverPageRange @ 0x14052DA04 (MiLockDriverPageRange.c)
- *     MiPrepareDriverPatchState @ 0x1408C4D3C (MiPrepareDriverPatchState.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1402CB7F0 (MiFillSystemPtes.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiLockDriverPageRange @ 0x14052DC44 (MiLockDriverPageRange.c)
+ *     MiPrepareDriverPatchState @ 0x1408C4E9C (MiPrepareDriverPatchState.c)
  */
 
 __int64 __fastcall MiLockAndMapEntireDriver(__int64 a1, __int64 *a2, struct _MDL **a3)
@@ -50,7 +50,7 @@ __int64 __fastcall MiLockAndMapEntireDriver(__int64 a1, __int64 *a2, struct _MDL
         v13 = v10;
         do
         {
-          v12->Next = (struct _MDL *)qword_140C4ED78;
+          v12->Next = (struct _MDL *)qword_140C4EDB8;
           v12 = (struct _MDL *)((char *)v12 + 8);
           --v13;
         }
@@ -61,10 +61,10 @@ __int64 __fastcall MiLockAndMapEntireDriver(__int64 a1, __int64 *a2, struct _MDL
     v8 = MiLockDriverPageRange(a2, (__int64)AnyMultiplexedVm, 0, v15, 2, (__int64)v6);
     if ( v8 >= 0 && a3 )
     {
-      v18 = MiReservePtes((__int64)&qword_140C4EF40, v10, v16, v17);
+      v18 = MiReservePtes((__int64)&qword_140C4EF80, v10, v16, v17);
       if ( v18 )
       {
-        v8 = MiFillSystemPtes(v18, v10, v7, 4LL, 4, &v20);
+        v8 = MiFillSystemPtes(v18, v10, v7, 4u, 4, &v20);
         v6->MdlFlags |= 1u;
         v6->MappedSystemVa = (PVOID)((__int64)(v18 << 25) >> 16);
         *a3 = v6;

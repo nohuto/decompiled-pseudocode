@@ -1,8 +1,8 @@
 /*
- * XREFs of BiGetBcdDeviceType @ 0x140892204
+ * XREFs of BiGetBcdDeviceType @ 0x140898600
  * Callers:
- *     BiResolveLocateDevice @ 0x14089131C (BiResolveLocateDevice.c)
- *     BiResolveLocate @ 0x140892F3C (BiResolveLocate.c)
+ *     BiResolveLocateDevice @ 0x140897718 (BiResolveLocateDevice.c)
+ *     BiResolveLocate @ 0x14089933C (BiResolveLocate.c)
  * Callees:
  *     <none>
  */

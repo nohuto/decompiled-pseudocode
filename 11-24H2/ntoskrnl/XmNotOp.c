@@ -1,9 +1,9 @@
 /*
- * XREFs of XmNotOp @ 0x140575920
+ * XREFs of XmNotOp @ 0x140572DB0
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmNotOp(__int64 a1)

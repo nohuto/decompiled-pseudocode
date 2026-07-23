@@ -1,24 +1,24 @@
 /*
- * XREFs of SepDeleteLogonSessionTrack @ 0x14077A670
+ * XREFs of SepDeleteLogonSessionTrack @ 0x14077A830
  * Callers:
- *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x14077A420 (SepRmInteractiveLogoffLogonSessionWrkr.c)
- *     SepRmDeleteLogonSessionWrkr @ 0x14077B0E0 (SepRmDeleteLogonSessionWrkr.c)
- *     SeInitServerSilo @ 0x14091C0D4 (SeInitServerSilo.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409237CC (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x14077A5E0 (SepRmInteractiveLogoffLogonSessionWrkr.c)
+ *     SepRmDeleteLogonSessionWrkr @ 0x14077B2A0 (SepRmDeleteLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x14091C234 (SeInitServerSilo.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x14092392C (SepDeleteUnreferencedLogonSessionsInSilo.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     SepDeleteSessionLowboxEntries @ 0x1402BDDF4 (SepDeleteSessionLowboxEntries.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
- *     ObDestroyHandleRevocationBlock @ 0x1406A5884 (ObDestroyHandleRevocationBlock.c)
- *     SepDeleteLogonSessionClaims @ 0x1406A58F0 (SepDeleteLogonSessionClaims.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
- *     ObRevokeHandles @ 0x14077989C (ObRevokeHandles.c)
- *     SepDeleteLogonSessionSidValues @ 0x140922FA8 (SepDeleteLogonSessionSidValues.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SepDeleteSessionLowboxEntries @ 0x14023C434 (SepDeleteSessionLowboxEntries.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1406034B4 (ObDestroyHandleRevocationBlock.c)
+ *     SepDeleteLogonSessionClaims @ 0x140603520 (SepDeleteLogonSessionClaims.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x140603544 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     ObfDereferenceDeviceMap @ 0x14068F1A4 (ObfDereferenceDeviceMap.c)
+ *     ObRevokeHandles @ 0x140779A5C (ObRevokeHandles.c)
+ *     SepDeleteLogonSessionSidValues @ 0x140923108 (SepDeleteLogonSessionSidValues.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
@@ -28,14 +28,12 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
   _DWORD **v6; // r14
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
   _DWORD *i; // rbx
-  __int64 v12; // rcx
-  void *v13; // rax
-  void *v14; // rcx
-  void *v15; // rcx
-  unsigned int v17; // ebx
+  __int64 v10; // rcx
+  void *v11; // rax
+  void *v12; // rcx
+  void *v13; // rcx
+  unsigned int v15; // ebx
 
   v2 = 0LL;
   v5 = (unsigned int)(1529154084 * *a1) >> 28;
@@ -48,10 +46,10 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
   {
     if ( !i )
     {
-      v17 = -1073741729;
+      v15 = -1073741729;
       goto LABEL_26;
     }
-    if ( *((_QWORD *)i + 20) == PsGetCurrentServerSilo(v10, v9) && *a1 == i[2] && a1[1] == i[3] )
+    if ( *((_QWORD *)i + 20) == PsGetCurrentServerSilo() && *a1 == i[2] && a1[1] == i[3] )
       break;
     v6 = (_DWORD **)i;
   }
@@ -63,15 +61,15 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
     KeLeaveCriticalRegion();
     return 0LL;
   }
-  v12 = *((_QWORD *)i + 3);
-  if ( !v12 || (i[8] & 8) == 0 && v12 == 1 )
+  v10 = *((_QWORD *)i + 3);
+  if ( !v10 || (i[8] & 8) == 0 && v10 == 1 )
   {
     *v6 = *(_DWORD **)i;
-    v13 = (void *)*((_QWORD *)i + 5);
-    if ( v13 )
+    v11 = (void *)*((_QWORD *)i + 5);
+    if ( v11 )
     {
       *((_QWORD *)i + 5) = 0LL;
-      v2 = v13;
+      v2 = v11;
     }
     ExReleaseResourceLite(v8);
     KeLeaveCriticalRegion();
@@ -80,12 +78,12 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
       SepCleanupLUIDDeviceMapDirectory(a1, *((struct _LIST_ENTRY **)i + 20));
       ObfDereferenceDeviceMap(v2);
     }
-    v14 = (void *)*((_QWORD *)i + 20);
-    if ( v14 )
-      ObfDereferenceObjectWithTag(v14, 0x734C6553u);
-    v15 = (void *)*((_QWORD *)i + 8);
-    if ( v15 )
-      ExFreePoolWithTag(v15, 0);
+    v12 = (void *)*((_QWORD *)i + 20);
+    if ( v12 )
+      ObfDereferenceObjectWithTag(v12, 0x734C6553u);
+    v13 = (void *)*((_QWORD *)i + 8);
+    if ( v13 )
+      ExFreePoolWithTag(v13, 0);
     SepDeleteLogonSessionClaims((__int64)i);
     if ( SepTokenSidSharingEnabled )
       SepDeleteLogonSessionSidValues(i);
@@ -94,9 +92,9 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
     SepDeleteSessionLowboxEntries();
     return 0LL;
   }
-  v17 = -1073741564;
+  v15 = -1073741564;
 LABEL_26:
   ExReleaseResourceLite(v8);
   KeLeaveCriticalRegion();
-  return v17;
+  return v15;
 }

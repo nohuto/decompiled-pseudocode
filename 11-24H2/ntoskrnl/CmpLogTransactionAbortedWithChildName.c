@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpLogTransactionAbortedWithChildName @ 0x14097ACC8
+ * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1409634D8
  * Callers:
- *     CmpSaveBootControlSet @ 0x1407CC764 (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpPerformUnloadKey @ 0x14097B52C (CmpPerformUnloadKey.c)
- *     CmpLogTransactionAbortedForRollbackPacket @ 0x140AB8DF4 (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmpSaveBootControlSet @ 0x1407CCC54 (CmpSaveBootControlSet.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
+ *     CmpPerformUnloadKey @ 0x140963D3C (CmpPerformUnloadKey.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x140AB32B8 (CmpLogTransactionAbortedForRollbackPacket.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringCat @ 0x1403EA5B0 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x14041C568 (RtlUnicodeStringCatString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpLogTransactionAbortedByName @ 0x1407E0150 (CmpLogTransactionAbortedByName.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x14087C7CC (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCat @ 0x1403DA240 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x1404105C0 (RtlUnicodeStringCatString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpLogTransactionAbortedByName @ 0x1407E06A0 (CmpLogTransactionAbortedByName.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x14088067C (CmpConstructNameFromKcbNameBlocks.c)
  */
 
 void __fastcall CmpLogTransactionAbortedWithChildName(
@@ -34,6 +34,7 @@ void __fastcall CmpLogTransactionAbortedWithChildName(
   int v8; // eax
   __int64 v9; // r8
   UNICODE_STRING *v10; // rbx
+  unsigned __int64 v11; // rdx
   UNICODE_STRING *p_DestinationString; // rcx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF
   PCUNICODE_STRING SourceString; // [rsp+58h] [rbp+28h] BYREF
@@ -41,7 +42,7 @@ void __fastcall CmpLogTransactionAbortedWithChildName(
   SourceString = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  if ( !a5 || (unsigned int)dword_140E09EE8 <= 4 || !tlgKeywordOn((__int64)&dword_140E09EE8, 1LL) )
+  if ( !a5 || (unsigned int)dword_140E09F58 <= 4 || !tlgKeywordOn((__int64)&dword_140E09F58, 1LL) )
     goto LABEL_13;
   v8 = CmpConstructNameFromKcbNameBlocks(a1, (__int64 *)&SourceString);
   v10 = (UNICODE_STRING *)SourceString;
@@ -52,10 +53,11 @@ void __fastcall CmpLogTransactionAbortedWithChildName(
       p_DestinationString = (UNICODE_STRING *)SourceString;
       goto LABEL_10;
     }
-    if ( SourceString->Length + 2LL + (unsigned __int64)a2->Length <= 0xFFFF )
+    v11 = SourceString->Length + 2LL + a2->Length;
+    if ( v11 <= 0xFFFF )
     {
       DestinationString.MaximumLength = SourceString->Length + 2 + a2->Length;
-      DestinationString.Buffer = (wchar_t *)CmpAllocatePool(0x100uLL);
+      DestinationString.Buffer = (wchar_t *)CmpAllocatePool(0x100uLL, (unsigned __int16)v11, 0x624E4D43u);
       if ( DestinationString.Buffer )
       {
         RtlUnicodeStringCopy(&DestinationString, v10);

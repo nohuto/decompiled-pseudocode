@@ -1,14 +1,14 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1409D8860
+ * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1409A9750
  * Callers:
- *     PiPnpRtlApplyMandatoryFilters @ 0x14099B1B0 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x14095BC10 (PiPnpRtlApplyMandatoryFilters.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1409A3F50 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     PiDmObjectManagerReleaseLock @ 0x1409D90A4 (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x1409D911C (PiDmObjectManagerAcquireSharedLock.c)
- *     PiDmLookupObject @ 0x1409D92F0 (PiDmLookupObject.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1409649B0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1409A9F94 (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1409AA00C (PiDmObjectManagerAcquireSharedLock.c)
+ *     PiDmLookupObject @ 0x1409AA1E0 (PiDmLookupObject.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryDeviceContainerFilters(

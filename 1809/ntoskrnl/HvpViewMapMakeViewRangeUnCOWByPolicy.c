@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140740974
+ * XREFs of HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140741B64
  * Callers:
- *     HvpViewMapAdjustFlag @ 0x140740908 (HvpViewMapAdjustFlag.c)
+ *     HvpViewMapAdjustFlag @ 0x140741AF8 (HvpViewMapAdjustFlag.c)
  * Callees:
  *     CmSiProtectViewOfSection @ 0x14000F024 (CmSiProtectViewOfSection.c)
- *     CmSiUnlockViewOfSection @ 0x14016AC30 (CmSiUnlockViewOfSection.c)
+ *     CmSiUnlockViewOfSection @ 0x14016AD30 (CmSiUnlockViewOfSection.c)
  */
 
 void __fastcall HvpViewMapMakeViewRangeUnCOWByPolicy(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4)

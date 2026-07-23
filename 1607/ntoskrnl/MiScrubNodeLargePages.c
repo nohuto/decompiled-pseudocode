@@ -1,9 +1,9 @@
 /*
- * XREFs of MiScrubNodeLargePages @ 0x140664B00
+ * XREFs of MiScrubNodeLargePages @ 0x140664BE4
  * Callers:
- *     MiScrubNode @ 0x1401FE660 (MiScrubNode.c)
+ *     MiScrubNode @ 0x1401FE48C (MiScrubNode.c)
  * Callees:
- *     MiScrubNodeLargePageList @ 0x1401FBCA8 (MiScrubNodeLargePageList.c)
+ *     MiScrubNodeLargePageList @ 0x1401FBAD4 (MiScrubNodeLargePageList.c)
  */
 
 __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -82,7 +82,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
             v25 = i;
             if ( !v18 && !v11 )
             {
-              _InterlockedIncrement(&dword_140327788);
+              _InterlockedIncrement(&dword_1403277C8);
               v11 = 1;
             }
             v20 = 0;
@@ -129,7 +129,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
     while ( v12 < 3 );
 LABEL_25:
     if ( v11 == 1 )
-      _InterlockedDecrement(&dword_140327788);
+      _InterlockedDecrement(&dword_1403277C8);
   }
   return result;
 }

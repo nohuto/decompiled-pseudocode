@@ -1,10 +1,9 @@
 /*
- * XREFs of RtlpEstimateAllocatedSize @ 0x18004768C
+ * XREFs of RtlpEstimateAllocatedSize @ 0x1800F21B4
  * Callers:
- *     RtlpLogHeapExtendEvent @ 0x180044228 (RtlpLogHeapExtendEvent.c)
- *     RtlpLogHeapContractEvent @ 0x1800475C8 (RtlpLogHeapContractEvent.c)
- *     RtlpQueryExtendedInformationHeap @ 0x1800480F0 (RtlpQueryExtendedInformationHeap.c)
- *     RtlpLogHeapCreateEvent @ 0x180115370 (RtlpLogHeapCreateEvent.c)
+ *     RtlpLogHeapCreateEvent @ 0x180023758 (RtlpLogHeapCreateEvent.c)
+ *     RtlpLogHeapExtendEvent @ 0x1800F2038 (RtlpLogHeapExtendEvent.c)
+ *     RtlpLogHeapContractEvent @ 0x1800F20F0 (RtlpLogHeapContractEvent.c)
  * Callees:
  *     <none>
  */

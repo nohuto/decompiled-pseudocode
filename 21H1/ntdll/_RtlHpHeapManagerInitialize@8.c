@@ -11,11 +11,15 @@
 unsigned int __fastcall RtlHpHeapManagerInitialize(int a1, int *a2)
 {
   unsigned int result; // eax
+  size_t v4; // [esp-10h] [ebp-18h]
+  size_t v5; // [esp-4h] [ebp-Ch]
 
-  memset(&dword_4B3A6DC4, 0, 0x1C6Cu);
+  LODWORD(v5) = 7276;
+  memset(&dword_4B3A6DC4, 0, v5);
+  LODWORD(v4) = 44;
   RtlpHpHeapManager = (int)&RtlpHpHeapGlobals;
-  memset(&dword_4B3A6DC4, 0, 0x2Cu);
-  RtlCSparseBitmapInitialize(&unk_4B3A6DC8, 0x28u);
+  memset(&dword_4B3A6DC4, 0, v4);
+  RtlCSparseBitmapInitialize(&unk_4B3A6DC8, 40);
   RtlpHpVaMgrCtxInitialize(&unk_4B3A6DF0);
   dword_4B3A8A28 = *a2;
   dword_4B3A8A2C = a2[1];

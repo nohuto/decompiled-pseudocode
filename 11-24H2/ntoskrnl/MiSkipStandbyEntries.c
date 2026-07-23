@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSkipStandbyEntries @ 0x1403F46B0
+ * XREFs of MiSkipStandbyEntries @ 0x1403E76A0
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x1403F43F0 (MiRebuildStandbyLookasideList.c)
+ *     MiRebuildStandbyLookasideList @ 0x1403E73E0 (MiRebuildStandbyLookasideList.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402141E0 (MiGetPfnPriority.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiGetPfnPriority @ 0x140335630 (MiGetPfnPriority.c)
  */
 
 __int64 __fastcall MiSkipStandbyEntries(__int64 a1, __int64 a2, int a3, int a4, unsigned __int64 a5)
@@ -31,9 +31,9 @@ __int64 __fastcall MiSkipStandbyEntries(__int64 a1, __int64 a2, int a3, int a4, 
       v13 = v12;
       if ( a4 )
         goto LABEL_26;
-      if ( v7 >= qword_140E35B00 )
+      if ( v7 >= qword_140E35C40 )
       {
-        v14 = qword_140E35B00 + 2048;
+        v14 = qword_140E35C40 + 2048;
         if ( a3 == 2 || v7 >= v14 )
         {
           v9 = 0xFFFFFFFFFFLL;
@@ -41,15 +41,15 @@ __int64 __fastcall MiSkipStandbyEntries(__int64 a1, __int64 a2, int a3, int a4, 
         else
         {
           v15 = *(_QWORD *)(v12 + 16);
-          if ( qword_140E2DB80 && (v15 & 0x10) == 0 )
-            v15 &= ~qword_140E2DB80;
+          if ( qword_140E2DCC0 && (v15 & 0x10) == 0 )
+            v15 &= ~qword_140E2DCC0;
           v7 = (v15 >> 12) & 0xFFFFFFFFFFLL;
-          if ( v7 >= v14 || v7 < qword_140E35B00 )
+          if ( v7 >= v14 || v7 < qword_140E35C40 )
             v13 = 0LL;
           v9 = 0xFFFFFFFFFFLL;
         }
       }
-      if ( v11 < qword_140E35B00 || v11 >= qword_140E35B00 + 2048 )
+      if ( v11 < qword_140E35C40 || v11 >= qword_140E35C40 + 2048 )
         break;
       a3 = 1;
 LABEL_16:
@@ -74,7 +74,7 @@ LABEL_16:
       }
       else
       {
-        if ( a4 || v7 == 0x3FFFFFFFFFLL || v7 < qword_140E35B00 || v7 >= qword_140E35B00 + 2048 )
+        if ( a4 || v7 == 0x3FFFFFFFFFLL || v7 < qword_140E35C40 || v7 >= qword_140E35C40 + 2048 )
           return v7;
         v8 = v10;
       }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpPrepareHeader @ 0x1404913E8
+ * XREFs of EtwpPrepareHeader @ 0x140491E78
  * Callers:
- *     EtwpFlushBuffer @ 0x14049132C (EtwpFlushBuffer.c)
- *     EtwpAddLogHeader @ 0x140493E48 (EtwpAddLogHeader.c)
- *     EtwpBufferingModeFlush @ 0x1406A6710 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushBuffer @ 0x140491DBC (EtwpFlushBuffer.c)
+ *     EtwpAddLogHeader @ 0x1404948D8 (EtwpAddLogHeader.c)
+ *     EtwpBufferingModeFlush @ 0x1406A6848 (EtwpBufferingModeFlush.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall EtwpPrepareHeader(__int64 a1, __int64 a2, __int16 a3)

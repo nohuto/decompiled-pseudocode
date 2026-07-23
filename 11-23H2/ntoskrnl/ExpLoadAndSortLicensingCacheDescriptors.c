@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x14080F86C
+ * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x14080FB3C
  * Callers:
- *     SLQueryLicenseValueInternal @ 0x14080F294 (SLQueryLicenseValueInternal.c)
+ *     SLQueryLicenseValueInternal @ 0x14080F564 (SLQueryLicenseValueInternal.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     ExpSetLicenseTamperState @ 0x1406093E4 (ExpSetLicenseTamperState.c)
- *     sub_14080FAE0 @ 0x14080FAE0 (sub_14080FAE0.c)
- *     sub_14080FB44 @ 0x14080FB44 (sub_14080FB44.c)
- *     ntoskrnl_24 @ 0x1409F9A10 (ntoskrnl_24.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     ExpSetLicenseTamperState @ 0x140609934 (ExpSetLicenseTamperState.c)
+ *     sub_14080FDB0 @ 0x14080FDB0 (sub_14080FDB0.c)
+ *     sub_14080FE14 @ 0x14080FE14 (sub_14080FE14.c)
+ *     ntoskrnl_24 @ 0x1409F9CA0 (ntoskrnl_24.c)
  */
 
 __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
@@ -69,7 +69,7 @@ __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
       v7 = *(_QWORD *)a1;
       if ( *(_QWORD *)a1 )
       {
-        v8 = sub_14080FAE0(a1);
+        v8 = sub_14080FDB0(a1);
         v11 = v8;
         if ( v8 >= 0 )
         {
@@ -80,7 +80,7 @@ LABEL_18:
           if ( !*(_DWORD *)(a1 + 46824) )
           {
             LOBYTE(v6) = 1;
-            v8 = sub_14080FB44(v7, v6, a1 + 24, 2925LL, a1 + 46824);
+            v8 = sub_14080FE14(v7, v6, a1 + 24, 2925LL, a1 + 46824);
             v11 = v8;
           }
           if ( v8 < 0 )
@@ -94,7 +94,7 @@ LABEL_18:
           }
           else if ( *v9 )
           {
-            qsort((void *)(a1 + 24), (unsigned int)*v9, 0x10uLL, sub_14082F980);
+            qsort((void *)(a1 + 24), (unsigned int)*v9, 0x10uLL, sub_14082FC80);
             *(_BYTE *)(a1 + 46828) = 1;
           }
           else

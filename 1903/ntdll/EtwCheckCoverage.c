@@ -6,35 +6,35 @@
  *     <none>
  */
 
-char __fastcall EtwCheckCoverage(__int64 a1)
+BOOLEAN __cdecl EtwCheckCoverage(PTELEMETRY_COVERAGE_POINT CoveragePoint)
 {
-  unsigned int *AnsiCodePageData; // rdx
-  int v4; // r8d
-  __int64 v5; // rax
+  PTELEMETRY_COVERAGE_HEADER TelemetryCoverageHeader; // rdx
+  ULONG Hash; // r8d
+  __int64 HashTableEntries; // rax
   unsigned int v6; // ecx
   unsigned __int64 v7; // r10
-  unsigned int *v8; // rcx
-  unsigned int *i; // rax
+  ULONG *v8; // rcx
+  ULONG *i; // rax
 
-  AnsiCodePageData = (unsigned int *)NtCurrentPeb()[2].AnsiCodePageData;
-  if ( !AnsiCodePageData || (*((_BYTE *)AnsiCodePageData + 2) & 1) != 0 )
+  TelemetryCoverageHeader = NtCurrentPeb()->TelemetryCoverageHeader;
+  if ( !TelemetryCoverageHeader || (*(_BYTE *)&TelemetryCoverageHeader->2 & 1) != 0 )
     return 0;
-  v4 = *(_DWORD *)(a1 + 8);
-  v5 = AnsiCodePageData[1];
-  v6 = v4 & AnsiCodePageData[2];
-  v7 = (unsigned __int64)&AnsiCodePageData[v5 + 13];
-  if ( v6 >= (unsigned int)v5 )
-    v6 = v6 - (unsigned int)v5 < (unsigned int)v5 ? v6 - v5 : 0;
-  v8 = &AnsiCodePageData[v6 + 13];
+  Hash = CoveragePoint->Hash;
+  HashTableEntries = TelemetryCoverageHeader->HashTableEntries;
+  v6 = Hash & TelemetryCoverageHeader->HashIndexMask;
+  v7 = (unsigned __int64)&TelemetryCoverageHeader->HashTable[HashTableEntries];
+  if ( v6 >= (unsigned int)HashTableEntries )
+    v6 = v6 - (unsigned int)HashTableEntries < (unsigned int)HashTableEntries ? v6 - HashTableEntries : 0;
+  v8 = &TelemetryCoverageHeader->HashTable[v6];
   i = v8;
   if ( (unsigned __int64)v8 >= v7 )
   {
 LABEL_12:
-    for ( i = AnsiCodePageData + 13; i < v8; ++i )
+    for ( i = TelemetryCoverageHeader->HashTable; i < v8; ++i )
     {
       if ( !*i )
         goto LABEL_8;
-      if ( *i == v4 )
+      if ( *i == Hash )
         goto LABEL_11;
     }
     i = 0LL;
@@ -43,16 +43,16 @@ LABEL_12:
   {
     while ( *i )
     {
-      if ( *i == v4 )
+      if ( *i == Hash )
         goto LABEL_11;
       if ( (unsigned __int64)++i >= v7 )
         goto LABEL_12;
     }
   }
 LABEL_8:
-  if ( *i != v4 )
+  if ( *i != Hash )
     return 0;
 LABEL_11:
-  *(_DWORD *)(a1 + 12) = AnsiCodePageData[6];
+  CoveragePoint->LastCoveredRound = TelemetryCoverageHeader->ResetRound;
   return 1;
 }

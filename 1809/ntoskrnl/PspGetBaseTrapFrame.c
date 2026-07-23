@@ -1,10 +1,10 @@
 /*
- * XREFs of PspGetBaseTrapFrame @ 0x1400A0F18
+ * XREFs of PspGetBaseTrapFrame @ 0x1400A0E58
  * Callers:
- *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
- *     PsGetBaseTrapFrame @ 0x1402E9A6C (PsGetBaseTrapFrame.c)
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
- *     PspInitializeThunkContext @ 0x1406207DC (PspInitializeThunkContext.c)
+ *     RtlpWalkFrameChain @ 0x14009EAD0 (RtlpWalkFrameChain.c)
+ *     PsGetBaseTrapFrame @ 0x1402E9C5C (PsGetBaseTrapFrame.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
+ *     PspInitializeThunkContext @ 0x1406217DC (PspInitializeThunkContext.c)
  * Callees:
  *     <none>
  */

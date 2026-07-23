@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDeleteWnfStateData()
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 204LL;
+  result = 204;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

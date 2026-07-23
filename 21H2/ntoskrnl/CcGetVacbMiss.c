@@ -1,24 +1,24 @@
 /*
- * XREFs of CcGetVacbMiss @ 0x1403109C0
+ * XREFs of CcGetVacbMiss @ 0x14031B710
  * Callers:
- *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x14032BC60 (CcGetVirtualAddress.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     CcGetVacbLargeOffset @ 0x1402AE538 (CcGetVacbLargeOffset.c)
- *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
- *     CcSetVacbInFreeList @ 0x14030FBFC (CcSetVacbInFreeList.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x140310D24 (CcReleaseBcbLockAndVacbLock.c)
- *     CcIncrementVacbActiveCount @ 0x140310D64 (CcIncrementVacbActiveCount.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x140310DA4 (CcAcquireBcbLockAndVacbLock.c)
- *     MmMapViewInSystemCache @ 0x140310DE0 (MmMapViewInSystemCache.c)
- *     CcGetVacbFromFreeList @ 0x140312CF0 (CcGetVacbFromFreeList.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
- *     SetVacb @ 0x140313980 (SetVacb.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CcUnmapInactiveViews @ 0x1404EB3E0 (CcUnmapInactiveViews.c)
- *     CcUnmapVacb @ 0x1406EA378 (CcUnmapVacb.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     CcGetVacbLargeOffset @ 0x14022C898 (CcGetVacbLargeOffset.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402406E0 (FsRtlIsNtstatusExpected.c)
+ *     CcSetVacbInFreeList @ 0x14031A94C (CcSetVacbInFreeList.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14031BA74 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcIncrementVacbActiveCount @ 0x14031BAB4 (CcIncrementVacbActiveCount.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14031BAF4 (CcAcquireBcbLockAndVacbLock.c)
+ *     MmMapViewInSystemCache @ 0x14031BB30 (MmMapViewInSystemCache.c)
+ *     CcGetVacbFromFreeList @ 0x14031DA40 (CcGetVacbFromFreeList.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
+ *     SetVacb @ 0x14031E6D0 (SetVacb.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CcUnmapInactiveViews @ 0x1404EB620 (CcUnmapInactiveViews.c)
+ *     CcUnmapVacb @ 0x140701758 (CcUnmapVacb.c)
  */
 
 _QWORD *__fastcall CcGetVacbMiss(_QWORD *a1, __int64 a2, unsigned int a3, int a4)
@@ -31,7 +31,7 @@ _QWORD *__fastcall CcGetVacbMiss(_QWORD *a1, __int64 a2, unsigned int a3, int a4
   KIRQL v11; // si
   _QWORD *VacbFromFreeList; // rdi
   __int64 v13; // rdx
-  int v14; // r14d
+  NTSTATUS v14; // r14d
   __int64 VacbLargeOffset; // r15
   KIRQL v17; // si
   KIRQL v18; // si
@@ -48,7 +48,7 @@ _QWORD *__fastcall CcGetVacbMiss(_QWORD *a1, __int64 a2, unsigned int a3, int a4
   LODWORD(v20) = a2 - (a2 & 0x3FFFF);
   v6 = a4;
   v9 = v20;
-  Partition = CcGetPartition(a1);
+  Partition = CcGetPartition(a1, 0, a3);
   v21 = Partition;
   while ( 1 )
   {

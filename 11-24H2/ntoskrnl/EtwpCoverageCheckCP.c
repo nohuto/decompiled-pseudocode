@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpCoverageCheckCP @ 0x1407AAA94
+ * XREFs of EtwpCoverageCheckCP @ 0x1407AAF5C
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1409047E8 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1408DCC48 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpCoverageValidateCP @ 0x1404581BC (EtwpCoverageValidateCP.c)
- *     TelemetryCoverageTableLocateInternal @ 0x1404B4188 (TelemetryCoverageTableLocateInternal.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpCoverageValidateCP @ 0x14044D4CC (EtwpCoverageValidateCP.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x1404AE9A8 (TelemetryCoverageTableLocateInternal.c)
  */
 
 __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebp
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v6; // rax
+  char *v6; // rax
   signed __int8 v7; // cf
-  _QWORD *v8; // rsi
+  char *v8; // rsi
   unsigned int *v9; // rsi
   int v10; // edx
   unsigned int *Internal; // rax
@@ -31,13 +31,13 @@ __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v6 = KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
+    v6 = (char *)KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
     v7 = _interlockedbittestandset64((volatile signed __int32 *)&EtwpCoverageLock, 0LL);
     v8 = v6;
     if ( v7 )
-      ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, (__int64)v6, (__int64)&EtwpCoverageLock);
+      ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, v6, (__int64)&EtwpCoverageLock);
     if ( v8 )
-      *((_BYTE *)v8 + 10) = 1;
+      v8[10] = 1;
     v9 = *(unsigned int **)(a1 + 16);
     v10 = *(_DWORD *)(a2 + 8);
     EtwpCoverageLockOwner = (__int64)KeGetCurrentThread();

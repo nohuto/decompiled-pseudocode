@@ -31,7 +31,6 @@ __int64 __fastcall RtlAddAttributeActionToRXact(
   __int64 v21; // rbx
   _DWORD *Heap; // rax
   _DWORD *v24; // rsi
-  __int64 v25; // r9
 
   if ( (unsigned int)(a2 - 1) > 1 )
     return 3221225485LL;
@@ -47,12 +46,12 @@ __int64 __fastcall RtlAddAttributeActionToRXact(
     do
       v15 *= 2;
     while ( v15 < v14 );
-    Heap = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, v15);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
     v24 = Heap;
     if ( Heap )
     {
       memmove(Heap, *(const void **)(a1 + 24), *(unsigned int *)(*(_QWORD *)(a1 + 24) + 8LL));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(_QWORD *)(a1 + 24), v25);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 24));
       *(_QWORD *)(a1 + 24) = v24;
       v24[1] = v15;
       goto LABEL_4;

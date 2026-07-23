@@ -1,18 +1,18 @@
 /*
- * XREFs of KeFlushMultipleRangeTb @ 0x1400B5D3C
+ * XREFs of KeFlushMultipleRangeTb @ 0x1400B3B64
  * Callers:
- *     MmMapViewInSystemCache @ 0x140018A20 (MmMapViewInSystemCache.c)
- *     MiObtainSystemCacheView @ 0x140019B70 (MiObtainSystemCacheView.c)
- *     MiProtectPool @ 0x1400EA400 (MiProtectPool.c)
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
+ *     MmMapViewInSystemCache @ 0x1400185A0 (MmMapViewInSystemCache.c)
+ *     MiObtainSystemCacheView @ 0x1400196F0 (MiObtainSystemCacheView.c)
+ *     MiProtectPool @ 0x1400E8270 (MiProtectPool.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
  * Callees:
- *     KiIsSecureProcessFlush @ 0x14001DECC (KiIsSecureProcessFlush.c)
- *     KxFlushMultipleTb @ 0x1400B5DC8 (KxFlushMultipleTb.c)
- *     KiFlushViaHypervisor @ 0x1400E1020 (KiFlushViaHypervisor.c)
- *     HvlFlushRangeListTb @ 0x1401C14F0 (HvlFlushRangeListTb.c)
- *     KiPrepareFlushParameters @ 0x1401D6234 (KiPrepareFlushParameters.c)
- *     VmFlushTb @ 0x140223CE0 (VmFlushTb.c)
- *     ExFlushTb @ 0x14022EB0C (ExFlushTb.c)
+ *     KiIsSecureProcessFlush @ 0x14001DA4C (KiIsSecureProcessFlush.c)
+ *     KxFlushMultipleTb @ 0x1400B3BF0 (KxFlushMultipleTb.c)
+ *     KiFlushViaHypervisor @ 0x1400DEEC0 (KiFlushViaHypervisor.c)
+ *     HvlFlushRangeListTb @ 0x1401C13D4 (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x1401D6060 (KiPrepareFlushParameters.c)
+ *     VmFlushTb @ 0x140223B0C (VmFlushTb.c)
+ *     ExFlushTb @ 0x14022E938 (ExFlushTb.c)
  */
 
 __int64 __fastcall KeFlushMultipleRangeTb(unsigned int a1, __int64 a2, unsigned int a3, unsigned int a4)

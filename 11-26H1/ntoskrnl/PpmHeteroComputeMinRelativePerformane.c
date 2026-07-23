@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmHeteroComputeMinRelativePerformane @ 0x140A9E258
+ * XREFs of PpmHeteroComputeMinRelativePerformane @ 0x140ABE034
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void PpmHeteroComputeMinRelativePerformane()
@@ -71,8 +71,8 @@ void PpmHeteroComputeMinRelativePerformane()
   }
 LABEL_13:
   if ( !PpmHeteroMinRelativePerformance
-    && (unsigned int)dword_140E07598 > 5
-    && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+    && (unsigned int)dword_140E07560 > 5
+    && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v8 = PpmMaxCoreClasses;
     v12 = 1LL;
@@ -80,6 +80,6 @@ LABEL_13:
     v9 = 0x1000000LL;
     v13 = &v9;
     v14 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)byte_14004D14D, 0LL, 0LL, 4u, &v10);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004D873, 0LL, 0LL, 4u, &v10);
   }
 }

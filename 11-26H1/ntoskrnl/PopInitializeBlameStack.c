@@ -1,19 +1,19 @@
 /*
- * XREFs of PopInitializeBlameStack @ 0x140CD15BC
+ * XREFs of PopInitializeBlameStack @ 0x140CD7764
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopBSDiagSetTriageData @ 0x1407DC970 (PopBSDiagSetTriageData.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopBSDiagSetTriageData @ 0x1407E0B90 (PopBSDiagSetTriageData.c)
  */
 
 __int64 PopInitializeBlameStack()
 {
   struct _KLOCK_ENTRIES *v0; // r9
 
-  memset_0(&stru_140F110C0.ThreadLock, 0, 0xC18uLL);
-  dword_140F11D00 = -1;
-  *(_OWORD *)&stru_140F11D08.Header.Lock = 0LL;
-  *(_QWORD *)&stru_140F11D08.Header.Lock = 0LL;
-  return PopBSDiagSetTriageData(2, (struct _LIST_ENTRY *)&stru_140F110C0.ThreadLock, 3096LL, v0);
+  memset_0(PopStateTransitonBlameStack, 0, 0xC18uLL);
+  dword_140F120C0 = -1;
+  xmmword_140F120C8 = 0LL;
+  *(_QWORD *)&xmmword_140F120C8 = 0LL;
+  return PopBSDiagSetTriageData(2, (__int64)PopStateTransitonBlameStack, 3096LL, v0);
 }

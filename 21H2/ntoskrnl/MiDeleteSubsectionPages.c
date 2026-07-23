@@ -1,29 +1,29 @@
 /*
- * XREFs of MiDeleteSubsectionPages @ 0x140239170
+ * XREFs of MiDeleteSubsectionPages @ 0x1402DD9C0
  * Callers:
- *     MiDeleteSegmentPages @ 0x1402F7C0C (MiDeleteSegmentPages.c)
- *     MiExtendSection @ 0x140689798 (MiExtendSection.c)
+ *     MiDeleteSegmentPages @ 0x14030295C (MiDeleteSegmentPages.c)
+ *     MiExtendSection @ 0x1405E8C28 (MiExtendSection.c)
  * Callees:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteTransitionPte @ 0x140238830 (MiDeleteTransitionPte.c)
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiInvalidPteConforms @ 0x14023B540 (MiInvalidPteConforms.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     MiCapturePageFileInfoInline @ 0x1402A2CF0 (MiCapturePageFileInfoInline.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiSetLeafPfnBuddy @ 0x1402CA91C (MiSetLeafPfnBuddy.c)
- *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
- *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
- *     MiDecrementSubsectionViewCount @ 0x140315170 (MiDecrementSubsectionViewCount.c)
- *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiCapturePageFileInfoInline @ 0x140220130 (MiCapturePageFileInfoInline.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiSetLeafPfnBuddy @ 0x14024920C (MiSetLeafPfnBuddy.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteTransitionPte @ 0x1402DD080 (MiDeleteTransitionPte.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiInvalidPteConforms @ 0x1402DFD90 (MiInvalidPteConforms.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140302FB0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiDeleteClusterSection @ 0x14030B130 (MiDeleteClusterSection.c)
+ *     MiDecrementSubsectionViewCount @ 0x14031FEC0 (MiDecrementSubsectionViewCount.c)
+ *     MiLockProtoPoolPage @ 0x140324E50 (MiLockProtoPoolPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiDeleteSubsectionLargePages @ 0x1403F6534 (MiDeleteSubsectionLargePages.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeleteSubsectionPages(__int64 *BugCheckParameter2, __int64 a2)
@@ -34,15 +34,15 @@ __int64 __fastcall MiDeleteSubsectionPages(__int64 *BugCheckParameter2, __int64 
   __int64 v5; // r8
   __int64 v6; // rax
   __int64 v7; // rbx
-  unsigned __int64 Process; // rcx
+  char *v8; // rcx
   __int64 v9; // rbp
   __int64 v10; // r15
   unsigned __int64 v11; // rsi
   __int64 v12; // r10
   unsigned __int64 v13; // r9
   __int64 v14; // r11
-  unsigned __int64 v15; // r8
-  ULONG_PTR v16; // r12
+  unsigned __int64 Flink; // r8
+  unsigned __int64 v16; // r12
   __int64 v17; // r14
   __int64 v18; // rax
   unsigned __int64 v19; // rbx
@@ -51,7 +51,7 @@ __int64 __fastcall MiDeleteSubsectionPages(__int64 *BugCheckParameter2, __int64 
   __int64 v22; // rdx
   __int64 v23; // rax
   int v24; // eax
-  __int64 v25; // rax
+  unsigned __int64 v25; // rax
   __int64 v26; // r15
   unsigned __int64 v27; // rdi
   unsigned __int8 CurrentIrql; // al
@@ -67,8 +67,8 @@ __int64 __fastcall MiDeleteSubsectionPages(__int64 *BugCheckParameter2, __int64 
   __int64 v39; // [rsp+20h] [rbp-98h]
   int v40; // [rsp+28h] [rbp-90h]
   _BYTE v41[12]; // [rsp+2Ch] [rbp-8Ch] BYREF
-  ULONG_PTR v42; // [rsp+38h] [rbp-80h]
-  __int64 v43; // [rsp+40h] [rbp-78h] BYREF
+  unsigned __int64 v42; // [rsp+38h] [rbp-80h]
+  unsigned __int64 v43; // [rsp+40h] [rbp-78h] BYREF
   char *v44; // [rsp+48h] [rbp-70h]
   __int64 v45; // [rsp+50h] [rbp-68h]
   unsigned __int64 v46; // [rsp+58h] [rbp-60h]
@@ -85,27 +85,27 @@ __int64 __fastcall MiDeleteSubsectionPages(__int64 *BugCheckParameter2, __int64 
   LOBYTE(a2) = 17;
   v5 = *(_WORD *)(v2 + 60) & 0x3FF;
   v50 = 17;
-  v45 = *(_QWORD *)(qword_140C4E648 + 8 * v5);
+  v45 = *(_QWORD *)(qword_140C4E688 + 8 * v5);
   v6 = *(_QWORD *)(v2 + 64);
   v7 = 0LL;
   *(_QWORD *)v41 = v6 != 0;
-  Process = BugCheckParameter2[1];
+  v8 = (char *)BugCheckParameter2[1];
   v9 = 0LL;
   v10 = 0LL;
   v46 = v6 & 0xFFFFFFFFFFFFFFF0uLL;
   v39 = 0LL;
   v40 = *(_DWORD *)(v2 + 56);
-  P = (PVOID)Process;
-  if ( !Process )
+  P = v8;
+  if ( !v8 )
     goto LABEL_77;
-  v11 = Process;
-  v44 = (char *)(Process + 8LL * *(unsigned int *)(v3 + 44));
-  if ( Process >= (unsigned __int64)v44 )
+  v11 = (unsigned __int64)v8;
+  v44 = &v8[8 * *(unsigned int *)(v3 + 44)];
+  if ( v8 >= v44 )
     goto LABEL_77;
   v12 = 0xFFFFFFFFFLL;
   v13 = 0xFFFFFA8000000028uLL;
   v14 = 0x4000000000000LL;
-  v15 = 0xFFFFFA8000000000uLL;
+  Flink = 0xFFFFFA8000000000uLL;
   v16 = 0LL;
   do
   {
@@ -139,7 +139,7 @@ __int64 __fastcall MiDeleteSubsectionPages(__int64 *BugCheckParameter2, __int64 
         break;
       MmAccessFault(2uLL, v11, 0, 0LL);
     }
-    v15 = 0xFFFFFA8000000000uLL;
+    Flink = 0xFFFFFA8000000000uLL;
     v12 = 0xFFFFFFFFFLL;
     v13 = 0xFFFFFA8000000028uLL;
     v14 = 0x4000000000000LL;
@@ -156,7 +156,7 @@ LABEL_25:
         a2 = 6 * (v12 & (v20 >> 12));
         if ( (v14 & *(_QWORD *)(v13 + 48 * (v12 & (v20 >> 12)))) != 0 )
         {
-          v21 = v15 + 48 * (v12 & (v20 >> 12));
+          v21 = Flink + 48 * (v12 & (v20 >> 12));
           v51 = 0;
           if ( _interlockedbittestandset64((volatile signed __int32 *)(v21 + 24), 0x3FuLL) )
           {
@@ -167,7 +167,7 @@ LABEL_25:
               while ( *(__int64 *)(v21 + 24) < 0 );
             }
             while ( _interlockedbittestandset64((volatile signed __int32 *)(v21 + 24), 0x3FuLL) );
-            v15 = 0xFFFFFA8000000000uLL;
+            Flink = 0xFFFFFA8000000000uLL;
             v12 = 0xFFFFFFFFFLL;
             v13 = 0xFFFFFA8000000028uLL;
             v14 = 0x4000000000000LL;
@@ -179,12 +179,11 @@ LABEL_25:
       }
       if ( (v19 & 0x400) != 0 || (v19 & 0x800) == 0 )
         break;
-      if ( (unsigned int)MiInvalidPteConforms(*(_QWORD *)v11, a2, v15, v13) )
+      if ( (unsigned int)MiInvalidPteConforms(*(_QWORD *)v11, a2) )
       {
-        Process = qword_140C4DF40;
         v20 = v19;
-        if ( qword_140C4DF40 && (v19 & 0x10) == 0 )
-          v20 = v19 & ~qword_140C4DF40;
+        if ( qword_140C4DF80 && (v19 & 0x10) == 0 )
+          v20 = v19 & ~qword_140C4DF80;
         goto LABEL_25;
       }
     }
@@ -193,23 +192,20 @@ LABEL_33:
     v22 = *(_QWORD *)v11;
     if ( v11 >= 0xFFFFF6FB7DBED000uLL
       && v11 <= 0xFFFFF6FB7DBED7F8uLL
-      && (unsigned int)MiPteHasShadow(Process, v22, v15, v13)
+      && (unsigned int)MiPteHasShadow()
       && (v22 & 1) != 0
       && ((v22 & 0x20) == 0 || (v22 & 0x42) == 0) )
     {
-      Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-      v15 = *(_QWORD *)(Process + 1928);
-      if ( v15 )
+      Flink = (unsigned __int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
       {
-        v23 = *(_QWORD *)(v15 + 8 * ((v11 >> 3) & 0x1FF));
-        v15 = v22 | 0x20;
-        Process = (unsigned __int8)v23;
-        LOBYTE(Process) = v23 & 0x20;
+        v23 = *(_QWORD *)(Flink + 8 * ((v11 >> 3) & 0x1FF));
+        Flink = v22 | 0x20;
         if ( (v23 & 0x20) == 0 )
-          v15 = v22;
-        v22 = v15;
+          Flink = v22;
+        v22 = Flink;
         if ( (v23 & 0x42) != 0 )
-          v22 = v15 | 0x42;
+          v22 = Flink | 0x42;
       }
     }
     *(_QWORD *)&v41[4] = v22;
@@ -220,7 +216,7 @@ LABEL_33:
         v10 = v17;
       if ( (MI_READ_PTE_LOCK_FREE(&v41[4]) & 0x1FF000) == 0 )
       {
-        MiSetLeafPfnBuddy(v21, v16);
+        MiSetLeafPfnBuddy((_QWORD *)v21, v16);
         v16 = v21;
       }
       _InterlockedAnd64((volatile signed __int64 *)(v21 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -230,8 +226,8 @@ LABEL_33:
       goto LABEL_69;
     if ( (v22 & 0x800) != 0 )
     {
-      if ( qword_140C4DF40 && (v22 & 0x10) == 0 )
-        LOWORD(v22) = ~(_WORD)qword_140C4DF40 & v22;
+      if ( qword_140C4DF80 && (v22 & 0x10) == 0 )
+        LOWORD(v22) = ~(_WORD)qword_140C4DF80 & v22;
       v7 = v39;
       if ( (*(_DWORD *)(v21 + 16) & 0x400LL) != 0
         && (*(_DWORD *)(v2 + 56) & 0x20) == 0
@@ -243,14 +239,14 @@ LABEL_33:
         && (v22 & 0xF000) == 0
         && (__int64)((unsigned __int64)&v44[-v11] & 0xFFFFFFFFFFFFFFF8uLL) >= 128
         && ((4096 - (v11 & 0xFFF)) & 0xFFFFFFF8) >= 0x80
-        && (unsigned int)MiDeleteClusterSection(v21, v11, v15, v13) == 1 )
+        && (unsigned int)MiDeleteClusterSection(v21, v11, Flink, v13) == 1 )
       {
         v4 = v49;
         v11 += 128LL;
         goto LABEL_71;
       }
-      LOBYTE(v15) = 17;
-      v24 = MiDeleteTransitionPte(v11, v21, v15, 1);
+      LOBYTE(Flink) = 17;
+      v24 = MiDeleteTransitionPte(v11, v21, Flink, 1);
       v4 = v49;
       if ( v24 == 3 )
         ++*v49;
@@ -258,10 +254,10 @@ LABEL_33:
     else
     {
       v43 = v22;
-      v25 = MiCapturePageFileInfoInline(&v43, 0LL, 1LL);
+      v25 = MiCapturePageFileInfoInline(&v43, 0, 1);
       v43 = v25;
       if ( v25 )
-        MiReleasePageFileInfo(v45, v25, 0LL);
+        MiReleasePageFileInfo(v45, v25, 0);
 LABEL_69:
       v4 = v49;
     }
@@ -271,7 +267,7 @@ LABEL_71:
     a2 = v50;
 LABEL_72:
     v12 = 0xFFFFFFFFFLL;
-    v15 = 0xFFFFFA8000000000uLL;
+    Flink = 0xFFFFFA8000000000uLL;
     v14 = 0x4000000000000LL;
     v13 = 0xFFFFFA8000000028uLL;
   }

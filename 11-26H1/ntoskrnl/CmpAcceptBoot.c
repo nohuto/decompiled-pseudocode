@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpAcceptBoot @ 0x14084E81C
+ * XREFs of CmpAcceptBoot @ 0x140854B2C
  * Callers:
- *     NtInitializeRegistry @ 0x14084EE60 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x140855170 (NtInitializeRegistry.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     KeCommitSmtState @ 0x1405F1790 (KeCommitSmtState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpSaveBootControlSet @ 0x14084CBB8 (CmpSaveBootControlSet.c)
- *     CmpGetNextActiveHive @ 0x1408B3048 (CmpGetNextActiveHive.c)
- *     CmpTrimHive @ 0x1408B781C (CmpTrimHive.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x140B363D8 (CmpUpdateReorganizeRegistryValues.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     KeCommitSmtState @ 0x1405F4150 (KeCommitSmtState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpSaveBootControlSet @ 0x140852EC8 (CmpSaveBootControlSet.c)
+ *     CmpGetNextActiveHive @ 0x1408B95EC (CmpGetNextActiveHive.c)
+ *     CmpTrimHive @ 0x1408BDDEC (CmpTrimHive.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x140B385E8 (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
 __int64 __fastcall CmpAcceptBoot(__int16 a1)

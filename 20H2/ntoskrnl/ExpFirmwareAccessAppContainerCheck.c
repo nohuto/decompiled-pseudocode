@@ -17,11 +17,11 @@
 bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
 {
   int v1; // ecx
-  _BYTE v3[4]; // [rsp+30h] [rbp-D0h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
+  BOOLEAN IsMember[4]; // [rsp+30h] [rbp-D0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
   ULONG ReturnLength; // [rsp+3Ch] [rbp-C4h] BYREF
   HANDLE TokenInformation; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING SourceString; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING v8; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING v9; // [rsp+68h] [rbp-98h] BYREF
   __int128 Sid; // [rsp+78h] [rbp-88h] BYREF
@@ -53,8 +53,8 @@ bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
   *(_QWORD *)&v9.Length = 917516LL;
   *(_QWORD *)&v8.Length = 4849736LL;
   v18[3] = *(_OWORD *)L"cw5n1h2txyewy";
-  *(_QWORD *)&SourceString.Length = 4980810LL;
-  SourceString.Buffer = (wchar_t *)v18;
+  *(_QWORD *)&CapabilityName.Length = 4980810LL;
+  CapabilityName.Buffer = (wchar_t *)v18;
   Sid = 0LL;
   v12 = *(_QWORD *)L"smbios";
   v15[0] = *(_OWORD *)L"Microsoft.firmwareRead_cw5n1h2txyewy";
@@ -75,7 +75,7 @@ bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
   if ( !ExpCapabilityCheck(&v8) )
   {
 LABEL_4:
-    if ( !ExpCapabilityCheck(&SourceString) )
+    if ( !ExpCapabilityCheck(&CapabilityName) )
       return 0;
   }
   if ( BYTE2(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) != 0x81 )
@@ -84,12 +84,12 @@ LABEL_4:
     if ( !ExpTestSigningEnabled )
       return 0;
   }
-  v3[0] = 0;
+  IsMember[0] = 0;
   RtlInitializeSid(&Sid, &IdentifierAuthority, 2u);
   *RtlSubAuthoritySid(&Sid, 0) = 32;
   *RtlSubAuthoritySid(&Sid, 1u) = 544;
   return ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, TokenLinkedToken, &TokenInformation, 8u, &ReturnLength) >= 0
       && ReturnLength == 8
-      && (int)RtlCheckTokenMembershipEx(TokenInformation, &Sid, 1, v3) >= 0
-      && v3[0];
+      && RtlCheckTokenMembershipEx(TokenInformation, &Sid, 1u, IsMember) >= 0
+      && IsMember[0];
 }

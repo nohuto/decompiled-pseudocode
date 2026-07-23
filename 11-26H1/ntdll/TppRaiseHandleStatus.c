@@ -1,20 +1,20 @@
 /*
- * XREFs of TppRaiseHandleStatus @ 0x1800C9DE8
+ * XREFs of TppRaiseHandleStatus @ 0x1800C7568
  * Callers:
- *     TpSetWaitEx @ 0x18004F8E0 (TpSetWaitEx.c)
- *     TppJobpRundownJob @ 0x1800C9BD0 (TppJobpRundownJob.c)
- *     TppSetupNextWait @ 0x1800C9CF0 (TppSetupNextWait.c)
- *     TppWaitTimerExpiration @ 0x1800FBF7C (TppWaitTimerExpiration.c)
+ *     TpSetWaitEx @ 0x180039E60 (TpSetWaitEx.c)
+ *     TppJobpRundownJob @ 0x1800C7350 (TppJobpRundownJob.c)
+ *     TppSetupNextWait @ 0x1800C7470 (TppSetupNextWait.c)
+ *     TppWaitTimerExpiration @ 0x1800FB6CC (TppWaitTimerExpiration.c)
  * Callees:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 void __fastcall TppRaiseHandleStatus(int a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v4; // rsi
-  void (__fastcall *v6)(__int64, __int64, __int64, unsigned int); // r8
+  void (__fastcall *v6)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int); // r8
   __int64 v7; // rax
   EXCEPTION_RECORD ExceptionRecord; // [rsp+28h] [rbp-59h] BYREF
 
@@ -22,7 +22,7 @@ void __fastcall TppRaiseHandleStatus(int a1, unsigned __int64 a2, unsigned __int
   memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
   if ( a3 )
   {
-    v6 = *(void (__fastcall **)(__int64, __int64, __int64, unsigned int))(a3 + 80);
+    v6 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int))(a3 + 80);
     ExceptionRecord.NumberParameters = 5;
     if ( v6 == RtlpTpWaitCallback && (v7 = *(_QWORD *)(a3 + 88), *(_QWORD *)(v7 + 32)) )
       ExceptionRecord.ExceptionInformation[4] = *(_QWORD *)(v7 + 32);

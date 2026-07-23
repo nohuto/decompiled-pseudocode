@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapFatalExceptionFilter @ 0x18013C174
+ * XREFs of RtlpHeapFatalExceptionFilter @ 0x18013A364
  * Callers:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlReAllocateHeap @ 0x1800A0E30 (RtlReAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlReAllocateHeap @ 0x18007A7D0 (RtlReAllocateHeap.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x18010A4D0 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapExceptionFilter @ 0x180105400 (RtlpHeapExceptionFilter.c)
  */
 
 __int64 __fastcall RtlpHeapFatalExceptionFilter(int a1, __int64 a2)

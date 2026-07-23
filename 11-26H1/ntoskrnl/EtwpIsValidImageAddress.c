@@ -1,33 +1,33 @@
 /*
- * XREFs of EtwpIsValidImageAddress @ 0x140942A20
+ * XREFs of EtwpIsValidImageAddress @ 0x140A35B30
  * Callers:
- *     EtwpFindDebugId @ 0x1409427A8 (EtwpFindDebugId.c)
+ *     EtwpFindDebugId @ 0x140A358B8 (EtwpFindDebugId.c)
  * Callees:
- *     RtlSectionTableFromVirtualAddress @ 0x14040E4E0 (RtlSectionTableFromVirtualAddress.c)
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x14042B410 (RtlSectionTableFromVirtualAddress.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
  */
 
 bool __fastcall EtwpIsValidImageAddress(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
         __int64 a3,
         unsigned __int64 a4,
         __int64 a5)
 {
   unsigned __int64 v6; // rdi
   bool result; // al
-  _DWORD *v9; // rax
+  PIMAGE_SECTION_HEADER v9; // rax
 
-  v6 = a4 - a2;
+  v6 = a4 - (_QWORD)BaseOfImage;
   result = 0;
-  if ( a4 >= a2 && a4 + a5 >= a4 && a4 + a5 <= a2 + a3 )
+  if ( a4 >= (unsigned __int64)BaseOfImage && a4 + a5 >= a4 && a4 + a5 <= (unsigned __int64)BaseOfImage + a3 )
   {
-    if ( !MmIsKernelAddress(a2) )
+    if ( !MmIsKernelAddress((unsigned __int64)BaseOfImage) )
       return 1;
-    v9 = (_DWORD *)RtlSectionTableFromVirtualAddress(a1, a2, v6);
+    v9 = RtlSectionTableFromVirtualAddress(NtHeaders, BaseOfImage, v6);
     if ( v9 )
     {
-      if ( v6 + a5 <= (unsigned int)(v9[3] + v9[4]) && (v9[9] & 0x2000000) == 0 )
+      if ( v6 + a5 <= v9->VirtualAddress + v9->SizeOfRawData && (v9->Characteristics & 0x2000000) == 0 )
         return 1;
     }
   }

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140659320 (PsRegisterSyscallProviderServiceTableMetadata.c)
+ *     sub_140659320 @ 0x140659320 (sub_140659320.c)
  */
 
 char __fastcall KeAddSystemServiceTable(int *a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
@@ -24,9 +24,9 @@ char __fastcall KeAddSystemServiceTable(int *a1, __int64 a2, unsigned int a3, __
       *(_QWORD *)&xmmword_140D06FA0 = a1;
       LODWORD(xmmword_140D06FB0) = a3;
       *((_QWORD *)&xmmword_140D06FB0 + 1) = a4;
-      PsRegisterSyscallProviderServiceTableMetadata(1u);
+      sub_140659320(1u);
       v10 = 0;
-      v7 = (unsigned int)&xmmword_140D06FA0 + xmmword_140D06FA0 + KiTableInformation;
+      v7 = (unsigned int)&xmmword_140D06FA0 + xmmword_140D06FA0 + dword_140C0E960;
       if ( (_DWORD)xmmword_140D06FB0 )
       {
         v11 = (int *)xmmword_140D06FA0;
@@ -45,7 +45,7 @@ char __fastcall KeAddSystemServiceTable(int *a1, __int64 a2, unsigned int a3, __
     *((_QWORD *)&xmmword_140D07130 + 1) = a4;
     v6 = 0;
     *(_QWORD *)&xmmword_140D07120 = a1;
-    v7 = (unsigned int)&xmmword_140D07120 + (_DWORD)a1 + KiTableInformation;
+    v7 = (unsigned int)&xmmword_140D07120 + (_DWORD)a1 + dword_140C0E960;
     LODWORD(xmmword_140D07130) = a3;
     if ( a3 )
     {
@@ -59,7 +59,7 @@ char __fastcall KeAddSystemServiceTable(int *a1, __int64 a2, unsigned int a3, __
     }
 LABEL_13:
     result = 1;
-    KiTableInformation += 2 * v7;
+    dword_140C0E960 += 2 * v7;
     return result;
   }
   return 0;

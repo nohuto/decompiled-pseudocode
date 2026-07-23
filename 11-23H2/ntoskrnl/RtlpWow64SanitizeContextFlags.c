@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpWow64SanitizeContextFlags @ 0x1407A07E8
+ * XREFs of RtlpWow64SanitizeContextFlags @ 0x1407A09D8
  * Callers:
- *     PspWow64GetContextThread @ 0x1407A018C (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1407A0458 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1407A037C (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1407A0648 (PspWow64SetContextThread.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x14030DA40 (RtlpValidateContextFlags.c)
- *     RtlpArchContextFlagFromMachine @ 0x1407A0C70 (RtlpArchContextFlagFromMachine.c)
+ *     RtlpValidateContextFlags @ 0x14030DCD0 (RtlpValidateContextFlags.c)
+ *     RtlpArchContextFlagFromMachine @ 0x1407A0E60 (RtlpArchContextFlagFromMachine.c)
  */
 
 __int64 __fastcall RtlpWow64SanitizeContextFlags(int *a1, char a2)

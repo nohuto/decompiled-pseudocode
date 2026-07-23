@@ -1,13 +1,13 @@
 /*
- * XREFs of IopInterlockedDecrementUlong @ 0x14044ABE0
+ * XREFs of IopInterlockedDecrementUlong @ 0x140442D10
  * Callers:
- *     IopDecrementDeviceObjectRefCount @ 0x14044AAD0 (IopDecrementDeviceObjectRefCount.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x140442C00 (IopDecrementDeviceObjectRefCount.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall IopInterlockedDecrementUlong(__int64 a1, _DWORD *a2, __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall IopInterlockedDecrementUlong(__int64 a1, _DWORD *a2, __int64 
   v7 = 16 * a1;
   v8 = *(volatile __int64 **)&ArbitraryUserPointer[v7 + 8];
   v9 = (__int64)&ArbitraryUserPointer[v7];
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v10 = _InterlockedExchange64(v8, v9);
     if ( v10 )

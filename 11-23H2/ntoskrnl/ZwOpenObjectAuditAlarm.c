@@ -1,14 +1,26 @@
 /*
- * XREFs of ZwOpenObjectAuditAlarm @ 0x14041D320
+ * XREFs of ZwOpenObjectAuditAlarm @ 0x14041D6B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenObjectAuditAlarm(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenObjectAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        ACCESS_MASK GrantedAccess,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN ObjectCreation,
+        BOOLEAN AccessGranted,
+        PBOOLEAN GenerateOnClose)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SubsystemName);
 }

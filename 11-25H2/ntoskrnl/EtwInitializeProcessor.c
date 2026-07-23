@@ -15,7 +15,7 @@
 __int64 __fastcall EtwInitializeProcessor(__int64 a1)
 {
   __int64 Pool2; // rax
-  union _SLIST_HEADER *v4; // rdi
+  _SLIST_HEADER *v4; // rdi
   int v5; // ebx
   __int64 *v6; // rsi
   unsigned __int64 i; // rbx
@@ -30,7 +30,7 @@ __int64 __fastcall EtwInitializeProcessor(__int64 a1)
   if ( !EtwpHostSiloState )
     return 0LL;
   Pool2 = ExAllocatePool2(0x40uLL);
-  v4 = (union _SLIST_HEADER *)Pool2;
+  v4 = (_SLIST_HEADER *)Pool2;
   if ( Pool2 )
   {
     v6 = (__int64 *)(Pool2 + 408);

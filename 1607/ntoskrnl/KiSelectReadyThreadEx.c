@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSelectReadyThreadEx @ 0x14005DF30
+ * XREFs of KiSelectReadyThreadEx @ 0x14005DAB0
  * Callers:
- *     ExpApplyPriorityBoost @ 0x14005D2D0 (ExpApplyPriorityBoost.c)
- *     NtYieldExecution @ 0x140091AF0 (NtYieldExecution.c)
- *     KiApplyForegroundBoostThread @ 0x1400CAD5C (KiApplyForegroundBoostThread.c)
- *     KiSchedulerApc @ 0x1400CB720 (KiSchedulerApc.c)
- *     KiRemoveBoostThread @ 0x1400CF3B0 (KiRemoveBoostThread.c)
- *     KiSetPriorityThread @ 0x1400D2BA0 (KiSetPriorityThread.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
+ *     ExpApplyPriorityBoost @ 0x14005CE50 (ExpApplyPriorityBoost.c)
+ *     NtYieldExecution @ 0x140091250 (NtYieldExecution.c)
+ *     KiApplyForegroundBoostThread @ 0x1400C8BFC (KiApplyForegroundBoostThread.c)
+ *     KiSchedulerApc @ 0x1400C95C0 (KiSchedulerApc.c)
+ *     KiRemoveBoostThread @ 0x1400CD250 (KiRemoveBoostThread.c)
+ *     KiSetPriorityThread @ 0x1400D0A40 (KiSetPriorityThread.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
  * Callees:
- *     KiSelectReadyThread @ 0x14005C1C0 (KiSelectReadyThread.c)
- *     KiSelectLowestRankedThread @ 0x1400CA6CC (KiSelectLowestRankedThread.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D0220 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiSelectReadyThread @ 0x14005BD40 (KiSelectReadyThread.c)
+ *     KiSelectLowestRankedThread @ 0x1400C856C (KiSelectLowestRankedThread.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400CE0C0 (KiGetThreadEffectiveRankNonZero.c)
  */
 
 unsigned __int64 *__fastcall KiSelectReadyThreadEx(struct _KPRCB *a1, _KTHREAD *a2, unsigned __int64 *a3)

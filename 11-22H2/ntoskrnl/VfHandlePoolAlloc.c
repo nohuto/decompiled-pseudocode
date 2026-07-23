@@ -40,7 +40,7 @@ PVOID __fastcall VfHandlePoolAlloc(
 {
   __int64 v10; // rbx
   POOL_TYPE v11; // esi
-  union _SLIST_HEADER *VerifierData; // r15
+  _SLIST_HEADER *VerifierData; // r15
   __int64 v13; // rcx
   unsigned int v14; // r8d
   ULONG_PTR v15; // rdx
@@ -103,7 +103,7 @@ LABEL_4:
     else
     {
       LODWORD(NumberOfBytes) = 1;
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
       if ( !VerifierData )
       {
         v14 = a4;
@@ -139,7 +139,7 @@ LABEL_4:
     if ( !(_DWORD)NumberOfBytes )
     {
       LODWORD(NumberOfBytes) = 1;
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(v17);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(v17);
     }
     if ( VerifierData )
     {
@@ -176,7 +176,7 @@ LABEL_28:
     && (_DWORD)v19 != 1316118851 )
   {
     if ( !(_DWORD)NumberOfBytes )
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
     if ( VerifierData && (NumberOfBytes = a3 + 8, a3 + 8 >= a3) )
     {
       v22 = RtlpInterlockedPopEntrySList(VerifierData + 5);

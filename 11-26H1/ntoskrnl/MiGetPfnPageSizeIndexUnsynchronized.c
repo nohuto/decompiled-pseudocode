@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetPfnPageSizeIndexUnsynchronized @ 0x1402F0BC0
+ * XREFs of MiGetPfnPageSizeIndexUnsynchronized @ 0x1402D2C40
  * Callers:
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiActivePageClaimCandidate @ 0x1402923F0 (MiActivePageClaimCandidate.c)
- *     MiSetProbePagesAhead @ 0x1402EFB10 (MiSetProbePagesAhead.c)
- *     MiGetPagesRemainingInResidentPage @ 0x140703334 (MiGetPagesRemainingInResidentPage.c)
- *     MiZeroPageMakeHot @ 0x14070EEF0 (MiZeroPageMakeHot.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiActivePageClaimCandidate @ 0x140291950 (MiActivePageClaimCandidate.c)
+ *     MiSetProbePagesAhead @ 0x1402D1B90 (MiSetProbePagesAhead.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x140708004 (MiGetPagesRemainingInResidentPage.c)
+ *     MiZeroPageMakeHot @ 0x140713BF0 (MiZeroPageMakeHot.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetBaseResidentPage @ 0x1402F1BA0 (MiGetBaseResidentPage.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetBaseResidentPage @ 0x1402D3C20 (MiGetBaseResidentPage.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
  */
 
 __int64 __fastcall MiGetPfnPageSizeIndexUnsynchronized(__int64 a1, int *a2, int *a3)

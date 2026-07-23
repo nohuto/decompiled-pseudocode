@@ -1,27 +1,27 @@
 /*
- * XREFs of IopWriteFileGather @ 0x140A958BC
+ * XREFs of IopWriteFileGather @ 0x140A920EC
  * Callers:
- *     IopIoRingDispatchWriteGather @ 0x140717020 (IopIoRingDispatchWriteGather.c)
- *     NtWriteFileGather @ 0x140AABE00 (NtWriteFileGather.c)
+ *     IopIoRingDispatchWriteGather @ 0x140714BB0 (IopIoRingDispatchWriteGather.c)
+ *     NtWriteFileGather @ 0x140AA6DD0 (NtWriteFileGather.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     MmProbeAndLockSelectedPages @ 0x140286070 (MmProbeAndLockSelectedPages.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14040ADE0 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     MmUpdateMdlTracker @ 0x1404384E4 (MmUpdateMdlTracker.c)
- *     IopExceptionFilter @ 0x1405962D8 (IopExceptionFilter.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MmProbeAndLockSelectedPages @ 0x140390AC0 (MmProbeAndLockSelectedPages.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x1404032C0 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     MmUpdateMdlTracker @ 0x14042B0A4 (MmUpdateMdlTracker.c)
+ *     IopExceptionFilter @ 0x140593308 (IopExceptionFilter.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopWriteFileGather(
@@ -31,7 +31,7 @@ __int64 __fastcall IopWriteFileGather(
         void *a4,
         unsigned __int64 a5,
         unsigned int a6,
-        union _FILE_SEGMENT_ELEMENT *Src,
+        _FILE_SEGMENT_ELEMENT *Src,
         ULONG Length,
         __int64 a9,
         ULONG *a10,
@@ -73,7 +73,7 @@ __int64 __fastcall IopWriteFileGather(
   char v46; // [rsp+42h] [rbp-86h]
   __int64 v47; // [rsp+48h] [rbp-80h]
   ULONG v48; // [rsp+50h] [rbp-78h]
-  union _FILE_SEGMENT_ELEMENT *P; // [rsp+60h] [rbp-68h]
+  _FILE_SEGMENT_ELEMENT *P; // [rsp+60h] [rbp-68h]
   PDEVICE_OBJECT v50; // [rsp+68h] [rbp-60h]
   PVOID v51; // [rsp+70h] [rbp-58h]
   PVOID Object; // [rsp+78h] [rbp-50h] BYREF
@@ -171,7 +171,7 @@ LABEL_40:
     }
     if ( v20 )
     {
-      P = (union _FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL);
+      P = (_FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL, 8LL * a6, 0x41536F49u);
       memmove(P, Src, v28);
       Src = P;
       v20 = Length;

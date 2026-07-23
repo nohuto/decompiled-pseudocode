@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcLinearSearchInSortedArray @ 0x1409C8050
+ * XREFs of RtlpFcLinearSearchInSortedArray @ 0x1409C8250
  * Callers:
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1407D0F34 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1407D1204 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpFcLinearSearchInSortedArray(

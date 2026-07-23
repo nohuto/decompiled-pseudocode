@@ -1,28 +1,30 @@
 /*
- * XREFs of BgQueryBootGraphicsInformation @ 0x140697DBC
+ * XREFs of BgQueryBootGraphicsInformation @ 0x140698E3C
  * Callers:
- *     BgkQueryBootGraphicsInformation @ 0x140BB0064 (BgkQueryBootGraphicsInformation.c)
+ *     BgkQueryBootGraphicsInformation @ 0x140BB2064 (BgkQueryBootGraphicsInformation.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1404A9ACC (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1404A9CA4 (BgpFwAcquireLock.c)
- *     BgpFwQueryBootGraphicsInformation @ 0x1404C3450 (BgpFwQueryBootGraphicsInformation.c)
+ *     BgpFwReleaseLock @ 0x1404A3D9C (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1404A3F74 (BgpFwAcquireLock.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x1404BE988 (BgpFwQueryBootGraphicsInformation.c)
  */
 
-__int64 __fastcall BgQueryBootGraphicsInformation(int a1, __int64 a2)
+__int64 __fastcall BgQueryBootGraphicsInformation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
+  unsigned int v5; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   unsigned int BootGraphicsInformation; // ebx
 
+  v5 = a1;
   if ( KeGetCurrentIrql() )
     return 3221225473LL;
-  if ( !a2 || a1 >= 4 )
+  if ( !a2 || (int)a1 >= 4 )
     return 3221225485LL;
-  BgpFwAcquireLock();
-  if ( (dword_140EF0050 & 1) != 0 )
-    BootGraphicsInformation = BgpFwQueryBootGraphicsInformation((unsigned int)a1, a2);
+  BgpFwAcquireLock(a1, a2, a3, a4);
+  if ( (dword_140EF0270 & 1) != 0 )
+    BootGraphicsInformation = BgpFwQueryBootGraphicsInformation(v5, a2);
   else
     BootGraphicsInformation = -1073741823;
-  BgpFwReleaseLock(v6, v5);
+  BgpFwReleaseLock(v8, v7);
   return BootGraphicsInformation;
 }

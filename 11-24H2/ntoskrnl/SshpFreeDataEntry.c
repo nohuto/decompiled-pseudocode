@@ -1,33 +1,33 @@
 /*
- * XREFs of SshpFreeDataEntry @ 0x1407667F4
+ * XREFs of SshpFreeDataEntry @ 0x1407661C4
  * Callers:
- *     SleepstudyHelperDestroyBlockerData @ 0x140767630 (SleepstudyHelperDestroyBlockerData.c)
- *     SleepstudyHelperDestroyLibrary @ 0x140767660 (SleepstudyHelperDestroyLibrary.c)
- *     SleepstudyHelperCreateBlockerData @ 0x140ABB280 (SleepstudyHelperCreateBlockerData.c)
+ *     SleepstudyHelperDestroyBlockerData @ 0x140767860 (SleepstudyHelperDestroyBlockerData.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x140767890 (SleepstudyHelperDestroyLibrary.c)
+ *     SleepstudyHelperCreateBlockerData @ 0x140AB62A0 (SleepstudyHelperCreateBlockerData.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14048939C (SSHSupportReleasePushLockExclusive.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404843BC (SSHSupportReleasePushLockExclusive.c)
  */
 
 void __fastcall SshpFreeDataEntry(_QWORD *a1)
 {
   unsigned __int64 *v2; // rdi
-  _QWORD *v3; // rax
-  _QWORD *v4; // rsi
+  char *v3; // rax
+  char *v4; // rsi
   unsigned int v5; // edi
   __int64 v6; // rcx
   _QWORD *v7; // rax
 
   v2 = (unsigned __int64 *)(a1[2] + 16LL);
-  v3 = KeAbPreAcquire((__int64)v2, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)v2, 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, (__int64)v3, (__int64)v2);
+    ExfAcquirePushLockExclusiveEx(v2, v3, (__int64)v2);
   v5 = 0;
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   v6 = *a1;
   if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v7 = (_QWORD *)a1[1], (_QWORD *)*v7 != a1) )
     __fastfail(3u);

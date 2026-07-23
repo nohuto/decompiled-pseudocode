@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFreeOemString @ 0x18008D4E0
+ * XREFs of RtlFreeOemString @ 0x18008D4F0
  * Callers:
  *     <none>
  * Callees:
@@ -12,5 +12,5 @@ void __stdcall RtlFreeOemString(POEM_STRING OemString)
 
   Buffer = OemString->Buffer;
   if ( Buffer )
-    NtdllpFreeStringRoutine((__int64)Buffer);
+    NtdllpFreeStringRoutine(Buffer);
 }

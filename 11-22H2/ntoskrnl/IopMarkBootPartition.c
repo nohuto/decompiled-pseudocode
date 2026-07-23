@@ -95,7 +95,7 @@ __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *
           v6 = IopStoreBootDriveLetter(*(_QWORD *)(a1 + 200));
           if ( v6 >= 0 )
           {
-            v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const char **)(a1 + 208));
+            v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const CHAR **)(a1 + 208));
             if ( v6 >= 0 )
             {
               IopStoreSystemPartitionInformation(v11, &UnicodeString);

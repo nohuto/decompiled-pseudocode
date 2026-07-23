@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInitializeNuma @ 0x14054F2F4
+ * XREFs of MiInitializeNuma @ 0x14054F834
  * Callers:
- *     MiInitializePartition @ 0x14054ECF0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14054F230 (MiInitializePartition.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
  *     MiInitializeSystemChannelOrdering @ 0x1407D1208 (MiInitializeSystemChannelOrdering.c)
  */
 
 void __fastcall MiInitializeNuma(__int64 a1)
 {
-  union _SLIST_HEADER *v2; // r14
+  _SLIST_HEADER *v2; // r14
   unsigned int v3; // edi
   __int64 v4; // rbx
   int v5; // esi
   int *v6; // r15
   int v7; // eax
-  union _SLIST_HEADER *v8; // rsi
+  _SLIST_HEADER *v8; // rsi
   __int64 v9; // r15
   _QWORD *v10; // rcx
   __int64 v11; // rdx
@@ -25,7 +25,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
   __int64 v15; // rdx
   __int64 v16; // rcx
 
-  v2 = qword_1403269B0;
+  v2 = qword_1403269F0;
   v3 = 0;
   if ( KeNumberNodes )
   {
@@ -37,7 +37,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
       *(_BYTE *)(v4 + 2) = 8;
       *(_QWORD *)(v4 + 912) = 0LL;
       *(_QWORD *)(v4 + 944) = 0LL;
-      *(_DWORD *)(v4 + 832) = v3 << byte_1403269C9;
+      *(_DWORD *)(v4 + 832) = v3 << byte_140326A09;
       if ( (int *)a1 == MiSystemPartition )
       {
         v5 = 0;
@@ -52,7 +52,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
         while ( v5 < 2 );
         InitializeSListHead(v2);
       }
-      if ( qword_1403269D0 )
+      if ( qword_140326A10 )
       {
         v14 = *(_QWORD *)(a1 + 48);
         v15 = 2184LL * v3;
@@ -64,8 +64,8 @@ void __fastcall MiInitializeNuma(__int64 a1)
         }
         else
         {
-          v16 = qword_140323570;
-          *(_DWORD *)(v15 + v14 + 2169) = *(_DWORD *)(v15 + qword_140323570 + 2169);
+          v16 = qword_1403235B0;
+          *(_DWORD *)(v15 + v14 + 2169) = *(_DWORD *)(v15 + qword_1403235B0 + 2169);
           *(_DWORD *)(v15 + v14 + 2161) = *(_DWORD *)(v15 + v16 + 2161);
           *(_DWORD *)(v15 + v14 + 2165) = *(_DWORD *)(v15 + v16 + 2165);
         }

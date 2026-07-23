@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetAweFlushList @ 0x140701B08
+ * XREFs of MiGetAweFlushList @ 0x1407067D8
  * Callers:
- *     MiWriteAwePtes @ 0x140477F10 (MiWriteAwePtes.c)
- *     MiZeroAndFlushAweLazyPtes @ 0x140702FEC (MiZeroAndFlushAweLazyPtes.c)
+ *     MiWriteAwePtes @ 0x140471690 (MiWriteAwePtes.c)
+ *     MiZeroAndFlushAweLazyPtes @ 0x140707CBC (MiZeroAndFlushAweLazyPtes.c)
  * Callees:
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
  */
 
 __int64 __fastcall MiGetAweFlushList(__int64 a1, int a2)

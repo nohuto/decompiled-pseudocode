@@ -1,13 +1,13 @@
 /*
- * XREFs of SecureDump_LogErrorEvent @ 0x1401CBBDC
+ * XREFs of SecureDump_LogErrorEvent @ 0x1401CBAC0
  * Callers:
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1401CB578 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_PrepareForInit @ 0x1401CBC5C (SecureDump_PrepareForInit.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x1401CBF4C (SecureDump_SymmetricEncryptionSetup.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1401CB45C (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_PrepareForInit @ 0x1401CBB40 (SecureDump_PrepareForInit.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x1401CBE30 (SecureDump_SymmetricEncryptionSetup.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall SecureDump_LogErrorEvent(int a1)

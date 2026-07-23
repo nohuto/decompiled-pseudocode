@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegLoadRegistryInfo @ 0x1800EAF60
+ * XREFs of RtlpMuiRegLoadRegistryInfo @ 0x1800CBFB0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlpLoadLanguageConfigList @ 0x1800347C0 (RtlpLoadLanguageConfigList.c)
- *     RtlpSetProcUserMachineLangList @ 0x180036910 (RtlpSetProcUserMachineLangList.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x1800EB0C0 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlpMuiRegLoadLicInformation @ 0x1800EB31C (RtlpMuiRegLoadLicInformation.c)
- *     _RtlpMuiRegLoadInstalled @ 0x18011F248 (_RtlpMuiRegLoadInstalled.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     RtlpLoadLanguageConfigList @ 0x180014A40 (RtlpLoadLanguageConfigList.c)
+ *     RtlpSetProcUserMachineLangList @ 0x180016B90 (RtlpSetProcUserMachineLangList.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1800CC110 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1800CC41C (RtlpMuiRegLoadLicInformation.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x18011D478 (_RtlpMuiRegLoadInstalled.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadRegistryInfo(__int64 a1, __int16 a2)
@@ -65,12 +65,12 @@ __int64 __fastcall RtlpMuiRegLoadRegistryInfo(__int64 a1, __int16 a2)
     if ( (a2 & 0x20) != 0 )
     {
       RtlpMuiRegFreeRegistryInfo(a1, 32LL);
-      result = RtlpSetProcUserMachineLangList(a1, 1LL);
+      result = RtlpSetProcUserMachineLangList(a1, 1u);
     }
     if ( (int)result >= 0 )
     {
       if ( (a2 & 0x10) == 0
-        || (RtlpMuiRegFreeRegistryInfo(a1, 16LL), result = RtlpSetProcUserMachineLangList(a1, 0LL), (int)result >= 0) )
+        || (RtlpMuiRegFreeRegistryInfo(a1, 16LL), result = RtlpSetProcUserMachineLangList(a1, 0), (int)result >= 0) )
       {
         if ( (a2 & 0x200) != 0 )
           return 0LL;

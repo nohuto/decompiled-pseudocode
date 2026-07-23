@@ -1,24 +1,24 @@
 /*
- * XREFs of ?RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV?$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0?0@gsl@@V?$span@$$CBK$0?0@2@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409EC228
+ * XREFs of ?RtlpSelectFunctionFromBinaryDecisionDiagram@@YAXV?$span@$$CBU_IMAGE_BDD_DYNAMIC_RELOCATION@@$0?0@gsl@@V?$span@$$CBK$0?0@2@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409405BC
  * Callers:
- *     ?RtlpParseBinaryDecisionDiagram@@YAJV?$span@$$CBE$0?0@gsl@@V?$span@$$CBK$0?0@2@KPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409EC040 (-RtlpParseBinaryDecisionDiagram@@YAJV-$span@$$CBE$0-0@gsl@@V-$span@$$CBK$0-0@2@KPEBU_RTL_FUNCTIO.c)
+ *     ?RtlpParseBinaryDecisionDiagram@@YAJV?$span@$$CBE$0?0@gsl@@V?$span@$$CBK$0?0@2@KPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAU_RTL_FUNCTION_OVERRIDE_ENTRY@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@K@Z @ 0x1409403D4 (-RtlpParseBinaryDecisionDiagram@@YAJV-$span@$$CBE$0-0@gsl@@V-$span@$$CBK$0-0@2@KPEBU_RTL_FUNCTIO.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
- *     ?RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z @ 0x1409EC5B0 (-RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z @ 0x140940944 (-RtlpGetSystemOverrideRva@@YA_NKEPEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@PEAKK@Z.c)
  */
 
 __int64 __fastcall RtlpSelectFunctionFromBinaryDecisionDiagram(
         unsigned __int64 a1,
         unsigned __int64 a2,
         unsigned int *a3,
-        __int64 a4,
+        unsigned __int64 a4,
         unsigned __int8 a5,
         struct _RTL_SYSTEM_OVERRIDE_INFORMATION *a6,
         unsigned int a7)
 {
   unsigned __int64 v7; // r12
   unsigned int *v8; // r11
-  __int64 v10; // r8
+  unsigned int v10; // r8d
   unsigned __int64 *v11; // rdi
   unsigned __int64 v12; // r14
   __int64 v13; // r10
@@ -34,17 +34,17 @@ __int64 __fastcall RtlpSelectFunctionFromBinaryDecisionDiagram(
 
   v7 = *(_QWORD *)a1;
   v8 = a3;
-  v10 = 0LL;
+  v10 = 0;
   v11 = (unsigned __int64 *)a2;
   v12 = a1;
   while ( 1 )
   {
-    v13 = (unsigned int)v10;
-    if ( (unsigned int)v10 >= v7 )
+    v13 = v10;
+    if ( v10 >= v7 )
       goto LABEL_26;
     v14 = *(_QWORD *)(v12 + 8);
-    v15 = *(unsigned __int16 *)(v14 + 8LL * (unsigned int)v10);
-    a1 = v14 + 8LL * (unsigned int)v10;
+    v15 = *(unsigned __int16 *)(v14 + 8LL * v10);
+    a1 = v14 + 8LL * v10;
     if ( !__PAIR32__(*(_WORD *)(a1 + 2), v15) )
     {
       v17 = *v8;
@@ -52,19 +52,19 @@ LABEL_9:
       v18 = 0;
       goto LABEL_18;
     }
-    if ( v15 == (_DWORD)v10 && *(unsigned __int16 *)(a1 + 2) == (_DWORD)v10 )
+    if ( v15 == v10 && *(unsigned __int16 *)(a1 + 2) == v10 )
     {
-      a2 = *(unsigned int *)(v14 + 8LL * (unsigned int)v10 + 4);
+      a2 = *(unsigned int *)(v14 + 8LL * v10 + 4);
       if ( a2 >= *v11 )
       {
 LABEL_26:
-        gsl::details::terminate((gsl::details *)a1, a2, v10, a4);
-        JUMPOUT(0x1409EC36FLL);
+        gsl::details::terminate((gsl::details *)a1, a2);
+        JUMPOUT(0x140940703LL);
       }
       v17 = *(_DWORD *)(v11[1] + 4 * a2);
       goto LABEL_9;
     }
-    a1 = *(unsigned int *)(v14 + 8LL * (unsigned int)v10 + 4);
+    a1 = *(unsigned int *)(v14 + 8LL * v10 + 4);
     if ( (unsigned int)a1 >= 0x161 )
       goto LABEL_6;
     a2 = a4 + 45;
@@ -73,10 +73,10 @@ LABEL_26:
     if ( !a2 || !_bittest64((const signed __int64 *)a2, a1) )
     {
 LABEL_6:
-      v16 = *(_WORD *)(v14 + 8LL * (unsigned int)v10);
+      v16 = *(_WORD *)(v14 + 8LL * v10);
       goto LABEL_7;
     }
-    if ( !(_DWORD)v10 )
+    if ( !v10 )
     {
       if ( a6 )
       {

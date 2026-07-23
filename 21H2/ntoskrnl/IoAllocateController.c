@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAllocateController @ 0x140505810
+ * XREFs of IoAllocateController @ 0x140505790
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IoFreeController @ 0x1405059F0 (IoFreeController.c)
- *     KeInsertDeviceQueue @ 0x14051A980 (KeInsertDeviceQueue.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IoFreeController @ 0x140505970 (IoFreeController.c)
+ *     KeInsertDeviceQueue @ 0x14051ABC0 (KeInsertDeviceQueue.c)
  */
 
 void __stdcall IoAllocateController(

@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpKernelProvEnableCallback @ 0x140580AB8
+ * XREFs of EtwpKernelProvEnableCallback @ 0x140580F64
  * Callers:
  *     <none>
  * Callees:

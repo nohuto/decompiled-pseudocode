@@ -1,25 +1,25 @@
 /*
- * XREFs of ObReferenceFileObjectForWrite @ 0x140650510
+ * XREFs of ObReferenceFileObjectForWrite @ 0x140645330
  * Callers:
  *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
- *     NtWriteFile @ 0x140650420 (NtWriteFile.c)
+ *     NtWriteFile @ 0x140645240 (NtWriteFile.c)
  * Callees:
  *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ObpIncrPointerCountEx @ 0x1402BC014 (ObpIncrPointerCountEx.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExFastReplenishHandleTableEntry @ 0x1402C9410 (ExFastReplenishHandleTableEntry.c)
- *     ExSlowReplenishHandleTableEntry @ 0x140348800 (ExSlowReplenishHandleTableEntry.c)
- *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140685788 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
- *     ObpAuditObjectAccess @ 0x1408DCAC4 (ObpAuditObjectAccess.c)
+ *     ObpIncrPointerCountEx @ 0x14023A224 (ObpIncrPointerCountEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExFastReplenishHandleTableEntry @ 0x140247CF0 (ExFastReplenishHandleTableEntry.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x140353550 (ExSlowReplenishHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x1403535B0 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1405E2998 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1407085D0 (ExpLookupHandleTableEntry.c)
+ *     ObpAuditObjectAccess @ 0x1408DCC24 (ObpAuditObjectAccess.c)
  */
 
 __int64 __fastcall ObReferenceFileObjectForWrite(
-        __int64 BugCheckParameter1,
+        ULONG_PTR BugCheckParameter1,
         char a2,
         struct _DMA_ADAPTER **a3,
         _DWORD *a4)
@@ -46,7 +46,7 @@ __int64 __fastcall ObReferenceFileObjectForWrite(
   unsigned __int64 v24; // rcx
   int v26; // eax
   unsigned int v27; // edi
-  int v28; // eax
+  int v28; // ecx
   signed __int32 v29[8]; // [rsp+0h] [rbp-78h] BYREF
   __int128 v30; // [rsp+30h] [rbp-48h] BYREF
   ULONG_PTR v31; // [rsp+80h] [rbp+8h]
@@ -55,9 +55,9 @@ __int64 __fastcall ObReferenceFileObjectForWrite(
   v5 = 0LL;
   v7 = BugCheckParameter1;
   v30 = 0LL;
-  if ( (int)BugCheckParameter1 < 0 )
+  if ( (BugCheckParameter1 & 0x80000000) != 0LL )
   {
-    if ( !a2 && BugCheckParameter1 != -1 && BugCheckParameter1 != -2 )
+    if ( !a2 && BugCheckParameter1 != -1LL && BugCheckParameter1 != -2LL )
     {
       v9 = ObpKernelHandleTable;
       v7 = BugCheckParameter1 ^ 0xFFFFFFFF80000000uLL;
@@ -86,7 +86,6 @@ LABEL_3:
         {
           if ( (v14 & 1) != 0 )
           {
-            BugCheckParameter1 = v13;
             *(_QWORD *)&v16 = v14;
             *((_QWORD *)&v16 + 1) = v13;
             v17 = _InterlockedCompareExchange128(v11, v13, v14 - 2, (signed __int64 *)&v16);
@@ -105,12 +104,8 @@ LABEL_3:
               v5 = ((__int64)v30 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
               ObpIncrPointerCountEx((volatile signed __int64 *)v5, 32752);
               v28 = ExFastReplenishHandleTableEntry(v11, (unsigned __int64 *)&v30, 32752);
-              BugCheckParameter1 = v28;
               if ( v28 )
-              {
-                BugCheckParameter1 = (unsigned int)-v28;
-                _InterlockedExchangeAdd64((volatile signed __int64 *)v5, (int)BugCheckParameter1);
-              }
+                _InterlockedExchangeAdd64((volatile signed __int64 *)v5, -v28);
 LABEL_30:
               LODWORD(v13) = DWORD2(v30);
               v14 = v30;
@@ -120,7 +115,7 @@ LABEL_30:
           }
           else
           {
-            ExpBlockOnLockedHandleEntry(v9, v11);
+            ExpBlockOnLockedHandleEntry(v9, v11, v14);
             _m_prefetchw(v11);
             v13 = v11[1];
             *(_QWORD *)&v30 = *v11;
@@ -135,11 +130,10 @@ LABEL_30:
           v26 = ExSlowReplenishHandleTableEntry((unsigned __int64 *)v11);
           ObpIncrPointerCountEx((volatile signed __int64 *)v5, v26 + 1);
           _InterlockedExchangeAdd64(v11, 1uLL);
-          BugCheckParameter1 = v9 + 48;
           _InterlockedOr(v29, 0);
           if ( *(_QWORD *)(v9 + 48) )
           {
-            ExfUnblockPushLock((volatile __int64 *)BugCheckParameter1, 0LL);
+            ExfUnblockPushLock((volatile __int64 *)(v9 + 48), 0LL);
             LODWORD(v13) = DWORD2(v30);
             v14 = v30;
             goto LABEL_10;
@@ -165,7 +159,7 @@ LABEL_10:
         && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152
         && !CurrentThread->SpecialApcDisable )
       {
-        KiCheckForKernelApcDelivery(BugCheckParameter1);
+        KiCheckForKernelApcDelivery();
       }
       if ( !v11 )
       {

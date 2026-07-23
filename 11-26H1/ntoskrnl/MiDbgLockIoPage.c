@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDbgLockIoPage @ 0x1406FE0B0
+ * XREFs of MiDbgLockIoPage @ 0x140702D80
  * Callers:
- *     MiDbgMapPhysicalAddress @ 0x1406FE368 (MiDbgMapPhysicalAddress.c)
+ *     MiDbgMapPhysicalAddress @ 0x140703038 (MiDbgMapPhysicalAddress.c)
  * Callees:
- *     MiFreezeIoPfnNode @ 0x1406F40F0 (MiFreezeIoPfnNode.c)
- *     MiUnfreezeIoPfnNode @ 0x1406F4E3C (MiUnfreezeIoPfnNode.c)
+ *     MiFreezeIoPfnNode @ 0x1406F8D5C (MiFreezeIoPfnNode.c)
+ *     MiUnfreezeIoPfnNode @ 0x1406F9AAC (MiUnfreezeIoPfnNode.c)
  */
 
 __int64 __fastcall MiDbgLockIoPage(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall MiDbgLockIoPage(__int64 a1)
   {
     if ( !(unsigned int)MiFreezeIoPfnNode(v4, 1uLL, v6) )
     {
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x10u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x10u;
       return 0LL;
     }
   }
@@ -48,11 +48,11 @@ __int64 __fastcall MiDbgLockIoPage(__int64 a1)
     v9 = (*(_DWORD *)(*v1
                     + 4
                     * ((unsigned __int64)(2
-                                        * (((unsigned int)v4 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8
+                                        * (((unsigned int)v4 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878
                                                                                      - 12))
                                                               - 1))
                                          - *(_DWORD *)(*v1 + 24))) >> 5)
-                    + 44) >> (2 * ((v4 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *(_BYTE *)(*v1 + 24)))) & 3;
+                    + 44) >> (2 * ((v4 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *(_BYTE *)(*v1 + 24)))) & 3;
     if ( v9 != 3 )
     {
       v10 = v2 & 0xFFFFFFC7;
@@ -101,7 +101,7 @@ LABEL_17:
     {
       if ( (v2 & 0x20) == 0 )
       {
-        stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x20u;
+        stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x20u;
         MiUnfreezeIoPfnNode(v1);
         return 0LL;
       }
@@ -121,7 +121,7 @@ LABEL_17:
   }
   *(_DWORD *)(a1 + 64) = v11;
   if ( v9 == 3 )
-    ++LODWORD(stru_140E2EB88.ThreadListEntry.Flink);
+    ++LODWORD(stru_140E2ED08.ThreadListEntry.Flink);
   result = 1LL;
   *(_DWORD *)(a1 + 88) = (v2 & 4) != 0 ? 8 : 16;
   return result;

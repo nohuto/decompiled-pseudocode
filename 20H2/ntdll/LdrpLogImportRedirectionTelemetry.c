@@ -14,7 +14,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
   struct _PEB *v1; // rax
   __int64 v3; // rcx
   __int64 v4; // r9
-  _BYTE v6[32]; // [rsp+30h] [rbp-19h] BYREF
+  _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-19h] BYREF
   _DWORD *v7; // [rsp+50h] [rbp+7h]
   int v8; // [rsp+58h] [rbp+Fh]
   int v9; // [rsp+5Ch] [rbp+13h]
@@ -31,7 +31,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
   {
     LOBYTE(v1) = RtlRunOnceExecuteOnce(
                    &LibLoaderTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
+                   (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce,
                    0LL,
                    0LL);
     if ( (unsigned int)dword_1801664E8 > 5 )
@@ -51,7 +51,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
         v16[0] = *(unsigned __int16 *)(LdrpImageEntry + 72);
         v8 = 2;
         v13 = 2;
-        LOBYTE(v1) = tlgWriteTransfer_EtwEventWriteTransfer(v3, byte_180131C9B, 2LL, v4, 6, (__int64)v6);
+        LOBYTE(v1) = tlgWriteTransfer_EtwEventWriteTransfer(v3, (unsigned __int8 *)dword_180131C9B, 2LL, v4, 6u, &v6);
       }
     }
   }

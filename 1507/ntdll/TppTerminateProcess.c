@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 TppTerminateProcess()
+NTSTATUS __fastcall TppTerminateProcess(NTSTATUS **a1)
 {
-  return ZwTerminateProcess();
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, **a1);
 }

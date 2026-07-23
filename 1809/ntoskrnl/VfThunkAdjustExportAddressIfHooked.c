@@ -1,9 +1,9 @@
 /*
- * XREFs of VfThunkAdjustExportAddressIfHooked @ 0x1409368E8
+ * XREFs of VfThunkAdjustExportAddressIfHooked @ 0x1409378E8
  * Callers:
- *     VerifierMmGetSystemRoutineAddress @ 0x140944880 (VerifierMmGetSystemRoutineAddress.c)
+ *     VerifierMmGetSystemRoutineAddress @ 0x140945880 (VerifierMmGetSystemRoutineAddress.c)
  * Callees:
- *     ViThunkAdjustExportAddressIfHooked @ 0x140936C04 (ViThunkAdjustExportAddressIfHooked.c)
+ *     ViThunkAdjustExportAddressIfHooked @ 0x140937C04 (ViThunkAdjustExportAddressIfHooked.c)
  */
 
 __int64 __fastcall VfThunkAdjustExportAddressIfHooked(__int64 a1, __int64 a2)

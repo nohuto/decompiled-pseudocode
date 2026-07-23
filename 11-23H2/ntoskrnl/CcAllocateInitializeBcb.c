@@ -1,13 +1,13 @@
 /*
  * XREFs of CcAllocateInitializeBcb @ 0x140207370
  * Callers:
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
  *     CcAdjustVacbLevelLockCount @ 0x1402075C0 (CcAdjustVacbLevelLockCount.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ExDisableResourceBoostLite @ 0x1403C30B0 (ExDisableResourceBoostLite.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ExDisableResourceBoostLite @ 0x1403C3290 (ExDisableResourceBoostLite.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

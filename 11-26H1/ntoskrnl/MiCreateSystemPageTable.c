@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateSystemPageTable @ 0x140339800
+ * XREFs of MiCreateSystemPageTable @ 0x14033B880
  * Callers:
  *     <none>
  * Callees:
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiIsPageAGapPage @ 0x140339B10 (MiIsPageAGapPage.c)
- *     MiGetPageTablePages @ 0x140339E00 (MiGetPageTablePages.c)
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiFillPteHierarchy @ 0x14039FA50 (MiFillPteHierarchy.c)
- *     MiMakeSystemLeavesNonZero @ 0x140518F50 (MiMakeSystemLeavesNonZero.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     MiMakeLargePageTable @ 0x14052B10C (MiMakeLargePageTable.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiIsPageAGapPage @ 0x14033BB90 (MiIsPageAGapPage.c)
+ *     MiGetPageTablePages @ 0x14033BE80 (MiGetPageTablePages.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiFillPteHierarchy @ 0x1403A17B0 (MiFillPteHierarchy.c)
+ *     MiMakeSystemLeavesNonZero @ 0x1405129C0 (MiMakeSystemLeavesNonZero.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     MiMakeLargePageTable @ 0x14052D62C (MiMakeLargePageTable.c)
  */
 
 __int64 __fastcall MiCreateSystemPageTable(__int64 a1, unsigned __int64 *a2, unsigned int a3)
@@ -118,7 +118,7 @@ LABEL_14:
         --v22;
       }
       if ( (MiFlags & 0x80u) != 0LL
-        && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+        && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
       {
         MiArePageContentsZero((__int64)(v15 + 0x44000000000LL) / 48);
       }

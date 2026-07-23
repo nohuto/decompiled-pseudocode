@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDqSerializationAlloc @ 0x1404E0AAC
+ * XREFs of PiDqSerializationAlloc @ 0x1404C40B0
  * Callers:
  *     <none>
  * Callees:

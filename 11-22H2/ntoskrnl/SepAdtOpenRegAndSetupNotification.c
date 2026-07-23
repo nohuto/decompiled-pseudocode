@@ -7,9 +7,9 @@
  *     SepRegOpenKey @ 0x1407F5978 (SepRegOpenKey.c)
  */
 
-NTSTATUS SepAdtOpenRegAndSetupNotification()
+int SepAdtOpenRegAndSetupNotification()
 {
-  NTSTATUS result; // eax
+  int result; // eax
 
   result = SepRegOpenKey(
              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa",
@@ -19,18 +19,18 @@ NTSTATUS SepAdtOpenRegAndSetupNotification()
   {
     qword_140D16D48 = (__int64)SepAdtRegNotificationCallback;
     qword_140D16D50 = 0LL;
-    SepAdtLsaRegWatchWorkItem = 0LL;
+    SepAdtLsaRegWatchWorkItem[0] = 0LL;
     return NtNotifyChangeKey(
              SepAdtRegNotifyHandle,
              0LL,
-             (void (__stdcall *)(POPLOCK))&SepAdtLsaRegWatchWorkItem,
-             1LL,
-             SepAdtIoStatusBlock,
+             (PIO_APC_ROUTINE)SepAdtLsaRegWatchWorkItem,
+             (PVOID)1,
+             &SepAdtIoStatusBlock,
              5u,
              0,
              0LL,
              0,
-             1);
+             1u);
   }
   return result;
 }

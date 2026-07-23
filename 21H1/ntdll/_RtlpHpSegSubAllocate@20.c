@@ -8,7 +8,7 @@
  *     _RtlpHpSegPageRangeComputeLargePageCost@12 @ 0x4B37CE0A (_RtlpHpSegPageRangeComputeLargePageCost@12.c)
  */
 
-void *__fastcall RtlpHpSegSubAllocate(int a1, size_t a2, unsigned int a3, _DWORD *a4, _DWORD *a5)
+void *__fastcall RtlpHpSegSubAllocate(int a1, unsigned int a2, unsigned int a3, _DWORD *a4, _DWORD *a5)
 {
   unsigned int v5; // eax
   void *v8; // ebx

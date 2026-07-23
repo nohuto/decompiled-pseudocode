@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfMinimumPerfReached @ 0x1400A550C
+ * XREFs of PpmPerfMinimumPerfReached @ 0x1400A544C
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x1400A5440 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1400A5380 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
  */
 
 char PpmPerfMinimumPerfReached()
@@ -16,7 +16,7 @@ char PpmPerfMinimumPerfReached()
   __int16 v5; // [rsp+30h] [rbp-18h]
   unsigned int v6; // [rsp+50h] [rbp+8h] BYREF
 
-  v4[1] = (unsigned __int16 *)qword_1404040A8;
+  v4[1] = (unsigned __int16 *)qword_1404050A8;
   v0 = 1;
   v5 = 0;
   v4[0] = (unsigned __int16 *)&PpmPerfStatesRegistered;

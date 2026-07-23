@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgUnLoadImageSymbolsUnicode @ 0x14037294C
+ * XREFs of DbgUnLoadImageSymbolsUnicode @ 0x14037249C
  * Callers:
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
- *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
- *     MiSwitchBaseAddress @ 0x1407149DC (MiSwitchBaseAddress.c)
- *     MiHandleBootImage @ 0x140A4FB14 (MiHandleBootImage.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
+ *     MiSwitchBaseAddress @ 0x1406C302C (MiSwitchBaseAddress.c)
+ *     MiSegmentDelete @ 0x1406FF4F0 (MiSegmentDelete.c)
+ *     MiHandleBootImage @ 0x140A50B14 (MiHandleBootImage.c)
  * Callees:
- *     DbgUnicodeStringToAnsiString @ 0x140372054 (DbgUnicodeStringToAnsiString.c)
- *     DebugService2 @ 0x140407900 (DebugService2.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     DbgUnicodeStringToAnsiString @ 0x140371BA4 (DbgUnicodeStringToAnsiString.c)
+ *     DebugService2 @ 0x140407AE0 (DebugService2.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgUnLoadImageSymbolsUnicode(PCUNICODE_STRING SourceString, __int64 a2, __int64 a3)

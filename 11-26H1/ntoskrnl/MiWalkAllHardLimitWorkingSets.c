@@ -1,38 +1,38 @@
 /*
- * XREFs of MiWalkAllHardLimitWorkingSets @ 0x1402A996C
+ * XREFs of MiWalkAllHardLimitWorkingSets @ 0x1402A8D7C
  * Callers:
- *     MiAgingThread @ 0x1402A90D0 (MiAgingThread.c)
- *     MiWorkingSetManager @ 0x1404BE000 (MiWorkingSetManager.c)
+ *     MiAgingThread @ 0x1402A84E0 (MiAgingThread.c)
+ *     MiWorkingSetManager @ 0x1404B7850 (MiWorkingSetManager.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiAttachThreadDone @ 0x1402C66F0 (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiComputeHardTrimSize @ 0x1402ED1E8 (MiComputeHardTrimSize.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiRemoveListSentinel @ 0x14030C498 (MiRemoveListSentinel.c)
- *     MiTrimWorkingSet @ 0x1403BA50C (MiTrimWorkingSet.c)
- *     MiInsertListSentinel @ 0x14044D320 (MiInsertListSentinel.c)
- *     MiAttachWorkingSet @ 0x140471654 (MiAttachWorkingSet.c)
- *     MiAgeTargetedWorkingSet @ 0x140476D30 (MiAgeTargetedWorkingSet.c)
- *     MiComputeHardAgingPercent @ 0x1404B1DCC (MiComputeHardAgingPercent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiComputeHardTrimSize @ 0x1402CF228 (MiComputeHardTrimSize.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiRemoveListSentinel @ 0x1402EE518 (MiRemoveListSentinel.c)
+ *     MiAttachThreadDone @ 0x140311390 (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     MiTrimWorkingSet @ 0x1403C437C (MiTrimWorkingSet.c)
+ *     MiInsertListSentinel @ 0x140445440 (MiInsertListSentinel.c)
+ *     MiAttachWorkingSet @ 0x14046ADD4 (MiAttachWorkingSet.c)
+ *     MiAgeTargetedWorkingSet @ 0x1404704B0 (MiAgeTargetedWorkingSet.c)
+ *     MiComputeHardAgingPercent @ 0x1404AB228 (MiComputeHardAgingPercent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiWalkAllHardLimitWorkingSets(__int64 a1, int a2)
 {
   volatile LONG *v2; // rdi
   __int64 **v3; // r12
-  __int64 v4; // r14
+  __int64 v4; // r15
   __int64 v5; // r13
   KIRQL v6; // al
   __int64 *v7; // rbx
   KIRQL v8; // bp
   __int64 v9; // rsi
   _QWORD *v10; // rbx
-  int v11; // r15d
+  int v11; // r14d
   char v12; // si
   __int64 v13; // rdx
   unsigned __int64 v14; // r8

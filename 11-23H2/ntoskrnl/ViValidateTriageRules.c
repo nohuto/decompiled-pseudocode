@@ -3,7 +3,7 @@
  * Callers:
  *     VfTriageSystem @ 0x140B69CCC (VfTriageSystem.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
  */
 
 __int64 __fastcall ViValidateTriageRules(unsigned int *a1, __int64 a2)

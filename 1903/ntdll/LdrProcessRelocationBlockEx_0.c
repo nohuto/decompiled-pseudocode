@@ -9,15 +9,16 @@
  *     sub_1800E2088 @ 0x1800E2088 (sub_1800E2088.c)
  */
 
-unsigned __int16 *__fastcall LdrProcessRelocationBlockEx_0(
-        __int16 a1,
-        __int64 a2,
-        int a3,
-        unsigned __int16 *a4,
-        __int64 a5)
+PIMAGE_BASE_RELOCATION __cdecl LdrProcessRelocationBlockEx_0(
+        ULONG Machine,
+        ULONG_PTR VA,
+        ULONG SizeOfBlock,
+        PUSHORT NextOffset,
+        LONG_PTR Diff)
 {
-  unsigned __int16 *v5; // rbx
-  unsigned __int64 v8; // rbp
+  PUSHORT v5; // rbx
+  __int16 v7; // r14
+  USHORT *v8; // rbp
   int v9; // ecx
   unsigned int v10; // r9d
   _QWORD *v11; // r8
@@ -27,17 +28,18 @@ unsigned __int16 *__fastcall LdrProcessRelocationBlockEx_0(
   int v15; // ecx
   unsigned int v17; // eax
 
-  v5 = a4;
-  v8 = (unsigned __int64)&a4[a3];
-  if ( (unsigned __int64)a4 >= v8 )
-    return v5;
+  v5 = NextOffset;
+  v7 = Machine;
+  v8 = &NextOffset[SizeOfBlock];
+  if ( NextOffset >= v8 )
+    return (PIMAGE_BASE_RELOCATION)v5;
   while ( 1 )
   {
     v9 = *v5 >> 12;
     if ( ((1 << v9) & 0x3A0) != 0 )
       break;
     v10 = 1;
-    v11 = (_QWORD *)(a2 + (*v5 & 0xFFF));
+    v11 = (_QWORD *)(VA + (*v5 & 0xFFF));
     if ( v9 )
     {
       v12 = v9 - 1;
@@ -53,46 +55,46 @@ unsigned __int16 *__fastcall LdrProcessRelocationBlockEx_0(
             if ( v15 )
             {
               if ( v15 == 6 )
-                *v11 += a5;
+                *v11 += Diff;
               else
                 v10 = 0;
             }
             else
             {
               v10 = 2;
-              *(_WORD *)v11 = (v5[1] + (unsigned int)a5 + (*(unsigned __int16 *)v11 << 16) + 0x8000) >> 16;
+              *(_WORD *)v11 = (v5[1] + (unsigned int)Diff + (*(unsigned __int16 *)v11 << 16) + 0x8000) >> 16;
             }
           }
           else
           {
-            *(_DWORD *)v11 += a5;
+            *(_DWORD *)v11 += Diff;
           }
         }
         else
         {
-          *(_WORD *)v11 += a5;
+          *(_WORD *)v11 += Diff;
         }
       }
       else
       {
-        *(_WORD *)v11 = ((unsigned int)a5 + (*(unsigned __int16 *)v11 << 16)) >> 16;
+        *(_WORD *)v11 = ((unsigned int)Diff + (*(unsigned __int16 *)v11 << 16)) >> 16;
       }
     }
 LABEL_10:
     if ( !v10 )
       return 0LL;
     v5 += v10;
-    if ( (unsigned __int64)v5 >= v8 )
-      return v5;
+    if ( v5 >= v8 )
+      return (PIMAGE_BASE_RELOCATION)v5;
   }
-  if ( a1 == 448 )
+  if ( v7 == 448 )
   {
-    v17 = sub_1800E1FBC(v5, a2, a5);
+    v17 = sub_1800E1FBC(v5, VA, Diff);
     goto LABEL_24;
   }
-  if ( a1 == 450 || a1 == 452 )
+  if ( v7 == 450 || v7 == 452 )
   {
-    v17 = sub_1800E2088(v5, a2, a5);
+    v17 = sub_1800E2088(v5, VA, Diff);
 LABEL_24:
     v10 = v17;
     goto LABEL_10;

@@ -1,26 +1,26 @@
 /*
- * XREFs of ExAcquireFastResourceShared @ 0x140165B60
+ * XREFs of ExAcquireFastResourceShared @ 0x140165C60
  * Callers:
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     SepMandatoryIntegrityCheck @ 0x140052270 (SepMandatoryIntegrityCheck.c)
- *     SepCanTokenMatchAllPackageSid @ 0x1400A6E20 (SepCanTokenMatchAllPackageSid.c)
- *     SeSecurityAttributePresent @ 0x1400A7050 (SeSecurityAttributePresent.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1400BA050 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x14010B170 (ExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x1400A6D60 (SepCanTokenMatchAllPackageSid.c)
+ *     SeSecurityAttributePresent @ 0x1400A6F90 (SeSecurityAttributePresent.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A93B0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1400B9F90 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x14010B1F0 (ExEnterCriticalRegionAndAcquireResourceShared.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpWaitForResource @ 0x1401138F0 (ExpWaitForResource.c)
- *     ExpPrepareToWaitForResourceShared @ 0x140137E00 (ExpPrepareToWaitForResourceShared.c)
- *     ExpTryAcquireResourceShared @ 0x140166054 (ExpTryAcquireResourceShared.c)
- *     ExpFindFastOwnerEntryForThread @ 0x140166084 (ExpFindFastOwnerEntryForThread.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x140166138 (ExpAddFastOwnerEntryToThreadList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpWaitForResource @ 0x140113960 (ExpWaitForResource.c)
+ *     ExpPrepareToWaitForResourceShared @ 0x140137F00 (ExpPrepareToWaitForResourceShared.c)
+ *     ExpTryAcquireResourceShared @ 0x140166154 (ExpTryAcquireResourceShared.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x140166184 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x140166238 (ExpAddFastOwnerEntryToThreadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
@@ -35,7 +35,7 @@ char __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_
   unsigned __int8 v13; // r14
   __int64 FastOwnerEntryForThread; // rax
   unsigned __int8 v15; // r10
-  __int64 v16; // rax
+  PRTL_BALANCED_NODE v16; // rax
   __int64 v17; // r8
   __int64 v18; // rdx
   char v19; // bp
@@ -110,7 +110,7 @@ LABEL_20:
   v16 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
   v7 = (_KLOCK_ENTRY *)v16;
   if ( v16 )
-    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (*(_BYTE *)(v16 + 24) - 50)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (LOBYTE(v16[1].Children[0]) - 50)) / 96)) | 1;
   v32[0] = 0LL;
   v32[1] = (volatile signed __int64 *)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)v32, (volatile __int64 *)(BugCheckParameter2 + 96), v17);
@@ -177,7 +177,7 @@ LABEL_53:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v33, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v7 )
-    KeAbPreAcquire(BugCheckParameter2, (__int64)v7, 0);
+    KeAbPreAcquire(BugCheckParameter2, &v7->TreeNode, 0);
   v19 = 1;
 LABEL_22:
   if ( v7 )

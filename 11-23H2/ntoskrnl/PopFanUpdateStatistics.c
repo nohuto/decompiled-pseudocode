@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFanUpdateStatistics @ 0x140997754
+ * XREFs of PopFanUpdateStatistics @ 0x140997954
  * Callers:
- *     PopFanSxEntry @ 0x14059961C (PopFanSxEntry.c)
- *     PopFanUpdateSpeed @ 0x140847E90 (PopFanUpdateSpeed.c)
- *     PopFanReadFanNoiseInfo @ 0x140859660 (PopFanReadFanNoiseInfo.c)
+ *     PopFanSxEntry @ 0x140599B0C (PopFanSxEntry.c)
+ *     PopFanUpdateSpeed @ 0x140848190 (PopFanUpdateSpeed.c)
+ *     PopFanReadFanNoiseInfo @ 0x1408598A0 (PopFanReadFanNoiseInfo.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopFanFindBucketIndex @ 0x14099726C (PopFanFindBucketIndex.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopFanFindBucketIndex @ 0x14099746C (PopFanFindBucketIndex.c)
  */
 
 void __fastcall PopFanUpdateStatistics(__int64 a1)
@@ -67,7 +67,7 @@ void __fastcall PopFanUpdateStatistics(__int64 a1)
         v8 = v2;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C03950,
-          (unsigned __int8 *)&byte_140031517,
+          (unsigned __int8 *)&word_140031746,
           0LL,
           0LL,
           7u,

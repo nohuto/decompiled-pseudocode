@@ -20,7 +20,7 @@
 
 void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  union _SLIST_HEADER *v4; // r15
+  _SLIST_HEADER *v4; // r15
   __int64 v6; // rbp
   __int64 Context; // r14
   NTSTATUS v8; // eax
@@ -38,7 +38,7 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1, __int64 a2, __
   bool v20; // zf
   PVOID Object[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  v4 = *(union _SLIST_HEADER **)a1;
+  v4 = *(_SLIST_HEADER **)a1;
   v6 = *(_QWORD *)a1 + 6488LL;
   KeSetActualBasePriorityThread((__int64)KeGetCurrentThread(), 12LL, a3, a4);
   Context = ST_STORE<SM_TRAITS>::StAcquireReadContext(v4);

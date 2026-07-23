@@ -1,39 +1,39 @@
 /*
- * XREFs of EtwEventActivityIdControl @ 0x18001C4A0
+ * XREFs of EtwEventActivityIdControl @ 0x180048EA0
  * Callers:
- *     EtwEventWriteStartScenario @ 0x1800CF560 (EtwEventWriteStartScenario.c)
+ *     EtwEventWriteStartScenario @ 0x1800CCAD0 (EtwEventWriteStartScenario.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18001C620 (RtlNtStatusToDosError.c)
- *     NtTraceControl @ 0x180165740 (NtTraceControl.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x180049020 (RtlNtStatusToDosError.c)
+ *     NtTraceControl @ 0x180163B00 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
+ULONG __cdecl EtwEventActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
   ULONG v2; // ebx
   NTSTATUS v3; // eax
-  ULONG v4; // eax
-  __int64 result; // rax
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  _GUID ActivityId; // xmm1
-  int v10; // [rsp+58h] [rbp+10h] BYREF
+  LONG v4; // eax
+  ULONG result; // eax
+  ULONG v6; // ecx
+  ULONG v7; // ecx
+  ULONG v8; // ecx
+  _GUID v9; // xmm1
+  ULONG ReturnLength; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
-  v10 = 0;
-  if ( p_ActivityId )
+  ReturnLength = 0;
+  if ( ActivityId )
   {
-    if ( a1 == 2 )
+    if ( ControlCode == 2 )
     {
-      NtCurrentTeb()->ActivityId = *p_ActivityId;
+      NtCurrentTeb()->ActivityId = *ActivityId;
       return v2;
     }
-    v6 = a1 - 1;
+    v6 = ControlCode - 1;
     if ( !v6 )
     {
-      result = 0LL;
-      *p_ActivityId = NtCurrentTeb()->ActivityId;
+      result = 0;
+      *ActivityId = NtCurrentTeb()->ActivityId;
       return result;
     }
     v7 = v6 - 2;
@@ -42,10 +42,10 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
       v8 = v7 - 1;
       if ( !v8 )
       {
-        ActivityId = NtCurrentTeb()->ActivityId;
-        NtCurrentTeb()->ActivityId = *p_ActivityId;
-        result = 0LL;
-        *p_ActivityId = ActivityId;
+        v9 = NtCurrentTeb()->ActivityId;
+        NtCurrentTeb()->ActivityId = *ActivityId;
+        result = 0;
+        *ActivityId = v9;
         return result;
       }
       if ( v8 != 1 )
@@ -53,10 +53,10 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
         v3 = -1073741811;
         goto LABEL_7;
       }
-      *p_ActivityId = NtCurrentTeb()->ActivityId;
-      p_ActivityId = &NtCurrentTeb()->ActivityId;
+      *ActivityId = NtCurrentTeb()->ActivityId;
+      ActivityId = &NtCurrentTeb()->ActivityId;
     }
-    v3 = NtTraceControl(12LL, 0LL, 0LL, p_ActivityId, 16, &v10);
+    v3 = NtTraceControl(EtwActivityIdCreate, 0LL, 0, ActivityId, 0x10u, &ReturnLength);
     if ( !v3 )
       return v2;
 LABEL_7:
@@ -66,5 +66,5 @@ LABEL_7:
       RtlSetLastWin32Error(v4);
     return v2;
   }
-  return 87LL;
+  return 87;
 }

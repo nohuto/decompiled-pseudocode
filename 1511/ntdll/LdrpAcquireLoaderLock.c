@@ -20,7 +20,7 @@
 
 __int64 LdrpAcquireLoaderLock()
 {
-  unsigned int v0; // ebx
+  unsigned __int32 v0; // ebx
 
   if ( MEMORY[0x7FFE0384] && (NtCurrentPeb()->TracingFlags & 4) != 0 && (MEMORY[0x7FFE0385] & 0x20) != 0 )
     LdrpLogEtwEvent(5248, -1, -1, -1, 0LL);

@@ -74,7 +74,7 @@ __int64 MiPurgeBadFileOnlyPages()
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -89,10 +89,10 @@ __int64 MiPurgeBadFileOnlyPages()
       if ( qword_140C65798 == 0x3FFFFFFFFFLL )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6CF60);
-        if ( !KiIrqlFlags )
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_69;
         v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) == 0 || v36 > 0xFu || CurrentIrql > 0xFu || v36 < 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v36 > 0xFu || CurrentIrql > 0xFu || v36 < 2u )
           goto LABEL_69;
         v35 = CurrentIrql + 1;
         goto LABEL_67;
@@ -101,10 +101,10 @@ __int64 MiPurgeBadFileOnlyPages()
       if ( !_interlockedbittestandset64((volatile signed __int32 *)(v4 + 24), 0x3FuLL) )
         break;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6CF60);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v5 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v7 = CurrentPrcb->SchedulerAssist;
@@ -125,10 +125,10 @@ __int64 MiPurgeBadFileOnlyPages()
     BugCheckParameter2 = 0LL;
     v11 = MiPreventControlAreaDeletion(48 * v3 - 0x220000000000LL, &BugCheckParameter2, &v41);
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         v13 = KeGetCurrentPrcb();
         v14 = v13->SchedulerAssist;
@@ -157,10 +157,10 @@ __int64 MiPurgeBadFileOnlyPages()
       v41 = v19;
       v21 = v19;
       ExReleaseSpinLockExclusiveFromDpcLevel(v20);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v22 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v22 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v22 >= 2u )
         {
           v23 = KeGetCurrentPrcb();
           v24 = v23->SchedulerAssist;
@@ -184,10 +184,10 @@ __int64 MiPurgeBadFileOnlyPages()
     }
     v29 = *(_WORD *)(v4 + 32);
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;
@@ -205,10 +205,10 @@ __int64 MiPurgeBadFileOnlyPages()
   if ( qword_140C65788 )
     byte_140C6582A = 1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6CF60);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v34 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
     {
       v35 = CurrentIrql + 1;
 LABEL_67:

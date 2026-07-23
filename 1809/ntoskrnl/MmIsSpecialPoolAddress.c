@@ -1,14 +1,14 @@
 /*
- * XREFs of MmIsSpecialPoolAddress @ 0x1401670B0
+ * XREFs of MmIsSpecialPoolAddress @ 0x1401671B0
  * Callers:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
- *     IopUpdateMinidumpContext @ 0x140281C68 (IopUpdateMinidumpContext.c)
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1402AB9D0 (MmIsNonPagedSystemAddressValid.c)
+ *     IopUpdateMinidumpContext @ 0x140281E58 (IopUpdateMinidumpContext.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1402ABBC0 (MmIsNonPagedSystemAddressValid.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     MiVaIsSessionSpecialPool @ 0x14015FC04 (MiVaIsSessionSpecialPool.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
+ *     MiVaIsSessionSpecialPool @ 0x14015FD04 (MiVaIsSessionSpecialPool.c)
  */
 
 _BOOL8 __fastcall MmIsSpecialPoolAddress(unsigned __int64 a1)

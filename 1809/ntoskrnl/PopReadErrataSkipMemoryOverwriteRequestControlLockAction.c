@@ -1,9 +1,9 @@
 /*
- * XREFs of PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x1409DF3CC
+ * XREFs of PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x1409E03CC
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     EmClientRuleEvaluate @ 0x1405654A0 (EmClientRuleEvaluate.c)
+ *     EmClientRuleEvaluate @ 0x1405664A0 (EmClientRuleEvaluate.c)
  */
 
 __int64 PopReadErrataSkipMemoryOverwriteRequestControlLockAction()

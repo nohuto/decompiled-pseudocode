@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCancelIoFile @ 0x1407C198C
+ * XREFs of IopCancelIoFile @ 0x1407C1C5C
  * Callers:
- *     NtCancelIoFileEx @ 0x1407C18E0 (NtCancelIoFileEx.c)
- *     IopIoRingDispatchCancel @ 0x14094927C (IopIoRingDispatchCancel.c)
+ *     NtCancelIoFileEx @ 0x1407C1BB0 (NtCancelIoFileEx.c)
+ *     IopIoRingDispatchCancel @ 0x14094947C (IopIoRingDispatchCancel.c)
  * Callees:
- *     IopCancelIrpsInFileObjectList @ 0x1402AFB50 (IopCancelIrpsInFileObjectList.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1407C1A18 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelIrpsInFileObjectList @ 0x1402AFBD0 (IopCancelIrpsInFileObjectList.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1407C1CE8 (IopCancelIrpsInThreadListForCurrentProcess.c)
  */
 
 __int64 __fastcall IopCancelIoFile(__int64 a1, __int64 a2)

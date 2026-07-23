@@ -126,7 +126,7 @@
  *     VfGetVerifierInformationEx @ 0x140788020 (VfGetVerifierInformationEx.c)
  */
 
-int __fastcall ExpQuerySystemInformation(
+NTSTATUS __fastcall ExpQuerySystemInformation(
         unsigned int a1,
         int *a2,
         unsigned int a3,
@@ -150,7 +150,7 @@ int __fastcall ExpQuerySystemInformation(
   __int64 v19; // rdx
   unsigned __int64 v20; // rcx
   USHORT v21; // cx
-  int result; // eax
+  NTSTATUS result; // eax
   int SystemBasicInformation; // eax
   unsigned __int16 v24; // ax
   unsigned __int64 v25; // rbx
@@ -231,14 +231,14 @@ int __fastcall ExpQuerySystemInformation(
   int *v100; // rax
   int SystemProcessorInformation; // [rsp+30h] [rbp-428h]
   unsigned int Size; // [rsp+34h] [rbp-424h] BYREF
-  struct _PROCESSOR_NUMBER Size_4; // [rsp+38h] [rbp-420h] BYREF
+  _PROCESSOR_NUMBER Size_4; // [rsp+38h] [rbp-420h] BYREF
   unsigned int i; // [rsp+3Ch] [rbp-41Ch]
   unsigned __int8 v105; // [rsp+40h] [rbp-418h]
   unsigned int v106; // [rsp+44h] [rbp-414h]
   char v107[4]; // [rsp+48h] [rbp-410h] BYREF
   USHORT v108; // [rsp+4Ch] [rbp-40Ch]
   int *v109; // [rsp+50h] [rbp-408h]
-  char v110; // [rsp+8Fh] [rbp-3C9h]
+  char Data[65]; // [rsp+8Fh] [rbp-3C9h] BYREF
   unsigned __int16 v111; // [rsp+D0h] [rbp-388h]
   _DWORD v112[3]; // [rsp+DCh] [rbp-37Ch] BYREF
   unsigned int *v113; // [rsp+E8h] [rbp-370h]
@@ -2348,8 +2348,8 @@ LABEL_89:
     case 0xBAu:
       if ( !Length )
       {
-        v110 = 1;
-        return ZwFilterBootOption(1LL, 270532611LL, 637534368LL);
+        Data[0] = 1;
+        return ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
       }
       if ( a6 )
         *a6 = 0;

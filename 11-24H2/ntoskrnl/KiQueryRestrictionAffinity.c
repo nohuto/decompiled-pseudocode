@@ -1,7 +1,7 @@
 /*
- * XREFs of KiQueryRestrictionAffinity @ 0x140439738
+ * XREFs of KiQueryRestrictionAffinity @ 0x14042C2F8
  * Callers:
- *     PpmEventTraceHeteroSets @ 0x140439268 (PpmEventTraceHeteroSets.c)
+ *     PpmEventTraceHeteroSets @ 0x14042BE28 (PpmEventTraceHeteroSets.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpProviderArrivalCallback @ 0x1406AAF5C
+ * XREFs of EtwpProviderArrivalCallback @ 0x14060964C
  * Callers:
- *     EtwpTrackProviderRegistration @ 0x140642E80 (EtwpTrackProviderRegistration.c)
- *     EtwpAddRegEntryToGroup @ 0x140643580 (EtwpAddRegEntryToGroup.c)
- *     EtwpTrackProviderBinary @ 0x1406BFE18 (EtwpTrackProviderBinary.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1409412CC (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpTrackProviderBinary @ 0x14061ED28 (EtwpTrackProviderBinary.c)
+ *     EtwpTrackProviderRegistration @ 0x140637C90 (EtwpTrackProviderRegistration.c)
+ *     EtwpAddRegEntryToGroup @ 0x140638390 (EtwpAddRegEntryToGroup.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x14094149C (EtwpTrackGuidEntryRegistrations.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpTrackDebugIdForSession @ 0x1406AB078 (EtwpTrackDebugIdForSession.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x1406AB1A8 (EtwpLocateDbgIdForRegEntry.c)
- *     MmGetFileNameForAddress @ 0x1408C4044 (MmGetFileNameForAddress.c)
- *     RtlPcToFilePath @ 0x140919200 (RtlPcToFilePath.c)
- *     EtwpSendDbgId @ 0x14093CD50 (EtwpSendDbgId.c)
- *     EtwpTrackBinaryForSession @ 0x140940F0C (EtwpTrackBinaryForSession.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpTrackDebugIdForSession @ 0x140609768 (EtwpTrackDebugIdForSession.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x140609898 (EtwpLocateDbgIdForRegEntry.c)
+ *     MmGetFileNameForAddress @ 0x1408C41A4 (MmGetFileNameForAddress.c)
+ *     RtlPcToFilePath @ 0x140919360 (RtlPcToFilePath.c)
+ *     EtwpSendDbgId @ 0x14093CF20 (EtwpSendDbgId.c)
+ *     EtwpTrackBinaryForSession @ 0x1409410DC (EtwpTrackBinaryForSession.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3)

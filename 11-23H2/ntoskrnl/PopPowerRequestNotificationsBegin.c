@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerRequestNotificationsBegin @ 0x140981644
+ * XREFs of PopPowerRequestNotificationsBegin @ 0x140981844
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1407A6C54 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407A6E44 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopUmpoSendPowerMessage @ 0x14032D1A0 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopUmpoSendPowerRequestCreate @ 0x1407A65EC (PopUmpoSendPowerRequestCreate.c)
- *     PopAcquirePowerRequestPushLock @ 0x1407A6ED4 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerMessage @ 0x14032D430 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x1407A67DC (PopUmpoSendPowerRequestCreate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1407A70C4 (PopAcquirePowerRequestPushLock.c)
  */
 
 void PopPowerRequestNotificationsBegin()

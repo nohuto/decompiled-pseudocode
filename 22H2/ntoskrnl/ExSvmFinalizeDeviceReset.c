@@ -35,7 +35,7 @@ __int64 __fastcall ExSvmFinalizeDeviceReset(__int64 a1)
   unsigned __int8 v17; // r12
   unsigned int v18; // edx
   __int64 v19; // rcx
-  unsigned __int64 v20; // rsi
+  __int64 v20; // rsi
   int v21; // eax
   unsigned int v22; // ecx
   __int64 v23; // rdx
@@ -129,7 +129,7 @@ LABEL_15:
     goto LABEL_38;
   while ( 1 )
   {
-    v20 = (unsigned __int64)&v16->LockEntries[v19];
+    v20 = (__int64)&v16->LockEntries[v19];
     v18 &= ~(1 << v19);
     if ( (*(_BYTE *)(v20 + 26) & 1) != 0
       && (*(_DWORD *)(v20 + 32) & 1) == 0
@@ -154,14 +154,14 @@ LABEL_38:
   {
     *(_BYTE *)(v20 + 32) |= 2u;
     if ( *(__int64 *)(v20 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v20);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
     v21 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
     v22 = *(_DWORD *)(v20 + 88) & 0xFFFE0000;
     *(_BYTE *)(v20 + 25) &= ~1u;
     v27 = v21;
     *(_DWORD *)(v20 + 88) = v22;
     *(_QWORD *)(v20 + 32) = 0LL;
-    v23 = (__int64)(v20 - (unsigned __int64)v16->LockEntries) / 96;
+    v23 = (signed __int64)(v20 - (unsigned __int64)v16->LockEntries) / 96;
     if ( v17 == 1 )
       v16->AbEntrySummary |= 1 << v23;
     else

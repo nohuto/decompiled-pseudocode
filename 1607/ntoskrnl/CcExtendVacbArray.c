@@ -1,21 +1,21 @@
 /*
- * XREFs of CcExtendVacbArray @ 0x14006CF18
+ * XREFs of CcExtendVacbArray @ 0x14006CA98
  * Callers:
- *     CcSetFileSizesEx @ 0x14007344C (CcSetFileSizesEx.c)
- *     CcInitializeCacheMapEx @ 0x1400E8440 (CcInitializeCacheMapEx.c)
+ *     CcSetFileSizesEx @ 0x140072FCC (CcSetFileSizesEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400E62E0 (CcInitializeCacheMapEx.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x140018910 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1400189B4 (CcAcquireBcbLockAndVacbLock.c)
- *     CcCalculateVacbLevelLockCount @ 0x14006B150 (CcCalculateVacbLevelLockCount.c)
- *     VacbLevelReference @ 0x14006CEF8 (VacbLevelReference.c)
- *     CcFreeUnusedVacbLevels @ 0x14006D344 (CcFreeUnusedVacbLevels.c)
- *     CcAllocateVacbLevel @ 0x14006D398 (CcAllocateVacbLevel.c)
- *     CcAllocateVacbLevels @ 0x14006D910 (CcAllocateVacbLevels.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x140018490 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x140018534 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcCalculateVacbLevelLockCount @ 0x14006ACD0 (CcCalculateVacbLevelLockCount.c)
+ *     VacbLevelReference @ 0x14006CA78 (VacbLevelReference.c)
+ *     CcFreeUnusedVacbLevels @ 0x14006CEC4 (CcFreeUnusedVacbLevels.c)
+ *     CcAllocateVacbLevel @ 0x14006CF18 (CcAllocateVacbLevel.c)
+ *     CcAllocateVacbLevels @ 0x14006D490 (CcAllocateVacbLevels.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

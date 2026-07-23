@@ -1,8 +1,8 @@
 /*
- * XREFs of CarFindRuleOverrideEntryByLocalRuleId @ 0x1405D3CE0
+ * XREFs of CarFindRuleOverrideEntryByLocalRuleId @ 0x1405D4250
  * Callers:
- *     CarDeregisterRuleOverride @ 0x1405D3C20 (CarDeregisterRuleOverride.c)
- *     CarSetCustomIdInRuleOverride @ 0x1405D4610 (CarSetCustomIdInRuleOverride.c)
+ *     CarDeregisterRuleOverride @ 0x1405D4190 (CarDeregisterRuleOverride.c)
+ *     CarSetCustomIdInRuleOverride @ 0x1405D4B80 (CarSetCustomIdInRuleOverride.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of CcForEachPartition @ 0x140470EE8
+ * XREFs of CcForEachPartition @ 0x14021AA70
  * Callers:
- *     MiFlushAllFilesystemPages @ 0x1404D6B8C (MiFlushAllFilesystemPages.c)
- *     CcNotifyWriteBehind @ 0x14057A440 (CcNotifyWriteBehind.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x14057AEA0 (CcWaitForCurrentLazyWriterActivity.c)
- *     CcTelemetryPeriodicTimerCallback @ 0x140A71200 (CcTelemetryPeriodicTimerCallback.c)
+ *     MiFlushAllFilesystemPages @ 0x1404CFFDC (MiFlushAllFilesystemPages.c)
+ *     CcNotifyWriteBehind @ 0x1405778D0 (CcNotifyWriteBehind.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x140578330 (CcWaitForCurrentLazyWriterActivity.c)
+ *     CcTelemetryPeriodicTimerCallback @ 0x140A6A690 (CcTelemetryPeriodicTimerCallback.c)
  * Callees:
- *     PsGetNextPartitionUnsafe @ 0x140246D98 (PsGetNextPartitionUnsafe.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x1402A7F20 (CcDereferencePartition.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1402CE9E0 (CcForEachPrivateVolumeCacheMap.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsGetNextPartitionUnsafe @ 0x1402194E8 (PsGetNextPartitionUnsafe.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x140263914 (CcForEachPrivateVolumeCacheMap.c)
+ *     CcDereferencePartition @ 0x140279D10 (CcDereferencePartition.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _UNKNOWN **__fastcall CcForEachPartition(__int64 a1, __int64 a2, char a3, char a4)

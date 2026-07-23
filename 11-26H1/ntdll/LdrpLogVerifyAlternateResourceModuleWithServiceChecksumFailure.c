@@ -1,24 +1,24 @@
 /*
- * XREFs of LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800707C0
+ * XREFs of LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x180090C10
  * Callers:
- *     LdrpVerifyAlternateResourceModuleEx @ 0x1800A6EEC (LdrpVerifyAlternateResourceModuleEx.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x1800A601C (LdrpVerifyAlternateResourceModuleEx.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18006A8B0 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlRunOnceExecuteOnce @ 0x18006EED0 (RtlRunOnceExecuteOnce.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18008AD00 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     RtlRunOnceExecuteOnce @ 0x18008F320 (RtlRunOnceExecuteOnce.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
+NTSTATUS __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
         unsigned __int16 *a1,
         __int64 a2,
         __int64 a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v7; // r8
   __int16 v8; // [rsp+38h] [rbp-59h] BYREF
   __int16 v9; // [rsp+3Ch] [rbp-55h] BYREF
   __int64 v10; // [rsp+40h] [rbp-51h] BYREF
-  _BYTE v11[32]; // [rsp+48h] [rbp-49h] BYREF
+  _EVENT_DATA_DESCRIPTOR v11; // [rsp+48h] [rbp-49h] BYREF
   __int64 *v12; // [rsp+68h] [rbp-29h]
   __int64 v13; // [rsp+70h] [rbp-21h]
   _DWORD *v14; // [rsp+78h] [rbp-19h]
@@ -34,15 +34,11 @@ __int64 __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailur
   __int64 v24; // [rsp+C8h] [rbp+37h]
   __int64 v25; // [rsp+D0h] [rbp+3Fh]
 
-  result = RtlRunOnceExecuteOnce(
-             &qword_1801CB578,
-             (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
-             0LL,
-             0LL);
-  if ( (int)result >= 0 && (unsigned int)dword_1801C5990 > 5 && (qword_1801C59A0 & 0x200000000000LL) != 0 )
+  result = RtlRunOnceExecuteOnce(&stru_1801CA5C8, LdrpResReportResourceAccessInternalInitOnce, 0LL, 0LL);
+  if ( result >= 0 && (unsigned int)dword_1801C4990 > 5 && (qword_1801C49A0 & 0x200000000000LL) != 0 )
   {
-    result = qword_1801C59A8 & 0x200000000000LL;
-    if ( (qword_1801C59A8 & 0x200000000000LL) == qword_1801C59A8 )
+    result = 0;
+    if ( (qword_1801C49A8 & 0x200000000000LL) == qword_1801C49A8 )
     {
       v10 = 0x1000000LL;
       v8 = 4;
@@ -62,7 +58,13 @@ __int64 __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailur
       v23 = 2LL;
       v24 = a3;
       v25 = 16LL;
-      return tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801C5990, byte_18019C2AF, v7, 0LL, 9, (__int64)v11);
+      return tlgWriteTransfer_EtwEventWriteTransfer(
+               (__int64)&dword_1801C4990,
+               (unsigned __int8 *)dword_18019B2C7,
+               v7,
+               0LL,
+               9u,
+               &v11);
     }
   }
   return result;

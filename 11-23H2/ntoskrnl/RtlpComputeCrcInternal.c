@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpComputeCrcInternal @ 0x1403BE6A0
+ * XREFs of RtlpComputeCrcInternal @ 0x1403BE880
  * Callers:
- *     RtlCrc64 @ 0x1403BE680 (RtlCrc64.c)
- *     RtlCrc32 @ 0x140464370 (RtlCrc32.c)
- *     PopEnsureErratumSubscribed @ 0x14058DA34 (PopEnsureErratumSubscribed.c)
- *     MdlInvariantPostProcessing1 @ 0x1405CF494 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x1405CF678 (MdlInvariantPreProcessing1.c)
+ *     RtlCrc64 @ 0x1403BE860 (RtlCrc64.c)
+ *     RtlCrc32 @ 0x140464770 (RtlCrc32.c)
+ *     PopEnsureErratumSubscribed @ 0x14058DF24 (PopEnsureErratumSubscribed.c)
+ *     MdlInvariantPostProcessing1 @ 0x1405CFA04 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405CFBE8 (MdlInvariantPreProcessing1.c)
  * Callees:
  *     <none>
  */

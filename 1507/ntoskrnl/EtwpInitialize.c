@@ -43,10 +43,7 @@ void __fastcall EtwpInitialize(int a1)
   __int64 v11; // rcx
   int v12; // eax
   __int64 v13; // rdx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  _QWORD v17[6]; // [rsp+40h] [rbp-48h] BYREF
+  _QWORD v14[6]; // [rsp+40h] [rbp-48h] BYREF
 
   if ( a1 )
   {
@@ -134,13 +131,13 @@ void __fastcall EtwpInitialize(int a1)
       (PKBUGCHECK_REASON_CALLBACK_ROUTINE)EtwpBugCheckMultiPartCallback,
       KbCallbackSecondaryMultiPartDumpData,
       (PUCHAR)&EtwpComponentName);
-    memset(v17, 0, sizeof(v17));
-    WORD1(v17[0]) |= 1u;
-    v17[1] = EtwpServerSiloCreateNotify;
-    LOWORD(v17[0]) = 1;
-    v17[2] = EtwpServerSiloTerminateNotify;
-    v17[5] = AlpcMessageDeleteProcedure;
-    PsRegisterMonitorServerSilo(0LL, L"NTOS_ETW", (__int64)v17, &EtwSiloMonitor);
+    memset(v14, 0, sizeof(v14));
+    WORD1(v14[0]) |= 1u;
+    v14[1] = EtwpServerSiloCreateNotify;
+    LOWORD(v14[0]) = 1;
+    v14[2] = EtwpServerSiloTerminateNotify;
+    v14[5] = AlpcMessageDeleteProcedure;
+    PsRegisterMonitorServerSilo(0LL, L"NTOS_ETW", (__int64)v14, &EtwSiloMonitor);
     PsStartMonitorServerSilo(EtwSiloMonitor);
     WdipSemInitialize();
     PerfDiagInitialize();
@@ -168,8 +165,8 @@ void __fastcall EtwpInitialize(int a1)
     EtwRegister(&KernelAuditApiCallsGuid, 0LL, 0LL, &EtwApiCallsProvRegHandle);
     EtwRegister(&SecurityMitigationsProviderGuid, 0LL, 0LL, &EtwSecurityMitigationsRegHandle);
     EtwpInitialized = 1;
-    ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0LL);
-    ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0LL);
-    EtwpTraceSystemInitialization(v15, v14, v16);
+    ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
+    ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
+    EtwpTraceSystemInitialization();
   }
 }

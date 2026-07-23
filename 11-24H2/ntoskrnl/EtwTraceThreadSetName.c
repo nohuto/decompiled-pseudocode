@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceThreadSetName @ 0x1409136CC
+ * XREFs of EtwTraceThreadSetName @ 0x1408EADD8
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceThreadSetName(__int64 a1)
@@ -14,9 +14,9 @@ __int64 __fastcall EtwTraceThreadSetName(__int64 a1)
   unsigned int v3; // eax
   _DWORD v5[4]; // [rsp+30h] [rbp-50h] BYREF
   _QWORD v6[2]; // [rsp+40h] [rbp-40h] BYREF
-  __int64 *v7; // [rsp+50h] [rbp-30h]
+  int *v7; // [rsp+50h] [rbp-30h]
   __int64 v8; // [rsp+58h] [rbp-28h]
-  __int64 *v9; // [rsp+60h] [rbp-20h]
+  int *v9; // [rsp+60h] [rbp-20h]
   __int64 v10; // [rsp+68h] [rbp-18h]
 
   v1 = *(unsigned __int16 **)(a1 + 1696);
@@ -31,7 +31,7 @@ __int64 __fastcall EtwTraceThreadSetName(__int64 a1)
     v3 = 2048;
     if ( *v1 < 0x800u )
       v3 = *v1;
-    v7 = (__int64 *)*((_QWORD *)v1 + 1);
+    v7 = (int *)*((_QWORD *)v1 + 1);
     v8 = v3;
     if ( !v3 || *(_WORD *)(*((_QWORD *)v1 + 1) + 2 * ((unsigned __int64)v3 >> 1) - 2) )
     {

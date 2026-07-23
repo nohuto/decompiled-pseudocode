@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDeviceIdleCheck @ 0x1404C69C0
+ * XREFs of PopDiagTraceDeviceIdleCheck @ 0x1404C0370
  * Callers:
- *     PopScanIdleList @ 0x1404C65A0 (PopScanIdleList.c)
+ *     PopScanIdleList @ 0x1404BFF50 (PopScanIdleList.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDeviceIdleCheck(__int64 a1, int a2, int a3)
@@ -53,11 +53,9 @@ char __fastcall PopDiagTraceDeviceIdleCheck(__int64 a1, int a2, int a3)
   v11[0] = 0;
   v12 = 0;
   Object = 0LL;
-  if ( !byte_140E67628 )
+  if ( !PopDiagHandleRegistered )
     return (char)DeviceAttachmentBaseRefWithTag;
-  LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(
-                                             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                                             &POP_ETW_EVENT_DEVICE_IDLE_CHECK);
+  LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_IDLE_CHECK);
   if ( !(_BYTE)DeviceAttachmentBaseRefWithTag )
     goto LABEL_6;
   DeviceAttachmentBaseRefWithTag = (_UNKNOWN **)IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 24), 0x67446F50u);
@@ -99,7 +97,7 @@ char __fastcall PopDiagTraceDeviceIdleCheck(__int64 a1, int a2, int a3)
       v29 = 4LL;
       v31 = 4LL;
       LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwWriteEx(
-                                                 *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                                                 PopDiagHandle,
                                                  &POP_ETW_EVENT_DEVICE_IDLE_CHECK,
                                                  0LL,
                                                  0,

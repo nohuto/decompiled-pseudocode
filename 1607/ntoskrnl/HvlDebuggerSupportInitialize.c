@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlDebuggerSupportInitialize @ 0x14014C958
+ * XREFs of HvlDebuggerSupportInitialize @ 0x14014CEC8
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     xKdEnumerateDebuggingDevices @ 0x14014CA24 (xKdEnumerateDebuggingDevices.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strncmp @ 0x14014CE80 (strncmp.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     atol @ 0x14014CFC8 (atol.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     xKdEnumerateDebuggingDevices @ 0x14014CF94 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strncmp @ 0x14014D3F0 (strncmp.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     atol @ 0x14014D538 (atol.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

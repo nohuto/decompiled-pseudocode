@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_BatteryTriggerCheck__private_IsEnabledFallback @ 0x14060C6C4
+ * XREFs of Feature_BatteryTriggerCheck__private_IsEnabledFallback @ 0x14060F824
  * Callers:
- *     Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline @ 0x14060C688 (Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline @ 0x14060F7E8 (Feature_BatteryTriggerCheck__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_BatteryTriggerCheck__private_IsEnabledFallback(__int64 a1, unsigned int a2)

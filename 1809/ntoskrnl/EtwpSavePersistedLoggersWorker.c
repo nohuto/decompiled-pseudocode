@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpSavePersistedLoggersWorker @ 0x1408CA8B0
+ * XREFs of EtwpSavePersistedLoggersWorker @ 0x1408CBB70
  * Callers:
- *     EtwInitialize @ 0x1407432E0 (EtwInitialize.c)
+ *     EtwInitialize @ 0x1407444D0 (EtwInitialize.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpSavePersistedLogger @ 0x1408CA4DC (EtwpSavePersistedLogger.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpSavePersistedLogger @ 0x1408CB79C (EtwpSavePersistedLogger.c)
  */
 
 void __fastcall EtwpSavePersistedLoggersWorker(void *a1)

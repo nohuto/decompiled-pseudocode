@@ -10,21 +10,22 @@
  *     TppRaiseInvalidParameter @ 0x1800F5C58 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpSetPoolMaxThreads(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
-  __int64 result; // rax
-  int v5; // [rsp+38h] [rbp+10h] BYREF
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = (int)Ldr;
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, Ldr, a3);
-  if ( (int)Ldr < 0 )
-    return TppRaiseInvalidParameter(a1, Ldr, a3);
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress )
-    return TppRaiseInvalidParameter(a1, Ldr, a3);
-  result = NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v5, 4LL);
-  if ( MEMORY[0x7FFE0386] )
-    return TppETWPoolThreadMax(a1, v5);
-  return result;
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool
+    || (MaxThreads & 0x80000000) != 0
+    || (*(_QWORD *)&MaxThreads = NtCurrentPeb()->Ldr, *(_BYTE *)(*(_QWORD *)&MaxThreads + 72LL)) )
+  {
+    TppRaiseInvalidParameter(Pool, *(_QWORD *)&MaxThreads);
+  }
+  else
+  {
+    NtSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( MEMORY[0x7FFE0386] )
+      TppETWPoolThreadMax((__int64)Pool, WorkerFactoryInformation);
+  }
 }

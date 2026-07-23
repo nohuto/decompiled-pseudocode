@@ -5,7 +5,7 @@
  *     RtlpFindAndCommitPages @ 0x180045FCC (RtlpFindAndCommitPages.c)
  * Callees:
  *     RtlpUpdateUCRIndexRemove @ 0x180046664 (RtlpUpdateUCRIndexRemove.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpRemoveUCRBlock(__int64 a1, __int64 *a2)

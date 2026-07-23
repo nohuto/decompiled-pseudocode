@@ -7,7 +7,7 @@
  *     CmOpenKey @ 0x1406CE0F0 (CmOpenKey.c)
  */
 
-__int64 __fastcall NtOpenKey(int a1, int a2, int a3)
+NTSTATUS __cdecl NtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  return CmOpenKey(a1, a2, a3, 0, 0LL);
+  return CmOpenKey((_DWORD)KeyHandle, DesiredAccess, (_DWORD)ObjectAttributes, 0, 0LL);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInitializeConfigurationFromMadt @ 0x140CB1670
+ * XREFs of HalpInitializeConfigurationFromMadt @ 0x140CB76B0
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140CB19FC (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140CB7A3C (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     HalpParseChannelCount @ 0x1405A0E90 (HalpParseChannelCount.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpAllocateNumaConfigData @ 0x140CB1210 (HalpAllocateNumaConfigData.c)
- *     HalpChannelInitializeStaticConfiguration @ 0x140CB4C98 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     HalpParseChannelCount @ 0x1405A36A0 (HalpParseChannelCount.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpAllocateNumaConfigData @ 0x140CB7250 (HalpAllocateNumaConfigData.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140CBACD8 (HalpChannelInitializeStaticConfiguration.c)
  */
 
 __int64 __fastcall HalpInitializeConfigurationFromMadt(__int64 a1)

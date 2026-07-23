@@ -1,20 +1,20 @@
 /*
- * XREFs of PopTraceThermalRequestPassiveHistogram @ 0x140436950
+ * XREFs of PopTraceThermalRequestPassiveHistogram @ 0x1404258E0
  * Callers:
- *     PopCoolingTelemetryWorker @ 0x140435360 (PopCoolingTelemetryWorker.c)
- *     PopCoolingSxTransition @ 0x1404359C0 (PopCoolingSxTransition.c)
- *     PopDeactiveThermalRequest @ 0x1407CBAF8 (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x1407CBDB4 (PopOrphanCoolingExtension.c)
+ *     PopCoolingTelemetryWorker @ 0x1404244F8 (PopCoolingTelemetryWorker.c)
+ *     PopCoolingSxTransition @ 0x140424E88 (PopCoolingSxTransition.c)
+ *     PopDeactiveThermalRequest @ 0x1407CEB98 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x1407CEE54 (PopOrphanCoolingExtension.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     PopDiagSnapPassiveHistogram @ 0x1404379F4 (PopDiagSnapPassiveHistogram.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     PopDiagSnapPassiveHistogram @ 0x140426984 (PopDiagSnapPassiveHistogram.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopTraceThermalRequestPassiveHistogram(__int64 a1)
@@ -60,9 +60,9 @@ void __fastcall PopTraceThermalRequestPassiveHistogram(__int64 a1)
         {
           v7 = (char *)v2 + v2[2];
           if ( ((unsigned __int8)PopDiagSnapPassiveHistogram(a1 + 40, v21) || PopThermalTelemetryVerbosity)
-            && (unsigned int)dword_140E07598 > 5
-            && (qword_140E075A8 & 0x400000000000LL) != 0
-            && (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+            && (unsigned int)dword_140E07560 > 5
+            && (qword_140E07570 & 0x400000000000LL) != 0
+            && (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
           {
             v13 = 2LL;
             v12 = v15;
@@ -71,12 +71,12 @@ void __fastcall PopTraceThermalRequestPassiveHistogram(__int64 a1)
             v15[1] = 0;
             tlgCreate1Sz_wchar_t(v16, v7, v8, v9);
             v18 = 84LL;
-            v19 = &unk_140F10E80;
+            v19 = &PopThermalTrackingThresholds;
             v17 = v21;
             v20 = 21LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140E07598,
-              (unsigned __int8 *)byte_14004ADE8,
+              (__int64)&dword_140E07560,
+              (unsigned __int8 *)word_14004B132,
               0LL,
               0LL,
               7u,

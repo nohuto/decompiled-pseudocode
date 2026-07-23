@@ -20,7 +20,7 @@ void *__cdecl memchr(const void *Buf, int Val, size_t MaxCount)
   unsigned int v12; // ecx
 
   result = (void *)MaxCount;
-  if ( MaxCount )
+  if ( (_DWORD)MaxCount )
   {
     v4 = (unsigned __int8 *)Buf;
     LOBYTE(v5) = Val;

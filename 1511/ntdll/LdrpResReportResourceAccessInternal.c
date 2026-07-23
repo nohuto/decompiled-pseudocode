@@ -13,7 +13,7 @@
  *     __security_check_cookie @ 0x180095840 (__security_check_cookie.c)
  */
 
-char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, unsigned __int64 a2, __int64 *a3, int a4)
+char __fastcall LdrpResReportResourceAccessInternal(PVOID BaseOfImage, ULONG64 a2, __int64 *a3, int a4)
 {
   const struct _TlgProvider_t *RcConfig; // rax
   __int64 v9; // rdx
@@ -54,9 +54,13 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, unsigne
   char *v45; // [rsp+E0h] [rbp-20h]
   __int64 v46; // [rsp+E8h] [rbp-18h]
   EVENT_DATA_DESCRIPTOR v47[2]; // [rsp+F0h] [rbp-10h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+110h] [rbp+10h] BYREF
+  _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+110h] [rbp+10h] BYREF
 
-  LODWORD(RcConfig) = RtlRunOnceExecuteOnce(&unk_180145FF8, LdrpResReportResourceAccessInternalInitOnce, 0LL, 0LL);
+  LODWORD(RcConfig) = RtlRunOnceExecuteOnce(
+                        &RunOnce,
+                        (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce,
+                        0LL,
+                        0LL);
   if ( (int)RcConfig >= 0 )
   {
     v10 = dword_180145ED4;
@@ -67,7 +71,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, unsigne
       {
         *(_QWORD *)&pActivityId.Data1 = 0LL;
         v11 = 1;
-        LODWORD(RcConfig) = LdrResGetRCConfig(a1, a2, &pActivityId, 4096, 0);
+        LODWORD(RcConfig) = LdrResGetRCConfig((__int64)BaseOfImage, a2, (__int64 *)&pActivityId, 4096, 0);
         if ( (int)RcConfig < 0 )
           v13 = 0LL;
         else
@@ -76,7 +80,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, unsigne
       else
       {
         v11 = 0;
-        RcConfig = (const struct _TlgProvider_t *)LdrpGetRcConfig(a1, v9, 0, 1);
+        RcConfig = (const struct _TlgProvider_t *)LdrpGetRcConfig(BaseOfImage, v9, 0, 1);
         v13 = RcConfig;
       }
       if ( v13 )

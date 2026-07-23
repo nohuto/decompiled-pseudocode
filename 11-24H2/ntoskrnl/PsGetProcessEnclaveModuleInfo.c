@@ -1,16 +1,16 @@
 /*
- * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1404BEA10
+ * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1404B9BD0
  * Callers:
- *     DbgkpPostModuleMessages @ 0x140A4A9B8 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140A41618 (DbgkpPostModuleMessages.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsFreeEnclaveModuleInfo @ 0x1404BEC50 (PsFreeEnclaveModuleInfo.c)
- *     MmGetEnclaveModuleList @ 0x140680BD8 (MmGetEnclaveModuleList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1404B9E10 (PsFreeEnclaveModuleInfo.c)
+ *     MmGetEnclaveModuleList @ 0x140681DD8 (MmGetEnclaveModuleList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsGetProcessEnclaveModuleInfo(__int64 a1, _QWORD *a2, unsigned int *a3)
@@ -20,8 +20,8 @@ __int64 __fastcall PsGetProcessEnclaveModuleInfo(__int64 a1, _QWORD *a2, unsigne
   unsigned int v5; // r14d
   char *Pool2; // r13
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v9; // rax
-  _QWORD *v10; // rdi
+  char *v9; // rax
+  char *v10; // rdi
   __int64 v11; // r8
   _QWORD **v12; // rdx
   _QWORD *v13; // rcx
@@ -37,12 +37,12 @@ __int64 __fastcall PsGetProcessEnclaveModuleInfo(__int64 a1, _QWORD *a2, unsigne
   Pool2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = KeAbPreAcquire(a1 + 1624, 0LL);
+  v9 = (char *)KeAbPreAcquire(a1 + 1624, 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v3, (__int64)v9, (__int64)v3);
+    ExfAcquirePushLockExclusiveEx(v3, v9, (__int64)v3);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   v11 = *(_QWORD *)(a1 + 1608);
   if ( v11 )
   {
@@ -69,7 +69,7 @@ LABEL_13:
 LABEL_15:
     if ( v5 )
     {
-      Pool2 = (char *)ExAllocatePool2(0x100uLL);
+      Pool2 = (char *)ExAllocatePool2(0x100uLL, 16LL * v5, 0x56455350u);
       if ( Pool2 )
       {
         v14 = *(_QWORD *)(a1 + 1608);

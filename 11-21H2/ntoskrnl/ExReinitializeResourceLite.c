@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpOwnerEntryToThread @ 0x14021A758 (ExpOwnerEntryToThread.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x1402AF060 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     sub_14021A758 @ 0x14021A758 (sub_14021A758.c)
+ *     sub_1402ACD80 @ 0x1402ACD80 (sub_1402ACD80.c)
+ *     sub_1402AF060 @ 0x1402AF060 (sub_1402AF060.c)
  *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     memset @ 0x140435E00 (memset.c)
- *     PerfLogExecutiveResourceInitialize @ 0x140632710 (PerfLogExecutiveResourceInitialize.c)
+ *     sub_140632710 @ 0x140632710 (sub_140632710.c)
  */
 
 NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
@@ -44,11 +44,11 @@ NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
       do
       {
         p_TableSize += 4;
-        v16 = ExpOwnerEntryToThread(p_TableSize - 2);
+        v16 = sub_14021A758(p_TableSize - 2);
         if ( v16 )
         {
           ++v4;
-          if ( (unsigned __int8)ExpResourceEnforcesOwnershipTransfer(Resource)
+          if ( (unsigned __int8)sub_1402AF060(Resource)
             && (*p_TableSize & 2) == 0
             && (struct _KTHREAD *)v14 != KeGetCurrentThread() )
           {
@@ -58,7 +58,7 @@ NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
           if ( (*p_TableSize & 1) != 0 )
           {
             LOBYTE(v13) = 1;
-            PsBoostThreadIoEx(v14, v13, 0LL, 0LL);
+            sub_1402ACD80(v14, v13, 0LL, 0LL);
             v15 = *p_TableSize;
             v14 = v16;
           }
@@ -99,7 +99,7 @@ NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
   }
   if ( OwnerThread )
   {
-    if ( (Resource->ReservedLowFlags & 1) != 0 || ExpResourceEnforceOwnerTransfer )
+    if ( (Resource->ReservedLowFlags & 1) != 0 || dword_140C11740 )
     {
       *(_BYTE *)&v8 = Resource->OwnerEntry.TableSize;
       if ( (*(_BYTE *)&v7 & 2) == 0 && (struct _KTHREAD *)OwnerThread != KeGetCurrentThread() )
@@ -112,7 +112,7 @@ NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
     if ( (*(_BYTE *)&v8 & 1) != 0 )
     {
       LOBYTE(v1) = 1;
-      PsBoostThreadIoEx(OwnerThread, v1, 0LL, 0LL);
+      sub_1402ACD80(OwnerThread, v1, 0LL, 0LL);
       v8 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     }
     if ( (*(_BYTE *)&v8 & 4) != 0 )
@@ -130,7 +130,7 @@ LABEL_19:
   Resource->OwnerEntry = 0LL;
   *(_QWORD *)&Resource->NumberOfSharedWaiters = 0LL;
   __incgsdword(0x8A5Cu);
-  if ( (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0 )
-    PerfLogExecutiveResourceInitialize(65560LL, Resource, TableSize, v4);
+  if ( (DWORD1(xmmword_140D06900) & 0x20000) != 0 )
+    sub_140632710(65560LL, Resource, TableSize, v4);
   return 0;
 }

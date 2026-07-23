@@ -15,7 +15,7 @@ __int64 __fastcall ResCGetHighestConsecutiveCacheIndex(__int64 a1, int a2)
   int v4; // esi
   int v5; // ebx
   wchar_t v7[264]; // [rsp+30h] [rbp-448h] BYREF
-  _BYTE v8[528]; // [rsp+240h] [rbp-238h] BYREF
+  WCHAR v8[264]; // [rsp+240h] [rbp-238h] BYREF
 
   v2 = -1;
   v4 = 1;
@@ -31,9 +31,9 @@ __int64 __fastcall ResCGetHighestConsecutiveCacheIndex(__int64 a1, int a2)
       v5 = 0;
     }
     while ( (unsigned int)ResCGetIndexedName(a1, 257LL, v5, v7)
-         && (unsigned int)ResGetFileAttributesW((__int64)v7) != -1
+         && (unsigned int)ResGetFileAttributesW(v7) != -1
          && (unsigned int)ResCGetName(v7, 260LL, v8)
-         && (unsigned int)ResGetFileAttributesW((__int64)v8) != -1 )
+         && (unsigned int)ResGetFileAttributesW(v8) != -1 )
     {
       v2 = v5++;
       if ( v5 > 9999 )

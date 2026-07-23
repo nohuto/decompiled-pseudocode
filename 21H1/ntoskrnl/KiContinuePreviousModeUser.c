@@ -18,12 +18,12 @@
  *     RtlGuardIsValidWow64StackPointer @ 0x1406FDCC4 (RtlGuardIsValidWow64StackPointer.c)
  */
 
-__int64 __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+NTSTATUS __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   __int64 v5; // r14
   struct _KTHREAD *CurrentThread; // r13
-  unsigned int v7; // ebx
-  __int64 result; // rax
+  ULONG v7; // ebx
+  NTSTATUS result; // eax
   int v9; // eax
   int v10; // edi
   int v11; // eax
@@ -32,7 +32,7 @@ __int64 __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, __int64 a3
   void *v14; // rsp
   int v15; // edx
   int v16; // ecx
-  __int64 v17; // r9
+  ULONG64 v17; // r9
   int v18; // r12d
   _QWORD *ExtendedFeature2; // r8
   _KPROCESS *Process; // rsi
@@ -47,10 +47,10 @@ __int64 __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, __int64 a3
   int v29; // [rsp+30h] [rbp+0h] BYREF
   unsigned int v30; // [rsp+34h] [rbp+4h]
   int v31; // [rsp+38h] [rbp+8h] BYREF
-  __int64 v32; // [rsp+40h] [rbp+10h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+40h] [rbp+10h] BYREF
   unsigned __int64 v33; // [rsp+48h] [rbp+18h] BYREF
   _BYTE v34[24]; // [rsp+50h] [rbp+20h] BYREF
-  unsigned int v35; // [rsp+68h] [rbp+38h]
+  ULONG v35; // [rsp+68h] [rbp+38h]
   __int64 v36; // [rsp+70h] [rbp+40h]
   __int64 v37; // [rsp+78h] [rbp+48h]
   unsigned __int64 v38; // [rsp+C8h] [rbp+98h]
@@ -58,7 +58,7 @@ __int64 __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, __int64 a3
   v37 = a3;
   v36 = a2;
   v5 = 0LL;
-  v32 = 0LL;
+  ContextEx = 0LL;
   v30 = 0;
   CurrentThread = KeGetCurrentThread();
   v7 = *(_DWORD *)(a1 + 48);
@@ -72,7 +72,7 @@ __int64 __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, __int64 a3
     *(_OWORD *)v34 = *(_OWORD *)a4;
     *(_QWORD *)&v34[16] = *(_QWORD *)(a4 + 16);
     if ( (*(_DWORD *)&v34[4] & 0xFFFFFFFC) != 0 || *(_DWORD *)v34 >= 4u || *(_OWORD *)&v34[8] != 0LL )
-      return 3221225485LL;
+      return -1073741811;
   }
   if ( ((v7 & 0x10000) == 0 || (v7 & 0x27FEFF80) != 0)
     && (v7 & 0x27FFFFA0) != 0x100000
@@ -82,13 +82,13 @@ __int64 __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, __int64 a3
     goto LABEL_47;
   }
   if ( ((v7 & 0x100040) == 1048640 || (v7 & 0x10040) == 65600) && !MEMORY[0xFFFFF780000003D8] )
-    return 3221225659LL;
+    return -1073741637;
   if ( (v7 & 0x100000) == 0 )
 LABEL_47:
     v7 = v7 & 0xD800001F | 0x100000;
   v29 = 0;
   result = RtlpValidateContextFlags(v7, &v29);
-  if ( (int)result < 0 )
+  if ( result < 0 )
   {
     v12 = v30;
     goto LABEL_22;
@@ -97,7 +97,7 @@ LABEL_47:
     v5 = MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708];
   v31 = 0;
   result = RtlpValidateContextFlags(v7, &v31);
-  if ( (int)result < 0 )
+  if ( result < 0 )
   {
     v12 = v30;
     goto LABEL_22;
@@ -138,9 +138,9 @@ LABEL_20:
     v11 = (-v10 & (v10 + v11 - 1)) - v10 - 448 + RtlpGetEntireXStateAreaLength(v5);
   }
   v12 = v10 + v11 - 1;
-  result = 0LL;
+  result = 0;
 LABEL_22:
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v13 = v12 + 15LL;
   if ( v13 <= v12 )
@@ -153,7 +153,7 @@ LABEL_22:
     && (v7 & 0x7FFFFE0) != 0x400000 )
   {
     v18 = -1073741811;
-    result = 3221225485LL;
+    result = -1073741811;
     goto LABEL_33;
   }
   LOBYTE(v16) = (v7 & 0x100040) != 1048640;
@@ -169,18 +169,18 @@ LABEL_29:
     v17 = 0LL;
     if ( v22 )
       v17 = MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708];
-    result = RtlInitializeExtendedContext2(&v29, v7, &v32, v17);
+    result = RtlInitializeExtendedContext2((PCONTEXT)&v29, v7, &ContextEx, v17);
     goto LABEL_32;
   }
-  result = 3221225659LL;
+  result = -1073741637;
 LABEL_32:
   v18 = -1073741811;
 LABEL_33:
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     LOBYTE(v15) = 1;
-    result = RtlpReadExtendedContext(v16, v15, v32, v7, a1, 0LL);
-    if ( (int)result >= 0 )
+    result = RtlpReadExtendedContext(v16, v15, (_DWORD)ContextEx, v7, a1, 0LL);
+    if ( result >= 0 )
     {
       v33 = 0LL;
       if ( (*(_DWORD *)&v34[16] & 0x100040) == 0x100040 )
@@ -197,7 +197,7 @@ LABEL_33:
             if ( v25 )
             {
               result = KiVerifyContextXStateCetUEnabled(ExtendedFeature2, v24);
-              if ( (int)result < 0 )
+              if ( result < 0 )
                 return result;
             }
             else
@@ -209,7 +209,7 @@ LABEL_33:
           }
           else if ( v25 && (*ExtendedFeature2 || ExtendedFeature2[1]) )
           {
-            return 3221227018LL;
+            return -1073740278;
           }
         }
       }
@@ -231,11 +231,11 @@ LABEL_33:
       {
         LOBYTE(v28) = 1;
         KeContextToKframes(v37, v36, (unsigned int)&v29, v7, v28);
-        return 0LL;
+        return 0;
       }
       else
       {
-        return (unsigned int)v18;
+        return v18;
       }
     }
   }

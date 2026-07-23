@@ -3,11 +3,11 @@
  * Callers:
  *     RtlpConvertAclToAutoInherit @ 0x1800E7FE8 (RtlpConvertAclToAutoInherit.c)
  * Callees:
- *     RtlpCompareKnownObjectAces @ 0x18008AC58 (RtlpCompareKnownObjectAces.c)
+ *     RtlpCompareKnownObjectAces @ 0x18008AC68 (RtlpCompareKnownObjectAces.c)
  *     RtlpCompareKnownAces @ 0x1800E7EA8 (RtlpCompareKnownAces.c)
  */
 
-char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   char v4; // r11
 

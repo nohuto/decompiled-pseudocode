@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCreateJobObject()
+NTSTATUS __cdecl ZwCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 161LL;
+  result = 161;
   __asm { syscall; Low latency system call }
   return result;
 }

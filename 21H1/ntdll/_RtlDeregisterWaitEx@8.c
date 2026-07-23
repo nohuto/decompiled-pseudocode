@@ -16,51 +16,54 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlDeregisterWaitEx(int a1, int a2)
+NTSTATUS __cdecl RtlDeregisterWaitEx(HANDLE WaitHandle, HANDLE CompletionEvent)
 {
-  int v2; // esi
+  NTSTATUS v2; // esi
   int v3; // esi
   int v4; // eax
   int v6; // [esp+10h] [ebp-28h]
-  int v7; // [esp+18h] [ebp-20h] BYREF
+  HANDLE TokenHandle; // [esp+18h] [ebp-20h] BYREF
   int v8; // [esp+1Ch] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+20h] [ebp-18h]
 
   v8 = -1073741823;
-  v7 = 0;
+  TokenHandle = 0;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
     return 0;
-  if ( !a1 )
+  if ( !WaitHandle )
     return -1073741585;
   ms_exc.registration.TryLevel = 0;
-  v2 = RtlpTpRevertCapture(&v7, 0);
+  v2 = RtlpTpRevertCapture(&TokenHandle);
   v8 = v2;
   if ( v2 >= 0 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 8);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)WaitHandle + 2);
     v3 = 1;
     ms_exc.registration.TryLevel = 1;
-    *(_DWORD *)(a1 + 4) |= 8u;
-    TpSetWaitEx(*(_DWORD *)(a1 + 24), 0, 0, 0);
+    *((_DWORD *)WaitHandle + 1) |= 8u;
+    TpSetWaitEx(*((PTP_WAIT *)WaitHandle + 6), 0, 0, 0);
     ms_exc.registration.TryLevel = 0;
-    RtlReleaseSRWLockExclusive(a1 + 8);
-    _InterlockedOr((volatile signed __int32 *)(a1 + 12), 1u);
-    if ( (*(_BYTE *)(a1 + 4) & 4) == 0 || *(void **)(a1 + 48) != NtCurrentTeb()->ClientId.UniqueThread )
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)WaitHandle + 2);
+    _InterlockedOr((volatile signed __int32 *)WaitHandle + 3, 1u);
+    if ( (*((_BYTE *)WaitHandle + 4) & 4) == 0
+      || (void *)*((_DWORD *)WaitHandle + 12) != NtCurrentTeb()->ClientId.UniqueThread )
+    {
       v3 = 0;
-    if ( a2 == -1 )
+    }
+    if ( CompletionEvent == (HANDLE)-1 )
     {
       if ( !v3 )
-        TpWaitForWait(*(_DWORD *)(a1 + 24), 0);
+        TpWaitForWait(*((PTP_WAIT *)WaitHandle + 6), 0);
     }
-    else if ( a2 )
+    else if ( CompletionEvent )
     {
-      *(_DWORD *)(a1 + 44) = a2;
+      *((_DWORD *)WaitHandle + 11) = CompletionEvent;
     }
-    v6 = TpWaitOutstandingCallbackCount(*(_DWORD *)(a1 + 24));
-    TpReleaseWait(*(_DWORD *)(a1 + 24));
-    if ( (_InterlockedAnd((volatile signed __int32 *)(a1 + 12), 0xFFFFFFFE) & 2) != 0 )
+    v6 = TpWaitOutstandingCallbackCount(*((_DWORD *)WaitHandle + 6));
+    TpReleaseWait(*((PTP_WAIT *)WaitHandle + 6));
+    if ( (_InterlockedAnd((volatile signed __int32 *)WaitHandle + 3, 0xFFFFFFFE) & 2) != 0 )
     {
-      RtlpTpWaitRundown(a1);
+      RtlpTpWaitRundown(WaitHandle);
       v4 = 0;
     }
     else
@@ -74,6 +77,6 @@ int __stdcall RtlDeregisterWaitEx(int a1, int a2)
     v8 = v2;
   }
   ms_exc.registration.TryLevel = -2;
-  RtlpTpResumeImpersonation(v7, 1261076738);
+  RtlpTpResumeImpersonation(TokenHandle, 1261076738);
   return v2;
 }

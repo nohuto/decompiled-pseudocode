@@ -14,29 +14,24 @@
  *     sub_180046FBC @ 0x180046FBC (sub_180046FBC.c)
  */
 
-__int64 __fastcall sub_180046E54(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall sub_180046E54(__int64 a1, unsigned int a2)
 {
-  unsigned int v4; // edi
-  __int64 v6; // rbx
-  unsigned int v7; // edi
-  unsigned __int64 v9; // rdx
-  unsigned __int64 *v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rcx
-  int v13; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v4; // rbx
+  unsigned int v5; // edi
+  __int64 v7; // rcx
+  int v8; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = a2;
-  if ( (_DWORD)a2 && *(_DWORD *)(*(_QWORD *)(a1 + 152) + 24LL) == 1 )
+  if ( a2 && *(_DWORD *)(*(_QWORD *)(a1 + 152) + 24LL) == 1 )
     return 3221226029LL;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D070, a2, a3, a4);
-  v6 = *(_QWORD *)(a1 + 152);
-  v7 = sub_180046EDC(v6, v4, &v13);
-  RtlReleaseSRWLockExclusive(&qword_18015D070);
-  if ( v13 )
+  RtlAcquireSRWLockExclusive(&stru_18015D070);
+  v4 = *(_QWORD *)(a1 + 152);
+  v5 = sub_180046EDC(v4, a2, &v8);
+  RtlReleaseSRWLockExclusive(&stru_18015D070);
+  if ( v8 )
   {
     sub_180046FBC();
-    sub_180046AE0(v6, v9, v10, v11);
-    sub_180046F60(v12, 8LL, 0LL);
+    sub_180046AE0(v4);
+    sub_180046F60(v7, 8LL, 0LL);
   }
-  return v7;
+  return v5;
 }

@@ -1,9 +1,7 @@
 /*
  * XREFs of sub_1406A7060 @ 0x1406A7060
  * Callers:
- *     sub_1406A74E4 @ 0x1406A74E4 (sub_1406A74E4.c)
- *     sub_1407D0090 @ 0x1407D0090 (sub_1407D0090.c)
- *     sub_140855AB0 @ 0x140855AB0 (sub_140855AB0.c)
+ *     <none>
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of TppWaitpValidateWait @ 0x18003BF98
+ * XREFs of TppWaitpValidateWait @ 0x18003BF88
  * Callers:
- *     TpSetWaitEx @ 0x18003BD60 (TpSetWaitEx.c)
- *     TpReleaseWait @ 0x180064590 (TpReleaseWait.c)
- *     TpWaitOutstandingCallbackCount @ 0x180064648 (TpWaitOutstandingCallbackCount.c)
- *     TpWaitForWait @ 0x180064F40 (TpWaitForWait.c)
+ *     TpSetWaitEx @ 0x18003BD50 (TpSetWaitEx.c)
+ *     TpReleaseWait @ 0x180064580 (TpReleaseWait.c)
+ *     TpWaitOutstandingCallbackCount @ 0x180064638 (TpWaitOutstandingCallbackCount.c)
+ *     TpWaitForWait @ 0x180064F30 (TpWaitForWait.c)
  * Callees:
- *     TppValidateCleanupGroupMember @ 0x18003C240 (TppValidateCleanupGroupMember.c)
+ *     TppValidateCleanupGroupMember @ 0x18003C230 (TppValidateCleanupGroupMember.c)
  *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
  */
 

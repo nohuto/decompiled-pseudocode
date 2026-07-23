@@ -1,7 +1,7 @@
 /*
- * XREFs of KiXSavesManagesIpt @ 0x140572E2C
+ * XREFs of KiXSavesManagesIpt @ 0x14057336C
  * Callers:
- *     KiQueryIptSupport @ 0x140A9F5F0 (KiQueryIptSupport.c)
+ *     KiQueryIptSupport @ 0x140A9F460 (KiQueryIptSupport.c)
  * Callees:
  *     <none>
  */

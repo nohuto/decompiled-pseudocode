@@ -44,7 +44,7 @@ __int64 __fastcall PnpStartDeviceNode(__int64 a1, int a2, int a3)
     || (PnpAsyncOptions & 1) == 0
     || (*(_DWORD *)(a1 + 396) & 0x400000) != 0
     || (*(_DWORD *)(*(_QWORD *)(a1 + 32) + 48LL) & 0x4000) != 0
-    || (_DWORD)InitSafeBootMode
+    || InitSafeBootMode
     || (v6 = (_QWORD *)PnpDeviceCompletionRequestCreate(a1, (unsigned int)(v5 + 776), 0LL)) == 0LL )
   {
     PnpDiagnosticTraceObject(&KMPnPEvt_DeviceStart_Start, (unsigned __int16 *)(a1 + 40));

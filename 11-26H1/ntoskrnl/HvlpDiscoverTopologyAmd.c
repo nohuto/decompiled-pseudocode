@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpDiscoverTopologyAmd @ 0x140CB93DC
+ * XREFs of HvlpDiscoverTopologyAmd @ 0x140CBF41C
  * Callers:
- *     HvlpDiscoverTopologyWorker @ 0x140791BE8 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x140794718 (HvlpDiscoverTopologyWorker.c)
  * Callees:
- *     HvlpLpCpuid @ 0x140791D04 (HvlpLpCpuid.c)
+ *     HvlpLpCpuid @ 0x140794834 (HvlpLpCpuid.c)
  */
 
 __int64 __fastcall HvlpDiscoverTopologyAmd(int a1, unsigned int a2, unsigned int *a3, _DWORD *a4)

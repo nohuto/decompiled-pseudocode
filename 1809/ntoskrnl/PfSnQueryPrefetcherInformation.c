@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnQueryPrefetcherInformation @ 0x1406BA83C
+ * XREFs of PfSnQueryPrefetcherInformation @ 0x1406BBADC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PfSnGetCompletedTrace @ 0x1406BAA7C (PfSnGetCompletedTrace.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     PfSnGetCompletedTrace @ 0x1406BBD1C (PfSnGetCompletedTrace.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4, _DWORD *a5)
@@ -48,9 +48,9 @@ __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, __int128 *a2, int 
     return (unsigned int)-1073741811;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)qword_14043C078, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)qword_14043D138, 0LL);
   v11 = v20;
-  v12 = &qword_14043BEE0;
+  v12 = &qword_14043CFA0;
   v13 = 3LL;
   v14 = 3LL;
   do
@@ -70,9 +70,9 @@ __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, __int128 *a2, int 
   while ( v14 );
   *v11 = *(_OWORD *)v12;
   *((_QWORD *)v11 + 2) = v12[2];
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_14043C078, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)qword_14043C078);
-  KeAbPostRelease((ULONG_PTR)qword_14043C078);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_14043D138, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)qword_14043D138);
+  KeAbPostRelease((ULONG_PTR)qword_14043D138);
   KeLeaveCriticalRegion();
   if ( a4 )
   {

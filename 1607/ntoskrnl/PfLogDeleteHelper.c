@@ -1,10 +1,10 @@
 /*
- * XREFs of PfLogDeleteHelper @ 0x1400F0324
+ * XREFs of PfLogDeleteHelper @ 0x1400EE1A4
  * Callers:
- *     PfFileInfoNotify @ 0x1400EEAD0 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x1400EC950 (PfFileInfoNotify.c)
  * Callees:
- *     PfFbLogEntryReserve @ 0x1400D3E04 (PfFbLogEntryReserve.c)
- *     PfFbLogEntryComplete @ 0x1400EFFD4 (PfFbLogEntryComplete.c)
+ *     PfFbLogEntryReserve @ 0x1400D1CA4 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x1400EDE54 (PfFbLogEntryComplete.c)
  */
 
 __int64 __fastcall PfLogDeleteHelper(char a1, __int64 a2, int a3, int a4)
@@ -14,14 +14,14 @@ __int64 __fastcall PfLogDeleteHelper(char a1, __int64 a2, int a3, int a4)
   __int64 v10; // rcx
   __int64 v11; // rdx
   __int64 v12; // rax
-  struct _SLIST_ENTRY *v13; // rcx
-  struct _SLIST_ENTRY *v14; // rcx
+  _SLIST_ENTRY *v13; // rcx
+  _SLIST_ENTRY *v14; // rcx
   __int64 v16; // [rsp+20h] [rbp-18h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+28h] [rbp-10h] BYREF
 
   ListEntry = 0LL;
   v16 = 0LL;
-  v9 = PfFbLogEntryReserve(&stru_1403280E0, &ListEntry, &v16, 0x20u);
+  v9 = PfFbLogEntryReserve(&stru_140328120, &ListEntry, &v16, 0x20u);
   if ( v9 < 0 )
   {
     v14 = ListEntry;
@@ -35,7 +35,7 @@ __int64 __fastcall PfLogDeleteHelper(char a1, __int64 a2, int a3, int a4)
     v11 = MEMORY[0xFFFFF78000000004];
     v12 = v16;
     v13 = ListEntry;
-    *(_DWORD *)(v16 + 4) = dword_14032855C
+    *(_DWORD *)(v16 + 4) = dword_14032859C
                          + ((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
                            + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10);
     *(_DWORD *)(v12 + 8) = a3;

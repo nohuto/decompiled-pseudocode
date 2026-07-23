@@ -6,9 +6,11 @@
  *     <none>
  */
 
-__int64 __fastcall ZwClearEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwClearEvent(HANDLE EventHandle)
 {
+  __int64 v1; // rdx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(EventHandle, v1);
 }

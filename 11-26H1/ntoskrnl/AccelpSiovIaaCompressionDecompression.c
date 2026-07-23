@@ -1,14 +1,14 @@
 /*
- * XREFs of AccelpSiovIaaCompressionDecompression @ 0x1406DFC80
+ * XREFs of AccelpSiovIaaCompressionDecompression @ 0x1406E3F00
  * Callers:
- *     AccelpSiovIaaOperationHandler @ 0x1406DFFF4 (AccelpSiovIaaOperationHandler.c)
+ *     AccelpSiovIaaOperationHandler @ 0x1406E4274 (AccelpSiovIaaOperationHandler.c)
  * Callees:
- *     IaaBuildDescriptorCommon @ 0x1404BFAB4 (IaaBuildDescriptorCommon.c)
- *     AccelpPrepareCompressionBufferForHeader @ 0x1406DF748 (AccelpPrepareCompressionBufferForHeader.c)
- *     IaaBuildDescriptorFixedCompress @ 0x1406E12EC (IaaBuildDescriptorFixedCompress.c)
- *     IaaBuildDescriptorHuffmanCompress @ 0x1406E14B0 (IaaBuildDescriptorHuffmanCompress.c)
- *     IaaBuildDescriptorHuffmanDecompress @ 0x1406E15DC (IaaBuildDescriptorHuffmanDecompress.c)
- *     IaapSetAecsDecompressionHuffmanTable @ 0x1406E18E8 (IaapSetAecsDecompressionHuffmanTable.c)
+ *     IaaBuildDescriptorCommon @ 0x1404B9304 (IaaBuildDescriptorCommon.c)
+ *     AccelpPrepareCompressionBufferForHeader @ 0x1406E39C8 (AccelpPrepareCompressionBufferForHeader.c)
+ *     IaaBuildDescriptorFixedCompress @ 0x1406E556C (IaaBuildDescriptorFixedCompress.c)
+ *     IaaBuildDescriptorHuffmanCompress @ 0x1406E5730 (IaaBuildDescriptorHuffmanCompress.c)
+ *     IaaBuildDescriptorHuffmanDecompress @ 0x1406E585C (IaaBuildDescriptorHuffmanDecompress.c)
+ *     IaapSetAecsDecompressionHuffmanTable @ 0x1406E5B68 (IaapSetAecsDecompressionHuffmanTable.c)
  */
 
 __int64 __fastcall AccelpSiovIaaCompressionDecompression(__int64 a1, char a2, int a3, char a4, char a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAllocateErrorLogEntry @ 0x1404A26A0
+ * XREFs of IoAllocateErrorLogEntry @ 0x14049D630
  * Callers:
- *     IopDisassociateThreadIrp @ 0x14059607C (IopDisassociateThreadIrp.c)
- *     DifIoAllocateErrorLogEntryWrapper @ 0x1406256B0 (DifIoAllocateErrorLogEntryWrapper.c)
- *     FsRtlLogCcFlushError @ 0x140AB2090 (FsRtlLogCcFlushError.c)
+ *     IopDisassociateThreadIrp @ 0x1405930AC (IopDisassociateThreadIrp.c)
+ *     DifIoAllocateErrorLogEntryWrapper @ 0x140623C70 (DifIoAllocateErrorLogEntryWrapper.c)
+ *     FsRtlLogCcFlushError @ 0x140AAD000 (FsRtlLogCcFlushError.c)
  * Callees:
- *     IopAllocateErrorLogEntry @ 0x1404A26DC (IopAllocateErrorLogEntry.c)
+ *     IopAllocateErrorLogEntry @ 0x14049D66C (IopAllocateErrorLogEntry.c)
  */
 
 PVOID __stdcall IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize)

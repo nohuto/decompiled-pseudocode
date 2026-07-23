@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdef369MaskedCopyAsm @ 0x14040F2A0
+ * XREFs of SymCryptFdef369MaskedCopyAsm @ 0x14040F480
  * Callers:
- *     SymCryptFdef369ModAddGeneric @ 0x140409650 (SymCryptFdef369ModAddGeneric.c)
- *     SymCryptFdef369ModSubGeneric @ 0x140409950 (SymCryptFdef369ModSubGeneric.c)
+ *     SymCryptFdef369ModAddGeneric @ 0x140409830 (SymCryptFdef369ModAddGeneric.c)
+ *     SymCryptFdef369ModSubGeneric @ 0x140409B30 (SymCryptFdef369ModSubGeneric.c)
  * Callees:
  *     <none>
  */

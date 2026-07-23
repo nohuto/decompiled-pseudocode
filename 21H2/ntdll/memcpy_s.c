@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     _invalid_parameter @ 0x18008C868 (_invalid_parameter.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 errno_t __cdecl memcpy_s(

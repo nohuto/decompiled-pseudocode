@@ -6,39 +6,39 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCustomCPToUnicodeN(
-        __int64 a1,
-        _WORD *a2,
-        unsigned int a3,
-        _DWORD *a4,
-        unsigned __int8 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlCustomCPToUnicodeN(
+        PCPTABLEINFO CustomCP,
+        PWCH UnicodeString,
+        ULONG MaxBytesInUnicodeString,
+        PULONG BytesInUnicodeString,
+        PCH CustomCPString,
+        ULONG BytesInCustomCPString)
 {
-  unsigned int v6; // r11d
-  unsigned int v7; // ebx
-  unsigned int v9; // r10d
-  _WORD *v10; // rdx
-  __int64 v11; // r9
-  unsigned __int8 *v12; // r8
-  __int64 v13; // r10
+  ULONG v6; // r11d
+  ULONG v7; // ebx
+  ULONG v9; // r10d
+  PWCH v10; // rdx
+  PUSHORT MultiByteTable; // r9
+  PCH v12; // r8
+  PUSHORT DBCSOffsets; // r10
   int v14; // esi
-  unsigned __int8 *v15; // r8
+  PCH v15; // r8
   __int64 v16; // rcx
-  unsigned __int16 v17; // ax
+  USHORT v17; // ax
   __int64 v18; // rcx
 
-  v6 = a6;
-  v7 = a3 >> 1;
-  if ( !*(_WORD *)(a1 + 12) )
+  v6 = BytesInCustomCPString;
+  v7 = MaxBytesInUnicodeString >> 1;
+  if ( !CustomCP->DBCSCodePage )
   {
-    v9 = a6;
-    if ( v7 < a6 )
-      v9 = a3 >> 1;
-    if ( a4 )
-      *a4 = 2 * v9;
-    v10 = a2 + 14;
-    v11 = *(_QWORD *)(a1 + 32);
-    v12 = a5 + 14;
+    v9 = BytesInCustomCPString;
+    if ( v7 < BytesInCustomCPString )
+      v9 = MaxBytesInUnicodeString >> 1;
+    if ( BytesInUnicodeString )
+      *BytesInUnicodeString = 2 * v9;
+    v10 = UnicodeString + 14;
+    MultiByteTable = CustomCP->MultiByteTable;
+    v12 = CustomCPString + 14;
     while ( v9 <= 8 )
     {
       if ( v9 == 8 )
@@ -68,7 +68,7 @@ __int64 __fastcall RtlCustomCPToUnicodeN(
         goto LABEL_38;
       }
 LABEL_39:
-      *(v10 - 14) = *(_WORD *)(v11 + 2LL * *(v12 - 14));
+      *(v10 - 14) = MultiByteTable[(unsigned __int8)*(v12 - 14)];
 LABEL_40:
       if ( v9 <= 0x10 )
         return v7 < v6 ? 0x80000005 : 0;
@@ -89,70 +89,70 @@ LABEL_40:
               if ( v9 != 14 )
               {
                 if ( v9 != 15 )
-                  v10[1] = *(_WORD *)(v11 + 2LL * v12[1]);
-                *v10 = *(_WORD *)(v11 + 2LL * *v12);
+                  v10[1] = MultiByteTable[(unsigned __int8)v12[1]];
+                *v10 = MultiByteTable[(unsigned __int8)*v12];
               }
-              *(v10 - 1) = *(_WORD *)(v11 + 2LL * *(v12 - 1));
+              *(v10 - 1) = MultiByteTable[(unsigned __int8)*(v12 - 1)];
             }
-            *(v10 - 2) = *(_WORD *)(v11 + 2LL * *(v12 - 2));
+            *(v10 - 2) = MultiByteTable[(unsigned __int8)*(v12 - 2)];
           }
-          *(v10 - 3) = *(_WORD *)(v11 + 2LL * *(v12 - 3));
+          *(v10 - 3) = MultiByteTable[(unsigned __int8)*(v12 - 3)];
         }
-        *(v10 - 4) = *(_WORD *)(v11 + 2LL * *(v12 - 4));
+        *(v10 - 4) = MultiByteTable[(unsigned __int8)*(v12 - 4)];
       }
-      *(v10 - 5) = *(_WORD *)(v11 + 2LL * *(v12 - 5));
+      *(v10 - 5) = MultiByteTable[(unsigned __int8)*(v12 - 5)];
     }
-    *(v10 - 6) = *(_WORD *)(v11 + 2LL * *(v12 - 6));
+    *(v10 - 6) = MultiByteTable[(unsigned __int8)*(v12 - 6)];
 LABEL_32:
-    *(v10 - 7) = *(_WORD *)(v11 + 2LL * *(v12 - 7));
+    *(v10 - 7) = MultiByteTable[(unsigned __int8)*(v12 - 7)];
 LABEL_33:
-    *(v10 - 8) = *(_WORD *)(v11 + 2LL * *(v12 - 8));
+    *(v10 - 8) = MultiByteTable[(unsigned __int8)*(v12 - 8)];
 LABEL_34:
-    *(v10 - 9) = *(_WORD *)(v11 + 2LL * *(v12 - 9));
+    *(v10 - 9) = MultiByteTable[(unsigned __int8)*(v12 - 9)];
 LABEL_35:
-    *(v10 - 10) = *(_WORD *)(v11 + 2LL * *(v12 - 10));
+    *(v10 - 10) = MultiByteTable[(unsigned __int8)*(v12 - 10)];
 LABEL_36:
-    *(v10 - 11) = *(_WORD *)(v11 + 2LL * *(v12 - 11));
+    *(v10 - 11) = MultiByteTable[(unsigned __int8)*(v12 - 11)];
 LABEL_37:
-    *(v10 - 12) = *(_WORD *)(v11 + 2LL * *(v12 - 12));
+    *(v10 - 12) = MultiByteTable[(unsigned __int8)*(v12 - 12)];
 LABEL_38:
-    *(v10 - 13) = *(_WORD *)(v11 + 2LL * *(v12 - 13));
+    *(v10 - 13) = MultiByteTable[(unsigned __int8)*(v12 - 13)];
     goto LABEL_39;
   }
-  v13 = *(_QWORD *)(a1 + 56);
-  v14 = (int)a2;
+  DBCSOffsets = CustomCP->DBCSOffsets;
+  v14 = (int)UnicodeString;
   if ( v7 )
   {
-    v15 = a5;
+    v15 = CustomCPString;
     while ( v6 )
     {
-      v16 = *v15;
+      v16 = (unsigned __int8)*v15;
       --v7;
       --v6;
-      v17 = *(_WORD *)(v13 + 2 * v16);
+      v17 = DBCSOffsets[v16];
       if ( v17 )
       {
         if ( !v6 )
         {
-          *a2 = 0;
-          LODWORD(a2) = (_DWORD)a2 + 2;
+          *UnicodeString = 0;
+          LODWORD(UnicodeString) = (_DWORD)UnicodeString + 2;
           break;
         }
-        v18 = v15[1];
+        v18 = (unsigned __int8)v15[1];
         v15 += 2;
-        *a2++ = *(_WORD *)(v13 + 2 * (v17 + v18));
+        *UnicodeString++ = DBCSOffsets[v17 + v18];
         --v6;
       }
       else
       {
-        *a2++ = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2 * v16);
+        *UnicodeString++ = CustomCP->MultiByteTable[v16];
         ++v15;
       }
       if ( !v7 )
         break;
     }
   }
-  if ( a4 )
-    *a4 = (_DWORD)a2 - v14;
+  if ( BytesInUnicodeString )
+    *BytesInUnicodeString = (_DWORD)UnicodeString - v14;
   return v7 < v6 ? 0x80000005 : 0;
 }

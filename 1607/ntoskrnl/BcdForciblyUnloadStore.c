@@ -1,40 +1,40 @@
 /*
- * XREFs of BcdForciblyUnloadStore @ 0x140533BC0
+ * XREFs of BcdForciblyUnloadStore @ 0x140534100
  * Callers:
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
- *     BiCleanupLoadedStores @ 0x14053C160 (BiCleanupLoadedStores.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
+ *     BiCleanupLoadedStores @ 0x14053C6A0 (BiCleanupLoadedStores.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x14012E08C (BiIsOfflineHandle.c)
- *     BiUnloadHiveByHandle @ 0x140533C28 (BiUnloadHiveByHandle.c)
- *     BiExportStoreAlterationsToFirmware @ 0x140533DB0 (BiExportStoreAlterationsToFirmware.c)
- *     BiIsSystemStore @ 0x14053D3D8 (BiIsSystemStore.c)
- *     BiReleaseBcdSyncMutant @ 0x14053E1A4 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14053E1C8 (BiAcquireBcdSyncMutant.c)
+ *     BiIsOfflineHandle @ 0x14012E5FC (BiIsOfflineHandle.c)
+ *     BiUnloadHiveByHandle @ 0x140534168 (BiUnloadHiveByHandle.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x1405342F0 (BiExportStoreAlterationsToFirmware.c)
+ *     BiIsSystemStore @ 0x14053D918 (BiIsSystemStore.c)
+ *     BiReleaseBcdSyncMutant @ 0x14053E6E4 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x14053E708 (BiAcquireBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdForciblyUnloadStore(HANDLE Handle)
+NTSTATUS __cdecl BcdForciblyUnloadStore(HANDLE BcdStoreHandle)
 {
   __int64 v2; // rcx
   char v3; // si
-  __int64 result; // rax
-  int v5; // edi
-  int v6; // eax
+  NTSTATUS result; // eax
+  NTSTATUS v5; // edi
+  NTSTATUS v6; // eax
   __int64 v7; // rcx
 
-  LOBYTE(v2) = BiIsOfflineHandle((char)Handle);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = v2;
   result = BiAcquireBcdSyncMutant(v2);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v5 = 0;
-    if ( (unsigned __int8)BiIsSystemStore(Handle) )
-      v5 = BiExportStoreAlterationsToFirmware(Handle);
-    v6 = BiUnloadHiveByHandle(Handle);
+    if ( (unsigned __int8)BiIsSystemStore(BcdStoreHandle) )
+      v5 = BiExportStoreAlterationsToFirmware(BcdStoreHandle);
+    v6 = BiUnloadHiveByHandle(BcdStoreHandle);
     LOBYTE(v7) = v3;
     if ( v5 >= 0 )
       v5 = v6;
     BiReleaseBcdSyncMutant(v7);
-    return (unsigned int)v5;
+    return v5;
   }
   return result;
 }

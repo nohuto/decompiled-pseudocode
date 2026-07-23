@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwPowerInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&InformationLevel, InputBuffer, *(_QWORD *)&InputBufferLength);
+  return KiServiceInternal(*(_QWORD *)&InformationLevel);
 }

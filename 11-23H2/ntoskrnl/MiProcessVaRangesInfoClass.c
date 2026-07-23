@@ -1,15 +1,15 @@
 /*
- * XREFs of MiProcessVaRangesInfoClass @ 0x1407A5004
+ * XREFs of MiProcessVaRangesInfoClass @ 0x1407A51F4
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1407A4020 (NtSetInformationVirtualMemory.c)
- *     MmSetPriorityVaRanges @ 0x140A311F0 (MmSetPriorityVaRanges.c)
+ *     NtSetInformationVirtualMemory @ 0x1407A4210 (NtSetInformationVirtualMemory.c)
+ *     MmSetPriorityVaRanges @ 0x140A314A0 (MmSetPriorityVaRanges.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiVadSupportsPrivateCommit @ 0x140274B50 (MiVadSupportsPrivateCommit.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiMoveDirtyBitsToPfns @ 0x140285A10 (MiMoveDirtyBitsToPfns.c)
- *     MiIsVadLarge @ 0x14028A434 (MiIsVadLarge.c)
- *     MiWalkVaRange @ 0x140293D54 (MiWalkVaRange.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiVadSupportsPrivateCommit @ 0x140274DE0 (MiVadSupportsPrivateCommit.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140285CA0 (MiMoveDirtyBitsToPfns.c)
+ *     MiIsVadLarge @ 0x14028A6C4 (MiIsVadLarge.c)
+ *     MiWalkVaRange @ 0x140293FE4 (MiWalkVaRange.c)
  */
 
 __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2, int a3, unsigned int a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetOwnerSecurityDescriptor @ 0x140A95B60
+ * XREFs of RtlGetOwnerSecurityDescriptor @ 0x140A98F90
  * Callers:
- *     PspAllocateNotificationChannel @ 0x1407F7938 (PspAllocateNotificationChannel.c)
- *     RtlReplaceSidInSd @ 0x140804260 (RtlReplaceSidInSd.c)
- *     CmpCopySaclToVirtualKey @ 0x14085AD20 (CmpCopySaclToVirtualKey.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140A74998 (PiDevCfgGetKeySecurityDescriptor.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A95EB0 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     PspAllocateNotificationChannel @ 0x1407FD498 (PspAllocateNotificationChannel.c)
+ *     RtlReplaceSidInSd @ 0x140809D00 (RtlReplaceSidInSd.c)
+ *     CmpCopySaclToVirtualKey @ 0x140861014 (CmpCopySaclToVirtualKey.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140A49800 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A992E0 (RtlpSysVolCheckOwnerAndSecurity.c)
  * Callees:
  *     <none>
  */

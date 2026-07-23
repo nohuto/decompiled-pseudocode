@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockHiveListExclusive @ 0x14074E9B4
+ * XREFs of CmpLockHiveListExclusive @ 0x14074EBA4
  * Callers:
  *     CmpUnJoinClassOfTrust @ 0x140207A48 (CmpUnJoinClassOfTrust.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x14036E21C (CmpJoinClassOfTrust.c)
+ *     CmpLoadKeyCommon @ 0x1402F682C (CmpLoadKeyCommon.c)
+ *     CmpJoinClassOfTrust @ 0x14036E3BC (CmpJoinClassOfTrust.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 CmpLockHiveListExclusive()

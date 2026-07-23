@@ -1,0 +1,15 @@
+/*
+ * XREFs of sub_1405FAA10 @ 0x1405FAA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1405FAA10(_DWORD *a1, _DWORD *a2)
+{
+  if ( *a1 >= *a2 )
+    return *a1 != *a2;
+  else
+    return 0xFFFFFFFFLL;
+}

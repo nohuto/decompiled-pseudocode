@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTraceLogHeteroRundown @ 0x1403B060C
+ * XREFs of KiTraceLogHeteroRundown @ 0x1403B07EC
  * Callers:
- *     KiConfigureHeteroProcessorsTarget @ 0x14056B650 (KiConfigureHeteroProcessorsTarget.c)
- *     KiTraceLogControlCallback @ 0x14085FC90 (KiTraceLogControlCallback.c)
+ *     KiConfigureHeteroProcessorsTarget @ 0x14056BD10 (KiConfigureHeteroProcessorsTarget.c)
+ *     KiTraceLogControlCallback @ 0x14085FED0 (KiTraceLogControlCallback.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255F40 (KeIsMultiCoreClassesEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x1405708A8 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x140256000 (KeIsMultiCoreClassesEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140570DE8 (KiEnumerateNextSchedulerSubNodeInSystem.c)
  */
 
 NTSTATUS __fastcall KiTraceLogHeteroRundown(_DWORD *a1, __int64 a2)
@@ -103,7 +103,7 @@ NTSTATUS __fastcall KiTraceLogHeteroRundown(_DWORD *a1, __int64 a2)
       LODWORD(v28) = KeIsMultiCoreClassesEnabled((__int64)a1, a2);
       v52 = 4LL;
       v51 = &v28;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)a1, (unsigned __int8 *)&byte_14002D777, 0LL, 0LL, 7u, &v40);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)a1, (unsigned __int8 *)byte_14002D8E5, 0LL, 0LL, 7u, &v40);
     }
     *(_OWORD *)v31 = 0LL;
     v4 = 0;
@@ -173,7 +173,7 @@ NTSTATUS __fastcall KiTraceLogHeteroRundown(_DWORD *a1, __int64 a2)
               v68 = 8LL;
               result = tlgWriteTransfer_EtwWriteTransfer(
                          (__int64)a1,
-                         (unsigned __int8 *)byte_14002D6A0,
+                         (unsigned __int8 *)&word_14002D80E,
                          0LL,
                          0LL,
                          0xBu,
@@ -214,7 +214,7 @@ NTSTATUS __fastcall KiTraceLogHeteroRundown(_DWORD *a1, __int64 a2)
             v60 = 8LL;
             result = tlgWriteTransfer_EtwWriteTransfer(
                        (__int64)a1,
-                       (unsigned __int8 *)&word_14002D80E,
+                       (unsigned __int8 *)byte_14002D788,
                        0LL,
                        0LL,
                        7u,

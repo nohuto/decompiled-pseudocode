@@ -1,10 +1,10 @@
 /*
- * XREFs of Amd64FreeCounter @ 0x1405A3CF4
+ * XREFs of Amd64FreeCounter @ 0x1405A6504
  * Callers:
- *     Amd64DisableMonitoring @ 0x1405A39F0 (Amd64DisableMonitoring.c)
- *     Amd64InitializeCacheStatus @ 0x1405A3F44 (Amd64InitializeCacheStatus.c)
- *     Amd64InitializeDataFabricStatus @ 0x1405A40E8 (Amd64InitializeDataFabricStatus.c)
- *     Amd64InitializeProfiling @ 0x140BEF590 (Amd64InitializeProfiling.c)
+ *     Amd64DisableMonitoring @ 0x1405A6200 (Amd64DisableMonitoring.c)
+ *     Amd64InitializeCacheStatus @ 0x1405A6754 (Amd64InitializeCacheStatus.c)
+ *     Amd64InitializeDataFabricStatus @ 0x1405A68F8 (Amd64InitializeDataFabricStatus.c)
+ *     Amd64InitializeProfiling @ 0x140BF5590 (Amd64InitializeProfiling.c)
  * Callees:
  *     <none>
  */

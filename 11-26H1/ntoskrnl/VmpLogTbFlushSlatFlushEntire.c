@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogTbFlushSlatFlushEntire @ 0x140529DD8
+ * XREFs of VmpLogTbFlushSlatFlushEntire @ 0x14052C2F8
  * Callers:
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void VmpLogTbFlushSlatFlushEntire()
@@ -22,7 +22,7 @@ void VmpLogTbFlushSlatFlushEntire()
   __int64 *v9; // [rsp+80h] [rbp-28h]
   __int64 v10; // [rsp+88h] [rbp-20h]
 
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 256LL) )
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 256LL) )
   {
     Flink = (int)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
     p_Flink = &Flink;
@@ -30,6 +30,6 @@ void VmpLogTbFlushSlatFlushEntire()
     v8 = 4LL;
     v5 = v1;
     v10 = 8LL;
-    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&byte_140052E8F, v0, 0, v2, v3, 4u, &v6);
+    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&byte_140054587, v0, 0, v2, v3, 4u, &v6);
   }
 }

@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwReplacePartitionUnit @ 0x1406A9490
+ * XREFs of ZwReplacePartitionUnit @ 0x1406AA430
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReplacePartitionUnit(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReplacePartitionUnit(
+        PUNICODE_STRING TargetInstancePath,
+        PUNICODE_STRING SpareInstancePath,
+        ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TargetInstancePath);
 }

@@ -20,7 +20,7 @@ char RtlpReadProcessHeaps()
   v4 = 0LL;
   v3 = RtlpLeakCallbackRoutine;
   v2 = 5;
-  result = RtlQueryHeapInformation(0LL, 2, v1, 0x58uLL, 0LL);
+  result = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, v1, 0x58uLL, 0LL);
   if ( RtlpLDPreviousPage )
     result = RtlpPushPageDescriptor(RtlpLDPreviousPage, 1LL);
   RtlpLDPreviousPage = 0LL;

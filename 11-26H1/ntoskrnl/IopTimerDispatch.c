@@ -1,18 +1,18 @@
 /*
- * XREFs of IopTimerDispatch @ 0x1404D3F80
+ * XREFs of IopTimerDispatch @ 0x1404CD7F0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     _local_unwind @ 0x140536000 (_local_unwind.c)
- *     RtlpComputeEpilogueOffset @ 0x1405531C8 (RtlpComputeEpilogueOffset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     KiCustomAccessRoutine1 @ 0x1407326F0 (KiCustomAccessRoutine1.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _local_unwind @ 0x140538480 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x140555648 (RtlpComputeEpilogueOffset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiCustomAccessRoutine1 @ 0x1407372C0 (KiCustomAccessRoutine1.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall IopTimerDispatch(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -21,7 +21,7 @@ void __fastcall IopTimerDispatch(__int64 a1, __int64 a2, __int64 a3, unsigned __
   __int64 v9; // r8
   KIRQL v10; // r12
   int v11; // esi
-  struct _LIST_ENTRY *i; // rbx
+  struct _KTHREAD *i; // rbx
   _DWORD v13[86]; // [rsp+0h] [rbp-228h] BYREF
   __int64 v14; // [rsp+158h] [rbp-D0h]
   _BYTE v15[10]; // [rsp+160h] [rbp-C8h] BYREF
@@ -52,20 +52,22 @@ void __fastcall IopTimerDispatch(__int64 a1, __int64 a2, __int64 a3, unsigned __
   {
     v10 = KeAcquireSpinLockRaiseToDpc(&IopTimerLock);
     v11 = *(_DWORD *)a2;
-    for ( i = IopTimerQueueHead.Flink; i != &IopTimerQueueHead && v11; i = i->Flink )
+    for ( i = *(struct _KTHREAD **)&IopPerfIoTrackingLock.WaitBlockFill11[64];
+          i != (struct _KTHREAD *)&IopPerfIoTrackingLock.WaitBlockFill11[64] && v11;
+          i = *(struct _KTHREAD **)&i->Header.Lock )
     {
-      if ( WORD1(i[-1].Blink) )
+      if ( WORD1(i[-1].Padding[4]) )
       {
         if ( v8 )
         {
           memset(v20, 0, sizeof(v20));
           EtwGetKernelTraceTimestamp((unsigned __int64)v20, 0x40800000uLL, v9);
-          guard_dispatch_icall_no_overrides(i[2].Flink, i[1].Blink);
-          EtwTraceTimedEvent(3910, 0x40800000u, (__int64)&i[1], 8, 5245442, (__int64)v20);
+          guard_dispatch_icall_no_overrides(i->QuantumTarget, i->SListFaultAddress);
+          EtwTraceTimedEvent(3910, 0x40800000u, (__int64)&i->Header.WaitListHead.Blink, 8, 5245442, (__int64)v20);
         }
         else
         {
-          guard_dispatch_icall_no_overrides(i[2].Flink, i[1].Blink);
+          guard_dispatch_icall_no_overrides(i->QuantumTarget, i->SListFaultAddress);
         }
         --v11;
       }

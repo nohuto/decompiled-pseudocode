@@ -1,9 +1,9 @@
 /*
- * XREFs of PsIsMachineSupportedNoWow @ 0x1406B7C88
+ * XREFs of PsIsMachineSupportedNoWow @ 0x1406B7CB8
  * Callers:
- *     PspSelectMachineForProcess @ 0x1406B7B58 (PspSelectMachineForProcess.c)
+ *     PspSelectMachineForProcess @ 0x1406B7B88 (PspSelectMachineForProcess.c)
  * Callees:
- *     PsQuerySystemDllInfo @ 0x14076F1B4 (PsQuerySystemDllInfo.c)
+ *     PsQuerySystemDllInfo @ 0x14076F3A4 (PsQuerySystemDllInfo.c)
  */
 
 bool __fastcall PsIsMachineSupportedNoWow(__int16 a1)

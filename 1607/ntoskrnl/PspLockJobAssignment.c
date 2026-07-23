@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockJobAssignment @ 0x1404F2A50
+ * XREFs of PspLockJobAssignment @ 0x1404D59DC
  * Callers:
- *     PspGetJobLockHierarchyForDeletion @ 0x1404F28A4 (PspGetJobLockHierarchyForDeletion.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
+ *     PspGetJobLockHierarchyForDeletion @ 0x1404D5830 (PspGetJobLockHierarchyForDeletion.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall PspLockJobAssignment(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWnfSpecializeSecurityDescriptor @ 0x1403F6F64
+ * XREFs of ExpWnfSpecializeSecurityDescriptor @ 0x1403F5E24
  * Callers:
- *     ExpWnfLookupPermanentName @ 0x1403F620C (ExpWnfLookupPermanentName.c)
- *     NtCreateWnfStateName @ 0x1403F6B44 (NtCreateWnfStateName.c)
+ *     ExpWnfLookupPermanentName @ 0x1403F50D0 (ExpWnfLookupPermanentName.c)
+ *     NtCreateWnfStateName @ 0x1403F5A04 (NtCreateWnfStateName.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140009CC4 (RtlGetDaclSecurityDescriptor.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1403F6FEC (RtlGetSaclSecurityDescriptor.c)
- *     RtlpApplyAclToObject @ 0x14041E180 (RtlpApplyAclToObject.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140009844 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1403F5EAC (RtlGetSaclSecurityDescriptor.c)
+ *     RtlpApplyAclToObject @ 0x14041D040 (RtlpApplyAclToObject.c)
  */
 
 NTSTATUS __fastcall ExpWnfSpecializeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)

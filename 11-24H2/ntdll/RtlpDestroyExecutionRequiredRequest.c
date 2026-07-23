@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDestroyExecutionRequiredRequest @ 0x18011E5B0
+ * XREFs of RtlpDestroyExecutionRequiredRequest @ 0x18011C7E0
  * Callers:
- *     RtlpHeapPerformCrossProcessQuery @ 0x1800444B0 (RtlpHeapPerformCrossProcessQuery.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1801109D0 (RtlpHeapPerformCrossProcessQuery.c)
  * Callees:
- *     RtlpSetClearExecutionRequiredRequest @ 0x180118398 (RtlpSetClearExecutionRequiredRequest.c)
+ *     RtlpSetClearExecutionRequiredRequest @ 0x18011330C (RtlpSetClearExecutionRequiredRequest.c)
  */
 
 NTSTATUS __fastcall RtlpDestroyExecutionRequiredRequest(HANDLE Handle)

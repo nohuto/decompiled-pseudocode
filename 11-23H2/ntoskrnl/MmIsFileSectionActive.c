@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIsFileSectionActive @ 0x1403C5950
+ * XREFs of MmIsFileSectionActive @ 0x1403C5B30
  * Callers:
  *     <none>
  * Callees:
  *     MiLockSectionControlArea @ 0x1402100C8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIsSectionActive @ 0x1403D5A50 (MiIsSectionActive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIsSectionActive @ 0x1403D5C30 (MiIsSectionActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmIsFileSectionActive(_QWORD *a1, int a2, _DWORD *a3)
@@ -42,7 +42,9 @@ __int64 __fastcall MmIsFileSectionActive(_QWORD *a1, int a2, _DWORD *a3)
     goto LABEL_31;
   IsSectionActive = MiIsSectionActive(v7);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v14 = v23;
     if ( v23 <= 0xFu && CurrentIrql >= 2u )
@@ -72,7 +74,7 @@ LABEL_31:
       {
         IsSectionActive = MiIsSectionActive(v8);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v10 + 72));
-        if ( KiIrqlFlags && (v19 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v19 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && (v19 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v19 <= 0xFu )
         {
           v11 = v23;
           if ( v23 <= 0xFu && v19 >= 2u )

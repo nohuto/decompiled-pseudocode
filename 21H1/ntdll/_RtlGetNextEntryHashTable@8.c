@@ -6,33 +6,35 @@
  *     <none>
  */
 
-_DWORD *__stdcall RtlGetNextEntryHashTable(int a1, _DWORD *a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlGetNextEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  _DWORD **v2; // eax
-  _DWORD *v3; // edi
-  _DWORD *v4; // edx
-  _DWORD *v5; // ecx
+  _LIST_ENTRY *PrevLinkage; // eax
+  _LIST_ENTRY *Flink; // edi
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v4; // edx
+  _LIST_ENTRY *v5; // ecx
 
-  v2 = (_DWORD **)a2[1];
-  v3 = *v2;
-  v4 = (_DWORD *)**v2;
-  if ( v4 == (_DWORD *)*a2 )
+  PrevLinkage = Context->PrevLinkage;
+  Flink = PrevLinkage->Flink;
+  v4 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)PrevLinkage->Flink->Flink;
+  if ( v4 == (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)Context->ChainHead )
     return 0;
-  if ( *(_DWORD *)(a1 + 28) )
+  if ( HashTable->NumEnumerators )
   {
-    v5 = (_DWORD *)**v2;
+    v5 = PrevLinkage->Flink->Flink;
     do
     {
-      v4 = v5;
-      if ( v5[2] )
+      v4 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)v5;
+      if ( v5[1].Flink )
         break;
-      v3 = v5;
-      v5 = (_DWORD *)*v5;
+      Flink = v5;
+      v5 = v5->Flink;
     }
-    while ( v5 != (_DWORD *)*a2 );
+    while ( v5 != Context->ChainHead );
   }
-  if ( v4[2] != a2[2] )
+  if ( v4->Signature != Context->Signature )
     return 0;
-  a2[1] = v3;
+  Context->PrevLinkage = Flink;
   return v4;
 }

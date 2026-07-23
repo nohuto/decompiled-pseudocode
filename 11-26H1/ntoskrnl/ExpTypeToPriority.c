@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTypeToPriority @ 0x1403831D0
+ * XREFs of ExpTypeToPriority @ 0x140384F80
  * Callers:
  *     ExpTryQueueWorkItem @ 0x1402020DC (ExpTryQueueWorkItem.c)
- *     ExQueueWorkItemExFromIo @ 0x1402030B4 (ExQueueWorkItemExFromIo.c)
- *     ExQueueWorkItemEx @ 0x140203EF0 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D0E94 (ExpWorkQueueUpdateHealthMetricsOnRemove.c)
+ *     ExQueueWorkItemExFromIo @ 0x140203194 (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItemEx @ 0x140203FD0 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D4EC4 (ExpWorkQueueUpdateHealthMetricsOnRemove.c)
  * Callees:
  *     <none>
  */

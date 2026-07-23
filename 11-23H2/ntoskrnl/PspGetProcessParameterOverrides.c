@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetProcessParameterOverrides @ 0x1406B7E44
+ * XREFs of PspGetProcessParameterOverrides @ 0x1406B7E74
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
  * Callees:
  *     <none>
  */

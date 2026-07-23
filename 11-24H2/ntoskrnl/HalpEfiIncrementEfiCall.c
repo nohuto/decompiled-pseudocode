@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpEfiIncrementEfiCall @ 0x14045E854
+ * XREFs of HalpEfiIncrementEfiCall @ 0x140453714
  * Callers:
- *     HalEfiGetTime @ 0x14054C53C (HalEfiGetTime.c)
- *     HalEfiResetSystem @ 0x14054C6B8 (HalEfiResetSystem.c)
- *     HalEfiSetTime @ 0x14054C754 (HalEfiSetTime.c)
- *     HalEfiUpdateCapsule @ 0x14054C990 (HalEfiUpdateCapsule.c)
- *     HalpQueryCapsuleCapabilities @ 0x1405626B0 (HalpQueryCapsuleCapabilities.c)
+ *     HalEfiGetTime @ 0x140549DFC (HalEfiGetTime.c)
+ *     HalEfiResetSystem @ 0x140549F78 (HalEfiResetSystem.c)
+ *     HalEfiSetTime @ 0x14054A014 (HalEfiSetTime.c)
+ *     HalEfiUpdateCapsule @ 0x14054A250 (HalEfiUpdateCapsule.c)
+ *     HalpQueryCapsuleCapabilities @ 0x1405602E0 (HalpQueryCapsuleCapabilities.c)
  * Callees:
  *     <none>
  */

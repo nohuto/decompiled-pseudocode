@@ -1,44 +1,44 @@
 /*
- * XREFs of IoCreateDevice @ 0x1409FEBC0
+ * XREFs of IoCreateDevice @ 0x14091B9C0
  * Callers:
- *     DifIoCreateDeviceWrapper @ 0x14065A660 (DifIoCreateDeviceWrapper.c)
- *     HalpAddDevice @ 0x140781BF0 (HalpAddDevice.c)
- *     IopCreateRootEnumeratedDeviceObject @ 0x1407AD67C (IopCreateRootEnumeratedDeviceObject.c)
- *     VRegSetup @ 0x1408A5210 (VRegSetup.c)
- *     RawMountVolume @ 0x140A35E6C (RawMountVolume.c)
- *     PiSwGetChildPdo @ 0x140A7AAD4 (PiSwGetChildPdo.c)
- *     IoCreateDeviceSecure @ 0x140AF8350 (IoCreateDeviceSecure.c)
- *     VfFilterAttach @ 0x140C3BD80 (VfFilterAttach.c)
- *     ViDdiDriverEntry @ 0x140C43060 (ViDdiDriverEntry.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
- *     PiDaDriverEntry @ 0x140CC6B60 (PiDaDriverEntry.c)
- *     RawInitialize @ 0x140CD9A40 (RawInitialize.c)
- *     WmipDriverEntry @ 0x140CE01C0 (WmipDriverEntry.c)
+ *     DifIoCreateDeviceWrapper @ 0x14065E240 (DifIoCreateDeviceWrapper.c)
+ *     HalpAddDevice @ 0x1407846F0 (HalpAddDevice.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x1407B06DC (IopCreateRootEnumeratedDeviceObject.c)
+ *     VRegSetup @ 0x1408AB680 (VRegSetup.c)
+ *     RawMountVolume @ 0x14091B1FC (RawMountVolume.c)
+ *     PiSwGetChildPdo @ 0x140A8BC18 (PiSwGetChildPdo.c)
+ *     IoCreateDeviceSecure @ 0x140AFAA30 (IoCreateDeviceSecure.c)
+ *     VfFilterAttach @ 0x140C41D90 (VfFilterAttach.c)
+ *     ViDdiDriverEntry @ 0x140C49070 (ViDdiDriverEntry.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
+ *     PiDaDriverEntry @ 0x140CCCC50 (PiDaDriverEntry.c)
+ *     RawInitialize @ 0x140CDFDC0 (RawInitialize.c)
+ *     WmipDriverEntry @ 0x140CE6560 (WmipDriverEntry.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     IopInsertRemoveDevice @ 0x1404380FC (IopInsertRemoveDevice.c)
- *     RtlGetNtProductType @ 0x140450F70 (RtlGetNtProductType.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     RtlStringCchPrintfW @ 0x1404B0AA4 (RtlStringCchPrintfW.c)
- *     KeInitializeDeviceQueue @ 0x1404ED660 (KeInitializeDeviceQueue.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1409FF1D0 (IopCreateSecurityDescriptorPerType.c)
- *     EtwTiLogDeviceObjectLoadUnload @ 0x1409FF3B8 (EtwTiLogDeviceObjectLoadUnload.c)
- *     AstLogDeviceCreated @ 0x1409FF51C (AstLogDeviceCreated.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     PoVolumeDevice @ 0x140B52CC8 (PoVolumeDevice.c)
- *     IopCreateVpb @ 0x140B63D74 (IopCreateVpb.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     IopInsertRemoveDevice @ 0x14042701C (IopInsertRemoveDevice.c)
+ *     RtlGetNtProductType @ 0x1404490A0 (RtlGetNtProductType.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     RtlStringCchPrintfW @ 0x1404AA134 (RtlStringCchPrintfW.c)
+ *     KeInitializeDeviceQueue @ 0x1404E6C40 (KeInitializeDeviceQueue.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x14091BFD0 (IopCreateSecurityDescriptorPerType.c)
+ *     EtwTiLogDeviceObjectLoadUnload @ 0x14091C1B8 (EtwTiLogDeviceObjectLoadUnload.c)
+ *     AstLogDeviceCreated @ 0x14091C31C (AstLogDeviceCreated.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     PoVolumeDevice @ 0x140B55568 (PoVolumeDevice.c)
+ *     IopCreateVpb @ 0x140B66E14 (IopCreateVpb.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoCreateDevice(
@@ -72,49 +72,48 @@ NTSTATUS __stdcall IoCreateDevice(
   PDRIVER_OBJECT v27; // rdi
   bool v29; // zf
   USHORT AclSize; // si
-  unsigned __int8 *UserAffinity; // rax
+  unsigned __int64 AffinityVersion; // rax
   ACL *Pool2; // rax
-  unsigned __int8 *StateSaveArea; // rax
+  void *Src; // rax
   int v34; // r9d
-  void *Src; // [rsp+20h] [rbp-E0h]
   PVOID Object; // [rsp+50h] [rbp-B0h] BYREF
-  int v37; // [rsp+58h] [rbp-A8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+58h] [rbp-A8h] BYREF
   PVOID P; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v39; // [rsp+68h] [rbp-98h]
-  ULONG v40; // [rsp+6Ch] [rbp-94h]
-  ULONG v41; // [rsp+70h] [rbp-90h]
-  ULONG v42; // [rsp+74h] [rbp-8Ch]
+  unsigned int v38; // [rsp+68h] [rbp-98h]
+  ULONG v39; // [rsp+6Ch] [rbp-94h]
+  ULONG v40; // [rsp+70h] [rbp-90h]
+  ULONG v41; // [rsp+74h] [rbp-8Ch]
   HANDLE Handle; // [rsp+78h] [rbp-88h] BYREF
-  PDEVICE_OBJECT *v44; // [rsp+80h] [rbp-80h]
-  __int128 v45; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v46; // [rsp+98h] [rbp-68h]
-  ACL *v47; // [rsp+A8h] [rbp-58h]
-  ACL *v48; // [rsp+B0h] [rbp-50h]
-  PDRIVER_OBJECT v49; // [rsp+B8h] [rbp-48h]
+  PDEVICE_OBJECT *v43; // [rsp+80h] [rbp-80h]
+  __int128 v44; // [rsp+88h] [rbp-78h] BYREF
+  __int128 v45; // [rsp+98h] [rbp-68h]
+  ACL *v46; // [rsp+A8h] [rbp-58h]
+  ACL *v47; // [rsp+B0h] [rbp-50h]
+  PDRIVER_OBJECT v48; // [rsp+B8h] [rbp-48h]
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-40h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+D0h] [rbp-30h] BYREF
   wchar_t pszDest[20]; // [rsp+F8h] [rbp-8h] BYREF
 
   v7 = 0LL;
   LOBYTE(v8) = DeviceCharacteristics;
-  v49 = DriverObject;
-  v44 = DeviceObject;
+  v48 = DriverObject;
+  v43 = DeviceObject;
   v10 = DeviceType;
-  v47 = 0LL;
-  LODWORD(v48) = 0;
-  v40 = DeviceExtensionSize;
-  v41 = DeviceCharacteristics;
+  v46 = 0LL;
+  LODWORD(v47) = 0;
+  v39 = DeviceExtensionSize;
+  v40 = DeviceCharacteristics;
   v11 = 8 - (DeviceExtensionSize & 7);
   Object = 0LL;
   Handle = 0LL;
-  v45 = 0LL;
+  v44 = 0LL;
   if ( (DeviceExtensionSize & 7) == 0 )
     v11 = DeviceExtensionSize & 7;
   P = 0LL;
-  v42 = DeviceCharacteristics & 0x80;
-  v39 = DeviceExtensionSize + v11;
+  v41 = DeviceCharacteristics & 0x80;
+  v38 = DeviceExtensionSize + v11;
   v12 = 0LL;
-  v46 = 0LL;
+  v45 = 0LL;
   DestinationString = 0LL;
   v13 = 4LL;
   v14 = 0;
@@ -126,7 +125,7 @@ NTSTATUS __stdcall IoCreateDevice(
       pszDest,
       0x11uLL,
       L"\\Device\\%08lx",
-      (unsigned int)_InterlockedIncrement((_DWORD *)&IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink + 1));
+      (unsigned int)_InterlockedIncrement((volatile signed __int32 *)&IopPerfIoTrackingLock.UserAffinityPrimaryGroup));
     RtlInitUnicodeString(&DestinationString, pszDest);
     v13 = 4LL;
     DeviceName = &DestinationString;
@@ -154,21 +153,21 @@ LABEL_7:
         v13 = 2LL;
         goto LABEL_8;
       }
-      v37 = 0;
+      NtProductType = 0;
       AclSize = SePublicDefaultUnrestrictedDacl->AclSize;
-      if ( !RtlGetNtProductType(&v37) )
+      if ( !RtlGetNtProductType(&NtProductType) )
         goto LABEL_9;
-      if ( v37 == 1 )
+      if ( NtProductType == NtProductWinNt )
       {
-        UserAffinity = (unsigned __int8 *)RtlpBootStatHandleLock.UserAffinity;
+        AffinityVersion = RtlpBootStatHandleLock.AffinityVersion;
       }
       else
       {
         if ( (_DWORD)v10 != 2 )
           goto LABEL_89;
-        UserAffinity = (unsigned __int8 *)RtlpBootStatHandleLock.StateSaveArea;
+        AffinityVersion = *(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags;
       }
-      AclSize += 4 * (UserAffinity[1] + 4);
+      AclSize += 4 * (*(unsigned __int8 *)(AffinityVersion + 1) + 4);
 LABEL_89:
       Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
       v7 = Pool2;
@@ -179,11 +178,11 @@ LABEL_9:
         goto LABEL_10;
       }
       memmove(Pool2, SePublicDefaultUnrestrictedDacl, SePublicDefaultUnrestrictedDacl->AclSize);
-      v29 = v37 == 1;
+      v29 = NtProductType == NtProductWinNt;
       v7->AclSize = AclSize;
       if ( v29 )
       {
-        StateSaveArea = (unsigned __int8 *)RtlpBootStatHandleLock.UserAffinity;
+        Src = (void *)RtlpBootStatHandleLock.AffinityVersion;
         v34 = -1073676288;
       }
       else
@@ -197,10 +196,10 @@ LABEL_95:
           v7 = 0LL;
           goto LABEL_48;
         }
-        StateSaveArea = (unsigned __int8 *)RtlpBootStatHandleLock.StateSaveArea;
+        Src = *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags;
         v34 = 0x80000000;
       }
-      RtlpAddKnownAce((char *)v7, 2u, 0, v34, StateSaveArea, 0);
+      RtlpAddKnownAce((int)v7, 2, 0, v34, Src, 0);
       goto LABEL_95;
     }
     if ( (_DWORD)v10 == 32 || (_DWORD)v10 == 20 || (_DWORD)v10 == 36 || (_DWORD)v10 == 45 )
@@ -225,25 +224,25 @@ LABEL_10:
     {
       v14 = 512;
     }
-    LODWORD(v45) = 48;
-    *((_QWORD *)&v45 + 1) = v7;
-    *(_QWORD *)&v46 = DeviceName;
-    v47 = v17;
+    LODWORD(v44) = 48;
+    *((_QWORD *)&v44 + 1) = v7;
+    *(_QWORD *)&v45 = DeviceName;
+    v46 = v17;
     v18 = IopCaseInsensitive != 0 ? 576 : 512;
-    v48 = v7;
-    DWORD2(v46) = IopCaseInsensitive != 0 ? 576 : 512;
+    v47 = v7;
+    DWORD2(v45) = IopCaseInsensitive != 0 ? 576 : 512;
     if ( Exclusive != (_BYTE)v7 )
     {
       v18 = (unsigned int)v18 | 0x20;
-      DWORD2(v46) = v18;
+      DWORD2(v45) = v18;
     }
     if ( DeviceName )
     {
       v18 = (unsigned int)v18 | 0x10;
-      DWORD2(v46) = v18;
+      DWORD2(v45) = v18;
     }
-    v19 = v39 + 448;
-    if ( v39 >= 0xFFFFFE40 )
+    v19 = v38 + 448;
+    if ( v38 >= 0xFFFFFE40 )
     {
       inserted = -1073741811;
 LABEL_40:
@@ -256,33 +255,23 @@ LABEL_40:
         LOBYTE(v18) = 1;
         EtwTiLogDeviceObjectLoadUnload(v18, *((_QWORD *)Object + 1) + 56LL, DeviceName);
       }
-      *v44 = (PDEVICE_OBJECT)Object;
+      *v43 = (PDEVICE_OBJECT)Object;
       return inserted;
     }
-    inserted = ObCreateObjectEx(
-                 0,
-                 (_DWORD *)IoDeviceObjectType,
-                 (__int64)&v45,
-                 0,
-                 (__int64)Src,
-                 v39 + 448,
-                 (int)v7,
-                 (int)v7,
-                 &Object,
-                 (__int64)v7);
+    inserted = ObCreateObjectEx(0, IoDeviceObjectType, (unsigned int)&v44, 0);
     if ( inserted < 0 )
       goto LABEL_40;
     memset_0(Object, 0, v19);
-    v8 = v41;
-    v21 = (char *)Object + v39 + 336;
+    v8 = v40;
+    v21 = (char *)Object + v38 + 336;
     *((_QWORD *)v21 + 1) = Object;
     *((_QWORD *)Object + 39) = v21;
     *(_DWORD *)v21 = 13;
     *((_QWORD *)v21 + 11) = 0LL;
     *((_DWORD *)v21 + 4) = 0;
     *((_QWORD *)v21 + 3) = 0LL;
-    v22 = v40;
-    v23 = v40 + 336;
+    v22 = v39;
+    v23 = v39 + 336;
     *(_WORD *)Object = 3;
     *((_WORD *)Object + 1) = v23;
     *((_DWORD *)Object + 18) = v10;
@@ -322,12 +311,12 @@ LABEL_22:
       *(_DWORD *)(*((_QWORD *)Object + 39) + 32LL) |= 0x800u;
       v26 = (char *)Object;
     }
-    inserted = ObInsertObjectEx(v26, 0LL, 3u, 1, 0, (__int64)&Object, &Handle);
+    inserted = ObInsertObjectEx(v26, 0LL, 3, 1, 0, (__int64)&Object, &Handle);
     if ( inserted >= 0 )
     {
       AstLogDeviceCreated(Object, (unsigned int)v10, v8);
-      v27 = v49;
-      PsReferenceSiloContext(v49);
+      v27 = v48;
+      PsReferenceSiloContext(v48);
       *((_QWORD *)Object + 1) = v27;
       IopInsertRemoveDevice((__int64)v27, (__int64)Object, 1);
       if ( *((_QWORD *)Object + 7) )
@@ -335,7 +324,7 @@ LABEL_22:
       ObCloseHandle(Handle, 0);
       goto LABEL_40;
     }
-    if ( inserted != -1073741771 || !v42 )
+    if ( inserted != -1073741771 || !v41 )
     {
       Object = 0LL;
       goto LABEL_40;
@@ -354,7 +343,7 @@ LABEL_22:
   if ( inserted >= 0 )
   {
     KeInitializeEvent((PRKEVENT)((char *)Object + 280), SynchronizationEvent, 1u);
-    v22 = v40;
+    v22 = v39;
     goto LABEL_22;
   }
   ObfDereferenceObject(Object);
@@ -362,6 +351,6 @@ LABEL_22:
     ExFreePoolWithTag(v15, 0);
   if ( v12 )
     ExFreePoolWithTag(v12, 0);
-  *v44 = 0LL;
+  *v43 = 0LL;
   return inserted;
 }

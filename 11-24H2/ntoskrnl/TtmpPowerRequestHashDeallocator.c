@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpPowerRequestHashDeallocator @ 0x14076AB98
+ * XREFs of TtmpPowerRequestHashDeallocator @ 0x14076ADB8
  * Callers:
- *     TtmpInsertPowerRequestToSession @ 0x14076A838 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpInsertPowerRequestToSession @ 0x14076AA58 (TtmpInsertPowerRequestToSession.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmpPowerRequestHashDeallocator(void *a1)

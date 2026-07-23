@@ -6,7 +6,7 @@
  *     RtlRunOnceExecuteOnce @ 0x1800213E0 (RtlRunOnceExecuteOnce.c)
  *     _TlgKeywordOn @ 0x18004B5F0 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
@@ -14,7 +14,7 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
         __int64 a2,
         __int64 a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   const struct _TlgProvider_t *v7; // rcx
   const GUID *v8; // r8
   const GUID *v9; // r9
@@ -35,8 +35,8 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
   __int64 v25; // [rsp+C0h] [rbp+3Fh]
 
   v6 = RtlRunOnceExecuteOnce(
-         &qword_180166100,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
+         &stru_180166100,
+         (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce,
          0LL,
          0LL);
   if ( v6 >= 0 && dword_18015F520 > 5u )
@@ -59,7 +59,7 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
       v23 = 2LL;
       v24 = a3;
       v25 = 16LL;
-      LOBYTE(v6) = TlgWrite(v7, &unk_18012C09A, v8, v9, 8u, &pData);
+      LOBYTE(v6) = TlgWrite(v7, &unk_18012C12A, v8, v9, 8u, &pData);
     }
   }
   return v6;

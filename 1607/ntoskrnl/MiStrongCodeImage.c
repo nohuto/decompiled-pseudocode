@@ -1,9 +1,9 @@
 /*
- * XREFs of MiStrongCodeImage @ 0x1401F7194
+ * XREFs of MiStrongCodeImage @ 0x1401F6FC0
  * Callers:
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiStrongCodeImage(__int64 a1, unsigned int a2)

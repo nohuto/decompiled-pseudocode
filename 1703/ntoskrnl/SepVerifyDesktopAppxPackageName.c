@@ -26,10 +26,10 @@ __int64 __fastcall SepVerifyDesktopAppxPackageName(_DWORD *a1, __int64 a2, _BYTE
   int v10; // ebx
   _QWORD *SecurityAttributesList; // rax
   _DWORD *v12; // r14
-  __int64 v13; // rcx
+  ACL *v13; // rcx
   __int64 v14; // rax
-  unsigned __int8 *AceByType; // rax
-  unsigned __int8 *v16; // r15
+  _DWORD *AceByType; // rax
+  _DWORD *v16; // r15
   int v17; // eax
   SIZE_T NumberOfBytes; // [rsp+60h] [rbp-A0h] BYREF
   int v20; // [rsp+68h] [rbp-98h] BYREF
@@ -94,17 +94,17 @@ LABEL_13:
     }
     if ( *(__int16 *)(a2 + 2) >= 0 )
     {
-      v13 = *(_QWORD *)(a2 + 32);
+      v13 = *(ACL **)(a2 + 32);
     }
     else
     {
       v14 = *(unsigned int *)(a2 + 16);
       if ( !(_DWORD)v14 )
         goto LABEL_13;
-      v13 = v14 + a2;
+      v13 = (ACL *)(v14 + a2);
     }
 LABEL_18:
-    AceByType = RtlFindAceByType(v13, 9, (unsigned int *)&NumberOfBytes + 1);
+    AceByType = RtlFindAceByType(v13, 9u, (PULONG)&NumberOfBytes + 1);
     v16 = AceByType;
     if ( AceByType )
     {
@@ -116,8 +116,8 @@ LABEL_18:
               0LL,
               0LL,
               0LL,
-              &AceByType[4 * AceByType[9] + 16],
-              *((unsigned __int16 *)AceByType + 1) - (4 * (unsigned int)AceByType[9] + 8) - 8,
+              &AceByType[*((unsigned __int8 *)AceByType + 9) + 4],
+              *((unsigned __int16 *)AceByType + 1) - (4 * (unsigned int)*((unsigned __int8 *)AceByType + 9) + 8) - 8,
               0,
               0,
               &v20);

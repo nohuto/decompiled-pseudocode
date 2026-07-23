@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlQueryRegistryValueWithFallback @ 0x140797E20
  * Callers:
- *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x14061B7D0 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140797CE4 (EtwpGetGuidSecurityDescriptor.c)
+ *     sub_14061B7D0 @ 0x14061B7D0 (sub_14061B7D0.c)
+ *     sub_140797CE4 @ 0x140797CE4 (sub_140797CE4.c)
  * Callees:
  *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
  *     memmove @ 0x140435B40 (memmove.c)

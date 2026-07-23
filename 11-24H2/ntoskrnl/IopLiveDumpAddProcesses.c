@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpAddProcesses @ 0x140598060
+ * XREFs of IopLiveDumpAddProcesses @ 0x140594FE0
  * Callers:
  *     <none>
  * Callees:
- *     IoAddProcessesToDump @ 0x1405A0164 (IoAddProcessesToDump.c)
+ *     IoAddProcessesToDump @ 0x14059D088 (IoAddProcessesToDump.c)
  */
 
 __int64 __fastcall IopLiveDumpAddProcesses(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
  * XREFs of KiTpCompletion @ 0x140AF3130
  * Callers:
- *     KiTpHandleTrap @ 0x14057EC80 (KiTpHandleTrap.c)
+ *     KiTpHandleTrap @ 0x14057F170 (KiTpHandleTrap.c)
  * Callees:
  *     KiTpEmulateInstruction @ 0x140AF3944 (KiTpEmulateInstruction.c)
  */

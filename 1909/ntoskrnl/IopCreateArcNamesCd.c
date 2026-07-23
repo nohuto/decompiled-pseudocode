@@ -59,16 +59,16 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-88h] BYREF
   PFILE_OBJECT FileObject; // [rsp+90h] [rbp-78h] BYREF
   _QWORD *v37; // [rsp+98h] [rbp-70h]
-  STRING SourceString; // [rsp+A0h] [rbp-68h] BYREF
+  _STRING SourceString; // [rsp+A0h] [rbp-68h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-58h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+C0h] [rbp-48h] BYREF
   LARGE_INTEGER StartingOffset[2]; // [rsp+D8h] [rbp-30h] BYREF
   __int64 v42; // [rsp+E8h] [rbp-20h]
-  STRING v43; // [rsp+F0h] [rbp-18h] BYREF
+  _STRING v43; // [rsp+F0h] [rbp-18h] BYREF
   LARGE_INTEGER v44; // [rsp+100h] [rbp-8h] BYREF
   int v45; // [rsp+108h] [rbp+0h]
   char pszDest[128]; // [rsp+118h] [rbp+10h] BYREF
-  char v47[128]; // [rsp+198h] [rbp+90h] BYREF
+  CHAR v47[128]; // [rsp+198h] [rbp+90h] BYREF
 
   v1 = *(_QWORD **)(a1 + 232);
   v2 = 0;

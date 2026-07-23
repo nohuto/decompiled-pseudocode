@@ -3,7 +3,7 @@
  * Callers:
  *     WMIInitialize @ 0x14079DDF8 (WMIInitialize.c)
  * Callees:
- *     ExInitializePagedLookasideList @ 0x1403E3794 (ExInitializePagedLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x1403E4DC0 (ExInitializePagedLookasideList.c)
  */
 
 void WmipInitializeAllocs()

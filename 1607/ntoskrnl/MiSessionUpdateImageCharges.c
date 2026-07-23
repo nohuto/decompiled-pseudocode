@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSessionUpdateImageCharges @ 0x14012C9D8
+ * XREFs of MiSessionUpdateImageCharges @ 0x14012CF48
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140484174 (MiDriverLoadSucceeded.c)
+ *     MiDriverLoadSucceeded @ 0x140482EC8 (MiDriverLoadSucceeded.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiSessionLookupImage @ 0x1400865D4 (MiSessionLookupImage.c)
- *     MiCountSystemImageCommitment @ 0x14012CA50 (MiCountSystemImageCommitment.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiSessionLookupImage @ 0x140087EC4 (MiSessionLookupImage.c)
+ *     MiCountSystemImageCommitment @ 0x14012CFC0 (MiCountSystemImageCommitment.c)
  */
 
 __int64 __fastcall MiSessionUpdateImageCharges(__int64 a1)

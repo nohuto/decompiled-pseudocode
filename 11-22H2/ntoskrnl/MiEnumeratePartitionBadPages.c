@@ -49,10 +49,13 @@ void __fastcall MiEnumeratePartitionBadPages(__int64 a1, __int64 a2)
     if ( !*(_QWORD *)(a1 + 6720) )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 6752));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -75,10 +78,10 @@ void __fastcall MiEnumeratePartitionBadPages(__int64 a1, __int64 a2)
       for ( i = *(_QWORD *)(a1 + 6736); i != 0x3FFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x220000000000LL) & 0xFFFFFFFFFFLL )
         *v13++ = i;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 6752));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v15 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v15 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v15 >= 2u )
         {
           v16 = KeGetCurrentPrcb();
           v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -101,10 +104,10 @@ void __fastcall MiEnumeratePartitionBadPages(__int64 a1, __int64 a2)
       return;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 6752));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v8 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v8 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v8 >= 2u )
       {
         v9 = KeGetCurrentPrcb();
         v10 = v9->SchedulerAssist;

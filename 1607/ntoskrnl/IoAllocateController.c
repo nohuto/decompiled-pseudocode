@@ -1,10 +1,10 @@
 /*
- * XREFs of IoAllocateController @ 0x1400AE4B0
+ * XREFs of IoAllocateController @ 0x1400ACA18
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeController @ 0x1400AE518 (IoFreeController.c)
- *     KeInsertDeviceQueue @ 0x1400AE670 (KeInsertDeviceQueue.c)
+ *     IoFreeController @ 0x1400ACA80 (IoFreeController.c)
+ *     KeInsertDeviceQueue @ 0x1400ACBD8 (KeInsertDeviceQueue.c)
  */
 
 void __stdcall IoAllocateController(

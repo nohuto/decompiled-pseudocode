@@ -40,15 +40,14 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1, __int64 a2, __int64 a3, __int64 a4
   struct _LIST_ENTRY *Blink; // rax
   struct _KTHREAD *v22; // rbx
   unsigned __int8 v23; // r14
-  unsigned __int64 v24; // r8
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // rsi
-  unsigned int v28; // ecx
-  unsigned __int8 v29; // al
+  unsigned int v24; // edx
+  __int64 v25; // rcx
+  __int64 v26; // rsi
+  unsigned int v27; // ecx
+  unsigned __int8 v28; // al
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  int v32; // eax
+  int v31; // eax
   _DWORD *SchedulerAssist; // r8
   PVOID P; // [rsp+30h] [rbp-58h]
 
@@ -122,37 +121,36 @@ LABEL_21:
     v13 = MmGetSessionIdEx(v22->ApcState.Process);
   --v22->SpecialApcDisable;
   v23 = ++v22->AbAllocationRegionCount;
-  v24 = (unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL;
-  LODWORD(v25) = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
+  v24 = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
-    v18 = !_BitScanReverse((unsigned int *)&v26, v25);
+    v18 = !_BitScanReverse((unsigned int *)&v25, v24);
     if ( v18 )
       break;
-    v27 = (__int64)&v22->LockEntries[v26];
-    v25 = ~(1 << v26) & (unsigned int)v25;
-    if ( (*(_BYTE *)(v27 + 26) & 1) != 0
-      && (*(_DWORD *)(v27 + 32) & 1) == 0
-      && (*(_QWORD *)(v27 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v24
-      && *(_DWORD *)(v27 + 40) == v13 )
+    v26 = (__int64)&v22->LockEntries[v25];
+    v24 &= ~(1 << v25);
+    if ( (*(_BYTE *)(v26 + 26) & 1) != 0
+      && (*(_DWORD *)(v26 + 32) & 1) == 0
+      && (*(_QWORD *)(v26 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v26 + 40) == v13 )
     {
-      *(_BYTE *)(v27 + 26) &= ~1u;
-      if ( *(_QWORD *)(v27 + 32) )
+      *(_BYTE *)(v26 + 26) &= ~1u;
+      if ( *(_QWORD *)(v26 + 32) )
       {
-        if ( v27 )
+        if ( v26 )
         {
-          *(_BYTE *)(v27 + 32) |= 2u;
-          if ( *(__int64 *)(v27 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v27, v25, v24);
-          v28 = *(_DWORD *)(v27 + 88) & 0xFFFE0000;
-          *(_BYTE *)(v27 + 25) &= ~1u;
-          *(_DWORD *)(v27 + 88) = v28;
-          *(_QWORD *)(v27 + 32) = 0LL;
-          v29 = 1 << ((char)(v27 - LOBYTE(v22->LockEntries)) / 96);
+          *(_BYTE *)(v26 + 32) |= 2u;
+          if ( *(__int64 *)(v26 + 32) < 0 )
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
+          v27 = *(_DWORD *)(v26 + 88) & 0xFFFE0000;
+          *(_BYTE *)(v26 + 25) &= ~1u;
+          *(_DWORD *)(v26 + 88) = v27;
+          *(_QWORD *)(v26 + 32) = 0LL;
+          v28 = 1 << ((char)(v26 - LOBYTE(v22->LockEntries)) / 96);
           if ( v23 == 1 )
-            v22->AbEntrySummary |= v29;
+            v22->AbEntrySummary |= v28;
           else
-            _InterlockedOr8((volatile signed __int8 *)&v22->AbOrphanedEntrySummary, v29);
+            _InterlockedOr8((volatile signed __int8 *)&v22->AbOrphanedEntrySummary, v28);
           goto LABEL_46;
         }
         break;
@@ -189,10 +187,10 @@ LABEL_2:
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v18 = (v32 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v32;
+          v18 = (v31 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v31;
           if ( v18 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }

@@ -11,50 +11,52 @@
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  *     RtlpGetStackTraceAddressEx @ 0x18005C7A0 (RtlpGetStackTraceAddressEx.c)
  *     RtlpFreeDebugInfo @ 0x18005C7C8 (RtlpFreeDebugInfo.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlStdReleaseStackTrace @ 0x1800FDC40 (RtlStdReleaseStackTrace.c)
  */
 
-__int64 __fastcall RtlDeleteCriticalSection(__int64 *a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+NTSTATUS __cdecl RtlDeleteCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  char *v5; // rcx
-  unsigned int v6; // r14d
-  __int64 v7; // rbx
-  __int64 v9; // rsi
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  _QWORD *v12; // rdx
+  char *LockSemaphore; // rcx
+  NTSTATUS v3; // r14d
+  _RTL_CRITICAL_SECTION_DEBUG *DebugInfo; // rbx
+  __int64 v6; // rsi
+  _LIST_ENTRY *p_ProcessLocksList; // rcx
+  _LIST_ENTRY *Flink; // rax
+  _LIST_ENTRY *Blink; // rdx
   __int64 StackTraceAddress; // rax
 
-  v5 = (char *)a1[3];
-  if ( (unsigned __int64)(v5 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    v6 = NtClose(v5);
+  LockSemaphore = (char *)CriticalSection->LockSemaphore;
+  if ( (unsigned __int64)(LockSemaphore - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    v3 = NtClose(LockSemaphore);
   else
-    v6 = 0;
-  v7 = *a1;
-  if ( (unsigned __int64)(*a1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    v3 = 0;
+  DebugInfo = CriticalSection->DebugInfo;
+  if ( (unsigned __int64)&CriticalSection->DebugInfo[-1].SpareUSHORT + 1 <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    v9 = a1[4] & 0x4000000;
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlCriticalSectionLock, a2, a3, a4);
-    v10 = v7 + 16;
-    v11 = *(_QWORD *)(v7 + 16);
-    if ( v11 )
+    v6 = CriticalSection->SpinCount & 0x4000000;
+    RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
+    p_ProcessLocksList = &DebugInfo->ProcessLocksList;
+    Flink = DebugInfo->ProcessLocksList.Flink;
+    if ( Flink )
     {
-      v12 = *(_QWORD **)(v7 + 24);
-      if ( *(_QWORD *)(v11 + 8) != v10 || *v12 != v10 )
+      Blink = DebugInfo->ProcessLocksList.Blink;
+      if ( Flink->Blink != p_ProcessLocksList || Blink->Flink != p_ProcessLocksList )
         __fastfail(3u);
-      *v12 = v11;
-      *(_QWORD *)(v11 + 8) = v12;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
     }
     RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
-    StackTraceAddress = RtlpGetStackTraceAddressEx(*(unsigned __int16 *)(v7 + 2), *(unsigned __int16 *)(v7 + 44));
+    StackTraceAddress = RtlpGetStackTraceAddressEx(
+                          DebugInfo->CreatorBackTraceIndex,
+                          DebugInfo->CreatorBackTraceIndexHigh);
     if ( StackTraceAddress && RtlpStackTraceDatabase )
       RtlStdReleaseStackTrace(RtlpStackTraceDatabase, StackTraceAddress);
-    memset((void *)v7, 0, 0x30uLL);
-    if ( !v9 )
-      RtlpFreeDebugInfo(v7);
+    memset(DebugInfo, 0, sizeof(_RTL_CRITICAL_SECTION_DEBUG));
+    if ( !v6 )
+      RtlpFreeDebugInfo(DebugInfo);
   }
-  memset(a1, 0, 0x28uLL);
-  return v6;
+  memset(CriticalSection, 0, sizeof(_RTL_CRITICAL_SECTION));
+  return v3;
 }

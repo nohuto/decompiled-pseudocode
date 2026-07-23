@@ -1,11 +1,11 @@
 /*
- * XREFs of wcscat_s @ 0x180134290
+ * XREFs of wcscat_s @ 0x180134000
  * Callers:
- *     _BuildCumulativeOverlayFilePath @ 0x1800333EC (_BuildCumulativeOverlayFilePath.c)
- *     RtlConvertSidToUnicodeString @ 0x18003CD70 (RtlConvertSidToUnicodeString.c)
- *     _AppendStandardOverlayFilePath @ 0x1800E5E58 (_AppendStandardOverlayFilePath.c)
+ *     _BuildCumulativeOverlayFilePath @ 0x18001E54C (_BuildCumulativeOverlayFilePath.c)
+ *     RtlConvertSidToUnicodeString @ 0x1800272E0 (RtlConvertSidToUnicodeString.c)
+ *     _AppendStandardOverlayFilePath @ 0x1800E4068 (_AppendStandardOverlayFilePath.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wcscat_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source)

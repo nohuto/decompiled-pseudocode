@@ -13,82 +13,93 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-void __fastcall __noreturn sub_1800EC6A0(__int64 a1)
+void __fastcall __noreturn sub_1800EC6A0(char *a1)
 {
-  int v2; // eax
-  int HeapInformation; // edi
-  unsigned __int64 *v4; // r15
+  NTSTATUS v2; // eax
+  NTSTATUS v3; // edi
+  SIZE_T *ViewSize; // r15
   __int64 v5; // rax
   _QWORD **v6; // r12
-  __int64 v7; // r9
-  int v8; // r14d
-  _QWORD v9[2]; // [rsp+58h] [rbp-49h] BYREF
+  int v7; // r14d
+  void *v8; // rdx
+  _QWORD HeapInformation[2]; // [rsp+58h] [rbp-49h] BYREF
   _QWORD v10[4]; // [rsp+68h] [rbp-39h] BYREF
   _QWORD v11[14]; // [rsp+88h] [rbp-19h] BYREF
 
-  if ( *(_DWORD *)(a1 + 24) == 0x10000000 )
+  if ( *((_DWORD *)a1 + 6) == 0x10000000 )
   {
-    v9[0] = 1LL;
-    v9[1] = -1LL;
-    WORD1(v9[0]) = *(_WORD *)(a1 + 80);
-    v2 = RtlSetHeapInformation(0LL, 5, (__int64)v9, 0x10uLL);
-    HeapInformation = v2;
+    HeapInformation[0] = 1LL;
+    HeapInformation[1] = -1LL;
+    WORD1(HeapInformation[0]) = *((_WORD *)a1 + 40);
+    v2 = RtlSetHeapInformation(0LL, (HEAP_INFORMATION_CLASS)5, HeapInformation, 0x10uLL);
+    v3 = v2;
 LABEL_3:
-    *(_DWORD *)(a1 + 28) = v2;
+    *((_DWORD *)a1 + 7) = v2;
     goto LABEL_16;
   }
-  v4 = (unsigned __int64 *)(a1 + 56);
-  if ( *(_DWORD *)(a1 + 24) == 0x40000000 )
-    v5 = *(_QWORD *)(a1 + 8);
+  ViewSize = (SIZE_T *)(a1 + 56);
+  if ( *((_DWORD *)a1 + 6) == 0x40000000 )
+    v5 = *((_QWORD *)a1 + 1);
   else
     v5 = 0x10000LL;
   v6 = (_QWORD **)(a1 + 48);
-  *v4 = v5;
-  *(_QWORD *)(a1 + 64) = 0LL;
-  HeapInformation = ZwMapViewOfSection();
-  if ( HeapInformation >= 0 )
+  *ViewSize = v5;
+  *((_QWORD *)a1 + 8) = 0LL;
+  v3 = ZwMapViewOfSection(
+         *(HANDLE *)a1,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         (PVOID *)a1 + 6,
+         0LL,
+         *ViewSize,
+         (PLARGE_INTEGER)a1 + 8,
+         ViewSize,
+         ViewUnmap,
+         0,
+         4u);
+  if ( v3 >= 0 )
   {
-    *(_QWORD *)(a1 + 72) = 0LL;
-    *(_QWORD *)(a1 + 32) = 0LL;
-    *(_DWORD *)(a1 + 40) = 0;
-    *(_DWORD *)(a1 + 28) = 0;
-    v8 = *(_DWORD *)(a1 + 24);
-    if ( v8 == 0x40000000 )
+    *((_QWORD *)a1 + 9) = 0LL;
+    *((_QWORD *)a1 + 4) = 0LL;
+    *((_DWORD *)a1 + 10) = 0;
+    *((_DWORD *)a1 + 7) = 0;
+    v7 = *((_DWORD *)a1 + 6);
+    if ( v7 == 0x40000000 )
     {
       (*v6)[1] = -1LL;
-      v2 = sub_180060EC8(*v6, *v4, (_QWORD *)(a1 + 32), v7);
+      v2 = sub_180060EC8(*v6, *ViewSize, (_QWORD *)a1 + 4);
       goto LABEL_3;
     }
-    if ( v8 == 0x20000000 )
+    if ( v7 == 0x20000000 )
     {
       memset(v10, 0, sizeof(v10));
-      *(_DWORD *)(a1 + 28) = 0;
+      *((_DWORD *)a1 + 7) = 0;
       LODWORD(v10[0]) = 1;
       v10[1] = -1LL;
       v10[2] = sub_1800ECE90;
       v10[3] = a1;
-      HeapInformation = RtlQueryHeapInformation(0LL, 5, v10, 0x20uLL, 0LL);
-      if ( HeapInformation >= 0 )
-        HeapInformation = *(_DWORD *)(a1 + 28);
+      v3 = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)5, v10, 0x20uLL, 0LL);
+      if ( v3 >= 0 )
+        v3 = *((_DWORD *)a1 + 7);
     }
     else
     {
       memset(v11, 0, 0x58uLL);
-      v11[1] = *(_QWORD *)(a1 + 16);
+      v11[1] = *((_QWORD *)a1 + 2);
       v11[0] = -1LL;
       v11[3] = sub_1800EC590;
-      LODWORD(v11[2]) = v8;
+      LODWORD(v11[2]) = v7;
       v11[4] = a1;
-      HeapInformation = RtlQueryHeapInformation(0LL, 2, v11, 0x58uLL, 0LL);
-      if ( HeapInformation >= 0 && *(int *)(a1 + 28) < 0 )
-        HeapInformation = *(_DWORD *)(a1 + 28);
+      v3 = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, v11, 0x58uLL, 0LL);
+      if ( v3 >= 0 && *((int *)a1 + 7) < 0 )
+        v3 = *((_DWORD *)a1 + 7);
     }
   }
 LABEL_16:
-  if ( *(_QWORD *)(a1 + 48) )
-    ZwUnmapViewOfSection();
+  v8 = (void *)*((_QWORD *)a1 + 6);
+  if ( v8 )
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v8);
   if ( *(_QWORD *)a1 )
-    ZwClose();
-  *(_DWORD *)(a1 + 28) = HeapInformation;
+    ZwClose(*(HANDLE *)a1);
+  *((_DWORD *)a1 + 7) = v3;
   RtlExitUserThread(0);
 }

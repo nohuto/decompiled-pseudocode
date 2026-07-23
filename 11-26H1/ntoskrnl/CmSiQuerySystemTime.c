@@ -1,8 +1,8 @@
 /*
- * XREFs of CmSiQuerySystemTime @ 0x1404F1700
+ * XREFs of CmSiQuerySystemTime @ 0x1404EACE0
  * Callers:
- *     SshpSessionManagerInterruptTimeToSystemTime @ 0x1407E40FC (SshpSessionManagerInterruptTimeToSystemTime.c)
- *     CmpReorganizeHive @ 0x140AE35CC (CmpReorganizeHive.c)
+ *     SshpSessionManagerInterruptTimeToSystemTime @ 0x1407E9550 (SshpSessionManagerInterruptTimeToSystemTime.c)
+ *     CmpReorganizeHive @ 0x140AE10D4 (CmpReorganizeHive.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiHonorRangeStraddleRequirement @ 0x14034901C
+ * XREFs of MiHonorRangeStraddleRequirement @ 0x1403492AC
  * Callers:
- *     MiFindEmptyAddressRangeDownTree @ 0x1407B6658 (MiFindEmptyAddressRangeDownTree.c)
- *     MiFindEmptyAddressRangeInTree @ 0x1407BAAC4 (MiFindEmptyAddressRangeInTree.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x1407B6938 (MiFindEmptyAddressRangeDownTree.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x1407BAD94 (MiFindEmptyAddressRangeInTree.c)
  * Callees:
  *     <none>
  */

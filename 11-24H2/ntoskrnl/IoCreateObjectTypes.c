@@ -1,14 +1,14 @@
 /*
- * XREFs of IoCreateObjectTypes @ 0x140C1A624
+ * XREFs of IoCreateObjectTypes @ 0x140C1C664
  * Callers:
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
- *     IopCreateIoRingObjectType @ 0x140C1E0A4 (IopCreateIoRingObjectType.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
+ *     IopCreateIoRingObjectType @ 0x140C200E4 (IopCreateIoRingObjectType.c)
  */
 
 bool IoCreateObjectTypes()
@@ -24,7 +24,7 @@ bool IoCreateObjectTypes()
   void *v9; // [rsp+88h] [rbp+7h]
   void *v10; // [rsp+90h] [rbp+Fh]
   void *v11; // [rsp+98h] [rbp+17h]
-  __int64 (__fastcall *v12)(__int64, int, ULONG *, __int16 *, PULONG, int, int, __int64, char); // [rsp+A0h] [rbp+1Fh]
+  __int64 (__fastcall *v12)(__int64, int, DWORD *, __int16 *, PULONG, int, int, __int64, char); // [rsp+A0h] [rbp+1Fh]
   __int64 (__fastcall *v13)(struct _FILE_OBJECT *, __int64, UNICODE_STRING *, unsigned int, unsigned int *, char); // [rsp+A8h] [rbp+27h]
   int v14; // [rsp+B8h] [rbp+37h]
   int v15; // [rsp+BCh] [rbp+3Bh]

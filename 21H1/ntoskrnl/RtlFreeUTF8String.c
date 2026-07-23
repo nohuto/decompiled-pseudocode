@@ -6,14 +6,15 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall RtlFreeUTF8String(__int64 a1, ULONG a2)
+void __cdecl RtlFreeUTF8String(PUTF8_STRING Utf8String)
 {
-  void *v3; // rcx
+  ULONG v1; // edx
+  char *Buffer; // rcx
 
-  v3 = *(void **)(a1 + 8);
-  if ( v3 )
+  Buffer = Utf8String->Buffer;
+  if ( Buffer )
   {
-    ExFreePoolWithTag(v3, a2);
-    *(_OWORD *)a1 = 0LL;
+    ExFreePoolWithTag(Buffer, v1);
+    *Utf8String = 0LL;
   }
 }

@@ -1,21 +1,19 @@
 /*
- * XREFs of PspLockJobExclusive @ 0x1408EB430
+ * XREFs of PspLockJobExclusive @ 0x14085CC60
  * Callers:
- *     PspJobDelete @ 0x1404EE9D0 (PspJobDelete.c)
- *     PspConvertSiloToServerSilo @ 0x140772754 (PspConvertSiloToServerSilo.c)
- *     PspQuitNextJobProcess @ 0x140777B78 (PspQuitNextJobProcess.c)
- *     PspJobClose @ 0x1408E9460 (PspJobClose.c)
- *     PspNotificationPacketCallback @ 0x1408EA490 (PspNotificationPacketCallback.c)
- *     PspLockRootJobFromProcess @ 0x1408EB304 (PspLockRootJobFromProcess.c)
- *     PspGetNextJobProcess @ 0x1408EB458 (PspGetNextJobProcess.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1408ECC80 (PspEnforceLimitsJobPostCallback.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x1408EF378 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
- *     PspJobNotificationWorker @ 0x140A451A0 (PspJobNotificationWorker.c)
- *     PspCreateSilo @ 0x140A73C18 (PspCreateSilo.c)
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     PspConvertSiloToServerSilo @ 0x140772974 (PspConvertSiloToServerSilo.c)
+ *     PspQuitNextJobProcess @ 0x140777D38 (PspQuitNextJobProcess.c)
+ *     PspJobClose @ 0x14085AC90 (PspJobClose.c)
+ *     PspNotificationPacketCallback @ 0x14085BCC0 (PspNotificationPacketCallback.c)
+ *     PspLockRootJobFromProcess @ 0x14085CB34 (PspLockRootJobFromProcess.c)
+ *     PspGetNextJobProcess @ 0x14085CC88 (PspGetNextJobProcess.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x14085E4B0 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140860B78 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspJobNotificationWorker @ 0x140A3AAD0 (PspJobNotificationWorker.c)
+ *     PspCreateSilo @ 0x140A6D570 (PspCreateSilo.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall PspLockJobExclusive(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of CcDereferenceFileOffset @ 0x1401B2708
+ * XREFs of CcDereferenceFileOffset @ 0x1401B25EC
  * Callers:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
  * Callees:
- *     SetVacb @ 0x1400185FC (SetVacb.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x140018910 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1400189B4 (CcAcquireBcbLockAndVacbLock.c)
+ *     SetVacb @ 0x14001817C (SetVacb.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x140018490 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x140018534 (CcAcquireBcbLockAndVacbLock.c)
  */
 
 void __fastcall CcDereferenceFileOffset(__int64 a1, unsigned int a2)

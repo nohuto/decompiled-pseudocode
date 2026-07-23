@@ -46,7 +46,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   struct _FILE_OBJECT *v13; // rbx
   struct _KTHREAD *v14; // r14
   struct _KTHREAD *v15; // rax
-  __int64 v16; // r9
+  PRTL_BALANCED_NODE v16; // r9
   unsigned int FinalStatus; // edi
   char v18; // r15
   PDEVICE_OBJECT RelatedDeviceObject; // r13
@@ -150,7 +150,7 @@ __int64 __fastcall IopGetSetSecurityObject(
     else
     {
       if ( v16 )
-        *(_BYTE *)(v16 + 26) |= 1u;
+        BYTE2(v16[1].Left) |= 1u;
       ObfReferenceObject(v13);
       FinalStatus = 0;
     }

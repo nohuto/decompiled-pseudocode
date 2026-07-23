@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpReleaseCellPaged @ 0x14043FD30
+ * XREFs of HvpReleaseCellPaged @ 0x14043EC00
  * Callers:
  *     <none>
  * Callees:
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HvpReleaseCellPaged(ULONG_PTR BugCheckParameter2, unsigned int *a2)

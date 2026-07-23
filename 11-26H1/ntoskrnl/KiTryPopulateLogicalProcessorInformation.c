@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTryPopulateLogicalProcessorInformation @ 0x14025A1BC
+ * XREFs of KiTryPopulateLogicalProcessorInformation @ 0x14025B99C
  * Callers:
- *     KeQueryLogicalProcessorRelationship @ 0x1404DA4D0 (KeQueryLogicalProcessorRelationship.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1404D3BB0 (KeQueryLogicalProcessorRelationship.c)
  * Callees:
- *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14025234C (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
+ *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140253CAC (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
  */
 
 __int64 __fastcall KiTryPopulateLogicalProcessorInformation(

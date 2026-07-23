@@ -1,11 +1,11 @@
 /*
- * XREFs of IoInitializeWorkItem @ 0x1404854B0
+ * XREFs of IoInitializeWorkItem @ 0x14047EE20
  * Callers:
- *     DifIoInitializeWorkItemWrapper @ 0x14065CFF0 (DifIoInitializeWorkItemWrapper.c)
- *     ?ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@@KK@Z @ 0x140846E58 (-ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@.c)
- *     IovAllocateWorkItem @ 0x140C20BA0 (IovAllocateWorkItem.c)
+ *     DifIoInitializeWorkItemWrapper @ 0x140660BD0 (DifIoInitializeWorkItemWrapper.c)
+ *     ?ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@@KK@Z @ 0x14084D0B8 (-ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@.c)
+ *     IovAllocateWorkItem @ 0x140C26BB0 (IovAllocateWorkItem.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInitializeWorkItem(PVOID IoObject, PIO_WORKITEM IoWorkItem)

@@ -1,110 +1,100 @@
 /*
- * XREFs of MmVerifierTrimMemory @ 0x140BA47F8
+ * XREFs of MmVerifierTrimMemory @ 0x140BA67F8
  * Callers:
- *     ViKeIrqlLogAndTrimMemory @ 0x140BA7F68 (ViKeIrqlLogAndTrimMemory.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140BA9F68 (ViKeIrqlLogAndTrimMemory.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14027FEF0 (RtlpGetStackLimits.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     MiTrimAllSystemPagableMemory @ 0x140678D48 (MiTrimAllSystemPagableMemory.c)
- *     KeGetCurrentStackPointer @ 0x1406AA390 (KeGetCurrentStackPointer.c)
+ *     RtlpGetStackLimits @ 0x140235480 (RtlpGetStackLimits.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     MiTrimAllSystemPagableMemory @ 0x140679F28 (MiTrimAllSystemPagableMemory.c)
+ *     KeGetCurrentStackPointer @ 0x1406AB330 (KeGetCurrentStackPointer.c)
  */
 
-char MmVerifierTrimMemory()
+LARGE_INTEGER MmVerifierTrimMemory()
 {
-  unsigned __int64 UnbiasedInterruptTime; // rcx
-  unsigned __int64 v1; // r11
-  __int64 v2; // rdx
-  LARGE_INTEGER v3; // rax
+  unsigned __int64 v0; // r11
+  LARGE_INTEGER result; // rax
   struct _KTHREAD *CurrentThread; // rdi
-  unsigned __int64 v5; // r11
-  LARGE_INTEGER v6; // rbx
-  __int128 v7; // rtt
-  LARGE_INTEGER v8; // rcx
-  char *v11; // [rsp+20h] [rbp-10h] BYREF
+  unsigned __int64 v3; // r11
+  unsigned __int64 UnbiasedInterruptTime; // kr08_8
+  LARGE_INTEGER v5; // rbx
+  LARGE_INTEGER v6; // rcx
+  unsigned __int64 v7; // rcx
+  __int64 v9; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+58h] [rbp+28h] BYREF
-  LARGE_INTEGER v13; // [rsp+60h] [rbp+30h] BYREF
+  LARGE_INTEGER v11; // [rsp+60h] [rbp+30h] BYREF
   char *CurrentStackPointer; // [rsp+68h] [rbp+38h] BYREF
 
-  v11 = 0LL;
+  v9 = 0LL;
   CurrentStackPointer = 0LL;
-  UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-  v2 = UnbiasedInterruptTime / 0x989680;
-  if ( UnbiasedInterruptTime / 0x989680 != qword_140E373E0
-    || (LOBYTE(v3.LowPart) = qword_140E373E8, qword_140E373E8 < v1) )
+  if ( KiQueryUnbiasedInterruptTime() / 0x989680uLL != qword_140E37520
+    || (result.QuadPart = qword_140E37528, qword_140E37528 < v0) )
   {
-    LOBYTE(v3.LowPart) = dword_140E373FC;
-    if ( !dword_140E373FC )
+    result.QuadPart = (unsigned int)dword_140E3753C;
+    if ( !dword_140E3753C )
     {
-      LOBYTE(v3.LowPart) = dword_140E37418;
-      if ( dword_140E37418 )
+      result.QuadPart = (unsigned int)dword_140E37558;
+      if ( dword_140E37558 )
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->SpecialApcDisable;
-        v3.LowPart = _InterlockedCompareExchange(&dword_140E373FC, 1, 0);
-        if ( v3.LowPart )
-        {
-LABEL_22:
-          if ( CurrentThread->SpecialApcDisable++ == -1 )
-          {
-            v3.QuadPart = (LONGLONG)&CurrentThread->152;
-            if ( *(_QWORD *)v3.QuadPart != v3.QuadPart )
-              LOBYTE(v3.LowPart) = KiCheckForKernelApcDelivery(UnbiasedInterruptTime, v2);
-          }
-          return v3.LowPart;
-        }
+        result.QuadPart = (unsigned int)_InterlockedCompareExchange(&dword_140E3753C, 1, 0);
+        if ( result.LowPart )
+          goto LABEL_22;
         UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-        LOBYTE(v3.LowPart) = qword_140E373E0;
-        v2 = UnbiasedInterruptTime / 0x989680;
-        if ( UnbiasedInterruptTime / 0x989680 == qword_140E373E0 )
+        result.QuadPart = qword_140E37520;
+        if ( UnbiasedInterruptTime / 0x989680 == qword_140E37520 )
         {
-          if ( qword_140E373E8 >= v5 )
+          if ( qword_140E37528 >= v3 )
           {
 LABEL_21:
-            _InterlockedDecrement(&dword_140E373FC);
-            goto LABEL_22;
+            _InterlockedDecrement(&dword_140E3753C);
+LABEL_22:
+            if ( CurrentThread->SpecialApcDisable++ == -1 )
+            {
+              result.QuadPart = (LONGLONG)&CurrentThread->152;
+              if ( *(_QWORD *)result.QuadPart != result.QuadPart )
+                return (LARGE_INTEGER)KiCheckForKernelApcDelivery();
+            }
+            return result;
           }
         }
         else
         {
-          dword_140E373F8 = 0;
-          qword_140E373E0 = UnbiasedInterruptTime / 0x989680;
-          qword_140E373E8 = 0LL;
+          dword_140E37538 = 0;
+          qword_140E37520 = UnbiasedInterruptTime / 0x989680;
+          qword_140E37528 = 0LL;
         }
-        LOBYTE(v3.LowPart) = RtlpGetStackLimits(&v11, (unsigned __int64 *)&CurrentStackPointer);
-        if ( LOBYTE(v3.LowPart) )
+        result.QuadPart = RtlpGetStackLimits((__int64)&v9, (__int64)&CurrentStackPointer);
+        if ( LOBYTE(result.LowPart) )
         {
           CurrentStackPointer = KeGetCurrentStackPointer();
-          LOBYTE(v3.LowPart) = (_BYTE)CurrentStackPointer - (_BYTE)v11;
-          if ( (unsigned __int64)(CurrentStackPointer - v11) > 0x1A30 )
+          result.QuadPart = (LONGLONG)&CurrentStackPointer[-v9];
+          if ( (unsigned __int64)&CurrentStackPointer[-v9] > 0x1A30 )
           {
-            ++dword_140F03EA0;
+            ++dword_140F04800;
             PerformanceFrequency.QuadPart = 0LL;
-            dword_140E37418 = 0;
-            v6 = KeQueryPerformanceCounter(&PerformanceFrequency);
+            dword_140E37558 = 0;
+            v5 = KeQueryPerformanceCounter(&PerformanceFrequency);
             if ( PerformanceFrequency.QuadPart != 10000000 )
-              v6.QuadPart = 10000000 * v6.QuadPart / PerformanceFrequency.QuadPart;
-            v3.LowPart = MiTrimAllSystemPagableMemory(0);
-            if ( v3.LowPart )
+              v5.QuadPart = 10000000 * v5.QuadPart / PerformanceFrequency.QuadPart;
+            result.QuadPart = MiTrimAllSystemPagableMemory(0);
+            if ( result.LowPart )
             {
-              v13.QuadPart = 0LL;
-              v3 = KeQueryPerformanceCounter(&v13);
-              if ( v13.QuadPart != 10000000 )
-              {
-                v7 = 10000000 * v3.QuadPart;
-                v3.QuadPart = 10000000 * v3.QuadPart / v13.QuadPart;
-                v2 = v7 % v13.QuadPart;
-              }
-              v8 = v6;
-              if ( v3.QuadPart >= (unsigned __int64)v6.QuadPart )
-                v8 = v3;
-              ++dword_140E373F8;
-              UnbiasedInterruptTime = v8.QuadPart - v6.QuadPart;
-              qword_140E373E8 += UnbiasedInterruptTime;
-              if ( UnbiasedInterruptTime > qword_140E373F0 )
-                qword_140E373F0 = UnbiasedInterruptTime;
-              ++dword_140F03EA4;
+              v11.QuadPart = 0LL;
+              result = KeQueryPerformanceCounter(&v11);
+              if ( v11.QuadPart != 10000000 )
+                result.QuadPart = 10000000 * result.QuadPart / v11.QuadPart;
+              v6 = v5;
+              if ( result.QuadPart >= (unsigned __int64)v5.QuadPart )
+                v6 = result;
+              ++dword_140E37538;
+              v7 = v6.QuadPart - v5.QuadPart;
+              qword_140E37528 += v7;
+              if ( v7 > qword_140E37530 )
+                qword_140E37530 = v7;
+              ++dword_140F04804;
             }
           }
         }
@@ -112,5 +102,5 @@ LABEL_21:
       }
     }
   }
-  return v3.LowPart;
+  return result;
 }

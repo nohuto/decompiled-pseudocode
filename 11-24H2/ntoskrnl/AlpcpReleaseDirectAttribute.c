@@ -1,14 +1,13 @@
 /*
- * XREFs of AlpcpReleaseDirectAttribute @ 0x14046ABC0
+ * XREFs of AlpcpReleaseDirectAttribute @ 0x140463550
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A3010 (NtWaitForWorkViaWorkerFactory.c)
- *     AlpcpSignal @ 0x14031BB60 (AlpcpSignal.c)
- *     AlpcpSignalAndWait @ 0x140324E10 (AlpcpSignalAndWait.c)
- *     AlpcpReleaseAttributes @ 0x140890220 (AlpcpReleaseAttributes.c)
- *     AlpcpCompleteDispatchMessage @ 0x1408912A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x140A20580 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpSignal @ 0x1402C46F0 (AlpcpSignal.c)
+ *     AlpcpSignalAndWait @ 0x1402CD9A0 (AlpcpSignalAndWait.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402D2740 (NtWaitForWorkViaWorkerFactory.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14089A890 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x140A15680 (AlpcpReleaseMessageAttributesOnCancel.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall AlpcpReleaseDirectAttribute(__int64 a1)

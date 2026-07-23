@@ -1,19 +1,19 @@
 /*
- * XREFs of PspQueryRateControlHistory @ 0x1408EC2DC
+ * XREFs of PspQueryRateControlHistory @ 0x14085DB0C
  * Callers:
- *     PspEnforceLimitsJobPreCallback @ 0x1408EC1D0 (PspEnforceLimitsJobPreCallback.c)
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     PspEnforceLimitsJobPreCallback @ 0x14085DA00 (PspEnforceLimitsJobPreCallback.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     RtlCopyBitMap @ 0x14037D810 (RtlCopyBitMap.c)
- *     RtlNumberOfSetBits @ 0x14042B480 (RtlNumberOfSetBits.c)
- *     PspJobIoRateQueryHistory @ 0x14045C5D4 (PspJobIoRateQueryHistory.c)
- *     KeQuerySchedulingGroupHistory @ 0x1404807C4 (KeQuerySchedulingGroupHistory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspNetRateControlDispatch @ 0x1407779A4 (PspNetRateControlDispatch.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140377880 (RtlNumberOfSetBits.c)
+ *     PspJobIoRateQueryHistory @ 0x1404517D4 (PspJobIoRateQueryHistory.c)
+ *     RtlCopyBitMap @ 0x140455770 (RtlCopyBitMap.c)
+ *     KeQuerySchedulingGroupHistory @ 0x14047B298 (KeQuerySchedulingGroupHistory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspNetRateControlDispatch @ 0x140777B64 (PspNetRateControlDispatch.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *a4, int a5)
@@ -23,7 +23,7 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
   __int64 *v10; // rcx
   __int64 v11; // rdi
   unsigned int v12; // ecx
-  ULONG v13; // esi
+  unsigned int v13; // esi
   __int64 v14; // r15
   int v15; // ebx
   int v16; // eax
@@ -32,9 +32,9 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
   unsigned int v19; // ebx
   __int64 *v20; // rdx
   unsigned int v22; // [rsp+24h] [rbp-4Ch] BYREF
-  ULONG NumberToClear; // [rsp+28h] [rbp-48h] BYREF
+  ULONG TargetBit; // [rsp+28h] [rbp-48h] BYREF
   __int64 v24; // [rsp+30h] [rbp-40h] BYREF
-  RTL_BITMAP BitMapHeader; // [rsp+38h] [rbp-38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+38h] [rbp-38h] BYREF
   __int128 v26; // [rsp+48h] [rbp-28h] BYREF
   __int128 v27; // [rsp+58h] [rbp-18h]
 
@@ -43,7 +43,7 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 0LL;
   v22 = 0;
   v7 = a3;
-  NumberToClear = 0;
+  TargetBit = 0;
   v24 = 0LL;
   *a4 = 0;
   v26 = 0LL;
@@ -66,16 +66,16 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
     {
       if ( a5 == 1 )
       {
-        result = PspJobIoRateQueryHistory(a1, &v24, &v22, &NumberToClear);
+        result = PspJobIoRateQueryHistory(a1, &v24, &v22, &TargetBit);
         if ( (int)result < 0 )
           return result;
       }
       else
       {
-        KeQuerySchedulingGroupHistory(v11 + 128, &v24, &v22, &NumberToClear);
+        KeQuerySchedulingGroupHistory(v11 + 128, &v24, &v22, &TargetBit);
       }
       v12 = v22;
-      v13 = NumberToClear;
+      v13 = TargetBit;
       v14 = v24;
     }
     else
@@ -118,7 +118,7 @@ __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWOR
       }
       else if ( v13 )
       {
-        RtlCopyBitMap((unsigned int *)(v11 + 8), v11 + 8, v13);
+        RtlCopyBitMap((PRTL_BITMAP)(v11 + 8), (PRTL_BITMAP)(v11 + 8), v13);
         RtlClearBits((PRTL_BITMAP)(v11 + 8), 0, v13);
       }
 LABEL_23:
@@ -145,7 +145,7 @@ LABEL_23:
         return (__int64)memset_0(*(void **)(v11 + 24), 0, *(_QWORD *)(v11 + 32));
       return result;
     }
-    result = ExAllocatePool2(0x100uLL);
+    result = ExAllocatePool2(0x100uLL, v19, 0x624A7350u);
     *(_QWORD *)(v11 + 24) = result;
     if ( !result )
       return result;

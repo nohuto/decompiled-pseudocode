@@ -1,28 +1,28 @@
 /*
- * XREFs of MiLockPagableImageSection @ 0x14025A7E0
+ * XREFs of MiLockPagableImageSection @ 0x14025AA70
  * Callers:
- *     MmUnlockPagableImageSection @ 0x14025A440 (MmUnlockPagableImageSection.c)
- *     PoRunDownDeviceObject @ 0x140304F58 (PoRunDownDeviceObject.c)
- *     HalpPowerStateCallback @ 0x1403B06D0 (HalpPowerStateCallback.c)
- *     IopLiveDumpUnLockPages @ 0x14055B940 (IopLiveDumpUnLockPages.c)
- *     DifMmUnlockPagableImageSectionWrapper @ 0x1405E7AE0 (DifMmUnlockPagableImageSectionWrapper.c)
- *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
- *     MmLockPagableSectionByHandle @ 0x1406F5750 (MmLockPagableSectionByHandle.c)
- *     IopLiveDumpLockPages @ 0x14094EA50 (IopLiveDumpLockPages.c)
- *     PnprLockPagesForReplace @ 0x1409666E0 (PnprLockPagesForReplace.c)
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x1409839F4 (PopDirectedDripsNotifyAppsAndServices.c)
- *     MiApplyImageHotPatch @ 0x140A35388 (MiApplyImageHotPatch.c)
+ *     MmUnlockPagableImageSection @ 0x14025A6D0 (MmUnlockPagableImageSection.c)
+ *     PoRunDownDeviceObject @ 0x1403051E8 (PoRunDownDeviceObject.c)
+ *     HalpPowerStateCallback @ 0x1403B08B0 (HalpPowerStateCallback.c)
+ *     IopLiveDumpUnLockPages @ 0x14055C000 (IopLiveDumpUnLockPages.c)
+ *     DifMmUnlockPagableImageSectionWrapper @ 0x1405E8050 (DifMmUnlockPagableImageSectionWrapper.c)
+ *     MmLockPagableDataSection @ 0x1406AD5E0 (MmLockPagableDataSection.c)
+ *     MmLockPagableSectionByHandle @ 0x1406F5960 (MmLockPagableSectionByHandle.c)
+ *     IopLiveDumpLockPages @ 0x14094EC50 (IopLiveDumpLockPages.c)
+ *     PnprLockPagesForReplace @ 0x1409668E0 (PnprLockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x140983BF4 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     MiApplyImageHotPatch @ 0x140A35638 (MiApplyImageHotPatch.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  *     MiLockPagableSections @ 0x140B5EDA8 (MiLockPagableSections.c)
  *     KiInitializeMTRR @ 0x140B5F650 (KiInitializeMTRR.c)
  * Callees:
- *     MiUnlockImageSection @ 0x14025A460 (MiUnlockImageSection.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiLockImageSection @ 0x1406F5770 (MiLockImageSection.c)
+ *     MiUnlockImageSection @ 0x14025A6F0 (MiUnlockImageSection.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiLockImageSection @ 0x1406F5980 (MiLockImageSection.c)
  */
 
 void __fastcall MiLockPagableImageSection(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -119,9 +119,9 @@ LABEL_8:
       {
         v11 = KeGetCurrentIrql();
         __writecr8(0xFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
-          if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v11 == 15 )
@@ -165,10 +165,10 @@ LABEL_8:
       }
       if ( CurrentIrql < 0xFu )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v28 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v28 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v28 - 2) <= 0xDu )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v30 = CurrentPrcb->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmGetVisibleSubkeyCount @ 0x1403FBF90
+ * XREFs of CmGetVisibleSubkeyCount @ 0x1403FAE50
  * Callers:
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmpQueryKeyDataFromNode @ 0x140438210 (CmpQueryKeyDataFromNode.c)
- *     CmpQueryKeyDataFromCache @ 0x1404BB6F8 (CmpQueryKeyDataFromCache.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmpQueryKeyDataFromNode @ 0x1404370E0 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x1404A7428 (CmpQueryKeyDataFromCache.c)
  * Callees:
- *     CmEqualTrans @ 0x1403FD9D0 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x1403FC890 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmGetVisibleSubkeyCount(__int64 a1, __int64 a2, __int64 a3)

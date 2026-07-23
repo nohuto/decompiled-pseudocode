@@ -9,9 +9,9 @@
  *     RtlCSparseBitmapStart @ 0x14029DB28 (RtlCSparseBitmapStart.c)
  */
 
-__int64 __fastcall RtlHpHeapManagerStart(union _RTL_RUN_ONCE *a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlHpHeapManagerStart(_RTL_RUN_ONCE *a1, __int64 a2, __int64 a3)
 {
-  union _RTL_RUN_ONCE *v4; // rcx
+  _RTL_RUN_ONCE *v4; // rcx
   __int64 result; // rax
   __int128 v6; // [rsp+30h] [rbp-18h] BYREF
 

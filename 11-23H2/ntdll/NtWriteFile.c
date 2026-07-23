@@ -7,17 +7,26 @@
  *     RtlCreateBootStatusDataFile @ 0x1800FA810 (RtlCreateBootStatusDataFile.c)
  *     RtlRestoreBootStatusDefaults @ 0x1800FAB60 (RtlRestoreBootStatusDefaults.c)
  *     RtlpGetSetBootStatusData @ 0x1800FAF08 (RtlpGetSetBootStatusData.c)
- *     EtwpWriteBufferCompressed @ 0x1801266FC (EtwpWriteBufferCompressed.c)
- *     EtwpWriteRemainingCompressedData @ 0x18012692C (EtwpWriteRemainingCompressedData.c)
+ *     EtwpWriteBufferCompressed @ 0x1801266CC (EtwpWriteBufferCompressed.c)
+ *     EtwpWriteRemainingCompressedData @ 0x1801268FC (EtwpWriteRemainingCompressedData.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWriteFile()
+NTSTATUS __cdecl NtWriteFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 8LL;
+  result = 8;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

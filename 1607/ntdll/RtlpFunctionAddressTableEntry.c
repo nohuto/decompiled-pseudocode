@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFunctionAddressTableEntry @ 0x18007C158
+ * XREFs of RtlpFunctionAddressTableEntry @ 0x18007C148
  * Callers:
- *     RtlInitializeHistoryTable @ 0x18007C080 (RtlInitializeHistoryTable.c)
+ *     RtlInitializeHistoryTable @ 0x18007C070 (RtlInitializeHistoryTable.c)
  * Callees:
  *     <none>
  */

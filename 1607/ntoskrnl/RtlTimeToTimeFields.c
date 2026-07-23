@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlTimeToTimeFields @ 0x1400AADE8
+ * XREFs of RtlTimeToTimeFields @ 0x1400A9368
  * Callers:
- *     WheaInitializeRecordHeader @ 0x140230B48 (WheaInitializeRecordHeader.c)
+ *     WheaInitializeRecordHeader @ 0x140230974 (WheaInitializeRecordHeader.c)
  *     ExpSetSystemTime @ 0x1403D230C (ExpSetSystemTime.c)
- *     ExpRefreshSystemTime @ 0x14055E2B0 (ExpRefreshSystemTime.c)
- *     ExpRefreshTimeZoneInformation @ 0x14055EB0C (ExpRefreshTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x14055EFD4 (RtlCutoverTimeToSystemTime.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x14057C8C8 (CmpUpdateReorganizeRegistryValues.c)
- *     IopCopyBootLogRegistryToFile @ 0x14058155C (IopCopyBootLogRegistryToFile.c)
- *     PiDevCfgLogDeviceConfigured @ 0x140639900 (PiDevCfgLogDeviceConfigured.c)
- *     NtSetSystemTime @ 0x1406AD104 (NtSetSystemTime.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1406DE9C4 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     ExpRefreshSystemTime @ 0x14055E7F0 (ExpRefreshSystemTime.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14055F04C (ExpRefreshTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x14055F514 (RtlCutoverTimeToSystemTime.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x14057CD74 (CmpUpdateReorganizeRegistryValues.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140581A08 (IopCopyBootLogRegistryToFile.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406399B4 (PiDevCfgLogDeviceConfigured.c)
+ *     NtSetSystemTime @ 0x1406AD23C (NtSetSystemTime.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1406DEAFC (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
  *     HdlspProcessDumpCommand @ 0x140723978 (HdlspProcessDumpCommand.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  *     GetBootSystemTime @ 0x1407A9E8C (GetBootSystemTime.c)
  *     ExInitializeUtcTimeZoneBias @ 0x1407BD1DC (ExInitializeUtcTimeZoneBias.c)
  * Callees:
- *     TimeToDaysAndFraction @ 0x1400AAFCC (TimeToDaysAndFraction.c)
+ *     TimeToDaysAndFraction @ 0x1400A954C (TimeToDaysAndFraction.c)
  */
 
 void __stdcall RtlTimeToTimeFields(PLARGE_INTEGER Time, PTIME_FIELDS TimeFields)

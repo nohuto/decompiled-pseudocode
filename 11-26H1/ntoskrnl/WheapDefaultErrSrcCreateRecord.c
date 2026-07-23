@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapDefaultErrSrcCreateRecord @ 0x1406D6C20
+ * XREFs of WheapDefaultErrSrcCreateRecord @ 0x1406DAD00
  * Callers:
  *     <none>
  * Callees:
- *     WheapCreateRecordFromGenericErrorData @ 0x1406D68BC (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x1406DA99C (WheapCreateRecordFromGenericErrorData.c)
  */
 
 __int64 __fastcall WheapDefaultErrSrcCreateRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

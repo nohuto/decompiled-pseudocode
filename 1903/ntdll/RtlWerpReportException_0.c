@@ -11,43 +11,46 @@
  *     sub_1800DC32C @ 0x1800DC32C (sub_1800DC32C.c)
  */
 
-__int64 __fastcall RtlWerpReportException_0(
-        unsigned int a1,
-        __int64 a2,
-        const void *a3,
-        unsigned int a4,
-        unsigned int a5,
-        _QWORD *a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlWerpReportException_0(
+        ULONG ProcessId,
+        HANDLE CrashReportSharedMem,
+        ULONG Flags,
+        PHANDLE CrashVerticalProcessHandle)
 {
-  __int64 v7; // rbx
-  __int64 result; // rax
-  _QWORD v11[176]; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v12[176]; // [rsp+5A0h] [rbp+4A0h] BYREF
+  const void *v4; // rsi
+  __int64 v5; // rbx
+  NTSTATUS result; // eax
+  _QWORD ReceiveMessage[176]; // [rsp+20h] [rbp-E0h] BYREF
+  _PORT_MESSAGE SendMessageA[35]; // [rsp+5A0h] [rbp+4A0h] BYREF
+  unsigned int v11; // [rsp+B90h] [rbp+A90h]
+  _QWORD *v12; // [rsp+B98h] [rbp+A98h]
 
-  v7 = a4;
-  *a6 = 0LL;
-  if ( a4 > 5 )
-    return 3221226539LL;
-  memset(v12, 0, 0x578uLL);
-  v12[6] = __PAIR64__(a1, a5);
-  LODWORD(v12[0]) = 91751760;
-  LODWORD(v12[5]) = 0x20000000;
-  v12[7] = a2;
-  if ( a3 && (_DWORD)v7 )
-    memmove(&v12[8], a3, 8 * v7);
-  memset((char *)v11 + 4, 0, 0x574uLL);
-  LODWORD(v11[0]) = 91751760;
-  result = sub_1800DC32C(v12, v11);
-  if ( (int)result >= 0 )
+  v4 = *(const void **)&Flags;
+  v5 = (unsigned int)CrashVerticalProcessHandle;
+  *v12 = 0LL;
+  if ( (unsigned int)CrashVerticalProcessHandle > 5 )
+    return -1073740757;
+  memset(SendMessageA, 0, sizeof(SendMessageA));
+  SendMessageA[1].ClientId.UniqueProcess = (HANDLE)__PAIR64__(ProcessId, v11);
+  SendMessageA[0].u1.Length = 91751760;
+  SendMessageA[1].u1.Length = 0x20000000;
+  SendMessageA[1].ClientId.UniqueThread = CrashReportSharedMem;
+  if ( v4 && (_DWORD)v5 )
+    memmove(&SendMessageA[1].MessageId, v4, 8 * v5);
+  memset((char *)ReceiveMessage + 4, 0, 0x574uLL);
+  LODWORD(ReceiveMessage[0]) = 91751760;
+  result = sub_1800DC32C(SendMessageA, (PPORT_MESSAGE)ReceiveMessage);
+  if ( result >= 0 )
   {
-    if ( (_DWORD)result == 258 )
+    if ( result == 258 )
     {
-      return 3221226048LL;
+      return -1073741248;
     }
     else
     {
-      *a6 = v11[6];
-      return 0LL;
+      *v12 = ReceiveMessage[6];
+      return 0;
     }
   }
   return result;

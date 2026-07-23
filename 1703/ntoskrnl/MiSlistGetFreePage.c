@@ -17,7 +17,7 @@ __int64 __fastcall MiSlistGetFreePage(__int64 a1, int a2, int a3, unsigned int a
   int v6; // ebp
   __int64 v7; // r15
   __int64 i; // rdi
-  union _SLIST_HEADER *v9; // rcx
+  _SLIST_HEADER *v9; // rcx
   PSLIST_ENTRY v10; // rax
   _QWORD *p_Next; // rbx
   ULONG_PTR v12; // rsi
@@ -29,7 +29,7 @@ __int64 __fastcall MiSlistGetFreePage(__int64 a1, int a2, int a3, unsigned int a
   v7 = a3;
   for ( i = a2; ; i = v7 )
   {
-    v9 = (union _SLIST_HEADER *)(v5 + *(_QWORD *)(a1 + 8 * i + 3944));
+    v9 = (_SLIST_HEADER *)(v5 + *(_QWORD *)(a1 + 8 * i + 3944));
     if ( LOWORD(v9->Alignment) )
     {
       v10 = RtlpInterlockedPopEntrySList(v9);

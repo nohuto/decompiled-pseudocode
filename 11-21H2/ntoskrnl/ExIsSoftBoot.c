@@ -1,14 +1,14 @@
 /*
  * XREFs of ExIsSoftBoot @ 0x1403B72A0
  * Callers:
- *     CmpReorganizeHive @ 0x14068B1C8 (CmpReorganizeHive.c)
- *     PoClearTransitionMarker @ 0x1408285B0 (PoClearTransitionMarker.c)
- *     PoInitHiberServices @ 0x1408288D4 (PoInitHiberServices.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
+ *     sub_14068B1C8 @ 0x14068B1C8 (sub_14068B1C8.c)
+ *     sub_1408285B0 @ 0x1408285B0 (sub_1408285B0.c)
+ *     sub_1408288D4 @ 0x1408288D4 (sub_1408288D4.c)
+ *     sub_14083C870 @ 0x14083C870 (sub_14083C870.c)
  *     IoAcquireKsrPersistentMemoryEx @ 0x1409407A0 (IoAcquireKsrPersistentMemoryEx.c)
  *     IoQueryKsrPersistentMemorySizeEx @ 0x140940A60 (IoQueryKsrPersistentMemorySizeEx.c)
- *     EtwpSavePersistedLoggers @ 0x1409ED690 (EtwpSavePersistedLoggers.c)
- *     BapdRecordFirmwareBootStats @ 0x140A5464C (BapdRecordFirmwareBootStats.c)
+ *     sub_1409ED690 @ 0x1409ED690 (sub_1409ED690.c)
+ *     sub_140A5464C @ 0x140A5464C (sub_140A5464C.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiUpdateGuestAssignedState @ 0x14090E948
+ * XREFs of PiUpdateGuestAssignedState @ 0x1409B0A78
  * Callers:
- *     PiProcessQueryDeviceState @ 0x14090E340 (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x1409B0470 (PiProcessQueryDeviceState.c)
  * Callees:
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404A0040 (McTemplateK0z_EtwWriteTransfer.c)
- *     PipSendGuestAssignedNotification @ 0x1407B4B18 (PipSendGuestAssignedNotification.c)
- *     PipSetGuestAssignedProperty @ 0x1407B4BBC (PipSetGuestAssignedProperty.c)
- *     PnpRequestDeviceRemoval @ 0x14091493C (PnpRequestDeviceRemoval.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x140499B90 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PipSendGuestAssignedNotification @ 0x1407B7B78 (PipSendGuestAssignedNotification.c)
+ *     PipSetGuestAssignedProperty @ 0x1407B7C1C (PipSetGuestAssignedProperty.c)
+ *     PnpRequestDeviceRemoval @ 0x14096F3A8 (PnpRequestDeviceRemoval.c)
  */
 
 __int64 __fastcall PiUpdateGuestAssignedState(__int64 a1, char a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PiUpdateGuestAssignedState(__int64 a1, char a2)
     return 0;
   if ( a2 )
   {
-    if ( (byte_140EF3DCC & 8) != 0 )
+    if ( (byte_140EF412C & 8) != 0 )
     {
       v9 = KMPnPEvt_Guest_Assigned;
 LABEL_11:
@@ -35,13 +35,13 @@ LABEL_11:
       McTemplateK0z_EtwWriteTransfer(a1, (const EVENT_DESCRIPTOR *)v9, v4, *(const wchar_t **)(a1 + 48));
     }
   }
-  else if ( (byte_140EF3DCC & 8) != 0 )
+  else if ( (byte_140EF412C & 8) != 0 )
   {
     v9 = KMPnPEvt_Guest_Unassigned;
     goto LABEL_11;
   }
   v7 = PipSetGuestAssignedProperty(a1, a2);
   if ( v7 < 0 || (v7 = PipSendGuestAssignedNotification(a1, a2), v7 < 0) )
-    PnpRequestDeviceRemoval(a1, 0LL, 57LL);
+    PnpRequestDeviceRemoval(a1, 0, 57, v7);
   return (unsigned int)v7;
 }

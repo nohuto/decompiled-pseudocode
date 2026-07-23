@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpQueryLicenseValueFromBlobHelper @ 0x1404F1718
+ * XREFs of ExpQueryLicenseValueFromBlobHelper @ 0x1404EACF8
  * Callers:
- *     ExpConsumeAddonPolicySetCacheProvider @ 0x140838290 (ExpConsumeAddonPolicySetCacheProvider.c)
- *     SLGetSubscriptionPfn @ 0x140839458 (SLGetSubscriptionPfn.c)
- *     SLQueryLicenseValueInternal @ 0x140A6A758 (SLQueryLicenseValueInternal.c)
+ *     ExpConsumeAddonPolicySetCacheProvider @ 0x14083E4D0 (ExpConsumeAddonPolicySetCacheProvider.c)
+ *     SLGetSubscriptionPfn @ 0x14083F698 (SLGetSubscriptionPfn.c)
+ *     SLQueryLicenseValueInternal @ 0x140A770F8 (SLQueryLicenseValueInternal.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     sub_1408391D8 @ 0x1408391D8 (sub_1408391D8.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     sub_14083F418 @ 0x14083F418 (sub_14083F418.c)
  */
 
 __int64 __fastcall ExpQueryLicenseValueFromBlobHelper(
@@ -61,7 +61,7 @@ LABEL_9:
     v14 = -1073741762;
     goto LABEL_16;
   }
-  v14 = sub_1408391D8(a1, a2, a3, a4, a5, a6);
+  v14 = sub_14083F418(a1, a2, a3, a4, a5, a6);
 LABEL_16:
   if ( _InterlockedCompareExchange64(v11, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v11);

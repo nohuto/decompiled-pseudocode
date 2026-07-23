@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetNextChildJob @ 0x140617D5C
+ * XREFs of PspGetNextChildJob @ 0x1406819BC
  * Callers:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140681C50 (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockJobShared @ 0x14061879C (PspLockJobShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406823FC (PspLockJobShared.c)
  */
 
 _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)

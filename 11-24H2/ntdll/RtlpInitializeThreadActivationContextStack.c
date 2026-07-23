@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInitializeThreadActivationContextStack @ 0x1800EDBB0
+ * XREFs of RtlpInitializeThreadActivationContextStack @ 0x1800E8D90
  * Callers:
- *     RtlFreeThreadActivationContextStack @ 0x180003FF0 (RtlFreeThreadActivationContextStack.c)
- *     LdrpInitializeThread @ 0x180012810 (LdrpInitializeThread.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeThread @ 0x18003F210 (LdrpInitializeThread.c)
+ *     RtlFreeThreadActivationContextStack @ 0x1800AB560 (RtlFreeThreadActivationContextStack.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
  *     <none>
  */

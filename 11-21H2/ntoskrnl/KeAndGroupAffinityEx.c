@@ -1,14 +1,14 @@
 /*
  * XREFs of KeAndGroupAffinityEx @ 0x140263350
  * Callers:
- *     PpmEventDomainPerfStateChange @ 0x140225CB4 (PpmEventDomainPerfStateChange.c)
+ *     sub_140225CB4 @ 0x140225CB4 (sub_140225CB4.c)
  *     KeQueryLogicalProcessorRelationship @ 0x140263790 (KeQueryLogicalProcessorRelationship.c)
- *     HalpInterruptSendIpi @ 0x1402ADD00 (HalpInterruptSendIpi.c)
- *     PnpSetDeviceAffinityThread @ 0x1402D301C (PnpSetDeviceAffinityThread.c)
+ *     sub_1402ADD00 @ 0x1402ADD00 (sub_1402ADD00.c)
+ *     sub_1402D301C @ 0x1402D301C (sub_1402D301C.c)
  *     HalSendNMI @ 0x1402DA8E0 (HalSendNMI.c)
- *     KiForwardTick @ 0x140303740 (KiForwardTick.c)
- *     MiCombineAllPhysicalMemory @ 0x1407F8FE0 (MiCombineAllPhysicalMemory.c)
- *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x14099B3D8 (PpmEventTraceProcessorPerformanceDomainRundown.c)
+ *     sub_140303740 @ 0x140303740 (sub_140303740.c)
+ *     sub_1407F8FE0 @ 0x1407F8FE0 (sub_1407F8FE0.c)
+ *     sub_14099B3D8 @ 0x14099B3D8 (sub_14099B3D8.c)
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  */

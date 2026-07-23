@@ -23,7 +23,7 @@
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
         __int64 a1,
-        __int64 a2,
+        unsigned __int64 a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         int a5,
@@ -43,7 +43,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
   unsigned __int64 v18; // rax
   unsigned int *v19; // rax
   unsigned __int64 v20; // r12
-  __int64 v21; // r15
+  unsigned __int64 SizeOfBitMap; // r15
   unsigned int ImageExtensionRva; // r8d
   unsigned __int64 v23; // rcx
   unsigned __int8 *v24; // r9
@@ -62,7 +62,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
   ULONG_PTR BugCheckParameter1; // [rsp+38h] [rbp-51h] BYREF
   unsigned __int64 v39; // [rsp+40h] [rbp-49h] BYREF
   unsigned __int64 v40; // [rsp+48h] [rbp-41h]
-  _QWORD v41[2]; // [rsp+50h] [rbp-39h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+50h] [rbp-39h] BYREF
   unsigned __int64 v42; // [rsp+60h] [rbp-29h]
   ULONG_PTR BugCheckParameter3[2]; // [rsp+68h] [rbp-21h] BYREF
   __int64 v44; // [rsp+78h] [rbp-11h]
@@ -70,7 +70,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
 
   v6 = 0;
   v42 = a4;
-  v41[0] = a2;
+  BitMapHeader.SizeOfBitMap = a2;
   v44 = 0LL;
   v45 = 0;
   v8 = 0LL;
@@ -112,12 +112,12 @@ LABEL_46:
   v20 = v40;
   if ( (unsigned int)MiChargeSegmentCommit(v19, *((_QWORD *)v19 + 1) + 8 * v39) )
   {
-    v21 = v41[0];
-    if ( v41[0] && (*(_DWORD *)v41[0] & 1) != 0 && v8 )
+    SizeOfBitMap = BitMapHeader.SizeOfBitMap;
+    if ( BitMapHeader.SizeOfBitMap && (*(_DWORD *)BitMapHeader.SizeOfBitMap & 1) != 0 && v8 )
     {
-      v41[0] = v42;
-      v41[1] = v17;
-      RtlClearAllBitsEx((__int64)v41);
+      BitMapHeader.SizeOfBitMap = v42;
+      BitMapHeader.Buffer = (unsigned __int64 *)v17;
+      RtlClearAllBitsEx(&BitMapHeader);
       ImageExtensionRva = MiImageCfgEnumRvaListFirst(v8, BugCheckParameter3, a6);
       if ( ImageExtensionRva )
       {
@@ -126,7 +126,7 @@ LABEL_46:
           if ( (BugCheckParameter3[0] & 0x100000000LL) != 0 )
           {
             v23 = 2 * ((unsigned __int64)ImageExtensionRva >> 4);
-            if ( (ImageExtensionRva & 0xF) == *(_WORD *)(v21 + 4) )
+            if ( (ImageExtensionRva & 0xF) == *(_WORD *)(SizeOfBitMap + 4) )
             {
               if ( (BugCheckParameter3[0] & 0x400000000LL) != 0 )
                 _bittestandset64((signed __int64 *)v17, v23 + 1);
@@ -135,7 +135,7 @@ LABEL_46:
             }
             else
             {
-              RtlSetBitsEx((__int64)v41, v23, 2uLL);
+              RtlSetBitsEx((__int64)&BitMapHeader, v23, 2uLL);
             }
           }
           ImageExtensionRva = BugCheckParameter3[0];

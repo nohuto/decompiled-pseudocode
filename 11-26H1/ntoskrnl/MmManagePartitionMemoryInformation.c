@@ -1,23 +1,23 @@
 /*
- * XREFs of MmManagePartitionMemoryInformation @ 0x140AB9F38
+ * XREFs of MmManagePartitionMemoryInformation @ 0x140ABB3FC
  * Callers:
- *     DifUpdatePluginState @ 0x14064BFA4 (DifUpdatePluginState.c)
- *     DifGetAvailableSystemPages @ 0x14064C72C (DifGetAvailableSystemPages.c)
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
- *     SmCreatePartition @ 0x140AB0DEC (SmCreatePartition.c)
+ *     DifUpdatePluginState @ 0x14064FB84 (DifUpdatePluginState.c)
+ *     DifGetAvailableSystemPages @ 0x14065030C (DifGetAvailableSystemPages.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
+ *     SmCreatePartition @ 0x140AAEDD0 (SmCreatePartition.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     MiQueryMemoryListInformation @ 0x1403487B4 (MiQueryMemoryListInformation.c)
- *     MiGetChannelInformation @ 0x1404A43F4 (MiGetChannelInformation.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiGetNodeHugeRangeCounts @ 0x1405166F8 (MiGetNodeHugeRangeCounts.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     MiQueryMemoryListInformation @ 0x14034A834 (MiQueryMemoryListInformation.c)
+ *     MiGetChannelInformation @ 0x14049DA84 (MiGetChannelInformation.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiGetNodeHugeRangeCounts @ 0x140510168 (MiGetNodeHugeRangeCounts.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
  */
 
 __int64 __fastcall MmManagePartitionMemoryInformation(ULONG **a1, void *a2, unsigned int a3, char a4)

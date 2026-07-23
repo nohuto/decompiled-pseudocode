@@ -14,131 +14,128 @@
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  */
 
-char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
 {
-  char v5; // bl
-  char v6; // r14
-  __int64 *v7; // r15
-  char v8; // di
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  _WORD *v12; // rax
-  _WORD *NtSystemRoot; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  __int64 (__fastcall *v18)(__int64, _QWORD, __int64); // rcx
-  __int64 v19; // r14
-  int v20; // ecx
-  _QWORD v22[2]; // [rsp+38h] [rbp-E0h] BYREF
-  int v23; // [rsp+48h] [rbp-D0h] BYREF
-  void *v24; // [rsp+50h] [rbp-C8h]
-  __int64 v25; // [rsp+58h] [rbp-C0h] BYREF
-  __int64 v26[16]; // [rsp+60h] [rbp-B8h] BYREF
+  char v2; // bl
+  char v3; // r14
+  _QWORD *v4; // r15
+  char v5; // di
+  unsigned int v6; // edx
+  unsigned int v7; // ecx
+  _WORD *v8; // rax
+  const WCHAR *NtSystemRoot; // rax
+  __int64 v10; // rcx
+  PIMAGE_NT_HEADERS v11; // rax
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  __int64 (__fastcall *v14)(__int64, _QWORD, __int64); // rcx
+  __int64 v15; // r14
+  int v16; // ecx
+  _QWORD v18[2]; // [rsp+38h] [rbp-E0h] BYREF
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-D0h] BYREF
+  __int64 v20; // [rsp+58h] [rbp-C0h] BYREF
+  __int64 v21[16]; // [rsp+60h] [rbp-B8h] BYREF
 
-  v22[1] = a1;
-  v5 = 0;
-  v6 = 0;
-  v7 = (__int64 *)(a1 + 24);
-  v8 = 1;
+  v18[1] = a1;
+  v2 = 0;
+  v3 = 0;
+  v4 = (_QWORD *)(a1 + 24);
+  v5 = 1;
   if ( (AVrfpDebug & 1) != 0 )
-    DbgPrint("AVRF: verifier dll `%ws' \n", *v7);
-  v9 = *v7;
-  v10 = *(unsigned __int16 *)(a1 + 16) >> 1;
-  v11 = 0LL;
-  if ( (_DWORD)v10 )
+    DbgPrint("AVRF: verifier dll `%ws' \n", *v4);
+  v6 = *(unsigned __int16 *)(a1 + 16) >> 1;
+  v7 = 0;
+  if ( v6 )
   {
-    v12 = (_WORD *)*v7;
-    while ( *v12 != 92 && *v12 != 47 )
+    v8 = (_WORD *)*v4;
+    while ( *v8 != 92 && *v8 != 47 )
     {
-      v11 = (unsigned int)(v11 + 1);
-      ++v12;
-      if ( (unsigned int)v11 >= (unsigned int)v10 )
+      ++v7;
+      ++v8;
+      if ( v7 >= v6 )
         goto LABEL_10;
     }
-    v6 = 1;
+    v3 = 1;
   }
 LABEL_10:
-  if ( v6 == 1 )
+  if ( v3 == 1 )
   {
-    DbgPrint("AVRF: Cannot load %ws from arbitrary location\n", *v7, v9);
+    DbgPrint("AVRF: Cannot load %ws from arbitrary location\n", *v4, *v4);
     return 0;
   }
-  v24 = &unk_180188460;
-  v23 = 34078720;
-  NtSystemRoot = (_WORD *)RtlGetNtSystemRoot(v11, v10, v9, a4);
-  RtlAppendUnicodeToString((unsigned __int16 *)&v23, NtSystemRoot);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v23, &SlashSystem32SlashString);
-  LdrpInitializeDllPath(0LL, (__int64)v24, v26);
-  if ( (int)LdrpLoadDll(a1 + 16, (int)v26, 1, (__int64)&v25) < 0 )
+  Destination.Buffer = (wchar_t *)&unk_180188460;
+  *(_DWORD *)&Destination.Length = 34078720;
+  NtSystemRoot = RtlGetNtSystemRoot();
+  RtlAppendUnicodeToString(&Destination, NtSystemRoot);
+  RtlAppendUnicodeStringToString(&Destination, &SlashSystem32SlashString);
+  LdrpInitializeDllPath(0LL, (__int64)Destination.Buffer, v21);
+  if ( (int)LdrpLoadDll(a1 + 16, (int)v21, 1, (__int64)&v20) < 0 )
   {
     DbgPrint(
       "AVRF: %ws: failed to load provider `%ws' (status %08X) from %ws\n",
       *(_QWORD *)(qword_180187450 + 96),
-      *v7);
+      *v4);
     return 0;
   }
-  v14 = v25;
-  *(_QWORD *)(a1 + 32) = v25;
-  v15 = RtlImageNtHeader(*(_QWORD *)(v14 + 48));
-  if ( v15 )
+  v10 = v20;
+  *(_QWORD *)(a1 + 32) = v20;
+  v11 = RtlImageNtHeader(*(PVOID *)(v10 + 48));
+  if ( v11 )
   {
-    if ( (*(_WORD *)(v15 + 22) & 0x2000) != 0 )
+    if ( (v11->FileHeader.Characteristics & 0x2000) != 0 )
     {
       *(_DWORD *)(*(_QWORD *)(a1 + 32) + 104LL) |= 0x400u;
-      v17 = *(_QWORD *)(a1 + 32);
-      v18 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v17 + 56);
-      if ( !v18 )
+      v13 = *(_QWORD *)(a1 + 32);
+      v14 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v13 + 56);
+      if ( !v14 )
       {
-        DbgPrint("AVRF: cannot find an entry point for provider %ws \n", *v7, v16);
+        DbgPrint("AVRF: cannot find an entry point for provider %ws \n", *v4, v12);
         return 0;
       }
-      v22[0] = 0LL;
-      if ( LdrpCallInitRoutine(v18, *(_QWORD *)(v17 + 48), 4LL, (__int64)v22) && (v19 = v22[0]) != 0 )
+      v18[0] = 0LL;
+      if ( LdrpCallInitRoutine(v14, *(_QWORD *)(v13 + 48), 4u, (__int64)v18) && (v15 = v18[0]) != 0 )
       {
-        if ( *(_DWORD *)v22[0] == 80 )
+        if ( *(_DWORD *)v18[0] == 80 )
         {
           if ( (AVrfpDebug & 8) != 0 )
-            DbgPrint("AVRF: initialized provider %ws (descriptor @ %p) \n", *v7, v22[0]);
-          *(_QWORD *)(a1 + 40) = *(_QWORD *)(v19 + 8);
-          *(_QWORD *)(a1 + 48) = *(_QWORD *)(v19 + 16);
-          *(_QWORD *)(a1 + 56) = *(_QWORD *)(v19 + 24);
-          *(_QWORD *)(a1 + 64) = *(_QWORD *)(v19 + 72);
-          *(_QWORD *)(v19 + 32) = *(_QWORD *)(qword_180187450 + 96);
-          v20 = AVrfpVerifierFlags;
-          *(_DWORD *)(v19 + 40) = AVrfpVerifierFlags;
-          *(_DWORD *)(v19 + 44) = AVrfpDebug;
-          *(_QWORD *)(v19 + 48) = RtlpGetStackTraceAddress;
-          *(_QWORD *)(v19 + 56) = RtlpDebugPageHeapCreate;
-          *(_QWORD *)(v19 + 64) = RtlpDebugPageHeapDestroy;
+            DbgPrint("AVRF: initialized provider %ws (descriptor @ %p) \n", *v4, v18[0]);
+          *(_QWORD *)(a1 + 40) = *(_QWORD *)(v15 + 8);
+          *(_QWORD *)(a1 + 48) = *(_QWORD *)(v15 + 16);
+          *(_QWORD *)(a1 + 56) = *(_QWORD *)(v15 + 24);
+          *(_QWORD *)(a1 + 64) = *(_QWORD *)(v15 + 72);
+          *(_QWORD *)(v15 + 32) = *(_QWORD *)(qword_180187450 + 96);
+          v16 = AVrfpVerifierFlags;
+          *(_DWORD *)(v15 + 40) = AVrfpVerifierFlags;
+          *(_DWORD *)(v15 + 44) = AVrfpDebug;
+          *(_QWORD *)(v15 + 48) = RtlpGetStackTraceAddress;
+          *(_QWORD *)(v15 + 56) = RtlpDebugPageHeapCreate;
+          *(_QWORD *)(v15 + 64) = RtlpDebugPageHeapDestroy;
           if ( AVrfpEnabledSystemWide )
-            *(_DWORD *)(v19 + 40) = v20 | 0x20000;
+            *(_DWORD *)(v15 + 40) = v16 | 0x20000;
         }
         else
         {
-          v5 = 1;
-          DbgPrint("AVRF: provider %ws passed an invalid descriptor @ %p \n", *v7, v22[0]);
+          v2 = 1;
+          DbgPrint("AVRF: provider %ws passed an invalid descriptor @ %p \n", *v4, v18[0]);
         }
       }
       else
       {
-        v5 = 1;
-        DbgPrint("AVRF: provider %ws did not initialize correctly \n", *v7);
+        v2 = 1;
+        DbgPrint("AVRF: provider %ws did not initialize correctly \n", *v4);
       }
     }
     else
     {
-      DbgPrint("AVRF: provider %ws is not a DLL image \n", *v7);
-      v5 = 1;
+      DbgPrint("AVRF: provider %ws is not a DLL image \n", *v4);
+      v2 = 1;
     }
   }
   else
   {
-    v5 = 1;
+    v2 = 1;
   }
-  if ( v5 )
+  if ( v2 )
     return 0;
-  return v8;
+  return v5;
 }

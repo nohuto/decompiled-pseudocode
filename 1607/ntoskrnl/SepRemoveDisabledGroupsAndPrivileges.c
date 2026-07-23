@@ -1,12 +1,12 @@
 /*
- * XREFs of SepRemoveDisabledGroupsAndPrivileges @ 0x14047CA94
+ * XREFs of SepRemoveDisabledGroupsAndPrivileges @ 0x14047B964
  * Callers:
- *     SepFilterToken @ 0x14047AFF4 (SepFilterToken.c)
+ *     SepFilterToken @ 0x140479EC4 (SepFilterToken.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     SepTokenPrivilegeCount @ 0x14000EB70 (SepTokenPrivilegeCount.c)
- *     RtlSubAuthorityCountSid @ 0x14002D248 (RtlSubAuthorityCountSid.c)
- *     SepSidInSidAndAttributes @ 0x14047CD0C (SepSidInSidAndAttributes.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     SepTokenPrivilegeCount @ 0x14000E6F0 (SepTokenPrivilegeCount.c)
+ *     RtlSubAuthorityCountSid @ 0x14002CDC8 (RtlSubAuthorityCountSid.c)
+ *     SepSidInSidAndAttributes @ 0x14047BBDC (SepSidInSidAndAttributes.c)
  */
 
 char __fastcall SepRemoveDisabledGroupsAndPrivileges(

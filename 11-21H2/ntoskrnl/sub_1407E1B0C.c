@@ -1,10 +1,10 @@
 /*
  * XREFs of sub_1407E1B0C @ 0x1407E1B0C
  * Callers:
- *     WbInPlaceEncryptionUnloadModule @ 0x1406D5C1C (WbInPlaceEncryptionUnloadModule.c)
- *     WbHeapExecutionUnloadModule @ 0x1406D5CF8 (WbHeapExecutionUnloadModule.c)
- *     WbRemoveWarbirdProcess @ 0x1407E15B4 (WbRemoveWarbirdProcess.c)
- *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407E1968 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ *     sub_1406D5C1C @ 0x1406D5C1C (sub_1406D5C1C.c)
+ *     sub_1406D5CF8 @ 0x1406D5CF8 (sub_1406D5CF8.c)
+ *     sub_1407E15B4 @ 0x1407E15B4 (sub_1407E15B4.c)
+ *     sub_1407E1968 @ 0x1407E1968 (sub_1407E1968.c)
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
  *     sub_1407E3440 @ 0x1407E3440 (sub_1407E3440.c)

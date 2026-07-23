@@ -1,24 +1,24 @@
 /*
- * XREFs of IntpAllocateProcessorContext @ 0x140C5CF18
+ * XREFs of IntpAllocateProcessorContext @ 0x140C5F0A8
  * Callers:
- *     IntPartCreate @ 0x140C5CC98 (IntPartCreate.c)
+ *     IntPartCreate @ 0x140C5EE28 (IntPartCreate.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     IntPartCriticalFailure @ 0x1405BF358 (IntPartCriticalFailure.c)
- *     IntPartGetProcessorEfficiencyClass @ 0x1405BF380 (IntPartGetProcessorEfficiencyClass.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     IntPartCriticalFailure @ 0x1405BC988 (IntPartCriticalFailure.c)
+ *     IntPartGetProcessorEfficiencyClass @ 0x1405BC9B0 (IntPartGetProcessorEfficiencyClass.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void *__fastcall IntpAllocateProcessorContext(unsigned __int16 a1, _BYTE *a2)
 {
   ULONG ActiveProcessorCount; // eax
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   void *v5; // rbx
   size_t v6; // rbp
   unsigned __int8 v7; // di
   _BYTE *v8; // rsi
-  struct _PROCESSOR_NUMBER v10; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER v10; // [rsp+30h] [rbp+8h] BYREF
 
   v10.Group = a1;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0);

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdatePriorityMatrixForRunningTransition @ 0x1402C7F20
+ * XREFs of KiUpdatePriorityMatrixForRunningTransition @ 0x140312BC0
  * Callers:
- *     KiHandleDeferredPreemption @ 0x14022E730 (KiHandleDeferredPreemption.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiIdleSchedule @ 0x1402C7E00 (KiIdleSchedule.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiExecuteSmtIsolationThread @ 0x1405F6610 (KiExecuteSmtIsolationThread.c)
- *     KiIdleLoop @ 0x140728DB0 (KiIdleLoop.c)
+ *     KiHandleDeferredPreemption @ 0x1402300C0 (KiHandleDeferredPreemption.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiIdleSchedule @ 0x140312AA0 (KiIdleSchedule.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiExecuteSmtIsolationThread @ 0x1405F8FD0 (KiExecuteSmtIsolationThread.c)
+ *     KiIdleLoop @ 0x14072D980 (KiIdleLoop.c)
  * Callees:
  *     <none>
  */

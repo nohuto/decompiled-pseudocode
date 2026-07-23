@@ -1,15 +1,15 @@
 /*
- * XREFs of KiPrcbArrayForIsolationWidth @ 0x1403F52C0
+ * XREFs of KiPrcbArrayForIsolationWidth @ 0x1403EB700
  * Callers:
- *     KeApplyWobBamQos @ 0x1402A2218 (KeApplyWobBamQos.c)
- *     KzRefreshWorkloadProperties @ 0x1403B260C (KzRefreshWorkloadProperties.c)
- *     KeUpdateThreadTag @ 0x140472120 (KeUpdateThreadTag.c)
- *     KeSetProcessPpmPolicy @ 0x140479E80 (KeSetProcessPpmPolicy.c)
- *     KiUpdateThreadSchedulingProperties @ 0x14047C4A8 (KiUpdateThreadSchedulingProperties.c)
- *     KeSetThreadSchedulerAssist @ 0x140487FC8 (KeSetThreadSchedulerAssist.c)
- *     KeSetThreadPpmPolicy @ 0x14048BA94 (KeSetThreadPpmPolicy.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14049E5FC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
- *     KiTryUpgradeIsolationUnitLockHandle @ 0x1405B1390 (KiTryUpgradeIsolationUnitLockHandle.c)
+ *     KeApplyWobBamQos @ 0x1402D1948 (KeApplyWobBamQos.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x1402D6DAC (KiUpdateThreadSchedulingProperties.c)
+ *     KzRefreshWorkloadProperties @ 0x1403A0E1C (KzRefreshWorkloadProperties.c)
+ *     KeUpdateThreadTag @ 0x14046E3F0 (KeUpdateThreadTag.c)
+ *     KeSetProcessPpmPolicy @ 0x140475710 (KeSetProcessPpmPolicy.c)
+ *     KeSetThreadSchedulerAssist @ 0x140483038 (KeSetThreadSchedulerAssist.c)
+ *     KeSetThreadPpmPolicy @ 0x140486864 (KeSetThreadPpmPolicy.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1404993FC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiTryUpgradeIsolationUnitLockHandle @ 0x1405AE300 (KiTryUpgradeIsolationUnitLockHandle.c)
  * Callees:
  *     <none>
  */

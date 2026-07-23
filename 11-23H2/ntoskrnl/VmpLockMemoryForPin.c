@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpLockMemoryForPin @ 0x1409DD208
+ * XREFs of VmpLockMemoryForPin @ 0x1409DD408
  * Callers:
- *     VmpMergeMemoryRanges @ 0x1405F9FC4 (VmpMergeMemoryRanges.c)
- *     VmpPinMemoryRange @ 0x1405FA330 (VmpPinMemoryRange.c)
- *     VmpSplitMemoryRange @ 0x1405FB0B0 (VmpSplitMemoryRange.c)
+ *     VmpMergeMemoryRanges @ 0x1405FA534 (VmpMergeMemoryRanges.c)
+ *     VmpPinMemoryRange @ 0x1405FA8A0 (VmpPinMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x1405FB620 (VmpSplitMemoryRange.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
- *     MmSecureVirtualMemoryEx @ 0x1407BA8C0 (MmSecureVirtualMemoryEx.c)
- *     MmLockPhysicalPagesByVa @ 0x140A2D6F4 (MmLockPhysicalPagesByVa.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     MmUnsecureVirtualMemory @ 0x1406B0290 (MmUnsecureVirtualMemory.c)
+ *     MmSecureVirtualMemoryEx @ 0x1407BAB90 (MmSecureVirtualMemoryEx.c)
+ *     MmLockPhysicalPagesByVa @ 0x140A2D9A4 (MmLockPhysicalPagesByVa.c)
  */
 
 __int64 __fastcall VmpLockMemoryForPin(__int64 a1, __int64 a2, __int64 a3, int a4, _QWORD *a5)

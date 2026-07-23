@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddMdlToPartitionTree @ 0x140708130
+ * XREFs of MiAddMdlToPartitionTree @ 0x14070CDE4
  * Callers:
- *     MiPartitionTransferAllocateSmallPages @ 0x14087CBB4 (MiPartitionTransferAllocateSmallPages.c)
+ *     MiPartitionTransferAllocateSmallPages @ 0x140882FB4 (MiPartitionTransferAllocateSmallPages.c)
  * Callees:
- *     MiAddRangeToPartitionTree @ 0x14070821C (MiAddRangeToPartitionTree.c)
- *     MiClearRangeInPartitionTree @ 0x140708938 (MiClearRangeInPartitionTree.c)
+ *     MiAddRangeToPartitionTree @ 0x14070CED0 (MiAddRangeToPartitionTree.c)
+ *     MiClearRangeInPartitionTree @ 0x14070D5EC (MiClearRangeInPartitionTree.c)
  */
 
 __int64 __fastcall MiAddMdlToPartitionTree(__int64 a1, __int64 a2, char a3)

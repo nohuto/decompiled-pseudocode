@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetLargestPageIndex @ 0x1404CCB6C
+ * XREFs of MiGetLargestPageIndex @ 0x1404C630C
  * Callers:
- *     MmManagePartitionCreateLargePages @ 0x14077E0A0 (MmManagePartitionCreateLargePages.c)
- *     MiAddPhysicalMemoryChunks @ 0x140865468 (MiAddPhysicalMemoryChunks.c)
- *     NtSetInformationVirtualMemory @ 0x1408F18A0 (NtSetInformationVirtualMemory.c)
- *     MmBuildLargePages @ 0x140B20AD8 (MmBuildLargePages.c)
- *     MiFindLargePageMemory @ 0x140B617F8 (MiFindLargePageMemory.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140B64218 (MiQueryMemoryPhysicalContiguity.c)
+ *     MmManagePartitionCreateLargePages @ 0x1407809E4 (MmManagePartitionCreateLargePages.c)
+ *     MiAddPhysicalMemoryChunks @ 0x14086B848 (MiAddPhysicalMemoryChunks.c)
+ *     NtSetInformationVirtualMemory @ 0x1408F7E60 (NtSetInformationVirtualMemory.c)
+ *     MmBuildLargePages @ 0x140B22ED8 (MmBuildLargePages.c)
+ *     MiFindLargePageMemory @ 0x140B64898 (MiFindLargePageMemory.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140B672B8 (MiQueryMemoryPhysicalContiguity.c)
  * Callees:
  *     <none>
  */

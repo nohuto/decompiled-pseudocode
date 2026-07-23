@@ -1,5 +1,5 @@
 /*
- * XREFs of MiBuildDynamicRegion @ 0x14037620C
+ * XREFs of MiBuildDynamicRegion @ 0x1403763AC
  * Callers:
  *     MiBuildPagedPool @ 0x140B43794 (MiBuildPagedPool.c)
  *     MiInitializeSystemPtes @ 0x140B4420C (MiInitializeSystemPtes.c)
@@ -8,9 +8,9 @@
  *     MiInitializeNonPagedPool @ 0x140B5E52C (MiInitializeNonPagedPool.c)
  *     MiInitializeDynamicRegion @ 0x140B6E7AC (MiInitializeDynamicRegion.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     MiInitializeDynamicBitmap @ 0x14081C7A4 (MiInitializeDynamicBitmap.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     MiInitializeDynamicBitmap @ 0x14081CA74 (MiInitializeDynamicBitmap.c)
  */
 
 ULONG_PTR __fastcall MiBuildDynamicRegion(__int64 *a1, __int64 a2, unsigned __int64 a3)

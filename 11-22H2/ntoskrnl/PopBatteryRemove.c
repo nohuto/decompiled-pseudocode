@@ -22,6 +22,9 @@ void __fastcall PopBatteryRemove(__int64 a1)
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // [rsp+20h] [rbp-18h]
+  __int64 v11; // [rsp+28h] [rbp-10h]
 
   IoCancelIrp(*(PIRP *)(a1 + 56));
   KeWaitForSingleObject((PVOID)(a1 + 80), Executive, 0, 0, 0LL);
@@ -50,6 +53,6 @@ void __fastcall PopBatteryRemove(__int64 a1)
       byte_140C3DADE = 0;
       PopResetCurrentPolicies();
     }
-    PopReleasePolicyLock(v7, v6, v8);
+    PopReleasePolicyLock(v7, v6, v8, v9, v10, v11);
   }
 }

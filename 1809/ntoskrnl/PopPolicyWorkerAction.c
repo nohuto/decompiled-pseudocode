@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPolicyWorkerAction @ 0x1406DE6D0
+ * XREFs of PopPolicyWorkerAction @ 0x1406DF970
  * Callers:
- *     PopPolicyWorkerThread @ 0x1401305A0 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x140130670 (PopPolicyWorkerThread.c)
  * Callees:
  *     PopGetPolicyWorker @ 0x1400106A8 (PopGetPolicyWorker.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     PopSetPowerActionState @ 0x140143424 (PopSetPowerActionState.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopCompleteAction @ 0x1406DD008 (PopCompleteAction.c)
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     PopSetPowerActionState @ 0x140143524 (PopSetPowerActionState.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopCompleteAction @ 0x1406DE2A8 (PopCompleteAction.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
  */
 
 __int64 PopPolicyWorkerAction()
@@ -32,28 +32,28 @@ __int64 PopPolicyWorkerAction()
 
   v0 = 0;
   PopAcquirePolicyLock();
-  if ( byte_140417701 == 1 )
+  if ( byte_1404187A1 == 1 )
   {
-    v1 = (int)qword_140417704;
-    v2 = HIDWORD(qword_140417704);
-    v3 = dword_14041770C;
+    v1 = (int)qword_1404187A4;
+    v2 = HIDWORD(qword_1404187A4);
+    v3 = dword_1404187AC;
     PopSetPowerActionState(2);
-    v4 = dword_140417714;
+    v4 = dword_1404187B4;
     v5 = PopIssueActionRequest(0LL, (unsigned int)v1, v2, v3);
     v0 = 1;
     if ( (PopAction & 2) != 0 )
     {
-      if ( HIDWORD(qword_140417704) == 5 )
+      if ( HIDWORD(qword_1404187A4) == 5 )
         v4 = 6;
-      dword_140417714 = v4;
-      dword_14041770C = dword_14041770C & 0x7FFFFFDC | 0x80000020;
+      dword_1404187B4 = v4;
+      dword_1404187AC = dword_1404187AC & 0x7FFFFFDC | 0x80000020;
       PopAction &= ~2u;
       PopSetPowerActionState(1);
       v7 = 2;
     }
     else
     {
-      if ( (xmmword_140541350 & 0x8000) != 0 )
+      if ( (xmmword_140542350 & 0x8000) != 0 )
       {
         v13 = 0;
         v11 = &v9;
@@ -62,7 +62,7 @@ __int64 PopPolicyWorkerAction()
         v12 = 16;
         EtwTraceKernelEvent((__int64)&v11, 1u, 0x80008000, 0x1223u, 0x401802u);
       }
-      dword_140417710 = v5;
+      dword_1404187B0 = v5;
       PopSetPowerActionState(0);
       for ( i = (__int64 *)PopActionWaiters; i != &PopActionWaiters; i = (__int64 *)*i )
         PopCompleteAction(i[2], v5);

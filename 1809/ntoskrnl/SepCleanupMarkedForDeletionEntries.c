@@ -1,24 +1,24 @@
 /*
- * XREFs of SepCleanupMarkedForDeletionEntries @ 0x1400D99C0
+ * XREFs of SepCleanupMarkedForDeletionEntries @ 0x1400D9A40
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x14064EFAC (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x14065016C (SepAddLuidToIndexEntry.c)
  * Callees:
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlEnumerateEntryHashTable @ 0x1400D9AC0 (RtlEnumerateEntryHashTable.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BD0 (SepGetSingletonEntryFromIndexNumber.c)
- *     RtlRemoveEntryHashTable @ 0x1400D9C60 (RtlRemoveEntryHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x1400DA280 (RtlInitEnumerationHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x14012F760 (RtlEndEnumerationHashTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlEnumerateEntryHashTable @ 0x1400D9B40 (RtlEnumerateEntryHashTable.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9C50 (SepGetSingletonEntryFromIndexNumber.c)
+ *     RtlRemoveEntryHashTable @ 0x1400D9CE0 (RtlRemoveEntryHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1400DA300 (RtlInitEnumerationHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x14012F830 (RtlEndEnumerationHashTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void SepCleanupMarkedForDeletionEntries()
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v0; // rsi
+  _RTL_DYNAMIC_HASH_TABLE *v0; // rsi
   volatile LONG *SingletonEntryFromIndexNumber; // rax
   volatile LONG *v2; // rdi
   KIRQL v3; // al
@@ -27,9 +27,9 @@ void SepCleanupMarkedForDeletionEntries()
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v6; // rax
   unsigned int *v7; // rbx
   struct _KPRCB *CurrentPrcb; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
 
-  v0 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v0 = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   memset(&Enumerator, 0, sizeof(Enumerator));
   RtlInitEnumerationHashTable(v0, &Enumerator);
   while ( 1 )

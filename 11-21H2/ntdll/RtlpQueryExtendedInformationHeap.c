@@ -217,7 +217,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
           v18 = v45 + DWORD2(v46);
           v43 = v45;
           v44 = v18;
-          HeapProtection = RtlpGetHeapProtection(a1, 0);
+          HeapProtection = RtlpGetHeapProtection((_DWORD *)a1, 0);
           v39 = HeapProtection;
         }
         else
@@ -414,7 +414,7 @@ LABEL_99:
       v50[2] = v24;
       v50[3] = *(_QWORD *)(v24 + 32);
       LODWORD(v50[4]) = 1;
-      HIDWORD(v50[4]) = RtlpGetHeapProtection(a1, 0);
+      HIDWORD(v50[4]) = RtlpGetHeapProtection((_DWORD *)a1, 0);
     }
     result = v40(v50, v42);
     if ( (int)result < 0 )

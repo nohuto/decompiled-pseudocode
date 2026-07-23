@@ -133,7 +133,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   size_t *pcchRemaininga; // [rsp+28h] [rbp-E8h]
   ULONG dwFlags[2]; // [rsp+30h] [rbp-E0h]
   BOOL v113; // [rsp+90h] [rbp-80h]
-  TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
   int v115; // [rsp+B0h] [rbp-60h]
   UNICODE_STRING UnicodeString; // [rsp+B8h] [rbp-58h] BYREF
   __int64 v117; // [rsp+C8h] [rbp-48h]
@@ -145,7 +145,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   int v123; // [rsp+120h] [rbp+10h]
   int v124; // [rsp+124h] [rbp+14h]
   __int64 v125; // [rsp+128h] [rbp+18h]
-  UNICODE_STRING v126; // [rsp+130h] [rbp+20h] BYREF
+  UNICODE_STRING GuidString; // [rsp+130h] [rbp+20h] BYREF
   UNICODE_STRING v127; // [rsp+140h] [rbp+30h] BYREF
   wchar_t *v128; // [rsp+150h] [rbp+40h] BYREF
   size_t v129; // [rsp+158h] [rbp+48h] BYREF
@@ -155,7 +155,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   UNICODE_STRING v133; // [rsp+178h] [rbp+68h] BYREF
   UNICODE_STRING v134; // [rsp+188h] [rbp+78h] BYREF
   size_t pcchNewDestLength; // [rsp+198h] [rbp+88h] BYREF
-  __int128 v136; // [rsp+1A0h] [rbp+90h] BYREF
+  GUID Guid; // [rsp+1A0h] [rbp+90h] BYREF
   _QWORD v137[20]; // [rsp+1B0h] [rbp+A0h] BYREF
   size_t pszDest[3]; // [rsp+250h] [rbp+140h] BYREF
   size_t v139[6]; // [rsp+268h] [rbp+158h] BYREF
@@ -178,14 +178,14 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   v131 = 0LL;
   *(_QWORD *)&v120.Length = 0LL;
   v120.Buffer = 0LL;
-  *(_QWORD *)&v126.Length = 0LL;
-  v126.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   v124 = 0;
   *(_QWORD *)&v118.Length = 0LL;
   v118.Buffer = 0LL;
   TimeFields = 0LL;
   v133 = 0LL;
-  v136 = 0LL;
+  Guid = 0LL;
   v119 = 0LL;
   v134 = 0LL;
   if ( (byte_140C0E20A & 0x18) != 0x18 )
@@ -300,7 +300,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       v45 = v120;
       *StringRoutine = 0;
       v46 = *v13;
-      TimeFields = (TIME_FIELDS)v45;
+      TimeFields = (_TIME_FIELDS)v45;
       if ( v46 != (__int64 *)v13 )
       {
         do
@@ -605,7 +605,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
     memset(v91, 0, v90);
     v118.MaximumLength = v90 - 2;
     v92 = *v27;
-    TimeFields = (TIME_FIELDS)v118;
+    TimeFields = (_TIME_FIELDS)v118;
     if ( v92 == (__int64 *)v27 )
       goto LABEL_32;
     v93 = v115 & 1;
@@ -621,7 +621,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       LODWORD(v137[1]) = 18;
       v137[2] = &v133;
       v137[5] = DEVPKEY_DriverPackage_ExtensionId;
-      v137[7] = &v136;
+      v137[7] = &Guid;
       LODWORD(v137[16]) = 18;
       v137[10] = DEVPKEY_DriverPackage_DriverFlightIds;
       HIDWORD(v137[3]) = 6;
@@ -638,8 +638,8 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       {
         if ( SLODWORD(v137[4]) < 0 && !RtlCreateUnicodeString(&v133, (PCWSTR)v92[6]) )
           RtlInitUnicodeString(&v133, 0LL);
-        if ( SLODWORD(v137[9]) < 0 || (int)RtlStringFromGUIDEx((unsigned int *)&v136, (__int64)&v126, 1) < 0 )
-          RtlInitUnicodeString(&v126, 0LL);
+        if ( SLODWORD(v137[9]) < 0 || RtlStringFromGUIDEx(&Guid, &GuidString, 1u) < 0 )
+          RtlInitUnicodeString(&GuidString, 0LL);
         if ( SLODWORD(v137[14]) < 0 )
           RtlInitUnicodeString(&v119, 0LL);
         if ( v119.Buffer && (v97 = v119.Length, v119.Length > 4u) )
@@ -685,10 +685,10 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
                  L"%ws%wZ:%wZ:%wZ:%wZ",
                  v102,
                  &v133,
-                 &v126,
+                 &GuidString,
                  v101,
                  v100);
-        RtlFreeUnicodeString(&v126);
+        RtlFreeUnicodeString(&GuidString);
         RtlFreeUnicodeString(&v119);
         RtlFreeUnicodeString(&v133);
         RtlFreeUnicodeString(&v134);

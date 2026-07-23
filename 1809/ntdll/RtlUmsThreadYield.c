@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     ZwUmsThreadYield @ 0x1800A3A90 (ZwUmsThreadYield.c)
- *     RtlpUmsThreadYield @ 0x1800A4F33 (RtlpUmsThreadYield.c)
+ *     ZwUmsThreadYield @ 0x1800A3AB0 (ZwUmsThreadYield.c)
+ *     RtlpUmsThreadYield @ 0x1800A4F53 (RtlpUmsThreadYield.c)
  */
 
-__int64 __fastcall RtlUmsThreadYield(__int64 a1)
+__int64 __fastcall RtlUmsThreadYield(void *a1)
 {
-  __int64 v1; // rdi
+  void *v1; // rdi
   _DWORD *v2; // rbx
 
   v1 = a1;
@@ -23,7 +23,7 @@ __int64 __fastcall RtlUmsThreadYield(__int64 a1)
     goto LABEL_7;
   }
   ++v2[323];
-  if ( (int)ZwUmsThreadYield() < 0 )
+  if ( ZwUmsThreadYield(a1) < 0 )
   {
     ++v2[324];
     a1 = v1;

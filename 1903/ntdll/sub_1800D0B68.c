@@ -9,7 +9,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_1800D0B68(__int64 a1, _BYTE *a2)
+__int64 __fastcall sub_1800D0B68(__int64 a1, const ULONG *a2)
 {
   __int64 v2; // rax
   __int64 result; // rax
@@ -20,10 +20,10 @@ __int64 __fastcall sub_1800D0B68(__int64 a1, _BYTE *a2)
     v2 = -1LL;
     do
       ++v2;
-    while ( a2[v2] );
+    while ( *((_BYTE *)a2 + v2) );
   }
   if ( !a2 )
-    a2 = &unk_18011D492;
+    a2 = &dword_18011D492;
   *(_DWORD *)(a1 + 12) = 0;
   result = (unsigned int)(v2 + 1);
   *(_QWORD *)a1 = a2;

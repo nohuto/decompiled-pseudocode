@@ -1,14 +1,14 @@
 /*
- * XREFs of VrpHandleIoctlModifyFlags @ 0x140613E80
+ * XREFs of VrpHandleIoctlModifyFlags @ 0x140613F34
  * Callers:
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     PsGetJobSilo @ 0x14020F794 (PsGetJobSilo.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     VrpLockJobContextExclusive @ 0x140612F24 (VrpLockJobContextExclusive.c)
- *     VrpUnlockJobContextExclusive @ 0x140613060 (VrpUnlockJobContextExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     PsGetJobSilo @ 0x14020F5C0 (PsGetJobSilo.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     VrpLockJobContextExclusive @ 0x140612FD8 (VrpLockJobContextExclusive.c)
+ *     VrpUnlockJobContextExclusive @ 0x140613114 (VrpUnlockJobContextExclusive.c)
  */
 
 __int64 __fastcall VrpHandleIoctlModifyFlags(

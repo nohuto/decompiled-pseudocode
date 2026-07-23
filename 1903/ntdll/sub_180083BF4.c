@@ -41,11 +41,7 @@ char __fastcall sub_180083BF4(__int64 a1, __int64 a2)
   v2 = NtCurrentPeb();
   if ( v2->ProcessHeap )
   {
-    LOBYTE(v2) = RtlRunOnceExecuteOnce(
-                   &qword_1801660B8,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))sub_180084B70,
-                   0LL,
-                   0LL);
+    LOBYTE(v2) = RtlRunOnceExecuteOnce(&stru_1801660B8, sub_180084B70, 0LL, 0LL);
     if ( (unsigned int)dword_18015F418 > 5 )
     {
       LOBYTE(v2) = sub_1800062B0((__int64)&dword_18015F418, 0x200000000000LL);
@@ -74,7 +70,7 @@ char __fastcall sub_180083BF4(__int64 a1, __int64 a2)
         v23 = 4;
         v26 = 4;
         v29 = 8;
-        LOBYTE(v2) = sub_18008935C(v5, (unsigned int)&unk_18012B843, 8, v6, 8, (__int64)v13);
+        LOBYTE(v2) = sub_18008935C(v5, (int)&dword_18012B843, 8, v6, 8u, (PEVENT_DATA_DESCRIPTOR)v13);
       }
     }
   }

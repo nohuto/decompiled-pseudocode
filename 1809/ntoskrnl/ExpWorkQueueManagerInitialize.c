@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWorkQueueManagerInitialize @ 0x140754E00
+ * XREFs of ExpWorkQueueManagerInitialize @ 0x140755FF0
  * Callers:
- *     ExpPartitionInitialize @ 0x140754A64 (ExpPartitionInitialize.c)
+ *     ExpPartitionInitialize @ 0x140755C54 (ExpPartitionInitialize.c)
  * Callees:
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeSelectIdealProcessor @ 0x1400D89B4 (KeSelectIdealProcessor.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeSelectIdealProcessor @ 0x1400D8A34 (KeSelectIdealProcessor.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializeTimer2 @ 0x1400FD550 (KeInitializeTimer2.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall ExpWorkQueueManagerInitialize(_QWORD *a1, __int64 a2, __int64 a3)

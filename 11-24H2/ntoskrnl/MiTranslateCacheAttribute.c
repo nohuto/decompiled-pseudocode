@@ -1,8 +1,8 @@
 /*
- * XREFs of MiTranslateCacheAttribute @ 0x140225F5C
+ * XREFs of MiTranslateCacheAttribute @ 0x14025330C
  * Callers:
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
  * Callees:
  *     <none>
  */

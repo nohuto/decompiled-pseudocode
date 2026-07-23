@@ -40,10 +40,13 @@ __int64 __fastcall HalpRegisterProcessorTraceInterruptHandler(__int64 (__fastcal
       qword_140D18418 = KeGetCurrentThread()[1].CycleTime;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpPerfInterruptHandlerRegistrationLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

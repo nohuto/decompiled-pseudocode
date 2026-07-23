@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlockWsle @ 0x1402A2700
+ * XREFs of MiUnlockWsle @ 0x1402A2990
  * Callers:
- *     MiTerminateWsle @ 0x140274850 (MiTerminateWsle.c)
- *     MiTerminateWsleCluster @ 0x1402791A0 (MiTerminateWsleCluster.c)
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
- *     MiUnlockVa @ 0x140350D44 (MiUnlockVa.c)
+ *     MiTerminateWsle @ 0x140274AE0 (MiTerminateWsle.c)
+ *     MiTerminateWsleCluster @ 0x140279430 (MiTerminateWsleCluster.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
+ *     MiUnlockVa @ 0x140350EE4 (MiUnlockVa.c)
  * Callees:
- *     MiSetVaAgeList @ 0x1402709E0 (MiSetVaAgeList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiUnlockPageTableCharges @ 0x1402E2B40 (MiUnlockPageTableCharges.c)
+ *     MiSetVaAgeList @ 0x140270C70 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1402E1780 (MiGetEffectivePagePriorityThread.c)
+ *     MiUnlockPageTableCharges @ 0x1402E2DD0 (MiUnlockPageTableCharges.c)
  */
 
 __int64 __fastcall MiUnlockWsle(__int64 a1, unsigned __int64 a2, __int64 a3)

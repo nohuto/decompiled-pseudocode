@@ -1,11 +1,11 @@
 /*
- * XREFs of PoIssueCoalescingNotification @ 0x140205478
+ * XREFs of PoIssueCoalescingNotification @ 0x1402052A4
  * Callers:
- *     CmpIssueNewDirtyCallback @ 0x1404EC660 (CmpIssueNewDirtyCallback.c)
- *     PopCoalescingCallbackWorker @ 0x14066DFF4 (PopCoalescingCallbackWorker.c)
+ *     CmpIssueNewDirtyCallback @ 0x1404CE6E8 (CmpIssueNewDirtyCallback.c)
+ *     PopCoalescingCallbackWorker @ 0x14066E0D8 (PopCoalescingCallbackWorker.c)
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
  */
 
 void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)

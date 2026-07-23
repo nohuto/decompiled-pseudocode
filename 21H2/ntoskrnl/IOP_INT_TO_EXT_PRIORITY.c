@@ -1,7 +1,7 @@
 /*
- * XREFs of IOP_INT_TO_EXT_PRIORITY @ 0x1403F133C
+ * XREFs of IOP_INT_TO_EXT_PRIORITY @ 0x1403F126C
  * Callers:
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmCheckSnapAllUtility @ 0x140256820
+ * XREFs of PpmCheckSnapAllUtility @ 0x1402568E0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfSnapUtility @ 0x140255B10 (PpmPerfSnapUtility.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmIdleSnapConcurrency @ 0x140346594 (PpmIdleSnapConcurrency.c)
+ *     PpmPerfSnapUtility @ 0x140255BD0 (PpmPerfSnapUtility.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmIdleSnapConcurrency @ 0x140346824 (PpmIdleSnapConcurrency.c)
  */
 
 char PpmCheckSnapAllUtility()
@@ -42,7 +42,7 @@ char PpmCheckSnapAllUtility()
       }
     }
   }
-  v10[1] = qword_140C0BE68;
+  v10[1] = qword_140C0BE78;
   v10[0] = &PpmCheckRegistered;
   v11 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&i, v10) )

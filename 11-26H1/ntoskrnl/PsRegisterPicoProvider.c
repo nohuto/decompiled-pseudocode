@@ -1,5 +1,5 @@
 /*
- * XREFs of PsRegisterPicoProvider @ 0x1407FC7A0
+ * XREFs of PsRegisterPicoProvider @ 0x1408021D0
  * Callers:
  *     <none>
  * Callees:
@@ -15,15 +15,17 @@ __int64 __fastcall PsRegisterPicoProvider(__int64 a1, _QWORD *a2)
   if ( (*(_DWORD *)(a1 + 72) & 0xFFE00000) != 0 || (*(_DWORD *)(a1 + 76) & 0xFFE00000) != 0 )
     return 3221225485LL;
   result = 0LL;
-  if ( PspPicoRegistrationDisabled )
+  if ( LOBYTE(PsAltSystemCallRegistrationLock.Header.WaitListHead.Blink) )
     return 3221225865LL;
-  PspPicoProviderRoutines = *(_OWORD *)a1;
-  xmmword_140F0A030 = *(_OWORD *)(a1 + 16);
-  xmmword_140F0A040 = *(_OWORD *)(a1 + 32);
-  xmmword_140F0A050 = *(_OWORD *)(a1 + 48);
-  xmmword_140F0A060 = *(_OWORD *)(a1 + 64);
-  qword_140F0A070 = *(_QWORD *)(a1 + 80);
-  PspPicoProviderRanges = _mm_srli_si128((__m128i)xmmword_140F0A050, 8).m128i_u64[0];
+  *(_OWORD *)&PsAltSystemCallRegistrationLock.StackLimit = *(_OWORD *)a1;
+  *(_OWORD *)&PsAltSystemCallRegistrationLock.ThreadLock = *(_OWORD *)(a1 + 16);
+  *(_OWORD *)&PsAltSystemCallRegistrationLock.CurrentRunTime = *(_OWORD *)(a1 + 32);
+  *(_OWORD *)&PsAltSystemCallRegistrationLock.StateSaveArea = *(_OWORD *)(a1 + 48);
+  *(_OWORD *)&PsAltSystemCallRegistrationLock.WaitRegister.Flags = *(_OWORD *)(a1 + 64);
+  *(_QWORD *)&PsAltSystemCallRegistrationLock.SystemCallNumber = *(_QWORD *)(a1 + 80);
+  PsAltSystemCallRegistrationLock.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)_mm_srli_si128(
+                                                                                      *(__m128i *)&PsAltSystemCallRegistrationLock.StateSaveArea,
+                                                                                      8).m128i_u64[0];
   a2[1] = PspCreatePicoProcess;
   a2[2] = PspCreatePicoThread;
   a2[3] = PspGetPicoProcessContext;

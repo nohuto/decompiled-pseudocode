@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWnfSpecializeSecurityDescriptor @ 0x14094E320
+ * XREFs of ExpWnfSpecializeSecurityDescriptor @ 0x1409C9C60
  * Callers:
- *     ExpWnfLookupPermanentName @ 0x14094D528 (ExpWnfLookupPermanentName.c)
- *     NtCreateWnfStateName @ 0x14094F1A0 (NtCreateWnfStateName.c)
+ *     ExpWnfLookupPermanentName @ 0x1409C8E98 (ExpWnfLookupPermanentName.c)
+ *     NtCreateWnfStateName @ 0x1409CAAE0 (NtCreateWnfStateName.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140486620 (RtlGetDaclSecurityDescriptor.c)
- *     RtlpApplyAclToObject @ 0x14094E3C0 (RtlpApplyAclToObject.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x14047FDF0 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlpApplyAclToObject @ 0x1409C9D00 (RtlpApplyAclToObject.c)
  */
 
 int __fastcall ExpWnfSpecializeSecurityDescriptor(_BYTE *a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecommitHandlePageFileFormatPte @ 0x140360BD0
+ * XREFs of MiDecommitHandlePageFileFormatPte @ 0x140362970
  * Callers:
- *     MiDeleteVa @ 0x140322AC0 (MiDeleteVa.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x140324AF0 (MiDeleteVa.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
  * Callees:
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x140472790 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14046BF10 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecommitHandlePageFileFormatPte(__int64 a1, ULONG_PTR a2)
@@ -65,9 +65,9 @@ __int64 __fastcall MiDecommitHandlePageFileFormatPte(__int64 a1, ULONG_PTR a2)
         if ( (a2 & 1) != 0 )
           goto LABEL_56;
         v19 = a2;
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
-          v20 = qword_140E2D748 & a2;
+          v20 = qword_140E2D8C8 & a2;
           if ( (v4 & 0x10) == 0 )
             v19 = v20;
         }
@@ -97,9 +97,9 @@ LABEL_56:
       if ( (a2 & 1) != 0 )
         goto LABEL_33;
       v11 = a2;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        v12 = qword_140E2D748 & a2;
+        v12 = qword_140E2D8C8 & a2;
         if ( (v4 & 0x10) == 0 )
           v11 = v12;
       }
@@ -114,8 +114,8 @@ LABEL_33:
         {
           v10 = 0;
           v17 = HIDWORD(v22);
-          if ( qword_140E2D740 && (v22 & 0x10) == 0 )
-            v17 = HIDWORD(qword_140E2D748) & HIDWORD(v22);
+          if ( qword_140E2D8C0 && (v22 & 0x10) == 0 )
+            v17 = HIDWORD(qword_140E2D8C8) & HIDWORD(v22);
           v7 = MiTransferSoftwarePte(
                  *(_QWORD *)(a1 + 120),
                  *((_QWORD *)&v9[929].Header.WaitListHead.Flink + ((unsigned __int16)v22 >> 12)),
@@ -144,7 +144,7 @@ LABEL_33:
         v13 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
       }
       if ( v13 )
-        MiReleasePageFileInfo(v9, v13, 1);
+        MiReleasePageFileInfo(v9, v13, 1LL);
     }
     if ( v2 )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetHighestUltraLevel @ 0x14024EE20
+ * XREFs of MiGetHighestUltraLevel @ 0x140250780
  * Callers:
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiGetHighestUltraLevel(__int64 a1)

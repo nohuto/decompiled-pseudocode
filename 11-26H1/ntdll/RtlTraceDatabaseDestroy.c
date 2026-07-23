@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlTraceDatabaseDestroy @ 0x180149F70
+ * XREFs of RtlTraceDatabaseDestroy @ 0x180149E20
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlDeleteCriticalSection @ 0x180079550 (RtlDeleteCriticalSection.c)
- *     RtlpTraceDatabaseFree @ 0x18014A238 (RtlpTraceDatabaseFree.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlDeleteCriticalSection @ 0x180067D70 (RtlDeleteCriticalSection.c)
+ *     RtlpTraceDatabaseFree @ 0x18014A0E8 (RtlpTraceDatabaseFree.c)
  */
 
-bool __fastcall RtlTraceDatabaseDestroy(__int64 a1, __int64 a2)
+bool __fastcall RtlTraceDatabaseDestroy(__int64 a1)
 {
-  _QWORD *v3; // rbx
-  char v4; // si
-  _QWORD *v5; // rdi
+  _QWORD *v2; // rbx
+  char v3; // si
+  _QWORD *v4; // rdi
 
-  RtlDeleteCriticalSection((__int64 *)(a1 + 48), a2);
-  v3 = *(_QWORD **)(a1 + 16);
-  if ( !v3 )
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
+  v2 = *(_QWORD **)(a1 + 16);
+  if ( !v2 )
     return 1;
-  v4 = 0;
+  v3 = 0;
   do
   {
-    v5 = (_QWORD *)v3[2];
-    if ( !v5 )
-      v3 -= 24;
-    if ( !(unsigned __int8)RtlpTraceDatabaseFree(v3) )
+    v4 = (_QWORD *)v2[2];
+    if ( !v4 )
+      v2 -= 24;
+    if ( !(unsigned __int8)RtlpTraceDatabaseFree(v2) )
     {
-      DbgPrint("Trace database: failed to release segment %p \n", v3);
-      v4 = 1;
+      DbgPrint("Trace database: failed to release segment %p \n", v2);
+      v3 = 1;
     }
-    v3 = v5;
+    v2 = v4;
   }
-  while ( v5 );
-  return v4 == 0;
+  while ( v4 );
+  return v3 == 0;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwTraceEvent @ 0x1401B8D50
+ * XREFs of ZwTraceEvent @ 0x1401B8EB0
  * Callers:
  *     <none>
  * Callees:
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwTraceEvent(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&TraceHandle, *(_QWORD *)&Flags, *(_QWORD *)&TraceHeaderLength);
+  return KiServiceInternal(*(_QWORD *)&TraceHandle);
 }

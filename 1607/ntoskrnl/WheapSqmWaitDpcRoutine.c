@@ -1,5 +1,5 @@
 /*
- * XREFs of WheapSqmWaitDpcRoutine @ 0x140231CE0
+ * XREFs of WheapSqmWaitDpcRoutine @ 0x140231B0C
  * Callers:
  *     <none>
  * Callees:

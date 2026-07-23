@@ -12,22 +12,23 @@
  *     PpmEventTracePreVetoAccounting @ 0x14059BF30 (PpmEventTracePreVetoAccounting.c)
  */
 
-char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
+void __fastcall PpmEventProcessorVetoRundown(__int64 a1)
 {
   __int64 v1; // rbx
-  int v2; // eax
-  unsigned int v4; // ecx
+  unsigned int v3; // ecx
+  __int16 v4; // ax
   __int16 v5; // ax
-  __int16 v6; // ax
-  KIRQL v7; // al
-  unsigned int v8; // edx
-  unsigned __int64 v9; // rsi
-  __int64 v10; // rax
-  _QWORD **v11; // r14
-  _QWORD *v12; // rdi
+  KIRQL v6; // al
+  unsigned int v7; // edx
+  unsigned __int64 v8; // rsi
+  __int64 v9; // rax
+  _QWORD **v10; // r14
+  _QWORD *v11; // rdi
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v15; // zf
+  int v15; // eax
+  bool v16; // zf
   int i; // [rsp+40h] [rbp-29h] BYREF
   __int16 v18; // [rsp+44h] [rbp-25h] BYREF
   _DWORD v19[2]; // [rsp+48h] [rbp-21h] BYREF
@@ -46,92 +47,86 @@ char __fastcall PpmEventProcessorVetoRundown(__int64 a1)
   int v32; // [rsp+9Ch] [rbp+33h]
 
   v1 = *(_QWORD *)(a1 + 33600);
-  LOBYTE(v2) = 0;
   memset(v19, 0, 7);
   if ( v1 )
   {
-    v4 = 1;
-    for ( i = 1; v4 < *(_DWORD *)(v1 + 40); i = v4 )
+    v3 = 1;
+    for ( i = 1; v3 < *(_DWORD *)(v1 + 40); i = v3 )
+    {
+      v4 = *(unsigned __int8 *)(a1 + 208);
+      UserData.Reserved = 0;
+      LOWORD(v19[0]) = v4;
+      BYTE2(v19[0]) = *(_BYTE *)(a1 + 209);
+      *(_DWORD *)((char *)v19 + 3) = v3;
+      UserData.Ptr = (ULONGLONG)v19;
+      UserData.Size = 7;
+      PpmEventTracePreVetoAccounting(&PPM_ETW_PROCESSOR_PRE_VETO_ACCOUNTING_RUNDOWN);
+      v3 = i + 1;
+    }
+    if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_IDLE_VETO_RUNDOWN) )
     {
       v5 = *(unsigned __int8 *)(a1 + 208);
       UserData.Reserved = 0;
-      LOWORD(v19[0]) = v5;
-      BYTE2(v19[0]) = *(_BYTE *)(a1 + 209);
-      *(_DWORD *)((char *)v19 + 3) = v4;
-      UserData.Ptr = (ULONGLONG)v19;
-      UserData.Size = 7;
-      LOBYTE(v2) = PpmEventTracePreVetoAccounting(&PPM_ETW_PROCESSOR_PRE_VETO_ACCOUNTING_RUNDOWN);
-      v4 = i + 1;
-    }
-    if ( PpmEtwRegistered )
-    {
-      LOBYTE(v2) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_IDLE_VETO_RUNDOWN);
-      if ( (_BYTE)v2 )
+      v23 = 0;
+      v18 = v5;
+      UserData.Ptr = (ULONGLONG)&v18;
+      v21 = a1 + 209;
+      UserData.Size = 2;
+      v22 = 1;
+      v6 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
+      v7 = 0;
+      v8 = v6;
+      i = 0;
+      if ( *(_DWORD *)(v1 + 40) )
       {
-        v6 = *(unsigned __int8 *)(a1 + 208);
-        UserData.Reserved = 0;
-        v23 = 0;
-        v18 = v6;
-        UserData.Ptr = (ULONGLONG)&v18;
-        v21 = a1 + 209;
-        UserData.Size = 2;
-        v22 = 1;
-        v7 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-        v8 = 0;
-        v9 = v7;
-        i = 0;
-        if ( *(_DWORD *)(v1 + 40) )
+        v9 = 0LL;
+        do
         {
-          v10 = 0LL;
-          do
+          v26 = 0;
+          p_i = &i;
+          v25 = 4;
+          v10 = (_QWORD **)(344 * v9 + v1 + 1416);
+          v11 = *v10;
+          if ( *v10 != v10 )
           {
-            v26 = 0;
-            p_i = &i;
-            v25 = 4;
-            v11 = (_QWORD **)(344 * v10 + v1 + 1416);
-            v12 = *v11;
-            if ( *v11 != v11 )
+            do
             {
-              do
-              {
-                v29 = 0;
-                v32 = 0;
-                v27 = v12 + 2;
-                v28 = 4;
-                v30 = (char *)v12 + 20;
-                v31 = 4;
-                EtwWriteEx(PpmEtwHandle, &PPM_ETW_PROCESSOR_IDLE_VETO_RUNDOWN, 0LL, 0, 0LL, 0LL, 5u, &UserData);
-                v12 = (_QWORD *)*v12;
-              }
-              while ( v12 != v11 );
-              v8 = i;
+              v29 = 0;
+              v32 = 0;
+              v27 = v11 + 2;
+              v28 = 4;
+              v30 = (char *)v11 + 20;
+              v31 = 4;
+              EtwWriteEx(PpmEtwHandle, &PPM_ETW_PROCESSOR_IDLE_VETO_RUNDOWN, 0LL, 0, 0LL, 0LL, 5u, &UserData);
+              v11 = (_QWORD *)*v11;
             }
-            i = ++v8;
-            v10 = v8;
+            while ( v11 != v10 );
+            v7 = i;
           }
-          while ( v8 < *(_DWORD *)(v1 + 40) );
+          i = ++v7;
+          v9 = v7;
         }
-        LOBYTE(v2) = KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-        if ( KiIrqlFlags )
-        {
-          LOBYTE(v2) = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
-            && (unsigned __int8)v2 <= 0xFu
-            && (unsigned __int8)v9 <= 0xFu
-            && (unsigned __int8)v2 >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v2 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-            v15 = (v2 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v2;
-            if ( v15 )
-              LOBYTE(v2) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-          }
-        }
-        __writecr8(v9);
+        while ( v7 < *(_DWORD *)(v1 + 40) );
       }
+      KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+      if ( (_DWORD)KiIrqlFlags )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v8 <= 0xFu
+          && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
+      }
+      __writecr8(v8);
     }
   }
-  return v2;
 }

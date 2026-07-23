@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPowerInitFwPerformanceTableMappings @ 0x140CAE4F8
+ * XREFs of HalpPowerInitFwPerformanceTableMappings @ 0x140CB4538
  * Callers:
- *     HalpPowerInitSystem @ 0x140BEA950 (HalpPowerInitSystem.c)
+ *     HalpPowerInitSystem @ 0x140BF0950 (HalpPowerInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HalGetMemoryCachingRequirements @ 0x140497A80 (HalGetMemoryCachingRequirements.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     HalGetMemoryCachingRequirements @ 0x1404915D0 (HalGetMemoryCachingRequirements.c)
  */
 
 __int64 HalpPowerInitFwPerformanceTableMappings()
@@ -19,7 +19,7 @@ __int64 HalpPowerInitFwPerformanceTableMappings()
   unsigned int v5; // r15d
   unsigned __int64 v6; // rax
   unsigned int v7; // edi
-  __int64 v8; // rax
+  struct _LIST_ENTRY *v8; // rax
   unsigned __int64 v9; // rbx
   unsigned int v10; // r15d
   unsigned __int64 v11; // rax
@@ -54,7 +54,7 @@ __int64 HalpPowerInitFwPerformanceTableMappings()
         v13 = MmMapIoSpaceEx(v9, v12, v10);
         if ( !v13 )
           return (unsigned int)-1073741670;
-        HalpPmuArbiter.ApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)v13;
+        HalpPmuArbiter.ApcState.Process = (_KPROCESS *)v13;
         *(_DWORD *)&HalpPmuArbiter.ApcStateFill[16] = ((v12 + (v13 & 0xFFF) + 4095) & 0xFFFFF000) - (v13 & 0xFFF);
       }
       else
@@ -69,11 +69,11 @@ __int64 HalpPowerInitFwPerformanceTableMappings()
           return (unsigned int)-1073741670;
         v7 = *(_DWORD *)(v6 + 4);
         MiUnmapContiguousMemory(v6, 8uLL, 1);
-        v8 = MmMapIoSpaceEx(v4, v7, v5);
+        v8 = (struct _LIST_ENTRY *)MmMapIoSpaceEx(v4, v7, v5);
         if ( !v8 )
           return (unsigned int)-1073741670;
-        *(_QWORD *)&HalpPmuArbiter.ApcStateFill[40] = v8;
-        *(_DWORD *)&HalpPmuArbiter.ApcStateFill[32] = v7;
+        HalpPmuArbiter.ApcState.ApcListHead[1].Blink = v8;
+        *(_DWORD *)&HalpPmuArbiter.ApcStateFill[20] = v7;
       }
     }
   }

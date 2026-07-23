@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpLockTwoKcbsShared @ 0x1405F38C0
+ * XREFs of CmpLockTwoKcbsShared @ 0x1406E3020
  * Callers:
- *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
- *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
- *     CmQueryMultipleValueKey @ 0x140669674 (CmQueryMultipleValueKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x140766570 (CmpFindSubkeyInHashByChildCell.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x14086F410 (CmEnumerateValueKeyFromMergedView.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140658050 (NtNotifyChangeMultipleKeys.c)
+ *     CmQueryMultipleValueKey @ 0x14065E494 (CmQueryMultipleValueKey.c)
+ *     CmEnumerateKey @ 0x1406E3AB0 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1406E4F70 (CmQueryKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140766730 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x14086F570 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     CmpGetCorrectKcbLockOrder @ 0x1406BA63C (CmpGetCorrectKcbLockOrder.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     CmpGetCorrectKcbLockOrder @ 0x1406197DC (CmpGetCorrectKcbLockOrder.c)
  */
 
-__int64 __fastcall CmpLockTwoKcbsShared(__int64 a1, __int64 a2)
+__int64 __fastcall CmpLockTwoKcbsShared(unsigned __int64 a1, unsigned __int64 a2)
 {
-  __int64 v3; // rbx
+  unsigned __int64 v3; // rbx
   __int64 result; // rax
   ULONG_PTR v5; // rcx
-  __int64 v6; // rbx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  unsigned __int64 v6; // rbx
+  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
   v7 = 0LL;
   v8 = 0LL;

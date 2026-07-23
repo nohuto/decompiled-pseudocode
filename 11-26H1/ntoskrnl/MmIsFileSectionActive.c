@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIsFileSectionActive @ 0x1404C8270
+ * XREFs of MmIsFileSectionActive @ 0x1404C1FB0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockSectionControlArea @ 0x14044FAD0 (MiLockSectionControlArea.c)
- *     MiIsSectionActive @ 0x14050FB54 (MiIsSectionActive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x140447C00 (MiLockSectionControlArea.c)
+ *     MiIsSectionActive @ 0x1405095C4 (MiIsSectionActive.c)
  */
 
 __int64 __fastcall MmIsFileSectionActive(__int64 *a1, int a2, _DWORD *a3)

@@ -6,7 +6,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtAcceptConnectPort(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl NtAcceptConnectPort(
+        PHANDLE PortHandle,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        BOOLEAN AcceptConnection,
+        PPORT_VIEW ServerView,
+        PREMOTE_PORT_VIEW ClientView)
 {
   return Wow64SystemServiceCall();
 }

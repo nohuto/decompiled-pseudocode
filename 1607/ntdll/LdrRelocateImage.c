@@ -1,62 +1,67 @@
 /*
- * XREFs of LdrRelocateImage @ 0x180084E2C
+ * XREFs of LdrRelocateImage @ 0x180084E1C
  * Callers:
- *     LdrpProtectAndRelocateImage @ 0x180084C40 (LdrpProtectAndRelocateImage.c)
+ *     LdrpProtectAndRelocateImage @ 0x180084C30 (LdrpProtectAndRelocateImage.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeaderEx @ 0x1800348B0 (RtlImageNtHeaderEx.c)
- *     LdrProcessRelocationBlockLongLong @ 0x180084F08 (LdrProcessRelocationBlockLongLong.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x1800348A0 (RtlImageNtHeaderEx.c)
+ *     LdrProcessRelocationBlockLongLong @ 0x180084EF8 (LdrProcessRelocationBlockLongLong.c)
  */
 
-__int64 __fastcall LdrRelocateImage(unsigned __int64 a1, __int64 a2)
+NTSTATUS __cdecl LdrRelocateImage(
+        PVOID NewBase,
+        PSTR LoaderName,
+        NTSTATUS Success,
+        NTSTATUS Conflict,
+        NTSTATUS Invalid)
 {
-  unsigned int v2; // ebx
-  __int64 v4; // rdi
-  int v5; // eax
-  __int64 v6; // rbp
-  _DWORD *v7; // rax
-  int v8; // esi
-  int v9; // r8d
-  __int64 v11; // [rsp+68h] [rbp+10h] BYREF
-  int v12; // [rsp+78h] [rbp+20h] BYREF
+  NTSTATUS v5; // ebx
+  PIMAGE_NT_HEADERS v7; // rdi
+  int v8; // eax
+  unsigned __int64 v9; // rbp
+  _DWORD *v10; // rax
+  ULONG v11; // esi
+  int v12; // r8d
+  PSTR v14; // [rsp+68h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+78h] [rbp+20h] BYREF
 
-  v11 = a2;
-  v2 = 0;
-  v12 = 0;
-  if ( (int)RtlImageNtHeaderEx(1, a1, 0LL, &v11) < 0 )
-    return (unsigned int)-1073741701;
-  v4 = v11;
-  v5 = *(unsigned __int16 *)(v11 + 24);
-  if ( v5 == 267 )
+  v14 = LoaderName;
+  v5 = 0;
+  Size = 0;
+  if ( RtlImageNtHeaderEx(1u, NewBase, 0LL, (PIMAGE_NT_HEADERS *)&v14) < 0 )
+    return -1073741701;
+  v7 = (PIMAGE_NT_HEADERS)v14;
+  v8 = *((unsigned __int16 *)v14 + 12);
+  if ( v8 == 267 )
   {
-    v6 = *(unsigned int *)(v11 + 52);
+    v9 = *((unsigned int *)v14 + 13);
   }
   else
   {
-    if ( v5 != 523 )
-      return (unsigned int)-1073741701;
-    v6 = *(_QWORD *)(v11 + 48);
+    if ( v8 != 523 )
+      return -1073741701;
+    v9 = *((_QWORD *)v14 + 6);
   }
-  v7 = (_DWORD *)RtlImageDirectoryEntryToData(a1, 1, 5u, &v12);
-  if ( !v7 )
-    return (*(_BYTE *)(v4 + 22) & 1) != 0 ? 0xC0000018 : 0;
-  v8 = v12;
-  if ( !v12 )
-    return (*(_BYTE *)(v4 + 22) & 1) != 0 ? 0xC0000018 : 0;
+  v10 = RtlImageDirectoryEntryToData(NewBase, 1u, 5u, &Size);
+  if ( !v10 )
+    return (v7->FileHeader.Characteristics & 1) != 0 ? 0xC0000018 : 0;
+  v11 = Size;
+  if ( !Size )
+    return (v7->FileHeader.Characteristics & 1) != 0 ? 0xC0000018 : 0;
   while ( 1 )
   {
-    v9 = v7[1];
-    v8 -= v9;
-    v7 = (_DWORD *)LdrProcessRelocationBlockLongLong(
-                     *(unsigned __int16 *)(v4 + 4),
-                     (int)a1 + *v7,
-                     (unsigned int)(v9 - 8) >> 1,
-                     (int)v7 + 8,
-                     a1 - v6);
-    if ( !v7 )
+    v12 = v10[1];
+    v11 -= v12;
+    v10 = (_DWORD *)LdrProcessRelocationBlockLongLong(
+                      v7->FileHeader.Machine,
+                      (int)NewBase + *v10,
+                      (unsigned int)(v12 - 8) >> 1,
+                      (int)v10 + 8,
+                      (__int64)NewBase - v9);
+    if ( !v10 )
       break;
-    if ( !v8 )
-      return v2;
+    if ( !v11 )
+      return v5;
   }
-  return (unsigned int)-1073741701;
+  return -1073741701;
 }

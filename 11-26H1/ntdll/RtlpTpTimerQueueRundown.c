@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpTpTimerQueueRundown @ 0x1800FBE04
+ * XREFs of RtlpTpTimerQueueRundown @ 0x1800FB554
  * Callers:
- *     RtlpTpTimerRundown @ 0x1800677EC (RtlpTpTimerRundown.c)
- *     RtlDeleteTimerQueueEx @ 0x1800FBCA0 (RtlDeleteTimerQueueEx.c)
+ *     RtlpTpTimerRundown @ 0x180087C3C (RtlpTpTimerRundown.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800FB3F0 (RtlDeleteTimerQueueEx.c)
  * Callees:
- *     ZwSetEvent @ 0x18015F100 (ZwSetEvent.c)
- *     ZwAlertThreadByThreadId @ 0x18015FD50 (ZwAlertThreadByThreadId.c)
+ *     ZwSetEvent @ 0x18015F000 (ZwSetEvent.c)
+ *     ZwAlertThreadByThreadId @ 0x18015FC50 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall RtlpTpTimerQueueRundown(__int64 a1, __int64 a2, __int64 a3)
+LOGICAL __fastcall RtlpTpTimerQueueRundown(_QWORD *BaseAddress)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rcx
+  void *v2; // rcx
+  void *v3; // rcx
 
-  v4 = *(_QWORD *)(a1 + 40);
-  if ( v4 )
+  v2 = (void *)BaseAddress[5];
+  if ( v2 )
   {
-    ZwAlertThreadByThreadId(v4, a2, a3);
+    ZwAlertThreadByThreadId(v2);
   }
   else
   {
-    v5 = *(_QWORD *)(a1 + 16);
-    if ( v5 )
-      ZwSetEvent(v5, 0LL);
+    v3 = (void *)BaseAddress[2];
+    if ( v3 )
+      ZwSetEvent(v3, 0LL);
   }
-  return RtlFreeHeap_0();
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

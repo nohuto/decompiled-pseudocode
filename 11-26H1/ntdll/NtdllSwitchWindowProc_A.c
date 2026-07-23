@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllSwitchWindowProc_A @ 0x18015EC40
+ * XREFs of NtdllSwitchWindowProc_A @ 0x18015EB40
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllSwitchWindowProc_A()
 {
-  off_1801E0170();
+  off_1801DF170();
 }

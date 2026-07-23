@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     _flsbuf @ 0x1403E3D0C (_flsbuf.c)
- *     _woutput_l @ 0x1403E3D1C (_woutput_l.c)
+ *     sub_1403E3D1C @ 0x1403E3D1C (sub_1403E3D1C.c)
  */
 
 int swprintf(wchar_t *a1, const wchar_t *a2, ...)
@@ -26,7 +26,7 @@ int swprintf(wchar_t *a1, const wchar_t *a2, ...)
     File._ptr = (char *)a1;
     File._flag = 66;
     File._cnt = 0x7FFFFFFF;
-    v2 = woutput_l(&File, a2, 0LL, (__int64 *)va);
+    v2 = sub_1403E3D1C(&File, a2, 0LL, (__int64 *)va);
     v3 = --File._cnt < 0;
     v4 = v2;
     if ( v3 )
@@ -47,7 +47,7 @@ int swprintf(wchar_t *a1, const wchar_t *a2, ...)
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return -1;
   }
 }

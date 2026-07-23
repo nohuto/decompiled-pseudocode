@@ -2,26 +2,26 @@
  * XREFs of MiDispatchFault @ 0x140045FD0
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
+ *     MiInPagePageTable @ 0x140098720 (MiInPagePageTable.c)
  * Callees:
  *     MiAdvanceFaultList @ 0x14002B6E0 (MiAdvanceFaultList.c)
  *     MiResolveTransitionFault @ 0x14003AC00 (MiResolveTransitionFault.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiAccessCheck @ 0x140092A0C (MiAccessCheck.c)
- *     MiCheckProtoAccess @ 0x140098C10 (MiCheckProtoAccess.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiFaultListPagesRemaining @ 0x1401206AC (MiFaultListPagesRemaining.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiAdjustFaultList @ 0x140125D80 (MiAdjustFaultList.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
- *     MiComputeMaximumFaultCluster @ 0x140168C38 (MiComputeMaximumFaultCluster.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
- *     ExSpinLockIsContended @ 0x14031C008 (ExSpinLockIsContended.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiAccessCheck @ 0x14009294C (MiAccessCheck.c)
+ *     MiCheckProtoAccess @ 0x140098B50 (MiCheckProtoAccess.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiFaultListPagesRemaining @ 0x140120778 (MiFaultListPagesRemaining.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiAdjustFaultList @ 0x140125E50 (MiAdjustFaultList.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
+ *     MiComputeMaximumFaultCluster @ 0x140168D38 (MiComputeMaximumFaultCluster.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1403106FC (EtwTraceShouldYieldProcessor.c)
+ *     ExSpinLockIsContended @ 0x14031C1F8 (ExSpinLockIsContended.c)
  */
 
 __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
@@ -378,7 +378,7 @@ LABEL_145:
   if ( (v25 & 0x40) != 0 && (unsigned __int64)(*(_QWORD *)(v67 + 120) + 1LL) >= *(_QWORD *)(v67 + 152) )
     goto LABEL_164;
   LOBYTE(v25) = v25 & 7;
-  v26 = &dword_14043B700;
+  v26 = &dword_14043C7C0;
   if ( (_BYTE)v25 != 2 )
     v26 = (LONG *)(v67 + 192);
   if ( (*v26 & 0x40000000) != 0 || (v74.m256i_i8[21] & 1) != 0 )

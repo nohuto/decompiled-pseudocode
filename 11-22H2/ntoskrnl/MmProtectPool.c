@@ -500,7 +500,9 @@ LABEL_160:
         if ( !v46 )
         {
           _InterlockedAnd64((volatile signed __int64 *)(v60 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags
+            && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+            && CurrentIrql <= 0xFu )
           {
             v70 = v86;
             if ( (unsigned __int8)v86 <= 0xFu && CurrentIrql >= 2u )
@@ -527,7 +529,7 @@ LABEL_160:
         goto LABEL_134;
       }
       _InterlockedAnd64((volatile signed __int64 *)(v60 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags && (v63 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v63 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && (v63 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v63 <= 0xFu )
       {
         v64 = v86;
         if ( (unsigned __int8)v86 <= 0xFu && v63 >= 2u )
@@ -560,7 +562,7 @@ LABEL_134:
     if ( v8 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v60 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags && (v74 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v74 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && (v74 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v74 <= 0xFu )
       {
         v75 = v86;
         if ( (unsigned __int8)v86 <= 0xFu && v74 >= 2u )

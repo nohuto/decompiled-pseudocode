@@ -1,18 +1,18 @@
 /*
- * XREFs of PiPnpRtlSetDeviceRegProperty @ 0x140739C9C
+ * XREFs of PiPnpRtlSetDeviceRegProperty @ 0x140739E5C
  * Callers:
- *     PiDevCfgSetDeviceRegProp @ 0x140739C50 (PiDevCfgSetDeviceRegProp.c)
- *     PiCMSetRegistryProperty @ 0x1408B0F40 (PiCMSetRegistryProperty.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140739E10 (PiDevCfgSetDeviceRegProp.c)
+ *     PiCMSetRegistryProperty @ 0x1408B10A0 (PiCMSetRegistryProperty.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
- *     _CmIsRootEnumeratedDevice @ 0x140639EA8 (_CmIsRootEnumeratedDevice.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x1408B5604 (PiAuditDeviceEnableDisableRequest.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     _CmIsRootEnumeratedDevice @ 0x14062ECB8 (_CmIsRootEnumeratedDevice.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406981E0 (SeAuditingWithTokenForSubcategory.c)
+ *     _CmSetDeviceRegProp @ 0x1407441D0 (_CmSetDeviceRegProp.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x1408B5764 (PiAuditDeviceEnableDisableRequest.c)
  */
 
 __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
@@ -33,16 +33,19 @@ __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
   bool v17; // zf
   struct _KTHREAD *CurrentThread; // rax
   __int64 v19; // r9
-  unsigned int v20; // [rsp+40h] [rbp-20h] BYREF
-  int v21; // [rsp+44h] [rbp-1Ch] BYREF
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  unsigned int v23; // [rsp+40h] [rbp-20h] BYREF
+  int v24; // [rsp+44h] [rbp-1Ch] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
-  int v24; // [rsp+B8h] [rbp+58h] BYREF
+  int v27; // [rsp+B8h] [rbp+58h] BYREF
 
   v8 = a7;
   v9 = a6;
+  v27 = 0;
   v24 = 0;
-  v21 = 0;
-  v20 = 0;
+  v23 = 0;
   v13 = 0;
   v14 = 0;
   DestinationString = 0LL;
@@ -60,12 +63,12 @@ __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
         return (unsigned int)-1073741811;
       if ( SeAuditingWithTokenForSubcategory(138, 0LL) )
       {
-        v24 = 4;
-        if ( (int)CmGetDeviceRegProp(a1, (__int64)a2, a3, 11, (__int64)&v21, (__int64)&v20, (__int64)&v24, 0) < 0
-          || v24 != 4
-          || v21 != 4 )
+        v27 = 4;
+        if ( (int)CmGetDeviceRegProp(a1, (__int64)a2, a3, 11, (__int64)&v24, (__int64)&v23, (__int64)&v27, 0) < 0
+          || v27 != 4
+          || v24 != 4 )
         {
-          v20 = 0;
+          v23 = 0;
         }
         v13 = *v9;
       }
@@ -93,12 +96,12 @@ LABEL_7:
   {
     RtlInitUnicodeString(&DestinationString, a2);
     LOBYTE(v19) = (v15 & 0x80000000) == 0;
-    PiAuditDeviceEnableDisableRequest(&DestinationString, v20, v13, v19);
+    PiAuditDeviceEnableDisableRequest(&DestinationString, v23, v13, v19);
   }
   if ( v14 )
   {
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
   }
   return v15;
 }

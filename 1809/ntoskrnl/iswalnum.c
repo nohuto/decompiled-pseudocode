@@ -1,10 +1,10 @@
 /*
- * XREFs of iswalnum @ 0x140196030
+ * XREFs of iswalnum @ 0x140196170
  * Callers:
- *     GetAttributeName @ 0x1408A7370 (GetAttributeName.c)
- *     IsEncodedAttributeChar @ 0x1408A8B24 (IsEncodedAttributeChar.c)
+ *     GetAttributeName @ 0x1408A85D0 (GetAttributeName.c)
+ *     IsEncodedAttributeChar @ 0x1408A9D84 (IsEncodedAttributeChar.c)
  * Callees:
- *     iswctype @ 0x1401983E8 (iswctype.c)
+ *     iswctype @ 0x140198528 (iswctype.c)
  */
 
 int __cdecl iswalnum(wint_t C)

@@ -11,15 +11,15 @@
 
 __int64 LdrpEnableUMGLTracingStateSync()
 {
-  signed __int64 v0; // rax
+  signed __int64 Value; // rax
   signed __int64 v1; // rcx
   signed __int64 v2; // rcx
   int v3; // ebx
-  __int64 v5; // [rsp+60h] [rbp+8h] BYREF
+  PVOID Context; // [rsp+60h] [rbp+8h] BYREF
 
-  v0 = qword_1801D4460;
-  v5 = 0LL;
-  if ( (qword_1801D4460 & 3) == 2 )
+  Value = stru_1801D4460.Value;
+  Context = 0LL;
+  if ( ((__int64)stru_1801D4460.Ptr & 3) == 2 )
   {
     return 0;
   }
@@ -29,15 +29,15 @@ __int64 LdrpEnableUMGLTracingStateSync()
     {
       while ( 1 )
       {
-        v1 = v0 & 3;
-        if ( (v0 & 3) != 0 )
+        v1 = Value & 3;
+        if ( (Value & 3) != 0 )
           break;
-        v2 = v0;
-        v0 = _InterlockedCompareExchange64(&qword_1801D4460, 1LL, v0);
-        if ( v0 == v2 )
+        v2 = Value;
+        Value = _InterlockedCompareExchange64((volatile signed __int64 *)&stru_1801D4460, 1LL, Value);
+        if ( Value == v2 )
         {
           v3 = RtlpSubscribeWnfStateChangeNotificationInternal(
-                 (unsigned int)&v5,
+                 (unsigned int)&Context,
                  WNF_ETW_UMGL_TRACING_CHANGE,
                  0,
                  (unsigned int)LdrpUMGLTracingStateChangeNotification,
@@ -48,11 +48,11 @@ __int64 LdrpEnableUMGLTracingStateSync()
                  17);
           if ( v3 < 0 )
           {
-            RtlRunOnceComplete(&qword_1801D4460, 4LL);
+            RtlRunOnceComplete(&stru_1801D4460, 4u, 0LL);
           }
           else
           {
-            RtlRunOnceComplete(&qword_1801D4460, 0LL);
+            RtlRunOnceComplete(&stru_1801D4460, 0, Context);
             RtlpEnumProcessHeaps(RtlpSynchronizeHeapLoggingStateCallback, 0LL, 4LL);
           }
           return (unsigned int)v3;
@@ -60,7 +60,7 @@ __int64 LdrpEnableUMGLTracingStateSync()
       }
       if ( v1 != 1 )
         break;
-      v0 = RtlpRunOnceWaitForInit(v0, &qword_1801D4460);
+      Value = RtlpRunOnceWaitForInit(Value, (volatile signed __int64 *)&stru_1801D4460);
     }
     if ( v1 != 3 )
       return 0;

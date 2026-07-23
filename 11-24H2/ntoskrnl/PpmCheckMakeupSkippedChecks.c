@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmCheckMakeupSkippedChecks @ 0x14029FB90
+ * XREFs of PpmCheckMakeupSkippedChecks @ 0x1402ADF00
  * Callers:
- *     PpmCheckRun @ 0x14029FA80 (PpmCheckRun.c)
+ *     PpmCheckRun @ 0x1402ADDF0 (PpmCheckRun.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmPerfMinimumPerfReached @ 0x140477A38 (PpmPerfMinimumPerfReached.c)
- *     PpmParkMaximumCoresParked @ 0x1404819C8 (PpmParkMaximumCoresParked.c)
- *     PpmEventTraceMakeupPerfCheck @ 0x140494B68 (PpmEventTraceMakeupPerfCheck.c)
- *     PpmPerfCompleteMakeup @ 0x140498060 (PpmPerfCompleteMakeup.c)
- *     PpmParkCompleteMakeup @ 0x1404EE1A4 (PpmParkCompleteMakeup.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PpmPerfMinimumPerfReached @ 0x140474030 (PpmPerfMinimumPerfReached.c)
+ *     PpmParkMaximumCoresParked @ 0x14047CC88 (PpmParkMaximumCoresParked.c)
+ *     PpmEventTraceMakeupPerfCheck @ 0x14048F5F8 (PpmEventTraceMakeupPerfCheck.c)
+ *     PpmPerfCompleteMakeup @ 0x140492A3C (PpmPerfCompleteMakeup.c)
+ *     PpmParkCompleteMakeup @ 0x1404E593C (PpmParkCompleteMakeup.c)
  */
 
 char PpmCheckMakeupSkippedChecks()
@@ -34,7 +34,7 @@ char PpmCheckMakeupSkippedChecks()
         {
           _BitScanForward64(&v3, v1);
           v1 &= ~(1LL << v3);
-          Prcb = KeGetPrcb(*((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v2 + (unsigned __int8)v3));
+          Prcb = KeGetPrcb(*((unsigned int *)qword_140F22998 + 64 * (unsigned __int16)v2 + (unsigned __int8)v3));
           PpmPerfCompleteMakeup(Prcb + 35248);
         }
         v2 = (unsigned __int16)(v2 + 1);

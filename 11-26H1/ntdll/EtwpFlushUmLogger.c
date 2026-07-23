@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpFlushUmLogger @ 0x18007654C
+ * XREFs of EtwpFlushUmLogger @ 0x180064D6C
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x180076830 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180065050 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
- *     RtlFreeAnsiString @ 0x180056B20 (RtlFreeAnsiString.c)
- *     EtwpQueryUmLogger @ 0x180076A54 (EtwpQueryUmLogger.c)
- *     EtwpSynchronizeWithLogger @ 0x1800774FC (EtwpSynchronizeWithLogger.c)
- *     EtwpAddInstanceIdToLogFileName @ 0x180077C48 (EtwpAddInstanceIdToLogFileName.c)
- *     EtwpGetPrivateLoggerContext @ 0x180077F10 (EtwpGetPrivateLoggerContext.c)
- *     EtwpBufferingModeFlush @ 0x180158EDC (EtwpBufferingModeFlush.c)
+ *     RtlFreeAnsiString @ 0x1800410A0 (RtlFreeAnsiString.c)
+ *     EtwpQueryUmLogger @ 0x180065274 (EtwpQueryUmLogger.c)
+ *     EtwpSynchronizeWithLogger @ 0x180065D1C (EtwpSynchronizeWithLogger.c)
+ *     EtwpAddInstanceIdToLogFileName @ 0x180066468 (EtwpAddInstanceIdToLogFileName.c)
+ *     EtwpGetPrivateLoggerContext @ 0x180066730 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpBufferingModeFlush @ 0x180158DAC (EtwpBufferingModeFlush.c)
  */
 
 __int64 __fastcall EtwpFlushUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __int64 a4)

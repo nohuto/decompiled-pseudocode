@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeBootLoadedDriverPfns @ 0x1409B8BD8
+ * XREFs of MiInitializeBootLoadedDriverPfns @ 0x1409B9BD8
  * Callers:
- *     MiInitializeDriverImages @ 0x1409B6BDC (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x1409B7BDC (MiInitializeDriverImages.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
  */
 
 __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
@@ -69,17 +69,17 @@ LABEL_11:
   if ( !v12 )
   {
 LABEL_8:
-    if ( v8 != PsNtosImageBase && (PVOID)v8 != PsHalImageBase )
+    if ( (PVOID)v8 != PsNtosImageBase && (PVOID)v8 != PsHalImageBase )
     {
-      _InterlockedExchangeAdd(&dword_14043B038, v9);
-      qword_14043B010 -= (unsigned int)v9;
+      _InterlockedExchangeAdd(&dword_14043C0F8, v9);
+      qword_14043C0D0 -= (unsigned int)v9;
     }
     goto LABEL_11;
   }
   if ( (unsigned int)MiChargeCommit((__int64)&MiSystemPartition, v12, 0)
     && (unsigned int)MiChargeResident(&MiSystemPartition, v12, 0LL) )
   {
-    qword_14043B010 += v12;
+    qword_14043C0D0 += v12;
     goto LABEL_8;
   }
   return 0LL;

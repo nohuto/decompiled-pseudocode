@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnmapViewOfSection @ 0x1406171B0
+ * XREFs of MiUnmapViewOfSection @ 0x1406181B0
  * Callers:
- *     MiMapViewOfSection @ 0x1405EFB10 (MiMapViewOfSection.c)
- *     MmUnmapViewOfSection @ 0x140616D50 (MmUnmapViewOfSection.c)
- *     AlpcViewDestroyProcedure @ 0x140616E90 (AlpcViewDestroyProcedure.c)
- *     NtUnmapViewOfSectionEx @ 0x1406170E0 (NtUnmapViewOfSectionEx.c)
- *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
- *     EtwpCoverageEnsureUserModeView @ 0x1406B400C (EtwpCoverageEnsureUserModeView.c)
- *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
- *     MiDeleteHotPatchEntry @ 0x140854B38 (MiDeleteHotPatchEntry.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
- *     PsShutdownSystem @ 0x14088AFA4 (PsShutdownSystem.c)
+ *     MiMapViewOfSection @ 0x1405F0B10 (MiMapViewOfSection.c)
+ *     MmUnmapViewOfSection @ 0x140617D50 (MmUnmapViewOfSection.c)
+ *     AlpcViewDestroyProcedure @ 0x140617E90 (AlpcViewDestroyProcedure.c)
+ *     NtUnmapViewOfSectionEx @ 0x1406180E0 (NtUnmapViewOfSectionEx.c)
+ *     MiUnmapImageInSystemSpace @ 0x140651A4C (MiUnmapImageInSystemSpace.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x1406B52AC (EtwpCoverageEnsureUserModeView.c)
+ *     NtMapCMFModule @ 0x140707A40 (NtMapCMFModule.c)
+ *     MiDeleteHotPatchEntry @ 0x140855D98 (MiDeleteHotPatchEntry.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
+ *     PsShutdownSystem @ 0x14088C204 (PsShutdownSystem.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -18,13 +18,13 @@
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiUnmapVad @ 0x140617488 (MiUnmapVad.c)
- *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
- *     PerfLogImageUnload @ 0x14067750C (PerfLogImageUnload.c)
- *     DbgkUnMapViewOfSection @ 0x1406B737C (DbgkUnMapViewOfSection.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiUnmapVad @ 0x140618488 (MiUnmapVad.c)
+ *     MiCheckSecuredVad @ 0x140619974 (MiCheckSecuredVad.c)
+ *     PerfLogImageUnload @ 0x1406786CC (PerfLogImageUnload.c)
+ *     DbgkUnMapViewOfSection @ 0x1406B861C (DbgkUnMapViewOfSection.c)
  */
 
 __int64 __fastcall MiUnmapViewOfSection(ULONG_PTR BugCheckParameter1, unsigned __int64 a2, unsigned int a3, int a4)

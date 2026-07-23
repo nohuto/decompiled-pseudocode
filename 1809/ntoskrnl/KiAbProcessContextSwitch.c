@@ -9,38 +9,38 @@
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
  *     KeClearSystemPriority @ 0x14005B570 (KeClearSystemPriority.c)
- *     KiBeginThreadWait @ 0x14008B1C0 (KiBeginThreadWait.c)
- *     KiFastReadyThread @ 0x1400A2C58 (KiFastReadyThread.c)
- *     KeRemovePriQueue @ 0x1400B61A0 (KeRemovePriQueue.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1400CD370 (KeSetBasePriorityThread.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     KeSetPriorityBoost @ 0x1400CEEE0 (KeSetPriorityBoost.c)
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
- *     KeYieldExecution @ 0x1400D65D0 (KeYieldExecution.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1400D6984 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     KeGenericProcessorCallback @ 0x1400D8690 (KeGenericProcessorCallback.c)
- *     KeBoostPriorityThread @ 0x1400E3380 (KeBoostPriorityThread.c)
- *     KiSchedulerApc @ 0x1400F17D0 (KiSchedulerApc.c)
- *     KiExitThreadWait @ 0x1400F9E90 (KiExitThreadWait.c)
- *     KiReadyOutSwappedThreads @ 0x14010B680 (KiReadyOutSwappedThreads.c)
- *     KeCpuSetReportParkedProcessors @ 0x140114AA4 (KeCpuSetReportParkedProcessors.c)
- *     KeSetLegacyAffinityThread @ 0x1401151F0 (KeSetLegacyAffinityThread.c)
- *     KeSetSchedulingGroupRankBias @ 0x140116428 (KeSetSchedulingGroupRankBias.c)
- *     KiAbThreadUnboostCpuPriority @ 0x14011F558 (KiAbThreadUnboostCpuPriority.c)
- *     KiAbForceProcessLockEntry @ 0x140166180 (KiAbForceProcessLockEntry.c)
- *     KeSetAffinityThread @ 0x14016B2B0 (KeSetAffinityThread.c)
- *     KeSetCpuSetsProcess @ 0x14018C654 (KeSetCpuSetsProcess.c)
- *     KeUpdateThreadCpuSets @ 0x14018C84C (KeUpdateThreadCpuSets.c)
- *     KeSetAffinityProcess @ 0x1401904B4 (KeSetAffinityProcess.c)
- *     KxDispatchInterrupt @ 0x1401C40E0 (KxDispatchInterrupt.c)
- *     KeRemovePriorityBoost @ 0x14028DF44 (KeRemovePriorityBoost.c)
- *     KeRecomputeCpuSetAffinityProcess @ 0x14029683C (KeRecomputeCpuSetAffinityProcess.c)
- *     KeSetSelectedCpuSetsThread @ 0x140296A80 (KeSetSelectedCpuSetsThread.c)
- *     KiSetHeteroPolicyThread @ 0x14029905C (KiSetHeteroPolicyThread.c)
+ *     KiBeginThreadWait @ 0x14008B1B0 (KiBeginThreadWait.c)
+ *     KiFastReadyThread @ 0x1400A2B98 (KiFastReadyThread.c)
+ *     KeRemovePriQueue @ 0x1400B60E0 (KeRemovePriQueue.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1400CD3F0 (KeSetBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     KeSetPriorityBoost @ 0x1400CEF60 (KeSetPriorityBoost.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
+ *     KeYieldExecution @ 0x1400D6650 (KeYieldExecution.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1400D6A04 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     KeGenericProcessorCallback @ 0x1400D8710 (KeGenericProcessorCallback.c)
+ *     KeBoostPriorityThread @ 0x1400E3400 (KeBoostPriorityThread.c)
+ *     KiSchedulerApc @ 0x1400F1850 (KiSchedulerApc.c)
+ *     KiExitThreadWait @ 0x1400F9F10 (KiExitThreadWait.c)
+ *     KiReadyOutSwappedThreads @ 0x14010B700 (KiReadyOutSwappedThreads.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140114B14 (KeCpuSetReportParkedProcessors.c)
+ *     KeSetLegacyAffinityThread @ 0x140115260 (KeSetLegacyAffinityThread.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140116498 (KeSetSchedulingGroupRankBias.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x14011F5C8 (KiAbThreadUnboostCpuPriority.c)
+ *     KiAbForceProcessLockEntry @ 0x140166280 (KiAbForceProcessLockEntry.c)
+ *     KeSetAffinityThread @ 0x14016B3B0 (KeSetAffinityThread.c)
+ *     KeSetCpuSetsProcess @ 0x14018C794 (KeSetCpuSetsProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x14018C98C (KeUpdateThreadCpuSets.c)
+ *     KeSetAffinityProcess @ 0x1401905F4 (KeSetAffinityProcess.c)
+ *     KxDispatchInterrupt @ 0x1401C4240 (KxDispatchInterrupt.c)
+ *     KeRemovePriorityBoost @ 0x14028E134 (KeRemovePriorityBoost.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x140296A2C (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140296C70 (KeSetSelectedCpuSetsThread.c)
+ *     KiSetHeteroPolicyThread @ 0x14029924C (KiSetHeteroPolicyThread.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbProcessThreadLocks @ 0x140023C40 (KiAbProcessThreadLocks.c)
@@ -55,13 +55,13 @@
  *     KiAbIoBoostOwners @ 0x140025280 (KiAbIoBoostOwners.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
- *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     KiAbDetermineMaxWaiterPriority @ 0x140119A4C (KiAbDetermineMaxWaiterPriority.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF8F0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
+ *     IoBoostThreadIoPriority @ 0x1401086DC (IoBoostThreadIoPriority.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     KiAbDetermineMaxWaiterPriority @ 0x140119ABC (KiAbDetermineMaxWaiterPriority.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
@@ -76,7 +76,7 @@ void __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
   __int64 v9; // rdi
   __int64 v10; // rax
   int v11; // r15d
-  __int64 LockedHeadEntry; // rax
+  _RTL_RB_TREE *LockedHeadEntry; // rax
   __int64 v13; // rsi
   _QWORD *v14; // rcx
   _QWORD *v15; // rdi
@@ -146,8 +146,8 @@ void __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
 LABEL_9:
           v11 = 0;
           v41 = 0;
-          LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v9, 1LL, v38);
-          v13 = LockedHeadEntry;
+          LockedHeadEntry = (_RTL_RB_TREE *)KiAbEntryGetLockedHeadEntry((PRTL_BALANCED_NODE)v9, 1LL, v38);
+          v13 = (__int64)LockedHeadEntry;
           if ( !LockedHeadEntry )
           {
 LABEL_15:
@@ -156,8 +156,8 @@ LABEL_15:
           }
           if ( (*(_BYTE *)(v9 + 25) & 1) == 0 )
           {
-            if ( v9 != LockedHeadEntry )
-              KiAbEntryUpdateOwnerTreePosition(v9, LockedHeadEntry);
+            if ( (_RTL_RB_TREE *)v9 != LockedHeadEntry )
+              KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v9, LockedHeadEntry);
             KiAbDetermineMaxWaiterPriority(v13, &v39);
             if ( !v39 )
             {
@@ -168,7 +168,7 @@ LABEL_14:
             if ( (unsigned int)KiAbSetMinimumThreadPriority(v9, (__int64)&v39, (__int64)&v35, (__int64)&v34, v8, &v41)
               && v9 != v13 )
             {
-              KiAbEntryUpdateOwnerTreePosition(v9, v13);
+              KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v9, (_RTL_RB_TREE *)v13);
             }
             v11 = v41;
 LABEL_35:
@@ -197,8 +197,8 @@ LABEL_35:
             }
             goto LABEL_15;
           }
-          if ( v9 != LockedHeadEntry )
-            KiAbEntryUpdateWaiterTreePosition(v9, LockedHeadEntry);
+          if ( (_RTL_RB_TREE *)v9 != LockedHeadEntry )
+            KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v9, LockedHeadEntry);
           v17 = *(_QWORD *)(v13 + 56);
           if ( v17 )
           {

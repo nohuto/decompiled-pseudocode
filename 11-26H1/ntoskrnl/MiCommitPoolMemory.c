@@ -1,29 +1,29 @@
 /*
- * XREFs of MiCommitPoolMemory @ 0x140364AE0
+ * XREFs of MiCommitPoolMemory @ 0x140366880
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
- *     MmAllocateSecurePoolMemory @ 0x1406FBC98 (MmAllocateSecurePoolMemory.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
+ *     MmAllocateSecurePoolMemory @ 0x140700968 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     PsGetNextPartition @ 0x1402580F8 (PsGetNextPartition.c)
- *     MiCreatePoolPageTables @ 0x1402A50F4 (MiCreatePoolPageTables.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
- *     MiLockPoolCommitWs @ 0x1403642F8 (MiLockPoolCommitWs.c)
- *     MiUnlockPoolCommitWs @ 0x140365110 (MiUnlockPoolCommitWs.c)
- *     MiFillPoolCommitPageTable @ 0x1403652A0 (MiFillPoolCommitPageTable.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiLinkPoolCommitChain @ 0x140365560 (MiLinkPoolCommitChain.c)
- *     MiReturnExcessPoolCommit @ 0x140365894 (MiReturnExcessPoolCommit.c)
- *     MiShouldTrimUnusedSegments @ 0x140474D78 (MiShouldTrimUnusedSegments.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14050818C (MiLogPerfMemoryRangeEvent.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     PsGetNextPartition @ 0x1402598D8 (PsGetNextPartition.c)
+ *     MiCreatePoolPageTables @ 0x1402A4644 (MiCreatePoolPageTables.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
+ *     MiLockPoolCommitWs @ 0x140366098 (MiLockPoolCommitWs.c)
+ *     MiUnlockPoolCommitWs @ 0x140366EB0 (MiUnlockPoolCommitWs.c)
+ *     MiFillPoolCommitPageTable @ 0x140367040 (MiFillPoolCommitPageTable.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiLinkPoolCommitChain @ 0x140367300 (MiLinkPoolCommitChain.c)
+ *     MiReturnExcessPoolCommit @ 0x140367634 (MiReturnExcessPoolCommit.c)
+ *     MiShouldTrimUnusedSegments @ 0x14046E4F8 (MiShouldTrimUnusedSegments.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x140501C70 (MiLogPerfMemoryRangeEvent.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCommitPoolMemory(__int64 a1)
@@ -45,7 +45,7 @@ __int64 __fastcall MiCommitPoolMemory(__int64 a1)
   unsigned __int64 v16; // rax
   void *i; // rdi
   unsigned __int64 v18; // rdx
-  signed __int64 v19; // r15
+  __int64 v19; // r15
   ULONG_PTR v20; // rdi
   int v21; // eax
   __int64 v22; // r9
@@ -85,7 +85,7 @@ __int64 __fastcall MiCommitPoolMemory(__int64 a1)
   v7 = 0;
   while ( 1 )
   {
-    v8 = &stru_140E2D930.PriorityFloorCounts[4];
+    v8 = &stru_140E2DAB0.PriorityFloorCounts[4];
     v9 = 0xFFFFF6FB7DBEDFFFuLL;
     if ( v3 > *(_QWORD *)(a1 + 80) )
       break;
@@ -103,7 +103,7 @@ __int64 __fastcall MiCommitPoolMemory(__int64 a1)
           {
             v37 = 2 * (unsigned int)((__int64)(v18 + 0x90482413000LL) >> 3);
             _InterlockedAnd(
-              (volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4 * (v37 >> 5) + 4],
+              (volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4 * (v37 >> 5) + 4],
               ~(3 << v37));
           }
           else
@@ -142,7 +142,7 @@ LABEL_26:
     if ( *(_BYTE *)(a1 + 103) < 2u )
     {
       if ( ((v25 = *(_DWORD *)(v1 + 184) & 0xF, v25 == 5) || v25 <= 4u)
-        && ((*(_DWORD *)(v1 + 184) & 0xF) != 1 ? (v26 = (__int64 *)(v1 + 192)) : (v26 = &qword_140E37800),
+        && ((*(_DWORD *)(v1 + 184) & 0xF) != 1 ? (v26 = (__int64 *)(v1 + 192)) : (v26 = &qword_140E37980),
             (v27 = *v26, (MmInternal = (unsigned int *)KeGetCurrentPrcb()->MmInternal) == 0LL)
           ? (v29 = 0LL)
           : (v29 = MmInternal[81]),
@@ -263,9 +263,9 @@ LABEL_67:
     switch ( v14 )
     {
       case 4:
-        v16 = v15 + _InterlockedExchangeAdd64(&qword_140E2C588, v15);
+        v16 = v15 + _InterlockedExchangeAdd64(&qword_140E2C708, v15);
         if ( (v16 >= *(_QWORD *)&MiState || *(_QWORD *)&MiState - v16 < 0x300)
-          && qword_140E3D700 >= (unsigned __int64)qword_140E3C020 )
+          && qword_140E3D880 >= (unsigned __int64)qword_140E3C1A0 )
         {
           if ( (unsigned int)MiShouldTrimUnusedSegments(&MiSystemPartition) )
           {
@@ -278,10 +278,10 @@ LABEL_67:
         }
         break;
       case 5:
-        _InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E36558.ApcState.Process, v15);
+        _InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E366D8.ApcState.Process, v15);
         break;
       case 14:
-        _InterlockedExchangeAdd64(&qword_140E2C590, v15);
+        _InterlockedExchangeAdd64(&qword_140E2C710, v15);
         break;
       default:
         _InterlockedExchangeAdd64(0LL, v15);

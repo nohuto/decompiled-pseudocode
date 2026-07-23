@@ -3,8 +3,8 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
  */
 
 NTSTATUS IopInitializeSessionNotifications()

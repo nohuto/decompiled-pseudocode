@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlFastUnlockSingleShared @ 0x1403272F8
+ * XREFs of FsRtlFastUnlockSingleShared @ 0x140327588
  * Callers:
- *     FsRtlFastUnlockSingle @ 0x140327090 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateRemoveLock @ 0x14053D958 (FsRtlPrivateRemoveLock.c)
+ *     FsRtlFastUnlockSingle @ 0x140327320 (FsRtlFastUnlockSingle.c)
+ *     FsRtlPrivateRemoveLock @ 0x14053DEA8 (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x140326D34 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x140327AAC (FsRtlFindFirstOverlappingSharedNode.c)
- *     RtlDelete @ 0x140327CC0 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x140328320 (FsRtlPrivateResetLowestLockOffset.c)
- *     FsRtlSplitLocks @ 0x14032855C (FsRtlSplitLocks.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x140326FC4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x140327D3C (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlDelete @ 0x140327F50 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x1403285B0 (FsRtlPrivateResetLowestLockOffset.c)
+ *     FsRtlSplitLocks @ 0x1403287EC (FsRtlSplitLocks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleShared(
@@ -34,7 +34,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   unsigned int v15; // edi
   unsigned __int64 v16; // rbp
   __int64 FirstOverlappingSharedNode; // rax
-  RTL_SPLAY_LINKS *v18; // r9
+  _RTL_SPLAY_LINKS *v18; // r9
   _QWORD *v19; // rsi
   unsigned __int64 v20; // rax
   _QWORD *v21; // r14
@@ -73,7 +73,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
     goto LABEL_27;
   v42 = *a4 + v9 - 1;
   FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(v14, (unsigned int)&v39, (unsigned int)&v42, 0, 0LL);
-  v18 = (RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
+  v18 = (_RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
   if ( !FirstOverlappingSharedNode )
     goto LABEL_27;
   v19 = (_QWORD *)(FirstOverlappingSharedNode - 24);
@@ -126,10 +126,13 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
     if ( !a8 && *(_QWORD *)(a1 + 16) )
     {
       KxReleaseSpinLock((volatile signed __int64 *)v10);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v16 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -148,10 +151,10 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
     if ( a9 && *(_QWORD *)(v10 + 24) )
       FsRtlPrivateCheckWaitingLocks(a1, v10, v16);
     KxReleaseSpinLock((volatile signed __int64 *)v10);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v31 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v31 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v31 >= 2u )
       {
         v32 = KeGetCurrentPrcb();
         v33 = v32->SchedulerAssist;
@@ -167,10 +170,10 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   {
 LABEL_27:
     KxReleaseSpinLock((volatile signed __int64 *)v10);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v35 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v35 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v35 >= 2u )
       {
         v36 = KeGetCurrentPrcb();
         v37 = v36->SchedulerAssist;

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInterlockedClearProcessorAffinityEx @ 0x1403E9E90
+ * XREFs of KeInterlockedClearProcessorAffinityEx @ 0x1403D7B30
  * Callers:
- *     PpmParkReportUnparkedCore @ 0x140351950 (PpmParkReportUnparkedCore.c)
- *     PpmUnlockProcessors @ 0x1403B66C4 (PpmUnlockProcessors.c)
- *     PpmParkReportSoftParkChange @ 0x1403E9474 (PpmParkReportSoftParkChange.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404B2F48 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
- *     KiProcessNMI @ 0x1405B7670 (KiProcessNMI.c)
- *     KeDeepSleepProcessor @ 0x1405BC774 (KeDeepSleepProcessor.c)
- *     KeWakeProcessor @ 0x1405BCCD0 (KeWakeProcessor.c)
- *     PpmTestAndLockProcessor @ 0x1405CF234 (PpmTestAndLockProcessor.c)
- *     PpmParkReportForceParkChange @ 0x1405DA8CC (PpmParkReportForceParkChange.c)
+ *     PpmParkReportUnparkedCore @ 0x1402B0778 (PpmParkReportUnparkedCore.c)
+ *     PpmUnlockProcessors @ 0x140371990 (PpmUnlockProcessors.c)
+ *     PpmParkReportSoftParkChange @ 0x1403D7120 (PpmParkReportSoftParkChange.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404AD758 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     KiProcessNMI @ 0x1405B4C40 (KiProcessNMI.c)
+ *     KeDeepSleepProcessor @ 0x1405B9DA4 (KeDeepSleepProcessor.c)
+ *     KeWakeProcessor @ 0x1405BA300 (KeWakeProcessor.c)
+ *     PpmTestAndLockProcessor @ 0x1405CC954 (PpmTestAndLockProcessor.c)
+ *     PpmParkReportForceParkChange @ 0x1405D7BEC (PpmParkReportForceParkChange.c)
  * Callees:
  *     <none>
  */

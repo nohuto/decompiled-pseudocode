@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscSynchronization @ 0x1403CE6F0
+ * XREFs of HalpTscSynchronization @ 0x1403CE860
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
- *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
- *     HalpTscInitializeSynchronizationContext @ 0x1403A78A4 (HalpTscInitializeSynchronizationContext.c)
- *     HviIsXboxNanovisorPresent @ 0x1403CE794 (HviIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpFindTimer @ 0x14039D5A8 (HalpFindTimer.c)
+ *     KeIpiGenericCall @ 0x1403A4C70 (KeIpiGenericCall.c)
+ *     HalpTscInitializeSynchronizationContext @ 0x1403A79F4 (HalpTscInitializeSynchronizationContext.c)
+ *     HviIsXboxNanovisorPresent @ 0x1403CE904 (HviIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall HalpTscSynchronization(char a1, int *a2)
@@ -21,7 +21,7 @@ int __fastcall HalpTscSynchronization(char a1, int *a2)
   *(_OWORD *)Context = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  if ( qword_140C4A188 || (unsigned __int8)HviIsXboxNanovisorPresent() )
+  if ( qword_140C4A1C8 || (unsigned __int8)HviIsXboxNanovisorPresent() )
   {
     Timer = HalpFindTimer(5, 0, 0, 0, 1);
     if ( Timer && (Timer[28] & 0x6000) == 0 )

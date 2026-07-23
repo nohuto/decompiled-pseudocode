@@ -13,7 +13,7 @@
 __int64 __fastcall PfpQueryGpuUtilization(__int64 a1, char a2, _DWORD *a3)
 {
   int v5; // rax^4
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   unsigned int v7; // r10d
   __int64 result; // rax
   __int128 v9; // [rsp+20h] [rbp-48h]

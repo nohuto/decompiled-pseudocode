@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceAdaptiveOverrideClear @ 0x14098C59C
+ * XREFs of PopDiagTraceAdaptiveOverrideClear @ 0x14098C79C
  * Callers:
- *     PopAdaptiveConsoleSessionOverrideClear @ 0x14099B780 (PopAdaptiveConsoleSessionOverrideClear.c)
+ *     PopAdaptiveConsoleSessionOverrideClear @ 0x14099B980 (PopAdaptiveConsoleSessionOverrideClear.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void PopDiagTraceAdaptiveOverrideClear()
@@ -36,7 +36,13 @@ void PopDiagTraceAdaptiveOverrideClear()
       v9 = 4LL;
       v4 = 0x1000000LL;
       v11 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_140030183, 0LL, 0LL, 5u, &v5);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C03950,
+        (unsigned __int8 *)&word_14002FB7E,
+        0LL,
+        0LL,
+        5u,
+        &v5);
     }
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExFreeCacheAwarePushLock @ 0x140609910
+ * XREFs of ExFreeCacheAwarePushLock @ 0x140609E60
  * Callers:
- *     ExAllocateCacheAwarePushLock @ 0x1403A7FF0 (ExAllocateCacheAwarePushLock.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1403A81D0 (ExAllocateCacheAwarePushLock.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

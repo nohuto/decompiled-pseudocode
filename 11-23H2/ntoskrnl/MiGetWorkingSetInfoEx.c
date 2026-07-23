@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetWorkingSetInfoEx @ 0x1403633AC
+ * XREFs of MiGetWorkingSetInfoEx @ 0x14036354C
  * Callers:
- *     MiGetWorkingSetInfo @ 0x140363210 (MiGetWorkingSetInfo.c)
- *     EtwpEnumerateWorkingSet @ 0x1409EEAE4 (EtwpEnumerateWorkingSet.c)
- *     MmLogSystemShareablePfnInfo @ 0x140A3FEB8 (MmLogSystemShareablePfnInfo.c)
+ *     MiGetWorkingSetInfo @ 0x1403633B0 (MiGetWorkingSetInfo.c)
+ *     EtwpEnumerateWorkingSet @ 0x1409EED74 (EtwpEnumerateWorkingSet.c)
+ *     MmLogSystemShareablePfnInfo @ 0x140A40168 (MmLogSystemShareablePfnInfo.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BD00 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x14025BF90 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiGetWorkingSetInfoEx(__int64 a1, int a2, _QWORD *a3, unsigned __int64 a4)

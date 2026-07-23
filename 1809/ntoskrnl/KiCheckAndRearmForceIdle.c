@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCheckAndRearmForceIdle @ 0x1400F9958
+ * XREFs of KiCheckAndRearmForceIdle @ 0x1400F99D8
  * Callers:
  *     KiCallInterruptServiceRoutine @ 0x1400162E0 (KiCallInterruptServiceRoutine.c)
- *     KiTimer2Expiration @ 0x1400FB3F0 (KiTimer2Expiration.c)
+ *     KiTimer2Expiration @ 0x1400FB470 (KiTimer2Expiration.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14029B5B4 (KiSetForceIdleState.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
+ *     KeRemoveQueueDpcEx @ 0x140132AD0 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14029B7A4 (KiSetForceIdleState.c)
  */
 
 void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3)
@@ -25,7 +25,7 @@ void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3)
   __int64 v12; // r9
   int v13; // eax
   int v14; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v15; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   if ( KiForceIdleDisabled )
     return;
@@ -71,7 +71,8 @@ void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2, __int64 a3)
   {
     goto LABEL_7;
   }
-  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v15);
+  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                       + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
 LABEL_7:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
   v5 = KeGetCurrentPrcb();

@@ -3,7 +3,7 @@
  * Callers:
  *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpOpenHandleClose @ 0x14075D224 (PfpOpenHandleClose.c)
+ *     PfpOpenHandleClose @ 0x14075D414 (PfpOpenHandleClose.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

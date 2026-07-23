@@ -5,15 +5,15 @@
  * Callees:
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
  *     RtlCompareUnicodeStrings @ 0x1800571D0 (RtlCompareUnicodeStrings.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x180090060 (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x180090070 (__report_rangecheckfailure.c)
  *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800FF570 (RtlpGetUserOrMachineUILanguage4NLS.c)
  */
 
 bool __fastcall RtlpMatchUILanguage(PCWSTR SourceString)
 {
-  UNICODE_STRING v3; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING v3; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   WCHAR SourceStringa[88]; // [rsp+50h] [rbp-B0h] BYREF
 
   *(_QWORD *)&v3.Length = 85LL;
@@ -24,10 +24,10 @@ bool __fastcall RtlpMatchUILanguage(PCWSTR SourceString)
   SourceStringa[*(_QWORD *)&v3.Length] = 0;
   RtlInitUnicodeString(&DestinationString, SourceString);
   RtlInitUnicodeString(&v3, SourceStringa);
-  return !(unsigned int)RtlCompareUnicodeStrings(
-                          DestinationString.Buffer,
-                          (unsigned __int64)DestinationString.Length >> 1,
-                          (__int64)v3.Buffer,
-                          (unsigned __int64)v3.Length >> 1,
-                          1);
+  return !RtlCompareUnicodeStrings(
+            DestinationString.Buffer,
+            (unsigned __int64)DestinationString.Length >> 1,
+            v3.Buffer,
+            (unsigned __int64)v3.Length >> 1,
+            1u);
 }

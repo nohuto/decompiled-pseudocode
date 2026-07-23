@@ -19,7 +19,7 @@ void __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
   unsigned int v8; // ebx
   struct _KPRCB *CurrentPrcb; // rbp
   __int64 active; // r14
-  __int64 *v11; // rbx
+  LARGE_INTEGER *v11; // rbx
   unsigned int v12; // eax
   __int64 v13; // r9
   _QWORD *v14; // rcx
@@ -51,7 +51,7 @@ void __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
   active = KiSelectActiveTimerTable(CurrentPrcb, a2);
   if ( CurrentPrcb->ClockOwner )
   {
-    v11 = *(__int64 **)(v6 + 16);
+    v11 = *(LARGE_INTEGER **)(v6 + 16);
     *v11 = RtlGetSystemTimePrecise();
     v12 = *(_DWORD *)(v6 + 4);
     v13 = **(_QWORD **)(v6 + 8);

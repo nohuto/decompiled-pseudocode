@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetIRTimer()
+NTSTATUS __cdecl NtSetIRTimer(HANDLE TimerHandle, PLARGE_INTEGER DueTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 376LL;
+  result = 376;
   __asm { syscall; Low latency system call }
   return result;
 }

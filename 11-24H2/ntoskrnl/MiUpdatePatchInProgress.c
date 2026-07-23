@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdatePatchInProgress @ 0x14067D8A4
+ * XREFs of MiUpdatePatchInProgress @ 0x14067EAA4
  * Callers:
- *     MiLinkHotPatchToBase @ 0x14067D1C4 (MiLinkHotPatchToBase.c)
- *     MiApplyDriverHotPatch @ 0x1407F0C5C (MiApplyDriverHotPatch.c)
+ *     MiLinkHotPatchToBase @ 0x14067E3BC (MiLinkHotPatchToBase.c)
+ *     MiApplyDriverHotPatch @ 0x1407F122C (MiApplyDriverHotPatch.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiUpdatePatchInProgress(__int64 a1, __int64 a2, char a3)
@@ -26,13 +26,13 @@ unsigned __int64 __fastcall MiUpdatePatchInProgress(__int64 a1, __int64 a2, char
   }
   if ( (a3 & 1) != 0 )
   {
-    qword_140E374A0 = 0LL;
-    qword_140E37498 = 0LL;
+    qword_140E375E0 = 0LL;
+    qword_140E375D8 = 0LL;
   }
   else
   {
-    qword_140E374A0 = a1;
-    qword_140E37498 = a2;
+    qword_140E375E0 = a1;
+    qword_140E375D8 = a2;
   }
   if ( CurrentIrql != 17 )
   {

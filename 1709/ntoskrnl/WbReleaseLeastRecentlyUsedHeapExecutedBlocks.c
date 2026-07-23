@@ -19,10 +19,10 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(__int64 a1, int a2)
   unsigned __int64 *v5; // rbx
   unsigned __int64 *v6; // rbp
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rdi
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rdi
+  PRTL_BALANCED_NODE v8; // rax
+  PRTL_BALANCED_NODE v9; // rdi
+  PRTL_BALANCED_NODE v10; // rax
+  PRTL_BALANCED_NODE v11; // rdi
   _DWORD *v12; // rax
   __int64 v13; // rcx
   __int64 v14; // rdi
@@ -44,15 +44,15 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(__int64 a1, int a2)
       v8 = KeAbPreAcquire((ULONG_PTR)v6, 0LL, 0);
       v9 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v6, v8, (__int16 *)v6);
+        ExfAcquirePushLockExclusiveEx(v6, (__int64)v8, (__int16 *)v6);
       if ( v9 )
-        *(_BYTE *)(v9 + 26) |= 1u;
+        BYTE2(v9[1].Left) |= 1u;
       v10 = KeAbPreAcquire((ULONG_PTR)v5, 0LL, 0);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v5, v10, (__int16 *)v5);
+        ExfAcquirePushLockExclusiveEx(v5, (__int64)v10, (__int16 *)v5);
       if ( v11 )
-        *(_BYTE *)(v11 + 26) |= 1u;
+        BYTE2(v11[1].Left) |= 1u;
       if ( *(_QWORD *)v3 == v3 )
       {
         v12 = 0LL;

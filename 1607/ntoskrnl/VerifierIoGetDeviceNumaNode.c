@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoGetDeviceNumaNode @ 0x14070C7D4
+ * XREFs of VerifierIoGetDeviceNumaNode @ 0x14070C804
  * Callers:
  *     <none>
  * Callees:

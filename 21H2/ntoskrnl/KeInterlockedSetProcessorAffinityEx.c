@@ -1,5 +1,5 @@
 /*
- * XREFs of KeInterlockedSetProcessorAffinityEx @ 0x1403AE2D0
+ * XREFs of KeInterlockedSetProcessorAffinityEx @ 0x1403AE420
  * Callers:
  *     <none>
  * Callees:

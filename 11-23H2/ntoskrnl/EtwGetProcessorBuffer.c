@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwGetProcessorBuffer @ 0x1405FBE50
+ * XREFs of EtwGetProcessorBuffer @ 0x1405FC3C0
  * Callers:
- *     KiSaveCurrentEtwTraceBuffer @ 0x14056AA64 (KiSaveCurrentEtwTraceBuffer.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x14056B124 (KiSaveCurrentEtwTraceBuffer.c)
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
  */
 
 __int64 __fastcall EtwGetProcessorBuffer(unsigned int a1, unsigned int a2, __int64 a3)

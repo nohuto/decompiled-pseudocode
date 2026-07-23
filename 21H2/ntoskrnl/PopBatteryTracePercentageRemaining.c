@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryTracePercentageRemaining @ 0x1408ED6EC
+ * XREFs of PopBatteryTracePercentageRemaining @ 0x1408ED84C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FDDC (PopBatteryApplyCompositeState.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a4)
@@ -108,7 +108,7 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v37 = 4;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C02228,
-                     (unsigned __int8 *)&dword_140029544,
+                     (unsigned __int8 *)&word_140028F16,
                      0LL,
                      0LL,
                      6u,

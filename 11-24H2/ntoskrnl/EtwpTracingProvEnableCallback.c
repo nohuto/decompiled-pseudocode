@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpTracingProvEnableCallback @ 0x140AAAD20
+ * XREFs of EtwpTracingProvEnableCallback @ 0x140AA5F50
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpEventWriteEnableInfo @ 0x1407A72AC (EtwpEventWriteEnableInfo.c)
- *     EtwpEventWriteGuidEntry @ 0x1407A73A4 (EtwpEventWriteGuidEntry.c)
- *     EtwpEventWriteRegEntry @ 0x1407A7508 (EtwpEventWriteRegEntry.c)
- *     EtwpEventWriteTemplateSession @ 0x140833614 (EtwpEventWriteTemplateSession.c)
- *     EtwpGetNextGuidEntry @ 0x14083D5B0 (EtwpGetNextGuidEntry.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpEventWriteEnableInfo @ 0x1407A73EC (EtwpEventWriteEnableInfo.c)
+ *     EtwpEventWriteGuidEntry @ 0x1407A74E4 (EtwpEventWriteGuidEntry.c)
+ *     EtwpEventWriteRegEntry @ 0x1407A7648 (EtwpEventWriteRegEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x140839C10 (EtwpGetNextGuidEntry.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     EtwpEventWriteTemplateSession @ 0x1409D26F0 (EtwpEventWriteTemplateSession.c)
  */
 
 void __fastcall EtwpTracingProvEnableCallback(
@@ -33,8 +33,8 @@ void __fastcall EtwpTracingProvEnableCallback(
   _DWORD *j; // rdx
   struct _KTHREAD *CurrentThread; // rcx
   volatile signed __int32 *v12; // rdi
-  _QWORD *v13; // rax
-  _QWORD *v14; // rsi
+  char *v13; // rax
+  char *v14; // rsi
   __int64 v15; // rcx
   unsigned int v16; // esi
   _DWORD *v17; // rbp
@@ -47,8 +47,8 @@ void __fastcall EtwpTracingProvEnableCallback(
   _DWORD *k; // rdx
   __int64 v25; // rax
   struct _KTHREAD *v26; // rax
-  _QWORD *v27; // rax
-  _QWORD *v28; // rsi
+  char *v27; // rax
+  char *v28; // rsi
   __int64 v29; // rcx
   unsigned int v30; // edi
   _DWORD *v31; // rsi
@@ -85,12 +85,12 @@ void __fastcall EtwpTracingProvEnableCallback(
       CurrentThread = KeGetCurrentThread();
       v12 = (volatile signed __int32 *)(NextGuidEntry + 83);
       --CurrentThread->KernelApcDisable;
-      v13 = KeAbPreAcquire((__int64)(NextGuidEntry + 83), 0LL);
+      v13 = (char *)KeAbPreAcquire((__int64)(NextGuidEntry + 83), 0LL);
       v14 = v13;
       if ( _interlockedbittestandset64(v12, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v23 + 664), (__int64)v13, v23 + 664);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v23 + 664), v13, v23 + 664);
       if ( v14 )
-        *((_BYTE *)v14 + 10) = 1;
+        v14[10] = 1;
       *(_QWORD *)(v23 + 672) = KeGetCurrentThread();
       if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_GROUP_ENTRY_INFO) )
         EtwpEventWriteGuidEntry(v15, &ETW_EVENT_GROUP_ENTRY_INFO, v23);
@@ -132,12 +132,12 @@ void __fastcall EtwpTracingProvEnableCallback(
       {
         v26 = KeGetCurrentThread();
         --v26->KernelApcDisable;
-        v27 = KeAbPreAcquire((__int64)(v39 + 83), 0LL);
+        v27 = (char *)KeAbPreAcquire((__int64)(v39 + 83), 0LL);
         v28 = v27;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v39 + 166, 0LL) )
-          ExfAcquirePushLockExclusiveEx(v39 + 83, (__int64)v27, (__int64)(v39 + 83));
+          ExfAcquirePushLockExclusiveEx(v39 + 83, v27, (__int64)(v39 + 83));
         if ( v28 )
-          *((_BYTE *)v28 + 10) = 1;
+          v28[10] = 1;
         v5 = 1;
         v39[84] = KeGetCurrentThread();
       }

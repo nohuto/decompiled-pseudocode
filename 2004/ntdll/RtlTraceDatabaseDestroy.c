@@ -14,7 +14,7 @@ bool __fastcall RtlTraceDatabaseDestroy(__int64 a1)
   char v3; // si
   _QWORD *v4; // rdi
 
-  RtlDeleteCriticalSection((__int64 *)(a1 + 48));
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   v2 = *(_QWORD **)(a1 + 16);
   if ( !v2 )
     return 1;

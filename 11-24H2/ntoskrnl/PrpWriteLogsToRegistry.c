@@ -1,13 +1,13 @@
 /*
- * XREFs of PrpWriteLogsToRegistry @ 0x1404C05E4
+ * XREFs of PrpWriteLogsToRegistry @ 0x1404BBC04
  * Callers:
- *     MicrocodeLogRegistry @ 0x1406647D8 (MicrocodeLogRegistry.c)
+ *     MicrocodeLogRegistry @ 0x1406630C8 (MicrocodeLogRegistry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcslen @ 0x1404FFED0 (wcslen.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcslen @ 0x1404FD790 (wcslen.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
@@ -87,7 +87,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v7) = -4;
     DestinationString.Length = v7;
     DestinationString.MaximumLength = v7 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &xmmword_140EF7830, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &xmmword_140EF7AF0, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Previous Record Version";
     v8 = 2 * wcslen(L"Previous Record Version");
@@ -95,7 +95,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v8) = -4;
     DestinationString.Length = v8;
     DestinationString.MaximumLength = v8 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&xmmword_140EF7830 + 4, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&xmmword_140EF7AF0 + 4, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Current Record Version";
     v9 = 2 * wcslen(L"Current Record Version");
@@ -103,7 +103,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v9) = -4;
     DestinationString.Length = v9;
     DestinationString.MaximumLength = v9 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&xmmword_140EF7830 + 8, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&xmmword_140EF7AF0 + 8, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Preferred Record Version";
     v10 = 2 * wcslen(L"Preferred Record Version");
@@ -111,7 +111,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v10) = -4;
     DestinationString.Length = v10;
     DestinationString.MaximumLength = v10 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&xmmword_140EF7830 + 12, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&xmmword_140EF7AF0 + 12, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Patch Configuration Used";
     v11 = 2 * wcslen(L"Patch Configuration Used");
@@ -119,7 +119,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v11) = -4;
     DestinationString.Length = v11;
     DestinationString.MaximumLength = v11 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &qword_140EF7840, 1u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &qword_140EF7B00, 1u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Update Status";
     v12 = 2 * wcslen(L"Update Status");
@@ -127,7 +127,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v12) = -4;
     DestinationString.Length = v12;
     DestinationString.MaximumLength = v12 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&qword_140EF7840 + 4, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&qword_140EF7B00 + 4, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Update Environment";
     v13 = 2 * wcslen(L"Update Environment");
@@ -135,7 +135,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v13) = -4;
     DestinationString.Length = v13;
     DestinationString.MaximumLength = v13 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &dword_140EF7848, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &dword_140EF7B08, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Update Revision";
     v14 = 2 * wcslen(L"Update Revision");
@@ -143,7 +143,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v14) = -4;
     DestinationString.Length = v14;
     DestinationString.MaximumLength = v14 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, (char *)&xmmword_140EF7830 + 8, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, (char *)&xmmword_140EF7AF0 + 8, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Previous Update Revision";
     v15 = 2 * wcslen(L"Previous Update Revision");
@@ -151,7 +151,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v15) = -4;
     DestinationString.Length = v15;
     DestinationString.MaximumLength = v15 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, (char *)&xmmword_140EF7830 + 4, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, (char *)&xmmword_140EF7AF0 + 4, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Platform Specific Field 1";
     v16 = 2 * wcslen(L"Platform Specific Field 1");

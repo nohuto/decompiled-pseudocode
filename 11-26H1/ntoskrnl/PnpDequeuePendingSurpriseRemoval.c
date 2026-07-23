@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpDequeuePendingSurpriseRemoval @ 0x140913C88
+ * XREFs of PnpDequeuePendingSurpriseRemoval @ 0x1409B5D68
  * Callers:
- *     PnpDelayedRemoveWorker @ 0x140913AC0 (PnpDelayedRemoveWorker.c)
+ *     PnpDelayedRemoveWorker @ 0x1409B5BA0 (PnpDelayedRemoveWorker.c)
  * Callees:
  *     <none>
  */

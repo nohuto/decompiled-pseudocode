@@ -45,8 +45,8 @@ __int64 __fastcall sub_1409FF648(__int64 a1, __int64 a2, int a3, __int64 a4)
   void *v33; // r12
   __int64 *Pool2; // r13
   unsigned __int64 v35; // r12
-  __int64 v36; // rdx
-  int v37; // esi
+  int v36; // esi
+  SE_SIGNING_LEVEL v37; // dl
   __int64 *v38; // rsi
   __int64 v39; // r15
   __int64 v40; // rax
@@ -61,7 +61,7 @@ __int64 __fastcall sub_1409FF648(__int64 a1, __int64 a2, int a3, __int64 a4)
   unsigned int v49; // eax
   unsigned int v50; // eax
   __int64 v51; // [rsp+48h] [rbp-38h]
-  HANDLE Handle; // [rsp+50h] [rbp-30h] BYREF
+  HANDLE TargetFile; // [rsp+50h] [rbp-30h] BYREF
   __int128 v53; // [rsp+58h] [rbp-28h]
   PVOID Object; // [rsp+C0h] [rbp+40h] BYREF
   __int64 v55; // [rsp+C8h] [rbp+48h]
@@ -168,7 +168,7 @@ __int64 __fastcall sub_1409FF648(__int64 a1, __int64 a2, int a3, __int64 a4)
     v31 = v6 + 1;
   if ( (_DWORD)v29 != 16 )
     return (unsigned int)-1073741811;
-  Handle = 0LL;
+  TargetFile = 0LL;
   v32 = 0LL;
   v33 = 0LL;
   v53 = 0LL;
@@ -211,13 +211,13 @@ LABEL_57:
             }
             else
             {
-              if ( ObOpenObjectByPointer(Object, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &Handle) >= 0 )
+              if ( ObOpenObjectByPointer(Object, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &TargetFile) >= 0 )
               {
-                if ( v27 && (v37 = v27 - 1) != 0 && (unsigned int)(v37 - 1) <= 1 )
-                  v36 = 6LL;
+                if ( v27 && (v36 = v27 - 1) != 0 && (unsigned int)(v36 - 1) <= 1 )
+                  v37 = 6;
                 else
-                  LOBYTE(v36) = 0;
-                ZwSetCachedSigningLevel(2LL, v36);
+                  v37 = 0;
+                ZwSetCachedSigningLevel(2u, v37, &TargetFile, 1u, TargetFile);
               }
               LODWORD(v56) = 0;
               v38 = (__int64 *)ExAllocatePool2(0x100uLL);
@@ -295,8 +295,8 @@ LABEL_116:
     goto LABEL_56;
   }
 LABEL_77:
-  if ( Handle )
-    ZwClose(Handle);
+  if ( TargetFile )
+    ZwClose(TargetFile);
   if ( Object )
     ObfDereferenceObject(Object);
   if ( v33 )

@@ -36,10 +36,10 @@ void __fastcall EtwpEnumerateAddressSpace(ULONG_PTR a1, __int64 a2, int *a3)
   int v16; // edx
   unsigned __int64 v17; // rax
   __int64 v18; // r13
-  __int64 v19; // rax
-  int v20; // r8d
-  int v21; // edx
-  __int64 v22; // r9
+  PIMAGE_NT_HEADERS v19; // rax
+  int CheckSum; // r8d
+  int TimeDateStamp; // edx
+  __int64 ImageBase; // r9
   char *v23; // r8
   unsigned int v24; // eax
   int v25; // ecx
@@ -268,21 +268,21 @@ LABEL_35:
       v47 = v53;
       v63 = i[1].m128i_i64[0];
       v60 = v63;
-      v19 = RtlImageNtHeader(i->m128i_i64[1]);
+      v19 = RtlImageNtHeader((PVOID)i->m128i_i64[1]);
       if ( v19 )
       {
-        v20 = *(_DWORD *)(v19 + 88);
-        v47 = v20;
-        v21 = *(_DWORD *)(v19 + 8);
-        v42 = v21;
-        v22 = *(_QWORD *)(v19 + 48);
-        v60 = v22;
+        CheckSum = v19->OptionalHeader.CheckSum;
+        v47 = CheckSum;
+        TimeDateStamp = v19->FileHeader.TimeDateStamp;
+        v42 = TimeDateStamp;
+        ImageBase = v19->OptionalHeader.ImageBase;
+        v60 = ImageBase;
       }
       else
       {
-        v21 = v42;
-        v20 = v53;
-        v22 = v63;
+        TimeDateStamp = v42;
+        CheckSum = v53;
+        ImageBase = v63;
       }
       if ( v48 >= 0 )
       {
@@ -301,11 +301,11 @@ LABEL_35:
             BugCheckParameter1,
             i->m128i_i64[1],
             i[1].m128i_i64[1],
-            v20,
-            v21,
+            CheckSum,
+            TimeDateStamp,
             v18,
             v64,
-            v22,
+            ImageBase,
             0);
       }
       if ( v55 )

@@ -3,8 +3,8 @@
  * Callers:
  *     BgFreeContext @ 0x140725010 (BgFreeContext.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x140099EF0 (MmFreePagesFromMdl.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmFreePagesFromMdl @ 0x1400996F0 (MmFreePagesFromMdl.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     BgpFwReservePoolSwap @ 0x140725168 (BgpFwReservePoolSwap.c)
  *     AnFwDisableBackgroundUpdateTimer @ 0x140725854 (AnFwDisableBackgroundUpdateTimer.c)

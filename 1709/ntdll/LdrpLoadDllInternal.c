@@ -23,25 +23,25 @@
  *     LdrpLogDbgPrint @ 0x1800D0E14 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpLoadDllInternal(
-        __int64 a1,
+int __fastcall LdrpLoadDllInternal(
+        PUNICODE_STRING a1,
         int a2,
         unsigned int a3,
         int a4,
         __int64 a5,
         __int64 a6,
-        __int64 *a7,
+        PVOID *a7,
         int *a8)
 {
-  __int64 result; // rax
+  int result; // eax
   int *v12; // rbx
   char v13; // di
   int v14; // eax
   __int64 v15; // rdx
-  __int64 v16; // rax
+  PVOID v16; // rax
   int v17; // eax
   int v18; // eax
-  __int64 v19; // [rsp+48h] [rbp-30h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-30h] BYREF
 
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -52,9 +52,9 @@ __int64 __fastcall LdrpLoadDllInternal(
       "DLL name: %wZ\n",
       a1);
   *a7 = 0LL;
-  v19 = 0LL;
+  BaseAddress = 0LL;
   result = LdrpFastpthReloadedDll(a1, a3, a6, a7);
-  if ( (int)result < 0 )
+  if ( result < 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
@@ -69,11 +69,11 @@ __int64 __fastcall LdrpLoadDllInternal(
     {
       LdrpDetectDetour();
       v12 = a8;
-      v14 = LdrpFindOrPrepareLoadingModule(a1, a2, a3, a4, a5, &v19, (__int64)a8);
+      v14 = LdrpFindOrPrepareLoadingModule(a1, a2, a3, a4, a5, &BaseAddress, (__int64)a8);
       if ( v14 == -1073741515 )
       {
         LOBYTE(v15) = 1;
-        LdrpProcessWork(*(_QWORD *)(v19 + 176), v15);
+        LdrpProcessWork(*((_QWORD *)BaseAddress + 22), v15);
       }
       else if ( v14 != -1073741267 && v14 < 0 )
       {
@@ -86,36 +86,36 @@ __int64 __fastcall LdrpLoadDllInternal(
       *a8 = -1073741515;
     }
     result = LdrpDrainWorkQueue(1LL);
-    if ( v19 )
+    if ( BaseAddress )
     {
-      v16 = LdrpHandleReplacedModule();
+      v16 = (PVOID)LdrpHandleReplacedModule();
       *a7 = v16;
-      if ( v19 != v16 )
+      if ( BaseAddress != v16 )
       {
-        LdrpFreeReplacedModule();
-        v19 = *a7;
+        LdrpFreeReplacedModule(BaseAddress);
+        BaseAddress = *a7;
       }
-      if ( *(_QWORD *)(v19 + 176) )
-        LdrpCondenseGraph(*(_QWORD *)(v19 + 152));
+      if ( *((_QWORD *)BaseAddress + 22) )
+        LdrpCondenseGraph(*((_QWORD *)BaseAddress + 19));
       if ( *v12 >= 0 )
       {
-        v17 = LdrpPrepareModuleForExecution(v19, (__int64)v12);
+        v17 = LdrpPrepareModuleForExecution((__int64)BaseAddress, (__int64)v12);
         *v12 = v17;
         if ( v17 >= 0 )
         {
-          v18 = LdrpBuildForwarderLink(a6, v19);
+          v18 = LdrpBuildForwarderLink(a6, BaseAddress);
           *v12 = v18;
           if ( v18 >= 0 && !LdrInitState )
-            LdrpPinModule(v19);
+            LdrpPinModule((__int64)BaseAddress);
         }
       }
-      LdrpFreeLoadContextOfNode(*(_QWORD *)(v19 + 152), v12);
-      result = (unsigned int)~*v12;
+      LdrpFreeLoadContextOfNode(*((_QWORD *)BaseAddress + 19), v12);
+      result = ~*v12;
       if ( *v12 < 0 )
       {
         *a7 = 0LL;
-        LdrpDecrementModuleLoadCountEx(v19, 0);
-        result = LdrpDereferenceModule(v19);
+        LdrpDecrementModuleLoadCountEx((__int64)BaseAddress, 0);
+        result = LdrpDereferenceModule((char *)BaseAddress);
       }
     }
     else

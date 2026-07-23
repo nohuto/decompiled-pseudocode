@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x140382CA8
+ * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x140382E58
  * Callers:
- *     PopPowerAggregatorRecordIntent @ 0x140775F60 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x140776120 (PopPowerAggregatorRecordIntent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x140776334 (PopPowerAggregatorDiagTraceEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407764F4 (PopPowerAggregatorDiagTraceEvent.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, __int64 a4, __int64 a5, char a6)

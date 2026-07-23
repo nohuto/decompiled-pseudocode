@@ -16,7 +16,7 @@
  */
 
 __int64 __fastcall IoFillDumpHeader(
-        enum _NT_PRODUCT_TYPE *a1,
+        _NT_PRODUCT_TYPE *a1,
         int a2,
         int a3,
         __int64 a4,
@@ -25,7 +25,7 @@ __int64 __fastcall IoFillDumpHeader(
         __int64 a7,
         __int64 a8)
 {
-  enum _NT_PRODUCT_TYPE *v10; // r11
+  _NT_PRODUCT_TYPE *v10; // r11
   unsigned __int64 v11; // r10
   unsigned __int64 v12; // rax
   size_t v13; // r8

@@ -3,34 +3,34 @@
  * Callers:
  *     MiInitializeDriverImages @ 0x1407A4F78 (MiInitializeDriverImages.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     DbgLoadImageSymbolsUnicode @ 0x1400B0FFC (DbgLoadImageSymbolsUnicode.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiCopyPfnEntry @ 0x140107B40 (MiCopyPfnEntry.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14013018C (DbgUnLoadImageSymbolsUnicode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeReservePrivilegedPages @ 0x1401D20B0 (KeReservePrivilegedPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiProcessLoadConfigForDriver @ 0x140484394 (MiProcessLoadConfigForDriver.c)
- *     MiReserveDriverPtes @ 0x1404CD0DC (MiReserveDriverPtes.c)
- *     MiUseLargeDriverPage @ 0x1404ED9A4 (MiUseLargeDriverPage.c)
- *     MiAllocateDriverPage @ 0x140526790 (MiAllocateDriverPage.c)
- *     MiReleaseDriverPtes @ 0x140544938 (MiReleaseDriverPtes.c)
- *     LdrRelocateImage @ 0x140554094 (LdrRelocateImage.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x140084674 (DbgLoadImageSymbolsUnicode.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiCopyPfnEntry @ 0x1401058C0 (MiCopyPfnEntry.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x1401306FC (DbgUnLoadImageSymbolsUnicode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeReservePrivilegedPages @ 0x1401D1EDC (KeReservePrivilegedPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiProcessLoadConfigForDriver @ 0x1404830E8 (MiProcessLoadConfigForDriver.c)
+ *     MiReserveDriverPtes @ 0x1404B2B08 (MiReserveDriverPtes.c)
+ *     MiUseLargeDriverPage @ 0x1404CFA5C (MiUseLargeDriverPage.c)
+ *     MiAllocateDriverPage @ 0x1405097F0 (MiAllocateDriverPage.c)
+ *     MiReleaseDriverPtes @ 0x140544E78 (MiReleaseDriverPtes.c)
+ *     LdrRelocateImage @ 0x1405545D4 (LdrRelocateImage.c)
  *     MiInitializeSystemImagePage @ 0x1407A5EBC (MiInitializeSystemImagePage.c)
  *     MiUpdateThunks @ 0x1407A5F40 (MiUpdateThunks.c)
  *     MiReturnDriverLoadPages @ 0x1407D106C (MiReturnDriverLoadPages.c)
@@ -121,7 +121,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1, _KPROCESS *a2, unsigned __
       a3 = ((unsigned __int64)*(unsigned int *)(v4 + 64) + 4095) >> 12;
       v46 = v8;
       v39 = a3;
-      if ( PsNtosImageBase != *(_QWORD *)(v4 + 48) )
+      if ( PsNtosImageBase != *(PVOID *)(v4 + 48) )
       {
         MiProcessLoadConfigForDriver(v4);
         a2 = (_KPROCESS *)PsNtosImageBase;
@@ -144,7 +144,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1, _KPROCESS *a2, unsigned __
       v42 = (unsigned int)a3;
       v51 = v10;
       v52 = v10 + 8LL * (unsigned int)a3;
-      if ( (_KPROCESS *)v7 == a2 || v7 == PsHalImageBase )
+      if ( (_KPROCESS *)v7 == a2 || (PVOID)v7 == PsHalImageBase )
         goto LABEL_63;
       v8->OptionalHeader.ImageBase = v7;
       v11 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

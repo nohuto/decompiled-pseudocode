@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConfirmPageIsZero @ 0x140112270
+ * XREFs of MiConfirmPageIsZero @ 0x1401122E0
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
  */
 
 _BOOL8 __fastcall MiConfirmPageIsZero(__int64 a1)

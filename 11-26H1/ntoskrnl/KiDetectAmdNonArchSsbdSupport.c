@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDetectAmdNonArchSsbdSupport @ 0x1405F1A04
+ * XREFs of KiDetectAmdNonArchSsbdSupport @ 0x1405F43C4
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1404E63D0 (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
  */
 
 void __fastcall KiDetectAmdNonArchSsbdSupport(__int64 a1)
@@ -49,7 +49,7 @@ void __fastcall KiDetectAmdNonArchSsbdSupport(__int64 a1)
       *(_QWORD *)&KiSpeculationFeatures = KiSpeculationFeatures | 0x80;
       DWORD2(KiSpeculationFeatures) = -1073672160;
       KiSsbdMsr = -1073672160;
-      qword_140FBFC68 = v12;
+      qword_140FC0C68 = v12;
       KiSsbdBit = v12;
     }
   }

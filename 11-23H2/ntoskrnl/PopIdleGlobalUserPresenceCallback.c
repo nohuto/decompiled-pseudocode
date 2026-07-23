@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleGlobalUserPresenceCallback @ 0x1407A8CB0
+ * XREFs of PopIdleGlobalUserPresenceCallback @ 0x1407A8EA0
  * Callers:
  *     <none>
  * Callees:
- *     PopIdleCancelAoAcDozeS4Timer @ 0x14032EFC0 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14032F250 (PopIdleCancelAoAcDozeS4Timer.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
@@ -12,9 +12,6 @@ __int64 __fastcall PopIdleGlobalUserPresenceCallback(LPCGUID SettingGuid, int *V
 {
   __int64 v4; // rax
   int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
 
   v4 = *(_QWORD *)&SettingGuid->Data1 - *(_QWORD *)&GUID_GLOBAL_USER_PRESENCE.Data1;
   if ( *(_QWORD *)&SettingGuid->Data1 == *(_QWORD *)&GUID_GLOBAL_USER_PRESENCE.Data1 )
@@ -26,11 +23,11 @@ __int64 __fastcall PopIdleGlobalUserPresenceCallback(LPCGUID SettingGuid, int *V
     if ( !v5 )
     {
       PopIdleCancelAoAcDozeS4Timer(2u);
-      qword_140C3D118 = 0LL;
-      qword_140C3D180 = 0LL;
-      dword_140C3CD30 = 0;
+      qword_140C3CDD8 = 0LL;
+      qword_140C3CE40 = 0LL;
+      dword_140C3CCD0 = 0;
     }
-    PopReleasePolicyLock(v7, v6, v8);
+    PopReleasePolicyLock();
   }
   return 0LL;
 }

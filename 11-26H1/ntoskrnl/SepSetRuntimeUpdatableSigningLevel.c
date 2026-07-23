@@ -1,5 +1,5 @@
 /*
- * XREFs of SepSetRuntimeUpdatableSigningLevel @ 0x14080FFA0
+ * XREFs of SepSetRuntimeUpdatableSigningLevel @ 0x140815A30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall SepSetRuntimeUpdatableSigningLevel(char a1)
 {
-  LOBYTE(RtlpBootStatHandleLock.AffinityVersion) = a1;
+  LOBYTE(RtlpBootStatHandleLock.Affinity) = a1;
 }

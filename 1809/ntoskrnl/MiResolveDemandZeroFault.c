@@ -3,20 +3,20 @@
  * Callers:
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
  * Callees:
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiRemoveLockedPageCharge @ 0x1400304A0 (MiRemoveLockedPageCharge.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
  *     MiResolvePrivateZeroFault @ 0x140047430 (MiResolvePrivateZeroFault.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
- *     MiCheckUserVirtualAddress @ 0x140098EA0 (MiCheckUserVirtualAddress.c)
- *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
- *     MiExpandSharedZeroCluster @ 0x14010F710 (MiExpandSharedZeroCluster.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiCheckVirtualAddress @ 0x140098C30 (MiCheckVirtualAddress.c)
+ *     MiCheckUserVirtualAddress @ 0x140098DE0 (MiCheckUserVirtualAddress.c)
+ *     MiCreateSharedZeroPages @ 0x140109240 (MiCreateSharedZeroPages.c)
+ *     MiExpandSharedZeroCluster @ 0x14010F790 (MiExpandSharedZeroCluster.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiResolveDemandZeroFault(unsigned __int64 *a1, unsigned __int64 a2, ULONG_PTR a3, int a4)
@@ -228,7 +228,7 @@ LABEL_62:
   if ( v16
     || v10 > 0xFFFFF6BFFFFFFF78uLL
     || v10 < 0xFFFFF68000000000uLL
-    || (v27 = *(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3)),
+    || (v27 = *(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3)),
         !*(_DWORD *)(v27 + 1144)) )
   {
     v29 = v56;

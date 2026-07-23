@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCallEnclave @ 0x1401B9370
+ * XREFs of ZwCallEnclave @ 0x1401B94D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCallEnclave(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwCallEnclave(PENCLAVE_ROUTINE Routine, PVOID Reserved, ULONG Flags, PVOID *RoutineParamReturn)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(Routine);
 }

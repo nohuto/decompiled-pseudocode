@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlULongLongSub @ 0x1800E4F60
+ * XREFs of RtlULongLongSub @ 0x1800E2E10
  * Callers:
- *     RtlGetImageEnclaveConfig @ 0x18014F144 (RtlGetImageEnclaveConfig.c)
+ *     RtlGetImageEnclaveConfig @ 0x18014EFF4 (RtlGetImageEnclaveConfig.c)
  * Callees:
  *     <none>
  */

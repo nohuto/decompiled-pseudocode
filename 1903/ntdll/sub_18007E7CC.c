@@ -9,23 +9,23 @@
  *     RtlReleaseSRWLockShared @ 0x18001AAF0 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 __fastcall sub_18007E7CC(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+PVOID sub_18007E7CC()
 {
-  __int64 v4; // rbx
-  __int64 v6; // [rsp+30h] [rbp+8h]
+  PVOID v0; // rbx
+  PVOID v2; // [rsp+30h] [rbp+8h]
 
-  v4 = 0LL;
+  v0 = 0LL;
   if ( qword_180166470 )
   {
-    RtlAcquireSRWLockShared(&qword_180166480, a2, a3, a4);
-    v4 = qword_180166470;
-    v6 = qword_180166470;
+    RtlAcquireSRWLockShared(&stru_180166480);
+    v0 = qword_180166470;
+    v2 = qword_180166470;
     if ( qword_180166470 )
     {
       _InterlockedIncrement((volatile signed __int32 *)qword_180166470);
-      v4 = v6;
+      v0 = v2;
     }
-    RtlReleaseSRWLockShared(&qword_180166480);
+    RtlReleaseSRWLockShared(&stru_180166480);
   }
-  return v4;
+  return v0;
 }

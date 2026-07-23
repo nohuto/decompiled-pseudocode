@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUnlockProcessor @ 0x1405CED40
+ * XREFs of PpmIdleUnlockProcessor @ 0x1405CC460
  * Callers:
- *     PpmUnlockProcessors @ 0x1403B66C4 (PpmUnlockProcessors.c)
+ *     PpmUnlockProcessors @ 0x140371990 (PpmUnlockProcessors.c)
  * Callees:
  *     <none>
  */

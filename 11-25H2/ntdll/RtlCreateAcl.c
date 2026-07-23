@@ -12,18 +12,18 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCreateAcl(__int64 a1, unsigned int a2, int a3)
+NTSTATUS __cdecl RtlCreateAcl(PACL Acl, ULONG AclLength, ULONG AclRevision)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( a2 < 8 )
-    return 3221225507LL;
-  if ( (unsigned int)(a3 - 2) > 2 || a2 > 0xFFFC )
-    return 3221225485LL;
-  *(_BYTE *)a1 = a3;
-  result = 0LL;
-  *(_BYTE *)(a1 + 1) = 0;
-  *(_DWORD *)(a1 + 4) = 0;
-  *(_WORD *)(a1 + 2) = a2 & 0xFFFC;
+  if ( AclLength < 8 )
+    return -1073741789;
+  if ( AclRevision - 2 > 2 || AclLength > 0xFFFC )
+    return -1073741811;
+  Acl->AclRevision = AclRevision;
+  result = 0;
+  Acl->Sbz1 = 0;
+  *(_DWORD *)&Acl->AceCount = 0;
+  Acl->AclSize = AclLength & 0xFFFC;
   return result;
 }

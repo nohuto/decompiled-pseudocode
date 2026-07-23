@@ -1,13 +1,13 @@
 /*
- * XREFs of TppTerminateProcess @ 0x18011F6C8
+ * XREFs of TppTerminateProcess @ 0x18011F478
  * Callers:
- *     TppWorkerpInnerExceptionFilter @ 0x18011F1F4 (TppWorkerpInnerExceptionFilter.c)
- *     TppWorkerpOuterExceptionFilter @ 0x180159520 (TppWorkerpOuterExceptionFilter.c)
+ *     TppWorkerpInnerExceptionFilter @ 0x18011EFA4 (TppWorkerpInnerExceptionFilter.c)
+ *     TppWorkerpOuterExceptionFilter @ 0x1801593F0 (TppWorkerpOuterExceptionFilter.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall TppTerminateProcess(unsigned int **a1)
+NTSTATUS __fastcall TppTerminateProcess(NTSTATUS **a1)
 {
-  return ZwTerminateProcess(-1LL, **a1);
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, **a1);
 }

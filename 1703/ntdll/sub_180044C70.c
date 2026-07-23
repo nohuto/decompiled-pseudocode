@@ -30,8 +30,8 @@ __int64 __fastcall sub_180044C70(__int64 a1, const WCHAR *a2, char a3, _WORD *a4
   int v13; // ecx
   __int64 v14; // r10
   __int64 v15; // rdx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
-  int v17; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
   v8 = -1073741772;
   v9 = 0;
@@ -40,7 +40,7 @@ __int64 __fastcall sub_180044C70(__int64 a1, const WCHAR *a2, char a3, _WORD *a4
   v10 = *(_QWORD *)(a1 + 24);
   if ( *a2 )
   {
-    v11 = sub_180045EFC(*(_QWORD *)(a1 + 32), a2, 0LL, &v17);
+    v11 = sub_180045EFC(*(_QWORD *)(a1 + 32), a2, 0LL, &Lcid);
     if ( v11 >= 0 )
     {
       v13 = 0;
@@ -74,10 +74,10 @@ __int64 __fastcall sub_180044C70(__int64 a1, const WCHAR *a2, char a3, _WORD *a4
   if ( a3 )
   {
     RtlInitUnicodeString(&DestinationString, a2);
-    if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v17) )
+    if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
     {
-      if ( v17 != 4096 )
-        v8 = sub_180045B5C(a1, (unsigned __int16)v17, 0LL, a4);
+      if ( Lcid != 4096 )
+        v8 = sub_180045B5C(a1, (unsigned __int16)Lcid, 0LL, a4);
     }
   }
   if ( v9 && v8 == -1073741772 )

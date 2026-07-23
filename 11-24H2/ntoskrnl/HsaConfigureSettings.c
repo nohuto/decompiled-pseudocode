@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaConfigureSettings @ 0x140B52AE0
+ * XREFs of HsaConfigureSettings @ 0x140B54B30
  * Callers:
  *     <none>
  * Callees:

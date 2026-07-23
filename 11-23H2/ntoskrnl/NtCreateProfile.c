@@ -1,23 +1,23 @@
 /*
- * XREFs of NtCreateProfile @ 0x140A04390
+ * XREFs of NtCreateProfile @ 0x140A04620
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryGroupAffinity @ 0x14032A290 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExpProfileCreate @ 0x140A03C78 (ExpProfileCreate.c)
+ *     KeQueryGroupAffinity @ 0x14032A520 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExpProfileCreate @ 0x140A03F08 (ExpProfileCreate.c)
  */
 
-__int64 __fastcall NtCreateProfile(
-        __int64 *a1,
-        ULONG_PTR a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        int a5,
-        volatile void *a6,
-        unsigned int a7,
-        int a8,
-        KAFFINITY a9)
+NTSTATUS __cdecl NtCreateProfile(
+        PHANDLE ProfileHandle,
+        HANDLE Process,
+        PVOID ProfileBase,
+        SIZE_T ProfileSize,
+        ULONG BucketSize,
+        PULONG Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        KAFFINITY Affinity)
 {
   USHORT Group; // cx
   KAFFINITY GroupAffinity; // rax
@@ -26,10 +26,21 @@ __int64 __fastcall NtCreateProfile(
 
   v17 = 0LL;
   Group = KeGetCurrentPrcb()->Group;
-  GroupAffinity = a9;
+  GroupAffinity = Affinity;
   LOWORD(v17) = Group;
-  if ( a9 == -1LL )
+  if ( Affinity == -1LL )
     GroupAffinity = KeQueryGroupAffinity(Group);
   v16 = GroupAffinity;
-  return ExpProfileCreate(a1, a2, a3, a4, a5, a6, a7, a8, 1u, (unsigned __int64)&v16, 1);
+  return ExpProfileCreate(
+           (__int64 *)ProfileHandle,
+           (ULONG_PTR)Process,
+           (unsigned __int64)ProfileBase,
+           ProfileSize,
+           BucketSize,
+           Buffer,
+           BufferSize,
+           ProfileSource,
+           1u,
+           (unsigned __int64)&v16,
+           1);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of IoIsDeviceEjectable @ 0x1400FDD7C
+ * XREFs of IoIsDeviceEjectable @ 0x1400FBAFC
  * Callers:
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
  *     <none>
  */

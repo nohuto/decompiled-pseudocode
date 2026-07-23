@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBitmapRangeZero @ 0x140097470
+ * XREFs of MiBitmapRangeZero @ 0x1400973B0
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
+ *     MiReturnPageTablePageCommitment @ 0x1405ED380 (MiReturnPageTablePageCommitment.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
  */
 
 __int64 __fastcall MiBitmapRangeZero(__int64 a1, int a2, int *a3)

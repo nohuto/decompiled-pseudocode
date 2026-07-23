@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeBootDriverPage @ 0x1409B83FC
+ * XREFs of MiFreeBootDriverPage @ 0x1409B93FC
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
- *     MiRelocateBootImage @ 0x1409B82CC (MiRelocateBootImage.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
+ *     MiRelocateBootImage @ 0x1409B92CC (MiRelocateBootImage.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiFreeBootDriverPage(unsigned __int64 a1, __int64 a2, int a3)
@@ -32,7 +32,7 @@ __int64 __fastcall MiFreeBootDriverPage(unsigned __int64 a1, __int64 a2, int a3)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v7 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_2;
       v11 = (v6 & 1) == 0;
     }

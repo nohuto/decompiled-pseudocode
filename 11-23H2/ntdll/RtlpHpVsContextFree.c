@@ -14,11 +14,16 @@
  *     RtlpHpVsSubsegmentCommitPages @ 0x18006D96C (RtlpHpVsSubsegmentCommitPages.c)
  *     RtlpInterlockedPushEntrySList @ 0x1800A4C80 (RtlpInterlockedPushEntrySList.c)
  *     RtlpInterlockedFlushSList @ 0x1800A4CC0 (RtlpInterlockedFlushSList.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
- *     RtlpHpVsChunkAlignSplit @ 0x180123FE8 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x180123FB8 (RtlpHpVsChunkAlignSplit.c)
  */
 
-__int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall RtlpHpVsContextFree(
+        PRTL_SRWLOCK SRWLock,
+        unsigned __int64 a2,
+        __int64 a3,
+        unsigned int a4,
+        _DWORD *a5)
 {
   int v5; // r10d
   unsigned __int64 v6; // rbx
@@ -29,7 +34,7 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   __int64 v12; // rax
   int v13; // r12d
   _QWORD *v14; // r15
-  volatile signed __int64 *v15; // rdi
+  _RTL_SRWLOCK *v15; // rdi
   __int64 v16; // rcx
   __int64 v17; // rsi
   unsigned __int64 v18; // rdx
@@ -52,12 +57,12 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   unsigned __int64 v35; // rdx
   unsigned __int64 v36; // rax
   __int64 v37; // rax
-  __int64 v38; // r9
-  __int64 v39; // rdx
-  unsigned __int8 v40; // al
+  unsigned __int64 Value; // r9
+  unsigned __int64 v39; // rdx
+  BOOLEAN v40; // al
   int v41; // r9d
-  __int64 v42; // rax
-  __int64 v44; // rax
+  unsigned __int64 v42; // rax
+  unsigned __int64 v44; // rax
   unsigned int v45; // edx
   unsigned int v46; // r10d
   unsigned __int64 v47; // r14
@@ -74,18 +79,18 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   int v58; // r9d
   int v59; // r8d
   int v60; // ecx
-  __int64 v61; // rcx
+  PRTL_SRWLOCK v61; // rcx
   unsigned __int64 v62; // rdx
   __int64 v63; // rax
   __int64 v64; // [rsp+30h] [rbp-58h]
   __int64 v65; // [rsp+40h] [rbp-48h]
-  volatile signed __int64 *v66; // [rsp+90h] [rbp+8h]
+  _RTL_SRWLOCK *v66; // [rsp+90h] [rbp+8h]
   unsigned int v67; // [rsp+98h] [rbp+10h] BYREF
-  volatile signed __int64 *v68; // [rsp+A0h] [rbp+18h]
+  PRTL_SRWLOCK SRWLocka; // [rsp+A0h] [rbp+18h]
   unsigned int v69; // [rsp+A8h] [rbp+20h]
 
   v69 = a4;
-  v5 = *(_DWORD *)(a1 + 176);
+  v5 = (int)SRWLock[22].0;
   v6 = a3 - 16;
   v7 = a4;
   v8 = a3;
@@ -133,7 +138,7 @@ LABEL_3:
     v59 = a2;
     v60 = 18;
 LABEL_90:
-    RtlpLogHeapFailure(v60, *(_DWORD *)(a1 + 128) ^ a1, v59, v58, 0LL, 0LL);
+    RtlpLogHeapFailure(v60, *(_DWORD *)&SRWLock[16].0 ^ (unsigned int)SRWLock, v59, v58, 0LL, 0LL);
     return 0LL;
   }
   if ( ((v6 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v6) & 0xFF000000000000LL) == 0 )
@@ -148,8 +153,8 @@ LABEL_90:
   v12 = 0LL;
   if ( (v5 & 4) != 0 && (unsigned int)v11 < 0x1000 )
   {
-    v61 = a1 + 64;
-    if ( *(_WORD *)(a1 + 64) < 0x20u )
+    v61 = SRWLock + 8;
+    if ( *(_WORD *)&SRWLock[8].0 < 0x20u )
     {
       RtlpInterlockedPushEntrySList(v61, v6 + 16);
       return 1LL;
@@ -163,13 +168,13 @@ LABEL_90:
   if ( (v7 & 1) != 0 )
   {
     v15 = v66;
-    v68 = v66;
+    SRWLocka = v66;
   }
   else
   {
-    v68 = (volatile signed __int64 *)a1;
-    v15 = (volatile signed __int64 *)a1;
-    RtlAcquireSRWLockExclusive(a1);
+    SRWLocka = SRWLock;
+    v15 = SRWLock;
+    RtlAcquireSRWLockExclusive(SRWLock);
   }
   if ( v6 != -16LL )
   {
@@ -211,13 +216,13 @@ LABEL_11:
       v22 = (v19 - (unsigned int)(v21 << 12)) & 0xFFFFFFFFFFFFF000uLL;
       if ( (((unsigned __int16)(*(_WORD *)(v22 + 32) ^ *(_WORD *)(v22 + 34)) ^ 0x2BED) & 0x7FFF) != 0 )
       {
-        RtlpLogHeapFailure(18, *(_DWORD *)(a1 + 128) ^ a1, v22, 0, 0LL, 0LL);
+        RtlpLogHeapFailure(18, *(_DWORD *)&SRWLock[16].0 ^ (unsigned int)SRWLock, v22, 0, 0LL, 0LL);
       }
       else if ( ((RtlpHpHeapGlobals ^ v17 ^ v16) & 0xFF000000000000LL) != 0 )
       {
         for ( i = 0; ; i = v26 )
         {
-          v24 = RtlpHpVsChunkCoalesce(a1, v22, v17, &v67);
+          v24 = RtlpHpVsChunkCoalesce(SRWLock, v22, v17, &v67);
           v26 = v67;
           v17 = v24;
           if ( v67 == *(unsigned __int16 *)(v22 + 32) )
@@ -247,19 +252,19 @@ LABEL_11:
                  + (((v48 & 0x3333333333333333LL) + ((v48 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
           if ( *(__int16 *)(v22 + 34) < 0 )
             goto LABEL_83;
-          if ( (*(_BYTE *)(a1 + 176) & 2) == 0 )
+          if ( (*(_BYTE *)&SRWLock[22].0 & 2) == 0 )
           {
-            v25 = *(_QWORD *)(a1 + 48) >> 7;
+            v25 = SRWLock[6].Value >> 7;
             if ( v25 <= 8 )
               v25 = 8LL;
-            if ( *(_QWORD *)(a1 + 56) + (unsigned __int64)(unsigned int)v49 <= v25 )
+            if ( SRWLock[7].Value + (unsigned int)v49 <= v25 )
             {
 LABEL_83:
-              if ( (*(_BYTE *)(a1 + 176) & 1) != 0 && ((v17 + 32) & 0xFFF) != 0 )
+              if ( (*(_BYTE *)&SRWLock[22].0 & 1) != 0 && ((v17 + 32) & 0xFFF) != 0 )
               {
                 v63 = RtlpHpVsChunkAlignSplit(v25, v22, v17, WORD1(RtlpHpHeapGlobals));
                 if ( v63 )
-                  RtlpHpVsFreeChunkInsert(a1, v22, v63);
+                  RtlpHpVsFreeChunkInsert(SRWLock, v22, v63);
                 v27 = WORD1(RtlpHpHeapGlobals);
               }
               v31 = 16 * (v27 ^ (((unsigned int)v17 ^ *(_DWORD *)v17) >> 16));
@@ -277,11 +282,10 @@ LABEL_83:
                 v35 = 0LL;
               }
               v36 = v35 - ((v35 >> 1) & 0x5555555555555555LL);
-              *(_QWORD *)(a1 + 56) += (unsigned int)((0x101010101010101LL
-                                                    * (((v36 & 0x3333333333333333LL)
-                                                      + ((v36 >> 2) & 0x3333333333333333LL)
-                                                      + (((v36 & 0x3333333333333333LL)
-                                                        + ((v36 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24;
+              SRWLock[7].Value += (unsigned int)((0x101010101010101LL
+                                                * (((v36 & 0x3333333333333333LL)
+                                                  + ((v36 >> 2) & 0x3333333333333333LL)
+                                                  + (((v36 & 0x3333333333333333LL) + ((v36 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24;
               LODWORD(v64) = (unsigned __int16)(v64 ^ (((v31 + (unsigned __int64)(v17 & 0xFFF) + 4095) >> 12)
                                                      - ((unsigned __int64)(v31 + 4095) >> 12)
                                                      + (v34 >> 12)
@@ -292,20 +296,20 @@ LABEL_83:
                                                            + ((v36 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56))) ^ (unsigned int)v64;
               v37 = RtlpHpHeapGlobals ^ v17 ^ v64;
               *(_WORD *)v17 = v37;
-              v38 = *(_QWORD *)(a1 + 24);
+              Value = SRWLock[3].Value;
               v64 = v37;
-              if ( (v38 & 1) == 0 )
+              if ( (Value & 1) == 0 )
               {
-                v39 = *(_QWORD *)(a1 + 16);
+                v39 = SRWLock[2].Value;
                 goto LABEL_22;
               }
-              v44 = *(_QWORD *)(a1 + 16);
+              v44 = SRWLock[2].Value;
               if ( v44 )
               {
-                v39 = v44 ^ (a1 + 16);
+                v39 = v44 ^ (unsigned __int64)&SRWLock[2];
 LABEL_22:
                 v40 = 0;
-                v41 = v38 & 1;
+                v41 = Value & 1;
                 if ( !v39 )
                   goto LABEL_36;
                 while ( 1 )
@@ -345,7 +349,7 @@ LABEL_33:
 LABEL_35:
               v40 = 0;
 LABEL_36:
-              RtlRbInsertNodeEx(a1 + 16, v39, v40, v17 + 8);
+              RtlRbInsertNodeEx((PRTL_RB_TREE)&SRWLock[2], (PRTL_BALANCED_NODE)v39, v40, (PRTL_BALANCED_NODE)(v17 + 8));
               goto LABEL_37;
             }
           }
@@ -355,43 +359,43 @@ LABEL_36:
           *(_DWORD *)(v17 + 8) = (unsigned __int8)(RtlpHpHeapGlobals ^ v17 ^ (v28 >> 12)) | 0x200;
           if ( (_DWORD)v66 )
           {
-            RtlpHpVsSubsegmentCommitPages(a1, v22, v47, v49, 0);
+            RtlpHpVsSubsegmentCommitPages((_DWORD)SRWLock, v22, v47, v49, 0);
           }
           else
           {
-            RtlReleaseSRWLockExclusive(v68);
-            RtlpHpVsSubsegmentCommitPages(a1, v22, v47, v49, 0);
-            v68 = (volatile signed __int64 *)a1;
-            RtlAcquireSRWLockExclusive(a1);
+            RtlReleaseSRWLockExclusive(SRWLocka);
+            RtlpHpVsSubsegmentCommitPages((_DWORD)SRWLock, v22, v47, v49, 0);
+            SRWLocka = SRWLock;
+            RtlAcquireSRWLockExclusive(SRWLock);
           }
           *(_DWORD *)(v17 + 8) &= ~0x200u;
         }
-        RtlpHpVsSubsegmentCleanup(a1, v22);
+        RtlpHpVsSubsegmentCleanup(SRWLock, v22);
         if ( !v22 )
         {
 LABEL_37:
-          v15 = v68;
+          v15 = SRWLocka;
           v13 = (int)v66;
           continue;
         }
         v13 = (int)v66;
         if ( (_DWORD)v66 )
         {
-          RtlpHpVsSubsegmentFree(a1, v22, v69);
-          v15 = v68;
+          RtlpHpVsSubsegmentFree(SRWLock, v22, v69);
+          v15 = SRWLocka;
         }
         else
         {
-          RtlReleaseSRWLockExclusive(v68);
-          RtlpHpVsSubsegmentFree(a1, v22, v69);
-          v68 = (volatile signed __int64 *)a1;
-          v15 = (volatile signed __int64 *)a1;
-          RtlAcquireSRWLockExclusive(a1);
+          RtlReleaseSRWLockExclusive(SRWLocka);
+          RtlpHpVsSubsegmentFree(SRWLock, v22, v69);
+          SRWLocka = SRWLock;
+          v15 = SRWLock;
+          RtlAcquireSRWLockExclusive(SRWLock);
         }
       }
       else
       {
-        RtlpLogHeapFailure(8, *(_DWORD *)(a1 + 128) ^ a1, v17, 0, 0LL, 0LL);
+        RtlpLogHeapFailure(8, *(_DWORD *)&SRWLock[16].0 ^ (unsigned int)SRWLock, v17, 0, 0LL, 0LL);
       }
     }
     while ( v14 );

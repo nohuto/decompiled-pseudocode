@@ -1,7 +1,7 @@
 /*
- * XREFs of ValidateOptionalString @ 0x1800E6F6C
+ * XREFs of ValidateOptionalString @ 0x1800E241C
  * Callers:
- *     RtlCreateProcessParametersInternal @ 0x1800E6A30 (RtlCreateProcessParametersInternal.c)
+ *     RtlCreateProcessParametersInternal @ 0x1800E1EE0 (RtlCreateProcessParametersInternal.c)
  * Callees:
  *     <none>
  */

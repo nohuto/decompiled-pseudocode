@@ -9,10 +9,10 @@
  *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
  */
 
-PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall ViGrowPoolAllocation(_SLIST_HEADER *a1)
 {
   __int64 Pool2; // rax
-  union _SLIST_HEADER *v3; // rdi
+  _SLIST_HEADER *v3; // rdi
   __int64 v4; // rbx
   __int64 v6; // rsi
 

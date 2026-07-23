@@ -1,21 +1,21 @@
 /*
- * XREFs of VslConnectSwInterrupt @ 0x140C650B0
+ * XREFs of VslConnectSwInterrupt @ 0x140C6722C
  * Callers:
- *     KiConnectSwInterrupt @ 0x140C28714 (KiConnectSwInterrupt.c)
- *     PipInitializeCoreDriversAndElam @ 0x140C633C4 (PipInitializeCoreDriversAndElam.c)
+ *     KiConnectSwInterrupt @ 0x140C2A7B4 (KiConnectSwInterrupt.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140C65540 (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HvlIsCoreSharingPossible @ 0x1405827C8 (HvlIsCoreSharingPossible.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     KiAreCodePatchesAllowed @ 0x140C26BD0 (KiAreCodePatchesAllowed.c)
- *     VslpRecordBootRanges @ 0x140C67114 (VslpRecordBootRanges.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HvlIsCoreSharingPossible @ 0x14057FB48 (HvlIsCoreSharingPossible.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     KiAreCodePatchesAllowed @ 0x140C28C20 (KiAreCodePatchesAllowed.c)
+ *     VslpRecordBootRanges @ 0x140C69290 (VslpRecordBootRanges.c)
  */
 
 __int64 __fastcall VslConnectSwInterrupt(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -134,7 +134,7 @@ __int64 __fastcall VslConnectSwInterrupt(ULONG_PTR BugCheckParameter2, ULONG_PTR
     v33[1] = v27;
     v34 = v32;
     v33[5] = v31;
-    v17 = VslpEnterIumSecureMode(2u, 55LL, 0, (__int64)v33);
+    v17 = VslpEnterIumSecureMode(2u, 0x37u, 0, (__int64)v33);
     v18 = v17;
     if ( v17 < 0 )
       KeBugCheckEx(0x13Du, 0xFFFFFFFDuLL, BugCheckParameter2, BugCheckParameter3, v17);

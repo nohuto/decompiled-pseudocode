@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkZeroedPageCold @ 0x14070E5E0
+ * XREFs of MiMarkZeroedPageCold @ 0x1407132E0
  * Callers:
- *     MiBackgroundZeroPage @ 0x14045D3B4 (MiBackgroundZeroPage.c)
+ *     MiBackgroundZeroPage @ 0x140456DB4 (MiBackgroundZeroPage.c)
  * Callees:
- *     MiFlushZeroPageHeatBatch @ 0x14048CE3C (MiFlushZeroPageHeatBatch.c)
- *     MiAddPageToHeatRanges @ 0x140491458 (MiAddPageToHeatRanges.c)
+ *     MiFlushZeroPageHeatBatch @ 0x14048697C (MiFlushZeroPageHeatBatch.c)
+ *     MiAddPageToHeatRanges @ 0x14048AFA8 (MiAddPageToHeatRanges.c)
  */
 
 __int64 __fastcall MiMarkZeroedPageCold(__int64 a1, _QWORD *a2)

@@ -1,17 +1,17 @@
 /*
  * XREFs of _flsbuf @ 0x1403E3D0C
  * Callers:
- *     _vsnwprintf_l @ 0x1403E0460 (_vsnwprintf_l.c)
- *     _vsnprintf_l @ 0x1403E0580 (_vsnprintf_l.c)
+ *     sub_1403E0460 @ 0x1403E0460 (sub_1403E0460.c)
+ *     sub_1403E0580 @ 0x1403E0580 (sub_1403E0580.c)
  *     _snprintf @ 0x1403E0F90 (_snprintf.c)
  *     _snwprintf @ 0x1403E1050 (_snwprintf.c)
  *     swprintf @ 0x1403E12E0 (swprintf.c)
- *     _vswprintf_l @ 0x1403E13CC (_vswprintf_l.c)
+ *     sub_1403E13CC @ 0x1403E13CC (sub_1403E13CC.c)
  *     sprintf @ 0x1403E26A0 (sprintf.c)
- *     _vsprintf_l @ 0x1403E3198 (_vsprintf_l.c)
+ *     sub_1403E3198 @ 0x1403E3198 (sub_1403E3198.c)
  *     write_char_0 @ 0x1403E4FC8 (write_char_0.c)
- *     _soutput_s @ 0x1403E8394 (_soutput_s.c)
- *     _swoutput_s @ 0x1403E847C (_swoutput_s.c)
+ *     sub_1403E8394 @ 0x1403E8394 (sub_1403E8394.c)
+ *     sub_1403E847C @ 0x1403E847C (sub_1403E847C.c)
  * Callees:
  *     <none>
  */

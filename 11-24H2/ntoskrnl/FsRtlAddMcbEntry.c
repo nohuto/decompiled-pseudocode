@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlAddMcbEntry @ 0x14057FA30
+ * XREFs of FsRtlAddMcbEntry @ 0x14057CE70
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAddLargeMcbEntry @ 0x1403DF6B0 (FsRtlAddLargeMcbEntry.c)
+ *     FsRtlAddLargeMcbEntry @ 0x1403BF3A0 (FsRtlAddLargeMcbEntry.c)
  */
 
 BOOLEAN __stdcall FsRtlAddMcbEntry(PMCB Mcb, VBN Vbn, LBN Lbn, ULONG SectorCount)

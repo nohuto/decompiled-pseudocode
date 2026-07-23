@@ -1,10 +1,10 @@
 /*
- * XREFs of MD4Update @ 0x180124C60
+ * XREFs of MD4Update @ 0x180124C30
  * Callers:
- *     MD4Final @ 0x1801245D0 (MD4Final.c)
+ *     MD4Final @ 0x1801245A0 (MD4Final.c)
  * Callees:
  *     memmove @ 0x1800A7A40 (memmove.c)
- *     MD4Transform @ 0x1801246CC (MD4Transform.c)
+ *     MD4Transform @ 0x18012469C (MD4Transform.c)
  */
 
 void *__fastcall MD4Update(__int64 a1, _OWORD *a2, unsigned int a3)

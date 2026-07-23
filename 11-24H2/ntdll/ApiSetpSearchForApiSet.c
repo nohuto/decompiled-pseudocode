@@ -1,8 +1,8 @@
 /*
- * XREFs of ApiSetpSearchForApiSet @ 0x1800C05D0
+ * XREFs of ApiSetpSearchForApiSet @ 0x1800B8390
  * Callers:
- *     ApiSetResolveToHost @ 0x18005B040 (ApiSetResolveToHost.c)
- *     ApiSetQuerySchemaInfo @ 0x180118F7C (ApiSetQuerySchemaInfo.c)
+ *     ApiSetResolveToHost @ 0x180070C20 (ApiSetResolveToHost.c)
+ *     ApiSetQuerySchemaInfo @ 0x1801140BC (ApiSetQuerySchemaInfo.c)
  * Callees:
  *     <none>
  */
@@ -92,14 +92,14 @@ __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, unsigned __int16 *a2, unsi
       {
         if ( (unsigned int)v23 > 0x7A )
         {
-          if ( qword_1801CD038 && (unsigned __int16)v23 >= 0xC0u )
-            LOWORD(v23) = *(_WORD *)(qword_1801CD038
+          if ( qword_1801CC038 && (unsigned __int16)v23 >= 0xC0u )
+            LOWORD(v23) = *(_WORD *)(qword_1801CC038
                                    + 2
                                    * ((v23 & 0xF)
-                                    + *(unsigned __int16 *)(qword_1801CD038
+                                    + *(unsigned __int16 *)(qword_1801CC038
                                                           + 2LL
                                                           * (((unsigned __int8)v23 >> 4)
-                                                           + (unsigned int)*(unsigned __int16 *)(qword_1801CD038
+                                                           + (unsigned int)*(unsigned __int16 *)(qword_1801CC038
                                                                                                + 2 * (v23 >> 8))))))
                         + v23;
         }
@@ -112,16 +112,16 @@ __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, unsigned __int16 *a2, unsi
       {
         if ( (unsigned int)v24 > 0x7A )
         {
-          if ( qword_1801CD038 )
+          if ( qword_1801CC038 )
           {
             if ( (unsigned __int16)v24 >= 0xC0u )
-              LOWORD(v24) = *(_WORD *)(qword_1801CD038
+              LOWORD(v24) = *(_WORD *)(qword_1801CC038
                                      + 2
                                      * ((v24 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801CD038
+                                      + *(unsigned __int16 *)(qword_1801CC038
                                                             + 2LL
                                                             * (((unsigned __int8)v24 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801CD038
+                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801CC038
                                                                                                  + 2 * (v24 >> 8))))))
                           + v24;
           }

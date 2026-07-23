@@ -6,7 +6,7 @@
  *     RtlpLocateXStateChunk @ 0x180077D6C (RtlpLocateXStateChunk.c)
  */
 
-char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, int a2, _DWORD *a3)
+PVOID __cdecl RtlLocateExtendedFeature(PCONTEXT_EX ContextEx, ULONG FeatureId, PULONG Length)
 {
   char *XStateChunk; // rax
   __int64 v5; // r10
@@ -17,12 +17,12 @@ char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, int a2, _DWORD *a3)
   __int64 v10; // rax
   __int64 v11; // rdx
 
-  if ( (unsigned int)(a2 - 2) <= 0x3D && ((1LL << a2) & MEMORY[0x7FFE03D8]) != 0 )
+  if ( FeatureId - 2 <= 0x3D && ((1LL << FeatureId) & MEMORY[0x7FFE03D8]) != 0 )
   {
-    XStateChunk = RtlpLocateXStateChunk(a1);
+    XStateChunk = RtlpLocateXStateChunk(ContextEx);
     v7 = XStateChunk;
-    if ( a3 )
-      *a3 = *(_DWORD *)(8 * v5 + 0x7FFE03F4);
+    if ( Length )
+      *Length = *(_DWORD *)(8 * v5 + 0x7FFE03F4);
     v8 = 2;
     if ( (MEMORY[0x7FFE03EC] & 2) == 0 )
     {

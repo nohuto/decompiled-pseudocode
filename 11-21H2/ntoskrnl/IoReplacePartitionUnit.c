@@ -1,13 +1,13 @@
 /*
  * XREFs of IoReplacePartitionUnit @ 0x140943170
  * Callers:
- *     NtReplacePartitionUnit @ 0x140654720 (NtReplacePartitionUnit.c)
+ *     sub_140654720 @ 0x140654720 (sub_140654720.c)
  * Callees:
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
  *     memset @ 0x140435E00 (memset.c)
- *     PnpReplacePartitionUnit @ 0x140950E30 (PnpReplacePartitionUnit.c)
+ *     sub_140950E30 @ 0x140950E30 (sub_140950E30.c)
  */
 
 NTSTATUS __stdcall IoReplacePartitionUnit(PDEVICE_OBJECT TargetPdo, PDEVICE_OBJECT SparePdo, ULONG Flags)
@@ -20,14 +20,14 @@ NTSTATUS __stdcall IoReplacePartitionUnit(PDEVICE_OBJECT TargetPdo, PDEVICE_OBJE
   *(_DWORD *)&v7[16] = Flags;
   *(_DWORD *)&v7[20] = -1073741823;
   KeInitializeEvent((PRKEVENT)&v7[24], NotificationEvent, 0);
-  if ( KeGetCurrentThread()->ApcState.Process == PsInitialSystemProcess )
+  if ( *((PEPROCESS *)KeGetCurrentThread() + 23) == PsInitialSystemProcess )
   {
-    PnpReplacePartitionUnit(v7);
+    sub_140950E30(v7);
   }
   else
   {
     *(_QWORD *)&v7[48] = 0LL;
-    *(_QWORD *)&v7[64] = PnpReplacePartitionUnit;
+    *(_QWORD *)&v7[64] = sub_140950E30;
     *(_QWORD *)&v7[72] = v7;
     ExQueueWorkItem((PWORK_QUEUE_ITEM)&v7[48], DelayedWorkQueue);
     KeWaitForSingleObject(&v7[24], Executive, 0, 0, 0LL);

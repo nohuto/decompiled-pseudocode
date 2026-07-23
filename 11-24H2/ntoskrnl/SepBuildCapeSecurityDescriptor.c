@@ -1,26 +1,19 @@
 /*
- * XREFs of SepBuildCapeSecurityDescriptor @ 0x1404D060C
+ * XREFs of SepBuildCapeSecurityDescriptor @ 0x1404C9800
  * Callers:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140A07B00 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140A04030 (RtlSetSaclSecurityDescriptor.c)
  */
 
-NTSTATUS __fastcall SepBuildCapeSecurityDescriptor(
-        PSECURITY_DESCRIPTOR SecurityDescriptor,
-        unsigned __int8 *a2,
-        __int64 a3)
+int __fastcall SepBuildCapeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, unsigned __int8 *a2, ACL *a3)
 {
-  NTSTATUS result; // eax
+  int result; // eax
   __int16 v7; // ax
   ACL *v8; // r8
   __int64 v9; // rax
-  __int64 v10; // rdx
 
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, *a2);
   if ( result >= 0 )
@@ -51,10 +44,7 @@ LABEL_8:
                v8,
                (*((_WORD *)a2 + 1) & 8) != 0);
     if ( result >= 0 )
-    {
-      LOBYTE(v10) = 1;
-      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, v10, a3, 0LL);
-    }
+      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, a3, 0);
   }
   return result;
 }

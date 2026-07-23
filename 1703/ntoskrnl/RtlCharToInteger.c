@@ -10,17 +10,17 @@
 NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
 {
   PCSZ v5; // r9
-  char v6; // r11
-  char *v7; // r9
-  char v8; // dl
-  char *v9; // r8
+  CHAR v6; // r11
+  CHAR *v7; // r9
+  CHAR v8; // dl
+  CHAR *v9; // r8
   int v10; // ecx
   int v11; // r8d
   ULONG v12; // eax
   ULONG v13; // eax
   PCSZ v15; // rcx
-  char v16; // al
-  char *v17; // r9
+  CHAR v16; // al
+  CHAR *v17; // r9
 
   v5 = String;
   v6 = *String;
@@ -35,12 +35,12 @@ NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
       if ( *v5 > 32 )
         goto LABEL_2;
     }
-    v7 = (char *)v15;
+    v7 = (CHAR *)v15;
   }
   else
   {
 LABEL_2:
-    v7 = (char *)(v5 + 1);
+    v7 = (CHAR *)(v5 + 1);
   }
   v8 = v6;
   if ( ((v6 - 43) & 0xFD) == 0 )

@@ -11,31 +11,24 @@
  *     sub_1801058B8 @ 0x1801058B8 (sub_1801058B8.c)
  */
 
-struct _PEB *__fastcall TpSetPoolMaxThreads(__int64 a1, int a2)
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  struct _PEB *result; // rax
-  __int64 v8; // rcx
-  int v9; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v3; // rcx
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v9 = a2;
-  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return (struct _PEB *)sub_1801058B8();
-  ZwSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v9);
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId(v4, v3, v5, v6);
-  if ( (_DWORD)result )
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool || (MaxThreads & 0x80000000) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = NtCurrentPeb();
-    v8 = (__int64)result->HotpatchInformation + 556;
+    sub_1801058B8();
   }
   else
   {
-    v8 = 2147353478LL;
+    ZwSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( RtlGetCurrentServiceSessionId() )
+      v3 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
+    else
+      v3 = 2147353478LL;
+    if ( *(_BYTE *)v3 )
+      sub_180004AD8((__int64)Pool, WorkerFactoryInformation);
   }
-  if ( *(_BYTE *)v8 )
-    return (struct _PEB *)sub_180004AD8(a1, v9);
-  return result;
 }

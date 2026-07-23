@@ -46,7 +46,7 @@ unsigned __int8 __fastcall KiScanInterruptObjectList()
   v7 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v7 )
-    result = EtwGetKernelTraceTimestamp(v14, 0x20004000u);
+    result = EtwGetKernelTraceTimestamp(v14, 0x20004000u).LowPart;
   while ( 2 )
   {
     v8 = 0;
@@ -78,7 +78,7 @@ unsigned __int8 __fastcall KiScanInterruptObjectList()
         v12 = v13;
         BYTE1(v12) = *(_BYTE *)(v9 + 88);
         PerfInfoLogInterrupt(v9, v12, (__int64)v14);
-        result = EtwGetKernelTraceTimestamp(v14, 0x20004000u);
+        result = EtwGetKernelTraceTimestamp(v14, 0x20004000u).LowPart;
       }
       if ( v13 )
       {

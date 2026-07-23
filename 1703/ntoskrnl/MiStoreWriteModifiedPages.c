@@ -61,7 +61,7 @@ __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
   unsigned int v25; // edx
   unsigned int v26; // r14d
   int v27; // eax
-  struct _SLIST_ENTRY *PoolWithTag; // r11
+  _SLIST_ENTRY *PoolWithTag; // r11
   unsigned int v29; // ecx
   unsigned int v30; // ebx
   int v31; // eax
@@ -102,7 +102,7 @@ __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
   int v66; // [rsp+48h] [rbp-91h]
   int v67; // [rsp+4Ch] [rbp-8Dh]
   ULONG v68; // [rsp+50h] [rbp-89h]
-  struct _SLIST_ENTRY *v69; // [rsp+58h] [rbp-81h]
+  _SLIST_ENTRY *v69; // [rsp+58h] [rbp-81h]
   __int64 v70; // [rsp+60h] [rbp-79h]
   unsigned int v71; // [rsp+68h] [rbp-71h]
   _QWORD *v72; // [rsp+70h] [rbp-69h]
@@ -252,7 +252,7 @@ LABEL_29:
             PoolWithTag = v69;
             if ( !v69 )
             {
-              PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
+              PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
               v69 = PoolWithTag;
             }
             if ( !PoolWithTag )
@@ -498,7 +498,7 @@ LABEL_87:
 LABEL_99:
   KiLeaveCriticalRegionUnsafe(CurrentThread);
   if ( v69 )
-    MiStoreFreeWriteSupport(v69, (union _SLIST_HEADER *)v5);
+    MiStoreFreeWriteSupport(v69, (_SLIST_HEADER *)v5);
   if ( v82 )
   {
     v63 = MiDerefPageFileSpaceBitmaps(v70, &v82, 0);

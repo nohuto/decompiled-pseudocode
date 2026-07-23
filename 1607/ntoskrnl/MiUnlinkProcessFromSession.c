@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlinkProcessFromSession @ 0x140075E98
+ * XREFs of MiUnlinkProcessFromSession @ 0x140075F18
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140075A98 (MiDeleteFinalPageTables.c)
+ *     MiDeleteFinalPageTables @ 0x140075B18 (MiDeleteFinalPageTables.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MiUnlinkProcessFromSession(__int64 a1)
@@ -17,7 +17,7 @@ void __fastcall MiUnlinkProcessFromSession(__int64 a1)
   _QWORD *v7; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
   v2 = *(_QWORD *)(a1 + 1024);
   if ( v2 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnprGetPageDestination @ 0x14053121C
+ * XREFs of PnprGetPageDestination @ 0x14053371C
  * Callers:
- *     PnprCopyReservedMapping @ 0x14050D5C8 (PnprCopyReservedMapping.c)
+ *     PnprCopyReservedMapping @ 0x140507038 (PnprCopyReservedMapping.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PnprGetPageDestination(unsigned __int64 a1)

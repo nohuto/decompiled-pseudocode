@@ -1,11 +1,11 @@
 /*
- * XREFs of AVrfpDetectVerifiedExports @ 0x1800EC9CC
+ * XREFs of AVrfpDetectVerifiedExports @ 0x1800E75FC
  * Callers:
- *     AVrfpDllLoadNotificationInternal @ 0x1800EC8F0 (AVrfpDllLoadNotificationInternal.c)
+ *     AVrfpDllLoadNotificationInternal @ 0x1800E7520 (AVrfpDllLoadNotificationInternal.c)
  * Callees:
- *     LdrGetProcedureAddressForCaller @ 0x180004FF0 (LdrGetProcedureAddressForCaller.c)
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     strlen @ 0x180167CE0 (strlen.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     LdrGetProcedureAddressForCaller @ 0x1800319F0 (LdrGetProcedureAddressForCaller.c)
+ *     strlen @ 0x1801660A0 (strlen.c)
  */
 
 char __fastcall AVrfpDetectVerifiedExports(__int64 a1, __int64 a2)
@@ -13,46 +13,40 @@ char __fastcall AVrfpDetectVerifiedExports(__int64 a1, __int64 a2)
   _QWORD *v2; // rdi
   char v3; // si
   __int64 v4; // rbp
-  const char **v6; // rbx
+  char **v6; // rbx
   bool v7; // zf
-  const char *v8; // rcx
+  char *v8; // rcx
   size_t v9; // rax
-  __int128 v11; // [rsp+30h] [rbp-28h] BYREF
-  unsigned __int64 retaddr; // [rsp+58h] [rbp+0h]
-  const char *v13; // [rsp+60h] [rbp+8h] BYREF
+  _STRING ProcedureName; // [rsp+30h] [rbp-28h] BYREF
+  PVOID *Callback; // [rsp+58h] [rbp+0h]
+  PVOID ProcedureAddress; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = *(_QWORD **)(a1 + 24);
   v3 = 0;
   LODWORD(v4) = 0;
   if ( *v2 )
   {
-    v6 = *(const char ***)(a1 + 24);
+    v6 = *(char ***)(a1 + 24);
     do
     {
-      v13 = 0LL;
+      ProcedureAddress = 0LL;
       v7 = v6[1] == 0LL;
-      v11 = 0LL;
+      ProcedureName = 0LL;
       if ( v7 )
       {
         v8 = *v6;
-        *((_QWORD *)&v11 + 1) = v8;
+        ProcedureName.Buffer = v8;
         if ( v8 )
         {
           v9 = strlen(v8);
           if ( v9 >= 0xFFFF )
             LOWORD(v9) = -2;
-          LOWORD(v11) = v9;
-          WORD1(v11) = v9 + 1;
+          ProcedureName.Length = v9;
+          ProcedureName.MaximumLength = v9 + 1;
         }
-        if ( (int)LdrGetProcedureAddressForCaller(
-                    *(_QWORD *)(a2 + 48),
-                    (const void **)&v11,
-                    0,
-                    (unsigned __int64 *)&v13,
-                    1,
-                    retaddr) >= 0 )
+        if ( LdrGetProcedureAddressForCaller(*(PVOID *)(a2 + 48), &ProcedureName, 0, &ProcedureAddress, 1u, Callback) >= 0 )
         {
-          v6[1] = v13;
+          v6[1] = (char *)ProcedureAddress;
           if ( (AVrfpDebug & 2) != 0 )
             DbgPrint("AVRF: (%ws) %s export found. \n", *(_QWORD *)(a2 + 96), *v6);
           v3 = 1;
@@ -63,7 +57,7 @@ char __fastcall AVrfpDetectVerifiedExports(__int64 a1, __int64 a2)
         }
       }
       v4 = (unsigned int)(v4 + 1);
-      v6 = (const char **)&v2[3 * v4];
+      v6 = (char **)&v2[3 * v4];
     }
     while ( *v6 );
   }

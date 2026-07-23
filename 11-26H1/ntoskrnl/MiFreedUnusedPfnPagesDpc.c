@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreedUnusedPfnPagesDpc @ 0x1406E8B80
+ * XREFs of MiFreedUnusedPfnPagesDpc @ 0x1406ED820
  * Callers:
- *     MiFreeUnusedPfnPagesDpc @ 0x1406E8960 (MiFreeUnusedPfnPagesDpc.c)
+ *     MiFreeUnusedPfnPagesDpc @ 0x1406ED600 (MiFreeUnusedPfnPagesDpc.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     MiLockWorkingSetExclusiveAtDpc @ 0x1404C31C0 (MiLockWorkingSetExclusiveAtDpc.c)
- *     MiGetNextNonGapPfnPage @ 0x1406E9108 (MiGetNextNonGapPfnPage.c)
- *     MiPfnRangeIsZero @ 0x1406E9BA0 (MiPfnRangeIsZero.c)
- *     RtlCompareMemoryUlong @ 0x140730E10 (RtlCompareMemoryUlong.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     MiLockWorkingSetExclusiveAtDpc @ 0x1404BCA10 (MiLockWorkingSetExclusiveAtDpc.c)
+ *     MiGetNextNonGapPfnPage @ 0x1406EDDA8 (MiGetNextNonGapPfnPage.c)
+ *     MiPfnRangeIsZero @ 0x1406EE840 (MiPfnRangeIsZero.c)
+ *     RtlCompareMemoryUlong @ 0x1407359E0 (RtlCompareMemoryUlong.c)
  */
 
 void __fastcall MiFreedUnusedPfnPagesDpc(__int64 a1)
@@ -42,12 +42,12 @@ void __fastcall MiFreedUnusedPfnPagesDpc(__int64 a1)
   v19 = a1;
   v18 = MiSystemVaTypeToVm(3);
   MiLockWorkingSetExclusiveAtDpc((__int64)v18);
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E37DC8.Header.WaitListHead);
+  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E37F48.Header.WaitListHead);
   v1 = 0LL;
   while ( 1 )
   {
     v2 = v1;
-    if ( v1 == qword_140E2D7A0 + 1 )
+    if ( v1 == qword_140E2D920 + 1 )
       break;
     for ( i = (unsigned __int64 *)((char *)MmPhysicalMemoryBlock + 16);
           i < (unsigned __int64 *)((char *)MmPhysicalMemoryBlock + 16 * *(unsigned int *)MmPhysicalMemoryBlock + 16);
@@ -68,8 +68,8 @@ void __fastcall MiFreedUnusedPfnPagesDpc(__int64 a1)
         v2 = v4 + i[1];
       }
     }
-    v5 = qword_140E2D7A0 - v2 + 1;
-    if ( qword_140E2D7A0 - v2 == -1LL )
+    v5 = qword_140E2D920 - v2 + 1;
+    if ( qword_140E2D920 - v2 == -1LL )
       break;
 LABEL_12:
     v1 = v5 + v2;
@@ -125,6 +125,6 @@ LABEL_12:
       while ( v20 < v21 );
     }
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E37DC8.Header.WaitListHead);
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E37F48.Header.WaitListHead);
   MiUnlockWorkingSetExclusive((__int64)v18, 0x11u);
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSetInformationDebugObject @ 0x14015CCC0
+ * XREFs of ZwSetInformationDebugObject @ 0x14015D230
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationDebugObject(
         HANDLE DebugObject,
         DEBUGOBJECTINFOCLASS InformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwSetInformationDebugObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DebugObject, *(_QWORD *)&InformationClass, Information);
+  return KiServiceInternal(DebugObject);
 }

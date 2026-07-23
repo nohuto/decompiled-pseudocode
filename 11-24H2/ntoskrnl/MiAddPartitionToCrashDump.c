@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAddPartitionToCrashDump @ 0x1406771A0
+ * XREFs of MiAddPartitionToCrashDump @ 0x140678370
  * Callers:
- *     MiAddPartitionDataToCrashDump @ 0x140676F98 (MiAddPartitionDataToCrashDump.c)
+ *     MiAddPartitionDataToCrashDump @ 0x140678168 (MiAddPartitionDataToCrashDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     MiAddUnicodeStringToCrashDump @ 0x140677468 (MiAddUnicodeStringToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     MiAddUnicodeStringToCrashDump @ 0x140678638 (MiAddUnicodeStringToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddPartitionToCrashDump(__int64 a1, ULONG *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiAddPartitionToCrashDump(__int64 a1, ULONG *a2)
   __int64 v12; // rdi
   __int128 v13; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = qword_140E2FFA0;
+  v2 = qword_140E300E0;
   v3 = a2;
   v4 = a1;
   if ( a2 == &MiSystemPartition )
@@ -31,13 +31,13 @@ __int64 __fastcall MiAddPartitionToCrashDump(__int64 a1, ULONG *a2)
     result = MmAddRangeToCrashDump(a1, a2, 23872LL);
     if ( (int)result < 0 )
       return result;
-    a2 = (ULONG *)qword_140E2FF98;
+    a2 = (ULONG *)qword_140E300D8;
     v6 = v2;
     a1 = v4;
   }
   else
   {
-    v6 = qword_140E2FFA0 + 23872;
+    v6 = qword_140E300E0 + 23872;
   }
   v7 = MmAddRangeToCrashDump(a1, a2, v6);
   if ( v7 >= 0 )

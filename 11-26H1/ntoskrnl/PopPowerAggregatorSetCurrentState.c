@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerAggregatorSetCurrentState @ 0x140A38D30
+ * XREFs of PopPowerAggregatorSetCurrentState @ 0x1409F48F0
  * Callers:
- *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1407D64E0 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1407D683C (PopPowerAggregatorEngageModernStandby.c)
- *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x1407D6FF0 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140A37360 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
- *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140A388E0 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
- *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140A38A70 (PopPowerAggregatorScreenOffExitStateHandler.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140A38AE8 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140A38CE0 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1407D9690 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x1407D99CC (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x1407DA120 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x1409F2F20 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1409F44A0 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1409F4630 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x1409F46A8 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x1409F48A0 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
  * Callees:
- *     PopPowerAggregatorDiagTraceInternalStateChange @ 0x140A38DB4 (PopPowerAggregatorDiagTraceInternalStateChange.c)
- *     PopPowerAggregatorAllocateLogEntry @ 0x140A40154 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorDiagTraceInternalStateChange @ 0x1409F4974 (PopPowerAggregatorDiagTraceInternalStateChange.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x1409FBB74 (PopPowerAggregatorAllocateLogEntry.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSetCurrentState(__int64 a1, __int64 a2)

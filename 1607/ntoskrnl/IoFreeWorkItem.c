@@ -1,9 +1,9 @@
 /*
- * XREFs of IoFreeWorkItem @ 0x1400A8584
+ * XREFs of IoFreeWorkItem @ 0x1400A6AFC
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall IoFreeWorkItem(PIO_WORKITEM IoWorkItem)

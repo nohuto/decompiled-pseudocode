@@ -28,16 +28,15 @@ char __fastcall CmpReferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)
   signed __int32 v2; // eax
   signed __int32 v3; // ecx
   signed __int32 v4; // ett
-  __int64 v5; // rdi
-  __int64 v6; // r8
+  PRTL_BALANCED_NODE v5; // rdi
   unsigned __int8 CurrentIrql; // si
-  char v8; // al
-  ULONG_PTR v9; // rcx
-  _BYTE *v10; // rdx
-  _QWORD *v11; // rax
-  unsigned __int8 v12; // bl
-  signed __int32 v13; // eax
-  signed __int32 v15[8]; // [rsp+0h] [rbp-38h] BYREF
+  char v7; // al
+  ULONG_PTR v8; // rcx
+  _BYTE *v9; // rdx
+  _QWORD *v10; // rax
+  unsigned __int8 v11; // bl
+  signed __int32 v12; // eax
+  signed __int32 v14[8]; // [rsp+0h] [rbp-38h] BYREF
 
   if ( (*(_DWORD *)(BugCheckParameter2 + 4) & 0x80000) != 0 )
     KeBugCheckEx(0x51u, 0x20uLL, BugCheckParameter2, 0LL, 0LL);
@@ -64,46 +63,46 @@ char __fastcall CmpReferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)
   {
     if ( (*(_BYTE *)(BugCheckParameter2 + 56) & 2) != 0 )
     {
-      v5 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0LL);
+      v5 = KeAbPreAcquire((ULONG_PTR)&CmpDelayedCloseTableLock, 0LL, 0);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(1uLL);
       if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )
-        ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, v5, v6);
+        ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, (__int64)v5);
       if ( v5 )
-        *(_BYTE *)(v5 + 26) |= 1u;
+        BYTE2(v5[1].Left) |= 1u;
       *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
       *((_DWORD *)&CmpDelayedCloseTableLock + 12) = CurrentIrql;
-      v8 = *(_BYTE *)(BugCheckParameter2 + 56);
-      if ( (v8 & 2) != 0 )
+      v7 = *(_BYTE *)(BugCheckParameter2 + 56);
+      if ( (v7 & 2) != 0 )
       {
-        v9 = BugCheckParameter2 + 216;
-        if ( (v8 & 4) != 0 )
+        v8 = BugCheckParameter2 + 216;
+        if ( (v7 & 4) != 0 )
         {
-          **(_BYTE **)v9 = 1;
+          **(_BYTE **)v8 = 1;
           *(_BYTE *)(BugCheckParameter2 + 56) &= ~4u;
         }
         else
         {
-          v10 = *(_BYTE **)v9;
-          v11 = *(_QWORD **)(BugCheckParameter2 + 224);
-          if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9 || *v11 != v9 )
+          v9 = *(_BYTE **)v8;
+          v10 = *(_QWORD **)(BugCheckParameter2 + 224);
+          if ( *(_QWORD *)(*(_QWORD *)v8 + 8LL) != v8 || *v10 != v8 )
             __fastfail(3u);
           --CmpDelayedCloseElements;
-          *v11 = v10;
-          *((_QWORD *)v10 + 1) = v11;
+          *v10 = v9;
+          *((_QWORD *)v9 + 1) = v10;
           --qword_1407AD0C8;
         }
         *(_QWORD *)(BugCheckParameter2 + 224) = BugCheckParameter2 + 216;
-        *(_QWORD *)v9 = v9;
-        _InterlockedOr(v15, 0);
+        *(_QWORD *)v8 = v8;
+        _InterlockedOr(v14, 0);
         *(_BYTE *)(BugCheckParameter2 + 56) &= ~2u;
       }
-      v12 = *((_BYTE *)&CmpDelayedCloseTableLock + 48);
+      v11 = *((_BYTE *)&CmpDelayedCloseTableLock + 48);
       *(&CmpDelayedCloseTableLock + 1) = 0LL;
-      v13 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpDelayedCloseTableLock, 1, 0);
-      if ( v13 )
-        ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpDelayedCloseTableLock, v13);
-      __writecr8(v12);
+      v12 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpDelayedCloseTableLock, 1, 0);
+      if ( v12 )
+        ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpDelayedCloseTableLock, v12);
+      __writecr8(v11);
       KeAbPostRelease((ULONG_PTR)&CmpDelayedCloseTableLock);
     }
     return 1;

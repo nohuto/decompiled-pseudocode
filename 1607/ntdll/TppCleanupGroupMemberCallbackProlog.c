@@ -1,37 +1,37 @@
 /*
- * XREFs of TppCleanupGroupMemberCallbackProlog @ 0x18003B404
+ * XREFs of TppCleanupGroupMemberCallbackProlog @ 0x18003B3F4
  * Callers:
- *     TppExecuteWaitCallback @ 0x18003AD54 (TppExecuteWaitCallback.c)
- *     TppWorkCallbackPrologRelease @ 0x18003AFD0 (TppWorkCallbackPrologRelease.c)
- *     TppIopExecuteCallback @ 0x18003B1A0 (TppIopExecuteCallback.c)
- *     TppJobpExecuteCallback @ 0x180084260 (TppJobpExecuteCallback.c)
+ *     TppExecuteWaitCallback @ 0x18003AD44 (TppExecuteWaitCallback.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003AFC0 (TppWorkCallbackPrologRelease.c)
+ *     TppIopExecuteCallback @ 0x18003B190 (TppIopExecuteCallback.c)
+ *     TppJobpExecuteCallback @ 0x180084250 (TppJobpExecuteCallback.c)
  * Callees:
- *     RtlActivateActivationContextUnsafeFast @ 0x180016370 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlSetThreadSubProcessTag @ 0x18003B520 (RtlSetThreadSubProcessTag.c)
- *     TpCallbackMayRunLong @ 0x1800776C0 (TpCallbackMayRunLong.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x180016360 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlSetThreadSubProcessTag @ 0x18003B510 (RtlSetThreadSubProcessTag.c)
+ *     TpCallbackMayRunLong @ 0x1800776B0 (TpCallbackMayRunLong.c)
  */
 
-__int64 __fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 a2)
+__int64 __fastcall TppCleanupGroupMemberCallbackProlog(_DWORD *Instance, __int64 a2)
 {
-  __int64 v4; // rcx
+  void *v4; // rcx
 
   if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    *(_QWORD *)a1 = 72LL;
-    *(_DWORD *)(a1 + 8) = 1;
-    RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 96));
-    *(_BYTE *)(a1 + 76) |= 1u;
+    *(_QWORD *)Instance = 72LL;
+    Instance[2] = 1;
+    RtlActivateActivationContextUnsafeFast((__int64)Instance, *(_QWORD *)(a2 + 96));
+    *((_BYTE *)Instance + 76) |= 1u;
   }
-  *(_DWORD *)(a1 + 144) |= 0x240u;
-  *(_QWORD *)(a1 + 184) = a2;
+  Instance[36] |= 0x240u;
+  *((_QWORD *)Instance + 23) = a2;
   if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
-    TpCallbackMayRunLong(a1);
-  v4 = *(_QWORD *)(a2 + 104);
+    TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
+  v4 = *(void **)(a2 + 104);
   if ( v4 )
   {
-    *(_QWORD *)(a1 + 80) = v4;
+    *((_QWORD *)Instance + 10) = v4;
     RtlSetThreadSubProcessTag(v4);
   }
   NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 112);
-  return RtlSetThreadWorkOnBehalfTicket(a2 + 128);
+  return RtlSetThreadWorkOnBehalfTicket((PVOID)(a2 + 128));
 }

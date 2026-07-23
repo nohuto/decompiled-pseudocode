@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAddVerifierSpecialThunks @ 0x140A2D430
+ * XREFs of MmAddVerifierSpecialThunks @ 0x140A2D6E0
  * Callers:
  *     <none>
  * Callees:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
- *     VfThunkAddSpecialDriverThunks @ 0x140ADB050 (VfThunkAddSpecialDriverThunks.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x140ADB040 (VfThunkAddSpecialDriverThunks.c)
  */
 
 NTSTATUS __stdcall MmAddVerifierSpecialThunks(ULONG_PTR EntryRoutine, PVOID ThunkBuffer, ULONG ThunkBufferSize)

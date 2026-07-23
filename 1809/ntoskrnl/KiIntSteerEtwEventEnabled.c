@@ -2,8 +2,8 @@
  * XREFs of KiIntSteerEtwEventEnabled @ 0x14005B8E0
  * Callers:
  *     KeIntSteerPeriodic @ 0x1400626A0 (KeIntSteerPeriodic.c)
- *     KiIntSteerLogState @ 0x14016E22C (KiIntSteerLogState.c)
- *     KiIntSteerLogStatus @ 0x14029A9A8 (KiIntSteerLogStatus.c)
+ *     KiIntSteerLogState @ 0x14016E32C (KiIntSteerLogState.c)
+ *     KiIntSteerLogStatus @ 0x14029AB98 (KiIntSteerLogStatus.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
  */

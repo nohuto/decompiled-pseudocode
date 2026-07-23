@@ -1,9 +1,9 @@
 /*
- * XREFs of KxMcheckAbort @ 0x14040F100
+ * XREFs of KxMcheckAbort @ 0x14040F200
  * Callers:
- *     KiMcheckAbort @ 0x14040EBC0 (KiMcheckAbort.c)
+ *     KiMcheckAbort @ 0x14040ECC0 (KiMcheckAbort.c)
  * Callees:
- *     KiHandleMcheck @ 0x140512720 (KiHandleMcheck.c)
+ *     KiHandleMcheck @ 0x140512960 (KiHandleMcheck.c)
  */
 
 __int64 __fastcall KxMcheckAbort(__int64 a1, __int64 a2, _DWORD *a3)

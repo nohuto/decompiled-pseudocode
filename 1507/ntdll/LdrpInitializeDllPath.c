@@ -38,7 +38,7 @@ void *__fastcall LdrpInitializeDllPath(__int64 a1, __int64 a2, __int64 *a3)
         1335,
         (unsigned int)"LdrpInitializeDllPath",
         2,
-        "DLL search path passed in externally: %ws\n",
+        (__int64)"DLL search path passed in externally: %ws\n",
         a2);
     return (void *)LdrpLogDllStateEx2(v7, a1, *a3, 5312LL);
   }

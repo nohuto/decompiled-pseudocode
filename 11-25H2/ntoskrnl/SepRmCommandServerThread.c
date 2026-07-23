@@ -31,8 +31,8 @@
 void __fastcall SepRmCommandServerThread(PVOID StartContext)
 {
   signed int v1; // ebx
-  int v2; // eax
-  int *v3; // rsi
+  NTSTATUS v2; // eax
+  _PORT_MESSAGE *v3; // rsi
   struct _LIST_ENTRY *v4; // rdi
   struct _LIST_ENTRY *v5; // rbx
   bool IsHostSilo; // r14
@@ -43,19 +43,19 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
   struct _KTHREAD *v11; // rcx
   char v12; // r15
   bool v13; // r12
+  ULONG_PTR BufferLength; // [rsp+48h] [rbp-C0h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-B8h] BYREF
-  struct _KEVENT v15; // [rsp+68h] [rbp-A0h] BYREF
-  _BYTE v16[56]; // [rsp+80h] [rbp-88h] BYREF
-  __int64 v17; // [rsp+B8h] [rbp-50h]
-  LARGE_INTEGER v18; // [rsp+C8h] [rbp-40h] BYREF
-  __int128 v19; // [rsp+D0h] [rbp-38h]
-  int v20; // [rsp+E0h] [rbp-28h]
+  struct _KEVENT v16; // [rsp+68h] [rbp-A0h] BYREF
+  __int128 v17; // [rsp+80h] [rbp-88h] BYREF
+  __int64 v18; // [rsp+90h] [rbp-78h]
+  _ALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes[6]; // [rsp+98h] [rbp-70h] BYREF
+  _PORT_MESSAGE ConnectionRequest; // [rsp+C8h] [rbp-40h] BYREF
   int v21; // [rsp+F0h] [rbp-18h]
   int v22; // [rsp+2C8h] [rbp+1C0h] BYREF
-  __int128 v23; // [rsp+2D0h] [rbp+1C8h]
-  int v24; // [rsp+2E0h] [rbp+1D8h]
+  $9093C50108ECAE8F4ED0485CBDC57F7D v23; // [rsp+2D0h] [rbp+1C8h]
+  unsigned int MessageId; // [rsp+2E0h] [rbp+1D8h]
 
-  memset_0(&v18, 0, 0x200uLL);
+  memset_0(&ConnectionRequest, 0, 0x200uLL);
   memset_0(&v22, 0, 0x200uLL);
   SepRmLsaCallProcess = KeGetCurrentThread()->ApcState.Process;
   PsReferenceSiloContext(SepRmLsaCallProcess);
@@ -67,34 +67,42 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
     {
       do
       {
-        v17 = 0LL;
-        memset(&v16[24], 0, 32);
-        *(_DWORD *)&v16[24] = 0x20000000;
-        v2 = ZwAlpcSendWaitReceivePort((__int64)Handle, v3 != 0LL ? 0x10000 : 0);
+        BufferLength = 512LL;
+        memset(ReceiveMessageAttributes, 0, 40);
+        ReceiveMessageAttributes[0].AllocatedAttributes = 0x20000000;
+        v2 = ZwAlpcSendWaitReceivePort(
+               Handle,
+               v3 != 0LL ? 0x10000 : 0,
+               v3,
+               0LL,
+               &ConnectionRequest,
+               &BufferLength,
+               ReceiveMessageAttributes,
+               0LL);
         v3 = 0LL;
       }
       while ( v2 < 0 );
-      v4 = *(struct _LIST_ENTRY **)&v16[32];
-      if ( *(_QWORD *)&v16[32] == -8LL )
+      v4 = (struct _LIST_ENTRY *)ReceiveMessageAttributes[1];
+      if ( *(_QWORD *)&ReceiveMessageAttributes[1] == -8LL )
         v4 = (struct _LIST_ENTRY *)PdcCreateWatchdogAroundClientCall();
-      switch ( BYTE4(v18.QuadPart) )
+      switch ( LOBYTE(ConnectionRequest.u2.ZeroInit) )
       {
         case 1u:
           if ( (unsigned int)(v21 - 1) > 0xB )
           {
 LABEL_18:
-            NtAlpcCancelMessage(Handle, 0, (__int64)&v16[32]);
+            NtAlpcCancelMessage(Handle, 0, (PALPC_CONTEXT_ATTR)&ReceiveMessageAttributes[1]);
           }
           else
           {
             memset_0(&v22, 0, 0x200uLL);
             v22 = 33554904;
-            v23 = v19;
-            v24 = v20;
+            v23 = ConnectionRequest.8;
+            MessageId = ConnectionRequest.MessageId;
             v5 = PsAttachSiloToCurrentThread(v4);
-            guard_dispatch_icall_no_overrides(&v18);
+            guard_dispatch_icall_no_overrides(&ConnectionRequest);
             PsDetachSiloFromCurrentThread(v5);
-            v3 = &v22;
+            v3 = (_PORT_MESSAGE *)&v22;
           }
           break;
         case 5u:
@@ -102,12 +110,13 @@ LABEL_18:
           if ( IsHostSilo )
           {
             SepRmAuditingEnabled = 0;
+            v18 = 0LL;
             memset(&Event, 0, sizeof(Event));
-            memset(v16, 0, 24);
-            memset(&v15, 0, sizeof(v15));
+            v17 = 0LL;
+            memset(&v16, 0, sizeof(v16));
             KeInitializeEvent(&Event, NotificationEvent, 0);
-            KeInitializeEvent((PRKEVENT)v16, NotificationEvent, 0);
-            KeInitializeEvent(&v15, NotificationEvent, 0);
+            KeInitializeEvent((PRKEVENT)&v17, NotificationEvent, 0);
+            KeInitializeEvent(&v16, NotificationEvent, 0);
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
             ExAcquireResourceExclusiveLite(&stru_140E67890, 1u);
@@ -115,21 +124,21 @@ LABEL_18:
             v9 = SepLsaAuditQueueInfo == (_QWORD)&SepLsaAuditQueueInfo;
             ExReleaseResourceLite(&stru_140E67890);
             KeLeaveCriticalRegion();
-            inited = SepAdtInitLsaDeadEventForNonPagedList((__int64)&v15);
+            inited = SepAdtInitLsaDeadEventForNonPagedList((__int64)&v16);
             v11 = KeGetCurrentThread();
             v12 = inited;
             --v11->KernelApcDisable;
             ExAcquireResourceExclusiveLite(&stru_140E676D0, 1u);
-            qword_140E67770 = (__int64)v16;
+            qword_140E67770 = (__int64)&v17;
             v13 = SepLsaDeletedLogonQueueInfo == (_QWORD)&SepLsaDeletedLogonQueueInfo;
             ExReleaseResourceLite(&stru_140E676D0);
             KeLeaveCriticalRegion();
             if ( !v9 )
               KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
             if ( v12 )
-              KeWaitForSingleObject(&v15, Executive, 0, 0, 0LL);
+              KeWaitForSingleObject(&v16, Executive, 0, 0, 0LL);
             if ( !v13 )
-              KeWaitForSingleObject(v16, Executive, 0, 0, 0LL);
+              KeWaitForSingleObject(&v17, Executive, 0, 0, 0LL);
             ZwClose(Handle);
             Handle = 0LL;
           }
@@ -140,10 +149,10 @@ LABEL_18:
           ObfDereferenceObjectWithTag(v4, 0x74536553u);
           break;
         case 0xAu:
-          SepRmLsaConnectRequest(&v18);
+          SepRmLsaConnectRequest(&ConnectionRequest);
           break;
         default:
-          if ( (v18.QuadPart & 0x200000000000LL) != 0 )
+          if ( (ConnectionRequest.u2.s2.Type & 0x2000) != 0 )
             goto LABEL_18;
           break;
       }

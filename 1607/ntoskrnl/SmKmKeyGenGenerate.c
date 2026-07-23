@@ -1,17 +1,17 @@
 /*
- * XREFs of SmKmKeyGenGenerate @ 0x140698200
+ * XREFs of SmKmKeyGenGenerate @ 0x1406982E4
  * Callers:
- *     SmcStoreCreate @ 0x14069A590 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14069A674 (SmcStoreCreate.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SmKmKeyGenKeyDelete @ 0x14069833C (SmKmKeyGenKeyDelete.c)
- *     SmKmKeyGenKeyFind @ 0x1406983FC (SmKmKeyGenKeyFind.c)
- *     SmKmKeyGenNewKey @ 0x140698598 (SmKmKeyGenNewKey.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SmKmKeyGenKeyDelete @ 0x140698420 (SmKmKeyGenKeyDelete.c)
+ *     SmKmKeyGenKeyFind @ 0x1406984E0 (SmKmKeyGenKeyFind.c)
+ *     SmKmKeyGenNewKey @ 0x14069867C (SmKmKeyGenNewKey.c)
  */
 
 __int64 __fastcall SmKmKeyGenGenerate(unsigned __int64 *BugCheckParameter2, void *a2, void *a3, unsigned int a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpFreeAsid @ 0x140658CEC
+ * XREFs of ExpFreeAsid @ 0x14065738C
  * Callers:
- *     ExFreeSvmAsid @ 0x140491AF4 (ExFreeSvmAsid.c)
- *     IommupPasidDeviceDelete @ 0x14054E6DC (IommupPasidDeviceDelete.c)
- *     ExFreeAsid @ 0x1406587A8 (ExFreeAsid.c)
- *     ExpAssignPasid @ 0x1407C0B08 (ExpAssignPasid.c)
+ *     ExFreeSvmAsid @ 0x14048C994 (ExFreeSvmAsid.c)
+ *     IommupPasidDeviceDelete @ 0x14054C01C (IommupPasidDeviceDelete.c)
+ *     ExFreeAsid @ 0x140656E48 (ExFreeAsid.c)
+ *     ExpAssignPasid @ 0x1407C0F58 (ExpAssignPasid.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExpAcquireSvmAgentsLock @ 0x1406589FC (ExpAcquireSvmAgentsLock.c)
- *     ExpReleaseSvmAgentsLock @ 0x140658FF4 (ExpReleaseSvmAgentsLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExpAcquireSvmAgentsLock @ 0x14065709C (ExpAcquireSvmAgentsLock.c)
+ *     ExpReleaseSvmAgentsLock @ 0x140657694 (ExpReleaseSvmAgentsLock.c)
  */
 
 LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
@@ -25,9 +25,9 @@ LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
   v2 = a1;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v4 = ExpAcquireSvmAgentsLock(&LockHandle);
-  v6 = qword_140EFA450;
-  v7 = *((_QWORD *)qword_140EFA450 + 3 * v2 + 1) - 1LL;
-  *((_QWORD *)qword_140EFA450 + 3 * v2 + 1) = v7;
+  v6 = qword_140EFA6D0;
+  v7 = *((_QWORD *)qword_140EFA6D0 + 3 * v2 + 1) - 1LL;
+  *((_QWORD *)qword_140EFA6D0 + 3 * v2 + 1) = v7;
   if ( v7 )
   {
     v5 = 0x8000000000000000uLL;
@@ -38,7 +38,7 @@ LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
   {
     v6[3 * v2] = 0LL;
     v8 = 1;
-    --dword_140EFA448;
+    --dword_140EFA6C8;
   }
   LOBYTE(v5) = v4;
   result = ExpReleaseSvmAgentsLock(&LockHandle, v5);

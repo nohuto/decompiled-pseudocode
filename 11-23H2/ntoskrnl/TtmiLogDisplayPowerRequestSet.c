@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDisplayPowerRequestSet @ 0x1409A8144
+ * XREFs of TtmiLogDisplayPowerRequestSet @ 0x1409A8344
  * Callers:
- *     TtmiSetDisplayPowerRequest @ 0x1409A4B9C (TtmiSetDisplayPowerRequest.c)
+ *     TtmiSetDisplayPowerRequest @ 0x1409A4D9C (TtmiSetDisplayPowerRequest.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDisplayPowerRequestSet(int a1, int a2, int a3, int a4)
@@ -65,7 +65,7 @@ char __fastcall TtmiLogDisplayPowerRequestSet(int a1, int a2, int a3, int a4)
       v15 = a4;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D53918,
-                     (unsigned __int8 *)qword_140033F08,
+                     (unsigned __int8 *)&byte_140033DBF,
                      0LL,
                      0LL,
                      7u,

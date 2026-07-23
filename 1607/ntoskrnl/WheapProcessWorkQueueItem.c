@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapProcessWorkQueueItem @ 0x1402308D4
+ * XREFs of WheapProcessWorkQueueItem @ 0x140230700
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     WheapFreeErrorRecord @ 0x140230884 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x1402310E8 (WheapGenerateETWEvents.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     WheapFreeErrorRecord @ 0x1402306B0 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x140230F14 (WheapGenerateETWEvents.c)
  *     WheapCreateTriageDumpFromPreviousSession @ 0x1403E07FC (WheapCreateTriageDumpFromPreviousSession.c)
- *     WheapPredictiveFailureAnalysis @ 0x1406BB948 (WheapPredictiveFailureAnalysis.c)
+ *     WheapPredictiveFailureAnalysis @ 0x1406BBA80 (WheapPredictiveFailureAnalysis.c)
  */
 
 void __fastcall WheapProcessWorkQueueItem(__int64 a1, __int64 a2)

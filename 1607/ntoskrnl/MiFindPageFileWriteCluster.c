@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFindPageFileWriteCluster @ 0x140125A40
+ * XREFs of MiFindPageFileWriteCluster @ 0x140125FB0
  * Callers:
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiFindFreePageFileSpace @ 0x1400B65FC (MiFindFreePageFileSpace.c)
- *     MiSetPageFileAllocationBits @ 0x1401118C8 (MiSetPageFileAllocationBits.c)
- *     MiRefPageFileSpaceBitmaps @ 0x140116EE8 (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140116F54 (MiDerefPageFileSpaceBitmaps.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiMakePageFilePte @ 0x1401F274C (MiMakePageFilePte.c)
- *     RtlFindLongestRunClearCapped @ 0x1402128B0 (RtlFindLongestRunClearCapped.c)
+ *     MiFindFreePageFileSpace @ 0x1400B4424 (MiFindFreePageFileSpace.c)
+ *     MiSetPageFileAllocationBits @ 0x140111E2C (MiSetPageFileAllocationBits.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x140117458 (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x1401174C4 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiMakePageFilePte @ 0x1401F2578 (MiMakePageFilePte.c)
+ *     RtlFindLongestRunClearCapped @ 0x1402126DC (RtlFindLongestRunClearCapped.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

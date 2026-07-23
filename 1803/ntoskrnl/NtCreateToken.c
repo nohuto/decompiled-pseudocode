@@ -24,19 +24,19 @@ NTSTATUS __stdcall NtCreateToken(
   return NtCreateTokenEx(
            TokenHandle,
            DesiredAccess,
-           (__int64)ObjectAttributes,
+           ObjectAttributes,
            TokenType,
-           (__int64)AuthenticationId,
-           (__int64)ExpirationTime,
+           AuthenticationId,
+           ExpirationTime,
            TokenUser,
-           &TokenGroups->GroupCount,
-           (__int64)TokenPrivileges,
+           TokenGroups,
+           TokenPrivileges,
            0LL,
            0LL,
            0LL,
            0LL,
-           (__int64)TokenOwner,
-           (__int64)TokenPrimaryGroup,
-           (__int64)TokenDefaultDacl,
-           (__int64)TokenSource);
+           TokenOwner,
+           TokenPrimaryGroup,
+           TokenDefaultDacl,
+           TokenSource);
 }

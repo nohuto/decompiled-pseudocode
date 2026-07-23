@@ -1,16 +1,17 @@
 /*
- * XREFs of SymCryptParallelSha256Process @ 0x140555A40
+ * XREFs of SymCryptParallelSha256Process @ 0x140557ED0
  * Callers:
- *     KeComputeParallelSha256 @ 0x1405E4750 (KeComputeParallelSha256.c)
+ *     KeComputeParallelSha256 @ 0x1405E70C0 (KeComputeParallelSha256.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x1404C9AE8 (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptRestoreXmm @ 0x1404D58B4 (SymCryptRestoreXmm.c)
- *     SymCryptParallelHashProcess @ 0x140558734 (SymCryptParallelHashProcess.c)
- *     SymCryptParallelHashProcess_serial @ 0x1405589F4 (SymCryptParallelHashProcess_serial.c)
- *     SymCryptRestoreYmm @ 0x1405E55AC (SymCryptRestoreYmm.c)
- *     SymCryptSaveYmm @ 0x1405E55C4 (SymCryptSaveYmm.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x1404C3508 (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptSaveXmm @ 0x1404C3520 (SymCryptSaveXmm.c)
+ *     SymCryptRestoreXmm @ 0x1404CF078 (SymCryptRestoreXmm.c)
+ *     SymCryptParallelHashProcess @ 0x14055ABC4 (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess_serial @ 0x14055AE88 (SymCryptParallelHashProcess_serial.c)
+ *     SymCryptRestoreYmm @ 0x1405E7F1C (SymCryptRestoreYmm.c)
+ *     SymCryptSaveYmm @ 0x1405E7F34 (SymCryptSaveYmm.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SymCryptParallelSha256Process(int a1, int a2, int a3, __int64 a4, __int64 a5, __int64 a6)
@@ -23,7 +24,7 @@ __int64 __fastcall SymCryptParallelSha256Process(int a1, int a2, int a3, __int64
     || (unsigned int)SymCryptSaveYmm(v12) )
   {
     if ( (((unsigned __int8)g_SymCryptCpuFeaturesNotPresent | (unsigned __int8)SymCryptCpuFeaturesNeverPresent()) & 2) != 0
-      || (unsigned int)SymCryptCpuFeaturesNeverPresent() )
+      || (unsigned int)SymCryptSaveXmm() )
     {
       return (unsigned int)SymCryptParallelHashProcess_serial(
                              (unsigned int)&SymCryptParallelSha256Algorithm_default,

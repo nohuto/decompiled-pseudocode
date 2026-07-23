@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetKeyName @ 0x1409D3FE4
+ * XREFs of BiGetKeyName @ 0x1409A4FC4
  * Callers:
- *     BiCreateBootEntry @ 0x140893864 (BiCreateBootEntry.c)
- *     BiBindEfiEntryToBcdObject @ 0x1409CFBA0 (BiBindEfiEntryToBcdObject.c)
- *     BiGetObjectIdentifier @ 0x1409D3F80 (BiGetObjectIdentifier.c)
+ *     BiCreateBootEntry @ 0x140899C64 (BiCreateBootEntry.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1409A0B80 (BiBindEfiEntryToBcdObject.c)
+ *     BiGetObjectIdentifier @ 0x1409A4F60 (BiGetObjectIdentifier.c)
  * Callees:
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetKeyName(unsigned __int64 a1, _QWORD *a2)

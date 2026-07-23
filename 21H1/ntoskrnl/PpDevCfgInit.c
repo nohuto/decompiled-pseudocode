@@ -27,7 +27,7 @@ __int64 PpDevCfgInit()
   char v4; // al
   __int64 v5; // rcx
   int SyncNodesUpdated; // eax
-  int v8; // [rsp+30h] [rbp-D8h]
+  int MatchingChangeStamp; // [rsp+30h] [rbp-D8h]
   int v9; // [rsp+68h] [rbp-A0h] BYREF
   int v10; // [rsp+6Ch] [rbp-9Ch] BYREF
   int v11; // [rsp+70h] [rbp-98h] BYREF
@@ -94,8 +94,7 @@ __int64 PpDevCfgInit()
           && v13 == 4
           && v14 )
         {
-          v8 = 0;
-          ZwUpdateWnfStateData((__int64)&WNF_PNPC_DEVICE_INSTALL_REQUESTED, 0LL);
+          ZwUpdateWnfStateData(&WNF_PNPC_DEVICE_INSTALL_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
         }
         ZwClose(Handle);
       }
@@ -136,7 +135,7 @@ __int64 PpDevCfgInit()
               (__int64)L"SYSTEM",
               7u,
               0LL,
-              v8,
+              MatchingChangeStamp,
               (__int64)DEVPKEY_DriverDatabase_Updated,
               0,
               0LL,

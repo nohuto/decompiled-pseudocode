@@ -53,7 +53,7 @@ __int64 EtwpLogSystemEventUnsafe(
   _BYTE v26[4]; // [rsp+30h] [rbp-78h] BYREF
   unsigned int v27; // [rsp+34h] [rbp-74h]
   unsigned int v28; // [rsp+38h] [rbp-70h]
-  __int64 v29[3]; // [rsp+40h] [rbp-68h] BYREF
+  LARGE_INTEGER v29[3]; // [rsp+40h] [rbp-68h] BYREF
   __int128 v30; // [rsp+58h] [rbp-50h] BYREF
   __int64 v31; // [rsp+68h] [rbp-40h]
 
@@ -61,10 +61,10 @@ __int64 EtwpLogSystemEventUnsafe(
   v31 = 0LL;
   v10 = 0;
   v26[0] = 0;
-  v29[0] = 0LL;
+  v29[0].QuadPart = 0LL;
   result = EtwpOpenLogger(a4, a1, 1, v26);
   v12 = result;
-  v29[2] = result;
+  v29[2].QuadPart = result;
   if ( result )
   {
     v13 = 0;
@@ -89,7 +89,7 @@ __int64 EtwpLogSystemEventUnsafe(
     if ( (a7 & 0xC0000000) != 0x80000000 )
       v17 = -1073610752;
     *(_DWORD *)v16 = (unsigned __int8)a7 | v17;
-    *(_QWORD *)(v16 + 16) = v29[0];
+    *(LARGE_INTEGER *)(v16 + 16) = v29[0];
     *(_WORD *)(v16 + 4) = v13 + 32;
     *(_WORD *)(v16 + 6) = a6;
     *(_DWORD *)(v16 + 8) = a3[308];
@@ -97,7 +97,7 @@ __int64 EtwpLogSystemEventUnsafe(
     *(_DWORD *)(v16 + 24) = a3[163];
     *(_DWORD *)(v16 + 28) = a3[183];
     v18 = (void *)(v16 + 32);
-    v29[1] = v16 + 32;
+    v29[1].QuadPart = v16 + 32;
     if ( v16 == -32 )
     {
 LABEL_37:

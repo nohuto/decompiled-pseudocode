@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializePushLock @ 0x1402A0840 (ExInitializePushLock.c)
+ *     ExInitializeRundownProtection @ 0x1402A0840 (ExInitializeRundownProtection.c)
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1403C773C (MmVerifyCallbackFunctionCheckFlags.c)
+ *     sub_1403C773C @ 0x1403C773C (sub_1403C773C.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     ObpInsertCallbackByAltitude @ 0x14085B02C (ObpInsertCallbackByAltitude.c)
+ *     sub_14085B02C @ 0x14085B02C (sub_14085B02C.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -29,7 +29,7 @@ NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistr
   unsigned __int64 PostOperation; // rcx
   struct _EX_RUNDOWN_REF *v15; // rbx
   POBJECT_TYPE v16; // rcx
-  NTSTATUS inserted; // ebx
+  NTSTATUS v17; // ebx
   __int64 v18; // rax
   _QWORD *v20; // r14
   struct _KTHREAD *CurrentThread; // rax
@@ -63,16 +63,16 @@ NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistr
     while ( 1 )
     {
       v12 = &CallbackRegistration->OperationRegistration[v11];
-      if ( !v12->Operations || ((*v12->ObjectType)->TypeInfo.ObjectTypeFlags & 0x40) == 0 )
+      if ( !v12->Operations || (*((_BYTE *)*v12->ObjectType + 66) & 0x40) == 0 )
       {
 LABEL_19:
-        inserted = -1073741811;
+        v17 = -1073741811;
         goto LABEL_20;
       }
       PreOperation = (unsigned __int64)v12->PreOperation;
       if ( PreOperation )
       {
-        if ( !(unsigned int)MmVerifyCallbackFunctionCheckFlags(PreOperation, 32) )
+        if ( !(unsigned int)sub_1403C773C(PreOperation, 32) )
           break;
       }
       else if ( !v12->PostOperation )
@@ -82,27 +82,27 @@ LABEL_19:
       PostOperation = (unsigned __int64)v12->PostOperation;
       if ( PostOperation )
       {
-        if ( !(unsigned int)MmVerifyCallbackFunctionCheckFlags(PostOperation, 32) )
+        if ( !(unsigned int)sub_1403C773C(PostOperation, 32) )
           break;
       }
       v15 = (struct _EX_RUNDOWN_REF *)&v8[32 * (unsigned __int64)v11 + 16];
-      v15[1].Count = (unsigned __int64)v15;
-      v15->Count = (unsigned __int64)v15;
-      ExInitializePushLock(v15 + 7);
+      v15[1].Count = (ULONG_PTR)v15;
+      v15->Count = (ULONG_PTR)v15;
+      ExInitializeRundownProtection(v15 + 7);
       LODWORD(v15[2].Count) = v12->Operations;
-      v15[3].Count = (unsigned __int64)v8;
+      v15[3].Count = (ULONG_PTR)v8;
       v16 = *v12->ObjectType;
-      v15[4].Count = (unsigned __int64)v16;
-      v15[5].Count = (unsigned __int64)v12->PreOperation;
-      v15[6].Count = (unsigned __int64)v12->PostOperation;
-      inserted = ObpInsertCallbackByAltitude(v16, v15);
-      if ( inserted < 0 )
+      v15[4].Count = (ULONG_PTR)v16;
+      v15[5].Count = (ULONG_PTR)v12->PreOperation;
+      v15[6].Count = (ULONG_PTR)v12->PostOperation;
+      v17 = sub_14085B02C(v16, v15);
+      if ( v17 < 0 )
         goto LABEL_20;
       ++v8[1];
       if ( ++v11 >= CallbackRegistration->OperationRegistrationCount )
         goto LABEL_12;
     }
-    inserted = -1073741790;
+    v17 = -1073741790;
 LABEL_20:
     if ( v8[1] )
     {
@@ -110,7 +110,7 @@ LABEL_20:
       {
         v20 = &v8[32 * (unsigned __int64)v5 + 16];
         CurrentThread = KeGetCurrentThread();
-        --CurrentThread->SpecialApcDisable;
+        --*((_WORD *)CurrentThread + 243);
         ExAcquirePushLockExclusiveEx(v20[4] + 184LL, 0LL);
         v22 = *v20;
         if ( *(_QWORD **)(*v20 + 8LL) != v20 || (v23 = (_QWORD *)v20[1], (_QWORD *)*v23 != v20) )
@@ -119,8 +119,8 @@ LABEL_20:
         *(_QWORD *)(v22 + 8) = v23;
         ExReleasePushLockEx(v20[4] + 184LL, 0LL);
         v24 = KeGetCurrentThread();
-        v25 = v24->SpecialApcDisable++ == -1;
-        if ( v25 && ($CEA84C04E3712D858E5667A507841A2A *)v24->ApcState.ApcListHead[0].Flink != &v24->152 )
+        v25 = (*((_WORD *)v24 + 243))++ == 0xFFFF;
+        if ( v25 && *((struct _KTHREAD **)v24 + 19) != (struct _KTHREAD *)((char *)v24 + 152) )
           KiCheckForKernelApcDelivery();
         ++v5;
       }
@@ -130,7 +130,7 @@ LABEL_20:
   }
   else
   {
-    inserted = 0;
+    v17 = 0;
 LABEL_12:
     if ( v8[1] )
     {
@@ -143,5 +143,5 @@ LABEL_12:
     }
     *RegistrationHandle = v8;
   }
-  return inserted;
+  return v17;
 }

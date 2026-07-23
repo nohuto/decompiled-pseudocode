@@ -1,15 +1,15 @@
 /*
- * XREFs of ObFastReplaceObject @ 0x1404819D8
+ * XREFs of ObFastReplaceObject @ 0x14047B348
  * Callers:
- *     MmChangeSectionBackingFile @ 0x1404816CC (MmChangeSectionBackingFile.c)
- *     CcChangeBackingFileObject @ 0x1404817E0 (CcChangeBackingFileObject.c)
- *     MiEnableImageDirectMap @ 0x1406F9834 (MiEnableImageDirectMap.c)
- *     PsShutdownSystem @ 0x1407FA284 (PsShutdownSystem.c)
- *     SeExchangePrimaryToken @ 0x140814B78 (SeExchangePrimaryToken.c)
- *     ObpCreateSymbolicLinkName @ 0x1409E185C (ObpCreateSymbolicLinkName.c)
- *     ObpDeleteDeviceMap @ 0x140B5C818 (ObpDeleteDeviceMap.c)
+ *     MmChangeSectionBackingFile @ 0x14047B03C (MmChangeSectionBackingFile.c)
+ *     CcChangeBackingFileObject @ 0x14047B150 (CcChangeBackingFileObject.c)
+ *     MiEnableImageDirectMap @ 0x1406FE504 (MiEnableImageDirectMap.c)
+ *     PsShutdownSystem @ 0x1407FFCB4 (PsShutdownSystem.c)
+ *     SeExchangePrimaryToken @ 0x14081AC68 (SeExchangePrimaryToken.c)
+ *     ObpCreateSymbolicLinkName @ 0x1409DE86C (ObpCreateSymbolicLinkName.c)
+ *     ObpDeleteDeviceMap @ 0x140B5F738 (ObpDeleteDeviceMap.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall ObFastReplaceObject(volatile __int64 *a1, ULONG_PTR a2)

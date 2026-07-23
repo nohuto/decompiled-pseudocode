@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCreateEnvironment @ 0x180109C50
+ * XREFs of RtlCreateEnvironment @ 0x180104B80
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCreateEnvironment(char a1, _QWORD *a2)
+NTSTATUS __cdecl RtlCreateEnvironment(BOOLEAN CloneCurrentEnvironment, PVOID *Environment)
 {
-  return RtlCreateEnvironmentEx(0LL, a2, a1 == 0 ? 4 : 0);
+  return RtlCreateEnvironmentEx(0LL, Environment, CloneCurrentEnvironment == 0 ? 4 : 0);
 }

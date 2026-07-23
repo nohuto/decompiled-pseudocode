@@ -13,38 +13,35 @@
  */
 
 __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
-        unsigned __int64 a1,
-        unsigned int *a2,
+        PVOID BaseOfImage,
+        ULONG *a2,
         unsigned __int64 *a3,
         _DWORD *a4)
 {
   _DWORD *v4; // rsi
-  unsigned int *v5; // r12
-  unsigned __int64 v6; // rbx
+  __int64 v6; // rbx
   unsigned int ImageSize; // r14d
   unsigned __int64 v8; // rdi
   __int64 v9; // r13
   BOOL v10; // eax
-  __int64 v11; // rax
-  unsigned __int64 v12; // rsi
-  __int16 v13; // ax
-  unsigned int v14; // r8d
-  unsigned __int64 v15; // r15
-  unsigned __int64 v16; // rax
-  unsigned int v17; // r8d
+  PIMAGE_NT_HEADERS v11; // rax
+  _IMAGE_NT_HEADERS64 *v12; // rsi
+  unsigned __int16 Magic; // ax
+  ULONG VirtualAddress; // r8d
+  __int64 v15; // r15
+  PIMAGE_SECTION_HEADER v16; // rax
+  ULONG v17; // r8d
   unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rax
+  PIMAGE_SECTION_HEADER v19; // rax
+  _BYTE *v20; // rax
   __int64 v22; // [rsp+28h] [rbp-50h] BYREF
   unsigned int v23; // [rsp+30h] [rbp-48h]
-  __int64 v24; // [rsp+38h] [rbp-40h]
-  unsigned __int64 v25; // [rsp+40h] [rbp-38h]
+  _BYTE *v24; // [rsp+38h] [rbp-40h]
+  PIMAGE_SECTION_HEADER v25; // [rsp+40h] [rbp-38h]
 
   v4 = a4;
-  v5 = a2;
-  v6 = a1;
-  LOBYTE(a2) = 1;
-  v24 = RtlImageDirectoryEntryToData(a1, (int)a2, 2, (int)&v22);
+  v6 = (__int64)BaseOfImage;
+  v24 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 2u, (PULONG)&v22);
   if ( !v24 )
     return 3221225609LL;
   v22 = 0LL;
@@ -53,12 +50,12 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
   if ( ImageSize == -1073741701 )
     return 3221225595LL;
   v8 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( (unsigned __int64)v5 <= (v6 & 0xFFFFFFFFFFFFFFFCuLL) )
+  if ( (unsigned __int64)a2 <= (v6 & 0xFFFFFFFFFFFFFFFCuLL) )
     return 3221225595LL;
   v9 = v22;
   if ( v22 )
   {
-    if ( (unsigned __int64)v5 >= v8 + v22 )
+    if ( (unsigned __int64)a2 >= v8 + v22 )
       return 3221225595LL;
   }
   v10 = 0;
@@ -69,39 +66,39 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
   }
   if ( v10 )
   {
-    v11 = RtlImageNtHeader(v6);
+    v11 = RtlImageNtHeader((PVOID)v6);
     v12 = v11;
     if ( !v11 )
       return 3221225609LL;
-    v13 = *(_WORD *)(v11 + 24);
-    if ( v13 == 267 )
+    Magic = v11->OptionalHeader.Magic;
+    if ( Magic == 267 )
     {
-      v14 = *(_DWORD *)(v12 + 136);
+      VirtualAddress = v12->OptionalHeader.DataDirectory[0].VirtualAddress;
     }
-    else if ( v13 == 523 )
+    else if ( Magic == 523 )
     {
-      v14 = *(_DWORD *)(v12 + 152);
+      VirtualAddress = v12->OptionalHeader.DataDirectory[2].VirtualAddress;
     }
     else
     {
-      v14 = 0;
+      VirtualAddress = 0;
     }
-    if ( !v14 )
+    if ( !VirtualAddress )
       return 3221225609LL;
-    v15 = v6 + v14 - v24;
-    v16 = RtlSectionTableFromVirtualAddress(v12, v6, v14);
+    v15 = v6 + VirtualAddress - (_QWORD)v24;
+    v16 = RtlSectionTableFromVirtualAddress(v12, (PVOID)v6, VirtualAddress);
     if ( !v16 )
       return 3221225609LL;
-    v17 = *v5;
-    if ( *v5 > *(_DWORD *)(v16 + 8) )
+    v17 = *a2;
+    if ( *a2 > v16->Misc.PhysicalAddress )
     {
-      LODWORD(v22) = *(_DWORD *)(v16 + 12);
-      v19 = RtlSectionTableFromVirtualAddress(v12, v6, v17);
+      LODWORD(v22) = v16->VirtualAddress;
+      v19 = RtlSectionTableFromVirtualAddress(v12, (PVOID)v6, v17);
       v25 = v19;
       if ( !v19 )
         return 3221225609LL;
-      v20 = RtlAddressInSectionTable(v12, v6, *(unsigned int *)(v19 + 12));
-      v15 += v24 + *(unsigned int *)(v25 + 12) - (unsigned __int64)(unsigned int)v22 - v20;
+      v20 = RtlAddressInSectionTable(v12, (PVOID)v6, v19->VirtualAddress);
+      v15 += &v24[v25->VirtualAddress - (unsigned __int64)(unsigned int)v22] - v20;
     }
     v4 = a4;
   }
@@ -109,7 +106,7 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
   {
     v15 = 0LL;
   }
-  if ( a3 && ((v18 = v6 + *v5 - v15, *a3 = v18, v18 <= v8) || v9 && v18 >= v8 + v9) )
+  if ( a3 && ((v18 = v6 + *a2 - v15, *a3 = v18, v18 <= v8) || v9 && v18 >= v8 + v9) )
   {
     *a3 = 0LL;
     return 3221225595LL;
@@ -117,7 +114,7 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
   else
   {
     if ( v4 )
-      *v4 = v5[1];
+      *v4 = a2[1];
     return ImageSize;
   }
 }

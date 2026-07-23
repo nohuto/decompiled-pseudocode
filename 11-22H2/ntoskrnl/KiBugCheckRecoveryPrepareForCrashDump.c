@@ -45,7 +45,7 @@ char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool 
   *a2 = (v5 & 0x200) != 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v8 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )

@@ -1,48 +1,48 @@
 /*
- * XREFs of MiRelocateImage @ 0x140524330
+ * XREFs of MiRelocateImage @ 0x140507390
  * Callers:
- *     MiGetSystemAddressForImage @ 0x1404CCEDC (MiGetSystemAddressForImage.c)
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiGetSystemAddressForImage @ 0x1404B2908 (MiGetSystemAddressForImage.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400215A8 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14002161C (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiGetControlAreaPartition @ 0x140026D5C (MiGetControlAreaPartition.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     MiOffsetToProtos @ 0x140033070 (MiOffsetToProtos.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiGetImageBitMapInfo @ 0x14007CA7C (MiGetImageBitMapInfo.c)
- *     MiZeroCfgSystemWideBitmap @ 0x1400AA66C (MiZeroCfgSystemWideBitmap.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     PsSetSystemPagePriorityThread @ 0x1400FD0E0 (PsSetSystemPagePriorityThread.c)
- *     MiLegacyImageArchitecture @ 0x1400FDD94 (MiLegacyImageArchitecture.c)
- *     PsRevertToUserPagePriorityThread @ 0x1400FDEC0 (PsRevertToUserPagePriorityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiSetDeleteOnClose @ 0x1401DF37C (MiSetDeleteOnClose.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReverseSwizzleInvalidPte @ 0x1401F2934 (MiReverseSwizzleInvalidPte.c)
- *     MiDeleteDirectMapFixupPfn @ 0x1401F48FC (MiDeleteDirectMapFixupPfn.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x140021128 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14002119C (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiGetControlAreaPartition @ 0x1400268DC (MiGetControlAreaPartition.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     MiOffsetToProtos @ 0x140032BF0 (MiOffsetToProtos.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiGetImageBitMapInfo @ 0x14007CAFC (MiGetImageBitMapInfo.c)
+ *     MiZeroCfgSystemWideBitmap @ 0x1400A8BEC (MiZeroCfgSystemWideBitmap.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     PsSetSystemPagePriorityThread @ 0x1400FAE60 (PsSetSystemPagePriorityThread.c)
+ *     MiLegacyImageArchitecture @ 0x1400FBB14 (MiLegacyImageArchitecture.c)
+ *     PsRevertToUserPagePriorityThread @ 0x1400FBC40 (PsRevertToUserPagePriorityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiSetDeleteOnClose @ 0x1401DF1A8 (MiSetDeleteOnClose.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReverseSwizzleInvalidPte @ 0x1401F2760 (MiReverseSwizzleInvalidPte.c)
+ *     MiDeleteDirectMapFixupPfn @ 0x1401F4728 (MiDeleteDirectMapFixupPfn.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiUpdateCfgSystemWideBitmap @ 0x14046E4C8 (MiUpdateCfgSystemWideBitmap.c)
- *     MiSelectImageBase @ 0x14046E580 (MiSelectImageBase.c)
- *     MiScanRelocationPage @ 0x140524F40 (MiScanRelocationPage.c)
- *     MiCompressRelocations @ 0x140525290 (MiCompressRelocations.c)
- *     MiLogRelocationFaults @ 0x140525660 (MiLogRelocationFaults.c)
- *     MiParseImageCfgBits @ 0x1405256E0 (MiParseImageCfgBits.c)
- *     MiMapImageInSystemSpace @ 0x140525CC8 (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x140525DFC (MiUnmapImageInSystemSpace.c)
- *     MiFreeRelocations @ 0x14052CC54 (MiFreeRelocations.c)
- *     MiReleaseDriverPtes @ 0x140544938 (MiReleaseDriverPtes.c)
- *     SeSetImageBaseAddress @ 0x14068C9A0 (SeSetImageBaseAddress.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14046D398 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x14046D450 (MiSelectImageBase.c)
+ *     MiScanRelocationPage @ 0x140507FA0 (MiScanRelocationPage.c)
+ *     MiCompressRelocations @ 0x1405082F0 (MiCompressRelocations.c)
+ *     MiLogRelocationFaults @ 0x1405086C0 (MiLogRelocationFaults.c)
+ *     MiParseImageCfgBits @ 0x140508740 (MiParseImageCfgBits.c)
+ *     MiMapImageInSystemSpace @ 0x140508D28 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x140508E5C (MiUnmapImageInSystemSpace.c)
+ *     MiFreeRelocations @ 0x14052D194 (MiFreeRelocations.c)
+ *     MiReleaseDriverPtes @ 0x140544E78 (MiReleaseDriverPtes.c)
+ *     SeSetImageBaseAddress @ 0x14068CA84 (SeSetImageBaseAddress.c)
  */
 
 __int64 __fastcall MiRelocateImage(
@@ -471,7 +471,7 @@ LABEL_92:
         updated = -1073741670;
         goto LABEL_131;
       }
-      _InterlockedExchangeAdd64(&qword_140327918, v64);
+      _InterlockedExchangeAdd64(&qword_140327958, v64);
       --CurrentThread->SpecialApcDisable;
       v65 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)(v56 + 5), 0LL, 0);
       v66 = v65;
@@ -555,7 +555,7 @@ LABEL_132:
           if ( v76 )
           {
             v78 = (unsigned int)(v73 << 16);
-            if ( v77 < qword_140326910 || v77 >= qword_140326910 + 0x8000000000LL )
+            if ( v77 < qword_140326950 || v77 >= qword_140326950 + 0x8000000000LL )
               v46 = 0;
             PteAddress = MiGetPteAddress(v77);
             MiReleaseDriverPtes(v46, PteAddress, (unsigned int)(v78 >> 12));
@@ -569,18 +569,18 @@ LABEL_132:
             v106 - ((StartingIndex + (unsigned __int64)NumberToClear) << 16));
           v80 = KeGetCurrentThread();
           --v80->SpecialApcDisable;
-          v81 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326710, 0LL, 0);
+          v81 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326750, 0LL, 0);
           v82 = v81;
-          if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326710, 0LL) )
-            ExfAcquirePushLockExclusiveEx(&qword_140326710, v81, (ULONG_PTR)&qword_140326710);
+          if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326750, 0LL) )
+            ExfAcquirePushLockExclusiveEx(&qword_140326750, v81, (ULONG_PTR)&qword_140326750);
           if ( v82 )
             v82[26] |= 1u;
           if ( BitMapHeader )
             RtlClearBits(BitMapHeader, StartingIndex, NumberToClear);
           RtlClearBits(v107, StartingIndex, NumberToClear);
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326710, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326710);
-          KeAbPostRelease((ULONG_PTR)&qword_140326710);
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326750, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326750);
+          KeAbPostRelease((ULONG_PTR)&qword_140326750);
           KiLeaveGuardedRegionUnsafe((__int64)v80);
         }
       }

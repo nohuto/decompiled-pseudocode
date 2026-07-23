@@ -17,7 +17,7 @@ struct _PEB *__stdcall AVrfInternalHeapFreeNotification(int a1, int a2)
   result = NtCurrentPeb();
   if ( (result->NtGlobalFlag & 0x100) != 0 && AVrfpEnabled )
   {
-    RtlEnterCriticalSection((int)AVrfpVerifierLock);
+    RtlEnterCriticalSection(&AVrfpVerifierLock);
     v3 = (int *)AVrfpVerifierProvidersList;
     while ( v3 != &AVrfpVerifierProvidersList )
     {
@@ -26,7 +26,7 @@ struct _PEB *__stdcall AVrfInternalHeapFreeNotification(int a1, int a2)
       if ( v4 )
         v4(v4, a1, a2);
     }
-    return (struct _PEB *)RtlLeaveCriticalSection((int)AVrfpVerifierLock);
+    return (struct _PEB *)RtlLeaveCriticalSection(&AVrfpVerifierLock);
   }
   return result;
 }

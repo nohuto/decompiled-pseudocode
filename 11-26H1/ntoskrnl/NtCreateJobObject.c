@@ -1,27 +1,27 @@
 /*
- * XREFs of NtCreateJobObject @ 0x140A76700
+ * XREFs of NtCreateJobObject @ 0x140A7F420
  * Callers:
- *     DifNtCreateJobObjectWrapper @ 0x140671350 (DifNtCreateJobObjectWrapper.c)
+ *     DifNtCreateJobObjectWrapper @ 0x140674F30 (DifNtCreateJobObjectWrapper.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExInitializeFastResource @ 0x1404569B0 (ExInitializeFastResource.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PoEnergyEstimationEnabled @ 0x14047C5D0 (PoEnergyEstimationEnabled.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     ExCreateHandleEx @ 0x14092C1A0 (ExCreateHandleEx.c)
- *     PspLockJobListExclusive @ 0x140A76AA0 (PspLockJobListExclusive.c)
- *     PspIoRateEntryInitialize @ 0x140A76B10 (PspIoRateEntryInitialize.c)
- *     ExUuidCreate @ 0x140A76B60 (ExUuidCreate.c)
- *     EtwTraceJob @ 0x140A77CC8 (EtwTraceJob.c)
- *     PspUnlockJobListExclusive @ 0x140A7812C (PspUnlockJobListExclusive.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ExInitializeFastResource @ 0x14025FFC0 (ExInitializeFastResource.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PoEnergyEstimationEnabled @ 0x140475F40 (PoEnergyEstimationEnabled.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ExCreateHandleEx @ 0x140907CD0 (ExCreateHandleEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     EtwTraceJob @ 0x140A07238 (EtwTraceJob.c)
+ *     PspLockJobListExclusive @ 0x140A7F7C0 (PspLockJobListExclusive.c)
+ *     PspIoRateEntryInitialize @ 0x140A7F830 (PspIoRateEntryInitialize.c)
+ *     ExUuidCreate @ 0x140A7F880 (ExUuidCreate.c)
+ *     PspUnlockJobListExclusive @ 0x140A80BD0 (PspUnlockJobListExclusive.c)
  */
 
-__int64 __fastcall NtCreateJobObject(_QWORD *a1, unsigned int a2, __int64 a3)
+NTSTATUS __cdecl NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   struct _KTHREAD *CurrentThread; // r14
   unsigned __int8 PreviousMode; // r15
@@ -36,9 +36,9 @@ __int64 __fastcall NtCreateJobObject(_QWORD *a1, unsigned int a2, __int64 a3)
   __int64 Handle; // rax
   PRKEVENT v16; // rcx
   __int64 v18; // [rsp+20h] [rbp-88h]
-  unsigned int Blink; // [rsp+50h] [rbp-58h]
+  int Blink; // [rsp+50h] [rbp-58h]
   PRKEVENT Event; // [rsp+60h] [rbp-48h] BYREF
-  __int64 v21; // [rsp+68h] [rbp-40h] BYREF
+  void *v21; // [rsp+68h] [rbp-40h] BYREF
   LARGE_INTEGER Interval; // [rsp+70h] [rbp-38h] BYREF
 
   Event = 0LL;
@@ -47,12 +47,22 @@ __int64 __fastcall NtCreateJobObject(_QWORD *a1, unsigned int a2, __int64 a3)
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
-    RtlWriteULong64ToUser(a1, 0LL);
+    RtlWriteULong64ToUser(JobHandle, 0LL);
   else
-    *a1 = 0LL;
+    *JobHandle = 0LL;
   v7 = PoEnergyEstimationEnabled();
   v8 = v7 != 0 ? 2288 : 1848;
-  inserted = ObCreateObjectEx(PreviousMode, PsJobType, a3, PreviousMode, v18, v8, 0, v8, &Event, 0LL);
+  inserted = ObCreateObjectEx(
+               PreviousMode,
+               PsJobType,
+               (__int64)ObjectAttributes,
+               PreviousMode,
+               v18,
+               v8,
+               0,
+               v8,
+               &Event,
+               0LL);
   if ( inserted < 0 )
   {
     v11 = Event;
@@ -102,7 +112,7 @@ __int64 __fastcall NtCreateJobObject(_QWORD *a1, unsigned int a2, __int64 a3)
   HIDWORD(v11[45].Header.WaitListHead.Flink) = 8;
   LODWORD(v11[45].Header.WaitListHead.Blink) = 8;
   LODWORD(v11[64].Header.WaitListHead.Blink) |= 0x200000u;
-  Blink = (unsigned int)v11[64].Header.WaitListHead.Blink;
+  Blink = (int)v11[64].Header.WaitListHead.Blink;
   while ( 1 )
   {
     v14 = ExUuidCreate((UUID *)&v11[61].Header.WaitListHead);
@@ -130,7 +140,7 @@ __int64 __fastcall NtCreateJobObject(_QWORD *a1, unsigned int a2, __int64 a3)
   if ( inserted < 0 )
     goto LABEL_29;
   PsReferenceSiloContext(v11);
-  inserted = ObInsertObjectEx((char *)v11, 0LL, a2, 0, 0, 0LL, &v21);
+  inserted = ObInsertObjectEx((char *)v11, 0LL, DesiredAccess, 0, 0, 0LL, &v21);
   if ( inserted < 0 )
   {
     v16 = v11;
@@ -140,13 +150,13 @@ LABEL_29:
     goto LABEL_23;
   }
   if ( PreviousMode )
-    RtlWriteULong64ToUser(a1, v21);
+    RtlWriteULong64ToUser(JobHandle, (__int64)v21);
   else
-    *a1 = v21;
+    *JobHandle = v21;
 LABEL_23:
   if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
-    EtwTraceJob(v11, Blink, (unsigned int)inserted, 1824LL);
+    EtwTraceJob((__int64)v11, Blink, inserted, 0x720u);
   if ( v11 )
     ObfDereferenceObject(v11);
-  return (unsigned int)inserted;
+  return inserted;
 }

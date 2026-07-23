@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLazyWriteWorker @ 0x1403C00A0
+ * XREFs of CmpLazyWriteWorker @ 0x1403C04D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     CmpCompleteLazyWrite @ 0x1402CA940 (CmpCompleteLazyWrite.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     CmpCompleteLazyWrite @ 0x140249230 (CmpCompleteLazyWrite.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpDiskFullWarning @ 0x140876BA8 (CmpDiskFullWarning.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpDiskFullWarning @ 0x140876D08 (CmpDiskFullWarning.c)
  */
 
 void __fastcall __noreturn CmpLazyWriteWorker(PKTIMER Timer)

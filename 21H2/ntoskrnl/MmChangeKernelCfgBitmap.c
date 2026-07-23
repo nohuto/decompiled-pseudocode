@@ -1,13 +1,13 @@
 /*
- * XREFs of MmChangeKernelCfgBitmap @ 0x1408D7958
+ * XREFs of MmChangeKernelCfgBitmap @ 0x1408D7AB8
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 char __fastcall MmChangeKernelCfgBitmap(unsigned __int64 a1)
@@ -19,8 +19,7 @@ char __fastcall MmChangeKernelCfgBitmap(unsigned __int64 a1)
   unsigned __int64 ValidPte; // rbx
   int v6; // esi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v8; // r8
-  bool v9; // zf
+  bool v8; // zf
 
   PteAddress = (_QWORD *)MiGetPteAddress(a1);
   v3 = (unsigned __int64)PteAddress;
@@ -41,18 +40,18 @@ char __fastcall MmChangeKernelCfgBitmap(unsigned __int64 a1)
     if ( (_DWORD)CurrentThread )
     {
       v6 = 1;
-      if ( HIBYTE(word_140C4E008) )
+      if ( HIBYTE(word_140C4E048) )
         goto LABEL_12;
-      v9 = (ValidPte & 1) == 0;
+      v8 = (ValidPte & 1) == 0;
     }
     else
     {
       CurrentThread = KeGetCurrentThread();
       if ( (HIDWORD(CurrentThread->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_12;
-      v9 = (ValidPte & 1) == 0;
+      v8 = (ValidPte & 1) == 0;
     }
-    if ( !v9 )
+    if ( !v8 )
     {
       LOBYTE(CurrentThread) = 0;
       ValidPte |= 0x8000000000000000uLL;
@@ -61,6 +60,6 @@ char __fastcall MmChangeKernelCfgBitmap(unsigned __int64 a1)
 LABEL_12:
   *PteAddress = ValidPte;
   if ( v6 )
-    LOBYTE(CurrentThread) = MiWritePteShadow((__int64)PteAddress, ValidPte, v8);
+    LOBYTE(CurrentThread) = MiWritePteShadow((__int64)PteAddress, ValidPte);
   return (char)CurrentThread;
 }

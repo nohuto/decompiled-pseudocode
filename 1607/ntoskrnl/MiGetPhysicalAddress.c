@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetPhysicalAddress @ 0x140025030
+ * XREFs of MiGetPhysicalAddress @ 0x140024BB0
  * Callers:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     MiDbgCopyMemory @ 0x1400836B8 (MiDbgCopyMemory.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     MiDbgCopyMemory @ 0x140084338 (MiDbgCopyMemory.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     MiSetNonPagedPoolNoSteal @ 0x140124900 (MiSetNonPagedPoolNoSteal.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     MiSetNonPagedPoolNoSteal @ 0x140124E70 (MiSetNonPagedPoolNoSteal.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiGetPhysicalAddress(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
@@ -55,7 +55,7 @@ LABEL_11:
   *v3 = v12;
   if ( (v12 & 1) == 0 )
     return 0LL;
-  if ( a1 >= qword_140327F20 && a1 < qword_140327F20 + 0x100000000000LL )
+  if ( a1 >= qword_140327F60 && a1 < qword_140327F60 + 0x100000000000LL )
   {
     MiSetNonPagedPoolNoSteal(v15, v13, v14, v12);
     *v3 = MI_READ_PTE_LOCK_FREE(v16);

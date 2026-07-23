@@ -1,21 +1,21 @@
 /*
- * XREFs of KeFlushIoBuffers @ 0x140441180
+ * XREFs of KeFlushIoBuffers @ 0x140439C90
  * Callers:
- *     HalpDmaFlushBuffer @ 0x14044011C (HalpDmaFlushBuffer.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404413A8 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140441650 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     HalFlushDmaBuffer @ 0x14047E9D0 (HalFlushDmaBuffer.c)
- *     HalpDmaFlushDriverMdl @ 0x140578CA8 (HalpDmaFlushDriverMdl.c)
- *     HalpFlushMapBuffers @ 0x14058970C (HalpFlushMapBuffers.c)
- *     ViMapDoubleBuffer @ 0x140C27768 (ViMapDoubleBuffer.c)
+ *     HalpDmaFlushBuffer @ 0x140438C2C (HalpDmaFlushBuffer.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x140439EB8 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14043A160 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     HalFlushDmaBuffer @ 0x140478340 (HalFlushDmaBuffer.c)
+ *     HalpDmaFlushDriverMdl @ 0x14057B1D8 (HalpDmaFlushDriverMdl.c)
+ *     HalpFlushMapBuffers @ 0x14058BDDC (HalpFlushMapBuffers.c)
+ *     ViMapDoubleBuffer @ 0x140C2D778 (ViMapDoubleBuffer.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KiFlushRangeAllCaches @ 0x1405F1020 (KiFlushRangeAllCaches.c)
- *     EtwTraceCpuCacheFlush @ 0x1406C45C4 (EtwTraceCpuCacheFlush.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KiFlushRangeAllCaches @ 0x1405F3990 (KiFlushRangeAllCaches.c)
+ *     EtwTraceCpuCacheFlush @ 0x1406C8204 (EtwTraceCpuCacheFlush.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, __int64 a3, __int64 a4)
@@ -56,7 +56,7 @@ char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, __int64 
       {
         KeBugCheckEx(0x55u, 0x86uLL, 0xBADuLL, 0LL, 0LL);
       }
-      if ( (xmmword_140FBFC10 & 0x4000000) != 0 )
+      if ( (xmmword_140FC0C10 & 0x4000000) != 0 )
       {
         v12 = 1;
         LOBYTE(v4) = EtwGetKernelTraceTimestamp((unsigned __int64)v14, 0x84000000uLL, a3);

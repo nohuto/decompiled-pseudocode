@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpPmTimerConfigure @ 0x1405603E4
+ * XREFs of HalpPmTimerConfigure @ 0x14055E014
  * Callers:
- *     HalpPmTimerDiscover @ 0x1405604A0 (HalpPmTimerDiscover.c)
+ *     HalpPmTimerDiscover @ 0x14055E0D0 (HalpPmTimerDiscover.c)
  * Callees:
  *     <none>
  */

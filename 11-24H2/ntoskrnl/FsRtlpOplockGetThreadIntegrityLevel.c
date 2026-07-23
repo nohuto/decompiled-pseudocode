@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpOplockGetThreadIntegrityLevel @ 0x14070BA40
+ * XREFs of FsRtlpOplockGetThreadIntegrityLevel @ 0x1407095D4
  * Callers:
- *     FsRtlpOplockTryPrepForAckTimeout @ 0x14070C450 (FsRtlpOplockTryPrepForAckTimeout.c)
- *     FsRtlpOplockTryStartBreakAckTimeout @ 0x14070C630 (FsRtlpOplockTryStartBreakAckTimeout.c)
+ *     FsRtlpOplockTryPrepForAckTimeout @ 0x140709FE4 (FsRtlpOplockTryPrepForAckTimeout.c)
+ *     FsRtlpOplockTryStartBreakAckTimeout @ 0x14070A1C4 (FsRtlpOplockTryStartBreakAckTimeout.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     PsReferenceImpersonationTokenEx @ 0x140989D20 (PsReferenceImpersonationTokenEx.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1409737D0 (PsReferenceImpersonationTokenEx.c)
  */
 
 char __fastcall FsRtlpOplockGetThreadIntegrityLevel(__int64 a1, PVOID *a2)

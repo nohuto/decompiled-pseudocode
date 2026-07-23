@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpLogInvalidLogHeader @ 0x140881B48
+ * XREFs of HvpLogInvalidLogHeader @ 0x140881CA8
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140880C2C (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140880D8C (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
  */
 
 void HvpLogInvalidLogHeader()
@@ -106,7 +106,7 @@ void HvpLogInvalidLogHeader()
       v44 = &v13;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02130,
-        (unsigned __int8 *)byte_140023E9B,
+        (unsigned __int8 *)&word_140023E8E,
         0LL,
         0LL,
         0xCu,

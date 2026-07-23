@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnArrayGrow @ 0x140A8F794
+ * XREFs of PfSnArrayGrow @ 0x140A94464
  * Callers:
- *     PfSnVolumeKeyQuery @ 0x140A8F6CC (PfSnVolumeKeyQuery.c)
+ *     PfSnVolumeKeyQuery @ 0x140A9439C (PfSnVolumeKeyQuery.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnArrayGrow(unsigned int a1, __int64 a2, __int64 a3, unsigned int *a4, const void **a5)

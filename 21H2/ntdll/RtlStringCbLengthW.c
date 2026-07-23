@@ -2,11 +2,11 @@
  * XREFs of RtlStringCbLengthW @ 0x180044608
  * Callers:
  *     RtlpGetTokenNamedObjectPath @ 0x180044040 (RtlpGetTokenNamedObjectPath.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1800EA0F0 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800EA460 (RtlpConvertRelativeToAbsoluteSecurityAttribute.c)
- *     RtlpIsAttributeAceInSacl @ 0x1800EA970 (RtlpIsAttributeAceInSacl.c)
- *     RtlpValidRelativeAttribute @ 0x1800EAF48 (RtlpValidRelativeAttribute.c)
- *     RtlpPopulateLanguageConfigList @ 0x180105E38 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1800EA0B0 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800EA420 (RtlpConvertRelativeToAbsoluteSecurityAttribute.c)
+ *     RtlpIsAttributeAceInSacl @ 0x1800EA930 (RtlpIsAttributeAceInSacl.c)
+ *     RtlpValidRelativeAttribute @ 0x1800EAF08 (RtlpValidRelativeAttribute.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180105DF8 (RtlpPopulateLanguageConfigList.c)
  * Callees:
  *     <none>
  */

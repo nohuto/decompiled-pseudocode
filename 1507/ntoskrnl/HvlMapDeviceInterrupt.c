@@ -69,13 +69,13 @@ __int64 __fastcall HvlMapDeviceInterrupt(__int64 a1, __int64 a2, _OWORD *a3, __i
   unsigned __int64 v58; // [rsp+40h] [rbp-318h]
   __int64 *v59; // [rsp+48h] [rbp-310h]
   char v60; // [rsp+50h] [rbp-308h]
-  struct _KPRCB *v61; // [rsp+58h] [rbp-300h]
-  struct _SLIST_ENTRY *v62; // [rsp+60h] [rbp-2F8h]
+  _SLIST_HEADER *v61; // [rsp+58h] [rbp-300h]
+  _SLIST_ENTRY *v62; // [rsp+60h] [rbp-2F8h]
   PSLIST_ENTRY ListEntry; // [rsp+70h] [rbp-2E8h]
   PHYSICAL_ADDRESS PhysicalAddress; // [rsp+78h] [rbp-2E0h]
   PSLIST_ENTRY v67; // [rsp+90h] [rbp-2C8h]
-  struct _KPRCB *v68; // [rsp+A0h] [rbp-2B8h]
-  struct _SLIST_ENTRY *v69; // [rsp+A8h] [rbp-2B0h]
+  _SLIST_HEADER *v68; // [rsp+A0h] [rbp-2B8h]
+  _SLIST_ENTRY *v69; // [rsp+A8h] [rbp-2B0h]
   _OWORD v71[2]; // [rsp+C0h] [rbp-298h] BYREF
   __int64 v72; // [rsp+E0h] [rbp-278h]
   __int64 v73; // [rsp+F0h] [rbp-268h] BYREF
@@ -106,7 +106,7 @@ __int64 __fastcall HvlMapDeviceInterrupt(__int64 a1, __int64 a2, _OWORD *a3, __i
         v8 = 1;
         v60 = 1;
         v9 = (unsigned __int8)CurrentPrcb;
-        v61 = CurrentPrcb;
+        v61 = (_SLIST_HEADER *)CurrentPrcb;
       }
       else
       {
@@ -144,7 +144,7 @@ __int64 __fastcall HvlMapDeviceInterrupt(__int64 a1, __int64 a2, _OWORD *a3, __i
         v67 = v16;
         v52 = (unsigned __int8)v15;
         v56 = 1;
-        v68 = v15;
+        v68 = (_SLIST_HEADER *)v15;
         PhysicalAddress = (PHYSICAL_ADDRESS)v16[1].Next;
       }
       else
@@ -250,7 +250,7 @@ LABEL_44:
       if ( (v8 & 1) != 0 )
       {
         ListEntry[1].Next = QuadPart;
-        RtlpInterlockedPushEntrySList(&v61->HypercallPageList, ListEntry);
+        RtlpInterlockedPushEntrySList(v61 + 1535, ListEntry);
       }
       else if ( (v8 & 2) != 0 )
       {
@@ -283,7 +283,7 @@ LABEL_44:
           v8 = 1;
           QuadPart = v34[1].Next;
           v9 = (unsigned __int8)v33;
-          v61 = v33;
+          v61 = (_SLIST_HEADER *)v33;
           goto LABEL_61;
         }
         v8 = 4;
@@ -376,7 +376,7 @@ LABEL_74:
     if ( (v8 & 1) != 0 )
     {
       ListEntry[1].Next = QuadPart;
-      RtlpInterlockedPushEntrySList(&v61->HypercallPageList, ListEntry);
+      RtlpInterlockedPushEntrySList(v61 + 1535, ListEntry);
     }
     else if ( (v8 & 2) != 0 )
     {
@@ -402,7 +402,7 @@ LABEL_74:
     if ( (v56 & 1) != 0 )
     {
       v67[1].Next = (_SLIST_ENTRY *)PhysicalAddress.QuadPart;
-      RtlpInterlockedPushEntrySList(&v68->HypercallPageList, v67);
+      RtlpInterlockedPushEntrySList(v68 + 1535, v67);
     }
     else if ( (v56 & 2) != 0 )
     {

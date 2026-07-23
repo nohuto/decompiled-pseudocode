@@ -28,7 +28,7 @@ int __fastcall RtlpFcSendFeatureUsageNotifications(int a1, unsigned int *a2, int
           && *((_WORD *)v5 - 1) == *(_WORD *)(a1 + 4)
           && ((*v5 & 1) == 0 || (*(_BYTE *)(a1 + 6) & 1) != 0) )
         {
-          v6 = RtlpFcNotifyFeatureUsageTarget((int *)a1, v5 + 2);
+          v6 = RtlpFcNotifyFeatureUsageTarget((int *)a1, (WNF_STATE_NAME *)(v5 + 2));
           a1 = v8;
           if ( v6 >= 0 )
             v3 = v6;

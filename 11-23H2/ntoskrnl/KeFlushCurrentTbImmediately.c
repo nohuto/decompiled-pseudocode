@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFlushCurrentTbImmediately @ 0x14039ADD0
+ * XREFs of KeFlushCurrentTbImmediately @ 0x14039AFB0
  * Callers:
- *     HalpFlushTLB @ 0x14037E49C (HalpFlushTLB.c)
+ *     HalpFlushTLB @ 0x14037E63C (HalpFlushTLB.c)
  *     KiSetPageAttributesTable @ 0x140A8C7B0 (KiSetPageAttributesTable.c)
- *     KeLoadMTRR @ 0x140A8F950 (KeLoadMTRR.c)
- *     PopHandleNextState @ 0x140AA811C (PopHandleNextState.c)
+ *     KeLoadMTRR @ 0x140A8F7D0 (KeLoadMTRR.c)
+ *     PopHandleNextState @ 0x140AA7F8C (PopHandleNextState.c)
  * Callees:
  *     <none>
  */

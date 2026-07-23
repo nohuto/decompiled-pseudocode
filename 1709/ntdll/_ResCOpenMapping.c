@@ -11,20 +11,20 @@
  *     _ResUnmapViewOfFile @ 0x180110624 (_ResUnmapViewOfFile.c)
  */
 
-unsigned __int64 __fastcall ResCOpenMapping(__int64 a1, __int64 a2)
+void *__fastcall ResCOpenMapping(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rdi
+  void *v2; // rdi
   __int64 v3; // rbx
   __int64 v4; // rax
   int v5; // r8d
   int v6; // r9d
-  unsigned __int64 result; // rax
+  void *result; // rax
 
   v2 = 0LL;
   v3 = 0LL;
   if ( !a1 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
 LABEL_7:
     if ( (unsigned __int64)(v3 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
       ResCloseHandle(v3);
@@ -34,11 +34,11 @@ LABEL_7:
   v3 = v4;
   if ( !v4 )
     return 0LL;
-  v2 = ResMapViewOfFile(v4, 4, v5, v6, 0LL);
+  v2 = (void *)ResMapViewOfFile(v4, 4, v5, v6, 0LL);
   if ( !v2 )
     goto LABEL_7;
   ResCloseHandle(v3);
-  result = ResCSegmentCreateAndPopulate(v2, 0, 9);
+  result = ResCSegmentCreateAndPopulate((__int64)v2, 0, 9);
   if ( !result )
   {
 LABEL_9:

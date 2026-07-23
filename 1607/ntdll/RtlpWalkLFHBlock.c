@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpWalkLFHBlock @ 0x18004DBD8
+ * XREFs of RtlpWalkLFHBlock @ 0x18004DBC8
  * Callers:
- *     RtlpWalkHeap @ 0x18004D484 (RtlpWalkHeap.c)
+ *     RtlpWalkHeap @ 0x18004D474 (RtlpWalkHeap.c)
  * Callees:
  *     RtlpGetFirstBlockAddress @ 0x180001008 (RtlpGetFirstBlockAddress.c)
  *     RtlpGetReservedBlockSize @ 0x180001058 (RtlpGetReservedBlockSize.c)
@@ -12,7 +12,7 @@
 char __fastcall RtlpWalkLFHBlock(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi
-  __int64 v5; // r14
+  _RTL_SRWLOCK *v5; // r14
   unsigned __int64 v6; // rdi
   __int64 v7; // rax
   unsigned __int64 v8; // rcx
@@ -23,14 +23,14 @@ char __fastcall RtlpWalkLFHBlock(__int64 a1, __int64 a2)
   unsigned __int64 v13; // r8
   char v14; // al
   __int64 v15; // r10
-  __int64 v17; // rdx
+  unsigned __int64 Value; // rdx
   int v18; // eax
   unsigned __int16 v19; // ax
   unsigned __int64 *v20; // rax
-  __int64 v21; // rdx
+  unsigned __int64 v21; // rdx
   unsigned __int8 v22; // r8
   __int64 v23; // rdx
-  __int64 v24; // rcx
+  unsigned __int64 v24; // rcx
   int v25; // eax
   unsigned __int16 v26; // ax
   __int64 v27; // r13
@@ -74,7 +74,7 @@ char __fastcall RtlpWalkLFHBlock(__int64 a1, __int64 a2)
 
   v2 = 0LL;
   if ( *(_BYTE *)(a1 + 386) == 2 )
-    v5 = *(_QWORD *)(a1 + 376);
+    v5 = *(_RTL_SRWLOCK **)(a1 + 376);
   else
     v5 = 0LL;
   if ( !v5 )
@@ -97,15 +97,15 @@ LABEL_6:
 LABEL_7:
   if ( *(char *)(v6 + 15) >= 0 )
   {
-    v17 = *(_QWORD *)(v5 + 24);
-    if ( ((*(_BYTE *)(v6 + 10) ^ (unsigned __int8)(*(_BYTE *)(v17 + 138) & (*(_DWORD *)(v17 + 124) >> 20))) & 1) == 0 )
+    Value = v5[3].Value;
+    if ( ((*(_BYTE *)(v6 + 10) ^ (unsigned __int8)(*(_BYTE *)(Value + 138) & (*(_DWORD *)(Value + 124) >> 20))) & 1) == 0 )
       goto LABEL_22;
-    if ( *(_DWORD *)(v17 + 124) )
+    if ( *(_DWORD *)(Value + 124) )
     {
       v18 = *(_DWORD *)(v6 + 8);
       LOWORD(v60) = v18;
-      if ( (v18 & *(_DWORD *)(v17 + 124)) != 0 )
-        v60 = *(_DWORD *)(v17 + 136) ^ v18;
+      if ( (v18 & *(_DWORD *)(Value + 124)) != 0 )
+        v60 = *(_DWORD *)(Value + 136) ^ v18;
       v19 = v60;
     }
     else
@@ -234,15 +234,15 @@ LABEL_88:
     }
 LABEL_22:
     if ( RtlpIsLFHZoneAllocation(v5, v6)
-      || v5 == *(_QWORD *)a2
-      || (v21 = *(_QWORD *)(v5 + 24),
+      || v5 == *(_RTL_SRWLOCK **)a2
+      || (v21 = v5[3].Value,
           v22 = *(_BYTE *)(v6 + 10),
           ((v22 ^ (unsigned __int8)(*(_BYTE *)(v21 + 138) & (*(_DWORD *)(v21 + 124) >> 20))) & 1) != 0)
       && ((v22 ^ (unsigned __int8)(*(_BYTE *)(v21 + 138) & (*(_DWORD *)(v21 + 124) >> 17))) & 8) != 0 )
     {
       *(_WORD *)(a2 + 18) = 8193;
       RtlpSetHeapWalkEntryOverheadBytes(a2, 16LL);
-      v24 = *(_QWORD *)(v5 + 24);
+      v24 = v5[3].Value;
       if ( *(_DWORD *)(v24 + 124) )
       {
         v25 = *(_DWORD *)(v6 + 8);

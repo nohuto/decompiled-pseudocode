@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAddEntryToImportList @ 0x140874F0C
+ * XREFs of MiAddEntryToImportList @ 0x14087B2F0
  * Callers:
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
- *     MiUpdateBootDriverHotPatchImports @ 0x140CFB77C (MiUpdateBootDriverHotPatchImports.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
+ *     MiUpdateBootDriverHotPatchImports @ 0x140D01AFC (MiUpdateBootDriverHotPatchImports.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiAllocateImportList @ 0x140ADD624 (MiAllocateImportList.c)
- *     MiCompressImportList @ 0x140ADD674 (MiCompressImportList.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiAllocateImportList @ 0x14097F024 (MiAllocateImportList.c)
+ *     MiCompressImportList @ 0x14097F074 (MiCompressImportList.c)
  */
 
 __int64 __fastcall MiAddEntryToImportList(__int64 *a1, __int64 a2)

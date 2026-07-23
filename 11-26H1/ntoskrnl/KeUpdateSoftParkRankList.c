@@ -1,23 +1,23 @@
 /*
- * XREFs of KeUpdateSoftParkRankList @ 0x14025B508
+ * XREFs of KeUpdateSoftParkRankList @ 0x14025CCE8
  * Callers:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     PpmParkReportParkedCores @ 0x14025A2F0 (PpmParkReportParkedCores.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     PpmParkReportParkedCores @ 0x14025BAD0 (PpmParkReportParkedCores.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiCompressSoftParkRankList @ 0x14025B6E8 (KiCompressSoftParkRankList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiCompressSoftParkRankList @ 0x14025CEC8 (KiCompressSoftParkRankList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 KeUpdateSoftParkRankList()
 {
-  struct _LIST_ENTRY *Blink; // r15
+  _DWORD *v0; // r15
   unsigned __int64 result; // rax
   unsigned int i; // ebp
   __int64 v3; // rsi
@@ -33,7 +33,7 @@ unsigned __int64 KeUpdateSoftParkRankList()
   _BYTE Buf1[64]; // [rsp+30h] [rbp-178h] BYREF
   _DWORD v14[64]; // [rsp+70h] [rbp-138h] BYREF
 
-  Blink = PopModernStandbyStateNotify.ApcState.ApcListHead[0].Blink;
+  v0 = PpmParkNewSoftParkRankList;
   result = (unsigned __int64)memset_0(Buf1, 0, sizeof(Buf1));
   for ( i = 0; i < (unsigned __int16)KiSubNodeCount; ++i )
   {
@@ -51,10 +51,9 @@ LABEL_4:
         if ( v5 )
         {
           _BitScanForward64(&v8, v5);
-          v9 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-               + 64 * v6
+          v9 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v6].Flink
                + (unsigned __int8)v8);
-          v14[*(unsigned __int8 *)(KiProcessorBlock[v9] + 209)] = *((_DWORD *)&Blink->Flink + v9);
+          v14[*(unsigned __int8 *)(KiProcessorBlock[v9] + 209)] = v0[v9];
           v5 &= ~(1LL << v8);
           goto LABEL_4;
         }

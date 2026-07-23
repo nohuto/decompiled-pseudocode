@@ -187,7 +187,7 @@ LABEL_13:
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(SchedulerAssist);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = (unsigned __int64)KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -388,10 +388,10 @@ LABEL_55:
       }
       if ( v38 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v52 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
           {
             v53 = KeGetCurrentPrcb();
             v54 = v53->SchedulerAssist;
@@ -408,9 +408,9 @@ LABEL_55:
         __writecr8(CurrentIrql);
         v39 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
-          if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
           {
             v40 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v39 == 2 )
@@ -434,10 +434,10 @@ LABEL_30:
     }
     while ( v20 < v6 );
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v57 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v57 <= 0xFu && CurrentIrql <= 0xFu && v57 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v57 <= 0xFu && CurrentIrql <= 0xFu && v57 >= 2u )
     {
       v58 = KeGetCurrentPrcb();
       v59 = v58->SchedulerAssist;

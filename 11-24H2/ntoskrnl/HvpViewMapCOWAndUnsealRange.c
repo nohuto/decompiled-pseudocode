@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpViewMapCOWAndUnsealRange @ 0x14097FDC0
+ * XREFs of HvpViewMapCOWAndUnsealRange @ 0x1409685D0
  * Callers:
- *     HvpMarkDirty @ 0x140882A90 (HvpMarkDirty.c)
- *     HvpSetRangeProtection @ 0x1408832A4 (HvpSetRangeProtection.c)
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
+ *     HvpMarkDirty @ 0x140886940 (HvpMarkDirty.c)
+ *     HvpSetRangeProtection @ 0x140887154 (HvpSetRangeProtection.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
  * Callees:
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14097FE30 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpViewMapFindViewForFileOffset @ 0x14097FF54 (HvpViewMapFindViewForFileOffset.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x140968640 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpViewMapFindViewForFileOffset @ 0x140968764 (HvpViewMapFindViewForFileOffset.c)
  */
 
 __int64 __fastcall HvpViewMapCOWAndUnsealRange(__int64 a1, int a2, unsigned int a3)

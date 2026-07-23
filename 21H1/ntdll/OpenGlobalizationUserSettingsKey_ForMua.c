@@ -17,122 +17,123 @@
  *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x4B38B3AF (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  */
 
-NTSTATUS __thiscall OpenGlobalizationUserSettingsKey_ForMua(void *this, int a2, _DWORD *a3)
+NTSTATUS __thiscall OpenGlobalizationUserSettingsKey_ForMua(void *this, HANDLE *a2, _DWORD *a3)
 {
   int v3; // edi
   int *Heap; // ebx
-  NTSTATUS InformationToken; // esi
+  NTSTATUS PersistedStateLocation; // esi
   unsigned __int8 v6; // al
   unsigned __int16 v7; // si
-  int v8; // edi
-  char v10[4]; // [esp+Ch] [ebp-254h] BYREF
-  _DWORD v11[6]; // [esp+10h] [ebp-250h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+28h] [ebp-238h] BYREF
-  HANDLE Handle; // [esp+30h] [ebp-230h] BYREF
-  int v14; // [esp+34h] [ebp-22Ch]
-  int v15; // [esp+38h] [ebp-228h]
-  int v16; // [esp+3Ch] [ebp-224h] BYREF
-  int v17; // [esp+40h] [ebp-220h] BYREF
-  int v18; // [esp+44h] [ebp-21Ch]
-  int v19; // [esp+48h] [ebp-218h]
-  _DWORD *v20; // [esp+4Ch] [ebp-214h]
-  unsigned __int16 Src[262]; // [esp+50h] [ebp-210h] BYREF
+  wchar_t *v8; // edi
+  SIZE_T v10; // [esp-4h] [ebp-264h]
+  SIZE_T v11; // [esp-4h] [ebp-264h]
+  ULONG ReturnLength; // [esp+Ch] [ebp-254h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-250h] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+28h] [ebp-238h] BYREF
+  HANDLE KeyHandle; // [esp+30h] [ebp-230h] BYREF
+  ACCESS_MASK DesiredAccess; // [esp+34h] [ebp-22Ch]
+  PHANDLE v17; // [esp+38h] [ebp-228h]
+  ULONG BufferLengthOut; // [esp+3Ch] [ebp-224h] BYREF
+  _UNICODE_STRING Destination; // [esp+40h] [ebp-220h] BYREF
+  int v20; // [esp+48h] [ebp-218h]
+  _DWORD *v21; // [esp+4Ch] [ebp-214h]
+  WCHAR TargetPath[262]; // [esp+50h] [ebp-210h] BYREF
 
-  v15 = a2;
+  v17 = a2;
   v3 = 0;
-  v19 = 0;
-  v20 = a3;
-  v14 = (int)this;
-  Heap = (int *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 76);
+  v20 = 0;
+  v21 = a3;
+  LODWORD(v10) = 76;
+  DesiredAccess = (ACCESS_MASK)this;
+  Heap = (int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
   if ( Heap )
   {
-    InformationToken = ZwQueryInformationToken(-6, 1, (int)Heap, 76, (int)v10);
-    if ( InformationToken < 0 )
+    PersistedStateLocation = ZwQueryInformationToken((HANDLE)0xFFFFFFFA, 1u, Heap, 0x4Cu, &ReturnLength);
+    if ( PersistedStateLocation < 0 )
       goto LABEL_26;
     v3 = *Heap;
   }
   else
   {
-    InformationToken = -1073741801;
+    PersistedStateLocation = -1073741801;
   }
-  if ( InformationToken >= 0 )
+  if ( PersistedStateLocation >= 0 )
   {
     v6 = *(_BYTE *)(v3 + 1);
     if ( v6 < 2u || v6 == 5 && *(_DWORD *)(v3 + 8) == 21 && *(_DWORD *)(v3 + 24) == 503 )
     {
-      InformationToken = -1073741514;
-      v19 = 1;
-      *v20 = 0;
+      PersistedStateLocation = -1073741514;
+      v20 = 1;
+      *v21 = 0;
     }
-    if ( InformationToken >= 0 )
+    if ( PersistedStateLocation >= 0 )
     {
-      InformationToken = RtlConvertSidToUnicodeString(&UnicodeString, (PSID)v3, 1u);
-      if ( InformationToken >= 0 )
+      PersistedStateLocation = RtlConvertSidToUnicodeString(&UnicodeString, (PSID)v3, 1u);
+      if ( PersistedStateLocation >= 0 )
       {
-        v16 = 0;
-        InformationToken = RtlGetPersistedStateLocation(
-                             L"GlobalizationUserSettings",
-                             L"TargetNtPath",
-                             L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\International",
-                             0,
-                             Src,
-                             0x208u,
-                             (size_t *)&v16);
-        if ( InformationToken >= 0 )
+        BufferLengthOut = 0;
+        PersistedStateLocation = RtlGetPersistedStateLocation(
+                                   L"GlobalizationUserSettings",
+                                   L"TargetNtPath",
+                                   L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\International",
+                                   LocationTypeRegistry,
+                                   TargetPath,
+                                   0x208u,
+                                   &BufferLengthOut);
+        if ( PersistedStateLocation >= 0 )
         {
-          v7 = v16 + 4 + UnicodeString.Length;
-          v8 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v7);
+          v7 = BufferLengthOut + 4 + UnicodeString.Length;
+          LODWORD(v11) = v7;
+          v8 = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v11);
           if ( v8 )
           {
-            LOWORD(v17) = 0;
-            HIWORD(v17) = v7;
-            v18 = v8;
-            InformationToken = RtlAppendUnicodeToString((unsigned __int16 *)&v17, Src);
-            if ( InformationToken >= 0 )
+            Destination.Length = 0;
+            Destination.MaximumLength = v7;
+            Destination.Buffer = v8;
+            PersistedStateLocation = RtlAppendUnicodeToString(&Destination, TargetPath);
+            if ( PersistedStateLocation >= 0 )
             {
-              InformationToken = RtlAppendUnicodeToString((unsigned __int16 *)&v17, L"\\");
-              if ( InformationToken >= 0 )
+              PersistedStateLocation = RtlAppendUnicodeToString(&Destination, L"\\");
+              if ( PersistedStateLocation >= 0 )
               {
-                InformationToken = RtlAppendUnicodeStringToString(
-                                     (unsigned __int16 *)&v17,
-                                     (const void **)&UnicodeString);
-                if ( InformationToken >= 0 )
+                PersistedStateLocation = RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
+                if ( PersistedStateLocation >= 0 )
                 {
-                  v11[0] = 24;
-                  v11[2] = &v17;
-                  v11[1] = 0;
-                  v11[3] = 576;
-                  v11[4] = 0;
-                  v11[5] = 0;
-                  if ( ZwOpenKey((int)&Handle, 131097, (int)v11) < 0 )
+                  ObjectAttributes.Length = 24;
+                  ObjectAttributes.ObjectName = &Destination;
+                  ObjectAttributes.RootDirectory = 0;
+                  ObjectAttributes.Attributes = 576;
+                  ObjectAttributes.SecurityDescriptor = 0;
+                  ObjectAttributes.SecurityQualityOfService = 0;
+                  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
                   {
-                    v19 = 1;
-                    *v20 = 1;
+                    v20 = 1;
+                    *v21 = 1;
                   }
                   else
                   {
-                    ZwClose(Handle);
-                    *v20 = 2;
-                    InformationToken = ZwOpenKey(v15, v14, (int)v11);
+                    ZwClose(KeyHandle);
+                    *v21 = 2;
+                    PersistedStateLocation = ZwOpenKey(v17, DesiredAccess, &ObjectAttributes);
                   }
                 }
               }
             }
-            RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v8);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
           }
           else
           {
-            InformationToken = -1073741801;
+            PersistedStateLocation = -1073741801;
           }
         }
         RtlFreeAnsiString(&UnicodeString);
       }
     }
-    if ( v19 )
-      InformationToken = OpenGlobalizationUserSettingsKey_ForSingleUserModel(v14, v15);
+    if ( v20 )
+      PersistedStateLocation = OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess, v17);
   }
 LABEL_26:
   if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-  return InformationToken;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return PersistedStateLocation;
 }

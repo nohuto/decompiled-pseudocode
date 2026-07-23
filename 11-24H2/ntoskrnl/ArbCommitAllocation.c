@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbCommitAllocation @ 0x140705270
+ * XREFs of ArbCommitAllocation @ 0x140702E30
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeRangeList @ 0x140A52340 (RtlFreeRangeList.c)
+ *     RtlFreeRangeList @ 0x140A4A270 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall ArbCommitAllocation(__int64 a1)

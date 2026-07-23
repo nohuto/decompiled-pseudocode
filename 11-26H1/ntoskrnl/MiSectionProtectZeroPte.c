@@ -1,19 +1,20 @@
 /*
- * XREFs of MiSectionProtectZeroPte @ 0x1402CFA48
+ * XREFs of MiSectionProtectZeroPte @ 0x1402B1808
  * Callers:
- *     MiSectionProtectPageFilePte @ 0x1402CF8E8 (MiSectionProtectPageFilePte.c)
- *     MiSectionProtectTransitionPte @ 0x14033EF60 (MiSectionProtectTransitionPte.c)
+ *     MiSectionProtectPageFilePte @ 0x1402B16A8 (MiSectionProtectPageFilePte.c)
+ *     MiSectionProtectTransitionPte @ 0x140340FE0 (MiSectionProtectTransitionPte.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiMakePrototypePteVadLookup @ 0x1402CFD90 (MiMakePrototypePteVadLookup.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiMakePrototypePteVadLookup @ 0x1402B1B50 (MiMakePrototypePteVadLookup.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
-__int64 __fastcall MiSectionProtectZeroPte(__int64 a1, __int64 *a2, __int64 a3)
+__int64 __fastcall MiSectionProtectZeroPte(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   char v3; // bp
+  unsigned __int64 v4; // r14
   unsigned __int64 *v6; // r10
   unsigned __int64 v7; // r9
   __int64 v8; // rbx
@@ -29,33 +30,34 @@ __int64 __fastcall MiSectionProtectZeroPte(__int64 a1, __int64 *a2, __int64 a3)
   int v18; // ebx
   bool v19; // zf
   __int64 HasShadow; // rax
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // r10
+  unsigned __int64 v21; // r10
+  __int64 v22; // rax
   __int64 v23; // rax
-  __int64 v24; // rax
-  int v25; // ecx
-  __int64 v26; // [rsp+50h] [rbp+8h] BYREF
+  int v24; // ecx
+  __int64 v25; // [rsp+50h] [rbp+8h] BYREF
 
   v3 = a3;
-  v6 = (unsigned __int64 *)((((unsigned __int64)a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  v4 = a2;
+  v6 = (unsigned __int64 *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v7 = *v6;
-  if ( (unsigned __int64)v6 >= 0xFFFFF6FB7DBED000uLL
-    && (unsigned __int64)v6 <= 0xFFFFF6FB7DBED7F8uLL
-    && (v7 & 1) != 0
-    && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
+  if ( (unsigned __int64)v6 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v6 <= 0xFFFFF6FB7DBED7F8uLL )
   {
-    HasShadow = MiPteHasShadow(a1, *v6, a3);
-    if ( HasShadow )
+    a2 = *v6;
+    if ( (v7 & 1) != 0 && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
     {
-      v23 = *(_QWORD *)(HasShadow + 1288);
-      if ( v23 )
+      HasShadow = MiPteHasShadow(a1, a2, a3);
+      if ( HasShadow )
       {
-        v24 = *(_QWORD *)(v23 + 8 * ((v22 >> 3) & 0x1FF));
-        if ( (v24 & 0x20) != 0 )
-          v21 |= 0x20uLL;
-        v7 = v21 | 0x42;
-        if ( (v24 & 0x42) == 0 )
-          v7 = v21;
+        v22 = *(_QWORD *)(HasShadow + 1288);
+        if ( v22 )
+        {
+          v23 = *(_QWORD *)(v22 + 8 * ((v21 >> 3) & 0x1FF));
+          if ( (v23 & 0x20) != 0 )
+            a2 |= 0x20uLL;
+          v7 = a2 | 0x42;
+          if ( (v23 & 0x42) == 0 )
+            v7 = a2;
+        }
       }
     }
   }
@@ -67,7 +69,7 @@ __int64 __fastcall MiSectionProtectZeroPte(__int64 a1, __int64 *a2, __int64 a3)
     {
       if ( (++v9 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && KiCheckVpBackingLongSpinWaitHypercall() )
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1, a2, a3) )
       {
         HvlNotifyLongSpinWait(v9);
       }
@@ -92,11 +94,11 @@ __int64 __fastcall MiSectionProtectZeroPte(__int64 a1, __int64 *a2, __int64 a3)
   if ( !*(_BYTE *)(a1 + 89) )
   {
     if ( v3
-      || ((v18 = *(_DWORD *)(v12 + 48), v26 = 0LL, (v18 & 0x1C) != 8)
+      || ((v18 = *(_DWORD *)(v12 + 48), v25 = 0LL, (v18 & 0x1C) != 8)
        || (v18 & 0x3E0) == 0x20
-       || (MiGetProtoPteAddress(v12, (unsigned __int64)((__int64)((_QWORD)a2 << 25) >> 16) >> 12, 12LL, &v26), !v26)
+       || (MiGetProtoPteAddress(v12, (unsigned __int64)((__int64)(v4 << 25) >> 16) >> 12, 12LL, &v25), !v25)
         ? (v19 = (v18 & 0xA0) == 0xA0)
-        : (v19 = (*(_BYTE *)(v26 + 32) & 0xA) == 10),
+        : (v19 = (*(_BYTE *)(v25 + 32) & 0xA) == 10),
           v19) )
     {
       ++*(_QWORD *)(a1 + 96);
@@ -108,8 +110,8 @@ __int64 __fastcall MiSectionProtectZeroPte(__int64 a1, __int64 *a2, __int64 a3)
   if ( v14 != 24 )
   {
     if ( v15 == 24
-      && ((MEMORY[0x30] & 0x80000) == 0 ? (v25 = *(_DWORD *)(MEMORY[0x50] + 32LL) >> 1) : (v25 = MEMORY[0x30] >> 5),
-          v15 = v25 & 0x1F,
+      && ((MEMORY[0x30] & 0x80000) == 0 ? (v24 = *(_DWORD *)(MEMORY[0x50] + 32LL) >> 1) : (v24 = MEMORY[0x30] >> 5),
+          v15 = v24 & 0x1F,
           v15 == 24)
       || (v16 = v15 & 0x18) == 0 )
     {
@@ -142,6 +144,6 @@ LABEL_15:
   }
 LABEL_16:
   result = MiMakePrototypePteVadLookup(v13);
-  *a2 = result;
+  *(_QWORD *)v4 = result;
   return result;
 }

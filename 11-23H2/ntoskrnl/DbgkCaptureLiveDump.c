@@ -1,26 +1,26 @@
 /*
- * XREFs of DbgkCaptureLiveDump @ 0x14093A868
+ * XREFs of DbgkCaptureLiveDump @ 0x14093AA68
  * Callers:
- *     NtSystemDebugControl @ 0x1407E10D0 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1407E13A0 (NtSystemDebugControl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x140289F80 (IoThreadToProcess.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DbgkpLkmdSnapData @ 0x14053BBF0 (DbgkpLkmdSnapData.c)
- *     DbgkpLkmdSnapDataEx @ 0x14053BC24 (DbgkpLkmdSnapDataEx.c)
- *     DbgkpLkmdSnapGlobals @ 0x14053BC5C (DbgkpLkmdSnapGlobals.c)
- *     DbgkpLkmdSnapThread @ 0x14053BFF4 (DbgkpLkmdSnapThread.c)
- *     DbgkpLkmdSqmIncrementDword @ 0x14053C058 (DbgkpLkmdSqmIncrementDword.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
- *     DbgkpLkmdFireCallbacks @ 0x14093AD34 (DbgkpLkmdFireCallbacks.c)
- *     DbgkpLkmdSqmIsOptedIn @ 0x14093B27C (DbgkpLkmdSqmIsOptedIn.c)
- *     DbgkpLkmdSqmStatus @ 0x14093B41C (DbgkpLkmdSqmStatus.c)
- *     DbgkpTriageDumpInitialize @ 0x14093C18C (DbgkpTriageDumpInitialize.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IoThreadToProcess @ 0x14028A210 (IoThreadToProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DbgkpLkmdSnapData @ 0x14053C140 (DbgkpLkmdSnapData.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14053C174 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapGlobals @ 0x14053C1AC (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapThread @ 0x14053C544 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSqmIncrementDword @ 0x14053C5A8 (DbgkpLkmdSqmIncrementDword.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
+ *     DbgkpLkmdFireCallbacks @ 0x14093AF34 (DbgkpLkmdFireCallbacks.c)
+ *     DbgkpLkmdSqmIsOptedIn @ 0x14093B47C (DbgkpLkmdSqmIsOptedIn.c)
+ *     DbgkpLkmdSqmStatus @ 0x14093B61C (DbgkpLkmdSqmStatus.c)
+ *     DbgkpTriageDumpInitialize @ 0x14093C38C (DbgkpTriageDumpInitialize.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
@@ -71,7 +71,7 @@ __int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __
     return 3221225485LL;
   if ( (unsigned __int8)DbgkpLkmdSqmIsOptedIn() )
   {
-    EtwRegister(&stru_1400148E0, 0LL, 0LL, &RegHandle);
+    EtwRegister(&stru_1400148D0, 0LL, 0LL, &RegHandle);
     v4 = RegHandle;
     if ( RegHandle )
       DbgkpLkmdSqmIncrementDword(RegHandle, 3292);

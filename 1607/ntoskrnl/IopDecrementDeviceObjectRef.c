@@ -1,21 +1,21 @@
 /*
- * XREFs of IopDecrementDeviceObjectRef @ 0x14002ECF0
+ * XREFs of IopDecrementDeviceObjectRef @ 0x14002E870
  * Callers:
- *     IopCheckVpbMounted @ 0x14002DEE0 (IopCheckVpbMounted.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1401C4A44 (IopDecrementDeviceObjectHandleCount.c)
+ *     IopCheckVpbMounted @ 0x14002DA60 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1401C4928 (IopDecrementDeviceObjectHandleCount.c)
  *     IopShutdownBaseFileSystems @ 0x1403DA1F0 (IopShutdownBaseFileSystems.c)
- *     IopMountVolume @ 0x1403EC2AC (IopMountVolume.c)
- *     IoCreateStreamFileObjectEx2 @ 0x1403ECB48 (IoCreateStreamFileObjectEx2.c)
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     IopDeleteFile @ 0x1404463A0 (IopDeleteFile.c)
- *     IopLoadFileSystemDriver @ 0x140621F44 (IopLoadFileSystemDriver.c)
+ *     IopMountVolume @ 0x1403ED8DC (IopMountVolume.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1403EE178 (IoCreateStreamFileObjectEx2.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140445270 (IopDeleteFile.c)
+ *     IopLoadFileSystemDriver @ 0x140621FF8 (IopLoadFileSystemDriver.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     IopCompleteUnloadOrDelete @ 0x14007F1AC (IopCompleteUnloadOrDelete.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     IopCompleteUnloadOrDelete @ 0x14007F22C (IopCompleteUnloadOrDelete.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, char a2)

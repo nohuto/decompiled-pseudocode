@@ -1,10 +1,10 @@
 /*
- * XREFs of DifUtilDbgPrint @ 0x140617B60
+ * XREFs of DifUtilDbgPrint @ 0x140616120
  * Callers:
- *     DifCallPluginEntry @ 0x140618590 (DifCallPluginEntry.c)
- *     DifRegisterKernelPlugins @ 0x140618A30 (DifRegisterKernelPlugins.c)
+ *     DifCallPluginEntry @ 0x140616B50 (DifCallPluginEntry.c)
+ *     DifRegisterKernelPlugins @ 0x140616FF0 (DifRegisterKernelPlugins.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x1402CB374 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140275BC4 (vDbgPrintExWithPrefixInternal.c)
  */
 
 __int64 DifUtilDbgPrint(int a1, ...)

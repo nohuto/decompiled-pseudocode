@@ -8,21 +8,27 @@
  *     _RtlGetCompressionWorkSpaceSize@12 @ 0x4B35A670 (_RtlGetCompressionWorkSpaceSize@12.c)
  */
 
-int __thiscall EtwpInitializeCompression(_DWORD *this)
+NTSTATUS __thiscall EtwpInitializeCompression(int this)
 {
-  int Heap; // eax
+  PVOID Heap; // eax
   int v4; // eax
-  _BYTE v5[4]; // [esp+4h] [ebp-Ch] BYREF
-  int v6; // [esp+8h] [ebp-8h] BYREF
-  int v7; // [esp+Ch] [ebp-4h] BYREF
+  ULONG_PTR v5; // [esp-10h] [ebp-20h]
+  SIZE_T v6; // [esp-4h] [ebp-14h]
+  ULONG v7; // [esp+0h] [ebp-10h]
+  ULONG CompressFragmentWorkSpaceSize; // [esp+4h] [ebp-Ch] BYREF
+  int v9; // [esp+8h] [ebp-8h] BYREF
+  ULONG CompressBufferWorkSpaceSize; // [esp+Ch] [ebp-4h] BYREF
 
-  RtlGetCompressionWorkSpaceSize(3, (int)&v7, (int)v5);
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
-  this[77] = Heap;
+  RtlGetCompressionWorkSpaceSize(3u, &CompressBufferWorkSpaceSize, &CompressFragmentWorkSpaceSize);
+  LODWORD(v6) = CompressBufferWorkSpaceSize;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
+  *(_DWORD *)(this + 308) = Heap;
   if ( !Heap )
     return -1073741801;
-  v4 = 2 * this[35];
-  this[79] = v4;
-  v6 = v4;
-  return NtAllocateVirtualMemory(-1, (int)(this + 78), 0, (int)&v6, 4096, 4);
+  v4 = 2 * *(_DWORD *)(this + 140);
+  *(_DWORD *)(this + 316) = v4;
+  v9 = v4;
+  HIDWORD(v5) = &v9;
+  LODWORD(v5) = 0;
+  return NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)(this + 312), v5, (PSIZE_T)0x1000, 4u, v7);
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlIsMultiSessionSku @ 0x180072080
+ * XREFs of RtlIsMultiSessionSku @ 0x180072070
  * Callers:
- *     RtlCapabilityCheck @ 0x18000DA10 (RtlCapabilityCheck.c)
- *     OpenGlobalizationUserSettingsKey @ 0x18007182C (OpenGlobalizationUserSettingsKey.c)
+ *     RtlCapabilityCheck @ 0x18000DA00 (RtlCapabilityCheck.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x18007181C (OpenGlobalizationUserSettingsKey.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x18002CD80 (RtlGetCurrentServiceSessionId.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18002CD70 (RtlGetCurrentServiceSessionId.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQueryInformationJobObject @ 0x1800A8AF0 (NtQueryInformationJobObject.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
-  char result; // al
-  _BYTE v1[32]; // [rsp+30h] [rbp-38h] BYREF
+  BOOLEAN result; // al
+  _BYTE JobObjectInformation[32]; // [rsp+30h] [rbp-38h] BYREF
 
   result = byte_18014F668;
   if ( byte_18014F668 == -1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      NtQueryInformationJobObject(0LL, 39LL, v1, 32LL, 0LL);
-      result = v1[24];
+      NtQueryInformationJobObject(0LL, JobObjectServerSiloUserSharedData, JobObjectInformation, 0x20u, 0LL);
+      result = JobObjectInformation[24];
     }
     else
     {

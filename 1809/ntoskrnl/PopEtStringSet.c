@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEtStringSet @ 0x1405FCCE8
+ * XREFs of PopEtStringSet @ 0x1405FDCE8
  * Callers:
- *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1405FCC08 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
- *     PopEtEnergyContextSetState @ 0x14060464C (PopEtEnergyContextSetState.c)
- *     PopEtProcessSnapshotCreate @ 0x14069F7FC (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1405FDC08 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
+ *     PopEtEnergyContextSetState @ 0x14060564C (PopEtEnergyContextSetState.c)
+ *     PopEtProcessSnapshotCreate @ 0x1406A0ABC (PopEtProcessSnapshotCreate.c)
  * Callees:
- *     RtlInternEntryDereference @ 0x1406002A4 (RtlInternEntryDereference.c)
+ *     RtlInternEntryDereference @ 0x1406012A4 (RtlInternEntryDereference.c)
  */
 
 void __fastcall PopEtStringSet(_QWORD *a1, __int64 a2)

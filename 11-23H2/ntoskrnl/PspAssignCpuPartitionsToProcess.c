@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAssignCpuPartitionsToProcess @ 0x1409B0D64
+ * XREFs of PspAssignCpuPartitionsToProcess @ 0x1409B0F64
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAssignCpuPartitionsToProcess @ 0x140574A1C (KeAssignCpuPartitionsToProcess.c)
- *     PspReferenceCpuPartitionByHandle @ 0x1409B1634 (PspReferenceCpuPartitionByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x140574F5C (KeAssignCpuPartitionsToProcess.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1409B1834 (PspReferenceCpuPartitionByHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

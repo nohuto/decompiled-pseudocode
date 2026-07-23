@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiAssignDevice @ 0x1408FC14C
+ * XREFs of TtmiAssignDevice @ 0x1408FC2AC
  * Callers:
- *     TtmpDispatchAssignDevice @ 0x140900A94 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchAssignDevice @ 0x140900BF4 (TtmpDispatchAssignDevice.c)
  * Callees:
- *     TtmpFindDeviceByDeviceId @ 0x1408FCD14 (TtmpFindDeviceByDeviceId.c)
- *     TtmpPublishDeviceEvent @ 0x1408FCF70 (TtmpPublishDeviceEvent.c)
- *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceToTerminalAssigned @ 0x140902614 (TtmiLogDeviceToTerminalAssigned.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     TtmpFindDeviceByDeviceId @ 0x1408FCE74 (TtmpFindDeviceByDeviceId.c)
+ *     TtmpPublishDeviceEvent @ 0x1408FD0D0 (TtmpPublishDeviceEvent.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF2A0 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceToTerminalAssigned @ 0x140902774 (TtmiLogDeviceToTerminalAssigned.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiAssignDevice(__int64 a1, __int64 a2, unsigned int a3)

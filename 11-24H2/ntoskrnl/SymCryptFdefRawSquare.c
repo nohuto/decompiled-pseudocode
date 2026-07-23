@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdefRawSquare @ 0x14052F7B0
+ * XREFs of SymCryptFdefRawSquare @ 0x140529C58
  * Callers:
- *     SymCryptFdefModSquareGeneric @ 0x140536A10 (SymCryptFdefModSquareGeneric.c)
- *     SymCryptFdefModSquareMontgomery @ 0x140536AB0 (SymCryptFdefModSquareMontgomery.c)
+ *     SymCryptFdefModSquareGeneric @ 0x140530EB0 (SymCryptFdefModSquareGeneric.c)
+ *     SymCryptFdefModSquareMontgomery @ 0x140530F50 (SymCryptFdefModSquareMontgomery.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x14048D93C (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptFdefRawSquareMulx @ 0x14052FF80 (SymCryptFdefRawSquareMulx.c)
- *     SymCryptFdefRawSquareAsm @ 0x140537FB0 (SymCryptFdefRawSquareAsm.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x1404881BC (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptFdefRawSquareMulx @ 0x14052A420 (SymCryptFdefRawSquareMulx.c)
+ *     SymCryptFdefRawSquareAsm @ 0x140532450 (SymCryptFdefRawSquareAsm.c)
  */
 
 __int64 __fastcall SymCryptFdefRawSquare(__int64 a1, unsigned int a2, __int64 a3)

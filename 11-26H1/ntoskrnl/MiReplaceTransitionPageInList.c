@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReplaceTransitionPageInList @ 0x1402FC830
+ * XREFs of MiReplaceTransitionPageInList @ 0x1402DE8B0
  * Callers:
- *     MiReplaceTransitionPage @ 0x140293C88 (MiReplaceTransitionPage.c)
- *     MiTradePageMarkedTransition @ 0x1402FD5C0 (MiTradePageMarkedTransition.c)
+ *     MiReplaceTransitionPage @ 0x1402931E8 (MiReplaceTransitionPage.c)
+ *     MiTradePageMarkedTransition @ 0x1402DF640 (MiTradePageMarkedTransition.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiDetermineModifiedPageListHead @ 0x140298990 (MiDetermineModifiedPageListHead.c)
- *     MiReplaceSecondaryListStandbyPage @ 0x1402CA5B0 (MiReplaceSecondaryListStandbyPage.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiAcquirePageListLock @ 0x1402FB4C0 (MiAcquirePageListLock.c)
- *     MiReplaceStandbyLookaside @ 0x1402FBC30 (MiReplaceStandbyLookaside.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiUpdateTransitionPteFrame @ 0x14030E180 (MiUpdateTransitionPteFrame.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiDetermineModifiedPageListHead @ 0x140297EF0 (MiDetermineModifiedPageListHead.c)
+ *     MiReplaceSecondaryListStandbyPage @ 0x1402AC370 (MiReplaceSecondaryListStandbyPage.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiAcquirePageListLock @ 0x1402DD540 (MiAcquirePageListLock.c)
+ *     MiReplaceStandbyLookaside @ 0x1402DDCB0 (MiReplaceStandbyLookaside.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiUpdateTransitionPteFrame @ 0x1402F0200 (MiUpdateTransitionPteFrame.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiReplaceTransitionPageInList(__int64 a1)
@@ -133,7 +133,7 @@ LABEL_5:
     goto LABEL_6;
   }
   if ( v6 < 0xFFFFDE0000000000uLL
-    || v6 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+    || v6 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
     || MiIsDecayPfn((__int64)(48 * v3) / 48) )
   {
 LABEL_73:
@@ -153,7 +153,7 @@ LABEL_6:
   if ( v12 == (unsigned int)MiPageToNode(v4)
     && v5 == v40
     && ((unsigned int)MiGetPfnSlabType(v43) != 8
-     || ((*(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)(v45 / 48) >> 9) + 1) ^ *(_BYTE *)(qword_140E3D0C0
+     || ((*(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)(v45 / 48) >> 9) + 1) ^ *(_BYTE *)(qword_140E3D240
                                                                                                + 2
                                                                                                * ((unsigned __int64)((__int64)(48 * v3) / 48) >> 9)
                                                                                                + 1)) & 0x7F) == 0) )
@@ -266,11 +266,11 @@ LABEL_28:
     MiUpdateLargePageCandidateValue(v44, v3, 3, 2, 0LL);
   if ( v24 == 9 )
     MiUpdateLargePageCandidateValue(v44, v4, 3, 3, 0LL);
-  if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+  if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
   {
     v27 = v3 & 0x1F;
     LOBYTE(v28) = 1;
-    v29 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v3 >> 5);
+    v29 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v3 >> 5);
     if ( v27 + 1 > 0x20 )
     {
       if ( (v3 & 0x1F) == 0 )
@@ -299,10 +299,10 @@ LABEL_62:
       _InterlockedOr(v29, 1 << v27);
     }
   }
-  else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+  else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
   {
     v25 = v3 & 0x1F;
-    v26 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v3 >> 5);
+    v26 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v3 >> 5);
     if ( v25 + 1 > 0x20 )
     {
       if ( (v3 & 0x1F) == 0 )
@@ -341,7 +341,7 @@ LABEL_60:
       _InterlockedAnd64((volatile signed __int64 *)(v53 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v56 )
       _InterlockedAnd64((volatile signed __int64 *)(v55 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd((volatile signed __int32 *)(v2 + 32), 0xBFFFFFFF);
       _InterlockedDecrement((volatile signed __int32 *)(v2 + 32));

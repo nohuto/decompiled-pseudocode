@@ -3,8 +3,8 @@
  * Callers:
  *     MiAssignTopLevelRanges @ 0x140B5FC2C (MiAssignTopLevelRanges.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14025D514 (MiHyperSpaceSize.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     MiHyperSpaceSize @ 0x14025D7A4 (MiHyperSpaceSize.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 __int64 MiAddSubRegionEntropy()

@@ -1,33 +1,33 @@
 /*
- * XREFs of SeSubProcessToken @ 0x140603B5C
+ * XREFs of SeSubProcessToken @ 0x1406F328C
  * Callers:
- *     PspInitializeProcessSecurity @ 0x1406D6400 (PspInitializeProcessSecurity.c)
+ *     PspInitializeProcessSecurity @ 0x1406AD6E0 (PspInitializeProcessSecurity.c)
  * Callees:
- *     SepDesktopAppxSubProcessToken @ 0x1402504F4 (SepDesktopAppxSubProcessToken.c)
- *     SepSetTrustLevelForProcessToken @ 0x140251758 (SepSetTrustLevelForProcessToken.c)
- *     SepMandatorySubProcessToken @ 0x1402517DC (SepMandatorySubProcessToken.c)
- *     SepSetTokenBnoIsolation @ 0x140251968 (SepSetTokenBnoIsolation.c)
- *     SeTokenGetNoChildProcessRestricted @ 0x1402519F8 (SeTokenGetNoChildProcessRestricted.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x14027C800 (SepCreateAccessStateFromSubjectContext.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x140597258 (SeTokenIsNoChildProcessRestrictionEnforced.c)
- *     SepSetTokenAllApplicationPackagesPolicy @ 0x140597450 (SepSetTokenAllApplicationPackagesPolicy.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x14026A600 (SepDeleteAccessState.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14026A7A0 (SepCreateAccessStateFromSubjectContext.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1402F4D04 (SepDesktopAppxSubProcessToken.c)
+ *     SepSetTrustLevelForProcessToken @ 0x1402F5F68 (SepSetTrustLevelForProcessToken.c)
+ *     SepMandatorySubProcessToken @ 0x1402F5FEC (SepMandatorySubProcessToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1402F6178 (SepSetTokenBnoIsolation.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x1402F6208 (SeTokenGetNoChildProcessRestricted.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x140597488 (SeTokenIsNoChildProcessRestrictionEnforced.c)
+ *     SepSetTokenAllApplicationPackagesPolicy @ 0x140597680 (SepSetTokenAllApplicationPackagesPolicy.c)
  *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
- *     SepSetProcessUniqueAttribute @ 0x140604018 (SepSetProcessUniqueAttribute.c)
- *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     SeCreateAccessState @ 0x140661880 (SeCreateAccessState.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1406E7EBC (SepDereferenceLowBoxNumberEntry.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     SepSetTokenLowboxNumber @ 0x140717F5C (SepSetTokenLowboxNumber.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x14072F834 (EtwTimLogProhibitChildProcessCreation.c)
- *     SepAddTokenOriginClaim @ 0x140922B50 (SepAddTokenOriginClaim.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     SeCreateAccessState @ 0x1406566A0 (SeCreateAccessState.c)
+ *     SepSetTokenLowboxNumber @ 0x1406C65AC (SepSetTokenLowboxNumber.c)
+ *     SepSetProcessUniqueAttribute @ 0x1406F3748 (SepSetProcessUniqueAttribute.c)
+ *     SepSetTokenSessionById @ 0x1406F3A30 (SepSetTokenSessionById.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406FF29C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x14072FA00 (EtwTimLogProhibitChildProcessCreation.c)
+ *     SepAddTokenOriginClaim @ 0x140922CB0 (SepAddTokenOriginClaim.c)
  */
 
 __int64 __fastcall SeSubProcessToken(
@@ -51,7 +51,7 @@ __int64 __fastcall SeSubProcessToken(
   unsigned int DmaOperations; // eax
   unsigned int v22; // r14d
   bool v23; // bl
-  __int64 v24; // rax
+  struct _DMA_ADAPTER *v24; // rax
   struct _DMA_ADAPTER *v25; // rbx
   int v26; // eax
   char v27; // [rsp+40h] [rbp-C0h] BYREF
@@ -62,7 +62,7 @@ __int64 __fastcall SeSubProcessToken(
   char v32; // [rsp+52h] [rbp-AEh] BYREF
   char v33; // [rsp+53h] [rbp-ADh] BYREF
   char v34; // [rsp+54h] [rbp-ACh]
-  char v35; // [rsp+55h] [rbp-ABh] BYREF
+  bool v35; // [rsp+55h] [rbp-ABh] BYREF
   int v36; // [rsp+58h] [rbp-A8h] BYREF
   int v37; // [rsp+5Ch] [rbp-A4h] BYREF
   __int64 v38; // [rsp+60h] [rbp-A0h]
@@ -111,14 +111,10 @@ __int64 __fastcall SeSubProcessToken(
     v22 = -1073740643;
     if ( (*(_DWORD *)a6 & 2) != 0 )
     {
-      v24 = PsReferenceEffectiveToken(
-              (unsigned int)KeGetCurrentThread(),
-              (unsigned int)&v36,
-              (unsigned int)&v35,
-              (unsigned int)&v37,
-              0LL);
-      v25 = (struct _DMA_ADAPTER *)v24;
-      if ( v36 == 2 && v37 < 2 || (v22 = SeTokenIsNoChildProcessRestrictionEnforced(v24) ? 0xC000049D : 0, v36 != 1) )
+      v24 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken((__int64)KeGetCurrentThread(), &v36, &v35, &v37, 0LL);
+      v25 = v24;
+      if ( v36 == 2 && v37 < 2
+        || (v22 = SeTokenIsNoChildProcessRestrictionEnforced((__int64)v24) ? 0xC000049D : 0, v36 != 1) )
       {
         if ( v25 )
           HalPutDmaAdapter(v25);
@@ -178,11 +174,11 @@ LABEL_54:
     DmaOperations = (unsigned int)DmaAdapter[7].DmaOperations;
     if ( DmaOperations != a5 )
     {
-      SepDereferenceLowBoxNumberEntry(DmaOperations, DmaAdapter[67].DmaOperations);
+      SepDereferenceLowBoxNumberEntry(DmaOperations);
       DmaAdapter[67].DmaOperations = 0LL;
       SepSetTokenSessionById((_DWORD)DmaAdapter, a5, 0, 0, 0LL);
       LODWORD(DmaAdapter[7].DmaOperations) = a5;
-      v26 = SepSetTokenLowboxNumber(DmaAdapter, *(_QWORD *)&DmaAdapter[49].Version);
+      v26 = SepSetTokenLowboxNumber((__int64)DmaAdapter, *(_QWORD *)&DmaAdapter[49].Version);
       inserted = v26;
       if ( v26 < 0 )
         goto LABEL_61;
@@ -201,7 +197,7 @@ LABEL_54:
   inserted = SepSetTokenBnoIsolation((__int64)DmaAdapter, 0, 0LL, 0, 0LL);
   if ( inserted < 0 )
     goto LABEL_61;
-  inserted = SepDesktopAppxSubProcessToken((__int64)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v32, &v33);
+  inserted = SepDesktopAppxSubProcessToken((PERESOURCE *)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v32, &v33);
   if ( inserted < 0 )
     goto LABEL_61;
   inserted = SepMandatorySubProcessToken((_DWORD *)(v39 & -(__int64)((a4 & 2) != 0)), (__int64)DmaAdapter, a1, &v40);
@@ -244,7 +240,7 @@ LABEL_16:
     }
     else
     {
-      SeCreateAccessState(&AccessState, v50, 0LL, 0LL);
+      SeCreateAccessState((int)&AccessState, (int)v50, 0, 0LL);
     }
     v34 = 1;
     inserted = ObInsertObjectEx(DmaAdapter, &AccessState, 0, 0LL, 0LL);

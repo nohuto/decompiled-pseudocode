@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAssignCpuPartitionsToProcess @ 0x140574A1C
+ * XREFs of KeAssignCpuPartitionsToProcess @ 0x140574F5C
  * Callers:
- *     PspAssignCpuPartitionsToProcess @ 0x1409B0D64 (PspAssignCpuPartitionsToProcess.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x1409B0F64 (PspAssignCpuPartitionsToProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveCpuPartitionAssignmentProcess @ 0x14035C8B4 (KiRemoveCpuPartitionAssignmentProcess.c)
- *     KeSetCpuSetsProcess @ 0x14039CB24 (KeSetCpuSetsProcess.c)
- *     KeQueryCpuPartitionAffinity @ 0x1403AE068 (KeQueryCpuPartitionAffinity.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveCpuPartitionAssignmentProcess @ 0x14035CA54 (KiRemoveCpuPartitionAssignmentProcess.c)
+ *     KeSetCpuSetsProcess @ 0x14039CD04 (KeSetCpuSetsProcess.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1403AE248 (KeQueryCpuPartitionAffinity.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -179,7 +179,9 @@ LABEL_26:
   }
   v37 = KeSetCpuSetsProcess(a3, (unsigned __int16)v53, (__int64)P);
   KxReleaseSpinLock((volatile signed __int64 *)&KiCpuPartitionAssignmentLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v39 = v58;
     if ( v58 <= 0xFu && CurrentIrql >= 2u )

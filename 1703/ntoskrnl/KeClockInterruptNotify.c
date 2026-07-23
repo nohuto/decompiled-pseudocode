@@ -50,7 +50,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   bool v15; // r14
   signed __int64 v16; // rax
   signed __int64 v17; // rtt
-  LARGE_INTEGER PerformanceCounter; // r8
+  LARGE_INTEGER v18; // r8
   unsigned __int128 v19; // rax
   LONGLONG v20; // rdx
   __int64 v21; // r11
@@ -79,7 +79,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   unsigned __int64 v44; // rax
   volatile CCHAR v45; // t1
   unsigned __int64 v46; // rdx
-  __int64 InterruptTimePrecise; // r14
+  LARGE_INTEGER InterruptTimePrecise; // r14
   __int64 v48; // rdx
   struct _KPRCB *Prcb; // rax
   __int64 v50; // rcx
@@ -111,7 +111,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   __int64 v76; // [rsp+90h] [rbp-278h] BYREF
   unsigned __int16 *v77[2]; // [rsp+98h] [rbp-270h] BYREF
   __int16 v78; // [rsp+A8h] [rbp-260h]
-  LARGE_INTEGER v79[2]; // [rsp+B0h] [rbp-258h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+B0h] [rbp-258h] BYREF
   _DWORD v80[44]; // [rsp+C0h] [rbp-248h] BYREF
   _WORD v81[88]; // [rsp+170h] [rbp-198h] BYREF
   char v82[8]; // [rsp+220h] [rbp-E8h] BYREF
@@ -138,8 +138,8 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   }
   if ( CurrentPrcb->ClockOwner && !KiForceIdleDisabled && KiForceIdleState == 4 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(v79);
-    PoExecuteIdleCheck(InterruptTimePrecise);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    ((void (__fastcall *)(_QWORD))PoExecuteIdleCheck)((LARGE_INTEGER)InterruptTimePrecise.QuadPart);
     if ( KiForceIdleWatchdogResetCount == 32 )
     {
       off_14033B5D0[0]();
@@ -149,7 +149,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
     {
       ++KiForceIdleWatchdogResetCount;
     }
-    if ( (unsigned __int64)(InterruptTimePrecise - KiForceIdleActiveLastStartTime) > 0x1312D00 )
+    if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiForceIdleActiveLastStartTime) > 0x1312D00 )
     {
       LOBYTE(v48) = 1;
       KiResetForceIdle(2LL, v48);
@@ -190,11 +190,11 @@ LABEL_6:
           if ( v17 == v16 )
           {
             _mm_mfence();
-            PerformanceCounter = KeQueryPerformanceCounter(0LL);
+            v18 = KeQueryPerformanceCounter(0LL);
             *((_QWORD *)&v19 + 1) = 0LL;
-            if ( PerformanceCounter.QuadPart > MEMORY[0xFFFFF78000000348] )
+            if ( v18.QuadPart > MEMORY[0xFFFFF78000000348] )
             {
-              v20 = PerformanceCounter.QuadPart - MEMORY[0xFFFFF78000000348];
+              v20 = v18.QuadPart - MEMORY[0xFFFFF78000000348];
               if ( MEMORY[0xFFFFF78000000368] )
                 v20 <<= MEMORY[0xFFFFF78000000368];
               v19 = (unsigned __int64)v20 * (unsigned __int128)MEMORY[0xFFFFF78000000358];
@@ -206,9 +206,9 @@ LABEL_6:
             v21 = *((_QWORD *)&v19 + 1) + MEMORY[0xFFFFF78000000014];
             *((_QWORD *)&v19 + 1) = 0LL;
             v22 = MEMORY[0xFFFFF78000000360];
-            if ( PerformanceCounter.QuadPart > MEMORY[0xFFFFF78000000350] )
+            if ( v18.QuadPart > MEMORY[0xFFFFF78000000350] )
             {
-              v23 = PerformanceCounter.QuadPart - MEMORY[0xFFFFF78000000350];
+              v23 = v18.QuadPart - MEMORY[0xFFFFF78000000350];
               if ( MEMORY[0xFFFFF78000000369] )
                 v23 <<= MEMORY[0xFFFFF78000000369];
               v19 = (unsigned __int64)v23 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
@@ -222,8 +222,8 @@ LABEL_6:
             MEMORY[0xFFFFF78000000014] = v21;
             MEMORY[0xFFFFF78000000010] = (MEMORY[0xFFFFF78000000008] + *((_QWORD *)&v19 + 1)) >> 32;
             MEMORY[0xFFFFF78000000008] += *((_QWORD *)&v19 + 1);
-            MEMORY[0xFFFFF78000000348] = PerformanceCounter.QuadPart;
-            MEMORY[0xFFFFF78000000350] = PerformanceCounter.QuadPart;
+            MEMORY[0xFFFFF78000000348] = v18.QuadPart;
+            MEMORY[0xFFFFF78000000350] = v18.QuadPart;
             v25 = MEMORY[0xFFFFF78000000320];
             v26 = (unsigned int)KiTickOffset - *((_QWORD *)&v19 + 1);
             if ( v26 <= 0 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAcquirePrcbLock @ 0x14028F160
+ * XREFs of KiAcquirePrcbLock @ 0x14028F350
  * Callers:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
- *     KiBeginThreadWait @ 0x14008B1C0 (KiBeginThreadWait.c)
- *     KeRemovePriQueue @ 0x1400B61A0 (KeRemovePriQueue.c)
+ *     KiBeginThreadWait @ 0x14008B1B0 (KiBeginThreadWait.c)
+ *     KeRemovePriQueue @ 0x1400B60E0 (KeRemovePriQueue.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiAcquirePrcbLock(__int64 a1, __int64 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlLookupEntryHashTable @ 0x14021F920
  * Callers:
- *     SepRmReferenceFindCap @ 0x1405F5D18 (SepRmReferenceFindCap.c)
- *     SepFindMatchingCachedHandlesEntry @ 0x14069654C (SepFindMatchingCachedHandlesEntry.c)
- *     SepFindMatchingLowBoxNumberEntry @ 0x140696884 (SepFindMatchingLowBoxNumberEntry.c)
- *     SepFindMatchingLuidEntry @ 0x1409CE3A8 (SepFindMatchingLuidEntry.c)
- *     SepFindSharedSidEntry @ 0x1409CECAC (SepFindSharedSidEntry.c)
+ *     sub_1405F5D18 @ 0x1405F5D18 (sub_1405F5D18.c)
+ *     sub_14069654C @ 0x14069654C (sub_14069654C.c)
+ *     sub_140696884 @ 0x140696884 (sub_140696884.c)
+ *     sub_1409CE3A8 @ 0x1409CE3A8 (sub_1409CE3A8.c)
+ *     sub_1409CECAC @ 0x1409CECAC (sub_1409CECAC.c)
  * Callees:
  *     <none>
  */
@@ -16,9 +16,9 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlLookupEntryHashTable(
         PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
   PRTL_DYNAMIC_HASH_TABLE_CONTEXT v4; // r9
-  unsigned int Shift; // ecx
+  ULONG Shift; // ecx
   unsigned int v6; // ecx
-  unsigned int v7; // r8d
+  ULONG v7; // r8d
   _QWORD *Directory; // r11
   PRTL_DYNAMIC_HASH_TABLE_ENTRY *v9; // rcx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY *v10; // r8
@@ -59,8 +59,8 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlLookupEntryHashTable(
     }
     while ( v11 != v9 );
   }
-  v4->ChainHead = (_LIST_ENTRY *)v9;
-  v4->PrevLinkage = (_LIST_ENTRY *)v10;
+  v4->ChainHead = (PLIST_ENTRY)v9;
+  v4->PrevLinkage = (PLIST_ENTRY)v10;
   v4->Signature = Signature;
   result = *v10;
   if ( v9 == (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)*v10 || result->Signature != Signature )

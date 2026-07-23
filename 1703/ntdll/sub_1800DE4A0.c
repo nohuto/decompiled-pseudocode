@@ -9,34 +9,34 @@
  *     ZwQueryInformationProcess @ 0x1800A5620 (ZwQueryInformationProcess.c)
  */
 
-__int64 __fastcall sub_1800DE4A0(__int64 a1, void *a2)
+int __fastcall sub_1800DE4A0(HANDLE ProcessHandle, void *a2)
 {
-  __int64 result; // rax
-  int v5; // [rsp+50h] [rbp+18h]
-  void *v6; // [rsp+58h] [rbp+20h] BYREF
+  int result; // eax
+  int v5; // [rsp+50h] [rbp+18h] BYREF
+  HANDLE SnapshotHandle; // [rsp+58h] [rbp+20h] BYREF
 
-  result = ZwQueryInformationProcess();
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationProcess(ProcessHandle, ProcessBreakOnTermination, &v5, 4u, 0LL);
+  if ( result >= 0 )
   {
     if ( v5 )
     {
-      return 3221225473LL;
+      return -1073741823;
     }
     else
     {
-      result = RtlQueryResourcePolicy(0, 0, (__int64)&v6, 4LL);
-      if ( (int)result >= 0 )
+      result = RtlQueryResourcePolicy(0, 0, (__int64)&SnapshotHandle, 4LL);
+      if ( result >= 0 )
       {
-        if ( (int)v6 > 10 )
+        if ( (int)SnapshotHandle > 10 )
         {
-          v6 = a2;
-          result = PssNtCaptureSnapshot(&v6, a1, 0xFC0019FF, 0x10001Fu);
-          if ( (int)result >= 0 )
-            return 0LL;
+          SnapshotHandle = a2;
+          result = PssNtCaptureSnapshot(&SnapshotHandle, ProcessHandle, 0xFC0019FF, 0x10001Fu);
+          if ( result >= 0 )
+            return 0;
         }
         else
         {
-          return 3221225495LL;
+          return -1073741801;
         }
       }
     }

@@ -1,29 +1,29 @@
 /*
- * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x14091C280
+ * XREFs of DrvDbGetDriverPackageMappedProperty @ 0x140976CE0
  * Callers:
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x14089E434 (DrvDbGetDriverPackageMappedPropertyKeys.c)
- *     DrvDbDispatchDriverPackage @ 0x14091C060 (DrvDbDispatchDriverPackage.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14091C280 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140B2944C (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x1408A4834 (DrvDbGetDriverPackageMappedPropertyKeys.c)
+ *     DrvDbDispatchDriverPackage @ 0x140976AC0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140976CE0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140B2B98C (DrvDbGetDriverPackageSignerScore.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     wcsrchr @ 0x140538350 (wcsrchr.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKeyEx @ 0x140725970 (ZwOpenKeyEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _RegRtlEnumKeyWithCallback @ 0x140919C00 (_RegRtlEnumKeyWithCallback.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14091B9E0 (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14091C280 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x14091D580 (DrvDbOpenObjectRegKey.c)
- *     RtlFormatCurrentUserKeyPath @ 0x140925F40 (RtlFormatCurrentUserKeyPath.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140B2944C (DrvDbGetDriverPackageSignerScore.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x140B52864 (DrvDbGetObjectDatabaseNodeName.c)
- *     _RegRtlOpenKey @ 0x140B69FF0 (_RegRtlOpenKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     wcsrchr @ 0x14053A7D0 (wcsrchr.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKeyEx @ 0x14072A540 (ZwOpenKeyEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x140901A50 (RtlFormatCurrentUserKeyPath.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x140974660 (_RegRtlEnumKeyWithCallback.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x140976440 (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140976CE0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140977FE0 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140B2B98C (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x140B55104 (DrvDbGetObjectDatabaseNodeName.c)
+ *     _RegRtlOpenKey @ 0x140B6D1FC (_RegRtlOpenKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageMappedProperty(
@@ -119,10 +119,10 @@ __int64 __fastcall DrvDbGetDriverPackageMappedProperty(
   HANDLE KeyHandle; // [rsp+70h] [rbp-79h] BYREF
   __int128 v93; // [rsp+78h] [rbp-71h] BYREF
   __int64 v94; // [rsp+88h] [rbp-61h]
-  PVOID P[2]; // [rsp+90h] [rbp-59h] BYREF
+  UNICODE_STRING CurrentUserKeyPath; // [rsp+90h] [rbp-59h] BYREF
   __int128 *v96; // [rsp+A0h] [rbp-49h]
   UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-41h] BYREF
-  PVOID *v98; // [rsp+B8h] [rbp-31h]
+  UNICODE_STRING *p_CurrentUserKeyPath; // [rsp+B8h] [rbp-31h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C0h] [rbp-29h] BYREF
   char v101; // [rsp+148h] [rbp+5Fh] BYREF
 
@@ -143,7 +143,7 @@ __int64 __fastcall DrvDbGetDriverPackageMappedProperty(
   v88 = 0;
   v90 = 0;
   v91 = 0;
-  P[0] = 0LL;
+  *(_QWORD *)&CurrentUserKeyPath.Length = 0LL;
   v101 = 0;
   v93 = 0LL;
   switch ( v14 )
@@ -277,7 +277,7 @@ LABEL_255:
         if ( a3 )
           v30 = (int)a3;
         LODWORD(Handle) = 1040 - v31;
-        P[0] = v29 + 1;
+        *(_QWORD *)&CurrentUserKeyPath.Length = v29 + 1;
         DriverPackageMappedProperty = DrvDbGetDriverPackageMappedProperty(
                                         a1,
                                         (int)a2,
@@ -298,7 +298,7 @@ LABEL_255:
                                           v32,
                                           (int)&DEVPKEY_DriverPackage_DriverInfName,
                                           v8,
-                                          P[0],
+                                          *(void **)&CurrentUserKeyPath.Length,
                                           (int)Handle,
                                           (__int64)v10);
         }
@@ -380,8 +380,8 @@ LABEL_85:
             DriverPackageMappedProperty = RegRtlOpenKeyTransacted(
                                             a3,
                                             L"Configurations",
-                                            0LL,
-                                            9LL,
+                                            0,
+                                            9u,
                                             &KeyHandle,
                                             *(_QWORD *)(v50 + 8));
             goto LABEL_116;
@@ -431,12 +431,12 @@ LABEL_117:
             v53 = 0LL;
             if ( *(_QWORD *)a1 )
               v53 = *(_QWORD *)(*(_QWORD *)a1 + 224LL);
-            P[0] = *(PVOID *)a1;
+            *(_QWORD *)&CurrentUserKeyPath.Length = *(_QWORD *)a1;
             *(_QWORD *)&DestinationString.Length = v53;
-            P[1] = DrvDbGetConfigurationSubKeyCallback;
+            CurrentUserKeyPath.Buffer = (wchar_t *)DrvDbGetConfigurationSubKeyCallback;
             v96 = &v93;
             DestinationString.Buffer = (wchar_t *)PnpCtxInternalEnumKeyCallback;
-            v98 = P;
+            p_CurrentUserKeyPath = &CurrentUserKeyPath;
             DriverPackageMappedProperty = RegRtlEnumKeyWithCallback(KeyHandle, v45, &DestinationString);
             if ( DriverPackageMappedProperty >= 0 )
             {
@@ -464,7 +464,7 @@ LABEL_117:
           }
           goto LABEL_118;
         }
-        *(_OWORD *)P = 0LL;
+        CurrentUserKeyPath = 0LL;
         if ( a3 == (char *)2147483650LL )
         {
           v51 = L"\\REGISTRY\\MACHINE";
@@ -487,23 +487,23 @@ LABEL_117:
           {
             DriverPackageMappedProperty = -1073741816;
 LABEL_106:
-            if ( P[1] )
+            if ( CurrentUserKeyPath.Buffer )
             {
-              ExFreePool(P[1]);
+              ExFreePool(CurrentUserKeyPath.Buffer);
               v45 = DEVPKEY_DriverPackage_ConfigurationScopes;
             }
             if ( DriverPackageMappedProperty < 0 )
               goto LABEL_114;
             goto LABEL_109;
           }
-          DriverPackageMappedProperty = RtlFormatCurrentUserKeyPath((PUNICODE_STRING)P);
+          DriverPackageMappedProperty = RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath);
           if ( DriverPackageMappedProperty < 0 )
           {
 LABEL_104:
             v45 = DEVPKEY_DriverPackage_ConfigurationScopes;
             goto LABEL_106;
           }
-          LODWORD(v51) = P[1];
+          LODWORD(v51) = CurrentUserKeyPath.Buffer;
         }
         DriverPackageMappedProperty = RegRtlOpenKey(0, (_DWORD)v51, 0, 0x2000000, (__int64)&Handle);
         goto LABEL_104;
@@ -542,7 +542,7 @@ LABEL_104:
                                           0,
                                           (__int64)&v86,
                                           0LL,
-                                          (__int64)P);
+                                          (__int64)&CurrentUserKeyPath);
           if ( DriverPackageMappedProperty < 0 )
             goto LABEL_284;
           LODWORD(a3) = (_DWORD)v86;
@@ -588,12 +588,12 @@ LABEL_156:
                                               0,
                                               (__int64)&v86,
                                               0LL,
-                                              (__int64)P);
+                                              (__int64)&CurrentUserKeyPath);
               if ( DriverPackageMappedProperty < 0 )
                 goto LABEL_284;
               v60 = v101;
             }
-            if ( (*((_DWORD *)P[0] + 16) & 0x10) == 0 )
+            if ( (*(_DWORD *)(*(_QWORD *)&CurrentUserKeyPath.Length + 64LL) & 0x10) == 0 )
             {
 LABEL_161:
               v61 = (char *)a6;
@@ -835,7 +835,7 @@ LABEL_76:
   v46 = 0;
   while ( 1 )
   {
-    v47 = &off_14000F730 + 5 * v46;
+    v47 = &off_14000FAE0 + 5 * v46;
     v48 = (__int64)*v47;
     a8 = v47;
     if ( *(_DWORD *)(v48 + 16) == v14 && *(_QWORD *)v48 == *(_QWORD *)a4 && *(_QWORD *)(v48 + 8) == *(_QWORD *)(a4 + 8) )

@@ -7,21 +7,21 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlQueryVolumeDiskSpeedPolicy(int a1, _DWORD *a2)
+NTSTATUS __fastcall RtlQueryVolumeDiskSpeedPolicy(HANDLE FileHandle, _DWORD *a2)
 {
-  int result; // eax
-  _BYTE v4[8]; // [esp+Ch] [ebp-24h] BYREF
-  _DWORD v5[2]; // [esp+14h] [ebp-1Ch] BYREF
+  NTSTATUS result; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+Ch] [ebp-24h] BYREF
+  _DWORD OutputBuffer[2]; // [esp+14h] [ebp-1Ch] BYREF
   int v6; // [esp+1Ch] [ebp-14h]
-  _DWORD v7[3]; // [esp+20h] [ebp-10h] BYREF
+  _DWORD InputBuffer[3]; // [esp+20h] [ebp-10h] BYREF
 
-  v7[0] = 7;
-  v5[0] = 0;
-  v7[2] = 0;
-  v7[1] = 0;
-  v5[1] = 0;
+  InputBuffer[0] = 7;
+  OutputBuffer[0] = 0;
+  InputBuffer[2] = 0;
+  InputBuffer[1] = 0;
+  OutputBuffer[1] = 0;
   v6 = 0;
-  result = ZwDeviceIoControlFile(a1, 0, 0, 0, (int)v4, 2954240, (int)v7, 12, (int)v5, 12);
+  result = ZwDeviceIoControlFile(FileHandle, 0, 0, 0, &IoStatusBlock, 0x2D1400u, InputBuffer, 0xCu, OutputBuffer, 0xCu);
   if ( result >= 0 )
   {
     *a2 = (_BYTE)v6 != 0 ? 10 : 20;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBatteryWaitTag @ 0x14086D8B0
+ * XREFs of PopBatteryWaitTag @ 0x14086EB10
  * Callers:
- *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
- *     PopBatteryAdd @ 0x14086CCC0 (PopBatteryAdd.c)
+ *     PopBatteryWorker @ 0x14071B020 (PopBatteryWorker.c)
+ *     PopBatteryAdd @ 0x14086DF20 (PopBatteryAdd.c)
  * Callees:
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     PopPrepareIoctl @ 0x140751480 (PopPrepareIoctl.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     PopPrepareIoctl @ 0x140752670 (PopPrepareIoctl.c)
  */
 
 NTSTATUS __fastcall PopBatteryWaitTag(__int64 a1)

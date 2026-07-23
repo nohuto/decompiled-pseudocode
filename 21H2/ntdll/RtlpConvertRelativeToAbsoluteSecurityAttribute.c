@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800EA460
+ * XREFs of RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800EA420
  * Callers:
  *     <none>
  * Callees:
  *     RtlStringCbLengthW @ 0x180044608 (RtlStringCbLengthW.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall RtlpConvertRelativeToAbsoluteSecurityAttribute(

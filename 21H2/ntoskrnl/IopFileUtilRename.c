@@ -1,16 +1,16 @@
 /*
- * XREFs of IopFileUtilRename @ 0x140A6F0E4
+ * XREFs of IopFileUtilRename @ 0x140A700E4
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140A6EF54 (PpLastGoodDoBootProcessing.c)
- *     PiLastGoodRevertCopyCallback @ 0x140A90820 (PiLastGoodRevertCopyCallback.c)
+ *     PpLastGoodDoBootProcessing @ 0x140A6FF54 (PpLastGoodDoBootProcessing.c)
+ *     PiLastGoodRevertCopyCallback @ 0x140A91820 (PiLastGoodRevertCopyCallback.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     IopFileUtilClearAttributes @ 0x1408B431C (IopFileUtilClearAttributes.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1403FAA60 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     IopFileUtilClearAttributes @ 0x1408B447C (IopFileUtilClearAttributes.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopFileUtilRename(UNICODE_STRING *a1, UNICODE_STRING *a2, char a3)

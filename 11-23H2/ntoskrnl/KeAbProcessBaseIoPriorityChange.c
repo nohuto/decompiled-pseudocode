@@ -2,8 +2,8 @@
  * XREFs of KeAbProcessBaseIoPriorityChange @ 0x1402078A4
  * Callers:
  *     PsSetIoPriorityThread @ 0x140207824 (PsSetIoPriorityThread.c)
- *     IoApplyPriorityInfoThread @ 0x1402BABC0 (IoApplyPriorityInfoThread.c)
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x14031B17C (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     IoApplyPriorityInfoThread @ 0x1402BAE50 (IoApplyPriorityInfoThread.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x14031B40C (PspNotifyProcessEffectiveIoLimitChanged.c)
  * Callees:
  *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1402078D4 (KeAbProcessBaseIoPriorityChangeInternal.c)
  */

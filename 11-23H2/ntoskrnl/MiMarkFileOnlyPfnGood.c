@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkFileOnlyPfnGood @ 0x14063E334
+ * XREFs of MiMarkFileOnlyPfnGood @ 0x14063E884
  * Callers:
- *     MiUnlinkBadPages @ 0x14062AD10 (MiUnlinkBadPages.c)
+ *     MiUnlinkBadPages @ 0x14062B260 (MiUnlinkBadPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiUnlinkPageFromBadList @ 0x14064DFC4 (MiUnlinkPageFromBadList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiUnlinkPageFromBadList @ 0x14064E514 (MiUnlinkPageFromBadList.c)
  */
 
 void __fastcall MiMarkFileOnlyPfnGood(__int64 a1)

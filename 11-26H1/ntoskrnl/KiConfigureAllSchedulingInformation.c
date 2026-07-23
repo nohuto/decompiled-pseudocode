@@ -1,15 +1,15 @@
 /*
- * XREFs of KiConfigureAllSchedulingInformation @ 0x140CC99F0
+ * XREFs of KiConfigureAllSchedulingInformation @ 0x140CCFA80
  * Callers:
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KeInitializeSystemSubNodeEnumerationContext @ 0x1403EDE78 (KeInitializeSystemSubNodeEnumerationContext.c)
- *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1403EDEC0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
- *     KiConfigureCooperativeIdleSearchTargets @ 0x1405EAB38 (KiConfigureCooperativeIdleSearchTargets.c)
- *     KiConfigureNodeSchedulingInformation @ 0x1405EAC00 (KiConfigureNodeSchedulingInformation.c)
- *     KiConfigureSubNodeShareCounts @ 0x1405EADD8 (KiConfigureSubNodeShareCounts.c)
- *     KiFinalizeCoreControlBlockAssignment @ 0x1405EB014 (KiFinalizeCoreControlBlockAssignment.c)
- *     KiConfigureSchedulingInformation @ 0x140BF3AF0 (KiConfigureSchedulingInformation.c)
+ *     KeInitializeSystemSubNodeEnumerationContext @ 0x1404529A8 (KeInitializeSystemSubNodeEnumerationContext.c)
+ *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1404529F0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KiConfigureCooperativeIdleSearchTargets @ 0x1405ED4A8 (KiConfigureCooperativeIdleSearchTargets.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1405ED570 (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureSubNodeShareCounts @ 0x1405ED748 (KiConfigureSubNodeShareCounts.c)
+ *     KiFinalizeCoreControlBlockAssignment @ 0x1405ED984 (KiFinalizeCoreControlBlockAssignment.c)
+ *     KiConfigureSchedulingInformation @ 0x140BF9AF0 (KiConfigureSchedulingInformation.c)
  */
 
 __int64 __fastcall KiConfigureAllSchedulingInformation(__int64 a1, char a2)

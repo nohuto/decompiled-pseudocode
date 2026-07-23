@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpVerifyCreatorAccessCheck @ 0x140477960
+ * XREFs of ObpVerifyCreatorAccessCheck @ 0x140476830
  * Callers:
- *     NtCreatePrivateNamespace @ 0x1404776D4 (NtCreatePrivateNamespace.c)
- *     NtDeletePrivateNamespace @ 0x140668A8C (NtDeletePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1404765A4 (NtCreatePrivateNamespace.c)
+ *     NtDeletePrivateNamespace @ 0x140668B70 (NtDeletePrivateNamespace.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeCaptureSubjectContextEx @ 0x14041F830 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
- *     SeLockSubjectContext @ 0x14044DBB0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x14044DC10 (SeUnlockSubjectContext.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x140479094 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
+ *     SeCaptureSubjectContextEx @ 0x14041E6F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
+ *     SeLockSubjectContext @ 0x14044CA80 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14044CAE0 (SeUnlockSubjectContext.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140477F64 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
  */
 
 __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
   PULONG v4; // rax
   int v5; // ebx
   int v6; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
   PVOID TokenInformation; // [rsp+28h] [rbp-51h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext[2]; // [rsp+30h] [rbp-49h] BYREF
   _BYTE Sid[80]; // [rsp+70h] [rbp-9h] BYREF

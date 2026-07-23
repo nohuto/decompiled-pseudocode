@@ -1,25 +1,25 @@
 /*
- * XREFs of AVrfpVerifierStopInitialize @ 0x1801201E8
+ * XREFs of AVrfpVerifierStopInitialize @ 0x18011FF98
  * Callers:
- *     AVrfInitializeVerifier @ 0x1801163F0 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x180115BD0 (AVrfInitializeVerifier.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     LdrGetProcedureAddressEx @ 0x180085BD0 (LdrGetProcedureAddressEx.c)
- *     RtlInitAnsiString @ 0x1800D5DB0 (RtlInitAnsiString.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     LdrGetProcedureAddressEx @ 0x18007CF70 (LdrGetProcedureAddressEx.c)
+ *     RtlInitAnsiString @ 0x1800D2D70 (RtlInitAnsiString.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
  */
 
 __int64 AVrfpVerifierStopInitialize()
 {
   __int64 v0; // rbx
-  __int64 v1; // rbx
-  int ProcedureAddress; // ebx
-  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v5; // [rsp+50h] [rbp+8h] BYREF
+  void *v1; // rbx
+  NTSTATUS v2; // ebx
+  _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  PVOID ProcedureAddress; // [rsp+50h] [rbp+8h] BYREF
 
   v0 = AVrfpVerifierProvidersList;
   DestinationString = 0LL;
-  v5 = 0LL;
+  ProcedureAddress = 0LL;
   while ( 1 )
   {
     if ( (__int64 *)v0 == &AVrfpVerifierProvidersList )
@@ -28,7 +28,7 @@ __int64 AVrfpVerifierStopInitialize()
       break;
     v0 = *(_QWORD *)v0;
   }
-  v1 = *(_QWORD *)(*(_QWORD *)(v0 + 32) + 48LL);
+  v1 = *(void **)(*(_QWORD *)(v0 + 32) + 48LL);
   if ( !v1 )
   {
 LABEL_10:
@@ -36,10 +36,10 @@ LABEL_10:
     return 3221225473LL;
   }
   RtlInitAnsiString(&DestinationString, "VerifierStopMessage");
-  ProcedureAddress = LdrGetProcedureAddressEx(v1, (int)&DestinationString, 0, (int)&v5, 0);
-  if ( ProcedureAddress >= 0 )
-    AVrfpVerifierStopMessageFunction = v5;
+  v2 = LdrGetProcedureAddressEx(v1, &DestinationString, 0, &ProcedureAddress, 0);
+  if ( v2 >= 0 )
+    AVrfpVerifierStopMessageFunction = (__int64)ProcedureAddress;
   else
     DbgPrint("AVRF: Failed to find `VerifierStopMessage()' export in verifier.dll! \n");
-  return (unsigned int)ProcedureAddress;
+  return (unsigned int)v2;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspGetNextChildJob @ 0x1408EBF00
+ * XREFs of PspGetNextChildJob @ 0x14085D730
  * Callers:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
@@ -17,8 +17,6 @@ _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
   struct _ERESOURCE *v6; // r12
   _QWORD **v7; // r14
   _QWORD *v8; // rdi
-  __int64 v9; // rdx
-  $81B80DCEA5A02D890AB7B2872B48AC01 *v11; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;
@@ -43,11 +41,10 @@ _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
   ExReleaseResourceLite(v6);
   if ( CurrentThread )
   {
-    if ( CurrentThread->SpecialApcDisable++ == -1 )
+    if ( CurrentThread->SpecialApcDisable++ == -1
+      && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
-      v11 = &CurrentThread->152;
-      if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)v11->ApcState.ApcListHead[0].Flink != v11 )
-        KiCheckForKernelApcDelivery((__int64)v11, v9);
+      KiCheckForKernelApcDelivery();
     }
   }
   if ( a2 )

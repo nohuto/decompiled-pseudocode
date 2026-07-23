@@ -10,40 +10,40 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __fastcall RtlpCreateExecutionRequiredRequest(int a1, HANDLE *a2)
+NTSTATUS __fastcall RtlpCreateExecutionRequiredRequest(HANDLE ProcessHandle, _DWORD *a2)
 {
-  int result; // eax
-  int v5; // esi
-  int v6[7]; // [esp+10h] [ebp-50h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v5; // esi
+  int ProcessInformation[7]; // [esp+10h] [ebp-50h] BYREF
   char v7; // [esp+2Ch] [ebp-34h]
-  _DWORD v8[2]; // [esp+30h] [ebp-30h] BYREF
-  UNICODE_STRING DestinationString; // [esp+38h] [ebp-28h] BYREF
+  _DWORD InputBuffer[2]; // [esp+30h] [ebp-30h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+38h] [ebp-28h] BYREF
   _DWORD v10[2]; // [esp+4Ch] [ebp-14h] BYREF
   char v11; // [esp+54h] [ebp-Ch]
-  int v12; // [esp+58h] [ebp-8h]
-  HANDLE Handle; // [esp+5Ch] [ebp-4h] BYREF
+  HANDLE v12; // [esp+58h] [ebp-8h]
+  HANDLE OutputBuffer; // [esp+5Ch] [ebp-4h] BYREF
 
-  v6[0] = 32;
-  result = ZwQueryInformationProcess(a1, 0, (int)v6, 32, 0);
+  ProcessInformation[0] = 32;
+  result = ZwQueryInformationProcess(ProcessHandle, ProcessBasicInformation, ProcessInformation, 0x20u, 0);
   if ( result >= 0 )
   {
     if ( (v7 & 0x40) != 0 )
     {
-      v8[0] = 0;
-      v8[1] = 1;
+      InputBuffer[0] = 0;
+      InputBuffer[1] = 1;
       RtlInitUnicodeString(&DestinationString, L"QueryDebugInformation request");
-      v5 = ZwPowerInformation(72, (int)v8, 28, (int)&Handle, 4);
+      v5 = ZwPowerInformation(PlmPowerRequestCreate, InputBuffer, 0x1Cu, &OutputBuffer, 4u);
       if ( v5 >= 0 )
       {
-        v10[0] = Handle;
+        v10[0] = OutputBuffer;
         v10[1] = 3;
         v11 = 1;
-        v12 = a1;
-        v5 = ZwPowerInformation(44, (int)v10, 16, 0, 0);
+        v12 = ProcessHandle;
+        v5 = ZwPowerInformation(PowerRequestAction, v10, 0x10u, 0, 0);
         if ( v5 >= 0 )
-          *a2 = Handle;
+          *a2 = OutputBuffer;
         else
-          NtClose(Handle);
+          NtClose(OutputBuffer);
       }
       return v5;
     }

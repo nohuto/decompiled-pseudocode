@@ -1,16 +1,16 @@
 /*
- * XREFs of SwitchedRtlGetVersion @ 0x1800A9C70
+ * XREFs of SwitchedRtlGetVersion @ 0x18000AE00
  * Callers:
- *     RtlSwitchedVVI @ 0x1800A97F0 (RtlSwitchedVVI.c)
+ *     RtlSwitchedVVI @ 0x18000A980 (RtlSwitchedVVI.c)
  * Callees:
- *     SwitchedRtlGetVersion_WinBLUE @ 0x1800A9EE0 (SwitchedRtlGetVersion_WinBLUE.c)
- *     SbSelectProcedure @ 0x1800A9EF0 (SbSelectProcedure.c)
- *     RtlGetNtProductType @ 0x1800AA990 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x1800AAA10 (RtlGetSuiteMask.c)
- *     RtlStringCbCopyW @ 0x1800E1140 (RtlStringCbCopyW.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     ZwQueryLicenseValue @ 0x180164880 (ZwQueryLicenseValue.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     SwitchedRtlGetVersion_WinBLUE @ 0x18000B070 (SwitchedRtlGetVersion_WinBLUE.c)
+ *     SbSelectProcedure @ 0x18000B080 (SbSelectProcedure.c)
+ *     RtlGetNtProductType @ 0x18000BB20 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x18000BBA0 (RtlGetSuiteMask.c)
+ *     RtlStringCbCopyW @ 0x1800DC690 (RtlStringCbCopyW.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     ZwQueryLicenseValue @ 0x180162C40 (ZwQueryLicenseValue.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall SwitchedRtlGetVersion(int *a1)
@@ -20,29 +20,26 @@ __int64 __fastcall SwitchedRtlGetVersion(int *a1)
   int Version_WinBLUE; // eax
   wchar_t *Buffer; // r8
   int v6; // esi
-  __int64 v7; // rcx
-  size_t v8; // rax
-  _WORD v10[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v11; // [rsp+34h] [rbp-34h]
-  const wchar_t *v12; // [rsp+38h] [rbp-30h]
-  int v13; // [rsp+70h] [rbp+8h] BYREF
-  int v14; // [rsp+78h] [rbp+10h] BYREF
-  int v15; // [rsp+80h] [rbp+18h] BYREF
-  int v16; // [rsp+88h] [rbp+20h] BYREF
+  size_t v7; // rax
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-38h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+70h] [rbp+8h] BYREF
+  ULONG Type; // [rsp+78h] [rbp+10h] BYREF
+  ULONG ResultDataSize; // [rsp+80h] [rbp+18h] BYREF
+  int Data; // [rsp+88h] [rbp+20h] BYREF
 
-  v11 = 0;
-  v14 = 0;
-  v15 = 0;
-  v16 = 0;
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  Type = 0;
+  ResultDataSize = 0;
+  Data = 0;
   v2 = NtCurrentPeb();
-  v13 = 0;
+  NtProductType = 0;
   a1[1] = v2->OSMajorVersion;
   a1[2] = v2->OSMinorVersion;
   a1[3] = v2->OSBuildNumber;
   a1[4] = v2->OSPlatformId;
-  v3 = (__int64 (*)(void))qword_1801CE7D0;
-  if ( qword_1801CE7D0
-    || (v3 = (__int64 (*)(void))SbSelectProcedure(2880154539LL, 0LL, "kLsE", 0LL), (qword_1801CE7D0 = (__int64)v3) != 0) )
+  v3 = (__int64 (*)(void))qword_1801CD7C8;
+  if ( qword_1801CD7C8
+    || (v3 = (__int64 (*)(void))SbSelectProcedure(2880154539LL, 0LL, "kLsE", 0LL), (qword_1801CD7C8 = (__int64)v3) != 0) )
   {
     if ( v3 == SwitchedRtlGetVersion_WinBLUE )
       Version_WinBLUE = SwitchedRtlGetVersion_WinBLUE();
@@ -62,27 +59,30 @@ __int64 __fastcall SwitchedRtlGetVersion(int *a1)
     }
   }
   Buffer = v2->CSDVersion.Buffer;
-  if ( !Buffer || !*Buffer || (int)RtlStringCbCopyW(a1 + 5, 256LL, Buffer) < 0 )
+  if ( !Buffer || !*Buffer || (int)RtlStringCbCopyW(a1 + 5, 256LL) < 0 )
     *((_WORD *)a1 + 10) = 0;
   v6 = *a1;
   if ( ((*a1 - 284) & 0xFFFFFFF7) == 0 )
   {
     *((_WORD *)a1 + 138) = HIBYTE(v2->OSCSDVersion);
     *((_WORD *)a1 + 139) = (unsigned __int8)v2->OSCSDVersion;
-    *((_WORD *)a1 + 140) = RtlGetSuiteMask(255LL);
+    *((_WORD *)a1 + 140) = RtlGetSuiteMask();
     if ( v6 == 292 )
-      a1[71] = RtlGetSuiteMask(v7) & 0x1FFFF;
+      a1[71] = RtlGetSuiteMask() & 0x1FFFF;
     *((_BYTE *)a1 + 282) = 0;
-    if ( (unsigned __int8)RtlGetNtProductType(&v13) )
-      *((_BYTE *)a1 + 282) = v13;
-    v11 = 0;
-    v12 = L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
-    v8 = 2 * wcslen(L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
-    if ( v8 >= 0xFFFE )
-      LOWORD(v8) = -4;
-    v10[0] = v8;
-    v10[1] = v8 + 2;
-    if ( (int)ZwQueryLicenseValue(v10, &v14, &v16, 4LL, &v15) < 0 || v16 != 1 || v14 != 4 || v15 != 4 )
+    if ( RtlGetNtProductType(&NtProductType) )
+      *((_BYTE *)a1 + 282) = NtProductType;
+    *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+    ValueName.Buffer = (wchar_t *)L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
+    v7 = 2 * wcslen(L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
+    if ( v7 >= 0xFFFE )
+      LOWORD(v7) = -4;
+    ValueName.Length = v7;
+    ValueName.MaximumLength = v7 + 2;
+    if ( ZwQueryLicenseValue(&ValueName, &Type, &Data, 4u, &ResultDataSize) < 0
+      || Data != 1
+      || Type != 4
+      || ResultDataSize != 4 )
     {
       *((_WORD *)a1 + 140) &= ~0x10u;
       *((_WORD *)a1 + 140) |= 0x100u;

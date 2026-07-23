@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpIncrementHandleCount @ 0x1408DD08C
+ * XREFs of ObpIncrementHandleCount @ 0x1408DD1EC
  * Callers:
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
  * Callees:
- *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
+ *     ObpIncrementHandleCountEx @ 0x14070D340 (ObpIncrementHandleCountEx.c)
  */
 
 __int64 __fastcall ObpIncrementHandleCount(

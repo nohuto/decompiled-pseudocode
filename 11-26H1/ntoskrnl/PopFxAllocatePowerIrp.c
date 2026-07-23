@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxAllocatePowerIrp @ 0x14021A098
+ * XREFs of PopFxAllocatePowerIrp @ 0x14021BA28
  * Callers:
- *     PopAllocateIrp @ 0x14026F82C (PopAllocateIrp.c)
+ *     PopAllocateIrp @ 0x14026ED9C (PopAllocateIrp.c)
  * Callees:
- *     PopFxTryReferenceDevice @ 0x140218E68 (PopFxTryReferenceDevice.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
+ *     PopFxTryReferenceDevice @ 0x14021B7B8 (PopFxTryReferenceDevice.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
  */
 
 __int64 __fastcall PopFxAllocatePowerIrp(

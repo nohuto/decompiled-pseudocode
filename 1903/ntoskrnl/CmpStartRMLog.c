@@ -23,32 +23,30 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
 {
   unsigned int v2; // edi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v6; // r8
   CLFS_INFORMATION *PoolWithTag; // r15
-  bool v8; // zf
+  bool v7; // zf
   int started; // ebx
-  __int64 v10; // r8
-  __int64 v11; // rax
-  unsigned __int64 *v12; // r12
-  __int64 v13; // r8
-  PVOID *v14; // r14
-  FILE_OBJECT **v15; // r13
-  int *v16; // rax
-  CLFS_INFORMATION *v17; // rax
-  CLFS_INFORMATION *v18; // rbx
-  FILE_OBJECT *v19; // rcx
-  PVOID v20; // rcx
-  NTSTATUS v21; // eax
-  PVOID v23; // rcx
-  NTSTATUS v24; // ecx
+  __int64 v9; // rax
+  unsigned __int64 *v10; // r12
+  __int64 v11; // r8
+  PVOID *v12; // r14
+  FILE_OBJECT **v13; // r13
+  int *v14; // rax
+  CLFS_INFORMATION *v15; // rax
+  CLFS_INFORMATION *v16; // rbx
+  FILE_OBJECT *v17; // rcx
+  PVOID v18; // rcx
+  NTSTATUS v19; // eax
+  PVOID v21; // rcx
+  NTSTATUS v22; // ecx
   CLFS_LSN LastLsn; // rax
-  CLFS_LSN v26; // rbx
-  FILE_OBJECT *v27; // rcx
+  CLFS_LSN v24; // rbx
+  FILE_OBJECT *v25; // rcx
   int ppvReadContext; // [rsp+20h] [rbp-A9h]
   CLFS_LSN plsn1; // [rsp+50h] [rbp-79h] BYREF
   PVOID pvCursorContext; // [rsp+58h] [rbp-71h] BYREF
   PVOID P; // [rsp+60h] [rbp-69h] BYREF
-  UNICODE_STRING v32; // [rsp+68h] [rbp-61h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-61h] BYREF
   ULONG pcbInfoBuffer; // [rsp+78h] [rbp-51h] BYREF
   ULONG pcbRestartBuffer; // [rsp+7Ch] [rbp-4Dh] BYREF
   ULONG pcbReadBuffer; // [rsp+80h] [rbp-49h] BYREF
@@ -64,11 +62,11 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CLFS_LSN plsnFirst; // [rsp+D8h] [rbp+Fh] BYREF
   PVOID ppvReadBuffer[8]; // [rsp+E0h] [rbp+17h] BYREF
   CLS_RECORD_TYPE peRecordType; // [rsp+130h] [rbp+67h] BYREF
-  char v48; // [rsp+140h] [rbp+77h]
+  char v46; // [rsp+140h] [rbp+77h]
   ULONG pcbWritten; // [rsp+148h] [rbp+7Fh] BYREF
 
   v2 = 0;
-  v48 = 1;
+  v46 = 1;
   pcbRestartBuffer = 0;
   plsn.ullOffset = 0LL;
   pvCursorContext = 0LL;
@@ -77,9 +75,9 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CurrentThread = KeGetCurrentThread();
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v32.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   --CurrentThread->KernelApcDisable;
-  v32.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   P = 0LL;
   ExAcquireResourceExclusiveLite(*((PERESOURCE *)a1 + 16), 1u);
   if ( (*((_DWORD *)a1 + 26) & 1) != 0 )
@@ -94,20 +92,19 @@ LABEL_47:
     return v2;
   }
   *((_DWORD *)a1 + 26) |= 2u;
-  v8 = a1 == CmRmSystem;
+  v7 = a1 == CmRmSystem;
   *((_QWORD *)a1 + 15) = CLFS_LSN_INVALID_EXT;
-  if ( v8 )
+  if ( v7 )
   {
     Source = &CmpLogPath;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(qword_140424FF0 + 64) + 128LL) = *a2;
-    LOBYTE(v6) = 1;
-    started = RtlStringFromGUIDEx(*(_QWORD *)(qword_140424FF0 + 64) + 128LL, &v32, v6);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_140424FF0 + 64) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_27;
-    v12 = (unsigned __int64 *)(a1 + 72);
+    v10 = (unsigned __int64 *)(a1 + 72);
     *((_QWORD *)a1 + 9) = 5242880LL;
-    v11 = qword_140424FF0;
+    v9 = qword_140424FF0;
   }
   else
   {
@@ -117,44 +114,43 @@ LABEL_47:
     Source = &UnicodeString;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
-    LOBYTE(v10) = 1;
-    started = RtlStringFromGUIDEx(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL, &v32, v10);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_27;
-    v11 = *((_QWORD *)a1 + 10);
-    v12 = (unsigned __int64 *)(a1 + 72);
+    v9 = *((_QWORD *)a1 + 10);
+    v10 = (unsigned __int64 *)(a1 + 72);
     *((_QWORD *)a1 + 9) = 0x100000LL;
   }
-  started = CmpQueryFileSecurityDescriptor(*(HANDLE *)(v11 + 1536), &P);
+  started = CmpQueryFileSecurityDescriptor(*(HANDLE *)(v9 + 1536), &P);
   if ( started < 0 )
   {
     P = 0LL;
   }
   else
   {
-    v14 = (PVOID *)(a1 + 96);
-    v15 = (FILE_OBJECT **)(a1 + 88);
-    v16 = (int *)(a1 + 68);
+    v12 = (PVOID *)(a1 + 96);
+    v13 = (FILE_OBJECT **)(a1 + 88);
+    v14 = (int *)(a1 + 68);
     while ( 1 )
     {
-      started = CmpStartCLFSLog(Source, &v32, v13, P, ppvReadContext, v12, v16, v15, (PVOID *)a1 + 12);
+      started = CmpStartCLFSLog(Source, &GuidString, v11, P, ppvReadContext, v10, v14, v13, (PVOID *)a1 + 12);
       if ( started < 0 )
         break;
       pcbInfoBuffer = 120;
-      v17 = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
-      v18 = v17;
-      if ( v17 )
+      v15 = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
+      v16 = v15;
+      if ( v15 )
       {
-        ClfsGetLogFileInformation(*v15, v17, &pcbInfoBuffer);
-        ExFreePoolWithTag(v18, 0);
+        ClfsGetLogFileInformation(*v13, v15, &pcbInfoBuffer);
+        ExFreePoolWithTag(v16, 0);
       }
-      v19 = *v15;
+      v17 = *v13;
       pcbWritten = 120;
-      started = ClfsGetLogFileInformation(v19, PoolWithTag, &pcbWritten);
+      started = ClfsGetLogFileInformation(v17, PoolWithTag, &pcbWritten);
       *((_QWORD *)a1 + 15) = PoolWithTag->BaseLsn.ullOffset;
       if ( started < 0 )
         break;
-      if ( ClfsReadRestartArea(*v14, &ppvRestartBuffer, &pcbRestartBuffer, &plsn, &pvCursorContext) == 1075445772
+      if ( ClfsReadRestartArea(*v12, &ppvRestartBuffer, &pcbRestartBuffer, &plsn, &pvCursorContext) == 1075445772
         || !ppvRestartBuffer )
       {
         plsn1 = PoolWithTag->BaseLsn;
@@ -164,7 +160,7 @@ LABEL_47:
         plsn1 = *(CLFS_LSN *)ppvRestartBuffer;
         if ( ClfsLsnEqual(&plsn, &plsn1) )
         {
-          v23 = *v14;
+          v21 = *v12;
           plsnFirst = plsn1;
           pvReadContext = 0LL;
           plsnUndoNext.ullOffset = 0LL;
@@ -172,7 +168,7 @@ LABEL_47:
           plsnRecord.ullOffset = 0LL;
           peRecordType = 0;
           if ( ClfsReadLogRecord(
-                 v23,
+                 v21,
                  &plsnFirst,
                  ClfsContextForward,
                  ppvReadBuffer,
@@ -183,7 +179,7 @@ LABEL_47:
                  &pvReadContext) >= 0 )
           {
             peRecordType = 1;
-            v24 = ClfsReadNextLogRecord(
+            v22 = ClfsReadNextLogRecord(
                     pvReadContext,
                     ppvReadBuffer,
                     &pcbReadBuffer,
@@ -192,14 +188,14 @@ LABEL_47:
                     &plsnUndoNext,
                     &plsnPrevious,
                     &plsnRecord);
-            if ( v24 == -1073741807 )
+            if ( v22 == -1073741807 )
             {
               LastLsn = PoolWithTag->LastLsn;
             }
             else
             {
               LastLsn = plsn1;
-              if ( v24 >= 0 )
+              if ( v22 >= 0 )
                 LastLsn = plsnRecord;
             }
             plsn1 = LastLsn;
@@ -215,33 +211,33 @@ LABEL_47:
       }
       if ( !ClfsLsnEqual(&plsn1, &PoolWithTag->LastLsn) && (*((_DWORD *)a1 + 26) & 4) != 0 )
       {
-        v26 = plsn1;
+        v24 = plsn1;
         if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD))CmpRmAnalysisPhase)(a1, (CLFS_LSN)plsn1.ullOffset) >= 0 )
         {
-          ((void (__fastcall *)(_QWORD, _QWORD))CmpRmReDoPhase)(a1, (CLFS_LSN)v26.ullOffset);
+          ((void (__fastcall *)(_QWORD, _QWORD))CmpRmReDoPhase)(a1, (CLFS_LSN)v24.ullOffset);
           CmpRmUnDoPhase(a1);
         }
         *((_DWORD *)a1 + 26) &= ~4u;
       }
-      v20 = *v14;
+      v18 = *v12;
       pvRestartBuffer = PoolWithTag->LastLsn;
-      v21 = ClfsWriteRestartArea(v20, &pvRestartBuffer, 8u, 0LL, 0, &pcbWritten, 0LL);
-      started = v21;
-      if ( !v48 || v21 != -1072037859 && *((_DWORD *)a1 + 17) <= 0xAu )
+      v19 = ClfsWriteRestartArea(v18, &pvRestartBuffer, 8u, 0LL, 0, &pcbWritten, 0LL);
+      started = v19;
+      if ( !v46 || v19 != -1072037859 && *((_DWORD *)a1 + 17) <= 0xAu )
         break;
-      v48 = 0;
+      v46 = 0;
       if ( pvCursorContext )
       {
         ClfsTerminateReadLog(pvCursorContext);
         pvCursorContext = 0LL;
       }
-      v15 = (FILE_OBJECT **)(a1 + 88);
+      v13 = (FILE_OBJECT **)(a1 + 88);
       ClfsDeleteLogByPointer(*((PLOG_FILE_OBJECT *)a1 + 11));
-      ClfsDeleteMarshallingArea(*v14);
-      v27 = (FILE_OBJECT *)*((_QWORD *)a1 + 11);
-      *v14 = 0LL;
-      ClfsCloseLogFileObject(v27);
-      v16 = (int *)(a1 + 68);
+      ClfsDeleteMarshallingArea(*v12);
+      v25 = (FILE_OBJECT *)*((_QWORD *)a1 + 11);
+      *v12 = 0LL;
+      ClfsCloseLogFileObject(v25);
+      v14 = (int *)(a1 + 68);
       *((_QWORD *)a1 + 11) = 0LL;
       *((_DWORD *)a1 + 17) = 0;
     }
@@ -249,8 +245,8 @@ LABEL_47:
       ClfsTerminateReadLog(pvCursorContext);
     if ( started < 0 )
     {
-      if ( *v14 )
-        *v14 = 0LL;
+      if ( *v12 )
+        *v12 = 0LL;
     }
     else
     {
@@ -262,8 +258,8 @@ LABEL_27:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-  if ( v32.Buffer )
-    RtlFreeAnsiString(&v32);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
   ExFreePoolWithTag(PoolWithTag, 0);
   if ( P )
     ExFreePoolWithTag(P, 0);

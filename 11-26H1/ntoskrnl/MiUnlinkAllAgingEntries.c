@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlinkAllAgingEntries @ 0x14030D9FC
+ * XREFs of MiUnlinkAllAgingEntries @ 0x1402EFA7C
  * Callers:
- *     MiUnlinkWorkingSet @ 0x1404D4B5C (MiUnlinkWorkingSet.c)
+ *     MiUnlinkWorkingSet @ 0x1404CE3CC (MiUnlinkWorkingSet.c)
  * Callees:
- *     MiRemoveEntryNotifySentinel @ 0x14030C28C (MiRemoveEntryNotifySentinel.c)
- *     MiUnlinkHardLimitWorkingSet @ 0x14030DA88 (MiUnlinkHardLimitWorkingSet.c)
+ *     MiRemoveEntryNotifySentinel @ 0x1402EE30C (MiRemoveEntryNotifySentinel.c)
+ *     MiUnlinkHardLimitWorkingSet @ 0x1402EFB08 (MiUnlinkHardLimitWorkingSet.c)
  */
 
 __int64 __fastcall MiUnlinkAllAgingEntries(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiUnlinkAllAgingEntries(__int64 a1)
   if ( *(_QWORD *)(a1 + 24) )
   {
     MiRemoveEntryNotifySentinel(
-      (_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 18640LL),
+      (_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 18640LL),
       (unsigned __int64 *)(a1 + 24));
     *(_QWORD *)(a1 + 24) = 0LL;
   }

@@ -1,18 +1,18 @@
 /*
- * XREFs of VfMapTransferEx @ 0x140AC70E0
+ * XREFs of VfMapTransferEx @ 0x140AC70D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140AC4484 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
- *     VERIFY_BUFFER_LOCKED @ 0x140AC4650 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140AC475C (VF_ASSERT_MAX_IRQL.c)
- *     ViCheckAdapterBuffers @ 0x140AC8214 (ViCheckAdapterBuffers.c)
- *     ViCheckMdlLength @ 0x140AC834C (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x140AC8E74 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140AC9188 (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140AC4474 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140AC4640 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140AC474C (VF_ASSERT_MAX_IRQL.c)
+ *     ViCheckAdapterBuffers @ 0x140AC8204 (ViCheckAdapterBuffers.c)
+ *     ViCheckMdlLength @ 0x140AC833C (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC8E64 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC9178 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall VfMapTransferEx(
@@ -47,13 +47,13 @@ __int64 __fastcall VfMapTransferEx(
     {
       v18 = v17;
       ViHalPreprocessOptions(
-        byte_140C0DDAC,
+        byte_140C0DDA8,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v17,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v18, 0LL, 0LL, byte_140C0DDAC);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v18, 0LL, 0LL, byte_140C0DDA8);
     }
   }
   v19 = (*(__int64 (__fastcall **)(__int64, ULONG_PTR, __int64, __int64, int, unsigned int *, char, __int64, int, __int64, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 184LL))(

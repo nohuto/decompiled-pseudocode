@@ -1,13 +1,13 @@
 /*
  * XREFs of ExQuerySystemLockInformation @ 0x1403DFCAC
  * Callers:
- *     ExpGetLockInformation @ 0x1406AB504 (ExpGetLockInformation.c)
+ *     ExpGetLockInformation @ 0x1406AB63C (ExpGetLockInformation.c)
  * Callees:
- *     ExpOwnerEntryToThread @ 0x14008889C (ExpOwnerEntryToThread.c)
- *     MmUnlockPagableImageSection @ 0x1400AC6FC (MmUnlockPagableImageSection.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MmLockPagableSectionByHandle @ 0x1404DC9CC (MmLockPagableSectionByHandle.c)
+ *     MmUnlockPagableImageSection @ 0x1400AAC64 (MmUnlockPagableImageSection.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     ExpOwnerEntryToThread @ 0x14010CA8C (ExpOwnerEntryToThread.c)
+ *     MmLockPagableSectionByHandle @ 0x1404BFFD0 (MmLockPagableSectionByHandle.c)
  */
 
 __int64 __fastcall ExQuerySystemLockInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)

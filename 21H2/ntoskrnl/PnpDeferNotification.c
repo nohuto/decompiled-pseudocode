@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpDeferNotification @ 0x1406C4C64
+ * XREFs of PnpDeferNotification @ 0x140673554
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
- *     PiRegisterKernelSoftRestartNotification @ 0x1408B2DD4 (PiRegisterKernelSoftRestartNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x140673180 (IoRegisterPlugPlayNotification.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x1408B2F34 (PiRegisterKernelSoftRestartNotification.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  *     PnpInsertNoopEvent @ 0x1405CEEA0 (PnpInsertNoopEvent.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpDeferNotification(__int64 a1)

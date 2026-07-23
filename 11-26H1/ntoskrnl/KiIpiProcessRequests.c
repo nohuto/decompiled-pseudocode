@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIpiProcessRequests @ 0x140481AA0
+ * XREFs of KiIpiProcessRequests @ 0x14047B410
  * Callers:
- *     KiIpiInterruptSubDispatch @ 0x14072FE70 (KiIpiInterruptSubDispatch.c)
+ *     KiIpiInterruptSubDispatch @ 0x140734A40 (KiIpiInterruptSubDispatch.c)
  * Callees:
- *     KiIpiProcessRequest @ 0x14032C2E0 (KiIpiProcessRequest.c)
+ *     KiIpiProcessRequest @ 0x14032E310 (KiIpiProcessRequest.c)
  */
 
 char __fastcall KiIpiProcessRequests(_KTRAP_FRAME *a1, __int64 a2, __int64 a3)

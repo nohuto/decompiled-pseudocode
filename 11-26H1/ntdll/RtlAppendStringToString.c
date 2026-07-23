@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlAppendStringToString @ 0x180140810
+ * XREFs of RtlAppendStringToString @ 0x180140710
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendStringToString(unsigned __int16 *a1, const void **a2)
+NTSTATUS __cdecl RtlAppendStringToString(PSTRING Destination, PSTRING Source)
 {
-  int v2; // edi
+  int Length; // edi
   __int64 v4; // rcx
 
-  v2 = *(unsigned __int16 *)a2;
-  if ( (_WORD)v2 )
+  Length = Source->Length;
+  if ( (_WORD)Length )
   {
-    v4 = *a1;
-    if ( (int)v4 + v2 > (unsigned int)a1[1] )
-      return 3221225507LL;
-    memmove((void *)(*((_QWORD *)a1 + 1) + v4), a2[1], *(unsigned __int16 *)a2);
-    *a1 += v2;
+    v4 = Destination->Length;
+    if ( (int)v4 + Length > (unsigned int)Destination->MaximumLength )
+      return -1073741789;
+    memmove(&Destination->Buffer[v4], Source->Buffer, Source->Length);
+    Destination->Length += Length;
   }
-  return 0LL;
+  return 0;
 }

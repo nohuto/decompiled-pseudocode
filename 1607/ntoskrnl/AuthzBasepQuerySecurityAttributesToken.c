@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepQuerySecurityAttributesToken @ 0x14000D3BC
+ * XREFs of AuthzBasepQuerySecurityAttributesToken @ 0x14000CF3C
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000E3E0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     NtQueryInformationToken @ 0x14040F810 (NtQueryInformationToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000DF60 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     NtQueryInformationToken @ 0x14040E6D0 (NtQueryInformationToken.c)
  * Callees:
- *     AuthzBasepCopyoutSecurityAttributes @ 0x14000D704 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E570 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x14000D284 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E0F0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall AuthzBasepQuerySecurityAttributesToken(

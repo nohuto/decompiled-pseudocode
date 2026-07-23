@@ -11,7 +11,7 @@
  *     RtlRaiseStatus @ 0x1800932C0 (RtlRaiseStatus.c)
  */
 
-struct _PEB *__fastcall RtlpNotOwnerCriticalSection(const void **a1)
+struct _PEB *__fastcall RtlpNotOwnerCriticalSection(_RTL_CRITICAL_SECTION *a1)
 {
   struct _PEB *result; // rax
   _PEB_LDR_DATA *Ldr; // r8
@@ -21,8 +21,7 @@ struct _PEB *__fastcall RtlpNotOwnerCriticalSection(const void **a1)
   result = NtCurrentPeb();
   Ldr = result->Ldr;
   if ( !Ldr->ShutdownInProgress
-    || a1 == (const void **)&LdrpLoaderLock
-    && (result = (struct _PEB *)NtCurrentTeb(), Ldr->ShutdownThreadId != result->IFEOKey) )
+    || a1 == &LdrpLoaderLock && (result = (struct _PEB *)NtCurrentTeb(), Ldr->ShutdownThreadId != result->IFEOKey) )
   {
     if ( !UseWOW64 )
       goto LABEL_16;
@@ -44,12 +43,12 @@ LABEL_16:
       if ( NtCurrentPeb()->BeingDebugged )
       {
         DbgPrintEx(
-          101,
+          0x65u,
           0,
           "NTDLL: Calling thread (%X) not owner of CritSect: %p  Owner ThreadId: %p\n",
           NtCurrentTeb()->ClientId.UniqueThread,
           a1,
-          a1[2]);
+          a1->OwningThread);
         __debugbreak();
       }
       RtlDecodePointer(RtlpUnhandledExceptionFilter);

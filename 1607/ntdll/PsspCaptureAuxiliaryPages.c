@@ -1,10 +1,10 @@
 /*
- * XREFs of PsspCaptureAuxiliaryPages @ 0x180067344
+ * XREFs of PsspCaptureAuxiliaryPages @ 0x180067334
  * Callers:
- *     PssNtCaptureSnapshot @ 0x180059160 (PssNtCaptureSnapshot.c)
+ *     PssNtCaptureSnapshot @ 0x180059150 (PssNtCaptureSnapshot.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     ZwAllocateVirtualMemory @ 0x1800A6720 (ZwAllocateVirtualMemory.c)
  *     ZwFreeVirtualMemory @ 0x1800A67E0 (ZwFreeVirtualMemory.c)
@@ -16,53 +16,70 @@
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-__int64 __fastcall PsspCaptureAuxiliaryPages(__int64 a1, __int64 a2, int a3, _QWORD *a4)
+NTSTATUS __fastcall PsspCaptureAuxiliaryPages(__int64 a1, void *a2, int a3, PVOID *a4)
 {
   int v6; // ebx
   int v8; // edi
-  __int64 result; // rax
-  int v10; // esi
+  NTSTATUS result; // eax
+  NTSTATUS v10; // esi
   _OWORD *v11; // rsi
   __int64 v12; // rax
   __int64 v13; // rcx
   __int128 v14; // xmm1
-  void *Heap; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v16; // [rsp+58h] [rbp-28h] BYREF
-  _OWORD *v17; // [rsp+60h] [rbp-20h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-18h] BYREF
-  __int64 v19; // [rsp+70h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp-30h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp-28h] BYREF
+  PVOID Buffer; // [rsp+60h] [rbp-20h] BYREF
+  HANDLE SectionHandle; // [rsp+68h] [rbp-18h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+70h] [rbp-10h] BYREF
 
   v6 = 0;
   if ( !is_mul_ok(0x1000uLL, 1uLL) )
-    return 3221225621LL;
+    return -1073741675;
   v8 = a3 & 0x20000000;
   if ( (a3 & 0x20000000) != 0 )
   {
-    Heap = 0LL;
-    v16 = 64LL;
-    result = ZwAllocateVirtualMemory(-1LL, &Heap, 0LL, &v16, 4096, 4);
-    if ( (int)result < 0 )
+    BaseAddress = 0LL;
+    RegionSize = 64LL;
+    result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+    if ( result < 0 )
       return result;
   }
   else
   {
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0x40uLL);
-    if ( !Heap )
-      return 3221225626LL;
+    BaseAddress = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x40uLL);
+    if ( !BaseAddress )
+      return -1073741670;
   }
-  v19 = 4096LL;
-  v10 = NtCreateSection(&Handle, 983047LL, "0", &v19, 4, 0x8000000, 0LL);
+  MaximumSize.QuadPart = 4096LL;
+  v10 = NtCreateSection(
+          &SectionHandle,
+          0xF0007u,
+          (POBJECT_ATTRIBUTES)&stru_18010CE18,
+          &MaximumSize,
+          4u,
+          0x8000000u,
+          0LL);
   if ( v10 >= 0 )
   {
-    v17 = 0LL;
-    v16 = 0LL;
-    v10 = ZwMapViewOfSection(Handle, -1LL, &v17, 0LL, 0LL, 0LL, &v16, 1, 0, 4);
+    Buffer = 0LL;
+    RegionSize = 0LL;
+    v10 = ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &Buffer,
+            0LL,
+            0LL,
+            0LL,
+            &RegionSize,
+            ViewShare,
+            0,
+            4u);
     if ( v10 >= 0 )
     {
-      v11 = v17;
-      memset(Heap, 0, 0x40uLL);
+      v11 = Buffer;
+      memset(BaseAddress, 0, 0x40uLL);
       v12 = 2147352576LL;
-      if ( *a4 == 2147352576LL )
+      if ( *a4 == (PVOID)2147352576 )
       {
         v13 = 14LL;
         do
@@ -83,35 +100,35 @@ __int64 __fastcall PsspCaptureAuxiliaryPages(__int64 a1, __int64 a2, int a3, _QW
         while ( v13 );
         *(_QWORD *)v11 = *(_QWORD *)v12;
       }
-      else if ( (int)ZwReadVirtualMemory(a2, *a4, v11, 4096LL, 0LL) < 0 )
+      else if ( ZwReadVirtualMemory(a2, *a4, v11, 0x1000uLL, 0LL) < 0 )
       {
 LABEL_12:
-        NtUnmapViewOfSection(-1LL, v17);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, Buffer);
         *(_DWORD *)(a1 + 888) = v6;
         *(_DWORD *)(a1 + 4) |= v8 != 0 ? 4 : 2;
-        *(_QWORD *)(a1 + 896) = Handle;
-        *(_QWORD *)(a1 + 904) = Heap;
+        *(_QWORD *)(a1 + 896) = SectionHandle;
+        *(_QWORD *)(a1 + 904) = BaseAddress;
         *(_QWORD *)(a1 + 1016) = MEMORY[0x7FFE0014];
-        return 0LL;
+        return 0;
       }
-      if ( (int)ZwQueryVirtualMemory(a2, *a4, 0LL, (char *)Heap + 8) >= 0 )
+      if ( ZwQueryVirtualMemory(a2, *a4, MemoryBasicInformation, (char *)BaseAddress + 8, 0x30uLL, 0LL) >= 0 )
       {
         v6 = 1;
-        *(_QWORD *)Heap = *a4;
-        *((_QWORD *)Heap + 7) = MEMORY[0x7FFE0014];
+        *(_QWORD *)BaseAddress = *a4;
+        *((_QWORD *)BaseAddress + 7) = MEMORY[0x7FFE0014];
       }
       goto LABEL_12;
     }
-    NtClose(Handle);
+    NtClose(SectionHandle);
   }
   if ( v8 )
   {
-    v16 = 0LL;
-    ZwFreeVirtualMemory(-1LL, &Heap, &v16, 0x8000LL);
+    RegionSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
   }
   else
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
-  return (unsigned int)v10;
+  return v10;
 }

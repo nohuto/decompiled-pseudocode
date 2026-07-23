@@ -1,15 +1,15 @@
 /*
- * XREFs of _alloca_probe @ 0x1800A5210
+ * XREFs of _alloca_probe @ 0x1800A5230
  * Callers:
  *     RtlUnwind @ 0x180003640 (RtlUnwind.c)
  *     RtlDispatchException @ 0x1800048E0 (RtlDispatchException.c)
  *     RtlUnwindEx @ 0x180005BF0 (RtlUnwindEx.c)
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
- *     RtlQueryWnfStateData @ 0x180078BE0 (RtlQueryWnfStateData.c)
- *     RtlWow64GetProcessMachines @ 0x18007F950 (RtlWow64GetProcessMachines.c)
- *     RtlWow64IsWowGuestMachineSupported @ 0x180082F00 (RtlWow64IsWowGuestMachineSupported.c)
- *     RtlQueryWnfStateDataWithExplicitScope @ 0x180086BC0 (RtlQueryWnfStateDataWithExplicitScope.c)
- *     ReadStringDelimited_1 @ 0x18009E23C (ReadStringDelimited_1.c)
+ *     RtlQueryWnfStateData @ 0x180078BF0 (RtlQueryWnfStateData.c)
+ *     RtlWow64GetProcessMachines @ 0x18007F960 (RtlWow64GetProcessMachines.c)
+ *     RtlWow64IsWowGuestMachineSupported @ 0x180082F10 (RtlWow64IsWowGuestMachineSupported.c)
+ *     RtlQueryWnfStateDataWithExplicitScope @ 0x180086BD0 (RtlQueryWnfStateDataWithExplicitScope.c)
+ *     ReadStringDelimited_1 @ 0x18009E24C (ReadStringDelimited_1.c)
  *     LdrpInitializeExecutionOptions @ 0x1800D30E0 (LdrpInitializeExecutionOptions.c)
  *     AVrfInitializeVerifier @ 0x1800DACE8 (AVrfInitializeVerifier.c)
  *     RtlValidateProcessHeaps @ 0x1800F2B70 (RtlValidateProcessHeaps.c)

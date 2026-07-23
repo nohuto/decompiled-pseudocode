@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpRaiseFatalLimitError @ 0x180116C6C
+ * XREFs of RtlpHpRaiseFatalLimitError @ 0x180116C3C
  * Callers:
- *     HeapCommitFailAvoidTriageRules @ 0x1801163C0 (HeapCommitFailAvoidTriageRules.c)
- *     RtlpHpHeapHandleError @ 0x1801169C0 (RtlpHpHeapHandleError.c)
+ *     HeapCommitFailAvoidTriageRules @ 0x180116390 (HeapCommitFailAvoidTriageRules.c)
+ *     RtlpHpHeapHandleError @ 0x180116990 (RtlpHpHeapHandleError.c)
  * Callees:
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     RtlReportFatalFailure @ 0x18010D6F0 (RtlReportFatalFailure.c)
+ *     RtlReportFatalFailure @ 0x18010D6C0 (RtlReportFatalFailure.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

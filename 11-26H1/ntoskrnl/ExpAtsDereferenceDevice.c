@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAtsDereferenceDevice @ 0x1406D05D8
+ * XREFs of ExpAtsDereferenceDevice @ 0x1406D4608
  * Callers:
- *     ExUninitializeDeviceAts @ 0x1406D045C (ExUninitializeDeviceAts.c)
+ *     ExUninitializeDeviceAts @ 0x1406D448C (ExUninitializeDeviceAts.c)
  * Callees:
- *     ExpAtsConfigureSecureDevice @ 0x1406D0540 (ExpAtsConfigureSecureDevice.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpAtsConfigureSecureDevice @ 0x1406D4570 (ExpAtsConfigureSecureDevice.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpAtsDereferenceDevice(_BYTE *P)

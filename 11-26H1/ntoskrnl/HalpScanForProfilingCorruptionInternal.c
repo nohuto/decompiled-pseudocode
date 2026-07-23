@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpScanForProfilingCorruptionInternal @ 0x140468338
+ * XREFs of HalpScanForProfilingCorruptionInternal @ 0x140461978
  * Callers:
- *     HalpScanForProfilingCorruption @ 0x1404682D4 (HalpScanForProfilingCorruption.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x140596CC0 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpScanForProfilingCorruption @ 0x140461914 (HalpScanForProfilingCorruption.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x140599440 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpScanForProfilingCorruptionInternal(int a1, int a2, __int64 a3)

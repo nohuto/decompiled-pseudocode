@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpTimerInitialization @ 0x140CE6524
+ * XREFs of ExpTimerInitialization @ 0x140CEC8C4
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
  */
 
 bool ExpTimerInitialization()
@@ -16,7 +16,7 @@ bool ExpTimerInitialization()
   unsigned int v0; // edi
   int v1; // ebx
   __int64 v2; // rdx
-  unsigned int ReservedPreviousReadyTimeValue; // r8d
+  unsigned int KernelShadowStackBase; // r8d
   int *v4; // rdx
   unsigned int v5; // eax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
@@ -30,9 +30,9 @@ bool ExpTimerInitialization()
   unsigned __int8 v15; // [rsp+C0h] [rbp+67h]
 
   v0 = 0;
-  ExSaPageGroupDescriptorArrayLock.AbWaitObject = &ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
-  ExSaPageGroupDescriptorArrayLock.KernelWaitTime = 0LL;
-  ExSaPageGroupDescriptorArrayLock.SchedulerAssist = &ExSaPageGroupDescriptorArrayLock.SchedulerAssist;
+  ExSaPageGroupDescriptorArrayLock.KernelShadowStack = &ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
+  ExSaPageGroupDescriptorArrayLock.GlobalUpdateVpThreadPriorityListEntry.Flink = 0LL;
+  *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor = &ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Timer");
   memset_0(&v8, 0, 0x78uLL);
@@ -63,14 +63,14 @@ bool ExpTimerInitialization()
         3,
         (__int64)&Feature_AusterityResilientTimers__private_descriptor);
     }
-    ReservedPreviousReadyTimeValue = ExSaPageGroupDescriptorArrayLock.ReservedPreviousReadyTimeValue;
+    KernelShadowStackBase = (unsigned int)ExSaPageGroupDescriptorArrayLock.KernelShadowStackBase;
     LOBYTE(ExSaPageGroupDescriptorArrayLock.UserWaitTime) = 1;
-    if ( ExSaPageGroupDescriptorArrayLock.ReservedPreviousReadyTimeValue )
+    if ( LODWORD(ExSaPageGroupDescriptorArrayLock.KernelShadowStackBase) )
     {
       v4 = (int *)&unk_140E091C4;
       do
       {
-        v5 = ReservedPreviousReadyTimeValue >> v0++;
+        v5 = KernelShadowStackBase >> v0++;
         *v4 = v5 & 1;
         v4 += 6;
       }

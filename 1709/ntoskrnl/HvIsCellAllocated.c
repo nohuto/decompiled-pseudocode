@@ -20,7 +20,7 @@ char __fastcall HvIsCellAllocated(__int64 a1, unsigned int a2)
 {
   unsigned int v4; // edx
   __int64 v5; // r8
-  struct _RTL_BITMAP *v6; // r9
+  _RTL_BITMAP *v6; // r9
   unsigned int v7; // edx
   __int64 CellMap; // rax
   struct _EX_RUNDOWN_REF *v9; // rsi

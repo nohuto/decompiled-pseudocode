@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwPdoPnPDispatch @ 0x1409FAA40
+ * XREFs of PiSwPdoPnPDispatch @ 0x1409F33B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     _PnpStringFromGuid @ 0x1408B754C (_PnpStringFromGuid.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     PiSwCompleteCreate @ 0x1409F8538 (PiSwCompleteCreate.c)
- *     PnpAllocateMultiSZ @ 0x1409FAF04 (PnpAllocateMultiSZ.c)
- *     PiSwDestroyDeviceObject @ 0x1409FAFD4 (PiSwDestroyDeviceObject.c)
- *     PiSwProcessRemove @ 0x1409FB008 (PiSwProcessRemove.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1409FB394 (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwDeviceMakeCompatibleIds @ 0x1409FB5CC (PiSwDeviceMakeCompatibleIds.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     _PnpStringFromGuid @ 0x1408B4EBC (_PnpStringFromGuid.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     PiSwCompleteCreate @ 0x1409F0EA8 (PiSwCompleteCreate.c)
+ *     PnpAllocateMultiSZ @ 0x1409F3874 (PnpAllocateMultiSZ.c)
+ *     PiSwDestroyDeviceObject @ 0x1409F3944 (PiSwDestroyDeviceObject.c)
+ *     PiSwProcessRemove @ 0x1409F3978 (PiSwProcessRemove.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x1409F3D04 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwDeviceMakeCompatibleIds @ 0x1409F3F3C (PiSwDeviceMakeCompatibleIds.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiSwPdoPnPDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -48,25 +48,27 @@ __int64 __fastcall PiSwPdoPnPDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
   unsigned int v29; // ecx
   unsigned int v30; // ecx
   unsigned int v31; // ecx
-  __int64 v32; // rdx
-  char v33; // cl
-  bool v34; // si
-  __int64 v35; // rdx
-  int v36; // eax
-  bool v37; // si
+  __int64 v32; // r8
+  __int64 v33; // rdx
+  char v34; // cl
+  bool v35; // si
+  __int64 v36; // rdx
+  __int64 v37; // r8
+  int v38; // eax
+  bool v39; // si
   PIO_SECURITY_CONTEXT SecurityContext; // r8
   __m128i si128; // xmm0
-  int v40; // ecx
-  int v41; // edx
-  unsigned int v42; // ecx
-  unsigned int v43; // edx
-  __int64 v44; // rdx
-  ULONG_PTR v45; // rdx
-  ULONG_PTR v46; // rax
-  ULONG v47; // ecx
-  ULONG v48; // ecx
+  int v42; // ecx
+  int v43; // edx
+  unsigned int v44; // ecx
+  unsigned int v45; // edx
+  __int64 v46; // rdx
+  ULONG_PTR v47; // rdx
+  ULONG_PTR v48; // rax
+  ULONG v49; // ecx
+  ULONG v50; // ecx
   wchar_t *Pool2; // rax
-  __int64 v50; // rax
+  __int64 v52; // rax
 
   DeviceExtension = DeviceObject->DeviceExtension;
   Status = Irp->IoStatus.Status;
@@ -131,18 +133,18 @@ LABEL_30:
             KeLeaveCriticalRegion();
             goto LABEL_31;
           }
-          v47 = v12 - 1;
-          if ( !v47 )
+          v49 = v12 - 1;
+          if ( !v49 )
           {
             MultiSZ = PiSwDeviceMakeCompatibleIds(*DeviceExtension, &Irp->IoStatus.Information);
             goto LABEL_29;
           }
-          v48 = v47 - 1;
-          if ( v48 )
+          v50 = v49 - 1;
+          if ( v50 )
           {
-            if ( v48 != 2 || !v10[5] )
+            if ( v50 != 2 || !v10[5] )
               goto LABEL_30;
-            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x4EuLL, 0x57706E50u);
             Irp->IoStatus.Information = (ULONG_PTR)Pool2;
             if ( !Pool2 )
             {
@@ -187,33 +189,33 @@ LABEL_28:
           goto LABEL_45;
         }
         PiSwLock();
-        v32 = *((_DWORD *)DeviceExtension + 2) | 4u;
-        *((_DWORD *)DeviceExtension + 2) = v32;
-        v33 = v32;
-        if ( (v32 & 8) != 0 )
+        v33 = *((_DWORD *)DeviceExtension + 2) | 4u;
+        *((_DWORD *)DeviceExtension + 2) = v33;
+        v34 = v33;
+        if ( (v33 & 8) != 0 )
         {
-          v50 = *DeviceExtension;
+          v52 = *DeviceExtension;
           if ( *DeviceExtension )
           {
-            if ( *(PDEVICE_OBJECT *)(v50 + 120) == DeviceObject && (*(_DWORD *)(v50 + 4) & 2) != 0 )
+            if ( *(PDEVICE_OBJECT *)(v52 + 120) == DeviceObject && (*(_DWORD *)(v52 + 4) & 2) != 0 )
             {
-              v33 = v32 | 0x40;
-              *((_DWORD *)DeviceExtension + 2) = v32 | 0x40;
+              v34 = v33 | 0x40;
+              *((_DWORD *)DeviceExtension + 2) = v33 | 0x40;
             }
           }
         }
-        v34 = (v33 & 8) != 0 && (v33 & 0x40) == 0;
-        LOBYTE(v32) = v34;
-        PiSwProcessRemove(DeviceObject, v32);
+        v35 = (v34 & 8) != 0 && (v34 & 0x40) == 0;
+        LOBYTE(v33) = v35;
+        PiSwProcessRemove(DeviceObject, v33, v32);
         goto LABEL_44;
       }
-      v46 = ExAllocatePool2(0x100uLL);
-      if ( v46 )
+      v48 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x57706E50u);
+      if ( v48 )
       {
-        *(_DWORD *)(v46 + 20) = 0;
-        *(_DWORD *)(v46 + 16) = 15;
-        *(GUID *)v46 = GUID_BUS_TYPE_SW_DEVICE;
-        Irp->IoStatus.Information = v46;
+        *(_DWORD *)(v48 + 20) = 0;
+        *(_DWORD *)(v48 + 16) = 15;
+        *(GUID *)v48 = GUID_BUS_TYPE_SW_DEVICE;
+        Irp->IoStatus.Information = v48;
         goto LABEL_45;
       }
 LABEL_62:
@@ -223,10 +225,10 @@ LABEL_62:
     PiSwLock();
     if ( !*DeviceExtension )
       goto LABEL_57;
-    v45 = Irp->IoStatus.Information | 2;
+    v47 = Irp->IoStatus.Information | 2;
     if ( (*(_DWORD *)(*DeviceExtension + 64LL) & 4) == 0 )
-      v45 = Irp->IoStatus.Information & 0xFFFFFFFFFFFFFFFDuLL;
-    Irp->IoStatus.Information = v45;
+      v47 = Irp->IoStatus.Information & 0xFFFFFFFFFFFFFFFDuLL;
+    Irp->IoStatus.Information = v47;
 LABEL_48:
     Status = 0;
     goto LABEL_30;
@@ -244,15 +246,15 @@ LABEL_48:
     SecurityContext[1].DesiredAccess = _mm_cvtsi128_si32(si128);
     SecurityContext[1].FullCreateOptions = 0;
     LODWORD(SecurityContext[2].SecurityQos) = 0;
-    v40 = HIDWORD(SecurityContext->SecurityQos) | 0x240;
-    HIDWORD(SecurityContext->SecurityQos) = v40;
-    v41 = v40 ^ ((unsigned __int8)v40 ^ (unsigned __int8)(16 * *(_DWORD *)(*DeviceExtension + 64LL))) & 0x10;
-    HIDWORD(SecurityContext->SecurityQos) = v41;
-    v42 = v41 & 0xFFFFFF7F | ((*(_DWORD *)(*DeviceExtension + 64LL) & 2) << 6);
+    v42 = HIDWORD(SecurityContext->SecurityQos) | 0x240;
     HIDWORD(SecurityContext->SecurityQos) = v42;
-    v43 = v42 & 0xFFFDFFFF | ((*(_DWORD *)(*DeviceExtension + 64LL) & 4) << 15);
+    v43 = v42 ^ ((unsigned __int8)v42 ^ (unsigned __int8)(16 * *(_DWORD *)(*DeviceExtension + 64LL))) & 0x10;
     HIDWORD(SecurityContext->SecurityQos) = v43;
-    HIDWORD(SecurityContext->SecurityQos) = v43 & 0xFFFFFEFF | ~(32
+    v44 = v43 & 0xFFFFFF7F | ((*(_DWORD *)(*DeviceExtension + 64LL) & 2) << 6);
+    HIDWORD(SecurityContext->SecurityQos) = v44;
+    v45 = v44 & 0xFFFDFFFF | ((*(_DWORD *)(*DeviceExtension + 64LL) & 4) << 15);
+    HIDWORD(SecurityContext->SecurityQos) = v45;
+    HIDWORD(SecurityContext->SecurityQos) = v45 & 0xFFFFFEFF | ~(32
                                                                * (unsigned __int16)*(_DWORD *)(*DeviceExtension + 64LL)) & 0x100;
     goto LABEL_48;
   }
@@ -261,8 +263,8 @@ LABEL_48:
     PiSwLock();
     if ( (DeviceExtension[1] & 1) == 0 )
     {
-      LOBYTE(v44) = 1;
-      Status = PiSwDeviceInterfacesUpdateState(*DeviceExtension, v44);
+      LOBYTE(v46) = 1;
+      Status = PiSwDeviceInterfacesUpdateState(*DeviceExtension, v46);
       if ( Status < 0 )
         PiSwDeviceInterfacesUpdateState(*DeviceExtension, 0LL);
       else
@@ -282,12 +284,12 @@ LABEL_45:
   if ( !v16 )
   {
     PiSwLock();
-    v36 = *((_DWORD *)DeviceExtension + 2) | 2;
-    *((_DWORD *)DeviceExtension + 2) = v36;
-    v37 = (v36 & 8) != 0 && (v36 & 0x40) == 0;
-    LOBYTE(v35) = v37;
-    PiSwProcessRemove(DeviceObject, v35);
-    if ( !v37 )
+    v38 = *((_DWORD *)DeviceExtension + 2) | 2;
+    *((_DWORD *)DeviceExtension + 2) = v38;
+    v39 = (v38 & 8) != 0 && (v38 & 0x40) == 0;
+    LOBYTE(v36) = v39;
+    PiSwProcessRemove(DeviceObject, v36, v37);
+    if ( !v39 )
       PiSwDestroyDeviceObject(DeviceObject);
 LABEL_44:
     ExReleaseResourceLite(&PiSwLockObj);
@@ -308,7 +310,7 @@ LABEL_44:
     goto LABEL_45;
   if ( v20 == 1 && CurrentStackLocation->Parameters.Read.Length == 4 )
   {
-    v21 = ExAllocatePool2(0x100uLL);
+    v21 = ExAllocatePool2(0x100uLL, 0x10uLL, 0x57706E50u);
     v22 = v21;
     if ( !v21 )
       goto LABEL_62;

@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlpProtectReadOnlyHeap(int a1)
+void __fastcall RtlpProtectReadOnlyHeap(int a1)
 {
-  return LdrProtectMrdataHeap(a1);
+  LdrProtectMrdataHeap(a1);
 }

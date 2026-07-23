@@ -1,21 +1,21 @@
 /*
- * XREFs of KiInterruptDispatchCommon @ 0x1403BF7F8
+ * XREFs of KiInterruptDispatchCommon @ 0x1403AE3B8
  * Callers:
- *     IopPassiveInterruptWorker @ 0x140456EC0 (IopPassiveInterruptWorker.c)
- *     KeDispatchSecondaryInterrupt @ 0x140473220 (KeDispatchSecondaryInterrupt.c)
+ *     IopPassiveInterruptWorker @ 0x14044C700 (IopPassiveInterruptWorker.c)
+ *     KeDispatchSecondaryInterrupt @ 0x14046F5A0 (KeDispatchSecondaryInterrupt.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     KiGetInterruptObjectFromVector @ 0x1403BF648 (KiGetInterruptObjectFromVector.c)
- *     KiProcessPendingDisconnect @ 0x1403BFBF0 (KiProcessPendingDisconnect.c)
- *     KiProcessDisconnectList @ 0x1403BFC4C (KiProcessDisconnectList.c)
- *     IoProcessPassiveInterrupts @ 0x1403BFCA4 (IoProcessPassiveInterrupts.c)
- *     KiInvokeInterruptServiceRoutine @ 0x1403BFD28 (KiInvokeInterruptServiceRoutine.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     KiGetInterruptObjectFromVector @ 0x1403AE208 (KiGetInterruptObjectFromVector.c)
+ *     KiProcessPendingDisconnect @ 0x1403AE7B0 (KiProcessPendingDisconnect.c)
+ *     KiProcessDisconnectList @ 0x1403AE80C (KiProcessDisconnectList.c)
+ *     IoProcessPassiveInterrupts @ 0x1403AE864 (IoProcessPassiveInterrupts.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x1403AE8E8 (KiInvokeInterruptServiceRoutine.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char a3, __int128 *a4, int *a5)
@@ -48,9 +48,9 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   int v35; // [rsp+3Ch] [rbp-8Ch]
   __int128 *v36; // [rsp+40h] [rbp-88h]
   unsigned __int8 CurrentIrql; // [rsp+48h] [rbp-80h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-70h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-70h] BYREF
   __int128 v39; // [rsp+68h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp-50h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp-50h] BYREF
 
   v5 = a1;
   v6 = 0LL;

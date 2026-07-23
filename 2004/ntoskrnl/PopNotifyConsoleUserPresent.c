@@ -14,7 +14,7 @@
 
 void __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigned int a3)
 {
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v6; // [rsp+20h] [rbp-30h] BYREF
   char v7; // [rsp+24h] [rbp-2Ch]
   __int16 v8; // [rsp+25h] [rbp-2Bh]
@@ -25,7 +25,7 @@ void __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigne
   int v13; // [rsp+38h] [rbp-18h]
   int v14; // [rsp+3Ch] [rbp-14h]
   __int64 v15; // [rsp+40h] [rbp-10h]
-  unsigned int v16; // [rsp+78h] [rbp+28h] BYREF
+  ULONG v16; // [rsp+78h] [rbp+28h] BYREF
   __int64 v17; // [rsp+88h] [rbp+38h] BYREF
 
   LOBYTE(v16) = a2;

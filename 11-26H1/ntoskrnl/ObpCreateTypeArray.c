@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpCreateTypeArray @ 0x140A5A9E4
+ * XREFs of ObpCreateTypeArray @ 0x140A67954
  * Callers:
- *     ObEnumerateObjectsByType @ 0x1407C36F4 (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x1407C37B0 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x1407C6754 (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x1407C6810 (ObGetObjectInformation.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x140449C10 (ObReferenceObjectSafe.c)
- *     ObpLockObjectTypeExclusive @ 0x1409242F0 (ObpLockObjectTypeExclusive.c)
- *     ObpUnlockObjectType @ 0x140A5AAA0 (ObpUnlockObjectType.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObReferenceObjectSafe @ 0x140441D40 (ObReferenceObjectSafe.c)
+ *     ObpLockObjectTypeExclusive @ 0x1408FFE00 (ObpLockObjectTypeExclusive.c)
+ *     ObpUnlockObjectType @ 0x140A67A10 (ObpUnlockObjectType.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _DWORD *__fastcall ObpCreateTypeArray(_QWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

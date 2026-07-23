@@ -1,11 +1,11 @@
 /*
- * XREFs of _snwprintf @ 0x180090E20
+ * XREFs of _snwprintf @ 0x180090E30
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _flsbuf @ 0x180096480 (_flsbuf.c)
- *     _woutput_l @ 0x180096E20 (_woutput_l.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _flsbuf @ 0x180096490 (_flsbuf.c)
+ *     _woutput_l @ 0x180096E30 (_woutput_l.c)
  */
 
 int snwprintf(wchar_t *Buffer, size_t BufferCount, const wchar_t *Format, ...)

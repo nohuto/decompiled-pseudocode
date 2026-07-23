@@ -64,7 +64,7 @@ __int64 __fastcall CcCopyReadEx(
     KeBugCheckEx(0x34u, 0x273uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   v15 = a5;
   if ( !a5 )
-    RtlRaiseStatus(3221225704LL);
+    RtlRaiseStatus(-1073741592);
   v16 = a7;
   if ( (*v12 & 0x20000) != 0 )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopExecuteSystemIdleAction @ 0x140A3BFCC
+ * XREFs of PopExecuteSystemIdleAction @ 0x1409F79EC
  * Callers:
- *     PopSystemIdleWorker @ 0x140A3BBE0 (PopSystemIdleWorker.c)
+ *     PopSystemIdleWorker @ 0x1409F7600 (PopSystemIdleWorker.c)
  * Callees:
- *     PopDiagTraceSystemIdleAction @ 0x140A3C084 (PopDiagTraceSystemIdleAction.c)
- *     PopUpdatePdcSystemIdleState @ 0x140A3C144 (PopUpdatePdcSystemIdleState.c)
+ *     PopDiagTraceSystemIdleAction @ 0x1409F7AA4 (PopDiagTraceSystemIdleAction.c)
+ *     PopUpdatePdcSystemIdleState @ 0x1409F7B64 (PopUpdatePdcSystemIdleState.c)
  */
 
 __int64 __fastcall PopExecuteSystemIdleAction(__int64 a1, char a2, __int64 a3)

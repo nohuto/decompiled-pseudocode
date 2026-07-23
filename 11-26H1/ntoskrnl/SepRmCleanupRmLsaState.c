@@ -1,10 +1,10 @@
 /*
- * XREFs of SepRmCleanupRmLsaState @ 0x140AF112C
+ * XREFs of SepRmCleanupRmLsaState @ 0x140AF3D6C
  * Callers:
- *     SepRmCommandServerThread @ 0x140AF0B10 (SepRmCommandServerThread.c)
- *     SepRmLsaConnectRequest @ 0x140AF0D9C (SepRmLsaConnectRequest.c)
+ *     SepRmCommandServerThread @ 0x140AF3750 (SepRmCommandServerThread.c)
+ *     SepRmLsaConnectRequest @ 0x140AF39DC (SepRmLsaConnectRequest.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall SepRmCleanupRmLsaState(__int64 a1)

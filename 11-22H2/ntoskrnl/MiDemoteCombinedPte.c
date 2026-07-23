@@ -103,10 +103,10 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
   v33 = v14;
   v35 = v15 != 1 && (v15 != 2 || (*(_BYTE *)(v10 + 34) & 8) == 0);
   _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -149,7 +149,7 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
   if ( v36 )
     MiIdentifyPfn(v9, &v42);
   _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags && (v31 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v31 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v31 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v31 <= 0xFu )
   {
     v24 = v34;
     if ( v34 <= 0xFu && v31 >= 2u )

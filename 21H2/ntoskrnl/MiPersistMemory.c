@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPersistMemory @ 0x14054186C
+ * XREFs of MiPersistMemory @ 0x140541AAC
  * Callers:
- *     MiFlushFileOnlyMdl @ 0x140541130 (MiFlushFileOnlyMdl.c)
- *     MiPersistPage @ 0x14054189C (MiPersistPage.c)
+ *     MiFlushFileOnlyMdl @ 0x140541370 (MiFlushFileOnlyMdl.c)
+ *     MiPersistPage @ 0x140541ADC (MiPersistPage.c)
  * Callees:
- *     KePersistMemory @ 0x140402E20 (KePersistMemory.c)
- *     KeInvalidateRangeAllCaches @ 0x14051B0F0 (KeInvalidateRangeAllCaches.c)
+ *     KePersistMemory @ 0x140403000 (KePersistMemory.c)
+ *     KeInvalidateRangeAllCaches @ 0x14051B330 (KeInvalidateRangeAllCaches.c)
  */
 
 void __fastcall MiPersistMemory(void *a1, __int64 a2)

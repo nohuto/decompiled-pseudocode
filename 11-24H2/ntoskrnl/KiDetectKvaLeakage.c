@@ -1,14 +1,14 @@
 /*
- * XREFs of KiDetectKvaLeakage @ 0x1405C3730
+ * XREFs of KiDetectKvaLeakage @ 0x1405C0D00
  * Callers:
- *     KiSetFeatureBits @ 0x140B59BF4 (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x140B5BC74 (KiSetFeatureBits.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x1405BD814 (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsBranchConfusionMitigationDesired @ 0x1405BDE6C (KiIsBranchConfusionMitigationDesired.c)
- *     KiIsBranchConfusionMitigationSupported @ 0x1405BDEAC (KiIsBranchConfusionMitigationSupported.c)
- *     KiIsTsaMitigationDesired @ 0x1405BE0B0 (KiIsTsaMitigationDesired.c)
- *     KiIsTsaMitigationSupported @ 0x1405BE0CC (KiIsTsaMitigationSupported.c)
- *     SpcDetectKvaLeakage @ 0x140B638D8 (SpcDetectKvaLeakage.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1405BAE44 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x1405BB49C (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1405BB4DC (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsTsaMitigationDesired @ 0x1405BB6E0 (KiIsTsaMitigationDesired.c)
+ *     KiIsTsaMitigationSupported @ 0x1405BB6FC (KiIsTsaMitigationSupported.c)
+ *     SpcDetectKvaLeakage @ 0x140B659A8 (SpcDetectKvaLeakage.c)
  */
 
 __int64 __fastcall KiDetectKvaLeakage(__int64 a1)

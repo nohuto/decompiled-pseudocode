@@ -1,9 +1,9 @@
 /*
- * XREFs of _strtoi64 @ 0x140195750
+ * XREFs of _strtoi64 @ 0x140195890
  * Callers:
- *     _atoi64 @ 0x140194F20 (_atoi64.c)
+ *     _atoi64 @ 0x140195060 (_atoi64.c)
  * Callees:
- *     strtoxq @ 0x140195528 (strtoxq.c)
+ *     strtoxq @ 0x140195668 (strtoxq.c)
  */
 
 __int64 __cdecl strtoi64(const char *String, char **EndPtr, int Radix)

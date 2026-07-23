@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLoadServicesNode @ 0x140C4C784
+ * XREFs of CmpLoadServicesNode @ 0x140C4E920
  * Callers:
- *     CmpFindDrivers @ 0x140C4B4CC (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140C4D668 (CmpFindDrivers.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpFindSubKeyByName @ 0x140A3D268 (CmpFindSubKeyByName.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x140A32B78 (CmpFindSubKeyByName.c)
  */
 
 bool __fastcall CmpLoadServicesNode(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, __int64 *a3, _DWORD *a4)

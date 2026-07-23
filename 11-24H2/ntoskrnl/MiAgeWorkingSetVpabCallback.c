@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAgeWorkingSetVpabCallback @ 0x140482BA0
+ * XREFs of MiAgeWorkingSetVpabCallback @ 0x14047DD90
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAgePteWorker @ 0x14022FCA0 (MiAgePteWorker.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAgePteWorker @ 0x1403040A0 (MiAgePteWorker.c)
  */
 
 __int64 __fastcall MiAgeWorkingSetVpabCallback(
@@ -15,13 +15,13 @@ __int64 __fastcall MiAgeWorkingSetVpabCallback(
         int *a5)
 {
   unsigned __int64 v9; // rax
-  __int64 (__fastcall *v10)(__int64, unsigned __int64, int); // rdx
+  __int64 (__fastcall *v10)(); // rdx
   __int64 v11; // rcx
   char v12; // r10
   char v14; // dl
 
   v9 = MI_READ_PTE_LOCK_FREE(a3);
-  v10 = *(__int64 (__fastcall **)(__int64, unsigned __int64, int))(a1 + 168);
+  v10 = *(__int64 (__fastcall **)())(a1 + 168);
   v11 = *a2;
   v12 = 5;
   if ( v10 != MiSimpleAgePte )

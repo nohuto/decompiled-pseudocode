@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpGetPrivateSessionTraceHandle @ 0x1407AD0A8
+ * XREFs of EtwpGetPrivateSessionTraceHandle @ 0x1407AD578
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlRandomEx @ 0x14041A510 (RtlRandomEx.c)
- *     PidNodeCompare @ 0x1407ADA10 (PidNodeCompare.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x140AB5B80 (EtwpCheckCurrentUserProcessAccess.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlRandomEx @ 0x14040A510 (RtlRandomEx.c)
+ *     PidNodeCompare @ 0x1407ADE60 (PidNodeCompare.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1408331C0 (EtwpCheckCurrentUserProcessAccess.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
  */
 
 __int64 __fastcall EtwpGetPrivateSessionTraceHandle(_DWORD *a1, unsigned int a2, unsigned __int16 *a3)
@@ -23,8 +23,8 @@ __int64 __fastcall EtwpGetPrivateSessionTraceHandle(_DWORD *a1, unsigned int a2,
   struct _LIST_ENTRY *Flink; // r15
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v8; // r15
-  _QWORD *v9; // rax
-  _QWORD *v10; // rdi
+  char *v9; // rax
+  char *v10; // rdi
   _DWORD *v11; // rdi
   __int64 v12; // rsi
   unsigned __int16 v13; // r14
@@ -52,12 +52,12 @@ __int64 __fastcall EtwpGetPrivateSessionTraceHandle(_DWORD *a1, unsigned int a2,
   CurrentThread = KeGetCurrentThread();
   v8 = (unsigned __int64)&Flink[272];
   --CurrentThread->KernelApcDisable;
-  v9 = KeAbPreAcquire(v8 + 16, 0LL);
+  v9 = (char *)KeAbPreAcquire(v8 + 16, 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v8 + 16), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v8 + 16), (__int64)v9, v8 + 16);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v8 + 16), v9, v8 + 16);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   if ( (_DWORD)v3 )
   {
     v11 = a1;

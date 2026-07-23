@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindLastBackwardRunClear @ 0x140485A90
+ * XREFs of RtlFindLastBackwardRunClear @ 0x14047F400
  * Callers:
- *     MiTargetedPageFileReductionApc @ 0x14070D818 (MiTargetedPageFileReductionApc.c)
+ *     MiTargetedPageFileReductionApc @ 0x1407124C8 (MiTargetedPageFileReductionApc.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ ULONG __stdcall RtlFindLastBackwardRunClear(PRTL_BITMAP BitMapHeader, ULONG From
   {
     Buffer = BitMapHeader->Buffer;
     v5 = &Buffer[(unsigned __int64)FromIndex >> 5];
-    if ( v5 != Buffer && (*v5 | ~*((_DWORD *)qword_140019C60 + (FromIndex & 0x1F) + 1)) == 0xFFFFFFFF )
+    if ( v5 != Buffer && (*v5 | ~*((_DWORD *)qword_1400195D0 + (FromIndex & 0x1F) + 1)) == 0xFFFFFFFF )
     {
       FromIndex = (FromIndex & 0xFFFFFFE0) - 1;
       for ( --v5; v5 > Buffer && *v5 == -1; --v5 )
@@ -31,7 +31,7 @@ ULONG __stdcall RtlFindLastBackwardRunClear(PRTL_BITMAP BitMapHeader, ULONG From
     while ( FromIndex != -1 && _bittest64((const signed __int64 *)Buffer, FromIndex) == 1 )
       --FromIndex;
     v6 = FromIndex;
-    if ( (*((_DWORD *)qword_140019C60 + (FromIndex & 0x1F)) & *v5) == 0 )
+    if ( (*((_DWORD *)qword_1400195D0 + (FromIndex & 0x1F)) & *v5) == 0 )
     {
       v6 = (FromIndex & 0xFFFFFFE0) - 1;
       for ( i = v5 - 1; i > Buffer && !*i; --i )

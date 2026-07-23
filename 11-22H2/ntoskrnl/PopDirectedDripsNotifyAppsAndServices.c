@@ -15,7 +15,7 @@
 __int64 __fastcall PopDirectedDripsNotifyAppsAndServices(__int64 a1, _DWORD *a2, char a3)
 {
   __int64 v6; // r14
-  int v7; // eax
+  ULONG v7; // eax
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // rdx

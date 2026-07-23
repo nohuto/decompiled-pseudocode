@@ -1,15 +1,15 @@
 /*
- * XREFs of NtSignalAndWaitForSingleObject @ 0x1402D2CF0
+ * XREFs of NtSignalAndWaitForSingleObject @ 0x1402D2EE0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ObpGetWaitObject @ 0x14006311C (ObpGetWaitObject.c)
- *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140671500 (ObReferenceObjectByHandleWithTag.c)
+ *     ObpGetWaitObject @ 0x14006310C (ObpGetWaitObject.c)
+ *     KeReleaseMutant @ 0x1400BF950 (KeReleaseMutant.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D29F0 (KeReleaseSemaphoreEx.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406726C0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtSignalAndWaitForSingleObject(

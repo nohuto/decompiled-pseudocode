@@ -4,8 +4,8 @@
  *     MiProcessWorkingSets @ 0x14021FA10 (MiProcessWorkingSets.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void MiLogProcessWorkingSetsStop()
@@ -47,7 +47,7 @@ void MiLogProcessWorkingSetsStop()
       v11 = 8;
       v14 = 8;
       v17 = 8;
-      tlgWriteEx_EtwWriteEx(v2, (int)&byte_1400387F7, v1, v0, v5, v6, 5u, (__int64)v10);
+      tlgWriteEx_EtwWriteEx(v2, (int)&byte_1400388DF, v1, v0, v5, v6, 5u, (__int64)v10);
     }
   }
 }

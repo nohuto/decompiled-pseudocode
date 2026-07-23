@@ -1,21 +1,21 @@
 /*
- * XREFs of ExtEnvAllocatePhysicalMemory @ 0x14055FAA4
+ * XREFs of ExtEnvAllocatePhysicalMemory @ 0x14055D6D4
  * Callers:
- *     IvtAllocateContextTable @ 0x1404D4448 (IvtAllocateContextTable.c)
- *     IvtAllocateScalableModePasidTables @ 0x14056D55C (IvtAllocateScalableModePasidTables.c)
- *     IvtExtendScalableModePasidTables @ 0x14056E348 (IvtExtendScalableModePasidTables.c)
- *     IvtLegacyAllocateScalableModePasidTables @ 0x14056F7A0 (IvtLegacyAllocateScalableModePasidTables.c)
- *     IvtLegacyExtendScalableModePasidTables @ 0x14056FFCC (IvtLegacyExtendScalableModePasidTables.c)
- *     HsaAllocateRemappingTableEntry @ 0x1405724A0 (HsaAllocateRemappingTableEntry.c)
+ *     IvtAllocateContextTable @ 0x1404CD658 (IvtAllocateContextTable.c)
+ *     IvtAllocateScalableModePasidTables @ 0x14056A9EC (IvtAllocateScalableModePasidTables.c)
+ *     IvtExtendScalableModePasidTables @ 0x14056B7D8 (IvtExtendScalableModePasidTables.c)
+ *     IvtLegacyAllocateScalableModePasidTables @ 0x14056CC30 (IvtLegacyAllocateScalableModePasidTables.c)
+ *     IvtLegacyExtendScalableModePasidTables @ 0x14056D45C (IvtLegacyExtendScalableModePasidTables.c)
+ *     HsaAllocateRemappingTableEntry @ 0x14056F930 (HsaAllocateRemappingTableEntry.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MmFreeContiguousMemory @ 0x1403A93D0 (MmFreeContiguousMemory.c)
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x140411580 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     HalMapIoSpace @ 0x14055FE80 (HalMapIoSpace.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140C673EC (HalpAllocPhysicalMemoryEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403957C0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     MmFreeContiguousMemory @ 0x140398060 (MmFreeContiguousMemory.c)
+ *     HalMapIoSpace @ 0x14055DAB0 (HalMapIoSpace.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140C69568 (HalpAllocPhysicalMemoryEx.c)
  */
 
 __int64 __fastcall ExtEnvAllocatePhysicalMemory(
@@ -124,13 +124,13 @@ LABEL_13:
   *(_QWORD *)(v24 + 40) = v17;
   *(_DWORD *)(v24 + 48) = CacheType;
   v26 = KeAcquireSpinLockRaiseToDpc(&ExtEnvAllocationLock);
-  v27 = (_QWORD *)qword_140F8EE48;
-  if ( *(__int64 **)qword_140F8EE48 != &ExtEnvAllocationList )
+  v27 = (_QWORD *)qword_140F8F048;
+  if ( *(__int64 **)qword_140F8F048 != &ExtEnvAllocationList )
     __fastfail(3u);
   *v25 = &ExtEnvAllocationList;
   v25[1] = v27;
   *v27 = v25;
-  qword_140F8EE48 = (__int64)v25;
+  qword_140F8F048 = (__int64)v25;
   KeReleaseSpinLock(&ExtEnvAllocationLock, v26);
   return v10;
 }

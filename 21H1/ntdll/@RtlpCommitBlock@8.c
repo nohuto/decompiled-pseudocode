@@ -22,10 +22,10 @@
  *     _RtlpLogHeapFailure@24 @ 0x4B375E3D (_RtlpLogHeapFailure@24.c)
  */
 
-char __fastcall RtlpCommitBlock(_DWORD *a1, int a2)
+char __fastcall RtlpCommitBlock(_DWORD *BaseAddress, int a2)
 {
-  int v4; // edi
-  int v5; // edi
+  ULONG v4; // edi
+  NTSTATUS v5; // edi
   int v6; // edi
   int v7; // eax
   int v8; // eax
@@ -34,37 +34,44 @@ char __fastcall RtlpCommitBlock(_DWORD *a1, int a2)
   int v11; // eax
   char v12; // al
   struct _PEB *v14; // eax
-  int v15; // [esp+Ch] [ebp-24h] BYREF
-  const void *v16; // [esp+10h] [ebp-20h] BYREF
-  _DWORD *v17; // [esp+14h] [ebp-1Ch] BYREF
-  int v18; // [esp+18h] [ebp-18h]
+  ULONG_PTR v15; // [esp-10h] [ebp-40h]
+  ULONG_PTR *v16; // [esp+0h] [ebp-30h]
+  ULONG v17; // [esp+0h] [ebp-30h]
+  int Length; // [esp+Ch] [ebp-24h] BYREF
+  PVOID Length_4; // [esp+10h] [ebp-20h] BYREF
+  _DWORD *MemoryInformation; // [esp+14h] [ebp-1Ch] BYREF
+  int v21; // [esp+18h] [ebp-18h]
 
-  RtlpGetFreeBlockInsidePageBoundaries(&v16, &v15);
-  if ( !RtlpHpHeapCheckCommitLimit(a1, a1 + 53) )
+  RtlpGetFreeBlockInsidePageBoundaries(&Length_4, &Length);
+  if ( !RtlpHpHeapCheckCommitLimit(BaseAddress, BaseAddress + 53) )
   {
     v5 = -1073741523;
     goto LABEL_18;
   }
-  if ( (a1[16] & 0x40000) == 0 )
+  if ( (BaseAddress[16] & 0x40000) == 0 )
     goto LABEL_3;
   v4 = 64;
-  if ( (int)NtQueryVirtualMemory(-1, a1, 3, &v17, 28, 0) < 0 || (v18 & 0x60) == 0 || v17 != a1 )
+  if ( NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, BaseAddress, MemoryRegionInformation, &MemoryInformation, 0x1CuLL, v16) < 0
+    || (v21 & 0x60) == 0
+    || MemoryInformation != BaseAddress )
   {
-    RtlpLogHeapFailure(1, v18, 0, 0);
+    RtlpLogHeapFailure(1, v21, 0, 0);
 LABEL_3:
     v4 = 4;
   }
-  v5 = NtAllocateVirtualMemory(-1, &v16, 0, &v15, 4096, v4);
+  HIDWORD(v15) = &Length;
+  LODWORD(v15) = 0;
+  v5 = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &Length_4, v15, (PSIZE_T)0x1000, v4, (ULONG)v16);
   if ( v5 < 0 )
   {
 LABEL_18:
     v14 = NtCurrentPeb();
-    ++a1[138];
+    ++BaseAddress[138];
     if ( v14->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("ZwAllocateVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n", v5, a1, v16, v15);
+    DbgPrint("ZwAllocateVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n", v5, BaseAddress, Length_4, Length);
     return 0;
   }
   v6 = 2147353472;
@@ -73,10 +80,10 @@ LABEL_18:
   else
     v7 = 2147353472;
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-    RtlpLogHeapCommit(v15, 8);
-  v8 = v15;
-  --a1[144];
-  a1[145] -= v8;
+    RtlpLogHeapCommit(Length, 8);
+  v8 = Length;
+  --BaseAddress[144];
+  BaseAddress[145] -= v8;
   if ( RtlGetCurrentServiceSessionId() )
     v9 = (int)NtCurrentPeb()->SharedData + 550;
   else
@@ -85,7 +92,7 @@ LABEL_18:
   {
     if ( RtlGetCurrentServiceSessionId() )
       v6 = (int)NtCurrentPeb()->SharedData + 550;
-    RtlpLogHeapExtendEvent(v15, 8 * a1[29], *(unsigned __int8 *)v6);
+    RtlpLogHeapExtendEvent(Length, 8 * BaseAddress[29], (HANDLE)*(unsigned __int8 *)v6);
   }
   v10 = 2147353482;
   if ( RtlGetCurrentServiceSessionId() )
@@ -96,13 +103,13 @@ LABEL_18:
   {
     if ( RtlGetCurrentServiceSessionId() )
       v10 = (int)NtCurrentPeb()->SharedData + 560;
-    RtlpLogHeapExtendEvent(v15, 8 * a1[29], *(unsigned __int8 *)v10);
+    RtlpLogHeapExtendEvent(Length, 8 * BaseAddress[29], (HANDLE)*(unsigned __int8 *)v10);
   }
-  ++a1[135];
+  ++BaseAddress[135];
   v12 = *(_BYTE *)(a2 + 2);
   if ( (v12 & 4) != 0 )
   {
-    RtlFillMemoryUlong(v16, v15, -17891602);
+    RtlFillMemoryUlong(Length_4, (unsigned int)Length | 0xFEEEFEEE00000000uLL, v17);
     v12 = *(_BYTE *)(a2 + 2);
   }
   *(_BYTE *)(a2 + 2) = v12 & 0x17;

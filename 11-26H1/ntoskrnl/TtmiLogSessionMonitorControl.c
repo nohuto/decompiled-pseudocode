@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionMonitorControl @ 0x140A3A8BC
+ * XREFs of TtmiLogSessionMonitorControl @ 0x1409F64BC
  * Callers:
- *     TtmSessionMonitorControl @ 0x140A3A808 (TtmSessionMonitorControl.c)
+ *     TtmSessionMonitorControl @ 0x1409F6408 (TtmSessionMonitorControl.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionMonitorControl()
@@ -28,7 +28,7 @@ void TtmiLogSessionMonitorControl()
   int *v15; // [rsp+90h] [rbp+37h]
   __int64 v16; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140FD58A8 > 5 && tlgKeywordOn((__int64)&dword_140FD58A8, 1LL) )
+  if ( (unsigned int)dword_140FD68B8 > 5 && tlgKeywordOn((__int64)&dword_140FD68B8, 1LL) )
   {
     v6 = v0;
     v9 = &v4;
@@ -42,6 +42,6 @@ void TtmiLogSessionMonitorControl()
     v12 = 4LL;
     v14 = 4LL;
     v16 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD58A8, (unsigned __int8 *)&word_14005122E, 0LL, 0LL, 6u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD68B8, (unsigned __int8 *)byte_140051F51, 0LL, 0LL, 6u, &v8);
   }
 }

@@ -14,29 +14,29 @@
  *     RtlpLogHeapLockEvent @ 0x180109F9C (RtlpLogHeapLockEvent.c)
  */
 
-char __fastcall RtlLockHeap(__int64 a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
   bool v1; // zf
   _DWORD *SharedData; // rcx
   __int64 v4; // rcx
   char v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 16) == -571548178;
+  v1 = *((_DWORD *)HeapHandle + 4) == -571548178;
   v6 = -1;
   if ( v1 )
   {
-    RtlpHpHeapLock(a1, &v6);
+    RtlpHpHeapLock(HeapHandle, &v6);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180164A10)();
-    if ( !(unsigned __int8)RtlpCheckHeapSignature(a1, "RtlLockHeap") )
+    if ( !(unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlLockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      ++*(_WORD *)(a1 + 416);
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      ++*((_WORD *)HeapHandle + 208);
     }
   }
   SharedData = NtCurrentPeb()->SharedData;
@@ -47,7 +47,7 @@ char __fastcall RtlLockHeap(__int64 a1)
   if ( *(_BYTE *)v4 )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapLockEvent(a1);
+      RtlpLogHeapLockEvent(HeapHandle);
   }
   return 1;
 }

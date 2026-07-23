@@ -31,21 +31,21 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _DWORD *a2)
   ACL *v13; // rcx
   _QWORD *InitialState; // [rsp+20h] [rbp-E0h]
   HANDLE EventHandle; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING SourceString; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp-78h] BYREF
   __int64 v19; // [rsp+A8h] [rbp-58h]
-  _OWORD Sid[3]; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v21[3]; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned __int8 CapabilitySid[48]; // [rsp+B0h] [rbp-50h] BYREF
+  char CapabilityGroupSid[48]; // [rsp+E0h] [rbp-20h] BYREF
 
-  *(_QWORD *)&SourceString.Length = 2621478LL;
+  *(_QWORD *)&UnicodeString.Length = 2621478LL;
   v19 = 0LL;
   EventHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  SourceString.Buffer = L"lpacInstrumentation";
+  UnicodeString.Buffer = L"lpacInstrumentation";
   *(&ObjectAttributes.Attributes + 1) = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  result = RtlDeriveCapabilitySidsFromName(&SourceString, v21, Sid);
+  result = RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid);
   if ( result >= 0 )
   {
     result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -55,7 +55,7 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _DWORD *a2)
       v6 = RtlLengthSid(SeLocalSystemSid) + v5;
       v7 = RtlLengthSid(SeLocalSid) + v6;
       v8 = RtlLengthSid(SeAllAppPackagesSid) + v7;
-      v9 = v8 + RtlLengthSid(Sid) + 68;
+      v9 = v8 + RtlLengthSid(CapabilitySid) + 68;
       PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x6C636144u);
       v11 = PoolWithTag;
       if ( !PoolWithTag )
@@ -64,23 +64,23 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _DWORD *a2)
       v13 = v11;
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeLocalSid, 0);
+        Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, (unsigned __int8 *)SeLocalSid, 0);
         v13 = v11;
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
+          Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
           v13 = v11;
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)Sid, 0);
+            Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, CapabilitySid, 0);
             v13 = v11;
             if ( Acl >= 0 )
             {
-              Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+              Acl = RtlpAddKnownAce(v11, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
               v13 = v11;
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
+                Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v11, 0);

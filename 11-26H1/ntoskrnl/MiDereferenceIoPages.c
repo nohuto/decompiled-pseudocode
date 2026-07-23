@@ -1,30 +1,30 @@
 /*
- * XREFs of MiDereferenceIoPages @ 0x1403132CC
+ * XREFs of MiDereferenceIoPages @ 0x1403152FC
  * Callers:
- *     MiClearMappingAndDereferenceIoSpace @ 0x140282A34 (MiClearMappingAndDereferenceIoSpace.c)
- *     MiMapContiguousMemoryLarge @ 0x1402A29AC (MiMapContiguousMemoryLarge.c)
- *     MiDecommitFreePagesTail @ 0x1402DA750 (MiDecommitFreePagesTail.c)
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140312684 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MiUnmapMdlCommon @ 0x14051D098 (MiUnmapMdlCommon.c)
- *     MiMapViewOfPhysicalSection @ 0x14095C9CC (MiMapViewOfPhysicalSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140AEC50C (MiRotateToFrameBufferNoCopy.c)
- *     MiRotateToFrameBuffer @ 0x140AEC740 (MiRotateToFrameBuffer.c)
- *     MiReplaceRotateWithDemandZero @ 0x140AECA38 (MiReplaceRotateWithDemandZero.c)
+ *     MiClearMappingAndDereferenceIoSpace @ 0x140281FA4 (MiClearMappingAndDereferenceIoSpace.c)
+ *     MiMapContiguousMemoryLarge @ 0x1402A1EFC (MiMapContiguousMemoryLarge.c)
+ *     MiDecommitFreePagesTail @ 0x1402BC510 (MiDecommitFreePagesTail.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403146B4 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MiUnmapMdlCommon @ 0x14051F5C4 (MiUnmapMdlCommon.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0228C (MiMapViewOfPhysicalSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140AEF51C (MiRotateToFrameBufferNoCopy.c)
+ *     MiRotateToFrameBuffer @ 0x140AEF750 (MiRotateToFrameBuffer.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140AEFA48 (MiReplaceRotateWithDemandZero.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
- *     MiIsPageInIoHugeRangeTransition @ 0x14031388C (MiIsPageInIoHugeRangeTransition.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x1403158BC (MiIsPageInIoHugeRangeTransition.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
  */
 
 void __fastcall MiDereferenceIoPages(__int64 a1, __int64 a2, ULONG_PTR a3)
@@ -77,9 +77,9 @@ void __fastcall MiDereferenceIoPages(__int64 a1, __int64 a2, ULONG_PTR a3)
   v38 = 0;
   v46 = 1;
   v40 = 1024LL;
-  v4 = ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1) & a2;
+  v4 = ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1) & a2;
   BugCheckParameter2 = v4;
-  v5 = (ULONG_PTR *)&qword_140E35E40[8 * (__int64)(int)a1];
+  v5 = (ULONG_PTR *)&qword_140E35FC0[8 * (__int64)(int)a1];
   BugCheckParameter4 = v4;
   v39 = v5;
   v7 = a3;
@@ -173,7 +173,7 @@ void __fastcall MiDereferenceIoPages(__int64 a1, __int64 a2, ULONG_PTR a3)
       }
       v23 = *(_QWORD *)(v8 + 24);
       v24 = 512LL;
-      v25 = (BugCheckParameter4 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - v23;
+      v25 = (BugCheckParameter4 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - v23;
       if ( BugCheckParameter4 + v7 <= v23 + 512 )
         v24 = v25 + v7;
       ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v8 + 172));
@@ -263,15 +263,15 @@ LABEL_42:
   MiUnlockIoPfnTree(v14, 5LL, v15, v16);
   if ( v38 && (MiFlags & 0x30) != 0 )
   {
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35ED0);
-    if ( !stru_140E35ED8.Parameter )
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36050);
+    if ( !stru_140E36058.Parameter )
     {
-      stru_140E35ED8.List.Flink = 0LL;
-      stru_140E35ED8.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteStaleCacheMaps;
-      stru_140E35ED8.Parameter = &stru_140E35ED8;
-      ExQueueWorkItem(&stru_140E35ED8, DelayedWorkQueue);
+      stru_140E36058.List.Flink = 0LL;
+      stru_140E36058.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteStaleCacheMaps;
+      stru_140E36058.Parameter = &stru_140E36058;
+      ExQueueWorkItem(&stru_140E36058, DelayedWorkQueue);
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E35ED0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36050);
   }
   if ( v10 != 17 )
   {

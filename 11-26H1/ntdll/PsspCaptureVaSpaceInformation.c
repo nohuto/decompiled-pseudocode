@@ -1,47 +1,47 @@
 /*
- * XREFs of PsspCaptureVaSpaceInformation @ 0x1800B6854
+ * XREFs of PsspCaptureVaSpaceInformation @ 0x1800B3D74
  * Callers:
- *     PssNtCaptureSnapshot @ 0x1800B4D70 (PssNtCaptureSnapshot.c)
+ *     PssNtCaptureSnapshot @ 0x1800B2290 (PssNtCaptureSnapshot.c)
  * Callees:
- *     PsspCaptureVaSpaceInformation2 @ 0x1800B6964 (PsspCaptureVaSpaceInformation2.c)
- *     ZwAllocateVirtualMemory @ 0x18015F240 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x18015F300 (ZwFreeVirtualMemory.c)
+ *     PsspCaptureVaSpaceInformation2 @ 0x1800B3E84 (PsspCaptureVaSpaceInformation2.c)
+ *     ZwAllocateVirtualMemory @ 0x18015F140 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x18015F200 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall PsspCaptureVaSpaceInformation(int a1, __int64 a2, int a3)
+__int64 __fastcall PsspCaptureVaSpaceInformation(int a1, void *a2, int a3)
 {
-  int v3; // r9d
-  __int64 v4; // rax
+  NTSTATUS VirtualMemory; // r9d
+  ULONG_PTR v4; // rax
   unsigned int v8; // ebx
-  __int128 v10; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v11; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-20h] BYREF
+  ULONG_PTR RegionSize[2]; // [rsp+40h] [rbp-10h] BYREF
 
-  v3 = 0;
+  VirtualMemory = 0;
   v4 = 0x4000LL;
-  v10 = 0LL;
-  v11 = 0LL;
+  *(_OWORD *)BaseAddress = 0LL;
+  *(_OWORD *)RegionSize = 0LL;
   if ( (a3 & 0x4000) == 0 )
-    return PsspCaptureVaSpaceInformation2(a1, a2, (unsigned int)ZwQueryVirtualMemory, a2, a3);
+    return PsspCaptureVaSpaceInformation2(a1, (_DWORD)a2, (unsigned int)ZwQueryVirtualMemory, (_DWORD)a2, a3);
   while ( 1 )
   {
-    *(_QWORD *)&v11 = v4;
+    RegionSize[0] = v4;
     if ( !v4 )
       break;
-    *((_QWORD *)&v10 + 1) = 0LL;
-    v3 = ZwAllocateVirtualMemory(-1LL, (char *)&v10 + 8, 0LL, &v11, 4096, 4);
-    if ( v3 >= 0 )
+    BaseAddress[1] = 0LL;
+    VirtualMemory = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress[1], 0LL, RegionSize, 0x1000u, 4u);
+    if ( VirtualMemory >= 0 )
     {
-      DWORD2(v11) = 0;
-      *(_DWORD *)(*((_QWORD *)&v10 + 1) + 4LL) = 0;
+      LODWORD(RegionSize[1]) = 0;
+      *((_DWORD *)BaseAddress[1] + 1) = 0;
       goto LABEL_7;
     }
-    v4 = v11 - 4096;
+    v4 = RegionSize[0] - 4096;
   }
-  if ( v3 < 0 )
-    return PsspCaptureVaSpaceInformation2(a1, a2, (unsigned int)ZwQueryVirtualMemory, a2, a3);
+  if ( VirtualMemory < 0 )
+    return PsspCaptureVaSpaceInformation2(a1, (_DWORD)a2, (unsigned int)ZwQueryVirtualMemory, (_DWORD)a2, a3);
 LABEL_7:
-  *(_QWORD *)&v10 = a2;
-  v8 = PsspCaptureVaSpaceInformation2(a1, a2, (unsigned int)PsspQueryVmBulkMode, (unsigned int)&v10, a3);
-  ZwFreeVirtualMemory(-1LL, (char *)&v10 + 8, &v11, 0x8000LL);
+  BaseAddress[0] = a2;
+  v8 = PsspCaptureVaSpaceInformation2(a1, (_DWORD)a2, (unsigned int)PsspQueryVmBulkMode, (unsigned int)BaseAddress, a3);
+  ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress[1], RegionSize, 0x8000u);
   return v8;
 }

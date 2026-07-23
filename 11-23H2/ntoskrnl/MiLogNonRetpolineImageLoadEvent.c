@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogNonRetpolineImageLoadEvent @ 0x140852B70
+ * XREFs of MiLogNonRetpolineImageLoadEvent @ 0x140852E70
  * Callers:
- *     MiLogRetpolineImageLoadEvents @ 0x1407D4430 (MiLogRetpolineImageLoadEvents.c)
- *     MiFlushDeferredRetpolineImageLoadEvents @ 0x140865494 (MiFlushDeferredRetpolineImageLoadEvents.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x1407D4700 (MiLogRetpolineImageLoadEvents.c)
+ *     MiFlushDeferredRetpolineImageLoadEvents @ 0x1408656D4 (MiFlushDeferredRetpolineImageLoadEvents.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogNonRetpolineImageLoadEvent(__int64 a1, int a2)
@@ -53,7 +53,7 @@ void __fastcall MiLogNonRetpolineImageLoadEvent(__int64 a1, int a2)
       v18 = 4LL;
       v7 = v5;
       v20 = 4LL;
-      tlgWriteAgg(v4, (unsigned __int8 *)&byte_1400389DD, 0LL, 8u, &v10);
+      tlgWriteAgg(v4, (unsigned __int8 *)&byte_140038AC5, 0LL, 8u, &v10);
     }
   }
 }

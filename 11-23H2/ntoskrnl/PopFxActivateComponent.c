@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFxActivateComponent @ 0x140287300
+ * XREFs of PopFxActivateComponent @ 0x140287590
  * Callers:
- *     PoFxActivateComponent @ 0x140287290 (PoFxActivateComponent.c)
- *     PopFxNotifyPreDIrpIssue @ 0x14028DEB8 (PopFxNotifyPreDIrpIssue.c)
- *     PopFxActivateComponentDependencies @ 0x140312574 (PopFxActivateComponentDependencies.c)
- *     PoFxAddComponentRelation @ 0x140587670 (PoFxAddComponentRelation.c)
- *     PoFxAddDeviceRelation @ 0x140587A90 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveComponentRelation @ 0x140588110 (PoFxRemoveComponentRelation.c)
- *     PopFxRegisterDeviceWorker @ 0x1408366AC (PopFxRegisterDeviceWorker.c)
+ *     PoFxActivateComponent @ 0x140287520 (PoFxActivateComponent.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x14028E148 (PopFxNotifyPreDIrpIssue.c)
+ *     PopFxActivateComponentDependencies @ 0x140312804 (PopFxActivateComponentDependencies.c)
+ *     PoFxAddComponentRelation @ 0x140587B60 (PoFxAddComponentRelation.c)
+ *     PoFxAddDeviceRelation @ 0x140587F80 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveComponentRelation @ 0x140588600 (PoFxRemoveComponentRelation.c)
+ *     PopFxRegisterDeviceWorker @ 0x1408369AC (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     PopFxActivateComponentWorker @ 0x140312420 (PopFxActivateComponentWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     PopFxActivateComponentWorker @ 0x1403126B0 (PopFxActivateComponentWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall PopFxActivateComponent(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
@@ -71,11 +71,14 @@ LABEL_14:
     {
       v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 128));
       KxReleaseSpinLock((volatile signed __int64 *)(v7 + 128));
-      LODWORD(v6) = KiIrqlFlags;
-      if ( KiIrqlFlags )
+      LODWORD(v6) = (_DWORD)KiIrqlFlags;
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v13 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           a2 = -1LL << ((unsigned __int8)v13 + 1);

@@ -15,7 +15,7 @@
 __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 {
   char v3; // di
-  __int64 InterruptTimePrecise; // r14
+  LARGE_INTEGER InterruptTimePrecise; // r14
   unsigned __int64 v5; // kr00_8
   unsigned __int64 v6; // r15
   unsigned int v7; // eax
@@ -24,7 +24,7 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   unsigned __int64 v10; // r13
   unsigned __int64 v11; // rsi
   unsigned __int64 v12; // rcx
-  __int64 v13; // r14
+  LONGLONG v13; // r14
   unsigned __int64 v14; // r14
   char v15; // r10
   __int64 v16; // r8
@@ -47,7 +47,7 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   _QWORD v33[2]; // [rsp+68h] [rbp-90h] BYREF
   unsigned __int64 v34; // [rsp+78h] [rbp-80h]
   int v35; // [rsp+80h] [rbp-78h]
-  LARGE_INTEGER v36; // [rsp+88h] [rbp-70h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+88h] [rbp-70h] BYREF
   __int128 v37; // [rsp+90h] [rbp-68h] BYREF
   _BYTE v38[8]; // [rsp+A0h] [rbp-58h] BYREF
   int v39; // [rsp+A8h] [rbp-50h]
@@ -58,13 +58,13 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 
   v3 = 0;
   PopCalculateIdleInformation(v33);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v36);
-  v5 = InterruptTimePrecise - qword_1403CD9C8;
-  v6 = (InterruptTimePrecise - qword_1403CD9C8) / 0xAuLL;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v5 = InterruptTimePrecise.QuadPart - qword_1403CD9C8;
+  v6 = (InterruptTimePrecise.QuadPart - qword_1403CD9C8) / 0xAuLL;
   if ( PopPdcLastCsExitTime <= (unsigned __int64)qword_1403CD9C8 )
     v29 = 0LL;
   else
-    v29 = (InterruptTimePrecise - PopPdcLastCsExitTime) / 0xAuLL;
+    v29 = (InterruptTimePrecise.QuadPart - PopPdcLastCsExitTime) / 0xAuLL;
   PopCurrentPowerState(v38);
   if ( v6 && (xmmword_1403AA2B4 & 0x40000000) == 0 && v40 < PopCsConsumption && v40 )
     v42 = PopBatteryCapacityToRate(PopCsConsumption - v40, v5 / 0xA);
@@ -107,9 +107,9 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   if ( qword_1403CDA18 )
   {
     if ( qword_1403CD9C8 <= (unsigned __int64)qword_1403CDA18 )
-      v13 = InterruptTimePrecise - qword_1403CDA18;
+      v13 = InterruptTimePrecise.QuadPart - qword_1403CDA18;
     else
-      v13 = InterruptTimePrecise - qword_1403CD9C8;
+      v13 = InterruptTimePrecise.QuadPart - qword_1403CD9C8;
     v12 = v13 + qword_1403CDA20;
   }
   v14 = v12 / 0xA;

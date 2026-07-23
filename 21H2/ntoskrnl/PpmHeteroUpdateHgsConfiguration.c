@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x1403C2194
+ * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x1403C25C4
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x1407BAC0C (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BB39C (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeCountSetBitsAffinityEx @ 0x140269420 (KeCountSetBitsAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char PpmHeteroUpdateHgsConfiguration()
@@ -62,7 +62,7 @@ char PpmHeteroUpdateHgsConfiguration()
         memset((char *)v29 + 4, 0, 0xA4uLL);
         LODWORD(v28[0]) = 1310721;
         memset((char *)v28 + 4, 0, 0xA4uLL);
-        v23 = qword_140C113E8[0];
+        v23 = qword_140C113C8[0];
         v24 = 0;
         v22 = (unsigned __int16 *)PpmCheckRegistered;
         while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )
@@ -77,7 +77,7 @@ char PpmHeteroUpdateHgsConfiguration()
         }
         if ( (unsigned int)KeIsEmptyAffinityEx(v28) )
         {
-          v23 = qword_140C113E8[0];
+          v23 = qword_140C113C8[0];
           v24 = 0;
           v22 = (unsigned __int16 *)PpmCheckRegistered;
           while ( !(unsigned int)KeEnumerateNextProcessor(&v21, &v22) )

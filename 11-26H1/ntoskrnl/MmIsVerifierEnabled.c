@@ -1,9 +1,9 @@
 /*
- * XREFs of MmIsVerifierEnabled @ 0x140C21200
+ * XREFs of MmIsVerifierEnabled @ 0x140C27210
  * Callers:
  *     <none>
  * Callees:
- *     VfDriverIsKernelImageAddress @ 0x140C46BA8 (VfDriverIsKernelImageAddress.c)
+ *     VfDriverIsKernelImageAddress @ 0x140C4CBB8 (VfDriverIsKernelImageAddress.c)
  */
 
 NTSTATUS __stdcall MmIsVerifierEnabled(PULONG VerifierFlags)
@@ -38,18 +38,18 @@ NTSTATUS __stdcall MmIsVerifierEnabled(PULONG VerifierFlags)
       while ( v5 < 8 )
       {
         v6 = 32LL * v5;
-        v7 = *(_DWORD *)((char *)&unk_140E08D68 + v6);
+        v7 = *(_DWORD *)((char *)&unk_140E08D58 + v6);
         if ( v7 )
         {
           v11 = (v7 & (unsigned int)VfRuleClasses) == 0;
         }
         else
         {
-          v8 = *(unsigned int *)((char *)&unk_140E08D6C + v6);
+          v8 = *(unsigned int *)((char *)&unk_140E08D5C + v6);
           if ( (unsigned int)v8 < 0x40 )
           {
             v10 = *((_DWORD *)&VfRuleClasses + (v8 >> 5));
-            v9 = _bittest(&v10, *(_DWORD *)((_BYTE *)&unk_140E08D6C + v6) & 0x1F);
+            v9 = _bittest(&v10, *(_DWORD *)((_BYTE *)&unk_140E08D5C + v6) & 0x1F);
           }
           else
           {
@@ -59,11 +59,11 @@ NTSTATUS __stdcall MmIsVerifierEnabled(PULONG VerifierFlags)
         }
         if ( !v11 )
         {
-          v12 = *(_QWORD *)((char *)&unk_140E08D58 + v6);
-          if ( retaddr > v12 && retaddr < *(_QWORD *)((char *)&unk_140E08D60 + v6) + v12 )
+          v12 = *(_QWORD *)((char *)&unk_140E08D48 + v6);
+          if ( retaddr > v12 && retaddr < *(_QWORD *)((char *)&unk_140E08D50 + v6) + v12 )
           {
             if ( !v7 )
-              v7 = *(_DWORD *)((char *)&unk_140E08D6C + v6);
+              v7 = *(_DWORD *)((char *)&unk_140E08D5C + v6);
             *VerifierFlags = v7;
             return 0;
           }

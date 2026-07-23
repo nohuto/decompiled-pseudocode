@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnmapPfns @ 0x1407EA110
+ * XREFs of MiUnmapPfns @ 0x1407EA6E0
  * Callers:
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiPhysicalMemoryEverRemoved @ 0x14066E644 (MiPhysicalMemoryEverRemoved.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiPhysicalMemoryEverRemoved @ 0x14066F818 (MiPhysicalMemoryEverRemoved.c)
  */
 
 void __fastcall MiUnmapPfns(__int64 a1)
@@ -20,14 +20,14 @@ void __fastcall MiUnmapPfns(__int64 a1)
   MiPhysicalMemoryEverRemoved(*(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 32), 0);
   if ( (*(_DWORD *)(a1 + 40) & 0x20) != 0 )
   {
-    qword_140E38C48 += *(_QWORD *)(a1 + 32);
-    if ( (unsigned __int64)qword_140E38C48 >= 0x5555 && !byte_140E38CCC )
+    qword_140E38D88 += *(_QWORD *)(a1 + 32);
+    if ( (unsigned __int64)qword_140E38D88 >= 0x5555 && !byte_140E38E0C )
     {
-      stru_140E38C28.List.Flink = 0LL;
-      stru_140E38C28.WorkerRoutine = (void (__fastcall *)(void *))MiFreeUnusedPfnPages;
-      stru_140E38C28.Parameter = &MiSystemPartition;
-      ExQueueWorkItem(&stru_140E38C28, DelayedWorkQueue);
-      byte_140E38CCC = 1;
+      stru_140E38D68.List.Flink = 0LL;
+      stru_140E38D68.WorkerRoutine = (void (__fastcall *)(void *))MiFreeUnusedPfnPages;
+      stru_140E38D68.Parameter = &MiSystemPartition;
+      ExQueueWorkItem(&stru_140E38D68, DelayedWorkQueue);
+      byte_140E38E0C = 1;
     }
   }
 }

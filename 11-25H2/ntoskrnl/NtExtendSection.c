@@ -9,35 +9,35 @@
  *     MmExtendSection @ 0x14093ADB0 (MmExtendSection.c)
  */
 
-__int64 __fastcall NtExtendSection(ULONG_PTR BugCheckParameter1, unsigned __int64 a2)
+NTSTATUS __cdecl NtExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewSectionSize)
 {
   char PreviousMode; // r9
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v6; // rcx
   PVOID Object[3]; // [rsp+40h] [rbp-18h] BYREF
-  unsigned int v8; // [rsp+70h] [rbp+18h]
-  __int64 v9; // [rsp+78h] [rbp+20h] BYREF
+  NTSTATUS v8; // [rsp+70h] [rbp+18h]
+  LONGLONG QuadPart; // [rsp+78h] [rbp+20h] BYREF
 
   Object[0] = 0LL;
-  v9 = 0LL;
+  QuadPart = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a2 & 3) != 0 )
+    if ( ((unsigned __int8)NewSectionSize & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v6 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v6 = a2;
+    if ( (unsigned __int64)NewSectionSize < 0x7FFFFFFF0000LL )
+      v6 = (__int64)NewSectionSize;
     *(_BYTE *)v6 = *(_BYTE *)v6;
     *(_BYTE *)(v6 + 7) = *(_BYTE *)(v6 + 7);
-    v9 = *(_QWORD *)a2;
+    QuadPart = NewSectionSize->QuadPart;
   }
   else
   {
-    v9 = *(_QWORD *)a2;
+    QuadPart = NewSectionSize->QuadPart;
   }
   result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
+             (ULONG_PTR)SectionHandle,
              16,
              (__int64)MmSectionObjectType,
              PreviousMode,
@@ -45,11 +45,11 @@ __int64 __fastcall NtExtendSection(ULONG_PTR BugCheckParameter1, unsigned __int6
              Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v8 = MmExtendSection(Object[0], &v9, 0LL);
+    v8 = MmExtendSection(Object[0], &QuadPart, 0LL);
     ObfDereferenceObjectWithTag(Object[0], 0x63536D4Du);
-    *(_QWORD *)a2 = v9;
+    NewSectionSize->QuadPart = QuadPart;
     return v8;
   }
   return result;

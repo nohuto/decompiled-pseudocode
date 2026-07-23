@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAgePteWorker @ 0x14006B2C0
+ * XREFs of MiAgePteWorker @ 0x14006B2B0
  * Callers:
- *     MiAgePte @ 0x14006ADD0 (MiAgePte.c)
- *     MiAgeWorkingSetEPTCallback @ 0x1402B2A20 (MiAgeWorkingSetEPTCallback.c)
- *     MiSimpleAgePte @ 0x1402B3930 (MiSimpleAgePte.c)
- *     MiSimpleAgeWorkingSetEPTCallback @ 0x1402B3A80 (MiSimpleAgeWorkingSetEPTCallback.c)
+ *     MiAgePte @ 0x14006ADC0 (MiAgePte.c)
+ *     MiAgeWorkingSetEPTCallback @ 0x1402B2C10 (MiAgeWorkingSetEPTCallback.c)
+ *     MiSimpleAgePte @ 0x1402B3B20 (MiSimpleAgePte.c)
+ *     MiSimpleAgeWorkingSetEPTCallback @ 0x1402B3C70 (MiSimpleAgeWorkingSetEPTCallback.c)
  * Callees:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
- *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
- *     MiLockSetPfnPriority @ 0x140121F18 (MiLockSetPfnPriority.c)
- *     qsort @ 0x1401962E0 (qsort.c)
+ *     MiClearPteAccessed @ 0x14006B770 (MiClearPteAccessed.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
+ *     MiCompressTbFlushList @ 0x140113B10 (MiCompressTbFlushList.c)
+ *     MiLockSetPfnPriority @ 0x140121FE8 (MiLockSetPfnPriority.c)
+ *     qsort @ 0x140196420 (qsort.c)
  */
 
 unsigned __int64 __fastcall MiAgePteWorker(
@@ -275,12 +275,12 @@ LABEL_27:
     v24 = *((_QWORD *)a5 + 7);
   else
     v25 = (a6 & 4) != 0;
-  result = MiClearPteAccessed(a1, a4, a2, v24, dword_14043A8E8, v25);
+  result = MiClearPteAccessed(a1, a4, a2, v24, dword_14043B9A8, v25);
   if ( (_DWORD)result )
     ++*((_QWORD *)a5 + 3);
   if ( v24 )
   {
-    v28 = qword_14043A110;
+    v28 = qword_14043B1D0;
     if ( (*(_BYTE *)(v24 + 4) & 2) == 0
       && *(_DWORD *)v24 == 1
       && KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[15] )

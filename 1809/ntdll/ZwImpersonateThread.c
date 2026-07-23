@@ -1,16 +1,19 @@
 /*
- * XREFs of ZwImpersonateThread @ 0x1800A21B0
+ * XREFs of ZwImpersonateThread @ 0x1800A21D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwImpersonateThread()
+NTSTATUS __cdecl ZwImpersonateThread(
+        HANDLE ServerThreadHandle,
+        HANDLE ClientThreadHandle,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 247LL;
+  result = 247;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

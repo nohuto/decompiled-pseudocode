@@ -1,11 +1,11 @@
 /*
- * XREFs of CcQueryRegKeyValue @ 0x1403C5848
+ * XREFs of CcQueryRegKeyValue @ 0x1403C5A28
  * Callers:
- *     CcUpdateDynamicRegistrySettings @ 0x1403C5300 (CcUpdateDynamicRegistrySettings.c)
+ *     CcUpdateDynamicRegistrySettings @ 0x1403C54E0 (CcUpdateDynamicRegistrySettings.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

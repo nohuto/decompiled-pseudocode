@@ -9,21 +9,27 @@
  *     sub_1800D8020 @ 0x1800D8020 (sub_1800D8020.c)
  */
 
-__int64 sub_1800D7F24()
+PVOID sub_1800D7F24()
 {
   signed __int64 v0; // rax
   __int64 v1; // rbx
   int i; // edi
+  PVOID BaseAddress; // [rsp+50h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp+28h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+60h] [rbp+30h] BYREF
 
+  BaseAddress = 0LL;
+  RegionSize = 0LL;
   v0 = _InterlockedCompareExchange64(&qword_18015D6E8, 255LL, 0LL);
   v1 = v0;
   if ( v0 )
   {
     if ( v0 == 255 )
     {
+      DelayInterval.QuadPart = -1000000LL;
       for ( i = 0; i < 5; ++i )
       {
-        ZwDelayExecution();
+        ZwDelayExecution(0, &DelayInterval);
         v1 = qword_18015D6E8;
         if ( qword_18015D6E8 != 255 )
           break;
@@ -35,10 +41,19 @@ __int64 sub_1800D7F24()
       }
     }
   }
-  else if ( (int)ZwAllocateVirtualMemory() >= 0 && (int)sub_1800D8020(0LL) >= 0 )
+  else
   {
-    _InterlockedExchange64(&qword_18015D6E8, 0LL);
-    return 0LL;
+    BaseAddress = 0LL;
+    RegionSize = 0x2000LL;
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) >= 0
+      && RegionSize >= 0x2000
+      && (int)sub_1800D8020(BaseAddress) >= 0 )
+    {
+      _InterlockedExchange64(&qword_18015D6E8, (__int64)BaseAddress);
+      return BaseAddress;
+    }
   }
-  return v1;
+  if ( BaseAddress )
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+  return (PVOID)v1;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of BvgaNotifyDisplayOwnershipLost @ 0x1405C5D50
+ * XREFs of BvgaNotifyDisplayOwnershipLost @ 0x1405C85C0
  * Callers:
- *     BvgaNotifyDisplayOwnershipChange @ 0x1405C5CF0 (BvgaNotifyDisplayOwnershipChange.c)
+ *     BvgaNotifyDisplayOwnershipChange @ 0x1405C8560 (BvgaNotifyDisplayOwnershipChange.c)
  * Callees:
- *     BvgaAcquireLock @ 0x1405C5AD0 (BvgaAcquireLock.c)
- *     BvgaReleaseLock @ 0x1405C5DC0 (BvgaReleaseLock.c)
+ *     BvgaAcquireLock @ 0x1405C8340 (BvgaAcquireLock.c)
+ *     BvgaReleaseLock @ 0x1405C8630 (BvgaReleaseLock.c)
  */
 
 __int64 __fastcall BvgaNotifyDisplayOwnershipLost(__int64 a1)

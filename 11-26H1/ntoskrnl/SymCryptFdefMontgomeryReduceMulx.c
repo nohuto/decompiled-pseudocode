@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefMontgomeryReduceMulx @ 0x14056A2A0
+ * XREFs of SymCryptFdefMontgomeryReduceMulx @ 0x140569480
  * Callers:
- *     SymCryptFdefModMulMontgomeryMulx @ 0x14056FE90 (SymCryptFdefModMulMontgomeryMulx.c)
- *     SymCryptFdefModSquareMontgomeryMulx @ 0x140570390 (SymCryptFdefModSquareMontgomeryMulx.c)
- *     SymCryptFdefMontgomeryReduce @ 0x1405706B0 (SymCryptFdefMontgomeryReduce.c)
+ *     SymCryptFdefModMulMontgomeryMulx @ 0x14056F070 (SymCryptFdefModMulMontgomeryMulx.c)
+ *     SymCryptFdefModSquareMontgomeryMulx @ 0x14056F570 (SymCryptFdefModSquareMontgomeryMulx.c)
+ *     SymCryptFdefMontgomeryReduce @ 0x14056F890 (SymCryptFdefMontgomeryReduce.c)
  * Callees:
  *     <none>
  */

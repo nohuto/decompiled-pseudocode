@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateMapRegisterFrame @ 0x14054EDEC
+ * XREFs of HalpDmaAllocateMapRegisterFrame @ 0x14054C72C
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     MmFreeContiguousMemory @ 0x1403A93D0 (MmFreeContiguousMemory.c)
- *     MmAllocateContiguousMemoryEx @ 0x140411210 (MmAllocateContiguousMemoryEx.c)
- *     HalpDmaCvmSetPageShareability @ 0x1406FFFBC (HalpDmaCvmSetPageShareability.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     MmAllocateContiguousMemoryEx @ 0x1403966A0 (MmAllocateContiguousMemoryEx.c)
+ *     MmFreeContiguousMemory @ 0x140398060 (MmFreeContiguousMemory.c)
+ *     HalpDmaCvmSetPageShareability @ 0x1406FDBFC (HalpDmaCvmSetPageShareability.c)
  */
 
 __int64 __fastcall HalpDmaAllocateMapRegisterFrame(__int64 a1)
@@ -24,21 +24,21 @@ __int64 __fastcall HalpDmaAllocateMapRegisterFrame(__int64 a1)
     QuadPart = 4096LL;
     if ( (int)MmAllocateContiguousMemoryEx(
                 &QuadPart,
-                0,
-                -1,
+                0LL,
+                -1LL,
                 0,
                 0x80000000,
-                4,
+                4u,
                 0LL,
-                1147953480,
+                0x446C6148u,
                 0,
-                (__int64 *)&BaseAddress) >= 0 )
+                (unsigned __int64 *)&BaseAddress) >= 0 )
     {
       QuadPart = MmGetPhysicalAddress(BaseAddress).QuadPart;
       LOBYTE(v2) = 1;
       if ( (int)HalpDmaCvmSetPageShareability(QuadPart, 1LL, v2, &QuadPart) < 0 )
         goto LABEL_8;
-      result = MmMapIoSpaceEx(QuadPart, 4096LL, 4u);
+      result = MmMapIoSpaceEx(QuadPart, 4096LL, 4LL);
       if ( result )
         return result;
       if ( (int)HalpDmaCvmSetPageShareability(QuadPart, 1LL, 0LL, 0LL) >= 0 )

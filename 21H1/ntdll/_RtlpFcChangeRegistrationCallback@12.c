@@ -8,9 +8,9 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-signed __int32 __stdcall RtlpFcChangeRegistrationCallback(int a1, int a2, int a3)
+void __stdcall RtlpFcChangeRegistrationCallback(PTP_CALLBACK_INSTANCE a1, _RTL_SRWLOCK *a2, PTP_WORK a3)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 16));
-  (*(void (__thiscall **)(_DWORD, _DWORD))(a2 + 8))(*(_DWORD *)(a2 + 8), *(_DWORD *)(a2 + 12));
-  return RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a2 + 16));
+  RtlAcquireSRWLockExclusive(a2 + 4);
+  ((void (__thiscall *)(unsigned int, unsigned int))a2[2].Value)(a2[2].Value, a2[3].Value);
+  RtlReleaseSRWLockExclusive(a2 + 4);
 }

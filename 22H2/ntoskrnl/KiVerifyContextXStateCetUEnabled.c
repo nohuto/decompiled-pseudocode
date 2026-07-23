@@ -27,7 +27,7 @@ __int64 __fastcall KiVerifyContextXStateCetUEnabled(_QWORD *a1, void *a2)
     return 3221227018LL;
   if ( v4 < (unsigned __int64)a2 )
     return 3221227018LL;
-  ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, (MEMORY_INFORMATION_CLASS)3, &MemoryInformation, 0x30uLL, 0LL);
+  ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, MemoryRegionInformation, &MemoryInformation, 0x30uLL, 0LL);
   if ( a1[1] > (unsigned __int64)(MemoryInformation + v7 - 4096) )
     return 3221227018LL;
   else

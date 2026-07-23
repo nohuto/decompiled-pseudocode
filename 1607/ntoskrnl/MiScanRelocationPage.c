@@ -1,10 +1,10 @@
 /*
- * XREFs of MiScanRelocationPage @ 0x140524F40
+ * XREFs of MiScanRelocationPage @ 0x140507FA0
  * Callers:
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140033070 (MiOffsetToProtos.c)
- *     MiCreateFixupRecord @ 0x1404E3298 (MiCreateFixupRecord.c)
+ *     MiOffsetToProtos @ 0x140032BF0 (MiOffsetToProtos.c)
+ *     MiCreateFixupRecord @ 0x1404C61FC (MiCreateFixupRecord.c)
  */
 
 __int64 __fastcall MiScanRelocationPage(__int64 a1, unsigned int a2, int a3, _WORD *a4, _DWORD *a5, _QWORD *a6)

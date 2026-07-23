@@ -1,7 +1,7 @@
 /*
- * XREFs of VmpFillValidFaultInfo @ 0x140AADE8C
+ * XREFs of VmpFillValidFaultInfo @ 0x140AABF4C
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x14081C788 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x140822998 (VmpAccessFaultBatchResolve.c)
  * Callees:
  *     <none>
  */

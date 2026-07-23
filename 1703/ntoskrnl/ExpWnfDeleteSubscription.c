@@ -19,20 +19,20 @@
 void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
 {
   __int64 v2; // r14
-  _BYTE *v4; // rax
-  _BYTE *v5; // rsi
+  PRTL_BALANCED_NODE v4; // rax
+  PRTL_BALANCED_NODE v5; // rsi
   unsigned __int64 Count; // rbp
   unsigned __int64 v7; // rsi
   int v8; // r12d
   int v9; // r13d
-  _BYTE *v10; // rax
-  _BYTE *v11; // rbp
+  PRTL_BALANCED_NODE v10; // rax
+  PRTL_BALANCED_NODE v11; // rbp
   struct _EX_RUNDOWN_REF **v12; // rdx
   PVOID *v13; // rcx
   struct _EX_RUNDOWN_REF **v14; // rdx
   PVOID *v15; // rcx
-  _BYTE *v16; // rax
-  _BYTE *v17; // r15
+  PRTL_BALANCED_NODE v16; // rax
+  PRTL_BALANCED_NODE v17; // r15
   int v18; // ecx
   int v19; // r15d
   struct _EX_RUNDOWN_REF **v20; // rdx
@@ -42,12 +42,12 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
   v2 = *(_QWORD *)(a2 + 1720);
   if ( v2 )
   {
-    v4 = (_BYTE *)KeAbPreAcquire(v2 + 80, 0LL, 0LL);
+    v4 = KeAbPreAcquire(v2 + 80, 0LL, 0);
     v5 = v4;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 80), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 80), v4, v2 + 80);
     if ( v5 )
-      v5[26] |= 1u;
+      BYTE2(v5[1].Left) |= 1u;
   }
   Count = P[5].Count;
   v22 = Count;
@@ -58,12 +58,12 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
     v9 = 0;
     if ( v7 )
     {
-      v10 = (_BYTE *)KeAbPreAcquire(v7 + 112, 0LL, 0LL);
+      v10 = KeAbPreAcquire(v7 + 112, 0LL, 0);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 112), 0LL) )
         ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v7 + 112), v10, v7 + 112);
       if ( v11 )
-        v11[26] |= 1u;
+        BYTE2(v11[1].Left) |= 1u;
       v12 = (struct _EX_RUNDOWN_REF **)P[8].Count;
       v13 = (PVOID *)P[9].Count;
       if ( v12[1] != &P[8] || *v13 != &P[8] )
@@ -80,12 +80,12 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
       __fastfail(3u);
     *v15 = v14;
     v14[1] = (struct _EX_RUNDOWN_REF *)v15;
-    v16 = (_BYTE *)KeAbPreAcquire(v2 + 104, 0LL, 0LL);
+    v16 = KeAbPreAcquire(v2 + 104, 0LL, 0);
     v17 = v16;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 104), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 104), v16, v2 + 104);
     if ( v17 )
-      v17[26] |= 1u;
+      BYTE2(v17[1].Left) |= 1u;
     v18 = P[15].Count;
     if ( v18 == 1 || (PEPROCESS)P[5].Count != PsInitialSystemProcess && v18 )
     {

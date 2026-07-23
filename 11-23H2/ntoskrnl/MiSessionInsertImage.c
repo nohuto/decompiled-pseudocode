@@ -2,24 +2,24 @@
  * XREFs of MiSessionInsertImage @ 0x14020AE64
  * Callers:
  *     MiGetSystemAddressForImage @ 0x140696090 (MiGetSystemAddressForImage.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
  *     MiControlAreaRequiresCharge @ 0x140214CC4 (MiControlAreaRequiresCharge.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     MiReferenceActiveSubsection @ 0x140288DA0 (MiReferenceActiveSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MmLockLoadedModuleListExclusive @ 0x140290C18 (MmLockLoadedModuleListExclusive.c)
- *     MiManageSubsectionView @ 0x1402A0500 (MiManageSubsectionView.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x140625CFC (MiReturnCrossPartitionControlAreaCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     MiReferenceActiveSubsection @ 0x140289030 (MiReferenceActiveSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140290EA8 (MmLockLoadedModuleListExclusive.c)
+ *     MiManageSubsectionView @ 0x1402A0790 (MiManageSubsectionView.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14062624C (MiReturnCrossPartitionControlAreaCharges.c)
  *     MiBytesToMapSystemImage @ 0x140696AE4 (MiBytesToMapSystemImage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
@@ -119,7 +119,9 @@ LABEL_19:
     LOBYTE(v20) = v15;
     RtlAvlInsertNodeEx(v35 + 64, v14, v20, Pool);
     ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v22 = v38;
       if ( (unsigned __int8)v38 <= 0xFu && CurrentIrql >= 2u )
@@ -167,7 +169,7 @@ LABEL_9:
   }
   ++*((_DWORD *)v14 + 15);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (v24 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v24 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v24 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v24 <= 0xFu )
   {
     v18 = v38;
     if ( (unsigned __int8)v38 <= 0xFu && v24 >= 2u )

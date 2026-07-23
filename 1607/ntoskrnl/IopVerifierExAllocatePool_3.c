@@ -1,8 +1,8 @@
 /*
- * XREFs of IopVerifierExAllocatePool_3 @ 0x1401CB54C
+ * XREFs of IopVerifierExAllocatePool_3 @ 0x1401CB430
  * Callers:
- *     IopErrorLogThread @ 0x1405426F4 (IopErrorLogThread.c)
- *     IopErrorLogQueueRequest @ 0x14062804C (IopErrorLogQueueRequest.c)
+ *     IopErrorLogThread @ 0x140542C34 (IopErrorLogThread.c)
+ *     IopErrorLogQueueRequest @ 0x140628100 (IopErrorLogQueueRequest.c)
  * Callees:
  *     <none>
  */

@@ -64,15 +64,15 @@ __int64 __fastcall SepDuplicateToken(
   int v26; // esi
   __int64 v27; // rcx
   _DWORD *v28; // rcx
-  __int64 **v29; // r15
+  PSID_AND_ATTRIBUTES *v29; // r15
   char *v30; // r14
-  __int64 *v31; // rcx
+  _SID_AND_ATTRIBUTES *v31; // rcx
   int i; // eax
   __int64 v33; // rax
-  __int64 **v34; // r13
-  unsigned int *v35; // rcx
-  __int64 *v36; // rax
-  unsigned int j; // ecx
+  PSID_AND_ATTRIBUTES *v34; // r13
+  ULONG *v35; // rcx
+  _SID_AND_ATTRIBUTES *v36; // rax
+  ULONG j; // ecx
   __int64 v38; // rax
   unsigned int v39; // ecx
   size_t v40; // r12
@@ -89,14 +89,14 @@ __int64 __fastcall SepDuplicateToken(
   __int64 v51; // [rsp+20h] [rbp-A8h]
   PVOID Object; // [rsp+50h] [rbp-78h] BYREF
   void *v53; // [rsp+58h] [rbp-70h]
-  unsigned int *v54; // [rsp+60h] [rbp-68h]
+  ULONG *v54; // [rsp+60h] [rbp-68h]
   _QWORD *v55; // [rsp+68h] [rbp-60h]
   PVOID *v56; // [rsp+70h] [rbp-58h]
-  __int64 **v57; // [rsp+78h] [rbp-50h]
+  PSID_AND_ATTRIBUTES *v57; // [rsp+78h] [rbp-50h]
   _QWORD *v58; // [rsp+80h] [rbp-48h]
-  _QWORD *v59; // [rsp+88h] [rbp-40h]
+  PSID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+88h] [rbp-40h]
   _QWORD *v60; // [rsp+90h] [rbp-38h]
-  unsigned int *v61; // [rsp+98h] [rbp-30h]
+  ULONG *v61; // [rsp+98h] [rbp-30h]
 
   if ( a4 == 2 && a5 > 3 )
     return 3221225637LL;
@@ -162,7 +162,7 @@ __int64 __fastcall SepDuplicateToken(
   *((_DWORD *)v19 + 32) = *(_DWORD *)(a1 + 128);
   *((_DWORD *)v19 + 33) = *(_DWORD *)(a1 + 132);
   v20 = *(_DWORD *)(a1 + 200) & 0xFFFFFBDF;
-  v54 = (unsigned int *)(v19 + 128);
+  v54 = (ULONG *)(v19 + 128);
   *((_DWORD *)v19 + 50) = v20;
   SepSetTokenSessionById((_DWORD)v19, *(_DWORD *)(a1 + 120), 0, 0, 0LL);
   v21 = (__int64 *)(v19 + 776);
@@ -182,11 +182,11 @@ __int64 __fastcall SepDuplicateToken(
   *((_QWORD *)v19 + 136) = 0LL;
   v58 = v19 + 1088;
   *((_QWORD *)v19 + 99) = 0LL;
-  v57 = (__int64 **)(v19 + 792);
+  v57 = (PSID_AND_ATTRIBUTES *)(v19 + 792);
   *((_QWORD *)v19 + 98) = 0LL;
-  v61 = (unsigned int *)(v19 + 800);
+  v61 = (ULONG *)(v19 + 800);
   *((_DWORD *)v19 + 200) = 0;
-  v59 = v19 + 808;
+  SidAttrHash = (PSID_AND_ATTRIBUTES_HASH)(v19 + 808);
   memset(v19 + 808, 0, 0x110uLL);
   *((_QWORD *)v19 + 22) = 0LL;
   v60 = v19 + 176;
@@ -219,11 +219,11 @@ LABEL_18:
         goto LABEL_25;
     }
     memmove(v19 + 1152, (const void *)(a1 + 1152), *(unsigned int *)(a1 + 132));
-    v29 = (__int64 **)(v19 + 152);
+    v29 = (PSID_AND_ATTRIBUTES *)(v19 + 152);
     v30 = &v19[-a1];
     if ( SepTokenSidSharingEnabled )
     {
-      *v29 = (__int64 *)&v30[*(_QWORD *)(a1 + 152)];
+      *v29 = (PSID_AND_ATTRIBUTES)&v30[*(_QWORD *)(a1 + 152)];
       v26 = SepDuplicateTokenUserAndGroups(a1, v19);
       if ( v26 < 0 )
       {
@@ -234,26 +234,26 @@ LABEL_18:
     else
     {
       *((_DWORD *)v19 + 31) = *(_DWORD *)(a1 + 124);
-      v31 = (__int64 *)&v30[*(_QWORD *)(a1 + 152)];
+      v31 = (_SID_AND_ATTRIBUTES *)&v30[*(_QWORD *)(a1 + 152)];
       *v29 = v31;
       for ( i = *((_DWORD *)v19 + 31); i; --i )
       {
-        *v31 += (__int64)v30;
-        v31 += 2;
+        v31->Sid = (char *)v31->Sid + (unsigned __int64)v30;
+        ++v31;
       }
     }
     v33 = *(_QWORD *)(a1 + 160);
-    v34 = (__int64 **)(v19 + 160);
+    v34 = (PSID_AND_ATTRIBUTES *)(v19 + 160);
     *((_QWORD *)v19 + 20) = v33;
     if ( v33 )
     {
       v35 = v54;
-      v36 = (__int64 *)&v30[v33];
+      v36 = (_SID_AND_ATTRIBUTES *)&v30[v33];
       *v34 = v36;
       for ( j = *v35; j; --j )
       {
-        *v36 += (__int64)v30;
-        v36 += 2;
+        v36->Sid = (char *)v36->Sid + (unsigned __int64)v30;
+        ++v36;
       }
     }
     v38 = *(_QWORD *)(a1 + 184);
@@ -331,10 +331,10 @@ LABEL_18:
     KeLeaveCriticalRegion();
     if ( a3 )
       SepMakeTokenEffectiveOnly(v19);
-    RtlSidHashInitialize(*v29, *((_DWORD *)v19 + 31), (_QWORD *)v19 + 29);
-    RtlSidHashInitialize(*v34, *v54, (_QWORD *)v19 + 63);
+    RtlSidHashInitialize(*v29, *((_DWORD *)v19 + 31), (PSID_AND_ATTRIBUTES_HASH)(v19 + 232));
+    RtlSidHashInitialize(*v34, *v54, (PSID_AND_ATTRIBUTES_HASH)(v19 + 504));
     if ( *v57 )
-      RtlSidHashInitialize(*v57, *v61, v59);
+      RtlSidHashInitialize(*v57, *v61, SidAttrHash);
     *a8 = v19;
     return (unsigned int)v26;
   }

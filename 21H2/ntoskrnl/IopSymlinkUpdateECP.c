@@ -1,21 +1,21 @@
 /*
- * XREFs of IopSymlinkUpdateECP @ 0x14069E24C
+ * XREFs of IopSymlinkUpdateECP @ 0x1405FD41C
  * Callers:
- *     IopSymlinkRememberJunction @ 0x14069E3D4 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     IopSymlinkApplyToOpenedName @ 0x1408954C0 (IopSymlinkApplyToOpenedName.c)
+ *     IopSymlinkRememberJunction @ 0x1405FD5A4 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x1405FDA74 (IopGraftName.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     IopSymlinkApplyToOpenedName @ 0x140895620 (IopSymlinkApplyToOpenedName.c)
  * Callees:
- *     IopSymlinkGetECP @ 0x1402BB490 (IopSymlinkGetECP.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     IopSymlinkRemoveECP @ 0x140354DDC (IopSymlinkRemoveECP.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x140683F20 (IoGetIrpExtraCreateParameter.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x14069E698 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x14069EF38 (IopSymlinkFreeRelatedMountPointChain.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IopSymlinkGetECP @ 0x1402396A0 (IopSymlinkGetECP.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     IopSymlinkRemoveECP @ 0x14035FB2C (IopSymlinkRemoveECP.c)
+ *     IoGetIrpExtraCreateParameter @ 0x1405DDD60 (IoGetIrpExtraCreateParameter.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x1405FD868 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405FD94C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1405FE108 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14069C490 (FsRtlFreeExtraCreateParameter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopSymlinkUpdateECP(

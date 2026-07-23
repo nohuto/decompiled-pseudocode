@@ -1,28 +1,28 @@
 /*
- * XREFs of CmLoadKey @ 0x140AE15E4
+ * XREFs of CmLoadKey @ 0x140ADEAD4
  * Callers:
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     CmpLoadKeyCommon @ 0x14046E794 (CmpLoadKeyCommon.c)
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     CmpCmdHiveOpen @ 0x1408B4674 (CmpCmdHiveOpen.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     CmpQueryHiveRedirectionFileList @ 0x140AE1E78 (CmpQueryHiveRedirectionFileList.c)
- *     CmpResolveHiveLoadConflict @ 0x140AE1F04 (CmpResolveHiveLoadConflict.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140C58CD4 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140C58F14 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     CmpLoadKeyCommon @ 0x140467F14 (CmpLoadKeyCommon.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     CmpCmdHiveOpen @ 0x1408BAC48 (CmpCmdHiveOpen.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x140ADF368 (CmpQueryHiveRedirectionFileList.c)
+ *     CmpResolveHiveLoadConflict @ 0x140ADF3F4 (CmpResolveHiveLoadConflict.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140C5ECD4 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140C5EF14 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
 __int64 __fastcall CmLoadKey(
@@ -64,7 +64,7 @@ __int64 __fastcall CmLoadKey(
   int v38; // edx
   int v39; // r9d
   int v40; // r10d
-  int *v41; // rdx
+  unsigned __int8 *v41; // rdx
   unsigned __int8 v42; // r9
   NTSTATUS v43; // ebx
   int Conflict; // ebx
@@ -212,7 +212,13 @@ __int64 __fastcall CmLoadKey(
     else
     {
       v53 = 0LL;
-      v43 = ObReferenceObjectByHandle(Handle, 0, **(POBJECT_TYPE **)&CmpCallbackListLock.ApcStateFill[40], 0, &v53, 0LL);
+      v43 = ObReferenceObjectByHandle(
+              Handle,
+              0,
+              (POBJECT_TYPE)CmpContextListLock.ApcState.ApcListHead[1].Blink->Flink,
+              0,
+              &v53,
+              0LL);
       ZwClose(Handle);
       if ( v43 < 0 )
       {
@@ -240,7 +246,13 @@ __int64 __fastcall CmLoadKey(
   {
     v46 = *(void **)(v52 + 1544);
     Handle = 0LL;
-    v47 = ObReferenceObjectByHandle(v46, 0, **(POBJECT_TYPE **)&CmpCallbackListLock.ApcStateFill[40], 0, &Handle, 0LL);
+    v47 = ObReferenceObjectByHandle(
+            v46,
+            0,
+            (POBJECT_TYPE)CmpContextListLock.ApcState.ApcListHead[1].Blink->Flink,
+            0,
+            &Handle,
+            0LL);
     v26 = v47;
     if ( v47 < 0 )
     {
@@ -290,7 +302,7 @@ LABEL_23:
     {
       v56 = 0x1000000LL;
       p_Privileges = &Privileges;
-      v41 = (int *)&unk_140055F98;
+      v41 = (unsigned __int8 *)&byte_140057131;
       v96 = 8LL;
       v93 = &v52;
       v42 = 5;
@@ -300,7 +312,7 @@ LABEL_44:
       v92 = 8LL;
       LODWORD(v52) = v26;
       v94 = 4LL;
-      tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)v41, v30, v42, &v90);
+      tlgWriteAgg((__int64)&dword_140E09EE8, v41, v30, v42, &v90);
       goto LABEL_25;
     }
     goto LABEL_25;
@@ -351,7 +363,7 @@ LABEL_44:
           v87 = 0;
           v56 = 0x1000000LL;
           v89 = 8LL;
-          tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&byte_140055FEB, v15 + 394, 0xEu, &v64);
+          tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&byte_140056F8B, v15 + 394, 0xEu, &v64);
           v35 = qword_140E09F00;
           v34 = qword_140E09EF8;
           v33 = dword_140E09EE8;
@@ -387,7 +399,7 @@ LABEL_44:
           v84 = (unsigned int)(8 * v40);
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E09EE8,
-            (unsigned __int8 *)byte_14005614B,
+            (unsigned __int8 *)&dword_140057184,
             0LL,
             0LL,
             0xCu,
@@ -402,7 +414,7 @@ LABEL_69:
   {
     v42 = 4;
     p_Privileges = &Privileges;
-    v41 = &dword_140056284;
+    v41 = (unsigned __int8 *)byte_1400570EB;
     v93 = &v52;
     goto LABEL_44;
   }

@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipQueryAllData @ 0x14059DBCC
+ * XREFs of WmipQueryAllData @ 0x14059EBCC
  * Callers:
- *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
- *     IoWMIQueryAllData @ 0x14075F2D0 (IoWMIQueryAllData.c)
- *     WmipQueryAllDataMultiple @ 0x1408B3A24 (WmipQueryAllDataMultiple.c)
+ *     WmipIoControl @ 0x1406AB080 (WmipIoControl.c)
+ *     IoWMIQueryAllData @ 0x1407604C0 (IoWMIQueryAllData.c)
+ *     WmipQueryAllDataMultiple @ 0x1408B4C84 (WmipQueryAllDataMultiple.c)
  * Callees:
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipInsertStaticNames @ 0x14059D964 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x14059DB44 (WmipStaticInstanceNameSize.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
- *     WmipSendWmiIrp @ 0x1405FBEA0 (WmipSendWmiIrp.c)
- *     WmipUnreferenceEntry @ 0x1405FC204 (WmipUnreferenceEntry.c)
- *     WmipPrepareForWnodeAD @ 0x1406BE0C4 (WmipPrepareForWnodeAD.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WmipInsertStaticNames @ 0x14059E964 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x14059EB44 (WmipStaticInstanceNameSize.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     WmipForwardWmiIrp @ 0x1405FC974 (WmipForwardWmiIrp.c)
+ *     WmipSendWmiIrp @ 0x1405FCEA0 (WmipSendWmiIrp.c)
+ *     WmipUnreferenceEntry @ 0x1405FD204 (WmipUnreferenceEntry.c)
+ *     WmipPrepareForWnodeAD @ 0x1406BF364 (WmipPrepareForWnodeAD.c)
  */
 
 __int64 __fastcall WmipQueryAllData(void *a1, IRP *a2, KPROCESSOR_MODE a3, __int64 a4, int a5, unsigned int *a6)

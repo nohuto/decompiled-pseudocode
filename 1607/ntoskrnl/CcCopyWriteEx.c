@@ -1,11 +1,11 @@
 /*
- * XREFs of CcCopyWriteEx @ 0x1400EBDE0
+ * XREFs of CcCopyWriteEx @ 0x1400E9C50
  * Callers:
- *     CcCopyWrite @ 0x1401B19E8 (CcCopyWrite.c)
- *     CcFastCopyWrite @ 0x1401B1ADC (CcFastCopyWrite.c)
+ *     CcCopyWrite @ 0x1401B18CC (CcCopyWrite.c)
+ *     CcFastCopyWrite @ 0x1401B19C0 (CcFastCopyWrite.c)
  * Callees:
- *     CcMapAndCopyInToCache @ 0x140034F60 (CcMapAndCopyInToCache.c)
- *     PsGetBaseIoPriorityThread @ 0x1400EBF30 (PsGetBaseIoPriorityThread.c)
+ *     CcMapAndCopyInToCache @ 0x140034AE0 (CcMapAndCopyInToCache.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400E9DA0 (PsGetBaseIoPriorityThread.c)
  */
 
 char __fastcall CcCopyWriteEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char *a5, struct _KTHREAD *a6)

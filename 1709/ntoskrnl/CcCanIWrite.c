@@ -68,7 +68,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   unsigned __int16 **v42; // r9
   unsigned __int16 *v43; // r10
   KSPIN_LOCK *v44; // r8
-  struct _LIST_ENTRY *v45; // rcx
+  _LIST_ENTRY *v45; // rcx
   int v46; // [rsp+34h] [rbp-95h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-91h] BYREF
   __int64 v48; // [rsp+50h] [rbp-79h] BYREF
@@ -83,7 +83,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v57; // [rsp+A0h] [rbp-29h]
   PFILE_OBJECT v58; // [rsp+A8h] [rbp-21h]
   ULONG v59; // [rsp+B0h] [rbp-19h]
-  struct _LIST_ENTRY ListEntry; // [rsp+B8h] [rbp-11h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+B8h] [rbp-11h] BYREF
   __int16 *p_Object; // [rsp+C8h] [rbp-1h]
   __int64 v62; // [rsp+E8h] [rbp+1Fh]
   void *retaddr; // [rsp+128h] [rbp+5Fh]
@@ -355,7 +355,7 @@ LABEL_93:
   p_Object = &Object;
   v44 = (KSPIN_LOCK *)(v15 + 768);
   v52 = 6;
-  v45 = (struct _LIST_ENTRY *)(v15 + 744);
+  v45 = (_LIST_ENTRY *)(v15 + 744);
   v62 = v15;
   v57 = 5243644;
   v58 = FileObject;

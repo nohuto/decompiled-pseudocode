@@ -1,7 +1,7 @@
 /*
  * XREFs of MiDeletePteRun @ 0x140037620
  * Callers:
- *     MiDeleteVaTail @ 0x140075880 (MiDeleteVaTail.c)
+ *     MiDeleteVaTail @ 0x140075870 (MiDeleteVaTail.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
@@ -9,25 +9,25 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiTryDeleteTransitionPte @ 0x140094F2C (MiTryDeleteTransitionPte.c)
- *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiDecrementCombinedPte @ 0x14011F9F4 (MiDecrementCombinedPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
- *     MiPteIsSessionDynamicBuffer @ 0x140158B54 (MiPteIsSessionDynamicBuffer.c)
- *     MiWriteTopLevelPxe @ 0x140170950 (MiWriteTopLevelPxe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiDeleteClusterPage @ 0x1402C622C (MiDeleteClusterPage.c)
- *     MiDecrementCloneBlockReference @ 0x1402C9630 (MiDecrementCloneBlockReference.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiTryDeleteTransitionPte @ 0x140094E6C (MiTryDeleteTransitionPte.c)
+ *     MiIdentifyPfn @ 0x1400A7E20 (MiIdentifyPfn.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiDecrementCombinedPte @ 0x14011FA64 (MiDecrementCombinedPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiDereferenceIoPages @ 0x140123704 (MiDereferenceIoPages.c)
+ *     MiPteIsSessionDynamicBuffer @ 0x140158C54 (MiPteIsSessionDynamicBuffer.c)
+ *     MiWriteTopLevelPxe @ 0x140170A50 (MiWriteTopLevelPxe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiDeleteClusterPage @ 0x1402C641C (MiDeleteClusterPage.c)
+ *     MiDecrementCloneBlockReference @ 0x1402C9820 (MiDecrementCloneBlockReference.c)
  */
 
 __int64 __fastcall MiDeletePteRun(__int64 a1, __int64 a2)
@@ -165,7 +165,7 @@ __int64 __fastcall MiDeletePteRun(__int64 a1, __int64 a2)
   v13 = 0LL;
   v87 = v10;
   v88 = 0;
-  v14 = *(struct _KEVENT **)(qword_14043A748 + 8 * v11);
+  v14 = *(struct _KEVENT **)(qword_14043B808 + 8 * v11);
   v90 = v14;
   v89 = 0;
   v83 = 0LL;
@@ -313,7 +313,7 @@ __int64 __fastcall MiDeletePteRun(__int64 a1, __int64 a2)
           v25 = *(_QWORD *)(v22 - 0x58000000000LL + 8) | 0x8000000000000000uLL;
           if ( (*(_QWORD *)(v22 - 0x58000000000LL + 40) & 0x200000000000000LL) == 0 )
           {
-            if ( v24 == qword_14043ADC0 )
+            if ( v24 == qword_14043BE80 )
             {
               if ( !(unsigned int)MiPteInShadowRange(v5, ZeroPte, v10) )
                 goto LABEL_59;
@@ -327,7 +327,7 @@ LABEL_124:
                 }
                 goto LABEL_59;
               }
-              if ( HIBYTE(word_14043A1AC) || (v39 & 1) == 0 )
+              if ( HIBYTE(word_14043B26C) || (v39 & 1) == 0 )
                 goto LABEL_155;
             }
             else
@@ -365,7 +365,7 @@ LABEL_29:
               v30 = *(_BYTE *)(v24 + 34);
               if ( (v30 & 7) != 6 )
                 KeBugCheckEx(0x4Eu, 0x99uLL, v22 / 48, v30 & 7, *(_QWORD *)(v24 + 24) & 0x3FFFFFFFFFFFFFFFLL);
-              v31 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL));
+              v31 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL));
               v83 = v31;
               if ( (BugCheckParameter3 & 0x42) != 0 && (v30 & 0x10) == 0 )
               {
@@ -389,8 +389,8 @@ LABEL_29:
                 v75 = *(_QWORD *)(v24 + 16);
                 if ( (v75 & 0x400) == 0 || (BugCheckParameter3 & 0x200) != 0 )
                   goto LABEL_258;
-                if ( qword_14043A0C0 && (v75 & 0x10) == 0 )
-                  v75 &= ~qword_14043A0C0;
+                if ( qword_14043B180 && (v75 & 0x10) == 0 )
+                  v75 &= ~qword_14043B180;
                 if ( (*(_DWORD *)(*(_QWORD *)(v75 >> 16) + 56LL) & 0x820) == 0x820 )
 LABEL_258:
                   ++v29[3];
@@ -511,7 +511,7 @@ LABEL_56:
               if ( !(unsigned int)MiPteHasShadow(0xFFFFF6FB7DBED000uLL, ZeroPte) )
                 goto LABEL_124;
 LABEL_153:
-              if ( HIBYTE(word_14043A1AC) || (v39 & 1) == 0 )
+              if ( HIBYTE(word_14043B26C) || (v39 & 1) == 0 )
               {
 LABEL_155:
                 *(_QWORD *)v5 = v39;
@@ -590,7 +590,7 @@ LABEL_135:
           if ( !(_BYTE)v104 )
             goto LABEL_67;
           if ( v27 != v105
-            || *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL)) != v14
+            || *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL)) != v14
             || _interlockedbittestandset64((volatile signed __int32 *)(v24 + 24), 0x3FuLL) )
           {
             v79[1] += MiDeleteBatch(&v104);
@@ -633,13 +633,13 @@ LABEL_28:
           }
           v106[v42] = BugCheckParameter3;
           if ( !(_BYTE)v104 )
-            v83 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL));
+            v83 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL));
           v44 = ZeroPte;
           if ( v5 >= 0xFFFFF6FB7DBED000uLL && v5 <= 0xFFFFF6FB7DBED7F8uLL )
           {
             if ( (unsigned int)MiPteHasShadow(0xFFFFF6FB7DBED000uLL, ZeroPte) )
             {
-              if ( !HIBYTE(word_14043A1AC) && (v44 & 1) != 0 )
+              if ( !HIBYTE(word_14043B26C) && (v44 & 1) != 0 )
                 v44 |= 0x8000000000000000uLL;
               *(_QWORD *)v5 = v44;
               MiWritePteShadow(v5);

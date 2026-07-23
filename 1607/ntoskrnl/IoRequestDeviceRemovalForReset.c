@@ -1,18 +1,18 @@
 /*
- * XREFs of IoRequestDeviceRemovalForReset @ 0x14062C4DC
+ * XREFs of IoRequestDeviceRemovalForReset @ 0x14062C590
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     Template_hzr0 @ 0x1401CD52C (Template_hzr0.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     Template_hzr0 @ 0x1401CD378 (Template_hzr0.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopAllocateUnicodeString @ 0x1403F2594 (IopAllocateUnicodeString.c)
- *     PnpSetTargetDeviceRemove @ 0x1404C3F44 (PnpSetTargetDeviceRemove.c)
- *     IopFreeResetRemovalContext @ 0x14062C7CC (IopFreeResetRemovalContext.c)
- *     PnpTraceRequestDeviceRemovalForReset @ 0x14064954C (PnpTraceRequestDeviceRemovalForReset.c)
+ *     IopAllocateUnicodeString @ 0x1403F1458 (IopAllocateUnicodeString.c)
+ *     PnpSetTargetDeviceRemove @ 0x140484C7C (PnpSetTargetDeviceRemove.c)
+ *     IopFreeResetRemovalContext @ 0x14062C880 (IopFreeResetRemovalContext.c)
+ *     PnpTraceRequestDeviceRemovalForReset @ 0x140649630 (PnpTraceRequestDeviceRemovalForReset.c)
  */
 
 __int64 __fastcall IoRequestDeviceRemovalForReset(PVOID Object, unsigned int a2)
@@ -59,7 +59,7 @@ __int64 __fastcall IoRequestDeviceRemovalForReset(PVOID Object, unsigned int a2)
            (_DWORD *)(v6 + 164),
            v6 + 192,
            v6 + 200,
-           (__int64 *)(v6 + 168));
+           (_QWORD *)(v6 + 168));
   else
 LABEL_2:
     v7 = -1073741670;

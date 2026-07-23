@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapProcessWaitingETWEvents @ 0x1407C8690
+ * XREFs of WheapProcessWaitingETWEvents @ 0x1407C8B80
  * Callers:
- *     WheaProcessWaitingETWEvents @ 0x14065E260 (WheaProcessWaitingETWEvents.c)
- *     WheapEtwEnableCallback @ 0x1407C8340 (WheapEtwEnableCallback.c)
+ *     WheaProcessWaitingETWEvents @ 0x14065CA30 (WheaProcessWaitingETWEvents.c)
+ *     WheapEtwEnableCallback @ 0x1407C87E0 (WheapEtwEnableCallback.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WheapFreeErrorRecord @ 0x14047808C (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x1404780BC (WheapGenerateETWEvents.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WheapFreeErrorRecord @ 0x14047468C (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x1404746BC (WheapGenerateETWEvents.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
  */
 
 LONG WheapProcessWaitingETWEvents()
@@ -18,6 +18,7 @@ LONG WheapProcessWaitingETWEvents()
   __int64 v2; // rbx
   __int64 v3; // rax
   LONG result; // eax
+  __int64 v5; // rdx
 
   while ( 1 )
   {
@@ -41,17 +42,17 @@ LABEL_9:
   while ( 1 )
   {
     KeWaitForSingleObject(&WheapDeferredInternalLogsEventLock, Executive, 0, 0, 0LL);
-    v2 = *(_QWORD *)&WheapDispatchPtr.ActiveThreadCount;
-    if ( *(struct _DEVICE_OBJECT **)(*(_QWORD *)&WheapDispatchPtr.ActiveThreadCount + 8LL) != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.ActiveThreadCount )
+    v2 = WheapDeferredInternalLogs;
+    if ( *(__int64 **)(WheapDeferredInternalLogs + 8) != &WheapDeferredInternalLogs )
       goto LABEL_9;
-    v3 = **(_QWORD **)&WheapDispatchPtr.ActiveThreadCount;
-    if ( *(_QWORD *)(**(_QWORD **)&WheapDispatchPtr.ActiveThreadCount + 8LL) != *(_QWORD *)&WheapDispatchPtr.ActiveThreadCount )
+    v3 = *(_QWORD *)WheapDeferredInternalLogs;
+    if ( *(_QWORD *)(*(_QWORD *)WheapDeferredInternalLogs + 8LL) != WheapDeferredInternalLogs )
       goto LABEL_9;
-    *(_QWORD *)&WheapDispatchPtr.ActiveThreadCount = **(_QWORD **)&WheapDispatchPtr.ActiveThreadCount;
-    *(_QWORD *)(v3 + 8) = &WheapDispatchPtr.ActiveThreadCount;
+    WheapDeferredInternalLogs = *(_QWORD *)WheapDeferredInternalLogs;
+    *(_QWORD *)(v3 + 8) = &WheapDeferredInternalLogs;
     result = KeSetEvent(&WheapDeferredInternalLogsEventLock, 0, 0);
-    if ( (ULONG *)v2 == &WheapDispatchPtr.ActiveThreadCount )
+    if ( (__int64 *)v2 == &WheapDeferredInternalLogs )
       return result;
-    WheaLogInternalEvent((_DWORD *)(v2 + 16));
+    WheaLogInternalEvent((_DWORD *)(v2 + 16), v5);
   }
 }

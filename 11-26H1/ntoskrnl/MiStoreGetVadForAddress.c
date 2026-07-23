@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreGetVadForAddress @ 0x140394C1C
+ * XREFs of MiStoreGetVadForAddress @ 0x14039699C
  * Callers:
- *     MmStoreDecommitVirtualMemory @ 0x140394C5C (MmStoreDecommitVirtualMemory.c)
- *     MmStoreIsVirtualAddressPoisoned @ 0x14070AEB0 (MmStoreIsVirtualAddressPoisoned.c)
+ *     MmStoreDecommitVirtualMemory @ 0x1403969DC (MmStoreDecommitVirtualMemory.c)
+ *     MmStoreIsVirtualAddressPoisoned @ 0x14070FB60 (MmStoreIsVirtualAddressPoisoned.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
  */
 
 struct _LIST_ENTRY *__fastcall MiStoreGetVadForAddress(unsigned __int64 a1, __int64 a2, __int64 a3)

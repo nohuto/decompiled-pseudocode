@@ -1,11 +1,11 @@
 /*
- * XREFs of ResFwConfigureDisplayStringResources @ 0x140C50C5C
+ * XREFs of ResFwConfigureDisplayStringResources @ 0x140C56C5C
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140C545B8 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x140C5A5B8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpTxtRegionSize @ 0x140716540 (BgpTxtRegionSize.c)
- *     BgpTxtCreateRegion @ 0x140C51CF0 (BgpTxtCreateRegion.c)
- *     BgpFoGetFontHandle @ 0x140C54508 (BgpFoGetFontHandle.c)
+ *     BgpTxtRegionSize @ 0x14071B230 (BgpTxtRegionSize.c)
+ *     BgpTxtCreateRegion @ 0x140C57CF0 (BgpTxtCreateRegion.c)
+ *     BgpFoGetFontHandle @ 0x140C5A508 (BgpFoGetFontHandle.c)
  */
 
 __int64 __fastcall ResFwConfigureDisplayStringResources(__int64 a1)

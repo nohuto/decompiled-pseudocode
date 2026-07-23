@@ -1,7 +1,7 @@
 /*
- * XREFs of MiExamineHalVa @ 0x140CF2A08
+ * XREFs of MiExamineHalVa @ 0x140CF8D88
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
  *     <none>
  */

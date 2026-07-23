@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwQueryMultipleValueKey @ 0x1801648A0
+ * XREFs of ZwQueryMultipleValueKey @ 0x180162C60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryMultipleValueKey()
+NTSTATUS __cdecl ZwQueryMultipleValueKey(
+        HANDLE KeyHandle,
+        PKEY_VALUE_ENTRY ValueEntries,
+        ULONG EntryCount,
+        PVOID ValueBuffer,
+        PULONG BufferLength,
+        PULONG RequiredBufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 353LL;
+  result = 353;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

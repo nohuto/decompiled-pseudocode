@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpQueryInterruptSteeringInformation @ 0x14084C214
+ * XREFs of ExpQueryInterruptSteeringInformation @ 0x14084C514
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeIntSteerGetSteeringMode @ 0x140320388 (KeIntSteerGetSteeringMode.c)
- *     KeIntSteerIsSteeringEnabled @ 0x14036F194 (KeIntSteerIsSteeringEnabled.c)
+ *     KeIntSteerGetSteeringMode @ 0x140320618 (KeIntSteerGetSteeringMode.c)
+ *     KeIntSteerIsSteeringEnabled @ 0x14036F334 (KeIntSteerIsSteeringEnabled.c)
  */
 
 __int64 __fastcall ExpQueryInterruptSteeringInformation(int *a1, __int64 a2, _DWORD *a3, unsigned int a4, _DWORD *a5)

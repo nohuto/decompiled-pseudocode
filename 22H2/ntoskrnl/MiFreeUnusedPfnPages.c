@@ -27,7 +27,7 @@ char __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
   unsigned int v8; // edx
   bool v9; // zf
   __int64 v10; // rcx
-  unsigned __int64 v11; // rdi
+  __int64 v11; // rdi
   __int64 v12; // rdx
   __int64 v13; // rcx
   char result; // al
@@ -36,13 +36,13 @@ char __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
   unsigned __int8 v17; // r13
   unsigned int v18; // r8d
   __int64 v19; // rcx
-  unsigned __int64 v20; // rdi
+  __int64 v20; // rdi
   __int64 v21; // rdx
   __int64 v22; // rcx
   unsigned __int8 v23; // r14
   unsigned int v24; // edx
   __int64 v25; // rcx
-  unsigned __int64 v26; // rdi
+  __int64 v26; // rdi
   __int64 v27; // rdx
   int v28; // [rsp+34h] [rbp-35h] BYREF
   struct _KTHREAD *v29; // [rsp+38h] [rbp-31h]
@@ -88,7 +88,7 @@ char __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
         v36 = v25;
         if ( v9 )
           break;
-        v26 = (unsigned __int64)&v6->LockEntries[v25];
+        v26 = (__int64)&v6->LockEntries[v25];
         v24 &= ~(1 << v25);
         if ( (*(_BYTE *)(v26 + 26) & 1) != 0
           && (*(_DWORD *)(v26 + 32) & 1) == 0
@@ -102,12 +102,12 @@ char __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
             {
               *(_BYTE *)(v26 + 32) |= 2u;
               if ( *(__int64 *)(v26 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v26);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
               v37 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
               *(_DWORD *)(v26 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v26 + 25) &= ~1u;
               *(_QWORD *)(v26 + 32) = 0LL;
-              v27 = (__int64)(v26 - (unsigned __int64)v6->LockEntries) / 96;
+              v27 = (signed __int64)(v26 - (unsigned __int64)v6->LockEntries) / 96;
               if ( v23 == 1 )
                 v6->AbEntrySummary |= 1 << v27;
               else
@@ -151,7 +151,7 @@ LABEL_27:
       v35 = v19;
       if ( v9 )
         break;
-      v20 = (unsigned __int64)&v15->LockEntries[v19];
+      v20 = (__int64)&v15->LockEntries[v19];
       v18 &= ~(1 << v19);
       if ( (*(_BYTE *)(v20 + 26) & 1) != 0
         && (*(_DWORD *)(v20 + 32) & 1) == 0
@@ -165,13 +165,13 @@ LABEL_27:
           {
             *(_BYTE *)(v20 + 32) |= 2u;
             if ( *(__int64 *)(v20 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v20);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
             v34 = 0;
             v34 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
             *(_DWORD *)(v20 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v20 + 25) &= ~1u;
             *(_QWORD *)(v20 + 32) = 0LL;
-            v21 = (__int64)(v20 - (unsigned __int64)v15->LockEntries) / 96;
+            v21 = (signed __int64)(v20 - (unsigned __int64)v15->LockEntries) / 96;
             if ( v17 == 1 )
               v15->AbEntrySummary |= 1 << v21;
             else
@@ -212,7 +212,7 @@ LABEL_49:
     v9 = !_BitScanReverse((unsigned int *)&v10, v8);
     if ( v9 )
       break;
-    v11 = (unsigned __int64)&v6->LockEntries[v10];
+    v11 = (__int64)&v6->LockEntries[v10];
     v8 &= ~(1 << v10);
     if ( (*(_BYTE *)(v11 + 26) & 1) != 0
       && (*(_DWORD *)(v11 + 32) & 1) == 0
@@ -226,12 +226,12 @@ LABEL_49:
         {
           *(_BYTE *)(v11 + 32) |= 2u;
           if ( *(__int64 *)(v11 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v11);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
           v28 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
           *(_DWORD *)(v11 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v11 + 25) &= ~1u;
           *(_QWORD *)(v11 + 32) = 0LL;
-          v12 = (__int64)(v11 - (unsigned __int64)v6->LockEntries) / 96;
+          v12 = (signed __int64)(v11 - (unsigned __int64)v6->LockEntries) / 96;
           if ( v7 == 1 )
             v6->AbEntrySummary |= 1 << v12;
           else

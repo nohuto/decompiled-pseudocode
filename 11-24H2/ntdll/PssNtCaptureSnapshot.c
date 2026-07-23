@@ -1,253 +1,251 @@
 /*
- * XREFs of PssNtCaptureSnapshot @ 0x1800C3790
+ * XREFs of PssNtCaptureSnapshot @ 0x1800BB350
  * Callers:
  *     <none>
  * Callees:
- *     RtlQueryPerformanceCounter @ 0x18003A620 (RtlQueryPerformanceCounter.c)
- *     PsspCaptureAuxiliaryPages @ 0x1800C2A20 (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureThreadInformation @ 0x1800C2CCC (PsspCaptureThreadInformation.c)
- *     PsspCaptureProcessInformation @ 0x1800C3DAC (PsspCaptureProcessInformation.c)
- *     PsspCaptureHandleInformation @ 0x1800C3F68 (PsspCaptureHandleInformation.c)
- *     PssNtFreeSnapshot @ 0x1800C45F0 (PssNtFreeSnapshot.c)
- *     PsspCaptureVaSpaceInformation @ 0x1800C5268 (PsspCaptureVaSpaceInformation.c)
- *     PsspSampleCounters @ 0x1801118C4 (PsspSampleCounters.c)
- *     PsspCaptureIptTrace @ 0x18015CC50 (PsspCaptureIptTrace.c)
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
- *     ZwQueryInformationThread @ 0x180162130 (ZwQueryInformationThread.c)
- *     ZwCreateProcessEx @ 0x180162630 (ZwCreateProcessEx.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlQueryPerformanceCounter @ 0x18001A8A0 (RtlQueryPerformanceCounter.c)
+ *     PsspCaptureAuxiliaryPages @ 0x1800BA5E4 (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureThreadInformation @ 0x1800BA890 (PsspCaptureThreadInformation.c)
+ *     PsspCaptureProcessInformation @ 0x1800BB96C (PsspCaptureProcessInformation.c)
+ *     PsspCaptureHandleInformation @ 0x1800BBB28 (PsspCaptureHandleInformation.c)
+ *     PssNtFreeSnapshot @ 0x1800BC1B0 (PssNtFreeSnapshot.c)
+ *     PsspCaptureVaSpaceInformation @ 0x1800BCE28 (PsspCaptureVaSpaceInformation.c)
+ *     PsspSampleCounters @ 0x18010CCD4 (PsspSampleCounters.c)
+ *     PsspCaptureIptTrace @ 0x18015B010 (PsspCaptureIptTrace.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
+ *     ZwQueryInformationThread @ 0x1801604F0 (ZwQueryInformationThread.c)
+ *     ZwCreateProcessEx @ 0x1801609F0 (ZwCreateProcessEx.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PssNtCaptureSnapshot(void **a1, __int64 a2, unsigned int a3, unsigned int a4)
+NTSTATUS __cdecl PssNtCaptureSnapshot(
+        PHANDLE SnapshotHandle,
+        HANDLE ProcessHandle,
+        ULONG CaptureFlags,
+        ULONG ThreadContextFlags)
 {
-  __int64 v4; // rdi
-  int v7; // r12d
+  char *v4; // rdi
+  ULONG v7; // r12d
   __int64 v8; // rbx
-  int v9; // esi
-  _DWORD *v10; // rcx
+  ULONG v9; // esi
+  HANDLE v10; // rcx
   int v11; // r13d
-  __int64 v12; // rdx
-  __int64 v13; // rdx
-  int v14; // r13d
-  __int64 v15; // r13
-  int v16; // r12d
-  __int64 result; // rax
-  __int64 v18; // rcx
-  int v19; // eax
-  __int64 v20; // rcx
-  _DWORD *v21; // [rsp+50h] [rbp-69h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-61h] BYREF
-  __int64 v23; // [rsp+60h] [rbp-59h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-51h] BYREF
-  int i; // [rsp+70h] [rbp-49h]
-  int v26; // [rsp+74h] [rbp-45h]
-  __int64 v27; // [rsp+78h] [rbp-41h] BYREF
-  unsigned int v28; // [rsp+80h] [rbp-39h]
-  __int64 v29; // [rsp+88h] [rbp-31h] BYREF
-  __int64 v30; // [rsp+90h] [rbp-29h] BYREF
-  __int64 v31; // [rsp+98h] [rbp-21h] BYREF
-  __int64 v32; // [rsp+A0h] [rbp-19h] BYREF
-  __int128 v33; // [rsp+A8h] [rbp-11h] BYREF
-  __int128 v34; // [rsp+B8h] [rbp-1h] BYREF
+  HANDLE v12; // rdx
+  int v13; // r13d
+  HANDLE v14; // r13
+  NTSTATUS v15; // r12d
+  NTSTATUS result; // eax
+  __int64 v17; // rcx
+  ULONG v18; // eax
+  __int64 v19; // rcx
+  PVOID BaseAddress; // [rsp+50h] [rbp-69h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-61h] BYREF
+  __int64 v22; // [rsp+60h] [rbp-59h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-51h] BYREF
+  ULONG i; // [rsp+70h] [rbp-49h]
+  int v25; // [rsp+74h] [rbp-45h]
+  __int64 v26; // [rsp+78h] [rbp-41h] BYREF
+  ULONG v27; // [rsp+80h] [rbp-39h]
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp-31h] BYREF
+  HANDLE ProcessHandlea; // [rsp+90h] [rbp-29h] BYREF
+  __int64 v30; // [rsp+98h] [rbp-21h] BYREF
+  __int64 v31; // [rsp+A0h] [rbp-19h] BYREF
+  __int128 ThreadInformation; // [rsp+A8h] [rbp-11h] BYREF
+  HANDLE ParentProcess[2]; // [rsp+B8h] [rbp-1h] BYREF
 
   v4 = 0LL;
-  v28 = a4;
-  *(_QWORD *)&v34 = a2;
-  v29 = 0LL;
-  v22 = 0LL;
-  *(_QWORD *)&v33 = 0LL;
-  v30 = 0LL;
-  if ( (a3 & 0x3FF8000) != 0 )
-    return 3221225485LL;
-  v7 = a3 & 0x1C000000;
-  if ( (a3 & 0x1C000000) == 0x4000000 )
-    return 3221225520LL;
-  v24 = 0LL;
-  v32 = 0LL;
-  v8 = 0LL;
+  v27 = ThreadContextFlags;
+  ParentProcess[0] = ProcessHandle;
+  RegionSize = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
+  *(_QWORD *)&ThreadInformation = 0LL;
+  ProcessHandlea = 0LL;
+  if ( (CaptureFlags & 0x3FF8000) != 0 )
+    return -1073741811;
+  v7 = CaptureFlags & 0x1C000000;
+  if ( (CaptureFlags & 0x1C000000) == 0x4000000 )
+    return -1073741776;
   v23 = 0LL;
   v31 = 0LL;
-  v9 = a3 & 0x40000000;
-  if ( (a3 & 0x40000000) != 0 )
+  v8 = 0LL;
+  v22 = 0LL;
+  v30 = 0LL;
+  v9 = CaptureFlags & 0x40000000;
+  if ( (CaptureFlags & 0x40000000) != 0 )
   {
     v8 = MEMORY[0x7FFE0300];
-    PsspSampleCounters(&v32, &v31);
+    PsspSampleCounters(&v31, &v30);
   }
-  v10 = *a1;
+  v10 = *SnapshotHandle;
   v11 = 0;
-  v21 = v10;
+  BaseAddress = v10;
   if ( !v10 )
   {
-    v29 = 1144LL;
-    result = ZwAllocateVirtualMemory(-1LL, &v21, 0LL, &v29, 4096, 4);
-    if ( (int)result < 0 )
+    RegionSize = 1144LL;
+    result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+    if ( result < 0 )
       return result;
-    v10 = v21;
+    v10 = BaseAddress;
     v11 = 1;
-    *a1 = v21;
+    *SnapshotHandle = BaseAddress;
   }
   memset_thunk_772440563353939046(v10, 0, 0x478uLL);
-  v12 = v34;
-  *v21 = 1146311504;
-  v21[1] = v11;
-  v21[2] = a3;
-  v14 = PsspCaptureProcessInformation(v21, v12, a3);
-  if ( v14 < 0 )
+  v12 = ParentProcess[0];
+  *(_DWORD *)BaseAddress = 1146311504;
+  *((_DWORD *)BaseAddress + 1) = v11;
+  *((_DWORD *)BaseAddress + 2) = CaptureFlags;
+  v13 = PsspCaptureProcessInformation(BaseAddress, v12, CaptureFlags);
+  if ( v13 < 0 )
     goto LABEL_20;
-  if ( (a3 & 2) != 0 )
+  if ( (CaptureFlags & 2) != 0 )
   {
     if ( v9 )
-      PsspSampleCounters(&v24, &v23);
-    v27 = 2147352576LL;
-    v14 = PsspCaptureAuxiliaryPages((__int64)v21, v34, a3, &v27);
-    if ( v14 < 0 )
+      PsspSampleCounters(&v23, &v22);
+    v26 = 2147352576LL;
+    v13 = PsspCaptureAuxiliaryPages((__int64)BaseAddress, ParentProcess[0], CaptureFlags, (PVOID *)&v26);
+    if ( v13 < 0 )
       goto LABEL_20;
     if ( v9 )
     {
-      PsspSampleCounters(&v22, &v33);
-      *((_QWORD *)v21 + 135) = v33 - v23;
-      v13 = 1000000 * (v22 - v24) % v8;
-      *((_QWORD *)v21 + 136) = 1000000 * (v22 - v24) / v8;
+      PsspSampleCounters(&PerformanceCounter, &ThreadInformation);
+      *((_QWORD *)BaseAddress + 135) = ThreadInformation - v22;
+      *((_QWORD *)BaseAddress + 136) = 1000000 * (PerformanceCounter.QuadPart - v23) / v8;
     }
   }
-  if ( (a3 & 0x800) == 0 )
+  if ( (CaptureFlags & 0x800) == 0 )
     goto LABEL_9;
   if ( v9 )
-    PsspSampleCounters(&v24, &v23);
-  v14 = PsspCaptureVaSpaceInformation(v21, v34, a3);
-  if ( v14 < 0 )
+    PsspSampleCounters(&v23, &v22);
+  v13 = PsspCaptureVaSpaceInformation(BaseAddress, ParentProcess[0], CaptureFlags);
+  if ( v13 < 0 )
   {
 LABEL_20:
-    PssNtFreeSnapshot(v21);
-    result = (unsigned int)v14;
-    *a1 = 0LL;
+    PssNtFreeSnapshot(BaseAddress);
+    result = v13;
+    *SnapshotHandle = 0LL;
     return result;
   }
   if ( v9 )
   {
-    v33 = 0LL;
-    RtlQueryPerformanceCounter(&v22, v13);
-    if ( (int)ZwQueryInformationThread(-2LL, 23LL, &v33, 16LL, 0LL) < 0 )
+    ThreadInformation = 0LL;
+    RtlQueryPerformanceCounter(&PerformanceCounter);
+    if ( ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadCycleTime, &ThreadInformation, 0x10u, 0LL) < 0 )
     {
-      *(_QWORD *)&v33 = 0LL;
-      v18 = 0LL;
+      *(_QWORD *)&ThreadInformation = 0LL;
+      v17 = 0LL;
     }
     else
     {
-      v18 = v33;
+      v17 = ThreadInformation;
     }
-    *((_QWORD *)v21 + 133) = v18 - v23;
-    v13 = 1000000 * (v22 - v24) % v8;
-    *((_QWORD *)v21 + 134) = 1000000 * (v22 - v24) / v8;
+    *((_QWORD *)BaseAddress + 133) = v17 - v22;
+    *((_QWORD *)BaseAddress + 134) = 1000000 * (PerformanceCounter.QuadPart - v23) / v8;
   }
 LABEL_9:
-  if ( (a3 & 1) != 0 )
+  if ( (CaptureFlags & 1) != 0 )
   {
     if ( v9 )
-      PsspSampleCounters(&v24, &v23);
-    v19 = ((int)a3 >> 31) & 0x1000;
-    for ( i = v19; ; v19 = i )
+      PsspSampleCounters(&v23, &v22);
+    v18 = ((int)CaptureFlags >> 31) & 0x1000;
+    for ( i = v18; ; v18 = i )
     {
-      v26 = v7 & 0x10000000;
-      LODWORD(v27) = v7 & 0x8000000;
+      v25 = v7 & 0x10000000;
+      LODWORD(v26) = v7 & 0x8000000;
       if ( (v7 & 0x10000000) != 0 )
       {
-        v19 |= 0x400u;
+        v18 |= 0x400u;
       }
       else if ( (v7 & 0x8000000) != 0 )
       {
-        v19 |= 1u;
+        v18 |= 1u;
       }
-      v14 = ZwCreateProcessEx(&v30, 5144LL, 0LL, v34, v19, 0LL, 0LL, 0LL, 0);
-      if ( v14 >= 0 )
+      v13 = ZwCreateProcessEx(&ProcessHandlea, 0x1418u, 0LL, ParentProcess[0], v18, 0LL, 0LL, 0LL, 0);
+      if ( v13 >= 0 )
         break;
       if ( (v7 & 0x4000000) == 0 )
         goto LABEL_20;
-      if ( v26 )
+      if ( v25 )
       {
         v7 &= ~0x10000000u;
       }
       else
       {
-        if ( !(_DWORD)v27 )
+        if ( !(_DWORD)v26 )
           goto LABEL_20;
         v7 &= ~0x8000000u;
       }
     }
-    *((_QWORD *)v21 + 110) = MEMORY[0x7FFE0014];
-    *((_QWORD *)v21 + 109) = v30;
+    *((_QWORD *)BaseAddress + 110) = MEMORY[0x7FFE0014];
+    *((_QWORD *)BaseAddress + 109) = ProcessHandlea;
     if ( v9 )
     {
-      v33 = 0LL;
-      RtlQueryPerformanceCounter(&v22, v13);
-      if ( (int)ZwQueryInformationThread(-2LL, 23LL, &v33, 16LL, 0LL) < 0 )
+      ThreadInformation = 0LL;
+      RtlQueryPerformanceCounter(&PerformanceCounter);
+      if ( ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadCycleTime, &ThreadInformation, 0x10u, 0LL) < 0 )
       {
-        *(_QWORD *)&v33 = 0LL;
-        v20 = 0LL;
+        *(_QWORD *)&ThreadInformation = 0LL;
+        v19 = 0LL;
       }
       else
       {
-        v20 = v33;
+        v19 = ThreadInformation;
       }
-      *((_QWORD *)v21 + 131) = v20 - v23;
-      v13 = 1000000 * (v22 - v24) % v8;
-      *((_QWORD *)v21 + 132) = 1000000 * (v22 - v24) / v8;
+      *((_QWORD *)BaseAddress + 131) = v19 - v22;
+      *((_QWORD *)BaseAddress + 132) = 1000000 * (PerformanceCounter.QuadPart - v23) / v8;
     }
   }
-  if ( (a3 & 4) != 0 )
+  if ( (CaptureFlags & 4) != 0 )
   {
     if ( v9 )
-      PsspSampleCounters(&v24, &v23);
-    v15 = v34;
-    v16 = PsspCaptureHandleInformation(v21, v34, a3);
-    if ( v16 < 0 )
+      PsspSampleCounters(&v23, &v22);
+    v14 = ParentProcess[0];
+    v15 = PsspCaptureHandleInformation(BaseAddress, ParentProcess[0], CaptureFlags);
+    if ( v15 < 0 )
       goto LABEL_14;
     if ( v9 )
     {
-      PsspSampleCounters(&v22, &v33);
-      *((_QWORD *)v21 + 137) = v33 - v23;
-      v13 = 1000000 * (v22 - v24) % v8;
-      *((_QWORD *)v21 + 138) = 1000000 * (v22 - v24) / v8;
+      PsspSampleCounters(&PerformanceCounter, &ThreadInformation);
+      *((_QWORD *)BaseAddress + 137) = ThreadInformation - v22;
+      *((_QWORD *)BaseAddress + 138) = 1000000 * (PerformanceCounter.QuadPart - v23) / v8;
     }
   }
   else
   {
-    v15 = v34;
+    v14 = ParentProcess[0];
   }
-  if ( (a3 & 0x80u) != 0 )
+  if ( (CaptureFlags & 0x80u) != 0 )
   {
     if ( v9 )
-      PsspSampleCounters(&v24, &v23);
-    v16 = PsspCaptureThreadInformation((__int64)v21, v15, a3, v28);
-    if ( v16 < 0 )
+      PsspSampleCounters(&v23, &v22);
+    v15 = PsspCaptureThreadInformation((__int64)BaseAddress, v14, CaptureFlags, v27);
+    if ( v15 < 0 )
     {
 LABEL_14:
-      PssNtFreeSnapshot(v21);
-      result = (unsigned int)v16;
-      *a1 = 0LL;
+      PssNtFreeSnapshot(BaseAddress);
+      result = v15;
+      *SnapshotHandle = 0LL;
       return result;
     }
     if ( !v9 )
       goto LABEL_28;
-    PsspSampleCounters(&v22, &v33);
-    *((_QWORD *)v21 + 139) = v33 - v23;
-    v13 = 1000000 * (v22 - v24) % v8;
-    *((_QWORD *)v21 + 140) = 1000000 * (v22 - v24) / v8;
+    PsspSampleCounters(&PerformanceCounter, &ThreadInformation);
+    *((_QWORD *)BaseAddress + 139) = ThreadInformation - v22;
+    *((_QWORD *)BaseAddress + 140) = 1000000 * (PerformanceCounter.QuadPart - v23) / v8;
     goto LABEL_49;
   }
   if ( v9 )
   {
 LABEL_49:
-    v34 = 0LL;
-    RtlQueryPerformanceCounter(&v22, v13);
-    if ( (int)ZwQueryInformationThread(-2LL, 23LL, &v34, 16LL, 0LL) >= 0 )
-      v4 = v34;
-    *((_QWORD *)v21 + 129) = v4 - v31;
-    *((_QWORD *)v21 + 130) = 1000000 * (v22 - v32) / v8;
+    *(_OWORD *)ParentProcess = 0LL;
+    RtlQueryPerformanceCounter(&PerformanceCounter);
+    if ( ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadCycleTime, ParentProcess, 0x10u, 0LL) >= 0 )
+      v4 = (char *)ParentProcess[0];
+    *((_QWORD *)BaseAddress + 129) = &v4[-v30];
+    *((_QWORD *)BaseAddress + 130) = 1000000 * (PerformanceCounter.QuadPart - v31) / v8;
   }
 LABEL_28:
-  if ( (a3 & 0x2000) != 0 )
-    PsspCaptureIptTrace(v21, v15);
-  return 0LL;
+  if ( (CaptureFlags & 0x2000) != 0 )
+    PsspCaptureIptTrace(BaseAddress, v14);
+  return 0;
 }

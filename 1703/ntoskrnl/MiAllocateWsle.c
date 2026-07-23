@@ -139,7 +139,8 @@ __int64 __fastcall MiAllocateWsle(__int64 a1, __int64 *a2, __int64 a3, char a4, 
     if ( (*(_BYTE *)(a1 + 192) & 7) == 4 )
     {
       if ( PsNtosImageBase
-        && (v12 >= PsNtosImageBase && v12 < PsNtosImageEnd || v12 >= PsHalImageBase && v12 < PsHalImageEnd) )
+        && (v12 >= (unsigned __int64)PsNtosImageBase && v12 < PsNtosImageEnd
+         || v12 >= (unsigned __int64)PsHalImageBase && v12 < PsHalImageEnd) )
       {
         LODWORD(xmmword_14036C0E0) = xmmword_14036C0E0 + 1;
       }

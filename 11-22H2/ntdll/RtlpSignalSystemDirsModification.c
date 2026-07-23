@@ -9,23 +9,21 @@
  *     RtlpInvalidatePathCache @ 0x1800789C0 (RtlpInvalidatePathCache.c)
  */
 
-signed __int64 RtlpSignalSystemDirsModification()
+void RtlpSignalSystemDirsModification()
 {
-  __int64 v0; // rsi
-  __int64 v1; // rdi
-  __int64 v2; // rbx
-  signed __int64 result; // rax
+  void *v0; // rsi
+  void *v1; // rdi
+  void *v2; // rbx
 
   RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-  v0 = RtlpInvalidatePathCache(&RtlpDllSearchPath);
-  v1 = RtlpInvalidatePathCache((__int64 *)&RtlpExeSearchPath);
-  v2 = RtlpInvalidatePathCache(&RtlpSearchPath);
-  result = RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  v0 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPath);
+  v1 = (void *)RtlpInvalidatePathCache((__int64 *)&RtlpExeSearchPath);
+  v2 = (void *)RtlpInvalidatePathCache(&RtlpSearchPath);
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   if ( v0 )
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v0);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v0);
   if ( v1 )
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   if ( v2 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v2);
-  return result;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
 }

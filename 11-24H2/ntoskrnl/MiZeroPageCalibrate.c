@@ -1,22 +1,22 @@
 /*
- * XREFs of MiZeroPageCalibrate @ 0x140693E8C
+ * XREFs of MiZeroPageCalibrate @ 0x140694F5C
  * Callers:
- *     MiInitializeZeroEngines @ 0x1407FF3F0 (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x1407FFB34 (MiInitializeZeroEngines.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     MiIsCalibrationWorthwhile @ 0x1402D1A6C (MiIsCalibrationWorthwhile.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140415BB8 (MiDeleteAcceleratorDescriptor.c)
- *     MiAllocateAcceleratorDescriptor @ 0x140690914 (MiAllocateAcceleratorDescriptor.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x140693034 (MiAllocateZeroCalibrationBuffer.c)
- *     MiFreeZeroCalibrationBuffer @ 0x140693634 (MiFreeZeroCalibrationBuffer.c)
- *     MiMergeCalibrationResults @ 0x1406938F4 (MiMergeCalibrationResults.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140271A18 (MiDeleteAcceleratorDescriptor.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     MiIsCalibrationWorthwhile @ 0x140490824 (MiIsCalibrationWorthwhile.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1406919E4 (MiAllocateAcceleratorDescriptor.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x140694104 (MiAllocateZeroCalibrationBuffer.c)
+ *     MiFreeZeroCalibrationBuffer @ 0x140694704 (MiFreeZeroCalibrationBuffer.c)
+ *     MiMergeCalibrationResults @ 0x1406949C4 (MiMergeCalibrationResults.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiZeroPageCalibrate(int *a1)
@@ -34,8 +34,8 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
   char v12; // al
   unsigned int v13; // edx
   int AcceleratorDescriptor; // eax
-  struct _SLIST_ENTRY *v15; // r14
-  struct _SLIST_ENTRY *v16; // rdx
+  _SLIST_ENTRY *v15; // r14
+  _SLIST_ENTRY *v16; // rdx
   __int64 v17; // rax
   unsigned int v18; // esi
   int v19; // r14d
@@ -71,7 +71,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
   v8 = *(_QWORD *)(v5 + 48);
   v9 = *(unsigned int *)(v5 + 56);
   *(_QWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x28) = v8;
-  v10 = qword_140E2DAF8;
+  v10 = qword_140E2DC38;
   *(_DWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x14C) = v9;
   v11 = *(_QWORD *)(384 * v9 + v10 + 376);
   v12 = *(_BYTE *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x59);
@@ -81,7 +81,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
   v13 = a1[43];
   *(_BYTE *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x59) = v12;
   *v1 = v13;
-  while ( !(unsigned int)MiIsCalibrationWorthwhile(56 * (3 * v7 + v6) + 72 + v11, v13, v9, 0) )
+  while ( !(unsigned int)MiIsCalibrationWorthwhile(56 * (3 * v7 + v6) + 72 + v11, v13, (unsigned int)v9, 0LL) )
   {
     v13 = *v1;
     ++v6;
@@ -100,7 +100,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
       RtlRaiseStatus(-2147483646);
     *(_OWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x170) = 0LL;
     AcceleratorDescriptor = MiAllocateAcceleratorDescriptor(0LL, v9, 0, (_QWORD *)v1 + 1);
-    v15 = *(struct _SLIST_ENTRY **)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 8);
+    v15 = *(_SLIST_ENTRY **)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 8);
     v3 = AcceleratorDescriptor;
     if ( v15 )
     {
@@ -127,7 +127,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
         + 72LL
         + 56 * (v17 + 2LL * (int)v7 + (int)v7);
     *(_QWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x30) = v21;
-    if ( (unsigned int)MiIsCalibrationWorthwhile(v21, v18, v9, 0) )
+    if ( (unsigned int)MiIsCalibrationWorthwhile(v21, v18, (unsigned int)v9, 0LL) )
     {
       *(_QWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x150) = 0LL;
       *(_QWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x90) = 0LL;

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmCommitSessionMappedView @ 0x1406A5250
+ * XREFs of MmCommitSessionMappedView @ 0x140602E80
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiLocatePagefileSubsection @ 0x140316CFC (MiLocatePagefileSubsection.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiChargeSegmentCommit @ 0x14061FED0 (MiChargeSegmentCommit.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiLocatePagefileSubsection @ 0x140321A4C (MiLocatePagefileSubsection.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiChargeSegmentCommit @ 0x140689B40 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
   unsigned int *v16; // rax
   unsigned int *v17; // rdx
   unsigned __int64 v18; // r8
-  __int64 *v19; // r10
+  unsigned __int64 v19; // r10
   unsigned __int64 v20; // rcx
   int v21; // eax
   volatile signed __int64 *v22; // rdi
@@ -100,7 +100,7 @@ LABEL_29:
   }
   v17 = v16;
   v18 = v16[11];
-  v19 = (__int64 *)(*((_QWORD *)v16 + 1) + 8 * v28);
+  v19 = *((_QWORD *)v16 + 1) + 8 * v28;
   v20 = v11 + v28;
   v28 = v20;
   if ( v20 > v18 )
@@ -116,7 +116,7 @@ LABEL_29:
     }
     while ( v20 > (unsigned int)v18 );
   }
-  v21 = MiChargeSegmentCommit((__int64 *)v16, v19, v11);
+  v21 = MiChargeSegmentCommit(v16, v19, v11);
   v22 = *(volatile signed __int64 **)(v8 + 200);
   v23 = v21;
   if ( (_InterlockedExchangeAdd64(v22, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

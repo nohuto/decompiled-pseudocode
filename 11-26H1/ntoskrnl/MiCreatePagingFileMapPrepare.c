@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreatePagingFileMapPrepare @ 0x1409B85F4
+ * XREFs of MiCreatePagingFileMapPrepare @ 0x1409895D4
  * Callers:
- *     MiCreatePagingFileMap @ 0x1409B88BC (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x14098989C (MiCreatePagingFileMap.c)
  * Callees:
- *     MiInitializeLargePfnList @ 0x1404617F0 (MiInitializeLargePfnList.c)
- *     MiValidateUserPhysicalExternalFlags @ 0x14077CAB4 (MiValidateUserPhysicalExternalFlags.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     MiInitializeLargePfnList @ 0x14045A7B0 (MiInitializeLargePfnList.c)
+ *     MiValidateUserPhysicalExternalFlags @ 0x14077F5A8 (MiValidateUserPhysicalExternalFlags.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall MiCreatePagingFileMapPrepare(_QWORD *a1)

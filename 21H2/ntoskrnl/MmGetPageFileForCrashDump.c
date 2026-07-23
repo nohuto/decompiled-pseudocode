@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetPageFileForCrashDump @ 0x1408D09E4
+ * XREFs of MmGetPageFileForCrashDump @ 0x1408D0B44
  * Callers:
- *     IoConfigureCrashDump @ 0x1403BFE04 (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1403C0230 (IoConfigureCrashDump.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 __int64 MmGetPageFileForCrashDump()
@@ -22,10 +22,10 @@ __int64 MmGetPageFileForCrashDump()
   v1 = 0LL;
   v2 = 0LL;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C51190, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)qword_140C511D0, 0LL);
   if ( Count )
   {
-    v3 = (char *)&unk_140C528A0;
+    v3 = (char *)&unk_140C528E0;
     v4 = Count;
     do
     {
@@ -40,9 +40,9 @@ __int64 MmGetPageFileForCrashDump()
     }
     while ( v4 );
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C51190, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140C51190);
-  KeAbPostRelease((ULONG_PTR)&qword_140C51190);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C511D0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(qword_140C511D0);
+  KeAbPostRelease((ULONG_PTR)qword_140C511D0);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v1;
 }

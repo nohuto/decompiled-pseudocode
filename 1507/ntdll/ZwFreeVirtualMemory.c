@@ -42,11 +42,11 @@
  *     <none>
  */
 
-__int64 ZwFreeVirtualMemory()
+NTSTATUS __cdecl ZwFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 30LL;
+  result = 30;
   __asm { syscall; Low latency system call }
   return result;
 }

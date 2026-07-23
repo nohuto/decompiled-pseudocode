@@ -18,27 +18,26 @@
 __int64 __fastcall LdrpLoadEnclaveModule(unsigned __int16 *a1)
 {
   __int64 v1; // r14
-  __int64 v2; // r15
+  void *PageInformation; // r15
   _QWORD *v4; // rbp
   __int64 result; // rax
   unsigned __int64 v6; // rdi
   __int64 v7; // rdx
-  int EnclaveData; // esi
-  __int64 v9; // r9
-  signed __int64 v10; // rcx
-  unsigned __int64 v11; // rdi
-  unsigned int v12; // esi
-  __int64 Heap; // rax
+  NTSTATUS EnclaveData; // esi
+  signed __int64 v9; // rcx
+  void *v10; // rdi
+  ULONG PageInformationLength; // esi
+  char *Heap; // rax
+  __int64 v13; // rax
   __int64 v14; // rax
-  __int64 v15; // rax
 
   v1 = *((_QWORD *)a1 + 7);
-  v2 = 0LL;
+  PageInformation = 0LL;
   v4 = (_QWORD *)*((_QWORD *)a1 + 22);
   if ( (*((_DWORD *)a1 + 8) & 0x200) != 0 )
     result = LdrpMapDllFullPath((__int64)a1);
   else
-    result = LdrpMapDllSearchPath((__int64)a1);
+    result = LdrpMapDllSearchPath((UNICODE_STRING *)a1);
   if ( (int)result < 0 )
     return result;
   v6 = v4[11];
@@ -51,36 +50,45 @@ __int64 __fastcall LdrpLoadEnclaveModule(unsigned __int16 *a1)
       v7 = -4096LL;
       if ( !v6 )
         v6 = (v4[9] + v4[10]) & 0xFFFFFFFFFFFFF000uLL;
-      v10 = *(unsigned int *)(v1 + 64);
-      if ( (__int64)(v6 - v4[9]) < v10 )
+      v9 = *(unsigned int *)(v1 + 64);
+      if ( (__int64)(v6 - v4[9]) < v9 )
       {
         EnclaveData = -1073741800;
       }
       else
       {
-        v11 = (v6 - v10) & 0xFFFFFFFFFFFFF000uLL;
-        v12 = *a1 + 10;
-        Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v12);
-        v2 = Heap;
+        v10 = (void *)((v6 - v9) & 0xFFFFFFFFFFFFF000uLL);
+        PageInformationLength = *a1 + 10;
+        Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, PageInformationLength);
+        PageInformation = Heap;
         if ( Heap )
         {
           *(_QWORD *)Heap = *((_QWORD *)a1 + 3);
-          *(_WORD *)(Heap + 8) = *a1;
-          memmove((void *)(Heap + 10), *((const void **)a1 + 1), *a1);
-          EnclaveData = NtLoadEnclaveData(-1LL, v11, 0LL, 0LL, 0, v2, v12, 0LL, 0LL);
+          *((_WORD *)Heap + 4) = *a1;
+          memmove(Heap + 10, *((const void **)a1 + 1), *a1);
+          EnclaveData = NtLoadEnclaveData(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          v10,
+                          0LL,
+                          0LL,
+                          0,
+                          PageInformation,
+                          PageInformationLength,
+                          0LL,
+                          0LL);
           if ( EnclaveData >= 0 )
           {
-            v4[11] = v11;
-            v14 = *(_QWORD *)(v1 + 152);
-            *(_QWORD *)(v1 + 184) = v11;
-            *(_DWORD *)(v14 + 56) = 9;
-            v15 = v4[14];
-            if ( !v15 )
+            v4[11] = v10;
+            v13 = *(_QWORD *)(v1 + 152);
+            *(_QWORD *)(v1 + 184) = v10;
+            *(_DWORD *)(v13 + 56) = 9;
+            v14 = v4[14];
+            if ( !v14 )
             {
               v4[14] = v1;
-              v15 = v1;
+              v14 = v1;
             }
-            if ( v1 == v15 )
+            if ( v1 == v14 )
               goto LABEL_7;
             goto LABEL_12;
           }
@@ -96,8 +104,8 @@ __int64 __fastcall LdrpLoadEnclaveModule(unsigned __int16 *a1)
 LABEL_12:
   LdrpUnmapModule(v1, v7);
 LABEL_7:
-  if ( v2 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v2, v9);
+  if ( PageInformation )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, PageInformation);
   NtClose(*((HANDLE *)a1 + 3));
   NtClose(*((HANDLE *)a1 + 23));
   *((_QWORD *)a1 + 3) = 0LL;

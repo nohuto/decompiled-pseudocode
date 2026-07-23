@@ -1,16 +1,16 @@
 /*
- * XREFs of ViPnpVerifyMinorWasProcessedProperly @ 0x140C3AEC0
+ * XREFs of ViPnpVerifyMinorWasProcessedProperly @ 0x140C40ED0
  * Callers:
- *     VfPnpVerifyIrpStackDownward @ 0x140C3AA50 (VfPnpVerifyIrpStackDownward.c)
- *     VfPnpVerifyIrpStackUpward @ 0x140C3ABE0 (VfPnpVerifyIrpStackUpward.c)
+ *     VfPnpVerifyIrpStackDownward @ 0x140C40A60 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x140C40BF0 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IovUtilMarkDeviceObject @ 0x1404E8824 (IovUtilMarkDeviceObject.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1404F7010 (MmIsNonPagedSystemAddressValid.c)
- *     ViErrorReport1 @ 0x14064569C (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x140645720 (ViErrorReport10.c)
- *     IovUtilGetBottomDeviceObjectWithTag @ 0x140C30EC8 (IovUtilGetBottomDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140C30FDC (IovUtilIsDeviceObjectMarked.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IovUtilMarkDeviceObject @ 0x1404E1BE4 (IovUtilMarkDeviceObject.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1404F0620 (MmIsNonPagedSystemAddressValid.c)
+ *     ViErrorReport1 @ 0x14064927C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x140649300 (ViErrorReport10.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x140C36ED8 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140C36FEC (IovUtilIsDeviceObjectMarked.c)
  */
 
 char __fastcall ViPnpVerifyMinorWasProcessedProperly(__int64 a1, __int64 a2, int a3, int a4, const void *a5, int a6)

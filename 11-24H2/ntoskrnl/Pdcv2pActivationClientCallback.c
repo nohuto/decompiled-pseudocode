@@ -1,16 +1,16 @@
 /*
- * XREFs of Pdcv2pActivationClientCallback @ 0x14078DCF0
+ * XREFs of Pdcv2pActivationClientCallback @ 0x14078DC20
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     PdcResetEvent @ 0x140607600 (PdcResetEvent.c)
- *     Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK @ 0x140607AB0 (Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PdcWaitForEvent @ 0x14078E1B4 (PdcWaitForEvent.c)
- *     PdcAcquireRwLockExclusive2 @ 0x140A4F154 (PdcAcquireRwLockExclusive2.c)
- *     PdcReleaseRwLockExclusive2 @ 0x140A5AF2C (PdcReleaseRwLockExclusive2.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     PdcResetEvent @ 0x140604C08 (PdcResetEvent.c)
+ *     Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK @ 0x1406050B8 (Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PdcWaitForEvent @ 0x14078E0E4 (PdcWaitForEvent.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x140A45F04 (PdcAcquireRwLockExclusive2.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x140A52844 (PdcReleaseRwLockExclusive2.c)
  */
 
 __int64 __fastcall Pdcv2pActivationClientCallback(_DWORD *a1, __int64 a2)
@@ -86,7 +86,7 @@ LABEL_22:
   PdcResetEvent(v10);
   *(_QWORD *)(*((_QWORD *)v4 + 5) + 1760LL) = KeGetCurrentThread();
   PdcReleaseRwLockExclusive2(v7, &v13);
-  guard_dispatch_icall_no_overrides(i, (unsigned int)v2, *((_QWORD *)v4 + 8), *(_QWORD *)(i + 32));
+  guard_dispatch_icall_no_overrides(i, (unsigned int)v2);
   PdcAcquireRwLockExclusive2(v7, &v13);
   v11 = *((_QWORD *)v4 + 5);
   if ( v11 )

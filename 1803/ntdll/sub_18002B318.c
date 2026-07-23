@@ -8,26 +8,35 @@
  *     sub_18002B3EC @ 0x18002B3EC (sub_18002B3EC.c)
  */
 
-unsigned __int64 __fastcall sub_18002B318(unsigned __int64 a1, unsigned int a2, __int64 a3, _DWORD *a4, __int64 *a5)
+unsigned __int64 __fastcall sub_18002B318(
+        PVOID BaseOfImage,
+        unsigned int a2,
+        _IMAGE_NT_HEADERS64 *a3,
+        _DWORD *a4,
+        __int64 *a5)
 {
   __int64 v5; // rbp
   __int64 v8; // rax
-  __int64 v9; // rdx
+  void *v9; // rdx
   unsigned __int64 v10; // rbx
-  __int64 v11; // rax
+  PIMAGE_SECTION_HEADER v11; // rax
   __int64 v12; // r11
-  __int64 v14; // [rsp+40h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS NtHeaders; // [rsp+40h] [rbp+18h] BYREF
 
-  v14 = a3;
+  NtHeaders = a3;
   v5 = a2;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v14);
-  v8 = sub_18002B3EC(a1);
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &NtHeaders);
+  v8 = sub_18002B3EC(BaseOfImage);
   if ( a4 )
     *a4 = 0;
-  if ( v8 && *(_DWORD *)v8 >= 0x70u && (v10 = *(_QWORD *)(v8 + 88)) != 0 && v10 > a1 && v10 < v5 + a1 - 8 )
+  if ( v8
+    && *(_DWORD *)v8 >= 0x70u
+    && (v10 = *(_QWORD *)(v8 + 88)) != 0
+    && v10 > (unsigned __int64)BaseOfImage
+    && v10 < (unsigned __int64)BaseOfImage + v5 - 8 )
   {
-    v11 = RtlImageRvaToSection(v14, v9, (int)v10 - (int)a1);
-    if ( v11 && *(int *)(v11 + 36) >= 0 && a4 )
+    v11 = RtlImageRvaToSection(NtHeaders, v9, (int)v10 - (int)BaseOfImage);
+    if ( v11 && (v11->Characteristics & 0x80000000) == 0 && a4 )
       *a4 = 1;
     if ( a5 )
       *a5 = v12;

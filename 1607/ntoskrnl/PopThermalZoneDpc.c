@@ -1,11 +1,11 @@
 /*
- * XREFs of PopThermalZoneDpc @ 0x1400B4244
+ * XREFs of PopThermalZoneDpc @ 0x1400B20C4
  * Callers:
  *     <none>
  * Callees:
- *     IoCancelIrp @ 0x1400A2054 (IoCancelIrp.c)
- *     _local_unwind @ 0x14014D1B0 (_local_unwind.c)
- *     KiCustomAccessRoutine3 @ 0x140168B70 (KiCustomAccessRoutine3.c)
+ *     IoCancelIrp @ 0x1400A097C (IoCancelIrp.c)
+ *     _local_unwind @ 0x14014D720 (_local_unwind.c)
+ *     KiCustomAccessRoutine3 @ 0x1401690E0 (KiCustomAccessRoutine3.c)
  */
 
 void __fastcall PopThermalZoneDpc(

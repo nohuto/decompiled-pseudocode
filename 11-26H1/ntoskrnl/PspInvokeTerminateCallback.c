@@ -1,11 +1,11 @@
 /*
- * XREFs of PspInvokeTerminateCallback @ 0x1407FC07C
+ * XREFs of PspInvokeTerminateCallback @ 0x140801AAC
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x1407EEA70 (PspCompleteServerSiloShutdownDeferred.c)
- *     PsStartSiloMonitor @ 0x1407FBC40 (PsStartSiloMonitor.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x1407F45D0 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PsStartSiloMonitor @ 0x140801670 (PsStartSiloMonitor.c)
  * Callees:
- *     EtwTraceJobServerSiloMonitorCallback @ 0x1406C4A58 (EtwTraceJobServerSiloMonitorCallback.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwTraceJobServerSiloMonitorCallback @ 0x1406C8698 (EtwTraceJobServerSiloMonitorCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN __fastcall PspInvokeTerminateCallback(__int64 a1, __int64 a2)

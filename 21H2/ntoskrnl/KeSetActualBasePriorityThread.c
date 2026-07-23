@@ -1,53 +1,53 @@
 /*
- * XREFs of KeSetActualBasePriorityThread @ 0x1402305B0
+ * XREFs of KeSetActualBasePriorityThread @ 0x1402D4E00
  * Callers:
- *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
- *     MiStoreUpdateMemoryConditions @ 0x1402712E4 (MiStoreUpdateMemoryConditions.c)
- *     ?SmCompressContextUpdateMemoryCondition@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x1402D04DC (-SmCompressContextUpdateMemoryCondition@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTE.c)
- *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402D74F0 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x1402D94BC (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
- *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x1402D9740 (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402D99DC (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmStWorkItemGet@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAU1@PEAK@Z @ 0x1402DA268 (-SmStWorkItemGet@-$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@PEAU1@P.c)
- *     SmKmStoreHelperWorker @ 0x1402E0320 (SmKmStoreHelperWorker.c)
- *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402E16D0 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     IoApplyPriorityInfoThread @ 0x1402F7540 (IoApplyPriorityInfoThread.c)
- *     MiWakeModifiedPageWriter @ 0x14035BB54 (MiWakeModifiedPageWriter.c)
- *     MiFlushAllHintedStorePages @ 0x14035BBB0 (MiFlushAllHintedStorePages.c)
- *     PfpServiceMainThreadUnboost @ 0x140382AD0 (PfpServiceMainThreadUnboost.c)
- *     PfpServiceMainThreadBoost @ 0x14038CF48 (PfpServiceMainThreadBoost.c)
- *     PopCreatePowerThread @ 0x1403A5238 (PopCreatePowerThread.c)
- *     MiMappedPageWriter @ 0x1403B7730 (MiMappedPageWriter.c)
- *     MiModifiedPageWriter @ 0x1403BDB20 (MiModifiedPageWriter.c)
- *     ?SmCompressCtxBalancerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403C87F0 (-SmCompressCtxBalancerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     MiSetZeroPageThreadPriority @ 0x14054FEB4 (MiSetZeroPageThreadPriority.c)
- *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
- *     ExpWorkQueueManagerThread @ 0x1407AF840 (ExpWorkQueueManagerThread.c)
- *     IopCreatePassiveInterruptRealtimeThreads @ 0x1407C9674 (IopCreatePassiveInterruptRealtimeThreads.c)
- *     PopFxEmergencyWorker @ 0x1407D50D0 (PopFxEmergencyWorker.c)
+ *     ?SmCompressContextUpdateMemoryCondition@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x14024E85C (-SmCompressContextUpdateMemoryCondition@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTE.c)
+ *     MiStoreUpdateMemoryConditions @ 0x14025F284 (MiStoreUpdateMemoryConditions.c)
+ *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140288840 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x14028A80C (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
+ *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x14028AA90 (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14028AD2C (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStWorkItemGet@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAU1@PEAK@Z @ 0x14028B5B8 (-SmStWorkItemGet@-$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@PEAU1@P.c)
+ *     SmKmStoreHelperWorker @ 0x140291670 (SmKmStoreHelperWorker.c)
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140292A20 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     MiWakeModifiedPageWriter @ 0x1402A0A84 (MiWakeModifiedPageWriter.c)
+ *     MiFlushAllHintedStorePages @ 0x1402A0AE0 (MiFlushAllHintedStorePages.c)
+ *     MiZeroLargePages @ 0x1402D6D70 (MiZeroLargePages.c)
+ *     IoApplyPriorityInfoThread @ 0x140302290 (IoApplyPriorityInfoThread.c)
+ *     PfpServiceMainThreadUnboost @ 0x140382C80 (PfpServiceMainThreadUnboost.c)
+ *     PfpServiceMainThreadBoost @ 0x14038D098 (PfpServiceMainThreadBoost.c)
+ *     PopCreatePowerThread @ 0x1403A5388 (PopCreatePowerThread.c)
+ *     MiMappedPageWriter @ 0x1403B78A0 (MiMappedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x1403BF240 (MiModifiedPageWriter.c)
+ *     ?SmCompressCtxBalancerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403C8990 (-SmCompressCtxBalancerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     MiSetZeroPageThreadPriority @ 0x1405500F4 (MiSetZeroPageThreadPriority.c)
+ *     MiDeletePartitionResources @ 0x140561B58 (MiDeletePartitionResources.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
+ *     ExpWorkQueueManagerThread @ 0x1407AF9E0 (ExpWorkQueueManagerThread.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x1407C9994 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     PopFxEmergencyWorker @ 0x1407D5240 (PopFxEmergencyWorker.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiSelectReadyThreadEx @ 0x14022FEC0 (KiSelectReadyThreadEx.c)
- *     KiProcessDeferredReadyList @ 0x140230BD0 (KiProcessDeferredReadyList.c)
- *     KiComputePriorityFloor @ 0x140230DC0 (KiComputePriorityFloor.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x140230DF0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateThreadPriority @ 0x140230E50 (KiUpdateThreadPriority.c)
- *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiIsThreadRankNonZero @ 0x14024D450 (KiIsThreadRankNonZero.c)
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
- *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
- *     KiPriQueueThreadPriorityChanged @ 0x14029F3A0 (KiPriQueueThreadPriorityChanged.c)
- *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x1402EA4E0 (KiPrepareReadyThreadForRescheduling.c)
- *     KiInsertDeferredReadyList @ 0x1402EA540 (KiInsertDeferredReadyList.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x1402EA570 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
+ *     KiSendSoftwareInterrupt @ 0x140211D5C (KiSendSoftwareInterrupt.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x14021C900 (KiPriQueueThreadPriorityChanged.c)
+ *     KiReleaseThreadStateLock @ 0x14029B7D0 (KiReleaseThreadStateLock.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x14029B830 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiInsertDeferredReadyList @ 0x14029B890 (KiInsertDeferredReadyList.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x14029B8C0 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1402D4110 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSelectReadyThreadEx @ 0x1402D4710 (KiSelectReadyThreadEx.c)
+ *     KiProcessDeferredReadyList @ 0x1402D5420 (KiProcessDeferredReadyList.c)
+ *     KiComputePriorityFloor @ 0x1402D5610 (KiComputePriorityFloor.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402D5640 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateThreadPriority @ 0x1402D56A0 (KiUpdateThreadPriority.c)
+ *     KiAcquireThreadStateLock @ 0x1402D5790 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiIsThreadRankNonZero @ 0x1402F1CA0 (KiIsThreadRankNonZero.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetSchedulerAssistPriority @ 0x140520954 (KiSetSchedulerAssistPriority.c)
- *     EtwTracePriority @ 0x1405A7EA4 (EtwTracePriority.c)
+ *     KiSetSchedulerAssistPriority @ 0x140520B94 (KiSetSchedulerAssistPriority.c)
+ *     EtwTracePriority @ 0x1405A80D4 (EtwTracePriority.c)
  */
 
 __int64 __fastcall KeSetActualBasePriorityThread(__int64 a1, int a2)
@@ -58,16 +58,16 @@ __int64 __fastcall KeSetActualBasePriorityThread(__int64 a1, int a2)
   _DWORD *v6; // rcx
   unsigned int v7; // eax
   unsigned int v8; // r12d
-  struct _KPRCB *v9; // rcx
+  struct _KDPC *v9; // rcx
   char v10; // al
   unsigned __int64 updated; // rdx
   unsigned __int64 v12; // rcx
   __int64 v13; // rdx
-  unsigned int v14; // r14d
+  int v14; // r14d
   int v15; // ecx
   __int64 v16; // r9
   int v17; // r15d
-  int v18; // r13d
+  signed int v18; // r13d
   struct _KPRCB *v19; // rsi
   _KTHREAD *NextThread; // r12
   bool v21; // cc
@@ -75,55 +75,53 @@ __int64 __fastcall KeSetActualBasePriorityThread(__int64 a1, int a2)
   _KTHREAD *v23; // r14
   char v24; // r14
   __int64 v25; // rcx
-  __int64 v26; // rdx
-  _BYTE *v27; // rcx
-  struct _KPRCB *v28; // rcx
-  _DWORD *v29; // rdx
-  struct _KPRCB *v31; // rdx
-  int *v32; // rcx
-  struct _SINGLE_LIST_ENTRY *v33; // rdx
-  _SINGLE_LIST_ENTRY *p_AbSelfIoBoostsList; // r8
-  int v35; // ecx
-  __int64 Number; // rcx
+  volatile signed __int32 *v26; // rcx
+  struct _KPRCB *v27; // rcx
+  _DWORD *v28; // rdx
+  struct _KPRCB *v30; // rdx
+  int *v31; // rcx
+  PVOID *v32; // rdx
+  PVOID *p_SystemArgument2; // r8
+  int v34; // ecx
   char IsThreadRankNonZero; // al
   char Priority; // dl
-  _BYTE *v39; // rcx
-  __int64 v40; // rdx
-  bool v41; // zf
-  __int64 v42; // rax
-  _KTHREAD *v43; // r14
-  char v44; // al
-  char v45; // cl
-  _DWORD *v46; // rcx
-  _DWORD *v47; // rcx
-  _BYTE *v48; // rax
-  __int64 v49; // rdx
-  bool v50; // zf
+  _BYTE *v37; // rcx
+  __int64 v38; // rdx
+  bool v39; // zf
+  __int64 v40; // rax
+  _KTHREAD *v41; // r14
+  char v42; // al
+  char v43; // cl
+  _DWORD *v44; // rcx
+  _DWORD *v45; // rcx
+  _BYTE *v46; // rax
+  __int64 v47; // rdx
+  bool v48; // zf
   _DWORD *SchedulerAssist; // r9
+  int v50; // eax
+  int v51; // eax
   int v52; // eax
   int v53; // eax
-  int v54; // eax
-  int v55; // eax
-  int v56; // ecx
-  _DWORD *v57; // r8
-  struct _KPRCB *v58; // rax
-  __int64 v59; // rcx
-  int v60; // eax
-  unsigned __int8 v61; // [rsp+38h] [rbp-9h]
-  __int64 v62; // [rsp+40h] [rbp-1h] BYREF
-  __int64 v63; // [rsp+48h] [rbp+7h] BYREF
+  int v54; // ecx
+  _DWORD *v55; // r8
+  struct _KPRCB *v56; // rax
+  __int64 Number; // rcx
+  int v58; // eax
+  unsigned __int8 v59; // [rsp+38h] [rbp-9h]
+  volatile signed __int64 *v60; // [rsp+40h] [rbp-1h] BYREF
+  __int64 v61; // [rsp+48h] [rbp+7h] BYREF
   _KTHREAD **p_NextThread; // [rsp+50h] [rbp+Fh]
-  unsigned int v65; // [rsp+A8h] [rbp+67h]
-  int v66; // [rsp+B0h] [rbp+6Fh] BYREF
-  int v67; // [rsp+B8h] [rbp+77h] BYREF
-  struct _KPRCB *v68; // [rsp+C0h] [rbp+7Fh] BYREF
+  unsigned int v63; // [rsp+A8h] [rbp+67h]
+  int v64; // [rsp+B0h] [rbp+6Fh] BYREF
+  int v65; // [rsp+B8h] [rbp+77h] BYREF
+  struct _KPRCB *v66; // [rsp+C0h] [rbp+7Fh] BYREF
 
-  v66 = a2;
+  v64 = a2;
   if ( *(_UNKNOWN **)(a1 + 544) == &KiInitialProcess )
     return 1LL;
-  v63 = 0LL;
+  v61 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
-  v61 = CurrentIrql;
+  v59 = CurrentIrql;
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
@@ -131,44 +129,44 @@ __int64 __fastcall KeSetActualBasePriorityThread(__int64 a1, int a2)
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v67 = 0;
+  v65 = 0;
   CurrentThread = CurrentPrcb->CurrentThread;
   v6 = CurrentPrcb->SchedulerAssist;
   if ( v6 )
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v52 = v6[6];
-      v6[6] = v52 + 1;
-      if ( v52 == -1 )
+      v50 = v6[6];
+      v6[6] = v50 + 1;
+      if ( v50 == -1 )
 LABEL_94:
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
   {
-    v46 = CurrentPrcb->SchedulerAssist;
-    if ( v46 )
+    v44 = CurrentPrcb->SchedulerAssist;
+    if ( v44 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v53 = v46[6] - 1;
-        v46[6] = v53;
-        if ( !v53 )
+        v51 = v44[6] - 1;
+        v44[6] = v51;
+        if ( !v51 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v67);
+      KeYieldProcessorEx(&v65);
     while ( *(_QWORD *)(a1 + 64) );
-    v47 = CurrentPrcb->SchedulerAssist;
-    if ( v47 )
+    v45 = CurrentPrcb->SchedulerAssist;
+    if ( v45 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v54 = v47[6];
-        v47[6] = v54 + 1;
-        if ( v54 == -1 )
+        v52 = v45[6];
+        v45[6] = v52 + 1;
+        if ( v52 == -1 )
           goto LABEL_94;
       }
     }
@@ -176,27 +174,27 @@ LABEL_94:
   v7 = *(char *)(a1 + 563);
   *(_BYTE *)(a1 + 645) = 0;
   v8 = v7;
-  v9 = KeGetCurrentPrcb();
-  v65 = v7;
-  if ( (char)v66 < (char)v7 )
+  v9 = (struct _KDPC *)KeGetCurrentPrcb();
+  v63 = v7;
+  if ( (char)v64 < (char)v7 )
   {
     if ( *(_BYTE *)(a1 + 871) )
     {
-      v33 = (struct _SINGLE_LIST_ENTRY *)(a1 + 816);
+      v32 = (PVOID *)(a1 + 816);
       if ( *(_QWORD *)(a1 + 816) == 1LL )
       {
-        p_AbSelfIoBoostsList = &v9->AbSelfIoBoostsList;
-        if ( v9 != (struct _KPRCB *)-34672LL )
+        p_SystemArgument2 = &v9[541].SystemArgument2;
+        if ( v9 != (struct _KDPC *)-34672LL )
         {
-          v33->Next = p_AbSelfIoBoostsList->Next;
-          p_AbSelfIoBoostsList->Next = v33;
+          *v32 = *p_SystemArgument2;
+          *p_SystemArgument2 = v32;
           _InterlockedIncrement16((volatile signed __int16 *)(a1 + 868));
           KiAbQueueAutoBoostDpc(v9);
         }
       }
     }
   }
-  *(_BYTE *)(a1 + 563) = v66;
+  *(_BYTE *)(a1 + 563) = v64;
   v10 = *(_BYTE *)(a1 + 564);
   if ( v10 )
   {
@@ -204,7 +202,7 @@ LABEL_94:
       *(_DWORD *)(a1 + 872) = MEMORY[0xFFFFF78000000320];
     *(_BYTE *)(a1 + 564) = 0;
   }
-  if ( v66 != *(char *)(a1 + 195) )
+  if ( v64 != *(char *)(a1 + 195) )
   {
     if ( (_KTHREAD *)a1 != CurrentThread || CurrentPrcb->NestingLevel )
     {
@@ -219,37 +217,37 @@ LABEL_94:
     v12 = updated + KiCyclesPerClockQuantum * (unsigned int)*(unsigned __int8 *)(a1 + 651);
     if ( (*(_DWORD *)(a1 + 120) & 0x20) != 0 )
       _interlockedbittestandreset((volatile signed __int32 *)(a1 + 120), 5u);
-    v13 = (unsigned __int8)v66;
+    v13 = (unsigned __int8)v64;
     *(_QWORD *)(a1 + 32) = v12;
-    v68 = 0LL;
-    v62 = 0LL;
+    v66 = 0LL;
+    v60 = 0LL;
     v14 = (char)KiComputePriorityFloor(a1, v13);
     if ( *(char *)(a1 + 195) != v14 )
     {
-      v15 = (unsigned __int8)KiAcquireThreadStateLock(a1, &v68, &v62);
+      v15 = (unsigned __int8)KiAcquireThreadStateLock(a1, &v66, &v60);
       v17 = 0;
       v18 = *(char *)(a1 + 195);
       if ( v15 == 2 )
       {
-        v19 = v68;
-        NextThread = v68->NextThread;
-        p_NextThread = &v68->NextThread;
+        v19 = v66;
+        NextThread = v66->NextThread;
+        p_NextThread = &v66->NextThread;
         LOBYTE(v16) = NextThread == 0LL;
-        KiUpdateThreadPriority(v68, a1, v14, v16);
-        v21 = (int)v14 <= v18;
-        if ( (int)v14 < v18 )
+        KiUpdateThreadPriority(v66, a1, (unsigned int)v14, v16);
+        v21 = v14 <= v18;
+        if ( v14 < v18 )
         {
           if ( !NextThread )
           {
-            v19 = v68;
+            v19 = v66;
             if ( *(_BYTE *)(a1 + 388) != 2 )
             {
-              v8 = v65;
-              if ( v68->ReadySummary >> (v14 + 1) )
+              v8 = v63;
+              if ( v66->ReadySummary >> (v14 + 1) )
                 *(_BYTE *)(a1 + 112) |= 0x10u;
               goto LABEL_20;
             }
-            ready = KiSelectReadyThreadEx(v68, (_KTHREAD *)a1, 0);
+            ready = KiSelectReadyThreadEx(v66, (_KTHREAD *)a1, 0);
             v23 = (_KTHREAD *)ready;
             if ( ready )
             {
@@ -265,146 +263,138 @@ LABEL_94:
                 Priority = *(_BYTE *)(ready + 195);
               }
               *v19->PriorityState = Priority;
-              v39 = v19->SchedulerAssist;
-              if ( v39 )
+              v37 = v19->SchedulerAssist;
+              if ( v37 )
               {
                 if ( v23 == v19->IdleThread )
-                  v40 = (unsigned int)KiVpThreadSystemWorkPriority;
+                  v38 = (unsigned int)KiVpThreadSystemWorkPriority;
                 else
-                  v40 = (unsigned int)Priority;
-                KiSetSchedulerAssistPriority(v39, v40, 0LL);
-                v39 = v19->SchedulerAssist;
+                  v38 = (unsigned int)Priority;
+                KiSetSchedulerAssistPriority(v37, v38, 0LL);
+                v37 = v19->SchedulerAssist;
               }
-              v41 = v23 == v19->IdleThread;
+              v39 = v23 == v19->IdleThread;
               *p_NextThread = v23;
-              if ( v39 )
-                v39[16] = v41;
+              if ( v37 )
+                v37[16] = v39;
               if ( v23->WaitBlockFill6[68] == 1 )
                 v23->ReadyTime = v23->ReadyTime - v23->WaitBlock[2].SpareLong + MEMORY[0xFFFFF78000000320];
-              v19 = v68;
-              v8 = v65;
+              v19 = v66;
+              v8 = v63;
               v23->WaitBlockFill6[68] = 3;
               v24 = 1;
               goto LABEL_21;
             }
             goto LABEL_19;
           }
-          v21 = (int)v14 <= v18;
+          v21 = v14 <= v18;
         }
         if ( v21 || NextThread )
         {
 LABEL_19:
-          v8 = v65;
+          v8 = v63;
 LABEL_20:
           v24 = 0;
 LABEL_21:
           KiUpdateSharedReadyQueueAffinityThread(0LL, a1);
-          KiReleaseThreadStateLock(v25, v19, v62);
-          if ( v24 )
-          {
-            LODWORD(v26) = KeGetPcr()->Prcb.Number;
-            Number = v68->Number;
-            if ( (_DWORD)v26 != (_DWORD)Number )
-            {
-              LOBYTE(v26) = 2;
-              KiSendSoftwareInterrupt(Number, v26);
-            }
-          }
+          KiReleaseThreadStateLock(v25, (__int64)v19, v60);
+          if ( v24 && KeGetPcr()->Prcb.Number != v66->Number )
+            KiSendSoftwareInterrupt();
           if ( v17 > 0 )
           {
-            v31 = KeGetCurrentPrcb();
+            v30 = KeGetCurrentPrcb();
             if ( (KiVelocityFlags & 2) != 0 )
             {
-              v32 = (int *)v68->SchedulerAssist;
-              if ( v32 )
+              v31 = (int *)v66->SchedulerAssist;
+              if ( v31 )
               {
-                if ( v31->SchedulerAssist )
+                if ( v30->SchedulerAssist )
                 {
-                  if ( v31 != v68 && v17 >= 8 )
+                  if ( v30 != v66 && v17 >= 8 )
                   {
-                    v55 = *v32;
-                    v56 = *v32 & 0x40000;
-                    if ( (v55 & 0x100000) != 0 || v56 && (unsigned __int8)v55 < v17 )
+                    v53 = *v31;
+                    v54 = *v31 & 0x40000;
+                    if ( (v53 & 0x100000) != 0 || v54 && (unsigned __int8)v53 < v17 )
                     {
-                      v41 = HvlpVirtualProcessorsIdentityMapped == 0;
-                      v57 = v31->SchedulerAssist;
-                      v58 = v68;
-                      v57[3] = 2;
-                      v59 = v58->Number;
-                      if ( v41 )
-                        LODWORD(v59) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * (unsigned int)v59 + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v59] << 6);
-                      v57[2] = v59;
-                      __writemsr(0x400000C2u, (unsigned int)v59);
+                      v39 = HvlpVirtualProcessorsIdentityMapped == 0;
+                      v55 = v30->SchedulerAssist;
+                      v56 = v66;
+                      v55[3] = 2;
+                      Number = v56->Number;
+                      if ( v39 )
+                        LODWORD(Number) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * (unsigned int)Number + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
+                      v55[2] = Number;
+                      __writemsr(0x400000C2u, (unsigned int)Number);
                     }
                   }
                 }
               }
             }
           }
-          CurrentIrql = v61;
+          CurrentIrql = v59;
           goto LABEL_24;
         }
-        v19 = v68;
-        v8 = v65;
+        v19 = v66;
+        v8 = v63;
         if ( *(_BYTE *)(a1 + 388) != 2 )
           goto LABEL_20;
       }
       else
       {
-        v35 = v15 - 1;
-        if ( !v35 )
+        v34 = v15 - 1;
+        if ( !v34 )
         {
-          v19 = v68;
-          KiRemoveThreadFromAnyReadyQueue(v68, v62, a1, (unsigned int)v18);
-          KiUpdateThreadPriority(0LL, a1, v14, 0LL);
-          KiPrepareReadyThreadForRescheduling(a1, v14, &v63);
+          v19 = v66;
+          KiRemoveThreadFromAnyReadyQueue((__int64)v66, (__int64)v60, a1, v18);
+          KiUpdateThreadPriority(0LL, a1, (unsigned int)v14, 0LL);
+          KiPrepareReadyThreadForRescheduling(a1, v14, (__int64)&v61);
           goto LABEL_20;
         }
-        if ( v35 != 2 )
+        if ( v34 != 2 )
         {
-          KiUpdateThreadPriority(0LL, a1, v14, 0LL);
-          v19 = v68;
+          KiUpdateThreadPriority(0LL, a1, (unsigned int)v14, 0LL);
+          v19 = v66;
           goto LABEL_20;
         }
-        v19 = v68;
+        v19 = v66;
         LOBYTE(v16) = 1;
-        KiUpdateThreadPriority(v68, a1, v14, v16);
-        if ( (int)v14 < v18 )
+        KiUpdateThreadPriority(v66, a1, (unsigned int)v14, v16);
+        if ( v14 < v18 )
         {
-          v42 = KiSelectReadyThreadEx(v19, (_KTHREAD *)a1, 0);
-          v43 = (_KTHREAD *)v42;
-          if ( v42 )
+          v40 = KiSelectReadyThreadEx(v19, (_KTHREAD *)a1, 0);
+          v41 = (_KTHREAD *)v40;
+          if ( v40 )
           {
-            if ( (*(_BYTE *)(v42 + 2) & 4) != 0 )
+            if ( (*(_BYTE *)(v40 + 2) & 4) != 0 )
             {
-              v44 = KiIsThreadRankNonZero(v42, v19);
-              v45 = 1;
-              if ( !v44 )
-                v45 = v43->Priority;
+              v42 = KiIsThreadRankNonZero(v40, v19);
+              v43 = 1;
+              if ( !v42 )
+                v43 = v41->Priority;
             }
             else
             {
-              v45 = *(_BYTE *)(v42 + 195);
+              v43 = *(_BYTE *)(v40 + 195);
             }
-            *v19->PriorityState = v45;
-            v48 = v19->SchedulerAssist;
-            if ( v48 )
+            *v19->PriorityState = v43;
+            v46 = v19->SchedulerAssist;
+            if ( v46 )
             {
-              v49 = (unsigned int)KiVpThreadSystemWorkPriority;
-              if ( v43 != v19->IdleThread )
-                v49 = (unsigned int)v45;
-              KiSetSchedulerAssistPriority(v19->SchedulerAssist, v49, 0LL);
-              v48 = v19->SchedulerAssist;
+              v47 = (unsigned int)KiVpThreadSystemWorkPriority;
+              if ( v41 != v19->IdleThread )
+                v47 = (unsigned int)v43;
+              KiSetSchedulerAssistPriority(v19->SchedulerAssist, v47, 0LL);
+              v46 = v19->SchedulerAssist;
             }
-            v50 = v43 == v19->IdleThread;
-            v19->NextThread = v43;
-            if ( v48 )
-              v48[16] = v50;
-            if ( v43->WaitBlockFill6[68] == 1 )
-              v43->ReadyTime = v43->ReadyTime - v43->WaitBlock[2].SpareLong + MEMORY[0xFFFFF78000000320];
-            v43->WaitBlockFill6[68] = 3;
-            KiInsertDeferredReadyList(&v63, a1);
-            v19 = v68;
+            v48 = v41 == v19->IdleThread;
+            v19->NextThread = v41;
+            if ( v46 )
+              v46[16] = v48;
+            if ( v41->WaitBlockFill6[68] == 1 )
+              v41->ReadyTime = v41->ReadyTime - v41->WaitBlock[2].SpareLong + MEMORY[0xFFFFF78000000320];
+            v41->WaitBlockFill6[68] = 3;
+            KiInsertDeferredReadyList((__int64)&v61, a1);
+            v19 = v66;
           }
           goto LABEL_20;
         }
@@ -414,29 +404,29 @@ LABEL_21:
     }
   }
 LABEL_24:
-  v27 = *(_BYTE **)(a1 + 232);
-  if ( v27 && (*v27 & 0x7F) == 0x15 )
+  v26 = *(volatile signed __int32 **)(a1 + 232);
+  if ( v26 && (*(_BYTE *)v26 & 0x7F) == 0x15 )
   {
-    KiPriQueueThreadPriorityChanged(v27, a1);
+    KiPriQueueThreadPriorityChanged(v26, a1);
   }
   else
   {
     *(_QWORD *)(a1 + 64) = 0LL;
-    v28 = KeGetCurrentPrcb();
-    v29 = v28->SchedulerAssist;
-    if ( v29 )
+    v27 = KeGetCurrentPrcb();
+    v28 = v27->SchedulerAssist;
+    if ( v28 )
     {
-      if ( v28->NestingLevel <= 1u )
+      if ( v27->NestingLevel <= 1u )
       {
-        v60 = v29[6] - 1;
-        v29[6] = v60;
-        if ( !v60 )
-          KiRemoveSystemWorkPriorityKick(v28);
+        v58 = v28[6] - 1;
+        v28[6] = v58;
+        if ( !v58 )
+          KiRemoveSystemWorkPriorityKick(v27);
       }
     }
   }
-  KiProcessDeferredReadyList(CurrentPrcb, &v63, CurrentIrql);
+  KiProcessDeferredReadyList(CurrentPrcb, &v61, CurrentIrql);
   if ( (WORD2(PerfGlobalGroupMask) & 0x2000) != 0 )
-    EtwTracePriority(a1, 1329, v8, v66, (__int64)&v66);
+    EtwTracePriority(a1, 1329, v8, v64, (__int64)&v64);
   return v8;
 }

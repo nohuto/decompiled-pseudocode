@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwBusRelationAdd @ 0x1404C6F58
+ * XREFs of PiSwBusRelationAdd @ 0x140487F84
  * Callers:
- *     PiSwProcessRemove @ 0x1404C36B0 (PiSwProcessRemove.c)
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x140483A18 (PiSwProcessRemove.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1400C4544 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1400C23E4 (RtlInsertElementGenericTableAvl.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpAllocatePWSTR @ 0x140501D70 (PnpAllocatePWSTR.c)
+ *     PnpAllocatePWSTR @ 0x1404E4D00 (PnpAllocatePWSTR.c)
  */
 
 __int64 __fastcall PiSwBusRelationAdd(const wchar_t *a1, __int64 a2)

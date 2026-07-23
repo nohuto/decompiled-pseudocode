@@ -1,39 +1,39 @@
 /*
- * XREFs of SepSidFromProcessProtection @ 0x14025F1A0
+ * XREFs of SepSidFromProcessProtection @ 0x140405380
  * Callers:
- *     SepSetTrustLevelForProcessToken @ 0x14025F118 (SepSetTrustLevelForProcessToken.c)
+ *     SepSetTrustLevelForProcessToken @ 0x1404052FC (SepSetTrustLevelForProcessToken.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall SepSidFromProcessProtection(_BYTE *a1)
+PSID __fastcall SepSidFromProcessProtection(_BYTE *a1)
 {
-  unsigned __int64 result; // rax
+  PSID result; // rax
 
   result = 0LL;
   if ( *a1 == 98 )
-    return SepRmCapTableLock.Padding[2];
+    return SeProcTrustWinTcbSid;
   switch ( *a1 )
   {
     case 0x12:
-      result = SepRmCapTableLock.Padding[0];
+      result = (PSID)SeProcTrustAuthenticodeSid;
       break;
     case 0x31:
-      result = SepRmCapTableLock.Padding[1];
+      result = (PSID)SeProcTrustLiteAntimalwareSid;
       break;
     case 0x51:
-      result = SeProcTrustLiteWinSid;
+      result = (PSID)SeProcTrustLiteWinSid;
       break;
     case 0x52:
-      result = SepRmCapTableLock.Padding[3];
+      result = (PSID)SeProcTrustWinSid;
       break;
     case 0x61:
-      result = SeProcTrustLiteWinTcbSid;
+      result = (PSID)SeProcTrustLiteWinTcbSid;
       break;
     case 0x72:
-      return SepRmCapTableLock.Padding[2];
+      return SeProcTrustWinTcbSid;
     case 0x81:
-      result = SepRmCapTableLock.Padding[4];
+      result = (PSID)SeProcTrustLiteAppSid;
       break;
     default:
       return result;

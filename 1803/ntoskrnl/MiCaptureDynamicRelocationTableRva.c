@@ -9,7 +9,7 @@
 __int64 __fastcall MiCaptureDynamicRelocationTableRva(
         char *BaseAddress,
         ULONGLONG Size,
-        struct _IMAGE_NT_HEADERS64 *a3,
+        _IMAGE_NT_HEADERS64 *a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,

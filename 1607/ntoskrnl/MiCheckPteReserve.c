@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckPteReserve @ 0x1401F46DC
+ * XREFs of MiCheckPteReserve @ 0x1401F4508
  * Callers:
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckPteReserve(__int64 a1, ULONG_PTR a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MiCheckPteReserve(__int64 a1, ULONG_PTR a2)
   v3 = a1 << 25 >> 16;
   if ( !a2 )
     KeBugCheckEx(0xDAu, 0x200uLL, a1 << 25 >> 16, 0LL, 0LL);
-  v4 = 2LL * (unsigned int)((a1 - qword_140327880) >> 3);
+  v4 = 2LL * (unsigned int)((a1 - qword_1403278C0) >> 3);
   v5 = v4;
   LOBYTE(v6) = 2;
   v7 = v4 + 2 * (a2 - 1);
@@ -36,11 +36,11 @@ __int64 __fastcall MiCheckPteReserve(__int64 a1, ULONG_PTR a2)
   {
     do
     {
-      if ( !_bittest64((const signed __int64 *)qword_1403274C8, v5) )
+      if ( !_bittest64((const signed __int64 *)qword_140327508, v5) )
         KeBugCheckEx(0xDAu, 0x201uLL, v3, v3 + (((v5 - v4) << 11) & 0xFFFFFFFFFFFFF000uLL), a2);
       v8 = v5 & 0x1F;
       LOBYTE(v9) = 1;
-      v10 = (volatile signed __int32 *)(qword_1403274C8 + 4 * (v5 >> 5));
+      v10 = (volatile signed __int32 *)(qword_140327508 + 4 * (v5 >> 5));
       if ( v8 + 1 > 0x20 )
       {
         if ( (v5 & 0x1F) != 0 )
@@ -74,7 +74,7 @@ LABEL_14:
     while ( v5 < v7 );
   }
   v13 = v5 & 0x1F;
-  v14 = (volatile signed __int32 *)(qword_1403274C8 + 4 * (v5 >> 5));
+  v14 = (volatile signed __int32 *)(qword_140327508 + 4 * (v5 >> 5));
   if ( v13 + 2 <= 0x20 )
   {
     v15 = 3 << v13;

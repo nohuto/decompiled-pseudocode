@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRetrieveTransactionParametersFromOpenPacket @ 0x140A13E40
+ * XREFs of IopRetrieveTransactionParametersFromOpenPacket @ 0x140A0C5A0
  * Callers:
- *     IopAllocRealFileObject @ 0x14089A9B0 (IopAllocRealFileObject.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ *     IopAllocRealFileObject @ 0x1408A3050 (IopAllocRealFileObject.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IopGetSetSpecificExtension @ 0x140426ED0 (IopGetSetSpecificExtension.c)
- *     ObReferenceObjectByPointer @ 0x140432520 (ObReferenceObjectByPointer.c)
- *     IopCheckStackForTransactionSupport @ 0x1404B365C (IopCheckStackForTransactionSupport.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IopGetSetSpecificExtension @ 0x14041AD50 (IopGetSetSpecificExtension.c)
+ *     ObReferenceObjectByPointer @ 0x140424A50 (ObReferenceObjectByPointer.c)
+ *     IopCheckStackForTransactionSupport @ 0x1404ADECC (IopCheckStackForTransactionSupport.c)
  */
 
 NTSTATUS __fastcall IopRetrieveTransactionParametersFromOpenPacket(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -39,7 +39,7 @@ NTSTATUS __fastcall IopRetrieveTransactionParametersFromOpenPacket(__int64 a1, _
   result = ObReferenceObjectByPointer(*(PVOID *)(v9 + 8), 0x120037u, (POBJECT_TYPE)TmTransactionObjectType, 0);
   if ( result >= 0 )
   {
-    SetSpecificExtension = IopGetSetSpecificExtension(a4, 0, 16LL, 1, &v11, 0LL);
+    SetSpecificExtension = IopGetSetSpecificExtension(a4, 0, 0x10u, 1, &v11, 0LL);
     if ( SetSpecificExtension >= 0 )
       *v11 = *(_OWORD *)*(_QWORD *)(a2 + 184);
     else

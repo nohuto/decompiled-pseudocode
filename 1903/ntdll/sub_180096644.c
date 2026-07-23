@@ -6,7 +6,7 @@
  *     sub_18009658C @ 0x18009658C (sub_18009658C.c)
  */
 
-__int64 __fastcall sub_180096644(_DWORD *a1, _BYTE *a2, unsigned __int64 a3, __int16 a4)
+__int64 __fastcall sub_180096644(ULONG *a1, CHAR *a2, unsigned __int64 a3, WCHAR a4)
 {
   return sub_18009658C(a1, a2, a3, a4);
 }

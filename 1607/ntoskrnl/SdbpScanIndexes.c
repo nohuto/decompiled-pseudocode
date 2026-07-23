@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpScanIndexes @ 0x140505A0C
+ * XREFs of SdbpScanIndexes @ 0x1404E899C
  * Callers:
- *     SdbGetIndex @ 0x140485058 (SdbGetIndex.c)
+ *     SdbGetIndex @ 0x1405143E0 (SdbGetIndex.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     SdbFindNextTag @ 0x1404E791C (SdbFindNextTag.c)
- *     SdbReadDWORDTag @ 0x1404EA9AC (SdbReadDWORDTag.c)
- *     SdbGetTagFromTagID @ 0x140501250 (SdbGetTagFromTagID.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbGetFirstChild @ 0x14050589C (SdbGetFirstChild.c)
- *     SdbReadWORDTag @ 0x140506948 (SdbReadWORDTag.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SdbFindNextTag @ 0x1404C9CA8 (SdbFindNextTag.c)
+ *     SdbReadDWORDTag @ 0x1404CCBB0 (SdbReadDWORDTag.c)
+ *     SdbGetTagFromTagID @ 0x1404E41E0 (SdbGetTagFromTagID.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbGetFirstChild @ 0x1404E882C (SdbGetFirstChild.c)
+ *     SdbReadWORDTag @ 0x1404E98D8 (SdbReadWORDTag.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 _UNKNOWN **__fastcall SdbpScanIndexes(_DWORD *a1)
@@ -23,6 +23,8 @@ _UNKNOWN **__fastcall SdbpScanIndexes(_DWORD *a1)
   unsigned int v7; // eax
   unsigned int v8; // eax
   int v9; // eax
+  const char *v10; // r9
+  int v11; // r8d
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
   result = &retaddr;
@@ -45,26 +47,26 @@ _UNKNOWN **__fastcall SdbpScanIndexes(_DWORD *a1)
           if ( !(_DWORD)result )
             break;
           if ( a1[11] == 32 )
-            return (_UNKNOWN **)AslLogCallPrintf(
-                                  1,
-                                  (unsigned int)"SdbpScanIndexes",
-                                  1015,
-                                  (unsigned int)"Too many indexes in file: recompile and increase SDB_MAX_INDEXES");
+          {
+            v10 = "Too many indexes in file: recompile and increase SDB_MAX_INDEXES";
+            v11 = 1015;
+            return (_UNKNOWN **)AslLogCallPrintf(1, (unsigned int)"SdbpScanIndexes", v11, (_DWORD)v10);
+          }
           FirstTag = SdbFindFirstTag((__int64)a1, (unsigned int)result, 14338);
           if ( !FirstTag )
-            return (_UNKNOWN **)AslLogCallPrintf(
-                                  1,
-                                  (unsigned int)"SdbpScanIndexes",
-                                  1022,
-                                  (unsigned int)"Index missing TAG_INDEX_TAG");
+          {
+            v10 = "Index missing TAG_INDEX_TAG";
+            v11 = 1022;
+            return (_UNKNOWN **)AslLogCallPrintf(1, (unsigned int)"SdbpScanIndexes", v11, (_DWORD)v10);
+          }
           LOWORD(a1[10 * a1[11] + 13]) = SdbReadWORDTag(a1, FirstTag, 0LL);
           v7 = SdbFindFirstTag((__int64)a1, v5, 14339);
           if ( !v7 )
-            return (_UNKNOWN **)AslLogCallPrintf(
-                                  1,
-                                  (unsigned int)"SdbpScanIndexes",
-                                  1031,
-                                  (unsigned int)"Index missing TAG_INDEX_KEY");
+          {
+            v10 = "Index missing TAG_INDEX_KEY";
+            v11 = 1031;
+            return (_UNKNOWN **)AslLogCallPrintf(1, (unsigned int)"SdbpScanIndexes", v11, (_DWORD)v10);
+          }
           HIWORD(a1[10 * a1[11] + 13]) = SdbReadWORDTag(a1, v7, 0LL);
           v8 = SdbFindFirstTag((__int64)a1, v5, 16406);
           if ( v8 )
@@ -74,12 +76,10 @@ _UNKNOWN **__fastcall SdbpScanIndexes(_DWORD *a1)
           v9 = SdbFindFirstTag((__int64)a1, v5, 38913);
           if ( !v9 )
           {
+            v10 = "Index missing TAG_INDEX_BITS";
+            v11 = 1048;
             LOWORD(a1[10 * a1[11] + 13]) = 0;
-            return (_UNKNOWN **)AslLogCallPrintf(
-                                  1,
-                                  (unsigned int)"SdbpScanIndexes",
-                                  1048,
-                                  (unsigned int)"Index missing TAG_INDEX_BITS");
+            return (_UNKNOWN **)AslLogCallPrintf(1, (unsigned int)"SdbpScanIndexes", v11, (_DWORD)v10);
           }
           a1[10 * a1[11]++ + 12] = v9;
         }
@@ -90,17 +90,14 @@ _UNKNOWN **__fastcall SdbpScanIndexes(_DWORD *a1)
                               1,
                               (unsigned int)"SdbpScanIndexes",
                               1000,
-                              (unsigned int)"Root child tag is not index tagid 0x%lx",
-                              v4);
+                              (unsigned int)"Root child tag is not index tagid 0x%lx");
       }
     }
     else
     {
-      return (_UNKNOWN **)AslLogCallPrintf(
-                            1,
-                            (unsigned int)"SdbpScanIndexes",
-                            995,
-                            (unsigned int)"Failed to get the child index from root");
+      v10 = "Failed to get the child index from root";
+      v11 = 995;
+      return (_UNKNOWN **)AslLogCallPrintf(1, (unsigned int)"SdbpScanIndexes", v11, (_DWORD)v10);
     }
   }
   return result;

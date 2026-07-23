@@ -1,28 +1,28 @@
 /*
- * XREFs of PnpGetRelatedTargetDevice @ 0x14036185C
+ * XREFs of PnpGetRelatedTargetDevice @ 0x1402F7DC0
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
- *     IoGetRelatedTargetDevice @ 0x14071C4DC (IoGetRelatedTargetDevice.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14076E25C (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     IoRegisterPlugPlayNotification @ 0x140673180 (IoRegisterPlugPlayNotification.c)
+ *     IoGetRelatedTargetDevice @ 0x1406FCB4C (IoGetRelatedTargetDevice.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14076E41C (PiUEventGetDeviceInstanceIdFromUserHandle.c)
  * Callees:
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     PnpSendIrp @ 0x140361DC8 (PnpSendIrp.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpSendIrp @ 0x1402F7490 (PnpSendIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetRelatedTargetDevice(PFILE_OBJECT FileObject, _QWORD *a2)
 {
   KIRQL v4; // bl
   PDEVICE_OBJECT RelatedDeviceObject; // rdi
-  int v6; // r8d
+  __int64 v6; // r8
   __int64 result; // rax
   unsigned int v8; // edi
   __int64 v9; // rbx
   __int64 v10; // rcx
-  _QWORD v11[9]; // [rsp+30h] [rbp-58h] BYREF
+  _QWORD v11[10]; // [rsp+30h] [rbp-58h] BYREF
   PVOID P; // [rsp+98h] [rbp+10h] BYREF
 
   P = 0LL;
@@ -32,12 +32,12 @@ __int64 __fastcall PnpGetRelatedTargetDevice(PFILE_OBJECT FileObject, _QWORD *a2
   KeReleaseQueuedSpinLock(0xAuLL, v4);
   if ( !RelatedDeviceObject )
     return 3221225486LL;
-  memset(v11, 0, sizeof(v11));
+  memset(v11, 0, 0x48uLL);
   LOWORD(v11[0]) = 1819;
   LODWORD(v11[1]) = 4;
   v11[5] = RelatedDeviceObject;
   v11[6] = FileObject;
-  result = PnpSendIrp((_DWORD)RelatedDeviceObject, (unsigned int)v11, v6, 0, (__int64)&P);
+  result = PnpSendIrp((__int64)RelatedDeviceObject, (__int64)v11, v6, 0LL, (__int64)&P);
   v8 = result;
   if ( (int)result < 0 )
     return result;

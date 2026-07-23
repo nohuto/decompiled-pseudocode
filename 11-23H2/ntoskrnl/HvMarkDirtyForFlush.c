@@ -1,10 +1,10 @@
 /*
- * XREFs of HvMarkDirtyForFlush @ 0x1402F645C
+ * XREFs of HvMarkDirtyForFlush @ 0x1402F66EC
  * Callers:
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     HvFoldBackDirtyData @ 0x140A20A00 (HvFoldBackDirtyData.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     HvFoldBackDirtyData @ 0x140A20CB0 (HvFoldBackDirtyData.c)
  * Callees:
- *     HvpMarkDirty @ 0x140747110 (HvpMarkDirty.c)
+ *     HvpMarkDirty @ 0x140747300 (HvpMarkDirty.c)
  */
 
 __int64 __fastcall HvMarkDirtyForFlush(ULONG_PTR a1)

@@ -1,52 +1,52 @@
 /*
- * XREFs of RtlpProcessHeapsInsert @ 0x18007DC3C
+ * XREFs of RtlpProcessHeapsInsert @ 0x18006C460
  * Callers:
- *     RtlpCreateHeap @ 0x18007C890 (RtlpCreateHeap.c)
+ *     RtlpCreateHeap @ 0x18006B0B0 (RtlpCreateHeap.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpReleaseHeapListLock @ 0x1800762B0 (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x1800762FC (RtlpAcquireHeapListLock.c)
  */
 
-__int64 __fastcall RtlpProcessHeapsInsert(__int64 a1, char a2)
+__int64 __fastcall RtlpProcessHeapsInsert(_QWORD *HeapHandle, char a2)
 {
   unsigned int v2; // esi
-  void *ProcessHeap; // r14
-  __int64 Heap_0; // rax
+  _QWORD *ProcessHeap; // r14
+  _QWORD *Heap_0; // rax
   _QWORD *v7; // rbx
   _QWORD *v8; // rax
-  struct _PEB *v9; // rdx
+  struct _PEB *v9; // rcx
 
   v2 = 0;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   if ( !ProcessHeap )
-    ProcessHeap = (void *)a1;
-  Heap_0 = RtlAllocateHeap_0();
-  v7 = (_QWORD *)Heap_0;
+    ProcessHeap = HeapHandle;
+  Heap_0 = RtlAllocateHeap_0(ProcessHeap, 8u, 0x30uLL);
+  v7 = Heap_0;
   if ( Heap_0 )
   {
-    *(_QWORD *)(Heap_0 + 16) = a1;
-    *(_DWORD *)(Heap_0 + 24) = a2 & 3;
-    *(_QWORD *)(Heap_0 + 40) = 0LL;
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
-    if ( *(_DWORD *)(a1 + 16) == -571548178 )
-      *(_QWORD *)(a1 + 56) = v7;
+    Heap_0[2] = HeapHandle;
+    *((_DWORD *)Heap_0 + 6) = a2 & 3;
+    Heap_0[5] = 0LL;
+    RtlpAcquireHeapListLock();
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      HeapHandle[7] = v7;
     else
-      *(_QWORD *)(a1 + 392) = v7;
-    v8 = (_QWORD *)qword_1801CCF48;
-    if ( *(__int64 **)qword_1801CCF48 != &RtlpProcessHeaps )
+      HeapHandle[49] = v7;
+    v8 = (_QWORD *)qword_1801CBF88;
+    if ( *(__int64 **)qword_1801CBF88 != &RtlpProcessHeaps )
       __fastfail(3u);
     *v7 = &RtlpProcessHeaps;
     v7[1] = v8;
     *v8 = v7;
-    qword_1801CCF48 = (__int64)v7;
-    if ( ProcessHeap == (void *)a1 )
+    qword_1801CBF88 = (__int64)v7;
+    if ( ProcessHeap == HeapHandle )
     {
       v9 = NtCurrentPeb();
       v9->NumberOfHeaps = 1;
-      *v9->ProcessHeaps = (void *)a1;
+      *v9->ProcessHeaps = HeapHandle;
     }
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlpReleaseHeapListLock(0LL);
   }
   else
   {

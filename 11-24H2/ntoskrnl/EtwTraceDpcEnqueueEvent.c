@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceDpcEnqueueEvent @ 0x1404FA3C0
+ * XREFs of EtwTraceDpcEnqueueEvent @ 0x1404F7CA0
  * Callers:
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void (__fastcall *__fastcall EtwTraceDpcEnqueueEvent(

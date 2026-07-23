@@ -1,23 +1,23 @@
 /*
- * XREFs of ViPtLogPoolTraceWrapper @ 0x140C4505C
+ * XREFs of ViPtLogPoolTraceWrapper @ 0x140C4B06C
  * Callers:
- *     IopAllocateMdl @ 0x14039EBE0 (IopAllocateMdl.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     VfPtMiscPoolNotification @ 0x14050C738 (VfPtMiscPoolNotification.c)
- *     VerifierExAllocatePool @ 0x140C2F790 (VerifierExAllocatePool.c)
- *     VerifierExAllocatePoolWithTag @ 0x140C2FB90 (VerifierExAllocatePoolWithTag.c)
- *     VerifierExAllocatePoolWithTagPriority @ 0x140C2FCC0 (VerifierExAllocatePoolWithTagPriority.c)
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
- *     VerifierExAllocatePool2 @ 0x140C44E00 (VerifierExAllocatePool2.c)
- *     VfPtFreePoolNotification @ 0x140C44F7C (VfPtFreePoolNotification.c)
+ *     IopAllocateMdl @ 0x1403A0940 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     VfPtMiscPoolNotification @ 0x1405061A8 (VfPtMiscPoolNotification.c)
+ *     VerifierExAllocatePool @ 0x140C357A0 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePoolWithTag @ 0x140C35BA0 (VerifierExAllocatePoolWithTag.c)
+ *     VerifierExAllocatePoolWithTagPriority @ 0x140C35CD0 (VerifierExAllocatePoolWithTagPriority.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
+ *     VerifierExAllocatePool2 @ 0x140C4AE10 (VerifierExAllocatePool2.c)
+ *     VfPtFreePoolNotification @ 0x140C4AF8C (VfPtFreePoolNotification.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutEx @ 0x140263890 (KeExpandKernelStackAndCalloutEx.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x1402647B0 (RtlEnoughStackSpaceForStackCapture.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ViPtProcessApt @ 0x140C2A7C0 (ViPtProcessApt.c)
- *     ViPtCaptureStackTraceCallout @ 0x140C45180 (ViPtCaptureStackTraceCallout.c)
- *     ViPtLogPoolTrace @ 0x140C45274 (ViPtLogPoolTrace.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140262E00 (KeExpandKernelStackAndCalloutEx.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140263D20 (RtlEnoughStackSpaceForStackCapture.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ViPtProcessApt @ 0x140C307D0 (ViPtProcessApt.c)
+ *     ViPtCaptureStackTraceCallout @ 0x140C4B190 (ViPtCaptureStackTraceCallout.c)
+ *     ViPtLogPoolTrace @ 0x140C4B284 (ViPtLogPoolTrace.c)
  */
 
 void __fastcall ViPtLogPoolTraceWrapper(__int64 a1, int a2, __int64 a3, char a4)

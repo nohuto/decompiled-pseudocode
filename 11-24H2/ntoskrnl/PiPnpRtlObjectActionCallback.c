@@ -1,46 +1,46 @@
 /*
- * XREFs of PiPnpRtlObjectActionCallback @ 0x1408CE6A0
+ * XREFs of PiPnpRtlObjectActionCallback @ 0x1408CC090
  * Callers:
- *     _PnpGetObjectList @ 0x1408BDE80 (_PnpGetObjectList.c)
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiPnpRtlInterfaceFilterCallback @ 0x1408D0AE0 (PiPnpRtlInterfaceFilterCallback.c)
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408D1730 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408D1BF0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D43AC (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqPnPGetObjectProperty @ 0x1408D4AF0 (PiDqPnPGetObjectProperty.c)
+ *     _PnpGetObjectList @ 0x1408BB7D0 (_PnpGetObjectList.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PiPnpRtlInterfaceFilterCallback @ 0x1408CE4D0 (PiPnpRtlInterfaceFilterCallback.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408CF120 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408CF5E0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D1D9C (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqPnPGetObjectProperty @ 0x1408D24E0 (PiDqPnPGetObjectProperty.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiDrvDbUnmountNode @ 0x1406FB620 (PiDrvDbUnmountNode.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1408B96C8 (PiDmObjectGetCachedObjectReference.c)
- *     PiDmCacheDataFree @ 0x1408BB270 (PiDmCacheDataFree.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1408BB2BC (PiDmObjectUpdateCachedObjectProperty.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x1408CC2D0 (PiPnpRtlCacheObjectBaseKey.c)
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectAcquireSharedLock @ 0x1408D0A7C (PiDmObjectAcquireSharedLock.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
- *     PiDmObjectGetCachedObjectPropertyData @ 0x1409B1000 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmGetObjectList @ 0x1409D4E60 (PiDmGetObjectList.c)
- *     PiDmCacheDataEncode @ 0x140A50FFC (PiDmCacheDataEncode.c)
- *     PiDrvDbMountNode @ 0x140ABC164 (PiDrvDbMountNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiDrvDbUnmountNode @ 0x1406F9260 (PiDrvDbUnmountNode.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x1408B7070 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmCacheDataFree @ 0x1408B8C20 (PiDmCacheDataFree.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1408B8C6C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1408C9D00 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectAcquireSharedLock @ 0x1408CE46C (PiDmObjectAcquireSharedLock.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x14099AAC0 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmGetObjectList @ 0x1409C4C90 (PiDmGetObjectList.c)
+ *     PiDmCacheDataEncode @ 0x140A483AC (PiDmCacheDataEncode.c)
+ *     PiDrvDbMountNode @ 0x140AB7184 (PiDrvDbMountNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlObjectActionCallback(PVOID a1, unsigned __int16 *a2, __int64 a3, int a4, int a5, __int64 a6)
@@ -105,7 +105,7 @@ __int64 __fastcall PiPnpRtlObjectActionCallback(PVOID a1, unsigned __int16 *a2, 
   int v65; // r9d
   int v66; // r9d
   int v67; // r9d
-  int v68; // eax
+  unsigned int v68; // eax
   wchar_t *Pool2; // rsi
   int v70; // ebx
   unsigned int *v71; // rax
@@ -216,7 +216,7 @@ __int64 __fastcall PiPnpRtlObjectActionCallback(PVOID a1, unsigned __int16 *a2, 
           if ( i >= 3 )
             goto LABEL_22;
           v18 = 7LL * i;
-          v19 = *(__int64 *)((char *)&off_140001AA0 + v18 * 8);
+          v19 = *(__int64 *)((char *)&off_140001B20 + v18 * 8);
           if ( *(_DWORD *)(v19 + 16) == *(_DWORD *)(v15 + 16) )
           {
             v20 = *(_QWORD *)v19 - *(_QWORD *)v15;
@@ -224,7 +224,7 @@ __int64 __fastcall PiPnpRtlObjectActionCallback(PVOID a1, unsigned __int16 *a2, 
               v20 = *(_QWORD *)(v19 + 8) - *(_QWORD *)(v15 + 8);
             v21 = v20 == 0;
             v6 = v122;
-            if ( v21 && v122 == *(_DWORD *)&byte_140001A98[v18 * 8] )
+            if ( v21 && v122 == *(_DWORD *)&byte_140001B18[v18 * 8] )
               break;
           }
         }
@@ -253,7 +253,7 @@ LABEL_20:
               goto LABEL_21;
             }
             v25 = v120;
-            v113 = &v23[qword_140002B28[5 * *((int *)v22 + 10)]];
+            v113 = &v23[qword_140002C18[5 * *((int *)v22 + 10)]];
             for ( j = *(_QWORD **)v113; ; j = (_QWORD *)*j )
             {
               if ( j == (_QWORD *)v113 )
@@ -262,7 +262,7 @@ LABEL_20:
                 CachedObjectPropertyData = -1073741802;
                 goto LABEL_20;
               }
-              v117 = (char *)j - qword_140002B38[5 * *((int *)v22 + 10)];
+              v117 = (char *)j - qword_140002C28[5 * *((int *)v22 + 10)];
               ObjectProperty = PnpGetObjectProperty(
                                  *(_QWORD **)&PiPnpRtlCtx,
                                  *((WCHAR **)v117 + 2),
@@ -983,7 +983,7 @@ LABEL_222:
   v120 = 0LL;
   if ( v68 )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v68, 0x47706E50u);
     if ( !Pool2 )
       return v8;
     v6 = v122;

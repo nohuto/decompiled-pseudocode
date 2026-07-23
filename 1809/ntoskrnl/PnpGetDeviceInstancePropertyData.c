@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpGetDeviceInstancePropertyData @ 0x140905D10
+ * XREFs of PnpGetDeviceInstancePropertyData @ 0x140906FD0
  * Callers:
- *     sub_1408DB1FC @ 0x1408DB1FC (sub_1408DB1FC.c)
+ *     sub_1408DC4BC @ 0x1408DC4BC (sub_1408DC4BC.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PnpGetDeviceInstancePropertyData(

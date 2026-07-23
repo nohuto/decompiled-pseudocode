@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetCcAccessLog @ 0x140956DF4
+ * XREFs of MiGetCcAccessLog @ 0x14093A7A4
  * Callers:
- *     MmPrefetchForCacheManager @ 0x1409561A4 (MmPrefetchForCacheManager.c)
+ *     MmPrefetchForCacheManager @ 0x140939B54 (MmPrefetchForCacheManager.c)
  * Callees:
- *     MiQueuePageAccessLog @ 0x140244A68 (MiQueuePageAccessLog.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiInitializePageAccessLogging @ 0x14046F40C (MiInitializePageAccessLogging.c)
+ *     MiQueuePageAccessLog @ 0x14020D250 (MiQueuePageAccessLog.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiInitializePageAccessLogging @ 0x140469B1C (MiInitializePageAccessLogging.c)
  */
 
 __int64 __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2, __int64 a3)
@@ -22,9 +22,9 @@ __int64 __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2, __int64 a3)
   char *AnyMultiplexedVm; // rax
   __int64 v14; // rdx
 
-  if ( qword_140E3D000 )
+  if ( qword_140E3D140 )
   {
-    v5 = _InterlockedExchange64(&qword_140E3D000, 0LL);
+    v5 = _InterlockedExchange64(&qword_140E3D140, 0LL);
     if ( v5 )
     {
       v6 = *(_QWORD *)(v5 + 40);

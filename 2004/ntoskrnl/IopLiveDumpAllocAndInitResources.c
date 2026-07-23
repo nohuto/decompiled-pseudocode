@@ -129,7 +129,7 @@ LABEL_9:
   *(_QWORD *)(v15 + 8240) = v16;
   *(_QWORD *)(a1 + 544) = v16;
   *(_QWORD *)(a1 + 552) = v15 + 8248;
-  RtlClearAllBitsEx(a1 + 544);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 544));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 560), *(_QWORD *)(a1 + 568));
   v17 = ExAllocatePoolWithTag(NonPagedPoolNx, (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
   *(_QWORD *)(a1 + 648) = v17;
@@ -139,7 +139,7 @@ LABEL_9:
     goto LABEL_9;
   *(_QWORD *)(a1 + 600) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 608) = v18;
-  RtlClearAllBitsEx(a1 + 600);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 600));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 648), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
   if ( VslIsSecureKernelRunning() )
   {
@@ -168,7 +168,7 @@ LABEL_4:
     goto LABEL_9;
   *(_QWORD *)(a1 + 656) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 664) = v22;
-  RtlClearAllBitsEx(a1 + 656);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 656));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 672), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
   for ( i = *(_QWORD *)(a1 + 56); i; i = *(_QWORD *)(i + 32) )
     IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(i + 16), *(unsigned int *)(i + 24));

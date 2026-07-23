@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocateHalCounters @ 0x1404B90B4
+ * XREFs of HalpAllocateHalCounters @ 0x1404B92F4
  * Callers:
- *     EmonAllocateCounter @ 0x1404D3060 (EmonAllocateCounter.c)
- *     Amd64AllocateCounter @ 0x1404DD728 (Amd64AllocateCounter.c)
- *     HalAllocateHardwareCounters @ 0x140864280 (HalAllocateHardwareCounters.c)
+ *     EmonAllocateCounter @ 0x1404D32A0 (EmonAllocateCounter.c)
+ *     Amd64AllocateCounter @ 0x1404DD968 (Amd64AllocateCounter.c)
+ *     HalAllocateHardwareCounters @ 0x1408643E0 (HalAllocateHardwareCounters.c)
  * Callees:
  *     <none>
  */

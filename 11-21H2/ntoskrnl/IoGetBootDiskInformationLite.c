@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopGetBootDiskInformationLite @ 0x140B0BC60 (IopGetBootDiskInformationLite.c)
+ *     NaptrDnsRecordConvert_3 @ 0x140B0BC60 (NaptrDnsRecordConvert_3.c)
  */
 
 NTSTATUS __stdcall IoGetBootDiskInformationLite(PBOOTDISK_INFORMATION_LITE *BootDiskInformation)
 {
-  if ( (unsigned int)InitializationPhase >= 2 )
+  if ( (unsigned int)dword_140C4E560 >= 2 )
     return -1073741431;
   else
-    return IopGetBootDiskInformationLite(BootDiskInformation);
+    return NaptrDnsRecordConvert_3(BootDiskInformation);
 }

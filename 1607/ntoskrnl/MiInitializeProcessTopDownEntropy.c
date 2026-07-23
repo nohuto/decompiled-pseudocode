@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeProcessTopDownEntropy @ 0x14046D7BC
+ * XREFs of MiInitializeProcessTopDownEntropy @ 0x14046C68C
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14046D378 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x14046C248 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
  */
 
 void __fastcall MiInitializeProcessTopDownEntropy(__int64 a1, __int64 a2, char a3)
@@ -13,8 +13,8 @@ void __fastcall MiInitializeProcessTopDownEntropy(__int64 a1, __int64 a2, char a
 
   if ( (*(_DWORD *)(a1 + 768) & 0x20000) == 0 )
   {
-    v3 = qword_140327F90;
-    v4 = *(_QWORD *)(qword_140327F90 + 276840456);
+    v3 = qword_140327FD0;
+    v4 = *(_QWORD *)(qword_140327FD0 + 276840456);
     if ( *(_QWORD *)(a1 + 1152) <= 0x100000000uLL )
     {
 LABEL_6:

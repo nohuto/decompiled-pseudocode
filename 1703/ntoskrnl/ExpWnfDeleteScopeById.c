@@ -19,8 +19,8 @@ void __fastcall ExpWnfDeleteScopeById(unsigned int a1, __int64 a2, unsigned int 
   __int64 v6; // r9
   __int64 v7; // r14
   unsigned __int64 *v8; // rbx
-  _BYTE *v9; // rax
-  _BYTE *v10; // rdi
+  PRTL_BALANCED_NODE v9; // rax
+  PRTL_BALANCED_NODE v10; // rdi
   __int64 ScopeInstance; // rax
   struct _EX_RUNDOWN_REF *v12; // rdi
   _QWORD *v13; // rcx
@@ -33,12 +33,12 @@ void __fastcall ExpWnfDeleteScopeById(unsigned int a1, __int64 a2, unsigned int 
   {
     v7 = v6 + 24 * v4;
     v8 = (unsigned __int64 *)(v6 + 8 * (3 * v4 + 3));
-    v9 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)v8, 0LL, 0LL);
+    v9 = KeAbPreAcquire((ULONG_PTR)v8, 0LL, 0);
     v10 = v9;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
       ExfAcquirePushLockExclusiveEx(v8, v9, (ULONG_PTR)v8);
     if ( v10 )
-      v10[26] |= 1u;
+      BYTE2(v10[1].Left) |= 1u;
     ScopeInstance = ExpWnfFindScopeInstance(v7 + 32, a2, a3);
     v12 = (struct _EX_RUNDOWN_REF *)ScopeInstance;
     if ( ScopeInstance )

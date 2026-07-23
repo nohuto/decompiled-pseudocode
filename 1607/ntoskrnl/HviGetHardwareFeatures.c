@@ -1,14 +1,14 @@
 /*
- * XREFs of HviGetHardwareFeatures @ 0x140231EDC
+ * XREFs of HviGetHardwareFeatures @ 0x140231D08
  * Callers:
- *     HvlSvmGetSystemCapabilities @ 0x1401BE474 (HvlSvmGetSystemCapabilities.c)
- *     HviIsIommuInUse @ 0x140232000 (HviIsIommuInUse.c)
- *     HvlQueryDetailInfo @ 0x1406201C0 (HvlQueryDetailInfo.c)
- *     HvlQueryDmaProtectionInfo @ 0x1406202D4 (HvlQueryDmaProtectionInfo.c)
+ *     HvlSvmGetSystemCapabilities @ 0x1401BE358 (HvlSvmGetSystemCapabilities.c)
+ *     HviIsIommuInUse @ 0x140231E2C (HviIsIommuInUse.c)
+ *     HvlQueryDetailInfo @ 0x140620274 (HvlQueryDetailInfo.c)
+ *     HvlQueryDmaProtectionInfo @ 0x140620388 (HvlQueryDmaProtectionInfo.c)
  *     EtwpTraceSystemInitialization @ 0x1407A9CCC (EtwpTraceSystemInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HviGetHypervisorVendorAndMaxFunction @ 0x140231F40 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x140231D6C (HviGetHypervisorVendorAndMaxFunction.c)
  */
 
 __int64 __fastcall HviGetHardwareFeatures(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpSysVolCheckOwnerAndSecurity @ 0x140783AD4
+ * XREFs of RtlpSysVolCheckOwnerAndSecurity @ 0x140783A04
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x1407837C0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1407836F0 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     RtlGetAce @ 0x14040BC40 (RtlGetAce.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140454080 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlSelfRelativeToAbsoluteSD2 @ 0x14077F8F0 (RtlSelfRelativeToAbsoluteSD2.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14085CB30 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlMakeSelfRelativeSD @ 0x140862B74 (RtlMakeSelfRelativeSD.c)
- *     NtQuerySecurityObject @ 0x140879460 (NtQuerySecurityObject.c)
- *     NtSetSecurityObject @ 0x14087A070 (NtSetSecurityObject.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x140A15750 (RtlGetOwnerSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     RtlGetAce @ 0x140404120 (RtlGetAce.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140449130 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlSelfRelativeToAbsoluteSD2 @ 0x14077F820 (RtlSelfRelativeToAbsoluteSD2.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1408588A0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlMakeSelfRelativeSD @ 0x140867184 (RtlMakeSelfRelativeSD.c)
+ *     NtQuerySecurityObject @ 0x14087D790 (NtQuerySecurityObject.c)
+ *     NtSetSecurityObject @ 0x1409118E0 (NtSetSecurityObject.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x140A0E930 (RtlGetOwnerSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
@@ -33,8 +33,8 @@ __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
   ULONG v14; // r12d
   void *v15; // rax
   void *v16; // rsi
-  int v17; // r14d
-  __int64 v18; // rax
+  NTSTATUS v17; // r14d
+  void *v18; // rax
   void *v19; // rcx
   ULONG Length; // [rsp+38h] [rbp-29h] BYREF
   BOOLEAN DaclPresent; // [rsp+3Ch] [rbp-25h] BYREF
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
   Dacla = 0LL;
   if ( NtQuerySecurityObject(Handle, 5u, 0LL, 0, &Length) != -1073741789 )
     return 0LL;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, Length, 0x536C6F56u);
   if ( !Pool2 )
     return 3221225626LL;
   DaclSecurityDescriptor = NtQuerySecurityObject(Handle, 5u, Pool2, Length, &Length);
@@ -110,10 +110,10 @@ LABEL_6:
     }
   }
   v13 = Length;
-  if ( (unsigned int)RtlSelfRelativeToAbsoluteSD2((__int64)Pool2, &Length) == -1073741789 )
+  if ( RtlSelfRelativeToAbsoluteSD2(Pool2, &Length) == -1073741789 )
   {
     v14 = Length;
-    v15 = (void *)ExAllocatePool2(0x100uLL);
+    v15 = (void *)ExAllocatePool2(0x100uLL, Length, 0x536C6F56u);
     v16 = v15;
     if ( !v15 )
       goto LABEL_32;
@@ -121,7 +121,7 @@ LABEL_6:
     ExFreePoolWithTag(Pool2, 0);
     Length = v14;
     Pool2 = v16;
-    v17 = RtlSelfRelativeToAbsoluteSD2((__int64)v16, &Length);
+    v17 = RtlSelfRelativeToAbsoluteSD2(v16, &Length);
     if ( v17 < 0 )
     {
 LABEL_26:
@@ -140,8 +140,8 @@ LABEL_33:
     v19 = Pool2;
     goto LABEL_36;
   }
-  v18 = ExAllocatePool2(0x100uLL);
-  v16 = (void *)v18;
+  v18 = (void *)ExAllocatePool2(0x100uLL, Length, 0x536C6F56u);
+  v16 = v18;
   if ( !v18 )
   {
 LABEL_32:

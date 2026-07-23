@@ -1,12 +1,12 @@
 /*
- * XREFs of CarQueryReportActionForTriage @ 0x1405D3F60
+ * XREFs of CarQueryReportActionForTriage @ 0x1405D44D0
  * Callers:
- *     CarQueryReportAction @ 0x1405D3F30 (CarQueryReportAction.c)
- *     CarReportRuleViolationForTriage @ 0x1405D43C0 (CarReportRuleViolationForTriage.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     CarQueryReportAction @ 0x1405D44A0 (CarQueryReportAction.c)
+ *     CarReportRuleViolationForTriage @ 0x1405D4930 (CarReportRuleViolationForTriage.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  * Callees:
- *     CarFindRuleOverrideEntryByGlobalRuleId @ 0x1405D3CBC (CarFindRuleOverrideEntryByGlobalRuleId.c)
- *     CarOverrideReportAction @ 0x1405D3F10 (CarOverrideReportAction.c)
+ *     CarFindRuleOverrideEntryByGlobalRuleId @ 0x1405D422C (CarFindRuleOverrideEntryByGlobalRuleId.c)
+ *     CarOverrideReportAction @ 0x1405D4480 (CarOverrideReportAction.c)
  */
 
 __int64 __fastcall CarQueryReportActionForTriage(int a1, unsigned int a2, _DWORD *a3)
@@ -25,7 +25,7 @@ __int64 __fastcall CarQueryReportActionForTriage(int a1, unsigned int a2, _DWORD
     if ( CarInitialized )
     {
       v5 = CarTriageContext;
-      *(_QWORD *)a3 = qword_140046EA0[CarTriageContext];
+      *(_QWORD *)a3 = qword_140046F90[CarTriageContext];
       for ( i = (__int64 *)CarConfigurationEntries; ; i = (__int64 *)*i )
       {
         if ( i == &CarConfigurationEntries )

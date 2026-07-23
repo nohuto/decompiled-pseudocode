@@ -51,10 +51,10 @@ __int64 __fastcall ExpWaitForSpinLockExclusiveAndAcquire(int *a1, unsigned __int
         _InterlockedOr(a1, 0x40000000u);
       if ( a2 != 0xFF )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -81,9 +81,9 @@ __int64 __fastcall ExpWaitForSpinLockExclusiveAndAcquire(int *a1, unsigned __int
       {
         a2 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
-          if ( (KiIrqlFlags & 1) != 0 && a2 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && a2 <= 0xFu )
           {
             v12 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( a2 == 2 )

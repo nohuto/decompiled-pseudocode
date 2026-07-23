@@ -5,25 +5,25 @@
  *     RtlDestroyMemoryBlockLookaside @ 0x1800028D0 (RtlDestroyMemoryBlockLookaside.c)
  * Callees:
  *     RtlUnlockModuleSection @ 0x180001EA0 (RtlUnlockModuleSection.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 RtlpUnregisterLockedMemoryBlockLookaside()
+void RtlpUnregisterLockedMemoryBlockLookaside()
 {
-  __int64 (__fastcall **v1)(); // rbx
-  __int64 v2; // rdi
+  PVOID *v0; // rbx
+  __int64 v1; // rdi
 
   RtlAcquireSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
   if ( !--RtlpLockedMemoryBlockLookasideCount )
   {
-    v1 = RtlpMemoryBlockLookasideCriticalRoutines;
-    v2 = 4LL;
+    v0 = (PVOID *)RtlpMemoryBlockLookasideCriticalRoutines;
+    v1 = 4LL;
     do
     {
-      RtlUnlockModuleSection(*v1++);
-      --v2;
+      RtlUnlockModuleSection(*v0++);
+      --v1;
     }
-    while ( v2 );
+    while ( v1 );
   }
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
 }

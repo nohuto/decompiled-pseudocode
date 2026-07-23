@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x1406936F4
+ * XREFs of MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x1406947C4
  * Callers:
- *     MiStartDpcZeroingRound @ 0x140693A3C (MiStartDpcZeroingRound.c)
+ *     MiStartDpcZeroingRound @ 0x140694B0C (MiStartDpcZeroingRound.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x1403B4C70 (KeFindFirstSetRightGroupAffinity.c)
- *     MiEngineAffinity @ 0x1404716E0 (MiEngineAffinity.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140371000 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiEngineAffinity @ 0x14046C2B0 (MiEngineAffinity.c)
  */
 
 _BOOL8 __fastcall MiInitializeZeroEngineCurrentPassDpcAffinity(__int64 a1, unsigned int a2)
@@ -62,7 +62,7 @@ _BOOL8 __fastcall MiInitializeZeroEngineCurrentPassDpcAffinity(__int64 a1, unsig
               v14 = KiProcessorBlock[(unsigned int)KeFindFirstSetRightGroupAffinity((__int64)v23)];
               v15 = *(_DWORD *)(v14 + 47412);
               if ( *(_BYTE *)(a1 + 25) )
-                v15 += *(_DWORD *)(*(_QWORD *)(qword_140E2DAF8 + 384LL * *(unsigned int *)(v14 + 34644) + 376) + 12LL);
+                v15 += *(_DWORD *)(*(_QWORD *)(qword_140E2DC38 + 384LL * *(unsigned int *)(v14 + 34644) + 376) + 12LL);
               v13 &= ~*(_QWORD *)(v14 + 36448);
               *(_QWORD *)&v23[0] = v13;
               if ( v15 == v9 )

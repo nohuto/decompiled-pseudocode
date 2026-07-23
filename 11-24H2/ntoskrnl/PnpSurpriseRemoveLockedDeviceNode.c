@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x140A109EC
+ * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x1409BEDFC
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140A6B71C (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140A64C7C (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     PnpMarkDeviceForRemove @ 0x1404BE49C (PnpMarkDeviceForRemove.c)
- *     PiIommuUninitializeDeviceAts @ 0x1404C1094 (PiIommuUninitializeDeviceAts.c)
- *     PnpUnlockMountableDevice @ 0x1404C1E7C (PnpUnlockMountableDevice.c)
- *     PipRestoreDevNodeState @ 0x1404E6BC4 (PipRestoreDevNodeState.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x140595FD4 (IopDecrementDeviceObjectHandleCount.c)
- *     PiIommuBlockDevice @ 0x140735F28 (PiIommuBlockDevice.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PipSetDevNodeProblem @ 0x14098FC24 (PipSetDevNodeProblem.c)
- *     PipDmgDestroyIommuExtension @ 0x1409C45C8 (PipDmgDestroyIommuExtension.c)
- *     IopRemoveDevice @ 0x140A10084 (IopRemoveDevice.c)
- *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x140A10C98 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
- *     IopReleaseDeviceResources @ 0x140A10CF8 (IopReleaseDeviceResources.c)
- *     PnpDisableDeviceInterfaces @ 0x140A10ED8 (PnpDisableDeviceInterfaces.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     PnpMarkDeviceForRemove @ 0x1404B965C (PnpMarkDeviceForRemove.c)
+ *     PiIommuUninitializeDeviceAts @ 0x1404BC67C (PiIommuUninitializeDeviceAts.c)
+ *     PnpUnlockMountableDevice @ 0x1404BD46C (PnpUnlockMountableDevice.c)
+ *     PipRestoreDevNodeState @ 0x1404DD2C0 (PipRestoreDevNodeState.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x140593004 (IopDecrementDeviceObjectHandleCount.c)
+ *     PiIommuBlockDevice @ 0x140733E58 (PiIommuBlockDevice.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PipSetDevNodeProblem @ 0x14097AC5C (PipSetDevNodeProblem.c)
+ *     PipDmgDestroyIommuExtension @ 0x14098237C (PipDmgDestroyIommuExtension.c)
+ *     IopRemoveDevice @ 0x1409BE494 (IopRemoveDevice.c)
+ *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x1409BF0A8 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
+ *     IopReleaseDeviceResources @ 0x1409BF108 (IopReleaseDeviceResources.c)
+ *     PnpDisableDeviceInterfaces @ 0x1409BF2E8 (PnpDisableDeviceInterfaces.c)
  */
 
 void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, int a2, int a3)
@@ -36,16 +36,14 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, int a2,
   int v15; // edx
   void *v16; // rbx
   __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  int v20; // eax
-  ULONG_PTR v21; // rsi
-  __int64 v22; // rax
-  __int128 v23; // [rsp+30h] [rbp-38h] BYREF
+  int v18; // eax
+  ULONG_PTR v19; // rsi
+  __int64 v20; // rax
+  __int128 v21; // [rsp+30h] [rbp-38h] BYREF
 
   v3 = *(struct _DEVICE_OBJECT **)(MaxDataSize + 32);
   v5 = *(_DWORD *)(MaxDataSize + 300);
-  v23 = 0LL;
+  v21 = 0LL;
   v8 = 768;
   if ( (unsigned int)(v5 - 784) <= 1 )
   {
@@ -82,7 +80,7 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, int a2,
   }
   if ( v9 == 780 && (*(_DWORD *)(MaxDataSize + 396) & 0x1000000) != 0 )
   {
-    PnpMarkDeviceForRemove((ULONG_PTR)v3, 1, (ULONG_PTR *)&v23);
+    PnpMarkDeviceForRemove((ULONG_PTR)v3, 1, (ULONG_PTR *)&v21);
     PnpUnlockMountableDevice((__int64)v3);
     PipClearDevNodeFlags(MaxDataSize, 0x1000000);
   }
@@ -120,10 +118,10 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, int a2,
   }
   if ( v9 == 780 )
   {
-    v16 = (void *)*((_QWORD *)&v23 + 1);
-    if ( *((_QWORD *)&v23 + 1) )
+    v16 = (void *)*((_QWORD *)&v21 + 1);
+    if ( *((_QWORD *)&v21 + 1) )
     {
-      IopDecrementDeviceObjectHandleCount(*((ULONG_PTR *)&v23 + 1));
+      IopDecrementDeviceObjectHandleCount(*((ULONG_PTR *)&v21 + 1));
       ObfDereferenceObject(v16);
     }
   }
@@ -133,9 +131,9 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, int a2,
   if ( *(_QWORD *)(MaxDataSize + 720) != v10 )
   {
     PiIommuUninitializeDeviceAts(MaxDataSize);
-    v20 = PiIommuBlockDevice(*(_QWORD *)(MaxDataSize + 720), v17, v18, v19);
-    v21 = v20;
-    if ( v20 < 0 )
+    v18 = PiIommuBlockDevice(*(_QWORD *)(MaxDataSize + 720), v17);
+    v19 = v18;
+    if ( v18 < 0 )
     {
       IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x388);
       if ( *(_WORD *)(MaxDataSize + 40) != (_WORD)v10 )
@@ -148,18 +146,18 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, int a2,
         IoAddTriageDumpDataBlock(MaxDataSize + 56, (PVOID)2);
         IoAddTriageDumpDataBlock(*(_QWORD *)(MaxDataSize + 64), (PVOID)*(unsigned __int16 *)(MaxDataSize + 56));
       }
-      v22 = *(_QWORD *)(MaxDataSize + 16);
-      if ( v22 )
+      v20 = *(_QWORD *)(MaxDataSize + 16);
+      if ( v20 )
       {
-        if ( *(_WORD *)(v22 + 56) != (_WORD)v10 )
+        if ( *(_WORD *)(v20 + 56) != (_WORD)v10 )
         {
-          IoAddTriageDumpDataBlock(v22 + 56, (PVOID)2);
+          IoAddTriageDumpDataBlock(v20 + 56, (PVOID)2);
           IoAddTriageDumpDataBlock(
             *(_QWORD *)(*(_QWORD *)(MaxDataSize + 16) + 64LL),
             (PVOID)*(unsigned __int16 *)(*(_QWORD *)(MaxDataSize + 16) + 56LL));
         }
       }
-      KeBugCheckEx(0xCAu, 0x13uLL, 0x1001uLL, v21, MaxDataSize);
+      KeBugCheckEx(0xCAu, 0x13uLL, 0x1001uLL, v19, MaxDataSize);
     }
     PipDmgDestroyIommuExtension(MaxDataSize);
   }

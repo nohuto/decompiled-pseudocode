@@ -1,10 +1,10 @@
 /*
- * XREFs of SafeFree @ 0x14071E3D8
+ * XREFs of SafeFree @ 0x140723068
  * Callers:
- *     FseInitializeGovernedFeaturesEffectiveStates @ 0x1408A4DD8 (FseInitializeGovernedFeaturesEffectiveStates.c)
- *     FsepPropagateGovernedFeatureEffectiveState @ 0x1408A4E88 (FsepPropagateGovernedFeatureEffectiveState.c)
+ *     FseInitializeGovernedFeaturesEffectiveStates @ 0x1408AB1E8 (FseInitializeGovernedFeaturesEffectiveStates.c)
+ *     FsepPropagateGovernedFeatureEffectiveState @ 0x1408AB298 (FsepPropagateGovernedFeatureEffectiveState.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SafeFree(void **a1)

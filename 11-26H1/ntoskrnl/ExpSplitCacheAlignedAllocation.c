@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSplitCacheAlignedAllocation @ 0x14044FDA0
+ * XREFs of ExpSplitCacheAlignedAllocation @ 0x140447ED0
  * Callers:
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
  * Callees:
  *     <none>
  */
@@ -26,6 +26,6 @@ __int64 __fastcall ExpSplitCacheAlignedAllocation(__int64 a1)
   *(_BYTE *)(v3 + 3) = *(_BYTE *)(a1 + 3) | 4;
   *(_DWORD *)(v3 + 4) = *(_DWORD *)(a1 + 4);
   if ( (unsigned __int8)*(_WORD *)v3 > 1u )
-    *(_QWORD *)(a1 + 16) = (__int64)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ v3;
+    *(_QWORD *)(a1 + 16) = (__int64)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ v3;
   return v3;
 }

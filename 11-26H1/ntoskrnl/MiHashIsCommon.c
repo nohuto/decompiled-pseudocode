@@ -1,9 +1,9 @@
 /*
- * XREFs of MiHashIsCommon @ 0x1404880D8
+ * XREFs of MiHashIsCommon @ 0x140481C18
  * Callers:
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
  * Callees:
- *     RtlCompareMemoryUlong @ 0x140730E10 (RtlCompareMemoryUlong.c)
+ *     RtlCompareMemoryUlong @ 0x1407359E0 (RtlCompareMemoryUlong.c)
  */
 
 _BOOL8 __fastcall MiHashIsCommon(__int64 a1, __int64 a2, void *a3)

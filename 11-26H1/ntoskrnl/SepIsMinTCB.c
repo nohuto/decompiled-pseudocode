@@ -1,16 +1,16 @@
 /*
- * XREFs of SepIsMinTCB @ 0x14091E9C8
+ * XREFs of SepIsMinTCB @ 0x140979428
  * Callers:
- *     SeQuerySigningPolicy @ 0x140A283BC (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x140A3B45C (SeQuerySigningPolicy.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     SepIsImageInMinTcbList @ 0x140A88634 (SepIsImageInMinTcbList.c)
- *     SeCompareSigningLevels @ 0x140A88910 (SeCompareSigningLevels.c)
- *     SepCheckAndSetAuditModeForProcess @ 0x140A88938 (SepCheckAndSetAuditModeForProcess.c)
- *     SepSetSystemPaths @ 0x140B5D234 (SepSetSystemPaths.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     SepIsImageInMinTcbList @ 0x14097A150 (SepIsImageInMinTcbList.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     SeCompareSigningLevels @ 0x140A8FB90 (SeCompareSigningLevels.c)
+ *     SepCheckAndSetAuditModeForProcess @ 0x140B5CD50 (SepCheckAndSetAuditModeForProcess.c)
+ *     SepSetSystemPaths @ 0x140B603B4 (SepSetSystemPaths.c)
  */
 
 __int64 __fastcall SepIsMinTCB(
@@ -67,8 +67,8 @@ __int64 __fastcall SepIsMinTCB(
       return (unsigned int)-1073741275;
     v14 = v13[4]->Length;
   }
-  else if ( !RtlPrefixUnicodeString(&stru_1400014E0, String2, 1u)
-         && !RtlPrefixUnicodeString(&stru_14000D690, String2, 1u) )
+  else if ( !RtlPrefixUnicodeString(&stru_1400019E0, String2, 1u)
+         && !RtlPrefixUnicodeString(&stru_14000D940, String2, 1u) )
   {
     return (unsigned int)-1073741275;
   }
@@ -84,11 +84,11 @@ __int64 __fastcall SepIsMinTCB(
     v22 = 3LL * v21;
     if ( RtlEqualUnicodeString(&String1, (PCUNICODE_STRING)&SeMsMinTCBList[3 * v21], 1u) )
     {
-      v25 = dword_140BDF044[6 * v21];
-      if ( !v25 || v25 == *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] )
+      v25 = dword_140BE5EF4[6 * v21];
+      if ( !v25 || v25 == LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) )
       {
         _mm_lfence();
-        v26 = byte_140BDF042[24 * v21];
+        v26 = byte_140BE5EF2[24 * v21];
         if ( v26 )
           goto LABEL_23;
         if ( a3 )
@@ -98,13 +98,13 @@ LABEL_23:
           v27 = a5;
           v24 = (unsigned __int64)v26 >> 4;
           *a5 = SeProtectedMapping[2 * v24];
-          v28 = byte_140BD8CF9[2 * v24];
+          v28 = byte_140BDFB89[2 * v24];
         }
         else
         {
           v27 = a5;
-          *a5 = byte_140BDF040[8 * v22];
-          v28 = byte_140BDF041[8 * v22];
+          *a5 = byte_140BE5EF0[8 * v22];
+          v28 = byte_140BE5EF1[8 * v22];
         }
         LOBYTE(v23) = a4;
         *a6 = v28;
@@ -129,11 +129,7 @@ LABEL_23:
     ++v21;
   }
   v16 = -1073741275;
-  if ( (RtlpBootStatHandleLock.AffinityVersion & 0x100000000LL) == 0
-    && (_BYTE)KdDebuggerEnabled
-    && !(_BYTE)KdDebuggerNotPresent )
-  {
+  if ( (BYTE4(RtlpBootStatHandleLock.Affinity) & 1) == 0 && (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
     return (unsigned int)SepIsImageInMinTcbList(L" \"", 9LL, &String1, a2, a3, a4, a5, a6, a7);
-  }
   return (unsigned int)v16;
 }

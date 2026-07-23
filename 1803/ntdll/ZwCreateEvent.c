@@ -5,7 +5,7 @@
  *     RtlWaitForWnfMetaNotification @ 0x1800494E0 (RtlWaitForWnfMetaNotification.c)
  *     sub_18004AE34 @ 0x18004AE34 (sub_18004AE34.c)
  *     sub_180056AC0 @ 0x180056AC0 (sub_180056AC0.c)
- *     sub_1800571C0 @ 0x1800571C0 (sub_1800571C0.c)
+ *     InitFn @ 0x1800571C0 (InitFn.c)
  *     sub_18005CE48 @ 0x18005CE48 (sub_18005CE48.c)
  *     sub_1800CB510 @ 0x1800CB510 (sub_1800CB510.c)
  *     RtlCreateProcessReflection @ 0x1800D0D60 (RtlCreateProcessReflection.c)
@@ -17,11 +17,16 @@
  *     <none>
  */
 
-__int64 ZwCreateEvent()
+NTSTATUS __cdecl ZwCreateEvent(
+        PHANDLE EventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        EVENT_TYPE EventType,
+        BOOLEAN InitialState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 72LL;
+  result = 72;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

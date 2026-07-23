@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpInitializeLowFragHeapManager @ 0x1800D5070
+ * XREFs of RtlpInitializeLowFragHeapManager @ 0x1800D0FC8
  * Callers:
- *     RtlInitializeHeapManager @ 0x1800D3DD4 (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x1800CFAEC (RtlInitializeHeapManager.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     NtQuerySystemInformation @ 0x18015F600 (NtQuerySystemInformation.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     NtQuerySystemInformation @ 0x18015F500 (NtQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 int RtlpInitializeLowFragHeapManager()
@@ -21,12 +21,12 @@ int RtlpInitializeLowFragHeapManager()
   char v7; // [rsp+58h] [rbp-20h]
 
   memset_thunk_772440563353939046(SystemInformation, 0, 0x40uLL);
-  v0 = qword_1801C6F00;
+  v0 = qword_1801C5F00;
   do
   {
     v1 = v0 ^ (v0 >> 12) ^ ((v0 ^ (v0 >> 12)) << 25) ^ ((v0 ^ (v0 >> 12) ^ ((v0 ^ (v0 >> 12)) << 25)) >> 27);
     v2 = v0;
-    v0 = _InterlockedCompareExchange64(&qword_1801C6F00, v1, v0);
+    v0 = _InterlockedCompareExchange64(&qword_1801C5F00, v1, v0);
   }
   while ( v2 != v0 );
   RtlpLFHKey = 0x2545F4914F6CDD1DLL * v1;
@@ -48,13 +48,13 @@ int RtlpInitializeLowFragHeapManager()
   }
   RtlpDefaultHeapDebuggingOptions = 0LL;
   RtlpAffinityState[0] = v3;
-  xmmword_1801CCFB0 = 0LL;
-  xmmword_1801CCFC0 = 0LL;
+  xmmword_1801CBFF0 = 0LL;
+  xmmword_1801CC000 = 0LL;
   if ( (RtlpDisableHeapLookaside & 0x30) != 0 )
   {
     DbgPrint("Enabling heap debug options\n");
     result = ((unsigned int)RtlpDisableHeapLookaside >> 4) & 3;
-    HIDWORD(RtlpDefaultHeapDebuggingOptions) = result;
+    dword_1801CBFEC = result;
   }
   return result;
 }

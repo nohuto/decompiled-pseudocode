@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddZeroingThreads @ 0x14013FD44
+ * XREFs of MiAddZeroingThreads @ 0x1401402B4
  * Callers:
- *     MiReassessZeroThreads @ 0x14013F4D4 (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x14013FA44 (MiReassessZeroThreads.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiAddZeroingThreads(__int64 a1)

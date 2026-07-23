@@ -6,14 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall sub_180038268(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall sub_180038268(PVOID DllHandle, __int64 a2)
 {
-  char v3; // cf
-  char v4; // of
-  char v5; // al
+  char v2; // cf
+  char v3; // of
+  char v4; // al
 
-  if ( !v4 )
+  if ( !v3 )
     JUMPOUT(0x1800382BDLL);
-  *(_BYTE *)(a2 - 97) -= v3 + v5;
-  return LdrUnloadDll(a1, a2, a3);
+  *(_BYTE *)(a2 - 97) -= v2 + v4;
+  return LdrUnloadDll(DllHandle);
 }

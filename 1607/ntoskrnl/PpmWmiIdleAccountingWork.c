@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmWmiIdleAccountingWork @ 0x1406735EC
+ * XREFs of PpmWmiIdleAccountingWork @ 0x1406736D0
  * Callers:
  *     <none>
  * Callees:

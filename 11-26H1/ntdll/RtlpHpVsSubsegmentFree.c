@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVsSubsegmentFree @ 0x18008ECDC
+ * XREFs of RtlpHpVsSubsegmentFree @ 0x1800E0704
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x180013304 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsSlotFreeList @ 0x18008E93C (RtlpHpVsSlotFreeList.c)
- *     RtlpHpVsContextCleanup @ 0x18008EBDC (RtlpHpVsContextCleanup.c)
- *     RtlpHpVsSlotCompactChunks @ 0x1800F8860 (RtlpHpVsSlotCompactChunks.c)
+ *     RtlpHpVsChunkSplit @ 0x18005EA34 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsSlotFreeList @ 0x1800E0364 (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsContextCleanup @ 0x1800E0604 (RtlpHpVsContextCleanup.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1800F8030 (RtlpHpVsSlotCompactChunks.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpVsSubsegmentFree(__int64 a1, __int64 a2)

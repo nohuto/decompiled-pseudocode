@@ -3,7 +3,7 @@
  * Callers:
  *     RtlStringCchPrintfExW @ 0x18004FCCC (RtlStringCchPrintfExW.c)
  * Callees:
- *     _vsnwprintf @ 0x1800917E0 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1800917F0 (_vsnwprintf.c)
  */
 
 __int64 __fastcall RtlStringVPrintfWorkerW(

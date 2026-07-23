@@ -1,12 +1,21 @@
 /*
- * XREFs of RtlDosLongPathNameToNtPathName_U_WithStatus @ 0x180100D50
+ * XREFs of RtlDosLongPathNameToNtPathName_U_WithStatus @ 0x1801004A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpDosPathNameToRelativeNtPathName_U @ 0x1800438A0 (RtlpDosPathNameToRelativeNtPathName_U.c)
+ *     RtlpDosPathNameToRelativeNtPathName_U @ 0x18002DE10 (RtlpDosPathNameToRelativeNtPathName_U.c)
  */
 
-__int64 __fastcall RtlDosLongPathNameToNtPathName_U_WithStatus(const wchar_t *a1, int a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlDosLongPathNameToNtPathName_U_WithStatus(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
-  return RtlpDosPathNameToRelativeNtPathName_U(4, a1, a2, a3, a4);
+  return RtlpDosPathNameToRelativeNtPathName_U(
+           4,
+           DosFileName,
+           (int)NtFileName,
+           (__int64)FilePart,
+           (__int64)RelativeName);
 }

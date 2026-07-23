@@ -1,10 +1,10 @@
 /*
- * XREFs of AslEnvExpandStrings @ 0x14080B864
+ * XREFs of AslEnvExpandStrings @ 0x14080BFA4
  * Callers:
- *     AslEnvExpandStrings2 @ 0x14080BA3C (AslEnvExpandStrings2.c)
+ *     AslEnvExpandStrings2 @ 0x14080C17C (AslEnvExpandStrings2.c)
  * Callees:
- *     AslEnvVarQuery @ 0x14080BF80 (AslEnvVarQuery.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslEnvVarQuery @ 0x14080C6C0 (AslEnvVarQuery.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD *a4, unsigned __int64 a5, _QWORD *a6)

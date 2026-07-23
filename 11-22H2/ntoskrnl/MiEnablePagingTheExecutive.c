@@ -23,10 +23,16 @@ void MiEnablePagingTheExecutive()
   {
     *((_DWORD *)i + 26) |= 0x400000u;
     v2 = (unsigned __int64)i[6];
-    if ( PsNtosImageBase && (v2 < PsNtosImageEnd && v2 >= PsNtosImageBase || v2 < PsHalImageEnd && v2 >= PsHalImageBase) )
+    if ( PsNtosImageBase
+      && (v2 < PsNtosImageEnd && v2 >= (unsigned __int64)PsNtosImageBase
+       || v2 < PsHalImageEnd && v2 >= (unsigned __int64)PsHalImageBase) )
+    {
       v3 = (volatile signed __int32 *)&xmmword_140C65A50;
+    }
     else
+    {
       v3 = (volatile signed __int32 *)&xmmword_140C65A50 + 1;
+    }
     _InterlockedExchangeAdd(v3, (((_DWORD)i[8] & 0xFFF) != 0) + (*((_DWORD *)i + 16) >> 12));
     v4 = (unsigned __int64)i[6];
     v6 = 0LL;

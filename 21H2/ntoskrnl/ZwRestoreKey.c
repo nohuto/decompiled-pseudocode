@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRestoreKey @ 0x1403FD320
+ * XREFs of ZwRestoreKey @ 0x1403FD500
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, FileHandle);
+  return KiServiceInternal(KeyHandle);
 }

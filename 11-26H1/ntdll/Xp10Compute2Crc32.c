@@ -1,10 +1,10 @@
 /*
- * XREFs of Xp10Compute2Crc32 @ 0x180151E94
+ * XREFs of Xp10Compute2Crc32 @ 0x180151D64
  * Callers:
- *     Xp10ReadAndValidateCrc @ 0x1800FAC68 (Xp10ReadAndValidateCrc.c)
+ *     Xp10ReadAndValidateCrc @ 0x1800FA3D8 (Xp10ReadAndValidateCrc.c)
  * Callees:
- *     Xp10ScatteredReadBytes @ 0x1800FA940 (Xp10ScatteredReadBytes.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     Xp10ScatteredReadBytes @ 0x1800FA0B0 (Xp10ScatteredReadBytes.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall Xp10Compute2Crc32(__int64 *a1)

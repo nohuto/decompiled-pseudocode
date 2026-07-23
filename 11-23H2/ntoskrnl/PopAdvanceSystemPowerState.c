@@ -1,9 +1,9 @@
 /*
- * XREFs of PopAdvanceSystemPowerState @ 0x1409840CC
+ * XREFs of PopAdvanceSystemPowerState @ 0x1409842CC
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopVerifySystemPowerState @ 0x1408248AC (PopVerifySystemPowerState.c)
+ *     PopVerifySystemPowerState @ 0x140824BAC (PopVerifySystemPowerState.c)
  */
 
 void __fastcall PopAdvanceSystemPowerState(int *a1, int a2, int a3, int a4)

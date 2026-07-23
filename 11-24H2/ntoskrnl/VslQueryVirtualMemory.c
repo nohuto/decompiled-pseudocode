@@ -1,11 +1,11 @@
 /*
- * XREFs of VslQueryVirtualMemory @ 0x1404B1BA8
+ * XREFs of VslQueryVirtualMemory @ 0x1404AC438
  * Callers:
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslQueryVirtualMemory(__int64 a1, __int64 a2, _OWORD *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall VslQueryVirtualMemory(__int64 a1, __int64 a2, _OWORD *a3)
   memset_0(v9, 0, 0x68uLL);
   v10 = *(_QWORD *)(a1 + 368);
   *(_QWORD *)&v11 = a2;
-  result = VslpEnterIumSecureMode(2u, 42LL, 0, (__int64)v9);
+  result = VslpEnterIumSecureMode(2u, 0x2Au, 0, (__int64)v9);
   if ( (int)result >= 0 )
   {
     v7 = v12;

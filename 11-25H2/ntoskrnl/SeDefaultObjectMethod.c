@@ -28,7 +28,7 @@
 __int64 __fastcall SeDefaultObjectMethod(
         __int64 a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         unsigned __int64 a4,
         ULONG *Length,
         __int64 *a6,

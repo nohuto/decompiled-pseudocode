@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1406E0944
+ * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1406B7C24
  * Callers:
- *     RtlQueryDynamicTimeZoneInformation @ 0x1406C3F10 (RtlQueryDynamicTimeZoneInformation.c)
- *     EtwpAddLogHeader @ 0x1406E03E8 (EtwpAddLogHeader.c)
- *     RtlQueryTimeZoneInformation @ 0x1409150B0 (RtlQueryTimeZoneInformation.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x140622AD0 (RtlQueryDynamicTimeZoneInformation.c)
+ *     EtwpAddLogHeader @ 0x1406B76C8 (EtwpAddLogHeader.c)
+ *     RtlQueryTimeZoneInformation @ 0x140915210 (RtlQueryTimeZoneInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1406E0BD4 (RtlpGetTimeZoneInfoHandle.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1406B7EB4 (RtlpGetTimeZoneInfoHandle.c)
  */
 
 __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)

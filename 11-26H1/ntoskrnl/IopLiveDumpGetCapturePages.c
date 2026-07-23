@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpGetCapturePages @ 0x1405CF8E0
+ * XREFs of IopLiveDumpGetCapturePages @ 0x1405D20F0
  * Callers:
- *     IopLiveDumpBufferDumpData @ 0x1405CDF10 (IopLiveDumpBufferDumpData.c)
+ *     IopLiveDumpBufferDumpData @ 0x1405D0720 (IopLiveDumpBufferDumpData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     IopLiveDumpShouldCheckChunkCRC @ 0x140344034 (IopLiveDumpShouldCheckChunkCRC.c)
- *     IopLiveDumpGetCapturePagesNoLock @ 0x1405CF9D0 (IopLiveDumpGetCapturePagesNoLock.c)
- *     IopLiveDumpTraceEventGeneric @ 0x1405D7A30 (IopLiveDumpTraceEventGeneric.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     IopLiveDumpShouldCheckChunkCRC @ 0x1403460B4 (IopLiveDumpShouldCheckChunkCRC.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x1405D21E0 (IopLiveDumpGetCapturePagesNoLock.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405DA220 (IopLiveDumpTraceEventGeneric.c)
  */
 
 void __fastcall IopLiveDumpGetCapturePages(int a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6, char a7)

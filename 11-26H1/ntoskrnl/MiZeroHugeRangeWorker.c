@@ -1,11 +1,11 @@
 /*
- * XREFs of MiZeroHugeRangeWorker @ 0x1407055C0
+ * XREFs of MiZeroHugeRangeWorker @ 0x14070A290
  * Callers:
- *     MiSoloZeroHugeRange @ 0x140705384 (MiSoloZeroHugeRange.c)
+ *     MiSoloZeroHugeRange @ 0x14070A054 (MiSoloZeroHugeRange.c)
  * Callees:
- *     MiFillMemory @ 0x1402A1930 (MiFillMemory.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCompareMemoryUlong @ 0x140730E10 (RtlCompareMemoryUlong.c)
+ *     MiFillMemory @ 0x1402A0E80 (MiFillMemory.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCompareMemoryUlong @ 0x1407359E0 (RtlCompareMemoryUlong.c)
  */
 
 void *__fastcall MiZeroHugeRangeWorker(__int64 a1, __int64 a2, __int64 a3)

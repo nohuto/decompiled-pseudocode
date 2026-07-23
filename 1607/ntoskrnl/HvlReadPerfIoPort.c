@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlReadPerfIoPort @ 0x1401BB17C
+ * XREFs of HvlReadPerfIoPort @ 0x1401BB060
  * Callers:
  *     <none>
  * Callees:
- *     HvlpReadPerfRegister @ 0x1401BBCE4 (HvlpReadPerfRegister.c)
+ *     HvlpReadPerfRegister @ 0x1401BBBC8 (HvlpReadPerfRegister.c)
  */
 
 __int64 __fastcall HvlReadPerfIoPort(__int64 a1, __int16 a2, __int16 a3, _DWORD *a4)

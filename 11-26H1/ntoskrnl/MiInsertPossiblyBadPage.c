@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInsertPossiblyBadPage @ 0x1403C65E0
+ * XREFs of MiInsertPossiblyBadPage @ 0x1403D04D4
  * Callers:
- *     MiProbeUnlockPage @ 0x14028B900 (MiProbeUnlockPage.c)
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiFreeLargeZeroPages @ 0x1402A5600 (MiFreeLargeZeroPages.c)
- *     MiFinishLargePageFree @ 0x1403C5FB0 (MiFinishLargePageFree.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403C7A60 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiFreeLargePageChain @ 0x1403C971C (MiFreeLargePageChain.c)
- *     MiObtainedPageIsGood @ 0x14043467C (MiObtainedPageIsGood.c)
- *     MiEnableNewPfns @ 0x1406E8478 (MiEnableNewPfns.c)
- *     MiTransferPartitionPageRun @ 0x140709A80 (MiTransferPartitionPageRun.c)
+ *     MiProbeUnlockPage @ 0x14028AE60 (MiProbeUnlockPage.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiFreeLargeZeroPages @ 0x1402A4B50 (MiFreeLargeZeroPages.c)
+ *     MiFinishLargePageFree @ 0x1403CFEB0 (MiFinishLargePageFree.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403D1950 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiFreeLargePageChain @ 0x1403D35CC (MiFreeLargePageChain.c)
+ *     MiObtainedPageIsGood @ 0x14042B75C (MiObtainedPageIsGood.c)
+ *     MiEnableNewPfns @ 0x1406ED114 (MiEnableNewPfns.c)
+ *     MiTransferPartitionPageRun @ 0x14070E734 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertDemotedPages @ 0x1404346F0 (MiInsertDemotedPages.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertDemotedPages @ 0x14042B7D0 (MiInsertDemotedPages.c)
  */
 
 __int64 __fastcall MiInsertPossiblyBadPage(ULONG_PTR a1, int a2)
@@ -32,7 +32,7 @@ __int64 __fastcall MiInsertPossiblyBadPage(ULONG_PTR a1, int a2)
   v4 = MI_PAGE_TO_FULL_COLOR(a1);
   v5 = 48 * a1 - 0x220000000000LL;
   v11 = 0;
-  v6 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 16LL)
+  v6 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 16LL)
      + 56320 * ((v4 >> 9) & 0x3F);
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 24), 0x3FuLL) )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of UsifGetByte @ 0x1405CB670
+ * XREFs of UsifGetByte @ 0x1405CB8A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall UsifGetByte(__int64 *a1, _BYTE *a2)
@@ -15,8 +15,8 @@ __int64 __fastcall UsifGetByte(__int64 *a1, _BYTE *a2)
   v4 = *a1;
   if ( !v4 )
     return 3LL;
-  if ( !(unsigned __int8)((__int64 (__fastcall *)(__int64))off_140C053E0)(v4 + 68) )
+  if ( !(unsigned __int8)((__int64 (__fastcall *)(__int64))off_140C053F0)(v4 + 68) )
     return 1LL;
-  *a2 = ((__int64 (__fastcall *)(__int64))off_140C053E0)(*a1 + 0x80000);
+  *a2 = ((__int64 (__fastcall *)(__int64))off_140C053F0)(*a1 + 0x80000);
   return 0LL;
 }

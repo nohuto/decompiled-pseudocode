@@ -1,16 +1,16 @@
 /*
- * XREFs of PsCreateSystemThreadEx @ 0x1403E4750
+ * XREFs of PsCreateSystemThreadEx @ 0x1403E5D7C
  * Callers:
- *     MiZeroNodePages @ 0x14013A830 (MiZeroNodePages.c)
- *     MiInitializePageZeroing @ 0x14013AE70 (MiInitializePageZeroing.c)
- *     ExpCreateSystemThreadForNode @ 0x1403E4644 (ExpCreateSystemThreadForNode.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     KiStartDpcThread @ 0x14054E088 (KiStartDpcThread.c)
+ *     MiZeroNodePages @ 0x14013ADA0 (MiZeroNodePages.c)
+ *     MiInitializePageZeroing @ 0x14013B3E0 (MiInitializePageZeroing.c)
+ *     ExpCreateSystemThreadForNode @ 0x1403E5C70 (ExpCreateSystemThreadForNode.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     KiStartDpcThread @ 0x14054E428 (KiStartDpcThread.c)
  * Callees:
- *     KeQueryActiveGroupCount @ 0x140004F14 (KeQueryActiveGroupCount.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PspCreateThread @ 0x140458D18 (PspCreateThread.c)
+ *     KeQueryActiveGroupCount @ 0x140005088 (KeQueryActiveGroupCount.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PspCreateThread @ 0x140457BE8 (PspCreateThread.c)
  */
 
 __int64 __fastcall PsCreateSystemThreadEx(

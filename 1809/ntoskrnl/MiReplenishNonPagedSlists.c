@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReplenishNonPagedSlists @ 0x140163EA4
+ * XREFs of MiReplenishNonPagedSlists @ 0x140163FA4
  * Callers:
- *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
+ *     MiScanLeafNonPagedPool @ 0x1401638F0 (MiScanLeafNonPagedPool.c)
  * Callees:
- *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     MiAllocatingNonPagedPoolVa @ 0x140164060 (MiAllocatingNonPagedPoolVa.c)
- *     InterlockedPushListSList @ 0x1401C5480 (InterlockedPushListSList.c)
+ *     RtlFindClearBitsAndSetEx @ 0x14008AB40 (RtlFindClearBitsAndSetEx.c)
+ *     MiAllocatingNonPagedPoolVa @ 0x140164160 (MiAllocatingNonPagedPoolVa.c)
+ *     InterlockedPushListSList @ 0x1401C55E0 (InterlockedPushListSList.c)
  */
 
 __int64 __fastcall MiReplenishNonPagedSlists(
@@ -20,24 +20,24 @@ __int64 __fastcall MiReplenishNonPagedSlists(
   unsigned __int64 v8; // rbp
   __int64 v9; // rdx
   __int64 v10; // rdi
-  struct _SLIST_ENTRY *v11; // rbx
+  _SLIST_ENTRY *v11; // rbx
   __int64 v12; // r13
-  struct _SLIST_ENTRY *v13; // r15
+  _SLIST_ENTRY *v13; // r15
   __int16 v14; // r12
-  union _SLIST_HEADER *v15; // r14
+  _SLIST_HEADER *v15; // r14
   unsigned __int64 ClearBitsAndSet; // rax
   unsigned __int64 v17; // rbx
-  struct _SLIST_ENTRY *v18; // rax
-  union _SLIST_HEADER *v20; // [rsp+20h] [rbp-58h]
+  _SLIST_ENTRY *v18; // rax
+  _SLIST_HEADER *v20; // [rsp+20h] [rbp-58h]
   unsigned __int64 v21; // [rsp+20h] [rbp-58h]
-  struct _SLIST_ENTRY *v22; // [rsp+28h] [rbp-50h]
-  union _SLIST_HEADER *ListHead; // [rsp+30h] [rbp-48h]
+  _SLIST_ENTRY *v22; // [rsp+28h] [rbp-50h]
+  _SLIST_HEADER *ListHead; // [rsp+30h] [rbp-48h]
   __int128 v24; // [rsp+38h] [rbp-40h] BYREF
-  struct _SLIST_ENTRY *v26; // [rsp+A0h] [rbp+28h]
+  _SLIST_ENTRY *v26; // [rsp+A0h] [rbp+28h]
 
-  v20 = &qword_14043A058[25 * a2];
+  v20 = &qword_14043B118[25 * a2];
   ListHead = &v20[a5 + 3];
-  v6 = dword_140438A48[a5 - 1];
+  v6 = dword_140439B08[a5 - 1];
   Alignment_low = LOWORD(ListHead->Alignment);
   if ( Alignment_low >= v6 >> 1 )
     return 0LL;
@@ -69,11 +69,11 @@ __int64 __fastcall MiReplenishNonPagedSlists(
       v17 = v15[20].Alignment + ((a3 + ClearBitsAndSet + v8) << 12);
       MiAllocatingNonPagedPoolVa(v15, 0LL, a3 + ClearBitsAndSet + v8, a5);
       ++v12;
-      *(_QWORD *)v17 = v17 ^ qword_14043AEC0;
+      *(_QWORD *)v17 = v17 ^ qword_14043BF80;
       a4 = a5 + v21;
-      v18 = (struct _SLIST_ENTRY *)(v17 + 16);
+      v18 = (_SLIST_ENTRY *)(v17 + 16);
       *(_QWORD *)(v17 + 16) = v13;
-      v13 = (struct _SLIST_ENTRY *)(v17 + 16);
+      v13 = (_SLIST_ENTRY *)(v17 + 16);
       if ( v22 )
         v18 = v26;
       v26 = v18;

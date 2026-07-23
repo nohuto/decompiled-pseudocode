@@ -1,9 +1,9 @@
 /*
- * XREFs of KiBuildShareCountsForSmtSiblings @ 0x14057DD1C
+ * XREFs of KiBuildShareCountsForSmtSiblings @ 0x14057E20C
  * Callers:
- *     KiPerformHeteroSoftParkElection @ 0x14057E108 (KiPerformHeteroSoftParkElection.c)
+ *     KiPerformHeteroSoftParkElection @ 0x14057E5F8 (KiPerformHeteroSoftParkElection.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 unsigned __int64 __fastcall KiBuildShareCountsForSmtSiblings(int a1, unsigned __int64 a2, void *a3)

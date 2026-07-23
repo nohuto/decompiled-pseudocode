@@ -17,11 +17,11 @@ __int64 __fastcall sub_18001C2B0(unsigned __int64 a1, const char *a2, int a3, ch
 {
   char *v4; // r15
   bool v9; // bl
-  unsigned __int64 v10; // rdi
-  int v11; // eax
-  __int16 v12; // ax
-  __int64 v13; // rax
-  int v14; // r13d
+  char *v10; // rdi
+  NTSTATUS v11; // eax
+  WORD Magic; // ax
+  __int64 VirtualAddress; // rax
+  DWORD Size; // r13d
   char v15; // si
   int v16; // r10d
   int v17; // r11d
@@ -33,55 +33,55 @@ __int64 __fastcall sub_18001C2B0(unsigned __int64 a1, const char *a2, int a3, ch
   int v23; // eax
   unsigned int v25; // esi
   char *v26; // rcx
-  char *v27; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v28; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v27; // [rsp+40h] [rbp-38h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+80h] [rbp+8h] BYREF
 
   v4 = 0LL;
-  v28 = 0LL;
+  OutHeaders = 0LL;
   v27 = 0LL;
   v9 = 1;
-  v10 = a1;
+  v10 = (char *)a1;
   if ( (a1 & 3) != 0 )
   {
-    v10 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v10 = (char *)(a1 & 0xFFFFFFFFFFFFFFFCuLL);
     v9 = (a1 & 1) == 0;
   }
-  v11 = RtlImageNtHeaderEx(1LL, v10, 0LL, &v28);
-  if ( !v28 )
+  v11 = RtlImageNtHeaderEx(1u, v10, 0LL, &OutHeaders);
+  if ( !OutHeaders )
   {
 LABEL_46:
     if ( v11 >= 0 )
     {
-      v14 = v28;
+      Size = (unsigned int)OutHeaders;
       goto LABEL_10;
     }
 LABEL_43:
-    v14 = v28;
+    Size = (unsigned int)OutHeaders;
 LABEL_44:
     v4 = 0LL;
     goto LABEL_10;
   }
-  v12 = *(_WORD *)(v28 + 24);
-  if ( v12 == 267 )
+  Magic = OutHeaders->OptionalHeader.Magic;
+  if ( Magic == 267 )
   {
-    v11 = sub_18001EF44(v10, v9, 0, (unsigned int)&v28, v28, (__int64)&v27);
-    v4 = v27;
+    v11 = sub_18001EF44((int)v10, v9, 0, (int)&OutHeaders, OutHeaders, (__int64)&v27);
+    v4 = (char *)v27;
     goto LABEL_46;
   }
-  if ( v12 != 523 )
+  if ( Magic != 523 )
     goto LABEL_43;
-  if ( !*(_DWORD *)(v28 + 132) )
+  if ( !OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
     goto LABEL_43;
-  v13 = *(unsigned int *)(v28 + 136);
-  if ( !(_DWORD)v13 )
+  VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+  if ( !(_DWORD)VirtualAddress )
     goto LABEL_43;
-  v14 = *(_DWORD *)(v28 + 140);
-  if ( v9 || (unsigned int)v13 < *(_DWORD *)(v28 + 84) )
+  Size = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+  if ( v9 || (unsigned int)VirtualAddress < OutHeaders->OptionalHeader.SizeOfHeaders )
   {
-    v4 = (char *)(v10 + v13);
+    v4 = &v10[VirtualAddress];
     goto LABEL_10;
   }
-  v4 = (char *)RtlAddressInSectionTable(v28, v10, (unsigned int)v13);
+  v4 = (char *)RtlAddressInSectionTable(OutHeaders, v10, VirtualAddress);
   if ( !v4 )
     goto LABEL_44;
 LABEL_10:
@@ -179,7 +179,7 @@ LABEL_31:
   {
     v26 = (char *)(a1 + *(unsigned int *)(a1 + *((unsigned int *)v4 + 7) + 4LL * (int)v25));
     *a4 = v26;
-    if ( v26 < v4 || v26 >= &v4[v14] )
+    if ( v26 < v4 || v26 >= &v4[Size] )
       return 0LL;
     else
       return 3221226029LL;

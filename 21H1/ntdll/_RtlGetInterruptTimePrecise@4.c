@@ -9,63 +9,77 @@
  *     __allshl @ 0x4B2F65F0 (__allshl.c)
  */
 
-int __stdcall RtlGetInterruptTimePrecise(unsigned __int64 *a1)
+LARGE_INTEGER __cdecl RtlGetInterruptTimePrecise(PLARGE_INTEGER PerformanceCounter)
 {
   int TickLock; // edi
   int v2; // edx
   int v3; // esi
   unsigned int v4; // ecx
-  unsigned __int64 v5; // rdi
-  unsigned __int64 v6; // rdi
-  unsigned int v7; // ecx
-  unsigned int v8; // eax
-  __int64 v9; // rax
-  unsigned __int64 v11; // [esp+Ch] [ebp-1Ch] BYREF
-  int v12; // [esp+14h] [ebp-14h]
-  int v13; // [esp+18h] [ebp-10h]
-  unsigned int v14; // [esp+1Ch] [ebp-Ch]
-  unsigned int v15; // [esp+20h] [ebp-8h]
-  unsigned int v16; // [esp+24h] [ebp-4h]
+  LARGE_INTEGER v5; // rdi
+  int v6; // ebx
+  unsigned __int64 v7; // rdi
+  unsigned int v8; // ecx
+  int v9; // eax
+  __int64 v10; // rax
+  bool v11; // cf
+  LARGE_INTEGER result; // rax
+  LARGE_INTEGER v13; // [esp+Ch] [ebp-1Ch] BYREF
+  int v14; // [esp+14h] [ebp-14h]
+  int v15; // [esp+18h] [ebp-10h]
+  unsigned int v16; // [esp+1Ch] [ebp-Ch]
+  int v17; // [esp+20h] [ebp-8h]
+  unsigned int v18; // [esp+24h] [ebp-4h]
 
-  v15 = 0;
+  v17 = 0;
   while ( 1 )
   {
     TickLock = RtlBeginReadTickLock((int *)0x7FFE0340);
     v3 = v2;
-    v16 = MEMORY[0x7FFE0350];
-    v14 = MEMORY[0x7FFE0354];
-    v13 = MEMORY[0x7FFE0008];
-    v12 = MEMORY[0x7FFE000C];
-    RtlQueryPerformanceCounter(&v11);
+    v18 = MEMORY[0x7FFE0350];
+    v16 = MEMORY[0x7FFE0354];
+    v15 = MEMORY[0x7FFE0008];
+    v14 = MEMORY[0x7FFE000C];
+    RtlQueryPerformanceCounter(&v13);
     if ( RtlTryEndReadTickLock((int *)0x7FFE0340, TickLock, v3) )
       break;
     _mm_pause();
   }
-  v4 = v14;
-  v5 = v11;
-  *a1 = v11;
-  if ( v5 <= __PAIR64__(v4, v16) )
+  v4 = v16;
+  v5 = v13;
+  *PerformanceCounter = v13;
+  v6 = 0;
+  if ( v5.QuadPart <= __PAIR64__(v4, v18) )
   {
-    v8 = v15;
+    v9 = v17;
   }
   else
   {
-    v6 = v5 - __PAIR64__(v4, v16) - 1;
+    v7 = v5.QuadPart - __PAIR64__(v4, v18) - 1;
     if ( MEMORY[0x7FFE0369] )
-      v6 <<= MEMORY[0x7FFE0369];
-    v16 = ((unsigned int)v6 * (unsigned __int64)MEMORY[0x7FFE0364]) >> 32;
-    v7 = v6 * MEMORY[0x7FFE0364];
-    if ( HIDWORD(v6) )
+      v7 <<= MEMORY[0x7FFE0369];
+    v18 = ((unsigned int)v7 * (unsigned __int64)MEMORY[0x7FFE0364]) >> 32;
+    v8 = v7 * MEMORY[0x7FFE0364];
+    if ( HIDWORD(v7) )
     {
-      LODWORD(v9) = HIDWORD(v6) * MEMORY[0x7FFE0360];
-      HIDWORD(v9) = v16;
-      v16 = (__PAIR64__((HIDWORD(v6) * (unsigned __int64)MEMORY[0x7FFE0360]) >> 32, v7) + v9) >> 32;
-      v8 = v16 + MEMORY[0x7FFE0364] * HIDWORD(v6);
+      LODWORD(v10) = HIDWORD(v7) * MEMORY[0x7FFE0360];
+      HIDWORD(v10) = v18;
+      LODWORD(v7) = (__PAIR64__((HIDWORD(v7) * (unsigned __int64)MEMORY[0x7FFE0360]) >> 32, v8) + v10) >> 32;
+      v18 = v7;
+      v6 = (__PAIR64__(
+              __PAIR64__((HIDWORD(v7) * (unsigned __int64)MEMORY[0x7FFE0360]) >> 32, v8) + v10 < __PAIR64__(
+                                                                                                   HIDWORD(v10),
+                                                                                                   v8),
+              v7)
+          + MEMORY[0x7FFE0364] * (unsigned __int64)HIDWORD(v7)) >> 32;
+      v9 = v7 + MEMORY[0x7FFE0364] * HIDWORD(v7);
     }
     else
     {
-      v8 = (__PAIR64__(v16, v7) + (((unsigned int)v6 * (unsigned __int64)MEMORY[0x7FFE0360]) >> 32)) >> 32;
+      v9 = (__PAIR64__(v18, v8) + (((unsigned int)v7 * (unsigned __int64)MEMORY[0x7FFE0360]) >> 32)) >> 32;
     }
   }
-  return v13 + v8;
+  v11 = __CFADD__(v15, v9);
+  result.LowPart = v15 + v9;
+  result.HighPart = v6 + v11 + v14;
+  return result;
 }

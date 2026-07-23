@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUnicodeStringDeepCopy @ 0x14066A78C
+ * XREFs of PopUnicodeStringDeepCopy @ 0x14066A870
  * Callers:
- *     PoGetRequester @ 0x1400FC1D4 (PoGetRequester.c)
+ *     PoGetRequester @ 0x1400F9F54 (PoGetRequester.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x14000BEC0 (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCopy @ 0x14000BA40 (RtlUnicodeStringCopy.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

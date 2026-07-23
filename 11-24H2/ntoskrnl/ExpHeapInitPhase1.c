@@ -1,21 +1,18 @@
 /*
- * XREFs of ExpHeapInitPhase1 @ 0x14065A310
+ * XREFs of ExpHeapInitPhase1 @ 0x1406589E0
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     ExAllocateTimer @ 0x1403BF2E0 (ExAllocateTimer.c)
- *     ExpHpEnumerateHeaps @ 0x140485A24 (ExpHpEnumerateHeaps.c)
+ *     ExAllocateTimer @ 0x1403ADEA0 (ExAllocateTimer.c)
+ *     ExpHpEnumerateHeaps @ 0x140481014 (ExpHpEnumerateHeaps.c)
  */
 
-char __fastcall ExpHeapInitPhase1(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char ExpHeapInitPhase1()
 {
-  __int64 v4; // r8
-  __int64 v5; // r9
-  char v6; // bl
+  char v0; // bl
 
-  v6 = 0;
-  if ( (int)ExpHpEnumerateHeaps(1, (__int64)ExpHeapInitLfhStartCallback, a3, a4) >= 0
-    && (int)ExpHpEnumerateHeaps(0, (__int64)ExpHeapInitLfhStartCallback, v4, v5) >= 0 )
+  v0 = 0;
+  if ( (int)ExpHpEnumerateHeaps(1) >= 0 && (int)ExpHpEnumerateHeaps(0) >= 0 )
   {
     ExpHpGCTimerPaged = ExAllocateTimer((__int64)ExpHpGCTimerCallback, 0LL, 8u);
     if ( ExpHpGCTimerPaged )
@@ -30,5 +27,5 @@ char __fastcall ExpHeapInitPhase1(__int64 a1, __int64 a2, __int64 a3, __int64 a4
       }
     }
   }
-  return v6;
+  return v0;
 }

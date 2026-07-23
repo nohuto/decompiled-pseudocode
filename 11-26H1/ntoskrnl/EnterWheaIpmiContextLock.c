@@ -1,13 +1,13 @@
 /*
- * XREFs of EnterWheaIpmiContextLock @ 0x1406D4278
+ * XREFs of EnterWheaIpmiContextLock @ 0x1406D82F8
  * Callers:
- *     PnpLogBootFailuresSel @ 0x1405DA220 (PnpLogBootFailuresSel.c)
- *     WheaSelLogCheckPoint @ 0x1406D43A4 (WheaSelLogCheckPoint.c)
+ *     PnpLogBootFailuresSel @ 0x1405DCA20 (PnpLogBootFailuresSel.c)
+ *     WheaSelLogCheckPoint @ 0x1406D8424 (WheaSelLogCheckPoint.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     CheckWheaIpmiContext @ 0x1406D4250 (CheckWheaIpmiContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     CheckWheaIpmiContext @ 0x1406D82D0 (CheckWheaIpmiContext.c)
  */
 
 __int64 EnterWheaIpmiContextLock()

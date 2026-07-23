@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCompareTokens @ 0x1401B94F0
+ * XREFs of ZwCompareTokens @ 0x1401B9650
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHa
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FirstTokenHandle, SecondTokenHandle, Equal);
+  return KiServiceInternal(FirstTokenHandle);
 }

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlFlushHeaps()
+void RtlFlushHeaps(void)
 {
-  return sub_1800059EC(sub_1800062E0, 0LL, 0LL);
+  sub_1800059EC(sub_1800062E0, 0LL, 0LL);
 }

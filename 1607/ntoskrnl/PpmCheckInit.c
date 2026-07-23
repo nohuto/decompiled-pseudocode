@@ -12,20 +12,20 @@ __int64 (*PpmCheckInit())()
 
   PpmCheckCurrentPipelineId = 6;
   LODWORD(PpmCheckDpc) = 787;
-  qword_140302858 = (__int64)PpmCheckRun;
-  qword_140302898 = (__int64)PpmCheckPeriodicStart;
+  qword_140302898 = (__int64)PpmCheckRun;
+  qword_1403028D8 = (__int64)PpmCheckPeriodicStart;
   result = PpmIdleDurationExpiration;
-  qword_1403028F8 = (__int64)PpmIdleDurationExpiration;
-  qword_140302860 = 0LL;
-  qword_140302878 = 0LL;
-  qword_140302850 = 0LL;
-  LODWORD(PpmCheckStartDpc) = 787;
+  qword_140302938 = (__int64)PpmIdleDurationExpiration;
   qword_1403028A0 = 0LL;
   qword_1403028B8 = 0LL;
   qword_140302890 = 0LL;
+  LODWORD(PpmCheckStartDpc) = 787;
+  qword_1403028E0 = 0LL;
+  qword_1403028F8 = 0LL;
+  qword_1403028D0 = 0LL;
   LODWORD(PpmCheckIdleExpirationDpc) = 787;
-  qword_140302900 = 0LL;
-  qword_140302918 = 0LL;
-  qword_1403028F0 = 0LL;
+  qword_140302940 = 0LL;
+  qword_140302958 = 0LL;
+  qword_140302930 = 0LL;
   return result;
 }

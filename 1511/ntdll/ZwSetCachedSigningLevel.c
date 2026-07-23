@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwSetCachedSigningLevel()
+NTSTATUS __cdecl ZwSetCachedSigningLevel(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 369LL;
+  result = 369;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

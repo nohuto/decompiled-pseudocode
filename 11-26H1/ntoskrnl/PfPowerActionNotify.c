@@ -1,19 +1,19 @@
 /*
- * XREFs of PfPowerActionNotify @ 0x140C071B0
+ * XREFs of PfPowerActionNotify @ 0x140C0D3C0
  * Callers:
- *     PfIoPowerEventNotify @ 0x1407C5738 (PfIoPowerEventNotify.c)
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     PopDispatchSuperfetchNotification @ 0x140B4EF08 (PopDispatchSuperfetchNotification.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PfIoPowerEventNotify @ 0x1407C8798 (PfIoPowerEventNotify.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     PopDispatchSuperfetchNotification @ 0x140B51798 (PopDispatchSuperfetchNotification.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PfpPartitionIterate @ 0x140382630 (PfpPartitionIterate.c)
- *     PfpServiceMainThreadUnboost @ 0x1404FA8B0 (PfpServiceMainThreadUnboost.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PfpScenCtxPrefetchWait @ 0x140BF8AD8 (PfpScenCtxPrefetchWait.c)
- *     PfSnBeginBootPhase @ 0x140BF8FAC (PfSnBeginBootPhase.c)
- *     PfpScenCtxScenarioSet @ 0x140C09F08 (PfpScenCtxScenarioSet.c)
- *     PfpStartLoggingHardFaultEvents @ 0x140C0C798 (PfpStartLoggingHardFaultEvents.c)
+ *     PfpPartitionIterate @ 0x1403843E0 (PfpPartitionIterate.c)
+ *     PfpServiceMainThreadUnboost @ 0x1404F3EC0 (PfpServiceMainThreadUnboost.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PfpScenCtxPrefetchWait @ 0x140BFEAD8 (PfpScenCtxPrefetchWait.c)
+ *     PfSnBeginBootPhase @ 0x140BFEFAC (PfSnBeginBootPhase.c)
+ *     PfpScenCtxScenarioSet @ 0x140C10118 (PfpScenCtxScenarioSet.c)
+ *     PfpStartLoggingHardFaultEvents @ 0x140C129A8 (PfpStartLoggingHardFaultEvents.c)
  */
 
 __int64 __fastcall PfPowerActionNotify(int a1, char a2, int a3)
@@ -50,7 +50,7 @@ __int64 __fastcall PfPowerActionNotify(int a1, char a2, int a3)
         {
           *(_QWORD *)&v13 = 0x200000001LL;
           DWORD2(v13) = 1;
-          HIDWORD(v13) = HIDWORD(stru_140E66B30.TracingPrivate[0]);
+          HIDWORD(v13) = HIDWORD(stru_140E66D40.TracingPrivate[0]);
           v14 = 0;
           PfpPartitionIterate((__int64)PfpLogScenarioEventCallback, 0LL, (__int64)&v13);
         }
@@ -60,7 +60,7 @@ LABEL_7:
 LABEL_8:
         LODWORD(v11) = 28;
         DWORD2(v11) = 8;
-        DWORD1(v11) = HIDWORD(stru_140E66B30.WriteOperationCount)
+        DWORD1(v11) = HIDWORD(stru_140E66D40.WriteOperationCount)
                     + ((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                       + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10);
         v12 = &v10;
@@ -69,12 +69,12 @@ LABEL_8:
       PfpPartitionIterate(
         (__int64)PfpPowerActionStartScenarioTracingCallback,
         4LL,
-        (__int64)&stru_140E66B30.OtherOperationCount);
-      if ( LODWORD(stru_140E66B30.TracingPrivate[0]) == 5 )
+        (__int64)&stru_140E66D40.OtherOperationCount);
+      if ( LODWORD(stru_140E66D40.TracingPrivate[0]) == 5 )
         PfSnBeginBootPhase(4u);
-      PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
-      PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
-      PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
+      PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
+      PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
+      PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
       result = PfpStartLoggingHardFaultEvents();
       if ( (int)result >= 0 )
         goto LABEL_7;
@@ -90,19 +90,19 @@ LABEL_8:
           if ( a3 == 5 )
           {
             v7 = 2;
-            v8 = *(_DWORD *)&stru_140E66B30.WaitBlockFill11[136];
-            if ( LODWORD(stru_140E66B30.TracingPrivate[0]) == 5 )
+            v8 = *(_DWORD *)&stru_140E66D40.WaitBlockFill11[136];
+            if ( LODWORD(stru_140E66D40.TracingPrivate[0]) == 5 )
             {
-              v8 = *(_DWORD *)&stru_140E66B30.WaitBlockFill11[140];
+              v8 = *(_DWORD *)&stru_140E66D40.WaitBlockFill11[140];
               v7 = 5;
             }
           }
           else
           {
-            v8 = *(_DWORD *)&stru_140E66B30.WaitBlockFill11[132];
+            v8 = *(_DWORD *)&stru_140E66D40.WaitBlockFill11[132];
             v7 = 1;
           }
-          HIDWORD(v10) = PfpScenCtxPrefetchWait((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount, v7, v8);
+          HIDWORD(v10) = PfpScenCtxPrefetchWait((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount, v7, v8);
         }
         PfpServiceMainThreadUnboost(0LL);
         goto LABEL_8;
@@ -113,7 +113,7 @@ LABEL_8:
   {
     result = (unsigned int)(a3 - 2);
     if ( (unsigned int)result <= 2 || a3 == 5 )
-      return PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
+      return PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
   }
   return result;
 }

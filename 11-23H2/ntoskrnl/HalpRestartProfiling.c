@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpRestartProfiling @ 0x140507F10
+ * XREFs of HalpRestartProfiling @ 0x140508460
  * Callers:
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A975F4 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A97464 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpRestartProfiling()

@@ -8,16 +8,16 @@
  *     __errno @ 0x4B33D420 (__errno.c)
  */
 
-int *__cdecl __libm_error_support(double *a1, int a2, double *a3, int a4)
+_DWORD *__cdecl __libm_error_support(double *a1, int a2, double *a3, int a4)
 {
-  int *result; // eax
+  _DWORD *result; // eax
   double *v5; // esi
   double v6; // st7
   double v7; // [esp+1Ch] [ebp-10h]
 
   if ( a4 > 166 )
   {
-    result = (int *)(a4 - 1000);
+    result = (_DWORD *)(a4 - 1000);
     switch ( a4 )
     {
       case 1000:
@@ -54,7 +54,7 @@ int *__cdecl __libm_error_support(double *a1, int a2, double *a3, int a4)
 LABEL_32:
         v5 = a3;
         v7 = *a3;
-        result = (int *)RtlGetReturnAddressHijackTarget();
+        result = (_DWORD *)RtlGetReturnAddressHijackTarget();
         if ( !result )
         {
           result = _errno();
@@ -72,7 +72,7 @@ LABEL_32:
           {
             if ( a4 != 15 )
             {
-              result = (int *)(a4 - 24);
+              result = (_DWORD *)(a4 - 24);
               if ( a4 != 24 )
                 return result;
               goto LABEL_32;
@@ -80,7 +80,7 @@ LABEL_32:
 LABEL_13:
             v5 = a3;
             v7 = *a3;
-            result = (int *)RtlGetReturnAddressHijackTarget();
+            result = (_DWORD *)RtlGetReturnAddressHijackTarget();
 LABEL_39:
             *v5 = v7;
             return result;
@@ -93,7 +93,7 @@ LABEL_39:
     switch ( a4 )
     {
       case 26:
-        result = (int *)a3;
+        result = a3;
         *a3 = 1.0;
         return result;
       case 27:
@@ -108,14 +108,14 @@ LABEL_36:
         *a3 = v6;
         goto LABEL_37;
     }
-    if ( a4 == 58 || (result = (int *)(a4 - 61), a4 == 61) )
+    if ( a4 == 58 || (result = (_DWORD *)(a4 - 61), a4 == 61) )
     {
 LABEL_15:
       v5 = a3;
       v6 = *a3;
 LABEL_37:
       v7 = v6;
-      result = (int *)RtlGetReturnAddressHijackTarget();
+      result = (_DWORD *)RtlGetReturnAddressHijackTarget();
       if ( !result )
       {
         result = _errno();

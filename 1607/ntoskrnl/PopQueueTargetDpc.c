@@ -1,12 +1,12 @@
 /*
- * XREFs of PopQueueTargetDpc @ 0x14000D654
+ * XREFs of PopQueueTargetDpc @ 0x14000D1D4
  * Callers:
- *     PopExecuteOnTargetProcessors @ 0x14000D578 (PopExecuteOnTargetProcessors.c)
- *     PopExecuteProcessorCallback @ 0x14000D610 (PopExecuteProcessorCallback.c)
+ *     PopExecuteOnTargetProcessors @ 0x14000D0F8 (PopExecuteOnTargetProcessors.c)
+ *     PopExecuteProcessorCallback @ 0x14000D190 (PopExecuteProcessorCallback.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 LONG __fastcall PopQueueTargetDpc(ULONG_PTR BugCheckParameter2, __int64 a2)

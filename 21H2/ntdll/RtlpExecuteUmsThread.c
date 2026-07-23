@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpExecuteUmsThread @ 0x1800A23F1
+ * XREFs of RtlpExecuteUmsThread @ 0x1800A23B1
  * Callers:
- *     RtlExecuteUmsThread @ 0x1800F7360 (RtlExecuteUmsThread.c)
+ *     RtlExecuteUmsThread @ 0x1800F7320 (RtlExecuteUmsThread.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ __int64 __fastcall RtlpExecuteUmsThread(__int64 a1)
     *(_QWORD *)(a1 + 1280) = v1;
     v5 = *(_QWORD *)(a1 + 168);
     v6 = *(_QWORD *)(a1 + 1248);
-    if ( qword_1801813A8 && ((v5 & 7) != 0 || v5 < *(_QWORD *)(v6 + 16) || v5 >= *(_QWORD *)(v6 + 8)) )
+    if ( LdrSystemDllInitBlock.CfgBitMap && ((v5 & 7) != 0 || v5 < *(_QWORD *)(v6 + 16) || v5 >= *(_QWORD *)(v6 + 8)) )
       __fastfail(0xDu);
     if ( !_bittest((const signed __int32 *)(a1 + 1264), 2u) )
     {

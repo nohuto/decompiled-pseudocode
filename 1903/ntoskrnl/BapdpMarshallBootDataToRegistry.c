@@ -30,8 +30,8 @@ void BapdpMarshallBootDataToRegistry()
   __int64 v9; // rax
   __int64 v10; // rax
   unsigned int v11; // ebx
-  __int128 **v12; // r15
-  __int128 v13; // xmm0
+  GUID **v12; // r15
+  GUID v13; // xmm0
   ULONG v14; // r13d
   char *v15; // r14
   _QWORD *v16; // rcx
@@ -40,11 +40,11 @@ void BapdpMarshallBootDataToRegistry()
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE v21; // [rsp+60h] [rbp-A8h] BYREF
-  _QWORD v22[2]; // [rsp+68h] [rbp-A0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES v23; // [rsp+78h] [rbp-90h] BYREF
   HANDLE Handle; // [rsp+A8h] [rbp-60h] BYREF
   __int64 v25; // [rsp+B0h] [rbp-58h]
-  __int128 v26; // [rsp+B8h] [rbp-50h] BYREF
+  GUID Guid; // [rsp+B8h] [rbp-50h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-40h] BYREF
 
   v0 = (__int64 *)qword_140508B08;
@@ -124,20 +124,20 @@ LABEL_40:
         if ( ZwCreateKey(&v21, 0x6001Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL) >= 0 )
         {
           v11 = 0;
-          v12 = (__int128 **)PoolWithTag;
+          v12 = (GUID **)PoolWithTag;
           do
           {
             if ( *v12 )
             {
               v13 = **v12;
-              v22[0] = 5111808LL;
-              v26 = v13;
+              *(_QWORD *)&GuidString.Length = 5111808LL;
+              Guid = v13;
               memset(&v23, 0, sizeof(v23));
-              v22[1] = &ObjectAttributes;
-              if ( (int)RtlStringFromGUIDEx(&v26, v22, 0LL) >= 0 )
+              GuidString.Buffer = (wchar_t *)&ObjectAttributes;
+              if ( RtlStringFromGUIDEx(&Guid, &GuidString, 0) >= 0 )
               {
                 v23.RootDirectory = v21;
-                v23.ObjectName = (PUNICODE_STRING)v22;
+                v23.ObjectName = &GuidString;
                 v23.Length = 48;
                 v23.Attributes = 576;
                 *(_OWORD *)&v23.SecurityDescriptor = 0LL;
@@ -155,9 +155,9 @@ LABEL_40:
                       DestinationString.Buffer = (wchar_t *)&ObjectAttributes;
                       if ( v16 )
                       {
-                        v17 = *v16 - v26;
-                        if ( *v16 == (_QWORD)v26 )
-                          v17 = v16[1] - *((_QWORD *)&v26 + 1);
+                        v17 = *v16 - *(_QWORD *)&Guid.Data1;
+                        if ( *v16 == *(_QWORD *)&Guid.Data1 )
+                          v17 = v16[1] - *(_QWORD *)Guid.Data4;
                         if ( !v17 )
                         {
                           v18 = v14++;

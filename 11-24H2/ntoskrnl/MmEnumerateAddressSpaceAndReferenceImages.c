@@ -1,23 +1,23 @@
 /*
- * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x140967B50
+ * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x1409505E0
  * Callers:
- *     EtwpEnumerateAddressSpace @ 0x1409690F0 (EtwpEnumerateAddressSpace.c)
- *     EtwpCovSampEnumerateProcess @ 0x140A13C40 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpEnumerateAddressSpace @ 0x140951B80 (EtwpEnumerateAddressSpace.c)
+ *     EtwpCovSampEnumerateProcess @ 0x140A0C3A0 (EtwpCovSampEnumerateProcess.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiUnlockVadShared @ 0x1402BA960 (MiUnlockVadShared.c)
- *     MiLockVadShared @ 0x1402FC580 (MiLockVadShared.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140404438 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404044B8 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadMapsLargeImage @ 0x140404B60 (MiVadMapsLargeImage.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiReadVadFlags2 @ 0x14044BF3C (MiReadVadFlags2.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiFillMapFileInfo @ 0x1408E3144 (MiFillMapFileInfo.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     MiLockVadShared @ 0x140345480 (MiLockVadShared.c)
+ *     MiUnlockVadShared @ 0x1403620A0 (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403C63D8 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403C6458 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadMapsLargeImage @ 0x1403C7440 (MiVadMapsLargeImage.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiReadVadFlags2 @ 0x14044307C (MiReadVadFlags2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiFillMapFileInfo @ 0x140919CF4 (MiFillMapFileInfo.c)
  */
 
 __int64 __fastcall MmEnumerateAddressSpaceAndReferenceImages(PRKPROCESS PROCESS, char a2)
@@ -47,13 +47,15 @@ __int64 __fastcall MmEnumerateAddressSpaceAndReferenceImages(PRKPROCESS PROCESS,
   _QWORD **v26; // rax
   __int64 v27; // r14
   _QWORD *v28; // rcx
-  unsigned __int64 v30; // rax
-  unsigned __int64 v31; // rdx
-  int v32; // r8d
-  int v33; // eax
-  int v34; // ecx
-  unsigned int v35; // [rsp+20h] [rbp-78h]
-  int v36; // [rsp+24h] [rbp-74h]
+  __int64 v29; // r8
+  __int64 v30; // r9
+  unsigned __int64 v32; // rax
+  unsigned __int64 v33; // rdx
+  int v34; // r8d
+  int v35; // eax
+  int v36; // ecx
+  unsigned int v37; // [rsp+20h] [rbp-78h]
+  int v38; // [rsp+24h] [rbp-74h]
   __int64 Pool; // [rsp+28h] [rbp-70h]
   struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-68h] BYREF
 
@@ -68,15 +70,15 @@ __int64 __fastcall MmEnumerateAddressSpaceAndReferenceImages(PRKPROCESS PROCESS,
   if ( (a2 & 4) == 0 )
     v7 = v5;
   v8 = 0LL;
-  v35 = v7;
+  v37 = v7;
   if ( CurrentThread->ApcState.Process == PROCESS )
   {
-    v36 = 0;
+    v38 = 0;
   }
   else
   {
     KeStackAttachProcess(PROCESS, &ApcState);
-    v36 = 1;
+    v38 = 1;
   }
   LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)PROCESS);
   Blink = PROCESS[3].Header.WaitListHead.Blink;
@@ -137,43 +139,43 @@ __int64 __fastcall MmEnumerateAddressSpaceAndReferenceImages(PRKPROCESS PROCESS,
                                    - (*(unsigned int *)(v27 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v27 + 32) << 32))
                                    + 1) << 12;
               if ( (*(unsigned int *)(v27 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v27 + 34) << 32)) < 0x7FFFFFFFDLL )
-                v31 = (*(unsigned int *)(v27 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v27 + 34) << 32)) << 12;
+                v33 = (*(unsigned int *)(v27 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v27 + 34) << 32)) << 12;
               else
-                v31 = 0LL;
-              *(_QWORD *)(v8 + 24) = v31;
+                v33 = 0LL;
+              *(_QWORD *)(v8 + 24) = v33;
               *(_DWORD *)(v8 + 16) = PROCESS[1].Header.WaitListHead.Flink;
               *(_DWORD *)(v8 + 20) = 0x2000;
-              v32 = v16 - 3;
-              if ( v32 )
+              v34 = v16 - 3;
+              if ( v34 )
               {
-                if ( v32 == 1 )
+                if ( v34 == 1 )
                 {
                   *(_DWORD *)(v8 + 20) = 8396800;
-                  v34 = 8396800;
+                  v36 = 8396800;
                 }
                 else
                 {
-                  v33 = *(_DWORD *)(v27 + 48);
-                  v34 = 0x2000;
-                  if ( (v33 & 0x200000) != 0 && ((v33 & 0x800000) != 0 || (v33 & 0x180000u) >= 0x100000) )
+                  v35 = *(_DWORD *)(v27 + 48);
+                  v36 = 0x2000;
+                  if ( (v35 & 0x200000) != 0 && ((v35 & 0x800000) != 0 || (v35 & 0x180000u) >= 0x100000) )
                   {
                     *(_DWORD *)(v8 + 20) = 536879104;
-                    v34 = 536879104;
+                    v36 = 536879104;
                   }
                 }
               }
               else if ( (*(_DWORD *)(v27 + 48) & 0xC200000) == 0x8200000 )
               {
-                v34 = 0x2000;
+                v36 = 0x2000;
               }
               else
               {
                 *(_DWORD *)(v8 + 20) = 4202496;
-                v34 = 4202496;
+                v36 = 4202496;
               }
               if ( (*(_DWORD *)(v27 + 48) & 0x600000) == 0x600000 )
-                *(_DWORD *)(v8 + 20) = v34 | 0x200000;
-              v30 = *(_QWORD *)v8 & 0xFFFFFFFFFFFFFFFCuLL | 2;
+                *(_DWORD *)(v8 + 20) = v36 | 0x200000;
+              v32 = *(_QWORD *)v8 & 0xFFFFFFFFFFFFFFFCuLL | 2;
               goto LABEL_47;
             }
 LABEL_40:
@@ -184,9 +186,9 @@ LABEL_40:
             if ( (v7 & 2) != 0 )
             {
               MiFillMapFileInfo(v15, v8);
-              v30 = *(_QWORD *)v8 & 0xFFFFFFFFFFFFFFFCuLL | 1;
+              v32 = *(_QWORD *)v8 & 0xFFFFFFFFFFFFFFFCuLL | 1;
 LABEL_47:
-              *(_QWORD *)v8 = v30;
+              *(_QWORD *)v8 = v32;
               goto LABEL_32;
             }
             goto LABEL_40;
@@ -210,14 +212,14 @@ LABEL_47:
           else
             v24 = ((unsigned __int64)*(unsigned __int8 *)(*(_QWORD *)v17 + 15LL) << 6) ^ (*(_QWORD *)(v8 + 8) ^ ((unsigned __int64)*(unsigned __int8 *)(*(_QWORD *)v17 + 15LL) << 6)) & 0xFFFFFFFFFFFFE03FuLL;
           *(_QWORD *)(v8 + 8) = v24;
-          if ( (v35 & 2) != 0 )
+          if ( (v37 & 2) != 0 )
           {
             v25 = VadFlags2 ^ (VadFlags2 ^ v24) & 0xFFFFFFFFFFFFFFFEuLL;
             *(_QWORD *)(v8 + 8) = v25;
             *(_QWORD *)(v8 + 8) = ((unsigned __int64)*(unsigned int *)(v27 + 48) >> 6) ^ (((unsigned __int64)*(unsigned int *)(v27 + 48) >> 6) ^ v25) & 0xFFFFFFFFFFFFFFC1uLL;
             *(_QWORD *)(v8 + 32) = (*(unsigned int *)(v27 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v27 + 34) << 32)) << 12;
           }
-          v7 = v35;
+          v7 = v37;
 LABEL_32:
           MiUnlockVadShared((__int64)CurrentThread, v27);
           v8 += 48LL;
@@ -227,7 +229,7 @@ LABEL_32:
   }
 LABEL_42:
   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)PROCESS);
-  if ( v36 )
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
+  if ( v38 )
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v29, v30);
   return v8;
 }

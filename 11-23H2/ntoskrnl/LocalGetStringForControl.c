@@ -3,10 +3,10 @@
  * Callers:
  *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     wcsncpy_s @ 0x1403DFF30 (wcsncpy_s.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     wcsncpy_s @ 0x1403E0110 (wcsncpy_s.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
  */
 

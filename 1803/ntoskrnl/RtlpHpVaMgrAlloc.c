@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(__int64 SpinLock, unsigned __int64 *a2, unsi
   __int64 v11; // rdi
   unsigned __int64 v12; // r14
   KIRQL v13; // r15
-  unsigned __int64 v14; // rax
+  _RTL_BALANCED_NODE *v14; // rax
   __int64 v15; // rdx
   __int64 v16; // r8
   __int64 v17; // r9
@@ -88,12 +88,16 @@ __int64 __fastcall RtlpHpVaMgrAlloc(__int64 SpinLock, unsigned __int64 *a2, unsi
   {
     v12 = v4 >> 20;
     v13 = RtlpHpAcquireLockExclusive((volatile LONG *)SpinLock, v9 & 1);
-    v14 = RtlpHpVaMgrRangeFind(SpinLock, (unsigned __int16)v12, (unsigned __int16)(v6 >> 20), &v50);
+    v14 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(
+                                  SpinLock,
+                                  (unsigned __int16)v12,
+                                  (unsigned __int16)(v6 >> 20),
+                                  &v50);
     v18 = -1;
-    v19 = v14;
+    v19 = (__int64)v14;
     if ( v14 )
     {
-      RtlRbRemoveNode(SpinLock + 8, v14);
+      RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 8), v14);
       v23 = v50;
       if ( v50 != v19 )
       {
@@ -149,7 +153,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(__int64 SpinLock, unsigned __int64 *a2, unsi
               {
                 *(_BYTE *)(v31 + 32) |= 2u;
                 if ( *(__int64 *)(v31 + 32) < 0 )
-                  KiAbEntryRemoveFromTree(v31, SessionId);
+                  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v31, SessionId);
                 v44 = 0;
                 v44 = *(_DWORD *)(v31 + 88) & 0x1FFFF;
                 *(_DWORD *)(v31 + 88) &= 0xFFFE0000;
@@ -243,7 +247,7 @@ LABEL_57:
       }
       v40->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v40->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v35->LockEntries[v39], v37);
+        KiAbEntryRemoveFromTree(&v35->LockEntries[v39].TreeNode, v37);
       v45 = 0;
       v45 = v40->BoostBitmap.AllFields & 0x1FFFF;
       v40->BoostBitmap.AllFields &= 0xFFFE0000;

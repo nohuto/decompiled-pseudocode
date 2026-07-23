@@ -11,37 +11,33 @@
  *     NtQueryValueKey @ 0x1800A53A0 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall EtwpGetCpuSpeedFromRegistry(_DWORD *a1)
+NTSTATUS __fastcall EtwpGetCpuSpeedFromRegistry(_DWORD *a1)
 {
-  __int64 result; // rax
-  int v3; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp-29h] BYREF
-  _BYTE v5[8]; // [rsp+38h] [rbp-21h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-19h] BYREF
-  int v7; // [rsp+50h] [rbp-9h] BYREF
-  __int64 v8; // [rsp+58h] [rbp-1h]
-  UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp+7h]
-  int v10; // [rsp+68h] [rbp+Fh]
-  __int128 v11; // [rsp+70h] [rbp+17h]
-  UNICODE_STRING v12; // [rsp+80h] [rbp+27h] BYREF
-  _BYTE v13[12]; // [rsp+90h] [rbp+37h] BYREF
-  int v14; // [rsp+9Ch] [rbp+43h]
+  NTSTATUS result; // eax
+  NTSTATUS v3; // ebx
+  HANDLE KeyHandle; // [rsp+30h] [rbp-29h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-21h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-19h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-9h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+80h] [rbp+27h] BYREF
+  _BYTE KeyValueInformation[12]; // [rsp+90h] [rbp+37h] BYREF
+  int v10; // [rsp+9Ch] [rbp+43h]
 
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0");
-  v8 = 0LL;
-  p_DestinationString = &DestinationString;
-  v7 = 48;
-  v10 = 64;
-  v11 = 0LL;
-  result = NtOpenKey(&Handle, 131097LL, &v7);
-  if ( (int)result >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  if ( result >= 0 )
   {
-    RtlInitUnicodeString(&v12, L"~MHz");
-    v3 = NtQueryValueKey(Handle, &v12, 2LL, v13, 16, v5);
+    RtlInitUnicodeString(&ValueName, L"~MHz");
+    v3 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &ResultLength);
     if ( v3 >= 0 )
-      *a1 = v14;
-    NtClose(Handle);
-    return (unsigned int)v3;
+      *a1 = v10;
+    NtClose(KeyHandle);
+    return v3;
   }
   return result;
 }

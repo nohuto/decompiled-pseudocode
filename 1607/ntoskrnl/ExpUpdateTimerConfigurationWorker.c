@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpUpdateTimerConfigurationWorker @ 0x14009DDD0
+ * XREFs of ExpUpdateTimerConfigurationWorker @ 0x14009D5D0
  * Callers:
  *     <none>
  * Callees:
- *     KiSendClockInterruptToClockOwner @ 0x14009DE7C (KiSendClockInterruptToClockOwner.c)
- *     KiSetClockInterval @ 0x14009DEE4 (KiSetClockInterval.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetTimeAdjustment @ 0x140133DCC (KeSetTimeAdjustment.c)
+ *     KiSendClockInterruptToClockOwner @ 0x14009D67C (KiSendClockInterruptToClockOwner.c)
+ *     KiSetClockInterval @ 0x14009D6E4 (KiSetClockInterval.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetTimeAdjustment @ 0x14013433C (KeSetTimeAdjustment.c)
  */
 
 __int64 __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)

@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE40
+ * XREFs of EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE70
  * Callers:
- *     EtwpDisableTraceProviders @ 0x1406BEFF8 (EtwpDisableTraceProviders.c)
+ *     EtwpDisableTraceProviders @ 0x1406BF028 (EtwpDisableTraceProviders.c)
  * Callees:
- *     EtwpGetEnableInfoIndex @ 0x140228648 (EtwpGetEnableInfoIndex.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x1406BE254 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpGetSchematizedFilterSize @ 0x1406BF558 (EtwpGetSchematizedFilterSize.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF954 (EtwpUnreferenceGuidEntry.c)
- *     EtwpUpdateGuidFilterData @ 0x140780B00 (EtwpUpdateGuidFilterData.c)
- *     EtwpSendDataBlock @ 0x140780FF0 (EtwpSendDataBlock.c)
- *     EtwpUnreferenceDataBlock @ 0x1407817E8 (EtwpUnreferenceDataBlock.c)
- *     EtwpAllocDataBlock @ 0x140781C38 (EtwpAllocDataBlock.c)
- *     EtwpCopySchematizedFilters @ 0x1409F51AC (EtwpCopySchematizedFilters.c)
+ *     EtwpGetEnableInfoIndex @ 0x140228758 (EtwpGetEnableInfoIndex.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1406BE284 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpGetSchematizedFilterSize @ 0x1406BF588 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406BF984 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpUpdateGuidFilterData @ 0x140780CF0 (EtwpUpdateGuidFilterData.c)
+ *     EtwpSendDataBlock @ 0x1407811E0 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1407819D8 (EtwpUnreferenceDataBlock.c)
+ *     EtwpAllocDataBlock @ 0x140781E28 (EtwpAllocDataBlock.c)
+ *     EtwpCopySchematizedFilters @ 0x1409F543C (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char a3)

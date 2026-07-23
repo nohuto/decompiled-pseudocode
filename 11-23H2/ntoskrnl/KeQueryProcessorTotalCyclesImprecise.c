@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryProcessorTotalCyclesImprecise @ 0x140363810
+ * XREFs of KeQueryProcessorTotalCyclesImprecise @ 0x1403639B0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
  */
 
 __int64 __fastcall KeQueryProcessorTotalCyclesImprecise(unsigned int a1)

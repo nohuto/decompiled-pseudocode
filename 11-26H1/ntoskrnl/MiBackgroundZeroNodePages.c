@@ -1,30 +1,30 @@
 /*
- * XREFs of MiBackgroundZeroNodePages @ 0x1404976C0
+ * XREFs of MiBackgroundZeroNodePages @ 0x140491210
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSinglePageToZero @ 0x1403C47E4 (MiGetSinglePageToZero.c)
- *     MiSelectBestZeroingProcessor @ 0x1403E8AC4 (MiSelectBestZeroingProcessor.c)
- *     MiZeroRemainOnProcessor @ 0x1403E8CEC (MiZeroRemainOnProcessor.c)
- *     MiBackgroundZeroPage @ 0x14045D3B4 (MiBackgroundZeroPage.c)
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     MiZeroThreadContextSetExiting @ 0x14047CFF0 (MiZeroThreadContextSetExiting.c)
- *     MiSetZeroPageThreadPriority @ 0x14047D034 (MiSetZeroPageThreadPriority.c)
- *     MiColdPageSizeSupported @ 0x1404919C0 (MiColdPageSizeSupported.c)
- *     MiBackgroundZeroComplete @ 0x1404A543C (MiBackgroundZeroComplete.c)
- *     MiGetBackgroundHugePageToZero @ 0x1404C2588 (MiGetBackgroundHugePageToZero.c)
- *     MiZeroThreadEnterWaitState @ 0x1404ECD84 (MiZeroThreadEnterWaitState.c)
- *     MiZeroThreadStopZeroing @ 0x1404F5FB8 (MiZeroThreadStopZeroing.c)
- *     MiRemoveThreadFromEngineLists @ 0x1405093AC (MiRemoveThreadFromEngineLists.c)
- *     MiPeriodicZeroingSufficient @ 0x14050A1D4 (MiPeriodicZeroingSufficient.c)
- *     MiMapBackgroundPageToZero @ 0x14051F110 (MiMapBackgroundPageToZero.c)
- *     MiDeleteZeroThreadContext @ 0x140530728 (MiDeleteZeroThreadContext.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402F59A4 (MiSelectBestZeroingProcessor.c)
+ *     MiZeroRemainOnProcessor @ 0x1402F5BCC (MiZeroRemainOnProcessor.c)
+ *     MiGetSinglePageToZero @ 0x1403CE6F0 (MiGetSinglePageToZero.c)
+ *     MiBackgroundZeroPage @ 0x140456DB4 (MiBackgroundZeroPage.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     MiZeroThreadContextSetExiting @ 0x140476960 (MiZeroThreadContextSetExiting.c)
+ *     MiSetZeroPageThreadPriority @ 0x1404769A4 (MiSetZeroPageThreadPriority.c)
+ *     MiPeriodicZeroingSufficient @ 0x1404811D8 (MiPeriodicZeroingSufficient.c)
+ *     MiColdPageSizeSupported @ 0x14048B510 (MiColdPageSizeSupported.c)
+ *     MiBackgroundZeroComplete @ 0x14049EACC (MiBackgroundZeroComplete.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1404BBDD8 (MiGetBackgroundHugePageToZero.c)
+ *     MiZeroThreadEnterWaitState @ 0x1404E6364 (MiZeroThreadEnterWaitState.c)
+ *     MiZeroThreadStopZeroing @ 0x1404EF578 (MiZeroThreadStopZeroing.c)
+ *     MiRemoveThreadFromEngineLists @ 0x140502E5C (MiRemoveThreadFromEngineLists.c)
+ *     MiMapBackgroundPageToZero @ 0x1405217B4 (MiMapBackgroundPageToZero.c)
+ *     MiDeleteZeroThreadContext @ 0x140532C28 (MiDeleteZeroThreadContext.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiBackgroundZeroNodePages(_QWORD *P)
@@ -102,7 +102,7 @@ __int64 __fastcall MiBackgroundZeroNodePages(_QWORD *P)
           v10 = 0;
           v3 = v13;
           v14 = *((_DWORD *)P + 32);
-          if ( (v14 & 2) != 0 || (v14 & 4) != 0 || stru_140E36558.SystemCallNumber )
+          if ( (v14 & 2) != 0 || (v14 & 4) != 0 || stru_140E366D8.SystemCallNumber )
             goto LABEL_39;
           if ( !(unsigned int)MiZeroRemainOnProcessor((__int64)P, (P[16] & 0x20) == 0) )
           {
@@ -139,7 +139,7 @@ __int64 __fastcall MiBackgroundZeroNodePages(_QWORD *P)
             break;
           v20 = MiBackgroundZeroPage(v6, (__int64)P);
           MiBackgroundZeroComplete(P);
-          if ( v20 || *(_DWORD *)(v6 + 92) || HIDWORD(stru_140E2EB88.Timer.Header.WaitListHead.Flink) )
+          if ( v20 || *(_DWORD *)(v6 + 92) || HIDWORD(stru_140E2ED08.Timer.Header.WaitListHead.Flink) )
             goto LABEL_41;
         }
         if ( (unsigned int)v3 >= 3 )
@@ -153,7 +153,7 @@ LABEL_39:
       if ( !v10 )
         goto LABEL_40;
     }
-    if ( !*(_DWORD *)(v6 + 92) && !HIDWORD(stru_140E2EB88.Timer.Header.WaitListHead.Flink) )
+    if ( !*(_DWORD *)(v6 + 92) && !HIDWORD(stru_140E2ED08.Timer.Header.WaitListHead.Flink) )
       continue;
     break;
   }

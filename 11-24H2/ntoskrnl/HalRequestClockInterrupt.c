@@ -1,12 +1,12 @@
 /*
- * XREFs of HalRequestClockInterrupt @ 0x1403B5510
+ * XREFs of HalRequestClockInterrupt @ 0x1403718A0
  * Callers:
- *     KiForwardTick @ 0x14029D53C (KiForwardTick.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14033A0D0 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KiForwardTick @ 0x1402AC02C (KiForwardTick.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1403195B0 (HalpTimerWatchdogTriggerSystemReset.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalRequestClockInterrupt(int a1, __int64 a2)

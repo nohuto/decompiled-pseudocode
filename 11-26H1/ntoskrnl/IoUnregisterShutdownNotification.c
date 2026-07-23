@@ -1,70 +1,65 @@
 /*
- * XREFs of IoUnregisterShutdownNotification @ 0x140C09840
+ * XREFs of IoUnregisterShutdownNotification @ 0x140C0FA50
  * Callers:
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
- *     DifIoUnregisterShutdownNotificationWrapper @ 0x14065EE30 (DifIoUnregisterShutdownNotificationWrapper.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
+ *     DifIoUnregisterShutdownNotificationWrapper @ 0x140662A10 (DifIoUnregisterShutdownNotificationWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterShutdownNotification(PDEVICE_OBJECT DeviceObject)
 {
   KIRQL v2; // al
-  struct _KTHREAD *Thread; // rbx
+  PVOID *v3; // rbx
   KIRQL v4; // bp
-  struct _KTHREAD *v5; // rsi
-  struct _LIST_ENTRY *v6; // rdx
-  struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *i; // rbx
-  struct _LIST_ENTRY *v9; // rsi
-  struct _LIST_ENTRY *v10; // rax
-  struct _LIST_ENTRY *Blink; // rdx
+  PVOID *v5; // rsi
+  PVOID *v6; // rdx
+  PVOID **v7; // rax
+  PVOID *i; // rbx
+  PVOID *v9; // rsi
+  PVOID *v10; // rax
+  PVOID **v11; // rdx
 
   MmLockPagableSectionByHandle(ExPageLockHandle);
   v2 = KeAcquireQueuedSpinLock(0xAuLL);
-  Thread = IopSessionNotificationLock.WaitBlock[0].Thread;
+  v3 = (PVOID *)IopNotifyShutdownQueueHead;
   v4 = v2;
-  while ( Thread != (struct _KTHREAD *)&IopSessionNotificationLock.WaitBlockFill11[24] )
+  while ( v3 != &IopNotifyShutdownQueueHead )
   {
-    v5 = Thread;
-    if ( (PDEVICE_OBJECT)Thread->Header.WaitListHead.Blink == DeviceObject )
+    v5 = v3;
+    if ( v3[2] == DeviceObject )
     {
-      v6 = *(struct _LIST_ENTRY **)&Thread->Header.Lock;
-      if ( *(struct _KTHREAD **)(*(_QWORD *)&Thread->Header.Lock + 8LL) != Thread
-        || (Flink = Thread->Header.WaitListHead.Flink, (struct _KTHREAD *)Flink->Flink != Thread) )
-      {
+      v6 = (PVOID *)*v3;
+      if ( *((PVOID **)*v3 + 1) != v3 || (v7 = (PVOID **)v3[1], *v7 != v3) )
 LABEL_16:
         __fastfail(3u);
-      }
-      Flink->Flink = v6;
-      v6->Blink = Flink;
-      Thread = (struct _KTHREAD *)Thread->Header.WaitListHead.Flink;
+      *v7 = v6;
+      v6[1] = v7;
+      v3 = (PVOID *)v3[1];
       ObfDereferenceObject(DeviceObject);
       ExFreePoolWithTag(v5, 0);
     }
-    Thread = *(struct _KTHREAD **)&Thread->Header.Lock;
+    v3 = (PVOID *)*v3;
   }
-  for ( i = IopSessionNotificationLock.WaitBlock[0].WaitListEntry.Blink;
-        i != (struct _LIST_ENTRY *)&IopSessionNotificationLock.WaitBlockFill10[8];
-        i = i->Flink )
+  for ( i = (PVOID *)IopNotifyLastChanceShutdownQueueHead; i != &IopNotifyLastChanceShutdownQueueHead; i = (PVOID *)*i )
   {
     v9 = i;
-    if ( (PDEVICE_OBJECT)i[1].Flink == DeviceObject )
+    if ( i[2] == DeviceObject )
     {
-      v10 = i->Flink;
-      if ( i->Flink->Blink != i )
+      v10 = (PVOID *)*i;
+      if ( *((PVOID **)*i + 1) != i )
         goto LABEL_16;
-      Blink = i->Blink;
-      if ( Blink->Flink != i )
+      v11 = (PVOID **)i[1];
+      if ( *v11 != i )
         goto LABEL_16;
-      Blink->Flink = v10;
-      v10->Blink = Blink;
-      i = i->Blink;
+      *v11 = v10;
+      v10[1] = v11;
+      i = (PVOID *)i[1];
       ObfDereferenceObject(DeviceObject);
       ExFreePoolWithTag(v9, 0);
     }

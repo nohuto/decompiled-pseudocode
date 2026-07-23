@@ -1,13 +1,13 @@
 /*
- * XREFs of VfPendingInitPhase1 @ 0x1409D579C
+ * XREFs of VfPendingInitPhase1 @ 0x1409D679C
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1409C6D40 (VfInitSystemNoRebootNeeded.c)
- *     ViInitSystemPhase1 @ 0x140A6FD8C (ViInitSystemPhase1.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C7D40 (VfInitSystemNoRebootNeeded.c)
+ *     ViInitSystemPhase1 @ 0x140A70D8C (ViInitSystemPhase1.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS VfPendingInitPhase1()

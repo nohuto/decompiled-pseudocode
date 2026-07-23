@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerFindIdealClockSource @ 0x14053AA4C
+ * XREFs of HalpTimerFindIdealClockSource @ 0x14053828C
  * Callers:
- *     HalpTimerSelectRoles @ 0x14053B848 (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x140539128 (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpFindTimer @ 0x1405471A0 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x140544A60 (HalpFindTimer.c)
  */
 
 __int64 HalpTimerFindIdealClockSource()

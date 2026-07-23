@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1402C8F80
+ * XREFs of RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1402477E0
  * Callers:
- *     FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1402C8F60 (FsRtlIsNonEmptyDirectoryReparsePointAllowed.c)
+ *     FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1402477C0 (FsRtlIsNonEmptyDirectoryReparsePointAllowed.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlIsNonEmptyDirectoryReparsePointAllowed(int a1)
+BOOLEAN __cdecl RtlIsNonEmptyDirectoryReparsePointAllowed(ULONG ReparseTag)
 {
-  return (a1 & 0x10000000) != 0 || a1 == -2147483624;
+  return (ReparseTag & 0x10000000) != 0 || ReparseTag == -2147483624;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PfCheckDeprioritizeFile @ 0x1408E5C40
+ * XREFs of PfCheckDeprioritizeFile @ 0x1409DCA6C
  * Callers:
- *     MiDeprioritizeVad @ 0x1403FD204 (MiDeprioritizeVad.c)
- *     MiUnmapVad @ 0x1408E5280 (MiUnmapVad.c)
- *     CcUnmapVacb @ 0x1408E5FE0 (CcUnmapVacb.c)
+ *     MiDeprioritizeVad @ 0x1403DAB20 (MiDeprioritizeVad.c)
+ *     MiUnmapVad @ 0x140895E38 (MiUnmapVad.c)
+ *     CcUnmapVacb @ 0x1409DC780 (CcUnmapVacb.c)
  * Callees:
- *     PfpPartitionDereferenceParent @ 0x140274CCC (PfpPartitionDereferenceParent.c)
- *     PfpPartitionReferenceParentSafeByProcess @ 0x1404249A0 (PfpPartitionReferenceParentSafeByProcess.c)
- *     PfLockSharedTryAcquire @ 0x140473650 (PfLockSharedTryAcquire.c)
- *     PfpRpLogDeprioEvent @ 0x14048275C (PfpRpLogDeprioEvent.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
+ *     PfpPartitionDereferenceParent @ 0x14022A25C (PfpPartitionDereferenceParent.c)
+ *     PfpPartitionReferenceParentSafeByProcess @ 0x140418850 (PfpPartitionReferenceParentSafeByProcess.c)
+ *     PfLockSharedTryAcquire @ 0x140470440 (PfLockSharedTryAcquire.c)
+ *     PfpRpLogDeprioEvent @ 0x14047D954 (PfpRpLogDeprioEvent.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
  */
 
 __int64 __fastcall PfCheckDeprioritizeFile(__int64 a1, int a2, __int64 a3, int a4)
@@ -28,19 +28,19 @@ __int64 __fastcall PfCheckDeprioritizeFile(__int64 a1, int a2, __int64 a3, int a
 
   *(_QWORD *)v18 = 0LL;
   v4 = 0;
-  if ( a3 && (unsigned int)PfLockSharedTryAcquire((volatile signed __int64 *)&qword_140E66F28) )
+  if ( a3 && (unsigned int)PfLockSharedTryAcquire((volatile signed __int64 *)&qword_140E67078) )
   {
-    v9 = qword_140E66F08;
-    if ( a3 == *(_QWORD *)(qword_140E66F08 + 8) )
+    v9 = qword_140E67058;
+    if ( a3 == *(_QWORD *)(qword_140E67058 + 8) )
     {
 LABEL_4:
       v10 = *(_QWORD *)(v9 + 16);
-      PfLockSharedRelease((signed __int64 *)&qword_140E66F28);
-      if ( qword_140E66F48 != v10 )
+      PfLockSharedRelease((signed __int64 *)&qword_140E67078);
+      if ( qword_140E67098 != v10 )
       {
-        if ( !(unsigned int)PfLockSharedTryAcquire((volatile signed __int64 *)&qword_140E66F50) )
+        if ( !(unsigned int)PfLockSharedTryAcquire((volatile signed __int64 *)&qword_140E670A0) )
           return v4;
-        if ( (_DWORD)qword_140E66F3C )
+        if ( (_DWORD)qword_140E6708C )
         {
           v15 = (HIBYTE(v10)
                + 37
@@ -49,15 +49,15 @@ LABEL_4:
                 * (BYTE5(v10)
                  + 37
                  * (BYTE4(v10)
-                  + 37 * (BYTE3(v10) + 37 * (BYTE2(v10) + 37 * (BYTE1(v10) + 37 * ((unsigned __int8)v10 + 11623883)))))))) & (unsigned int)(qword_140E66F3C - 1);
-          for ( i = 0LL; ; v15 = (unsigned int)(qword_140E66F3C - 1) & (i + v15) )
+                  + 37 * (BYTE3(v10) + 37 * (BYTE2(v10) + 37 * (BYTE1(v10) + 37 * ((unsigned __int8)v10 + 11623883)))))))) & (unsigned int)(qword_140E6708C - 1);
+          for ( i = 0LL; ; v15 = (unsigned int)(qword_140E6708C - 1) & (i + v15) )
           {
-            v17 = *(_QWORD *)((v15 << dword_140E66F38) + qword_140E66F30);
+            v17 = *(_QWORD *)((v15 << dword_140E67088) + qword_140E67080);
             if ( !v17 )
               break;
             if ( v17 == v10 )
             {
-              qword_140E66F48 = v10;
+              qword_140E67098 = v10;
               goto LABEL_8;
             }
             if ( !i )
@@ -69,9 +69,9 @@ LABEL_4:
           }
         }
         v4 = 1;
-        qword_140E66F88 = MEMORY[0xFFFFF78000000320];
+        qword_140E670D8 = MEMORY[0xFFFFF78000000320];
 LABEL_8:
-        PfLockSharedRelease((signed __int64 *)&qword_140E66F50);
+        PfLockSharedRelease((signed __int64 *)&qword_140E670A0);
       }
       v11 = PfpPartitionReferenceParentSafeByProcess(v18, a1);
       PfpRpLogDeprioEvent(*(__int64 *)v18, a3, a2, v4 != 0 ? a4 : 0);
@@ -80,12 +80,12 @@ LABEL_8:
     }
     else
     {
-      v13 = -1LL << (dword_140E66EFC & 0x1F);
+      v13 = -1LL << (dword_140E6704C & 0x1F);
       v14 = a3 & v13;
-      if ( (unsigned int)dword_140E66EFC >> 5 )
+      if ( (unsigned int)dword_140E6704C >> 5 )
       {
         v19 = a3 & v13;
-        v9 = qword_140E66F00
+        v9 = qword_140E67050
            + 8LL
            * ((37
              * (BYTE6(v19)
@@ -94,7 +94,7 @@ LABEL_8:
                + 37
                * (BYTE4(v19)
                 + 37 * (BYTE3(v19) + 37 * (BYTE2(v19) + 37 * (BYTE1(v19) + 37 * ((unsigned __int8)v14 + 11623883)))))))
-             + HIBYTE(v19)) & (((unsigned int)dword_140E66EFC >> 5) - 1));
+             + HIBYTE(v19)) & (((unsigned int)dword_140E6704C >> 5) - 1));
         while ( 1 )
         {
           v9 = *(_QWORD *)v9;
@@ -104,12 +104,12 @@ LABEL_8:
           {
             if ( !v9 )
               break;
-            qword_140E66F08 = v9;
+            qword_140E67058 = v9;
             goto LABEL_4;
           }
         }
       }
-      PfLockSharedRelease((signed __int64 *)&qword_140E66F28);
+      PfLockSharedRelease((signed __int64 *)&qword_140E67078);
     }
   }
   return v4;

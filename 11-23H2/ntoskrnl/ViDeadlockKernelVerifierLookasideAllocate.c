@@ -1,5 +1,5 @@
 /*
- * XREFs of ViDeadlockKernelVerifierLookasideAllocate @ 0x140AD95C0
+ * XREFs of ViDeadlockKernelVerifierLookasideAllocate @ 0x140AD95B0
  * Callers:
  *     <none>
  * Callees:

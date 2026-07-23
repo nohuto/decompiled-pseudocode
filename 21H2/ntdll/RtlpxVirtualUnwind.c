@@ -9,8 +9,8 @@
  *     RtlpSameFunction @ 0x18007AFA0 (RtlpSameFunction.c)
  *     RtlpPopUserShadowStack @ 0x18007E2A0 (RtlpPopUserShadowStack.c)
  *     RtlpUnwindOpSlots @ 0x180088B78 (RtlpUnwindOpSlots.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
- *     RtlpUnwindEpilogue @ 0x1801030C4 (RtlpUnwindEpilogue.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
+ *     RtlpUnwindEpilogue @ 0x180103084 (RtlpUnwindEpilogue.c)
  */
 
 __int64 __fastcall RtlpxVirtualUnwind(
@@ -109,7 +109,7 @@ LABEL_43:
         if ( (v63 & 1) != 0 )
           v63 = (unsigned int)(v63 + 1);
         if ( (unsigned int)++v16 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v18 = (_BYTE *)(a2 + *(unsigned int *)&v18[2 * v63 + 12]);
         v17 = v18 + 2;
         if ( v18[2] )

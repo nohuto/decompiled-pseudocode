@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpIsEntryIdAvailableInOtherDb @ 0x140805F44
+ * XREFs of SdbpIsEntryIdAvailableInOtherDb @ 0x140806684
  * Callers:
- *     SdbpCheckKObject @ 0x140959920 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x1409413E0 (SdbpCheckKObject.c)
  * Callees:
- *     SdbMergeIsEntryUpdated @ 0x140807CC8 (SdbMergeIsEntryUpdated.c)
- *     SdbGetTagFromTagID @ 0x1409600B0 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbMergeIsEntryUpdated @ 0x140808408 (SdbMergeIsEntryUpdated.c)
+ *     SdbGetTagFromTagID @ 0x140947B70 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpIsEntryIdAvailableInOtherDb(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,11 +26,11 @@ __int64 __fastcall SdbpIsEntryIdAvailableInOtherDb(__int64 a1, __int64 a2, __int
   {
     if ( i >= 0x15E )
       return 0LL;
-    if ( *(_WORD *)((char *)qword_14003CC20 + i) == TagFromTagID )
+    if ( *(_WORD *)((char *)qword_14003D070 + i) == TagFromTagID )
       break;
     ++v8;
   }
-  v10 = (char *)qword_14003CC20 + 10 * v8;
+  v10 = (char *)qword_14003D070 + 10 * v8;
   if ( !v10 )
     return 0LL;
   if ( !*((_WORD *)v10 + 1) )

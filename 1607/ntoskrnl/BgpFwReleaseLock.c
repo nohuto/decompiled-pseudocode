@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpFwReleaseLock @ 0x1401271F4
+ * XREFs of BgpFwReleaseLock @ 0x140127764
  * Callers:
- *     BgLibraryEnable @ 0x1401269B0 (BgLibraryEnable.c)
- *     BgQueryBootGraphicsInformation @ 0x140127134 (BgQueryBootGraphicsInformation.c)
- *     BgpFwQueryBootGraphicsInformation @ 0x140129AF0 (BgpFwQueryBootGraphicsInformation.c)
- *     KiBugCheckProgress @ 0x1401D5050 (KiBugCheckProgress.c)
- *     KiDisplayBlueScreen @ 0x1401D516C (KiDisplayBlueScreen.c)
+ *     BgLibraryEnable @ 0x140126F20 (BgLibraryEnable.c)
+ *     BgQueryBootGraphicsInformation @ 0x1401276A4 (BgQueryBootGraphicsInformation.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14012A060 (BgpFwQueryBootGraphicsInformation.c)
+ *     KiBugCheckProgress @ 0x1401D4E7C (KiBugCheckProgress.c)
+ *     KiDisplayBlueScreen @ 0x1401D4F98 (KiDisplayBlueScreen.c)
  *     BgFreeContext @ 0x140725010 (BgFreeContext.c)
  *     BgGetContext @ 0x1407251F0 (BgGetContext.c)
  *     BgMarkHiberPhase @ 0x14072537C (BgMarkHiberPhase.c)
@@ -35,7 +35,7 @@
  *     BgpConsoleSetTextColor @ 0x14072AC58 (BgpConsoleSetTextColor.c)
  *     AnFwpBackgroundUpdateTimer @ 0x14072ACB4 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
  */
 
 void BgpFwReleaseLock()
@@ -44,8 +44,8 @@ void BgpFwReleaseLock()
 
   if ( (dword_1402F9F90 & 0xC00) != 0xC00 )
   {
-    v0 = byte_140328B6C;
-    KxReleaseSpinLock(&qword_14033DB50);
+    v0 = byte_140328BAC;
+    KxReleaseSpinLock(&qword_14033DB90);
     if ( v0 <= 2u )
       __writecr8(v0);
   }

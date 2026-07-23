@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x140324688
+ * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x140324918
  * Callers:
- *     RtlpHpLargeAlloc @ 0x14032409C (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeAlloc @ 0x14032432C (RtlpHpLargeAlloc.c)
  * Callees:
- *     RtlpHpHeapCheckCommitLimit @ 0x1403246B8 (RtlpHpHeapCheckCommitLimit.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x140324948 (RtlpHpHeapCheckCommitLimit.c)
  */
 
 __int64 __fastcall RtlpHpSegHeapCheckCommitLimit(__int64 a1, __int64 a2)

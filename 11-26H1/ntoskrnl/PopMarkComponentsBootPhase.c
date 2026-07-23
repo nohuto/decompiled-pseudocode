@@ -1,25 +1,25 @@
 /*
- * XREFs of PopMarkComponentsBootPhase @ 0x140BFAE30
+ * XREFs of PopMarkComponentsBootPhase @ 0x140C00E30
  * Callers:
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
  * Callees:
- *     MmIsAddressValid @ 0x140444500 (MmIsAddressValid.c)
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     VfIsVerifierEnabled @ 0x1404FC020 (VfIsVerifierEnabled.c)
- *     HvlMarkHiberPhase @ 0x1405BF26C (HvlMarkHiberPhase.c)
- *     KeMarkDynamicTracingHiberPhase @ 0x1405FC318 (KeMarkDynamicTracingHiberPhase.c)
- *     RtlMarkHiberPhase @ 0x140624640 (RtlMarkHiberPhase.c)
- *     VfIsVerifierExtensionEnabled @ 0x14064072C (VfIsVerifierExtensionEnabled.c)
- *     DifMarkHiberPhase @ 0x14064B950 (DifMarkHiberPhase.c)
- *     FirstEntrySList @ 0x140730C80 (FirstEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     BgkResumePrepare @ 0x140BF144C (BgkResumePrepare.c)
- *     KdMarkHiberPhase @ 0x140BF2E94 (KdMarkHiberPhase.c)
- *     KeMarkPcrHiberPhase @ 0x140BF2F24 (KeMarkPcrHiberPhase.c)
- *     PopSstInvokeNotificationHandlers @ 0x140BF9490 (PopSstInvokeNotificationHandlers.c)
- *     PopMarkHiberPhase @ 0x140BFB160 (PopMarkHiberPhase.c)
- *     MiConvertHiberPhasePages @ 0x140C00AE4 (MiConvertHiberPhasePages.c)
- *     MmMarkHiberPhase @ 0x140C01120 (MmMarkHiberPhase.c)
+ *     MmIsAddressValid @ 0x14043D010 (MmIsAddressValid.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     VfIsVerifierEnabled @ 0x1404F5560 (VfIsVerifierEnabled.c)
+ *     HvlMarkHiberPhase @ 0x1405C1ADC (HvlMarkHiberPhase.c)
+ *     KeMarkDynamicTracingHiberPhase @ 0x1405FED68 (KeMarkDynamicTracingHiberPhase.c)
+ *     RtlMarkHiberPhase @ 0x140627690 (RtlMarkHiberPhase.c)
+ *     VfIsVerifierExtensionEnabled @ 0x14064430C (VfIsVerifierExtensionEnabled.c)
+ *     DifMarkHiberPhase @ 0x14064F530 (DifMarkHiberPhase.c)
+ *     FirstEntrySList @ 0x140735850 (FirstEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     BgkResumePrepare @ 0x140BF744C (BgkResumePrepare.c)
+ *     KdMarkHiberPhase @ 0x140BF8E94 (KdMarkHiberPhase.c)
+ *     KeMarkPcrHiberPhase @ 0x140BF8F24 (KeMarkPcrHiberPhase.c)
+ *     PopSstInvokeNotificationHandlers @ 0x140BFF490 (PopSstInvokeNotificationHandlers.c)
+ *     PopMarkHiberPhase @ 0x140C01160 (PopMarkHiberPhase.c)
+ *     MiConvertHiberPhasePages @ 0x140C06CF4 (MiConvertHiberPhasePages.c)
+ *     MmMarkHiberPhase @ 0x140C07330 (MmMarkHiberPhase.c)
  */
 
 void __fastcall PopMarkComponentsBootPhase(char *Address)
@@ -30,12 +30,12 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
   PSLIST_ENTRY j; // rdi
   char *v6; // rbp
   __int64 v7; // rdi
-  struct _KTHREAD *k; // rbx
+  __int64 *k; // rbx
   __int64 v9; // rdx
   struct _KTHREAD *m; // rbx
 
   v1 = 0;
-  if ( !byte_140F0FDA1 )
+  if ( !byte_140F10921 )
   {
     PoSetHiberRange(0LL, 0x10000u, PopSaveHiberContext, 0LL, 0x6E72654Bu);
     PoSetHiberRange(0LL, 0x10000u, HalAllocateCrashDumpRegisters, 0LL, 0x6348616Cu);
@@ -47,7 +47,7 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
       if ( MmIsAddressValid(i[10]) )
         PoSetHiberRange(0LL, 0x10000u, i[10], *((unsigned __int16 *)i + 37), 0x6E72654Bu);
     }
-    for ( j = FirstEntrySList(&stru_140E26950); j; j = j->Next )
+    for ( j = FirstEntrySList(&stru_140E26A90); j; j = j->Next )
       KeMarkPcrHiberPhase((size_t *)j[-1].Next);
     guard_dispatch_icall_no_overrides(0LL, v4);
     PopMarkHiberPhase(Address);
@@ -64,7 +64,7 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
     RtlMarkHiberPhase();
     HvlMarkHiberPhase();
     v6 = 0LL;
-    if ( VslpReservedTransferLock.KernelStack )
+    if ( VslpReservedTransferLock.FirstArgument )
     {
       v7 = 0LL;
       do
@@ -72,24 +72,24 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
         PoSetHiberRange(
           0LL,
           0x10000u,
-          *(PVOID *)(v7 + *(_QWORD *)&VslpReservedTransferLock.CurrentRunTime),
-          *(_QWORD *)(v7 + *(_QWORD *)&VslpReservedTransferLock.CurrentRunTime + 8),
+          *(PVOID *)(v7 + VslpHiberBootRanges),
+          *(_QWORD *)(v7 + VslpHiberBootRanges + 8),
           0x52706B53u);
         ++v6;
         v7 += 16LL;
       }
-      while ( v6 < VslpReservedTransferLock.KernelStack );
+      while ( v6 < VslpReservedTransferLock.FirstArgument );
     }
     PoSetHiberRange(
       0LL,
       0x10000u,
-      KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread,
+      KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink,
       (unsigned __int16)KiMaximumGroups << 8,
       0x6467654Bu);
     PoSetHiberRange(
       0LL,
       0x10000u,
-      *(PVOID *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112],
+      KiSupervisorXStateFeaturesLock.SchedulerApc.Thread,
       (unsigned int)(4 * KeMaximumProcessors),
       0x6467654Bu);
     KeMarkDynamicTracingHiberPhase();
@@ -108,21 +108,21 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
       }
       while ( v1 < IopNumTriageDumpDataBlocks );
     }
-    for ( k = *(struct _KTHREAD **)&PopWeakChargerLock.SavedApcStateFill[40];
-          k != (struct _KTHREAD *)&PopWeakChargerLock.SavedApcStateFill[40];
-          k = *(struct _KTHREAD **)&k->Header.Lock )
+    for ( k = (__int64 *)PopShutdownNotificationCallbackList;
+          k != (__int64 *)&PopShutdownNotificationCallbackList;
+          k = (__int64 *)*k )
     {
       PoSetHiberRange(0LL, 0x10000u, k, 0x28uLL, 0x6E72654Bu);
-      guard_dispatch_icall_no_overrides(k->QuantumTarget, v9);
+      guard_dispatch_icall_no_overrides(k[4], v9);
     }
-    for ( m = (struct _KTHREAD *)stru_140F10828.FirstArgument;
-          m != (struct _KTHREAD *)&stru_140F10828.FirstArgument;
+    for ( m = (struct _KTHREAD *)PpmIdlePolicyLock.SystemAffinityTokenListHead.Next;
+          m != (struct _KTHREAD *)&PpmIdlePolicyLock.SystemAffinityTokenListHead;
           m = *(struct _KTHREAD **)&m->Header.Lock )
     {
       PoSetHiberRange(0LL, 0x10000u, m, 0x420uLL, 0x6D726854u);
     }
     PopSstInvokeNotificationHandlers(1u);
-    if ( (dword_140F0FD40 & 0x100) == 0 )
+    if ( (PopSimulateHiberBugcheck & 0x100) == 0 )
       MiConvertHiberPhasePages(Address + 48);
     Address[2] = 1;
   }

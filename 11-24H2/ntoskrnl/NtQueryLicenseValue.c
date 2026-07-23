@@ -1,26 +1,31 @@
 /*
- * XREFs of NtQueryLicenseValue @ 0x140977CA0
+ * XREFs of NtQueryLicenseValue @ 0x1409604B0
  * Callers:
- *     ExpGetNtProductTypeFromLicenseValue @ 0x1407B6F9C (ExpGetNtProductTypeFromLicenseValue.c)
- *     MiMemoryLicense @ 0x140C561FC (MiMemoryLicense.c)
+ *     ExpGetNtProductTypeFromLicenseValue @ 0x1407B73EC (ExpGetNtProductTypeFromLicenseValue.c)
+ *     MiMemoryLicense @ 0x140C5838C (MiMemoryLicense.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SLQueryLicenseValueInternal @ 0x1407B99EC (SLQueryLicenseValueInternal.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
- *     ntoskrnl_27 @ 0x140977FD0 (ntoskrnl_27.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SLQueryLicenseValueInternal @ 0x1407B9E3C (SLQueryLicenseValueInternal.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
+ *     ntoskrnl_27 @ 0x1409607E0 (ntoskrnl_27.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3, unsigned int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
-  __int64 v5; // r15
-  int v8; // edi
+  ULONG_PTR v5; // r15
+  NTSTATUS v8; // edi
   char PreviousMode; // dl
-  _DWORD *v10; // r13
+  PULONG v10; // r13
   __int64 v11; // rsi
   __int64 v12; // rax
   int v13; // edx
@@ -38,24 +43,24 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3
   _DWORD Size[3]; // [rsp+44h] [rbp-64h] BYREF
   PVOID P; // [rsp+50h] [rbp-58h]
   UNICODE_STRING v28[5]; // [rsp+58h] [rbp-50h] BYREF
-  int v29; // [rsp+B0h] [rbp+8h] BYREF
-  _DWORD *v30; // [rsp+B8h] [rbp+10h]
-  void *v31; // [rsp+C0h] [rbp+18h]
-  unsigned int v32; // [rsp+C8h] [rbp+20h]
+  ULONG v29; // [rsp+B0h] [rbp+8h] BYREF
+  PULONG v30; // [rsp+B8h] [rbp+10h]
+  PVOID v31; // [rsp+C0h] [rbp+18h]
+  ULONG v32; // [rsp+C8h] [rbp+20h]
 
-  v32 = a4;
-  v31 = a3;
-  v30 = a2;
-  v5 = a4;
+  v32 = DataSize;
+  v31 = Data;
+  v30 = Type;
+  v5 = DataSize;
   v28[0] = 0LL;
   v8 = 0;
   P = 0LL;
   v29 = 0;
   memset(Size, 0, sizeof(Size));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a1 && (v10 = a5) != 0LL && (a3 || !a4) )
+  if ( ValueName && (v10 = ResultDataSize) != 0LL && (Data || !DataSize) )
   {
-    if ( a4 > 0x800000 )
+    if ( DataSize > 0x800000 )
     {
       v8 = -1073741801;
     }
@@ -63,8 +68,8 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3
     {
       v11 = 0x7FFFFFFF0000LL;
       v12 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v12 = a1;
+      if ( (unsigned __int64)ValueName < 0x7FFFFFFF0000LL )
+        v12 = (__int64)ValueName;
       v13 = *(_DWORD *)v12;
       *(_DWORD *)&v28[0].Length = *(_DWORD *)v12;
       v14 = *(wchar_t **)(v12 + 8);
@@ -73,26 +78,26 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3
       {
         if ( ((unsigned __int8)v14 & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned __int16)v13, 0x20534C53u);
         P = Pool2;
         if ( Pool2 )
         {
           v16 = (wchar_t *)Pool2;
           memmove(Pool2, v28[0].Buffer, v28[0].Length);
           v28[0].Buffer = v16;
-          if ( a2 )
+          if ( Type )
           {
             v17 = 0x7FFFFFFF0000LL;
-            if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-              v17 = (__int64)a2;
+            if ( (unsigned __int64)Type < 0x7FFFFFFF0000LL )
+              v17 = (__int64)Type;
             *(_DWORD *)v17 = *(_DWORD *)v17;
-            v29 = *a2;
+            v29 = *Type;
           }
-          if ( !a3 || !(_DWORD)v5 )
+          if ( !Data || !(_DWORD)v5 )
             goto LABEL_24;
-          v18 = (unsigned __int64)a3;
-          v19 = (unsigned __int64)a3 + v5 - 1;
-          if ( (unsigned __int64)a3 > v19 || v19 >= 0x7FFFFFFF0000LL )
+          v18 = (unsigned __int64)Data;
+          v19 = (unsigned __int64)Data + v5 - 1;
+          if ( (unsigned __int64)Data > v19 || v19 >= 0x7FFFFFFF0000LL )
             ExRaiseAccessViolation();
           v20 = (v19 & 0xFFFFFFFFFFFFF000uLL) + 4096;
           do
@@ -101,7 +106,7 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3
             v18 = (v18 & 0xFFFFFFFFFFFFF000uLL) + 4096;
           }
           while ( v18 != v20 );
-          *(_QWORD *)&Size[1] = ExAllocatePool2(0x100uLL);
+          *(_QWORD *)&Size[1] = ExAllocatePool2(0x100uLL, v5, 0x20534C53u);
           if ( !*(_QWORD *)&Size[1] )
           {
             v8 = -1073741801;
@@ -127,28 +132,28 @@ LABEL_24:
       if ( v8 >= 0 )
       {
         Blink = PsGetCurrentServerSiloGlobals()[54].Blink;
-        if ( qword_140FD7480 )
-          v22 = guard_dispatch_icall_no_overrides(Blink, v28, &v29, *(_QWORD *)&Size[1]);
+        if ( qword_140FD8490 )
+          v22 = guard_dispatch_icall_no_overrides(Blink, v28);
         else
           v22 = SLQueryLicenseValueInternal((__int64)Blink, v28, (__int64)&v29, *(__int64 *)&Size[1], v5, (__int64)Size);
         v23 = v22;
         v8 = v22;
-        if ( a2 )
-          *a2 = v29;
+        if ( Type )
+          *Type = v29;
         v24 = Size[0];
         *v10 = Size[0];
-        if ( v23 >= 0 && a3 )
+        if ( v23 >= 0 && Data )
         {
           if ( (unsigned int)v5 < v24 )
             v8 = -1073741789;
           else
-            memmove(a3, *(const void **)&Size[1], v24);
+            memmove(Data, *(const void **)&Size[1], v24);
         }
       }
     }
     else
     {
-      v8 = ntoskrnl_27(a1, (int)a2, (int)a3, a4, (__int64)a5);
+      v8 = ntoskrnl_27((int)ValueName, (int)Type, (int)Data, DataSize, (__int64)ResultDataSize);
     }
   }
   else
@@ -159,5 +164,5 @@ LABEL_24:
     ExFreePoolWithTag(P, 0);
   if ( *(_QWORD *)&Size[1] )
     ExFreePoolWithTag(*(PVOID *)&Size[1], 0);
-  return (unsigned int)v8;
+  return v8;
 }

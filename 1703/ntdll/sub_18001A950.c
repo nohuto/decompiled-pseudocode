@@ -10,10 +10,15 @@
 
 void __fastcall sub_18001A950(__int64 a1)
 {
+  __int64 v2; // rax
+  void *v3; // rcx
+
   if ( *(_QWORD *)(a1 + 72) )
   {
-    if ( sub_18001A984() != *(_QWORD *)(a1 + 72) )
-      sub_180086EA8();
+    v2 = sub_18001A984();
+    v3 = *(void **)(a1 + 72);
+    if ( (void *)v2 != v3 )
+      sub_180086EA8(v3);
     *(_QWORD *)(a1 + 72) = 0LL;
   }
 }

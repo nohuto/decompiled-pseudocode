@@ -9,20 +9,20 @@
  *     ZwAlertThreadByThreadId @ 0x18009E2D0 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall TppIteWakeWaiters(_QWORD *a1, __int64 a2)
+NTSTATUS __fastcall TppIteWakeWaiters(__int64 **a1)
 {
-  _QWORD *v2; // rbx
-  __int64 result; // rax
+  __int64 *v1; // rbx
+  NTSTATUS result; // eax
 
   if ( a1 )
   {
     do
     {
-      v2 = (_QWORD *)*a1;
-      result = ZwAlertThreadByThreadId(a1[1], a2);
-      a1 = v2;
+      v1 = *a1;
+      result = ZwAlertThreadByThreadId(a1[1]);
+      a1 = (__int64 **)v1;
     }
-    while ( v2 );
+    while ( v1 );
   }
   return result;
 }

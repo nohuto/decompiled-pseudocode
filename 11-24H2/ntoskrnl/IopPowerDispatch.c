@@ -1,11 +1,11 @@
 /*
- * XREFs of IopPowerDispatch @ 0x1403D9C00
+ * XREFs of IopPowerDispatch @ 0x1403CBF80
  * Callers:
- *     IopPoHandleIrp @ 0x1403D9988 (IopPoHandleIrp.c)
+ *     IopPoHandleIrp @ 0x1403CBD00 (IopPoHandleIrp.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall IopPowerDispatch(__int64 a1, IRP *a2)

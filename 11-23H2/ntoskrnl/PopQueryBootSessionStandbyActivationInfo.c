@@ -1,10 +1,10 @@
 /*
- * XREFs of PopQueryBootSessionStandbyActivationInfo @ 0x140587224
+ * XREFs of PopQueryBootSessionStandbyActivationInfo @ 0x140587714
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     PpmQueryPlatformStateResidency @ 0x1403D6FA0 (PpmQueryPlatformStateResidency.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     PpmQueryPlatformStateResidency @ 0x1403D7180 (PpmQueryPlatformStateResidency.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopQueryBootSessionStandbyActivationInfo(__int64 a1)

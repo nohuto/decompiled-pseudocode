@@ -1,40 +1,42 @@
 /*
- * XREFs of MiMakeSecureExclusive @ 0x1402C8E50
+ * XREFs of MiMakeSecureExclusive @ 0x1402476B0
  * Callers:
- *     MmStoreAllocateVirtualMemory @ 0x1406B61EC (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406156AC (MmStoreAllocateVirtualMemory.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
  */
 
-__int64 __fastcall MiMakeSecureExclusive(__int64 a1)
+__int64 __fastcall MiMakeSecureExclusive(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // esi
-  __int64 *v3; // rbp
+  unsigned int v3; // esi
+  __int64 *v4; // rbp
   _KPROCESS *Process; // r14
-  LONG *SharedVm; // rbx
-  KIRQL v6; // al
+  __int64 SharedVm; // rbx
+  KIRQL v7; // al
+  __int64 v8; // rdx
   __int64 *i; // rcx
 
-  v2 = 0;
-  v3 = 0LL;
+  v3 = 0;
+  v4 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
-  v6 = ExAcquireSpinLockExclusive(SharedVm);
-  SharedVm[1] = 0;
+  SharedVm = MiGetSharedVm(&Process[1].ActiveProcessorsPadding[6], a2);
+  v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
+  *(_DWORD *)(SharedVm + 4) = 0;
   for ( i = *(__int64 **)(a1 + 56); i; i = (__int64 *)*i )
   {
     if ( *((_DWORD *)i + 16) == 2 )
     {
-      if ( v3 )
+      if ( v4 )
         goto LABEL_8;
-      v3 = i;
+      v4 = i;
     }
   }
-  *((_DWORD *)v3 + 2) |= 0x20u;
-  v2 = 1;
+  *((_DWORD *)v4 + 2) |= 0x20u;
+  v3 = 1;
 LABEL_8:
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v6);
-  return v2;
+  LOBYTE(v8) = v7;
+  MiUnlockWorkingSetExclusive(&Process[1].ActiveProcessorsPadding[6], v8);
+  return v3;
 }

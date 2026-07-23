@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierMmSecureVirtualMemory @ 0x14070CB68
+ * XREFs of VerifierMmSecureVirtualMemory @ 0x14070CB98
  * Callers:
  *     <none>
  * Callees:

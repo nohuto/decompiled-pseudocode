@@ -13,31 +13,31 @@
  *     _RtlpTpIoLookup@12 @ 0x4B385A3D (_RtlpTpIoLookup@12.c)
  */
 
-int __stdcall RtlSetIoCompletionCallback(int a1, int a2, int a3)
+NTSTATUS __cdecl RtlSetIoCompletionCallback(HANDLE FileHandle, APC_CALLBACK_FUNCTION CompletionProc, ULONG Flags)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v4; // esi
   int v5; // ecx
   _GUID *p_ActivityId; // esi
-  HANDLE v7; // [esp+10h] [ebp-24h] BYREF
+  HANDLE TokenHandle; // [esp+10h] [ebp-24h] BYREF
   int v8; // [esp+14h] [ebp-20h]
   int v9; // [esp+18h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
   result = -1073741823;
   v9 = -1073741823;
-  v7 = 0;
+  TokenHandle = 0;
   v8 = 0;
   if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    if ( !a1 || a3 )
+    if ( !FileHandle || Flags )
     {
       return -1073741811;
     }
     else
     {
       ms_exc.registration.TryLevel = 0;
-      v4 = RtlpTpRevertCapture(&v7, 0);
+      v4 = RtlpTpRevertCapture(&TokenHandle, 0);
       v9 = v4;
       if ( v4 >= 0 )
       {
@@ -52,7 +52,7 @@ int __stdcall RtlSetIoCompletionCallback(int a1, int a2, int a3)
         }
         else
         {
-          v4 = LdrRegisterDllNotification(0, (int)RtlpTpIoDllNotification, 0, &RtlpTpIoDllNotificationCookie);
+          v4 = LdrRegisterDllNotification(0, RtlpTpIoDllNotification, 0, &RtlpTpIoDllNotificationCookie);
           v9 = v4;
           if ( v4 >= 0 )
             RtlpTpIoRegistered = 1;
@@ -62,7 +62,7 @@ int __stdcall RtlSetIoCompletionCallback(int a1, int a2, int a3)
         if ( v4 >= 0 )
         {
 LABEL_11:
-          v4 = RtlpTpIoLookup(a1);
+          v4 = RtlpTpIoLookup(FileHandle);
           v9 = v4;
           if ( v4 >= 0 )
           {
@@ -79,7 +79,7 @@ LABEL_11:
         }
       }
       ms_exc.registration.TryLevel = -2;
-      RtlpTpResumeImpersonation(v7);
+      RtlpTpResumeImpersonation(TokenHandle);
       return v4;
     }
   }

@@ -37,10 +37,13 @@ __int64 __fastcall PopWnfBluetoothChargingCallback(__int64 a1, __int64 a2, __int
       if ( PopCsResiliencyStats[0] && v13[0] && !byte_140C3CAE3 )
         byte_140C3CAE3 = 1;
       KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

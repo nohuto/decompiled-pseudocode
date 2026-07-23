@@ -3,13 +3,13 @@
  * Callers:
  *     MiShutdownSystem @ 0x1403DE8F8 (MiShutdownSystem.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiZeroPageFile @ 0x1401E1904 (MiZeroPageFile.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiZeroPageFile @ 0x1401E1730 (MiZeroPageFile.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -26,7 +26,7 @@ __int64 MiZeroAllPageFiles()
   struct _KWAIT_BLOCK WaitBlockArray; // [rsp+240h] [rbp-328h] BYREF
 
   VfZeroAllPagesRunning = 1;
-  KeWaitForSingleObject(&unk_1403237E0, WrKernel, 0, 0, 0LL);
+  KeWaitForSingleObject(&unk_140323820, WrKernel, 0, 0, 0LL);
   v0 = Count;
   v1 = Count;
   if ( Count )

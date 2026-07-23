@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpTransMgrRollback @ 0x1408AEDA8
+ * XREFs of CmpTransMgrRollback @ 0x1408B51E8
  * Callers:
- *     CmpRmUnDoPhase @ 0x14085E718 (CmpRmUnDoPhase.c)
- *     CmKtmNotification @ 0x1408ADED0 (CmKtmNotification.c)
- *     CmpAbortLightWeightTransaction @ 0x1408AE518 (CmpAbortLightWeightTransaction.c)
- *     CmRmFinalizeRecovery @ 0x140B3A6E8 (CmRmFinalizeRecovery.c)
+ *     CmpRmUnDoPhase @ 0x140864A08 (CmpRmUnDoPhase.c)
+ *     CmKtmNotification @ 0x1408B4310 (CmKtmNotification.c)
+ *     CmpAbortLightWeightTransaction @ 0x1408B4958 (CmpAbortLightWeightTransaction.c)
+ *     CmRmFinalizeRecovery @ 0x140B3CA88 (CmRmFinalizeRecovery.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     LOCK_TRANSACTION_LIST @ 0x1408AEE3C (LOCK_TRANSACTION_LIST.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1408B527C (LOCK_TRANSACTION_LIST.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpTransMgrRollback(__int64 a1, _DWORD *a2)

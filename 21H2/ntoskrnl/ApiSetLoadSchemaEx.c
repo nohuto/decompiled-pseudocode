@@ -1,14 +1,14 @@
 /*
- * XREFs of ApiSetLoadSchemaEx @ 0x14095E8B4
+ * XREFs of ApiSetLoadSchemaEx @ 0x14095EA94
  * Callers:
- *     ApiSetLoadSchemaWithExtensions @ 0x14095E984 (ApiSetLoadSchemaWithExtensions.c)
- *     ApiSetpLoadSchemaExtension @ 0x14095EB80 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x14095EB64 (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetpLoadSchemaExtension @ 0x14095ED60 (ApiSetpLoadSchemaExtension.c)
  * Callees:
- *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ApiSetpFindImageSection @ 0x14095EAFC (ApiSetpFindImageSection.c)
- *     ApiSetpLoadSchemaImage @ 0x14095EDC4 (ApiSetpLoadSchemaImage.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwUnmapViewOfSection @ 0x1403FAAC0 (ZwUnmapViewOfSection.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ApiSetpFindImageSection @ 0x14095ECDC (ApiSetpFindImageSection.c)
+ *     ApiSetpLoadSchemaImage @ 0x14095EFA4 (ApiSetpLoadSchemaImage.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ApiSetLoadSchemaEx(__int64 a1, _QWORD *a2, SIZE_T *a3)

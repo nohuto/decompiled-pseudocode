@@ -7,16 +7,16 @@
  *     RtlpAssemblyStorageMapResolutionDefaultCallback @ 0x180047690 (RtlpAssemblyStorageMapResolutionDefaultCallback.c)
  *     IsOverlaySupportedPath @ 0x180047B00 (IsOverlaySupportedPath.c)
  *     RtlpDiskSpeedInitialize @ 0x18008B940 (RtlpDiskSpeedInitialize.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     AVrfpLoadAndInitializeProvider @ 0x1800DADA8 (AVrfpLoadAndInitializeProvider.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x1800DAD68 (AVrfpLoadAndInitializeProvider.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall RtlGetNtSystemRoot(__int64 a1, __int64 a2)
+PWSTR RtlGetNtSystemRoot(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
-    return (__int64)NtCurrentPeb()->SharedData + 30;
+  if ( RtlGetCurrentServiceSessionId() )
+    return (PWSTR)((char *)NtCurrentPeb()->SharedData + 30);
   else
-    return 2147352624LL;
+    return (PWSTR)2147352624;
 }

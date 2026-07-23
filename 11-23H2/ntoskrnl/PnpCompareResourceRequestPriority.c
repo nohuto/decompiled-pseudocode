@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpCompareResourceRequestPriority @ 0x140860C30
+ * XREFs of PnpCompareResourceRequestPriority @ 0x140860E70
  * Callers:
  *     <none>
  * Callees:

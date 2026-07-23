@@ -1,34 +1,43 @@
 /*
- * XREFs of MiChangePageAttributeAndZeroBatch @ 0x140414984
+ * XREFs of MiChangePageAttributeAndZeroBatch @ 0x1402708E0
  * Callers:
- *     MiInitializeMdlOneNodeBatchPages @ 0x1404133A0 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiFindLargePageMemory @ 0x140A92A7C (MiFindLargePageMemory.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140393A14 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiFindLargePageMemory @ 0x140A8F22C (MiFindLargePageMemory.c)
  * Callees:
- *     MiChangePageAttributeBatch @ 0x1402668E4 (MiChangePageAttributeBatch.c)
- *     MiZeroInParallel @ 0x1404155D0 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x140271430 (MiZeroInParallel.c)
+ *     MiChangePageAttributeBatch @ 0x1403A8860 (MiChangePageAttributeBatch.c)
  */
 
-void __fastcall MiChangePageAttributeAndZeroBatch(__int64 *a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall MiChangePageAttributeAndZeroBatch(_QWORD *a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  int v8; // edi
+  __int64 result; // rax
+  unsigned int v9; // edi
+  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
+  result = (__int64)&retaddr;
   if ( a2 )
-    v8 = (*(_DWORD *)(a2 + 16) >> 3) & 1;
+  {
+    v9 = (*(_DWORD *)(a2 + 16) >> 3) & 1;
+  }
   else
-    v8 = KeGetCurrentIrql() == 2;
+  {
+    result = KeGetCurrentIrql();
+    v9 = (_BYTE)result == 2;
+  }
   if ( *a1 != 0x7FFFFFFFFFLL )
-    MiChangePageAttributeBatch(a1, a3, a4, v8);
+    result = MiChangePageAttributeBatch(a1, a3, a4, v9);
   if ( a2 )
   {
     if ( a1[2] != 0x7FFFFFFFFFLL )
-      MiChangePageAttributeBatch(a1 + 2, 1, -1LL, v8);
+      result = MiChangePageAttributeBatch(a1 + 2, 1LL, -1LL, v9);
     if ( *(_DWORD *)(a2 + 40) )
-      MiZeroInParallel(a2);
+      result = MiZeroInParallel(a2);
     if ( a1[2] != 0x7FFFFFFFFFLL )
-      MiChangePageAttributeBatch(a1 + 2, 3, a4, v8);
+      result = MiChangePageAttributeBatch(a1 + 2, 3LL, a4, v9);
     if ( a1[3] != 0x7FFFFFFFFFLL )
-      MiChangePageAttributeBatch(a1 + 3, 3, a4, v8);
+      result = MiChangePageAttributeBatch(a1 + 3, 3LL, a4, v9);
     if ( a1[1] != 0x7FFFFFFFFFLL )
-      MiChangePageAttributeBatch(a1 + 1, a3, a4, v8);
+      return MiChangePageAttributeBatch(a1 + 1, a3, a4, v9);
   }
+  return result;
 }

@@ -27,8 +27,8 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   unsigned int v11; // r10d
   __int64 v12; // r11
   __int64 v13; // r11
-  UUID *p_Uuid; // r11
-  int v15; // ebx
+  GUID *p_Uuid; // r11
+  NTSTATUS v15; // ebx
   NTSTATUS result; // eax
   int v17; // ecx
   int v18; // eax
@@ -36,18 +36,18 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   _BYTE v20[8]; // [rsp+30h] [rbp-50h] BYREF
   void *v21; // [rsp+38h] [rbp-48h] BYREF
   void *v22; // [rsp+40h] [rbp-40h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-38h] BYREF
+  UNICODE_STRING GuidString; // [rsp+48h] [rbp-38h] BYREF
   void *v24; // [rsp+58h] [rbp-28h] BYREF
   _BYTE v25[8]; // [rsp+60h] [rbp-20h] BYREF
   UUID Uuid; // [rsp+68h] [rbp-18h] BYREF
 
-  *(_QWORD *)&UnicodeString.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   v22 = 0LL;
   v21 = 0LL;
   *a5 = 0LL;
   v6 = a3[1];
   v24 = 0LL;
-  UnicodeString.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   v8 = *a3;
   v9 = 0LL;
   Uuid = 0LL;
@@ -67,16 +67,16 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   {
     p_Uuid = &Uuid;
 LABEL_4:
-    v15 = RtlStringFromGUIDEx(&p_Uuid->Data1, (__int64)&UnicodeString, 1);
+    v15 = RtlStringFromGUIDEx(p_Uuid, &GuidString, 1u);
     if ( v15 >= 0 )
     {
-      BiLogMessage(2LL, L"Object GUID: %s", UnicodeString.Buffer);
+      BiLogMessage(2LL, L"Object GUID: %s", GuidString.Buffer);
       v18 = BiOpenKey(a1, L"Objects", v17 + 2, &v22);
       v9 = v22;
       v15 = v18;
       if ( v18 >= 0 )
       {
-        v19 = BiCreateKey(v22, UnicodeString.Buffer, 983103LL, 0LL, &v21, v20);
+        v19 = BiCreateKey(v22, GuidString.Buffer, 983103LL, 0LL, &v21, v20);
         v10 = v21;
         v15 = v19;
         if ( v19 >= 0 )
@@ -96,8 +96,8 @@ LABEL_4:
         }
       }
     }
-    if ( UnicodeString.Buffer )
-      RtlFreeAnsiString(&UnicodeString);
+    if ( GuidString.Buffer )
+      RtlFreeAnsiString(&GuidString);
     if ( v15 < 0 && v10 )
       BiCloseKey(v10);
     if ( v9 )

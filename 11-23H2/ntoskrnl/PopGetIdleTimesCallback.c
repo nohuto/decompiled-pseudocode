@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetIdleTimesCallback @ 0x1402520E0
+ * XREFs of PopGetIdleTimesCallback @ 0x1402521A0
  * Callers:
- *     PoGetIdleTimes @ 0x140252620 (PoGetIdleTimes.c)
+ *     PoGetIdleTimes @ 0x1402526E0 (PoGetIdleTimes.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14034F15C (PpmContinueActiveTimeAccumulation.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14034F2FC (PpmContinueActiveTimeAccumulation.c)
  */
 
 __int64 __fastcall PopGetIdleTimesCallback(struct _KPRCB *a1, __int64 a2, __int64 a3)
@@ -170,9 +170,9 @@ LABEL_8:
         ++*v34;
         *v33 += v17;
       }
-      if ( v17 > (unsigned int)KeMaximumIncrement )
+      if ( v17 > KeMaximumIncrement )
       {
-        v18 = v17 / (unsigned int)KeMaximumIncrement;
+        v18 = v17 / KeMaximumIncrement;
         SpareLong0 = v18 + SpareLong0 - 1;
         KernelTime = v18 + KernelTime - 1;
       }
@@ -183,7 +183,7 @@ LABEL_8:
     if ( IdleAccounting && IdleStates )
       *(_QWORD *)a2 += *(_QWORD *)(a2 + 8) + *(_QWORD *)(a2 + 16) + *(_QWORD *)(a2 + 24);
     else
-      *(_QWORD *)a2 = SpareLong0 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      *(_QWORD *)a2 = SpareLong0 * (unsigned __int64)KeMaximumIncrement;
   }
   if ( a3 )
   {

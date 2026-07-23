@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpNewThreadNecessary @ 0x1400C0E90
+ * XREFs of ExpNewThreadNecessary @ 0x1400BED20
  * Callers:
- *     ExTryQueueWorkItem @ 0x1400C30E0 (ExTryQueueWorkItem.c)
- *     ExTryQueueWorkItemFromIo @ 0x14010D6EC (ExTryQueueWorkItemFromIo.c)
- *     ExpQueueWorkItemNode @ 0x14022EA8C (ExpQueueWorkItemNode.c)
- *     ExpWorkerThreadBalanceManager @ 0x140566108 (ExpWorkerThreadBalanceManager.c)
+ *     ExTryQueueWorkItem @ 0x1400C0F70 (ExTryQueueWorkItem.c)
+ *     ExTryQueueWorkItemFromIo @ 0x14010DC50 (ExTryQueueWorkItemFromIo.c)
+ *     ExpQueueWorkItemNode @ 0x14022E8B8 (ExpQueueWorkItemNode.c)
+ *     ExpWorkerThreadBalanceManager @ 0x140566648 (ExpWorkerThreadBalanceManager.c)
  * Callees:
  *     <none>
  */

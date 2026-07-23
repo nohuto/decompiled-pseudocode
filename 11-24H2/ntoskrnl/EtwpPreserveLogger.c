@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpPreserveLogger @ 0x1407AFA4C
+ * XREFs of EtwpPreserveLogger @ 0x1407AFE9C
  * Callers:
- *     EtwpKsrCallback @ 0x1407AF910 (EtwpKsrCallback.c)
- *     EtwpSetSoftRestartInformation @ 0x140A44534 (EtwpSetSoftRestartInformation.c)
+ *     EtwpKsrCallback @ 0x1407AFD60 (EtwpKsrCallback.c)
+ *     EtwpSetSoftRestartInformation @ 0x140A39DC4 (EtwpSetSoftRestartInformation.c)
  * Callees:
- *     EtwpAllocateTraceBuffer @ 0x14040FF9C (EtwpAllocateTraceBuffer.c)
- *     EtwpResetBufferHeader @ 0x140458490 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x140479B7C (EtwpInitializeBufferHeader.c)
- *     EtwpFreeTraceBuffer @ 0x140483510 (EtwpFreeTraceBuffer.c)
- *     EtwpGetFirstBuffer @ 0x1404EF620 (EtwpGetFirstBuffer.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x1407AF650 (EtwpBuildMdlForTraceBuffer.c)
- *     EtwpPreserveMdlList @ 0x1407AFC6C (EtwpPreserveMdlList.c)
- *     EtwpAddLogHeader @ 0x1409DAEEC (EtwpAddLogHeader.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpResetBufferHeader @ 0x14044D7A0 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x14047540C (EtwpInitializeBufferHeader.c)
+ *     EtwpAllocateTraceBuffer @ 0x14047CE80 (EtwpAllocateTraceBuffer.c)
+ *     EtwpFreeTraceBuffer @ 0x14047E9DC (EtwpFreeTraceBuffer.c)
+ *     EtwpGetFirstBuffer @ 0x1404ECB34 (EtwpGetFirstBuffer.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1407AFAA0 (EtwpBuildMdlForTraceBuffer.c)
+ *     EtwpPreserveMdlList @ 0x1407B00BC (EtwpPreserveMdlList.c)
+ *     EtwpAddLogHeader @ 0x1409D59FC (EtwpAddLogHeader.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpPreserveLogger(ULONG_PTR BugCheckParameter2)
@@ -49,7 +49,7 @@ __int64 __fastcall EtwpPreserveLogger(ULONG_PTR BugCheckParameter2)
   v7 = _mm_cvtsi128_si32(v6);
   v8 = v7 + 2;
   v18 = v7 + 18;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, v18, 0x4B777445u);
   if ( Pool2 )
   {
     Pool2[2] = *(_DWORD *)(BugCheckParameter2 + 4);

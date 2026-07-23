@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWow64GetEquivalentMachineCHPE @ 0x1800FAB50
+ * XREFs of RtlWow64GetEquivalentMachineCHPE @ 0x1800F58B0
  * Callers:
  *     <none>
  * Callees:

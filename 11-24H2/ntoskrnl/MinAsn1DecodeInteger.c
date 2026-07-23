@@ -1,8 +1,8 @@
 /*
- * XREFs of MinAsn1DecodeInteger @ 0x140827F60
+ * XREFs of MinAsn1DecodeInteger @ 0x140828730
  * Callers:
- *     MincryptValidateBasicConstraints @ 0x140825E74 (MincryptValidateBasicConstraints.c)
- *     MinAsn1SignedDataGetContent @ 0x140828690 (MinAsn1SignedDataGetContent.c)
+ *     MincryptValidateBasicConstraints @ 0x140826644 (MincryptValidateBasicConstraints.c)
+ *     MinAsn1SignedDataGetContent @ 0x140828E60 (MinAsn1SignedDataGetContent.c)
  * Callees:
  *     <none>
  */

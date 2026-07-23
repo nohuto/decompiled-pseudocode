@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPurgeSlabEntries @ 0x1404827F0
+ * XREFs of MiPurgeSlabEntries @ 0x14047D9E8
  * Callers:
- *     MiFreeSlabEntries @ 0x1402D3B04 (MiFreeSlabEntries.c)
+ *     MiFreeSlabEntries @ 0x140354D7C (MiFreeSlabEntries.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     MiPurgeSlabEntry @ 0x1404829DC (MiPurgeSlabEntry.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiPurgeSlabEntry @ 0x14047DBD4 (MiPurgeSlabEntry.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiPurgeSlabEntries(__int64 a1)

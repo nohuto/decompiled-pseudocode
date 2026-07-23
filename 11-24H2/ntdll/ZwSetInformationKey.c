@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwSetInformationKey @ 0x1801651C0
+ * XREFs of ZwSetInformationKey @ 0x180163580
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetInformationKey()
+NTSTATUS __cdecl ZwSetInformationKey(
+        HANDLE KeyHandle,
+        KEY_SET_INFORMATION_CLASS KeySetInformationClass,
+        PVOID KeySetInformation,
+        ULONG KeySetInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 426LL;
+  result = 426;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

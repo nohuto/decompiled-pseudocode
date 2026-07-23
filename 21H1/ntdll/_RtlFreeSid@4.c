@@ -6,7 +6,7 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall RtlFreeSid(int a1)
+PVOID __cdecl RtlFreeSid(PSID Sid)
 {
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1) == 0 ? a1 : 0;
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Sid) == 0 ? Sid : 0;
 }

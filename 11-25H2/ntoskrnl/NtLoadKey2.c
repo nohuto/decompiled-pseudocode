@@ -6,7 +6,20 @@
  *     CmLoadDifferencingKey @ 0x140913148 (CmLoadDifferencingKey.c)
  */
 
-__int64 __fastcall NtLoadKey2(__int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtLoadKey2(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile, ULONG Flags)
 {
-  return CmLoadDifferencingKey(a1, a2, a3, 0LL, 0LL, 0LL, 0, 0LL, 0LL, 0LL, 0, 0LL, KeGetCurrentThread()->PreviousMode);
+  return CmLoadDifferencingKey(
+           (__int64)TargetKey,
+           (__int64)SourceFile,
+           Flags,
+           0LL,
+           0LL,
+           0LL,
+           0,
+           0LL,
+           0LL,
+           0LL,
+           0,
+           0LL,
+           KeGetCurrentThread()->PreviousMode);
 }

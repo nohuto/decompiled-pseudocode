@@ -1,42 +1,42 @@
 /*
- * XREFs of KeAssignCpuPartitionsToProcess @ 0x1405BF410
+ * XREFs of KeAssignCpuPartitionsToProcess @ 0x1405BCA40
  * Callers:
- *     PspAssignCpuPartitionsToProcess @ 0x140776964 (PspAssignCpuPartitionsToProcess.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x140776B84 (PspAssignCpuPartitionsToProcess.c)
  * Callees:
- *     KiUpdateProcessAvailableCpuState @ 0x140204268 (KiUpdateProcessAvailableCpuState.c)
- *     KiAcquireCpuPartitionAssignmentLock @ 0x14043A2D4 (KiAcquireCpuPartitionAssignmentLock.c)
- *     KiReleaseCpuPartitionAssignmentLock @ 0x14043A320 (KiReleaseCpuPartitionAssignmentLock.c)
- *     KiRemoveCpuPartitionAssignmentProcess @ 0x14043A35C (KiRemoveCpuPartitionAssignmentProcess.c)
- *     KiNotifyAvailableCpusChangeProcess @ 0x1404FB240 (KiNotifyAvailableCpusChangeProcess.c)
- *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405BFF0C (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
- *     PsDereferenceCpuPartition @ 0x14077666C (PsDereferenceCpuPartition.c)
- *     PsReferenceCpuPartition @ 0x140776684 (PsReferenceCpuPartition.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiAcquireCpuPartitionAssignmentLock @ 0x1402B9B18 (KiAcquireCpuPartitionAssignmentLock.c)
+ *     KiReleaseCpuPartitionAssignmentLock @ 0x1402B9B64 (KiReleaseCpuPartitionAssignmentLock.c)
+ *     KiRemoveCpuPartitionAssignmentProcess @ 0x1402B9BA0 (KiRemoveCpuPartitionAssignmentProcess.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x14032B848 (KiUpdateProcessAvailableCpuState.c)
+ *     KiNotifyAvailableCpusChangeProcess @ 0x1404F8B20 (KiNotifyAvailableCpusChangeProcess.c)
+ *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405BD53C (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
+ *     PsDereferenceCpuPartition @ 0x14077688C (PsDereferenceCpuPartition.c)
+ *     PsReferenceCpuPartition @ 0x1407768A4 (PsReferenceCpuPartition.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeAssignCpuPartitionsToProcess(__int64 a1, unsigned int a2, __int64 a3, char a4)
 {
   __int64 v4; // rsi
   unsigned int v6; // r15d
-  void *v7; // r13
-  void *v8; // r12
-  __int64 v9; // rax
-  PVOID *v10; // rdi
+  __int64 v7; // rbx
+  void *v8; // r13
+  void *v9; // r12
+  __int64 v10; // rax
+  PVOID *v11; // rdi
   __int64 i; // rbx
-  __int64 v12; // rax
-  __int64 v13; // rbx
-  __int64 v14; // r13
-  __int64 v15; // rcx
-  __int64 v16; // rdx
-  __int64 *v17; // rax
-  __int64 v18; // r10
-  __int64 *v19; // r8
-  __int64 **v20; // r9
-  __int64 *v21; // rax
-  __int64 v22; // r8
-  __int64 **v23; // r10
-  __int64 v24; // r8
+  __int64 v13; // rax
+  __int64 v14; // rbx
+  __int64 v15; // r13
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  __int64 *v18; // rax
+  __int64 v19; // r10
+  __int64 *v20; // r8
+  __int64 **v21; // r9
+  __int64 *v22; // rax
+  __int64 v23; // r8
+  __int64 **v24; // r10
   _QWORD *v25; // rbx
   _QWORD *v26; // rax
   _QWORD *v27; // r14
@@ -57,74 +57,75 @@ __int64 __fastcall KeAssignCpuPartitionsToProcess(__int64 a1, unsigned int a2, _
   v35[0] = v35;
   v6 = 0;
   v33 = KiActiveGroups;
-  Pool2 = ExAllocatePool2(0x40uLL);
-  v7 = (void *)Pool2;
-  v8 = (void *)ExAllocatePool2(0x40uLL);
-  v9 = ExAllocatePool2(0x40uLL);
-  v10 = (PVOID *)v9;
-  if ( Pool2 && v8 && v9 )
+  v7 = (unsigned __int16)KiActiveGroups;
+  Pool2 = ExAllocatePool2(0x40uLL, 8LL * (unsigned __int16)KiActiveGroups, 0x7543694Bu);
+  v8 = (void *)Pool2;
+  v9 = (void *)ExAllocatePool2(0x40uLL, 16 * v7, 0x7543694Bu);
+  v10 = ExAllocatePool2(0x40uLL, 8 * v4, 0x7543694Bu);
+  v11 = (PVOID *)v10;
+  if ( Pool2 && v9 && v10 )
   {
     for ( i = 0LL; (unsigned int)i < (unsigned int)v4; i = (unsigned int)(i + 1) )
     {
-      v12 = ExAllocatePool2(0x40uLL);
-      if ( !v12 )
+      v13 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x7543694Bu);
+      if ( !v13 )
         goto LABEL_20;
-      v10[i] = (PVOID)v12;
+      v11[i] = (PVOID)v13;
     }
     if ( (_DWORD)v4 )
     {
-      v13 = a1;
-      v14 = v4;
+      v14 = a1;
+      v15 = v4;
       do
       {
-        PsReferenceCpuPartition(*(_QWORD *)(*(_QWORD *)v13 + 32LL), 1967352139LL);
-        v13 += 8LL;
-        --v14;
+        PsReferenceCpuPartition(*(_QWORD *)(*(_QWORD *)v14 + 32LL), 1967352139LL);
+        v14 += 8LL;
+        --v15;
       }
-      while ( v14 );
-      v7 = (void *)Pool2;
+      while ( v15 );
+      v8 = (void *)Pool2;
     }
     KiAcquireCpuPartitionAssignmentLock(&v37);
     if ( v38 )
       KiRemoveCpuPartitionAssignmentProcess(a3, (__int64)v35);
-    v15 = 0LL;
+    v16 = 0LL;
     if ( (_DWORD)v4 )
     {
-      v16 = a3 + 432;
+      v17 = a3 + 432;
       do
       {
-        v17 = (__int64 *)v10[v15];
-        v18 = *(_QWORD *)(a1 + 8 * v15);
-        *v17 = a3;
-        v19 = v17 + 4;
-        v17[1] = v18;
-        v20 = *(__int64 ***)(a3 + 440);
-        if ( *v20 != (__int64 *)v16
-          || (*v19 = v16,
-              v21 = v17 + 2,
-              v19[1] = (__int64)v20,
-              *v20 = v19,
-              *(_QWORD *)(a3 + 440) = v19,
-              v22 = v18 + 16,
-              v23 = *(__int64 ***)(v18 + 24),
-              *v23 != (__int64 *)v22) )
+        v18 = (__int64 *)v11[v16];
+        v19 = *(_QWORD *)(a1 + 8 * v16);
+        *v18 = a3;
+        v20 = v18 + 4;
+        v18[1] = v19;
+        v21 = *(__int64 ***)(a3 + 440);
+        if ( *v21 != (__int64 *)v17
+          || (*v20 = v17,
+              v22 = v18 + 2,
+              v20[1] = (__int64)v21,
+              *v21 = v20,
+              *(_QWORD *)(a3 + 440) = v20,
+              v23 = v19 + 16,
+              v24 = *(__int64 ***)(v19 + 24),
+              *v24 != (__int64 *)v23) )
         {
 LABEL_37:
           __fastfail(3u);
         }
-        *v21 = v22;
-        v15 = (unsigned int)(v15 + 1);
-        v21[1] = (__int64)v23;
-        *v23 = v21;
-        *(_QWORD *)(v22 + 8) = v21;
+        *v22 = v23;
+        v16 = (unsigned int)(v16 + 1);
+        v22[1] = (__int64)v24;
+        *v24 = v22;
+        *(_QWORD *)(v23 + 8) = v22;
       }
-      while ( (unsigned int)v15 < (unsigned int)v4 );
+      while ( (unsigned int)v16 < (unsigned int)v4 );
     }
-    KiAdjustProcessCpuSetsAfterCpuPartitionChange(a3, v8, v7, v33, v35);
-    KiUpdateProcessAvailableCpuState(a3, 1, v24);
+    KiAdjustProcessCpuSetsAfterCpuPartitionChange(a3, v9, v8, v33, v35);
+    KiUpdateProcessAvailableCpuState(a3, 1);
     KiNotifyAvailableCpusChangeProcess(a3);
     KiReleaseCpuPartitionAssignmentLock(v37);
-    *v10 = 0LL;
+    *v11 = 0LL;
   }
   else
   {
@@ -148,12 +149,12 @@ LABEL_20:
     PsDereferenceCpuPartition(*(_QWORD *)(v27[1] + 32LL), 1967352139LL);
     ExFreePoolWithTag(v27, 0);
   }
-  if ( v10 )
+  if ( v11 )
   {
     v30 = 0;
     if ( (_DWORD)v4 )
     {
-      v31 = v10;
+      v31 = v11;
       do
       {
         if ( !*v31 )
@@ -164,11 +165,11 @@ LABEL_20:
       }
       while ( v30 < (unsigned int)v4 );
     }
-    ExFreePoolWithTag(v10, 0);
+    ExFreePoolWithTag(v11, 0);
   }
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0);
   if ( v8 )
     ExFreePoolWithTag(v8, 0);
+  if ( v9 )
+    ExFreePoolWithTag(v9, 0);
   return v6;
 }

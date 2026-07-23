@@ -1,11 +1,11 @@
 /*
- * XREFs of KiOpRetrieveRegMemAddress @ 0x1401DB500
+ * XREFs of KiOpRetrieveRegMemAddress @ 0x1401DB32C
  * Callers:
- *     KiOp_Div @ 0x1401DB654 (KiOp_Div.c)
- *     KiOp_SGDTSIDT @ 0x1401DB884 (KiOp_SGDTSIDT.c)
- *     KiOp_SLDTSTR @ 0x1401DBA1C (KiOp_SLDTSTR.c)
+ *     KiOp_Div @ 0x1401DB480 (KiOp_Div.c)
+ *     KiOp_SGDTSIDT @ 0x1401DB6B0 (KiOp_SGDTSIDT.c)
+ *     KiOp_SLDTSTR @ 0x1401DB848 (KiOp_SLDTSTR.c)
  * Callees:
- *     KiOpComputeLinearAddress @ 0x1401DB170 (KiOpComputeLinearAddress.c)
+ *     KiOpComputeLinearAddress @ 0x1401DAF9C (KiOpComputeLinearAddress.c)
  */
 
 __int64 __fastcall KiOpRetrieveRegMemAddress(__int64 a1, __int64 *a2, _BYTE *a3, int *a4)

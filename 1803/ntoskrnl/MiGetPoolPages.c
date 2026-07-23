@@ -23,7 +23,7 @@ __int64 __fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
 {
   unsigned int v3; // ebp
   __int64 v4; // rsi
-  union _SLIST_HEADER *v6; // rdi
+  _SLIST_HEADER *v6; // rdi
   int v7; // r14d
   unsigned int v8; // r15d
   __int64 v9; // rbp

@@ -10,14 +10,14 @@
 
 NTSTATUS __thiscall RtlpDestroyExecutionRequiredRequest(HANDLE Handle)
 {
-  _DWORD v3[2]; // [esp+4h] [ebp-10h] BYREF
+  _DWORD InputBuffer[2]; // [esp+4h] [ebp-10h] BYREF
   char v4; // [esp+Ch] [ebp-8h]
   int v5; // [esp+10h] [ebp-4h]
 
-  v3[1] = 3;
+  InputBuffer[1] = 3;
   v4 = 0;
   v5 = 0;
-  v3[0] = Handle;
-  ZwPowerInformation(44, (int)v3, 16, 0, 0);
+  InputBuffer[0] = Handle;
+  ZwPowerInformation(PowerRequestAction, InputBuffer, 0x10u, 0, 0);
   return NtClose(Handle);
 }

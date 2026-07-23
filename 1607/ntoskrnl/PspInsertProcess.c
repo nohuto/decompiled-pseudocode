@@ -1,26 +1,26 @@
 /*
- * XREFs of PspInsertProcess @ 0x14045F5C0
+ * XREFs of PspInsertProcess @ 0x14045E490
  * Callers:
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x1404EB990 (PspCreateProcess.c)
- *     PsCreateMinimalProcess @ 0x14057E30C (PsCreateMinimalProcess.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x1404CDA18 (PspCreateProcess.c)
+ *     PsCreateMinimalProcess @ 0x14057E7B8 (PsCreateMinimalProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockProcessListExclusive @ 0x14007602C (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140076068 (PspLockProcessListExclusive.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObCheckRefTraceProcess @ 0x14045F818 (ObCheckRefTraceProcess.c)
- *     DbgkCopyProcessDebugPort @ 0x14045F874 (DbgkCopyProcessDebugPort.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140460524 (SeAuditingWithTokenForSubcategory.c)
- *     SeCreateAccessStateEx @ 0x1404D339C (SeCreateAccessStateEx.c)
- *     PspValidateJobAffinityState @ 0x1404DFA30 (PspValidateJobAffinityState.c)
- *     PspImplicitAssignProcessToJob @ 0x1404F3670 (PspImplicitAssignProcessToJob.c)
- *     SeAuditProcessCreation @ 0x14056EDCC (SeAuditProcessCreation.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockProcessListExclusive @ 0x1400760AC (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1400760E8 (PspLockProcessListExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObCheckRefTraceProcess @ 0x14045E6E8 (ObCheckRefTraceProcess.c)
+ *     DbgkCopyProcessDebugPort @ 0x14045E744 (DbgkCopyProcessDebugPort.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14045F3F4 (SeAuditingWithTokenForSubcategory.c)
+ *     SeCreateAccessStateEx @ 0x1404B6E3C (SeCreateAccessStateEx.c)
+ *     PspValidateJobAffinityState @ 0x1404C3034 (PspValidateJobAffinityState.c)
+ *     PspImplicitAssignProcessToJob @ 0x1404D65FC (PspImplicitAssignProcessToJob.c)
+ *     SeAuditProcessCreation @ 0x14056F30C (SeAuditProcessCreation.c)
  */
 
 __int64 __fastcall PspInsertProcess(
@@ -53,7 +53,7 @@ __int64 __fastcall PspInsertProcess(
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
   *(_DWORD *)(*((_QWORD *)Object + 131) + 40LL) = *((_DWORD *)Object + 186);
-  if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(134LL, 0LL) )
+  if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(134LL) )
     SeAuditProcessCreation((PEPROCESS)Object);
   if ( a2 )
   {

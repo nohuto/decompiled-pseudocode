@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQuitNextSession @ 0x140884910
+ * XREFs of MmQuitNextSession @ 0x140884B50
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     PsQueryCpuQuotaInformation @ 0x1403B6788 (PsQueryCpuQuotaInformation.c)
- *     PopWatchdogWorker @ 0x1403D62A0 (PopWatchdogWorker.c)
- *     ObpProcessRemoveObjectQueue @ 0x140749540 (ObpProcessRemoveObjectQueue.c)
- *     VfThunkApplyPristineToAllSession @ 0x140ADB2FC (VfThunkApplyPristineToAllSession.c)
- *     VfThunkApplyWdmThunkToAllSession @ 0x140ADB47C (VfThunkApplyWdmThunkToAllSession.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFEEC (MiTrimSharedPageFromViews.c)
+ *     PsQueryCpuQuotaInformation @ 0x1403B6968 (PsQueryCpuQuotaInformation.c)
+ *     PopWatchdogWorker @ 0x1403D6480 (PopWatchdogWorker.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140749730 (ObpProcessRemoveObjectQueue.c)
+ *     VfThunkApplyPristineToAllSession @ 0x140ADB2EC (VfThunkApplyPristineToAllSession.c)
+ *     VfThunkApplyWdmThunkToAllSession @ 0x140ADB46C (VfThunkApplyWdmThunkToAllSession.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  */
 
 __int64 __fastcall MmQuitNextSession(void *a1)

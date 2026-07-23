@@ -1,11 +1,11 @@
 /*
- * XREFs of wcsncpy @ 0x140500010
+ * XREFs of wcsncpy @ 0x1404FD8D0
  * Callers:
  *     <none>
  * Callees:
- *     wcsnlen @ 0x140500090 (wcsnlen.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     wcsnlen @ 0x1404FD950 (wcsnlen.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 wchar_t *__cdecl wcsncpy(wchar_t *Dest, const wchar_t *Source, size_t Count)

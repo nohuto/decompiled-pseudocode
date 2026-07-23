@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPageFileNoFreeSpace @ 0x1401EEBBC
+ * XREFs of MiPageFileNoFreeSpace @ 0x1401EE9E8
  * Callers:
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiCauseOverCommitPopup @ 0x1401ECD90 (MiCauseOverCommitPopup.c)
- *     MiFreeModifiedReservations @ 0x1401EE838 (MiFreeModifiedReservations.c)
- *     MiIssuePageExtendRequest @ 0x1401EE988 (MiIssuePageExtendRequest.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiCauseOverCommitPopup @ 0x1401ECBBC (MiCauseOverCommitPopup.c)
+ *     MiFreeModifiedReservations @ 0x1401EE664 (MiFreeModifiedReservations.c)
+ *     MiIssuePageExtendRequest @ 0x1401EE7B4 (MiIssuePageExtendRequest.c)
  */
 
 void __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)

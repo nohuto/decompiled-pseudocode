@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlFindClearBitsAndSet @ 0x140251160
+ * XREFs of RtlFindClearBitsAndSet @ 0x1402F5970
  * Callers:
- *     MiGetUltraHugeAlreadyActive @ 0x140397CF0 (MiGetUltraHugeAlreadyActive.c)
- *     BgpFwReserveAllocate @ 0x14039C70C (BgpFwReserveAllocate.c)
- *     MiAssignSoftwareWsleRegion @ 0x1403B7160 (MiAssignSoftwareWsleRegion.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B6E30 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x1404B6EC8 (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B70A8 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404B717C (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
- *     HalpIommuAcquireNewDomain @ 0x1404CBB44 (HalpIommuAcquireNewDomain.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD0D8 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1404CD164 (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD320 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1404CD3E8 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
- *     MiReserveFaultPte @ 0x14053AADC (MiReserveFaultPte.c)
- *     SepAddLuidToIndexEntry @ 0x140604128 (SepAddLuidToIndexEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x1407180B8 (SepGetLowBoxNumberEntry.c)
- *     MiReserveDriverPtes @ 0x14075FEA4 (MiReserveDriverPtes.c)
- *     MiSessionCreateInternal @ 0x140786C10 (MiSessionCreateInternal.c)
- *     PspStorageAllocSlot @ 0x140795848 (PspStorageAllocSlot.c)
- *     HalpIrtAllocateIndex @ 0x140865984 (HalpIrtAllocateIndex.c)
- *     MiAllocatePartitionId @ 0x1408C7A9C (MiAllocatePartitionId.c)
- *     TtmiCreateTerminal @ 0x1408FD52C (TtmiCreateTerminal.c)
- *     RtlHotPatchSynchronizationRequired @ 0x14091B084 (RtlHotPatchSynchronizationRequired.c)
- *     RtlApplyHotPatch @ 0x1409B2744 (RtlApplyHotPatch.c)
- *     ViAllocateFromContiguousMemory @ 0x1409CD4CC (ViAllocateFromContiguousMemory.c)
- *     MiAssignSystemVa @ 0x140A50B28 (MiAssignSystemVa.c)
- *     MiAssignSessionRanges @ 0x140A684D4 (MiAssignSessionRanges.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x140397E40 (MiGetUltraHugeAlreadyActive.c)
+ *     BgpFwReserveAllocate @ 0x14039C85C (BgpFwReserveAllocate.c)
+ *     MiAssignSoftwareWsleRegion @ 0x1403B72D0 (MiAssignSoftwareWsleRegion.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B7070 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x1404B7108 (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B72E8 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404B73BC (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
+ *     HalpIommuAcquireNewDomain @ 0x1404CBD84 (HalpIommuAcquireNewDomain.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD318 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1404CD3A4 (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD560 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1404CD628 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
+ *     MiReserveFaultPte @ 0x14053AD1C (MiReserveFaultPte.c)
+ *     SepGetLowBoxNumberEntry @ 0x1406C6708 (SepGetLowBoxNumberEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x1406F3858 (SepAddLuidToIndexEntry.c)
+ *     MiReserveDriverPtes @ 0x140760064 (MiReserveDriverPtes.c)
+ *     MiSessionCreateInternal @ 0x140786DD0 (MiSessionCreateInternal.c)
+ *     PspStorageAllocSlot @ 0x140795A48 (PspStorageAllocSlot.c)
+ *     HalpIrtAllocateIndex @ 0x140865AE4 (HalpIrtAllocateIndex.c)
+ *     MiAllocatePartitionId @ 0x1408C7BFC (MiAllocatePartitionId.c)
+ *     TtmiCreateTerminal @ 0x1408FD68C (TtmiCreateTerminal.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x14091B1E4 (RtlHotPatchSynchronizationRequired.c)
+ *     RtlApplyHotPatch @ 0x1409B3674 (RtlApplyHotPatch.c)
+ *     ViAllocateFromContiguousMemory @ 0x1409CE4CC (ViAllocateFromContiguousMemory.c)
+ *     MiAssignSystemVa @ 0x140A51B28 (MiAssignSystemVa.c)
+ *     MiAssignSessionRanges @ 0x140A694D4 (MiAssignSessionRanges.c)
  * Callees:
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
  */
 
 ULONG __stdcall RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
   unsigned int SizeOfBitMap; // r15d
   ULONG v4; // esi
-  RTL_BITMAP *v6; // r13
+  _RTL_BITMAP *v6; // r13
   ULONG v7; // ebx
   unsigned int v8; // r9d
   unsigned int *Buffer; // r10

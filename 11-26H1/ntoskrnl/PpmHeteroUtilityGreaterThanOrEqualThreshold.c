@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x14041EBBC
+ * XREFs of PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x1404163FC
  * Callers:
- *     PpmHeteroComputeUnparkCount @ 0x14041DCE8 (PpmHeteroComputeUnparkCount.c)
- *     PpmCheckComputeHeteroResponse @ 0x14041E6A0 (PpmCheckComputeHeteroResponse.c)
- *     PpmHeteroHgsContainmentCheckThresholds @ 0x14041EEC4 (PpmHeteroHgsContainmentCheckThresholds.c)
+ *     PpmHeteroComputeUnparkCount @ 0x14041552C (PpmHeteroComputeUnparkCount.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140415EE0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmHeteroHgsContainmentCheckThresholds @ 0x140416704 (PpmHeteroHgsContainmentCheckThresholds.c)
  * Callees:
  *     <none>
  */

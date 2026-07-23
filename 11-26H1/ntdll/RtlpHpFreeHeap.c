@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpFreeHeap @ 0x180019C00
+ * XREFs of RtlpHpFreeHeap @ 0x180004CE0
  * Callers:
- *     RtlFreeHeapFast @ 0x1801400E0 (RtlFreeHeapFast.c)
- *     RtlFreeHeapFull @ 0x1801401A0 (RtlFreeHeapFull.c)
+ *     RtlFreeHeapFast @ 0x18013FFE0 (RtlFreeHeapFast.c)
+ *     RtlFreeHeapFull @ 0x1801400A0 (RtlFreeHeapFull.c)
  * Callees:
- *     RtlpHpLfhContextFree @ 0x180019DA0 (RtlpHpLfhContextFree.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegFreeInternal @ 0x18001AD38 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLargeFree @ 0x18008918C (RtlpHpLargeFree.c)
- *     RtlpHpFreeHeapSlow @ 0x180089330 (RtlpHpFreeHeapSlow.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x1801212E4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhContextFree @ 0x180004E80 (RtlpHpLfhContextFree.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegFreeInternal @ 0x180005E18 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLargeFree @ 0x18008058C (RtlpHpLargeFree.c)
+ *     RtlpHpFreeHeapSlow @ 0x180080730 (RtlpHpFreeHeapSlow.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x180121080 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpFreeHeap(__int64 a1, __int64 a2, __int64 a3)
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, __int64 a2, __int64 a3)
     }
     else
     {
-      v8 = RtlCSparseBitmapBitmaskRead(&unk_1801C78C0, 2 * ((unsigned __int64)(a2 - qword_1801C78B8) >> 20));
+      v8 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)(a2 - qword_1801C6908) >> 20));
       v9 = v8;
       if ( !v8 || (_DWORD)v8 == 3 )
       {

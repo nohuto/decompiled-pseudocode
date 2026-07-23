@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDebugContinue @ 0x180160A10
+ * XREFs of NtDebugContinue @ 0x180160910
  * Callers:
- *     DbgUiContinue @ 0x18010DA20 (DbgUiContinue.c)
+ *     DbgUiContinue @ 0x18010D570 (DbgUiContinue.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtDebugContinue()
+NTSTATUS __cdecl NtDebugContinue(HANDLE DebugObjectHandle, PCLIENT_ID ClientId, NTSTATUS ContinueStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 215LL;
+  result = 215;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

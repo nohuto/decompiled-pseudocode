@@ -1,7 +1,7 @@
 /*
- * XREFs of PspUpdateEnforcementTimer @ 0x1406CAFC4
+ * XREFs of PspUpdateEnforcementTimer @ 0x1406CC264
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     <none>
  */

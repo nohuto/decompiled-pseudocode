@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetDeviceCompoundFilters @ 0x140735698
+ * XREFs of _CmGetDeviceCompoundFilters @ 0x140735858
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14063C7AC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406315BC (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14063EDF8 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140979FDC (_CmGetDeviceCompoundFiltersWorker.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140633C08 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x14097A1BC (_CmGetDeviceCompoundFiltersWorker.c)
  */
 
 __int64 __fastcall CmGetDeviceCompoundFilters(
@@ -16,7 +16,7 @@ __int64 __fastcall CmGetDeviceCompoundFilters(
         void *a3,
         __int64 a4,
         int *a5,
-        GUID *a6,
+        wchar_t *a6,
         int a7,
         unsigned int *a8)
 {

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFreezeThawWorker @ 0x140872510
+ * XREFs of CmpFreezeThawWorker @ 0x140872670
  * Callers:
  *     <none>
  * Callees:
- *     CmThawRegistry @ 0x140872330 (CmThawRegistry.c)
+ *     CmThawRegistry @ 0x140872490 (CmThawRegistry.c)
  */
 
 __int64 CmpFreezeThawWorker()

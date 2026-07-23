@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDaInit @ 0x1409C75CC
+ * XREFs of PiDaInit @ 0x1409C85CC
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
+ *     IoCreateDriver @ 0x14073B280 (IoCreateDriver.c)
  */
 
 int PiDaInit()

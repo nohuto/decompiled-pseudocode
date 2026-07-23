@@ -1,11 +1,11 @@
 /*
- * XREFs of BiDoesHiveExist @ 0x140714C90
+ * XREFs of BiDoesHiveExist @ 0x140715F30
  * Callers:
- *     BiLoadHive @ 0x1407112E4 (BiLoadHive.c)
+ *     BiLoadHive @ 0x140712584 (BiLoadHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryAttributesFile @ 0x1401B8930 (ZwQueryAttributesFile.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryAttributesFile @ 0x1401B8A90 (ZwQueryAttributesFile.c)
  */
 
 bool __fastcall BiDoesHiveExist(__int64 a1)

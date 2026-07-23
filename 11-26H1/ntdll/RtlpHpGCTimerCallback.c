@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpGCTimerCallback @ 0x1800924E0
+ * XREFs of RtlpHpGCTimerCallback @ 0x180101FC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpEnumProcessHeaps @ 0x180091420 (RtlpEnumProcessHeaps.c)
- *     RtlpHpTlLogGCTimerFinished @ 0x1801508D0 (RtlpHpTlLogGCTimerFinished.c)
+ *     RtlpEnumProcessHeaps @ 0x180076180 (RtlpEnumProcessHeaps.c)
+ *     RtlpHpTlLogGCTimerFinished @ 0x180150780 (RtlpHpTlLogGCTimerFinished.c)
  */
 
 __int64 __fastcall RtlpHpGCTimerCallback(__int64 a1, __int64 a2)

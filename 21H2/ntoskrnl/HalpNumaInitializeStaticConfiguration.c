@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140A63EE0
+ * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140A64EE0
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A64D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
- *     HalpInitializeConfigurationFromMadt @ 0x140A63F94 (HalpInitializeConfigurationFromMadt.c)
- *     HalpChannelInitializeStaticConfiguration @ 0x140A64240 (HalpChannelInitializeStaticConfiguration.c)
- *     HalpAllocateNumaConfigData @ 0x140A644EC (HalpAllocateNumaConfigData.c)
- *     HalpGetAvailableProximityId @ 0x140A8CE20 (HalpGetAvailableProximityId.c)
- *     HalpGetNumaProcMemoryCount @ 0x140A8CEAC (HalpGetNumaProcMemoryCount.c)
- *     HalpUpdateConfigurationFromMsct @ 0x140A8D2CC (HalpUpdateConfigurationFromMsct.c)
- *     HalpVerifySratEntryLengthAndFlag @ 0x140A8D690 (HalpVerifySratEntryLengthAndFlag.c)
+ *     HalpAcpiGetTable @ 0x140216340 (HalpAcpiGetTable.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140A64F94 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140A65240 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAllocateNumaConfigData @ 0x140A654EC (HalpAllocateNumaConfigData.c)
+ *     HalpGetAvailableProximityId @ 0x140A8DE20 (HalpGetAvailableProximityId.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140A8DEAC (HalpGetNumaProcMemoryCount.c)
+ *     HalpUpdateConfigurationFromMsct @ 0x140A8E2CC (HalpUpdateConfigurationFromMsct.c)
+ *     HalpVerifySratEntryLengthAndFlag @ 0x140A8E690 (HalpVerifySratEntryLengthAndFlag.c)
  */
 
 __int64 __fastcall HalpNumaInitializeStaticConfiguration(__int64 a1)

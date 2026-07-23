@@ -7,7 +7,7 @@
  *     RtlpCompareKnownAces @ 0x1800E5274 (RtlpCompareKnownAces.c)
  */
 
-char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   char v4; // r11
 

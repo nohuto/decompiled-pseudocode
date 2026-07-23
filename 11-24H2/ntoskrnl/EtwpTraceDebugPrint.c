@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceDebugPrint @ 0x14064E860
+ * XREFs of EtwpTraceDebugPrint @ 0x14064CE70
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpTraceDebugPrint(PSTRING Output, ULONG ComponentId, ULONG Level)
@@ -15,7 +15,7 @@ void __fastcall EtwpTraceDebugPrint(PSTRING Output, ULONG ComponentId, ULONG Lev
   _QWORD v6[3]; // [rsp+40h] [rbp-40h] BYREF
   int v7; // [rsp+58h] [rbp-28h]
   int v8; // [rsp+5Ch] [rbp-24h]
-  __int64 *v9; // [rsp+60h] [rbp-20h]
+  int *v9; // [rsp+60h] [rbp-20h]
   __int64 v10; // [rsp+68h] [rbp-18h]
 
   Length = Output->Length;

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x1403EC6F4
+ * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x1403EC864
  * Callers:
- *     SymCryptSha256AppendBlocks @ 0x1403EC2B0 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptSha256AppendBlocks @ 0x1403EC420 (SymCryptSha256AppendBlocks.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptSha256AppendBlocks_ul1(int *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)

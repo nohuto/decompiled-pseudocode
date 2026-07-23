@@ -1,16 +1,26 @@
 /*
- * XREFs of ZwNotifyChangeKey @ 0x18009F970
+ * XREFs of ZwNotifyChangeKey @ 0x18009F930
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwNotifyChangeKey()
+NTSTATUS __cdecl ZwNotifyChangeKey(
+        HANDLE KeyHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        PVOID Buffer,
+        ULONG BufferSize,
+        BOOLEAN Asynchronous)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 282LL;
+  result = 282;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

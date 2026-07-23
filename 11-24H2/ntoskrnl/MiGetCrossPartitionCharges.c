@@ -1,32 +1,32 @@
 /*
- * XREFs of MiGetCrossPartitionCharges @ 0x14036E19C
+ * XREFs of MiGetCrossPartitionCharges @ 0x140269C84
  * Callers:
- *     MiReferenceActiveSubsection @ 0x14020E140 (MiReferenceActiveSubsection.c)
- *     MiGetSubsectionCharges @ 0x14036DF10 (MiGetSubsectionCharges.c)
- *     MiGetCloneCharges @ 0x14036E068 (MiGetCloneCharges.c)
- *     MiCreateLargePfnList @ 0x14036E934 (MiCreateLargePfnList.c)
- *     MiAllocateUserPhysicalPages @ 0x1407F84C8 (MiAllocateUserPhysicalPages.c)
+ *     MiGetSubsectionCharges @ 0x1402699F8 (MiGetSubsectionCharges.c)
+ *     MiGetCloneCharges @ 0x140269B50 (MiGetCloneCharges.c)
+ *     MiCreateLargePfnList @ 0x14026A8C0 (MiCreateLargePfnList.c)
+ *     MiReferenceActiveSubsection @ 0x1403374A0 (MiReferenceActiveSubsection.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407F8C38 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiApplyCrossPartitionCharges @ 0x14036F318 (MiApplyCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharge @ 0x1404CF2A4 (MiReturnCrossPartitionCharge.c)
+ *     MiApplyCrossPartitionCharges @ 0x14026B298 (MiApplyCrossPartitionCharges.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReturnCrossPartitionCharge @ 0x1404C8470 (MiReturnCrossPartitionCharge.c)
  */
 
 __int64 __fastcall MiGetCrossPartitionCharges(__int64 a1, unsigned int a2, char a3, __int64 a4)
 {
   __int64 v7; // rbp
-  _DWORD *v9; // r14
+  __int64 v9; // r14
   volatile LONG *v10; // rcx
   KIRQL v11; // r15
-  __int64 v12; // rax
-  int v13; // edi
-  __int64 v14; // r8
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  int v14; // edi
   __int64 v15; // r8
 
   v7 = 32LL * (int)a2;
-  v9 = (_DWORD *)(a1 + 1728);
+  v9 = a1 + 1728;
   v10 = (volatile LONG *)(a1 + 1728);
   if ( KeGetCurrentIrql() == 2 )
   {
@@ -39,21 +39,22 @@ __int64 __fastcall MiGetCrossPartitionCharges(__int64 a1, unsigned int a2, char 
   }
   if ( (*(_DWORD *)(a1 + 4) & 1) != 0 && a2 )
   {
-    v12 = *(_QWORD *)(a1 + v7 + 2480);
-    v13 = -1073740640;
-    if ( v12 != -1 )
-      *(_QWORD *)(a1 + v7 + 2480) = v12 + 1;
+    v13 = *(_QWORD *)(a1 + v7 + 2480);
+    v14 = -1073740640;
+    if ( v13 != -1 )
+      *(_QWORD *)(a1 + v7 + 2480) = v13 + 1;
   }
   else
   {
-    v13 = MiApplyCrossPartitionCharges(a1, a2, a4);
-    if ( v13 >= 0 && (a3 & 1) != 0 )
+    v14 = MiApplyCrossPartitionCharges(a1, a2, a4);
+    if ( v14 >= 0 && (a3 & 1) != 0 )
     {
-      v13 = MiApplyCrossPartitionCharges(a1, a2 + 1, v14);
-      if ( v13 < 0 )
-        MiReturnCrossPartitionCharge(a1, a2, v15);
+      v14 = MiApplyCrossPartitionCharges(a1, a2 + 1, v15);
+      if ( v14 < 0 )
+        MiReturnCrossPartitionCharge(a1, a2);
     }
   }
-  MiReleaseSpinLockExclusive(v9, v11);
-  return (unsigned int)v13;
+  LOBYTE(v12) = v11;
+  MiReleaseSpinLockExclusive(v9, v12);
+  return (unsigned int)v14;
 }

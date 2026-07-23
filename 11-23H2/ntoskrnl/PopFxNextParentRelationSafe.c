@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxNextParentRelationSafe @ 0x140351AD8
+ * XREFs of PopFxNextParentRelationSafe @ 0x140351C78
  * Callers:
- *     PopFxNotifyPreDIrpIssue @ 0x14028DEB8 (PopFxNotifyPreDIrpIssue.c)
- *     PopFxNotifyPostDIrpCompletion @ 0x14028E038 (PopFxNotifyPostDIrpCompletion.c)
- *     PopFxActivateComponentDependencies @ 0x140312574 (PopFxActivateComponentDependencies.c)
- *     PopFxDeactivateComponentDependencies @ 0x1403131E0 (PopFxDeactivateComponentDependencies.c)
- *     PoFxRemoveComponentRelation @ 0x140588110 (PoFxRemoveComponentRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140588500 (PoFxRemoveDeviceRelation.c)
- *     PopFxComponentRelationsCleanup @ 0x140589914 (PopFxComponentRelationsCleanup.c)
- *     PopFxDeviceRelationsCleanup @ 0x140589DD8 (PopFxDeviceRelationsCleanup.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x14028E148 (PopFxNotifyPreDIrpIssue.c)
+ *     PopFxNotifyPostDIrpCompletion @ 0x14028E2C8 (PopFxNotifyPostDIrpCompletion.c)
+ *     PopFxActivateComponentDependencies @ 0x140312804 (PopFxActivateComponentDependencies.c)
+ *     PopFxDeactivateComponentDependencies @ 0x140313470 (PopFxDeactivateComponentDependencies.c)
+ *     PoFxRemoveComponentRelation @ 0x140588600 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x1405889F0 (PoFxRemoveDeviceRelation.c)
+ *     PopFxComponentRelationsCleanup @ 0x140589E04 (PopFxComponentRelationsCleanup.c)
+ *     PopFxDeviceRelationsCleanup @ 0x14058A2C8 (PopFxDeviceRelationsCleanup.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

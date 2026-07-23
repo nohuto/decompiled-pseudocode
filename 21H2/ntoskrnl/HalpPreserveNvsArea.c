@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPreserveNvsArea @ 0x140386A3C
+ * XREFs of HalpPreserveNvsArea @ 0x140386B8C
  * Callers:
- *     HalpAcpiPreSleep @ 0x140995EFC (HalpAcpiPreSleep.c)
+ *     HalpAcpiPreSleep @ 0x140996EFC (HalpAcpiPreSleep.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void *HalpPreserveNvsArea()

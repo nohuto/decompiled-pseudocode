@@ -19,8 +19,8 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
 {
   unsigned __int64 v3; // rsi
   unsigned __int64 v4; // r14
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rdi
+  PRTL_BALANCED_NODE v7; // rax
+  PRTL_BALANCED_NODE v8; // rdi
   bool v9; // bp
   struct _KTHREAD *CurrentThread; // rbx
   unsigned int SessionId; // edx
@@ -41,9 +41,9 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
   v7 = KeAbPreAcquire(a1 + 24, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v3, v7, (__int16 *)v3);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v3, (__int64)v7, (__int16 *)v3);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   RtlClearBitsEx(a1 + 48, (a2 >> 4) & 0x1FF, v4);
   *(_DWORD *)(a1 + 36) += v4;
   v9 = *(_DWORD *)(a1 + 36) == 512;
@@ -80,7 +80,7 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
         {
           v18->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v18->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v17]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v17].TreeNode);
           v22 = 0;
           v22 = v18->BoostBitmap.AllFields & 0x1FFFF;
           v18->BoostBitmap.AllFields &= 0xFFFE0000;

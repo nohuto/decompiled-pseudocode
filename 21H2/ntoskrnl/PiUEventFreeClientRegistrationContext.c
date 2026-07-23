@@ -1,20 +1,20 @@
 /*
- * XREFs of PiUEventFreeClientRegistrationContext @ 0x1406E15A8
+ * XREFs of PiUEventFreeClientRegistrationContext @ 0x1406B8888
  * Callers:
- *     PiUEventDispatch @ 0x1406E1BC0 (PiUEventDispatch.c)
- *     PiUEventHandleRegistration @ 0x1406E20B0 (PiUEventHandleRegistration.c)
+ *     PiUEventDispatch @ 0x1406B8EA0 (PiUEventDispatch.c)
+ *     PiUEventHandleRegistration @ 0x1406B9390 (PiUEventHandleRegistration.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ZwDeleteWnfStateName @ 0x1403FBEC0 (ZwDeleteWnfStateName.c)
- *     memset @ 0x140414200 (memset.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     PiUEventDequeuePendingEventWorker @ 0x1406E6284 (PiUEventDequeuePendingEventWorker.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ZwDeleteWnfStateName @ 0x1403FC0A0 (ZwDeleteWnfStateName.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x1406FD664 (PiUEventDequeuePendingEventWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
+void __fastcall PiUEventFreeClientRegistrationContext(char *P, char a2)
 {
   __int64 v3; // r8
   PFAST_MUTEX v4; // rcx
@@ -28,7 +28,7 @@ void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
   char *v12; // rdx
   char *v13; // rdx
 
-  if ( (_BYTE)a2 )
+  if ( a2 )
   {
     ExAcquireFastMutex(&PiUEventClientRegistrationListLock);
     ExAcquireFastMutex(*((PFAST_MUTEX *)P + 2));
@@ -87,7 +87,7 @@ void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
     if ( v10 )
       PiDmObjectRelease(v10);
   }
-  ZwDeleteWnfStateName((__int64)(P + 88), a2);
+  ZwDeleteWnfStateName((PCWNF_STATE_NAME)P + 11);
   SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(P + 56));
   ExFreePoolWithTag(*((PVOID *)P + 2), 0x59706E50u);
   memset(P, 0, 0x90uLL);

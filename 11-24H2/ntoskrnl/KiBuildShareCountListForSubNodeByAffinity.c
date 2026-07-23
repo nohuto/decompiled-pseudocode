@@ -1,11 +1,11 @@
 /*
- * XREFs of KiBuildShareCountListForSubNodeByAffinity @ 0x14020212C
+ * XREFs of KiBuildShareCountListForSubNodeByAffinity @ 0x14032A81C
  * Callers:
- *     KiPerformHeteroSoftParkElection @ 0x1402017A8 (KiPerformHeteroSoftParkElection.c)
- *     KiCompleteKernelInit @ 0x140B55C50 (KiCompleteKernelInit.c)
+ *     KiPerformHeteroSoftParkElection @ 0x140329E98 (KiPerformHeteroSoftParkElection.c)
+ *     KiCompleteKernelInit @ 0x140B57CA0 (KiCompleteKernelInit.c)
  * Callees:
- *     KeGetTopologySiblingGroupAffinityForProcessor @ 0x1402021F4 (KeGetTopologySiblingGroupAffinityForProcessor.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGetTopologySiblingGroupAffinityForProcessor @ 0x14032A8E4 (KeGetTopologySiblingGroupAffinityForProcessor.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int8 __fastcall KiBuildShareCountListForSubNodeByAffinity(
@@ -33,7 +33,7 @@ unsigned __int8 __fastcall KiBuildShareCountListForSubNodeByAffinity(
     if ( v11 )
     {
       KeGetTopologySiblingGroupAffinityForProcessor(
-        KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * v5 + (unsigned int)i)],
+        KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * v5 + (unsigned int)i)],
         a5,
         &v15);
       v12 = (unsigned __int8 *)a1;

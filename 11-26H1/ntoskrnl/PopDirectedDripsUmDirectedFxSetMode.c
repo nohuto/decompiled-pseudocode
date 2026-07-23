@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsUmDirectedFxSetMode @ 0x1407E265C
+ * XREFs of PopDirectedDripsUmDirectedFxSetMode @ 0x1407E76EC
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x140772F20 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x140775F20 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmDirectedFxSetMode(
@@ -19,8 +19,8 @@ __int64 __fastcall PopDirectedDripsUmDirectedFxSetMode(
   {
     PopAcquireRwLockExclusive((unsigned __int64 *)&PopDirectedDripsUmLock, a2, a3, a4);
     v5 = 0;
-    PopDirectedDripsUmLock.ApcStateFill[0] = *(_BYTE *)(a2 + 8) != 0;
-    PopReleaseRwLock(&PopDirectedDripsUmLock);
+    PopDirectedDripsUmTestPermissive = *(_BYTE *)(a2 + 8) != 0;
+    PopReleaseRwLock((struct _KTHREAD *)&PopDirectedDripsUmLock);
   }
   else
   {

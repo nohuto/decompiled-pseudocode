@@ -37,7 +37,7 @@ __int64 __fastcall IopQueryXxxInformation(
         char a7)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v11; // rax
+  PRTL_BALANCED_NODE v11; // rax
   char v12; // r14
   int v13; // r12d
   struct _DEVICE_OBJECT *RelatedDeviceObject; // rsi
@@ -79,7 +79,7 @@ __int64 __fastcall IopQueryXxxInformation(
     else
     {
       if ( v11 )
-        *(_BYTE *)(v11 + 26) |= 1u;
+        BYTE2(v11[1].Left) |= 1u;
       ObfReferenceObject(Object);
     }
     KeResetEvent(&Object->Event);

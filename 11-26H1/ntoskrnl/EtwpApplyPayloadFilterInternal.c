@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpApplyPayloadFilterInternal @ 0x1406C8DE8
+ * XREFs of EtwpApplyPayloadFilterInternal @ 0x1406CCDC8
  * Callers:
- *     EtwpApplyEventIdPayloadFilter @ 0x14051CB68 (EtwpApplyEventIdPayloadFilter.c)
+ *     EtwpApplyEventIdPayloadFilter @ 0x14051F084 (EtwpApplyEventIdPayloadFilter.c)
  * Callees:
- *     IoGetStackLimits @ 0x140263C80 (IoGetStackLimits.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     EtwpApplyPredicate @ 0x1406C966C (EtwpApplyPredicate.c)
- *     EtwpGetFieldValue @ 0x1406C9BF8 (EtwpGetFieldValue.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     ExSystemExceptionFilter @ 0x140836A60 (ExSystemExceptionFilter.c)
- *     RtlLengthRequiredSid @ 0x1408E9A40 (RtlLengthRequiredSid.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     IoGetStackLimits @ 0x1402631F0 (IoGetStackLimits.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     EtwpApplyPredicate @ 0x1406CD64C (EtwpApplyPredicate.c)
+ *     EtwpGetFieldValue @ 0x1406CDBD8 (EtwpGetFieldValue.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     ExSystemExceptionFilter @ 0x14083CCA0 (ExSystemExceptionFilter.c)
+ *     RtlLengthRequiredSid @ 0x1408F0000 (RtlLengthRequiredSid.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall EtwpApplyPayloadFilterInternal(

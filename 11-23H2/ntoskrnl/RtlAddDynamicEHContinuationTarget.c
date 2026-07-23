@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAddDynamicEHContinuationTarget @ 0x1409C255C
+ * XREFs of RtlAddDynamicEHContinuationTarget @ 0x1409C275C
  * Callers:
- *     PspProcessDynamicEHContinuationTargets @ 0x1409AED1C (PspProcessDynamicEHContinuationTargets.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x1409AEF1C (PspProcessDynamicEHContinuationTargets.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     PspFindVsmEnclaveThread @ 0x1408A5D7C (PspFindVsmEnclaveThread.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     PspFindVsmEnclaveThread @ 0x1408A5FCC (PspFindVsmEnclaveThread.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

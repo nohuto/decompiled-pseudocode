@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemBuildScenarioInstance @ 0x140541DAC
+ * XREFs of WdipSemBuildScenarioInstance @ 0x1405422EC
  * Callers:
- *     WdipSemReserveInstanceTableEntry @ 0x140541C74 (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemReserveInstanceTableEntry @ 0x1405421B4 (WdipSemReserveInstanceTableEntry.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     WdipSemFastAllocate @ 0x1404E4438 (WdipSemFastAllocate.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     WdipSemFastAllocate @ 0x1404C70F0 (WdipSemFastAllocate.c)
  */
 
-PSLIST_ENTRY __fastcall WdipSemBuildScenarioInstance(_SLIST_ENTRY *a1, struct _SLIST_ENTRY *a2)
+PSLIST_ENTRY __fastcall WdipSemBuildScenarioInstance(_SLIST_ENTRY *a1, _SLIST_ENTRY *a2)
 {
   PSLIST_ENTRY v2; // rbx
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY v6; // xmm0
+  _SLIST_ENTRY v6; // xmm0
 
   v2 = 0LL;
   if ( a1 )

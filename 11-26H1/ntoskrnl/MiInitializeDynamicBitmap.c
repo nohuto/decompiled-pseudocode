@@ -1,24 +1,24 @@
 /*
- * XREFs of MiInitializeDynamicBitmap @ 0x1406F50F4
+ * XREFs of MiInitializeDynamicBitmap @ 0x1406F9D64
  * Callers:
- *     MiBuildDynamicRegion @ 0x1406F4FA0 (MiBuildDynamicRegion.c)
- *     MiCreatePfnBitMaps @ 0x140879CE0 (MiCreatePfnBitMaps.c)
- *     MiInitializeMirroring @ 0x140CF8AE4 (MiInitializeMirroring.c)
- *     MiCreateRetpolineBitmap @ 0x140CFAA88 (MiCreateRetpolineBitmap.c)
- *     MiInitializePteInfo @ 0x140CFEE68 (MiInitializePteInfo.c)
+ *     MiBuildDynamicRegion @ 0x1406F9C10 (MiBuildDynamicRegion.c)
+ *     MiCreatePfnBitMaps @ 0x1408800DC (MiCreatePfnBitMaps.c)
+ *     MiInitializeMirroring @ 0x140CFEE64 (MiInitializeMirroring.c)
+ *     MiCreateRetpolineBitmap @ 0x140D00E08 (MiCreateRetpolineBitmap.c)
+ *     MiInitializePteInfo @ 0x140D05208 (MiInitializePteInfo.c)
  * Callees:
- *     MiMakeZeroedPageTables @ 0x1402A50D4 (MiMakeZeroedPageTables.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiReturnSystemCharges @ 0x1404B3278 (MiReturnSystemCharges.c)
- *     MiReturnPfnList @ 0x1406F5698 (MiReturnPfnList.c)
+ *     MiMakeZeroedPageTables @ 0x1402A4624 (MiMakeZeroedPageTables.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiReturnSystemCharges @ 0x1404AC8F8 (MiReturnSystemCharges.c)
+ *     MiReturnPfnList @ 0x1406FA308 (MiReturnPfnList.c)
  */
 
 __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -65,13 +65,13 @@ __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __
   v29 = 0LL;
   if ( (a4 & 2) != 0 )
   {
-    v8 = qword_140E36000[0];
-    v27 = qword_140E36030;
+    v8 = qword_140E36180[0];
+    v27 = qword_140E361B0;
   }
   else
   {
-    v8 = (PVOID)qword_140E36038;
-    v27 = qword_140E36068;
+    v8 = (PVOID)qword_140E361B8;
+    v27 = qword_140E361E8;
   }
   v9 = 0;
   ValidPte = MiMakeValidPte(v5, (__int64)v8, 536870913);
@@ -110,7 +110,7 @@ __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __
       v11 = 0LL;
       MiInsertPageChainHead((__int64 *)&v29, (__int64 *)(48 * ((v20 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL));
       v14 = (*(_QWORD *)(v22 + 40) >> 43) & 0x3FFLL;
-      v28 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v14);
+      v28 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v14);
       v13 = 512LL;
       v5 = (__int64)((v18 << 25) + 0x10000000) >> 16;
       goto LABEL_22;

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDirectedDripsInitializeBroadcast @ 0x140A401F4
+ * XREFs of PopDirectedDripsInitializeBroadcast @ 0x140A35AD4
  * Callers:
- *     PopDirectedDripsSuspendDevices @ 0x140A40034 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140A35914 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x14048DAD8 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     IoControlPnpDeviceActionQueue @ 0x140498E44 (IoControlPnpDeviceActionQueue.c)
- *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1404C8FC8 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
- *     PopDirectedDripsDiagTraceTransition @ 0x1407646AC (PopDirectedDripsDiagTraceTransition.c)
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x140764D70 (PopDirectedDripsBuildBroadcastTreePartial.c)
- *     PopPowerAggregatorHandleIntent @ 0x1409BC080 (PopPowerAggregatorHandleIntent.c)
- *     PopDirectedDripsInitializeDeviceTree @ 0x140A40420 (PopDirectedDripsInitializeDeviceTree.c)
- *     PoInitializeBroadcast @ 0x140A40934 (PoInitializeBroadcast.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140488370 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     IoControlPnpDeviceActionQueue @ 0x140493724 (IoControlPnpDeviceActionQueue.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1404C2478 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     PopDirectedDripsDiagTraceTransition @ 0x14076407C (PopDirectedDripsDiagTraceTransition.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x140764740 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1409A26D0 (PopPowerAggregatorHandleIntent.c)
+ *     PopDirectedDripsInitializeDeviceTree @ 0x140A35D00 (PopDirectedDripsInitializeDeviceTree.c)
+ *     PoInitializeBroadcast @ 0x140A36214 (PoInitializeBroadcast.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *a1)
@@ -55,8 +55,8 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
                          HandleAttributes);
   }
   while ( v4 != HandleAttributes );
-  v5 = dword_140F0DD50 & 1;
-  if ( (dword_140F0DD50 & 2) != 0 )
+  v5 = dword_140F0DFF0 & 1;
+  if ( (dword_140F0DFF0 & 2) != 0 )
     v5 |= 2u;
   v6 = (HandleAttributes >> 10) & 1 | 2;
   if ( (HandleAttributes & 0x800) == 0 )

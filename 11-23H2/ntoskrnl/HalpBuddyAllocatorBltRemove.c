@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBuddyAllocatorBltRemove @ 0x140532314
+ * XREFs of HalpBuddyAllocatorBltRemove @ 0x140532864
  * Callers:
- *     HalpBuddyAllocatorDeleteSubtree @ 0x1405325D8 (HalpBuddyAllocatorDeleteSubtree.c)
- *     HalpBuddyAllocatorReserveLogicalAddress @ 0x1405326B0 (HalpBuddyAllocatorReserveLogicalAddress.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x140532B28 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140532C00 (HalpBuddyAllocatorReserveLogicalAddress.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorBltRemove(_QWORD *a1, __int64 a2)
@@ -36,10 +36,10 @@ __int64 __fastcall HalpBuddyAllocatorBltRemove(_QWORD *a1, __int64 a2)
     *a1 = a1;
   }
   result = KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -50,7 +50,7 @@ __int64 __fastcall HalpBuddyAllocatorBltRemove(_QWORD *a1, __int64 a2)
       v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v6);

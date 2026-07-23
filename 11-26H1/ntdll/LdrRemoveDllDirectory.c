@@ -1,45 +1,47 @@
 /*
- * XREFs of LdrRemoveDllDirectory @ 0x18010D2F0
+ * XREFs of LdrRemoveDllDirectory @ 0x18010CE40
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-__int64 __fastcall LdrRemoveDllDirectory(__int64 *a1, __int64 a2)
+NTSTATUS __cdecl LdrRemoveDllDirectory(DLL_DIRECTORY_COOKIE Cookie)
 {
-  __int64 *v4; // rdx
-  __int64 **v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rbx
+  _QWORD *v3; // rdx
+  DLL_DIRECTORY_COOKIE *v4; // rax
+  _QWORD *v5; // rbx
 
   if ( (LdrpPolicyBits & 4) == 0 )
-    return 3221225485LL;
-  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock, a2);
-  v4 = (__int64 *)*a1;
-  if ( *(__int64 **)(*a1 + 8) != a1 || (v5 = (__int64 **)a1[1], *v5 != a1) )
-    __fastfail(3u);
-  *v5 = v4;
-  v4[1] = (__int64)v5;
-  word_1801C5818 += -2 - *((_WORD *)a1 + 8);
-  RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
-  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock, v6);
-  v7 = RtlpDllSearchPathWithOptions;
-  RtlpDllSearchPathWithOptions = 0LL;
-  if ( v7 )
+    return -1073741811;
+  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
+  v3 = *(_QWORD **)Cookie;
+  if ( *(DLL_DIRECTORY_COOKIE *)(*(_QWORD *)Cookie + 8LL) != Cookie
+    || (v4 = (DLL_DIRECTORY_COOKIE *)*((_QWORD *)Cookie + 1), *v4 != Cookie) )
   {
-    if ( (*(_QWORD *)(v7 + 80))-- != 1LL )
-      v7 = 0LL;
+    __fastfail(3u);
+  }
+  *v4 = v3;
+  v3[1] = v4;
+  word_1801C4818 += -2 - *((_WORD *)Cookie + 8);
+  RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
+  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+  v5 = RtlpDllSearchPathWithOptions;
+  RtlpDllSearchPathWithOptions = 0LL;
+  if ( v5 )
+  {
+    if ( v5[10]-- != 1LL )
+      v5 = 0LL;
   }
   else
   {
-    v7 = 0LL;
+    v5 = 0LL;
   }
   RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-  if ( v7 )
-    RtlFreeHeap_0();
-  RtlFreeHeap_0();
-  return 0LL;
+  if ( v5 )
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v5);
+  RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Cookie);
+  return 0;
 }

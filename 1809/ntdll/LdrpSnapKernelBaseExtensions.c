@@ -13,13 +13,13 @@
  *     RtlFreeAnsiString @ 0x18002A5F0 (RtlFreeAnsiString.c)
  *     LdrpResolveDelayLoadDescriptor @ 0x180041E04 (LdrpResolveDelayLoadDescriptor.c)
  *     RtlCompareUnicodeStrings @ 0x1800571D0 (RtlCompareUnicodeStrings.c)
- *     LdrGetDllHandleByName @ 0x18007B6C0 (LdrGetDllHandleByName.c)
- *     _strnicmp @ 0x180091380 (_strnicmp.c)
+ *     LdrGetDllHandleByName @ 0x18007B6D0 (LdrGetDllHandleByName.c)
+ *     _strnicmp @ 0x180091390 (_strnicmp.c)
  */
 
 __int64 LdrpSnapKernelBaseExtensions()
 {
-  int v0; // eax
+  NTSTATUS v0; // eax
   __int64 v1; // rcx
   wchar_t *Buffer; // rbx
   unsigned int v3; // edi
@@ -27,27 +27,27 @@ __int64 LdrpSnapKernelBaseExtensions()
   unsigned int v5; // esi
   __int64 v6; // r13
   __int64 v7; // r12
-  const char *v8; // r15
+  const CHAR *v8; // r15
   unsigned int v9; // eax
-  __int64 v10; // rdi
+  SIZE_T v10; // rdi
   int v11; // eax
   unsigned __int16 v12; // r15
   char v13; // bl
   unsigned __int16 v14; // ax
   int Descriptor; // eax
   void *ApiSetMap; // [rsp+30h] [rbp-48h]
-  UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-40h] BYREF
-  STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-40h] BYREF
+  _STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
   unsigned __int16 v20; // [rsp+58h] [rbp-20h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-18h]
+  PCWCH String2; // [rsp+60h] [rbp-18h]
   char v22; // [rsp+C0h] [rbp+48h] BYREF
   unsigned int v23; // [rsp+C8h] [rbp+50h] BYREF
-  unsigned __int64 v24; // [rsp+D0h] [rbp+58h] BYREF
+  PVOID DllHandle; // [rsp+D0h] [rbp+58h] BYREF
   __int64 v25; // [rsp+D8h] [rbp+60h] BYREF
 
-  v24 = 0LL;
-  LdrGetDllHandleByName(&LdrpKernelbaseDllName, 0LL, &v24);
-  v0 = RtlpImageDirectoryEntryToDataEx(v24, 1, 0xDu, &v23, &v25);
+  DllHandle = 0LL;
+  LdrGetDllHandleByName((PUNICODE_STRING)&LdrpKernelbaseDllName, 0LL, &DllHandle);
+  v0 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)DllHandle, 1, 0xDu, &v23, &v25);
   v1 = v25;
   if ( v0 < 0 )
     v1 = 0LL;
@@ -69,7 +69,7 @@ __int64 LdrpSnapKernelBaseExtensions()
       v7 = v6 + 32LL * v5;
       if ( !*(_DWORD *)(v7 + 4) )
         break;
-      v8 = (const char *)(v24 + *(unsigned int *)(v7 + 4));
+      v8 = (char *)DllHandle + *(unsigned int *)(v7 + 4);
       if ( !strnicmp(v8, "EXT-", 4uLL) )
       {
         RtlInitAnsiString(&DestinationString, v8);
@@ -116,14 +116,9 @@ __int64 LdrpSnapKernelBaseExtensions()
         }
         LdrpLogDllState(0LL, &UnicodeString, v14);
         if ( v13
-          && !(unsigned int)RtlCompareUnicodeStrings(
-                              (unsigned int)L"KERNEL32.DLL",
-                              12,
-                              v21,
-                              (unsigned __int64)v12 >> 1,
-                              1) )
+          && !RtlCompareUnicodeStrings(LdrpKernel32DllName.Buffer, 0xCuLL, String2, (unsigned __int64)v12 >> 1, 1u) )
         {
-          Descriptor = LdrpResolveDelayLoadDescriptor(v24, v6 + 32LL * v5);
+          Descriptor = LdrpResolveDelayLoadDescriptor(DllHandle, (PCIMAGE_DELAYLOAD_DESCRIPTOR)(v6 + 32LL * v5));
           Buffer = UnicodeString.Buffer;
           v3 = Descriptor;
           if ( Descriptor < 0 )

@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlStringCopyWorkerW @ 0x180001644
  * Callers:
- *     punycode_encode @ 0x180053560 (punycode_encode.c)
+ *     punycode_encode @ 0x180053550 (punycode_encode.c)
  * Callees:
  *     <none>
  */

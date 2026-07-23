@@ -1,7 +1,7 @@
 /*
- * XREFs of KscpStringLengthFromUser @ 0x140C5EDC0
+ * XREFs of KscpStringLengthFromUser @ 0x140C64DC0
  * Callers:
- *     KscpStringLengthFromUserSmap @ 0x140C5EE00 (KscpStringLengthFromUserSmap.c)
+ *     KscpStringLengthFromUserSmap @ 0x140C64E00 (KscpStringLengthFromUserSmap.c)
  * Callees:
  *     <none>
  */

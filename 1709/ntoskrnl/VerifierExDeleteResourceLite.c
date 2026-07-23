@@ -16,7 +16,7 @@
 __int64 __fastcall VerifierExDeleteResourceLite(PVOID *BugCheckParameter2)
 {
   unsigned __int64 v1; // rbx
-  struct _SLIST_ENTRY *v3; // rsi
+  _SLIST_ENTRY *v3; // rsi
   __int64 result; // rax
   unsigned __int64 v5; // rcx
   _BYTE v6[24]; // [rsp+30h] [rbp-18h] BYREF
@@ -28,7 +28,7 @@ __int64 __fastcall VerifierExDeleteResourceLite(PVOID *BugCheckParameter2)
     VfAvlInitializeLockContext((__int64)v6, 0);
     if ( VfAvlLookupTreeNode(&ViResourceAvl, (__int64)v6, (unsigned __int64)BugCheckParameter2, 0LL) )
     {
-      v3 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v6, (__int64)BugCheckParameter2, 0LL);
+      v3 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v6, (__int64)BugCheckParameter2, 0LL);
     }
     else if ( !ViResourceNotTracked && !ViResourcesAlreadyLoadedDrivers && (MmVerifierData & 0x800) != 0 )
     {

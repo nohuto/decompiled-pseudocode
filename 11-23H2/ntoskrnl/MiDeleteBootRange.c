@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeleteBootRange @ 0x14038FEF8
+ * XREFs of MiDeleteBootRange @ 0x1403900D8
  * Callers:
- *     MmFreeBootRegistry @ 0x1408272CC (MmFreeBootRegistry.c)
+ *     MmFreeBootRegistry @ 0x1408275CC (MmFreeBootRegistry.c)
  *     MmFreeLoaderBlock @ 0x140B5B894 (MmFreeLoaderBlock.c)
  * Callees:
  *     MiReturnSystemVa @ 0x140213B54 (MiReturnSystemVa.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
  */
 
 __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -142,7 +142,7 @@ LABEL_21:
             {
               v33 = (unsigned __int64)v17[6];
               v34 = v18 + v33 + (unsigned int)(*((_DWORD *)v17 + 16) - 1);
-              if ( v33 != PsNtosImageBase && v33 != PsHalImageBase )
+              if ( (PVOID)v33 != PsNtosImageBase && (PVOID)v33 != PsHalImageBase )
                 v34 += (unsigned __int64)(unsigned int)dword_140C65844 << 12;
               v35 = ((v34 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
               if ( v5 >= ((v33 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL && v5 <= v35 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of NtPrivilegedServiceAuditAlarm @ 0x1407C8250
+ * XREFs of NtPrivilegedServiceAuditAlarm @ 0x1407C8520
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SepProbeAndCaptureString_U @ 0x1406C22C4 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x1406C35C8 (SeCheckAuditPrivilege.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x1407C84D4 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SepProbeAndCaptureString_U @ 0x1406C22F4 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x1406C35F8 (SeCheckAuditPrivilege.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x1407C87A4 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

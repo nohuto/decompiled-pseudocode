@@ -1,17 +1,17 @@
 /*
- * XREFs of VerifierMmFreeContiguousMemorySpecifyCache @ 0x1409E6850
+ * XREFs of VerifierMmFreeContiguousMemorySpecifyCache @ 0x1409E7850
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViTargetFreeContiguousMemory @ 0x1409D73E4 (ViTargetFreeContiguousMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViTargetFreeContiguousMemory @ 0x1409D83E4 (ViTargetFreeContiguousMemory.c)
  */
 
 __int64 __fastcall VerifierMmFreeContiguousMemorySpecifyCache(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( qword_140C1D0B0 )
+  if ( qword_140C1D310 )
     ViTargetFreeContiguousMemory(retaddr, a1);
   return ((__int64 (__fastcall *)(__int64, __int64, _QWORD))pXdvMmFreeContiguousMemorySpecifyCache)(a1, a2, a3);
 }

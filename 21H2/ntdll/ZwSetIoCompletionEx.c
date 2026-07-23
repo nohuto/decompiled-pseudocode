@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwSetIoCompletionEx @ 0x1800A0AB0
+ * XREFs of ZwSetIoCompletionEx @ 0x1800A0A70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetIoCompletionEx()
+NTSTATUS __cdecl ZwSetIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        HANDLE IoCompletionPacketHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 420LL;
+  result = 420;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

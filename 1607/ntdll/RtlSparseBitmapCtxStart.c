@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlSparseBitmapCtxStart @ 0x18005D900
+ * XREFs of RtlSparseBitmapCtxStart @ 0x18005D8F0
  * Callers:
- *     RtlpHpLargeSparseBmpInitialize @ 0x18005D86C (RtlpHpLargeSparseBmpInitialize.c)
+ *     RtlpHpLargeSparseBmpInitialize @ 0x18005D85C (RtlpHpLargeSparseBmpInitialize.c)
  * Callees:
  *     <none>
  */

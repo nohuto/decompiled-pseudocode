@@ -1,29 +1,30 @@
 /*
- * XREFs of TpReleaseWork @ 0x18006CCA0
+ * XREFs of TpReleaseWork @ 0x180089580
  * Callers:
- *     TppWorkpExecuteCallback @ 0x180022BB0 (TppWorkpExecuteCallback.c)
- *     LdrpDetectDetour @ 0x18006CBA0 (LdrpDetectDetour.c)
- *     RtlpFcFreeChangeRegistration @ 0x1800F7B3C (RtlpFcFreeChangeRegistration.c)
- *     RtlpCtContextFree @ 0x180147998 (RtlpCtContextFree.c)
+ *     TppWorkpExecuteCallback @ 0x18004F5B0 (TppWorkpExecuteCallback.c)
+ *     LdrpDetectDetour @ 0x180089480 (LdrpDetectDetour.c)
+ *     RtlpFcFreeChangeRegistration @ 0x1800F26AC (RtlpFcFreeChangeRegistration.c)
+ *     RtlpCtContextFree @ 0x180145D48 (RtlpCtContextFree.c)
  * Callees:
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
-void __fastcall TpReleaseWork(unsigned __int64 a1)
+void __cdecl TpReleaseWork(PTP_WORK Work)
 {
-  int v2; // eax
-  signed __int32 v3; // eax
-  signed __int32 v4; // ett
-  void (__fastcall *v5)(unsigned __int64); // rax
+  volatile int Flags; // eax
+  volatile int v3; // eax
+  volatile int v4; // ett
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
   void *ThreadPoolData; // rax
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( !a1
-    || (v2 = *(_DWORD *)(a1 + 168), (v2 & 0x10000) != 0)
-    || (v2 & 0x20000) != 0
-    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL || *(_QWORD *)(*(_QWORD *)ThreadPoolData + 240LL) != a1)
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWorkpCleanupGroupMemberVFuncs
+  if ( !Work
+    || (Flags = Work->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL
+     || *(PTP_WORK *)(*(_QWORD *)ThreadPoolData + 240LL) != Work)
+    || (__int64 (__fastcall **)())Work->CleanupGroupMember.VFuncs != TppWorkpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
@@ -32,38 +33,38 @@ LABEL_20:
     TppRaiseInvalidParameter();
     return;
   }
-  _m_prefetchw((const void *)(a1 + 168));
-  v3 = *(_DWORD *)(a1 + 168);
+  _m_prefetchw(&Work->CleanupGroupMember.168);
+  v3 = Work->CleanupGroupMember.Flags;
   do
   {
     v4 = v3;
-    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 168), v3 | 0x10000, v3);
+    v3 = _InterlockedCompareExchange(&Work->CleanupGroupMember.Flags, v3 | 0x10000, v3);
   }
   while ( v4 != v3 );
   if ( (v3 & 0x10000) != 0 )
     goto LABEL_20;
   if ( (v3 & 0x30000) == 0 )
   {
-    *(_QWORD *)(a1 + 184) = retaddr;
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
+    Work->CleanupGroupMember.ReleaseCaller.ReturnAddress = retaddr;
+    if ( _InterlockedExchangeAdd(&Work->CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
     {
-      v5 = **(void (__fastcall ***)(unsigned __int64))(a1 + 8);
-      if ( (char *)v5 == (char *)TppSimplepFree )
+      Free = Work->CleanupGroupMember.VFuncs->Free;
+      if ( (char *)Free == (char *)TppSimplepFree )
       {
-        TppCleanupGroupMemberDestroy((_QWORD *)a1);
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, a1);
+        TppCleanupGroupMemberDestroy(Work);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, Work);
       }
-      else if ( (char *)v5 == (char *)TppAlpcpFree )
+      else if ( (char *)Free == (char *)TppAlpcpFree )
       {
-        TppAlpcpFree((_QWORD *)a1);
+        TppAlpcpFree(Work);
       }
-      else if ( (char *)v5 == (char *)TppWorkpFree )
+      else if ( (char *)Free == (char *)TppWorkpFree )
       {
-        TppWorkpFree(a1);
+        TppWorkpFree(Work);
       }
       else
       {
-        v5(a1);
+        Free(&Work->CleanupGroupMember);
       }
     }
   }

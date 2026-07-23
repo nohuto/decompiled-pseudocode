@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAppendSubsectionChain @ 0x1400FD188
+ * XREFs of MiAppendSubsectionChain @ 0x1400FAF08
  * Callers:
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
  * Callees:
- *     MiDecrementSubsectionViewCount @ 0x140022860 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSubsection @ 0x140026DCC (MiInsertUnusedSubsection.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiInsertSubsectionNode @ 0x1400FD4B8 (MiInsertSubsectionNode.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400223E0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsection @ 0x14002694C (MiInsertUnusedSubsection.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiInsertSubsectionNode @ 0x1400FB238 (MiInsertSubsectionNode.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MiAppendSubsectionChain(__int64 *a1, __int64 a2, char a3)

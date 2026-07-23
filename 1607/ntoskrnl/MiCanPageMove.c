@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCanPageMove @ 0x14010745C
+ * XREFs of MiCanPageMove @ 0x1401051DC
  * Callers:
- *     MiReferenceInPageFile @ 0x140024E50 (MiReferenceInPageFile.c)
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
- *     MiMigratePfn @ 0x140036E10 (MiMigratePfn.c)
- *     MiObtainTransitionPage @ 0x140107214 (MiObtainTransitionPage.c)
- *     MiReplaceLockedPage @ 0x1401EB18C (MiReplaceLockedPage.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
+ *     MiReferenceInPageFile @ 0x1400249D0 (MiReferenceInPageFile.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
+ *     MiMigratePfn @ 0x140036990 (MiMigratePfn.c)
+ *     MiObtainTransitionPage @ 0x140104F94 (MiObtainTransitionPage.c)
+ *     MiReplaceLockedPage @ 0x1401EAFB8 (MiReplaceLockedPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 _BOOL8 __fastcall MiCanPageMove(__int64 a1)

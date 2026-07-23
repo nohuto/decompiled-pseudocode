@@ -1,13 +1,13 @@
 /*
- * XREFs of CcSlowReferenceSharedCacheMapFileObject @ 0x14039B7C4
+ * XREFs of CcSlowReferenceSharedCacheMapFileObject @ 0x14039D524
  * Callers:
- *     CcReferenceSharedCacheMapFileObject @ 0x14039ADF4 (CcReferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x14039CB54 (CcReferenceSharedCacheMapFileObject.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
  */
 
 unsigned __int64 __fastcall CcSlowReferenceSharedCacheMapFileObject(
@@ -19,13 +19,13 @@ unsigned __int64 __fastcall CcSlowReferenceSharedCacheMapFileObject(
   LegacyAutoBoost *v5; // rbx
   unsigned __int64 v6; // rbx
 
-  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.OtherOperationCount, 0LL, 0LL, a4);
-  if ( _InterlockedCompareExchange64(&EmpParseLock.OtherOperationCount, 17LL, 0LL) )
+  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.WriteOperationCount, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64(&EmpParseLock.WriteOperationCount, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(
-      &EmpParseLock.OtherOperationCount,
+      &EmpParseLock.WriteOperationCount,
       0,
       v5,
-      (struct _KTHREAD *)&EmpParseLock.OtherOperationCount);
+      (struct _KTHREAD *)&EmpParseLock.WriteOperationCount);
   if ( v5 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -36,8 +36,8 @@ unsigned __int64 __fastcall CcSlowReferenceSharedCacheMapFileObject(
   v6 = *(_QWORD *)(a1 + 96) & 0xFFFFFFFFFFFFFFF0uLL;
   if ( v6 )
     ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(a1 + 96) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536343u);
-  if ( _InterlockedCompareExchange64(&EmpParseLock.OtherOperationCount, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(&EmpParseLock.OtherOperationCount);
-  KeAbPostRelease((unsigned __int64)&EmpParseLock.OtherOperationCount);
+  if ( _InterlockedCompareExchange64(&EmpParseLock.WriteOperationCount, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared(&EmpParseLock.WriteOperationCount);
+  KeAbPostRelease((unsigned __int64)&EmpParseLock.WriteOperationCount);
   return v6;
 }

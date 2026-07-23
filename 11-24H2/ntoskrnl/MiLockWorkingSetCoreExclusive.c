@@ -1,52 +1,69 @@
 /*
- * XREFs of MiLockWorkingSetCoreExclusive @ 0x140379CE4
+ * XREFs of MiLockWorkingSetCoreExclusive @ 0x140296038
  * Callers:
- *     MiSetVaAgeList @ 0x140230FB0 (MiSetVaAgeList.c)
- *     MiLogPageAccess @ 0x140286F90 (MiLogPageAccess.c)
- *     MiDrainOldAccessBuffers @ 0x1403799CC (MiDrainOldAccessBuffers.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403CD164 (MmAdjustWorkingSetSizeEx.c)
- *     MiDrainSystemAccessLog @ 0x140469AF0 (MiDrainSystemAccessLog.c)
- *     MmQuerySystemWorkingSetInformation @ 0x14046FF88 (MmQuerySystemWorkingSetInformation.c)
- *     MiCopyWorkingSetFields @ 0x140669DE4 (MiCopyWorkingSetFields.c)
+ *     MiLogPageAccess @ 0x140296B90 (MiLogPageAccess.c)
+ *     MiSetVaAgeList @ 0x140304F30 (MiSetVaAgeList.c)
+ *     MiDrainOldAccessBuffers @ 0x14045F56C (MiDrainOldAccessBuffers.c)
+ *     MiDrainSystemAccessLog @ 0x140462A14 (MiDrainSystemAccessLog.c)
+ *     MmQuerySystemWorkingSetInformation @ 0x14046A3B0 (MmQuerySystemWorkingSetInformation.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14046C954 (MmAdjustWorkingSetSizeEx.c)
+ *     MiCopyWorkingSetFields @ 0x14066AFB4 (MiCopyWorkingSetFields.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14020D580 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14020D650 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1403368E0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1403369B0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
-void __fastcall MiLockWorkingSetCoreExclusive(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall MiLockWorkingSetCoreExclusive(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int *v3; // rbx
-  unsigned int v4; // edi
-  int i; // edx
+  volatile signed __int32 *v4; // rbx
+  unsigned int v5; // eax
+  unsigned int v6; // edi
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rcx
 
-  v3 = (int *)&unk_140E38780;
-  if ( (*(_DWORD *)(a1 + 184) & 0xF) != 1 )
-    v3 = (int *)(a1 + 256);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
+  v4 = (volatile signed __int32 *)&unk_140E388C0;
+  LOBYTE(v5) = *(_DWORD *)(a1 + 184) & 0xF;
+  if ( (_BYTE)v5 != 1 )
+    v4 = (volatile signed __int32 *)(a1 + 256);
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || (LOBYTE(v5) = PopHibernateInProgress, PopHibernateInProgress) )
   {
-    v4 = 0;
-    if ( _interlockedbittestandset(v3, 0x1Fu) )
-      v4 = ExpWaitForSpinLockExclusiveAndAcquire(v3, 0xFFu, a3);
-    for ( i = *v3; (*v3 & 0xBFFFFFFF) != 0x80000000; i = *v3 )
+    v6 = 0;
+    if ( _interlockedbittestandset(v4, 0x1Fu) )
     {
-      if ( (i & 0x40000000) == 0 )
-        _InterlockedOr(v3, 0x40000000u);
-      if ( (++v4 & HvlLongSpinCountMask) == 0
-        && (HvlEnlightenments & 0x40) != 0
-        && KiCheckVpBackingLongSpinWaitHypercall() )
+      LOBYTE(a2) = -1;
+      v5 = ExpWaitForSpinLockExclusiveAndAcquire(v4, a2);
+      v6 = v5;
+    }
+    v7 = *(unsigned int *)v4;
+    v8 = v7 & 0xFFFFFFFFBFFFFFFFuLL;
+    if ( (v7 & 0xBFFFFFFF) != 0x80000000 )
+    {
+      do
       {
-        HvlNotifyLongSpinWait(v4);
+        if ( (v7 & 0x40000000) == 0 )
+          _InterlockedOr(v4, 0x40000000u);
+        if ( (++v6 & HvlLongSpinCountMask) == 0
+          && (HvlEnlightenments & 0x40) != 0
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v8, v7, a3, a4) )
+        {
+          HvlNotifyLongSpinWait(v6);
+        }
+        else
+        {
+          _mm_pause();
+        }
+        v7 = *(unsigned int *)v4;
+        v5 = *v4 & 0xBFFFFFFF;
       }
-      else
-      {
-        _mm_pause();
-      }
+      while ( v5 != 0x80000000 );
     }
   }
   else
   {
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(v3, 0xFFu);
+    LOBYTE(a2) = -1;
+    LOBYTE(v5) = ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(v4, a2);
   }
+  return v5;
 }

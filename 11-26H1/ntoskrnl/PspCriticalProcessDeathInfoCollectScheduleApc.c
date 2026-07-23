@@ -1,16 +1,16 @@
 /*
- * XREFs of PspCriticalProcessDeathInfoCollectScheduleApc @ 0x1407FAD64
+ * XREFs of PspCriticalProcessDeathInfoCollectScheduleApc @ 0x140800794
  * Callers:
- *     PspCriticalProcessDeathInfoCollect @ 0x1407FAC80 (PspCriticalProcessDeathInfoCollect.c)
+ *     PspCriticalProcessDeathInfoCollect @ 0x1408006B0 (PspCriticalProcessDeathInfoCollect.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeRemoveQueueApc @ 0x140467790 (KeRemoveQueueApc.c)
- *     PsGetThreadTeb @ 0x1404851F0 (PsGetThreadTeb.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeRemoveQueueApc @ 0x140460EE0 (KeRemoveQueueApc.c)
+ *     PsGetThreadTeb @ 0x14047EB60 (PsGetThreadTeb.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall PspCriticalProcessDeathInfoCollectScheduleApc(__int64 a1)

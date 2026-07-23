@@ -1,29 +1,29 @@
 /*
- * XREFs of PfGetCompletedTrace @ 0x140A538E4
+ * XREFs of PfGetCompletedTrace @ 0x140A5CBD4
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140A52EAC (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x140A5C19C (PfQuerySuperfetchInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PfpPartitionDereferenceParent @ 0x140381780 (PfpPartitionDereferenceParent.c)
- *     PfpPartitionRundownProtectionRelease @ 0x14044F9A8 (PfpPartitionRundownProtectionRelease.c)
- *     PfFbBufferListFlushStandby @ 0x1404AC388 (PfFbBufferListFlushStandby.c)
- *     PfTFreeTraceDump @ 0x1404E0A08 (PfTFreeTraceDump.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     PfpTraceLogPfPartitionId @ 0x14060039C (PfpTraceLogPfPartitionId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     PfpPartitionFindByHandle @ 0x140A53E50 (PfpPartitionFindByHandle.c)
- *     PfTAccessTracingStart @ 0x140BF8EDC (PfTAccessTracingStart.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PfpPartitionDereferenceParent @ 0x140383530 (PfpPartitionDereferenceParent.c)
+ *     PfpPartitionRundownProtectionRelease @ 0x140447AD8 (PfpPartitionRundownProtectionRelease.c)
+ *     PfFbBufferListFlushStandby @ 0x1404A5A18 (PfFbBufferListFlushStandby.c)
+ *     PfTFreeTraceDump @ 0x1404DA0E8 (PfTFreeTraceDump.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     PfpTraceLogPfPartitionId @ 0x140602E4C (PfpTraceLogPfPartitionId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PfpPartitionFindByHandle @ 0x140A5D140 (PfpPartitionFindByHandle.c)
+ *     PfTAccessTracingStart @ 0x140BFEEDC (PfTAccessTracingStart.c)
  */
 
 __int64 __fastcall PfGetCompletedTrace(_WORD *a1, int a2, char a3, unsigned int *a4)
@@ -83,7 +83,7 @@ __int64 __fastcall PfGetCompletedTrace(_WORD *a1, int a2, char a3, unsigned int 
   v28 = 0;
   if ( (unsigned int)dword_140E07398 > 4 && (byte_140E073A8 & 2) != 0 && (qword_140E073B0 & 2) == qword_140E073B0 )
   {
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)qword_140049420, 0LL, 0LL, 2u, v40);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)byte_140049A83, 0LL, 0LL, 2u, v40);
     a4 = v31;
   }
   if ( (unsigned int)Length < 0x18 )
@@ -187,9 +187,9 @@ __int64 __fastcall PfGetCompletedTrace(_WORD *a1, int a2, char a3, unsigned int 
             RtlWriteUShortToUser(a1 + 1, 24);
           else
             a1[1] = 24;
-          Length = stru_140E66B30.Padding[0];
-          v18 = ((MEMORY[0xFFFFF78000000004] * HIDWORD(stru_140E66B30.Padding[0])) << 8)
-              + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)LODWORD(stru_140E66B30.Padding[0])) >> 24);
+          Length = stru_140E66D40.Padding[0];
+          v18 = ((MEMORY[0xFFFFF78000000004] * HIDWORD(stru_140E66D40.Padding[0])) << 8)
+              + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)LODWORD(stru_140E66D40.Padding[0])) >> 24);
           if ( a3 )
             RtlWriteULong64ToUser((_QWORD *)a1 + 1, v18);
           else
@@ -233,7 +233,7 @@ LABEL_40:
     v27 = v9;
     v43 = &v27;
     v44 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)byte_1400493BD, 0LL, 0LL, 4u, v40);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&unk_140049A20, 0LL, 0LL, 4u, v40);
   }
   if ( v6 )
     PfpPartitionRundownProtectionRelease(v6);

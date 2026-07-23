@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSwInterruptDispatch @ 0x140540C30
+ * XREFs of KiSwInterruptDispatch @ 0x1405430B0
  * Callers:
- *     KiSwInterrupt @ 0x14072E7F0 (KiSwInterrupt.c)
+ *     KiSwInterrupt @ 0x1407333C0 (KiSwInterrupt.c)
  * Callees:
- *     KiGetTrapFrameMode @ 0x14047C5B0 (KiGetTrapFrameMode.c)
- *     KeExitRetpoline @ 0x14048D73C (KeExitRetpoline.c)
- *     KiReadKernelDr7 @ 0x1405EBBA8 (KiReadKernelDr7.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     sub_140C7903C @ 0x140C7903C (sub_140C7903C.c)
- *     SdbpCheckDll @ 0x140C7B440 (SdbpCheckDll.c)
- *     KeGuardDispatchICall @ 0x140C7B6F0 (KeGuardDispatchICall.c)
- *     KeGuardCheckICall @ 0x140C7B700 (KeGuardCheckICall.c)
+ *     KiGetTrapFrameMode @ 0x140475F20 (KiGetTrapFrameMode.c)
+ *     KeExitRetpoline @ 0x14048727C (KeExitRetpoline.c)
+ *     KiReadKernelDr7 @ 0x1405EE518 (KiReadKernelDr7.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     sub_140C7F03C @ 0x140C7F03C (sub_140C7F03C.c)
+ *     SdbpCheckDll @ 0x140C81440 (SdbpCheckDll.c)
+ *     KeGuardDispatchICall @ 0x140C816F0 (KeGuardDispatchICall.c)
+ *     KeGuardCheckICall @ 0x140C81700 (KeGuardCheckICall.c)
  */
 
 char __fastcall KiSwInterruptDispatch(__int64 a1)
@@ -272,7 +272,7 @@ char __fastcall KiSwInterruptDispatch(__int64 a1)
     v5 = Pool2 + 4;
     Pool2[3] = Pool2;
     *Pool2 = 0LL;
-    Pool2[2] = sub_1405516D0;
+    Pool2[2] = sub_140553B50;
     v224 = Pool2 + 4;
     memmove(Pool2 + 4, v1, 0xAE8uLL);
     v4[348] = v1;
@@ -337,14 +337,14 @@ char __fastcall KiSwInterruptDispatch(__int64 a1)
       v10 = (_QWORD *)((char *)v10 + 1);
       v16 = __ROL8__(v23 ^ v16, v9);
     }
-    if ( v16 != qword_140FBFB50 )
+    if ( v16 != qword_140FC0B50 )
     {
       v24 = v4[181];
       *(_QWORD *)v24 = v8;
       *(_DWORD *)(v24 + 16) = v15;
       if ( !*((_DWORD *)v4 + 590) )
       {
-        *(_QWORD *)(v4[181] + 24LL) = qword_140FBFB50 ^ v16;
+        *(_QWORD *)(v4[181] + 24LL) = qword_140FC0B50 ^ v16;
         if ( !*((_DWORD *)v4 + 590) )
         {
           v4[297] = 0LL;
@@ -374,7 +374,7 @@ char __fastcall KiSwInterruptDispatch(__int64 a1)
               *(_DWORD *)(v32 + 16) = v31;
               if ( !*((_DWORD *)v4 + 590) )
                 *(_QWORD *)(v4[181] + 24LL) = v28 ^ v4[340];
-              sub_140C7903C(v4 + 4, 0LL, v28, 256LL);
+              sub_140C7F03C(v4 + 4, 0LL, v28, 256LL);
             }
           }
         }
@@ -560,7 +560,7 @@ LABEL_169:
               *(_DWORD *)(v144 + 16) = v143;
               if ( !*((_DWORD *)v5 + 582) )
                 *(_QWORD *)(v5[177] + 24LL) = v140 ^ v5[336];
-              sub_140C7903C(v5, 0LL, v140, 256LL);
+              sub_140C7F03C(v5, 0LL, v140, 256LL);
             }
           }
         }
@@ -597,7 +597,7 @@ LABEL_191:
                 *(_DWORD *)(v151 + 16) = v150;
                 if ( !*((_DWORD *)v5 + 582) )
                   *(_QWORD *)(v5[177] + 24LL) = v119 ^ v5[336];
-                sub_140C7903C(v5, 0LL, v119, 256LL);
+                sub_140C7F03C(v5, 0LL, v119, 256LL);
               }
             }
           }
@@ -774,7 +774,7 @@ LABEL_94:
                 *(_DWORD *)(v77 + 16) = v76;
                 if ( !*((_DWORD *)v5 + 582) )
                   *(_QWORD *)(v5[177] + 24LL) = v59 ^ v5[336];
-                sub_140C7903C(v5, 0LL, v59, 256LL);
+                sub_140C7F03C(v5, 0LL, v59, 256LL);
               }
             }
           }
@@ -859,7 +859,7 @@ LABEL_116:
             *(_DWORD *)(v99 + 16) = v98;
             if ( !*((_DWORD *)v5 + 582) )
               *(_QWORD *)(v5[177] + 24LL) = v95 ^ v5[336];
-            sub_140C7903C(v5, 0LL, v95, 256LL);
+            sub_140C7F03C(v5, 0LL, v95, 256LL);
           }
         }
       }
@@ -895,7 +895,7 @@ LABEL_309:
               *(_DWORD *)(v107 + 16) = v106;
               if ( !*((_DWORD *)v5 + 582) )
                 *(_QWORD *)(v5[177] + 24LL) = v103 ^ v5[336];
-              sub_140C7903C(v5, 0LL, v103, 256LL);
+              sub_140C7F03C(v5, 0LL, v103, 256LL);
             }
           }
         }
@@ -1279,7 +1279,7 @@ LABEL_304:
       *(_QWORD *)(v159 + v5[214]) = 0LL;
       KeGuardCheckICall(v5[45], v158);
       SdbpCheckDll(265, v155, v154, v153, v152, v5[45], v223 - 8);
-      JUMPOUT(0x1405423CALL);
+      JUMPOUT(0x14054484ALL);
     }
     *((_DWORD *)v5 + 530) += 1584;
     v200 = *((_DWORD *)v5 + 49);

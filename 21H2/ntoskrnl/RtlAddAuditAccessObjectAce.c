@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlAddAuditAccessObjectAce @ 0x1409124E0
+ * XREFs of RtlAddAuditAccessObjectAce @ 0x140912640
  * Callers:
- *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x140787A6C (LocalGetAclForString.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlpAddKnownObjectAce @ 0x1409128A0 (RtlpAddKnownObjectAce.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownObjectAce @ 0x140912A00 (RtlpAddKnownObjectAce.c)
  */
 
-__int64 __fastcall RtlAddAuditAccessObjectAce(
-        __int64 a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        PSID Src,
-        char a8,
-        char a9)
+NTSTATUS __cdecl RtlAddAuditAccessObjectAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PGUID ObjectTypeGuid,
+        PGUID InheritedObjectTypeGuid,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  int v9; // eax
+  ULONG v9; // eax
   int v10; // r8d
 
-  v9 = a3 | 0x40;
-  if ( !a8 )
-    v9 = a3;
+  v9 = AceFlags | 0x40;
+  if ( !AuditSuccess )
+    v9 = AceFlags;
   v10 = v9 | 0x80;
-  if ( !a9 )
+  if ( !AuditFailure )
     v10 = v9;
-  if ( a5 || a6 )
-    return RtlpAddKnownObjectAce(a1, a2, v10, a4, a5, a6, Src, 7);
+  if ( ObjectTypeGuid || InheritedObjectTypeGuid )
+    return RtlpAddKnownObjectAce(Acl, (__int64)ObjectTypeGuid, (__int64)InheritedObjectTypeGuid, Sid, 7);
   else
-    return RtlpAddKnownAce(a1, a2, v10, a4, (unsigned __int8 *)Src, 2);
+    return RtlpAddKnownAce(Acl, AceRevision, v10, AccessMask, (unsigned __int8 *)Sid, 2u);
 }

@@ -12,27 +12,32 @@
  *     sub_1800F22CC @ 0x1800F22CC (sub_1800F22CC.c)
  */
 
-void *__fastcall sub_1801015EC(__int64 a1, int a2, unsigned __int16 a3, char a4, __int64 a5)
+PWSTR __fastcall sub_1801015EC(
+        PRTL_CRITICAL_SECTION *BaseAddress,
+        int a2,
+        USHORT a3,
+        BOOLEAN a4,
+        PRTL_HEAP_TAG_INFO TagInfo)
 {
   char v9; // si
-  void *TagHeap; // r14
-  int v11; // ebx
+  PWSTR TagHeap; // r14
+  ULONG v11; // ebx
 
   v9 = 0;
   TagHeap = 0LL;
-  if ( sub_18001F9B0((_DWORD *)a1, "RtlQueryTagHeap") )
+  if ( sub_18001F9B0(BaseAddress, "RtlQueryTagHeap") )
   {
-    v11 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v11 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | a2;
     if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(BaseAddress[44]);
       v9 = 1;
       v11 |= 1u;
     }
-    if ( sub_180090710(a1, 0) )
-      TagHeap = RtlQueryTagHeap(a1, v11, a3, a4, a5);
+    if ( sub_180090710((PVOID *)BaseAddress, 0) )
+      TagHeap = RtlQueryTagHeap(BaseAddress, v11, a3, a4, TagInfo);
   }
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(BaseAddress[44]);
   return TagHeap;
 }

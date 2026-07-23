@@ -1,19 +1,19 @@
 /*
- * XREFs of CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x140ABF4C0
+ * XREFs of CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x140AC1560
  * Callers:
- *     CmFcpManagerPublishFeatureUsageDataIfNearCapacityWorker @ 0x140ABF4A0 (CmFcpManagerPublishFeatureUsageDataIfNearCapacityWorker.c)
+ *     CmFcpManagerPublishFeatureUsageDataIfNearCapacityWorker @ 0x140AC1540 (CmFcpManagerPublishFeatureUsageDataIfNearCapacityWorker.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlReleaseSwapReference @ 0x1402C5854 (RtlReleaseSwapReference.c)
- *     RtlAcquireSwapReference @ 0x1402C58E0 (RtlAcquireSwapReference.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     CmFcpManagerFeatureUsageBufferNearCapacityThreshold @ 0x1404E5BC8 (CmFcpManagerFeatureUsageBufferNearCapacityThreshold.c)
- *     CmFcpManagerPublishFeatureUsageData @ 0x140ABF83C (CmFcpManagerPublishFeatureUsageData.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlReleaseSwapReference @ 0x1403104F0 (RtlReleaseSwapReference.c)
+ *     RtlAcquireSwapReference @ 0x14031057C (RtlAcquireSwapReference.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     CmFcpManagerFeatureUsageBufferNearCapacityThreshold @ 0x1404DF168 (CmFcpManagerFeatureUsageBufferNearCapacityThreshold.c)
+ *     CmFcpManagerPublishFeatureUsageData @ 0x140AC18DC (CmFcpManagerPublishFeatureUsageData.c)
  */
 
 void __fastcall CmFcpManagerPublishFeatureUsageDataIfNearCapacity(__int64 a1, __int64 a2, __int64 a3)
@@ -41,14 +41,14 @@ void __fastcall CmFcpManagerPublishFeatureUsageDataIfNearCapacity(__int64 a1, __
   v7 = 0;
   for ( i = 1; ; i = 0 )
   {
-    v9 = CmFcpManagerFeatureUsageBufferNearCapacityThreshold(*(_DWORD *)(*(_QWORD *)(a1 + 8LL * (unsigned int)v6 + 1320)
+    v9 = CmFcpManagerFeatureUsageBufferNearCapacityThreshold(*(_DWORD *)(*(_QWORD *)(a1 + 8LL * (unsigned int)v6 + 1392)
                                                                        + 28LL));
     if ( (unsigned int)v10 < v9 )
       break;
     if ( v7 )
       goto LABEL_15;
-    v13 = (AutoBoost *)KeAbPreAcquire(a1 + 1400, 0LL, 1LL, v12);
-    if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 1400), 0LL) )
+    v13 = (AutoBoost *)KeAbPreAcquire(a1 + 1472, 0LL, 1LL, v12);
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 1472), 0LL) )
     {
       if ( v13 )
       {
@@ -63,18 +63,18 @@ LABEL_15:
       LOBYTE(v10) = 1;
       CmFcpManagerPublishFeatureUsageData(a1, v10);
 LABEL_6:
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1400), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1400));
-      KeAbPostRelease(a1 + 1400);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1472), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1472));
+      KeAbPostRelease(a1 + 1472);
       goto LABEL_9;
     }
     if ( v13 )
-      KeAbPostReleaseEx((struct _KTHREAD *)(a1 + 1400), (unsigned __int64)v13, v11, v14);
+      KeAbPostReleaseEx((struct _KTHREAD *)(a1 + 1472), (unsigned __int64)v13, v11, v14);
     RtlReleaseSwapReference(v4, v6, v11);
-    v16 = (AutoBoost *)KeAbPreAcquire(a1 + 1400, 0LL, 0LL, v15);
+    v16 = (AutoBoost *)KeAbPreAcquire(a1 + 1472, 0LL, 0LL, v15);
     v18 = v16;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 1400), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 1400), v16, a1 + 1400);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 1472), 0LL) )
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 1472), v16, a1 + 1472);
     if ( v18 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )

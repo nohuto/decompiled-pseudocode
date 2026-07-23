@@ -1,11 +1,11 @@
 /*
- * XREFs of ViPtCaptureStackTrace @ 0x140BA7324
+ * XREFs of ViPtCaptureStackTrace @ 0x140BA9324
  * Callers:
- *     ViPtLogPoolTraceWrapper @ 0x140B82100 (ViPtLogPoolTraceWrapper.c)
+ *     ViPtLogPoolTraceWrapper @ 0x140B84104 (ViPtLogPoolTraceWrapper.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutEx @ 0x14027D770 (KeExpandKernelStackAndCalloutEx.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x14042B6E0 (RtlEnoughStackSpaceForStackCapture.c)
- *     ViPtCaptureStackTraceCallout @ 0x140BA7380 (ViPtCaptureStackTraceCallout.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140232D00 (KeExpandKernelStackAndCalloutEx.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x14041E270 (RtlEnoughStackSpaceForStackCapture.c)
+ *     ViPtCaptureStackTraceCallout @ 0x140BA9380 (ViPtCaptureStackTraceCallout.c)
  */
 
 void __fastcall ViPtCaptureStackTrace(PVOID Parameter)

@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpGetObjectSecurity @ 0x1408EF250
+ * XREFs of ObpGetObjectSecurity @ 0x1408F5810
  * Callers:
- *     PspCheckJobAccessState @ 0x140778CD8 (PspCheckJobAccessState.c)
- *     PspAllocateNotificationChannel @ 0x1407F7938 (PspAllocateNotificationChannel.c)
- *     ObpCheckObjectReference @ 0x1408EE834 (ObpCheckObjectReference.c)
- *     ObpInsertOrLocateNamedObject @ 0x1408EEAF0 (ObpInsertOrLocateNamedObject.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x14093B234 (EtwpCheckCurrentUserProcessAccess.c)
- *     ObpCheckTraverseAccess @ 0x14093C7C8 (ObpCheckTraverseAccess.c)
- *     MiAllowImageMap @ 0x140B1FE0C (MiAllowImageMap.c)
- *     PopBootStatAccessCheck @ 0x140B50828 (PopBootStatAccessCheck.c)
+ *     PspCheckJobAccessState @ 0x14077BB78 (PspCheckJobAccessState.c)
+ *     PspAllocateNotificationChannel @ 0x1407FD498 (PspAllocateNotificationChannel.c)
+ *     ObpCheckObjectReference @ 0x1408F4DF4 (ObpCheckObjectReference.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1408F50B0 (ObpInsertOrLocateNamedObject.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x140916DD4 (EtwpCheckCurrentUserProcessAccess.c)
+ *     ObpCheckTraverseAccess @ 0x140918368 (ObpCheckTraverseAccess.c)
+ *     MiAllowImageMap @ 0x140B2222C (MiAllowImageMap.c)
+ *     PopBootStatAccessCheck @ 0x140B530B8 (PopBootStatAccessCheck.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x140905024 (ObpReferenceSecurityDescriptorSlow.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140934FB4 (ObpReferenceSecurityDescriptorSlow.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpGetObjectSecurity(__int64 a1, PVOID *a2, _BYTE *a3)

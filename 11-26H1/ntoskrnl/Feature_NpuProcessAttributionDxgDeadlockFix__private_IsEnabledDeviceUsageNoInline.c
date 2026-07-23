@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x1404ACBEC
+ * XREFs of Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x1404A627C
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407DC800 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407E0A20 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledFallback @ 0x140532E78 (Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledFallback.c)
+ *     Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledFallback @ 0x140535314 (Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledDeviceUsageNoInline()

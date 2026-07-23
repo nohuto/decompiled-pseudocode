@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlMapSecurityErrorToNtStatus @ 0x1400B2D98
+ * XREFs of RtlMapSecurityErrorToNtStatus @ 0x1400B0CE4
  * Callers:
  *     <none>
  * Callees:

@@ -10,22 +10,22 @@
  *     PspCreateThread @ 0x140450CE0 (PspCreateThread.c)
  */
 
-__int64 __fastcall NtCreateThreadEx(
-        ULONG64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        int a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        _QWORD *a11)
+NTSTATUS __cdecl NtCreateThreadEx(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PUSER_THREAD_START_ROUTINE StartRoutine,
+        PVOID Argument,
+        ULONG CreateFlags,
+        SIZE_T ZeroBits,
+        SIZE_T StackSize,
+        SIZE_T MaximumStackSize,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
   unsigned __int64 v15; // rdx
-  __int64 result; // rax
-  unsigned int Thread; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS Thread; // ebx
   __int64 v18; // rdx
   __int64 v19; // r8
   __int64 v20; // r9
@@ -35,32 +35,32 @@ __int64 __fastcall NtCreateThreadEx(
 
   memset(v22, 0, sizeof(v22));
   memset(&v23[50], 0, 1232);
-  if ( (a7 & 0xFFFFFFE0) != 0 )
-    return 3221225717LL;
+  if ( (CreateFlags & 0xFFFFFFE0) != 0 )
+    return -1073741579;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    v21 = (_QWORD *)a1;
-    if ( a1 >= MmUserProbeAddress )
+    v21 = ThreadHandle;
+    if ( (unsigned __int64)ThreadHandle >= MmUserProbeAddress )
       v21 = (_QWORD *)MmUserProbeAddress;
     *v21 = *v21;
   }
   memset(v23, 0, 0x188uLL);
-  if ( !a11
+  if ( !AttributeList
     || (LOBYTE(v15) = KeGetCurrentThread()->PreviousMode,
-        result = PspBuildCreateProcessContext(a11, v15, 1u, (__int64)v23),
-        (int)result >= 0) )
+        result = PspBuildCreateProcessContext(AttributeList, v15, 1u, (__int64)v23),
+        result >= 0) )
   {
     v23[56] = 0x1F800010000BLL;
     v23[81] = PspUserThreadStart;
-    v23[66] = a5;
-    v23[67] = a6;
+    v23[66] = StartRoutine;
+    v23[67] = Argument;
     *(_DWORD *)((char *)&v23[57] + 2) = 2818091;
     *(_DWORD *)((char *)&v23[57] + 6) = 2818131;
     WORD1(v23[58]) = 43;
     LOWORD(v23[57]) = 51;
     LOWORD(v23[82]) = 639;
     LODWORD(v23[85]) = 8064;
-    Thread = PspCreateThread(a1, a2, a3, a4);
+    Thread = PspCreateThread(ThreadHandle, DesiredAccess, ObjectAttributes, ProcessHandle);
     PspDeleteCreateProcessContext(v23, v18, v19, v20, 0);
     return Thread;
   }

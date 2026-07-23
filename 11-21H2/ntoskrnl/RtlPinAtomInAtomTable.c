@@ -4,38 +4,38 @@
  *     <none>
  * Callees:
  *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     RtlpLookupLowBox @ 0x1402F349C (RtlpLookupLowBox.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
+ *     sub_1402F349C @ 0x1402F349C (sub_1402F349C.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1407A1A30 (RtlpAtomMapAtomToHandleEntry.c)
+ *     sub_1407A0EA0 @ 0x1407A0EA0 (sub_1407A0EA0.c)
+ *     sub_1407A1A30 @ 0x1407A1A30 (sub_1407A1A30.c)
  */
 
-__int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlPinAtomInAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
   int v4; // eax
   __int64 v5; // rax
   _QWORD *v6; // rax
-  unsigned int v8; // [rsp+20h] [rbp-28h]
+  NTSTATUS v8; // [rsp+20h] [rbp-28h]
 
-  if ( !(unsigned __int8)RtlpLockAtomTable() )
-    return 3221225485LL;
+  if ( !(unsigned __int8)sub_1407A0EA0() )
+    return -1073741811;
   v4 = -1073741816;
   v8 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v4 = 0;
     v8 = v4;
   }
   else
   {
-    v5 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
+    v5 = sub_1407A1A30(AtomTableHandle, Atom & 0x3FFF);
     if ( v5 )
     {
-      if ( *(_WORD *)(v5 + 10) == a2 )
+      if ( *(_WORD *)(v5 + 10) == Atom )
       {
-        v6 = RtlpLookupLowBox(a1, v5, 0);
+        v6 = sub_1402F349C((__int64)AtomTableHandle, v5, 0);
         if ( v6 )
         {
           v8 = 0;
@@ -44,9 +44,9 @@ __int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(a1 + 8);
-  KeAbPostRelease(a1 + 8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)AtomTableHandle + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((char *)AtomTableHandle + 8);
+  sub_1402AFC00((ULONG_PTR)AtomTableHandle + 8);
   KeLeaveCriticalRegion();
   return v8;
 }

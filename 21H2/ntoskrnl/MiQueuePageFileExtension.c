@@ -1,13 +1,13 @@
 /*
- * XREFs of MiQueuePageFileExtension @ 0x140543DFC
+ * XREFs of MiQueuePageFileExtension @ 0x14054403C
  * Callers:
- *     MiContractPagingFiles @ 0x140296C40 (MiContractPagingFiles.c)
- *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
- *     MiContractWsSwapPageFileWorker @ 0x14055C4B0 (MiContractWsSwapPageFileWorker.c)
+ *     MiContractPagingFiles @ 0x140273D28 (MiContractPagingFiles.c)
+ *     MiIssuePageExtendRequest @ 0x140543B84 (MiIssuePageExtendRequest.c)
+ *     MiContractWsSwapPageFileWorker @ 0x14055C6F0 (MiContractWsSwapPageFileWorker.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall MiQueuePageFileExtension(__int64 a1, char a2, KIRQL a3)
   _QWORD *v7; // rcx
   _QWORD *v8; // rdx
   _QWORD *v9; // rdx
-  _DWORD *SchedulerAssist; // r9
+  __int64 SchedulerAssist; // r9
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   int v13; // eax
@@ -62,15 +62,15 @@ LABEL_10:
       if ( CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
         v13 = ~(unsigned __int16)(-1LL << (v4 + 1));
-        v14 = (v13 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v13;
+        v14 = (v13 & *(_DWORD *)(SchedulerAssist + 20)) == 0;
+        *(_DWORD *)(SchedulerAssist + 20) &= v13;
         if ( v14 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }
   __writecr8(v4);
-  return KeReleaseSemaphoreEx(v3 + 1520, 0LL, 1LL, SchedulerAssist, a2);
+  return KeReleaseSemaphoreEx(v3 + 1520, 0, 1, SchedulerAssist, a2);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnCrossPartitionCombineCharges @ 0x14055D14C
+ * XREFs of MiReturnCrossPartitionCombineCharges @ 0x14055D38C
  * Callers:
- *     MiDecrementCombinedPte @ 0x140366EC4 (MiDecrementCombinedPte.c)
- *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
- *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
- *     MiIncrementCombinedPte @ 0x14055D044 (MiIncrementCombinedPte.c)
+ *     MiDecrementCombinedPte @ 0x140367074 (MiDecrementCombinedPte.c)
+ *     MiConvertStandbyToProto @ 0x140367128 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x14036A200 (MiConvertPrivateToProto.c)
+ *     MiIncrementCombinedPte @ 0x14055D284 (MiIncrementCombinedPte.c)
  * Callees:
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiReturnCrossPartitionCharges @ 0x140562B90 (MiReturnCrossPartitionCharges.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiReturnCrossPartitionCharges @ 0x140562DD0 (MiReturnCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiReturnCrossPartitionCombineCharges(__int64 a1, int a2)

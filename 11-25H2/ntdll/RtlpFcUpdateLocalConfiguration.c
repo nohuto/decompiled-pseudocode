@@ -19,34 +19,34 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpFcUpdateLocalConfiguration(__int64 a1, unsigned __int64 a2, char a3)
+__int64 __fastcall RtlpFcUpdateLocalConfiguration(PRTL_SRWLOCK SRWLock, unsigned __int64 a2, char a3)
 {
   __int64 v6; // r14
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   __int64 v8; // rdi
   int v9; // eax
-  char *v10; // rdi
+  PVOID *v10; // rdi
   __int64 v11; // rsi
   HANDLE *v12; // rdi
-  __int64 *v14; // rsi
+  PRTL_SRWLOCK v14; // rsi
   unsigned __int64 v15; // rcx
-  __int64 v16; // rtt
+  unsigned __int64 Value; // rtt
   unsigned int v17; // r9d
   __int64 v18; // r8
   __int64 v19; // r11
   int v20; // r9d
   _QWORD *v21; // r10
   unsigned int v22[4]; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v23; // [rsp+40h] [rbp-C0h] BYREF
+  __int128 InputBuffer; // [rsp+40h] [rbp-C0h] BYREF
   __int128 v24; // [rsp+50h] [rbp-B0h]
-  _QWORD v25[2]; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD SystemInformation[2]; // [rsp+60h] [rbp-A0h] BYREF
   char v26; // [rsp+70h] [rbp-90h] BYREF
   _BYTE v27[8]; // [rsp+D0h] [rbp-30h] BYREF
   char v28; // [rsp+D8h] [rbp-28h] BYREF
 
-  v23 = 0LL;
+  InputBuffer = 0LL;
   v24 = 0LL;
-  memset_thunk_772440563353939046(v25, 0, 0x68uLL);
+  memset_thunk_772440563353939046(SystemInformation, 0, 0x68uLL);
   memset_thunk_772440563353939046(v27, 0, 0x60uLL);
   v6 = 4LL;
   if ( byte_1801D4988 )
@@ -57,15 +57,15 @@ __int64 __fastcall RtlpFcUpdateLocalConfiguration(__int64 a1, unsigned __int64 a
   {
     if ( a3 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)a1);
+      RtlAcquireSRWLockExclusive(SRWLock);
     }
-    else if ( !RtlTryAcquireSRWLockExclusive((volatile signed __int32 *)a1) )
+    else if ( !RtlTryAcquireSRWLockExclusive(SRWLock) )
     {
       v7 = -1073741608;
       goto LABEL_9;
     }
-    v14 = (__int64 *)(a1 + 8);
-    if ( *(_QWORD *)(a1 + 8 + 8 * (*(_QWORD *)(a1 + 8) & 1LL) + 216) >= a2 )
+    v14 = SRWLock + 1;
+    if ( SRWLock[(SRWLock[1].Value & 1) + 28].Value >= a2 )
     {
       v7 = 0;
     }
@@ -75,15 +75,15 @@ __int64 __fastcall RtlpFcUpdateLocalConfiguration(__int64 a1, unsigned __int64 a
       while ( 1 )
       {
         _m_prefetchw(v14);
-        v15 = *v14 & 1 | ((*v14 & 0xFFFFFFFFFFFFFFFEuLL) + 2);
+        v15 = v14->Value & 1 | ((v14->Value & 0xFFFFFFFFFFFFFFFEuLL) + 2);
         if ( v15 < 2 )
           __fastfail(0xEu);
-        v16 = *v14;
-        if ( v16 == _InterlockedCompareExchange64(v14, v15, *v14) )
+        Value = v14->Value;
+        if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)v14, v15, v14->Value) )
           break;
         RtlBackoff(v22);
       }
-      v23 = 0LL;
+      InputBuffer = 0LL;
       v17 = 0;
       v24 = 0LL;
       do
@@ -93,36 +93,42 @@ __int64 __fastcall RtlpFcUpdateLocalConfiguration(__int64 a1, unsigned __int64 a
         *v21 = *(_QWORD *)(v19 + 24 * v18 + 24);
       }
       while ( v17 < 4 );
-      RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)(a1 + 8), v19 + 24);
-      v7 = NtQuerySystemInformationEx(211LL, &v23, 32LL, v25, 104, 0LL);
+      RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&SRWLock[1], v19 + 24);
+      v7 = NtQuerySystemInformationEx(
+             SystemFeatureConfigurationSectionInformation,
+             &InputBuffer,
+             0x20u,
+             SystemInformation,
+             0x68u,
+             0LL);
       if ( v7 >= 0 )
       {
         v8 = 0LL;
         while ( 1 )
         {
           v9 = RtlpFcSectionTypeToBufferType((unsigned int)v8);
-          v7 = RtlpFcMapSingleBuffer(&v25[3 * v8 + 1], &v27[24 * v9]);
+          v7 = RtlpFcMapSingleBuffer(&SystemInformation[3 * v8 + 1], &v27[24 * v9]);
           if ( v7 < 0 )
             break;
           v8 = (unsigned int)(v8 + 1);
           if ( (unsigned int)v8 >= 4 )
           {
-            RtlpFcBufferManagerUpdateBuffers(a1 + 8, v25[0], v27);
+            RtlpFcBufferManagerUpdateBuffers(&SRWLock[1], SystemInformation[0], v27);
             break;
           }
         }
       }
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+    RtlReleaseSRWLockExclusive(SRWLock);
   }
 LABEL_9:
-  v10 = &v28;
+  v10 = (PVOID *)&v28;
   v11 = 4LL;
   do
   {
-    if ( *(_QWORD *)v10 )
-      NtUnmapViewOfSection(-1LL);
-    v10 += 24;
+    if ( *v10 )
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v10);
+    v10 += 3;
     --v11;
   }
   while ( v11 );

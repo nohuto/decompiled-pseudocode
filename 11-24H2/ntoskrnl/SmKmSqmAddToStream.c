@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmSqmAddToStream @ 0x14060FB6C
+ * XREFs of SmKmSqmAddToStream @ 0x14060E12C
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x14060DB20 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x14060C0E0 (SmKmStoreTerminateWorker.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall SmKmSqmAddToStream(REGHANDLE RegHandle, __int64 a2, __int64 a3, _DWORD *a4)
@@ -34,7 +34,7 @@ NTSTATUS __fastcall SmKmSqmAddToStream(REGHANDLE RegHandle, __int64 a2, __int64 
   UserData.Ptr = (ULONGLONG)&v13;
   v4 = &v24;
   v14 = 6839;
-  v18 = &unk_140E0E8C0;
+  v18 = &unk_140E0E980;
   v13 = 11;
   v20 = &v14;
   v16 = 0;

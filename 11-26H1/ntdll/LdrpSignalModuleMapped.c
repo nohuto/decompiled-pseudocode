@@ -1,44 +1,43 @@
 /*
- * XREFs of LdrpSignalModuleMapped @ 0x18011B4BC
+ * XREFs of LdrpSignalModuleMapped @ 0x18011B26C
  * Callers:
- *     LdrpProcessMappedModule @ 0x18011A098 (LdrpProcessMappedModule.c)
+ *     LdrpProcessMappedModule @ 0x180119E48 (LdrpProcessMappedModule.c)
  * Callees:
- *     LdrpQueueWork @ 0x180067B50 (LdrpQueueWork.c)
+ *     LdrpQueueWork @ 0x180087FA0 (LdrpQueueWork.c)
  */
 
-struct _PEB *__fastcall LdrpSignalModuleMapped(__int64 a1)
+void __fastcall LdrpSignalModuleMapped(__int64 a1)
 {
-  struct _PEB *result; // rax
-  _QWORD *ProcessHeap; // rbx
+  __int64 v1; // rax
+  _QWORD *v2; // rbx
   _QWORD *v3; // rdi
   _DWORD *v4; // r8
   __int64 v5; // rcx
   int v6; // edx
+  int v7; // eax
 
-  result = *(struct _PEB **)(a1 + 152);
-  ProcessHeap = result->ProcessHeap;
-  if ( ProcessHeap )
+  v1 = *(_QWORD *)(a1 + 152);
+  v2 = *(_QWORD **)(v1 + 48);
+  if ( v2 )
   {
-    v3 = result->ProcessHeap;
+    v3 = *(_QWORD **)(v1 + 48);
     do
     {
       v3 = (_QWORD *)*v3;
       v4 = (_DWORD *)(v3[1] & 0xFFFFFFFFFFFFFFF8uLL);
-      result = *(struct _PEB **)v4;
       v5 = *(_QWORD *)(*(_QWORD *)v4 + 16LL);
       if ( v5 )
       {
         v6 = v4[14];
-        result = (struct _PEB *)(unsigned int)(*(_DWORD *)(v5 + 108) - 1);
-        *(_DWORD *)(v5 + 108) = (_DWORD)result;
-        if ( v6 != 5 && !(_DWORD)result )
+        v7 = *(_DWORD *)(v5 + 108) - 1;
+        *(_DWORD *)(v5 + 108) = v7;
+        if ( v6 != 5 && !v7 )
         {
           v4[14] = 4;
-          result = LdrpQueueWork(v5);
+          LdrpQueueWork(v5);
         }
       }
     }
-    while ( v3 != ProcessHeap );
+    while ( v3 != v2 );
   }
-  return result;
 }

@@ -24,16 +24,16 @@ __int64 __fastcall PopNetInitialize(int a1)
   _DWORD *v6; // rbx
   __int64 v7; // r8
   __int64 v8; // r8
-  int v9; // [rsp+20h] [rbp-28h]
-  int v10; // [rsp+20h] [rbp-28h]
-  int v11; // [rsp+30h] [rbp-18h]
-  int v12; // [rsp+30h] [rbp-18h]
-  char v13; // [rsp+50h] [rbp+8h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp+10h] BYREF
+  int ExplicitScope; // [rsp+20h] [rbp-28h]
+  int ExplicitScopea; // [rsp+20h] [rbp-28h]
+  LOGICAL CheckStamp; // [rsp+30h] [rbp-18h]
+  LOGICAL CheckStampa; // [rsp+30h] [rbp-18h]
+  char Buffer; // [rsp+50h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp+10h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)IdentifierAuthority.Value = 0;
-  v13 = 0;
+  Buffer = 0;
   if ( a1 )
   {
     if ( a1 == 3 )
@@ -49,7 +49,7 @@ __int64 __fastcall PopNetInitialize(int a1)
         if ( PopNetStandbyStateMask )
         {
 LABEL_10:
-          ZwUpdateWnfStateData((__int64)&WNF_PO_OPPORTUNISTIC_CS, (__int64)&v13);
+          ZwUpdateWnfStateData(&WNF_PO_OPPORTUNISTIC_CS, &Buffer, 1u, 0LL, 0LL, 0, 0);
           if ( PopPlatformAoAc && !PopEnforceDisconnectedStandby )
             ExSubscribeWnfStateChange(
               (__int64)&IdentifierAuthority,
@@ -91,23 +91,23 @@ LABEL_10:
     v6[5] = 378231328;
     v6[6] = -1590824699;
     v6[7] = 890457928;
-    PopNetBIServiceSid = (__int64)v6;
+    PopNetBIServiceSid = v6;
     PopInitializeIRTimer(
       (unsigned __int64)&PopNetEvaluationTimer,
       (__int64)PopNetEvaluationTimerCallback,
       v7,
       (__int64)PopNetEvaluationWorkerCallback,
-      v9,
+      ExplicitScope,
       0,
-      v11);
+      CheckStamp);
     PopInitializeIRTimer(
       (unsigned __int64)&PopNetRefreshTimer,
       (__int64)PopNetRefreshTimerCallback,
       v8,
       (__int64)PopNetRefreshTimerWorkerCallback,
-      v10,
+      ExplicitScopea,
       5,
-      v12);
+      CheckStampa);
   }
   return 0;
 }

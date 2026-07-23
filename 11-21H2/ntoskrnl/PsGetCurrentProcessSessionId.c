@@ -1,25 +1,25 @@
 /*
  * XREFs of PsGetCurrentProcessSessionId @ 0x140287F00
  * Callers:
- *     NtSetInformationObject @ 0x1406B9250 (NtSetInformationObject.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     PnpNotifyDriverCallback @ 0x14078D3DC (PnpNotifyDriverCallback.c)
- *     EtwpWriteUserEvent @ 0x1407B4D70 (EtwpWriteUserEvent.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
- *     PfpProcessScenarioPhase @ 0x14081BB14 (PfpProcessScenarioPhase.c)
+ *     sub_1406B9250 @ 0x1406B9250 (sub_1406B9250.c)
+ *     sub_14072B8B0 @ 0x14072B8B0 (sub_14072B8B0.c)
+ *     sub_14078D3DC @ 0x14078D3DC (sub_14078D3DC.c)
+ *     sub_1407B4D70 @ 0x1407B4D70 (sub_1407B4D70.c)
+ *     sub_1407CB6C0 @ 0x1407CB6C0 (sub_1407CB6C0.c)
+ *     sub_14081BB14 @ 0x14081BB14 (sub_14081BB14.c)
  *     IoGetContainerInformation @ 0x1409371A0 (IoGetContainerInformation.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
+ *     sub_140287F30 @ 0x140287F30 (sub_140287F30.c)
  */
 
 __int64 PsGetCurrentProcessSessionId()
 {
-  unsigned int SessionId; // ecx
+  unsigned int v0; // ecx
   __int64 result; // rax
 
-  SessionId = MmGetSessionIdEx(KeGetCurrentThread()->ApcState.Process);
+  v0 = sub_140287F30(*((_QWORD *)KeGetCurrentThread() + 23));
   result = 0LL;
-  if ( SessionId != -1 )
-    return SessionId;
+  if ( v0 != -1 )
+    return v0;
   return result;
 }

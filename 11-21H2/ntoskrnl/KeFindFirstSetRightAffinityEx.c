@@ -1,8 +1,8 @@
 /*
  * XREFs of KeFindFirstSetRightAffinityEx @ 0x14056C1B0
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x140308240 (KeResumeClockTimerFromIdle.c)
- *     PpmCheckContinueExecution @ 0x140343BA0 (PpmCheckContinueExecution.c)
+ *     sub_140308240 @ 0x140308240 (sub_140308240.c)
+ *     sub_140343BA0 @ 0x140343BA0 (sub_140343BA0.c)
  * Callees:
  *     <none>
  */
@@ -25,5 +25,5 @@ __int64 __fastcall KeFindFirstSetRightAffinityEx(_WORD *a1)
       return 0xFFFFFFFFLL;
   }
   _BitScanForward64(&v4, v2);
-  return (unsigned int)KiProcessorNumberToIndexMappingTable[(unsigned int)(v4 + (v1 << 6))];
+  return (unsigned int)dword_140D105E0[(unsigned int)(v4 + (v1 << 6))];
 }

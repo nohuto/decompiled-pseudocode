@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkHandleMachineCheckAbort @ 0x140C7C400
+ * XREFs of HalpBlkHandleMachineCheckAbort @ 0x140C82400
  * Callers:
- *     HalpBlkMachineCheckAbort @ 0x140C7DB80 (HalpBlkMachineCheckAbort.c)
+ *     HalpBlkMachineCheckAbort @ 0x140C83B80 (HalpBlkMachineCheckAbort.c)
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140C7C910 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140C82910 (HalpBlkFatalErrorHalt.c)
  */
 
 char __fastcall HalpBlkHandleMachineCheckAbort(__int64 a1)

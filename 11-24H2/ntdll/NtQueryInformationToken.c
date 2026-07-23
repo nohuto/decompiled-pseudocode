@@ -1,35 +1,40 @@
 /*
- * XREFs of NtQueryInformationToken @ 0x1801620B0
+ * XREFs of NtQueryInformationToken @ 0x180160470
  * Callers:
- *     RtlFormatCurrentUserKeyPath @ 0x1800389C0 (RtlFormatCurrentUserKeyPath.c)
- *     EtwpWriteToPrivateBuffers @ 0x18003B480 (EtwpWriteToPrivateBuffers.c)
- *     RtlCheckTokenCapability @ 0x18003BE90 (RtlCheckTokenCapability.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180080384 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1800B3330 (RtlpGetTokenNamedObjectPath.c)
- *     RtlpValidOwnerSubjectContext @ 0x1800C6760 (RtlpValidOwnerSubjectContext.c)
- *     RtlpValidLabelSubjectContext @ 0x1800C6DA4 (RtlpValidLabelSubjectContext.c)
- *     RtlpSetSecurityObject @ 0x1800C6F30 (RtlpSetSecurityObject.c)
- *     RtlpGetDefaultsSubjectContext @ 0x1800C8C40 (RtlpGetDefaultsSubjectContext.c)
- *     RtlpGetDefaultTrustSubjectContext @ 0x1800C90B0 (RtlpGetDefaultTrustSubjectContext.c)
- *     RtlpNewSecurityObject @ 0x1800C9280 (RtlpNewSecurityObject.c)
- *     RtlDefaultNpAcl @ 0x1800CD980 (RtlDefaultNpAcl.c)
- *     RtlGetAppContainerNamedObjectPath @ 0x1800CDDC0 (RtlGetAppContainerNamedObjectPath.c)
- *     WerEscalationLazyInit @ 0x1800E2D10 (WerEscalationLazyInit.c)
- *     RtlCheckSandboxedToken @ 0x18010D730 (RtlCheckSandboxedToken.c)
- *     RtlRemovePrivileges @ 0x18010EA30 (RtlRemovePrivileges.c)
- *     AVrfpAppendCurrentUserSid @ 0x18011040C (AVrfpAppendCurrentUserSid.c)
- *     RtlpIsAppContainer @ 0x180118224 (RtlpIsAppContainer.c)
- *     RtlNewInstanceSecurityObject @ 0x1801338F0 (RtlNewInstanceSecurityObject.c)
- *     RtlNewSecurityGrantedAccess @ 0x180133A40 (RtlNewSecurityGrantedAccess.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x180018C40 (RtlFormatCurrentUserKeyPath.c)
+ *     EtwpWriteToPrivateBuffers @ 0x18001B700 (EtwpWriteToPrivateBuffers.c)
+ *     RtlCheckTokenCapability @ 0x18001C110 (RtlCheckTokenCapability.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x18007FBD0 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpValidOwnerSubjectContext @ 0x1800BE320 (RtlpValidOwnerSubjectContext.c)
+ *     RtlpValidLabelSubjectContext @ 0x1800BE964 (RtlpValidLabelSubjectContext.c)
+ *     RtlpSetSecurityObject @ 0x1800BEAF0 (RtlpSetSecurityObject.c)
+ *     RtlpGetDefaultsSubjectContext @ 0x1800C0800 (RtlpGetDefaultsSubjectContext.c)
+ *     RtlpGetDefaultTrustSubjectContext @ 0x1800C0C70 (RtlpGetDefaultTrustSubjectContext.c)
+ *     RtlpNewSecurityObject @ 0x1800C0E40 (RtlpNewSecurityObject.c)
+ *     RtlDefaultNpAcl @ 0x1800C5540 (RtlDefaultNpAcl.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x1800C5980 (RtlGetAppContainerNamedObjectPath.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1800CBBD4 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     WerEscalationLazyInit @ 0x1800DE2E0 (WerEscalationLazyInit.c)
+ *     RtlCheckSandboxedToken @ 0x180108610 (RtlCheckSandboxedToken.c)
+ *     RtlRemovePrivileges @ 0x180109980 (RtlRemovePrivileges.c)
+ *     AVrfpAppendCurrentUserSid @ 0x18010B6CC (AVrfpAppendCurrentUserSid.c)
+ *     RtlpIsAppContainer @ 0x180113198 (RtlpIsAppContainer.c)
+ *     RtlNewInstanceSecurityObject @ 0x180131B20 (RtlNewInstanceSecurityObject.c)
+ *     RtlNewSecurityGrantedAccess @ 0x180131C70 (RtlNewSecurityGrantedAccess.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryInformationToken()
+NTSTATUS __cdecl NtQueryInformationToken(
+        HANDLE TokenHandle,
+        ULONG TokenInformationClass,
+        PVOID TokenInformation,
+        ULONG TokenInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 33LL;
+  result = 33;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

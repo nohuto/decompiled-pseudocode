@@ -1,15 +1,15 @@
 /*
- * XREFs of KeAllocateCalloutStackEx @ 0x140AFADB0
+ * XREFs of KeAllocateCalloutStackEx @ 0x140AB3C50
  * Callers:
- *     EtwpStackInitializeProcessor @ 0x1406C6A48 (EtwpStackInitializeProcessor.c)
- *     KeAllocateCalloutStack @ 0x1407BA270 (KeAllocateCalloutStack.c)
- *     EtwpReferenceStackLookasideList @ 0x140AFACE4 (EtwpReferenceStackLookasideList.c)
+ *     EtwpStackInitializeProcessor @ 0x1406CA748 (EtwpStackInitializeProcessor.c)
+ *     KeAllocateCalloutStack @ 0x1407BD2D0 (KeAllocateCalloutStack.c)
+ *     EtwpReferenceStackLookasideList @ 0x140AB3B84 (EtwpReferenceStackLookasideList.c)
  * Callees:
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     KeInitializeMutex @ 0x1404B26F0 (KeInitializeMutex.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     KeInitializeMutex @ 0x1404ABC00 (KeInitializeMutex.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 a3, _QWORD *a4)

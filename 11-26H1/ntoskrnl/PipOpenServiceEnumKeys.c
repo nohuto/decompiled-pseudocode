@@ -1,36 +1,36 @@
 /*
- * XREFs of PipOpenServiceEnumKeys @ 0x140A12308
+ * XREFs of PipOpenServiceEnumKeys @ 0x140A114F8
  * Callers:
- *     PipGetDriverKsrGuid @ 0x14079D3F0 (PipGetDriverKsrGuid.c)
- *     IopGetOriginalServiceName @ 0x14079EE74 (IopGetOriginalServiceName.c)
- *     PipApplyFunctionToServiceInstances @ 0x1407A3F78 (PipApplyFunctionToServiceInstances.c)
- *     PipServiceInstanceToDeviceInstance @ 0x1407A4188 (PipServiceInstanceToDeviceInstance.c)
- *     PiDevCfgMakeServiceBootStart @ 0x1407A9F80 (PiDevCfgMakeServiceBootStart.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140916458 (PipCallDriverAddDeviceQueryRoutine.c)
- *     PiGetServiceNameInfo @ 0x140A11DB4 (PiGetServiceNameInfo.c)
- *     IoOpenDriverRegistryKey @ 0x140A11EC0 (IoOpenDriverRegistryKey.c)
- *     PipHardwareConfigActivateService @ 0x140A2D208 (PipHardwareConfigActivateService.c)
- *     PiDevCfgVerifyService @ 0x140AD34A4 (PiDevCfgVerifyService.c)
- *     PiProcessDriverInstance @ 0x140AD5550 (PiProcessDriverInstance.c)
- *     PipDmgGetDriverDmarCompatLevel @ 0x140B24300 (PipDmgGetDriverDmarCompatLevel.c)
- *     PnpDriverLoadingFailed @ 0x140B4655C (PnpDriverLoadingFailed.c)
- *     PpDevCfgInit @ 0x140CC642C (PpDevCfgInit.c)
+ *     PipGetDriverKsrGuid @ 0x14079FF30 (PipGetDriverKsrGuid.c)
+ *     IopGetOriginalServiceName @ 0x1407A19B4 (IopGetOriginalServiceName.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407A6AB8 (PipApplyFunctionToServiceInstances.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1407A6CC8 (PipServiceInstanceToDeviceInstance.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x1407ACBF0 (PiDevCfgMakeServiceBootStart.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140970EC4 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PiGetServiceNameInfo @ 0x140A10FA4 (PiGetServiceNameInfo.c)
+ *     IoOpenDriverRegistryKey @ 0x140A110B0 (IoOpenDriverRegistryKey.c)
+ *     PipHardwareConfigActivateService @ 0x140A3F950 (PipHardwareConfigActivateService.c)
+ *     PiProcessDriverInstance @ 0x140AD2500 (PiProcessDriverInstance.c)
+ *     PiDevCfgVerifyService @ 0x140AEA7D8 (PiDevCfgVerifyService.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x140B267A0 (PipDmgGetDriverDmarCompatLevel.c)
+ *     PnpDriverLoadingFailed @ 0x140B4858C (PnpDriverLoadingFailed.c)
+ *     PpDevCfgInit @ 0x140CCC50C (PpDevCfgInit.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     IopCreateRegistryKeyEx @ 0x140AF90BC (IopCreateRegistryKeyEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x140AFB79C (IopCreateRegistryKeyEx.c)
  */
 
 int __fastcall PipOpenServiceEnumKeys(UNICODE_STRING *a1, ACCESS_MASK a2, HANDLE *a3, HANDLE *a4, char a5)
 {
   __int64 v6; // rcx
-  __int64 *v10; // rdx
+  _QWORD *v10; // rdx
   int result; // eax
   NTSTATUS v12; // eax
   NTSTATUS v13; // ebx
-  __int64 *v14; // rbx
-  __int64 **v15; // rax
+  _QWORD **v14; // rbx
+  _QWORD **v15; // rax
   HANDLE KeyHandle; // [rsp+38h] [rbp-21h] BYREF
   void *v17; // [rsp+40h] [rbp-19h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-11h] BYREF
@@ -41,10 +41,10 @@ int __fastcall PipOpenServiceEnumKeys(UNICODE_STRING *a1, ACCESS_MASK a2, HANDLE
   v6 = *(_QWORD *)&PiPnpRtlCtx;
   v17 = 0LL;
   v19 = 0LL;
-  v10 = *(__int64 **)(*(_QWORD *)&PiPnpRtlCtx + 144LL);
+  v10 = *(_QWORD **)(*(_QWORD *)&PiPnpRtlCtx + 144LL);
   if ( !v10 )
   {
-    v10 = *(__int64 **)(*(_QWORD *)&PiPnpRtlCtx + 88LL);
+    v10 = *(_QWORD **)(*(_QWORD *)&PiPnpRtlCtx + 88LL);
     *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 144LL) = v10;
   }
   result = PnpCtxGetCachedNodeBaseKey(v6, v10, 6, &v17);
@@ -62,11 +62,11 @@ int __fastcall PipOpenServiceEnumKeys(UNICODE_STRING *a1, ACCESS_MASK a2, HANDLE
       v14 = 0LL;
       while ( 1 )
       {
-        v15 = (__int64 **)(*(_QWORD *)&PiPnpRtlCtx + 8LL);
+        v15 = (_QWORD **)(*(_QWORD *)&PiPnpRtlCtx + 8LL);
         if ( v14 )
-          v15 = (__int64 **)v14;
-        v14 = *v15;
-        if ( *v15 == (__int64 *)(*(_QWORD *)&PiPnpRtlCtx + 8LL) || !v14 )
+          v15 = v14;
+        v14 = (_QWORD **)*v15;
+        if ( *v15 == (_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 8LL) || !v14 )
           return -1073741772;
         result = PnpCtxGetCachedNodeBaseKey(*(__int64 *)&PiPnpRtlCtx, *v15, 6, &v17);
         if ( result < 0 )

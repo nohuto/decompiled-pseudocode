@@ -6,38 +6,41 @@
  *     RtlCompareUnicodeStrings @ 0x18002F010 (RtlCompareUnicodeStrings.c)
  */
 
-unsigned __int16 *__fastcall RtlFindUnicodeSubstring(__int16 *a1, unsigned __int16 *a2, char a3)
+PWCHAR __cdecl RtlFindUnicodeSubstring(
+        PUNICODE_STRING FullString,
+        PUNICODE_STRING SearchString,
+        BOOLEAN CaseInSensitive)
 {
-  unsigned __int16 v3; // ax
-  __int64 v4; // rbx
-  unsigned __int16 *v6; // rdi
+  unsigned __int16 Length; // ax
+  WCHAR *v4; // rbx
+  unsigned __int16 *Buffer; // rdi
   unsigned __int64 v7; // rbp
   __int64 v8; // r14
   __int64 v9; // rsi
-  __int64 v10; // r13
-  unsigned __int64 v11; // r15
+  unsigned __int16 *v10; // r13
+  SIZE_T v11; // r15
 
-  v3 = *a1;
+  Length = FullString->Length;
   v4 = 0LL;
-  v6 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  if ( (unsigned __int16)*a1 >= *a2 )
+  Buffer = FullString->Buffer;
+  if ( FullString->Length >= SearchString->Length )
   {
-    v7 = *a2;
-    v8 = v3;
-    if ( v3 >= v7 )
+    v7 = SearchString->Length;
+    v8 = Length;
+    if ( Length >= v7 )
     {
       v9 = 0LL;
-      v10 = *((_QWORD *)a2 + 1);
-      v11 = (unsigned __int64)*a2 >> 1;
-      while ( (unsigned int)RtlCompareUnicodeStrings(v6, v11, v10, v11, a3) )
+      v10 = SearchString->Buffer;
+      v11 = (unsigned __int64)SearchString->Length >> 1;
+      while ( RtlCompareUnicodeStrings(Buffer, v11, v10, v11, CaseInSensitive) )
       {
         v9 += 2LL;
-        ++v6;
+        ++Buffer;
         if ( v8 - v9 < v7 )
-          return (unsigned __int16 *)v4;
+          return v4;
       }
-      return v6;
+      return Buffer;
     }
   }
-  return (unsigned __int16 *)v4;
+  return v4;
 }

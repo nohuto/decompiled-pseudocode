@@ -2,35 +2,35 @@
  * XREFs of RtlGUIDFromString @ 0x18006AF80
  * Callers:
  *     RtlQueryPackageClaims @ 0x18006AAE0 (RtlQueryPackageClaims.c)
- *     RtlRaiseCustomSystemEventTrigger @ 0x1801022B0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x180102270 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
  *     ScanHexFormat @ 0x18006B170 (ScanHexFormat.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlGUIDFromString(unsigned __int16 *a1, __int64 a2)
+NTSTATUS __cdecl RtlGUIDFromString(PUNICODE_STRING GuidString, PGUID Guid)
 {
-  __int64 v2; // r8
-  __int64 v4; // rax
-  unsigned int v5; // edx
-  __int64 v6; // rcx
+  unsigned __int16 *p_Data2; // r8
+  unsigned __int16 *p_Data3; // rax
+  unsigned int Length; // edx
+  wchar_t *Buffer; // rcx
   unsigned int v7; // ecx
-  _BYTE *v8; // rdx
-  __int128 *v9; // r8
+  unsigned __int8 *Data4; // rdx
+  unsigned __int8 *v9; // r8
   __int128 v11; // [rsp+70h] [rbp-28h] BYREF
 
-  v2 = a2 + 4;
-  v4 = a2 + 6;
-  v5 = *a1;
-  v6 = *((_QWORD *)a1 + 1);
+  p_Data2 = &Guid->Data2;
+  p_Data3 = &Guid->Data3;
+  Length = GuidString->Length;
+  Buffer = GuidString->Buffer;
   v11 = 0LL;
   if ( (unsigned int)ScanHexFormat(
-                       v6,
-                       v5 >> 1,
+                       Buffer,
+                       Length >> 1,
                        L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-                       a2,
-                       v2,
-                       v4,
+                       Guid,
+                       p_Data2,
+                       p_Data3,
                        &v11,
                        (char *)&v11 + 2,
                        (char *)&v11 + 4,
@@ -39,17 +39,17 @@ __int64 __fastcall RtlGUIDFromString(unsigned __int16 *a1, __int64 a2)
                        (char *)&v11 + 10,
                        (char *)&v11 + 12,
                        (char *)&v11 + 14) == -1 )
-    return 3221225485LL;
+    return -1073741811;
   v7 = 0;
-  v8 = (_BYTE *)(a2 + 8);
-  v9 = &v11;
+  Data4 = Guid->Data4;
+  v9 = (unsigned __int8 *)&v11;
   do
   {
     ++v7;
-    *v8 = *(_BYTE *)v9;
-    v9 = (__int128 *)((char *)v9 + 2);
-    ++v8;
+    *Data4 = *v9;
+    v9 += 2;
+    ++Data4;
   }
   while ( v7 < 8 );
-  return 0LL;
+  return 0;
 }

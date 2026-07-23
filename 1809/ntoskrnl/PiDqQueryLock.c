@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDqQueryLock @ 0x14082B1D8
+ * XREFs of PiDqQueryLock @ 0x14082C3D8
  * Callers:
- *     PiDqIrpCancel @ 0x140288EB0 (PiDqIrpCancel.c)
+ *     PiDqIrpCancel @ 0x1402890A0 (PiDqIrpCancel.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

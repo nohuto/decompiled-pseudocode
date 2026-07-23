@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwRevertContainerImpersonation @ 0x1801620B0
+ * XREFs of ZwRevertContainerImpersonation @ 0x180161FB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwRevertContainerImpersonation()
+NTSTATUS ZwRevertContainerImpersonation(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 396LL;
+  result = 396;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

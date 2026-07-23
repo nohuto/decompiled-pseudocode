@@ -7,13 +7,13 @@
  *     sub_1800EFE7C @ 0x1800EFE7C (sub_1800EFE7C.c)
  */
 
-_QWORD *__fastcall RtlGetElementGenericTableAvl(__int64 a1, unsigned int a2)
+PVOID __cdecl RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
 {
-  unsigned int v2; // r9d
-  unsigned int v3; // edx
-  __int64 v4; // r10
-  unsigned int v5; // r8d
-  _QWORD *v6; // rcx
+  ULONG v2; // r9d
+  ULONG WhichOrderedElement; // edx
+  PRTL_AVL_TABLE v4; // r10
+  ULONG NumberGenericTableElements; // r8d
+  _QWORD *OrderedPointer; // rcx
   _QWORD *i; // rax
   int v9; // edx
   _QWORD *k; // rax
@@ -23,64 +23,64 @@ _QWORD *__fastcall RtlGetElementGenericTableAvl(__int64 a1, unsigned int a2)
   _QWORD *j; // rax
   int v15; // edx
 
-  v2 = a2;
-  v3 = *(_DWORD *)(a1 + 40);
-  v4 = a1;
+  v2 = I;
+  WhichOrderedElement = Table->WhichOrderedElement;
+  v4 = Table;
   if ( v2 == -1 )
     return 0LL;
-  v5 = *(_DWORD *)(a1 + 44);
-  if ( v2 + 1 > v5 )
+  NumberGenericTableElements = Table->NumberGenericTableElements;
+  if ( v2 + 1 > NumberGenericTableElements )
     return 0LL;
-  v6 = *(_QWORD **)(a1 + 32);
-  if ( !v6 )
+  OrderedPointer = Table->OrderedPointer;
+  if ( !OrderedPointer )
   {
-    v6 = *(_QWORD **)(v4 + 16);
-    for ( i = (_QWORD *)v6[1]; i; i = (_QWORD *)i[1] )
-      v6 = i;
-    v3 = 0;
-    *(_QWORD *)(v4 + 32) = v6;
-    *(_DWORD *)(v4 + 40) = 0;
+    OrderedPointer = &v4->BalancedRoot.RightChild->Parent;
+    for ( i = (_QWORD *)OrderedPointer[1]; i; i = (_QWORD *)i[1] )
+      OrderedPointer = i;
+    WhichOrderedElement = 0;
+    v4->OrderedPointer = OrderedPointer;
+    v4->WhichOrderedElement = 0;
   }
-  if ( v3 != v2 )
+  if ( WhichOrderedElement != v2 )
   {
-    if ( v3 <= v2 )
+    if ( WhichOrderedElement <= v2 )
     {
-      v12 = v5 - v2;
-      if ( v2 - v3 > v12 )
+      v12 = NumberGenericTableElements - v2;
+      if ( v2 - WhichOrderedElement > v12 )
       {
-        v6 = *(_QWORD **)(v4 + 16);
-        for ( j = (_QWORD *)v6[2]; j; j = (_QWORD *)j[2] )
-          v6 = j;
+        OrderedPointer = &v4->BalancedRoot.RightChild->Parent;
+        for ( j = (_QWORD *)OrderedPointer[2]; j; j = (_QWORD *)j[2] )
+          OrderedPointer = j;
         if ( v12 != 1 )
         {
           do
-            v6 = sub_1800674E0(v6);
+            OrderedPointer = sub_1800674E0(OrderedPointer);
           while ( v15 != 1 );
         }
       }
-      else if ( v2 != v3 )
+      else if ( v2 != WhichOrderedElement )
       {
         do
-          v6 = sub_1800EFE7C(v6);
+          OrderedPointer = sub_1800EFE7C(OrderedPointer);
         while ( v13 != 1 );
       }
     }
-    else if ( v2 < v3 >> 1 )
+    else if ( v2 < WhichOrderedElement >> 1 )
     {
-      v6 = *(_QWORD **)(v4 + 16);
-      for ( k = (_QWORD *)v6[1]; k; k = (_QWORD *)k[1] )
-        v6 = k;
+      OrderedPointer = &v4->BalancedRoot.RightChild->Parent;
+      for ( k = (_QWORD *)OrderedPointer[1]; k; k = (_QWORD *)k[1] )
+        OrderedPointer = k;
       for ( ; v2; v2 = v11 - 1 )
-        v6 = sub_1800EFE7C(v6);
+        OrderedPointer = sub_1800EFE7C(OrderedPointer);
     }
-    else if ( v3 != v2 )
+    else if ( WhichOrderedElement != v2 )
     {
       do
-        v6 = sub_1800674E0(v6);
+        OrderedPointer = sub_1800674E0(OrderedPointer);
       while ( v9 != 1 );
     }
-    *(_QWORD *)(v4 + 32) = v6;
-    *(_DWORD *)(v4 + 40) = v2;
+    v4->OrderedPointer = OrderedPointer;
+    v4->WhichOrderedElement = v2;
   }
-  return v6 + 4;
+  return OrderedPointer + 4;
 }

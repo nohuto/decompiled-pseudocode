@@ -23,7 +23,7 @@ __int64 __fastcall VmAccessFault(
   PSLIST_ENTRY v7; // rbx
   unsigned __int64 *v10; // rsi
   __int64 v11; // rdi
-  struct _SLIST_ENTRY *v12; // r15
+  _SLIST_ENTRY *v12; // r15
   int v13; // edx
   unsigned __int64 *v14; // rbp
   unsigned __int64 v15; // r14
@@ -45,7 +45,7 @@ __int64 __fastcall VmAccessFault(
   if ( (a4 & 0x38) == 0x20 )
     VmpPrefetchForVirtualFault(a1);
   v11 = 0LL;
-  v12 = (struct _SLIST_ENTRY *)&v24;
+  v12 = (_SLIST_ENTRY *)&v24;
   v13 = 16;
   v20 = 16;
   if ( a3 > 0x10 || v10[1] > 0x10 )
@@ -55,7 +55,7 @@ __int64 __fastcall VmAccessFault(
     if ( !v7 )
     {
       ++dword_140505198;
-      v7 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_1405051B0)(
+      v7 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _SLIST_HEADER *))qword_1405051B0)(
                            (unsigned int)dword_1405051A4,
                            (unsigned int)dword_1405051AC,
                            (unsigned int)dword_1405051A8,
@@ -129,7 +129,7 @@ LABEL_26:
     else
     {
       ++dword_1405051A0;
-      ((void (__fastcall *)(PSLIST_ENTRY, union _SLIST_HEADER *))qword_1405051B8)(v7, &VmpLargeFaultBatchLookasideList);
+      ((void (__fastcall *)(PSLIST_ENTRY, _SLIST_HEADER *))qword_1405051B8)(v7, &VmpLargeFaultBatchLookasideList);
     }
   }
   return (unsigned int)v18;

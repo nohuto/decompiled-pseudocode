@@ -1,20 +1,20 @@
 /*
- * XREFs of PspQueryRateControlHistory @ 0x14046917C
+ * XREFs of PspQueryRateControlHistory @ 0x14046804C
  * Callers:
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
- *     PspEnforceLimitsJobPreCallback @ 0x14046907C (PspEnforceLimitsJobPreCallback.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
+ *     PspEnforceLimitsJobPreCallback @ 0x140467F4C (PspEnforceLimitsJobPreCallback.c)
  * Callees:
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     KeQuerySchedulingGroupHistory @ 0x1400769A8 (KeQuerySchedulingGroupHistory.c)
- *     RtlCopyBitMap @ 0x140076A78 (RtlCopyBitMap.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PspJobIoRateQueryHistory @ 0x14020F8C0 (PspJobIoRateQueryHistory.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     KeQuerySchedulingGroupHistory @ 0x140076A28 (KeQuerySchedulingGroupHistory.c)
+ *     RtlCopyBitMap @ 0x140076AF8 (RtlCopyBitMap.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PspJobIoRateQueryHistory @ 0x14020F6EC (PspJobIoRateQueryHistory.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PspGetRateControlHeaderPtr @ 0x1404693C8 (PspGetRateControlHeaderPtr.c)
- *     PspNetRateControlDispatch @ 0x1406805D8 (PspNetRateControlDispatch.c)
+ *     PspGetRateControlHeaderPtr @ 0x140468298 (PspGetRateControlHeaderPtr.c)
+ *     PspNetRateControlDispatch @ 0x1406806BC (PspNetRateControlDispatch.c)
  */
 
 void __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *a4, int a5)
@@ -22,7 +22,7 @@ void __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *
   int v6; // edx
   char v8; // r15
   __int64 v9; // rdi
-  ULONG v10; // esi
+  unsigned int v10; // esi
   unsigned int v11; // ecx
   __int64 v12; // r12
   int v13; // ebx
@@ -36,14 +36,14 @@ void __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *
   __int64 v21; // rcx
   __int64 *v22; // rdx
   ULONG v23; // eax
-  ULONG NumberToClear; // [rsp+24h] [rbp-4Ch] BYREF
+  ULONG TargetBit; // [rsp+24h] [rbp-4Ch] BYREF
   unsigned int v26; // [rsp+28h] [rbp-48h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-40h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-40h] BYREF
   __int64 v28; // [rsp+40h] [rbp-30h] BYREF
   int v29; // [rsp+48h] [rbp-28h]
   __int64 v30; // [rsp+50h] [rbp-20h]
   unsigned int v31; // [rsp+58h] [rbp-18h]
-  ULONG v32; // [rsp+5Ch] [rbp-14h]
+  unsigned int v32; // [rsp+5Ch] [rbp-14h]
 
   *a4 = 0;
   v6 = a5;
@@ -58,14 +58,14 @@ void __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *
     {
       if ( v6 == 1 )
       {
-        if ( (int)PspJobIoRateQueryHistory(a1, &BitMapHeader, &v26, &NumberToClear) < 0 )
+        if ( (int)PspJobIoRateQueryHistory(a1, &BitMapHeader, &v26, &TargetBit) < 0 )
           return;
       }
       else
       {
-        KeQuerySchedulingGroupHistory(v9 + 128, &BitMapHeader, &v26, &NumberToClear);
+        KeQuerySchedulingGroupHistory(v9 + 128, &BitMapHeader, &v26, &TargetBit);
       }
-      v10 = NumberToClear;
+      v10 = TargetBit;
       v11 = v26;
       v12 = *(_QWORD *)&BitMapHeader.SizeOfBitMap;
     }
@@ -110,7 +110,7 @@ void __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *
       {
         if ( v10 )
         {
-          RtlCopyBitMap((unsigned int *)(v9 + 8), v9 + 8, v10);
+          RtlCopyBitMap((PRTL_BITMAP)(v9 + 8), (PRTL_BITMAP)(v9 + 8), v10);
           RtlClearBits((PRTL_BITMAP)(v9 + 8), 0, v10);
         }
       }

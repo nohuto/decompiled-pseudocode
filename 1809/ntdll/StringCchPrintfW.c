@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpAddInstanceIdToLogFileName @ 0x1800521A0 (EtwpAddInstanceIdToLogFileName.c)
  * Callees:
- *     _vsnwprintf @ 0x1800917E0 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1800917F0 (_vsnwprintf.c)
  */
 
 HRESULT StringCchPrintfW(STRSAFE_LPWSTR pszDest, size_t cchDest, STRSAFE_LPCWSTR pszFormat, ...)

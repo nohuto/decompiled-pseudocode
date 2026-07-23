@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsIsExcludedDevice @ 0x14087CBA4
+ * XREFs of PopDirectedDripsIsExcludedDevice @ 0x14087DE04
  * Callers:
- *     PopMarkDirectedDripsCandidateDevice @ 0x14087CDE4 (PopMarkDirectedDripsCandidateDevice.c)
+ *     PopMarkDirectedDripsCandidateDevice @ 0x14087E044 (PopMarkDirectedDripsCandidateDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     IoGetDevicePropertyData @ 0x140587930 (IoGetDevicePropertyData.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
  */
 
 NTSTATUS __fastcall PopDirectedDripsIsExcludedDevice(__int64 a1, char *a2, _BYTE *a3)

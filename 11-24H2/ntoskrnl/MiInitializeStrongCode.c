@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeStrongCode @ 0x140BDE444
+ * XREFs of MiInitializeStrongCode @ 0x140BE0444
  * Callers:
- *     MmInitSystem @ 0x140BDE2E8 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140BE02E8 (MmInitSystem.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14027BE44 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402313D4 (VslGetNestedPageProtectionFlags.c)
  */
 
 __int64 MiInitializeStrongCode()
@@ -12,7 +12,7 @@ __int64 MiInitializeStrongCode()
   __int64 v1; // rcx
   __int64 v2; // rdx
 
-  result = VslGetNestedPageProtectionFlags(qword_140E38BC8);
+  result = VslGetNestedPageProtectionFlags(qword_140E38D08);
   if ( !(_DWORD)result )
     return result;
   v1 = MiFlags | 0x1000;

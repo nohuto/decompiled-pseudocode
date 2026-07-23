@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExIsResourceAcquiredSharedLite @ 0x140930DA0
+ * XREFs of VerifierExIsResourceAcquiredSharedLite @ 0x140931DA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExIsResourceAcquiredSharedLite()

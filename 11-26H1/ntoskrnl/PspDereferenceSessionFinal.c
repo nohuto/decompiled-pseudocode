@@ -1,16 +1,16 @@
 /*
- * XREFs of PspDereferenceSessionFinal @ 0x140B4AB84
+ * XREFs of PspDereferenceSessionFinal @ 0x140B4C914
  * Callers:
- *     PsDereferenceSession @ 0x140AF14D0 (PsDereferenceSession.c)
+ *     PsDereferenceSession @ 0x140AF4110 (PsDereferenceSession.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PspMarkSessionDeletePending @ 0x14077A3B8 (PspMarkSessionDeletePending.c)
- *     PspSessionUnlinkProcess @ 0x1407FF424 (PspSessionUnlinkProcess.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ExpWnfDeleteScopeById @ 0x140A41D9C (ExpWnfDeleteScopeById.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspMarkSessionDeletePending @ 0x14077D2E8 (PspMarkSessionDeletePending.c)
+ *     PspSessionUnlinkProcess @ 0x140804E54 (PspSessionUnlinkProcess.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ExpWnfDeleteScopeById @ 0x1409FD74C (ExpWnfDeleteScopeById.c)
  */
 
 void PspDereferenceSessionFinal()

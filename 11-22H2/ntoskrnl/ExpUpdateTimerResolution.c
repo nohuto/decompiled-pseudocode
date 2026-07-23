@@ -28,7 +28,7 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
   int v17; // eax
-  unsigned int v18; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v18; // [rsp+38h] [rbp+10h] BYREF
 
   v18 = a2;
   if ( a3 )
@@ -47,10 +47,10 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
     {
 LABEL_16:
       KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -71,7 +71,7 @@ LABEL_16:
     v18 = KeMaximumIncrement;
     if ( ExpKernelResolutionCount )
     {
-      if ( ExpKernelRequestedTimerResolution < (unsigned int)KeMaximumIncrement )
+      if ( ExpKernelRequestedTimerResolution < KeMaximumIncrement )
         a2 = ExpKernelRequestedTimerResolution;
       v18 = a2;
     }
@@ -93,10 +93,10 @@ LABEL_16:
   v8 = KePseudoHrTimeIncrement;
   ExpLastRequestedTime = a2;
   KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v5 <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v5 <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;

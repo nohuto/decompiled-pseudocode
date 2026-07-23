@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetCacheInformationIntel @ 0x1405721B4
+ * XREFs of KiSetCacheInformationIntel @ 0x1405731B4
  * Callers:
- *     KiSetCacheInformation @ 0x1405720C4 (KiSetCacheInformation.c)
+ *     KiSetCacheInformation @ 0x1405730C4 (KiSetCacheInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiSetStandardizedCacheInformation @ 0x140572210 (KiSetStandardizedCacheInformation.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiSetStandardizedCacheInformation @ 0x140573210 (KiSetStandardizedCacheInformation.c)
  */
 
 __int64 KiSetCacheInformationIntel()

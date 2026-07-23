@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwClearEvent @ 0x1401B8950
+ * XREFs of ZwClearEvent @ 0x1401B8AB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwClearEvent(HANDLE EventHandle)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, v1, v2);
+  return KiServiceInternal(EventHandle);
 }

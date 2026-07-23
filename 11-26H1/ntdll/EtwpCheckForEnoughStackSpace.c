@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCheckForEnoughStackSpace @ 0x180010414
+ * XREFs of EtwpCheckForEnoughStackSpace @ 0x18005BB44
  * Callers:
- *     EtwpWriteToPrivateBuffers @ 0x18000F710 (EtwpWriteToPrivateBuffers.c)
+ *     EtwpWriteToPrivateBuffers @ 0x18005AE40 (EtwpWriteToPrivateBuffers.c)
  * Callees:
- *     RtlResetStackOverflow @ 0x18013AFA8 (RtlResetStackOverflow.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlResetStackOverflow @ 0x18013AD18 (RtlResetStackOverflow.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 char EtwpCheckForEnoughStackSpace()

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlinkNodeLargePageHelper @ 0x14008AA80
+ * XREFs of MiUnlinkNodeLargePageHelper @ 0x14008A180
  * Callers:
- *     MiTryUnlinkNodeLargePage @ 0x14008A2E0 (MiTryUnlinkNodeLargePage.c)
- *     MiUnlinkNodeLargePage @ 0x14008A830 (MiUnlinkNodeLargePage.c)
- *     MiCoalesceFreeLargePages @ 0x1401FCC90 (MiCoalesceFreeLargePages.c)
+ *     MiTryUnlinkNodeLargePage @ 0x1400899E0 (MiTryUnlinkNodeLargePage.c)
+ *     MiUnlinkNodeLargePage @ 0x140089F30 (MiUnlinkNodeLargePage.c)
+ *     MiCoalesceFreeLargePages @ 0x1401FCABC (MiCoalesceFreeLargePages.c)
  * Callees:
- *     MiDecreaseAvailablePages @ 0x14008AD20 (MiDecreaseAvailablePages.c)
- *     MiPageListCollision @ 0x14008B178 (MiPageListCollision.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiWakeLargePageRebuild @ 0x1401FDF24 (MiWakeLargePageRebuild.c)
+ *     MiDecreaseAvailablePages @ 0x14008A420 (MiDecreaseAvailablePages.c)
+ *     MiPageListCollision @ 0x14008A878 (MiPageListCollision.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiWakeLargePageRebuild @ 0x1401FDD50 (MiWakeLargePageRebuild.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -44,7 +44,7 @@ __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned 
   if ( v8 == 1023 )
     v9 = MiSystemPartition;
   else
-    v9 = *(int **)(qword_140326FF8 + 8LL * v8);
+    v9 = *(int **)(qword_140327038 + 8LL * v8);
   v10 = *(_BYTE *)(a2 + 34) & 7;
   v11 = (__int64)a1 - *((_QWORD *)v9 + 6);
   *(_QWORD *)(a2 + 8) = 0LL;
@@ -61,11 +61,11 @@ __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned 
   else
     _InterlockedExchangeAdd64((volatile signed __int64 *)v9 + 224, v17);
   v18 = MiDecreaseAvailablePages(v9, v15, -1LL, 0LL);
-  if ( dword_140327060 == 1 )
+  if ( dword_1403270A0 == 1 )
   {
     v19 = ((a2 + 0x58000000000LL) / 48) & 0x1F;
     v20 = v15;
-    v21 = (volatile signed __int32 *)(qword_140327080 + 4 * (v12 >> 5));
+    v21 = (volatile signed __int32 *)stru_1403270B8.Buffer + (v12 >> 5);
     if ( (unsigned __int64)(v19 + v15) <= 0x20 )
     {
       if ( v15 == 32 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogVolumeCreate @ 0x1406B25A4
+ * XREFs of PfSnLogVolumeCreate @ 0x1406115E4
  * Callers:
- *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x140328350 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     PfSnLogHelper @ 0x1406CC79C (PfSnLogHelper.c)
- *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     PfSnLogHelper @ 0x14067B08C (PfSnLogHelper.c)
+ *     RtlUpcaseUnicodeString @ 0x14067B110 (RtlUpcaseUnicodeString.c)
  */
 
 __int64 __fastcall PfSnLogVolumeCreate(__int64 *a1)
@@ -57,7 +57,7 @@ __int64 __fastcall PfSnLogVolumeCreate(__int64 *a1)
     *(_WORD *)(v8 + 42) = v5;
     RtlUpcaseUnicodeString(&DestinationString, &SourceString, 0);
     *(_WORD *)(v8 + 2LL * *((unsigned __int16 *)a1 + 15) + 56) = 0;
-    ExReleaseRundownProtection_0(v6 + 45);
+    ExReleaseRundownProtection(v6 + 45);
   }
   else
   {

@@ -1,15 +1,15 @@
 /*
- * XREFs of OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403C3480
+ * XREFs of OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403B2040
  * Callers:
- *     ObpDereferenceNamedObject @ 0x1403C1AC8 (ObpDereferenceNamedObject.c)
- *     ExpSetTimerObject2 @ 0x1403C1E18 (ExpSetTimerObject2.c)
- *     NtSignalAndWaitForSingleObject @ 0x1403C29A0 (NtSignalAndWaitForSingleObject.c)
- *     IopUnloadSafeCompletion @ 0x1403C2E70 (IopUnloadSafeCompletion.c)
- *     IopDeleteFileObjectExtension @ 0x1403C3010 (IopDeleteFileObjectExtension.c)
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObHandleRevocationBlockAddObject @ 0x1409AAE30 (ObHandleRevocationBlockAddObject.c)
- *     ObpProcessRemoveObjectQueue @ 0x1409D2630 (ObpProcessRemoveObjectQueue.c)
+ *     ObpDereferenceNamedObject @ 0x1403B0688 (ObpDereferenceNamedObject.c)
+ *     ExpSetTimerObject2 @ 0x1403B09D8 (ExpSetTimerObject2.c)
+ *     NtSignalAndWaitForSingleObject @ 0x1403B1560 (NtSignalAndWaitForSingleObject.c)
+ *     IopUnloadSafeCompletion @ 0x1403B1A30 (IopUnloadSafeCompletion.c)
+ *     IopDeleteFileObjectExtension @ 0x1403B1BD0 (IopDeleteFileObjectExtension.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObHandleRevocationBlockAddObject @ 0x140994660 (ObHandleRevocationBlockAddObject.c)
+ *     ObpProcessRemoveObjectQueue @ 0x1409C2460 (ObpProcessRemoveObjectQueue.c)
  * Callees:
  *     <none>
  */

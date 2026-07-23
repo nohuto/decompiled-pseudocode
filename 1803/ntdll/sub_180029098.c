@@ -8,7 +8,7 @@
 
 __int64 __fastcall sub_180029098(
         char a1,
-        __int64 a2,
+        _ACTIVATION_CONTEXT *a2,
         __int64 a3,
         __int64 a4,
         __int64 a5,

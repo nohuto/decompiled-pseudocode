@@ -25,7 +25,7 @@ char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, _QWORD *a2, _QWORD *a3)
   v16 = 0;
   v13 = 520;
   v15 = 0LL;
-  Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
   v7 = Heap;
   if ( Heap )
   {

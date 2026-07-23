@@ -1,15 +1,15 @@
 /*
- * XREFs of IoNotifyQuotaState @ 0x140496A30
+ * XREFs of IoNotifyQuotaState @ 0x1404913C0
  * Callers:
  *     <none>
  * Callees:
- *     IopFindDiskIoAttribution @ 0x140244E70 (IopFindDiskIoAttribution.c)
- *     IoDiskIoAttributionDereference @ 0x140245180 (IoDiskIoAttributionDereference.c)
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     PsIoRateControlOverQuotaNotify @ 0x140496AFC (PsIoRateControlOverQuotaNotify.c)
+ *     IopFindDiskIoAttribution @ 0x14020D650 (IopFindDiskIoAttribution.c)
+ *     IoDiskIoAttributionDereference @ 0x14020D960 (IoDiskIoAttributionDereference.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     PsIoRateControlOverQuotaNotify @ 0x14049148C (PsIoRateControlOverQuotaNotify.c)
  */
 
 __int64 __fastcall IoNotifyQuotaState(unsigned __int64 a1, int a2, int a3, int a4, int a5)
@@ -24,7 +24,7 @@ __int64 __fastcall IoNotifyQuotaState(unsigned __int64 a1, int a2, int a3, int a
   v10 = DiskIoAttribution;
   if ( DiskIoAttribution )
   {
-    if ( ExAcquireRundownProtection(DiskIoAttribution + 21) )
+    if ( ExAcquireRundownProtection_0(DiskIoAttribution + 21) )
     {
       Ptr = v10[20].Ptr;
       if ( ObReferenceObjectSafeWithTag((__int64)Ptr, 0x746C6644u) )

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsBranchConfusionPresent @ 0x1405F21C4
+ * XREFs of KiIsBranchConfusionPresent @ 0x1405F4B84
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x1405F1AD8 (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsSrsoMitigationDesired @ 0x1405F2318 (KiIsSrsoMitigationDesired.c)
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1405F4498 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsSrsoMitigationDesired @ 0x1405F4CD8 (KiIsSrsoMitigationDesired.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1404E63D0 (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
  */
 
 __int64 __fastcall KiIsBranchConfusionPresent(__int64 a1)

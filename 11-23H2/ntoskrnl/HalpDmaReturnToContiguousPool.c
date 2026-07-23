@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaReturnToContiguousPool @ 0x14045C90C
+ * XREFs of HalpDmaReturnToContiguousPool @ 0x14045CD0C
  * Callers:
- *     HalpDmaReturnPageToOwner @ 0x14045C896 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaReturnPageToSource @ 0x1405114D4 (HalpDmaReturnPageToSource.c)
+ *     HalpDmaReturnPageToOwner @ 0x14045CC96 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaReturnPageToSource @ 0x140511A24 (HalpDmaReturnPageToSource.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     HalpDmaTranslationEntryToIndex @ 0x14039C62C (HalpDmaTranslationEntryToIndex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaTranslationEntryToIndex @ 0x14039C80C (HalpDmaTranslationEntryToIndex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall HalpDmaReturnToContiguousPool(__int64 a1, unsigned __int64 a2, char a3)
@@ -37,10 +37,10 @@ void __fastcall HalpDmaReturnToContiguousPool(__int64 a1, unsigned __int64 a2, c
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v8 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && LockHandle.OldIrql <= 0xFu && v8 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && LockHandle.OldIrql <= 0xFu && v8 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -48,7 +48,7 @@ void __fastcall HalpDmaReturnToContiguousPool(__int64 a1, unsigned __int64 a2, c
         v12 = (v11 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v11;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);

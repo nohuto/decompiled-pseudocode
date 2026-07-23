@@ -1,25 +1,25 @@
 /*
- * XREFs of PfpQueryFileExtentsRequest @ 0x140745C48
+ * XREFs of PfpQueryFileExtentsRequest @ 0x140743F38
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140933148 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x1408F5C60 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwFsControlFile @ 0x1406A6B30 (ZwFsControlFile.c)
- *     ZwQueryVolumeInformationFile @ 0x1406A6D30 (ZwQueryVolumeInformationFile.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     PfpPrefetchSharedStart @ 0x1409527B4 (PfpPrefetchSharedStart.c)
- *     PfpPrefetchSharedInitialize @ 0x1409528C0 (PfpPrefetchSharedInitialize.c)
- *     PfpPrefetchSharedDeref @ 0x140952908 (PfpPrefetchSharedDeref.c)
- *     PfpPrefetchSharedCleanup @ 0x140952940 (PfpPrefetchSharedCleanup.c)
- *     PfpOpenHandleClose @ 0x14096B934 (PfpOpenHandleClose.c)
- *     PfpOpenHandleCreate @ 0x14096B99C (PfpOpenHandleCreate.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwFsControlFile @ 0x1406A7AD0 (ZwFsControlFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1406A7CD0 (ZwQueryVolumeInformationFile.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     PfpPrefetchSharedStart @ 0x140936164 (PfpPrefetchSharedStart.c)
+ *     PfpPrefetchSharedInitialize @ 0x140936270 (PfpPrefetchSharedInitialize.c)
+ *     PfpPrefetchSharedDeref @ 0x1409362B8 (PfpPrefetchSharedDeref.c)
+ *     PfpPrefetchSharedCleanup @ 0x1409362F0 (PfpPrefetchSharedCleanup.c)
+ *     PfpOpenHandleClose @ 0x140954390 (PfpOpenHandleClose.c)
+ *     PfpOpenHandleCreate @ 0x1409543F8 (PfpOpenHandleCreate.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpQueryFileExtentsRequest(__int64 a1, char a2, _DWORD *a3)
@@ -106,7 +106,7 @@ LABEL_2:
   v12 = _mm_cvtsi128_si32(v11);
   if ( (v12 & 1) != 0 || v12 - 1 > 0xFFFFF || (v11.m128i_i8[4] & 1) != 0 || !v11.m128i_i32[1] || v11.m128i_i32[1] >= v12 )
     goto LABEL_58;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v12, 0x70436650u);
   if ( !Pool2 )
   {
 LABEL_13:
@@ -140,7 +140,7 @@ LABEL_58:
     inited = -1073741811;
     goto LABEL_59;
   }
-  v17 = ExAllocatePool2(0x40uLL);
+  v17 = ExAllocatePool2(0x40uLL, 0x90uLL, 0x43536650u);
   v7 = v17;
   if ( !v17 )
     goto LABEL_13;
@@ -203,7 +203,7 @@ LABEL_58:
                   goto LABEL_2;
                 if ( v6 )
                   ExFreePoolWithTag(v6, 0);
-                OutputBuffer = (_DWORD *)ExAllocatePool2(0x100uLL);
+                OutputBuffer = (_DWORD *)ExAllocatePool2(0x100uLL, OutputBufferLength, 0x65466650u);
                 v6 = OutputBuffer;
                 if ( !OutputBuffer )
                   goto LABEL_13;

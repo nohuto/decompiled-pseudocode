@@ -1,10 +1,10 @@
 /*
- * XREFs of FindNodeOrParent @ 0x1800BDDB0
+ * XREFs of FindNodeOrParent @ 0x1800BB810
  * Callers:
- *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x1800BDD10 (RtlLookupFirstMatchingElementGenericTableAvl.c)
- *     RtlEnumerateGenericTableLikeADirectory @ 0x180146A70 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x1800BB770 (RtlLookupFirstMatchingElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x180146920 (RtlEnumerateGenericTableLikeADirectory.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall FindNodeOrParent(__int64 a1, __int64 a2, _QWORD *a3)

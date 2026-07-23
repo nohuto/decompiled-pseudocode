@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDripsHistogram @ 0x140571838
+ * XREFs of PopDiagTraceDripsHistogram @ 0x140571A78
  * Callers:
- *     PpmSnapDripsAccountingSnapshot @ 0x140567940 (PpmSnapDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x140567B80 (PpmSnapDripsAccountingSnapshot.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
@@ -123,7 +123,7 @@ char __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, __in
           v48 = 1LL;
           LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer(
                          (__int64)&dword_140C02228,
-                         (unsigned __int8 *)&word_14002865E,
+                         (unsigned __int8 *)&dword_140028874,
                          0LL,
                          0LL,
                          9u,

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiControlGetDeviceDepth @ 0x1407D5AF0
+ * XREFs of PiControlGetDeviceDepth @ 0x1407D5DC0
  * Callers:
  *     <none>
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC6C (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406D41F0 (PiControlMakeUserModeCallersCopy.c)
- *     PiGetDeviceDepth @ 0x1407D5B90 (PiGetDeviceDepth.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14022BD7C (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406D4220 (PiControlMakeUserModeCallersCopy.c)
+ *     PiGetDeviceDepth @ 0x1407D5E60 (PiGetDeviceDepth.c)
  */
 
 __int64 __fastcall PiControlGetDeviceDepth(__int64 a1, char **a2, __int64 a3, char a4)

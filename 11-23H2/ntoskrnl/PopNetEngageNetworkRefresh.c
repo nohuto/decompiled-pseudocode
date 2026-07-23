@@ -1,21 +1,21 @@
 /*
- * XREFs of PopNetEngageNetworkRefresh @ 0x14099676C
+ * XREFs of PopNetEngageNetworkRefresh @ 0x14099696C
  * Callers:
- *     PopNetRefreshTimerWorkerCallback @ 0x1409968F0 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x140996AF0 (PopNetRefreshTimerWorkerCallback.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     PopNetSetResiliencyPhaseBias @ 0x140996978 (PopNetSetResiliencyPhaseBias.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140996B78 (PopNetSetResiliencyPhaseBias.c)
  */
 
-__int64 __fastcall PopNetEngageNetworkRefresh(__int64 a1)
+NTSTATUS __fastcall PopNetEngageNetworkRefresh(__int64 a1)
 {
-  __int64 result; // rax
-  char v2; // [rsp+50h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  char Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   LOBYTE(a1) = 1;
   PopNetSetResiliencyPhaseBias(a1);
-  v2 = 1;
-  result = ZwUpdateWnfStateData((__int64)&WNF_PO_OPPORTUNISTIC_CS, (__int64)&v2);
+  Buffer = 1;
+  result = ZwUpdateWnfStateData(&WNF_PO_OPPORTUNISTIC_CS, &Buffer, 1u, 0LL, 0LL, 0, 0);
   PopNetRefreshIntervalActive = 1;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_PnpSurpriseFailRemove__private_IsEnabledDeviceUsageNoInline @ 0x1405D8D24
+ * XREFs of Feature_Servicing_PnpSurpriseFailRemove__private_IsEnabledDeviceUsageNoInline @ 0x1405DB524
  * Callers:
- *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x140A8AB88 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
+ *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x1409B79A8 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
  * Callees:
- *     Feature_Servicing_PnpSurpriseFailRemove__private_IsEnabledFallback @ 0x1405D8D60 (Feature_Servicing_PnpSurpriseFailRemove__private_IsEnabledFallback.c)
+ *     Feature_Servicing_PnpSurpriseFailRemove__private_IsEnabledFallback @ 0x1405DB560 (Feature_Servicing_PnpSurpriseFailRemove__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_PnpSurpriseFailRemove__private_IsEnabledDeviceUsageNoInline()

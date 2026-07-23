@@ -1,24 +1,24 @@
 /*
- * XREFs of SeAuditProcessCreation @ 0x140983DEC
+ * XREFs of SeAuditProcessCreation @ 0x140945DFC
  * Callers:
- *     PspInsertProcess @ 0x140983A9C (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x140945AAC (PspInsertProcess.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PsQueryProcessCommandLine @ 0x1404B54B0 (PsQueryProcessCommandLine.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1409FABB0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     RtlCopySid @ 0x140A2AE10 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PsQueryProcessCommandLine @ 0x1404AE810 (PsQueryProcessCommandLine.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14091F7B0 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     RtlCopySid @ 0x140A3DEA0 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeAuditProcessCreation(PRKPROCESS PROCESS, UNICODE_STRING *a2)
@@ -27,7 +27,7 @@ void __fastcall SeAuditProcessCreation(PRKPROCESS PROCESS, UNICODE_STRING *a2)
   UNICODE_STRING *Pool2; // rdi
   unsigned int v5; // r13d
   void *v6; // rbx
-  NTSTATUS AllocatedFullProcessImageName; // r14d
+  signed int AllocatedFullProcessImageName; // r14d
   __int64 v8; // r8
   struct _KLOCK_ENTRIES *v9; // r9
   void *v10; // rbx
@@ -101,7 +101,7 @@ void __fastcall SeAuditProcessCreation(PRKPROCESS PROCESS, UNICODE_STRING *a2)
   v6 = *(void **)&PROCESS[1].StackCount.Value;
   Flink = PROCESS[1].Header.WaitListHead.Flink;
   v29 = v6;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(PROCESS, &P);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)PROCESS, (__int64 *)&P);
   if ( AllocatedFullProcessImageName < 0 )
     goto LABEL_6;
   if ( PsLookupProcessByProcessId(v6, (PEPROCESS *)&v22[1]) < 0 )
@@ -132,7 +132,7 @@ LABEL_20:
     ObfDereferenceObject((PVOID)v12);
     if ( AllocatedFullProcessImageName < 0 )
       goto LABEL_20;
-    if ( LOBYTE(SepRmCapTableLock.Header.WaitListHead.Flink) )
+    if ( SepRmAuditProcessCommandLine )
     {
       if ( v27 )
       {
@@ -216,7 +216,7 @@ LABEL_36:
         }
       }
     }
-    RtlInitUnicodeString(&DestinationString, &word_140B814F0);
+    RtlInitUnicodeString(&DestinationString, &word_140B8A320);
     Pool2 = &DestinationString;
 LABEL_35:
     v3 = 0;
@@ -228,7 +228,7 @@ LABEL_35:
     v5 = 1844;
     goto LABEL_16;
   }
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(*(_QWORD *)&v22[1], &v24);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(*(__int64 *)&v22[1], (__int64 *)&v24);
   if ( AllocatedFullProcessImageName >= 0 )
   {
 LABEL_16:

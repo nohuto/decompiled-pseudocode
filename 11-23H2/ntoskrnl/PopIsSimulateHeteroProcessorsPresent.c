@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIsSimulateHeteroProcessorsPresent @ 0x1407EADF0
+ * XREFs of PopIsSimulateHeteroProcessorsPresent @ 0x1407EB0C0
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 char __fastcall PopIsSimulateHeteroProcessorsPresent(__int64 a1)

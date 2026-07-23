@@ -1,34 +1,39 @@
 /*
- * XREFs of NtRequestPort @ 0x1406B1A70
+ * XREFs of NtRequestPort @ 0x140610AB0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtRequestPort(HANDLE Handle, __m256i *a2)
+NTSTATUS __cdecl NtRequestPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage)
 {
   int v4; // ebx
+  __int64 v5; // r9
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD v7[9]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  _QWORD v11[9]; // [rsp+30h] [rbp-48h] BYREF
   PVOID Object; // [rsp+90h] [rbp+18h] BYREF
 
-  memset(v7, 0, 0x40uLL);
+  memset(v11, 0, 0x40uLL);
   Object = 0LL;
-  v4 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  v4 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
   if ( v4 >= 0 )
   {
-    v7[0] = Object;
-    LODWORD(v7[6]) = 0x10000;
+    v11[0] = Object;
+    LODWORD(v11[6]) = 0x10000;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v4 = AlpcpSendMessage((__int64)v7, a2, 0LL, KeGetCurrentThread()->PreviousMode);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    LOBYTE(v5) = KeGetCurrentThread()->PreviousMode;
+    v4 = AlpcpSendMessage(v11, RequestMessage, 0LL, v5);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
     HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   }
-  return (unsigned int)v4;
+  return v4;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of LocalConvertAclToString @ 0x140860920
+ * XREFs of LocalConvertAclToString @ 0x140864F2C
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140862DB8 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408673C8 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     _ultow_s @ 0x140503260 (_ultow_s.c)
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     SddlpFreeUuidString @ 0x140796BD8 (SddlpFreeUuidString.c)
- *     SddlpUuidToString @ 0x140796D74 (SddlpUuidToString.c)
- *     LocalGetAceCondition @ 0x1408615D4 (LocalGetAceCondition.c)
- *     LocalConvertSidToStringSidW @ 0x140861E34 (LocalConvertSidToStringSidW.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
- *     LookupSidInTable @ 0x140866BD0 (LookupSidInTable.c)
- *     RtlNtStatusToDosError @ 0x140867430 (RtlNtStatusToDosError.c)
+ *     _ultow_s @ 0x140500B20 (_ultow_s.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     SddlpFreeUuidString @ 0x140796CE8 (SddlpFreeUuidString.c)
+ *     SddlpUuidToString @ 0x140796E84 (SddlpUuidToString.c)
+ *     LocalGetAceCondition @ 0x140865BE0 (LocalGetAceCondition.c)
+ *     LocalConvertSidToStringSidW @ 0x140866440 (LocalConvertSidToStringSidW.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
+ *     LookupSidInTable @ 0x14086B1E0 (LookupSidInTable.c)
+ *     RtlNtStatusToDosError @ 0x14086B8C0 (RtlNtStatusToDosError.c)
  */
 
 __int64 __fastcall LocalConvertAclToString(
@@ -251,7 +251,7 @@ LABEL_158:
   while ( v17 < *(unsigned __int16 *)(v10 + 4) )
   {
     v18 = *v16;
-    v19 = &unk_140E08A3C;
+    v19 = &unk_140E08AAC;
     v12 += 2;
     v20 = 0;
     v151 = v12;
@@ -265,7 +265,7 @@ LABEL_158:
     while ( v20 < 0x11 );
     if ( v20 >= 0x11 )
       goto LABEL_39;
-    v21 = (__int64 *)(0x140000000LL + 24LL * v20 + 14715440);
+    v21 = (__int64 *)(0x140000000LL + 24LL * v20 + 14715552);
     if ( !v21 )
       goto LABEL_39;
     v22 = *v21;
@@ -279,7 +279,7 @@ LABEL_158:
       if ( (v16[1] & (1 << i)) == 0 )
         continue;
       v26 = v167;
-      v27 = (char *)&unk_140E08924;
+      v27 = (char *)&unk_140E08994;
       v28 = 0;
       v29 = 0;
       while ( 1 )
@@ -308,7 +308,7 @@ LABEL_28:
 LABEL_27:
       if ( 1 << i != *((_DWORD *)v27 - 2) )
         goto LABEL_28;
-      v132 = &(&off_140E08910)[4 * v29];
+      v132 = &(&off_140E08980)[4 * v29];
       if ( v132 )
       {
         v133 = *v132;
@@ -417,7 +417,7 @@ LABEL_54:
         goto LABEL_58;
       }
       v122 = v167;
-      v136 = &unk_140E08BDC;
+      v136 = &unk_140E08C4C;
       v127 = 0;
       v141 = v161;
       v142 = v167;
@@ -433,7 +433,7 @@ LABEL_54:
         v136 += 6;
       }
       while ( v135 < 0x1C );
-      if ( v135 < 0x1C && (v137 = &(&off_140E08BD0)[3 * v135]) != 0LL )
+      if ( v135 < 0x1C && (v137 = &(&off_140E08C40)[3 * v135]) != 0LL )
       {
         *(_DWORD *)(v141 + 4 * v31) = 1;
         v138 = -1LL;
@@ -448,7 +448,7 @@ LABEL_54:
         {
           if ( (v45 & (1 << j)) != 0 )
           {
-            v121 = &unk_140E08BDC;
+            v121 = &unk_140E08C4C;
             if ( *v16 == 17 )
               v122 = 4;
             v123 = 0LL;
@@ -460,7 +460,7 @@ LABEL_54:
               v121 += 6;
             }
             while ( (unsigned int)v123 < 0x1C );
-            if ( (unsigned int)v123 >= 0x1C || (v124 = &(&off_140E08BD0)[3 * v123]) == 0LL )
+            if ( (unsigned int)v123 >= 0x1C || (v124 = &(&off_140E08C40)[3 * v123]) == 0LL )
             {
               v127 = 20;
               *(_DWORD *)(v161 + 4 * v31) = 2;
@@ -561,7 +561,7 @@ LABEL_43:
     if ( !v53 )
       goto LABEL_170;
     *v50 = 40;
-    v56 = &unk_140E08A3C;
+    v56 = &unk_140E08AAC;
     v57 = v50 + 1;
     v58 = 0;
     v59 = v53 - 1;
@@ -575,7 +575,7 @@ LABEL_43:
     while ( v58 < 0x11 );
     if ( v58 < 0x11 )
     {
-      v60 = &(&off_140E08A30)[3 * v58];
+      v60 = &(&off_140E08AA0)[3 * v58];
       if ( v60 )
       {
         wcscpy_s(v57, v59, *v60);
@@ -594,7 +594,7 @@ LABEL_43:
     {
       if ( ((unsigned __int8)(1 << v62) & v54[1]) == 0 )
         goto LABEL_85;
-      v99 = (char *)&unk_140E08924;
+      v99 = (char *)&unk_140E08994;
       v100 = v167;
       v101 = 0;
       v102 = 0;
@@ -629,7 +629,7 @@ LABEL_126:
         }
         break;
       }
-      v139 = &(&off_140E08910)[4 * v102];
+      v139 = &(&off_140E08980)[4 * v102];
       if ( v139 )
       {
         wcscpy_s(v63, v64, *v139);
@@ -749,7 +749,7 @@ LABEL_105:
     }
     else if ( v83 == 1 )
     {
-      v106 = &unk_140E08BDC;
+      v106 = &unk_140E08C4C;
       v107 = v167;
       if ( *v54 == 17 )
         v107 = 4;
@@ -762,7 +762,7 @@ LABEL_105:
       v69 = (unsigned int *)v160;
       if ( k < 0x1C )
       {
-        v109 = &(&off_140E08BD0)[3 * k];
+        v109 = &(&off_140E08C40)[3 * k];
         if ( v109 )
         {
           wcscpy_s(v67, v65, *v109);
@@ -781,7 +781,7 @@ LABEL_105:
       {
         if ( (v113 & (1 << v112)) != 0 )
         {
-          v114 = &unk_140E08BDC;
+          v114 = &unk_140E08C4C;
           v115 = v167;
           v116 = 0;
           if ( *v111 == 17 )
@@ -796,7 +796,7 @@ LABEL_105:
           while ( v116 < 0x1C );
           if ( v116 < 0x1C )
           {
-            v117 = &(&off_140E08BD0)[3 * v116];
+            v117 = &(&off_140E08C40)[3 * v116];
             if ( v117 )
             {
               wcscpy_s(v67, v65, *v117);

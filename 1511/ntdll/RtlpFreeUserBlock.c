@@ -14,7 +14,7 @@
  *     RtlpLogHeapSubSegmentFreeCached @ 0x1800F1BDC (RtlpLogHeapSubSegmentFreeCached.c)
  */
 
-PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
+PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, unsigned __int8 *a2)
 {
   __int64 v3; // r15
   __int64 v4; // rbp
@@ -29,18 +29,18 @@ PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // r8
 
-  v3 = *a2;
+  v3 = *(_QWORD *)a2;
   v4 = *(_QWORD *)(a1 + 24);
-  v6 = (volatile signed __int32 *)(a1 + 48 * (*((unsigned __int8 *)a2 + 16) - 7 + 2LL));
+  v6 = (volatile signed __int32 *)(a1 + 48 * (a2[16] - 7 + 2LL));
   if ( *(_WORD *)(v4 + 376) && (*(_BYTE *)(v4 + 112) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(v4 + 352));
-    RtlLeaveCriticalSection(*(_QWORD *)(v4 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(v4 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v4 + 352));
   }
   v7 = *(unsigned __int16 *)v6;
   if ( v7 <= *((_DWORD *)v6 + 5) || v7 <= *((_DWORD *)v6 + 4) >> *((_DWORD *)v6 + 6) )
   {
-    v14 = 1LL << *((_BYTE *)a2 + 16);
+    v14 = 1LL << a2[16];
     if ( v14 > 0xF0000 )
       v14 = 983040LL;
     v15 = v14 + *((unsigned __int16 *)a2 + 9);
@@ -52,11 +52,11 @@ PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
   }
   else
   {
-    v8 = 1LL << *((_BYTE *)a2 + 16);
+    v8 = 1LL << a2[16];
     if ( v8 > 0xF0000 )
       v8 = 983040LL;
     v9 = v8 + *((unsigned __int16 *)a2 + 9);
-    result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), a2);
+    result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), a2);
     if ( MEMORY[0x7FFE0380] )
     {
       result = (PSLIST_ENTRY)NtCurrentPeb();
@@ -79,7 +79,7 @@ PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
           v12 = 983040LL;
         v13 = v12 + WORD1(result[1].Next);
         _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v13);
-        result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), result);
+        result = (PSLIST_ENTRY)RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), result);
         if ( MEMORY[0x7FFE0380] )
         {
           result = (PSLIST_ENTRY)NtCurrentPeb();

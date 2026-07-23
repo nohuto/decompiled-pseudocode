@@ -1,8 +1,8 @@
 /*
- * XREFs of EnlistKeyBodyWithKCB @ 0x140733004
+ * XREFs of EnlistKeyBodyWithKCB @ 0x1407341F4
  * Callers:
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmpCreateRegistryRoot @ 0x1409C3FAC (CmpCreateRegistryRoot.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmpCreateRegistryRoot @ 0x1409C4FAC (CmpCreateRegistryRoot.c)
  * Callees:
  *     <none>
  */

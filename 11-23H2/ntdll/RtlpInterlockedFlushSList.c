@@ -6,7 +6,7 @@
  *     RtlpFreeHeapInternal @ 0x18003BBF0 (RtlpFreeHeapInternal.c)
  *     RtlpHpHeapCompact @ 0x18005FB70 (RtlpHpHeapCompact.c)
  *     RtlInterlockedFlushSList @ 0x180073300 (RtlInterlockedFlushSList.c)
- *     RtlpLowFragHeapFlushCaches @ 0x18011A754 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x18011A724 (RtlpLowFragHeapFlushCaches.c)
  * Callees:
  *     <none>
  */

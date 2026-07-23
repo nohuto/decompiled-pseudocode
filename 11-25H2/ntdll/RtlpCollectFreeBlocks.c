@@ -49,7 +49,7 @@ void __fastcall RtlpCollectFreeBlocks(__int64 a1)
     }
     else
     {
-      RtlpDecommitBlock(a1, v2 - 16);
+      RtlpDecommitBlock(a1);
       v2 = *(_QWORD *)(v2 + 8);
     }
   }

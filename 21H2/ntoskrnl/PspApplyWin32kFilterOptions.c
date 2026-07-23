@@ -1,7 +1,7 @@
 /*
- * XREFs of PspApplyWin32kFilterOptions @ 0x1406BA47C
+ * XREFs of PspApplyWin32kFilterOptions @ 0x1406195EC
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

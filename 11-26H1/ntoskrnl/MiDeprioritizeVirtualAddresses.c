@@ -1,26 +1,26 @@
 /*
- * XREFs of MiDeprioritizeVirtualAddresses @ 0x140442198
+ * XREFs of MiDeprioritizeVirtualAddresses @ 0x14043ACA8
  * Callers:
- *     MiFaultTrimBehind @ 0x140441F5C (MiFaultTrimBehind.c)
- *     HvTrimHive @ 0x1408B8958 (HvTrimHive.c)
+ *     MiFaultTrimBehind @ 0x14043AA6C (MiFaultTrimBehind.c)
+ *     HvTrimHive @ 0x1408BEF28 (HvTrimHive.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiUpdatePfnPriority @ 0x1402992A0 (MiUpdatePfnPriority.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MI_WSLE_LOG_ACCESS @ 0x14035DBA4 (MI_WSLE_LOG_ACCESS.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiUpdatePfnPriority @ 0x140298800 (MiUpdatePfnPriority.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x14035F944 (MI_WSLE_LOG_ACCESS.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)
@@ -42,7 +42,7 @@ void __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, 
   unsigned __int64 v20; // r10
   __int64 v21; // r8
   unsigned int v22; // r8d
-  int v23; // r8d
+  unsigned __int64 v23; // r8
   unsigned int v24; // r12d
   ULONG v25; // [rsp+30h] [rbp-68h]
   unsigned __int64 v26; // [rsp+40h] [rbp-58h]
@@ -58,7 +58,7 @@ void __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, 
   if ( v4 == 1 )
     v9 = &MiSystemPartition;
   else
-    v9 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a3 + 174));
+    v9 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a3 + 174));
   v25 = v9[4539];
   v10 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   valid = 0LL;
@@ -115,11 +115,11 @@ LABEL_7:
         if ( (*(_QWORD *)(v19 + 40) & 0x20000000000000LL) != 0
           || (*(_DWORD *)(v19 + 32) & 0x8000000) != 0
           && (v19 < v20
-           || v19 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+           || v19 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
            || MiIsDecayPfn(v18 / 48)
            || (v22 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v19) == 9) )
         {
-          v23 = 5;
+          v23 = 5LL;
         }
         else
         {
@@ -128,7 +128,7 @@ LABEL_7:
         if ( (a4 & 8) == 0 )
         {
           v24 = v28;
-          if ( v28 != v23 )
+          if ( v28 != (_DWORD)v23 )
           {
             v29 = 0;
             while ( _interlockedbittestandset64((volatile signed __int32 *)(v19 + 24), 0x3FuLL) )
@@ -144,7 +144,7 @@ LABEL_7:
         if ( (a4 & 0x10) != 0 && (_BYTE)v27 != 8 )
         {
           if ( v25 )
-            MI_WSLE_LOG_ACCESS(a3, v10);
+            MI_WSLE_LOG_ACCESS(a3, v10, v23);
           if ( !ProcessorFlushList )
           {
             ProcessorFlushList = MiGetProcessorFlushList();

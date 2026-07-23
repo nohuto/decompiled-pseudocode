@@ -1,39 +1,39 @@
 /*
- * XREFs of NtCompactKeys @ 0x1407CF750
+ * XREFs of NtCompactKeys @ 0x1407CFC40
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404590C0 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     CmCheckNoTxContext @ 0x14092D620 (CmCheckNoTxContext.c)
- *     CmpLogUnsupportedOperation @ 0x14097AB10 (CmpLogUnsupportedOperation.c)
- *     CmObReferenceObjectByHandle @ 0x140BB9350 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x14044E170 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     CmCheckNoTxContext @ 0x14092F760 (CmCheckNoTxContext.c)
+ *     CmpLogUnsupportedOperation @ 0x140963320 (CmpLogUnsupportedOperation.c)
+ *     CmObReferenceObjectByHandle @ 0x140BBB350 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtCompactKeys(unsigned int a1, const void *a2)
+NTSTATUS __cdecl NtCompactKeys(ULONG Count, HANDLE KeyArray[])
 {
   struct _PRIVILEGE_SET *TransientPoolWithQuota; // r14
-  unsigned int v5; // r15d
+  ULONG v5; // r15d
   char v6; // r13
   __int64 v7; // rcx
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   char v9; // al
-  unsigned int v10; // ebx
+  ULONG v10; // ebx
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // r9
-  unsigned int i; // esi
+  ULONG i; // esi
   __int64 v15; // r13
   __int64 v16; // rdx
   __int64 v17; // rax
@@ -64,24 +64,24 @@ LABEL_4:
     v9 = 0;
     goto LABEL_38;
   }
-  if ( !a1 )
+  if ( !Count )
   {
     v8 = 0;
     goto LABEL_4;
   }
-  if ( a1 >= 0x1FFFFFFF )
+  if ( Count >= 0x1FFFFFFF )
   {
     v8 = -1073741811;
     goto LABEL_4;
   }
-  v10 = 8 * a1;
-  TransientPoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuota();
+  v10 = 8 * Count;
+  TransientPoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuota(v7, 8 * Count, 0x61624D43u);
   if ( TransientPoolWithQuota )
   {
-    if ( PreviousMode == 1 && v10 && ((unsigned __int8)a2 & 3) != 0 )
+    if ( PreviousMode == 1 && v10 && ((unsigned __int8)KeyArray & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    memmove(TransientPoolWithQuota, a2, v10);
-    while ( v5 < a1 )
+    memmove(TransientPoolWithQuota, KeyArray, v10);
+    while ( v5 < Count )
     {
       LOBYTE(v13) = PreviousMode;
       v8 = CmObReferenceObjectByHandle(
@@ -105,7 +105,7 @@ LABEL_4:
     {
       CmpLockRegistryExclusive();
       v24 = 0LL;
-      for ( i = 0; i < a1; ++i )
+      for ( i = 0; i < Count; ++i )
       {
         v15 = *((_QWORD *)&TransientPoolWithQuota->PrivilegeCount + i);
         v8 = CmpPerformKeyBodyDeletionCheck(v15, 0LL);
@@ -174,5 +174,5 @@ LABEL_38:
     CmSiFreeMemory(TransientPoolWithQuota);
   }
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v25);
-  return (unsigned int)v8;
+  return v8;
 }

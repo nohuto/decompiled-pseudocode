@@ -1,9 +1,9 @@
 /*
- * XREFs of IovAllocateWorkItem @ 0x140923A60
+ * XREFs of IovAllocateWorkItem @ 0x140924A60
  * Callers:
  *     <none>
  * Callees:
- *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140925F50 (VeAllocatePoolWithTagPriority.c)
  */
 
 __int64 __fastcall IovAllocateWorkItem(__int64 a1, __int64 a2)

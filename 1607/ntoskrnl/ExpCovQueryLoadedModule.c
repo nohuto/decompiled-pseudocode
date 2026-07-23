@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCovQueryLoadedModule @ 0x1406B76C8
+ * XREFs of ExpCovQueryLoadedModule @ 0x1406B7800
  * Callers:
- *     ExpCovQueryInfoCallBack @ 0x1406B7134 (ExpCovQueryInfoCallBack.c)
+ *     ExpCovQueryInfoCallBack @ 0x1406B726C (ExpCovQueryInfoCallBack.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     ExpCovReadFriendlyName @ 0x1406B7834 (ExpCovReadFriendlyName.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     ExpCovReadFriendlyName @ 0x1406B796C (ExpCovReadFriendlyName.c)
  */
 
 __int64 __fastcall ExpCovQueryLoadedModule(

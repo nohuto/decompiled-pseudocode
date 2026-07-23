@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpSegSubAllocate(__int64 a1, unsigned int a2, int a3, _DW
   v6 = a3 | 4;
   if ( a2 < 0x10000 )
     v6 = a3;
-  v9 = RtlpHpSegAlloc(a1, a2, a2, 0, v6);
+  v9 = RtlpHpSegAlloc(a1, v6);
   *a4 = 0;
   v10 = v9;
   *a5 = 0;

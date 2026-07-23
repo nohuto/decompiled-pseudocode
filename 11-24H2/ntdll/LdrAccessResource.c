@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrAccessResource @ 0x1800F9EB0
+ * XREFs of LdrAccessResource @ 0x1800F4C10
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,11 @@
  */
 
 // attributes: thunk
-__int64 __fastcall LdrAccessResource(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl LdrAccessResource(
+        PVOID DllHandle,
+        PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry,
+        PVOID *ResourceBuffer,
+        ULONG *ResourceLength)
 {
-  return LdrpAccessResourceData(a1, a2, a3, a4);
+  return LdrpAccessResourceData((unsigned __int64)DllHandle, (unsigned __int64)ResourceDataEntry);
 }

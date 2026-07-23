@@ -6,11 +6,8 @@
  *     RtlReleaseSRWLockExclusive @ 0x1800262F0 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_18006059C(__int64 a1, char a2)
+void __fastcall sub_18006059C(_RTL_SRWLOCK *a1, char a2)
 {
-  signed __int64 result; // rax
-
   if ( (a2 & 1) == 0 )
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 24));
-  return result;
+    RtlReleaseSRWLockExclusive(a1 + 3);
 }

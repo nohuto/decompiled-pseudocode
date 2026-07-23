@@ -8,23 +8,23 @@
  *     _LdrpSetModuleSigningLevel@20 @ 0x4B333D52 (_LdrpSetModuleSigningLevel@20.c)
  */
 
-int __fastcall LdrpValidateIntegrityContinuity(_DWORD *a1, int a2, int a3)
+NTSTATUS __fastcall LdrpValidateIntegrityContinuity(_DWORD *a1, void *a2, int a3)
 {
-  int v5; // edi
+  NTSTATUS v5; // edi
   int v6; // eax
-  int v7; // eax
+  NTSTATUS v7; // eax
   int v8; // esi
   bool v9; // cl
   int v11; // [esp+Ch] [ebp-8h] BYREF
-  int v12; // [esp+10h] [ebp-4h] BYREF
+  ULONG Flags; // [esp+10h] [ebp-4h] BYREF
 
   v5 = 0;
-  v12 = 0;
+  Flags = 0;
   if ( (a1[4] & 0x400000) != 0
     || (v6 = a1[7]) != 0
-    && ((*(_DWORD *)(v6 + 160) & 0x8000) != 0 || NtCompareSigningLevels(*(unsigned __int8 *)(v6 + 164), 12) >= 0) )
+    && ((*(_DWORD *)(v6 + 160) & 0x8000) != 0 || NtCompareSigningLevels(*(_BYTE *)(v6 + 164), 0xCu) >= 0) )
   {
-    v7 = LdrpSetModuleSigningLevel(a2, a1[8], (int)&v12, 12, &v11);
+    v7 = LdrpSetModuleSigningLevel(a2, a1[8], &Flags, 0xCu, &v11);
     v8 = v7;
     if ( v7 < 0 )
     {
@@ -41,11 +41,11 @@ int __fastcall LdrpValidateIntegrityContinuity(_DWORD *a1, int a2, int a3)
     }
     else
     {
-      v5 = NtCompareSigningLevels(*(unsigned __int8 *)(a1[8] + 164), 12);
+      v5 = NtCompareSigningLevels(*(_BYTE *)(a1[8] + 164), 0xCu);
       v9 = v5 < 0;
     }
     if ( v9 )
-      LdrpLogIntegrityContinuityTelemetry(a1, v8, v12, v5, v11);
+      LdrpLogIntegrityContinuityTelemetry(a1, v8, Flags, v5, v11);
   }
   return v5;
 }

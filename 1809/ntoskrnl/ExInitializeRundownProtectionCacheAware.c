@@ -1,5 +1,5 @@
 /*
- * XREFs of ExInitializeRundownProtectionCacheAware @ 0x1405A28F0
+ * XREFs of ExInitializeRundownProtectionCacheAware @ 0x1405A38F0
  * Callers:
  *     <none>
  * Callees:

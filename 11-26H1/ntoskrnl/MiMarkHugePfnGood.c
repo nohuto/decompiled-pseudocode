@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMarkHugePfnGood @ 0x1406ECDE4
+ * XREFs of MiMarkHugePfnGood @ 0x1406F1A84
  * Callers:
- *     MiUnlinkBadPages @ 0x1406F1FDC (MiUnlinkBadPages.c)
+ *     MiUnlinkBadPages @ 0x1406F6C4C (MiUnlinkBadPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiIsPageInHugePfn @ 0x1403138E0 (MiIsPageInHugePfn.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiUnlinkHugeRangeEx @ 0x14048E398 (MiUnlinkHugeRangeEx.c)
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiIsPageInHugePfn @ 0x140315910 (MiIsPageInHugePfn.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiUnlinkHugeRangeEx @ 0x140487ED8 (MiUnlinkHugeRangeEx.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMarkHugePfnGood(unsigned __int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall MiMarkHugePfnGood(unsigned __int64 a1)
   v2 = 0;
   v3 = 0LL;
   v4 = (a1 >> 18) & 0x3FFFFF;
-  v6 = (__int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v4);
+  v6 = (__int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v4);
   if ( KeGetCurrentIrql() == 2 )
   {
     CurrentIrql = 17;
@@ -67,8 +67,8 @@ LABEL_8:
       goto LABEL_34;
     }
     v9 = a1 & 0x3FFFF;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EB10);
-    v3 = qword_140E2EB60;
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EC90);
+    v3 = qword_140E2ECE0;
     while ( v3 )
     {
       v10 = *(_QWORD *)(v3 + 24) & 0x3FFFFFLL;
@@ -88,7 +88,7 @@ LABEL_8:
     {
       v2 = 274;
       *((_BYTE *)v11 + ((unsigned __int64)v9 >> 3)) &= ~(1 << (v9 & 7));
-      --qword_140E2EB68;
+      --qword_140E2ECE8;
       v12 = v11 + 4095;
       while ( 1 )
       {
@@ -116,8 +116,8 @@ LABEL_31:
       {
         v14 = 0;
       }
-      RtlAvlRemoveNode((unsigned __int64 *)&qword_140E2EB60, v3);
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EB10);
+      RtlAvlRemoveNode((unsigned __int64 *)&qword_140E2ECE0, v3);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EC90);
       v15 = *v6;
       *v6 &= ~8uLL;
       if ( v14 || (v16 = v15 & 7, v16 != 3) && v16 != 5 )
@@ -126,16 +126,16 @@ LABEL_31:
     else
     {
 LABEL_33:
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EB10);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EC90);
       v3 = 0LL;
     }
   }
 LABEL_34:
   _InterlockedAnd(
-    (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+    (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                               + 4
-                              * (((((__int64)v6 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-    ~(1 << (((__int64)v6 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                              * (((((__int64)v6 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+    ~(1 << (((__int64)v6 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
   if ( CurrentIrql != 17 )
   {
     if ( KiIrqlFlags )

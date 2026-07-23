@@ -40,9 +40,9 @@ __int64 __fastcall RtlpHpVsSubsegmentCommitPages(__int64 a1, __int64 a2, unsigne
   _DWORD *v21; // rdx
   unsigned __int8 v22; // di
   struct _KTHREAD *v24; // rdi
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v26; // r14
-  __int64 v27; // rdx
+  unsigned int v27; // edx
   bool v28; // zf
   __int64 v29; // rcx
   __int64 v30; // rbx
@@ -161,23 +161,23 @@ LABEL_9:
     v42 = 0;
     v24 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(a2 + 24) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)v24->ApcState.Process);
+      SessionId = MmGetSessionIdEx((__int64)v24->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --v24->SpecialApcDisable;
     v26 = ++v24->AbAllocationRegionCount;
-    LODWORD(v27) = ((char)v24->AbEntrySummary | (char)v24->AbOrphanedEntrySummary) ^ 0x3F;
+    v27 = ((char)v24->AbEntrySummary | (char)v24->AbOrphanedEntrySummary) ^ 0x3F;
     v28 = !_BitScanReverse((unsigned int *)&v29, v27);
     if ( v28 )
       goto LABEL_39;
     while ( 1 )
     {
       v30 = (__int64)&v24->LockEntries[v29];
-      v27 = ~(1 << v29) & (unsigned int)v27;
+      v27 &= ~(1 << v29);
       if ( (*(_BYTE *)(v30 + 26) & 1) != 0
         && (*(_DWORD *)(v30 + 32) & 1) == 0
         && (*(_QWORD *)(v30 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)v10 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v30 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v30 + 40) == SessionId )
       {
         *(_BYTE *)(v30 + 26) &= ~1u;
         if ( *(_QWORD *)(v30 + 32) )
@@ -191,13 +191,13 @@ LABEL_9:
     {
 LABEL_39:
       if ( (*((_DWORD *)&v24->0 + 1) & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)v24, a2 + 24, (unsigned int)SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)v24, a2 + 24, SessionId, 0LL);
     }
     else
     {
       *(_BYTE *)(v30 + 32) |= 2u;
       if ( *(__int64 *)(v30 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v30, v27, SessionId);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v30);
       v42 = *(_DWORD *)(v30 + 88) & 0x1FFFF;
       *(_DWORD *)(v30 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v30 + 25) &= ~1u;

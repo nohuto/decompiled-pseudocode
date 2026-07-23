@@ -1,9 +1,9 @@
 /*
- * XREFs of PipDependencyCopyEdge @ 0x14062B280
+ * XREFs of PipDependencyCopyEdge @ 0x14062B334
  * Callers:
- *     IoDuplicateDependency @ 0x14062AB18 (IoDuplicateDependency.c)
+ *     IoDuplicateDependency @ 0x14062ABCC (IoDuplicateDependency.c)
  * Callees:
- *     PipAddDependencyEdgeBetweenNodes @ 0x1401CD0E4 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x1401CCF30 (PipAddDependencyEdgeBetweenNodes.c)
  */
 
 __int64 __fastcall PipDependencyCopyEdge(__int64 a1, __int64 a2)

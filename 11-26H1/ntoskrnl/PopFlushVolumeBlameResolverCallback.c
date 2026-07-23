@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFlushVolumeBlameResolverCallback @ 0x140BFD280
+ * XREFs of PopFlushVolumeBlameResolverCallback @ 0x140C03280
  * Callers:
  *     <none>
  * Callees:
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     ExTryToAcquireFastMutex @ 0x140476890 (ExTryToAcquireFastMutex.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     ExTryToAcquireFastMutex @ 0x140470010 (ExTryToAcquireFastMutex.c)
  */
 
 char __fastcall PopFlushVolumeBlameResolverCallback(__int64 a1, PEPROCESS *a2, _QWORD *a3, __int64 a4)
@@ -12,7 +12,7 @@ char __fastcall PopFlushVolumeBlameResolverCallback(__int64 a1, PEPROCESS *a2, _
   __int64 v7; // rax
   __int64 v8; // rbx
 
-  LOBYTE(v7) = ExTryToAcquireFastMutex((PFAST_MUTEX)&stru_140F10828.SListFaultAddress);
+  LOBYTE(v7) = ExTryToAcquireFastMutex((PFAST_MUTEX)&PpmIdlePolicyLock.WriteTransferCount);
   if ( (_BYTE)v7 )
   {
     v7 = a4 + 56;

@@ -1,7 +1,7 @@
 /*
- * XREFs of PiHotSwapGetDetachableNode @ 0x140B2510C
+ * XREFs of PiHotSwapGetDetachableNode @ 0x140B2729C
  * Callers:
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140A8F0D4 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140A93DA4 (PpHotSwapGetDevnodeRemovalPolicy.c)
  * Callees:
  *     <none>
  */

@@ -44,7 +44,7 @@ PVOID __fastcall VerifierExAllocatePoolWithQuota(__int32 PoolType, ULONG_PTR Bug
     else
       result = VeAllocatePoolWithTagPriority(v6, BugCheckParameter3, 0x70617257u, HighPoolPriority, retaddr);
     if ( !result && (PoolType & 8) == 0 )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
   }
   else
   {

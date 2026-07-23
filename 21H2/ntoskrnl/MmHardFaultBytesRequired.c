@@ -1,11 +1,11 @@
 /*
- * XREFs of MmHardFaultBytesRequired @ 0x1406EF710
+ * XREFs of MmHardFaultBytesRequired @ 0x140706AF0
  * Callers:
- *     CcFetchDataForRead @ 0x140320A30 (CcFetchDataForRead.c)
+ *     CcFetchDataForRead @ 0x14032B780 (CcFetchDataForRead.c)
  * Callees:
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14023C0AC (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
- *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402E08FC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiReadPteShadow @ 0x140310780 (MiReadPteShadow.c)
+ *     MiOffsetToProtos @ 0x14032B8A0 (MiOffsetToProtos.c)
  */
 
 __int64 __fastcall MmHardFaultBytesRequired(__int64 a1, unsigned __int64 a2, __int64 a3)

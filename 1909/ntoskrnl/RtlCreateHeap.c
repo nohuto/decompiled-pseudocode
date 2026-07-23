@@ -242,13 +242,7 @@ PVOID __stdcall RtlCreateHeap(
           if ( (v30 & 0x40000) != 0 && (BYTE4(MemoryInformation[4]) & 0x40) == 0 )
             goto LABEL_14;
           memset(MemoryInformation[0], 0, 0x1000uLL);
-          if ( ZwQueryVirtualMemory(
-                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                 HeapBase,
-                 MemoryBasicVlmInformation,
-                 v61,
-                 0x28uLL,
-                 0LL) < 0 )
+          if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryRegionInformation, v61, 0x28uLL, 0LL) < 0 )
             goto LABEL_14;
           v46 = v61[2];
           v50 = (ULONG_PTR)MemoryInformation[3];

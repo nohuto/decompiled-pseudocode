@@ -1,28 +1,28 @@
 /*
  * XREFs of RtlDebugReAllocateHeap @ 0x1800FAA84
  * Callers:
- *     RtlpReAllocateHeapInternal @ 0x180020DD0 (RtlpReAllocateHeapInternal.c)
- *     RtlpReAllocateHeap @ 0x1800211D0 (RtlpReAllocateHeap.c)
+ *     RtlpReAllocateHeapInternal @ 0x180020DC0 (RtlpReAllocateHeapInternal.c)
+ *     RtlpReAllocateHeap @ 0x1800211C0 (RtlpReAllocateHeap.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlpCheckHeapSignature @ 0x180019D84 (RtlpCheckHeapSignature.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlReAllocateHeap @ 0x180020D80 (RtlReAllocateHeap.c)
- *     RtlpGetExtraStuffPointer @ 0x180029020 (RtlpGetExtraStuffPointer.c)
- *     RtlLogStackBackTraceEx @ 0x18002B208 (RtlLogStackBackTraceEx.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
- *     RtlpValidateHeapHeaders @ 0x18005D300 (RtlpValidateHeapHeaders.c)
- *     RtlpValidateHeapEntry @ 0x1800769B8 (RtlpValidateHeapEntry.c)
- *     RtlpValidateHeap @ 0x180091244 (RtlpValidateHeap.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlpCheckHeapSignature @ 0x180019D74 (RtlpCheckHeapSignature.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlReAllocateHeap @ 0x180020D70 (RtlReAllocateHeap.c)
+ *     RtlpGetExtraStuffPointer @ 0x180029010 (RtlpGetExtraStuffPointer.c)
+ *     RtlLogStackBackTraceEx @ 0x18002B1F8 (RtlLogStackBackTraceEx.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
+ *     RtlpValidateHeapHeaders @ 0x18005D2F0 (RtlpValidateHeapHeaders.c)
+ *     RtlpValidateHeapEntry @ 0x1800769A8 (RtlpValidateHeapEntry.c)
+ *     RtlpValidateHeap @ 0x180091234 (RtlpValidateHeap.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
- *     RtlpGetTagName @ 0x1800EA238 (RtlpGetTagName.c)
- *     RtlpHeapExceptionFilter @ 0x1800EC210 (RtlpHeapExceptionFilter.c)
+ *     RtlpGetTagName @ 0x1800EA2F8 (RtlpGetTagName.c)
+ *     RtlpHeapExceptionFilter @ 0x1800EC2D0 (RtlpHeapExceptionFilter.c)
  *     RtlpAnalyzeHeapFailure @ 0x1800F79F4 (RtlpAnalyzeHeapFailure.c)
  *     RtlpBreakPointHeap @ 0x1800FB678 (RtlpBreakPointHeap.c)
  */
 
-__int64 __fastcall RtlDebugReAllocateHeap(_DWORD *Src, int a2, __int64 a3, unsigned __int64 a4)
+char *__fastcall RtlDebugReAllocateHeap(_DWORD *Src, int a2, char *a3, SIZE_T a4)
 {
   int v9; // esi
   __int64 v10; // rax
@@ -33,7 +33,7 @@ __int64 __fastcall RtlDebugReAllocateHeap(_DWORD *Src, int a2, __int64 a3, unsig
   __int16 v15; // r8
   unsigned __int16 v16; // dx
   wchar_t *TagName; // rax
-  __int64 Heap; // rax
+  char *Heap; // rax
   unsigned __int64 v19; // rsi
   _WORD *ExtraStuffPointer; // rax
   _WORD *v21; // r14
@@ -43,18 +43,18 @@ __int64 __fastcall RtlDebugReAllocateHeap(_DWORD *Src, int a2, __int64 a3, unsig
   wchar_t *v25; // rax
   char v26; // [rsp+30h] [rbp-38h]
   unsigned __int16 v27; // [rsp+34h] [rbp-34h]
-  __int64 v28; // [rsp+38h] [rbp-30h]
+  char *v28; // [rsp+38h] [rbp-30h]
   unsigned __int64 v29; // [rsp+40h] [rbp-28h]
-  unsigned int v30; // [rsp+78h] [rbp+10h]
+  int Flags; // [rsp+78h] [rbp+10h]
 
   v26 = 0;
   v28 = 0LL;
   if ( (Src[29] & 0x1000000) != 0 )
-    return _guard_dispatch_icall_fptr();
+    return (char *)_guard_dispatch_icall_fptr();
   if ( !RtlpCheckHeapSignature(Src, "RtlReAllocateHeap") )
     goto LABEL_68;
   v9 = Src[29] | 0x10000100 | a2;
-  v30 = v9;
+  Flags = v9;
   v10 = 1LL;
   if ( a4 )
     v10 = a4;
@@ -73,20 +73,20 @@ LABEL_68:
   v27 = 0;
   if ( (v9 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+    RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
     v26 = 1;
-    v30 = v9 | 1;
+    Flags = v9 | 1;
   }
   RtlpValidateHeap((__int64)Src, 0);
-  v12 = a3 - 16;
-  _m_prefetchw((const void *)(a3 - 16));
-  if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+  v12 = (unsigned __int64)(a3 - 16);
+  _m_prefetchw(a3 - 16);
+  if ( *(a3 - 1) == 5 )
     v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
   v29 = v12;
   if ( RtlpValidateHeapEntry((unsigned __int64)Src, v12, "RtlReAllocateHeap") )
   {
     v13 = NtCurrentPeb();
-    if ( a3 == qword_180150670 )
+    if ( a3 == (char *)qword_180150670 )
     {
       if ( v13->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -131,13 +131,13 @@ LABEL_68:
     }
     RtlpBreakPointHeap(v14);
 LABEL_36:
-    Heap = RtlReAllocateHeap((__int64)Src, v30, a3, a4);
+    Heap = (char *)RtlReAllocateHeap(Src, Flags, a3, a4);
     v28 = Heap;
     if ( Heap )
     {
-      v19 = Heap - 16;
-      _m_prefetchw((const void *)(Heap - 16));
-      if ( *(_BYTE *)(Heap - 16 + 15) == 5 )
+      v19 = (unsigned __int64)(Heap - 16);
+      _m_prefetchw(Heap - 16);
+      if ( *(Heap - 1) == 5 )
         v19 -= 16LL * *(unsigned __int8 *)(v19 + 14);
       if ( Src[31] )
       {
@@ -166,13 +166,13 @@ LABEL_36:
         *(_DWORD *)(v19 + 8) ^= Src[34];
       }
     }
-    RtlpValidateHeapHeaders((void **)Src, 1);
+    RtlpValidateHeapHeaders((PVOID *)Src, 1);
     RtlpValidateHeap((__int64)Src, 0);
   }
   if ( v28 )
   {
     v23 = NtCurrentPeb();
-    if ( v28 == qword_180150670 )
+    if ( v28 == (char *)qword_180150670 )
     {
       if ( v23->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -196,6 +196,6 @@ LABEL_57:
   }
 LABEL_69:
   if ( v26 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
   return v28;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCbLengthA @ 0x140597F68
+ * XREFs of RtlStringCbLengthA @ 0x14059A6E8
  * Callers:
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x1405CE230 (IopLiveDumpCallRemovePagesCallbacks.c)
- *     KiValidateComponentName @ 0x1405E8B1C (KiValidateComponentName.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x1405D0A40 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     KiValidateComponentName @ 0x1405EB48C (KiValidateComponentName.c)
  * Callees:
  *     <none>
  */

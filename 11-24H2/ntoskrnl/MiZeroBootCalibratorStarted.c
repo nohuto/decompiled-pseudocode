@@ -1,10 +1,10 @@
 /*
- * XREFs of MiZeroBootCalibratorStarted @ 0x14068FFD8
+ * XREFs of MiZeroBootCalibratorStarted @ 0x1406910A8
  * Callers:
- *     MiStartZeroEngineThreads @ 0x1407FF9CC (MiStartZeroEngineThreads.c)
+ *     MiStartZeroEngineThreads @ 0x14080010C (MiStartZeroEngineThreads.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiZeroBootCalibratorStarted(__int64 a1)

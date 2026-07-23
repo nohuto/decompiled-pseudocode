@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpExpandFileName @ 0x1407F6D80
+ * XREFs of EtwpExpandFileName @ 0x1407F7050
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140772D48 (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x1407F66D0 (EtwpCreateLogFile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140772F38 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x1407F69A0 (EtwpCreateLogFile.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwpGetDriverDataDosPath @ 0x1403D784C (EtwpGetDriverDataDosPath.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwpGetDriverDataDosPath @ 0x1403D7A2C (EtwpGetDriverDataDosPath.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -108,11 +108,11 @@ LABEL_6:
   }
   else
   {
-    v18 = &word_140887DD0;
+    v18 = &word_140888010;
     if ( v8 )
       v19 = (const WCHAR *)*((_QWORD *)a4 + 1);
     else
-      v19 = &word_140887DD0;
+      v19 = &word_140888010;
     if ( v12 )
       v18 = (const WCHAR *)*((_QWORD *)v12 + 1);
     v20 = RtlStringCbPrintfW(Pool2, v14, L"%ws%ws%ws", v18, &a2->Buffer[v5], v19);

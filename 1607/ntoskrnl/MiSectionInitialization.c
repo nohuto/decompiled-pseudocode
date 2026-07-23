@@ -3,14 +3,14 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  */
 
 __int64 MiSectionInitialization()
@@ -29,8 +29,8 @@ __int64 MiSectionInitialization()
   _QWORD v12[16]; // [rsp+A0h] [rbp-60h] BYREF
   HANDLE ThreadHandle; // [rsp+130h] [rbp+30h] BYREF
 
-  dword_14032766C = -1;
-  qword_140326558 = 0LL;
+  dword_1403276AC = -1;
+  qword_140326598 = 0LL;
   v4.Buffer = L"Section";
   *(_DWORD *)&v4.Length = 1048590;
   v6 = L"\\Device\\PhysicalMemory";
@@ -63,15 +63,15 @@ __int64 MiSectionInitialization()
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, 0x48uLL);
-      memset(&qword_140326580, 0, 0xF0uLL);
+      memset(&qword_1403265C0, 0, 0xF0uLL);
       v1[5] = 0LL;
-      dword_140326628 |= 0x400u;
+      dword_140326668 |= 0x400u;
       v8 = 0LL;
       v9 = &v5;
-      qword_140326580 = (__int64)&qword_1403265F0;
-      qword_1403265F0 = (__int64)v1;
-      qword_140326608 = 1LL;
-      *v1 = &qword_1403265F0;
+      qword_1403265C0 = (__int64)&qword_140326630;
+      qword_140326630 = (__int64)v1;
+      qword_140326648 = 1LL;
+      *v1 = &qword_140326630;
       v7 = 48;
       v10 = 65552;
       v11 = 0LL;
@@ -82,7 +82,7 @@ __int64 MiSectionInitialization()
       else
       {
         v2 = ThreadHandle;
-        *((_QWORD *)ThreadHandle + 5) = &qword_1403265F0;
+        *((_QWORD *)ThreadHandle + 5) = &qword_140326630;
         v2[6] = 0xFFFFFFFFFFFFLL;
         *((_DWORD *)v2 + 14) = 0;
         *((_DWORD *)v2 + 15) = *((_DWORD *)v2 + 15) & 0xFFFFF000 | 0x40;

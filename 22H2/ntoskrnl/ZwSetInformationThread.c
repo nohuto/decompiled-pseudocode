@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwSetInformationThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, ThreadInformationClass, ThreadInformation);
+  return KiServiceInternal(ThreadHandle);
 }

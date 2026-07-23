@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpIommuMapLogicalRange @ 0x14047BE6C
+ * XREFs of HalpIommuMapLogicalRange @ 0x1404757DC
  * Callers:
- *     HalpIommuDomainMapLogicalRange @ 0x14047BE1C (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuDomainMapIdentityRange @ 0x1404A9B54 (HalpIommuDomainMapIdentityRange.c)
- *     HalpIommuConstructReservedPageTable @ 0x140BEBC40 (HalpIommuConstructReservedPageTable.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x14047578C (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainMapIdentityRange @ 0x1404A31E4 (HalpIommuDomainMapIdentityRange.c)
+ *     HalpIommuConstructReservedPageTable @ 0x140BF1C40 (HalpIommuConstructReservedPageTable.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpIommuUnmapLogicalRange @ 0x14047B208 (HalpIommuUnmapLogicalRange.c)
- *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14047BB44 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14047BD64 (HalpIommuAllocateAndZeroPageTable.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140474B78 (HalpIommuUnmapLogicalRange.c)
+ *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1404754B4 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404756D4 (HalpIommuAllocateAndZeroPageTable.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuMapLogicalRange(
@@ -100,7 +100,7 @@ __int64 __fastcall HalpIommuMapLogicalRange(
           }
           MmGetPhysicalAddress(v19);
           v20 = (unsigned int)((_DWORD)v16 << v31) + v9;
-          guard_dispatch_icall_no_overrides(v20, (unsigned int)(*(_DWORD *)(a2 + 24) + ~(_DWORD)v7));
+          guard_dispatch_icall_no_overrides(v20, (unsigned int)(*(_DWORD *)(a2 + 24) - v7 - 1));
           HalpIommuFlushPhysicalPtesFromCacheSize(v20, v32);
         }
         KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 8), v18);

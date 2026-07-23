@@ -6,43 +6,45 @@
  *     RtlpGetChainHead @ 0x14041F580 (RtlpGetChainHead.c)
  */
 
-_QWORD *__fastcall RtlStronglyEnumerateEntryHashTable(__int64 a1, __int64 a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlStronglyEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  unsigned int v2; // r10d
-  __int64 v3; // r9
-  __int64 v4; // r11
-  _QWORD *result; // rax
-  _QWORD *v6; // rcx
+  unsigned int BucketIndex; // r10d
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v3; // r9
+  PRTL_DYNAMIC_HASH_TABLE v4; // r11
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *ChainHead; // rcx
 
-  v2 = *(_DWORD *)(a2 + 32);
-  v3 = a2;
-  v4 = a1;
-  while ( v2 < *(_DWORD *)(v4 + 8) )
+  BucketIndex = Enumerator->BucketIndex;
+  v3 = Enumerator;
+  v4 = HashTable;
+  while ( BucketIndex < v4->TableSize )
   {
-    if ( v2 == *(_DWORD *)(v3 + 32) )
+    if ( BucketIndex == v3->BucketIndex )
     {
-      result = *(_QWORD **)v3;
-      v6 = *(_QWORD **)(v3 + 24);
+      result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v3->HashEntry.Linkage.Flink;
+      ChainHead = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)v3->ChainHead;
     }
     else
     {
-      result = (_QWORD *)RtlpGetChainHead(v4, v2);
-      v6 = result;
+      result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)RtlpGetChainHead(v4, BucketIndex);
+      ChainHead = result;
     }
     while ( 1 )
     {
-      result = (_QWORD *)*result;
-      if ( result == v6 )
+      result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)result->Linkage.Flink;
+      if ( result == ChainHead )
         break;
-      if ( result[2] )
+      if ( result->Signature )
       {
-        *(_DWORD *)(v3 + 32) = v2;
-        *(_QWORD *)(v3 + 24) = v6;
-        *(_QWORD *)v3 = result;
+        v3->BucketIndex = BucketIndex;
+        v3->ChainHead = &ChainHead->Linkage;
+        v3->HashEntry.Linkage.Flink = &result->Linkage;
         return result;
       }
     }
-    ++v2;
+    ++BucketIndex;
   }
   return 0LL;
 }

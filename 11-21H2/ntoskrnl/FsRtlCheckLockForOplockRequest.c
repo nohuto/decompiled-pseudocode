@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
@@ -18,12 +18,12 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
   unsigned __int64 v8; // rbp
   unsigned __int8 v9; // al
   struct _KPRCB *v10; // r10
-  _DWORD *v11; // r8
+  __int64 v11; // r8
   int v12; // eax
   bool v13; // zf
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r8
+  __int64 v16; // r8
   int v17; // eax
 
   v2 = *(unsigned __int64 **)(a1 + 24);
@@ -38,21 +38,21 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
   v8 = v6;
   if ( v5 >= *v2 )
   {
-    KxReleaseSpinLock(v7);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel(v7);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v16 = *((_QWORD *)CurrentPrcb + 4375);
           v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-          v13 = (v17 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v17;
+          v13 = (v17 & *(_DWORD *)(v16 + 20)) == 0;
+          *(_DWORD *)(v16 + 20) &= v17;
           if ( v13 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
     }
@@ -60,21 +60,21 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
   }
   else
   {
-    KxReleaseSpinLock(v7);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel(v7);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         v9 = KeGetCurrentIrql();
         if ( v9 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v9 >= 2u )
         {
           v10 = KeGetCurrentPrcb();
-          v11 = v10->SchedulerAssist;
+          v11 = *((_QWORD *)v10 + 4375);
           v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-          v13 = (v12 & v11[5]) == 0;
-          v11[5] &= v12;
+          v13 = (v12 & *(_DWORD *)(v11 + 20)) == 0;
+          *(_DWORD *)(v11 + 20) &= v12;
           if ( v13 )
-            KiRemoveSystemWorkPriorityKick(v10);
+            sub_140418E4C(v10);
         }
       }
     }

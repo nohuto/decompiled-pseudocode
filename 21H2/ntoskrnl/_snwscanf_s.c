@@ -1,11 +1,11 @@
 /*
- * XREFs of _snwscanf_s @ 0x1403D72E0
+ * XREFs of _snwscanf_s @ 0x1403D7450
  * Callers:
- *     SiGetBootDeviceName @ 0x1406A49A4 (SiGetBootDeviceName.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B054 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiGetBootDeviceName @ 0x1406025D4 (SiGetBootDeviceName.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B214 (SiIsWinPeHardDiskZeroUfdBoot.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
- *     _swinput_s @ 0x1403DAD34 (_swinput_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
+ *     _swinput_s @ 0x1403DAEA4 (_swinput_s.c)
  */
 
 int snwscanf_s(const wchar_t *Src, size_t MaxCount, const wchar_t *Format, ...)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmStoreRefFromStoreIndex @ 0x14042B6B0
+ * XREFs of SmKmStoreRefFromStoreIndex @ 0x14041E240
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x14042B640 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmGetStoreOwnerProcessId @ 0x14060EE3C (SmGetStoreOwnerProcessId.c)
- *     SmProcessListRequest @ 0x140797FD8 (SmProcessListRequest.c)
- *     SmKmStoreDelete @ 0x140A55CF0 (SmKmStoreDelete.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x14041E1D0 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmGetStoreOwnerProcessId @ 0x14060D3FC (SmGetStoreOwnerProcessId.c)
+ *     SmProcessListRequest @ 0x1407980E8 (SmProcessListRequest.c)
+ *     SmKmStoreDelete @ 0x140A4DC40 (SmKmStoreDelete.c)
  * Callees:
  *     <none>
  */

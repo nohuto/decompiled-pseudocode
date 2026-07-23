@@ -1,30 +1,30 @@
 /*
- * XREFs of CcGetVirtualAddress @ 0x1400AFC40
+ * XREFs of CcGetVirtualAddress @ 0x1400AFB80
  * Callers:
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
- *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
- *     CcPrepareMdlWrite @ 0x1400E1A40 (CcPrepareMdlWrite.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
- *     CcMapAndCopyFromCache @ 0x140638760 (CcMapAndCopyFromCache.c)
- *     CcMapData @ 0x140638A10 (CcMapData.c)
- *     CcMdlRead @ 0x140662B90 (CcMdlRead.c)
- *     CcMapDataCommon @ 0x14069FF64 (CcMapDataCommon.c)
+ *     CcPinFileData @ 0x1400AE210 (CcPinFileData.c)
+ *     CcPrepareMdlWrite @ 0x1400E1AC0 (CcPrepareMdlWrite.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E7978 (CcPurgeAndClearCacheSection.c)
+ *     CcMapAndCopyFromCache @ 0x140639780 (CcMapAndCopyFromCache.c)
+ *     CcMapData @ 0x140639A30 (CcMapData.c)
+ *     CcMdlRead @ 0x140663D50 (CcMdlRead.c)
+ *     CcMapDataCommon @ 0x1406A1224 (CcMapDataCommon.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     CcInsertVacbArray @ 0x14016AC64 (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x14016AFE4 (CcAllocateInitializeVacbArray.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcBuildUpHighPriorityMappings @ 0x14026A500 (CcBuildUpHighPriorityMappings.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     CcUnmapVacbArray @ 0x1400798D0 (CcUnmapVacbArray.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     CcInsertVacbArray @ 0x14016AD64 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x14016B0E4 (CcAllocateInitializeVacbArray.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcBuildUpHighPriorityMappings @ 0x14026A6F0 (CcBuildUpHighPriorityMappings.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall CcGetVirtualAddress(
@@ -98,7 +98,7 @@ __int64 __fastcall CcGetVirtualAddress(
       _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140438BC0, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140439C80, CurrentIrql);
     }
     else
     {
@@ -118,7 +118,7 @@ __int64 __fastcall CcGetVirtualAddress(
           }
         }
       }
-      if ( _interlockedbittestandset(&dword_140438BC0, 0x1Fu) )
+      if ( _interlockedbittestandset(&dword_140439C80, 0x1Fu) )
       {
         v35 = CurrentPrcb->SchedulerAssist;
         if ( v35 )
@@ -131,36 +131,36 @@ __int64 __fastcall CcGetVirtualAddress(
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
-        v50 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140438BC0, CurrentIrql);
+        v50 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140439C80, CurrentIrql);
         v7 = 0LL;
       }
-      v16 = (unsigned int)dword_140438BC0;
-      if ( (dword_140438BC0 & 0xBFFFFFFF) != 0x80000000 )
+      v16 = (unsigned int)dword_140439C80;
+      if ( (dword_140439C80 & 0xBFFFFFFF) != 0x80000000 )
       {
         do
         {
           if ( (v16 & 0x40000000) == 0 )
           {
-            v41 = _InterlockedCompareExchange(&dword_140438BC0, v16 | 0x40000000, v16);
+            v41 = _InterlockedCompareExchange(&dword_140439C80, v16 | 0x40000000, v16);
             v40 = (_DWORD)v16 == v41;
             v16 = v41;
             if ( !v40 )
               continue;
           }
           KeYieldProcessorEx(&v50, v16, v7);
-          v16 = (unsigned int)dword_140438BC0;
+          v16 = (unsigned int)dword_140439C80;
         }
         while ( (v16 & 0xBFFFFFFF) != 0x80000000 );
       }
     }
     if ( *(_QWORD *)v12 )
-      v17 = *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v12 + 60LL) & 0x3FF));
+      v17 = *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v12 + 60LL) & 0x3FF));
     else
       v17 = &MiSystemPartition;
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140438BC0, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140439C80, retaddr);
     else
-      dword_140438BC0 = 0;
+      dword_140439C80 = 0;
     v18 = KeGetCurrentPrcb();
     v19 = v18->SchedulerAssist;
     if ( v19 )

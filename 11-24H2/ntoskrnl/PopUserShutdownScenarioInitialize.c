@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUserShutdownScenarioInitialize @ 0x140C2ECB0
+ * XREFs of PopUserShutdownScenarioInitialize @ 0x140C30DD0
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x140749388 (PopInitializeTimer.c)
- *     PdcTaskClientRegister @ 0x14078DE9C (PdcTaskClientRegister.c)
- *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C2EB68 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
+ *     PopInitializeTimer @ 0x1407476B8 (PopInitializeTimer.c)
+ *     PdcTaskClientRegister @ 0x14078DDCC (PdcTaskClientRegister.c)
+ *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C30C88 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
  */
 
 __int64 PopUserShutdownScenarioInitialize()

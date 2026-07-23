@@ -9,7 +9,7 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-char __fastcall sub_1800E5B10(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall sub_1800E5B10(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v6; // rcx
   int v9; // r11d
@@ -23,19 +23,18 @@ char __fastcall sub_1800E5B10(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a
   bool v18; // cf
   __int64 v19; // rdi
   int v20; // edx
-  _WORD *v21; // rdx
-  int v22; // [rsp+20h] [rbp-78h] BYREF
-  __int16 v23; // [rsp+24h] [rbp-74h]
-  _BYTE v24[8]; // [rsp+28h] [rbp-70h] BYREF
-  int v25; // [rsp+30h] [rbp-68h]
+  void *v21; // rdx
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-78h] BYREF
+  _BYTE Sid[8]; // [rsp+28h] [rbp-70h] BYREF
+  int v24; // [rsp+30h] [rbp-68h]
 
   v6 = *a2;
   if ( byte_180120FA0[v6] != byte_180120FA0[*a1] || byte_180121000[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
     return 0;
   v9 = *((_DWORD *)a2 + 2) & 1;
   v10 = (_DWORD *)((unsigned __int64)(a2 + 12) & -(__int64)(v9 != 0));
-  v22 = *((_DWORD *)a2 + 2) & 2;
-  if ( v22 )
+  *(_DWORD *)IdentifierAuthority.Value = *((_DWORD *)a2 + 2) & 2;
+  if ( *(_DWORD *)IdentifierAuthority.Value )
     v11 = &a2[(v9 != 0 ? 0x10 : 0) + 12];
   else
     v11 = 0LL;
@@ -77,19 +76,19 @@ char __fastcall sub_1800E5B10(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a
   }
   v16 = (*((_DWORD *)a1 + 2) & 2) != 0 ? 0x10 : 0;
   v17 = v16 + (v12 != 0 ? 28LL : 12LL);
-  v18 = v22 != 0;
-  v22 = -v22;
+  v18 = *(_DWORD *)IdentifierAuthority.Value != 0;
+  *(_DWORD *)IdentifierAuthority.Value = -*(_DWORD *)IdentifierAuthority.Value;
   v19 = (v9 != 0 ? 0x10 : 0) + (v18 ? 28LL : 12LL);
   if ( !RtlEqualSid(&a2[v19], &a1[v17]) )
   {
     if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !a3 && !a4 )
       return 0;
-    v22 = 0;
-    v23 = 768;
-    if ( (int)RtlInitializeSid((__int64)v24, (__int64)&v22, 1u) < 0 )
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+    if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
       return 0;
-    v25 = 0;
-    if ( !RtlEqualPrefixSid(&a1[v17], v24) )
+    v24 = 0;
+    if ( !RtlEqualPrefixSid(&a1[v17], Sid) )
       return 0;
     v20 = *(_DWORD *)&a1[v16 + (v12 != 0 ? 36LL : 20LL)];
     if ( v20 )

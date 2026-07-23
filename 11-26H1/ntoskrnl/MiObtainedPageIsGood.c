@@ -1,13 +1,13 @@
 /*
- * XREFs of MiObtainedPageIsGood @ 0x14043467C
+ * XREFs of MiObtainedPageIsGood @ 0x14042B75C
  * Callers:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiDemoteLargeFreePage @ 0x140434410 (MiDemoteLargeFreePage.c)
- *     MiPreemptivePageDemote @ 0x140434608 (MiPreemptivePageDemote.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiDemoteLargeFreePage @ 0x14042B4F0 (MiDemoteLargeFreePage.c)
+ *     MiPreemptivePageDemote @ 0x14042B6E8 (MiPreemptivePageDemote.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiInsertPossiblyBadPage @ 0x1403C65E0 (MiInsertPossiblyBadPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiInsertPossiblyBadPage @ 0x1403D04D4 (MiInsertPossiblyBadPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiObtainedPageIsGood(__int64 a1)

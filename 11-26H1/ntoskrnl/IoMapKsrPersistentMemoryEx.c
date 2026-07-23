@@ -1,11 +1,11 @@
 /*
- * XREFs of IoMapKsrPersistentMemoryEx @ 0x14079C760
+ * XREFs of IoMapKsrPersistentMemoryEx @ 0x14079F2A0
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PipGetPersistentMemory @ 0x14079D57C (PipGetPersistentMemory.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PipGetPersistentMemory @ 0x1407A00BC (PipGetPersistentMemory.c)
  */
 
 __int64 __fastcall IoMapKsrPersistentMemoryEx(__int64 a1, ULONG_PTR a2, __int64 a3, __int64 a4, __int64 a5)

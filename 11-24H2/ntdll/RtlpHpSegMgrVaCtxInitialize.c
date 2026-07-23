@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxInitialize @ 0x180092A9C
+ * XREFs of RtlpHpSegMgrVaCtxInitialize @ 0x18009D62C
  * Callers:
- *     RtlpHpSegMgrReserve @ 0x180091724 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrReserve @ 0x18009C2B0 (RtlpHpSegMgrReserve.c)
  * Callees:
- *     RtlpHpVaMgrCtxQuery @ 0x1800937AC (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x18009E33C (RtlpHpVaMgrCtxQuery.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrVaCtxInitialize(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -14,7 +14,7 @@ __int64 __fastcall RtlpHpSegMgrVaCtxInitialize(__int64 a1, __int64 a2, unsigned 
 
   v7 = 0LL;
   v8 = 0LL;
-  RtlpHpVaMgrCtxQuery(&unk_1801CE978, a2, &v7);
+  RtlpHpVaMgrCtxQuery(&unk_1801CD968, a2, &v7);
   result = v8;
   *(_WORD *)(v8 + 2) = (1 << (a4 / a3)) - 2;
   *(_QWORD *)(result + 8) = -1LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpLogInvalidLogHeader @ 0x1401B70FC
+ * XREFs of HvpLogInvalidLogHeader @ 0x1401B6FE0
  * Callers:
- *     HvpGetLogHeader @ 0x140610A74 (HvpGetLogHeader.c)
+ *     HvpGetLogHeader @ 0x140610B28 (HvpGetLogHeader.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
  */
 
 void __fastcall HvpLogInvalidLogHeader(__int64 a1, __int64 *a2, char a3, int *a4)
@@ -74,6 +74,6 @@ void __fastcall HvpLogInvalidLogHeader(__int64 a1, __int64 *a2, char a3, int *a4
     v30 = 4LL;
     v32 = 4LL;
     v34 = 4LL;
-    TlgWrite(&stru_1402F34E0, &unk_14027B2EE, 0LL, 0LL, 0xCu, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027B3EE, 0LL, 0LL, 0xCu, &pData);
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CcPerfLogLazyWriteScan @ 0x1400B2B88
+ * XREFs of CcPerfLogLazyWriteScan @ 0x1400B0AC8
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogLazyWriteScan(

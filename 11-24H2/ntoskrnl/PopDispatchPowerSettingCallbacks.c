@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDispatchPowerSettingCallbacks @ 0x1409BDB60
+ * XREFs of PopDispatchPowerSettingCallbacks @ 0x1409A41B0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PopIncrementPowerSettingPendingUpdates @ 0x1403CB258 (PopIncrementPowerSettingPendingUpdates.c)
- *     PopDecrementPowerSettingPendingUpdates @ 0x1403CB448 (PopDecrementPowerSettingPendingUpdates.c)
- *     PopUnregisterPowerSettingCallback @ 0x1404AD028 (PopUnregisterPowerSettingCallback.c)
- *     PopCallPowerSettingCallback @ 0x1409BDC9C (PopCallPowerSettingCallback.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopIncrementPowerSettingPendingUpdates @ 0x1402B9D70 (PopIncrementPowerSettingPendingUpdates.c)
+ *     PopDecrementPowerSettingPendingUpdates @ 0x1402B9F60 (PopDecrementPowerSettingPendingUpdates.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PopUnregisterPowerSettingCallback @ 0x1404A770C (PopUnregisterPowerSettingCallback.c)
+ *     PopCallPowerSettingCallback @ 0x1409A42EC (PopCallPowerSettingCallback.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PopDispatchPowerSettingCallbacks()
@@ -29,7 +29,7 @@ __int64 PopDispatchPowerSettingCallbacks()
 
   PopIncrementPowerSettingPendingUpdates(0);
   PopDecrementPowerSettingPendingUpdates(1);
-  v0 = dword_140F0BA4C;
+  v0 = dword_140F0B38C;
   ExAcquireFastMutex(&PopSettingLock);
   v1 = PopPowerSettings;
   if ( PopPowerSettings != &PopPowerSettings )

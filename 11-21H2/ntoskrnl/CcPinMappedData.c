@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     ExAcquireSharedStarveExclusive @ 0x1402339A0 (ExAcquireSharedStarveExclusive.c)
- *     CcFreeVirtualAddress @ 0x140329430 (CcFreeVirtualAddress.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
+ *     sub_140329430 @ 0x140329430 (sub_140329430.c)
+ *     sub_14032AD00 @ 0x14032AD00 (sub_14032AD00.c)
  *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x14080C6EC (CcAllocateObcb.c)
+ *     sub_14080C6EC @ 0x14080C6EC (sub_14080C6EC.c)
  */
 
 BOOLEAN __stdcall CcPinMappedData(
@@ -24,7 +24,7 @@ BOOLEAN __stdcall CcPinMappedData(
   __int64 v11; // rax
   PVOID *v12; // r15
   BOOLEAN v13; // di
-  PVOID Obcb; // [rsp+58h] [rbp-50h] BYREF
+  PVOID v15; // [rsp+58h] [rbp-50h] BYREF
   LONGLONG QuadPart; // [rsp+60h] [rbp-48h] BYREF
   PVOID *v17; // [rsp+68h] [rbp-40h]
   __int64 v18; // [rsp+70h] [rbp-38h] BYREF
@@ -36,8 +36,8 @@ BOOLEAN __stdcall CcPinMappedData(
   v18 = 0LL;
   v19 = 0LL;
   QuadPart = FileOffset->QuadPart;
-  Obcb = 0LL;
-  v17 = &Obcb;
+  v15 = 0LL;
+  v17 = &v15;
   v8 = (__int64 *)Bcb;
   if ( ((unsigned __int8)*Bcb & 1) == 0 )
     return 1;
@@ -51,13 +51,13 @@ BOOLEAN __stdcall CcPinMappedData(
     v12 = v17;
     while ( 1 )
     {
-      if ( Obcb )
+      if ( v15 )
       {
-        if ( v12 == &Obcb )
+        if ( v12 == &v15 )
         {
-          Obcb = (PVOID)CcAllocateObcb(FileOffset, v10);
-          v12 = (PVOID *)((char *)Obcb + 16);
-          v17 = (PVOID *)((char *)Obcb + 16);
+          v15 = (PVOID)sub_14080C6EC(FileOffset, v10);
+          v12 = (PVOID *)((char *)v15 + 16);
+          v17 = (PVOID *)((char *)v15 + 16);
           v11 = v19;
         }
         v10 += QuadPart - v11;
@@ -65,7 +65,7 @@ BOOLEAN __stdcall CcPinMappedData(
         QuadPart = v11;
         v17 = ++v12;
       }
-      if ( !(unsigned __int8)CcPinFileData(
+      if ( !(unsigned __int8)sub_14032AD00(
                                (__int64)FileObject,
                                &QuadPart,
                                v10,
@@ -79,8 +79,8 @@ BOOLEAN __stdcall CcPinMappedData(
       v11 = v19;
       if ( v19 - QuadPart >= v10 )
       {
-        CcFreeVirtualAddress(*v8);
-        *v8 = (__int64)Obcb;
+        sub_140329430(*v8);
+        *v8 = (__int64)v15;
         goto LABEL_8;
       }
     }
@@ -97,8 +97,8 @@ LABEL_14:
   if ( !v13 )
   {
     ++*v8;
-    if ( Obcb )
-      CcUnpinData(Obcb);
+    if ( v15 )
+      CcUnpinData(v15);
   }
   return v13;
 }

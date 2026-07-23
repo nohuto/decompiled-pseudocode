@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreedUnusedPfnPagesWorker @ 0x14038ED1C
+ * XREFs of MiFreedUnusedPfnPagesWorker @ 0x14038EEFC
  * Callers:
- *     MiFreeUnusedPfnPagesDpc @ 0x14038EBD0 (MiFreeUnusedPfnPagesDpc.c)
+ *     MiFreeUnusedPfnPagesDpc @ 0x14038EDB0 (MiFreeUnusedPfnPagesDpc.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     MiGetNextNonGapPfnPage @ 0x14038EF90 (MiGetNextNonGapPfnPage.c)
- *     MiPfnRangeIsZero @ 0x14038F184 (MiPfnRangeIsZero.c)
- *     RtlCompareMemoryUlong @ 0x1404298A0 (RtlCompareMemoryUlong.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
+ *     MiGetNextNonGapPfnPage @ 0x14038F170 (MiGetNextNonGapPfnPage.c)
+ *     MiPfnRangeIsZero @ 0x14038F364 (MiPfnRangeIsZero.c)
+ *     RtlCompareMemoryUlong @ 0x140429C30 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall MiFreedUnusedPfnPagesWorker(_QWORD *a1)

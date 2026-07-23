@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWritePartitionTable @ 0x14070E630
+ * XREFs of IoWritePartitionTable @ 0x14070C1D0
  * Callers:
- *     DifIoWritePartitionTableWrapper @ 0x14062BB40 (DifIoWritePartitionTableWrapper.c)
+ *     DifIoWritePartitionTableWrapper @ 0x14062A100 (DifIoWritePartitionTableWrapper.c)
  * Callees:
- *     ??0SC_DISK@@QEAA@XZ @ 0x14069D488 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x14069D570 (--1SC_DISK@@UEAA@XZ.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069E00C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14070DE38 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x14069E51C (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x14069E604 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069F09C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070B8A0 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14070B9D8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWritePartitionTable(
@@ -19,52 +19,54 @@ NTSTATUS __stdcall IoWritePartitionTable(
         ULONG NumberOfHeads,
         struct _DRIVE_LAYOUT_INFORMATION *PartitionBuffer)
 {
-  ULONG PartitionCount; // eax
-  struct SC_DISK_LAYOUT *PoolWithTag; // rax
-  struct SC_DISK_LAYOUT *v8; // rbx
-  NTSTATUS v9; // edi
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  _QWORD v14[50]; // [rsp+20h] [rbp-1A8h] BYREF
+  DWORD PartitionCount; // eax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  struct SC_DISK_LAYOUT *v9; // rax
+  struct SC_DISK_LAYOUT *v10; // rbx
+  NTSTATUS v11; // edi
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  _QWORD v16[50]; // [rsp+20h] [rbp-1A8h] BYREF
 
-  SC_DISK::SC_DISK((SC_DISK *)v14);
+  SC_DISK::SC_DISK((SC_DISK *)v16);
   PartitionCount = PartitionBuffer->PartitionCount;
-  v14[49] = 0LL;
-  v14[0] = &NT_DISK::`vftable';
-  PoolWithTag = (struct SC_DISK_LAYOUT *)ExAllocatePoolWithTag(NonPagedPoolNx, 144 * PartitionCount + 48, 0x54506F49u);
-  v8 = PoolWithTag;
-  if ( PoolWithTag )
+  v16[49] = 0LL;
+  v16[0] = &NT_DISK::`vftable';
+  v9 = (struct SC_DISK_LAYOUT *)SC_ENV::Allocate(144 * PartitionCount + 48, v7, v8, 0);
+  v10 = v9;
+  if ( v9 )
   {
-    *(_DWORD *)PoolWithTag = 0;
-    v10 = 0LL;
-    *((_DWORD *)PoolWithTag + 1) = PartitionBuffer->PartitionCount;
-    for ( *((_DWORD *)PoolWithTag + 2) = PartitionBuffer->Signature;
-          (unsigned int)v10 < PartitionBuffer->PartitionCount;
-          *((_DWORD *)PoolWithTag + 2 * v11 + 21) = PartitionBuffer->PartitionEntry[v12].HiddenSectors )
+    *(_DWORD *)v9 = 0;
+    v12 = 0LL;
+    *((_DWORD *)v9 + 1) = PartitionBuffer->PartitionCount;
+    for ( *((_DWORD *)v9 + 2) = PartitionBuffer->Signature;
+          (unsigned int)v12 < PartitionBuffer->PartitionCount;
+          *((_DWORD *)v9 + 2 * v13 + 21) = PartitionBuffer->PartitionEntry[v14].HiddenSectors )
     {
-      v11 = 18 * v10;
-      v12 = (unsigned int)v10;
-      v10 = (unsigned int)(v10 + 1);
-      *((_DWORD *)PoolWithTag + 2 * v11 + 12) = 0;
-      *((_QWORD *)PoolWithTag + v11 + 7) = PartitionBuffer->PartitionEntry[v12].StartingOffset.QuadPart;
-      *((_QWORD *)PoolWithTag + v11 + 8) = PartitionBuffer->PartitionEntry[v12].PartitionLength.QuadPart;
-      *((_DWORD *)PoolWithTag + 2 * v11 + 18) = PartitionBuffer->PartitionEntry[v12].PartitionNumber;
-      *((_BYTE *)PoolWithTag + 8 * v11 + 76) = PartitionBuffer->PartitionEntry[v12].RewritePartition;
-      *((_BYTE *)PoolWithTag + 8 * v11 + 80) = PartitionBuffer->PartitionEntry[v12].PartitionType;
-      *((_BYTE *)PoolWithTag + 8 * v11 + 81) = PartitionBuffer->PartitionEntry[v12].BootIndicator;
-      *((_BYTE *)PoolWithTag + 8 * v11 + 82) = PartitionBuffer->PartitionEntry[v12].RecognizedPartition;
+      v13 = 18 * v12;
+      v14 = (unsigned int)v12;
+      v12 = (unsigned int)(v12 + 1);
+      *((_DWORD *)v9 + 2 * v13 + 12) = 0;
+      *((_QWORD *)v9 + v13 + 7) = PartitionBuffer->PartitionEntry[v14].StartingOffset.QuadPart;
+      *((_QWORD *)v9 + v13 + 8) = PartitionBuffer->PartitionEntry[v14].PartitionLength.QuadPart;
+      *((_DWORD *)v9 + 2 * v13 + 18) = PartitionBuffer->PartitionEntry[v14].PartitionNumber;
+      *((_BYTE *)v9 + 8 * v13 + 76) = PartitionBuffer->PartitionEntry[v14].RewritePartition;
+      *((_BYTE *)v9 + 8 * v13 + 80) = PartitionBuffer->PartitionEntry[v14].PartitionType;
+      *((_BYTE *)v9 + 8 * v13 + 81) = PartitionBuffer->PartitionEntry[v14].BootIndicator;
+      *((_BYTE *)v9 + 8 * v13 + 82) = PartitionBuffer->PartitionEntry[v14].RecognizedPartition;
     }
-    v9 = NT_DISK::Initialize((NT_DISK *)v14, DeviceObject);
-    if ( v9 >= 0 )
-      v9 = SC_DISK::WritePartitionTable((SC_DISK *)v14, v8);
-    ExFreePoolWithTag(v8, 0);
+    v11 = NT_DISK::Initialize((NT_DISK *)v16, DeviceObject);
+    if ( v11 >= 0 )
+      v11 = SC_DISK::WritePartitionTable((SC_DISK *)v16, v10);
+    ExFreePoolWithTag(v10, 0);
   }
   else
   {
-    v9 = -1073741670;
+    v11 = -1073741670;
   }
-  v14[0] = &NT_DISK::`vftable';
-  SC_DISK::~SC_DISK((SC_DISK *)v14);
-  return v9;
+  v16[0] = &NT_DISK::`vftable';
+  SC_DISK::~SC_DISK((SC_DISK *)v16);
+  return v11;
 }

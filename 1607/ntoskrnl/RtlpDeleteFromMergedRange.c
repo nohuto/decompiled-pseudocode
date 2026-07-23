@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpDeleteFromMergedRange @ 0x140557F10
+ * XREFs of RtlpDeleteFromMergedRange @ 0x140558450
  * Callers:
- *     RtlDeleteRange @ 0x14055A74C (RtlDeleteRange.c)
- *     RtlDeleteOwnersRanges @ 0x14055A804 (RtlDeleteOwnersRanges.c)
+ *     RtlDeleteRange @ 0x14055AC8C (RtlDeleteRange.c)
+ *     RtlDeleteOwnersRanges @ 0x14055AD44 (RtlDeleteOwnersRanges.c)
  * Callees:
- *     RtlpAddRange @ 0x140559BDC (RtlpAddRange.c)
- *     RtlpAddToMergedRange @ 0x14055A3B4 (RtlpAddToMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x14055A998 (RtlpFreeRangeListEntry.c)
+ *     RtlpAddRange @ 0x14055A11C (RtlpAddRange.c)
+ *     RtlpAddToMergedRange @ 0x14055A8F4 (RtlpAddToMergedRange.c)
+ *     RtlpFreeRangeListEntry @ 0x14055AED8 (RtlpFreeRangeListEntry.c)
  */
 
 __int64 __fastcall RtlpDeleteFromMergedRange(_QWORD *Entry, _QWORD *a2)

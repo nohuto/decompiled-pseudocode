@@ -19,7 +19,7 @@ void __fastcall KiRemoveSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
   _RTL_RB_TREE *p_ScbQueue; // rdi
   _KSCB **p_Parent; // r14
   _KSCB *Parent; // rax
-  unsigned __int64 p_ChildScbQueue; // rsi
+  _RTL_RB_TREE *p_ChildScbQueue; // rsi
   __int64 v9; // rcx
   unsigned __int64 Root; // rax
 
@@ -28,15 +28,15 @@ void __fastcall KiRemoveSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
   {
     p_Parent = &a2->Parent;
     Parent = a2->Parent;
-    p_ChildScbQueue = (unsigned __int64)&Parent->ChildScbQueue;
+    p_ChildScbQueue = &Parent->ChildScbQueue;
     if ( !Parent )
-      p_ChildScbQueue = (unsigned __int64)p_ScbQueue;
+      p_ChildScbQueue = p_ScbQueue;
     if ( a3 )
       a2->ReadyTime += MEMORY[0xFFFFF78000000008] - a2->InsertTime;
     a2->PrcbLockFlags &= ~1u;
-    RtlRbRemoveNode(p_ChildScbQueue, (unsigned __int64 *)&a2->QueueNode);
+    RtlRbRemoveNode(p_ChildScbQueue, &a2->QueueNode);
     if ( (unsigned int)Feature_IdleSearchImprovements__private_IsEnabledNoReportingNoInline(v9)
-      && (_RTL_RB_TREE *)p_ChildScbQueue == p_ScbQueue
+      && p_ChildScbQueue == p_ScbQueue
       && !p_ScbQueue->Root
       && !a1->ReadyThreadCount )
     {

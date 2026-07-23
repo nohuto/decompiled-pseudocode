@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVerifyLargeSectionLayout @ 0x140CFB200
+ * XREFs of MiVerifyLargeSectionLayout @ 0x140D01580
  * Callers:
- *     MiCheckLargePageOk @ 0x140CFAE64 (MiCheckLargePageOk.c)
+ *     MiCheckLargePageOk @ 0x140D011E4 (MiCheckLargePageOk.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR *__fastcall MiVerifyLargeSectionLayout(ULONG_PTR BugCheckParameter2)
@@ -13,14 +13,14 @@ ULONG_PTR *__fastcall MiVerifyLargeSectionLayout(ULONG_PTR BugCheckParameter2)
   unsigned int v3; // edx
   unsigned int v4; // esi
   int v5; // r10d
-  int v6; // r11d
+  int NumberOfSections; // r11d
   int v7; // r11d
   ULONG_PTR *result; // rax
   int v9; // ecx
   unsigned int v10; // r8d
   unsigned int v11; // edx
   unsigned int v12; // eax
-  __int64 v13; // [rsp+30h] [rbp-30h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp-30h] BYREF
   ULONG_PTR BugCheckParameter3; // [rsp+38h] [rbp-28h] BYREF
   __int64 v15; // [rsp+40h] [rbp-20h]
   int v16; // [rsp+48h] [rbp-18h]
@@ -28,20 +28,20 @@ ULONG_PTR *__fastcall MiVerifyLargeSectionLayout(ULONG_PTR BugCheckParameter2)
   int v18; // [rsp+5Ch] [rbp-4h]
 
   v15 = 0LL;
-  v13 = 0LL;
+  OutHeaders = 0LL;
   v17 = 0LL;
-  RtlImageNtHeaderEx(1, BugCheckParameter2, 0LL, &v13);
+  RtlImageNtHeaderEx(1u, (PVOID)BugCheckParameter2, 0LL, &OutHeaders);
   p_BugCheckParameter3 = &BugCheckParameter3;
   v3 = 0;
   v4 = 0x40000000;
   v5 = 0;
-  v6 = *(unsigned __int16 *)(v13 + 6);
+  NumberOfSections = OutHeaders->FileHeader.NumberOfSections;
   v15 = 0LL;
-  v7 = v6 + 1;
+  v7 = NumberOfSections + 1;
   BugCheckParameter3 = 0LL;
   v17 = 0LL;
   v18 = 0x40000000;
-  result = (ULONG_PTR *)*(unsigned int *)(v13 + 84);
+  result = (ULONG_PTR *)OutHeaders->OptionalHeader.SizeOfHeaders;
   LODWORD(v15) = (_DWORD)result;
   v16 = (int)result;
   while ( v7 )
@@ -87,7 +87,8 @@ LABEL_14:
     }
     result = &BugCheckParameter3;
     if ( p_BugCheckParameter3 == &BugCheckParameter3 )
-      p_BugCheckParameter3 = (ULONG_PTR *)(v13 + *(unsigned __int16 *)(v13 + 20) + 24LL);
+      p_BugCheckParameter3 = (ULONG_PTR *)((char *)&OutHeaders->OptionalHeader.Magic
+                                         + OutHeaders->FileHeader.SizeOfOptionalHeader);
     else
       p_BugCheckParameter3 += 5;
     --v7;

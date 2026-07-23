@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvEnterSleepState @ 0x14050BEAC
+ * XREFs of HalpHvEnterSleepState @ 0x14050C3FC
  * Callers:
- *     HalpShutdown @ 0x140506C48 (HalpShutdown.c)
- *     HaliAcpiSleep @ 0x140527F40 (HaliAcpiSleep.c)
+ *     HalpShutdown @ 0x140507198 (HalpShutdown.c)
+ *     HaliAcpiSleep @ 0x140528490 (HaliAcpiSleep.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpHvEnterSleepState()

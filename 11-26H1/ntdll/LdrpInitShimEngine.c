@@ -1,123 +1,119 @@
 /*
- * XREFs of LdrpInitShimEngine @ 0x18011831C
+ * XREFs of LdrpInitShimEngine @ 0x1801180CC
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpReleaseDllPath @ 0x180051400 (LdrpReleaseDllPath.c)
- *     LdrpLoadDll @ 0x180051A00 (LdrpLoadDll.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpInitializeDllPath @ 0x18009B960 (LdrpInitializeDllPath.c)
- *     LdrpBuildSystem32FileName @ 0x1800BE800 (LdrpBuildSystem32FileName.c)
- *     LdrpPinModule @ 0x1800C64AC (LdrpPinModule.c)
- *     LdrpLoadShimEngine @ 0x1800C6518 (LdrpLoadShimEngine.c)
- *     LdrpGetShimEngineInterface @ 0x18011DA94 (LdrpGetShimEngineInterface.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpReleaseDllPath @ 0x18003B980 (LdrpReleaseDllPath.c)
+ *     LdrpLoadDll @ 0x18003BF80 (LdrpLoadDll.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpInitializeDllPath @ 0x18009AA90 (LdrpInitializeDllPath.c)
+ *     LdrpBuildSystem32FileName @ 0x1800BC260 (LdrpBuildSystem32FileName.c)
+ *     LdrpPinModule @ 0x1800C3C6C (LdrpPinModule.c)
+ *     LdrpLoadShimEngine @ 0x1800C3CD8 (LdrpLoadShimEngine.c)
+ *     LdrpGetShimEngineInterface @ 0x18011D844 (LdrpGetShimEngineInterface.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-_WORD *__fastcall LdrpInitShimEngine(__int64 a1)
+int __fastcall LdrpInitShimEngine(__int64 a1)
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
-  int v4; // eax
-  int Dll; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rbx
-  __int64 v8; // rcx
+  int v2; // eax
+  int v3; // ebx
+  char *v4; // rbx
+  _QWORD *v5; // rcx
   int ShimEngineInterface; // eax
-  _WORD *result; // rax
-  char ArgList[4]; // [rsp+28h] [rbp-D8h]
-  char ArgLista[4]; // [rsp+28h] [rbp-D8h]
-  char ArgListb[4]; // [rsp+28h] [rbp-D8h]
-  PCWSTR SourceString[2]; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD v16[3]; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned __int16 v17[4]; // [rsp+60h] [rbp-A0h] BYREF
-  _WORD *v18; // [rsp+68h] [rbp-98h]
-  _WORD v19[128]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v20[128]; // [rsp+170h] [rbp+70h] BYREF
-  _BYTE v21[512]; // [rsp+1F0h] [rbp+F0h] BYREF
+  _WORD *v7; // rax
+  int v9; // [rsp+28h] [rbp-D8h]
+  int v10; // [rsp+28h] [rbp-D8h]
+  int v11; // [rsp+28h] [rbp-D8h]
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-D0h] BYREF
+  PVOID v13; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v14[3]; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING v15; // [rsp+60h] [rbp-A0h] BYREF
+  _WORD v16[128]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v17[128]; // [rsp+170h] [rbp+70h] BYREF
+  _BYTE v18[512]; // [rsp+1F0h] [rbp+F0h] BYREF
 
-  v16[0] = 1572886LL;
-  v16[1] = L"apphelp.dll";
-  memset_thunk_772440563353939046(v20, 0, 0x80uLL);
-  v15 = 0LL;
-  memset_thunk_772440563353939046(v17, 0, 0x110uLL);
-  *(_DWORD *)v17 = 0x1000000;
-  v19[0] = 0;
-  v18 = v19;
-  *(_OWORD *)SourceString = 0LL;
-  v4 = LdrpBuildSystem32FileName(v17, (unsigned __int16 *)v16, v2, v3);
-  if ( v4 >= 0 )
+  v14[0] = 1572886LL;
+  v14[1] = L"apphelp.dll";
+  memset_thunk_772440563353939046(v17, 0, 0x80uLL);
+  v13 = 0LL;
+  memset_thunk_772440563353939046(&v15, 0, 0x110uLL);
+  *(_DWORD *)&v15.Length = 0x1000000;
+  v16[0] = 0;
+  v15.Buffer = v16;
+  *(_OWORD *)BaseAddress = 0LL;
+  v2 = LdrpBuildSystem32FileName(&v15.Length, (unsigned __int16 *)v14);
+  if ( v2 >= 0 )
   {
-    LdrpInitializeDllPath(0LL, 16385LL, (__int64)v20);
-    Dll = LdrpLoadDll(v17, (__int64)v20, 0, (__int64)&v15);
-    LdrpReleaseDllPath((__int64)v20);
-    if ( Dll >= 0 )
+    LdrpInitializeDllPath(0LL, 16385LL, (__int64)v17);
+    v3 = LdrpLoadDll(&v15, (__int64)v17, 0, (__int64)&v13);
+    LdrpReleaseDllPath((__int64)v17);
+    if ( v3 >= 0 )
     {
-      v7 = v15;
-      v8 = v15;
-      *(_DWORD *)(v15 + 104) |= 0x100u;
-      g_pShimEngineModule = *(_QWORD *)(v8 + 48);
-      LdrpPinModule(v8, v6);
-      LdrpDereferenceModule(v7);
+      v4 = (char *)v13;
+      v5 = v13;
+      *((_DWORD *)v13 + 26) |= 0x100u;
+      g_pShimEngineModule = (PVOID)v5[6];
+      LdrpPinModule((__int64)v5);
+      LdrpDereferenceModule(v4);
       ShimEngineInterface = LdrpGetShimEngineInterface();
       if ( ShimEngineInterface >= 0 )
       {
-        SourceString[1] = (PCWSTR)v21;
-        LODWORD(SourceString[0]) = 0x2000000;
-        if ( ((int (__fastcall *)(PCWSTR *, __int64, __int64))(__ROR8__(
-                                                                 g_pfnSE_InitializeEngine,
-                                                                 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
-               SourceString,
+        BaseAddress[1] = v18;
+        LODWORD(BaseAddress[0]) = 0x2000000;
+        if ( ((int (__fastcall *)(PVOID *, __int64, __int64))(__ROR8__(
+                                                                g_pfnSE_InitializeEngine,
+                                                                64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+               BaseAddress,
                LdrpImageEntry + 72,
                a1) >= 0 )
         {
-          LdrpLoadShimEngine(SourceString[1]);
-          if ( (_BYTE *)SourceString[1] != v21 )
-            RtlFreeHeap_0();
+          LdrpLoadShimEngine((PCWSTR)BaseAddress[1]);
+          if ( BaseAddress[1] != v18 )
+            RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress[1]);
         }
       }
       else
       {
-        *(_DWORD *)ArgListb = ShimEngineInterface;
+        v11 = ShimEngineInterface;
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrinit.c",
+          "minkernel\\ldr\\ldrinit.c",
           3743,
           (__int64)"LdrpInitShimEngine",
           0,
           "Getting the shim engine exports failed with status 0x%08lx\n",
-          *(_DWORD *)ArgListb);
+          v11);
       }
     }
     else
     {
-      *(_DWORD *)ArgLista = Dll;
+      v10 = v3;
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrinit.c",
+        "minkernel\\ldr\\ldrinit.c",
         3729,
         (__int64)"LdrpInitShimEngine",
         0,
         "Loading the shim engine DLL failed with status 0x%08lx\n",
-        *(_DWORD *)ArgLista);
+        v10);
     }
   }
   else
   {
-    *(_DWORD *)ArgList = v4;
+    v9 = v2;
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       3710,
       (__int64)"LdrpInitShimEngine",
       0,
       "Building shim engine DLL system32 filename failed with status 0x%08lx\n",
-      *(_DWORD *)ArgList);
+      v9);
   }
-  result = v19;
-  if ( v19 != v18 )
-    return (_WORD *)RtlFreeHeap_0();
-  return result;
+  v7 = v16;
+  if ( v16 != v15.Buffer )
+    LODWORD(v7) = RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v15.Buffer);
+  return (int)v7;
 }

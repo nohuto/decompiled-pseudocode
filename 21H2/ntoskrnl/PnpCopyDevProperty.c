@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpCopyDevProperty @ 0x14074E074
+ * XREFs of PnpCopyDevProperty @ 0x14074E234
  * Callers:
- *     PnpCopyDevPropertyArray @ 0x14074DF9C (PnpCopyDevPropertyArray.c)
+ *     PnpCopyDevPropertyArray @ 0x14074E15C (PnpCopyDevPropertyArray.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     PnpFreeDevProperty @ 0x1406336E0 (PnpFreeDevProperty.c)
- *     PnpAllocatePWSTR @ 0x140638128 (PnpAllocatePWSTR.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PnpFreeDevProperty @ 0x1406288A8 (PnpFreeDevProperty.c)
+ *     PnpAllocatePWSTR @ 0x14062CF38 (PnpAllocatePWSTR.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCopyDevProperty(__int64 a1, __int64 a2, __int64 a3)

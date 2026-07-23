@@ -1,11 +1,11 @@
 /*
- * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x140085DE8
+ * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x1400876D8
  * Callers:
- *     RawVerifyVolume @ 0x140210550 (RawVerifyVolume.c)
- *     EtwpFreeLoggerContext @ 0x140493844 (EtwpFreeLoggerContext.c)
- *     RawUserFsCtrl @ 0x140529A54 (RawUserFsCtrl.c)
+ *     RawVerifyVolume @ 0x14021037C (RawVerifyVolume.c)
+ *     EtwpFreeLoggerContext @ 0x1404942D4 (EtwpFreeLoggerContext.c)
+ *     RawUserFsCtrl @ 0x140529F94 (RawUserFsCtrl.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  */
 
 void __stdcall ExWaitForRundownProtectionReleaseCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRef)

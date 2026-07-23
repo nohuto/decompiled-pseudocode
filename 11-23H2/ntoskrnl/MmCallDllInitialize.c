@@ -1,18 +1,18 @@
 /*
- * XREFs of MmCallDllInitialize @ 0x140810E60
+ * XREFs of MmCallDllInitialize @ 0x140811130
  * Callers:
- *     MiLoadImportDll @ 0x140810DA8 (MiLoadImportDll.c)
+ *     MiLoadImportDll @ 0x140811078 (MiLoadImportDll.c)
  *     PipInitializeDriverDependentDLLs @ 0x140B3C8F8 (PipInitializeDriverDependentDLLs.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiCallDllInitialize @ 0x140810FFC (MiCallDllInitialize.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiCallDllInitialize @ 0x1408112CC (MiCallDllInitialize.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfDriverInitStarting @ 0x140ABD304 (VfDriverInitStarting.c)
- *     VfDriverInitSuccess @ 0x140ABD430 (VfDriverInitSuccess.c)
+ *     VfDriverInitStarting @ 0x140ABD2F4 (VfDriverInitStarting.c)
+ *     VfDriverInitSuccess @ 0x140ABD420 (VfDriverInitSuccess.c)
  */
 
 __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)

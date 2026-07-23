@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpEventWriteTemplateSession @ 0x1409E3C04
+ * XREFs of EtwpEventWriteTemplateSession @ 0x1409E3E94
  * Callers:
- *     EtwpTransitionToRealtime @ 0x1405FF588 (EtwpTransitionToRealtime.c)
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
- *     EtwpFlushTrace @ 0x1407F59F8 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x1407F7F7C (EtwpUpdateTrace.c)
- *     EtwpStopTrace @ 0x1407F8284 (EtwpStopTrace.c)
- *     EtwpTracingProvEnableCallback @ 0x140865E20 (EtwpTracingProvEnableCallback.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409EC314 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     EtwpTransitionToRealtime @ 0x1405FFAF8 (EtwpTransitionToRealtime.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
+ *     EtwpFlushTrace @ 0x1407F5CC8 (EtwpFlushTrace.c)
+ *     EtwpUpdateTrace @ 0x1407F824C (EtwpUpdateTrace.c)
+ *     EtwpStopTrace @ 0x1407F8554 (EtwpStopTrace.c)
+ *     EtwpTracingProvEnableCallback @ 0x140866060 (EtwpTracingProvEnableCallback.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409EC5A4 (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroDetectHgsCores @ 0x140483B78
+ * XREFs of PpmHeteroDetectHgsCores @ 0x14047F098
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
  */
 
 char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
@@ -78,7 +78,7 @@ LABEL_4:
     {
       _BitScanForward64(&v9, v5);
       v5 &= ~(1LL << v9);
-      v48 = *((_DWORD *)qword_140F21E78 + 64 * v6 + (unsigned __int8)v9);
+      v48 = *((_DWORD *)qword_140F22998 + 64 * v6 + (unsigned __int8)v9);
       v10 = *(_BYTE *)(KeGetPrcb(v48) + 35405);
       v11 = v10;
       if ( v10 <= v7 )
@@ -148,7 +148,7 @@ LABEL_4:
       {
         _BitScanForward64(&v19, v14);
         v45 = v14 & ~(1LL << v19);
-        v20 = *(_QWORD *)(KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * v17 + (unsigned __int8)v19)) + 35408);
+        v20 = *(_QWORD *)(KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * v17 + (unsigned __int8)v19)) + 35408);
         v21 = v49;
         if ( *(_BYTE *)(v20 + 4LL * v13 + 5) > (unsigned __int8)v49 )
           v21 = *(_BYTE *)(v20 + 4LL * v13 + 5);
@@ -227,7 +227,7 @@ LABEL_38:
       {
         _BitScanForward64(&v33, v30);
         v50 = v30 & ~(1LL << v33);
-        v48 = *((_DWORD *)qword_140F21E78 + 64 * v31 + (unsigned __int8)v33);
+        v48 = *((_DWORD *)qword_140F22998 + 64 * v31 + (unsigned __int8)v33);
         v34 = KeGetPrcb(v48);
         v35 = v48;
         v36 = *(_QWORD *)(v34 + 35408);

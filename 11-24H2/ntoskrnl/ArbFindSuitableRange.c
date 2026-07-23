@@ -1,11 +1,11 @@
 /*
- * XREFs of ArbFindSuitableRange @ 0x1407052D0
+ * XREFs of ArbFindSuitableRange @ 0x140702E90
  * Callers:
- *     IopMemFindSuitableRange @ 0x140725BF0 (IopMemFindSuitableRange.c)
+ *     IopMemFindSuitableRange @ 0x140723780 (IopMemFindSuitableRange.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ArbShareDriverExclusive @ 0x14070641C (ArbShareDriverExclusive.c)
- *     RtlFindRange @ 0x140A2C2A0 (RtlFindRange.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ArbShareDriverExclusive @ 0x140703FDC (ArbShareDriverExclusive.c)
+ *     RtlFindRange @ 0x140A201D0 (RtlFindRange.c)
  */
 
 char __fastcall ArbFindSuitableRange(_QWORD *a1, __int64 a2)
@@ -17,8 +17,6 @@ char __fastcall ArbFindSuitableRange(_QWORD *a1, __int64 a2)
   int v9; // ecx
   int v10; // edx
   char v11; // bp
-  __int64 v12; // r8
-  __int64 v13; // r9
 
   v2 = *(_QWORD *)(a2 + 16);
   v4 = *(_QWORD *)(a2 + 24);
@@ -54,5 +52,5 @@ char __fastcall ArbFindSuitableRange(_QWORD *a1, __int64 a2)
   }
   if ( (unsigned __int8)ArbShareDriverExclusive(a1, a2) )
     return 1;
-  return guard_dispatch_icall_no_overrides(a1, a2, v12, v13);
+  return guard_dispatch_icall_no_overrides(a1, a2);
 }

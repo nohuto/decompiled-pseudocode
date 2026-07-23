@@ -1,49 +1,49 @@
 /*
- * XREFs of HalpInterruptFindControllerAndLineState @ 0x1403B9540
+ * XREFs of HalpInterruptFindControllerAndLineState @ 0x1403735D0
  * Callers:
- *     HalpInterruptSetRemappedDestinationHv @ 0x1403B9368 (HalpInterruptSetRemappedDestinationHv.c)
- *     HalpInterruptGetRemappedLineState @ 0x1403BACD0 (HalpInterruptGetRemappedLineState.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x140373848 (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptGetRemappedLineState @ 0x14037463C (HalpInterruptGetRemappedLineState.c)
  * Callees:
- *     HalpInterruptFindLinesForGsiRange @ 0x1403B9C8C (HalpInterruptFindLinesForGsiRange.c)
- *     HalpInterruptLookupController @ 0x1403B9D14 (HalpInterruptLookupController.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14037265C (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptLookupController @ 0x1403726E4 (HalpInterruptLookupController.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
  */
 
-__int64 __fastcall HalpInterruptFindControllerAndLineState(__int64 a1, __int64 *a2, __int64 *a3)
+__int64 __fastcall HalpInterruptFindControllerAndLineState(unsigned int a1, __int64 *a2, __int64 *a3)
 {
-  __int64 LinesForGsiRange; // rax
+  _DWORD *LinesForGsiRange; // rax
   __int64 v6; // r10
-  __int64 v7; // rax
+  ULONG_PTR *v7; // rax
   int v8; // r8d
-  __int64 v9; // r11
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdx
+  ULONG_PTR *v9; // r11
+  ULONG_PTR *v10; // rcx
+  ULONG_PTR *v11; // rax
+  ULONG_PTR *v12; // rdx
   int v13; // r9d
   unsigned int v14; // r8d
   unsigned int v15; // ecx
 
-  LinesForGsiRange = HalpInterruptFindLinesForGsiRange(a1, (unsigned int)(a1 + 1));
+  LinesForGsiRange = HalpInterruptFindLinesForGsiRange(a1, a1 + 1);
   v6 = 0LL;
   if ( LinesForGsiRange )
   {
-    v7 = HalpInterruptLookupController(*(unsigned int *)(LinesForGsiRange + 16));
+    v7 = HalpInterruptLookupController(LinesForGsiRange[4]);
     v9 = v7;
     if ( v7 )
     {
-      v10 = (_QWORD *)(v7 + 264);
-      v11 = *(_QWORD **)(v7 + 264);
+      v10 = v7 + 33;
+      v11 = (ULONG_PTR *)v7[33];
       while ( v11 != v10 )
       {
         v12 = v11;
-        v11 = (_QWORD *)*v11;
+        v11 = (ULONG_PTR *)*v11;
         v13 = *((_DWORD *)v12 + 5);
         if ( v13 <= v8 && *((_DWORD *)v12 + 6) > v8 )
         {
           v14 = v8 - v13;
           if ( v12 )
           {
-            *a2 = v9;
+            *a2 = (__int64)v9;
             v15 = v6;
             v6 = v12[5] + 56LL * v14;
             goto LABEL_9;
@@ -51,7 +51,12 @@ __int64 __fastcall HalpInterruptFindControllerAndLineState(__int64 a1, __int64 *
           break;
         }
       }
-      HalpInterruptSetProblemEx(v9, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 657);
+      HalpInterruptSetProblemEx(
+        (_DWORD)v9,
+        18,
+        0,
+        (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c",
+        657);
     }
     else
     {

@@ -1,7 +1,7 @@
 /*
- * XREFs of MincryptFreePolicyInfo @ 0x140A70CF4
+ * XREFs of MincryptFreePolicyInfo @ 0x140A70FA4
  * Callers:
- *     SecureDump_ValidateAmeCertChain @ 0x14055E7D0 (SecureDump_ValidateAmeCertChain.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x14055EE90 (SecureDump_ValidateAmeCertChain.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

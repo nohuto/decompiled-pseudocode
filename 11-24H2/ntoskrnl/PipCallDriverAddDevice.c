@@ -1,46 +1,46 @@
 /*
- * XREFs of PipCallDriverAddDevice @ 0x1409C6228
+ * XREFs of PipCallDriverAddDevice @ 0x140980ED0
  * Callers:
- *     PiProcessAddBootDevices @ 0x140723F94 (PiProcessAddBootDevices.c)
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
+ *     PiProcessAddBootDevices @ 0x140721B24 (PiProcessAddBootDevices.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
  * Callees:
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D6794 (IoGetAttachedDeviceReferenceWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     IovUtilMarkStack @ 0x1404AD1D4 (IovUtilMarkStack.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x140731B84 (PipDmgEnforceEnumerationPolicy.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1408B94C4 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PipSetDevNodeProblem @ 0x14098FC24 (PipSetDevNodeProblem.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     _CmSetDeviceRegProp @ 0x140990E18 (_CmSetDeviceRegProp.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1409946EC (PipChangeDeviceObjectFromRegistryProperties.c)
- *     _CmOpenInstallerClassRegKey @ 0x1409B7564 (_CmOpenInstallerClassRegKey.c)
- *     IopInsertLegacyBusDeviceNode @ 0x1409C52C8 (IopInsertLegacyBusDeviceNode.c)
- *     IopQueryLegacyBusInformation @ 0x1409C53AC (IopQueryLegacyBusInformation.c)
- *     PiProcessDriversLoadedOnSecureDevice @ 0x1409C5488 (PiProcessDriversLoadedOnSecureDevice.c)
- *     PipClearDevNodeProblem @ 0x1409C5678 (PipClearDevNodeProblem.c)
- *     PnpGetStableSystemBootTime @ 0x1409C5988 (PnpGetStableSystemBootTime.c)
- *     PnpCallDriverQueryServiceHelper @ 0x1409C5A04 (PnpCallDriverQueryServiceHelper.c)
- *     PiDmaGuardProcessPreAddDevice @ 0x1409C6A98 (PiDmaGuardProcessPreAddDevice.c)
- *     PnpCallAddDevice @ 0x1409C71F8 (PnpCallAddDevice.c)
- *     PnpRequestDeviceRemoval @ 0x140A1132C (PnpRequestDeviceRemoval.c)
- *     IopBootLog @ 0x140A785F8 (IopBootLog.c)
- *     PnpUnloadAttachedDriver @ 0x140A90E60 (PnpUnloadAttachedDriver.c)
- *     IopSafebootDriverLoad @ 0x140AB9958 (IopSafebootDriverLoad.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140357A14 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     IovUtilMarkStack @ 0x1404A78B4 (IovUtilMarkStack.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14072FB94 (PipDmgEnforceEnumerationPolicy.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1408B6E6C (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PipSetDevNodeProblem @ 0x14097AC5C (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     _CmSetDeviceRegProp @ 0x14097BE58 (_CmSetDeviceRegProp.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14097F72C (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x140981740 (PiDmaGuardProcessPreAddDevice.c)
+ *     PnpGetStableSystemBootTime @ 0x140981800 (PnpGetStableSystemBootTime.c)
+ *     PipClearDevNodeProblem @ 0x14098187C (PipClearDevNodeProblem.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x140981CA0 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     IopQueryLegacyBusInformation @ 0x140981D7C (IopQueryLegacyBusInformation.c)
+ *     IopInsertLegacyBusDeviceNode @ 0x140981EE8 (IopInsertLegacyBusDeviceNode.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x140982CA8 (PnpCallDriverQueryServiceHelper.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1409AE8F4 (_CmOpenInstallerClassRegKey.c)
+ *     PnpCallAddDevice @ 0x1409B9504 (PnpCallAddDevice.c)
+ *     PnpRequestDeviceRemoval @ 0x1409BF73C (PnpRequestDeviceRemoval.c)
+ *     IopBootLog @ 0x140A728F8 (IopBootLog.c)
+ *     PnpUnloadAttachedDriver @ 0x140A8D55C (PnpUnloadAttachedDriver.c)
+ *     IopSafebootDriverLoad @ 0x140AB4A18 (IopSafebootDriverLoad.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -50,93 +50,91 @@ __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 
   __int64 v6; // rax
   __int64 v7; // rdx
   int v8; // ebx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  unsigned int v11; // eax
-  __int64 v12; // rax
+  unsigned int v9; // eax
+  __int64 v10; // rax
   int ObjectProperty; // ebx
-  __int64 v14; // rdx
-  __int64 v15; // rdx
-  __int64 v16; // r14
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // r14
   unsigned __int8 i; // bl
-  _QWORD *v18; // r12
-  _QWORD *v19; // r15
+  _QWORD *v16; // r12
+  _QWORD *v17; // r15
   _QWORD *j; // rsi
-  BOOL v21; // r9d
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  int v24; // eax
-  unsigned int *v25; // rbx
-  int *v26; // rsi
-  __int64 v27; // rcx
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  PVOID v30; // r15
-  int v32; // eax
-  __int64 v33; // rdx
-  int v34; // r11d
-  __int64 v35; // r8
-  __int64 v36; // r9
+  BOOL v19; // r9d
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  int v22; // eax
+  _DWORD *v23; // rbx
+  _DWORD *v24; // rsi
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  PVOID v28; // r15
+  int v30; // eax
+  __int64 v31; // rdx
+  int v32; // r11d
+  int v33; // r8d
+  int v34; // r9d
   void *Pool2; // rbx
   int DeviceRegProp; // eax
+  int v37; // eax
+  PVOID v38; // rsi
   int v39; // eax
-  PVOID v40; // rsi
-  int v41; // eax
-  __int64 v42; // rdx
-  __int64 v43; // rdx
-  int v44; // eax
-  char *v45; // rbx
-  ULONG v46; // esi
+  __int64 v40; // rdx
+  __int64 v41; // rdx
+  int v42; // eax
+  const WNF_STATE_NAME *v43; // rbx
+  ULONG v44; // esi
+  int v45; // eax
+  int v46; // eax
   int v47; // eax
-  int v48; // eax
-  int v49; // eax
-  __int64 v50; // rdx
-  __int64 v51; // rdx
-  __int64 *v52; // rsi
-  __int64 v53; // rdi
-  PVOID *v54; // r14
-  ULONG v55; // [rsp+60h] [rbp-A0h] BYREF
-  ULONG v56; // [rsp+64h] [rbp-9Ch] BYREF
-  char v57; // [rsp+68h] [rbp-98h]
-  int v58; // [rsp+6Ch] [rbp-94h] BYREF
-  int v59; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v48; // rdx
+  __int64 v49; // rdx
+  __int64 *v50; // rsi
+  __int64 v51; // rdi
+  PVOID *v52; // r14
+  ULONG v53; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG v54; // [rsp+64h] [rbp-9Ch] BYREF
+  char v55; // [rsp+68h] [rbp-98h]
+  int v56; // [rsp+6Ch] [rbp-94h] BYREF
+  int v57; // [rsp+70h] [rbp-90h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-88h] BYREF
-  unsigned int v61; // [rsp+80h] [rbp-80h] BYREF
-  unsigned __int16 v62; // [rsp+84h] [rbp-7Ch] BYREF
-  int v63; // [rsp+88h] [rbp-78h] BYREF
+  unsigned int v59; // [rsp+80h] [rbp-80h] BYREF
+  unsigned __int16 v60; // [rsp+84h] [rbp-7Ch] BYREF
+  int v61; // [rsp+88h] [rbp-78h] BYREF
   PVOID P; // [rsp+90h] [rbp-70h] BYREF
-  HANDLE v65; // [rsp+98h] [rbp-68h] BYREF
-  int v66; // [rsp+A0h] [rbp-60h] BYREF
+  HANDLE v63; // [rsp+98h] [rbp-68h] BYREF
+  LOGICAL v64; // [rsp+A0h] [rbp-60h] BYREF
   PVOID Object; // [rsp+A8h] [rbp-58h]
-  __int64 v68; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v66; // [rsp+B0h] [rbp-50h] BYREF
   PVOID AttachedDeviceReferenceWithTag; // [rsp+B8h] [rbp-48h]
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v71; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v72; // [rsp+D8h] [rbp-28h]
-  _QWORD v73[2]; // [rsp+E0h] [rbp-20h] BYREF
-  _QWORD v74[3]; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v75; // [rsp+108h] [rbp+8h]
+  __int64 v69; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v70; // [rsp+D8h] [rbp-28h]
+  _QWORD v71[2]; // [rsp+E0h] [rbp-20h] BYREF
+  _QWORD v72[3]; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v73; // [rsp+108h] [rbp+8h]
   ACL SourceString[10]; // [rsp+120h] [rbp+20h] BYREF
 
-  v57 = 0;
-  v65 = 0LL;
-  v58 = 0;
-  v61 = 0;
+  v55 = 0;
+  v63 = 0LL;
+  v56 = 0;
+  v59 = 0;
   v4 = 0;
   Handle = 0LL;
   v5 = 0;
-  v62 = 0;
-  v71 = 0LL;
-  v55 = 0;
-  v59 = 0;
-  v66 = 0;
-  memset_0(v73, 0, 0x40uLL);
+  v60 = 0;
+  v69 = 0LL;
+  v53 = 0;
+  v57 = 0;
+  v64 = 0;
+  memset_0(v71, 0, 0x40uLL);
   v6 = 6LL;
   DestinationString = 0LL;
-  v72 = 6LL;
-  v56 = 0;
-  v68 = 0LL;
-  v63 = 0;
+  v70 = 6LL;
+  v54 = 0;
+  v66 = 0LL;
+  v61 = 0;
   *(_WORD *)&SourceString[0].AclRevision = 0;
   P = 0LL;
   Object = 0LL;
@@ -159,16 +157,16 @@ __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 
                Handle,
                0LL,
                (__int64)&DEVPKEY_Device_DebuggerSafe,
-               &v63,
-               (const wchar_t *)&v61,
+               &v61,
+               (const wchar_t *)&v59,
                4u,
-               (__int64)&v56,
+               (__int64)&v54,
                0) < 0
-     || v63 != 7
-     || v56 != 4
-     || !v61) )
+     || v61 != 7
+     || v54 != 4
+     || !v59) )
   {
-    v23 = 53LL;
+    v21 = 53LL;
     goto LABEL_40;
   }
   if ( *(_DWORD *)(BugCheckParameter2 + 660) == -1 )
@@ -181,41 +179,41 @@ __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 
                 Handle,
                 0LL,
                 (__int64)&DEVPKEY_Device_Numa_Proximity_Domain,
-                &v63,
-                (const wchar_t *)&v61,
+                &v61,
+                (const wchar_t *)&v59,
                 4u,
-                (__int64)&v56,
+                (__int64)&v54,
                 0) >= 0
-      && v61 <= 0xFF
-      && (int)guard_dispatch_icall_no_overrides(v61, &v62, v9, v10) >= 0 )
+      && v59 <= 0xFF
+      && (int)guard_dispatch_icall_no_overrides(v59, &v60) >= 0 )
     {
-      *(_DWORD *)(BugCheckParameter2 + 660) = v62;
+      *(_DWORD *)(BugCheckParameter2 + 660) = v60;
     }
-    v11 = *(_DWORD *)(BugCheckParameter2 + 660);
-    if ( v11 == -1 )
+    v9 = *(_DWORD *)(BugCheckParameter2 + 660);
+    if ( v9 == -1 )
     {
-      v12 = *(_QWORD *)(BugCheckParameter2 + 16);
-      if ( !v12 )
+      v10 = *(_QWORD *)(BugCheckParameter2 + 16);
+      if ( !v10 )
       {
         *(_DWORD *)(BugCheckParameter2 + 660) = -2;
         goto LABEL_12;
       }
-      v11 = *(_DWORD *)(v12 + 660);
-      *(_DWORD *)(BugCheckParameter2 + 660) = v11;
+      v9 = *(_DWORD *)(v10 + 660);
+      *(_DWORD *)(BugCheckParameter2 + 660) = v9;
     }
-    if ( v11 != -2 )
+    if ( v9 != -2 )
     {
-      v33 = *(_QWORD *)(BugCheckParameter2 + 48);
-      v61 = v11;
+      v31 = *(_QWORD *)(BugCheckParameter2 + 48);
+      v59 = v9;
       PnpSetObjectProperty(
         *(__int64 *)&PiPnpRtlCtx,
-        v33,
-        1u,
+        v31,
+        1,
         (__int64)Handle,
         0LL,
         (__int64)&DEVPKEY_Device_Numa_Node,
         7,
-        (__int64)&v61,
+        (__int64)&v59,
         4u,
         0);
     }
@@ -228,20 +226,20 @@ LABEL_12:
                      Handle,
                      0LL,
                      (__int64)DEVPKEY_Device_PreventDriverLoad,
-                     &v63,
-                     (const wchar_t *)&v71,
+                     &v61,
+                     (const wchar_t *)&v69,
                      8u,
-                     (__int64)&v56,
+                     (__int64)&v54,
                      0);
   if ( ((int)(ObjectProperty + 0x80000000) < 0 || ObjectProperty == -1073741789)
-    && (int)PnpGetStableSystemBootTime(&v68) >= 0 )
+    && (int)PnpGetStableSystemBootTime(&v66) >= 0 )
   {
-    if ( ObjectProperty != -1073741789 && v63 == 16 && v56 == 8 && !PnpBootMode && v68 == v71 )
+    if ( ObjectProperty != -1073741789 && v61 == 16 && v54 == 8 && !PnpBootMode && v66 == v69 )
       goto LABEL_25;
     PnpSetObjectProperty(
       *(__int64 *)&PiPnpRtlCtx,
       *(_QWORD *)(BugCheckParameter2 + 48),
-      1u,
+      1,
       (__int64)Handle,
       0LL,
       (__int64)DEVPKEY_Device_PreventDriverLoad,
@@ -250,27 +248,27 @@ LABEL_12:
       0,
       0);
   }
-  v14 = *(_QWORD *)(BugCheckParameter2 + 48);
-  v55 = 78;
+  v12 = *(_QWORD *)(BugCheckParameter2 + 48);
+  v53 = 78;
   if ( (int)CmGetDeviceRegProp(
               *(__int64 *)&PiPnpRtlCtx,
-              v14,
+              v12,
               (__int64)Handle,
               9u,
-              (__int64)&v59,
+              (__int64)&v57,
               (__int64)SourceString,
-              (__int64)&v55,
+              (__int64)&v53,
               0) >= 0
-    && v59 == 1
-    && v55 )
+    && v57 == 1
+    && v53 )
   {
     RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)SourceString);
-    if ( (_DWORD)InitSafeBootMode )
+    if ( InitSafeBootMode )
     {
       if ( !(unsigned __int8)IopSafebootDriverLoad(&DestinationString) )
       {
-        v55 = 256;
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        v53 = 256;
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x100uLL, 0x6E657050u);
         if ( Pool2 )
         {
           DeviceRegProp = CmGetDeviceRegProp(
@@ -278,14 +276,14 @@ LABEL_12:
                             *(_QWORD *)(BugCheckParameter2 + 48),
                             (__int64)Handle,
                             1u,
-                            (__int64)&v59,
+                            (__int64)&v57,
                             (__int64)Pool2,
-                            (__int64)&v55,
+                            (__int64)&v53,
                             0);
           if ( DeviceRegProp == -1073741789 )
           {
             ExFreePoolWithTag(Pool2, 0);
-            Pool2 = (void *)ExAllocatePool2(0x100uLL);
+            Pool2 = (void *)ExAllocatePool2(0x100uLL, v53, 0x6E657050u);
           }
           else if ( DeviceRegProp >= 0 )
           {
@@ -303,146 +301,145 @@ LABEL_25:
         v8 = -1073741823;
         goto LABEL_52;
       }
-      v4 = v57;
+      v4 = v55;
     }
-    CmOpenInstallerClassRegKey(*(_QWORD **)&PiPnpRtlCtx, (WCHAR *)SourceString, v35, v36, 131097, 0, (__int64)&v65, 0LL);
+    CmOpenInstallerClassRegKey(PiPnpRtlCtx, (unsigned int)SourceString, v33, v34, 131097, 0, (__int64)&v63, 0LL);
   }
-  v15 = *(_QWORD *)(BugCheckParameter2 + 48);
-  v55 = 4;
+  v13 = *(_QWORD *)(BugCheckParameter2 + 48);
+  v53 = 4;
   if ( (int)CmGetDeviceRegProp(
               *(__int64 *)&PiPnpRtlCtx,
-              v15,
+              v13,
               (__int64)Handle,
               0xBu,
-              (__int64)&v59,
-              (__int64)&v58,
-              (__int64)&v55,
+              (__int64)&v57,
+              (__int64)&v56,
+              (__int64)&v53,
               0) < 0
-    || v59 != 4
-    || v55 != 4 )
+    || v57 != 4
+    || v53 != 4 )
   {
-    v58 = 0;
+    v56 = 0;
   }
-  v73[0] = BugCheckParameter2;
+  v71[0] = BugCheckParameter2;
   v8 = 0;
-  v73[1] = a2;
-  v55 = 512;
-  P = (PVOID)ExAllocatePool2(0x100uLL);
+  v71[1] = a2;
+  v53 = 512;
+  P = (PVOID)ExAllocatePool2(0x100uLL, 0x200uLL, 0x6E657050u);
   if ( P )
   {
-    if ( (v58 & 0x80000) != 0 )
+    if ( (v56 & 0x80000) != 0 )
     {
-      if ( v65 )
+      if ( v63 )
       {
-        v39 = PnpCallDriverQueryServiceHelper(
-                &P,
-                &v55,
+        v37 = PnpCallDriverQueryServiceHelper(
+                (unsigned int)&P,
+                (unsigned int)&v53,
                 0,
-                (__int64)DEVPKEY_DeviceClass_ConfigFilters,
-                (WCHAR *)SourceString,
-                v65,
+                (unsigned int)DEVPKEY_DeviceClass_ConfigFilters,
+                (__int64)SourceString,
+                (__int64)v63,
                 1,
                 0,
                 v4,
-                (__int64)v73);
-        v8 = v39;
-        if ( v39 != -1073741772 && v39 != -1073741275 && v39 < 0 )
+                (__int64)v71);
+        v8 = v37;
+        if ( v37 != -1073741772 && v37 != -1073741275 && v37 < 0 )
           goto LABEL_73;
         while ( 1 )
         {
-          v40 = P;
-          v41 = PnpGetObjectProperty(
+          v38 = P;
+          v39 = PnpGetObjectProperty(
                   *(_QWORD **)&PiPnpRtlCtx,
                   (WCHAR *)SourceString,
                   2u,
-                  v65,
+                  v63,
                   0LL,
-                  (__int64)DEVPKEY_DeviceClass_ConfigNotifyWnfTriggers,
-                  &v66,
+                  (__int64)&DEVPKEY_DeviceClass_ConfigNotifyWnfTriggers,
+                  &v64,
                   (const wchar_t *)P,
-                  v55,
-                  (__int64)&v56,
+                  v53,
+                  (__int64)&v54,
                   0);
-          if ( v41 != -1073741789 )
+          if ( v39 != -1073741789 )
             break;
-          if ( v56 <= v55 )
+          if ( v54 <= v53 )
           {
             v8 = -1073741823;
             goto LABEL_73;
           }
-          ExFreePoolWithTag(v40, 0);
-          v55 = v56;
-          P = (PVOID)ExAllocatePool2(0x100uLL);
+          ExFreePoolWithTag(v38, 0);
+          v53 = v54;
+          P = (PVOID)ExAllocatePool2(0x100uLL, v54, 0x6E657050u);
           if ( !P )
           {
             v8 = -1073741670;
             goto LABEL_136;
           }
         }
-        v8 = v41;
-        if ( v41 < 0 )
+        v8 = v39;
+        if ( v39 < 0 )
         {
-          if ( v41 == -1073741772 || v41 == -1073741275 )
+          if ( v39 == -1073741772 || v39 == -1073741275 )
             v8 = 0;
 LABEL_136:
           if ( v8 < 0 )
             goto LABEL_73;
           goto LABEL_137;
         }
-        if ( v66 == 4099 && (v56 & 7) == 0 && v56 )
+        if ( v64 == 4099 && (v54 & 7) == 0 && v54 )
         {
-          v45 = (char *)P;
-          v46 = v56 >> 3;
+          v43 = (const WNF_STATE_NAME *)P;
+          v44 = v54 >> 3;
           do
           {
-            ZwUpdateWnfStateData((__int64)v45, 0LL);
-            v45 += 8;
-            --v46;
+            ZwUpdateWnfStateData(v43++, 0LL, 0, 0LL, 0LL, 0, 0);
+            --v44;
           }
-          while ( v46 );
-          v23 = 56LL;
+          while ( v44 );
+          v21 = 56LL;
           goto LABEL_40;
         }
       }
 LABEL_137:
-      if ( !v74[0] )
+      if ( !v72[0] )
       {
-        v42 = *(_QWORD *)(BugCheckParameter2 + 48);
-        v56 = 4;
+        v40 = *(_QWORD *)(BugCheckParameter2 + 48);
+        v54 = 4;
         if ( (int)CmGetDeviceRegProp(
                     *(__int64 *)&PiPnpRtlCtx,
-                    v42,
+                    v40,
                     (__int64)Handle,
                     0xBu,
-                    (__int64)&v59,
-                    (__int64)&v58,
+                    (__int64)&v57,
                     (__int64)&v56,
+                    (__int64)&v54,
                     0) >= 0
-          && v59 == 4
-          && v56 == 4
-          && (v58 & 0x80000) != 0 )
+          && v57 == 4
+          && v54 == 4
+          && (v56 & 0x80000) != 0 )
         {
-          v43 = *(_QWORD *)(BugCheckParameter2 + 48);
-          v58 &= ~0x80000u;
-          CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, v43, (__int64)Handle, 0xBu, 4, (__int64)&v58, 4, 0);
+          v41 = *(_QWORD *)(BugCheckParameter2 + 48);
+          v56 &= ~0x80000u;
+          CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, v41, (__int64)Handle, 0xBu, 4, (__int64)&v56, 4, 0);
         }
       }
     }
     if ( (*(_DWORD *)(BugCheckParameter2 + 396) & 0x4000000) == 0
-      && ((v44 = PnpCallDriverQueryServiceHelper(
-                   &P,
-                   &v55,
-                   0x13u,
-                   (__int64)&DEVPKEY_Device_CompoundLowerFilters,
-                   *(WCHAR **)(BugCheckParameter2 + 48),
-                   Handle,
+      && ((v42 = PnpCallDriverQueryServiceHelper(
+                   (unsigned int)&P,
+                   (unsigned int)&v53,
+                   19,
+                   (unsigned int)&DEVPKEY_Device_CompoundLowerFilters,
+                   *(_QWORD *)(BugCheckParameter2 + 48),
+                   (__int64)Handle,
                    0,
                    1,
                    v4,
-                   (__int64)v73),
-           v8 = v44,
-           v44 == -1073741772)
-       || v44 == -1073741275) )
+                   (__int64)v71),
+           v8 = v42,
+           v42 == -1073741772)
+       || v42 == -1073741275) )
     {
       PipSetDevNodeFlags(BugCheckParameter2, 0x4000000u);
     }
@@ -450,25 +447,25 @@ LABEL_137:
     {
       goto LABEL_73;
     }
-    if ( v65 && (*(_DWORD *)(BugCheckParameter2 + 396) & 0x8000000) == 0 )
+    if ( v63 && (*(_DWORD *)(BugCheckParameter2 + 396) & 0x8000000) == 0 )
     {
-      v32 = PnpCallDriverQueryServiceHelper(
-              &P,
-              &v55,
-              0x13u,
-              (__int64)&DEVPKEY_DeviceClass_CompoundLowerFilters,
-              (WCHAR *)SourceString,
-              v65,
+      v30 = PnpCallDriverQueryServiceHelper(
+              (unsigned int)&P,
+              (unsigned int)&v53,
+              19,
+              (unsigned int)&DEVPKEY_DeviceClass_CompoundLowerFilters,
+              (__int64)SourceString,
+              (__int64)v63,
               1,
               2,
               v4,
-              (__int64)v73);
-      v8 = v32;
-      if ( v32 == -1073741772 || v32 == -1073741275 )
+              (__int64)v71);
+      v8 = v30;
+      if ( v30 == -1073741772 || v30 == -1073741275 )
       {
         PipSetDevNodeFlags(BugCheckParameter2, 0x8000000u);
       }
-      else if ( v32 < 0 )
+      else if ( v30 < 0 )
       {
         goto LABEL_73;
       }
@@ -479,19 +476,19 @@ LABEL_137:
     }
     else
     {
-      v47 = PnpCallDriverQueryServiceHelper(
-              &P,
-              &v55,
-              5u,
-              0LL,
-              *(WCHAR **)(BugCheckParameter2 + 48),
-              Handle,
+      v45 = PnpCallDriverQueryServiceHelper(
+              (unsigned int)&P,
+              (unsigned int)&v53,
+              5,
+              0,
+              *(_QWORD *)(BugCheckParameter2 + 48),
+              (__int64)Handle,
               0,
               3,
               v4,
-              (__int64)v73);
-      v8 = v47;
-      if ( v47 == -1073741772 || v47 == -1073741275 )
+              (__int64)v71);
+      v8 = v45;
+      if ( v45 == -1073741772 || v45 == -1073741275 )
       {
         v8 = -1073741772;
         PipSetDevNodeFlags(BugCheckParameter2, 0x10000000u);
@@ -505,7 +502,7 @@ LABEL_73:
     goto LABEL_99;
   if ( v8 >= 0 )
   {
-    if ( *(_QWORD *)(v75 + 8) )
+    if ( *(_QWORD *)(v73 + 8) )
     {
       PipSetDevNodeProblem(BugCheckParameter2, 19, -1073741438);
       goto LABEL_25;
@@ -522,54 +519,54 @@ LABEL_73:
   }
   if ( (*(_DWORD *)(BugCheckParameter2 + 396) & 0x20000000) == 0 )
   {
-    v48 = PnpCallDriverQueryServiceHelper(
-            &P,
-            &v55,
-            0x12u,
-            (__int64)&DEVPKEY_Device_CompoundUpperFilters,
-            *(WCHAR **)(BugCheckParameter2 + 48),
-            Handle,
+    v46 = PnpCallDriverQueryServiceHelper(
+            (unsigned int)&P,
+            (unsigned int)&v53,
+            18,
+            (unsigned int)&DEVPKEY_Device_CompoundUpperFilters,
+            *(_QWORD *)(BugCheckParameter2 + 48),
+            (__int64)Handle,
             0,
             4,
             v4,
-            (__int64)v73);
-    v8 = v48;
-    if ( v48 == -1073741772 || v48 == -1073741275 )
+            (__int64)v71);
+    v8 = v46;
+    if ( v46 == -1073741772 || v46 == -1073741275 )
     {
       PipSetDevNodeFlags(BugCheckParameter2, 0x20000000u);
     }
-    else if ( v48 < 0 )
+    else if ( v46 < 0 )
     {
       goto LABEL_52;
     }
   }
-  if ( v65 && (*(_DWORD *)(BugCheckParameter2 + 396) & 0x40000000) == 0 )
+  if ( v63 && (*(_DWORD *)(BugCheckParameter2 + 396) & 0x40000000) == 0 )
   {
-    v49 = PnpCallDriverQueryServiceHelper(
-            &P,
-            &v55,
-            0x12u,
-            (__int64)&DEVPKEY_DeviceClass_CompoundUpperFilters,
-            (WCHAR *)SourceString,
-            v65,
+    v47 = PnpCallDriverQueryServiceHelper(
+            (unsigned int)&P,
+            (unsigned int)&v53,
+            18,
+            (unsigned int)&DEVPKEY_DeviceClass_CompoundUpperFilters,
+            (__int64)SourceString,
+            (__int64)v63,
             1,
             5,
             v4,
-            (__int64)v73);
-    v8 = v49;
-    if ( v49 == -1073741772 || v49 == -1073741275 )
+            (__int64)v71);
+    v8 = v47;
+    if ( v47 == -1073741772 || v47 == -1073741275 )
     {
       PipSetDevNodeFlags(BugCheckParameter2, 0x40000000u);
     }
-    else if ( v49 < 0 )
+    else if ( v47 < 0 )
     {
       goto LABEL_52;
     }
   }
-  v8 = PiDmaGuardProcessPreAddDevice(v73, Handle);
+  v8 = PiDmaGuardProcessPreAddDevice(v71, Handle);
   if ( v8 >= 0 )
   {
-    v16 = 0LL;
+    v14 = 0LL;
     Object = IoGetAttachedDeviceReferenceWithTag(*(_QWORD **)(BugCheckParameter2 + 32), 0x65706E50u);
     for ( i = 0; i < 6u; ++i )
     {
@@ -578,90 +575,90 @@ LABEL_73:
         AttachedDeviceReferenceWithTag = IoGetAttachedDeviceReferenceWithTag(
                                            *(_QWORD **)(BugCheckParameter2 + 32),
                                            0x65706E50u);
-        v18 = AttachedDeviceReferenceWithTag;
-        if ( v5 && !v75 )
+        v16 = AttachedDeviceReferenceWithTag;
+        if ( v5 && !v73 )
           PipSetDevNodeState(BugCheckParameter2, 773);
       }
       else
       {
-        v18 = AttachedDeviceReferenceWithTag;
+        v16 = AttachedDeviceReferenceWithTag;
       }
-      v19 = (_QWORD *)v74[i];
-      for ( j = v19; j; j = (_QWORD *)j[1] )
+      v17 = (_QWORD *)v72[i];
+      for ( j = v17; j; j = (_QWORD *)j[1] )
       {
-        v24 = PnpCallAddDevice(BugCheckParameter2, *j, *(_QWORD *)(*(_QWORD *)(*j + 48LL) + 8LL), i);
+        v22 = PnpCallAddDevice(BugCheckParameter2, *j, *(_QWORD *)(*(_QWORD *)(*j + 48LL) + 8LL), i);
         *(_DWORD *)(*j + 16LL) |= 0x400u;
-        if ( v24 >= 0 )
+        if ( v22 >= 0 )
         {
           if ( i == 3 )
-            v16 = v18[3];
+            v14 = v16[3];
           PipSetDevNodeState(BugCheckParameter2, 773);
         }
         else if ( i == 3 )
         {
-          IovUtilMarkStack(*(_QWORD *)(BugCheckParameter2 + 32), *((_QWORD *)Object + 3), v16, 0);
-          v23 = 31LL;
-          *(_DWORD *)(BugCheckParameter2 + 392) = v34;
+          IovUtilMarkStack(*(_QWORD *)(BugCheckParameter2 + 32), *((_QWORD *)Object + 3), v14, 0);
+          v21 = 31LL;
+          *(_DWORD *)(BugCheckParameter2 + 392) = v32;
           goto LABEL_40;
         }
       }
       if ( !i )
       {
-        if ( v19 )
+        if ( v17 )
         {
-          v50 = *(_QWORD *)(BugCheckParameter2 + 48);
-          v56 = 4;
+          v48 = *(_QWORD *)(BugCheckParameter2 + 48);
+          v54 = 4;
           if ( (int)CmGetDeviceRegProp(
                       *(__int64 *)&PiPnpRtlCtx,
-                      v50,
+                      v48,
                       (__int64)Handle,
                       0xBu,
-                      (__int64)&v59,
-                      (__int64)&v58,
+                      (__int64)&v57,
                       (__int64)&v56,
+                      (__int64)&v54,
                       0) >= 0
-            && v59 == 4
-            && v56 == 4
-            && (v58 & 0x80000) != 0 )
+            && v57 == 4
+            && v54 == 4
+            && (v56 & 0x80000) != 0 )
           {
-            v51 = *(_QWORD *)(BugCheckParameter2 + 48);
-            v58 &= ~0x80000u;
-            CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, v51, (__int64)Handle, 0xBu, 4, (__int64)&v58, 4, 0);
+            v49 = *(_QWORD *)(BugCheckParameter2 + 48);
+            v56 &= ~0x80000u;
+            CmSetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, v49, (__int64)Handle, 0xBu, 4, (__int64)&v56, 4, 0);
           }
         }
       }
     }
-    v21 = !v16 || v5;
-    IovUtilMarkStack(*(_QWORD *)(BugCheckParameter2 + 32), *((_QWORD *)Object + 3), v16, v21);
+    v19 = !v14 || v5;
+    IovUtilMarkStack(*(_QWORD *)(BugCheckParameter2 + 32), *((_QWORD *)Object + 3), v14, v19);
     if ( (int)PipChangeDeviceObjectFromRegistryProperties(
                 *(_QWORD *)(BugCheckParameter2 + 32),
                 (int)Handle,
                 SourceString,
-                (__int64)v65,
+                (__int64)v63,
                 v5) < 0 )
     {
-      v23 = 50LL;
+      v21 = 50LL;
 LABEL_40:
-      PnpRequestDeviceRemoval(BugCheckParameter2, 0LL, v23);
+      PnpRequestDeviceRemoval(BugCheckParameter2, 0LL, v21);
       v8 = -1073741106;
       goto LABEL_52;
     }
-    v25 = (unsigned int *)(BugCheckParameter2 + 452);
-    v26 = (int *)(BugCheckParameter2 + 448);
+    v23 = (_DWORD *)(BugCheckParameter2 + 452);
+    v24 = (_DWORD *)(BugCheckParameter2 + 448);
     if ( (int)IopQueryLegacyBusInformation(
-                *(_QWORD **)(BugCheckParameter2 + 32),
-                v22,
-                (_DWORD *)(BugCheckParameter2 + 448),
-                (_DWORD *)(BugCheckParameter2 + 452)) < 0 )
+                *(_QWORD *)(BugCheckParameter2 + 32),
+                v20,
+                BugCheckParameter2 + 448,
+                BugCheckParameter2 + 452) < 0 )
     {
-      *v26 = -1;
-      *v25 = -16;
+      *v24 = -1;
+      *v23 = -16;
     }
     else
     {
-      IopInsertLegacyBusDeviceNode(BugCheckParameter2, *v26, *v25);
+      IopInsertLegacyBusDeviceNode(BugCheckParameter2, (unsigned int)*v24, (unsigned int)*v23);
     }
-    PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v27, *(_QWORD *)(BugCheckParameter2 + 48), 23);
+    PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v25, *(_QWORD *)(BugCheckParameter2 + 48), 23);
     if ( (*(_DWORD *)(BugCheckParameter2 + 560) & 0x100000) != 0 )
     {
       v8 = PiProcessDriversLoadedOnSecureDevice(BugCheckParameter2);
@@ -670,7 +667,7 @@ LABEL_40:
     }
     if ( PipDmaGuardPolicy && *(_QWORD *)(BugCheckParameter2 + 720) )
     {
-      v8 = PipDmgEnforceEnumerationPolicy(BugCheckParameter2, v28, v29);
+      v8 = PipDmgEnforceEnumerationPolicy(BugCheckParameter2, v26, v27);
       goto LABEL_52;
     }
 LABEL_99:
@@ -679,35 +676,35 @@ LABEL_99:
 LABEL_52:
   v6 = 6LL;
 LABEL_172:
-  v52 = v74;
+  v50 = v72;
   do
   {
-    v53 = *v52;
-    if ( *v52 )
+    v51 = *v50;
+    if ( *v50 )
     {
       do
       {
-        v54 = (PVOID *)v53;
-        v53 = *(_QWORD *)(v53 + 8);
+        v52 = (PVOID *)v51;
+        v51 = *(_QWORD *)(v51 + 8);
         if ( PnpUnusedBootDriversCleanedUp )
-          PnpUnloadAttachedDriver(*v54);
-        ObfDereferenceObject(*v54);
-        ExFreePoolWithTag(v54, 0);
+          PnpUnloadAttachedDriver(*v52);
+        ObfDereferenceObject(*v52);
+        ExFreePoolWithTag(v52, 0);
       }
-      while ( v53 );
-      v6 = v72;
+      while ( v51 );
+      v6 = v70;
     }
-    ++v52;
-    v72 = --v6;
+    ++v50;
+    v70 = --v6;
   }
   while ( v6 );
-  v30 = Object;
+  v28 = Object;
   if ( Handle )
     ZwClose(Handle);
-  if ( v65 )
-    ZwClose(v65);
-  if ( v30 )
-    ObfDereferenceObjectWithTag(v30, 0x65706E50u);
+  if ( v63 )
+    ZwClose(v63);
+  if ( v28 )
+    ObfDereferenceObjectWithTag(v28, 0x65706E50u);
   if ( AttachedDeviceReferenceWithTag )
     ObfDereferenceObjectWithTag(AttachedDeviceReferenceWithTag, 0x65706E50u);
   if ( P )

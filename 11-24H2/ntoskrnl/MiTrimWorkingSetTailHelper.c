@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTrimWorkingSetTailHelper @ 0x1402E3BD0
+ * XREFs of MiTrimWorkingSetTailHelper @ 0x14020D060
  * Callers:
- *     MiAgeTrimListsTail @ 0x1402E36B0 (MiAgeTrimListsTail.c)
+ *     MiAgeTrimListsTail @ 0x14020B9B0 (MiAgeTrimListsTail.c)
  * Callees:
- *     MiTrimWorkingSetBuildup @ 0x14037D1A0 (MiTrimWorkingSetBuildup.c)
+ *     MiTrimWorkingSetBuildup @ 0x1402EA6B0 (MiTrimWorkingSetBuildup.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetTailHelper(__int64 a1)

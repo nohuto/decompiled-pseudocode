@@ -1,10 +1,10 @@
 /*
- * XREFs of IoStartNextPacket @ 0x140557240
+ * XREFs of IoStartNextPacket @ 0x140557900
  * Callers:
- *     DifIoStartNextPacketWrapper @ 0x1405E16F0 (DifIoStartNextPacketWrapper.c)
+ *     DifIoStartNextPacketWrapper @ 0x1405E1C60 (DifIoStartNextPacketWrapper.c)
  * Callees:
- *     IopStartNextPacket @ 0x14045F7CC (IopStartNextPacket.c)
- *     IopStartNextPacketByKeyEx @ 0x140557BDC (IopStartNextPacketByKeyEx.c)
+ *     IopStartNextPacket @ 0x14045FBCC (IopStartNextPacket.c)
+ *     IopStartNextPacketByKeyEx @ 0x14055829C (IopStartNextPacketByKeyEx.c)
  */
 
 void __stdcall IoStartNextPacket(PDEVICE_OBJECT DeviceObject, BOOLEAN Cancelable)

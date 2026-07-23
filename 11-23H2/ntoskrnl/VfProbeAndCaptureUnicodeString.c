@@ -1,10 +1,10 @@
 /*
- * XREFs of VfProbeAndCaptureUnicodeString @ 0x140AC2270
+ * XREFs of VfProbeAndCaptureUnicodeString @ 0x140AC2260
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
- *     VfSetVerifierInformationEx @ 0x140ADD950 (VfSetVerifierInformationEx.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
+ *     VfSetVerifierInformationEx @ 0x140ADD940 (VfSetVerifierInformationEx.c)
  * Callees:
- *     VfProbeAndCaptureUnicodeStringBuffer @ 0x140AC22AC (VfProbeAndCaptureUnicodeStringBuffer.c)
+ *     VfProbeAndCaptureUnicodeStringBuffer @ 0x140AC229C (VfProbeAndCaptureUnicodeStringBuffer.c)
  */
 
 __int64 __fastcall VfProbeAndCaptureUnicodeString(__int64 a1, unsigned __int64 a2, __int64 a3)

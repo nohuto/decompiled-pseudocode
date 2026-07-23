@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPoolMgrUnregisterPool @ 0x1408475D0
+ * XREFs of ExpPoolMgrUnregisterPool @ 0x14084D830
  * Callers:
- *     ExpPoolDestroy @ 0x140846574 (ExpPoolDestroy.c)
+ *     ExpPoolDestroy @ 0x14084C7D4 (ExpPoolDestroy.c)
  * Callees:
- *     ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404D0CB0 (ExpPoolMgrAcquirePoolListLockExclusive.c)
- *     ExpPoolMgrReleasePoolListLockExclusive @ 0x1404D15DC (ExpPoolMgrReleasePoolListLockExclusive.c)
+ *     ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404CA6E0 (ExpPoolMgrAcquirePoolListLockExclusive.c)
+ *     ExpPoolMgrReleasePoolListLockExclusive @ 0x1404CB00C (ExpPoolMgrReleasePoolListLockExclusive.c)
  */
 
 void __fastcall ExpPoolMgrUnregisterPool(__int64 a1, _QWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

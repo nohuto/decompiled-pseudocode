@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceMonitorOnWithLidClosed @ 0x140AC2ED8
+ * XREFs of PopDiagTraceMonitorOnWithLidClosed @ 0x140ADB2B8
  * Callers:
- *     PopPowerAggregatorHandleActiveIntent @ 0x140AC2DC0 (PopPowerAggregatorHandleActiveIntent.c)
+ *     PopPowerAggregatorHandleActiveIntent @ 0x140ADB1A0 (PopPowerAggregatorHandleActiveIntent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceMonitorOnWithLidClosed(int a1, char a2)
@@ -41,12 +41,12 @@ char __fastcall PopDiagTraceMonitorOnWithLidClosed(int a1, char a2)
   v2 = &retaddr;
   v3 = PopLidOpened;
   v5 = PopConsoleExternalDisplayConnected;
-  v7 = dword_140F106CC == 0;
+  v7 = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) == 0;
   if ( !PopLidOpened && !PopConsoleExternalDisplayConnected )
   {
-    if ( (unsigned int)dword_140E07598 <= 5 )
+    if ( (unsigned int)dword_140E07560 <= 5 )
       return (char)v2;
-    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
     if ( (_BYTE)v2 )
     {
       v9 = 0;
@@ -57,7 +57,7 @@ char __fastcall PopDiagTraceMonitorOnWithLidClosed(int a1, char a2)
       v21 = &v13;
       v20 = 1LL;
       v23 = (bool *)&v11;
-      v14 = qword_140F0F5D0;
+      v14 = PopWnfCsEnterScenarioId;
       v25 = &v14;
       v27 = &v12;
       v29 = v15;
@@ -71,17 +71,17 @@ char __fastcall PopDiagTraceMonitorOnWithLidClosed(int a1, char a2)
       v15[0] = 0x1000000LL;
       v30 = 8LL;
       LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E07598,
-                     (unsigned __int8 *)byte_14004A555,
+                     (__int64)&dword_140E07560,
+                     (unsigned __int8 *)byte_14004A7B9,
                      0LL,
                      0LL,
                      9u,
                      v16);
     }
   }
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
-    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
     if ( (_BYTE)v2 )
     {
       v12 = v3;
@@ -94,7 +94,7 @@ char __fastcall PopDiagTraceMonitorOnWithLidClosed(int a1, char a2)
       v23 = &v10;
       v13 = a1;
       v25 = (__int64 *)&v9;
-      v15[0] = qword_140F0F5D0;
+      v15[0] = PopWnfCsEnterScenarioId;
       v27 = (char *)v15;
       v29 = &v14;
       v22 = 4LL;
@@ -106,8 +106,8 @@ char __fastcall PopDiagTraceMonitorOnWithLidClosed(int a1, char a2)
       v14 = 0x1000000LL;
       v30 = 8LL;
       LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E07598,
-                     (unsigned __int8 *)byte_14004A60B,
+                     (__int64)&dword_140E07560,
+                     (unsigned __int8 *)&byte_14004A86F,
                      0LL,
                      0LL,
                      9u,

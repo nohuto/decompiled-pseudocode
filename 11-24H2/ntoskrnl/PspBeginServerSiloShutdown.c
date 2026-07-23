@@ -1,13 +1,13 @@
 /*
- * XREFs of PspBeginServerSiloShutdown @ 0x1408E8FFC
+ * XREFs of PspBeginServerSiloShutdown @ 0x14085A824
  * Callers:
- *     PspTerminateProcessesJobCallback @ 0x1408EA6B0 (PspTerminateProcessesJobCallback.c)
+ *     PspTerminateProcessesJobCallback @ 0x14085BEE0 (PspTerminateProcessesJobCallback.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PspAcquirePushLockShared @ 0x1404F541C (PspAcquirePushLockShared.c)
- *     PspReleasePushLockShared @ 0x1404F7900 (PspReleasePushLockShared.c)
- *     PspGetServerSiloStatePointer @ 0x1404FB1C0 (PspGetServerSiloStatePointer.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1407A95D8 (EtwTraceJobServerSiloStateChange.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PspAcquirePushLockShared @ 0x1404F2D1C (PspAcquirePushLockShared.c)
+ *     PspReleasePushLockShared @ 0x1404F51E0 (PspReleasePushLockShared.c)
+ *     PspGetServerSiloStatePointer @ 0x1404F8AA0 (PspGetServerSiloStatePointer.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1407A9718 (EtwTraceJobServerSiloStateChange.c)
  */
 
 char __fastcall PspBeginServerSiloShutdown(__int64 a1, int a2)

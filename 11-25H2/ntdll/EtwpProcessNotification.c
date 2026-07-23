@@ -13,9 +13,9 @@
 __int64 __fastcall EtwpProcessNotification(__int64 a1, __int16 *a2, _QWORD *a3, _DWORD *a4, _BYTE *a5)
 {
   unsigned __int8 v9; // si
-  __int64 v10; // rax
+  PVOID v10; // rax
   int v11; // edx
-  __int64 v12; // rbp
+  void *v12; // rbp
   __int16 v13; // ax
   __int16 v14; // ax
   __int64 v15; // rax
@@ -23,7 +23,7 @@ __int64 __fastcall EtwpProcessNotification(__int64 a1, __int16 *a2, _QWORD *a3, 
   __int64 v18; // rdx
 
   v9 = 0;
-  v10 = RtlSetThreadSubProcessTag(*(unsigned int *)(a1 + 248));
+  v10 = RtlSetThreadSubProcessTag((PVOID)*(unsigned int *)(a1 + 248));
   v11 = *(_DWORD *)a2;
   v12 = v10;
   v13 = *(_WORD *)(a1 + 86);

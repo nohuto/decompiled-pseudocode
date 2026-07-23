@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x14052C368
+ * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x14052C5A8
  * Callers:
- *     KiInSwapProcesses @ 0x14024A538 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x1402EED88 (KiInSwapProcesses.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeForceAttachProcess @ 0x14025C278 (KeForceAttachProcess.c)
- *     KeFreezeProcess @ 0x1402830E8 (KeFreezeProcess.c)
- *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
- *     MiBeginProcessClean @ 0x1402D5048 (MiBeginProcessClean.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiLogOutswappedProcessCommitReacquire @ 0x14052B704 (MiLogOutswappedProcessCommitReacquire.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeForceDetachProcess @ 0x140238598 (KeForceDetachProcess.c)
+ *     KeFreezeProcess @ 0x14023A64C (KeFreezeProcess.c)
+ *     KeForceAttachProcess @ 0x14027D7E8 (KeForceAttachProcess.c)
+ *     MiBeginProcessClean @ 0x1402A0890 (MiBeginProcessClean.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     MiChargeCommit @ 0x1402BF3D0 (MiChargeCommit.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiLogOutswappedProcessCommitReacquire @ 0x14052B944 (MiLogOutswappedProcessCommitReacquire.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReAcquireOutSwappedProcessCommit(unsigned __int16 *Object)
@@ -49,7 +49,7 @@ __int64 __fastcall MiReAcquireOutSwappedProcessCommit(unsigned __int16 *Object)
     else
     {
       v7 = 0;
-      v6 = MiChargeCommit(*(_QWORD *)(qword_140C4E648 + 8LL * Object[919]), *((_QWORD *)SharedVm + 1), 1u);
+      v6 = MiChargeCommit(*(_QWORD *)(qword_140C4E688 + 8LL * Object[919]), *((_QWORD *)SharedVm + 1), 1u);
       if ( v6 )
         goto LABEL_15;
     }

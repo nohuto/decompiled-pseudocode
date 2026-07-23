@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwOpenKeyTransacted @ 0x1409D4290
+ * XREFs of VerifierZwOpenKeyTransacted @ 0x1409D5290
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierZwOpenKeyTransacted()

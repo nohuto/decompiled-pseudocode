@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseWsSwapReservationPfn @ 0x14029F0DC
+ * XREFs of MiReleaseWsSwapReservationPfn @ 0x14029E62C
  * Callers:
- *     MiProcessWsInSwapFault @ 0x14029EFBC (MiProcessWsInSwapFault.c)
- *     MiInPageSingleKernelStack @ 0x1402A0214 (MiInPageSingleKernelStack.c)
+ *     MiProcessWsInSwapFault @ 0x14029E50C (MiProcessWsInSwapFault.c)
+ *     MiInPageSingleKernelStack @ 0x14029F764 (MiInPageSingleKernelStack.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReleaseWsSwapReservationPfn(ULONG_PTR BugCheckParameter2)

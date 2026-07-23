@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpAddCrashdumpAreaPages @ 0x14058A674
+ * XREFs of HvlpAddCrashdumpAreaPages @ 0x140587964
  * Callers:
- *     HvlAddSecurePagesCallbackRoutine @ 0x140589E28 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140587118 (HvlAddSecurePagesCallbackRoutine.c)
  * Callees:
  *     <none>
  */
@@ -16,14 +16,14 @@ char __fastcall HvlpAddCrashdumpAreaPages(__int64 a1, char a2)
   v2 = 1;
   if ( a2 )
   {
-    *(_QWORD *)(a1 + 16) = (unsigned __int64)qword_140F8DFE8 >> 12;
-    v3 = (unsigned int)dword_140F8DFF0;
+    *(_QWORD *)(a1 + 16) = (unsigned __int64)qword_140F8E1C8 >> 12;
+    v3 = (unsigned int)dword_140F8E1D0;
     *(_DWORD *)(a1 + 8) |= 0x80000022;
   }
   else
   {
-    *(_QWORD *)(a1 + 16) = (unsigned __int64)qword_140F8DFD0 >> 12;
-    v3 = (unsigned int)dword_140F8DFD8;
+    *(_QWORD *)(a1 + 16) = (unsigned __int64)qword_140F8E1B0 >> 12;
+    v3 = (unsigned int)dword_140F8E1B8;
     *(_DWORD *)(a1 + 8) |= 0x80000002;
   }
   *(_QWORD *)(a1 + 24) = v3;

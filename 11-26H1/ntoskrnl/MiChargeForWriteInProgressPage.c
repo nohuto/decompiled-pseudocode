@@ -1,10 +1,10 @@
 /*
- * XREFs of MiChargeForWriteInProgressPage @ 0x1402F5BD0
+ * XREFs of MiChargeForWriteInProgressPage @ 0x1402D7C50
  * Callers:
- *     MiAllocateModWriterEntry @ 0x140396C00 (MiAllocateModWriterEntry.c)
+ *     MiAllocateModWriterEntry @ 0x140398980 (MiAllocateModWriterEntry.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
  */
 
 __int64 __fastcall MiChargeForWriteInProgressPage(__int64 a1, char a2, __int64 a3, __int64 a4)

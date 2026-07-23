@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeletePageFileSectionNodes @ 0x1406E8298
+ * XREFs of MiDeletePageFileSectionNodes @ 0x1406FF678
  * Callers:
- *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
+ *     MiSegmentDelete @ 0x1406FF4F0 (MiSegmentDelete.c)
  * Callees:
- *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
- *     MiAweControlArea @ 0x140316048 (MiAweControlArea.c)
- *     MiDeleteSectionAwe @ 0x14054BB08 (MiDeleteSectionAwe.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140302FB0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiAweControlArea @ 0x140320D98 (MiAweControlArea.c)
+ *     MiDeleteSectionAwe @ 0x14054BD48 (MiDeleteSectionAwe.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeletePageFileSectionNodes(__int64 a1)

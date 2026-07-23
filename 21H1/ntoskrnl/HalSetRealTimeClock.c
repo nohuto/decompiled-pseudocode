@@ -103,7 +103,7 @@ LABEL_20:
   }
   if ( v11 >= 0 )
     LOBYTE(v9) = 1;
-  v12 = HalpSetVirtualRtc((__int64 *)&SystemTime, v4, v6);
+  v12 = HalpSetVirtualRtc(&SystemTime, v4, v6);
   v13 = v9;
   if ( v12 )
     return 1;

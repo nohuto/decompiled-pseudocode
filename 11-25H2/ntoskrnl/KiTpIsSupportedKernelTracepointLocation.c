@@ -8,47 +8,50 @@
  *     KiTpIsExcludedKernelTracepointLocation @ 0x140731ED0 (KiTpIsExcludedKernelTracepointLocation.c)
  */
 
-__int64 __fastcall KiTpIsSupportedKernelTracepointLocation(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall KiTpIsSupportedKernelTracepointLocation(PVOID BaseOfImage, __int64 a2)
 {
-  unsigned __int64 v4; // rax
-  unsigned __int64 v5; // rax
+  _IMAGE_NT_HEADERS64 *v4; // rax
+  PIMAGE_SECTION_HEADER v5; // rax
   int v6; // ecx
-  char v7; // dl
+  unsigned __int8 v7; // dl
   bool v8; // zf
-  __int64 v9; // rt1
+  PVOID v9; // rt1
 
-  v4 = RtlImageNtHeader(a1);
+  v4 = RtlImageNtHeader(BaseOfImage);
   if ( !v4 )
     return 0LL;
-  v5 = RtlSectionTableFromVirtualAddress(v4, a1, (int)a2 - (int)a1);
+  v5 = RtlSectionTableFromVirtualAddress(v4, BaseOfImage, (int)a2 - (int)BaseOfImage);
   if ( !v5 )
     return 0LL;
-  if ( (*(_DWORD *)(v5 + 36) & 0x22000000) != 0x20000000 )
+  if ( (v5->Characteristics & 0x22000000) != 0x20000000 )
     return 0LL;
-  v6 = *(_DWORD *)v5;
-  if ( *(_DWORD *)v5 == 1414090313 || v6 == 1396790859 )
+  v6 = *(_DWORD *)v5->Name;
+  if ( *(_DWORD *)v5->Name == 1414090313 || v6 == 1396790859 )
     return 0LL;
-  if ( v6 == 1162297680 && *(_DWORD *)(v5 + 4) )
+  if ( v6 == 1162297680 && *(_DWORD *)&v5->Name[4] )
   {
-    v7 = *(_BYTE *)(v5 + 4);
+    v7 = v5->Name[4];
     if ( v7 == 119 )
     {
-      v8 = *(_BYTE *)(v5 + 5) == 120;
+      v8 = v5->Name[5] == 120;
       goto LABEL_13;
     }
-    if ( v7 == 86 && *(_BYTE *)(v5 + 5) == 82 )
+    if ( v7 == 86 && v5->Name[5] == 82 )
     {
-      v8 = *(_BYTE *)(v5 + 6) == 70;
+      v8 = v5->Name[6] == 70;
 LABEL_13:
       if ( v8 )
         return 0LL;
     }
   }
-  if ( a1 != PsHalImageBase )
+  if ( BaseOfImage != PsHalImageBase )
   {
-    v9 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-    if ( a1 != v9 || v6 != 1128354388 && v6 != 1347769157 && !(unsigned int)KiTpIsExcludedKernelTracepointLocation(a2) )
+    v9 = *(PVOID *)&KeNumberProcessorsGroup0[9];
+    if ( BaseOfImage != v9
+      || v6 != 1128354388 && v6 != 1347769157 && !(unsigned int)KiTpIsExcludedKernelTracepointLocation(a2) )
+    {
       return 1LL;
+    }
   }
   return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeMdlPfn @ 0x1402E37C4
+ * XREFs of MiInitializeMdlPfn @ 0x140294B14
  * Callers:
- *     MiInitializeMdlLeafPfns @ 0x1402E36BC (MiInitializeMdlLeafPfns.c)
- *     MmAllocateNonChargedSecurePages @ 0x14053430C (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
- *     MiCreateEnclaveRegions @ 0x140A54ED8 (MiCreateEnclaveRegions.c)
+ *     MiInitializeMdlLeafPfns @ 0x140294A0C (MiInitializeMdlLeafPfns.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14053454C (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
+ *     MiCreateEnclaveRegions @ 0x140A55ED8 (MiCreateEnclaveRegions.c)
  * Callees:
- *     MiAbortCombineScan @ 0x140303770 (MiAbortCombineScan.c)
+ *     MiAbortCombineScan @ 0x14030E4C0 (MiAbortCombineScan.c)
  */
 
 char __fastcall MiInitializeMdlPfn(__int64 a1, int a2)
@@ -38,7 +38,7 @@ char __fastcall MiInitializeMdlPfn(__int64 a1, int a2)
       MiAbortCombineScan(a1);
       *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
       if ( (a2 & 0x20000) == 0 )
-        _InterlockedIncrement64(&qword_140C4E000);
+        _InterlockedIncrement64(&qword_140C4E040);
     }
     LOBYTE(v5) = *(_BYTE *)(a1 + 34) & 0xF8 | 6;
     *(_BYTE *)(a1 + 34) = v5;

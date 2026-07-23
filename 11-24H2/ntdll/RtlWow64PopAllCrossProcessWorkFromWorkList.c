@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlWow64PopAllCrossProcessWorkFromWorkList @ 0x180148990
+ * XREFs of RtlWow64PopAllCrossProcessWorkFromWorkList @ 0x180146D40
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
  */
 
 _DWORD *__fastcall RtlWow64PopAllCrossProcessWorkFromWorkList(volatile signed __int64 *a1, _BYTE *a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCopyCompleteReadRequest @ 0x140268870
+ * XREFs of IopCopyCompleteReadRequest @ 0x14025FD20
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x140268580 (IopCopyCompleteReadIrp.c)
- *     IopCopyAbortCopyReadRequest @ 0x140597980 (IopCopyAbortCopyReadRequest.c)
+ *     IopCopyCompleteReadIrp @ 0x14025FA30 (IopCopyCompleteReadIrp.c)
+ *     IopCopyAbortCopyReadRequest @ 0x140594950 (IopCopyAbortCopyReadRequest.c)
  * Callees:
- *     IopDequeueIrpFromThread @ 0x1402541C0 (IopDequeueIrpFromThread.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     IopDequeueIrpFromFileObject @ 0x14031A230 (IopDequeueIrpFromFileObject.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     IopUpdateIrpTransferCount @ 0x1403C4580 (IopUpdateIrpTransferCount.c)
- *     IopDropIrp @ 0x1403C5110 (IopDropIrp.c)
- *     IopProcessBufferedIoCompletion @ 0x1403C5E80 (IopProcessBufferedIoCompletion.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IopDequeueIrpFromThread @ 0x1402847D0 (IopDequeueIrpFromThread.c)
+ *     IopDequeueIrpFromFileObject @ 0x1402C2DC0 (IopDequeueIrpFromFileObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IopUpdateIrpTransferCount @ 0x1403B3140 (IopUpdateIrpTransferCount.c)
+ *     IopDropIrp @ 0x1403B3CD0 (IopDropIrp.c)
+ *     IopProcessBufferedIoCompletion @ 0x1403B4A40 (IopProcessBufferedIoCompletion.c)
  */
 
 __int64 __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -19,8 +19,6 @@ __int64 __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3
   IRP *v5; // rbx
   __int64 v6; // rdi
   unsigned __int64 v7; // rsi
-  __int64 v8; // rdx
-  __int64 v9; // r8
   PKEVENT UserEvent; // rcx
 
   CurrentThread = KeGetCurrentThread();
@@ -41,7 +39,7 @@ __int64 __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3
   else
   {
     v5->Tail.Overlay.Thread = CurrentThread;
-    IopDequeueIrpFromThread(v5, v8, v9);
+    IopDequeueIrpFromThread(v5);
   }
   UserEvent = v5->UserEvent;
   if ( UserEvent )

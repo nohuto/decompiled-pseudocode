@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetTrimPageCandidateCount @ 0x1403B92EC
+ * XREFs of MiGetTrimPageCandidateCount @ 0x1403C31EC
  * Callers:
- *     MiForcedTrim @ 0x1403B9340 (MiForcedTrim.c)
+ *     MiForcedTrim @ 0x1403C3240 (MiForcedTrim.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgBuildDriverNodeStrongName @ 0x140985E5C
+ * XREFs of PiDevCfgBuildDriverNodeStrongName @ 0x14096E66C
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     RtlHashUnicodeString @ 0x1409862A0 (RtlHashUnicodeString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     RtlHashUnicodeString @ 0x14096EAB0 (RtlHashUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDevCfgBuildDriverNodeStrongName(
@@ -44,7 +44,7 @@ __int64 __fastcall PiDevCfgBuildDriverNodeStrongName(
   {
     DestinationString.Length = v12;
     DestinationString.MaximumLength = v12 + 2;
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v12 + 2), 0x67727453u);
     DestinationString.Buffer = Pool2;
     if ( Pool2 )
     {

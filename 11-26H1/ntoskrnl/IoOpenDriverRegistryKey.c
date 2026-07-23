@@ -1,18 +1,18 @@
 /*
- * XREFs of IoOpenDriverRegistryKey @ 0x140A11EC0
+ * XREFs of IoOpenDriverRegistryKey @ 0x140A110B0
  * Callers:
- *     DifIoOpenDriverRegistryKeyWrapper @ 0x14065D5E0 (DifIoOpenDriverRegistryKeyWrapper.c)
+ *     DifIoOpenDriverRegistryKeyWrapper @ 0x1406611C0 (DifIoOpenDriverRegistryKeyWrapper.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     PiGetServiceNameInfo @ 0x140A11DB4 (PiGetServiceNameInfo.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     PipOpenServiceEnumKeys @ 0x140A12308 (PipOpenServiceEnumKeys.c)
- *     IopApplyMutableTagToRegistryKey @ 0x140A12668 (IopApplyMutableTagToRegistryKey.c)
- *     PiCreateServiceStateKey @ 0x140A126EC (PiCreateServiceStateKey.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     PiGetServiceNameInfo @ 0x140A10FA4 (PiGetServiceNameInfo.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140A114F8 (PipOpenServiceEnumKeys.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x140A11858 (IopApplyMutableTagToRegistryKey.c)
+ *     PiCreateServiceStateKey @ 0x140A118DC (PiCreateServiceStateKey.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoOpenDriverRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, int a4, _QWORD *a5)

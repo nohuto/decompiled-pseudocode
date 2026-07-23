@@ -6,12 +6,11 @@
  *     <none>
  */
 
-__int64 __fastcall AlpcGetCompletionListLastMessageInformation(__int64 a1, _DWORD *a2, _DWORD *a3)
+void __cdecl AlpcGetCompletionListLastMessageInformation(
+        PVOID CompletionList,
+        PULONG LastMessageId,
+        PULONG LastCallbackId)
 {
-  __int64 result; // rax
-
-  *a2 = *(_DWORD *)(a1 + 72);
-  result = *(unsigned int *)(a1 + 76);
-  *a3 = result;
-  return result;
+  *LastMessageId = *((_DWORD *)CompletionList + 18);
+  *LastCallbackId = *((_DWORD *)CompletionList + 19);
 }

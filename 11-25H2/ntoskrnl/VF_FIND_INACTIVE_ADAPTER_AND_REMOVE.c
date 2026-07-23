@@ -7,11 +7,11 @@
  *     KeReleaseSpinLock @ 0x1402EA780 (KeReleaseSpinLock.c)
  */
 
-struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
+_LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  struct _LIST_ENTRY *v2; // rbx
+  _LIST_ENTRY *v2; // rbx
   KIRQL v3; // r8
-  struct _LIST_ENTRY *i; // rax
+  _LIST_ENTRY *i; // rax
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx
 

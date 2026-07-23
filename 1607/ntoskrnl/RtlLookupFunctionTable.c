@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLookupFunctionTable @ 0x1400B5AC0
+ * XREFs of RtlLookupFunctionTable @ 0x1400B38E8
  * Callers:
- *     KiLockExtendedServiceTable @ 0x140156918 (KiLockExtendedServiceTable.c)
+ *     KiLockExtendedServiceTable @ 0x140156E88 (KiLockExtendedServiceTable.c)
  *     CcInitializeBcbProfiler @ 0x140777304 (CcInitializeBcbProfiler.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x140051540 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1400510C0 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)

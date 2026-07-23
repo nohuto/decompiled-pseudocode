@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpWriteBreakPointEx @ 0x140917CD0
+ * XREFs of KdpWriteBreakPointEx @ 0x140918CD0
  * Callers:
- *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140918100 (KdpSendWaitContinue.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
- *     KdpAddBreakpoint @ 0x140918BE4 (KdpAddBreakpoint.c)
- *     KdpDeleteBreakpoint @ 0x140918D78 (KdpDeleteBreakpoint.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KdpCopyMemoryChunks @ 0x1409199A8 (KdpCopyMemoryChunks.c)
+ *     KdpAddBreakpoint @ 0x140919BE4 (KdpAddBreakpoint.c)
+ *     KdpDeleteBreakpoint @ 0x140919D78 (KdpDeleteBreakpoint.c)
  */
 
 __int64 __fastcall KdpWriteBreakPointEx(_DWORD *a1, PVOID *a2)

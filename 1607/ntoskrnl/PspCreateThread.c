@@ -1,21 +1,21 @@
 /*
- * XREFs of PspCreateThread @ 0x140458D18
+ * XREFs of PspCreateThread @ 0x140457BE8
  * Callers:
- *     PsCreateSystemThreadEx @ 0x1403E4750 (PsCreateSystemThreadEx.c)
- *     NtCreateThreadEx @ 0x140458958 (NtCreateThreadEx.c)
- *     NtCreateThread @ 0x14067CC00 (NtCreateThread.c)
+ *     PsCreateSystemThreadEx @ 0x1403E5D7C (PsCreateSystemThreadEx.c)
+ *     NtCreateThreadEx @ 0x140457828 (NtCreateThreadEx.c)
+ *     NtCreateThread @ 0x14067CCE4 (NtCreateThread.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     PspMapThreadCreationFlags @ 0x14045902C (PspMapThreadCreationFlags.c)
- *     PspAllocateThread @ 0x1405154A0 (PspAllocateThread.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     PspMapThreadCreationFlags @ 0x140457EFC (PspMapThreadCreationFlags.c)
+ *     PspAllocateThread @ 0x1404F8890 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
  */
 
 NTSTATUS __fastcall PspCreateThread(

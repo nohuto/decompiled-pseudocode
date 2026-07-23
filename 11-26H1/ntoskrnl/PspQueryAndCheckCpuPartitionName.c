@@ -1,12 +1,12 @@
 /*
- * XREFs of PspQueryAndCheckCpuPartitionName @ 0x1407F2BBC
+ * XREFs of PspQueryAndCheckCpuPartitionName @ 0x1407F871C
  * Callers:
- *     NtCreateCpuPartition @ 0x1407F18E0 (NtCreateCpuPartition.c)
+ *     NtCreateCpuPartition @ 0x1407F7440 (NtCreateCpuPartition.c)
  * Callees:
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspQueryAndCheckCpuPartitionName(int a1, char a2)

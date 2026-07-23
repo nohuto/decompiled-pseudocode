@@ -12,62 +12,79 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_180002898(__int64 a1, __int64 a2)
+signed int __fastcall sub_180002898(__int64 a1, void *a2)
 {
-  __int64 result; // rax
-  int v5; // edx
+  signed int result; // eax
+  DWORD v5; // edx
   unsigned __int64 v6; // rcx
   unsigned int v7; // eax
-  int v8; // edi
-  int v9; // [rsp+50h] [rbp-B0h] BYREF
-  void *v10; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v11; // [rsp+60h] [rbp-A0h] BYREF
-  _DWORD v12[2]; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v13; // [rsp+70h] [rbp-90h] BYREF
-  _DWORD v14[44]; // [rsp+80h] [rbp-80h] BYREF
+  NTSTATUS v8; // edi
+  ULONG ReturnLength; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+68h] [rbp-98h] BYREF
+  ULONG_PTR ViewSize[2]; // [rsp+70h] [rbp-90h] BYREF
+  _DWORD ProcessInformation[44]; // [rsp+80h] [rbp-80h] BYREF
 
-  memset(v14, 0, sizeof(v14));
-  result = ZwQueryInformationProcess(a2, 32LL, v14, 176LL, &v9);
-  if ( (int)(result + 0x80000000) < 0 || (_DWORD)result == -1073741820 )
+  memset(ProcessInformation, 0, sizeof(ProcessInformation));
+  result = ZwQueryInformationProcess(a2, ProcessHandleTracing, ProcessInformation, 0xB0u, &ReturnLength);
+  if ( (int)(result + 0x80000000) < 0 || result == -1073741820 )
   {
     v5 = -1;
-    v6 = 160LL * v14[2];
+    v6 = 160LL * ProcessInformation[2];
     if ( v6 <= 0xFFFFFFFF )
     {
       v7 = v6 + 176;
       if ( (int)v6 + 176 >= (unsigned int)v6 )
         v5 = v6 + 176;
-      v12[0] = v5;
+      MaximumSize.LowPart = v5;
       if ( v7 >= (unsigned int)v6 )
       {
-        v12[1] = 0;
-        result = ZwCreateSection(&v11, 983047LL, "0", v12, 4, 0x8000000, 0LL);
-        if ( (int)result >= 0 )
+        MaximumSize.HighPart = 0;
+        result = ZwCreateSection(
+                   &SectionHandle,
+                   0xF0007u,
+                   (POBJECT_ATTRIBUTES)&stru_180130A98,
+                   &MaximumSize,
+                   4u,
+                   0x8000000u,
+                   0LL);
+        if ( result >= 0 )
         {
-          v10 = 0LL;
-          v13 = 0LL;
-          v8 = ZwMapViewOfSection(v11, -1LL, &v10, 0LL, 0LL, 0LL, &v13, 1, 0, 4);
+          BaseAddress = 0LL;
+          ViewSize[0] = 0LL;
+          v8 = ZwMapViewOfSection(
+                 SectionHandle,
+                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                 &BaseAddress,
+                 0LL,
+                 0LL,
+                 0LL,
+                 ViewSize,
+                 ViewShare,
+                 0,
+                 4u);
           if ( v8 >= 0 )
           {
-            memset(v10, 0, 0xB0uLL);
-            if ( (int)ZwQueryInformationProcess(a2, 32LL, v10, v12[0], &v9) >= 0 )
+            memset(BaseAddress, 0, 0xB0uLL);
+            if ( ZwQueryInformationProcess(a2, ProcessHandleTracing, BaseAddress, MaximumSize.LowPart, &ReturnLength) >= 0 )
             {
-              ZwUnmapViewOfSection(-1LL, v10);
-              *(_DWORD *)(a1 + 936) = v9;
-              *(_QWORD *)(a1 + 944) = v11;
+              ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+              *(_DWORD *)(a1 + 936) = ReturnLength;
+              *(_QWORD *)(a1 + 944) = SectionHandle;
               *(_QWORD *)(a1 + 952) = MEMORY[0x7FFE0014];
-              return 0LL;
+              return 0;
             }
             else
             {
-              ZwUnmapViewOfSection(-1LL, v10);
-              return ZwClose(v11);
+              ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+              return ZwClose(SectionHandle);
             }
           }
           else
           {
-            ZwClose(v11);
-            return (unsigned int)v8;
+            ZwClose(SectionHandle);
+            return v8;
           }
         }
       }
@@ -78,7 +95,7 @@ __int64 __fastcall sub_180002898(__int64 a1, __int64 a2)
     }
     else
     {
-      return 3221225621LL;
+      return -1073741675;
     }
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInsertKeyHash @ 0x140859398
+ * XREFs of CmpInsertKeyHash @ 0x14085F728
  * Callers:
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpRehashKcbSubtree @ 0x140859538 (CmpRehashKcbSubtree.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpRehashKcbSubtree @ 0x14085F8C8 (CmpRehashKcbSubtree.c)
  * Callees:
- *     CmpAddKeyHashToEntry @ 0x140AE137C (CmpAddKeyHashToEntry.c)
+ *     CmpAddKeyHashToEntry @ 0x140ADE86C (CmpAddKeyHashToEntry.c)
  */
 
 __int64 __fastcall CmpInsertKeyHash(__int64 a1, _DWORD *a2)

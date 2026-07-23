@@ -1,12 +1,12 @@
 /*
- * XREFs of PsImpersonateContainerOfThread @ 0x140492240
+ * XREFs of PsImpersonateContainerOfThread @ 0x1403B4C38
  * Callers:
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1407418D0 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x14073F800 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     PspUpdateContainerImpersonation @ 0x1402A11C4 (PspUpdateContainerImpersonation.c)
+ *     PspUpdateContainerImpersonation @ 0x1403B4C5C (PspUpdateContainerImpersonation.c)
  */
 
-__int64 __fastcall PsImpersonateContainerOfThread(void *a1)
+__int64 __fastcall PsImpersonateContainerOfThread(PVOID Object)
 {
-  return PspUpdateContainerImpersonation((ULONG_PTR)KeGetCurrentThread(), a1);
+  return PspUpdateContainerImpersonation((ULONG_PTR)KeGetCurrentThread(), Object);
 }

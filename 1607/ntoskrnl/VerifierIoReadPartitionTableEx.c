@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoReadPartitionTableEx @ 0x14070C83C
+ * XREFs of VerifierIoReadPartitionTableEx @ 0x14070C86C
  * Callers:
  *     <none>
  * Callees:

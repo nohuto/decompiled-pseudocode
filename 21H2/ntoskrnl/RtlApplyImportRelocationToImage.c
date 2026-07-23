@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlApplyImportRelocationToImage @ 0x1403B6EBC
+ * XREFs of RtlApplyImportRelocationToImage @ 0x1403B702C
  * Callers:
- *     RtlUpdateImportRelocationsInImage @ 0x1403B6C78 (RtlUpdateImportRelocationsInImage.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FEBC (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1403B6DE8 (RtlUpdateImportRelocationsInImage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1405900EC (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
- *     RtlpApplyGenericRetpolineFixup @ 0x14029C850 (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpConstructImportRelocationFixup @ 0x14029C8B0 (RtlpConstructImportRelocationFixup.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402149D0 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructImportRelocationFixup @ 0x140214A30 (RtlpConstructImportRelocationFixup.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 _BYTE *__fastcall RtlApplyImportRelocationToImage(

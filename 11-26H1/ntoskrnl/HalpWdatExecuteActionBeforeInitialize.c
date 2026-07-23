@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpWdatExecuteActionBeforeInitialize @ 0x140597730
+ * XREFs of HalpWdatExecuteActionBeforeInitialize @ 0x140599EB0
  * Callers:
- *     HalpWdatDiscover @ 0x1405974A4 (HalpWdatDiscover.c)
+ *     HalpWdatDiscover @ 0x140599C24 (HalpWdatDiscover.c)
  * Callees:
- *     WdInstrExecuteInstruction @ 0x1405135A0 (WdInstrExecuteInstruction.c)
- *     WdInstrDestroyInstruction @ 0x1405A5094 (WdInstrDestroyInstruction.c)
- *     WdInstrInitializeInstruction @ 0x1405A50C4 (WdInstrInitializeInstruction.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     WdInstrExecuteInstruction @ 0x14050D010 (WdInstrExecuteInstruction.c)
+ *     WdInstrDestroyInstruction @ 0x1405A78A4 (WdInstrDestroyInstruction.c)
+ *     WdInstrInitializeInstruction @ 0x1405A78D4 (WdInstrInitializeInstruction.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpWdatExecuteActionBeforeInitialize(char a1, __int64 a2, unsigned int *a3, __int64 a4, __int64 a5)
@@ -59,7 +59,7 @@ __int64 __fastcall HalpWdatExecuteActionBeforeInitialize(char a1, __int64 a2, un
   }
   else if ( a5 )
   {
-    v15 = &word_14002C002;
+    v15 = &word_14002BAB2;
     v16 = 15LL;
     do
     {

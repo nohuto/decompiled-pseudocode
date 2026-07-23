@@ -24,7 +24,7 @@ int __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, struct _KTHREAD
   char v12; // r14
   __int64 v13; // rbx
   PSLIST_ENTRY v14; // rax
-  struct _SLIST_ENTRY *v15; // r15
+  _SLIST_ENTRY *v15; // r15
   __int64 v16; // rax
   void *v17; // rsp
   __int64 v18; // rax
@@ -78,7 +78,7 @@ int __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, struct _KTHREAD
             v16 = 0xFFFFFFFFFFFFFF0LL;
           v17 = alloca(v16 & 0xFFFFFFFFFFFFFFF0uLL);
           v12 = 1;
-          v15 = (struct _SLIST_ENTRY *)&v25;
+          v15 = (_SLIST_ENTRY *)&v25;
         }
         LODWORD(CurrentPrcb) = guard_dispatch_icall_no_overrides((unsigned int)v13, v15);
         if ( (int)CurrentPrcb >= 0 && v25 )

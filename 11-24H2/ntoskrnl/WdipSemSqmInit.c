@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipSemSqmInit @ 0x1407A36C8
+ * XREFs of WdipSemSqmInit @ 0x1407A37D8
  * Callers:
- *     WdipSemStartTimeoutCheck @ 0x1407A2BE0 (WdipSemStartTimeoutCheck.c)
+ *     WdipSemStartTimeoutCheck @ 0x1407A2CF0 (WdipSemStartTimeoutCheck.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x140A833D4 (WdipSemWriteEvent.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140A7DEF4 (WdipSemWriteEvent.c)
  */
 
 __int64 WdipSemSqmInit()

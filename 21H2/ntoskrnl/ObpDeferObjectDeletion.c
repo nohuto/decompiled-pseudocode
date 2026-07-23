@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpDeferObjectDeletion @ 0x1402BC2D0
+ * XREFs of ObpDeferObjectDeletion @ 0x14023A834
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
- *     NtCancelTimer @ 0x140248B00 (NtCancelTimer.c)
- *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
- *     ObDereferenceObjectEx @ 0x14024C610 (ObDereferenceObjectEx.c)
- *     MiEmptyPageAccessLog @ 0x14025BC70 (MiEmptyPageAccessLog.c)
- *     ExTimerRundown @ 0x140279748 (ExTimerRundown.c)
- *     ObFastReferenceObject @ 0x14027C6E0 (ObFastReferenceObject.c)
- *     IopDropIrp @ 0x1402E9444 (IopDropIrp.c)
- *     ObFastReplaceObject @ 0x1402F6E80 (ObFastReplaceObject.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExTimerRundown @ 0x1402676E8 (ExTimerRundown.c)
+ *     ObFastReferenceObject @ 0x14026A680 (ObFastReferenceObject.c)
+ *     MiEmptyPageAccessLog @ 0x14027D1E0 (MiEmptyPageAccessLog.c)
+ *     IopDropIrp @ 0x14029A794 (IopDropIrp.c)
+ *     MiCompleteProtoPteFault @ 0x1402B8690 (MiCompleteProtoPteFault.c)
+ *     NtCancelTimer @ 0x1402ED350 (NtCancelTimer.c)
+ *     ExpSetTimerObject @ 0x1402EDC70 (ExpSetTimerObject.c)
+ *     ObDereferenceObjectEx @ 0x1402F0E60 (ObDereferenceObjectEx.c)
+ *     ObFastReplaceObject @ 0x140301BD0 (ObFastReplaceObject.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void __fastcall ObpDeferObjectDeletion(signed __int64 a1)
@@ -37,8 +37,8 @@ void __fastcall ObpDeferObjectDeletion(signed __int64 a1)
   }
   if ( !v1 )
   {
-    if ( ObGetCurrentIrql() > 2u )
-      KiInsertQueueDpc((ULONG_PTR)&ObpRemoveObjectDpc, 0LL, 0LL, 0LL, 0);
+    if ( (unsigned __int8)ObGetCurrentIrql() > 2u )
+      KiInsertQueueDpc((ULONG_PTR)&ObpRemoveObjectDpc, 0);
     else
       ExQueueWorkItem(&ObpRemoveObjectWorkItem, CriticalWorkQueue);
   }

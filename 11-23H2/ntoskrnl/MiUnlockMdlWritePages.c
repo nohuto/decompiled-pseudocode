@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUnlockMdlWritePages @ 0x1402D9B30
+ * XREFs of MiUnlockMdlWritePages @ 0x1402D9DC0
  * Callers:
- *     MiUnlockFlushMdl @ 0x14033ED10 (MiUnlockFlushMdl.c)
- *     MiFlushComplete @ 0x140635E60 (MiFlushComplete.c)
+ *     MiUnlockFlushMdl @ 0x14033EFA0 (MiUnlockFlushMdl.c)
+ *     MiFlushComplete @ 0x1406363B0 (MiFlushComplete.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiEnqueuePageList @ 0x1402DAA10 (MiEnqueuePageList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402F48D8 (MiReleaseWriteInProgressCharges.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiHardFaultPageRelease @ 0x140334DA8 (MiHardFaultPageRelease.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCanBatchSystemCacheUnmapPages @ 0x14062EAF4 (MiCanBatchSystemCacheUnmapPages.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiCanBatchHardFaultPages @ 0x1402CDEF0 (MiCanBatchHardFaultPages.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiEnqueuePageList @ 0x1402DACA0 (MiEnqueuePageList.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402F4B68 (MiReleaseWriteInProgressCharges.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiHardFaultPageRelease @ 0x140335038 (MiHardFaultPageRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiCanBatchSystemCacheUnmapPages @ 0x14062F044 (MiCanBatchSystemCacheUnmapPages.c)
  */
 
 __int64 __fastcall MiUnlockMdlWritePages(_DWORD *a1, int *a2)
@@ -79,7 +79,7 @@ __int64 __fastcall MiUnlockMdlWritePages(_DWORD *a1, int *a2)
   v43 = CurrentIrql;
   __writecr8(2uLL);
   v11 = LOBYTE(v40[11]) - 1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -238,10 +238,10 @@ LABEL_18:
       if ( (++v8 & 0x3F) == 0 && KeShouldYieldProcessor() )
       {
         MiInsertPagesInList(v40, 0LL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v31 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v31 >= 2u )
           {
             v32 = KeGetCurrentPrcb();
             v33 = v32->SchedulerAssist;
@@ -255,7 +255,7 @@ LABEL_18:
         __writecr8((unsigned __int8)v43);
         v27 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
         {
           v28 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v27 == 2 )
@@ -275,10 +275,10 @@ LABEL_18:
     }
   }
   MiInsertPagesInList(v40, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v35 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v35 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v35 >= 2u )
     {
       v36 = KeGetCurrentPrcb();
       v37 = v36->SchedulerAssist;

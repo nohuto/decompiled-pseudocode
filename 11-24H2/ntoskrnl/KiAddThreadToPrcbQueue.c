@@ -1,27 +1,34 @@
 /*
- * XREFs of KiAddThreadToPrcbQueue @ 0x1403102F0
+ * XREFs of KiAddThreadToPrcbQueue @ 0x1402D7CF0
  * Callers:
- *     KiRemoveThreadFromSchedulingGroup @ 0x1402A7194 (KiRemoveThreadFromSchedulingGroup.c)
- *     KiGroupSchedulingGenerationEnd @ 0x14030B428 (KiGroupSchedulingGenerationEnd.c)
- *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14030F768 (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14030F980 (KiDeferGroupSchedulingPreemption.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1402D68C4 (KiRemoveThreadFromSchedulingGroup.c)
+ *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402D716C (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402D7384 (KiDeferGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1402DA488 (KiGroupSchedulingGenerationEnd.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiIsThreadExemptFromForcePark @ 0x14029AB9C (KiIsThreadExemptFromForcePark.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x14030EBE4 (KiReadGuestSchedulerAssistPriority.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14042B760 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiIsThreadExemptFromForcePark @ 0x1402A968C (KiIsThreadExemptFromForcePark.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1402D8644 (KiReadGuestSchedulerAssistPriority.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14041E2F0 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
  */
 
-unsigned int *__fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, int a3, int a4, char a5, unsigned int *a6)
+unsigned int *__fastcall KiAddThreadToPrcbQueue(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        char a5,
+        unsigned int *a6)
 {
+  int v6; // r13d
   __int64 v7; // r12
   bool v10; // bl
   _QWORD *v11; // rax
@@ -33,58 +40,56 @@ unsigned int *__fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, int a3, 
   __int64 v17; // rcx
   __int64 v18; // rdi
   _QWORD *v19; // r15
-  _QWORD *v20; // rdx
+  __int64 v20; // rdx
   _QWORD *v21; // rax
   __int64 v22; // rcx
   _QWORD *v23; // rcx
   __int64 v24; // rax
-  __int64 v25; // r8
-  __int64 v26; // r9
-  int v27; // r10d
+  char v25; // r9
+  int v26; // r10d
+  __int64 v27; // rax
   __int64 v28; // rax
-  __int64 v29; // rax
-  ULONG_PTR v30; // rcx
-  __int64 v31; // rax
-  __int64 v32; // rdx
-  _QWORD *v33; // rcx
-  _QWORD *v34; // rdx
-  __int64 v35; // rax
-  _QWORD *v36; // rax
-  int v37; // eax
-  bool v38; // zf
-  __int64 v39; // rax
-  __int64 v40; // rcx
-  __int64 v41; // r8
-  __int64 v42; // r9
-  ULONG_PTR v43; // rsi
-  __int64 v44; // rdi
-  _QWORD *v45; // rdx
-  __int64 v46; // rax
-  __int64 v47; // rdx
+  ULONG_PTR v29; // rcx
+  __int64 v30; // rax
+  __int64 v31; // rdx
+  _QWORD *v32; // rcx
+  _QWORD *v33; // rdx
+  __int64 v34; // rax
+  _QWORD *v35; // rax
+  int v36; // eax
+  bool v37; // zf
+  __int64 v38; // rax
+  __int64 v39; // rcx
+  ULONG_PTR v40; // rsi
+  __int64 v41; // rdi
+  __int64 v42; // rdx
+  __int64 v43; // rax
+  __int64 v44; // rdx
   unsigned int *result; // rax
-  __int128 v49; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v50; // [rsp+40h] [rbp-10h] BYREF
+  __int128 v46; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v47; // [rsp+40h] [rbp-10h] BYREF
 
-  v7 = a3;
+  v6 = a4;
+  v7 = (int)a3;
   if ( (*(_DWORD *)(a2 + 120) & 0x400000) != 0 )
     _InterlockedOr(*(volatile signed __int32 **)(a2 + 968), 0x40000u);
   if ( (*(_DWORD *)(a2 + 120) & 0x400000) != 0 )
   {
     v10 = 0;
-    if ( (unsigned int)KiReadGuestSchedulerAssistPriority(a2, 0LL) != *(_DWORD *)(a2 + 1024) )
+    if ( (unsigned int)KiReadGuestSchedulerAssistPriority(a2, 0LL, a3, a4) != *(_DWORD *)(a2 + 1024) )
     {
       KxAcquireSpinLock(&KiUpdateVpThreadPriorityLock);
       v11 = (_QWORD *)(a2 + 1008);
       if ( *(_QWORD *)(a2 + 1008) == 1LL )
       {
-        v12 = (_QWORD *)qword_140F223C8;
+        v12 = (_QWORD *)qword_140F22508;
         v10 = KiUpdateVpThreadPriorityListHead == (_QWORD)&KiUpdateVpThreadPriorityListHead;
-        if ( *(__int64 **)qword_140F223C8 != &KiUpdateVpThreadPriorityListHead )
+        if ( *(__int64 **)qword_140F22508 != &KiUpdateVpThreadPriorityListHead )
           __fastfail(3u);
         *v11 = &KiUpdateVpThreadPriorityListHead;
         *(_QWORD *)(a2 + 1016) = v12;
         *v12 = v11;
-        qword_140F223C8 = a2 + 1008;
+        qword_140F22508 = a2 + 1008;
       }
       KxReleaseSpinLock((volatile signed __int64 *)&KiUpdateVpThreadPriorityLock);
       if ( v10 )
@@ -100,63 +105,63 @@ unsigned int *__fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, int a3, 
       : (v17 = *(_QWORD *)&v15[4 * v16 + 4]),
         (v13 & v17) != v13 || a5) )
   {
-    v33 = (_QWORD *)(a2 + 216);
-    v34 = (_QWORD *)(a1 + 16 * (v7 + 2116));
-    if ( a4 )
+    v32 = (_QWORD *)(a2 + 216);
+    v33 = (_QWORD *)(a1 + 16 * (v7 + 2116));
+    if ( v6 )
     {
-      v35 = *v34;
-      if ( *(_QWORD **)(*v34 + 8LL) != v34 )
+      v34 = *v33;
+      if ( *(_QWORD **)(*v33 + 8LL) != v33 )
         goto LABEL_57;
-      *v33 = v35;
-      *(_QWORD *)(a2 + 224) = v34;
-      *(_QWORD *)(v35 + 8) = v33;
-      *v34 = v33;
+      *v32 = v34;
+      *(_QWORD *)(a2 + 224) = v33;
+      *(_QWORD *)(v34 + 8) = v32;
+      *v33 = v32;
       _bittestandset((signed __int32 *)(a1 + 33756), v7);
     }
     else
     {
-      v36 = (_QWORD *)v34[1];
-      if ( (_QWORD *)*v36 != v34 )
+      v35 = (_QWORD *)v33[1];
+      if ( (_QWORD *)*v35 != v33 )
         goto LABEL_57;
-      *v33 = v34;
-      *(_QWORD *)(a2 + 224) = v36;
-      *v36 = v33;
-      v34[1] = v33;
+      *v32 = v33;
+      *(_QWORD *)(a2 + 224) = v35;
+      *v35 = v32;
+      v33[1] = v32;
     }
-    v37 = *(_DWORD *)(a1 + 33752);
-    v38 = ++*(_DWORD *)(a1 + 34420) == 1;
-    *(_DWORD *)(a1 + 33752) = v37 | (1 << v7);
-    if ( v38 && !*(_QWORD *)(a1 + 33840) )
+    v36 = *(_DWORD *)(a1 + 33752);
+    v37 = ++*(_DWORD *)(a1 + 34420) == 1;
+    *(_DWORD *)(a1 + 33752) = v36 | (1 << v7);
+    if ( v37 && !*(_QWORD *)(a1 + 33840) )
       _InterlockedOr64((volatile signed __int64 *)(*(_QWORD *)(a1 + 192) + 384LL), *(_QWORD *)(a1 + 200));
-    v39 = *(unsigned int *)(a2 + 84);
-    *(_DWORD *)(a2 + 1784) = v39;
-    v40 = *(_QWORD *)(a1 + 36424);
-    *(_QWORD *)(a1 + 34424) += v39;
-    KiUpdateSoftParkElectionStatisticsOnInsertion(v40, a2);
+    v38 = *(unsigned int *)(a2 + 84);
+    *(_DWORD *)(a2 + 1784) = v38;
+    v39 = *(_QWORD *)(a1 + 36424);
+    *(_QWORD *)(a1 + 34424) += v38;
+    KiUpdateSoftParkElectionStatisticsOnInsertion(v39, a2);
     if ( !KiForceParkingConfiguration )
       goto LABEL_86;
     if ( (*(_BYTE *)(a1 + 35) & 0x20) == 0 )
       goto LABEL_86;
     if ( KiIsThreadExemptFromForcePark(a2) )
       goto LABEL_86;
-    v43 = *(_QWORD *)(a1 + 34544);
-    v44 = *(_QWORD *)(a1 + 36424);
-    if ( *(_DWORD *)(v43 + 336) )
+    v40 = *(_QWORD *)(a1 + 34544);
+    v41 = *(_QWORD *)(a1 + 36424);
+    if ( *(_DWORD *)(v40 + 336) )
       goto LABEL_86;
-    if ( v44 )
+    if ( v41 )
     {
-      v50 = 0LL;
+      v47 = 0LL;
       if ( (KiVelocityFlags & 0x200000) != 0 )
       {
-        *((_QWORD *)&v50 + 1) = v44;
-        *(_QWORD *)&v50 = 0LL;
-        v45 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)v44, (__int64)&v50);
-        if ( v45 )
-          KxWaitForLockOwnerShip((__int64)&v50, v45);
+        *((_QWORD *)&v47 + 1) = v41;
+        *(_QWORD *)&v47 = 0LL;
+        v42 = _InterlockedExchange64((volatile __int64 *)v41, (__int64)&v47);
+        if ( v42 )
+          KxWaitForLockOwnerShip(&v47, v42);
       }
       else
       {
-        while ( _interlockedbittestandset64((volatile signed __int32 *)v44, 0LL) )
+        while ( _interlockedbittestandset64((volatile signed __int32 *)v41, 0LL) )
         {
           do
           {
@@ -171,53 +176,53 @@ unsigned int *__fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, int a3, 
               _mm_pause();
             }
           }
-          while ( *(_QWORD *)v44 );
+          while ( *(_QWORD *)v41 );
         }
       }
-      v38 = (KiVelocityFlags & 0x200000) == 0;
-      *(_QWORD *)(v44 + 1768) |= *(_QWORD *)(a1 + 200);
-      if ( v38 )
+      v37 = (KiVelocityFlags & 0x200000) == 0;
+      *(_QWORD *)(v41 + 1768) |= *(_QWORD *)(a1 + 200);
+      if ( v37 )
       {
-        _InterlockedAnd64((volatile signed __int64 *)v44, 0LL);
+        _InterlockedAnd64((volatile signed __int64 *)v41, 0LL);
       }
       else
       {
-        _m_prefetchw(&v50);
-        v46 = v50;
-        if ( (_QWORD)v50 )
+        _m_prefetchw(&v47);
+        v43 = v47;
+        if ( (_QWORD)v47 )
           goto LABEL_82;
         if ( (__int128 *)_InterlockedCompareExchange64(
-                           *((volatile signed __int64 **)&v50 + 1),
+                           *((volatile signed __int64 **)&v47 + 1),
                            0LL,
-                           (signed __int64)&v50) != &v50 )
+                           (signed __int64)&v47) != &v47 )
         {
-          v46 = KxWaitForLockChainValid(&v50);
+          v43 = KxWaitForLockChainValid((__int64 *)&v47);
 LABEL_82:
-          *(_QWORD *)&v50 = 0LL;
-          v47 = *((_QWORD *)&v50 + 1);
-          if ( (((unsigned __int8)v47 ^ (unsigned __int8)_InterlockedExchange64(
-                                                           (volatile __int64 *)(v46 + 8),
-                                                           *((__int64 *)&v50 + 1))) & 4) != 0 )
-            KeWakeAddressAll(v46 + 8, v47, v41, v42);
+          *(_QWORD *)&v47 = 0LL;
+          v44 = *((_QWORD *)&v47 + 1);
+          if ( (((unsigned __int8)v44 ^ (unsigned __int8)_InterlockedExchange64(
+                                                           (volatile __int64 *)(v43 + 8),
+                                                           *((__int64 *)&v47 + 1))) & 4) != 0 )
+            KeWakeAddressAll(v43 + 8, v44);
         }
       }
     }
-    *(_DWORD *)(v43 + 336) = 1;
-    *(_DWORD *)(v43 + 340) = 1;
-    KiInsertQueueDpc(v43, 0LL, 0LL, 0LL, 0);
+    *(_DWORD *)(v40 + 336) = 1;
+    *(_DWORD *)(v40 + 340) = 1;
+    KiInsertQueueDpc(v40, 0LL, 0LL, 0LL, 0);
     v14 = 0;
     goto LABEL_86;
   }
   v18 = *(_QWORD *)(a1 + 36424);
   v19 = (_QWORD *)(v18 + 16 * (v7 + 4));
-  v49 = 0LL;
+  v46 = 0LL;
   if ( (KiVelocityFlags & 0x200000) != 0 )
   {
-    *((_QWORD *)&v49 + 1) = v18;
-    *(_QWORD *)&v49 = 0LL;
-    v20 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)v18, (__int64)&v49);
+    *((_QWORD *)&v46 + 1) = v18;
+    *(_QWORD *)&v46 = 0LL;
+    v20 = _InterlockedExchange64((volatile __int64 *)v18, (__int64)&v46);
     if ( v20 )
-      KxWaitForLockOwnerShip((__int64)&v49, v20);
+      KxWaitForLockOwnerShip(&v46, v20);
   }
   else
   {
@@ -240,7 +245,7 @@ LABEL_82:
     }
   }
   v21 = (_QWORD *)(a2 + 216);
-  if ( !a4 )
+  if ( !v6 )
   {
     v23 = (_QWORD *)v19[1];
     if ( (_QWORD *)*v23 == v19 )
@@ -272,23 +277,19 @@ LABEL_34:
   *(_QWORD *)(v18 + 16) += v24;
   KiUpdateSoftParkElectionStatisticsOnInsertion(v18, a2);
   v14 = 1;
-  if ( KiForceParkingConfiguration )
+  if ( KiForceParkingConfiguration && (*(_BYTE *)(a1 + 35) & 0x20) != 0 && !KiIsThreadExemptFromForcePark(a2) )
   {
-    v26 = *(unsigned __int8 *)(a1 + 35);
-    if ( (v26 & 0x20) != 0 && !KiIsThreadExemptFromForcePark(a2) )
+    if ( (v25 & 0x10) == 0
+      || ((v27 = *(_QWORD *)(a1 + 192), !v26) ? (v28 = *(_QWORD *)(v27 + 80)) : (v28 = ~*(_QWORD *)(v27 + 104)),
+          (v28 & *(_QWORD *)(v18 + 712)) == 0) )
     {
-      if ( (v26 & 0x10) == 0
-        || ((v28 = *(_QWORD *)(a1 + 192), !v27) ? (v29 = *(_QWORD *)(v28 + 80)) : (v29 = ~*(_QWORD *)(v28 + 104)),
-            (v29 & *(_QWORD *)(v18 + 712)) == 0) )
+      if ( !*(_QWORD *)(v18 + 1768) )
       {
-        if ( !*(_QWORD *)(v18 + 1768) )
-        {
-          *(_QWORD *)(v18 + 1768) |= *(_QWORD *)(a1 + 200);
-          v30 = *(_QWORD *)(a1 + 34544);
-          *(_DWORD *)(v30 + 336) = 1;
-          *(_DWORD *)(v30 + 340) = 1;
-          KiInsertQueueDpc(v30, 0LL, 0LL, 0LL, 0);
-        }
+        *(_QWORD *)(v18 + 1768) |= *(_QWORD *)(a1 + 200);
+        v29 = *(_QWORD *)(a1 + 34544);
+        *(_DWORD *)(v29 + 336) = 1;
+        *(_DWORD *)(v29 + 340) = 1;
+        KiInsertQueueDpc(v29, 0LL, 0LL, 0LL, 0);
       }
     }
   }
@@ -297,20 +298,20 @@ LABEL_34:
     _InterlockedAnd64((volatile signed __int64 *)v18, 0LL);
     goto LABEL_86;
   }
-  _m_prefetchw(&v49);
-  v31 = v49;
-  if ( !(_QWORD)v49 )
+  _m_prefetchw(&v46);
+  v30 = v46;
+  if ( !(_QWORD)v46 )
   {
-    if ( (__int128 *)_InterlockedCompareExchange64(*((volatile signed __int64 **)&v49 + 1), 0LL, (signed __int64)&v49) == &v49 )
+    if ( (__int128 *)_InterlockedCompareExchange64(*((volatile signed __int64 **)&v46 + 1), 0LL, (signed __int64)&v46) == &v46 )
       goto LABEL_86;
-    v31 = KxWaitForLockChainValid(&v49);
+    v30 = KxWaitForLockChainValid((__int64 *)&v46);
   }
-  *(_QWORD *)&v49 = 0LL;
-  v32 = *((_QWORD *)&v49 + 1);
-  if ( (((unsigned __int8)v32 ^ (unsigned __int8)_InterlockedExchange64(
-                                                   (volatile __int64 *)(v31 + 8),
-                                                   *((__int64 *)&v49 + 1))) & 4) != 0 )
-    KeWakeAddressAll(v31 + 8, v32, v25, v26);
+  *(_QWORD *)&v46 = 0LL;
+  v31 = *((_QWORD *)&v46 + 1);
+  if ( (((unsigned __int8)v31 ^ (unsigned __int8)_InterlockedExchange64(
+                                                   (volatile __int64 *)(v30 + 8),
+                                                   *((__int64 *)&v46 + 1))) & 4) != 0 )
+    KeWakeAddressAll(v30 + 8, v31);
 LABEL_86:
   result = a6;
   *a6 = v14;

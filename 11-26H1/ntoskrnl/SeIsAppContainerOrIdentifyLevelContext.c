@@ -1,15 +1,15 @@
 /*
- * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x1409034B4
+ * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x140933444
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     PfpPrivSourceEnum @ 0x14096984C (PfpPrivSourceEnum.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x140AF1B4C (PopPowerRequestActionInfo.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PfpPrivSourceEnum @ 0x14091DEAC (PfpPrivSourceEnum.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x140AF441C (PopPowerRequestActionInfo.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
  */
 
 __int64 __fastcall SeIsAppContainerOrIdentifyLevelContext(PSECURITY_SUBJECT_CONTEXT SubjectContext, _BYTE *a2)
@@ -34,7 +34,7 @@ __int64 __fastcall SeIsAppContainerOrIdentifyLevelContext(PSECURITY_SUBJECT_CONT
     v2 = 1;
   }
   if ( SeAccessCheck(
-         PspSiloMonitorLock.KernelShadowStackInitial,
+         (PSECURITY_DESCRIPTOR)PspSiloMonitorLock.UserWaitTime,
          v4,
          0,
          1u,

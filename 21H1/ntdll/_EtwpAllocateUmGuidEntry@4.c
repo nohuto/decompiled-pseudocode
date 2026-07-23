@@ -9,23 +9,27 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-_DWORD *__thiscall EtwpAllocateUmGuidEntry(_DWORD *this)
+_RTL_BALANCED_NODE *__thiscall EtwpAllocateUmGuidEntry(_RTL_BALANCED_NODE **this)
 {
-  _DWORD *Heap; // eax
-  _DWORD *v3; // ebx
-  _DWORD *v4; // esi
+  _RTL_BALANCED_NODE *Heap; // eax
+  _RTL_BALANCED_NODE *v3; // ebx
+  _RTL_BALANCED_NODE **v4; // esi
+  SIZE_T v6; // [esp-4h] [ebp-10h]
+  size_t v7; // [esp-4h] [ebp-10h]
 
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 152);
+  LODWORD(v6) = 152;
+  Heap = (_RTL_BALANCED_NODE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v6);
   v3 = Heap;
   if ( Heap )
   {
-    memset(Heap, 0, 0x98u);
-    v3[3] = *this;
+    LODWORD(v7) = 152;
+    memset(Heap, 0, v7);
+    v3[1].Children[0] = *this;
     v4 = this + 1;
-    v3[4] = *v4++;
-    v3[5] = *v4;
-    v3[6] = v4[1];
-    v3[9] = 1;
+    v3[1].Children[1] = *v4++;
+    v3[1].ParentValue = (unsigned int)*v4;
+    v3[2].Children[0] = v4[1];
+    v3[3].Children[0] = (_RTL_BALANCED_NODE *)1;
     EtwpInsertGuidEntry(v3);
   }
   return v3;

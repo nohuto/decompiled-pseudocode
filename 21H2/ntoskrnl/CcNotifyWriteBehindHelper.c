@@ -1,9 +1,9 @@
 /*
- * XREFs of CcNotifyWriteBehindHelper @ 0x14038DE20
+ * XREFs of CcNotifyWriteBehindHelper @ 0x14038DF70
  * Callers:
  *     <none>
  * Callees:
- *     CcNotifyWriteBehindInternal @ 0x1402C2120 (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindInternal @ 0x1402405C0 (CcNotifyWriteBehindInternal.c)
  */
 
 char __fastcall CcNotifyWriteBehindHelper(__int64 a1, char a2)

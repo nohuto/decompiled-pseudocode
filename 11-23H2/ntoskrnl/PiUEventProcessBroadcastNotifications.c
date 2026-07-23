@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventProcessBroadcastNotifications @ 0x140782278
+ * XREFs of PiUEventProcessBroadcastNotifications @ 0x140782468
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1407820E0 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x1407822D0 (PiUEventProcessEventWorker.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     IopGetSessionIdFromSymbolicName @ 0x140790728 (IopGetSessionIdFromSymbolicName.c)
- *     PiUEventQueueBroadcastEventEntry @ 0x1407DDE64 (PiUEventQueueBroadcastEventEntry.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x140790918 (IopGetSessionIdFromSymbolicName.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x1407DE134 (PiUEventQueueBroadcastEventEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

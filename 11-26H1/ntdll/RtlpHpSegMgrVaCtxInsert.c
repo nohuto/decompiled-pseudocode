@@ -1,32 +1,31 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxInsert @ 0x180158580
+ * XREFs of RtlpHpSegMgrVaCtxInsert @ 0x180158450
  * Callers:
- *     RtlpHpSegMgrAllocate @ 0x18008B594 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegMgrAllocate @ 0x18006E9CC (RtlpHpSegMgrAllocate.c)
  * Callees:
- *     RtlpHpQueryVA @ 0x180089D98 (RtlpHpQueryVA.c)
- *     RtlpHpSegMgrLock @ 0x18010FAC8 (RtlpHpSegMgrLock.c)
+ *     RtlpHpQueryVA @ 0x180070D98 (RtlpHpQueryVA.c)
+ *     RtlpHpSegMgrLock @ 0x18010F658 (RtlpHpSegMgrLock.c)
  */
 
-struct _TEB *__fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
+void __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdx
-  unsigned __int16 *v4; // rsi
-  __int16 v5; // ax
-  bool v6; // sf
-  unsigned __int64 v7; // rbx
-  unsigned __int16 *v9; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int16 *v3; // rsi
+  __int16 v4; // ax
+  bool v5; // sf
+  unsigned __int64 v6; // rbx
+  unsigned __int16 *v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v9 = 0LL;
-  RtlpHpQueryVA(a2, a2, &v9, 0LL);
-  v4 = v9;
-  v5 = (*v9 ^ (*v9 + 1)) & 0x7FF;
-  v6 = ((v5 ^ *v9) & 0x8000u) != 0;
-  *v9 ^= v5;
-  if ( v6 )
+  v7 = 0LL;
+  RtlpHpQueryVA(a2, a2, &v7, 0LL);
+  v3 = v7;
+  v4 = (*v7 ^ (*v7 + 1)) & 0x7FF;
+  v5 = ((v4 ^ *v7) & 0x8000u) != 0;
+  *v7 ^= v4;
+  if ( v5 )
     _InterlockedIncrement64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1));
-  v7 = (unsigned __int64)*v4 >> 15;
-  RtlpHpSegMgrLock(a1, v3);
-  *((_QWORD *)v4 + 1) = *(_QWORD *)(a1 + 8 * v7 + 128);
-  *(_QWORD *)(a1 + 8 * v7 + 128) = v4 + 4;
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 120));
+  v6 = (unsigned __int64)*v3 >> 15;
+  RtlpHpSegMgrLock((_RTL_SRWLOCK *)a1);
+  *((_QWORD *)v3 + 1) = *(_QWORD *)(a1 + 8 * v6 + 128);
+  *(_QWORD *)(a1 + 8 * v6 + 128) = v3 + 4;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 120));
 }

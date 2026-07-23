@@ -19,13 +19,13 @@
 __int64 __fastcall PiDmRemoveCacheReferenceForObject(__int64 a1, __int64 a2, unsigned int *a3)
 {
   unsigned int v4; // edi
-  RTL_AVL_TABLE *ObjectManagerForObjectType; // rsi
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // rsi
   unsigned int *v6; // rax
   unsigned int *Buffer; // [rsp+40h] [rbp+18h] BYREF
 
   Buffer = a3;
   v4 = 0;
-  ObjectManagerForObjectType = (RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
+  ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
   PiDmObjectManagerAcquireExclusiveLock(ObjectManagerForObjectType);
   v6 = (unsigned int *)PiDmLookupObject(ObjectManagerForObjectType, a2);
   Buffer = v6;

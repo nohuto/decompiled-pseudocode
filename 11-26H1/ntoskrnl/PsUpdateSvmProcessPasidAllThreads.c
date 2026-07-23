@@ -1,16 +1,16 @@
 /*
- * XREFs of PsUpdateSvmProcessPasidAllThreads @ 0x1407F0584
+ * XREFs of PsUpdateSvmProcessPasidAllThreads @ 0x1407F60E4
  * Callers:
- *     ExpAssignPasid @ 0x140840E98 (ExpAssignPasid.c)
+ *     ExpAssignPasid @ 0x1408470D8 (ExpAssignPasid.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KeFlushProcessWriteBuffers @ 0x14025167C (KeFlushProcessWriteBuffers.c)
- *     PspUnlockProcessThreadListShared @ 0x140271AF0 (PspUnlockProcessThreadListShared.c)
- *     PspLockProcessThreadListShared @ 0x14044BF00 (PspLockProcessThreadListShared.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     ExSvmUpdateThreadPasidMsrApc @ 0x140840E50 (ExSvmUpdateThreadPasidMsrApc.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KeFlushProcessWriteBuffers @ 0x140252FDC (KeFlushProcessWriteBuffers.c)
+ *     PspUnlockProcessThreadListShared @ 0x140271060 (PspUnlockProcessThreadListShared.c)
+ *     PspLockProcessThreadListShared @ 0x140444020 (PspLockProcessThreadListShared.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     ExSvmUpdateThreadPasidMsrApc @ 0x140847090 (ExSvmUpdateThreadPasidMsrApc.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsUpdateSvmProcessPasidAllThreads(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_HeteroRescheduleFixes__private_IsEnabledFallback @ 0x140532D30
+ * XREFs of Feature_HeteroRescheduleFixes__private_IsEnabledFallback @ 0x1405351D0
  * Callers:
- *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14023DE70 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14023F7D0 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_HeteroRescheduleFixes__private_IsEnabledFallback(__int64 a1, unsigned int a2)

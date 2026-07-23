@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfDeleteScopeInstances @ 0x140A07438
+ * XREFs of ExpWnfDeleteScopeInstances @ 0x140A076C8
  * Callers:
- *     ExWnfCleanupServerSiloState @ 0x140A06070 (ExWnfCleanupServerSiloState.c)
+ *     ExWnfCleanupServerSiloState @ 0x140A06300 (ExWnfCleanupServerSiloState.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExpWnfFreeScopeInstance @ 0x1407CC964 (ExpWnfFreeScopeInstance.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExpWnfFreeScopeInstance @ 0x1407CCC34 (ExpWnfFreeScopeInstance.c)
  */
 
 signed __int32 __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)

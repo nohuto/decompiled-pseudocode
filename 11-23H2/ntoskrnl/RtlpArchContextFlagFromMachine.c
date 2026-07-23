@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpArchContextFlagFromMachine @ 0x1407A0C70
+ * XREFs of RtlpArchContextFlagFromMachine @ 0x1407A0E60
  * Callers:
- *     PspWow64InitThread @ 0x14079F3C4 (PspWow64InitThread.c)
- *     PspWow64SetupCpuArea @ 0x14079F578 (PspWow64SetupCpuArea.c)
- *     RtlpWow64SanitizeContextFlags @ 0x1407A07E8 (RtlpWow64SanitizeContextFlags.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1407A0BC8 (RtlWow64GetCpuAreaInfo.c)
+ *     PspWow64InitThread @ 0x14079F5B4 (PspWow64InitThread.c)
+ *     PspWow64SetupCpuArea @ 0x14079F768 (PspWow64SetupCpuArea.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x1407A09D8 (RtlpWow64SanitizeContextFlags.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1407A0DB8 (RtlWow64GetCpuAreaInfo.c)
  * Callees:
  *     <none>
  */

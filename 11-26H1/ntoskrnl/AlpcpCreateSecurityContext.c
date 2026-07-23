@@ -1,33 +1,33 @@
 /*
- * XREFs of AlpcpCreateSecurityContext @ 0x1409BC550
+ * XREFs of AlpcpCreateSecurityContext @ 0x14098D530
  * Callers:
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1409BCF30 (AlpcpCaptureSecurityAttributeInternal.c)
- *     NtAlpcCreateSecurityContext @ 0x140A99EA0 (NtAlpcCreateSecurityContext.c)
- *     AlpcCreateSecurityContext @ 0x140AFA190 (AlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x14098DF10 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     NtAlpcCreateSecurityContext @ 0x140A9E020 (NtAlpcCreateSecurityContext.c)
+ *     AlpcCreateSecurityContext @ 0x140AFC620 (AlpcCreateSecurityContext.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402AC7A0 (SepReconcileTrustSidWithProcessProtection.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AlpcpReleasePagedPoolQuota @ 0x1408E8010 (AlpcpReleasePagedPoolQuota.c)
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
- *     AlpcAddHandleTableEntry @ 0x1409BC2F0 (AlpcAddHandleTableEntry.c)
- *     AlpcpStartInitialization @ 0x1409BC4D8 (AlpcpStartInitialization.c)
- *     AlpcpChargePagedPoolQuota @ 0x1409BC9CC (AlpcpChargePagedPoolQuota.c)
- *     AlpcpReferenceBlob @ 0x1409BEEB8 (AlpcpReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpInsertResourcePort @ 0x140A66404 (AlpcpInsertResourcePort.c)
- *     AlpcpEndInitialization @ 0x140A90CE8 (AlpcpEndInitialization.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1403ABEF0 (SepReconcileTrustSidWithProcessProtection.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1408EE5D0 (AlpcpReleasePagedPoolQuota.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
+ *     AlpcAddHandleTableEntry @ 0x14098D2D0 (AlpcAddHandleTableEntry.c)
+ *     AlpcpStartInitialization @ 0x14098D4B8 (AlpcpStartInitialization.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14098D9AC (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpReferenceBlob @ 0x14098FE98 (AlpcpReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpInsertResourcePort @ 0x140A733D4 (AlpcpInsertResourcePort.c)
+ *     AlpcpEndInitialization @ 0x140A95838 (AlpcpEndInitialization.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AlpcpCreateSecurityContext(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 **a5)
@@ -137,7 +137,7 @@ LABEL_14:
   v21 = 2;
 LABEL_15:
   v22 = v38;
-  SepReconcileTrustSidWithProcessProtection(v18[138], &v36, v37, (unsigned __int64 *)&SourceSid);
+  SepReconcileTrustSidWithProcessProtection(v18[138], &v36, v37, &SourceSid);
   ClientSecurity = SepCreateClientSecurityEx(
                      (__int64)v18,
                      a4,

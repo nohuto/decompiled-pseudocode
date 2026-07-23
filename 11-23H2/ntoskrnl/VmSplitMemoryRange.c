@@ -1,13 +1,13 @@
 /*
- * XREFs of VmSplitMemoryRange @ 0x1409DCAE0
+ * XREFs of VmSplitMemoryRange @ 0x1409DCCE0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     VmpSplitMemoryRange @ 0x1405FB0B0 (VmpSplitMemoryRange.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     VmpSplitMemoryRange @ 0x1405FB620 (VmpSplitMemoryRange.c)
  */
 
 __int64 __fastcall VmSplitMemoryRange(unsigned __int64 a1, __int64 a2)

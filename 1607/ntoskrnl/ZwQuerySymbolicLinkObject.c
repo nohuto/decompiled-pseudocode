@@ -1,12 +1,12 @@
 /*
- * XREFs of ZwQuerySymbolicLinkObject @ 0x14015C5E0
+ * XREFs of ZwQuerySymbolicLinkObject @ 0x14015CB50
  * Callers:
- *     sub_1404DB28C @ 0x1404DB28C (sub_1404DB28C.c)
- *     BiTranslateSymbolicLink @ 0x14053CCF0 (BiTranslateSymbolicLink.c)
- *     SiTranslateSymbolicLink @ 0x1405422D8 (SiTranslateSymbolicLink.c)
- *     IoIsValidNameGraftingBuffer @ 0x1406245F0 (IoIsValidNameGraftingBuffer.c)
- *     ExpTranslateSymbolicLink @ 0x1406B30A8 (ExpTranslateSymbolicLink.c)
- *     SiGetBiosSystemDisk @ 0x1406D6AA4 (SiGetBiosSystemDisk.c)
+ *     sub_1404BE890 @ 0x1404BE890 (sub_1404BE890.c)
+ *     BiTranslateSymbolicLink @ 0x14053D230 (BiTranslateSymbolicLink.c)
+ *     SiTranslateSymbolicLink @ 0x140542818 (SiTranslateSymbolicLink.c)
+ *     IoIsValidNameGraftingBuffer @ 0x1406246A4 (IoIsValidNameGraftingBuffer.c)
+ *     ExpTranslateSymbolicLink @ 0x1406B31E0 (ExpTranslateSymbolicLink.c)
+ *     SiGetBiosSystemDisk @ 0x1406D6BDC (SiGetBiosSystemDisk.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(LinkHandle, LinkTarget, ReturnedLength);
+  return KiServiceInternal(LinkHandle);
 }

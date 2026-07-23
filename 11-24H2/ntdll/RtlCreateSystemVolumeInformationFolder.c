@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlCreateSystemVolumeInformationFolder @ 0x1800CE8E0
+ * XREFs of RtlCreateSystemVolumeInformationFolder @ 0x1800C64A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlpSysVolCreateSecurityDescriptor @ 0x1800CE704 (RtlpSysVolCreateSecurityDescriptor.c)
- *     RtlpSysVolAllocate @ 0x1800CE870 (RtlpSysVolAllocate.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800CEBBC (RtlpSysVolCheckOwnerAndSecurity.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     RtlpSysVolTakeOwnership @ 0x180144470 (RtlpSysVolTakeOwnership.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwCreateFile @ 0x180162730 (ZwCreateFile.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x1800C62C4 (RtlpSysVolCreateSecurityDescriptor.c)
+ *     RtlpSysVolAllocate @ 0x1800C6430 (RtlpSysVolAllocate.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800C677C (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     RtlpSysVolTakeOwnership @ 0x180142820 (RtlpSysVolTakeOwnership.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwCreateFile @ 0x180160AF0 (ZwCreateFile.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlCreateSystemVolumeInformationFolder(unsigned __int16 *a1)
@@ -20,31 +20,25 @@ __int64 __fastcall RtlCreateSystemVolumeInformationFolder(unsigned __int16 *a1)
   unsigned __int16 v3; // bx
   unsigned __int16 v4; // dx
   __int16 v5; // si
-  void *v6; // rax
+  PVOID v6; // rax
   unsigned __int64 v7; // rax
   int v8; // ebx
-  __int64 v9; // rdi
-  char *v10; // rcx
+  __int16 *v9; // rdi
+  ACL *v10; // rcx
   __int128 v12; // [rsp+60h] [rbp-19h] BYREF
-  __int128 v13; // [rsp+70h] [rbp-9h] BYREF
-  _DWORD v14[2]; // [rsp+80h] [rbp+7h] BYREF
-  __int64 v15; // [rsp+88h] [rbp+Fh]
-  __int128 *v16; // [rsp+90h] [rbp+17h]
-  int v17; // [rsp+98h] [rbp+1Fh]
-  int v18; // [rsp+9Ch] [rbp+23h]
-  __int64 v19; // [rsp+A0h] [rbp+27h]
-  __int64 v20; // [rsp+A8h] [rbp+2Fh]
-  HANDLE Handle; // [rsp+E0h] [rbp+67h] BYREF
-  char *v22; // [rsp+E8h] [rbp+6Fh] BYREF
-  __int64 v23; // [rsp+F0h] [rbp+77h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+7h] BYREF
+  HANDLE FileHandle; // [rsp+E0h] [rbp+67h] BYREF
+  ACL *v16; // [rsp+E8h] [rbp+6Fh] BYREF
+  __int16 *v17; // [rsp+F0h] [rbp+77h] BYREF
 
-  v23 = 0LL;
-  v22 = 0LL;
+  v17 = 0LL;
+  v16 = 0LL;
   v12 = 0LL;
-  v14[1] = 0;
-  v18 = 0;
-  Handle = 0LL;
-  v13 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  FileHandle = 0LL;
+  IoStatusBlock = 0LL;
   v2 = wcslen(L"System Volume Information");
   v3 = 2 * v2;
   if ( 2 * v2 >= 0xFFFE )
@@ -60,7 +54,7 @@ __int64 __fastcall RtlCreateSystemVolumeInformationFolder(unsigned __int16 *a1)
     LOWORD(v12) = v4;
   }
   WORD1(v12) = v4 + 2;
-  v6 = (void *)RtlpSysVolAllocate((unsigned __int16)(v4 + 2));
+  v6 = RtlpSysVolAllocate((unsigned __int16)(v4 + 2));
   *((_QWORD *)&v12 + 1) = v6;
   if ( !v6 )
     return 3221225626LL;
@@ -76,42 +70,42 @@ __int64 __fastcall RtlCreateSystemVolumeInformationFolder(unsigned __int16 *a1)
   memmove((void *)(*((_QWORD *)&v12 + 1) + (unsigned __int16)v7), L"System Volume Information", v3);
   LOWORD(v12) = v3 + v12;
   *(_WORD *)(*((_QWORD *)&v12 + 1) + 2 * ((unsigned __int64)(unsigned __int16)v12 >> 1)) = 0;
-  v8 = RtlpSysVolCreateSecurityDescriptor(&v23, &v22);
+  v8 = RtlpSysVolCreateSecurityDescriptor(&v17, &v16);
   if ( v8 < 0 )
   {
-    v10 = (char *)*((_QWORD *)&v12 + 1);
+    v10 = (ACL *)*((_QWORD *)&v12 + 1);
   }
   else
   {
-    v9 = v23;
-    v14[0] = 48;
-    v15 = 0LL;
-    v17 = 576;
-    v16 = &v12;
-    v19 = v23;
-    v20 = 0LL;
-    if ( (int)ZwCreateFile(&Handle, 0x10000LL, v14, &v13, 0LL, 0, 7, 1, 2101344, 0LL) >= 0 )
-      NtClose(Handle);
-    v8 = ZwCreateFile(&Handle, 1966080LL, v14, &v13, 0LL, 6, 7, 3, 33, 0LL);
+    v9 = v17;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v12;
+    ObjectAttributes.SecurityDescriptor = v17;
+    ObjectAttributes.SecurityQualityOfService = 0LL;
+    if ( ZwCreateFile(&FileHandle, 0x10000u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x201060u, 0LL, 0) >= 0 )
+      NtClose(FileHandle);
+    v8 = ZwCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0LL, 6u, 7u, 3u, 0x21u, 0LL, 0);
     if ( v8 < 0 )
     {
       RtlpSysVolTakeOwnership(&v12);
-      v8 = ZwCreateFile(&Handle, 1966080LL, v14, &v13, 0LL, 6, 7, 3, 33, 0LL);
+      v8 = ZwCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0LL, 6u, 7u, 3u, 0x21u, 0LL, 0);
     }
-    RtlpSysVolFree(*((__int64 *)&v12 + 1));
+    RtlpSysVolFree(*((void **)&v12 + 1));
     if ( v8 < 0 )
     {
-      RtlpSysVolFree((__int64)v22);
-      v10 = (char *)v9;
+      RtlpSysVolFree(v16);
+      v10 = (ACL *)v9;
     }
     else
     {
       RtlpSysVolFree(v9);
-      v8 = RtlpSysVolCheckOwnerAndSecurity(Handle, v22);
-      NtClose(Handle);
-      v10 = v22;
+      v8 = RtlpSysVolCheckOwnerAndSecurity(FileHandle);
+      NtClose(FileHandle);
+      v10 = v16;
     }
   }
-  RtlpSysVolFree((__int64)v10);
+  RtlpSysVolFree(v10);
   return (unsigned int)v8;
 }

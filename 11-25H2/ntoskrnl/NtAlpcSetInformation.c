@@ -22,7 +22,11 @@
  *     AlpcpFreeCompletionList @ 0x140A08300 (AlpcpFreeCompletionList.c)
  */
 
-__int64 __fastcall NtAlpcSetInformation(void *a1, int a2, __int64 *a3, unsigned int a4)
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   size_t v4; // r15
   struct _KTHREAD *CurrentThread; // rax
@@ -30,12 +34,12 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, __int64 *a3, unsigned 
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v10; // r13
   __int64 *v11; // r12
-  NTSTATUS v12; // edi
-  int v13; // r14d
-  int v14; // r14d
-  NTSTATUS v15; // eax
-  int v17; // r14d
-  int v18; // r14d
+  signed int v12; // edi
+  __int32 v13; // r14d
+  __int32 v14; // r14d
+  signed int v15; // eax
+  __int32 v17; // r14d
+  __int32 v18; // r14d
   int v19; // r14d
   int v20; // r14d
   signed __int64 *v21; // rbx
@@ -63,14 +67,17 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, __int64 *a3, unsigned 
   __int32 v43; // [rsp+68h] [rbp-90h]
   unsigned __int64 v44; // [rsp+6Ch] [rbp-8Ch]
 
-  v4 = a4;
-  Handle = a1;
-  v39 = a3;
+  v4 = Length;
+  Handle = PortHandle;
+  v39 = (__int64 *)PortInformation;
   memset_0(&v42, 0, 0x48uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v8 = 0;
-  if ( !a1 || !v39 && a2 != 7 && a2 != 10 )
+  if ( !PortHandle
+    || !v39
+    && PortInformationClass != AlpcUnregisterCompletionListInformation
+    && PortInformationClass != AlpcCompletionListRundownInformation )
   {
     v12 = -1073741811;
     goto LABEL_16;
@@ -98,7 +105,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, __int64 *a3, unsigned 
   v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
-    v13 = a2 - 1;
+    v13 = PortInformationClass - 1;
     if ( !v13 )
     {
       if ( (_DWORD)v4 != 72 )
@@ -263,5 +270,5 @@ LABEL_41:
   }
 LABEL_16:
   KeLeaveCriticalRegion();
-  return (unsigned int)v12;
+  return v12;
 }

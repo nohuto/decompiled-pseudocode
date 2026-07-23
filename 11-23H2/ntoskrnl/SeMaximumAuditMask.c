@@ -1,11 +1,11 @@
 /*
- * XREFs of SeMaximumAuditMask @ 0x1405B79D8
+ * XREFs of SeMaximumAuditMask @ 0x1405B7F48
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0530 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1407BC220 (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D2424 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0560 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x1407BC4F0 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D2624 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
- *     SepSidInTokenSidHash @ 0x1402B6680 (SepSidInTokenSidHash.c)
+ *     SepSidInTokenSidHash @ 0x1402B6910 (SepSidInTokenSidHash.c)
  */
 
 unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _DWORD *a4)

@@ -1,22 +1,22 @@
 /*
- * XREFs of KeAndAffinityEx @ 0x1400DC700
+ * XREFs of KeAndAffinityEx @ 0x1400DC780
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140063570 (PpmParkSteerInterrupts.c)
- *     PpmPerfApplyDomainStates @ 0x140063AC0 (PpmPerfApplyDomainStates.c)
- *     KiGetDeepIdleProcessors @ 0x1400DBF1C (KiGetDeepIdleProcessors.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1400DBFB0 (KeQueryLogicalProcessorRelationship.c)
- *     PpmPerfApplyDomainState @ 0x140112920 (PpmPerfApplyDomainState.c)
- *     PpmParkReportParkedCores @ 0x140122350 (PpmParkReportParkedCores.c)
- *     KeIsSubsetAffinityEx @ 0x14028E3D0 (KeIsSubsetAffinityEx.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4694 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4EB0 (PpmIdleRecheckCoordinatedIdleMask.c)
- *     PpmUpdateIdleDomains @ 0x1402D6120 (PpmUpdateIdleDomains.c)
- *     PspSetEffectiveJobLimits @ 0x1406B9964 (PspSetEffectiveJobLimits.c)
- *     KeInitializeProfile @ 0x1408444A4 (KeInitializeProfile.c)
- *     PsUpdateActiveProcessAffinity @ 0x1408888C0 (PsUpdateActiveProcessAffinity.c)
- *     PspSetProcessAffinitySafe @ 0x140889054 (PspSetProcessAffinitySafe.c)
+ *     PpmParkSteerInterrupts @ 0x140063560 (PpmParkSteerInterrupts.c)
+ *     PpmPerfApplyDomainStates @ 0x140063AB0 (PpmPerfApplyDomainStates.c)
+ *     KiGetDeepIdleProcessors @ 0x1400DBF9C (KiGetDeepIdleProcessors.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1400DC030 (KeQueryLogicalProcessorRelationship.c)
+ *     PpmPerfApplyDomainState @ 0x140112990 (PpmPerfApplyDomainState.c)
+ *     PpmParkReportParkedCores @ 0x140122420 (PpmParkReportParkedCores.c)
+ *     KeIsSubsetAffinityEx @ 0x14028E5C0 (KeIsSubsetAffinityEx.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4884 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D50A0 (PpmIdleRecheckCoordinatedIdleMask.c)
+ *     PpmUpdateIdleDomains @ 0x1402D6310 (PpmUpdateIdleDomains.c)
+ *     PspSetEffectiveJobLimits @ 0x1406BAC04 (PspSetEffectiveJobLimits.c)
+ *     KeInitializeProfile @ 0x140845704 (KeInitializeProfile.c)
+ *     PsUpdateActiveProcessAffinity @ 0x140889B20 (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinitySafe @ 0x14088A2B4 (PspSetProcessAffinitySafe.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeAndAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3)

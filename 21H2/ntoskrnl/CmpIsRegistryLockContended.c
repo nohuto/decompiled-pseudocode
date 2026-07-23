@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsRegistryLockContended @ 0x1404EC9C0
+ * XREFs of CmpIsRegistryLockContended @ 0x1404ECC00
  * Callers:
  *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     ExGetExclusiveWaiterCount @ 0x1405B53E0 (ExGetExclusiveWaiterCount.c)
- *     ExGetSharedWaiterCount @ 0x1405B5420 (ExGetSharedWaiterCount.c)
+ *     ExGetExclusiveWaiterCount @ 0x1405B5610 (ExGetExclusiveWaiterCount.c)
+ *     ExGetSharedWaiterCount @ 0x1405B5650 (ExGetSharedWaiterCount.c)
  */
 
 char CmpIsRegistryLockContended()

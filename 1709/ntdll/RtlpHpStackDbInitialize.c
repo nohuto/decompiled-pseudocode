@@ -10,7 +10,7 @@ __int64 RtlpHpStackDbInitialize()
 {
   __int64 result; // rax
 
-  qword_1801603C0 = RtlpHpMetadataHeap;
+  qword_1801603C0 = (__int64)RtlpHpMetadataHeap;
   qword_180160380 = 0LL;
   qword_180160388 = 0LL;
   qword_180160390 = 0LL;

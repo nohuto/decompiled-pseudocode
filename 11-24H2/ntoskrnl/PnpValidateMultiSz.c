@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpValidateMultiSz @ 0x1409FA01C
+ * XREFs of PnpValidateMultiSz @ 0x1409F298C
  * Callers:
- *     PiSwValidateCreateData @ 0x1409F9024 (PiSwValidateCreateData.c)
- *     PiDqQueryValidateQueryData @ 0x1409F9E30 (PiDqQueryValidateQueryData.c)
+ *     PiSwValidateCreateData @ 0x1409F1994 (PiSwValidateCreateData.c)
+ *     PiDqQueryValidateQueryData @ 0x1409F27A0 (PiDqQueryValidateQueryData.c)
  * Callees:
  *     <none>
  */

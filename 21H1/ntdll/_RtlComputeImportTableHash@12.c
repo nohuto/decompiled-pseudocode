@@ -19,52 +19,66 @@
  *     _RtlFlushSecureMemoryCache@8 @ 0x4B35E4D0 (_RtlFlushSecureMemoryCache@8.c)
  */
 
-int __stdcall RtlComputeImportTableHash(int a1, _DWORD *a2, int a3)
+NTSTATUS __cdecl RtlComputeImportTableHash(HANDLE FileHandle, PCHAR Hash, ULONG ImportTableHashRevision)
 {
-  int v3; // esi
-  int Section; // eax
-  int v5; // esi
-  int v6; // eax
-  int *v7; // edi
-  int v8; // ebx
+  NTSTATUS v3; // esi
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // esi
+  NTSTATUS v6; // eax
+  ULONG *v7; // edi
+  PIMAGE_NT_HEADERS v8; // ebx
   _DWORD *Heap; // esi
-  int v10; // eax
+  PVOID v10; // eax
   int inserted; // eax
-  _DWORD v13[2]; // [esp+Ch] [ebp-24h] BYREF
-  int v14; // [esp+14h] [ebp-1Ch] BYREF
-  int v15; // [esp+18h] [ebp-18h]
-  int v16; // [esp+1Ch] [ebp-14h] BYREF
-  int *v17; // [esp+20h] [ebp-10h] BYREF
-  int **v18; // [esp+24h] [ebp-Ch] BYREF
-  HANDLE Handle; // [esp+28h] [ebp-8h] BYREF
-  unsigned int v20; // [esp+2Ch] [ebp-4h] BYREF
+  SIZE_T v13; // [esp-14h] [ebp-44h]
+  SIZE_T v14; // [esp-4h] [ebp-34h]
+  ULONG v15; // [esp+4h] [ebp-2Ch]
+  SIZE_T CommitSize; // [esp+Ch] [ebp-24h] BYREF
+  int v17; // [esp+14h] [ebp-1Ch] BYREF
+  PVOID v18; // [esp+18h] [ebp-18h]
+  int v19; // [esp+1Ch] [ebp-14h] BYREF
+  int v20; // [esp+20h] [ebp-10h] BYREF
+  PVOID v21; // [esp+24h] [ebp-Ch] BYREF
+  HANDLE SectionHandle; // [esp+28h] [ebp-8h] BYREF
+  PVOID BaseAddress; // [esp+2Ch] [ebp-4h] BYREF
 
-  Handle = (HANDLE)-1;
-  v18 = 0;
+  SectionHandle = (HANDLE)-1;
+  v21 = 0;
+  BaseAddress = 0;
   v20 = 0;
-  v17 = 0;
-  if ( a3 == 1 )
+  if ( ImportTableHashRevision == 1 )
   {
-    Section = NtCreateSection((int)&Handle, 983045, 0, 0, 2, 0x8000000, a1);
-    if ( Handle == (HANDLE)-1 || Section < 0 )
+    v4 = NtCreateSection(&SectionHandle, 0xF0005u, 0, 0, 2u, 0x8000000u, FileHandle);
+    if ( SectionHandle == (HANDLE)-1 || v4 < 0 )
     {
       v3 = -1073741816;
       goto LABEL_28;
     }
-    v13[0] = 0;
-    v13[1] = 0;
-    v16 = 0;
-    v5 = ZwMapViewOfSection((int)Handle, -1, (int)&v20, 0, 0, (int)v13, (int)&v16, 1, 0, 2);
-    NtClose(Handle);
-    if ( !v20 || v5 < 0 )
+    CommitSize = 0LL;
+    HIDWORD(v13) = &v19;
+    LODWORD(v13) = &CommitSize;
+    v19 = 0;
+    v5 = ZwMapViewOfSection(
+           SectionHandle,
+           (HANDLE)0xFFFFFFFF,
+           &BaseAddress,
+           0LL,
+           v13,
+           (PLARGE_INTEGER)1,
+           0,
+           ViewUnmap,
+           HIDWORD(v14),
+           v15);
+    NtClose(SectionHandle);
+    if ( !BaseAddress || v5 < 0 )
     {
       v3 = -1073741799;
       goto LABEL_28;
     }
-    v6 = RtlpImageDirectoryEntryToDataEx(v20, 0, 1u, &v14, (int *)&v17);
+    v6 = RtlpImageDirectoryEntryToDataEx((unsigned int)BaseAddress, 0, 1u, (unsigned int *)&v17, &v20);
     if ( v6 >= 0 )
     {
-      v7 = v17;
+      v7 = (ULONG *)v20;
     }
     else
     {
@@ -75,34 +89,35 @@ int __stdcall RtlComputeImportTableHash(int a1, _DWORD *a2, int a3)
       }
       v7 = 0;
     }
-    v8 = RtlImageNtHeader(v20);
+    v8 = RtlImageNtHeader(BaseAddress);
     if ( v7 )
     {
       while ( v7[3] && v7[4] )
       {
-        v15 = RtlAddressInSectionTable(v8, v20, v7[3]);
-        if ( !v15 )
+        v18 = RtlAddressInSectionTable(v8, BaseAddress, v7[3]);
+        if ( !v18 )
         {
           v3 = -1073741685;
           goto LABEL_28;
         }
-        Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 12);
+        LODWORD(v14) = 12;
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
         if ( !Heap )
         {
           v3 = -1073741801;
           goto LABEL_28;
         }
-        v10 = v15;
+        v10 = v18;
         Heap[2] = 0;
         *Heap = 0;
         Heap[1] = v10;
-        ImportTablepInsertModuleSorted((int)Heap, &v18);
-        if ( *(_WORD *)(v8 + 24) == 267 )
-          inserted = InsertModuleFunctions<_IMAGE_THUNK_DATA32,unsigned long,2147483648>((int)Heap, v20, v8, v7);
+        ImportTablepInsertModuleSorted((int)Heap, (int ***)&v21);
+        if ( v8->OptionalHeader.Magic == 267 )
+          inserted = InsertModuleFunctions<_IMAGE_THUNK_DATA32,unsigned long,2147483648>((int)Heap, BaseAddress, v8, v7);
         else
           inserted = InsertModuleFunctions<_IMAGE_THUNK_DATA64,unsigned __int64,-9223372036854775808>(
                        (int)Heap,
-                       v20,
+                       BaseAddress,
                        v8,
                        v7);
         v3 = inserted;
@@ -113,15 +128,22 @@ int __stdcall RtlComputeImportTableHash(int a1, _DWORD *a2, int a3)
           break;
       }
     }
-    v3 = ImportTablepHashCanonicalLists(v18, a2);
+    v3 = ImportTablepHashCanonicalLists((int **)v21, Hash);
   }
   else
   {
     v3 = -1073741736;
   }
 LABEL_28:
-  ImportTablepFreeModuleSorted(v18);
-  if ( v20 && NtUnmapViewOfSection(-1, v20) == -1073741755 && (unsigned __int8)RtlFlushSecureMemoryCache(v20, 0) )
-    NtUnmapViewOfSection(-1, v20);
+  ImportTablepFreeModuleSorted(v21);
+  if ( BaseAddress )
+  {
+    if ( NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress) == -1073741755 )
+    {
+      LODWORD(v14) = 0;
+      if ( RtlFlushSecureMemoryCache(BaseAddress, v14) )
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
+    }
+  }
   return v3;
 }

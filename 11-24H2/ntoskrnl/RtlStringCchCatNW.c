@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCchCatNW @ 0x140609558
+ * XREFs of RtlStringCchCatNW @ 0x140607A4C
  * Callers:
- *     SepRmFetchGlobalSacl @ 0x1407945DC (SepRmFetchGlobalSacl.c)
- *     SdbpSafeAllocAndConcatW @ 0x140801E9C (SdbpSafeAllocAndConcatW.c)
+ *     SepRmFetchGlobalSacl @ 0x1407946EC (SepRmFetchGlobalSacl.c)
+ *     SdbpSafeAllocAndConcatW @ 0x1408025DC (SdbpSafeAllocAndConcatW.c)
  * Callees:
  *     <none>
  */

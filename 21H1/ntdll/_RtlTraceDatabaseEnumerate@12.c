@@ -14,7 +14,7 @@ char __stdcall RtlTraceDatabaseEnumerate(int a1, _DWORD *a2, _DWORD *a3)
   int i; // ecx
   char v6; // bl
 
-  RtlEnterCriticalSection(a1 + 28);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   *(_DWORD *)(a1 + 24) = 0;
   if ( *a2 )
   {
@@ -62,6 +62,6 @@ LABEL_14:
     a2[2] = *(_DWORD *)(a2[2] + 24);
   }
   *(_DWORD *)(a1 + 24) = 0;
-  RtlLeaveCriticalSection(a1 + 28);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   return v6;
 }

@@ -7,27 +7,36 @@
  *     ObInsertObjectEx @ 0x14050DCA0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateWaitCompletionPacket(unsigned __int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtCreateWaitCompletionPacket(
+        PHANDLE WaitCompletionPacketHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  _QWORD *v4; // rbx
+  int v3; // r10d
+  PHANDLE v4; // rbx
   char PreviousMode; // di
   __int64 v6; // r8
-  int inserted; // ecx
+  NTSTATUS inserted; // ecx
   _BYTE *v8; // rcx
   __int64 v10; // [rsp+58h] [rbp-30h] BYREF
   PVOID Object; // [rsp+68h] [rbp-20h]
 
-  v4 = (_QWORD *)a1;
+  v3 = (int)ObjectAttributes;
+  v4 = WaitCompletionPacketHandle;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v6 = a1;
+    if ( (unsigned __int64)WaitCompletionPacketHandle < 0x7FFFFFFF0000LL )
+      v6 = (__int64)WaitCompletionPacketHandle;
     *(_QWORD *)v6 = *(_QWORD *)v6;
   }
-  LOBYTE(a1) = PreviousMode;
-  inserted = ObCreateObjectEx(a1, (_DWORD)IopWaitCompletionPacketObjectType, a3, PreviousMode);
+  LOBYTE(WaitCompletionPacketHandle) = PreviousMode;
+  inserted = ObCreateObjectEx(
+               (_DWORD)WaitCompletionPacketHandle,
+               (_DWORD)IopWaitCompletionPacketObjectType,
+               v3,
+               PreviousMode);
   if ( inserted >= 0 )
   {
     v8 = Object;
@@ -35,7 +44,7 @@ __int64 __fastcall NtCreateWaitCompletionPacket(unsigned __int64 a1, __int64 a2,
     v8[104] = 0;
     inserted = ObInsertObjectEx(v8, 0LL, 0, 0LL, (__int64)&v10);
     if ( inserted >= 0 )
-      *v4 = v10;
+      *v4 = (HANDLE)v10;
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInvalidateRangeAllCaches @ 0x14051B0F0
+ * XREFs of KeInvalidateRangeAllCaches @ 0x14051B330
  * Callers:
- *     KiFlushRangeAllCaches @ 0x140519B70 (KiFlushRangeAllCaches.c)
- *     MiPersistMemory @ 0x14054186C (MiPersistMemory.c)
+ *     KiFlushRangeAllCaches @ 0x140519DB0 (KiFlushRangeAllCaches.c)
+ *     MiPersistMemory @ 0x140541AAC (MiPersistMemory.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KiIpiSendRequestEx @ 0x14033B9A0 (KiIpiSendRequestEx.c)
- *     KeInvalidateAllCaches @ 0x1403A4E00 (KeInvalidateAllCaches.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x14030E640 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KiIpiSendRequestEx @ 0x1403466F0 (KiIpiSendRequestEx.c)
+ *     KeInvalidateAllCaches @ 0x1403A4F50 (KeInvalidateAllCaches.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

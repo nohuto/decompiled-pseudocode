@@ -1,18 +1,18 @@
 /*
- * XREFs of ExAcquireFastResourceShared2 @ 0x140412CA0
+ * XREFs of ExAcquireFastResourceShared2 @ 0x140413034
  * Callers:
- *     ExAcquireFastResourceShared @ 0x1403C9180 (ExAcquireFastResourceShared.c)
- *     ExpFastResourceLegacyAcquireShared2 @ 0x140415548 (ExpFastResourceLegacyAcquireShared2.c)
+ *     ExAcquireFastResourceShared @ 0x1403C9360 (ExAcquireFastResourceShared.c)
+ *     ExpFastResourceLegacyAcquireShared2 @ 0x1404158DC (ExpFastResourceLegacyAcquireShared2.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeReleaseSpinLockFromDpcLevel @ 0x14032FB40 (KeReleaseSpinLockFromDpcLevel.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403CCA30 (KeAbMarkCrossThreadReleasable.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140414B10 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415270 (ExpAddFastOwnerEntryToThreadList2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14032FDD0 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403CCC10 (KeAbMarkCrossThreadReleasable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x140414EA4 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415604 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceShared2(_WORD *BugCheckParameter2, ULONG_PTR a2, char a3)
@@ -140,7 +140,7 @@ char __fastcall ExAcquireFastResourceShared2(_WORD *BugCheckParameter2, ULONG_PT
         }
         while ( v32 != v31 );
         if ( (v31 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
       _enable();
     }

@@ -9,7 +9,7 @@
  *     ZwAlertThreadByThreadId @ 0x1800A1CA0 (ZwAlertThreadByThreadId.c)
  */
 
-unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, signed __int64 a2, __int64 a3)
+int __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, signed __int64 a2, __int64 a3)
 {
   unsigned __int64 *v3; // rbx
   int v4; // ebp
@@ -19,17 +19,17 @@ unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, sign
   signed __int64 v9; // r10
   _QWORD *v10; // r10
   _QWORD *v11; // rsi
-  unsigned __int64 result; // rax
+  unsigned __int64 v12; // rax
   unsigned __int64 *v13; // rcx
   unsigned __int64 *v14; // rax
   volatile signed __int32 *v15; // rbx
   volatile signed __int32 *v16; // rdi
   __int64 v17; // rdx
   _QWORD *v18; // rax
-  volatile signed __int32 *v19; // [rsp+48h] [rbp+10h] BYREF
+  volatile signed __int32 *v20; // [rsp+48h] [rbp+10h] BYREF
 
-  v3 = (unsigned __int64 *)&v19;
-  v19 = 0LL;
+  v3 = (unsigned __int64 *)&v20;
+  v20 = 0LL;
   v4 = a3;
   v5 = a2;
   v7 = a2;
@@ -41,8 +41,8 @@ unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, sign
     v11 = v10;
     if ( (v5 & 7) == 7 )
     {
-      result = _InterlockedExchange64(a1, 0LL) & 0xFFFFFFFFFFFFFFF0uLL;
-      *v3 = result;
+      v12 = _InterlockedExchange64(a1, 0LL) & 0xFFFFFFFFFFFFFFF0uLL;
+      *v3 = v12;
       goto LABEL_11;
     }
     a3 = v4 + (unsigned int)(a2 & 7);
@@ -72,41 +72,41 @@ unsigned __int64 __fastcall RtlpWakeConditionVariable(volatile __int64 *a1, sign
       if ( (unsigned int)a3 > v8 )
         break;
     }
-    result = _InterlockedCompareExchange64(a1, v7 & 0xFFFFFFFFFFFFFFF0uLL, a2);
-    v7 = result;
-    if ( a2 == result )
+    v12 = _InterlockedCompareExchange64(a1, v7 & 0xFFFFFFFFFFFFFFF0uLL, a2);
+    v7 = v12;
+    if ( a2 == v12 )
       goto LABEL_11;
 LABEL_19:
     a2 = v7;
     v9 = v7;
     v5 = v7;
   }
-  result = _InterlockedCompareExchange64(a1, 0LL, a2);
-  v7 = result;
-  if ( a2 != result )
+  v12 = _InterlockedCompareExchange64(a1, 0LL, a2);
+  v7 = v12;
+  if ( a2 != v12 )
     goto LABEL_19;
   *v3 = (unsigned __int64)v13;
   *v13 = 0LL;
 LABEL_11:
-  v15 = v19;
-  if ( v19 )
+  v15 = v20;
+  if ( v20 )
   {
     do
     {
       v16 = *(volatile signed __int32 **)v15;
       if ( !_interlockedbittestandreset(v15 + 9, 1u) )
       {
-        v17 = *((_QWORD *)v19 + 5);
-        if ( !v17 || (result = RtlpQueueWaitBlockToSRWLock(v19, v17, a3, v7), !(_BYTE)result) )
+        v17 = *((_QWORD *)v20 + 5);
+        if ( !v17 || (LODWORD(v12) = RtlpQueueWaitBlockToSRWLock(v20, v17, a3, v7), !(_BYTE)v12) )
         {
           _InterlockedOr(v15 + 9, 4u);
-          result = ZwAlertThreadByThreadId(*((_QWORD *)v19 + 3));
+          LODWORD(v12) = ZwAlertThreadByThreadId(*((HANDLE *)v20 + 3));
         }
       }
       v15 = v16;
-      v19 = v16;
+      v20 = v16;
     }
     while ( v16 );
   }
-  return result;
+  return v12;
 }

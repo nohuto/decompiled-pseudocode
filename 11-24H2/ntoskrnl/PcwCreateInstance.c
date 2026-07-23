@@ -1,12 +1,12 @@
 /*
- * XREFs of PcwCreateInstance @ 0x140A4C400
+ * XREFs of PcwCreateInstance @ 0x140A42F90
  * Callers:
  *     <none>
  * Callees:
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpPcwDisabledStatus @ 0x140A4C4F0 (ExpPcwDisabledStatus.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpPcwDisabledStatus @ 0x140A43080 (ExpPcwDisabledStatus.c)
  */
 
 NTSTATUS __stdcall PcwCreateInstance(
@@ -16,18 +16,18 @@ NTSTATUS __stdcall PcwCreateInstance(
         ULONG Count,
         PPCW_DATA Data)
 {
-  __int64 v9; // rcx
-  NTSTATUS v10; // ebx
+  __int64 v7; // rcx
+  NTSTATUS v8; // ebx
 
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost) )
   {
-    v10 = guard_dispatch_icall_no_overrides(Instance, Registration, Name, Count);
+    v8 = guard_dispatch_icall_no_overrides(Instance, Registration);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost);
   }
   else
   {
     *Instance = 0LL;
-    return ExpPcwDisabledStatus(v9);
+    return ExpPcwDisabledStatus(v7);
   }
-  return v10;
+  return v8;
 }

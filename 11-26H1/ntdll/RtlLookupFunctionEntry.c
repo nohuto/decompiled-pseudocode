@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlLookupFunctionEntry @ 0x18004AEA0
+ * XREFs of RtlLookupFunctionEntry @ 0x180035420
  * Callers:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x18004C680 (RtlDispatchException.c)
- *     RtlInitializeHistoryTable @ 0x1800E554C (RtlInitializeHistoryTable.c)
- *     InitSpecialMachineFrames @ 0x1800F9010 (InitSpecialMachineFrames.c)
- *     ??$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA?AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UNWIND_PARAMS@@@Z @ 0x18011D2F8 (--$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA-AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UN.c)
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x1801269E0 (__report_gsfailure.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x180036C00 (RtlDispatchException.c)
+ *     RtlInitializeHistoryTable @ 0x1800E33FC (RtlInitializeHistoryTable.c)
+ *     InitSpecialMachineFrames @ 0x1800F87E0 (InitSpecialMachineFrames.c)
+ *     ??$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA?AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UNWIND_PARAMS@@@Z @ 0x18011D0A8 (--$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA-AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UN.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x180126750 (__report_gsfailure.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x18004B2A0 (RtlpxLookupFunctionTable.c)
- *     RtlpLookupDynamicFunctionEntry @ 0x1800D7C50 (RtlpLookupDynamicFunctionEntry.c)
+ *     RtlpxLookupFunctionTable @ 0x180035820 (RtlpxLookupFunctionTable.c)
+ *     RtlpLookupDynamicFunctionEntry @ 0x1800D4C10 (RtlpLookupDynamicFunctionEntry.c)
  */
 
 PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
@@ -42,21 +42,21 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
   unsigned int *v26; // r8
   unsigned __int64 v27; // rdx
   unsigned __int64 v28; // rdx
-  __int128 v29; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v30; // [rsp+30h] [rbp-18h]
+  __int128 v29; // [rsp+20h] [rbp-28h]
+  unsigned int v30; // [rsp+34h] [rbp-14h]
 
   if ( !HistoryTable )
     goto LABEL_2;
   if ( !HistoryTable->Once
     || (HistoryTable->Once = 0,
-        v28 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801E0365 + 6],
-        (result = *(PRUNTIME_FUNCTION *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801E0365 + 8]) == 0LL)
+        v28 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801DF365 + 6],
+        (result = *(PRUNTIME_FUNCTION *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801DF365 + 8]) == 0LL)
     || ControlPc < v28 + result->BeginAddress
     || ControlPc >= v28 + result->EndAddress )
   {
     if ( HistoryTable->Search )
     {
-      if ( ControlPc >= qword_1801E0368 && ControlPc < qword_1801E0370 )
+      if ( ControlPc >= qword_1801DF368 && ControlPc < qword_1801DF370 )
       {
         GlobalHint = HistoryTable->GlobalHint;
         for ( i = GlobalHint; i < RtlpUnwindHistoryTable[0]; ++i )
@@ -94,25 +94,25 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
       }
     }
 LABEL_2:
-    v30 = 0LL;
+    v30 = 0;
     v29 = 0LL;
-    if ( ControlPc < *((_QWORD *)&xmmword_1801E0450 + 1)
-      || ControlPc >= *((_QWORD *)&xmmword_1801E0450 + 1) + (unsigned __int64)(unsigned int)qword_1801E0460 )
+    if ( ControlPc < *((_QWORD *)&xmmword_1801DF450 + 1)
+      || ControlPc >= *((_QWORD *)&xmmword_1801DF450 + 1) + (unsigned __int64)(unsigned int)qword_1801DF460 )
     {
-      v6 = RtlpxLookupFunctionTable(ControlPc, &v29);
+      v6 = RtlpxLookupFunctionTable((PVOID)ControlPc);
     }
     else
     {
-      v6 = xmmword_1801E0450;
-      v29 = xmmword_1801E0450;
-      v30 = qword_1801E0460;
+      *((_QWORD *)&v29 + 1) = *((_QWORD *)&xmmword_1801DF450 + 1);
+      v6 = xmmword_1801DF450;
+      v30 = HIDWORD(qword_1801DF460);
     }
     FunctionEntry = 0LL;
     if ( v6 )
     {
       *ImageBase = *((_QWORD *)&v29 + 1);
-      v8 = HIDWORD(v30) / 0xC;
-      if ( HIDWORD(v30) / 0xC )
+      v8 = v30 / 0xC;
+      if ( v30 / 0xC )
       {
         v9 = ControlPc - *ImageBase;
         v10 = *(unsigned int *)(v6 + 12LL * (v8 - 1));

@@ -1,12 +1,12 @@
 /*
- * XREFs of MxReducePhysicalPageCount @ 0x140CF81DC
+ * XREFs of MxReducePhysicalPageCount @ 0x140CFE55C
  * Callers:
- *     MxCreateSparsePfnDatabase @ 0x140CF64E4 (MxCreateSparsePfnDatabase.c)
+ *     MxCreateSparsePfnDatabase @ 0x140CFC864 (MxCreateSparsePfnDatabase.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MxExtractUnusedRegions @ 0x140CF6818 (MxExtractUnusedRegions.c)
- *     MxGetFreeDescriptorCounts @ 0x140CF6C04 (MxGetFreeDescriptorCounts.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MxExtractUnusedRegions @ 0x140CFCB98 (MxExtractUnusedRegions.c)
+ *     MxGetFreeDescriptorCounts @ 0x140CFCF84 (MxGetFreeDescriptorCounts.c)
  */
 
 ULONG_PTR MxReducePhysicalPageCount()
@@ -56,7 +56,7 @@ ULONG_PTR MxReducePhysicalPageCount()
     }
     while ( v3 );
   }
-  result = qword_140E3D3D0 - v1;
-  qword_140E3D3D0 -= v1;
+  result = qword_140E3D550 - v1;
+  qword_140E3D550 -= v1;
   return result;
 }

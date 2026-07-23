@@ -1,19 +1,19 @@
 /*
- * XREFs of NtOpenProcessTokenEx @ 0x1407066C0
+ * XREFs of NtOpenProcessTokenEx @ 0x14071DAA0
  * Callers:
- *     NtOpenProcessToken @ 0x1407066A0 (NtOpenProcessToken.c)
- *     RtlpSysVolTakeOwnership @ 0x140915E88 (RtlpSysVolTakeOwnership.c)
+ *     NtOpenProcessToken @ 0x14071DA80 (NtOpenProcessToken.c)
+ *     RtlpSysVolTakeOwnership @ 0x140915FE8 (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ObFastReferenceObject @ 0x14027C6E0 (ObFastReferenceObject.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastReferenceObject @ 0x14026A680 (ObFastReferenceObject.c)
+ *     ObFastReferenceObjectLocked @ 0x1402AAC68 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
  */
 
 NTSTATUS __stdcall NtOpenProcessTokenEx(
@@ -32,6 +32,10 @@ NTSTATUS __stdcall NtOpenProcessTokenEx(
   struct _DMA_ADAPTER *v13; // rdi
   int v14; // ebx
   signed __int64 *v15; // rsi
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  POBJECT_TYPE ObjectType; // [rsp+20h] [rbp-58h]
   PVOID Object; // [rsp+40h] [rbp-38h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-30h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-28h]
@@ -50,12 +54,13 @@ NTSTATUS __stdcall NtOpenProcessTokenEx(
     *(_QWORD *)v9 = *(_QWORD *)v9;
   }
   Object = 0LL;
+  LODWORD(ObjectType) = 1699967824;
   result = ObpReferenceObjectByHandleWithTag(
              (ULONG_PTR)ProcessHandle,
-             4096,
-             (__int64)PsProcessType,
-             KeGetCurrentThread()->PreviousMode,
-             0x65537350u,
+             4096LL,
+             PsProcessType,
+             (unsigned __int8)KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10],
+             ObjectType,
              &Object,
              0LL,
              0LL);
@@ -74,7 +79,7 @@ NTSTATUS __stdcall NtOpenProcessTokenEx(
       if ( _InterlockedCompareExchange64(v15, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(v15);
       KeAbPostRelease((ULONG_PTR)v15);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread, v16, v17, v18);
       v11 = Object;
     }
     ObfDereferenceObjectWithTag(v11, 0x65537350u);

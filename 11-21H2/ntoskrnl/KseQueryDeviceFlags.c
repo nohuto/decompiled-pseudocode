@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     KsepEvntLogFlagsApplied @ 0x1403D857C (KsepEvntLogFlagsApplied.c)
+ *     sub_1403D857C @ 0x1403D857C (sub_1403D857C.c)
  *     KseQueryDeviceData @ 0x1407EC640 (KseQueryDeviceData.c)
  */
 
@@ -20,7 +20,7 @@ __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a
   int v14; // [rsp+98h] [rbp+38h] BYREF
 
   v11 = 0LL;
-  if ( dword_140C54EF4 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140C54EF4 != 2 || (dword_140C54EF0 & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !SourceString || !a2 || !a3 )
     return (unsigned int)-1073741811;
@@ -38,7 +38,7 @@ __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a
       RtlInitUnicodeString(&DestinationString, SourceString);
       RtlInitUnicodeString(&v12, a2);
       v9 = v11;
-      KsepEvntLogFlagsApplied(&DestinationString.Length, &v12.Length, (v8 & 0x10000000) == 0, v11);
+      sub_1403D857C(&DestinationString.Length, &v12.Length, (v8 & 0x10000000) == 0, v11);
       *a3 = v9;
       return (unsigned int)v6;
     }

@@ -13,16 +13,16 @@
  *     SeDefaultObjectMethod @ 0x1408A1150 (SeDefaultObjectMethod.c)
  */
 
-__int64 __fastcall ObSetSecurityObjectByPointer(__int64 a1, ULONG a2, UNICODE_STRING *a3)
+__int64 __fastcall ObSetSecurityObjectByPointer(__int64 a1, DWORD a2, UNICODE_STRING *a3)
 {
   __int64 v3; // rdx
-  __int64 (__fastcall *v4)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char); // rbx
+  __int64 (__fastcall *v4)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char); // rbx
   char PreviousMode; // [rsp+40h] [rbp-18h]
-  ULONG v7; // [rsp+68h] [rbp+10h] BYREF
+  DWORD v7; // [rsp+68h] [rbp+10h] BYREF
 
   v7 = a2;
   v3 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 48 + 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)];
-  v4 = *(__int64 (__fastcall **)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char))(v3 + 152);
+  v4 = *(__int64 (__fastcall **)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char))(v3 + 152);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( (char *)v4 == (char *)SeDefaultObjectMethod )
     return SeDefaultObjectMethod(a1, 0LL, &v7, a3, 0LL);

@@ -1,18 +1,18 @@
 /*
- * XREFs of IoRevertFromDemotedDumpType @ 0x140591EE0
+ * XREFs of IoRevertFromDemotedDumpType @ 0x14058EF04
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x1405C5784 (KiAttemptBugcheckRecovery.c)
- *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405C5E70 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405C2EB4 (KiAttemptBugcheckRecovery.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405C35A0 (KiBugCheckRecoveryPrepareForCrashDump.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall IoRevertFromDemotedDumpType(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 IoRevertFromDemotedDumpType()
 {
   __int64 result; // rax
 
-  result = qword_140E65F00;
-  if ( qword_140E65F00 )
-    return guard_dispatch_icall_no_overrides(8LL, 0LL, 0LL, a4);
+  result = qword_140E66040;
+  if ( qword_140E66040 )
+    return guard_dispatch_icall_no_overrides(8LL, 0LL);
   return result;
 }

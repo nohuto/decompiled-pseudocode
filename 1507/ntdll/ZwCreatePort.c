@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwCreatePort()
+NTSTATUS __cdecl ZwCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 171LL;
+  result = 171;
   __asm { syscall; Low latency system call }
   return result;
 }

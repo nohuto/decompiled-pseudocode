@@ -1,21 +1,21 @@
 /*
- * XREFs of InbvAcquireLock @ 0x1405C4A9C
+ * XREFs of InbvAcquireLock @ 0x1405C730C
  * Callers:
- *     DisplayBootBitmap @ 0x14057622C (DisplayBootBitmap.c)
- *     FinalizeBootLogo @ 0x1405C4F28 (FinalizeBootLogo.c)
- *     InbvRotateGuiBootDisplay @ 0x1405C4F80 (InbvRotateGuiBootDisplay.c)
+ *     DisplayBootBitmap @ 0x1405786DC (DisplayBootBitmap.c)
+ *     FinalizeBootLogo @ 0x1405C7798 (FinalizeBootLogo.c)
+ *     InbvRotateGuiBootDisplay @ 0x1405C77F0 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall InbvAcquireLock(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
 
-  result = qword_140E65CE0;
-  if ( qword_140E65CE0 )
+  result = qword_140E65EE8;
+  if ( qword_140E65EE8 )
   {
-    result = *(_QWORD *)(qword_140E65CE0 + 152);
+    result = *(_QWORD *)(qword_140E65EE8 + 152);
     if ( result )
       return guard_dispatch_icall_no_overrides(a1, a2);
   }

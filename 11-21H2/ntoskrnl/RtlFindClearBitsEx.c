@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlFindClearBitsEx @ 0x14030B090
  * Callers:
- *     MiSelectRelocationStartHint @ 0x140709C0C (MiSelectRelocationStartHint.c)
- *     MiFindEmptyAddressRange @ 0x1407B8560 (MiFindEmptyAddressRange.c)
+ *     sub_140709C0C @ 0x140709C0C (sub_140709C0C.c)
+ *     sub_1407B8560 @ 0x1407B8560 (sub_1407B8560.c)
  * Callees:
  *     <none>
  */

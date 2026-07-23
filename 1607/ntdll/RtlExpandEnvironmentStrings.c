@@ -1,44 +1,44 @@
 /*
- * XREFs of RtlExpandEnvironmentStrings @ 0x18005A920
+ * XREFs of RtlExpandEnvironmentStrings @ 0x18005A910
  * Callers:
- *     RtlExpandEnvironmentStrings_U @ 0x18005A8A0 (RtlExpandEnvironmentStrings_U.c)
+ *     RtlExpandEnvironmentStrings_U @ 0x18005A890 (RtlExpandEnvironmentStrings_U.c)
  * Callees:
- *     RtlQueryEnvironmentVariable @ 0x1800196D0 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x1800196C0 (RtlQueryEnvironmentVariable.c)
  */
 
-__int64 __fastcall RtlExpandEnvironmentStrings(
-        _WORD *a1,
-        _WORD *a2,
-        __int64 a3,
-        _WORD *a4,
-        unsigned __int64 a5,
-        _QWORD *a6)
+NTSTATUS __cdecl RtlExpandEnvironmentStrings(
+        PVOID Environment,
+        PCWSTR Source,
+        SIZE_T SourceLength,
+        PWSTR Destination,
+        SIZE_T DestinationLength,
+        PSIZE_T ReturnLength)
 {
-  unsigned __int64 v6; // rbx
-  __int64 v7; // rbp
-  int v10; // edi
+  SIZE_T ValueLength; // rbx
+  SIZE_T v7; // rbp
+  NTSTATUS v10; // edi
   __int64 v11; // rsi
-  size_t v13; // rax
-  size_t v14; // r15
-  _WORD *v15; // r13
-  int EnvironmentVariable; // ecx
-  _WORD *v17; // [rsp+70h] [rbp+8h]
-  __int64 v18; // [rsp+80h] [rbp+18h] BYREF
+  SIZE_T v13; // rax
+  SIZE_T v14; // r15
+  PCWSTR v15; // r13
+  NTSTATUS v16; // ecx
+  PVOID v17; // [rsp+70h] [rbp+8h]
+  ULONG_PTR v18; // [rsp+80h] [rbp+18h] BYREF
 
-  v17 = a1;
-  v6 = a5;
-  v7 = a3;
+  v17 = Environment;
+  ValueLength = DestinationLength;
+  v7 = SourceLength;
   v10 = 0;
   v11 = 0LL;
-  if ( !a3 )
+  if ( !SourceLength )
     goto LABEL_9;
   do
   {
-    if ( *a2 != 37 )
+    if ( *Source != 37 )
       goto LABEL_3;
     v13 = v7 - 1;
     v14 = 0LL;
-    v15 = a2 + 1;
+    v15 = Source + 1;
     if ( v7 == 1 )
       goto LABEL_3;
     do
@@ -51,23 +51,23 @@ __int64 __fastcall RtlExpandEnvironmentStrings(
     while ( v14 < v13 );
     if ( v14
       && v14 < v13
-      && ((EnvironmentVariable = RtlQueryEnvironmentVariable(a1, a2 + 1, v14, a4, v6, (__int64)&v18),
-           (int)(EnvironmentVariable + 0x80000000) < 0)
-       || EnvironmentVariable == -1073741789) )
+      && ((v16 = RtlQueryEnvironmentVariable(Environment, Source + 1, v14, Destination, ValueLength, &v18),
+           (int)(v16 + 0x80000000) < 0)
+       || v16 == -1073741789) )
     {
       v11 += v18;
-      if ( EnvironmentVariable == -1073741789 )
+      if ( v16 == -1073741789 )
         --v11;
-      a2 = v15 + 1;
+      Source = v15 + 1;
       v7 += -2LL - v14;
-      if ( EnvironmentVariable < 0 )
+      if ( v16 < 0 )
       {
-        v10 = EnvironmentVariable;
+        v10 = v16;
       }
       else
       {
-        v6 -= v18;
-        a4 += v18;
+        ValueLength -= v18;
+        Destination += v18;
       }
     }
     else
@@ -75,32 +75,32 @@ __int64 __fastcall RtlExpandEnvironmentStrings(
 LABEL_3:
       if ( v10 >= 0 )
       {
-        if ( v6 <= 1 )
+        if ( ValueLength <= 1 )
         {
           v10 = -1073741789;
         }
         else
         {
-          --v6;
-          *a4++ = *a2;
+          --ValueLength;
+          *Destination++ = *Source;
         }
       }
       ++v11;
       --v7;
-      ++a2;
+      ++Source;
     }
-    a1 = v17;
+    Environment = v17;
   }
   while ( v7 );
   if ( v10 >= 0 )
   {
 LABEL_9:
-    if ( v6 )
-      *a4 = 0;
+    if ( ValueLength )
+      *Destination = 0;
     else
       v10 = -1073741789;
   }
-  if ( a6 )
-    *a6 = v11 + 1;
-  return (unsigned int)v10;
+  if ( ReturnLength )
+    *ReturnLength = v11 + 1;
+  return v10;
 }

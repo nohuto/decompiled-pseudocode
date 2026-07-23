@@ -298,10 +298,13 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
     if ( (*(_QWORD *)(v17 + 40) & 0x20000000000000LL) != 0 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v35 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v35 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           v37 = KeGetCurrentPrcb();
           v38 = v37->SchedulerAssist;
@@ -321,10 +324,10 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
     _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( !v40 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v41 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v41 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v41 >= 2u )
         {
           v42 = KeGetCurrentPrcb();
           v43 = v42->SchedulerAssist;
@@ -339,10 +342,10 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
       v107 = -1073741558;
       goto LABEL_124;
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v45 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v45 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v45 >= 2u )
       {
         v46 = KeGetCurrentPrcb();
         v47 = v46->SchedulerAssist;
@@ -366,10 +369,10 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
     if ( *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v17 + 40) >> 43) & 0x3FFLL)) != v40 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v51 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v51 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v51 >= 2u )
         {
           v52 = KeGetCurrentPrcb();
           v53 = v52->SchedulerAssist;
@@ -432,10 +435,10 @@ LABEL_96:
     if ( (*(_BYTE *)(v17 + 35) & 0x40) != 0 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v60 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v60 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v60 >= 2u )
         {
           v61 = KeGetCurrentPrcb();
           v62 = v61->SchedulerAssist;
@@ -489,10 +492,10 @@ LABEL_121:
       && (_bittest64((const signed __int64 *)(v17 + 40), 0x35u) || MiIsPageOnBadList(v17)) )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v69 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v69 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v69 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v69 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v69 >= 2u )
         {
           v70 = KeGetCurrentPrcb();
           v71 = v70->SchedulerAssist;
@@ -546,10 +549,10 @@ LABEL_147:
     if ( (unsigned int)MiCheckSlabPfnBitmap(v17, 1LL, 0) )
       v77 = MiCheckSlabPfnBitmap(v17, 1LL, 1) == 0;
     _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v78 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v78 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v78 >= 2u )
       {
         v79 = KeGetCurrentPrcb();
         v80 = v79->SchedulerAssist;
@@ -631,8 +634,8 @@ LABEL_147:
           v107 = 259;
         }
         _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        v95 = KiIrqlFlags;
-        if ( !KiIrqlFlags )
+        v95 = (char)KiIrqlFlags;
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_191;
       }
       else
@@ -640,10 +643,10 @@ LABEL_147:
         if ( (*(_BYTE *)(v17 + 35) & 0x40) == 0 )
         {
           _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v100 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v100 <= 0xFu && (unsigned __int8)v93 <= 0xFu && v100 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v100 <= 0xFu && (unsigned __int8)v93 <= 0xFu && v100 >= 2u )
             {
               v101 = KeGetCurrentPrcb();
               v102 = v101->SchedulerAssist;
@@ -662,8 +665,8 @@ LABEL_147:
         MiSetPfnPteFrame(v17, 0LL);
         MiInsertPageInList(v94, 0x20u);
         _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        v95 = KiIrqlFlags;
-        if ( !KiIrqlFlags )
+        v95 = (char)KiIrqlFlags;
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_191;
       }
       v96 = KeGetCurrentIrql();
@@ -716,7 +719,7 @@ LABEL_217:
   if ( v22 && ($C71981A45BEB2B45F82C232A7085991E *)v114->ApcState.ApcListHead[0].Flink != &v114->152 )
     KiCheckForKernelApcDelivery();
   if ( v112 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   v22 = v116 == 1;
   *v117 = (v116 + v5 - v68) << 12;
   if ( v22 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoAllowExecution @ 0x14028356C
+ * XREFs of IoAllowExecution @ 0x14027177C
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x14071E2F0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     IopGetDevicePDO @ 0x1402835A8 (IopGetDevicePDO.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopGetDevicePDO @ 0x1402717B8 (IopGetDevicePDO.c)
  */
 
 bool __fastcall IoAllowExecution(__int64 a1)

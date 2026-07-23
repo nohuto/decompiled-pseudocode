@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpTimerSelectRoles @ 0x140577E78
+ * XREFs of HalpTimerSelectRoles @ 0x14057A3A8
  * Callers:
- *     HalpInitializeTimers @ 0x140576C98 (HalpInitializeTimers.c)
+ *     HalpInitializeTimers @ 0x1405791C8 (HalpInitializeTimers.c)
  * Callees:
- *     HalpTimerPropagateQpcBiasUpdate @ 0x1404E5900 (HalpTimerPropagateQpcBiasUpdate.c)
- *     HalpTimerSetProblemEx @ 0x1404FEB94 (HalpTimerSetProblemEx.c)
- *     HalpTimerFindIdealClockSource @ 0x140576FC0 (HalpTimerFindIdealClockSource.c)
- *     HalpTimerFindIdealPerformanceCounterSource @ 0x1405771E0 (HalpTimerFindIdealPerformanceCounterSource.c)
- *     HalpTimerFindIdealScalingSource @ 0x140577340 (HalpTimerFindIdealScalingSource.c)
- *     HalpTimerFindIdealWatchdog @ 0x140577420 (HalpTimerFindIdealWatchdog.c)
- *     HalpTimerInitialize @ 0x1405778D8 (HalpTimerInitialize.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpFindTimer @ 0x140581834 (HalpFindTimer.c)
- *     HalpTimerFindBestAlwaysOnTimer @ 0x1405820F8 (HalpTimerFindBestAlwaysOnTimer.c)
- *     HalpTimerMeasureFrequencies @ 0x1405822C8 (HalpTimerMeasureFrequencies.c)
- *     HalpVpptTimerRegister @ 0x1405833DC (HalpVpptTimerRegister.c)
- *     HalpTimerStopProfileInterrupt @ 0x1405847EC (HalpTimerStopProfileInterrupt.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1404DEEA0 (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerSetProblemEx @ 0x1404F8144 (HalpTimerSetProblemEx.c)
+ *     HalpTimerFindIdealClockSource @ 0x1405794F0 (HalpTimerFindIdealClockSource.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x140579710 (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpTimerFindIdealScalingSource @ 0x140579870 (HalpTimerFindIdealScalingSource.c)
+ *     HalpTimerFindIdealWatchdog @ 0x140579950 (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerInitialize @ 0x140579E08 (HalpTimerInitialize.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpFindTimer @ 0x140583D54 (HalpFindTimer.c)
+ *     HalpTimerFindBestAlwaysOnTimer @ 0x140584618 (HalpTimerFindBestAlwaysOnTimer.c)
+ *     HalpTimerMeasureFrequencies @ 0x1405847E8 (HalpTimerMeasureFrequencies.c)
+ *     HalpVpptTimerRegister @ 0x1405858FC (HalpVpptTimerRegister.c)
+ *     HalpTimerStopProfileInterrupt @ 0x140586D0C (HalpTimerStopProfileInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerSelectRoles(__int64 a1, __int64 a2)

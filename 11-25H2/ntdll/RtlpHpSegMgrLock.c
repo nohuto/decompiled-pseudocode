@@ -8,8 +8,8 @@
  *     RtlAcquireSRWLockExclusive @ 0x180011720 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpHpSegMgrLock(__int64 a1)
+char __fastcall RtlpHpSegMgrLock(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 112));
+  RtlAcquireSRWLockExclusive(a1 + 14);
   return -1;
 }

@@ -1,26 +1,32 @@
 /*
- * XREFs of ZwSetValueKey @ 0x18015FB30
+ * XREFs of ZwSetValueKey @ 0x18015FA30
  * Callers:
- *     LdrpQueryAndUpdateVerifierLaunchCounter @ 0x1800D2134 (LdrpQueryAndUpdateVerifierLaunchCounter.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1800D34B8 (RtlpOpenImageFileOptionsKeyEx.c)
- *     RtlInitializeRXact @ 0x1800FD2D0 (RtlInitializeRXact.c)
- *     RtlApplyRXact @ 0x1800FD710 (RtlApplyRXact.c)
- *     RXactpCommit @ 0x1800FD868 (RXactpCommit.c)
- *     RtlSetImageMitigationPolicy @ 0x180103380 (RtlSetImageMitigationPolicy.c)
- *     RtlWriteRegistryValue @ 0x1801069C0 (RtlWriteRegistryValue.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x180123C1C (RtlpSetTimeZoneInformationWorker.c)
- *     RtlpSetMachineUILanguagesImmediate @ 0x18014303C (RtlpSetMachineUILanguagesImmediate.c)
- *     RtlpSetPreferredUILanguages @ 0x1801431B0 (RtlpSetPreferredUILanguages.c)
- *     RtlpNtSetValueKey @ 0x18014F110 (RtlpNtSetValueKey.c)
+ *     LdrpQueryAndUpdateVerifierLaunchCounter @ 0x1800CF8A4 (LdrpQueryAndUpdateVerifierLaunchCounter.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1800D18C8 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlInitializeRXact @ 0x1800FCA20 (RtlInitializeRXact.c)
+ *     RtlApplyRXact @ 0x1800FCE60 (RtlApplyRXact.c)
+ *     RXactpCommit @ 0x1800FCFB8 (RXactpCommit.c)
+ *     RtlSetImageMitigationPolicy @ 0x180102700 (RtlSetImageMitigationPolicy.c)
+ *     RtlWriteRegistryValue @ 0x1801063C0 (RtlWriteRegistryValue.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x18012398C (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlpSetMachineUILanguagesImmediate @ 0x180142F3C (RtlpSetMachineUILanguagesImmediate.c)
+ *     RtlpSetPreferredUILanguages @ 0x1801430B0 (RtlpSetPreferredUILanguages.c)
+ *     RtlpNtSetValueKey @ 0x18014EFC0 (RtlpNtSetValueKey.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetValueKey()
+NTSTATUS __cdecl ZwSetValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        ULONG TitleIndex,
+        ULONG Type,
+        PVOID Data,
+        ULONG DataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 96LL;
+  result = 96;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

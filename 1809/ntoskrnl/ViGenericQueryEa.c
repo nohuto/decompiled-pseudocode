@@ -1,9 +1,9 @@
 /*
- * XREFs of ViGenericQueryEa @ 0x140942CB0
+ * XREFs of ViGenericQueryEa @ 0x140943CB0
  * Callers:
  *     <none>
  * Callees:
- *     ViGenericDispatchHandler @ 0x1409429F4 (ViGenericDispatchHandler.c)
+ *     ViGenericDispatchHandler @ 0x1409439F4 (ViGenericDispatchHandler.c)
  */
 
 __int64 __fastcall ViGenericQueryEa(__int64 a1, __int64 a2)

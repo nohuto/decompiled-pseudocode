@@ -6,17 +6,17 @@
  *     <none>
  */
 
-char __fastcall RtlDoesNameContainWildCards(unsigned __int16 *a1)
+BOOLEAN __cdecl RtlDoesNameContainWildCards(PUNICODE_STRING Expression)
 {
-  unsigned __int64 v1; // r8
-  _WORD *i; // rdx
+  wchar_t *Buffer; // r8
+  wchar_t *i; // rdx
 
-  if ( *a1 )
+  if ( Expression->Length )
   {
-    v1 = *((_QWORD *)a1 + 1);
-    for ( i = (_WORD *)(v1 + 2 * (((unsigned __int64)*a1 >> 1) - 1)); (unsigned __int64)i >= v1 && *i != 92; --i )
+    Buffer = Expression->Buffer;
+    for ( i = &Buffer[((unsigned __int64)Expression->Length >> 1) - 1]; i >= Buffer && *i != 92; --i )
     {
-      if ( *i < 0x40u && (byte_18014E2E0[(unsigned __int16)*i] & 8) != 0 )
+      if ( *i < 0x40u && (byte_18014E2E0[*i] & 8) != 0 )
         return 1;
     }
   }

@@ -6,52 +6,50 @@
  *     _RtlDelete@4 @ 0x4B2A7FC0 (_RtlDelete@4.c)
  */
 
-int __stdcall PfxRemovePrefix(int a1, unsigned __int16 *a2)
+void __cdecl PfxRemovePrefix(PPREFIX_TABLE PrefixTable, PPREFIX_TABLE_ENTRY PrefixTableEntry)
 {
-  int result; // eax
-  unsigned __int16 *v3; // esi
-  unsigned __int16 *v4; // ecx
-  unsigned __int16 *v5; // edi
-  int v6; // edx
-  int i; // eax
+  RTL_SPLAY_LINKS *p_Links; // esi
+  _PREFIX_TABLE_ENTRY *Parent; // ecx
+  _RTL_SPLAY_LINKS *v4; // edi
+  PRTL_SPLAY_LINKS v5; // eax
+  _RTL_SPLAY_LINKS *j; // eax
+  _RTL_SPLAY_LINKS *v7; // edx
+  _RTL_SPLAY_LINKS *i; // eax
 
-  result = *a2;
-  if ( (__int16)result >= 513 && (__int16)result <= 514 )
+  if ( PrefixTableEntry->NodeTypeCode >= 513 && PrefixTableEntry->NodeTypeCode <= 514 )
   {
-    v3 = a2 + 4;
-    v4 = (unsigned __int16 *)*((_DWORD *)a2 + 2);
-    if ( v4 != a2 + 4 )
+    p_Links = &PrefixTableEntry->Links;
+    Parent = (_PREFIX_TABLE_ENTRY *)PrefixTableEntry->Links.Parent;
+    if ( Parent != (_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
     {
       do
       {
-        v3 = v4;
-        v4 = *(unsigned __int16 **)v4;
+        p_Links = (RTL_SPLAY_LINKS *)Parent;
+        Parent = *(_PREFIX_TABLE_ENTRY **)&Parent->NodeTypeCode;
       }
-      while ( v4 != v3 );
+      while ( Parent != (_PREFIX_TABLE_ENTRY *)p_Links );
     }
-    v5 = v3 - 4;
-    result = (int)RtlDelete((_DWORD *)a2 + 2);
-    if ( result )
+    v4 = (RTL_SPLAY_LINKS *)((char *)p_Links - 8);
+    v5 = RtlDelete(&PrefixTableEntry->Links);
+    if ( v5 )
     {
-      if ( v3 != (unsigned __int16 *)result )
+      if ( p_Links != v5 )
       {
-        v6 = result - 8;
-        for ( i = *((_DWORD *)v3 - 1); *(unsigned __int16 **)(i + 4) != v5; i = *(_DWORD *)(i + 4) )
+        v7 = (PRTL_SPLAY_LINKS)((char *)v5 - 8);
+        for ( i = p_Links[-1].RightChild; i->LeftChild != v4; i = i->LeftChild )
           ;
-        *(_WORD *)v6 = 513;
-        *(_DWORD *)(i + 4) = v6;
-        *(_DWORD *)(v6 + 4) = *((_DWORD *)v3 - 1);
-        result = 514;
-        *((_DWORD *)v3 - 1) = 0;
-        *v5 = 514;
+        LOWORD(v7->Parent) = 513;
+        i->LeftChild = v7;
+        v7->LeftChild = p_Links[-1].RightChild;
+        p_Links[-1].RightChild = 0;
+        LOWORD(v4->Parent) = 514;
       }
     }
     else
     {
-      for ( result = *((_DWORD *)v3 - 1); *(unsigned __int16 **)(result + 4) != v5; result = *(_DWORD *)(result + 4) )
+      for ( j = p_Links[-1].RightChild; j->LeftChild != v4; j = j->LeftChild )
         ;
-      *(_DWORD *)(result + 4) = *((_DWORD *)v3 - 1);
+      j->LeftChild = p_Links[-1].RightChild;
     }
   }
-  return result;
 }

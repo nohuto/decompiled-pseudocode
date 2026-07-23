@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFinishChildPartitionHotAdd @ 0x14087BDA0
+ * XREFs of MiFinishChildPartitionHotAdd @ 0x1408821A0
  * Callers:
- *     MiCompleteMemoryAddition @ 0x140865B8C (MiCompleteMemoryAddition.c)
+ *     MiCompleteMemoryAddition @ 0x14086BF6C (MiCompleteMemoryAddition.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiComputeCommitThresholds @ 0x1404FA2DC (MiComputeCommitThresholds.c)
- *     MiDeletePartitionPageNode @ 0x140708AD4 (MiDeletePartitionPageNode.c)
- *     MiMergePageNodes @ 0x1407090F4 (MiMergePageNodes.c)
- *     MiMakePartitionMemoryBlock @ 0x14087C5D4 (MiMakePartitionMemoryBlock.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiComputeCommitThresholds @ 0x1404F38EC (MiComputeCommitThresholds.c)
+ *     MiDeletePartitionPageNode @ 0x14070D788 (MiDeletePartitionPageNode.c)
+ *     MiMergePageNodes @ 0x14070DDA8 (MiMergePageNodes.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408829D4 (MiMakePartitionMemoryBlock.c)
  */
 
 void __fastcall MiFinishChildPartitionHotAdd(__int64 a1, unsigned __int64 *a2)

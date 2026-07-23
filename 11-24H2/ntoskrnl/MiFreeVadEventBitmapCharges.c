@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeVadEventBitmapCharges @ 0x1409B06EC
+ * XREFs of MiFreeVadEventBitmapCharges @ 0x14099A3EC
  * Callers:
- *     MiFreeAweView @ 0x1406F5720 (MiFreeAweView.c)
- *     MiReleaseVadEventBlocks @ 0x1409B0550 (MiReleaseVadEventBlocks.c)
- *     MiFreeVadEventBitmap @ 0x140AC24E4 (MiFreeVadEventBitmap.c)
+ *     MiFreeAweView @ 0x1406F3720 (MiFreeAweView.c)
+ *     MiReleaseVadEventBlocks @ 0x14099A250 (MiReleaseVadEventBlocks.c)
+ *     MiFreeVadEventBitmap @ 0x140ABD7CC (MiFreeVadEventBitmap.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
  */
 
 unsigned __int64 __fastcall MiFreeVadEventBitmapCharges(ULONG_PTR a1, __int64 a2)

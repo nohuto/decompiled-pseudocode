@@ -8,10 +8,10 @@
  *     RtlAcquireSRWLockExclusive @ 0x18002DA60 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpSparseBitmapCtxLockExclusive(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpSparseBitmapCtxLockExclusive(__int64 a1, _RTL_SRWLOCK *a2)
 {
   if ( (*(_BYTE *)(a1 + 72) & 4) != 0 )
     return 1LL;
-  RtlAcquireSRWLockExclusive((unsigned __int64)a2, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(a2);
   return 0LL;
 }

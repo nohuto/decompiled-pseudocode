@@ -45,7 +45,7 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   __int64 DriverPage; // rax
   unsigned __int64 v19; // r14
   int v20; // [rsp+40h] [rbp-138h]
-  struct _IMAGE_NT_HEADERS64 *v21; // [rsp+48h] [rbp-130h]
+  _IMAGE_NT_HEADERS64 *v21; // [rsp+48h] [rbp-130h]
   unsigned int v22; // [rsp+54h] [rbp-124h]
   unsigned __int64 v23; // [rsp+58h] [rbp-120h]
   __int64 v24; // [rsp+60h] [rbp-118h]
@@ -83,7 +83,7 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
       v11 = ((unsigned __int64)*(unsigned int *)(v6 + 64) + 4095) >> 12;
       v21 = v3;
       v20 = v11;
-      if ( PsNtosImageBase != *(_QWORD *)(v6 + 48) )
+      if ( PsNtosImageBase != *(PVOID *)(v6 + 48) )
       {
         MiProcessLoadConfigForDriver(v6, 0, 0LL, 0LL);
         v3 = v21;
@@ -121,7 +121,7 @@ LABEL_11:
       }
       v3 = v21;
     }
-    if ( v10 == PsNtosImageBase || (PVOID)v10 == PsHalImageBase )
+    if ( (PVOID)v10 == PsNtosImageBase || (PVOID)v10 == PsHalImageBase )
       goto LABEL_34;
     v3->OptionalHeader.ImageBase = v10;
     if ( (*(_DWORD *)(v6 + 104) & 0x800000) == 0 )

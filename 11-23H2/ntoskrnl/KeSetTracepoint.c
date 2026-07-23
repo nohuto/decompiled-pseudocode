@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSetTracepoint @ 0x140975D30
+ * XREFs of KeSetTracepoint @ 0x140975F30
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     RtlPcToFileHeader @ 0x1403C4040 (RtlPcToFileHeader.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiTpWriteBreakpoint @ 0x14057EECC (KiTpWriteBreakpoint.c)
- *     KiTpIsSupportedKernelTracepointLocation @ 0x140976630 (KiTpIsSupportedKernelTracepointLocation.c)
- *     KiTpSetupCompletion @ 0x1409767F8 (KiTpSetupCompletion.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     RtlPcToFileHeader @ 0x1403C4220 (RtlPcToFileHeader.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiTpWriteBreakpoint @ 0x14057F3BC (KiTpWriteBreakpoint.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x140976830 (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiTpSetupCompletion @ 0x1409769F8 (KiTpSetupCompletion.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -21,31 +21,31 @@ __int64 __fastcall KeSetTracepoint(
         char a2,
         unsigned __int64 a3,
         int a4,
-        __int64 a5,
+        __int64 *a5,
         __int64 a6,
-        __int64 a7,
+        __int64 *a7,
         __int64 a8,
-        __int64 a9)
+        _BYTE *a9)
 {
   __int64 v13; // r15
   unsigned int v14; // edi
   __int64 v15; // rax
   int v16; // esi
   int v17; // ecx
-  __int64 v18; // rcx
+  __int64 *v18; // rcx
   __int64 v20; // rax
   __int64 v21; // rax
   __int64 Pool2; // rax
   struct _KTHREAD *CurrentThread; // rax
   __int64 v24; // rsi
   char *v25; // r14
-  __int64 v26; // r8
-  __int64 v27; // r13
+  __int64 *v26; // r8
+  unsigned __int64 v27; // r13
   __int64 v28; // rax
   __int64 v29; // rdx
   __int64 *v30; // rcx
   __int64 v31; // rax
-  _BYTE *v32; // rcx
+  __int64 *v32; // rcx
   __int64 *v33; // r13
   __int64 *v34; // rdx
   _BYTE *v35; // rdx
@@ -63,14 +63,14 @@ __int64 __fastcall KeSetTracepoint(
   unsigned int v47; // [rsp+38h] [rbp-A0h]
   int v48; // [rsp+3Ch] [rbp-9Ch]
   __int64 v49; // [rsp+40h] [rbp-98h]
-  __int64 v50; // [rsp+48h] [rbp-90h] BYREF
+  PVOID BaseOfImage; // [rsp+48h] [rbp-90h] BYREF
   __int64 v51; // [rsp+50h] [rbp-88h]
-  __int64 v52; // [rsp+58h] [rbp-80h]
+  _BYTE *v52; // [rsp+58h] [rbp-80h]
   char v53[48]; // [rsp+60h] [rbp-78h] BYREF
 
   v51 = a1;
   v52 = a9;
-  v50 = 0LL;
+  BaseOfImage = 0LL;
   v13 = 0LL;
   if ( (KiDynamicTraceEnabled & 2) == 0 && (!a2 || (KiDynamicTraceEnabled & 1) == 0) )
     return (unsigned int)-1073741790;
@@ -122,7 +122,7 @@ LABEL_26:
       v20 = 4LL;
       if ( a2 )
         v20 = 6LL;
-      if ( a5 != KiDynamicTraceCallouts[v20] )
+      if ( a5 != (__int64 *)KiDynamicTraceCallouts[v20] )
         return (unsigned int)-1073741790;
       v18 = a7;
       if ( !a7 )
@@ -137,7 +137,7 @@ LABEL_26:
     v21 = 5LL;
     if ( a2 )
       v21 = 7LL;
-    if ( v18 != KiDynamicTraceCallouts[v21] )
+    if ( v18 != (__int64 *)KiDynamicTraceCallouts[v21] )
       return (unsigned int)-1073741790;
   }
   else if ( a5 || a7 )
@@ -149,9 +149,9 @@ LABEL_41:
   {
     if ( a3 >= 0xFFFF800000000000uLL )
     {
-      if ( !RtlPcToFileHeader(a3, &v50) )
+      if ( !RtlPcToFileHeader((PVOID)a3, &BaseOfImage) )
         return (unsigned int)-1073741811;
-      if ( !(unsigned int)KiTpIsSupportedKernelTracepointLocation(v50, a3) )
+      if ( !(unsigned int)KiTpIsSupportedKernelTracepointLocation(BaseOfImage) )
         return (unsigned int)-1073741637;
     }
     if ( v16 )
@@ -188,19 +188,19 @@ LABEL_41:
     if ( (_DWORD)v27 )
     {
       v30 = KiProcessorBlock;
-      v26 = v27;
+      v26 = (__int64 *)v27;
       do
       {
         v31 = *v30++;
         *(_QWORD *)(v31 + 152) = v29;
         v29 += 8200LL;
-        --v26;
+        v26 = (__int64 *)((char *)v26 - 1);
       }
       while ( v26 );
     }
     KiTpHashTable = v25;
 LABEL_60:
-    v32 = (_BYTE *)v26;
+    v32 = v26;
     v49 = (a3 >> 4) & 0x3FFF;
     v33 = (__int64 *)&v25[8 * v49];
     v34 = (__int64 *)*v33;
@@ -226,17 +226,17 @@ LABEL_64:
       if ( !v32 )
       {
         LOBYTE(v34) = a2;
-        v14 = KiTpSetupCompletion(v51, v34, a3, 0LL, v26, v53);
+        v14 = KiTpSetupCompletion(v51, v34, a3, 0LL, (_DWORD)v26, v53);
         goto LABEL_109;
       }
-      v35 = (_BYTE *)v52;
+      v35 = v52;
       if ( !v52 )
       {
 LABEL_108:
-        v14 = v26;
+        v14 = (unsigned int)v26;
         goto LABEL_109;
       }
-      v36 = v32[51];
+      v36 = *((_BYTE *)v32 + 51);
 LABEL_107:
       *v35 = v36;
       goto LABEL_108;
@@ -270,7 +270,7 @@ LABEL_107:
         v13 &= -(__int64)(v47 != 0);
         goto LABEL_82;
       }
-      if ( v32[24] != (_BYTE)v26 || v32[25] != (_BYTE)v26 )
+      if ( *((_BYTE *)v32 + 24) != (_BYTE)v26 || *((_BYTE *)v32 + 25) != (_BYTE)v26 )
       {
         v14 = -1073740008;
         goto LABEL_109;
@@ -288,7 +288,7 @@ LABEL_82:
         if ( ++KiTpEnabledCount == 1 )
           _InterlockedOr(&KiDynamicTraceMask, 2u);
         LOBYTE(v38) = 1;
-        v41 = KiTpWriteBreakpoint(v24, v38, v26);
+        v41 = KiTpWriteBreakpoint(v24, v38);
         v26 = 0LL;
         v14 = v41;
         if ( v41 < 0 )
@@ -306,8 +306,8 @@ LABEL_82:
       }
       *(_QWORD *)(v24 + 32) = a6;
       *(_QWORD *)(v24 + 40) = a8;
-      _InterlockedOr(v44, v26);
-      v13 = v26;
+      _InterlockedOr(v44, (unsigned int)v26);
+      v13 = (__int64)v26;
       *(_BYTE *)(v24 + 24) = a5 != v26;
       *(_BYTE *)(v24 + 25) = a7 != v26;
     }
@@ -320,11 +320,11 @@ LABEL_103:
       if ( v42 )
       {
         *v33 = *(_QWORD *)v24;
-        _InterlockedOr(v44, v26);
+        _InterlockedOr(v44, (unsigned int)v26);
         --KiTpRegisteredCount;
         v13 = v24;
       }
-      v35 = (_BYTE *)v52;
+      v35 = v52;
       if ( !v52 )
         goto LABEL_108;
       v36 = *(_BYTE *)(v24 + 51);
@@ -333,7 +333,7 @@ LABEL_103:
     if ( *v40 != (_BYTE)v26 )
     {
 LABEL_96:
-      v43 = KiTpWriteBreakpoint(v24, 0LL, v26);
+      v43 = KiTpWriteBreakpoint(v24, 0LL);
       v26 = 0LL;
       if ( v43 >= 0 )
       {
@@ -347,7 +347,7 @@ LABEL_96:
       }
     }
     *(_WORD *)(v24 + 24) = 0;
-    _InterlockedOr(v44, v26);
+    _InterlockedOr(v44, (unsigned int)v26);
     while ( KiTpActiveTrapsCount )
       _mm_pause();
     *(_QWORD *)(v24 + 32) = v26;

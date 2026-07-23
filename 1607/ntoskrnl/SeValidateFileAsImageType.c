@@ -1,8 +1,8 @@
 /*
- * XREFs of SeValidateFileAsImageType @ 0x14068C9C4
+ * XREFs of SeValidateFileAsImageType @ 0x14068CAA8
  * Callers:
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB86C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x1406ABA40 (ExpQueryElamCertInfo.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB9A4 (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x1406ABB78 (ExpQueryElamCertInfo.c)
  * Callees:
  *     <none>
  */

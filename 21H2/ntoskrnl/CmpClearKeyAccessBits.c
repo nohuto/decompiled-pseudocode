@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpClearKeyAccessBits @ 0x1406A961C
+ * XREFs of CmpClearKeyAccessBits @ 0x14060759C
  * Callers:
- *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
+ *     CmpReorganizeHive @ 0x1406F7F2C (CmpReorganizeHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
- *     CmpLogClearAccessBitsEvent @ 0x1406A9784 (CmpLogClearAccessBitsEvent.c)
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpLogClearAccessBitsEvent @ 0x140607704 (CmpLogClearAccessBitsEvent.c)
+ *     CmpFindSubKeyByNumber @ 0x1406E2C40 (CmpFindSubKeyByNumber.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpClearKeyAccessBits(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall CmpClearKeyAccessBits(ULONG_PTR BugCheckParameter2, __int64 a
   unsigned int v8; // r14d
   __int64 v9; // rax
   __int64 v10; // rbx
-  unsigned int v11; // r8d
+  __int64 v11; // r8
   int SubKeyByNumber; // ebx
   unsigned int v14; // [rsp+70h] [rbp+18h] BYREF
   int v15; // [rsp+78h] [rbp+20h] BYREF
@@ -63,7 +63,7 @@ __int64 __fastcall CmpClearKeyAccessBits(ULONG_PTR BugCheckParameter2, __int64 a
         ++v8;
       }
       v11 = HIDWORD(PoolWithTag[v5]);
-      if ( v11 >= *(_DWORD *)(v10 + 20) || (_DWORD)v5 == 511 )
+      if ( (unsigned int)v11 >= *(_DWORD *)(v10 + 20) || (_DWORD)v5 == 511 )
       {
         if ( !(_DWORD)v5 )
         {
@@ -77,7 +77,7 @@ LABEL_14:
       }
       else
       {
-        SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter2, (_DWORD *)v10, v11, &v14);
+        SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter2, v10, v11, &v14);
         if ( SubKeyByNumber < 0 )
           goto LABEL_14;
         ++HIDWORD(PoolWithTag[v5]);

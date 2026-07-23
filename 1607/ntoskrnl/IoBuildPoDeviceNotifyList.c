@@ -3,10 +3,10 @@
  * Callers:
  *     PopBuildDeviceNotifyList @ 0x1403D1784 (PopBuildDeviceNotifyList.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x1400C48F0 (IoGetAttachedDeviceReference.c)
- *     PnpLockDeviceActionQueue @ 0x140110784 (PnpLockDeviceActionQueue.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     IoGetAttachedDeviceReference @ 0x1400C2790 (IoGetAttachedDeviceReference.c)
+ *     PnpLockDeviceActionQueue @ 0x140110CE8 (PnpLockDeviceActionQueue.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     IopCheckDeviceFlags @ 0x1403D1DA4 (IopCheckDeviceFlags.c)
  *     IopCaptureObjectName @ 0x1403D1DCC (IopCaptureObjectName.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerLimitUpdatePendingEvents @ 0x14074BA84
+ * XREFs of PopPowerLimitUpdatePendingEvents @ 0x140749DB4
  * Callers:
- *     PoQueryPowerLimitValue @ 0x14074ACC0 (PoQueryPowerLimitValue.c)
- *     PopEvaluatePowerLimitChange @ 0x14074B3D4 (PopEvaluatePowerLimitChange.c)
+ *     PoQueryPowerLimitValue @ 0x140748FF0 (PoQueryPowerLimitValue.c)
+ *     PopEvaluatePowerLimitChange @ 0x140749704 (PopEvaluatePowerLimitChange.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 LONG __fastcall PopPowerLimitUpdatePendingEvents(__int64 a1)

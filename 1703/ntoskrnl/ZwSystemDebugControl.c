@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwSystemDebugControl(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&ControlCode, InputBuffer, *(_QWORD *)&InputBufferLength);
+  return KiServiceInternal(*(_QWORD *)&ControlCode);
 }

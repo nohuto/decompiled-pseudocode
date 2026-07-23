@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateInPagePrepare @ 0x14038C1C0
+ * XREFs of MiValidateInPagePrepare @ 0x14038DF70
  * Callers:
- *     MiValidateInPage @ 0x14038C154 (MiValidateInPage.c)
+ *     MiValidateInPage @ 0x14038DF04 (MiValidateInPage.c)
  * Callees:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiCanPageMove @ 0x1402FDC9C (MiCanPageMove.c)
- *     MiControlAreaHasHostRelocationsApplied @ 0x1404D5104 (MiControlAreaHasHostRelocationsApplied.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiCanPageMove @ 0x1402DFD1C (MiCanPageMove.c)
+ *     MiControlAreaHasHostRelocationsApplied @ 0x1404CE974 (MiControlAreaHasHostRelocationsApplied.c)
  */
 
 __int64 __fastcall MiValidateInPagePrepare(__int64 a1, __int64 a2)

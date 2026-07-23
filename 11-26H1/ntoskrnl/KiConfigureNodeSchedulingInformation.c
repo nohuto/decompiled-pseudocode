@@ -1,10 +1,10 @@
 /*
- * XREFs of KiConfigureNodeSchedulingInformation @ 0x1405EAC00
+ * XREFs of KiConfigureNodeSchedulingInformation @ 0x1405ED570
  * Callers:
- *     KiConfigureAllSchedulingInformation @ 0x140CC99F0 (KiConfigureAllSchedulingInformation.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140CCFA80 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KiAssignCooperativeIdleSearchContexts @ 0x1405EA2A8 (KiAssignCooperativeIdleSearchContexts.c)
- *     KiAssignSubNodeSharedReadyQueues @ 0x1405EA5A0 (KiAssignSubNodeSharedReadyQueues.c)
+ *     KiAssignCooperativeIdleSearchContexts @ 0x1405ECC18 (KiAssignCooperativeIdleSearchContexts.c)
+ *     KiAssignSubNodeSharedReadyQueues @ 0x1405ECF10 (KiAssignSubNodeSharedReadyQueues.c)
  */
 
 __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
   for ( i = 4LL * *(unsigned __int16 *)(a1 + 136); v2; v2 &= ~v9 )
   {
     _BitScanForward64((unsigned __int64 *)&v7, v2);
-    v8 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+    v8 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                           + (unsigned int)((v1 << 6) + v7))];
     if ( v3 )
     {
@@ -55,7 +55,7 @@ __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
   v11 = *(_QWORD *)(a1 + 128);
   for ( j = 0LL;
         v11;
-        v11 &= ~*(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+        v11 &= ~*(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                                              + (unsigned int)((v1 << 6) + v13))]
                           + 36528) )
   {
@@ -67,7 +67,7 @@ __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
   for ( k = 0LL; v14; v14 &= ~v17 & ~(1LL << v16) )
   {
     _BitScanForward64(&v16, v14);
-    v17 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+    v17 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                                        + (unsigned int)((v1 << 6) + v16))]
                     + 36480);
     k |= v17;
@@ -76,12 +76,12 @@ __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
   *(_QWORD *)(a1 + 160) = v4;
   *(_QWORD *)(a1 + 168) = j;
   *(_QWORD *)(a1 + 152) = k;
-  qword_140FC19A0[i] |= v4;
+  qword_140FC29A0[i] |= v4;
   result = KeNodeBlock[*(unsigned __int16 *)(a1 + 138)];
   if ( (*(_BYTE *)(result + 10) & 1) != 0 )
   {
     result = *(_QWORD *)(a1 + 128);
-    *(_QWORD *)((char *)&unk_140FC19A8 + i * 8) |= result;
+    *(_QWORD *)((char *)&unk_140FC29A8 + i * 8) |= result;
   }
   return result;
 }

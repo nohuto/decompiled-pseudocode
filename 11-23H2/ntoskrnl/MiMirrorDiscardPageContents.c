@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorDiscardPageContents @ 0x14064F434
+ * XREFs of MiMirrorDiscardPageContents @ 0x14064F984
  * Callers:
- *     MiMirrorBlackPhase @ 0x140626BE4 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140627134 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiIterateOverPartitions @ 0x14062940C (MiIterateOverPartitions.c)
+ *     MiIterateOverPartitions @ 0x14062995C (MiIterateOverPartitions.c)
  */
 
 __int64 MiMirrorDiscardPageContents()

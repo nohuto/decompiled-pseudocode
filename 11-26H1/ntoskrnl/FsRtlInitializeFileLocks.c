@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlInitializeFileLocks @ 0x140CB8F3C
+ * XREFs of FsRtlInitializeFileLocks @ 0x140CBEF80
  * Callers:
- *     FsRtlInitSystem @ 0x140CB8A6C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140CBEAB0 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
- *     ExInitializePagedLookasideList @ 0x140B31D30 (ExInitializePagedLookasideList.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializePagedLookasideList @ 0x140B33F30 (ExInitializePagedLookasideList.c)
  */
 
-_QWORD *FsRtlInitializeFileLocks()
+LIST_ENTRY *FsRtlInitializeFileLocks()
 {
-  _QWORD *result; // rax
+  LIST_ENTRY *result; // rax
 
   ExInitializeNPagedLookasideListInternal((__int64)&FsRtlSharedLockLookasideList, 0LL, 0LL, 512, 56, 1752386630, 16, 0);
   ExInitializeNPagedLookasideListInternal(
@@ -33,15 +33,15 @@ _QWORD *FsRtlInitializeFileLocks()
     0);
   ExInitializeNPagedLookasideListInternal((__int64)&FsRtlLockInfoLookasideList, 0LL, 0LL, 512, 64, 1768705094, 8, 0);
   ExInitializePagedLookasideList(&FsRtlFileLockLookasideList, 0LL, 0LL, 0, 0x60uLL, 0x6C664C46u, 8u);
-  result = &qword_140F86DE0;
-  unk_140F86DE8 = &qword_140F86DE0;
-  qword_140F86DE0 = &qword_140F86DE0;
-  LODWORD(VslpReservedTransferLock.Padding[4]) = 1;
-  unk_140F86DC8 = 0LL;
-  unk_140F86DD0 = 0;
-  unk_140F86DD8 = 1;
-  unk_140F86DDA = 6;
-  unk_140F86DDC = 0;
+  result = &FsRtlCreateLockInfo.Event.Header.WaitListHead;
+  FsRtlCreateLockInfo.Event.Header.WaitListHead.Blink = &FsRtlCreateLockInfo.Event.Header.WaitListHead;
+  FsRtlCreateLockInfo.Event.Header.WaitListHead.Flink = &FsRtlCreateLockInfo.Event.Header.WaitListHead;
+  FsRtlCreateLockInfo.Count = 1;
+  FsRtlCreateLockInfo.Owner = 0LL;
+  FsRtlCreateLockInfo.Contention = 0;
+  LOWORD(FsRtlCreateLockInfo.Event.Header.Lock) = 1;
+  FsRtlCreateLockInfo.Event.Header.Size = 6;
+  FsRtlCreateLockInfo.Event.Header.SignalState = 0;
   FsRtlFileLockCancelCollideLock = 0LL;
   FsRtlFileLockCancelCollideList = 0LL;
   return result;

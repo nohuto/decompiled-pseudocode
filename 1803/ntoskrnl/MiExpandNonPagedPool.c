@@ -22,7 +22,7 @@ __int64 __fastcall MiExpandNonPagedPool(unsigned int a1, unsigned __int64 a2, un
 {
   __int64 v6; // rdi
   int v8; // r15d
-  union _SLIST_HEADER *v9; // rbx
+  _SLIST_HEADER *v9; // rbx
   int v10; // r13d
   unsigned __int64 v11; // r8
   unsigned __int64 v12; // r8

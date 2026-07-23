@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpInitFullProcessSecurityInfo @ 0x1407B4A70
+ * XREFs of ExpInitFullProcessSecurityInfo @ 0x1407B4EC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140454080 (RtlGetDaclSecurityDescriptor.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140449130 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
  */
 
-_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
+_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   NTSTATUS DaclSecurityDescriptor; // ebx
   char *i; // rdi
@@ -42,7 +42,7 @@ _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Pa
   {
     DaclSecurityDescriptor = ZwQueryValueKey(
                                KeyHandle,
-                               &stru_140E092C8,
+                               &stru_140E09338,
                                KeyValuePartialInformation,
                                KeyValueInformation,
                                0x50u,
@@ -75,7 +75,7 @@ _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Pa
             if ( DaclSecurityDescriptor < 0 )
               goto LABEL_15;
           }
-          *Context = &ExpFullProcessInfoSecurityDescriptor;
+          *a3 = &ExpFullProcessInfoSecurityDescriptor;
         }
         else
         {

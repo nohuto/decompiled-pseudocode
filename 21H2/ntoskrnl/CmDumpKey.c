@@ -1,22 +1,22 @@
 /*
- * XREFs of CmDumpKey @ 0x14087BD18
+ * XREFs of CmDumpKey @ 0x14087BE78
  * Callers:
- *     NtSaveKeyEx @ 0x140728950 (NtSaveKeyEx.c)
+ *     NtSaveKeyEx @ 0x140728E00 (NtSaveKeyEx.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
- *     CmpFreeOffsetArray @ 0x1408712D8 (CmpFreeOffsetArray.c)
- *     CmpWriteOffsetArrayToFile @ 0x14087162C (CmpWriteOffsetArrayToFile.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140871AC4 (CmpDoAccessCheckOnSubtree.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140880854 (HvSnapshotHiveToOffsetArray.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1406E3E60 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
+ *     CmpFreeOffsetArray @ 0x140871438 (CmpFreeOffsetArray.c)
+ *     CmpWriteOffsetArrayToFile @ 0x14087178C (CmpWriteOffsetArrayToFile.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140871C24 (CmpDoAccessCheckOnSubtree.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x1408809B4 (HvSnapshotHiveToOffsetArray.c)
  */
 
 __int64 __fastcall CmDumpKey(__int64 a1, __int64 a2, char a3)
@@ -41,7 +41,7 @@ __int64 __fastcall CmDumpKey(__int64 a1, __int64 a2, char a3)
   CmpLockRegistry();
   v6 = *(_QWORD *)(a1 + 8);
   v7 = 1;
-  if ( *(_QWORD *)(v6 + 32) == CmpMasterHive )
+  if ( *(PVOID *)(v6 + 32) == CmpMasterHive )
   {
     v8 = -1073741790;
 LABEL_23:

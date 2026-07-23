@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReleaseSystemCacheView @ 0x140018374
+ * XREFs of MiReleaseSystemCacheView @ 0x140017EF4
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     InsertTailListPte @ 0x140017ED0 (InsertTailListPte.c)
- *     MiGetSystemCacheReverseMap @ 0x140019B10 (MiGetSystemCacheReverseMap.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     RemoveListEntryPte @ 0x1400AC07C (RemoveListEntryPte.c)
- *     MiWaitForSystemCacheViewFlush @ 0x1400AEF6C (MiWaitForSystemCacheViewFlush.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiDecrementSystemCacheViewCount @ 0x1401E6D7C (MiDecrementSystemCacheViewCount.c)
- *     MiSetSystemCacheReverseMap @ 0x1401E6E68 (MiSetSystemCacheReverseMap.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetPteLink @ 0x1401F2680 (MiGetPteLink.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     InsertTailListPte @ 0x140017A50 (InsertTailListPte.c)
+ *     MiGetSystemCacheReverseMap @ 0x140019690 (MiGetSystemCacheReverseMap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     RemoveListEntryPte @ 0x1400AA5E4 (RemoveListEntryPte.c)
+ *     MiWaitForSystemCacheViewFlush @ 0x1400AD4D4 (MiWaitForSystemCacheViewFlush.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiDecrementSystemCacheViewCount @ 0x1401E6BA8 (MiDecrementSystemCacheViewCount.c)
+ *     MiSetSystemCacheReverseMap @ 0x1401E6C94 (MiSetSystemCacheReverseMap.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetPteLink @ 0x1401F24AC (MiGetPteLink.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -48,10 +48,10 @@ void __fastcall MiReleaseSystemCacheView(__int64 a1, __int64 a2)
   MiChargeWsles(AnyMultiplexedVm, -64LL);
   v4 = 0LL;
   v5 = 0LL;
-  KeAcquireInStackQueuedSpinLock(&qword_140326D58, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140326D98, &LockHandle);
   if ( (unsigned __int8)MiDecrementSystemCacheViewCount(a1 << 25 >> 16) )
   {
-    InsertTailListPte(&qword_140326D40);
+    InsertTailListPte(&qword_140326D80);
   }
   else
   {
@@ -64,7 +64,7 @@ void __fastcall MiReleaseSystemCacheView(__int64 a1, __int64 a2)
       {
         if ( v6 != a1 )
         {
-          RemoveListEntryPte(&qword_140326D40, v6);
+          RemoveListEntryPte(&qword_140326D80, v6);
           if ( MiGetPteLink(*(_QWORD *)(v6 + 24)) == 1 )
           {
             v21[v4] = v6;

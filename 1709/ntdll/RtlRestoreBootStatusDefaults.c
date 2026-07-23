@@ -10,29 +10,31 @@
  *     RtlpRecordBootStatusData @ 0x1800EAEBC (RtlpRecordBootStatusData.c)
  */
 
-__int64 RtlRestoreBootStatusDefaults()
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  __int64 v0; // rdx
-  _BYTE *v1; // rax
-  char v2; // cl
-  __int64 v3; // rdx
-  _DWORD v5[36]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE *v2; // rax
+  char v3; // cl
+  __int64 v4; // rdx
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
+  _DWORD Buffer[36]; // [rsp+70h] [rbp-90h] BYREF
 
-  memset(v5, 0, 0x88uLL);
-  v5[0] = 136;
-  RtlGetNtProductType(&v5[1], v0);
-  v1 = v5;
-  v2 = 0;
-  *(_WORD *)((char *)&v5[2] + 1) = 286;
-  BYTE1(v5[12]) = 1;
-  v3 = 136LL;
+  memset(Buffer, 0, 0x88uLL);
+  Buffer[0] = 136;
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&Buffer[1]);
+  ByteOffset.QuadPart = 0LL;
+  v2 = Buffer;
+  v3 = 0;
+  *(_WORD *)((char *)&Buffer[2] + 1) = 286;
+  BYTE1(Buffer[12]) = 1;
+  v4 = 136LL;
   do
   {
-    v2 -= *v1++;
-    --v3;
+    v3 -= *v2++;
+    --v4;
   }
-  while ( v3 );
-  BYTE2(v5[12]) = v2;
-  RtlpRecordBootStatusData(0LL, v5, 0LL, 136LL);
-  return NtWriteFile();
+  while ( v4 );
+  BYTE2(Buffer[12]) = v3;
+  RtlpRecordBootStatusData(0LL, Buffer, 0LL, 136LL);
+  return NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x88u, &ByteOffset, 0LL);
 }

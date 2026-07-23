@@ -2,10 +2,10 @@
  * XREFs of PfSnAllocateEnablePrefetcherTimer @ 0x1403D3108
  * Callers:
  *     PfSnBeginBootPhase @ 0x1403D3020 (PfSnBeginBootPhase.c)
- *     PfSnQueueEnablePrefetcherTimer @ 0x14058138C (PfSnQueueEnablePrefetcherTimer.c)
+ *     PfSnQueueEnablePrefetcherTimer @ 0x140581838 (PfSnQueueEnablePrefetcherTimer.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

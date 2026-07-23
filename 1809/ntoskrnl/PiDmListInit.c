@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmListInit @ 0x14072C6F0
+ * XREFs of PiDmListInit @ 0x14072D8E0
  * Callers:
- *     PiDmInit @ 0x1409BD6F4 (PiDmInit.c)
+ *     PiDmInit @ 0x1409BE6F4 (PiDmInit.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDmEnumObjectsWithCallback @ 0x140596F5C (PiDmEnumObjectsWithCallback.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140597F5C (PiDmEnumObjectsWithCallback.c)
  */
 
 __int64 __fastcall PiDmListInit(int a1)
@@ -18,7 +18,7 @@ __int64 __fastcall PiDmListInit(int a1)
   P = 0LL;
   v5 = a1;
   v1 = PiDmEnumObjectsWithCallback(
-         *((unsigned int *)&unk_140354A10 + 10 * a1),
+         *((unsigned int *)&unk_140355A10 + 10 * a1),
          (__int64 (__fastcall *)(void *, __int64, _BYTE *))PiDmListInitEnumCallback,
          (__int64)&P);
   if ( P )

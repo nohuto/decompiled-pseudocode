@@ -1,7 +1,7 @@
 /*
  * XREFs of wcscmp @ 0x180092490
  * Callers:
- *     LdrpIsNlsUtf8Process @ 0x1800D4C10 (LdrpIsNlsUtf8Process.c)
+ *     LdrpIsNlsUtf8Process @ 0x1800D4BD0 (LdrpIsNlsUtf8Process.c)
  * Callees:
  *     <none>
  */

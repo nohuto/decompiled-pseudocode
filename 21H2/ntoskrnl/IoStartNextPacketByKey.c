@@ -1,10 +1,10 @@
 /*
- * XREFs of IoStartNextPacketByKey @ 0x1405063F0
+ * XREFs of IoStartNextPacketByKey @ 0x140506370
  * Callers:
  *     <none>
  * Callees:
- *     IopStartNextPacketByKey @ 0x140506C44 (IopStartNextPacketByKey.c)
- *     IopStartNextPacketByKeyEx @ 0x140506D08 (IopStartNextPacketByKeyEx.c)
+ *     IopStartNextPacketByKey @ 0x140506BC4 (IopStartNextPacketByKey.c)
+ *     IopStartNextPacketByKeyEx @ 0x140506C88 (IopStartNextPacketByKeyEx.c)
  */
 
 void __stdcall IoStartNextPacketByKey(PDEVICE_OBJECT DeviceObject, BOOLEAN Cancelable, ULONG Key)

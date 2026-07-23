@@ -1,7 +1,7 @@
 /*
- * XREFs of KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403F2A0C
+ * XREFs of KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403F2A5C
  * Callers:
- *     KiConfigureSchedulingInformation @ 0x14099FD80 (KiConfigureSchedulingInformation.c)
+ *     KiConfigureSchedulingInformation @ 0x1409A0CB0 (KiConfigureSchedulingInformation.c)
  * Callees:
  *     <none>
  */

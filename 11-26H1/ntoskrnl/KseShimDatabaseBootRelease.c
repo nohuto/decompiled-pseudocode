@@ -1,16 +1,16 @@
 /*
- * XREFs of KseShimDatabaseBootRelease @ 0x140B4F3C4
+ * XREFs of KseShimDatabaseBootRelease @ 0x140B51C54
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1405257B0 (PnpCompleteSystemStartProcess.c)
- *     KseShimDatabaseClose @ 0x1409E6D54 (KseShimDatabaseClose.c)
+ *     PnpCompleteSystemStartProcess @ 0x140527E20 (PnpCompleteSystemStartProcess.c)
+ *     KseShimDatabaseClose @ 0x1409D5D2C (KseShimDatabaseClose.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KsepSdbBootRelease @ 0x1407BE614 (KsepSdbBootRelease.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KsepSdbBootRelease @ 0x1407C1674 (KsepSdbBootRelease.c)
  */
 
 void __fastcall KseShimDatabaseBootRelease(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -36,15 +36,15 @@ void __fastcall KseShimDatabaseBootRelease(__int64 a1, __int64 a2, __int64 a3, s
     else
       *((_BYTE *)v8 + 10) = 1;
   }
-  if ( LODWORD(KsepShimDbLock.FirstArgument) )
+  if ( KsepShimDbDuringBoot )
   {
     v9 = KsepShimDbRefCount;
     if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v9 == 1) )
     {
-      KsepSdbBootRelease(&KsepShimDbLock.SListFaultAddress);
-      KsepSdbBootRelease(&KsepShimDbLock.CurrentRunTime);
-      KsepShimDbLock.TrapFrame = 0LL;
-      LODWORD(KsepShimDbLock.FirstArgument) = 0;
+      KsepSdbBootRelease(&KsepShimDbLock.Header.WaitListHead.Flink);
+      KsepSdbBootRelease(&KsepShimDbLock.ThreadLock);
+      KsepShimDbHandle = 0LL;
+      KsepShimDbDuringBoot = 0;
     }
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&KsepShimDbLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

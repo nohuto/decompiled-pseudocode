@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpEnableWatchdog @ 0x140677554
+ * XREFs of PnpEnableWatchdog @ 0x14066AC94
  * Callers:
- *     PnpDeviceEventWorker @ 0x1406E78D0 (PnpDeviceEventWorker.c)
- *     PnpDelayedRemoveWorker @ 0x140735EC0 (PnpDelayedRemoveWorker.c)
- *     PnpCallAddDevice @ 0x14073E92C (PnpCallAddDevice.c)
- *     PnpDeviceCompletionRequestCreate @ 0x140746FAC (PnpDeviceCompletionRequestCreate.c)
- *     PnpCallDriverEntry @ 0x1407703C4 (PnpCallDriverEntry.c)
+ *     PnpDeviceEventWorker @ 0x1406FECB0 (PnpDeviceEventWorker.c)
+ *     PnpDelayedRemoveWorker @ 0x140736080 (PnpDelayedRemoveWorker.c)
+ *     PnpCallAddDevice @ 0x14073EAEC (PnpCallAddDevice.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x14074716C (PnpDeviceCompletionRequestCreate.c)
+ *     PnpCallDriverEntry @ 0x140770584 (PnpCallDriverEntry.c)
  * Callees:
- *     WdtpArmTimer @ 0x14027F8E0 (WdtpArmTimer.c)
- *     PnpAllocateWatchdog @ 0x140280324 (PnpAllocateWatchdog.c)
+ *     WdtpArmTimer @ 0x14026DB20 (WdtpArmTimer.c)
+ *     PnpAllocateWatchdog @ 0x14026E564 (PnpAllocateWatchdog.c)
  */
 
 _QWORD *__fastcall PnpEnableWatchdog(int a1, __int64 a2)

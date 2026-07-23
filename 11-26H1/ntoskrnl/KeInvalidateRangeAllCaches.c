@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInvalidateRangeAllCaches @ 0x1404B8E20
+ * XREFs of KeInvalidateRangeAllCaches @ 0x1404B2650
  * Callers:
- *     KiFlushRangeAllCaches @ 0x1405F1020 (KiFlushRangeAllCaches.c)
- *     MiPersistMemory @ 0x1406FAB64 (MiPersistMemory.c)
+ *     KiFlushRangeAllCaches @ 0x1405F3990 (KiFlushRangeAllCaches.c)
+ *     MiPersistMemory @ 0x1406FF834 (MiPersistMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x14024FA80 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
- *     KiIpiSendRequestEx @ 0x140329D60 (KiIpiSendRequestEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1402513E0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
+ *     KiIpiSendRequestEx @ 0x14032BD90 (KiIpiSendRequestEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)

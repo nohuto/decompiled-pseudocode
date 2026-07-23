@@ -1,12 +1,12 @@
 /*
- * XREFs of SshpWnfCallback @ 0x1408788A0
+ * XREFs of SshpWnfCallback @ 0x140878AE0
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportQueryInterruptTime @ 0x14032D374 (SSHSupportQueryInterruptTime.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407E21C0 (ExQueryWnfStateData.c)
- *     SshpSendSessionData @ 0x14087822C (SshpSendSessionData.c)
+ *     SSHSupportQueryInterruptTime @ 0x14032D604 (SSHSupportQueryInterruptTime.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1407E2490 (ExQueryWnfStateData.c)
+ *     SshpSendSessionData @ 0x14087846C (SshpSendSessionData.c)
  */
 
 __int64 __fastcall SshpWnfCallback(__int64 a1, _QWORD *a2)

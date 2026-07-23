@@ -18,47 +18,59 @@
 
 __int64 __fastcall LdrpProcessMappedModule(__int64 a1, int a2)
 {
-  unsigned __int64 v2; // rsi
-  int Config; // edi
-  unsigned __int16 *v6; // rbp
-  unsigned __int64 v7; // rax
+  char *v2; // rsi
+  NTSTATUS Config; // edi
+  PIMAGE_NT_HEADERS v6; // rbp
+  char *v7; // rax
   bool v8; // zf
   __int64 v9; // rax
   int inited; // eax
-  unsigned __int16 *v12; // [rsp+60h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp+8h] BYREF
   __int64 v13; // [rsp+70h] [rbp+18h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 48);
-  Config = RtlImageNtHeaderEx(3LL, v2, 0LL, &v12);
+  v2 = *(char **)(a1 + 48);
+  Config = RtlImageNtHeaderEx(3u, v2, 0LL, &OutHeaders);
   if ( Config >= 0 )
   {
-    v6 = v12;
+    v6 = OutHeaders;
     if ( (*(_DWORD *)(a1 + 104) & 0x1000004) == 4 )
     {
-      if ( *((_DWORD *)v12 + 10) )
-        v7 = v2 + *((unsigned int *)v12 + 10);
+      if ( OutHeaders->OptionalHeader.AddressOfEntryPoint )
+        v7 = &v2[OutHeaders->OptionalHeader.AddressOfEntryPoint];
       else
         v7 = 0LL;
       *(_QWORD *)(a1 + 56) = v7;
     }
     if ( !LdrpValidateEntrySection(a1) )
       return (unsigned int)-1073741701;
-    *(_QWORD *)(a1 + 248) = *((_QWORD *)v6 + 6);
+    *(_QWORD *)(a1 + 248) = v6->OptionalHeader.ImageBase;
     v8 = (*(_BYTE *)(a1 + 104) & 4) == 0;
     *(_QWORD *)(a1 + 256) = MEMORY[0x7FFE0014];
     if ( !v8 && (*(_DWORD *)(a1 + 104) & 0x2000) == 0 && a2 )
     {
       v13 = 0LL;
       v9 = LdrpGenRandom();
-      inited = LdrInitSecurityCookie(v2, *(unsigned int *)(a1 + 64), 0LL, v9 ^ (unsigned int)dword_1801552E0, &v13);
-      if ( v2 != 0x180000000LL && *(_QWORD *)(a1 + 56) && (v12[36] == 6 && v12[37] >= 3u || v12[36] >= 7u) && !inited )
+      inited = LdrInitSecurityCookie(
+                 v2,
+                 *(unsigned int *)(a1 + 64),
+                 0LL,
+                 v9 ^ LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[7]),
+                 &v13);
+      if ( v2 != (char *)0x180000000LL
+        && *(_QWORD *)(a1 + 56)
+        && (OutHeaders->OptionalHeader.MajorSubsystemVersion == 6
+         && OutHeaders->OptionalHeader.MinorSubsystemVersion >= 3u
+         || OutHeaders->OptionalHeader.MajorSubsystemVersion >= 7u)
+        && !inited )
+      {
         return (unsigned int)-1073741701;
-      Config = LdrpCfgProcessLoadConfig(a1, v12, v13);
+      }
+      Config = LdrpCfgProcessLoadConfig(a1, (unsigned __int16 *)OutHeaders, v13);
       if ( Config < 0 )
         return (unsigned int)Config;
     }
     if ( (*(_DWORD *)(a1 + 104) & 0x200) == 0 )
-      RtlInsertInvertedFunctionTable(v2, *(unsigned int *)(a1 + 64));
+      RtlInsertInvertedFunctionTable(v2, *(_DWORD *)(a1 + 64));
     *(_DWORD *)(a1 + 104) |= 0x2200u;
     RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
     *(_DWORD *)(*(_QWORD *)(a1 + 152) + 56LL) = 2;

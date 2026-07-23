@@ -15,33 +15,29 @@
 char __fastcall sub_180017414(__int64 a1, __int64 a2, char a3, int *a4)
 {
   int v4; // r8d
-  __int64 v6; // rbp
   char v8; // si
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // r8
-  __int64 v14; // r9
-  char v15; // al
-  int v16; // ecx
-  bool v17; // zf
-  char v18; // al
+  char v14; // al
+  int v15; // ecx
+  bool v16; // zf
+  char v17; // al
 
   v4 = a3 & 2;
-  v6 = a2;
   if ( *(_QWORD *)(a1 + 360) )
   {
-    LOBYTE(a2) = v4 != 0;
-    v10 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), a2);
+    v10 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), v4 != 0);
     if ( v10 )
     {
       if ( v10 != -1073741536 && v10 != 259 )
-        sub_1801058B8(v12, v11, v13, v14);
-      v18 = *(_BYTE *)(a1 + 464);
+        sub_1801058B8(v12, v11);
+      v17 = *(_BYTE *)(a1 + 464);
       v8 = 0;
-      if ( (v18 & 4) == 0 )
+      if ( (v17 & 4) == 0 )
       {
-        *(_BYTE *)(a1 + 464) = v18 | 4;
+        *(_BYTE *)(a1 + 464) = v17 | 4;
         sub_18007358C(a1 + 56, 1LL, 0LL);
       }
       *a4 = 0;
@@ -51,13 +47,13 @@ char __fastcall sub_180017414(__int64 a1, __int64 a2, char a3, int *a4)
       *(_QWORD *)(a1 + 360) = 0LL;
       v8 = 1;
       LOBYTE(v13) = 1;
-      v15 = sub_1800177A0(a1, v6, v13);
-      v16 = -1;
-      if ( v15 )
-        v16 = -2;
-      v17 = (*(_BYTE *)(a1 + 464) & 4) == 0;
-      *a4 = v16;
-      if ( !v17 )
+      v14 = sub_1800177A0(a1, a2, v13);
+      v15 = -1;
+      if ( v14 )
+        v15 = -2;
+      v16 = (*(_BYTE *)(a1 + 464) & 4) == 0;
+      *a4 = v15;
+      if ( !v16 )
       {
         sub_18007358C(a1 + 56, 0xFFFFFFFFLL, 0LL);
         *(_BYTE *)(a1 + 464) &= ~4u;

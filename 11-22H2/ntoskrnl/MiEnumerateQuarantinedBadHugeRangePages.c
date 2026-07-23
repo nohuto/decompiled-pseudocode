@@ -45,10 +45,13 @@ void __fastcall MiEnumerateQuarantinedBadHugeRangePages(__int64 a1)
       if ( v1 >= qword_140C67468 )
         break;
       ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67410);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v5 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +71,10 @@ void __fastcall MiEnumerateQuarantinedBadHugeRangePages(__int64 a1)
     Pool[3] = Pool + 4;
     v11 = MiEnumerateBadHugeRangePages((__int64)(Pool + 4), v1, 1);
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67410);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
       {
         v13 = KeGetCurrentPrcb();
         v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

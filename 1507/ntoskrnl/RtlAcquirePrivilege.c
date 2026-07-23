@@ -150,7 +150,7 @@ LABEL_22:
   }
   else
   {
-    v12 = RtlImpersonateSelfEx(3LL, 40LL, v9);
+    v12 = RtlImpersonateSelfEx(SecurityDelegation, 0x28u, (PHANDLE)v9);
     if ( v12 >= 0 )
     {
       *((_DWORD *)v9 + 8) |= 1u;

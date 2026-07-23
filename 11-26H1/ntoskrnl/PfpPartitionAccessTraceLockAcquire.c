@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpPartitionAccessTraceLockAcquire @ 0x140BE95B0
+ * XREFs of PfpPartitionAccessTraceLockAcquire @ 0x140BEF5B0
  * Callers:
- *     PfTSetTraceWorkerPriority @ 0x1405FFF44 (PfTSetTraceWorkerPriority.c)
- *     PfGenerateTrace @ 0x1407794E8 (PfGenerateTrace.c)
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     PfTSetTraceWorkerPriority @ 0x1406029F4 (PfTSetTraceWorkerPriority.c)
+ *     PfGenerateTrace @ 0x14077C418 (PfGenerateTrace.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
  */
 
 void __fastcall PfpPartitionAccessTraceLockAcquire(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

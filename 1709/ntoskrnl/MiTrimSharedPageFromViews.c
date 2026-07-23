@@ -79,11 +79,11 @@ __int64 __fastcall MiTrimSharedPageFromViews(_QWORD *a1, int a2, __int64 a3, __i
   unsigned __int64 v26; // r8
   ULONG_PTR v27; // rsi
   struct _KTHREAD *v28; // rdi
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   ULONG_PTR v30; // rsi
-  __int64 v31; // r8
+  unsigned int v31; // r8d
   unsigned __int8 v32; // r14
-  __int64 v33; // rdx
+  unsigned int v33; // edx
   bool v34; // zf
   __int64 v35; // rcx
   int v36; // eax
@@ -91,16 +91,16 @@ __int64 __fastcall MiTrimSharedPageFromViews(_QWORD *a1, int a2, __int64 a3, __i
   _KLOCK_ENTRY *v38; // rbx
   __int64 v39; // rdx
   int *v40; // r8
-  __int64 v41; // r8
+  unsigned int v41; // r8d
   unsigned __int8 v42; // r14
-  __int64 v43; // rdx
+  unsigned int v43; // edx
   __int64 v44; // rcx
   int v45; // eax
   __int64 v46; // rcx
   _KLOCK_ENTRY *v47; // rbx
   __int64 v48; // rdx
   unsigned __int8 v49; // r14
-  __int64 v50; // rdx
+  unsigned int v50; // edx
   __int64 v51; // rcx
   int v52; // eax
   __int64 v53; // rcx
@@ -310,12 +310,12 @@ LABEL_30:
       v126 = 0;
       v28 = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(v27) == 1 )
-        SessionId = (unsigned int)MmGetSessionIdEx(v28->ApcState.Process);
+        SessionId = MmGetSessionIdEx(v28->ApcState.Process);
       else
-        SessionId = 0xFFFFFFFFLL;
+        SessionId = -1;
       --v28->SpecialApcDisable;
       v49 = ++v28->AbAllocationRegionCount;
-      LODWORD(v50) = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
+      v50 = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
       v34 = !_BitScanReverse((unsigned int *)&v51, v50);
       v136 = v51;
       if ( v34 )
@@ -325,11 +325,11 @@ LABEL_30:
         v52 = 1 << v51;
         v53 = v51;
         v54 = &v28->LockEntries[v53];
-        v50 = ~v52 & (unsigned int)v50;
+        v50 &= ~v52;
         if ( (v54->AcquiredByte & 1) != 0
           && (*(_DWORD *)&v54->LockState.0 & 1) == 0
           && (*(_QWORD *)&v54->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v27 & 0x7FFFFFFFFFFFFFFCLL)
-          && v54->LockState.SessionId == (_DWORD)SessionId )
+          && v54->LockState.SessionId == SessionId )
         {
           v54->AcquiredByte &= ~1u;
           if ( v54->LockState.0 )
@@ -344,13 +344,13 @@ LABEL_30:
       {
 LABEL_89:
         if ( (*((_DWORD *)&v28->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)v28, v27, (unsigned int)SessionId, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)v28, v27, SessionId, 0LL);
       }
       else
       {
         v54->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v54->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree(&v28->LockEntries[v53], v50, SessionId);
+          KiAbEntryRemoveFromTree(&v28->LockEntries[v53].TreeNode);
         v126 = 0;
         v126 = v54->BoostBitmap.AllFields & 0x1FFFF;
         v54->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -393,12 +393,12 @@ LABEL_29:
       v124 = 0;
       v28 = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(v30) == 1 )
-        v31 = (unsigned int)MmGetSessionIdEx(v28->ApcState.Process);
+        v31 = MmGetSessionIdEx(v28->ApcState.Process);
       else
-        v31 = 0xFFFFFFFFLL;
+        v31 = -1;
       --v28->SpecialApcDisable;
       v32 = ++v28->AbAllocationRegionCount;
-      LODWORD(v33) = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
+      v33 = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
       v34 = !_BitScanReverse((unsigned int *)&v35, v33);
       v134 = v35;
       if ( v34 )
@@ -408,11 +408,11 @@ LABEL_29:
         v36 = 1 << v35;
         v37 = v35;
         v38 = &v28->LockEntries[v37];
-        v33 = ~v36 & (unsigned int)v33;
+        v33 &= ~v36;
         if ( (v38->AcquiredByte & 1) != 0
           && (*(_DWORD *)&v38->LockState.0 & 1) == 0
           && (*(_QWORD *)&v38->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v30 & 0x7FFFFFFFFFFFFFFCLL)
-          && v38->LockState.SessionId == (_DWORD)v31 )
+          && v38->LockState.SessionId == v31 )
         {
           v38->AcquiredByte &= ~1u;
           if ( v38->LockState.0 )
@@ -427,13 +427,13 @@ LABEL_29:
       {
 LABEL_47:
         if ( (*((_DWORD *)&v28->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)v28, v30, (unsigned int)v31, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)v28, v30, v31, 0LL);
       }
       else
       {
         v38->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v38->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree(&v28->LockEntries[v37], v33, v31);
+          KiAbEntryRemoveFromTree(&v28->LockEntries[v37].TreeNode);
         v124 = 0;
         v124 = v38->BoostBitmap.AllFields & 0x1FFFF;
         v38->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -471,12 +471,12 @@ LABEL_99:
       v125 = 0;
       v28 = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(v30) == 1 )
-        v41 = (unsigned int)MmGetSessionIdEx(v28->ApcState.Process);
+        v41 = MmGetSessionIdEx(v28->ApcState.Process);
       else
-        v41 = 0xFFFFFFFFLL;
+        v41 = -1;
       --v28->SpecialApcDisable;
       v42 = ++v28->AbAllocationRegionCount;
-      LODWORD(v43) = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
+      v43 = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
       v34 = !_BitScanReverse((unsigned int *)&v44, v43);
       v135 = v44;
       if ( v34 )
@@ -486,11 +486,11 @@ LABEL_99:
         v45 = 1 << v44;
         v46 = v44;
         v47 = &v28->LockEntries[v46];
-        v43 = ~v45 & (unsigned int)v43;
+        v43 &= ~v45;
         if ( (v47->AcquiredByte & 1) != 0
           && (*(_DWORD *)&v47->LockState.0 & 1) == 0
           && (*(_QWORD *)&v47->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v30 & 0x7FFFFFFFFFFFFFFCLL)
-          && v47->LockState.SessionId == (_DWORD)v41 )
+          && v47->LockState.SessionId == v41 )
         {
           v47->AcquiredByte &= ~1u;
           if ( v47->LockState.0 )
@@ -505,13 +505,13 @@ LABEL_99:
       {
 LABEL_71:
         if ( (*((_DWORD *)&v28->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)v28, v30, (unsigned int)v41, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)v28, v30, v41, 0LL);
       }
       else
       {
         v47->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v47->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree(&v28->LockEntries[v46], v43, v41);
+          KiAbEntryRemoveFromTree(&v28->LockEntries[v46].TreeNode);
         v125 = 0;
         v125 = v47->BoostBitmap.AllFields & 0x1FFFF;
         v47->BoostBitmap.AllFields &= 0xFFFE0000;

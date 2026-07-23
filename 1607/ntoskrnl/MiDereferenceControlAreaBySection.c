@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDereferenceControlAreaBySection @ 0x1400275AC
+ * XREFs of MiDereferenceControlAreaBySection @ 0x14002712C
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiSectionDelete @ 0x14042E240 (MiSectionDelete.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiSectionDelete @ 0x14042D110 (MiSectionDelete.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiDereferenceControlAreaBySection(__int64 a1, unsigned int a2)

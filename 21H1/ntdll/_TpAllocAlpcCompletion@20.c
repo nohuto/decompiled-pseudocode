@@ -6,7 +6,12 @@
  *     _TppAllocAlpcCompletion@24 @ 0x4B2E9A8F (_TppAllocAlpcCompletion@24.c)
  */
 
-int __stdcall TpAllocAlpcCompletion(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl TpAllocAlpcCompletion(
+        PTP_ALPC *AlpcReturn,
+        HANDLE AlpcPort,
+        PTP_ALPC_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  return TppAllocAlpcCompletion(a3, a4, a5, 0);
+  return TppAllocAlpcCompletion(Callback, Context, CallbackEnviron, 0);
 }

@@ -1,42 +1,42 @@
 /*
- * XREFs of RtlpHpStackTraceAllocRemove @ 0x18014BBE4
+ * XREFs of RtlpHpStackTraceAllocRemove @ 0x180149F94
  * Callers:
- *     RtlpHpStackTraceRemoveStack @ 0x1800E28F0 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x1800DDEC0 (RtlpHpStackTraceRemoveStack.c)
  * Callees:
- *     RtlpHpMetadataFree @ 0x18004EF28 (RtlpHpMetadataFree.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpStackTraceAllocFindMapping @ 0x18014BB10 (RtlpHpStackTraceAllocFindMapping.c)
+ *     RtlpHpMetadataFree @ 0x180064B08 (RtlpHpMetadataFree.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpStackTraceAllocFindMapping @ 0x180149EC0 (RtlpHpStackTraceAllocFindMapping.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+__int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, __int64 a2)
 {
   _QWORD *Mapping; // rax
-  __int64 v6; // rbx
-  __int64 v7; // rsi
+  __int64 v5; // rbx
+  __int64 v6; // rsi
   _QWORD *i; // rdx
-  __int128 v10; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+50h] [rbp+8h]
+  __int128 v9; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+50h] [rbp+8h]
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 8), a2, a3);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   *(_DWORD *)a1 = NtCurrentTeb()->ClientId.UniqueThread;
-  Mapping = (_QWORD *)RtlpHpStackTraceAllocFindMapping(a1, (__int64)a2);
-  v6 = (__int64)Mapping;
+  Mapping = (_QWORD *)RtlpHpStackTraceAllocFindMapping(a1, a2);
+  v5 = (__int64)Mapping;
   if ( Mapping )
   {
-    v11 = Mapping[1] & (-1LL << (*(_DWORD *)(a1 + 20) & 0x1F));
+    v10 = Mapping[1] & (-1LL << (*(_DWORD *)(a1 + 20) & 0x1F));
     for ( i = (_QWORD *)(*(_QWORD *)(a1 + 24)
                        + 8LL
                        * ((37
-                         * (BYTE6(v11)
+                         * (BYTE6(v10)
                           + 37
-                          * (BYTE5(v11)
+                          * (BYTE5(v10)
                            + 37
-                           * (BYTE4(v11)
+                           * (BYTE4(v10)
                             + 37
-                            * (BYTE3(v11)
-                             + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
-                         + HIBYTE(v11)) & (unsigned int)((*(_DWORD *)(a1 + 20) >> 5) - 1))); (*i & 1) == 0; i = (_QWORD *)*i )
+                            * (BYTE3(v10)
+                             + 37 * (BYTE2(v10) + 37 * (BYTE1(v10) + 37 * ((unsigned __int8)v10 + 11623883)))))))
+                         + HIBYTE(v10)) & (unsigned int)((*(_DWORD *)(a1 + 20) >> 5) - 1))); (*i & 1) == 0; i = (_QWORD *)*i )
     {
       if ( (_QWORD *)*i == Mapping )
       {
@@ -46,18 +46,18 @@ __int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, volatile signed __int
         break;
       }
     }
-    v7 = Mapping[2];
+    v6 = Mapping[2];
   }
   else
   {
-    v7 = 0LL;
+    v6 = 0LL;
   }
   *(_DWORD *)a1 = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-  if ( v6 )
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
+  if ( v5 )
   {
-    v10 = RtlpHpEnvHandle;
-    RtlpHpMetadataFree(v6, &v10);
+    v9 = RtlpHpEnvHandle;
+    RtlpHpMetadataFree(v5, &v9);
   }
-  return v7;
+  return v6;
 }

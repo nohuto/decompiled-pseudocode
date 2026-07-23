@@ -1,5 +1,5 @@
 /*
- * XREFs of MmIsMdlPageDanging @ 0x1406720C0
+ * XREFs of MmIsMdlPageDanging @ 0x140673290
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ _BOOL8 __fastcall MmIsMdlPageDanging(unsigned __int64 a1)
   int v2; // ecx
 
   v1 = 48 * a1;
-  if ( a1 > qword_140E2DBE0 || ((*(_QWORD *)(v1 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+  if ( a1 > qword_140E2DD20 || ((*(_QWORD *)(v1 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
     NT_ASSERT("MiIsPfn (PageFrameIndex)");
   if ( (*(_QWORD *)(v1 - 0x220000000000LL + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
     NT_ASSERT("(MiReadPfnBlink (Pfn1).ShareCount) == 1");

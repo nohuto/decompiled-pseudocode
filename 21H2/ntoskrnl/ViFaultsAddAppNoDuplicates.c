@@ -1,17 +1,17 @@
 /*
- * XREFs of ViFaultsAddAppNoDuplicates @ 0x1409DCCD4
+ * XREFs of ViFaultsAddAppNoDuplicates @ 0x1409DDCD4
  * Callers:
- *     ViFaultsAddAllApps @ 0x1409DCB7C (ViFaultsAddAllApps.c)
+ *     ViFaultsAddAllApps @ 0x1409DDB7C (ViFaultsAddAllApps.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ViFaultsIsAppTarget @ 0x1409DD224 (ViFaultsIsAppTarget.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlUpcaseUnicodeString @ 0x14067B110 (RtlUpcaseUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ViFaultsIsAppTarget @ 0x1409DE224 (ViFaultsIsAppTarget.c)
  */
 
 __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
@@ -45,13 +45,13 @@ __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
     }
     else
     {
-      v8 = (UNICODE_STRING **)qword_140C1CB48;
-      if ( *(PVOID **)qword_140C1CB48 != &ViFaultApplicationsList )
+      v8 = (UNICODE_STRING **)qword_140C1CEC8;
+      if ( *(PVOID **)qword_140C1CEC8 != &ViFaultApplicationsList )
         __fastfail(3u);
       *(_QWORD *)&v6->Length = &ViFaultApplicationsList;
       v6->Buffer = (wchar_t *)v8;
       *v8 = v6;
-      qword_140C1CB48 = (__int64)v6;
+      qword_140C1CEC8 = (__int64)v6;
     }
     KxReleaseSpinLock(&ViFaultInjectionLock);
     if ( KiIrqlFlags )

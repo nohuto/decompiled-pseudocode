@@ -1,15 +1,15 @@
 /*
- * XREFs of MiHandleDriverNonPagedSections @ 0x14047EAEC
+ * XREFs of MiHandleDriverNonPagedSections @ 0x14047D840
  * Callers:
- *     MiSessionRemoveImage @ 0x140130440 (MiSessionRemoveImage.c)
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MiSessionRemoveImage @ 0x1401309B0 (MiSessionRemoveImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  * Callees:
- *     MiLockCode @ 0x1400155F0 (MiLockCode.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUnlockCodePage @ 0x140083BE0 (MiUnlockCodePage.c)
- *     MiDisablePagingOfDriver @ 0x14047D77C (MiDisablePagingOfDriver.c)
- *     MiSnapDriverRange @ 0x14047D810 (MiSnapDriverRange.c)
- *     MiFindDriverNonPagedSections @ 0x14047EC4C (MiFindDriverNonPagedSections.c)
+ *     MiLockCode @ 0x140015170 (MiLockCode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiUnlockCodePage @ 0x140081D40 (MiUnlockCodePage.c)
+ *     MiDisablePagingOfDriver @ 0x14047C4D0 (MiDisablePagingOfDriver.c)
+ *     MiSnapDriverRange @ 0x14047C564 (MiSnapDriverRange.c)
+ *     MiFindDriverNonPagedSections @ 0x14047D9A0 (MiFindDriverNonPagedSections.c)
  */
 
 __int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, __int64 a2, int a3)

@@ -9,13 +9,13 @@
  *     sub_1800DCA9C @ 0x1800DCA9C (sub_1800DCA9C.c)
  */
 
-void __fastcall sub_1800DC838(__int64 a1, __int64 a2, char a3)
+void __fastcall sub_1800DC838(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, char a3)
 {
   if ( (a3 & 4) == 0 && (unsigned int)sub_1800DCA9C() )
   {
     do
-      ZwRaiseException();
+      ZwRaiseException(ExceptionRecord, ContextRecord, 0);
     while ( (unsigned int)sub_1800DCA9C() );
-    ZwTerminateProcess();
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionRecord->ExceptionCode);
   }
 }

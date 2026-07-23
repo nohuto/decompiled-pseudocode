@@ -1,13 +1,13 @@
 /*
- * XREFs of ExFreeHeapPages @ 0x140346358
+ * XREFs of ExFreeHeapPages @ 0x1403483D8
  * Callers:
- *     ExGetBigPoolInfo @ 0x1403460C8 (ExGetBigPoolInfo.c)
- *     ExPoolCleanupExpansionTable @ 0x140522698 (ExPoolCleanupExpansionTable.c)
+ *     ExGetBigPoolInfo @ 0x140348148 (ExGetBigPoolInfo.c)
+ *     ExPoolCleanupExpansionTable @ 0x140524D04 (ExPoolCleanupExpansionTable.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpFreeHeap @ 0x140347010 (RtlpHpFreeHeap.c)
- *     RtlpHpQueryVA @ 0x1403504C0 (RtlpHpQueryVA.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpFreeHeap @ 0x140349090 (RtlpHpFreeHeap.c)
+ *     RtlpHpQueryVA @ 0x140352540 (RtlpHpQueryVA.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 ExFreeHeapPages(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, ...)
@@ -37,8 +37,8 @@ LABEL_5:
     goto LABEL_6;
   }
   v5 = RtlCSparseBitmapBitmaskRead(
-         (__int64)&ExpUuidLock.ThreadLock,
-         2 * ((BugCheckParameter3 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+         (__int64)&ExpUuidLock.CycleTime,
+         2 * ((BugCheckParameter3 - ExpUuidLock.ThreadLock) >> 20));
   if ( v5 )
   {
     v4 = v5 - 1;

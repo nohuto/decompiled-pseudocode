@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwGetKernelTraceTimestamp @ 0x140059D50
+ * XREFs of EtwGetKernelTraceTimestamp @ 0x1400598D0
  * Callers:
  *     IopTimerDispatch @ 0x1400017F4 (IopTimerDispatch.c)
- *     KiRetireDpcList @ 0x140058280 (KiRetireDpcList.c)
- *     KiIpiProcessRequests @ 0x1400898A0 (KiIpiProcessRequests.c)
- *     KeFlushIoBuffers @ 0x14009D3F0 (KeFlushIoBuffers.c)
- *     PfHardFaultRecord @ 0x1400A1524 (PfHardFaultRecord.c)
- *     KiFinalizeTimer2Disablement @ 0x1400A2760 (KiFinalizeTimer2Disablement.c)
- *     KiExpireTimer2 @ 0x1400EC080 (KiExpireTimer2.c)
- *     KeDisableTimer2 @ 0x1400F79FC (KeDisableTimer2.c)
- *     KiProcessExpiredTimerList @ 0x14010CEBC (KiProcessExpiredTimerList.c)
- *     KiInvokeInterruptServiceRoutine @ 0x1401D8994 (KiInvokeInterruptServiceRoutine.c)
- *     NtDeleteValueKey @ 0x1403FA9B8 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x1403FBA58 (NtDeleteKey.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     CmpSecurityMethod @ 0x1404042B0 (CmpSecurityMethod.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     NtEnumerateValueKey @ 0x140439540 (NtEnumerateValueKey.c)
- *     NtEnumerateKey @ 0x140439B70 (NtEnumerateKey.c)
- *     NtQueryKey @ 0x14043B2A0 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     CmCreateKey @ 0x140464100 (CmCreateKey.c)
- *     CmpCloseKeyObject @ 0x14049A770 (CmpCloseKeyObject.c)
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
- *     NtQueryMultipleValueKey @ 0x1404DD5F8 (NtQueryMultipleValueKey.c)
- *     NtFlushKey @ 0x1404E88CC (NtFlushKey.c)
- *     NtSetInformationKey @ 0x14050FD50 (NtSetInformationKey.c)
- *     CmpReplicateKeyToVirtual @ 0x140601798 (CmpReplicateKeyToVirtual.c)
+ *     KiRetireDpcList @ 0x140057E00 (KiRetireDpcList.c)
+ *     KiIpiProcessRequests @ 0x140088FA0 (KiIpiProcessRequests.c)
+ *     KeFlushIoBuffers @ 0x14009CBF0 (KeFlushIoBuffers.c)
+ *     PfHardFaultRecord @ 0x14009FE4C (PfHardFaultRecord.c)
+ *     KiFinalizeTimer2Disablement @ 0x1400A1088 (KiFinalizeTimer2Disablement.c)
+ *     KiExpireTimer2 @ 0x1400E9EF0 (KiExpireTimer2.c)
+ *     KeDisableTimer2 @ 0x1400F583C (KeDisableTimer2.c)
+ *     KiProcessExpiredTimerList @ 0x14010D420 (KiProcessExpiredTimerList.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x1401D87C0 (KiInvokeInterruptServiceRoutine.c)
+ *     CmpCloseKeyObject @ 0x1403E3690 (CmpCloseKeyObject.c)
+ *     NtDeleteValueKey @ 0x1403F9878 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x1403FA918 (NtDeleteKey.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     CmpSecurityMethod @ 0x140403170 (CmpSecurityMethod.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     NtEnumerateValueKey @ 0x140438410 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x140438A40 (NtEnumerateKey.c)
+ *     NtQueryKey @ 0x14043A170 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     CmCreateKey @ 0x140462FD0 (CmCreateKey.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
+ *     NtQueryMultipleValueKey @ 0x1404C0BFC (NtQueryMultipleValueKey.c)
+ *     NtFlushKey @ 0x1404CAC58 (NtFlushKey.c)
+ *     NtSetInformationKey @ 0x1404F2CE0 (NtSetInformationKey.c)
+ *     CmpReplicateKeyToVirtual @ 0x14060184C (CmpReplicateKeyToVirtual.c)
  * Callees:
  *     <none>
  */
@@ -57,7 +57,7 @@ void __fastcall EtwGetKernelTraceTimestamp(char *a1, unsigned __int64 a2)
     {
       a2 = (unsigned int)v5 & *(_DWORD *)(a2 + 4 * (v5 >> 29));
       if ( (a2 & 0x1FFFFFFF) != 0 )
-        v3 |= 1 << LOBYTE(word_1402FD362[2 * (_QWORD)a1]);
+        v3 |= 1 << LOBYTE(word_1402FD342[2 * (_QWORD)a1]);
     }
   }
   v7 = 0;

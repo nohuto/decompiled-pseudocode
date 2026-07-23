@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlCheckPortableOperatingSystem @ 0x1801010E0
+ * XREFs of RtlCheckPortableOperatingSystem @ 0x180100830
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryRegistryValues @ 0x180059B20 (RtlpQueryRegistryValues.c)
- *     RtlpGetRegistryHandle @ 0x18005A6B8 (RtlpGetRegistryHandle.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpQueryRegistryValues @ 0x1800440A0 (RtlpQueryRegistryValues.c)
+ *     RtlpGetRegistryHandle @ 0x180044C38 (RtlpGetRegistryHandle.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlCheckPortableOperatingSystem(bool *a1)
+NTSTATUS __cdecl RtlCheckPortableOperatingSystem(PBOOLEAN IsPortable)
 {
-  unsigned int v1; // ebx
+  NTSTATUS v1; // ebx
   int RegistryValues; // eax
   _BYTE v5[8]; // [rsp+30h] [rbp-19h] BYREF
   int v6; // [rsp+38h] [rbp-11h]
-  const wchar_t *v7; // [rsp+40h] [rbp-9h]
+  const WCHAR *v7; // [rsp+40h] [rbp-9h]
   int *v8; // [rsp+48h] [rbp-1h]
   int v9; // [rsp+50h] [rbp+7h]
   int v10; // [rsp+B8h] [rbp+6Fh] BYREF
@@ -24,11 +24,11 @@ __int64 __fastcall RtlCheckPortableOperatingSystem(bool *a1)
   v1 = 0;
   v10 = 0;
   Handle = 0LL;
-  if ( (int)RtlpGetRegistryHandle(2, L"MiniNT", 0, (const wchar_t **)&Handle) >= 0 )
+  if ( (int)RtlpGetRegistryHandle(2, L"MiniNT", 0, &Handle) >= 0 )
   {
     NtClose(Handle);
 LABEL_6:
-    *a1 = v10 != 0;
+    *IsPortable = v10 != 0;
     return v1;
   }
   memset_thunk_772440563353939046(v5, 0, 0x70uLL);
@@ -44,5 +44,5 @@ LABEL_6:
       return v1;
     goto LABEL_6;
   }
-  return (unsigned int)-1073741275;
+  return -1073741275;
 }

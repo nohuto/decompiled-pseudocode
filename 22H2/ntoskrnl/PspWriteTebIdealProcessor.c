@@ -14,27 +14,27 @@
 
 void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  struct _PROCESSOR_NUMBER *v6; // r15
-  struct _PROCESSOR_NUMBER *v7; // r14
-  struct _PROCESSOR_NUMBER *v8; // rax
+  _PROCESSOR_NUMBER *v6; // r15
+  _PROCESSOR_NUMBER *v7; // r14
+  _PROCESSOR_NUMBER *v8; // rax
   _KPROCESS *v9; // r12
   unsigned __int64 v10; // rcx
   char v11; // di
   char v12; // si
-  struct _PROCESSOR_NUMBER *v13; // r13
-  struct _PROCESSOR_NUMBER *i; // r12
-  struct _PROCESSOR_NUMBER v15; // eax
-  struct _PROCESSOR_NUMBER *v16; // rax
+  _PROCESSOR_NUMBER *v13; // r13
+  _PROCESSOR_NUMBER *i; // r12
+  _PROCESSOR_NUMBER v15; // eax
+  _PROCESSOR_NUMBER *v16; // rax
   signed __int32 v17[8]; // [rsp+0h] [rbp-C8h] BYREF
   char v18; // [rsp+20h] [rbp-A8h]
   char v19; // [rsp+21h] [rbp-A7h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
-  struct _PROCESSOR_NUMBER v21; // [rsp+28h] [rbp-A0h] BYREF
-  struct _PROCESSOR_NUMBER *v22; // [rsp+30h] [rbp-98h]
-  struct _PROCESSOR_NUMBER *v23; // [rsp+38h] [rbp-90h]
-  struct _PROCESSOR_NUMBER *v24; // [rsp+40h] [rbp-88h]
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
-  struct _PROCESSOR_NUMBER *v26; // [rsp+50h] [rbp-78h]
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
+  _PROCESSOR_NUMBER v21; // [rsp+28h] [rbp-A0h] BYREF
+  _PROCESSOR_NUMBER *v22; // [rsp+30h] [rbp-98h]
+  _PROCESSOR_NUMBER *v23; // [rsp+38h] [rbp-90h]
+  _PROCESSOR_NUMBER *v24; // [rsp+40h] [rbp-88h]
+  _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
+  _PROCESSOR_NUMBER *v26; // [rsp+50h] [rbp-78h]
   __int64 v27; // [rsp+58h] [rbp-70h]
   _OWORD v28[3]; // [rsp+60h] [rbp-68h] BYREF
 
@@ -46,7 +46,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2, __int64 a3, _D
   v23 = 0LL;
   v7 = 0LL;
   v24 = 0LL;
-  v8 = *(struct _PROCESSOR_NUMBER **)(a2 + 240);
+  v8 = *(_PROCESSOR_NUMBER **)(a2 + 240);
   v22 = v8;
   v26 = v8;
   v9 = *(_KPROCESS **)(a2 + 544);
@@ -97,7 +97,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2, __int64 a3, _D
       LOWORD(v22) = v15.Group;
       BYTE2(v22) = v15.Number & 0x1F;
       BYTE3(v22) = v15.Reserved & 0x1F;
-      v6[989] = (struct _PROCESSOR_NUMBER)v22;
+      v6[989] = (_PROCESSOR_NUMBER)v22;
     }
     _InterlockedOr(v17, 0);
     KeGetProcessorNumberFromIndex(*(_DWORD *)(a2 + 196), &v21);

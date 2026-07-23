@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpExposeTokenAttribute @ 0x1405E8850
+ * XREFs of AlpcpExposeTokenAttribute @ 0x1406D7FB0
  * Callers:
- *     AlpcpExposeAttributes @ 0x1405E8380 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x1406D7AE0 (AlpcpExposeAttributes.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCreateClientSecurityEx @ 0x140652D80 (SeCreateClientSecurityEx.c)
  */
 
 char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -69,7 +69,7 @@ LABEL_12:
   v13 = *(_QWORD *)(a2 + 32);
   if ( !v13 )
     return v10;
-  LODWORD(v10) = SeCreateClientSecurityEx(v13, v11 + 260, 0LL, v20);
+  LODWORD(v10) = SeCreateClientSecurityEx(v13, (int)v11 + 260, 0, (__int64)v20);
   v8 = v10;
   if ( (int)v10 < 0 )
     goto LABEL_12;

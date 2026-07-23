@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReplenishTransitionPageHeatList @ 0x14065485C
+ * XREFs of MiReplenishTransitionPageHeatList @ 0x140654DAC
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x1402CD7D0 (MmCopyToCachedPage.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x1402CDA60 (MmCopyToCachedPage.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  */
 
 void MiReplenishTransitionPageHeatList()
 {
-  struct _SLIST_ENTRY *Pool; // rax
+  _SLIST_ENTRY *Pool; // rax
 
   while ( LOWORD(stru_140C682E0.Alignment) < 0x40u )
   {
-    Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x90uLL, 0x6C486D4Du);
+    Pool = (_SLIST_ENTRY *)MiAllocatePool(64, 0x90uLL, 0x6C486D4Du);
     if ( !Pool )
     {
       _InterlockedExchange(&dword_140C682F0, 32);

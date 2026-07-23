@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFinalizeLagePageImageMapping @ 0x1407ED7C4
+ * XREFs of MiFinalizeLagePageImageMapping @ 0x1407EDD94
  * Callers:
- *     MiMapViewOfSection @ 0x14089A1A0 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x1408A2840 (MiMapViewOfSection.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  */
 
 __int64 __fastcall MiFinalizeLagePageImageMapping(int a1, __int64 a2, void *a3, int a4, __int64 a5, int a6, int a7)

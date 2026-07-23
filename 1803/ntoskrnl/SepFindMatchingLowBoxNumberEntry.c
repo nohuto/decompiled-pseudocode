@@ -15,7 +15,7 @@ __int64 __fastcall SepFindMatchingLowBoxNumberEntry(PRTL_DYNAMIC_HASH_TABLE Hash
   __int64 v8; // r9
   ULONG_PTR v9; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = 0;
   v7 = 0LL;

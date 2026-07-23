@@ -1,15 +1,15 @@
 /*
- * XREFs of PsInsertVirtualizedTimer @ 0x140356660
+ * XREFs of PsInsertVirtualizedTimer @ 0x140356800
  * Callers:
- *     ExpSetTimerObject @ 0x14032E824 (ExpSetTimerObject.c)
- *     NtCreateTimer @ 0x1407C6590 (NtCreateTimer.c)
+ *     ExpSetTimerObject @ 0x14032EAB4 (ExpSetTimerObject.c)
+ *     NtCreateTimer @ 0x1407C6860 (NtCreateTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExpTimerPause @ 0x140369808 (ExpTimerPause.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExpTimerPause @ 0x1403699A8 (ExpTimerPause.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 KSPIN_LOCK **__fastcall PsInsertVirtualizedTimer(
@@ -60,10 +60,10 @@ KSPIN_LOCK **__fastcall PsInsertVirtualizedTimer(
     {
       KxReleaseSpinLock((volatile signed __int64 *)a3);
       KxReleaseSpinLock(v11);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

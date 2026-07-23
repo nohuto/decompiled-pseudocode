@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwAlpcQueryInformation @ 0x1800A13B0
+ * XREFs of ZwAlpcQueryInformation @ 0x1800A13D0
  * Callers:
- *     TpWaitForAlpcCompletion @ 0x180088140 (TpWaitForAlpcCompletion.c)
+ *     TpWaitForAlpcCompletion @ 0x180088150 (TpWaitForAlpcCompletion.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlpcQueryInformation()
+NTSTATUS __cdecl ZwAlpcQueryInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 135LL;
+  result = 135;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

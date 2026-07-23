@@ -12,12 +12,12 @@ void __fastcall sub_18007B8F8(__int64 a1)
   int v2; // r8d
   int v3; // r8d
   __int64 v4; // r9
-  void *v5; // r10
+  PVOID v5; // r10
 
   if ( a1 )
   {
     v1 = *(_QWORD *)(a1 + 128);
-    *(struct _GUID *)(a1 + 232) = NtCurrentTeb()->ActivityId;
+    *(GUID *)(a1 + 232) = NtCurrentTeb()->ActivityId;
     if ( v1 )
     {
       if ( (*(_BYTE *)(v1 + 436) & 1) == 0 )

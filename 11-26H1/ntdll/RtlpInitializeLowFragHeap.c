@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpInitializeLowFragHeap @ 0x1800DB7D0
+ * XREFs of RtlpInitializeLowFragHeap @ 0x18006DA10
  * Callers:
- *     RtlpCreateLowFragHeap @ 0x18007EE98 (RtlpCreateLowFragHeap.c)
+ *     RtlpCreateLowFragHeap @ 0x18006CC20 (RtlpCreateLowFragHeap.c)
  * Callees:
  *     <none>
  */
@@ -40,7 +40,7 @@ _QWORD *__fastcall RtlpInitializeLowFragHeap(__int64 a1, char a2, _QWORD *a3)
     result = (_QWORD *)((char *)result + 4);
     ++v3;
     *(_WORD *)((char *)result - 7) = (v8 >> 4) + 1;
-    *((_BYTE *)result - 4) = *((_BYTE *)result - 4) & 0xF9 | (2 * (BYTE12(RtlpDefaultHeapDebuggingOptions) & 3));
+    *((_BYTE *)result - 4) = *((_BYTE *)result - 4) & 0xF9 | (2 * (dword_1801CBFEC & 3));
   }
   while ( v3 < 0x81 );
   if ( (a2 & 1) != 0 )

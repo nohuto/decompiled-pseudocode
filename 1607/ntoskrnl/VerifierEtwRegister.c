@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetEtwRegister @ 0x14071002C (VfTargetEtwRegister.c)
+ *     VfTargetEtwRegister @ 0x14071005C (VfTargetEtwRegister.c)
  */
 
 __int64 __fastcall VerifierEtwRegister(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)

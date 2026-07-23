@@ -1,13 +1,13 @@
 /*
- * XREFs of EmonReleaseProfileResources @ 0x140595F60
+ * XREFs of EmonReleaseProfileResources @ 0x1405986E0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpPmuGetNumberOfReservedCounters @ 0x140580560 (HalpPmuGetNumberOfReservedCounters.c)
- *     EmonReleaseProfileResourcesInternal @ 0x140595FF4 (EmonReleaseProfileResourcesInternal.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpPmuGetNumberOfReservedCounters @ 0x140582A80 (HalpPmuGetNumberOfReservedCounters.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x140598774 (EmonReleaseProfileResourcesInternal.c)
  */
 
 __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1, _DWORD *a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of SepReferenceLogonSession @ 0x1405DC7C4
+ * XREFs of SepReferenceLogonSession @ 0x1406CBF44
  * Callers:
- *     SepDuplicateLogonSessionReference @ 0x140201A48 (SepDuplicateLogonSessionReference.c)
- *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
- *     SepLinkLogonSessions @ 0x1402D2FE4 (SepLinkLogonSessions.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     SepLinkLogonSessions @ 0x1402438E4 (SepLinkLogonSessions.c)
+ *     SepDuplicateLogonSessionReference @ 0x1402A5540 (SepDuplicateLogonSessionReference.c)
+ *     SepCreateTokenEx @ 0x1402A6428 (SepCreateTokenEx.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     SepReferenceLogonSessionSilo @ 0x1405DC7FC (SepReferenceLogonSessionSilo.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     SepReferenceLogonSessionSilo @ 0x1406CBF7C (SepReferenceLogonSessionSilo.c)
  */
 
 __int64 __fastcall SepReferenceLogonSession(__int64 a1, __int64 a2)
 {
   __int64 CurrentServerSilo; // rax
 
-  CurrentServerSilo = PsGetCurrentServerSilo(a1, a2);
+  CurrentServerSilo = PsGetCurrentServerSilo();
   return SepReferenceLogonSessionSilo(a1, CurrentServerSilo, a2);
 }

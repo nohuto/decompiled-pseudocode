@@ -13,7 +13,7 @@
  *     RtlTestProtectedAccess @ 0x1406B8AE0 (RtlTestProtectedAccess.c)
  */
 
-__int64 __fastcall PopBlackBoxUpdate(char **a1, char *a2)
+__int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
 {
   __int64 v3; // rax
   _UNKNOWN **v4; // r14
@@ -28,10 +28,9 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char *a2)
   char *v14; // rax
   char *v15; // rcx
   PVOID PoolWithTag; // rax
-  _KPROCESS *Process; // rcx
-  char v19; // [rsp+60h] [rbp+8h]
+  char v17; // [rsp+60h] [rbp+8h]
 
-  v19 = 0;
+  v17 = 0;
   v3 = *((int *)a1 + 6);
   if ( (unsigned int)v3 > 0x13 )
   {
@@ -39,30 +38,26 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char *a2)
     goto LABEL_11;
   }
   v4 = &PopBlackBoxEntries + 13 * v3;
-  if ( (_BYTE)a2 )
+  if ( a2 )
   {
     v14 = a1[1];
     if ( v14 )
     {
       v15 = *a1;
-      a2 = &v14[(_QWORD)v15];
-      if ( &v14[(_QWORD)v15] > (char *)0x7FFFFFFF0000LL || a2 < v15 )
+      if ( &v14[(_QWORD)v15] > (char *)0x7FFFFFFF0000LL || &v14[(_QWORD)v15] < v15 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    if ( ((_DWORD)v4[2] & 1) != 0 )
+    if ( ((_DWORD)v4[2] & 1) != 0
+      && !RtlTestProtectedAccess(
+            (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->Process[2].ActiveProcessors.Bitmap[4]),
+            (PS_PROTECTION)97) )
     {
-      Process = KeGetCurrentThread()->Process;
-      LOBYTE(Process) = BYTE2(Process[2].ActiveProcessors.Bitmap[4]);
-      LOBYTE(a2) = 97;
-      if ( !(unsigned __int8)RtlTestProtectedAccess(Process, a2) )
-      {
-        v10 = -1073741790;
-        goto LABEL_11;
-      }
+      v10 = -1073741790;
+      goto LABEL_11;
     }
   }
   v5 = *((_DWORD *)a1 + 7);
-  v19 = 1;
+  v17 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopBlackBoxLock, 0LL);
@@ -119,7 +114,7 @@ LABEL_29:
     goto LABEL_29;
   }
 LABEL_11:
-  if ( v19 )
+  if ( v17 )
   {
     v11 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PopBlackBoxLock, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v11 & 2) != 0 && (v11 & 4) == 0 )

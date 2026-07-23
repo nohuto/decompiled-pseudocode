@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapWmiGetAllData @ 0x140321970
+ * XREFs of WheapWmiGetAllData @ 0x140321B60
  * Callers:
- *     WheaWmiDispatch @ 0x140191840 (WheaWmiDispatch.c)
+ *     WheaWmiDispatch @ 0x140191980 (WheaWmiDispatch.c)
  * Callees:
  *     <none>
  */

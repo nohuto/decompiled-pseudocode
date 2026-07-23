@@ -1,13 +1,13 @@
 /*
- * XREFs of MiShadowTopLevelPxes @ 0x1403422E0
+ * XREFs of MiShadowTopLevelPxes @ 0x140344360
  * Callers:
- *     MiCopyTopLevelMappings @ 0x140342188 (MiCopyTopLevelMappings.c)
- *     MiReplicatePteChangeToProcess @ 0x14070BB80 (MiReplicatePteChangeToProcess.c)
+ *     MiCopyTopLevelMappings @ 0x140344208 (MiCopyTopLevelMappings.c)
+ *     MiReplicatePteChangeToProcess @ 0x140710830 (MiReplicatePteChangeToProcess.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
  */
 
 void __fastcall MiShadowTopLevelPxes(__int64 a1, __int64 a2, int a3)
@@ -38,7 +38,7 @@ void __fastcall MiShadowTopLevelPxes(__int64 a1, __int64 a2, int a3)
         v7 = ((unsigned int)a2 >> 3) & 0x1FF;
         do
         {
-          if ( _bittest64((const signed __int64 *)&stru_140E2D930.SecureThreadCookie, (unsigned int)(v7 - 256)) )
+          if ( _bittest64((const signed __int64 *)&stru_140E2DAB0.SecureThreadCookie, (unsigned int)(v7 - 256)) )
           {
             v8 = (__int64 *)(KernelWaitTime + 8 * v7);
             PteShadow = *v8;

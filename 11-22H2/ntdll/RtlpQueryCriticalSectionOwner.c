@@ -10,41 +10,48 @@
  *     RtlpQueryProcessMachine @ 0x1800E351C (RtlpQueryProcessMachine.c)
  */
 
-__int64 __fastcall RtlpQueryCriticalSectionOwner(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpQueryCriticalSectionOwner(void *a1, __int64 a2)
 {
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   __int64 CriticalSectionOwner32; // rax
-  unsigned __int16 v6; // [rsp+78h] [rbp+18h] BYREF
-  HANDLE Handle; // [rsp+80h] [rbp+20h]
+  _CLIENT_ID ClientId; // [rsp+20h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  unsigned __int16 v8; // [rsp+78h] [rbp+18h] BYREF
+  HANDLE ProcessHandle; // [rsp+80h] [rbp+20h] BYREF
 
-  Handle = 0LL;
+  ProcessHandle = 0LL;
   if ( !*(_QWORD *)(a2 + 160) )
     return (unsigned int)-1073741811;
-  v3 = NtOpenProcess();
+  memset(&ObjectAttributes.RootDirectory, 0, 20);
+  ClientId.UniqueThread = 0LL;
+  ClientId.UniqueProcess = a1;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ObjectAttributes.Length = 48;
+  v3 = NtOpenProcess(&ProcessHandle, 0x1010u, &ObjectAttributes, &ClientId);
   if ( v3 >= 0 )
   {
-    v3 = RtlpQueryProcessMachine(Handle, &v6);
+    v3 = RtlpQueryProcessMachine(ProcessHandle, &v8);
     if ( v3 >= 0 )
     {
-      if ( v6 == 332 || v6 == 452 )
+      if ( v8 == 332 || v8 == 452 )
       {
-        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner32(Handle, *(_QWORD *)(a2 + 160));
+        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner32(ProcessHandle);
       }
       else
       {
-        if ( v6 != 34404 && v6 != 43620 )
+        if ( v8 != 34404 && v8 != 43620 )
         {
           v3 = -1073741811;
           goto LABEL_13;
         }
-        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner64(Handle, *(_QWORD *)(a2 + 160));
+        CriticalSectionOwner32 = RtlpQueryCriticalSectionOwner64(ProcessHandle);
       }
       *(_QWORD *)(a2 + 168) = CriticalSectionOwner32;
       v3 = 0;
     }
   }
 LABEL_13:
-  if ( Handle )
-    NtClose(Handle);
+  if ( ProcessHandle )
+    NtClose(ProcessHandle);
   return (unsigned int)v3;
 }

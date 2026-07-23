@@ -10,32 +10,34 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlSetCurrentEnvironment(int a1, int *a2)
+NTSTATUS __cdecl RtlSetCurrentEnvironment(PVOID Environment, PVOID *PreviousEnvironment)
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // ebx
-  int v3; // esi
-  void *Environment; // eax
+  unsigned int v3; // esi
+  void *v4; // eax
   struct _PEB *v5; // eax
-  int v7; // [esp+Ch] [ebp-4h]
+  size_t v7; // [esp-4h] [ebp-14h]
+  PVOID BaseAddress; // [esp+Ch] [ebp-4h]
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  v3 = RtlSizeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
-  RtlEnterCriticalSection((int)NtCurrentPeb()->FastPebLock);
-  memset(&RtlpEnvironLookupTable, 0, 0x234u);
-  Environment = ProcessParameters->Environment;
+  v3 = RtlSizeHeap(NtCurrentPeb()->ProcessHeap, 0, Environment);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
+  LODWORD(v7) = 564;
+  memset(&RtlpEnvironLookupTable, 0, v7);
+  v4 = ProcessParameters->Environment;
   ++ProcessParameters->EnvironmentVersion;
-  v7 = (int)Environment;
+  BaseAddress = v4;
   v5 = NtCurrentPeb();
-  ProcessParameters->Environment = (void *)a1;
+  ProcessParameters->Environment = Environment;
   ProcessParameters->EnvironmentSize = v3;
-  RtlLeaveCriticalSection((int)v5->FastPebLock);
-  if ( a2 )
+  RtlLeaveCriticalSection(v5->FastPebLock);
+  if ( PreviousEnvironment )
   {
-    *a2 = v7;
+    *PreviousEnvironment = BaseAddress;
   }
-  else if ( v7 )
+  else if ( BaseAddress )
   {
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return 0;
 }

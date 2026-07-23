@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpLkmdSnapPendingIrps @ 0x140811E78
+ * XREFs of DbgkpLkmdSnapPendingIrps @ 0x140813078
  * Callers:
- *     DbgkpLkmdSnapThreadApc @ 0x140811FB0 (DbgkpLkmdSnapThreadApc.c)
+ *     DbgkpLkmdSnapThreadApc @ 0x1408131B0 (DbgkpLkmdSnapThreadApc.c)
  * Callees:
- *     DbgkpLkmdSnapData @ 0x14026DA50 (DbgkpLkmdSnapData.c)
- *     DbgkpLkmdSnapObject @ 0x14026DD40 (DbgkpLkmdSnapObject.c)
+ *     DbgkpLkmdSnapData @ 0x14026DC40 (DbgkpLkmdSnapData.c)
+ *     DbgkpLkmdSnapObject @ 0x14026DF30 (DbgkpLkmdSnapObject.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapPendingIrps(__int64 a1, __int64 a2, _DWORD *a3)

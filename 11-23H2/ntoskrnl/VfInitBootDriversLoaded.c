@@ -3,17 +3,17 @@
  * Callers:
  *     MiInitializeDriverImages @ 0x140B460A0 (MiInitializeDriverImages.c)
  * Callees:
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C32D0 (ExInitializeNPagedLookasideListInternal.c)
- *     CarInit @ 0x1405D3D04 (CarInit.c)
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     NtSetDebugFilterState @ 0x14082F570 (NtSetDebugFilterState.c)
- *     VfDriverLoadImage @ 0x140ABCE04 (VfDriverLoadImage.c)
- *     VfThunkGetNumberOfWdmThunk @ 0x140ABD314 (VfThunkGetNumberOfWdmThunk.c)
- *     VfAvlInitializeTreeEx @ 0x140ABD480 (VfAvlInitializeTreeEx.c)
- *     VfInitVerifierComponents @ 0x140AC2E70 (VfInitVerifierComponents.c)
- *     VfObjectContextInit @ 0x140AC3FC4 (VfObjectContextInit.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403C34B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     CarInit @ 0x1405D4274 (CarInit.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     NtSetDebugFilterState @ 0x14082F870 (NtSetDebugFilterState.c)
+ *     VfDriverLoadImage @ 0x140ABCDF4 (VfDriverLoadImage.c)
+ *     VfThunkGetNumberOfWdmThunk @ 0x140ABD304 (VfThunkGetNumberOfWdmThunk.c)
+ *     VfAvlInitializeTreeEx @ 0x140ABD470 (VfAvlInitializeTreeEx.c)
+ *     VfInitVerifierComponents @ 0x140AC2E60 (VfInitVerifierComponents.c)
+ *     VfObjectContextInit @ 0x140AC3FB4 (VfObjectContextInit.c)
  *     ViThunkFindAllExportAddresses @ 0x140B57970 (ViThunkFindAllExportAddresses.c)
  *     VfDriverLoadBootDrivers @ 0x140B57B7C (VfDriverLoadBootDrivers.c)
  *     ViLogAndLoadXdv @ 0x140B96CF4 (ViLogAndLoadXdv.c)
@@ -37,7 +37,7 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
   if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
     CarInit();
   VfBugcheckTmpDataLock = 0LL;
-  qword_140C36928 = (__int64)&DifAPIThunkContextHead;
+  qword_140C368A8 = (__int64)&DifAPIThunkContextHead;
   DifAPIThunkContextHead = (__int64)&DifAPIThunkContextHead;
   DifpPoolTagsSize = (unsigned int)DifpPoolTagsSizeBytes >> 2;
   VfRegularThunksBitMapHeader.Buffer = (unsigned int *)&VfRegularThunksBitMap;
@@ -67,7 +67,7 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
     }
     else
     {
-      dword_140C37328 = 0;
+      dword_140C370A8 = 0;
       _InterlockedExchange(&ViTargetInitialized, 1);
     }
   }
@@ -78,7 +78,7 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
   ViThunkFindAllExportAddresses(a1, &VfDifThunks, v4, &VfDifThunksBitMapHeader);
   if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
   {
-    NtSetDebugFilterState(0x5Du, 0, 1);
+    NtSetDebugFilterState(0x5Du, 0, 1u);
     if ( (_DWORD)MmVerifyDriverBufferLength )
       VfSuspectDriversParseRegistryString();
     if ( VfXdvSuppressDriversBufferLength )

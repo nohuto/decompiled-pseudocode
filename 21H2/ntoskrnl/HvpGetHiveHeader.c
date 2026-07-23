@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpGetHiveHeader @ 0x140724770
+ * XREFs of HvpGetHiveHeader @ 0x1406FC79C
  * Callers:
- *     HvLoadHive @ 0x140722748 (HvLoadHive.c)
+ *     HvLoadHive @ 0x1406FA774 (HvLoadHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvpGetHiveHeader(__int64 a1, char **a2, _QWORD *a3)

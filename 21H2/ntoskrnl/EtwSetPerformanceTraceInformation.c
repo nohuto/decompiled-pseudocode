@@ -1,46 +1,46 @@
 /*
- * XREFs of EtwSetPerformanceTraceInformation @ 0x140938560
+ * XREFs of EtwSetPerformanceTraceInformation @ 0x140938730
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcsnlen @ 0x1403D40D0 (wcsnlen.c)
- *     wcsncpy_s @ 0x1403D8420 (wcsncpy_s.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpGetCurrentSiloState @ 0x1405AA724 (EtwpGetCurrentSiloState.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     EtwpCheckLoggerControlAccess @ 0x140642DDC (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
- *     NtSetIntervalProfile @ 0x1407343D0 (NtSetIntervalProfile.c)
- *     EtwpUpdateGroupMasks @ 0x1407970F0 (EtwpUpdateGroupMasks.c)
- *     EtwpUpdateTagFilter @ 0x140798950 (EtwpUpdateTagFilter.c)
- *     EtwpCheckSystemTraceAccess @ 0x140798978 (EtwpCheckSystemTraceAccess.c)
- *     EtwpUpdateStackTracing @ 0x14093598C (EtwpUpdateStackTracing.c)
- *     EtwpSetPmcProfileSource @ 0x14093755C (EtwpSetPmcProfileSource.c)
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140939480 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpGetMicroarchitecturalPmcAffinity @ 0x14093A3A8 (EtwpGetMicroarchitecturalPmcAffinity.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14093AE40 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
- *     EtwpUpdatePmcCounters @ 0x14093AF0C (EtwpUpdatePmcCounters.c)
- *     EtwpUpdatePmcEvents @ 0x14093B040 (EtwpUpdatePmcEvents.c)
- *     EtwpUserInAdminOrLogUsersGroup @ 0x14093B0EC (EtwpUserInAdminOrLogUsersGroup.c)
- *     EtwpCheckCurrentUserGuidAccess @ 0x1409414C0 (EtwpCheckCurrentUserGuidAccess.c)
- *     EtwpEnableStackCaching @ 0x140941C94 (EtwpEnableStackCaching.c)
- *     EtwpSetCoverageSamplerInformation @ 0x14094793C (EtwpSetCoverageSamplerInformation.c)
- *     EtwpUpdateLastBranchTracingConfiguration @ 0x140948130 (EtwpUpdateLastBranchTracingConfiguration.c)
- *     EtwpUpdateLastBranchTracingEvents @ 0x1409481F4 (EtwpUpdateLastBranchTracingEvents.c)
- *     EtwpUpdateProcessorTraceConfiguration @ 0x14094833C (EtwpUpdateProcessorTraceConfiguration.c)
- *     EtwpUpdateProcessorTraceEvents @ 0x1409483E4 (EtwpUpdateProcessorTraceEvents.c)
- *     EtwpSetSoftRestartInformation @ 0x140949350 (EtwpSetSoftRestartInformation.c)
- *     KiGetCpuVendor @ 0x14099BF68 (KiGetCpuVendor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcsnlen @ 0x1403D4240 (wcsnlen.c)
+ *     wcsncpy_s @ 0x1403D8590 (wcsncpy_s.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpGetCurrentSiloState @ 0x1405AA954 (EtwpGetCurrentSiloState.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140637BEC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     NtSetIntervalProfile @ 0x140734590 (NtSetIntervalProfile.c)
+ *     EtwpUpdateGroupMasks @ 0x1407972F0 (EtwpUpdateGroupMasks.c)
+ *     EtwpUpdateTagFilter @ 0x140798B50 (EtwpUpdateTagFilter.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140798B78 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpUpdateStackTracing @ 0x140935B5C (EtwpUpdateStackTracing.c)
+ *     EtwpSetPmcProfileSource @ 0x14093772C (EtwpSetPmcProfileSource.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140939650 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x14093A578 (EtwpGetMicroarchitecturalPmcAffinity.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14093B010 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpUpdatePmcCounters @ 0x14093B0DC (EtwpUpdatePmcCounters.c)
+ *     EtwpUpdatePmcEvents @ 0x14093B210 (EtwpUpdatePmcEvents.c)
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x14093B2BC (EtwpUserInAdminOrLogUsersGroup.c)
+ *     EtwpCheckCurrentUserGuidAccess @ 0x140941690 (EtwpCheckCurrentUserGuidAccess.c)
+ *     EtwpEnableStackCaching @ 0x140941E64 (EtwpEnableStackCaching.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x140947B0C (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x140948300 (EtwpUpdateLastBranchTracingConfiguration.c)
+ *     EtwpUpdateLastBranchTracingEvents @ 0x1409483C4 (EtwpUpdateLastBranchTracingEvents.c)
+ *     EtwpUpdateProcessorTraceConfiguration @ 0x14094850C (EtwpUpdateProcessorTraceConfiguration.c)
+ *     EtwpUpdateProcessorTraceEvents @ 0x1409485B4 (EtwpUpdateProcessorTraceEvents.c)
+ *     EtwpSetSoftRestartInformation @ 0x140949520 (EtwpSetSoftRestartInformation.c)
+ *     KiGetCpuVendor @ 0x14099CF68 (KiGetCpuVendor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwSetPerformanceTraceInformation(char *Address, __int64 Length, KPROCESSOR_MODE AccessMode)
@@ -58,7 +58,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(char *Address, __int64 Leng
   unsigned int v15; // r12d
   int v16; // r13d
   int v17; // r14d
-  unsigned int v18; // edi
+  ULONG v18; // edi
   unsigned int v19; // edx
   struct _KTHREAD *v20; // rax
   unsigned int *v21; // rax
@@ -125,7 +125,7 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(char *Address, __int64 Leng
   int v83; // [rsp+68h] [rbp-1B0h]
   unsigned int v84; // [rsp+6Ch] [rbp-1ACh]
   int v85; // [rsp+70h] [rbp-1A8h]
-  unsigned int v86; // [rsp+74h] [rbp-1A4h]
+  ULONG v86; // [rsp+74h] [rbp-1A4h]
   int v87; // [rsp+78h] [rbp-1A0h]
   int v88; // [rsp+7Ch] [rbp-19Ch]
   int v89; // [rsp+80h] [rbp-198h]
@@ -513,7 +513,7 @@ LABEL_156:
         v18 = *((_DWORD *)Address + 1);
         v86 = v18;
         KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
-        v13 = NtSetIntervalProfile(v18, 0);
+        v13 = NtSetIntervalProfile(v18, ProfileTime);
         if ( v13 >= 0 )
           EtwpProfileInterval = v18;
 LABEL_28:
@@ -591,7 +591,7 @@ LABEL_119:
         switch ( v76 )
         {
           case 6:
-            updated = EtwpUpdateStackTracing((RTL_BITMAP *)v22, (__int64)v62, v61);
+            updated = EtwpUpdateStackTracing((_RTL_BITMAP *)v22, (__int64)v62, v61);
             break;
           case 15:
             updated = EtwpUpdatePmcCounters(v22, v62, v61);

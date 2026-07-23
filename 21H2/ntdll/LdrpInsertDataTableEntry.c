@@ -2,7 +2,7 @@
  * XREFs of LdrpInsertDataTableEntry @ 0x180014620
  * Callers:
  *     LdrpMapDllWithSectionHandle @ 0x180014A90 (LdrpMapDllWithSectionHandle.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     LdrpHashUnicodeString @ 0x1800610A0 (LdrpHashUnicodeString.c)
  */

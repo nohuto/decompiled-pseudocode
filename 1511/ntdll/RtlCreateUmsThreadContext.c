@@ -7,26 +7,26 @@
  *     RtlAllocateHeap @ 0x1800255D0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlCreateUmsThreadContext(__int64 *a1)
+__int64 __fastcall RtlCreateUmsThreadContext(_QWORD *a1)
 {
   unsigned int v2; // eax
-  __int64 Heap; // rax
-  __int64 v4; // rcx
+  PVOID Heap; // rax
+  PVOID v4; // rcx
   __int64 result; // rax
   unsigned int v6; // [rsp+20h] [rbp-18h]
-  unsigned __int64 v7; // [rsp+28h] [rbp-10h]
+  PVOID BaseAddress; // [rsp+28h] [rbp-10h]
 
   *a1 = 0LL;
   v2 = 1312;
   if ( MEMORY[0x7FFE03E8] )
     v2 = MEMORY[0x7FFE03E8] + 1375;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v2);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v2);
   v4 = Heap;
-  v7 = Heap;
+  BaseAddress = Heap;
   if ( Heap )
   {
-    *(_DWORD *)(Heap + 1264) |= 8u;
-    *(_QWORD *)(Heap + 1272) = *(_QWORD *)(Heap + 1272) & 0xFFFFFFFFFFFFFFFCuLL | 1;
+    *((_DWORD *)Heap + 316) |= 8u;
+    *((_QWORD *)Heap + 159) = *((_QWORD *)Heap + 159) & 0xFFFFFFFFFFFFFFFCuLL | 1;
     v4 = Heap;
     *a1 = Heap;
     result = 0LL;
@@ -40,7 +40,7 @@ __int64 __fastcall RtlCreateUmsThreadContext(__int64 *a1)
   {
     if ( v4 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       return v6;
     }
   }

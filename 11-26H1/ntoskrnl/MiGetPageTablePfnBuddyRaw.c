@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetPageTablePfnBuddyRaw @ 0x140404850
+ * XREFs of MiGetPageTablePfnBuddyRaw @ 0x1403FD950
  * Callers:
- *     MiSetProbePagesAhead @ 0x1402EFB10 (MiSetProbePagesAhead.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F09B0 (MiLegitimatePageForDriversToMap.c)
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiRecheckCombineVm @ 0x14040424C (MiRecheckCombineVm.c)
- *     MiPfnToOwningProcess @ 0x140404320 (MiPfnToOwningProcess.c)
- *     MiStoreCheckCandidatePage @ 0x140404388 (MiStoreCheckCandidatePage.c)
- *     MiLockStealUserVm @ 0x14045EF90 (MiLockStealUserVm.c)
- *     MiCapturePfnVm @ 0x1405136D0 (MiCapturePfnVm.c)
- *     MiStoreDiscardPoisonedPage @ 0x14070A464 (MiStoreDiscardPoisonedPage.c)
+ *     MiSetProbePagesAhead @ 0x1402D1B90 (MiSetProbePagesAhead.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402D2A30 (MiLegitimatePageForDriversToMap.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiRecheckCombineVm @ 0x1403FD34C (MiRecheckCombineVm.c)
+ *     MiPfnToOwningProcess @ 0x1403FD420 (MiPfnToOwningProcess.c)
+ *     MiStoreCheckCandidatePage @ 0x1403FD488 (MiStoreCheckCandidatePage.c)
+ *     MiLockStealUserVm @ 0x140458690 (MiLockStealUserVm.c)
+ *     MiCapturePfnVm @ 0x14050D140 (MiCapturePfnVm.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14070F118 (MiStoreDiscardPoisonedPage.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ PEPROCESS __fastcall MiGetPageTablePfnBuddyRaw(__int64 a1)
   if ( !result )
     return 0LL;
   if ( (unsigned __int64)&result[-2411209711LL].CpuPartitionList.Blink > 1 )
-    return (PEPROCESS)(qword_140E37B90 + 16LL * ((_QWORD)result - 1));
+    return (PEPROCESS)(qword_140E37D10 + 16LL * ((_QWORD)result - 1));
   if ( result == (PEPROCESS)0x10000000001LL )
   {
     if ( PsInitialSystemProcess )

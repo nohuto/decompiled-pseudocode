@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlOpenImageFileOptionsKey @ 0x1406BA4E0
+ * XREFs of RtlOpenImageFileOptionsKey @ 0x140619680
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1406A6604 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x140604234 (RtlpOpenImageFileOptionsKeyEx.c)
  */
 
 __int64 __fastcall RtlOpenImageFileOptionsKey(unsigned __int16 *a1, __int64 a2, HANDLE *a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmRdtscOp @ 0x1405344F0
+ * XREFs of XmRdtscOp @ 0x140534A40
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
  */
 
 unsigned __int64 __fastcall XmRdtscOp(__int64 a1)

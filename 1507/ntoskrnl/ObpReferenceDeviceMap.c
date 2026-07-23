@@ -39,7 +39,7 @@ unsigned __int64 __fastcall ObpReferenceDeviceMap(char a1, __int64 a2, __int64 a
   unsigned __int64 v23[3]; // [rsp+28h] [rbp-40h] BYREF
   BOOLEAN EffectiveOnly; // [rsp+78h] [rbp+10h] BYREF
   BOOLEAN CopyOnOpen; // [rsp+80h] [rbp+18h] BYREF
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+88h] [rbp+20h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+88h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v6 = 0LL;

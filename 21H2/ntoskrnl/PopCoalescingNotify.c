@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCoalescingNotify @ 0x1408E68B0
+ * XREFs of PopCoalescingNotify @ 0x1408E6A10
  * Callers:
- *     PopPolicyWorkerThread @ 0x1402C4F30 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1402434B0 (PopPolicyWorkerThread.c)
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
- *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
- *     PopCoalescingSetTimer @ 0x14056EC64 (PopCoalescingSetTimer.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x14056ECF0 (PopEnsureCoalescingWorkerWillRun.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopDiagTraceEventNoPayload @ 0x14024B6D4 (PopDiagTraceEventNoPayload.c)
+ *     PopPrintEx @ 0x140272730 (PopPrintEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     PopCoalescingSetTimer @ 0x14056EEA4 (PopCoalescingSetTimer.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14056EF30 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopCoalescingNotify(int a1)
@@ -23,7 +23,7 @@ __int64 __fastcall PopCoalescingNotify(int a1)
     KeCancelTimer(&PopCoalescingTimer);
     PopCoalescingState |= 4u;
     PopEnsureCoalescingWorkerWillRun();
-    PopPrintEx(3LL, (__int64)"PopCoalescing: FLUSH notification sent.\n");
+    PopPrintEx(3u, (__int64)"PopCoalescing: FLUSH notification sent.\n");
     PopDiagTraceEventNoPayload(&POP_ETW_IO_COALESCING_FLUSH);
     PopCoalescingLastFlushTime = MEMORY[0xFFFFF78000000008];
     PopCoalescingSetTimer();

@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlDeactivateActivationContextUnsafeFast @ 0x180018750
+ * XREFs of RtlDeactivateActivationContextUnsafeFast @ 0x180018740
  * Callers:
- *     LdrShutdownProcess @ 0x180006F30 (LdrShutdownProcess.c)
- *     LdrpProcessDetachNode @ 0x18000BC04 (LdrpProcessDetachNode.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x180012AB0 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpLoadForwardedDll @ 0x180013300 (LdrpLoadForwardedDll.c)
- *     LdrShutdownThread @ 0x180015E50 (LdrShutdownThread.c)
- *     LdrpInitializeThread @ 0x180016110 (LdrpInitializeThread.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     TppCallbackCheckThreadAfterCallback @ 0x18001FF50 (TppCallbackCheckThreadAfterCallback.c)
- *     RtlpTpWorkCallback @ 0x18003A1C0 (RtlpTpWorkCallback.c)
- *     LdrpInitializeNode @ 0x180072384 (LdrpInitializeNode.c)
- *     LdrpQuerySxSMUIFile @ 0x18007C1FC (LdrpQuerySxSMUIFile.c)
- *     RtlDispatchAPC @ 0x180086140 (RtlDispatchAPC.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrShutdownProcess @ 0x180006F20 (LdrShutdownProcess.c)
+ *     LdrpProcessDetachNode @ 0x18000BBF4 (LdrpProcessDetachNode.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180012AA0 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpLoadForwardedDll @ 0x1800132F0 (LdrpLoadForwardedDll.c)
+ *     LdrShutdownThread @ 0x180015E40 (LdrShutdownThread.c)
+ *     LdrpInitializeThread @ 0x180016100 (LdrpInitializeThread.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     TppCallbackCheckThreadAfterCallback @ 0x18001FF40 (TppCallbackCheckThreadAfterCallback.c)
+ *     RtlpTpWorkCallback @ 0x18003A1B0 (RtlpTpWorkCallback.c)
+ *     LdrpInitializeNode @ 0x180072374 (LdrpInitializeNode.c)
+ *     LdrpQuerySxSMUIFile @ 0x18007C1EC (LdrpQuerySxSMUIFile.c)
+ *     RtlDispatchAPC @ 0x180086130 (RtlDispatchAPC.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 void __fastcall RtlDeactivateActivationContextUnsafeFast(__int64 a1)
@@ -119,8 +119,8 @@ LABEL_26:
       v9 = *v6;
       v10 = 0;
       DbgPrintEx(
-        51LL,
-        2LL,
+        0x33u,
+        2u,
         "SXS: %s() Active frame is not the frame being deactivated %p != %p\n",
         "RtlDeactivateActivationContextUnsafeFast",
         ActivationContextStackPointer->ActiveFrame,

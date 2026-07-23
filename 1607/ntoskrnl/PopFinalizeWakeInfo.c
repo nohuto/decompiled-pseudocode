@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFinalizeWakeInfo @ 0x140533030
+ * XREFs of PopFinalizeWakeInfo @ 0x140533570
  * Callers:
- *     PopTimeoutWakeTracking @ 0x140125690 (PopTimeoutWakeTracking.c)
+ *     PopTimeoutWakeTracking @ 0x140125C00 (PopTimeoutWakeTracking.c)
  *     PopHandleWakeSources @ 0x1403D0AEC (PopHandleWakeSources.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

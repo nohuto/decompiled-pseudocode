@@ -1,53 +1,53 @@
 /*
- * XREFs of KiSetClockInterval @ 0x1403B1FA4
+ * XREFs of KiSetClockInterval @ 0x1403B2184
  * Callers:
- *     ExpUpdateTimerConfigurationWorker @ 0x1403C2B00 (ExpUpdateTimerConfigurationWorker.c)
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x140462680 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x1403C2CE0 (ExpUpdateTimerConfigurationWorker.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x140462A80 (KiSetVirtualHeteroClockIntervalRequest.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     KiSetClockTimerKTimerDeadlines @ 0x1402C1C64 (KiSetClockTimerKTimerDeadlines.c)
- *     KiSetNextClockTickDueTime @ 0x1402C8510 (KiSetNextClockTickDueTime.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x140340BF4 (PoTraceSystemTimerResolutionKernel.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x14057004C (KiSetClockIntervalToMinimumRequested.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x1402C1EF4 (KiSetClockTimerKTimerDeadlines.c)
+ *     KiSetNextClockTickDueTime @ 0x1402C87A0 (KiSetNextClockTickDueTime.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x140340E84 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14057058C (KiSetClockIntervalToMinimumRequested.c)
  */
 
-__int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, unsigned __int64 a3)
+__int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, __int64 a3)
 {
-  __int64 v6; // rdx
-  bool v7; // r8
-  __int64 v8; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
+  unsigned __int64 v8; // rax
   unsigned int ClockTickDueTime; // eax
   int v10; // edx
   unsigned int v11; // ebx
 
   if ( *(_BYTE *)(a3 + 24) )
-    RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, a3);
+    RtlRbRemoveNode(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)a3);
   *(_DWORD *)(a3 + 28) = a1;
-  if ( (qword_140D0C478 & 1) != 0 )
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( KiClockIntervalRequests )
-      v6 = KiClockIntervalRequests ^ (unsigned __int64)&KiClockIntervalRequests;
+    if ( KiClockIntervalRequests.Root )
+      Root = (unsigned __int64)KiClockIntervalRequests.Root ^ (unsigned __int64)&KiClockIntervalRequests;
     else
-      v6 = 0LL;
+      Root = 0LL;
   }
   else
   {
-    v6 = KiClockIntervalRequests;
+    Root = (unsigned __int64)KiClockIntervalRequests.Root;
   }
   v7 = 0;
-  if ( v6 )
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( a1 >= *(_DWORD *)(v6 + 28) )
+      if ( a1 >= *(_DWORD *)(Root + 28) )
       {
-        v8 = *(_QWORD *)(v6 + 8);
-        if ( (qword_140D0C478 & 1) != 0 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
           if ( !v8 )
             goto LABEL_16;
-          v8 ^= v6;
+          v8 ^= Root;
         }
         if ( !v8 )
         {
@@ -58,20 +58,20 @@ LABEL_16:
       }
       else
       {
-        v8 = *(_QWORD *)v6;
-        if ( (qword_140D0C478 & 1) != 0 )
+        v8 = *(_QWORD *)Root;
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
           if ( !v8 )
             break;
-          v8 ^= v6;
+          v8 ^= Root;
         }
         if ( !v8 )
           break;
       }
-      v6 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&KiClockIntervalRequests, v6, v7, a3);
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)a3);
   *(_BYTE *)(a3 + 24) = 1;
   if ( a2 )
     KePseudoHrTimeIncrement = a1;

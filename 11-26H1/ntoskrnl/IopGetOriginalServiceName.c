@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetOriginalServiceName @ 0x14079EE74
+ * XREFs of IopGetOriginalServiceName @ 0x1407A19B4
  * Callers:
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     IopGetRootDeviceId @ 0x14079EF04 (IopGetRootDeviceId.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     IopGetRootDeviceId @ 0x1407A1A44 (IopGetRootDeviceId.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     PipOpenServiceEnumKeys @ 0x140A12308 (PipOpenServiceEnumKeys.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140A114F8 (PipOpenServiceEnumKeys.c)
  */
 
 __int64 __fastcall IopGetOriginalServiceName(__int64 a1, __int64 a2, _DWORD *a3)

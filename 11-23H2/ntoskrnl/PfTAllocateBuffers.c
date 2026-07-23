@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTAllocateBuffers @ 0x140846168
+ * XREFs of PfTAllocateBuffers @ 0x140846468
  * Callers:
- *     PfTStart @ 0x140845ED0 (PfTStart.c)
+ *     PfTStart @ 0x1408461D0 (PfTStart.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     PfTGetFreeBuffer @ 0x14074BAA0 (PfTGetFreeBuffer.c)
- *     PfTLbInitialize @ 0x14079D458 (PfTLbInitialize.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PfTGetFreeBuffer @ 0x14074BC90 (PfTGetFreeBuffer.c)
+ *     PfTLbInitialize @ 0x14079D648 (PfTLbInitialize.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -5,7 +5,7 @@
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     wcsncmp @ 0x180092590 (wcsncmp.c)
- *     LdrpResReadFile @ 0x1800E46B8 (LdrpResReadFile.c)
+ *     LdrpResReadFile @ 0x1800E4678 (LdrpResReadFile.c)
  */
 
 __int64 __fastcall LdrpResCompareResourceNames(

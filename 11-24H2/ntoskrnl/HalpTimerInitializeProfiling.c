@@ -1,73 +1,69 @@
 /*
- * XREFs of HalpTimerInitializeProfiling @ 0x140549DCC
+ * XREFs of HalpTimerInitializeProfiling @ 0x14054768C
  * Callers:
- *     HalpTimerInitSystem @ 0x14053AFA0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1405387E0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     HalpSetProfileSourceInterval @ 0x1404FA7C0 (HalpSetProfileSourceInterval.c)
- *     HalpMmAllocatePerProcessorMemory @ 0x140542DE8 (HalpMmAllocatePerProcessorMemory.c)
- *     HalpTimerConfigureInterrupt @ 0x140547380 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x14055A460 (HalpInterruptSetIdtEntry.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     HalpSetProfileSourceInterval @ 0x1404F80A0 (HalpSetProfileSourceInterval.c)
+ *     HalpMmAllocatePerProcessorMemory @ 0x140540738 (HalpMmAllocatePerProcessorMemory.c)
+ *     HalpTimerConfigureInterrupt @ 0x140544C40 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x140558090 (HalpInterruptSetIdtEntry.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HalpTimerInitializeProfiling(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 HalpTimerInitializeProfiling()
 {
-  __int64 v4; // rbx
-  int v5; // edi
-  int v6; // r8d
-  __int64 v7; // r9
-  int v8; // ecx
+  __int64 v0; // rbx
+  int v1; // edi
+  int v2; // r8d
+  __int64 v3; // r9
+  int v4; // ecx
   __int64 InternalData; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  int v18; // [rsp+40h] [rbp-28h] BYREF
-  __int128 v19; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  int v10; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v11; // [rsp+48h] [rbp-20h] BYREF
 
-  v4 = HalpProfileTimer;
-  v5 = 0;
-  v19 = 0LL;
+  v0 = HalpProfileTimer;
+  v1 = 0;
+  v11 = 0LL;
   if ( HalpProfileData || (HalpProfileData = (__int64)HalpMmAllocatePerProcessorMemory(296)) != 0 )
   {
-    v18 = 10000;
-    HalpSetProfileSourceInterval(0LL, (__int64)&v18, a3, a4);
+    v10 = 10000;
+    HalpSetProfileSourceInterval(0LL, (__int64)&v10);
     if ( KeGetPcr()->Prcb.Number )
     {
-      if ( v4 )
+      if ( v0 )
       {
-        LOBYTE(v6) = 15;
-        HalpInterruptSetIdtEntry(253, (unsigned int)HalpTimerProfileInterrupt, v6, v7, -3LL);
-        if ( (*(_DWORD *)(v4 + 224) & 1) != 0 )
+        LOBYTE(v2) = 15;
+        HalpInterruptSetIdtEntry(253, (unsigned int)HalpTimerProfileInterrupt, v2, v3, -3LL);
+        if ( (*(_DWORD *)(v0 + 224) & 1) != 0 )
         {
-          InternalData = HalpTimerGetInternalData(v4);
-          v5 = guard_dispatch_icall_no_overrides(InternalData, v10, v11, v12);
-          if ( v5 >= 0 )
+          InternalData = HalpTimerGetInternalData(v0);
+          v1 = guard_dispatch_icall_no_overrides(InternalData, v6);
+          if ( v1 >= 0 )
           {
-            v13 = HalpTimerGetInternalData(v4);
-            guard_dispatch_icall_no_overrides(v13, v14, v15, v16);
+            v7 = HalpTimerGetInternalData(v0);
+            guard_dispatch_icall_no_overrides(v7, v8);
           }
         }
       }
     }
-    else if ( v4 )
+    else if ( v0 )
     {
-      v8 = *(_DWORD *)KiGlobalState;
-      *((_QWORD *)&v19 + 1) = (unsigned __int16)(*(_DWORD *)KiGlobalState >> 6);
-      *(_QWORD *)&v19 = 1LL << (v8 & 0x3F);
+      v4 = *(_DWORD *)KiGlobalState;
+      *((_QWORD *)&v11 + 1) = (unsigned __int16)(*(_DWORD *)KiGlobalState >> 6);
+      *(_QWORD *)&v11 = 1LL << (v4 & 0x3F);
       return (unsigned int)HalpTimerConfigureInterrupt(
-                             v4,
+                             v0,
                              0xFDu,
                              15,
-                             v7,
+                             v3,
                              -3LL,
                              1u,
-                             &v19,
+                             &v11,
                              (__int64)HalpTimerProfileInterrupt);
     }
   }
@@ -75,5 +71,5 @@ __int64 __fastcall HalpTimerInitializeProfiling(__int64 a1, __int64 a2, __int64 
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)v5;
+  return (unsigned int)v1;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRebuildLargeZeroPage @ 0x1402A1FB0
+ * XREFs of MiRebuildLargeZeroPage @ 0x14021F3F0
  * Callers:
- *     MiRebuildLargePagesThread @ 0x1403C0430 (MiRebuildLargePagesThread.c)
+ *     MiRebuildLargePagesThread @ 0x1403C0860 (MiRebuildLargePagesThread.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiCoalesceFreeLargePages @ 0x1403031A0 (MiCoalesceFreeLargePages.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiCoalesceFreeLargePages @ 0x14030DEF0 (MiCoalesceFreeLargePages.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -24,13 +24,13 @@ __int64 __fastcall MiRebuildLargeZeroPage(__int64 a1)
   __int64 result; // rax
   unsigned __int64 v12; // rsi
   __int64 v13; // r8
-  __int64 v14; // r10
-  unsigned __int8 CurrentIrql; // bp
-  __int64 v16; // rbp
-  _BYTE *v17; // rbx
-  unsigned __int64 v18; // r10
-  _WORD *v19; // rbx
   _DWORD *SchedulerAssist; // r9
+  __int64 v15; // r10
+  unsigned __int8 CurrentIrql; // bp
+  __int64 v17; // rbp
+  _BYTE *v18; // rbx
+  unsigned __int64 v19; // r10
+  _WORD *v20; // rbx
   unsigned __int8 v21; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v23; // r9
@@ -71,7 +71,7 @@ LABEL_7:
         if ( v10 <= v7 && v10 != -1LL )
         {
           v12 = v10 << 18;
-          v14 = *(_QWORD *)(a1 + 16) + 4544LL * *(unsigned int *)(MiSearchNumaNodeTable(v10 << 18) + 8);
+          v15 = *(_QWORD *)(a1 + 16) + 4544LL * *(unsigned int *)(MiSearchNumaNodeTable(v10 << 18) + 8);
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
           if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -81,8 +81,8 @@ LABEL_7:
             SchedulerAssist[5] = v13;
           }
           LockHandle.LockQueue.Next = 0LL;
-          LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v14 + 4328);
-          KxAcquireQueuedSpinLock(&LockHandle, v14 + 4328, v13);
+          LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v15 + 4328);
+          KxAcquireQueuedSpinLock(&LockHandle, v15 + 4328, v13, SchedulerAssist);
           _bittestandreset64(*(signed __int64 **)(a1 + 5120), v10);
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
           if ( KiIrqlFlags )
@@ -104,38 +104,38 @@ LABEL_7:
           }
           __writecr8(CurrentIrql);
           v3 = v10 + 1;
-          v16 = 512LL;
-          v17 = (_BYTE *)(*(_QWORD *)(a1 + 5104) + (v10 << 9));
+          v17 = 512LL;
+          v18 = (_BYTE *)(*(_QWORD *)(a1 + 5104) + (v10 << 9));
           do
           {
-            if ( *v17 == 32 )
+            if ( *v18 == 32 )
               MiCoalesceFreeLargePages(a1, v12, 2LL);
             v12 += 512LL;
-            ++v17;
-            --v16;
+            ++v18;
+            --v17;
           }
-          while ( v16 );
+          while ( v17 );
           goto LABEL_2;
         }
       }
     }
     if ( !v5 )
       break;
-    v18 = v3 + 1;
+    v19 = v3 + 1;
     if ( v3 + 1 > v4 )
-      v18 = *(_QWORD *)(a1 + 5112);
-    v7 = v18 - 1;
+      v19 = *(_QWORD *)(a1 + 5112);
+    v7 = v19 - 1;
     v5 = 0LL;
   }
   result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 5136), 0);
   if ( (_DWORD)result )
   {
-    v19 = *(_WORD **)(a1 + 5128);
+    v20 = *(_WORD **)(a1 + 5128);
     do
     {
-      if ( *v19 == 512 )
+      if ( *v20 == 512 )
         result = MiCoalesceFreeLargePages(a1, v1, 1LL);
-      ++v19;
+      ++v20;
       v1 += 0x40000LL;
     }
     while ( v1 < 0x1000000000LL );

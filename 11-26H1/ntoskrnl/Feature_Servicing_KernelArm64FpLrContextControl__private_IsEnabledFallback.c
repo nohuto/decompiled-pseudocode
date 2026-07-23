@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledFallback @ 0x14061AA78
+ * XREFs of Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledFallback @ 0x14061DAC8
  * Callers:
- *     Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x14061AA9C (Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x14061DAEC (Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledFallback(

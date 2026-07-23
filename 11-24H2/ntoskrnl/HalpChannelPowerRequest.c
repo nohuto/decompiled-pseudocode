@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpChannelPowerRequest @ 0x140703F2C
+ * XREFs of HalpChannelPowerRequest @ 0x140701AEC
  * Callers:
- *     HaliSetSystemInformation @ 0x1407027D4 (HaliSetSystemInformation.c)
- *     HaliQuerySystemInformation @ 0x140B6B760 (HaliQuerySystemInformation.c)
+ *     HaliSetSystemInformation @ 0x140700414 (HaliSetSystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140B6CB90 (HaliQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpStartPccCommand @ 0x1407041D4 (HalpStartPccCommand.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpStartPccCommand @ 0x140701D94 (HalpStartPccCommand.c)
  */
 
 __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
@@ -18,11 +18,9 @@ __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
   __int64 i; // rcx
   int v12; // edi
   __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rdx
-  int v17; // eax
-  __int64 v18; // rax
+  __int64 v14; // rdx
+  int v15; // eax
+  __int64 v16; // rax
 
   if ( a2 != 24 )
     return (unsigned int)-1073741820;
@@ -59,35 +57,35 @@ __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)
   started = HalpStartPccCommand();
   if ( started >= 0 )
   {
-    *(_DWORD *)(qword_140F8ECA0 + 12) = v12;
-    *(_DWORD *)qword_140F8ECA0 = *((_DWORD *)a1 + 1);
+    *(_DWORD *)(qword_140F8EEA0 + 12) = v12;
+    *(_DWORD *)qword_140F8EEA0 = *((_DWORD *)a1 + 1);
     if ( *((_DWORD *)a1 + 1) == 2 )
-      *(_DWORD *)(qword_140F8ECA0 + 8) = *((_DWORD *)a1 + 4);
+      *(_DWORD *)(qword_140F8EEA0 + 8) = *((_DWORD *)a1 + 4);
     LOBYTE(v13) = 3;
-    started = guard_dispatch_icall_no_overrides(*((_QWORD *)&xmmword_140F8EC50 + 1), v13, v14, v15);
+    started = guard_dispatch_icall_no_overrides(*((_QWORD *)&xmmword_140F8EE50 + 1), v13);
   }
   if ( started >= 0 )
   {
-    v16 = qword_140F8ECA0;
-    *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140F8ECA0 + 4);
-    v17 = *((_DWORD *)a1 + 1);
-    switch ( v17 )
+    v14 = qword_140F8EEA0;
+    *((_DWORD *)a1 + 2) = *(_DWORD *)(qword_140F8EEA0 + 4);
+    v15 = *((_DWORD *)a1 + 1);
+    switch ( v15 )
     {
       case 2:
         goto LABEL_30;
       case 1:
-        v18 = *(_DWORD *)(v16 + 8) != 0;
+        v16 = *(_DWORD *)(v14 + 8) != 0;
         break;
       case 3:
-        v18 = *(_QWORD *)(v16 + 24);
+        v16 = *(_QWORD *)(v14 + 24);
         break;
       case 4:
-        v18 = *(_QWORD *)(v16 + 16);
+        v16 = *(_QWORD *)(v14 + 16);
         break;
       default:
         goto LABEL_30;
     }
-    *((_QWORD *)a1 + 2) = v18;
+    *((_QWORD *)a1 + 2) = v16;
 LABEL_30:
     if ( a3 )
       *a3 = 24;

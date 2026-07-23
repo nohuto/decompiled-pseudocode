@@ -1,5 +1,5 @@
 /*
- * XREFs of KiGeneralProtectionFaultShadow @ 0x140C597C0
+ * XREFs of KiGeneralProtectionFaultShadow @ 0x140C5F7C0
  * Callers:
  *     <none>
  * Callees:

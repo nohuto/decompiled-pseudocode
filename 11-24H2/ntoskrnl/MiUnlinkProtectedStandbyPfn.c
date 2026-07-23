@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlinkProtectedStandbyPfn @ 0x14026F9E0
+ * XREFs of MiUnlinkProtectedStandbyPfn @ 0x140224F70
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiUnlinkStandbyPage @ 0x140270760 (MiUnlinkStandbyPage.c)
+ *     MiUnlinkStandbyPage @ 0x140225CF0 (MiUnlinkStandbyPage.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
  * Callees:
- *     MiDecayNodeNowEmpty @ 0x14026FBA8 (MiDecayNodeNowEmpty.c)
+ *     MiDecayNodeNowEmpty @ 0x140225138 (MiDecayNodeNowEmpty.c)
  */
 
 __int64 __fastcall MiUnlinkProtectedStandbyPfn(_QWORD *a1)
@@ -26,27 +26,27 @@ __int64 __fastcall MiUnlinkProtectedStandbyPfn(_QWORD *a1)
   v2 = *a1 & 0xFFFFFFFFFFLL;
   v3 = v1 & 0xFFFFFFFFFFLL;
   v4 = 0;
-  if ( (v1 & 0xFFFFFFFFFFuLL) >= qword_140E35B00 && v3 < qword_140E35B00 + 2048 )
+  if ( (v1 & 0xFFFFFFFFFFuLL) >= qword_140E35C40 && v3 < qword_140E35C40 + 2048 )
     v4 = v2 == v3;
   v5 = (unsigned __int64 *)(48 * v3 - 0x220000000000LL);
-  if ( v3 < qword_140E35B00 || v3 >= qword_140E35B00 + 2048 )
+  if ( v3 < qword_140E35C40 || v3 >= qword_140E35C40 + 2048 )
   {
     *v5 = *a1 ^ (*v5 ^ *a1) & 0xFFFFFF0000000000uLL;
   }
   else
   {
     v6 = (v2 << 12) | 0x880;
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
       v7 = (v2 << 12) | 0x890;
-      if ( (qword_140E2DB80 & v6) == 0 )
-        v7 = qword_140E2DB80 | (v2 << 12) | 0x880;
+      if ( (qword_140E2DCC0 & v6) == 0 )
+        v7 = qword_140E2DCC0 | (v2 << 12) | 0x880;
       v6 = v7;
     }
     v5[2] = v6;
   }
   v8 = 48 * v2 - 0x220000000000LL;
-  if ( v2 >= qword_140E35B00 && v2 < qword_140E35B00 + 2048 )
+  if ( v2 >= qword_140E35C40 && v2 < qword_140E35C40 + 2048 )
   {
     v9 = *(_QWORD *)(v8 + 40);
     result = _InterlockedCompareExchange64(

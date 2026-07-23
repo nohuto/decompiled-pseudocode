@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpQueryProfileInformation @ 0x140773BC8
+ * XREFs of HalpQueryProfileInformation @ 0x140773D88
  * Callers:
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpQueryProfileInformation()

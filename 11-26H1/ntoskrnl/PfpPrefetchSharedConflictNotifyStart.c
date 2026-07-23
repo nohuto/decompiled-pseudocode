@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x140B4C090
+ * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x140B4DE20
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
  */
 
 __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(struct _KLOCK_ENTRIES *a1, __int64 a2, _QWORD *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(struct _KLOCK_ENTRIES *a
   v3 = 0;
   v4 = a1;
   v6 = 0LL;
-  ++HIDWORD(stru_140E66FF0.SListFaultAddress);
+  ++HIDWORD(stru_140E67200.SListFaultAddress);
   if ( a1 )
   {
     LODWORD(a1->Entries[0].WaiterTree.Root) = 1;
@@ -31,7 +31,7 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(struct _KLOCK_ENTRIES *a
   }
   else
   {
-    a1 = (struct _KLOCK_ENTRIES *)&stru_140E66B30.WaitBlockFill11[48];
+    a1 = (struct _KLOCK_ENTRIES *)&stru_140E66D40.WaitBlockFill11[48];
   }
   v7 = (AutoBoost *)KeAbPreAcquire((__int64)a1, 0LL, 0LL, v4);
   v6 = v7;

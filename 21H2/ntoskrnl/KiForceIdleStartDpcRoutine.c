@@ -1,12 +1,12 @@
 /*
- * XREFs of KiForceIdleStartDpcRoutine @ 0x1405232B0
+ * XREFs of KiForceIdleStartDpcRoutine @ 0x1405234F0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x1405234B0 (KiForceIdleUpdateSchedulerParkState.c)
- *     KiSetForceIdleState @ 0x1405237A0 (KiSetForceIdleState.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x1405236F0 (KiForceIdleUpdateSchedulerParkState.c)
+ *     KiSetForceIdleState @ 0x1405239E0 (KiSetForceIdleState.c)
  */
 
 void __fastcall KiForceIdleStartDpcRoutine(

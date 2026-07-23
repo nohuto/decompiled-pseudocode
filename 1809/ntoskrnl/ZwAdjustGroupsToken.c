@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwAdjustGroupsToken @ 0x1401B8EF0
+ * XREFs of ZwAdjustGroupsToken @ 0x1401B9050
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwAdjustGroupsToken(
         HANDLE TokenHandle,
         BOOLEAN ResetToDefault,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwAdjustGroupsToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, ResetToDefault, NewState);
+  return KiServiceInternal(TokenHandle);
 }

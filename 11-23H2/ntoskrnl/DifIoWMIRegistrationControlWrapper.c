@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoWMIRegistrationControlWrapper @ 0x1405E1B60
+ * XREFs of DifIoWMIRegistrationControlWrapper @ 0x1405E20D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoWMIRegistrationControl @ 0x14086BEB0 (IoWMIRegistrationControl.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoWMIRegistrationControl @ 0x14086C0F0 (IoWMIRegistrationControl.c)
  */
 
 NTSTATUS __fastcall DifIoWMIRegistrationControlWrapper(PDEVICE_OBJECT DeviceObject, ULONG Action)

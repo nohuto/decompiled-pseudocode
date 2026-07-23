@@ -1,14 +1,14 @@
 /*
- * XREFs of CcMdlWriteAbort @ 0x1404EBB70
+ * XREFs of CcMdlWriteAbort @ 0x1404EBDB0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     CcDecrementOpenCount @ 0x14031DE8C (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -23,12 +23,14 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
   __int64 v8; // r8
   _DWORD *v9; // r9
   __int64 Partition; // rax
+  char v11; // dl
+  char v12; // r8
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
+  int v17; // eax
+  bool v18; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   MdlFlags = MdlChain->MdlFlags;
@@ -49,7 +51,7 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
   {
     Partition = CcGetPartition(SharedCacheMap, v7, v8, v9);
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
-    CcDecrementOpenCount((__int64)SharedCacheMap);
+    CcDecrementOpenCount((__int64)SharedCacheMap, v11, v12);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
@@ -61,10 +63,10 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v15 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v16 = (v15 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v15;
-          if ( v16 )
+          v17 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v18 = (v17 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v17;
+          if ( v18 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }

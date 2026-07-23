@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpGetSystemFirmwareTableInformation @ 0x1409D5658
+ * XREFs of ExpGetSystemFirmwareTableInformation @ 0x1409A6638
  * Callers:
- *     ExEnumerateSystemFirmwareTables @ 0x140832780 (ExEnumerateSystemFirmwareTables.c)
- *     ExGetSystemFirmwareTable @ 0x140832880 (ExGetSystemFirmwareTable.c)
- *     ExpGetSystemFlushInformation @ 0x140AF98B4 (ExpGetSystemFlushInformation.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
- *     ExpGetSystemPlatformBinary @ 0x140B680A0 (ExpGetSystemPlatformBinary.c)
+ *     ExEnumerateSystemFirmwareTables @ 0x1408389C0 (ExEnumerateSystemFirmwareTables.c)
+ *     ExGetSystemFirmwareTable @ 0x140838AC0 (ExGetSystemFirmwareTable.c)
+ *     ExpGetSystemFlushInformation @ 0x140AFBD40 (ExpGetSystemFlushInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
+ *     ExpGetSystemPlatformBinary @ 0x140B6B030 (ExpGetSystemPlatformBinary.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     PsIsProcessAppContainer @ 0x1409D6220 (PsIsProcessAppContainer.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x140B46CC8 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     PsIsProcessAppContainer @ 0x1409A7110 (PsIsProcessAppContainer.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140B48CF8 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetSystemFirmwareTableInformation(char *Src, char a2, unsigned int a3, _DWORD *a4)
@@ -30,9 +30,9 @@ __int64 __fastcall ExpGetSystemFirmwareTableInformation(char *Src, char a2, unsi
   _DWORD *v9; // rbx
   _DWORD *v10; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  struct _LIST_ENTRY *v12; // r14
-  struct _LIST_ENTRY **i; // rcx
-  _QWORD *v14; // rdx
+  struct _SINGLE_LIST_ENTRY *Next; // r14
+  struct _SINGLE_LIST_ENTRY *i; // rcx
+  struct _SINGLE_LIST_ENTRY *v14; // rdx
   int v15; // eax
   _DWORD *Pool2; // rax
   PVOID P; // [rsp+30h] [rbp-88h] BYREF
@@ -70,24 +70,24 @@ LABEL_3:
     v10[3] = v5 - 16;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquireResourceSharedLite((PERESOURCE)&ExpSysDbgLock.792, 1u);
-    v12 = 0LL;
-    for ( i = &ExpSysDbgLock.ThreadListEntry.Flink[-2].Blink; ; i = (struct _LIST_ENTRY **)(*v14 - 24LL) )
+    ExAcquireResourceSharedLite((PERESOURCE)&ExpSysDbgLock.PriorityFloorCounts[24], 1u);
+    Next = 0LL;
+    for ( i = ExpSysDbgLock.IoSelfBoostsEntry.Next - 3; ; i = v14->Next - 3 )
     {
       v14 = i + 3;
-      if ( &ExpSysDbgLock.ThreadListEntry == (_LIST_ENTRY *)(i + 3) )
+      if ( &ExpSysDbgLock.IoSelfBoostsEntry == &i[3] )
         break;
-      if ( *(_DWORD *)i == *v10 )
+      if ( LODWORD(i->Next) == *v10 )
       {
-        v12 = i[1];
+        Next = i[1].Next;
         break;
       }
     }
-    if ( v12 )
+    if ( Next )
       v8 = guard_dispatch_icall_no_overrides((__int64)v10, (__int64)v14);
-    ExReleaseResourceLite((PERESOURCE)&ExpSysDbgLock.792);
+    ExReleaseResourceLite((PERESOURCE)&ExpSysDbgLock.PriorityFloorCounts[24]);
     KeLeaveCriticalRegion();
-    if ( v12 )
+    if ( Next )
     {
       if ( a2 )
       {
@@ -118,7 +118,7 @@ LABEL_3:
       v21 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06DC8,
-        (unsigned __int8 *)&word_140054FCE,
+        (unsigned __int8 *)byte_140055FC1,
         0LL,
         0LL,
         3u,

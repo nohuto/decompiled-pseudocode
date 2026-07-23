@@ -1,14 +1,14 @@
 /*
- * XREFs of PiQueryPowerDependencyRelations @ 0x140570DD4
+ * XREFs of PiQueryPowerDependencyRelations @ 0x140571314
  * Callers:
- *     PiQueryPowerRelations @ 0x140570A48 (PiQueryPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x140570F88 (PiQueryPowerRelations.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1403F4194 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x1403F41C4 (PnpReleaseDependencyRelationsLock.c)
- *     PiGetProviderList @ 0x1403F4CC4 (PiGetProviderList.c)
- *     PiEnumerateProviderListEntry @ 0x14062AD48 (PiEnumerateProviderListEntry.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1403F3058 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1403F3088 (PnpReleaseDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x1403F3B88 (PiGetProviderList.c)
+ *     PiEnumerateProviderListEntry @ 0x14062ADFC (PiEnumerateProviderListEntry.c)
  */
 
 __int64 __fastcall PiQueryPowerDependencyRelations(__int64 a1)

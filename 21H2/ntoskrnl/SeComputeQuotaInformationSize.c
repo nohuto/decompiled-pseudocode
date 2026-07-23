@@ -1,10 +1,10 @@
 /*
- * XREFs of SeComputeQuotaInformationSize @ 0x14065FBD0
+ * XREFs of SeComputeQuotaInformationSize @ 0x1406549F0
  * Callers:
- *     ObpCaptureObjectCreateInformation @ 0x140656440 (ObpCaptureObjectCreateInformation.c)
- *     ObSetSecurityDescriptorInfo @ 0x14065F2B0 (ObSetSecurityDescriptorInfo.c)
- *     ObpChargeQuotaForObject @ 0x140660238 (ObpChargeQuotaForObject.c)
- *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
+ *     ObpCaptureObjectCreateInformation @ 0x14064B260 (ObpCaptureObjectCreateInformation.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1406540D0 (ObSetSecurityDescriptorInfo.c)
+ *     ObpChargeQuotaForObject @ 0x140655058 (ObpChargeQuotaForObject.c)
+ *     ObpIncrementHandleCountEx @ 0x14070D340 (ObpIncrementHandleCountEx.c)
  * Callees:
  *     <none>
  */

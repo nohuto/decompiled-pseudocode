@@ -20,37 +20,39 @@ wchar_t *__thiscall LdrpLogDeprecatedDllEtwEvent(unsigned __int16 *this)
   wchar_t *v4; // esi
   wchar_t *result; // eax
   int v6; // eax
-  int v7; // [esp+Ch] [ebp-1Ch] BYREF
-  int v8; // [esp+10h] [ebp-18h]
-  _DWORD v9[4]; // [esp+14h] [ebp-14h] BYREF
+  SIZE_T v7; // [esp-4h] [ebp-2Ch]
+  size_t v8; // [esp-4h] [ebp-2Ch]
+  ULONGLONG RegHandle; // [esp+Ch] [ebp-1Ch] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+14h] [ebp-14h] BYREF
 
   v2 = *this;
   v3 = (const void **)(this + 2);
   if ( v2 + 2 > this[1] || (v4 = (wchar_t *)*v3, *((_WORD *)*v3 + (v2 >> 1))) )
   {
-    result = (wchar_t *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v2 + 2);
+    LODWORD(v7) = v2 + 2;
+    result = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v7);
     v4 = result;
     if ( !result )
       return result;
-    memcpy(result, *v3, *this);
+    LODWORD(v8) = *this;
+    memcpy(result, *v3, v8);
     v4[*this >> 1] = 0;
   }
   result = (wchar_t *)CompatCachepLookupCdb(v4, 4);
   if ( result )
   {
-    result = (wchar_t *)EtwEventRegister(UserLoaderGuid, 0, 0, (int)&v7);
+    result = (wchar_t *)EtwEventRegister(&UserLoaderGuid, 0, 0, &RegHandle);
     if ( !result )
     {
       v6 = *this;
-      v9[0] = v4;
-      v9[2] = v6 + 2;
-      v9[1] = 0;
-      v9[3] = 0;
-      EtwEventWrite(v7, v8, DeprecatedDll, 1, (int)v9);
-      result = (wchar_t *)EtwEventUnregister(v7, v8);
+      UserData.Ptr = (unsigned int)v4;
+      UserData.Size = v6 + 2;
+      UserData.Reserved = 0;
+      EtwEventWrite(RegHandle, &DeprecatedDll, 1u, &UserData);
+      result = (wchar_t *)EtwEventUnregister(RegHandle);
     }
     if ( v4 != *v3 )
-      return (wchar_t *)RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v4);
+      return (wchar_t *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }
   return result;
 }

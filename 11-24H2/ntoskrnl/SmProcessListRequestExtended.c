@@ -1,12 +1,12 @@
 /*
- * XREFs of SmProcessListRequestExtended @ 0x140798258
+ * XREFs of SmProcessListRequestExtended @ 0x140798368
  * Callers:
- *     SmProcessListRequest @ 0x140797FD8 (SmProcessListRequest.c)
+ *     SmProcessListRequest @ 0x1407980E8 (SmProcessListRequest.c)
  * Callees:
- *     SmKmStoreReference @ 0x140247170 (SmKmStoreReference.c)
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SmKmFileInfoGetPath @ 0x140799BE0 (SmKmFileInfoGetPath.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     SmKmStoreReference @ 0x1402F6020 (SmKmStoreReference.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SmKmFileInfoGetPath @ 0x140799CF0 (SmKmFileInfoGetPath.c)
  */
 
 __int64 __fastcall SmProcessListRequestExtended(__int64 a1, __int64 a2)

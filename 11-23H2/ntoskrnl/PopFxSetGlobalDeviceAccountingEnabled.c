@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x14058BB20
+ * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x14058C010
  * Callers:
- *     PopFxPauseDeviceAccounting @ 0x14058B024 (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x14058B808 (PopFxResumeDeviceAccounting.c)
+ *     PopFxPauseDeviceAccounting @ 0x14058B514 (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x14058BCF8 (PopFxResumeDeviceAccounting.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x14058C38C (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x14058C87C (PopFxUpdateGlobalDeviceAccountingInfo.c)
  */
 
 __int64 __fastcall PopFxSetGlobalDeviceAccountingEnabled(char a1)
@@ -22,20 +22,20 @@ __int64 __fastcall PopFxSetGlobalDeviceAccountingEnabled(char a1)
   if ( a1 )
   {
     if ( PopFxGlobalDeviceAccountingInfo )
-      qword_140C3ED88 = MEMORY[0xFFFFF78000000008];
+      qword_140C3EDA8 = MEMORY[0xFFFFF78000000008];
     else
-      *(_QWORD *)&xmmword_140C3EDA0 = xmmword_140C3EDA0 + 1;
+      *(_QWORD *)&xmmword_140C3EDC0 = xmmword_140C3EDC0 + 1;
   }
   else if ( PopFxGlobalDeviceAccountingInfo )
   {
     PopFxUpdateGlobalDeviceAccountingInfo(MEMORY[0xFFFFF78000000008], 1200000000LL);
   }
-  byte_140C3ED81 = a1;
+  byte_140C3EDA1 = a1;
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopFxGlobalDeviceAccountingLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

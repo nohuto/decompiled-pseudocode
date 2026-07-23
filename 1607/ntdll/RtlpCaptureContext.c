@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlpCaptureContext @ 0x1800AA0D0
  * Callers:
- *     RtlpWalkFrameChain @ 0x1800326D0 (RtlpWalkFrameChain.c)
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
+ *     RtlpWalkFrameChain @ 0x1800326C0 (RtlpWalkFrameChain.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  * Callees:
  *     <none>

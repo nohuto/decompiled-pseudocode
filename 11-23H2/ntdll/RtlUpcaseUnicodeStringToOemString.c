@@ -10,49 +10,56 @@
  *     RtlpDidUnicodeToOemWork @ 0x18008A640 (RtlpDidUnicodeToOemWork.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToOemString(__int64 a1, PWCH *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToOemString(
+        POEM_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned int v6; // eax
-  _WORD *v7; // r12
-  __int64 *v8; // rdi
-  __int64 result; // rax
+  ULONG v6; // eax
+  unsigned __int16 *p_MaximumLength; // r12
+  char **p_Buffer; // rdi
+  NTSTATUS result; // eax
   int v10; // ebx
-  unsigned int v11; // ecx
-  unsigned int v12; // [rsp+98h] [rbp+20h] BYREF
+  ULONG v11; // ecx
+  ULONG BytesInOemString; // [rsp+98h] [rbp+20h] BYREF
 
-  v6 = RtlxUnicodeStringToOemSize(a2);
-  v12 = v6;
+  v6 = RtlxUnicodeStringToOemSize((PWCH *)SourceString);
+  BytesInOemString = v6;
   if ( v6 > 0xFFFF )
-    return 3221225712LL;
-  v7 = (_WORD *)(a1 + 2);
-  v8 = (__int64 *)(a1 + 8);
-  result = AllocateOrValidateCharStringBuffer(a3, v6, (__int64 *)(a1 + 8), (_WORD *)(a1 + 2));
-  if ( (int)result >= 0 )
+    return -1073741584;
+  p_MaximumLength = &DestinationString->MaximumLength;
+  p_Buffer = &DestinationString->Buffer;
+  result = AllocateOrValidateCharStringBuffer(
+             AllocateDestinationString,
+             v6,
+             &DestinationString->Buffer,
+             &DestinationString->MaximumLength);
+  if ( result >= 0 )
   {
     v10 = RtlUpcaseUnicodeToOemN(
-            *v8,
-            (unsigned __int16)*v7,
-            (unsigned int)&v12,
-            (unsigned int)a2[1],
-            *(unsigned __int16 *)a2);
+            *p_Buffer,
+            *p_MaximumLength,
+            &BytesInOemString,
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v10 >= 0 )
     {
-      v11 = v12;
-      *(_WORD *)a1 = v12;
-      *(_BYTE *)(v11 + *v8) = 0;
-      if ( !(unsigned __int8)RtlpDidUnicodeToOemWork(a1, a2) )
+      v11 = BytesInOemString;
+      DestinationString->Length = BytesInOemString;
+      (*p_Buffer)[v11] = 0;
+      if ( !(unsigned __int8)RtlpDidUnicodeToOemWork(DestinationString, SourceString) )
         v10 = -1073741470;
     }
     if ( v10 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        NtdllpFreeStringRoutine(*v8);
-        *v8 = 0LL;
-        *v7 = 0;
+        NtdllpFreeStringRoutine(*p_Buffer);
+        *p_Buffer = 0LL;
+        *p_MaximumLength = 0;
       }
     }
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

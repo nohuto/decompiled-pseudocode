@@ -1,15 +1,16 @@
 /*
  * XREFs of ZwSetBootEntryOrder @ 0x14041E980
  * Callers:
- *     DifZwSetBootEntryOrderWrapper @ 0x140626A40 (DifZwSetBootEntryOrderWrapper.c)
- *     BiSetBootEntryOrder @ 0x140A20A2C (BiSetBootEntryOrder.c)
+ *     sub_140626A40 @ 0x140626A40 (sub_140626A40.c)
+ *     sub_140A20A2C @ 0x140A20A2C (sub_140A20A2C.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetBootEntryOrder(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetBootEntryOrder(PULONG Ids, ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(Ids, *(_QWORD *)&Count);
 }

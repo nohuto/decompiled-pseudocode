@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapInitializeEventing @ 0x1409AEE24
+ * XREFs of WheapInitializeEventing @ 0x1409AFE24
  * Callers:
- *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
+ *     WheaInitialize @ 0x1409B0D68 (WheaInitialize.c)
  * Callees:
- *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
+ *     EtwRegister @ 0x1406BF7E0 (EtwRegister.c)
  */
 
 NTSTATUS WheapInitializeEventing()
@@ -11,8 +11,8 @@ NTSTATUS WheapInitializeEventing()
   NTSTATUS result; // eax
 
   LOWORD(WheapDispatchPtr.Queue.Wcb.DeviceObject) = 1;
-  *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters = &WheapDispatchPtr.Queue.Wcb.DeviceContext;
-  WheapDispatchPtr.Queue.Wcb.DeviceContext = &WheapDispatchPtr.Queue.Wcb.DeviceContext;
+  WheapDispatchPtr.DeviceQueue.DeviceListHead.Flink = (struct _LIST_ENTRY *)&WheapDispatchPtr.DeviceQueue;
+  *(_QWORD *)&WheapDispatchPtr.DeviceQueue.Type = &WheapDispatchPtr.DeviceQueue;
   BYTE2(WheapDispatchPtr.Queue.Wcb.DeviceObject) = 6;
   WheapDispatchPtr.Queue.Wcb.BufferChainingDpc = (PKDPC)&WheapDispatchPtr.Queue.Wcb.CurrentIrp;
   WheapDispatchPtr.Queue.Wcb.CurrentIrp = &WheapDispatchPtr.Queue.Wcb.CurrentIrp;

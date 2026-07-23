@@ -1,5 +1,5 @@
 /*
- * XREFs of CmKtmNotification @ 0x1404D9B64
+ * XREFs of CmKtmNotification @ 0x1404BD168
  * Callers:
  *     <none>
  * Callees:
@@ -9,24 +9,24 @@
  *     TmReadOnlyEnlistment @ 0x1400011D0 (TmReadOnlyEnlistment.c)
  *     TmReferenceEnlistmentKey @ 0x1400011F0 (TmReferenceEnlistmentKey.c)
  *     TmRollbackComplete @ 0x140001208 (TmRollbackComplete.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     UNLOCK_HIVE_LOAD @ 0x1403FB7E4 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1403FB8B4 (LOCK_HIVE_LOAD.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x14049B4E4 (CmpQueryNameString.c)
- *     CmpIsCmRm @ 0x1404DA06C (CmpIsCmRm.c)
- *     CmLogTmRmAction @ 0x1404DA104 (CmLogTmRmAction.c)
- *     CmpCleanupTransactionState @ 0x1404DA1C8 (CmpCleanupTransactionState.c)
- *     CmpAccountForLogReservation @ 0x1404DA5F0 (CmpAccountForLogReservation.c)
- *     CmpTransMgrCommit @ 0x1404DA7A0 (CmpTransMgrCommit.c)
- *     CmpTransMgrPrepare @ 0x1404DA8E8 (CmpTransMgrPrepare.c)
- *     CmpTransMgrRollback @ 0x1404E9924 (CmpTransMgrRollback.c)
- *     CmpRecoverEnlistment @ 0x140605048 (CmpRecoverEnlistment.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1403FA6A4 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1403FA774 (LOCK_HIVE_LOAD.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     CmpIsCmRm @ 0x1404BD670 (CmpIsCmRm.c)
+ *     CmLogTmRmAction @ 0x1404BD708 (CmLogTmRmAction.c)
+ *     CmpCleanupTransactionState @ 0x1404BD7CC (CmpCleanupTransactionState.c)
+ *     CmpAccountForLogReservation @ 0x1404BDBF4 (CmpAccountForLogReservation.c)
+ *     CmpTransMgrCommit @ 0x1404BDDA4 (CmpTransMgrCommit.c)
+ *     CmpTransMgrPrepare @ 0x1404BDEEC (CmpTransMgrPrepare.c)
+ *     CmpTransMgrRollback @ 0x1404CBA14 (CmpTransMgrRollback.c)
+ *     CmpQueryNameString @ 0x1404CC8A8 (CmpQueryNameString.c)
+ *     CmpRecoverEnlistment @ 0x1406050FC (CmpRecoverEnlistment.c)
  */
 
 NTSTATUS __fastcall CmKtmNotification(
@@ -169,7 +169,7 @@ NTSTATUS __fastcall CmKtmNotification(
     v29 = qword_1402F2E60;
     if ( CmRmSystem != RMContext )
       v29 = *((_QWORD *)RMContext + 10);
-    if ( CmpTraceTxrRoutine && CmpQueryNameString(*(void **)(v29 + 2664), &UnicodeString) >= 0 )
+    if ( CmpTraceTxrRoutine && (int)CmpQueryNameString(*(_QWORD *)(v29 + 2664), &UnicodeString) >= 0 )
     {
       EtwGetKernelTraceTimestamp((char *)&v46, 0x20000uLL);
       v49 = *(_OWORD *)((char *)Key + 88);
@@ -212,7 +212,7 @@ LABEL_53:
           }
           else
           {
-            v35 = CmLogTmRmAction((int)RMContext);
+            v35 = CmLogTmRmAction((_DWORD)RMContext);
             v33 = Key;
             v14 = v35;
             if ( TransactionNotification != 2 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspLockProcessListShared @ 0x14043D700
+ * XREFs of PspLockProcessListShared @ 0x14042FFB0
  * Callers:
- *     PsChangeQuantumTable @ 0x140966954 (PsChangeQuantumTable.c)
- *     PsGetNextProcessEx @ 0x140AC8A10 (PsGetNextProcessEx.c)
- *     PsGetPreviousProcess @ 0x140AEFB30 (PsGetPreviousProcess.c)
+ *     PsGetPreviousProcess @ 0x1409B92F8 (PsGetPreviousProcess.c)
+ *     PsChangeQuantumTable @ 0x140AB8200 (PsChangeQuantumTable.c)
+ *     PsGetNextProcessEx @ 0x140ACA600 (PsGetNextProcessEx.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 signed __int64 __fastcall PspLockProcessListShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -6,7 +6,7 @@
  *     RtlpReAllocateHeapInternal @ 0x180023720 (RtlpReAllocateHeapInternal.c)
  *     RtlSizeHeap @ 0x180024160 (RtlSizeHeap.c)
  *     RtlValidateHeap @ 0x18005F680 (RtlValidateHeap.c)
- *     RtlSetUserFlagsHeap @ 0x1800F2E70 (RtlSetUserFlagsHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2E30 (RtlSetUserFlagsHeap.c)
  * Callees:
  *     <none>
  */

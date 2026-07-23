@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpReleaseGlobalQuota @ 0x1405FB668
+ * XREFs of CmpReleaseGlobalQuota @ 0x1405FC668
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     CmpAllocate @ 0x1405A72D0 (CmpAllocate.c)
- *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
- *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
- *     HvHiveCleanup @ 0x1405FB440 (HvHiveCleanup.c)
- *     CmpFree @ 0x1405FD200 (CmpFree.c)
- *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     CmpAllocate @ 0x1405A82D0 (CmpAllocate.c)
+ *     HvFreeHivePartial @ 0x1405A9240 (HvFreeHivePartial.c)
+ *     CmpDeleteHive @ 0x1405B0DEC (CmpDeleteHive.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1405FA6A0 (HvpRemapAndEnlistHiveBins.c)
+ *     HvHiveCleanup @ 0x1405FC440 (HvHiveCleanup.c)
+ *     CmpFree @ 0x1405FE200 (CmpFree.c)
+ *     HvpDropPagedBins @ 0x140737784 (HvpDropPagedBins.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpReleaseGlobalQuota(unsigned int a1)

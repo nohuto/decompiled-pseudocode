@@ -1,16 +1,16 @@
 /*
- * XREFs of PnprQuiesceProcessors @ 0x14057A720
+ * XREFs of PnprQuiesceProcessors @ 0x14057B720
  * Callers:
- *     PnprQuiesce @ 0x14028A56C (PnprQuiesce.c)
+ *     PnprQuiesce @ 0x14028A75C (PnprQuiesce.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KeSuspendClockTimerSafe @ 0x14028E9A0 (KeSuspendClockTimerSafe.c)
- *     PnprGetMillisecondCounter @ 0x1405797BC (PnprGetMillisecondCounter.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDAF0 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KeSuspendClockTimerSafe @ 0x14028EB90 (KeSuspendClockTimerSafe.c)
+ *     PnprGetMillisecondCounter @ 0x14057A7BC (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprQuiesceProcessors()
@@ -128,14 +128,14 @@ __int64 PnprQuiesceProcessors()
     while ( !DeferredContext )
       _mm_pause();
   }
-  if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 && (int)off_1403FE418[0]() < 0 )
+  if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 && (int)off_1403FF418[0]() < 0 )
   {
     v11 = (_DWORD *)PnprContext;
     v12 = 2451;
   }
   else
   {
-    ((void (__fastcall *)(_QWORD, _QWORD))off_1403FE3C8[0])(0LL, *(_QWORD *)(PnprContext + 20872));
+    ((void (__fastcall *)(_QWORD, _QWORD))off_1403FF3C8[0])(0LL, *(_QWORD *)(PnprContext + 20872));
     KeSuspendClockTimerSafe();
     MillisecondCounter = PnprGetMillisecondCounter(0);
     v25 = PnprContext;
@@ -194,7 +194,7 @@ __int64 PnprQuiesceProcessors()
       || (v42 = PnprGetMillisecondCounter(0),
           v43 = PnprContext,
           *(_DWORD *)(PnprContext + 21004) = v42,
-          v44 = ((__int64 (__fastcall *)(__int64, _QWORD))off_1403FE3C8[0])(1LL, *(_QWORD *)(v43 + 20872)),
+          v44 = ((__int64 (__fastcall *)(__int64, _QWORD))off_1403FF3C8[0])(1LL, *(_QWORD *)(v43 + 20872)),
           v45 = PnprGetMillisecondCounter(0),
           v11 = (_DWORD *)PnprContext,
           *(_DWORD *)(PnprContext + 21008) = v45,

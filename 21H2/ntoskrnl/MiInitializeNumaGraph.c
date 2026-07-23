@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeNumaGraph @ 0x140A438D8
+ * XREFs of MiInitializeNumaGraph @ 0x140A448D8
  * Callers:
- *     MiCreatePfnDatabase @ 0x140A436BC (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140A446BC (MiCreatePfnDatabase.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
  */
 
 __int64 __fastcall MiInitializeNumaGraph(__int64 a1)
@@ -89,7 +89,7 @@ __int64 __fastcall MiInitializeNumaGraph(__int64 a1)
             v21 = v2 * v10 + (unsigned int)result;
             p_Base += 4;
             result = (unsigned int)(result + 1);
-            *(_DWORD *)(qword_140C4DE98 + 4 * v21) = v20;
+            *(_DWORD *)(qword_140C4DED8 + 4 * v21) = v20;
           }
           while ( (unsigned int)result < v10 );
         }
@@ -102,12 +102,12 @@ __int64 __fastcall MiInitializeNumaGraph(__int64 a1)
   v4 = (unsigned __int16)KeNumberNodes;
   while ( v2 < v4 )
   {
-    for ( j = v2; j < v4 + v2; *(_DWORD *)(qword_140C4DE98 + 4 * v6) = v8 & 0x3F )
+    for ( j = v2; j < v4 + v2; *(_DWORD *)(qword_140C4DED8 + 4 * v6) = v8 & 0x3F )
     {
       v6 = v2 * (v4 - 1) + j;
       v7 = j++;
       v8 = v7 % v4;
-      result = qword_140C4DE98;
+      result = qword_140C4DED8;
     }
     ++v2;
   }

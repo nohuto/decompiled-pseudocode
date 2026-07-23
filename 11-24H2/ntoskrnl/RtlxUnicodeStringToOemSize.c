@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlxUnicodeStringToOemSize @ 0x1408AEC10
+ * XREFs of RtlxUnicodeStringToOemSize @ 0x140904E70
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1404A40A0 (DbgUnicodeStringToAnsiString.c)
- *     ExpSystemErrorHandler2 @ 0x140B61470 (ExpSystemErrorHandler2.c)
+ *     DbgUnicodeStringToAnsiString @ 0x14049EE30 (DbgUnicodeStringToAnsiString.c)
+ *     ExpSystemErrorHandler2 @ 0x140B63540 (ExpSystemErrorHandler2.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
  */
 
 ULONG __stdcall RtlxUnicodeStringToOemSize(PCUNICODE_STRING UnicodeString)

@@ -1,30 +1,30 @@
 /*
  * XREFs of ExAllocatePool3 @ 0x140AAE430
  * Callers:
- *     KiAllocateLocalSharedReadyQueue @ 0x140376DF0 (KiAllocateLocalSharedReadyQueue.c)
- *     ExAllocateCacheAwarePushLock @ 0x1403A7FF0 (ExAllocateCacheAwarePushLock.c)
- *     ExpSaInitialize @ 0x1403AB7C8 (ExpSaInitialize.c)
- *     KeEtwInitializeCpuStarvationProvider @ 0x1403ADCEC (KeEtwInitializeCpuStarvationProvider.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x1403C5DDC (ExpSaPageGroupDescriptorAllocate.c)
- *     ExpSaBinaryArrayInsert @ 0x1403C6140 (ExpSaBinaryArrayInsert.c)
- *     KiAllocateSchedulerSubNode @ 0x140570808 (KiAllocateSchedulerSubNode.c)
+ *     KiAllocateLocalSharedReadyQueue @ 0x140376F90 (KiAllocateLocalSharedReadyQueue.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1403A81D0 (ExAllocateCacheAwarePushLock.c)
+ *     ExpSaInitialize @ 0x1403AB9A8 (ExpSaInitialize.c)
+ *     KeEtwInitializeCpuStarvationProvider @ 0x1403ADECC (KeEtwInitializeCpuStarvationProvider.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403C5FBC (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaBinaryArrayInsert @ 0x1403C6320 (ExpSaBinaryArrayInsert.c)
+ *     KiAllocateSchedulerSubNode @ 0x140570D48 (KiAllocateSchedulerSubNode.c)
  *     AstLogDeviceSDDLUpdated @ 0x14069C6E8 (AstLogDeviceSDDLUpdated.c)
- *     IopAllocateMiniCompletionPacket @ 0x14073DFC8 (IopAllocateMiniCompletionPacket.c)
- *     AstLogDeviceCreated @ 0x14076B8D0 (AstLogDeviceCreated.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14073E1B8 (IopAllocateMiniCompletionPacket.c)
+ *     AstLogDeviceCreated @ 0x14076BAC0 (AstLogDeviceCreated.c)
  *     KiInitializeThreadCycleTable @ 0x140A8CCC0 (KiInitializeThreadCycleTable.c)
- *     IoVerifierCheckForSettingsChange @ 0x140AC0BF0 (IoVerifierCheckForSettingsChange.c)
- *     VerifierExAllocatePool3 @ 0x140AD0B50 (VerifierExAllocatePool3.c)
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
- *     VfPendingCheckForChanges @ 0x140AD17F0 (VfPendingCheckForChanges.c)
- *     VfKeCheckForChanges @ 0x140AD5BF0 (VfKeCheckForChanges.c)
- *     VfFaultsInitPhase0 @ 0x140AD5E48 (VfFaultsInitPhase0.c)
- *     ViPtInitCircularPoolTrace @ 0x140ADEE5C (ViPtInitCircularPoolTrace.c)
- *     ViIrqlInit @ 0x140AE84B4 (ViIrqlInit.c)
+ *     IoVerifierCheckForSettingsChange @ 0x140AC0BE0 (IoVerifierCheckForSettingsChange.c)
+ *     VerifierExAllocatePool3 @ 0x140AD0B40 (VerifierExAllocatePool3.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
+ *     VfPendingCheckForChanges @ 0x140AD17E0 (VfPendingCheckForChanges.c)
+ *     VfKeCheckForChanges @ 0x140AD5BE0 (VfKeCheckForChanges.c)
+ *     VfFaultsInitPhase0 @ 0x140AD5E38 (VfFaultsInitPhase0.c)
+ *     ViPtInitCircularPoolTrace @ 0x140ADEE4C (ViPtInitCircularPoolTrace.c)
+ *     ViIrqlInit @ 0x140AE84A4 (ViIrqlInit.c)
  * Callees:
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
- *     MmResourcesAvailable @ 0x1402AEED0 (MmResourcesAvailable.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     VslSecurePoolAllocate @ 0x14054C618 (VslSecurePoolAllocate.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
+ *     MmResourcesAvailable @ 0x1402AF160 (MmResourcesAvailable.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     VslSecurePoolAllocate @ 0x14054CCD8 (VslSecurePoolAllocate.c)
  *     ExpAllocatePoolWithQuotaTag @ 0x140AAE008 (ExpAllocatePoolWithQuotaTag.c)
  */
 
@@ -47,7 +47,7 @@ __int64 __fastcall ExAllocatePool3(__int64 a1, ULONG_PTR a2, unsigned int a3, __
   int v22; // eax
   __int64 PoolWithQuotaTag; // rax
   POOL_TYPE v25; // ecx
-  int v26; // ecx
+  NTSTATUS v26; // ecx
   unsigned int v27; // eax
   __int64 v28; // rdx
   struct _MDL *v29; // r9

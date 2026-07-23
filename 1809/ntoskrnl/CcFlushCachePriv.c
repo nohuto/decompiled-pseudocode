@@ -3,12 +3,12 @@
  * Callers:
  *     CcZeroEndOfLastPage @ 0x14001C250 (CcZeroEndOfLastPage.c)
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
- *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
- *     MiFlushDataSection @ 0x1400930A8 (MiFlushDataSection.c)
- *     CcZeroData @ 0x1400E0C20 (CcZeroData.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x1400E95F0 (CcCoherencyFlushAndPurgeCache.c)
- *     CcFlushCache @ 0x14012A550 (CcFlushCache.c)
- *     CcFlushCacheToLsn @ 0x140160430 (CcFlushCacheToLsn.c)
+ *     CcWriteBehindInternal @ 0x14007D2E0 (CcWriteBehindInternal.c)
+ *     MiFlushDataSection @ 0x140092FE8 (MiFlushDataSection.c)
+ *     CcZeroData @ 0x1400E0CA0 (CcZeroData.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1400E9670 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcFlushCache @ 0x14012A620 (CcFlushCache.c)
+ *     CcFlushCacheToLsn @ 0x140160530 (CcFlushCacheToLsn.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     CcAcquireByteRangeForWrite @ 0x14001F590 (CcAcquireByteRangeForWrite.c)
@@ -17,20 +17,20 @@
  *     CcReleaseByteRangeFromWrite @ 0x1400207F4 (CcReleaseByteRangeFromWrite.c)
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140021AC0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     CcAmILowPriorityWriter @ 0x140021B3C (CcAmILowPriorityWriter.c)
- *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MmSetAddressRangeModifiedEx @ 0x140086780 (MmSetAddressRangeModifiedEx.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     CcBoostLowPriorityWorkerThread @ 0x140107F50 (CcBoostLowPriorityWorkerThread.c)
- *     CcIsFatalWriteError @ 0x14012D9B0 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushCache @ 0x1401873C4 (CcPerfLogFlushCache.c)
- *     CcPerfLogFlushSection @ 0x1401874C0 (CcPerfLogFlushSection.c)
- *     CcSerializeWithLazyWriter @ 0x1401B2DA4 (CcSerializeWithLazyWriter.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
+ *     CcUnmapVacbArray @ 0x1400798D0 (CcUnmapVacbArray.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140086770 (MmSetAddressRangeModifiedEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x1400ACEE0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140107FD0 (CcBoostLowPriorityWorkerThread.c)
+ *     CcIsFatalWriteError @ 0x14012DA80 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushCache @ 0x140187504 (CcPerfLogFlushCache.c)
+ *     CcPerfLogFlushSection @ 0x140187600 (CcPerfLogFlushSection.c)
+ *     CcSerializeWithLazyWriter @ 0x1401B2EE4 (CcSerializeWithLazyWriter.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
  */
 
 void __fastcall CcFlushCachePriv(__int64 a1, void *a2, unsigned int a3, __int64 a4, char a5, char *a6)
@@ -272,7 +272,7 @@ LABEL_49:
   v23 = 1;
   if ( v14 && (*(_DWORD *)(v14 + 152) & 0x40000000) != 0 )
     v8 = 1;
-  if ( (xmmword_140541350 & 0x20000) != 0 )
+  if ( (xmmword_140542350 & 0x20000) != 0 )
     CcPerfLogFlushCache(v76, v14, (_DWORD)v71, a3, v17, v69, v8 == 1);
   if ( !v17 )
   {
@@ -294,7 +294,7 @@ LABEL_49:
   if ( (*(_DWORD *)(v14 + 152) & 0x4000000) != 0 )
   {
 LABEL_68:
-    if ( (xmmword_140541350 & 0x20000) != 0 )
+    if ( (xmmword_140542350 & 0x20000) != 0 )
       CcPerfLogFlushSection(v76, v14, (_DWORD)v71, a3, v68);
     if ( v14 )
       CcUnmapVacbArray(v14, (_DWORD)v71, a3, 0, 0, 0);
@@ -436,7 +436,7 @@ LABEL_183:
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       goto LABEL_170;
     }
-    if ( (xmmword_140541350 & 0x20000) != 0 )
+    if ( (xmmword_140542350 & 0x20000) != 0 )
       CcPerfLogFlushSection(v76, v14, (unsigned int)&v75, v65, v68);
     v45 = v73;
     v62 = v68;
@@ -489,7 +489,7 @@ LABEL_163:
     v53 = Partition;
     do
     {
-      if ( (xmmword_140541350 & 0x20000) != 0 )
+      if ( (xmmword_140542350 & 0x20000) != 0 )
         CcPerfLogFlushSection(v76, v14, (unsigned int)&v78, 4096, v68);
       v63 = v68;
       *(_DWORD *)v10 = v29 != 0 ? 0x80000016 : 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwPdoAssociationFree @ 0x140A9DA4C
+ * XREFs of PiSwPdoAssociationFree @ 0x140A98FBC
  * Callers:
- *     PiSwFreePdoAssociationsList @ 0x1409F8118 (PiSwFreePdoAssociationsList.c)
- *     PiSwRemovePdoAssociation @ 0x1409FB530 (PiSwRemovePdoAssociation.c)
+ *     PiSwFreePdoAssociationsList @ 0x1409F0A88 (PiSwFreePdoAssociationsList.c)
+ *     PiSwRemovePdoAssociation @ 0x1409F3EA0 (PiSwRemovePdoAssociation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwPdoAssociationFree(PVOID *P)

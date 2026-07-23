@@ -15,7 +15,7 @@ void __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)
   int v6; // eax
   __int64 (__fastcall *v7)(PVOID); // rax
   void (__fastcall *v8)(ULONG_PTR, char); // rcx
-  struct _SLIST_ENTRY *(__fastcall *v9)(__int64, char, char); // rax
+  _SLIST_ENTRY *(__fastcall *v9)(__int64, char, char); // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   if ( !a3 )

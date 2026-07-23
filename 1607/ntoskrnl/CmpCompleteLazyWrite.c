@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCompleteLazyWrite @ 0x1400B027C
+ * XREFs of CmpCompleteLazyWrite @ 0x1400AE420
  * Callers:
- *     CmpLazyWriteWorker @ 0x140143594 (CmpLazyWriteWorker.c)
+ *     CmpLazyWriteWorker @ 0x140143B04 (CmpLazyWriteWorker.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
  */
 
 void __fastcall CmpCompleteLazyWrite(PKTIMER Timer, unsigned __int64 *a2)

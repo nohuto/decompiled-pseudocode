@@ -1,28 +1,28 @@
 /*
- * XREFs of PopPowerInformationInternal @ 0x14051D314
+ * XREFs of PopPowerInformationInternal @ 0x140500704
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     PoLatencySensitivityHint @ 0x1401112E0 (PoLatencySensitivityHint.c)
- *     PopDiagTraceSessionDisplayStateChange @ 0x1401261A4 (PopDiagTraceSessionDisplayStateChange.c)
- *     PopUmpoSendReapplyBrightnessSettings @ 0x14014BDD4 (PopUmpoSendReapplyBrightnessSettings.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopQueryBootSessionStandbyActivationInfo @ 0x140202030 (PopQueryBootSessionStandbyActivationInfo.c)
- *     PopSetWatchdog @ 0x14020B4CC (PopSetWatchdog.c)
+ *     PoLatencySensitivityHint @ 0x140111844 (PoLatencySensitivityHint.c)
+ *     PopDiagTraceSessionDisplayStateChange @ 0x140126714 (PopDiagTraceSessionDisplayStateChange.c)
+ *     PopUmpoSendReapplyBrightnessSettings @ 0x14014C344 (PopUmpoSendReapplyBrightnessSettings.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopQueryBootSessionStandbyActivationInfo @ 0x140201E5C (PopQueryBootSessionStandbyActivationInfo.c)
+ *     PopSetWatchdog @ 0x14020B2F8 (PopSetWatchdog.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     RtlIsMultiSessionSku @ 0x1405037BC (RtlIsMultiSessionSku.c)
- *     PopSetDisplayStatus @ 0x1405342D0 (PopSetDisplayStatus.c)
- *     PopUpdateConsoleDisplayState @ 0x1405477D4 (PopUpdateConsoleDisplayState.c)
- *     PopNetUpdateStandbyRequest @ 0x14057E8BC (PopNetUpdateStandbyRequest.c)
- *     PopFxPlatformRegisterInterface @ 0x140580BD8 (PopFxPlatformRegisterInterface.c)
- *     PopUpdateBackgroundCoolingStatus @ 0x140581144 (PopUpdateBackgroundCoolingStatus.c)
- *     PopNetIsDisconnectStandbyActive @ 0x140673700 (PopNetIsDisconnectStandbyActive.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x140675020 (PopUpdateSmartUserPresencePredictions.c)
- *     TtmNotifySessionPowerStateChange @ 0x140678B38 (TtmNotifySessionPowerStateChange.c)
- *     TtmNotifySessionTerminalInput @ 0x140678BC4 (TtmNotifySessionTerminalInput.c)
+ *     RtlIsMultiSessionSku @ 0x1404E674C (RtlIsMultiSessionSku.c)
+ *     PopSetDisplayStatus @ 0x140534810 (PopSetDisplayStatus.c)
+ *     PopUpdateConsoleDisplayState @ 0x140547D14 (PopUpdateConsoleDisplayState.c)
+ *     PopNetUpdateStandbyRequest @ 0x14057ED68 (PopNetUpdateStandbyRequest.c)
+ *     PopFxPlatformRegisterInterface @ 0x140581084 (PopFxPlatformRegisterInterface.c)
+ *     PopUpdateBackgroundCoolingStatus @ 0x1405815F0 (PopUpdateBackgroundCoolingStatus.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x1406737E4 (PopNetIsDisconnectStandbyActive.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140675104 (PopUpdateSmartUserPresencePredictions.c)
+ *     TtmNotifySessionPowerStateChange @ 0x140678C1C (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionTerminalInput @ 0x140678CA8 (TtmNotifySessionTerminalInput.c)
  */
 
 __int64 __fastcall PopPowerInformationInternal(
@@ -99,7 +99,7 @@ __int64 __fastcall PopPowerInformationInternal(
       return (unsigned int)-1073741670;
     memset(PoolWithTag, 0, 0x20uLL);
     *v27 = PopBsdPowerTransitionAtBoot;
-    v28 = xmmword_140328F88;
+    v28 = xmmword_140328FC8;
     goto LABEL_42;
   }
   if ( a1 > 7 )
@@ -201,7 +201,7 @@ LABEL_23:
       return (unsigned int)-1073741670;
     memset(v41, 0, 0x20uLL);
     *v27 = PopBsdPhysicalPowerButtonInfoAtBoot;
-    v28 = xmmword_140328F68;
+    v28 = xmmword_140328FA8;
 LABEL_42:
     v27[1] = v28;
     *v7 = v27;

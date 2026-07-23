@@ -1,11 +1,11 @@
 /*
- * XREFs of PoClearPowerRequestInternalDeferred @ 0x140131570
+ * XREFs of PoClearPowerRequestInternalDeferred @ 0x140131AE0
  * Callers:
- *     PpmEndHighPerfRequest @ 0x14013155C (PpmEndHighPerfRequest.c)
+ *     PpmEndHighPerfRequest @ 0x140131ACC (PpmEndHighPerfRequest.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     PoClearPowerRequestInternal @ 0x1400FB9D0 (PoClearPowerRequestInternal.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     PoClearPowerRequestInternal @ 0x1400F9750 (PoClearPowerRequestInternal.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

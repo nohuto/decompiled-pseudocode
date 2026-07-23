@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsBuildBroadcastTreePartial @ 0x1407E2870
+ * XREFs of PopDirectedDripsBuildBroadcastTreePartial @ 0x1407E7900
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140AC54E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140AC7158 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     PopDirectedDripsDiagBroadcastTreeEnd @ 0x1407E1F40 (PopDirectedDripsDiagBroadcastTreeEnd.c)
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140B0BCE4 (PopDirectedDripsBuildBroadcastTreeFull.c)
- *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x140B0C394 (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagBroadcastTreeEnd @ 0x1407E6FD0 (PopDirectedDripsDiagBroadcastTreeEnd.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140B0D6D8 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x140B0DD88 (PopDirectedDripsDiagBroadcastTreeBegin.c)
  */
 
 __int64 __fastcall PopDirectedDripsBuildBroadcastTreePartial(

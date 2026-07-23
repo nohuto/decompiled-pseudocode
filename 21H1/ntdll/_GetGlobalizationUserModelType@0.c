@@ -13,7 +13,7 @@ unsigned int __stdcall GetGlobalizationUserModelType()
   result = dword_4B3A6648;
   if ( !dword_4B3A6648 )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
+    if ( RtlIsMultiSessionSku() )
       result = 1;
     else
       result = (MEMORY[0x7FFE02F0] & 0x200 | 0x400u) >> 9;

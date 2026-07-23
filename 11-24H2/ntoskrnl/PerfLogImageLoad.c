@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfLogImageLoad @ 0x1408FFD20
+ * XREFs of PerfLogImageLoad @ 0x140922600
  * Callers:
- *     PsCallImageNotifyRoutines @ 0x1408FFB60 (PsCallImageNotifyRoutines.c)
+ *     PsCallImageNotifyRoutines @ 0x140922440 (PsCallImageNotifyRoutines.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwTraceSiloKernelEvent @ 0x140348590 (EtwTraceSiloKernelEvent.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwTraceSiloKernelEvent @ 0x1403C1FD0 (EtwTraceSiloKernelEvent.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
@@ -15,8 +15,8 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
   __int64 *v5; // r15
   int v6; // ecx
   int v7; // edx
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // [rsp+50h] [rbp-128h] BYREF
+  PIMAGE_NT_HEADERS v8; // rax
+  PVOID v9; // [rsp+50h] [rbp-128h] BYREF
   __int64 v10; // [rsp+58h] [rbp-120h] BYREF
   int v11; // [rsp+60h] [rbp-118h] BYREF
   __int64 v12; // [rsp+64h] [rbp-114h] BYREF
@@ -26,7 +26,7 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
   _QWORD v16[3]; // [rsp+90h] [rbp-E8h] BYREF
   int v17; // [rsp+A8h] [rbp-D0h]
   int v18; // [rsp+ACh] [rbp-CCh]
-  __int64 *v19; // [rsp+B0h] [rbp-C8h]
+  int *v19; // [rsp+B0h] [rbp-C8h]
   __int64 v20; // [rsp+B8h] [rbp-C0h]
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+C0h] [rbp-B8h] BYREF
   __int64 *v22; // [rsp+D0h] [rbp-A8h]
@@ -42,7 +42,7 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
   __int64 v32; // [rsp+120h] [rbp-58h]
   int v33; // [rsp+128h] [rbp-50h]
   int v34; // [rsp+12Ch] [rbp-4Ch]
-  __int64 *v35; // [rsp+130h] [rbp-48h]
+  int *v35; // [rsp+130h] [rbp-48h]
   __int64 v36; // [rsp+138h] [rbp-40h]
 
   if ( a1 )
@@ -58,7 +58,7 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
           v6 = *(_DWORD *)(a2 + 464);
         else
           v6 = 0;
-        v9 = *((_QWORD *)a3 + 1);
+        v9 = (PVOID)*((_QWORD *)a3 + 1);
         v10 = *((_QWORD *)a3 + 3);
         v11 = v6;
         *(_WORD *)&v14[1] = 0;
@@ -70,9 +70,9 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
         v8 = RtlImageNtHeader(v9);
         if ( v8 )
         {
-          LODWORD(v12) = *(_DWORD *)(v8 + 88);
-          HIDWORD(v12) = *(_DWORD *)(v8 + 8);
-          v15[0] = *(_QWORD *)(v8 + 48);
+          LODWORD(v12) = v8->OptionalHeader.CheckSum;
+          HIDWORD(v12) = v8->FileHeader.TimeDateStamp;
+          v15[0] = v8->OptionalHeader.ImageBase;
         }
         if ( EtwpHostSiloState != -4812 && (*(_DWORD *)(EtwpHostSiloState + 4812) & 4) != 0 )
         {

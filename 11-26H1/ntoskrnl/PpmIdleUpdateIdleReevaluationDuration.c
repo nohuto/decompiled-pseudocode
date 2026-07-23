@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdateIdleReevaluationDuration @ 0x140602848
+ * XREFs of PpmIdleUpdateIdleReevaluationDuration @ 0x1406052F8
  * Callers:
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ char __fastcall PpmIdleUpdateIdleReevaluationDuration(
         __int64 a5)
 {
   char v5; // r10
-  __int64 *v6; // rdx
+  char *v6; // rdx
   __int64 v7; // rcx
   unsigned int v8; // eax
   unsigned int v9; // ecx
@@ -41,10 +41,10 @@ char __fastcall PpmIdleUpdateIdleReevaluationDuration(
   {
     if ( a2 != 2147483656LL || *(_BYTE *)(a5 + 8) )
       return v5;
-    v6 = PpmCurrentProfile;
-    v7 = 89LL * dword_140F106CC;
+    v6 = (char *)PpmCurrentProfile;
+    v7 = 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
     *(_BYTE *)(a5 + 8) = 1;
-    a4 = (unsigned int)(10 * HIDWORD(v6[v7 + 36]));
+    a4 = (unsigned int)(10 * *(_DWORD *)&v6[v7 + 292]);
   }
   if ( *(_QWORD *)a5 == -1LL || a4 < *(_QWORD *)a5 )
   {

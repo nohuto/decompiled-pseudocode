@@ -27,7 +27,7 @@
 __int64 __fastcall RtlCSparseBitmapBitmaskRead(__int64 a1, unsigned __int64 a2)
 {
   if ( _bittest64((const signed __int64 *)RtlpHpAllocTrackerBitmap, a2 >> 15) )
-    return (*(_QWORD *)(qword_18015D6A8 + 8 * (a2 >> 6)) >> (a2 & 0x3F)) & 3LL;
+    return (*((_QWORD *)BaseAddress + (a2 >> 6)) >> (a2 & 0x3F)) & 3LL;
   else
     return 0LL;
 }

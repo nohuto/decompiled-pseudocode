@@ -14,39 +14,39 @@
  *     RtlpHeapExceptionFilter @ 0x1800E3178 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlDebugSizeHeap(unsigned __int64 a1, unsigned int a2, unsigned __int64 a3)
+SIZE_T __fastcall RtlDebugSizeHeap(PRTL_CRITICAL_SECTION *BaseAddress, unsigned int a2, char *a3)
 {
   char v6; // r14
-  __int64 v8; // rbx
-  unsigned int v9; // esi
+  SIZE_T v8; // rbx
+  ULONG v9; // esi
   unsigned __int64 v10; // rdx
 
   v6 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return qword_180142140(a1, a2, a3);
+  if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) != 0 )
+    return ((__int64 (__fastcall *)(PRTL_CRITICAL_SECTION *, _QWORD, char *))qword_180142140)(BaseAddress, a2, a3);
   v8 = -1LL;
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlSizeHeap") )
+  if ( RtlpCheckHeapSignature(BaseAddress, "RtlSizeHeap") )
   {
-    v9 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v9 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | a2;
     if ( (v9 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(BaseAddress[44]);
       v9 |= 1u;
       v6 = 1;
     }
-    RtlpValidateHeap(a1, 0);
-    v10 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    RtlpValidateHeap((PVOID *)BaseAddress, 0);
+    v10 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v10 -= 16LL * *(unsigned __int8 *)(v10 + 14);
-    if ( RtlpValidateHeapEntry(a1, v10, "RtlSizeHeap") )
-      v8 = RtlSizeHeap(a1, v9, a3);
+    if ( RtlpValidateHeapEntry((unsigned __int64)BaseAddress, v10, "RtlSizeHeap") )
+      v8 = RtlSizeHeap(BaseAddress, v9, a3);
   }
   else
   {
     v8 = 0LL;
   }
   if ( v6 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(BaseAddress[44]);
   return v8;
 }

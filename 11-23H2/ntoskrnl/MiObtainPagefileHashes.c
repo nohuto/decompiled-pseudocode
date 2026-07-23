@@ -1,13 +1,13 @@
 /*
- * XREFs of MiObtainPagefileHashes @ 0x14046F254
+ * XREFs of MiObtainPagefileHashes @ 0x14046F654
  * Callers:
- *     MiValidatePagefilePageHash @ 0x14046F37A (MiValidatePagefilePageHash.c)
- *     MiArePagefileContentsCorrupted @ 0x1406659BC (MiArePagefileContentsCorrupted.c)
+ *     MiValidatePagefilePageHash @ 0x14046F77A (MiValidatePagefilePageHash.c)
+ *     MiArePagefileContentsCorrupted @ 0x140665F0C (MiArePagefileContentsCorrupted.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReadEntirePageHashEntry @ 0x140666C10 (MiReadEntirePageHashEntry.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReadEntirePageHashEntry @ 0x140667160 (MiReadEntirePageHashEntry.c)
  */
 
 void __fastcall MiObtainPagefileHashes(__int64 a1, int a2, unsigned int a3, __int64 a4)
@@ -48,10 +48,13 @@ void __fastcall MiObtainPagefileHashes(__int64 a1, int a2, unsigned int a3, __in
     while ( v11 < a3 );
   }
   ExReleaseSpinLockSharedFromDpcLevel(v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -59,7 +62,7 @@ void __fastcall MiObtainPagefileHashes(__int64 a1, int a2, unsigned int a3, __in
       v17 = (v16 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v16;
       if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v9);

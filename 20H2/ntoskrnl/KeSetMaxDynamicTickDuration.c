@@ -10,9 +10,9 @@ __int64 __fastcall KeSetMaxDynamicTickDuration(unsigned __int64 a1)
 {
   __int64 result; // rax
 
-  result = (unsigned int)KeMaximumIncrement;
-  if ( (unsigned int)KeMaximumIncrement < a1 )
-    a1 = (unsigned int)KeMaximumIncrement;
+  result = KeMaximumIncrement;
+  if ( KeMaximumIncrement < a1 )
+    a1 = KeMaximumIncrement;
   _InterlockedExchange64(&KiMaxDynamicTickDuration, a1);
   return result;
 }

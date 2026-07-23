@@ -1,14 +1,14 @@
 /*
- * XREFs of PoRegisterCoalescingCallback @ 0x140750DC0
+ * XREFs of PoRegisterCoalescingCallback @ 0x14074F0E0
  * Callers:
- *     CmpCmdInit @ 0x1407D5788 (CmpCmdInit.c)
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
- *     PopCoalescingInitialize @ 0x140C2E994 (PopCoalescingInitialize.c)
+ *     CmpCmdInit @ 0x1407D5C78 (CmpCmdInit.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
+ *     PopCoalescingInitialize @ 0x140C30AB4 (PopCoalescingInitialize.c)
  * Callees:
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoRegisterCoalescingCallback(__int64 a1, char a2, __int64 *a3, __int64 a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PoRegisterCoalescingCallback(__int64 a1, char a2, __int64 *a3
   _QWORD *v10; // rcx
   _QWORD *v11; // rax
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x62436F50u);
   if ( !Pool2 )
     return 3221225626LL;
   *(_QWORD *)(Pool2 + 16) = Pool2;
@@ -29,7 +29,7 @@ __int64 __fastcall PoRegisterCoalescingCallback(__int64 a1, char a2, __int64 *a3
   *(_BYTE *)(Pool2 + 32) = a2 != 0;
   if ( !ExCompareExchangeCallBack((signed __int64 *)(Pool2 + 64), (struct _EX_RUNDOWN_REF *)Pool2, 0LL) )
     return 3221225485LL;
-  PopAcquireRwLockExclusive(&PopCoalRegistrationListLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoalRegistrationListLock);
   v10 = off_140E074F8;
   v11 = (_QWORD *)(Pool2 + 48);
   if ( *(_UNKNOWN ***)off_140E074F8 != &PopCoalRegistrationList )
@@ -38,7 +38,7 @@ __int64 __fastcall PoRegisterCoalescingCallback(__int64 a1, char a2, __int64 *a3
   *v11 = &PopCoalRegistrationList;
   *v10 = v11;
   off_140E074F8 = (_UNKNOWN *)(Pool2 + 48);
-  PopReleaseRwLock((signed __int64 *)&PopCoalRegistrationListLock);
+  PopReleaseRwLock(&PopCoalRegistrationListLock);
   result = 0LL;
   *a3 = Pool2;
   return result;

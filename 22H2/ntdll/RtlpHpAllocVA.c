@@ -14,30 +14,30 @@
  *     RtlpHpTlLogVAChange @ 0x18010B60C (RtlpHpTlLogVAChange.c)
  */
 
-__int64 __fastcall RtlpHpAllocVA(void **a1, _QWORD *a2, __int64 a3, int a4, int a5, __int128 *a6)
+__int64 __fastcall RtlpHpAllocVA(PVOID *BaseAddress, ULONG_PTR *a2, __int64 a3, int a4, ULONG a5, __int128 *a6)
 {
   unsigned int v6; // edi
   __int128 v7; // xmm0
-  __int64 v10; // r8
-  size_t v11; // r8
-  __int64 v12; // r9
-  int v13; // ecx
-  __int128 *v14; // rax
-  int v15; // ebx
-  __int64 v17; // rcx
-  __int64 v18; // rcx
+  ULONG_PTR v10; // r8
+  ULONG_PTR v11; // r8
+  ULONG v12; // r9d
+  ULONG ExtendedParameterCount; // ecx
+  MEM_EXTENDED_PARAMETER *v14; // rax
+  NTSTATUS v15; // ebx
+  ULONG_PTR v17; // rcx
+  void *v18; // rcx
   __int64 v19; // rdx
-  __int64 v20; // [rsp+20h] [rbp-59h]
-  __int64 v21; // [rsp+28h] [rbp-51h]
+  __int64 PageProtection; // [rsp+20h] [rbp-59h]
+  PMEM_EXTENDED_PARAMETER ExtendedParameters; // [rsp+28h] [rbp-51h]
   __int64 v22; // [rsp+40h] [rbp-39h] BYREF
   __int64 v23; // [rsp+48h] [rbp-31h]
   __int64 v24; // [rsp+50h] [rbp-29h]
   __int128 v25; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v26; // [rsp+78h] [rbp-1h] BYREF
+  ULONG_PTR RegionSize; // [rsp+78h] [rbp-1h] BYREF
   int v27; // [rsp+80h] [rbp+7h]
   int v28; // [rsp+84h] [rbp+Bh]
 
-  v26 = 0x100000001000LL;
+  RegionSize = 0x100000001000LL;
   v6 = a4 & 0xFEFFFFFF;
   v27 = 0x200000;
   v7 = *a6;
@@ -48,49 +48,55 @@ __int64 __fastcall RtlpHpAllocVA(void **a1, _QWORD *a2, __int64 a3, int a4, int 
     v10 = *a2;
     if ( (a4 & 0x2000) != 0 )
     {
-      v19 = *((unsigned int *)&v26 + BYTE1(v25));
+      v19 = *((unsigned int *)&RegionSize + BYTE1(v25));
       v11 = v19 - ((v10 + v19 - 1) & (unsigned int)(v19 - 1)) + v10 - 1;
     }
     else
     {
       v11 = v10 - ((v10 - 1) & 0xFFF) + 4095;
     }
-    v26 = v11;
+    RegionSize = v11;
     if ( (a4 & 0x1000) != 0 && BYTE1(v25) >= 2u )
     {
       *a2 = v11;
       if ( (a4 & 0x40000000) != 0 )
-        memset(*a1, 0, v11);
+        memset(*BaseAddress, 0, v11);
       goto LABEL_13;
     }
     if ( (a4 & 0x2000) != 0 && (v25 & 8) != 0 )
       v6 = a4 & 0xFEFBFFFF | 0x40000;
-    v12 = v6;
-    LODWORD(v12) = v6 & 0xBFFFFFFF;
+    v12 = v6 & 0xBFFFFFFF;
     if ( RtlpHpEnvEnableSimulatedLargePageCommit && (v6 & 0x2000) == 0 )
-      LODWORD(v12) = v6 & 0x9FFFFFFF;
-    v13 = 0;
+      v12 = v6 & 0x9FFFFFFF;
+    ExtendedParameterCount = 0;
     if ( (v12 & 0x2000) != 0 )
     {
       v22 = 0LL;
       v23 = 0LL;
-      v13 = 1;
+      ExtendedParameterCount = 1;
       v24 = 0LL;
       *(_QWORD *)&v25 = 1LL;
       *((_QWORD *)&v25 + 1) = &v22;
       if ( (v12 & 0x40000) != 0 )
       {
-        LODWORD(v12) = v12 & 0xFFFBFFFF;
+        v12 &= ~0x40000u;
         v22 = 0x100000000LL;
       }
     }
-    v14 = &v25;
-    if ( !v13 )
+    v14 = (MEM_EXTENDED_PARAMETER *)&v25;
+    if ( !ExtendedParameterCount )
       v14 = 0LL;
-    v15 = NtAllocateVirtualMemoryEx(-1LL, a1, &v26, v12, a5, v14, v13);
+    v15 = NtAllocateVirtualMemoryEx(
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            BaseAddress,
+            &RegionSize,
+            v12,
+            a5,
+            v14,
+            ExtendedParameterCount);
     if ( v15 >= 0 )
     {
-      *a2 = v26;
+      *a2 = RegionSize;
 LABEL_13:
       v15 = 0;
     }
@@ -108,17 +114,17 @@ LABEL_13:
       HIDWORD(v23) = 1;
     v17 = *a2;
     v24 = *((_QWORD *)&v25 + 1);
-    v26 = v17 - ((v17 - 1) & 0xFFFFF) + 0xFFFFF;
-    v18 = RtlpHpVaMgrCtxAlloc((__int64)&unk_18016DC78, (__int64)&v26, a3, &v22);
+    RegionSize = v17 - ((v17 - 1) & 0xFFFFF) + 0xFFFFF;
+    v18 = (void *)RtlpHpVaMgrCtxAlloc((_RTL_SRWLOCK *)&unk_18016DC78, (__int64)&RegionSize, a3, &v22);
     if ( v18 )
     {
-      *a2 = v26;
-      *a1 = (void *)v18;
+      *a2 = RegionSize;
+      *BaseAddress = v18;
       goto LABEL_13;
     }
     v15 = -1073741670;
   }
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(v6, *a2, *a1, (unsigned int)v15, v20, v21);
+    RtlpHpTlLogVAChange(v6, *a2, *BaseAddress, (unsigned int)v15, PageProtection, ExtendedParameters);
   return (unsigned int)v15;
 }

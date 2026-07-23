@@ -12,122 +12,163 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall sub_18010BD7C(__int64 a1, __int64 a2, _QWORD *a3, char a4)
+__int64 __fastcall sub_18010BD7C(__int64 a1, void *a2, PVOID *a3, int a4)
 {
-  unsigned __int64 v6; // rax
-  unsigned int v7; // r13d
-  signed int VirtualMemory; // ebx
-  __int64 v9; // rdx
-  _OWORD *v10; // rax
-  _QWORD *v11; // rcx
-  __int128 v12; // xmm1
-  __int128 v13; // xmm0
-  __int128 v14; // xmm1
-  __int128 v15; // xmm0
-  __int128 v16; // xmm1
-  __int128 v17; // xmm0
-  __int128 v18; // xmm1
-  __int64 v19; // rdx
-  __int128 v20; // xmm1
-  __int128 v21; // xmm0
-  __int128 v22; // xmm1
-  __int128 v23; // xmm0
-  __int128 v24; // xmm1
-  __int128 v25; // xmm0
-  __int64 v26; // rax
-  _QWORD v29[144]; // [rsp+60h] [rbp-A0h] BYREF
+  PVOID v7; // r14
+  unsigned int v8; // r15d
+  unsigned __int64 v9; // rax
+  unsigned int v10; // r13d
+  NTSTATUS v11; // ebx
+  __int64 v12; // rdx
+  _OWORD *v13; // rax
+  _QWORD *v14; // rcx
+  __int128 v15; // xmm1
+  __int128 v16; // xmm0
+  __int128 v17; // xmm1
+  __int128 v18; // xmm0
+  __int128 v19; // xmm1
+  __int128 v20; // xmm0
+  __int128 v21; // xmm1
+  void *v22; // rdx
+  __int128 v23; // xmm1
+  __int128 v24; // xmm0
+  __int128 v25; // xmm1
+  __int128 v26; // xmm0
+  __int128 v27; // xmm1
+  __int128 v28; // xmm0
+  __int64 v29; // rax
+  void *v30; // rdx
+  void *v31; // rdx
+  void *v32; // rdx
+  void *v33; // rdx
+  void *v34; // rdx
+  void *v35; // rdx
+  void *v36; // r8
+  PVOID BaseAddress; // [rsp+40h] [rbp-C0h] BYREF
+  int v39; // [rsp+48h] [rbp-B8h]
+  ULONG_PTR RegionSize[2]; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD Buffer[144]; // [rsp+60h] [rbp-A0h] BYREF
 
-  memset(v29, 0, 0x478uLL);
-  v6 = (unsigned __int64)*(unsigned int *)(a1 + 888) << 6;
-  v7 = -1;
-  if ( v6 <= 0xFFFFFFFF )
-    v7 = *(_DWORD *)(a1 + 888) << 6;
-  VirtualMemory = v6 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  if ( v6 > 0xFFFFFFFF || (VirtualMemory = v7 >= 0xFFFFFB88 ? 0xC0000095 : 0, v7 + 1144 < 0x478) )
+  v39 = a4;
+  v7 = 0LL;
+  BaseAddress = 0LL;
+  v8 = 0;
+  memset(Buffer, 0, 0x478uLL);
+  v9 = (unsigned __int64)*(unsigned int *)(a1 + 888) << 6;
+  v10 = -1;
+  if ( v9 <= 0xFFFFFFFF )
+    v10 = *(_DWORD *)(a1 + 888) << 6;
+  v11 = v9 > 0xFFFFFFFF ? 0xC0000095 : 0;
+  if ( v9 > 0xFFFFFFFF )
+    goto LABEL_33;
+  v8 = -1;
+  if ( v10 < 0xFFFFFB88 )
+    v8 = v10 + 1144;
+  v11 = v10 >= 0xFFFFFB88 ? 0xC0000095 : 0;
+  if ( v10 + 1144 < 0x478 )
   {
-LABEL_31:
-    if ( VirtualMemory >= 0 )
-      goto LABEL_46;
-    goto LABEL_32;
+LABEL_33:
+    if ( v11 >= 0 )
+      goto LABEL_50;
+    goto LABEL_34;
   }
-  v9 = 8LL;
-  v10 = (_OWORD *)a1;
-  v11 = v29;
+  v12 = 8LL;
+  v13 = (_OWORD *)a1;
+  v14 = Buffer;
   do
   {
-    v12 = v10[1];
-    *(_OWORD *)v11 = *v10;
-    v13 = v10[2];
-    *((_OWORD *)v11 + 1) = v12;
-    v14 = v10[3];
-    *((_OWORD *)v11 + 2) = v13;
-    v15 = v10[4];
-    *((_OWORD *)v11 + 3) = v14;
-    v16 = v10[5];
-    *((_OWORD *)v11 + 4) = v15;
-    v17 = v10[6];
-    *((_OWORD *)v11 + 5) = v16;
-    v18 = v10[7];
-    v10 += 8;
-    *((_OWORD *)v11 + 6) = v17;
-    v11 += 16;
-    *((_OWORD *)v11 - 1) = v18;
-    --v9;
+    v15 = v13[1];
+    *(_OWORD *)v14 = *v13;
+    v16 = v13[2];
+    *((_OWORD *)v14 + 1) = v15;
+    v17 = v13[3];
+    *((_OWORD *)v14 + 2) = v16;
+    v18 = v13[4];
+    *((_OWORD *)v14 + 3) = v17;
+    v19 = v13[5];
+    *((_OWORD *)v14 + 4) = v18;
+    v20 = v13[6];
+    *((_OWORD *)v14 + 5) = v19;
+    v21 = v13[7];
+    v13 += 8;
+    *((_OWORD *)v14 + 6) = v20;
+    v14 += 16;
+    *((_OWORD *)v14 - 1) = v21;
+    --v12;
   }
-  while ( v9 );
-  v19 = *(_QWORD *)(a1 + 872);
-  v20 = v10[1];
-  *(_OWORD *)v11 = *v10;
-  v21 = v10[2];
-  *((_OWORD *)v11 + 1) = v20;
-  v22 = v10[3];
-  *((_OWORD *)v11 + 2) = v21;
-  v23 = v10[4];
-  *((_OWORD *)v11 + 3) = v22;
-  v24 = v10[5];
-  *((_OWORD *)v11 + 4) = v23;
-  v25 = v10[6];
-  v26 = *((_QWORD *)v10 + 14);
-  *((_OWORD *)v11 + 5) = v24;
-  *((_OWORD *)v11 + 6) = v25;
-  v11[14] = v26;
-  v29[109] = 0LL;
-  v29[112] = 0LL;
-  v29[115] = 0LL;
-  v29[118] = 0LL;
-  v29[122] = 0LL;
-  v29[126] = 0LL;
-  v29[141] = 0LL;
-  if ( !v19 || (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0) )
+  while ( v12 );
+  v22 = *(void **)(a1 + 872);
+  v23 = v13[1];
+  *(_OWORD *)v14 = *v13;
+  v24 = v13[2];
+  *((_OWORD *)v14 + 1) = v23;
+  v25 = v13[3];
+  *((_OWORD *)v14 + 2) = v24;
+  v26 = v13[4];
+  *((_OWORD *)v14 + 3) = v25;
+  v27 = v13[5];
+  *((_OWORD *)v14 + 4) = v26;
+  v28 = v13[6];
+  v29 = *((_QWORD *)v13 + 14);
+  *((_OWORD *)v14 + 5) = v27;
+  *((_OWORD *)v14 + 6) = v28;
+  v14[14] = v29;
+  Buffer[109] = 0LL;
+  Buffer[112] = 0LL;
+  Buffer[115] = 0LL;
+  Buffer[118] = 0LL;
+  Buffer[122] = 0LL;
+  Buffer[126] = 0LL;
+  Buffer[141] = 0LL;
+  if ( !v22
+    || (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v22, a2, (PHANDLE)&Buffer[109], 0, 0, 2u), v11 >= 0) )
   {
-    if ( !*(_QWORD *)(a1 + 896) || (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0) )
+    v30 = *(void **)(a1 + 896);
+    if ( !v30
+      || (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v30, a2, (PHANDLE)&Buffer[112], 0, 0, 2u), v11 >= 0) )
     {
-      if ( !*(_QWORD *)(a1 + 920) || (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0) )
+      v31 = *(void **)(a1 + 920);
+      if ( !v31
+        || (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v31, a2, (PHANDLE)&Buffer[115], 0, 0, 2u), v11 >= 0) )
       {
-        if ( !*(_QWORD *)(a1 + 944) || (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0) )
+        v32 = *(void **)(a1 + 944);
+        if ( !v32
+          || (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v32, a2, (PHANDLE)&Buffer[118], 0, 0, 2u), v11 >= 0) )
         {
-          if ( !*(_QWORD *)(a1 + 976) || (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0) )
+          v33 = *(void **)(a1 + 976);
+          if ( !v33
+            || (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v33, a2, (PHANDLE)&Buffer[122], 0, 0, 2u), v11 >= 0) )
           {
-            if ( !*(_QWORD *)(a1 + 1008) || (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0) )
+            v34 = *(void **)(a1 + 1008);
+            if ( !v34
+              || (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v34, a2, (PHANDLE)&Buffer[126], 0, 0, 2u),
+                  v11 >= 0) )
             {
-              if ( !*(_QWORD *)(a1 + 1128) || (VirtualMemory = ZwDuplicateObject(), VirtualMemory >= 0) )
+              v35 = *(void **)(a1 + 1128);
+              if ( !v35
+                || (v11 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v35, a2, (PHANDLE)&Buffer[141], 0, 0, 2u),
+                    v11 >= 0) )
               {
-                VirtualMemory = ZwAllocateVirtualMemory();
-                if ( VirtualMemory >= 0 )
+                BaseAddress = 0LL;
+                RegionSize[0] = v8;
+                v11 = ZwAllocateVirtualMemory(a2, &BaseAddress, 0LL, RegionSize, 0x1000u, 4u);
+                if ( v11 >= 0 )
                 {
-                  HIDWORD(v29[0]) = HIDWORD(v29[0]) & 0xFFFFFFF8 | 1;
+                  HIDWORD(Buffer[0]) = HIDWORD(Buffer[0]) & 0xFFFFFFF8 | 1;
                   if ( *(_QWORD *)(a1 + 904) )
-                    v29[113] = 1144LL;
+                    Buffer[113] = (char *)BaseAddress + 1144;
                   if ( *(_WORD *)(a1 + 280) )
-                    v29[36] = 296LL;
-                  VirtualMemory = ZwWriteVirtualMemory();
-                  if ( VirtualMemory >= 0 )
+                    Buffer[36] = (char *)BaseAddress + 296;
+                  v11 = ZwWriteVirtualMemory(a2, BaseAddress, Buffer, v8, 0LL);
+                  if ( v11 >= 0 )
                   {
-                    if ( !*(_QWORD *)(a1 + 904) || (VirtualMemory = ZwWriteVirtualMemory(), VirtualMemory >= 0) )
+                    v36 = *(void **)(a1 + 904);
+                    if ( !v36 || (v11 = ZwWriteVirtualMemory(a2, (PVOID)Buffer[113], v36, v10, 0LL), v11 >= 0) )
                     {
-                      VirtualMemory = 0;
-                      *a3 = 0LL;
-                      goto LABEL_31;
+                      v7 = BaseAddress;
+                      v11 = 0;
+                      *a3 = BaseAddress;
+                      goto LABEL_33;
                     }
                   }
                 }
@@ -138,23 +179,29 @@ LABEL_31:
       }
     }
   }
-LABEL_32:
-  if ( v29[126] )
-    ZwDuplicateObject();
-  if ( v29[122] )
-    ZwDuplicateObject();
-  if ( v29[115] )
-    ZwDuplicateObject();
-  if ( v29[118] )
-    ZwDuplicateObject();
-  if ( v29[112] )
-    ZwDuplicateObject();
-  if ( v29[109] )
-    ZwDuplicateObject();
-  if ( v29[141] )
-    ZwDuplicateObject();
-LABEL_46:
-  if ( (a4 & 1) != 0 )
+  v7 = BaseAddress;
+LABEL_34:
+  if ( v7 )
+  {
+    RegionSize[0] = v8;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, RegionSize, 0x8000u);
+  }
+  if ( Buffer[126] )
+    ZwDuplicateObject(a2, (HANDLE)Buffer[126], 0LL, 0LL, 0, 0, 1u);
+  if ( Buffer[122] )
+    ZwDuplicateObject(a2, (HANDLE)Buffer[122], 0LL, 0LL, 0, 0, 1u);
+  if ( Buffer[115] )
+    ZwDuplicateObject(a2, (HANDLE)Buffer[115], 0LL, 0LL, 0, 0, 1u);
+  if ( Buffer[118] )
+    ZwDuplicateObject(a2, (HANDLE)Buffer[118], 0LL, 0LL, 0, 0, 1u);
+  if ( Buffer[112] )
+    ZwDuplicateObject(a2, (HANDLE)Buffer[112], 0LL, 0LL, 0, 0, 1u);
+  if ( Buffer[109] )
+    ZwDuplicateObject(a2, (HANDLE)Buffer[109], 0LL, 0LL, 0, 0, 1u);
+  if ( Buffer[141] )
+    ZwDuplicateObject(a2, (HANDLE)Buffer[141], 0LL, 0LL, 0, 0, 1u);
+LABEL_50:
+  if ( (v39 & 1) != 0 )
     PssNtFreeSnapshot(a1);
-  return (unsigned int)VirtualMemory;
+  return (unsigned int)v11;
 }

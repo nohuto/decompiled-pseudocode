@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapAndApplyPatchInSession @ 0x140A39FB4
+ * XREFs of MiMapAndApplyPatchInSession @ 0x140A3A264
  * Callers:
- *     MiActOnPatchInAllSessions @ 0x140A34610 (MiActOnPatchInAllSessions.c)
- *     MiApplySingleSessionPatch @ 0x140A360A0 (MiApplySingleSessionPatch.c)
+ *     MiActOnPatchInAllSessions @ 0x140A348C0 (MiActOnPatchInAllSessions.c)
+ *     MiApplySingleSessionPatch @ 0x140A36350 (MiApplySingleSessionPatch.c)
  * Callees:
- *     KeIsImageIATProtected @ 0x14056C4EC (KeIsImageIATProtected.c)
+ *     KeIsImageIATProtected @ 0x14056CBAC (KeIsImageIATProtected.c)
  *     MiDriverLoadSucceeded @ 0x140695BC4 (MiDriverLoadSucceeded.c)
  *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
  *     MiFreeLoadedImportList @ 0x140696D20 (MiFreeLoadedImportList.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
- *     MiAddEntryToImportList @ 0x140A2AF98 (MiAddEntryToImportList.c)
- *     MiApplyHotPatchToDriverDataPages @ 0x140A34F28 (MiApplyHotPatchToDriverDataPages.c)
- *     MiInvokePatchCallback @ 0x140A37E90 (MiInvokePatchCallback.c)
- *     RtlFindHotPatchBase @ 0x140A7649C (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140A764CC (RtlFindHotPatchInformation.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
+ *     MiAddEntryToImportList @ 0x140A2B248 (MiAddEntryToImportList.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x140A351D8 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiInvokePatchCallback @ 0x140A38140 (MiInvokePatchCallback.c)
+ *     RtlFindHotPatchBase @ 0x140A7674C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140A7677C (RtlFindHotPatchInformation.c)
  */
 
 __int64 __fastcall MiMapAndApplyPatchInSession(__int64 a1, __int64 a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall MiMapAndApplyPatchInSession(__int64 a1, __int64 a2, __int64 a
   __int64 HotPatchBase; // rax
   __int64 v13; // r9
   ULONG_PTR v15; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v16; // [rsp+88h] [rbp+20h] BYREF
+  PVOID v16; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = *(__int64 **)(a2 + 88);
   v16 = 0LL;
@@ -40,7 +40,7 @@ __int64 __fastcall MiMapAndApplyPatchInSession(__int64 a1, __int64 a2, __int64 a
     if ( v8 < 0 )
       goto LABEL_11;
     v10 = 1;
-    HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48));
+    HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
     *(_QWORD *)(a3 + 24) = HotPatchInformation;
     HotPatchBase = RtlFindHotPatchBase(HotPatchInformation);
     *(_QWORD *)(a3 + 32) = v13 + *(unsigned int *)(HotPatchBase + 24);

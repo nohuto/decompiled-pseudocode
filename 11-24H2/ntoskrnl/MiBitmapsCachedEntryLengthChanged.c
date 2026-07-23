@@ -1,16 +1,16 @@
 /*
- * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x140367870
+ * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x1403C4BF0
  * Callers:
- *     MiInvalidatePageFileBitmapsCache @ 0x140367598 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1403C4918 (MiInvalidatePageFileBitmapsCache.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
  */
 
 void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, int a3)
 {
-  bool v3; // bl
-  unsigned __int64 v4; // rdi
+  BOOLEAN v3; // bl
+  unsigned __int64 *v4; // rdi
   unsigned __int64 v6; // r9
   _QWORD *v7; // rdx
   unsigned __int64 i; // r9
@@ -23,7 +23,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   unsigned __int64 j; // r9
 
   v3 = 0;
-  v4 = (unsigned __int64)a2;
+  v4 = a2;
   if ( a3 )
   {
     v6 = a2[1];
@@ -74,7 +74,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
       return;
   }
   v9 = *(_DWORD *)(v6 + 52);
-  v10 = *(_DWORD *)(v4 + 52);
+  v10 = *((_DWORD *)v4 + 13);
   if ( a3 )
   {
     if ( v9 > v10 )
@@ -85,7 +85,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
     return;
   }
   v11 = a1 + 112;
-  RtlRbRemoveNode((unsigned __int64 *)v11, (unsigned __int64 *)v4);
+  RtlRbRemoveNode((PRTL_RB_TREE)v11, (PRTL_BALANCED_NODE)v4);
   v12 = *(_QWORD *)v11;
   if ( (*(_BYTE *)(v11 + 8) & 1) != 0 )
   {
@@ -96,7 +96,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   {
     while ( 1 )
     {
-      if ( *(_QWORD *)(v4 + 48) >= *(_QWORD *)(v12 + 48) )
+      if ( v4[6] >= *(_QWORD *)(v12 + 48) )
       {
         v13 = *(_QWORD *)(v12 + 8);
         if ( (*(_BYTE *)(v11 + 8) & 1) != 0 )
@@ -127,5 +127,5 @@ LABEL_21:
       v12 = v13;
     }
   }
-  RtlRbInsertNodeEx((__int64 *)v11, v12, v3, v4);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v11, (PRTL_BALANCED_NODE)v12, v3, (PRTL_BALANCED_NODE)v4);
 }

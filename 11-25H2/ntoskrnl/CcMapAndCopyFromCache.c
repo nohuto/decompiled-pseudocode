@@ -27,7 +27,7 @@ char __fastcall CcMapAndCopyFromCache(
   __int64 v9; // rax
   unsigned int v11; // ebp
   __int64 v12; // rbx
-  int v13; // r15d
+  NTSTATUS v13; // r15d
   __int64 v14; // rsi
   _DWORD *v15; // r12
   char *v16; // r14

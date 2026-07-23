@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140783FDC
+ * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140786B10
  * Callers:
- *     HalpAddDevice @ 0x140781BF0 (HalpAddDevice.c)
+ *     HalpAddDevice @ 0x1407846F0 (HalpAddDevice.c)
  * Callees:
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     HalpRecordSecondaryGsivRange @ 0x14078411C (HalpRecordSecondaryGsivRange.c)
- *     HalpQueryMaximumGsiv @ 0x140784BE8 (HalpQueryMaximumGsiv.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     HalpRecordSecondaryGsivRange @ 0x140786C50 (HalpRecordSecondaryGsivRange.c)
+ *     HalpQueryMaximumGsiv @ 0x14078771C (HalpQueryMaximumGsiv.c)
  */
 
 __int64 HalpInitializeSecondaryInterruptServices()
@@ -15,10 +15,10 @@ __int64 HalpInitializeSecondaryInterruptServices()
   unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0;
-  qword_140F899F8 = (__int64)&SecondaryIcList;
+  qword_140F89DD8 = (__int64)&SecondaryIcList;
   SecondaryIcList = (__int64)&SecondaryIcList;
   SecondaryIcListSpinLock = 0LL;
-  qword_140F89A08 = (__int64)&SecondarySignalList;
+  qword_140F89DC8 = (__int64)&SecondarySignalList;
   SecondarySignalList = (__int64)&SecondarySignalList;
   KeInitializeDpc((PRKDPC)&SecondarySignalDpc, (PKDEFERRED_ROUTINE)HalpProcessSecondarySignalList, 0LL);
   SecondarySignalListLock = 0LL;

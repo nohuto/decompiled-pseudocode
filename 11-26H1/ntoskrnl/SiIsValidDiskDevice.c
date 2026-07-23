@@ -1,19 +1,18 @@
 /*
- * XREFs of SiIsValidDiskDevice @ 0x1408946C0
+ * XREFs of SiIsValidDiskDevice @ 0x14089AAC0
  * Callers:
- *     SyspartEnumerateDisks @ 0x140894798 (SyspartEnumerateDisks.c)
+ *     SyspartEnumerateDisks @ 0x14089AB98 (SyspartEnumerateDisks.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
  */
 
-char __fastcall SiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2, _DWORD *a3)
+char __fastcall SiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2, int *a3)
 {
-  wchar_t *v6; // rdx
-  wchar_t v7; // ax
+  wchar_t *v6; // r8
+  wchar_t v7; // dx
   int v8; // ecx
-  __int16 v10; // r8
-  int v11; // r9d
+  __int16 v10; // r9
 
   if ( wcsicmp(a2, L"Directory") && wcsicmp(a2, L"SymbolicLink") )
     return 0;
@@ -29,13 +28,12 @@ char __fastcall SiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2, _DWORD *a3)
     v10 = 0;
     while ( v7 )
     {
-      v11 = *v6;
-      if ( (unsigned __int16)(v11 - 48) > 9u )
+      if ( (unsigned __int16)(v7 - 48) > 9u )
         return 0;
       if ( (unsigned __int16)++v10 > 0xAu )
         return 0;
       ++v6;
-      v8 = v11 + 2 * (5 * v8 - 24);
+      v8 = v7 + 2 * (5 * v8 - 24);
       v7 = *v6;
     }
     goto LABEL_7;

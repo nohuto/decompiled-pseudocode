@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDumpTraceForceDumpDisabled @ 0x140710E18
+ * XREFs of IopDumpTraceForceDumpDisabled @ 0x14070E9A8
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140C1C8B4 (IopInitCrashDumpDuringSysInit.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140C1E8F4 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopDumpIsTracingEnabled @ 0x1404FA9C8 (IopDumpIsTracingEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopDumpIsTracingEnabled @ 0x1404F82A8 (IopDumpIsTracingEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char IopDumpTraceForceDumpDisabled()
@@ -48,7 +48,7 @@ char IopDumpTraceForceDumpDisabled()
       v9 = 1;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E06DC8,
-               (unsigned __int8 *)byte_14004537D,
+               (unsigned __int8 *)&dword_1400457DC,
                0LL,
                0LL,
                4u,

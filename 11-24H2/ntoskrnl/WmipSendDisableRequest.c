@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipSendDisableRequest @ 0x1409D0DD8
+ * XREFs of WmipSendDisableRequest @ 0x140A2CD30
  * Callers:
- *     WmipDisableCollectOrEvent @ 0x1409CFCF0 (WmipDisableCollectOrEvent.c)
+ *     WmipDisableCollectOrEvent @ 0x140A2CCC0 (WmipDisableCollectOrEvent.c)
  * Callees:
- *     WmipDoDisableRequest @ 0x1409D11DC (WmipDoDisableRequest.c)
+ *     WmipDoDisableRequest @ 0x1409AF864 (WmipDoDisableRequest.c)
  */
 
 __int64 __fastcall WmipSendDisableRequest(_DWORD *a1, char a2)
@@ -13,7 +13,6 @@ __int64 __fastcall WmipSendDisableRequest(_DWORD *a1, char a2)
   __int64 v5; // r8
   int v6; // edx
   int v7; // edx
-  __int64 v8; // rdx
 
   result = 0LL;
   if ( a2 )
@@ -36,10 +35,8 @@ __int64 __fastcall WmipSendDisableRequest(_DWORD *a1, char a2)
     v7 = a1[4];
     if ( (v7 & (unsigned int)v5) == 0 )
     {
-      v8 = (unsigned int)v5 | v7;
-      a1[4] = v8;
-      LOBYTE(v8) = a2;
-      return WmipDoDisableRequest(a1, v8, v5);
+      a1[4] = v5 | v7;
+      return WmipDoDisableRequest(a1, a2, v5);
     }
   }
   return result;

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlLogGuestCrashInformation @ 0x1405B88D0
+ * XREFs of HvlLogGuestCrashInformation @ 0x1405BB140
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
  * Callees:
- *     HvlpSetRegister64 @ 0x140493EC0 (HvlpSetRegister64.c)
- *     HvlpGetRegister64 @ 0x1404D0D20 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x14048DA10 (HvlpSetRegister64.c)
+ *     HvlpGetRegister64 @ 0x1404CA750 (HvlpGetRegister64.c)
  */
 
-_UNKNOWN **__fastcall HvlLogGuestCrashInformation(
+void __fastcall HvlLogGuestCrashInformation(
         unsigned int a1,
         unsigned __int64 a2,
         unsigned __int64 a3,
@@ -15,28 +15,24 @@ _UNKNOWN **__fastcall HvlLogGuestCrashInformation(
         unsigned __int64 a5,
         int a6)
 {
-  _UNKNOWN **result; // rax
-  unsigned __int64 v11; // rbx
-  unsigned __int64 v12[3]; // [rsp+20h] [rbp-18h] BYREF
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
+  unsigned __int64 v10; // rbx
+  __int64 v11[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  result = &retaddr;
-  v12[0] = 0LL;
+  v11[0] = 0LL;
   if ( (HvlEnlightenments & 0x2000) != 0 )
   {
-    result = (_UNKNOWN **)HvlpGetRegister64(533, v12);
-    v11 = 0x8000000000000000uLL;
-    if ( (v12[0] & 0x8000000000000000uLL) != 0LL )
+    HvlpGetRegister64(533, v11);
+    v10 = 0x8000000000000000uLL;
+    if ( v11[0] < 0 )
     {
       HvlpSetRegister64(528, a1);
       __writemsr(0x40000101u, a2);
       __writemsr(0x40000102u, a3);
       __writemsr(0x40000103u, a4);
       __writemsr(0x40000104u, a5);
-      if ( (v12[0] & 0x2000000000000000LL) != 0 )
-        v11 = (-(__int64)(a6 != 0) & 0x2000000000000000LL) + 0x8000000000000000uLL;
-      return (_UNKNOWN **)HvlpSetRegister64(533, v11);
+      if ( (v11[0] & 0x2000000000000000LL) != 0 )
+        v10 = (-(__int64)(a6 != 0) & 0x2000000000000000LL) + 0x8000000000000000uLL;
+      HvlpSetRegister64(533, v10);
     }
   }
-  return result;
 }

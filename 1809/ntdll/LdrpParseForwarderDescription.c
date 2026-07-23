@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpParseForwarderDescription @ 0x180079F2C
+ * XREFs of LdrpParseForwarderDescription @ 0x180079F3C
  * Callers:
  *     LdrpHandleProtectedDelayload @ 0x180007CB0 (LdrpHandleProtectedDelayload.c)
  *     LdrpResolveProcedureAddress @ 0x18000922C (LdrpResolveProcedureAddress.c)
  *     LdrpEnclaveAddForwarderModules @ 0x1800CF57C (LdrpEnclaveAddForwarderModules.c)
  * Callees:
- *     RtlCharToInteger @ 0x180079FD0 (RtlCharToInteger.c)
- *     strrchr @ 0x180095000 (strrchr.c)
+ *     RtlCharToInteger @ 0x180079FE0 (RtlCharToInteger.c)
+ *     strrchr @ 0x180095010 (strrchr.c)
  */
 
 __int64 __fastcall LdrpParseForwarderDescription(const char *a1, __int64 a2, char **a3, ULONG *a4)

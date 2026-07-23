@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlInitializeBaseMcbEx @ 0x14047C4A0
+ * XREFs of FsRtlInitializeBaseMcbEx @ 0x140475E10
  * Callers:
- *     FsRtlInitializeLargeMcb @ 0x14047C430 (FsRtlInitializeLargeMcb.c)
- *     FsRtlInitializeBaseMcb @ 0x1405B5460 (FsRtlInitializeBaseMcb.c)
+ *     FsRtlInitializeLargeMcb @ 0x140475DA0 (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeBaseMcb @ 0x1405B7C70 (FsRtlInitializeBaseMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, USHORT Flags)
@@ -21,14 +21,12 @@ BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, US
   Mcb->Flags = Flags;
   if ( PoolType == PagedPool )
   {
-    ++FsRtlFirstPagedMappingLookasideList.L.TotalAllocates;
-    v5 = RtlpInterlockedPopEntrySList(&FsRtlFirstPagedMappingLookasideList.L.ListHead);
+    ++unk_140E112D4;
+    v5 = RtlpInterlockedPopEntrySList(&FsRtlFirstPagedMappingLookasideList);
     if ( !v5 )
     {
-      ++FsRtlFirstPagedMappingLookasideList.L.AllocateMisses;
-      v5 = (void *)guard_dispatch_icall_no_overrides(
-                     (unsigned int)FsRtlFirstPagedMappingLookasideList.L.Type,
-                     FsRtlFirstPagedMappingLookasideList.L.Size);
+      ++unk_140E112D8;
+      v5 = (void *)guard_dispatch_icall_no_overrides(unk_140E112E4, unk_140E112EC);
     }
   }
   else

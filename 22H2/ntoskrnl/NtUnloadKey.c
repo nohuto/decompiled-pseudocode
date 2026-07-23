@@ -6,7 +6,7 @@
  *     CmUnloadKey @ 0x14066C6BC (CmUnloadKey.c)
  */
 
-__int64 __fastcall NtUnloadKey(__int64 a1)
+NTSTATUS __cdecl NtUnloadKey(POBJECT_ATTRIBUTES TargetKey)
 {
-  return CmUnloadKey(a1, 0LL, 0LL, 0LL);
+  return CmUnloadKey(TargetKey, 0LL, 0LL, 0LL);
 }

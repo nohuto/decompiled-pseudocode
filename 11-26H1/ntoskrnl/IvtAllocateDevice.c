@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtAllocateDevice @ 0x1405AF3CC
+ * XREFs of IvtAllocateDevice @ 0x1405B1BDC
  * Callers:
- *     IvtCreateDevice @ 0x1405AF480 (IvtCreateDevice.c)
- *     IvtProcessDeviceExceptions @ 0x140BF0684 (IvtProcessDeviceExceptions.c)
+ *     IvtCreateDevice @ 0x1405B1C90 (IvtCreateDevice.c)
+ *     IvtProcessDeviceExceptions @ 0x140BF6684 (IvtProcessDeviceExceptions.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x140597BA0 (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x140597DF0 (ExtEnvFreeMemory.c)
+ *     ExtEnvAllocateMemory @ 0x14059A320 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x14059A570 (ExtEnvFreeMemory.c)
  */
 
 __int64 __fastcall IvtAllocateDevice(__int64 a1, int a2, __int64 a3, __int64 a4, _QWORD *a5)

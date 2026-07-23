@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x1404416E0
+ * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x140438020
  * Callers:
- *     PopPepWork @ 0x140316330 (PopPepWork.c)
+ *     PopPepWork @ 0x1402BEEE0 (PopPepWork.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, int a4, int a5)
@@ -56,13 +56,13 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
   v6 = a5;
   if ( a4 == 2 )
   {
-    if ( (unsigned int)dword_140E076F0 <= 5 )
+    if ( (unsigned int)dword_140E07680 <= 5 )
       goto LABEL_3;
-    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
     if ( !(_BYTE)v5 )
       goto LABEL_3;
     v40 = &v30;
-    v21 = byte_1400499F1;
+    v21 = byte_14004A599;
     UserDataCount = 3;
   }
   else
@@ -79,14 +79,14 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
     while ( v22 != (_DWORD)v5 );
     if ( !(_DWORD)v5 )
       goto LABEL_3;
-    if ( (unsigned int)dword_140E076F0 <= 5 )
+    if ( (unsigned int)dword_140E07680 <= 5 )
       goto LABEL_3;
-    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
     if ( !(_BYTE)v5 )
       goto LABEL_3;
     v31 = 0x1000000LL;
     v40 = &v30;
-    v21 = (char *)&byte_140049A30;
+    v21 = (char *)&byte_14004A5D8;
     v43 = 8LL;
     v42 = &v31;
     UserDataCount = 4;
@@ -94,7 +94,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
   v30 = v6;
   v41 = 4LL;
   LOBYTE(v5) = tlgWriteEx_EtwWriteEx(
-                 (int)&dword_140E076F0,
+                 (int)&dword_140E07680,
                  (int)v21,
                  v20,
                  1,

@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbGetRegistrarSecurityDescriptor @ 0x14089FA48
+ * XREFs of DrvDbGetRegistrarSecurityDescriptor @ 0x1408A5E48
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x14091D580 (DrvDbOpenObjectRegKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x14091DC40 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140977FE0 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409786A0 (DrvDbAcquireDatabaseNodeBaseKey.c)
  * Callees:
- *     RtlSetControlSecurityDescriptor @ 0x1408045B0 (RtlSetControlSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlSetControlSecurityDescriptor @ 0x14080A050 (RtlSetControlSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void *DrvDbGetRegistrarSecurityDescriptor()
@@ -31,7 +31,7 @@ void *DrvDbGetRegistrarSecurityDescriptor()
   if ( RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
     && RtlCreateAcl(&Acl, 8u, 2u) >= 0
     && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0) >= 0
-    && (int)RtlSetControlSecurityDescriptor((__int64)SecurityDescriptor, 0x1000u, 0x1000u) >= 0 )
+    && RtlSetControlSecurityDescriptor(SecurityDescriptor, 0x1000u, 0x1000u) >= 0 )
   {
     BufferLength = RtlLengthSecurityDescriptor(SecurityDescriptor);
     if ( BufferLength >= 0x28 )

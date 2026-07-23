@@ -1,26 +1,26 @@
 /*
- * XREFs of MiAddPhysicalMemory @ 0x1407E866C
+ * XREFs of MiAddPhysicalMemory @ 0x1407E8C3C
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x1407E8944 (MiAddPhysicalMemoryChunks.c)
- *     MiCreateFileOnlyPfns @ 0x1407F0124 (MiCreateFileOnlyPfns.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1407E8F14 (MiAddPhysicalMemoryChunks.c)
+ *     MiCreateFileOnlyPfns @ 0x1407F06F4 (MiCreateFileOnlyPfns.c)
  * Callees:
- *     MiUnlockDynamicMemoryShared @ 0x1403D57CC (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1403D5830 (MiLockDynamicMemoryShared.c)
- *     KeConfigureDynamicMemory @ 0x1405B79E4 (KeConfigureDynamicMemory.c)
- *     MiLogAddPhysicalMemory @ 0x14066DE94 (MiLogAddPhysicalMemory.c)
- *     MiMemoryRangeAlreadyExists @ 0x14066E040 (MiMemoryRangeAlreadyExists.c)
- *     MiReturnAddMemoryResources @ 0x14066E8AC (MiReturnAddMemoryResources.c)
- *     MiDeleteExtentPfns @ 0x14067A760 (MiDeleteExtentPfns.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiAcquireAddMemoryLocks @ 0x1407E8568 (MiAcquireAddMemoryLocks.c)
- *     MiAcquireAddMemoryResources @ 0x1407E85A8 (MiAcquireAddMemoryResources.c)
- *     MiCompleteMemoryAddition @ 0x1407E901C (MiCompleteMemoryAddition.c)
- *     MiMapNewPfns @ 0x1407E96AC (MiMapNewPfns.c)
- *     MiReleaseAddMemoryLocks @ 0x1407E9D5C (MiReleaseAddMemoryLocks.c)
- *     MiUnmapPfns @ 0x1407EA110 (MiUnmapPfns.c)
- *     MiValidateAddPhysicalMemoryParameters @ 0x1407EA20C (MiValidateAddPhysicalMemoryParameters.c)
- *     MiIsExtentDangling @ 0x1407F0410 (MiIsExtentDangling.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140264630 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockDynamicMemoryShared @ 0x140264694 (MiLockDynamicMemoryShared.c)
+ *     KeConfigureDynamicMemory @ 0x1405B4FBC (KeConfigureDynamicMemory.c)
+ *     MiLogAddPhysicalMemory @ 0x14066F068 (MiLogAddPhysicalMemory.c)
+ *     MiMemoryRangeAlreadyExists @ 0x14066F214 (MiMemoryRangeAlreadyExists.c)
+ *     MiReturnAddMemoryResources @ 0x14066FA80 (MiReturnAddMemoryResources.c)
+ *     MiDeleteExtentPfns @ 0x14067B940 (MiDeleteExtentPfns.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiAcquireAddMemoryLocks @ 0x1407E8B38 (MiAcquireAddMemoryLocks.c)
+ *     MiAcquireAddMemoryResources @ 0x1407E8B78 (MiAcquireAddMemoryResources.c)
+ *     MiCompleteMemoryAddition @ 0x1407E95EC (MiCompleteMemoryAddition.c)
+ *     MiMapNewPfns @ 0x1407E9C7C (MiMapNewPfns.c)
+ *     MiReleaseAddMemoryLocks @ 0x1407EA32C (MiReleaseAddMemoryLocks.c)
+ *     MiUnmapPfns @ 0x1407EA6E0 (MiUnmapPfns.c)
+ *     MiValidateAddPhysicalMemoryParameters @ 0x1407EA7DC (MiValidateAddPhysicalMemoryParameters.c)
+ *     MiIsExtentDangling @ 0x1407F09E0 (MiIsExtentDangling.c)
  */
 
 __int64 __fastcall MiAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, _QWORD *a3, int a4, __int64 a5)
@@ -79,7 +79,7 @@ LABEL_37:
         MiLogAddPhysicalMemory(a1, a2, (__int64)a3, v24, (__int64)v19);
         return v14;
       }
-      byte_140E2D600 = 1;
+      byte_140E2D740 = 1;
       MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
       v19[0] = MiMapNewPfns(v20);
       v14 = v19[0];
@@ -92,7 +92,7 @@ LABEL_36:
       goto LABEL_37;
     }
     MiAcquireAddMemoryLocks((__int64)v20);
-    if ( byte_140E2D600 )
+    if ( byte_140E2D740 )
     {
       v15 = MiIsExtentDangling(v21, v23, v24);
       v16 = v21;
@@ -105,13 +105,13 @@ LABEL_36:
     }
     if ( (v24 & 0x80000) == 0 )
     {
-      if ( qword_140E2DB48 == qword_140E3D450 )
+      if ( qword_140E2DC88 == qword_140E3D590 )
       {
 LABEL_20:
         v14 = -1073741637;
         goto LABEL_8;
       }
-      if ( v23 > qword_140E2DB48 - qword_140E3D450 )
+      if ( v23 > qword_140E2DC88 - qword_140E3D590 )
       {
         if ( (v24 & 0x200000) != 0 )
         {
@@ -122,7 +122,7 @@ LABEL_20:
           v17 = -262144LL;
         else
           v17 = (-(__int64)((v24 & 0x1000) != 0) & 0xFFFFFFFFFFFFFE01uLL) - 1;
-        v18 = (qword_140E2DB48 - qword_140E3D450) & v17;
+        v18 = (qword_140E2DC88 - qword_140E3D590) & v17;
         v23 = v18;
         if ( !v18 )
           goto LABEL_20;

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepTryPowerDownDevice @ 0x140310CD0
+ * XREFs of PopPepTryPowerDownDevice @ 0x140310F60
  * Callers:
- *     PopPepProcessEvent @ 0x140313900 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x140313B90 (PopPepProcessEvent.c)
  * Callees:
- *     PopPepStartActivity @ 0x14031383C (PopPepStartActivity.c)
- *     PopPepRequestWork @ 0x140313AA0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313AE4 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313B68 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313C60 (PopPepPromoteActivities.c)
- *     PopPepTriggerActivity @ 0x1403140FC (PopPepTriggerActivity.c)
+ *     PopPepStartActivity @ 0x140313ACC (PopPepStartActivity.c)
+ *     PopPepRequestWork @ 0x140313D30 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140313D74 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x140313DF8 (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140313EF0 (PopPepPromoteActivities.c)
+ *     PopPepTriggerActivity @ 0x14031438C (PopPepTriggerActivity.c)
  */
 
 char __fastcall PopPepTryPowerDownDevice(__int64 a1, __int64 a2)

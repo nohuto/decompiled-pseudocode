@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPteForProtoPoolMadeDemandFill @ 0x1404986F8
+ * XREFs of MiPteForProtoPoolMadeDemandFill @ 0x140200488
  * Callers:
- *     MiWsleFlush @ 0x140286410 (MiWsleFlush.c)
+ *     MiWsleFlush @ 0x140201004 (MiWsleFlush.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
  */
 
 __int64 __fastcall MiPteForProtoPoolMadeDemandFill(__int64 a1)

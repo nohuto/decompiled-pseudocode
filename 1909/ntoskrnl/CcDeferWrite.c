@@ -29,8 +29,8 @@ void __stdcall CcDeferWrite(
   unsigned __int8 OldIrql; // si
   struct _KPRCB *CurrentPrcb; // rcx
   KSPIN_LOCK *v14; // r8
-  struct _LIST_ENTRY *v15; // rdx
-  struct _LIST_ENTRY *v16; // rcx
+  _LIST_ENTRY *v15; // rdx
+  _LIST_ENTRY *v16; // rcx
   unsigned __int8 v17; // di
   struct _KPRCB *v18; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-30h] BYREF
@@ -58,8 +58,8 @@ void __stdcall CcDeferWrite(
       __fastfail(0xEu);
     *((_QWORD *)PoolWithTag + 5) = 0LL;
     v14 = (KSPIN_LOCK *)(PartitionFromFileObject + 768);
-    v15 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
-    v16 = (struct _LIST_ENTRY *)(PartitionFromFileObject + 744);
+    v15 = (_LIST_ENTRY *)(PoolWithTag + 24);
+    v16 = (_LIST_ENTRY *)(PartitionFromFileObject + 744);
     *((_QWORD *)PoolWithTag + 9) = PartitionFromFileObject;
     *(_DWORD *)PoolWithTag = 5243644;
     *((_QWORD *)PoolWithTag + 1) = FileObject;

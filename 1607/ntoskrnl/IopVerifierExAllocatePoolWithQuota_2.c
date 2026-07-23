@@ -1,12 +1,12 @@
 /*
- * XREFs of IopVerifierExAllocatePoolWithQuota_2 @ 0x140132EB8
+ * XREFs of IopVerifierExAllocatePoolWithQuota_2 @ 0x140133428
  * Callers:
- *     NtLockFile @ 0x14046AE5C (NtLockFile.c)
- *     NtUnlockFile @ 0x1404C9C58 (NtUnlockFile.c)
+ *     NtLockFile @ 0x140469D2C (NtLockFile.c)
+ *     NtUnlockFile @ 0x1404AF9D8 (NtUnlockFile.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  */
 
 PVOID IopVerifierExAllocatePoolWithQuota_2()

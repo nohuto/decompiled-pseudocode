@@ -1,5 +1,5 @@
 /*
- * XREFs of TtmpDeleteTerminal @ 0x140677FC0
+ * XREFs of TtmpDeleteTerminal @ 0x1406780A4
  * Callers:
  *     <none>
  * Callees:

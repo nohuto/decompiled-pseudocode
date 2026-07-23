@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x14037C5A8
+ * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x14037C748
  * Callers:
- *     HalpInterruptEnableNmi @ 0x14037B5B4 (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemap @ 0x14037C0D8 (HalpInterruptRemap.c)
- *     HalpInterruptSetRemappedLineState @ 0x140504760 (HalpInterruptSetRemappedLineState.c)
+ *     HalpInterruptEnableNmi @ 0x14037B754 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x14037C278 (HalpInterruptRemap.c)
+ *     HalpInterruptSetRemappedLineState @ 0x140504CB0 (HalpInterruptSetRemappedLineState.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x14037C650 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x14037C7F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedLineStateInternal(__int64 a1, unsigned int *a2, __int64 a3)

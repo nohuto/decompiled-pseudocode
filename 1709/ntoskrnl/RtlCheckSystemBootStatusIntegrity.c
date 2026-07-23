@@ -20,5 +20,5 @@ NTSTATUS __fastcall RtlCheckSystemBootStatusIntegrity(__int64 a1)
   InputBuffer[1] = 1LL;
   InputBuffer[0] = 34LL;
   InputBuffer[2] = &v3;
-  return ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x18u, 0LL, 0);
+  return ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x18u, 0LL, 0);
 }

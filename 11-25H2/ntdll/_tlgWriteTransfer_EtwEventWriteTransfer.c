@@ -29,29 +29,28 @@
  *     EtwEventWriteTransfer @ 0x18008E770 (EtwEventWriteTransfer.c)
  */
 
-__int64 __fastcall tlgWriteTransfer_EtwEventWriteTransfer(
+ULONG __fastcall tlgWriteTransfer_EtwEventWriteTransfer(
         __int64 a1,
         unsigned __int8 *a2,
         __int64 a3,
         __int64 a4,
-        int a5,
-        __int64 a6)
+        ULONG UserDataCount,
+        _EVENT_DATA_DESCRIPTOR *a6)
 {
-  __int64 v6; // rax
+  unsigned __int64 v6; // rax
   unsigned __int16 *v7; // rdx
-  _DWORD v9[2]; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v10; // [rsp+38h] [rbp-10h]
+  EVENT_DESCRIPTOR v9; // [rsp+30h] [rbp-18h] BYREF
 
-  v9[0] = *a2 << 24;
-  v9[1] = *(unsigned __int16 *)(a2 + 1);
+  *(_DWORD *)&v9.Id = *a2 << 24;
+  *(_DWORD *)&v9.Level = *(unsigned __int16 *)(a2 + 1);
   v6 = *(_QWORD *)(a2 + 3);
   v7 = (unsigned __int16 *)(a2 + 11);
-  v10 = v6;
-  *(_QWORD *)a6 = *(_QWORD *)(a1 + 8);
-  *(_DWORD *)(a6 + 8) = **(unsigned __int16 **)(a1 + 8);
-  *(_QWORD *)(a6 + 16) = v7;
-  *(_DWORD *)(a6 + 12) = 2;
-  *(_DWORD *)(a6 + 24) = *v7;
-  *(_DWORD *)(a6 + 28) = 1;
-  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 32), (unsigned int)v9, 0, 0, a5, a6);
+  v9.Keyword = v6;
+  a6->Ptr = *(_QWORD *)(a1 + 8);
+  a6->Size = **(unsigned __int16 **)(a1 + 8);
+  a6[1].Ptr = (unsigned __int64)v7;
+  a6->Reserved = 2;
+  a6[1].Size = *v7;
+  a6[1].Reserved = 1;
+  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 32), &v9, 0LL, 0LL, UserDataCount, a6);
 }

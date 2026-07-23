@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlRegisterPerfFeedbackCounters @ 0x1401BF48C
+ * XREFs of HvlRegisterPerfFeedbackCounters @ 0x1401BF370
  * Callers:
- *     PpmPerfRegisterHvPerfStateCounters @ 0x1406764BC (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x1406765A0 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
- *     HvlpGetLpIndexFromProcessorIndex @ 0x1401BB92C (HvlpGetLpIndexFromProcessorIndex.c)
- *     HvlpSetPowerProperty @ 0x1401BF884 (HvlpSetPowerProperty.c)
+ *     HvlpGetLpIndexFromProcessorIndex @ 0x1401BB810 (HvlpGetLpIndexFromProcessorIndex.c)
+ *     HvlpSetPowerProperty @ 0x1401BF768 (HvlpSetPowerProperty.c)
  */
 
 __int64 __fastcall HvlRegisterPerfFeedbackCounters(unsigned int a1)

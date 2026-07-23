@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPteNeedsCommitCharge @ 0x1404886AC
+ * XREFs of MiPteNeedsCommitCharge @ 0x1404821EC
  * Callers:
- *     MiCountSharedPages @ 0x1402D0E10 (MiCountSharedPages.c)
+ *     MiCountSharedPages @ 0x1402B2BD0 (MiCountSharedPages.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
  */
 
 __int64 __fastcall MiPteNeedsCommitCharge(__int64 a1, __int64 a2)

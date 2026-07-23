@@ -3,8 +3,8 @@
  * Callers:
  *     RtlCopyMappedMemory @ 0x180085900 (RtlCopyMappedMemory.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     RtlpCopyMappedMemoryEx_ExceptionFilter @ 0x1800F6454 (RtlpCopyMappedMemoryEx_ExceptionFilter.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     RtlpCopyMappedMemoryEx_ExceptionFilter @ 0x1800F6414 (RtlpCopyMappedMemoryEx_ExceptionFilter.c)
  */
 
 __int64 __fastcall RtlpCopyMappedMemoryEx(__int64 a1, void *a2, const void *a3, size_t a4)

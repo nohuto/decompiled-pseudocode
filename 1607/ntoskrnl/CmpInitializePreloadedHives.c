@@ -4,7 +4,7 @@
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14055E73C (CmpHiveRootSecurityDescriptor.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x14055EC7C (CmpHiveRootSecurityDescriptor.c)
  *     CmpInitializePreloadedHive @ 0x1407AE20C (CmpInitializePreloadedHive.c)
  */
 
@@ -21,7 +21,7 @@ __int64 __fastcall CmpInitializePreloadedHives(__int64 a1, int a2)
   v3 = 0;
   if ( a2 )
   {
-    qword_140322E38 = (__int64)&CmpPreloadedHivesList;
+    qword_140322E58 = (__int64)&CmpPreloadedHivesList;
     CmpPreloadedHivesList = (__int64)&CmpPreloadedHivesList;
     v8 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 208LL);
     v9 = *v8;

@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptUnmap @ 0x1409333F8
+ * XREFs of HalpInterruptUnmap @ 0x1409335F8
  * Callers:
- *     HalpTimerUnmapInterrupt @ 0x140509920 (HalpTimerUnmapInterrupt.c)
- *     HaliRemoveInterruptRemapping @ 0x1409333D0 (HaliRemoveInterruptRemapping.c)
+ *     HalpTimerUnmapInterrupt @ 0x140509E70 (HalpTimerUnmapInterrupt.c)
+ *     HaliRemoveInterruptRemapping @ 0x1409335D0 (HaliRemoveInterruptRemapping.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
- *     HalpInterruptIsRemappingRequired @ 0x14031FDCC (HalpInterruptIsRemappingRequired.c)
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x14031FEE0 (HalpInterruptLookupController.c)
- *     HalpInterruptGsiToLine @ 0x14031FF10 (HalpInterruptGsiToLine.c)
- *     xHalUnmaskInterrupt @ 0x140371F70 (xHalUnmaskInterrupt.c)
- *     HalpInterruptIsHvMsiRemappingSupported @ 0x14040F73C (HalpInterruptIsHvMsiRemappingSupported.c)
- *     HalpSetIrtEntry @ 0x14051A598 (HalpSetIrtEntry.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
- *     HalpIrtFreeIndex @ 0x140934914 (HalpIrtFreeIndex.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
+ *     HalpInterruptIsRemappingRequired @ 0x14032005C (HalpInterruptIsRemappingRequired.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140320170 (HalpInterruptLookupController.c)
+ *     HalpInterruptGsiToLine @ 0x1403201A0 (HalpInterruptGsiToLine.c)
+ *     xHalUnmaskInterrupt @ 0x140372110 (xHalUnmaskInterrupt.c)
+ *     HalpInterruptIsHvMsiRemappingSupported @ 0x14040F91C (HalpInterruptIsHvMsiRemappingSupported.c)
+ *     HalpSetIrtEntry @ 0x14051AAE8 (HalpSetIrtEntry.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
+ *     HalpIrtFreeIndex @ 0x140934B14 (HalpIrtFreeIndex.c)
  *     HalpHvUnmapIoApicDeviceInterrupt @ 0x140A873E8 (HalpHvUnmapIoApicDeviceInterrupt.c)
- *     HalpHvUnmapDeviceMsiRange @ 0x140A95A6C (HalpHvUnmapDeviceMsiRange.c)
+ *     HalpHvUnmapDeviceMsiRange @ 0x140A958DC (HalpHvUnmapDeviceMsiRange.c)
  */
 
 __int64 __fastcall HalpInterruptUnmap(

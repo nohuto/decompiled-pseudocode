@@ -1,15 +1,18 @@
 /*
- * XREFs of DifZwCloseObjectAuditAlarmWrapper @ 0x1405EDD20
+ * XREFs of DifZwCloseObjectAuditAlarmWrapper @ 0x1405EE290
  * Callers:
  *     <none>
  * Callees:
- *     ZwCloseObjectAuditAlarm @ 0x14041B4C0 (ZwCloseObjectAuditAlarm.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwCloseObjectAuditAlarm @ 0x14041B850 (ZwCloseObjectAuditAlarm.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwCloseObjectAuditAlarmWrapper(__int64 a1, __int64 a2, char a3)
+NTSTATUS __fastcall DifZwCloseObjectAuditAlarmWrapper(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        BOOLEAN GenerateOnClose)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -20,7 +23,7 @@ __int64 __fastcall DifZwCloseObjectAuditAlarmWrapper(__int64 a1, __int64 a2, cha
   int v12; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v16; // rdi
   _QWORD *v17; // rbx
   __int128 v18; // [rsp+20h] [rbp-30h] BYREF
@@ -60,16 +63,16 @@ LABEL_8:
   }
   *(_QWORD *)&v18 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v19 + 1) = a1;
-  *(_QWORD *)&v19 = a2;
-  BYTE8(v18) = a3;
+  *((_QWORD *)&v19 + 1) = SubsystemName;
+  *(_QWORD *)&v19 = HandleId;
+  BYTE8(v18) = GenerateOnClose;
   for ( i = (__int64 *)v11[4]; i != v11 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v18);
   }
 LABEL_17:
-  result = ZwCloseObjectAuditAlarm(a1, a2);
+  result = ZwCloseObjectAuditAlarm(SubsystemName, HandleId, GenerateOnClose);
   LODWORD(v20) = result;
   if ( v11 )
   {
@@ -84,7 +87,7 @@ LABEL_17:
         v17 = (_QWORD *)*v17;
       }
       while ( v17 != v16 );
-      return (unsigned int)v20;
+      return v20;
     }
   }
   return result;

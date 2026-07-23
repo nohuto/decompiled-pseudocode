@@ -1,19 +1,19 @@
 /*
- * XREFs of KiUpdateBugcheckRecoveryProgress @ 0x1405FA874
+ * XREFs of KiUpdateBugcheckRecoveryProgress @ 0x1405FD294
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x1405F9734 (KiAttemptBugcheckRecovery.c)
- *     KiSaveBugcheckRecoveryProgress @ 0x1405FA540 (KiSaveBugcheckRecoveryProgress.c)
- *     KiSetBugCheckRecoveryProgressFlag @ 0x1405FA698 (KiSetBugCheckRecoveryProgressFlag.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405FC154 (KiAttemptBugcheckRecovery.c)
+ *     KiSaveBugcheckRecoveryProgress @ 0x1405FCF60 (KiSaveBugcheckRecoveryProgress.c)
+ *     KiSetBugCheckRecoveryProgressFlag @ 0x1405FD0B8 (KiSetBugCheckRecoveryProgressFlag.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiSendThawExecution @ 0x1405023B0 (KiSendThawExecution.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     IoSetBugCheckProgressFlag @ 0x140532C30 (IoSetBugCheckProgressFlag.c)
- *     IoSaveBugCheckProgress @ 0x1405C7540 (IoSaveBugCheckProgress.c)
- *     IoSaveInitialBugCheckProgress @ 0x1405C77E0 (IoSaveInitialBugCheckProgress.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405F9B28 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiSendThawExecution @ 0x1404FBC80 (KiSendThawExecution.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     IoSetBugCheckProgressFlag @ 0x1405350D0 (IoSetBugCheckProgressFlag.c)
+ *     IoSaveBugCheckProgress @ 0x1405C9E10 (IoSaveBugCheckProgress.c)
+ *     IoSaveInitialBugCheckProgress @ 0x1405CA0B0 (IoSaveInitialBugCheckProgress.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405FC548 (KiBugCheckRecoveryFreezeOtherProcessors.c)
  */
 
 __int64 __fastcall KiUpdateBugcheckRecoveryProgress(_DWORD *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall KiUpdateBugcheckRecoveryProgress(_DWORD *a1)
   signed __int32 v9; // eax
   signed __int32 v10; // ett
 
-  if ( KsepShimDbLock.WaitBlockFill7[140] )
+  if ( KsepShimDbLock.SchedulerApc.ApcStateIndex )
     return 3221225473LL;
   v3 = 0;
   v4 = 1;
@@ -51,12 +51,12 @@ __int64 __fastcall KiUpdateBugcheckRecoveryProgress(_DWORD *a1)
         IoSetBugCheckProgressFlag(a1[2]);
         goto LABEL_17;
     }
-    KsepShimDbLock.WaitBlockFill7[140] = 1;
+    KsepShimDbLock.SchedulerApc.ApcStateIndex = 1;
   }
   else
   {
     v4 = 0;
-    KsepShimDbLock.WaitBlockFill7[140] = 1;
+    KsepShimDbLock.SchedulerApc.ApcStateIndex = 1;
   }
   v3 = -1073741823;
 LABEL_17:

@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpGxRectangleSize @ 0x14038813C
+ * XREFs of BgpGxRectangleSize @ 0x14038831C
  * Callers:
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
  *     AnFwConfigureProgressResources @ 0x140AEE920 (AnFwConfigureProgressResources.c)

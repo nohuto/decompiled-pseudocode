@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCreateToken @ 0x14079DCB8
+ * XREFs of SepCreateToken @ 0x14079DEB8
  * Callers:
- *     SeMakeSystemToken @ 0x140A47F10 (SeMakeSystemToken.c)
- *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140A484C0 (SeMakeAnonymousLogonTokenNoEveryone.c)
- *     SeMakeAnonymousLogonToken @ 0x140A4874C (SeMakeAnonymousLogonToken.c)
+ *     SeMakeSystemToken @ 0x140A48F10 (SeMakeSystemToken.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140A494C0 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140A4974C (SeMakeAnonymousLogonToken.c)
  * Callees:
- *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x1402A6428 (SepCreateTokenEx.c)
  */
 
 __int64 __fastcall SepCreateToken(
@@ -17,9 +17,9 @@ __int64 __fastcall SepCreateToken(
         int a6,
         __int64 a7,
         _QWORD *a8,
-        void **a9,
-        int a10,
-        __int64 a11,
+        _SID_AND_ATTRIBUTES *a9,
+        ULONG Count,
+        _SID_AND_ATTRIBUTES *a11,
         unsigned int a12,
         unsigned int a13,
         char **a14,
@@ -37,7 +37,7 @@ __int64 __fastcall SepCreateToken(
            a7,
            a8,
            a9,
-           a10,
+           Count,
            a11,
            a12,
            a13,

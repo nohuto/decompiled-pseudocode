@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLbrInitializeIntel @ 0x140B50C9C
+ * XREFs of HalpLbrInitializeIntel @ 0x140B52CEC
  * Callers:
- *     HalpLbrInitialize @ 0x140B50B28 (HalpLbrInitialize.c)
+ *     HalpLbrInitialize @ 0x140B52B78 (HalpLbrInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall HalpLbrInitializeIntel(char a1, unsigned __int8 a2)

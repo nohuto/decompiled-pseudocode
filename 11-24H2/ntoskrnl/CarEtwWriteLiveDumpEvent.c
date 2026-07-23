@@ -1,14 +1,14 @@
 /*
- * XREFs of CarEtwWriteLiveDumpEvent @ 0x140615CC8
+ * XREFs of CarEtwWriteLiveDumpEvent @ 0x140614288
  * Callers:
- *     CarLiveDump @ 0x140619B20 (CarLiveDump.c)
+ *     CarLiveDump @ 0x1406180E0 (CarLiveDump.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     McTemplateK0dszud_EtwWriteTransfer @ 0x1406163EC (McTemplateK0dszud_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     McTemplateK0dszud_EtwWriteTransfer @ 0x1406149AC (McTemplateK0dszud_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall CarEtwWriteLiveDumpEvent(int *a1, int a2, int a3)
@@ -38,7 +38,7 @@ void __fastcall CarEtwWriteLiveDumpEvent(int *a1, int a2, int a3)
   if ( a1 )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (unsigned int)dword_140E09000 > 5 && tlgKeywordOn((__int64)&dword_140E09000, 0x800000000000LL) )
+    if ( (unsigned int)dword_140E09070 > 5 && tlgKeywordOn((__int64)&dword_140E09070, 0x800000000000LL) )
     {
       v5 = (const CHAR *)*((_QWORD *)a1 + 139);
       v7 = *a1;
@@ -60,8 +60,8 @@ void __fastcall CarEtwWriteLiveDumpEvent(int *a1, int a2, int a3)
       v22 = 4LL;
       v24 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E09000,
-        (unsigned __int8 *)byte_14005181B,
+        (__int64)&dword_140E09070,
+        (unsigned __int8 *)byte_14005222D,
         0LL,
         0LL,
         9u,

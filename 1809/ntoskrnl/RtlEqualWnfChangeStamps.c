@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlEqualWnfChangeStamps @ 0x140896670
+ * XREFs of RtlEqualWnfChangeStamps @ 0x1408978D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlEqualWnfChangeStamps(int a1, int a2)
+BOOLEAN __cdecl RtlEqualWnfChangeStamps(WNF_CHANGE_STAMP ChangeStamp1, WNF_CHANGE_STAMP ChangeStamp2)
 {
-  return a1 == a2;
+  return ChangeStamp1 == ChangeStamp2;
 }

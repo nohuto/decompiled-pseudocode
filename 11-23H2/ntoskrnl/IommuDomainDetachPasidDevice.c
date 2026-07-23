@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuDomainDetachPasidDevice @ 0x1409356E0
+ * XREFs of IommuDomainDetachPasidDevice @ 0x1409358E0
  * Callers:
  *     <none>
  * Callees:
- *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040F968 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
- *     IommupDomainDetachPasidDevice @ 0x14050E4B8 (IommupDomainDetachPasidDevice.c)
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040FB48 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     IommupDomainDetachPasidDevice @ 0x14050EA08 (IommupDomainDetachPasidDevice.c)
  */
 
 __int64 __fastcall IommuDomainDetachPasidDevice(__int64 a1)

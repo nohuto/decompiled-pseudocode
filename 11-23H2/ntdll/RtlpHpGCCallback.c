@@ -4,16 +4,13 @@
  *     <none>
  * Callees:
  *     RtlpEnumProcessHeaps @ 0x180077A4C (RtlpEnumProcessHeaps.c)
- *     RtlpHpTlLogGCTimerFinished @ 0x180119C50 (RtlpHpTlLogGCTimerFinished.c)
+ *     RtlpHpTlLogGCTimerFinished @ 0x180119C20 (RtlpHpTlLogGCTimerFinished.c)
  */
 
-__int64 RtlpHpGCCallback()
+void __fastcall RtlpHpGCCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  __int64 result; // rax
-
-  result = RtlpEnumProcessHeaps(RtlpHpGCFlushCallback, 0LL, 0LL);
+  RtlpEnumProcessHeaps(RtlpHpGCFlushCallback, 0LL, 0LL);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    result = RtlpHpTlLogGCTimerFinished();
+    RtlpHpTlLogGCTimerFinished();
   RtlpHpGCTimerScheduled = 0;
-  return result;
 }

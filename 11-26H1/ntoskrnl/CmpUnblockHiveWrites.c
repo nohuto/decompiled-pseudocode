@@ -1,22 +1,20 @@
 /*
- * XREFs of CmpUnblockHiveWrites @ 0x140ADEA78
+ * XREFs of CmpUnblockHiveWrites @ 0x140ADBC68
  * Callers:
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140AF47D8 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140AF6E78 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     CmpGetNextHive @ 0x1408B30D0 (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1408C6580 (CmpDereferenceHive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpGetNextHive @ 0x1408B9680 (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x1408CCB50 (CmpDereferenceHive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
  */
 
-void __fastcall CmpUnblockHiveWrites(char *P, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall CmpUnblockHiveWrites(struct _KTHREAD **P, int a2, char *a3)
 {
-  int v5; // edi
-  char *v6; // rbx
+  char *v5; // rbx
   volatile signed __int32 *NextHive; // rax
-  int v8; // eax
+  int v7; // eax
 
-  v5 = a2;
-  v6 = P;
+  v5 = (char *)P;
   if ( P )
   {
     HvUnlockHiveFlusherExclusive(P);
@@ -25,17 +23,17 @@ void __fastcall CmpUnblockHiveWrites(char *P, __int64 a2, __int64 a3, __int64 a4
   {
     while ( 1 )
     {
-      NextHive = CmpGetNextHive(P, a2, a3, a4);
-      v6 = (char *)NextHive;
-      if ( !v5 || (v8 = v5 & NextHive[1030], v6 == (char *)CmpMasterHive) || v8 == v5 )
+      NextHive = CmpGetNextHive(P);
+      v5 = (char *)NextHive;
+      if ( !a2 || (v7 = a2 & NextHive[1030], v5 == (char *)CmpMasterHive) || v7 == a2 )
       {
-        HvUnlockHiveFlusherExclusive(v6);
-        CmpDereferenceHive(v6);
+        HvUnlockHiveFlusherExclusive(v5);
+        CmpDereferenceHive(v5);
       }
-      if ( v6 == (char *)a3 )
+      if ( v5 == a3 )
         break;
-      P = v6;
+      P = (struct _KTHREAD **)v5;
     }
   }
-  CmpDereferenceHive(v6);
+  CmpDereferenceHive(v5);
 }

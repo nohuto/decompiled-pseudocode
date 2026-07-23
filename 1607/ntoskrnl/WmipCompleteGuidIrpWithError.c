@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipCompleteGuidIrpWithError @ 0x1400A1C90
+ * XREFs of WmipCompleteGuidIrpWithError @ 0x1400A05B8
  * Callers:
- *     WmipReceiveNotifications @ 0x1400AF3D4 (WmipReceiveNotifications.c)
- *     WmipDeleteMethod @ 0x1404CC380 (WmipDeleteMethod.c)
+ *     WmipReceiveNotifications @ 0x1400AD93C (WmipReceiveNotifications.c)
+ *     WmipDeleteMethod @ 0x1404B1DAC (WmipDeleteMethod.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     WmipClearIrpObjectList @ 0x1400A2684 (WmipClearIrpObjectList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     WmipClearIrpObjectList @ 0x1400A0FAC (WmipClearIrpObjectList.c)
  */
 
 void __fastcall WmipCompleteGuidIrpWithError(__int64 a1)

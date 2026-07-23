@@ -7,11 +7,16 @@
  *     <none>
  */
 
-__int64 NtPowerInformation()
+NTSTATUS __cdecl NtPowerInformation(
+        POWER_INFORMATION_LEVEL InformationLevel,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 95LL;
+  result = 95;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwConnectPort @ 0x14015AFC0
+ * XREFs of ZwConnectPort @ 0x14015B530
  * Callers:
- *     SepRmLsaConnectRequest @ 0x14056B9C0 (SepRmLsaConnectRequest.c)
+ *     SepRmLsaConnectRequest @ 0x14056BF00 (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */
@@ -18,5 +18,5 @@ NTSTATUS __stdcall ZwConnectPort(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, PortName, SecurityQos);
+  return KiServiceInternal(PortHandle);
 }

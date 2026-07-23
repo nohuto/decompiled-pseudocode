@@ -1,12 +1,12 @@
 /*
- * XREFs of _soutput_s @ 0x18012EC94
+ * XREFs of _soutput_s @ 0x18012CEC4
  * Callers:
- *     _vsnprintf_s @ 0x18012CD80 (_vsnprintf_s.c)
- *     vsprintf_s @ 0x18012D890 (vsprintf_s.c)
+ *     _vsnprintf_s @ 0x18012AFB0 (_vsnprintf_s.c)
+ *     vsprintf_s @ 0x18012BAC0 (vsprintf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     _output_s @ 0x18012E310 (_output_s.c)
- *     _flsbuf_s @ 0x180131450 (_flsbuf_s.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     _output_s @ 0x18012C540 (_output_s.c)
+ *     _flsbuf_s @ 0x18012F680 (_flsbuf_s.c)
  */
 
 __int64 __fastcall soutput_s(_BYTE *a1, unsigned __int64 a2, char *a3, unsigned __int16 *a4)

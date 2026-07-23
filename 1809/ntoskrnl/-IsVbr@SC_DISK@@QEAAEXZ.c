@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsVbr@SC_DISK@@QEAAEXZ @ 0x140329B4C
+ * XREFs of ?IsVbr@SC_DISK@@QEAAEXZ @ 0x140329D3C
  * Callers:
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1401688D4 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1401689D4 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
  * Callees:
- *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x14032B24C (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
+ *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x14032B43C (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
  */
 
 char __fastcall SC_DISK::IsVbr(SC_DISK *this)

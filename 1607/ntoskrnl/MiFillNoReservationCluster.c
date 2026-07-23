@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFillNoReservationCluster @ 0x140123700
+ * XREFs of MiFillNoReservationCluster @ 0x140123C70
  * Callers:
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReservePageFileSpace @ 0x14001E5D0 (MiReservePageFileSpace.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiReferencePageForModifiedWrite @ 0x140101FB8 (MiReferencePageForModifiedWrite.c)
- *     qsort @ 0x14014DF60 (qsort.c)
+ *     MiReservePageFileSpace @ 0x14001E150 (MiReservePageFileSpace.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiReferencePageForModifiedWrite @ 0x1400FFD38 (MiReferencePageForModifiedWrite.c)
+ *     qsort @ 0x14014E520 (qsort.c)
  */
 
 __int64 __fastcall MiFillNoReservationCluster(__int64 a1, _QWORD *a2, unsigned int a3)

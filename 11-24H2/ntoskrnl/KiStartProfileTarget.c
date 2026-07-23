@@ -1,15 +1,15 @@
 /*
- * XREFs of KiStartProfileTarget @ 0x14049A320
+ * XREFs of KiStartProfileTarget @ 0x140494D80
  * Callers:
- *     KeStartProfile @ 0x1404D6890 (KeStartProfile.c)
+ *     KeStartProfile @ 0x1404CFCE0 (KeStartProfile.c)
  * Callees:
- *     KeSubtractAffinityEx2 @ 0x140354F10 (KeSubtractAffinityEx2.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x1403E9E20 (KeInterlockedSetProcessorAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeSubtractAffinityEx2 @ 0x1402B2C40 (KeSubtractAffinityEx2.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1403D7AC0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 ULONG_PTR __fastcall KiStartProfileTarget(_QWORD *Argument)
@@ -71,13 +71,13 @@ ULONG_PTR __fastcall KiStartProfileTarget(_QWORD *Argument)
   }
   else
   {
-    v10 = (_QWORD *)qword_140F222F8;
-    if ( *(__int64 **)qword_140F222F8 != &KiProfileListHead )
+    v10 = (_QWORD *)qword_140F223B8;
+    if ( *(__int64 **)qword_140F223B8 != &KiProfileListHead )
       goto LABEL_25;
     *v7 = &KiProfileListHead;
     *(_QWORD *)(v1 + 16) = v10;
     *v10 = v7;
-    qword_140F222F8 = v1 + 8;
+    qword_140F223B8 = v1 + 8;
   }
   for ( i = KiProfileSourceListHead; (__int64 *)i != &KiProfileSourceListHead; i = *(_QWORD *)i )
   {
@@ -121,7 +121,7 @@ LABEL_4:
     {
       v19 = &v21;
       v20 = 1718767691;
-      v15 = guard_dispatch_icall_no_overrides((unsigned int)*(__int16 *)(v1 + 608), &v20, 0LL, 0LL);
+      v15 = guard_dispatch_icall_no_overrides((unsigned int)*(__int16 *)(v1 + 608), &v20);
       if ( v15 < 0 )
       {
 LABEL_31:

@@ -1,34 +1,40 @@
 /*
- * XREFs of RtlGetNonVolatileToken @ 0x1801450B0
+ * XREFs of RtlGetNonVolatileToken @ 0x180143460
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1801620F0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1801604B0 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlGetNonVolatileToken(__int64 a1, __int64 a2, __int64 *a3)
+DWORD __cdecl RtlGetNonVolatileToken(PVOID NvBuffer, SIZE_T Size, PVOID *NvToken)
 {
   __int64 v4; // rbx
-  __int64 result; // rax
-  _BYTE v6[56]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v7; // [rsp+88h] [rbp+20h] BYREF
+  DWORD result; // eax
+  _BYTE MemoryInformation[56]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+88h] [rbp+20h] BYREF
 
-  v7 = 0LL;
-  memset(v6, 0, 48);
+  ReturnLength = 0LL;
+  memset(MemoryInformation, 0, 48);
   v4 = 1LL;
-  result = ZwQueryVirtualMemory(-1LL, a1, 7LL, v6, 48LL, &v7);
-  if ( (int)result >= 0 )
+  result = ZwQueryVirtualMemory(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             NvBuffer,
+             MemoryRegionInformationEx,
+             MemoryInformation,
+             0x30uLL,
+             &ReturnLength);
+  if ( (result & 0x80000000) == 0 )
   {
-    if ( (v6[12] & 0x20) != 0 )
+    if ( (MemoryInformation[12] & 0x20) != 0 )
     {
       if ( RtlpIsFlushRequired )
         v4 = 3LL;
-      result = 0LL;
-      *a3 = v4;
+      result = 0;
+      *NvToken = (PVOID)v4;
     }
     else
     {
-      return 3221225485LL;
+      return -1073741811;
     }
   }
   return result;

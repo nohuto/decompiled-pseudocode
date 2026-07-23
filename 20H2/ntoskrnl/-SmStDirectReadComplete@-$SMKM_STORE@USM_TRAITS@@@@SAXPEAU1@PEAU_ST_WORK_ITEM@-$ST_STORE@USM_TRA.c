@@ -8,7 +8,7 @@
  *     ?SmStUnhandledExceptionFilter@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST_STORE_EXCEPTION_SOURCE@1@@Z @ 0x140598600 (-SmStUnhandledExceptionFilter@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST.c)
  */
 
-void __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectReadComplete(__int64 a1, struct _SLIST_ENTRY *a2, unsigned int a3)
+void __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectReadComplete(__int64 a1, _SLIST_ENTRY *a2, unsigned int a3)
 {
   unsigned int v3; // [rsp+40h] [rbp+18h] BYREF
 

@@ -29,13 +29,13 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
   __int64 v16; // r12
   _BYTE *v17; // r14
   unsigned __int64 v18; // rsi
-  char *Pool2; // rax
+  CHAR *Pool2; // rax
   __int64 v20; // r9
-  char *v21; // r15
-  char *v22; // rcx
+  CHAR *v21; // r15
+  CHAR *v22; // rcx
   __int64 v23; // r14
-  char v24; // al
-  char *v25; // rax
+  CHAR v24; // al
+  CHAR *v25; // rax
   __int64 ValueFromSectionAndKeyName; // r10
   __int64 i; // r8
   unsigned __int8 *v28; // r9
@@ -106,7 +106,7 @@ bool __fastcall EmpParseTargetRuleStringIndexList(
         }
         else
         {
-          Pool2 = (char *)ExAllocatePool2(0x100uLL, a2 - v17 + 1, 0x74694D45uLL);
+          Pool2 = (CHAR *)ExAllocatePool2(0x100uLL, a2 - v17 + 1, 0x74694D45uLL);
           v21 = Pool2;
           if ( !Pool2 || v18 > 0x7FFFFFFF )
             goto LABEL_25;

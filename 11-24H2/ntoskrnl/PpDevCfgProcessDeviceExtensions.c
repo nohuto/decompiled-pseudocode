@@ -1,23 +1,23 @@
 /*
- * XREFs of PpDevCfgProcessDeviceExtensions @ 0x14072C8FC
+ * XREFs of PpDevCfgProcessDeviceExtensions @ 0x14072A910
  * Callers:
- *     PiConfigureDevice @ 0x140723EEC (PiConfigureDevice.c)
+ *     PiConfigureDevice @ 0x140721A7C (PiConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiDevCfgAppendMultiSz @ 0x1407286C8 (PiDevCfgAppendMultiSz.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     PiDevCfgFindDeviceDriver @ 0x140995E90 (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgInitDeviceContext @ 0x140997624 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgFreeDeviceContext @ 0x140997788 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgConfigureDeviceDriver @ 0x14099A308 (PiDevCfgConfigureDeviceDriver.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14099B580 (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgSetObjectProperty @ 0x140A7620C (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140A7DF0C (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgFreeDriverNode @ 0x140A9EB68 (PiDevCfgFreeDriverNode.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiDevCfgAppendMultiSz @ 0x140726258 (PiDevCfgAppendMultiSz.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1409C7EF4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgFindDeviceDriver @ 0x1409C86B4 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgInitDeviceContext @ 0x1409C9D7C (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgFreeDeviceContext @ 0x1409C9EF4 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgConfigureDeviceDriver @ 0x1409CCA78 (PiDevCfgConfigureDeviceDriver.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1409CDCF0 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgSetObjectProperty @ 0x140A70328 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgFreeDriverNode @ 0x140ABF4A0 (PiDevCfgFreeDriverNode.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDeviceExtensions(__int64 a1)
@@ -68,11 +68,11 @@ __int64 __fastcall PpDevCfgProcessDeviceExtensions(__int64 a1)
   UNICODE_STRING v46; // [rsp+138h] [rbp+30h] BYREF
   _BYTE v47[16]; // [rsp+158h] [rbp+50h] BYREF
   __int64 v48; // [rsp+168h] [rbp+60h]
-  __int128 v49; // [rsp+1A8h] [rbp+A0h]
-  __int128 v50; // [rsp+1B8h] [rbp+B0h]
-  UNICODE_STRING *v51; // [rsp+1C8h] [rbp+C0h]
+  __int128 v49; // [rsp+1B8h] [rbp+B0h]
+  __int128 v50; // [rsp+1C8h] [rbp+C0h]
+  UNICODE_STRING *v51; // [rsp+1D8h] [rbp+D0h]
 
-  memset_0(v47, 0, 0x48uLL);
+  memset_0(v47, 0, 0x58uLL);
   LODWORD(v30) = 1;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
@@ -220,7 +220,7 @@ LABEL_29:
     if ( *(_QWORD *)(v16 + 8) )
     {
       v17 = *(_QWORD *)(a1 + 48);
-      v18 = *(__int64 **)((char *)&off_140FD7690 + v13);
+      v18 = *(__int64 **)((char *)&off_140FD86A8 + v13);
       v39 = 0;
       v41 = 0LL;
       v36 = v18;

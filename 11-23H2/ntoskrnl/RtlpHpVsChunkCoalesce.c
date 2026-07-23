@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpVsChunkCoalesce @ 0x14024B1E0
+ * XREFs of RtlpHpVsChunkCoalesce @ 0x14024B2B0
  * Callers:
- *     RtlpHpVsChunkFree @ 0x14024D600 (RtlpHpVsChunkFree.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
+ *     RtlpHpVsChunkFree @ 0x14024D6D0 (RtlpHpVsChunkFree.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     RtlpHpVsChunkComputeCost @ 0x1403340A0 (RtlpHpVsChunkComputeCost.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     RtlpHpVsChunkComputeCost @ 0x140334330 (RtlpHpVsChunkComputeCost.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)
+__int64 __fastcall RtlpHpVsChunkCoalesce(_RTL_RB_TREE *a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
-  unsigned __int64 v4; // rdi
+  __int64 v4; // rdi
   __int64 v5; // rax
-  __int64 v6; // r9
+  _RTL_RB_TREE *v6; // r9
   unsigned int v8; // r12d
   unsigned int v9; // r14d
-  unsigned __int64 v10; // r15
+  __int64 v10; // r15
   __int64 v11; // rsi
   unsigned int v12; // r11d
   __int64 v13; // r9
@@ -54,7 +54,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v11 = RtlpHpHeapGlobals ^ *(_QWORD *)v10 ^ v10;
     if ( (v11 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16, v10 + 8);
+      RtlRbRemoveNode(a1 + 1, (PRTL_BALANCED_NODE)(v10 + 8));
       v12 = RtlpHpHeapGlobals ^ v10 ^ *(_DWORD *)v10;
       v13 = 16 * HIWORD(v12);
       v14 = (v10 - a2 + 4127) & 0xFFFFF000;
@@ -65,10 +65,10 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
                   + 16 * (WORD1(RtlpHpHeapGlobals) ^ ((*(_DWORD *)v10 ^ (unsigned int)v10) >> 16))
                   - (_DWORD)a2) & 0xFFFFF000) )
         v15 = 0;
-      v16 = (((v10 & 0xFFF) + v13 + 4095) >> 12) + (v15 >> 12);
+      v16 = (((unsigned __int64)(v10 & 0xFFF) + v13 + 4095) >> 12) + (v15 >> 12);
       v17 = v13 + 4095;
       v6 = a1;
-      *(_QWORD *)(a1 + 56) -= v16 - (unsigned int)(v17 >> 12) - (unsigned __int16)v12;
+      a1[3].Min = (_RTL_BALANCED_NODE *)((char *)a1[3].Min - (v16 - (unsigned int)(v17 >> 12) - (unsigned __int16)v12));
       v9 += WORD1(v11);
     }
   }
@@ -79,7 +79,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v20 = RtlpHpHeapGlobals ^ *(_QWORD *)v19 ^ v19;
     if ( (v20 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(v6 + 16, v19 + 8);
+      RtlRbRemoveNode(v6 + 1, (PRTL_BALANCED_NODE)(v19 + 8));
       v25 = v19 ^ RtlpHpHeapGlobals ^ *(_DWORD *)v19;
       v26 = 16 * HIWORD(v25);
       v27 = (v19 - a2 + 4127) & 0xFFFFF000;
@@ -94,11 +94,11 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
       v6 = a1;
       v31 = v29 - (unsigned int)(v30 >> 12) - (unsigned __int16)v25;
       v18 = a2 + 48;
-      *(_QWORD *)(a1 + 56) -= v31;
+      a1[3].Min = (_RTL_BALANCED_NODE *)((char *)a1[3].Min - v31);
       v9 += WORD1(v20);
     }
   }
-  if ( (*(_DWORD *)(v6 + 176) & 1) != 0 )
+  if ( ((__int64)v6[11].Root & 1) != 0 )
   {
     v21 = v4 + 16LL * v9;
     if ( v21 < v18 + 16 * (unsigned __int64)*(unsigned __int16 *)(a2 + 32) )
@@ -107,9 +107,12 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
       if ( (v22 & 0xFF000000000000LL) == 0 )
       {
         v34 = 0;
-        RtlRbRemoveNode(v6 + 16, v21 + 8);
+        RtlRbRemoveNode(v6 + 1, (PRTL_BALANCED_NODE)(v21 + 8));
         v32 = RtlpHpVsChunkComputeCost(v4 + 16LL * v9, a2, &v34, &v35);
-        *(_QWORD *)(a1 + 56) -= v34 + v32 - (unsigned int)(unsigned __int16)(RtlpHpHeapGlobals ^ *(_WORD *)v21 ^ v21);
+        a1[3].Min = (_RTL_BALANCED_NODE *)((char *)a1[3].Min
+                                         - v34
+                                         - (v32
+                                          - (unsigned int)(unsigned __int16)(RtlpHpHeapGlobals ^ *(_WORD *)v21 ^ v21)));
         v9 += WORD1(v22);
       }
     }

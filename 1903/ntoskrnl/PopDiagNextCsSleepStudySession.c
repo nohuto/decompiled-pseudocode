@@ -34,13 +34,13 @@ char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
   __int128 v16; // xmm1
   __int64 v17; // rdx
   __int128 v18; // xmm0
-  __int128 v20; // [rsp+40h] [rbp-148h] BYREF
+  __int128 Buffer; // [rsp+40h] [rbp-148h] BYREF
   int v21; // [rsp+50h] [rbp-138h]
   _BYTE v22[272]; // [rsp+60h] [rbp-128h] BYREF
 
   memset(v22, 0, sizeof(v22));
   v2 = 0;
-  v20 = 0uLL;
+  Buffer = 0uLL;
   v21 = 0;
   if ( !PopSleepStudyDisabled )
   {
@@ -108,8 +108,8 @@ char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
       PopReleaseRwLock((ULONG_PTR)&PopWdiTimerLock);
       v18 = *(_OWORD *)PopWdiCurrentScenario;
       LOBYTE(v21) = PopWdiCurrentScenarioInstanceId;
-      v20 = v18;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_SCENARIO_CHANGE, (__int64)&v20, 20LL);
+      Buffer = v18;
+      ZwUpdateWnfStateData(&WNF_PO_SCENARIO_CHANGE, &Buffer, 0x14u, 0LL, 0LL, 0, 0);
     }
   }
   return v2;

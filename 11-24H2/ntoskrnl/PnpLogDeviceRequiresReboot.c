@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpLogDeviceRequiresReboot @ 0x14072337C
+ * XREFs of PnpLogDeviceRequiresReboot @ 0x140720F0C
  * Callers:
- *     PiProcessSetDeviceProblem @ 0x1407241C8 (PiProcessSetDeviceProblem.c)
- *     PipSetDevNodeProblem @ 0x14098FC24 (PipSetDevNodeProblem.c)
+ *     PiProcessSetDeviceProblem @ 0x140721D58 (PiProcessSetDeviceProblem.c)
+ *     PipSetDevNodeProblem @ 0x14097AC5C (PipSetDevNodeProblem.c)
  * Callees:
- *     McTemplateK0zqdi_EtwWriteTransfer @ 0x1405A58F0 (McTemplateK0zqdi_EtwWriteTransfer.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
+ *     McTemplateK0zqdi_EtwWriteTransfer @ 0x1405A2830 (McTemplateK0zqdi_EtwWriteTransfer.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
  */
 
 void __fastcall PnpLogDeviceRequiresReboot(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall PnpLogDeviceRequiresReboot(__int64 a1)
   v8 = 0;
   v7 = 0;
   v9 = 0LL;
-  if ( v1 && (byte_140EEFD24 & 8) != 0 )
+  if ( v1 && (byte_140EEFF64 & 8) != 0 )
   {
     if ( (int)PnpGetObjectProperty(
                 PiPnpRtlCtx,
@@ -47,7 +47,7 @@ void __fastcall PnpLogDeviceRequiresReboot(__int64 a1)
     {
       v9 = 0LL;
     }
-    if ( (byte_140EEFD24 & 8) != 0 )
+    if ( (byte_140EEFF64 & 8) != 0 )
       McTemplateK0zqdi_EtwWriteTransfer(
         v5,
         v4,

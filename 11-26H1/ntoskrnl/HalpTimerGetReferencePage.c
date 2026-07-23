@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpTimerGetReferencePage @ 0x1404F9550
+ * XREFs of HalpTimerGetReferencePage @ 0x1404F2B60
  * Callers:
  *     <none>
  * Callees:

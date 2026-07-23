@@ -1,12 +1,12 @@
 /*
- * XREFs of StringCbPrintfW @ 0x180056694
+ * XREFs of StringCbPrintfW @ 0x180040C14
  * Callers:
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     LdrpReportError @ 0x1800DA620 (LdrpReportError.c)
- *     RtlpGetVolumeHandle @ 0x18010DEAC (RtlpGetVolumeHandle.c)
- *     RtlpQueryDiskSpacePolicy @ 0x18015AB18 (RtlpQueryDiskSpacePolicy.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     LdrpReportError @ 0x1800D75E0 (LdrpReportError.c)
+ *     RtlpGetVolumeHandle @ 0x18010D9FC (RtlpGetVolumeHandle.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x18015A9E8 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
- *     _vsnwprintf @ 0x180128E20 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x180128B90 (_vsnwprintf.c)
  */
 
 HRESULT StringCbPrintfW(STRSAFE_LPWSTR pszDest, size_t cbDest, STRSAFE_LPCWSTR pszFormat, ...)

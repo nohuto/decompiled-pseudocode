@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckIrpCancelled @ 0x140469E0C
+ * XREFs of IopCheckIrpCancelled @ 0x14046358C
  * Callers:
- *     IopWaitForSynchronousIoEvent @ 0x140469C58 (IopWaitForSynchronousIoEvent.c)
- *     IopWaitForSynchronousIo @ 0x140469D30 (IopWaitForSynchronousIo.c)
+ *     IopWaitForSynchronousIoEvent @ 0x1404633D8 (IopWaitForSynchronousIoEvent.c)
+ *     IopWaitForSynchronousIo @ 0x1404634B0 (IopWaitForSynchronousIo.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 bool __fastcall IopCheckIrpCancelled(__int64 a1, __int64 a2)

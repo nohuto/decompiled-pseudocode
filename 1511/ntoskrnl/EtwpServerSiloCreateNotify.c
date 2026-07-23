@@ -93,7 +93,7 @@ __int64 __fastcall EtwpServerSiloCreateNotify(_QWORD *a1)
           }
           memset(v4, 0, 0x190uLL);
           v13 = (unsigned __int64 *)(v4 + 384);
-          *(_OWORD *)(v4 + 24) = SecurityProviderGuid;
+          *(GUID *)(v4 + 24) = SecurityProviderGuid;
           *((_QWORD *)v4 + 48) = 0LL;
           v4[376] = PsIsHostSilo((__int64)a1);
           v14 = PsAttachSiloToCurrentThread(a1);

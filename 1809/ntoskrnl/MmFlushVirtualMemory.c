@@ -1,8 +1,8 @@
 /*
- * XREFs of MmFlushVirtualMemory @ 0x1406B6C1C
+ * XREFs of MmFlushVirtualMemory @ 0x1406B7EBC
  * Callers:
- *     NtFlushVirtualMemory @ 0x1406B6AC0 (NtFlushVirtualMemory.c)
- *     CMFFlushHitsFile @ 0x1408D8BE8 (CMFFlushHitsFile.c)
+ *     NtFlushVirtualMemory @ 0x1406B7D60 (NtFlushVirtualMemory.c)
+ *     CMFFlushHitsFile @ 0x1408D9EA8 (CMFFlushHitsFile.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -11,16 +11,16 @@
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)
- *     MiFlushRelease @ 0x1400792CC (MiFlushRelease.c)
- *     MiFindLastSubsection @ 0x140092DF0 (MiFindLastSubsection.c)
- *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
- *     MiFlushAcquire @ 0x14012C164 (MiFlushAcquire.c)
- *     MiFlushDirtyBitsToPfn @ 0x14012C20C (MiFlushDirtyBitsToPfn.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1405DCE70 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140075490 (MiUnlockAndDereferenceVadShared.c)
+ *     MiFlushRelease @ 0x1400792BC (MiFlushRelease.c)
+ *     MiFindLastSubsection @ 0x140092D30 (MiFindLastSubsection.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAB70 (KeAreAllApcsDisabled.c)
+ *     MiFlushAcquire @ 0x14012C234 (MiFlushAcquire.c)
+ *     MiFlushDirtyBitsToPfn @ 0x14012C2DC (MiFlushDirtyBitsToPfn.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x1405DDE70 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1405DE0AC (FsRtlAcquireFileForCcFlushEx.c)
  */
 
 __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QWORD *a3, NTSTATUS *a4)

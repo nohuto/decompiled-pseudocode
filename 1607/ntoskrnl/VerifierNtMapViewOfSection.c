@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPageProtection @ 0x140704210 (VfCheckPageProtection.c)
+ *     VfCheckPageProtection @ 0x140704240 (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VerifierNtMapViewOfSection(

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetLeafVa @ 0x1401F263C
+ * XREFs of MiGetLeafVa @ 0x1401F2468
  * Callers:
- *     MiInitializeSystemPageTable @ 0x140020FBC (MiInitializeSystemPageTable.c)
- *     MiReplacePageTablePage @ 0x1400A55B8 (MiReplacePageTablePage.c)
- *     MiDbgWriteCheck @ 0x14012C5DC (MiDbgWriteCheck.c)
- *     MiDbgReleaseAddress @ 0x14012C7DC (MiDbgReleaseAddress.c)
+ *     MiInitializeSystemPageTable @ 0x140020B3C (MiInitializeSystemPageTable.c)
+ *     MiReplacePageTablePage @ 0x1400A3B30 (MiReplacePageTablePage.c)
+ *     MiDbgWriteCheck @ 0x14012CB4C (MiDbgWriteCheck.c)
+ *     MiDbgReleaseAddress @ 0x14012CD4C (MiDbgReleaseAddress.c)
  * Callees:
  *     <none>
  */

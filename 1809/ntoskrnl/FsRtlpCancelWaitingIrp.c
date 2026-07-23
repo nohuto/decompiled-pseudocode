@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpCancelWaitingIrp @ 0x14026FC68
+ * XREFs of FsRtlpCancelWaitingIrp @ 0x14026FE58
  * Callers:
- *     FsRtlpWaitOnIrp @ 0x140270170 (FsRtlpWaitOnIrp.c)
- *     FsRtlpWaitingIrpCancelRoutine @ 0x140270460 (FsRtlpWaitingIrpCancelRoutine.c)
+ *     FsRtlpWaitOnIrp @ 0x140270360 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpWaitingIrpCancelRoutine @ 0x140270650 (FsRtlpWaitingIrpCancelRoutine.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402702C0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
  */
 
 void __fastcall FsRtlpCancelWaitingIrp(__int64 a1, char a2)

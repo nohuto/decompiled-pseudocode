@@ -31,7 +31,7 @@ __int64 __fastcall MmCreateKernelShadowStack(
   int v6; // ebx
   ULONG_PTR v8; // r12
   unsigned __int16 *v9; // r8
-  union _SLIST_HEADER *v11; // rdi
+  _SLIST_HEADER *v11; // rdi
   struct _KPRCB *v12; // rdx
   _QWORD *v13; // r14
   __int64 v14; // rax
@@ -62,9 +62,9 @@ __int64 __fastcall MmCreateKernelShadowStack(
   v8 = a2;
   v9 = MiSystemPartition;
   if ( a1 )
-    v11 = *(union _SLIST_HEADER **)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 544) + 1838LL));
+    v11 = *(_SLIST_HEADER **)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 544) + 1838LL));
   else
-    v11 = (union _SLIST_HEADER *)MiSystemPartition;
+    v11 = (_SLIST_HEADER *)MiSystemPartition;
   if ( a2 > 2 )
     goto LABEL_21;
   if ( (a3 & 0x10) == 0
@@ -110,7 +110,7 @@ LABEL_21:
       MiReleasePtes((__int64)&unk_140C68560, (__int64 *)v20, 3u);
 LABEL_51:
       v29 = 1LL;
-      if ( v11 == (union _SLIST_HEADER *)MiSystemPartition )
+      if ( v11 == (_SLIST_HEADER *)MiSystemPartition )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
@@ -184,7 +184,7 @@ LABEL_41:
       return v18;
     }
     v23 = v22;
-    if ( v11 == (union _SLIST_HEADER *)MiSystemPartition )
+    if ( v11 == (_SLIST_HEADER *)MiSystemPartition )
     {
       v24 = KeGetCurrentPrcb();
       v25 = (int)v24->CachedResidentAvailable;
@@ -219,7 +219,7 @@ LABEL_40:
     goto LABEL_41;
   }
   v13 = a6;
-  if ( v11 != (union _SLIST_HEADER *)MiSystemPartition )
+  if ( v11 != (_SLIST_HEADER *)MiSystemPartition )
     goto LABEL_13;
   v14 = _InterlockedExchange64((volatile __int64 *)&v12->CachedShadowStack, 0LL);
   *v13 = v14;

@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpSetSystemRegistryString @ 0x140667790
+ * XREFs of CmpSetSystemRegistryString @ 0x140666080
  * Callers:
- *     CmpSetSystemValues @ 0x140C480A0 (CmpSetSystemValues.c)
+ *     CmpSetSystemValues @ 0x140C4A1F0 (CmpSetSystemValues.c)
  * Callees:
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14077E300 (RtlCreateUnicodeStringFromAsciiz.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14077E230 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
  */
 
-__int64 __fastcall CmpSetSystemRegistryString(HANDLE KeyHandle, PUNICODE_STRING ValueName, __int64 a3)
+__int64 __fastcall CmpSetSystemRegistryString(HANDLE KeyHandle, PUNICODE_STRING ValueName, PCSTR SourceString)
 {
   wchar_t *Buffer; // rdi
-  char v6; // al
+  BOOLEAN v6; // al
   unsigned int v7; // ebx
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
 
   *(_QWORD *)&UnicodeString.Length = 0LL;
   Buffer = 0LL;
   UnicodeString.Buffer = 0LL;
-  if ( a3 )
+  if ( SourceString )
   {
-    v6 = RtlCreateUnicodeStringFromAsciiz(&UnicodeString);
+    v6 = RtlCreateUnicodeStringFromAsciiz(&UnicodeString, SourceString);
     Buffer = UnicodeString.Buffer;
     if ( v6 )
       v7 = ZwSetValueKey(KeyHandle, ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);

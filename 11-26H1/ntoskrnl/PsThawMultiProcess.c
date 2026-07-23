@@ -1,25 +1,25 @@
 /*
- * XREFs of PsThawMultiProcess @ 0x14051967C
+ * XREFs of PsThawMultiProcess @ 0x1405130EC
  * Callers:
- *     NtChangeProcessState @ 0x1407F1690 (NtChangeProcessState.c)
- *     PspDeleteProcessStateChange @ 0x1407F2B60 (PspDeleteProcessStateChange.c)
- *     DbgkpResumeProcess @ 0x1409535CC (DbgkpResumeProcess.c)
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
- *     PspChangeProcessExecutionState @ 0x140ADE6AC (PspChangeProcessExecutionState.c)
+ *     NtChangeProcessState @ 0x1407F71F0 (NtChangeProcessState.c)
+ *     PspDeleteProcessStateChange @ 0x1407F86C0 (PspDeleteProcessStateChange.c)
+ *     DbgkpResumeProcess @ 0x1409CEF0C (DbgkpResumeProcess.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
+ *     PspChangeProcessExecutionState @ 0x140ADB89C (PspChangeProcessExecutionState.c)
  * Callees:
- *     KeThawMultiProcess @ 0x1402C5CF8 (KeThawMultiProcess.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     PspResumeProcessVirtualTimers @ 0x140617104 (PspResumeProcessVirtualTimers.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     PspWow64GetSharedInformation @ 0x1409EA764 (PspWow64GetSharedInformation.c)
- *     PsWow64GetProcessNtdllType @ 0x1409EA77C (PsWow64GetProcessNtdllType.c)
- *     EtwTiLogSuspendResumeProcess @ 0x140AF12D8 (EtwTiLogSuspendResumeProcess.c)
- *     PspPostFreezeOperationWorkEnqueue @ 0x140AFE9EC (PspPostFreezeOperationWorkEnqueue.c)
- *     EtwTraceFreezeThawProcess @ 0x140B11910 (EtwTraceFreezeThawProcess.c)
- *     VslUpdateFreezeTimeBias @ 0x140B23D94 (VslUpdateFreezeTimeBias.c)
+ *     KeThawMultiProcess @ 0x140310998 (KeThawMultiProcess.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     PspResumeProcessVirtualTimers @ 0x14061A0F4 (PspResumeProcessVirtualTimers.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     PspWow64GetSharedInformation @ 0x1409E6F34 (PspWow64GetSharedInformation.c)
+ *     PsWow64GetProcessNtdllType @ 0x1409E6F4C (PsWow64GetProcessNtdllType.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x140AF3F18 (EtwTiLogSuspendResumeProcess.c)
+ *     PspPostFreezeOperationWorkEnqueue @ 0x140B00A5C (PspPostFreezeOperationWorkEnqueue.c)
+ *     EtwTraceFreezeThawProcess @ 0x140B13690 (EtwTraceFreezeThawProcess.c)
+ *     VslUpdateFreezeTimeBias @ 0x140B26194 (VslUpdateFreezeTimeBias.c)
  */
 
 __int64 __fastcall PsThawMultiProcess(__int64 a1, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -53,8 +53,8 @@ __int64 __fastcall PsThawMultiProcess(__int64 a1, char a2, __int64 a3, struct _K
     }
     else if ( (*(_DWORD *)(a1 + 500) & 0x40000008) == 0 )
     {
-      ULong64FromUser = RtlReadULong64FromUser(stru_140FC01F0.KernelShadowStackInitial);
-      RtlWriteULong64ToUser(stru_140FC01F0.KernelShadowStackInitial, ULong64FromUser + v8);
+      ULong64FromUser = RtlReadULong64FromUser(stru_140FC11F0.KernelShadowStackInitial);
+      RtlWriteULong64ToUser(stru_140FC11F0.KernelShadowStackInitial, ULong64FromUser + v8);
       ProcessNtdllType = PsWow64GetProcessNtdllType(a1);
       if ( ProcessNtdllType )
       {

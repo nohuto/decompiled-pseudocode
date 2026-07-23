@@ -6,15 +6,13 @@
  *     RtlpRemoveUserSubFromNameSub @ 0x180063BDC (RtlpRemoveUserSubFromNameSub.c)
  */
 
-__int64 __fastcall RtlUnsubscribeWnfNotificationWithCompletionCallback(_QWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlUnsubscribeWnfNotificationWithCompletionCallback(PVOID a1, __int64 a2, __int64 a3)
 {
-  char v4; // [rsp+30h] [rbp+8h] BYREF
-
   if ( !a1 || !a2 )
     return 3221225485LL;
-  if ( a1[13] )
+  if ( *((_QWORD *)a1 + 13) )
     return 3221227288LL;
-  a1[13] = a2;
-  a1[14] = a3;
-  return RtlpRemoveUserSubFromNameSub(a1[3], a1, &v4);
+  *((_QWORD *)a1 + 13) = a2;
+  *((_QWORD *)a1 + 14) = a3;
+  return RtlpRemoveUserSubFromNameSub(*((PVOID *)a1 + 3), a1);
 }

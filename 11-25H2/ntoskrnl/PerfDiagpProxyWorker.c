@@ -28,11 +28,11 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   const wchar_t *v7; // rcx
   const wchar_t *v8; // rdx
   int started; // eax
-  int v10; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
-  v10 = 0;
+  ReturnLength = 0;
   v1 = a1[8];
   ExFreePoolWithTag(a1, 0);
   CurrentThread = KeGetCurrentThread();
@@ -85,7 +85,7 @@ LABEL_32:
           }
         }
         PerfDiagpInitializeLoggerInfo(0, 0);
-        NtTraceControl(2LL, &dword_140EFF3F0, (unsigned int)dword_140EFF3F0, &dword_140EFF3F0, dword_140EFF3F0, &v10);
+        NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
         goto LABEL_31;
       }
       v8 = L"EnableKernelFlags";

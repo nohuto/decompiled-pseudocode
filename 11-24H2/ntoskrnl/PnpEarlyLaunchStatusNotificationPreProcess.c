@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpEarlyLaunchStatusNotificationPreProcess @ 0x140C22BC0
+ * XREFs of PnpEarlyLaunchStatusNotificationPreProcess @ 0x140C24BF0
  * Callers:
  *     <none>
  * Callees:

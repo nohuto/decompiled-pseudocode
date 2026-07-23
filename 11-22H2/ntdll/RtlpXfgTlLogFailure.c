@@ -18,27 +18,27 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   char v7; // r12
   char v8; // r15
   int v9; // r13d
-  __int64 v10; // rsi
-  __int64 v12; // rdi
+  unsigned __int64 v10; // rsi
+  unsigned int *v12; // rdi
   char result; // al
   __int64 v14; // rcx
   bool v15; // zf
   int PdbSignature; // eax
-  __int64 v17; // rbx
+  char *v17; // rbx
   unsigned __int16 *v18; // rax
   int v19; // ecx
   __int64 v20; // rax
-  int v21; // eax
-  int v22; // eax
-  char *v23; // rdx
-  _BYTE *v24; // r11
+  unsigned int v21; // eax
+  unsigned int v22; // eax
+  const ULONG *v23; // rdx
+  const ULONG *v24; // r11
   unsigned __int16 *v25; // rax
   int v26; // ecx
   __int64 v27; // rax
   int v28; // eax
   int v29; // eax
-  _BYTE *v30; // rdx
-  _BYTE *v31; // r11
+  const ULONG *v30; // rdx
+  const ULONG *v31; // r11
   unsigned __int16 *v32; // rax
   unsigned int v33; // ecx
   unsigned __int64 v34; // rax
@@ -50,10 +50,10 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   unsigned __int16 *v40; // rax
   int v41; // ecx
   __int64 v42; // rax
-  int v43; // eax
-  int v44; // eax
-  char *v45; // rdx
-  _BYTE *v46; // r11
+  unsigned int v43; // eax
+  unsigned int v44; // eax
+  const ULONG *v45; // rdx
+  const ULONG *v46; // r11
   unsigned __int16 *v47; // rax
   int v48; // ecx
   unsigned __int64 v49; // rax
@@ -67,16 +67,16 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   int v57; // [rsp+40h] [rbp-C8h] BYREF
   int v58; // [rsp+44h] [rbp-C4h] BYREF
   __int64 v59; // [rsp+48h] [rbp-C0h] BYREF
-  char *v60; // [rsp+50h] [rbp-B8h] BYREF
+  const ULONG *v60; // [rsp+50h] [rbp-B8h] BYREF
   unsigned __int64 v61; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v62; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v63; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v64; // [rsp+70h] [rbp-98h] BYREF
+  PVOID v62; // [rsp+60h] [rbp-A8h] BYREF
+  unsigned __int64 v63; // [rsp+68h] [rbp-A0h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp-98h] BYREF
   BOOL v65; // [rsp+78h] [rbp-90h]
   int v66; // [rsp+7Ch] [rbp-8Ch] BYREF
-  int v67; // [rsp+80h] [rbp-88h] BYREF
-  int v68; // [rsp+84h] [rbp-84h] BYREF
-  _BYTE *v69; // [rsp+88h] [rbp-80h] BYREF
+  unsigned int v67; // [rsp+80h] [rbp-88h] BYREF
+  unsigned int v68; // [rsp+84h] [rbp-84h] BYREF
+  const ULONG *v69; // [rsp+88h] [rbp-80h] BYREF
   unsigned __int64 v70; // [rsp+90h] [rbp-78h]
   __int64 v71; // [rsp+98h] [rbp-70h] BYREF
   __int64 v72; // [rsp+A0h] [rbp-68h] BYREF
@@ -85,7 +85,7 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   unsigned __int64 v75; // [rsp+B8h] [rbp-50h] BYREF
   __int64 v76; // [rsp+C0h] [rbp-48h] BYREF
   __int64 v77; // [rsp+C8h] [rbp-40h] BYREF
-  _BYTE *v78; // [rsp+D0h] [rbp-38h] BYREF
+  const ULONG *v78; // [rsp+D0h] [rbp-38h] BYREF
   unsigned __int64 v79; // [rsp+D8h] [rbp-30h]
   unsigned __int64 v80; // [rsp+E0h] [rbp-28h]
   __int128 v81; // [rsp+E8h] [rbp-20h] BYREF
@@ -94,8 +94,8 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   __int128 v84; // [rsp+108h] [rbp+0h] BYREF
   __int128 v85; // [rsp+118h] [rbp+10h] BYREF
   __int128 v86; // [rsp+128h] [rbp+20h] BYREF
-  _BYTE v87[32]; // [rsp+138h] [rbp+30h] BYREF
-  unsigned __int64 *v88; // [rsp+158h] [rbp+50h]
+  _EVENT_DATA_DESCRIPTOR v87; // [rsp+138h] [rbp+30h] BYREF
+  PVOID *v88; // [rsp+158h] [rbp+50h]
   __int64 v89; // [rsp+160h] [rbp+58h]
   int *v90; // [rsp+168h] [rbp+60h]
   __int64 v91; // [rsp+170h] [rbp+68h]
@@ -106,12 +106,12 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   __int64 v96; // [rsp+190h] [rbp+88h]
   unsigned __int64 *v97; // [rsp+198h] [rbp+90h]
   __int64 v98; // [rsp+1A0h] [rbp+98h]
-  unsigned __int64 *v99; // [rsp+1A8h] [rbp+A0h]
+  PVOID *v99; // [rsp+1A8h] [rbp+A0h]
   __int64 v100; // [rsp+1B0h] [rbp+A8h]
   __int64 *v101; // [rsp+1B8h] [rbp+B0h]
   __int64 v102; // [rsp+1C0h] [rbp+B8h]
   _BYTE v103[16]; // [rsp+1C8h] [rbp+C0h] BYREF
-  char **v104; // [rsp+1D8h] [rbp+D0h]
+  const ULONG **v104; // [rsp+1D8h] [rbp+D0h]
   __int64 v105; // [rsp+1E0h] [rbp+D8h]
   __int128 *v106; // [rsp+1E8h] [rbp+E0h]
   __int64 v107; // [rsp+1F0h] [rbp+E8h]
@@ -129,7 +129,7 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   __int64 *v119; // [rsp+248h] [rbp+140h]
   __int64 v120; // [rsp+250h] [rbp+148h]
   _BYTE v121[16]; // [rsp+258h] [rbp+150h] BYREF
-  char **v122; // [rsp+268h] [rbp+160h]
+  const ULONG **v122; // [rsp+268h] [rbp+160h]
   __int64 v123; // [rsp+270h] [rbp+168h]
   __int128 *v124; // [rsp+278h] [rbp+170h]
   __int64 v125; // [rsp+280h] [rbp+178h]
@@ -139,14 +139,14 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   __int64 v129; // [rsp+2A0h] [rbp+198h] BYREF
   unsigned __int64 *v130; // [rsp+2A8h] [rbp+1A0h]
   __int64 v131; // [rsp+2B0h] [rbp+1A8h]
-  unsigned __int64 *v132; // [rsp+2B8h] [rbp+1B0h]
+  PVOID *v132; // [rsp+2B8h] [rbp+1B0h]
   __int64 v133; // [rsp+2C0h] [rbp+1B8h]
   unsigned __int64 *v134; // [rsp+2C8h] [rbp+1C0h]
   __int64 v135; // [rsp+2D0h] [rbp+1C8h]
   unsigned __int64 *v136; // [rsp+2D8h] [rbp+1D0h]
   __int64 v137; // [rsp+2E0h] [rbp+1D8h]
   char v138[16]; // [rsp+2E8h] [rbp+1E0h] BYREF
-  unsigned __int64 *v139; // [rsp+2F8h] [rbp+1F0h]
+  PVOID *p_BaseAddress; // [rsp+2F8h] [rbp+1F0h]
   __int64 v140; // [rsp+300h] [rbp+1F8h]
   __int128 *v141; // [rsp+308h] [rbp+200h]
   __int64 v142; // [rsp+310h] [rbp+208h]
@@ -170,7 +170,7 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   v66 = 0;
   v80 = 0LL;
   v10 = 0LL;
-  v64 = 0LL;
+  BaseAddress = 0LL;
   v62 = 0LL;
   v63 = 0LL;
   v60 = 0LL;
@@ -181,16 +181,16 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   v85 = 0LL;
   v86 = 0LL;
   v81 = 0LL;
-  LdrpFindLoadedDllByAddress(a2, (unsigned __int64 *)&v64, 0LL);
+  LdrpFindLoadedDllByAddress(a2, (unsigned __int64 *)&BaseAddress, 0LL);
   LdrpFindLoadedDllByAddress(a3, (unsigned __int64 *)&v62, 0LL);
-  v12 = v64;
+  v12 = (unsigned int *)BaseAddress;
   result = 1;
   if ( a1 == 5 )
   {
     v80 = v70;
-    LdrpFindLoadedDllByAddress(v70, (unsigned __int64 *)&v63, 0LL);
+    LdrpFindLoadedDllByAddress(v70, &v63, 0LL);
     v10 = v63;
-    if ( !v63 || (v14 = *(_QWORD *)(v63 + 48), v14 == *(_QWORD *)(v12 + 48)) )
+    if ( !v63 || (v14 = *(_QWORD *)(v63 + 48), v14 == *((_QWORD *)v12 + 6)) )
     {
       result = 1;
     }
@@ -204,17 +204,17 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
   }
   if ( v12 )
   {
-    PdbSignature = RtlpXfgGetPdbSignature(*(_QWORD *)(v12 + 48), *(unsigned int *)(v12 + 64), &v84, &v56, &v60);
+    PdbSignature = RtlpXfgGetPdbSignature(*((_QWORD *)v12 + 6), v12[16], &v84, &v56, &v60);
     v9 = v56;
     v15 = PdbSignature == 0;
     result = 1;
     if ( v15 )
       v7 = 1;
   }
-  v17 = v62;
+  v17 = (char *)v62;
   if ( v62 )
   {
-    v15 = (unsigned int)RtlpXfgGetPdbSignature(*(_QWORD *)(v62 + 48), *(unsigned int *)(v62 + 64), &v85, &v57, &v69) == 0;
+    v15 = (unsigned int)RtlpXfgGetPdbSignature(*((_QWORD *)v62 + 6), *((unsigned int *)v62 + 16), &v85, &v57, &v69) == 0;
     result = 1;
     v55 = v15;
   }
@@ -226,8 +226,8 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
       if ( result )
       {
         v56 = a1;
-        v88 = (unsigned __int64 *)&v56;
-        v18 = (unsigned __int16 *)(v12 + 88);
+        v88 = (PVOID *)&v56;
+        v18 = (unsigned __int16 *)(v12 + 22);
         v89 = 4LL;
         if ( !v12 )
           v18 = (unsigned __int16 *)&v81;
@@ -238,28 +238,28 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
         v93 = v19;
         v94 = 0;
         if ( v12 )
-          v20 = *(_QWORD *)(v12 + 48);
+          v20 = *((_QWORD *)v12 + 6);
         else
           v20 = 0LL;
         v82 = v20;
         v95 = &v82;
         v96 = 8LL;
         if ( v12 )
-          v21 = *(_DWORD *)(v12 + 64);
+          v21 = v12[16];
         else
           v21 = 0;
         v67 = v21;
         v97 = (unsigned __int64 *)&v67;
         v98 = 4LL;
         if ( v12 )
-          v22 = *(_DWORD *)(v12 + 128);
+          v22 = v12[32];
         else
           v22 = 0;
         v68 = v22;
         v100 = 4LL;
-        v99 = (unsigned __int64 *)&v68;
+        v99 = (PVOID *)&v68;
         v83 = v61;
-        v23 = "unknown";
+        v23 = (const ULONG *)"unknown";
         if ( v7 )
           v23 = v60;
         v101 = (__int64 *)&v83;
@@ -268,7 +268,7 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
         v105 = 4LL;
         v107 = 16LL;
         v58 = v7 != 0 ? v9 : 0;
-        v104 = (char **)&v58;
+        v104 = (const ULONG **)&v58;
         v106 = &v84;
         v25 = (unsigned __int16 *)(v17 + 88);
         if ( !v17 )
@@ -280,21 +280,21 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
         v111 = v26;
         v112 = 0;
         if ( v17 )
-          v27 = *(_QWORD *)(v17 + 48);
+          v27 = *((_QWORD *)v17 + 6);
         else
           v27 = 0LL;
         v71 = v27;
         v113 = (unsigned __int64 *)&v71;
         v114 = 8LL;
         if ( v17 )
-          v28 = *(_DWORD *)(v17 + 64);
+          v28 = *((_DWORD *)v17 + 16);
         else
           v28 = 0;
         LODWORD(v59) = v28;
         v115 = (unsigned __int64 *)&v59;
         v116 = 4LL;
         if ( v17 )
-          v29 = *(_DWORD *)(v17 + 128);
+          v29 = *((_DWORD *)v17 + 32);
         else
           v29 = 0;
         LODWORD(v61) = v29;
@@ -332,7 +332,7 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
         else
           v35 = 0;
         LODWORD(v62) = v35;
-        v132 = (unsigned __int64 *)&v62;
+        v132 = &v62;
         v133 = 4LL;
         if ( v10 )
           v36 = *(_DWORD *)(v10 + 128);
@@ -342,7 +342,7 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
         v135 = 4LL;
         if ( v65 )
           v31 = v78;
-        v134 = (unsigned __int64 *)&v63;
+        v134 = &v63;
         v74 = v80;
         v136 = &v74;
         v137 = 8LL;
@@ -350,8 +350,8 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
         v140 = 4LL;
         v142 = 16LL;
         v144 = 8LL;
-        LODWORD(v64) = v37 != 0 ? v66 : 0;
-        v139 = (unsigned __int64 *)&v64;
+        LODWORD(BaseAddress) = v37 != 0 ? v66 : 0;
+        p_BaseAddress = &BaseAddress;
         v141 = &v86;
         v75 = v70;
         v143 = &v75;
@@ -366,8 +366,8 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
                    byte_18014B12E,
                    v38,
                    v39,
-                   33,
-                   (__int64)v87);
+                   0x21u,
+                   &v87);
       }
     }
   }
@@ -376,9 +376,9 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
     result = tlgKeywordOn((__int64)&dword_18017E390, 0x400000000000LL);
     if ( result )
     {
-      LODWORD(v64) = a1;
-      v88 = (unsigned __int64 *)&v64;
-      v40 = (unsigned __int16 *)(v12 + 88);
+      LODWORD(BaseAddress) = a1;
+      v88 = &BaseAddress;
+      v40 = (unsigned __int16 *)(v12 + 22);
       v89 = 4LL;
       if ( !v12 )
         v40 = (unsigned __int16 *)&v81;
@@ -389,28 +389,28 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
       v93 = v41;
       v94 = 0;
       if ( v12 )
-        v42 = *(_QWORD *)(v12 + 48);
+        v42 = *((_QWORD *)v12 + 6);
       else
         v42 = 0LL;
       v77 = v42;
       v95 = &v77;
       v96 = 8LL;
       if ( v12 )
-        v43 = *(_DWORD *)(v12 + 64);
+        v43 = v12[16];
       else
         v43 = 0;
       LODWORD(v63) = v43;
-      v97 = (unsigned __int64 *)&v63;
+      v97 = &v63;
       v98 = 4LL;
       if ( v12 )
-        v44 = *(_DWORD *)(v12 + 128);
+        v44 = v12[32];
       else
         v44 = 0;
       LODWORD(v62) = v44;
       v100 = 4LL;
-      v99 = (unsigned __int64 *)&v62;
+      v99 = &v62;
       v76 = v61;
-      v45 = "unknown";
+      v45 = (const ULONG *)"unknown";
       if ( v7 )
         v45 = v60;
       v101 = &v76;
@@ -431,21 +431,21 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
       v111 = v48;
       v112 = 0;
       if ( v17 )
-        v49 = *(_QWORD *)(v17 + 48);
+        v49 = *((_QWORD *)v17 + 6);
       else
         v49 = 0LL;
       v75 = v49;
       v113 = &v75;
       v114 = 8LL;
       if ( v17 )
-        v50 = *(_DWORD *)(v17 + 64);
+        v50 = *((_DWORD *)v17 + 16);
       else
         v50 = 0;
       LODWORD(v61) = v50;
       v115 = &v61;
       v116 = 4LL;
       if ( v17 )
-        v51 = *(_DWORD *)(v17 + 128);
+        v51 = *((_DWORD *)v17 + 32);
       else
         v51 = 0;
       LODWORD(v59) = v51;
@@ -461,7 +461,7 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
       v125 = 16LL;
       v127 = 8LL;
       v58 = v52 != 0 ? v57 : 0;
-      v122 = (char **)&v58;
+      v122 = (const ULONG **)&v58;
       v124 = &v85;
       v73 = v70;
       v126 = (__int64 *)&v73;
@@ -473,17 +473,17 @@ char __fastcall RtlpXfgTlLogFailure(int a1, unsigned __int64 a2, unsigned __int6
       v131 = 8LL;
       result = tlgWriteTransfer_EtwEventWriteTransfer(
                  (__int64)&dword_18017E390,
-                 byte_18014AFB8,
+                 (unsigned __int8 *)dword_18014AFB8,
                  v53,
                  v54,
-                 24,
-                 (__int64)v87);
+                 0x18u,
+                 &v87);
     }
   }
   if ( v10 )
-    result = LdrpDereferenceModule(v10);
+    result = LdrpDereferenceModule((char *)v10);
   if ( v12 )
-    result = LdrpDereferenceModule(v12);
+    result = LdrpDereferenceModule((char *)v12);
   if ( v17 )
     return LdrpDereferenceModule(v17);
   return result;

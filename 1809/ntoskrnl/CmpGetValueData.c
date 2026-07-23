@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpGetValueData @ 0x1405D20A0
+ * XREFs of CmpGetValueData @ 0x1405D30A0
  * Callers:
- *     CmpGetValueDataFromCache @ 0x1405CF438 (CmpGetValueDataFromCache.c)
- *     CmQueryMultipleValueKey @ 0x1405D0194 (CmQueryMultipleValueKey.c)
- *     CmpQueryKeyValueData @ 0x1405D1B30 (CmpQueryKeyValueData.c)
- *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406950E4 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmAddLogForAction @ 0x1406BCEDC (CmAddLogForAction.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x1407ED62C (CmQueryMultipleValueForLayeredKey.c)
- *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
- *     CmpPreserveSystemHiveData @ 0x1407FDCC4 (CmpPreserveSystemHiveData.c)
- *     CmpGetValueForAudit @ 0x1408004C4 (CmpGetValueForAudit.c)
- *     CmpFindTagIndex @ 0x1409CD830 (CmpFindTagIndex.c)
+ *     CmpGetValueDataFromCache @ 0x1405D0438 (CmpGetValueDataFromCache.c)
+ *     CmQueryMultipleValueKey @ 0x1405D1194 (CmQueryMultipleValueKey.c)
+ *     CmpQueryKeyValueData @ 0x1405D2B30 (CmpQueryKeyValueData.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405D8CC0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406962A4 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmAddLogForAction @ 0x1406BE17C (CmAddLogForAction.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x1407EE82C (CmQueryMultipleValueForLayeredKey.c)
+ *     CmpCopyValue @ 0x1407FE584 (CmpCopyValue.c)
+ *     CmpPreserveSystemHiveData @ 0x1407FEEC4 (CmpPreserveSystemHiveData.c)
+ *     CmpGetValueForAudit @ 0x1408016C4 (CmpGetValueForAudit.c)
+ *     CmpFindTagIndex @ 0x1409CE830 (CmpFindTagIndex.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall CmpGetValueData(

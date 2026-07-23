@@ -1,23 +1,23 @@
 /*
- * XREFs of IopCreateSecureDeviceClassSettings @ 0x14083AB94
+ * XREFs of IopCreateSecureDeviceClassSettings @ 0x14083AE94
  * Callers:
- *     IoCreateDeviceSecure @ 0x14083B030 (IoCreateDeviceSecure.c)
+ *     IoCreateDeviceSecure @ 0x14083B330 (IoCreateDeviceSecure.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     IopCreateRegistryKeyEx @ 0x1407DA498 (IopCreateRegistryKeyEx.c)
- *     IopGetPersistedStateLocation @ 0x14083ADCC (IopGetPersistedStateLocation.c)
- *     IopQuerySecureDeviceClassState @ 0x14083AE7C (IopQuerySecureDeviceClassState.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     IopCreateRegistryKeyEx @ 0x1407DA768 (IopCreateRegistryKeyEx.c)
+ *     IopGetPersistedStateLocation @ 0x14083B0CC (IopGetPersistedStateLocation.c)
+ *     IopQuerySecureDeviceClassState @ 0x14083B17C (IopQuerySecureDeviceClassState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall IopCreateSecureDeviceClassSettings(PGUID Guid, __int64 a2, _BYTE *a3)
 {
   WCHAR *v6; // rdi
   int SecureDeviceClassState; // ebx
@@ -39,7 +39,7 @@ __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 
 
   *(_QWORD *)&String2.Length = 7471216LL;
   v23 = 0;
-  String2.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class";
+  String2.Buffer = (wchar_t *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class";
   Handle = 0LL;
   SourceString[0] = 0LL;
   KeyHandle = 0LL;
@@ -48,7 +48,7 @@ __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 
   v6 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  SecureDeviceClassState = RtlStringFromGUIDEx(a1, (__int64)&DestinationString, 1);
+  SecureDeviceClassState = RtlStringFromGUIDEx(Guid, &DestinationString, 1u);
   if ( SecureDeviceClassState >= 0 )
   {
     *(_QWORD *)&ObjectAttributes.Length = 48LL;

@@ -15,16 +15,16 @@
  *     _RtlpHpHeapLock@8 @ 0x4B378F59 (_RtlpHpHeapLock@8.c)
  */
 
-char __stdcall RtlLockHeap(int a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
   _DWORD *SharedData; // eax
   int v2; // eax
   char v4; // [esp+Bh] [ebp-1h] BYREF
 
   v4 = -1;
-  if ( *(_DWORD *)(a1 + 8) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
   {
-    RtlpHpHeapLock(a1, &v4);
+    RtlpHpHeapLock(HeapHandle, &v4);
 LABEL_6:
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
@@ -34,18 +34,18 @@ LABEL_6:
     if ( *(_BYTE *)v2 )
     {
       if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-        RtlpLogHeapLockEvent(a1);
+        RtlpLogHeapLockEvent(HeapHandle);
     }
     return 1;
   }
-  if ( (*(_DWORD *)(a1 + 68) & 0x1000000) != 0 )
-    return dword_4B3A3768(dword_4B3A3768, a1);
-  if ( *(_DWORD *)(a1 + 96) == -285217025 )
+  if ( (*((_DWORD *)HeapHandle + 17) & 0x1000000) != 0 )
+    return dword_4B3A3768(dword_4B3A3768, HeapHandle);
+  if ( *((_DWORD *)HeapHandle + 24) == -285217025 )
   {
-    if ( (*(_BYTE *)(a1 + 64) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 64) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_DWORD *)(a1 + 200));
-      ++*(_WORD *)(a1 + 232);
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 50));
+      ++*((_WORD *)HeapHandle + 116);
     }
     goto LABEL_6;
   }
@@ -53,7 +53,7 @@ LABEL_6:
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
-  DbgPrint("Invalid heap signature for heap at %p", (const void *)a1);
+  DbgPrint("Invalid heap signature for heap at %p", HeapHandle);
   DbgPrint(", passed to %s", "RtlLockHeap");
   DbgPrint("\n");
   if ( NtCurrentPeb()->BeingDebugged )

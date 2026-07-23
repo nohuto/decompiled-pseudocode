@@ -1,23 +1,23 @@
 /*
- * XREFs of wcsncmp @ 0x140197800
+ * XREFs of wcsncmp @ 0x140197940
  * Callers:
- *     LdrpCompareResourceNamesWithValidation @ 0x1401B5E20 (LdrpCompareResourceNamesWithValidation.c)
- *     EtwpApplyPredicate @ 0x140318A10 (EtwpApplyPredicate.c)
- *     PfSnFindPrefetchVolumeInfoInList @ 0x140660104 (PfSnFindPrefetchVolumeInfoInList.c)
- *     LdrpResCompareResourceNames @ 0x14068A020 (LdrpResCompareResourceNames.c)
- *     WmipFindISinGEbyName @ 0x1407084F8 (WmipFindISinGEbyName.c)
- *     pIoQueryBusDescription @ 0x140719594 (pIoQueryBusDescription.c)
- *     AslPathClean @ 0x140722454 (AslPathClean.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x140869690 (PopFxInitializeSocSubsystemStaticInfo.c)
- *     PopPluginInitializeSocSubsystemStaticInfo @ 0x14086ABDC (PopPluginInitializeSocSubsystemStaticInfo.c)
- *     PopProcessWakeSourceWork @ 0x14086B844 (PopProcessWakeSourceWork.c)
- *     PopWakeSourceIsParent @ 0x14086BAD4 (PopWakeSourceIsParent.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BBB1C (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     AslPathCleanUstr @ 0x1408E9F1C (AslPathCleanUstr.c)
- *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
- *     AslpPathWildcardMakeLeaves @ 0x1408EBB38 (AslpPathWildcardMakeLeaves.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140902564 (DrvDbSetDeviceIdDriverInfMatches.c)
- *     ExpWatchProductTypeInitialization @ 0x1409D5738 (ExpWatchProductTypeInitialization.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1401B5F88 (LdrpCompareResourceNamesWithValidation.c)
+ *     EtwpApplyPredicate @ 0x140318C00 (EtwpApplyPredicate.c)
+ *     PfSnFindPrefetchVolumeInfoInList @ 0x1406612C4 (PfSnFindPrefetchVolumeInfoInList.c)
+ *     LdrpResCompareResourceNames @ 0x14068B1E0 (LdrpResCompareResourceNames.c)
+ *     WmipFindISinGEbyName @ 0x140709798 (WmipFindISinGEbyName.c)
+ *     pIoQueryBusDescription @ 0x14071A834 (pIoQueryBusDescription.c)
+ *     AslPathClean @ 0x1407236F4 (AslPathClean.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x14086A8F0 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x14086BE3C (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopProcessWakeSourceWork @ 0x14086CAA4 (PopProcessWakeSourceWork.c)
+ *     PopWakeSourceIsParent @ 0x14086CD34 (PopWakeSourceIsParent.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BCDDC (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     AslPathCleanUstr @ 0x1408EB1DC (AslPathCleanUstr.c)
+ *     AslPathWildcardFindFirst @ 0x1408EB7A8 (AslPathWildcardFindFirst.c)
+ *     AslpPathWildcardMakeLeaves @ 0x1408ECDF8 (AslpPathWildcardMakeLeaves.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140903824 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     ExpWatchProductTypeInitialization @ 0x1409D6738 (ExpWatchProductTypeInitialization.c)
  * Callees:
  *     <none>
  */

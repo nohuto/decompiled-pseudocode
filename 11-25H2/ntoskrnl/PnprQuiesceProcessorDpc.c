@@ -47,7 +47,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   signed __int32 *v21; // r8
   signed __int32 v22; // eax
   signed __int32 v23; // ett
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-60h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-60h] BYREF
   int v25; // [rsp+24h] [rbp-5Ch] BYREF
   __int64 v26; // [rsp+28h] [rbp-58h] BYREF
   __int64 v27; // [rsp+30h] [rbp-50h]

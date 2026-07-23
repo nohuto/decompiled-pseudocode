@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIsPageSecured @ 0x1402EED30
+ * XREFs of MiIsPageSecured @ 0x1402EEFC0
  * Callers:
- *     MiCopySinglePage @ 0x1402EE8BC (MiCopySinglePage.c)
- *     MmTryIdentifyPage @ 0x140626730 (MmTryIdentifyPage.c)
- *     MiAddNonSecuredPagesToDump @ 0x14062F328 (MiAddNonSecuredPagesToDump.c)
- *     MiFilterCrashDumpPte @ 0x14062FA00 (MiFilterCrashDumpPte.c)
+ *     MiCopySinglePage @ 0x1402EEB4C (MiCopySinglePage.c)
+ *     MmTryIdentifyPage @ 0x140626C80 (MmTryIdentifyPage.c)
+ *     MiAddNonSecuredPagesToDump @ 0x14062F878 (MiAddNonSecuredPagesToDump.c)
+ *     MiFilterCrashDumpPte @ 0x14062FF50 (MiFilterCrashDumpPte.c)
  * Callees:
- *     MiIsFreeSlabPage @ 0x140657098 (MiIsFreeSlabPage.c)
+ *     MiIsFreeSlabPage @ 0x1406575E8 (MiIsFreeSlabPage.c)
  */
 
 __int64 __fastcall MiIsPageSecured(__int64 a1)

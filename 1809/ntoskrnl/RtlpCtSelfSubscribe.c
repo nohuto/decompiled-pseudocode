@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCtSelfSubscribe @ 0x14089992C
+ * XREFs of RtlpCtSelfSubscribe @ 0x14089AB8C
  * Callers:
- *     RtlpRtlpCtSelfSubscribeCallback @ 0x1402F58F0 (RtlpRtlpCtSelfSubscribeCallback.c)
+ *     RtlpRtlpCtSelfSubscribeCallback @ 0x1402F5AE0 (RtlpRtlpCtSelfSubscribeCallback.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 __int64 __fastcall RtlpCtSelfSubscribe(__int64 a1)

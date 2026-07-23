@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpLogScenarioEventCallback @ 0x140745B10
+ * XREFs of PfpLogScenarioEventCallback @ 0x140743E00
  * Callers:
  *     <none>
  * Callees:
- *     PfLogEvent @ 0x140245398 (PfLogEvent.c)
- *     PfpPartitionToParent @ 0x1404BCA40 (PfpPartitionToParent.c)
- *     PfTAccessTracingCheck @ 0x1405CC6D0 (PfTAccessTracingCheck.c)
- *     PfTSetTraceWorkerPriority @ 0x1405CC6E0 (PfTSetTraceWorkerPriority.c)
- *     PfGenerateTrace @ 0x14074637C (PfGenerateTrace.c)
- *     MmPerformMemoryListCommand @ 0x140B6DB74 (MmPerformMemoryListCommand.c)
+ *     PfLogEvent @ 0x14020DB78 (PfLogEvent.c)
+ *     PfpPartitionToParent @ 0x1404B7BB0 (PfpPartitionToParent.c)
+ *     PfTAccessTracingCheck @ 0x1405C9E40 (PfTAccessTracingCheck.c)
+ *     PfTSetTraceWorkerPriority @ 0x1405C9E50 (PfTSetTraceWorkerPriority.c)
+ *     PfGenerateTrace @ 0x14074466C (PfGenerateTrace.c)
+ *     MmPerformMemoryListCommand @ 0x140B6F414 (MmPerformMemoryListCommand.c)
  */
 
 __int64 __fastcall PfpLogScenarioEventCallback(__int64 a1, int *a2)
@@ -43,7 +43,7 @@ __int64 __fastcall PfpLogScenarioEventCallback(__int64 a1, int *a2)
   v10 = PfLogEvent(
           a1,
           27,
-          dword_140E66E7C
+          dword_140E66FCC
         + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                         + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
           v14,

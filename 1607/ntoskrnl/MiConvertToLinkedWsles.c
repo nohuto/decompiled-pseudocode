@@ -1,24 +1,24 @@
 /*
- * XREFs of MiConvertToLinkedWsles @ 0x1400A1844
+ * XREFs of MiConvertToLinkedWsles @ 0x1400A016C
  * Callers:
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiConvertPartitionWs @ 0x1401F1340 (MiConvertPartitionWs.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiConvertPartitionWs @ 0x1401F116C (MiConvertPartitionWs.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiInitializeWsleAgeHeads @ 0x1400A1B9C (MiInitializeWsleAgeHeads.c)
- *     MiComputeWslePagesNeeded @ 0x1400A1BC4 (MiComputeWslePagesNeeded.c)
- *     MiInsertWsle @ 0x1400E2090 (MiInsertWsle.c)
- *     MiReleaseWsle @ 0x1400E2430 (MiReleaseWsle.c)
- *     MiMoveWorkingFreeToTail @ 0x1400FE014 (MiMoveWorkingFreeToTail.c)
- *     MiRemoveWorkingSetPages @ 0x1400FE750 (MiRemoveWorkingSetPages.c)
- *     MiDeletePteRange @ 0x1401007D0 (MiDeletePteRange.c)
- *     MiMapNewWorkingSetPage @ 0x140102E50 (MiMapNewWorkingSetPage.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiInitializeWsleAgeHeads @ 0x1400A04C4 (MiInitializeWsleAgeHeads.c)
+ *     MiComputeWslePagesNeeded @ 0x1400A04EC (MiComputeWslePagesNeeded.c)
+ *     MiInsertWsle @ 0x1400DFF30 (MiInsertWsle.c)
+ *     MiReleaseWsle @ 0x1400E02D0 (MiReleaseWsle.c)
+ *     MiMoveWorkingFreeToTail @ 0x1400FBD94 (MiMoveWorkingFreeToTail.c)
+ *     MiRemoveWorkingSetPages @ 0x1400FC4D0 (MiRemoveWorkingSetPages.c)
+ *     MiDeletePteRange @ 0x1400FE550 (MiDeletePteRange.c)
+ *     MiMapNewWorkingSetPage @ 0x140100BD0 (MiMapNewWorkingSetPage.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  */
 
 __int64 __fastcall MiConvertToLinkedWsles(ULONG_PTR a1)

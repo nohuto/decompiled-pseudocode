@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpExposeWnfStateName @ 0x14094FB04
+ * XREFs of ExpExposeWnfStateName @ 0x1409CB444
  * Callers:
- *     ExpNtDeleteWnfStateData @ 0x14083F2A8 (ExpNtDeleteWnfStateData.c)
- *     NtCreateWnfStateName @ 0x14094F1A0 (NtCreateWnfStateName.c)
- *     ExpWnfPopulateStateData @ 0x140950088 (ExpWnfPopulateStateData.c)
+ *     ExpNtDeleteWnfStateData @ 0x1408454E8 (ExpNtDeleteWnfStateData.c)
+ *     NtCreateWnfStateName @ 0x1409CAAE0 (NtCreateWnfStateName.c)
+ *     ExpWnfPopulateStateData @ 0x1409CB9C8 (ExpWnfPopulateStateData.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
  */
 
 void __fastcall ExpExposeWnfStateName(__int64 a1, _QWORD *a2, char a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAggregateCumulativeGlobalTelemetry @ 0x140880C8C
+ * XREFs of CcAggregateCumulativeGlobalTelemetry @ 0x140880ECC
  * Callers:
- *     CcPostVolumeTelemetry @ 0x1403D10D0 (CcPostVolumeTelemetry.c)
+ *     CcPostVolumeTelemetry @ 0x1403D12B0 (CcPostVolumeTelemetry.c)
  * Callees:
  *     <none>
  */

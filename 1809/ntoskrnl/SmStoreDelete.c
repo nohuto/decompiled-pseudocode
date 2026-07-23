@@ -1,11 +1,11 @@
 /*
- * XREFs of SmStoreDelete @ 0x1408AB9A0
+ * XREFs of SmStoreDelete @ 0x1408ACC00
  * Callers:
- *     SmcCacheCleanup @ 0x1408AE9A4 (SmcCacheCleanup.c)
- *     SmcStoreDelete @ 0x1408AF33C (SmcStoreDelete.c)
+ *     SmcCacheCleanup @ 0x1408AFC04 (SmcCacheCleanup.c)
+ *     SmcStoreDelete @ 0x1408B059C (SmcStoreDelete.c)
  * Callees:
- *     ZwSetSystemInformation @ 0x1401BB5F0 (ZwSetSystemInformation.c)
- *     SmStorePhysicalRequestIssue @ 0x1408ABA2C (SmStorePhysicalRequestIssue.c)
+ *     ZwSetSystemInformation @ 0x1401BB750 (ZwSetSystemInformation.c)
+ *     SmStorePhysicalRequestIssue @ 0x1408ACC8C (SmStorePhysicalRequestIssue.c)
  */
 
 NTSTATUS __fastcall SmStoreDelete(int a1, int a2)
@@ -25,6 +25,6 @@ NTSTATUS __fastcall SmStoreDelete(int a1, int a2)
   if ( !a1 )
     return SmStorePhysicalRequestIssue(DeviceObject, 0, (__int64)&v6);
   if ( a1 == 1 )
-    return ZwSetSystemInformation(SystemVerifierFaultsInformation|SystemLocksInformation, SystemInformation, 0x18uLL);
+    return ZwSetSystemInformation(SystemStoreInformation, SystemInformation, 0x18uLL);
   return result;
 }

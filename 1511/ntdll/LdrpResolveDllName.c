@@ -19,31 +19,33 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpResolveDllName(__int128 *a1, __int64 a2, __int64 a3, _OWORD *a4, __int64 a5, int a6)
+__int64 __fastcall LdrpResolveDllName(
+        _UNICODE_STRING *a1,
+        _UNICODE_STRING *a2,
+        _UNICODE_STRING *a3,
+        _OWORD *a4,
+        __int64 a5,
+        __int16 a6)
 {
-  __int128 *v9; // r14
+  _UNICODE_STRING *v9; // r14
   int FullPath; // eax
-  __int128 v11; // xmm0
-  int UnicodeString; // ebx
-  _WORD *v13; // rax
+  _UNICODE_STRING v11; // xmm0
+  NTSTATUS UnicodeString; // ebx
+  _UNICODE_STRING *v13; // rax
   __int64 v14; // rsi
   const void *v15; // r14
-  int v16; // eax
+  ULONG v16; // eax
   unsigned __int16 v17; // ax
   unsigned __int64 v18; // xmm1_8
-  _WORD *i; // rdx
+  const WCHAR *i; // rdx
   unsigned __int64 v21; // rax
   __int64 v22; // rcx
-  __int128 v23; // xmm0
+  _UNICODE_STRING v23; // xmm0
   void *Src[2]; // [rsp+40h] [rbp-89h] BYREF
-  __int128 *v25; // [rsp+50h] [rbp-79h] BYREF
-  __int128 v26; // [rsp+58h] [rbp-71h] BYREF
-  int v27; // [rsp+68h] [rbp-61h] BYREF
-  __int64 v28; // [rsp+70h] [rbp-59h]
-  __int64 v29; // [rsp+78h] [rbp-51h]
-  int v30; // [rsp+80h] [rbp-49h]
-  __int128 v31; // [rsp+88h] [rbp-41h]
-  _BYTE v32[40]; // [rsp+98h] [rbp-31h] BYREF
+  _UNICODE_STRING *v25; // [rsp+50h] [rbp-79h] BYREF
+  _UNICODE_STRING v26; // [rsp+58h] [rbp-71h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-61h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+98h] [rbp-31h] BYREF
 
   v9 = a1;
   if ( (LdrpDebugFlags & 9) != 0 )
@@ -60,17 +62,16 @@ __int64 __fastcall LdrpResolveDllName(__int128 *a1, __int64 a2, __int64 a3, _OWO
   }
   else
   {
-    FullPath = LdrpGetFullPath((__int64)v9, a2);
-    v11 = *(_OWORD *)a2;
+    FullPath = LdrpGetFullPath((__int64)v9, (__int64)a2);
+    v11 = *a2;
   }
   UnicodeString = FullPath;
-  *(_OWORD *)Src = v11;
+  *(_UNICODE_STRING *)Src = v11;
   if ( FullPath >= 0 )
   {
-    if ( !a5
-      || (UnicodeString = LdrpFindLoadedDllByName(0, (unsigned int)Src, a6, a5, 0LL), UnicodeString == -1073741515) )
+    if ( !a5 || (UnicodeString = LdrpFindLoadedDllByName(0LL, (PUNICODE_STRING)Src, 0LL), UnicodeString == -1073741515) )
     {
-      if ( (a6 & 0x200) != 0 || (v13 = (_WORD *)(a2 + 16), a2 + 16 == *(_QWORD *)(a2 + 8)) )
+      if ( (a6 & 0x200) != 0 || (v13 = a2 + 1, &a2[1] == (_UNICODE_STRING *)a2->Buffer) )
       {
         v14 = LOWORD(Src[0]);
         v15 = Src[1];
@@ -80,22 +81,22 @@ __int64 __fastcall LdrpResolveDllName(__int128 *a1, __int64 a2, __int64 a3, _OWO
           memmove(Src[1], v15, v14 + 2);
           LOWORD(Src[0]) = v14;
         }
-        *(_WORD *)a2 = 0;
+        a2->Length = 0;
         if ( UnicodeString < 0 )
           goto LABEL_25;
       }
       else
       {
-        *(_QWORD *)(a2 + 8) = v13;
-        *(_DWORD *)a2 = 0x1000000;
-        *v13 = 0;
+        a2->Buffer = &v13->Length;
+        *(_DWORD *)&a2->Length = 0x1000000;
+        v13->Length = 0;
       }
       LOBYTE(a1) = 1;
       UnicodeString = RtlDosPathNameToRelativeNtPathName(
                         (_DWORD)a1,
                         0,
                         (unsigned int)Src,
-                        a2,
+                        (_DWORD)a2,
                         (__int64)&v26,
                         (__int64)&v25,
                         0LL,
@@ -104,22 +105,22 @@ __int64 __fastcall LdrpResolveDllName(__int128 *a1, __int64 a2, __int64 a3, _OWO
         goto LABEL_29;
       if ( v25 == &v26 )
       {
-        if ( a2 + 16 != *(_QWORD *)(a2 + 8) )
+        if ( &a2[1] != (_UNICODE_STRING *)a2->Buffer )
           NtdllpFreeStringRoutine();
         v23 = v26;
-        *(_DWORD *)a2 = 0x1000000;
-        *(_WORD *)(a2 + 16) = 0;
-        *(_OWORD *)a2 = v23;
+        *(_DWORD *)&a2->Length = 0x1000000;
+        a2[1].Length = 0;
+        *a2 = v23;
       }
       v16 = 64;
-      v27 = 48;
-      v28 = 0LL;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
       if ( !LdrpUseImpersonatedDeviceMap )
         v16 = 2112;
-      v29 = a2;
-      v30 = v16;
-      v31 = 0LL;
-      UnicodeString = ZwQueryAttributesFile(&v27, v32);
+      ObjectAttributes.ObjectName = a2;
+      ObjectAttributes.Attributes = v16;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      UnicodeString = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
       if ( UnicodeString < 0 )
       {
 LABEL_29:
@@ -137,7 +138,7 @@ LABEL_29:
         v17 = _mm_cvtsi128_si32(*(__m128i *)Src);
         v18 = _mm_srli_si128(*(__m128i *)Src, 8).m128i_u64[0];
         *a4 = *(_OWORD *)Src;
-        for ( i = (_WORD *)(v17 + v18 - 2); (unsigned __int64)i >= v18; --i )
+        for ( i = (const WCHAR *)(v17 + v18 - 2); (unsigned __int64)i >= v18; --i )
         {
           if ( *i == 92 || *i == 47 )
           {

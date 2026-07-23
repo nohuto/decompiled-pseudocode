@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSaveExtendedAndSupervisorState @ 0x14012E5AC
+ * XREFs of KeSaveExtendedAndSupervisorState @ 0x14012E67C
  * Callers:
- *     KeSaveExtendedProcessorState @ 0x14012E560 (KeSaveExtendedProcessorState.c)
- *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
- *     PnprQuiesceProcessorDpc @ 0x14057A350 (PnprQuiesceProcessorDpc.c)
+ *     KeSaveExtendedProcessorState @ 0x14012E630 (KeSaveExtendedProcessorState.c)
+ *     PopHandleNextState @ 0x14056A410 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x14057B350 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlXSave @ 0x14012E77C (RtlXSave.c)
- *     KeAllocateXStateContext @ 0x14012E7D0 (KeAllocateXStateContext.c)
- *     RtlXRestore @ 0x14012F8F4 (RtlXRestore.c)
- *     RtlXSaveS @ 0x140141D20 (RtlXSaveS.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     RtlXSave @ 0x14012E84C (RtlXSave.c)
+ *     KeAllocateXStateContext @ 0x14012E8A0 (KeAllocateXStateContext.c)
+ *     RtlXRestore @ 0x14012F9C4 (RtlXRestore.c)
+ *     RtlXSaveS @ 0x140141E20 (RtlXSaveS.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KeSaveExtendedAndSupervisorState(ULONG_PTR BugCheckParameter3, PVOID *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfIrpReleaseCallDriverData @ 0x140C2C5D0
+ * XREFs of VfIrpReleaseCallDriverData @ 0x140C325E0
  * Callers:
- *     IovCallDriver @ 0x1404F36FC (IovCallDriver.c)
+ *     IovCallDriver @ 0x1404ECCDC (IovCallDriver.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall VfIrpReleaseCallDriverData(PVOID Entry)

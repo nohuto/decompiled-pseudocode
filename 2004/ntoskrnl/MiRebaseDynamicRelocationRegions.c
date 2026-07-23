@@ -106,13 +106,9 @@ LABEL_12:
   v15 = v5;
   for ( i = 39LL; ; i -= 9LL )
   {
-    MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), v3, v15);
+    MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
     if ( i >= 0xC )
-      MiApplyDynamicRelocations(
-        *(_QWORD *)(v2 + 48),
-        *(unsigned int *)(v2 + 64),
-        v3 + (1LL << i) - 1,
-        v15 + (1LL << i) - 1);
+      MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
     if ( (unsigned int)++v7 > 4 )
       break;
     v3 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -122,7 +118,7 @@ LABEL_12:
 LABEL_18:
   v17 = 0xFFFFFA8000000000uLL;
   if ( (MiFlags & 0x8000) != 0 || v4 != 0xFFFFFA8000000000uLL )
-    MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), 0xFFFFFA8000000000uLL, v4);
+    MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
   result = MiApplyRetpolineFixupsToKernelAndHal(a1, v17);
   MmPteBase = v5;
   qword_140C00E80 = v5;

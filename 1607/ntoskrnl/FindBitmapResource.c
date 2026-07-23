@@ -3,9 +3,9 @@
  * Callers:
  *     BvgaDriverInitialize @ 0x1407B1FA8 (BvgaDriverInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     LdrAccessResource @ 0x1405646B4 (LdrAccessResource.c)
- *     LdrFindResource_U @ 0x1405646BC (LdrFindResource_U.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     LdrAccessResource @ 0x140564BF4 (LdrAccessResource.c)
+ *     LdrFindResource_U @ 0x140564BFC (LdrFindResource_U.c)
  */
 
 PVOID __fastcall FindBitmapResource(ULONG_PTR a1, ULONG *a2)
@@ -14,7 +14,7 @@ PVOID __fastcall FindBitmapResource(ULONG_PTR a1, ULONG *a2)
   PVOID v4; // rcx
   PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+20h] [rbp-38h] BYREF
   PVOID Resource; // [rsp+28h] [rbp-30h] BYREF
-  struct _LDR_RESOURCE_INFO v8; // [rsp+30h] [rbp-28h] BYREF
+  _LDR_RESOURCE_INFO v8; // [rsp+30h] [rbp-28h] BYREF
 
   v8.Name = a1;
   v8.Type = 2LL;

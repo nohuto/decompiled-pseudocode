@@ -1,37 +1,37 @@
 /*
- * XREFs of MmOutSwapWorkingSet @ 0x140404630
+ * XREFs of MmOutSwapWorkingSet @ 0x1403C6F10
  * Callers:
- *     PspChangeProcessExecutionState @ 0x140AD16D4 (PspChangeProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x140ACFA40 (PspChangeProcessExecutionState.c)
  * Callees:
- *     MiOutSwapWorkingSet @ 0x1402345FC (MiOutSwapWorkingSet.c)
- *     SmStoreExistsForProcess @ 0x140245744 (SmStoreExistsForProcess.c)
- *     MiGetNextVad @ 0x1402614BC (MiGetNextVad.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1402BAD10 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiVadSupportsPrivateCommit @ 0x1402FBA00 (MiVadSupportsPrivateCommit.c)
- *     MiGetKernelStackSwapSupport @ 0x1403679DC (MiGetKernelStackSwapSupport.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x140367B34 (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x140367B8C (MiAllocateWorkingSetSwapSupport.c)
- *     MiGetFirstVad @ 0x1404043B8 (MiGetFirstVad.c)
- *     MiLockWsSwapExclusive @ 0x1404043DC (MiLockWsSwapExclusive.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140404438 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404044B8 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadMapsLargeImage @ 0x140404B60 (MiVadMapsLargeImage.c)
- *     MiFindBestOutswapPagefile @ 0x140404CF0 (MiFindBestOutswapPagefile.c)
- *     MiUnlockWsSwapExclusive @ 0x140404DE4 (MiUnlockWsSwapExclusive.c)
- *     MiGetWorkingSetSwapSupport @ 0x140405F90 (MiGetWorkingSetSwapSupport.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1404065E0 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x1406F9574 (MiExtendWorkingSetSwapPagefile.c)
- *     VmCheckLargePageInswap @ 0x14079E548 (VmCheckLargePageInswap.c)
- *     EtwTraceWorkingSetSwap @ 0x140A06D04 (EtwTraceWorkingSetSwap.c)
- *     MiFreeWorkingSetSwapContext @ 0x140A3D5EC (MiFreeWorkingSetSwapContext.c)
- *     MiFreeReservationRuns @ 0x140A3D658 (MiFreeReservationRuns.c)
- *     MiReserveWorkingSetSwapSpace @ 0x140A6C658 (MiReserveWorkingSetSwapSpace.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SmStoreExistsForProcess @ 0x14020DF24 (SmStoreExistsForProcess.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetNextVad @ 0x140291ACC (MiGetNextVad.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403455B0 (MiVadSupportsPrivateCommit.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140362450 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiGetKernelStackSwapSupport @ 0x1403C3FE0 (MiGetKernelStackSwapSupport.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1403C4138 (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1403C4190 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiGetFirstVad @ 0x1403C6358 (MiGetFirstVad.c)
+ *     MiLockWsSwapExclusive @ 0x1403C637C (MiLockWsSwapExclusive.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403C63D8 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403C6458 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiUnlockWsSwapExclusive @ 0x1403C6778 (MiUnlockWsSwapExclusive.c)
+ *     MiVadMapsLargeImage @ 0x1403C7440 (MiVadMapsLargeImage.c)
+ *     MiOutSwapWorkingSet @ 0x1403C745C (MiOutSwapWorkingSet.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1403C84EC (MiGetWorkingSetSwapSupport.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403C8D90 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiFindBestOutswapPagefile @ 0x1403C9188 (MiFindBestOutswapPagefile.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x1406F71B4 (MiExtendWorkingSetSwapPagefile.c)
+ *     VmCheckLargePageInswap @ 0x14079E658 (VmCheckLargePageInswap.c)
+ *     EtwTraceWorkingSetSwap @ 0x140A03234 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeWorkingSetSwapContext @ 0x140A32EFC (MiFreeWorkingSetSwapContext.c)
+ *     MiFreeReservationRuns @ 0x140A32F68 (MiFreeReservationRuns.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x140A65EA0 (MiReserveWorkingSetSwapSpace.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
@@ -92,11 +92,11 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
   v6 = 0;
   v7 = 0LL;
   memset_0(v42, 0, 0x98uLL);
-  v8 = *((_QWORD *)qword_140E2FF88 + *((unsigned __int16 *)p_Blink + 87));
+  v8 = *((_QWORD *)qword_140E300C8 + *((unsigned __int16 *)p_Blink + 87));
   v9 = v48;
   if ( a2 )
     v9 = 1;
-  v40 = *((_QWORD *)qword_140E2FF88 + *((unsigned __int16 *)p_Blink + 87));
+  v40 = *((_QWORD *)qword_140E300C8 + *((unsigned __int16 *)p_Blink + 87));
   LODWORD(v48) = v9;
   v42[3] = v8;
   if ( SmStoreExistsForProcess((__int64)Process) )
@@ -133,7 +133,7 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
       }
       else
       {
-        v16 = &unk_140E38758;
+        v16 = &unk_140E38898;
         if ( ((_DWORD)p_Blink[23] & 0xF) != 1 )
           v16 = p_Blink + 27;
         v17 = SpinLock;
@@ -208,10 +208,10 @@ LABEL_22:
                 break;
               if ( !(unsigned int)MiVadMapsLargeImage(i) && (unsigned int)MiVadSupportsPrivateCommit(v24) )
                 MiOutSwapWorkingSet(
-                  (__int64)p_Blink,
+                  (_DWORD)p_Blink,
                   v23,
-                  (*(unsigned int *)(v23 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v23 + 32) << 32)) << 12,
-                  ((*(unsigned int *)(v23 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v23 + 33) << 32)) << 12) | 0xFFF,
+                  *(_DWORD *)(v23 + 24) << 12,
+                  (*(_DWORD *)(v23 + 28) << 12) | 0xFFF,
                   (__int64)v42);
             }
             UNLOCK_PAGE_TABLE_COMMITMENT(v38, (__int64)Process);
@@ -252,7 +252,7 @@ LABEL_33:
           if ( v6 < 4 )
           {
             if ( ((_DWORD)p_Blink[23] & 0xF) == 1 )
-              v36 = &unk_140E38758;
+              v36 = &unk_140E38898;
             else
               v36 = p_Blink + 27;
             *v36 = 0LL;
@@ -260,7 +260,7 @@ LABEL_33:
           else
           {
             if ( ((_DWORD)p_Blink[23] & 0xF) == 1 )
-              v35 = (__int64 *)&unk_140E38758;
+              v35 = (__int64 *)&unk_140E38898;
             else
               v35 = (__int64 *)(p_Blink + 27);
             *v35 = Pool;
@@ -291,7 +291,7 @@ LABEL_8:
   v12 = -1073741497;
 LABEL_9:
   if ( (v6 & 1) != 0 )
-    MiUnlockWsSwapExclusive(CurrentThread, v8);
+    MiUnlockWsSwapExclusive((__int64)CurrentThread, v8);
   *((_QWORD *)&v48 + 1) = v45;
   v49 = v46;
   LODWORD(v50) = v12;

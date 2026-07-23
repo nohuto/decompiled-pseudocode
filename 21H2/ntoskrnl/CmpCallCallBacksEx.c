@@ -1,52 +1,52 @@
 /*
- * XREFs of CmpCallCallBacksEx @ 0x1406F3440
+ * XREFs of CmpCallCallBacksEx @ 0x14070A820
  * Callers:
- *     NtSetInformationKey @ 0x1405F3A00 (NtSetInformationKey.c)
- *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
- *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
- *     NtSetValueKey @ 0x140663DC0 (NtSetValueKey.c)
- *     CmpSecurityMethod @ 0x140665120 (CmpSecurityMethod.c)
- *     CmPostCallbackNotification @ 0x1406677D0 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x140667A2C (CmpCallCallBacks.c)
- *     NtDeleteValueKey @ 0x140669100 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x14066C210 (NtDeleteKey.c)
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
- *     NtQueryMultipleValueKey @ 0x1406A1E20 (NtQueryMultipleValueKey.c)
- *     NtFlushKey @ 0x1406B3C40 (NtFlushKey.c)
- *     NtQueryValueKey @ 0x1406F7AE0 (NtQueryValueKey.c)
- *     CmPostCallbackNotificationEx @ 0x1406F8480 (CmPostCallbackNotificationEx.c)
- *     NtQueryKey @ 0x1406F8570 (NtQueryKey.c)
- *     CmpParseKey @ 0x1406F8C10 (CmpParseKey.c)
- *     NtSaveKeyEx @ 0x140728950 (NtSaveKeyEx.c)
- *     NtRenameKey @ 0x140868C30 (NtRenameKey.c)
- *     NtReplaceKey @ 0x140869140 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x1408694D0 (NtRestoreKey.c)
+ *     NtQueryMultipleValueKey @ 0x140601D50 (NtQueryMultipleValueKey.c)
+ *     NtFlushKey @ 0x140612E10 (NtFlushKey.c)
+ *     NtSetValueKey @ 0x140658BE0 (NtSetValueKey.c)
+ *     CmpSecurityMethod @ 0x140659F40 (CmpSecurityMethod.c)
+ *     CmPostCallbackNotification @ 0x14065C5F0 (CmPostCallbackNotification.c)
+ *     CmpCallCallBacks @ 0x14065C84C (CmpCallCallBacks.c)
+ *     NtDeleteValueKey @ 0x14065DF20 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x140661030 (NtDeleteKey.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
+ *     NtSetInformationKey @ 0x1406E3160 (NtSetInformationKey.c)
+ *     NtEnumerateKey @ 0x1406E35B0 (NtEnumerateKey.c)
+ *     NtEnumerateValueKey @ 0x1406E4050 (NtEnumerateValueKey.c)
+ *     NtQueryValueKey @ 0x14070EEC0 (NtQueryValueKey.c)
+ *     CmPostCallbackNotificationEx @ 0x14070F860 (CmPostCallbackNotificationEx.c)
+ *     NtQueryKey @ 0x14070F950 (NtQueryKey.c)
+ *     CmpParseKey @ 0x14070FFF0 (CmpParseKey.c)
+ *     NtSaveKeyEx @ 0x140728E00 (NtSaveKeyEx.c)
+ *     NtRenameKey @ 0x140868D90 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x1408692A0 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x140869630 (NtRestoreKey.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFreeCallbackContext @ 0x1404EC85C (CmpFreeCallbackContext.c)
- *     CmpCallbackFillObjectContext @ 0x1406F39F0 (CmpCallbackFillObjectContext.c)
- *     CmpCallbackFatalFilter @ 0x14086A074 (CmpCallbackFatalFilter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFreeCallbackContext @ 0x1404ECA9C (CmpFreeCallbackContext.c)
+ *     CmpCallbackFillObjectContext @ 0x14070ADD0 (CmpCallbackFillObjectContext.c)
+ *     CmpCallbackFatalFilter @ 0x14086A1D4 (CmpCallbackFatalFilter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCallCallBacksEx(
         unsigned int a1,
         __int64 a2,
-        struct _SLIST_ENTRY *a3,
+        _SLIST_ENTRY *a3,
         char a4,
         unsigned int a5,
         __int64 a6,
         __int64 a7)
 {
   char v7; // r14
-  struct _SLIST_ENTRY *v8; // rsi
+  _SLIST_ENTRY *v8; // rsi
   struct _KTHREAD *CurrentThread; // rax
   PVOID SparePtr; // rax
   __int64 *v13; // r12
@@ -54,24 +54,24 @@ __int64 __fastcall CmpCallCallBacksEx(
   _SLIST_ENTRY *v15; // r13
   struct _KTHREAD *v16; // rcx
   bool v17; // zf
-  struct _SLIST_ENTRY *PoolWithTag; // rsi
+  _SLIST_ENTRY *PoolWithTag; // rsi
   struct _KTHREAD *v19; // rdx
-  struct _SLIST_ENTRY **v20; // rax
-  struct _SLIST_ENTRY *v21; // rcx
+  _SLIST_ENTRY **v20; // rax
+  _SLIST_ENTRY *v21; // rcx
   int v22; // ecx
   int v23; // ecx
   struct _KTHREAD *v24; // rcx
   __int128 *v25; // r12
   unsigned int v27; // r9d
-  struct _SLIST_ENTRY *v28; // rbx
-  struct _SLIST_ENTRY **v29; // rax
-  struct _SLIST_ENTRY *v30; // r14
+  _SLIST_ENTRY *v28; // rbx
+  _SLIST_ENTRY **v29; // rax
+  _SLIST_ENTRY *v30; // r14
   _OWORD *v31; // r8
   PVOID *v32; // rax
   unsigned int v33; // ecx
   struct _KTHREAD *v34; // rax
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v36; // rax
+  _SLIST_ENTRY **v36; // rax
   PVOID *v37; // rax
   __int64 v38; // rdx
   int v39; // eax
@@ -79,12 +79,12 @@ __int64 __fastcall CmpCallCallBacksEx(
   char v41; // [rsp+20h] [rbp-E8h]
   char v42; // [rsp+21h] [rbp-E7h]
   int v43; // [rsp+24h] [rbp-E4h]
-  struct _SLIST_ENTRY *v44; // [rsp+30h] [rbp-D8h]
+  _SLIST_ENTRY *v44; // [rsp+30h] [rbp-D8h]
   __int128 *v45; // [rsp+38h] [rbp-D0h]
   __int64 *v46; // [rsp+40h] [rbp-C8h]
-  struct _SLIST_ENTRY *v47; // [rsp+48h] [rbp-C0h]
+  _SLIST_ENTRY *v47; // [rsp+48h] [rbp-C0h]
   struct _KTHREAD *v48; // [rsp+50h] [rbp-B8h]
-  struct _SLIST_ENTRY *v49; // [rsp+58h] [rbp-B0h]
+  _SLIST_ENTRY *v49; // [rsp+58h] [rbp-B0h]
   __int128 v50; // [rsp+60h] [rbp-A8h] BYREF
   __int128 v51; // [rsp+70h] [rbp-98h]
   __int128 v52; // [rsp+80h] [rbp-88h]
@@ -139,12 +139,12 @@ __int64 __fastcall CmpCallCallBacksEx(
         && ($C459BD0D405E8E46662177FB3D0A143F *)v16->ApcState.ApcListHead[0].Flink != &v16->152
         && !v16->SpecialApcDisable )
       {
-        KiCheckForKernelApcDelivery((__int64)v16);
+        KiCheckForKernelApcDelivery();
       }
       v42 = 0;
       PoolWithTag = RtlpInterlockedPopEntrySList(&CmpCallbackContextSList);
       if ( !PoolWithTag )
-        PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x69634D43u);
+        PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x69634D43u);
       v44 = PoolWithTag;
       if ( !PoolWithTag )
         break;
@@ -153,8 +153,8 @@ __int64 __fastcall CmpCallCallBacksEx(
       v19 = v48;
       PoolWithTag[1].Next = (_SLIST_ENTRY *)v48[1].WaitBlock[0].SparePtr;
       v19[1].WaitBlock[0].SparePtr = &PoolWithTag[1];
-      v20 = *(struct _SLIST_ENTRY ***)(a7 + 8);
-      if ( *v20 != (struct _SLIST_ENTRY *)a7 )
+      v20 = *(_SLIST_ENTRY ***)(a7 + 8);
+      if ( *v20 != (_SLIST_ENTRY *)a7 )
         goto LABEL_98;
       PoolWithTag->Next = (_SLIST_ENTRY *)a7;
       *((_QWORD *)&PoolWithTag->Next + 1) = v20;
@@ -163,8 +163,8 @@ __int64 __fastcall CmpCallCallBacksEx(
       CmpCallbackFillObjectContext(a1, a2, v13 + 3);
       v21 = a3;
       if ( !a3 || (*((_DWORD *)v13 + 5) & 1) == 0 )
-        v21 = (struct _SLIST_ENTRY *)a2;
-      v22 = ((__int64 (__fastcall *)(__int64, _QWORD, struct _SLIST_ENTRY *))v13[5])(v13[4], (int)a1, v21);
+        v21 = (_SLIST_ENTRY *)a2;
+      v22 = ((__int64 (__fastcall *)(__int64, _QWORD, _SLIST_ENTRY *))v13[5])(v13[4], (int)a1, v21);
       v43 = v22;
       if ( a1 == 14 )
       {
@@ -173,7 +173,7 @@ __int64 __fastcall CmpCallCallBacksEx(
       else if ( v22 < 0 )
       {
         Next = PoolWithTag->Next;
-        v36 = (struct _SLIST_ENTRY **)*((_QWORD *)&PoolWithTag->Next + 1);
+        v36 = (_SLIST_ENTRY **)*((_QWORD *)&PoolWithTag->Next + 1);
         if ( *(&PoolWithTag->Next->Next + 1) != PoolWithTag || *v36 != PoolWithTag )
 LABEL_98:
           __fastfail(3u);
@@ -308,7 +308,7 @@ LABEL_22:
         && ($C459BD0D405E8E46662177FB3D0A143F *)v24->ApcState.ApcListHead[0].Flink != &v24->152
         && !v24->SpecialApcDisable )
       {
-        KiCheckForKernelApcDelivery((__int64)v24);
+        KiCheckForKernelApcDelivery();
       }
       v23 = v43;
     }
@@ -362,7 +362,7 @@ LABEL_22:
       *(_QWORD *)&v51 = v55;
       if ( v8 )
       {
-        v47 = (struct _SLIST_ENTRY *)&v56;
+        v47 = (_SLIST_ENTRY *)&v56;
         *(_QWORD *)&v56 = &v50;
         *((_QWORD *)&v56 + 1) = v49;
       }
@@ -377,14 +377,14 @@ LABEL_22:
     }
     while ( v15->Next != v15 )
     {
-      v28 = (struct _SLIST_ENTRY *)*((_QWORD *)&v15->Next + 1);
+      v28 = (_SLIST_ENTRY *)*((_QWORD *)&v15->Next + 1);
       v49 = v28;
-      v29 = (struct _SLIST_ENTRY **)*((_QWORD *)&v28->Next + 1);
+      v29 = (_SLIST_ENTRY **)*((_QWORD *)&v28->Next + 1);
       if ( v28->Next != v15 || *v29 != v28 )
         goto LABEL_98;
       *((_QWORD *)&v15->Next + 1) = v29;
       *v29 = v15;
-      v44 = (struct _SLIST_ENTRY *)*((_QWORD *)&v28[1].Next + 1);
+      v44 = (_SLIST_ENTRY *)*((_QWORD *)&v28[1].Next + 1);
       v30 = v44;
       *((_QWORD *)v25 + 4) = v28[2].Next;
       CmpCallbackFillObjectContext(v27, v25, &v30[1].Next + 1);

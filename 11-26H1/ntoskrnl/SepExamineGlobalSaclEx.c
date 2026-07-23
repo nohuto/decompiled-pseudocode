@@ -1,13 +1,13 @@
 /*
- * XREFs of SepExamineGlobalSaclEx @ 0x1402C5A70
+ * XREFs of SepExamineGlobalSaclEx @ 0x14031070C
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     SepRmAcquireGlobalSaclReadLock @ 0x1402C5B28 (SepRmAcquireGlobalSaclReadLock.c)
- *     SepExamineSaclEx @ 0x1409F7C30 (SepExamineSaclEx.c)
- *     SepRmGlobalSaclFind @ 0x140A906C0 (SepRmGlobalSaclFind.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SepRmAcquireGlobalSaclReadLock @ 0x1403107C4 (SepRmAcquireGlobalSaclReadLock.c)
+ *     SepExamineSaclEx @ 0x140A60770 (SepExamineSaclEx.c)
+ *     SepRmGlobalSaclFind @ 0x140A95210 (SepRmGlobalSaclFind.c)
  */
 
 void __fastcall SepExamineGlobalSaclEx(
@@ -61,7 +61,7 @@ void __fastcall SepExamineGlobalSaclEx(
         }
       }
     }
-    ExReleaseResourceLite(&SepRmGlobalSaclLock);
+    ExReleaseResourceLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime);
     KeLeaveCriticalRegion();
   }
 }

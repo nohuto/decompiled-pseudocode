@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeShadowPageTableRange @ 0x140875858
+ * XREFs of MiMakeShadowPageTableRange @ 0x14087BC3C
  * Callers:
- *     MiMakeShadowPageTableRange @ 0x140875858 (MiMakeShadowPageTableRange.c)
- *     MmCreateShadowMapping @ 0x140875970 (MmCreateShadowMapping.c)
+ *     MiMakeShadowPageTableRange @ 0x14087BC3C (MiMakeShadowPageTableRange.c)
+ *     MmCreateShadowMapping @ 0x14087BD54 (MmCreateShadowMapping.c)
  * Callees:
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiSetPfnShareCount @ 0x1403C40E4 (MiSetPfnShareCount.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x14040D644 (MiReadWriteAnyLevelShadowPte.c)
- *     MiInitializeShadowPageTable @ 0x1408755C4 (MiInitializeShadowPageTable.c)
- *     MiMakeShadowPageTableRange @ 0x140875858 (MiMakeShadowPageTableRange.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiSetPfnShareCount @ 0x1403CDFF0 (MiSetPfnShareCount.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x14042A570 (MiReadWriteAnyLevelShadowPte.c)
+ *     MiInitializeShadowPageTable @ 0x14087B9A8 (MiInitializeShadowPageTable.c)
+ *     MiMakeShadowPageTableRange @ 0x14087BC3C (MiMakeShadowPageTableRange.c)
  */
 
 void __fastcall MiMakeShadowPageTableRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)

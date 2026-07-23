@@ -1,16 +1,22 @@
 /*
- * XREFs of NtOpenTransactionManager @ 0x1800A2830
+ * XREFs of NtOpenTransactionManager @ 0x1800A2850
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenTransactionManager()
+NTSTATUS __cdecl NtOpenTransactionManager(
+        PHANDLE TmHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LogFileName,
+        LPGUID TmIdentity,
+        ULONG OpenOptions)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 299LL;
+  result = 299;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

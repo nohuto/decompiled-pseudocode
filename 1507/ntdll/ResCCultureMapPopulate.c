@@ -9,7 +9,7 @@
 __int64 __fastcall ResCCultureMapPopulate(_QWORD *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v5; // ecx
-  unsigned int v6; // ecx
+  LONG v6; // ecx
   __int64 result; // rax
   __int64 v8; // rdx
 

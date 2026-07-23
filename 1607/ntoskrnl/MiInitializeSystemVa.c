@@ -3,7 +3,7 @@
  * Callers:
  *     MmInitSystem @ 0x1407A39F8 (MmInitSystem.c)
  * Callees:
- *     MiAssignSharedUserRanges @ 0x14013D1A0 (MiAssignSharedUserRanges.c)
+ *     MiAssignSharedUserRanges @ 0x14013D710 (MiAssignSharedUserRanges.c)
  *     MiAssignSessionRanges @ 0x1407AAAD8 (MiAssignSessionRanges.c)
  *     MiAssignTopLevelRanges @ 0x1407AACF4 (MiAssignTopLevelRanges.c)
  *     MiInitializeTopLevelBitmap @ 0x1407AB088 (MiInitializeTopLevelBitmap.c)

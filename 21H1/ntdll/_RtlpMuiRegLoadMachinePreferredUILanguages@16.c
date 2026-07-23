@@ -14,58 +14,60 @@
 
 int __thiscall RtlpMuiRegLoadMachinePreferredUILanguages(_DWORD *this, _BYTE *a2, int *a3)
 {
-  const unsigned __int16 *v3; // ebx
+  unsigned __int16 *v3; // ebx
   int v4; // esi
   int v5; // ecx
   int v6; // ecx
   unsigned __int16 *Heap; // eax
   int v8; // ecx
   _DWORD *v9; // ecx
-  unsigned int v11; // [esp-14h] [ebp-54h]
-  _DWORD v12[6]; // [esp+10h] [ebp-30h] BYREF
-  UNICODE_STRING DestinationString; // [esp+28h] [ebp-18h] BYREF
-  _DWORD *v14; // [esp+30h] [ebp-10h]
-  int v15; // [esp+34h] [ebp-Ch] BYREF
-  int v16; // [esp+38h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+3Ch] [ebp-4h] BYREF
+  ULONG v11; // [esp-14h] [ebp-54h]
+  SIZE_T v12; // [esp-4h] [ebp-44h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-30h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+28h] [ebp-18h] BYREF
+  _DWORD *v15; // [esp+30h] [ebp-10h]
+  ULONG v16; // [esp+34h] [ebp-Ch] BYREF
+  int v17; // [esp+38h] [ebp-8h] BYREF
+  HANDLE KeyHandle; // [esp+3Ch] [ebp-4h] BYREF
 
-  Handle = 0;
-  v15 = 0;
+  KeyHandle = 0;
+  v16 = 0;
   v3 = 0;
-  v14 = this;
-  v16 = 7;
+  v15 = this;
+  v17 = 7;
   if ( this && a2 && a3 )
   {
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-    v12[0] = 24;
-    v12[2] = &DestinationString;
-    v12[1] = 0;
-    v12[3] = 64;
-    v12[4] = 0;
-    v12[5] = 0;
-    if ( ZwOpenKey((int)&Handle, 131097, (int)v12) < 0 )
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
       goto LABEL_5;
     RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
-    v6 = LdrpQueryValueKey((int)Handle, (int)&DestinationString, &v16, 0, (unsigned int *)&v15, v5);
+    v6 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v17, 0, &v16, v5);
     v4 = -1073741772;
-    if ( v6 == -1073741772 || !v15 )
+    if ( v6 == -1073741772 || !v16 )
       goto LABEL_5;
     if ( v6 != -2147483643 )
       goto LABEL_16;
-    Heap = (unsigned __int16 *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v15 + 2);
+    LODWORD(v12) = v16 + 2;
+    Heap = (unsigned __int16 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v12);
     v3 = Heap;
     if ( !Heap )
     {
       v4 = -1073741801;
       goto LABEL_16;
     }
-    v4 = LdrpQueryValueKey((int)Handle, (int)&DestinationString, &v16, Heap, (unsigned int *)&v15, v8);
+    v4 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v17, Heap, &v16, v8);
     if ( v4 >= 0 )
     {
-      if ( v16 == 7 || v16 == 1 )
+      if ( v17 == 7 || v17 == 1 )
       {
-        v9 = v14;
-        v11 = (unsigned int)v15 >> 1;
+        v9 = v15;
+        v11 = v16 >> 1;
         *a2 = 0;
         v4 = RtlpMuiRegAddMultiSzToLangFallbackList(v9, v3, v11, 8, 3, 1u, a3);
         goto LABEL_16;
@@ -80,9 +82,9 @@ LABEL_5:
     v4 = -1073741811;
   }
 LABEL_16:
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   if ( v3 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v3);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   return v4;
 }

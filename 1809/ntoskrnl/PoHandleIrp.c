@@ -1,15 +1,15 @@
 /*
- * XREFs of PoHandleIrp @ 0x140171B94
+ * XREFs of PoHandleIrp @ 0x140171C94
  * Callers:
- *     IopPoHandleIrp @ 0x140171B4C (IopPoHandleIrp.c)
+ *     IopPoHandleIrp @ 0x140171C4C (IopPoHandleIrp.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     PoDeviceReleaseIrp @ 0x140171CA8 (PoDeviceReleaseIrp.c)
- *     PoDeviceAcquireIrp @ 0x140171DA0 (PoDeviceAcquireIrp.c)
- *     PopDispatchQuerySetIrp @ 0x140171F00 (PopDispatchQuerySetIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     PoDeviceReleaseIrp @ 0x140171DA8 (PoDeviceReleaseIrp.c)
+ *     PoDeviceAcquireIrp @ 0x140171EA0 (PoDeviceAcquireIrp.c)
+ *     PopDispatchQuerySetIrp @ 0x140172000 (PopDispatchQuerySetIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PoHandleIrp(PIRP Irp, _DWORD *a2, __int64 a3, __int64 a4)

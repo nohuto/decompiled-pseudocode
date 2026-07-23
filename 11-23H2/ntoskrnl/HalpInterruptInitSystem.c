@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
- *     HalpInterruptInitializeGlobals @ 0x14036F100 (HalpInterruptInitializeGlobals.c)
- *     HalpInterruptEnableNmi @ 0x14037B5B4 (HalpInterruptEnableNmi.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x14037BD58 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInitializeInterruptsPn @ 0x14037D15C (HalpInitializeInterruptsPn.c)
- *     HalpInterruptInitPowerManagement @ 0x140396E1C (HalpInterruptInitPowerManagement.c)
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403A90E0 (HalpInterruptBuildGlobalStartupStub.c)
- *     HalpInitializeInterruptsBspLate @ 0x1403AF2FC (HalpInitializeInterruptsBspLate.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
+ *     HalpInterruptInitializeGlobals @ 0x14036F2A0 (HalpInterruptInitializeGlobals.c)
+ *     HalpInterruptEnableNmi @ 0x14037B754 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x14037BEF8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInitializeInterruptsPn @ 0x14037D2FC (HalpInitializeInterruptsPn.c)
+ *     HalpInterruptInitPowerManagement @ 0x140396FFC (HalpInterruptInitPowerManagement.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x1403A92C0 (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403AF4DC (HalpInitializeInterruptsBspLate.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HalpInterruptInitDiscard @ 0x140B74488 (HalpInterruptInitDiscard.c)
  *     HalpPreAllocateKInterrupts @ 0x140B757EC (HalpPreAllocateKInterrupts.c)
  */

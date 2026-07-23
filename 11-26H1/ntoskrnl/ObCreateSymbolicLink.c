@@ -1,34 +1,34 @@
 /*
- * XREFs of ObCreateSymbolicLink @ 0x140AB5768
+ * XREFs of ObCreateSymbolicLink @ 0x140AB6B08
  * Callers:
- *     MiCreateMemoryEvent @ 0x14087F398 (MiCreateMemoryEvent.c)
- *     IoCreateSymbolicLink2 @ 0x140AB5330 (IoCreateSymbolicLink2.c)
- *     NtCreateSymbolicLinkObject @ 0x140AB5400 (NtCreateSymbolicLinkObject.c)
+ *     MiCreateMemoryEvent @ 0x140885798 (MiCreateMemoryEvent.c)
+ *     IoCreateSymbolicLink2 @ 0x140AB66D0 (IoCreateSymbolicLink2.c)
+ *     NtCreateSymbolicLinkObject @ 0x140AB67A0 (NtCreateSymbolicLinkObject.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlIsSandboxedToken @ 0x1408F4B90 (RtlIsSandboxedToken.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     ObpGetIntegrityLevel @ 0x140AB5B6C (ObpGetIntegrityLevel.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlIsSandboxedToken @ 0x1408FBA10 (RtlIsSandboxedToken.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     ObpGetIntegrityLevel @ 0x140AB6F0C (ObpGetIntegrityLevel.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall ObCreateSymbolicLink(_QWORD *a1, unsigned int a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall ObCreateSymbolicLink(_QWORD *a1, int a2, __int64 a3, __int64 a4, char a5)
 {
   int IntegrityLevel; // esi
   _QWORD *v8; // rdi
   void *Pool2; // rcx
   unsigned __int16 v10; // ax
   void *v11; // rdx
-  unsigned int v12; // r12d
+  int v12; // r12d
   __int16 v14; // cx
   unsigned __int16 *v15; // rax
-  struct _LIST_ENTRY *Flink; // r10
+  REGHANDLE v16; // r10
   unsigned int v17; // r9d
   __int64 v18; // rax
   unsigned int v19; // r9d
@@ -39,8 +39,8 @@ __int64 __fastcall ObCreateSymbolicLink(_QWORD *a1, unsigned int a2, __int64 a3,
   __int64 v24; // rax
   __int64 v25; // rax
   PEVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-128h]
-  unsigned int v27; // [rsp+50h] [rbp-F8h] BYREF
-  unsigned int v28; // [rsp+58h] [rbp-F0h] BYREF
+  int v27; // [rsp+50h] [rbp-F8h] BYREF
+  int v28; // [rsp+58h] [rbp-F0h] BYREF
   PVOID Object[2]; // [rsp+60h] [rbp-E8h] BYREF
   __int64 v30; // [rsp+70h] [rbp-D8h] BYREF
   __int64 v31; // [rsp+78h] [rbp-D0h]
@@ -137,8 +137,8 @@ LABEL_25:
     LODWORD(Object[0]) = IntegrityLevel;
     v15 = *(unsigned __int16 **)(v31 + 16);
     v28 = v12;
-    Flink = EtwpSecurityLock.MutantListHead.Flink;
-    if ( EtwpSecurityLock.MutantListHead.Flink )
+    v16 = EtwApiCallsProvRegHandle;
+    if ( EtwApiCallsProvRegHandle )
     {
       LOWORD(v27) = 0;
       v17 = 0;
@@ -172,7 +172,7 @@ LABEL_25:
       v25 = ++v23;
       v35[v25].Ptr = (ULONGLONG)Object;
       *(_QWORD *)&v35[v25].Size = 4LL;
-      EtwWrite((REGHANDLE)Flink, &KERNEL_AUDIT_API_CREATESYMBOLICLINKOBJECT, 0LL, v23 + 1, v35);
+      EtwWrite(v16, &KERNEL_AUDIT_API_CREATESYMBOLICLINKOBJECT, 0LL, v23 + 1, v35);
     }
   }
   return (unsigned int)IntegrityLevel;

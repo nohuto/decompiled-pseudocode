@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvTimerArm @ 0x14038E220
+ * XREFs of HalpHvTimerArm @ 0x14038E370
  * Callers:
  *     <none>
  * Callees:
- *     HalpHvCounterQueryCounter @ 0x14038E2B0 (HalpHvCounterQueryCounter.c)
+ *     HalpHvCounterQueryCounter @ 0x14038E400 (HalpHvCounterQueryCounter.c)
  */
 
 __int64 __fastcall HalpHvTimerArm(__int64 a1, int a2, unsigned __int64 a3)

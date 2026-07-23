@@ -25,7 +25,7 @@ void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
   ULONG ReturnLength; // [rsp+70h] [rbp-98h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-90h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-80h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+B8h] [rbp-50h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+B8h] [rbp-50h] BYREF
 
   ExAcquireFastMutex(&PopVolumeLock);
   while ( 1 )

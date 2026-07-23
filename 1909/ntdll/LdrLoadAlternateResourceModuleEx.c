@@ -32,419 +32,429 @@
  *     LdrpTraceLoadMUIDll @ 0x1800E0910 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrLoadAlternateResourceModuleEx(__int64 a1, unsigned __int16 a2, __int64 *a3, _QWORD *a4, int a5)
+NTSTATUS __cdecl LdrLoadAlternateResourceModuleEx(
+        PVOID DllHandle,
+        LANGID LanguageId,
+        PVOID *ResourceDllBase,
+        ULONG_PTR *ResourceOffset,
+        ULONG Flags)
 {
-  __int64 *v6; // r15
-  wchar_t *v8; // rdi
+  PVOID *v6; // r15
+  const wchar_t *v8; // rdi
   __int64 v9; // r14
-  _BYTE *v10; // rsi
+  WCHAR *v10; // rsi
   __int64 v11; // rax
-  __int64 v12; // r8
-  int v14; // r13d
-  int v15; // r12d
+  ULONG v13; // r13d
+  ULONG v14; // r12d
   int DataModulePath; // eax
-  unsigned __int64 v17; // rax
+  unsigned __int64 v16; // rax
   int ModuleInfoFromVirtualMemory; // edi
-  int v19; // r15d
-  wchar_t *v20; // rdx
-  int v21; // edi
-  int v22; // r8d
-  WCHAR *v23; // rdx
-  int v24; // r14d
-  int v25; // eax
-  __int64 v26; // rdx
-  __int64 v27; // rax
-  char v28; // al
-  __int64 v29; // rcx
-  __int64 v30; // rax
+  int v18; // r15d
+  const WCHAR *v19; // rdx
+  int v20; // edi
+  int v21; // r8d
+  WCHAR *v22; // rdx
+  int v23; // r14d
+  int v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  char v27; // al
+  __int64 v28; // rcx
+  __int64 v29; // rax
   WCHAR *i; // rcx
-  _WORD *Heap; // rax
-  __int64 v33; // rax
+  PVOID Heap; // rax
+  __int64 v32; // rax
+  WCHAR *v33; // rax
   __int64 v34; // rax
-  __int64 v35; // rax
-  int v36; // r8d
-  __int64 v37; // rcx
-  char v38[4]; // [rsp+50h] [rbp-AB8h] BYREF
+  int v35; // r8d
+  __int64 v36; // rcx
+  char v37; // [rsp+50h] [rbp-AB8h] BYREF
   int appended; // [rsp+54h] [rbp-AB4h]
-  char v40; // [rsp+58h] [rbp-AB0h]
-  unsigned __int16 v41; // [rsp+5Ah] [rbp-AAEh]
-  char v42; // [rsp+5Ch] [rbp-AACh]
-  int v43; // [rsp+60h] [rbp-AA8h] BYREF
-  _WORD *v44; // [rsp+68h] [rbp-AA0h]
-  unsigned int v45; // [rsp+70h] [rbp-A98h] BYREF
-  __int64 v46; // [rsp+78h] [rbp-A90h]
-  __int64 v47; // [rsp+80h] [rbp-A88h] BYREF
-  int v48; // [rsp+88h] [rbp-A80h] BYREF
-  unsigned int v49; // [rsp+8Ch] [rbp-A7Ch] BYREF
-  int v50; // [rsp+90h] [rbp-A78h]
-  __int64 *v51; // [rsp+98h] [rbp-A70h]
-  __int64 v52; // [rsp+A0h] [rbp-A68h] BYREF
-  __int64 v53; // [rsp+A8h] [rbp-A60h] BYREF
-  char *v54; // [rsp+B0h] [rbp-A58h]
-  __int64 v55; // [rsp+B8h] [rbp-A50h] BYREF
-  char *v56; // [rsp+C0h] [rbp-A48h]
+  char v39; // [rsp+58h] [rbp-AB0h]
+  LANGID v40; // [rsp+5Ah] [rbp-AAEh]
+  char v41; // [rsp+5Ch] [rbp-AACh]
+  _UNICODE_STRING v42; // [rsp+60h] [rbp-AA8h] BYREF
+  __int64 v43; // [rsp+70h] [rbp-A98h] BYREF
+  PVOID DllHandlea; // [rsp+78h] [rbp-A90h]
+  void *v45; // [rsp+80h] [rbp-A88h] BYREF
+  int v46; // [rsp+88h] [rbp-A80h]
+  SIZE_T Size; // [rsp+8Ch] [rbp-A7Ch] BYREF
+  PVOID *v48; // [rsp+98h] [rbp-A70h]
+  ULONG_PTR v49; // [rsp+A0h] [rbp-A68h] BYREF
+  _UNICODE_STRING Destination; // [rsp+A8h] [rbp-A60h] BYREF
+  _UNICODE_STRING LocaleName; // [rsp+B8h] [rbp-A50h] BYREF
   wchar_t *Str; // [rsp+C8h] [rbp-A40h] BYREF
-  wchar_t *v58; // [rsp+D0h] [rbp-A38h]
-  __int64 v59; // [rsp+D8h] [rbp-A30h] BYREF
-  __int64 v60; // [rsp+E0h] [rbp-A28h] BYREF
-  wchar_t *v61; // [rsp+E8h] [rbp-A20h] BYREF
-  __int64 v62; // [rsp+F0h] [rbp-A18h] BYREF
-  _BYTE *v63; // [rsp+F8h] [rbp-A10h]
-  _WORD *v64; // [rsp+100h] [rbp-A08h]
-  _QWORD *v65; // [rsp+108h] [rbp-A00h]
-  int v66; // [rsp+110h] [rbp-9F8h] BYREF
-  __int64 v67; // [rsp+118h] [rbp-9F0h]
-  int v68; // [rsp+120h] [rbp-9E8h] BYREF
-  _WORD *v69; // [rsp+128h] [rbp-9E0h]
-  _BYTE v70[16]; // [rsp+130h] [rbp-9D8h] BYREF
-  __int64 v71; // [rsp+140h] [rbp-9C8h] BYREF
-  int v72; // [rsp+148h] [rbp-9C0h]
-  _BYTE v73[64]; // [rsp+150h] [rbp-9B8h] BYREF
-  WCHAR SourceString[352]; // [rsp+190h] [rbp-978h] BYREF
-  char v75; // [rsp+450h] [rbp-6B8h] BYREF
-  _WORD v76[352]; // [rsp+490h] [rbp-678h] BYREF
-  char v77; // [rsp+750h] [rbp-3B8h] BYREF
-  _BYTE v78[704]; // [rsp+800h] [rbp-308h] BYREF
+  PVOID v53; // [rsp+D0h] [rbp-A38h]
+  __int64 v54; // [rsp+D8h] [rbp-A30h] BYREF
+  __int64 v55; // [rsp+E0h] [rbp-A28h] BYREF
+  PVOID v56; // [rsp+E8h] [rbp-A20h] BYREF
+  PUNICODE_STRING v57; // [rsp+F0h] [rbp-A18h] BYREF
+  WCHAR *v58; // [rsp+F8h] [rbp-A10h]
+  PVOID BaseAddress; // [rsp+100h] [rbp-A08h]
+  ULONG_PTR *v60; // [rsp+108h] [rbp-A00h]
+  int v61; // [rsp+110h] [rbp-9F8h]
+  __int64 v62; // [rsp+118h] [rbp-9F0h]
+  int v63; // [rsp+120h] [rbp-9E8h]
+  _WORD *v64; // [rsp+128h] [rbp-9E0h]
+  _UNICODE_STRING DestinationString; // [rsp+130h] [rbp-9D8h] BYREF
+  __int64 v66; // [rsp+140h] [rbp-9C8h] BYREF
+  int v67; // [rsp+148h] [rbp-9C0h]
+  _BYTE v68[64]; // [rsp+150h] [rbp-9B8h] BYREF
+  WCHAR Source[352]; // [rsp+190h] [rbp-978h] BYREF
+  char v70; // [rsp+450h] [rbp-6B8h] BYREF
+  _WORD v71[352]; // [rsp+490h] [rbp-678h] BYREF
+  char v72; // [rsp+750h] [rbp-3B8h] BYREF
+  WCHAR SourceString[352]; // [rsp+800h] [rbp-308h] BYREF
 
-  v65 = a4;
-  v6 = a3;
-  v51 = a3;
-  v41 = a2;
-  v46 = a1;
-  v60 = 0LL;
-  v48 = 0;
+  v60 = ResourceOffset;
+  v6 = ResourceDllBase;
+  v48 = ResourceDllBase;
+  v40 = LanguageId;
+  DllHandlea = DllHandle;
+  v55 = 0LL;
+  v46 = 0;
   v8 = 0LL;
   Str = 0LL;
-  v45 = 0;
-  v64 = 0LL;
-  v52 = 0LL;
-  v62 = 0LL;
-  v40 = 0;
-  v71 = 72LL;
-  v72 = 1;
-  memset(v73, 0, 0x38uLL);
-  v38[0] = 0;
-  v58 = 0LL;
-  v61 = 0LL;
-  v42 = 1;
+  LODWORD(v43) = 0;
+  BaseAddress = 0LL;
+  v49 = 0LL;
+  v57 = 0LL;
+  v39 = 0;
+  v66 = 72LL;
+  v67 = 1;
+  memset(v68, 0, 0x38uLL);
+  v37 = 0;
+  v53 = 0LL;
+  v56 = 0LL;
+  v41 = 1;
   v9 = 0LL;
-  v59 = 0LL;
-  v10 = v78;
-  v63 = v78;
-  v49 = 702;
-  v50 = 1;
-  if ( !a1 || !v41 || !v6 )
-    return 3221225485LL;
-  v11 = LdrpGetFromMUIMemCache(a1, v41, &v52, 4LL);
+  v54 = 0LL;
+  v10 = SourceString;
+  v58 = SourceString;
+  Size = 0x1000002BELL;
+  if ( !DllHandle || !v40 || !v6 )
+    return -1073741811;
+  v11 = LdrpGetFromMUIMemCache(DllHandle);
   if ( v11 == -1 )
   {
-    v14 = a5;
-    v15 = a5 & 0x400000;
-    if ( (a5 & 0x400000) == 0 )
+    v13 = Flags;
+    v14 = Flags & 0x400000;
+    if ( (Flags & 0x400000) == 0 )
     {
       *v6 = 0LL;
-      return 3221946374LL;
+      return -1073020922;
     }
   }
   else
   {
     if ( v11 )
     {
-      *v6 = v11;
-      if ( a4 )
-        *a4 = v52;
+      *v6 = (PVOID)v11;
+      if ( ResourceOffset )
+        *ResourceOffset = v49;
       appended = 0;
-      return 0LL;
+      return 0;
     }
-    v14 = a5;
-    v15 = a5 & 0x400000;
+    v13 = Flags;
+    v14 = Flags & 0x400000;
   }
-  v47 = 0LL;
-  if ( v15 )
+  v45 = 0LL;
+  if ( v14 )
   {
     DataModulePath = -1073741767;
   }
   else
   {
-    DataModulePath = LdrpGetDataModulePath(v46, SourceString, v12, &v48, &Str, &v45, &v59);
+    DataModulePath = LdrpGetDataModulePath(DllHandlea, Source, (__int64)&Str, (__int64)&v43, (__int64)&v54);
     v8 = Str;
-    v9 = v59;
+    v9 = v54;
   }
   if ( DataModulePath < 0 )
   {
-    ModuleInfoFromVirtualMemory = LdrpGetModuleInfoFromVirtualMemory(v46, SourceString, 702LL, &v48, &v61, &v45, v38);
+    ModuleInfoFromVirtualMemory = LdrpGetModuleInfoFromVirtualMemory(
+                                    DllHandlea,
+                                    Source,
+                                    (__int64)&v56,
+                                    (__int64)&v43,
+                                    (__int64)&v37);
     appended = ModuleInfoFromVirtualMemory;
     if ( ModuleInfoFromVirtualMemory < 0 )
     {
 LABEL_84:
-      v24 = v46;
+      v23 = (int)DllHandlea;
       goto LABEL_41;
     }
-    v8 = v61;
-    Str = v61;
+    v8 = (const wchar_t *)v56;
+    Str = (wchar_t *)v56;
   }
-  v17 = v48 & 0xFFFFFFFE;
-  if ( v17 >= 0x2BE )
+  v16 = v46 & 0xFFFFFFFE;
+  if ( v16 >= 0x2BE )
     _report_rangecheckfailure();
-  *(WCHAR *)((char *)SourceString + v17) = 0;
-  if ( wcsrchr(v8, 0x7Eu) && (int)LdrpCnvrtShortToLongFileName(SourceString, v8) >= 0 )
+  *(WCHAR *)((char *)Source + v16) = 0;
+  if ( wcsrchr(v8, 0x7Eu) && (int)LdrpCnvrtShortToLongFileName(Source, v8) >= 0 )
   {
-    v8 = v58;
-    Str = v58;
-    v33 = -1LL;
+    v8 = (const wchar_t *)v53;
+    Str = (wchar_t *)v53;
+    v32 = -1LL;
     do
-      ++v33;
-    while ( v58[v33] );
-    v45 = 2 * v33;
+      ++v32;
+    while ( *((_WORD *)v53 + v32) );
+    LODWORD(v43) = 2 * v32;
   }
-  v53 = 0LL;
-  v54 = 0LL;
-  v55 = 0LL;
-  v56 = 0LL;
-  v69 = v76;
-  v68 = 46006272;
-  v67 = 0LL;
-  v66 = 0;
-  if ( (unsigned __int64)v45 + 12 > 0x3C )
+  *(_QWORD *)&Destination.Length = 0LL;
+  Destination.Buffer = 0LL;
+  *(_QWORD *)&LocaleName.Length = 0LL;
+  LocaleName.Buffer = 0LL;
+  v64 = v71;
+  v63 = 46006272;
+  v62 = 0LL;
+  v61 = 0;
+  if ( (unsigned __int64)(unsigned int)v43 + 12 > 0x3C )
   {
-    Heap = (_WORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 2LL * v45 + 10);
-    v64 = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2LL * (unsigned int)v43 + 10);
+    BaseAddress = Heap;
     if ( !Heap )
     {
       ModuleInfoFromVirtualMemory = -1073741801;
 LABEL_93:
       appended = ModuleInfoFromVirtualMemory;
 LABEL_94:
-      v6 = v51;
+      v6 = v48;
       goto LABEL_84;
     }
-    v54 = (char *)Heap;
-    WORD1(v53) = 2 * (v45 + 5);
+    Destination.Buffer = (wchar_t *)Heap;
+    Destination.MaximumLength = 2 * (v43 + 5);
     v8 = Str;
-    v9 = v59;
+    v9 = v54;
   }
   else
   {
-    v54 = &v75;
-    WORD1(v53) = 60;
+    Destination.Buffer = (wchar_t *)&v70;
+    Destination.MaximumLength = 60;
   }
-  LOWORD(v53) = 0;
-  ModuleInfoFromVirtualMemory = RtlAppendUnicodeToString((unsigned __int16 *)&v53, v8);
+  Destination.Length = 0;
+  ModuleInfoFromVirtualMemory = RtlAppendUnicodeToString(&Destination, v8);
   appended = ModuleInfoFromVirtualMemory;
   if ( ModuleInfoFromVirtualMemory < 0 )
     goto LABEL_94;
-  v19 = v14 & 0x1000000;
-  v20 = L".mun";
-  if ( (v14 & 0x1000000) == 0 )
-    v20 = L".mui";
-  appended = RtlAppendUnicodeToString((unsigned __int16 *)&v53, v20);
+  v18 = v13 & 0x1000000;
+  v19 = L".mun";
+  if ( (v13 & 0x1000000) == 0 )
+    v19 = L".mui";
+  appended = RtlAppendUnicodeToString(&Destination, v19);
   ModuleInfoFromVirtualMemory = appended;
   if ( appended < 0 )
     goto LABEL_94;
   if ( v9 )
-    RtlActivateActivationContextUnsafeFast(&v71, v9);
-  v21 = LdrpQuerySxSMUIFile(&v53, v41, &v68, &v66, &v62);
+    RtlActivateActivationContextUnsafeFast(&v66, v9);
+  v20 = LdrpQuerySxSMUIFile(&Destination, &v57);
   if ( v9 )
-    RtlDeactivateActivationContextUnsafeFast(&v71);
-  if ( v21 >= 0 )
+    RtlDeactivateActivationContextUnsafeFast(&v66);
+  if ( v20 >= 0 )
   {
-    v40 = 1;
-    v44 = *(_WORD **)(v62 + 8);
-    v43 = *(_DWORD *)v62;
+    v39 = 1;
+    v42.Buffer = v57->Buffer;
+    v42.Length = v57->Length;
+    v42.MaximumLength = v57->MaximumLength;
   }
-  if ( v40 )
+  if ( v39 )
   {
-    v50 = 0;
+    HIDWORD(Size) = 0;
 LABEL_36:
-    v24 = v46;
+    v23 = (int)DllHandlea;
 LABEL_37:
-    LOBYTE(v22) = v38[0];
-    v25 = LdrMapAndVerifyResourceFile(
-            v24,
-            (unsigned int)&v43,
-            v22,
-            v14,
-            (__int64)v56,
-            v50,
-            (__int64)&v60,
-            (__int64)&v52,
-            (__int64)&v47);
-    ModuleInfoFromVirtualMemory = v25;
-    appended = v25;
-    if ( !v19
-      && (v25 == -1073741766 || v25 == -1073741772)
-      && (unsigned __int8)LdrpGetFileDriverStoreRoot(SourceString, v26, v76) )
+    LOBYTE(v21) = v37;
+    v24 = LdrMapAndVerifyResourceFile(
+            v23,
+            (unsigned int)&v42,
+            v21,
+            v13,
+            (__int64)LocaleName.Buffer,
+            HIDWORD(Size),
+            (__int64)&v55,
+            (__int64)&v49,
+            (__int64)&v45);
+    ModuleInfoFromVirtualMemory = v24;
+    appended = v24;
+    if ( !v18
+      && (v24 == -1073741766 || v24 == -1073741772)
+      && (unsigned __int8)LdrpGetFileDriverStoreRoot(Source, v25, v71) )
     {
-      v44 = v76;
-      v35 = -1LL;
+      v42.Buffer = v71;
+      v34 = -1LL;
       do
-        ++v35;
-      while ( v76[v35] );
-      LOWORD(v43) = 2 * v35;
-      HIWORD(v43) = 702;
-      RtlAppendUnicodeToString((unsigned __int16 *)&v43, L"\\");
-      RtlAppendUnicodeStringToString(&v43, &v55);
-      RtlAppendUnicodeToString((unsigned __int16 *)&v43, L"\\");
-      RtlAppendUnicodeToString((unsigned __int16 *)&v43, v54);
-      LOBYTE(v36) = v38[0];
+        ++v34;
+      while ( v71[v34] );
+      v42.Length = 2 * v34;
+      v42.MaximumLength = 702;
+      RtlAppendUnicodeToString(&v42, L"\\");
+      RtlAppendUnicodeStringToString(&v42, &LocaleName);
+      RtlAppendUnicodeToString(&v42, L"\\");
+      RtlAppendUnicodeToString(&v42, Destination.Buffer);
+      LOBYTE(v35) = v37;
       ModuleInfoFromVirtualMemory = LdrMapAndVerifyResourceFile(
-                                      v24,
-                                      (unsigned int)&v43,
-                                      v36,
-                                      v14,
-                                      (__int64)v56,
-                                      v50,
-                                      (__int64)&v60,
-                                      (__int64)&v52,
-                                      (__int64)&v47);
+                                      v23,
+                                      (unsigned int)&v42,
+                                      v35,
+                                      v13,
+                                      (__int64)LocaleName.Buffer,
+                                      HIDWORD(Size),
+                                      (__int64)&v55,
+                                      (__int64)&v49,
+                                      (__int64)&v45);
       appended = ModuleInfoFromVirtualMemory;
     }
     goto LABEL_40;
   }
-  v44 = v76;
-  v43 = 46006272;
-  if ( !v19 )
+  v42.Buffer = v71;
+  *(_DWORD *)&v42.Length = 46006272;
+  if ( !v18 )
   {
-    v23 = SourceString;
+    v22 = Source;
     goto LABEL_30;
   }
-  v30 = -1LL;
+  v29 = -1LL;
   do
-    ++v30;
-  while ( SourceString[v30] );
-  for ( i = (WCHAR *)&v73[2 * (unsigned int)v30 + 60]; i > SourceString && *i != 92; --i )
+    ++v29;
+  while ( Source[v29] );
+  for ( i = (WCHAR *)&v68[2 * (unsigned int)v29 + 60]; i > Source && *i != 92; --i )
     ;
-  if ( i <= SourceString )
+  if ( i <= Source )
   {
     ModuleInfoFromVirtualMemory = -1073741686;
     goto LABEL_93;
   }
   i[1] = 0;
-  RtlAppendUnicodeToString((unsigned __int16 *)&v43, SourceString);
-  v23 = L"SystemResources\\";
+  RtlAppendUnicodeToString(&v42, Source);
+  v22 = L"SystemResources\\";
 LABEL_30:
-  RtlAppendUnicodeToString((unsigned __int16 *)&v43, v23);
-  if ( !v19 )
+  RtlAppendUnicodeToString(&v42, v22);
+  if ( !v18 )
   {
-    v56 = &v77;
-    WORD1(v55) = 170;
-    if ( (int)RtlLcidToLocaleName(v41, (__int64)&v55, 2, 0) >= 0 )
+    LocaleName.Buffer = (wchar_t *)&v72;
+    LocaleName.MaximumLength = 170;
+    if ( RtlLcidToLocaleName(v40, &LocaleName, 2u, 0) >= 0 )
     {
-      RtlAppendUnicodeStringToString(&v43, &v55);
-      RtlAppendUnicodeToString((unsigned __int16 *)&v43, L"\\");
+      RtlAppendUnicodeStringToString(&v42, &LocaleName);
+      RtlAppendUnicodeToString(&v42, L"\\");
       goto LABEL_33;
     }
     ModuleInfoFromVirtualMemory = -1073741811;
     goto LABEL_93;
   }
 LABEL_33:
-  RtlAppendUnicodeToString((unsigned __int16 *)&v43, v54);
-  if ( v19 )
+  RtlAppendUnicodeToString(&v42, Destination.Buffer);
+  if ( v18 )
     goto LABEL_36;
-  appended = GetOverlayFilePath(v56, v44, &v49, v78);
+  appended = GetOverlayFilePath(LocaleName.Buffer, v42.Buffer, &Size, SourceString);
   if ( appended == -1073741789 )
   {
-    v34 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v49);
-    v10 = (_BYTE *)v34;
-    v63 = (_BYTE *)v34;
-    if ( v34 )
-      appended = GetOverlayFilePath(v56, v44, &v49, v34);
+    v33 = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)Size);
+    v10 = v33;
+    v58 = v33;
+    if ( v33 )
+      appended = GetOverlayFilePath(LocaleName.Buffer, v42.Buffer, &Size, v33);
   }
-  if ( appended < 0 || (int)RtlInitUnicodeStringEx(v70, v10) < 0 )
+  if ( appended < 0 || RtlInitUnicodeStringEx(&DestinationString, v10) < 0 )
     goto LABEL_36;
-  LOBYTE(v22) = v38[0];
-  v24 = v46;
+  LOBYTE(v21) = v37;
+  v23 = (int)DllHandlea;
   ModuleInfoFromVirtualMemory = LdrMapAndVerifyResourceFile(
-                                  v46,
-                                  (unsigned int)v70,
-                                  v22,
-                                  v14,
-                                  (__int64)v56,
+                                  (_DWORD)DllHandlea,
+                                  (unsigned int)&DestinationString,
+                                  v21,
+                                  v13,
+                                  (__int64)LocaleName.Buffer,
                                   2,
-                                  (__int64)&v60,
-                                  (__int64)&v52,
-                                  (__int64)&v47);
+                                  (__int64)&v55,
+                                  (__int64)&v49,
+                                  (__int64)&v45);
   appended = ModuleInfoFromVirtualMemory;
   if ( ModuleInfoFromVirtualMemory < 0 )
   {
     if ( ModuleInfoFromVirtualMemory != -1073741772 )
     {
-      LOBYTE(v22) = v38[0];
-      LdrpLogMapAndVerifyResourceFileFailure(ModuleInfoFromVirtualMemory, (unsigned int)v70, v22, v14, (__int64)&v55);
+      LOBYTE(v21) = v37;
+      LdrpLogMapAndVerifyResourceFileFailure(
+        ModuleInfoFromVirtualMemory,
+        (unsigned int)&DestinationString,
+        v21,
+        v13,
+        (__int64)&LocaleName);
     }
     goto LABEL_37;
   }
-  RtlInitUnicodeStringEx(&v43, v10);
+  RtlInitUnicodeStringEx(&v42, v10);
 LABEL_40:
-  v6 = v51;
+  v6 = v48;
 LABEL_41:
-  v27 = v47;
-  if ( !v47 )
-    v27 = -1LL;
-  v47 = v27;
+  v26 = (__int64)v45;
+  if ( !v45 )
+    v26 = -1LL;
+  v45 = (void *)v26;
   if ( ModuleInfoFromVirtualMemory == -1073741659
     || ModuleInfoFromVirtualMemory == -1073741801
     || ModuleInfoFromVirtualMemory == -1073741523 )
   {
-    v28 = 0;
+    v27 = 0;
   }
   else
   {
-    v28 = v42;
+    v27 = v41;
   }
-  if ( v28 )
+  if ( v27 )
     LdrpSetAlternateResourceModuleHandle(
-      v24,
-      (unsigned int)&v47,
-      (unsigned int)&v60,
+      v23,
+      (unsigned int)&v45,
+      (unsigned int)&v55,
       0,
-      v41,
-      v15 != 0 ? 33 : 1,
+      v40,
+      v14 != 0 ? 33 : 1,
       ModuleInfoFromVirtualMemory,
-      v52);
-  if ( v47 == -1 )
+      v49);
+  if ( v45 == (void *)-1LL )
   {
     *v6 = 0LL;
   }
   else
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v29 = (__int64)NtCurrentPeb()->SharedData + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v28 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
-      v29 = 2147353477LL;
-    if ( (*(_BYTE *)v29 & 1) != 0 )
+      v28 = 2147353477LL;
+    if ( (*(_BYTE *)v28 & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v37 = (__int64)NtCurrentPeb()->SharedData + 554;
+      if ( RtlGetCurrentServiceSessionId() )
+        v36 = (__int64)NtCurrentPeb()->SharedData + 554;
       else
-        v37 = 2147353476LL;
-      LdrpTraceLoadMUIDll(&v43, *(unsigned __int8 *)v37);
+        v36 = 2147353476LL;
+      LdrpTraceLoadMUIDll(&v42, *(unsigned __int8 *)v36);
     }
-    *v6 = v47;
-    if ( v65 )
-      *v65 = v52;
+    *v6 = v45;
+    if ( v60 )
+      *v60 = v49;
     ModuleInfoFromVirtualMemory = 0;
     appended = 0;
   }
-  if ( v61 )
+  if ( v56 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v61);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v56);
     ModuleInfoFromVirtualMemory = appended;
   }
-  if ( v58 )
+  if ( v53 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v58);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v53);
     ModuleInfoFromVirtualMemory = appended;
   }
-  if ( v64 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v64);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     ModuleInfoFromVirtualMemory = appended;
   }
-  if ( v10 && v78 != v10 )
+  if ( v10 && SourceString != v10 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v10);
-    return (unsigned int)appended;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
+    return appended;
   }
-  return (unsigned int)ModuleInfoFromVirtualMemory;
+  return ModuleInfoFromVirtualMemory;
 }

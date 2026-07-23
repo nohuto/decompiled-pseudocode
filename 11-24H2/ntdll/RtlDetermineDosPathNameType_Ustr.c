@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDetermineDosPathNameType_Ustr @ 0x180077BE0
+ * XREFs of RtlDetermineDosPathNameType_Ustr @ 0x1800944C0
  * Callers:
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpPreprocessDllName @ 0x18005A570 (LdrpPreprocessDllName.c)
- *     RtlpComputeBackupIndex @ 0x180076CB0 (RtlpComputeBackupIndex.c)
- *     RtlDosSearchPath_Ustr @ 0x180076EC0 (RtlDosSearchPath_Ustr.c)
- *     RtlpInitCurrentDir @ 0x180077FA8 (RtlpInitCurrentDir.c)
- *     RtlNtPathNameToDosPathName @ 0x18008A780 (RtlNtPathNameToDosPathName.c)
- *     RtlpDetermineDosPathNameType4 @ 0x18008B6D4 (RtlpDetermineDosPathNameType4.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpPreprocessDllName @ 0x180070150 (LdrpPreprocessDllName.c)
+ *     RtlpComputeBackupIndex @ 0x180093590 (RtlpComputeBackupIndex.c)
+ *     RtlDosSearchPath_Ustr @ 0x1800937A0 (RtlDosSearchPath_Ustr.c)
+ *     RtlpInitCurrentDir @ 0x180094888 (RtlpInitCurrentDir.c)
+ *     RtlNtPathNameToDosPathName @ 0x1800A6240 (RtlNtPathNameToDosPathName.c)
+ *     RtlpDetermineDosPathNameType4 @ 0x1800A7194 (RtlpDetermineDosPathNameType4.c)
  * Callees:
  *     <none>
  */

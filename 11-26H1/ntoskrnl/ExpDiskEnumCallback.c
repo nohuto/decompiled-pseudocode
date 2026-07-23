@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpDiskEnumCallback @ 0x1406CFDB0
+ * XREFs of ExpDiskEnumCallback @ 0x1406D3DE0
  * Callers:
  *     <none>
  * Callees:
- *     ExpGetPartitionTableInfo @ 0x140A9594C (ExpGetPartitionTableInfo.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpGetPartitionTableInfo @ 0x140A2E19C (ExpGetPartitionTableInfo.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ExpDiskEnumCallback(const WCHAR *a1, __int64 a2, __int64 a3)

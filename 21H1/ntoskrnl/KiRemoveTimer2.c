@@ -19,10 +19,10 @@ __int64 __fastcall KiRemoveTimer2(__int64 a1)
   __int64 v5; // rbp
   __int64 v6; // r14
   char v7; // al
-  __int64 v8; // r15
+  _RTL_RB_TREE *v8; // r15
   __int64 v9; // rcx
   __int64 v10; // r13
-  __int64 v11; // rax
+  _RTL_BALANCED_NODE *Min; // rax
   __int64 v12; // rcx
   __int64 v13; // rax
   __int64 *v14; // rdx
@@ -42,34 +42,34 @@ __int64 __fastcall KiRemoveTimer2(__int64 a1)
     v7 = *v2;
     if ( (*v2 & 0x10) == 0 )
     {
-      v8 = 0x140000000LL + 24LL * (v7 & 7) + 12786848;
+      v8 = (_RTL_RB_TREE *)(0x140000000LL + 24LL * (v7 & 7) + 12786848);
       v9 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 12786848);
       if ( (v9 & 1) != 0 )
-        v10 = v9 == 1 ? 0LL : v9 ^ (v8 | 1);
+        v10 = v9 == 1 ? 0LL : v9 ^ ((unsigned __int64)v8 | 1);
       else
         v10 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 12786848);
-      RtlRbRemoveNode(v8, a1 + 24 * (v3 + 1LL));
+      RtlRbRemoveNode(v8, (PRTL_BALANCED_NODE)(a1 + 24 * (v3 + 1LL)));
       if ( v10 == a1 + 24 * (v3 + 1LL) )
       {
-        v11 = *(_QWORD *)(v8 + 8);
+        Min = v8->Min;
         v4 = 1;
-        if ( (v11 & 1) != 0 )
+        if ( ((unsigned __int8)Min & 1) != 0 )
         {
-          if ( v11 == 1 )
+          if ( Min == (_RTL_BALANCED_NODE *)1 )
           {
 LABEL_28:
-            *(_QWORD *)(v8 + 16) = -1LL;
+            v8[1].Root = (_RTL_BALANCED_NODE *)-1LL;
             goto LABEL_10;
           }
-          v12 = v11 ^ (v8 | 1);
+          v12 = (unsigned __int64)Min ^ ((unsigned __int64)v8 | 1);
         }
         else
         {
-          v12 = *(_QWORD *)(v8 + 8);
+          v12 = (__int64)v8->Min;
         }
         if ( v12 )
         {
-          *(_QWORD *)(v8 + 16) = *(_QWORD *)(v6 - v5 + v12 - 24);
+          v8[1].Root = *(_RTL_BALANCED_NODE **)(v6 - v5 + v12 - 24);
           goto LABEL_10;
         }
         goto LABEL_28;

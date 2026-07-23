@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlSvmDisablePasid @ 0x140275BF0
+ * XREFs of HvlSvmDisablePasid @ 0x140275DE0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
- *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C73F0 (HvcallpExtendedFastHypercall.c)
+ *     HvlpHvToNtStatus @ 0x140279770 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmDisablePasid(unsigned int a1, int a2)

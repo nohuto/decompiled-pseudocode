@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpLbrResumeRecording @ 0x1402A0560
+ * XREFs of HalpLbrResumeRecording @ 0x14021DAE0
  * Callers:
  *     <none>
  * Callees:

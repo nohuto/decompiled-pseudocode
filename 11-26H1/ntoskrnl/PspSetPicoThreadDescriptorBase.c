@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetPicoThreadDescriptorBase @ 0x14050C2D0
+ * XREFs of PspSetPicoThreadDescriptorBase @ 0x140505D40
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall PspSetPicoThreadDescriptorBase(__int64 a1, unsigned __int64 a2)

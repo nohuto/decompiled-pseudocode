@@ -1,20 +1,20 @@
 /*
- * XREFs of IopIsProcessAppContainer @ 0x1400B2774
+ * XREFs of IopIsProcessAppContainer @ 0x1400B06B4
  * Callers:
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     IopFileObjectRevoked @ 0x1400D16F0 (IopFileObjectRevoked.c)
- *     IoRevokeHandlesForProcess @ 0x1401C9AC0 (IoRevokeHandlesForProcess.c)
- *     NtReadFile @ 0x140443620 (NtReadFile.c)
- *     IopXxxControlFile @ 0x140443F00 (IopXxxControlFile.c)
- *     NtQueryInformationFile @ 0x140444D30 (NtQueryInformationFile.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     NtWriteFile @ 0x140446600 (NtWriteFile.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x1404EA8E4 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
- *     NtQueryVolumeInformationFile @ 0x140511B30 (NtQueryVolumeInformationFile.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     IopFileObjectRevoked @ 0x1400CF590 (IopFileObjectRevoked.c)
+ *     IoRevokeHandlesForProcess @ 0x1401C9960 (IoRevokeHandlesForProcess.c)
+ *     NtReadFile @ 0x1404424F0 (NtReadFile.c)
+ *     IopXxxControlFile @ 0x140442DD0 (IopXxxControlFile.c)
+ *     NtQueryInformationFile @ 0x140443C00 (NtQueryInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     NtWriteFile @ 0x1404454D0 (NtWriteFile.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x1404CCAE8 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     NtQueryVolumeInformationFile @ 0x1404F4F20 (NtQueryVolumeInformationFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
  */
 
 bool __fastcall IopIsProcessAppContainer(struct _KPROCESS *a1)

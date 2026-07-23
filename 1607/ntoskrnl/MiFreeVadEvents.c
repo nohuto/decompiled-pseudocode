@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreeVadEvents @ 0x1401E9280
+ * XREFs of MiFreeVadEvents @ 0x1401E90AC
  * Callers:
- *     MiDeletePartialCloneVad @ 0x14066313C (MiDeletePartialCloneVad.c)
+ *     MiDeletePartialCloneVad @ 0x140663220 (MiDeletePartialCloneVad.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

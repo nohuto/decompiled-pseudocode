@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFwMapFrameBuffer @ 0x140698320
+ * XREFs of BgpFwMapFrameBuffer @ 0x1406993A0
  * Callers:
- *     BgpFwSetBootGraphicsInformation @ 0x1406983C0 (BgpFwSetBootGraphicsInformation.c)
+ *     BgpFwSetBootGraphicsInformation @ 0x140699440 (BgpFwSetBootGraphicsInformation.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
  */
 
 __int64 __fastcall BgpFwMapFrameBuffer(__int64 a1)
@@ -25,8 +25,8 @@ __int64 __fastcall BgpFwMapFrameBuffer(__int64 a1)
   v5 = *(_QWORD *)(a1 + 32);
   v6 = 0;
   v7 = v4 * ((v2 != 4) + 3LL);
-  v8 = MmMapIoSpaceEx(v5, v7, 0x404u);
-  if ( v8 || (v8 = MmMapIoSpaceEx(v5, v7, 0x204u)) != 0 )
+  v8 = MmMapIoSpaceEx(v5, v7, 1028LL);
+  if ( v8 || (v8 = MmMapIoSpaceEx(v5, v7, 516LL)) != 0 )
   {
     *(_QWORD *)(a1 + 32) = v8;
     *(_BYTE *)(a1 + 1) = 1;

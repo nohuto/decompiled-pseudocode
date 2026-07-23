@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaPrmTranslateDimmAddress @ 0x14065E550
+ * XREFs of WheaPrmTranslateDimmAddress @ 0x14065CD20
  * Callers:
  *     <none>
  * Callees:
- *     WheapPrmTranslateDimmAddressIntel @ 0x14065E610 (WheapPrmTranslateDimmAddressIntel.c)
+ *     WheapPrmTranslateDimmAddressIntel @ 0x14065CDE0 (WheapPrmTranslateDimmAddressIntel.c)
  */
 
 __int64 WheaPrmTranslateDimmAddress()

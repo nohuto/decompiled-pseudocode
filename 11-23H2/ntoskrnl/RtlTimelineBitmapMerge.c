@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTimelineBitmapMerge @ 0x1402C0AA8
+ * XREFs of RtlTimelineBitmapMerge @ 0x1402C0D38
  * Callers:
- *     PsAddProcessEnergyValues @ 0x1402C08A8 (PsAddProcessEnergyValues.c)
- *     KeFoldProcessStatisticsThread @ 0x1402EACB4 (KeFoldProcessStatisticsThread.c)
- *     PsQueryProcessEnergyValues @ 0x140741FD0 (PsQueryProcessEnergyValues.c)
+ *     PsAddProcessEnergyValues @ 0x1402C0B38 (PsAddProcessEnergyValues.c)
+ *     KeFoldProcessStatisticsThread @ 0x1402EAF44 (KeFoldProcessStatisticsThread.c)
+ *     PsQueryProcessEnergyValues @ 0x1407421C0 (PsQueryProcessEnergyValues.c)
  * Callees:
  *     <none>
  */

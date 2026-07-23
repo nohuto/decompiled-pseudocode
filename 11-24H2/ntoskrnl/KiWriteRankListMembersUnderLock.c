@@ -1,7 +1,7 @@
 /*
- * XREFs of KiWriteRankListMembersUnderLock @ 0x1405C7B48
+ * XREFs of KiWriteRankListMembersUnderLock @ 0x1405C5278
  * Callers:
- *     KiCompleteKernelInit @ 0x140B55C50 (KiCompleteKernelInit.c)
+ *     KiCompleteKernelInit @ 0x140B57CA0 (KiCompleteKernelInit.c)
  * Callees:
  *     <none>
  */

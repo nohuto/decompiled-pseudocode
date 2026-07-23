@@ -10,15 +10,16 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall RtlCreateAtomTableEx(unsigned int a1, int a2, _DWORD *a3)
+int __userpurge RtlCreateAtomTableEx@<eax>(unsigned int a1@<ecx>, unsigned int a2@<esi>, _DWORD *a3)
 {
   signed int v3; // edi
   int v4; // ebx
   int result; // eax
-  _DWORD *Heap; // eax
-  _DWORD *v7; // esi
-  unsigned int v8; // [esp+8h] [ebp-8h]
-  size_t Size; // [esp+Ch] [ebp-4h] BYREF
+  char *Heap; // eax
+  char *v7; // esi
+  size_t v8; // [esp-8h] [ebp-18h]
+  unsigned int v9; // [esp+8h] [ebp-8h]
+  SIZE_T Size; // [esp+Ch] [ebp-4h] BYREF
 
   v3 = 0;
   v4 = a1;
@@ -29,19 +30,20 @@ int __fastcall RtlCreateAtomTableEx(unsigned int a1, int a2, _DWORD *a3)
   result = RtlULongLongToUInt(16 * (v4 - 1), (unsigned __int64)(unsigned int)(v4 - 1) >> 28);
   if ( result >= 0 )
   {
-    v3 = RtlULongPtrAdd(v8, 52, (int *)&Size);
+    v3 = RtlULongPtrAdd(v9, 52, (int *)&Size);
     if ( v3 >= 0 )
     {
-      Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, Size);
+      Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, __PAIR64__(a2, Size));
       v7 = Heap;
       if ( Heap )
       {
-        memset(Heap, 0, Size);
-        v7[11] = v4;
-        RtlInitializeHandleTable(0x3FFF, -2147483640, v7 + 3);
-        v7[2] = 0;
-        *v7 = 1836020801;
-        v7[1] = 1;
+        LODWORD(v8) = Size;
+        memset(Heap, 0, v8);
+        *((_DWORD *)v7 + 11) = v4;
+        RtlInitializeHandleTable(0x3FFFu, 0x80000008, (PRTL_HANDLE_TABLE)(v7 + 12));
+        *((_DWORD *)v7 + 2) = 0;
+        *(_DWORD *)v7 = 1836020801;
+        *((_DWORD *)v7 + 1) = 1;
         *a3 = v7;
       }
       else

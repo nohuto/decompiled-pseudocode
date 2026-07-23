@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCovDeleteUnloadedModuleEntry @ 0x1406B6D84
+ * XREFs of ExpCovDeleteUnloadedModuleEntry @ 0x1406B6EBC
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x1405474F4 (ExCovReadjustUnloadedModuleEntry.c)
- *     ExpCovQueryInformation @ 0x1406B71B8 (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x1406B7A34 (ExpCovResetInformation.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x140547A34 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExpCovQueryInformation @ 0x1406B72F0 (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x1406B7B6C (ExpCovResetInformation.c)
  * Callees:
- *     ExpCovFreeUnloadedModuleEntry @ 0x1406B6DF8 (ExpCovFreeUnloadedModuleEntry.c)
+ *     ExpCovFreeUnloadedModuleEntry @ 0x1406B6F30 (ExpCovFreeUnloadedModuleEntry.c)
  */
 
 __int64 __fastcall ExpCovDeleteUnloadedModuleEntry(_QWORD *a1)

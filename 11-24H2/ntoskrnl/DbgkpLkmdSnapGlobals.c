@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSnapGlobals @ 0x14057E65C
+ * XREFs of DbgkpLkmdSnapGlobals @ 0x14057BAEC
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140707A3C (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x1407055FC (DbgkCaptureLiveDump.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     DbgkpLkmdSnapDataEx @ 0x14057E624 (DbgkpLkmdSnapDataEx.c)
- *     KeEnumerateProcessorDpcs @ 0x1405BCDFC (KeEnumerateProcessorDpcs.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14057BAB4 (DbgkpLkmdSnapDataEx.c)
+ *     KeEnumerateProcessorDpcs @ 0x1405BA42C (KeEnumerateProcessorDpcs.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)
   __int64 v7; // rdx
 
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  result = DbgkpLkmdSnapDataEx(a1, (__int64)KiProcessorBlock, 8 * ActiveProcessorCount, 0LL);
+  result = DbgkpLkmdSnapDataEx(a1, (__int64)KiProcessorBlock);
   v4 = 0;
   if ( ActiveProcessorCount )
   {
@@ -27,7 +27,7 @@ __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)
     do
     {
       Prcb = KeGetPrcb(v4);
-      if ( (int)DbgkpLkmdSnapDataEx(a1, Prcb, 52992LL, 2LL) >= 0 )
+      if ( (int)DbgkpLkmdSnapDataEx(a1, Prcb) >= 0 )
       {
         MEMORY[8] = 0LL;
         *v5 = 0LL;

@@ -8,19 +8,19 @@
  *     sub_1800CFA48 @ 0x1800CFA48 (sub_1800CFA48.c)
  */
 
-unsigned int *LdrProcessInitializationComplete()
+int LdrProcessInitializationComplete()
 {
-  unsigned int *result; // rax
+  struct _PEB *v0; // rax
   __int64 v1; // rcx
   int v2; // r8d
   int v3; // r9d
   __int64 v4; // rcx
 
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v0) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v0 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v1 = *((_QWORD *)result + 18) + 554LL;
+    v0 = NtCurrentPeb();
+    v1 = (__int64)&v0->SharedData->UserModeGlobalLogger[2];
   }
   else
   {
@@ -28,14 +28,14 @@ unsigned int *LdrProcessInitializationComplete()
   }
   if ( *(_BYTE *)v1 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 4) != 0 )
+    v0 = NtCurrentPeb();
+    if ( (v0->TracingFlags & 4) != 0 )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v0) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v0 )
       {
-        result = (unsigned int *)NtCurrentPeb();
-        v4 = *((_QWORD *)result + 18) + 555LL;
+        v0 = NtCurrentPeb();
+        v4 = (__int64)&v0->SharedData->UserModeGlobalLogger[2] + 1;
       }
       else
       {
@@ -45,12 +45,12 @@ unsigned int *LdrProcessInitializationComplete()
       {
         LOBYTE(v3) = -1;
         LOBYTE(v2) = -1;
-        result = (unsigned int *)sub_1800CFA48(5252, -1, v2, v3, 0LL, 0LL);
+        LODWORD(v0) = sub_1800CFA48(5252, -1, v2, v3, 0LL, 0LL);
       }
     }
   }
   _InterlockedIncrement(&dword_180165418);
   if ( qword_180165378 )
-    return (unsigned int *)ZwSetEvent(qword_180165378, 0LL);
-  return result;
+    LODWORD(v0) = ZwSetEvent(qword_180165378, 0LL);
+  return (int)v0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x1800ED864
+ * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x1800E8B54
  * Callers:
- *     RtlDispatchException @ 0x180019060 (RtlDispatchException.c)
- *     RtlpSameFunction @ 0x1800ED7FC (RtlpSameFunction.c)
+ *     RtlDispatchException @ 0x180045A60 (RtlDispatchException.c)
+ *     RtlpSameFunction @ 0x1800E8AEC (RtlpSameFunction.c)
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
  */
 
 _BYTE *__fastcall RtlpLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2)

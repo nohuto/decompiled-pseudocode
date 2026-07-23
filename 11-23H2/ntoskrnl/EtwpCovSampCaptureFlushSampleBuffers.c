@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x140603270
+ * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x1406037C0
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x140603098 (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureFlush @ 0x1409F0F10 (EtwpCovSampCaptureFlush.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1406035E8 (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureFlush @ 0x1409F11A0 (EtwpCovSampCaptureFlush.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x14046A6E8 (EtwpCovSampTryAcquireBufferLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x140603C20 (EtwpCovSampSampleBufferDecRef.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x14046AAE8 (EtwpCovSampTryAcquireBufferLock.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x140604170 (EtwpCovSampSampleBufferDecRef.c)
  */
 
 unsigned int __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
@@ -61,7 +61,9 @@ unsigned int __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
           v5 = v13;
         }
         KxReleaseSpinLock((volatile signed __int64 *)v12);
-        if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags
+          && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+          && CurrentIrql <= 0xFu )
         {
           v15 = v20;
           if ( v20 <= 0xFu && CurrentIrql >= 2u )

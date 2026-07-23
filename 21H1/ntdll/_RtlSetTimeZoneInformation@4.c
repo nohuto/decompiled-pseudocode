@@ -6,7 +6,7 @@
  *     _RtlpSetTimeZoneInformationWorker@8 @ 0x4B35147B (_RtlpSetTimeZoneInformationWorker@8.c)
  */
 
-int __stdcall RtlSetTimeZoneInformation(int a1)
+NTSTATUS __cdecl RtlSetTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)
 {
-  return RtlpSetTimeZoneInformationWorker(a1);
+  return RtlpSetTimeZoneInformationWorker(TimeZoneInformation);
 }

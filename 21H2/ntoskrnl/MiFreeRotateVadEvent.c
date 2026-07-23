@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreeRotateVadEvent @ 0x1406C1A28
+ * XREFs of MiFreeRotateVadEvent @ 0x140620730
  * Callers:
- *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
- *     MiFreeRotateView @ 0x1408C857C (MiFreeRotateView.c)
+ *     MiReleaseVadEventBlocks @ 0x140704770 (MiReleaseVadEventBlocks.c)
+ *     MiFreeRotateView @ 0x1408C86DC (MiFreeRotateView.c)
  * Callees:
- *     MiFreeInPageSupportBlock @ 0x1402FC8DC (MiFreeInPageSupportBlock.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiFreeInPageSupportBlock @ 0x14030762C (MiFreeInPageSupportBlock.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140323130 (PsReturnProcessNonPagedPoolQuota.c)
  */
 
 __int64 __fastcall MiFreeRotateVadEvent(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // rcx
+  _SLIST_ENTRY *v1; // rcx
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 8);
+  v1 = *(_SLIST_ENTRY **)(a1 + 8);
   if ( v1 )
     MiFreeInPageSupportBlock(v1);
   return PsReturnProcessNonPagedPoolQuota(KeGetCurrentThread()->ApcState.Process, 520LL);

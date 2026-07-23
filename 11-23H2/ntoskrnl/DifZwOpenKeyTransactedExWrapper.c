@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwOpenKeyTransactedExWrapper @ 0x1405F1C80
+ * XREFs of DifZwOpenKeyTransactedExWrapper @ 0x1405F21F0
  * Callers:
  *     <none>
  * Callees:
- *     ZwOpenKeyTransactedEx @ 0x14041D2C0 (ZwOpenKeyTransactedEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwOpenKeyTransactedEx @ 0x14041D650 (ZwOpenKeyTransactedEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwOpenKeyTransactedExWrapper(

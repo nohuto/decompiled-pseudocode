@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmInstallNewIdleDomains @ 0x140200C80
+ * XREFs of PpmInstallNewIdleDomains @ 0x140200AAC
  * Callers:
  *     <none>
  * Callees:
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
  */
 
 __int64 __fastcall PpmInstallNewIdleDomains(__int64 a1, __int64 a2)

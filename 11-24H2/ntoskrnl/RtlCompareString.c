@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCompareString @ 0x1408B0610
+ * XREFs of RtlCompareString @ 0x140906870
  * Callers:
- *     HalMatchAcpiOemId @ 0x140478320 (HalMatchAcpiOemId.c)
- *     RtlEqualString @ 0x140480C10 (RtlEqualString.c)
- *     KsepGetModuleInfoByName @ 0x140740124 (KsepGetModuleInfoByName.c)
+ *     HalMatchAcpiOemId @ 0x14045F7B0 (HalMatchAcpiOemId.c)
+ *     RtlEqualString @ 0x14047B6E0 (RtlEqualString.c)
+ *     KsepGetModuleInfoByName @ 0x14073E054 (KsepGetModuleInfoByName.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     RtlUpperChar @ 0x1408AF4C0 (RtlUpperChar.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     RtlUpperChar @ 0x140905720 (RtlUpperChar.c)
  */
 
 LONG __stdcall RtlCompareString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)

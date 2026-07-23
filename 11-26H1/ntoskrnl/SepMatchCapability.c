@@ -1,26 +1,30 @@
 /*
- * XREFs of SepMatchCapability @ 0x1402AFC18
+ * XREFs of SepMatchCapability @ 0x1403F1568
  * Callers:
- *     SepMaximumAccessCheckEx @ 0x1402ACD9C (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x1402AF210 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x1402B0BC0 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x14051B700 (SepMaximumAccessCheckEx.c)
  * Callees:
- *     RtlSidHashLookup @ 0x1402AFED0 (RtlSidHashLookup.c)
+ *     RtlSidHashLookup @ 0x1403F15C0 (RtlSidHashLookup.c)
  */
 
-__int64 __fastcall SepMatchCapability(__int64 a1, int a2, __int64 a3, int a4, _BYTE *a5, _DWORD *a6)
+PSID_AND_ATTRIBUTES __fastcall SepMatchCapability(
+        __int64 a1,
+        int a2,
+        void *a3,
+        int a4,
+        _SID_AND_ATTRIBUTES *a5,
+        _DWORD *a6)
 {
-  __int64 result; // rax
+  PSID_AND_ATTRIBUTES result; // rax
 
-  result = RtlSidHashLookup(a1 + 808, a3);
+  result = RtlSidHashLookup((PSID_AND_ATTRIBUTES_HASH)(a1 + 808), a3);
   if ( result )
   {
-    result = *(unsigned int *)(result + 8);
-    if ( (result & 4) != 0 )
+    result = (PSID_AND_ATTRIBUTES)result->Attributes;
+    if ( ((unsigned __int8)result & 4) != 0 )
     {
       *a6 |= a4 & a2;
-      result = (__int64)a5;
-      *a5 = 1;
+      result = a5;
+      LOBYTE(a5->Sid) = 1;
     }
   }
   return result;

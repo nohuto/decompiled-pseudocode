@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDereferenceSession @ 0x1407E0BC0
+ * XREFs of MiDereferenceSession @ 0x1407E0E90
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14071FA58 (MmCleanProcessAddressSpace.c)
- *     MiSessionCreate @ 0x1407A900C (MiSessionCreate.c)
+ *     MmCleanProcessAddressSpace @ 0x14071FC58 (MmCleanProcessAddressSpace.c)
+ *     MiSessionCreate @ 0x1407A91FC (MiSessionCreate.c)
  * Callees:
  *     MiDereferenceSessionFinal @ 0x140681B80 (MiDereferenceSessionFinal.c)
  */

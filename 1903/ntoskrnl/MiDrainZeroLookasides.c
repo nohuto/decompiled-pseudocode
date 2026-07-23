@@ -32,7 +32,7 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   __int64 v20; // [rsp+28h] [rbp-60h]
   _QWORD *v21; // [rsp+30h] [rbp-58h]
   __int64 v22; // [rsp+38h] [rbp-50h]
-  struct _SLIST_ENTRY *Next; // [rsp+40h] [rbp-48h]
+  _SLIST_ENTRY *Next; // [rsp+40h] [rbp-48h]
   unsigned __int8 v24; // [rsp+98h] [rbp+10h]
   unsigned int v25; // [rsp+A0h] [rbp+18h]
 

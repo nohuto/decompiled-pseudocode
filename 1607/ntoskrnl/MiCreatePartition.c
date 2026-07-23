@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreatePartition @ 0x1406601A8
+ * XREFs of MiCreatePartition @ 0x14066028C
  * Callers:
- *     NtCreatePartition @ 0x14066120C (NtCreatePartition.c)
+ *     NtCreatePartition @ 0x1406612F0 (NtCreatePartition.c)
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     MiInsertNewPartitionInList @ 0x1400B5A48 (MiInsertNewPartitionInList.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x14014AC3C (MiInitializeWorkingSetManagerParameters.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiConvertPartitionWs @ 0x1401F1340 (MiConvertPartitionWs.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     MiInsertNewPartitionInList @ 0x1400B3870 (MiInsertNewPartitionInList.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x14014B1AC (MiInitializeWorkingSetManagerParameters.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiConvertPartitionWs @ 0x1401F116C (MiConvertPartitionWs.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInitializePartition @ 0x14054ECF0 (MiInitializePartition.c)
- *     MiPartitionObjectCreate @ 0x140552E68 (MiPartitionObjectCreate.c)
- *     MiCreateLargePfnBitMaps @ 0x140575FB0 (MiCreateLargePfnBitMaps.c)
- *     MiAllocatePartitionId @ 0x140659938 (MiAllocatePartitionId.c)
- *     MiInitializePartitionThreads @ 0x140659B40 (MiInitializePartitionThreads.c)
+ *     MiInitializePartition @ 0x14054F230 (MiInitializePartition.c)
+ *     MiPartitionObjectCreate @ 0x1405533A8 (MiPartitionObjectCreate.c)
+ *     MiCreateLargePfnBitMaps @ 0x1405764F0 (MiCreateLargePfnBitMaps.c)
+ *     MiAllocatePartitionId @ 0x140659A1C (MiAllocatePartitionId.c)
+ *     MiInitializePartitionThreads @ 0x140659C24 (MiInitializePartitionThreads.c)
  */
 
 __int64 __fastcall MiCreatePartition(_QWORD *Object, ACCESS_MASK a2, __int64 a3, char a4, _QWORD *a5)
@@ -39,9 +39,9 @@ __int64 __fastcall MiCreatePartition(_QWORD *Object, ACCESS_MASK a2, __int64 a3,
   result = MiConvertPartitionWs();
   if ( (int)result >= 0 )
   {
-    v11 = 16LL * (unsigned int)(2 * dword_1403269FC)
-        + ((2184LL * (unsigned __int16)KeNumberNodes + 40LL * (unsigned int)(2 * dword_1403269FC) + 11279) & 0xFFFFFFFFFFFFFFF0uLL)
-        + 24LL * (2 * dword_1403269FC + (unsigned int)(unsigned __int16)KeNumberNodes + 27);
+    v11 = 16LL * (unsigned int)(2 * dword_140326A3C)
+        + ((2184LL * (unsigned __int16)KeNumberNodes + 40LL * (unsigned int)(2 * dword_140326A3C) + 11279) & 0xFFFFFFFFFFFFFFF0uLL)
+        + 24LL * (2 * dword_140326A3C + (unsigned int)(unsigned __int16)KeNumberNodes + 27);
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x6150694Du);
     v13 = PoolWithTag;
     if ( !PoolWithTag )
@@ -51,13 +51,13 @@ __int64 __fastcall MiCreatePartition(_QWORD *Object, ACCESS_MASK a2, __int64 a3,
     v13[6] = v13 + 1408;
     v15 = (__int64)&v13[273 * v14 + 1408];
     v13[216] = v15;
-    v16 = v15 + 40LL * (unsigned int)dword_1403269FC;
+    v16 = v15 + 40LL * (unsigned int)dword_140326A3C;
     v13[217] = v16;
-    v17 = (v16 + 40LL * (unsigned int)dword_1403269FC + 15) & 0xFFFFFFFFFFFFFFF0uLL;
+    v17 = (v16 + 40LL * (unsigned int)dword_140326A3C + 15) & 0xFFFFFFFFFFFFFFF0uLL;
     v13[218] = v17;
-    v18 = v17 + 16LL * (unsigned int)dword_1403269FC;
+    v18 = v17 + 16LL * (unsigned int)dword_140326A3C;
     v13[219] = v18;
-    v13[562] = v18 + 16LL * (unsigned int)dword_1403269FC;
+    v13[562] = v18 + 16LL * (unsigned int)dword_140326A3C;
     PartitionId = MiAllocatePartitionId((__int64)v13);
     if ( !PartitionId )
     {

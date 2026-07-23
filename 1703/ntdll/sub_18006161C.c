@@ -9,11 +9,11 @@
 
 unsigned __int64 sub_18006161C()
 {
-  unsigned int v1; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int ProcessInformation; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = 0;
-  if ( (int)ZwQueryInformationProcess(-1LL, 36LL, &v1, 4LL, 0LL) < 0 )
+  ProcessInformation = 0;
+  if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL) < 0 )
     return 0LL;
   else
-    return (2147483629 * (unsigned __int64)v1 + 2147483587) % 0x7FFFFFFF;
+    return (2147483629 * (unsigned __int64)ProcessInformation + 2147483587) % 0x7FFFFFFF;
 }

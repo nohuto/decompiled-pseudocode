@@ -1,10 +1,10 @@
 /*
- * XREFs of IopInitializeSessionNotifications @ 0x140A733CC
+ * XREFs of IopInitializeSessionNotifications @ 0x140A743CC
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExCreateCallback @ 0x14061C450 (ExCreateCallback.c)
  */
 
 NTSTATUS IopInitializeSessionNotifications()
@@ -15,7 +15,7 @@ NTSTATUS IopInitializeSessionNotifications()
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   IopSessionNotificationLock = 0LL;
-  qword_140C45938 = (__int64)&IopSessionNotificationQueueHead;
+  qword_140C46018 = (__int64)&IopSessionNotificationQueueHead;
   DestinationString = 0LL;
   IopSessionNotificationQueueHead = &IopSessionNotificationQueueHead;
   RtlInitUnicodeString(&DestinationString, L"\\Callback\\IoSessionNotifications");

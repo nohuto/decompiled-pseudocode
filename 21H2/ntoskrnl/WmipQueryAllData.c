@@ -1,23 +1,23 @@
 /*
- * XREFs of WmipQueryAllData @ 0x1406390D4
+ * XREFs of WmipQueryAllData @ 0x14062DEE4
  * Callers:
- *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
- *     IoWMIQueryAllData @ 0x1407CE8C0 (IoWMIQueryAllData.c)
- *     WmipQueryAllDataMultiple @ 0x140932AD8 (WmipQueryAllDataMultiple.c)
+ *     WmipIoControl @ 0x1406061A0 (WmipIoControl.c)
+ *     IoWMIQueryAllData @ 0x1407CEA30 (IoWMIQueryAllData.c)
+ *     WmipQueryAllDataMultiple @ 0x140932C38 (WmipQueryAllDataMultiple.c)
  * Callees:
- *     WmipAlign @ 0x140264F60 (WmipAlign.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     WmipInsertStaticNames @ 0x140638E70 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x14063904C (WmipStaticInstanceNameSize.c)
- *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
- *     WmipForwardWmiIrp @ 0x1406396EC (WmipForwardWmiIrp.c)
- *     WmipPrepareForWnodeAD @ 0x14063E070 (WmipPrepareForWnodeAD.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     WmipSendWmiIrp @ 0x14075751C (WmipSendWmiIrp.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     WmipAlign @ 0x140252FF0 (WmipAlign.c)
+ *     ObReferenceObjectByPointer @ 0x1402A5010 (ObReferenceObjectByPointer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WmipInsertStaticNames @ 0x14062DC80 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x14062DE5C (WmipStaticInstanceNameSize.c)
+ *     WmipUnreferenceEntry @ 0x14062E428 (WmipUnreferenceEntry.c)
+ *     WmipForwardWmiIrp @ 0x14062E4FC (WmipForwardWmiIrp.c)
+ *     WmipPrepareForWnodeAD @ 0x140632E80 (WmipPrepareForWnodeAD.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     WmipSendWmiIrp @ 0x1407576DC (WmipSendWmiIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQueryAllData(PVOID Object, IRP *a2, KPROCESSOR_MODE a3, __int64 a4, unsigned int a5, _DWORD *a6)

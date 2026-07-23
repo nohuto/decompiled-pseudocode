@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgResolveDriverDependencies @ 0x14063DD70
+ * XREFs of PiDevCfgResolveDriverDependencies @ 0x14063DE54
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14063B128 (PiDevCfgProcessDevice.c)
- *     PiDevCfgResolveDriverDependencies @ 0x14063DD70 (PiDevCfgResolveDriverDependencies.c)
+ *     PiDevCfgProcessDevice @ 0x14063B1DC (PiDevCfgProcessDevice.c)
+ *     PiDevCfgResolveDriverDependencies @ 0x14063DE54 (PiDevCfgResolveDriverDependencies.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     PiDevCfgQueryObjectProperties @ 0x14057A954 (PiDevCfgQueryObjectProperties.c)
- *     PnpCheckDriverDependencies @ 0x14062D37C (PnpCheckDriverDependencies.c)
- *     PnpGetStableSystemBootTime @ 0x14062D818 (PnpGetStableSystemBootTime.c)
- *     PiDevCfgResolveDriverDependencies @ 0x14063DD70 (PiDevCfgResolveDriverDependencies.c)
- *     PiDevCfgSetObjectProperty @ 0x140640FCC (PiDevCfgSetObjectProperty.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14057AE94 (PiDevCfgQueryObjectProperties.c)
+ *     PnpCheckDriverDependencies @ 0x14062D430 (PnpCheckDriverDependencies.c)
+ *     PnpGetStableSystemBootTime @ 0x14062D8CC (PnpGetStableSystemBootTime.c)
+ *     PiDevCfgResolveDriverDependencies @ 0x14063DE54 (PiDevCfgResolveDriverDependencies.c)
+ *     PiDevCfgSetObjectProperty @ 0x1406410B0 (PiDevCfgSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDevCfgResolveDriverDependencies(__int64 a1, _BYTE *a2)

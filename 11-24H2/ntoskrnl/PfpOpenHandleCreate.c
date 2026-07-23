@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpOpenHandleCreate @ 0x14096B99C
+ * XREFs of PfpOpenHandleCreate @ 0x1409543F8
  * Callers:
- *     PfpQueryFileExtentsRequest @ 0x140745C48 (PfpQueryFileExtentsRequest.c)
- *     PfpVolumeOpenAndVerify @ 0x140950C88 (PfpVolumeOpenAndVerify.c)
- *     PfpPrefetchDirectoryStream @ 0x140953524 (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchEntireDirectory @ 0x140953B8C (PfpPrefetchEntireDirectory.c)
- *     PfpFileBuildReadSupport @ 0x140953F94 (PfpFileBuildReadSupport.c)
- *     PfSnGetSectionObject @ 0x14096AFAC (PfSnGetSectionObject.c)
- *     PfSnOpenVolumesForPrefetch @ 0x14096BF6C (PfSnOpenVolumesForPrefetch.c)
- *     PfSnQueryVolumeInfo @ 0x14096E298 (PfSnQueryVolumeInfo.c)
+ *     PfpQueryFileExtentsRequest @ 0x140743F38 (PfpQueryFileExtentsRequest.c)
+ *     PfpVolumeOpenAndVerify @ 0x140934634 (PfpVolumeOpenAndVerify.c)
+ *     PfpPrefetchDirectoryStream @ 0x140936ED4 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchEntireDirectory @ 0x14093753C (PfpPrefetchEntireDirectory.c)
+ *     PfpFileBuildReadSupport @ 0x140937944 (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x140953A3C (PfSnGetSectionObject.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1409549CC (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnQueryVolumeInfo @ 0x140957B7C (PfSnQueryVolumeInfo.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     PfpCheckPrefetchAbort @ 0x1404864EC (PfpCheckPrefetchAbort.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     PfpCheckPrefetchAbort @ 0x140481ADC (PfpCheckPrefetchAbort.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PfpOpenHandleCreate(
@@ -31,26 +31,24 @@ __int64 __fastcall PfpOpenHandleCreate(
   int v14; // r13d
   _QWORD *v15; // rcx
   __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  unsigned int v19; // r8d
-  _QWORD v21[2]; // [rsp+28h] [rbp-59h] BYREF
-  int v22; // [rsp+38h] [rbp-49h]
-  __int64 v23; // [rsp+40h] [rbp-41h]
-  __int64 v24; // [rsp+48h] [rbp-39h]
-  int v25; // [rsp+50h] [rbp-31h]
-  __int128 v26; // [rsp+58h] [rbp-29h]
-  int v27; // [rsp+68h] [rbp-19h]
-  int v28; // [rsp+6Ch] [rbp-15h]
-  int v29; // [rsp+70h] [rbp-11h]
-  __int64 v30; // [rsp+78h] [rbp-9h]
-  __int64 v31; // [rsp+80h] [rbp-1h]
-  __int64 v32; // [rsp+88h] [rbp+7h]
-  int v33; // [rsp+90h] [rbp+Fh]
-  int v34; // [rsp+94h] [rbp+13h]
+  unsigned int v17; // r8d
+  _QWORD v19[2]; // [rsp+28h] [rbp-59h] BYREF
+  int v20; // [rsp+38h] [rbp-49h]
+  __int64 v21; // [rsp+40h] [rbp-41h]
+  __int64 v22; // [rsp+48h] [rbp-39h]
+  int v23; // [rsp+50h] [rbp-31h]
+  __int128 v24; // [rsp+58h] [rbp-29h]
+  int v25; // [rsp+68h] [rbp-19h]
+  int v26; // [rsp+6Ch] [rbp-15h]
+  int v27; // [rsp+70h] [rbp-11h]
+  __int64 v28; // [rsp+78h] [rbp-9h]
+  __int64 v29; // [rsp+80h] [rbp-1h]
+  __int64 v30; // [rsp+88h] [rbp+7h]
+  int v31; // [rsp+90h] [rbp+Fh]
+  int v32; // [rsp+94h] [rbp+13h]
   LARGE_INTEGER Interval; // [rsp+D0h] [rbp+4Fh] BYREF
 
-  memset_0(v21, 0, 0x70uLL);
+  memset_0(v19, 0, 0x70uLL);
   v12 = 0;
   v13 = a8;
   v14 = a7;
@@ -62,48 +60,48 @@ __int64 __fastcall PfpOpenHandleCreate(
     v15 = *(_QWORD **)(a2 + 24);
     if ( v15 && (unsigned int)PfpCheckPrefetchAbort(v15) )
       return (unsigned int)-1073741248;
-    memset_0(v21, 0, 0x70uLL);
-    v22 = 48;
-    v21[0] = a2 + 40;
-    v27 = a5;
-    v29 = a6;
-    v23 = a4;
-    v25 = 576;
-    v24 = a3;
-    v26 = 0LL;
-    v28 = v14;
+    memset_0(v19, 0, 0x70uLL);
+    v20 = 48;
+    v19[0] = a2 + 40;
+    v25 = a5;
+    v27 = a6;
+    v21 = a4;
+    v23 = 576;
+    v22 = a3;
+    v24 = 0LL;
+    v26 = v14;
     if ( v13 )
-      v21[1] = *(_QWORD *)(v13 + 8);
-    v19 = guard_dispatch_icall_no_overrides(v21, v16, v17, v18);
-    if ( (v19 & 0x80000000) == 0 )
+      v19[1] = *(_QWORD *)(v13 + 8);
+    v17 = guard_dispatch_icall_no_overrides(v19, v16);
+    if ( (v17 & 0x80000000) == 0 )
     {
-      *(_QWORD *)(a1 + 8) = v31;
-      *(_QWORD *)a1 = v30;
-      *(_QWORD *)(a1 + 16) = v32;
-      *(_DWORD *)(a1 + 24) = v34;
+      *(_QWORD *)(a1 + 8) = v29;
+      *(_QWORD *)a1 = v28;
+      *(_QWORD *)(a1 + 16) = v30;
+      *(_DWORD *)(a1 + 24) = v32;
       _InterlockedIncrement((volatile signed __int32 *)(a2 + 76));
       *(_QWORD *)(a1 + 24) |= 0x400000000uLL;
       return 0;
     }
     ++*(_DWORD *)(a2 + 80);
-    if ( v33 == 2 )
+    if ( v31 == 2 )
       break;
-    if ( v33 == 5 )
+    if ( v31 == 5 )
     {
       *(_DWORD *)(a2 + 72) = 1;
-      return v19;
+      return v17;
     }
-    if ( v33 != 11 && v33 != 12 && v33 != 13 && v33 != 16
-      || v33 == 16 && v12 > 1
+    if ( v31 != 11 && v31 != 12 && v31 != 13 && v31 != 16
+      || v31 == 16 && v12 > 1
       || *(_DWORD *)(a2 + 60) <= *(_DWORD *)(a2 + 64) )
     {
-      return v19;
+      return v17;
     }
     KeDelayExecutionThread(0, 0, &Interval);
     *(_DWORD *)(a2 + 64) += *(_DWORD *)(a2 + 56);
     ++v12;
   }
-  if ( v19 != -1073741790 )
+  if ( v17 != -1073741790 )
     *(_QWORD *)(a1 + 24) |= 0x100000000uLL;
-  return v19;
+  return v17;
 }

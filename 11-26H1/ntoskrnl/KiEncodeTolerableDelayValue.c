@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEncodeTolerableDelayValue @ 0x1403AE234
+ * XREFs of KiEncodeTolerableDelayValue @ 0x1403B7F44
  * Callers:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     PopFxEnableWorkOrderWatchdog @ 0x1403AB570 (PopFxEnableWorkOrderWatchdog.c)
- *     PopFxDispatchPluginWorkOnce @ 0x1403AE3C4 (PopFxDispatchPluginWorkOnce.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     PopFxEnableWorkOrderWatchdog @ 0x1403B5280 (PopFxEnableWorkOrderWatchdog.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1403B80D4 (PopFxDispatchPluginWorkOnce.c)
  * Callees:
- *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403AE1FC (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403B7F0C (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
  */
 
 char __fastcall KiEncodeTolerableDelayValue(unsigned int a1)

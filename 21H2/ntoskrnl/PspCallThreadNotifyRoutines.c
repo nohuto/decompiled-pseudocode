@@ -1,28 +1,28 @@
 /*
- * XREFs of PspCallThreadNotifyRoutines @ 0x14061B3C0
+ * XREFs of PspCallThreadNotifyRoutines @ 0x140685020
  * Callers:
- *     PspInitializeThunkContext @ 0x140647A20 (PspInitializeThunkContext.c)
- *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     PspInitializeThunkContext @ 0x14063C810 (PspInitializeThunkContext.c)
+ *     PspInsertThread @ 0x14063DE48 (PspInsertThread.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExReferenceCallBackBlock @ 0x14027BEC0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14027BF80 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char a3)
 {
   bool v5; // bp
-  union _RTL_RUN_ONCE *v6; // rbx
+  _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rsi
   int Count; // eax
-  union _RTL_RUN_ONCE *v11; // rbx
+  _RTL_RUN_ONCE *v11; // rbx
   __int64 v12; // rdi
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rsi
-  union _RTL_RUN_ONCE *v15; // rbx
+  _RTL_RUN_ONCE *v15; // rbx
   __int64 v16; // rdi
   struct _EX_RUNDOWN_REF *v17; // rax
   struct _EX_RUNDOWN_REF *v18; // rsi

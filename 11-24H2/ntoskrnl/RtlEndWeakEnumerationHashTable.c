@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEndWeakEnumerationHashTable @ 0x14043F0A0
+ * XREFs of RtlEndWeakEnumerationHashTable @ 0x140434C50
  * Callers:
- *     SepFindMatchingLowBoxNumberEntries @ 0x140794B28 (SepFindMatchingLowBoxNumberEntries.c)
- *     SepRmDestroyCapTable @ 0x140796214 (SepRmDestroyCapTable.c)
- *     SepDeleteCachedHandlesTable @ 0x140A64838 (SepDeleteCachedHandlesTable.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x140794BB0 (SepFindMatchingLowBoxNumberEntries.c)
+ *     SepRmDestroyCapTable @ 0x140796324 (SepRmDestroyCapTable.c)
+ *     SepDeleteCachedHandlesTable @ 0x140A5D138 (SepDeleteCachedHandlesTable.c)
  * Callees:
  *     <none>
  */

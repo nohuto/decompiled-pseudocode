@@ -30,11 +30,11 @@ __int64 __fastcall HvlQueryNumaDistance(unsigned __int16 a1, unsigned __int16 a2
   PSLIST_ENTRY ListEntry; // [rsp+28h] [rbp-B0h]
   PSLIST_ENTRY v23; // [rsp+30h] [rbp-A8h]
   _SLIST_ENTRY *Next; // [rsp+38h] [rbp-A0h]
-  union _SLIST_HEADER *v25; // [rsp+50h] [rbp-88h]
-  struct _SLIST_ENTRY *v26; // [rsp+58h] [rbp-80h]
+  _SLIST_HEADER *v25; // [rsp+50h] [rbp-88h]
+  _SLIST_ENTRY *v26; // [rsp+58h] [rbp-80h]
   _SLIST_ENTRY *v27; // [rsp+60h] [rbp-78h]
-  union _SLIST_HEADER *v28; // [rsp+70h] [rbp-68h]
-  struct _SLIST_ENTRY *v29; // [rsp+78h] [rbp-60h]
+  _SLIST_HEADER *v28; // [rsp+70h] [rbp-68h]
+  _SLIST_ENTRY *v29; // [rsp+78h] [rbp-60h]
   _SLIST_ENTRY *v30; // [rsp+80h] [rbp-58h]
   __int16 v31; // [rsp+D0h] [rbp-8h]
   char v35; // [rsp+F8h] [rbp+20h]
@@ -47,7 +47,7 @@ __int64 __fastcall HvlQueryNumaDistance(unsigned __int16 a1, unsigned __int16 a2
     p_Next = &v6->Next;
     if ( v6 )
     {
-      v25 = (union _SLIST_HEADER *)CurrentPrcb;
+      v25 = (_SLIST_HEADER *)CurrentPrcb;
       v7 = BYTE4(CurrentPrcb);
       Next = v6[1].Next;
       v35 = 1;
@@ -84,7 +84,7 @@ LABEL_7:
     {
       v10 = v12[1].Next;
       v3 = 1;
-      v28 = (union _SLIST_HEADER *)v11;
+      v28 = (_SLIST_HEADER *)v11;
       v13 = BYTE4(v11);
       v8 = (char)v28;
       goto LABEL_13;

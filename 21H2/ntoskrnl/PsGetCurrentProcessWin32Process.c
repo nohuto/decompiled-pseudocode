@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetCurrentProcessWin32Process @ 0x140293A30
+ * XREFs of PsGetCurrentProcessWin32Process @ 0x1402119A0
  * Callers:
  *     <none>
  * Callees:

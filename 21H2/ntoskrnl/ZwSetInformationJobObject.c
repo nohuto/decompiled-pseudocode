@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwSetInformationJobObject @ 0x1403FD6C0
+ * XREFs of ZwSetInformationJobObject @ 0x1403FD8A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationJobObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(JobHandle);
 }

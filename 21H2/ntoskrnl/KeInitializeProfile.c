@@ -1,10 +1,10 @@
 /*
- * XREFs of KeInitializeProfile @ 0x1408BC0B8
+ * XREFs of KeInitializeProfile @ 0x1408BC218
  * Callers:
- *     NtStartProfile @ 0x14095ADD0 (NtStartProfile.c)
+ *     NtStartProfile @ 0x14095AFA0 (NtStartProfile.c)
  * Callees:
- *     KeAndAffinityEx @ 0x14022A080 (KeAndAffinityEx.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
+ *     KeAndAffinityEx @ 0x1402CE930 (KeAndAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
  */
 
 __int16 __fastcall KeInitializeProfile(

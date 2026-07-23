@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeMaximumFaultCluster @ 0x140168C38
+ * XREFs of MiComputeMaximumFaultCluster @ 0x140168D38
  * Callers:
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
- *     MiFaultListPagesRemaining @ 0x1401206AC (MiFaultListPagesRemaining.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     KeInvalidAccessAllowed @ 0x140117D7C (KeInvalidAccessAllowed.c)
+ *     MiFaultListPagesRemaining @ 0x140120778 (MiFaultListPagesRemaining.c)
  */
 
 unsigned __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2)
@@ -82,7 +82,7 @@ unsigned __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __
   }
   else if ( !v10 && *(char **)(a1 + 56) == MiGetAnyMultiplexedVm(v8) )
   {
-    v17 = (_QWORD *)qword_140438F50;
+    v17 = (_QWORD *)qword_14043A010;
     while ( v17 )
     {
       v18 = v17[4];

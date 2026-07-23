@@ -8,21 +8,21 @@
  *     MiCopyPagesIntoEnclave @ 0x140629118 (MiCopyPagesIntoEnclave.c)
  */
 
-__int64 __fastcall NtLoadEnclaveData(
-        HANDLE Handle,
-        __int64 a2,
-        void *a3,
-        unsigned __int64 a4,
-        int a5,
-        int a6,
-        int a7,
-        __int64 *a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   KPROCESSOR_MODE PreviousMode; // r14
   _DWORD *v14; // rcx
   _QWORD *v15; // rcx
-  int v16; // ebx
+  NTSTATUS v16; // ebx
   __int64 v18; // [rsp+48h] [rbp-40h] BYREF
   PVOID Object; // [rsp+50h] [rbp-38h] BYREF
   __int64 v20[3]; // [rsp+58h] [rbp-30h] BYREF
@@ -32,47 +32,47 @@ __int64 __fastcall NtLoadEnclaveData(
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode == 1 )
   {
-    v14 = a9;
-    if ( a9 )
+    v14 = EnclaveError;
+    if ( EnclaveError )
     {
-      if ( (unsigned __int64)a9 >= MmUserProbeAddress )
+      if ( (unsigned __int64)EnclaveError >= MmUserProbeAddress )
         v14 = (_DWORD *)MmUserProbeAddress;
       *v14 = *v14;
     }
-    v15 = a8;
-    if ( a8 )
+    v15 = NumberOfBytesWritten;
+    if ( NumberOfBytesWritten )
     {
-      if ( (unsigned __int64)a8 >= MmUserProbeAddress )
+      if ( (unsigned __int64)NumberOfBytesWritten >= MmUserProbeAddress )
         v15 = (_QWORD *)MmUserProbeAddress;
       *v15 = *v15;
     }
   }
-  if ( !a4 )
+  if ( !BufferSize )
     goto LABEL_11;
-  if ( (a2 & 0xFFF) != 0 )
+  if ( ((unsigned __int16)BaseAddress & 0xFFF) != 0 )
   {
     v16 = -1073741584;
     goto LABEL_22;
   }
-  if ( (a4 & 0xFFF) != 0 )
+  if ( (BufferSize & 0xFFF) != 0 )
   {
 LABEL_11:
     v16 = -1073741582;
     goto LABEL_22;
   }
-  if ( a7 )
+  if ( PageInformationLength )
   {
     v16 = -1073741820;
     goto LABEL_22;
   }
-  if ( Handle == (HANDLE)-1LL )
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
     Object = KeGetCurrentThread()->ApcState.Process;
   }
   else
   {
     v16 = ObReferenceObjectByHandleWithTag(
-            Handle,
+            ProcessHandle,
             8u,
             (POBJECT_TYPE)PsProcessType,
             PreviousMode,
@@ -82,13 +82,21 @@ LABEL_11:
     if ( v16 < 0 )
       goto LABEL_22;
   }
-  v16 = MiCopyPagesIntoEnclave((_KPROCESS *)Object, PreviousMode, a2, a3, a4, a5, v20, (__int64)&v18);
-  if ( Handle != (HANDLE)-1LL )
+  v16 = MiCopyPagesIntoEnclave(
+          (_KPROCESS *)Object,
+          PreviousMode,
+          (__int64)BaseAddress,
+          Buffer,
+          BufferSize,
+          Protect,
+          v20,
+          (__int64)&v18);
+  if ( ProcessHandle != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
 LABEL_22:
-  if ( a8 )
-    *a8 = v20[0];
-  if ( a9 )
-    *a9 = v18;
-  return (unsigned int)v16;
+  if ( NumberOfBytesWritten )
+    *NumberOfBytesWritten = v20[0];
+  if ( EnclaveError )
+    *EnclaveError = v18;
+  return v16;
 }

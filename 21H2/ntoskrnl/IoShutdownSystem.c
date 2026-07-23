@@ -1,25 +1,25 @@
 /*
- * XREFs of IoShutdownSystem @ 0x1409AADD8
+ * XREFs of IoShutdownSystem @ 0x1409ABD08
  * Callers:
- *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x1409B1E90 (PopGracefulShutdown.c)
  * Callees:
- *     IoGetAttachedDeviceReference @ 0x14022CA10 (IoGetAttachedDeviceReference.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopInterlockedRemoveHeadList @ 0x14037FAE4 (IopInterlockedRemoveHeadList.c)
- *     ZwSetSystemInformation @ 0x1403FD920 (ZwSetSystemInformation.c)
- *     IoBuildSynchronousFsdRequest @ 0x1406D18C0 (IoBuildSynchronousFsdRequest.c)
- *     PnpShutdownDevices @ 0x14089B94C (PnpShutdownDevices.c)
- *     IopShutdownBaseFileSystems @ 0x1409AB134 (IopShutdownBaseFileSystems.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     IovUnloadDrivers @ 0x1409C52F0 (IovUnloadDrivers.c)
- *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     VfIsVerifierEnabled @ 0x140252060 (VfIsVerifierEnabled.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     IoGetAttachedDeviceReference @ 0x1402D1260 (IoGetAttachedDeviceReference.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopInterlockedRemoveHeadList @ 0x14037F634 (IopInterlockedRemoveHeadList.c)
+ *     ZwSetSystemInformation @ 0x1403FDB00 (ZwSetSystemInformation.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1406A8BA0 (IoBuildSynchronousFsdRequest.c)
+ *     PnpShutdownDevices @ 0x14089BAAC (PnpShutdownDevices.c)
+ *     IopShutdownBaseFileSystems @ 0x1409AC064 (IopShutdownBaseFileSystems.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     IovUnloadDrivers @ 0x1409C62F0 (IovUnloadDrivers.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C7050 (VfNotifyVerifierOfEvent.c)
  */
 
 void __fastcall IoShutdownSystem(int a1)
@@ -34,7 +34,7 @@ void __fastcall IoShutdownSystem(int a1)
   PADAPTER_OBJECT *v9; // rbx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-20h] BYREF
-  int v12; // [rsp+80h] [rbp+10h] BYREF
+  int SystemInformation; // [rsp+80h] [rbp+10h] BYREF
 
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
@@ -87,7 +87,7 @@ void __fastcall IoShutdownSystem(int a1)
     }
     if ( (MmVerifierData & 0x10) != 0 )
       IovUnloadDrivers();
-    v12 = 2;
-    ZwSetSystemInformation(151LL, (__int64)&v12);
+    SystemInformation = 2;
+    ZwSetSystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u);
   }
 }

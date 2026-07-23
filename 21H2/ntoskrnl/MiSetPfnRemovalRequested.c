@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSetPfnRemovalRequested @ 0x14054F428
+ * XREFs of MiSetPfnRemovalRequested @ 0x14054F668
  * Callers:
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
- *     MiRemoveBadPages @ 0x14052EBC8 (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x14052F0F8 (MiUnlinkBadPages.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14052F930 (MmMarkPhysicalMemoryAsBad.c)
- *     MiMarkFileOnlyPfnBad @ 0x140541708 (MiMarkFileOnlyPfnBad.c)
- *     MiMakePageBad @ 0x140563934 (MiMakePageBad.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
+ *     MiRemoveBadPages @ 0x14052EE08 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x14052F338 (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052FB70 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiMarkFileOnlyPfnBad @ 0x140541948 (MiMarkFileOnlyPfnBad.c)
+ *     MiMakePageBad @ 0x140563B74 (MiMakePageBad.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  */
 
 void __fastcall MiSetPfnRemovalRequested(__int64 a1, int a2)
@@ -32,7 +32,7 @@ void __fastcall MiSetPfnRemovalRequested(__int64 a1, int a2)
     }
     else
     {
-      v5 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)) + 16LL)
+      v5 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)) + 16LL)
          + 4544LL * *((unsigned int *)MiSearchNumaNodeTable((a1 + 0x58000000000LL) / 48) + 2);
       LockHandle.LockQueue.Next = 0LL;
       LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v5 + 4328);

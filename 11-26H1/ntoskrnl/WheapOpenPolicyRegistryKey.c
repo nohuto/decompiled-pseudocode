@@ -1,16 +1,16 @@
 /*
- * XREFs of WheapOpenPolicyRegistryKey @ 0x140CE86F0
+ * XREFs of WheapOpenPolicyRegistryKey @ 0x140CEEA90
  * Callers:
- *     WheapSetPolicyValue @ 0x140849D14 (WheapSetPolicyValue.c)
- *     WheapLoadPolicy @ 0x140CE85FC (WheapLoadPolicy.c)
+ *     WheapSetPolicyValue @ 0x140850024 (WheapSetPolicyValue.c)
+ *     WheapLoadPolicy @ 0x140CEE99C (WheapLoadPolicy.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     RtlCreateRegistryKey @ 0x140804BF0 (RtlCreateRegistryKey.c)
- *     RtlCheckRegistryKey @ 0x140A10F50 (RtlCheckRegistryKey.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     RtlCreateRegistryKey @ 0x14080A690 (RtlCreateRegistryKey.c)
+ *     RtlCheckRegistryKey @ 0x140A10140 (RtlCheckRegistryKey.c)
  */
 
 __int64 WheapOpenPolicyRegistryKey()
@@ -71,7 +71,7 @@ LABEL_8:
     goto LABEL_8;
   }
   if ( _InterlockedCompareExchange64(
-         (volatile signed __int64 *)&CmpCallbackListLock.WaitBlock[2].Object,
+         (volatile signed __int64 *)&CmpContextListLock.WaitBlock[1].Object,
          (signed __int64)KeyHandle,
          0LL) )
   {

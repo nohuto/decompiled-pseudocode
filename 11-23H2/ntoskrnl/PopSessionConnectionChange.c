@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSessionConnectionChange @ 0x1407EB984
+ * XREFs of PopSessionConnectionChange @ 0x1407EBC54
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14032A6AC (PopPrintEx.c)
+ *     PopPrintEx @ 0x14032A93C (PopPrintEx.c)
  *     PopSessionDisconnected @ 0x140683338 (PopSessionDisconnected.c)
- *     PopSessionConnected @ 0x1407EB7DC (PopSessionConnected.c)
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
+ *     PopSessionConnected @ 0x1407EBAAC (PopSessionConnected.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
  */
 
 __int64 __fastcall PopSessionConnectionChange(__int64 a1, char *a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PopSessionConnectionChange(__int64 a1, char *a2, __int64 a3)
   v9 = "Console";
   if ( !v5 )
     v9 = "Remote";
-  PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>>%s session %u is %s\n", v9, v4, v8);
+  PopPrintEx(3u, (__int64)"PopAdaptive:>>>>>%s session %u is %s\n", v9, v4, v8);
   if ( v3 )
     PopSessionConnected(v4, (__int64)a2, a3);
   else

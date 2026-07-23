@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxCompleteDevicePowerNotRequired @ 0x1404D6040
+ * XREFs of PoFxCompleteDevicePowerNotRequired @ 0x1404CF810
  * Callers:
- *     DifPoFxCompleteDevicePowerNotRequiredWrapper @ 0x140692EB0 (DifPoFxCompleteDevicePowerNotRequiredWrapper.c)
+ *     DifPoFxCompleteDevicePowerNotRequiredWrapper @ 0x140696A90 (DifPoFxCompleteDevicePowerNotRequiredWrapper.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxQueueWorkOrder @ 0x14039486C (PopFxQueueWorkOrder.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxQueueWorkOrder @ 0x1403965EC (PopFxQueueWorkOrder.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
  */
 
 void __fastcall PoFxCompleteDevicePowerNotRequired(ULONG_PTR BugCheckParameter2)

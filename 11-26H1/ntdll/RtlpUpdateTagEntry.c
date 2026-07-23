@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpUpdateTagEntry @ 0x180022CF8
+ * XREFs of RtlpUpdateTagEntry @ 0x18000DDC8
  * Callers:
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
- *     RtlpReAllocateHeap @ 0x1800216E0 (RtlpReAllocateHeap.c)
- *     RtlpFreeHeap @ 0x1800233D0 (RtlpFreeHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
+ *     RtlpReAllocateHeap @ 0x18000C7B0 (RtlpReAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x18000E4A0 (RtlpFreeHeap.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x1409802F0
+ * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x140968B00
  * Callers:
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x140AB060C (HvpPerformLogFileRecovery.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x140AAB57C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpFileFlushAndPurge @ 0x140981014 (CmpFileFlushAndPurge.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x140BB97A0 (HvpHeaderCheckSum.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpFileFlushAndPurge @ 0x140969824 (CmpFileFlushAndPurge.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     HvpHeaderCheckSum @ 0x140BBB7A0 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, char a2, char a3)
@@ -21,11 +21,7 @@ __int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, char a2, 
   __int64 v12; // rdx
   _OWORD *v13; // rcx
   __int128 v14; // xmm1
-  _DWORD v15[2]; // [rsp+30h] [rbp-28h] BYREF
-  _DWORD *v16; // [rsp+38h] [rbp-20h]
-  int v17; // [rsp+40h] [rbp-18h]
 
-  v15[1] = 0;
   if ( *(_QWORD *)(a1 + 1544) )
   {
     if ( a3 )
@@ -34,7 +30,7 @@ __int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, char a2, 
     }
     else
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x1000uLL, 0x6F494D43u);
       if ( !Pool2 )
         return (unsigned int)-1073741801;
       v11 = *(_OWORD **)(a1 + 64);
@@ -64,10 +60,7 @@ __int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, char a2, 
     Pool2[2] = v8;
     Pool2[1] = v7;
     Pool2[127] = HvpHeaderCheckSum(Pool2);
-    v15[0] = 0;
-    v16 = Pool2;
-    v17 = 4096;
-    v9 = guard_dispatch_icall_no_overrides(a1, 0LL, v15, 1LL);
+    v9 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v9 >= 0 )
     {
       v9 = CmpFileFlushAndPurge(a1, 0LL);

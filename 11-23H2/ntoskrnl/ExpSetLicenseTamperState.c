@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpSetLicenseTamperState @ 0x1406093E4
+ * XREFs of ExpSetLicenseTamperState @ 0x140609934
  * Callers:
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14080F86C (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     ExSetLicenseTamperState @ 0x1409F9730 (ExSetLicenseTamperState.c)
- *     sub_1409F9A40 @ 0x1409F9A40 (sub_1409F9A40.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA694 (SLUpdateLicenseDataInternal.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14080FB3C (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     ExSetLicenseTamperState @ 0x1409F99C0 (ExSetLicenseTamperState.c)
+ *     sub_1409F9CD0 @ 0x1409F9CD0 (sub_1409F9CD0.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409FA924 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     ExpSetKernelDataProtection @ 0x1407AE830 (ExpSetKernelDataProtection.c)
+ *     ExpSetKernelDataProtection @ 0x1407AEA20 (ExpSetKernelDataProtection.c)
  */
 
 __int64 __fastcall ExpSetLicenseTamperState(__int64 a1, int a2)

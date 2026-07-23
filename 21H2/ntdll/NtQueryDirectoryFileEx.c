@@ -1,16 +1,26 @@
 /*
- * XREFs of NtQueryDirectoryFileEx @ 0x18009FE90
+ * XREFs of NtQueryDirectoryFileEx @ 0x18009FE50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryDirectoryFileEx()
+NTSTATUS __cdecl NtQueryDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass,
+        ULONG QueryFlags,
+        PUNICODE_STRING FileName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 323LL;
+  result = 323;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

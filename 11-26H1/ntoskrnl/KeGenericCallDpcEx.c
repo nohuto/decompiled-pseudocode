@@ -1,34 +1,34 @@
 /*
- * XREFs of KeGenericCallDpcEx @ 0x1403C2284
+ * XREFs of KeGenericCallDpcEx @ 0x1403CC184
  * Callers:
- *     MiFreeUnusedSlabPages @ 0x1402A7510 (MiFreeUnusedSlabPages.c)
- *     MiJumpStack @ 0x1403C12B0 (MiJumpStack.c)
- *     KeSetSystemTime @ 0x1403C1C20 (KeSetSystemTime.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
- *     MiDemoteSlabEntries @ 0x140506A84 (MiDemoteSlabEntries.c)
- *     ?KiAbpCrossThreadDelete@LegacyAutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z @ 0x1405FD95C (-KiAbpCrossThreadDelete@LegacyAutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z.c)
- *     ExpTrackTableInsertLimit @ 0x1406CCD60 (ExpTrackTableInsertLimit.c)
- *     MiFreeUnusedPfnPages @ 0x1406E88D0 (MiFreeUnusedPfnPages.c)
- *     MiGetBadPageResources @ 0x1406F1108 (MiGetBadPageResources.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1406F7A10 (MiInitializeWorkingSetManagerParameters.c)
- *     MiDeleteSlabEntriesForIdentity @ 0x1407067E0 (MiDeleteSlabEntriesForIdentity.c)
- *     MiZeroPageCalibrate @ 0x140710F80 (MiZeroPageCalibrate.c)
- *     ExpCapturePoolTrackTablesPrecise @ 0x140774D38 (ExpCapturePoolTrackTablesPrecise.c)
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
- *     MmSetPermanentCacheAttribute @ 0x14086A7F0 (MmSetPermanentCacheAttribute.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x14087EC30 (MiSpecialPurposeMemoryRemoved.c)
- *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x14087EEE0 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
- *     ExpAeThresholdInitialization @ 0x140CE7794 (ExpAeThresholdInitialization.c)
+ *     MiFreeUnusedSlabPages @ 0x1402A6920 (MiFreeUnusedSlabPages.c)
+ *     MiJumpStack @ 0x1403CB1B0 (MiJumpStack.c)
+ *     KeSetSystemTime @ 0x1403CBB20 (KeSetSystemTime.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
+ *     MiDemoteSlabEntries @ 0x140500334 (MiDemoteSlabEntries.c)
+ *     ?KiAbpCrossThreadDelete@LegacyAutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z @ 0x1406003AC (-KiAbpCrossThreadDelete@LegacyAutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z.c)
+ *     ExpTrackTableInsertLimit @ 0x1406D0D90 (ExpTrackTableInsertLimit.c)
+ *     MiFreeUnusedPfnPages @ 0x1406ED570 (MiFreeUnusedPfnPages.c)
+ *     MiGetBadPageResources @ 0x1406F5D78 (MiGetBadPageResources.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1406FC6DC (MiInitializeWorkingSetManagerParameters.c)
+ *     MiDeleteSlabEntriesForIdentity @ 0x14070B4B0 (MiDeleteSlabEntriesForIdentity.c)
+ *     MiZeroPageCalibrate @ 0x140715C7C (MiZeroPageCalibrate.c)
+ *     ExpCapturePoolTrackTablesPrecise @ 0x140777D38 (ExpCapturePoolTrackTablesPrecise.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
+ *     MmSetPermanentCacheAttribute @ 0x140870BD0 (MmSetPermanentCacheAttribute.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x140885030 (MiSpecialPurposeMemoryRemoved.c)
+ *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x1408852E0 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
+ *     ExpAeThresholdInitialization @ 0x140CEDB34 (ExpAeThresholdInitialization.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiAcquireDpcCorralLock @ 0x1403C2470 (KiAcquireDpcCorralLock.c)
- *     KiInitiateGenericCallDpc @ 0x1403C24E8 (KiInitiateGenericCallDpc.c)
- *     KiReleaseDpcCorralLock @ 0x1403C25D0 (KiReleaseDpcCorralLock.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiCpuPartitionCheckGenericDpc @ 0x1405F4330 (KiCpuPartitionCheckGenericDpc.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiAcquireDpcCorralLock @ 0x1403CC370 (KiAcquireDpcCorralLock.c)
+ *     KiInitiateGenericCallDpc @ 0x1403CC3E8 (KiInitiateGenericCallDpc.c)
+ *     KiReleaseDpcCorralLock @ 0x1403CC4D0 (KiReleaseDpcCorralLock.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiCpuPartitionCheckGenericDpc @ 0x1405F6CF0 (KiCpuPartitionCheckGenericDpc.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeGenericCallDpcEx(__int64 a1, __int64 a2)
@@ -44,7 +44,7 @@ __int64 __fastcall KeGenericCallDpcEx(__int64 a1, __int64 a2)
   int v13; // [rsp+8Ch] [rbp+3Bh]
   _QWORD v14[3]; // [rsp+90h] [rbp+3Fh] BYREF
 
-  if ( (WORD2(xmmword_140FBFC10) & 0x200) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x200) != 0 )
     KiCpuPartitionCheckGenericDpc();
   memset_0(BugCheckParameter2, 0, 0x58uLL);
   v9[0] = a1;

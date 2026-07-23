@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitializeSystemHivesLoad @ 0x14084B198
+ * XREFs of CmpInitializeSystemHivesLoad @ 0x1408514A8
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     CmpCreateRegistryThread @ 0x140856F70 (CmpCreateRegistryThread.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     CmpCreateRegistryThread @ 0x14085D308 (CmpCreateRegistryThread.c)
  */
 
 void CmpInitializeSystemHivesLoad()
@@ -20,13 +20,13 @@ void CmpInitializeSystemHivesLoad()
 
   Handle = 0LL;
   BYTE1(NlsMbOemCodePageTag) = 0;
-  KeInitializeEvent((PRKEVENT)&CmpCallbackListLock.SchedulingGroup, SynchronizationEvent, 0);
-  KeInitializeEvent((PRKEVENT)&CmpCallbackListLock.FirstArgument, SynchronizationEvent, 0);
+  KeInitializeEvent((PRKEVENT)&CmpContextListLock.SystemCallNumber, SynchronizationEvent, 0);
+  KeInitializeEvent((PRKEVENT)&CmpContextListLock.StateSaveArea, SynchronizationEvent, 0);
   for ( i = 0; i < 7; ++i )
   {
     v2 = 23LL * i;
     if ( ((__int64)CmpMachineHiveList[v2 + 4] & 1) != 0
-      || LOBYTE(WheapPfaLock.ThreadLock)
+      || LOBYTE(WheapPfaLock.CurrentRunTime)
       || CmpForceSynchronousMachineHiveLoad
       || ((i - 2) & 0xFFFFFFFA) == 0 )
     {

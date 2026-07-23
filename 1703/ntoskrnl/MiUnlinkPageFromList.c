@@ -568,7 +568,7 @@ LABEL_105:
       LOBYTE(v67) = 1;
       v68 = (__int64)(BugCheckParameter2 + 0x58000000000LL) / 48;
       v69 = v68 & 0x1F;
-      v70 = (volatile signed __int32 *)(qword_14036C978 + 4 * (v68 >> 5));
+      v70 = (volatile signed __int32 *)stru_14036C970.Buffer + (v68 >> 5);
       if ( (v68 & 0x1F) + 1 > 0x20 )
       {
         if ( (v68 & 0x1F) == 0 )

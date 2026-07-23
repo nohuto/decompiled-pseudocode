@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceThermalRequestPassiveUpdate @ 0x1408EBA90
+ * XREFs of PopDiagTraceThermalRequestPassiveUpdate @ 0x1408EBBF0
  * Callers:
- *     PoSetThermalPassiveCooling @ 0x1408E2A10 (PoSetThermalPassiveCooling.c)
+ *     PoSetThermalPassiveCooling @ 0x1408E2B70 (PoSetThermalPassiveCooling.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceThermalRequestPassiveUpdate(__int64 a1)

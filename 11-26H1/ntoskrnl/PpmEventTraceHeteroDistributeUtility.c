@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x14060ECFC
+ * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x140611DFC
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x140259CF0 (PpmHeteroDistributeUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x14025B4D0 (PpmHeteroDistributeUtility.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a3)
@@ -31,9 +31,7 @@ void __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a
   v8 = 0;
   if ( PpmEventPerfCheckData && PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_HETERO_DISTRIBUTE_UTILITY) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_HETERO_DISTRIBUTE_UTILITY) )
     {
       PpmEventAddAffinityMaskAsSubset(
         0LL,
@@ -51,15 +49,7 @@ void __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a
       v7 = v5 + 1;
       UserData[v7].Ptr = (ULONGLONG)&v14;
       *(_QWORD *)&UserData[v7].Size = 1LL;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_HETERO_DISTRIBUTE_UTILITY,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        v5 + 2,
-        UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_HETERO_DISTRIBUTE_UTILITY, 0LL, 0, 0LL, 0LL, v5 + 2, UserData);
     }
   }
 }

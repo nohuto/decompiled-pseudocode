@@ -1,21 +1,21 @@
 /*
- * XREFs of BgpFwDisplayBugCheckScreen @ 0x1406730C4
+ * XREFs of BgpFwDisplayBugCheckScreen @ 0x140673614
  * Callers:
- *     KiDisplayBlueScreen @ 0x14056A134 (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x14056A7F4 (KiDisplayBlueScreen.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     BgpGxDrawRectangle @ 0x14038524C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
- *     IoSaveBugCheckProgress @ 0x1405509E0 (IoSaveBugCheckProgress.c)
- *     BgpClearScreen @ 0x140671AF0 (BgpClearScreen.c)
- *     BcpDisplayCriticalCharacter @ 0x140672240 (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x14067230C (BcpDisplayCriticalString.c)
- *     BcpDisplayErrorInformation @ 0x140672674 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x140672900 (BcpDisplayProgress.c)
- *     BcpGetComponentOffsets @ 0x140672B10 (BcpGetComponentOffsets.c)
- *     BcpGetDisplayType @ 0x140672CA0 (BcpGetDisplayType.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x140B9D7AC (BcpDisplayEarlyBugCheckScreen.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     BgpGxDrawRectangle @ 0x14038542C (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
+ *     IoSaveBugCheckProgress @ 0x1405510A0 (IoSaveBugCheckProgress.c)
+ *     BgpClearScreen @ 0x140672040 (BgpClearScreen.c)
+ *     BcpDisplayCriticalCharacter @ 0x140672790 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x14067285C (BcpDisplayCriticalString.c)
+ *     BcpDisplayErrorInformation @ 0x140672BC4 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x140672E50 (BcpDisplayProgress.c)
+ *     BcpGetComponentOffsets @ 0x140673060 (BcpGetComponentOffsets.c)
+ *     BcpGetDisplayType @ 0x1406731F0 (BcpGetDisplayType.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x140B9D7B0 (BcpDisplayEarlyBugCheckScreen.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckScreen(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5)

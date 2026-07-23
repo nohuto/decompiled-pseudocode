@@ -1,9 +1,9 @@
 /*
- * XREFs of PspRequestProcessExecutionState @ 0x140AF9C6C
+ * XREFs of PspRequestProcessExecutionState @ 0x140AFC0F8
  * Callers:
- *     PspSetProcessFreezeStateCallback @ 0x140615EE0 (PspSetProcessFreezeStateCallback.c)
- *     PsSwapProcessWorkingSet @ 0x1407F0C88 (PsSwapProcessWorkingSet.c)
- *     PspRemoveProcessFromJobChain @ 0x140959638 (PspRemoveProcessFromJobChain.c)
+ *     PspSetProcessFreezeStateCallback @ 0x140618E70 (PspSetProcessFreezeStateCallback.c)
+ *     PsSwapProcessWorkingSet @ 0x1407F67E8 (PsSwapProcessWorkingSet.c)
+ *     PspRemoveProcessFromJobChain @ 0x1409FEEF8 (PspRemoveProcessFromJobChain.c)
  * Callees:
  *     <none>
  */

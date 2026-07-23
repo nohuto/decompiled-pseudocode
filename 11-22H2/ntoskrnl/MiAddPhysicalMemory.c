@@ -263,7 +263,7 @@ LABEL_93:
           if ( (v7 & 0x80) == 0 )
             MiEnableNewPfns((volatile signed __int64 *)a1, v12, v13, v7);
           if ( stru_140C673E8.Header.SignalState && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
-            ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL);
+            ZwUpdateWnfStateData(&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0, 0LL, 0LL, 0, 0);
           KePulseEvent(qword_140C6B660, 0, 0);
         }
         v10 = 0;

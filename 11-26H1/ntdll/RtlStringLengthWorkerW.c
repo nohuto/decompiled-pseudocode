@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringLengthWorkerW @ 0x1800DFF7C
+ * XREFs of RtlStringLengthWorkerW @ 0x1800DCEC4
  * Callers:
- *     RtlpValidRelativeAttribute @ 0x180124520 (RtlpValidRelativeAttribute.c)
+ *     RtlpValidRelativeAttribute @ 0x180124290 (RtlpValidRelativeAttribute.c)
  * Callees:
  *     <none>
  */

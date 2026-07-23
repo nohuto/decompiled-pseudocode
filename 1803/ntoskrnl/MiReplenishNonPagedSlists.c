@@ -15,20 +15,20 @@ __int64 __fastcall MiReplenishNonPagedSlists(__int128 *a1, unsigned int a2, __in
   unsigned __int64 v8; // rbp
   __int64 v9; // rdx
   __int64 v10; // rdi
-  struct _SLIST_ENTRY *v11; // rbx
+  _SLIST_ENTRY *v11; // rbx
   __int64 v12; // r13
-  struct _SLIST_ENTRY *v13; // r15
+  _SLIST_ENTRY *v13; // r15
   __int16 v14; // r12
-  union _SLIST_HEADER *v15; // r14
+  _SLIST_HEADER *v15; // r14
   __int64 ClearBitsAndSet; // rax
   unsigned __int64 v17; // rbx
-  struct _SLIST_ENTRY *v18; // rax
-  union _SLIST_HEADER *v20; // [rsp+20h] [rbp-58h]
+  _SLIST_ENTRY *v18; // rax
+  _SLIST_HEADER *v20; // [rsp+20h] [rbp-58h]
   __int64 v21; // [rsp+20h] [rbp-58h]
-  struct _SLIST_ENTRY *v22; // [rsp+28h] [rbp-50h]
-  union _SLIST_HEADER *ListHead; // [rsp+30h] [rbp-48h]
+  _SLIST_ENTRY *v22; // [rsp+28h] [rbp-50h]
+  _SLIST_HEADER *ListHead; // [rsp+30h] [rbp-48h]
   __int128 v24; // [rsp+38h] [rbp-40h] BYREF
-  struct _SLIST_ENTRY *v26; // [rsp+A0h] [rbp+28h]
+  _SLIST_ENTRY *v26; // [rsp+A0h] [rbp+28h]
 
   v20 = &qword_1403CB6A8[25 * a2];
   ListHead = &v20[a5 + 3];
@@ -66,9 +66,9 @@ __int64 __fastcall MiReplenishNonPagedSlists(__int128 *a1, unsigned int a2, __in
       ++v12;
       *(_QWORD *)v17 = v17 ^ qword_1403CC500;
       a4 = a5 + v21;
-      v18 = (struct _SLIST_ENTRY *)(v17 + 16);
+      v18 = (_SLIST_ENTRY *)(v17 + 16);
       *(_QWORD *)(v17 + 16) = v13;
-      v13 = (struct _SLIST_ENTRY *)(v17 + 16);
+      v13 = (_SLIST_ENTRY *)(v17 + 16);
       if ( v22 )
         v18 = v26;
       v26 = v18;

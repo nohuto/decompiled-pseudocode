@@ -20,11 +20,15 @@ HRESULT __stdcall StringVPrintfWorkerW(
   wchar_t *v8; // edi
   HRESULT v9; // ebx
   int v10; // eax
+  _BYTE v12[12]; // [esp-Ch] [ebp-18h]
+  va_list v13; // [esp+0h] [ebp-Ch]
 
   v7 = v5 - 1;
   v8 = v6;
+  *(_QWORD *)&v12[4] = cchDest;
   v9 = 0;
-  v10 = _vsnwprintf(v6, v5 - 1, (const wchar_t *)cchDest, (va_list)pcchNewDestLength);
+  *(_DWORD *)v12 = v5 - 1;
+  v10 = _vsnwprintf(v6, *(size_t *)v12, (const wchar_t *)HIDWORD(cchDest), v13);
   if ( v10 < 0 || v10 > v7 )
   {
     v9 = -2147024774;

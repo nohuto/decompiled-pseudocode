@@ -1,14 +1,14 @@
 /*
- * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x1404C998C
+ * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x1404C2E3C
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1407663B8 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x140765D88 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PopRecordPowerWatchdogBlackboxInformation()
@@ -20,13 +20,13 @@ void PopRecordPowerWatchdogBlackboxInformation()
   KIRQL v4; // bp
   bool v5; // zf
   int v6; // edx
-  __int64 v7; // rdi
+  ULONG_PTR v7; // rdi
   _DWORD *Pool2; // rax
   _DWORD *v9; // r14
   __int64 i; // rsi
   __int128 InputBuffer; // [rsp+30h] [rbp-38h] BYREF
   __int128 v12; // [rsp+40h] [rbp-28h]
-  unsigned __int64 v13; // [rsp+70h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+8h] BYREF
 
   InputBuffer = 0LL;
   v12 = 0LL;
@@ -55,7 +55,7 @@ LABEL_13:
   else
   {
     v7 = 80LL * (unsigned int)(v6 - 1) + 96;
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, v7, 0x42424F50u);
     v3 = Pool2;
     if ( Pool2 )
     {
@@ -69,7 +69,8 @@ LABEL_13:
         {
           *v9 = *(_DWORD *)(i + 16);
           *((_QWORD *)v9 + 9) = *(_QWORD *)(i + 288);
-          v9[1] = (RtlGetInterruptTimePrecise(&v13) - *(_QWORD *)(i + 296)) / 0x2710uLL;
+          v9[1] = (unsigned __int64)(*(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) - *(_QWORD *)(i + 296))
+                / 0x2710;
           v9[2] = *(_DWORD *)(i + 216);
           v9[3] = *(_DWORD *)(i + 224);
           *((_QWORD *)v9 + 2) = *(_QWORD *)(i + 232);

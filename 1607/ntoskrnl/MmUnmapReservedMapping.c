@@ -1,20 +1,20 @@
 /*
- * XREFs of MmUnmapReservedMapping @ 0x1401E4198
+ * XREFs of MmUnmapReservedMapping @ 0x1401E3FC4
  * Callers:
- *     SmFpFree @ 0x14011ADA8 (SmFpFree.c)
- *     sub_1401581C8 @ 0x1401581C8 (sub_1401581C8.c)
- *     PnprCopyReservedMapping @ 0x1401D0094 (PnprCopyReservedMapping.c)
- *     PnprSwap @ 0x1401D0914 (PnprSwap.c)
- *     PspIumFreePhysicalPages @ 0x140210218 (PspIumFreePhysicalPages.c)
+ *     SmFpFree @ 0x14011B318 (SmFpFree.c)
+ *     sub_140158738 @ 0x140158738 (sub_140158738.c)
+ *     PnprCopyReservedMapping @ 0x1401CFEC0 (PnprCopyReservedMapping.c)
+ *     PnprSwap @ 0x1401D0740 (PnprSwap.c)
+ *     PspIumFreePhysicalPages @ 0x140210044 (PspIumFreePhysicalPages.c)
  *     PnprMapPhysicalPages @ 0x1403DBDEC (PnprMapPhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1406AA264 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1406AA39C (EtwpSavePersistedLogger.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiRetardMdl @ 0x1401E2EB0 (MiRetardMdl.c)
- *     MiUnmapMdlCommon @ 0x1401E3CF0 (MiUnmapMdlCommon.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiRetardMdl @ 0x1401E2CDC (MiRetardMdl.c)
+ *     MiUnmapMdlCommon @ 0x1401E3B1C (MiUnmapMdlCommon.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL MemoryDescriptorList)
@@ -39,8 +39,8 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
   BugCheckParameter4 = (((LODWORD(MemoryDescriptorList->StartVa) + MemoryDescriptorList->ByteOffset) & 0xFFF)
                       + (unsigned __int64)MemoryDescriptorList->ByteCount
                       + 4095) >> 12;
-  v7 = ExAcquireSpinLockShared(&dword_140327568);
-  v8 = qword_140327570;
+  v7 = ExAcquireSpinLockShared(&dword_1403275A8);
+  v8 = qword_1403275B0;
   v9 = v3 & 0xFFFFFFFFFFFFF000uLL;
   while ( 1 )
   {
@@ -57,7 +57,7 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
       break;
     v8 = *(_QWORD *)v8;
   }
-  ExReleaseSpinLockShared(&dword_140327568, v7);
+  ExReleaseSpinLockShared(&dword_1403275A8, v7);
   if ( *(_DWORD *)(v8 + 40) != (_DWORD)v4 )
     KeBugCheckEx(0xDAu, 0x102uLL, v3, v4, BugCheckParameter4);
   v11 = *(_QWORD *)(v8 + 32);

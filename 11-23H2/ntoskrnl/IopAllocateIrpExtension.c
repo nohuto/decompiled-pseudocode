@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAllocateIrpExtension @ 0x14029080C
+ * XREFs of IopAllocateIrpExtension @ 0x140290A9C
  * Callers:
- *     IopSetCopyInformationExtension @ 0x14028F96C (IopSetCopyInformationExtension.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290350 (IopSetDiskIoAttributionExtension.c)
- *     IoSetActivityIdIrp @ 0x1402905A0 (IoSetActivityIdIrp.c)
- *     IoPropagateIrpExtensionEx @ 0x140290620 (IoPropagateIrpExtensionEx.c)
- *     IopSetDriverFlagsExtension @ 0x1402907C0 (IopSetDriverFlagsExtension.c)
- *     IoSetGenericIrpExtension @ 0x140394120 (IoSetGenericIrpExtension.c)
- *     IopPerfCallDriver @ 0x14045F88A (IopPerfCallDriver.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140558C80 (IoClearAdapterCryptoEngineExtension.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x140558D80 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsTrackOffsetState @ 0x140558DE0 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140558E80 (IoSetFsZeroingOffsetRequired.c)
- *     ViGetContextPointer @ 0x140AC407C (ViGetContextPointer.c)
+ *     IopSetCopyInformationExtension @ 0x14028FBFC (IopSetCopyInformationExtension.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402905E0 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetActivityIdIrp @ 0x140290830 (IoSetActivityIdIrp.c)
+ *     IoPropagateIrpExtensionEx @ 0x1402908B0 (IoPropagateIrpExtensionEx.c)
+ *     IopSetDriverFlagsExtension @ 0x140290A50 (IopSetDriverFlagsExtension.c)
+ *     IoSetGenericIrpExtension @ 0x140394300 (IoSetGenericIrpExtension.c)
+ *     IopPerfCallDriver @ 0x14045FC8A (IopPerfCallDriver.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140559340 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140559440 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x1405594A0 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140559540 (IoSetFsZeroingOffsetRequired.c)
+ *     ViGetContextPointer @ 0x140AC406C (ViGetContextPointer.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

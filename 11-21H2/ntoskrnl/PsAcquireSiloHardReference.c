@@ -1,8 +1,8 @@
 /*
  * XREFs of PsAcquireSiloHardReference @ 0x14020B190
  * Callers:
- *     IopAllocateFoExtensionsOnCreate @ 0x14071CAFC (IopAllocateFoExtensionsOnCreate.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
+ *     sub_14071CAFC @ 0x14071CAFC (sub_14071CAFC.c)
+ *     sub_14072B8B0 @ 0x14072B8B0 (sub_14072B8B0.c)
  * Callees:
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  */

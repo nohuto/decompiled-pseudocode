@@ -1,23 +1,23 @@
 /*
- * XREFs of TpCallbackSendAlpcMessageOnCompletion @ 0x1800437A0
+ * XREFs of TpCallbackSendAlpcMessageOnCompletion @ 0x18002DD10
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall TpCallbackSendAlpcMessageOnCompletion(__int64 a1, __int64 a2, int a3, unsigned __int16 *a4)
 {
   __int64 v8; // rax
   unsigned int v9; // r14d
-  void *Heap_0; // rax
+  PVOID Heap_0; // rax
 
   if ( a1 && (v8 = *(_QWORD *)(a1 + 136)) != 0 && *(_QWORD *)(v8 + 272) == a2 && (*(_BYTE *)(a1 + 228) & 1) == 0 )
   {
     v9 = a4[1];
-    Heap_0 = (void *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x80000), a4[1]);
+    Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x80000, a4[1]);
     *(_QWORD *)(a1 + 208) = Heap_0;
     if ( Heap_0 )
     {

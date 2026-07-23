@@ -9,77 +9,77 @@
  *     RtlTryAcquireSRWLockShared @ 0x180069730 (RtlTryAcquireSRWLockShared.c)
  */
 
-_QWORD *__fastcall EtwpFindRegistration(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+_RTL_SRWLOCK *__fastcall EtwpFindRegistration(__int64 a1, __int16 a2)
 {
-  __int64 v4; // rdi
-  int v5; // esi
-  _QWORD *v6; // rbx
-  int v7; // eax
-  __int64 v8; // rax
-  _QWORD *v10; // rax
-  _QWORD *v11; // rcx
-  __int64 v12; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v13; // [rsp+28h] [rbp-10h]
+  __int64 v2; // rdi
+  int v3; // esi
+  _RTL_SRWLOCK *v4; // rbx
+  int v5; // eax
+  __int64 v6; // rax
+  _RTL_SRWLOCK *Value; // rax
+  _RTL_SRWLOCK *v9; // rcx
+  __int64 v10; // [rsp+20h] [rbp-18h] BYREF
+  __int16 v11; // [rsp+28h] [rbp-10h]
 
-  v12 = a1;
-  v13 = a2;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpProvLock, a2, a3, a4);
-  v4 = EtwpRegistrationTable;
-  v5 = qword_180160410 & 1;
-  v6 = 0LL;
-  while ( v4 )
+  v10 = a1;
+  v11 = a2;
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  v2 = (__int64)EtwpRegistrationTable;
+  v3 = qword_180160410 & 1;
+  v4 = 0LL;
+  while ( v2 )
   {
-    v7 = EtwpRegistrationCompare((__int64)&v12, v4);
-    if ( v7 >= 0 )
+    v5 = EtwpRegistrationCompare((__int64)&v10, v2);
+    if ( v5 >= 0 )
     {
-      if ( v7 > 0 )
+      if ( v5 > 0 )
       {
-        v8 = *(_QWORD *)(v4 + 8);
+        v6 = *(_QWORD *)(v2 + 8);
         goto LABEL_6;
       }
-      v6 = (_QWORD *)v4;
+      v4 = (_RTL_SRWLOCK *)v2;
     }
-    v8 = *(_QWORD *)v4;
+    v6 = *(_QWORD *)v2;
 LABEL_6:
-    if ( v5 && v8 )
-      v4 ^= v8;
+    if ( v3 && v6 )
+      v2 ^= v6;
     else
-      v4 = v8;
+      v2 = v6;
   }
-  if ( v6 )
+  if ( v4 )
   {
-    while ( !(unsigned __int8)RtlTryAcquireSRWLockShared(v6 + 9) )
+    while ( !RtlTryAcquireSRWLockShared(v4 + 9) )
     {
-      v10 = (_QWORD *)v6[1];
-      v11 = v6;
-      if ( v10 )
+      Value = (_RTL_SRWLOCK *)v4[1].Value;
+      v9 = v4;
+      if ( Value )
       {
         do
         {
-          v6 = v10;
-          v10 = (_QWORD *)*v10;
+          v4 = Value;
+          Value = (_RTL_SRWLOCK *)Value->Value;
         }
-        while ( v10 );
+        while ( Value );
       }
       else
       {
         while ( 1 )
         {
-          v6 = (_QWORD *)(v6[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !v6 || (_QWORD *)*v6 == v11 )
+          v4 = (_RTL_SRWLOCK *)(v4[2].Value & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !v4 || (_RTL_SRWLOCK *)v4->Value == v9 )
             break;
-          v11 = v6;
+          v9 = v4;
         }
       }
-      if ( !v6 || EtwpRegistrationCompare((__int64)&v12, (__int64)v6) )
+      if ( !v4 || EtwpRegistrationCompare((__int64)&v10, (__int64)v4) )
         goto LABEL_13;
     }
   }
   else
   {
 LABEL_13:
-    v6 = 0LL;
+    v4 = 0LL;
   }
   RtlReleaseSRWLockExclusive(&EtwpProvLock);
-  return v6;
+  return v4;
 }

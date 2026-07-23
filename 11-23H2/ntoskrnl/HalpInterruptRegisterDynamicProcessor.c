@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptRegisterDynamicProcessor @ 0x140504CDC
+ * XREFs of HalpInterruptRegisterDynamicProcessor @ 0x14050522C
  * Callers:
- *     HalRegisterDynamicProcessor @ 0x1405068F0 (HalRegisterDynamicProcessor.c)
+ *     HalRegisterDynamicProcessor @ 0x140506E40 (HalRegisterDynamicProcessor.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
  */
 
 __int64 HalpInterruptRegisterDynamicProcessor()

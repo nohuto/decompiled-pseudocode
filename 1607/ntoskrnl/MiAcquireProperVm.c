@@ -1,22 +1,22 @@
 /*
- * XREFs of MiAcquireProperVm @ 0x1400A4200
+ * XREFs of MiAcquireProperVm @ 0x1400A2B28
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x140018E50 (MiTrimSharedPageFromViews.c)
- *     MiDbgCopyMemory @ 0x1400836B8 (MiDbgCopyMemory.c)
- *     MiTranslatePageForCopy @ 0x1401E4C54 (MiTranslatePageForCopy.c)
+ *     MiTrimSharedPageFromViews @ 0x1400189D0 (MiTrimSharedPageFromViews.c)
+ *     MiDbgCopyMemory @ 0x140084338 (MiDbgCopyMemory.c)
+ *     MiTranslatePageForCopy @ 0x1401E4A80 (MiTranslatePageForCopy.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiRecheckVaWorkingSet @ 0x14001F3F8 (MiRecheckVaWorkingSet.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiFaultPteIntact @ 0x1400A44BC (MiFaultPteIntact.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiRecheckVaWorkingSet @ 0x14001EF78 (MiRecheckVaWorkingSet.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiFaultPteIntact @ 0x1400A2DE4 (MiFaultPteIntact.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiAcquireProperVm(unsigned __int64 a1, _BYTE *a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MiAcquireProperVm(unsigned __int64 a1, _BYTE *a2)
     --v4;
   }
   while ( v4 );
-  ExAcquireSpinLockShared(&dword_140326D38);
+  ExAcquireSpinLockShared(&dword_140326D78);
   v8 = *(KIRQL **)((unsigned __int64)&v25 & 0xFFFFFFFFFFFFFFC0uLL);
   v9 = 0LL;
   v10 = 3;
@@ -77,7 +77,7 @@ __int64 __fastcall MiAcquireProperVm(unsigned __int64 a1, _BYTE *a2)
     }
   }
   while ( v5 );
-  if ( a1 >= qword_140326910 && a1 < qword_140326910 + 0x8000000000LL )
+  if ( a1 >= qword_140326950 && a1 < qword_140326950 + 0x8000000000LL )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
     if ( Process[1].ActiveProcessors.Bitmap[2] && Process != PsInitialSystemProcess )
@@ -86,17 +86,17 @@ __int64 __fastcall MiAcquireProperVm(unsigned __int64 a1, _BYTE *a2)
       goto LABEL_13;
     }
 LABEL_37:
-    ExReleaseSpinLockShared(&dword_140326D38, v12);
+    ExReleaseSpinLockShared(&dword_140326D78, v12);
     return v9;
   }
-  if ( qword_140326C80 && a1 >= qword_140326C80 && a1 < qword_140326C80 + (qword_140326C60 << 21) )
+  if ( qword_140326CC0 && a1 >= qword_140326CC0 && a1 < qword_140326CC0 + (qword_140326CA0 << 21) )
   {
     v13 = 0;
   }
-  else if ( a1 >= qword_140327F30 && a1 < qword_140327F30 + 0xF8000000000LL
-         || qword_140326C30
-         && a1 >= qword_140326C30
-         && a1 < qword_140326C30 + (qword_140326C10 << 21)
+  else if ( a1 >= qword_140327F70 && a1 < qword_140327F70 + 0xF8000000000LL
+         || qword_140326C70
+         && a1 >= qword_140326C70
+         && a1 < qword_140326C70 + (qword_140326C50 << 21)
          && (*(_BYTE *)(48 * ((*v3 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFDALL) & 0xF0) == 0x70 )
   {
     v13 = 2;
@@ -107,12 +107,12 @@ LABEL_37:
   }
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(v13);
 LABEL_13:
-  ExReleaseSpinLockShared(&dword_140326D38, v12);
+  ExReleaseSpinLockShared(&dword_140326D78, v12);
   SharedVm = MiGetSharedVm((__int64)AnyMultiplexedVm);
   v16 = ExAcquireSpinLockExclusive(SharedVm);
   SharedVm[1] = 0;
   *v8 = v16;
-  ExAcquireSpinLockSharedAtDpcLevel(&dword_140326D38);
+  ExAcquireSpinLockSharedAtDpcLevel(&dword_140326D78);
   while ( 1 )
   {
     v17 = MI_READ_PTE_LOCK_FREE(*(_QWORD *)(((unsigned __int64)&v25 & 0xFFFFFFFFFFFFFFC0uLL)
@@ -122,7 +122,7 @@ LABEL_13:
       break;
     if ( v17 < 0 )
     {
-      ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D38);
+      ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D78);
       LOBYTE(v23) = *v8;
       MiUnlockWorkingSetExclusive((__int64)AnyMultiplexedVm, v23);
       return 1LL;
@@ -138,7 +138,7 @@ LABEL_13:
         {
           if ( (((unsigned __int8)AnyMultiplexedVm[184] ^ *(_BYTE *)(v19 + 184)) & 7) == 0 )
           {
-            ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D38);
+            ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D78);
             return v20;
           }
         }
@@ -146,7 +146,7 @@ LABEL_13:
       break;
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D38);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D78);
   LOBYTE(v24) = *v8;
   MiUnlockWorkingSetExclusive((__int64)AnyMultiplexedVm, v24);
   return 0LL;

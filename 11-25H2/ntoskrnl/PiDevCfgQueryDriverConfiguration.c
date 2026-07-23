@@ -312,7 +312,7 @@ LABEL_77:
     *(_DWORD *)(a1 + 184) |= 1u;
     goto LABEL_78;
   }
-  ObjectProperties = RtlStringFromGUIDEx((unsigned int *)(a1 + 240), a1 + 256, 1);
+  ObjectProperties = RtlStringFromGUIDEx((PGUID)(a1 + 240), (PUNICODE_STRING)(a1 + 256), 1u);
   if ( ObjectProperties >= 0 )
     goto LABEL_60;
 LABEL_78:

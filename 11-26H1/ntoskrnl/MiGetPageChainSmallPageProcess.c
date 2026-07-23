@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetPageChainSmallPageProcess @ 0x140287AA0
+ * XREFs of MiGetPageChainSmallPageProcess @ 0x140287000
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeLinkedListPte @ 0x140365844 (MiMakeLinkedListPte.c)
- *     MiPerformFinalZeroing @ 0x140513B9C (MiPerformFinalZeroing.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x140C80058 (MxGetPhase0Mapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeLinkedListPte @ 0x1403675E4 (MiMakeLinkedListPte.c)
+ *     MiPerformFinalZeroing @ 0x14050D60C (MiPerformFinalZeroing.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140C86058 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiGetPageChainSmallPageProcess(__int64 a1, _QWORD *a2, __int64 a3)
@@ -58,7 +58,7 @@ __int64 __fastcall MiGetPageChainSmallPageProcess(__int64 a1, _QWORD *a2, __int6
   v7 = (*(_DWORD *)(a1 + 48) >> 18) & 3;
   v8 = 48 * a3 - 0x220000000000LL;
   v9 = (*(_DWORD *)(v8 + 32) >> 22) & 3;
-  if ( v9 != (_DWORD)v7 && ((unsigned __int8)((1 << v9) | (1 << v7)) & (unsigned __int8)byte_140E2D798) != 0 )
+  if ( v9 != (_DWORD)v7 && ((unsigned __int8)((1 << v9) | (1 << v7)) & (unsigned __int8)byte_140E2D918) != 0 )
   {
     *(_QWORD *)(v8 + 16) = MiMakeLinkedListPte(*a2);
     v25 = ++v5[3] == 16LL;
@@ -79,7 +79,7 @@ __int64 __fastcall MiGetPageChainSmallPageProcess(__int64 a1, _QWORD *a2, __int6
     v32 = (*(_DWORD *)(v8 + 32) >> 22) & 3;
     v13 = v12 != 0 ? 0x10 : 0;
     v36 = v13;
-    v14 = *(_DWORD *)(qword_140E2D6B8
+    v14 = *(_DWORD *)(qword_140E2D838
                     + 384LL * (unsigned int)MiPageToNode(48 * a3 / 48)
                     + 4 * (v7 + 4LL * ((*(_DWORD *)(v8 + 32) >> 22) & 3))
                     + 120);

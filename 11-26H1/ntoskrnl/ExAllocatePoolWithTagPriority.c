@@ -1,12 +1,12 @@
 /*
- * XREFs of ExAllocatePoolWithTagPriority @ 0x140465B80
+ * XREFs of ExAllocatePoolWithTagPriority @ 0x14045ECF0
  * Callers:
- *     VerifierExAllocatePoolWithTagPriority @ 0x140C2FCC0 (VerifierExAllocatePoolWithTagPriority.c)
- *     VerifierPortExAllocatePoolWithTagPriority @ 0x140C39760 (VerifierPortExAllocatePoolWithTagPriority.c)
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
+ *     VerifierExAllocatePoolWithTagPriority @ 0x140C35CD0 (VerifierExAllocatePoolWithTagPriority.c)
+ *     VerifierPortExAllocatePoolWithTagPriority @ 0x140C3F770 (VerifierPortExAllocatePoolWithTagPriority.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 PVOID __stdcall ExAllocatePoolWithTagPriority(

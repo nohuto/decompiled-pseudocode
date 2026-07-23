@@ -1,15 +1,15 @@
 /*
- * XREFs of KiScheduleThreadToRescheduleContext @ 0x140298F10
+ * XREFs of KiScheduleThreadToRescheduleContext @ 0x1402A7A00
  * Callers:
- *     KiAttemptToStealStandbyThread @ 0x140297D94 (KiAttemptToStealStandbyThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiEnterLongDpcProcessing @ 0x140298AA4 (KiEnterLongDpcProcessing.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
- *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403E1850 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
+ *     KiAttemptToStealStandbyThread @ 0x1402A6884 (KiAttemptToStealStandbyThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiEnterLongDpcProcessing @ 0x1402A7594 (KiEnterLongDpcProcessing.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
+ *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403C9EC0 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
  * Callees:
- *     KiIsPrcbThread @ 0x1403CA0D0 (KiIsPrcbThread.c)
- *     KiInsertDeferredReadyList @ 0x1403CBE30 (KiInsertDeferredReadyList.c)
+ *     KiIsPrcbThread @ 0x1402A6700 (KiIsPrcbThread.c)
+ *     KiInsertDeferredReadyList @ 0x1403BC660 (KiInsertDeferredReadyList.c)
  */
 
 __int64 __fastcall KiScheduleThreadToRescheduleContext(
@@ -86,7 +86,7 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
           v32 = v31 - 1;
           if ( v29 == a3 )
           {
-            if ( v32 <= 0xFFFFFFFFFFFFFFFCuLL && !(unsigned __int8)KiIsPrcbThread(v31) )
+            if ( v32 <= 0xFFFFFFFFFFFFFFFCuLL && !KiIsPrcbThread(v31) )
             {
               if ( (v30[49] & 1) != 0 )
                 *(_DWORD *)(v42 + 116) |= 2u;
@@ -100,13 +100,13 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
             *((_QWORD *)v30 + 5) = a2;
             v30[48] = (v33 & 0xFD ^ (2 * v34)) & 0xC3 | 4;
             v30[49] ^= (a4 ^ v30[49]) & 1;
-            if ( !(unsigned __int8)KiIsPrcbThread(a2) )
+            if ( !KiIsPrcbThread(a2) )
               *(_DWORD *)(a2 + 536) = *(_DWORD *)(v29 + 36);
           }
           else
           {
             v35 = *(_QWORD *)(v29 + 36480);
-            if ( v32 <= 0xFFFFFFFFFFFFFFFCuLL && !(unsigned __int8)KiIsPrcbThread(v31) )
+            if ( v32 <= 0xFFFFFFFFFFFFFFFCuLL && !KiIsPrcbThread(v31) )
             {
               if ( (v30[49] & 1) != 0 )
                 *(_DWORD *)(v43 + 116) |= 2u;
@@ -124,7 +124,7 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
             v30[48] = v38;
             v30[49] &= ~1u;
             *((_QWORD *)v30 + 5) = v35;
-            if ( !(unsigned __int8)KiIsPrcbThread(v35) )
+            if ( !KiIsPrcbThread(v35) )
               *(_DWORD *)(v35 + 536) = *(_DWORD *)(v29 + 36);
           }
           ++v7;
@@ -166,7 +166,7 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
         v18 = v17 - 1;
         if ( v15 == a3 )
         {
-          if ( v18 <= 0xFFFFFFFFFFFFFFFCuLL && !(unsigned __int8)KiIsPrcbThread(v17) )
+          if ( v18 <= 0xFFFFFFFFFFFFFFFCuLL && !KiIsPrcbThread(v17) )
           {
             if ( (v16[49] & 1) != 0 )
               *(_DWORD *)(v41 + 116) |= 2u;
@@ -180,13 +180,13 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
           *((_QWORD *)v16 + 5) = a2;
           v16[48] = (v27 & 0xFD ^ (2 * v28)) & 0xC3 | 4;
           v16[49] ^= (a4 ^ v16[49]) & 1;
-          if ( !(unsigned __int8)KiIsPrcbThread(a2) )
+          if ( !KiIsPrcbThread(a2) )
             *(_DWORD *)(a2 + 536) = *(_DWORD *)(v15 + 36);
         }
         else
         {
           v19 = *(_QWORD *)(v15 + 24);
-          if ( v18 <= 0xFFFFFFFFFFFFFFFCuLL && !(unsigned __int8)KiIsPrcbThread(v17) )
+          if ( v18 <= 0xFFFFFFFFFFFFFFFCuLL && !KiIsPrcbThread(v17) )
           {
             if ( (v16[49] & 1) != 0 )
               *(_DWORD *)(v40 + 116) |= 2u;
@@ -200,7 +200,7 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
           v16[49] &= ~1u;
           *((_QWORD *)v16 + 5) = v19;
           v16[48] = (v20 & 0xFD ^ (2 * ((v21 & 2) != 0))) & 0xC3 | 4;
-          if ( !(unsigned __int8)KiIsPrcbThread(v19) )
+          if ( !KiIsPrcbThread(v19) )
             *(_DWORD *)(v19 + 536) = *(_DWORD *)(v15 + 36);
         }
         ++v7;

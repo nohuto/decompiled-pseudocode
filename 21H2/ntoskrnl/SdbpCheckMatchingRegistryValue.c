@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpCheckMatchingRegistryValue @ 0x14096484C
+ * XREFs of SdbpCheckMatchingRegistryValue @ 0x140964A2C
  * Callers:
- *     SdbpCheckMatchingRegistryEntry @ 0x14096466C (SdbpCheckMatchingRegistryEntry.c)
- *     SdbpCheckMatchingWildcardRegistryEntry @ 0x14096549C (SdbpCheckMatchingWildcardRegistryEntry.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x14096484C (SdbpCheckMatchingRegistryEntry.c)
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x14096567C (SdbpCheckMatchingWildcardRegistryEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     AslStringPatternMatchW @ 0x14075371C (AslStringPatternMatchW.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslStringDuplicate @ 0x14075A8A4 (AslStringDuplicate.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     AslStringPatternMatchW @ 0x1407538DC (AslStringPatternMatchW.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslStringDuplicate @ 0x14075AA64 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingRegistryValue(

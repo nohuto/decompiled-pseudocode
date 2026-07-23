@@ -18,9 +18,9 @@
  *     _RtlpHpSizeHeap@12 @ 0x4B37999D (_RtlpHpSizeHeap@12.c)
  */
 
-int __stdcall RtlSizeHeap(int a1, int a2, int a3)
+SIZE_T __cdecl RtlSizeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  int v3; // edx
+  ULONG v3; // edx
   unsigned int v4; // ecx
   char v5; // al
   unsigned int v6; // edx
@@ -28,50 +28,54 @@ int __stdcall RtlSizeHeap(int a1, int a2, int a3)
   char v8; // dl
   int v9; // edi
   int v10; // ecx
-  unsigned int v13; // edx
-  int v14; // eax
-  unsigned __int16 v15; // ax
+  SIZE_T result; // rax
+  unsigned int v12; // edx
+  int v13; // eax
+  unsigned __int16 v14; // ax
+  int v15; // eax
   int v16; // eax
-  int v17; // eax
-  int v18; // eax
-  int v19; // edi
-  struct _TEB *v20; // esi
-  int v21; // eax
-  int v22; // [esp+Ch] [ebp-4h]
+  int v17; // edi
+  struct _TEB *v18; // esi
+  int v19; // [esp+Ch] [ebp-4h]
 
-  if ( !a1 )
-    RtlpLogHeapFailure(a3, 0, 0, 0);
-  if ( *(_DWORD *)(a1 + 8) == -571548178 )
+  if ( !HeapHandle )
+    RtlpLogHeapFailure(BaseAddress, 0, 0, 0);
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
   {
-    if ( (RtlpHpAppCompatFlags & 2) != 0 && a3 )
-      v22 = *(_DWORD *)(a3 - 8);
+    if ( (RtlpHpAppCompatFlags & 2) != 0 && BaseAddress )
+      v19 = *((_DWORD *)BaseAddress - 2);
     else
-      v22 = 0;
-    v17 = RtlpHpConvertFlagsToSegmentFlags(a2);
-    v18 = RtlpHpSizeHeap(v17);
-    v19 = v18;
-    if ( v18 != -1 )
-      return v18 - v22;
-    RtlpLogHeapFailure(a3, 0, 0, 0);
-    return v19;
+      v19 = 0;
+    v16 = RtlpHpConvertFlagsToSegmentFlags(Flags);
+    LODWORD(result) = RtlpHpSizeHeap(v16);
+    v17 = result;
+    if ( (_DWORD)result == -1 )
+      RtlpLogHeapFailure(BaseAddress, 0, 0, 0);
+    else
+      v17 = result - v19;
+    LODWORD(result) = v17;
+    return result;
   }
-  v3 = a2 | *(_DWORD *)(a1 + 68);
+  v3 = Flags | *((_DWORD *)HeapHandle + 17);
   if ( (v3 & 0x61000000) != 0 && (v3 & 0x10000000) == 0 )
-    return RtlDebugSizeHeap(a3);
-  if ( (*(_BYTE *)(a1 + 72) & 1) != 0 )
   {
-    v4 = RtlpProbeUserBufferSafe(a1, a3);
+    LODWORD(result) = RtlDebugSizeHeap(BaseAddress);
+    return result;
+  }
+  if ( (*((_BYTE *)HeapHandle + 72) & 1) != 0 )
+  {
+    v4 = RtlpProbeUserBufferSafe((int)HeapHandle, (int)BaseAddress);
   }
   else
   {
-    if ( (a3 & 7) != 0 )
+    if ( ((unsigned __int8)BaseAddress & 7) != 0 )
     {
-      RtlpLogHeapFailure(a3, 0, 0, 0);
+      RtlpLogHeapFailure(BaseAddress, 0, 0, 0);
     }
     else
     {
-      v4 = a3 - 8;
-      if ( *(_BYTE *)(a3 - 1) == 5 )
+      v4 = (unsigned int)BaseAddress - 8;
+      if ( *((char *)BaseAddress - 1) == 5 )
         v4 -= 8 * *(unsigned __int8 *)(v4 + 6);
       if ( (*(_BYTE *)(v4 + 7) & 0x3F) != 0 )
         goto LABEL_9;
@@ -85,25 +89,26 @@ LABEL_9:
     v5 = *(_BYTE *)(v4 + 7);
     if ( v5 == 4 )
     {
-      if ( *(_DWORD *)(a1 + 76) )
+      if ( *((_DWORD *)HeapHandle + 19) )
       {
-        v21 = *(_DWORD *)v4;
-        if ( (*(_DWORD *)v4 & *(_DWORD *)(a1 + 76)) != 0 )
-          v21 ^= *(_DWORD *)(a1 + 80);
+        LODWORD(result) = *(_DWORD *)v4;
+        if ( (*(_DWORD *)v4 & *((_DWORD *)HeapHandle + 19)) != 0 )
+          LODWORD(result) = *((_DWORD *)HeapHandle + 20) ^ result;
       }
       else
       {
-        LOWORD(v21) = *(_WORD *)v4;
+        LOWORD(result) = *(_WORD *)v4;
       }
-      return *(_DWORD *)(v4 - 8) - (unsigned __int16)v21;
+      HIDWORD(result) = *(_DWORD *)(v4 - 8) - (unsigned __int16)result;
+      goto LABEL_20;
     }
     if ( v5 >= 0 )
     {
-      if ( *(_DWORD *)(a1 + 76) )
+      if ( *((_DWORD *)HeapHandle + 19) )
       {
         v7 = *(_DWORD *)v4;
-        if ( (*(_DWORD *)v4 & *(_DWORD *)(a1 + 76)) != 0 )
-          v7 ^= *(_DWORD *)(a1 + 80);
+        if ( (*(_DWORD *)v4 & *((_DWORD *)HeapHandle + 19)) != 0 )
+          v7 ^= *((_DWORD *)HeapHandle + 20);
       }
       else
       {
@@ -112,7 +117,7 @@ LABEL_9:
     }
     else
     {
-      v6 = a1 ^ RtlpLFHKey ^ *(_DWORD *)v4 ^ (v4 >> 3);
+      v6 = (unsigned int)HeapHandle ^ RtlpLFHKey ^ *(_DWORD *)v4 ^ (v4 >> 3);
       if ( (_WORD)v6 )
         v7 = 0;
       else
@@ -123,7 +128,7 @@ LABEL_9:
     v9 = (unsigned __int16)v7;
     if ( v8 == 5 )
     {
-      v10 = *(unsigned __int16 *)(a1 + 84) ^ *(unsigned __int16 *)(v4 + 4);
+      v10 = *((unsigned __int16 *)HeapHandle + 42) ^ *(unsigned __int16 *)(v4 + 4);
     }
     else if ( (v8 & 0x40) != 0 )
     {
@@ -133,35 +138,40 @@ LABEL_9:
     {
       if ( v8 >= 0 )
       {
-        if ( *(_DWORD *)(a1 + 76) )
+        if ( *((_DWORD *)HeapHandle + 19) )
         {
-          v16 = *(_DWORD *)v4;
-          if ( (*(_DWORD *)v4 & *(_DWORD *)(a1 + 76)) != 0 )
-            v16 ^= *(_DWORD *)(a1 + 80);
-          v10 = *(_DWORD *)(v4 + 8 * (unsigned __int16)v16 - 4);
-          return 8 * v9 - v10;
+          v15 = *(_DWORD *)v4;
+          if ( (*(_DWORD *)v4 & *((_DWORD *)HeapHandle + 19)) != 0 )
+            v15 ^= *((_DWORD *)HeapHandle + 20);
+          v10 = *(_DWORD *)(v4 + 8 * (unsigned __int16)v15 - 4);
+          goto LABEL_19;
         }
-        v15 = *(_WORD *)v4;
+        v14 = *(_WORD *)v4;
       }
       else
       {
-        v13 = a1 ^ RtlpLFHKey ^ *(_DWORD *)v4 ^ (v4 >> 3);
-        if ( (_WORD)v13 )
-          v14 = 0;
+        v12 = (unsigned int)HeapHandle ^ RtlpLFHKey ^ *(_DWORD *)v4 ^ (v4 >> 3);
+        if ( (_WORD)v12 )
+          v13 = 0;
         else
-          v14 = *(_DWORD *)(v4 - (v13 >> 13));
-        v15 = *(_WORD *)(v14 + 20);
+          v13 = *(_DWORD *)(v4 - (v12 >> 13));
+        v14 = *(_WORD *)(v13 + 20);
       }
-      v10 = *(_DWORD *)(v4 + 8 * v15 - 4);
+      v10 = *(_DWORD *)(v4 + 8 * v14 - 4);
     }
     else
     {
       v10 = v8 & 0x3F;
     }
-    return 8 * v9 - v10;
+LABEL_19:
+    HIDWORD(result) = 8 * v9 - v10;
+LABEL_20:
+    LODWORD(result) = HIDWORD(result);
+    return result;
   }
-  v20 = NtCurrentTeb();
-  v20->LastStatusValue = -1073741811;
-  v20->LastErrorValue = RtlNtStatusToDosError(-1073741811);
-  return -1;
+  v18 = NtCurrentTeb();
+  v18->LastStatusValue = -1073741811;
+  v18->LastErrorValue = RtlNtStatusToDosError(-1073741811);
+  LODWORD(result) = -1;
+  return result;
 }

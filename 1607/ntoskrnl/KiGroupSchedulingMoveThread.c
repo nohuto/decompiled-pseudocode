@@ -1,12 +1,12 @@
 /*
- * XREFs of KiGroupSchedulingMoveThread @ 0x1400992DC
+ * XREFs of KiGroupSchedulingMoveThread @ 0x140098ADC
  * Callers:
- *     KiSearchForNewThreadOnProcessor @ 0x14005BD20 (KiSearchForNewThreadOnProcessor.c)
- *     KiGroupSchedulingMoveThread @ 0x1400992DC (KiGroupSchedulingMoveThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x14005B8A0 (KiSearchForNewThreadOnProcessor.c)
+ *     KiGroupSchedulingMoveThread @ 0x140098ADC (KiGroupSchedulingMoveThread.c)
  * Callees:
- *     KiGroupSchedulingMoveThread @ 0x1400992DC (KiGroupSchedulingMoveThread.c)
- *     KiRemoveThreadFromScbQueue @ 0x1400993E4 (KiRemoveThreadFromScbQueue.c)
- *     KiPrcbInGroupAffinity @ 0x1400CCD10 (KiPrcbInGroupAffinity.c)
+ *     KiGroupSchedulingMoveThread @ 0x140098ADC (KiGroupSchedulingMoveThread.c)
+ *     KiRemoveThreadFromScbQueue @ 0x140098BE4 (KiRemoveThreadFromScbQueue.c)
+ *     KiPrcbInGroupAffinity @ 0x1400CABB0 (KiPrcbInGroupAffinity.c)
  */
 
 __int64 __fastcall KiGroupSchedulingMoveThread(__int64 a1, __int64 a2, __int64 a3)

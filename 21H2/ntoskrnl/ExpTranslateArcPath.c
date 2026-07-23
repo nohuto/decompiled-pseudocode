@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTranslateArcPath @ 0x140951F98
+ * XREFs of ExpTranslateArcPath @ 0x140952168
  * Callers:
- *     NtTranslateFilePath @ 0x140955910 (NtTranslateFilePath.c)
+ *     NtTranslateFilePath @ 0x140955AE0 (NtTranslateFilePath.c)
  * Callees:
- *     ExpConvertArcName @ 0x14094F59C (ExpConvertArcName.c)
- *     ExpConvertSignatureName @ 0x14094F760 (ExpConvertSignatureName.c)
- *     ExpParseArcPathName @ 0x140950A68 (ExpParseArcPathName.c)
+ *     ExpConvertArcName @ 0x14094F76C (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x14094F930 (ExpConvertSignatureName.c)
+ *     ExpParseArcPathName @ 0x140950C38 (ExpParseArcPathName.c)
  */
 
 __int64 __fastcall ExpTranslateArcPath(__int64 a1, unsigned int a2, void *a3, __int64 a4)

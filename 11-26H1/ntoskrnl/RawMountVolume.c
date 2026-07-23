@@ -1,23 +1,23 @@
 /*
- * XREFs of RawMountVolume @ 0x140A35E6C
+ * XREFs of RawMountVolume @ 0x14091B1FC
  * Callers:
- *     RawFileSystemControl @ 0x140A35E00 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x14091AB10 (RawFileSystemControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
- *     PnpGetRelatedTargetDevice @ 0x1404A15E4 (PnpGetRelatedTargetDevice.c)
- *     IoReportTargetDeviceChangeAsynchronous @ 0x1404A4820 (IoReportTargetDeviceChangeAsynchronous.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
- *     RawScanDeletedList @ 0x140A36128 (RawScanDeletedList.c)
- *     RawInitializeVcb @ 0x140A36190 (RawInitializeVcb.c)
- *     IoCreateStreamFileObjectLite @ 0x140A36420 (IoCreateStreamFileObjectLite.c)
- *     RawCleanupVcb @ 0x140A36A0C (RawCleanupVcb.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
+ *     PnpGetRelatedTargetDevice @ 0x14049B114 (PnpGetRelatedTargetDevice.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x14049DEB0 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RawCleanupVcb @ 0x140919A0C (RawCleanupVcb.c)
+ *     IoCreateStreamFileObjectLite @ 0x14091AB80 (IoCreateStreamFileObjectLite.c)
+ *     RawInitializeVcb @ 0x14091AF1C (RawInitializeVcb.c)
+ *     RawScanDeletedList @ 0x14091B194 (RawScanDeletedList.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
  */
 
-NTSTATUS __fastcall RawMountVolume(_QWORD *a1)
+NTSTATUS __fastcall RawMountVolume(__int64 *a1)
 {
   __int64 v2; // r15
   NTSTATUS result; // eax
@@ -26,8 +26,8 @@ NTSTATUS __fastcall RawMountVolume(_QWORD *a1)
   int v6; // esi
   struct _FILE_OBJECT *StreamFileObjectLite; // r15
   struct _DEVICE_OBJECT *CurrentIrp; // r14
-  struct _LIST_ENTRY *p_Blink; // rbx
-  struct _LIST_ENTRY *Flink; // rax
+  _DISPATCHER_HEADER *p_Blink; // rbx
+  _DISPATCHER_HEADER *volatile Queue; // rax
   PDEVICE_OBJECT DeviceObject; // [rsp+40h] [rbp-78h] BYREF
   struct _FILE_OBJECT *v12; // [rsp+48h] [rbp-70h]
   PDEVICE_OBJECT v13; // [rsp+50h] [rbp-68h]
@@ -48,7 +48,7 @@ NTSTATUS __fastcall RawMountVolume(_QWORD *a1)
   v2 = a1[2];
   if ( *(_WORD *)(v2 + 304) > 0x1000u )
     return -1073741489;
-  result = IoCreateDevice(*(PDRIVER_OBJECT *)(a1[5] + 8LL), 0x160u, 0LL, 8u, 0, 0, &DeviceObject);
+  result = IoCreateDevice(*(PDRIVER_OBJECT *)(a1[5] + 8), 0x160u, 0LL, 8u, 0, 0, &DeviceObject);
   if ( result >= 0 )
   {
     v4 = *(_DWORD *)(v2 + 152);
@@ -58,7 +58,7 @@ NTSTATUS __fastcall RawMountVolume(_QWORD *a1)
     v5->SectorSize = *(_WORD *)(v2 + 304);
     v5->Flags |= 0x10u;
     v13 = v5 + 1;
-    v6 = RawInitializeVcb(&v5[1], a1[2], a1[1]);
+    v6 = RawInitializeVcb(&v5[1].Type, a1[2], a1[1]);
     if ( v6 < 0 )
     {
       RawCleanupVcb((PFSRTL_ADVANCED_FCB_HEADER)&v5[1]);
@@ -100,16 +100,16 @@ NTSTATUS __fastcall RawMountVolume(_QWORD *a1)
       ObfDereferenceObject(StreamFileObjectLite);
       *(&v5[1].Queue.Wcb.NumberOfMapRegisters + 1) -= 2;
       LODWORD(v5[1].Queue.Wcb.DeviceObject) -= 2;
-      ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
-      p_Blink = (struct _LIST_ENTRY *)&v5[1].DeviceQueue.DeviceListHead.Blink;
-      Flink = NormalizationListLock.Timer.Header.WaitListHead.Flink;
-      if ( NormalizationListLock.Timer.Header.WaitListHead.Flink->Blink != &NormalizationListLock.Timer.Header.WaitListHead )
+      ExAcquireFastMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
+      p_Blink = (_DISPATCHER_HEADER *)&v5[1].DeviceQueue.DeviceListHead.Blink;
+      Queue = NormalizationListLock.Queue;
+      if ( (_DISPATCHER_HEADER *volatile *)NormalizationListLock.Queue->WaitListHead.Flink != &NormalizationListLock.Queue )
         __fastfail(3u);
-      p_Blink->Flink = NormalizationListLock.Timer.Header.WaitListHead.Flink;
-      p_Blink->Blink = &NormalizationListLock.Timer.Header.WaitListHead;
-      Flink->Blink = p_Blink;
-      NormalizationListLock.Timer.Header.WaitListHead.Flink = p_Blink;
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.WaitStatus);
+      *(_QWORD *)&p_Blink->Lock = NormalizationListLock.Queue;
+      p_Blink->WaitListHead.Flink = (struct _LIST_ENTRY *)&NormalizationListLock.Queue;
+      Queue->WaitListHead.Flink = (struct _LIST_ENTRY *)p_Blink;
+      NormalizationListLock.Queue = p_Blink;
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&NormalizationListLock.Timer.Header.WaitListHead);
     }
     return v6;
   }

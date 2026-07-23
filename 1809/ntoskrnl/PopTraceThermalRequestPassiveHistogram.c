@@ -1,20 +1,20 @@
 /*
- * XREFs of PopTraceThermalRequestPassiveHistogram @ 0x1402E27CC
+ * XREFs of PopTraceThermalRequestPassiveHistogram @ 0x1402E29BC
  * Callers:
- *     PopCoolingTelemetryWorker @ 0x1402D6908 (PopCoolingTelemetryWorker.c)
- *     PopDeactiveThermalRequest @ 0x1408676AC (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x140867850 (PopOrphanCoolingExtension.c)
+ *     PopCoolingTelemetryWorker @ 0x1402D6AF8 (PopCoolingTelemetryWorker.c)
+ *     PopDeactiveThermalRequest @ 0x14086890C (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x140868AB0 (PopOrphanCoolingExtension.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PopDiagSnapPassiveHistogram @ 0x14014276C (PopDiagSnapPassiveHistogram.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PoStoreDiagnosticContext @ 0x1402D3270 (PoStoreDiagnosticContext.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PopDiagSnapPassiveHistogram @ 0x14014286C (PopDiagSnapPassiveHistogram.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PoStoreDiagnosticContext @ 0x1402D3460 (PoStoreDiagnosticContext.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopTraceThermalRequestPassiveHistogram(__int64 a1)
@@ -77,7 +77,7 @@ void __fastcall PopTraceThermalRequestPassiveHistogram(__int64 a1)
             v16 = v22;
             v17 = 84;
             v20 = 21;
-            TlgWrite(&pCallbackContext, &unk_14037034A, 0LL, 0LL, 7u, &pData);
+            TlgWrite(&pCallbackContext, &unk_1403712DA, 0LL, 0LL, 7u, &pData);
           }
         }
       }

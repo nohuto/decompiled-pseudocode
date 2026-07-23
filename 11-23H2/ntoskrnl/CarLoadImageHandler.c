@@ -1,13 +1,13 @@
 /*
- * XREFs of CarLoadImageHandler @ 0x1405D32D4
+ * XREFs of CarLoadImageHandler @ 0x1405D3844
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140ADA734 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x140ADA724 (VfSuspectDriversLoadCallback.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     CarCopyDriverName @ 0x1405D2778 (CarCopyDriverName.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     CarCopyDriverName @ 0x1405D2CE8 (CarCopyDriverName.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -47,9 +47,9 @@ void __fastcall CarLoadImageHandler(__int64 a1)
     CarDriverInfo = v3;
     if ( CarEtwEventBook )
     {
-      if ( (VfRuleClasses & 0x400000) != 0 && (unsigned int)dword_140C09328 > 5 )
+      if ( (VfRuleClasses & 0x400000) != 0 && (unsigned int)dword_140C09318 > 5 )
       {
-        if ( tlgKeywordOn((__int64)&dword_140C09328, 0x800000000000LL) )
+        if ( tlgKeywordOn((__int64)&dword_140C09318, 0x800000000000LL) )
         {
           v11 = 0;
           v4 = CarTipTag;
@@ -69,8 +69,8 @@ void __fastcall CarLoadImageHandler(__int64 a1)
           v17 = 8;
           v20 = 8;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C09328,
-            (unsigned __int8 *)byte_14003440B,
+            (__int64)&dword_140C09318,
+            (unsigned __int8 *)byte_140034669,
             0LL,
             0LL,
             7u,

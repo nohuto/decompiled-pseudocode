@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDqQueryApplyObjectEvent @ 0x140786C94
+ * XREFs of PiDqQueryApplyObjectEvent @ 0x140786E84
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x140786490 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x140786680 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x140741438 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryEvaluateFilter @ 0x140788354 (PiDqQueryEvaluateFilter.c)
- *     PiDqQueryFreeActiveData @ 0x1407DFD48 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x1407DFDB4 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1407E03B4 (PiDqQueryAddObjectToResultSet.c)
- *     PiDqQueryIsObjectInResultSet @ 0x1407E1C74 (PiDqQueryIsObjectInResultSet.c)
- *     PiDqQueryActionQueueEntryCreate @ 0x1407FA2B8 (PiDqQueryActionQueueEntryCreate.c)
- *     PiDqQueryAppendActionEntry @ 0x1407FA348 (PiDqQueryAppendActionEntry.c)
- *     PiDqSameUserHive @ 0x14095C570 (PiDqSameUserHive.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140741628 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqQueryEvaluateFilter @ 0x140788544 (PiDqQueryEvaluateFilter.c)
+ *     PiDqQueryFreeActiveData @ 0x1407E0018 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1407E0084 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x1407E0684 (PiDqQueryAddObjectToResultSet.c)
+ *     PiDqQueryIsObjectInResultSet @ 0x1407E1F44 (PiDqQueryIsObjectInResultSet.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x1407FA588 (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x1407FA618 (PiDqQueryAppendActionEntry.c)
+ *     PiDqSameUserHive @ 0x14095C770 (PiDqSameUserHive.c)
  */
 
 char __fastcall PiDqQueryApplyObjectEvent(__int64 a1, __int64 a2)

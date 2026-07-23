@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFillPteWithProto @ 0x1402BBEBC
+ * XREFs of MiFillPteWithProto @ 0x1402BC0AC
  * Callers:
  *     MiResolveSharedZeroFault @ 0x1400429B0 (MiResolveSharedZeroFault.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiUpdatePageTableUseCount @ 0x14010FBF8 (MiUpdatePageTableUseCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiUpdatePageTableUseCount @ 0x14010FC78 (MiUpdatePageTableUseCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiFillPteWithProto(unsigned __int64 a1, __int64 a2, int a3)
@@ -31,7 +31,7 @@ char __fastcall MiFillPteWithProto(unsigned __int64 a1, __int64 a2, int a3)
     if ( (_DWORD)CurrentThread )
     {
       v9 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_12;
       v10 = (v8 & 1) == 0;
     }

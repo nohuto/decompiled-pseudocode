@@ -1,16 +1,16 @@
 /*
- * XREFs of GetMicrocodePatchData @ 0x1406642C8
+ * XREFs of GetMicrocodePatchData @ 0x140662BB8
  * Callers:
- *     PrExtExportRecordData @ 0x140664014 (PrExtExportRecordData.c)
+ *     PrExtExportRecordData @ 0x140662904 (PrExtExportRecordData.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     MicrocodeInitLogging @ 0x1406647A0 (MicrocodeInitLogging.c)
- *     MicrocodePrePatchCheckAndLogging @ 0x140664878 (MicrocodePrePatchCheckAndLogging.c)
- *     IntelMicrocodeChecksumValidate @ 0x140664DA0 (IntelMicrocodeChecksumValidate.c)
- *     IntelMicrocodeGetRecordData @ 0x140664DEC (IntelMicrocodeGetRecordData.c)
- *     GetCpuManufacturer @ 0x140664FCC (GetCpuManufacturer.c)
- *     AMDMicrocodeGetRecordData @ 0x140665138 (AMDMicrocodeGetRecordData.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     MicrocodeInitLogging @ 0x140663090 (MicrocodeInitLogging.c)
+ *     MicrocodePrePatchCheckAndLogging @ 0x140663168 (MicrocodePrePatchCheckAndLogging.c)
+ *     IntelMicrocodeChecksumValidate @ 0x140663690 (IntelMicrocodeChecksumValidate.c)
+ *     IntelMicrocodeGetRecordData @ 0x1406636DC (IntelMicrocodeGetRecordData.c)
+ *     GetCpuManufacturer @ 0x1406638BC (GetCpuManufacturer.c)
+ *     AMDMicrocodeGetRecordData @ 0x140663A28 (AMDMicrocodeGetRecordData.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall GetMicrocodePatchData(__int64 a1, unsigned __int64 a2, __int64 a3, void **a4)
@@ -85,7 +85,7 @@ LABEL_17:
         result = IntelMicrocodeChecksumValidate(Src, LODWORD(Size[0]), v21, *((unsigned int *)Src + 1));
         if ( (int)result < 0 )
         {
-          HIDWORD(qword_140EF7840) = 8;
+          HIDWORD(qword_140EF7B00) = 8;
           return result;
         }
       }
@@ -102,7 +102,7 @@ LABEL_17:
   if ( !(unsigned __int8)GetCpuManufacturer(2LL) )
   {
 LABEL_22:
-    HIDWORD(qword_140EF7840) = 8;
+    HIDWORD(qword_140EF7B00) = 8;
     return 3221225659LL;
   }
   LODWORD(v19) = __readmsr(0x8Bu);
@@ -114,7 +114,7 @@ LABEL_22:
   if ( (int)AMDMicrocodeGetRecordData(a1, a2, Size, &Src) < 0 )
   {
 LABEL_39:
-    HIDWORD(qword_140EF7840) = 9;
+    HIDWORD(qword_140EF7B00) = 9;
     return 3221225659LL;
   }
   v4 = Src;

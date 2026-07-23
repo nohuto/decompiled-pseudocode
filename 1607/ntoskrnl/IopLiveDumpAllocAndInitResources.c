@@ -1,30 +1,30 @@
 /*
- * XREFs of IopLiveDumpAllocAndInitResources @ 0x1406266AC
+ * XREFs of IopLiveDumpAllocAndInitResources @ 0x140626760
  * Callers:
- *     IoCaptureLiveDump @ 0x140625F30 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x140625FE4 (IoCaptureLiveDump.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     RtlClearAllBitsEx @ 0x1400966C4 (RtlClearAllBitsEx.c)
- *     VslIsSecureKernelRunning @ 0x1400B5F98 (VslIsSecureKernelRunning.c)
- *     HvlGetHypervisorEncryptionDomain @ 0x140131F34 (HvlGetHypervisorEncryptionDomain.c)
- *     RtlSetAllBitsEx @ 0x14013B1F4 (RtlSetAllBitsEx.c)
- *     IopGetPhysicalMemoryBlock @ 0x140149BA4 (IopGetPhysicalMemoryBlock.c)
- *     HvlGetEncryptedDataDomains @ 0x14014C9E8 (HvlGetEncryptedDataDomains.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlPrepareLivedumpDescriptor @ 0x1401C054C (HvlPrepareLivedumpDescriptor.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x1401CAED8 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpTraceBufferAllocation @ 0x1401CAF3C (IopLiveDumpTraceBufferAllocation.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     RtlClearAllBitsEx @ 0x140095EC4 (RtlClearAllBitsEx.c)
+ *     VslIsSecureKernelRunning @ 0x1400B3DC0 (VslIsSecureKernelRunning.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     HvlGetHypervisorEncryptionDomain @ 0x1401324A4 (HvlGetHypervisorEncryptionDomain.c)
+ *     RtlSetAllBitsEx @ 0x14013B764 (RtlSetAllBitsEx.c)
+ *     IopGetPhysicalMemoryBlock @ 0x14014A114 (IopGetPhysicalMemoryBlock.c)
+ *     HvlGetEncryptedDataDomains @ 0x14014CF58 (HvlGetEncryptedDataDomains.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x1401C0430 (HvlPrepareLivedumpDescriptor.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1401CADBC (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpTraceBufferAllocation @ 0x1401CAE20 (IopLiveDumpTraceBufferAllocation.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     IopLiveDumpResetCorralContext @ 0x1403D6AF8 (IopLiveDumpResetCorralContext.c)
  *     IopLiveDumpEstimateMemoryPages @ 0x1403DAE30 (IopLiveDumpEstimateMemoryPages.c)
- *     MmAllocateIndependentPages @ 0x1404E6034 (MmAllocateIndependentPages.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x140626C5C (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpAllocateMappingResources @ 0x140626E3C (IopLiveDumpAllocateMappingResources.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140626F48 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpReleaseResources @ 0x1406272E8 (IopLiveDumpReleaseResources.c)
+ *     MmAllocateIndependentPages @ 0x1404C8A68 (MmAllocateIndependentPages.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140626D10 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x140626EF0 (IopLiveDumpAllocateMappingResources.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x140626FFC (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpReleaseResources @ 0x14062739C (IopLiveDumpReleaseResources.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
@@ -125,7 +125,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
   *(_QWORD *)(v16 + 48) = v17;
   *(_QWORD *)(a1 + 368) = v17;
   *(_QWORD *)(a1 + 376) = v16 + 56;
-  RtlClearAllBitsEx(a1 + 368);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 368));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 384), *(_QWORD *)(a1 + 392));
   v18 = ExAllocatePoolWithTag(NonPagedPoolNx, (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
   *(_QWORD *)(a1 + 456) = v18;
@@ -135,7 +135,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
     goto LABEL_2;
   *(_QWORD *)(a1 + 424) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 432) = v19;
-  RtlClearAllBitsEx(a1 + 424);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 424));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 456), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
   HypervisorEncryptionDomain = HvlGetHypervisorEncryptionDomain();
   if ( (unsigned int)EncryptedDataDomains < HypervisorEncryptionDomain )
@@ -161,7 +161,7 @@ LABEL_4:
     goto LABEL_2;
   *(_QWORD *)(a1 + 464) = *(_QWORD *)(a1 + 88);
   *(_QWORD *)(a1 + 472) = v23;
-  RtlClearAllBitsEx(a1 + 464);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 464));
   IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 480), (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL);
   for ( i = *(_QWORD *)(a1 + 56); i; i = *(_QWORD *)(i + 32) )
     IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(i + 16), *(unsigned int *)(i + 24));
@@ -244,7 +244,7 @@ LABEL_38:
     v46 = 0;
     v42 = (MEMORY[0xFFFFF78000000008] - v3) / 0x2710uLL;
     v44 = &v42;
-    TlgWrite(&stru_1402F3560, &unk_14027BA5E, (LPCGUID)(a1 + 624), (LPCGUID)(a1 + 608), 3u, &pData);
+    TlgWrite(&stru_1402F3560, &unk_14027BB5E, (LPCGUID)(a1 + 624), (LPCGUID)(a1 + 608), 3u, &pData);
   }
   if ( v2 )
     ExFreePoolWithTag(v2, 0);

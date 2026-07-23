@@ -1,12 +1,12 @@
 /*
- * XREFs of PoRegisterDeviceForIdleDetection @ 0x14007F3D8
+ * XREFs of PoRegisterDeviceForIdleDetection @ 0x14007F458
  * Callers:
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
  * Callees:
- *     PopCheckForWork @ 0x140009C44 (PopCheckForWork.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopGetDope @ 0x140145054 (PopGetDope.c)
+ *     PopCheckForWork @ 0x1400097C4 (PopCheckForWork.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopGetDope @ 0x1401455C4 (PopGetDope.c)
  */
 
 PULONG __stdcall PoRegisterDeviceForIdleDetection(
@@ -53,13 +53,13 @@ PULONG __stdcall PoRegisterDeviceForIdleDetection(
       if ( (_QWORD *)*v19 == v19 )
       {
         *(_DWORD *)(Dope + 56) = 1;
-        v20 = (_QWORD *)qword_140303B88;
-        if ( *(__int64 **)qword_140303B88 != &PopIdleDetectList )
+        v20 = (_QWORD *)qword_140303AC8;
+        if ( *(__int64 **)qword_140303AC8 != &PopIdleDetectList )
           __fastfail(3u);
         *v19 = &PopIdleDetectList;
         *(_QWORD *)(Dope + 40) = v20;
         *v20 = v19;
-        qword_140303B88 = Dope + 32;
+        qword_140303AC8 = Dope + 32;
       }
       KeReleaseSpinLock(&PopDopeGlobalLock, v18);
       PopCheckForWork();

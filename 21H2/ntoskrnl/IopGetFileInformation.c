@@ -1,19 +1,19 @@
 /*
- * XREFs of IopGetFileInformation @ 0x140620A14
+ * XREFs of IopGetFileInformation @ 0x14068A684
  * Callers:
  *     IopGetRelatedFileName @ 0x1405D87C8 (IopGetRelatedFileName.c)
- *     IopGetBasicInformationFile @ 0x1406088E8 (IopGetBasicInformationFile.c)
- *     IopQueryNameInternal @ 0x140620504 (IopQueryNameInternal.c)
- *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
+ *     IopGraftName @ 0x1405FDA74 (IopGraftName.c)
+ *     IopQueryNameInternal @ 0x14068A174 (IopQueryNameInternal.c)
+ *     IopGetBasicInformationFile @ 0x140698398 (IopGetBasicInformationFile.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x140355FE0 (IopQueueThreadIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
  */
 
 __int64 __fastcall IopGetFileInformation(

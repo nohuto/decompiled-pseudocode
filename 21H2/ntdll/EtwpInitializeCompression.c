@@ -5,23 +5,24 @@
  * Callees:
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     RtlGetCompressionWorkSpaceSize @ 0x1800812B0 (RtlGetCompressionWorkSpaceSize.c)
- *     ZwAllocateVirtualMemory @ 0x18009D940 (ZwAllocateVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x18009D900 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall EtwpInitializeCompression(__int64 a1)
+NTSTATUS __fastcall EtwpInitializeCompression(__int64 a1)
 {
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   int v3; // eax
-  unsigned int v5; // [rsp+40h] [rbp+8h]
-  __int64 v6; // [rsp+50h] [rbp+18h] BYREF
+  ULONG CompressBufferWorkSpaceSize; // [rsp+40h] [rbp+8h] BYREF
+  ULONG CompressFragmentWorkSpaceSize; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+18h] BYREF
 
-  RtlGetCompressionWorkSpaceSize(3LL);
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+  RtlGetCompressionWorkSpaceSize(3u, &CompressBufferWorkSpaceSize, &CompressFragmentWorkSpaceSize);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, CompressBufferWorkSpaceSize);
   *(_QWORD *)(a1 + 432) = Heap;
   if ( !Heap )
-    return 3221225495LL;
+    return -1073741801;
   v3 = *(_DWORD *)(a1 + 208);
   *(_DWORD *)(a1 + 448) = 2 * v3;
-  v6 = (unsigned int)(2 * v3);
-  return ZwAllocateVirtualMemory(-1LL, a1 + 440, 0LL, &v6, 4096, 4);
+  RegionSize = (unsigned int)(2 * v3);
+  return ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(a1 + 440), 0LL, &RegionSize, 0x1000u, 4u);
 }

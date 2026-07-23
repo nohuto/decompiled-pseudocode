@@ -14,9 +14,9 @@
  *     SepFindMatchingLowBoxNumberEntries @ 0x140731310 (SepFindMatchingLowBoxNumberEntries.c)
  */
 
-char __fastcall SeIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
+BOOLEAN __fastcall SeIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
 {
-  char IsParentOfChildAppContainer; // di
+  BOOLEAN IsParentOfChildAppContainer; // di
   char v5; // r12
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v8; // rax

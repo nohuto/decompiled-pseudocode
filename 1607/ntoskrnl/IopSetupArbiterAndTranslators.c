@@ -1,14 +1,14 @@
 /*
- * XREFs of IopSetupArbiterAndTranslators @ 0x140556FA8
+ * XREFs of IopSetupArbiterAndTranslators @ 0x1405574E8
  * Callers:
- *     IopResourceRequirementsListToReqList @ 0x140556A60 (IopResourceRequirementsListToReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140556FA0 (IopResourceRequirementsListToReqList.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopFindResourceHandlerInfo @ 0x140557390 (IopFindResourceHandlerInfo.c)
- *     IopFindLegacyBusDeviceNode @ 0x14055741C (IopFindLegacyBusDeviceNode.c)
- *     IopCallArbiter @ 0x140557474 (IopCallArbiter.c)
- *     IopQueryResourceHandlerInterface @ 0x14055753C (IopQueryResourceHandlerInterface.c)
- *     IopTranslateAndAdjustReqDesc @ 0x140557C18 (IopTranslateAndAdjustReqDesc.c)
+ *     IopFindResourceHandlerInfo @ 0x1405578D0 (IopFindResourceHandlerInfo.c)
+ *     IopFindLegacyBusDeviceNode @ 0x14055795C (IopFindLegacyBusDeviceNode.c)
+ *     IopCallArbiter @ 0x1405579B4 (IopCallArbiter.c)
+ *     IopQueryResourceHandlerInterface @ 0x140557A7C (IopQueryResourceHandlerInterface.c)
+ *     IopTranslateAndAdjustReqDesc @ 0x140558158 (IopTranslateAndAdjustReqDesc.c)
  */
 
 __int64 __fastcall IopSetupArbiterAndTranslators(unsigned int *a1, __int64 a2, __int64 a3)

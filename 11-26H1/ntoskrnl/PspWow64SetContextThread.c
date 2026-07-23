@@ -1,33 +1,33 @@
 /*
- * XREFs of PspWow64SetContextThread @ 0x140B796B0
+ * XREFs of PspWow64SetContextThread @ 0x140B81920
  * Callers:
- *     WbSetWowTrapFrame @ 0x1409EE100 (WbSetWowTrapFrame.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     WbSetWowTrapFrame @ 0x1409EA8D0 (WbSetWowTrapFrame.c)
  * Callees:
- *     KeSuspendThread @ 0x140208D48 (KeSuspendThread.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfAcquireRundownProtection @ 0x1402F05D0 (ExfAcquireRundownProtection.c)
- *     RtlInitializeExtendedContext2 @ 0x1403D66C0 (RtlInitializeExtendedContext2.c)
- *     RtlpValidateContextFlags @ 0x1403D6B50 (RtlpValidateContextFlags.c)
- *     RtlGetExtendedContextLength2 @ 0x1403D6D60 (RtlGetExtendedContextLength2.c)
- *     RtlpRemoveArchDisallowedXStateFeatures @ 0x14046CFC0 (RtlpRemoveArchDisallowedXStateFeatures.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     PsGetThreadTeb @ 0x1404851F0 (PsGetThreadTeb.c)
- *     PsMultiResumeThread @ 0x1404FE168 (PsMultiResumeThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWow64GetCpuAreaEnabledFeatures @ 0x1409EA900 (RtlWow64GetCpuAreaEnabledFeatures.c)
- *     PspSetContextThreadInternal @ 0x1409EC360 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1409EC6B0 (PspGetContextThreadInternal.c)
- *     RtlpReadExtendedContext @ 0x1409EE360 (RtlpReadExtendedContext.c)
- *     RtlCopyContext @ 0x140A32A50 (RtlCopyContext.c)
- *     RtlpWow64CtxFromAmd64 @ 0x140A58B50 (RtlpWow64CtxFromAmd64.c)
- *     EtwTiLogSetContextThread @ 0x140A7EE10 (EtwTiLogSetContextThread.c)
- *     RtlGuardIsValidWow64StackPointer @ 0x140AA99A8 (RtlGuardIsValidWow64StackPointer.c)
- *     RtlpWow64CtxToAmd64 @ 0x140AAC064 (RtlpWow64CtxToAmd64.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x140B792F0 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     KeSuspendThread @ 0x140208E28 (KeSuspendThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExfAcquireRundownProtection @ 0x1402D2650 (ExfAcquireRundownProtection.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitializeExtendedContext2 @ 0x1403D9690 (RtlInitializeExtendedContext2.c)
+ *     RtlpValidateContextFlags @ 0x1403D9B20 (RtlpValidateContextFlags.c)
+ *     RtlGetExtendedContextLength2 @ 0x1403D9D30 (RtlGetExtendedContextLength2.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x140466740 (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     PsGetThreadTeb @ 0x14047EB60 (PsGetThreadTeb.c)
+ *     PsMultiResumeThread @ 0x1404F76A8 (PsMultiResumeThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWow64GetCpuAreaEnabledFeatures @ 0x1409E70D0 (RtlWow64GetCpuAreaEnabledFeatures.c)
+ *     PspSetContextThreadInternal @ 0x1409E8B30 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1409E8E80 (PspGetContextThreadInternal.c)
+ *     RtlpReadExtendedContext @ 0x1409EAB30 (RtlpReadExtendedContext.c)
+ *     RtlCopyContext @ 0x140A4D9B0 (RtlCopyContext.c)
+ *     RtlpWow64CtxFromAmd64 @ 0x140A660D0 (RtlpWow64CtxFromAmd64.c)
+ *     EtwTiLogSetContextThread @ 0x140A84C80 (EtwTiLogSetContextThread.c)
+ *     RtlGuardIsValidWow64StackPointer @ 0x140AA5DB0 (RtlGuardIsValidWow64StackPointer.c)
+ *     RtlpWow64CtxToAmd64 @ 0x140AA9614 (RtlpWow64CtxToAmd64.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x140B81560 (PspWow64ReadOrWriteThreadCpuArea.c)
  */
 
 __int64 __fastcall PspWow64SetContextThread(PETHREAD Thread, _KLOCK_ENTRY_LOCK_STATE a2, int a3, char a4)
@@ -36,10 +36,10 @@ __int64 __fastcall PspWow64SetContextThread(PETHREAD Thread, _KLOCK_ENTRY_LOCK_S
   int ExtendedContextLength2; // ebx
   char v8; // al
   _KPROCESS *Process; // rax
-  unsigned __int64 v10; // r12
+  ULONG64 v10; // r12
   int ULongFromUser; // edi
   int v12; // eax
-  int v13; // edi
+  ULONG v13; // edi
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rcx
   void *v16; // rsp
@@ -47,7 +47,7 @@ __int64 __fastcall PspWow64SetContextThread(PETHREAD Thread, _KLOCK_ENTRY_LOCK_S
   __int64 v18; // rcx
   struct _KPROCESS *v19; // rbx
   void *ThreadTeb; // rax
-  int v21; // r14d
+  ULONG v21; // r14d
   unsigned __int64 v22; // rcx
   unsigned __int64 v23; // rcx
   void *v24; // rsp
@@ -63,7 +63,7 @@ __int64 __fastcall PspWow64SetContextThread(PETHREAD Thread, _KLOCK_ENTRY_LOCK_S
   unsigned __int64 v34; // rcx
   void *v35; // rsp
   void *v36; // rsp
-  unsigned __int64 CpuAreaEnabledFeatures; // rax
+  ULONG64 CpuAreaEnabledFeatures; // rax
   __int64 v38; // r8
   _RTL_BALANCED_NODE *v39; // r12
   char v40; // al
@@ -125,7 +125,7 @@ LABEL_15:
   *(_QWORD *)&v46.Entries[0].EntryFlags = 0LL;
   if ( a4 )
   {
-    ExtendedContextLength2 = RtlGetExtendedContextLength2(v13, (_DWORD *)&v46.Thread + 1, v10);
+    ExtendedContextLength2 = RtlGetExtendedContextLength2(v13, (PULONG)&v46.Thread + 1, v10);
     if ( ExtendedContextLength2 < 0 )
       goto LABEL_3;
     v14 = HIDWORD(v46.Thread) + 15LL;
@@ -136,7 +136,7 @@ LABEL_15:
     v17 = alloca(v15);
     v5 = (unsigned int *)&v46;
     v46.Entries[0].TreeNode.Children[0] = (_RTL_BALANCED_NODE *)&v46;
-    ExtendedContextLength2 = RtlInitializeExtendedContext2((__int64)&v46, v13, &v46.Entries[0].EntryFlags, v10);
+    ExtendedContextLength2 = RtlInitializeExtendedContext2((PCONTEXT)&v46, v13, (PCONTEXT_EX *)&v46.Entries[0].8, v10);
     if ( ExtendedContextLength2 < 0 )
       goto LABEL_3;
     ExtendedContextLength2 = RtlpReadExtendedContext(
@@ -171,7 +171,7 @@ LABEL_28:
   if ( !v10 )
     v21 = 1048607;
   HIDWORD(v46.Thread) = 0;
-  ExtendedContextLength2 = RtlGetExtendedContextLength2(v21, (_DWORD *)&v46.Thread + 1, v10);
+  ExtendedContextLength2 = RtlGetExtendedContextLength2(v21, (PULONG)&v46.Thread + 1, v10);
   if ( ExtendedContextLength2 < 0 )
     goto LABEL_3;
   v22 = HIDWORD(v46.Thread) + 15LL;
@@ -180,7 +180,11 @@ LABEL_28:
   v23 = v22 & 0xFFFFFFFFFFFFFFF0uLL;
   v24 = alloca(v23);
   v25 = alloca(v23);
-  ExtendedContextLength2 = RtlInitializeExtendedContext2((__int64)&v46, v21, &v46.Entries[0].TreeNode.Children[1], v10);
+  ExtendedContextLength2 = RtlInitializeExtendedContext2(
+                             (PCONTEXT)&v46,
+                             v21,
+                             (PCONTEXT_EX *)&v46.Entries[0].TreeNode.Children[1],
+                             v10);
   if ( ExtendedContextLength2 < 0 )
     goto LABEL_3;
   if ( Thread != KeGetCurrentThread() )
@@ -219,7 +223,7 @@ LABEL_28:
     v31 = 65663;
   v46.Entries[0].EntryFlags = v31;
   HIDWORD(v46.Thread) = 0;
-  ExtendedContextLength2 = RtlGetExtendedContextLength2(v31, (_DWORD *)&v46.Thread + 1, v10);
+  ExtendedContextLength2 = RtlGetExtendedContextLength2(v31, (PULONG)&v46.Thread + 1, v10);
   if ( ExtendedContextLength2 < 0 )
     goto LABEL_73;
   BYTE2(v46.Thread) = 0;
@@ -233,9 +237,9 @@ LABEL_28:
   v36 = alloca(v34);
   CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures((int *)&v46.Entries[0].8);
   RtlInitializeExtendedContext2(
-    (__int64)&v46,
+    (PCONTEXT)&v46,
     v46.Entries[0].EntryFlags,
-    &v46.Entries[0].TreeNode.Children[1],
+    (PCONTEXT_EX *)&v46.Entries[0].TreeNode.Children[1],
     CpuAreaEnabledFeatures);
   LOBYTE(v38) = 1;
   ExtendedContextLength2 = PspWow64ReadOrWriteThreadCpuArea(
@@ -253,7 +257,7 @@ LABEL_28:
   if ( BYTE2(v46.Thread) )
   {
     v39 = v46.Entries[0].TreeNode.Children[0];
-    ExtendedContextLength2 = RtlCopyContext((__int64)&v46, v13, (__int64)v46.Entries[0].TreeNode.Children[0]);
+    ExtendedContextLength2 = RtlCopyContext((PCONTEXT)&v46, v13, (PCONTEXT)v46.Entries[0].TreeNode.Children[0]);
     if ( ExtendedContextLength2 < 0 )
       goto LABEL_73;
   }
@@ -281,7 +285,7 @@ LABEL_28:
       *(_DWORD *)&v46.Entries[0].LockState.0 |= 1u;
     }
     v39 = v46.Entries[0].TreeNode.Children[0];
-    ExtendedContextLength2 = RtlCopyContext((__int64)&v46, v13, (__int64)v46.Entries[0].TreeNode.Children[0]);
+    ExtendedContextLength2 = RtlCopyContext((PCONTEXT)&v46, v13, (PCONTEXT)v46.Entries[0].TreeNode.Children[0]);
     if ( ExtendedContextLength2 < 0 )
       goto LABEL_73;
     if ( (v13 & 0x10010) == 0x10010 )
@@ -307,7 +311,7 @@ LABEL_28:
     v40 = BYTE1(v46.Thread);
 LABEL_69:
     if ( !v40
-      || (ExtendedContextLength2 = PspSetContextThreadInternal(Thread, (__int64)&v46, 0, 1, 1),
+      || (ExtendedContextLength2 = PspSetContextThreadInternal(Thread, (_CONTEXT *)&v46, 0, 1, 1),
           ExtendedContextLength2 >= 0) )
     {
       if ( LOBYTE(v46.AvailableEntryBitmap) )

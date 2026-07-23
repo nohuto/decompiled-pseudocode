@@ -1,21 +1,21 @@
 /*
- * XREFs of CcSetFileSizesEx @ 0x14007344C
+ * XREFs of CcSetFileSizesEx @ 0x140072FCC
  * Callers:
- *     CcSetFileSizes @ 0x1400B54BC (CcSetFileSizes.c)
+ *     CcSetFileSizes @ 0x1400B32F4 (CcSetFileSizes.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x140017FC0 (CcUnmapVacbArray.c)
- *     MmFlushSection @ 0x140022558 (MmFlushSection.c)
- *     CcPurgeAndClearCacheSection @ 0x14006C840 (CcPurgeAndClearCacheSection.c)
- *     CcExtendVacbArray @ 0x14006CF18 (CcExtendVacbArray.c)
- *     CcPurgeCacheSection @ 0x140072920 (CcPurgeCacheSection.c)
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     CcDeleteMbcb @ 0x140088410 (CcDeleteMbcb.c)
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     CcDeleteBcbs @ 0x140111D74 (CcDeleteBcbs.c)
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
+ *     CcUnmapVacbArray @ 0x140017B40 (CcUnmapVacbArray.c)
+ *     MmFlushSection @ 0x1400220D8 (MmFlushSection.c)
+ *     CcPurgeAndClearCacheSection @ 0x14006C3C0 (CcPurgeAndClearCacheSection.c)
+ *     CcExtendVacbArray @ 0x14006CA98 (CcExtendVacbArray.c)
+ *     CcPurgeCacheSection @ 0x1400724A0 (CcPurgeCacheSection.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     CcDeleteMbcb @ 0x14010C600 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x1401122D8 (CcDeleteBcbs.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
  */
 
 NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)

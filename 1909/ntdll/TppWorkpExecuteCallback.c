@@ -12,57 +12,55 @@
  *     RtlpTpETWCallbackStop @ 0x18010F42C (RtlpTpETWCallbackStop.c)
  */
 
-struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
+int __fastcall TppWorkpExecuteCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2)
 {
   int v2; // esi
   _QWORD *v3; // rbx
   __int64 v5; // rdi
   __int64 v6; // r8
-  struct _PEB *result; // rax
+  struct _PEB *v7; // rax
   __int64 v8; // rcx
-  __int64 v9; // rcx
-  __int64 v10; // rcx
-  __int64 v11; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = a2;
   v3 = (_QWORD *)(a2 - 200);
   v5 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1) )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v6 = 2147353478LL;
   if ( *(_BYTE *)v6 )
     TppETWCallbackDequeue(v3[18], v2, v3[10], v3[11], v3[13]);
-  result = (struct _PEB *)TppWorkCallbackPrologRelease(a1, v3, 0LL);
-  if ( (_DWORD)result )
+  LODWORD(v7) = TppWorkCallbackPrologRelease(Instance);
+  if ( (_DWORD)v7 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8) )
-      v9 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v9 = 2147353478LL;
-    if ( *(_BYTE *)v9 )
+      v8 = 2147353478LL;
+    if ( *(_BYTE *)v8 )
       RtlpTpETWCallbackStart(v3[18], v2, v3[10], v3[11], v3[13]);
-    TppStartThreadData(&v11, v3[10], v3[11], v3[13]);
-    *(_QWORD *)(a1 + 88) = v3[10];
-    *(_QWORD *)(a1 + 96) = v3[11];
-    ((void (__fastcall *)(__int64, _QWORD, _QWORD *))v3[10])(a1, v3[11], v3);
-    result = (struct _PEB *)RtlGetCurrentServiceSessionId(v10);
-    if ( (_DWORD)result )
+    TppStartThreadData(&v10, v3[10], v3[11], v3[13]);
+    *((_QWORD *)Instance + 11) = v3[10];
+    *((_QWORD *)Instance + 12) = v3[11];
+    ((void (__fastcall *)(PTP_CALLBACK_INSTANCE, _QWORD, _QWORD *))v3[10])(Instance, v3[11], v3);
+    LODWORD(v7) = RtlGetCurrentServiceSessionId();
+    if ( (_DWORD)v7 )
     {
-      result = NtCurrentPeb();
-      v5 = (__int64)result->SharedData + 556;
+      v7 = NtCurrentPeb();
+      v5 = (__int64)v7->SharedData + 556;
     }
     if ( *(_BYTE *)v5 )
-      result = (struct _PEB *)RtlpTpETWCallbackStop(v3[18], v2, v3[10], v3[11], v3[13]);
-    if ( v11 )
+      LODWORD(v7) = RtlpTpETWCallbackStop(v3[18], v2, v3[10], v3[11], v3[13]);
+    if ( v10 )
     {
-      result = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
-      if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= *(_QWORD *)(v11 + 24) )
+      v7 = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+      if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= *(_QWORD *)(v10 + 24) )
       {
-        result = (struct _PEB *)((char *)result - *(_QWORD *)(v11 + 24));
-        *(_QWORD *)(v11 + 24) = result;
+        v7 = (struct _PEB *)((char *)v7 - *(_QWORD *)(v10 + 24));
+        *(_QWORD *)(v10 + 24) = v7;
       }
     }
   }
-  return result;
+  return (int)v7;
 }

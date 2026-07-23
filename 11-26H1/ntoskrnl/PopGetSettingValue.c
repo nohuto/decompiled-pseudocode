@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetSettingValue @ 0x140A3D02C
+ * XREFs of PopGetSettingValue @ 0x1409F8A4C
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
- *     PopMarshalSettingValues @ 0x140A3CAA8 (PopMarshalSettingValues.c)
- *     PopFindPowerSettingConfiguration @ 0x140A3E9D0 (PopFindPowerSettingConfiguration.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
+ *     PopMarshalSettingValues @ 0x1409F84C8 (PopMarshalSettingValues.c)
+ *     PopFindPowerSettingConfiguration @ 0x1409FA3F0 (PopFindPowerSettingConfiguration.c)
  */
 
 __int64 __fastcall PopGetSettingValue(__int64 a1, __int64 a2, int a3)
@@ -16,7 +16,7 @@ __int64 __fastcall PopGetSettingValue(__int64 a1, __int64 a2, int a3)
   __int64 PowerSettingConfiguration; // rax
   unsigned int v9; // [rsp+20h] [rbp-18h]
 
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  ExAcquireFastMutex(&PopSettingLock);
   SessionId = TtmiGetSessionId();
   PowerSettingConfiguration = PopFindPowerSettingConfiguration(a1, SessionId);
   if ( PowerSettingConfiguration )
@@ -26,12 +26,12 @@ __int64 __fastcall PopGetSettingValue(__int64 a1, __int64 a2, int a3)
            (char *)(a2 + 4),
            (unsigned int)(a3 - 4),
            (unsigned int *)a2);
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+    KeReleaseGuardedMutex(&PopSettingLock);
     return v9;
   }
   else
   {
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+    KeReleaseGuardedMutex(&PopSettingLock);
     return 3221225485LL;
   }
 }

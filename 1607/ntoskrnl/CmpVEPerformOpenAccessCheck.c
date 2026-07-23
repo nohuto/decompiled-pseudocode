@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpVEPerformOpenAccessCheck @ 0x1404DB888
+ * XREFs of CmpVEPerformOpenAccessCheck @ 0x1404BEE8C
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     RtlMapGenericMask @ 0x140400910 (RtlMapGenericMask.c)
- *     CmpIsSystemEntity @ 0x14040F144 (CmpIsSystemEntity.c)
- *     CmpCheckAdminAccess @ 0x140600994 (CmpCheckAdminAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x140601F80 (CmpCheckKeyBodyAccess.c)
+ *     RtlMapGenericMask @ 0x1403FF7D0 (RtlMapGenericMask.c)
+ *     CmpIsSystemEntity @ 0x14040E004 (CmpIsSystemEntity.c)
+ *     CmpCheckAdminAccess @ 0x140600A48 (CmpCheckAdminAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x140602034 (CmpCheckKeyBodyAccess.c)
  */
 
 __int64 __fastcall CmpVEPerformOpenAccessCheck(

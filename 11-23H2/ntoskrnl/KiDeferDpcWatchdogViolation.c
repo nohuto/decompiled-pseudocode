@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDeferDpcWatchdogViolation @ 0x14057AD94
+ * XREFs of KiDeferDpcWatchdogViolation @ 0x14057B284
  * Callers:
- *     KeAccumulateTicks @ 0x1402C7B10 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402C7DA0 (KeAccumulateTicks.c)
  * Callees:
- *     KeRelaxTimingConstraints @ 0x14056AF0C (KeRelaxTimingConstraints.c)
+ *     KeRelaxTimingConstraints @ 0x14056B5CC (KeRelaxTimingConstraints.c)
  */
 
 signed __int64 KiDeferDpcWatchdogViolation()

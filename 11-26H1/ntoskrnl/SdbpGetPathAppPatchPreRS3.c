@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetPathAppPatchPreRS3 @ 0x140714630
+ * XREFs of SdbpGetPathAppPatchPreRS3 @ 0x140719320
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SdbpGetPathAppPatch @ 0x140886950 (SdbpGetPathAppPatch.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140886E70 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslPathCombine @ 0x140889530 (AslPathCombine.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SdbpGetPathAppPatch @ 0x14088CD50 (SdbpGetPathAppPatch.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x14088D270 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x14088F92C (AslPathCombine.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetPathAppPatchPreRS3(wchar_t *a1, size_t a2, const wchar_t *a3, __int64 a4)

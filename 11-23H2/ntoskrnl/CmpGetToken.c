@@ -3,9 +3,9 @@
  * Callers:
  *     CmpParseInfBuffer @ 0x140B5B0CC (CmpParseInfBuffer.c)
  * Callees:
- *     isspace @ 0x1403DA0E0 (isspace.c)
- *     strchr @ 0x1403DB0A0 (strchr.c)
- *     strncpy_s @ 0x1403DFA20 (strncpy_s.c)
+ *     isspace @ 0x1403DA2C0 (isspace.c)
+ *     strchr @ 0x1403DB280 (strchr.c)
+ *     strncpy_s @ 0x1403DFC00 (strncpy_s.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaGrowPasidTable @ 0x1405A9E70
+ * XREFs of HsaGrowPasidTable @ 0x1405AC680
  * Callers:
  *     <none>
  * Callees:
- *     HsaAllocatePasidTables @ 0x1405A8A28 (HsaAllocatePasidTables.c)
+ *     HsaAllocatePasidTables @ 0x1405AB238 (HsaAllocatePasidTables.c)
  */
 
 __int64 __fastcall HsaGrowPasidTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5, int a6)

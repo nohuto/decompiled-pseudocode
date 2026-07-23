@@ -1,12 +1,12 @@
 /*
- * XREFs of PopTraceCr3Mitigated @ 0x1405952E4
+ * XREFs of PopTraceCr3Mitigated @ 0x1405957D4
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403A1854 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalZoneRemove @ 0x14098B010 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403A1A34 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x14098B210 (PopThermalZoneRemove.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void PopTraceCr3Mitigated()
@@ -26,13 +26,7 @@ void PopTraceCr3Mitigated()
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)&byte_14002F247,
-        0LL,
-        0LL,
-        3u,
-        &v2);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_14002F48D, 0LL, 0LL, 3u, &v2);
     }
   }
 }

@@ -6,11 +6,19 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall RtlDecompressBufferEx2(unsigned __int8 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlDecompressBufferEx2(
+        USHORT CompressionFormat,
+        PUCHAR UncompressedBuffer,
+        ULONG UncompressedBufferSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        ULONG UncompressedChunkSize,
+        PULONG FinalUncompressedSize,
+        PVOID WorkSpace)
 {
-  if ( a1 < 2u )
-    return 3221225485LL;
-  if ( a1 > 8u )
-    return 3221226079LL;
-  return guard_dispatch_icall_no_overrides(a2, a3);
+  if ( (unsigned __int8)CompressionFormat < 2u )
+    return -1073741811;
+  if ( (unsigned __int8)CompressionFormat > 8u )
+    return -1073741217;
+  return guard_dispatch_icall_no_overrides(UncompressedBuffer, UncompressedBufferSize);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlPublishInitialPowerDraw @ 0x1405A1410
+ * XREFs of PopPlPublishInitialPowerDraw @ 0x1405A1900
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlPublishSystemPowerChange @ 0x1405A15E8 (PopPlPublishSystemPowerChange.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlPublishSystemPowerChange @ 0x1405A1AD8 (PopPlPublishSystemPowerChange.c)
  */
 
 __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
@@ -97,7 +97,7 @@ __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
         v41 = 4;
         tlgWriteEx_EtwWriteEx(
           (__int64)&dword_140C03950,
-          (unsigned __int8 *)&dword_1400321D4,
+          (unsigned __int8 *)&dword_1400325B4,
           v6,
           1u,
           v15,
@@ -110,10 +110,10 @@ __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
   PopPlPublishSystemPowerChange(v2, i);
   v10 = *(unsigned __int8 *)(v2 + 24);
   result = KxReleaseSpinLock((volatile signed __int64 *)(v2 + 16));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v10 <= 0xFu
       && (unsigned __int8)result >= 2u )

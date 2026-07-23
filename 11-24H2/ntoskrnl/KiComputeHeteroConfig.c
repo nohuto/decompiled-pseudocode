@@ -1,12 +1,12 @@
 /*
- * XREFs of KiComputeHeteroConfig @ 0x140438A8C
+ * XREFs of KiComputeHeteroConfig @ 0x14042B64C
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KiConfigureHeteroMultiCoreProcessors @ 0x140A9028C (KiConfigureHeteroMultiCoreProcessors.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KiConfigureHeteroMultiCoreProcessors @ 0x140A8C988 (KiConfigureHeteroMultiCoreProcessors.c)
  */
 
 __int64 __fastcall KiComputeHeteroConfig(__int64 a1, int a2)

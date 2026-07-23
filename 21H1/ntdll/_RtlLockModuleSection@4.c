@@ -12,20 +12,21 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __stdcall RtlLockModuleSection(int a1)
+NTSTATUS __cdecl RtlLockModuleSection(PVOID Address)
 {
   int ModuleSectionInLockedSectionList; // eax
   _DWORD *v2; // esi
   _DWORD *Heap; // eax
   int v4; // edi
   _DWORD *v5; // eax
-  int v7; // [esp+Ch] [ebp-10h] BYREF
-  int v8; // [esp+10h] [ebp-Ch]
-  int v9; // [esp+14h] [ebp-8h]
-  int v10; // [esp+18h] [ebp-4h]
+  SIZE_T v7; // [esp-4h] [ebp-20h]
+  PVOID Context; // [esp+Ch] [ebp-10h] BYREF
+  int v9; // [esp+10h] [ebp-Ch]
+  int v10; // [esp+14h] [ebp-8h]
+  int v11; // [esp+18h] [ebp-4h]
 
   RtlAcquireSRWLockExclusive(&RtlpLockedSectionListLock);
-  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(a1);
+  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(Address);
   v2 = (_DWORD *)ModuleSectionInLockedSectionList;
   if ( ModuleSectionInLockedSectionList )
   {
@@ -34,7 +35,8 @@ int __stdcall RtlLockModuleSection(int a1)
   }
   else
   {
-    Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 20);
+    LODWORD(v7) = 20;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     v2 = Heap;
     if ( Heap )
     {
@@ -43,16 +45,16 @@ int __stdcall RtlLockModuleSection(int a1)
       Heap[2] = 0;
       Heap[3] = 0;
       Heap[4] = 0;
-      v7 = a1;
-      v8 = -1073741275;
-      v4 = LdrEnumerateLoadedModules(0, RtlpModuleEnumeratorCallback, &v7);
+      Context = Address;
+      v9 = -1073741275;
+      v4 = LdrEnumerateLoadedModules(0, RtlpModuleEnumeratorCallback, &Context);
       if ( v4 >= 0 )
       {
-        v4 = v8;
-        if ( v8 >= 0 )
+        v4 = v9;
+        if ( v9 >= 0 )
         {
-          v2[2] = v9;
-          v2[3] = v10;
+          v2[2] = v10;
+          v2[3] = v11;
           v2[4] = 1;
           v5 = off_4B3A33E8;
           if ( *off_4B3A33E8 != (_UNKNOWN *)&RtlpLockedSectionList )

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSpoilBatteryEstimate @ 0x140781608
+ * XREFs of PopSpoilBatteryEstimate @ 0x1407817C8
  * Callers:
- *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x14077A640 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x1407814E4 (PopUpdateConsoleDisplayState.c)
+ *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x14077A800 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x1407816A4 (PopUpdateConsoleDisplayState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     PopBatteryQueueWork @ 0x14039AABC (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     PopBatteryQueueWork @ 0x14039AC0C (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
@@ -51,7 +51,7 @@ NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
       v14 = 4;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140C02228,
-               (unsigned __int8 *)&byte_140029607,
+               (unsigned __int8 *)&word_140029A36,
                0LL,
                0LL,
                4u,

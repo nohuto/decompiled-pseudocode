@@ -1,109 +1,113 @@
 /*
- * XREFs of MiImageCfgEnumRvaListNext @ 0x1408FA6A0
+ * XREFs of MiImageCfgEnumRvaListNext @ 0x14091CF80
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1408FA0F0 (MiCopyToCfgBitMap.c)
+ *     MiCopyToCfgBitMap @ 0x14091C9CC (MiCopyToCfgBitMap.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiImageCfgEnumNextImageExtensionRva @ 0x1408FA810 (MiImageCfgEnumNextImageExtensionRva.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiImageCfgEnumNextImageExtensionRva @ 0x14091D0F0 (MiImageCfgEnumNextImageExtensionRva.c)
  */
 
-__int64 __fastcall MiImageCfgEnumRvaListNext(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall MiImageCfgEnumRvaListNext(ULONG_PTR BugCheckParameter2, unsigned int *a2)
 {
   __int64 result; // rax
-  _DWORD *v4; // r9
-  unsigned int v5; // r10d
-  _DWORD *v7; // r12
-  unsigned int v8; // ebp
+  _DWORD *v3; // r9
+  unsigned int v4; // r10d
+  int *v6; // r12
+  unsigned int v7; // ebp
+  __int64 v8; // rdx
   unsigned __int8 *v9; // rdi
-  unsigned __int64 v10; // rbx
-  int v11; // edx
-  unsigned int v12; // ebx
-  unsigned int v13; // edi
-  int v14; // r15d
-  __int64 v15; // r14
-  const signed __int64 *v16; // rbp
-  __int64 v17; // rax
-  int v18; // ecx
-  unsigned int *v19; // r8
+  __int64 v10; // rbx
+  __int64 v11; // r8
+  int v12; // edx
+  unsigned int v13; // ebx
+  int v14; // edx
+  int v15; // r8d
+  unsigned int v16; // edi
+  int v17; // r15d
+  __int64 v18; // r14
+  const signed __int64 *v19; // rbp
+  __int64 v20; // rax
+  int v21; // ecx
+  int *v22; // r8
+  int v23; // r8d
 
-  result = *(unsigned int *)a2;
-  v4 = (_DWORD *)a2;
-  v5 = *(_DWORD *)(a2 + 20);
-  if ( (unsigned int)result < v5 || !v5 )
+  result = *a2;
+  v3 = a2;
+  v4 = a2[5];
+  if ( (unsigned int)result < v4 || !v4 )
   {
-    ++*(_DWORD *)(a2 + 12);
-    v7 = (_DWORD *)(a2 + 4);
-    v8 = *(_DWORD *)(a2 + 12);
-    LODWORD(result) = *(_DWORD *)(a2 + 8);
-    a2 = *(unsigned int *)(a2 + 16);
-    v9 = (unsigned __int8 *)(a2 + *(_QWORD *)(BugCheckParameter2 + 16));
-    v10 = *(_QWORD *)(BugCheckParameter2 + 24) - a2;
+    ++a2[3];
+    v6 = (int *)(a2 + 1);
+    v7 = a2[3];
+    LODWORD(result) = a2[2];
+    v8 = a2[4];
+    v9 = (unsigned __int8 *)(v8 + *(_QWORD *)(BugCheckParameter2 + 16));
+    v10 = *(_QWORD *)(BugCheckParameter2 + 24) - v8;
     if ( !v10 )
     {
 LABEL_24:
-      result = MiImageCfgEnumNextImageExtensionRva(v4, a2, a3, v4);
+      result = MiImageCfgEnumNextImageExtensionRva(v3);
       goto LABEL_23;
     }
     do
     {
       if ( !v10 )
-        KeBugCheckEx(0x1Au, 0x43666720uLL, BugCheckParameter2, (ULONG_PTR)(v4 + 2), (unsigned int)result);
+        KeBugCheckEx(0x1Au, 0x43666720uLL, BugCheckParameter2, (ULONG_PTR)(v3 + 2), (unsigned int)result);
       --v10;
-      a3 = *v9 >> 6;
-      v11 = *v9++ & 0x3F;
-      a2 = (unsigned int)(*((_DWORD *)RtlpRvaCompressionTableScales + a3) * v11);
-      result = (unsigned int)(a2 + result);
+      v11 = *v9 >> 6;
+      v12 = *v9++ & 0x3F;
+      result = (unsigned int)(*((_DWORD *)RtlpRvaCompressionTableScales + v11) * v12 + result);
     }
-    while ( (_DWORD)a3 != 3 );
-    v4[2] = result;
-    v4[4] = (_DWORD)v9 - *(_DWORD *)(BugCheckParameter2 + 16);
-    if ( v7 )
+    while ( (_DWORD)v11 != 3 );
+    v3[2] = result;
+    v3[4] = (_DWORD)v9 - *(_DWORD *)(BugCheckParameter2 + 16);
+    if ( v6 )
     {
-      v12 = *(_DWORD *)(BugCheckParameter2 + 8);
-      a2 = 0LL;
-      if ( v12 <= 1 )
+      v13 = *(_DWORD *)(BugCheckParameter2 + 8);
+      v14 = 0;
+      if ( v13 <= 1 )
       {
-        if ( v12 == 1 )
+        if ( v13 == 1 )
         {
-          v19 = *(unsigned int **)(BugCheckParameter2 + 48);
-          if ( v19 )
-            a3 = *v19;
+          v22 = *(int **)(BugCheckParameter2 + 48);
+          if ( v22 )
+            v23 = *v22;
           else
-            a3 = 1LL;
-          a2 = (unsigned int)a3;
+            v23 = 1;
+          v14 = v23;
         }
       }
       else
       {
-        LODWORD(a3) = 1;
-        v13 = 0;
-        v14 = v8 * v12;
-        v15 = 0LL;
-        v16 = *(const signed __int64 **)(BugCheckParameter2 + 40);
+        v15 = 1;
+        v16 = 0;
+        v17 = v7 * v13;
+        v18 = 0LL;
+        v19 = *(const signed __int64 **)(BugCheckParameter2 + 40);
         do
         {
-          if ( _bittest64(v16, v14 + v13) )
+          if ( _bittest64(v19, v17 + v16) )
           {
-            v17 = *(_QWORD *)(BugCheckParameter2 + 48);
-            if ( v17 )
-              v18 = *(_DWORD *)(v15 + v17);
+            v20 = *(_QWORD *)(BugCheckParameter2 + 48);
+            if ( v20 )
+              v21 = *(_DWORD *)(v18 + v20);
             else
-              v18 = a3;
-            a2 = v18 | (unsigned int)a2;
+              v21 = v15;
+            v14 |= v21;
           }
-          ++v13;
-          a3 = (unsigned int)__ROL4__(a3, 1);
-          v15 += 4LL;
+          ++v16;
+          v15 = __ROL4__(v15, 1);
+          v18 += 4LL;
         }
-        while ( v13 < v12 );
-        result = (unsigned int)v4[2];
+        while ( v16 < v13 );
+        result = (unsigned int)v3[2];
       }
-      *v7 = a2;
+      *v6 = v14;
     }
   }
-  if ( !(_DWORD)result || (unsigned int)result >= v5 && v5 )
+  if ( !(_DWORD)result || (unsigned int)result >= v4 && v4 )
     goto LABEL_24;
 LABEL_23:
-  *v4 = result;
+  *v3 = result;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeMutant @ 0x140085B7C
+ * XREFs of KeInitializeMutant @ 0x14008746C
  * Callers:
- *     NtCreateMutant @ 0x140493450 (NtCreateMutant.c)
+ *     NtCreateMutant @ 0x140493EE0 (NtCreateMutant.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWalkCallbackRoutine @ 0x1800D9580
+ * XREFs of RtlpWalkCallbackRoutine @ 0x1800D9540
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x1800D8A38 (RtlpCommitQueryDebugInfo.c)
+ *     RtlpCommitQueryDebugInfo @ 0x1800D89F8 (RtlpCommitQueryDebugInfo.c)
  */
 
 __int64 __fastcall RtlpWalkCallbackRoutine(__int64 a1, __int64 a2)

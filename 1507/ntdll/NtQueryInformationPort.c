@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationPort()
+NTSTATUS __cdecl NtQueryInformationPort(
+        HANDLE PortHandle,
+        PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 306LL;
+  result = 306;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlReleaseSwapReference @ 0x1402C5854
+ * XREFs of RtlReleaseSwapReference @ 0x1403104F0
  * Callers:
- *     CmFcManagerRecordFeatureUsage @ 0x1402C56C8 (CmFcManagerRecordFeatureUsage.c)
- *     CmFcManagerNotifyFeatureUsage @ 0x140356ED8 (CmFcManagerNotifyFeatureUsage.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404CC294 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x140ABF4C0 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
+ *     CmFcManagerRecordFeatureUsage @ 0x140310364 (CmFcManagerRecordFeatureUsage.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x140358C78 (CmFcManagerNotifyFeatureUsage.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404C5CC4 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x140AC1560 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
  * Callees:
- *     RtlBackoff @ 0x140335EF0 (RtlBackoff.c)
- *     ExpUnblockPushLock @ 0x1403682A0 (ExpUnblockPushLock.c)
+ *     RtlBackoff @ 0x140337F20 (RtlBackoff.c)
+ *     ExpUnblockPushLock @ 0x14036A040 (ExpUnblockPushLock.c)
  */
 
 __int64 __fastcall RtlReleaseSwapReference(unsigned __int64 *a1, unsigned int a2, __int64 a3)

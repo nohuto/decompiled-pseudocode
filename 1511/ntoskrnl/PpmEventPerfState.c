@@ -20,12 +20,12 @@ char __fastcall PpmEventPerfState(
 {
   _UNKNOWN **v6; // rax
   REGHANDLE v9; // rdi
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-49h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-49h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-39h] BYREF
   int *v13; // [rsp+58h] [rbp-29h]
   int v14; // [rsp+60h] [rbp-21h]
   int v15; // [rsp+64h] [rbp-1Dh]
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+68h] [rbp-19h]
+  _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+68h] [rbp-19h]
   int v17; // [rsp+70h] [rbp-11h]
   int v18; // [rsp+74h] [rbp-Dh]
   unsigned __int8 *p_Number; // [rsp+78h] [rbp-9h]

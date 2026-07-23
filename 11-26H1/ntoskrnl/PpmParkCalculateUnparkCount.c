@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkCalculateUnparkCount @ 0x140420130
+ * XREFs of PpmParkCalculateUnparkCount @ 0x140417970
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmCheckComputeHeteroResponse @ 0x14041E6A0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140415EE0 (PpmCheckComputeHeteroResponse.c)
  * Callees:
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x1404205F0 (PpmHeteroIsMultiClassParkingEnabled.c)
- *     PpmEventParkingCountSelection @ 0x14042060C (PpmEventParkingCountSelection.c)
- *     PpmEventHgsCoresUnparkedCount @ 0x14042076C (PpmEventHgsCoresUnparkedCount.c)
- *     PpmHeteroHgsCalculateContainmentCount @ 0x14060A754 (PpmHeteroHgsCalculateContainmentCount.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x140417E30 (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     PpmEventParkingCountSelection @ 0x140417E4C (PpmEventParkingCountSelection.c)
+ *     PpmEventHgsCoresUnparkedCount @ 0x140417FAC (PpmEventHgsCoresUnparkedCount.c)
+ *     PpmHeteroHgsCalculateContainmentCount @ 0x14060D428 (PpmHeteroHgsCalculateContainmentCount.c)
  */
 
 void PpmParkCalculateUnparkCount()
@@ -15,7 +15,7 @@ void PpmParkCalculateUnparkCount()
   __int64 v0; // r8
   __int64 v1; // rcx
   unsigned int v2; // r13d
-  __int64 *v3; // rdx
+  void *v3; // rdx
   unsigned __int16 v4; // r15
   __int64 v5; // r9
   __int64 v6; // rbx
@@ -35,7 +35,7 @@ void PpmParkCalculateUnparkCount()
   unsigned __int8 v20; // cl
   char v21; // r8
   unsigned __int16 v22; // r9
-  unsigned __int16 ThreadLock; // r10
+  unsigned __int16 v23; // r10
   unsigned int v24; // r11d
   int v25; // r8d
   __int64 v26; // rdx
@@ -55,29 +55,29 @@ void PpmParkCalculateUnparkCount()
 
   v0 = 0LL;
   v33 = 0;
-  if ( PopModernStandbyStateNotify.ReadyTime )
+  if ( PpmIsParkingEnabled )
   {
     v3 = PpmCurrentProfile;
-    v1 = 712LL * dword_140F106CC;
+    v1 = 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
     v2 = *(_DWORD *)((char *)PpmCurrentProfile + v1 + 272);
     v37 = *((_BYTE *)PpmCurrentProfile + v1 + 266);
     v36 = *((_BYTE *)PpmCurrentProfile + v1 + 265);
     LOBYTE(v3) = *((_BYTE *)PpmCurrentProfile + v1 + 263);
     v38 = (char)v3;
     v35 = *(_DWORD *)((char *)PpmCurrentProfile + v1 + 268);
-    if ( LODWORD(PopSleepstudySessionLock.SchedulingGroup) == 5 )
+    if ( PpmCheckCurrentPipelineId == 5 )
     {
       v35 = 0;
       v2 = 0;
     }
     v4 = 0;
     v39 = 0;
-    if ( PopModernStandbyStateNotify.SystemCallNumber )
+    if ( PpmParkNumNodes )
     {
       v5 = 1LL;
       while ( 1 )
       {
-        v6 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * v4;
+        v6 = PpmParkNodes + 1264LL * v4;
         if ( ((unsigned __int8)v5 & *(_BYTE *)(v6 + 1152)) == 0 )
         {
           *(_DWORD *)v6 += v5;
@@ -89,7 +89,7 @@ void PpmParkCalculateUnparkCount()
 LABEL_35:
         v4 += v5;
         v39 = v4;
-        if ( v4 >= PopModernStandbyStateNotify.SystemCallNumber )
+        if ( v4 >= (unsigned int)PpmParkNumNodes )
           return;
       }
       v8 = v35;
@@ -105,7 +105,7 @@ LABEL_35:
         }
         if ( !v11 || v12 )
           goto LABEL_33;
-        v13 = BYTE2(PopModernStandbyStateNotify.ThreadLock);
+        v13 = PpmParkUnparkCores;
         if ( (unsigned __int8)PpmHeteroIsMultiClassParkingEnabled(v1, v3, v0, v5) )
         {
           if ( *(_BYTE *)(v6 + 1153) == (_BYTE)v16 )
@@ -130,7 +130,7 @@ LABEL_16:
 LABEL_17:
         v18 = v17;
         if ( (unsigned __int8)PpmHeteroIsMultiClassParkingEnabled(v15, v14, v16, v17) && *(_BYTE *)(v6 + 1153) != v21
-          || v13 && LOWORD(PopModernStandbyStateNotify.ThreadLock) != 1
+          || v13 && PpmParkGranularity != 1
           || v22 >= (unsigned __int16)v24
           || v20 <= v19 )
         {
@@ -147,11 +147,11 @@ LABEL_17:
         {
           v25 |= 2u;
           v33 = v25;
-          v26 = (unsigned int)v26 / LOWORD(PopModernStandbyStateNotify.ThreadLock);
+          v26 = (unsigned int)v26 / (unsigned __int16)PpmParkGranularity;
         }
         if ( (unsigned __int16)v26 > v22 )
         {
-          if ( v34 >= v8 && (unsigned __int16)v26 >= ThreadLock )
+          if ( v34 >= v8 && (unsigned __int16)v26 >= v23 )
           {
             v33 = v25 | 8;
             *(_DWORD *)v6 = 0;
@@ -160,16 +160,16 @@ LABEL_17:
               case 0:
                 goto LABEL_70;
               case 1:
-                LOWORD(v26) = v26 - ThreadLock;
+                LOWORD(v26) = v26 - v23;
                 break;
               case 2:
                 goto LABEL_68;
               case 3:
                 v32 = *(unsigned __int16 *)(v6 + 1150);
-                ThreadLock = PopModernStandbyStateNotify.ThreadLock;
-                if ( (unsigned __int16)v26 <= v32 + (unsigned int)LOWORD(PopModernStandbyStateNotify.ThreadLock) )
+                v23 = PpmParkGranularity;
+                if ( (unsigned __int16)v26 <= v32 + (unsigned int)(unsigned __int16)PpmParkGranularity )
 LABEL_68:
-                  v26 = ThreadLock;
+                  v26 = v23;
                 else
                   LOWORD(v26) = v26 - v32;
                 break;
@@ -195,7 +195,7 @@ LABEL_70:
               v26 = v22;
               break;
             case 1:
-              LOWORD(v26) = ThreadLock + v26;
+              LOWORD(v26) = v23 + v26;
               break;
             case 2:
               goto LABEL_45;
@@ -218,7 +218,7 @@ LABEL_28:
 LABEL_29:
         v27 = 0LL;
         if ( v13 )
-          v26 = LOWORD(PopModernStandbyStateNotify.ThreadLock) * (unsigned int)(unsigned __int16)v26;
+          v26 = (unsigned __int16)PpmParkGranularity * (unsigned int)(unsigned __int16)v26;
         v28 = PpmHeteroHgsParkingEnabled == 0;
         *(_WORD *)(v10 + v9 + 6) = v26;
         if ( !v28 )

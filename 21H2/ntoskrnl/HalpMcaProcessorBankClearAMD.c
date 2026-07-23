@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcaProcessorBankClearAMD @ 0x1404BD2C8
+ * XREFs of HalpMcaProcessorBankClearAMD @ 0x1404BD508
  * Callers:
- *     HalpMcaClearError @ 0x1404BA2E8 (HalpMcaClearError.c)
+ *     HalpMcaClearError @ 0x1404BA528 (HalpMcaClearError.c)
  * Callees:
- *     HalpWheaReadMsrStatus @ 0x1403A0E1C (HalpWheaReadMsrStatus.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpWheaReadMsrStatus @ 0x1403A0F6C (HalpWheaReadMsrStatus.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpMcaProcessorBankClearAMD(__int64 a1, int a2)

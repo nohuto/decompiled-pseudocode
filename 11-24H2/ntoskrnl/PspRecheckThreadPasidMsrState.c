@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRecheckThreadPasidMsrState @ 0x1408A6880
+ * XREFs of PspRecheckThreadPasidMsrState @ 0x1408FCE90
  * Callers:
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
  * Callees:
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140422520 (KeInitializeApc.c)
- *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x1408A68E4 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x1404163D0 (KeInitializeApc.c)
+ *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x1408FCEF4 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspRecheckThreadPasidMsrState(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PspRecheckThreadPasidMsrState(__int64 a1, __int64 a2)
   v3 = 0;
   if ( (unsigned __int8)ExIsSvmPasidMsrUpdateRequiredForProcess(a1) && *(char *)(a2 + 1449) >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x76537350u);
     if ( Pool2 )
     {
       v6 = Pool2 + 8;

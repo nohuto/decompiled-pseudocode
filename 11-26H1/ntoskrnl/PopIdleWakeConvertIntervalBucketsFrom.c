@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleWakeConvertIntervalBucketsFrom @ 0x1407DD8C0
+ * XREFs of PopIdleWakeConvertIntervalBucketsFrom @ 0x1407E1EF0
  * Callers:
- *     PopIdleWakeInitialize @ 0x1407DD914 (PopIdleWakeInitialize.c)
+ *     PopIdleWakeInitialize @ 0x1407E1F44 (PopIdleWakeInitialize.c)
  * Callees:
- *     PpmConvertTimeFrom @ 0x1403E63A8 (PpmConvertTimeFrom.c)
+ *     PpmConvertTimeFrom @ 0x1402F3288 (PpmConvertTimeFrom.c)
  */
 
 void __fastcall PopIdleWakeConvertIntervalBucketsFrom(unsigned int a1, __int64 a2, _QWORD *a3, __int64 a4)

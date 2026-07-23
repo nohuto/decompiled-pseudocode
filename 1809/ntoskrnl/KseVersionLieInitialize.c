@@ -1,11 +1,11 @@
 /*
- * XREFs of KseVersionLieInitialize @ 0x1409AF7AC
+ * XREFs of KseVersionLieInitialize @ 0x1409B07AC
  * Callers:
- *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
+ *     KseInitialize @ 0x1409B0930 (KseInitialize.c)
  * Callees:
- *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
- *     KseRegisterShim @ 0x140728400 (KseRegisterShim.c)
+ *     KsepDebugPrint @ 0x14029FE34 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1402A00D4 (KsepLogError.c)
+ *     KseRegisterShim @ 0x1407295F0 (KseRegisterShim.c)
  */
 
 void KseVersionLieInitialize()

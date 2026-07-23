@@ -1,107 +1,112 @@
 /*
- * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x18012487C
+ * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x1801245EC
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x18014D2C4 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x18014D174 (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringToInteger @ 0x1800068F0 (RtlUnicodeStringToInteger.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     LdrpQueryValueKey @ 0x1800D9FF0 (LdrpQueryValueKey.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtQueryValueKey @ 0x18015F220 (NtQueryValueKey.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringToInteger @ 0x180052020 (RtlUnicodeStringToInteger.c)
+ *     LdrpQueryValueKey @ 0x1800D6FB0 (LdrpQueryValueKey.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtQueryValueKey @ 0x18015F120 (NtQueryValueKey.c)
  */
 
-wchar_t *__fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, __int64 a2)
+int __fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, void *a2)
 {
-  unsigned int v2; // r12d
+  ULONG v2; // r12d
   int v5; // ebx
   size_t v6; // rax
-  wchar_t *result; // rax
-  wchar_t *v8; // rsi
-  int v9; // edi
-  const wchar_t *v10; // rbx
-  _WORD *v11; // r14
-  unsigned int v12; // r15d
-  __int64 v13; // rsi
-  __int64 v14; // rax
-  int v15; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
-  int v17; // [rsp+A0h] [rbp+50h] BYREF
-  unsigned int v18; // [rsp+A8h] [rbp+58h] BYREF
+  _DWORD *Heap_0; // rax
+  _DWORD *v8; // rsi
+  NTSTATUS v9; // edi
+  unsigned int v10; // ebx
+  const wchar_t *v11; // rbx
+  wchar_t *v12; // rdi
+  _WORD *v13; // r14
+  ULONG v14; // r15d
+  __int64 v15; // rsi
+  __int64 v16; // rax
+  ULONG Value; // [rsp+30h] [rbp-20h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+38h] [rbp-18h] BYREF
+  int v20; // [rsp+A0h] [rbp+50h] BYREF
+  ULONG ResultLength; // [rsp+A8h] [rbp+58h] BYREF
 
   v2 = 0;
-  v17 = 7;
-  v15 = 0;
-  *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
-  DestinationString.Buffer = (wchar_t *)L"AlternateCodePage";
+  v20 = 7;
+  Value = 0;
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  ValueName.Buffer = (wchar_t *)L"AlternateCodePage";
   v5 = 0;
   v6 = 2 * wcslen(L"AlternateCodePage");
-  v18 = 0;
+  ResultLength = 0;
   if ( v6 >= 0xFFFE )
     LOWORD(v6) = -4;
-  DestinationString.Length = v6;
-  DestinationString.MaximumLength = v6 + 2;
-  result = (wchar_t *)RtlAllocateHeap_0();
-  v8 = result;
-  if ( result )
+  ValueName.Length = v6;
+  ValueName.MaximumLength = v6 + 2;
+  Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 0xCuLL);
+  v8 = Heap_0;
+  if ( Heap_0 )
   {
-    v9 = NtQueryValueKey(a2, &DestinationString, 2LL, result, 12, &v18);
+    v9 = NtQueryValueKey(a2, &ValueName, KeyValuePartialInformation, Heap_0, 0xCu, &ResultLength);
     if ( (int)(v9 + 0x80000000) < 0 || v9 == -2147483643 )
     {
-      v5 = *((_DWORD *)v8 + 2);
-      v17 = *((_DWORD *)v8 + 1);
+      v5 = v8[2];
+      v20 = v8[1];
     }
-    result = (wchar_t *)RtlFreeHeap_0();
+    LODWORD(Heap_0) = RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v8);
     if ( v9 != -1073741772 )
     {
       if ( v5 )
       {
         if ( v9 == -2147483643 )
         {
-          v18 = v5 + 2;
-          if ( ((v5 + 5) & 0xFFFFFFFC) != 0 )
+          ResultLength = v5 + 2;
+          v10 = (v5 + 5) & 0xFFFFFFFC;
+          if ( v10 )
           {
-            result = (wchar_t *)RtlAllocateHeap_0();
-            v10 = result;
-            if ( result )
+            Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, v10);
+            v11 = (const wchar_t *)Heap_0;
+            if ( Heap_0 )
             {
-              if ( !(unsigned int)LdrpQueryValueKey(a2, (__int64)&DestinationString, &v17, result, &v18)
-                && (v17 == 1 || v17 == 7) )
+              v12 = (wchar_t *)Heap_0;
+              if ( !(unsigned int)LdrpQueryValueKey(a2, &ValueName, &v20, Heap_0, &ResultLength)
+                && (v20 == 1 || v20 == 7) )
               {
-                v11 = (_WORD *)(a1 + 20);
-                v12 = v18 >> 1;
-                v13 = 0LL;
-                while ( v2 < v12 && v10 && *v10 )
+                v13 = (_WORD *)(a1 + 20);
+                v14 = ResultLength >> 1;
+                v12 = (wchar_t *)v11;
+                v15 = 0LL;
+                while ( v2 < v14 && v11 && *v11 )
                 {
-                  if ( !wcsicmp(v10, L"*") )
+                  if ( !wcsicmp(v11, L"*") )
                   {
                     *(_WORD *)(a1 + 20) = -1;
-                    return (wchar_t *)RtlFreeHeap_0();
+                    break;
                   }
-                  RtlInitUnicodeString(&DestinationString, v10);
-                  if ( !(unsigned int)RtlUnicodeStringToInteger(&DestinationString.Length, 0xAu, &v15) )
+                  RtlInitUnicodeString(&ValueName, v11);
+                  if ( !RtlUnicodeStringToInteger(&ValueName, 0xAu, &Value) )
                   {
-                    ++v13;
-                    *v11++ = v15;
-                    if ( v13 >= 4 )
-                      return (wchar_t *)RtlFreeHeap_0();
+                    ++v15;
+                    *v13++ = Value;
+                    if ( v15 >= 4 )
+                      break;
                   }
-                  v14 = -1LL;
+                  v16 = -1LL;
                   do
-                    ++v14;
-                  while ( v10[v14] );
-                  v2 += v14 + 1;
-                  v10 += (unsigned int)(v14 + 1);
+                    ++v16;
+                  while ( v11[v16] );
+                  v2 += v16 + 1;
+                  v11 += (unsigned int)(v16 + 1);
                 }
               }
-              return (wchar_t *)RtlFreeHeap_0();
+              LODWORD(Heap_0) = RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v12);
             }
           }
         }
       }
     }
   }
-  return result;
+  return (int)Heap_0;
 }

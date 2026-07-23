@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUnreferencePowerSetting @ 0x1409BDE74
+ * XREFs of PopUnreferencePowerSetting @ 0x1409A44C4
  * Callers:
- *     PopFreeRegistration @ 0x140751344 (PopFreeRegistration.c)
- *     PopSetPowerSettingValue @ 0x1409BC864 (PopSetPowerSettingValue.c)
- *     PopCallPowerSettingCallback @ 0x1409BDC9C (PopCallPowerSettingCallback.c)
- *     PopMarshalSettingValues @ 0x1409BDF78 (PopMarshalSettingValues.c)
+ *     PopFreeRegistration @ 0x14074F664 (PopFreeRegistration.c)
+ *     PopSetPowerSettingValue @ 0x1409A2EB4 (PopSetPowerSettingValue.c)
+ *     PopCallPowerSettingCallback @ 0x1409A42EC (PopCallPowerSettingCallback.c)
+ *     PopMarshalSettingValues @ 0x1409A45C8 (PopMarshalSettingValues.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopUnreferencePowerSetting(_DWORD *a1)

@@ -1,48 +1,48 @@
 /*
- * XREFs of IopUnloadDriver @ 0x140B2ADF8
+ * XREFs of IopUnloadDriver @ 0x140B2CE78
  * Callers:
- *     PnpUnloadAttachedDriver @ 0x140B2AD18 (PnpUnloadAttachedDriver.c)
- *     NtUnloadDriver @ 0x140B2ADE0 (NtUnloadDriver.c)
- *     PipUnloadEarlyLaunchDrivers @ 0x140CC35DC (PipUnloadEarlyLaunchDrivers.c)
+ *     PnpUnloadAttachedDriver @ 0x140B2CD98 (PnpUnloadAttachedDriver.c)
+ *     NtUnloadDriver @ 0x140B2CE60 (NtUnloadDriver.c)
+ *     PipUnloadEarlyLaunchDrivers @ 0x140CC96B0 (PipUnloadEarlyLaunchDrivers.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     PnpDiagnosticTraceObject @ 0x140493A8C (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x140493C2C (PnpDiagnosticTraceDeviceOperation.c)
- *     PnpDiagnosticTraceDriverFullInfo @ 0x140493D10 (PnpDiagnosticTraceDriverFullInfo.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     IopCleanupNotifications @ 0x1404E4DE8 (IopCleanupNotifications.c)
- *     IopCheckUnloadDriver @ 0x1404F3900 (IopCheckUnloadDriver.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ZwUnloadDriver @ 0x140726F30 (ZwUnloadDriver.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
- *     PnpIsLegacyDriver @ 0x140916A34 (PnpIsLegacyDriver.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     IopGetDriverNameFromKeyNode @ 0x140A129AC (IopGetDriverNameFromKeyNode.c)
- *     ObMakeTemporaryObject @ 0x140B01A40 (ObMakeTemporaryObject.c)
- *     IopOpenRegistryKey @ 0x140B1C920 (IopOpenRegistryKey.c)
- *     EtwTiLogDriverObjectUnLoad @ 0x140B2BA00 (EtwTiLogDriverObjectUnLoad.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     PnpDiagnosticTraceObject @ 0x14048D5DC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14048D77C (PnpDiagnosticTraceDeviceOperation.c)
+ *     PnpDiagnosticTraceDriverFullInfo @ 0x14048D860 (PnpDiagnosticTraceDriverFullInfo.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     IopCleanupNotifications @ 0x1404DE388 (IopCleanupNotifications.c)
+ *     IopCheckUnloadDriver @ 0x1404ECEE0 (IopCheckUnloadDriver.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ZwUnloadDriver @ 0x14072BB00 (ZwUnloadDriver.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
+ *     PnpIsLegacyDriver @ 0x1409714A0 (PnpIsLegacyDriver.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140A11B9C (IopGetDriverNameFromKeyNode.c)
+ *     ObMakeTemporaryObject @ 0x140B03770 (ObMakeTemporaryObject.c)
+ *     IopOpenRegistryKey @ 0x140B1EB30 (IopOpenRegistryKey.c)
+ *     EtwTiLogDriverObjectUnLoad @ 0x140B2DA80 (EtwTiLogDriverObjectUnLoad.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
 {
-  __int16 v4; // r14
+  unsigned __int16 MinorImageVersion; // r14
   char v5; // r12
   KPROCESSOR_MODE PreviousMode; // dl
   int ULongFromUser; // eax
@@ -83,9 +83,9 @@ __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   v23[0] = 0LL;
   v33 = 0;
-  LOBYTE(v4) = 0;
+  LOBYTE(MinorImageVersion) = 0;
   *(_QWORD *)&v22.Length = 0x20000LL;
-  v22.Buffer = (wchar_t *)&word_140B814F0;
+  v22.Buffer = (wchar_t *)&word_140B8A320;
   v5 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode || a2 )
@@ -126,7 +126,7 @@ __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
           if ( DriverNameFromKeyNode >= 0 )
           {
             v14 = (struct _LIST_ENTRY *)Object;
-            v4 = *((_WORD *)RtlImageNtHeader(*((_QWORD *)Object + 3)) + 35);
+            MinorImageVersion = RtlImageNtHeader(*((PVOID *)Object + 3))->OptionalHeader.MinorImageVersion;
             if ( !v14[6].Blink || !v14[2].Blink )
             {
               ObfDereferenceObject(v14);
@@ -181,14 +181,14 @@ LABEL_29:
       &a1->Length,
       DriverNameFromKeyNode,
       (__int64)&Destination,
-      v4);
+      MinorImageVersion);
     if ( DriverNameFromKeyNode < 0 && !v5 )
       PnpDiagnosticTraceDeviceOperation(
         &KMPnPEvt_DriverUnload_Fail,
         &v22.Length,
         DriverNameFromKeyNode,
         (__int64)&Destination,
-        v4);
+        MinorImageVersion);
     Buffer = Destination.Buffer;
     if ( !Destination.Buffer )
       return (unsigned int)DriverNameFromKeyNode;

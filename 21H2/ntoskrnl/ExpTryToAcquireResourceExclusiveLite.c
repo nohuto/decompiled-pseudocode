@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x1405B58FC
+ * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x1405B5B2C
  * Callers:
- *     ExTryToAcquireResourceExclusiveLite @ 0x1405B5520 (ExTryToAcquireResourceExclusiveLite.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x1405B5750 (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpTryAcquireResourceExclusive @ 0x14034D720 (ExpTryAcquireResourceExclusive.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpTryAcquireResourceExclusive @ 0x140358470 (ExpTryAcquireResourceExclusive.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogExecutiveResourceAcquire @ 0x1405AAD8C (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405AAFBC (PerfLogExecutiveResourceAcquire.c)
  */
 
 char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)

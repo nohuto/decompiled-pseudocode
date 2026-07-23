@@ -1,9 +1,9 @@
 /*
- * XREFs of KiLeaveGuardedRegionUnsafe @ 0x1402BB4A0
+ * XREFs of KiLeaveGuardedRegionUnsafe @ 0x140362BE0
  * Callers:
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall KiLeaveGuardedRegionUnsafe(__int64 a1)

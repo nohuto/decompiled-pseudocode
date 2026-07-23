@@ -7,9 +7,9 @@
  *     memset @ 0x1800A6C80 (memset.c)
  */
 
-__int64 __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, _QWORD *a2, _DWORD *a3)
+NTSTATUS __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  __int64 v5; // rcx
+  void *v5; // rcx
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // rbx
   unsigned int v9; // edx
@@ -17,31 +17,41 @@ __int64 __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, _QWORD *a2, _D
   __int64 v11; // rax
   unsigned int v12; // edx
   int v13; // ecx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v15; // rax
   unsigned int v16; // edx
   int v17; // ecx
-  __int64 v18; // [rsp+60h] [rbp+8h] BYREF
+  ULONG_PTR ViewSize; // [rsp+60h] [rbp+8h] BYREF
 
-  v5 = *(_QWORD *)(a1 + 976);
+  v5 = *(void **)(a1 + 976);
   if ( !v5 )
-    return 3221226021LL;
+    return -1073741275;
   if ( !a2 )
-    return 3221225485LL;
-  if ( !*a2 )
+    return -1073741811;
+  if ( !*(_QWORD *)a2 )
   {
-    v18 = 0LL;
-    result = ZwMapViewOfSection(v5, -1LL, a2, 0LL, 0LL, 0LL, &v18, 1, 0, 2);
-    if ( (int)result < 0 )
+    ViewSize = 0LL;
+    result = ZwMapViewOfSection(
+               v5,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               (PVOID *)a2,
+               0LL,
+               0LL,
+               0LL,
+               &ViewSize,
+               ViewShare,
+               0,
+               2u);
+    if ( result < 0 )
       return result;
-    a2[1] = 0LL;
+    *(_QWORD *)(a2 + 8) = 0LL;
   }
-  v7 = a2[1];
+  v7 = *(_QWORD *)(a2 + 8);
   if ( v7 >= *(_QWORD *)(a1 + 968) )
-    return 2147483674LL;
+    return -2147483622;
   if ( !a3 )
-    return 261LL;
-  v8 = v7 + *a2;
+    return 261;
+  v8 = v7 + *(_QWORD *)a2;
   memset(a3, 0, 0x48uLL);
   v9 = 16;
   *a3 = *(_DWORD *)v8;
@@ -78,6 +88,6 @@ __int64 __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, _QWORD *a2, _D
     *((_QWORD *)a3 + 8) = v8 + v12;
     v9 = v13 + v12;
   }
-  a2[1] = v7 + v9;
-  return 0LL;
+  *(_QWORD *)(a2 + 8) = v7 + v9;
+  return 0;
 }

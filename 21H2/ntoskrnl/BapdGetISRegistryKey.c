@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdGetISRegistryKey @ 0x14099B000
+ * XREFs of BapdGetISRegistryKey @ 0x14099C000
  * Callers:
- *     BapdRegisterSiData @ 0x14099AD08 (BapdRegisterSiData.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140A4140C (BapdpProcessVsmKeyBlobs.c)
+ *     BapdRegisterSiData @ 0x14099BD08 (BapdRegisterSiData.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140A4240C (BapdpProcessVsmKeyBlobs.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
  */
 
 __int64 __fastcall BapdGetISRegistryKey(PHANDLE KeyHandle)

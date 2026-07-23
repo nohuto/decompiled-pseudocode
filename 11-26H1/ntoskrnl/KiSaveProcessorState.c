@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSaveProcessorState @ 0x1405FD570
+ * XREFs of KiSaveProcessorState @ 0x1405FFFC0
  * Callers:
- *     KiFreezeTargetExecution @ 0x1405F5E50 (KiFreezeTargetExecution.c)
- *     KxNmiInterrupt @ 0x140733F80 (KxNmiInterrupt.c)
+ *     KiFreezeTargetExecution @ 0x1405F8810 (KiFreezeTargetExecution.c)
+ *     KxNmiInterrupt @ 0x140738B80 (KxNmiInterrupt.c)
  * Callees:
- *     KeContextFromKframes @ 0x1403D46B0 (KeContextFromKframes.c)
- *     RtlXSave @ 0x1403D4DC0 (RtlXSave.c)
- *     KiSaveProcessorControlState @ 0x140727210 (KiSaveProcessorControlState.c)
+ *     KeContextFromKframes @ 0x1403D7680 (KeContextFromKframes.c)
+ *     RtlXSave @ 0x1403D7D90 (RtlXSave.c)
+ *     KiSaveProcessorControlState @ 0x14072BDE0 (KiSaveProcessorControlState.c)
  */
 
 __int64 __fastcall KiSaveProcessorState(__int64 a1, __int64 a2)
@@ -42,7 +42,7 @@ __int64 __fastcall KiSaveProcessorState(__int64 a1, __int64 a2)
       {
         v12 = v11 & 0xFFFFFFFC;
         if ( v12 )
-          RtlXSave(($7052C1FD3C2A38C6D1A2B028A00EB87C *)((char *)&Context->1 + SLODWORD(Context[1].P3Home) + 464), v12);
+          RtlXSave(($1A87EC755C1848520ED6C21D016F807B *)((char *)&Context->1 + SLODWORD(Context[1].P3Home) + 464), v12);
       }
     }
   }

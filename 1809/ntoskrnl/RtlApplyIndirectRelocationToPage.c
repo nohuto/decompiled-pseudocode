@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlApplyIndirectRelocationToPage @ 0x1402F6C90
+ * XREFs of RtlApplyIndirectRelocationToPage @ 0x1402F6E80
  * Callers:
- *     MiApplyRetpolineFixups @ 0x140853708 (MiApplyRetpolineFixups.c)
+ *     MiApplyRetpolineFixups @ 0x140854968 (MiApplyRetpolineFixups.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpApplyGenericRetpolineFixup @ 0x1402F755C (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpConstructIndirectRelocationFixup @ 0x1402F7AA0 (RtlpConstructIndirectRelocationFixup.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402F774C (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructIndirectRelocationFixup @ 0x1402F7C90 (RtlpConstructIndirectRelocationFixup.c)
  */
 
 __int64 __fastcall RtlApplyIndirectRelocationToPage(__int64 a1, int a2, int a3, int a4, _WORD *a5, int a6, int a7)

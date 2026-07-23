@@ -3,8 +3,8 @@
  * Callers:
  *     CmpParseInfBuffer @ 0x140B5B0CC (CmpParseInfBuffer.c)
  * Callees:
- *     _stricmp @ 0x1403D9750 (_stricmp.c)
- *     _strnicmp @ 0x1403D9800 (_strnicmp.c)
+ *     _stricmp @ 0x1403D9930 (_stricmp.c)
+ *     _strnicmp @ 0x1403D99E0 (_strnicmp.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

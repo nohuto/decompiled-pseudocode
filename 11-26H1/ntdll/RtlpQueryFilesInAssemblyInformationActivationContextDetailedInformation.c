@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x180113B3C
+ * XREFs of RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1801133D4
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18004DED0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryInformationActivationContext @ 0x180038450 (RtlQueryInformationActivationContext.c)
  * Callees:
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlpLocateActivationContextSectionForQuery @ 0x1800E6BB8 (RtlpLocateActivationContextSectionForQuery.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlpLocateActivationContextSectionForQuery @ 0x1800E5618 (RtlpLocateActivationContextSectionForQuery.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation(
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpQueryFilesInAssemblyInformationActivationContextDetailedI
   if ( v10 >= v11 - 1 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",
@@ -72,7 +72,7 @@ __int64 __fastcall RtlpQueryFilesInAssemblyInformationActivationContextDetailedI
   if ( v13 >= v14 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid file index (%u, max is %u) in Assembly (%u)\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",

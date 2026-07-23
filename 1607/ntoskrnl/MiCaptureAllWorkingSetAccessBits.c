@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCaptureAllWorkingSetAccessBits @ 0x14013133C
+ * XREFs of MiCaptureAllWorkingSetAccessBits @ 0x1401318AC
  * Callers:
  *     MmPerformMemoryListCommand @ 0x1403D2CFC (MmPerformMemoryListCommand.c)
  * Callees:

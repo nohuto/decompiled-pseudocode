@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpTraceUmMessage @ 0x18008C35C
+ * XREFs of EtwpTraceUmMessage @ 0x18008C36C
  * Callers:
  *     EtwTraceMessageVa @ 0x18004EB50 (EtwTraceMessageVa.c)
  * Callees:
@@ -95,7 +95,7 @@ __int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int
             v27,
             v12,
             v39->CurrentIdealProcessor.Reserved,
-            (unsigned __int64 *)((unsigned __int64)&v34 & -(__int64)(v10 != 0)),
+            (LARGE_INTEGER *)((unsigned __int64)&v34 & -(__int64)(v10 != 0)),
             &v35);
     v38 = v16;
     v17 = 0;

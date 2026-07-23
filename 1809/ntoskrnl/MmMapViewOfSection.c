@@ -1,20 +1,20 @@
 /*
- * XREFs of MmMapViewOfSection @ 0x140678B60
+ * XREFs of MmMapViewOfSection @ 0x140679D20
  * Callers:
- *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
- *     PspMapView @ 0x1402EBCBC (PspMapView.c)
- *     AlpcpCreateView @ 0x140617D0C (AlpcpCreateView.c)
- *     MiMapProcessExecutable @ 0x140677C48 (MiMapProcessExecutable.c)
- *     PspMapSiloSharedDataView @ 0x14067840C (PspMapSiloSharedDataView.c)
- *     MmMapApiSetView @ 0x140678444 (MmMapApiSetView.c)
- *     MmCreatePeb @ 0x140678530 (MmCreatePeb.c)
- *     NtInitializeNlsFiles @ 0x14067A400 (NtInitializeNlsFiles.c)
- *     EtwpCoverageEnsureUserModeView @ 0x1406B400C (EtwpCoverageEnsureUserModeView.c)
- *     NtGetNlsSectionPtr @ 0x1406C4DE0 (NtGetNlsSectionPtr.c)
- *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
+ *     PsDispatchIumService @ 0x1402EAD84 (PsDispatchIumService.c)
+ *     PspMapView @ 0x1402EBEAC (PspMapView.c)
+ *     AlpcpCreateView @ 0x140618D0C (AlpcpCreateView.c)
+ *     MiMapProcessExecutable @ 0x140678E08 (MiMapProcessExecutable.c)
+ *     PspMapSiloSharedDataView @ 0x1406795CC (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x140679604 (MmMapApiSetView.c)
+ *     MmCreatePeb @ 0x1406796F0 (MmCreatePeb.c)
+ *     NtInitializeNlsFiles @ 0x14067B5C0 (NtInitializeNlsFiles.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x1406B52AC (EtwpCoverageEnsureUserModeView.c)
+ *     NtGetNlsSectionPtr @ 0x1406C6080 (NtGetNlsSectionPtr.c)
+ *     NtMapCMFModule @ 0x140707A40 (NtMapCMFModule.c)
  * Callees:
- *     MiMapViewOfSection @ 0x1405EFB10 (MiMapViewOfSection.c)
- *     MiMapParametersInitialize @ 0x1405F0080 (MiMapParametersInitialize.c)
+ *     MiMapViewOfSection @ 0x1405F0B10 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x1405F1080 (MiMapParametersInitialize.c)
  */
 
 __int64 __fastcall MmMapViewOfSection(
@@ -40,9 +40,9 @@ __int64 __fastcall MmMapViewOfSection(
     if ( (int)result < 0 )
     {
       if ( *a3 )
-        ++dword_14043A884;
+        ++dword_14043B944;
       else
-        ++dword_14043A880;
+        ++dword_14043B940;
     }
     else
     {

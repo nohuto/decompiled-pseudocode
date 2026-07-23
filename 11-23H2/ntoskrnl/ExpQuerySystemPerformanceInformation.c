@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpQuerySystemPerformanceInformation @ 0x1406B1F04
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x1406B1F34
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
  *     MmGetWorkingSetLeafSize @ 0x14021DAC0 (MmGetWorkingSetLeafSize.c)
  *     MmGetSharedCommit @ 0x14021DB8C (MmGetSharedCommit.c)
@@ -16,9 +16,9 @@
  *     MmGetProcessPartitionId @ 0x14021E544 (MmGetProcessPartitionId.c)
  *     MmGetSystemPageCounts @ 0x14021E554 (MmGetSystemPageCounts.c)
  *     ExQueryPoolUsage @ 0x14021E568 (ExQueryPoolUsage.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsQueryRuntimeProcess @ 0x1406B2550 (PsQueryRuntimeProcess.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsQueryRuntimeProcess @ 0x1406B2580 (PsQueryRuntimeProcess.c)
  */
 
 void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, unsigned int a3)
@@ -241,7 +241,7 @@ void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2,
   if ( v52 > v51 )
     LODWORD(v52) = v51;
   LODWORD(Src[20]) = v52;
-  Src[0] = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)PsQueryRuntimeProcess(PsIdleProcess, &v75);
+  Src[0] = KeMaximumIncrement * (unsigned __int64)(unsigned int)PsQueryRuntimeProcess(PsIdleProcess, &v75);
   ExQueryPoolUsage(
     (int)&Src[14],
     (int)&Src[14] + 4,

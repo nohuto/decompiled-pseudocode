@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlNotifyCleanupAll @ 0x1408169B0
+ * XREFs of FsRtlNotifyCleanupAll @ 0x140817BB0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     FsRtlNotifyCleanupOneEntry @ 0x1406A1994 (FsRtlNotifyCleanupOneEntry.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x1406A2C34 (FsRtlNotifyCleanupOneEntry.c)
  */
 
 void __stdcall FsRtlNotifyCleanupAll(PNOTIFY_SYNC NotifySync, PLIST_ENTRY NotifyList)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  struct _LIST_ENTRY *Flink; // rdi
+  _LIST_ENTRY *Flink; // rdi
   char *v6; // rcx
   PSECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+40h] [rbp+18h] BYREF
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageChainForFault @ 0x140284C30
+ * XREFs of MiGetPageChainForFault @ 0x140284190
  * Callers:
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
  * Callees:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
  */
 
 __int64 __fastcall MiGetPageChainForFault(
@@ -94,10 +94,10 @@ __int64 __fastcall MiGetPageChainForFault(
       }
     }
     v25 = 56320LL * IdealGlobalNode;
-    if ( (*(_DWORD *)(qword_140E37CD0 + v25 + 14096) & 1) != 0 )
+    if ( (*(_DWORD *)(qword_140E37E50 + v25 + 14096) & 1) != 0 )
     {
-      v31 = qword_140E37CD0 + v25;
-      for ( i = 0; i < (unsigned __int8)byte_140E2D718; ++i )
+      v31 = qword_140E37E50 + v25;
+      for ( i = 0; i < (unsigned __int8)byte_140E2D898; ++i )
       {
         if ( *(_BYTE *)(i + v31 + 14149) == 1 )
         {
@@ -106,7 +106,7 @@ LABEL_50:
           goto LABEL_11;
         }
       }
-      for ( i = 0; i < (unsigned __int8)byte_140E2D718; ++i )
+      for ( i = 0; i < (unsigned __int8)byte_140E2D898; ++i )
       {
         if ( *(_BYTE *)(i + v31 + 14149) == 2 )
           goto LABEL_50;
@@ -156,7 +156,7 @@ LABEL_11:
     v29 = v32;
     if ( v32 )
     {
-      if ( a2 != *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 56) + 174LL))
+      if ( a2 != *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 56) + 174LL))
         && !a10 )
       {
         *(_QWORD *)(a1 + 136) = a2;

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpMuiRegGrowLanguageList @ 0x1801135D4
+ * XREFs of RtlpMuiRegGrowLanguageList @ 0x1801135A4
  * Callers:
  *     RtlpLoadUserUIByPolicy @ 0x18000A690 (RtlpLoadUserUIByPolicy.c)
  *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180015750 (RtlpMuiRegAddMultiSzToLangFallbackList.c)

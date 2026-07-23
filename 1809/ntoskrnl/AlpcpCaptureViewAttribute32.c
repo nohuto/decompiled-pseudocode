@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpCaptureViewAttribute32 @ 0x1406CD340
+ * XREFs of AlpcpCaptureViewAttribute32 @ 0x1406CE5E0
  * Callers:
- *     AlpcpCaptureAttributes @ 0x1406363E0 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x140637400 (AlpcpCaptureAttributes.c)
  * Callees:
- *     AlpcpCaptureViewAttributeInternal @ 0x140617818 (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x140618818 (AlpcpCaptureViewAttributeInternal.c)
  */
 
 __int64 __fastcall AlpcpCaptureViewAttribute32(__int64 a1, int *a2, __int64 a3, __int64 a4)

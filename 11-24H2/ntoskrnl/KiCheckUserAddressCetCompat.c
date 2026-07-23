@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckUserAddressCetCompat @ 0x140837728
+ * XREFs of KiCheckUserAddressCetCompat @ 0x1409F92F4
  * Callers:
- *     KiProcessControlProtection @ 0x14043E670 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x140434290 (KiProcessControlProtection.c)
  * Callees:
- *     RtlFindDynamicEnforcedAddressInRanges @ 0x1408377B4 (RtlFindDynamicEnforcedAddressInRanges.c)
- *     MmGetImageInformation @ 0x140837878 (MmGetImageInformation.c)
+ *     RtlFindDynamicEnforcedAddressInRanges @ 0x1409F9380 (RtlFindDynamicEnforcedAddressInRanges.c)
+ *     MmGetImageInformation @ 0x1409F9444 (MmGetImageInformation.c)
  */
 
 bool __fastcall KiCheckUserAddressCetCompat(__int64 a1, __int64 a2)

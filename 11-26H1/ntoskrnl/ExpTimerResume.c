@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTimerResume @ 0x1404C03C4
+ * XREFs of ExpTimerResume @ 0x1404B9C14
  * Callers:
- *     ExRemoveVirtualizedTimer @ 0x1404C034C (ExRemoveVirtualizedTimer.c)
- *     ExWakeTimersResume @ 0x1404F5668 (ExWakeTimersResume.c)
- *     PspResumeProcessVirtualTimers @ 0x140617104 (PspResumeProcessVirtualTimers.c)
+ *     ExRemoveVirtualizedTimer @ 0x1404B9B9C (ExRemoveVirtualizedTimer.c)
+ *     ExWakeTimersResume @ 0x1404EEC28 (ExWakeTimersResume.c)
+ *     PspResumeProcessVirtualTimers @ 0x14061A0F4 (PspResumeProcessVirtualTimers.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
  */
 
 char __fastcall ExpTimerResume(PKTIMER Timer, __int64 a2)

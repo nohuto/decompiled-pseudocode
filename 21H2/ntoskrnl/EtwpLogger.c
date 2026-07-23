@@ -1,40 +1,40 @@
 /*
- * XREFs of EtwpLogger @ 0x1406456F0
+ * XREFs of EtwpLogger @ 0x14063A500
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     EtwpRequestFlushTimer @ 0x14025FBDC (EtwpRequestFlushTimer.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     EtwpResetFlushTimer @ 0x1402C4330 (EtwpResetFlushTimer.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     EtwpAdjustFreeBuffers @ 0x140642D70 (EtwpAdjustFreeBuffers.c)
- *     EtwpFlushActiveBuffers @ 0x140643C10 (EtwpFlushActiveBuffers.c)
- *     EtwpRealtimeCreateLogfile @ 0x140681844 (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeUpdateConsumers @ 0x1406AE300 (EtwpRealtimeUpdateConsumers.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x1406B31D0 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x1406B5824 (EtwpRealtimeDisconnectAllConsumers.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1406BC504 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpStopLoggerInstance @ 0x1406C0144 (EtwpStopLoggerInstance.c)
- *     PsTerminateSystemThread @ 0x1406C0930 (PsTerminateSystemThread.c)
- *     EtwpRealtimeSaveState @ 0x1406C340C (EtwpRealtimeSaveState.c)
- *     EtwpFinalizeHeader @ 0x1406DF770 (EtwpFinalizeHeader.c)
- *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140939B5C (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateSession @ 0x140939E7C (EtwpEventWriteTemplateSession.c)
- *     EtwpEventWriteTemplateSessionEnd @ 0x14093A078 (EtwpEventWriteTemplateSessionEnd.c)
+ *     EtwpResetFlushTimer @ 0x1402428B0 (EtwpResetFlushTimer.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     EtwpRequestFlushTimer @ 0x140281350 (EtwpRequestFlushTimer.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1405DC884 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeUpdateConsumers @ 0x14060CBA0 (EtwpRealtimeUpdateConsumers.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x140612398 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpFreeLoggerContext @ 0x1406146D4 (EtwpFreeLoggerContext.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x140614D3C (EtwpRealtimeDisconnectAllConsumers.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x14061B674 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpStopLoggerInstance @ 0x14061F054 (EtwpStopLoggerInstance.c)
+ *     PsTerminateSystemThread @ 0x14061F840 (PsTerminateSystemThread.c)
+ *     EtwpRealtimeSaveState @ 0x140622014 (EtwpRealtimeSaveState.c)
+ *     EtwpAdjustFreeBuffers @ 0x140637B80 (EtwpAdjustFreeBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x140638A20 (EtwpFlushActiveBuffers.c)
+ *     EtwpFinalizeHeader @ 0x1406B6A50 (EtwpFinalizeHeader.c)
+ *     EtwpCreateLogFile @ 0x1406B6D8C (EtwpCreateLogFile.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140939D2C (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateSession @ 0x14093A04C (EtwpEventWriteTemplateSession.c)
+ *     EtwpEventWriteTemplateSessionEnd @ 0x14093A248 (EtwpEventWriteTemplateSessionEnd.c)
  */
 
 void __fastcall EtwpLogger(struct _LIST_ENTRY **StartContext)
 {
-  __int64 v1; // rbx
+  unsigned __int64 v1; // rbx
   struct _LIST_ENTRY *v2; // rsi
   int v3; // r14d
   __int64 v4; // rdx
@@ -53,10 +53,10 @@ void __fastcall EtwpLogger(struct _LIST_ENTRY **StartContext)
   __int64 v17; // rcx
   PKWAIT_BLOCK WaitBlockArray; // [rsp+38h] [rbp-40h]
   PVOID Object; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-30h]
+  unsigned __int64 v20; // [rsp+48h] [rbp-30h]
   struct _LIST_ENTRY *v21; // [rsp+80h] [rbp+8h]
 
-  v1 = (__int64)StartContext[1];
+  v1 = (unsigned __int64)StartContext[1];
   *(_QWORD *)(v1 + 48) = KeGetCurrentThread();
   v2 = PsAttachSiloToCurrentThread(*StartContext);
   v21 = v2;
@@ -237,7 +237,7 @@ LABEL_53:
   KeSetEvent((PRKEVENT)(v1 + 472), 0, 0);
   if ( v16 < 0 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_STOP_TRACE) )
     EtwpEventWriteTemplateSession(v17, &ETW_EVENT_STOP_TRACE, v1);
-  EtwpFreeLoggerContext((PVOID)v1);
+  EtwpFreeLoggerContext((char *)v1);
   PsDetachSiloFromCurrentThread(v2);
   PsTerminateSystemThread(v16);
 }

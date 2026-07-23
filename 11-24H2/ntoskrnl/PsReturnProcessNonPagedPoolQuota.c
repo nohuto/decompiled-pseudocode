@@ -1,29 +1,29 @@
 /*
- * XREFs of PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0
+ * XREFs of PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
- *     MiFreeVadRange @ 0x1403CDBD8 (MiFreeVadRange.c)
- *     MiDeleteCloneDescriptor @ 0x1404F8BB8 (MiDeleteCloneDescriptor.c)
- *     MiDeleteAweBitMap @ 0x1407F9648 (MiDeleteAweBitMap.c)
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
- *     MiReturnVadCharges @ 0x1408E2F98 (MiReturnVadCharges.c)
- *     MiCreatePlaceholderStorage @ 0x1408F8210 (MiCreatePlaceholderStorage.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
- *     MiReleaseVadEventBlocks @ 0x1409B0550 (MiReleaseVadEventBlocks.c)
- *     MiFreeVadEventBitmapCharges @ 0x1409B06EC (MiFreeVadEventBitmapCharges.c)
- *     MiFreePlaceholderVadEvent @ 0x1409B073C (MiFreePlaceholderVadEvent.c)
- *     ExDereferenceHandleDebugInfo @ 0x140A03E50 (ExDereferenceHandleDebugInfo.c)
- *     MiReturnVadQuota @ 0x140A0C0A4 (MiReturnVadQuota.c)
- *     MiBuildNewCloneDescriptor @ 0x140A54400 (MiBuildNewCloneDescriptor.c)
- *     MiFreeCloneDescriptor @ 0x140A73E2C (MiFreeCloneDescriptor.c)
- *     MiFreeRotateVadEvent @ 0x140A7DA28 (MiFreeRotateVadEvent.c)
- *     ExEnableHandleTracing @ 0x140AB9D28 (ExEnableHandleTracing.c)
- *     MiCloneProcessAddressSpace @ 0x140ABD72C (MiCloneProcessAddressSpace.c)
- *     ViIrpAllocateLockedPacket @ 0x140B8E0BC (ViIrpAllocateLockedPacket.c)
- *     IovFreeIrpPrivate @ 0x140BA6F30 (IovFreeIrpPrivate.c)
+ *     MiFreeVadRange @ 0x14026731C (MiFreeVadRange.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
+ *     MiDeleteCloneDescriptor @ 0x1404F6498 (MiDeleteCloneDescriptor.c)
+ *     MiDeleteAweBitMap @ 0x1407F9DB8 (MiDeleteAweBitMap.c)
+ *     MiCreatePlaceholderStorage @ 0x1408DC630 (MiCreatePlaceholderStorage.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
+ *     MiReturnVadCharges @ 0x140919B48 (MiReturnVadCharges.c)
+ *     MiReleaseVadEventBlocks @ 0x14099A250 (MiReleaseVadEventBlocks.c)
+ *     MiFreeVadEventBitmapCharges @ 0x14099A3EC (MiFreeVadEventBitmapCharges.c)
+ *     MiFreePlaceholderVadEvent @ 0x14099A43C (MiFreePlaceholderVadEvent.c)
+ *     ExDereferenceHandleDebugInfo @ 0x140A00380 (ExDereferenceHandleDebugInfo.c)
+ *     MiReturnVadQuota @ 0x140A0B2E4 (MiReturnVadQuota.c)
+ *     MiBuildNewCloneDescriptor @ 0x140A4C34C (MiBuildNewCloneDescriptor.c)
+ *     MiFreeCloneDescriptor @ 0x140A6D78C (MiFreeCloneDescriptor.c)
+ *     MiFreeRotateVadEvent @ 0x140A77D28 (MiFreeRotateVadEvent.c)
+ *     ExEnableHandleTracing @ 0x140AB4D44 (ExEnableHandleTracing.c)
+ *     MiCloneProcessAddressSpace @ 0x140AB879C (MiCloneProcessAddressSpace.c)
+ *     ViIrpAllocateLockedPacket @ 0x140B900BC (ViIrpAllocateLockedPacket.c)
+ *     IovFreeIrpPrivate @ 0x140BA8F30 (IovFreeIrpPrivate.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall PsReturnProcessNonPagedPoolQuota(
@@ -56,15 +56,15 @@ unsigned __int64 __fastcall PsReturnProcessNonPagedPoolQuota(
     {
       if ( v8 > v7 )
       {
-        v9 = qword_140F05848[0];
-        if ( v8 - v7 > qword_140F05848[0] )
+        v9 = qword_140F05B28[0];
+        if ( v8 - v7 > qword_140F05B28[0] )
         {
-          if ( qword_140F05848[0] > BugCheckParameter3 )
+          if ( qword_140F05B28[0] > BugCheckParameter3 )
             v9 = BugCheckParameter3;
           if ( v8 == _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 8, v8 - v9, v8) )
           {
             v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)v4 + 9, v9) + v9;
-            if ( v15 > qword_140F05848[0] )
+            if ( v15 > qword_140F05B28[0] )
             {
               v16 = _InterlockedExchange64((volatile __int64 *)v4 + 9, 0LL);
               if ( v16 )

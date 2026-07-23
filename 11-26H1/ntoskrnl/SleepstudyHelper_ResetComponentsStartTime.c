@@ -1,11 +1,10 @@
 /*
- * XREFs of SleepstudyHelper_ResetComponentsStartTime @ 0x140614370
+ * XREFs of SleepstudyHelper_ResetComponentsStartTime @ 0x1406171E0
  * Callers:
  *     <none>
  * Callees:
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x140257660 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ResetComponentsStartTime(PKSPIN_LOCK SpinLock)
@@ -16,8 +15,7 @@ __int64 __fastcall SleepstudyHelper_ResetComponentsStartTime(PKSPIN_LOCK SpinLoc
   v1 = 0;
   if ( SpinLock )
   {
-    if ( !(unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline()
-      || SpinLock != PsAltSystemCallRegistrationLock.Spare35 )
+    if ( SpinLock != (PKSPIN_LOCK)&unk_140F0A850 )
     {
       v3 = KeAcquireSpinLockRaiseToDpc(SpinLock);
       if ( (SpinLock[1] & 3) == 3 )

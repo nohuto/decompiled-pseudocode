@@ -1,27 +1,27 @@
 /*
- * XREFs of MiCombineWorkingSet @ 0x1401F80D0
+ * XREFs of MiCombineWorkingSet @ 0x1401F7EFC
  * Callers:
- *     MiCombineIdenticalPages @ 0x140663BA4 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140663C88 (MiCombineIdenticalPages.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiComputeHash64 @ 0x1400B3044 (MiComputeHash64.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiIsStoreProcess @ 0x14010CE84 (MiIsStoreProcess.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCombineCandidate @ 0x1401F7E78 (MiCombineCandidate.c)
- *     MiHashIsCommon @ 0x1401F9E14 (MiHashIsCommon.c)
- *     MiMapArbitraryPage @ 0x1401FA03C (MiMapArbitraryPage.c)
- *     MiPerformCombineScan @ 0x1401FA16C (MiPerformCombineScan.c)
- *     MiReleaseArbitraryPage @ 0x1401FA428 (MiReleaseArbitraryPage.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiComputeHash64 @ 0x1400B0EC4 (MiComputeHash64.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiIsStoreProcess @ 0x14010AC04 (MiIsStoreProcess.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCombineCandidate @ 0x1401F7CA4 (MiCombineCandidate.c)
+ *     MiHashIsCommon @ 0x1401F9C40 (MiHashIsCommon.c)
+ *     MiMapArbitraryPage @ 0x1401F9E68 (MiMapArbitraryPage.c)
+ *     MiPerformCombineScan @ 0x1401F9F98 (MiPerformCombineScan.c)
+ *     MiReleaseArbitraryPage @ 0x1401FA254 (MiReleaseArbitraryPage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  */
 
 __int64 __fastcall MiCombineWorkingSet(__int64 a1)
@@ -167,7 +167,7 @@ __int64 __fastcall MiCombineWorkingSet(__int64 a1)
       }
       else
       {
-        v24 = MiReservePtes((__int64)&qword_140327870, 1uLL, v23);
+        v24 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, v23);
         v31 = v24;
         v25 = v24;
         if ( !v24 )
@@ -177,12 +177,12 @@ __int64 __fastcall MiCombineWorkingSet(__int64 a1)
         *(_QWORD *)(v26 + 64) = v38;
         if ( !(unsigned int)MiMapArbitraryPage(v34, v26, 0LL, 0LL) )
         {
-          MiReleasePtes((__int64)&qword_140327870, v25, 1u);
+          MiReleasePtes((__int64)&qword_1403278B0, v25, 1u);
           goto LABEL_43;
         }
         v28 = MiPerformCombineScan(a1, v32, v15);
         MiReleaseArbitraryPage(v32);
-        MiReleasePtes((__int64)&qword_140327870, v31, 1u);
+        MiReleasePtes((__int64)&qword_1403278B0, v31, 1u);
         if ( v28 != 1 )
           goto LABEL_43;
       }

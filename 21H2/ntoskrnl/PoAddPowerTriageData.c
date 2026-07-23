@@ -1,9 +1,9 @@
 /*
- * XREFs of PoAddPowerTriageData @ 0x14056EA5C
+ * XREFs of PoAddPowerTriageData @ 0x14056EC9C
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
  * Callees:
- *     PopInternalAddToDumpFile @ 0x140564F44 (PopInternalAddToDumpFile.c)
+ *     PopInternalAddToDumpFile @ 0x140565184 (PopInternalAddToDumpFile.c)
  */
 
 char PoAddPowerTriageData()

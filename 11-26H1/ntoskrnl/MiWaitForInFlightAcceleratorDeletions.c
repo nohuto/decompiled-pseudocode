@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWaitForInFlightAcceleratorDeletions @ 0x14070FC50
+ * XREFs of MiWaitForInFlightAcceleratorDeletions @ 0x14071494C
  * Callers:
- *     MiDeleteHardwareAccelerators @ 0x14070F4A0 (MiDeleteHardwareAccelerators.c)
+ *     MiDeleteHardwareAccelerators @ 0x14071419C (MiDeleteHardwareAccelerators.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
  */
 
 void MiWaitForInFlightAcceleratorDeletions()
@@ -20,23 +20,23 @@ void MiWaitForInFlightAcceleratorDeletions()
   v3[1] = v3;
   v2 = 393479LL;
   v3[0] = v3;
-  v0 = ExAcquireSpinLockExclusive(&dword_140E36530);
-  if ( dword_140E36520 )
+  v0 = ExAcquireSpinLockExclusive(&dword_140E366B0);
+  if ( dword_140E366A0 )
   {
-    v1 = qword_140E36518;
-    qword_140E36518 = (__int64)&v1;
+    v1 = qword_140E36698;
+    qword_140E36698 = (__int64)&v1;
     if ( v0 == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36530);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E366B0);
     else
-      ExReleaseSpinLockExclusive(&dword_140E36530, v0);
+      ExReleaseSpinLockExclusive(&dword_140E366B0, v0);
     KeWaitForGate((__int64)&v2, 19LL);
   }
   else if ( v0 == 17 )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36530);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E366B0);
   }
   else
   {
-    ExReleaseSpinLockExclusive(&dword_140E36530, v0);
+    ExReleaseSpinLockExclusive(&dword_140E366B0, v0);
   }
 }

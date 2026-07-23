@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCaptureContext @ 0x1800A1720
+ * XREFs of RtlpCaptureContext @ 0x1800A16E0
  * Callers:
- *     RtlRaiseNoncontinuableException @ 0x1800A1F70 (RtlRaiseNoncontinuableException.c)
+ *     RtlRaiseNoncontinuableException @ 0x1800A1F30 (RtlRaiseNoncontinuableException.c)
  * Callees:
  *     <none>
  */
@@ -31,5 +31,5 @@ void __fastcall RtlpCaptureContext(__int64 a1)
   *(_OWORD *)(a1 + 640) = v9;
   *(_OWORD *)(a1 + 656) = v10;
   *(_DWORD *)(a1 + 280) = _mm_getcsr();
-  JUMPOUT(0x1800A17D7LL);
+  JUMPOUT(0x1800A1797LL);
 }

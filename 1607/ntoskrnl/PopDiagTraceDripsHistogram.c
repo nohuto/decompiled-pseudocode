@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDripsHistogram @ 0x140208374
+ * XREFs of PopDiagTraceDripsHistogram @ 0x1402081A0
  * Callers:
- *     PpmSnapDripsAccountingSnapshot @ 0x140201168 (PpmSnapDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x140200F94 (PpmSnapDripsAccountingSnapshot.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDripsHistogram(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -96,9 +96,9 @@ char __fastcall PopDiagTraceDripsHistogram(unsigned __int64 a1, __int64 a2, __in
     --v15;
   }
   while ( v15 );
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    LOBYTE(v4) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+    LOBYTE(v4) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
     if ( (_BYTE)v4 )
     {
       v20 = v27;
@@ -119,7 +119,7 @@ char __fastcall PopDiagTraceDripsHistogram(unsigned __int64 a1, __int64 a2, __in
       v35 = v17;
       v37 = v17;
       v39 = v17;
-      LOBYTE(v4) = TlgWrite(&pCallbackContext, &unk_14027D29B, 0LL, v16, 8u, &pData);
+      LOBYTE(v4) = TlgWrite(&hProvider, &unk_14027D39B, 0LL, v16, 8u, &pData);
     }
   }
   return v4;

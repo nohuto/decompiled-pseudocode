@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdjustGroups @ 0x140A36948
+ * XREFs of SepAdjustGroups @ 0x140986D58
  * Callers:
- *     NtAdjustGroupsToken @ 0x140A36530 (NtAdjustGroupsToken.c)
+ *     NtAdjustGroupsToken @ 0x140986940 (NtAdjustGroupsToken.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
  */
 
 __int64 __fastcall SepAdjustGroups(

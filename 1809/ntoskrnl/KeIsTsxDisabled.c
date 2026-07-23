@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsTsxDisabled @ 0x1401B4314
+ * XREFs of KeIsTsxDisabled @ 0x1401B4454
  * Callers:
- *     VslpIumPhase0Initialize @ 0x1409F4600 (VslpIumPhase0Initialize.c)
+ *     VslpIumPhase0Initialize @ 0x1409F5600 (VslpIumPhase0Initialize.c)
  * Callees:
  *     <none>
  */

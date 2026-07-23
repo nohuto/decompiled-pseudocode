@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetThreadQos @ 0x1405F6320
+ * XREFs of KeGetThreadQos @ 0x1405F8CE0
  * Callers:
- *     ?PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z @ 0x1407FF82C (-PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z.c)
+ *     ?PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z @ 0x14080525C (-PspQueryWobTicketQos@@YAJPEAXDKPEAK@Z.c)
  * Callees:
  *     <none>
  */

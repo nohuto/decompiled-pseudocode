@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x1402576D0
+ * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x140257790
  * Callers:
- *     PpmEventPerfSelectProcessorState @ 0x140255988 (PpmEventPerfSelectProcessorState.c)
- *     PpmEventTraceDeliveredPerfChange @ 0x140255A70 (PpmEventTraceDeliveredPerfChange.c)
- *     PpmEventTraceRecordedUtility @ 0x140257630 (PpmEventTraceRecordedUtility.c)
- *     PpmEventProcessorPerfStateChange @ 0x14034F3D0 (PpmEventProcessorPerfStateChange.c)
- *     PpmEventTraceExpectedUtility @ 0x14034F470 (PpmEventTraceExpectedUtility.c)
- *     PpmEventAutonomousModeChange @ 0x140599BA0 (PpmEventAutonomousModeChange.c)
- *     PpmEventBiosCapChange @ 0x140599C5C (PpmEventBiosCapChange.c)
- *     PpmEventThermalCapChange @ 0x14059B690 (PpmEventThermalCapChange.c)
+ *     PpmEventPerfSelectProcessorState @ 0x140255A48 (PpmEventPerfSelectProcessorState.c)
+ *     PpmEventTraceDeliveredPerfChange @ 0x140255B30 (PpmEventTraceDeliveredPerfChange.c)
+ *     PpmEventTraceRecordedUtility @ 0x1402576F0 (PpmEventTraceRecordedUtility.c)
+ *     PpmEventProcessorPerfStateChange @ 0x14034F570 (PpmEventProcessorPerfStateChange.c)
+ *     PpmEventTraceExpectedUtility @ 0x14034F610 (PpmEventTraceExpectedUtility.c)
+ *     PpmEventAutonomousModeChange @ 0x14059A090 (PpmEventAutonomousModeChange.c)
+ *     PpmEventBiosCapChange @ 0x14059A14C (PpmEventBiosCapChange.c)
+ *     PpmEventThermalCapChange @ 0x14059BB80 (PpmEventThermalCapChange.c)
  * Callees:
  *     <none>
  */

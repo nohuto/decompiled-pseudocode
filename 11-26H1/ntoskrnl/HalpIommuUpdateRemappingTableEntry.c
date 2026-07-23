@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuUpdateRemappingTableEntry @ 0x140428A2C
+ * XREFs of HalpIommuUpdateRemappingTableEntry @ 0x140435084
  * Callers:
- *     HalpInterruptSetRemappedDestination @ 0x140427BFC (HalpInterruptSetRemappedDestination.c)
- *     HalpSetIrtEntry @ 0x140428AF0 (HalpSetIrtEntry.c)
- *     HalpInterruptEnableNmi @ 0x140429E90 (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemap @ 0x14057BD44 (HalpInterruptRemap.c)
- *     HalpInterruptRemapFixedLines @ 0x14057D558 (HalpInterruptRemapFixedLines.c)
+ *     HalpInterruptSetRemappedDestination @ 0x140434D0C (HalpInterruptSetRemappedDestination.c)
+ *     HalpSetIrtEntry @ 0x140435148 (HalpSetIrtEntry.c)
+ *     HalpInterruptEnableNmi @ 0x140435DF0 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x14057E274 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x14057FA78 (HalpInterruptRemapFixedLines.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpIommuUpdateRemappingTableEntry(char a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetCompletionRoutineEx @ 0x14043AD40
+ * XREFs of IoSetCompletionRoutineEx @ 0x14042D580
  * Callers:
- *     DifIoSetCompletionRoutineExWrapper @ 0x14062AAF0 (DifIoSetCompletionRoutineExWrapper.c)
+ *     DifIoSetCompletionRoutineExWrapper @ 0x1406290B0 (DifIoSetCompletionRoutineExWrapper.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoSetCompletionRoutineEx(
@@ -21,7 +21,7 @@ NTSTATUS __stdcall IoSetCompletionRoutineEx(
 
   if ( !InvokeOnError && !InvokeOnCancel && !InvokeOnSuccess )
     return -1073741811;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x20uLL, 0x73556F49u);
   if ( !Pool2 )
     return -1073741670;
   *(_QWORD *)Pool2 = DeviceObject;

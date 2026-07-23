@@ -1,86 +1,86 @@
 /*
- * XREFs of MmUnlockPages @ 0x140410C10
+ * XREFs of MmUnlockPages @ 0x140410330
  * Callers:
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     CcZeroDataInCache @ 0x14039EF58 (CcZeroDataInCache.c)
- *     MiProbeAndLockComplete @ 0x1403A0050 (MiProbeAndLockComplete.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     IopfCompleteRequest @ 0x1403FDA10 (IopfCompleteRequest.c)
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     MiGetWorkingSetInfo @ 0x14040F210 (MiGetWorkingSetInfo.c)
- *     CcMdlWriteComplete2 @ 0x14040F680 (CcMdlWriteComplete2.c)
- *     IopUnlockAndFreeMdl @ 0x14040FCD4 (IopUnlockAndFreeMdl.c)
- *     ExUnlockUserBuffer @ 0x14040FE00 (ExUnlockUserBuffer.c)
- *     VslpLockPagesForTransfer @ 0x14040FF88 (VslpLockPagesForTransfer.c)
- *     MiQueryPteCleanup @ 0x1404101DC (MiQueryPteCleanup.c)
- *     KeSwappablePageDereference @ 0x14041053C (KeSwappablePageDereference.c)
- *     VslpUnlockPagesForTransfer @ 0x140410B74 (VslpUnlockPagesForTransfer.c)
- *     VslFinalizeSecureImageHash @ 0x140411C60 (VslFinalizeSecureImageHash.c)
- *     CcCopyBytesToUserBuffer @ 0x14046BC40 (CcCopyBytesToUserBuffer.c)
- *     CcPrepareMdlWrite @ 0x1404CDA40 (CcPrepareMdlWrite.c)
- *     CcLockSystemCacheBuffer @ 0x14052625C (CcLockSystemCacheBuffer.c)
- *     CcMdlWriteAbort @ 0x1405B1FC0 (CcMdlWriteAbort.c)
- *     KiOpPatchCode @ 0x1405F8128 (KiOpPatchCode.c)
- *     PspIumAllocatePartitionState @ 0x14061621C (PspIumAllocatePartitionState.c)
- *     PspIumFreePartitionState @ 0x140616730 (PspIumFreePartitionState.c)
- *     SmRecordDecompressionFailureDumpPayload @ 0x14063EFF8 (SmRecordDecompressionFailureDumpPayload.c)
- *     DifMmUnlockPagesWrapper @ 0x140668680 (DifMmUnlockPagesWrapper.c)
- *     VmProbeAndLockPages @ 0x1406C08E0 (VmProbeAndLockPages.c)
- *     VmUnlockPages @ 0x1406C0980 (VmUnlockPages.c)
- *     PopReadPagesFromHiberFile @ 0x140775074 (PopReadPagesFromHiberFile.c)
- *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140790C90 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140790D30 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     VslObtainHotPatchUndoTable @ 0x14079251C (VslObtainHotPatchUndoTable.c)
- *     IopCleanupFileObjectIosbRange @ 0x1407944C0 (IopCleanupFileObjectIosbRange.c)
- *     IopSetFileObjectIosbRange @ 0x140795690 (IopSetFileObjectIosbRange.c)
- *     SmProcessStatsRequest @ 0x140819F3C (SmProcessStatsRequest.c)
- *     ExpProfileDelete @ 0x140842550 (ExpProfileDelete.c)
- *     NtStartProfile @ 0x140842840 (NtStartProfile.c)
- *     NtStopProfile @ 0x140842B10 (NtStopProfile.c)
- *     NtPssCaptureVaSpaceBulk @ 0x140845040 (NtPssCaptureVaSpaceBulk.c)
- *     CmpLockKeyBodyIntoMemory @ 0x1408593F0 (CmpLockKeyBodyIntoMemory.c)
- *     MiApplyImageHotPatch @ 0x14086E638 (MiApplyImageHotPatch.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140876584 (MiLoadDataIntoVsmEnclave.c)
- *     CmpDeleteKeyObject @ 0x1408C9470 (CmpDeleteKeyObject.c)
- *     sub_1409EDA0C @ 0x1409EDA0C (sub_1409EDA0C.c)
- *     sub_1409F0ACC @ 0x1409F0ACC (sub_1409F0ACC.c)
- *     WbMakeUserExecutablePagesKernelWritable @ 0x1409F0C30 (WbMakeUserExecutablePagesKernelWritable.c)
- *     WbMakeUserDataPagesKernelWritable @ 0x1409F0D3C (WbMakeUserDataPagesKernelWritable.c)
- *     FsRtlpFreeMdlChain @ 0x140A19588 (FsRtlpFreeMdlChain.c)
- *     MiCopyVirtualMemory @ 0x140A22370 (MiCopyVirtualMemory.c)
- *     MiCopyVmReadBytes @ 0x140A228B0 (MiCopyVmReadBytes.c)
- *     AlpcpInitializeCompletionList @ 0x140A8CBD8 (AlpcpInitializeCompletionList.c)
- *     MiQueryPtePrepare @ 0x140A90EB4 (MiQueryPtePrepare.c)
- *     CcMdlReadComplete2 @ 0x140AC4ED8 (CcMdlReadComplete2.c)
- *     VslValidateDynamicCodePages @ 0x140AD5FA4 (VslValidateDynamicCodePages.c)
- *     MiRotateToFrameBuffer @ 0x140AEC740 (MiRotateToFrameBuffer.c)
- *     MiReplaceRotateWithDemandZero @ 0x140AECA38 (MiReplaceRotateWithDemandZero.c)
- *     CcMdlRead @ 0x140AED790 (CcMdlRead.c)
- *     MiCopyPagesIntoEnclave @ 0x140AEEB74 (MiCopyPagesIntoEnclave.c)
- *     VslCallEnclave @ 0x140B19E0C (VslCallEnclave.c)
- *     AlpcpFreeCompletionList @ 0x140B2392C (AlpcpFreeCompletionList.c)
- *     PspCreateSecureThread @ 0x140B342F8 (PspCreateSecureThread.c)
- *     PspDeleteSecureThread @ 0x140B41AE4 (PspDeleteSecureThread.c)
- *     MiReleaseHotPatchResources @ 0x140B55540 (MiReleaseHotPatchResources.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140B64218 (MiQueryMemoryPhysicalContiguity.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     CcZeroDataInCache @ 0x1403A0CB8 (CcZeroDataInCache.c)
+ *     MiProbeAndLockComplete @ 0x1403A1DB0 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     IopfCompleteRequest @ 0x1403FA200 (IopfCompleteRequest.c)
+ *     MiGetWorkingSetInfo @ 0x14040E930 (MiGetWorkingSetInfo.c)
+ *     CcMdlWriteComplete2 @ 0x14040EDA0 (CcMdlWriteComplete2.c)
+ *     IopUnlockAndFreeMdl @ 0x14040F3F4 (IopUnlockAndFreeMdl.c)
+ *     ExUnlockUserBuffer @ 0x14040F520 (ExUnlockUserBuffer.c)
+ *     VslpLockPagesForTransfer @ 0x14040F6A8 (VslpLockPagesForTransfer.c)
+ *     MiQueryPteCleanup @ 0x14040F8FC (MiQueryPteCleanup.c)
+ *     KeSwappablePageDereference @ 0x14040FC5C (KeSwappablePageDereference.c)
+ *     VslpUnlockPagesForTransfer @ 0x140410294 (VslpUnlockPagesForTransfer.c)
+ *     VslFinalizeSecureImageHash @ 0x140411260 (VslFinalizeSecureImageHash.c)
+ *     CcCopyBytesToUserBuffer @ 0x1404653C0 (CcCopyBytesToUserBuffer.c)
+ *     CcPrepareMdlWrite @ 0x1404C7470 (CcPrepareMdlWrite.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     CcLockSystemCacheBuffer @ 0x1405288CC (CcLockSystemCacheBuffer.c)
+ *     CcMdlWriteAbort @ 0x1405B47D0 (CcMdlWriteAbort.c)
+ *     KiOpPatchCode @ 0x1405FAB48 (KiOpPatchCode.c)
+ *     PspIumAllocatePartitionState @ 0x14061920C (PspIumAllocatePartitionState.c)
+ *     PspIumFreePartitionState @ 0x140619720 (PspIumFreePartitionState.c)
+ *     SmRecordDecompressionFailureDumpPayload @ 0x140642BD8 (SmRecordDecompressionFailureDumpPayload.c)
+ *     DifMmUnlockPagesWrapper @ 0x14066C260 (DifMmUnlockPagesWrapper.c)
+ *     VmProbeAndLockPages @ 0x1406C44C0 (VmProbeAndLockPages.c)
+ *     VmUnlockPages @ 0x1406C4560 (VmUnlockPages.c)
+ *     PopReadPagesFromHiberFile @ 0x140778074 (PopReadPagesFromHiberFile.c)
+ *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x1407937C0 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140793860 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     VslObtainHotPatchUndoTable @ 0x14079504C (VslObtainHotPatchUndoTable.c)
+ *     IopCleanupFileObjectIosbRange @ 0x140796FF0 (IopCleanupFileObjectIosbRange.c)
+ *     IopSetFileObjectIosbRange @ 0x1407981C0 (IopSetFileObjectIosbRange.c)
+ *     SmProcessStatsRequest @ 0x14082014C (SmProcessStatsRequest.c)
+ *     ExpProfileDelete @ 0x14084B5F0 (ExpProfileDelete.c)
+ *     NtStartProfile @ 0x14084B8E0 (NtStartProfile.c)
+ *     NtStopProfile @ 0x14084BBB0 (NtStopProfile.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x14084BEC0 (NtPssCaptureVaSpaceBulk.c)
+ *     CmpLockKeyBodyIntoMemory @ 0x14085F780 (CmpLockKeyBodyIntoMemory.c)
+ *     MiApplyImageHotPatch @ 0x140874A08 (MiApplyImageHotPatch.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x14087C968 (MiLoadDataIntoVsmEnclave.c)
+ *     CmpDeleteKeyObject @ 0x1408CFA20 (CmpDeleteKeyObject.c)
+ *     sub_1409EA1DC @ 0x1409EA1DC (sub_1409EA1DC.c)
+ *     sub_1409ED29C @ 0x1409ED29C (sub_1409ED29C.c)
+ *     WbMakeUserExecutablePagesKernelWritable @ 0x1409ED400 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     WbMakeUserDataPagesKernelWritable @ 0x1409ED50C (WbMakeUserDataPagesKernelWritable.c)
+ *     FsRtlpFreeMdlChain @ 0x140A22BB8 (FsRtlpFreeMdlChain.c)
+ *     MiCopyVirtualMemory @ 0x140A2B990 (MiCopyVirtualMemory.c)
+ *     MiCopyVmReadBytes @ 0x140A2BED0 (MiCopyVmReadBytes.c)
+ *     AlpcpInitializeCompletionList @ 0x140A918A8 (AlpcpInitializeCompletionList.c)
+ *     MiQueryPtePrepare @ 0x140A95A04 (MiQueryPtePrepare.c)
+ *     CcMdlReadComplete2 @ 0x140AC6B48 (CcMdlReadComplete2.c)
+ *     VslValidateDynamicCodePages @ 0x140AD2F54 (VslValidateDynamicCodePages.c)
+ *     MiRotateToFrameBuffer @ 0x140AEF750 (MiRotateToFrameBuffer.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140AEFA48 (MiReplaceRotateWithDemandZero.c)
+ *     CcMdlRead @ 0x140AF04E0 (CcMdlRead.c)
+ *     MiCopyPagesIntoEnclave @ 0x140AF1B14 (MiCopyPagesIntoEnclave.c)
+ *     VslCallEnclave @ 0x140B1C25C (VslCallEnclave.c)
+ *     AlpcpFreeCompletionList @ 0x140B25D2C (AlpcpFreeCompletionList.c)
+ *     PspCreateSecureThread @ 0x140B36748 (PspCreateSecureThread.c)
+ *     PspDeleteSecureThread @ 0x140B439D4 (PspDeleteSecureThread.c)
+ *     MiReleaseHotPatchResources @ 0x140B57DDC (MiReleaseHotPatchResources.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140B672B8 (MiQueryMemoryPhysicalContiguity.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiProbeUnlockPage @ 0x14028B900 (MiProbeUnlockPage.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiUnlockPageTableCharges @ 0x140318F40 (MiUnlockPageTableCharges.c)
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     MiValidateMdlTracker @ 0x1404EFA3C (MiValidateMdlTracker.c)
- *     MiRetardMdl @ 0x140504688 (MiRetardMdl.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiProbeUnlockPage @ 0x14028AE60 (MiProbeUnlockPage.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiUnlockPageTableCharges @ 0x14031AF70 (MiUnlockPageTableCharges.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     MiValidateMdlTracker @ 0x1404E901C (MiValidateMdlTracker.c)
+ *     MiRetardMdl @ 0x1404FDE4C (MiRetardMdl.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall MmUnlockPages(PMDL MemoryDescriptorList)
@@ -181,7 +181,7 @@ LABEL_17:
 LABEL_19:
   if ( v11 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
     {
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&Flink[1].Blink, retaddr);
       goto LABEL_32;
@@ -191,7 +191,7 @@ LABEL_19:
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       LODWORD(Flink[1].Blink) = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&Flink[1].Blink, retaddr);
@@ -223,7 +223,7 @@ LABEL_32:
   v3 = MemoryDescriptorList;
 LABEL_40:
   if ( (unsigned __int64)v4 >= 0xFFFF800000000000uLL
-    && byte_140E37A70[(((unsigned __int64)v4 >> 39) & 0x1FF) - 256] == 4
+    && byte_140E37BF0[(((unsigned __int64)v4 >> 39) & 0x1FF) - 256] == 4
     && DifObjTrkIsKvEnabledForPlugin(56LL) )
   {
     DifObjTrkRemoveItem(56LL, v4, v3->ByteCount);
@@ -242,7 +242,7 @@ LABEL_40:
     if ( *v2 == -1 )
       break;
     v19 = 1LL;
-    if ( v18 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v18 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+    if ( v18 <= qword_140E2D920 && ((*(_QWORD *)(48 * v18 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     {
       MiProbeUnlockPage(48 * *v2 - 0x220000000000LL, v1, &v31, &v29);
     }
@@ -260,7 +260,7 @@ LABEL_40:
           v23 = *v22;
           if ( *v22 == -1LL
             || v23 != v20 + 1
-            || v23 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v23 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+            || v23 <= qword_140E2D920 && ((*(_QWORD *)(48 * v23 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
           {
             break;
           }

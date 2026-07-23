@@ -1,8 +1,8 @@
 /*
- * XREFs of PspCreateUserContext @ 0x1409FF750
+ * XREFs of PspCreateUserContext @ 0x140A79090
  * Callers:
- *     NtCreateThreadEx @ 0x140A008A0 (NtCreateThreadEx.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     NtCreateThreadEx @ 0x140A79100 (NtCreateThreadEx.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
  *     <none>
  */

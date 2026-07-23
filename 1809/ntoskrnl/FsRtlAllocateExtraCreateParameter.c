@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1405C81E0
+ * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1405C91E0
  * Callers:
- *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1405DC500 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
- *     PspCreateUserProcessEcp @ 0x14060D368 (PspCreateUserProcessEcp.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x1407628E0 (IopSymlinkEnforceEnabledTypes.c)
+ *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1405DD500 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     PspCreateUserProcessEcp @ 0x14060E368 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x140763AD0 (IopSymlinkEnforceEnabledTypes.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(

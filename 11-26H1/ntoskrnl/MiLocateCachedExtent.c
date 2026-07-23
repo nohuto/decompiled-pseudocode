@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLocateCachedExtent @ 0x140511E14
+ * XREFs of MiLocateCachedExtent @ 0x14050B884
  * Callers:
- *     MiInitializeCachedExtentWalker @ 0x1405044E8 (MiInitializeCachedExtentWalker.c)
+ *     MiInitializeCachedExtentWalker @ 0x1404FDCAC (MiInitializeCachedExtentWalker.c)
  * Callees:
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
  */
 
 _DWORD *__fastcall MiLocateCachedExtent(__int64 *a1, __int64 a2)

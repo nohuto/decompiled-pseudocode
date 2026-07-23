@@ -1,41 +1,42 @@
 /*
- * XREFs of MiCloneAncillaryVadInfo @ 0x140961D0C
+ * XREFs of MiCloneAncillaryVadInfo @ 0x140A07A00
  * Callers:
- *     MiAllocateChildVads @ 0x140961AD0 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x140A077C4 (MiAllocateChildVads.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiIsVadLargePrivate @ 0x14030B6CC (MiIsVadLargePrivate.c)
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiCloneCaptureVadCommit @ 0x1404D9798 (MiCloneCaptureVadCommit.c)
- *     MiCloneImageVad @ 0x14070FE54 (MiCloneImageVad.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiCloneLargeFileOnlyVad @ 0x14086CE70 (MiCloneLargeFileOnlyVad.c)
- *     MiReleaseVadEventBlocks @ 0x14095C4CC (MiReleaseVadEventBlocks.c)
- *     MiVadHasSharedCommit @ 0x140961F50 (MiVadHasSharedCommit.c)
- *     MiCloneNoChange @ 0x140961FAC (MiCloneNoChange.c)
- *     MiCloneDiscardVadCommit @ 0x140962060 (MiCloneDiscardVadCommit.c)
- *     MiInsertSharedCommitNode @ 0x1409C6360 (MiInsertSharedCommitNode.c)
- *     MiCreatePlaceholderStorage @ 0x1409C684C (MiCreatePlaceholderStorage.c)
- *     MiRemoveSharedCommitNode @ 0x1409C7C70 (MiRemoveSharedCommitNode.c)
- *     MiCreateWriteWatchView @ 0x1409CF818 (MiCreateWriteWatchView.c)
- *     MiCreateLargePageEvent @ 0x140B3C9EC (MiCreateLargePageEvent.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiIsVadLargePrivate @ 0x1402ED74C (MiIsVadLargePrivate.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiCloneCaptureVadCommit @ 0x1404D2E78 (MiCloneCaptureVadCommit.c)
+ *     MiCloneImageVad @ 0x140714B50 (MiCloneImageVad.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiCloneLargeFileOnlyVad @ 0x140873250 (MiCloneLargeFileOnlyVad.c)
+ *     MiInsertSharedCommitNode @ 0x140997340 (MiInsertSharedCommitNode.c)
+ *     MiCreatePlaceholderStorage @ 0x14099782C (MiCreatePlaceholderStorage.c)
+ *     MiRemoveSharedCommitNode @ 0x140998C50 (MiRemoveSharedCommitNode.c)
+ *     MiCreateWriteWatchView @ 0x1409A07F8 (MiCreateWriteWatchView.c)
+ *     MiReleaseVadEventBlocks @ 0x140A01D8C (MiReleaseVadEventBlocks.c)
+ *     MiVadHasSharedCommit @ 0x140A07C44 (MiVadHasSharedCommit.c)
+ *     MiCloneNoChange @ 0x140A07CA0 (MiCloneNoChange.c)
+ *     MiCloneDiscardVadCommit @ 0x140A07D54 (MiCloneDiscardVadCommit.c)
+ *     MiCreateLargePageEvent @ 0x140B3EC6C (MiCreateLargePageEvent.c)
  */
 
-__int64 __fastcall MiCloneAncillaryVadInfo(_KPROCESS *BugCheckParameter1, __int64 a2, __int64 a3)
+__int64 __fastcall MiCloneAncillaryVadInfo(_KPROCESS *BugCheckParameter4, __int64 a2, __int64 a3)
 {
   int v6; // r12d
   int v7; // r15d
   int VadFlags; // ebx
   int v9; // ebx
   int PlaceholderStorage; // edi
-  char v12; // cl
+  struct _KLOCK_ENTRIES *v12; // r9
+  char v13; // cl
   int LargePageEvent; // eax
-  _OWORD v14[3]; // [rsp+20h] [rbp-78h] BYREF
+  _OWORD v15[3]; // [rsp+20h] [rbp-78h] BYREF
 
-  memset(v14, 0, sizeof(v14));
+  memset(v15, 0, sizeof(v15));
   v6 = 0;
   v7 = 0;
   if ( !(unsigned int)MiVadHasSharedCommit(a3) )
@@ -49,7 +50,7 @@ LABEL_2:
       {
 LABEL_17:
         if ( v7 )
-          MiRemoveSharedCommitNode(**(_QWORD **)(a2 + 80), BugCheckParameter1, 0LL);
+          MiRemoveSharedCommitNode(**(_QWORD **)(a2 + 80), (unsigned __int64)BugCheckParameter4, 0, v12);
         if ( v6 )
           MiCloneDiscardVadCommit(a2);
         goto LABEL_12;
@@ -58,27 +59,27 @@ LABEL_17:
     }
     VadFlags = MiReadVadFlags(a3);
     if ( (VadFlags & 2) == 0
-      || (PlaceholderStorage = MiCloneNoChange(BugCheckParameter1, a3, a2), PlaceholderStorage >= 0) )
+      || (PlaceholderStorage = MiCloneNoChange(BugCheckParameter4, a3, a2), PlaceholderStorage >= 0) )
     {
       if ( !MiLocateLockedVadEvent(a3, 0x80u)
-        || (PlaceholderStorage = MiCreatePlaceholderStorage((ULONG_PTR)BugCheckParameter1), PlaceholderStorage >= 0) )
+        || (PlaceholderStorage = MiCreatePlaceholderStorage((ULONG_PTR)BugCheckParameter4), PlaceholderStorage >= 0) )
       {
         if ( (VadFlags & 0x180000) != 0x180000
-          || (PlaceholderStorage = MiCreateWriteWatchView((ULONG_PTR)BugCheckParameter1), PlaceholderStorage >= 0) )
+          || (PlaceholderStorage = MiCreateWriteWatchView((ULONG_PTR)BugCheckParameter4, a2), PlaceholderStorage >= 0) )
         {
           if ( MiIsVadLargePrivate(a3) )
           {
-            v12 = *(_BYTE *)(a3 + 34);
+            v13 = *(_BYTE *)(a3 + 34);
             *(_DWORD *)(a2 + 52) = *(_DWORD *)(a3 + 52);
-            *(_BYTE *)(a2 + 34) = v12;
-            LargePageEvent = MiCreateLargePageEvent((ULONG_PTR)BugCheckParameter1);
+            *(_BYTE *)(a2 + 34) = v13;
+            LargePageEvent = MiCreateLargePageEvent((ULONG_PTR)BugCheckParameter4);
           }
           else
           {
             v9 = VadFlags & 0x1C;
             if ( v9 == 8 )
             {
-              LargePageEvent = MiCloneImageVad((__int64)BugCheckParameter1, a2, a3);
+              LargePageEvent = MiCloneImageVad((__int64)BugCheckParameter4, a2, a3);
             }
             else
             {
@@ -95,15 +96,15 @@ LABEL_17:
     }
     goto LABEL_17;
   }
-  PlaceholderStorage = MiInsertSharedCommitNode(**(_QWORD **)(a3 + 80), BugCheckParameter1, 0LL);
+  PlaceholderStorage = MiInsertSharedCommitNode(**(_QWORD **)(a3 + 80), (unsigned __int64)BugCheckParameter4, 0);
   if ( PlaceholderStorage >= 0 )
   {
     v7 = 1;
     goto LABEL_2;
   }
 LABEL_12:
-  KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v14);
+  KiStackAttachProcess(BugCheckParameter4, 0, (__int64)v15);
   MiReleaseVadEventBlocks(a2);
-  KiUnstackDetachProcess((__int64)v14, 0);
+  KiUnstackDetachProcess((__int64)v15, 0);
   return (unsigned int)PlaceholderStorage;
 }

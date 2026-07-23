@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaCvmQueryRegistryKeys @ 0x140CB0590
+ * XREFs of HalpDmaCvmQueryRegistryKeys @ 0x140CB65D0
  * Callers:
- *     HalpDmaInitializeCvmSupport @ 0x140CB0B80 (HalpDmaInitializeCvmSupport.c)
+ *     HalpDmaInitializeCvmSupport @ 0x140CB6BC0 (HalpDmaInitializeCvmSupport.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x140A864E0 (MmGetSystemRoutineAddress.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140A8B460 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 HalpDmaCvmQueryRegistryKeys()
@@ -54,16 +54,16 @@ __int64 HalpDmaCvmQueryRegistryKeys()
   if ( (int)result >= 0 )
   {
     if ( v1 )
-      byte_140FBA981 = 1;
+      byte_140FBAD41 = 1;
     result = v2;
     if ( v2 )
     {
       if ( v2 > 0x8000 )
         result = 0x8000LL;
-      dword_140FBA984 = result;
+      dword_140FBAD44 = result;
     }
     if ( v3 )
-      byte_140FBA982 = 1;
+      byte_140FBAD42 = 1;
   }
   return result;
 }

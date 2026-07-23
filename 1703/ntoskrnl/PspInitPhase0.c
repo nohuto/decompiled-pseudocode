@@ -33,14 +33,14 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   int v4; // eax
   unsigned int v5; // r8d
   __int64 v6; // rax
-  union _RTL_RUN_ONCE *v7; // rcx
-  union _RTL_RUN_ONCE *v8; // rcx
+  _RTL_RUN_ONCE *v7; // rcx
+  _RTL_RUN_ONCE *v8; // rcx
   __int64 v9; // rax
-  union _RTL_RUN_ONCE *v10; // rcx
-  union _RTL_RUN_ONCE *v11; // rcx
+  _RTL_RUN_ONCE *v10; // rcx
+  _RTL_RUN_ONCE *v11; // rcx
   __int64 v12; // rax
-  union _RTL_RUN_ONCE *v13; // rcx
-  union _RTL_RUN_ONCE *v14; // rcx
+  _RTL_RUN_ONCE *v13; // rcx
+  _RTL_RUN_ONCE *v14; // rcx
   __int64 v15; // rax
   _KPROCESS *Process; // rcx
   char v17; // bl

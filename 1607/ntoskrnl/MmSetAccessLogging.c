@@ -1,28 +1,28 @@
 /*
- * XREFs of MmSetAccessLogging @ 0x140001D44
+ * XREFs of MmSetAccessLogging @ 0x140001EB8
  * Callers:
  *     PfTAccessTracingCleanup @ 0x1403C82C0 (PfTAccessTracingCleanup.c)
  *     PfTAccessTracingStart @ 0x1403C83DC (PfTAccessTracingStart.c)
  *     PfTSetTracingPriority @ 0x1403DEDC4 (PfTSetTracingPriority.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 void __fastcall MmSetAccessLogging(int a1, int a2)
 {
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_1403271C0, &LockHandle);
-  dword_1403271B0 = a2;
-  dword_140327188 = a1;
+  KeAcquireInStackQueuedSpinLock(&qword_140327200, &LockHandle);
+  dword_1403271F0 = a2;
+  dword_1403271C8 = a1;
   if ( a1 )
   {
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     if ( !P )
-      KiInsertQueueDpc((ULONG_PTR)&dword_140327388, 0);
+      KiInsertQueueDpc((ULONG_PTR)&dword_1403273C8, 0);
   }
   else
   {

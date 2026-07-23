@@ -1,21 +1,21 @@
 /*
- * XREFs of IoRegisterContainerNotification @ 0x140894A40
+ * XREFs of IoRegisterContainerNotification @ 0x140894BA0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionObjectById @ 0x140206364 (MmGetSessionObjectById.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     IopGetDevicePDO @ 0x1402835A8 (IopGetDevicePDO.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopSetFileObjectExtensionFlag @ 0x1403621E0 (IopSetFileObjectExtensionFlag.c)
- *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x140381970 (ExUnregisterCallback.c)
- *     IopGetSessionIdFromPDO @ 0x14073E25C (IopGetSessionIdFromPDO.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopGetDevicePDO @ 0x1402717B8 (IopGetDevicePDO.c)
+ *     MmGetSessionObjectById @ 0x1402AAC94 (MmGetSessionObjectById.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1402F7040 (IopSetFileObjectExtensionFlag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     ExRegisterCallback @ 0x14037ECF0 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x1403814C0 (ExUnregisterCallback.c)
+ *     IopGetSessionIdFromPDO @ 0x14073E41C (IopGetSessionIdFromPDO.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterContainerNotification(
@@ -41,6 +41,9 @@ NTSTATUS __stdcall IoRegisterContainerNotification(
   unsigned int SessionIdFromPDO; // eax
   __int64 v21; // rdx
   _QWORD *v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // r9
 
   v5 = 0;
   v7 = CallbackFunction;
@@ -109,7 +112,7 @@ LABEL_28:
             ExUnregisterCallback(v15);
 LABEL_30:
           ExReleasePushLockEx((ULONG_PTR)&IopSessionNotificationLock, 0LL);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v23, v24, v25);
           return v5;
         }
         break;
@@ -126,13 +129,13 @@ LABEL_30:
     v14[3] = v7;
     v14[6] = SessionObjectById;
     *(_QWORD *)CallbackRegistration = v15;
-    v22 = (_QWORD *)qword_140C45938;
-    if ( *(PVOID **)qword_140C45938 != &IopSessionNotificationQueueHead )
+    v22 = (_QWORD *)qword_140C46018;
+    if ( *(PVOID **)qword_140C46018 != &IopSessionNotificationQueueHead )
       __fastfail(3u);
     *v14 = &IopSessionNotificationQueueHead;
     v14[1] = v22;
     *v22 = v14;
-    qword_140C45938 = (__int64)v14;
+    qword_140C46018 = (__int64)v14;
     goto LABEL_30;
   }
   return -1073741582;

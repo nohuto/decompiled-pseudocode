@@ -3,9 +3,9 @@
  * Callers:
  *     MxCreatePfns @ 0x140B5804C (MxCreatePfns.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
  *     MiIsRegularMemory @ 0x140B588A4 (MiIsRegularMemory.c)
  *     MxCreatePfn @ 0x140B5898C (MxCreatePfn.c)
  */

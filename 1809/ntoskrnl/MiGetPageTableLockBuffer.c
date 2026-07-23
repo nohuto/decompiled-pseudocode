@@ -1,5 +1,5 @@
 /*
- * XREFs of MiGetPageTableLockBuffer @ 0x14006CE80
+ * XREFs of MiGetPageTableLockBuffer @ 0x14006CE70
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
@@ -7,13 +7,13 @@
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
  *     MiMakeSystemCacheRangeValid @ 0x14004B5A0 (MiMakeSystemCacheRangeValid.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiWalkPageTablesRecursively @ 0x14006EE70 (MiWalkPageTablesRecursively.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiIsPageTableLocked @ 0x14012DAEC (MiIsPageTableLocked.c)
  * Callees:
  *     <none>
  */
@@ -29,5 +29,5 @@ char *__fastcall MiGetPageTableLockBuffer(__int64 a1, __int64 a2, int *a3)
   if ( v4 < 2u )
     return (char *)(a1 + 4 * (v5 + 1218));
   else
-    return (char *)&unk_14043A464 + 4 * v5;
+    return (char *)&unk_14043B524 + 4 * v5;
 }

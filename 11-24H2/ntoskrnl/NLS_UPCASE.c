@@ -1,13 +1,13 @@
 /*
- * XREFs of NLS_UPCASE @ 0x140400650
+ * XREFs of NLS_UPCASE @ 0x1403FAB40
  * Callers:
- *     RtlSuffixUnicodeString @ 0x14077D0F0 (RtlSuffixUnicodeString.c)
- *     RtlUpcaseUnicodeToCustomCPN @ 0x14077E900 (RtlUpcaseUnicodeToCustomCPN.c)
- *     RtlIsValidOemCharacter @ 0x1408B1350 (RtlIsValidOemCharacter.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1408C8D6C (_CmOpenCommonClassRegKeyWorker.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408CAE98 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     PnpGenerateDeviceIdsHash @ 0x140A4D2CC (PnpGenerateDeviceIdsHash.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
+ *     RtlSuffixUnicodeString @ 0x14077D020 (RtlSuffixUnicodeString.c)
+ *     RtlUpcaseUnicodeToCustomCPN @ 0x14077E830 (RtlUpcaseUnicodeToCustomCPN.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x1408C679C (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408C88C8 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     RtlIsValidOemCharacter @ 0x1409075B0 (RtlIsValidOemCharacter.c)
+ *     PnpGenerateDeviceIdsHash @ 0x140A43E5C (PnpGenerateDeviceIdsHash.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
  * Callees:
  *     <none>
  */

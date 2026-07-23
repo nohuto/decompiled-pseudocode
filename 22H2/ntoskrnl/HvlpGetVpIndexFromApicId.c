@@ -12,38 +12,27 @@
 __int64 __fastcall HvlpGetVpIndexFromApicId(int a1, _DWORD *a2)
 {
   _QWORD *v4; // rbx
-  int *v5; // rax
-  __int64 v6; // r8
-  int v7; // esi
-  __int64 v8; // rdx
-  int *v9; // r14
-  __int64 v10; // r9
-  __int16 v11; // ax
-  unsigned int v12; // ebx
-  __int128 v14; // [rsp+20h] [rbp-40h] BYREF
-  __int128 v15; // [rsp+30h] [rbp-30h]
-  __int128 v16; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v17; // [rsp+50h] [rbp-10h]
+  int v5; // esi
+  _QWORD *v6; // r14
+  __int16 v7; // ax
+  unsigned int v8; // ebx
+  _OWORD v10[2]; // [rsp+20h] [rbp-40h] BYREF
+  _OWORD v11[2]; // [rsp+40h] [rbp-20h] BYREF
 
-  v16 = 0LL;
-  v17 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v16, 1, 0LL, 16LL);
-  v5 = (int *)HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v14, 2, 0LL, 4LL);
-  v6 = *((_QWORD *)&v15 + 1);
-  v7 = 0;
-  v8 = *((_QWORD *)&v17 + 1);
-  v9 = v5;
+  memset(v11, 0, sizeof(v11));
+  memset(v10, 0, sizeof(v10));
+  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v11, 1, 0LL, 16LL);
+  v5 = 0;
+  v6 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v10, 2, 0LL, 4LL);
   *v4 = -1LL;
   v4[1] = 0LL;
   *((_DWORD *)v4 + 4) = a1;
-  v11 = HvcallInitiateHypercall(154, v8, v6, v10);
-  if ( !v11 )
-    v7 = *v9;
-  *a2 = v7;
-  v12 = v11 != 0 ? 0xC0000001 : 0;
-  HvlpReleaseHypercallPage(&v14);
-  HvlpReleaseHypercallPage(&v16);
-  return v12;
+  v7 = HvcallInitiateHypercall(154);
+  if ( !v7 )
+    v5 = *(_DWORD *)v6;
+  *a2 = v5;
+  v8 = v7 != 0 ? 0xC0000001 : 0;
+  HvlpReleaseHypercallPage(v10);
+  HvlpReleaseHypercallPage(v11);
+  return v8;
 }

@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlIsZeroMemory @ 0x1404D9FD0
+ * XREFs of RtlIsZeroMemory @ 0x1404D36B0
  * Callers:
- *     PopTracePowerLimitHistogram @ 0x140609CFC (PopTracePowerLimitHistogram.c)
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
- *     PspGetEffectiveNoWakeCharge @ 0x1407792A4 (PspGetEffectiveNoWakeCharge.c)
- *     PspFreezeJobTree @ 0x1407F8824 (PspFreezeJobTree.c)
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
- *     PspChargeProcessWakeCounter @ 0x1409BE2C0 (PspChargeProcessWakeCounter.c)
- *     PspEnforceLimitsJobPreCallback @ 0x140A7F730 (PspEnforceLimitsJobPreCallback.c)
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
- *     PspChargeJobWakeCounter @ 0x140AAE650 (PspChargeJobWakeCounter.c)
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x140B3DD70 (PspAllocateAndQueryProcessNotificationChannel.c)
- *     PspCheckEnableNotificationChannel @ 0x140B650F8 (PspCheckEnableNotificationChannel.c)
+ *     PopTracePowerLimitHistogram @ 0x14060C8BC (PopTracePowerLimitHistogram.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
+ *     PspGetEffectiveNoWakeCharge @ 0x14077C1D4 (PspGetEffectiveNoWakeCharge.c)
+ *     PspFreezeJobTree @ 0x1407FE324 (PspFreezeJobTree.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
+ *     PspChargeProcessWakeCounter @ 0x14098F2A0 (PspChargeProcessWakeCounter.c)
+ *     PspEnforceLimitsJobPreCallback @ 0x140A855A0 (PspEnforceLimitsJobPreCallback.c)
+ *     PspChargeJobWakeCounter @ 0x140AAC2B0 (PspChargeJobWakeCounter.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x140B3FE50 (PspAllocateAndQueryProcessNotificationChannel.c)
+ *     PspCheckEnableNotificationChannel @ 0x140B68198 (PspCheckEnableNotificationChannel.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlIsZeroMemory(_BYTE *a1, unsigned __int64 a2)
+BOOLEAN __cdecl RtlIsZeroMemory(PVOID Buffer, SIZE_T Length)
 {
-  char result; // al
+  BOOLEAN result; // al
 
   result = 0;
-  while ( ((unsigned __int8)a1 & 7) != 0 && a2 )
+  while ( ((unsigned __int8)Buffer & 7) != 0 && Length )
   {
-    if ( *a1 )
+    if ( *(_BYTE *)Buffer )
       return result;
-    ++a1;
-    --a2;
+    Buffer = (char *)Buffer + 1;
+    --Length;
   }
-  while ( a2 >= 8 )
+  while ( Length >= 8 )
   {
-    if ( *(_QWORD *)a1 )
+    if ( *(_QWORD *)Buffer )
       return result;
-    a1 += 8;
-    a2 -= 8LL;
+    Buffer = (char *)Buffer + 8;
+    Length -= 8LL;
   }
-  while ( a2 )
+  while ( Length )
   {
-    if ( *a1 )
+    if ( *(_BYTE *)Buffer )
       return result;
-    ++a1;
-    --a2;
+    Buffer = (char *)Buffer + 1;
+    --Length;
   }
   return 1;
 }

@@ -33,7 +33,7 @@ char EtwpTraceSystemInitialization()
   LARGE_INTEGER v16; // [rsp+60h] [rbp-A8h] BYREF
   _QWORD v17[2]; // [rsp+68h] [rbp-A0h] BYREF
   unsigned int v18[4]; // [rsp+78h] [rbp-90h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+88h] [rbp-80h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+88h] [rbp-80h] BYREF
   __int16 v20; // [rsp+19Ch] [rbp+94h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+1A8h] [rbp+A0h] BYREF
   DWORD *p_dwMinorVersion; // [rsp+1B8h] [rbp+B0h]

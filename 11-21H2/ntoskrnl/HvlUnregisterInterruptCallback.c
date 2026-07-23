@@ -12,8 +12,8 @@ signed __int64 __fastcall HvlUnregisterInterruptCallback(unsigned int a1, signed
 
   if ( a1 <= 4 )
     return _InterlockedCompareExchange64(
-             (volatile signed __int64 *)&HvlpInterruptCallback[a1],
-             (signed __int64)HvlDummyInterruptCallback,
+             (volatile signed __int64 *)&off_140D05510[a1],
+             (signed __int64)sub_140543130,
              a2);
   return result;
 }

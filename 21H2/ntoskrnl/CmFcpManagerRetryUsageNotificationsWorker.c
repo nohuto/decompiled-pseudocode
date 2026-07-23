@@ -1,13 +1,13 @@
 /*
- * XREFs of CmFcpManagerRetryUsageNotificationsWorker @ 0x14087E8D0
+ * XREFs of CmFcpManagerRetryUsageNotificationsWorker @ 0x14087EA30
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x1407CABF0 (CmFcpManagerDrainUsageNotifications.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CAF10 (CmFcpManagerDrainUsageNotifications.c)
  */
 
 _QWORD *__fastcall CmFcpManagerRetryUsageNotificationsWorker(__int64 a1, __int64 a2)
@@ -16,6 +16,9 @@ _QWORD *__fastcall CmFcpManagerRetryUsageNotificationsWorker(__int64 a1, __int64
   volatile signed __int64 *v4; // rsi
   __int64 v5; // r8
   __int64 v6; // r8
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -27,5 +30,5 @@ _QWORD *__fastcall CmFcpManagerRetryUsageNotificationsWorker(__int64 a1, __int64
   if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v4);
   KeAbPostRelease((ULONG_PTR)v4);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRestoreExtendedProcessorState @ 0x140082C8C
+ * XREFs of KeRestoreExtendedProcessorState @ 0x14008390C
  * Callers:
  *     <none>
  * Callees:

@@ -9,9 +9,9 @@
 __int64 __fastcall SC_DISK::GetStoragePropertyPost(SC_DISK *this, int a2, struct _STORAGE_DESCRIPTOR_HEADER *a3)
 {
   unsigned int v3; // r9d
-  ULONG v4; // ecx
-  ULONG Size; // eax
-  ULONG Version; // edx
+  DWORD v4; // ecx
+  DWORD Size; // eax
+  DWORD Version; // edx
 
   v3 = 0;
   if ( a2 > 14 )

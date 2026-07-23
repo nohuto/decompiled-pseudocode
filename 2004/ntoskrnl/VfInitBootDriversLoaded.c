@@ -57,7 +57,7 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
   VfThunkFindExportAddressAllTables(a1);
   if ( ViVerifierDriverAddedThunkListHead )
   {
-    NtSetDebugFilterState(0x5Du, 0, 1);
+    NtSetDebugFilterState(0x5Du, 0, 1u);
     if ( MmVerifyDriverBufferLength )
       VfSuspectDriversParseRegistryString();
     if ( VfXdvSuppressDriversBufferLength )

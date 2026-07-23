@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsPfnFileOnly @ 0x1404611D0
+ * XREFs of MiIsPfnFileOnly @ 0x1404595D0
  * Callers:
- *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C007C4 (MiAddPostHibernateZeroPagesToBitmap.c)
- *     MiWalkPagesOnLists @ 0x140C05688 (MiWalkPagesOnLists.c)
+ *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C069D4 (MiAddPostHibernateZeroPagesToBitmap.c)
+ *     MiWalkPagesOnLists @ 0x140C0B898 (MiWalkPagesOnLists.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of _NtPlugPlayGetDeviceInterfaceEnabled @ 0x1404FB054
+ * XREFs of _NtPlugPlayGetDeviceInterfaceEnabled @ 0x1404DDFE0
  * Callers:
- *     _CmIsDeviceInterfaceEnabled @ 0x1404FB018 (_CmIsDeviceInterfaceEnabled.c)
+ *     _CmIsDeviceInterfaceEnabled @ 0x1404DDFA4 (_CmIsDeviceInterfaceEnabled.c)
  * Callees:
- *     _PnpCtxGetNtPlugPlayRoutine @ 0x1404FB0E4 (_PnpCtxGetNtPlugPlayRoutine.c)
+ *     _PnpCtxGetNtPlugPlayRoutine @ 0x1404DE070 (_PnpCtxGetNtPlugPlayRoutine.c)
  */
 
 __int64 __fastcall NtPlugPlayGetDeviceInterfaceEnabled(__int64 a1, __int64 a2)

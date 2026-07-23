@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetMaxValidMemorySize @ 0x140281638
+ * XREFs of IopGetMaxValidMemorySize @ 0x140281828
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14027F894 (IoFillTriageDumpBuffer.c)
- *     IopAddRunTimeTriageDataBlocks @ 0x140280FBC (IopAddRunTimeTriageDataBlocks.c)
- *     IopUpdateMinidumpContext @ 0x140281C68 (IopUpdateMinidumpContext.c)
- *     IopAddBugcheckTriageThread @ 0x140287354 (IopAddBugcheckTriageThread.c)
+ *     IoFillTriageDumpBuffer @ 0x14027FA84 (IoFillTriageDumpBuffer.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x1402811AC (IopAddRunTimeTriageDataBlocks.c)
+ *     IopUpdateMinidumpContext @ 0x140281E58 (IopUpdateMinidumpContext.c)
+ *     IopAddBugcheckTriageThread @ 0x140287544 (IopAddBugcheckTriageThread.c)
  * Callees:
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
  */
 
 __int64 __fastcall IopGetMaxValidMemorySize(__int64 a1, unsigned int a2)

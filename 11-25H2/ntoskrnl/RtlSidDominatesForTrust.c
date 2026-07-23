@@ -13,34 +13,34 @@
  *     RtlIsValidProcessTrustLabelSid @ 0x1403616D0 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-__int64 __fastcall RtlSidDominatesForTrust(__int64 a1, __int64 a2, bool *a3)
+NTSTATUS __cdecl RtlSidDominatesForTrust(PSID Sid1, PSID Sid2, PBOOLEAN DominatesTrust)
 {
-  __int64 v3; // r9
+  PSID v3; // r9
   __int64 v5; // r9
   __int64 v6; // r10
 
-  *a3 = 0;
-  v3 = a2;
-  if ( a1 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(a1, a2, a3) )
-    return 3221225485LL;
+  *DominatesTrust = 0;
+  v3 = Sid2;
+  if ( Sid1 && !RtlIsValidProcessTrustLabelSid(Sid1) )
+    return -1073741811;
   if ( !v3 )
   {
 LABEL_3:
-    *a3 = 1;
-    return 0LL;
+    *DominatesTrust = 1;
+    return 0;
   }
-  if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v3, a2, a3) )
-    return 3221225485LL;
+  if ( !RtlIsValidProcessTrustLabelSid(v3) )
+    return -1073741811;
   if ( v6 )
   {
     if ( *(_DWORD *)(v6 + 8) >= *(_DWORD *)(v5 + 8) && *(_DWORD *)(v6 + 12) >= *(_DWORD *)(v5 + 12) )
       goto LABEL_3;
-    *a3 = 0;
-    return 0LL;
+    *DominatesTrust = 0;
+    return 0;
   }
   else
   {
-    *a3 = *(_DWORD *)(v5 + 8) == 0;
-    return 0LL;
+    *DominatesTrust = *(_DWORD *)(v5 + 8) == 0;
+    return 0;
   }
 }

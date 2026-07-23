@@ -1,17 +1,17 @@
 /*
- * XREFs of KePrepareClockTimerForIdle @ 0x1400D8760
+ * XREFs of KePrepareClockTimerForIdle @ 0x1400D6600
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KiGetNextTimerExpirationDueTime @ 0x14009D0B8 (KiGetNextTimerExpirationDueTime.c)
- *     KiEventClockStateChange @ 0x14009E0BC (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x14009E0F8 (KiSetPendingTick.c)
- *     PoAllProcessorsDeepIdle @ 0x1400C0ECC (PoAllProcessorsDeepIdle.c)
- *     RtlGetInterruptTimePrecise @ 0x1400D71A0 (RtlGetInterruptTimePrecise.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
- *     PoTraceDynamicTickDisabled @ 0x140207528 (PoTraceDynamicTickDisabled.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x14009C8B8 (KiGetNextTimerExpirationDueTime.c)
+ *     KiEventClockStateChange @ 0x14009D8BC (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x14009D8F8 (KiSetPendingTick.c)
+ *     PoAllProcessorsDeepIdle @ 0x1400BED5C (PoAllProcessorsDeepIdle.c)
+ *     RtlGetInterruptTimePrecise @ 0x1400D5040 (RtlGetInterruptTimePrecise.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
+ *     PoTraceDynamicTickDisabled @ 0x140207354 (PoTraceDynamicTickDisabled.c)
  */
 
 void __fastcall KePrepareClockTimerForIdle(char a1, unsigned __int64 a2, char a3)
@@ -22,7 +22,7 @@ void __fastcall KePrepareClockTimerForIdle(char a1, unsigned __int64 a2, char a3
   __int32 v8; // r12d
   __int64 v9; // r13
   unsigned __int64 v10; // r15
-  __int64 InterruptTimePrecise; // r13
+  LARGE_INTEGER InterruptTimePrecise; // r13
   unsigned __int64 v12; // r15
   bool v13; // cf
   unsigned __int64 v14; // [rsp+30h] [rbp-88h] BYREF
@@ -30,7 +30,7 @@ void __fastcall KePrepareClockTimerForIdle(char a1, unsigned __int64 a2, char a3
   int v16; // [rsp+40h] [rbp-78h] BYREF
   int v17; // [rsp+48h] [rbp-70h] BYREF
   unsigned __int64 v18; // [rsp+50h] [rbp-68h] BYREF
-  LARGE_INTEGER v19; // [rsp+58h] [rbp-60h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-60h] BYREF
   _QWORD v20[2]; // [rsp+60h] [rbp-58h] BYREF
 
   v15 = 0LL;
@@ -54,7 +54,7 @@ LABEL_4:
   }
   if ( a2 > KiMaxDynamicTickDuration )
   {
-    ++dword_14030DD8C;
+    ++dword_14030DDCC;
     v6 = KiMaxDynamicTickDuration;
   }
   v8 = _InterlockedExchange(&KiClockState, 3);
@@ -68,7 +68,7 @@ LABEL_4:
   v10 = v18;
   if ( a3 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   }
   else
   {
@@ -95,17 +95,17 @@ LABEL_4:
         goto LABEL_28;
       }
     }
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
-    if ( v10 <= InterruptTimePrecise + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    if ( v10 <= InterruptTimePrecise.QuadPart + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
     {
 LABEL_33:
       v3 = 4;
       goto LABEL_28;
     }
   }
-  if ( v10 <= InterruptTimePrecise + (unsigned __int64)(unsigned int)KiMinDynamicTickDuration )
+  if ( v10 <= InterruptTimePrecise.QuadPart + (unsigned __int64)(unsigned int)KiMinDynamicTickDuration )
     goto LABEL_33;
-  v12 = v10 - InterruptTimePrecise;
+  v12 = v10 - InterruptTimePrecise.QuadPart;
   v14 = v12;
   if ( v12 > v6 )
   {
@@ -130,22 +130,22 @@ LABEL_33:
   else
   {
     KiSetPendingTick(1);
-    KiClockTimerOneShotStartTime = InterruptTimePrecise;
+    KiClockTimerOneShotStartTime = InterruptTimePrecise.QuadPart;
     KiEventClockStateChange(1, v8, &v15, (__int64 *)&v14);
     if ( a3 )
       KiClockLatencyMeasurementEnabled = 1;
-    ++qword_14030DD90;
+    ++qword_14030DDD0;
     v8 = 1;
-    v13 = v12 < qword_14030DDC8;
+    v13 = v12 < qword_14030DE08;
     CurrentPrcb->ClockOwner = 0;
     if ( v13 )
-      qword_14030DDC8 = v12;
-    if ( v12 > qword_14030DDC0 )
-      qword_14030DDC0 = v12;
+      qword_14030DE08 = v12;
+    if ( v12 > qword_14030DE00 )
+      qword_14030DE00 = v12;
     if ( a1 )
       KiConsiderTimerRebasing = 1;
   }
-  KiClockTimerNextTickTime = InterruptTimePrecise + v15;
+  KiClockTimerNextTickTime = InterruptTimePrecise.QuadPart + v15;
 LABEL_28:
   if ( v8 != 4 )
     _InterlockedExchange(&KiClockState, v8);

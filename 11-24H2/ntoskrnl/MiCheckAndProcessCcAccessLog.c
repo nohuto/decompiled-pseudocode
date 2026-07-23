@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckAndProcessCcAccessLog @ 0x140379B9C
+ * XREFs of MiCheckAndProcessCcAccessLog @ 0x14044B1B4
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140378F30 (MiTrimOrAgeWorkingSet.c)
- *     MiEmptyAccessLogs @ 0x140683670 (MiEmptyAccessLogs.c)
- *     MiDeletePartitionResources @ 0x1407FBD44 (MiDeletePartitionResources.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402F35B0 (MiTrimOrAgeWorkingSet.c)
+ *     MiEmptyAccessLogs @ 0x140684820 (MiEmptyAccessLogs.c)
+ *     MiDeletePartitionResources @ 0x1407FC4B4 (MiDeletePartitionResources.c)
  * Callees:
- *     MiQueuePageAccessLog @ 0x140244A68 (MiQueuePageAccessLog.c)
- *     MiReturnCcAccessLog @ 0x140379C6C (MiReturnCcAccessLog.c)
+ *     MiQueuePageAccessLog @ 0x14020D250 (MiQueuePageAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x14044B208 (MiReturnCcAccessLog.c)
  */
 
 void __fastcall MiCheckAndProcessCcAccessLog(__int64 a1, __int64 a2, char a3)

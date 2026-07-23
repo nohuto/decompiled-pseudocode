@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmStoreDelete @ 0x1403E4174
+ * XREFs of SmKmStoreDelete @ 0x1403E57A0
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x140002D30 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmProcessCreateRequest @ 0x1403E3B50 (SmProcessCreateRequest.c)
- *     SmProcessDeleteRequest @ 0x140696838 (SmProcessDeleteRequest.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x140002EA4 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmProcessCreateRequest @ 0x1403E517C (SmProcessCreateRequest.c)
+ *     SmProcessDeleteRequest @ 0x14069691C (SmProcessDeleteRequest.c)
  * Callees:
- *     SmEtwEnabled @ 0x140002E00 (SmEtwEnabled.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14000321C (SmKmStoreRefFromStoreIndex.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SmKmEtwLogStoreChange @ 0x140697BC0 (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x140697CEC (SmKmEtwLogStoreStats.c)
+ *     SmEtwEnabled @ 0x140002F74 (SmEtwEnabled.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140003390 (SmKmStoreRefFromStoreIndex.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     SmKmEtwLogStoreChange @ 0x140697CA4 (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x140697DD0 (SmKmEtwLogStoreStats.c)
  */
 
 __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)

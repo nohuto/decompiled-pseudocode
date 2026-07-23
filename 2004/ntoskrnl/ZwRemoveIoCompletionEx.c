@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwRemoveIoCompletionEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRemoveIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        PFILE_IO_COMPLETION_INFORMATION IoCompletionInformation,
+        ULONG Count,
+        PULONG NumEntriesRemoved,
+        PLARGE_INTEGER Timeout,
+        BOOLEAN Alertable)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoCompletionHandle);
 }

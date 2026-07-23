@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDemoteSlabEntry @ 0x1403CD3EC
+ * XREFs of MiDemoteSlabEntry @ 0x1403CD5CC
  * Callers:
- *     MiDemoteSlabEntriesDpc @ 0x1403CD0C0 (MiDemoteSlabEntriesDpc.c)
+ *     MiDemoteSlabEntriesDpc @ 0x1403CD2A0 (MiDemoteSlabEntriesDpc.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReturnFreeZeroPage @ 0x1402E7F74 (MiReturnFreeZeroPage.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402E8FBC (MiUpdateSlabPagePlaceholderState.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     MiRemoveSlabEntry @ 0x1403C248C (MiRemoveSlabEntry.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReturnFreeZeroPage @ 0x1402E8204 (MiReturnFreeZeroPage.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402E924C (MiUpdateSlabPagePlaceholderState.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     MiRemoveSlabEntry @ 0x1403C266C (MiRemoveSlabEntry.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // r13
+  __int64 v4; // r13
   __int64 v6; // r12
   unsigned int v7; // r15d
   unsigned int v8; // r11d
@@ -73,7 +73,7 @@ __int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3
 
   v4 = a3;
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a2 + 16));
-  MiRemoveSlabEntry(a1, (unsigned __int64 *)a2, v4);
+  MiRemoveSlabEntry(a1, (_RTL_RB_TREE *)a2, v4);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 16));
   v6 = 0x3FFFFFFFFFLL;
   v55 = 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSectionProtectTrimValidPtes @ 0x1404AE9B8
+ * XREFs of MiSectionProtectTrimValidPtes @ 0x1404A8048
  * Callers:
- *     MiSectionProtectValidPte @ 0x140304460 (MiSectionProtectValidPte.c)
+ *     MiSectionProtectValidPte @ 0x1402E64E0 (MiSectionProtectValidPte.c)
  * Callees:
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiUnlockVa @ 0x1404AA78C (MiUnlockVa.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiUnlockVa @ 0x1404A3E1C (MiUnlockVa.c)
  */
 
 void __fastcall MiSectionProtectTrimValidPtes(__int64 a1, __int64 a2, unsigned __int64 a3)

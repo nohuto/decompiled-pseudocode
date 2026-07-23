@@ -157,7 +157,9 @@ LABEL_11:
                                       v25,
                                       v24 + ((8LL * (v53 & 2)) | 0xC) + 16LL * (v53 & 1),
                                       0LL,
-                                      v23)
+                                      v23,
+                                      a12,
+                                      a14)
                 && (unsigned __int8)AuthzBasepObjectInTypeList(v54, a9, v15, &v58) )
               {
                 AuthzBasepAddAccessTypeList(a9, v15, v58, v56, *(_DWORD *)(v24 + 4), 0);
@@ -166,7 +168,14 @@ LABEL_11:
             }
             goto LABEL_34;
           }
-          if ( !(unsigned __int8)SepSidInToken(v18, v25, v24 + ((8LL * (v53 & 2)) | 0xC) + 16LL * (v53 & 1), 0LL, v23) )
+          if ( !(unsigned __int8)SepSidInToken(
+                                   v18,
+                                   v25,
+                                   v24 + ((8LL * (v53 & 2)) | 0xC) + 16LL * (v53 & 1),
+                                   0LL,
+                                   v23,
+                                   a12,
+                                   a14) )
             goto LABEL_32;
           v39 = *(_DWORD *)(v24 + 4);
           if ( v15 == 1 )
@@ -176,8 +185,15 @@ LABEL_11:
           }
           goto LABEL_86;
         case 4:
-          if ( !(unsigned __int8)SepSidInToken(v18, v25, v24 + 4 * (*(unsigned __int8 *)(v24 + 13) + 5LL), 0LL, v23)
-            || !(unsigned __int8)SepSidInToken(a3, 0LL, v24 + 12, 0LL, v23) )
+          if ( !(unsigned __int8)SepSidInToken(
+                                   v18,
+                                   v25,
+                                   v24 + 4 * (*(unsigned __int8 *)(v24 + 13) + 5LL),
+                                   0LL,
+                                   v23,
+                                   a12,
+                                   a14)
+            || !(unsigned __int8)SepSidInToken(a3, 0LL, v24 + 12, 0LL, v23, a12, a14) )
           {
             goto LABEL_32;
           }
@@ -190,7 +206,7 @@ LABEL_11:
           goto LABEL_86;
         case 1:
           LOBYTE(a4) = 1;
-          if ( !(unsigned __int8)SepSidInToken(v18, v25, v24 + 8, a4, v23) )
+          if ( !(unsigned __int8)SepSidInToken(v18, v25, v24 + 8, a4, v23, a12, 0) )
             goto LABEL_32;
           result = *(unsigned int *)(v24 + 4);
           if ( ((unsigned int)result & *(_DWORD *)(a9 + 24)) == 0 )
@@ -203,7 +219,9 @@ LABEL_11:
                                    v25,
                                    v24 + ((8LL * (*(_DWORD *)(v24 + 8) & 2)) | 0xC) + 16LL * (*(_DWORD *)(v24 + 8) & 1),
                                    a4,
-                                   v23) )
+                                   v23,
+                                   a12,
+                                   0) )
             goto LABEL_32;
           v55 = v24 + 12;
           v14 = 0LL;
@@ -302,7 +320,7 @@ LABEL_88:
 LABEL_83:
       if ( !*(_DWORD *)(a9 + 24) )
         goto LABEL_32;
-      if ( !(unsigned __int8)SepSidInToken(v18, (__int64)a7, v24 + 8, 0LL, v23) )
+      if ( !(unsigned __int8)SepSidInToken(v18, (__int64)a7, v24 + 8, 0LL, v23, a12, a14) )
       {
         v25 = (__int64)a7;
 LABEL_134:

@@ -13,37 +13,37 @@
 
 _QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1)
 {
-  __int64 v2; // rdi
+  unsigned __int64 Root; // rdi
   int v3; // esi
   _QWORD *v4; // rbx
   int v6; // eax
-  __int64 v7; // rax
+  unsigned __int64 v7; // rax
   _QWORD *v8; // rcx
   _QWORD *v9; // rax
   __int64 v10; // rax
 
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v2 = EtwpGuidEntryTable;
-  v3 = byte_180160400 & 1;
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
+  v3 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
   v4 = 0LL;
-  while ( v2 )
+  while ( Root )
   {
-    v6 = memcmp(Buf1, (const void *)(v2 + 24), 0x10uLL);
+    v6 = memcmp(Buf1, (const void *)(Root + 24), 0x10uLL);
     if ( v6 < 0 )
       goto LABEL_7;
     if ( v6 <= 0 )
     {
-      v4 = (_QWORD *)v2;
+      v4 = (_QWORD *)Root;
 LABEL_7:
-      v7 = *(_QWORD *)v2;
+      v7 = *(_QWORD *)Root;
       goto LABEL_8;
     }
-    v7 = *(_QWORD *)(v2 + 8);
+    v7 = *(_QWORD *)(Root + 8);
 LABEL_8:
     if ( v3 && v7 )
-      v2 ^= v7;
+      Root ^= v7;
     else
-      v2 = v7;
+      Root = v7;
   }
   if ( v4 )
   {

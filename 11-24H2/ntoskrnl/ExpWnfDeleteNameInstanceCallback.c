@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfDeleteNameInstanceCallback @ 0x140A60564
+ * XREFs of ExpWnfDeleteNameInstanceCallback @ 0x140A58AB4
  * Callers:
- *     ExpWnfFreeScopeInstance @ 0x140A604C4 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfFreeScopeInstance @ 0x140A58A14 (ExpWnfFreeScopeInstance.c)
  * Callees:
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     ExpWnfDeleteNameInstance @ 0x1408AA6E8 (ExpWnfDeleteNameInstance.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ExpWnfDeleteNameInstance @ 0x140900948 (ExpWnfDeleteNameInstance.c)
  */
 
 __int64 __fastcall ExpWnfDeleteNameInstanceCallback(__int64 a1, __int64 a2)
@@ -12,6 +12,6 @@ __int64 __fastcall ExpWnfDeleteNameInstanceCallback(__int64 a1, __int64 a2)
   struct _EX_RUNDOWN_REF *v2; // rbx
 
   v2 = (struct _EX_RUNDOWN_REF *)(a1 - 16);
-  ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 - 16 + 8));
+  ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 - 16 + 8));
   return ExpWnfDeleteNameInstance(a2, v2, 0);
 }

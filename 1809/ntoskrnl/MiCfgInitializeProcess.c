@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCfgInitializeProcess @ 0x140677D50
+ * XREFs of MiCfgInitializeProcess @ 0x140678F10
  * Callers:
- *     MiMapProcessExecutable @ 0x140677C48 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x140678E08 (MiMapProcessExecutable.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
- *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
- *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
- *     MiReferenceCfgVad @ 0x14067AAE4 (MiReferenceCfgVad.c)
- *     MiMapCfgBitMapSection @ 0x14067ABD0 (MiMapCfgBitMapSection.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075450 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReferenceVad @ 0x140075590 (MiReferenceVad.c)
+ *     MiLockVad @ 0x140076994 (MiLockVad.c)
+ *     MiCommitVadCfgBits @ 0x1405F55BC (MiCommitVadCfgBits.c)
+ *     MiReferenceCfgVad @ 0x14067BCA4 (MiReferenceCfgVad.c)
+ *     MiMapCfgBitMapSection @ 0x14067BD90 (MiMapCfgBitMapSection.c)
  */
 
 __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
@@ -46,7 +46,7 @@ __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
       return 3221225595LL;
   }
   v16 = 0x20000000000LL;
-  result = MiMapCfgBitMapSection(a1, qword_140438E08, (unsigned int)&v17, (unsigned int)&v15, (__int64)&v16);
+  result = MiMapCfgBitMapSection(a1, qword_140439EC8, (unsigned int)&v17, (unsigned int)&v15, (__int64)&v16);
   if ( (int)result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -61,7 +61,7 @@ __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
         v17 = 0LL;
         v15 = 0LL;
         v16 = (2 * (v14 >> 4)) >> 3;
-        result = MiMapCfgBitMapSection(a1, qword_140438DF8, (unsigned int)&v17, (unsigned int)&v15, (__int64)&v16);
+        result = MiMapCfgBitMapSection(a1, qword_140439EB8, (unsigned int)&v17, (unsigned int)&v15, (__int64)&v16);
         if ( (int)result < 0 )
           return result;
         MiReferenceCfgVad(CurrentThread, v15, 1LL);

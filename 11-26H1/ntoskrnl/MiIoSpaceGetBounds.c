@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIoSpaceGetBounds @ 0x140313748
+ * XREFs of MiIoSpaceGetBounds @ 0x140315778
  * Callers:
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiSetIoPfnNodeCellsActive @ 0x140312050 (MiSetIoPfnNodeCellsActive.c)
- *     MiMapMdlCommon @ 0x140312C2C (MiMapMdlCommon.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MiLookupIoPageNode @ 0x140367E4C (MiLookupIoPageNode.c)
- *     MiIoRangeIsConstant @ 0x1404C8654 (MiIoRangeIsConstant.c)
- *     MiMapMdlWithLargePages @ 0x140502900 (MiMapMdlWithLargePages.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiSetIoPfnNodeCellsActive @ 0x140314080 (MiSetIoPfnNodeCellsActive.c)
+ *     MiMapMdlCommon @ 0x140314C5C (MiMapMdlCommon.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MiLookupIoPageNode @ 0x140369BEC (MiLookupIoPageNode.c)
+ *     MiIoRangeIsConstant @ 0x1404C2394 (MiIoRangeIsConstant.c)
+ *     MiMapMdlWithLargePages @ 0x1404FC1D0 (MiMapMdlWithLargePages.c)
  * Callees:
  *     <none>
  */
@@ -22,9 +22,9 @@ _QWORD *__fastcall MiIoSpaceGetBounds(__int64 a1, unsigned __int64 a2)
   int v7; // r9d
   unsigned __int64 v8; // rax
 
-  if ( *(_QWORD *)&stru_140E2EB88.WaitRegister.Flags
+  if ( *(_QWORD *)&stru_140E2ED08.WaitRegister.Flags
     && a2 >> 18 < 0x400000
-    && _bittest64(*(const signed __int64 **)&stru_140E2EB88.WaitRegister.Flags, (a2 >> 18) & 0x3FFFFF) )
+    && _bittest64(*(const signed __int64 **)&stru_140E2ED08.WaitRegister.Flags, (a2 >> 18) & 0x3FFFFF) )
   {
     v7 = 1;
     *(_QWORD *)a1 = a2 & 0xFFFFFFFFFFFC0000uLL;
@@ -36,7 +36,7 @@ _QWORD *__fastcall MiIoSpaceGetBounds(__int64 a1, unsigned __int64 a2)
   }
   else
   {
-    v3 = (__int64 *)xmmword_140E35EC0;
+    v3 = (__int64 *)xmmword_140E36040;
     while ( v3 )
     {
       if ( a2 < v3[3] )
@@ -62,7 +62,7 @@ _QWORD *__fastcall MiIoSpaceGetBounds(__int64 a1, unsigned __int64 a2)
     v4 = a2 + 0x40000;
     if ( a2 != ((a2 + 0x3FFFF) & 0xFFFFFFFFFFFC0000uLL) )
       v4 = (a2 + 0x3FFFF) & 0xFFFFFFFFFFFC0000uLL;
-    result = (_QWORD *)xmmword_140E35EC0;
+    result = (_QWORD *)xmmword_140E36040;
     v6 = v4 - 1;
     while ( result )
     {

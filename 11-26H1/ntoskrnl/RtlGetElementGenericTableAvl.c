@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetElementGenericTableAvl @ 0x1404CA470
+ * XREFs of RtlGetElementGenericTableAvl @ 0x1404C3EA0
  * Callers:
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051C810 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051E9C0 (DifObjTrkQeuryInvokeDeleteRange.c)
  * Callees:
- *     RealSuccessor @ 0x1403B8200 (RealSuccessor.c)
- *     RealPredecessor @ 0x1403B914C (RealPredecessor.c)
+ *     RealSuccessor @ 0x1403C2100 (RealSuccessor.c)
+ *     RealPredecessor @ 0x1403C304C (RealPredecessor.c)
  */
 
 PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)

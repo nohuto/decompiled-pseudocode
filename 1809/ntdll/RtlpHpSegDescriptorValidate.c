@@ -7,7 +7,7 @@
  *     RtlpHpSizeHeapInternal @ 0x18005B290 (RtlpHpSizeHeapInternal.c)
  *     RtlpHpSegSetExtraPresent @ 0x18005B3D8 (RtlpHpSegSetExtraPresent.c)
  *     RtlpHpMetadataCommit @ 0x180066ABC (RtlpHpMetadataCommit.c)
- *     RtlpHpSegLfhVsDecommit @ 0x180075BA0 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x180075BB0 (RtlpHpSegLfhVsDecommit.c)
  * Callees:
  *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010D74C (RtlpHpSegGetDescriptorValidateSafe.c)
  */

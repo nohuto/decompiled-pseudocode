@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwSetQuotaInformationFile()
+NTSTATUS __cdecl ZwSetQuotaInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 394LL;
+  result = 394;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsLocateSystemDlls @ 0x140554604
+ * XREFs of PsLocateSystemDlls @ 0x140554B44
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14013D140 (VslGetNestedPageProtectionFlags.c)
- *     ExVerifySuite @ 0x14013D188 (ExVerifySuite.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PspLocateSystemDll @ 0x140554680 (PspLocateSystemDll.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14013D6B0 (VslGetNestedPageProtectionFlags.c)
+ *     ExVerifySuite @ 0x14013D6F8 (ExVerifySuite.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PspLocateSystemDll @ 0x140554BC0 (PspLocateSystemDll.c)
  */
 
 __int64 PsLocateSystemDlls()

@@ -1,9 +1,9 @@
 /*
  * XREFs of x86BiosCall @ 0x1403A2430
  * Callers:
- *     HalpBiosDisplayReset @ 0x140503540 (HalpBiosDisplayReset.c)
+ *     sub_140503540 @ 0x140503540 (sub_140503540.c)
  * Callees:
- *     x86BiosExecuteInterruptShadowed @ 0x1403A2480 (x86BiosExecuteInterruptShadowed.c)
+ *     sub_1403A2480 @ 0x1403A2480 (sub_1403A2480.c)
  */
 
 bool x86BiosCall()
@@ -11,13 +11,13 @@ bool x86BiosCall()
   bool v0; // r8
 
   v0 = 0;
-  if ( HalpVideoBiosPresent )
+  if ( byte_140C54940 )
   {
-    if ( _InterlockedIncrement(&HalpBiosCallCount) == 1 || HalpBugcheckInProgress )
-      v0 = (unsigned int)x86BiosExecuteInterruptShadowed() == 1;
+    if ( _InterlockedIncrement(&dword_140C4E338) == 1 || byte_140C4C451 )
+      v0 = (unsigned int)sub_1403A2480() == 1;
     else
       __int2c();
-    _InterlockedDecrement(&HalpBiosCallCount);
+    _InterlockedDecrement(&dword_140C4E338);
     return v0;
   }
   else

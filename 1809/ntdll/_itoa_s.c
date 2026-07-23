@@ -1,9 +1,9 @@
 /*
- * XREFs of _itoa_s @ 0x180099FA0
+ * XREFs of _itoa_s @ 0x180099FB0
  * Callers:
  *     <none>
  * Callees:
- *     xtoa_s @ 0x18009A140 (xtoa_s.c)
+ *     xtoa_s @ 0x18009A150 (xtoa_s.c)
  */
 
 errno_t __cdecl itoa_s(int Value, char *Buffer, size_t BufferCount, int Radix)

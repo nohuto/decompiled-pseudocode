@@ -312,7 +312,8 @@ LABEL_60:
   if ( v89 && *(_BYTE *)(a5 & 0xFFFFFFFFFFFFFFFEuLL) == 4
     || a2 >= 0xFFFF800000000000uLL && byte_1403899D0[((a2 >> 39) & 0x1FF) - 256] == 12
     || PsNtosImageBase
-    && (a2 >= PsNtosImageBase && a2 < PsNtosImageEnd || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
+    && (a2 >= (unsigned __int64)PsNtosImageBase && a2 < PsNtosImageEnd
+     || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
   {
     v40 = 9;
   }

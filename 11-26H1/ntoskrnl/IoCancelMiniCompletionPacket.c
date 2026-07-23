@@ -1,11 +1,11 @@
 /*
- * XREFs of IoCancelMiniCompletionPacket @ 0x1405CB910
+ * XREFs of IoCancelMiniCompletionPacket @ 0x1405CE180
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeRemoveQueueEntry @ 0x1403AAB00 (KeRemoveQueueEntry.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeRemoveQueueEntry @ 0x1403B4810 (KeRemoveQueueEntry.c)
  */
 
 char __fastcall IoCancelMiniCompletionPacket(__int64 a1, _QWORD *a2)

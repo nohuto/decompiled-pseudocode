@@ -16,8 +16,8 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
   unsigned int v3; // esi
   __int64 v6; // r15
   volatile signed __int64 *v7; // rbx
-  _BYTE *v8; // rax
-  _BYTE *v9; // rbp
+  PRTL_BALANCED_NODE v8; // rax
+  PRTL_BALANCED_NODE v9; // rbp
   int v10; // r14d
   int v12; // eax
   _QWORD *v13; // rdx
@@ -29,12 +29,12 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
     return 0LL;
   v6 = *(_QWORD *)(v2 + 1720);
   v7 = (volatile signed __int64 *)(v6 + 104);
-  v8 = (_BYTE *)KeAbPreAcquire(v6 + 104, 0LL, 0LL);
+  v8 = KeAbPreAcquire(v6 + 104, 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 104), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 104), v8, v6 + 104);
   if ( v9 )
-    v9[26] |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v10 = *(_DWORD *)(a1 + 100) & a2;
   if ( !v10 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpInitializeProcessor @ 0x14050C358
+ * XREFs of PnpInitializeProcessor @ 0x14050C598
  * Callers:
- *     KeStartDynamicProcessor @ 0x1408BB7C0 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x1408BB920 (KeStartDynamicProcessor.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x1403703A4 (PnpRequestDeviceAction.c)
  */
 
 __int64 PnpInitializeProcessor()

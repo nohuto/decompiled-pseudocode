@@ -1,11 +1,11 @@
 /*
- * XREFs of IopSetTypeSpecificFoExtension @ 0x14007B5C0
+ * XREFs of IopSetTypeSpecificFoExtension @ 0x14007B640
  * Callers:
- *     IoSetOplockPrivateFoExt @ 0x140078384 (IoSetOplockPrivateFoExt.c)
- *     IopGetSetSpecificExtension @ 0x14007AE90 (IopGetSetSpecificExtension.c)
- *     IoSetOplockKeyContext @ 0x140133160 (IoSetOplockKeyContext.c)
- *     IopSymlinkSetFoExtension @ 0x140533B70 (IopSymlinkSetFoExtension.c)
- *     IopSetFileObjectIosbRange @ 0x140622BE4 (IopSetFileObjectIosbRange.c)
+ *     IoSetOplockPrivateFoExt @ 0x140078404 (IoSetOplockPrivateFoExt.c)
+ *     IopGetSetSpecificExtension @ 0x14007AF10 (IopGetSetSpecificExtension.c)
+ *     IoSetOplockKeyContext @ 0x1401336D0 (IoSetOplockKeyContext.c)
+ *     IopSymlinkSetFoExtension @ 0x1405340B0 (IopSymlinkSetFoExtension.c)
+ *     IopSetFileObjectIosbRange @ 0x140622C98 (IopSetFileObjectIosbRange.c)
  * Callees:
  *     <none>
  */

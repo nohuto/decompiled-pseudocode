@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpAddProcessorConfigurationEntry @ 0x140731DE0
+ * XREFs of CmpAddProcessorConfigurationEntry @ 0x140732FD0
  * Callers:
- *     CmInitializeProcessor @ 0x1407F6CE0 (CmInitializeProcessor.c)
- *     CmpInitializeMachineDependentConfiguration @ 0x1409C1D98 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmInitializeProcessor @ 0x1407F7EE0 (CmInitializeProcessor.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x1409C2D98 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     sprintf_s @ 0x14019B640 (sprintf_s.c)
- *     strcpy_s @ 0x14019B7C0 (strcpy_s.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpInitializeRegistryNode @ 0x1407321F8 (CmpInitializeRegistryNode.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     sprintf_s @ 0x14019B780 (sprintf_s.c)
+ *     strcpy_s @ 0x14019B900 (strcpy_s.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     KeBugCheck @ 0x1401BBD00 (KeBugCheck.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     CmpInitializeRegistryNode @ 0x1407333E8 (CmpInitializeRegistryNode.c)
  */
 
 __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
@@ -29,14 +29,14 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   int v12; // eax
   void *v13; // rsi
   NTSTATUS v14; // edi
-  const char *v16; // r15
+  const CHAR *v16; // r15
   _DWORD *v21; // r8
   unsigned int v22; // r9d
   __int64 v28; // rcx
   _QWORD *v29; // r14
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   int Data; // [rsp+50h] [rbp-B0h] BYREF
-  STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
+  _STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
   _QWORD v33[9]; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING Handle; // [rsp+C0h] [rbp-40h] BYREF
   _BYTE v35[64]; // [rsp+D0h] [rbp-30h] BYREF
@@ -106,7 +106,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
     {
       ZwClose(*(HANDLE *)&Handle.Length);
       _RAX = 0x80000000LL;
-      v16 = (const char *)((a1 + 25232) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
+      v16 = (const CHAR *)((a1 + 25232) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
       __asm { cpuid }
       *(_DWORD *)(&Handle.MaximumLength + 1) = _RBX;
       Handle.Buffer = (wchar_t *)__PAIR64__(_RDX, _RCX);

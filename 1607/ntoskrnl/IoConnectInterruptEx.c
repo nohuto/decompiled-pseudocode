@@ -1,16 +1,16 @@
 /*
- * XREFs of IoConnectInterruptEx @ 0x140539558
+ * XREFs of IoConnectInterruptEx @ 0x140539A98
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopConnectLineBasedInterrupt @ 0x1405392E8 (IopConnectLineBasedInterrupt.c)
- *     IopConnectMessageBasedInterrupt @ 0x1405397D4 (IopConnectMessageBasedInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x140539B0C (IopGetInterruptConnectionData.c)
- *     IopConnectInterrupt @ 0x140539BEC (IopConnectInterrupt.c)
- *     IopConnectInterruptFullySpecified @ 0x14057A334 (IopConnectInterruptFullySpecified.c)
+ *     IopConnectLineBasedInterrupt @ 0x140539828 (IopConnectLineBasedInterrupt.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140539D14 (IopConnectMessageBasedInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x14053A04C (IopGetInterruptConnectionData.c)
+ *     IopConnectInterrupt @ 0x14053A12C (IopConnectInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x14057A874 (IopConnectInterruptFullySpecified.c)
  */
 
 NTSTATUS __stdcall IoConnectInterruptEx(PIO_CONNECT_INTERRUPT_PARAMETERS Parameters)

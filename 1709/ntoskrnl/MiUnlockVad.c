@@ -87,7 +87,7 @@ _QWORD *__fastcall MiUnlockVad(__int64 a1, __int64 a2)
         {
           v12->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v12->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v11]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v11].TreeNode);
           v15 = 0;
           v15 = v12->BoostBitmap.AllFields & 0x1FFFF;
           v12->BoostBitmap.AllFields &= 0xFFFE0000;

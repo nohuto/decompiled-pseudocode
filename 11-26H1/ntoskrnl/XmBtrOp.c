@@ -1,9 +1,9 @@
 /*
- * XREFs of XmBtrOp @ 0x1405ADF60
+ * XREFs of XmBtrOp @ 0x1405B0770
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmBtrOp(_DWORD *a1)

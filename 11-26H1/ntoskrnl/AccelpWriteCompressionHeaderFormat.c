@@ -1,9 +1,9 @@
 /*
- * XREFs of AccelpWriteCompressionHeaderFormat @ 0x1406E0FB4
+ * XREFs of AccelpWriteCompressionHeaderFormat @ 0x1406E5234
  * Callers:
- *     AccelCompressBuffer @ 0x1406DEB60 (AccelCompressBuffer.c)
+ *     AccelCompressBuffer @ 0x1406E2E00 (AccelCompressBuffer.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall AccelpWriteCompressionHeaderFormat(_DWORD *a1, _DWORD *a2, int a3, _DWORD *a4, __int64 a5, int a6)

@@ -123,8 +123,8 @@ LONG __fastcall PnpReplacePartitionUnit(ULONG_PTR *a1)
   ULONG v81; // [rsp+38h] [rbp-D0h]
   int v82; // [rsp+3Ch] [rbp-CCh] BYREF
   PVOID P; // [rsp+40h] [rbp-C8h] BYREF
-  struct _GROUP_AFFINITY P_8; // [rsp+48h] [rbp-C0h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
+  _GROUP_AFFINITY P_8; // [rsp+48h] [rbp-C0h] BYREF
+  _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
   struct _KAFFINITY_EX v86; // [rsp+68h] [rbp-A0h] BYREF
   _BYTE v87[80]; // [rsp+178h] [rbp+70h] BYREF
 

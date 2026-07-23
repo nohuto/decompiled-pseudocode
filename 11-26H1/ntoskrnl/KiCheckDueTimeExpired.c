@@ -1,8 +1,8 @@
 /*
- * XREFs of KiCheckDueTimeExpired @ 0x1403C0DD0
+ * XREFs of KiCheckDueTimeExpired @ 0x1403CACD0
  * Callers:
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KiWaitForAllObjects @ 0x1403C0E68 (KiWaitForAllObjects.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x1403CAD68 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

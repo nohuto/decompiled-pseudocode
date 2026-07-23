@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDoubleFaultAbort @ 0x1401CA200
+ * XREFs of KiDoubleFaultAbort @ 0x1401CA300
  * Callers:
- *     KiDoubleFaultAbortShadow @ 0x14032E500 (KiDoubleFaultAbortShadow.c)
+ *     KiDoubleFaultAbortShadow @ 0x14032F500 (KiDoubleFaultAbortShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x1401BC110 (KiSaveDebugRegisterState.c)
- *     KiDoubleFaultAbort @ 0x1401CA200 (KiDoubleFaultAbort.c)
- *     KiBugCheckDispatch @ 0x1401CFE00 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1401D1180 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1401BC270 (KiSaveDebugRegisterState.c)
+ *     KiDoubleFaultAbort @ 0x1401CA300 (KiDoubleFaultAbort.c)
+ *     KiBugCheckDispatch @ 0x1401CFF00 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1401D1280 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiDoubleFaultAbort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -78,7 +78,7 @@ void __fastcall __noreturn KiDoubleFaultAbort(__int64 a1, __int64 a2, __int64 a3
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x1401CA431LL);
+      JUMPOUT(0x1401CA531LL);
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(v14);
     _mm_lfence();

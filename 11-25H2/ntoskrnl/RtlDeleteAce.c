@@ -24,7 +24,7 @@ NTSTATUS __stdcall RtlDeleteAce(PACL Acl, ULONG AceIndex)
   __int64 v16; // rcx
 
   v2 = AceIndex;
-  if ( !RtlValidAcl((__int64)Acl) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741811;
   AceCount = Acl->AceCount;
   if ( (unsigned int)v2 >= AceCount )

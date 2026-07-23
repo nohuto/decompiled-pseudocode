@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpCreateObject @ 0x1407322DC
+ * XREFs of _PnpCreateObject @ 0x14073249C
  * Callers:
- *     PiCMOpenObjectKey @ 0x1406338E0 (PiCMOpenObjectKey.c)
- *     PiCMCreateObject @ 0x1408AFBA4 (PiCMCreateObject.c)
+ *     PiCMOpenObjectKey @ 0x140628AA8 (PiCMOpenObjectKey.c)
+ *     PiCMCreateObject @ 0x1408AFD04 (PiCMCreateObject.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     _PnpCreateObjectDispatch @ 0x1407323EC (_PnpCreateObjectDispatch.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _PnpCreateObjectDispatch @ 0x1407325AC (_PnpCreateObjectDispatch.c)
  */
 
 __int64 __fastcall PnpCreateObject(__int64 a1, __int64 a2, unsigned int a3, int a4, HANDLE *a5)

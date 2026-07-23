@@ -1,22 +1,22 @@
 /*
- * XREFs of KeGenericProcessorCallback @ 0x1400CA714
+ * XREFs of KeGenericProcessorCallback @ 0x1400C85B4
  * Callers:
- *     ExpUpdateTimerConfiguration @ 0x140007024 (ExpUpdateTimerConfiguration.c)
- *     KeFlushQueuedDpcs @ 0x1400841B4 (KeFlushQueuedDpcs.c)
- *     KeRemoveQueueDpcEx @ 0x140085D28 (KeRemoveQueueDpcEx.c)
- *     KeGenericCallDpc @ 0x1400A04BC (KeGenericCallDpc.c)
- *     KeDisableTimer2 @ 0x1400F79FC (KeDisableTimer2.c)
- *     KeSetIntervalProfile @ 0x14052A364 (KeSetIntervalProfile.c)
+ *     ExpUpdateTimerConfiguration @ 0x140007194 (ExpUpdateTimerConfiguration.c)
+ *     KeFlushQueuedDpcs @ 0x140082314 (KeFlushQueuedDpcs.c)
+ *     KeRemoveQueueDpcEx @ 0x140087618 (KeRemoveQueueDpcEx.c)
+ *     KeGenericCallDpc @ 0x14009EDE4 (KeGenericCallDpc.c)
+ *     KeDisableTimer2 @ 0x1400F583C (KeDisableTimer2.c)
+ *     KeSetIntervalProfile @ 0x14052A8A4 (KeSetIntervalProfile.c)
  * Callees:
- *     KeSetPriorityBoost @ 0x1400919AC (KeSetPriorityBoost.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     KiRemoveBoostThread @ 0x1400CF3B0 (KiRemoveBoostThread.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     KiEnumerateNextProcessorNumber @ 0x1400D5430 (KiEnumerateNextProcessorNumber.c)
- *     KiCheckForThreadDispatch @ 0x1400F2960 (KiCheckForThreadDispatch.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeSetPriorityBoost @ 0x14009110C (KeSetPriorityBoost.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     KiRemoveBoostThread @ 0x1400CD250 (KiRemoveBoostThread.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1400D32D0 (KiEnumerateNextProcessorNumber.c)
+ *     KiCheckForThreadDispatch @ 0x1400F07B0 (KiCheckForThreadDispatch.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall KeGenericProcessorCallback(

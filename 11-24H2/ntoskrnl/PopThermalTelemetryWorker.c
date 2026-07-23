@@ -1,17 +1,17 @@
 /*
- * XREFs of PopThermalTelemetryWorker @ 0x1405D3F40
+ * XREFs of PopThermalTelemetryWorker @ 0x1405D1700
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopCoolingTelemetryWorker @ 0x1404275F4 (PopCoolingTelemetryWorker.c)
- *     PopPowerLimitTelemetryWorker @ 0x1404276D8 (PopPowerLimitTelemetryWorker.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x1404D3FE8 (PopTraceThermalZonePassiveHistogram.c)
- *     PopTraceThermalZoneActiveActivity @ 0x1405D66DC (PopTraceThermalZoneActiveActivity.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140A8FAF8 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140AA26A4 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     PopCoolingTelemetryWorker @ 0x14041B784 (PopCoolingTelemetryWorker.c)
+ *     PopPowerLimitTelemetryWorker @ 0x14041B868 (PopPowerLimitTelemetryWorker.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x1404CD1F8 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x1405D3CF0 (PopTraceThermalZoneActiveActivity.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140A8C138 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140A9DA34 (PopThermalUpdateActiveTimeTracking.c)
  */
 
 __int64 PopThermalTelemetryWorker()
@@ -20,7 +20,7 @@ __int64 PopThermalTelemetryWorker()
   __int64 v1; // rdx
   __int64 result; // rax
 
-  PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+  PopAcquireRwLockShared(&PopPolicyDeviceLock);
   for ( i = (unsigned __int64 *)PopThermal; i != (unsigned __int64 *)&PopThermal; i = (unsigned __int64 *)*i )
   {
     PopAcquireRwLockExclusive(i + 54);
@@ -38,9 +38,9 @@ __int64 PopThermalTelemetryWorker()
     }
     PopReleaseRwLock((signed __int64 *)i + 54);
   }
-  PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+  PopReleaseRwLock(&PopPolicyDeviceLock);
   PopCoolingTelemetryWorker();
   result = PopPowerLimitTelemetryWorker();
-  _InterlockedExchange(&dword_140F0ACE8, 0);
+  _InterlockedExchange(&dword_140F0B068, 0);
   return result;
 }

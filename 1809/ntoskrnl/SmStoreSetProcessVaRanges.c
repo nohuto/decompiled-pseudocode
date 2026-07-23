@@ -1,13 +1,13 @@
 /*
- * XREFs of SmStoreSetProcessVaRanges @ 0x14066B6DC
+ * XREFs of SmStoreSetProcessVaRanges @ 0x14066C89C
  * Callers:
- *     MmInSwapWorkingSet @ 0x1400E4E84 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1400E4F04 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400E51A8 (MmOutSwapWorkingSet.c)
  * Callees:
- *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
- *     SmpKeyedStoreSetVaRanges @ 0x1400E4B74 (SmpKeyedStoreSetVaRanges.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     SmAlloc @ 0x1400E4BD4 (SmAlloc.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x1400E4BF4 (SmpKeyedStoreSetVaRanges.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmStoreSetProcessVaRanges(void *Src, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall SmStoreSetProcessVaRanges(void *Src, __int64 a2)
       return (unsigned int)-1073741670;
     memmove(v6, Src, v5);
   }
-  v7 = SmpKeyedStoreSetVaRanges((ULONG_PTR)&qword_14055B188, Process);
+  v7 = SmpKeyedStoreSetVaRanges((ULONG_PTR)&qword_14055C188, Process);
   if ( v7 >= 0 )
   {
     v2 = 0LL;

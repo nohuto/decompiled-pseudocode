@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapShrinkStorage @ 0x1407F7130
+ * XREFs of HvpViewMapShrinkStorage @ 0x1407F8330
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x1405A9240 (HvFreeHivePartial.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     CmSiUnmapViewOfSection @ 0x14013608C (CmSiUnmapViewOfSection.c)
- *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6E88 (HvpViewMapMakeViewRangeInvalid.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     CmSiUnmapViewOfSection @ 0x14013618C (CmSiUnmapViewOfSection.c)
+ *     HvpViewMapFindViewForFileOffset @ 0x1405FACD0 (HvpViewMapFindViewForFileOffset.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x1407F8088 (HvpViewMapMakeViewRangeInvalid.c)
  */
 
 struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(ULONG_PTR a1, int a2)
@@ -41,7 +41,7 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(ULONG_PTR a1, int a2)
       HvpViewMapMakeViewRangeInvalid(a1, (_QWORD *)ViewForFileOffset, v9, v8);
       if ( *(_QWORD *)(ViewForFileOffset + 40) == *(_QWORD *)(ViewForFileOffset + 48) )
       {
-        RtlRbRemoveNode(a1 + 40, ViewForFileOffset);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), (PRTL_BALANCED_NODE)ViewForFileOffset);
         Luid = (unsigned __int64 *)Privileges.Privilege[0].Luid;
         if ( **(struct _PRIVILEGE_SET ***)&Privileges.Privilege[0].Luid != &Privileges )
           goto LABEL_8;

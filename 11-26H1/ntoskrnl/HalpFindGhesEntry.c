@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpFindGhesEntry @ 0x14058E368
+ * XREFs of HalpFindGhesEntry @ 0x140590AE8
  * Callers:
- *     HalpInitializeGenericErrorSource @ 0x140BEC3F8 (HalpInitializeGenericErrorSource.c)
+ *     HalpInitializeGenericErrorSource @ 0x140BF23F8 (HalpInitializeGenericErrorSource.c)
  * Callees:
  *     <none>
  */

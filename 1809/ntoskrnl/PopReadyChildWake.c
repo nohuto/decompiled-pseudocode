@@ -1,7 +1,7 @@
 /*
- * XREFs of PopReadyChildWake @ 0x14056CCC8
+ * XREFs of PopReadyChildWake @ 0x14056DCC8
  * Callers:
- *     PopSystemIrpCompletion @ 0x14056C720 (PopSystemIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x14056D720 (PopSystemIrpCompletion.c)
  * Callees:
  *     <none>
  */

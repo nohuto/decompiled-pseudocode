@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtExtendScalableModePasidTables @ 0x1405A6390
+ * XREFs of IvtExtendScalableModePasidTables @ 0x1405A8BA0
  * Callers:
- *     IvtAllocateScalableModePasidTables @ 0x140509A4C (IvtAllocateScalableModePasidTables.c)
- *     IvtGrowPasidTable @ 0x1405A6A10 (IvtGrowPasidTable.c)
+ *     IvtAllocateScalableModePasidTables @ 0x1405034FC (IvtAllocateScalableModePasidTables.c)
+ *     IvtGrowPasidTable @ 0x1405A9220 (IvtGrowPasidTable.c)
  * Callees:
- *     ExtEnvAllocatePhysicalMemory @ 0x140597C14 (ExtEnvAllocatePhysicalMemory.c)
- *     IvtInitializeScalableModePasidTables @ 0x1405A70E4 (IvtInitializeScalableModePasidTables.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14059A394 (ExtEnvAllocatePhysicalMemory.c)
+ *     IvtInitializeScalableModePasidTables @ 0x1405A98F4 (IvtInitializeScalableModePasidTables.c)
  */
 
 __int64 __fastcall IvtExtendScalableModePasidTables(__int64 a1, __int64 a2, unsigned int a3, int a4)

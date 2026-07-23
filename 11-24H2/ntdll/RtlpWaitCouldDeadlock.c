@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpWaitCouldDeadlock @ 0x18004A7C0
+ * XREFs of RtlpWaitCouldDeadlock @ 0x1800603A0
  * Callers:
- *     RtlpAcquireSRWLockSharedContended @ 0x180017E40 (RtlpAcquireSRWLockSharedContended.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180044840 (RtlpAcquireSRWLockSharedContended.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ bool RtlpWaitCouldDeadlock()
   __int64 WowTebOffset; // rcx
   __int64 v3; // rax
 
-  if ( byte_1801D2908 )
+  if ( byte_1801D1908 )
     return 1;
   if ( UseWOW64 )
   {

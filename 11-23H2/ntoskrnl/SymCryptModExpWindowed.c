@@ -1,20 +1,20 @@
 /*
- * XREFs of SymCryptModExpWindowed @ 0x140409380
+ * XREFs of SymCryptModExpWindowed @ 0x140409560
  * Callers:
- *     SymCryptModExpGeneric @ 0x1404091E8 (SymCryptModExpGeneric.c)
+ *     SymCryptModExpGeneric @ 0x1404093C8 (SymCryptModExpGeneric.c)
  * Callees:
- *     SymCryptIntBitsizeOfObject @ 0x1403F92B8 (SymCryptIntBitsizeOfObject.c)
- *     SymCryptIntGetBits @ 0x1403F93EC (SymCryptIntGetBits.c)
- *     SymCryptModElementCopy @ 0x1403F9654 (SymCryptModElementCopy.c)
- *     SymCryptModElementCreate @ 0x1403F966C (SymCryptModElementCreate.c)
- *     SymCryptModElementSetValueUint32 @ 0x1403F978C (SymCryptModElementSetValueUint32.c)
- *     SymCryptModMul @ 0x1403F98F4 (SymCryptModMul.c)
- *     SymCryptModSquare @ 0x1403F99D0 (SymCryptModSquare.c)
- *     SymCryptSizeofModElementFromModulus @ 0x1403F9A88 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptScsTableInit @ 0x14040EC60 (SymCryptScsTableInit.c)
- *     SymCryptScsTableLoad @ 0x14040ECA4 (SymCryptScsTableLoad.c)
- *     MiSetPfnOriginalPte @ 0x14040F0C0 (MiSetPfnOriginalPte.c)
- *     SymCryptScsTableStore @ 0x14040F0CC (SymCryptScsTableStore.c)
+ *     SymCryptIntBitsizeOfObject @ 0x1403F9498 (SymCryptIntBitsizeOfObject.c)
+ *     SymCryptIntGetBits @ 0x1403F95CC (SymCryptIntGetBits.c)
+ *     SymCryptModElementCopy @ 0x1403F9834 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1403F984C (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValueUint32 @ 0x1403F996C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModMul @ 0x1403F9AD4 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F9BB0 (SymCryptModSquare.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F9C68 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptScsTableInit @ 0x14040EE40 (SymCryptScsTableInit.c)
+ *     SymCryptScsTableLoad @ 0x14040EE84 (SymCryptScsTableLoad.c)
+ *     MiSetPfnOriginalPte @ 0x14040F2A0 (MiSetPfnOriginalPte.c)
+ *     SymCryptScsTableStore @ 0x14040F2AC (SymCryptScsTableStore.c)
  */
 
 __int64 __fastcall SymCryptModExpWindowed(

@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildMessageString @ 0x1407B8C90
+ * XREFs of AdtpBuildMessageString @ 0x1407B91B0
  * Callers:
- *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0AE4 (AdtpPackageParameters.c)
  * Callees:
- *     StringCchPrintfW @ 0x1402CA7B8 (StringCchPrintfW.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     StringCchPrintfW @ 0x1402490A8 (StringCchPrintfW.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildMessageString(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, char *a6)

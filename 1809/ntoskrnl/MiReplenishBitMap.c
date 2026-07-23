@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReplenishBitMap @ 0x1400EFDF0
+ * XREFs of MiReplenishBitMap @ 0x1400EFE70
  * Callers:
  *     MiInsertCachedPte @ 0x1400344D0 (MiInsertCachedPte.c)
- *     MiEmptyPteBins @ 0x1400EFC10 (MiEmptyPteBins.c)
+ *     MiEmptyPteBins @ 0x1400EFC90 (MiEmptyPteBins.c)
  * Callees:
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiFlushTbListEarly @ 0x1400854DC (MiFlushTbListEarly.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiReturnSystemPtes @ 0x140100C38 (MiReturnSystemPtes.c)
- *     RtlInterlockedSetClearRunEx @ 0x140100CE0 (RtlInterlockedSetClearRunEx.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiFlushTbListEarly @ 0x1400854CC (MiFlushTbListEarly.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiReturnSystemPtes @ 0x140100CB8 (MiReturnSystemPtes.c)
+ *     RtlInterlockedSetClearRunEx @ 0x140100D60 (RtlInterlockedSetClearRunEx.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiReplenishBitMap(_QWORD *a1, unsigned __int64 Process, unsigned __int64 a3)
@@ -156,13 +156,13 @@ ULONG_PTR __fastcall MiReplenishBitMap(_QWORD *a1, unsigned __int64 Process, uns
             }
           }
         }
-        if ( qword_14043A0C0 && (v35 & 0x10) == 0 )
-          v35 &= ~qword_14043A0C0;
+        if ( qword_14043B180 && (v35 & 0x10) == 0 )
+          v35 &= ~qword_14043B180;
         v13 = HIDWORD(v35);
       }
       v8 += v13;
-      if ( qword_14043A0C0 && (v11 & 0x10) == 0 )
-        v11 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v11 & 0x10) == 0 )
+        v11 &= ~qword_14043B180;
       v14 = HIDWORD(v11);
       v51 = v14;
       if ( v14 )
@@ -220,8 +220,8 @@ ULONG_PTR __fastcall MiReplenishBitMap(_QWORD *a1, unsigned __int64 Process, uns
               }
             }
           }
-          if ( qword_14043A0C0 && (v36 & 0x10) == 0 )
-            v36 &= ~qword_14043A0C0;
+          if ( qword_14043B180 && (v36 & 0x10) == 0 )
+            v36 &= ~qword_14043B180;
           v13 = HIDWORD(v36);
         }
         if ( v13 + v14 == BugCheckParameter4 )
@@ -298,7 +298,7 @@ LABEL_26:
           *(_QWORD *)v12 = v19;
           goto LABEL_27;
         }
-        if ( !HIBYTE(word_14043A1AC) && (v19 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v19 & 1) != 0 )
           v19 |= 0x8000000000000000uLL;
         *(_QWORD *)v12 = v19;
         MiWritePteShadow(v12);

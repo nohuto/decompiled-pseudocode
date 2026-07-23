@@ -1,73 +1,72 @@
 /*
- * XREFs of RtlpFlsDataCleanup @ 0x180087C90
+ * XREFs of RtlpFlsDataCleanup @ 0x18007F010
  * Callers:
- *     LdrShutdownThread @ 0x180086CA0 (LdrShutdownThread.c)
- *     RtlProcessFlsData @ 0x180087C60 (RtlProcessFlsData.c)
- *     RtlpHpEnvFlsCleanup @ 0x180108728 (RtlpHpEnvFlsCleanup.c)
+ *     LdrShutdownThread @ 0x18007E040 (LdrShutdownThread.c)
+ *     RtlProcessFlsData @ 0x18007EFE0 (RtlProcessFlsData.c)
+ *     RtlpHpEnvFlsCleanup @ 0x18007FF10 (RtlpHpEnvFlsCleanup.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     ?Cleanup@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAXPEAU1@@Z @ 0x180087E10 (-Cleanup@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAXPEAU1@@Z.c)
- *     RtlpFlsHeapFree @ 0x180087E9C (RtlpFlsHeapFree.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     ?Cleanup@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAXPEAU1@@Z @ 0x18007F190 (-Cleanup@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAXPEAU1@@Z.c)
+ *     RtlpFlsHeapFree @ 0x18007F21C (RtlpFlsHeapFree.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall RtlpFlsDataCleanup(__int64 a1, __int64 a2, char a3)
+void __fastcall RtlpFlsDataCleanup(PRTL_SRWLOCK SRWLock, _QWORD *a2, char a3)
 {
-  __int64 v4; // r14
-  unsigned int v6; // eax
+  unsigned int Value; // eax
   __int64 v7; // rsi
   unsigned int v8; // edi
   unsigned int v9; // ecx
-  __int64 v10; // rcx
-  _QWORD *v11; // rbx
-  int v12; // ecx
-  __int64 v13; // r8
-  __int64 v14; // rbp
-  void (*v15)(void); // rax
-  __int64 v16; // rcx
-  _QWORD *v17; // rax
+  unsigned int v10; // edx
+  __int64 v11; // rcx
+  _QWORD *v12; // rbx
+  int v13; // ecx
+  unsigned __int64 v14; // r8
+  _RTL_SRWLOCK *v15; // rbp
+  void (*v16)(void); // rax
+  _QWORD *v17; // rcx
+  void **v18; // rax
 
-  v4 = a2;
   if ( (a3 & 1) != 0 )
   {
-    v6 = *(_DWORD *)(a1 + 88);
-    if ( v6 )
+    Value = SRWLock[11].Value;
+    if ( Value )
     {
-      v7 = v6;
+      v7 = Value;
       v8 = 17;
       do
       {
         _BitScanReverse(&v9, v8);
-        a2 = v8 ^ (1 << v9);
-        v10 = *(_QWORD *)(v4 + 8LL * (v9 - 4) + 16);
-        if ( v10 )
+        v10 = v8 ^ (1 << v9);
+        v11 = a2[v9 - 2];
+        if ( v11 )
         {
-          v11 = (_QWORD *)(v10 + 8 * ((unsigned int)a2 + 1LL));
-          if ( v11 )
+          v12 = (_QWORD *)(v11 + 8 * (v10 + 1LL));
+          if ( v12 )
           {
-            if ( *v11 )
+            if ( *v12 )
             {
-              _BitScanReverse((unsigned int *)&v12, v8);
-              v13 = *(_QWORD *)(a1 + 8LL * (unsigned int)(v12 - 4) + 8);
-              if ( v13 )
-                v14 = v13 + 8 * ((v8 ^ (1 << v12)) + 2LL * (v8 ^ (1 << v12)) + 1);
+              _BitScanReverse((unsigned int *)&v13, v8);
+              v14 = SRWLock[(unsigned int)(v13 - 4) + 1].Value;
+              if ( v14 )
+                v15 = (_RTL_SRWLOCK *)(v14 + 8 * ((v8 ^ (1 << v13)) + 2LL * (v8 ^ (1 << v13)) + 1));
               else
-                v14 = 0LL;
-              RtlAcquireSRWLockShared((volatile signed __int64 *)v14);
-              v15 = *(void (**)(void))(v14 + 8);
-              if ( v15 && v15 != (void (*)(void))-1LL && *v11 )
+                v15 = 0LL;
+              RtlAcquireSRWLockShared(v15);
+              v16 = (void (*)(void))v15[1].Value;
+              if ( v16 && v16 != (void (*)(void))-1LL && *v12 )
               {
-                if ( *(_QWORD *)(v14 + 16) )
-                  v15();
+                if ( v15[2].Value )
+                  v16();
                 else
-                  ((void (__fastcall *)(_QWORD))v15)(*v11);
-                *v11 = 0LL;
-                *(_DWORD *)(v4 + 80) &= ~1u;
+                  ((void (__fastcall *)(_QWORD))v16)(*v12);
+                *v12 = 0LL;
+                *((_DWORD *)a2 + 20) &= ~1u;
               }
-              RtlReleaseSRWLockShared((volatile signed __int64 *)v14);
+              RtlReleaseSRWLockShared(v15);
             }
           }
         }
@@ -76,18 +75,18 @@ void __fastcall RtlpFlsDataCleanup(__int64 a1, __int64 a2, char a3)
       }
       while ( v7 );
     }
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1, a2);
-    v16 = *(_QWORD *)v4;
-    v17 = *(_QWORD **)(v4 + 8);
-    if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 || *v17 != v4 )
+    RtlAcquireSRWLockExclusive(SRWLock);
+    v17 = (_QWORD *)*a2;
+    v18 = (void **)a2[1];
+    if ( *(_QWORD **)(*a2 + 8LL) != a2 || *v18 != a2 )
       __fastfail(3u);
-    *v17 = v16;
-    *(_QWORD *)(v16 + 8) = v17;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+    *v18 = v17;
+    v17[1] = v18;
+    RtlReleaseSRWLockExclusive(SRWLock);
   }
   if ( (a3 & 2) != 0 )
   {
-    RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::Cleanup(v4 + 16);
-    RtlpFlsHeapFree(v4);
+    RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::Cleanup(a2 + 2);
+    RtlpFlsHeapFree(a2);
   }
 }

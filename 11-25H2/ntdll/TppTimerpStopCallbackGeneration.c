@@ -9,14 +9,14 @@
 
 char __fastcall TppTimerpStopCallbackGeneration(__int64 a1)
 {
-  __int64 v2; // rdx
+  _RTL_SRWLOCK *v2; // rdx
   signed __int32 v3; // eax
   __int64 (__fastcall *v4)(__int64); // rax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
-  v2 = *(_QWORD *)(a1 + 144);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  v2 = *(_RTL_SRWLOCK **)(a1 + 144);
   ++*(_BYTE *)(a1 + 355);
-  LOBYTE(v3) = TppCancelTimer(a1, (volatile signed __int32 *)(v2 + 112), 0);
+  LOBYTE(v3) = TppCancelTimer(a1, v2 + 14, 0);
   if ( (_BYTE)v3 )
   {
     v3 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
@@ -31,9 +31,9 @@ char __fastcall TppTimerpStopCallbackGeneration(__int64 a1)
       {
         LOBYTE(v3) = TppAlpcpFree((_QWORD *)a1);
       }
-      else if ( v4 == TppWorkpFree )
+      else if ( (char *)v4 == (char *)TppWorkpFree )
       {
-        LOBYTE(v3) = TppWorkpFree(a1);
+        LOBYTE(v3) = TppWorkpFree((void *)a1);
       }
       else
       {

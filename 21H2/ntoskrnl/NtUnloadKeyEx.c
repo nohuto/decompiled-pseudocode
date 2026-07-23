@@ -1,13 +1,15 @@
 /*
- * XREFs of NtUnloadKeyEx @ 0x1406C3520
+ * XREFs of NtUnloadKeyEx @ 0x1405DF440
  * Callers:
  *     <none>
  * Callees:
- *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     CmUnloadKey @ 0x1405DF54C (CmUnloadKey.c)
  */
 
-__int64 __fastcall NtUnloadKeyEx(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtUnloadKeyEx(POBJECT_ATTRIBUTES TargetKey, HANDLE Event)
 {
-  LOBYTE(a3) = 1;
-  return CmUnloadKey(a1, 0LL, a3, a2);
+  char v2; // r8
+
+  v2 = 1;
+  return CmUnloadKey(TargetKey, 0LL, v2, Event);
 }

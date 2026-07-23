@@ -1,12 +1,12 @@
 /*
- * XREFs of PoAllProcessorsDeepIdle @ 0x1406013E0
+ * XREFs of PoAllProcessorsDeepIdle @ 0x140603E90
  * Callers:
- *     PpmWakeClockOwnerIfNeeded @ 0x1403EACD0 (PpmWakeClockOwnerIfNeeded.c)
- *     PpmIdleEvaluateConstraints @ 0x140507E70 (PpmIdleEvaluateConstraints.c)
- *     KePrepareClockTimerForPlatformIdle @ 0x1405ED634 (KePrepareClockTimerForPlatformIdle.c)
+ *     PpmWakeClockOwnerIfNeeded @ 0x1402F7BB0 (PpmWakeClockOwnerIfNeeded.c)
+ *     PpmIdleEvaluateConstraints @ 0x140501844 (PpmIdleEvaluateConstraints.c)
+ *     KePrepareClockTimerForPlatformIdle @ 0x1405EFFA4 (KePrepareClockTimerForPlatformIdle.c)
  * Callees:
- *     KeInitializeSystemSubNodeEnumerationContext @ 0x1403EDE78 (KeInitializeSystemSubNodeEnumerationContext.c)
- *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1403EDEC0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KeInitializeSystemSubNodeEnumerationContext @ 0x1404529A8 (KeInitializeSystemSubNodeEnumerationContext.c)
+ *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1404529F0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
  */
 
 char PoAllProcessorsDeepIdle()
@@ -36,7 +36,7 @@ char PoAllProcessorsDeepIdle()
       DeepIdleSet &= ~(1LL << CurrentPrcb->GroupIndex);
       _bittestandreset64(
         (__int64 *)&Mask,
-        *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * Number) & 0x3F);
+        *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + Number) & 0x3F);
     }
     if ( DeepIdleSet != Mask )
       return 0;

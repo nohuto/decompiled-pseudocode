@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnPfnList @ 0x1403BA9A0
+ * XREFs of MiReturnPfnList @ 0x1403BAB10
  * Callers:
- *     MiInitializeDynamicBitmap @ 0x1407868DC (MiInitializeDynamicBitmap.c)
- *     MiDeleteSparseRange @ 0x1408D8750 (MiDeleteSparseRange.c)
+ *     MiInitializeDynamicBitmap @ 0x140786A9C (MiInitializeDynamicBitmap.c)
+ *     MiDeleteSparseRange @ 0x1408D88B0 (MiDeleteSparseRange.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDeviceRegistration @ 0x140912D28
+ * XREFs of PiDeviceRegistration @ 0x1409B4E08
  * Callers:
- *     PnpCleanupDeviceRegistryValues @ 0x140912C40 (PnpCleanupDeviceRegistryValues.c)
- *     PpDeviceRegistration @ 0x140912C9C (PpDeviceRegistration.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x1409B4D20 (PnpCleanupDeviceRegistryValues.c)
+ *     PpDeviceRegistration @ 0x1409B4D7C (PpDeviceRegistration.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopAllocateUnicodeString @ 0x14090DDE8 (IopAllocateUnicodeString.c)
- *     PpForEachDeviceInstanceDriver @ 0x140912FE0 (PpForEachDeviceInstanceDriver.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PnpUnicodeStringToWstrFree @ 0x1409DB5D0 (PnpUnicodeStringToWstrFree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     IopAllocateUnicodeString @ 0x1409AFF18 (IopAllocateUnicodeString.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1409B50C0 (PpForEachDeviceInstanceDriver.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140A18820 (PnpUnicodeStringToWstrFree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDeviceRegistration(unsigned __int16 *a1, char a2, UNICODE_STRING *a3)
@@ -99,7 +99,15 @@ LABEL_16:
   v6 = (WCHAR *)ExAllocatePool2(0x100uLL);
   if ( !v6 )
     goto LABEL_43;
-  DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, (_DWORD)v8, 0, 5, (__int64)&v21, (__int64)v6, (__int64)&v20, 0);
+  DeviceRegProp = CmGetDeviceRegProp(
+                    *(__int64 *)&PiPnpRtlCtx,
+                    (__int64)v8,
+                    0LL,
+                    5u,
+                    (__int64)&v21,
+                    (__int64)v6,
+                    (__int64)&v20,
+                    0);
   PnpUnicodeStringToWstrFree(v8, a1);
   if ( DeviceRegProp < 0 )
   {

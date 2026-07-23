@@ -1,14 +1,14 @@
 /*
- * XREFs of PsWow64GetProcessNtdllType @ 0x140611C4C
+ * XREFs of PsWow64GetProcessNtdllType @ 0x1406A16FC
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x14061177C (PspSetupUserProcessAddressSpace.c)
- *     PspPrepareSystemDllInitBlock @ 0x1406119C8 (PspPrepareSystemDllInitBlock.c)
- *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
- *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
- *     PspWow64InitThread @ 0x1406959A0 (PspWow64InitThread.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     PsMapSystemDlls @ 0x14071231C (PsMapSystemDlls.c)
- *     DbgkSendSystemDllMessages @ 0x1408844DC (DbgkSendSystemDllMessages.c)
+ *     PspWow64InitThread @ 0x1405F4EF0 (PspWow64InitThread.c)
+ *     PsThawProcess @ 0x1406001EC (PsThawProcess.c)
+ *     DbgkCreateThread @ 0x14063C210 (DbgkCreateThread.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1406A122C (PspSetupUserProcessAddressSpace.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1406A1478 (PspPrepareSystemDllInitBlock.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     PsMapSystemDlls @ 0x1406C096C (PsMapSystemDlls.c)
+ *     DbgkSendSystemDllMessages @ 0x14088463C (DbgkSendSystemDllMessages.c)
  * Callees:
  *     <none>
  */

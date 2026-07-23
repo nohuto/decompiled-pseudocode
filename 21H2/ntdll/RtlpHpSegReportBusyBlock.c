@@ -2,7 +2,7 @@
  * XREFs of RtlpHpSegReportBusyBlock @ 0x180002ACC
  * Callers:
  *     RtlpHpSegWalk @ 0x1800026A8 (RtlpHpSegWalk.c)
- *     RtlpHpSegReportPageRange @ 0x18010F6A4 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpSegReportPageRange @ 0x18010F664 (RtlpHpSegReportPageRange.c)
  * Callees:
  *     <none>
  */

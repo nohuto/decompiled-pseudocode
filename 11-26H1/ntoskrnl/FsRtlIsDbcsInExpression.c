@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlIsDbcsInExpression @ 0x1409F3FA0
+ * XREFs of FsRtlIsDbcsInExpression @ 0x1409DFCF0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING Name)
@@ -127,7 +127,7 @@ BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING 
           break;
         i += 2;
       }
-      if ( (v11 & 0x80u) == 0LL && (*((_BYTE *)qword_140017750 + (char)v11) & 8) != 0 )
+      if ( (v11 & 0x80u) == 0LL && (*((_BYTE *)qword_140017650 + (char)v11) & 8) != 0 )
         break;
     }
     v4 = 0;

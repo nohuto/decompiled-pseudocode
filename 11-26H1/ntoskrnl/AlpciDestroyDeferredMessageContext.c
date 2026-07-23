@@ -1,31 +1,31 @@
 /*
- * XREFs of AlpciDestroyDeferredMessageContext @ 0x140A64890
+ * XREFs of AlpciDestroyDeferredMessageContext @ 0x140A71860
  * Callers:
- *     ExpWorkerFactoryFinishDeferredWork @ 0x14037D4AC (ExpWorkerFactoryFinishDeferredWork.c)
+ *     ExpWorkerFactoryFinishDeferredWork @ 0x14037F25C (ExpWorkerFactoryFinishDeferredWork.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
-__int64 __fastcall AlpciDestroyDeferredMessageContext(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall AlpciDestroyDeferredMessageContext(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  void *v5; // rcx
-  void *v6; // rcx
+  void *v3; // rcx
+  void *v4; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = *(void **)a1;
-  if ( v5 )
+  v3 = *(void **)a1;
+  if ( v3 )
   {
-    ObfDereferenceObject(v5);
+    ObfDereferenceObject(v3);
     *(_QWORD *)a1 = 0LL;
   }
-  v6 = *(void **)(a1 + 8);
-  if ( v6 )
+  v4 = *(void **)(a1 + 8);
+  if ( v4 )
   {
-    ObfDereferenceObject(v6);
+    ObfDereferenceObject(v4);
     *(_QWORD *)(a1 + 8) = 0LL;
   }
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

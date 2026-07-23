@@ -1,21 +1,21 @@
 /*
- * XREFs of VF_MARK_FOR_DEFERRED_REMOVE @ 0x140706164
+ * XREFs of VF_MARK_FOR_DEFERRED_REMOVE @ 0x140706194
  * Callers:
- *     VfIoDeleteDevice @ 0x14070D810 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x14070D840 (VfIoDeleteDevice.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-void __fastcall VF_MARK_FOR_DEFERRED_REMOVE(__int64 a1)
+void __fastcall VF_MARK_FOR_DEFERRED_REMOVE(struct _LIST_ENTRY *a1)
 {
   KIRQL v2; // al
-  ULONG_PTR i; // rdx
+  struct _LIST_ENTRY *i; // rdx
 
   v2 = KeAcquireSpinLockRaiseToDpc(&Lock);
-  for ( i = ViAdapterList; &ViAdapterList != (ULONG_PTR *)i; i = *(_QWORD *)i )
+  for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
-    if ( *(_QWORD *)(i + 24) == a1 )
-      *(_BYTE *)(i + 32) = 1;
+    if ( i[1].Blink == a1 )
+      LOBYTE(i[2].Flink) = 1;
   }
   KeReleaseSpinLock(&Lock, v2);
 }

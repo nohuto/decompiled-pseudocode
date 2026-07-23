@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpLockTableAdd @ 0x1401B5204
+ * XREFs of CmpLockTableAdd @ 0x1401B50E8
  * Callers:
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpLockKcbStackShared @ 0x140432F60 (CmpLockKcbStackShared.c)
- *     CmpCreateKeyControlBlock @ 0x140434610 (CmpCreateKeyControlBlock.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpDereferenceKeyControlBlock @ 0x140437DB0 (CmpDereferenceKeyControlBlock.c)
- *     CmEnumerateValueKey @ 0x140437F70 (CmEnumerateValueKey.c)
- *     CmpLockTwoKcbsShared @ 0x140438C20 (CmpLockTwoKcbsShared.c)
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
- *     CmQueryValueKey @ 0x14043F420 (CmQueryValueKey.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpTryToLockKcbExclusive @ 0x140603D34 (CmpTryToLockKcbExclusive.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpLockKcbStackShared @ 0x140431E30 (CmpLockKcbStackShared.c)
+ *     CmpCreateKeyControlBlock @ 0x1404334E0 (CmpCreateKeyControlBlock.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140436C80 (CmpDereferenceKeyControlBlock.c)
+ *     CmEnumerateValueKey @ 0x140436E40 (CmEnumerateValueKey.c)
+ *     CmpLockTwoKcbsShared @ 0x140437AF0 (CmpLockTwoKcbsShared.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
+ *     CmQueryValueKey @ 0x14043E2F0 (CmQueryValueKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpTryToLockKcbExclusive @ 0x140603DE8 (CmpTryToLockKcbExclusive.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall CmpLockTableAdd(__int64 a1, char a2)

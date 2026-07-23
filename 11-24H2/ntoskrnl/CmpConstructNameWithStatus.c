@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpConstructNameWithStatus @ 0x140875AB0
+ * XREFs of CmpConstructNameWithStatus @ 0x140879DE0
  * Callers:
- *     CmQueryLayeredKey @ 0x140462148 (CmQueryLayeredKey.c)
- *     CmpLoadHiveVolatile @ 0x1407CE610 (CmpLoadHiveVolatile.c)
- *     CmpDoWritethroughReparse @ 0x14087B570 (CmpDoWritethroughReparse.c)
- *     CmpTraceSecurityChanging @ 0x1409A08BC (CmpTraceSecurityChanging.c)
- *     CmCallbackGetKeyObjectID @ 0x1409D7040 (CmCallbackGetKeyObjectID.c)
- *     CmpConstructAndCacheName @ 0x1409F671C (CmpConstructAndCacheName.c)
+ *     CmQueryLayeredKey @ 0x140457758 (CmQueryLayeredKey.c)
+ *     CmpLoadHiveVolatile @ 0x1407CEB00 (CmpLoadHiveVolatile.c)
+ *     CmpTraceSecurityChanging @ 0x1408317FC (CmpTraceSecurityChanging.c)
+ *     CmpDoWritethroughReparse @ 0x14087F420 (CmpDoWritethroughReparse.c)
+ *     CmCallbackGetKeyObjectID @ 0x1409C76A0 (CmCallbackGetKeyObjectID.c)
+ *     CmpConstructAndCacheName @ 0x1409EA66C (CmpConstructAndCacheName.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpConstructNameFromKeyNodes @ 0x140875170 (CmpConstructNameFromKeyNodes.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x14087C7CC (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1408794A0 (CmpConstructNameFromKeyNodes.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x14088067C (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
  */
 
 __int64 __fastcall CmpConstructNameWithStatus(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
@@ -42,7 +42,8 @@ __int64 __fastcall CmpConstructNameWithStatus(__int64 a1, _QWORD *a2, __int64 a3
   v7 = *(__int16 *)(a1 + 66);
   Pool = 0LL;
   v9 = v6;
-  if ( v7 < 2 || (Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL)) != 0LL )
+  if ( v7 < 2
+    || (Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, 8LL * (unsigned int)(v7 - 1), 0x35364D43u)) != 0LL )
   {
     v10 = *(__int16 *)(a1 + 66);
     LOWORD(v19) = v7;

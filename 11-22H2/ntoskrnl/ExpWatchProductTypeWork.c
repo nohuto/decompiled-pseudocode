@@ -35,8 +35,8 @@ NTSTATUS ExpWatchProductTypeWork()
   HANDLE v2; // r14
   LARGE_INTEGER *p_Interval; // rsi
   char v4; // r15
-  int v5; // eax
-  int v6; // eax
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // eax
   const wchar_t *v7; // rax
   int v8; // r8d
   int v9; // ecx
@@ -57,9 +57,9 @@ NTSTATUS ExpWatchProductTypeWork()
   unsigned __int64 v24; // rcx
   __int64 v25; // rax
   void *v26; // rsp
-  int v27; // eax
-  char *v28; // rbx
-  int v29; // eax
+  NTSTATUS v27; // eax
+  ULONG *v28; // rbx
+  NTSTATUS v29; // eax
   unsigned int v30; // eax
   __int64 v31; // rdx
   __int64 v32; // rcx
@@ -68,44 +68,38 @@ NTSTATUS ExpWatchProductTypeWork()
   ULONG_PTR v35; // rbx
   NTSTATUS result; // eax
   __int64 v37; // rcx
-  size_t BugCheckParameter4; // [rsp+20h] [rbp-30h]
-  size_t BugCheckParameter4a; // [rsp+20h] [rbp-30h]
-  size_t Size; // [rsp+28h] [rbp-28h]
-  size_t Sizea; // [rsp+28h] [rbp-28h]
-  size_t Sizeb; // [rsp+28h] [rbp-28h]
   LARGE_INTEGER Interval; // [rsp+50h] [rbp+0h] BYREF
-  __int64 v44; // [rsp+58h] [rbp+8h] BYREF
-  UNICODE_STRING v45; // [rsp+60h] [rbp+10h] BYREF
-  void *v46; // [rsp+70h] [rbp+20h] BYREF
+  ULONG ResultLength; // [rsp+58h] [rbp+8h] BYREF
+  UNICODE_STRING ValueName; // [rsp+60h] [rbp+10h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp+20h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp+28h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp+30h] BYREF
-  _QWORD v49[4]; // [rsp+90h] [rbp+40h] BYREF
-  __int128 v50; // [rsp+B0h] [rbp+60h]
-  _OWORD v51[2]; // [rsp+C0h] [rbp+70h] BYREF
-  __int16 v52; // [rsp+E0h] [rbp+90h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp+40h] BYREF
+  _OWORD KeyValueInformation[2]; // [rsp+C0h] [rbp+70h] BYREF
+  __int16 v46; // [rsp+E0h] [rbp+90h]
 
-  v49[0] = 48LL;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   Handle = 0LL;
-  LODWORD(v44) = 0;
+  ResultLength = 0;
   DestinationString = 0LL;
   v0 = 0;
   v1 = 0;
-  v45 = 0LL;
-  v46 = 0LL;
+  ValueName = 0LL;
+  KeyHandle = 0LL;
   v2 = 0LL;
   p_Interval = 0LL;
-  v49[3] = 576LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   v4 = 1;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions");
-  v49[1] = 0LL;
-  v49[2] = &DestinationString;
-  v50 = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ExAcquirePushLockSharedEx((ULONG_PTR)&ExpKeyManipLock, 0LL);
   if ( ExpProductTypeKey )
   {
     while ( 1 )
     {
-      v5 = NtOpenKey(&v46, 131103LL, v49);
+      v5 = NtOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
       if ( v5 != -1073741670 )
         break;
       Interval.QuadPart = -10000000LL;
@@ -114,20 +108,30 @@ NTSTATUS ExpWatchProductTypeWork()
     if ( v5 < 0 )
       KeBugCheckEx(0x9Au, 0xDuLL, (unsigned int)v5, 0LL, 0LL);
     v2 = ExpProductTypeKey;
-    ExpProductTypeKey = v46;
+    ExpProductTypeKey = KeyHandle;
     if ( !ExpSetupModeDetected )
     {
-      RtlInitUnicodeString(&v45, L"ProductType");
-      LODWORD(BugCheckParameter4) = 34;
-      v6 = NtQueryValueKey(ExpProductTypeKey, &v45, 2, (char *)v51, BugCheckParameter4, (unsigned int *)&v44);
+      RtlInitUnicodeString(&ValueName, L"ProductType");
+      v6 = NtQueryValueKey(
+             ExpProductTypeKey,
+             &ValueName,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x22u,
+             &ResultLength);
       if ( v6 == -1073741670 )
       {
         Interval.QuadPart = -10000000LL;
         do
         {
           KeDelayExecutionThread(0, 0, &Interval);
-          LODWORD(BugCheckParameter4a) = 34;
-          v6 = NtQueryValueKey(ExpProductTypeKey, &v45, 2, (char *)v51, BugCheckParameter4a, (unsigned int *)&v44);
+          v6 = NtQueryValueKey(
+                 ExpProductTypeKey,
+                 &ValueName,
+                 KeyValuePartialInformation,
+                 KeyValueInformation,
+                 0x22u,
+                 &ResultLength);
         }
         while ( v6 == -1073741670 );
       }
@@ -136,7 +140,7 @@ NTSTATUS ExpWatchProductTypeWork()
         v7 = L"LanmanNT";
         do
         {
-          v8 = *(const wchar_t *)((char *)v7 + (char *)v51 + 12 - (char *)L"LanmanNT");
+          v8 = *(const wchar_t *)((char *)v7 + (char *)KeyValueInformation + 12 - (char *)L"LanmanNT");
           v9 = *v7 - v8;
           if ( v9 )
             break;
@@ -148,7 +152,7 @@ NTSTATUS ExpWatchProductTypeWork()
         v10 = L"ServerNT";
         do
         {
-          v11 = *(const wchar_t *)((char *)v10 + (char *)v51 + 12 - (char *)L"ServerNT");
+          v11 = *(const wchar_t *)((char *)v10 + (char *)KeyValueInformation + 12 - (char *)L"ServerNT");
           v12 = *v10 - v11;
           if ( v12 )
             break;
@@ -174,11 +178,11 @@ LABEL_52:
         {
           v37 = ExpProductTypeValueInfo;
           v4 = 0;
-          *(_OWORD *)ExpProductTypeValueInfo = v51[0];
-          *(_OWORD *)(v37 + 16) = v51[1];
-          *(_WORD *)(v37 + 32) = v52;
+          *(_OWORD *)ExpProductTypeValueInfo = KeyValueInformation[0];
+          *(_OWORD *)(v37 + 16) = KeyValueInformation[1];
+          *(_WORD *)(v37 + 32) = v46;
         }
-        v18 = (char *)((char *)v51 + 12 - v15);
+        v18 = (char *)((char *)KeyValueInformation + 12 - v15);
         while ( 1 )
         {
           v19 = *(_WORD *)v15;
@@ -207,59 +211,49 @@ LABEL_23:
       CmInitializeThreadInfo((__int64)&Interval);
       CmpLockRegistryFreezeAware(1);
       v0 = 1;
-      LODWORD(Size) = *(_DWORD *)(ExpProductTypeValueInfo + 8);
       v27 = NtSetValueKey(
-              (__int64)ExpProductTypeKey,
-              &v45,
+              ExpProductTypeKey,
+              &ValueName,
               0,
               *(_DWORD *)(ExpProductTypeValueInfo + 4),
-              (struct _PRIVILEGE_SET *)(ExpProductTypeValueInfo + 12),
-              Size);
+              (PVOID)(ExpProductTypeValueInfo + 12),
+              *(_DWORD *)(ExpProductTypeValueInfo + 8));
       if ( v27 == -1073741670 )
       {
         Interval.QuadPart = -10000000LL;
         do
         {
           KeDelayExecutionThread(0, 0, &Interval);
-          LODWORD(Sizea) = *(_DWORD *)(ExpProductTypeValueInfo + 8);
           v27 = NtSetValueKey(
-                  (__int64)ExpProductTypeKey,
-                  &v45,
+                  ExpProductTypeKey,
+                  &ValueName,
                   0,
                   *(_DWORD *)(ExpProductTypeValueInfo + 4),
-                  (struct _PRIVILEGE_SET *)(ExpProductTypeValueInfo + 12),
-                  Sizea);
+                  (PVOID)(ExpProductTypeValueInfo + 12),
+                  *(_DWORD *)(ExpProductTypeValueInfo + 8));
         }
         while ( v27 == -1073741670 );
       }
       if ( v27 < 0 )
         KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v27, 1uLL, 0LL);
-      v28 = (char *)qword_140C70E08;
-      RtlInitUnicodeString(&v45, L"ProductSuite");
+      v28 = (ULONG *)qword_140C70E08;
+      RtlInitUnicodeString(&ValueName, L"ProductSuite");
       if ( v28 )
       {
-        LODWORD(Sizea) = *((_DWORD *)v28 + 2);
-        v29 = NtSetValueKey(
-                (__int64)ExpProductTypeKey,
-                &v45,
-                0,
-                *((_DWORD *)v28 + 1),
-                (struct _PRIVILEGE_SET *)(v28 + 12),
-                Sizea);
+        v29 = NtSetValueKey(ExpProductTypeKey, &ValueName, 0, v28[1], v28 + 3, v28[2]);
         if ( v29 == -1073741670 )
         {
           Interval.QuadPart = -10000000LL;
           do
           {
             KeDelayExecutionThread(0, 0, &Interval);
-            LODWORD(Sizeb) = *((_DWORD *)qword_140C70E08 + 2);
             v29 = NtSetValueKey(
-                    (__int64)ExpProductTypeKey,
-                    &v45,
+                    ExpProductTypeKey,
+                    &ValueName,
                     0,
                     *((_DWORD *)qword_140C70E08 + 1),
-                    (struct _PRIVILEGE_SET *)((char *)qword_140C70E08 + 12),
-                    Sizeb);
+                    (char *)qword_140C70E08 + 12,
+                    *((_DWORD *)qword_140C70E08 + 2));
           }
           while ( v29 == -1073741670 );
         }
@@ -268,7 +262,7 @@ LABEL_23:
       }
       else
       {
-        NtDeleteValueKey((__int64)ExpProductTypeKey, &v45);
+        NtDeleteValueKey(ExpProductTypeKey, &ValueName);
       }
     }
     while ( 1 )
@@ -276,14 +270,14 @@ LABEL_23:
       v30 = NtNotifyChangeKey(
               ExpProductTypeKey,
               0LL,
-              (void (__stdcall *)(POPLOCK))&ExpWatchProductTypeWorkItem,
-              1LL,
-              ExpProductTypeIoSb,
+              ExpWatchProductTypeWorkItem,
+              (PVOID)1,
+              &ExpProductTypeIoSb,
               0x10000005u,
               0,
               &ExpProductTypeChangeBuffer,
-              4,
-              1);
+              4u,
+              1u);
       v35 = v30;
       if ( v30 != -1073741670 )
         break;

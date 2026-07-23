@@ -1,14 +1,14 @@
 /*
- * XREFs of WMIInitialize @ 0x140A3CB54
+ * XREFs of WMIInitialize @ 0x140A3DB54
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
- *     WmipInitializeRegistration @ 0x140A6A038 (WmipInitializeRegistration.c)
- *     WmipInitializeAllocs @ 0x140A73064 (WmipInitializeAllocs.c)
- *     WmipRegisterFirmwareProviders @ 0x140A73644 (WmipRegisterFirmwareProviders.c)
- *     WmipGetSMBiosFromLoaderBlock @ 0x140A73D6C (WmipGetSMBiosFromLoaderBlock.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IoCreateDriver @ 0x1407A5100 (IoCreateDriver.c)
+ *     WmipInitializeRegistration @ 0x140A6B038 (WmipInitializeRegistration.c)
+ *     WmipInitializeAllocs @ 0x140A74064 (WmipInitializeAllocs.c)
+ *     WmipRegisterFirmwareProviders @ 0x140A74644 (WmipRegisterFirmwareProviders.c)
+ *     WmipGetSMBiosFromLoaderBlock @ 0x140A74D6C (WmipGetSMBiosFromLoaderBlock.c)
  */
 
 char __fastcall WMIInitialize(__int64 a1, __int64 a2)

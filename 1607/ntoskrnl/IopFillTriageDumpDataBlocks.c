@@ -1,9 +1,9 @@
 /*
- * XREFs of IopFillTriageDumpDataBlocks @ 0x1401C73AC
+ * XREFs of IopFillTriageDumpDataBlocks @ 0x1401C724C
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x1401C5868 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x1401C5708 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 unsigned __int64 __fastcall IopFillTriageDumpDataBlocks(unsigned int *a1, unsigned int a2, __int64 a3, __int64 a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of IvtUpdateExtendedContextEntry @ 0x1404E0D70
+ * XREFs of IvtUpdateExtendedContextEntry @ 0x1404E0FB0
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x1404DF5C8 (IvtAttachDeviceDomainInternal.c)
- *     IvtProcessDeviceExceptions @ 0x1409AA188 (IvtProcessDeviceExceptions.c)
- *     HalpIvtpInitializeReservedDomain @ 0x1409AACA8 (HalpIvtpInitializeReservedDomain.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF808 (IvtAttachDeviceDomainInternal.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AB0B8 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x1409ABBD8 (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     IvtBuildExtendedContextEntry @ 0x1404DF86C (IvtBuildExtendedContextEntry.c)
- *     IvtGetBlockedDomain @ 0x1404DFF1C (IvtGetBlockedDomain.c)
- *     IvtGetContextEntryType @ 0x1404DFF70 (IvtGetContextEntryType.c)
- *     IvtInvalidateExtendedContextEntry @ 0x1404E06FC (IvtInvalidateExtendedContextEntry.c)
+ *     IvtBuildExtendedContextEntry @ 0x1404DFAAC (IvtBuildExtendedContextEntry.c)
+ *     IvtGetBlockedDomain @ 0x1404E015C (IvtGetBlockedDomain.c)
+ *     IvtGetContextEntryType @ 0x1404E01B0 (IvtGetContextEntryType.c)
+ *     IvtInvalidateExtendedContextEntry @ 0x1404E093C (IvtInvalidateExtendedContextEntry.c)
  */
 
 __int64 *__fastcall IvtUpdateExtendedContextEntry(

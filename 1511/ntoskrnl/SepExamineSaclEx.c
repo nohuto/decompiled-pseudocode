@@ -139,7 +139,7 @@ LABEL_94:
           if ( *v25 == 2 )
           {
             LOBYTE(v16) = 1;
-            if ( !(unsigned __int8)SepSidInToken(v14, a10, (__int64)(v25 + 8), (__int64)v16, 0)
+            if ( !(unsigned __int8)SepSidInToken(v14, a10, (__int64)(v25 + 8), (__int64)v16, 0, a11)
               && (!Size || *(_WORD *)v22 != *((_WORD *)v25 + 4) || memcmp(v22, v25 + 8, Size)) )
             {
               goto LABEL_90;
@@ -199,7 +199,7 @@ LABEL_30:
               v35 = 0LL;
             LOBYTE(v16) = 1;
             v36 = &v25[8 * (v33 & 2) + 12 + ((*((_DWORD *)v25 + 2) & 1) != 0 ? 0x10 : 0)];
-            v37 = SepSidInToken(v14, a10, (__int64)v36, (__int64)v16, 0);
+            v37 = SepSidInToken(v14, a10, (__int64)v36, (__int64)v16, 0, a11);
             if ( v35 )
             {
               if ( v37 || Size && *(_WORD *)v22 == *(_WORD *)v36 && !memcmp(v22, v36, Size) )
@@ -293,7 +293,7 @@ LABEL_34:
               goto LABEL_90;
             }
             LOBYTE(v49) = 1;
-            v50 = SepSidInToken(a3, a10, (__int64)(v25 + 8), v49, 0);
+            v50 = SepSidInToken(a3, a10, (__int64)(v25 + 8), v49, 0, a11);
             v22 = (unsigned __int8 *)SeWorldSid;
             v59 = (unsigned __int8 *)SeWorldSid;
             if ( !v50 && (!Size || *(_WORD *)SeWorldSid != *v41 || memcmp(SeWorldSid, v25 + 8, Size)) )

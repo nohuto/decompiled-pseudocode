@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpProtectPool @ 0x14036DE34
+ * XREFs of CmpProtectPool @ 0x14036DFD4
  * Callers:
- *     HvpFreeBin @ 0x1407E9958 (HvpFreeBin.c)
+ *     HvpFreeBin @ 0x1407E9C28 (HvpFreeBin.c)
  * Callees:
- *     ExProtectPoolEx @ 0x140296E5C (ExProtectPoolEx.c)
+ *     ExProtectPoolEx @ 0x1402970EC (ExProtectPoolEx.c)
  */
 
 __int64 __fastcall CmpProtectPool(unsigned __int64 a1, __int64 a2, unsigned int a3)

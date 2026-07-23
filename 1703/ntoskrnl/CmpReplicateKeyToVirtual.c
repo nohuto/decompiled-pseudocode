@@ -62,7 +62,7 @@ __int64 __fastcall CmpReplicateKeyToVirtual(__int64 a1, char a2, ULONG_PTR *a3)
   v26[0] = -1;
   if ( CmpTraceRoutine )
   {
-    EtwGetKernelTraceTimestamp(v30, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v30, 0x20000u);
     v5 = CmpTraceRoutine;
   }
   v6 = 0LL;

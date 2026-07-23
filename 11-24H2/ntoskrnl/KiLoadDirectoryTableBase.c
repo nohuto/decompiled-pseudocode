@@ -1,10 +1,10 @@
 /*
- * XREFs of KiLoadDirectoryTableBase @ 0x140321990
+ * XREFs of KiLoadDirectoryTableBase @ 0x1402CA520
  * Callers:
- *     KiSwapDirectoryTableBaseTarget @ 0x140311500 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x1403F4770 (KiSwapDirectoryTableBaseTarget.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x140321A30 (KiSetAddressPolicy.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1404D48A0 (HvlSwitchVirtualAddressSpace.c)
+ *     KiSetAddressPolicy @ 0x1402CA5C0 (KiSetAddressPolicy.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1403E20F0 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiLoadDirectoryTableBase(__int64 a1, unsigned __int64 a2)

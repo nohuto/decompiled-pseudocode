@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlApplySwitchJumpRelocationToPage @ 0x140504914
+ * XREFs of RtlApplySwitchJumpRelocationToPage @ 0x1404FE258
  * Callers:
- *     MiApplyDynamicRelocationFixups @ 0x140480F38 (MiApplyDynamicRelocationFixups.c)
+ *     MiApplyDynamicRelocationFixups @ 0x14047A8A8 (MiApplyDynamicRelocationFixups.c)
  * Callees:
- *     RtlpConstructSwitchJumpRelocationFixup @ 0x1405049E8 (RtlpConstructSwitchJumpRelocationFixup.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlpConstructSwitchJumpRelocationFixup @ 0x1404FE32C (RtlpConstructSwitchJumpRelocationFixup.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall RtlApplySwitchJumpRelocationToPage(

@@ -1,9 +1,9 @@
 /*
- * XREFs of write_multi_char_0 @ 0x180097788
+ * XREFs of write_multi_char_0 @ 0x180097798
  * Callers:
- *     _woutput_l @ 0x180096E20 (_woutput_l.c)
+ *     _woutput_l @ 0x180096E30 (_woutput_l.c)
  * Callees:
- *     write_char_0 @ 0x180097738 (write_char_0.c)
+ *     write_char_0 @ 0x180097748 (write_char_0.c)
  */
 
 void __fastcall write_multi_char_0(wchar_t a1, int a2, __int64 a3, _DWORD *a4)

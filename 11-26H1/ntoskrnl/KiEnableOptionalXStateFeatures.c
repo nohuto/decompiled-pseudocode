@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEnableOptionalXStateFeatures @ 0x1403D2A3C
+ * XREFs of KiEnableOptionalXStateFeatures @ 0x1403D5A0C
  * Callers:
- *     KiPreprocessFault @ 0x1403D2040 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1403D5010 (KiPreprocessFault.c)
  * Callees:
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     KxEnableOptionalXStateFeatures @ 0x1405ECFA4 (KxEnableOptionalXStateFeatures.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     KxEnableOptionalXStateFeatures @ 0x1405EF914 (KxEnableOptionalXStateFeatures.c)
  */
 
 __int64 __fastcall KiEnableOptionalXStateFeatures(__int64 a1, __int64 a2)

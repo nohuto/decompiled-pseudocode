@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpStopRuntimeStackTrace @ 0x1408DF3E4
+ * XREFs of ObpStopRuntimeStackTrace @ 0x1408DF544
  * Callers:
- *     ObSetRefTraceInformation @ 0x1408DE2CC (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x1408DE42C (ObSetRefTraceInformation.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObpDestroyStackAndObjectTables @ 0x1408DE4DC (ObpDestroyStackAndObjectTables.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObpDestroyStackAndObjectTables @ 0x1408DE63C (ObpDestroyStackAndObjectTables.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 ObpStopRuntimeStackTrace()

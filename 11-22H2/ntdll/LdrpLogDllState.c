@@ -24,21 +24,19 @@
  *     LdrpLogEtwEvent @ 0x1800DB9FC (LdrpLogEtwEvent.c)
  */
 
-struct _PEB *__fastcall LdrpLogDllState(__int64 a1, __int64 a2, unsigned __int16 a3)
+int __fastcall LdrpLogDllState(int a1, __int64 a2, unsigned __int16 a3)
 {
-  struct _PEB *result; // rax
-  int v6; // esi
+  struct _PEB *v3; // rax
   _DWORD *SharedData; // r9
   __int64 v8; // r8
   __int64 v9; // rcx
 
-  result = NtCurrentPeb();
-  v6 = a1;
-  SharedData = result->SharedData;
+  v3 = NtCurrentPeb();
+  SharedData = v3->SharedData;
   if ( SharedData && *SharedData )
   {
-    result = NtCurrentPeb();
-    v8 = (__int64)result->SharedData + 554;
+    v3 = NtCurrentPeb();
+    v8 = (__int64)v3->SharedData + 554;
   }
   else
   {
@@ -46,22 +44,22 @@ struct _PEB *__fastcall LdrpLogDllState(__int64 a1, __int64 a2, unsigned __int16
   }
   if ( *(_BYTE *)v8 )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 4) != 0 )
+    v3 = NtCurrentPeb();
+    if ( (v3->TracingFlags & 4) != 0 )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId(a1, a2, v8, SharedData);
-      if ( (_DWORD)result )
+      LODWORD(v3) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v3 )
       {
-        result = NtCurrentPeb();
-        v9 = (__int64)result->SharedData + 555;
+        v3 = NtCurrentPeb();
+        v9 = (__int64)v3->SharedData + 555;
       }
       else
       {
         v9 = 2147353477LL;
       }
       if ( (*(_BYTE *)v9 & 0x20) != 0 )
-        return (struct _PEB *)LdrpLogEtwEvent(a3, v6, 0, 0, a2, 0LL);
+        LODWORD(v3) = LdrpLogEtwEvent(a3, a1, 0, 0, a2, 0LL);
     }
   }
-  return result;
+  return (int)v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSimpleInsertHugeRange @ 0x1406EDB90
+ * XREFs of MiSimpleInsertHugeRange @ 0x1406F2830
  * Callers:
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
- *     MiCanBeginHugeIoPageAccessor @ 0x14052EEFC (MiCanBeginHugeIoPageAccessor.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
+ *     MiCanBeginHugeIoPageAccessor @ 0x14053141C (MiCanBeginHugeIoPageAccessor.c)
  * Callees:
- *     MiUpdateHugeRangeZeroFreeBitmap @ 0x1406EDE8C (MiUpdateHugeRangeZeroFreeBitmap.c)
+ *     MiUpdateHugeRangeZeroFreeBitmap @ 0x1406F2B2C (MiUpdateHugeRangeZeroFreeBitmap.c)
  */
 
 unsigned __int64 __fastcall MiSimpleInsertHugeRange(unsigned __int64 *a1, int a2, __int64 a3, int a4)
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall MiSimpleInsertHugeRange(unsigned __int64 *a1, int a2
   __int64 v20; // rdx
 
   v5 = a3 & 0x3FFFFF;
-  v7 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (a3 & 0x3FFFFF));
+  v7 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (a3 & 0x3FFFFF));
   if ( a2 )
   {
     if ( a2 == 1 )
@@ -49,15 +49,15 @@ unsigned __int64 __fastcall MiSimpleInsertHugeRange(unsigned __int64 *a1, int a2
 LABEL_19:
       v19 = v12 << 15;
       v20 = (*a1 >> 15) & 0x3FFFFF;
-      *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v5) = v19 ^ (v10 ^ v19) & 0xFFFFFFE000007FFFuLL;
-      result = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v20);
-      *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v20) = (a3 << 37) ^ (result ^ (a3 << 37)) & 0xF800001FFFFFFFFFuLL;
+      *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v5) = v19 ^ (v10 ^ v19) & 0xFFFFFFE000007FFFuLL;
+      result = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v20);
+      *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v20) = (a3 << 37) ^ (result ^ (a3 << 37)) & 0xF800001FFFFFFFFFuLL;
       v9 = (a3 << 15) ^ ((a3 << 15) ^ v9) & 0xFFFFFFE000007FFFuLL;
     }
     else
     {
       v14 = (v9 >> 37) & 0x3FFFFF;
-      v15 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v14);
+      v15 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v14);
       v16 = *v15;
       if ( (v10 & 0x800000000000000LL) == 0 )
       {
@@ -70,7 +70,7 @@ LABEL_19:
           v14 = v17 ^ (v17 ^ v14) & 0xFFFFFFFFFFC00000uLL;
           if ( (v17 & 0x3FFFFF) == 0 )
             goto LABEL_19;
-          v15 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v17 & 0x3FFFFF));
+          v15 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v17 & 0x3FFFFF));
         }
       }
       v18 = v10 & 0xFFFFFFE000007FFFuLL;
@@ -78,7 +78,7 @@ LABEL_19:
         v18 = (v16 >> 15 << 15) ^ (v10 ^ (v16 >> 15 << 15)) & 0xFFFFFFE000007FFFuLL;
       else
         v9 = (a3 << 37) ^ ((a3 << 37) ^ v9) & 0xF800001FFFFFFFFFuLL;
-      *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v5) = (v14 << 37) ^ (v18 ^ (v14 << 37)) & 0xF800001FFFFFFFFFuLL;
+      *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v5) = (v14 << 37) ^ (v18 ^ (v14 << 37)) & 0xF800001FFFFFFFFFuLL;
       result = (a3 << 15) ^ (v16 ^ (a3 << 15)) & 0xFFFFFFE000007FFFuLL;
       *v15 = result;
     }
@@ -87,7 +87,7 @@ LABEL_19:
   {
     result = v9 & 0xF800000000007FFFuLL;
     v9 = v9 & 0xF800000000007FFFuLL | ((v5 | (v5 << 22)) << 15);
-    *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v5) = v10 & 0xFFFFFFE000007FFFuLL;
+    *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v5) = v10 & 0xFFFFFFE000007FFFuLL;
     if ( v11 != 4 )
       result = MiUpdateHugeRangeZeroFreeBitmap(a3);
   }

@@ -1,46 +1,44 @@
 /*
- * XREFs of LdrQueryModuleServiceTags @ 0x18015E8B0
+ * XREFs of LdrQueryModuleServiceTags @ 0x18015CC70
  * Callers:
  *     <none>
  * Callees:
- *     LdrpFindLoadedDllByHandle @ 0x18000F8E0 (LdrpFindLoadedDllByHandle.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003C2E0 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrQueryModuleServiceTags(unsigned __int64 a1, __int64 a2, unsigned int *a3)
+NTSTATUS __cdecl LdrQueryModuleServiceTags(PVOID DllHandle, PULONG ServiceTagBuffer, PULONG BufferSize)
 {
-  __int64 result; // rax
-  volatile signed __int32 **v6; // rdx
-  unsigned __int64 v7; // r8
-  __int64 v8; // rsi
-  __int64 v9; // rbx
-  unsigned int v10; // edi
-  __int64 *v11; // r8
-  __int64 v12[5]; // [rsp+20h] [rbp-28h] BYREF
-  int v13; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS result; // eax
+  char *v6; // rsi
+  __int64 v7; // rbx
+  ULONG v8; // edi
+  __int64 *v9; // r8
+  PVOID BaseAddress[5]; // [rsp+20h] [rbp-28h] BYREF
+  int v11; // [rsp+68h] [rbp+20h] BYREF
 
-  v12[0] = 0LL;
-  result = LdrpFindLoadedDllByHandle(a1, v12, &v13);
-  if ( (int)result >= 0 )
+  BaseAddress[0] = 0LL;
+  result = LdrpFindLoadedDllByHandle(DllHandle, (__int64 *)BaseAddress, &v11);
+  if ( result >= 0 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock, v6, v7);
-    v8 = v12[0];
-    v9 = 0LL;
-    v10 = *a3;
-    v11 = *(__int64 **)(*(_QWORD *)(v12[0] + 152) + 16LL);
-    while ( v11 )
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+    v6 = (char *)BaseAddress[0];
+    v7 = 0LL;
+    v8 = *BufferSize;
+    v9 = *(__int64 **)(*((_QWORD *)BaseAddress[0] + 19) + 16LL);
+    while ( v9 )
     {
-      if ( (unsigned int)v9 < v10 )
-        *(_DWORD *)(a2 + 4 * v9) = *((_DWORD *)v11 + 2);
-      v11 = (__int64 *)*v11;
-      v9 = (unsigned int)(v9 + 1);
+      if ( (unsigned int)v7 < v8 )
+        ServiceTagBuffer[v7] = *((_DWORD *)v9 + 2);
+      v9 = (__int64 *)*v9;
+      v7 = (unsigned int)(v7 + 1);
     }
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-    *a3 = v9;
-    LdrpDereferenceModule(v8);
-    return v10 < (unsigned int)v9 ? 0xC0000023 : 0;
+    *BufferSize = v7;
+    LdrpDereferenceModule(v6);
+    return v8 < (unsigned int)v7 ? 0xC0000023 : 0;
   }
   return result;
 }

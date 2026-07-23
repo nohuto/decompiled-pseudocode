@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryEvent @ 0x1800A0DA0 (NtQueryEvent.c)
+ *     NtQueryEvent @ 0x1800A0DC0 (NtQueryEvent.c)
  */
 
-__int64 __fastcall PsspDumpObject_Event(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall PsspDumpObject_Event(void *a1, void *a2, unsigned int a3, ULONG *ReturnLength)
 {
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 >= 8 )
-    return NtQueryEvent();
+    return NtQueryEvent(a1, EventBasicInformation, a2, 8u, ReturnLength);
   else
-    return 3221225507LL;
+    return -1073741789;
 }

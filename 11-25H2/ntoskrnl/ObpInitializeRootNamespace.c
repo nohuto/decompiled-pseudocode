@@ -17,20 +17,20 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, __int64 a4)
+__int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, void *a3, __int64 a4)
 {
   bool IsHostSilo; // di
   int KernelObjectsSD; // ebx
   bool v10; // sf
   HANDLE Handle; // [rsp+38h] [rbp-39h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-31h] BYREF
-  int v14; // [rsp+70h] [rbp-1h]
+  int SymbolicLinkInformation; // [rsp+70h] [rbp-1h] BYREF
   HANDLE DirectoryHandle; // [rsp+78h] [rbp+7h] BYREF
   PVOID Object; // [rsp+80h] [rbp+Fh] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp+17h] BYREF
   __int64 v18; // [rsp+A8h] [rbp+37h]
 
-  v14 = 0;
+  SymbolicLinkInformation = 0;
   Handle = 0LL;
   DirectoryHandle = 0LL;
   memset(&ObjectAttributes, 0, 44);
@@ -55,7 +55,7 @@ __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, 
       ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
       ObjectAttributes.RootDirectory = a2;
       ObjectAttributes.Attributes = 592;
-      KernelObjectsSD = ZwCreateDirectoryObjectEx((__int64)&Handle, 983055LL);
+      KernelObjectsSD = ZwCreateDirectoryObjectEx(&Handle, 0xF000Fu, &ObjectAttributes, DirectoryHandle, 0);
       if ( KernelObjectsSD >= 0 )
       {
         ZwClose(Handle);
@@ -77,10 +77,18 @@ __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, 
         }
         else
         {
-          KernelObjectsSD = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
+          KernelObjectsSD = ZwCreateSymbolicLinkObject(
+                              &Handle,
+                              0xF0001u,
+                              &ObjectAttributes,
+                              (PUNICODE_STRING)&ObpObjectTypesPathString);
           if ( KernelObjectsSD < 0 )
             goto LABEL_12;
-          KernelObjectsSD = ZwSetInformationSymbolicLink((__int64)Handle, 1LL);
+          KernelObjectsSD = ZwSetInformationSymbolicLink(
+                              Handle,
+                              SymbolicLinkGlobalInformation,
+                              &SymbolicLinkInformation,
+                              4u);
           v10 = KernelObjectsSD < 0;
         }
         if ( !v10 )

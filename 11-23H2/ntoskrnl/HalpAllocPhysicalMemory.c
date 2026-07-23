@@ -1,21 +1,21 @@
 /*
  * XREFs of HalpAllocPhysicalMemory @ 0x140B4893C
  * Callers:
- *     HalpMmAllocateAndInsertPageTablePage @ 0x14037D750 (HalpMmAllocateAndInsertPageTablePage.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037DB08 (HalpMmAllocateMemoryInternal.c)
- *     HalpSocApiAllocatePhysicalMemory @ 0x14037DBF0 (HalpSocApiAllocatePhysicalMemory.c)
- *     HalpAcpiAllocateMemory @ 0x14037DED0 (HalpAcpiAllocateMemory.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14037E008 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpAllocateEarlyPages @ 0x140505550 (HalpAllocateEarlyPages.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F280 (ExtEnvAllocatePhysicalMemory.c)
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x14037D8F0 (HalpMmAllocateAndInsertPageTablePage.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037DCA8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpSocApiAllocatePhysicalMemory @ 0x14037DD90 (HalpSocApiAllocatePhysicalMemory.c)
+ *     HalpAcpiAllocateMemory @ 0x14037E070 (HalpAcpiAllocateMemory.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x14037E1A8 (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpAllocateEarlyPages @ 0x140505AA0 (HalpAllocateEarlyPages.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14051F7D0 (ExtEnvAllocatePhysicalMemory.c)
  *     HalpAllocateScratchMemory @ 0x140AB3930 (HalpAllocateScratchMemory.c)
  *     HalpDmaInitMemory @ 0x140B48764 (HalpDmaInitMemory.c)
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  *     HalpBlkAllocateAndShadowMemory @ 0x140B91BDC (HalpBlkAllocateAndShadowMemory.c)
  *     HalpBlkAllocatePageTablePage @ 0x140B91CD4 (HalpBlkAllocatePageTablePage.c)
  * Callees:
- *     HalpMapPhysicalMemory64 @ 0x14040F750 (HalpMapPhysicalMemory64.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpMapPhysicalMemory64 @ 0x14040F930 (HalpMapPhysicalMemory64.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpAllocPhysicalMemoryInternal @ 0x140B489AC (HalpAllocPhysicalMemoryInternal.c)
  */
 

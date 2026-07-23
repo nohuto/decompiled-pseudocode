@@ -1,15 +1,15 @@
 /*
- * XREFs of ExSlowReplenishHandleTableEntry @ 0x140445670
+ * XREFs of ExSlowReplenishHandleTableEntry @ 0x14043D820
  * Callers:
- *     PsLookupThreadByThreadId @ 0x14084A4B0 (PsLookupThreadByThreadId.c)
- *     ObWaitForMultipleObjects @ 0x14084AF80 (ObWaitForMultipleObjects.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     PsOpenProcess @ 0x140854350 (PsOpenProcess.c)
- *     NtWriteFile @ 0x1408C1170 (NtWriteFile.c)
- *     PspThreadFromTicket @ 0x140912E70 (PspThreadFromTicket.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
- *     ObReferenceFileObjectForWrite @ 0x140988C30 (ObReferenceFileObjectForWrite.c)
- *     NtAlertThreadByThreadIdEx @ 0x1409A5CD0 (NtAlertThreadByThreadIdEx.c)
+ *     PsLookupThreadByThreadId @ 0x140846770 (PsLookupThreadByThreadId.c)
+ *     ObWaitForMultipleObjects @ 0x140847240 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsOpenProcess @ 0x140850610 (PsOpenProcess.c)
+ *     ObReferenceFileObjectForWrite @ 0x140863440 (ObReferenceFileObjectForWrite.c)
+ *     NtWriteFile @ 0x1408BEB30 (NtWriteFile.c)
+ *     PspThreadFromTicket @ 0x1408EA5C0 (PspThreadFromTicket.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
+ *     NtAlertThreadByThreadIdEx @ 0x1409892F0 (NtAlertThreadByThreadIdEx.c)
  * Callees:
  *     <none>
  */

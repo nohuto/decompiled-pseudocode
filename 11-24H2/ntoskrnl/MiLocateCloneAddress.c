@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLocateCloneAddress @ 0x1403E3608
+ * XREFs of MiLocateCloneAddress @ 0x1403C9CE8
  * Callers:
- *     MiGetPfnProtection @ 0x140212E10 (MiGetPfnProtection.c)
- *     MiSharedVaToPartition @ 0x140214100 (MiSharedVaToPartition.c)
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiComputePageCommitment @ 0x140238A7C (MiComputePageCommitment.c)
- *     MiMakeProtoPrivate @ 0x140239334 (MiMakeProtoPrivate.c)
- *     MiTrimThisWsle @ 0x140242F50 (MiTrimThisWsle.c)
- *     MiProbeLeafPteAccess @ 0x140283F40 (MiProbeLeafPteAccess.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
- *     MiGetPageProtection @ 0x1403019B0 (MiGetPageProtection.c)
- *     MiCopyToUserVa @ 0x1403E2DBC (MiCopyToUserVa.c)
- *     MiQueryLeafPte @ 0x1403E30B0 (MiQueryLeafPte.c)
- *     MiSplitReducedCommitClonePage @ 0x1404F9378 (MiSplitReducedCommitClonePage.c)
- *     MiCheckCommitReleaseFromVad @ 0x140669880 (MiCheckCommitReleaseFromVad.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiComputePageCommitment @ 0x140212C0C (MiComputePageCommitment.c)
+ *     MiTrimThisWsle @ 0x140213460 (MiTrimThisWsle.c)
+ *     MiProbeLeafPteAccess @ 0x1402394D0 (MiProbeLeafPteAccess.c)
+ *     MiGetPfnProtection @ 0x140306170 (MiGetPfnProtection.c)
+ *     MiSharedVaToPartition @ 0x140307460 (MiSharedVaToPartition.c)
+ *     MiGetPageProtection @ 0x14030C130 (MiGetPageProtection.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
+ *     MiCopyToUserVa @ 0x1403C9340 (MiCopyToUserVa.c)
+ *     MiMakeProtoPrivate @ 0x1403C9630 (MiMakeProtoPrivate.c)
+ *     MiQueryLeafPte @ 0x1403C9790 (MiQueryLeafPte.c)
+ *     MiSplitReducedCommitClonePage @ 0x1404F6C58 (MiSplitReducedCommitClonePage.c)
+ *     MiCheckCommitReleaseFromVad @ 0x14066AA50 (MiCheckCommitReleaseFromVad.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenThreadToken @ 0x140413560
+ * XREFs of NtOpenThreadToken @ 0x140412420
  * Callers:
  *     <none>
  * Callees:
- *     NtOpenThreadTokenEx @ 0x140413580 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x140412440 (NtOpenThreadTokenEx.c)
  */
 
 NTSTATUS __stdcall NtOpenThreadToken(

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmKeyBodyNeedsVirtualImage @ 0x140A17EE0
+ * XREFs of CmKeyBodyNeedsVirtualImage @ 0x140A18190
  * Callers:
- *     NtSetValueKey @ 0x1406D2A00 (NtSetValueKey.c)
- *     NtDeleteValueKey @ 0x14070EA40 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x14070FCB0 (NtDeleteKey.c)
- *     NtSetInformationKey @ 0x1407AC9F0 (NtSetInformationKey.c)
- *     NtRenameKey @ 0x140A0DFB0 (NtRenameKey.c)
+ *     NtSetValueKey @ 0x1406D2A30 (NtSetValueKey.c)
+ *     NtDeleteValueKey @ 0x14070EC50 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x14070FEC0 (NtDeleteKey.c)
+ *     NtSetInformationKey @ 0x1407ACBE0 (NtSetInformationKey.c)
+ *     NtRenameKey @ 0x140A0E260 (NtRenameKey.c)
  * Callees:
  *     CmpIsKeyDeletedForKeyBody @ 0x140AF52F0 (CmpIsKeyDeletedForKeyBody.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)

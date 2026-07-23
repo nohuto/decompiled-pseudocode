@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsDiagRundownBroadcastTrees @ 0x14099E484
+ * XREFs of PopDirectedDripsDiagRundownBroadcastTrees @ 0x14099E684
  * Callers:
- *     PopDirectedDripsDiagNotifySessionStop @ 0x14099E278 (PopDirectedDripsDiagNotifySessionStop.c)
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x14099E478 (PopDirectedDripsDiagNotifySessionStop.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -117,7 +117,7 @@ void PopDirectedDripsDiagRundownBroadcastTrees()
       v46 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D53950,
-        (unsigned __int8 *)&byte_140031E8F,
+        (unsigned __int8 *)&byte_140031F77,
         0LL,
         0LL,
         0xDu,
@@ -159,7 +159,7 @@ void PopDirectedDripsDiagRundownBroadcastTrees()
         v40 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140D53950,
-          (unsigned __int8 *)byte_140031D15,
+          (unsigned __int8 *)byte_140031DFD,
           0LL,
           0LL,
           0xAu,

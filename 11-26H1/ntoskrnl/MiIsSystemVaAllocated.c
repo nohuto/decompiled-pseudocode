@@ -1,17 +1,17 @@
 /*
- * XREFs of MiIsSystemVaAllocated @ 0x1406F5494
+ * XREFs of MiIsSystemVaAllocated @ 0x1406FA104
  * Callers:
- *     MmAllocateSecurePoolMemory @ 0x1406FBC98 (MmAllocateSecurePoolMemory.c)
- *     MmFreeSecurePoolMemory @ 0x1406FBDE8 (MmFreeSecurePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140700968 (MmAllocateSecurePoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x140700AB8 (MmFreeSecurePoolMemory.c)
  * Callees:
- *     MiSystemVaToDynamicBitmap @ 0x1402A4D64 (MiSystemVaToDynamicBitmap.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1402A42B4 (MiSystemVaToDynamicBitmap.c)
  */
 
 unsigned __int64 MiIsSystemVaAllocated()
 {
   unsigned __int64 v0; // rdx
   __int64 v1; // r8
-  $B3FD53340A977CC9CDA66D808670C106 *v2; // r10
+  $A4FCC2D77D2C8DA06473821DBD6C3FF5 *v2; // r10
   unsigned __int64 v3; // r9
   unsigned __int64 v4; // r11
   unsigned __int64 result; // rax

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpGetOriginalImageVersion @ 0x14065B0F4
+ * XREFs of ExpGetOriginalImageVersion @ 0x140659814
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

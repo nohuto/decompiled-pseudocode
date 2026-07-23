@@ -10,34 +10,61 @@
  *     ZwUpdateWnfStateData @ 0x1800A29A0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1)
+__int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, WNF_STATE_NAME *a2)
 {
-  __int64 Heap; // rdi
-  int WnfStateData; // ebx
-  unsigned int i; // ecx
+  PVOID Buffer; // rdi
+  NTSTATUS updated; // ebx
+  ULONG v5; // r8d
+  unsigned int v6; // ecx
+  __int64 v7; // rdx
+  ULONG BufferSize; // [rsp+40h] [rbp-28h] BYREF
+  ULONG ChangeStamp; // [rsp+44h] [rbp-24h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-20h] BYREF
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 4096LL);
-  if ( Heap )
+  StateName = *a2;
+  Buffer = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
+  if ( Buffer )
   {
     do
     {
-      WnfStateData = ZwQueryWnfStateData();
-      if ( WnfStateData >= 0 )
+      BufferSize = 4096;
+      updated = ZwQueryWnfStateData(&StateName, 0LL, 0LL, &ChangeStamp, Buffer, &BufferSize);
+      if ( updated >= 0 )
       {
-        for ( i = 0; i < 0x200; ++i )
+        v5 = BufferSize;
+        v6 = 0;
+        if ( (BufferSize & 7) != 0 )
+          v5 = 0;
+        BufferSize = v5;
+        v7 = v5 >> 3;
+        if ( (_DWORD)v7 )
         {
-          if ( *(_DWORD *)(Heap + 8LL * i) == *(_DWORD *)a1 && *(_WORD *)(Heap + 8LL * i + 4) == *(_WORD *)(a1 + 4) )
-            break;
+          while ( *((_DWORD *)Buffer + 2 * v6) != *(_DWORD *)a1 || *((_WORD *)Buffer + 4 * v6 + 2) != *(_WORD *)(a1 + 4) )
+          {
+            if ( ++v6 >= (unsigned int)v7 )
+              goto LABEL_10;
+          }
         }
-        WnfStateData = ZwUpdateWnfStateData();
+        else
+        {
+LABEL_10:
+          if ( (unsigned __int64)v5 + 8 <= 0x1000 )
+          {
+            v5 += 8;
+            *((_DWORD *)Buffer + 2 * v7) = *(_DWORD *)a1;
+            *((_WORD *)Buffer + 4 * v7 + 2) = *(_WORD *)(a1 + 4);
+            BufferSize = v5;
+          }
+        }
+        updated = ZwUpdateWnfStateData(&StateName, Buffer, v5, 0LL, 0LL, ChangeStamp, 1u);
       }
     }
-    while ( WnfStateData == -1073741823 );
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    while ( updated == -1073741823 );
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)WnfStateData;
+  return (unsigned int)updated;
 }

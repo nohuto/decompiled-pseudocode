@@ -10,19 +10,19 @@
 __int64 __fastcall ViTargetFreeContiguousMemoryFromNode(_SLIST_ENTRY *a1, __int64 a2)
 {
   __int64 v2; // r8
-  struct _SLIST_ENTRY *i; // rcx
+  _SLIST_ENTRY *i; // rcx
   _SLIST_ENTRY *Next; // rdx
-  struct _SLIST_ENTRY **v7; // rax
+  _SLIST_ENTRY **v7; // rax
 
   v2 = *(_QWORD *)(a2 + 48);
   if ( v2 )
   {
-    for ( i = *(struct _SLIST_ENTRY **)(v2 + 232); i != (struct _SLIST_ENTRY *)(v2 + 232); i = i->Next )
+    for ( i = *(_SLIST_ENTRY **)(v2 + 232); i != (_SLIST_ENTRY *)(v2 + 232); i = i->Next )
     {
       if ( i[1].Next == a1 )
       {
         Next = i->Next;
-        v7 = (struct _SLIST_ENTRY **)*((_QWORD *)&i->Next + 1);
+        v7 = (_SLIST_ENTRY **)*((_QWORD *)&i->Next + 1);
         if ( *(&i->Next->Next + 1) != i || *v7 != i )
           __fastfail(3u);
         *v7 = Next;

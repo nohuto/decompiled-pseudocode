@@ -4,8 +4,8 @@
  *     LdrpConvertLangFallbackListToMultiSz @ 0x18003F6C8 (LdrpConvertLangFallbackListToMultiSz.c)
  * Callees:
  *     RtlpMuiRegTryToAppendLangId @ 0x18003F998 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180077640 (RtlpMuiRegTryToAppendLanguageName.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180077650 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpMuiRegTryToAppendLanguageToMuiszFromLangList(

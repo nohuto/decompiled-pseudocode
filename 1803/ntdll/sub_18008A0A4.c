@@ -13,62 +13,56 @@
  *     ZwSetSecurityObject @ 0x18009DE90 (ZwSetSecurityObject.c)
  */
 
-__int64 __fastcall sub_18008A0A4(__int64 a1)
+int __fastcall sub_18008A0A4(_UNICODE_STRING *a1)
 {
-  __int64 result; // rax
-  int v3; // eax
-  __int64 v4; // rcx
-  __int64 v5; // [rsp+30h] [rbp-59h] BYREF
-  _QWORD v6[2]; // [rsp+38h] [rbp-51h] BYREF
-  int v7; // [rsp+48h] [rbp-41h] BYREF
-  __int64 v8; // [rsp+50h] [rbp-39h]
-  __int64 v9; // [rsp+58h] [rbp-31h]
-  int v10; // [rsp+60h] [rbp-29h]
-  __int128 v11; // [rsp+68h] [rbp-21h]
-  _BYTE v12[40]; // [rsp+78h] [rbp-11h] BYREF
-  _BYTE v13[16]; // [rsp+A0h] [rbp+17h] BYREF
-  int v14; // [rsp+B0h] [rbp+27h] BYREF
-  __int64 v15; // [rsp+B4h] [rbp+2Bh]
-  int v16; // [rsp+BCh] [rbp+33h]
-  __int16 v17; // [rsp+C0h] [rbp+37h] BYREF
-  int v18; // [rsp+C2h] [rbp+39h]
-  __int16 v19; // [rsp+C6h] [rbp+3Dh]
-  int v20; // [rsp+C8h] [rbp+3Fh]
-  int v21; // [rsp+CCh] [rbp+43h]
+  int result; // eax
+  NTSTATUS v3; // eax
+  HANDLE v4; // rcx
+  HANDLE TokenHandle; // [rsp+30h] [rbp-59h] BYREF
+  HANDLE FileHandle[2]; // [rsp+38h] [rbp-51h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-41h] BYREF
+  _BYTE SecurityDescriptor[40]; // [rsp+78h] [rbp-11h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A0h] [rbp+17h] BYREF
+  _TOKEN_PRIVILEGES NewState; // [rsp+B0h] [rbp+27h] BYREF
+  __int16 Owner; // [rsp+C0h] [rbp+37h] BYREF
+  int v12; // [rsp+C2h] [rbp+39h]
+  __int16 v13; // [rsp+C6h] [rbp+3Dh]
+  int v14; // [rsp+C8h] [rbp+3Fh]
+  int v15; // [rsp+CCh] [rbp+43h]
 
-  result = ZwOpenProcessTokenEx(-1LL, 40LL, 512LL, &v5);
-  if ( (int)result >= 0 )
+  result = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0x28u, 0x200u, &TokenHandle);
+  if ( result >= 0 )
   {
-    v6[1] = 9LL;
-    v15 = 9LL;
-    v14 = 1;
-    v16 = 2;
-    if ( (int)ZwAdjustPrivilegesToken(v5, 0LL, &v14) >= 0 )
+    FileHandle[1] = (HANDLE)9;
+    NewState.Privileges[0].Luid = (LUID)9LL;
+    NewState.PrivilegeCount = 1;
+    NewState.Privileges[0].Attributes = 2;
+    if ( ZwAdjustPrivilegesToken(TokenHandle, 0, &NewState, 0x10u, 0LL, 0LL) >= 0 )
     {
-      v8 = 0LL;
-      v7 = 48;
-      v10 = 576;
-      v9 = a1;
-      v11 = 0LL;
-      if ( (int)ZwOpenFile(v6, 1572864LL, &v7, v13, 7, 33) >= 0 )
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 576;
+      ObjectAttributes.ObjectName = a1;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      if ( ZwOpenFile(FileHandle, 0x180000u, &ObjectAttributes, &IoStatusBlock, 7u, 0x21u) >= 0 )
       {
-        RtlCreateSecurityDescriptor(v12, 1);
-        v18 = 0;
-        v19 = 1280;
-        v17 = 513;
-        v20 = 32;
-        v21 = 544;
-        v3 = RtlSetOwnerSecurityDescriptor((__int64)v12, (__int64)&v17, 0);
-        v4 = v6[0];
+        RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+        v12 = 0;
+        v13 = 1280;
+        Owner = 513;
+        v14 = 32;
+        v15 = 544;
+        v3 = RtlSetOwnerSecurityDescriptor(SecurityDescriptor, &Owner, 0);
+        v4 = FileHandle[0];
         if ( v3 >= 0 )
         {
-          ZwSetSecurityObject(v6[0], 1LL, v12);
-          v4 = v6[0];
+          ZwSetSecurityObject(FileHandle[0], 1u, SecurityDescriptor);
+          v4 = FileHandle[0];
         }
         ZwClose(v4);
       }
     }
-    return ZwClose(v5);
+    return ZwClose(TokenHandle);
   }
   return result;
 }

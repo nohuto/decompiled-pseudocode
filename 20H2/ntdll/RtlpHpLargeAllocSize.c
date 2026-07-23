@@ -11,7 +11,7 @@
  *     RtlpHpLargeAllocSizeInternal @ 0x18008481C (RtlpHpLargeAllocSizeInternal.c)
  */
 
-__int64 __fastcall RtlpHpLargeAllocSize(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlpHpLargeAllocSize(__int64 a1, unsigned __int64 a2, char a3, __int64 a4)
 {
   int v7; // esi
   unsigned __int64 v8; // rdx
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpLargeAllocSize(__int64 a1, unsigned __int64 a2, unsigne
 
   v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64), a2, a3, a4);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
   v8 = *(_QWORD *)(a1 + 72);
   if ( (*(_BYTE *)(a1 + 80) & 1) != 0 && v8 )
     v8 ^= a1 + 72;
@@ -48,6 +48,6 @@ __int64 __fastcall RtlpHpLargeAllocSize(__int64 a1, unsigned __int64 a2, unsigne
   else
     v11 = -1LL;
   if ( !v7 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 64));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
   return v11;
 }

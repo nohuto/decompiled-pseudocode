@@ -1,16 +1,16 @@
 /*
- * XREFs of KiPopulateNodeInformation @ 0x140CCAA4C
+ * XREFs of KiPopulateNodeInformation @ 0x140CD0B2C
  * Callers:
- *     KiPerformGroupConfiguration @ 0x140CCA97C (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x140CD0A5C (KiPerformGroupConfiguration.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KiAllocateKNode @ 0x1405EF048 (KiAllocateKNode.c)
- *     KiQueryNodeCapacity @ 0x1405EFC20 (KiQueryNodeCapacity.c)
- *     KiQueryProximityNode @ 0x1405EFDA0 (KiQueryProximityNode.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     MmGetChannelInformation @ 0x140B0D228 (MmGetChannelInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KiAllocateKNode @ 0x1405F19B8 (KiAllocateKNode.c)
+ *     KiQueryNodeCapacity @ 0x1405F2590 (KiQueryNodeCapacity.c)
+ *     KiQueryProximityNode @ 0x1405F2710 (KiQueryProximityNode.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmGetChannelInformation @ 0x140B0E978 (MmGetChannelInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall KiPopulateNodeInformation(_DWORD *a1, int *a2)

@@ -43,7 +43,7 @@ __int64 BuildQueryDirectoryIrp(void *a1, void *a2, ...)
   struct _KEVENT *v15; // r12
   struct _KTHREAD *v16; // rax
   volatile __int32 *v17; // rbx
-  __int64 v18; // rax
+  PRTL_BALANCED_NODE v18; // rax
   IRP *v19; // rax
   __int64 v20; // rcx
   IRP *Irp; // rbx
@@ -261,7 +261,7 @@ LABEL_84:
     else
     {
       if ( v18 )
-        *(_BYTE *)(v18 + 26) |= 1u;
+        BYTE2(v18[1].Left) |= 1u;
       v14 = (struct _FILE_OBJECT *)Object;
       ObfReferenceObject(Object);
       v13 = 0;

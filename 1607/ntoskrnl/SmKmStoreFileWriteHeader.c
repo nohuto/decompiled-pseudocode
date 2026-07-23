@@ -1,22 +1,22 @@
 /*
- * XREFs of SmKmStoreFileWriteHeader @ 0x1406998CC
+ * XREFs of SmKmStoreFileWriteHeader @ 0x1406999B0
  * Callers:
- *     SmKmStoreFileCreate @ 0x140698AE8 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x140698BCC (SmKmStoreFileCreate.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     MmCreateMdl @ 0x140086A14 (MmCreateMdl.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     IoSynchronousPageWrite @ 0x14008E344 (IoSynchronousPageWrite.c)
- *     MmMdlPageContentsState @ 0x1400A5E44 (MmMdlPageContentsState.c)
- *     MmBuildMdlForNonPagedPool @ 0x1400FCBB0 (MmBuildMdlForNonPagedPool.c)
- *     RtlComputeCrc32 @ 0x14010FFAC (RtlComputeCrc32.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x140159D80 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     MmCreateMdl @ 0x140088304 (MmCreateMdl.c)
+ *     IoSynchronousPageWrite @ 0x14008DAA4 (IoSynchronousPageWrite.c)
+ *     MmMdlPageContentsState @ 0x1400A43BC (MmMdlPageContentsState.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1400FA930 (MmBuildMdlForNonPagedPool.c)
+ *     RtlComputeCrc32 @ 0x140110510 (RtlComputeCrc32.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x14015A2F0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwOpenPartition @ 0x1403FC880
+ * XREFs of ZwOpenPartition @ 0x1403FCA60
  * Callers:
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897910 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897A70 (IopLiveDumpAllocateFromVMMemoryPartition.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenPartition(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PartitionHandle);
 }

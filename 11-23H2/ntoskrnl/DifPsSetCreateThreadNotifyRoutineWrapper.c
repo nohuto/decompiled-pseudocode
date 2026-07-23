@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPsSetCreateThreadNotifyRoutineWrapper @ 0x1405EA9D0
+ * XREFs of DifPsSetCreateThreadNotifyRoutineWrapper @ 0x1405EAF40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     PsSetCreateThreadNotifyRoutine @ 0x140842DC0 (PsSetCreateThreadNotifyRoutine.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     PsSetCreateThreadNotifyRoutine @ 0x1408430C0 (PsSetCreateThreadNotifyRoutine.c)
  */
 
 NTSTATUS __fastcall DifPsSetCreateThreadNotifyRoutineWrapper(PCREATE_THREAD_NOTIFY_ROUTINE NotifyRoutine)

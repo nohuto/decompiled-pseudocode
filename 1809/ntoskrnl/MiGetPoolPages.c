@@ -1,26 +1,26 @@
 /*
- * XREFs of MiGetPoolPages @ 0x1400CB1C0
+ * XREFs of MiGetPoolPages @ 0x1400CB2A0
  * Callers:
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     MiReturnPhysicalPoolPages @ 0x140025380 (MiReturnPhysicalPoolPages.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiRetryNonPagedAllocation @ 0x1400CB40C (MiRetryNonPagedAllocation.c)
- *     MiObtainPoolCharges @ 0x1401097E4 (MiObtainPoolCharges.c)
- *     MiFillPhysicalPages @ 0x14012AF80 (MiFillPhysicalPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiRetryNonPagedAllocation @ 0x1400CB4EC (MiRetryNonPagedAllocation.c)
+ *     MiObtainPoolCharges @ 0x140109864 (MiObtainPoolCharges.c)
+ *     MiFillPhysicalPages @ 0x14012B050 (MiFillPhysicalPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 __fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
 {
   unsigned __int64 v4; // rdi
-  union _SLIST_HEADER *v6; // rsi
+  _SLIST_HEADER *v6; // rsi
   unsigned int v8; // esi
   __int16 v9; // cx
   __int64 Page; // rax
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __i
   unsigned __int64 v27[5]; // [rsp+48h] [rbp-40h] BYREF
 
   v4 = 0LL;
-  v6 = &qword_14043A058[25 * a2];
+  v6 = &qword_14043B118[25 * a2];
   if ( v6[18].Region )
   {
     KeAcquireInStackQueuedSpinLock(&v6[19].Alignment, &LockHandle);
@@ -110,7 +110,7 @@ unsigned __int64 __fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __i
         {
           if ( !(unsigned int)MiRetryNonPagedAllocation() )
           {
-            ++dword_140438A9C;
+            ++dword_140439B5C;
             break;
           }
         }

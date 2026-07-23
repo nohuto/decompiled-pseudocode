@@ -1,7 +1,7 @@
 /*
- * XREFs of ExRealTimeIsUniversal @ 0x1404B79E0
+ * XREFs of ExRealTimeIsUniversal @ 0x1404B21C0
  * Callers:
- *     HalpUtcTimeToAcpiRealTime @ 0x140A812AC (HalpUtcTimeToAcpiRealTime.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140A7BD0C (HalpUtcTimeToAcpiRealTime.c)
  * Callees:
  *     <none>
  */

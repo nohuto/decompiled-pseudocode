@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpGetEntryBilledProcess @ 0x14042FB90
+ * XREFs of ExpGetEntryBilledProcess @ 0x14041CBC0
  * Callers:
- *     ExQueryPoolBlockSize @ 0x1406CBF90 (ExQueryPoolBlockSize.c)
+ *     ExQueryPoolBlockSize @ 0x1406CFFC0 (ExQueryPoolBlockSize.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ __int64 __fastcall ExpGetEntryBilledProcess(__int64 a1)
     return -1LL;
   if ( (v1 & 4) != 0 )
     a1 += -16LL * (unsigned __int8)*(_WORD *)a1;
-  return a1 ^ (__int64)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ *(_QWORD *)(a1 + 8);
+  return a1 ^ (__int64)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ *(_QWORD *)(a1 + 8);
 }

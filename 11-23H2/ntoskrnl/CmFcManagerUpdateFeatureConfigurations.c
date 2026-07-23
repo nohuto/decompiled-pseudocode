@@ -1,28 +1,28 @@
 /*
- * XREFs of CmFcManagerUpdateFeatureConfigurations @ 0x140A272F0
+ * XREFs of CmFcManagerUpdateFeatureConfigurations @ 0x140A275A0
  * Callers:
- *     CmUpdateFeatureConfiguration @ 0x140A11E2C (CmUpdateFeatureConfiguration.c)
+ *     CmUpdateFeatureConfiguration @ 0x140A120DC (CmUpdateFeatureConfiguration.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D208 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x14035D29C (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcWriteHighLowHigh @ 0x1403746C0 (RtlpFcWriteHighLowHigh.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DC94 (RtlpFcBufferManagerUpdateBuffers.c)
- *     CmFcpMapSection @ 0x14080DE3C (CmFcpMapSection.c)
- *     CmFcpManagerCreateSection @ 0x14080DF10 (CmFcpManagerCreateSection.c)
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C815C (RtlpFcUpdateFeatureConfiguration.c)
- *     RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C8544 (RtlpFcValidateFeatureConfigurationBuffer.c)
- *     CmFcpManagerPublishChangeNotifications @ 0x140A27C54 (CmFcpManagerPublishChangeNotifications.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D3A8 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x14035D43C (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcWriteHighLowHigh @ 0x140374860 (RtlpFcWriteHighLowHigh.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DF64 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     CmFcpMapSection @ 0x14080E10C (CmFcpMapSection.c)
+ *     CmFcpManagerCreateSection @ 0x14080E1E0 (CmFcpManagerCreateSection.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x1409C835C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C8744 (RtlpFcValidateFeatureConfigurationBuffer.c)
+ *     CmFcpManagerPublishChangeNotifications @ 0x140A27F04 (CmFcpManagerPublishChangeNotifications.c)
  */
 
 __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(__int64 a1, __int64 a2, int a3, _DWORD *a4, unsigned int a5)
@@ -82,25 +82,25 @@ __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(__int64 a1, __int64 a2
   v8 = &v39[3 * v7];
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v10 = KeAbPreAcquire((__int64)&stru_140C14030, 0LL);
-  v11 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C14030, 0LL);
+  v10 = KeAbPreAcquire((__int64)&stru_140C13FF0, 0LL);
+  v11 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C13FF0, 0LL);
   v12 = v10;
   if ( v11 )
-    ExfAcquirePushLockExclusiveEx(&stru_140C14030, v10, (__int64)&stru_140C14030);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140C13FF0, v10, (__int64)&stru_140C13FF0);
   if ( v12 )
     *(_BYTE *)(v12 + 18) = 1;
-  RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C14090, (__int64)&v34, &v29);
+  RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C14050, (__int64)&v34, &v29);
   v14 = v29;
   v15 = 3LL;
   if ( a2 && v34 != a2 )
   {
     Section = -1073741823;
 LABEL_20:
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C14030, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C14030);
-    KeAbPostRelease((ULONG_PTR)&stru_140C14030);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C13FF0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C13FF0);
+    KeAbPostRelease((ULONG_PTR)&stru_140C13FF0);
     if ( v29 )
-      RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C14090, v29);
+      RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C14050, v29);
     goto LABEL_33;
   }
   v17 = v36;
@@ -134,15 +134,15 @@ LABEL_20:
       goto LABEL_20;
     if ( (int)RtlpFcValidateFeatureConfigurationBuffer((unsigned int *)v8[1], v8[2]) < 0 )
     {
-      if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000001LL) )
+      if ( (unsigned int)dword_140C04358 > 5 && tlgKeywordOn((__int64)&dword_140C04358, 0x400000000001LL) )
       {
         v43 = 0;
         v41 = &v38;
         v38 = 0x1000000LL;
         v42 = 8;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04390,
-          (unsigned __int8 *)&word_140037E8E,
+          (__int64)&dword_140C04358,
+          (unsigned __int8 *)&word_140037F76,
           0LL,
           0LL,
           3u,
@@ -152,12 +152,12 @@ LABEL_20:
       goto LABEL_20;
     }
   }
-  RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C14090, v14);
+  RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C14050, v14);
   v22 = KeAbPreAcquire((__int64)&RunOnce, 0LL);
   v11 = _interlockedbittestandset64((volatile signed __int32 *)&RunOnce, 0LL);
   v23 = v22;
   if ( v11 )
-    ExfAcquirePushLockExclusiveEx(&RunOnce, v22, (__int64)&RunOnce);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&RunOnce, v22, (__int64)&RunOnce);
   if ( v23 )
     *(_BYTE *)(v23 + 18) = 1;
   v24 = 3LL * v28;
@@ -166,15 +166,15 @@ LABEL_20:
   CmFcSystemManager[v24 + 6] = (__int64)Object[1];
   CmFcSystemManager[v24 + 7] = v31;
   Object[1] = v25;
-  RtlpFcBufferManagerUpdateBuffers(qword_140C14090, v18, (__int64)v39);
-  RtlpFcWriteHighLowHigh((__int64)&qword_140C14038, v18);
+  RtlpFcBufferManagerUpdateBuffers(qword_140C14050, v18, (__int64)v39);
+  RtlpFcWriteHighLowHigh((__int64)&qword_140C13FF8, v18);
   RtlpFcWriteHighLowHigh(MmWriteableSharedUserData + 1824, v18);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&RunOnce, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&RunOnce);
   KeAbPostRelease((ULONG_PTR)&RunOnce);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C14030, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C14030);
-  KeAbPostRelease((ULONG_PTR)&stru_140C14030);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C13FF0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C13FF0);
+  KeAbPostRelease((ULONG_PTR)&stru_140C13FF0);
   CmFcpManagerPublishChangeNotifications(CmFcSystemManager, v18);
   Section = 0;
 LABEL_33:

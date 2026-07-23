@@ -152,7 +152,7 @@ char __fastcall CmInitSystem1(ULONG_PTR BugCheckParameter3)
   CmpPostLock.Event.Header.SignalState = 0;
   CmpInitializeNameCache();
   ExInitializeLookasideListExInternal(
-    &CmpKcbLookaside.L.ListHead,
+    &CmpKcbLookaside,
     (__int64 (__fastcall *)())CmpAllocatePoolLookaside,
     CmSiFreeMemory,
     1,

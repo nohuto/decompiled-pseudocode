@@ -1,120 +1,124 @@
 /*
- * XREFs of MmUpdateUserShadowStackValue @ 0x1404873D8
+ * XREFs of MmUpdateUserShadowStackValue @ 0x140482448
  * Callers:
- *     PspFreeUserFiberShadowStack @ 0x1408DB370 (PspFreeUserFiberShadowStack.c)
+ *     PspFreeUserFiberShadowStack @ 0x1408D959C (PspFreeUserFiberShadowStack.c)
  * Callees:
- *     MiLockLowestValidPageTableEx @ 0x140218760 (MiLockLowestValidPageTableEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiCaptureDirtyBitToPfn @ 0x14023ED00 (MiCaptureDirtyBitToPfn.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140206E50 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402454B0 (MiLockLowestValidPageTableEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall MmUpdateUserShadowStackValue(unsigned __int64 a1, signed __int64 a2)
+__int64 __fastcall MmUpdateUserShadowStackValue(unsigned __int64 a1, signed __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // r15
-  __int64 v4; // rdi
-  unsigned __int64 v5; // rdx
-  BOOL v6; // r14d
-  unsigned __int64 v7; // rax
-  __int64 v8; // rcx
-  unsigned int v9; // edi
-  unsigned int v10; // r12d
-  __int64 v11; // rax
-  void *v12; // rsi
-  int v13; // eax
+  __int64 v5; // r15
+  __int64 v6; // rdi
+  unsigned __int64 v7; // rdx
+  BOOL v8; // r14d
+  unsigned __int64 v9; // rax
+  __int64 v10; // r9
+  __int64 v11; // rcx
+  unsigned int v12; // edi
+  unsigned int v13; // r12d
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  void *v18; // rsi
+  int v19; // eax
   unsigned __int64 valid; // r12
-  unsigned __int64 v16; // r15
+  unsigned __int64 v22; // r15
   struct _LIST_ENTRY **p_Blink; // r13
-  ULONG_PTR v18; // rdi
-  unsigned int v19; // [rsp+20h] [rbp-58h] BYREF
-  ULONG_PTR v20; // [rsp+28h] [rbp-50h] BYREF
-  unsigned __int64 v21; // [rsp+30h] [rbp-48h]
-  ULONG_PTR v22; // [rsp+38h] [rbp-40h]
-  unsigned __int8 v24; // [rsp+90h] [rbp+18h]
-  unsigned int v25; // [rsp+98h] [rbp+20h]
+  unsigned __int64 v24; // rdi
+  unsigned int v25; // [rsp+20h] [rbp-58h] BYREF
+  ULONG_PTR v26; // [rsp+28h] [rbp-50h] BYREF
+  unsigned __int64 v27; // [rsp+30h] [rbp-48h]
+  ULONG_PTR v28; // [rsp+38h] [rbp-40h]
+  unsigned __int8 v30; // [rsp+90h] [rbp+18h]
+  unsigned int v31; // [rsp+98h] [rbp+20h]
 
-  v19 = 0;
-  v20 = 0LL;
+  v25 = 0;
+  v26 = 0LL;
   if ( (a1 & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  v11 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v19);
-  v12 = (void *)v11;
-  if ( v11 )
+  v14 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v25, a4);
+  v18 = (void *)v14;
+  if ( v14 )
   {
-    v13 = *(_DWORD *)(v11 + 48);
-    if ( (v13 & 0x200000) != 0 && (v13 & 0x14000000) == 0x10000000 )
+    v19 = *(_DWORD *)(v14 + 48);
+    if ( (v19 & 0x200000) != 0 && (v19 & 0x14000000) == 0x10000000 )
     {
       p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
-      v18 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      v24 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
       while ( 1 )
       {
-        v24 = MiLockWorkingSetShared((__int64)p_Blink);
-        valid = MiLockLowestValidPageTableEx((__int64)p_Blink, v18, &v20, 0);
-        v21 = valid;
-        v16 = MI_READ_PTE_LOCK_FREE(v20);
-        if ( valid == ((v18 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL && (v16 & 1) != 0 )
+        v30 = MiLockWorkingSetShared((__int64)p_Blink, v15, v16, v17);
+        valid = MiLockLowestValidPageTableEx((__int64)p_Blink, v24, &v26, 0);
+        v27 = valid;
+        v22 = MI_READ_PTE_LOCK_FREE(v26);
+        if ( valid == ((v24 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL && (v22 & 1) != 0 )
           break;
         MiUnlockPageTableInternal((__int64)p_Blink, valid);
-        MiUnlockWorkingSetShared((__int64)p_Blink, v24);
+        MiUnlockWorkingSetShared((__int64)p_Blink, v30);
       }
-      v3 = (v16 >> 12) & 0xFFFFFFFFFFLL;
-      v4 = 48 * v3 - 0x220000000000LL;
-      v25 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v4 + 24), 0x3FuLL) )
+      v5 = (v22 >> 12) & 0xFFFFFFFFFFLL;
+      v6 = 48 * v5 - 0x220000000000LL;
+      v31 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 24), 0x3FuLL) )
       {
         do
         {
-          v10 = v25 + 1;
-          v25 = v10;
-          if ( (v10 & HvlLongSpinCountMask) == 0
+          v13 = v31 + 1;
+          v31 = v13;
+          if ( (v13 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
             && KiCheckVpBackingLongSpinWaitHypercall() )
           {
-            HvlNotifyLongSpinWait(v10);
+            HvlNotifyLongSpinWait(v13);
           }
           else
           {
             _mm_pause();
           }
         }
-        while ( *(__int64 *)(v4 + 24) < 0 );
+        while ( *(__int64 *)(v6 + 24) < 0 );
       }
-      v5 = (a1 & 0xFFF) + MiMapPageInHyperSpaceWorker(v3, 0LL, 0x80000000LL);
-      v6 = a2 == _InterlockedCompareExchange64((volatile signed __int64 *)v5, 0LL, a2);
+      v7 = (a1 & 0xFFF) + MiMapPageInHyperSpaceWorker(v5, 0LL, 0x80000000);
+      v8 = a2 == _InterlockedCompareExchange64((volatile signed __int64 *)v7, 0LL, a2);
       *(_QWORD *)KeGetCurrentPrcb()->MmInternal = 0LL;
-      v22 = CLFS_LSN_NULL_EXT;
-      *(_QWORD *)(((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
-      v7 = MiCaptureDirtyBitToPfn(48 * v3 - 0x220000000000LL);
-      if ( v7 )
-        v8 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL));
+      v28 = CLFS_LSN_NULL_EXT;
+      *(_QWORD *)(((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
+      v9 = MiCaptureDirtyBitToPfn(48 * v5 - 0x220000000000LL);
+      if ( v9 )
+        v11 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
       else
-        v8 = 0LL;
-      _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( v7 )
-        MiReleasePageFileInfo(v8, v7, 1LL);
-      MiUnlockPageTableInternal((__int64)p_Blink, v21);
-      MiUnlockWorkingSetShared((__int64)p_Blink, v24);
-      v9 = !v6 ? 0xC0000272 : 0;
+        v11 = 0LL;
+      _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( v9 )
+        MiReleasePageFileInfo(v11, v9, 1LL, v10);
+      MiUnlockPageTableInternal((__int64)p_Blink, v27);
+      MiUnlockWorkingSetShared((__int64)p_Blink, v30);
+      v12 = !v8 ? 0xC0000272 : 0;
     }
     else
     {
-      v9 = -1073741800;
+      v12 = -1073741800;
     }
   }
   else
   {
-    v9 = v19;
+    v12 = v25;
   }
-  if ( v12 )
-    MiUnlockAndDereferenceVad(v12);
-  return v9;
+  if ( v18 )
+    MiUnlockAndDereferenceVad(v18);
+  return v12;
 }

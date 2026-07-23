@@ -1,11 +1,11 @@
 /*
- * XREFs of PfLogForegroundProcess @ 0x1403D4A6C
+ * XREFs of PfLogForegroundProcess @ 0x1402629EC
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140378F30 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402F35B0 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     PfLogEvent @ 0x140245398 (PfLogEvent.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     PsReferencePartitionSafe @ 0x1403D4B60 (PsReferencePartitionSafe.c)
+ *     PfLogEvent @ 0x14020DB78 (PfLogEvent.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x140262AE0 (PsReferencePartitionSafe.c)
  */
 
 __int64 __fastcall PfLogForegroundProcess(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PfLogForegroundProcess(__int64 a1)
       v4 = PfLogEvent(
              v3,
              7,
-             dword_140E66E7C
+             dword_140E66FCC
            + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                            + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
              v8,

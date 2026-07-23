@@ -8,56 +8,52 @@
  *     memcmp @ 0x180094960 (memcmp.c)
  */
 
-signed __int64 __fastcall EtwpInsertGuidEntry(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+void __fastcall EtwpInsertGuidEntry(PRTL_BALANCED_NODE Node)
 {
-  bool v5; // bl
-  unsigned __int64 v6; // rdi
-  int v7; // esi
-  unsigned __int64 v8; // rax
+  BOOLEAN v2; // bl
+  _RTL_BALANCED_NODE *Root; // rdi
+  int v4; // esi
+  _RTL_BALANCED_NODE *v5; // rax
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpProvLock, a2, a3, a4);
-  v5 = 0;
-  v6 = EtwpGuidEntryTable;
-  v7 = byte_180160400 & 1;
-  if ( EtwpGuidEntryTable )
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  v2 = 0;
+  Root = EtwpGuidEntryTable.Root;
+  v4 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( EtwpGuidEntryTable.Root )
   {
     while ( 1 )
     {
-      if ( memcmp((const void *)(a1 + 24), (const void *)(v6 + 24), 0x10uLL) < 0 )
+      if ( memcmp(&Node[1], &Root[1], 0x10uLL) < 0 )
       {
-        v8 = *(_QWORD *)v6;
-        if ( v7 )
+        v5 = Root->Children[0];
+        if ( v4 )
         {
-          if ( !v8 )
+          if ( !v5 )
             break;
-          v8 ^= v6;
+          v5 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v5);
         }
-        if ( !v8 )
+        if ( !v5 )
           break;
       }
       else
       {
-        v8 = *(_QWORD *)(v6 + 8);
-        if ( v7 )
+        v5 = Root->Children[1];
+        if ( v4 )
         {
-          if ( !v8 )
+          if ( !v5 )
           {
 LABEL_9:
-            v5 = 1;
+            v2 = 1;
             break;
           }
-          v8 ^= v6;
+          v5 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v5);
         }
-        if ( !v8 )
+        if ( !v5 )
           goto LABEL_9;
       }
-      v6 = v8;
+      Root = v5;
     }
   }
-  RtlRbInsertNodeEx((__int64)&EtwpGuidEntryTable, v6, v5, a1);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpGuidEntryTable, Root, v2, Node);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

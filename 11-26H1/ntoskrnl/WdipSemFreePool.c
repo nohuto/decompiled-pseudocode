@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemFreePool @ 0x140820D9C
+ * XREFs of WdipSemFreePool @ 0x140826FAC
  * Callers:
- *     WdipSemShutdown @ 0x1408208C4 (WdipSemShutdown.c)
+ *     WdipSemShutdown @ 0x140826AD4 (WdipSemShutdown.c)
  * Callees:
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void WdipSemFreePool()
@@ -28,9 +28,9 @@ void WdipSemFreePool()
       break;
     ExFreePoolWithTag(v0, 0);
   }
-  dword_140E28430 = 0;
-  p_Blink = &stru_140E28440.Header.WaitListHead.Blink;
-  qword_140E28438 = 0LL;
+  dword_140E285B0 = 0;
+  p_Blink = &stru_140E285C0.Header.WaitListHead.Blink;
+  qword_140E285B8 = 0LL;
   v3 = 6LL;
   do
   {

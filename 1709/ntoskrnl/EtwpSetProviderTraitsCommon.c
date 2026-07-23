@@ -23,27 +23,27 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(
         int a2,
         __int64 a3,
         __int64 a4,
-        const char *P,
+        char *P,
         unsigned int a6,
         struct _FAST_MUTEX *a7,
-        unsigned __int64 *a8)
+        PRTL_RB_TREE Tree)
 {
   char *v8; // rdi
   char *v10; // r12
   __int16 v11; // r15
   __int64 v12; // rdx
   bool v13; // zf
-  _DWORD *v14; // r14
-  bool v15; // bp
-  unsigned __int64 v16; // rbx
+  _RTL_BALANCED_NODE *v14; // r14
+  BOOLEAN v15; // bp
+  _RTL_BALANCED_NODE *Root; // rbx
   int v17; // eax
-  unsigned __int64 v18; // rax
+  _RTL_BALANCED_NODE *v18; // rax
   unsigned int v19; // ebx
   __int128 *ProviderGroupFromTraits; // rax
   __int128 v26; // [rsp+50h] [rbp-58h] BYREF
 
-  v8 = (char *)P;
-  v10 = (char *)P;
+  v8 = P;
+  v10 = P;
   v11 = 0;
   if ( a6 < 3 )
     goto LABEL_32;
@@ -69,45 +69,45 @@ LABEL_32:
 LABEL_7:
   if ( !v13 )
     goto LABEL_32;
-  v14 = P + 24;
+  v14 = (_RTL_BALANCED_NODE *)(P + 24);
   *(_QWORD *)P = 0LL;
   *((_QWORD *)P + 1) = 0LL;
   *((_QWORD *)P + 2) = 0LL;
   v15 = 1;
   *((_DWORD *)P + 6) = 1;
   ExAcquireFastMutex(a7);
-  v16 = *a8;
-  if ( !*a8 )
+  Root = Tree->Root;
+  if ( !Tree->Root )
   {
     v15 = 0;
     goto LABEL_28;
   }
   while ( 1 )
   {
-    v17 = TraitsCompare(P, v16);
+    v17 = TraitsCompare(P, Root);
     if ( v17 > 0 )
     {
-      v18 = *(_QWORD *)(v16 + 8);
+      v18 = Root->Children[1];
       if ( !v18 )
         goto LABEL_28;
       goto LABEL_12;
     }
     if ( v17 >= 0 )
     {
-      v14 = (_DWORD *)(v16 + 24);
-      v8 = (char *)v16;
-      ++*(_DWORD *)(v16 + 24);
+      v14 = Root + 1;
+      v8 = (char *)Root;
+      ++LODWORD(Root[1].Children[0]);
       goto LABEL_16;
     }
-    v18 = *(_QWORD *)v16;
-    if ( !*(_QWORD *)v16 )
+    v18 = Root->Children[0];
+    if ( !Root->Children[0] )
       break;
 LABEL_12:
-    v16 = v18;
+    Root = v18;
   }
   v15 = 0;
 LABEL_28:
-  RtlRbInsertNodeEx((__int64)a8, v16, v15, (unsigned __int64)P);
+  RtlRbInsertNodeEx(Tree, Root, v15, (PRTL_BALANCED_NODE)P);
   v10 = 0LL;
   v15 = 0;
 LABEL_16:
@@ -115,11 +115,11 @@ LABEL_16:
   {
     if ( v15 )
     {
-      --*v14;
+      --LODWORD(v14->Children[0]);
     }
     else
     {
-      RtlRbRemoveNode((__int64)a8, (unsigned __int64)v8);
+      RtlRbRemoveNode(Tree, (PRTL_BALANCED_NODE)v8);
       v10 = v8;
     }
     v19 = -1073741823;

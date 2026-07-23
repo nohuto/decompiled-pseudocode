@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAdjustCachedStackList @ 0x1402A8660
+ * XREFs of MiAdjustCachedStackList @ 0x1402A7A70
  * Callers:
- *     MiAdjustCachedStacks @ 0x1402A8504 (MiAdjustCachedStacks.c)
+ *     MiAdjustCachedStacks @ 0x1402A7914 (MiAdjustCachedStacks.c)
  * Callees:
- *     MiPruneCachedStackList @ 0x140292358 (MiPruneCachedStackList.c)
- *     MiRemoveNonIdealCachedStacks @ 0x1406FF438 (MiRemoveNonIdealCachedStacks.c)
+ *     MiPruneCachedStackList @ 0x1402918B8 (MiPruneCachedStackList.c)
+ *     MiRemoveNonIdealCachedStacks @ 0x140704108 (MiRemoveNonIdealCachedStacks.c)
  */
 
-__int64 __fastcall MiAdjustCachedStackList(union _SLIST_HEADER *a1, __int64 a2, int a3, unsigned int a4)
+__int64 __fastcall MiAdjustCachedStackList(_SLIST_HEADER *a1, __int64 a2, int a3, unsigned int a4)
 {
   __int64 v4; // rbx
   int v7; // esi
@@ -70,6 +70,6 @@ __int64 __fastcall MiAdjustCachedStackList(union _SLIST_HEADER *a1, __int64 a2, 
   *(_DWORD *)(a2 + 32) = v10;
   *(_DWORD *)(a2 + 4 * v10 + 16) = 0;
   if ( v16 > v15 )
-    return MiPruneCachedStackList(a1, (union _SLIST_HEADER *)a2, v15, v7);
+    return MiPruneCachedStackList(a1, (_SLIST_HEADER *)a2, v15, v7);
   return result;
 }

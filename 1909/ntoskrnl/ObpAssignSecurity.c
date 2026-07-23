@@ -22,20 +22,21 @@ __int64 __fastcall ObpAssignSecurity(__int64 a1, __int64 a2, void *a3, POBJECT_T
   int v15; // esi
   int v16; // ebx
   int v17; // [rsp+40h] [rbp-30h]
-  __int64 v18; // [rsp+50h] [rbp-20h] BYREF
+  ULONG Index[2]; // [rsp+50h] [rbp-20h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+58h] [rbp-18h] BYREF
   void *v20; // [rsp+60h] [rbp-10h] BYREF
   int v21; // [rsp+B0h] [rbp+40h] BYREF
   void *v22; // [rsp+C0h] [rbp+50h]
 
   v22 = a3;
+  Index[1] = 0;
   v7 = a2;
   SecurityDescriptor = 0LL;
-  v18 = 8LL;
+  Index[0] = 8;
   v9 = *(_QWORD *)(a1 + 64);
   v11 = 0LL;
   v20 = 0LL;
-  result = SeComputeAutoInheritByObjectTypeEx((__int64)a4, v9, a2, &v21, &v18);
+  result = SeComputeAutoInheritByObjectTypeEx((__int64)a4, v9, a2, &v21, Index);
   if ( (int)result >= 0 )
   {
     v13 = a5 | v21;
@@ -66,7 +67,7 @@ __int64 __fastcall ObpAssignSecurity(__int64 a1, __int64 a2, void *a3, POBJECT_T
             0LL,
             a4 == ObpDirectoryObjectType,
             v13,
-            &v18,
+            Index,
             a1 + 32,
             (__int64)&a4->TypeInfo.GenericMapping);
     if ( v15 < 0 )

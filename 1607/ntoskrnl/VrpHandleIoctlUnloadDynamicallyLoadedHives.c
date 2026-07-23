@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14061418C
+ * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140614240
  * Callers:
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     ZwUnloadKey2 @ 0x14015D300 (ZwUnloadKey2.c)
- *     ULongLongMult @ 0x1401B7584 (ULongLongMult.c)
- *     PsGetJobSilo @ 0x14020F794 (PsGetJobSilo.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     VrpCleanupNamespace @ 0x140612E20 (VrpCleanupNamespace.c)
- *     VrpLockJobContextExclusive @ 0x140612F24 (VrpLockJobContextExclusive.c)
- *     VrpUnlockJobContextExclusive @ 0x140613060 (VrpUnlockJobContextExclusive.c)
- *     VrpDestroyNamespaceNode @ 0x140614978 (VrpDestroyNamespaceNode.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     ZwUnloadKey2 @ 0x14015D870 (ZwUnloadKey2.c)
+ *     ULongLongMult @ 0x1401B7468 (ULongLongMult.c)
+ *     PsGetJobSilo @ 0x14020F5C0 (PsGetJobSilo.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     VrpCleanupNamespace @ 0x140612ED4 (VrpCleanupNamespace.c)
+ *     VrpLockJobContextExclusive @ 0x140612FD8 (VrpLockJobContextExclusive.c)
+ *     VrpUnlockJobContextExclusive @ 0x140613114 (VrpUnlockJobContextExclusive.c)
+ *     VrpDestroyNamespaceNode @ 0x140614A2C (VrpDestroyNamespaceNode.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
@@ -26,16 +26,11 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   int JobSilo; // ebx
   int PermanentSiloContext; // eax
   __int64 v8; // rdi
-  __int64 v9; // r8
-  ULONGLONG v10; // rax
+  ULONGLONG v9; // rax
   ULONGLONG i; // rbx
-  ULONGLONG v12; // rdx
-  __int64 v13; // r14
-  int v15; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-28h]
-  __int64 v17; // [rsp+50h] [rbp-20h]
-  int v18; // [rsp+58h] [rbp-18h]
-  __int128 v19; // [rsp+60h] [rbp-10h]
+  ULONGLONG v11; // rdx
+  UNICODE_STRING *v12; // r14
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+40h] [rbp-30h] BYREF
   PVOID Object; // [rsp+98h] [rbp+28h] BYREF
 
   Object = 0LL;
@@ -61,27 +56,27 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
           VrpUnlockJobContextExclusive(v8);
           goto LABEL_21;
         }
-        v10 = *(_QWORD *)(v8 + 48);
-        for ( i = 0LL; i < v10; v10 = *(_QWORD *)(v8 + 48) )
+        v9 = *(_QWORD *)(v8 + 48);
+        for ( i = 0LL; i < v9; v9 = *(_QWORD *)(v8 + 48) )
         {
-          v12 = 0LL;
-          if ( i < v10 )
+          v11 = 0LL;
+          if ( i < v9 )
           {
             if ( ULongLongMult(*(_QWORD *)(v8 + 40), i, &pullResult) < 0
-              || (v12 = *(_QWORD *)(v8 + 72) + pullResult, v12 < *(_QWORD *)(v8 + 72)) )
+              || (v11 = *(_QWORD *)(v8 + 72) + pullResult, v11 < *(_QWORD *)(v8 + 72)) )
             {
-              v12 = 0LL;
+              v11 = 0LL;
             }
           }
-          v13 = *(_QWORD *)v12;
-          if ( (*(_DWORD *)(*(_QWORD *)v12 + 48LL) & 1) != 0 )
+          v12 = *(UNICODE_STRING **)v11;
+          if ( (*(_DWORD *)(*(_QWORD *)v11 + 48LL) & 1) != 0 )
           {
-            v16 = 0LL;
-            v17 = v13 + 16;
-            v15 = 48;
-            v18 = 576;
-            v19 = 0LL;
-            ZwUnloadKey2((__int64)&v15, 1LL, v9);
+            TargetKey.RootDirectory = 0LL;
+            TargetKey.ObjectName = v12 + 1;
+            TargetKey.Length = 48;
+            TargetKey.Attributes = 576;
+            *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+            ZwUnloadKey2(&TargetKey, 1u);
             VrpDestroyNamespaceNode(v8);
           }
           else

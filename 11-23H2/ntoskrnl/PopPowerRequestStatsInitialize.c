@@ -3,13 +3,13 @@
  * Callers:
  *     PopPowerRequestInitialize @ 0x140B64CF8 (PopPowerRequestInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlInitializeGenericTableAvl @ 0x14031E970 (RtlInitializeGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A7FE4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     SleepstudyHelperCreateLibrary @ 0x140848930 (SleepstudyHelperCreateLibrary.c)
- *     PopSleepstudyRegisterSessionCallback @ 0x140848A04 (PopSleepstudyRegisterSessionCallback.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlInitializeGenericTableAvl @ 0x14031EC00 (RtlInitializeGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A81D4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     SleepstudyHelperCreateLibrary @ 0x140848C30 (SleepstudyHelperCreateLibrary.c)
+ *     PopSleepstudyRegisterSessionCallback @ 0x140848D04 (PopSleepstudyRegisterSessionCallback.c)
  */
 
 void PopPowerRequestStatsInitialize()
@@ -21,7 +21,7 @@ void PopPowerRequestStatsInitialize()
   PCWSTR SourceString[2]; // [rsp+30h] [rbp-68h]
   _QWORD v5[8]; // [rsp+40h] [rbp-58h] BYREF
 
-  qword_140C39278 = 0LL;
+  qword_140C39208 = 0LL;
   PopPowerRequestStatsLock = 0LL;
   HIDWORD(v5[0]) = 0;
   RtlInitializeGenericTableAvl(
@@ -48,6 +48,6 @@ void PopPowerRequestStatsInitialize()
     --v2;
   }
   while ( v2 );
-  qword_140C39330 = (__int64)PopPowerRequestStatsOnSleepstudySessionChange;
+  qword_140C392B0 = (__int64)PopPowerRequestStatsOnSleepstudySessionChange;
   PopSleepstudyRegisterSessionCallback((__int64)&PopPowerRequestStatsSleepstudyCallback);
 }

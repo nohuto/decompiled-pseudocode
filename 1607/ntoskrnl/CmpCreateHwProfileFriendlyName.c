@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCreateHwProfileFriendlyName @ 0x140607904
+ * XREFs of CmpCreateHwProfileFriendlyName @ 0x1406079B8
  * Callers:
- *     CmpCloneHwProfile @ 0x1406071B0 (CmpCloneHwProfile.c)
+ *     CmpCloneHwProfile @ 0x140607264 (CmpCloneHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     KeGetBugMessageResourceEntry @ 0x1401D4DE4 (KeGetBugMessageResourceEntry.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1403F75E4 (RtlCreateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     KeGetBugMessageResourceEntry @ 0x1401D4C10 (KeGetBugMessageResourceEntry.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1403F64A4 (RtlCreateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned int a3, UNICODE_STRING *a4)
@@ -34,7 +34,7 @@ __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned in
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-B0h] BYREF
   ULONG ResultLength; // [rsp+60h] [rbp-A0h] BYREF
-  STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
+  _STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING v23; // [rsp+78h] [rbp-88h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
   wchar_t Dst[80]; // [rsp+C0h] [rbp-40h] BYREF

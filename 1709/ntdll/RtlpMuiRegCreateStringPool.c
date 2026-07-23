@@ -7,11 +7,11 @@
  *     _SafeAllocBlob @ 0x180052BE0 (_SafeAllocBlob.c)
  */
 
-__int64 __fastcall RtlpMuiRegCreateStringPool(int a1, int a2)
+_QWORD *__fastcall RtlpMuiRegCreateStringPool(int a1, int a2)
 {
   unsigned int v2; // ebx
   unsigned int v3; // edi
-  __int64 result; // rax
+  _QWORD *result; // rax
   _WORD *v5; // rcx
   unsigned int v6; // [rsp+40h] [rbp+8h] BYREF
 
@@ -25,15 +25,15 @@ __int64 __fastcall RtlpMuiRegCreateStringPool(int a1, int a2)
   if ( result )
   {
     *(_DWORD *)result = v6;
-    *(_QWORD *)(result + 16) = result + 32;
-    *(_WORD *)(result + 8) = v3;
-    *(_WORD *)(result + 4) = v2;
-    v5 = (_WORD *)(result + 32 + 2LL * (unsigned __int16)v2);
-    *(_QWORD *)(result + 24) = v5;
+    result[2] = result + 4;
+    *((_WORD *)result + 4) = v3;
+    *((_WORD *)result + 2) = v2;
+    v5 = (_WORD *)result + (unsigned __int16)v2 + 16;
+    result[3] = v5;
     *v5 = 0;
-    *(_WORD *)(result + 10) = 1;
-    **(_WORD **)(result + 16) = 0;
-    *(_WORD *)(result + 6) = 1;
+    *((_WORD *)result + 5) = 1;
+    *(_WORD *)result[2] = 0;
+    *((_WORD *)result + 3) = 1;
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSetLowFragHeapGlobalFlags @ 0x1800895A0
+ * XREFs of RtlSetLowFragHeapGlobalFlags @ 0x1800A5060
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x1800887A8 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800A4268 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlpHpApplySegmentHeapConfigurations @ 0x180106204 (RtlpHpApplySegmentHeapConfigurations.c)
- *     RtlpHpStackTraceEnable @ 0x18011FBE4 (RtlpHpStackTraceEnable.c)
+ *     RtlpHpApplySegmentHeapConfigurations @ 0x180101134 (RtlpHpApplySegmentHeapConfigurations.c)
+ *     RtlpHpStackTraceEnable @ 0x18011DE14 (RtlpHpStackTraceEnable.c)
  */
 
 char __fastcall RtlSetLowFragHeapGlobalFlags(unsigned int a1, int a2)

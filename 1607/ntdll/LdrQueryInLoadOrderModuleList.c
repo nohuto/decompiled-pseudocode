@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrQueryInLoadOrderModuleList @ 0x18006DEB0
+ * XREFs of LdrQueryInLoadOrderModuleList @ 0x18006DEA0
  * Callers:
  *     <none>
  * Callees:

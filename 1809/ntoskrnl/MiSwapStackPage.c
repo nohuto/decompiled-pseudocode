@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSwapStackPage @ 0x14012D180
+ * XREFs of MiSwapStackPage @ 0x14012D250
  * Callers:
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiSetPfnTbFlushStamp @ 0x1400296A4 (MiSetPfnTbFlushStamp.c)
@@ -12,27 +12,27 @@
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400C9A00 (KeExpandKernelStackAndCalloutInternal.c)
- *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCanStealKernelStack @ 0x14012D5CC (MiCanStealKernelStack.c)
- *     MiSwapStackPageNoDpc @ 0x14012D674 (MiSwapStackPageNoDpc.c)
- *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
- *     MiSwitchKstackPages @ 0x14015EB94 (MiSwitchKstackPages.c)
- *     MiCopyKstack @ 0x14015EC00 (MiCopyKstack.c)
- *     KeTryToFreezeThreadStack @ 0x140160E24 (KeTryToFreezeThreadStack.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400C9AE0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KiReleaseThreadStateLock @ 0x1400D80E4 (KiReleaseThreadStateLock.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCanStealKernelStack @ 0x14012D69C (MiCanStealKernelStack.c)
+ *     MiSwapStackPageNoDpc @ 0x14012D744 (MiSwapStackPageNoDpc.c)
+ *     MiGetPteFromCopyList @ 0x14012D8D8 (MiGetPteFromCopyList.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E9D4 (MiGetLeafPfnBuddy.c)
+ *     MiSwitchKstackPages @ 0x14015EC94 (MiSwitchKstackPages.c)
+ *     MiCopyKstack @ 0x14015ED00 (MiCopyKstack.c)
+ *     KeTryToFreezeThreadStack @ 0x140160F24 (KeTryToFreezeThreadStack.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSwapStackPage(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR *a4, _DWORD *a5)
@@ -109,23 +109,23 @@ __int64 __fastcall MiSwapStackPage(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR
   }
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(v9);
   v56 = AnyMultiplexedVm;
-  if ( !byte_14043AED4 )
+  if ( !byte_14043BF94 )
     return 0LL;
   v12 = *(_QWORD *)(a1 + 40);
-  v59 = *(_QWORD *)(qword_14043A748 + 8 * ((v12 >> 40) & 0x3FF));
+  v59 = *(_QWORD *)(qword_14043B808 + 8 * ((v12 >> 40) & 0x3FF));
   v13 = 512;
   v14 = (a1 + 0x58000000000LL) / 48;
   v58 = v14;
   if ( v11 == -1 )
   {
-    v15 = (unsigned int)MiPageToNode((a1 + 0x58000000000LL) / 48, 0) << byte_14043A049;
-    v16 = dword_14043A088 & v14 | (((v12 >> 36) & 3) << byte_14043A04A);
+    v15 = (unsigned int)MiPageToNode((a1 + 0x58000000000LL) / 48, 0) << byte_14043B109;
+    v16 = dword_14043B148 & v14 | (((v12 >> 36) & 3) << byte_14043B10A);
   }
   else
   {
     v13 = 560;
-    v16 = v11 & ~dword_14043A088;
-    v15 = dword_14043A088 & v14;
+    v16 = v11 & ~dword_14043B148;
+    v15 = dword_14043B148 & v14;
   }
   Page = MiGetPage(v59, v15 | v16, v13);
   v50 = Page;
@@ -213,7 +213,7 @@ LABEL_24:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v44 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v45 = (v43 & 1) == 0;
               goto LABEL_71;
@@ -261,7 +261,7 @@ LABEL_73:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v38 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v39 = (v37 & 1) == 0;
               goto LABEL_50;
@@ -295,7 +295,7 @@ LABEL_50:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v41 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v42 = (v40 & 1) == 0;
           goto LABEL_61;

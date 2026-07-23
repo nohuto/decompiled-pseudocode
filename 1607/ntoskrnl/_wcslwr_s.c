@@ -1,10 +1,10 @@
 /*
- * XREFs of _wcslwr_s @ 0x14014D82C
+ * XREFs of _wcslwr_s @ 0x14014DD9C
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     wcsnlen @ 0x14014F0B4 (wcsnlen.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     wcsnlen @ 0x14014F674 (wcsnlen.c)
  */
 
 errno_t __cdecl wcslwr_s(wchar_t *Str, size_t SizeInWords)

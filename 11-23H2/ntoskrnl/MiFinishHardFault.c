@@ -1,38 +1,38 @@
 /*
- * XREFs of MiFinishHardFault @ 0x1402D9300
+ * XREFs of MiFinishHardFault @ 0x1402D9590
  * Callers:
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
- *     MiPfCompleteInPageSupport @ 0x1402A3AEC (MiPfCompleteInPageSupport.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
+ *     MiPfCompleteInPageSupport @ 0x1402A3D7C (MiPfCompleteInPageSupport.c)
  * Callees:
  *     MiReleasePrefetchGapPages @ 0x14020DC18 (MiReleasePrefetchGapPages.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MiRelockFaultState @ 0x140286E98 (MiRelockFaultState.c)
- *     MiCreateDecayPfn @ 0x140296250 (MiCreateDecayPfn.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiAreChargesNeededToLockPage @ 0x1402CDF90 (MiAreChargesNeededToLockPage.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiAddPageToInsertList @ 0x1402D99D0 (MiAddPageToInsertList.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeForLockedPage @ 0x1402DC320 (MiChargeForLockedPage.c)
- *     MiLockOwnedProtoPage @ 0x1402DD410 (MiLockOwnedProtoPage.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiReleaseFaultState @ 0x1402EF2A0 (MiReleaseFaultState.c)
- *     MiIsFaultPteIntact @ 0x1402EF3C8 (MiIsFaultPteIntact.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiInvalidateCollidedIos @ 0x1403300F0 (MiInvalidateCollidedIos.c)
- *     MiHardFaultPageRelease @ 0x140334DA8 (MiHardFaultPageRelease.c)
- *     MiDecayPfnFullyInitialized @ 0x14033EDB4 (MiDecayPfnFullyInitialized.c)
- *     MiInPageGapPage @ 0x1403514A8 (MiInPageGapPage.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MiRelockFaultState @ 0x140287128 (MiRelockFaultState.c)
+ *     MiCreateDecayPfn @ 0x1402964E0 (MiCreateDecayPfn.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiAreChargesNeededToLockPage @ 0x1402CE220 (MiAreChargesNeededToLockPage.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiAddPageToInsertList @ 0x1402D9C60 (MiAddPageToInsertList.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DBDB0 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiChargeForLockedPage @ 0x1402DC5B0 (MiChargeForLockedPage.c)
+ *     MiLockOwnedProtoPage @ 0x1402DD6A0 (MiLockOwnedProtoPage.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiReleaseFaultState @ 0x1402EF530 (MiReleaseFaultState.c)
+ *     MiIsFaultPteIntact @ 0x1402EF658 (MiIsFaultPteIntact.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiInvalidateCollidedIos @ 0x140330380 (MiInvalidateCollidedIos.c)
+ *     MiHardFaultPageRelease @ 0x140335038 (MiHardFaultPageRelease.c)
+ *     MiDecayPfnFullyInitialized @ 0x14033F044 (MiDecayPfnFullyInitialized.c)
+ *     MiInPageGapPage @ 0x140351648 (MiInPageGapPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -325,10 +325,10 @@ LABEL_17:
     _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v33 != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v42 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v33 <= 0xFu && v42 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v33 <= 0xFu && v42 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v30 = -1LL << (v33 + 1);
@@ -360,10 +360,10 @@ LABEL_17:
           v41 = (unsigned __int8)MiLockPageInline(v40);
           MiRemoveLockedPageChargeAndDecRef(v40);
           _InterlockedAnd64((volatile signed __int64 *)(v40 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v46 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v46 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v46 >= 2u )
             {
               v47 = KeGetCurrentPrcb();
               v30 = -1LL << ((unsigned __int8)v41 + 1);

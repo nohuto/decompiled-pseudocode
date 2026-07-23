@@ -17,7 +17,7 @@ NTSTATUS __stdcall NtCreateEnlistment(
         NOTIFICATION_MASK NotificationMask,
         PVOID EnlistmentKey)
 {
-  return __imp_NtCreateEnlistment(
+  return NtCreateEnlistment_0(
            EnlistmentHandle,
            DesiredAccess,
            ResourceManagerHandle,

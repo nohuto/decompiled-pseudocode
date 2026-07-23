@@ -1,31 +1,31 @@
 /*
- * XREFs of SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0
+ * XREFs of SeAccessCheckWithHintWithAdminlessChecks @ 0x140358A30
  * Callers:
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     SeAccessCheckWithHint @ 0x14034DC70 (SeAccessCheckWithHint.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     SeAccessCheckWithHint @ 0x1403589C0 (SeAccessCheckWithHint.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
- *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
- *     SepFreeResourceInfo @ 0x14027E088 (SepFreeResourceInfo.c)
- *     SepSidInTokenSidHash @ 0x14027E844 (SepSidInTokenSidHash.c)
- *     SepLocateTokenTrustLevel @ 0x1402AAB88 (SepLocateTokenTrustLevel.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SeLogAccessFailure @ 0x1402BAB40 (SeLogAccessFailure.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402F5290 (AuthzBasepFreeSecurityAttributesList.c)
- *     SepMandatoryIntegrityCheck @ 0x14034E820 (SepMandatoryIntegrityCheck.c)
- *     SepFilterCheck @ 0x14034ECD0 (SepFilterCheck.c)
- *     SepAccessCheck @ 0x14034F410 (SepAccessCheck.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     SepBuildCapeSecurityDescriptor @ 0x140595F6C (SepBuildCapeSecurityDescriptor.c)
- *     SepGetScopedPolicySid @ 0x1405960C8 (SepGetScopedPolicySid.c)
- *     SepLogLpacAccessFailure @ 0x140596228 (SepLogLpacAccessFailure.c)
- *     SepRmDereferenceCapTable @ 0x140596390 (SepRmDereferenceCapTable.c)
- *     SepRmReferenceFindCap @ 0x140597E54 (SepRmReferenceFindCap.c)
- *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SepLocateTokenTrustLevel @ 0x140228CC8 (SepLocateTokenTrustLevel.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SeLogAccessFailure @ 0x140238D50 (SeLogAccessFailure.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
+ *     RtlSidDominatesForTrust @ 0x14026BD80 (RtlSidDominatesForTrust.c)
+ *     SepFreeResourceInfo @ 0x14026C028 (SepFreeResourceInfo.c)
+ *     SepSidInTokenSidHash @ 0x14026C7E4 (SepSidInTokenSidHash.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FFFE0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepMandatoryIntegrityCheck @ 0x140359570 (SepMandatoryIntegrityCheck.c)
+ *     SepFilterCheck @ 0x140359A20 (SepFilterCheck.c)
+ *     SepAccessCheck @ 0x14035A160 (SepAccessCheck.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x14059619C (SepBuildCapeSecurityDescriptor.c)
+ *     SepGetScopedPolicySid @ 0x1405962F8 (SepGetScopedPolicySid.c)
+ *     SepLogLpacAccessFailure @ 0x140596458 (SepLogLpacAccessFailure.c)
+ *     SepRmDereferenceCapTable @ 0x1405965C0 (SepRmDereferenceCapTable.c)
+ *     SepRmReferenceFindCap @ 0x140598084 (SepRmReferenceFindCap.c)
+ *     SeLockSubjectContext @ 0x14070D210 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14070D270 (SeUnlockSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
@@ -39,10 +39,10 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
         __int64 a8,
         char a9,
         unsigned int *a10,
-        int *a11,
+        NTSTATUS *a11,
         char a12)
 {
-  int *v12; // r14
+  NTSTATUS *v12; // r14
   ULONGLONG v13; // r15
   unsigned int v14; // r12d
   int v17; // ebx
@@ -54,11 +54,11 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   unsigned int v23; // edi
   __int64 v24; // r14
   int v25; // eax
-  int *v26; // rdx
+  NTSTATUS *v26; // rdx
   char v27; // r9
   char v28; // cl
   int v29; // eax
-  int *v30; // rdx
+  NTSTATUS *v30; // rdx
   char v31; // r8
   unsigned __int8 *v32; // rsi
   unsigned int *v33; // rdi
@@ -93,7 +93,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   PVOID v62; // rbx
   bool result; // al
   __int64 v64; // rax
-  int *v65; // rax
+  NTSTATUS *v65; // rax
   __int64 v66; // rax
   __int64 v67; // rax
   unsigned __int8 *v68; // rdi
@@ -109,9 +109,9 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   char v78; // bl
   ULONGLONG v79; // rax
   int v80; // r14d
-  __int64 v81; // r11
-  __int64 v82; // rdi
-  int v83; // eax
+  void *v81; // r11
+  void *v82; // rdi
+  NTSTATUS v83; // eax
   bool v84; // zf
   __int64 v85; // rbx
   char v86; // r12
@@ -119,7 +119,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   __int64 v88; // rax
   __int16 v89; // cx
   __int64 v90; // rax
-  __int64 v91; // rax
+  ACL *v91; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v94; // rdx
@@ -157,14 +157,14 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   char v126; // [rsp+A0h] [rbp-80h] BYREF
   char v127; // [rsp+A1h] [rbp-7Fh]
   char v128; // [rsp+A2h] [rbp-7Eh]
-  char v129; // [rsp+A3h] [rbp-7Dh] BYREF
-  char v130; // [rsp+A4h] [rbp-7Ch] BYREF
+  BOOLEAN DominatesTrust; // [rsp+A3h] [rbp-7Dh] BYREF
+  BOOLEAN v130; // [rsp+A4h] [rbp-7Ch] BYREF
   char v131; // [rsp+A5h] [rbp-7Bh]
   int v132; // [rsp+A8h] [rbp-78h]
   int v133; // [rsp+ACh] [rbp-74h]
   char v134; // [rsp+B0h] [rbp-70h]
   int v135; // [rsp+B4h] [rbp-6Ch]
-  int *v136; // [rsp+B8h] [rbp-68h]
+  NTSTATUS *v136; // [rsp+B8h] [rbp-68h]
   __int64 v137; // [rsp+C0h] [rbp-60h]
   int *v138; // [rsp+C8h] [rbp-58h]
   unsigned int v139; // [rsp+D0h] [rbp-50h]
@@ -177,7 +177,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   PSECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+F8h] [rbp-28h]
   int v147; // [rsp+100h] [rbp-20h] BYREF
   ULONGLONG v148; // [rsp+108h] [rbp-18h]
-  __int64 v149; // [rsp+110h] [rbp-10h]
+  ACL *v149; // [rsp+110h] [rbp-10h]
   _WORD *v150; // [rsp+118h] [rbp-8h]
   __int128 v151; // [rsp+120h] [rbp+0h] BYREF
   __int64 v152; // [rsp+130h] [rbp+10h]
@@ -257,7 +257,7 @@ LABEL_308:
     SeLockSubjectContext((PSECURITY_SUBJECT_CONTEXT)a3);
   v18 = *(_WORD *)(v13 + 2);
   v19 = 0;
-  v129 = 0;
+  DominatesTrust = 0;
   v130 = 0;
   while ( 1 )
   {
@@ -300,7 +300,7 @@ LABEL_13:
   if ( v21 )
   {
     v80 = *(_DWORD *)(v21 + 4);
-    v81 = v21 + 8;
+    v81 = (void *)(v21 + 8);
     if ( v21 == -8LL )
     {
       v12 = v136;
@@ -309,18 +309,18 @@ LABEL_13:
     {
       if ( !*(_QWORD *)a3 )
         goto LABEL_178;
-      v82 = *(_QWORD *)(*(_QWORD *)a3 + 1104LL);
-      v83 = RtlSidDominatesForTrust(*(_QWORD *)(*(_QWORD *)(a3 + 16) + 1104LL), v82, &v130);
+      v82 = *(void **)(*(_QWORD *)a3 + 1104LL);
+      v83 = RtlSidDominatesForTrust(*(PSID *)(*(_QWORD *)(a3 + 16) + 1104LL), v82, &v130);
       if ( v83 >= 0 )
       {
         if ( !v130 )
 LABEL_178:
-          v82 = *(_QWORD *)(*(_QWORD *)(a3 + 16) + 1104LL);
-        v83 = RtlSidDominatesForTrust(v82, v81, &v129);
+          v82 = *(void **)(*(_QWORD *)(a3 + 16) + 1104LL);
+        v83 = RtlSidDominatesForTrust(v82, v81, &DominatesTrust);
         if ( v83 >= 0 )
         {
           v17 = v80 | 0x1000000;
-          if ( v129 )
+          if ( DominatesTrust )
             v17 = -1;
         }
       }
@@ -458,7 +458,7 @@ LABEL_215:
   }
   if ( v89 >= 0 )
   {
-    v91 = *(_QWORD *)(v13 + 24);
+    v91 = *(ACL **)(v13 + 24);
   }
   else
   {
@@ -468,7 +468,7 @@ LABEL_215:
       v149 = 0LL;
       goto LABEL_215;
     }
-    v91 = v13 + v90;
+    v91 = (ACL *)(v13 + v90);
   }
   v149 = v91;
   if ( !v91 )
@@ -526,7 +526,7 @@ LABEL_39:
   v37 = (unsigned __int64)v32[4 * ((unsigned __int64)(unsigned int)v35 >> 8) + 4] >> 4;
   v38 = v32[4 * ((unsigned __int64)(unsigned int)v35 >> 8) + 4] & 0xF;
   LOBYTE(v39) = 0;
-  v129 = 0;
+  DominatesTrust = 0;
   v40 = *(_QWORD *)&v33[2 * v38 + 4] & *(_QWORD *)&v33[2 * v37 + 36];
   if ( !v40 )
     goto LABEL_66;
@@ -552,7 +552,7 @@ LABEL_51:
           if ( v43 == *(_WORD **)(v24 + 240) && (*((_DWORD *)v43 + 2) & 0x10) == 0 || (*((_DWORD *)v43 + 2) & 4) != 0 )
           {
             if ( *(_DWORD *)(v24 + 128) )
-              v44 = SepSidInTokenSidHash(v24 + 504, 0LL, v32, 0, 1, 0, a12);
+              v44 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v24 + 504), 0LL, v32, 0, 1, 0, a12);
             else
               v44 = 1;
           }
@@ -662,11 +662,11 @@ LABEL_117:
         continue;
       break;
     }
-    LOBYTE(v39) = v129;
+    LOBYTE(v39) = DominatesTrust;
 LABEL_135:
     LOBYTE(v39) = v39 + 8;
     v40 >>= 8;
-    v129 = v39;
+    DominatesTrust = v39;
     if ( v40 )
       continue;
     break;
@@ -749,7 +749,7 @@ LABEL_71:
     goto LABEL_74;
   }
   v98 = 0;
-  v129 = 0;
+  DominatesTrust = 0;
   LOBYTE(v135) = 0;
   v142 = 0;
   v99 = *v138;
@@ -765,7 +765,7 @@ LABEL_71:
       v101 = P;
       if ( !P )
       {
-        v102 = AuthzBasepInitializeResourceClaimsFromSacl(v149, (__int64 *)&P);
+        v102 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v149, &P);
         v101 = P;
         v103 = (unsigned __int8)v135;
         if ( v102 < 0 )
@@ -913,7 +913,7 @@ LABEL_257:
             (__int64)&v126,
             0LL,
             a12);
-    if ( v129 )
+    if ( DominatesTrust )
       v120 = v144 & v133;
     else
       v120 = v144;
@@ -922,7 +922,7 @@ LABEL_257:
     {
       v97 = v147;
       v139 = v147;
-      v129 = 1;
+      DominatesTrust = 1;
       if ( v147 < 0 )
         goto LABEL_286;
 LABEL_272:

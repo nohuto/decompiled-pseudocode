@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptSetProcessorStartContext @ 0x140376870
+ * XREFs of HalpInterruptSetProcessorStartContext @ 0x140376A10
  * Callers:
- *     HalpSetupRealModeResume @ 0x14041AAF0 (HalpSetupRealModeResume.c)
+ *     HalpSetupRealModeResume @ 0x14041AE80 (HalpSetupRealModeResume.c)
  *     HalpInterruptStartProcessor @ 0x140A88D4C (HalpInterruptStartProcessor.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     KeForceEnableNx @ 0x140A89690 (KeForceEnableNx.c)
  */
 

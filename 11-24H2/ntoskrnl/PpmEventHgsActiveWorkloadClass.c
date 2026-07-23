@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventHgsActiveWorkloadClass @ 0x1404ECDC0
+ * XREFs of PpmEventHgsActiveWorkloadClass @ 0x1404E4500
  * Callers:
- *     PpmPerfRecordMostActiveWorkloadClass @ 0x1404EB798 (PpmPerfRecordMostActiveWorkloadClass.c)
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x1404E26D8 (PpmPerfRecordMostActiveWorkloadClass.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventHgsActiveWorkloadClassEx @ 0x1405DD690 (PpmEventHgsActiveWorkloadClassEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventHgsActiveWorkloadClassEx @ 0x1405DA510 (PpmEventHgsActiveWorkloadClassEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventHgsActiveWorkloadClass(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -58,8 +58,8 @@ BOOLEAN __fastcall PpmEventHgsActiveWorkloadClass(__int64 a1, __int64 a2, __int6
       v30 = 0;
       UserData.Ptr = a1 + 4;
       v10 = a1 + 16;
-      v13 = a1 + 1262;
-      v16 = a1 + 1263;
+      v13 = a1 + 1270;
+      v16 = a1 + 1271;
       v19 = &v8;
       v23 = 8 * v8;
       v26 = 8 * v8;

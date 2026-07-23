@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmInstallPlatformIdleStates @ 0x1408E22A0
+ * XREFs of PpmInstallPlatformIdleStates @ 0x1408E2400
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     KeQueryActiveProcessorAffinity @ 0x1403C2430 (KeQueryActiveProcessorAffinity.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmResetPlatformIdleAccounting @ 0x140567630 (PpmResetPlatformIdleAccounting.c)
- *     PpmEnableCoordinatedIdleStates @ 0x1408E1CBC (PpmEnableCoordinatedIdleStates.c)
- *     PpmIdleUpdatePlatformDependencies @ 0x1408F6898 (PpmIdleUpdatePlatformDependencies.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorAffinity @ 0x1403C2860 (KeQueryActiveProcessorAffinity.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmResetPlatformIdleAccounting @ 0x140567870 (PpmResetPlatformIdleAccounting.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1408E1E1C (PpmEnableCoordinatedIdleStates.c)
+ *     PpmIdleUpdatePlatformDependencies @ 0x1408F69F8 (PpmIdleUpdatePlatformDependencies.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)

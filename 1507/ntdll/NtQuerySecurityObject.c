@@ -8,11 +8,16 @@
  *     <none>
  */
 
-__int64 NtQuerySecurityObject()
+NTSTATUS __cdecl NtQuerySecurityObject(
+        HANDLE Handle,
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        ULONG Length,
+        PULONG LengthNeeded)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 322LL;
+  result = 322;
   __asm { syscall; Low latency system call }
   return result;
 }

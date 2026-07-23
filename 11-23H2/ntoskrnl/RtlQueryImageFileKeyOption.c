@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlQueryImageFileKeyOption @ 0x1406B6070
+ * XREFs of RtlQueryImageFileKeyOption @ 0x1406B6220
  * Callers:
- *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403B2E8C (KiInitializeNormalPriorityAntiStarvationPolicies.c)
- *     PspReadDfssConfigurationValues @ 0x1405A3734 (PspReadDfssConfigurationValues.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PspReadOptionsMapFromIFEO @ 0x1406B7160 (PspReadOptionsMapFromIFEO.c)
- *     SepIsImageInMinTcbList @ 0x1406B9D88 (SepIsImageInMinTcbList.c)
- *     RtlQueryImageFileExecutionOptions @ 0x140854690 (RtlQueryImageFileExecutionOptions.c)
- *     PspQueryComPlusRunUnderWoW @ 0x1409B12F8 (PspQueryComPlusRunUnderWoW.c)
- *     PspReadIFEOPerfOptions @ 0x1409B13AC (PspReadIFEOPerfOptions.c)
+ *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403B306C (KiInitializeNormalPriorityAntiStarvationPolicies.c)
+ *     PspReadDfssConfigurationValues @ 0x1405A3C24 (PspReadDfssConfigurationValues.c)
+ *     PspReadOptionsMapFromIFEO @ 0x1406B4540 (PspReadOptionsMapFromIFEO.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
+ *     SepIsImageInMinTcbList @ 0x1406B9DB8 (SepIsImageInMinTcbList.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x140854990 (RtlQueryImageFileExecutionOptions.c)
+ *     PspQueryComPlusRunUnderWoW @ 0x1409B14F8 (PspQueryComPlusRunUnderWoW.c)
+ *     PspReadIFEOPerfOptions @ 0x1409B15AC (PspReadIFEOPerfOptions.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlUnicodeStringToInteger @ 0x14079E540 (RtlUnicodeStringToInteger.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x14079E730 (RtlUnicodeStringToInteger.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

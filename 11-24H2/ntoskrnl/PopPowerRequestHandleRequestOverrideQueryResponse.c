@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerRequestHandleRequestOverrideQueryResponse @ 0x14046BFAC
+ * XREFs of PopPowerRequestHandleRequestOverrideQueryResponse @ 0x140464C2C
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x140A23DB4 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x140A181C4 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopAcquirePowerRequestPushLock @ 0x140A50600 (PopAcquirePowerRequestPushLock.c)
- *     PopReleasePowerRequestPushLock @ 0x140A5A6BC (PopReleasePowerRequestPushLock.c)
- *     PopPowerRequestTableLookupEntry @ 0x140A60F5C (PopPowerRequestTableLookupEntry.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140A473B0 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleasePowerRequestPushLock @ 0x140A51F7C (PopReleasePowerRequestPushLock.c)
+ *     PopPowerRequestTableLookupEntry @ 0x140A5963C (PopPowerRequestTableLookupEntry.c)
  */
 
 __int64 __fastcall PopPowerRequestHandleRequestOverrideQueryResponse(unsigned int *a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PopPowerRequestHandleRequestOverrideQueryResponse(unsigned in
     v4[6] = v6;
     PopPowerRequestEvaluatePendingRequestStatus(v4);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    if ( _InterlockedIncrement(&dword_140F0DFA0) == 1 )
+    if ( _InterlockedIncrement(&dword_140F0E3E0) == 1 )
       ExQueueWorkItem(&PopPowerRequestUpdateWorkItem, CriticalWorkQueue);
   }
   return PopReleasePowerRequestPushLock(v3, v2, v5);

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleUpdateHvStates @ 0x1407E1D10
+ * XREFs of PpmIdleUpdateHvStates @ 0x1407E6DA0
  * Callers:
  *     <none>
  * Callees:
- *     HvlGetLpIndexFromApicId @ 0x1405B9260 (HvlGetLpIndexFromApicId.c)
- *     HvlConfigureIdleStates @ 0x1405BEF04 (HvlConfigureIdleStates.c)
+ *     HvlGetLpIndexFromApicId @ 0x1405BBAD0 (HvlGetLpIndexFromApicId.c)
+ *     HvlConfigureIdleStates @ 0x1405C1774 (HvlConfigureIdleStates.c)
  */
 
 __int64 __fastcall PpmIdleUpdateHvStates(__int64 a1)

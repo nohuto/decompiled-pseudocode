@@ -1,12 +1,12 @@
 /*
- * XREFs of HalHandleNMI @ 0x1404BD740
+ * XREFs of HalHandleNMI @ 0x1404BD980
  * Callers:
- *     KiProcessNMI @ 0x140512A70 (KiProcessNMI.c)
+ *     KiProcessNMI @ 0x140512CB0 (KiProcessNMI.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     HalpCheckAndReportGhes @ 0x1404CF948 (HalpCheckAndReportGhes.c)
- *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpCheckAndReportGhes @ 0x1404CFB88 (HalpCheckAndReportGhes.c)
+ *     WheaReportHwError @ 0x1405BB360 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1405BBCFC (WheapGetErrorSource.c)
  */
 
 unsigned __int8 HalHandleNMI()
@@ -17,7 +17,7 @@ unsigned __int8 HalHandleNMI()
   char v3; // bl
   __int64 ErrorSource; // rax
 
-  dword_140C50958 = 1;
+  dword_140C50998 = 1;
   HalpProcessorInNmiHandler = KeGetPcr()->Prcb.Number;
   if ( !HalpGenericNmiInitDone )
     goto LABEL_7;
@@ -38,27 +38,27 @@ unsigned __int8 HalHandleNMI()
 LABEL_7:
     result = __inbyte(0x61u);
     v3 = result;
-    if ( dword_140C50954 == 1 )
+    if ( dword_140C50994 == 1 )
     {
-      memset(&dword_140C50960, 0, 0x5CuLL);
-      dword_140C50964 = 3;
-      dword_140C50970 = 3;
-      dword_140C5097C = 3;
-      dword_140C50960 = 1095059543;
-      dword_140C509B8 = ((unsigned int)dword_140C5096C >> 2) & 1;
-      dword_140C50968 = 92;
-      dword_140C50974 = 1;
-      dword_140C50978 = HalpNmiInfo;
-      xmmword_140C50980 = (__int128)NMI_NOTIFY_TYPE_GUID;
-      dword_140C50998 = 4;
-      dword_140C509A0 = 80;
-      dword_140C509A4 = 12;
-      byte_140C509B0 = v3;
+      memset(&dword_140C509A0, 0, 0x5CuLL);
+      dword_140C509A4 = 3;
+      dword_140C509B0 = 3;
+      dword_140C509BC = 3;
+      dword_140C509A0 = 1095059543;
+      dword_140C509F8 = ((unsigned int)dword_140C509AC >> 2) & 1;
+      dword_140C509A8 = 92;
+      dword_140C509B4 = 1;
+      dword_140C509B8 = HalpNmiInfo;
+      xmmword_140C509C0 = (__int128)NMI_NOTIFY_TYPE_GUID;
+      dword_140C509D8 = 4;
+      dword_140C509E0 = 80;
+      dword_140C509E4 = 12;
+      byte_140C509F0 = v3;
       ErrorSource = WheapGetErrorSource(&WheapErrorSourceTable, (unsigned int)HalpNmiInfo);
       PshedRetrieveErrorInfo(
-        &dword_140C50960,
+        &dword_140C509A0,
         (ErrorSource + 96) & ((unsigned __int128)-(__int128)(unsigned __int64)ErrorSource >> 64));
-      result = WheaReportHwError(&dword_140C50960);
+      result = WheaReportHwError(&dword_140C509A0);
     }
   }
   HalpProcessorInNmiHandler = 1280;

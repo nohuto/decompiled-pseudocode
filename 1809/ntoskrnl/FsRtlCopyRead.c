@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlCopyRead @ 0x140813E50
+ * XREFs of FsRtlCopyRead @ 0x140815050
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     IoGetTopLevelIrp @ 0x14001C610 (IoGetTopLevelIrp.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     CcCopyReadEx @ 0x1400AF430 (CcCopyReadEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CcCopyReadEx @ 0x1400AF370 (CcCopyReadEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall FsRtlCopyRead(

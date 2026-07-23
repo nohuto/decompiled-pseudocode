@@ -1,16 +1,16 @@
 /*
- * XREFs of SepRmGlobalSaclSetWrkr @ 0x1408167D0
+ * XREFs of SepRmGlobalSaclSetWrkr @ 0x14081C9E0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SepRmFetchGlobalSacl @ 0x1408165F4 (SepRmFetchGlobalSacl.c)
- *     SepRmGlobalSaclFind @ 0x140A906C0 (SepRmGlobalSaclFind.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SepRmFetchGlobalSacl @ 0x14081C804 (SepRmFetchGlobalSacl.c)
+ *     SepRmGlobalSaclFind @ 0x140A95210 (SepRmGlobalSaclFind.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepRmGlobalSaclSetWrkr(__int64 a1, __int64 a2)
@@ -49,7 +49,7 @@ void __fastcall SepRmGlobalSaclSetWrkr(__int64 a1, __int64 a2)
     CurrentThread = KeGetCurrentThread();
     v5 = 1;
     --CurrentThread->KernelApcDisable;
-    ExAcquireResourceExclusiveLite(&SepRmGlobalSaclLock, 1u);
+    ExAcquireResourceExclusiveLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime, 1u);
     GlobalSacl = SepRmGlobalSaclFind(&P, &v18, v14, 0LL);
     if ( GlobalSacl < 0 )
     {
@@ -84,7 +84,7 @@ void __fastcall SepRmGlobalSaclSetWrkr(__int64 a1, __int64 a2)
         ExFreePoolWithTag(v9, 0);
       v8[3] = v16;
 LABEL_24:
-      ExReleaseResourceLite(&SepRmGlobalSaclLock);
+      ExReleaseResourceLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime);
       KeLeaveCriticalRegion();
       goto LABEL_25;
     }

@@ -5,12 +5,12 @@
  *     RtlpAddDebugInfoToCriticalSection @ 0x180011840 (RtlpAddDebugInfoToCriticalSection.c)
  *     RtlReleaseActivationContext @ 0x180013570 (RtlReleaseActivationContext.c)
  *     RtlActivateActivationContextEx @ 0x1800733E0 (RtlActivateActivationContextEx.c)
- *     RtlGetCallersAddress @ 0x1800EDAC0 (RtlGetCallersAddress.c)
- *     RtlpHeapTrkTrackStack @ 0x1800FED54 (RtlpHeapTrkTrackStack.c)
- *     RtlStdLogStackTrace @ 0x180101400 (RtlStdLogStackTrace.c)
- *     RtlpHpHeapHandleError @ 0x180108500 (RtlpHpHeapHandleError.c)
- *     RtlpHpStackTraceAddStack @ 0x1801089C0 (RtlpHpStackTraceAddStack.c)
- *     RtlpStackTraceDatabaseLogPrefix @ 0x18010B060 (RtlpStackTraceDatabaseLogPrefix.c)
+ *     RtlGetCallersAddress @ 0x1800EDA80 (RtlGetCallersAddress.c)
+ *     RtlpHeapTrkTrackStack @ 0x1800FED14 (RtlpHeapTrkTrackStack.c)
+ *     RtlStdLogStackTrace @ 0x1801013C0 (RtlStdLogStackTrace.c)
+ *     RtlpHpHeapHandleError @ 0x1801084C0 (RtlpHpHeapHandleError.c)
+ *     RtlpHpStackTraceAddStack @ 0x180108980 (RtlpHpStackTraceAddStack.c)
+ *     RtlpStackTraceDatabaseLogPrefix @ 0x18010B020 (RtlpStackTraceDatabaseLogPrefix.c)
  * Callees:
  *     RtlWalkFrameChain @ 0x180052720 (RtlWalkFrameChain.c)
  */

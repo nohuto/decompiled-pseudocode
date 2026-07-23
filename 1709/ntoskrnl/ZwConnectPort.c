@@ -18,5 +18,5 @@ NTSTATUS __stdcall ZwConnectPort(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, PortName, SecurityQos);
+  return KiServiceInternal(PortHandle);
 }

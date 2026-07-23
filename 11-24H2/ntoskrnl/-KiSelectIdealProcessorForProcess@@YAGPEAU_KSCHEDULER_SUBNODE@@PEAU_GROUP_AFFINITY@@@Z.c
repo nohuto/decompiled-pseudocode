@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z @ 0x140202ED4
+ * XREFs of ?KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z @ 0x14032B5C4
  * Callers:
- *     KiSetIdealNodeProcessByGroup @ 0x140202E3C (KiSetIdealNodeProcessByGroup.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x14032B52C (KiSetIdealNodeProcessByGroup.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __int64 __fastcall KiSelectIdealProcessorForProcess(struct _KSCHEDULER_SUBNODE *
       if ( v9 )
         v8 = v9;
       _BitScanForward64((unsigned __int64 *)&v7, v8);
-      v10 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (unsigned int)((Group << 6) + v7))];
+      v10 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + (unsigned int)((Group << 6) + v7))];
     }
     while ( (*(_QWORD *)(v10 + 36464) & Mask) == 0 );
     _BitScanForward64(&v6, *(_QWORD *)(v10 + 36464) & Mask);
@@ -42,5 +42,5 @@ __int64 __fastcall KiSelectIdealProcessorForProcess(struct _KSCHEDULER_SUBNODE *
   {
     _BitScanForward64(&v6, v6);
   }
-  return *((unsigned __int16 *)qword_140F21E78 + 2 * (unsigned int)(v6 + (Group << 6)));
+  return *((unsigned __int16 *)qword_140F22998 + 2 * (unsigned int)(v6 + (Group << 6)));
 }

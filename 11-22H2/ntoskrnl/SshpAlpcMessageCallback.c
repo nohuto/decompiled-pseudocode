@@ -14,28 +14,46 @@
 
 void __fastcall SshpAlpcMessageCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
 {
-  _DWORD *Pool2; // rbx
-  void *v4; // rdi
-  char *MessageAttribute; // rax
-  _QWORD v6[2]; // [rsp+48h] [rbp-10h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES *ReceiveMessageAttributes; // rbx
+  _PORT_MESSAGE *ReceiveMessage; // rdi
+  _ALPC_CONTEXT_ATTR *MessageAttribute; // rax
+  LARGE_INTEGER Timeout; // [rsp+40h] [rbp-18h] BYREF
+  ULONG_PTR RequiredBufferSize[2]; // [rsp+48h] [rbp-10h] BYREF
+  ULONG_PTR BufferLength; // [rsp+78h] [rbp+20h] BYREF
 
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 160LL, 1885893491LL);
-  if ( Pool2 )
+  BufferLength = 0LL;
+  Timeout.QuadPart = 0LL;
+  ReceiveMessageAttributes = (_ALPC_MESSAGE_ATTRIBUTES *)ExAllocatePool2(256LL, 160LL, 1885893491LL);
+  if ( ReceiveMessageAttributes )
   {
-    v4 = (void *)ExAllocatePool2(256LL, 64LL, 1885893491LL);
-    if ( v4 )
+    ReceiveMessage = (_PORT_MESSAGE *)ExAllocatePool2(256LL, 64LL, 1885893491LL);
+    if ( ReceiveMessage )
     {
-      memset(Pool2, 0, 0xA0uLL);
-      memset(v4, 0, 0x40uLL);
-      AlpcInitializeMessageAttribute(0x20000000LL, Pool2, 0xA0uLL, v6);
-      while ( !(unsigned int)ZwAlpcSendWaitReceivePort(SshpAlpcContext, 0LL) )
+      memset(ReceiveMessageAttributes, 0, 0xA0uLL);
+      memset(ReceiveMessage, 0, 0x40uLL);
+      AlpcInitializeMessageAttribute(0x20000000u, ReceiveMessageAttributes, 0xA0uLL, RequiredBufferSize);
+      while ( 1 )
       {
-        MessageAttribute = AlpcGetMessageAttribute(Pool2, 0x20000000);
-        SshpAlpcProcessAlpcMessage(v4, MessageAttribute);
-        AlpcInitializeMessageAttribute(0x20000000LL, Pool2, 0xA0uLL, v6);
+        BufferLength = 64LL;
+        if ( ZwAlpcSendWaitReceivePort(
+               SshpAlpcContext,
+               0,
+               0LL,
+               0LL,
+               ReceiveMessage,
+               &BufferLength,
+               ReceiveMessageAttributes,
+               &Timeout) )
+        {
+          break;
+        }
+        MessageAttribute = (_ALPC_CONTEXT_ATTR *)AlpcGetMessageAttribute(ReceiveMessageAttributes, 0x20000000u);
+        SshpAlpcProcessAlpcMessage(ReceiveMessage, MessageAttribute);
+        AlpcInitializeMessageAttribute(0x20000000u, ReceiveMessageAttributes, 0xA0uLL, RequiredBufferSize);
+        Timeout.QuadPart = 0LL;
       }
-      CmpFreeTransientPoolWithTag(v4, 0x70687373u);
+      CmpFreeTransientPoolWithTag(ReceiveMessage, 0x70687373u);
     }
-    CmpFreeTransientPoolWithTag(Pool2, 0x70687373u);
+    CmpFreeTransientPoolWithTag(ReceiveMessageAttributes, 0x70687373u);
   }
 }

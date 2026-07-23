@@ -1,34 +1,34 @@
 /*
- * XREFs of PiPnpRtlObjectEventWorker @ 0x14050470C
+ * XREFs of PiPnpRtlObjectEventWorker @ 0x1404E769C
  * Callers:
- *     PiPnpRtlObjectEventCallback @ 0x140505374 (PiPnpRtlObjectEventCallback.c)
- *     PiDqIrpPropertySet @ 0x1406318E0 (PiDqIrpPropertySet.c)
+ *     PiPnpRtlObjectEventCallback @ 0x1404E8304 (PiPnpRtlObjectEventCallback.c)
+ *     PiDqIrpPropertySet @ 0x140631994 (PiDqIrpPropertySet.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlLookupElementGenericTableAvl @ 0x1400C3B20 (RtlLookupElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1400C3FD4 (RtlDeleteElementGenericTableAvl.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1400C19B0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1400C1E74 (RtlDeleteElementGenericTableAvl.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     PiDqGetObjectManagerForPnpObjectType @ 0x1404DE384 (PiDqGetObjectManagerForPnpObjectType.c)
- *     PiPnpRtlOperationListAcquireSharedLock @ 0x1404FFB30 (PiPnpRtlOperationListAcquireSharedLock.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlObjectEventCreate @ 0x1405015D8 (PiPnpRtlObjectEventCreate.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlDisableRemoveOperationDispatch @ 0x140501BC4 (PiPnpRtlDisableRemoveOperationDispatch.c)
- *     PnpAllocatePWSTR @ 0x140501D70 (PnpAllocatePWSTR.c)
- *     PiPnpRtlObjectEventDispatch @ 0x140501F50 (PiPnpRtlObjectEventDispatch.c)
- *     PiDmObjectProcessPropertyChange @ 0x14050539C (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectAcquireExclusiveLock @ 0x140506124 (PiDmObjectAcquireExclusiveLock.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x140506180 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDqObjectManagerMakeInconsistent @ 0x140631C7C (PiDqObjectManagerMakeInconsistent.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     PiDqGetObjectManagerForPnpObjectType @ 0x1404C1988 (PiDqGetObjectManagerForPnpObjectType.c)
+ *     PiPnpRtlOperationListAcquireSharedLock @ 0x1404E2AC0 (PiPnpRtlOperationListAcquireSharedLock.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1404E4568 (PiPnpRtlObjectEventCreate.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlDisableRemoveOperationDispatch @ 0x1404E4B54 (PiPnpRtlDisableRemoveOperationDispatch.c)
+ *     PnpAllocatePWSTR @ 0x1404E4D00 (PnpAllocatePWSTR.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x1404E4EE0 (PiPnpRtlObjectEventDispatch.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1404E832C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectAcquireExclusiveLock @ 0x1404E90B4 (PiDmObjectAcquireExclusiveLock.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1404E9110 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDqObjectManagerMakeInconsistent @ 0x140631D30 (PiDqObjectManagerMakeInconsistent.c)
  */
 
 void __fastcall PiPnpRtlObjectEventWorker(wchar_t *a1, int a2, int a3, __int64 a4, unsigned int a5)
@@ -58,7 +58,7 @@ void __fastcall PiPnpRtlObjectEventWorker(wchar_t *a1, int a2, int a3, __int64 a
   const wchar_t *v31; // rdx
   _DWORD *PoolWithTag; // rax
   _DWORD *v33; // rbx
-  struct _RTL_AVL_TABLE *v34; // rcx
+  _RTL_AVL_TABLE *v34; // rcx
   int v35; // eax
   __int64 v36; // rcx
   char v37; // si
@@ -226,7 +226,7 @@ LABEL_19:
             if ( PoolWithTag )
             {
               memmove(PoolWithTag, Src, 32LL * *((unsigned int *)Src + 19) + 80);
-              v34 = (struct _RTL_AVL_TABLE *)((char *)P + 24);
+              v34 = (_RTL_AVL_TABLE *)((char *)P + 24);
               v33[18] *= 2;
               *(_QWORD *)RtlLookupElementGenericTableAvl(v34, &Src) = v33;
               ExFreePoolWithTag(Src, 0x41706E50u);

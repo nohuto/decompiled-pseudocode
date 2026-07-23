@@ -11,11 +11,11 @@
  *     <none>
  */
 
-__int64 NtOpenProcessToken()
+NTSTATUS __cdecl NtOpenProcessToken(HANDLE ProcessHandle, ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 276LL;
+  result = 276;
   __asm { syscall; Low latency system call }
   return result;
 }

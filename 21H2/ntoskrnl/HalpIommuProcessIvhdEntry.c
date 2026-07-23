@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIommuProcessIvhdEntry @ 0x1404E1AE0
+ * XREFs of HalpIommuProcessIvhdEntry @ 0x1404E1D20
  * Callers:
- *     HalpIommuHsaDiscover @ 0x140A39D14 (HalpIommuHsaDiscover.c)
+ *     HalpIommuHsaDiscover @ 0x140A3AD14 (HalpIommuHsaDiscover.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     HalRegisterPermanentAddressUsage @ 0x1403AC030 (HalRegisterPermanentAddressUsage.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
- *     HalpHsaAllocateReservedDomainList @ 0x1404E1510 (HalpHsaAllocateReservedDomainList.c)
- *     HalpIommuProcessDeviceEntries @ 0x1404E17D4 (HalpIommuProcessDeviceEntries.c)
- *     HsaProcessIvmd @ 0x1404E40C8 (HsaProcessIvmd.c)
- *     ExtEnvRegisterIommu @ 0x140A8C9F0 (ExtEnvRegisterIommu.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     HalRegisterPermanentAddressUsage @ 0x1403ACDC0 (HalRegisterPermanentAddressUsage.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
+ *     HalpHsaAllocateReservedDomainList @ 0x1404E1750 (HalpHsaAllocateReservedDomainList.c)
+ *     HalpIommuProcessDeviceEntries @ 0x1404E1A14 (HalpIommuProcessDeviceEntries.c)
+ *     HsaProcessIvmd @ 0x1404E4308 (HsaProcessIvmd.c)
+ *     ExtEnvRegisterIommu @ 0x140A8D9F0 (ExtEnvRegisterIommu.c)
  */
 
 int __fastcall HalpIommuProcessIvhdEntry(__int64 a1, __int64 a2, char *a3)
@@ -207,13 +207,13 @@ LABEL_7:
                   *v27 = 0LL;
                   v23[2] = 0LL;
                   v23[2] = *(_QWORD *)(a2 + 8);
-                  v24 = (_QWORD *)qword_140C48978;
-                  if ( *(__int64 **)qword_140C48978 != &HsaIvhdList )
+                  v24 = (_QWORD *)qword_140C489B8;
+                  if ( *(__int64 **)qword_140C489B8 != &HsaIvhdList )
                     __fastfail(3u);
                   *v23 = &HsaIvhdList;
                   v23[1] = v24;
                   *v24 = v23;
-                  qword_140C48978 = (__int64)v23;
+                  qword_140C489B8 = (__int64)v23;
                   if ( v31 || v32 )
                     v6 = 1;
                   *a3 = v6;

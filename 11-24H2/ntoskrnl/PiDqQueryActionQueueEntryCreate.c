@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqQueryActionQueueEntryCreate @ 0x140A19E0C
+ * XREFs of PiDqQueryActionQueueEntryCreate @ 0x140A12F7C
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x1408D327C (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1408D0C6C (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDqQueryActionQueueEntryCreate(int a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -12,7 +12,7 @@ __int64 __fastcall PiDqQueryActionQueueEntryCreate(int a1, __int64 a2, volatile 
   __int64 Pool2; // rax
 
   v7 = 0;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x58706E50u);
   *(_QWORD *)a4 = Pool2;
   if ( Pool2 )
   {

@@ -1,41 +1,41 @@
 /*
- * XREFs of CmpWalkOneLevel @ 0x140872560
+ * XREFs of CmpWalkOneLevel @ 0x140876890
  * Callers:
- *     CmpDoBuildVirtualStack @ 0x1407DB5E4 (CmpDoBuildVirtualStack.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpDoBuildVirtualStack @ 0x1407DBB34 (CmpDoBuildVirtualStack.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpTransUowIsEqual @ 0x1406FB46C (CmpTransUowIsEqual.c)
- *     CmpFindSubKeyInRoot @ 0x140842980 (CmpFindSubKeyInRoot.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     CmpReferenceKeyControlBlockLockNotHeld @ 0x1408443F0 (CmpReferenceKeyControlBlockLockNotHeld.c)
- *     CmpUnlockHashEntry @ 0x1408446B0 (CmpUnlockHashEntry.c)
- *     CmpDeleteHive @ 0x14084475C (CmpDeleteHive.c)
- *     CmpRecordParseFailure @ 0x140845C40 (CmpRecordParseFailure.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
- *     CmpHashUnicodeComponent @ 0x1408733F0 (CmpHashUnicodeComponent.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1408734B0 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmEqualTrans @ 0x140879280 (CmEqualTrans.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     CmpFindKcbInHashEntryByName @ 0x140950A10 (CmpFindKcbInHashEntryByName.c)
- *     CmpLockHashEntryShared @ 0x1409885E0 (CmpLockHashEntryShared.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmListGetNextElement @ 0x140BB9940 (CmListGetNextElement.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpTransUowIsEqual @ 0x1406F90AC (CmpTransUowIsEqual.c)
+ *     CmpFindSubKeyInRoot @ 0x14083EC40 (CmpFindSubKeyInRoot.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     CmpReferenceKeyControlBlockLockNotHeld @ 0x1408406B0 (CmpReferenceKeyControlBlockLockNotHeld.c)
+ *     CmpUnlockHashEntry @ 0x140840970 (CmpUnlockHashEntry.c)
+ *     CmpDeleteHive @ 0x140840A1C (CmpDeleteHive.c)
+ *     CmpRecordParseFailure @ 0x140841F00 (CmpRecordParseFailure.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
+ *     CmpHashUnicodeComponent @ 0x140877720 (CmpHashUnicodeComponent.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1408777E0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmEqualTrans @ 0x14087D5B0 (CmEqualTrans.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     CmpFindKcbInHashEntryByName @ 0x140940C90 (CmpFindKcbInHashEntryByName.c)
+ *     CmpLockHashEntryShared @ 0x140970DC0 (CmpLockHashEntryShared.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmListGetNextElement @ 0x140BBB940 (CmListGetNextElement.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
  */
 
 __int64 __fastcall CmpWalkOneLevel(
@@ -60,8 +60,8 @@ __int64 __fastcall CmpWalkOneLevel(
   __int64 v17; // r14
   ULONG_PTR v18; // r14
   unsigned __int64 *v19; // rsi
-  _QWORD *v20; // rax
-  _QWORD *v21; // r13
+  char *v20; // rax
+  char *v21; // r13
   signed __int32 v22; // eax
   signed __int32 v23; // ett
   __int16 v24; // si
@@ -80,7 +80,7 @@ __int64 __fastcall CmpWalkOneLevel(
   __int64 v37; // rcx
   __int64 v38; // r14
   signed __int64 *v39; // rbx
-  _QWORD *v40; // r14
+  char *v40; // r14
   ULONG_PTR v41; // rcx
   __int64 CellPaged; // rax
   ULONG_PTR v43; // rcx
@@ -241,12 +241,12 @@ LABEL_5:
       v19 = (unsigned __int64 *)(*(_QWORD *)(v18 + 1648)
                                + 24
                                * (((101027 * ((unsigned int)a8 ^ ((unsigned int)a8 >> 9))) ^ ((unsigned __int64)(101027 * ((unsigned int)a8 ^ ((unsigned int)a8 >> 9))) >> 9)) & (unsigned int)(*(_DWORD *)(v18 + 1656) - 1)));
-      v20 = KeAbPreAcquire((__int64)v19, 0LL);
+      v20 = (char *)KeAbPreAcquire((__int64)v19, 0LL);
       v21 = v20;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v19, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v19, (__int64)v20, (__int64)v19);
+        ExfAcquirePushLockExclusiveEx(v19, v20, (__int64)v19);
       if ( v21 )
-        *((_BYTE *)v21 + 10) = 1;
+        v21[10] = 1;
       v19[1] = (unsigned __int64)KeGetCurrentThread();
       _m_prefetchw((const void *)(v18 + 4232));
       v22 = *(_DWORD *)(v18 + 4232);
@@ -387,11 +387,11 @@ LABEL_103:
       else
         HvpReleaseCellPaged(v37, &v111);
       v39 = (signed __int64 *)(*(_QWORD *)(v33 + 32) + 72LL);
-      v40 = KeAbPreAcquire((__int64)v39, 0LL);
+      v40 = (char *)KeAbPreAcquire((__int64)v39, 0LL);
       if ( _InterlockedCompareExchange64(v39, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v39, 0, v40, (__int64)v39);
       if ( v40 )
-        *((_BYTE *)v40 + 10) = 1;
+        v40[10] = 1;
       v41 = *(_QWORD *)(v33 + 32);
       if ( (*(_BYTE *)(v41 + 140) & 1) != 0 )
         CellPaged = HvpGetCellFlat(v41, *(unsigned int *)(v33 + 40));

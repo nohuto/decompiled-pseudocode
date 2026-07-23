@@ -8,41 +8,61 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __fastcall SbpRetrieveCompatibilityManifest(void *a1, int *a2, unsigned int *a3)
+int __fastcall SbpRetrieveCompatibilityManifest(PACTIVATION_CONTEXT ActivationContext, PVOID *a2, _DWORD *a3)
 {
   int v3; // esi
-  int Heap; // edi
-  int v5; // ebx
-  int v6; // eax
+  PVOID Heap; // edi
+  ULONG v5; // ebx
+  NTSTATUS InformationActivationContext; // eax
   unsigned int v7; // eax
-  int v10; // [esp+10h] [ebp-Ch]
-  unsigned int v12; // [esp+18h] [ebp-4h] BYREF
+  SIZE_T v9; // [esp-8h] [ebp-24h]
+  SIZE_T v10; // [esp-4h] [ebp-20h]
+  ULONG_PTR *v11; // [esp+0h] [ebp-1Ch]
+  PVOID v13; // [esp+10h] [ebp-Ch]
+  SIZE_T ActivationContextInformationLength; // [esp+18h] [ebp-4h] BYREF
 
   v3 = 0;
   Heap = *a2;
   *a2 = 0;
-  v10 = Heap;
-  v5 = a1 != NtCurrentPeb()->ImageBaseAddress ? 1073741826 : 2;
-  v6 = RtlQueryInformationActivationContext(v5, a1, 0, 6, 0, 0, &v12);
-  if ( v6 < 0 && v6 != -1073741789 )
+  v13 = Heap;
+  HIDWORD(v9) = &ActivationContextInformationLength;
+  LODWORD(v9) = 0;
+  v5 = ActivationContext != NtCurrentPeb()->ImageBaseAddress ? 1073741826 : 2;
+  InformationActivationContext = RtlQueryInformationActivationContext(
+                                   v5,
+                                   ActivationContext,
+                                   0,
+                                   CompatibilityInformationInActivationContext,
+                                   0,
+                                   v9,
+                                   v11);
+  if ( InformationActivationContext < 0 && InformationActivationContext != -1073741789 )
     return v3;
-  v7 = v12;
-  if ( !v12 )
+  v7 = ActivationContextInformationLength;
+  if ( !(_DWORD)ActivationContextInformationLength )
     return 1;
-  if ( v12 > *a3 )
+  if ( (unsigned int)ActivationContextInformationLength > *a3 )
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v12);
+    LODWORD(v10) = ActivationContextInformationLength;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
     if ( !Heap )
       return v3;
-    v7 = v12;
+    v7 = ActivationContextInformationLength;
   }
-  if ( (int)RtlQueryInformationActivationContext(v5, a1, 0, 6, Heap, v7, &v12) >= 0 )
+  if ( RtlQueryInformationActivationContext(
+         v5,
+         ActivationContext,
+         0,
+         CompatibilityInformationInActivationContext,
+         Heap,
+         __PAIR64__(&ActivationContextInformationLength, v7),
+         (PSIZE_T)HIDWORD(v10)) >= 0 )
   {
     *a2 = Heap;
-    *a3 = v12;
+    *a3 = ActivationContextInformationLength;
     return 1;
   }
-  if ( Heap && Heap != v10 )
+  if ( Heap && Heap != v13 )
     RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v3;
 }

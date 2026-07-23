@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetProcessorNodeNumberByIndex @ 0x14043AC00
+ * XREFs of KeGetProcessorNodeNumberByIndex @ 0x14042D440
  * Callers:
- *     PspEnableProcessOptionalXStateFeatures @ 0x1407748A0 (PspEnableProcessOptionalXStateFeatures.c)
- *     PspAllocateThread @ 0x1408A49BC (PspAllocateThread.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x1408A644C (PspRecheckThreadOptionalXStateFeatures.c)
- *     KeUserModeCallback @ 0x1408BF150 (KeUserModeCallback.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140774AC0 (PspEnableProcessOptionalXStateFeatures.c)
+ *     KeUserModeCallback @ 0x1408BCB10 (KeUserModeCallback.c)
+ *     PspAllocateThread @ 0x1408FAFD4 (PspAllocateThread.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x1408FCA64 (PspRecheckThreadOptionalXStateFeatures.c)
  * Callees:
  *     <none>
  */

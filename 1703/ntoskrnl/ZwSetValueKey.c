@@ -89,7 +89,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetValueKey(
         HANDLE KeyHandle,
         PUNICODE_STRING ValueName,
@@ -100,5 +99,5 @@ NTSTATUS __stdcall ZwSetValueKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, ValueName, *(_QWORD *)&TitleIndex);
+  return KiServiceInternal(KeyHandle);
 }

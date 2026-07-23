@@ -11,15 +11,15 @@
  *     RtlFailFast2 @ 0x180123150 (RtlFailFast2.c)
  */
 
-__int64 __fastcall RtlpHandleInvalidUserCallTarget(__int64 a1)
+int __fastcall RtlpHandleInvalidUserCallTarget(void *a1)
 {
-  __int64 result; // rax
+  int result; // eax
 
   if ( RtlGuardAllowSuppressedCalls && RtlpGuardIsSuppressedAddress(a1) )
-    return RtlpGuardGrantSuppressedCallAccess(a1, 1u);
+    return RtlpGuardGrantSuppressedCallAccess((__int64)a1, 1u);
   if ( !LdrControlFlowGuardEnforcedWithExportSuppression()
     || !RtlGuardIsExportSuppressedAddress(a1)
-    || (result = RtlpUnsuppressForwardReferencingCallTarget(a1), (int)result < 0) )
+    || (result = RtlpUnsuppressForwardReferencingCallTarget((__int64)a1), result < 0) )
   {
     RtlFailFast2(0xAu);
   }

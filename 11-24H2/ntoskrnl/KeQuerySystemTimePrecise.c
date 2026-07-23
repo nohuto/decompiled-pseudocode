@@ -1,19 +1,19 @@
 /*
- * XREFs of KeQuerySystemTimePrecise @ 0x14034EC60
+ * XREFs of KeQuerySystemTimePrecise @ 0x14036D140
  * Callers:
- *     EtwpTraceSystemShutdown @ 0x1407AA200 (EtwpTraceSystemShutdown.c)
- *     EtwpInitializeTimeStamp @ 0x1408307CC (EtwpInitializeTimeStamp.c)
- *     EtwpInitLoggerContext @ 0x1408309D4 (EtwpInitLoggerContext.c)
- *     PspAllocateThread @ 0x1408A49BC (PspAllocateThread.c)
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
- *     PspNotifyThreadCreation @ 0x1408FEC38 (PspNotifyThreadCreation.c)
- *     PspExitLastThread @ 0x1409374F0 (PspExitLastThread.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
- *     EtwTraceLpacAccessFailure @ 0x1409F7044 (EtwTraceLpacAccessFailure.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     EtwpTraceSystemShutdown @ 0x1407AA340 (EtwpTraceSystemShutdown.c)
+ *     PspExitLastThread @ 0x1408F27B8 (PspExitLastThread.c)
+ *     PspAllocateThread @ 0x1408FAFD4 (PspAllocateThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
+ *     PspNotifyThreadCreation @ 0x140921518 (PspNotifyThreadCreation.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     EtwpInitializeTimeStamp @ 0x1409CFBB0 (EtwpInitializeTimeStamp.c)
+ *     EtwpInitLoggerContext @ 0x1409CFDB8 (EtwpInitLoggerContext.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
+ *     EtwTraceLpacAccessFailure @ 0x1409EAD24 (EtwTraceLpacAccessFailure.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall KeQuerySystemTimePrecise(_QWORD *a1)

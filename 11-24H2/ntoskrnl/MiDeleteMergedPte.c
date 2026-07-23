@@ -1,46 +1,48 @@
 /*
- * XREFs of MiDeleteMergedPte @ 0x14023E00C
+ * XREFs of MiDeleteMergedPte @ 0x140205D9C
  * Callers:
- *     MiDecommitSharedPageTail @ 0x14023E140 (MiDecommitSharedPageTail.c)
- *     MiDecrementCloneBlock @ 0x1402F9160 (MiDecrementCloneBlock.c)
+ *     MiDecommitSharedPageTail @ 0x140206290 (MiDecommitSharedPageTail.c)
+ *     MiDecrementCloneBlock @ 0x140294E14 (MiDecrementCloneBlock.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiLockProtoPoolPage @ 0x14022E920 (MiLockProtoPoolPage.c)
- *     MiTryDeleteTransitionPte @ 0x14023C7DC (MiTryDeleteTransitionPte.c)
- *     MiUnlockProtoPoolPage @ 0x14028CBF0 (MiUnlockProtoPoolPage.c)
+ *     MiTryDeleteTransitionPte @ 0x140204568 (MiTryDeleteTransitionPte.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     MiUnlockProtoPoolPage @ 0x14029C7F0 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x140302230 (MiLockProtoPoolPage.c)
  */
 
-unsigned __int64 __fastcall MiDeleteMergedPte(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall MiDeleteMergedPte(__int64 a1, __int64 *a2)
 {
-  unsigned __int64 result; // rax
+  __int64 result; // rax
   __int64 v5; // rbp
-  unsigned __int64 v6; // rdx
-  unsigned int v7; // edi
-  unsigned __int8 v8; // [rsp+48h] [rbp+10h] BYREF
-  unsigned __int64 v9; // [rsp+50h] [rbp+18h]
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rdx
+  unsigned int v9; // edi
+  char v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v11; // [rsp+50h] [rbp+18h]
 
   result = *a2;
-  v8 = 0;
+  v10 = 0;
   if ( result )
   {
-    v5 = MiLockProtoPoolPage((unsigned __int64)a2, &v8);
-    v7 = MiTryDeleteTransitionPte((ULONG_PTR)a2);
-    if ( v7 == 1 )
+    v5 = MiLockProtoPoolPage(a2, &v10);
+    v9 = MiTryDeleteTransitionPte((ULONG_PTR)a2, v6, v7);
+    if ( v9 == 1 )
     {
-      v9 = *a2;
-      if ( (v9 & 0x400) == 0 )
+      v11 = *a2;
+      if ( (v11 & 0x400) == 0 )
       {
-        v6 = v9;
-        if ( (v9 & 4) != 0 || (v9 & 2) != 0 )
+        v8 = v11;
+        if ( (v11 & 4) != 0 || (v11 & 2) != 0 )
         {
-          if ( v9 )
-            MiReleasePageFileInfo(a1, v9, 1LL);
+          if ( v11 )
+            MiReleasePageFileInfo(a1, v11, 1LL);
         }
       }
     }
-    LOBYTE(v6) = v8;
-    MiUnlockProtoPoolPage(v5, v6);
-    return v7;
+    LOBYTE(v8) = v10;
+    MiUnlockProtoPoolPage(v5, v8);
+    return v9;
   }
   return result;
 }

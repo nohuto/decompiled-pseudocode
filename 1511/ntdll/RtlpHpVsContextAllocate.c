@@ -13,19 +13,19 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlpHpVsContextAllocate(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall RtlpHpVsContextAllocate(PRTL_SRWLOCK SRWLock, size_t Size, unsigned int a3, unsigned int a4)
 {
   size_t v4; // r13
   unsigned int v6; // r14d
   unsigned int v8; // r15d
   int v9; // ebp
   unsigned int v10; // esi
-  _QWORD *v11; // rax
+  _QWORD *Value; // rax
   __int64 v12; // r9
   _QWORD *v13; // r8
   unsigned int v14; // edx
-  _QWORD *v15; // rbx
-  _QWORD *v16; // rcx
+  _RTL_SRWLOCK *v15; // rbx
+  PRTL_SRWLOCK *v16; // rcx
   __int64 v17; // rsi
   __int64 v18; // rbx
   __int64 v19; // r10
@@ -40,59 +40,59 @@ __int64 __fastcall RtlpHpVsContextAllocate(__int64 a1, unsigned int a2, unsigned
   __int64 v28; // rdx
   signed __int64 v29; // rtt
 
-  v4 = a2;
+  v4 = (unsigned int)Size;
   v6 = a3;
-  if ( a2 != a3 )
+  if ( (_DWORD)Size != a3 )
     v6 = a3 + 2;
   v8 = (v6 + 15) >> 4;
   v9 = a4 & 1;
   if ( (a4 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1);
+    RtlAcquireSRWLockExclusive(SRWLock);
   v10 = (v8 + 1) << 16;
   while ( 1 )
   {
-    v11 = *(_QWORD **)(a1 + 8);
+    Value = (_QWORD *)SRWLock[1].Value;
     v12 = RtlpLFHKey;
     v13 = 0LL;
-    while ( v11 )
+    while ( Value )
     {
-      v14 = RtlpLFHKey ^ ((_DWORD)v11 - 8) ^ *((_DWORD *)v11 - 2);
+      v14 = RtlpLFHKey ^ ((_DWORD)Value - 8) ^ *((_DWORD *)Value - 2);
       if ( v10 < v14 )
       {
-        v13 = v11;
-        v11 = (_QWORD *)*v11;
+        v13 = Value;
+        Value = (_QWORD *)*Value;
       }
       else
       {
         if ( v10 <= v14 )
           goto LABEL_13;
-        v11 = (_QWORD *)v11[1];
+        Value = (_QWORD *)Value[1];
       }
     }
-    v11 = v13;
+    Value = v13;
 LABEL_13:
-    if ( v11 )
+    if ( Value )
       break;
     if ( !v9 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-    v15 = (_QWORD *)RtlpHpVsSubsegmentCreate(a1, v6, a4, v12);
+      RtlReleaseSRWLockExclusive(SRWLock);
+    v15 = (_RTL_SRWLOCK *)RtlpHpVsSubsegmentCreate(SRWLock, v6, a4, v12);
     if ( !v15 )
       return 0LL;
     if ( !v9 )
-      RtlAcquireSRWLockExclusive(a1);
-    v16 = *(_QWORD **)(a1 + 32);
-    *v15 = a1 + 24;
-    v15[1] = v16;
-    if ( *v16 != a1 + 24 )
+      RtlAcquireSRWLockExclusive(SRWLock);
+    v16 = (PRTL_SRWLOCK *)SRWLock[4].Value;
+    v15->Value = (unsigned __int64)&SRWLock[3];
+    v15[1].Value = (unsigned __int64)v16;
+    if ( *v16 != &SRWLock[3] )
       __fastfail(3u);
     *v16 = v15;
-    *(_QWORD *)(a1 + 32) = v15;
-    RtlpHpVsFreeChunkInsert((_QWORD *)a1, (__int64)v15, (__int64)(v15 + 6));
+    SRWLock[4].Value = (unsigned __int64)v15;
+    RtlpHpVsFreeChunkInsert(SRWLock, (__int64)v15, (__int64)&v15[6]);
   }
-  v18 = (__int64)(v11 - 1);
-  v19 = HIDWORD(*(v11 - 1));
-  v20 = (unsigned __int64)(v11 - 1) >> 32;
-  v21 = v11 - 1;
+  v18 = (__int64)(Value - 1);
+  v19 = HIDWORD(*(Value - 1));
+  v20 = (unsigned __int64)(Value - 1) >> 32;
+  v21 = Value - 1;
   v22 = v19 ^ v20 ^ HIDWORD(RtlpLFHKey);
   if ( (v22 & 0xFF0000) != 0 )
   {
@@ -110,15 +110,15 @@ LABEL_13:
   v24 = ((unsigned __int64)v21 - (unsigned int)(v23 << 12)) & 0xFFFFFFFFFFFFF000uLL;
   if ( (*(_WORD *)(v24 + 34) ^ 0xABED) != *(_WORD *)(v24 + 32) )
   {
-    RtlpLogHeapFailure(17, *(_QWORD *)(a1 + 56), v24, v18, 0LL, 0LL);
+    RtlpLogHeapFailure(17, SRWLock[7].Value, v24, v18, 0LL, 0LL);
     goto LABEL_31;
   }
-  if ( !(unsigned int)RtlpHpVsChunkSplit(a1, v24, v18, v8 + 1, a4) )
+  if ( !(unsigned int)RtlpHpVsChunkSplit(SRWLock, v24, v18, v8 + 1, a4) )
   {
 LABEL_31:
     v17 = 0LL;
     if ( !v9 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+      RtlReleaseSRWLockExclusive(SRWLock);
     return v17;
   }
   v17 = v18 + 16;
@@ -143,7 +143,7 @@ LABEL_31:
   }
   if ( !v9 )
   {
-    v26 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, 0LL, 1LL);
+    v26 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
     if ( v26 != 1 )
     {
       do
@@ -154,11 +154,11 @@ LABEL_31:
           v27 = 3LL;
         v28 = v27 + v26;
         v29 = v26;
-        v26 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v27 + v26, v26);
+        v26 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v27 + v26, v26);
       }
       while ( v29 != v26 );
       if ( v27 == 3 )
-        RtlpWakeSRWLock(a1, v28, 0LL);
+        RtlpWakeSRWLock(SRWLock, v28, 0LL);
     }
   }
   if ( (a4 & 2) != 0 )

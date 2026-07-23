@@ -1,32 +1,75 @@
 /*
- * XREFs of PopDiagTraceExternalDisplayState @ 0x14077BE68
+ * XREFs of PopDiagTraceExternalDisplayState @ 0x1407D668C
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopWnfUsb4DisplayPresenceCallback @ 0x1407DA420 (PopWnfUsb4DisplayPresenceCallback.c)
+ *     PopUpdateExternalDisplayStateV1 @ 0x1407E2648 (PopUpdateExternalDisplayStateV1.c)
+ *     PopUpdateExternalDisplayState @ 0x140B777F0 (PopUpdateExternalDisplayState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     Feature_NU4MP__private_IsEnabledDeviceUsageNoInline @ 0x140602F80 (Feature_NU4MP__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
-void PopDiagTraceExternalDisplayState()
+char __fastcall PopDiagTraceExternalDisplayState(char a1, char a2)
 {
-  char v0; // r8
-  char v1; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v2; // [rsp+38h] [rbp-60h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+40h] [rbp-58h] BYREF
-  char *v4; // [rsp+60h] [rbp-38h]
-  __int64 v5; // [rsp+68h] [rbp-30h]
-  __int64 *v6; // [rsp+70h] [rbp-28h]
-  __int64 v7; // [rsp+78h] [rbp-20h]
+  int IsEnabledDeviceUsageNoInline; // eax
+  unsigned __int8 *v5; // rdx
+  ULONG v7; // [rsp+20h] [rbp-29h]
+  char v8; // [rsp+30h] [rbp-19h] BYREF
+  char v9; // [rsp+31h] [rbp-18h] BYREF
+  __int64 v10; // [rsp+38h] [rbp-11h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v11; // [rsp+40h] [rbp-9h] BYREF
+  char *v12; // [rsp+60h] [rbp+17h]
+  __int64 v13; // [rsp+68h] [rbp+1Fh]
+  __int64 *v14; // [rsp+70h] [rbp+27h]
+  __int64 v15; // [rsp+78h] [rbp+2Fh]
+  __int64 *v16; // [rsp+80h] [rbp+37h]
+  __int64 v17; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  IsEnabledDeviceUsageNoInline = Feature_NU4MP__private_IsEnabledDeviceUsageNoInline();
+  if ( IsEnabledDeviceUsageNoInline )
   {
-    v1 = v0;
-    v4 = &v1;
-    v5 = 1LL;
-    v6 = &v2;
-    v2 = 0x1000000LL;
-    v7 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)&dword_14004AECC, 0LL, 0LL, 4u, &v3);
+    if ( (unsigned int)dword_140E07560 > 5 )
+    {
+      LOBYTE(IsEnabledDeviceUsageNoInline) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
+      if ( (_BYTE)IsEnabledDeviceUsageNoInline )
+      {
+        v9 = a1;
+        v12 = &v9;
+        v5 = (unsigned __int8 *)byte_14004B471;
+        v8 = a2;
+        v14 = (__int64 *)&v8;
+        v16 = &v10;
+        v7 = 5;
+        v15 = 1LL;
+        v17 = 8LL;
+LABEL_8:
+        v13 = 1LL;
+        v10 = 0x1000000LL;
+        LOBYTE(IsEnabledDeviceUsageNoInline) = tlgWriteTransfer_EtwWriteTransfer(
+                                                 (__int64)&dword_140E07560,
+                                                 v5,
+                                                 0LL,
+                                                 0LL,
+                                                 v7,
+                                                 &v11);
+      }
+    }
   }
+  else if ( (unsigned int)dword_140E07560 > 5 )
+  {
+    LOBYTE(IsEnabledDeviceUsageNoInline) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
+    if ( (_BYTE)IsEnabledDeviceUsageNoInline )
+    {
+      v8 = a1;
+      v12 = &v8;
+      v5 = (unsigned __int8 *)word_14004B4DA;
+      v15 = 8LL;
+      v14 = &v10;
+      v7 = 4;
+      goto LABEL_8;
+    }
+  }
+  return IsEnabledDeviceUsageNoInline;
 }

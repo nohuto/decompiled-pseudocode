@@ -18,15 +18,15 @@
  *     CmpAcquireShutdownRundown @ 0x140695430 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
+NTSTATUS __cdecl NtQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
   char v4; // si
   __int64 v5; // rdx
   BOOLEAN v6; // r14
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   __int64 v8; // rcx
   PADAPTER_OBJECT v9; // rdi
-  int v10; // ebx
+  ULONG v10; // ebx
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-1A0h] BYREF
   int v13; // [rsp+50h] [rbp-198h]
   _OWORD v14[3]; // [rsp+58h] [rbp-190h] BYREF
@@ -47,12 +47,19 @@ __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
     LOBYTE(v5) = KeGetCurrentThread()->PreviousMode;
     if ( (_BYTE)v5 == 1 )
     {
-      v8 = (__int64)a2;
-      if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+      v8 = (__int64)HandleCount;
+      if ( (unsigned __int64)HandleCount >= 0x7FFFFFFF0000LL )
         v8 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v8 = *(_DWORD *)v8;
     }
-    v7 = ObReferenceObjectByNameEx(a1, v5, 0x20019u, (__int64)CmKeyObjectType, v5, (__int64)v15, &DmaAdapter);
+    v7 = ObReferenceObjectByNameEx(
+           (__int64)TargetKey,
+           v5,
+           0x20019u,
+           (__int64)CmKeyObjectType,
+           v5,
+           (__int64)v15,
+           &DmaAdapter);
     if ( v7 >= 0 )
     {
       CmpLockRegistryExclusive();
@@ -68,7 +75,7 @@ __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
           CmpDetachFromRegistryProcess((__int64)v14);
           CmpUnlockRegistry();
           v4 = 0;
-          *a2 = v10;
+          *HandleCount = v10;
           v7 = 0;
         }
         else
@@ -89,5 +96,5 @@ __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
     CmpReleaseShutdownRundown();
   if ( DmaAdapter )
     HalPutDmaAdapter(DmaAdapter);
-  return (unsigned int)v7;
+  return v7;
 }

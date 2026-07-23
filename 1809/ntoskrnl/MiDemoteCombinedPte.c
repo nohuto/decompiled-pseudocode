@@ -1,26 +1,26 @@
 /*
- * XREFs of MiDemoteCombinedPte @ 0x14006C200
+ * XREFs of MiDemoteCombinedPte @ 0x14006C1F0
  * Callers:
- *     MiAgePte @ 0x14006ADD0 (MiAgePte.c)
- *     MiWalkVaCheckCommon @ 0x140087E1C (MiWalkVaCheckCommon.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     NtUnlockVirtualMemory @ 0x1400B3D90 (NtUnlockVirtualMemory.c)
- *     MiResetAccessBitPte @ 0x14016E830 (MiResetAccessBitPte.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1402AB6BC (MiDeprioritizeVirtualAddresses.c)
+ *     MiAgePte @ 0x14006ADC0 (MiAgePte.c)
+ *     MiWalkVaCheckCommon @ 0x140087E0C (MiWalkVaCheckCommon.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     NtUnlockVirtualMemory @ 0x1400B3CD0 (NtUnlockVirtualMemory.c)
+ *     MiResetAccessBitPte @ 0x14016E930 (MiResetAccessBitPte.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1402AB8AC (MiDeprioritizeVirtualAddresses.c)
  * Callees:
  *     MiUnlockPageTableCharges @ 0x14001A320 (MiUnlockPageTableCharges.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiFreeCombineBlock @ 0x14011FAA4 (MiFreeCombineBlock.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x140126BA0 (MiUpdateWorkingSetPrivateSize.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogCombinedPteDelete @ 0x1402CC078 (MiLogCombinedPteDelete.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiIdentifyPfn @ 0x1400A7E20 (MiIdentifyPfn.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiFreeCombineBlock @ 0x14011FB14 (MiFreeCombineBlock.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x140126C70 (MiUpdateWorkingSetPrivateSize.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogCombinedPteDelete @ 0x1402CC268 (MiLogCombinedPteDelete.c)
  */
 
 __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -87,7 +87,7 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
   v11 = (*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL;
   v12 = (*(_BYTE *)(a1 + 184) & 7) == 0;
   v35 = (__int64)(a2 << 25) >> 16;
-  v30 = *(_QWORD *)(qword_14043A748 + 8 * v11);
+  v30 = *(_QWORD *)(qword_14043B808 + 8 * v11);
   if ( v12 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
@@ -104,7 +104,7 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
   v28 = v17;
   v18 = *(_WORD *)(v9 + 32);
   if ( v18 != 1 && (v18 != 2 || (*(_BYTE *)(v9 + 34) & 8) == 0)
-    || *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 174)) != v30 )
+    || *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 174)) != v30 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( !KiIrqlFlags || (KiIrqlFlags & 1) == 0 || KeGetCurrentIrql() < 2u || v17 >= 2u )

@@ -1,18 +1,18 @@
 /*
- * XREFs of KiUserApcDispatcher @ 0x1800A1390
+ * XREFs of KiUserApcDispatcher @ 0x1800A1350
  * Callers:
- *     KiUserApcDispatcher @ 0x1800A1390 (KiUserApcDispatcher.c)
+ *     KiUserApcDispatcher @ 0x1800A1350 (KiUserApcDispatcher.c)
  * Callees:
- *     ZwContinueEx @ 0x18009EA50 (ZwContinueEx.c)
- *     KiUserCallForwarder @ 0x1800A1340 (KiUserCallForwarder.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     ZwContinueEx @ 0x18009EA10 (ZwContinueEx.c)
+ *     KiUserCallForwarder @ 0x1800A1300 (KiUserCallForwarder.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
 void __noreturn KiUserApcDispatcher()
 {
   unsigned __int64 v0; // rcx
-  unsigned int v1; // eax
-  unsigned int v2; // esi
+  NTSTATUS v1; // eax
+  NTSTATUS v2; // esi
   unsigned __int64 v3; // rcx
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
   __int64 v5; // [rsp+8h] [rbp+8h]
@@ -37,7 +37,7 @@ void __noreturn KiUserApcDispatcher()
         goto LABEL_7;
       }
     }
-    v1 = ZwContinueEx();
+    v1 = ZwContinueEx((PCONTEXT)&retaddr, &STACK[0x4F0]);
     if ( v1 )
     {
       if ( v1 == -1073740278 )

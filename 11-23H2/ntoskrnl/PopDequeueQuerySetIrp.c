@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDequeueQuerySetIrp @ 0x14028E3BC
+ * XREFs of PopDequeueQuerySetIrp @ 0x14028E64C
  * Callers:
- *     PopHandleDevicePowerIrpCompletion @ 0x14028E1A0 (PopHandleDevicePowerIrpCompletion.c)
- *     PopSystemIrpCompletion @ 0x140AA75C0 (PopSystemIrpCompletion.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x14028E430 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140AA7430 (PopSystemIrpCompletion.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PopDiagTraceIrpFinish @ 0x14028E514 (PopDiagTraceIrpFinish.c)
- *     PopCompleteIrpWatchdog @ 0x14028E6A4 (PopCompleteIrpWatchdog.c)
- *     PopDeepSleepClearDisengageReason @ 0x14028E75C (PopDeepSleepClearDisengageReason.c)
- *     PopDiagTraceIrpStart @ 0x14028EBA0 (PopDiagTraceIrpStart.c)
- *     PopEnableIrpWatchdog @ 0x14028ECB8 (PopEnableIrpWatchdog.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDisableIrpWatchdog @ 0x14058305C (PopDisableIrpWatchdog.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagTraceIrpFinish @ 0x14028E7A4 (PopDiagTraceIrpFinish.c)
+ *     PopCompleteIrpWatchdog @ 0x14028E934 (PopCompleteIrpWatchdog.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14028E9EC (PopDeepSleepClearDisengageReason.c)
+ *     PopDiagTraceIrpStart @ 0x14028EE30 (PopDiagTraceIrpStart.c)
+ *     PopEnableIrpWatchdog @ 0x14028EF48 (PopEnableIrpWatchdog.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDisableIrpWatchdog @ 0x14058354C (PopDisableIrpWatchdog.c)
  */
 
 __int64 __fastcall PopDequeueQuerySetIrp(__int64 a1)
@@ -147,10 +147,13 @@ LABEL_8:
   PopIrpLockThread = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

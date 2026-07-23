@@ -1,21 +1,21 @@
 /*
- * XREFs of KiTryToUpdateVPBackingThreadPriority @ 0x1402BF714
+ * XREFs of KiTryToUpdateVPBackingThreadPriority @ 0x14023DB64
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiUpdateVPBackingThreadPriority @ 0x140258E10 (KiUpdateVPBackingThreadPriority.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiTryToAcquireThreadLock @ 0x1402AB270 (KiTryToAcquireThreadLock.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiTryToAcquireThreadLock @ 0x1402293B0 (KiTryToAcquireThreadLock.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x14027A380 (KiUpdateVPBackingThreadPriority.c)
  */
 
-void __fastcall KiTryToUpdateVPBackingThreadPriority(ULONG_PTR BugCheckParameter1, __int64 a2)
+void __fastcall KiTryToUpdateVPBackingThreadPriority(ULONG_PTR BugCheckParameter1)
 {
-  char v4; // [rsp+40h] [rbp+18h] BYREF
+  char v2; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 && KiTryToAcquireThreadLock(BugCheckParameter1, &v4) )
+  if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 && KiTryToAcquireThreadLock(BugCheckParameter1, &v2) )
   {
     if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 )
-      KiUpdateVPBackingThreadPriority(BugCheckParameter1, a2, 0);
+      KiUpdateVPBackingThreadPriority(BugCheckParameter1);
     KiReleaseThreadLockSafe(BugCheckParameter1);
   }
 }

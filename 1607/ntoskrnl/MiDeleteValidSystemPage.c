@@ -1,26 +1,26 @@
 /*
- * XREFs of MiDeleteValidSystemPage @ 0x14004B6A0
+ * XREFs of MiDeleteValidSystemPage @ 0x14004B220
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiDeleteKernelStackPages @ 0x1400A16C8 (MiDeleteKernelStackPages.c)
- *     MiRemoveMappedPtes @ 0x140100320 (MiRemoveMappedPtes.c)
- *     MiDeleteSystemPte @ 0x140122F44 (MiDeleteSystemPte.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteKernelStackPages @ 0x14009FFF0 (MiDeleteKernelStackPages.c)
+ *     MiRemoveMappedPtes @ 0x1400FE0A0 (MiRemoveMappedPtes.c)
+ *     MiDeleteSystemPte @ 0x1401234B4 (MiDeleteSystemPte.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiPfnShareCountIsZero @ 0x1400666E0 (MiPfnShareCountIsZero.c)
- *     MiIsPfnSystemCharged @ 0x14012E0DC (MiIsPfnSystemCharged.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiDriverPageIsDangling @ 0x1401E5EEC (MiDriverPageIsDangling.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiDecrementCombinedPte @ 0x1401F972C (MiDecrementCombinedPte.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiPfnShareCountIsZero @ 0x140066260 (MiPfnShareCountIsZero.c)
+ *     MiIsPfnSystemCharged @ 0x14012E64C (MiIsPfnSystemCharged.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiDriverPageIsDangling @ 0x1401E5D18 (MiDriverPageIsDangling.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiDecrementCombinedPte @ 0x1401F9558 (MiDecrementCombinedPte.c)
  */
 
 unsigned __int64 __fastcall MiDeleteValidSystemPage(_QWORD *BugCheckParameter2, char a2, __int64 a3)
@@ -62,7 +62,7 @@ unsigned __int64 __fastcall MiDeleteValidSystemPage(_QWORD *BugCheckParameter2, 
   if ( v10 == 1023 )
     v11 = (struct _KEVENT *)MiSystemPartition;
   else
-    v11 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v10);
+    v11 = *(struct _KEVENT **)(qword_140327038 + 8LL * v10);
   v27 = v11;
   if ( (v9 & 0x200000000000000LL) != 0 )
   {
@@ -131,7 +131,7 @@ LABEL_29:
       ++*(_QWORD *)(a3 + 8);
     return result;
   }
-  if ( v8 != qword_140327680 )
+  if ( v8 != qword_1403276C0 )
   {
     if ( (_QWORD *)(*(_QWORD *)(v8 + 8) | 0x8000000000000000uLL) != BugCheckParameter2 )
       KeBugCheckEx(0x1Au, 0x404uLL, (ULONG_PTR)BugCheckParameter2, v6, *(_QWORD *)(v8 + 8));

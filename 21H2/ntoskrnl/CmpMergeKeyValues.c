@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpMergeKeyValues @ 0x140879480
+ * XREFs of CmpMergeKeyValues @ 0x1408795E0
  * Callers:
- *     CmpCopySyncTree2 @ 0x140878590 (CmpCopySyncTree2.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
+ *     CmpCopySyncTree2 @ 0x1408786F0 (CmpCopySyncTree2.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpAddValueToListEx @ 0x140667464 (CmpAddValueToListEx.c)
- *     CmpFindNameInList @ 0x1406695F8 (CmpFindNameInList.c)
- *     CmpInitializeValueNameString @ 0x1406A45C8 (CmpInitializeValueNameString.c)
- *     CmpCopyValue @ 0x140878D20 (CmpCopyValue.c)
- *     CmpSyncKeyValues @ 0x140879E2C (CmpSyncKeyValues.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpInitializeValueNameString @ 0x1405E2098 (CmpInitializeValueNameString.c)
+ *     CmpAddValueToListEx @ 0x14065C284 (CmpAddValueToListEx.c)
+ *     CmpFindNameInList @ 0x14065E418 (CmpFindNameInList.c)
+ *     CmpCopyValue @ 0x140878E80 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x140879F8C (CmpSyncKeyValues.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpMergeKeyValues(__int64 a1, __int64 a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, __int64 a6)
@@ -21,9 +21,9 @@ char __fastcall CmpMergeKeyValues(__int64 a1, __int64 a2, _DWORD *a3, ULONG_PTR 
   unsigned int v10; // ecx
   unsigned int v11; // ecx
   unsigned int *v12; // r13
-  _WORD *PoolWithTag; // rax
+  PVOID PoolWithTag; // rax
   unsigned int v14; // r14d
-  _WORD *v15; // r12
+  void *v15; // r12
   __int64 v16; // rdx
   unsigned int *v17; // rsi
   unsigned int v18; // r15d
@@ -76,7 +76,7 @@ char __fastcall CmpMergeKeyValues(__int64 a1, __int64 a2, _DWORD *a3, ULONG_PTR 
           v19 = (*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(a1 + 8))(a1, *v17, v24);
           if ( !v19 )
             break;
-          CmpInitializeValueNameString(v19, (__int64)&v26, v15);
+          CmpInitializeValueNameString(v19, (__int64)&v26, (__int64)v15);
           v20 = !CmpFindNameInList(v29, v12, (__int64)&v26, 0, (__int64)&v28, (__int64)&v27);
           v21 = *(void (__fastcall **)(__int64, _DWORD *))(a1 + 16);
           if ( v20 )

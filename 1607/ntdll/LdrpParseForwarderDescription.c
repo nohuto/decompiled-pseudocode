@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpParseForwarderDescription @ 0x18007B844
+ * XREFs of LdrpParseForwarderDescription @ 0x18007B834
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180031D60 (LdrGetProcedureAddressForCaller.c)
- *     LdrpHandleProtectedDelayload @ 0x180033840 (LdrpHandleProtectedDelayload.c)
- *     LdrpResolveProcedureAddress @ 0x18007B5EC (LdrpResolveProcedureAddress.c)
+ *     LdrGetProcedureAddressForCaller @ 0x180031D50 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpHandleProtectedDelayload @ 0x180033830 (LdrpHandleProtectedDelayload.c)
+ *     LdrpResolveProcedureAddress @ 0x18007B5DC (LdrpResolveProcedureAddress.c)
  * Callees:
- *     RtlCharToInteger @ 0x18007B8E0 (RtlCharToInteger.c)
- *     strrchr @ 0x18009BAA0 (strrchr.c)
+ *     RtlCharToInteger @ 0x18007B8D0 (RtlCharToInteger.c)
+ *     strrchr @ 0x18009BA90 (strrchr.c)
  */
 
 __int64 __fastcall LdrpParseForwarderDescription(const char *a1, __int64 a2, char **a3, ULONG *a4)

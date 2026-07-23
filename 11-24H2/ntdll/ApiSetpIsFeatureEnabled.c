@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetpIsFeatureEnabled @ 0x180136718
+ * XREFs of ApiSetpIsFeatureEnabled @ 0x180134948
  * Callers:
- *     ApiSetQuerySchemaInfo2_V7 @ 0x180135634 (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetpResolveHost @ 0x180135C7C (ApiSetpResolveHost.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x180133864 (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetpResolveHost @ 0x180133EAC (ApiSetpResolveHost.c)
  * Callees:
- *     Feature_DriverSetup_ReofferFingerprinting_v2__private_IsEnabledDeviceUsageNoInline @ 0x180136758 (Feature_DriverSetup_ReofferFingerprinting_v2__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_DriverStore_EnumerateBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x18013679C (Feature_DriverStore_EnumerateBlockedDrivers__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_DriverSetup_ReofferFingerprinting_v2__private_IsEnabledDeviceUsageNoInline @ 0x180134988 (Feature_DriverSetup_ReofferFingerprinting_v2__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_DriverStore_EnumerateBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x1801349CC (Feature_DriverStore_EnumerateBlockedDrivers__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 bool __fastcall ApiSetpIsFeatureEnabled(int a1)

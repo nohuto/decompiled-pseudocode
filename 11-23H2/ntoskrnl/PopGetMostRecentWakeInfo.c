@@ -1,14 +1,14 @@
 /*
- * XREFs of PopGetMostRecentWakeInfo @ 0x14058E5E0
+ * XREFs of PopGetMostRecentWakeInfo @ 0x14058EAD0
  * Callers:
- *     PopQueryMostRecentWakeSourceAttributes @ 0x140987574 (PopQueryMostRecentWakeSourceAttributes.c)
- *     PopQueryMostRecentWakeSourceInfo @ 0x140987674 (PopQueryMostRecentWakeSourceInfo.c)
- *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1409939E0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
- *     PopIsMostRecentWakeAttended @ 0x140AA107C (PopIsMostRecentWakeAttended.c)
+ *     PopQueryMostRecentWakeSourceAttributes @ 0x140987774 (PopQueryMostRecentWakeSourceAttributes.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140987874 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x140993BE0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopIsMostRecentWakeAttended @ 0x140AA0EEC (PopIsMostRecentWakeAttended.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopGetMostRecentWakeInfo()
@@ -27,15 +27,18 @@ __int64 PopGetMostRecentWakeInfo()
   KeAcquireInStackQueuedSpinLock(&PopWakeSourceLock, &LockHandle);
   if ( PopWakeInfoCount )
   {
-    v0 = qword_140C3E708;
-    _InterlockedIncrement((volatile signed __int32 *)(qword_140C3E708 + 16));
+    v0 = qword_140C3E6C8;
+    _InterlockedIncrement((volatile signed __int32 *)(qword_140C3E6C8 + 16));
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

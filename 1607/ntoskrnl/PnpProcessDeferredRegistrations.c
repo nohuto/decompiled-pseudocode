@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpProcessDeferredRegistrations @ 0x1403EFCC0
+ * XREFs of PnpProcessDeferredRegistrations @ 0x14048CB60
  * Callers:
- *     PnpDeviceEventWorker @ 0x1403EF9F0 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x14048B32C (PnpDeviceEventWorker.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpDereferenceNotify @ 0x1403F0FC8 (PnpDereferenceNotify.c)
+ *     PnpDereferenceNotify @ 0x140489340 (PnpDereferenceNotify.c)
  */
 
 void PnpProcessDeferredRegistrations()
@@ -35,7 +35,7 @@ void PnpProcessDeferredRegistrations()
     if ( v3 )
       ExAcquireFastMutex(*(PFAST_MUTEX *)(v2 + 64));
     *(_BYTE *)(v0[2] + 58LL) = 0;
-    PnpDereferenceNotify(v0[2]);
+    PnpDereferenceNotify((_WORD *)v0[2]);
     ExFreePoolWithTag(v0, 0x37706E50u);
     if ( v3 )
       KeReleaseGuardedMutex(v3);

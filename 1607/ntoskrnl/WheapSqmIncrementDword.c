@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapSqmIncrementDword @ 0x140231CC4
+ * XREFs of WheapSqmIncrementDword @ 0x140231AF0
  * Callers:
- *     WheapPfaMemoryCheck @ 0x1406BB4C4 (WheapPfaMemoryCheck.c)
+ *     WheapPfaMemoryCheck @ 0x1406BB5FC (WheapPfaMemoryCheck.c)
  * Callees:
  *     <none>
  */

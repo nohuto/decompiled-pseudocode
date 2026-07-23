@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyPdata @ 0x1409CFFD0
+ * XREFs of KiVerifyPdata @ 0x1409D0FD0
  * Callers:
- *     KiVerifyScopesExecute @ 0x1409CF900 (KiVerifyScopesExecute.c)
+ *     KiVerifyScopesExecute @ 0x1409D0900 (KiVerifyScopesExecute.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpxLookupFunctionTable @ 0x1400A17F0 (RtlpxLookupFunctionTable.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2)
@@ -18,15 +18,15 @@ __int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2)
   ULONG_PTR BugCheckParameter3; // [rsp+40h] [rbp-18h]
   unsigned int v9; // [rsp+60h] [rbp+8h]
 
-  if ( BugCheckParameter2 < *(&xmmword_140558020 + 1)
-    || BugCheckParameter2 >= *(&xmmword_140558020 + 1) + (unsigned int)qword_140558030 )
+  if ( BugCheckParameter2 < *(&xmmword_140559020 + 1)
+    || BugCheckParameter2 >= *(&xmmword_140559020 + 1) + (unsigned int)qword_140559030 )
   {
     v2 = (unsigned int *)RtlpxLookupFunctionTable(BugCheckParameter2, (__int64)v7);
   }
   else
   {
-    v2 = (unsigned int *)xmmword_140558020;
-    BugCheckParameter3 = qword_140558030;
+    v2 = (unsigned int *)xmmword_140559020;
+    BugCheckParameter3 = qword_140559030;
   }
   result = v9;
   if ( v2 )

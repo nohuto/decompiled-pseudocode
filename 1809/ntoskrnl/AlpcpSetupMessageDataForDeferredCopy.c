@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpSetupMessageDataForDeferredCopy @ 0x14061A884
+ * XREFs of AlpcpSetupMessageDataForDeferredCopy @ 0x14061B884
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x140614A64 (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x140619CD8 (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x140615A64 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x14061ACD8 (AlpcpAcceptConnectPort.c)
  * Callees:
- *     AlpcpAvailableBufferSize @ 0x140582068 (AlpcpAvailableBufferSize.c)
- *     AlpcpCaptureMessageData @ 0x1406A4208 (AlpcpCaptureMessageData.c)
+ *     AlpcpAvailableBufferSize @ 0x140583068 (AlpcpAvailableBufferSize.c)
+ *     AlpcpCaptureMessageData @ 0x1406A54A8 (AlpcpCaptureMessageData.c)
  */
 
 __int64 __fastcall AlpcpSetupMessageDataForDeferredCopy(

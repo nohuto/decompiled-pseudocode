@@ -1,12 +1,12 @@
 /*
  * XREFs of PsIsDiskCountersEnabled @ 0x1403D9790
  * Callers:
- *     ExpPcwHostCallback @ 0x14085B800 (ExpPcwHostCallback.c)
+ *     sub_14085B800 @ 0x14085B800 (sub_14085B800.c)
  * Callees:
  *     <none>
  */
 
 bool PsIsDiskCountersEnabled()
 {
-  return PsDisableDiskCounters == 0;
+  return dword_140D06BE8 == 0;
 }

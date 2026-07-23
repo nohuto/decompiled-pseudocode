@@ -1,7 +1,7 @@
 /*
- * XREFs of InitializeKCBKeyBodyList @ 0x1405FF9C8
+ * XREFs of InitializeKCBKeyBodyList @ 0x1405FFA7C
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x1401B484C (CmpCloneToUnbackedKcb.c)
+ *     CmpCloneToUnbackedKcb @ 0x1401B4730 (CmpCloneToUnbackedKcb.c)
  * Callees:
  *     <none>
  */

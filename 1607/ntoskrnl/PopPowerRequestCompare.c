@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPowerRequestCompare @ 0x1404E1848
+ * XREFs of PopPowerRequestCompare @ 0x1404C4E4C
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PopPowerRequestCompare(struct _RTL_AVL_TABLE *Table, _DWORD *FirstStruct, _DWORD *SecondStruct)
+__int64 __fastcall PopPowerRequestCompare(_RTL_AVL_TABLE *a1, _DWORD *a2, _DWORD *a3)
 {
   int v3; // ecx
   __int64 result; // rax
   int v5; // edx
 
-  v3 = FirstStruct[2];
+  v3 = a2[2];
   result = 0LL;
-  v5 = SecondStruct[2];
+  v5 = a3[2];
   if ( v3 >= v5 )
   {
     LOBYTE(result) = v3 <= v5;

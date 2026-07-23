@@ -1,39 +1,39 @@
 /*
- * XREFs of KeStartAllProcessors @ 0x1409B5DAC
+ * XREFs of KeStartAllProcessors @ 0x1409B6DAC
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     MmCreateKernelStack @ 0x1400C9F10 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400CA4A0 (MmDeleteKernelStack.c)
- *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
- *     KiQueryProcessorNode @ 0x14017E55C (KiQueryProcessorNode.c)
- *     HvlStartBootLogicalProcessors @ 0x14017EA90 (HvlStartBootLogicalProcessors.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiRemoveProcessorFromGroupDatabase @ 0x14029025C (KiRemoveProcessorFromGroupDatabase.c)
- *     MmDeleteProcessor @ 0x1402A6164 (MmDeleteProcessor.c)
- *     ExDeletePoolTagTable @ 0x14031A48C (ExDeletePoolTagTable.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     KiConfigureSchedulingInformation @ 0x1405724C0 (KiConfigureSchedulingInformation.c)
- *     KiInitializePrcbContext @ 0x1405727D8 (KiInitializePrcbContext.c)
- *     KiUpdateProcessorCount @ 0x1405728EC (KiUpdateProcessorCount.c)
- *     KiConfigureProcessorBlock @ 0x140572988 (KiConfigureProcessorBlock.c)
- *     MmInitializeProcessor @ 0x140572A74 (MmInitializeProcessor.c)
- *     KiComputeProcessorDataSize @ 0x140572FFC (KiComputeProcessorDataSize.c)
- *     KiUnshadowProcessorAllocation @ 0x14057BA9C (KiUnshadowProcessorAllocation.c)
- *     MmAllocateIsrStack @ 0x1407299EC (MmAllocateIsrStack.c)
- *     KeInitializeTimerTable @ 0x140729BC8 (KeInitializeTimerTable.c)
- *     HvlInitializeProcessor @ 0x140729DB8 (HvlInitializeProcessor.c)
- *     KxInitializeProcessorState @ 0x140729E04 (KxInitializeProcessorState.c)
- *     ExCreatePoolTagTable @ 0x14072A62C (ExCreatePoolTagTable.c)
- *     HvlDeleteProcessor @ 0x14081782C (HvlDeleteProcessor.c)
- *     KiResetBootProcessorApicMask @ 0x140842DA4 (KiResetBootProcessorApicMask.c)
- *     KiAllocateCpuSetData @ 0x1409B5B78 (KiAllocateCpuSetData.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     MmCreateKernelStack @ 0x1400C9FF0 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400CA580 (MmDeleteKernelStack.c)
+ *     MmAllocateIndependentPagesEx @ 0x14010903C (MmAllocateIndependentPagesEx.c)
+ *     KiQueryProcessorNode @ 0x14017E69C (KiQueryProcessorNode.c)
+ *     HvlStartBootLogicalProcessors @ 0x14017EBD0 (HvlStartBootLogicalProcessors.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiRemoveProcessorFromGroupDatabase @ 0x14029044C (KiRemoveProcessorFromGroupDatabase.c)
+ *     MmDeleteProcessor @ 0x1402A6354 (MmDeleteProcessor.c)
+ *     ExDeletePoolTagTable @ 0x14031A67C (ExDeletePoolTagTable.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     KiConfigureSchedulingInformation @ 0x1405734C0 (KiConfigureSchedulingInformation.c)
+ *     KiInitializePrcbContext @ 0x1405737D8 (KiInitializePrcbContext.c)
+ *     KiUpdateProcessorCount @ 0x1405738EC (KiUpdateProcessorCount.c)
+ *     KiConfigureProcessorBlock @ 0x140573988 (KiConfigureProcessorBlock.c)
+ *     MmInitializeProcessor @ 0x140573A74 (MmInitializeProcessor.c)
+ *     KiComputeProcessorDataSize @ 0x140573FFC (KiComputeProcessorDataSize.c)
+ *     KiUnshadowProcessorAllocation @ 0x14057CA9C (KiUnshadowProcessorAllocation.c)
+ *     MmAllocateIsrStack @ 0x14072ABDC (MmAllocateIsrStack.c)
+ *     KeInitializeTimerTable @ 0x14072ADB8 (KeInitializeTimerTable.c)
+ *     HvlInitializeProcessor @ 0x14072AFA8 (HvlInitializeProcessor.c)
+ *     KxInitializeProcessorState @ 0x14072AFF4 (KxInitializeProcessorState.c)
+ *     ExCreatePoolTagTable @ 0x14072B81C (ExCreatePoolTagTable.c)
+ *     HvlDeleteProcessor @ 0x140818A2C (HvlDeleteProcessor.c)
+ *     KiResetBootProcessorApicMask @ 0x140844004 (KiResetBootProcessorApicMask.c)
+ *     KiAllocateCpuSetData @ 0x1409B6B78 (KiAllocateCpuSetData.c)
  */
 
 ULONG KeStartAllProcessors()
@@ -195,7 +195,7 @@ ULONG KeStartAllProcessors()
       if ( !v17 )
         goto LABEL_99;
       v18 = (_OWORD *)KeNodeBlock[(unsigned __int16)v53];
-      if ( (unsigned int)HvlInitializeProcessor((union _SLIST_HEADER *)v17)
+      if ( (unsigned int)HvlInitializeProcessor((_SLIST_HEADER *)v17)
         || !(unsigned int)MmInitializeProcessor(v17)
         || (int)KiInitializePrcbContext(v17, (unsigned __int16)v53) < 0
         || (int)KeInitializeTimerTable(v17) < 0 )
@@ -305,7 +305,7 @@ LABEL_42:
   v22 = (unsigned __int16)KeNumberNodes;
   if ( (unsigned __int16)KeNumberNodes < 0x40u )
     memset(
-      (void *)(0x140000000LL + 8LL * (unsigned __int16)KeNumberNodes + 5612416),
+      (void *)(0x140000000LL + 8LL * (unsigned __int16)KeNumberNodes + 5616512),
       0,
       8LL * (64 - (unsigned int)(unsigned __int16)KeNumberNodes));
   v23 = 0;
@@ -371,7 +371,7 @@ LABEL_42:
     v10 = MaximumProcessorCount;
   }
   LOBYTE(v24) = 1;
-  ((void (__fastcall *)(unsigned __int64, _QWORD))off_1403FE3F0[0])(v24, 0LL);
+  ((void (__fastcall *)(unsigned __int64, _QWORD))off_1403FF3F0[0])(v24, 0LL);
   if ( !KeMaximumProcessors )
   {
     if ( !KeDynamicPartitioningSupported || v10 <= (unsigned int)KeNumberProcessors_0 )

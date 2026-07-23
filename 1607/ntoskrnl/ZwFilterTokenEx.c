@@ -1,14 +1,28 @@
 /*
- * XREFs of ZwFilterTokenEx @ 0x14015B7A0
+ * XREFs of ZwFilterTokenEx @ 0x14015BD10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFilterTokenEx(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwFilterTokenEx(
+        HANDLE ExistingTokenHandle,
+        ULONG Flags,
+        PTOKEN_GROUPS SidsToDisable,
+        PTOKEN_PRIVILEGES PrivilegesToDelete,
+        PTOKEN_GROUPS RestrictedSids,
+        ULONG DisableUserClaimsCount,
+        PUNICODE_STRING UserClaimsToDisable,
+        ULONG DisableDeviceClaimsCount,
+        PUNICODE_STRING DeviceClaimsToDisable,
+        PTOKEN_GROUPS DeviceGroupsToDisable,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION RestrictedUserAttributes,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION RestrictedDeviceAttributes,
+        PTOKEN_GROUPS RestrictedDeviceGroups,
+        PHANDLE NewTokenHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ExistingTokenHandle);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of _SysCtxInternalEnumSubkeyCallback @ 0x140140A4C
+ * XREFs of _SysCtxInternalEnumSubkeyCallback @ 0x140140FBC
  * Callers:
- *     _RegRtlEnumKeyWithCallback @ 0x1405624B4 (_RegRtlEnumKeyWithCallback.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x1405629F4 (_RegRtlEnumKeyWithCallback.c)
  * Callees:
  *     <none>
  */

@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpVerCompare @ 0x180062A68 (RtlpVerCompare.c)
  * Callees:
- *     _vsnprintf @ 0x180091710 (_vsnprintf.c)
+ *     _vsnprintf @ 0x180091720 (_vsnprintf.c)
  */
 
 __int64 RtlStringCbPrintfA(char *Buffer, __int64 a2, const char *a3, ...)

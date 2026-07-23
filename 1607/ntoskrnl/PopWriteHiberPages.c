@@ -1,22 +1,22 @@
 /*
  * XREFs of PopWriteHiberPages @ 0x1403CBF00
  * Callers:
- *     PopWriteSecurePages @ 0x140205BF4 (PopWriteSecurePages.c)
- *     PopWriteSecurePagesCallback @ 0x140205C94 (PopWriteSecurePagesCallback.c)
+ *     PopWriteSecurePages @ 0x140205A20 (PopWriteSecurePages.c)
+ *     PopWriteSecurePagesCallback @ 0x140205AC0 (PopWriteSecurePagesCallback.c)
  *     PopWriteHeaderPages @ 0x1403CBC90 (PopWriteHeaderPages.c)
  *     PopWriteChecksumPages @ 0x1403DF160 (PopWriteChecksumPages.c)
  *     PopWriteImageHeader @ 0x1403DF1F4 (PopWriteImageHeader.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     _PopInternalError @ 0x1401FF460 (_PopInternalError.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     _PopInternalError @ 0x1401FF28C (_PopInternalError.c)
  *     PopGetIoLocation @ 0x1403CE9D4 (PopGetIoLocation.c)
  *     PopCheckpointSystemSleep @ 0x1403CEBA4 (PopCheckpointSystemSleep.c)
  *     PopGetRemainingHibernateRangeDataSize @ 0x1403DF0DC (PopGetRemainingHibernateRangeDataSize.c)
- *     MmGetNumberOfPhysicalPages @ 0x1404145C8 (MmGetNumberOfPhysicalPages.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140413488 (MmGetNumberOfPhysicalPages.c)
  */
 
 __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -65,14 +65,14 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
   PopWatchdogTimerCount = result;
   if ( *(int *)(v9 + 188) >= 0 )
   {
-    if ( (a4 + a3) << 12 > qword_140303590 )
+    if ( (a4 + a3) << 12 > qword_1403034D0 )
     {
       PopCheckpointSystemSleep(22LL);
       if ( (unsigned int)(*(_DWORD *)(v9 + 184) - 4) <= 1 )
         BugCheckParameter4 = PopGetRemainingHibernateRangeDataSize(v9);
       NumberOfPhysicalPages = MmGetNumberOfPhysicalPages();
       IoAddTriageDumpDataBlock((int)&NumberOfPhysicalPages, 8);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140303590, *(unsigned int *)(v9 + 184), BugCheckParameter4);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_1403034D0, *(unsigned int *)(v9 + 184), BugCheckParameter4);
     }
     if ( a3 > 0xFFFFFFFFFFFFFLL )
       PopInternalError(0xA1EB0uLL);
@@ -116,8 +116,8 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       v19 = __rdtsc();
       v20 = (*(__int64 (__fastcall **)(__int64 *, __int64 *))(*(_QWORD *)(v9 + 168) + 64LL))(&v26, &v29);
       v21 = __rdtsc();
-      dword_140303A80 += v16;
-      qword_1403038B8 += (((unsigned __int64)HIDWORD(v21) << 32) | (unsigned int)v21) - v19;
+      dword_1403039C0 += v16;
+      qword_1403037F8 += (((unsigned __int64)HIDWORD(v21) << 32) | (unsigned int)v21) - v19;
       result = v27;
       v12 -= v27;
       v11 += v27;

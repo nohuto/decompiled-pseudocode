@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipRegistrationWorker @ 0x140A0B650
+ * XREFs of WmipRegistrationWorker @ 0x140A0A880
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     WmipUnreferenceRegEntry @ 0x1403B7080 (WmipUnreferenceRegEntry.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     IoControlPnpDeviceActionQueue @ 0x1404D7784 (IoControlPnpDeviceActionQueue.c)
- *     WmipRegisterOrUpdateDS @ 0x140A0B774 (WmipRegisterOrUpdateDS.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     WmipUnreferenceRegEntry @ 0x1403C0F80 (WmipUnreferenceRegEntry.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     IoControlPnpDeviceActionQueue @ 0x1404D0F4C (IoControlPnpDeviceActionQueue.c)
+ *     WmipRegisterOrUpdateDS @ 0x140A0A9A4 (WmipRegisterOrUpdateDS.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 WmipRegistrationWorker()
@@ -23,15 +23,15 @@ __int64 WmipRegistrationWorker()
 
   do
   {
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     v0 = WmipRegWorkList;
     v1 = *((_QWORD *)WmipRegWorkList + 3);
-    if ( v1 && *(_QWORD *)(v1 + 16) != *(_QWORD *)&EtwpSecurityLock.ForegroundLossTime )
+    if ( v1 && *(PDEVICE_OBJECT *)(v1 + 16) != WmipServiceDeviceObject )
     {
-      KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+      KeReleaseMutex(&WmipSMMutex, 0);
       IoControlPnpDeviceActionQueue(1);
       IoControlPnpDeviceActionQueue(0);
-      KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     }
     if ( *((PVOID **)WmipRegWorkList + 1) != &WmipRegWorkList
       || (v2 = *(_QWORD *)WmipRegWorkList, *(PVOID *)(*(_QWORD *)WmipRegWorkList + 8LL) != WmipRegWorkList) )
@@ -40,7 +40,7 @@ __int64 WmipRegistrationWorker()
     }
     WmipRegWorkList = *(PVOID *)WmipRegWorkList;
     *(_QWORD *)(v2 + 8) = &WmipRegWorkList;
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     v4 = v0[3];
     if ( v4 )
     {

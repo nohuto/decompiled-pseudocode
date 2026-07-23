@@ -1,8 +1,8 @@
 /*
- * XREFs of WheapGetPolicyValue @ 0x14095DE94
+ * XREFs of WheapGetPolicyValue @ 0x14095E074
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x1405BDEE0 (WheapWmiExecutePolicyManagementMethod.c)
- *     WheapGetAllPolicyValues @ 0x14095DE50 (WheapGetAllPolicyValues.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1405BE110 (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapGetAllPolicyValues @ 0x14095E030 (WheapGetAllPolicyValues.c)
  * Callees:
  *     <none>
  */

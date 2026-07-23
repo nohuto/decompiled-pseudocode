@@ -5,7 +5,7 @@
  *     RtlFormatCurrentUserKeyPath @ 0x18001AB50 (RtlFormatCurrentUserKeyPath.c)
  *     AVrfpAppendCurrentUserSid @ 0x1800E5C7C (AVrfpAppendCurrentUserSid.c)
  *     WerEscalationLazyInit @ 0x1800E97F8 (WerEscalationLazyInit.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E928 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E954 (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
  *     RtlCreateUnicodeString @ 0x18000E9A0 (RtlCreateUnicodeString.c)
  *     RtlIntegerToUnicode @ 0x18001AF90 (RtlIntegerToUnicode.c)
@@ -41,7 +41,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   _BYTE v22[2]; // [rsp+22Ch] [rbp-3Ch] BYREF
   _BYTE v23[2]; // [rsp+22Eh] [rbp-3Ah] BYREF
 
-  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+  if ( RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
     return -1073741704;
   wcscpy_s(&Destination, 0x100uLL, L"S-1-");
   v6 = v20;
@@ -102,7 +102,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
 LABEL_13:
       if ( AllocateDestinationString )
       {
-        if ( RtlCreateUnicodeString((__int64)UnicodeString, &Destination) )
+        if ( RtlCreateUnicodeString(UnicodeString, &Destination) )
           return 0;
         else
           return -1073741801;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRelinkTransitionSlabPages @ 0x14052E860
+ * XREFs of MiRelinkTransitionSlabPages @ 0x140530D80
  * Callers:
- *     MiDemoteSlabEntry @ 0x1402AA3B4 (MiDemoteSlabEntry.c)
- *     MiDeleteSlabEntriesForIdentity @ 0x1407067E0 (MiDeleteSlabEntriesForIdentity.c)
+ *     MiDemoteSlabEntry @ 0x1402A97C4 (MiDemoteSlabEntry.c)
+ *     MiDeleteSlabEntriesForIdentity @ 0x14070B4B0 (MiDeleteSlabEntriesForIdentity.c)
  * Callees:
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
  */
 
 __int64 __fastcall MiRelinkTransitionSlabPages(__int64 a1, __int64 a2, __int64 a3)

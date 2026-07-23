@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCustomAccessRoutine7 @ 0x1407329F0
+ * XREFs of KiCustomAccessRoutine7 @ 0x1407375C0
  * Callers:
- *     ExpTimeRefreshDpcRoutine @ 0x1404EF780 (ExpTimeRefreshDpcRoutine.c)
+ *     ExpTimeRefreshDpcRoutine @ 0x1404E8D60 (ExpTimeRefreshDpcRoutine.c)
  * Callees:
- *     KiCustomRecurseRoutine7 @ 0x1407329D0 (KiCustomRecurseRoutine7.c)
+ *     KiCustomRecurseRoutine7 @ 0x1407375A0 (KiCustomRecurseRoutine7.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine7(unsigned int *a1)

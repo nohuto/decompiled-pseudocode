@@ -1,278 +1,282 @@
 /*
- * XREFs of CmDeleteLayeredKey @ 0x140446A10
+ * XREFs of CmDeleteLayeredKey @ 0x14043F510
  * Callers:
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpCreateTombstone @ 0x1406E2950 (CmpCreateTombstone.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14085EDB4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpPromoteKey @ 0x1408B0E74 (CmpPromoteKey.c)
- *     CmpDiscardKcb @ 0x1408B9D6C (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1408BA08C (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x1408BA114 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpLockKcbStackExclusive @ 0x1408BA310 (CmpLockKcbStackExclusive.c)
- *     CmpUnlockKcbStack @ 0x1408BC3E0 (CmpUnlockKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1408BC470 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpLockHashEntryExclusiveByKcb @ 0x1408BC550 (CmpLockHashEntryExclusiveByKcb.c)
- *     CmpFreeKeyByCell @ 0x1408BCC94 (CmpFreeKeyByCell.c)
- *     CmpMarkKeyDirty @ 0x1408BCEC4 (CmpMarkKeyDirty.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     CmpUnlockHashEntryByKcb @ 0x1408C6254 (CmpUnlockHashEntryByKcb.c)
- *     CmpReportNotifyForKcbStack @ 0x1408D03E8 (CmpReportNotifyForKcbStack.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x1408D0B78 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmpHashUnicodeComponent @ 0x1408D1470 (CmpHashUnicodeComponent.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     CmpFindSubKeyByNumber @ 0x1408DEDA0 (CmpFindSubKeyByNumber.c)
- *     CmpRebuildKcbCacheFromNode @ 0x1408E0760 (CmpRebuildKcbCacheFromNode.c)
- *     CmpCleanupKcbStack @ 0x140982520 (CmpCleanupKcbStack.c)
- *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A2E3E0 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
- *     CmpCleanupDiscardReplaceContext @ 0x140A2EE10 (CmpCleanupDiscardReplaceContext.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A2EE88 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpHashCompressedComponent @ 0x140A319F0 (CmpHashCompressedComponent.c)
- *     CmpInitializeKcbStack @ 0x140A52E70 (CmpInitializeKcbStack.c)
- *     CmpIncrementKcbSequenceNumber @ 0x140ABFF70 (CmpIncrementKcbSequenceNumber.c)
- *     CmpInitializeDiscardReplaceContext @ 0x140AE11D4 (CmpInitializeDiscardReplaceContext.c)
- *     CmpGetSubKeyCountForKcbStack @ 0x140AE4934 (CmpGetSubKeyCountForKcbStack.c)
- *     CmpFreeKeyValues @ 0x140B1CFA8 (CmpFreeKeyValues.c)
- *     CmpFindKcbInHashEntryByCellIndex @ 0x140B53F68 (CmpFindKcbInHashEntryByCellIndex.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpCreateTombstone @ 0x1406E6C30 (CmpCreateTombstone.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1408650A4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpPromoteKey @ 0x1408B7364 (CmpPromoteKey.c)
+ *     CmpDiscardKcb @ 0x1408C033C (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1408C065C (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1408C06E4 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpLockKcbStackExclusive @ 0x1408C08E0 (CmpLockKcbStackExclusive.c)
+ *     CmpUnlockKcbStack @ 0x1408C29B0 (CmpUnlockKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1408C2A40 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockHashEntryExclusiveByKcb @ 0x1408C2B20 (CmpLockHashEntryExclusiveByKcb.c)
+ *     CmpFreeKeyByCell @ 0x1408C3264 (CmpFreeKeyByCell.c)
+ *     CmpMarkKeyDirty @ 0x1408C3494 (CmpMarkKeyDirty.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     CmpUnlockHashEntryByKcb @ 0x1408CC824 (CmpUnlockHashEntryByKcb.c)
+ *     CmpReportNotifyForKcbStack @ 0x1408D69AC (CmpReportNotifyForKcbStack.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x1408D7138 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmpHashUnicodeComponent @ 0x1408D7A30 (CmpHashUnicodeComponent.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     CmpFindSubKeyByNumber @ 0x1408E5360 (CmpFindSubKeyByNumber.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1408E6D20 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCleanupKcbStack @ 0x140944530 (CmpCleanupKcbStack.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A4026C (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x140A40C9C (CmpCleanupDiscardReplaceContext.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A40D14 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpHashCompressedComponent @ 0x140A4C950 (CmpHashCompressedComponent.c)
+ *     CmpInitializeKcbStack @ 0x140A5C160 (CmpInitializeKcbStack.c)
+ *     CmpIncrementKcbSequenceNumber @ 0x140AC2010 (CmpIncrementKcbSequenceNumber.c)
+ *     CmpInitializeDiscardReplaceContext @ 0x140ADE6C4 (CmpInitializeDiscardReplaceContext.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x140AE2444 (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpFreeKeyValues @ 0x140B1F1B8 (CmpFreeKeyValues.c)
+ *     CmpFindKcbInHashEntryByCellIndex @ 0x140B56808 (CmpFindKcbInHashEntryByCellIndex.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmDeleteLayeredKey(__int64 a1, __int64 a2, __int64 a3)
 {
   char v5; // si
-  ULONG_PTR v6; // rdi
-  __int64 v7; // r15
+  char v6; // r12
+  ULONG_PTR v7; // rdi
+  __int64 v8; // r14
   int started; // ebx
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rdx
-  ULONG_PTR v13; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  ULONG_PTR *v14; // rsi
+  ULONG_PTR v15; // rcx
   __int64 CellFlat; // rax
-  __int64 v15; // rsi
-  unsigned int i; // r15d
-  ULONG_PTR v17; // rcx
-  ULONG_PTR v18; // rcx
-  __int64 v19; // rcx
+  __int64 v17; // r14
+  unsigned int i; // r12d
+  ULONG_PTR v19; // rcx
+  ULONG_PTR v20; // rcx
+  ULONG_PTR v21; // rcx
   __int64 CellPaged; // rax
-  int v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // rdx
-  int v25; // eax
-  __int64 v26; // rcx
-  int v27; // ebx
+  int v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rdx
+  int v27; // eax
+  ULONG_PTR v28; // rcx
+  int v29; // ebx
   __int64 KcbInHashEntryByCellIndex; // rax
-  int v29; // [rsp+20h] [rbp-69h] BYREF
-  __int64 v30; // [rsp+28h] [rbp-61h] BYREF
-  __int64 v31; // [rsp+30h] [rbp-59h] BYREF
-  _OWORD v32[2]; // [rsp+38h] [rbp-51h] BYREF
-  _OWORD v33[2]; // [rsp+58h] [rbp-31h] BYREF
-  __int128 v34; // [rsp+78h] [rbp-11h] BYREF
-  _OWORD v35[5]; // [rsp+88h] [rbp-1h] BYREF
-  char v36; // [rsp+F0h] [rbp+67h]
+  int v31; // [rsp+20h] [rbp-69h] BYREF
+  __int64 v32; // [rsp+28h] [rbp-61h] BYREF
+  __int64 v33; // [rsp+30h] [rbp-59h] BYREF
+  _OWORD v34[2]; // [rsp+38h] [rbp-51h] BYREF
+  _OWORD v35[2]; // [rsp+58h] [rbp-31h] BYREF
+  __int128 v36; // [rsp+78h] [rbp-11h] BYREF
+  _OWORD v37[5]; // [rsp+88h] [rbp-1h] BYREF
 
-  v29 = 0;
-  memset(v33, 0, sizeof(v33));
-  v30 = 0LL;
-  memset(v32, 0, sizeof(v32));
-  v31 = 0LL;
-  v34 = 0LL;
-  memset(v35, 0, 32);
-  CmpInitializeKcbStack(v33);
-  CmpInitializeKcbStack(v32);
+  v31 = 0;
+  memset(v35, 0, sizeof(v35));
+  v32 = 0LL;
+  memset(v34, 0, sizeof(v34));
+  v33 = 0LL;
+  v36 = 0LL;
+  memset(v37, 0, 32);
+  CmpInitializeKcbStack(v35);
+  CmpInitializeKcbStack(v34);
   v5 = 0;
-  HvpGetCellContextInitialize(&v31);
-  HvpGetCellContextInitialize(&v30);
-  CmpInitializeDiscardReplaceContext(v35);
-  v36 = 0;
+  HvpGetCellContextInitialize(&v33);
+  HvpGetCellContextInitialize(&v32);
+  CmpInitializeDiscardReplaceContext(v37);
+  v6 = 0;
   while ( 1 )
   {
-    while ( 1 )
+    v7 = *(_QWORD *)(a1 + 8);
+    v8 = *(_QWORD *)(v7 + 72);
+    if ( (*(_DWORD *)(v7 + 184) & 0x80000) != 0 )
+      break;
+    started = CmpStartKcbStackForTopLayerKcb(v35, *(_QWORD *)(a1 + 8));
+    if ( started < 0 )
+      goto LABEL_22;
+    started = CmpStartKcbStackForTopLayerKcb(v34, v8);
+    if ( started < 0 )
+      goto LABEL_22;
+    CmpLockHashEntryExclusiveByKcb(v7);
+    CmpLockKcbStackTopExclusiveRestShared(v34);
+    CmpLockKcbStackExclusive(v35);
+    if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, 0LL) )
     {
-      v6 = *(_QWORD *)(a1 + 8);
-      v7 = *(_QWORD *)(v6 + 72);
-      if ( (*(_DWORD *)(v6 + 184) & 0x80000) != 0 )
-      {
-        started = -1073741535;
-        goto LABEL_21;
-      }
-      started = CmpStartKcbStackForTopLayerKcb(v33, *(_QWORD *)(a1 + 8));
-      if ( started < 0 )
-        goto LABEL_21;
-      started = CmpStartKcbStackForTopLayerKcb(v32, v7);
-      if ( started < 0 )
-        goto LABEL_21;
-      CmpLockHashEntryExclusiveByKcb(v6);
-      CmpLockKcbStackTopExclusiveRestShared(v32);
-      CmpLockKcbStackExclusive(v33);
-      if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, 0LL) )
-        goto LABEL_49;
-      started = CmpGetSubKeyCountForKcbStack(v33, v9, &v29);
-      if ( started < 0 )
-        goto LABEL_20;
-      if ( v29 )
-      {
-        started = -1073741535;
-        goto LABEL_20;
-      }
-      v11 = *(_QWORD *)(v6 + 192);
-      if ( !v11 || *(_QWORD *)(v11 + 32) == v11 + 32 )
-        break;
-      if ( v5 )
-      {
-        v36 = 1;
-        started = CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers(v6, v35);
-        if ( started < 0 )
-          goto LABEL_20;
-        break;
-      }
-      CmpUnlockKcbStack(v33);
-      CmpUnlockKcbStack(v32);
-      CmpUnlockHashEntryByKcb(v6);
-LABEL_23:
-      CmpUnlockRegistry();
-      CmpCleanupKcbStack(v32);
-      CmpInitializeKcbStack(v32);
-      CmpCleanupKcbStack(v33);
-      CmpInitializeKcbStack(v33);
-      CmpLockRegistryExclusive();
-      v5 = 1;
+      started = 0;
+      goto LABEL_20;
     }
-    v12 = *(unsigned int *)(v6 + 40);
-    if ( (_DWORD)v12 != -1 )
+    started = CmpGetSubKeyCountForKcbStack(v35, v10, &v31);
+    if ( started < 0 )
+      goto LABEL_20;
+    if ( v31 )
+    {
+      started = -1073741535;
+      goto LABEL_20;
+    }
+    v12 = *(_QWORD *)(v7 + 192);
+    if ( v12 && *(_QWORD *)(v12 + 32) != v12 + 32 )
     {
       if ( !v5 )
       {
-        CmpUnlockKcbStack(v33);
-        CmpUnlockKcbStack(v32);
-        CmpUnlockHashEntryByKcb(v6);
-        CmpCleanupDiscardReplaceContext(v35, a3);
-        CmpDrainDelayDerefContext(a3, 0LL);
-        goto LABEL_23;
+        CmpUnlockKcbStack(v35);
+        CmpUnlockKcbStack(v34);
+        CmpUnlockHashEntryByKcb(v7);
+        goto LABEL_24;
       }
-      v13 = *(_QWORD *)(v6 + 32);
-      if ( (*(_BYTE *)(v13 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(v13, v12, &v31);
-      else
-        CellFlat = HvpGetCellPaged(v13);
-      v15 = CellFlat;
-      for ( i = 0; ; ++i )
-      {
-        v17 = *(_QWORD *)(v6 + 32);
-        if ( i >= *(_DWORD *)(v15 + 20) + *(_DWORD *)(v15 + 24) )
-          break;
-        started = CmpFindSubKeyByNumber(v17);
-        if ( started < 0 )
-          goto LABEL_17;
-        started = CmpMarkKeyDirty(*(_QWORD *)(v6 + 32));
-        if ( started < 0 )
-          goto LABEL_17;
-      }
-      started = CmpMarkKeyDirty(v17);
-      if ( started >= 0 )
-      {
-        while ( 1 )
-        {
-          CmpFindSubKeyByNumber(*(_QWORD *)(v6 + 32));
-          v18 = *(_QWORD *)(v6 + 32);
-          if ( (*(_BYTE *)(v18 + 140) & 1) != 0 )
-            CellPaged = HvpGetCellFlat(v18, 0LL, &v30);
-          else
-            CellPaged = HvpGetCellPaged(v18);
-          v24 = *(unsigned __int16 *)(CellPaged + 72);
-          if ( (*(_BYTE *)(CellPaged + 2) & 0x20) != 0 )
-          {
-            v25 = CmpHashCompressedComponent(CellPaged + 76, v24);
-          }
-          else
-          {
-            *((_QWORD *)&v34 + 1) = CellPaged + 76;
-            LOWORD(v34) = v24;
-            WORD1(v34) = v24;
-            v25 = CmpHashUnicodeComponent(&v34);
-          }
-          v26 = *(_QWORD *)(v6 + 32);
-          v27 = v25;
-          if ( (*(_BYTE *)(v26 + 140) & 1) != 0 )
-            HvpReleaseCellFlat(v26, &v30);
-          else
-            HvpReleaseCellPaged(v26, &v30);
-          KcbInHashEntryByCellIndex = CmpFindKcbInHashEntryByCellIndex(
-                                        *(_QWORD *)(v6 + 32),
-                                        (unsigned int)(v27 + 37 * *(_DWORD *)(v6 + 16)),
-                                        0LL);
-          if ( KcbInHashEntryByCellIndex )
-            *(_DWORD *)(KcbInHashEntryByCellIndex + 40) = -1;
-          CmpFreeKeyByCell(*(_QWORD *)(v6 + 32));
-        }
-      }
-LABEL_17:
-      if ( v15 )
-      {
-        v19 = *(_QWORD *)(v6 + 32);
-        if ( (*(_BYTE *)(v19 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(v19, &v31);
-        else
-          HvpReleaseCellPaged(v19, &v31);
-      }
-LABEL_20:
-      CmpUnlockKcbStack(v33);
-      CmpUnlockKcbStack(v32);
-      goto LABEL_37;
+      v6 = 1;
+      started = CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers(v7, v37);
+      if ( started < 0 )
+        goto LABEL_20;
     }
-    if ( *(_DWORD *)(v7 + 40) != -1 )
-      goto LABEL_46;
-    CmpUnlockKcbStack(v33);
-    CmpUnlockKcbStack(v32);
-    v22 = CmpPromoteKey(v32, 0LL, 0LL);
-    started = v22;
-    if ( v22 == -1073741444 )
-      break;
-    if ( v22 < 0 )
-      goto LABEL_37;
-    if ( v5 )
+    v13 = *(unsigned int *)(v7 + 40);
+    if ( (_DWORD)v13 == -1 )
     {
-      CmpLockKcbStackTopExclusiveRestShared(v32);
-      CmpLockKcbStackExclusive(v33);
-LABEL_46:
-      started = CmpCreateTombstone(v10, v33);
-      if ( started >= 0 )
+      if ( *(_DWORD *)(v8 + 40) != -1 )
+        goto LABEL_47;
+      CmpUnlockKcbStack(v35);
+      CmpUnlockKcbStack(v34);
+      v24 = CmpPromoteKey(v34, 0LL, 0LL);
+      started = v24;
+      if ( v24 == -1073741444 )
       {
-        CmpReportNotifyForKcbStack(v32, 0LL, 1LL, a2);
-        CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs(v6, v23, a3, 0LL);
-        CmpFlushNotifiesOnKeyBodyList(v6, 8LL, a3, 0LL);
-        if ( v36 )
-        {
-          CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers(v6);
-        }
-        else
-        {
-          CmpMarkKeyUnbacked(v6, a3);
-          CmpDiscardKcb(v6);
-        }
-LABEL_49:
         started = 0;
+        goto LABEL_21;
       }
-      goto LABEL_20;
-    }
-    CmpUnlockHashEntryByKcb(v6);
-    CmpCleanupKcbStack(v32);
-    CmpInitializeKcbStack(v32);
-    CmpCleanupKcbStack(v33);
-    CmpInitializeKcbStack(v33);
-  }
-  started = 0;
-LABEL_37:
-  CmpUnlockHashEntryByKcb(v6);
+      if ( v24 < 0 )
+        goto LABEL_21;
+      if ( v5 )
+      {
+        CmpLockKcbStackTopExclusiveRestShared(v34);
+        CmpLockKcbStackExclusive(v35);
+LABEL_47:
+        started = CmpCreateTombstone(v11, v35);
+        if ( started >= 0 )
+        {
+          CmpReportNotifyForKcbStack(v34, 0LL, 1LL, a2);
+          CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs(v7, v25, a3, 0LL);
+          CmpFlushNotifiesOnKeyBodyList(v7, 8LL, a3);
+          if ( v6 )
+          {
+            CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers(v7);
+          }
+          else
+          {
+            CmpMarkKeyUnbacked(v7, a3);
+            CmpDiscardKcb(v7);
+          }
+          started = 0;
+        }
+LABEL_20:
+        CmpUnlockKcbStack(v35);
+        CmpUnlockKcbStack(v34);
 LABEL_21:
-  CmpCleanupDiscardReplaceContext(v35, a3);
-  CmpCleanupKcbStack(v33);
-  CmpCleanupKcbStack(v32);
+        CmpUnlockHashEntryByKcb(v7);
+        goto LABEL_22;
+      }
+      CmpUnlockHashEntryByKcb(v7);
+      CmpCleanupKcbStack(v34);
+      CmpInitializeKcbStack(v34);
+      CmpCleanupKcbStack(v35);
+      CmpInitializeKcbStack(v35);
+    }
+    else
+    {
+      if ( v5 )
+      {
+        v14 = (ULONG_PTR *)(v7 + 32);
+        v15 = *(_QWORD *)(v7 + 32);
+        if ( (*(_BYTE *)(v15 + 140) & 1) != 0 )
+          CellFlat = HvpGetCellFlat(v15, v13, &v33);
+        else
+          CellFlat = HvpGetCellPaged(v15);
+        v17 = CellFlat;
+        for ( i = 0; ; ++i )
+        {
+          v19 = *v14;
+          if ( i >= *(_DWORD *)(v17 + 24) + *(_DWORD *)(v17 + 20) )
+            break;
+          started = CmpFindSubKeyByNumber(v19);
+          if ( started < 0 )
+            goto LABEL_17;
+          started = CmpMarkKeyDirty(*v14);
+          if ( started < 0 )
+            goto LABEL_17;
+        }
+        started = CmpMarkKeyDirty(v19);
+        if ( started >= 0 )
+        {
+          while ( 1 )
+          {
+            CmpFindSubKeyByNumber(*v14);
+            v20 = *v14;
+            if ( (*(_BYTE *)(v20 + 140) & 1) != 0 )
+              CellPaged = HvpGetCellFlat(v20, 0LL, &v32);
+            else
+              CellPaged = HvpGetCellPaged(v20);
+            v26 = *(unsigned __int16 *)(CellPaged + 72);
+            if ( (*(_BYTE *)(CellPaged + 2) & 0x20) != 0 )
+            {
+              v27 = CmpHashCompressedComponent(CellPaged + 76, v26);
+            }
+            else
+            {
+              *((_QWORD *)&v36 + 1) = CellPaged + 76;
+              LOWORD(v36) = v26;
+              WORD1(v36) = v26;
+              v27 = CmpHashUnicodeComponent(&v36);
+            }
+            v28 = *v14;
+            v29 = v27;
+            if ( (*(_BYTE *)(*v14 + 140) & 1) != 0 )
+              HvpReleaseCellFlat(v28, &v32);
+            else
+              HvpReleaseCellPaged(v28, &v32);
+            KcbInHashEntryByCellIndex = CmpFindKcbInHashEntryByCellIndex(
+                                          *v14,
+                                          (unsigned int)(v29 + 37 * *(_DWORD *)(v7 + 16)),
+                                          0LL);
+            if ( KcbInHashEntryByCellIndex )
+              *(_DWORD *)(KcbInHashEntryByCellIndex + 40) = -1;
+            CmpFreeKeyByCell(*v14);
+          }
+        }
+LABEL_17:
+        if ( v17 )
+        {
+          v21 = *v14;
+          if ( (*(_BYTE *)(*v14 + 140) & 1) != 0 )
+            HvpReleaseCellFlat(v21, &v33);
+          else
+            HvpReleaseCellPaged(v21, &v33);
+        }
+        goto LABEL_20;
+      }
+      CmpUnlockKcbStack(v35);
+      CmpUnlockKcbStack(v34);
+      CmpUnlockHashEntryByKcb(v7);
+      CmpCleanupDiscardReplaceContext(v37, a3);
+      CmpDrainDelayDerefContext(a3, 0LL);
+LABEL_24:
+      CmpUnlockRegistry();
+      CmpCleanupKcbStack(v34);
+      CmpInitializeKcbStack(v34);
+      CmpCleanupKcbStack(v35);
+      CmpInitializeKcbStack(v35);
+      CmpLockRegistryExclusive();
+      v5 = 1;
+    }
+  }
+  started = -1073741535;
+LABEL_22:
+  CmpCleanupDiscardReplaceContext(v37, a3);
+  CmpCleanupKcbStack(v35);
+  CmpCleanupKcbStack(v34);
   return (unsigned int)started;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiExtendProcessAffinity @ 0x1405C90F8
+ * XREFs of KiExtendProcessAffinity @ 0x1405C6828
  * Callers:
- *     KeSetUserAffinityThread @ 0x140209564 (KeSetUserAffinityThread.c)
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
+ *     KeSetUserAffinityThread @ 0x140330B44 (KeSetUserAffinityThread.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
  * Callees:
- *     KiSetIdealNodeProcessByGroup @ 0x140202E3C (KiSetIdealNodeProcessByGroup.c)
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     KeComputeGroupMask @ 0x140498D64 (KeComputeGroupMask.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x14032B52C (KiSetIdealNodeProcessByGroup.c)
+ *     KeComputeGroupMask @ 0x1404936EC (KeComputeGroupMask.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int16 __fastcall KiExtendProcessAffinity(__int64 a1, unsigned __int16 *a2)

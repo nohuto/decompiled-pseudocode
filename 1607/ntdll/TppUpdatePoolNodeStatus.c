@@ -1,7 +1,7 @@
 /*
- * XREFs of TppUpdatePoolNodeStatus @ 0x180087B70
+ * XREFs of TppUpdatePoolNodeStatus @ 0x180087B60
  * Callers:
- *     TppPrepareDirectParams @ 0x180020180 (TppPrepareDirectParams.c)
+ *     TppPrepareDirectParams @ 0x180020170 (TppPrepareDirectParams.c)
  * Callees:
  *     <none>
  */

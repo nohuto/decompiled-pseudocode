@@ -1,11 +1,11 @@
 /*
- * XREFs of FopGetTableOffsetAndSize @ 0x1409FB2E8
+ * XREFs of FopGetTableOffsetAndSize @ 0x1409FC2E8
  * Callers:
- *     FopInitializeFonts @ 0x1409FA994 (FopInitializeFonts.c)
- *     FopValidateFontNameTable @ 0x1409FAC8C (FopValidateFontNameTable.c)
- *     BgpRasInitializeRasterizer @ 0x1409FAF80 (BgpRasInitializeRasterizer.c)
+ *     FopInitializeFonts @ 0x1409FB994 (FopInitializeFonts.c)
+ *     FopValidateFontNameTable @ 0x1409FBC8C (FopValidateFontNameTable.c)
+ *     BgpRasInitializeRasterizer @ 0x1409FBF80 (BgpRasInitializeRasterizer.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x14017BC48 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x14017BD48 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall FopGetTableOffsetAndSize(

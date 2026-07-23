@@ -1,16 +1,16 @@
 /*
- * XREFs of PopThermalUpdateTelemetryClientCount @ 0x140389E70
+ * XREFs of PopThermalUpdateTelemetryClientCount @ 0x14038A050
  * Callers:
- *     PopThermalZoneAdd @ 0x140823850 (PopThermalZoneAdd.c)
- *     PopAssociateThermalRequest @ 0x14084E000 (PopAssociateThermalRequest.c)
- *     PopDeactiveThermalRequest @ 0x140982EC8 (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x140983178 (PopOrphanCoolingExtension.c)
- *     PopThermalZoneRemove @ 0x14098B010 (PopThermalZoneRemove.c)
+ *     PopThermalZoneAdd @ 0x140823B50 (PopThermalZoneAdd.c)
+ *     PopAssociateThermalRequest @ 0x14084E300 (PopAssociateThermalRequest.c)
+ *     PopDeactiveThermalRequest @ 0x1409830C8 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x140983378 (PopOrphanCoolingExtension.c)
+ *     PopThermalZoneRemove @ 0x14098B210 (PopThermalZoneRemove.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
  */
 
 void __fastcall PopThermalUpdateTelemetryClientCount(char a1)

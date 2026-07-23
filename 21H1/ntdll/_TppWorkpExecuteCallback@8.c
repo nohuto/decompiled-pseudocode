@@ -11,12 +11,12 @@
  *     _TppETWCallbackStop@20 @ 0x4B384B22 (_TppETWCallbackStop@20.c)
  */
 
-int __stdcall TppWorkpExecuteCallback(int a1, int a2)
+unsigned int __stdcall TppWorkpExecuteCallback(PTP_CALLBACK_INSTANCE a1, int a2)
 {
   _DWORD *SharedData; // eax
-  _DWORD *v3; // esi
+  _TP_WORK *v3; // esi
   int v4; // eax
-  int result; // eax
+  unsigned int result; // eax
   _DWORD *v6; // eax
   int v7; // eax
   int v8; // edi
@@ -27,22 +27,22 @@ int __stdcall TppWorkpExecuteCallback(int a1, int a2)
   int v13; // eax
   char *v14; // ecx
   char *v15; // ebx
-  int (__stdcall *v16)(int, int, int); // edi
+  void (__cdecl *v16)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WORK); // edi
   _DWORD *v17; // eax
   int v18; // edx
   unsigned int v19; // esi
   unsigned int v20; // ecx
-  int v21; // [esp-8h] [ebp-28h]
+  void *v21; // [esp-8h] [ebp-28h]
   char *v22; // [esp+Ch] [ebp-14h]
 
   SharedData = NtCurrentPeb()->SharedData;
-  v3 = (_DWORD *)(a2 - 120);
+  v3 = (_TP_WORK *)(a2 - 120);
   if ( SharedData && *SharedData )
     v4 = (int)NtCurrentPeb()->SharedData + 556;
   else
     v4 = 2147353478;
   if ( *(_BYTE *)v4 )
-    TppETWCallbackDequeue(v3[12], v3[13], v3[15]);
+    TppETWCallbackDequeue(*((_DWORD *)v3 + 12), *((_DWORD *)v3 + 13), *((_DWORD *)v3 + 15));
   result = TppWorkCallbackPrologRelease(0);
   if ( result )
   {
@@ -52,10 +52,10 @@ int __stdcall TppWorkpExecuteCallback(int a1, int a2)
     else
       v7 = 2147353478;
     if ( *(_BYTE *)v7 )
-      TppETWCallbackStart(v3[12], v3[13], v3[15]);
-    v8 = v3[15];
-    v9 = v3[13];
-    v10 = v3[12];
+      TppETWCallbackStart(*((_DWORD *)v3 + 12), *((_DWORD *)v3 + 13), *((_DWORD *)v3 + 15));
+    v8 = *((_DWORD *)v3 + 15);
+    v9 = *((_DWORD *)v3 + 13);
+    v10 = *((_DWORD *)v3 + 12);
     ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
     if ( ThreadPoolData )
     {
@@ -70,7 +70,7 @@ int __stdcall TppWorkpExecuteCallback(int a1, int a2)
       *((_DWORD *)v14 + 8) = v8;
       while ( MEMORY[0x7FFE000C] != MEMORY[0x7FFE0010] )
         _mm_pause();
-      v3 = (_DWORD *)(a2 - 120);
+      v3 = (_TP_WORK *)(a2 - 120);
       v15 = v14 + 24;
       *((_QWORD *)v14 + 5) = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
       v10 = *(_DWORD *)(a2 - 120 + 48);
@@ -80,21 +80,25 @@ int __stdcall TppWorkpExecuteCallback(int a1, int a2)
       v15 = 0;
       v22 = 0;
     }
-    *(_DWORD *)(a1 + 48) = v10;
-    *(_DWORD *)(a1 + 52) = v3[13];
-    v16 = (int (__stdcall *)(int, int, int))v3[12];
-    v21 = v3[13];
+    *((_DWORD *)a1 + 12) = v10;
+    *((_DWORD *)a1 + 13) = *((_DWORD *)v3 + 13);
+    v16 = (void (__cdecl *)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WORK))*((_DWORD *)v3 + 12);
+    v21 = (void *)*((_DWORD *)v3 + 13);
     if ( v16 == LdrpWorkCallback )
-      LdrpWorkCallback(a1, v21, (int)v3);
+      LdrpWorkCallback(a1, v21, v3);
     else
-      ((void (__thiscall *)(int (__stdcall *)(int, int, int), int, int, _DWORD *))v16)(v16, a1, v21, v3);
+      ((void (__thiscall *)(void (__cdecl *)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WORK), PTP_CALLBACK_INSTANCE, void *, _TP_WORK *))v16)(
+        v16,
+        a1,
+        v21,
+        v3);
     v17 = NtCurrentPeb()->SharedData;
     if ( v17 && *v17 )
-      result = (int)NtCurrentPeb()->SharedData + 556;
+      result = (unsigned int)NtCurrentPeb()->SharedData + 556;
     else
       result = 2147353478;
     if ( *(_BYTE *)result )
-      result = TppETWCallbackStop(v3[12], v3[13], v3[15]);
+      result = TppETWCallbackStop(*((_DWORD *)v3 + 12), *((_DWORD *)v3 + 13), *((_DWORD *)v3 + 15));
     if ( v15 )
     {
       while ( MEMORY[0x7FFE000C] != MEMORY[0x7FFE0010] )

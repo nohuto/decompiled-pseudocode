@@ -28,15 +28,15 @@ __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int6
   __int64 v20; // rcx
   unsigned __int64 v21; // rax
   __int64 v22; // r8
-  __int64 v23; // rax
-  __int64 v24; // rcx
+  _DWORD *v23; // rax
+  _DWORD *v24; // rcx
   __int64 v25; // rax
   __int16 v26; // ax
   int v27; // ecx
   unsigned int v28; // [rsp+20h] [rbp-48h]
-  __int64 v29; // [rsp+28h] [rbp-40h]
+  _DWORD *v29; // [rsp+28h] [rbp-40h]
   _QWORD v30[7]; // [rsp+30h] [rbp-38h] BYREF
-  int v31; // [rsp+80h] [rbp+18h] BYREF
+  ULONG Size; // [rsp+80h] [rbp+18h] BYREF
   __int64 v32; // [rsp+88h] [rbp+20h]
 
   v32 = a4;
@@ -68,14 +68,14 @@ LABEL_3:
   v21 = MiSectionControlArea(v20);
   if ( (*(_DWORD *)(v21 + 56) & 0x20) == 0 )
     return 3221225477LL;
-  v23 = RtlImageDirectoryEntryToData(*(_QWORD *)(a3 + 688), *(_QWORD *)(v21 + 144) != v22, 0xAu, &v31);
+  v23 = RtlImageDirectoryEntryToData(*(PVOID *)(a3 + 688), *(_QWORD *)(v21 + 144) != v22, 0xAu, &Size);
   v24 = v23;
   v29 = v23;
   if ( v23 )
   {
-    if ( (v23 & 3) != 0 )
+    if ( ((unsigned __int8)v23 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v28 = *(_DWORD *)(v23 + 48);
+    v28 = v23[12];
     a2 = v32;
     v25 = v28;
     if ( (v28 & KeActiveProcessors.Bitmap[*(unsigned __int16 *)(v32 + 8)]) != v28 )
@@ -90,7 +90,7 @@ LABEL_3:
   {
     if ( v24 )
     {
-      v26 = *(_WORD *)(v24 + 52);
+      v26 = *((_WORD *)v24 + 26);
       if ( v26 )
         *(_WORD *)(a1 + 26) = v26;
     }

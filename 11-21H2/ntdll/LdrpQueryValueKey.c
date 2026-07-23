@@ -17,30 +17,30 @@
  *     memmove @ 0x1800AAB40 (memmove.c)
  */
 
-__int64 __fastcall LdrpQueryValueKey(__int64 a1, __int64 a2, _DWORD *a3, void *a4, unsigned int *a5)
+__int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, _DWORD *a3, void *a4, ULONG *a5)
 {
-  unsigned int *v5; // rdi
-  unsigned int v10; // ebp
-  unsigned int v11; // ebp
-  __int64 Heap; // rbx
-  int v13; // eax
+  ULONG *v5; // rdi
+  ULONG v10; // ebp
+  ULONG Length; // ebp
+  _DWORD *Heap; // rbx
+  NTSTATUS v13; // eax
   unsigned int v14; // esi
-  __int64 v15; // r8
-  unsigned int v17; // eax
-  int v18; // [rsp+78h] [rbp+20h] BYREF
+  _DWORD *v15; // r8
+  ULONG v17; // eax
+  ULONG ResultLength; // [rsp+78h] [rbp+20h] BYREF
 
   v5 = a5;
   if ( !a4 )
   {
     if ( !a5 )
     {
-      v18 = 0;
-      v11 = 12;
+      ResultLength = 0;
+      Length = 12;
 LABEL_4:
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v11);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
       if ( Heap )
       {
-        v13 = NtQueryValueKey(a1, a2, 2LL, Heap, v11, &v18);
+        v13 = NtQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
         v14 = v13;
         v15 = Heap;
         if ( v13 != -1073741772 )
@@ -53,21 +53,21 @@ LABEL_4:
               {
 LABEL_10:
                 if ( a3 )
-                  *a3 = *(_DWORD *)(v15 + 4);
+                  *a3 = v15[1];
                 goto LABEL_12;
               }
-              v17 = *(_DWORD *)(Heap + 8);
+              v17 = Heap[2];
               if ( v17 > *v5 )
               {
                 v14 = -2147483643;
               }
-              else if ( v17 <= v11 )
+              else if ( v17 <= Length )
               {
-                memmove(a4, (const void *)(Heap + 12), v17);
+                memmove(a4, Heap + 3, v17);
                 v15 = Heap;
               }
 LABEL_9:
-              *v5 = *(_DWORD *)(v15 + 8);
+              *v5 = v15[2];
               goto LABEL_10;
             }
 LABEL_8:
@@ -79,16 +79,16 @@ LABEL_8:
             goto LABEL_8;
         }
 LABEL_12:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v15);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
         return v14;
       }
       return (unsigned int)-1073741670;
     }
 LABEL_3:
     v10 = *a5;
-    v18 = 0;
-    v11 = v10 + 12;
-    if ( !v11 )
+    ResultLength = 0;
+    Length = v10 + 12;
+    if ( !Length )
       return (unsigned int)-1073741670;
     goto LABEL_4;
   }

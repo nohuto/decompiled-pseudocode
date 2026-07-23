@@ -1,28 +1,28 @@
 /*
- * XREFs of MmExtendSection @ 0x1405218EC
+ * XREFs of MmExtendSection @ 0x14050494C
  * Callers:
- *     CcSetFileSizesEx @ 0x14007344C (CcSetFileSizesEx.c)
- *     CcInitializeCacheMapEx @ 0x1400E8440 (CcInitializeCacheMapEx.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     NtExtendSection @ 0x140659D98 (NtExtendSection.c)
+ *     CcSetFileSizesEx @ 0x140072FCC (CcSetFileSizesEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400E62E0 (CcInitializeCacheMapEx.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     NtExtendSection @ 0x140659E7C (NtExtendSection.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
- *     MiUpdateLastSubsectionSize @ 0x1400FCA18 (MiUpdateLastSubsectionSize.c)
- *     MiFindLastSubsection @ 0x1400FD130 (MiFindLastSubsection.c)
- *     MiUpdateActiveSubsection @ 0x1401EAC88 (MiUpdateActiveSubsection.c)
- *     FsRtlGetFileSize @ 0x14042C454 (FsRtlGetFileSize.c)
- *     FsRtlSetFileSize @ 0x1404ED434 (FsRtlSetFileSize.c)
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
+ *     MiUpdateLastSubsectionSize @ 0x1400FA798 (MiUpdateLastSubsectionSize.c)
+ *     MiFindLastSubsection @ 0x1400FAEB0 (MiFindLastSubsection.c)
+ *     MiUpdateActiveSubsection @ 0x1401EAAB4 (MiUpdateActiveSubsection.c)
+ *     FsRtlGetFileSize @ 0x14042B324 (FsRtlGetFileSize.c)
+ *     FsRtlSetFileSize @ 0x1404CF4EC (FsRtlSetFileSize.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
  */
 
 __int64 __fastcall MmExtendSection(__int64 a1, LARGE_INTEGER *a2, int a3)
@@ -71,10 +71,10 @@ __int64 __fastcall MmExtendSection(__int64 a1, LARGE_INTEGER *a2, int a3)
     v9 = *(_QWORD *)v5;
     v10 = (unsigned __int64)(*v6 + 4095LL) >> 12;
     --CurrentThread->SpecialApcDisable;
-    v11 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326548, 0LL, 0);
+    v11 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326588, 0LL, 0);
     v12 = v11;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326548, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&qword_140326548, v11, (ULONG_PTR)&qword_140326548);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326588, 0LL) )
+      ExfAcquirePushLockExclusiveEx(&qword_140326588, v11, (ULONG_PTR)&qword_140326588);
     if ( v12 )
       v12[26] |= 1u;
     if ( (*(_DWORD *)(v7 + 56) & 0x8000) == 0 )
@@ -135,23 +135,23 @@ LABEL_16:
         updated = 0;
       }
 LABEL_17:
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326548, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326548);
-      KeAbPostRelease((ULONG_PTR)&qword_140326548);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326588, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326588);
+      KeAbPostRelease((ULONG_PTR)&qword_140326588);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       return (unsigned int)updated;
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326548, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326548);
-    KeAbPostRelease((ULONG_PTR)&qword_140326548);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326588, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326588);
+    KeAbPostRelease((ULONG_PTR)&qword_140326588);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     v21 = MiReferenceControlAreaFile(v7);
     --CurrentThread->KernelApcDisable;
     v22 = (struct _FILE_OBJECT *)v21;
-    v23 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326550, 0LL, 0);
+    v23 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326590, 0LL, 0);
     v24 = v23;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326550, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&qword_140326550, v23, (ULONG_PTR)&qword_140326550);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326590, 0LL) )
+      ExfAcquirePushLockExclusiveEx(&qword_140326590, v23, (ULONG_PTR)&qword_140326590);
     if ( v24 )
       v24[26] |= 1u;
     updated = FsRtlGetFileSize(v22, &FileSize);
@@ -163,39 +163,39 @@ LABEL_36:
         if ( *(_QWORD *)(v9 + 32) )
         {
           --CurrentThread->SpecialApcDisable;
-          v32 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326560, 0LL, 0);
+          v32 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1403265A0, 0LL, 0);
           v33 = v32;
-          if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326560, 0LL) )
-            ExfAcquirePushLockExclusiveEx(&qword_140326560, v32, (ULONG_PTR)&qword_140326560);
+          if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_1403265A0, 0LL) )
+            ExfAcquirePushLockExclusiveEx(&qword_1403265A0, v32, (ULONG_PTR)&qword_1403265A0);
           if ( v33 )
             v33[26] |= 1u;
           v34 = *(LARGE_INTEGER **)(v9 + 32);
           if ( v34 )
             *v34 = FileSize;
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326560, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326560);
-          KeAbPostRelease((ULONG_PTR)&qword_140326560);
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403265A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403265A0);
+          KeAbPostRelease((ULONG_PTR)&qword_1403265A0);
           KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
         }
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326550, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326550);
-        KeAbPostRelease((ULONG_PTR)&qword_140326550);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326590, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326590);
+        KeAbPostRelease((ULONG_PTR)&qword_140326590);
         KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v25, v26, v27);
         MiDereferenceControlAreaFile(v7, (unsigned __int64)v22);
         --CurrentThread->SpecialApcDisable;
-        v28 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326548, 0LL, 0);
-        v29 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326548, 0LL);
+        v28 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326588, 0LL, 0);
+        v29 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326588, 0LL);
         v30 = v28;
         if ( v29 )
-          ExfAcquirePushLockExclusiveEx(&qword_140326548, v28, (ULONG_PTR)&qword_140326548);
+          ExfAcquirePushLockExclusiveEx(&qword_140326588, v28, (ULONG_PTR)&qword_140326588);
         if ( v30 )
           v30[26] |= 1u;
         goto LABEL_10;
       }
       if ( (*(_DWORD *)(a1 + 60) & 0x44) == 0 )
       {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326550, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326550);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326590, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326590);
         updated = -1073741689;
         goto LABEL_60;
       }
@@ -204,10 +204,10 @@ LABEL_36:
       if ( updated >= 0 )
         goto LABEL_36;
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326550, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326550);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326590, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326590);
 LABEL_60:
-    KeAbPostRelease((ULONG_PTR)&qword_140326550);
+    KeAbPostRelease((ULONG_PTR)&qword_140326590);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v35, v36, v37);
     MiDereferenceControlAreaFile(v7, (unsigned __int64)v22);
     return (unsigned int)updated;

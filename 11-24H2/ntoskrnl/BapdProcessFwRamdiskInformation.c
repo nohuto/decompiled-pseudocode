@@ -1,14 +1,14 @@
 /*
- * XREFs of BapdProcessFwRamdiskInformation @ 0x140C3EBE4
+ * XREFs of BapdProcessFwRamdiskInformation @ 0x140C40D34
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140BDE52C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140BE052C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR BapdProcessFwRamdiskInformation()
+__int64 BapdProcessFwRamdiskInformation()
 {
-  ULONG_PTR result; // rax
+  __int64 result; // rax
   __int64 v1; // rbx
 
   result = KeLoaderBlock_0;

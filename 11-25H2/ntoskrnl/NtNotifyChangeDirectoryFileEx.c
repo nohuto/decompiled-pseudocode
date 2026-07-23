@@ -23,29 +23,29 @@
  *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtNotifyChangeDirectoryFileEx(
-        void *a1,
-        HANDLE Handle,
-        __int64 a3,
-        __int64 a4,
-        unsigned int *a5,
-        volatile void *Address,
-        SIZE_T Length,
-        int a8,
-        char a9,
-        int a10)
+NTSTATUS __cdecl NtNotifyChangeDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        DIRECTORY_NOTIFY_INFORMATION_CLASS DirectoryNotifyInformationClass)
 {
   PVOID v12; // r14
   struct _KTHREAD *CurrentThread; // rsi
   KPROCESSOR_MODE PreviousMode; // r12
   __int64 v15; // rcx
   ULONG v16; // r13d
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PFILE_OBJECT v18; // rbx
   _KPROCESS *Process; // rax
   __int16 v20; // ax
   char v21; // al
-  __int64 v22; // rcx
+  struct _IO_STATUS_BLOCK *Status; // rcx
   bool v23; // zf
   PDEVICE_OBJECT RelatedDeviceObject; // r15
   __int64 v25; // r8
@@ -53,9 +53,9 @@ __int64 __fastcall NtNotifyChangeDirectoryFileEx(
   __int64 Irp; // rax
   IRP *v28; // rdi
   __int64 v29; // rsi
-  int v30; // ecx
+  DIRECTORY_NOTIFY_INFORMATION_CLASS v30; // ecx
   ULONG Flags; // eax
-  int v32; // edi
+  NTSTATUS v32; // edi
   char v33; // di
   struct _KTHREAD *v34; // rax
   PFILE_OBJECT v35; // rbx
@@ -78,34 +78,34 @@ __int64 __fastcall NtNotifyChangeDirectoryFileEx(
   if ( PreviousMode )
   {
     v15 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-      v15 = (__int64)a5;
+    if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
+      v15 = (__int64)IoStatusBlock;
     *(_DWORD *)v15 = *(_DWORD *)v15;
     v16 = Length;
-    if ( (_DWORD)Length )
-      ProbeForWrite(Address, (unsigned int)Length, 4u);
-    if ( (a8 & 0xFFFFF000) != 0 || !a8 )
-      return 3221225485LL;
+    if ( Length )
+      ProbeForWrite(Buffer, Length, 4u);
+    if ( (CompletionFilter & 0xFFFFF000) != 0 || !CompletionFilter )
+      return -1073741811;
   }
   else
   {
     v16 = Length;
   }
-  result = IopReferenceFileObject(a1, 1u, PreviousMode, (PVOID *)&FileObject, 0LL);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 1u, PreviousMode, (PVOID *)&FileObject, 0LL);
+  if ( result >= 0 )
   {
     v18 = FileObject;
-    if ( FileObject->CompletionContext && (a3 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+    if ( FileObject->CompletionContext && ((unsigned __int64)ApcRoutine & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
     {
       v32 = -1073741811;
 LABEL_34:
       ObfDereferenceObject(v18);
-      return (unsigned int)v32;
+      return v32;
     }
-    if ( Handle )
+    if ( Event )
     {
       Object = 0LL;
-      v32 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+      v32 = ObReferenceObjectByHandle(Event, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
       v12 = Object;
       v43 = Object;
       if ( v32 < 0 )
@@ -156,10 +156,10 @@ LABEL_34:
           v41[1] = v21;
           if ( v21 )
           {
-            v22 = *a5;
-            *(_DWORD *)v22 = *(_DWORD *)v22;
-            a5 = (unsigned int *)v22;
-            a3 |= 1uLL;
+            Status = (struct _IO_STATUS_BLOCK *)(unsigned int)IoStatusBlock->Status;
+            Status->Status = Status->Status;
+            IoStatusBlock = Status;
+            ApcRoutine = (PIO_APC_ROUTINE)((unsigned __int64)ApcRoutine | 1);
           }
         }
         v18 = FileObject;
@@ -178,23 +178,23 @@ LABEL_34:
       *(_QWORD *)(Irp + 152) = CurrentThread;
       *(_BYTE *)(Irp + 64) = PreviousMode;
       *(_QWORD *)(Irp + 80) = v12;
-      *(_QWORD *)(Irp + 72) = a5;
-      *(_QWORD *)(Irp + 88) = a3;
-      *(_QWORD *)(Irp + 96) = a4;
+      *(_QWORD *)(Irp + 72) = IoStatusBlock;
+      *(_QWORD *)(Irp + 88) = ApcRoutine;
+      *(_QWORD *)(Irp + 96) = ApcContext;
       v29 = *(_QWORD *)(Irp + 184);
       *(_BYTE *)(v29 - 72) = 12;
-      v30 = a10;
-      *(_BYTE *)(v29 - 71) = (a10 != 1) + 2;
+      v30 = DirectoryNotifyInformationClass;
+      *(_BYTE *)(v29 - 71) = (DirectoryNotifyInformationClass != DirectoryNotifyInformation) + 2;
       *(_QWORD *)(v29 - 24) = v18;
       if ( !v16 )
       {
 LABEL_26:
         *(_DWORD *)(v29 - 64) = v16;
-        *(_DWORD *)(v29 - 56) = a8;
+        *(_DWORD *)(v29 - 56) = CompletionFilter;
         if ( *(_BYTE *)(v29 - 71) == 3 )
           *(_DWORD *)(v29 - 48) = v30;
         *(_BYTE *)(v29 - 70) = 0;
-        if ( a9 )
+        if ( WatchTree )
           *(_BYTE *)(v29 - 70) = 1;
         return IopSynchronousServiceTail(RelatedDeviceObject, (__int64)v28, (__int64)v18, 0, PreviousMode, v40, 2u);
       }
@@ -203,7 +203,7 @@ LABEL_26:
       {
         if ( (Flags & 0x10) != 0 )
         {
-          Mdl = IoAllocateMdl((PVOID)Address, v16, 0, 1u, v28);
+          Mdl = IoAllocateMdl(Buffer, v16, 0, 1u, v28);
           if ( !Mdl )
             RtlRaiseStatus(-1073741670);
           IopProbeAndLockPages_2(
@@ -212,7 +212,7 @@ LABEL_26:
             v39,
             (struct _LIST_ENTRY *)RelatedDeviceObject,
             *(unsigned __int8 *)(v29 - 72));
-          v30 = a10;
+          v30 = DirectoryNotifyInformationClass;
           goto LABEL_26;
         }
         goto LABEL_25;
@@ -222,9 +222,9 @@ LABEL_26:
       if ( Pool2 )
       {
         v28->Flags = 112;
-        v30 = a10;
+        v30 = DirectoryNotifyInformationClass;
 LABEL_25:
-        v28->UserBuffer = (PVOID)Address;
+        v28->UserBuffer = Buffer;
         goto LABEL_26;
       }
       IopExceptionCleanupEx((ULONG_PTR)v18, v28, v12, 0LL, (v18->Flags & 2) != 0);
@@ -233,7 +233,7 @@ LABEL_25:
     {
       IopAllocateIrpCleanup((ULONG_PTR)v18, v12);
     }
-    return 3221225626LL;
+    return -1073741670;
   }
   return result;
 }

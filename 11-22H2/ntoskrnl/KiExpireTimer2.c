@@ -24,12 +24,12 @@
  *     EtwTraceEnqueueWork @ 0x1405FCD9C (EtwTraceEnqueueWork.c)
  */
 
-__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
+__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, LARGE_INTEGER a3, _DWORD *a4)
 {
   __int64 v4; // r15
   unsigned __int8 *v5; // rdi
   char v6; // si
-  unsigned __int64 InterruptTimePrecise; // r11
+  LARGE_INTEGER InterruptTimePrecise; // r11
   __int64 v8; // r12
   _QWORD **v10; // r13
   char v11; // al
@@ -107,7 +107,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   __int64 v83; // [rsp+40h] [rbp-69h]
   __int64 v84; // [rsp+48h] [rbp-61h]
   ULONG_PTR BugCheckParameter3; // [rsp+50h] [rbp-59h]
-  __int64 v86; // [rsp+58h] [rbp-51h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-51h] BYREF
   _DWORD *v87; // [rsp+60h] [rbp-49h]
   __int64 v88; // [rsp+68h] [rbp-41h] BYREF
   __int64 v89; // [rsp+70h] [rbp-39h]
@@ -134,7 +134,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   v84 = a2;
   LODWORD(BugCheckParameter3) = *(_DWORD *)(v4 + 484);
   v90 = 0LL;
-  v86 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v80[0] = 0;
   v81 = 0;
   v79 = 0;
@@ -154,10 +154,10 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   if ( !*(_QWORD *)(a1 + 88) || (*(_BYTE *)(a1 + 1) & 0x20) != 0 )
     goto LABEL_4;
   if ( (*v5 & 4) != 0 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v86);
-  v33 = InterruptTimePrecise + *(_QWORD *)(a1 + 88);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v33 = InterruptTimePrecise.QuadPart + *(_QWORD *)(a1 + 88);
   v34 = *v5;
-  if ( v33 < InterruptTimePrecise || v33 == -1LL )
+  if ( v33 < InterruptTimePrecise.QuadPart || v33 == -1LL )
   {
     v6 = 1;
     v33 = -2LL;
@@ -209,8 +209,8 @@ LABEL_41:
     v46 = v35 - *(_QWORD *)(a1 + 72);
     if ( v46 )
     {
-      v52 = v46 + InterruptTimePrecise;
-      if ( v46 + InterruptTimePrecise < InterruptTimePrecise || v52 == -1LL )
+      v52 = v46 + InterruptTimePrecise.QuadPart;
+      if ( (unsigned __int64)(v46 + InterruptTimePrecise.QuadPart) < InterruptTimePrecise.QuadPart || v52 == -1LL )
         v52 = -2LL;
       v47 = v52 + *(_QWORD *)(a1 + 88);
       if ( v47 < v52 || v47 == -1LL )
@@ -294,7 +294,7 @@ LABEL_129:
     v64 = (_QWORD *)(v63 + 8);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -374,7 +374,7 @@ LABEL_124:
           v18 = (_QWORD *)(v17 + 8);
           v19 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
           {
             v36 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v19 == 2 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepIsShimRegistered @ 0x14057060C
+ * XREFs of KsepIsShimRegistered @ 0x140570B4C
  * Callers:
- *     KseRegisterShimEx @ 0x14057043C (KseRegisterShimEx.c)
- *     KseUnregisterShim @ 0x140652CC8 (KseUnregisterShim.c)
- *     KsepResolveApplicableShimsForDriver @ 0x140653468 (KsepResolveApplicableShimsForDriver.c)
+ *     KseRegisterShimEx @ 0x14057097C (KseRegisterShimEx.c)
+ *     KseUnregisterShim @ 0x140652DAC (KseUnregisterShim.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x14065354C (KsepResolveApplicableShimsForDriver.c)
  * Callees:
  *     <none>
  */

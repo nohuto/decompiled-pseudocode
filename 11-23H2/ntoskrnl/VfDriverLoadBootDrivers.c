@@ -3,7 +3,7 @@
  * Callers:
  *     VfInitBootDriversLoaded @ 0x140B577A4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfDriverLoadImage @ 0x140ABCE04 (VfDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x140ABCDF4 (VfDriverLoadImage.c)
  */
 
 void __fastcall VfDriverLoadBootDrivers(_QWORD ***a1)

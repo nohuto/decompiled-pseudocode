@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetProcessDeepFreezeStats @ 0x1405095EC
+ * XREFs of PsGetProcessDeepFreezeStats @ 0x1404EC57C
  * Callers:
- *     PsSetProcessTelemetryAppState @ 0x1404A33DC (PsSetProcessTelemetryAppState.c)
- *     PfpPrivSourceEnum @ 0x140508A08 (PfpPrivSourceEnum.c)
+ *     PfpPrivSourceEnum @ 0x1404EB998 (PfpPrivSourceEnum.c)
+ *     PsSetProcessTelemetryAppState @ 0x14051B7DC (PsSetProcessTelemetryAppState.c)
  * Callees:
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
  */
 
 __int64 __fastcall PsGetProcessDeepFreezeStats(__int64 a1, _QWORD *a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwGetMUIRegistryInfo @ 0x1800A20D0
+ * XREFs of ZwGetMUIRegistryInfo @ 0x1800A20F0
  * Callers:
  *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18004B7A8 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008EA70 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008EA80 (RtlpVerifyAndCommitUILanguageSettings.c)
  *     RtlpCleanupRegistryKeys @ 0x1800EF6F0 (RtlpCleanupRegistryKeys.c)
  *     RtlpSetPreferredUILanguages @ 0x1800F0D10 (RtlpSetPreferredUILanguages.c)
  *     RtlpRefreshCachedUILanguage @ 0x180101D00 (RtlpRefreshCachedUILanguage.c)
@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 ZwGetMUIRegistryInfo()
+NTSTATUS __cdecl ZwGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 240LL;
+  result = 240;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

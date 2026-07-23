@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetCurrentThreadTeb @ 0x1400AB8EC
+ * XREFs of PsGetCurrentThreadTeb @ 0x1400A9E54
  * Callers:
- *     EtwTraceThread @ 0x14045A914 (EtwTraceThread.c)
- *     EtwpPsProvTraceThread @ 0x14054B1D0 (EtwpPsProvTraceThread.c)
+ *     EtwTraceThread @ 0x1404597E4 (EtwTraceThread.c)
+ *     EtwpPsProvTraceThread @ 0x14054B710 (EtwpPsProvTraceThread.c)
  * Callees:
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
  */
 
 PVOID PsGetCurrentThreadTeb(void)

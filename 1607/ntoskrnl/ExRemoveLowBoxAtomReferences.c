@@ -1,13 +1,13 @@
 /*
- * XREFs of ExRemoveLowBoxAtomReferences @ 0x1400B5AA8
+ * XREFs of ExRemoveLowBoxAtomReferences @ 0x1400B38D0
  * Callers:
- *     SepDereferenceLowBoxNumberEntry @ 0x1404A2798 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x14051AB98 (SepDereferenceLowBoxNumberEntry.c)
  * Callees:
  *     <none>
  */
 
 // attributes: thunk
-__int64 __fastcall ExRemoveLowBoxAtomReferences(__int64 a1, int a2)
+__int64 ExRemoveLowBoxAtomReferences()
 {
-  return RtlDestroyLowBoxAtoms(a1, a2);
+  return RtlDestroyLowBoxAtoms();
 }

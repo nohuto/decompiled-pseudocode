@@ -1,11 +1,11 @@
 /*
- * XREFs of VslPrepareDriverForPatch @ 0x14058D9AC
+ * XREFs of VslPrepareDriverForPatch @ 0x14058AC9C
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x1407F13E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1407F19B8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslPrepareDriverForPatch(__int64 a1)
@@ -16,12 +16,12 @@ __int64 __fastcall VslPrepareDriverForPatch(__int64 a1)
   __int64 v5; // [rsp+28h] [rbp-80h]
 
   memset_0(v4, 0, 0x68uLL);
-  _InterlockedIncrement(&dword_140F8DDD8);
+  _InterlockedIncrement(&dword_140F8E038);
   v5 = a1;
-  result = VslpEnterIumSecureMode(2u, 78LL, 0, (__int64)v4);
-  v3 = (volatile signed __int32 *)&unk_140F8DDDC;
+  result = VslpEnterIumSecureMode(2u, 0x4Eu, 0, (__int64)v4);
+  v3 = (volatile signed __int32 *)&unk_140F8E03C;
   if ( (int)result < 0 )
-    v3 = (volatile signed __int32 *)&unk_140F8DDE0;
+    v3 = (volatile signed __int32 *)&unk_140F8E040;
   _InterlockedIncrement(v3);
   return result;
 }

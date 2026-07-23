@@ -1,16 +1,16 @@
 /*
- * XREFs of MmProbeAndLockSelectedPages @ 0x14009A5D4
+ * XREFs of MmProbeAndLockSelectedPages @ 0x140099DD4
  * Callers:
- *     NtWriteFileGather @ 0x1404BD44C (NtWriteFileGather.c)
- *     NtReadFileScatter @ 0x1404BDB18 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x1404A917C (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1404A9848 (NtReadFileScatter.c)
  * Callees:
- *     MiProbeLockFrame @ 0x14002F730 (MiProbeLockFrame.c)
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
- *     MiProbeAndLockComplete @ 0x14009A754 (MiProbeAndLockComplete.c)
- *     MiProbeAndLockPrepare @ 0x14009A7D8 (MiProbeAndLockPrepare.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MiProbeLockFrame @ 0x14002F2B0 (MiProbeLockFrame.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
+ *     MiProbeAndLockComplete @ 0x140099F54 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPrepare @ 0x140099FD8 (MiProbeAndLockPrepare.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -83,7 +83,7 @@ void __stdcall MmProbeAndLockSelectedPages(
         }
         goto LABEL_11;
       }
-      ++dword_1403270C8;
+      ++dword_140327108;
       v11 = -1073741819;
     }
 LABEL_11:

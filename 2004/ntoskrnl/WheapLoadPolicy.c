@@ -15,13 +15,13 @@ LONGLONG WheapLoadPolicy()
   int v2; // ecx
   LONGLONG result; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v5; // [rsp+50h] [rbp+10h] BYREF
-  int v6; // [rsp+58h] [rbp+18h]
-  int v7; // [rsp+60h] [rbp+20h]
+  ULONG Type; // [rsp+50h] [rbp+10h] BYREF
+  ULONG ResultDataSize; // [rsp+58h] [rbp+18h] BYREF
+  int Data; // [rsp+60h] [rbp+20h] BYREF
 
-  v6 = 0;
-  v5 = 0;
-  v7 = 0;
+  ResultDataSize = 0;
+  Type = 0;
+  Data = 0;
   DestinationString = 0LL;
   if ( WheaRegPolicyDisableOffline != -1 )
     WheapPolicyDisableOffline = WheaRegPolicyDisableOffline != 0;
@@ -31,9 +31,11 @@ LONGLONG WheapLoadPolicy()
     goto LABEL_8;
   }
   RtlInitUnicodeString(&DestinationString, L"Kernel-PersistDefectiveMemoryList");
-  if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v5) >= 0 && v5 == 4 && v6 == 4 )
+  if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+    && Type == 4
+    && ResultDataSize == 4 )
   {
-    v0 = v7 == 0;
+    v0 = Data == 0;
 LABEL_8:
     WheapPolicyMemPersistOffline = !v0;
   }

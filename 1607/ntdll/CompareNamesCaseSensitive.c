@@ -1,8 +1,8 @@
 /*
- * XREFs of CompareNamesCaseSensitive @ 0x1800DF0E8
+ * XREFs of CompareNamesCaseSensitive @ 0x1800DF1A8
  * Callers:
- *     PfxFindPrefix @ 0x1800DF300 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x1800DF400 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x1800DF3C0 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x1800DF4C0 (PfxInsertPrefix.c)
  * Callees:
  *     RtlCompareMemory @ 0x1800AA6B0 (RtlCompareMemory.c)
  */

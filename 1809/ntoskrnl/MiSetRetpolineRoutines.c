@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetRetpolineRoutines @ 0x1409AAF7C
+ * XREFs of MiSetRetpolineRoutines @ 0x1409ABF7C
  * Callers:
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D3744 (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlLookupImageSectionByName @ 0x1402F4030 (RtlLookupImageSectionByName.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     RtlLookupImageSectionByName @ 0x1402F4220 (RtlLookupImageSectionByName.c)
  */
 
 __int64 __fastcall MiSetRetpolineRoutines(char *a1)
@@ -17,8 +17,8 @@ __int64 __fastcall MiSetRetpolineRoutines(char *a1)
   v2 = RtlImageNtHeader(a1);
   v3 = RtlLookupImageSectionByName((__int64)v2, "RETPOL");
   v4 = *((_DWORD *)v3 + 2);
-  qword_140438E50 = &a1[*((unsigned int *)v3 + 3)];
+  qword_140439F10 = &a1[*((unsigned int *)v3 + 3)];
   result = (v4 >> 12) + ((v4 & 0xFFF) != 0);
-  dword_140438E60 = (v4 >> 12) + ((v4 & 0xFFF) != 0);
+  dword_140439F20 = (v4 >> 12) + ((v4 & 0xFFF) != 0);
   return result;
 }

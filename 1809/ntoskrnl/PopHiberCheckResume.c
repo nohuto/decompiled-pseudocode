@@ -1,17 +1,17 @@
 /*
- * XREFs of PopHiberCheckResume @ 0x14056B320
+ * XREFs of PopHiberCheckResume @ 0x14056C320
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x1401C51E0 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x1401C5340 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     MmMapMemoryDumpMdlEx @ 0x140144420 (MmMapMemoryDumpMdlEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x140270BA8 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlRestoreEnlightenment @ 0x140271118 (HvlRestoreEnlightenment.c)
- *     HvlNotifyDebugDeviceAvailable @ 0x140274AE0 (HvlNotifyDebugDeviceAvailable.c)
- *     HvlNotifyAcpiReenabled @ 0x140276C0C (HvlNotifyAcpiReenabled.c)
- *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
- *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140144520 (MmMapMemoryDumpMdlEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x140270D98 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlRestoreEnlightenment @ 0x140271308 (HvlRestoreEnlightenment.c)
+ *     HvlNotifyDebugDeviceAvailable @ 0x140274CD0 (HvlNotifyDebugDeviceAvailable.c)
+ *     HvlNotifyAcpiReenabled @ 0x140276DFC (HvlNotifyAcpiReenabled.c)
+ *     PopCheckpointSystemSleep @ 0x14056A714 (PopCheckpointSystemSleep.c)
+ *     KdInitSystem @ 0x140916140 (KdInitSystem.c)
  */
 
 char PopHiberCheckResume()
@@ -42,17 +42,17 @@ char PopHiberCheckResume()
   if ( *(_DWORD *)v2 )
   {
     PopCheckpointSystemSleep(0x19u);
-    ((void (__fastcall *)(_QWORD))off_1403FE578[0])(0LL);
+    ((void (__fastcall *)(_QWORD))off_1403FF578[0])(0LL);
     PoResumeFromHibernate = 1;
     v3 = __rdtsc();
-    ((void (__fastcall *)(__int64))off_1403FE400[0])(5LL);
-    ((void (__fastcall *)(__int64))off_1403FE578[0])(1LL);
+    ((void (__fastcall *)(__int64))off_1403FF400[0])(5LL);
+    ((void (__fastcall *)(__int64))off_1403FF578[0])(1LL);
     if ( HvlHypervisorConnected )
     {
       HvlRestoreEnlightenment(1);
-      off_1403FE4E8[0]();
+      off_1403FF4E8[0]();
     }
-    ((void (__fastcall *)(__int64))off_1403FE500[0])(5LL);
+    ((void (__fastcall *)(__int64))off_1403FF500[0])(5LL);
     if ( HvlHypervisorConnected )
     {
       HvlConfigureMemoryZeroingOnReset(1);
@@ -87,9 +87,9 @@ char PopHiberCheckResume()
       MmMapMemoryDumpMdlEx(v13, v4, (__int64)&v14, 1);
       memset(*(void **)(*(_QWORD *)(v0 + 264) + 8LL), 0, 0x4000uLL);
     }
-    v5 = &qword_140417B98;
+    v5 = &qword_140418C38;
     v6 = 3LL;
-    qword_140409D98 = *(_QWORD *)(v2 + 904);
+    qword_14040ADF8 = *(_QWORD *)(v2 + 904);
     v7 = (_OWORD *)(v2 + 136);
     do
     {
@@ -116,8 +116,8 @@ char PopHiberCheckResume()
     *((_OWORD *)v5 + 6) = v7[6];
     v5[14] = *((_QWORD *)v7 + 14);
     *(_BYTE *)(v0 + 4) = 0;
-    qword_140417C68 = v3;
-    qword_140417BF8 = v3 - qword_140417C00;
+    qword_140418D08 = v3;
+    qword_140418C98 = v3 - qword_140418CA0;
     if ( (HvlpFlags & 2) != 0 )
       *(_DWORD *)(v0 + 20) = 0;
     return 1;

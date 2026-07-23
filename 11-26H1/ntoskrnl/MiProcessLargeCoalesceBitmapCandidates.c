@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProcessLargeCoalesceBitmapCandidates @ 0x1403C8C60
+ * XREFs of MiProcessLargeCoalesceBitmapCandidates @ 0x1403D2B10
  * Callers:
- *     MiProcessLargeCoalesceCandidates @ 0x1403C8674 (MiProcessLargeCoalesceCandidates.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x1403D2564 (MiProcessLargeCoalesceCandidates.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiCoalesceFreeSmallPages @ 0x14028D060 (MiCoalesceFreeSmallPages.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
- *     MiCheckLargePagesExist @ 0x1403C9224 (MiCheckLargePagesExist.c)
- *     MiCoalesceFreeLargePages @ 0x1403C9274 (MiCoalesceFreeLargePages.c)
- *     MiAccumulateTimeBoundTime @ 0x1403C96CC (MiAccumulateTimeBoundTime.c)
- *     MiRecordLargePageCandidate @ 0x140447EB0 (MiRecordLargePageCandidate.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiCoalesceFreeSmallPages @ 0x14028C5C0 (MiCoalesceFreeSmallPages.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
+ *     MiCheckLargePagesExist @ 0x1403D30D4 (MiCheckLargePagesExist.c)
+ *     MiCoalesceFreeLargePages @ 0x1403D3124 (MiCoalesceFreeLargePages.c)
+ *     MiAccumulateTimeBoundTime @ 0x1403D357C (MiAccumulateTimeBoundTime.c)
+ *     MiRecordLargePageCandidate @ 0x1404409A0 (MiRecordLargePageCandidate.c)
  */
 
 __int64 __fastcall MiProcessLargeCoalesceBitmapCandidates(
@@ -72,7 +72,7 @@ LABEL_22:
   if ( (_BYTE)v9 == 2 )
     v16 = MiSafeLockPageAtDpc(a2);
   else
-    v16 = MiSafeLockPage(a2, v9);
+    v16 = MiSafeLockPage(a2, v9, 0x140000000LL);
   v24 = v16;
   v17 = v16;
   if ( v16 != 17 )

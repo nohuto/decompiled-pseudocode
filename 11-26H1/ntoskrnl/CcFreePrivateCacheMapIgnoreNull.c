@@ -1,14 +1,14 @@
 /*
- * XREFs of CcFreePrivateCacheMapIgnoreNull @ 0x14039CBEC
+ * XREFs of CcFreePrivateCacheMapIgnoreNull @ 0x14039E94C
  * Callers:
- *     CcUninitializeCacheMap @ 0x14039C460 (CcUninitializeCacheMap.c)
- *     CcInitializeCacheMapInternal @ 0x1403E1230 (CcInitializeCacheMapInternal.c)
+ *     CcUninitializeCacheMap @ 0x14039E1C0 (CcUninitializeCacheMap.c)
+ *     CcInitializeCacheMapInternal @ 0x1403E4420 (CcInitializeCacheMapInternal.c)
  * Callees:
- *     ExFreeToLookasideListEx @ 0x14039E0D0 (ExFreeToLookasideListEx.c)
+ *     ExFreeToLookasideListEx @ 0x14039FE30 (ExFreeToLookasideListEx.c)
  */
 
 void __fastcall CcFreePrivateCacheMapIgnoreNull(PVOID Entry)
 {
   if ( Entry )
-    ExFreeToLookasideListEx(&CcPrivateCacheMapLookasideList, Entry);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CcPrivateCacheMapLookasideList, Entry);
 }

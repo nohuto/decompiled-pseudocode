@@ -1,21 +1,21 @@
 /*
- * XREFs of SepTokenDeleteMethod @ 0x1404A25E0
+ * XREFs of SepTokenDeleteMethod @ 0x14051A9E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExDeleteResourceLite @ 0x1400885B0 (ExDeleteResourceLite.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x140088740 (AuthzBasepFreeSecurityAttributesList.c)
- *     SepDereferenceLuidToIndexEntry @ 0x140088850 (SepDereferenceLuidToIndexEntry.c)
- *     SepFreeTokenCapabilities @ 0x140088870 (SepFreeTokenCapabilities.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExDeleteResourceLite @ 0x14010C7A0 (ExDeleteResourceLite.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x14010C930 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x14010CA40 (SepDereferenceLuidToIndexEntry.c)
+ *     SepFreeTokenCapabilities @ 0x14010CA60 (SepFreeTokenCapabilities.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1404A2798 (SepDereferenceLowBoxNumberEntry.c)
- *     SepDereferenceLowBoxHandlesEntry @ 0x1404A2998 (SepDereferenceLowBoxHandlesEntry.c)
- *     SepDeReferenceLogonSession @ 0x1404E50DC (SepDeReferenceLogonSession.c)
- *     SepModifyTokenPolicyCounter @ 0x14068D27C (SepModifyTokenPolicyCounter.c)
- *     SepDeleteTokenUserAndGroups @ 0x140692EE0 (SepDeleteTokenUserAndGroups.c)
- *     SepRemoveTokenLogonSession @ 0x140693A14 (SepRemoveTokenLogonSession.c)
- *     SepDeleteClaimAttributes @ 0x140695A00 (SepDeleteClaimAttributes.c)
+ *     SepDeReferenceLogonSession @ 0x1404C7CF8 (SepDeReferenceLogonSession.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x14051AB98 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceLowBoxHandlesEntry @ 0x14051AD98 (SepDereferenceLowBoxHandlesEntry.c)
+ *     SepModifyTokenPolicyCounter @ 0x14068D360 (SepModifyTokenPolicyCounter.c)
+ *     SepDeleteTokenUserAndGroups @ 0x140692FC4 (SepDeleteTokenUserAndGroups.c)
+ *     SepRemoveTokenLogonSession @ 0x140693AF8 (SepRemoveTokenLogonSession.c)
+ *     SepDeleteClaimAttributes @ 0x140695AE4 (SepDeleteClaimAttributes.c)
  */
 
 void __fastcall SepTokenDeleteMethod(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of CcDeductDirtyPagesFromExternalCache @ 0x1401341C8
+ * XREFs of CcDeductDirtyPagesFromExternalCache @ 0x140134738
  * Callers:
- *     CcUnregisterExternalCache @ 0x1401B1924 (CcUnregisterExternalCache.c)
+ *     CcUnregisterExternalCache @ 0x1401B1808 (CcUnregisterExternalCache.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x1401B19E8 (CcPostDeferredWrites.c)
  */
 
-struct _LIST_ENTRY *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, unsigned __int64 a2)
+_LIST_ENTRY *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rdi
   unsigned int v4; // esi
   KIRQL v5; // al
   unsigned __int64 v6; // rdx
-  struct _LIST_ENTRY *result; // rax
+  _LIST_ENTRY *result; // rax
 
   v2 = a2;
   while ( v2 )
@@ -33,6 +33,6 @@ struct _LIST_ENTRY *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, u
   }
   result = &CcDeferredWrites;
   if ( CcDeferredWrites.Flink != &CcDeferredWrites )
-    return (struct _LIST_ENTRY *)CcPostDeferredWrites(a1);
+    return (_LIST_ENTRY *)CcPostDeferredWrites(a1);
   return result;
 }

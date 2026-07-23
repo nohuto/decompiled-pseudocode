@@ -1,21 +1,21 @@
 /*
- * XREFs of CcInitializeVolumeCacheMap @ 0x1402CDF18
+ * XREFs of CcInitializeVolumeCacheMap @ 0x14040BF18
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14045D6F0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x1404527B0 (CcInitializeCacheMapInternal.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeRcuReadUnlock @ 0x1402CE230 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x1402CE360 (KeRcuReadLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     McTemplateK0j_EtwWriteTransfer @ 0x140579FBC (McTemplateK0j_EtwWriteTransfer.c)
- *     CcSetupWatchForRegistryChanges @ 0x14057B6F0 (CcSetupWatchForRegistryChanges.c)
- *     CcQueueAsyncGetDeviceGuid @ 0x14057D6C4 (CcQueueAsyncGetDeviceGuid.c)
- *     McGenEventRegister_EtwRegister @ 0x14057D754 (McGenEventRegister_EtwRegister.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CcGetDeviceGuid @ 0x140A9796C (CcGetDeviceGuid.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeRcuReadUnlock @ 0x14040C230 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x14040C360 (KeRcuReadLock.c)
+ *     McTemplateK0j_EtwWriteTransfer @ 0x14057744C (McTemplateK0j_EtwWriteTransfer.c)
+ *     CcSetupWatchForRegistryChanges @ 0x140578B80 (CcSetupWatchForRegistryChanges.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x14057AB54 (CcQueueAsyncGetDeviceGuid.c)
+ *     McGenEventRegister_EtwRegister @ 0x14057ABE4 (McGenEventRegister_EtwRegister.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CcGetDeviceGuid @ 0x140A941BC (CcGetDeviceGuid.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, __int64 **a2, __int64 a3)
@@ -96,12 +96,12 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, __int64 **a2, __int64 
       return 0LL;
     }
   }
-  v20 = (_QWORD *)qword_140F8E788;
+  v20 = (_QWORD *)qword_140F8E968;
   v13[3] = (__int64)&CcVolumeCacheMapList;
   v13[4] = (__int64)v20;
   *v20 = v13 + 3;
-  qword_140F8E788 = (__int64)(v13 + 3);
-  _InterlockedAdd64(&qword_140F8E508, 1uLL);
+  qword_140F8E968 = (__int64)(v13 + 3);
+  _InterlockedAdd64(&qword_140F8E6E8, 1uLL);
   if ( *(_DWORD *)(v13[2] + 72) != 20 )
   {
     v21 = v13[29] - *(_QWORD *)&CPER_EMPTY_GUID.Data1;
@@ -135,7 +135,7 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, __int64 **a2, __int64 
                                      *(_QWORD *)&LockHandle.OldIrql) >= 0;
   if ( (Microsoft_Windows_Kernel_CacheEnableBits & 1) != 0 )
     McTemplateK0j_EtwWriteTransfer(&MS_KernelCc_Provider_Context, CcEvt_VolumeCacheMap_Init, v24, v13 + 29);
-  if ( v5 && !(_BYTE)dword_140FC421C )
+  if ( v5 && !(_BYTE)dword_140FC521C )
   {
     CcContainerRestoreWorkItem.Parameter = 0LL;
     CcContainerRestoreWorkItem.List.Flink = 0LL;

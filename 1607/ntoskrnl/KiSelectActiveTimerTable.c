@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSelectActiveTimerTable @ 0x14012A5E8
+ * XREFs of KiSelectActiveTimerTable @ 0x14012AB58
  * Callers:
- *     KiTimerExpiration @ 0x140123B78 (KiTimerExpiration.c)
- *     KiSetSystemTimeDpc @ 0x14012A438 (KiSetSystemTimeDpc.c)
+ *     KiTimerExpiration @ 0x1401240E8 (KiTimerExpiration.c)
+ *     KiSetSystemTimeDpc @ 0x14012A9A8 (KiSetSystemTimeDpc.c)
  *     KiCalibrateTimeAdjustment @ 0x1403CB9E8 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>

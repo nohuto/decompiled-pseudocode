@@ -1,9 +1,9 @@
 /*
- * XREFs of PsInitializeWin32kKernelExports @ 0x1406144D0
+ * XREFs of PsInitializeWin32kKernelExports @ 0x140617310
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 PsInitializeWin32kKernelExports()

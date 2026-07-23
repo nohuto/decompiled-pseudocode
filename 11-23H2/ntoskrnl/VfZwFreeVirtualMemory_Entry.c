@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwFreeVirtualMemory_Entry @ 0x140AD4810
+ * XREFs of VfZwFreeVirtualMemory_Entry @ 0x140AD4800
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckVirtualAddress @ 0x140AD503C (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140AD5078 (ViZwShouldCheck.c)
+ *     ViZwCheckVirtualAddress @ 0x140AD502C (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140AD5068 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwFreeVirtualMemory_Entry(ULONG_PTR *a1, __int64 a2, __int64 a3)

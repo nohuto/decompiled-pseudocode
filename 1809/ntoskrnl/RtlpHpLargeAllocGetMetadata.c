@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpLargeFree @ 0x140007D8C (RtlpHpLargeFree.c)
  *     RtlpHpLargeAllocSize @ 0x1400080E4 (RtlpHpLargeAllocSize.c)
- *     RtlpHpLargeAllocSetExtraPresent @ 0x1402FE038 (RtlpHpLargeAllocSetExtraPresent.c)
+ *     RtlpHpLargeAllocSetExtraPresent @ 0x1402FE228 (RtlpHpLargeAllocSetExtraPresent.c)
  * Callees:
  *     <none>
  */

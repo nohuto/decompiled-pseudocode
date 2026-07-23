@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlCrashdumpCallbackRoutine @ 0x1405C0490
+ * XREFs of HvlCrashdumpCallbackRoutine @ 0x1405C2D00
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvlpSnapshotCrashArea @ 0x1405C0EF4 (HvlpSnapshotCrashArea.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvlpSnapshotCrashArea @ 0x1405C3764 (HvlpSnapshotCrashArea.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HvlCrashdumpCallbackRoutine(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -14,9 +14,9 @@ char __fastcall HvlCrashdumpCallbackRoutine(__int64 a1, __int64 a2, __int64 a3, 
   ULONG_PTR *Flink; // rbx
 
   HvlpSnapshotCrashArea(a1, a2, a3, a4);
-  Flink = (ULONG_PTR *)VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink;
-  if ( VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink
-    && (HIDWORD(VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink->Flink) & 1) != 0 )
+  Flink = (ULONG_PTR *)VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink;
+  if ( VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink
+    && (HIDWORD(VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink->Flink) & 1) != 0 )
   {
     guard_dispatch_icall_no_overrides(1LL, v4);
     KiHypervisorInitiatedCrashDump = 1;

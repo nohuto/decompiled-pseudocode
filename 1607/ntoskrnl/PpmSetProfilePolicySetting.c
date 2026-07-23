@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmSetProfilePolicySetting @ 0x1403F766C
+ * XREFs of PpmSetProfilePolicySetting @ 0x1403F652C
  * Callers:
- *     PopSetNewPolicyValue @ 0x1403F7D98 (PopSetNewPolicyValue.c)
- *     PpmProcessSettingsFromQueryTable @ 0x140675C9C (PpmProcessSettingsFromQueryTable.c)
+ *     PopSetNewPolicyValue @ 0x1403F6C58 (PopSetNewPolicyValue.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x140675D80 (PpmProcessSettingsFromQueryTable.c)
  * Callees:
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PpmReleaseLock @ 0x1400D46D4 (PpmReleaseLock.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PpmInfoAdjustSetting @ 0x1403F8A60 (PpmInfoAdjustSetting.c)
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
- *     PpmGetPolicyAction @ 0x14056A0A8 (PpmGetPolicyAction.c)
- *     PpmEventTraceProfileSetting @ 0x14057650C (PpmEventTraceProfileSetting.c)
- *     PpmReapplyIdlePolicy @ 0x14066B6C0 (PpmReapplyIdlePolicy.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PpmReleaseLock @ 0x1400D2574 (PpmReleaseLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PpmInfoAdjustSetting @ 0x1403F7920 (PpmInfoAdjustSetting.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x14056A5E8 (PpmGetPolicyAction.c)
+ *     PpmEventTraceProfileSetting @ 0x140576A4C (PpmEventTraceProfileSetting.c)
+ *     PpmReapplyIdlePolicy @ 0x14066B7A4 (PpmReapplyIdlePolicy.c)
  */
 
 __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __int64 a4, int a5)
@@ -110,7 +110,7 @@ LABEL_21:
         else
           PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock);
         *(_QWORD *)&v48.Data1 = PpmCurrentProfile;
-        v41 = dword_140303E0C;
+        v41 = dword_140303D4C;
         v20 = *a1 - *(_QWORD *)&NullGuid.Data1;
         if ( *a1 == *(_QWORD *)&NullGuid.Data1 )
           v20 = a1[1] - *(_QWORD *)NullGuid.Data4;

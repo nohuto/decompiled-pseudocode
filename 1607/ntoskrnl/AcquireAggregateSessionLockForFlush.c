@@ -1,10 +1,10 @@
 /*
- * XREFs of AcquireAggregateSessionLockForFlush @ 0x1400AF27C
+ * XREFs of AcquireAggregateSessionLockForFlush @ 0x1400AD7E4
  * Callers:
- *     FlushLookUpTableBucket @ 0x1400AF0E0 (FlushLookUpTableBucket.c)
+ *     FlushLookUpTableBucket @ 0x1400AD648 (FlushLookUpTableBucket.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 KIRQL __fastcall AcquireAggregateSessionLockForFlush(__int64 a1)

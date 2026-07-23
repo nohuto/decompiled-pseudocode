@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpResSearchResourceInsideDirectory @ 0x1404A6230
+ * XREFs of LdrpResSearchResourceInsideDirectory @ 0x14051E630
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400F7358 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400F5198 (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     RtlULongLongAdd @ 0x1400890B4 (RtlULongLongAdd.c)
- *     RtlULongLongSub @ 0x1400C2ED4 (RtlULongLongSub.c)
- *     LdrpResCompareResourceNames @ 0x1404A614C (LdrpResCompareResourceNames.c)
- *     LdrpSectionTableFromVirtualAddress @ 0x1404E1EFC (LdrpSectionTableFromVirtualAddress.c)
+ *     RtlULongLongSub @ 0x1400C0D64 (RtlULongLongSub.c)
+ *     RtlULongLongAdd @ 0x14010D2A4 (RtlULongLongAdd.c)
+ *     LdrpSectionTableFromVirtualAddress @ 0x1404C5500 (LdrpSectionTableFromVirtualAddress.c)
+ *     LdrpResCompareResourceNames @ 0x14051E54C (LdrpResCompareResourceNames.c)
  */
 
 __int64 __fastcall LdrpResSearchResourceInsideDirectory(
@@ -65,12 +65,12 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 v51; // r9
   bool v52; // zf
   __int16 v53; // ax
-  unsigned int v54; // r9d
+  __int64 v54; // r9
   __int64 v55; // rax
-  int v56; // r9d
+  __int64 v56; // r9
   ULONGLONG v57; // r13
   __int64 v58; // rax
-  int v59; // r9d
+  __int64 v59; // r9
   __int64 v60; // r12
   __int64 v61; // rax
   __int64 v62; // r9
@@ -433,25 +433,25 @@ LABEL_61:
                 v53 = *(_WORD *)(a5 + 24);
                 if ( v53 == 267 )
                 {
-                  v54 = *(_DWORD *)(a5 + 136);
+                  v54 = *(unsigned int *)(a5 + 136);
                 }
                 else if ( v53 == 523 )
                 {
-                  v54 = *(_DWORD *)(a5 + 152);
+                  v54 = *(unsigned int *)(a5 + 152);
                 }
                 else
                 {
-                  v54 = 0;
+                  v54 = 0LL;
                 }
-                if ( v54 )
+                if ( (_DWORD)v54 )
                 {
                   if ( v21
-                    && (RtlULongLongAdd(v15 & 0xFFFFFFFFFFFFFFFCuLL, v54, &pullResult) < 0
+                    && (RtlULongLongAdd(v15 & 0xFFFFFFFFFFFFFFFCuLL, (unsigned int)v54, &pullResult) < 0
                      || RtlULongLongSub(pullResult, v13, &pullResult) < 0) )
                   {
                     return (unsigned int)-1073741701;
                   }
-                  v39 = v38 + v54 - v13;
+                  v39 = v38 + (unsigned int)v54 - v13;
                   v55 = LdrpSectionTableFromVirtualAddress(v38, v14, a5, v54, v54, v21);
                   if ( !v55 )
                     goto LABEL_159;

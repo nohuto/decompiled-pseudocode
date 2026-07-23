@@ -1,7 +1,7 @@
 /*
- * XREFs of ViCheckDifDdiExist @ 0x140ACA944
+ * XREFs of ViCheckDifDdiExist @ 0x140ACA934
  * Callers:
- *     VfCheckDifDdiExist @ 0x140ACA2B0 (VfCheckDifDdiExist.c)
+ *     VfCheckDifDdiExist @ 0x140ACA2A0 (VfCheckDifDdiExist.c)
  * Callees:
  *     <none>
  */

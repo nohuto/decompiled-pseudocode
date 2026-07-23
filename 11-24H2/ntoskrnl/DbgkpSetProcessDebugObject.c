@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpSetProcessDebugObject @ 0x1409E8B88
+ * XREFs of DbgkpSetProcessDebugObject @ 0x1409E3B48
  * Callers:
- *     NtDebugActiveProcess @ 0x1409E8220 (NtDebugActiveProcess.c)
+ *     NtDebugActiveProcess @ 0x1409E31E0 (NtDebugActiveProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     DbgkpPostFakeThreadMessages @ 0x140939BE0 (DbgkpPostFakeThreadMessages.c)
- *     PsGetNextProcessThread @ 0x14094A700 (PsGetNextProcessThread.c)
- *     DbgkpWakeTarget @ 0x1409E8DCC (DbgkpWakeTarget.c)
- *     DbgkpMarkProcessPeb @ 0x140AB0F14 (DbgkpMarkProcessPeb.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetNextProcessThread @ 0x1408EEC70 (PsGetNextProcessThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x1408F50E4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x1409E3D8C (DbgkpWakeTarget.c)
+ *     DbgkpMarkProcessPeb @ 0x140AABE84 (DbgkpMarkProcessPeb.c)
  */
 
 __int64 DbgkpSetProcessDebugObject(PRKPROCESS PROCESS, PRKEVENT Event, int a3, ...)
@@ -74,7 +74,7 @@ __int64 DbgkpSetProcessDebugObject(PRKPROCESS PROCESS, PRKEVENT Event, int a3, .
       KeReleaseGuardedMutex(&DbgkpProcessDebugPortMutex);
       v27 = 0;
       ObfDereferenceObjectWithTag(v7, 0x4F676244u);
-      v4 = DbgkpPostFakeThreadMessages(PROCESS, Event, (__int64)NextProcessThread, &v21, (PVOID *)Objecta);
+      v4 = DbgkpPostFakeThreadMessages((__int64)PROCESS, Event, (__int64)NextProcessThread, &v21, (PVOID *)Objecta);
       if ( v4 < 0 )
       {
         v7 = 0LL;

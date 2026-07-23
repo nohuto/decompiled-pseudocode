@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeSmallPageFromMdl @ 0x1402FFEA4
+ * XREFs of MiFreeSmallPageFromMdl @ 0x14030ABF4
  * Callers:
- *     MiFreeMdlPageRun @ 0x1402FFCF8 (MiFreeMdlPageRun.c)
- *     MmFreeSecureKernelPages @ 0x140553704 (MmFreeSecureKernelPages.c)
+ *     MiFreeMdlPageRun @ 0x14030AA48 (MiFreeMdlPageRun.c)
+ *     MmFreeSecureKernelPages @ 0x140553944 (MmFreeSecureKernelPages.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeLargePageCharges @ 0x14055E47C (MiFreeLargePageCharges.c)
+ *     MiFreeLargePageCharges @ 0x14055E6BC (MiFreeLargePageCharges.c)
  */
 
 _BOOL8 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, _DWORD *a4)
@@ -35,7 +35,7 @@ _BOOL8 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR BugCheckParameter2, __int64 a
   v7 = 48 * BugCheckParameter2 - 0x58000000000LL;
   v8 = 0LL;
   v9 = (unsigned __int8)MiLockPageInline(v7, a2, a3, a4);
-  v10 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v7 + 40) >> 39) & 0x3FFLL));
+  v10 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v7 + 40) >> 39) & 0x3FFLL));
   MiUpdateLargePageBitMap(v10, BugCheckParameter2, 1, 0, 0);
   *(_QWORD *)(v7 + 24) &= 0xC000000000000000uLL;
   v11 = *(_WORD *)(v7 + 32) == 2;
@@ -51,8 +51,8 @@ _BOOL8 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR BugCheckParameter2, __int64 a
     }
     else
     {
-      v13 = (_QWORD *)qword_140C4EE80;
-      if ( qword_140C4EE80 && ((*(_QWORD *)(v7 + 40) >> 60) & 7) == 1 )
+      v13 = (_QWORD *)qword_140C4EEC0;
+      if ( qword_140C4EEC0 && ((*(_QWORD *)(v7 + 40) >> 60) & 7) == 1 )
       {
         v14 = v5 / 48;
         while ( v13 )

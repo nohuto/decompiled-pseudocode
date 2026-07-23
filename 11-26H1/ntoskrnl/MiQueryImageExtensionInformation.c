@@ -1,20 +1,20 @@
 /*
- * XREFs of MiQueryImageExtensionInformation @ 0x1404E6410
+ * XREFs of MiQueryImageExtensionInformation @ 0x1404DF9B0
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
- *     MiQueryDetach @ 0x140920308 (MiQueryDetach.c)
- *     MiGetImageExtensionBaseAddress @ 0x140A883F4 (MiGetImageExtensionBaseAddress.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
+ *     MiQueryDetach @ 0x140923A4C (MiQueryDetach.c)
+ *     MiGetImageExtensionBaseAddress @ 0x140A8F524 (MiGetImageExtensionBaseAddress.c)
  */
 
 __int64 __fastcall MiQueryImageExtensionInformation(__int64 a1)
@@ -88,7 +88,7 @@ LABEL_17:
   if ( (*(_DWORD *)(v4 + 72) & 0x20) != 0 )
   {
     ImageExtensionBaseAddress = MiGetImageExtensionBaseAddress(v4);
-    v9 = *((unsigned int *)&stru_140E2D150.LastXStateSaveDebugInfo + v8) + ImageExtensionBaseAddress;
+    v9 = *((unsigned int *)&stru_140E2D2D0.LastXStateSaveDebugInfo + v8) + ImageExtensionBaseAddress;
     v10 = ((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
     v14 = MiLockWorkingSetShared((__int64)p_Blink, v12, v13);

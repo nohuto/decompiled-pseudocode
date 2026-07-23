@@ -7,7 +7,7 @@
  *     CmpGetSystemControlValues @ 0x140A60400 (CmpGetSystemControlValues.c)
  */
 
-_BYTE *__fastcall CmInitSystem0(__int64 a1, __int64 a2)
+int __fastcall CmInitSystem0(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
   __int64 v4; // r8

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopPassiveInterruptWorker @ 0x1403A3340
+ * XREFs of IopPassiveInterruptWorker @ 0x1403A3520
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     KiInterruptDispatchCommon @ 0x1403A2F44 (KiInterruptDispatchCommon.c)
- *     IopDereferencePassiveInterruptBlock @ 0x1403A328C (IopDereferencePassiveInterruptBlock.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x1403A3464 (IopAcquirePassiveInterruptBlockLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     IopAcquireReleaseDispatcherLock @ 0x140848830 (IopAcquireReleaseDispatcherLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     KiInterruptDispatchCommon @ 0x1403A3124 (KiInterruptDispatchCommon.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x1403A346C (IopDereferencePassiveInterruptBlock.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x1403A3644 (IopAcquirePassiveInterruptBlockLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopAcquireReleaseDispatcherLock @ 0x140848B30 (IopAcquireReleaseDispatcherLock.c)
  */
 
 void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
@@ -30,8 +30,8 @@ void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
   _DWORD *v13; // r8
   int v14; // eax
   char v15[8]; // [rsp+30h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-18h] BYREF
 
   v15[0] = 0;
   LOBYTE(a2) = 1;
@@ -40,7 +40,7 @@ void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
   IopAcquireReleaseDispatcherLock(P, a2);
   if ( !P[28] )
   {
-    Affinity = *(struct _GROUP_AFFINITY *)(P + 40);
+    Affinity = *(_GROUP_AFFINITY *)(P + 40);
     KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
   }
   IopAcquirePassiveInterruptBlockLock(P, v15);
@@ -51,7 +51,9 @@ void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
       break;
     P[65] = 0;
     KxReleaseSpinLock(v3);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v4 = v15[0];
       if ( v15[0] <= 0xFu && CurrentIrql >= 2u )
@@ -76,7 +78,7 @@ void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
   }
   P[64] = 0;
   KxReleaseSpinLock(v3);
-  if ( KiIrqlFlags && (v11 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v11 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v11 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v11 <= 0xFu )
   {
     v5 = v15[0];
     if ( v15[0] <= 0xFu && v11 >= 2u )

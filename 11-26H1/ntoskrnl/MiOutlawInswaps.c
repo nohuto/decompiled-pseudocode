@@ -1,12 +1,12 @@
 /*
- * XREFs of MiOutlawInswaps @ 0x140313C94
+ * XREFs of MiOutlawInswaps @ 0x140315CC4
  * Callers:
- *     MiBeginProcessClean @ 0x140313D2C (MiBeginProcessClean.c)
+ *     MiBeginProcessClean @ 0x140315D5C (MiBeginProcessClean.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetWorkingSetSwapSupport @ 0x1403683CC (MiGetWorkingSetSwapSupport.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetWorkingSetSwapSupport @ 0x14036A16C (MiGetWorkingSetSwapSupport.c)
  */
 
 __int64 __fastcall MiOutlawInswaps(__int64 a1)
@@ -19,10 +19,10 @@ __int64 __fastcall MiOutlawInswaps(__int64 a1)
   _QWORD *v6; // rcx
 
   v1 = a1 + 1024;
-  v2 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198)) + 1288LL);
+  v2 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198)) + 1288LL);
   LOBYTE(v3) = ExAcquireSpinLockExclusive(v2);
   WorkingSetSwapSupport = MiGetWorkingSetSwapSupport(v1, v3);
-  v6 = &unk_140E37818;
+  v6 = &unk_140E37998;
   if ( (*(_DWORD *)(v1 + 184) & 0xF) != 1 )
     v6 = (_QWORD *)(v1 + 216);
   *v6 = 2LL;

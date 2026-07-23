@@ -1,25 +1,25 @@
 /*
- * XREFs of KiTpBuildExcludedKernelTracepointBitmap @ 0x1407BC154
+ * XREFs of KiTpBuildExcludedKernelTracepointBitmap @ 0x1407BF1B4
  * Callers:
- *     KiTpIsExcludedKernelTracepointLocation @ 0x1407BC378 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x1407BF3D8 (KiTpIsExcludedKernelTracepointLocation.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x1402E92C0 (RtlLookupFunctionEntry.c)
- *     RtlpxLookupFunctionTable @ 0x1402E9A40 (RtlpxLookupFunctionTable.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     KeReadStateSemaphore @ 0x140480600 (KeReadStateSemaphore.c)
- *     RtlIsMachineFrameUnwind @ 0x1406229E0 (RtlIsMachineFrameUnwind.c)
- *     RtlLookupPrimaryFunctionEntry @ 0x140622A38 (RtlLookupPrimaryFunctionEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlLookupFunctionEntry @ 0x1402CB300 (RtlLookupFunctionEntry.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CBA80 (RtlpxLookupFunctionTable.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     KeReadStateSemaphore @ 0x140479F40 (KeReadStateSemaphore.c)
+ *     RtlIsMachineFrameUnwind @ 0x140625A30 (RtlIsMachineFrameUnwind.c)
+ *     RtlLookupPrimaryFunctionEntry @ 0x140625A88 (RtlLookupPrimaryFunctionEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMapHeader)
 {
   __int64 v1; // rdi
-  ULONG_PTR v3; // rdi
+  unsigned __int64 v3; // rdi
   unsigned int *Pool2; // rax
-  unsigned __int64 *v5; // rsi
+  DWORD64 *v5; // rsi
   __int64 v6; // rbp
-  unsigned __int64 v7; // rdi
+  DWORD64 v7; // rdi
   struct _KTIMER *v8; // rax
   unsigned int LockNV; // edi
   unsigned int v10; // eax
@@ -35,23 +35,23 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
   ULONG v20; // edx
   __int128 v22; // [rsp+20h] [rbp-48h] BYREF
   __int64 v23; // [rsp+30h] [rbp-38h]
-  unsigned __int64 v24; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int64 ImageBase; // [rsp+70h] [rbp+8h] BYREF
 
   v1 = PsNtosImageEnd;
   *BitMapHeader = 0LL;
-  v24 = 0LL;
-  v3 = (((v1 - PsNtosImageBase + 15) >> 4) + 31) & 0xFFFFFFFFFFFFFFE0uLL;
+  ImageBase = 0LL;
+  v3 = (((unsigned __int64)(v1 - (_QWORD)PsNtosImageBase + 15) >> 4) + 31) & 0xFFFFFFFFFFFFFFE0uLL;
   Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL);
   if ( Pool2 )
   {
     BitMapHeader->SizeOfBitMap = v3;
-    v5 = (unsigned __int64 *)KiTpExcludedRoutines;
+    v5 = (DWORD64 *)KiTpExcludedRoutines;
     BitMapHeader->Buffer = Pool2;
     v6 = 191LL;
     do
     {
       v7 = *v5;
-      v8 = (struct _KTIMER *)RtlLookupFunctionEntry(*v5, &v24, 0LL);
+      v8 = (struct _KTIMER *)RtlLookupFunctionEntry(*v5, &ImageBase, 0LL);
       if ( v8 )
       {
         LockNV = v8->Header.LockNV;
@@ -59,7 +59,7 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
       }
       else
       {
-        LockNV = v7 - PsNtosImageBase;
+        LockNV = v7 - (_DWORD)PsNtosImageBase;
         v10 = LockNV + 1;
       }
       RtlSetBits(BitMapHeader, LockNV >> 4, (((unsigned __int64)v10 + 15) >> 4) - (LockNV >> 4));
@@ -70,10 +70,11 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
     v11 = 0;
     v23 = 0LL;
     v22 = 0LL;
-    if ( PsNtosImageBase < *((_QWORD *)&xmmword_141200030 + 1)
-      || PsNtosImageBase >= *((_QWORD *)&xmmword_141200030 + 1) + (unsigned __int64)(unsigned int)qword_141200040 )
+    if ( (unsigned __int64)PsNtosImageBase < *((_QWORD *)&xmmword_141200030 + 1)
+      || (unsigned __int64)PsNtosImageBase >= *((_QWORD *)&xmmword_141200030 + 1)
+                                            + (unsigned __int64)(unsigned int)qword_141200040 )
     {
-      v12 = RtlpxLookupFunctionTable(PsNtosImageBase, (__int64)&v22);
+      v12 = RtlpxLookupFunctionTable((unsigned __int64)PsNtosImageBase, (__int64)&v22);
     }
     else
     {
@@ -88,7 +89,7 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
     }
     else
     {
-      v13 = v24;
+      v13 = ImageBase;
     }
     if ( v11 / 0xC )
     {

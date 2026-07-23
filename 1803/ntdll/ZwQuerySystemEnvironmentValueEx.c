@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQuerySystemEnvironmentValueEx()
+NTSTATUS __cdecl ZwQuerySystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        PULONG ValueLength,
+        PULONG Attributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 344LL;
+  result = 344;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

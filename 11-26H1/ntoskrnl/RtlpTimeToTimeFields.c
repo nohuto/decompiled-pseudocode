@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpTimeToTimeFields @ 0x140451D40
+ * XREFs of RtlpTimeToTimeFields @ 0x140449E70
  * Callers:
- *     HalQueryRealTimeClock @ 0x140451480 (HalQueryRealTimeClock.c)
- *     HalpSetVirtualRtc @ 0x140451B58 (HalpSetVirtualRtc.c)
- *     WheapGetTimestamp @ 0x140451C90 (WheapGetTimestamp.c)
- *     RtlTimeToTimeFields @ 0x140451D20 (RtlTimeToTimeFields.c)
- *     HalpQueryVirtualRtc @ 0x140585330 (HalpQueryVirtualRtc.c)
- *     HalEfiSetTime @ 0x140586BA8 (HalEfiSetTime.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x140594734 (HalpCheckWakeupTimeAndAdjust.c)
- *     GetBootSystemTime @ 0x140CAA5C4 (GetBootSystemTime.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     HalQueryRealTimeClock @ 0x1404495B0 (HalQueryRealTimeClock.c)
+ *     HalpSetVirtualRtc @ 0x140449C88 (HalpSetVirtualRtc.c)
+ *     WheapGetTimestamp @ 0x140449DC0 (WheapGetTimestamp.c)
+ *     RtlTimeToTimeFields @ 0x140449E50 (RtlTimeToTimeFields.c)
+ *     HalpQueryVirtualRtc @ 0x140587850 (HalpQueryVirtualRtc.c)
+ *     HalEfiSetTime @ 0x1405890C8 (HalEfiSetTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140596EB4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     GetBootSystemTime @ 0x140CB05C4 (GetBootSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x140452090 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14044A1C0 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
  */
 
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2)
 {
-  _KPROCESS *Process; // rax
-  unsigned int SignalState; // edx
+  _KWAIT_BLOCK *WaitBlockList; // rax
+  unsigned int Flink_high; // edx
   __int64 v5; // r8
   int v6; // ecx
   unsigned int v7; // r10d
@@ -40,38 +40,38 @@ __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2)
   __int16 result; // ax
   __int16 v25; // r8
   __int16 v26; // cx
-  LIST_ENTRY *p_WaitListHead; // rbx
-  __int64 Flink; // r11
+  __int64 *p_Blink; // rbx
+  __int64 v28; // r11
   signed __int32 v29[8]; // [rsp+0h] [rbp-48h] BYREF
   __int128 v30; // [rsp+20h] [rbp-28h]
 
-  Process = ExpSysDbgLock.ApcState.Process;
-  if ( !ExpSysDbgLock.ApcState.Process || !ExpSysDbgLock.ApcState.Process->Header.Lock )
+  WaitBlockList = ExpSysDbgLock.WaitBlockList;
+  if ( !ExpSysDbgLock.WaitBlockList || !ExpSysDbgLock.WaitBlockList->WaitListEntry.Flink )
     return RtlpTimeToTimeFieldsNoLeapSeconds();
-  SignalState = ExpSysDbgLock.ApcState.Process->Header.SignalState;
+  Flink_high = HIDWORD(ExpSysDbgLock.WaitBlockList->WaitListEntry.Flink);
   _InterlockedOr(v29, 0);
   v5 = *a1;
   v6 = 0;
   v7 = 0;
   v8 = 0;
   v9 = 0;
-  if ( SignalState )
+  if ( Flink_high )
   {
-    p_WaitListHead = &Process->Header.WaitListHead;
+    p_Blink = (__int64 *)&WaitBlockList->WaitListEntry.Blink;
     do
     {
-      Flink = (__int64)p_WaitListHead->Flink;
-      if ( (__int64)p_WaitListHead->Flink < 0 )
+      v28 = *p_Blink;
+      if ( *p_Blink < 0 )
       {
-        if ( v5 < (Flink & 0x7FFFFFFFFFFFFFFFLL) )
+        if ( v5 < (v28 & 0x7FFFFFFFFFFFFFFFLL) )
           break;
         --v6;
       }
-      else if ( v5 < Flink + 20000000 )
+      else if ( v5 < v28 + 20000000 )
       {
-        if ( v5 < Flink + 10000000 )
+        if ( v5 < v28 + 10000000 )
         {
-          if ( v5 < Flink )
+          if ( v5 < v28 )
             break;
           v9 |= 4u;
         }
@@ -85,10 +85,10 @@ __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2)
         ++v6;
       }
       ++v7;
-      p_WaitListHead = (LIST_ENTRY *)((char *)p_WaitListHead + 8);
+      ++p_Blink;
       v8 = v9;
     }
-    while ( v7 < SignalState );
+    while ( v7 < Flink_high );
   }
   v10 = -10000000LL * v6 + v5;
   if ( (v8 & 2) != 0 )

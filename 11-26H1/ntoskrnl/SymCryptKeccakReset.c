@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptKeccakReset @ 0x1405761F8
+ * XREFs of SymCryptKeccakReset @ 0x1405786A8
  * Callers:
- *     SymCryptKeccakAppend @ 0x1405757DC (SymCryptKeccakAppend.c)
- *     SymCryptKeccakExtract @ 0x1405759D4 (SymCryptKeccakExtract.c)
- *     SymCryptKeccakInit @ 0x140575B9C (SymCryptKeccakInit.c)
+ *     SymCryptKeccakAppend @ 0x140577C8C (SymCryptKeccakAppend.c)
+ *     SymCryptKeccakExtract @ 0x140577E84 (SymCryptKeccakExtract.c)
+ *     SymCryptKeccakInit @ 0x14057804C (SymCryptKeccakInit.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
  */
 
 __int64 __fastcall SymCryptKeccakReset(__int64 a1)

@@ -1,44 +1,37 @@
 /*
- * XREFs of RtlCopyUnicodeString @ 0x1800DC080
+ * XREFs of RtlCopyUnicodeString @ 0x1800D7160
  * Callers:
- *     LdrpSearchPath @ 0x1800754F0 (LdrpSearchPath.c)
- *     EtwpQueryUmLogger @ 0x18008C894 (EtwpQueryUmLogger.c)
- *     LdrGetDllDirectory @ 0x1800DBFF0 (LdrGetDllDirectory.c)
+ *     LdrpSearchPath @ 0x180091DD0 (LdrpSearchPath.c)
+ *     EtwpQueryUmLogger @ 0x1800A8354 (EtwpQueryUmLogger.c)
+ *     LdrGetDllDirectory @ 0x1800D70D0 (LdrGetDllDirectory.c)
  * Callees:
- *     memmove @ 0x180167400 (memmove.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-unsigned __int64 __fastcall RtlCopyUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2)
+void __cdecl RtlCopyUnicodeString(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
-  unsigned int v3; // r8d
-  unsigned int v4; // eax
-  const void *v5; // rdx
-  void *v6; // rsi
+  unsigned int Length; // r8d
+  unsigned int MaximumLength; // eax
+  wchar_t *Buffer; // rdx
+  wchar_t *v6; // rsi
   unsigned __int64 v7; // rbx
-  unsigned __int64 result; // rax
 
-  if ( a2 )
+  if ( SourceString )
   {
-    v3 = *a2;
-    v4 = a1[1];
-    v5 = (const void *)*((_QWORD *)a2 + 1);
-    if ( (unsigned __int16)v3 <= (unsigned __int16)v4 )
-      v4 = v3;
-    v6 = (void *)*((_QWORD *)a1 + 1);
-    v7 = v4;
-    *a1 = v4;
-    memmove(v6, v5, v4);
-    result = a1[1];
-    if ( (unsigned __int64)*a1 + 2 <= result )
-    {
-      result = 0LL;
-      *((_WORD *)v6 + (v7 >> 1)) = 0;
-    }
+    Length = SourceString->Length;
+    MaximumLength = DestinationString->MaximumLength;
+    Buffer = SourceString->Buffer;
+    if ( (unsigned __int16)Length <= (unsigned __int16)MaximumLength )
+      MaximumLength = Length;
+    v6 = DestinationString->Buffer;
+    v7 = MaximumLength;
+    DestinationString->Length = MaximumLength;
+    memmove(v6, Buffer, MaximumLength);
+    if ( (unsigned __int64)DestinationString->Length + 2 <= DestinationString->MaximumLength )
+      v6[v7 >> 1] = 0;
   }
   else
   {
-    result = 0LL;
-    *a1 = 0;
+    DestinationString->Length = 0;
   }
-  return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of PsLookupThreadByThreadId @ 0x1404207F0
+ * XREFs of PsLookupThreadByThreadId @ 0x14041F6B0
  * Callers:
- *     PsOpenThread @ 0x140405210 (PsOpenThread.c)
- *     NtAlertThreadByThreadId @ 0x1404BBC14 (NtAlertThreadByThreadId.c)
- *     PsLookupProcessThreadByCid @ 0x1404D30D8 (PsLookupProcessThreadByCid.c)
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
- *     PfpServiceMainThreadBoostPrep @ 0x1405345E0 (PfpServiceMainThreadBoostPrep.c)
- *     PspFindThreadForTeb @ 0x14067F550 (PspFindThreadForTeb.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x1406826F4 (PspRundownUmsThreadForApcDelivery.c)
+ *     PsOpenThread @ 0x1404040D0 (PsOpenThread.c)
+ *     NtAlertThreadByThreadId @ 0x1404A7944 (NtAlertThreadByThreadId.c)
+ *     PsLookupProcessThreadByCid @ 0x1404B6B78 (PsLookupProcessThreadByCid.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x140534B20 (PfpServiceMainThreadBoostPrep.c)
+ *     PspFindThreadForTeb @ 0x14067F634 (PspFindThreadForTeb.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1406827D8 (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
- *     PsIsThreadInSilo @ 0x140013600 (PsIsThreadInSilo.c)
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x1400AA9EC (ExfAcquireReleasePushLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     PspReferenceCidTableEntry @ 0x1404208A0 (PspReferenceCidTableEntry.c)
+ *     PsIsThreadInSilo @ 0x140013180 (PsIsThreadInSilo.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1400A8F6C (ExfAcquireReleasePushLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     PspReferenceCidTableEntry @ 0x14041F760 (PspReferenceCidTableEntry.c)
  */
 
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)

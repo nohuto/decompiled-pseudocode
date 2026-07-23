@@ -3,15 +3,15 @@
  * Callers:
  *     CmpStopRMLog @ 0x140697CEC (CmpStopRMLog.c)
  *     CmpCleanupTransactionState @ 0x14069831C (CmpCleanupTransactionState.c)
- *     CmpTransWriteLog @ 0x140708070 (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x140708280 (CmpTransWriteLog.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
@@ -125,17 +125,17 @@ __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
     ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), v15, v22);
     ExFreePoolWithTag(v16, 0);
   }
-  if ( (unsigned int)dword_140C043C8 > 5 )
+  if ( (unsigned int)dword_140C04390 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C043C8, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
     {
       v30 = 0;
       v28 = v22;
       v22[0] = v3;
       v29 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C043C8,
-        (unsigned __int8 *)word_140037B2A,
+        (__int64)&dword_140C04390,
+        (unsigned __int8 *)word_140037C12,
         0LL,
         0LL,
         3u,

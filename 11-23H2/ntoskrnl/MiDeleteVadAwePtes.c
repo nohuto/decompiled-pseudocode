@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteVadAwePtes @ 0x140649968
+ * XREFs of MiDeleteVadAwePtes @ 0x140649EB8
  * Callers:
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
- *     MiDeleteLargeUserPde @ 0x140650364 (MiDeleteLargeUserPde.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
+ *     MiDeleteLargeUserPde @ 0x1406508B4 (MiDeleteLargeUserPde.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
- *     MiGetAweViewPageSize @ 0x14064A9B8 (MiGetAweViewPageSize.c)
- *     MiWriteAwePtes @ 0x14064C5BC (MiWriteAwePtes.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
+ *     MiGetAweViewPageSize @ 0x14064AF08 (MiGetAweViewPageSize.c)
+ *     MiWriteAwePtes @ 0x14064CB0C (MiWriteAwePtes.c)
  */
 
 __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)

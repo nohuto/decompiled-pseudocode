@@ -1,33 +1,33 @@
 /*
- * XREFs of WmipInitializeDataStructs @ 0x140CE03F8
+ * XREFs of WmipInitializeDataStructs @ 0x140CE6798
  * Callers:
- *     WmipDriverEntry @ 0x140CE01C0 (WmipDriverEntry.c)
+ *     WmipDriverEntry @ 0x140CE6560 (WmipDriverEntry.c)
  * Callees:
- *     WmipAllocRegEntry @ 0x1404E79BC (WmipAllocRegEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WmipAddDataSource @ 0x140A0BC24 (WmipAddDataSource.c)
- *     WmipAddMofResource @ 0x140B19FC8 (WmipAddMofResource.c)
+ *     WmipAllocRegEntry @ 0x1404E0D7C (WmipAllocRegEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WmipAddDataSource @ 0x140A0ABF4 (WmipAddDataSource.c)
+ *     WmipAddMofResource @ 0x140B1C418 (WmipAddMofResource.c)
  */
 
 __int64 WmipInitializeDataStructs()
 {
   _QWORD *v0; // rbx
   __int64 result; // rax
-  _DWORD *KernelShadowStackInitial; // rcx
-  _DWORD *i; // rax
+  __int64 v2; // rcx
+  __int64 *i; // rax
   char v4[16]; // [rsp+30h] [rbp-29h] BYREF
   _DWORD v5[24]; // [rsp+40h] [rbp-19h] BYREF
 
-  EtwpSecurityLock.AbWaitObject = &EtwpSecurityLock.SchedulerAssistPriorityFloor;
-  EtwpSecurityLock.KernelShadowStack = &EtwpSecurityLock.SchedulerAssistPriorityFloor;
-  *(_QWORD *)&EtwpSecurityLock.SchedulerAssistPriorityFloor = &EtwpSecurityLock.SchedulerAssistPriorityFloor;
-  EtwpSecurityLock.KernelShadowStackInitial = EtwpSecurityLock.TracingPrivate;
-  EtwpSecurityLock.SchedulerAssist = EtwpSecurityLock.TracingPrivate;
-  EtwpSecurityLock.TracingPrivate[0] = (unsigned __int64)EtwpSecurityLock.TracingPrivate;
-  EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink = (struct _LIST_ENTRY *)&EtwpSecurityLock.KernelWaitTime;
-  EtwpSecurityLock.UserWaitTime = (unsigned __int64)&EtwpSecurityLock.KernelWaitTime;
-  EtwpSecurityLock.KernelWaitTime = (unsigned __int64)&EtwpSecurityLock.KernelWaitTime;
+  WmipDSHeadPtr = (__int64)&WmipDSHead;
+  qword_140F040F8 = (__int64)&WmipDSHead;
+  WmipDSHead = (__int64)&WmipDSHead;
+  WmipGEHeadPtr = (__int64)&WmipGEHead;
+  qword_140F04138 = (__int64)&WmipGEHead;
+  WmipGEHead = (__int64)&WmipGEHead;
+  WmipMRHeadPtr = (__int64)&WmipMRHead;
+  qword_140F04118 = (__int64)&WmipMRHead;
+  WmipMRHead = (__int64)&WmipMRHead;
   v4[0] = 0;
   v0 = WmipAllocRegEntry(-1LL, 1342177280);
   if ( !v0 )
@@ -46,9 +46,9 @@ __int64 WmipInitializeDataStructs()
   result = WmipAddDataSource((__int64)v0, (__int64)v5, 88, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
-    KernelShadowStackInitial = EtwpSecurityLock.KernelShadowStackInitial;
-    for ( i = *(_DWORD **)EtwpSecurityLock.KernelShadowStackInitial; i != KernelShadowStackInitial; i = *(_DWORD **)i )
-      i[4] |= 1u;
+    v2 = WmipGEHeadPtr;
+    for ( i = *(__int64 **)WmipGEHeadPtr; i != (__int64 *)v2; i = (__int64 *)*i )
+      *((_DWORD *)i + 4) |= 1u;
     result = WmipAddMofResource(v0[4], L"kernelbase.dll", 1, L"MofResourceName", v4);
     if ( (int)result >= 0 )
       return 0LL;

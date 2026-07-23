@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall DbgUiConvertStateChangeStructure(__int64 a1, __int64 a2)
+NTSTATUS __cdecl DbgUiConvertStateChangeStructure(PDBGUI_WAIT_STATE_CHANGE StateChange, LPDEBUG_EVENT DebugEvent)
 {
-  return sub_1800D4DF8(a1, a2, 0LL);
+  return sub_1800D4DF8(StateChange, DebugEvent, 0LL);
 }

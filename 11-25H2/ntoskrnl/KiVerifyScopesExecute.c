@@ -51,5 +51,5 @@ void __fastcall KiVerifyScopesExecute(PVOID Parameter)
     KeBugCheckEx(0x14Du, 0xFFFFFFFFuLL, 0LL, 0x7493D5224FA9E69AuLL, BugCheckParameter4);
   v6 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
   KiVerifyPdata(v6);
-  KiVerifyPdata(PsHalImageBase);
+  KiVerifyPdata((ULONG_PTR)PsHalImageBase);
 }

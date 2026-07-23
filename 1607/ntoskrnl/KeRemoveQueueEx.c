@@ -1,27 +1,27 @@
 /*
- * XREFs of KeRemoveQueueEx @ 0x14006A3B0
+ * XREFs of KeRemoveQueueEx @ 0x140069F30
  * Callers:
- *     IoRemoveIoCompletion @ 0x14006A0E0 (IoRemoveIoCompletion.c)
- *     KeRemoveQueue @ 0x1400A86B8 (KeRemoveQueue.c)
+ *     IoRemoveIoCompletion @ 0x140069C60 (IoRemoveIoCompletion.c)
+ *     KeRemoveQueue @ 0x1400A6C30 (KeRemoveQueue.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     KiAbProcessContextSwitch @ 0x14005C490 (KiAbProcessContextSwitch.c)
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
- *     KiProcessThreadWaitList @ 0x14008DCC0 (KiProcessThreadWaitList.c)
- *     KiUpdateThreadState @ 0x140091CEC (KiUpdateThreadState.c)
- *     KiAttemptFastRemoveQueue @ 0x1400A70C4 (KiAttemptFastRemoveQueue.c)
- *     KiSwitchQueue @ 0x1400A8074 (KiSwitchQueue.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x1400D0C00 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
- *     KiRequestSoftwareInterrupt @ 0x1400D8230 (KiRequestSoftwareInterrupt.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiFastExitThreadWait @ 0x1400F2828 (KiFastExitThreadWait.c)
- *     KiCheckForThreadDispatch @ 0x1400F2960 (KiCheckForThreadDispatch.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiSwapContext @ 0x140165CD0 (KiSwapContext.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     EtwTraceDequeueWork @ 0x140225B14 (EtwTraceDequeueWork.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     KiAbProcessContextSwitch @ 0x14005C010 (KiAbProcessContextSwitch.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
+ *     KiProcessThreadWaitList @ 0x14008D420 (KiProcessThreadWaitList.c)
+ *     KiUpdateThreadState @ 0x14009144C (KiUpdateThreadState.c)
+ *     KiAttemptFastRemoveQueue @ 0x1400A563C (KiAttemptFastRemoveQueue.c)
+ *     KiSwitchQueue @ 0x1400A65EC (KiSwitchQueue.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x1400CEAA0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
+ *     KiRequestSoftwareInterrupt @ 0x1400D60D0 (KiRequestSoftwareInterrupt.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiFastExitThreadWait @ 0x1400F0678 (KiFastExitThreadWait.c)
+ *     KiCheckForThreadDispatch @ 0x1400F07B0 (KiCheckForThreadDispatch.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiSwapContext @ 0x140166240 (KiSwapContext.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     EtwTraceDequeueWork @ 0x140225940 (EtwTraceDequeueWork.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -52,7 +52,7 @@ ULONG __stdcall KeRemoveQueueEx(
   __int64 v25; // r9
   LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *v27; // rdx
-  struct _LIST_ENTRY *v28; // rax
+  _LIST_ENTRY *v28; // rax
   PLIST_ENTRY *v29; // r15
   ULONG v30; // ebp
   struct _LIST_ENTRY *Flink; // rdx
@@ -473,9 +473,9 @@ LABEL_46:
     p_WaitListHead->Flink = (struct _LIST_ENTRY *)v24;
     _InterlockedAnd(&Queue->Header.Lock, 0xFFFFFF7F);
     CurrentThread->WaitBlockCount = 1;
-    v28 = (struct _LIST_ENTRY *)KiCommitThreadWait((__int64)CurrentThread, v24, v14, QuadPart);
+    v28 = (_LIST_ENTRY *)KiCommitThreadWait((__int64)CurrentThread, v24, v14, QuadPart);
     CurrentThread->WaitReason = 0;
-    if ( v28 != (struct _LIST_ENTRY *)256 )
+    if ( v28 != (_LIST_ENTRY *)256 )
       break;
     v41 = KeGetCurrentIrql();
     __writecr8(2uLL);
@@ -486,8 +486,8 @@ LABEL_46:
   *EntryArray = v28;
   if ( v30 > 1
     && (unsigned __int64)&v28[-17].Blink + 7 > 1
-    && v28 != (struct _LIST_ENTRY *)128
-    && v28 != (struct _LIST_ENTRY *)192
+    && v28 != (_LIST_ENTRY *)128
+    && v28 != (_LIST_ENTRY *)192
     && Queue->Header.SignalState )
   {
     v48 = KeGetCurrentIrql();

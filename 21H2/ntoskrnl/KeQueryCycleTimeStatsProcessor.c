@@ -1,8 +1,8 @@
 /*
- * XREFs of KeQueryCycleTimeStatsProcessor @ 0x1402BD530
+ * XREFs of KeQueryCycleTimeStatsProcessor @ 0x14023BBE0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     PopEtIsrDpcQuery @ 0x1406A1A10 (PopEtIsrDpcQuery.c)
+ *     PopEtIsrDpcQuery @ 0x140601940 (PopEtIsrDpcQuery.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkPoPerformPpmOperationForIoPort @ 0x140BDB0EC
+ * XREFs of HalpBlkPoPerformPpmOperationForIoPort @ 0x140BDD0EC
  * Callers:
- *     HalpBlkPoPerformPpmOperation @ 0x140BDB008 (HalpBlkPoPerformPpmOperation.c)
+ *     HalpBlkPoPerformPpmOperation @ 0x140BDD008 (HalpBlkPoPerformPpmOperation.c)
  * Callees:
- *     HalpBlkPoReadPort @ 0x140BDB184 (HalpBlkPoReadPort.c)
+ *     HalpBlkPoReadPort @ 0x140BDD184 (HalpBlkPoReadPort.c)
  */
 
 void __fastcall HalpBlkPoPerformPpmOperationForIoPort(__int64 a1)

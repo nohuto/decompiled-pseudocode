@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFillMemoryRandomUp @ 0x14067B0D0
+ * XREFs of RtlpFillMemoryRandomUp @ 0x14067B620
  * Callers:
- *     RtlpGenericRandomPatternWorker @ 0x14067B628 (RtlpGenericRandomPatternWorker.c)
+ *     RtlpGenericRandomPatternWorker @ 0x14067BB78 (RtlpGenericRandomPatternWorker.c)
  * Callees:
  *     <none>
  */

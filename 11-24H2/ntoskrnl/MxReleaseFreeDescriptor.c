@@ -1,9 +1,9 @@
 /*
- * XREFs of MxReleaseFreeDescriptor @ 0x140C53354
+ * XREFs of MxReleaseFreeDescriptor @ 0x140C554E4
  * Callers:
- *     MiCreateFreePfns @ 0x140C5120C (MiCreateFreePfns.c)
+ *     MiCreateFreePfns @ 0x140C5339C (MiCreateFreePfns.c)
  * Callees:
- *     MxCreateFreePfns @ 0x140C5254C (MxCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x140C546DC (MxCreateFreePfns.c)
  */
 
 void __fastcall MxReleaseFreeDescriptor(unsigned __int64 *a1, int a2)

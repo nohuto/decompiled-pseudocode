@@ -1,8 +1,8 @@
 /*
- * XREFs of VfIsVerifierExtensionEnabled @ 0x140309A3C
+ * XREFs of VfIsVerifierExtensionEnabled @ 0x140309C2C
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
- *     VfNotifyOfHibernate @ 0x14092BDCC (VfNotifyOfHibernate.c)
+ *     PopMarkComponentsBootPhase @ 0x14056C53C (PopMarkComponentsBootPhase.c)
+ *     VfNotifyOfHibernate @ 0x14092CDCC (VfNotifyOfHibernate.c)
  * Callees:
  *     <none>
  */

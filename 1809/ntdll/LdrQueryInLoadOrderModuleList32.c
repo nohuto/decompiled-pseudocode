@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrQueryInLoadOrderModuleList32 @ 0x180087250
+ * XREFs of LdrQueryInLoadOrderModuleList32 @ 0x180087260
  * Callers:
  *     <none>
  * Callees:
  *     LdrpReadMemory @ 0x18006AB54 (LdrpReadMemory.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall LdrQueryInLoadOrderModuleList32(__int64 a1, _QWORD *a2, _QWORD *a3)

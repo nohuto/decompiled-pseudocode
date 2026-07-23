@@ -27,7 +27,7 @@ __int64 __fastcall WbHeapExecutionUnloadModule(__int64 a1, __int64 a2)
   v3 = 0;
   --CurrentThread->SpecialApcDisable;
   v6 = (unsigned __int64 *)(a1 + 48);
-  v7 = KeAbPreAcquire(a1 + 48, 0LL, 0LL);
+  v7 = KeAbPreAcquire(a1 + 48, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
     ExfAcquirePushLockExclusiveEx(v6, v7, (ULONG_PTR)v6);

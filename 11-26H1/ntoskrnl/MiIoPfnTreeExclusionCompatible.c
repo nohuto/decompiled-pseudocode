@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIoPfnTreeExclusionCompatible @ 0x1406F4220
+ * XREFs of MiIoPfnTreeExclusionCompatible @ 0x1406F8E8C
  * Callers:
- *     MiCreateIoPageExclusion @ 0x1406F39A8 (MiCreateIoPageExclusion.c)
+ *     MiCreateIoPageExclusion @ 0x1406F8618 (MiCreateIoPageExclusion.c)
  * Callees:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiFlushCachedIoPfnRange @ 0x14052448C (MiFlushCachedIoPfnRange.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiFlushCachedIoPfnRange @ 0x140526AFC (MiFlushCachedIoPfnRange.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiIoPfnTreeExclusionCompatible(int a1, __int64 a2)
@@ -54,7 +54,7 @@ __int64 __fastcall MiIoPfnTreeExclusionCompatible(int a1, __int64 a2)
   v28 = 0;
   v7 = 0LL;
   v8 = (_QWORD *)*((_QWORD *)&MiState + 8 * v3 + 4888);
-  v9 = v4 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1);
+  v9 = v4 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1);
   v10 = 0;
   if ( !v8 )
     return 0LL;
@@ -102,10 +102,10 @@ __int64 __fastcall MiIoPfnTreeExclusionCompatible(int a1, __int64 a2)
       }
       v22 = (*((_DWORD *)v12
              + ((unsigned __int64)(2
-                                 * (((unsigned int)v9 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8 - 12))
+                                 * (((unsigned int)v9 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878 - 12))
                                                        - 1))
                                   - *((_DWORD *)v12 + 6))) >> 5)
-             + 11) >> (2 * ((v9 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *((_BYTE *)v12 + 24)))) & 3;
+             + 11) >> (2 * ((v9 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *((_BYTE *)v12 + 24)))) & 3;
       if ( v22 != 3 )
       {
         if ( !v19 )
@@ -118,7 +118,7 @@ __int64 __fastcall MiIoPfnTreeExclusionCompatible(int a1, __int64 a2)
         }
         if ( v22 == 1 && !v20 )
         {
-          _InterlockedAdd(&dword_140E35EFC, 1u);
+          _InterlockedAdd(&dword_140E3607C, 1u);
           if ( !v7 )
           {
             v7 = v33;
@@ -140,11 +140,11 @@ __int64 __fastcall MiIoPfnTreeExclusionCompatible(int a1, __int64 a2)
         }
         v6 = v31;
         v24 = (unsigned __int64)(2
-                               * (((unsigned int)v9 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1))
+                               * (((unsigned int)v9 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1))
                                 - *((_DWORD *)v12 + 6))) >> 5;
         *((_DWORD *)v12 + v24 + 11) = (3 << (2
-                                           * ((v9 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1))
-                                            - *((_BYTE *)v12 + 24)))) | *((_DWORD *)v12 + v24 + 11) & ~(3 << (2 * ((v9 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *((_BYTE *)v12 + 24))));
+                                           * ((v9 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1))
+                                            - *((_BYTE *)v12 + 24)))) | *((_DWORD *)v12 + v24 + 11) & ~(3 << (2 * ((v9 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *((_BYTE *)v12 + 24))));
         v19 = v29;
       }
       ++v16;

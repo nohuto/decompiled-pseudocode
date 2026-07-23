@@ -1,12 +1,12 @@
 /*
- * XREFs of MmDbgCopyMemory @ 0x140083624
+ * XREFs of MmDbgCopyMemory @ 0x1400842A4
  * Callers:
- *     KdpCopyMemoryChunks @ 0x1406F2F08 (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x1406F2BA0 (KdpCopyMemoryChunks.c)
  *     KdpReadPhysicalMemory @ 0x1406F3F6C (KdpReadPhysicalMemory.c)
  *     KdpSearchMemory @ 0x1406F5684 (KdpSearchMemory.c)
  *     KdpSearchPhysicalPage @ 0x1406F5878 (KdpSearchPhysicalPage.c)
  * Callees:
- *     MiDbgCopyMemory @ 0x1400836B8 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x140084338 (MiDbgCopyMemory.c)
  */
 
 __int64 __fastcall MmDbgCopyMemory(char *BaseAddress, __int64 a2, unsigned int a3, unsigned int a4, int a5)

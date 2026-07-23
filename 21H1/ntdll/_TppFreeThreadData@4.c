@@ -6,16 +6,16 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-struct _TEB *__thiscall TppFreeThreadData(_DWORD *this)
+struct _TEB *__thiscall TppFreeThreadData(_DWORD *BaseAddress)
 {
-  int v1; // eax
+  ULONG v1; // eax
   struct _TEB *result; // eax
 
-  if ( this )
+  if ( BaseAddress )
   {
     v1 = TppHeapTag;
-    this[1] |= 4u;
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, v1 + 2883584, (int)this);
+    BaseAddress[1] |= 4u;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, v1 + 2883584, BaseAddress);
     result = NtCurrentTeb();
     result->ThreadPoolData = 0;
   }

@@ -7,10 +7,10 @@
  *     _ZwSetInformationWorkerFactory@16 @ 0x4B2F4370 (_ZwSetInformationWorkerFactory@16.c)
  */
 
-int __stdcall TpSetPoolStackInformation(int a1, int a2)
+NTSTATUS __cdecl TpSetPoolStackInformation(PTP_POOL Pool, PTP_POOL_STACK_INFORMATION PoolStackInformation)
 {
-  if ( a1 && a2 )
-    return ZwSetInformationWorkerFactory(*(_DWORD *)(a1 + 36), 10, a2, 8);
+  if ( Pool && PoolStackInformation )
+    return ZwSetInformationWorkerFactory(*((HANDLE *)Pool + 9), WorkerFactoryStackInformation, PoolStackInformation, 8u);
   else
     return -1073741811;
 }

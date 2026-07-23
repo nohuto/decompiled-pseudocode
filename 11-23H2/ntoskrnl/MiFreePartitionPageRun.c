@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreePartitionPageRun @ 0x140659CFC
+ * XREFs of MiFreePartitionPageRun @ 0x14065A24C
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
  * Callees:
- *     MiFreeMdlPageRun @ 0x1402C89E0 (MiFreeMdlPageRun.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
+ *     MiFreeMdlPageRun @ 0x1402C8C70 (MiFreeMdlPageRun.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
  */
 
 __int64 __fastcall MiFreePartitionPageRun(unsigned __int16 *a1, ULONG_PTR a2, unsigned __int64 a3, int a4)
@@ -43,10 +43,13 @@ __int64 __fastcall MiFreePartitionPageRun(unsigned __int16 *a1, ULONG_PTR a2, un
       _InterlockedAnd(
         (volatile signed __int32 *)(qword_140C67DF8 + 4 * ((((i - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
         ~(1 << (((i - qword_140C67DF0) >> 3) & 0x1F)));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v11 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

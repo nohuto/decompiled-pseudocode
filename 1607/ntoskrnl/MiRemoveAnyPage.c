@@ -1,20 +1,20 @@
 /*
- * XREFs of MiRemoveAnyPage @ 0x140064740
+ * XREFs of MiRemoveAnyPage @ 0x1400642C0
  * Callers:
- *     MiGetFreeOrZeroPage @ 0x14003DC80 (MiGetFreeOrZeroPage.c)
+ *     MiGetFreeOrZeroPage @ 0x14003D800 (MiGetFreeOrZeroPage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiReleaseFreshPageLocked @ 0x1400221A4 (MiReleaseFreshPageLocked.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiSlistGetFreePage @ 0x140061478 (MiSlistGetFreePage.c)
- *     MiReplenishPageSlist @ 0x140064330 (MiReplenishPageSlist.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KeCheckForZeroPage @ 0x140161DA0 (KeCheckForZeroPage.c)
- *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x1401D3BD0 (KiTryToAcquireQueuedSpinLockInstrumented.c)
- *     MiPageNotZero @ 0x1401F2C8C (MiPageNotZero.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiReleaseFreshPageLocked @ 0x140021D24 (MiReleaseFreshPageLocked.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiSlistGetFreePage @ 0x140060FF8 (MiSlistGetFreePage.c)
+ *     MiReplenishPageSlist @ 0x140063EB0 (MiReplenishPageSlist.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KeCheckForZeroPage @ 0x140162310 (KeCheckForZeroPage.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x1401D39FC (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     MiPageNotZero @ 0x1401F2AB8 (MiPageNotZero.c)
  */
 
 __int64 __fastcall MiRemoveAnyPage(__int64 a1, unsigned int a2, unsigned int a3)
@@ -68,10 +68,10 @@ __int64 __fastcall MiRemoveAnyPage(__int64 a1, unsigned int a2, unsigned int a3)
     v8 = 1;
     v9 = 0;
   }
-  v10 = dword_1403269F8;
+  v10 = dword_140326A38;
   v11 = v4;
   v12 = v9;
-  v13 = *(_QWORD *)(a1 + 48) + 2184 * (v4 >> byte_1403269C9);
+  v13 = *(_QWORD *)(a1 + 48) + 2184 * (v4 >> byte_140326A09);
   v14 = (unsigned int)MmNumberOfChannels <= 1;
   *(_DWORD *)(((unsigned __int64)v38 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = v9;
   *(_DWORD *)(((unsigned __int64)v38 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = v8;
@@ -93,7 +93,7 @@ __int64 __fastcall MiRemoveAnyPage(__int64 a1, unsigned int a2, unsigned int a3)
   }
   else
   {
-    v33 = 2LL * ((unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)((unsigned int)v4 >> byte_1403269D8));
+    v33 = 2LL * ((unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)((unsigned int)v4 >> byte_140326A18));
     if ( !*(_QWORD *)(v13 + 8 * (v33 + v8) + 2072) )
     {
       do
@@ -291,7 +291,7 @@ LABEL_28:
         && (MiFlags & 0x80u) != 0
         && v18 < 0x200000
         && (*(_BYTE *)(48 * v18 - 0x57FFFFFFFDDLL) & 0x40) == 0
-        && (++dword_140327120 & MmPageValidationFrequency) == 0 )
+        && (++dword_140327160 & MmPageValidationFrequency) == 0 )
       {
         if ( KeGetCurrentPrcb()->HyperPte )
         {

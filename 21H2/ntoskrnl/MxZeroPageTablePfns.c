@@ -1,12 +1,12 @@
 /*
- * XREFs of MxZeroPageTablePfns @ 0x140A57504
+ * XREFs of MxZeroPageTablePfns @ 0x140A58504
  * Callers:
- *     MiInitializePfnsForValidMappings @ 0x140A5668C (MiInitializePfnsForValidMappings.c)
- *     MxZeroPageTablePfns @ 0x140A57504 (MxZeroPageTablePfns.c)
+ *     MiInitializePfnsForValidMappings @ 0x140A5768C (MiInitializePfnsForValidMappings.c)
+ *     MxZeroPageTablePfns @ 0x140A58504 (MxZeroPageTablePfns.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MxZeroPageTablePfns @ 0x140A57504 (MxZeroPageTablePfns.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MxZeroPageTablePfns @ 0x140A58504 (MxZeroPageTablePfns.c)
  */
 
 void __fastcall MxZeroPageTablePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, __int64 a4)

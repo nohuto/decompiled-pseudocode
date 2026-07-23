@@ -9,7 +9,7 @@
  *     memset @ 0x1800A3EC0 (memset.c)
  */
 
-__int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, WCHAR *a2, __int16 a3)
+__int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, const WCHAR *a2, __int16 a3)
 {
   int v3; // esi
   int RegistryValues; // ebx

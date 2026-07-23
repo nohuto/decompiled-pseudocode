@@ -1,9 +1,9 @@
 /*
- * XREFs of PiIommuIsDeviceSafeWhileConsoleLocked @ 0x140735FE8
+ * XREFs of PiIommuIsDeviceSafeWhileConsoleLocked @ 0x140733F18
  * Callers:
- *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x14073179C (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x140731B84 (PipDmgEnforceEnumerationPolicy.c)
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A7F278 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x14072F7AC (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14072FB94 (PipDmgEnforceEnumerationPolicy.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A78A28 (PnpSurpriseFailUnsafeDmaDevices.c)
  * Callees:
  *     <none>
  */

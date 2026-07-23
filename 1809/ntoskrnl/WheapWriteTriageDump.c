@@ -1,20 +1,20 @@
 /*
- * XREFs of WheapWriteTriageDump @ 0x1408DC7E8
+ * XREFs of WheapWriteTriageDump @ 0x1408DDAA8
  * Callers:
- *     WheapCreateTriageDumpFromPreviousSession @ 0x14057F05C (WheapCreateTriageDumpFromPreviousSession.c)
- *     WheaCrashDumpInitializationComplete @ 0x140763A8C (WheaCrashDumpInitializationComplete.c)
+ *     WheapCreateTriageDumpFromPreviousSession @ 0x14058005C (WheapCreateTriageDumpFromPreviousSession.c)
+ *     WheaCrashDumpInitializationComplete @ 0x140764C7C (WheaCrashDumpInitializationComplete.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x14019A360 (swprintf_s.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGetNtSystemRoot @ 0x140682410 (RtlGetNtSystemRoot.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x14019A4A0 (swprintf_s.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGetNtSystemRoot @ 0x1406835D0 (RtlGetNtSystemRoot.c)
  */
 
 __int64 __fastcall WheapWriteTriageDump(__int64 a1, int a2)
@@ -25,7 +25,7 @@ __int64 __fastcall WheapWriteTriageDump(__int64 a1, int a2)
   wchar_t *PoolWithTag; // rax
   WCHAR *v6; // rdi
   int v7; // r15d
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   __int64 v9; // rax
   PLARGE_INTEGER AllocationSize; // [rsp+20h] [rbp-69h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF

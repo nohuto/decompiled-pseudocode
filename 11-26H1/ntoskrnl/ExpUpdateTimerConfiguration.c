@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpUpdateTimerConfiguration @ 0x140379D60
+ * XREFs of ExpUpdateTimerConfiguration @ 0x14037BB10
  * Callers:
- *     ExpUpdateTimerResolution @ 0x14052E534 (ExpUpdateTimerResolution.c)
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     ExpUpdateTimerResolution @ 0x140530A54 (ExpUpdateTimerResolution.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     KiRemoveBoostThread @ 0x1402742E0 (KiRemoveBoostThread.c)
- *     ExpUpdateTimerConfigurationWorker @ 0x1403790A0 (ExpUpdateTimerConfigurationWorker.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeSetPriorityBoost @ 0x14037B5A0 (KeSetPriorityBoost.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiRemoveBoostThread @ 0x140273850 (KiRemoveBoostThread.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x14037AE50 (ExpUpdateTimerConfigurationWorker.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetPriorityBoost @ 0x14037D350 (KeSetPriorityBoost.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ExpUpdateTimerConfiguration(__int64 a1, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall ExpUpdateTimerConfiguration(__int64 a1, __int64 a2, __int64 a
   __int64 v8; // rdx
   __int64 v9; // rcx
   struct _KTHREAD *CurrentThread; // r15
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // r14
+  _GROUP_AFFINITY *p_PreviousAffinity; // r14
   struct _KPRCB *CurrentPrcb; // rdi
   __int64 v13; // r8
   unsigned __int64 v14; // rbx
@@ -33,10 +33,10 @@ __int64 __fastcall ExpUpdateTimerConfiguration(__int64 a1, __int64 a2, __int64 a
   __int64 v19; // rdx
   __int64 v20; // r8
   __int64 v21; // r9
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-E0h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-E0h] BYREF
   _QWORD v24[3]; // [rsp+38h] [rbp-C8h] BYREF
   __int64 v25; // [rsp+50h] [rbp-B0h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v27; // [rsp+70h] [rbp-90h]
   _QWORD v28[33]; // [rsp+78h] [rbp-88h] BYREF
   _BYTE v29[272]; // [rsp+180h] [rbp+80h] BYREF
@@ -45,10 +45,9 @@ __int64 __fastcall ExpUpdateTimerConfiguration(__int64 a1, __int64 a2, __int64 a
   v27 = 2097153LL;
   v25 = 0LL;
   memset_0(v28, 0, 0x100uLL);
-  v6 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                 + 4LL * (unsigned int)KiClockTimerOwner) & 0x3F;
-  v7 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                 + 4LL * (unsigned int)KiClockTimerOwner) >> 6;
+  v6 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + (unsigned int)KiClockTimerOwner) & 0x3F;
+  v7 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV
+                     + (unsigned int)KiClockTimerOwner) >> 6;
   if ( !(_DWORD)v7 )
     goto LABEL_2;
   if ( WORD1(v27) > (unsigned int)v7 )

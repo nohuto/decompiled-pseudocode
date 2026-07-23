@@ -1,12 +1,12 @@
 /*
- * XREFs of IoTryReleasePages @ 0x14043D260
+ * XREFs of IoTryReleasePages @ 0x140431500
  * Callers:
- *     MiRequestIoPageMdlCacheRelease @ 0x14043D1D8 (MiRequestIoPageMdlCacheRelease.c)
- *     MiInvokeIoReleasePages @ 0x1404D984C (MiInvokeIoReleasePages.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x140431478 (MiRequestIoPageMdlCacheRelease.c)
+ *     MiInvokeIoReleasePages @ 0x1404D32C8 (MiInvokeIoReleasePages.c)
  * Callees:
- *     IopMcDereferenceBufferEntry @ 0x14043D2F0 (IopMcDereferenceBufferEntry.c)
- *     IopMcFindNextTableEntryForUnlock @ 0x14043D340 (IopMcFindNextTableEntryForUnlock.c)
- *     IopMcTryUnlockMdl @ 0x1405A2EE8 (IopMcTryUnlockMdl.c)
+ *     IopMcDereferenceBufferEntry @ 0x140431590 (IopMcDereferenceBufferEntry.c)
+ *     IopMcFindNextTableEntryForUnlock @ 0x1404315E0 (IopMcFindNextTableEntryForUnlock.c)
+ *     IopMcTryUnlockMdl @ 0x14059FE28 (IopMcTryUnlockMdl.c)
  */
 
 void __fastcall IoTryReleasePages(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ void __fastcall IoTryReleasePages(__int64 a1, __int64 a2)
     v2 = a2;
     do
     {
-      _InterlockedIncrement(&dword_140F8C260);
+      _InterlockedIncrement(&dword_140F8C4E0);
       BugCheckParameter3 = 0LL;
       v6[2] = 0LL;
       v6[1] = 0LL;

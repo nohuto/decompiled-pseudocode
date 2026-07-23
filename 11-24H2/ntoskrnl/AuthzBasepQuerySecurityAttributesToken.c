@@ -1,16 +1,16 @@
 /*
- * XREFs of AuthzBasepQuerySecurityAttributesToken @ 0x140358820
+ * XREFs of AuthzBasepQuerySecurityAttributesToken @ 0x1403B7C30
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403642B0 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403BADD4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x140357D50 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140357F14 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     AuthzBasepCopyoutSecurityAttributes @ 0x140358BA0 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x140358ED0 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x1403B7FB0 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x1403B82E0 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B88F4 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B8930 (AuthzBasepEqualUnicodeString.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepQuerySecurityAttributesToken(
@@ -31,22 +31,22 @@ __int64 __fastcall AuthzBasepQuerySecurityAttributesToken(
   unsigned __int64 v13; // r14
   unsigned int j; // r12d
   const UNICODE_STRING *v15; // r15
-  const UNICODE_STRING *v16; // r13
+  unsigned int *v16; // r13
   unsigned int *k; // rbx
   unsigned int *m; // rsi
   char v19; // al
-  const UNICODE_STRING *v20; // rcx
+  unsigned int *v20; // rcx
   __int64 result; // rax
   unsigned __int16 v22; // r8
   unsigned __int16 v23; // dx
-  const void **v24; // rcx
-  char v25; // al
+  const UNICODE_STRING *v24; // rcx
+  BOOLEAN v25; // al
   unsigned __int64 v26; // rax
   unsigned int *v27; // rbx
   unsigned __int64 v28; // rcx
   __int64 v29; // rdx
   unsigned __int64 v30; // rdx
-  __int64 Length; // r8
+  __int64 v31; // r8
   _QWORD v32[2]; // [rsp+38h] [rbp-50h] BYREF
 
   v6 = a6;
@@ -86,12 +86,12 @@ __int64 __fastcall AuthzBasepQuerySecurityAttributesToken(
             v16 = 0LL;
             for ( k = (unsigned int *)*((_QWORD *)a1 + 1); k != a1 + 2; k = *(unsigned int **)k )
             {
-              v16 = (const UNICODE_STRING *)k;
-              v24 = (const void **)(k + 8);
+              v16 = k;
+              v24 = (const UNICODE_STRING *)(k + 8);
               if ( KeGetCurrentIrql() >= 2u )
-                v25 = AuthzBasepEqualUnicodeStringCaseSensitive(v24, (__int64)v15);
+                v25 = AuthzBasepEqualUnicodeStringCaseSensitive(v24, v15);
               else
-                v25 = RtlEqualUnicodeString((PCUNICODE_STRING)v24, v15, 1u);
+                v25 = RtlEqualUnicodeString(v24, v15, 1u);
               if ( v25 )
               {
 LABEL_39:
@@ -102,8 +102,8 @@ LABEL_39:
             LODWORD(v8) = a3;
             for ( m = (unsigned int *)*((_QWORD *)a1 + 4); m != a1 + 8; m = *(unsigned int **)m )
             {
-              v16 = (const UNICODE_STRING *)(m - 4);
-              if ( (m[10] & 1) == 0 && AuthzBasepEqualUnicodeString(v16 + 2, v15) )
+              v16 = m - 4;
+              if ( (m[10] & 1) == 0 && (unsigned __int8)AuthzBasepEqualUnicodeString(v16 + 8, v15) )
                 goto LABEL_39;
             }
             v19 = 0;
@@ -116,10 +116,10 @@ LABEL_14:
             v30 = (v13 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
             if ( v30 < v13 )
               return 3221225621LL;
-            Length = v20[2].Length;
-            if ( Length + v30 < v30 )
+            v31 = *((unsigned __int16 *)v20 + 16);
+            if ( v31 + v30 < v30 )
               return 3221225621LL;
-            v32[0] = Length + v30;
+            v32[0] = v31 + v30;
             result = AuthzBasepGetSecurityAttributeValueCopyoutBufferSize(v20, v32);
             v9 = a2;
             if ( (int)result < 0 )

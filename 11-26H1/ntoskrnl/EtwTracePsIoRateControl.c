@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTracePsIoRateControl @ 0x140B19A4C
+ * XREFs of EtwTracePsIoRateControl @ 0x140B1BE9C
  * Callers:
- *     PspSetJobIoRateControl @ 0x1407F9484 (PspSetJobIoRateControl.c)
+ *     PspSetJobIoRateControl @ 0x1407FEF84 (PspSetJobIoRateControl.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTracePsIoRateControl(int a1, __int64 a2, __int64 a3, int a4)
@@ -60,7 +60,7 @@ BOOLEAN __fastcall EtwTracePsIoRateControl(int a1, __int64 a2, __int64 a3, int a
   v5 = (const EVENT_DESCRIPTOR *)PsIoRateControlStart;
   if ( (*(_DWORD *)(a2 + 36) & 1) == 0 )
     v5 = &PsIoRateControlStop;
-  result = EtwEventEnabled(EtwpPsProvRegHandle, v5);
+  result = EtwEventEnabled((REGHANDLE)stru_140F03830.Affinity, v5);
   if ( result )
   {
     v8 = L"Global";
@@ -105,7 +105,7 @@ BOOLEAN __fastcall EtwTracePsIoRateControl(int a1, __int64 a2, __int64 a3, int a
     v38 = 4LL;
     v41 = 0;
     v43 = 4LL;
-    return EtwWrite(EtwpPsProvRegHandle, v5, 0LL, 0x11u, &UserData);
+    return EtwWrite((REGHANDLE)stru_140F03830.Affinity, v5, 0LL, 0x11u, &UserData);
   }
   return result;
 }

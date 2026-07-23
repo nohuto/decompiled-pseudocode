@@ -1,10 +1,10 @@
 /*
- * XREFs of PiCreateUniqueServiceStateKey @ 0x140955E84
+ * XREFs of PiCreateUniqueServiceStateKey @ 0x140956084
  * Callers:
- *     PiCreateServiceStateKey @ 0x1408712B4 (PiCreateServiceStateKey.c)
+ *     PiCreateServiceStateKey @ 0x1408714F4 (PiCreateServiceStateKey.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     PiCreateServiceKeyUnderPath @ 0x140955C38 (PiCreateServiceKeyUnderPath.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     PiCreateServiceKeyUnderPath @ 0x140955E38 (PiCreateServiceKeyUnderPath.c)
  */
 
 __int64 __fastcall PiCreateUniqueServiceStateKey(UNICODE_STRING *CreateOptions, __int64 a2, _QWORD *a3)

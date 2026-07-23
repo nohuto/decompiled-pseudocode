@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitCmPrivateAlloc @ 0x140A8EB7C
+ * XREFs of CmpInitCmPrivateAlloc @ 0x140A8FB7C
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x14035E1E0 (ExInitializeLookasideListExInternal.c)
+ *     ExInitializeLookasideListExInternal @ 0x1402A3110 (ExInitializeLookasideListExInternal.c)
  */
 
 __int64 CmpInitCmPrivateAlloc()

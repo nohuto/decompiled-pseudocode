@@ -1,31 +1,31 @@
 /*
- * XREFs of ExpShareAddressSpaceWithDevice @ 0x1406D1A1C
+ * XREFs of ExpShareAddressSpaceWithDevice @ 0x1406D5A4C
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x140840E10 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x140847050 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExpAllocateAsid @ 0x1406D143C (ExpAllocateAsid.c)
- *     ExpConvertSvmDevice @ 0x1406D1610 (ExpConvertSvmDevice.c)
- *     ExpPrepareNewSvmDevice @ 0x1406D1778 (ExpPrepareNewSvmDevice.c)
- *     ExpSvmDereferenceDevice @ 0x1406D20D0 (ExpSvmDereferenceDevice.c)
- *     MmEnableProcessSvm @ 0x1406E549C (MmEnableProcessSvm.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpAssignPasid @ 0x140840E98 (ExpAssignPasid.c)
- *     IoQueryInterface @ 0x140AA8B20 (IoQueryInterface.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpAllocateAsid @ 0x1406D546C (ExpAllocateAsid.c)
+ *     ExpConvertSvmDevice @ 0x1406D5640 (ExpConvertSvmDevice.c)
+ *     ExpPrepareNewSvmDevice @ 0x1406D57A8 (ExpPrepareNewSvmDevice.c)
+ *     ExpSvmDereferenceDevice @ 0x1406D6100 (ExpSvmDereferenceDevice.c)
+ *     MmEnableProcessSvm @ 0x1406EA14C (MmEnableProcessSvm.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpAssignPasid @ 0x1408470D8 (ExpAssignPasid.c)
+ *     IoQueryInterface @ 0x1409DC050 (IoQueryInterface.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, unsigned int *a3)
@@ -49,7 +49,7 @@ __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, unsign
   __int64 v22; // r9
   signed __int8 v23; // cf
   AutoBoost *v24; // rdi
-  struct _KTHREAD *Flink; // rax
+  struct _KTHREAD *Blink; // rax
   void *SListFaultAddress; // rcx
   struct _KTHREAD *v27; // r14
   _QWORD *p_Lock; // rdi
@@ -77,7 +77,7 @@ __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, unsign
   memset(&LockHandle, 0, sizeof(LockHandle));
   P = 0LL;
   v5 = 0LL;
-  if ( !ExSaPageGroupDescriptorArrayLock.Timer.Dpc )
+  if ( !ExSaPageGroupDescriptorArrayLock.Timer.DueTime.QuadPart )
     return 3221225659LL;
   if ( !a1 )
     return 3221225711LL;
@@ -149,16 +149,14 @@ LABEL_94:
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);
     }
-    v20 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1], 0LL, 0LL, v14);
-    v23 = _interlockedbittestandset64(
-            (volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.ApcStateFill[16],
-            0LL);
+    v20 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.152, 0LL, 0LL, v14);
+    v23 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.152, 0LL);
     v24 = v20;
     if ( v23 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1],
+        (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
         v20,
-        (__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+        (__int64)&ExSaPageGroupDescriptorArrayLock.152);
     if ( v24 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -171,20 +169,20 @@ LABEL_94:
         *((_BYTE *)v24 + 10) = 1;
       }
     }
-    Flink = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink == &ExSaPageGroupDescriptorArrayLock.152 )
+    Blink = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink;
+    if ( (unsigned __int8 *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink == &ExSaPageGroupDescriptorArrayLock.ApcStateFill[8] )
       goto LABEL_42;
     do
     {
-      SListFaultAddress = Flink->SListFaultAddress;
-      v27 = Flink;
-      P = Flink;
-      p_Lock = &Flink->Header.Lock;
+      SListFaultAddress = Blink->SListFaultAddress;
+      v27 = Blink;
+      P = Blink;
+      p_Lock = &Blink->Header.Lock;
       if ( SListFaultAddress == (void *)a1 )
         goto LABEL_46;
-      Flink = *(struct _KTHREAD **)&Flink->Header.Lock;
+      Blink = *(struct _KTHREAD **)&Blink->Header.Lock;
     }
-    while ( Flink != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.152 );
+    while ( Blink != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.ApcStateFill[8] );
     if ( SListFaultAddress != (void *)a1 )
     {
       P = 0LL;
@@ -193,10 +191,10 @@ LABEL_42:
       if ( Interface < 0 )
       {
         if ( (_InterlockedExchangeAdd64(
-                (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Flink,
+                (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
                 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
-        KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+          ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152);
+        KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.152);
         p_Lock = P;
 LABEL_52:
         v29 = 0;
@@ -237,10 +235,10 @@ LABEL_98:
 LABEL_58:
       v29 = 1;
       if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Flink,
+              (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
               0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
-      KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+        ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152);
+      KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.152);
       Pool2 = ExAllocatePool2(0x40uLL);
       v5 = (_QWORD *)Pool2;
       if ( !Pool2 )
@@ -318,10 +316,10 @@ LABEL_46:
       Interface = -1073741637;
 LABEL_49:
       if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Flink,
+              (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
               0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
-      KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+        ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152);
+      KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.152);
       goto LABEL_52;
     }
     if ( LOBYTE(v27->Header.WaitListHead.Blink) )

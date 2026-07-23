@@ -1,30 +1,30 @@
 /*
- * XREFs of LdrpCheckAppDirType @ 0x1801154EC
+ * XREFs of LdrpCheckAppDirType @ 0x180114CCC
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlpDosPathNameToRelativeNtPathName @ 0x180044540 (RtlpDosPathNameToRelativeNtPathName.c)
- *     RtlFreeAnsiString @ 0x180056B20 (RtlFreeAnsiString.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenFile @ 0x18015F5A0 (NtOpenFile.c)
- *     ZwQueryVolumeInformationFile @ 0x18015F860 (ZwQueryVolumeInformationFile.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x18002EAB0 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     RtlFreeAnsiString @ 0x1800410A0 (RtlFreeAnsiString.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenFile @ 0x18015F4A0 (NtOpenFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x18015F760 (ZwQueryVolumeInformationFile.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 void __fastcall LdrpCheckAppDirType(__m128i *a1)
 {
   HANDLE FileHandle; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING *v2; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v3; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING *v2; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 FsInformation; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD v4[2]; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-58h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-58h] BYREF
   char v8; // [rsp+C0h] [rbp-40h] BYREF
 
   v4[0] = 0x1000000LL;
   v4[1] = &v8;
-  v3 = 0LL;
+  FsInformation = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   IoStatusBlock = 0LL;
   v2 = 0LL;
@@ -39,8 +39,8 @@ void __fastcall LdrpCheckAppDirType(__m128i *a1)
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     ObjectAttributes.Attributes = 64;
     if ( NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u) >= 0
-      && (int)ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &v3, 8LL, 4) >= 0
-      && (LdrpIllegalCWDDevices & HIDWORD(v3)) != 0 )
+      && ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &FsInformation, 8u, FileFsDeviceInformation) >= 0
+      && (LdrpIllegalCWDDevices & HIDWORD(FsInformation)) != 0 )
     {
       LdrpIllegalCWDDevices = 0;
     }

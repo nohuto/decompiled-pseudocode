@@ -1,56 +1,56 @@
 /*
- * XREFs of HvpViewMapShrinkStorage @ 0x1407DF04C
+ * XREFs of HvpViewMapShrinkStorage @ 0x1407DF59C
  * Callers:
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
- *     HvFreeHivePartial @ 0x140A4FDCC (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x140A46B7C (HvFreeHivePartial.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     HvpViewMapFindViewForFileOffset @ 0x14097FF54 (HvpViewMapFindViewForFileOffset.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x140984600 (HvpViewMapMakeViewRangeInvalid.c)
- *     HvpViewMapFreeView @ 0x140A4A284 (HvpViewMapFreeView.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     HvpViewMapFindViewForFileOffset @ 0x140968764 (HvpViewMapFindViewForFileOffset.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x14096CE10 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapFreeView @ 0x140A40FA4 (HvpViewMapFreeView.c)
  */
 
 __int64 **__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
 {
-  signed __int64 v2; // r15
-  signed __int64 v3; // r14
-  signed __int64 v5; // r10
+  __int64 v2; // r15
+  __int64 v3; // r14
+  _RTL_BALANCED_NODE *v5; // r10
   __int64 **result; // rax
-  unsigned __int64 *ViewForFileOffset; // rbx
-  signed __int64 v8; // rsi
+  _RTL_BALANCED_NODE *ViewForFileOffset; // rbx
+  _RTL_BALANCED_NODE *v8; // rsi
   __int64 v9; // r10
-  unsigned __int64 **v10; // rax
+  _RTL_BALANCED_NODE **v10; // rax
   __int64 *v11; // rcx
   __int64 **v12; // [rsp+20h] [rbp-10h] BYREF
-  unsigned __int64 *v13; // [rsp+28h] [rbp-8h]
+  _RTL_BALANCED_NODE *v13; // [rsp+28h] [rbp-8h]
 
   v2 = *(_QWORD *)(a1 + 8);
   v3 = (unsigned int)(a2 + 4096);
-  v5 = v3;
-  v13 = (unsigned __int64 *)&v12;
+  v5 = (_RTL_BALANCED_NODE *)v3;
+  v13 = (_RTL_BALANCED_NODE *)&v12;
   result = (__int64 **)&v12;
   v12 = (__int64 **)&v12;
   if ( v3 < v2 )
   {
     do
     {
-      ViewForFileOffset = (unsigned __int64 *)HvpViewMapFindViewForFileOffset(a1, v5);
-      v8 = ViewForFileOffset[6];
+      ViewForFileOffset = (_RTL_BALANCED_NODE *)HvpViewMapFindViewForFileOffset(a1, v5);
+      v8 = ViewForFileOffset[2].Children[0];
       HvpViewMapMakeViewRangeInvalid(a1, ViewForFileOffset, v9, v8);
-      if ( ViewForFileOffset[5] == ViewForFileOffset[6] )
+      if ( (_RTL_BALANCED_NODE *)ViewForFileOffset[1].ParentValue == ViewForFileOffset[2].Children[0] )
       {
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 40), ViewForFileOffset);
-        v10 = (unsigned __int64 **)v13;
-        if ( (__int64 ***)*v13 != &v12 )
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), ViewForFileOffset);
+        v10 = (_RTL_BALANCED_NODE **)v13;
+        if ( (__int64 ***)v13->Children[0] != &v12 )
           goto LABEL_8;
-        ViewForFileOffset[1] = (unsigned __int64)v13;
-        *ViewForFileOffset = (unsigned __int64)&v12;
+        ViewForFileOffset->Children[1] = v13;
+        ViewForFileOffset->Children[0] = (_RTL_BALANCED_NODE *)&v12;
         *v10 = ViewForFileOffset;
         v13 = ViewForFileOffset;
       }
       v5 = v8;
     }
-    while ( v8 < v2 );
+    while ( (__int64)v8 < v2 );
     result = v12;
   }
   *(_QWORD *)(a1 + 8) = v3;

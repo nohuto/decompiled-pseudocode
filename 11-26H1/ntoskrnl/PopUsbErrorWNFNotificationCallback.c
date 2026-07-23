@@ -1,15 +1,15 @@
 /*
- * XREFs of PopUsbErrorWNFNotificationCallback @ 0x1407D9D90
+ * XREFs of PopUsbErrorWNFNotificationCallback @ 0x1407DDD30
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PopBatteryQueueWork @ 0x1404E0BBC (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PopBatteryQueueWork @ 0x1404DA29C (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -54,14 +54,14 @@ __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1, __int64 a2, __
       PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock, v4, v6, v7);
       PopWeakChargerNotificationUsbStack = v8;
       PopBatteryQueueWork(0x40u);
-      PopReleaseRwLock(&PopWeakChargerLock);
+      PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock);
     }
     else
     {
       v5 = 128;
     }
   }
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v13 = v5;
     v19 = &v13;
@@ -81,7 +81,7 @@ __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1, __int64 a2, __
     v26 = 4LL;
     v28 = 1LL;
     v17 = 0x1000000LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)byte_14004DBD5, 0LL, 0LL, 8u, &v18);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004DBC9, 0LL, 0LL, 8u, &v18);
   }
   return (unsigned int)v5;
 }

@@ -29,7 +29,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
         unsigned int *a7)
 {
   int StringForSid; // r13d
-  NTSTATUS OwnerSecurityDescriptor; // eax
+  int OwnerSecurityDescriptor; // eax
   unsigned int v10; // esi
   PSID v11; // r15
   PSID v12; // r12
@@ -39,7 +39,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   int SaclSecurityDescriptor; // eax
   int v17; // edx
   int v18; // r8d
-  unsigned __int16 v19; // bx
+  WORD v19; // bx
   char v20; // r14
   BOOLEAN v21; // cl
   PVOID v22; // rbx
@@ -78,10 +78,10 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   PSID Owner; // [rsp+98h] [rbp-19h] BYREF
   PSID Group; // [rsp+A0h] [rbp-11h] BYREF
   PACL Dacl; // [rsp+A8h] [rbp-9h] BYREF
-  int DaclDefaulted; // [rsp+100h] [rbp+4Fh] BYREF
+  ULONG DaclDefaulted; // [rsp+100h] [rbp+4Fh] BYREF
   __int64 SaclPresent; // [rsp+108h] [rbp+57h] BYREF
   BOOLEAN DaclPresent; // [rsp+110h] [rbp+5Fh] BYREF
-  unsigned __int16 v62; // [rsp+118h] [rbp+67h] BYREF
+  WORD Control; // [rsp+118h] [rbp+67h] BYREF
 
   SaclPresent = a2;
   LODWORD(Size) = 0;
@@ -102,7 +102,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   v48 = 0LL;
   v54 = 0LL;
   Src = 0LL;
-  v62 = 0;
+  Control = 0;
   P = 0LL;
   v49 = 0LL;
   if ( !a4 || !a6 )
@@ -150,7 +150,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
       }
     }
   }
-  OwnerSecurityDescriptor = RtlGetControlSecurityDescriptor((unsigned __int8 *)a4, &v62, &DaclDefaulted);
+  OwnerSecurityDescriptor = RtlGetControlSecurityDescriptor(a4, &Control, &DaclDefaulted);
   if ( OwnerSecurityDescriptor < 0 )
   {
 LABEL_68:
@@ -173,10 +173,10 @@ LABEL_68:
     if ( v38 )
       goto LABEL_46;
   }
-  v19 = v62;
-  if ( v62 )
+  v19 = Control;
+  if ( Control )
   {
-    StringForSid = LocalGetStringForControl(v62, 1LL, &P);
+    StringForSid = LocalGetStringForControl(Control, 1LL, &P);
     if ( StringForSid )
       goto LABEL_46;
     StringForSid = LocalGetStringForControl(v19, 2LL, &v49);

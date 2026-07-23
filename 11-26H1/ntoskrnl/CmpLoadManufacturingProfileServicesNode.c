@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpLoadManufacturingProfileServicesNode @ 0x140CF0020
+ * XREFs of CmpLoadManufacturingProfileServicesNode @ 0x140CF639C
  * Callers:
- *     CmpFindDrivers @ 0x140CEEE14 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140CF5190 (CmpFindDrivers.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByName @ 0x140AC351C (CmpFindSubKeyByName.c)
- *     CmpLoadManufacturingProfileNode @ 0x140CEFF30 (CmpLoadManufacturingProfileNode.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindSubKeyByName @ 0x140AC518C (CmpFindSubKeyByName.c)
+ *     CmpLoadManufacturingProfileNode @ 0x140CF62AC (CmpLoadManufacturingProfileNode.c)
  */
 
 bool __fastcall CmpLoadManufacturingProfileServicesNode(

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSlowRotateCopy @ 0x1402AF538
+ * XREFs of MiSlowRotateCopy @ 0x1402AF728
  * Callers:
- *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x14066CAD0 (MmRotatePhysicalView.c)
  * Callees:
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     MiInitializeSlowPte @ 0x1402AF314 (MiInitializeSlowPte.c)
- *     MiGetPteMappingPair @ 0x1402CE168 (MiGetPteMappingPair.c)
- *     MiReturnPteMappingPair @ 0x1402CE208 (MiReturnPteMappingPair.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     MiInitializeSlowPte @ 0x1402AF504 (MiInitializeSlowPte.c)
+ *     MiGetPteMappingPair @ 0x1402CE358 (MiGetPteMappingPair.c)
+ *     MiReturnPteMappingPair @ 0x1402CE3F8 (MiReturnPteMappingPair.c)
  */
 
 char __fastcall MiSlowRotateCopy(__int64 a1, __int64 a2, __int64 a3)

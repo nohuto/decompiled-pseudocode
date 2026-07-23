@@ -1,23 +1,23 @@
 /*
- * XREFs of MiScrubLargePage @ 0x14065E96C
+ * XREFs of MiScrubLargePage @ 0x14065EEBC
  * Callers:
- *     MiScrubLargePageRegions @ 0x140A46410 (MiScrubLargePageRegions.c)
+ *     MiScrubLargePageRegions @ 0x140A466C0 (MiScrubLargePageRegions.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiPageListCollision @ 0x1403688AC (MiPageListCollision.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A0B7C (MiTryUnlinkNodeLargePages.c)
- *     MiRemoveFaultNode @ 0x1403D6AC8 (MiRemoveFaultNode.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
- *     MiScrubInterrupted @ 0x14065E410 (MiScrubInterrupted.c)
- *     MiScrubPage @ 0x14065F0F0 (MiScrubPage.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiPageListCollision @ 0x140368A4C (MiPageListCollision.c)
+ *     MiTryUnlinkNodeLargePages @ 0x1403A0D5C (MiTryUnlinkNodeLargePages.c)
+ *     MiRemoveFaultNode @ 0x1403D6CA8 (MiRemoveFaultNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiScrubInterrupted @ 0x14065E960 (MiScrubInterrupted.c)
+ *     MiScrubPage @ 0x14065F640 (MiScrubPage.c)
  */
 
 __int64 __fastcall MiScrubLargePage(__int64 a1, ULONG_PTR a2, unsigned int a3)
@@ -116,10 +116,10 @@ __int64 __fastcall MiScrubLargePage(__int64 a1, ULONG_PTR a2, unsigned int a3)
   {
     MiRemoveFaultNode((__int64)v65);
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -213,10 +213,10 @@ LABEL_42:
   v27 = (volatile signed __int64 *)(v8 + 24);
   v64 = v8 + 24;
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v10 <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v10 <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       v30 = v29->SchedulerAssist;
@@ -251,10 +251,10 @@ LABEL_42:
     if ( BYTE6(v65[8]) || v70 || v35 < 0 )
       break;
     _InterlockedAnd64(v27, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v36 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v36 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v36 >= 2u )
       {
         v37 = KeGetCurrentPrcb();
         v38 = v37->SchedulerAssist;
@@ -276,10 +276,10 @@ LABEL_42:
   if ( !v54 )
     MiPageListCollision(v56, 0, 0);
   _InterlockedAnd64(v27, 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v40 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v40 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v40 >= 2u )
     {
       v41 = KeGetCurrentPrcb();
       v42 = v41->SchedulerAssist;
@@ -300,10 +300,10 @@ LABEL_75:
     if ( !BYTE6(v65[8]) )
       MiPageListCollision(v56, 0, 0);
     _InterlockedAnd64(v27, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v46 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v45 <= 0xFu && v46 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v45 <= 0xFu && v46 >= 2u )
       {
         v47 = KeGetCurrentPrcb();
         v48 = v47->SchedulerAssist;

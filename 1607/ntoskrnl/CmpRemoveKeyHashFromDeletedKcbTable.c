@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRemoveKeyHashFromDeletedKcbTable @ 0x14000AD60
+ * XREFs of CmpRemoveKeyHashFromDeletedKcbTable @ 0x14000A8E0
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x140436D30 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140435C00 (CmpCleanUpKcbCacheWithLock.c)
  * Callees:
  *     <none>
  */

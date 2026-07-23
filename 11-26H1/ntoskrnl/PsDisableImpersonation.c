@@ -1,17 +1,17 @@
 /*
- * XREFs of PsDisableImpersonation @ 0x140A64710
+ * XREFs of PsDisableImpersonation @ 0x140A716E0
  * Callers:
- *     CmpAddRemoveContainerToCLFSLog @ 0x140862B64 (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpStartCLFSLog @ 0x140863388 (CmpStartCLFSLog.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140868F44 (CmpAddRemoveContainerToCLFSLog.c)
+ *     CmpStartCLFSLog @ 0x140869768 (CmpStartCLFSLog.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
@@ -25,9 +25,7 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
   void *v10; // rdx
   AutoBoost *v11; // rbp
   struct _KTHREAD *v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  void *v15; // rcx
+  void *v13; // rcx
 
   v3 = 0;
   if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
@@ -56,9 +54,9 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
       if ( v12 )
       {
         ImpersonationState->Token = v12;
-        v15 = (void *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+        v13 = (void *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
         Thread[1].WaitBlock[1].Thread = 0LL;
-        ObfDereferenceObject(v15);
+        ObfDereferenceObject(v13);
       }
       else
       {
@@ -68,7 +66,7 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)p_WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)p_WaitBlockList);
     KeAbPostRelease((unsigned __int64)p_WaitBlockList);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, v13, v14);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     if ( v3 )
       return 1;
   }

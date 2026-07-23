@@ -1,9 +1,9 @@
 /*
- * XREFs of KiScheduleSoftParkElectionIfNecessary @ 0x14042B8DC
+ * XREFs of KiScheduleSoftParkElectionIfNecessary @ 0x14041E46C
  * Callers:
- *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14042B760 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
+ *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14041E2F0 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
  */
 
 char __fastcall KiScheduleSoftParkElectionIfNecessary(__int64 a1)
@@ -16,7 +16,7 @@ char __fastcall KiScheduleSoftParkElectionIfNecessary(__int64 a1)
   {
     if ( *(_QWORD *)(a1 + 792) > (unsigned __int64)(unsigned int)KeSoftParkedQueueThreshold )
     {
-      v3 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78
+      v3 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F22998
                                         + 64 * (unsigned __int64)*(unsigned __int16 *)(a1 + 710)
                                         + *(unsigned __int8 *)(a1 + 705))]
                      + 192);

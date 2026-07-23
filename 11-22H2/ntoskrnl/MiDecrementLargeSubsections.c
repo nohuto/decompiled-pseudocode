@@ -66,10 +66,10 @@ void __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
     if ( v5 == 1 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -92,10 +92,10 @@ void __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
           _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           if ( (++v11 & 0xF) == 0 && v11 != v10 && KeShouldYieldProcessor() )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v14 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v14 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v14 >= 2u )
               {
                 v15 = KeGetCurrentPrcb();
                 v16 = v15->SchedulerAssist;
@@ -109,7 +109,7 @@ void __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
             __writecr8(v4);
             v18 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
             {
               v19 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v18 == 2 )
@@ -137,10 +137,10 @@ void __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
     v27 = v2;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

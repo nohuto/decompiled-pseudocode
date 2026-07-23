@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetLargePagesForChain @ 0x1402F32E0
+ * XREFs of MiGetLargePagesForChain @ 0x140251524
  * Callers:
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
  * Callees:
- *     MiGetLargePage @ 0x1402F35A0 (MiGetLargePage.c)
- *     MiConvertLargeActivePageToChain @ 0x1403083C0 (MiConvertLargeActivePageToChain.c)
- *     MiIssuePageHeatList @ 0x14043F9FC (MiIssuePageHeatList.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiGetLargePage @ 0x1402517B0 (MiGetLargePage.c)
+ *     MiConvertLargeActivePageToChain @ 0x1403122A0 (MiConvertLargeActivePageToChain.c)
+ *     MiIssuePageHeatList @ 0x140435CBC (MiIssuePageHeatList.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiGetLargePagesForChain(__int64 a1, int a2)

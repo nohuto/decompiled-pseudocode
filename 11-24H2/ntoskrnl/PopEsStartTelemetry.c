@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsStartTelemetry @ 0x140AADAD0
+ * XREFs of PopEsStartTelemetry @ 0x140AA8B50
  * Callers:
- *     PopEsExitSleep @ 0x140AADAA0 (PopEsExitSleep.c)
- *     PopEsWorker @ 0x140AC95F0 (PopEsWorker.c)
+ *     PopEsExitSleep @ 0x140AA8B20 (PopEsExitSleep.c)
+ *     PopEsWorker @ 0x140AC7510 (PopEsWorker.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
  */
 
 char PopEsStartTelemetry()
@@ -19,9 +19,9 @@ char PopEsStartTelemetry()
 
   v0 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F0B050);
-  v5 = (__m128i)xmmword_140F0B060;
-  PopReleaseRwLock((signed __int64 *)&xmmword_140F0B050);
+  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F0BE90);
+  v5 = (__m128i)xmmword_140F0BEA0;
+  PopReleaseRwLock((signed __int64 *)&xmmword_140F0BE90);
   v1 = 0;
   PopEsLastStateChangeTimeStamp = v0;
   v2 = _mm_cvtsi128_si32(_mm_srli_si128(v5, 12));
@@ -29,9 +29,9 @@ char PopEsStartTelemetry()
   if ( (unsigned __int8)_mm_cvtsi128_si32(_mm_srli_si128(v5, 1)) )
     v1 = v2;
   PopEsAcOnline = v3;
-  PopEsLastBatteryThreshold = dword_140F0BA90;
-  result = byte_140F0BA95;
-  PopEsLastUserAwaySetting = byte_140F0BA95;
+  PopEsLastBatteryThreshold = dword_140F0B3D0;
+  result = byte_140F0B3D5;
+  PopEsLastUserAwaySetting = byte_140F0B3D5;
   PopEsLastBatteryCharge = v1;
   return result;
 }

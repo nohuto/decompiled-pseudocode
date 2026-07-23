@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetPfnNodeBlinkLow @ 0x1404509C0
+ * XREFs of MiSetPfnNodeBlinkLow @ 0x140448AF0
  * Callers:
- *     MiUpdateLargePageSectionPfns @ 0x1406F02F0 (MiUpdateLargePageSectionPfns.c)
+ *     MiUpdateLargePageSectionPfns @ 0x1406F4F60 (MiUpdateLargePageSectionPfns.c)
  * Callees:
  *     <none>
  */

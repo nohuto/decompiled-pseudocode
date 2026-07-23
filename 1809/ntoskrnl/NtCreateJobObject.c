@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateJobObject @ 0x140605F80
+ * XREFs of NtCreateJobObject @ 0x140606F80
  * Callers:
  *     <none>
  * Callees:
@@ -7,17 +7,17 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExCreateHandleEx @ 0x1405D1380 (ExCreateHandleEx.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     PspIoRateEntryInitialize @ 0x140605F28 (PspIoRateEntryInitialize.c)
- *     ExUuidCreate @ 0x1406062C0 (ExUuidCreate.c)
- *     PspUnlockJobListExclusive @ 0x140606464 (PspUnlockJobListExclusive.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     EtwTraceJob @ 0x1408B749C (EtwTraceJob.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACEC0 (PoEnergyEstimationEnabled.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExCreateHandleEx @ 0x1405D2380 (ExCreateHandleEx.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     PspIoRateEntryInitialize @ 0x140606F28 (PspIoRateEntryInitialize.c)
+ *     ExUuidCreate @ 0x1406072C0 (ExUuidCreate.c)
+ *     PspUnlockJobListExclusive @ 0x140607464 (PspUnlockJobListExclusive.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     EtwTraceJob @ 0x1408B875C (EtwTraceJob.c)
  */
 
 NTSTATUS __stdcall NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
@@ -96,13 +96,13 @@ NTSTATUS __stdcall NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAcces
     --CurrentThread->SpecialApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspJobListLock, 0LL);
     v13 = v12 + 1;
-    v14 = (struct _LIST_ENTRY *)qword_14096D300;
-    if ( *(__int64 **)qword_14096D300 != &PspJobList )
+    v14 = (struct _LIST_ENTRY *)qword_14096E300;
+    if ( *(__int64 **)qword_14096E300 != &PspJobList )
       __fastfail(3u);
     *(_QWORD *)&v13->Header.Lock = &PspJobList;
     v12[1].Header.WaitListHead.Flink = v14;
     v14->Flink = (struct _LIST_ENTRY *)v13;
-    qword_14096D300 = (__int64)&v12[1];
+    qword_14096E300 = (__int64)&v12[1];
     PspUnlockJobListExclusive(CurrentThread);
     LODWORD(v12[54].Header.WaitListHead.Flink) |= 0x200000u;
     Flink = (unsigned int)v12[54].Header.WaitListHead.Flink;

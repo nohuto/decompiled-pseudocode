@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptApplyOverrides @ 0x140378E24
+ * XREFs of HalpInterruptApplyOverrides @ 0x140378974
  * Callers:
- *     HalDisableInterrupt @ 0x140377280 (HalDisableInterrupt.c)
- *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
- *     HalpInterruptSetDestinationInternal @ 0x140378A6C (HalpInterruptSetDestinationInternal.c)
- *     HalpInterruptRestoreClock @ 0x1403868C8 (HalpInterruptRestoreClock.c)
- *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptSetLineState @ 0x1403A3AF8 (HalpInterruptSetLineState.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpInterruptConnect @ 0x1404BB438 (HalpInterruptConnect.c)
- *     ExtEnvSetVpptTarget @ 0x1404BF7A4 (ExtEnvSetVpptTarget.c)
- *     HalpTimerUnmapInterrupt @ 0x1404C0588 (HalpTimerUnmapInterrupt.c)
- *     HalpInterruptMaskAcpi @ 0x14099823C (HalpInterruptMaskAcpi.c)
+ *     HalDisableInterrupt @ 0x140376DD0 (HalDisableInterrupt.c)
+ *     HalpInterruptRemap @ 0x140378130 (HalpInterruptRemap.c)
+ *     HalpInterruptSetDestinationInternal @ 0x1403785BC (HalpInterruptSetDestinationInternal.c)
+ *     HalpInterruptRestoreClock @ 0x140386A18 (HalpInterruptRestoreClock.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A26D4 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetLineState @ 0x1403A3C48 (HalpInterruptSetLineState.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8E94 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpInterruptConnect @ 0x1404BB678 (HalpInterruptConnect.c)
+ *     ExtEnvSetVpptTarget @ 0x1404BF9E4 (ExtEnvSetVpptTarget.c)
+ *     HalpTimerUnmapInterrupt @ 0x1404C07C8 (HalpTimerUnmapInterrupt.c)
+ *     HalpInterruptMaskAcpi @ 0x14099923C (HalpInterruptMaskAcpi.c)
  * Callees:
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
- *     HalpReleaseHighLevelLock @ 0x1404D07BC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378AF8 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpReleaseHighLevelLock @ 0x1404D09FC (HalpReleaseHighLevelLock.c)
  */
 
 __int64 __fastcall HalpInterruptApplyOverrides(unsigned int *a1, _DWORD *a2, _DWORD *a3)

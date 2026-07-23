@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInitializeInterrupt @ 0x1405F1580
+ * XREFs of KeInitializeInterrupt @ 0x1405F3F40
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeInterruptEx @ 0x1404B4A00 (KeInitializeInterruptEx.c)
+ *     KeInitializeInterruptEx @ 0x140516588 (KeInitializeInterruptEx.c)
  */
 
-__int64 __fastcall KeInitializeInterrupt(
+__int64 (__fastcall *__fastcall KeInitializeInterrupt(
         _DWORD *a1,
         __int64 (__fastcall *a2)(struct _KINTERRUPT *a1, void *a2),
         __int64 a3,
@@ -18,7 +18,7 @@ __int64 __fastcall KeInitializeInterrupt(
         char a9,
         int a10,
         char a11,
-        int a12)
+        int a12))(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16)
 {
   int v13; // [rsp+68h] [rbp-20h]
 

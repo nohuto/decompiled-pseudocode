@@ -1,5 +1,5 @@
 /*
- * XREFs of KeClockTimerPowerChange @ 0x1401D2464
+ * XREFs of KeClockTimerPowerChange @ 0x1401D2290
  * Callers:
  *     <none>
  * Callees:

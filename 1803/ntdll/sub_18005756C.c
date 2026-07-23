@@ -10,31 +10,31 @@
  *     sub_1801086C8 @ 0x1801086C8 (sub_1801086C8.c)
  */
 
-__int64 __fastcall sub_18005756C(__int64 a1, __int64 a2, struct _PEB_LDR_DATA *Ldr, __int64 a4)
+NTSTATUS __fastcall sub_18005756C(void *a1, __int64 a2, PPEB_LDR_DATA Ldr)
 {
-  struct _PEB_LDR_DATA *v4; // rbx
-  void *EntryInProgress; // rax
-  __int64 result; // rax
-  _QWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+40h] [rbp-18h] BYREF
+  PPEB_LDR_DATA v3; // rbx
+  PVOID EntryInProgress; // rax
+  NTSTATUS result; // eax
+  _QWORD v6[2]; // [rsp+30h] [rbp-28h] BYREF
+  _IO_STATUS_BLOCK v7; // [rsp+40h] [rbp-18h] BYREF
 
-  v4 = Ldr;
+  v3 = Ldr;
   if ( a1 && a2 && Ldr && (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
   {
-    EntryInProgress = v4->EntryInProgress;
-    v7[1] = a2;
-    v7[0] = EntryInProgress;
-    result = ZwSetInformationFile(a1, &v8, v7, 16LL, 30);
-    if ( (int)result >= 0 )
+    EntryInProgress = v3->EntryInProgress;
+    v6[1] = a2;
+    v6[0] = EntryInProgress;
+    result = ZwSetInformationFile(a1, &v7, v6, 0x10u, FileCompletionInformation);
+    if ( result >= 0 )
     {
-      sub_180058E68(v4, 1LL);
-      return 0LL;
+      sub_180058E68(v3, 1LL);
+      return 0;
     }
   }
   else
   {
-    sub_1801086C8(a1, a2, Ldr, a4);
-    return 3221225485LL;
+    sub_1801086C8(a1, a2, Ldr);
+    return -1073741811;
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuReadUnlockIpi @ 0x1405F5A00
+ * XREFs of KiSrcuReadUnlockIpi @ 0x1405F83C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSrcuReadUnlock @ 0x1405F51C0 (KeSrcuReadUnlock.c)
+ *     KeSrcuReadUnlock @ 0x1405F7B80 (KeSrcuReadUnlock.c)
  */
 
-__int64 __fastcall KiSrcuReadUnlockIpi(__int64 a1, __int64 a2, _DWORD *a3)
+void __fastcall KiSrcuReadUnlockIpi(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  return KeSrcuReadUnlock(a2, a3);
+  KeSrcuReadUnlock(a2, a3);
 }

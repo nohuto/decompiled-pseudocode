@@ -1,13 +1,13 @@
 /*
- * XREFs of PiIommuAllocateExtension @ 0x140765F1C
+ * XREFs of PiIommuAllocateExtension @ 0x1407660DC
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x1407655E0 (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x1407657A0 (PiDmaGuardProcessNewDeviceNode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PipIommuRetrieveDeviceId @ 0x140766020 (PipIommuRetrieveDeviceId.c)
- *     PiIommuFreeExtension @ 0x14076618C (PiIommuFreeExtension.c)
- *     PnpTraceIommuDeviceProperties @ 0x1408B1D00 (PnpTraceIommuDeviceProperties.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PipIommuRetrieveDeviceId @ 0x1407661E0 (PipIommuRetrieveDeviceId.c)
+ *     PiIommuFreeExtension @ 0x14076634C (PiIommuFreeExtension.c)
+ *     PnpTraceIommuDeviceProperties @ 0x1408B1E60 (PnpTraceIommuDeviceProperties.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiIommuAllocateExtension(__int64 a1, __int64 a2, _QWORD *a3)

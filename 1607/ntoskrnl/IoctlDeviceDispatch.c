@@ -1,22 +1,22 @@
 /*
- * XREFs of IoctlDeviceDispatch @ 0x140612A54
+ * XREFs of IoctlDeviceDispatch @ 0x140612B08
  * Callers:
  *     <none>
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     VRegEnabledInJob @ 0x1404E9244 (VRegEnabledInJob.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1406130D8 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14061338C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlGetComRootKey @ 0x140613584 (VrpHandleIoctlGetComRootKey.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140613754 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x1406139F8 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140613C70 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
- *     VrpHandleIoctlModifyFlags @ 0x140613E80 (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140613F7C (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14061418C (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     VRegEnabledInJob @ 0x1404CB334 (VRegEnabledInJob.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14061318C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140613440 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlGetComRootKey @ 0x140613638 (VrpHandleIoctlGetComRootKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140613808 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x140613AAC (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140613D24 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlModifyFlags @ 0x140613F34 (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140614030 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140614240 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
  */
 
 __int64 __fastcall IoctlDeviceDispatch(__int64 a1, IRP *a2)
@@ -55,7 +55,7 @@ __int64 __fastcall IoctlDeviceDispatch(__int64 a1, IRP *a2)
       LODWORD(v12) = LowPart;
       v16 = &v12;
       v17 = 4;
-      TlgWrite(&stru_1402F3520, &unk_14027B408, &pActivityId, 0LL, 3u, &pData);
+      TlgWrite(&stru_1402F3520, &unk_14027B508, &pActivityId, 0LL, 3u, &pData);
     }
     goto LABEL_28;
   }
@@ -68,7 +68,7 @@ __int64 __fastcall IoctlDeviceDispatch(__int64 a1, IRP *a2)
     LODWORD(v12) = v8;
     v16 = &v12;
     v17 = 4;
-    TlgWrite(&stru_1402F3520, &unk_14027B48E, &pActivityId, &ActivityId, 3u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B58E, &pActivityId, &ActivityId, 3u, &pData);
     LevelPlus1 = stru_1402F3520.LevelPlus1;
   }
   v9 = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
@@ -148,7 +148,7 @@ LABEL_27:
     v16 = &v12;
     LODWORD(v12) = v9;
     v17 = 4;
-    TlgWrite(&stru_1402F3520, &unk_14027B4B3, &pActivityId, 0LL, 3u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B5B3, &pActivityId, 0LL, 3u, &pData);
   }
   v4 = -1073741808;
 LABEL_28:
@@ -160,7 +160,7 @@ LABEL_28:
     v16 = &v12;
     LODWORD(v12) = v4;
     v17 = 4;
-    TlgWrite(&stru_1402F3520, &unk_14027B44A, &pActivityId, 0LL, 3u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B54A, &pActivityId, 0LL, 3u, &pData);
   }
   return v4;
 }

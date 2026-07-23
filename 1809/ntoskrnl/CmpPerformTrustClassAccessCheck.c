@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpPerformTrustClassAccessCheck @ 0x1401B320C
+ * XREFs of CmpPerformTrustClassAccessCheck @ 0x1401B334C
  * Callers:
- *     CmpJoinClassOfTrust @ 0x1401B3190 (CmpJoinClassOfTrust.c)
- *     CmpResolveHiveLoadConflict @ 0x1407F0328 (CmpResolveHiveLoadConflict.c)
+ *     CmpJoinClassOfTrust @ 0x1401B32D0 (CmpJoinClassOfTrust.c)
+ *     CmpResolveHiveLoadConflict @ 0x1407F1528 (CmpResolveHiveLoadConflict.c)
  * Callees:
  *     <none>
  */

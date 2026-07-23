@@ -66,10 +66,10 @@
  *     vDbgPrintExWithPrefixInternal @ 0x180051B08 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrint(const char *a1, ...)
+ULONG DbgPrint(PCSTR Format, ...)
 {
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
-  va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_18012277A, 101, 3, (_DWORD)a1, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal(&Flags, 101LL, 3LL, Format, (__int64 *)va, 1);
 }

@@ -17,9 +17,9 @@ __int64 __fastcall MiUnloadApproved(__int64 a1)
   unsigned int v4; // edx
   unsigned int v5; // ebx
   __int64 (*BugCheckParameter4)(void); // rsi
-  unsigned __int64 v7; // rcx
+  void *v7; // rcx
   int v8; // eax
-  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
+  PVOID BaseOfImage; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = *(_WORD *)(a1 + 108);
   if ( v1 != 1 )
@@ -30,13 +30,13 @@ __int64 __fastcall MiUnloadApproved(__int64 a1)
   if ( (*(_DWORD *)(MiGetBaseLoaderPortion(a1) + 184) & 0x80u) != 0 )
     return v4;
   v5 = 0;
-  BugCheckParameter4 = (__int64 (*)(void))RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "DllUnload");
+  BugCheckParameter4 = (__int64 (*)(void))RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "DllUnload");
   if ( !BugCheckParameter4 )
     return 0LL;
-  v7 = *(_QWORD *)(a1 + 48);
-  v9 = 0LL;
-  RtlPcToFileHeader(v7, &v9);
-  if ( v9 != *(_QWORD *)(a1 + 48) )
+  v7 = *(void **)(a1 + 48);
+  BaseOfImage = 0LL;
+  RtlPcToFileHeader(v7, &BaseOfImage);
+  if ( BaseOfImage != *(PVOID *)(a1 + 48) )
     KeBugCheckEx(0x139u, 0xAuLL, 0LL, 0LL, (ULONG_PTR)BugCheckParameter4);
   if ( (unsigned int)VfIsVerifierEnabled() )
     v8 = DifDllUnloadWrapper((__int64)BugCheckParameter4);

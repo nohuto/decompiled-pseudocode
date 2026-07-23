@@ -41,7 +41,10 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __stdcall NtdllpAllocateStringRoutine(int a1)
+PVOID __stdcall NtdllpAllocateStringRoutine(int Size)
 {
-  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
+  SIZE_T _FFFFFFFC; // [esp-4h] [ebp-4h]
+
+  LODWORD(_FFFFFFFC) = Size;
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, _FFFFFFFC);
 }

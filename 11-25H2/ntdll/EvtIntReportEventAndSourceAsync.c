@@ -12,7 +12,7 @@ __int64 __fastcall EvtIntReportEventAndSourceAsync(
         unsigned __int16 a3,
         __int16 a4,
         char a5,
-        __int64 a6,
+        void *a6,
         __int16 a7,
         int a8,
         __int64 a9,

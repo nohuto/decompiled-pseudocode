@@ -1,13 +1,20 @@
 /*
- * XREFs of NtUpdateWnfStateData @ 0x14094A860
+ * XREFs of NtUpdateWnfStateData @ 0x1409C61D0
  * Callers:
- *     DifNtUpdateWnfStateDataWrapper @ 0x140690B50 (DifNtUpdateWnfStateDataWrapper.c)
- *     SepSecureBootCheckForUpdates @ 0x140CDE0A4 (SepSecureBootCheckForUpdates.c)
+ *     DifNtUpdateWnfStateDataWrapper @ 0x140694730 (DifNtUpdateWnfStateDataWrapper.c)
+ *     SepSecureBootCheckForUpdates @ 0x140CE443C (SepSecureBootCheckForUpdates.c)
  * Callees:
- *     ExpNtUpdateWnfStateData @ 0x14094A8A0 (ExpNtUpdateWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x1409C6210 (ExpNtUpdateWnfStateData.c)
  */
 
-__int64 __fastcall NtUpdateWnfStateData(void *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)
+NTSTATUS __cdecl NtUpdateWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        const void *Buffer,
+        ULONG Length,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
-  return ExpNtUpdateWnfStateData(a1, a5, a6, a7, 1);
+  return ExpNtUpdateWnfStateData((void *)StateName, (__int64)ExplicitScope, MatchingChangeStamp, CheckStamp, 1);
 }

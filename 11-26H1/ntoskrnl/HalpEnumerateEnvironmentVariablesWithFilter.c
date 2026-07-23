@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x140471F00
+ * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x14046B680
  * Callers:
- *     HalEnumerateEnvironmentVariablesEx @ 0x14057C310 (HalEnumerateEnvironmentVariablesEx.c)
+ *     HalEnumerateEnvironmentVariablesEx @ 0x14057E840 (HalEnumerateEnvironmentVariablesEx.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     HalpEfiStartRuntimeCode @ 0x140472300 (HalpEfiStartRuntimeCode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpEfiStartRuntimeCode @ 0x14046BA80 (HalpEfiStartRuntimeCode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(int a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
@@ -38,12 +38,12 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(int a1, __int64 a
   size_t Size; // [rsp+48h] [rbp-B8h] BYREF
   int v28; // [rsp+50h] [rbp-B0h]
   unsigned int v29; // [rsp+54h] [rbp-ACh]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v31; // [rsp+68h] [rbp-98h]
   unsigned __int64 v32; // [rsp+70h] [rbp-90h]
   _DWORD *v33; // [rsp+78h] [rbp-88h]
   __int128 v34; // [rsp+80h] [rbp-80h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
   _WORD Src[256]; // [rsp+A0h] [rbp-60h] BYREF
 
   v31 = a2;
@@ -55,7 +55,7 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(int a1, __int64 a
   v25 = 0LL;
   v34 = 0LL;
   PreviousAffinity = 0LL;
-  if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104]
+  if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72]
     || !HalEfiRuntimeServicesTable
     || !HalEfiRuntimeServicesTable[4]
     || !HalEfiRuntimeServicesTable[3] )
@@ -81,7 +81,7 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(int a1, __int64 a
   else
   {
     v24 = 1;
-    v11 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * KeGetPcr()->Prcb.Number);
+    v11 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + KeGetPcr()->Prcb.Number);
     Affinity.Reserved[1] = 0;
     Affinity.Reserved[2] = 0;
     *(_DWORD *)&Affinity.Group = (unsigned __int16)(v11 >> 6);
@@ -91,11 +91,11 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(int a1, __int64 a
   while ( 1 )
   {
     Size = 512LL;
-    _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
+    _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
     HalpEfiStartRuntimeCode(16LL);
     v12 = ((__int64 (__fastcall *)(size_t *, _WORD *, __int128 *))HalEfiRuntimeServicesTable[4])(&Size, Src, &v34);
     _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFEF);
-    _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
+    _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
     if ( v12 )
       break;
     if ( !v31 || (unsigned __int8)guard_dispatch_icall_no_overrides(&v34, Src) )
@@ -139,8 +139,8 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(int a1, __int64 a
             *v8 = v7 - (_DWORD)v8;
           v8 = (_DWORD *)v7;
         }
-        v20 = v14;
         v5 = v15;
+        v20 = v14;
       }
       else
       {

@@ -37,7 +37,9 @@ __int64 __fastcall IopInsertPassiveInterruptBlock(__int64 a1, _BYTE *a2)
     qword_140C5D3F8 = a1;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PassiveInterruptListLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v6 = v13;
     if ( v13 <= 0xFu && CurrentIrql >= 2u )

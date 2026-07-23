@@ -38,15 +38,14 @@ __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __
   v8 = (a3 + a2 - 1) & 7;
   v9 = (char *)((a2 >> 3) + a1[1]);
   if ( a2 >> 3 == v6 )
-    return *((unsigned __int8 *)RtlpBitsClearTotal
-           + (unsigned __int8)~(*v9 & byte_140015C40[v7] & byte_140018DF0[v8 + 1]));
+    return *((unsigned __int8 *)qword_14001BA70 + (unsigned __int8)~(*v9 & byte_140015C40[v7] & byte_140018DF0[v8 + 1]));
   if ( (((unsigned __int8)a3 | (unsigned __int8)a2) & 0x3F) != 0 )
   {
     if ( (a2 & 7) != 0 )
     {
       v13 = *v9++;
       ++v5;
-      v4 = *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(v13 & byte_140015C40[v7]));
+      v4 = *((unsigned __int8 *)qword_14001BA70 + (unsigned __int8)~(v13 & byte_140015C40[v7]));
     }
     v14 = 8 - (v5 & 7);
     if ( (v14 & 0xFFFFFFFFFFFFFFF7uLL) != 0 )
@@ -57,7 +56,7 @@ __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __
           break;
         ++v5;
         v15 = ~*v9++;
-        v4 += *((unsigned __int8 *)RtlpBitsClearTotal + v15);
+        v4 += *((unsigned __int8 *)qword_14001BA70 + v15);
         --v14;
       }
       while ( v14 );
@@ -82,12 +81,12 @@ __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __
       do
       {
         v20 = *v9++;
-        v4 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v20);
+        v4 += *((unsigned __int8 *)qword_14001BA70 + (unsigned __int8)~v20);
         --v19;
       }
       while ( v19 );
     }
-    return v4 + *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(*v9 & byte_140018DF0[v8 + 1]));
+    return v4 + *((unsigned __int8 *)qword_14001BA70 + (unsigned __int8)~(*v9 & byte_140018DF0[v8 + 1]));
   }
   else
   {

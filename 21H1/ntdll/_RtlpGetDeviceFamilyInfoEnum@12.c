@@ -13,84 +13,83 @@
  *     ReadUlongFromKey @ 0x4B334F29 (ReadUlongFromKey.c)
  */
 
-NTSTATUS __stdcall RtlpGetDeviceFamilyInfoEnum(_QWORD *a1, int *a2, int *a3)
+NTSTATUS __stdcall RtlpGetDeviceFamilyInfoEnum(ULONG a1, ULONG *a2, ULONG *a3)
 {
   NTSTATUS result; // eax
   unsigned __int64 v4; // rax
-  int v5; // [esp+10h] [ebp-158h] BYREF
-  HANDLE Handle; // [esp+14h] [ebp-154h] BYREF
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-150h] BYREF
-  int v8; // [esp+20h] [ebp-148h] BYREF
-  _QWORD *v9; // [esp+24h] [ebp-144h] BYREF
-  int v10; // [esp+28h] [ebp-140h] BYREF
-  int v11; // [esp+2Ch] [ebp-13Ch]
-  UNICODE_STRING *p_DestinationString; // [esp+30h] [ebp-138h]
-  int v13; // [esp+34h] [ebp-134h]
-  int v14; // [esp+38h] [ebp-130h]
-  int v15; // [esp+3Ch] [ebp-12Ch]
-  _DWORD v16[3]; // [esp+40h] [ebp-128h] BYREF
-  unsigned int v17; // [esp+4Ch] [ebp-11Ch]
+  ULONG Data; // [esp+10h] [ebp-158h] BYREF
+  HANDLE KeyHandle; // [esp+14h] [ebp-154h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-150h] BYREF
+  ULONG Type; // [esp+20h] [ebp-148h] BYREF
+  ULONG ResultDataSize; // [esp+24h] [ebp-144h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-140h] BYREF
+  _OSVERSIONINFOEXW VersionInformation; // [esp+40h] [ebp-128h] BYREF
 
-  result = (NTSTATUS)a1;
-  v9 = a1;
+  result = a1;
+  ResultDataSize = a1;
   if ( a1 )
   {
     *(_DWORD *)&DestinationString.Length = 0;
     DestinationString.Buffer = 0;
-    Handle = 0;
-    v8 = 0;
-    v5 = 0;
+    KeyHandle = 0;
+    Type = 0;
+    Data = 0;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
-    v10 = 24;
-    p_DestinationString = &DestinationString;
-    v11 = 0;
-    v13 = 64;
-    v14 = 0;
-    v15 = 0;
-    if ( (int)ZwOpenKey(&Handle, 131353, &v10) >= 0 )
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    if ( ZwOpenKey(&KeyHandle, 0x20119u, &ObjectAttributes) >= 0 )
     {
-      if ( ReadUlongFromKey(Handle, L"UBR", &v8) >= 0 )
-        v5 = v8;
-      NtClose(Handle);
+      if ( ReadUlongFromKey(KeyHandle, L"UBR", (int)&Type) >= 0 )
+        Data = Type;
+      NtClose(KeyHandle);
     }
-    v16[0] = 284;
-    RtlGetVersion((int)v16);
-    v4 = (unsigned __int64)v17 << 16;
-    result = (NTSTATUS)v9;
-    *v9 = (unsigned int)v5 + __PAIR64__(HIDWORD(v4) + v16[2] + (v16[1] << 16), v17 << 16);
+    VersionInformation.dwOSVersionInfoSize = 284;
+    RtlGetVersion(&VersionInformation);
+    v4 = (unsigned __int64)VersionInformation.dwBuildNumber << 16;
+    result = ResultDataSize;
+    *(_QWORD *)ResultDataSize = Data
+                              + __PAIR64__(
+                                  HIDWORD(v4)
+                                + VersionInformation.dwMinorVersion
+                                + (VersionInformation.dwMajorVersion << 16),
+                                  VersionInformation.dwBuildNumber << 16);
   }
   if ( a2 )
   {
     *(_DWORD *)&DestinationString.Length = 0;
     DestinationString.Buffer = 0;
-    v5 = 3;
+    Data = 3;
     RtlInitUnicodeString(&DestinationString, L"Kernel-OneCore-DeviceFamilyID");
-    NtQueryLicenseValue(&DestinationString, &v8, &v5, 4, &v9);
-    result = v5;
-    *a2 = v5;
+    NtQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize);
+    result = Data;
+    *a2 = Data;
   }
   if ( a3 )
   {
     *(_DWORD *)&DestinationString.Length = 0;
     DestinationString.Buffer = 0;
-    Handle = 0;
-    v5 = 0;
+    KeyHandle = 0;
+    Data = 0;
     *a3 = 0;
     RtlInitUnicodeString(
       &DestinationString,
       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM");
-    v10 = 24;
-    p_DestinationString = &DestinationString;
-    v11 = 0;
-    v13 = 64;
-    v14 = 0;
-    v15 = 0;
-    result = ZwOpenKey(&Handle, 131353, &v10);
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    result = ZwOpenKey(&KeyHandle, 0x20119u, &ObjectAttributes);
     if ( result >= 0 )
     {
-      if ( ReadUlongFromKey(Handle, L"DeviceForm", &v5) >= 0 )
-        *a3 = v5;
-      return NtClose(Handle);
+      if ( ReadUlongFromKey(KeyHandle, L"DeviceForm", (int)&Data) >= 0 )
+        *a3 = Data;
+      return NtClose(KeyHandle);
     }
   }
   return result;

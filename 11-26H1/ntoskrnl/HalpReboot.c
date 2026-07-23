@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpReboot @ 0x14057F954
+ * XREFs of HalpReboot @ 0x140581E74
  * Callers:
- *     HalReturnToFirmware @ 0x14057F640 (HalReturnToFirmware.c)
+ *     HalReturnToFirmware @ 0x140581B60 (HalReturnToFirmware.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     HalRequestIpiSpecifyVector @ 0x1403EC570 (HalRequestIpiSpecifyVector.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
- *     HalpPowerWriteResetCommand @ 0x14057F824 (HalpPowerWriteResetCommand.c)
- *     HalpNmiReboot @ 0x140593E10 (HalpNmiReboot.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalRequestIpiSpecifyVector @ 0x1402F95B0 (HalRequestIpiSpecifyVector.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
+ *     HalpPowerWriteResetCommand @ 0x140581D44 (HalpPowerWriteResetCommand.c)
+ *     HalpNmiReboot @ 0x140596590 (HalpNmiReboot.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __noreturn HalpReboot()
@@ -27,7 +27,7 @@ void __noreturn HalpReboot()
     }
   }
   HalpAcquireCmosSpinLock(1);
-  if ( HalpResetParkDisposition && HalpInterruptController && HalpInterruptProcessorsStarted != 1 && !dword_140E108C8 )
+  if ( HalpResetParkDisposition && HalpInterruptController && HalpInterruptProcessorsStarted != 1 && !dword_140E109F8 )
   {
     HalpNmiReboot();
     HalpPmuArbiter.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)HalpInterruptResetThisProcessor;

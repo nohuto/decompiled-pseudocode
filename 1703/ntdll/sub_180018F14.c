@@ -13,76 +13,65 @@
  *     sub_180105A78 @ 0x180105A78 (sub_180105A78.c)
  */
 
-void __fastcall sub_180018F14(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall sub_180018F14(__int64 a1, char a2)
 {
-  __int64 v5; // rcx
-  __int64 v6; // rbx
+  __int64 v3; // rcx
+  LARGE_INTEGER v4; // rbx
+  __int64 v5; // rsi
+  __int64 v6; // rcx
   __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rsi
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // [rsp+20h] [rbp-28h] BYREF
-  int v14; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v15; // [rsp+30h] [rbp-18h]
+  __int64 v8; // rcx
+  LARGE_INTEGER DueTime; // [rsp+20h] [rbp-28h] BYREF
+  _T2_SET_PARAMETERS_V0 Parameters; // [rsp+28h] [rbp-20h] BYREF
 
-  v14 = 0;
-  v5 = *(_QWORD *)(a1 + 16);
-  LOBYTE(a3) = a2;
-  v15 = 0LL;
-  if ( v5 )
+  Parameters.Version = 0;
+  v3 = *(_QWORD *)(a1 + 16);
+  Parameters.NoWakeTolerance = 0LL;
+  if ( v3 )
   {
-    v6 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
-    v7 = *(_QWORD *)(v5 + 32) - v6;
-    v8 = (unsigned __int128)(v7 * (__int128)0x346DC5D63886594BLL) >> 64;
-    v9 = v7 / 10000;
-    if ( *(_QWORD *)a1 == v6 && *(_DWORD *)(a1 + 112) == (_DWORD)v9 )
+    v4 = *(LARGE_INTEGER *)(*(_QWORD *)(a1 + 8) + 32LL);
+    v5 = (*(_QWORD *)(v3 + 32) - v4.QuadPart) / 10000;
+    if ( *(_QWORD *)a1 == v4.QuadPart && *(_DWORD *)(a1 + 112) == (_DWORD)v5 )
       return;
-    v10 = 10000LL * (unsigned int)v9;
-    *(_QWORD *)a1 = v6;
-    v15 = v10;
-    *(_DWORD *)(a1 + 112) = v9;
-    if ( !(_BYTE)a3 )
+    *(LARGE_INTEGER *)a1 = v4;
+    Parameters.NoWakeTolerance = 10000LL * (unsigned int)v5;
+    *(_DWORD *)(a1 + 112) = v5;
+    if ( !a2 )
     {
-      a4 = 2147353520LL;
-      v8 = RtlpFreezeTimeBias;
-      a3 = MEMORY[0x7FFE03B0];
-      v10 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
-      if ( v10 <= v6 )
+      v6 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
+      if ( v6 <= v4.QuadPart )
       {
-        v10 -= v6;
-        v6 = v10;
-        v13 = v10;
+        v4.QuadPart = v6 - v4.QuadPart;
+        DueTime = v4;
 LABEL_8:
-        if ( (unsigned int)RtlGetCurrentServiceSessionId(v10, v8, a3, a4) )
+        if ( RtlGetCurrentServiceSessionId() )
         {
-          v6 = v13;
-          v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+          v4 = DueTime;
+          v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
         }
         else
         {
-          v11 = 2147353478LL;
+          v7 = 2147353478LL;
         }
-        if ( *(_BYTE *)v11 )
-          sub_1800039E8(a1, v6, v9);
-        ZwSetTimer2(*(_QWORD *)(a1 + 24), &v13, 0LL, &v14);
+        if ( *(_BYTE *)v7 )
+          sub_1800039E8(a1, v4.QuadPart, v5);
+        ZwSetTimer2(*(HANDLE *)(a1 + 24), &DueTime, 0LL, &Parameters);
         return;
       }
-      v6 = 0LL;
+      v4.QuadPart = 0LL;
     }
-    v13 = v6;
+    DueTime = v4;
     goto LABEL_8;
   }
   if ( *(_QWORD *)a1 )
   {
     *(_QWORD *)a1 = 0LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(0LL, a2, a3, a4) )
-      v12 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
-      v12 = 2147353478LL;
-    if ( *(_BYTE *)v12 )
+      v8 = 2147353478LL;
+    if ( *(_BYTE *)v8 )
       sub_180105A78(a1);
-    ZwCancelTimer2(*(_QWORD *)(a1 + 24), 0LL);
+    ZwCancelTimer2(*(HANDLE *)(a1 + 24), 0LL);
   }
 }

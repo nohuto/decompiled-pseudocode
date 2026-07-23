@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_SModeAdminless__private_ReportDeviceUsage @ 0x1403F8F18
+ * XREFs of Feature_SModeAdminless__private_ReportDeviceUsage @ 0x1403F8F48
  * Callers:
- *     SepIsAdminlessEnforcementModeEnabled @ 0x140252EF8 (SepIsAdminlessEnforcementModeEnabled.c)
+ *     SepIsAdminlessEnforcementModeEnabled @ 0x140285D68 (SepIsAdminlessEnforcementModeEnabled.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x140252F20 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F0A5C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x140285D90 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F1CA0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_SModeAdminless__private_ReportDeviceUsage()

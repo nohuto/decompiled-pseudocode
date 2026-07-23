@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoUpdateShareAccessWrapper @ 0x1405E1910
+ * XREFs of DifIoUpdateShareAccessWrapper @ 0x1405E1E80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoUpdateShareAccess @ 0x1408753B0 (IoUpdateShareAccess.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoUpdateShareAccess @ 0x1408755F0 (IoUpdateShareAccess.c)
  */
 
 void __fastcall DifIoUpdateShareAccessWrapper(PFILE_OBJECT FileObject, PSHARE_ACCESS ShareAccess)

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateToken @ 0x1401B9970
+ * XREFs of ZwCreateToken @ 0x1401B9AD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateToken(
         PHANDLE TokenHandle,
         ACCESS_MASK DesiredAccess,
@@ -24,5 +23,5 @@ NTSTATUS __stdcall ZwCreateToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(TokenHandle);
 }

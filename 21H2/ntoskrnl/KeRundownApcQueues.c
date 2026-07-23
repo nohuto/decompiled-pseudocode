@@ -1,60 +1,54 @@
 /*
- * XREFs of KeRundownApcQueues @ 0x14064AFA4
+ * XREFs of KeRundownApcQueues @ 0x14063FDC4
  * Callers:
- *     sub_1405BF1D0 @ 0x1405BF1D0 (sub_1405BF1D0.c)
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     sub_1405BF400 @ 0x1405BF400 (sub_1405BF400.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KiFlushQueueApc @ 0x140278958 (KiFlushQueueApc.c)
- *     KeForceResumeThread @ 0x14027980C (KeForceResumeThread.c)
- *     KiAcquireReleaseThreadLock @ 0x14027A050 (KiAcquireReleaseThreadLock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KiFlushQueueApc @ 0x1402668F8 (KiFlushQueueApc.c)
+ *     KeForceResumeThread @ 0x1402677AC (KeForceResumeThread.c)
+ *     KiAcquireReleaseThreadLock @ 0x140267FF0 (KiAcquireReleaseThreadLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-_QWORD *__fastcall KeRundownApcQueues(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+_QWORD *__fastcall KeRundownApcQueues(__int64 a1)
 {
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  _DWORD *v7; // r9
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  _DWORD *v10; // r9
-  _QWORD *v11; // rax
-  __int64 v12; // r8
-  _DWORD *v13; // r9
-  _QWORD *v14; // rsi
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
+  _QWORD *v5; // rax
+  _QWORD *v6; // rsi
   _QWORD *result; // rax
-  _QWORD *v16; // rdi
-  _QWORD *v17; // rcx
-  void (*v18)(void); // rax
+  _QWORD *v8; // rdi
+  _QWORD *v9; // rcx
+  void (*v10)(void); // rax
   unsigned __int8 CurrentIrql; // cl
 
   --*(_WORD *)(a1 + 484);
   *(_DWORD *)(a1 + 116) &= ~0x4000u;
-  KiAcquireReleaseThreadLock(a1, a2, a3, a4);
-  KeForceResumeThread(a1, v5, v6, v7);
-  KeLeaveCriticalRegionThread(a1);
-  LOBYTE(v8) = 1;
-  v11 = KiFlushQueueApc(a1, v8, v9, v10);
-  v14 = v11;
-  if ( v11 )
+  KiAcquireReleaseThreadLock(a1);
+  KeForceResumeThread(a1);
+  KeLeaveCriticalRegionThread(a1, v2, v3, v4);
+  v5 = KiFlushQueueApc(a1, 1);
+  v6 = v5;
+  if ( v5 )
   {
-    v16 = v11;
+    v8 = v5;
     do
     {
-      v17 = v16 - 2;
-      v16 = (_QWORD *)*v16;
-      v18 = (void (*)(void))v17[5];
-      if ( v18 )
-        v18();
+      v9 = v8 - 2;
+      v8 = (_QWORD *)*v8;
+      v10 = (void (*)(void))v9[5];
+      if ( v10 )
+        v10();
       else
-        ExFreePoolWithTag(v17, 0);
+        ExFreePoolWithTag(v9, 0);
     }
-    while ( v16 != v14 );
+    while ( v8 != v6 );
   }
-  result = KiFlushQueueApc(a1, 0LL, v12, v13);
+  result = KiFlushQueueApc(a1, 0);
   if ( result || *(_DWORD *)(a1 + 484) )
   {
     CurrentIrql = KeGetCurrentIrql();

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventHgsContainmentUnparkedCount @ 0x14050ACF4
+ * XREFs of PpmEventHgsContainmentUnparkedCount @ 0x140504764
  * Callers:
- *     PpmHeteroHgsCalculateContainmentCount @ 0x14060A754 (PpmHeteroHgsCalculateContainmentCount.c)
+ *     PpmHeteroHgsCalculateContainmentCount @ 0x14060D428 (PpmHeteroHgsCalculateContainmentCount.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventHgsContainmentUnparkedCount(
@@ -68,9 +68,7 @@ BOOLEAN __fastcall PpmEventHgsContainmentUnparkedCount(
   result = PpmHeteroHgsContainmentState;
   if ( (PpmHeteroHgsContainmentState & 4) != 0 && PpmEtwRegistered )
   {
-    result = EtwEventEnabled(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_WPS_CONTAINMENT_UNPARK_COUNT);
+    result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_WPS_CONTAINMENT_UNPARK_COUNT);
     if ( result )
     {
       v10 = *(_QWORD *)(a4 + 1240);
@@ -113,15 +111,7 @@ BOOLEAN __fastcall PpmEventHgsContainmentUnparkedCount(
       v44 = 4LL;
       v46 = 4LL;
       v48 = 4LL;
-      return EtwWriteEx(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_WPS_CONTAINMENT_UNPARK_COUNT,
-               0LL,
-               0,
-               0LL,
-               0LL,
-               0xFu,
-               &UserData);
+      return EtwWriteEx(PpmEtwHandle, &PPM_ETW_WPS_CONTAINMENT_UNPARK_COUNT, 0LL, 0, 0LL, 0LL, 0xFu, &UserData);
     }
   }
   return result;

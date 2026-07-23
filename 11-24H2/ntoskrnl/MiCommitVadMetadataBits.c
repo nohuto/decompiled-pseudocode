@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCommitVadMetadataBits @ 0x1408FA9B0
+ * XREFs of MiCommitVadMetadataBits @ 0x14091D290
  * Callers:
- *     MmProtectVirtualMemory @ 0x1408DCA30 (MmProtectVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiCommitInitialVadMetadataBits @ 0x1408F9980 (MiCommitInitialVadMetadataBits.c)
- *     MiMapViewOfPhysicalSection @ 0x140A135A0 (MiMapViewOfPhysicalSection.c)
+ *     MmProtectVirtualMemory @ 0x1408DAC60 (MmProtectVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiCommitInitialVadMetadataBits @ 0x14091C25C (MiCommitInitialVadMetadataBits.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0BD00 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiCommitVadCfgBits @ 0x1408F9A84 (MiCommitVadCfgBits.c)
- *     PsWow64GetProcessMachine @ 0x1408FB0E0 (PsWow64GetProcessMachine.c)
+ *     MiCommitVadCfgBits @ 0x14091C360 (MiCommitVadCfgBits.c)
+ *     PsWow64GetProcessMachine @ 0x14091D9C0 (PsWow64GetProcessMachine.c)
  */
 
 __int64 __fastcall MiCommitVadMetadataBits(__int64 a1, unsigned __int64 *a2, char a3)

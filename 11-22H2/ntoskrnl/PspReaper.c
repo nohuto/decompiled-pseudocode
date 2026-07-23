@@ -63,10 +63,13 @@ LABEL_39:
           *(_QWORD *)(v7 + 8) = v9;
         }
         KxReleaseSpinLock(&qword_140C42538);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v8 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -94,10 +97,10 @@ LABEL_39:
           *(_QWORD *)(v16 + 8) = v18;
         }
         KxReleaseSpinLock(&KiUpdateVpThreadPriorityLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v19 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v19 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v19 >= 2u )
           {
             v20 = KeGetCurrentPrcb();
             v21 = v20->SchedulerAssist;

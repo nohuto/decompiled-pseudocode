@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnCleanupPrefetchSectionInfo @ 0x1406C9424
+ * XREFs of PfSnCleanupPrefetchSectionInfo @ 0x140677D14
  * Callers:
- *     PfSnSectionInfoCleanupWorkItem @ 0x1406C88B0 (PfSnSectionInfoCleanupWorkItem.c)
- *     PfSnPopulateReadList @ 0x1406C8970 (PfSnPopulateReadList.c)
- *     PfSnCleanupPrefetchHeader @ 0x1406C9318 (PfSnCleanupPrefetchHeader.c)
+ *     PfSnSectionInfoCleanupWorkItem @ 0x1406771A0 (PfSnSectionInfoCleanupWorkItem.c)
+ *     PfSnPopulateReadList @ 0x140677260 (PfSnPopulateReadList.c)
+ *     PfSnCleanupPrefetchHeader @ 0x140677C08 (PfSnCleanupPrefetchHeader.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PfpOpenHandleClose @ 0x140677F80 (PfpOpenHandleClose.c)
  */
 
 void __fastcall PfSnCleanupPrefetchSectionInfo(__int64 a1, __int64 a2, char a3)

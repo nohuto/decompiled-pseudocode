@@ -53,7 +53,7 @@ __int64 __fastcall CmpSecurityMethod(
   v26 = 0LL;
   if ( CmpTraceRoutine )
   {
-    EtwGetKernelTraceTimestamp(v29, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v29, 0x20000u);
     v9 = CmpTraceRoutine;
   }
   v25[1] = v25;

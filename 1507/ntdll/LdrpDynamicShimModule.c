@@ -23,20 +23,20 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
   __int64 v8; // rax
   unsigned int v9; // ebp
   __int64 v10; // rdi
-  unsigned __int8 (__fastcall *v11)(_WORD *, _QWORD, __int64); // [rsp+68h] [rbp+10h] BYREF
+  PRTL_DYNAMIC_HASH_TABLE HashTable; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = dword_180143050;
   v3 = 0;
   if ( dword_180143050 && g_pShimmedModuleList )
   {
     dword_180143050 = 0;
-    v3 = LdrpGetProcApphelpCheckModule(&v11);
+    v3 = LdrpGetProcApphelpCheckModule(&HashTable);
     if ( v3 >= 0 )
     {
       for ( i = g_pShimmedModuleList; *i; i += v8 + 1 )
       {
         LOBYTE(v5) = 1;
-        if ( !v11(i, 0LL, v5) )
+        if ( !((unsigned __int8 (__fastcall *)(_WORD *, _QWORD, __int64))HashTable)(i, 0LL, v5) )
         {
           v3 = -1073741502;
           goto LABEL_3;
@@ -46,12 +46,12 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
           ++v8;
         while ( i[v8] );
       }
-      v9 = MEMORY[0x7FFE0330];
-      v10 = __ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-      RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+      v9 = (unsigned int)MEMORY[0x7FFE0330];
+      v10 = __ROR8__(g_pfnSE_DllLoaded, 64 - ((unsigned __int8)MEMORY[0x7FFE0330] & 0x3Fu));
+      RtlEnterCriticalSection(&LdrpDllNotificationLock);
       if ( LdrInitState < 3 && (*(_DWORD *)(*a1 - 56LL) & 0x800) == 0 )
         LdrpSendShimEngineInitialNotifications(a1, v10 ^ v9);
-      RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+      RtlLeaveCriticalSection(&LdrpDllNotificationLock);
     }
     else
     {
@@ -63,7 +63,7 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
           2743,
           (unsigned int)"LdrpDynamicShimModule",
           0,
-          "Getting ApphelpCheckModule failed with status 0x%08lx\n",
+          (__int64)"Getting ApphelpCheckModule failed with status 0x%08lx\n",
           v3);
         v6 = LdrpDebugFlags;
       }
@@ -75,7 +75,7 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
 LABEL_3:
   if ( g_pShimmedModuleList && v1 == 1 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)g_pShimmedModuleList);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
     g_pShimmedModuleList = 0LL;
     g_pShimmedModuleListLength = 0LL;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwIrpStartCreate @ 0x1409F8394
+ * XREFs of PiSwIrpStartCreate @ 0x1409F0D04
  * Callers:
- *     PiSwDispatch @ 0x140730760 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14072E770 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x140481B24 (McTemplateK0d_EtwWriteTransfer.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x140595BC4 (McTemplateK0_EtwWriteTransfer.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14047CDE4 (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x140592BF4 (McTemplateK0_EtwWriteTransfer.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwIrpStartCreate(PIRP Irp, __int64 a2, __int64 a3)
@@ -26,7 +26,7 @@ __int64 __fastcall PiSwIrpStartCreate(PIRP Irp, __int64 a2, __int64 a3)
   P = 0LL;
   v5 = Irp;
   v12 = Irp;
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0_EtwWriteTransfer(
       MS_KernelPnP_Provider_Context,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_IrpCreate_Start);
@@ -42,7 +42,7 @@ __int64 __fastcall PiSwIrpStartCreate(PIRP Irp, __int64 a2, __int64 a3)
       Worker = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v11);
       if ( Worker >= 0 )
       {
-        NdrMesTypeDecode3(v11, "TP 3\a", &off_140B3B430, &off_140E06FF0, 0, &P);
+        NdrMesTypeDecode3(v11, "TP 3\a", &off_140B3D1E0, &off_140E06FF0, 0, &P);
         Worker = PiSwIrpStartCreateWorker(P, Irp);
         v5 = 0LL;
       }
@@ -63,7 +63,7 @@ __int64 __fastcall PiSwIrpStartCreate(PIRP Irp, __int64 a2, __int64 a3)
   v8 = v11;
   if ( v11 )
     MesHandleFree();
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0d_EtwWriteTransfer(v8, (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_IrpCreate_Stop, a3, Worker);
   return (unsigned int)Worker;
 }

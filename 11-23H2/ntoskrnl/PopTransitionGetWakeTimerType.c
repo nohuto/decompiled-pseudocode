@@ -1,7 +1,7 @@
 /*
- * XREFs of PopTransitionGetWakeTimerType @ 0x1409945A0
+ * XREFs of PopTransitionGetWakeTimerType @ 0x1409947A0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     <none>
  */

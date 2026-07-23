@@ -1,11 +1,11 @@
 /*
- * XREFs of swscanf_s @ 0x140152FA8
+ * XREFs of swscanf_s @ 0x140153568
  * Callers:
- *     ExProcessorCounterSetCallback @ 0x140407468 (ExProcessorCounterSetCallback.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632B70 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     ExProcessorCounterSetCallback @ 0x140406328 (ExProcessorCounterSetCallback.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632C24 (PiDevCfgCheckDeviceNeedsUpdate.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     _swinput_s @ 0x1401559C8 (_swinput_s.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     _swinput_s @ 0x140155F38 (_swinput_s.c)
  */
 
 int swscanf_s(const wchar_t *Src, const wchar_t *Format, ...)

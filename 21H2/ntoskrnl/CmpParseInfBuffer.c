@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpParseInfBuffer @ 0x140A6206C
+ * XREFs of CmpParseInfBuffer @ 0x140A6306C
  * Callers:
- *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140A465E8 (EmpParseInfDatabase.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     CmpGetToken @ 0x140A62394 (CmpGetToken.c)
- *     CmpAppendValue @ 0x140A62630 (CmpAppendValue.c)
- *     CmpAppendLine @ 0x140A626B4 (CmpAppendLine.c)
- *     CmpAppendSection @ 0x140A6273C (CmpAppendSection.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     CmpGetToken @ 0x140A63394 (CmpGetToken.c)
+ *     CmpAppendValue @ 0x140A63630 (CmpAppendValue.c)
+ *     CmpAppendLine @ 0x140A636B4 (CmpAppendLine.c)
+ *     CmpAppendSection @ 0x140A6373C (CmpAppendSection.c)
  */
 
 _QWORD *__fastcall CmpParseInfBuffer(__int64 a1, unsigned int a2, int *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicIsCmciImplemented @ 0x1403CDE98
+ * XREFs of HalpApicIsCmciImplemented @ 0x1403CE008
  * Callers:
- *     HalpApicInitializeLocalUnit @ 0x1403A1AE0 (HalpApicInitializeLocalUnit.c)
+ *     HalpApicInitializeLocalUnit @ 0x1403A1C30 (HalpApicInitializeLocalUnit.c)
  * Callees:
- *     HalpApicGetCpuInfo @ 0x1403CDF38 (HalpApicGetCpuInfo.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpApicGetCpuInfo @ 0x1403CE0A8 (HalpApicGetCpuInfo.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall HalpApicIsCmciImplemented(int *a1, int *a2)

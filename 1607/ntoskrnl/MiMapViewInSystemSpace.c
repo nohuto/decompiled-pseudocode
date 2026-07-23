@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMapViewInSystemSpace @ 0x140525ED4
+ * XREFs of MiMapViewInSystemSpace @ 0x140508F34
  * Callers:
- *     MmMapViewInSystemSpace @ 0x14049552C (MmMapViewInSystemSpace.c)
- *     MmMapViewInSessionSpaceEx @ 0x1404DFAB8 (MmMapViewInSessionSpaceEx.c)
- *     MmMapViewInSystemSpaceEx @ 0x140525EA8 (MmMapViewInSystemSpaceEx.c)
+ *     MmMapViewInSystemSpace @ 0x140495FBC (MmMapViewInSystemSpace.c)
+ *     MmMapViewInSessionSpaceEx @ 0x1404C30BC (MmMapViewInSessionSpaceEx.c)
+ *     MmMapViewInSystemSpaceEx @ 0x140508F08 (MmMapViewInSystemSpaceEx.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiCheckPurgeAndUpMapCount @ 0x14002C920 (MiCheckPurgeAndUpMapCount.c)
- *     MiDereferenceControlArea @ 0x1400B54C4 (MiDereferenceControlArea.c)
- *     MiInsertInSystemSpace @ 0x1400FF2A0 (MiInsertInSystemSpace.c)
- *     MiRemoveFromSystemSpace @ 0x140100090 (MiRemoveFromSystemSpace.c)
- *     MiAddMappedPtes @ 0x140526020 (MiAddMappedPtes.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14002C4A0 (MiCheckPurgeAndUpMapCount.c)
+ *     MiDereferenceControlArea @ 0x1400B32FC (MiDereferenceControlArea.c)
+ *     MiInsertInSystemSpace @ 0x1400FD020 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x1400FDE10 (MiRemoveFromSystemSpace.c)
+ *     MiAddMappedPtes @ 0x140509080 (MiAddMappedPtes.c)
  */
 
 __int64 __fastcall MiMapViewInSystemSpace(__int64 a1, __int64 a2, ULONG_PTR *a3, __int64 *a4, _QWORD *a5, __int64 a6)

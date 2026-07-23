@@ -13,7 +13,7 @@ __int64 __fastcall ExpPartitionStart(__int64 a1)
   unsigned __int16 v2; // bx
   USHORT *v3; // rcx
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   if ( !KeNumberNodes )

@@ -364,7 +364,7 @@ LABEL_23:
   }
   p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
   if ( KeQuerySystemTimeUnsafe() )
-    KeQuerySystemTimePrecise((__int64 *)&CurrentThread[1].Header.WaitListHead);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)&CurrentThread[1].Header.WaitListHead);
   else
     p_WaitListHead->Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000014];
   if ( v47 )

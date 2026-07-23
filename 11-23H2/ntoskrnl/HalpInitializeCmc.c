@@ -3,11 +3,11 @@
  * Callers:
  *     HalpInitializeErrSrc @ 0x140A8ACE0 (HalpInitializeErrSrc.c)
  * Callees:
- *     HalpCmciInitializeErrorPacket @ 0x1403800E4 (HalpCmciInitializeErrorPacket.c)
- *     HalpCmciInitProcessor @ 0x1403801A8 (HalpCmciInitProcessor.c)
- *     HalpCmcInitializePolling @ 0x1403B4448 (HalpCmcInitializePolling.c)
- *     HalpCmcStartPolling @ 0x1403B4968 (HalpCmcStartPolling.c)
- *     HalpIsCmciImplemented @ 0x140A91EE8 (HalpIsCmciImplemented.c)
+ *     HalpCmciInitializeErrorPacket @ 0x140380284 (HalpCmciInitializeErrorPacket.c)
+ *     HalpCmciInitProcessor @ 0x140380348 (HalpCmciInitProcessor.c)
+ *     HalpCmcInitializePolling @ 0x1403B4628 (HalpCmcInitializePolling.c)
+ *     HalpCmcStartPolling @ 0x1403B4B48 (HalpCmcStartPolling.c)
+ *     HalpIsCmciImplemented @ 0x140A91D68 (HalpIsCmciImplemented.c)
  */
 
 __int64 __fastcall HalpInitializeCmc(int a1, _DWORD *a2)

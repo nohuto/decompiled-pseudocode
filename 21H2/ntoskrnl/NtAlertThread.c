@@ -1,31 +1,37 @@
 /*
- * XREFs of NtAlertThread @ 0x14090C6A0
+ * XREFs of NtAlertThread @ 0x14090C800
  * Callers:
  *     <none>
  * Callees:
- *     KeAlertThread @ 0x1402EA930 (KeAlertThread.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     KeAlertThread @ 0x14029BC80 (KeAlertThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtAlertThread(ULONG_PTR a1)
+NTSTATUS __cdecl NtAlertThread(HANDLE ThreadHandle)
 {
   char PreviousMode; // bl
-  __int64 result; // rax
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  _DWORD *v5; // r9
+  NTSTATUS result; // eax
+  _QWORD *Tag; // [rsp+20h] [rbp-28h]
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  result = ObpReferenceObjectByHandleWithTag(a1, 4, (__int64)PsThreadType, PreviousMode, 0x75537350u, &Object, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  LODWORD(Tag) = 1968403280;
+  result = ObpReferenceObjectByHandleWithTag(
+             (ULONG_PTR)ThreadHandle,
+             4LL,
+             PsThreadType,
+             PreviousMode,
+             Tag,
+             &Object,
+             0LL,
+             0LL);
+  if ( result >= 0 )
   {
-    LOBYTE(v3) = PreviousMode;
-    KeAlertThread((__int64)Object, v3, v4, v5);
+    KeAlertThread((__int64)Object, PreviousMode);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);
-    return 0LL;
+    return 0;
   }
   return result;
 }

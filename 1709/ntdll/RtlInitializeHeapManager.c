@@ -24,9 +24,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   int v5; // eax
   int v6; // ecx
   char v7; // al
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  int v11; // [rsp+38h] [rbp+10h] BYREF
+  int v9; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = NtCurrentPeb();
   if ( (RtlpLowFragHeapGlobalFlags & 0x10) != 0 || (unsigned int)RtlpHpOptIntoSegmentHeap() )
@@ -43,15 +41,15 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   v4 = RtlpHpLfhPerfFlags;
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
     RtlpHpOverrideGCInterval(a1);
     v4 = RtlpHpLfhPerfFlags;
   }
   RtlpHpLfhPerfFlags = v4 | 0x18;
-  if ( (int)RtlQueryResourcePolicy(0, 0, (__int64)&v11, 4LL) >= 0 && v11 > 10 )
+  if ( (int)RtlQueryResourcePolicy(0, 0, (__int64)&v9, 4LL) >= 0 && v9 > 10 )
   {
     RtlpHpLfhPerfFlags |= 0x60u;
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
   }
   if ( (RtlpLowFragHeapGlobalFlags & 8) != 0 )
     RtlpHpHeapFeatures &= ~1u;
@@ -73,16 +71,16 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   v1->NumberOfHeaps = 0;
   RtlpDisableBreakOnFailureCookie = v7 != 0 ? v6 : 0;
   v1->ProcessHeaps = (void **)&RtlpProcessHeapsListBuffer;
-  RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0LL, 0x10000000);
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
   RtlpHeapKey = RtlpHeapGenerateRandomValue64();
-  if ( (RtlGetSuiteMask(v9, v8) & 0x10000) != 0 )
+  if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {
     RtlpLowFragHeapGlobalFlags |= 4u;
     RtlpLargestLfhBlock = 1024LL;
   }
   RtlpInitializeLowFragHeapManager();
   memset(&RtlpHpAllocTrackerBitmap, 0, 0x28uLL);
-  qword_18015D6B8 = 0LL;
+  SRWLock.0 = 0LL;
   qword_18015D6C0 = -1LL;
   return RtlCSparseBitmapStart();
 }

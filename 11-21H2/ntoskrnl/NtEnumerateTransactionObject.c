@@ -14,5 +14,5 @@ NTSTATUS __stdcall NtEnumerateTransactionObject(
         ULONG ObjectCursorLength,
         PULONG ReturnLength)
 {
-  return __imp_NtEnumerateTransactionObject(RootObjectHandle, QueryType, ObjectCursor, ObjectCursorLength, ReturnLength);
+  return NtEnumerateTransactionObject_0(RootObjectHandle, QueryType, ObjectCursor, ObjectCursorLength, ReturnLength);
 }

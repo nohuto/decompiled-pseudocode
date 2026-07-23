@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceHvHypercall @ 0x1404CDEEC
+ * XREFs of EtwTraceHvHypercall @ 0x1404C72BC
  * Callers:
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlSendSyntheticClusterIpi @ 0x1403C8710 (HvlSendSyntheticClusterIpi.c)
- *     HvlUpdatePerformanceStateCountersForLp @ 0x140445850 (HvlUpdatePerformanceStateCountersForLp.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1403A4B40 (HvlSendSyntheticClusterIpi.c)
+ *     HvlUpdatePerformanceStateCountersForLp @ 0x14043DA00 (HvlUpdatePerformanceStateCountersForLp.c)
  * Callees:
- *     EtwTraceTimedEvent @ 0x1403B1020 (EtwTraceTimedEvent.c)
+ *     EtwTraceTimedEvent @ 0x14039F830 (EtwTraceTimedEvent.c)
  */
 
 int __fastcall EtwTraceHvHypercall(__int64 a1, int a2, char a3, char a4)

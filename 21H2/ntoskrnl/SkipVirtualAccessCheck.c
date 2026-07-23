@@ -1,15 +1,15 @@
 /*
- * XREFs of SkipVirtualAccessCheck @ 0x14027EF88
+ * XREFs of SkipVirtualAccessCheck @ 0x14026CF28
  * Callers:
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
  * Callees:
- *     CmpIsSystemEntity @ 0x140656AF0 (CmpIsSystemEntity.c)
+ *     CmpIsSystemEntity @ 0x14064B910 (CmpIsSystemEntity.c)
  */
 
-bool __fastcall SkipVirtualAccessCheck(__int64 a1, __int64 a2)
+bool __fastcall SkipVirtualAccessCheck(__int64 a1)
 {
   if ( (*(_DWORD *)(a1 + 184) & 0x2000000) == 0 )
     return 0;
   LOBYTE(a1) = KeGetCurrentThread()->PreviousMode;
-  return (unsigned __int8)CmpIsSystemEntity(a1, 0LL, a2) == 0;
+  return (unsigned __int8)CmpIsSystemEntity(a1) == 0;
 }

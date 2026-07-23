@@ -1,7 +1,7 @@
 /*
- * XREFs of ExInitializeAutoExpandPushLock @ 0x14009CE20
+ * XREFs of ExInitializeAutoExpandPushLock @ 0x14009C620
  * Callers:
- *     MiResizeAweBitMap @ 0x14065C82C (MiResizeAweBitMap.c)
+ *     MiResizeAweBitMap @ 0x14065C910 (MiResizeAweBitMap.c)
  * Callees:
  *     <none>
  */

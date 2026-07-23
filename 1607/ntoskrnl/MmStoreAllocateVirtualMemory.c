@@ -1,15 +1,15 @@
 /*
- * XREFs of MmStoreAllocateVirtualMemory @ 0x1405320CC
+ * XREFs of MmStoreAllocateVirtualMemory @ 0x14053260C
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x14011E384 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x14011E8F4 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     MiFreeVadRange @ 0x1400272B4 (MiFreeVadRange.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiLockPageTableRange @ 0x14012350C (MiLockPageTableRange.c)
- *     MiAddSecureEntry @ 0x14042AB30 (MiAddSecureEntry.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
+ *     MiFreeVadRange @ 0x140026E34 (MiFreeVadRange.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiLockPageTableRange @ 0x140123A7C (MiLockPageTableRange.c)
+ *     MiAddSecureEntry @ 0x140429A00 (MiAddSecureEntry.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
  */
 
 unsigned __int64 __fastcall MmStoreAllocateVirtualMemory(unsigned __int64 a1)

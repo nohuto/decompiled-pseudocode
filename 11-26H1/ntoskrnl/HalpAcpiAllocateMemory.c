@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpAcpiAllocateMemory @ 0x14052554C
+ * XREFs of HalpAcpiAllocateMemory @ 0x140527BBC
  * Callers:
- *     HalpAcpiCopyBiosTable @ 0x1405254AC (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiGetAllTablesWork @ 0x14057957C (HalpAcpiGetAllTablesWork.c)
- *     HalpAcpiFindRsdp @ 0x140CAD7DC (HalpAcpiFindRsdp.c)
- *     HalpAcpiTableCacheInit @ 0x140D0A55C (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiCopyBiosTable @ 0x140527B1C (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14057BAAC (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiFindRsdp @ 0x140CB381C (HalpAcpiFindRsdp.c)
+ *     HalpAcpiTableCacheInit @ 0x140D1082C (HalpAcpiTableCacheInit.c)
  * Callees:
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140D08980 (HalpAllocPhysicalMemoryEx.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140D0EC50 (HalpAllocPhysicalMemoryEx.c)
  */
 
 unsigned __int64 __fastcall HalpAcpiAllocateMemory(__int64 a1, unsigned int a2)

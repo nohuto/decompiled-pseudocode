@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAcquireGuardedMutex @ 0x1402FCC60
+ * XREFs of KeAcquireGuardedMutex @ 0x1402FCEF0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExpAcquireFastMutexContended @ 0x1402FCD4C (ExpAcquireFastMutexContended.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExpAcquireFastMutexContended @ 0x1402FCFDC (ExpAcquireFastMutexContended.c)
  */
 
 void __stdcall KeAcquireGuardedMutex(PKGUARDED_MUTEX Mutex)

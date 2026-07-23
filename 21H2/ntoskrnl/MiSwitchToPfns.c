@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSwitchToPfns @ 0x140A43AD8
+ * XREFs of MiSwitchToPfns @ 0x140A44AD8
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiInitializeUnusablePfns @ 0x1403B0FE0 (MiInitializeUnusablePfns.c)
- *     MiRestrictRangeToNode @ 0x1403B14C0 (MiRestrictRangeToNode.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiMarkPfnVerified @ 0x140236C14 (MiMarkPfnVerified.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiInitializeUnusablePfns @ 0x1403B1150 (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x1403B1630 (MiRestrictRangeToNode.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlCompareMemoryUlong @ 0x140408230 (RtlCompareMemoryUlong.c)
- *     MiCreateFreePfns @ 0x140A43D50 (MiCreateFreePfns.c)
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
+ *     RtlCompareMemoryUlong @ 0x140408410 (RtlCompareMemoryUlong.c)
+ *     MiCreateFreePfns @ 0x140A44D50 (MiCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
  */
 
 __int64 __fastcall MiSwitchToPfns(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -44,20 +44,19 @@ __int64 __fastcall MiSwitchToPfns(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4
   bool v27; // zf
   _QWORD *v28; // rbp
   BOOL v29; // r13d
-  __int64 v30; // r8
-  __int128 v31; // [rsp+40h] [rbp-68h] BYREF
-  __int128 v32; // [rsp+50h] [rbp-58h]
-  ULONG_PTR v33; // [rsp+60h] [rbp-48h]
-  __int64 *v34; // [rsp+B0h] [rbp+8h]
-  __int64 *v35; // [rsp+B8h] [rbp+10h]
+  __int128 v30; // [rsp+40h] [rbp-68h] BYREF
+  __int128 v31; // [rsp+50h] [rbp-58h]
+  ULONG_PTR v32; // [rsp+60h] [rbp-48h]
+  __int64 *v33; // [rsp+B0h] [rbp+8h]
+  __int64 *v34; // [rsp+B8h] [rbp+10h]
 
-  v33 = 0LL;
-  v31 = 0LL;
   v32 = 0LL;
-  v5 = MmPfnDatabase + 48 * qword_140C52880;
-  if ( !qword_140C52880 && !*(_WORD *)(v5 + 32) )
+  v30 = 0LL;
+  v31 = 0LL;
+  v5 = MmPfnDatabase + 48 * qword_140C528C0;
+  if ( !qword_140C528C0 && !*(_WORD *)(v5 + 32) )
   {
-    v20 = (unsigned __int8)MiLockPageInline(MmPfnDatabase + 48 * qword_140C52880, a2, a3, a4);
+    v20 = (unsigned __int8)MiLockPageInline(MmPfnDatabase + 48 * qword_140C528C0, a2, a3, a4);
     *(_QWORD *)(v5 + 40) &= 0xFFFFFFF000000000uLL;
     v21 = *(_QWORD *)(v5 + 24);
     *(_QWORD *)(v5 + 8) = 0xFFFFF68000000000uLL;
@@ -89,8 +88,8 @@ __int64 __fastcall MiSwitchToPfns(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4
   }
   v6 = (__int64 *)(a1 + 32);
   v7 = *(__int64 **)(a1 + 32);
-  v34 = (__int64 *)(a1 + 32);
-  v35 = v7;
+  v33 = (__int64 *)(a1 + 32);
+  v34 = v7;
   if ( v7 != (__int64 *)(a1 + 32) )
   {
     do
@@ -151,7 +150,7 @@ LABEL_57:
                 v29 = MiPteHasShadow() != 0;
               *v28 = 0LL;
               if ( v29 )
-                MiWritePteShadow((__int64)v28, 0LL, v30);
+                MiWritePteShadow((__int64)v28, 0LL);
               v13->m128i_i64[1] = 0LL;
               v28 = 0LL;
               goto LABEL_54;
@@ -182,10 +181,10 @@ LABEL_19:
         }
         else
         {
-          LODWORD(v32) = 2;
-          *((_QWORD *)&v32 + 1) = (__int64)v13[0x5800000000LL].m128i_i64 / 48;
-          v33 = v17;
-          MxCreateFreePfns(&v31);
+          LODWORD(v31) = 2;
+          *((_QWORD *)&v31 + 1) = (__int64)v13[0x5800000000LL].m128i_i64 / 48;
+          v32 = v17;
+          MxCreateFreePfns(&v30);
         }
         v9 -= v18;
         v15 = 48 * v18;
@@ -193,15 +192,15 @@ LABEL_20:
         v13 = (__m128i *)((char *)v13 + v15);
       }
       while ( v9 );
-      v7 = v35;
+      v7 = v34;
 LABEL_22:
-      v6 = v34;
+      v6 = v33;
 LABEL_23:
       if ( (_DWORD)v8 == 3 )
         goto LABEL_57;
 LABEL_24:
       v7 = (__int64 *)*v7;
-      v35 = v7;
+      v34 = v7;
     }
     while ( v7 != v6 );
   }

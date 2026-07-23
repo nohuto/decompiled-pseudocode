@@ -1,16 +1,16 @@
 /*
- * XREFs of IoWMISystemControl @ 0x140A41AC4
+ * XREFs of IoWMISystemControl @ 0x140A373A4
  * Callers:
- *     WmipSystemControl @ 0x140A41AA0 (WmipSystemControl.c)
+ *     WmipSystemControl @ 0x140A37380 (WmipSystemControl.c)
  * Callees:
- *     WmipFindRegEntryByProviderId @ 0x140338ED0 (WmipFindRegEntryByProviderId.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     WmipUnreferenceRegEntry @ 0x14046FC2C (WmipUnreferenceRegEntry.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     WmipQueryWmiRegInfo @ 0x1407A6270 (WmipQueryWmiRegInfo.c)
- *     WmipQueryWmiDataBlock @ 0x140A41D60 (WmipQueryWmiDataBlock.c)
- *     IoWMICompleteRequest @ 0x140A41EEC (IoWMICompleteRequest.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WmipFindRegEntryByProviderId @ 0x1402DDC64 (WmipFindRegEntryByProviderId.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     WmipUnreferenceRegEntry @ 0x14046A188 (WmipUnreferenceRegEntry.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     WmipQueryWmiRegInfo @ 0x1407A63B0 (WmipQueryWmiRegInfo.c)
+ *     WmipQueryWmiDataBlock @ 0x140A37640 (WmipQueryWmiDataBlock.c)
+ *     IoWMICompleteRequest @ 0x140A377CC (IoWMICompleteRequest.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoWMISystemControl(__int64 a1, __int64 a2, IRP *a3)
@@ -32,10 +32,10 @@ __int64 __fastcall IoWMISystemControl(__int64 a1, __int64 a2, IRP *a3)
   int v20; // ecx
   unsigned int v21; // ebx
   int v22; // ecx
-  __int64 v23; // rax
+  _DWORD *v23; // rax
   __int64 v24; // rdx
   __int64 v25; // rcx
-  __int64 RegEntryByProviderId; // rax
+  _DWORD *RegEntryByProviderId; // rax
   int v27; // ecx
   int v28; // ecx
   int v29; // ecx
@@ -143,12 +143,12 @@ LABEL_25:
           RegEntryByProviderId = WmipFindRegEntryByProviderId(Parameters->ReadMode);
           if ( RegEntryByProviderId )
           {
-            v6 = *(_QWORD *)(RegEntryByProviderId + 16);
+            v6 = *((_QWORD *)RegEntryByProviderId + 2);
             if ( (_DWORD)v7 )
               v8 = 1;
             else
-              v8 = *(_DWORD *)(RegEntryByProviderId + 52);
-            WmipUnreferenceRegEntry(RegEntryByProviderId);
+              v8 = RegEntryByProviderId[13];
+            WmipUnreferenceRegEntry((__int64)RegEntryByProviderId);
             goto LABEL_25;
           }
           return (unsigned int)IoWMICompleteRequest(v25, v24, a3, 3221226133LL, 0);
@@ -163,8 +163,8 @@ LABEL_25:
           v23 = WmipFindRegEntryByProviderId(Parameters->ReadMode);
           if ( !v23 )
             return (unsigned int)IoWMICompleteRequest(v25, v24, a3, 3221226133LL, 0);
-          v6 = *(_QWORD *)(v23 + 16);
-          WmipUnreferenceRegEntry(v23);
+          v6 = *((_QWORD *)v23 + 2);
+          WmipUnreferenceRegEntry((__int64)v23);
         }
         return (unsigned int)WmipQueryWmiDataBlock(
                                v6,

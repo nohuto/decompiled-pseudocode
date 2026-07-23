@@ -51,7 +51,7 @@ __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4
   v18 = a5 & 0xFFFFFFFD;
   if ( !v15 )
     v18 = a5;
-  if ( (int)RtlpHpSegPageRangeCommit(a1, v13, 0, v6, v18, 0LL) < 0 )
+  if ( (int)RtlpHpSegPageRangeCommit(a1, v18, 0LL) < 0 )
   {
     v16 = 0LL;
     RtlpHpSegPageRangeShrink(a1, v20, 0, a5);
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4
   {
 LABEL_6:
     if ( v21 )
-      RtlpHpSegPageRangeCommit(a1, v13, v11 - 1, v11 - (v14 << *(_BYTE *)(a1 + 9)) - 1, 0, 0LL);
+      RtlpHpSegPageRangeCommit(a1, 0, 0LL);
     *(_DWORD *)(v13 + 4) = (v14 << *(_BYTE *)(a1 + 8)) - a2;
     v16 = (v13 & *(_QWORD *)a1) + ((v13 - (v13 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8));
     if ( (a5 & 2) != 0 )

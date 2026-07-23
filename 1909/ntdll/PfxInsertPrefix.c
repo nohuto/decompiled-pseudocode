@@ -8,64 +8,64 @@
  *     ComputeNameLength @ 0x1800E4704 (ComputeNameLength.c)
  */
 
-char __fastcall PfxInsertPrefix(__int64 a1, unsigned __int16 *a2, __int64 a3)
+BOOLEAN __cdecl PfxInsertPrefix(PPREFIX_TABLE PrefixTable, PSTRING Prefix, PPREFIX_TABLE_ENTRY PrefixTableEntry)
 {
-  __int16 v6; // ax
-  _QWORD *v7; // r14
-  __int64 i; // rdi
-  __int64 j; // rsi
+  CSHORT v6; // ax
+  RTL_SPLAY_LINKS *p_Links; // r14
+  _PREFIX_TABLE *i; // rdi
+  _PREFIX_TABLE *j; // rsi
   int v11; // eax
-  __int64 v12; // rax
-  _QWORD *v13; // rcx
-  __int64 v14; // rbx
-  _QWORD *v15; // rax
+  PPREFIX_TABLE_ENTRY NextPrefixTree; // rax
+  _RTL_SPLAY_LINKS *v13; // rcx
+  _PREFIX_TABLE_ENTRY *v14; // rbx
+  _PREFIX_TABLE_ENTRY *p_LeftChild; // rax
 
-  v6 = ComputeNameLength(a2);
-  *(_WORD *)(a3 + 2) = v6;
-  v7 = (_QWORD *)(a3 + 16);
-  *(_QWORD *)(a3 + 40) = a2;
-  *(_QWORD *)(a3 + 24) = 0LL;
-  *(_QWORD *)(a3 + 32) = 0LL;
-  *(_QWORD *)(a3 + 16) = a3 + 16;
-  for ( i = *(_QWORD *)(a1 + 8); *(__int16 *)(i + 2) > v6; i = *(_QWORD *)(i + 8) )
-    a1 = i;
-  if ( *(_WORD *)(i + 2) == v6 )
+  v6 = ComputeNameLength(&Prefix->Length);
+  PrefixTableEntry->NameLength = v6;
+  p_Links = &PrefixTableEntry->Links;
+  PrefixTableEntry->Prefix = Prefix;
+  PrefixTableEntry->Links.LeftChild = 0LL;
+  PrefixTableEntry->Links.RightChild = 0LL;
+  PrefixTableEntry->Links.Parent = &PrefixTableEntry->Links;
+  for ( i = (_PREFIX_TABLE *)PrefixTable->NextPrefixTree; i->NameLength > v6; i = (_PREFIX_TABLE *)i->NextPrefixTree )
+    PrefixTable = i;
+  if ( i->NameLength == v6 )
   {
-    for ( j = i; ; j = v12 - 16 )
+    for ( j = i; ; j = (_PREFIX_TABLE *)&NextPrefixTree[-1].Links.RightChild )
     {
-      v11 = CompareNamesCaseSensitive(*(unsigned __int16 **)(j + 40), a2);
+      v11 = CompareNamesCaseSensitive((unsigned __int16 *)j[2].NextPrefixTree, &Prefix->Length);
       if ( v11 == 2 )
         break;
       if ( v11 == 3 )
       {
-        v12 = *(_QWORD *)(j + 24);
-        if ( !v12 )
+        NextPrefixTree = j[1].NextPrefixTree;
+        if ( !NextPrefixTree )
         {
-          *(_QWORD *)(a3 + 8) = 0LL;
-          v13 = (_QWORD *)(j + 16);
-          *(_WORD *)a3 = 514;
-          *(_QWORD *)(j + 24) = v7;
+          PrefixTableEntry->NextPrefixTree = 0LL;
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
+          PrefixTableEntry->NodeTypeCode = 514;
+          j[1].NextPrefixTree = (PPREFIX_TABLE_ENTRY)p_Links;
 LABEL_15:
-          *v7 = v13;
-          v14 = *(_QWORD *)(i + 8);
-          *(_QWORD *)(i + 8) = 0LL;
-          *(_WORD *)i = 514;
-          v15 = RtlSplay(v13) - 2;
-          *(_WORD *)v15 = 513;
-          *(_QWORD *)(a1 + 8) = v15;
-          v15[1] = v14;
+          p_Links->Parent = v13;
+          v14 = i->NextPrefixTree;
+          i->NextPrefixTree = 0LL;
+          i->NodeTypeCode = 514;
+          p_LeftChild = (_PREFIX_TABLE_ENTRY *)&RtlSplay(v13)[-1].LeftChild;
+          p_LeftChild->NodeTypeCode = 513;
+          PrefixTable->NextPrefixTree = p_LeftChild;
+          p_LeftChild->NextPrefixTree = v14;
           return 1;
         }
       }
       else
       {
-        v12 = *(_QWORD *)(j + 32);
-        if ( !v12 )
+        NextPrefixTree = *(PPREFIX_TABLE_ENTRY *)&j[2].NodeTypeCode;
+        if ( !NextPrefixTree )
         {
-          *(_QWORD *)(a3 + 8) = 0LL;
-          v13 = (_QWORD *)(j + 16);
-          *(_WORD *)a3 = 514;
-          *(_QWORD *)(j + 32) = v7;
+          PrefixTableEntry->NextPrefixTree = 0LL;
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
+          PrefixTableEntry->NodeTypeCode = 514;
+          *(_QWORD *)&j[2].NodeTypeCode = p_Links;
           goto LABEL_15;
         }
       }
@@ -74,9 +74,9 @@ LABEL_15:
   }
   else
   {
-    *(_QWORD *)(a1 + 8) = a3;
-    *(_WORD *)a3 = 513;
-    *(_QWORD *)(a3 + 8) = i;
+    PrefixTable->NextPrefixTree = PrefixTableEntry;
+    PrefixTableEntry->NodeTypeCode = 513;
+    PrefixTableEntry->NextPrefixTree = (_PREFIX_TABLE_ENTRY *)i;
     return 1;
   }
 }

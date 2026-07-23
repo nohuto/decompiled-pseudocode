@@ -1,24 +1,24 @@
 /*
- * XREFs of MiSwapWslEntries @ 0x140049E70
+ * XREFs of MiSwapWslEntries @ 0x1400499F0
  * Callers:
- *     MiUpdateWsle @ 0x14003C790 (MiUpdateWsle.c)
- *     MiRemoveLockedPageFromWorkingSet @ 0x1400BAB0C (MiRemoveLockedPageFromWorkingSet.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
+ *     MiUpdateWsle @ 0x14003C310 (MiUpdateWsle.c)
+ *     MiRemoveLockedPageFromWorkingSet @ 0x1400B899C (MiRemoveLockedPageFromWorkingSet.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
  * Callees:
- *     MiSystemCacheVaControlArea @ 0x140018E30 (MiSystemCacheVaControlArea.c)
- *     MiUpdateWsleHash @ 0x140048D80 (MiUpdateWsleHash.c)
- *     MiLocateIndirectHash @ 0x14004BB10 (MiLocateIndirectHash.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiRemoveWsleFromFreeList @ 0x1400B083C (MiRemoveWsleFromFreeList.c)
- *     MiExchangeWsle @ 0x1400B1E68 (MiExchangeWsle.c)
- *     MiInsertWsle @ 0x1400E2090 (MiInsertWsle.c)
- *     MiReleaseWsle @ 0x1400E2430 (MiReleaseWsle.c)
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
- *     MI_READ_PDE @ 0x1400E5F70 (MI_READ_PDE.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSystemCacheVaControlArea @ 0x1400189B0 (MiSystemCacheVaControlArea.c)
+ *     MiUpdateWsleHash @ 0x140048900 (MiUpdateWsleHash.c)
+ *     MiLocateIndirectHash @ 0x14004B690 (MiLocateIndirectHash.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiRemoveWsleFromFreeList @ 0x1400AE8AC (MiRemoveWsleFromFreeList.c)
+ *     MiExchangeWsle @ 0x1400AFDA8 (MiExchangeWsle.c)
+ *     MiInsertWsle @ 0x1400DFF30 (MiInsertWsle.c)
+ *     MiReleaseWsle @ 0x1400E02D0 (MiReleaseWsle.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
+ *     MI_READ_PDE @ 0x1400E3E10 (MI_READ_PDE.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 char __fastcall MiSwapWslEntries(ULONG_PTR a1, unsigned __int64 a2, ULONG_PTR a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventSoftParkLatencyUpdate @ 0x1404ED270
+ * XREFs of PpmEventSoftParkLatencyUpdate @ 0x1404E6850
  * Callers:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventSoftParkLatencyUpdate(char a1, char a2, int a3)
@@ -26,7 +26,7 @@ char __fastcall PpmEventSoftParkLatencyUpdate(char a1, char a2, int a3)
     v4 = &PPM_ETW_SOFT_PARK_LATENCY_UPDATE;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v4);
+    LOBYTE(v3) = EtwEventEnabled(PpmEtwHandle, v4);
     if ( (_BYTE)v3 )
     {
       *(_QWORD *)&UserData.Size = 4LL;
@@ -34,15 +34,7 @@ char __fastcall PpmEventSoftParkLatencyUpdate(char a1, char a2, int a3)
       v7 = a2 != 0;
       UserData.Ptr = (ULONGLONG)&v7;
       v9 = &v11;
-      LOBYTE(v3) = EtwWriteEx(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v4,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     2u,
-                     &UserData);
+      LOBYTE(v3) = EtwWriteEx(PpmEtwHandle, v4, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return (char)v3;

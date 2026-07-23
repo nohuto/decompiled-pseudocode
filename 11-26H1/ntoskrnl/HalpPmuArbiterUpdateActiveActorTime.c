@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPmuArbiterUpdateActiveActorTime @ 0x14078192C
+ * XREFs of HalpPmuArbiterUpdateActiveActorTime @ 0x14078442C
  * Callers:
- *     HalpNotifyActorIfPmuAvailable @ 0x140B110C8 (HalpNotifyActorIfPmuAvailable.c)
- *     HalpRequestPmuAccess @ 0x140B5BF20 (HalpRequestPmuAccess.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x140B12E48 (HalpNotifyActorIfPmuAvailable.c)
+ *     HalpRequestPmuAccess @ 0x140B5F240 (HalpRequestPmuAccess.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 LONGLONG HalpPmuArbiterUpdateActiveActorTime()

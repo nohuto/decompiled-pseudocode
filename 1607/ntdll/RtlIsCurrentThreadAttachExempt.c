@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsCurrentThreadAttachExempt @ 0x1800D4210
+ * XREFs of RtlIsCurrentThreadAttachExempt @ 0x1800D42D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 RtlIsCurrentThreadAttachExempt()
+BOOLEAN RtlIsCurrentThreadAttachExempt(void)
 {
   return (NtCurrentTeb()->SameTebFlags & 8) != 0 && (NtCurrentTeb()->SameTebFlags & 0x20) == 0;
 }

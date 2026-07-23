@@ -8,10 +8,14 @@
  *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateKeyedEvent(__int64 *a1, ACCESS_MASK a2, int a3, int a4)
+NTSTATUS __cdecl NtCreateKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
   char PreviousMode; // cl
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _DMA_ADAPTER *v8; // rcx
   _DMA_OPERATIONS **p_DmaOperations; // rax
   __int64 v10; // rdx
@@ -22,13 +26,23 @@ __int64 __fastcall NtCreateKeyedEvent(__int64 *a1, ACCESS_MASK a2, int a3, int a
   DmaAdapter = 0LL;
   v13[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && ((unsigned __int8)a1 & 7) != 0 )
+  if ( PreviousMode && ((unsigned __int8)KeyedEventHandle & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  *a1 = 0LL;
-  if ( a4 )
-    return 3221225714LL;
-  result = ObCreateObjectEx(PreviousMode, ExpKeyedEventObjectType, a3, PreviousMode, v11, 1536, 0, 0, &DmaAdapter, 0LL);
-  if ( (int)result >= 0 )
+  *KeyedEventHandle = 0LL;
+  if ( Flags )
+    return -1073741582;
+  result = ObCreateObjectEx(
+             PreviousMode,
+             ExpKeyedEventObjectType,
+             (int)ObjectAttributes,
+             PreviousMode,
+             v11,
+             1536,
+             0,
+             0,
+             &DmaAdapter,
+             0LL);
+  if ( result >= 0 )
   {
     v8 = DmaAdapter;
     p_DmaOperations = &DmaAdapter->DmaOperations;
@@ -42,12 +56,9 @@ __int64 __fastcall NtCreateKeyedEvent(__int64 *a1, ACCESS_MASK a2, int a3, int a
       --v10;
     }
     while ( v10 );
-    result = ObInsertObjectEx(v8, 0LL, a2, 0, 0, 0LL, v13);
-    if ( (int)result >= 0 )
-    {
-      *a1 = v13[0];
-      return (unsigned int)result;
-    }
+    result = ObInsertObjectEx(v8, 0LL, DesiredAccess, 0, 0, 0LL, v13);
+    if ( result >= 0 )
+      *KeyedEventHandle = (HANDLE)v13[0];
   }
   return result;
 }

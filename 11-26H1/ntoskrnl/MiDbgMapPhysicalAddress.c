@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDbgMapPhysicalAddress @ 0x1406FE368
+ * XREFs of MiDbgMapPhysicalAddress @ 0x140703038
  * Callers:
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiCheckPhysicalAddressRange @ 0x140338554 (MiCheckPhysicalAddressRange.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiDbgIsPfn @ 0x1406FE024 (MiDbgIsPfn.c)
- *     MiDbgLockIoPage @ 0x1406FE0B0 (MiDbgLockIoPage.c)
- *     MiDbgLockPage @ 0x1406FE238 (MiDbgLockPage.c)
- *     MiDbgUnmapPhysicalAddress @ 0x1406FEC6C (MiDbgUnmapPhysicalAddress.c)
- *     MxDbgGetPhase0Mapping @ 0x140CFC058 (MxDbgGetPhase0Mapping.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiCheckPhysicalAddressRange @ 0x14033A5D4 (MiCheckPhysicalAddressRange.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiDbgIsPfn @ 0x140702CF4 (MiDbgIsPfn.c)
+ *     MiDbgLockIoPage @ 0x140702D80 (MiDbgLockIoPage.c)
+ *     MiDbgLockPage @ 0x140702F08 (MiDbgLockPage.c)
+ *     MiDbgUnmapPhysicalAddress @ 0x14070393C (MiDbgUnmapPhysicalAddress.c)
+ *     MxDbgGetPhase0Mapping @ 0x140D023D8 (MxDbgGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiDbgMapPhysicalAddress(__int64 a1)
@@ -28,16 +28,16 @@ __int64 __fastcall MiDbgMapPhysicalAddress(__int64 a1)
   v3 = *(_DWORD *)a1;
   if ( !(unsigned int)MiCheckPhysicalAddressRange(v1, 1LL) )
     return 0LL;
-  Blink = (unsigned __int64)stru_140E2EB88.SuspendEvent.Header.WaitListHead.Blink;
+  Blink = (unsigned __int64)stru_140E2ED08.SuspendEvent.Header.WaitListHead.Blink;
   if ( (v3 & 4) != 0 )
-    Blink = (unsigned __int64)stru_140E2EB88.SuspendEvent.Header.WaitListHead.Flink;
+    Blink = (unsigned __int64)stru_140E2ED08.SuspendEvent.Header.WaitListHead.Flink;
   v6 = v1 >> 12;
   if ( !Blink )
   {
     Blink = MxDbgGetPhase0Mapping(v6);
     if ( !Blink )
     {
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 2u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 2u;
       return 0LL;
     }
   }
@@ -81,7 +81,7 @@ LABEL_22:
   v9 = *(_DWORD *)a1;
   ValidPte = MiMakeValidPte(Blink, v6, *(_DWORD *)(a1 + 64) | 0xA0000000);
   if ( (v9 & 0x41) != 0 )
-    stru_140E2EB88.SuspendEvent.Header.Type = 1;
+    stru_140E2ED08.SuspendEvent.Header.Type = 1;
   if ( (v9 & 4) != 0 )
   {
     if ( *(_QWORD *)&CLFS_LSN_NULL_EXT != _InterlockedCompareExchange64(
@@ -89,7 +89,7 @@ LABEL_22:
                                             ValidPte,
                                             *(signed __int64 *)&CLFS_LSN_NULL_EXT) )
     {
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x40u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x40u;
       goto LABEL_27;
     }
   }

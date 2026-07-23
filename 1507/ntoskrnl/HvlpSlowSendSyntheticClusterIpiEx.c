@@ -19,7 +19,7 @@ __int64 __fastcall HvlpSlowSendSyntheticClusterIpiEx(unsigned __int16 *a1, int a
   _DWORD *HypercallCachedPages; // rbx
   PHYSICAL_ADDRESS Next; // r12
   PSLIST_ENTRY v8; // rax
-  struct _SLIST_ENTRY *v9; // r13
+  _SLIST_ENTRY *v9; // r13
   unsigned __int16 *v10; // rcx
   int v11; // eax
   unsigned int v12; // r9d
@@ -54,8 +54,8 @@ __int64 __fastcall HvlpSlowSendSyntheticClusterIpiEx(unsigned __int16 *a1, int a
   unsigned int v42; // [rsp+28h] [rbp-120h]
   unsigned int v43; // [rsp+2Ch] [rbp-11Ch]
   char v44; // [rsp+2Ch] [rbp-11Ch]
-  union _SLIST_HEADER *v46; // [rsp+40h] [rbp-108h]
-  struct _SLIST_ENTRY *v47; // [rsp+48h] [rbp-100h]
+  _SLIST_HEADER *v46; // [rsp+40h] [rbp-108h]
+  _SLIST_ENTRY *v47; // [rsp+48h] [rbp-100h]
   unsigned int v49; // [rsp+5Ch] [rbp-ECh]
   unsigned __int64 v50; // [rsp+60h] [rbp-E8h]
   _BYTE v51[7]; // [rsp+68h] [rbp-E0h] BYREF
@@ -71,7 +71,7 @@ __int64 __fastcall HvlpSlowSendSyntheticClusterIpiEx(unsigned __int16 *a1, int a
     if ( v8 )
     {
       Next = (PHYSICAL_ADDRESS)v8[1].Next;
-      v46 = (union _SLIST_HEADER *)CurrentPrcb;
+      v46 = (_SLIST_HEADER *)CurrentPrcb;
       v3 = 1;
       v4 = BYTE4(CurrentPrcb);
       v9 = v8;
@@ -189,7 +189,7 @@ LABEL_25:
     if ( v24 )
     {
       Next = (PHYSICAL_ADDRESS)v24[1].Next;
-      v46 = (union _SLIST_HEADER *)v23;
+      v46 = (_SLIST_HEADER *)v23;
       v3 = 1;
       v4 = BYTE4(v23);
       v9 = v24;

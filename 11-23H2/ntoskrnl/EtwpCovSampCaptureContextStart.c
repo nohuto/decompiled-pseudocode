@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStart @ 0x1409F09FC
+ * XREFs of EtwpCovSampCaptureContextStart @ 0x1409F0C8C
  * Callers:
- *     EtwpCoverageSamplerStart @ 0x1409F33D8 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F3668 (EtwpCoverageSamplerStart.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
  *     ExSaAllocate @ 0x14022363C (ExSaAllocate.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeSetBasePriorityThread @ 0x1402B9DA0 (KeSetBasePriorityThread.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x14041AF00 (ZwSetInformationThread.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpCovSampLookasideGrow @ 0x140603908 (EtwpCovSampLookasideGrow.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x1409F0F90 (EtwpCovSampCaptureFreeLookasides.c)
- *     EtwpCovSampLookasideControlInitialize @ 0x1409F2590 (EtwpCovSampLookasideControlInitialize.c)
- *     EtwpCovSampLookasideInitialize @ 0x1409F2624 (EtwpCovSampLookasideInitialize.c)
- *     EtwpCovSampStackHashTableAlloc @ 0x1409F2D7C (EtwpCovSampStackHashTableAlloc.c)
- *     EtwpCovSampStrideSamplerInitialize @ 0x1409F2E14 (EtwpCovSampStrideSamplerInitialize.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeSetBasePriorityThread @ 0x1402BA030 (KeSetBasePriorityThread.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x14041B290 (ZwSetInformationThread.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpCovSampLookasideGrow @ 0x140603E58 (EtwpCovSampLookasideGrow.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x1409F1220 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampLookasideControlInitialize @ 0x1409F2820 (EtwpCovSampLookasideControlInitialize.c)
+ *     EtwpCovSampLookasideInitialize @ 0x1409F28B4 (EtwpCovSampLookasideInitialize.c)
+ *     EtwpCovSampStackHashTableAlloc @ 0x1409F300C (EtwpCovSampStackHashTableAlloc.c)
+ *     EtwpCovSampStrideSamplerInitialize @ 0x1409F30A4 (EtwpCovSampStrideSamplerInitialize.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -54,9 +54,9 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
   __int64 v27; // [rsp+78h] [rbp+17h]
   _DWORD ThreadInformation[4]; // [rsp+80h] [rbp+1Fh] BYREF
 
-  v1 = (PVOID *)qword_140C31CC8;
+  v1 = (PVOID *)qword_140C31C68;
   Handle = 0LL;
-  if ( !qword_140C31CC8 )
+  if ( !qword_140C31C68 )
   {
     Pool2 = (PVOID *)ExAllocatePool2(64LL, 1344LL, 1450669125LL);
     v1 = Pool2;
@@ -75,7 +75,7 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
     KeInitializeDpc((PRKDPC)(v1 + 149), (PKDEFERRED_ROUTINE)EtwpCovSampCaptureCleanupDpc, v1);
     KeInitializeEvent((PRKEVENT)(v1 + 157), NotificationEvent, 0);
     *((_DWORD *)v1 + 323) = (*a1 >> 11) & 1;
-    qword_140C31CC8 = (__int64)v1;
+    qword_140C31C68 = (__int64)v1;
   }
   v5 = (__int64 **)(v1 + 118);
   v1[121] = v1 + 120;
@@ -139,7 +139,7 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
       ThreadInformation[0] = 1;
       ThreadInformation[1] = 1;
       ThreadInformation[2] = 1;
-      ZwSetInformationThread(Handle, ThreadIdealProcessorEx|ThreadIsIoPending, ThreadInformation, 0xCu);
+      ZwSetInformationThread(Handle, ThreadPowerThrottlingState, ThreadInformation, 0xCu);
       goto LABEL_19;
     }
 LABEL_12:

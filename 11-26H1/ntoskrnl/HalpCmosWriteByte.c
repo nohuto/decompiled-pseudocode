@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpCmosWriteByte @ 0x14058C300
+ * XREFs of HalpCmosWriteByte @ 0x14058EA80
  * Callers:
  *     <none>
  * Callees:

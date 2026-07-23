@@ -4,7 +4,7 @@
  *     LdrpInitializeExecutionOptions @ 0x1800DD3AC (LdrpInitializeExecutionOptions.c)
  * Callees:
  *     RtlpHpApplySegmentHeapConfigurations @ 0x1800B08A6 (RtlpHpApplySegmentHeapConfigurations.c)
- *     RtlpHpStackTraceEnable @ 0x180117570 (RtlpHpStackTraceEnable.c)
+ *     RtlpHpStackTraceEnable @ 0x180117540 (RtlpHpStackTraceEnable.c)
  */
 
 char __fastcall RtlSetLowFragHeapGlobalFlags(unsigned int a1, int a2)

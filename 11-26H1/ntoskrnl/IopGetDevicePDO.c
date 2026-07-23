@@ -1,17 +1,17 @@
 /*
- * XREFs of IopGetDevicePDO @ 0x14026F1F0
+ * XREFs of IopGetDevicePDO @ 0x14026E760
  * Callers:
- *     IoAllowExecution @ 0x14026F1B4 (IoAllowExecution.c)
- *     IoRevokeHandlesForProcess @ 0x14052B668 (IoRevokeHandlesForProcess.c)
- *     IopGetNumaNodeInformation @ 0x1407799BC (IopGetNumaNodeInformation.c)
- *     IoRegisterContainerNotification @ 0x140797260 (IoRegisterContainerNotification.c)
- *     IopGetSetSecurityObject @ 0x1408EC450 (IopGetSetSecurityObject.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
+ *     IoAllowExecution @ 0x14026E724 (IoAllowExecution.c)
+ *     IoRevokeHandlesForProcess @ 0x14052DB88 (IoRevokeHandlesForProcess.c)
+ *     IopGetNumaNodeInformation @ 0x14077C8EC (IopGetNumaNodeInformation.c)
+ *     IoRegisterContainerNotification @ 0x140799D90 (IoRegisterContainerNotification.c)
+ *     IopGetSetSecurityObject @ 0x1408F2A10 (IopGetSetSecurityObject.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     IopGetDeviceAttachmentBase @ 0x14026F314 (IopGetDeviceAttachmentBase.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
+ *     IopGetDeviceAttachmentBase @ 0x14026E884 (IopGetDeviceAttachmentBase.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
  */
 
 _DWORD *__fastcall IopGetDevicePDO(__int64 a1)

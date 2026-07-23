@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpComputeMergedAcl2 @ 0x1800CD654
+ * XREFs of RtlpComputeMergedAcl2 @ 0x1800C5214
  * Callers:
- *     RtlpComputeMergedAcl @ 0x1800C6C64 (RtlpComputeMergedAcl.c)
+ *     RtlpComputeMergedAcl @ 0x1800BE824 (RtlpComputeMergedAcl.c)
  * Callees:
- *     RtlpCopyAces @ 0x1800CCC80 (RtlpCopyAces.c)
- *     RtlCreateAcl @ 0x1800CDD80 (RtlCreateAcl.c)
+ *     RtlpCopyAces @ 0x1800C4840 (RtlpCopyAces.c)
+ *     RtlCreateAcl @ 0x1800C5940 (RtlCreateAcl.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl2(
@@ -16,12 +16,12 @@ __int64 __fastcall RtlpComputeMergedAcl2(
         __int64 a6,
         _DWORD *a7,
         int a8,
-        unsigned int *a9,
-        __int64 a10,
+        ULONG *a9,
+        PACL Acl,
         _DWORD *a11)
 {
-  unsigned int *v13; // r12
-  __int64 v14; // r15
+  ULONG *v13; // r12
+  PACL v14; // r15
   bool v16; // bp
   char v17; // si
   unsigned int v18; // edi
@@ -33,18 +33,18 @@ __int64 __fastcall RtlpComputeMergedAcl2(
   unsigned int v24; // eax
   unsigned int v25; // ecx
   unsigned int v26; // ecx
-  unsigned int v27; // ecx
+  ULONG v27; // ecx
   unsigned int v28[18]; // [rsp+70h] [rbp-48h] BYREF
   unsigned int v30; // [rsp+D8h] [rbp+20h] BYREF
 
   v30 = 0;
   v28[0] = 0;
   v13 = a9;
-  v14 = a10;
+  v14 = Acl;
   v16 = 0;
   v17 = 1;
   v18 = 2;
-  RtlCreateAcl(a10, *a9, 2LL);
+  RtlCreateAcl(Acl, *a9, 2u);
   v19 = a11;
   *a11 = 1024;
   if ( (a4 & 0x1000) != 0 )
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpComputeMergedAcl2(
       goto LABEL_23;
     if ( *a3 >= 2u )
       LOBYTE(v18) = *a3;
-    v24 = RtlpCopyAces((__int64)a3, a7, 2, 16, 1, a5, a6, a5, a6, 1, 0, a8, &v30, v14);
+    v24 = RtlpCopyAces((__int64)a3, a7, 2, 16, 1, a5, a6, a5, a6, 1, 0, a8, &v30, (__int64)v14);
     goto LABEL_19;
   }
   if ( (a2 & 0x1000) == 0 )
@@ -65,7 +65,7 @@ __int64 __fastcall RtlpComputeMergedAcl2(
     {
       if ( *a3 >= 2u )
         v18 = *a3;
-      v21 = RtlpCopyAces((__int64)a3, a7, 1, 0, 1, a5, a6, a5, a6, 1, 0, a8, &v30, v14);
+      v21 = RtlpCopyAces((__int64)a3, a7, 1, 0, 1, a5, a6, a5, a6, 1, 0, a8, &v30, (__int64)v14);
       v16 = v21 == -1073741789;
       v22 = 0;
       if ( v21 != -1073741789 )
@@ -78,7 +78,7 @@ LABEL_10:
       {
         if ( v18 <= (unsigned __int8)*a1 )
           LOBYTE(v18) = *a1;
-        result = RtlpCopyAces((__int64)a1, a7, 0, 0, 0, 0LL, 0LL, 0LL, 0LL, 1, 0, v20, v28, v14);
+        result = RtlpCopyAces((__int64)a1, a7, 0, 0, 0, 0LL, 0LL, 0LL, 0LL, 1, 0, v20, v28, (__int64)v14);
         if ( (_DWORD)result == -1073741789 )
         {
           v16 = 1;
@@ -98,7 +98,7 @@ LABEL_10:
   {
     if ( *a3 >= 2u )
       LOBYTE(v18) = *a3;
-    v24 = RtlpCopyAces((__int64)a3, a7, 2, 0, 1, a5, a6, a5, a6, 1, 1, a8, &v30, v14);
+    v24 = RtlpCopyAces((__int64)a3, a7, 2, 0, 1, a5, a6, a5, a6, 1, 1, a8, &v30, (__int64)v14);
 LABEL_19:
     v25 = v24;
     result = 0LL;
@@ -122,8 +122,8 @@ LABEL_23:
     *v13 = v27;
     if ( v16 )
       return 3221225507LL;
-    *(_WORD *)(v14 + 2) = v27;
-    *(_BYTE *)v14 = v18;
+    v14->AclSize = v27;
+    v14->AclRevision = v18;
   }
   else
   {

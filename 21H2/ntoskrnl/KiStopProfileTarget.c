@@ -1,14 +1,14 @@
 /*
- * XREFs of KiStopProfileTarget @ 0x14051C360
+ * XREFs of KiStopProfileTarget @ 0x14051C5A0
  * Callers:
- *     KeStopProfile @ 0x14051BCE0 (KeStopProfile.c)
+ *     KeStopProfile @ 0x14051BF20 (KeStopProfile.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeSubtractAffinityEx @ 0x1402CFF20 (KeSubtractAffinityEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 ULONG_PTR __fastcall KiStopProfileTarget(__int64 *Argument)

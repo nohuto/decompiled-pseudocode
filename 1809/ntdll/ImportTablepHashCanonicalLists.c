@@ -5,7 +5,7 @@
  * Callees:
  *     MD5Final @ 0x18006AE30 (MD5Final.c)
  *     MD5Update @ 0x18006AF00 (MD5Update.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ImportTablepHashCanonicalLists(_QWORD *a1, _OWORD *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIsMachineFrameUnwind @ 0x1406229E0
+ * XREFs of RtlIsMachineFrameUnwind @ 0x140625A30
  * Callers:
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x1407BC154 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x1407BF1B4 (KiTpBuildExcludedKernelTracepointBitmap.c)
  * Callees:
- *     RtlpUnwindOpSlots @ 0x14041BA30 (RtlpUnwindOpSlots.c)
- *     RtlpConvertFunctionEntry @ 0x1404BD800 (RtlpConvertFunctionEntry.c)
+ *     RtlpUnwindOpSlots @ 0x140413280 (RtlpUnwindOpSlots.c)
+ *     RtlpConvertFunctionEntry @ 0x1404B6FE0 (RtlpConvertFunctionEntry.c)
  */
 
 __int64 __fastcall RtlIsMachineFrameUnwind(unsigned __int64 a1, unsigned __int64 a2)

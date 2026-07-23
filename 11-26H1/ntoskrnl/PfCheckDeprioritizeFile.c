@@ -1,18 +1,18 @@
 /*
- * XREFs of PfCheckDeprioritizeFile @ 0x1409C4504
+ * XREFs of PfCheckDeprioritizeFile @ 0x1409954E4
  * Callers:
- *     MiFaultTrimBehind @ 0x140441F5C (MiFaultTrimBehind.c)
- *     NtUnmapViewOfSectionEx @ 0x1409C38B0 (NtUnmapViewOfSectionEx.c)
- *     MiUnmapVad @ 0x1409C3B30 (MiUnmapVad.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1409C3E60 (NtUnmapViewOfSection.c)
- *     CcUnmapVacb @ 0x140AFAAD0 (CcUnmapVacb.c)
+ *     MiFaultTrimBehind @ 0x14043AA6C (MiFaultTrimBehind.c)
+ *     NtUnmapViewOfSectionEx @ 0x140994890 (NtUnmapViewOfSectionEx.c)
+ *     MiUnmapVad @ 0x140994B10 (MiUnmapVad.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x140994E40 (NtUnmapViewOfSection.c)
+ *     CcUnmapVacb @ 0x140AFCD38 (CcUnmapVacb.c)
  * Callees:
- *     PfpPartitionDereferenceParent @ 0x140381780 (PfpPartitionDereferenceParent.c)
- *     PfpPartitionReferenceParentSafeByProcess @ 0x1404471E0 (PfpPartitionReferenceParentSafeByProcess.c)
- *     PfLockSharedTryAcquire @ 0x1404AB4E0 (PfLockSharedTryAcquire.c)
- *     PfLockSharedRelease @ 0x1404B5064 (PfLockSharedRelease.c)
- *     PfpRpLogDeprioEvent @ 0x1404BABF4 (PfpRpLogDeprioEvent.c)
+ *     PfpPartitionDereferenceParent @ 0x140383530 (PfpPartitionDereferenceParent.c)
+ *     PfpPartitionReferenceParentSafeByProcess @ 0x14043FCD0 (PfpPartitionReferenceParentSafeByProcess.c)
+ *     PfLockSharedTryAcquire @ 0x1404A4B70 (PfLockSharedTryAcquire.c)
+ *     PfLockSharedRelease @ 0x1404AE4B4 (PfLockSharedRelease.c)
+ *     PfpRpLogDeprioEvent @ 0x1404B4484 (PfpRpLogDeprioEvent.c)
  */
 
 __int64 __fastcall PfCheckDeprioritizeFile(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -39,19 +39,19 @@ __int64 __fastcall PfCheckDeprioritizeFile(__int64 a1, __int64 a2, __int64 a3, s
   *(_QWORD *)v22 = 0LL;
   v5 = (int)a4;
   v7 = a2;
-  if ( a3 && (unsigned int)PfLockSharedTryAcquire((struct _KTHREAD *)stru_140E66B30.Spare35, a2, a3, a4) )
+  if ( a3 && (unsigned int)PfLockSharedTryAcquire((struct _KTHREAD *)stru_140E66D40.Spare35, a2, a3, a4) )
   {
-    KernelShadowStackBase = stru_140E66B30.KernelShadowStackBase;
-    if ( a3 == *((_QWORD *)stru_140E66B30.KernelShadowStackBase + 1) )
+    KernelShadowStackBase = stru_140E66D40.KernelShadowStackBase;
+    if ( a3 == *((_QWORD *)stru_140E66D40.KernelShadowStackBase + 1) )
     {
 LABEL_4:
       v10 = (void *)KernelShadowStackBase[2];
-      PfLockSharedRelease((struct _KTHREAD *)stru_140E66B30.Spare35);
-      if ( stru_140E66B30.IptSaveArea != v10 )
+      PfLockSharedRelease((struct _KTHREAD *)stru_140E66D40.Spare35);
+      if ( stru_140E66D40.IptSaveArea != v10 )
       {
-        if ( !(unsigned int)PfLockSharedTryAcquire((struct _KTHREAD *)&stru_140E66B30.ResourceIndex, v11, v12, v13) )
+        if ( !(unsigned int)PfLockSharedTryAcquire((struct _KTHREAD *)&stru_140E66D40.ResourceIndex, v11, v12, v13) )
           return v4;
-        if ( !stru_140E66B30.ModeHistory )
+        if ( !stru_140E66D40.ModeHistory )
           goto LABEL_10;
         v18 = 442596621 * (unsigned __int8)v10
             + 37
@@ -61,8 +61,8 @@ LABEL_4:
             - 877075889;
         for ( i = 0LL; ; v18 = i + v20 )
         {
-          v20 = (stru_140E66B30.ModeHistory - 1) & v18;
-          v21 = (void **)(stru_140E66B30.Spare35[1] + (v20 << SLOBYTE(stru_140E66B30.Spare36)));
+          v20 = (stru_140E66D40.ModeHistory - 1) & v18;
+          v21 = (void **)(stru_140E66D40.Spare35[1] + (v20 << SLOBYTE(stru_140E66D40.Spare36)));
           if ( !*v21 || *v21 == v10 )
             break;
           if ( !i )
@@ -74,15 +74,15 @@ LABEL_4:
         }
         if ( *v21 )
         {
-          stru_140E66B30.IptSaveArea = v10;
+          stru_140E66D40.IptSaveArea = v10;
         }
         else
         {
 LABEL_10:
           v4 = 1;
-          stru_140E66B30.Padding[0] = MEMORY[0xFFFFF78000000320];
+          stru_140E66D40.Padding[0] = MEMORY[0xFFFFF78000000320];
         }
-        PfLockSharedRelease((struct _KTHREAD *)&stru_140E66B30.ResourceIndex);
+        PfLockSharedRelease((struct _KTHREAD *)&stru_140E66D40.ResourceIndex);
       }
       v14 = PfpPartitionReferenceParentSafeByProcess(v22, a1);
       PfpRpLogDeprioEvent(*(__int64 *)v22, a3, v7, v4 != 0 ? v5 : 0);
@@ -91,14 +91,14 @@ LABEL_10:
     }
     else
     {
-      v16 = -1LL << (BYTE4(stru_140E66B30.KernelShadowStack) & 0x1F);
+      v16 = -1LL << (BYTE4(stru_140E66D40.KernelShadowStack) & 0x1F);
       v17 = a3 & v16;
-      if ( HIDWORD(stru_140E66B30.KernelShadowStack) >> 5 )
+      if ( HIDWORD(stru_140E66D40.KernelShadowStack) >> 5 )
       {
         v23 = a3 & v16;
-        KernelShadowStackBase = (char *)stru_140E66B30.KernelShadowStackInitial
+        KernelShadowStackBase = (char *)stru_140E66D40.KernelShadowStackInitial
                               + 8
-                              * (((HIDWORD(stru_140E66B30.KernelShadowStack) >> 5) - 1) & (HIBYTE(v23)
+                              * (((HIDWORD(stru_140E66D40.KernelShadowStack) >> 5) - 1) & (HIBYTE(v23)
                                                                                          - 877075889
                                                                                          + 442596621
                                                                                          * (unsigned __int8)v17
@@ -122,12 +122,12 @@ LABEL_10:
           {
             if ( !KernelShadowStackBase )
               break;
-            stru_140E66B30.KernelShadowStackBase = KernelShadowStackBase;
+            stru_140E66D40.KernelShadowStackBase = KernelShadowStackBase;
             goto LABEL_4;
           }
         }
       }
-      PfLockSharedRelease((struct _KTHREAD *)stru_140E66B30.Spare35);
+      PfLockSharedRelease((struct _KTHREAD *)stru_140E66D40.Spare35);
     }
   }
   return v4;

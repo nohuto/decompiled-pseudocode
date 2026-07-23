@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpWriteProcessStarted @ 0x140753B50
+ * XREFs of EtwpWriteProcessStarted @ 0x140753D40
  * Callers:
- *     EtwTraceProcess @ 0x140754EFC (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x1407550EC (EtwTraceProcess.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     PsGetProcessSessionId @ 0x140297620 (PsGetProcessSessionId.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     PsGetProcessStartKey @ 0x1402F6CA0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MmGetSessionCreateTime @ 0x140754ED0 (MmGetSessionCreateTime.c)
+ *     PsGetProcessSessionId @ 0x1402978B0 (PsGetProcessSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetProcessStartKey @ 0x1402F6F30 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MmGetSessionCreateTime @ 0x1407550C0 (MmGetSessionCreateTime.c)
  */
 
 char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigned __int16 *a4, unsigned __int8 **a5)
@@ -125,7 +125,7 @@ char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigne
       v58[0] = *a4;
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C042E8,
-                     (unsigned __int8 *)&word_1400349C6,
+                     (unsigned __int8 *)byte_140034B2B,
                      0LL,
                      0LL,
                      0x13u,

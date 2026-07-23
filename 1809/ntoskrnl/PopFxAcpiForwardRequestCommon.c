@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxAcpiForwardRequestCommon @ 0x1402E8540
+ * XREFs of PopFxAcpiForwardRequestCommon @ 0x1402E8730
  * Callers:
- *     PopFxRequestCommon @ 0x1402D9470 (PopFxRequestCommon.c)
+ *     PopFxRequestCommon @ 0x1402D9660 (PopFxRequestCommon.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall PopFxAcpiForwardRequestCommon(int a1, __int64 a2)

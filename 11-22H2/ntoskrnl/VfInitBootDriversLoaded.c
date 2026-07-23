@@ -78,7 +78,7 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
   ViThunkFindAllExportAddresses(a1, &VfDifThunks, v4, &VfDifThunksBitMapHeader);
   if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
   {
-    NtSetDebugFilterState(0x5Du, 0, 1);
+    NtSetDebugFilterState(0x5Du, 0, 1u);
     if ( (_DWORD)MmVerifyDriverBufferLength )
       VfSuspectDriversParseRegistryString();
     if ( VfXdvSuppressDriversBufferLength )

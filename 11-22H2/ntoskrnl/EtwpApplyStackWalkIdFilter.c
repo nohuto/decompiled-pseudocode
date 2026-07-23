@@ -33,7 +33,7 @@ bool __fastcall EtwpApplyStackWalkIdFilter(__int16 a1, __int64 a2, unsigned int 
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     v6 = -1LL;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v8 = 4;
@@ -47,10 +47,10 @@ bool __fastcall EtwpApplyStackWalkIdFilter(__int16 a1, __int64 a2, unsigned int 
       v10 = EtwpPerfectHashFunctionSearch(a1, v9);
       v4 = *v11 == (unsigned __int8)v10;
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v14 = CurrentPrcb->SchedulerAssist;

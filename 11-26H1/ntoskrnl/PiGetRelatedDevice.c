@@ -1,18 +1,18 @@
 /*
- * XREFs of PiGetRelatedDevice @ 0x1409A8A10
+ * XREFs of PiGetRelatedDevice @ 0x140969420
  * Callers:
- *     PiControlGetRelatedDevice @ 0x1409A8800 (PiControlGetRelatedDevice.c)
+ *     PiControlGetRelatedDevice @ 0x140969210 (PiControlGetRelatedDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  */
 
 __int64 __fastcall PiGetRelatedDevice(__int64 a1, char *a2, _DWORD *a3, int a4)
@@ -27,16 +27,10 @@ __int64 __fastcall PiGetRelatedDevice(__int64 a1, char *a2, _DWORD *a3, int a4)
   void *i; // rbp
   int v16; // eax
   struct _KTHREAD *v17; // rax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r15
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  _QWORD *v24; // rax
-  __int64 *v25; // rax
-  int v26; // eax
-  __int64 v27; // rdx
-  __int64 v28; // r8
+  __int64 v18; // r15
+  _QWORD *v20; // rax
+  __int64 *v21; // rax
+  int v22; // eax
   _QWORD Buffer[7]; // [rsp+20h] [rbp-38h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -76,18 +70,18 @@ __int64 __fastcall PiGetRelatedDevice(__int64 a1, char *a2, _DWORD *a3, int a4)
 LABEL_17:
                   if ( v13 )
                   {
-                    v20 = *((unsigned __int16 *)v13 + 20);
-                    if ( *a3 <= (unsigned int)v20 )
+                    v18 = *((unsigned __int16 *)v13 + 20);
+                    if ( *a3 <= (unsigned int)v18 )
                     {
                       v9 = -1073741789;
-                      LODWORD(v20) = v20 + 2;
+                      LODWORD(v18) = v18 + 2;
                     }
                     else
                     {
                       memmove(a2, (const void *)v13[6], *((unsigned __int16 *)v13 + 20));
-                      *(_WORD *)&a2[v20] = 0;
+                      *(_WORD *)&a2[v18] = 0;
                     }
-                    *a3 = v20;
+                    *a3 = v18;
                   }
                   else
                   {
@@ -95,13 +89,13 @@ LABEL_17:
                   }
                   goto LABEL_21;
                 case 2:
-                  v25 = (__int64 *)v13[1];
+                  v21 = (__int64 *)v13[1];
                   i = v11;
-                  v13 = v25;
-                  if ( !v25 )
+                  v13 = v21;
+                  if ( !v21 )
                     goto LABEL_14;
-                  v26 = *((_DWORD *)v25 + 99);
-                  if ( (v26 & 0x2000) == 0 || *((_DWORD *)v13 + 101) != 24 || (v26 & 0x1000) == 0 )
+                  v22 = *((_DWORD *)v21 + 99);
+                  if ( (v22 & 0x2000) == 0 || *((_DWORD *)v13 + 101) != 24 || (v22 & 0x1000) == 0 )
                     goto LABEL_14;
                   goto LABEL_12;
                 case 3:
@@ -125,17 +119,17 @@ LABEL_14:
                   {
                     if ( v13[6] )
                     {
-                      v24 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)(v13 + 5), 0x43706E50u);
-                      if ( v24 )
+                      v20 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)(v13 + 5), 0x43706E50u);
+                      if ( v20 )
                       {
-                        ObfDereferenceObjectWithTag(v24, 0x43706E50u);
+                        ObfDereferenceObjectWithTag(v20, 0x43706E50u);
                         break;
                       }
                     }
                     v13 = (__int64 *)*v13;
                   }
                   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-                  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19);
+                  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
                   goto LABEL_17;
               }
               v9 = -1073741811;
@@ -143,7 +137,7 @@ LABEL_14:
             i = v11;
 LABEL_21:
             ExReleaseResourceLite(&IopDeviceTreeLock);
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v21, v22);
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             ObfDereferenceObjectWithTag(i, 0x43706E50u);
             return v9;
           }
@@ -153,6 +147,6 @@ LABEL_21:
   }
   KeReleaseGuardedMutex(&PnpDeviceReferenceTableLock);
   ExReleaseResourceLite(&IopDeviceTreeLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v27, v28);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return 3221225486LL;
 }

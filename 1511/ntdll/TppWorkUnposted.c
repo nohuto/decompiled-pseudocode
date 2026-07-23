@@ -34,7 +34,7 @@ __int64 __fastcall TppWorkUnposted(__int64 a1)
   v3 = 0;
 LABEL_8:
   if ( v3 )
-    TppBarrierAdjust((unsigned __int64 *)(v1 + 56), -v3, 0);
+    TppBarrierAdjust((_RTL_SRWLOCK *)(v1 + 56), -v3, 0);
   result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
     return (**(__int64 (__fastcall ***)(__int64))(v1 + 8))(v1);

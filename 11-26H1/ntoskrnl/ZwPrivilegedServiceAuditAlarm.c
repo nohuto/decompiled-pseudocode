@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x140725C90
+ * XREFs of ZwPrivilegedServiceAuditAlarm @ 0x14072A860
  * Callers:
- *     DifZwPrivilegedServiceAuditAlarmWrapper @ 0x1406AF050 (DifZwPrivilegedServiceAuditAlarmWrapper.c)
+ *     DifZwPrivilegedServiceAuditAlarmWrapper @ 0x1406B2C30 (DifZwPrivilegedServiceAuditAlarmWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPrivilegedServiceAuditAlarm(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPrivilegedServiceAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PUNICODE_STRING ServiceName,
+        HANDLE ClientToken,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SubsystemName);
 }

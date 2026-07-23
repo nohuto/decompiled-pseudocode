@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLargeAllocReport @ 0x1801234F0
+ * XREFs of RtlpHpLargeAllocReport @ 0x1801234C0
  * Callers:
  *     RtlpHpLargeWalkHeap @ 0x1800639AC (RtlpHpLargeWalkHeap.c)
  * Callees:
- *     RtlpHpExtrasReportBusyBlock @ 0x180123260 (RtlpHpExtrasReportBusyBlock.c)
+ *     RtlpHpExtrasReportBusyBlock @ 0x180123230 (RtlpHpExtrasReportBusyBlock.c)
  */
 
 __int64 __fastcall RtlpHpLargeAllocReport(__int64 a1, __int64 a2, __int64 a3)

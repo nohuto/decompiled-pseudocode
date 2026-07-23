@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwGetDevicePowerState(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE State)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Device);
 }

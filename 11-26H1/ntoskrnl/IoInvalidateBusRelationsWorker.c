@@ -1,15 +1,15 @@
 /*
- * XREFs of IoInvalidateBusRelationsWorker @ 0x1404EEEC0
+ * XREFs of IoInvalidateBusRelationsWorker @ 0x1404E84A0
  * Callers:
- *     PnpWaitForDevicesToStart @ 0x140CC39C8 (PnpWaitForDevicesToStart.c)
+ *     PnpWaitForDevicesToStart @ 0x140CC9A9C (PnpWaitForDevicesToStart.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopProcessInvalidateBusRelationsRequest @ 0x140B39A10 (IopProcessInvalidateBusRelationsRequest.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopProcessInvalidateBusRelationsRequest @ 0x140B3BC20 (IopProcessInvalidateBusRelationsRequest.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void IoInvalidateBusRelationsWorker()
@@ -32,12 +32,12 @@ void IoInvalidateBusRelationsWorker()
     if ( *((PVOID **)P + 1) != &P
       || *p_P != &P
       || *(__int64 **)(IoInvalidateBusRelationsQueue + 8) != &IoInvalidateBusRelationsQueue
-      || *(__int64 **)qword_140F84B08 != &IoInvalidateBusRelationsQueue
+      || *(__int64 **)qword_140F84EA8 != &IoInvalidateBusRelationsQueue
       || (*p_P = &IoInvalidateBusRelationsQueue,
-          p_P = (PVOID *)qword_140F84B08,
-          *(_QWORD *)qword_140F84B08 = &P,
+          p_P = (PVOID *)qword_140F84EA8,
+          *(_QWORD *)qword_140F84EA8 = &P,
           v2 = IoInvalidateBusRelationsQueue,
-          qword_140F84B08 = (__int64)v1,
+          qword_140F84EA8 = (__int64)v1,
           *(__int64 **)(IoInvalidateBusRelationsQueue + 8) != &IoInvalidateBusRelationsQueue)
       || *v1 != &IoInvalidateBusRelationsQueue )
     {
@@ -46,7 +46,7 @@ LABEL_15:
     }
     *v1 = (__int64 *)IoInvalidateBusRelationsQueue;
     *(_QWORD *)(v2 + 8) = v1;
-    qword_140F84B08 = (__int64)&IoInvalidateBusRelationsQueue;
+    qword_140F84EA8 = (__int64)&IoInvalidateBusRelationsQueue;
     IoInvalidateBusRelationsQueue = (__int64)&IoInvalidateBusRelationsQueue;
   }
   KeReleaseSpinLock(&IoInvalidateBusRelationsLock, v0);

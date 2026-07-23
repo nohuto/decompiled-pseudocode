@@ -1,44 +1,44 @@
 /*
- * XREFs of CcPinFileData @ 0x140272D30
+ * XREFs of CcPinFileData @ 0x1402282C0
  * Callers:
- *     CcZeroDataInCache @ 0x140267564 (CcZeroDataInCache.c)
- *     CcMapData @ 0x140978410 (CcMapData.c)
- *     CcMapDataCommon @ 0x14099CDF0 (CcMapDataCommon.c)
- *     CcPinMappedData @ 0x1409B7760 (CcPinMappedData.c)
- *     CcPreparePinWrite @ 0x140A3EE70 (CcPreparePinWrite.c)
- *     CcPinRead @ 0x140AC3180 (CcPinRead.c)
+ *     CcZeroDataInCache @ 0x14025EB44 (CcZeroDataInCache.c)
+ *     CcMapData @ 0x140960C20 (CcMapData.c)
+ *     CcMapDataCommon @ 0x1409781B0 (CcMapDataCommon.c)
+ *     CcPinMappedData @ 0x1409AEAF0 (CcPinMappedData.c)
+ *     CcPreparePinWrite @ 0x140A34720 (CcPreparePinWrite.c)
+ *     CcPinRead @ 0x140ABE460 (CcPinRead.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     CcGetBcbListHead @ 0x140273E00 (CcGetBcbListHead.c)
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402744C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     CcMapAndRead @ 0x140280CF0 (CcMapAndRead.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     CcUnpinFileDataEx @ 0x1402AB380 (CcUnpinFileDataEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     SetVacb @ 0x1402D5F50 (SetVacb.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     KeAbPreWait @ 0x14033E810 (KeAbPreWait.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CcAllocateInitializeBcb @ 0x1403651D8 (CcAllocateInitializeBcb.c)
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     ExDisableResourceBoostLite @ 0x140365480 (ExDisableResourceBoostLite.c)
- *     CcAdjustVacbLevelLockCount @ 0x1403654E4 (CcAdjustVacbLevelLockCount.c)
- *     ExAcquireSharedStarveExclusive @ 0x1403DCB50 (ExAcquireSharedStarveExclusive.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1403DCC68 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1403F8E34 (CcAcquireBcbLockAndVacbLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1403F8EA0 (CcReleaseBcbLockAndVacbLock.c)
- *     CcReferenceFileOffset @ 0x1404CFBE0 (CcReferenceFileOffset.c)
- *     CcDereferenceFileOffset @ 0x1404D616C (CcDereferenceFileOffset.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     CcGetBcbListHead @ 0x140229390 (CcGetBcbListHead.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x140229A50 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     CcMapAndRead @ 0x140236280 (CcMapAndRead.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     CcUnpinFileDataEx @ 0x1402766A0 (CcUnpinFileDataEx.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     KeAbPreWait @ 0x14031DCF0 (KeAbPreWait.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     SetVacb @ 0x1403571D0 (SetVacb.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1403BC840 (ExAcquireSharedStarveExclusive.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1403BC958 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     CcAllocateInitializeBcb @ 0x1403EA890 (CcAllocateInitializeBcb.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     ExDisableResourceBoostLite @ 0x1403EAB30 (ExDisableResourceBoostLite.c)
+ *     CcAdjustVacbLevelLockCount @ 0x1403EAB94 (CcAdjustVacbLevelLockCount.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1403EEF44 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1403EEFB0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcReferenceFileOffset @ 0x1404C8C90 (CcReferenceFileOffset.c)
+ *     CcDereferenceFileOffset @ 0x1404CF5BC (CcDereferenceFileOffset.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcPinFileData(
@@ -84,7 +84,7 @@ __int64 __fastcall CcPinFileData(
   __int64 v38; // rbx
   __int16 v39; // cx
   struct _KTHREAD *v40; // rdi
-  int v41; // r8d
+  NTSTATUS v41; // r8d
   unsigned __int64 v42; // rdx
   unsigned __int64 v43; // rbx
   unsigned int v44; // esi
@@ -124,7 +124,7 @@ __int64 __fastcall CcPinFileData(
   __int16 v78; // cx
   struct _KTHREAD *v79; // rsi
   int v80; // r9d
-  int v81; // edx
+  NTSTATUS v81; // edx
   unsigned __int64 v82; // rbx
   unsigned __int64 v83; // rdi
   unsigned int v84; // r15d
@@ -155,9 +155,9 @@ __int64 __fastcall CcPinFileData(
   int v110; // [rsp+78h] [rbp-80h]
   _DWORD *v111; // [rsp+80h] [rbp-78h]
   unsigned __int64 v112; // [rsp+88h] [rbp-70h]
-  int v113; // [rsp+90h] [rbp-68h]
+  NTSTATUS v113; // [rsp+90h] [rbp-68h]
   int v114; // [rsp+94h] [rbp-64h]
-  int v115; // [rsp+98h] [rbp-60h]
+  NTSTATUS v115; // [rsp+98h] [rbp-60h]
   char *v116; // [rsp+A0h] [rbp-58h]
   ULONG_PTR v117; // [rsp+A8h] [rbp-50h]
   __int64 v118; // [rsp+B0h] [rbp-48h]
@@ -463,7 +463,7 @@ LABEL_41:
       BYTE4(v40[1].Queue) = v44 & 1;
       LODWORD(v40[1].WaitListEntry.Flink) = v44 >> 1;
       if ( v41 < 0 )
-        RtlRaiseStatus((unsigned int)v41);
+        RtlRaiseStatus(v41);
       ExAcquireFastMutex((PKGUARDED_MUTEX)(v11 + 288));
       v35 = a8;
       if ( *v32 )
@@ -578,7 +578,7 @@ LABEL_58:
           || (v72 = *(_QWORD *)(v11 + 104),
               v72 != _InterlockedCompareExchange64((volatile signed __int64 *)(v11 + 104), v71, v70)) )
         {
-          ExfReleasePushLock((_QWORD *)(v11 + 104));
+          ExfReleasePushLock(v11 + 104, v71);
         }
         KeAbPostRelease(v11 + 104);
         if ( (*v56 & 2) != 0 )
@@ -594,7 +594,7 @@ LABEL_58:
       if ( !v61 )
       {
         KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v11 + 288));
-        RtlRaiseStatus(3221225626LL);
+        RtlRaiseStatus(-1073741670);
       }
       if ( !v124 )
       {
@@ -694,7 +694,7 @@ LABEL_58:
         BYTE4(v79[1].Queue) = v84 & 1;
         LODWORD(v79[1].WaitListEntry.Flink) = v84 >> 1;
         if ( v81 < 0 )
-          RtlRaiseStatus((unsigned int)v81);
+          RtlRaiseStatus(v81);
         ExAcquireFastMutex((PKGUARDED_MUTEX)(v11 + 288));
         v27 = v100;
         v87 = a8;

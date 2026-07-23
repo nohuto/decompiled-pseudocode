@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRemoveQuotaBlock @ 0x1409AE08C
+ * XREFs of PspRemoveQuotaBlock @ 0x1409AE28C
  * Callers:
  *     PspDereferenceQuotaBlock @ 0x14069ECF4 (PspDereferenceQuotaBlock.c)
- *     ObpFreeObject @ 0x140729850 (ObpFreeObject.c)
+ *     ObpFreeObject @ 0x140729A50 (ObpFreeObject.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     PspUnlockQuotaListExclusive @ 0x1403B5A0C (PspUnlockQuotaListExclusive.c)
- *     PspHashKeyValue @ 0x1407F8750 (PspHashKeyValue.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     PspUnlockQuotaListExclusive @ 0x1403B5BEC (PspUnlockQuotaListExclusive.c)
+ *     PspHashKeyValue @ 0x1407F8A20 (PspHashKeyValue.c)
  */
 
 _QWORD *__fastcall PspRemoveQuotaBlock(__int64 a1)

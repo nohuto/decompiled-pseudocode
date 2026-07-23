@@ -1,15 +1,15 @@
 /*
  * XREFs of RtlInitString @ 0x14036B950
  * Callers:
- *     HalMatchAcpiOemId @ 0x1403B1D20 (HalMatchAcpiOemId.c)
- *     PopEmModuleAddressMatchCallback @ 0x1405D9260 (PopEmModuleAddressMatchCallback.c)
+ *     sub_1403B1D20 @ 0x1403B1D20 (sub_1403B1D20.c)
+ *     sub_1405D9260 @ 0x1405D9260 (sub_1405D9260.c)
  *     RtlInitUTF8String @ 0x1405E4060 (RtlInitUTF8String.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x1407F0C38 (PopPowerRequestStatsGetIdForRequest.c)
- *     SepInitializationPhase1 @ 0x140847FF0 (SepInitializationPhase1.c)
- *     NtQuerySystemEnvironmentValue @ 0x140A00DB0 (NtQuerySystemEnvironmentValue.c)
- *     AslStringAnsiToUnicode @ 0x140A14988 (AslStringAnsiToUnicode.c)
- *     KdInitSystem @ 0x140A70470 (KdInitSystem.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     sub_1407F0C38 @ 0x1407F0C38 (sub_1407F0C38.c)
+ *     sub_140847FF0 @ 0x140847FF0 (sub_140847FF0.c)
+ *     sub_140A00DB0 @ 0x140A00DB0 (sub_140A00DB0.c)
+ *     sub_140A14988 @ 0x140A14988 (sub_140A14988.c)
+ *     sub_140A70470 @ 0x140A70470 (sub_140A70470.c)
+ *     sub_140AFB264 @ 0x140AFB264 (sub_140AFB264.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFreeCombineBlock @ 0x1401F9C24
+ * XREFs of MiFreeCombineBlock @ 0x1401F9A50
  * Callers:
- *     MiDecrementCombinedPte @ 0x1401F972C (MiDecrementCombinedPte.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiDecrementCombinedPte @ 0x1401F9558 (MiDecrementCombinedPte.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiReturnCrossPartitionCharges @ 0x1401F1F3C (MiReturnCrossPartitionCharges.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiReturnCrossPartitionCharges @ 0x1401F1D68 (MiReturnCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiFreeCombineBlock(__int64 a1)
@@ -86,14 +86,14 @@ __int64 __fastcall MiFreeCombineBlock(__int64 a1)
     *v14 = a1;
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  if ( (_UNKNOWN *)v4 == &unk_140326E18 )
+  if ( (_UNKNOWN *)v4 == &unk_140326E58 )
   {
     if ( *(int **)v4 == MiSystemPartition )
       MiReturnResidentAvailable(1uLL);
     else
       _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)v4 + 6528LL), 1uLL);
     MiReturnCommit(*(_QWORD *)v4, 1uLL);
-    MiReturnCrossPartitionCharges(qword_1403266E0, 1LL);
+    MiReturnCrossPartitionCharges(qword_140326720, 1LL);
   }
   return (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 380), 0xFFFFFFFF);
 }

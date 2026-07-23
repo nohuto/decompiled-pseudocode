@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlSubAuthorityCountSid(int a1)
+PUCHAR __cdecl RtlSubAuthorityCountSid(PSID Sid)
 {
-  return a1 + 1;
+  return (PUCHAR)Sid + 1;
 }

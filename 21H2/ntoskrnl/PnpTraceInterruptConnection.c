@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceInterruptConnection @ 0x140762750
+ * XREFs of PnpTraceInterruptConnection @ 0x140762910
  * Callers:
- *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761BD0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x1403759E4 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PnpTraceInterruptConnection()
@@ -25,9 +25,9 @@ void PnpTraceInterruptConnection()
   __int64 *v11; // [rsp+90h] [rbp+37h]
   __int64 v12; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C02E00 > 5 )
+  if ( (unsigned int)dword_140C02D90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C02E00, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02D90, 0x400000000000LL) )
     {
       v8 = 8LL;
       v4 = 1LL;
@@ -38,7 +38,7 @@ void PnpTraceInterruptConnection()
       v11 = &v5;
       v5 = 0x1000000LL;
       v12 = 8LL;
-      tlgWriteAgg((__int64)&dword_140C02E00, (unsigned __int8 *)&byte_140025287, v0, v1, &v6);
+      tlgWriteAgg((__int64)&dword_140C02D90, (unsigned __int8 *)&dword_14002529C, v0, v1, &v6);
     }
   }
 }

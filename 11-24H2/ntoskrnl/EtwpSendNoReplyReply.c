@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpSendNoReplyReply @ 0x1407AA84C
+ * XREFs of EtwpSendNoReplyReply @ 0x1407AA98C
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x14083C380 (EtwpDeleteRegistrationObject.c)
+ *     EtwpDeleteRegistrationObject @ 0x1408389E0 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpQueueReply @ 0x1409F6EB4 (EtwpQueueReply.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpQueueReply @ 0x1408320AC (EtwpQueueReply.c)
  */
 
 void *__fastcall EtwpSendNoReplyReply(__int64 a1, __int128 *a2)

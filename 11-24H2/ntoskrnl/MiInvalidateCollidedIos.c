@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInvalidateCollidedIos @ 0x14036FA08
+ * XREFs of MiInvalidateCollidedIos @ 0x14049B72C
  * Callers:
- *     MiDeleteTransitionPte @ 0x14023D260 (MiDeleteTransitionPte.c)
- *     MiFinishHardFault @ 0x1402F0070 (MiFinishHardFault.c)
+ *     MiDeleteTransitionPte @ 0x140204FF0 (MiDeleteTransitionPte.c)
+ *     MiFinishHardFault @ 0x140255E80 (MiFinishHardFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSanitizeShadowPxe @ 0x140233C54 (MiSanitizeShadowPxe.c)
- *     MiWritePteShadow @ 0x140233CD4 (MiWritePteShadow.c)
- *     MiPteInShadowRange @ 0x1402863E0 (MiPteInShadowRange.c)
- *     MiReleaseInPageRefs @ 0x14036FDF4 (MiReleaseInPageRefs.c)
- *     MiUpdateTransitionPteFrame @ 0x140395BFC (MiUpdateTransitionPteFrame.c)
+ *     MiPteInShadowRange @ 0x140202630 (MiPteInShadowRange.c)
+ *     MiSanitizeShadowPxe @ 0x140203820 (MiSanitizeShadowPxe.c)
+ *     MiWritePteShadow @ 0x1402038A0 (MiWritePteShadow.c)
+ *     MiReleaseInPageRefs @ 0x14021C2D8 (MiReleaseInPageRefs.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateTransitionPteFrame @ 0x14038F5E4 (MiUpdateTransitionPteFrame.c)
  */
 
 __int64 __fastcall MiInvalidateCollidedIos(__int64 a1)
@@ -39,9 +39,13 @@ __int64 __fastcall MiInvalidateCollidedIos(__int64 a1)
   unsigned __int64 v24; // rax
   ULONG_PTR v25; // rsi
   __int64 v26; // rax
-  __int64 v27; // rbx
-  int v28; // eax
-  __int64 updated; // [rsp+50h] [rbp+8h]
+  unsigned __int64 v27; // rdi
+  __int64 v28; // rbx
+  int v29; // eax
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  unsigned __int64 updated; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = *(_DWORD *)(a1 + 80);
   v2 = 1;
@@ -84,16 +88,17 @@ LABEL_23:
       v26 = MI_READ_PTE_LOCK_FREE(*(_QWORD *)(v17 + 8) | 0x8000000000000000uLL);
       updated = MiUpdateTransitionPteFrame(v26, v16);
       v27 = updated;
-      v28 = MiPteInShadowRange((unsigned __int64)v4);
-      if ( v28 )
+      v28 = updated;
+      v29 = MiPteInShadowRange((unsigned __int64)v4);
+      if ( v29 )
       {
-        v28 = MiSanitizeShadowPxe();
-        v27 = updated;
+        v29 = MiSanitizeShadowPxe(v30, (__int64)&updated, v31);
+        v28 = updated;
       }
-      *v4 = v27;
-      if ( v28 )
-        MiWritePteShadow();
-      *(_QWORD *)(a1 + 168) = updated;
+      *v4 = v28;
+      if ( v29 )
+        MiWritePteShadow((__int64)v4, v28, v31, v32);
+      *(_QWORD *)(a1 + 168) = v27;
       *(_QWORD *)(v17 + 16) = *(_QWORD *)(v25 + 16) ^ (*(_QWORD *)(v17 + 16) ^ *(_QWORD *)(v25 + 16)) & 0xFFFFFFFFFFFFFC1FuLL;
     }
     else

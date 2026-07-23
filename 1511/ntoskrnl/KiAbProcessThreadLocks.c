@@ -19,10 +19,10 @@
  *     KiAbDetermineMaxWaiterPriority @ 0x1400EF2B4 (KiAbDetermineMaxWaiterPriority.c)
  */
 
-char __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
+char __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
 {
   int v7; // esi
-  __int64 LockedHeadEntry; // rax
+  _RTL_RB_TREE *LockedHeadEntry; // rax
   __int64 v10; // rdx
   unsigned int v11; // r14d
   __int64 v12; // r12
@@ -66,12 +66,12 @@ char __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int 
       {
         v11 &= v11 - 1;
         v15 = v10 + 96 * a1;
-        LockedHeadEntry = *(_QWORD *)(v15 + 32);
-        if ( !LockedHeadEntry || (LockedHeadEntry & 2) != 0 )
+        LockedHeadEntry = *(_RTL_RB_TREE **)(v15 + 32);
+        if ( !LockedHeadEntry || ((unsigned __int8)LockedHeadEntry & 2) != 0 )
           break;
-        if ( a2 && (LockedHeadEntry & 1) != 0 )
+        if ( a2 && ((unsigned __int8)LockedHeadEntry & 1) != 0 )
           goto LABEL_25;
-        LockedHeadEntry = *(_QWORD *)(v15 + 32) >> 63;
+        LockedHeadEntry = (_RTL_RB_TREE *)(*(_QWORD *)(v15 + 32) >> 63);
         if ( *(__int64 *)(v15 + 32) >= 0 )
         {
           LODWORD(LockedHeadEntry) = a2;
@@ -87,17 +87,17 @@ char __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int 
             if ( (_BYTE)LockedHeadEntry != *(_BYTE *)(v15 + 48) )
             {
 LABEL_12:
-              LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v15, a2, v30);
+              LockedHeadEntry = (_RTL_RB_TREE *)KiAbEntryGetLockedHeadEntry((PRTL_BALANCED_NODE)v15);
               v13 = 0LL;
-              v19 = LockedHeadEntry;
+              v19 = (__int64)LockedHeadEntry;
               if ( LockedHeadEntry )
               {
                 if ( (*(_BYTE *)(v15 + 25) & 1) != 0 )
                 {
                   if ( !v32 )
                     goto LABEL_22;
-                  if ( v15 != LockedHeadEntry )
-                    KiAbEntryUpdateWaiterTreePosition(v15, LockedHeadEntry, v18, 0LL);
+                  if ( (_RTL_RB_TREE *)v15 != LockedHeadEntry )
+                    KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v15);
                   HIBYTE(v31) = *(_WORD *)(v19 + 90) != 0 ? 2 : 0;
                   v20 = *(_QWORD *)(v19 + 56);
                   if ( v20 )
@@ -133,14 +133,14 @@ LABEL_44:
                 }
                 else if ( v7 )
                 {
-                  if ( v15 != LockedHeadEntry )
-                    KiAbEntryUpdateOwnerTreePosition(v15, LockedHeadEntry);
+                  if ( (_RTL_RB_TREE *)v15 != LockedHeadEntry )
+                    KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v15, LockedHeadEntry);
                   KiAbDetermineMaxWaiterPriority(v19, &v31, v18, 0LL);
                   if ( v31 != (_WORD)v13
                     && (unsigned int)KiAbSetMinimumThreadPriority(v15, (unsigned int)&v31, a5, a6, v12)
                     && v15 != v19 )
                   {
-                    KiAbEntryUpdateOwnerTreePosition(v15, v19);
+                    KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v15, (_RTL_RB_TREE *)v19);
                   }
                 }
 LABEL_22:
@@ -173,7 +173,7 @@ LABEL_25:
         v16 = !_BitScanForward((unsigned int *)&a1, v11);
         v7 = v33;
         if ( v16 )
-          return LockedHeadEntry;
+          return (char)LockedHeadEntry;
       }
       LODWORD(LockedHeadEntry) = v13;
 LABEL_29:
@@ -181,5 +181,5 @@ LABEL_29:
       goto LABEL_11;
     }
   }
-  return LockedHeadEntry;
+  return (char)LockedHeadEntry;
 }

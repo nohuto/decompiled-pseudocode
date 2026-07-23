@@ -12,15 +12,15 @@ __int64 SignalStartWerSvc()
 {
   int v0; // ebx
   __int64 result; // rax
-  _QWORD v2[3]; // [rsp+40h] [rbp-18h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+40h] [rbp-18h] BYREF
   int v3; // [rsp+60h] [rbp+8h] BYREF
 
   v0 = 0;
-  if ( (int)NtQueryWnfStateNameInformation(&WNF_WER_SERVICE_START, 1LL, 0LL, &v3, 4) >= 0 && v3 )
-    v0 = (int)ZwUpdateWnfStateData(&WNF_WER_SERVICE_START, 0LL, 0LL, 0LL, 0LL, 0, 0) >= 0;
-  v2[0] = 0LL;
-  v2[1] = 0LL;
-  if ( !(unsigned int)EtwEventWriteNoRegistration(&`SignalStartWerSvc'::`2'::WerSvcTriggerGuid, v2, 0LL, 0LL) )
+  if ( NtQueryWnfStateNameInformation(&WNF_WER_SERVICE_START, WnfInfoSubscribersPresent, 0LL, &v3, 4u) >= 0 && v3 )
+    v0 = ZwUpdateWnfStateData(&WNF_WER_SERVICE_START, 0LL, 0, 0LL, 0LL, 0, 0) >= 0;
+  *(_QWORD *)&EventDescriptor.Id = 0LL;
+  EventDescriptor.Keyword = 0LL;
+  if ( !EtwEventWriteNoRegistration(&`SignalStartWerSvc'::`2'::WerSvcTriggerGuid, &EventDescriptor, 0, 0LL) )
     ++v0;
   result = 3221225600LL;
   if ( v0 )

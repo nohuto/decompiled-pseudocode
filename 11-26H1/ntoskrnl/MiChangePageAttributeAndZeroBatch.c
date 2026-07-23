@@ -1,12 +1,12 @@
 /*
- * XREFs of MiChangePageAttributeAndZeroBatch @ 0x14070D2EC
+ * XREFs of MiChangePageAttributeAndZeroBatch @ 0x140711F9C
  * Callers:
- *     MiInitializeMdlOneNodeBatchPages @ 0x1406EE640 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiFindLargePageMemory @ 0x140B617F8 (MiFindLargePageMemory.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1406F32E0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiFindLargePageMemory @ 0x140B64898 (MiFindLargePageMemory.c)
  * Callees:
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     MiUseThreads @ 0x1403C3644 (MiUseThreads.c)
- *     MiDereferencePageChains @ 0x1403C36A4 (MiDereferencePageChains.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     MiUseThreads @ 0x1403CD544 (MiUseThreads.c)
+ *     MiDereferencePageChains @ 0x1403CD5A4 (MiDereferencePageChains.c)
  */
 
 void __fastcall MiChangePageAttributeAndZeroBatch(__int64 a1, __int64 a2, int a3)

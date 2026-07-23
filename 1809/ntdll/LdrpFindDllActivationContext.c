@@ -4,7 +4,7 @@
  *     LdrpMapAndSnapDependency @ 0x18002385C (LdrpMapAndSnapDependency.c)
  * Callees:
  *     RtlReleaseActivationContext @ 0x18002D7A0 (RtlReleaseActivationContext.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  */
 
@@ -15,7 +15,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
   _WORD *v4; // rdx
   int v5; // eax
   __int64 v6; // rax
-  __int64 v8; // rcx
+  _ACTIVATION_CONTEXT *v8; // rcx
   __int64 v9; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -58,7 +58,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       v6 = v9;
       if ( v9 )
       {
-        v8 = a1[17];
+        v8 = (_ACTIVATION_CONTEXT *)a1[17];
         if ( v8 )
         {
           RtlReleaseActivationContext(v8);

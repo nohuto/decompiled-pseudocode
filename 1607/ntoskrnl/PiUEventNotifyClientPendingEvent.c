@@ -1,26 +1,26 @@
 /*
- * XREFs of PiUEventNotifyClientPendingEvent @ 0x1403F0858
+ * XREFs of PiUEventNotifyClientPendingEvent @ 0x14048AAD0
  * Callers:
- *     PiUEventNotifyClient @ 0x1403F0784 (PiUEventNotifyClient.c)
- *     PiUEventHandleGetEvent @ 0x14048CB44 (PiUEventHandleGetEvent.c)
+ *     PiUEventNotifyClient @ 0x14048A9FC (PiUEventNotifyClient.c)
+ *     PiUEventHandleGetEvent @ 0x14048D158 (PiUEventHandleGetEvent.c)
  * Callees:
- *     PiUEventEstimateRequiredClientBufferSize @ 0x140007E3C (PiUEventEstimateRequiredClientBufferSize.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PiUEventEstimateRequiredClientBufferSize @ 0x140086928 (PiUEventEstimateRequiredClientBufferSize.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PiUEventNotifyClientPendingEvent(__int64 a1)
+NTSTATUS __fastcall PiUEventNotifyClientPendingEvent(__int64 a1)
 {
   int v2; // eax
   struct _FAST_MUTEX *v3; // rcx
-  int v5; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
-  v5 = 0;
+  Buffer = 0;
   ExAcquireFastMutex(*(PFAST_MUTEX *)(a1 + 16));
   v2 = PiUEventEstimateRequiredClientBufferSize(a1);
   v3 = *(struct _FAST_MUTEX **)(a1 + 16);
-  v5 = v2;
+  Buffer = v2;
   KeReleaseGuardedMutex(v3);
-  return ZwUpdateWnfStateData(a1 + 88, (__int64)&v5, 4LL);
+  return ZwUpdateWnfStateData((PCWNF_STATE_NAME)(a1 + 88), &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

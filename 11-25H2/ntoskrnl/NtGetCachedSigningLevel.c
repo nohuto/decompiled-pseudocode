@@ -12,40 +12,40 @@
  *     ProbeForWrite @ 0x140934CF0 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtGetCachedSigningLevel(
-        void *a1,
-        _DWORD *a2,
-        volatile void *a3,
-        volatile void *a4,
-        _DWORD *a5,
-        volatile void *a6)
+NTSTATUS __cdecl NtGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
   PVOID v10; // r15
   KPROCESSOR_MODE PreviousMode; // r13
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   PVOID Object; // [rsp+60h] [rbp-A8h] BYREF
   volatile void *Address; // [rsp+68h] [rbp-A0h]
   volatile void *v17; // [rsp+70h] [rbp-98h]
   volatile void *v18; // [rsp+78h] [rbp-90h]
   _BYTE Src[64]; // [rsp+80h] [rbp-88h] BYREF
 
-  v17 = a4;
-  Address = a3;
-  v18 = a6;
+  v17 = Thumbprint;
+  Address = SigningLevel;
+  v18 = ThumbprintAlgorithm;
   v10 = 0LL;
   memset_0(Src, 0, sizeof(Src));
-  if ( !a1 || !a2 || !a3 )
+  if ( !File || !Flags || !SigningLevel )
   {
     v12 = -1073741811;
     goto LABEL_9;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(File, 1u, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
   v10 = Object;
   if ( v12 < 0 )
     goto LABEL_9;
-  if ( a4 )
+  if ( Thumbprint )
   {
     if ( !qword_140F044B0 )
       goto LABEL_7;
@@ -73,20 +73,20 @@ LABEL_8:
   {
     if ( PreviousMode == 1 )
     {
-      ProbeForWrite(a2, 4uLL, 4u);
+      ProbeForWrite(Flags, 4uLL, 4u);
       ProbeForWrite(Address, 1uLL, 1u);
     }
-    *a2 = 0;
+    *Flags = 0;
     *(_BYTE *)Address = 0;
-    if ( a5 )
+    if ( ThumbprintSize )
     {
       if ( PreviousMode == 1 )
-        ProbeForWrite(a5, 4uLL, 4u);
-      *a5 = 0;
+        ProbeForWrite(ThumbprintSize, 4uLL, 4u);
+      *ThumbprintSize = 0;
     }
   }
 LABEL_9:
   if ( v10 )
     ObfDereferenceObject(v10);
-  return (unsigned int)v12;
+  return v12;
 }

@@ -13,11 +13,13 @@
  *     ZwProtectVirtualMemory @ 0x1403F8B70 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall KiOpPatchCode(__int64 a1, unsigned __int64 a2, char a3)
 {
-  int v5; // edi
+  NTSTATUS v5; // edi
   _BYTE *v6; // rax
-  __int64 v8; // [rsp+40h] [rbp-68h] BYREF
+  ULONG NewProtect; // [rsp+30h] [rbp-78h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp-70h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-68h] BYREF
   __int64 MemoryDescriptorList; // [rsp+48h] [rbp-60h] BYREF
   __int16 MemoryDescriptorList_8; // [rsp+50h] [rbp-58h]
   __int16 MemoryDescriptorList_10; // [rsp+52h] [rbp-56h]
@@ -28,9 +30,11 @@ __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
 
   memset(MemoryDescriptorList_12, 0, sizeof(MemoryDescriptorList_12));
   *(_QWORD *)&MemoryDescriptorList_44[4] = 0LL;
-  v8 = a2;
+  NewProtect = 0;
+  BaseAddress = (PVOID)a2;
+  RegionSize = 1LL;
   ExAcquireFastMutex(&KiUserCodePatchMutex);
-  v5 = ZwProtectVirtualMemory(-1LL, (__int64)&v8);
+  v5 = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x40u, &NewProtect);
   if ( v5 >= 0 )
   {
     memset(MemoryDescriptorList_12, 0, sizeof(MemoryDescriptorList_12));
@@ -52,7 +56,7 @@ __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
     else
       v5 = -1073741670;
     MmUnlockPages((PMDL)&MemoryDescriptorList);
-    ZwProtectVirtualMemory(-1LL, (__int64)&v8);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, NewProtect, &NewProtect);
   }
   KeReleaseGuardedMutex(&KiUserCodePatchMutex);
   return (unsigned int)v5;

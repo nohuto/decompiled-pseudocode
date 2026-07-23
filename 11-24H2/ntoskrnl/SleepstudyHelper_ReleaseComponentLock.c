@@ -1,32 +1,30 @@
 /*
- * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x1405E46B0
+ * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x1405E1BF0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x1405E45D8 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall SleepstudyHelper_ReleaseComponentLock(PKSPIN_LOCK SpinLock, unsigned __int8 a2)
+__int64 __fastcall SleepstudyHelper_ReleaseComponentLock(KSPIN_LOCK *a1, unsigned __int8 a2)
 {
   unsigned int v2; // ebx
   unsigned __int64 v3; // rdi
 
   v2 = 0;
   v3 = a2;
-  if ( SpinLock )
+  if ( a1 )
   {
-    if ( (unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline()
-      && SpinLock == (PKSPIN_LOCK)&SleepstudyHelperUnsupportedHandle )
+    if ( a1 == (KSPIN_LOCK *)&SleepstudyHelperUnsupportedHandle )
     {
       if ( KiIrqlFlags )
-        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v3);
+        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), a2);
       __writecr8(v3);
     }
     else
     {
-      KeReleaseSpinLock(SpinLock, v3);
+      KeReleaseSpinLock(a1, a2);
     }
   }
   else

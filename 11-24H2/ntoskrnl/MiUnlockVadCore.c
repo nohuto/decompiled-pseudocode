@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockVadCore @ 0x140429670
+ * XREFs of MiUnlockVadCore @ 0x14041D7C0
  * Callers:
- *     MiSetVadFlags @ 0x1402B8D5C (MiSetVadFlags.c)
- *     MiGetVadWakeList @ 0x14044CC20 (MiGetVadWakeList.c)
- *     MiInsertVadEvent @ 0x1404F1B48 (MiInsertVadEvent.c)
- *     MiLocateOldestSecure @ 0x1404F1BA4 (MiLocateOldestSecure.c)
- *     MiMakeSecureExclusive @ 0x1404F1BF0 (MiMakeSecureExclusive.c)
- *     MiRemoveSecureEntry @ 0x1404F1C5C (MiRemoveSecureEntry.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1404F31F8 (MiCaptureWriteWatchDirtyBit.c)
- *     MiRemoveVadEvent @ 0x140678550 (MiRemoveVadEvent.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x140202774 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiSetVadFlags @ 0x14036049C (MiSetVadFlags.c)
+ *     MiGetVadWakeList @ 0x140443B20 (MiGetVadWakeList.c)
+ *     MiInsertVadEvent @ 0x1404EF5E8 (MiInsertVadEvent.c)
+ *     MiLocateOldestSecure @ 0x1404EF644 (MiLocateOldestSecure.c)
+ *     MiMakeSecureExclusive @ 0x1404EF690 (MiMakeSecureExclusive.c)
+ *     MiRemoveSecureEntry @ 0x1404EF6FC (MiRemoveSecureEntry.c)
+ *     MiRemoveVadEvent @ 0x1406796DC (MiRemoveVadEvent.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUnlockVadCore(__int64 a1, unsigned __int8 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateDebugObject @ 0x14080FA50
+ * XREFs of NtCreateDebugObject @ 0x140810C50
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall NtCreateDebugObject(

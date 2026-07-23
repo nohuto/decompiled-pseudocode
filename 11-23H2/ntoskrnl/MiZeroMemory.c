@@ -1,11 +1,11 @@
 /*
- * XREFs of MiZeroMemory @ 0x14038DE4C
+ * XREFs of MiZeroMemory @ 0x14038E02C
  * Callers:
- *     MiZeroEngineMemory @ 0x1402D1280 (MiZeroEngineMemory.c)
- *     MiZeroPageCalibrateDpc @ 0x14038DCB0 (MiZeroPageCalibrateDpc.c)
+ *     MiZeroEngineMemory @ 0x1402D1510 (MiZeroEngineMemory.c)
+ *     MiZeroPageCalibrateDpc @ 0x14038DE90 (MiZeroPageCalibrateDpc.c)
  * Callees:
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall MiZeroMemory(__int64 a1, void *a2, size_t a3, int a4)

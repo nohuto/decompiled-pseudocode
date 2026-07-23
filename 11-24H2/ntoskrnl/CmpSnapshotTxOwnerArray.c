@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpSnapshotTxOwnerArray @ 0x14086C0D0
+ * XREFs of CmpSnapshotTxOwnerArray @ 0x140870400
  * Callers:
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmpSetKeySecurity @ 0x14099FAEC (CmpSetKeySecurity.c)
+ *     CmpSetKeySecurity @ 0x140830A20 (CmpSetKeySecurity.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall CmpSnapshotTxOwnerArray(__int64 a1, unsigned int *a2, void ***a3)
+__int64 __fastcall CmpSnapshotTxOwnerArray(unsigned int *a1, _DWORD *a2, void ***a3)
 {
-  __int64 v3; // rbx
-  unsigned int v8; // edi
+  __int64 v3; // rdi
+  __int64 v4; // rbx
   __int64 v9; // rbp
   void **Pool2; // rax
   __int64 v11; // r8
@@ -25,19 +25,20 @@ __int64 __fastcall CmpSnapshotTxOwnerArray(__int64 a1, unsigned int *a2, void **
   __int64 v16; // rdx
   void *v17; // rcx
 
-  v3 = 0LL;
-  if ( !*(_DWORD *)a1 )
+  v3 = *a1;
+  v4 = 0LL;
+  if ( !(_DWORD)v3 )
     return 3221225485LL;
-  v8 = *(_DWORD *)a1 & 0x7FFFFFFF;
+  LODWORD(v3) = v3 & 0x7FFFFFFF;
   *a2 = 0;
-  v9 = v8;
-  Pool2 = (void **)ExAllocatePool2(0x100uLL);
+  v9 = (unsigned int)v3;
+  Pool2 = (void **)ExAllocatePool2(0x100uLL, 8 * v3, 0x36344D43u);
   *a3 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
-  if ( v8 == 1 )
+  if ( (_DWORD)v3 == 1 )
   {
-    v11 = *(_QWORD *)(a1 + 8);
+    v11 = *((_QWORD *)a1 + 1);
     v12 = *(_QWORD *)(v11 + 56);
     if ( (*(_DWORD *)(v12 + 48) & 0x80u) == 0 )
     {
@@ -51,29 +52,29 @@ __int64 __fastcall CmpSnapshotTxOwnerArray(__int64 a1, unsigned int *a2, void **
     }
     PsReferenceSiloContext(v13);
   }
-  else if ( v8 )
+  else if ( (_DWORD)v3 )
   {
     do
     {
       v14 = *a3;
-      v15 = *(_QWORD *)(v3 * 8 + *(_QWORD *)(a1 + 8));
+      v15 = *(_QWORD *)(v4 * 8 + *((_QWORD *)a1 + 1));
       v16 = *(_QWORD *)(v15 + 56);
       if ( (*(_DWORD *)(v16 + 48) & 0x80u) == 0 )
       {
-        v14[v3] = *(void **)(v16 + 72);
-        v17 = (*a3)[v3];
+        v14[v4] = *(void **)(v16 + 72);
+        v17 = (*a3)[v4];
       }
       else
       {
-        v14[v3] = *(void **)(v16 + 56);
+        v14[v4] = *(void **)(v16 + 56);
         v17 = (void *)(*(_QWORD *)(*(_QWORD *)(v15 + 56) + 56LL) & 0xFFFFFFFFFFFFFFFEuLL);
       }
       PsReferenceSiloContext(v17);
-      ++v3;
+      ++v4;
       --v9;
     }
     while ( v9 );
   }
-  *a2 = v8;
+  *a2 = v3;
   return 0LL;
 }

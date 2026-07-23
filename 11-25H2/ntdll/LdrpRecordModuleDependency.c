@@ -6,19 +6,19 @@
  *     RtlAllocateHeap @ 0x180050340 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall LdrpRecordModuleDependency(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+_DWORD *__fastcall LdrpRecordModuleDependency(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 v4; // rbx
   __int64 v6; // rdi
   int v7; // ecx
-  __int64 result; // rax
+  _DWORD *result; // rax
   _QWORD *v9; // rcx
   _QWORD *v10; // rax
-  __int64 *v11; // rcx
+  _QWORD *v11; // rcx
   _QWORD *v12; // rcx
   _QWORD *v13; // rdx
   int v14; // ecx
-  __int64 Heap; // rax
+  _DWORD *Heap; // rax
 
   v4 = *(_QWORD *)(a2 + 152);
   v6 = *(_QWORD *)(a1 + 152);
@@ -45,7 +45,7 @@ LABEL_5:
   }
   if ( !a3 )
   {
-    Heap = RtlAllocateHeap((char *)LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
+    Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
     a3 = Heap;
     if ( !Heap )
     {
@@ -53,9 +53,9 @@ LABEL_5:
       *a4 = -1073741801;
       return result;
     }
-    *(_DWORD *)(Heap + 24) |= 1u;
+    Heap[6] |= 1u;
   }
-  v11 = *(__int64 **)(v6 + 40);
+  v11 = *(_QWORD **)(v6 + 40);
   if ( v11 )
   {
     *(_QWORD *)a3 = *v11;
@@ -66,8 +66,8 @@ LABEL_5:
     *(_QWORD *)a3 = a3;
   }
   *(_QWORD *)(v6 + 40) = a3;
-  v12 = (_QWORD *)(a3 + 16);
-  *(_QWORD *)(a3 + 8) = v4;
+  v12 = a3 + 4;
+  *((_QWORD *)a3 + 1) = v4;
   v13 = *(_QWORD **)(v4 + 48);
   if ( v13 )
   {
@@ -79,9 +79,9 @@ LABEL_5:
     *v12 = v12;
   }
   *(_QWORD *)(v4 + 48) = v12;
-  v14 = *(_DWORD *)(a3 + 24);
-  *(_QWORD *)(a3 + 24) = v6;
+  v14 = a3[6];
+  *((_QWORD *)a3 + 3) = v6;
   if ( (v14 & 1) != 0 )
-    *(_DWORD *)(a3 + 24) = v6 ^ ((unsigned __int8)v14 ^ (unsigned __int8)v6) & 1;
+    a3[6] = v6 ^ ((unsigned __int8)v14 ^ (unsigned __int8)v6) & 1;
   return 0LL;
 }

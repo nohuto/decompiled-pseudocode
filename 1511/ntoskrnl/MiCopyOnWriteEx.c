@@ -167,8 +167,8 @@ __int64 __fastcall MiCopyOnWriteEx(ULONG_PTR BugCheckParameter2, __int64 a2, __i
   {
     if ( BugCheckParameter2 + 0x80000000000LL <= 0x7FFFFFFFFFLL
       || PsNtosImageBase
-      && (BugCheckParameter2 >= PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
-       || BugCheckParameter2 >= PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
+      && (BugCheckParameter2 >= (unsigned __int64)PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
+       || BugCheckParameter2 >= (unsigned __int64)PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
     {
       v15 = 0;
       v66 = 0;

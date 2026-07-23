@@ -1,55 +1,51 @@
 /*
- * XREFs of LdrGetKnownDllSectionHandle @ 0x18010A160
+ * XREFs of LdrGetKnownDllSectionHandle @ 0x180105090
  * Callers:
  *     <none>
  * Callees:
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlInitUnicodeStringEx @ 0x180082640 (RtlInitUnicodeStringEx.c)
- *     NtOpenSection @ 0x180162370 (NtOpenSection.c)
+ *     RtlInitUnicodeStringEx @ 0x1800044C0 (RtlInitUnicodeStringEx.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     NtOpenSection @ 0x180160730 (NtOpenSection.c)
  */
 
-__int64 __fastcall LdrGetKnownDllSectionHandle(const wchar_t *a1, char a2, __int64 a3)
+NTSTATUS __cdecl LdrGetKnownDllSectionHandle(PCWSTR DllName, BOOLEAN KnownDlls32, PHANDLE Section)
 {
-  __int64 v6; // rdi
+  HANDLE v6; // rdi
   int inited; // ebx
-  __int128 v9; // [rsp+30h] [rbp-40h] BYREF
-  __int128 v10; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v11; // [rsp+50h] [rbp-20h]
-  __int128 v12; // [rsp+60h] [rbp-10h]
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
 
-  *(_QWORD *)&v12 = 0LL;
-  DWORD2(v12) = 0;
-  v9 = 0LL;
-  v10 = 0LL;
-  v11 = 0LL;
+  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
   LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrapi.c",
+    "minkernel\\ldr\\ldrapi.c",
     5578,
     (__int64)"LdrGetKnownDllSectionHandle",
     3,
     "DLL name: %ws\n",
-    (char)a1);
-  LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrapi.c",
-    5579,
-    (__int64)"LdrGetKnownDllSectionHandle",
-    5,
-    "%ws\n",
-    (char)a1);
-  if ( a2 )
-    return 3221225485LL;
+    DllName,
+    0LL,
+    0LL,
+    0LL,
+    0LL,
+    0LL,
+    0LL,
+    0LL,
+    ObjectAttributes.SecurityQualityOfService);
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 5579, (__int64)"LdrGetKnownDllSectionHandle", 5, "%ws\n", DllName);
+  if ( KnownDlls32 )
+    return -1073741811;
   v6 = LdrpKnownDllDirectoryHandle;
   if ( LdrpKnownDllDirectoryHandle )
   {
-    inited = RtlInitUnicodeStringEx((__int64)&v9, a1);
+    inited = RtlInitUnicodeStringEx(&DestinationString, DllName);
     if ( inited >= 0 )
     {
-      LODWORD(v10) = 48;
-      *(_QWORD *)&v11 = &v9;
-      *((_QWORD *)&v10 + 1) = v6;
-      DWORD2(v11) = 64;
-      v12 = 0LL;
-      inited = NtOpenSection(a3, 13LL, &v10);
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.RootDirectory = v6;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      inited = NtOpenSection(Section, 0xDu, &ObjectAttributes);
     }
   }
   else
@@ -57,12 +53,12 @@ __int64 __fastcall LdrGetKnownDllSectionHandle(const wchar_t *a1, char a2, __int
     inited = -1073741816;
   }
   LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrapi.c",
+    "minkernel\\ldr\\ldrapi.c",
     5608,
     (__int64)"LdrGetKnownDllSectionHandle",
     4,
     "Status: 0x%08lx\n",
     inited);
-  LdrpLogInternal((__int64)"minkernel\\ldr\\ldrapi.c", 5609, (__int64)"LdrGetKnownDllSectionHandle", 6, "%x\n", inited);
-  return (unsigned int)inited;
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 5609, (__int64)"LdrGetKnownDllSectionHandle", 6, "%x\n", inited);
+  return inited;
 }

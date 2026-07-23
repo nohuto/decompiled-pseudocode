@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlUnicodeToMultiByteSize @ 0x180034070
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x18001F1D0
  * Callers:
- *     RtlUnicodeStringToOemString @ 0x1800363A0 (RtlUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x18009FFA0 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18010DA90 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     wcstombs @ 0x18012E5A0 (wcstombs.c)
- *     RtlUnicodeStringToCountedOemString @ 0x180140590 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1801406A0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToOemString @ 0x180021500 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x18009F0D0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18010D5E0 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     wcstombs @ 0x18012E310 (wcstombs.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x180140490 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1801405A0 (RtlUpcaseUnicodeStringToAnsiString.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x180034960 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x18001FAC0 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
@@ -24,11 +24,11 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
 
   v3 = UnicodeString;
   _InterlockedOr(v8, 0);
-  if ( word_1801C5FD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
     if ( BytesInUnicodeString )
     {
-      RtlUnicodeToUTF8N(0, 0, (_DWORD)BytesInMultiByteString, (_DWORD)UnicodeString, BytesInUnicodeString);
+      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, UnicodeString, BytesInUnicodeString);
       return 0;
     }
     *BytesInMultiByteString = 0;
@@ -38,7 +38,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   {
     _InterlockedOr(v8, 0);
     v4 = 0;
-    if ( !word_1801C5F9C )
+    if ( !GlobalRtlNlsState.DBCSCodePage )
     {
       v4 = BytesInUnicodeString >> 1;
 LABEL_5:
@@ -51,7 +51,7 @@ LABEL_5:
     do
     {
       v7 = *v3++;
-      v4 += (HIBYTE(*(_WORD *)(qword_1801C5FB8 + 2 * v7)) != 0) + 1;
+      v4 += (HIBYTE(*((_WORD *)GlobalRtlNlsState.WideCharTable + v7)) != 0) + 1;
       --v6;
     }
     while ( v6 );

@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwImpersonateThread()
+NTSTATUS __cdecl ZwImpersonateThread(
+        HANDLE ServerThreadHandle,
+        HANDLE ClientThreadHandle,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 238LL;
+  result = 238;
   __asm { syscall; Low latency system call }
   return result;
 }

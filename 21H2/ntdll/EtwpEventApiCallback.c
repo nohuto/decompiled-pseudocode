@@ -8,8 +8,8 @@
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     EtwpAcquireGuidEntryExclusive @ 0x180047DB4 (EtwpAcquireGuidEntryExclusive.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall EtwpEventApiCallback(__int64 a1, __int64 a2)
@@ -24,8 +24,8 @@ __int64 __fastcall EtwpEventApiCallback(__int64 a1, __int64 a2)
   __int64 v12; // r15
   unsigned int v13; // r14d
   unsigned __int8 *v14; // r11
-  __int64 v15; // r8
-  __int64 Heap; // rax
+  void *v15; // r8
+  _DWORD *Heap; // rax
   unsigned int Size; // [rsp+60h] [rbp-10h]
   int Size_4; // [rsp+64h] [rbp-Ch]
 
@@ -96,20 +96,20 @@ LABEL_27:
       if ( v3 )
       {
         EtwpAcquireGuidEntryExclusive(v3, v6);
-        v15 = *(_QWORD *)(v3 + 168);
+        v15 = *(void **)(v3 + 168);
         if ( v15 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v15);
-        Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, Size + 16LL);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Size + 16LL);
         *(_QWORD *)(v3 + 168) = Heap;
         if ( Heap )
         {
-          *(_DWORD *)(Heap + 8) = Size;
+          Heap[2] = Size;
           *(_DWORD *)(*(_QWORD *)(v3 + 168) + 12LL) = Size_4;
           **(_QWORD **)(v3 + 168) = *(_QWORD *)(v3 + 168) + 16LL;
           memmove(**(void ***)(v3 + 168), (const void *)v12, Size);
         }
         *(_DWORD *)(v3 + 48) = 0;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 40));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 40));
       }
     }
   }

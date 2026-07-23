@@ -1,12 +1,12 @@
 /*
- * XREFs of XmGroup1Immediate @ 0x1404686C0
+ * XREFs of XmGroup1Immediate @ 0x140461070
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x140468DC4 (XmEvaluateAddressSpecifier.c)
- *     XmGetImmediateSourceValue @ 0x140468FAC (XmGetImmediateSourceValue.c)
- *     XmSetDataType @ 0x140469060 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x14046908C (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140461774 (XmEvaluateAddressSpecifier.c)
+ *     XmGetImmediateSourceValue @ 0x14046195C (XmGetImmediateSourceValue.c)
+ *     XmSetDataType @ 0x140461A10 (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x140461A3C (XmSetDestinationValue.c)
  */
 
 __int64 __fastcall XmGroup1Immediate(_DWORD *a1)

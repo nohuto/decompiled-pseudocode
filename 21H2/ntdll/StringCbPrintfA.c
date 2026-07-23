@@ -1,7 +1,7 @@
 /*
- * XREFs of StringCbPrintfA @ 0x1800CDF50
+ * XREFs of StringCbPrintfA @ 0x1800CDF10
  * Callers:
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  * Callees:
  *     _vsnprintf @ 0x18008E1A0 (_vsnprintf.c)
  */

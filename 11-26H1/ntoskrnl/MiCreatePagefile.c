@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCreatePagefile @ 0x14086B0C0
+ * XREFs of MiCreatePagefile @ 0x1408714A0
  * Callers:
- *     MiCreatePagingFile @ 0x14086B464 (MiCreatePagingFile.c)
- *     MmStoreRegister @ 0x14087D67C (MmStoreRegister.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x14087E48C (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MiCreatePagingFile @ 0x140871844 (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x140883A7C (MmStoreRegister.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x14088488C (MiCreateSpecialPurposeMemoryPageFile.c)
  * Callees:
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     MiAllocateModWriterEntry @ 0x140396C00 (MiAllocateModWriterEntry.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiInitializePagefileBitmapsCache @ 0x14044D030 (MiInitializePagefileBitmapsCache.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     MiReservePageHash @ 0x14070FF40 (MiReservePageHash.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x14086B018 (MiCreatePageFileSpaceBitmaps.c)
- *     MiDeletePagefile @ 0x14086B6A4 (MiDeletePagefile.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     MiAllocateModWriterEntry @ 0x140398980 (MiAllocateModWriterEntry.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140445150 (MiInitializePagefileBitmapsCache.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     MiReservePageHash @ 0x140714C3C (MiReservePageHash.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x1408713F8 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiDeletePagefile @ 0x140871A84 (MiDeletePagefile.c)
  */
 
 _BYTE *__fastcall MiCreatePagefile(
@@ -53,7 +53,7 @@ _BYTE *__fastcall MiCreatePagefile(
   unsigned __int64 v31; // rax
   __int64 PageFileSpaceBitmaps; // rax
   __int64 v33; // rdi
-  RTL_BITMAP *v34; // rdi
+  _RTL_BITMAP *v34; // rdi
   int v35; // eax
   __int64 v36; // rax
   _BYTE v39[256]; // [rsp+30h] [rbp-138h] BYREF
@@ -74,8 +74,8 @@ _BYTE *__fastcall MiCreatePagefile(
   *((_QWORD *)v15 + 3) = a2;
   *((_QWORD *)v15 + 24) = a3;
   *((_DWORD *)v15 + 1) = a5;
-  v17 = dword_140FBE21C;
-  *((_DWORD *)v15 + 23) = dword_140FBE21C;
+  v17 = dword_140FBF21C;
+  *((_DWORD *)v15 + 23) = dword_140FBF21C;
   if ( (a8 & 2) != 0 )
     v18 = -1;
   else
@@ -182,7 +182,7 @@ LABEL_38:
     *((_QWORD *)v15 + 10) = PageFileSpaceBitmaps;
     RtlSetAllBits((PRTL_BITMAP)(PageFileSpaceBitmaps + 8));
     RtlClearBits((PRTL_BITMAP)(v33 + 8), v12, *(_DWORD *)v15 - v12);
-    v34 = (RTL_BITMAP *)(v33 + 24);
+    v34 = (_RTL_BITMAP *)(v33 + 24);
     RtlSetAllBits(v34);
     if ( (a8 & 2) == 0 )
       RtlClearBits(v34, v12, *(_DWORD *)v15 - v12);

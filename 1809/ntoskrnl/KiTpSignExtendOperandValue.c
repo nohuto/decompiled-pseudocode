@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTpSignExtendOperandValue @ 0x14029F6A8
+ * XREFs of KiTpSignExtendOperandValue @ 0x14029F898
  * Callers:
- *     KiTpEmulateGroup0Instruction @ 0x14029E410 (KiTpEmulateGroup0Instruction.c)
- *     KiTpEmulateInstruction @ 0x14029E8FC (KiTpEmulateInstruction.c)
- *     KiTpReadOperandValue @ 0x14029F3BC (KiTpReadOperandValue.c)
+ *     KiTpEmulateGroup0Instruction @ 0x14029E600 (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateInstruction @ 0x14029EAEC (KiTpEmulateInstruction.c)
+ *     KiTpReadOperandValue @ 0x14029F5AC (KiTpReadOperandValue.c)
  * Callees:
  *     <none>
  */

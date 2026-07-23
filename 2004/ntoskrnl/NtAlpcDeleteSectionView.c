@@ -14,10 +14,10 @@
  *     AlpcpDeleteView @ 0x14068AF78 (AlpcpDeleteView.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
+NTSTATUS __cdecl NtAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  signed int v5; // ebx
   PADAPTER_OBJECT v6; // rdi
   signed __int64 *v7; // rbx
   __int64 v8; // rdx
@@ -30,7 +30,7 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
   *(_OWORD *)BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
@@ -38,7 +38,7 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
   {
     DmaAdapter = 0LL;
     v5 = ObReferenceObjectByHandle(
-           a1,
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -46,7 +46,7 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
            0LL);
     if ( v5 >= 0 )
     {
-      BugCheckParameter2[0] = a3;
+      BugCheckParameter2[0] = (ULONG_PTR)ViewBase;
       v6 = DmaAdapter;
       BugCheckParameter2[1] = 0LL;
       v7 = (signed __int64 *)&DmaAdapter[22];
@@ -75,5 +75,5 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

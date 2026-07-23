@@ -1,14 +1,13 @@
 /*
- * XREFs of HaliAcpiMachineStateInit @ 0x140701FB0
+ * XREFs of HaliAcpiMachineStateInit @ 0x1406FFBF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x1403BAB3C (HalpInterruptModel.c)
- *     Feature_Servicing_IntgrSched_Sleep_Enlightenment__private_IsEnabledDeviceUsageNoInline @ 0x140544888 (Feature_Servicing_IntgrSched_Sleep_Enlightenment__private_IsEnabledDeviceUsageNoInline.c)
- *     HalpIsXboxNanovisorPresent @ 0x14054AC90 (HalpIsXboxNanovisorPresent.c)
- *     HalpHvSetSleepStateProperty @ 0x14054B840 (HalpHvSetSleepStateProperty.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
+ *     HalpInterruptModel @ 0x1403744A8 (HalpInterruptModel.c)
+ *     HalpIsXboxNanovisorPresent @ 0x140548550 (HalpIsXboxNanovisorPresent.c)
+ *     HalpHvSetSleepStateProperty @ 0x140549100 (HalpHvSetSleepStateProperty.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
  */
 
 int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
@@ -16,36 +15,31 @@ int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
   bool v2; // di
   int v3; // eax
   _DWORD *v4; // rdx
-  int result; // eax
-  __int64 (__fastcall *v6)(unsigned int, __int64, __int64, unsigned int, volatile signed __int32 *); // rsi
-  char v7; // al
-  __int64 v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  char v11; // cl
-  int v12; // eax
-  unsigned int v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  char v16; // cl
-  int v17; // eax
-  unsigned int v18; // eax
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  int v23; // ecx
-  int v24; // eax
-  unsigned int v25; // eax
-  int v26; // ecx
-  int v27; // eax
-  unsigned int v28; // eax
-  __int64 v29; // rdx
-  __int64 v30; // r8
+  __int64 (__fastcall *v5)(unsigned int, __int64, __int64, unsigned int, volatile signed __int32 *); // rax
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  char v9; // cl
+  int v10; // eax
+  unsigned int v11; // eax
+  __int64 v12; // rdx
+  char v13; // cl
+  int v14; // eax
+  unsigned int v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  unsigned __int64 v18; // rcx
+  int v19; // ecx
+  int v20; // eax
+  unsigned int v21; // eax
+  int v22; // ecx
+  int v23; // eax
+  unsigned int v24; // eax
+  __int64 v25; // rdx
   __int128 InputBuffer; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v32; // [rsp+40h] [rbp-10h]
+  __int64 v28; // [rsp+40h] [rbp-10h]
 
-  v32 = 0LL;
+  v28 = 0LL;
   v2 = 0;
   InputBuffer = 0LL;
   HalpWakeupState = 1;
@@ -53,125 +47,119 @@ int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
   *v4 = v3;
   if ( a1[9] && !HalpDisableHibernate )
     v2 = HalpIsXboxNanovisorPresent() == 0;
-  result = Feature_Servicing_IntgrSched_Sleep_Enlightenment__private_IsEnabledDeviceUsageNoInline();
-  v6 = HaliAcpiSleep;
-  if ( !result )
-    v6 = HaliAcpiSleepOld;
+  v5 = HaliAcpiSleep;
   if ( *a1 )
   {
-    v7 = a1[1];
-    v8 = a1[2] & 0xF;
+    v6 = a1[2] & 0xF;
+    *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
+    v7 = a1[1] & 0xF;
     BYTE4(InputBuffer) = 1;
-    *((_QWORD *)&InputBuffer + 1) = v6;
-    v32 = v7 & 0xF | (16 * (v8 | 0x510));
-    result = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
+    v28 = v7 | (16 * (v6 | 0x510));
+    ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
     if ( HalpHvSleepEnlightenedCpuManager )
     {
-      LOBYTE(v10) = a1[2];
-      LOBYTE(v9) = a1[1];
-      result = HalpHvSetSleepStateProperty(1LL, v9, v10);
+      LOBYTE(v8) = a1[1];
+      HalpHvSetSleepStateProperty(1LL, v8);
     }
+    v5 = HaliAcpiSleep;
   }
   if ( !HalpWakeVector )
-    goto LABEL_23;
+    goto LABEL_22;
   if ( a1[3] )
   {
-    v11 = a1[4];
-    v12 = a1[5] & 0xF | 0x520;
+    v9 = a1[4];
+    *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
+    v10 = a1[5] & 0xF;
     LODWORD(InputBuffer) = 1;
-    v13 = v11 & 0xF | (16 * v12);
     BYTE4(InputBuffer) = 1;
-    *((_QWORD *)&InputBuffer + 1) = v6;
+    v11 = v9 & 0xF | (16 * (v10 | 0x520));
     if ( !HalpHvSleepEnlightenedCpuManager )
-      v13 |= 0x12000u;
-    v32 = v13;
-    result = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
+      v11 |= 0x12000u;
+    v28 = v11;
+    LODWORD(v5) = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
     if ( HalpHvSleepEnlightenedCpuManager )
     {
-      LOBYTE(v15) = a1[5];
-      LOBYTE(v14) = a1[4];
-      result = HalpHvSetSleepStateProperty(2LL, v14, v15);
+      LOBYTE(v12) = a1[4];
+      LODWORD(v5) = HalpHvSetSleepStateProperty(2LL, v12);
     }
   }
   if ( !a1[6] )
-    goto LABEL_23;
-  v16 = a1[7];
-  v17 = a1[8] & 0xF | 0x530;
+    goto LABEL_22;
+  v13 = a1[7];
+  *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
+  v14 = a1[8] & 0xF;
   LODWORD(InputBuffer) = 2;
-  v18 = v16 & 0xF | (16 * v17);
   BYTE4(InputBuffer) = 1;
-  *((_QWORD *)&InputBuffer + 1) = v6;
+  v15 = v13 & 0xF | (16 * (v14 | 0x530));
   if ( !HalpHvSleepEnlightenedCpuManager )
-    v18 |= 0x32000u;
-  v32 = v18;
-  result = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
+    v15 |= 0x32000u;
+  v28 = v15;
+  LODWORD(v5) = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
   if ( HalpHvSleepEnlightenedCpuManager )
   {
-    LOBYTE(v20) = a1[8];
-    LOBYTE(v19) = a1[7];
-    result = HalpHvSetSleepStateProperty(3LL, v19, v20);
+    LOBYTE(v16) = a1[7];
+    LODWORD(v5) = HalpHvSetSleepStateProperty(3LL, v16);
   }
   if ( a1[6] )
   {
     if ( !v2 )
-      goto LABEL_27;
-    v21 = a1[8] & 0xF | 0x3740LL;
-    BYTE4(InputBuffer) = (unsigned __int8)dword_140FC0D50 >> 7;
-    v22 = a1[7] & 0xF;
+      goto LABEL_26;
+    v17 = a1[8] & 0xF | 0x3740LL;
+    BYTE4(InputBuffer) = (unsigned __int8)dword_140FC0FF0 >> 7;
+    v18 = a1[7] & 0xF | (unsigned __int64)(16 * v17);
     LODWORD(InputBuffer) = 6;
-    *((_QWORD *)&InputBuffer + 1) = v6;
-    v32 = v22 | (16 * v21);
+    v28 = v18;
+    *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
     ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
   }
   else
   {
-LABEL_23:
+LABEL_22:
     if ( !v2 )
-      goto LABEL_27;
+      goto LABEL_26;
   }
-  v23 = a1[10] & 0xF;
-  BYTE4(InputBuffer) = (unsigned __int8)dword_140FC0D50 >> 7;
-  v24 = a1[11] & 0xF;
+  v19 = a1[10] & 0xF;
+  BYTE4(InputBuffer) = (unsigned __int8)dword_140FC0FF0 >> 7;
+  v20 = a1[11] & 0xF;
   LODWORD(InputBuffer) = 3;
-  *((_QWORD *)&InputBuffer + 1) = v6;
-  v25 = v23 | (16 * (v24 | 0x540));
+  *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
+  v21 = v19 | (16 * (v20 | 0x540));
   if ( !HalpHvSecureCpuResume )
-    v25 |= 0x10000u;
-  v32 = v25;
-  result = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
-LABEL_27:
+    v21 |= 0x10000u;
+  v28 = v21;
+  LODWORD(v5) = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
+LABEL_26:
   if ( !a1[12] )
   {
     if ( !HalFirmwareTypeEfi )
-      goto LABEL_33;
-    goto LABEL_32;
+      goto LABEL_32;
+    goto LABEL_31;
   }
   if ( (HalpPlatformFlags & 1) == 0 )
   {
-LABEL_32:
+LABEL_31:
     HalpShutdownContext = 0;
-    v32 = 0LL;
+    v28 = 0LL;
     *(_QWORD *)&InputBuffer = 4LL;
     *((_QWORD *)&InputBuffer + 1) = HalpLegacyShutdown;
-    result = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
-    goto LABEL_33;
+    LODWORD(v5) = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
+    goto LABEL_32;
   }
-  v26 = a1[13] & 0xF;
-  v27 = a1[14] & 0xF;
+  v22 = a1[13] & 0xF;
+  v23 = a1[14] & 0xF;
   LODWORD(InputBuffer) = 4;
   BYTE4(InputBuffer) = 0;
-  v28 = v26 | (16 * (v27 | 0x850));
-  *((_QWORD *)&InputBuffer + 1) = v6;
-  v32 = v28;
-  HalpShutdownContext = v28;
-  result = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
+  v24 = v22 | (16 * (v23 | 0x850));
+  *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
+  v28 = v24;
+  HalpShutdownContext = v24;
+  LODWORD(v5) = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
   if ( !HalpHvSleepEnlightenedCpuManager )
-    return result;
-  LOBYTE(v30) = a1[14];
-  LOBYTE(v29) = a1[13];
-  result = HalpHvSetSleepStateProperty(5LL, v29, v30);
-LABEL_33:
+    return (int)v5;
+  LOBYTE(v25) = a1[13];
+  LODWORD(v5) = HalpHvSetSleepStateProperty(5LL, v25);
+LABEL_32:
   if ( HalpHvSleepEnlightenedCpuManager )
-    return HalpHvSetSleepStateProperty(6LL, 0LL, 0LL);
-  return result;
+    LODWORD(v5) = HalpHvSetSleepStateProperty(6LL, 0LL);
+  return (int)v5;
 }

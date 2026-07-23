@@ -4,7 +4,7 @@
  *     RtlpHpVsContextFree @ 0x180028500 (RtlpHpVsContextFree.c)
  *     RtlpHpVsFreeChunkInsert @ 0x180066308 (RtlpHpVsFreeChunkInsert.c)
  *     RtlpHpVsFreeChunkRemove @ 0x180066448 (RtlpHpVsFreeChunkRemove.c)
- *     RtlpHpVsChunkDecommit @ 0x18010F994 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsChunkDecommit @ 0x18010F954 (RtlpHpVsChunkDecommit.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAbFindWakeupLockEntry @ 0x14000C900
+ * XREFs of KiAbFindWakeupLockEntry @ 0x14000C480
  * Callers:
- *     KeSetEventBoostPriorityEx @ 0x14000CAE8 (KeSetEventBoostPriorityEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x14000C668 (KeSetEventBoostPriorityEx.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
  */
 
 __m128i *__fastcall KiAbFindWakeupLockEntry(__int64 a1, __int64 a2)

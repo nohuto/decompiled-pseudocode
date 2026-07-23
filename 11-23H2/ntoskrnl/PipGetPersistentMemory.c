@@ -1,20 +1,20 @@
 /*
- * XREFs of PipGetPersistentMemory @ 0x140953368
+ * XREFs of PipGetPersistentMemory @ 0x140953568
  * Callers:
- *     IoAcquireKsrPersistentMemoryEx @ 0x1409524A0 (IoAcquireKsrPersistentMemoryEx.c)
- *     IoQueryKsrPersistentMemorySizeEx @ 0x140952770 (IoQueryKsrPersistentMemorySizeEx.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x1409529C0 (IoReserveKsrPersistentMemoryEx.c)
+ *     IoAcquireKsrPersistentMemoryEx @ 0x1409526A0 (IoAcquireKsrPersistentMemoryEx.c)
+ *     IoQueryKsrPersistentMemorySizeEx @ 0x140952970 (IoQueryKsrPersistentMemorySizeEx.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x140952BC0 (IoReserveKsrPersistentMemoryEx.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PipUnpackMetadata @ 0x14055FBBC (PipUnpackMetadata.c)
- *     PipGetDriverKsrGuid @ 0x1409531A0 (PipGetDriverKsrGuid.c)
- *     PipMatchPersistentMemory @ 0x140953A08 (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x140953AEC (PipMatchPersistentMemoryV1.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PipUnpackMetadata @ 0x14056027C (PipUnpackMetadata.c)
+ *     PipGetDriverKsrGuid @ 0x1409533A0 (PipGetDriverKsrGuid.c)
+ *     PipMatchPersistentMemory @ 0x140953C08 (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x140953CEC (PipMatchPersistentMemoryV1.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

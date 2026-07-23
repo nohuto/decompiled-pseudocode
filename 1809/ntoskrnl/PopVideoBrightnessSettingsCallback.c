@@ -1,10 +1,10 @@
 /*
- * XREFs of PopVideoBrightnessSettingsCallback @ 0x14018FF40
+ * XREFs of PopVideoBrightnessSettingsCallback @ 0x140190080
  * Callers:
  *     <none>
  * Callees:
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int a3)
@@ -51,35 +51,35 @@ __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int 
             if ( !v12 && a3 == 4 && a2 )
             {
               PopAcquirePolicyLock(a1);
-              dword_1404180EC = *a2;
+              dword_1404191AC = *a2;
               goto LABEL_25;
             }
           }
           else if ( a3 == 4 && a2 )
           {
             PopAcquirePolicyLock(a1);
-            dword_140418100 = *a2;
+            dword_1404191C0 = *a2;
             goto LABEL_25;
           }
         }
         else if ( a3 == 4 && a2 )
         {
           PopAcquirePolicyLock(a1);
-          HIDWORD(qword_1404180F8) = *a2;
+          HIDWORD(qword_1404191B8) = *a2;
           goto LABEL_25;
         }
       }
       else if ( a3 == 4 && a2 )
       {
         PopAcquirePolicyLock(a1);
-        HIDWORD(qword_1404180F0) = *a2;
+        HIDWORD(qword_1404191B0) = *a2;
         goto LABEL_25;
       }
     }
     else if ( a3 == 4 && a2 )
     {
       PopAcquirePolicyLock(a1);
-      LODWORD(qword_1404180F0) = *a2;
+      LODWORD(qword_1404191B0) = *a2;
       goto LABEL_25;
     }
   }

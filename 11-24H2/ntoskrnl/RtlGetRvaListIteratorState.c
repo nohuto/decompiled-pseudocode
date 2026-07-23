@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetRvaListIteratorState @ 0x1408F84F0
+ * XREFs of RtlGetRvaListIteratorState @ 0x1409754D0
  * Callers:
- *     MiImageCfgEnumRvaListFirst @ 0x1408F8478 (MiImageCfgEnumRvaListFirst.c)
+ *     MiImageCfgEnumRvaListFirst @ 0x140975450 (MiImageCfgEnumRvaListFirst.c)
  * Callees:
  *     <none>
  */

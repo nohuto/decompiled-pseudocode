@@ -1,8 +1,8 @@
 /*
- * XREFs of Feature_2838281531__private_IsEnabledDeviceUsage @ 0x1800A08EC
+ * XREFs of Feature_2838281531__private_IsEnabledDeviceUsage @ 0x1800A08AC
  * Callers:
- *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BEFC (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C484 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BECC (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C488 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */

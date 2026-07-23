@@ -49,12 +49,15 @@ __int64 MiInitializeCacheFlushing()
   LARGE_INTEGER v22; // [rsp+48h] [rbp-19h] BYREF
   __int64 v23; // [rsp+50h] [rbp-11h]
   __int128 v24; // [rsp+58h] [rbp-9h] BYREF
-  _OWORD v25[2]; // [rsp+68h] [rbp+7h] BYREF
+  _OWORD SystemInformation[2]; // [rsp+68h] [rbp+7h] BYREF
 
   v24 = 0LL;
-  memset(v25, 0, sizeof(v25));
-  if ( (int)ZwQuerySystemInformation(192LL, (__int64)v25) >= 0 && (BYTE8(v25[0]) & 1) != 0 )
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  if ( ZwQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL) >= 0
+    && (BYTE8(SystemInformation[0]) & 1) != 0 )
+  {
     byte_140E2D900 = 1;
+  }
   MiInitializePageColorBase(0LL, 3, 0, (__int64)&v24);
   v0 = _InterlockedExchangeAdd((volatile signed __int32 *)v24, 1u);
   result = MiGetPage(

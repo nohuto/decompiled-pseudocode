@@ -6,7 +6,11 @@
  *     _RtlpSystemBootStatusRequest@16 @ 0x4B350FCD (_RtlpSystemBootStatusRequest@16.c)
  */
 
-int __stdcall RtlGetSystemBootStatus(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlGetSystemBootStatus(
+        RTL_BSD_ITEM_TYPE BootStatusInformationClass,
+        PVOID DataBuffer,
+        ULONG DataLength,
+        PULONG ReturnLength)
 {
-  return RtlpSystemBootStatusRequest(1, a4);
+  return RtlpSystemBootStatusRequest(1, ReturnLength);
 }

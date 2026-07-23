@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PipSetDependency @ 0x140942DE4 (PipSetDependency.c)
+ *     sub_140775698 @ 0x140775698 (sub_140775698.c)
+ *     sub_1407756F4 @ 0x1407756F4 (sub_1407756F4.c)
+ *     sub_140942DE4 @ 0x140942DE4 (sub_140942DE4.c)
  */
 
 __int64 __fastcall IoReserveDependency(__int64 a1, _WORD *a2, int a3)
@@ -28,10 +28,10 @@ __int64 __fastcall IoReserveDependency(__int64 a1, _WORD *a2, int a3)
     v10 = a3;
     v5[0] = 0;
     v6 = a1;
-    PnpAcquireDependencyRelationsLock(1);
-    v3 = PipSetDependency(v5);
-    ExReleaseResourceLite(&PiDependencyRelationsLock);
-    PpDevNodeUnlockTree(0);
+    sub_1407756F4(1);
+    v3 = sub_140942DE4(v5);
+    ExReleaseResourceLite(&stru_140C46AC0);
+    sub_140775698(0);
   }
   else
   {

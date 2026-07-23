@@ -1,5 +1,5 @@
 /*
- * XREFs of _wtol @ 0x1800989B0
+ * XREFs of _wtol @ 0x1800989A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteHardwareAccelerators @ 0x14070F4A0
+ * XREFs of MiDeleteHardwareAccelerators @ 0x14071419C
  * Callers:
- *     MmAcceleratorCallbackRoutine @ 0x14087FB60 (MmAcceleratorCallbackRoutine.c)
- *     MiShutdownSystem @ 0x140C0025C (MiShutdownSystem.c)
+ *     MmAcceleratorCallbackRoutine @ 0x140885F60 (MmAcceleratorCallbackRoutine.c)
+ *     MiShutdownSystem @ 0x140C0646C (MiShutdownSystem.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiFreeDeferredAcceleratorPool @ 0x1402A6A58 (MiFreeDeferredAcceleratorPool.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     MiWakeAllZeroConductors @ 0x14070EB7C (MiWakeAllZeroConductors.c)
- *     MiUnlinkAccelerator @ 0x14070FBA8 (MiUnlinkAccelerator.c)
- *     MiWaitForInFlightAcceleratorDeletions @ 0x14070FC50 (MiWaitForInFlightAcceleratorDeletions.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiFreeDeferredAcceleratorPool @ 0x1402A5E74 (MiFreeDeferredAcceleratorPool.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     MiWakeAllZeroConductors @ 0x14071387C (MiWakeAllZeroConductors.c)
+ *     MiUnlinkAccelerator @ 0x1407148A4 (MiUnlinkAccelerator.c)
+ *     MiWaitForInFlightAcceleratorDeletions @ 0x14071494C (MiWaitForInFlightAcceleratorDeletions.c)
  */
 
 void __fastcall MiDeleteHardwareAccelerators(__int64 a1, int a2)
@@ -33,17 +33,17 @@ void __fastcall MiDeleteHardwareAccelerators(__int64 a1, int a2)
   __int64 v18; // [rsp+28h] [rbp-18h] BYREF
   _QWORD v19[2]; // [rsp+30h] [rbp-10h] BYREF
 
-  v4 = ExAcquireSpinLockExclusive(&dword_140E36530);
+  v4 = ExAcquireSpinLockExclusive(&dword_140E366B0);
   v5 = v4;
   if ( a2 )
   {
-    byte_140E36504 = 1;
+    byte_140E36684 = 1;
     if ( v4 == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36530);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E366B0);
     else
-      ExReleaseSpinLockExclusive(&dword_140E36530, v4);
+      ExReleaseSpinLockExclusive(&dword_140E366B0, v4);
     MiWakeAllZeroConductors();
-    ExAcquireSpinLockExclusive(&dword_140E36530);
+    ExAcquireSpinLockExclusive(&dword_140E366B0);
   }
 LABEL_6:
   v6 = &MiState;
@@ -68,12 +68,12 @@ LABEL_6:
             v17 = *(_QWORD *)(v9 + 40);
             *(_QWORD *)(v9 + 40) = &v17;
             if ( v5 == 17 )
-              ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36530);
+              ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E366B0);
             else
-              ExReleaseSpinLockExclusive(&dword_140E36530, v5);
+              ExReleaseSpinLockExclusive(&dword_140E366B0, v5);
             MiWakeAllZeroConductors();
             KeWaitForGate((__int64)&v18, 19LL);
-            ExAcquireSpinLockExclusive(&dword_140E36530);
+            ExAcquireSpinLockExclusive(&dword_140E366B0);
             if ( !a2 )
             {
 LABEL_20:
@@ -83,13 +83,13 @@ LABEL_20:
             goto LABEL_6;
           }
           MiUnlinkAccelerator(v9, v6);
-          v12 = (__int64 *)qword_140E36510;
-          if ( *(PVOID **)qword_140E36510 != &P )
+          v12 = (__int64 *)qword_140E36690;
+          if ( *(PVOID **)qword_140E36690 != &P )
             __fastfail(3u);
           *(_QWORD *)v9 = &P;
           *(_QWORD *)(v9 + 8) = v12;
           *v12 = v9;
-          qword_140E36510 = v9;
+          qword_140E36690 = v9;
           if ( !a2 )
             goto LABEL_20;
         }
@@ -100,17 +100,17 @@ LABEL_20:
     }
   }
   if ( v5 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36530);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E366B0);
   else
-    ExReleaseSpinLockExclusive(&dword_140E36530, v5);
+    ExReleaseSpinLockExclusive(&dword_140E366B0, v5);
   MiFreeDeferredAcceleratorPool();
   if ( a2 )
   {
     MiWaitForInFlightAcceleratorDeletions(v14, v13, v15, v16);
-    if ( qword_140E36528 )
+    if ( qword_140E366A8 )
     {
-      AccelDestroyOffloadWorkspace(qword_140E36528);
-      qword_140E36528 = 0LL;
+      AccelDestroyOffloadWorkspace(qword_140E366A8);
+      qword_140E366A8 = 0LL;
     }
   }
 }

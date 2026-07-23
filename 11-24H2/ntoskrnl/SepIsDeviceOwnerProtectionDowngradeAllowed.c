@@ -1,7 +1,7 @@
 /*
- * XREFs of SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x140608F38
+ * XREFs of SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x1406067AC
  * Callers:
- *     SeSecurityModelQueryInformation @ 0x14078FD1C (SeSecurityModelQueryInformation.c)
+ *     SeSecurityModelQueryInformation @ 0x14078FCEC (SeSecurityModelQueryInformation.c)
  * Callees:
  *     <none>
  */

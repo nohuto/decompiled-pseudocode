@@ -1,18 +1,18 @@
 /*
- * XREFs of KeIntSteerPeriodic @ 0x1403534C4
+ * XREFs of KeIntSteerPeriodic @ 0x1402B1294
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140352C70 (PpmParkSteerInterrupts.c)
+ *     PpmParkSteerInterrupts @ 0x1402B0A40 (PpmParkSteerInterrupts.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerEtwEventEnabled @ 0x1403536D8 (KiIntSteerEtwEventEnabled.c)
- *     KiIntSteerDistributeInterrupts @ 0x140353750 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerLogMask @ 0x140353958 (KiIntSteerLogMask.c)
- *     KiIntSteerLogProc @ 0x140353A78 (KiIntSteerLogProc.c)
- *     KiIntSteerCalculateDistribution @ 0x140353BC0 (KiIntSteerCalculateDistribution.c)
- *     KiIntSteerLogState @ 0x1403552B4 (KiIntSteerLogState.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerEtwEventEnabled @ 0x1402B14A8 (KiIntSteerEtwEventEnabled.c)
+ *     KiIntSteerDistributeInterrupts @ 0x1402B1520 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerLogMask @ 0x1402B1728 (KiIntSteerLogMask.c)
+ *     KiIntSteerLogProc @ 0x1402B1848 (KiIntSteerLogProc.c)
+ *     KiIntSteerCalculateDistribution @ 0x1402B1990 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerLogState @ 0x1402B2FE4 (KiIntSteerLogState.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeIntSteerPeriodic(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

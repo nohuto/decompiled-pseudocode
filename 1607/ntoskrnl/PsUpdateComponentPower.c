@@ -1,5 +1,5 @@
 /*
- * XREFs of PsUpdateComponentPower @ 0x1400AF8DC
+ * XREFs of PsUpdateComponentPower @ 0x1400ADE44
  * Callers:
  *     <none>
  * Callees:

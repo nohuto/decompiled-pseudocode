@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRemoveSystemServiceTable @ 0x1408433E0
+ * XREFs of KeRemoveSystemServiceTable @ 0x140844640
  * Callers:
  *     <none>
  * Callees:
@@ -13,13 +13,13 @@ char __fastcall KeRemoveSystemServiceTable(int a1)
   if ( (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process) )
     return 1;
   if ( (unsigned int)(a1 - 1) <= 1
-    && ((_QWORD)xmmword_1405598A0 || (_QWORD)xmmword_1405419A0 || (_QWORD)xmmword_1405419E0) )
+    && ((_QWORD)xmmword_14055A8A0 || (_QWORD)xmmword_1405429A0 || (_QWORD)xmmword_1405429E0) )
   {
     if ( a1 == 1 )
     {
-      *(_QWORD *)&xmmword_1405419A0 = 0LL;
-      LODWORD(xmmword_1405419B0) = 0;
-      *((_QWORD *)&xmmword_1405419B0 + 1) = 0LL;
+      *(_QWORD *)&xmmword_1405429A0 = 0LL;
+      LODWORD(xmmword_1405429B0) = 0;
+      *((_QWORD *)&xmmword_1405429B0 + 1) = 0LL;
     }
     else
     {

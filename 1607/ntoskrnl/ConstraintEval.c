@@ -1,17 +1,17 @@
 /*
- * XREFs of ConstraintEval @ 0x14048A548
+ * XREFs of ConstraintEval @ 0x140489ED0
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048AD7C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048B010 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SimplifyFilter @ 0x14048A364 (SimplifyFilter.c)
- *     FilterEval @ 0x1405027C4 (FilterEval.c)
+ *     SimplifyFilter @ 0x1404896D0 (SimplifyFilter.c)
+ *     FilterEval @ 0x1404E5754 (FilterEval.c)
  */
 
 __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a4, __int64 a5)

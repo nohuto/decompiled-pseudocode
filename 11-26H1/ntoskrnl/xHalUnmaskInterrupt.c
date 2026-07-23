@@ -1,7 +1,7 @@
 /*
- * XREFs of xHalUnmaskInterrupt @ 0x140508C60
+ * XREFs of xHalUnmaskInterrupt @ 0x140502710
  * Callers:
- *     HalpInterruptUnmap @ 0x140781218 (HalpInterruptUnmap.c)
+ *     HalpInterruptUnmap @ 0x140783D18 (HalpInterruptUnmap.c)
  * Callees:
  *     <none>
  */

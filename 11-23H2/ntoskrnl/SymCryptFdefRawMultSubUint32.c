@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawMultSubUint32 @ 0x140403C0C
+ * XREFs of SymCryptFdefRawMultSubUint32 @ 0x140403DEC
  * Callers:
- *     SymCryptFdefRawDivMod @ 0x1404038A8 (SymCryptFdefRawDivMod.c)
+ *     SymCryptFdefRawDivMod @ 0x140403A88 (SymCryptFdefRawDivMod.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsResumeThread @ 0x1404CCE44
+ * XREFs of PsResumeThread @ 0x1404B2870
  * Callers:
- *     NtResumeThread @ 0x1404CCD9C (NtResumeThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x14061874C (DbgkpPostFakeThreadMessages.c)
- *     DbgkpWakeTarget @ 0x14061959C (DbgkpWakeTarget.c)
+ *     NtResumeThread @ 0x1404B27C8 (NtResumeThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140618800 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x140619650 (DbgkpWakeTarget.c)
  * Callees:
- *     KeResumeThread @ 0x1400A2840 (KeResumeThread.c)
- *     EtwTiLogSuspendResumeThread @ 0x1406A6110 (EtwTiLogSuspendResumeThread.c)
+ *     KeResumeThread @ 0x1400A1168 (KeResumeThread.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1406A6248 (EtwTiLogSuspendResumeThread.c)
  */
 
 __int64 __fastcall PsResumeThread(__int64 a1, _DWORD *a2)

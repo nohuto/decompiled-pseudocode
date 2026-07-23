@@ -1,67 +1,67 @@
 /*
- * XREFs of NtNotifyChangeMultipleKeys @ 0x1408BF750
+ * XREFs of NtNotifyChangeMultipleKeys @ 0x1408BD110
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1406F6C60 (ExpWatchProductTypeWork.c)
- *     SepAdtOpenRegAndSetupNotification @ 0x140796400 (SepAdtOpenRegAndSetupNotification.c)
- *     SepAdtRegNotificationCallback @ 0x1407964A0 (SepAdtRegNotificationCallback.c)
- *     ExpWatchLicenseInfoWork @ 0x1407B73B0 (ExpWatchLicenseInfoWork.c)
- *     WheaInitializeRegChangeNotify @ 0x1407C89CC (WheaInitializeRegChangeNotify.c)
- *     WheaRegChangeNotifyCallback @ 0x1407C8A60 (WheaRegChangeNotifyCallback.c)
- *     NtNotifyChangeKey @ 0x1408BF6E0 (NtNotifyChangeKey.c)
+ *     ExpWatchProductTypeWork @ 0x1406F4C60 (ExpWatchProductTypeWork.c)
+ *     SepAdtOpenRegAndSetupNotification @ 0x140796510 (SepAdtOpenRegAndSetupNotification.c)
+ *     SepAdtRegNotificationCallback @ 0x1407965B0 (SepAdtRegNotificationCallback.c)
+ *     ExpWatchLicenseInfoWork @ 0x1407B7800 (ExpWatchLicenseInfoWork.c)
+ *     WheaInitializeRegChangeNotify @ 0x1407C8EBC (WheaInitializeRegChangeNotify.c)
+ *     WheaRegChangeNotifyCallback @ 0x1407C8F50 (WheaRegChangeNotifyCallback.c)
+ *     NtNotifyChangeKey @ 0x1408BD0A0 (NtNotifyChangeKey.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ObDereferenceObjectDeferDelete @ 0x1403C5CE0 (ObDereferenceObjectDeferDelete.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     KeInitializeApc @ 0x140422520 (KeInitializeApc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmLockHive @ 0x140845C74 (CmLockHive.c)
- *     CmUnlockHive @ 0x140846740 (CmUnlockHive.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     CmpFreePostBlock @ 0x14086A740 (CmpFreePostBlock.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
- *     CmpInitializeParseContext @ 0x14092D400 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14092D4B0 (CmpCleanupParseContext.c)
- *     CmpLockTwoKcbsShared @ 0x1409F45F0 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x1409F67C4 (CmpUnlockTwoKcbs.c)
- *     CmpAllocatePostBlock @ 0x140AE38FC (CmpAllocatePostBlock.c)
- *     CmpNotifyChangeKey @ 0x140AE4A64 (CmpNotifyChangeKey.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmObReferenceObjectByHandle @ 0x140BB9350 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140BB9480 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
- *     CmObReferenceObjectByName @ 0x140BB9CF8 (CmObReferenceObjectByName.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1403B48A0 (ObDereferenceObjectDeferDelete.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     KeInitializeApc @ 0x1404163D0 (KeInitializeApc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmLockHive @ 0x140841F34 (CmLockHive.c)
+ *     CmUnlockHive @ 0x140842A00 (CmUnlockHive.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     CmpFreePostBlock @ 0x14086EA70 (CmpFreePostBlock.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
+ *     CmpInitializeParseContext @ 0x14092F540 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14092F5F0 (CmpCleanupParseContext.c)
+ *     CmpLockTwoKcbsShared @ 0x1409E8950 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1409EA714 (CmpUnlockTwoKcbs.c)
+ *     CmpAllocatePostBlock @ 0x140AE51DC (CmpAllocatePostBlock.c)
+ *     CmpNotifyChangeKey @ 0x140AE6344 (CmpNotifyChangeKey.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmObReferenceObjectByHandle @ 0x140BBB350 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140BBB480 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
+ *     CmObReferenceObjectByName @ 0x140BBBCF8 (CmObReferenceObjectByName.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
-__int64 NtNotifyChangeMultipleKeys(
-        int a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        void (__stdcall *a5)(POPLOCK Oplock),
-        __int64 a6,
-        unsigned __int64 a7,
-        unsigned int a8,
-        unsigned __int8 a9,
-        unsigned __int64 a10,
-        unsigned int a11,
-        char a12,
-        ...)
+NTSTATUS __cdecl NtNotifyChangeMultipleKeys(
+        HANDLE MasterKeyHandle,
+        ULONG Count,
+        OBJECT_ATTRIBUTES SubordinateObjects[],
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        PVOID Buffer,
+        ULONG BufferSize,
+        BOOLEAN Asynchronous)
 {
+  int v14; // r13d
   PVOID v15; // rsi
   unsigned __int8 v16; // bl
   __int64 v17; // rdx
@@ -70,9 +70,9 @@ __int64 NtNotifyChangeMultipleKeys(
   __int64 v20; // r9
   __int64 v21; // rcx
   unsigned __int8 PreviousMode; // di
-  unsigned int v23; // r8d
+  ULONG v23; // r8d
   _KPROCESS *Process; // rcx
-  unsigned __int64 v25; // rcx
+  PIO_STATUS_BLOCK v25; // rcx
   unsigned __int64 v26; // rdx
   unsigned __int64 v27; // rdx
   unsigned __int64 v28; // rax
@@ -80,17 +80,17 @@ __int64 NtNotifyChangeMultipleKeys(
   unsigned __int64 v30; // rdx
   int v31; // r15d
   __int64 v32; // rcx
-  int v33; // ebx
+  NTSTATUS v33; // ebx
   _QWORD *v34; // r13
   _QWORD *v35; // rdi
   __int64 PostBlock; // rax
   __int64 v37; // rbx
   __int64 v38; // rcx
-  NTSTATUS v39; // esi
+  int v39; // esi
   _QWORD *v40; // rax
   unsigned __int8 v41; // r9
   struct _KTHREAD *CurrentThread; // rdx
-  void (__stdcall *v43)(POPLOCK); // r8
+  void *v43; // r8
   __int64 v44; // rcx
   ULONG_PTR v45; // rcx
   __int64 v46; // rcx
@@ -147,11 +147,12 @@ __int64 NtNotifyChangeMultipleKeys(
   PVOID v98; // [rsp+60h] [rbp-258h] BYREF
   __int64 v99; // [rsp+68h] [rbp-250h]
   PVOID v100; // [rsp+70h] [rbp-248h] BYREF
-  __int64 v101; // [rsp+78h] [rbp-240h]
+  OBJECT_ATTRIBUTES *__attribute__((__org_arrdim(0,0))) v101; // [rsp+78h] [rbp-240h]
   _KAFFINITY_EX v102; // [rsp+80h] [rbp-238h] BYREF
 
-  v102.StaticBitmap[2] = a4;
-  v101 = a3;
+  v102.StaticBitmap[2] = (unsigned __int64)Event;
+  v101 = SubordinateObjects;
+  v14 = (int)MasterKeyHandle;
   memset(&v102, 0, 24);
   v100 = 0LL;
   v15 = 0LL;
@@ -168,21 +169,21 @@ __int64 NtNotifyChangeMultipleKeys(
   if ( !v91 )
   {
     CmpCleanupThreadInfo((_KAFFINITY_EX **)&v102);
-    return 3221225865LL;
+    return -1073741431;
   }
-  if ( a2 > 1 )
+  if ( Count > 1 )
   {
 LABEL_125:
     CmpReleaseShutdownRundown(v21);
     CmpCleanupThreadInfo((_KAFFINITY_EX **)&v102);
-    return 3221225485LL;
+    return -1073741811;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v93 = PreviousMode;
   if ( PreviousMode )
   {
-    v23 = a8;
-    if ( (a8 & 0x10000000) == 0 )
+    v23 = CompletionFilter;
+    if ( (CompletionFilter & 0x10000000) == 0 )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
       if ( Process[1].ReadyTime )
@@ -192,26 +193,26 @@ LABEL_125:
           v16 = 1;
       }
       v94 = v16;
-      v25 = a7;
-      if ( (a7 & 3) == 0 )
+      v25 = IoStatusBlock;
+      if ( ((unsigned __int8)IoStatusBlock & 3) == 0 )
       {
-        v26 = a7 + 7 + 8 * (v16 ^ 1LL);
-        if ( a7 > v26 || v26 >= 0x7FFFFFFF0000LL )
+        v26 = (unsigned __int64)&IoStatusBlock->Pointer + 8 * (v16 ^ 1LL) + 7;
+        if ( (unsigned __int64)IoStatusBlock > v26 || v26 >= 0x7FFFFFFF0000LL )
           goto LABEL_20;
         v27 = (v26 & 0xFFFFFFFFFFFFF000uLL) + 4096;
         do
         {
-          *(_BYTE *)v25 = *(_BYTE *)v25;
-          v25 = (v25 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+          LOBYTE(v25->Status) = v25->Status;
+          v25 = (PIO_STATUS_BLOCK)(((unsigned __int64)v25 & 0xFFFFFFFFFFFFF000uLL) + 4096);
         }
-        while ( v25 != v27 );
-        if ( !a11 )
+        while ( v25 != (PIO_STATUS_BLOCK)v27 );
+        if ( !BufferSize )
           goto LABEL_17;
-        v28 = a10;
-        if ( (a10 & 3) == 0 )
+        v28 = (unsigned __int64)Buffer;
+        if ( ((unsigned __int8)Buffer & 3) == 0 )
         {
-          v29 = a11 + a10 - 1;
-          if ( a10 <= v29 && v29 < 0x7FFFFFFF0000LL )
+          v29 = (unsigned __int64)Buffer + BufferSize - 1;
+          if ( (unsigned __int64)Buffer <= v29 && v29 < 0x7FFFFFFF0000LL )
           {
             v30 = (v29 & 0xFFFFFFFFFFFFF000uLL) + 4096;
             do
@@ -224,15 +225,15 @@ LABEL_17:
             v21 = 0LL;
             if ( v16 )
             {
-              *(_QWORD *)a7 = 259LL;
+              IoStatusBlock->Pointer = (PVOID)259;
             }
             else
             {
-              *(_DWORD *)a7 = 259;
-              *(_QWORD *)(a7 + 8) = 0LL;
+              IoStatusBlock->Status = 259;
+              IoStatusBlock->Information = 0LL;
             }
             v31 = 2;
-            if ( a12 )
+            if ( Asynchronous )
               v95 = 2;
             goto LABEL_25;
           }
@@ -242,7 +243,7 @@ LABEL_20:
       }
       ExRaiseDatatypeMisalignment();
     }
-    if ( !a12 || a5 || !a4 )
+    if ( !Asynchronous || ApcRoutine || !Event )
       goto LABEL_125;
     v95 = 4;
     v31 = 2;
@@ -250,32 +251,39 @@ LABEL_20:
   }
   else
   {
-    if ( a12 )
+    if ( Asynchronous )
     {
       v95 = 3;
-      if ( a2 )
+      if ( Count )
         goto LABEL_125;
     }
-    v23 = a8;
+    v23 = CompletionFilter;
     v31 = 2;
     v21 = 0LL;
   }
 LABEL_25:
   if ( v23 != (v23 & 0x1000000F) )
     goto LABEL_125;
-  v33 = CmObReferenceObjectByHandle(a1, 16, v23, PreviousMode, (__int64)&v100, 0LL);
+  v33 = CmObReferenceObjectByHandle(v14, 16, v23, PreviousMode, (__int64)&v100, 0LL);
   if ( v33 < 0 )
   {
     CmpReleaseShutdownRundown(v32);
     CmpCleanupThreadInfo((_KAFFINITY_EX **)&v102);
-    return (unsigned int)v33;
+    return v33;
   }
   v34 = 0LL;
   v98 = 0LL;
-  if ( a2 == 1 )
+  if ( Count == 1 )
   {
     CmpInitializeParseContext(&v102.StaticBitmap[3]);
-    v39 = CmObReferenceObjectByName(v101, 0, 16, v64, PreviousMode, (__int64)&v102.StaticBitmap[3], (__int64)&v98);
+    v39 = CmObReferenceObjectByName(
+            (_DWORD)v101,
+            0,
+            16,
+            v64,
+            PreviousMode,
+            (__int64)&v102.StaticBitmap[3],
+            (__int64)&v98);
     CmpCleanupParseContext(&v102.StaticBitmap[3], 0LL);
     v35 = v100;
     if ( v39 < 0 )
@@ -295,15 +303,15 @@ LABEL_25:
   }
   PostBlock = CmpAllocatePostBlock(v95, 0x10000LL, 0LL, 0LL);
   v37 = PostBlock;
-  v101 = PostBlock;
+  v101 = (OBJECT_ATTRIBUTES *)PostBlock;
   if ( !PostBlock )
   {
-    if ( a2 == 1 )
+    if ( Count == 1 )
       ObfDereferenceObject(v34);
     v39 = -1073741670;
     goto LABEL_55;
   }
-  if ( a2 == 1 )
+  if ( Count == 1 )
   {
     P = (__int64 *)CmpAllocatePostBlock(v95, 0LL, v34, PostBlock);
     if ( !P )
@@ -329,7 +337,7 @@ LABEL_25:
               0LL);
       if ( v39 < 0 )
       {
-        if ( a2 == 1 )
+        if ( Count == 1 )
           CmpFreePostBlock(P);
         v51 = *(_QWORD *)(v37 + 48);
         if ( v51 )
@@ -349,15 +357,15 @@ LABEL_25:
     v40 = *(_QWORD **)(v37 + 64);
     if ( (_DWORD)v38 == 2 )
     {
-      v40[13] = a7;
+      v40[13] = IoStatusBlock;
       *(_QWORD *)(*(_QWORD *)(v37 + 64) + 8LL) = v15;
       v41 = v93;
-      if ( !a5 )
+      if ( !ApcRoutine )
         v41 = 0;
       CurrentThread = KeGetCurrentThread();
       v43 = AlpcMessageDeleteProcedure;
-      if ( a5 )
-        v43 = a5;
+      if ( ApcRoutine )
+        v43 = ApcRoutine;
       KeInitializeApc(
         *(_QWORD *)(v37 + 64) + 16LL,
         (__int64)CurrentThread,
@@ -366,7 +374,7 @@ LABEL_25:
         (__int64)CmpPostApcRunDown,
         (__int64)v43,
         v41,
-        a6);
+        (__int64)ApcContext);
       v35 = v100;
       v34 = v98;
     }
@@ -375,15 +383,15 @@ LABEL_25:
       *v40 = v15;
       if ( (_DWORD)v38 != 4 )
       {
-        *(_QWORD *)(*(_QWORD *)(v37 + 64) + 8LL) = a5;
+        *(_QWORD *)(*(_QWORD *)(v37 + 64) + 8LL) = ApcRoutine;
         v38 = *(_QWORD *)(v37 + 64);
-        *(_DWORD *)(v38 + 16) = a6;
+        *(_DWORD *)(v38 + 16) = (_DWORD)ApcContext;
       }
     }
   }
   CmpLockRegistry(v38);
   v44 = v35[1];
-  if ( a2 == 1 )
+  if ( Count == 1 )
     CmpLockTwoKcbsShared(v44, v34[1]);
   else
     CmpLockKcbShared(v44);
@@ -391,14 +399,14 @@ LABEL_25:
   {
 LABEL_44:
     v45 = v35[1];
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpUnlockTwoKcbs(v45, v34[1]);
     else
       CmpUnlockKcb(v45);
     CmpUnlockRegistry(v46);
     if ( v15 )
       ObfDereferenceObject(v15);
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpFreePostBlock(P);
     v47 = *(_QWORD *)(v37 + 48);
     if ( v47 )
@@ -412,7 +420,7 @@ LABEL_44:
     v39 = -1073741444;
     goto LABEL_55;
   }
-  if ( a2 != 1 )
+  if ( Count != 1 )
     goto LABEL_74;
   if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(v34, 0LL) )
     goto LABEL_44;
@@ -441,7 +449,7 @@ LABEL_74:
     v99 = *(_QWORD *)(v34[1] + 32LL);
   }
   ExAcquireFastMutexUnsafe(&CmpPostLock);
-  v39 = CmpNotifyChangeKey(v35, v37, a8, a9);
+  v39 = CmpNotifyChangeKey(v35, v37, CompletionFilter, WatchTree);
   if ( v39 < 0 )
   {
     ExReleaseFastMutexUnsafe(&CmpPostLock);
@@ -461,25 +469,25 @@ LABEL_74:
     }
     CmUnlockHive(v74);
     v80 = v35[1];
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpUnlockTwoKcbs(v80, v34[1]);
     else
       CmpUnlockKcb(v80);
     CmpUnlockRegistry(v81);
     if ( Object )
       ObfDereferenceObject(Object);
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpFreePostBlock(P);
     goto LABEL_55;
   }
-  v92 = a2 == 1;
-  if ( a2 == 1 )
+  v92 = Count == 1;
+  if ( Count == 1 )
   {
     PsReferenceSiloContext(v34);
     if ( v39 )
     {
-      v39 = CmpNotifyChangeKey(v34, P, a8, a9);
-      v92 = a2 == 1;
+      v39 = CmpNotifyChangeKey(v34, P, CompletionFilter, WatchTree);
+      v92 = Count == 1;
       if ( v39 < 0 )
       {
         v82 = *(_QWORD *)v37;
@@ -508,7 +516,7 @@ LABEL_74:
           LOBYTE(CurrentIrql) = (_BYTE)v98;
         }
         __writecr8((unsigned __int8)CurrentIrql);
-        v92 = a2 == 1;
+        v92 = Count == 1;
       }
     }
     else
@@ -534,7 +542,7 @@ LABEL_74:
   }
   CmUnlockHive(v53);
   v54 = v35[1];
-  if ( a2 == 1 )
+  if ( Count == 1 )
     CmpUnlockTwoKcbs(v54, v34[1]);
   else
     CmpUnlockKcb(v54);
@@ -652,11 +660,11 @@ LABEL_74:
         ExReleaseFastMutexUnsafe(&CmpPostLock);
         CmpUnlockRegistry(v72);
         v39 = *(_DWORD *)(*(_QWORD *)(v37 + 64) + 24LL);
-        *(_DWORD *)a7 = v39;
+        IoStatusBlock->Status = v39;
         if ( v94 )
-          *(_DWORD *)(a7 + 4) = 0;
+          HIDWORD(IoStatusBlock->Pointer) = 0;
         else
-          *(_QWORD *)(a7 + 8) = 0LL;
+          IoStatusBlock->Information = 0LL;
         if ( v92 )
           CmpFreePostBlock(P);
 LABEL_143:
@@ -674,5 +682,5 @@ LABEL_56:
   if ( v48 )
     CmpReleaseShutdownRundown(v49);
   CmpCleanupThreadInfo((_KAFFINITY_EX **)&v102);
-  return (unsigned int)v39;
+  return v39;
 }

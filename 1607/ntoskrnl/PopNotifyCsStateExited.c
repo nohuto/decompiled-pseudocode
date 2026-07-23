@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifyCsStateExited @ 0x14066FE88
+ * XREFs of PopNotifyCsStateExited @ 0x14066FF6C
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
- *     TtmNotifyCsStateExited @ 0x140678944 (TtmNotifyCsStateExited.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
+ *     TtmNotifyCsStateExited @ 0x140678A28 (TtmNotifyCsStateExited.c)
  */
 
 __int64 __fastcall PopNotifyCsStateExited(int a1)

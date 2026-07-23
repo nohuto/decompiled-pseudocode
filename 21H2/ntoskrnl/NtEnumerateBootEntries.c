@@ -1,36 +1,36 @@
 /*
- * XREFs of NtEnumerateBootEntries @ 0x140953310
+ * XREFs of NtEnumerateBootEntries @ 0x1409534E0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
- *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     strcmp @ 0x1403D3730 (strcmp.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExpIsDevicePathForRemovableMedia @ 0x1405B6DB0 (ExpIsDevicePathForRemovableMedia.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1408998EC (IoEnumerateEnvironmentVariablesEx.c)
- *     ExpSafeWcslen @ 0x1409510D0 (ExpSafeWcslen.c)
- *     ExpTranslateBootEntryNameToId @ 0x14095206C (ExpTranslateBootEntryNameToId.c)
- *     ExpVerifyFilePath @ 0x140952DC8 (ExpVerifyFilePath.c)
- *     ExpVerifyWindowsOsOptions @ 0x140952F24 (ExpVerifyWindowsOsOptions.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExUnlockUserBuffer @ 0x1402161DC (ExUnlockUserBuffer.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     strcmp @ 0x1403D38A0 (strcmp.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExpIsDevicePathForRemovableMedia @ 0x1405B6FE0 (ExpIsDevicePathForRemovableMedia.c)
+ *     ExLockUserBuffer @ 0x1405E45FC (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x140899A4C (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpSafeWcslen @ 0x1409512A0 (ExpSafeWcslen.c)
+ *     ExpTranslateBootEntryNameToId @ 0x14095223C (ExpTranslateBootEntryNameToId.c)
+ *     ExpVerifyFilePath @ 0x140952F98 (ExpVerifyFilePath.c)
+ *     ExpVerifyWindowsOsOptions @ 0x1409530F4 (ExpVerifyWindowsOsOptions.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v5; // rcx
   unsigned int v6; // ebx
   _DWORD *v7; // rsi
-  unsigned int v8; // r12d
+  NTSTATUS v8; // r12d
   _DWORD *v9; // r13
   struct _KTHREAD *v10; // rax
   unsigned int *PoolWithTag; // rax
@@ -93,34 +93,35 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
 
   v58 = 0LL;
   P = 0LL;
-  if ( dword_140C19850 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+  if ( dword_140C197B0 != 2 )
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   NumberOfBytes_4 = PreviousMode;
   if ( PreviousMode )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)BufferLength < 0x7FFFFFFF0000LL )
+      v5 = (__int64)BufferLength;
     *(_DWORD *)v5 = *(_DWORD *)v5;
-    v6 = Address != 0 ? *a2 : 0;
+    v6 = Buffer != 0LL ? *BufferLength : 0;
     v49 = v6;
     if ( v6 )
-      ProbeForWrite((volatile void *)Address, v6, 4u);
+      ProbeForWrite(Buffer, v6, 4u);
     PreviousMode = NumberOfBytes_4;
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, NumberOfBytes_4) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v6 = Address != 0 ? *a2 : 0;
+    v6 = Buffer != 0LL ? *BufferLength : 0;
     v49 = v6;
   }
   if ( !v6
-    || (result = ExLockUserBuffer(Address, v6, PreviousMode, IoWriteAccess, &v58, (struct _MDL **)&P), (int)result >= 0) )
+    || (result = ExLockUserBuffer((unsigned __int64)Buffer, v6, PreviousMode, IoWriteAccess, &v58, (struct _MDL **)&P),
+        result >= 0) )
   {
     v7 = v58;
     v48 = v6 != 0;
@@ -338,7 +339,7 @@ LABEL_78:
       ExUnlockUserBuffer((struct _MDL *)P);
     if ( v15 < 0 )
       v8 = v15;
-    *a2 = (_DWORD)v7 - (_DWORD)v58;
+    *BufferLength = (_DWORD)v7 - (_DWORD)v58;
     return v8;
   }
   return result;

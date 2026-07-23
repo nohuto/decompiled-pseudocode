@@ -1,5 +1,5 @@
 /*
- * XREFs of PoEndDeviceBusy @ 0x1405CFD10
+ * XREFs of PoEndDeviceBusy @ 0x1405CD480
  * Callers:
  *     <none>
  * Callees:

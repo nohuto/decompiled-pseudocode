@@ -19,10 +19,14 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtInitiatePowerAction(int a1, int a2, int a3, char a4)
+NTSTATUS __cdecl NtInitiatePowerAction(
+        POWER_ACTION SystemAction,
+        SYSTEM_POWER_STATE LightestSystemState,
+        ULONG Flags,
+        BOOLEAN Asynchronous)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS Lock; // edi
+  int Lock; // edi
   struct _KEVENT *v6; // rbx
   char PreviousMode; // r12
   struct _KEVENT *PoolWithTag; // rax
@@ -47,35 +51,41 @@ __int64 __fastcall NtInitiatePowerAction(int a1, int a2, int a3, char a4)
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 == 7 )
-      return 3221225485LL;
+    if ( SystemAction == PowerActionWarmEject )
+      return -1073741811;
     if ( !SeSinglePrivilegeCheck(SeShutdownPrivilege, CurrentThread->PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
-  if ( a2 > 7 || a1 > 7 || (a3 & 0x10000000) != 0 || a1 == 2 && a2 >= 5 || (a3 & 0xCFFFFC0) != 0 )
-    return 3221225485LL;
-  if ( (unsigned int)(a1 - 4) > 2 && PsIsCurrentThreadInServerSilo() )
-    return 3221225659LL;
+  if ( LightestSystemState > PowerSystemMaximum
+    || SystemAction > PowerActionWarmEject
+    || (Flags & 0x10000000) != 0
+    || SystemAction == PowerActionSleep && LightestSystemState >= PowerSystemHibernate
+    || (Flags & 0xCFFFFC0) != 0 )
+  {
+    return -1073741811;
+  }
+  if ( (unsigned int)(SystemAction - 4) > 2 && PsIsCurrentThreadInServerSilo() )
+    return -1073741637;
   v22[2] = 0;
-  v22[0] = a1;
-  v22[1] = a3;
+  v22[0] = SystemAction;
+  v22[1] = Flags;
   v24 = 128;
   v25 = 0LL;
-  if ( !PreviousMode && a1 == 6 && (a3 & 0x3000000) != 0 )
+  if ( !PreviousMode && SystemAction == PowerActionShutdownOff && (Flags & 0x3000000) != 0 )
   {
     v23 = 15;
   }
   else
   {
     v23 = 4;
-    PopDiagTracePolicyInitiatePowerActionApiCall(a1, a2);
+    PopDiagTracePolicyInitiatePowerActionApiCall(SystemAction, LightestSystemState);
   }
-  if ( !a4 )
+  if ( !Asynchronous )
   {
     PoolWithTag = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x57634150u);
     v6 = PoolWithTag;
     if ( !PoolWithTag )
-      return 3221225626LL;
+      return -1073741670;
     *(_OWORD *)&PoolWithTag->Header.Lock = 0LL;
     *(_OWORD *)&PoolWithTag->Header.WaitListHead.Blink = 0LL;
     PoolWithTag[1].Header.WaitListHead = 0LL;
@@ -84,7 +94,7 @@ __int64 __fastcall NtInitiatePowerAction(int a1, int a2, int a3, char a4)
     v24 |= 0x20u;
     *(_QWORD *)&v25 = v6;
   }
-  if ( (unsigned int)(a1 - 4) <= 2 && (BYTE8(PopBsdPowerTransition) & 8) == 0 )
+  if ( (unsigned int)(SystemAction - 4) <= 2 && (BYTE8(PopBsdPowerTransition) & 8) == 0 )
   {
     PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
     BYTE8(PopBsdPowerTransition) |= 8u;
@@ -92,8 +102,8 @@ __int64 __fastcall NtInitiatePowerAction(int a1, int a2, int a3, char a4)
     PopBsdHandleRequest(8);
     PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
   }
-  PopAcquirePolicyLock(a1);
-  PopExecutePowerAction((unsigned int)&v23, 0, (unsigned int)v22, a2, 1);
+  PopAcquirePolicyLock(SystemAction);
+  PopExecutePowerAction((unsigned int)&v23, 0, (unsigned int)v22, LightestSystemState, 1);
   PopReleasePolicyLock(v14, v13);
   if ( v6 )
   {
@@ -122,5 +132,5 @@ LABEL_23:
     }
     ExFreePoolWithTag(v6, 0);
   }
-  return (unsigned int)Lock;
+  return Lock;
 }

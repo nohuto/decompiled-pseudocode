@@ -1,42 +1,42 @@
 /*
- * XREFs of MiCaptureImageExceptionValues @ 0x140AA95F8
+ * XREFs of MiCaptureImageExceptionValues @ 0x140AA5A00
  * Callers:
- *     MiConstructLoaderEntry @ 0x140AA8F54 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x140AA535C (MiConstructLoaderEntry.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     RtlClearAllBits @ 0x14047EA90 (RtlClearAllBits.c)
- *     MiGetExtendedLoaderBitmap @ 0x1404FE2CC (MiGetExtendedLoaderBitmap.c)
- *     RtlMarkExceptionHandlingPages @ 0x140AA96C8 (RtlMarkExceptionHandlingPages.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     RtlClearAllBits @ 0x140478400 (RtlClearAllBits.c)
+ *     MiGetExtendedLoaderBitmap @ 0x1404F780C (MiGetExtendedLoaderBitmap.c)
+ *     RtlMarkExceptionHandlingPages @ 0x140AA5AD0 (RtlMarkExceptionHandlingPages.c)
  */
 
 void __fastcall MiCaptureImageExceptionValues(__int64 a1)
 {
-  unsigned __int64 v1; // rbp
-  _DWORD *v3; // r14
-  RTL_BITMAP *ExtendedLoaderBitmap; // rdi
+  char *v1; // rbp
+  PIMAGE_NT_HEADERS v3; // r14
+  _RTL_BITMAP *ExtendedLoaderBitmap; // rdi
   unsigned int v5; // esi
   int v6; // edx
-  unsigned __int64 v7; // r8
-  int v8; // r9d
+  char *v7; // r8
+  int Size; // r9d
   PRTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h]
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(char **)(a1 + 48);
   v3 = RtlImageNtHeader(v1);
-  ExtendedLoaderBitmap = (RTL_BITMAP *)MiGetExtendedLoaderBitmap(a1);
+  ExtendedLoaderBitmap = (_RTL_BITMAP *)MiGetExtendedLoaderBitmap(a1);
   v5 = *(_DWORD *)(a1 + 64) >> 12;
   ExtendedLoaderBitmap->SizeOfBitMap = v5;
   ExtendedLoaderBitmap->Buffer = &ExtendedLoaderBitmap[1].SizeOfBitMap;
   RtlClearAllBits(ExtendedLoaderBitmap);
-  if ( v3[33] > 3u )
+  if ( v3->OptionalHeader.NumberOfRvaAndSizes > 3 )
   {
     v6 = *(_DWORD *)(a1 + 152);
-    v7 = v1 + (unsigned int)v3[40];
+    v7 = &v1[v3->OptionalHeader.DataDirectory[3].VirtualAddress];
     *(_QWORD *)(a1 + 16) = v7;
-    v8 = v3[41];
-    *(_DWORD *)(a1 + 24) = v8;
-    if ( (int)RtlMarkExceptionHandlingPages(v1, v6, v7, v8, ExtendedLoaderBitmap) < 0 )
+    Size = v3->OptionalHeader.DataDirectory[3].Size;
+    *(_DWORD *)(a1 + 24) = Size;
+    if ( (int)RtlMarkExceptionHandlingPages((int)v1, v6, (int)v7, Size, ExtendedLoaderBitmap) < 0 )
     {
       LODWORD(BitMapHeader) = v5;
       DbgPrintEx(

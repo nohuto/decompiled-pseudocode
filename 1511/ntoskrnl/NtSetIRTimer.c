@@ -6,7 +6,7 @@
  *     <none>
  */
 
-NTSTATUS __fastcall NtSetIRTimer(void *a1, __int64 *a2)
+NTSTATUS __cdecl NtSetIRTimer(HANDLE TimerHandle, PLARGE_INTEGER DueTime)
 {
-  return ExpSetTimer2(a1, a2, 0LL);
+  return ExpSetTimer2(TimerHandle, (__int64 *)DueTime, 0LL);
 }

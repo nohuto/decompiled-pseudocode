@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x180042154
+ * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x180042144
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x180041F0C (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x180041EFC (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue32 @ 0x180042348 (RtlpHeapGenerateRandomValue32.c)
+ *     RtlpHeapGenerateRandomValue32 @ 0x180042338 (RtlpHeapGenerateRandomValue32.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

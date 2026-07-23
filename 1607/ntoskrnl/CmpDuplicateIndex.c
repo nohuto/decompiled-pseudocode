@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDuplicateIndex @ 0x140609D70
+ * XREFs of CmpDuplicateIndex @ 0x140609E24
  * Callers:
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpDuplicateKey @ 0x1405FEC0C (CmpDuplicateKey.c)
- *     CmpLightWeightDuplicateParentLists @ 0x14060EBE8 (CmpLightWeightDuplicateParentLists.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpDuplicateKey @ 0x1405FECC0 (CmpDuplicateKey.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x14060EC9C (CmpLightWeightDuplicateParentLists.c)
  * Callees:
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     HvDuplicateCell @ 0x1404E34C8 (HvDuplicateCell.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     HvDuplicateCell @ 0x1404C642C (HvDuplicateCell.c)
  */
 
 __int64 __fastcall CmpDuplicateIndex(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)

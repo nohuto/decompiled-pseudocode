@@ -1,14 +1,14 @@
 /*
- * XREFs of PoFxAbandonDevice @ 0x140B062B4
+ * XREFs of PoFxAbandonDevice @ 0x140B083E4
  * Callers:
- *     IopRemoveDevice @ 0x14090FCA8 (IopRemoveDevice.c)
- *     PnpDriverLoadingFailed @ 0x140B4655C (PnpDriverLoadingFailed.c)
+ *     IopRemoveDevice @ 0x1409B1DD8 (IopRemoveDevice.c)
+ *     PnpDriverLoadingFailed @ 0x140B4858C (PnpDriverLoadingFailed.c)
  * Callees:
- *     PopPluginAbandonDevice @ 0x140519374 (PopPluginAbandonDevice.c)
- *     PopDirectedDripsDiagDestroyDeviceDiagnostic @ 0x140B0636C (PopDirectedDripsDiagDestroyDeviceDiagnostic.c)
- *     PopFxUnregisterDeviceOrWait @ 0x140B06444 (PopFxUnregisterDeviceOrWait.c)
- *     PopDiagTraceFxDevicePreparation @ 0x140B064BC (PopDiagTraceFxDevicePreparation.c)
- *     PopFxFreeUniqueId @ 0x140B065C4 (PopFxFreeUniqueId.c)
+ *     PopPluginAbandonDevice @ 0x140512DE4 (PopPluginAbandonDevice.c)
+ *     PopDirectedDripsDiagDestroyDeviceDiagnostic @ 0x140B0849C (PopDirectedDripsDiagDestroyDeviceDiagnostic.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140B08574 (PopFxUnregisterDeviceOrWait.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x140B085EC (PopDiagTraceFxDevicePreparation.c)
+ *     PopFxFreeUniqueId @ 0x140B086F4 (PopFxFreeUniqueId.c)
  */
 
 __int64 __fastcall PoFxAbandonDevice(__int64 a1)

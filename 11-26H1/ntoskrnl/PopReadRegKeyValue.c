@@ -1,22 +1,22 @@
 /*
- * XREFs of PopReadRegKeyValue @ 0x1404ECAE8
+ * XREFs of PopReadRegKeyValue @ 0x1404E60C8
  * Callers:
- *     PopReadUlongPowerKey @ 0x140600D50 (PopReadUlongPowerKey.c)
- *     PopDiagTraceAbnormalReset @ 0x140608034 (PopDiagTraceAbnormalReset.c)
- *     PopQueryRestrictedStandbyTimeoutSeconds @ 0x1407C8F2C (PopQueryRestrictedStandbyTimeoutSeconds.c)
- *     PopDiagTracePerfTrackData @ 0x140AF4FB0 (PopDiagTracePerfTrackData.c)
- *     PopEsOverrideSetByGroupPolicy @ 0x140B722FC (PopEsOverrideSetByGroupPolicy.c)
- *     PopCheckShutdownMarker @ 0x140CD0064 (PopCheckShutdownMarker.c)
- *     PopBatteryInitPhaseTwo @ 0x140CD4C90 (PopBatteryInitPhaseTwo.c)
+ *     PopReadUlongPowerKey @ 0x140603800 (PopReadUlongPowerKey.c)
+ *     PopDiagTraceAbnormalReset @ 0x14060ABE4 (PopDiagTraceAbnormalReset.c)
+ *     PopQueryRestrictedStandbyTimeoutSeconds @ 0x1407CBFCC (PopQueryRestrictedStandbyTimeoutSeconds.c)
+ *     PopDiagTracePerfTrackData @ 0x140AF7650 (PopDiagTracePerfTrackData.c)
+ *     PopEsOverrideSetByGroupPolicy @ 0x140B772DC (PopEsOverrideSetByGroupPolicy.c)
+ *     PopCheckShutdownMarker @ 0x140CD620C (PopCheckShutdownMarker.c)
+ *     PopBatteryReadOscBits @ 0x140CDB130 (PopBatteryReadOscBits.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadRegKeyValue(wchar_t *a1, const WCHAR *a2, size_t a3, int a4, void *a5)

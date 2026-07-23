@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmNotifyCsStateExited @ 0x140678944
+ * XREFs of TtmNotifyCsStateExited @ 0x140678A28
  * Callers:
- *     PopNotifyCsStateExited @ 0x14066FE88 (PopNotifyCsStateExited.c)
+ *     PopNotifyCsStateExited @ 0x14066FF6C (PopNotifyCsStateExited.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x140546B74 (TtmpAcquireSessionById.c)
- *     TtmiScheduleSessionWorker @ 0x140678D08 (TtmiScheduleSessionWorker.c)
- *     TtmiLogSessionCsExitComplete @ 0x14067B794 (TtmiLogSessionCsExitComplete.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1405470B4 (TtmpAcquireSessionById.c)
+ *     TtmiScheduleSessionWorker @ 0x140678DEC (TtmiScheduleSessionWorker.c)
+ *     TtmiLogSessionCsExitComplete @ 0x14067B878 (TtmiLogSessionCsExitComplete.c)
  */
 
 void __fastcall TtmNotifyCsStateExited(unsigned int a1)

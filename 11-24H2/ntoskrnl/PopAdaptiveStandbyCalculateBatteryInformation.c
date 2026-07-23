@@ -1,7 +1,7 @@
 /*
- * XREFs of PopAdaptiveStandbyCalculateBatteryInformation @ 0x140760448
+ * XREFs of PopAdaptiveStandbyCalculateBatteryInformation @ 0x14075F448
  * Callers:
- *     PopAdaptiveStandbyWnfCallback @ 0x140762DD0 (PopAdaptiveStandbyWnfCallback.c)
+ *     PopAdaptiveStandbyWnfCallback @ 0x140762640 (PopAdaptiveStandbyWnfCallback.c)
  * Callees:
  *     <none>
  */

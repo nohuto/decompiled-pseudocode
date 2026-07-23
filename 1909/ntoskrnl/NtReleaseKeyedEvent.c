@@ -23,8 +23,8 @@ NTSTATUS __stdcall NtReleaseKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   char *v8; // rcx
   unsigned __int64 *v9; // rsi
   struct _LIST_ENTRY *v10; // r14
-  __int64 v11; // rax
-  __int64 v12; // r12
+  _RTL_BALANCED_NODE *v11; // rax
+  _RTL_BALANCED_NODE *v12; // r12
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY **p_Blink; // r13
   struct _LIST_ENTRY *v15; // rdx
@@ -33,8 +33,8 @@ NTSTATUS __stdcall NtReleaseKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   NTSTATUS result; // eax
   LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *v20; // rcx
-  __int64 v21; // rax
-  __int64 v22; // r14
+  _RTL_BALANCED_NODE *v21; // rax
+  _RTL_BALANCED_NODE *v22; // r14
   LIST_ENTRY *v23; // rax
   struct _KTHREAD *v24; // rcx
   struct _LIST_ENTRY *v25; // rdx
@@ -91,7 +91,7 @@ NTSTATUS __stdcall NtReleaseKeyedEvent(HANDLE EventHandle, PVOID Key, BOOLEAN Al
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
     ExfAcquirePushLockExclusiveEx(v9, v11, (ULONG_PTR)v9);
   if ( v12 )
-    *(_BYTE *)(v12 + 26) |= 1u;
+    BYTE2(v12[1].Left) |= 1u;
   Flink = v10->Flink;
   if ( v10->Flink == v10 )
   {
@@ -153,7 +153,7 @@ LABEL_24:
       if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
         ExfAcquirePushLockExclusiveEx(v9, v21, (ULONG_PTR)v9);
       if ( v22 )
-        *(_BYTE *)(v22 + 26) |= 1u;
+        BYTE2(v22[1].Left) |= 1u;
       v23 = &CurrentThread[1].Header.WaitListHead;
       v24 = (struct _KTHREAD *)CurrentThread[1].Header.WaitListHead.Flink;
       if ( v24 != (struct _KTHREAD *)&CurrentThread[1].Header.WaitListHead )

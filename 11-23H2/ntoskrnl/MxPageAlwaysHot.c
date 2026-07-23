@@ -3,7 +3,7 @@
  * Callers:
  *     MxInitializeFreeNodeDescriptors @ 0x140B42B78 (MxInitializeFreeNodeDescriptors.c)
  * Callees:
- *     MiSearchChannelTable @ 0x140645750 (MiSearchChannelTable.c)
+ *     MiSearchChannelTable @ 0x140645CA0 (MiSearchChannelTable.c)
  */
 
 __int64 __fastcall MxPageAlwaysHot(ULONG_PTR a1)

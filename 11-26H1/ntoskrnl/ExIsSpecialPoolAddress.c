@@ -1,17 +1,17 @@
 /*
- * XREFs of ExIsSpecialPoolAddress @ 0x140485074
+ * XREFs of ExIsSpecialPoolAddress @ 0x14047E9E4
  * Callers:
- *     ExReturnPoolQuota @ 0x140264B30 (ExReturnPoolQuota.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
- *     ExQueryPoolBlockSize @ 0x1406CBF90 (ExQueryPoolBlockSize.c)
- *     DifpLwSPProcessPostPoolAlloc @ 0x140C431DC (DifpLwSPProcessPostPoolAlloc.c)
- *     ExFreePoolSanityChecks @ 0x140C4345C (ExFreePoolSanityChecks.c)
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
+ *     ExReturnPoolQuota @ 0x1402640A0 (ExReturnPoolQuota.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
+ *     ExQueryPoolBlockSize @ 0x1406CFFC0 (ExQueryPoolBlockSize.c)
+ *     DifpLwSPProcessPostPoolAlloc @ 0x140C491EC (DifpLwSPProcessPostPoolAlloc.c)
+ *     ExFreePoolSanityChecks @ 0x140C4946C (ExFreePoolSanityChecks.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
- *     ExpHpIsSpecialPoolHeap @ 0x140485148 (ExpHpIsSpecialPoolHeap.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14047EAB8 (ExpHpIsSpecialPoolHeap.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExIsSpecialPoolAddress(ULONG_PTR BugCheckParameter3)
@@ -38,8 +38,8 @@ LABEL_5:
     goto LABEL_6;
   }
   v3 = RtlCSparseBitmapBitmaskRead(
-         (__int64)&ExpUuidLock.ThreadLock,
-         2 * ((BugCheckParameter3 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+         (__int64)&ExpUuidLock.CycleTime,
+         2 * ((BugCheckParameter3 - ExpUuidLock.ThreadLock) >> 20));
   if ( v3 )
   {
     v2 = v3 - 1;
@@ -48,7 +48,7 @@ LABEL_5:
   }
   v7 = 0LL;
   v8 = 0LL;
-  RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.FirstArgument, BugCheckParameter3, (__int64)&v7);
+  RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.TrapFrame, BugCheckParameter3, (__int64)&v7);
   v5 = *(_QWORD *)v8;
 LABEL_6:
   if ( !v5 )

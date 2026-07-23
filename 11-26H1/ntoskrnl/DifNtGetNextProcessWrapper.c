@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtGetNextProcessWrapper @ 0x1406792C0
+ * XREFs of DifNtGetNextProcessWrapper @ 0x14067CEA0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtGetNextProcess @ 0x140AEF810 (NtGetNextProcess.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtGetNextProcess @ 0x1409BA3B0 (NtGetNextProcess.c)
  */
 
-__int64 __fastcall DifNtGetNextProcessWrapper(ULONG_PTR a1, unsigned int a2, unsigned int a3, int a4, __int64 a5)
+__int64 __fastcall DifNtGetNextProcessWrapper(void *a1, ACCESS_MASK a2, ULONG a3, ULONG a4, HANDLE *NewProcessHandle)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -46,7 +46,7 @@ __int64 __fastcall DifNtGetNextProcessWrapper(ULONG_PTR a1, unsigned int a2, uns
     }
     v12 = 0;
     *(_QWORD *)&v21 = a1;
-    *((_QWORD *)&v19 + 1) = a5;
+    *((_QWORD *)&v19 + 1) = NewProcessHandle;
     *(_QWORD *)((char *)&v20 + 4) = __PAIR64__(a2, a3);
     LODWORD(v20) = a4;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
@@ -61,7 +61,7 @@ __int64 __fastcall DifNtGetNextProcessWrapper(ULONG_PTR a1, unsigned int a2, uns
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v21) = NtGetNextProcess(a1, a5);
+  DWORD2(v21) = NtGetNextProcess(a1, a2, a3, a4, NewProcessHandle);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

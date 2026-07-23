@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipRegisterDevice @ 0x140755008
+ * XREFs of WmipRegisterDevice @ 0x1407551C8
  * Callers:
- *     IoWMIRegistrationControl @ 0x140754F30 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x1407550F0 (IoWMIRegistrationControl.c)
  * Callees:
- *     IoGetAttachedDeviceReference @ 0x14022CA10 (IoGetAttachedDeviceReference.c)
- *     WmipUnreferenceRegEntry @ 0x1402650E4 (WmipUnreferenceRegEntry.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
- *     WmipFindRegEntryByDevice @ 0x140370FE4 (WmipFindRegEntryByDevice.c)
- *     WmipAllocRegEntry @ 0x1403710A4 (WmipAllocRegEntry.c)
- *     WmipDeregisterRegEntry @ 0x140371194 (WmipDeregisterRegEntry.c)
- *     WmipQueueRegWork @ 0x140755174 (WmipQueueRegWork.c)
- *     WmipUpdateDeviceStackSize @ 0x14075524C (WmipUpdateDeviceStackSize.c)
- *     WmipRegisterOrUpdateDS @ 0x14075678C (WmipRegisterOrUpdateDS.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     WmipUnreferenceRegEntry @ 0x140253174 (WmipUnreferenceRegEntry.c)
+ *     ObReferenceObjectByPointer @ 0x1402A5010 (ObReferenceObjectByPointer.c)
+ *     IoGetAttachedDeviceReference @ 0x1402D1260 (IoGetAttachedDeviceReference.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     WmipFindRegEntryByDevice @ 0x140370B34 (WmipFindRegEntryByDevice.c)
+ *     WmipAllocRegEntry @ 0x140370BF4 (WmipAllocRegEntry.c)
+ *     WmipDeregisterRegEntry @ 0x140370CE4 (WmipDeregisterRegEntry.c)
+ *     WmipQueueRegWork @ 0x140755334 (WmipQueueRegWork.c)
+ *     WmipUpdateDeviceStackSize @ 0x14075540C (WmipUpdateDeviceStackSize.c)
+ *     WmipRegisterOrUpdateDS @ 0x14075694C (WmipRegisterOrUpdateDS.c)
  */
 
 __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)

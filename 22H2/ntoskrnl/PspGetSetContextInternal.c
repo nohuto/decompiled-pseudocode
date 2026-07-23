@@ -33,7 +33,7 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rdi
   __int64 v6; // rsi
-  unsigned int v7; // r12d
+  ULONG v7; // r12d
   _KTRAP_FRAME *TrapFrame; // r15
   int SetSecureContext; // eax
   _QWORD *i; // rcx
@@ -59,7 +59,7 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned __int64 v30; // rcx
   unsigned __int64 v31; // rsi
   unsigned __int64 v32; // rax
-  __int64 v33; // rsi
+  _CONTEXT *v33; // rsi
   __int64 v34; // rcx
   char *v36; // [rsp+20h] [rbp-E0h]
   __int64 *v37; // [rsp+28h] [rbp-D8h]
@@ -71,7 +71,7 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v43; // [rsp+58h] [rbp-A8h]
   __int64 v44; // [rsp+60h] [rbp-A0h] BYREF
   int v45; // [rsp+68h] [rbp-98h]
-  unsigned int v46; // [rsp+6Ch] [rbp-94h] BYREF
+  ULONG ContextLength; // [rsp+6Ch] [rbp-94h] BYREF
   unsigned __int64 v47; // [rsp+70h] [rbp-90h] BYREF
   unsigned __int64 v48; // [rsp+78h] [rbp-88h] BYREF
   _KTRAP_FRAME *v49; // [rsp+80h] [rbp-80h] BYREF
@@ -114,20 +114,20 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   HIDWORD(v44) = 0;
   CurrentThread = KeGetCurrentThread();
   v6 = *(_QWORD *)(a1 + 120);
-  v46 = 0;
+  ContextLength = 0;
   LOBYTE(v45) = 0;
   v7 = *(_DWORD *)(v6 + 48);
   if ( *(_BYTE *)(a1 + 88) )
   {
     if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x200) != 0 )
     {
-      if ( (int)RtlGetExtendedContextLength(v7, (__int64)&v46) < 0 )
+      if ( RtlGetExtendedContextLength(v7, &ContextLength) < 0 )
       {
 LABEL_75:
         *(_DWORD *)(a1 + 92) = -1073741823;
         goto LABEL_76;
       }
-      SetSecureContext = VslGetSetSecureContext(a2, v6, v46);
+      SetSecureContext = VslGetSetSecureContext(a2, v6, ContextLength);
 LABEL_8:
       *(_DWORD *)(a1 + 92) = SetSecureContext;
       goto LABEL_76;
@@ -359,11 +359,11 @@ LABEL_46:
     _fxsave((void *)(*(_QWORD *)(a1 + 120) + 256LL));
   if ( CurrentThread[1].WaitBlock[3].Thread && *(_BYTE *)(a1 + 88) == 1 )
   {
-    v33 = *(_QWORD *)(a1 + 120);
+    v33 = *(_CONTEXT **)(a1 + 120);
     PspGetContext(TrapFrame, a1 + 128, v33);
     if ( (CurrentThread->Header.Reserved1 & 8) != 0 )
     {
-      RtlCopyContext(v33, *(_DWORD *)(v33 + 48), (__int64)CurrentThread[1].WaitBlock[3].Thread);
+      RtlCopyContext(v33, v33->ContextFlags, (PCONTEXT)CurrentThread[1].WaitBlock[3].Thread);
       *(_DWORD *)(a1 + 92) = 0;
       goto LABEL_76;
     }

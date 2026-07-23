@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockDynamicMemoryShared @ 0x1401E2268
+ * XREFs of MiUnlockDynamicMemoryShared @ 0x1401E2094
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x1401FCC90 (MiCoalesceFreeLargePages.c)
+ *     MiCoalesceFreeLargePages @ 0x1401FCABC (MiCoalesceFreeLargePages.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall MiUnlockDynamicMemoryShared(__int64 a1, __int64 a2)

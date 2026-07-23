@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpStackTraceDisable @ 0x18014F998
+ * XREFs of RtlpHpStackTraceDisable @ 0x18014F848
  * Callers:
- *     RtlpHpStackTraceConfig @ 0x180121038 (RtlpHpStackTraceConfig.c)
+ *     RtlpHpStackTraceConfig @ 0x180120DE8 (RtlpHpStackTraceConfig.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlpEnumProcessHeaps @ 0x180091420 (RtlpEnumProcessHeaps.c)
- *     RtlStackDbContextCleanup @ 0x18010C76C (RtlStackDbContextCleanup.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlpEnumProcessHeaps @ 0x180076180 (RtlpEnumProcessHeaps.c)
+ *     RtlStackDbContextCleanup @ 0x18010C2BC (RtlStackDbContextCleanup.c)
  */
 
-struct _TEB *__fastcall RtlpHpStackTraceDisable(__int64 a1, __int64 a2)
+void RtlpHpStackTraceDisable()
 {
-  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext, a2);
-  if ( (dword_1801C7858 & 1) != 0 )
+  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
+  if ( (dword_1801C68A8 & 1) != 0 )
   {
-    dword_1801C7858 = 0;
+    dword_1801C68A8 = 0;
     RtlpEnumProcessHeaps((__int64 (__fastcall *)(__int64, _QWORD, __int64))RtlpHpStackTraceHeapDisable, 0LL, 2);
-    RtlStackDbContextCleanup((__int64)&qword_1801C7860);
+    RtlStackDbContextCleanup((__int64)&qword_1801C68B0);
   }
-  return RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
 }

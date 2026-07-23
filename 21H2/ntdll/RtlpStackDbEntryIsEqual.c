@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpStackDbEntryIsEqual @ 0x180119394
+ * XREFs of RtlpStackDbEntryIsEqual @ 0x180119334
  * Callers:
- *     RtlpStackDbStackComparitor @ 0x180119C60 (RtlpStackDbStackComparitor.c)
+ *     RtlpStackDbStackComparitor @ 0x180119C00 (RtlpStackDbStackComparitor.c)
  * Callees:
  *     memcmp @ 0x180090700 (memcmp.c)
  */

@@ -9,13 +9,13 @@
  *     ZwQueryInformationProcess @ 0x18009ADE0 (ZwQueryInformationProcess.c)
  */
 
-__int64 __fastcall RtlEncodePointer(__int64 a1)
+PVOID __cdecl RtlEncodePointer(PVOID Ptr)
 {
   int v2; // eax
-  unsigned int v4; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int ProcessInformation; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = ZwQueryInformationProcess(-1LL, 36LL, &v4);
+  v2 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
   if ( v2 < 0 )
-    RtlRaiseStatus((unsigned int)v2);
-  return __ROR8__(a1 ^ v4, v4 & 0x3F);
+    RtlRaiseStatus(v2);
+  return (PVOID)__ROR8__((unsigned __int64)Ptr ^ ProcessInformation, ProcessInformation & 0x3F);
 }

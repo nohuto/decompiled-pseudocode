@@ -8,16 +8,16 @@
  *     _RtlpHpLfhOwnerMoveSubsegment@12 @ 0x4B3769A2 (_RtlpHpLfhOwnerMoveSubsegment@12.c)
  */
 
-int __thiscall RtlpHpLfhBucketGetSubsegment(volatile signed __int32 *this)
+int __thiscall RtlpHpLfhBucketGetSubsegment(_RTL_SRWLOCK *this)
 {
-  _DWORD *v2; // esi
+  unsigned int *v2; // esi
   int v3; // esi
 
-  v2 = this + 3;
-  if ( (_DWORD *)*v2 == v2 )
+  v2 = (unsigned int *)&this[3];
+  if ( (unsigned int *)*v2 == v2 )
     return 0;
   RtlAcquireSRWLockExclusive(this + 2);
-  if ( (_DWORD *)*v2 == v2 )
+  if ( (unsigned int *)*v2 == v2 )
     v3 = 0;
   else
     v3 = RtlpHpLfhOwnerMoveSubsegment(2);

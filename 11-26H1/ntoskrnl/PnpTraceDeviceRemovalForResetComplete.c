@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x1407B1760
+ * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x1407B47C0
  * Callers:
- *     IopLogDeviceResetComplete @ 0x1407A27D4 (IopLogDeviceResetComplete.c)
+ *     IopLogDeviceResetComplete @ 0x1407A5314 (IopLogDeviceResetComplete.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PnpTraceDeviceRemovalForResetComplete()
@@ -44,13 +44,13 @@ void PnpTraceDeviceRemovalForResetComplete()
   __int64 v31; // [rsp+108h] [rbp+8h]
   _DWORD *v32; // [rsp+110h] [rbp+10h]
   __int64 v33; // [rsp+118h] [rbp+18h]
-  __int64 v34; // [rsp+120h] [rbp+20h]
+  __int16 *v34; // [rsp+120h] [rbp+20h]
   _DWORD v35[2]; // [rsp+128h] [rbp+28h] BYREF
 
-  if ( dword_140E06EA8
-    && tlgKeywordOn((__int64)&dword_140E06EA8, 0x400000000000LL)
+  if ( dword_140E06E48
+    && tlgKeywordOn((__int64)&dword_140E06E48, 0x400000000000LL)
     && v1 > 5
-    && tlgKeywordOn((__int64)&dword_140E06EA8, v0) )
+    && tlgKeywordOn((__int64)&dword_140E06E48, v0) )
   {
     v9 = 0x1000000LL;
     v12 = &v9;
@@ -68,7 +68,7 @@ void PnpTraceDeviceRemovalForResetComplete()
     v28 = &v10;
     v30 = &v8;
     v32 = v35;
-    v34 = off_140E06EE8;
+    v34 = off_140E06E40;
     v35[0] = (unsigned __int16)PnpEmptyUnicodeString;
     v15 = 2LL;
     v17[1] = v4;
@@ -86,8 +86,8 @@ void PnpTraceDeviceRemovalForResetComplete()
     v33 = 2LL;
     v35[1] = v4;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E06EA8,
-      (unsigned __int8 *)byte_14004800D,
+      (__int64)&dword_140E06E48,
+      (unsigned __int8 *)&dword_140048784,
       0LL,
       0LL,
       0xEu,

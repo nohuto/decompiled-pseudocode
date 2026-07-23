@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetSymlinkSupportInformation @ 0x1406245AC
+ * XREFs of IoGetSymlinkSupportInformation @ 0x140624660
  * Callers:
  *     <none>
  * Callees:

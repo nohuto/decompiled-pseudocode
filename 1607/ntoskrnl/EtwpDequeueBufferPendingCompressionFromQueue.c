@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpDequeueBufferPendingCompressionFromQueue @ 0x14022A7D0
+ * XREFs of EtwpDequeueBufferPendingCompressionFromQueue @ 0x14022A5FC
  * Callers:
- *     EtwpDequeueBufferPendingCompression @ 0x14022A6E4 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x14022A510 (EtwpDequeueBufferPendingCompression.c)
  * Callees:
  *     <none>
  */

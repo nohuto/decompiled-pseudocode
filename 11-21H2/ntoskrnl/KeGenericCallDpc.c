@@ -1,28 +1,28 @@
 /*
  * XREFs of KeGenericCallDpc @ 0x140217420
  * Callers:
- *     KeSwapDirectoryTableBase @ 0x140216C28 (KeSwapDirectoryTableBase.c)
- *     MiSwapStackPage @ 0x140249930 (MiSwapStackPage.c)
- *     MiDbgCopyMemory @ 0x14028FA14 (MiDbgCopyMemory.c)
- *     KeSetSystemTime @ 0x1403B6B94 (KeSetSystemTime.c)
- *     MiFreeUnusedPfnPages @ 0x1403B7CB0 (MiFreeUnusedPfnPages.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1403DADE0 (MiInitializeWorkingSetManagerParameters.c)
- *     KeAbCrossThreadDelete @ 0x1405757C0 (KeAbCrossThreadDelete.c)
- *     MiJumpStack @ 0x140590CD0 (MiJumpStack.c)
- *     MiStartDpcGang @ 0x1405C0634 (MiStartDpcGang.c)
- *     ExpTrackTableInsertLimit @ 0x14063BE80 (ExpTrackTableInsertLimit.c)
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
- *     EtwpUpdateFilterData @ 0x14078F198 (EtwpUpdateFilterData.c)
- *     ExGetPoolTagInfo @ 0x1407F9820 (ExGetPoolTagInfo.c)
- *     KeConfigureHeteroProcessors @ 0x14095FD08 (KeConfigureHeteroProcessors.c)
+ *     sub_140216C28 @ 0x140216C28 (sub_140216C28.c)
+ *     sub_140249930 @ 0x140249930 (sub_140249930.c)
+ *     sub_14028FA14 @ 0x14028FA14 (sub_14028FA14.c)
+ *     sub_1403B6B94 @ 0x1403B6B94 (sub_1403B6B94.c)
+ *     sub_1403B7CB0 @ 0x1403B7CB0 (sub_1403B7CB0.c)
+ *     sub_1403DADE0 @ 0x1403DADE0 (sub_1403DADE0.c)
+ *     sub_1405757C0 @ 0x1405757C0 (sub_1405757C0.c)
+ *     sub_140590CD0 @ 0x140590CD0 (sub_140590CD0.c)
+ *     sub_1405C0634 @ 0x1405C0634 (sub_1405C0634.c)
+ *     sub_14063BE80 @ 0x14063BE80 (sub_14063BE80.c)
+ *     sub_1406D1830 @ 0x1406D1830 (sub_1406D1830.c)
+ *     sub_14078F198 @ 0x14078F198 (sub_14078F198.c)
+ *     sub_1407F9820 @ 0x1407F9820 (sub_1407F9820.c)
+ *     sub_14095FD08 @ 0x14095FD08 (sub_14095FD08.c)
  *     MmSetPermanentCacheAttribute @ 0x14096C8D0 (MmSetPermanentCacheAttribute.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x14096E960 (MiSpecialPurposeMemoryRemoved.c)
- *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x14096EAB0 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
- *     MiApplyImageHotPatch @ 0x140971B68 (MiApplyImageHotPatch.c)
- *     KiInitializeDynamicProcessor @ 0x140A693D8 (KiInitializeDynamicProcessor.c)
- *     ExpAeThresholdInitialization @ 0x140B1A290 (ExpAeThresholdInitialization.c)
+ *     sub_14096E960 @ 0x14096E960 (sub_14096E960.c)
+ *     sub_14096EAB0 @ 0x14096EAB0 (sub_14096EAB0.c)
+ *     sub_140971B68 @ 0x140971B68 (sub_140971B68.c)
+ *     sub_140A693D8 @ 0x140A693D8 (sub_140A693D8.c)
+ *     sub_140B1A290 @ 0x140B1A290 (sub_140B1A290.c)
  * Callees:
- *     KeGenericProcessorCallback @ 0x14035BB4C (KeGenericProcessorCallback.c)
+ *     sub_14035BB4C @ 0x14035BB4C (sub_14035BB4C.c)
  */
 
 __int64 __fastcall KeGenericCallDpc(__int64 a1, __int64 a2)
@@ -31,9 +31,9 @@ __int64 __fastcall KeGenericCallDpc(__int64 a1, __int64 a2)
 
   v3[0] = a1;
   v3[1] = a2;
-  return ((__int64 (__fastcall *)(_QWORD, __int64 (__fastcall *)(), _QWORD *, __int64))KeGenericProcessorCallback)(
+  return ((__int64 (__fastcall *)(_QWORD, __int64 (__fastcall *)(), _QWORD *, __int64))sub_14035BB4C)(
            0LL,
-           KiGenericCallDpcWorker,
+           sub_1402D9F70,
            v3,
            1LL);
 }

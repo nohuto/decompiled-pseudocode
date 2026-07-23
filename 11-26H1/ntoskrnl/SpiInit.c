@@ -1,9 +1,9 @@
 /*
- * XREFs of SpiInit @ 0x140721FC8
+ * XREFs of SpiInit @ 0x140726B98
  * Callers:
- *     SpiSend16 @ 0x140722458 (SpiSend16.c)
+ *     SpiSend16 @ 0x140727028 (SpiSend16.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall SpiInit(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)

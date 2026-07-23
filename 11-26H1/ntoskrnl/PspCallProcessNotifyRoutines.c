@@ -1,20 +1,20 @@
 /*
- * XREFs of PspCallProcessNotifyRoutines @ 0x140A43714
+ * XREFs of PspCallProcessNotifyRoutines @ 0x1409FE474
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
- *     PspExitProcess @ 0x140A43620 (PspExitProcess.c)
+ *     PspExitProcess @ 0x1409FE380 (PspExitProcess.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     KeCallbackValidationEpilogue @ 0x1404E07B8 (KeCallbackValidationEpilogue.c)
- *     KeCallbackValidationPrologue @ 0x1404E921C (KeCallbackValidationPrologue.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsTerminateProcess @ 0x14095690C (PsTerminateProcess.c)
- *     PsReferenceProcessFilePointer @ 0x140AAE560 (PsReferenceProcessFilePointer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     KeCallbackValidationEpilogue @ 0x1404D9E98 (KeCallbackValidationEpilogue.c)
+ *     KeCallbackValidationPrologue @ 0x1404E22FC (KeCallbackValidationPrologue.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsTerminateProcess @ 0x14094A334 (PsTerminateProcess.c)
+ *     PsReferenceProcessFilePointer @ 0x140AA7550 (PsReferenceProcessFilePointer.c)
  */
 
 __int64 __fastcall PspCallProcessNotifyRoutines(__int64 a1, __int64 a2, char a3)

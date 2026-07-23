@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpGetRegistryDword @ 0x1403A09FC
+ * XREFs of PnpGetRegistryDword @ 0x1403A0BDC
  * Callers:
- *     PipDmgGetDriverDmarCompatLevel @ 0x1408437FC (PipDmgGetDriverDmarCompatLevel.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x140843AFC (PipDmgGetDriverDmarCompatLevel.c)
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  *     PnpInitializePnpWatchdogs @ 0x140B6104C (PnpInitializePnpWatchdogs.c)
  *     PnpQueryWatchdogTimeoutConfiguration @ 0x140B610B8 (PnpQueryWatchdogTimeoutConfiguration.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1403C6BBC (PnpValidateRegistryDword.c)
+ *     PnpValidateRegistryDword @ 0x1403C6D9C (PnpValidateRegistryDword.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

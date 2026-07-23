@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpCaptureMessageData @ 0x1405E3D7C
+ * XREFs of AlpcpCaptureMessageData @ 0x1406D34DC
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x1405E0F88 (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     AlpcpCreateReserve @ 0x1406B0D14 (AlpcpCreateReserve.c)
+ *     AlpcpCreateReserve @ 0x14060FCC4 (AlpcpCreateReserve.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1406CF1B8 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x1406D06E8 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1406D133C (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14061FB44 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpChargePagedPoolQuota @ 0x140660A4C (AlpcpChargePagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14065586C (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1406897B4 (AlpcpReleasePagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpCaptureMessageData(__int64 a1, unsigned __int64 a2, char *a3)
@@ -23,14 +23,14 @@ __int64 __fastcall AlpcpCaptureMessageData(__int64 a1, unsigned __int64 a2, char
   __int64 v9; // r8
   size_t v10; // r14
   void *v11; // rcx
-  __int64 v12; // rcx
-  __int64 v14; // r12
+  struct _KPROCESS *v12; // rcx
+  unsigned __int64 v14; // r12
   void *v15; // rcx
   unsigned __int64 v16; // r13
   PVOID PoolWithTag; // rax
-  __int64 v18; // rcx
+  struct _KPROCESS *v18; // rcx
   int v19; // r13d
-  __int64 v20; // rcx
+  struct _KPROCESS *v20; // rcx
 
   v6 = AlpcpAvailableBufferSize(a1);
   v10 = v6;
@@ -42,7 +42,7 @@ __int64 __fastcall AlpcpCaptureMessageData(__int64 a1, unsigned __int64 a2, char
     if ( v11 )
     {
       ExFreePoolWithTag(v11, 0x42456C41u);
-      v12 = *(_QWORD *)(a1 + 48);
+      v12 = *(struct _KPROCESS **)(a1 + 48);
       *(_QWORD *)(a1 + 224) = 0LL;
       if ( v12 )
         AlpcpReleasePagedPoolQuota(v12, *(_QWORD *)(a1 + 232));
@@ -71,18 +71,18 @@ LABEL_20:
   }
   v16 = a2 - v10;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, a2 - v10, 0x42456C41u);
-  v18 = *(_QWORD *)(a1 + 48);
+  v18 = *(struct _KPROCESS **)(a1 + 48);
   *(_QWORD *)(a1 + 224) = PoolWithTag;
   if ( PoolWithTag )
   {
     *(_QWORD *)(a1 + 232) = v16;
     if ( v18 )
     {
-      v19 = AlpcpChargePagedPoolQuota(v18, v16 - v14);
+      v19 = AlpcpChargePagedPoolQuota((__int64)v18, v16 - v14);
       if ( v19 < 0 )
       {
         ExFreePoolWithTag(*(PVOID *)(a1 + 224), 0x42456C41u);
-        v20 = *(_QWORD *)(a1 + 48);
+        v20 = *(struct _KPROCESS **)(a1 + 48);
         *(_QWORD *)(a1 + 224) = 0LL;
         *(_QWORD *)(a1 + 232) = 0LL;
         AlpcpReleasePagedPoolQuota(v20, v14);

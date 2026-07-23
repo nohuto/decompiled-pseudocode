@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpWorkItemRundown @ 0x140A11BD0
+ * XREFs of CmpWorkItemRundown @ 0x140A11E80
  * Callers:
  *     CmFcManagerUnregisterFeatureUsageProvider @ 0x14067F890 (CmFcManagerUnregisterFeatureUsageProvider.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
  */
 
 __int64 __fastcall CmpWorkItemRundown(struct _EX_RUNDOWN_REF *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestNotifyTtmSessionInitialized @ 0x140B5CCEC
+ * XREFs of PopPowerRequestNotifyTtmSessionInitialized @ 0x140B5FE6C
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestUnrevokeRequests @ 0x1404EF380 (PopPowerRequestUnrevokeRequests.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x1407E65B8 (TtmNotifySessionPowerRequestPresent.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestUnrevokeRequests @ 0x1404E8960 (PopPowerRequestUnrevokeRequests.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1407EC118 (TtmNotifySessionPowerRequestPresent.c)
  */
 
 __int64 __fastcall PopPowerRequestNotifyTtmSessionInitialized(
@@ -15,29 +15,31 @@ __int64 __fastcall PopPowerRequestNotifyTtmSessionInitialized(
         __int64 a3,
         struct _KLOCK_ENTRIES *a4)
 {
-  unsigned __int64 i; // rbx
-  int v5; // r8d
+  _KTHREAD_WPS_FEEDBACK *i; // rbx
+  int FeedbackCycles; // r8d
   __int64 v6; // r9
   int v8; // [rsp+28h] [rbp-20h]
 
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20, a2, a3, a4);
-  for ( i = stru_140F12D20.QuantumTarget; (unsigned __int64 *)i != &stru_140F12D20.QuantumTarget; i = *(_QWORD *)i )
+  PopAcquireRwLockExclusive(stru_140F12EA0.TracingPrivate, a2, a3, a4);
+  for ( i = stru_140F12EA0.WpsFeedback;
+        i != (_KTHREAD_WPS_FEEDBACK *)&stru_140F12EA0.WpsFeedback;
+        i = (_KTHREAD_WPS_FEEDBACK *)i->FeedbackStartTime )
   {
-    v5 = *(_DWORD *)(i + 104);
-    if ( v5 )
+    FeedbackCycles = i[3].FeedbackCycles;
+    if ( FeedbackCycles )
     {
-      v6 = *(_QWORD *)(i + 112);
+      v6 = *(_QWORD *)&i[3].InvalidFeedbackCount;
       if ( v6 )
         TtmNotifySessionPowerRequestPresent(
-          *(_DWORD *)(i + 16),
-          *(_DWORD *)(i + 36),
-          v5,
+          i->InvalidFeedbackCount,
+          HIDWORD(i[1].FeedbackStartTime),
+          FeedbackCycles,
           v6,
-          *(_QWORD *)(i + 120),
+          *(_QWORD *)&i[3].HigherPerfClassFeedbackCount,
           v8,
           0);
     }
   }
   PopPowerRequestUnrevokeRequests(1);
-  return PopReleaseRwLock(&stru_140F12D20);
+  return PopReleaseRwLock((struct _KTHREAD *)stru_140F12EA0.TracingPrivate);
 }

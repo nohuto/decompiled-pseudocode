@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetNextStandbyPageSecondaryNoLockAsserts @ 0x1403EF800
+ * XREFs of MiSetNextStandbyPageSecondaryNoLockAsserts @ 0x1403E2780
  * Callers:
- *     MiInsertSecondaryListStandbyPage @ 0x14026F190 (MiInsertSecondaryListStandbyPage.c)
- *     MiExclusiveInsertPfnChainInList @ 0x1403EF1A0 (MiExclusiveInsertPfnChainInList.c)
- *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1403EF794 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ *     MiInsertSecondaryListStandbyPage @ 0x140224720 (MiInsertSecondaryListStandbyPage.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1403E2124 (MiExclusiveInsertPfnChainInList.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1403E2718 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
  * Callees:
  *     <none>
  */

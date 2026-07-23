@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptSha256 @ 0x18015A258
+ * XREFs of SymCryptSha256 @ 0x180158618
  * Callers:
- *     RtlDeriveCapabilitySidsFromName @ 0x18003A820 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x18001AAA0 (RtlDeriveCapabilitySidsFromName.c)
  * Callees:
- *     SymCryptSha256Append @ 0x18015A2E0 (SymCryptSha256Append.c)
- *     SymCryptSha256Init @ 0x18015B5DC (SymCryptSha256Init.c)
- *     SymCryptSha256Result @ 0x18015B604 (SymCryptSha256Result.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     SymCryptSha256Append @ 0x1801586A0 (SymCryptSha256Append.c)
+ *     SymCryptSha256Init @ 0x18015999C (SymCryptSha256Init.c)
+ *     SymCryptSha256Result @ 0x1801599C4 (SymCryptSha256Result.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall SymCryptSha256(__int64 a1, __int64 a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of bsearch_s @ 0x180092A30
+ * XREFs of bsearch_s @ 0x180092A40
  * Callers:
  *     RtlGuardCheckLongJumpTarget @ 0x180002F20 (RtlGuardCheckLongJumpTarget.c)
  *     RtlpGetTargetRvaFlag @ 0x18002B0A4 (RtlpGetTargetRvaFlag.c)
  *     LdrpUnsuppressAddressTakenIat @ 0x180035D94 (LdrpUnsuppressAddressTakenIat.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _guard_check_icall @ 0x180096470 (_guard_check_icall.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _guard_check_icall @ 0x180096480 (_guard_check_icall.c)
  */
 
 void *__cdecl bsearch_s(

@@ -20,8 +20,8 @@
  */
 
 __int64 __fastcall LdrpResSearchResourceMappedFile(
-        __int64 a1,
-        __int64 a2,
+        void *a1,
+        ULONG64 a2,
         int a3,
         _QWORD *a4,
         int a5,
@@ -36,7 +36,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   unsigned __int16 *v14; // rdi
   int v15; // eax
   int v16; // esi
-  int v17; // edi
+  PVOID v17; // rdi
   int v18; // ecx
   BOOL v19; // edx
   __int64 result; // rax
@@ -45,7 +45,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   int v23; // ecx
   unsigned int i; // r14d
   char v25; // r13
-  unsigned __int16 *v26; // r11
+  LANGID *v26; // r11
   int v27; // r10d
   __int64 *v28; // rax
   __int64 v29; // rdx
@@ -55,28 +55,28 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   int v33; // eax
   _DWORD *v34; // r14
   unsigned __int16 v35; // cx
-  int v36; // eax
-  int v37; // edx
+  NTSTATUS v36; // eax
+  ULONG64 v37; // rdx
   int RCConfig; // eax
   __int64 v39; // r8
   __int64 v40; // rsi
   _WORD *v41; // r15
-  unsigned __int16 v42; // [rsp+70h] [rbp-398h] BYREF
+  LANGID v42; // [rsp+70h] [rbp-398h] BYREF
   int v43; // [rsp+74h] [rbp-394h]
-  __int64 v44; // [rsp+78h] [rbp-390h]
+  PVOID DllHandle; // [rsp+78h] [rbp-390h]
   bool v45; // [rsp+80h] [rbp-388h]
-  __int64 v46; // [rsp+88h] [rbp-380h] BYREF
-  __int64 v47; // [rsp+90h] [rbp-378h] BYREF
+  ULONG_PTR ResourceOffset; // [rsp+88h] [rbp-380h] BYREF
+  PVOID ResourceDllBase; // [rsp+90h] [rbp-378h] BYREF
   _QWORD *v48; // [rsp+98h] [rbp-370h]
   int v49; // [rsp+A0h] [rbp-368h]
   int v50; // [rsp+A4h] [rbp-364h]
-  __int64 v51; // [rsp+A8h] [rbp-360h]
+  ULONG64 Size; // [rsp+A8h] [rbp-360h]
   __int64 v52; // [rsp+B0h] [rbp-358h] BYREF
   _QWORD *v53; // [rsp+B8h] [rbp-350h]
   __int64 v54; // [rsp+C0h] [rbp-348h] BYREF
   __int64 v55; // [rsp+C8h] [rbp-340h] BYREF
-  __int64 v56; // [rsp+D0h] [rbp-338h] BYREF
-  __int64 v57; // [rsp+D8h] [rbp-330h] BYREF
+  __int64 v56; // [rsp+D0h] [rbp-338h]
+  __int64 v57; // [rsp+D8h] [rbp-330h]
   __int64 *v58; // [rsp+E0h] [rbp-328h]
   __int64 v59; // [rsp+E8h] [rbp-320h]
   void *v60; // [rsp+F0h] [rbp-318h]
@@ -85,13 +85,13 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   _WORD Src[88]; // [rsp+310h] [rbp-F8h] BYREF
 
   v48 = a4;
-  v51 = a2;
-  v44 = a1;
+  Size = a2;
+  DllHandle = a1;
   v58 = a7;
   v53 = a6;
   v60 = a8;
   v59 = a9;
-  v47 = 0LL;
+  ResourceDllBase = 0LL;
   v56 = 0LL;
   v57 = 0LL;
   v54 = 0LL;
@@ -99,7 +99,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   v61[1] = 0;
   memset_0(v61, 0, 0x206uLL);
   v42 = 0;
-  v46 = 0LL;
+  ResourceOffset = 0LL;
   v11 = 0;
   v49 = a3 & 0x40;
   v52 = 0LL;
@@ -130,19 +130,19 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
          || (v35 & 0xF3FF) != 0
          || v35 == 3072) )
       {
-        RCConfig = LdrResGetRCConfig(v44, v51, 0, a3, 1);
+        RCConfig = LdrResGetRCConfig((_DWORD)DllHandle, Size, 0, a3, 1);
         MappingSize = RCConfig;
         if ( RCConfig < 0 )
         {
           if ( RCConfig != -1073741686 )
             return (unsigned int)MappingSize;
           v16 = v13 | 0x80000;
-          v17 = v44;
+          v17 = DllHandle;
         }
         else
         {
-          v17 = v44;
-          v16 = v13 | LdrIsResItemExist(v44, v48);
+          v17 = DllHandle;
+          v16 = v13 | LdrIsResItemExist(DllHandle, v48);
         }
         goto LABEL_9;
       }
@@ -150,7 +150,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
       v16 = v13;
     }
   }
-  v17 = v44;
+  v17 = DllHandle;
 LABEL_9:
   v18 = 393216;
   if ( (v16 & 0x60000) == 0x60000 )
@@ -171,7 +171,7 @@ LABEL_9:
   }
   if ( (a3 & 0x10) != 0 || (~v16 & 0x40000) != 0 || (v16 & 0x80000) != 0 )
   {
-    result = LdrpResGetResourceDirectory(v17, v51, a3, (unsigned int)&v56, (__int64)&v54);
+    result = LdrpResGetResourceDirectory(v17, Size, (__int64)&v54);
     if ( (int)result < 0 )
       return result;
   }
@@ -180,8 +180,8 @@ LABEL_9:
 LABEL_22:
   if ( v22 >= v61[0] )
     return (unsigned int)MappingSize;
-  v47 = 0LL;
-  v46 = 0LL;
+  ResourceDllBase = 0LL;
+  ResourceOffset = 0LL;
   v42 = v62[4 * v22];
   v23 = *(_DWORD *)&v62[4 * v22 + 2];
   v43 = v23;
@@ -214,7 +214,7 @@ LABEL_53:
 LABEL_27:
   if ( !v25 )
     goto LABEL_28;
-  v36 = LdrLoadAlternateResourceModuleEx(v44, v42, &v47, &v46, v16 | 0x1000u);
+  v36 = LdrLoadAlternateResourceModuleEx(DllHandle, v42, &ResourceDllBase, &ResourceOffset, v16 | 0x1000);
   MappingSize = v36;
   if ( v36 < 0 )
   {
@@ -222,15 +222,15 @@ LABEL_27:
       MappingSize = -1073020927;
     goto LABEL_53;
   }
-  v37 = v46;
-  if ( !v46 )
+  v37 = ResourceOffset;
+  if ( !ResourceOffset )
   {
-    MappingSize = LdrpResGetMappingSize(v47, &v46, 512LL, 0LL);
-    v37 = v46;
+    MappingSize = LdrpResGetMappingSize(ResourceDllBase, &ResourceOffset, 512LL, 0LL);
+    v37 = ResourceOffset;
   }
   if ( (a3 & 0x1000) != 0 && MappingSize < 0 )
     goto LABEL_79;
-  MappingSize = LdrpResGetResourceDirectory(v47, v37, a3, (unsigned int)&v57, (__int64)&v55);
+  MappingSize = LdrpResGetResourceDirectory(ResourceDllBase, v37, (__int64)&v55);
   if ( MappingSize < 0 )
     goto LABEL_53;
 LABEL_28:
@@ -258,12 +258,12 @@ LABEL_28:
   v30 = v56;
   if ( v25 )
     v30 = v57;
-  v31 = v51;
+  v31 = Size;
   if ( v25 )
-    v31 = v46;
-  v32 = v44;
+    v31 = ResourceOffset;
+  v32 = (int)DllHandle;
   if ( v25 )
-    v32 = v47;
+    v32 = (int)ResourceDllBase;
   v33 = LdrpResSearchResourceInsideDirectory(
           v32,
           0,
@@ -285,7 +285,7 @@ LABEL_28:
       v39 = *v58;
     else
       LODWORD(v39) = v52;
-    MappingSize = LdrpFindMessageInAlternateModule(v47, *v53, v39, *((_DWORD *)v48 + 6), 1);
+    MappingSize = LdrpFindMessageInAlternateModule((_DWORD)ResourceDllBase, *v53, v39, *((_DWORD *)v48 + 6), 1);
     if ( MappingSize < 0 )
     {
       *v53 = 0LL;

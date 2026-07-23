@@ -1,13 +1,13 @@
 /*
- * XREFs of NtDeleteFile @ 0x14057D42C
+ * XREFs of NtDeleteFile @ 0x14057D8D8
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopCleanupExtraCreateParameters @ 0x140405BB0 (IopCleanupExtraCreateParameters.c)
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopCleanupExtraCreateParameters @ 0x140404A70 (IopCleanupExtraCreateParameters.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
  */
 
 NTSTATUS __stdcall NtDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)

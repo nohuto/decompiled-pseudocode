@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProcessVaContiguityInformation @ 0x14070B810
+ * XREFs of MiProcessVaContiguityInformation @ 0x1407104C0
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1408F18A0 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1408F7E60 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiInitializeDemandCoalesceContext @ 0x140206AD0 (MiInitializeDemandCoalesceContext.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiThreadIdealNode @ 0x14030EB24 (MiThreadIdealNode.c)
- *     MiVadPagesTradable @ 0x14035C9E0 (MiVadPagesTradable.c)
- *     MiConvertLargeActivePageToChain @ 0x14040A4E0 (MiConvertLargeActivePageToChain.c)
- *     MiGetVadCacheAttribute @ 0x1404E25CC (MiGetVadCacheAttribute.c)
- *     MiGetLargePage @ 0x14051E3C4 (MiGetLargePage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiQueryVaPhysicalContiguity @ 0x1407004D4 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14070B50C (MiMakeVaRangePhysicallyContiguous.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiVadSupportsPhysicalContiguityQuery @ 0x140877434 (MiVadSupportsPhysicalContiguityQuery.c)
+ *     MiInitializeDemandCoalesceContext @ 0x140206BB0 (MiInitializeDemandCoalesceContext.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiThreadIdealNode @ 0x1402F0BA4 (MiThreadIdealNode.c)
+ *     MiVadPagesTradable @ 0x14035E780 (MiVadPagesTradable.c)
+ *     MiConvertLargeActivePageToChain @ 0x1404035D0 (MiConvertLargeActivePageToChain.c)
+ *     MiGetVadCacheAttribute @ 0x1404DBCAC (MiGetVadCacheAttribute.c)
+ *     MiGetLargePage @ 0x1405209D4 (MiGetLargePage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiQueryVaPhysicalContiguity @ 0x1407051A4 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1407101BC (MiMakeVaRangePhysicallyContiguous.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiVadSupportsPhysicalContiguityQuery @ 0x14087D814 (MiVadSupportsPhysicalContiguityQuery.c)
  */
 
 __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 *a1, __int64 a2, unsigned int a3)
@@ -63,7 +63,7 @@ __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 *a1, __int6
   v27 = 0;
   p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
   v30 = p_Blink;
-  v8 = *(_QWORD **)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
+  v8 = *(_QWORD **)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
   v28 = a3;
   v29 = v8;
   v9 = MiPageSizes[a3];

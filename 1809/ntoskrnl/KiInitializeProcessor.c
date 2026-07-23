@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitializeProcessor @ 0x14057302C
+ * XREFs of KiInitializeProcessor @ 0x14057402C
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x14057B260 (KiInitializeDynamicProcessorDpc.c)
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x14057C260 (KiInitializeDynamicProcessorDpc.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeGate @ 0x14013A374 (KeInitializeGate.c)
- *     KiInitializeDpcList @ 0x14013BA4C (KiInitializeDpcList.c)
- *     KeInitializeThreadedDpc @ 0x1401810E0 (KeInitializeThreadedDpc.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeGate @ 0x14013A474 (KeInitializeGate.c)
+ *     KiInitializeDpcList @ 0x14013BB4C (KiInitializeDpcList.c)
+ *     KeInitializeThreadedDpc @ 0x140181220 (KeInitializeThreadedDpc.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KiInitializeProcessor(__int64 a1)

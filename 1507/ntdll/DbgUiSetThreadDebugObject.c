@@ -6,11 +6,7 @@
  *     <none>
  */
 
-struct _TEB *__fastcall DbgUiSetThreadDebugObject(void *a1)
+void __cdecl DbgUiSetThreadDebugObject(HANDLE DebugObject)
 {
-  struct _TEB *result; // rax
-
-  result = NtCurrentTeb();
-  result->DbgSsReserved[1] = a1;
-  return result;
+  NtCurrentTeb()->DbgSsReserved[1] = DebugObject;
 }

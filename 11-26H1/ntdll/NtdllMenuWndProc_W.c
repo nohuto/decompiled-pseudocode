@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMenuWndProc_W @ 0x18015EBD0
+ * XREFs of NtdllMenuWndProc_W @ 0x18015EAD0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllMenuWndProc_W()
 {
-  off_1801E0210();
+  off_1801DF210();
 }

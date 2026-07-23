@@ -16,15 +16,14 @@ __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a
   int v7; // r14d
   unsigned __int64 v8; // rax
   unsigned int v9; // eax
-  unsigned int v10; // ebp
+  ULONG v10; // ebp
   _DWORD *Heap; // rax
-  __int64 v12; // rsi
+  _DWORD *v12; // rsi
   unsigned int v13; // edx
   __int64 v14; // rcx
   __int64 v15; // rax
   __int128 v16; // xmm0
-  int v17; // ebx
-  __int64 v18; // r9
+  NTSTATUS v17; // ebx
 
   v4 = a3;
   if ( a2 <= 0xFFFFFFFF )
@@ -41,9 +40,9 @@ __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a
     else
     {
       v10 = v9;
-      Heap = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v9);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9);
       v6 = 0;
-      v12 = (__int64)Heap;
+      v12 = Heap;
       if ( Heap )
       {
         *Heap = v7;
@@ -55,15 +54,15 @@ __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a
           {
             v15 = 5 * v14;
             ++v13;
-            *(_DWORD *)(v12 + 4 * v15 + 4) = v4;
+            v12[v15 + 1] = v4;
             v16 = *(_OWORD *)(a1 + 16 * v14);
             v14 = v13;
-            *(_OWORD *)(v12 + 4 * v15 + 8) = v16;
+            *(_OWORD *)&v12[v15 + 2] = v16;
           }
           while ( v13 < a2 );
         }
-        v17 = ZwSetSystemInformation(212LL, v12, v10);
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v12, v18);
+        v17 = ZwSetSystemInformation(SystemFeatureUsageSubscriptionInformation, v12, v10);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
         if ( v17 < 0 )
           return (unsigned int)v17;
       }

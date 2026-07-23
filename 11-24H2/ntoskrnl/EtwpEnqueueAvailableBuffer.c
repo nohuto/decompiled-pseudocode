@@ -1,27 +1,26 @@
 /*
- * XREFs of EtwpEnqueueAvailableBuffer @ 0x14024D1E0
+ * XREFs of EtwpEnqueueAvailableBuffer @ 0x14027D7F0
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x14024C2BC (EtwpAllocateFreeBuffers.c)
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwpPrepareDirtyBuffer @ 0x14024D154 (EtwpPrepareDirtyBuffer.c)
- *     EtwpRelinquishCompressionTarget @ 0x14065164C (EtwpRelinquishCompressionTarget.c)
- *     EtwpRotateCompressionTarget @ 0x14065169C (EtwpRotateCompressionTarget.c)
- *     EtwpFlushActiveBuffers @ 0x1409D8040 (EtwpFlushActiveBuffers.c)
- *     EtwpCompleteBuffer @ 0x140AD9E0C (EtwpCompleteBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x14027C8CC (EtwpAllocateFreeBuffers.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14027D764 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpRelinquishCompressionTarget @ 0x14064FD4C (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x14064FD9C (EtwpRotateCompressionTarget.c)
+ *     EtwpFlushActiveBuffers @ 0x1409D1730 (EtwpFlushActiveBuffers.c)
+ *     EtwpCompleteBuffer @ 0x140ADB650 (EtwpCompleteBuffer.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-void __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, __int64 a3)
+void __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, unsigned int a3)
 {
-  int v4; // r14d
   ULONG_PTR v5; // rcx
   KIRQL CurrentIrql; // r15
   _QWORD *v8; // rcx
@@ -37,7 +36,6 @@ void __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, __int64
   _QWORD *v18; // r8
   int v19; // eax
 
-  v4 = a3;
   v5 = *(unsigned int *)(a1 + 4);
   CurrentIrql = 0;
   if ( (_DWORD)v5 != *a2 )
@@ -60,13 +58,13 @@ void __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, __int64
     if ( KiIrqlFlags )
     {
       LOBYTE(v5) = CurrentIrql;
-      KiRaiseIrqlProcessIrqlFlags(v5, 15LL, a3);
+      KiRaiseIrqlProcessIrqlFlags(v5, 15LL);
     }
     KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 696));
   }
   if ( (*(_DWORD *)(a1 + 12) & 0x4000000) == 0
     || (v15 = (_QWORD *)(a1 + 56), (v16 = *(_QWORD *)(a1 + 56)) == 0)
-    || v4 == 4 )
+    || a3 == 4 )
   {
     v8 = a2 + 8;
 LABEL_8:
@@ -74,7 +72,7 @@ LABEL_8:
     **(_QWORD **)(a1 + 48) = v8;
     goto LABEL_9;
   }
-  if ( !v4 )
+  if ( !a3 )
   {
     v17 = a2 + 8;
     *v17 = *(_QWORD *)(a1 + 56);

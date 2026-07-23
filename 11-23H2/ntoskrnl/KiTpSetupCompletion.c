@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTpSetupCompletion @ 0x1409767F8
+ * XREFs of KiTpSetupCompletion @ 0x1409769F8
  * Callers:
- *     KeSetTracepoint @ 0x140975D30 (KeSetTracepoint.c)
+ *     KeSetTracepoint @ 0x140975F30 (KeSetTracepoint.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     KiTpReadImageData @ 0x140976714 (KiTpReadImageData.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     KiTpReadImageData @ 0x140976914 (KiTpReadImageData.c)
  *     KiTpParseInstruction @ 0x140AF4450 (KiTpParseInstruction.c)
  */
 

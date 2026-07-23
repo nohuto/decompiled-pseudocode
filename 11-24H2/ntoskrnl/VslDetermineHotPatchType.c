@@ -1,12 +1,12 @@
 /*
- * XREFs of VslDetermineHotPatchType @ 0x14070F70C
+ * XREFs of VslDetermineHotPatchType @ 0x14070D29C
  * Callers:
- *     MiLoadHotPatch @ 0x140A9F9D4 (MiLoadHotPatch.c)
- *     MmRegisterHotPatches @ 0x140C56C7C (MmRegisterHotPatches.c)
+ *     MiLoadHotPatch @ 0x140A9ADA4 (MiLoadHotPatch.c)
+ *     MmRegisterHotPatches @ 0x140C58E0C (MmRegisterHotPatches.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, _DWORD *a3)
@@ -24,15 +24,15 @@ __int64 __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, _D
   memset_0(v8, 0, 0x68uLL);
   v9 = v5;
   v10 = v3;
-  result = VslpEnterIumSecureMode(2u, 74LL, 0, (__int64)v8);
+  result = VslpEnterIumSecureMode(2u, 0x4Au, 0, (__int64)v8);
   if ( (int)result >= 0 )
   {
     v7 = v10;
     *a3 = v10;
     if ( (v7 & 1) != 0 )
-      _InterlockedIncrement(&dword_140F8DDE4);
+      _InterlockedIncrement(&dword_140F8E044);
     if ( (*a3 & 2) != 0 )
-      _InterlockedIncrement(&dword_140F8DDE8);
+      _InterlockedIncrement(&dword_140F8E048);
   }
   return result;
 }

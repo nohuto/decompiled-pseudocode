@@ -21,28 +21,28 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall sub_180016D48(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall sub_180016D48(_DWORD *Instance, __int64 a2, int a3)
 {
-  __int64 v3; // rsi
+  void *v3; // rsi
   int v4; // r12d
   unsigned __int32 v8; // ecx
   signed __int32 v9; // eax
   int v10; // r14d
   int v11; // ebp
   unsigned __int32 v12; // ecx
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v14; // rcx
-  __int64 v15; // rcx
-  void **v16; // rbx
+  void *v15; // rcx
+  _QWORD *v16; // rbx
   int v18; // eax
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
-  __int64 v20; // [rsp+68h] [rbp+10h] BYREF
+  PVOID Cookie; // [rsp+68h] [rbp+10h] BYREF
 
-  v3 = *(_QWORD *)(a2 + 136);
+  v3 = *(void **)(a2 + 136);
   v4 = 0;
-  v20 = 0LL;
+  Cookie = 0LL;
   if ( v3 )
-    LdrLockLoaderLock(0LL, 0LL, &v20);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   _m_prefetchw((const void *)(a2 + 232));
   v8 = *(_DWORD *)(a2 + 232);
   do
@@ -72,7 +72,7 @@ __int64 __fastcall sub_180016D48(__int64 a1, __int64 a2, int a3)
   {
     if ( v10 )
     {
-      if ( (int)LdrAddRefDll(0LL) < 0 )
+      if ( LdrAddRefDll(0, v3) < 0 )
       {
         v10 = 0;
         v11 = 0;
@@ -80,11 +80,11 @@ __int64 __fastcall sub_180016D48(__int64 a1, __int64 a2, int a3)
       }
       else
       {
-        *(_DWORD *)(a1 + 144) |= 0x100u;
-        *(_QWORD *)(a1 + 168) = v3;
+        Instance[36] |= 0x100u;
+        *((_QWORD *)Instance + 21) = v3;
       }
     }
-    LdrUnlockLoaderLock(0LL, v20);
+    LdrUnlockLoaderLock(0, Cookie);
     if ( v4 )
     {
       sub_18007358C(a2 + 56, 0xFFFFFFFFLL, 0LL);
@@ -94,9 +94,9 @@ __int64 __fastcall sub_180016D48(__int64 a1, __int64 a2, int a3)
   if ( v11 )
   {
     _InterlockedExchangeAdd((volatile signed __int32 *)a2, 2u);
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v14 = 2147353478LL;
     if ( *(_BYTE *)v14 )
@@ -119,25 +119,29 @@ __int64 __fastcall sub_180016D48(__int64 a1, __int64 a2, int a3)
   {
     if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      *(_QWORD *)a1 = 72LL;
-      *(_DWORD *)(a1 + 8) = 1;
-      RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 96));
-      *(_BYTE *)(a1 + 76) |= 1u;
+      *(_QWORD *)Instance = 72LL;
+      Instance[2] = 1;
+      RtlActivateActivationContextUnsafeFast(Instance, *(_QWORD *)(a2 + 96));
+      *((_BYTE *)Instance + 76) |= 1u;
     }
-    *(_DWORD *)(a1 + 144) |= 0x240u;
-    *(_QWORD *)(a1 + 184) = a2;
+    Instance[36] |= 0x240u;
+    *((_QWORD *)Instance + 23) = a2;
     if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
-      TpCallbackMayRunLong(a1);
-    v15 = *(_QWORD *)(a2 + 104);
+      TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
+    v15 = *(void **)(a2 + 104);
     if ( v15 )
     {
-      *(_QWORD *)(a1 + 80) = v15;
+      *((_QWORD *)Instance + 10) = v15;
       RtlSetThreadSubProcessTag(v15);
     }
-    NtCurrentTeb()->ActivityId = *(struct _GUID *)(a2 + 112);
-    v16 = (void **)(a2 + 128);
-    if ( v16 && NtCurrentTeb()->SystemReserved1[53] != *v16 && (int)ZwSetInformationThread(-2LL, 44LL, v16) >= 0 )
-      NtCurrentTeb()->SystemReserved1[53] = *v16;
+    NtCurrentTeb()->ActivityId = *(GUID *)(a2 + 112);
+    v16 = (_QWORD *)(a2 + 128);
+    if ( v16
+      && *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket != *v16
+      && ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v16, 8u) >= 0 )
+    {
+      *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v16;
+    }
     return 1LL;
   }
   else

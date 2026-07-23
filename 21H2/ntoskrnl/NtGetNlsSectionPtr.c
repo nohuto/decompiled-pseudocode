@@ -1,29 +1,34 @@
 /*
- * XREFs of NtGetNlsSectionPtr @ 0x1406B9930
+ * XREFs of NtGetNlsSectionPtr @ 0x14060EE10
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ZwOpenSection @ 0x1403FAA80 (ZwOpenSection.c)
- *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
- *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
- *     RtlpInitNlsSectionName @ 0x1406B9CB0 (RtlpInitNlsSectionName.c)
- *     RtlpInitNlsFileName @ 0x1406B9D18 (RtlpInitNlsFileName.c)
- *     MmMapViewInSystemSpace @ 0x1406BF880 (MmMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ZwOpenSection @ 0x1403FAC60 (ZwOpenSection.c)
+ *     ZwCreateSection @ 0x1403FAEC0 (ZwCreateSection.c)
+ *     RtlpInitNlsSectionName @ 0x14060F190 (RtlpInitNlsSectionName.c)
+ *     RtlpInitNlsFileName @ 0x14060F1F8 (RtlpInitNlsFileName.c)
+ *     MmMapViewInSystemSpace @ 0x14061E6F0 (MmMapViewInSystemSpace.c)
+ *     MmMapViewOfSection @ 0x1406A1F20 (MmMapViewOfSection.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigned __int64 a3, PVOID *a4, ULONG_PTR *a5)
+NTSTATUS __cdecl NtGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   char PreviousMode; // r14
   __int64 v9; // rcx
   __int64 v10; // rcx
   NTSTATUS result; // eax
-  NTSTATUS v12; // ebx
+  int v12; // ebx
   struct _DMA_ADAPTER *v13; // rdi
   NTSTATUS v14; // eax
   HANDLE SectionHandle; // [rsp+58h] [rbp-200h] BYREF
@@ -48,30 +53,30 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
   IoStatusBlock = 0LL;
   MappedBase = 0LL;
   ViewSize = 0LL;
-  if ( !a4 )
+  if ( !SectionPointer )
     return -1073741582;
-  if ( !a5 )
+  if ( !SectionSize )
     return -1073741581;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v9 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v9 = (__int64)SectionPointer;
+    if ( (unsigned __int64)SectionPointer >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v9 = *(_QWORD *)v9;
-    v10 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v10 = (__int64)SectionSize;
+    if ( (unsigned __int64)SectionSize >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v10 = *(_QWORD *)v10;
-    if ( a3 )
+    if ( ContextData )
     {
-      if ( (a3 & 3) != 0 )
+      if ( ((unsigned __int8)ContextData & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+      if ( (unsigned __int64)ContextData + 4 > 0x7FFFFFFF0000LL || (char *)ContextData + 4 < ContextData )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
-  result = RtlpInitNlsSectionName(a1, a2, v26);
+  result = RtlpInitNlsSectionName(SectionType, SectionData, v26);
   if ( result >= 0 )
   {
     ObjectAttributes.Length = 48;
@@ -79,7 +84,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
     ObjectAttributes.Attributes = 720;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v21;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( a1 - 11 > 1 )
+    if ( SectionType - 11 > 1 )
     {
       v12 = -1073741823;
     }
@@ -91,7 +96,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
         *(&v24.Length + 1) = 0;
         *(&v24.Attributes + 1) = 0;
         v22 = 0LL;
-        result = RtlpInitNlsFileName(a1, a2, v27);
+        result = RtlpInitNlsFileName(SectionType, SectionData, v27);
         if ( result < 0 )
           return result;
         v24.Length = 48;
@@ -117,13 +122,13 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
         v13 = (struct _DMA_ADAPTER *)Section;
         if ( PreviousMode )
           v14 = MmMapViewOfSection(
-                  (int)Section,
-                  (__int64)KeGetCurrentThread()->ApcState.Process,
+                  Section,
+                  KeGetCurrentThread()->ApcState.Process,
                   &MappedBase,
                   0LL,
-                  0,
-                  (__int64)&v20,
-                  (__int64 *)&ViewSize,
+                  0LL,
+                  &v20,
+                  &ViewSize,
                   1,
                   0x400000,
                   2);
@@ -133,8 +138,8 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
         HalPutDmaAdapter(v13);
         if ( v12 >= 0 )
         {
-          *a4 = MappedBase;
-          *a5 = ViewSize;
+          *SectionPointer = MappedBase;
+          *(_QWORD *)SectionSize = ViewSize;
         }
       }
     }

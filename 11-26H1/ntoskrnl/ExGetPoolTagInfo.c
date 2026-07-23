@@ -1,14 +1,14 @@
 /*
- * XREFs of ExGetPoolTagInfo @ 0x140B5721C
+ * XREFs of ExGetPoolTagInfo @ 0x140B5A170
  * Callers:
- *     EtwpPoolRunDown @ 0x14082F9B8 (EtwpPoolRunDown.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x140835BF8 (EtwpPoolRunDown.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ExpCapturePoolTrackTables @ 0x14052749C (ExpCapturePoolTrackTables.c)
- *     ExpCapturePoolTrackTablesPrecise @ 0x140774D38 (ExpCapturePoolTrackTablesPrecise.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     ExpCapturePoolTrackTables @ 0x140529B0C (ExpCapturePoolTrackTables.c)
+ *     ExpCapturePoolTrackTablesPrecise @ 0x140777D38 (ExpCapturePoolTrackTablesPrecise.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall ExGetPoolTagInfo(int *a1, unsigned int a2, unsigned int *a3, char a4, int a5)

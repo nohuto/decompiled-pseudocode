@@ -1,14 +1,14 @@
 /*
- * XREFs of IopExecuteHardwareProfileChange @ 0x140739DD4
+ * XREFs of IopExecuteHardwareProfileChange @ 0x140737D04
  * Callers:
- *     PnpProfileUpdateHardwareProfile @ 0x14072D40C (PnpProfileUpdateHardwareProfile.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x14072B41C (PnpProfileUpdateHardwareProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmSetAcpiHwProfile @ 0x1407D25A4 (CmSetAcpiHwProfile.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmSetAcpiHwProfile @ 0x1407D2A94 (CmSetAcpiHwProfile.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsigned int a3, int a4, __int64 a5)
@@ -26,10 +26,10 @@ __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsig
   PCWCH *v16; // rdi
   __int128 v17; // xmm0
   __int64 v18; // rdx
-  __int16 v19; // r14
+  int v19; // r14d
   const void **v20; // rcx
-  __int16 v21; // ax
-  __int16 v22; // r14
+  int v21; // eax
+  unsigned int v22; // r14d
   __int64 v23; // rax
   int v24; // r8d
   _WORD *v25; // rdi
@@ -38,7 +38,7 @@ __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsig
   const void **v29; // [rsp+38h] [rbp-30h]
 
   v6 = a3;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 16 * a3, 0x33706E50u);
   v29 = (const void **)Pool2;
   v8 = (const void **)Pool2;
   if ( Pool2 )
@@ -89,7 +89,7 @@ __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsig
       v20 = v8;
       do
       {
-        v21 = *(_WORD *)v20;
+        v21 = *(unsigned __int16 *)v20;
         v20 += 2;
         v19 += v21;
         --v18;
@@ -102,7 +102,7 @@ __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsig
       v19 = 0;
     }
     v22 = v19 + 2;
-    v23 = ExAllocatePool2(0x40uLL);
+    v23 = ExAllocatePool2(0x40uLL, v22 + 6LL, 0x33706E50u);
     v25 = (_WORD *)v23;
     if ( v23 )
     {

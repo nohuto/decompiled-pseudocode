@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpSysGetVersion @ 0x140AB4C98
  * Callers:
- *     KdSystemDebugControl @ 0x1409720F0 (KdSystemDebugControl.c)
+ *     KdSystemDebugControl @ 0x1409722F0 (KdSystemDebugControl.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpInitializeSvmIommuSupport @ 0x14058AEE8
+ * XREFs of HvlpInitializeSvmIommuSupport @ 0x1405881D8
  * Callers:
- *     HvlPhase2Initialize @ 0x140582B80 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14057FF00 (HvlPhase2Initialize.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     HvlGetSystemPasidCapabilities @ 0x1405871E0 (HvlGetSystemPasidCapabilities.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     HvlGetSystemPasidCapabilities @ 0x140584560 (HvlGetSystemPasidCapabilities.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 HvlpInitializeSvmIommuSupport()
@@ -25,11 +25,11 @@ __int64 HvlpInitializeSvmIommuSupport()
   v0 = HIDWORD(v5);
   if ( !HIDWORD(v5) )
     return 3221225659LL;
-  qword_140E3ED10 = ExAllocatePool2(0x40uLL);
-  v1 = qword_140E3ED10;
-  if ( !qword_140E3ED10 )
+  qword_140E3EE50 = ExAllocatePool2(0x40uLL, 104LL * HIDWORD(v5), 0x204C5648u);
+  v1 = qword_140E3EE50;
+  if ( !qword_140E3EE50 )
     return 3221225626LL;
-  dword_140E3ED08 = v0;
+  dword_140E3EE48 = v0;
   v3 = 0;
   if ( v0 )
   {
@@ -47,9 +47,9 @@ __int64 HvlpInitializeSvmIommuSupport()
       *(_QWORD *)(v4 + 72) = 0LL;
       *(_DWORD *)(v4 + 4) = 3;
       ExQueueWorkItem((PWORK_QUEUE_ITEM)(v4 + 72), HyperCriticalWorkQueue);
-      if ( ++v3 >= dword_140E3ED08 )
+      if ( ++v3 >= dword_140E3EE48 )
         break;
-      v1 = qword_140E3ED10;
+      v1 = qword_140E3EE50;
     }
   }
   return 0LL;

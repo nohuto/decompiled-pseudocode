@@ -11,31 +11,27 @@
  *     _TpPostWork@4 @ 0x4B2C1B30 (_TpPostWork@4.c)
  */
 
-_PEB_LDR_DATA *__thiscall LdrpQueueWork(_DWORD *this)
+void __thiscall LdrpQueueWork(int this)
 {
-  _PEB_LDR_DATA *result; // eax
-  _DWORD *v3; // ecx
-  _DWORD *v4; // eax
+  _DWORD *v2; // ecx
+  _DWORD *v3; // eax
 
-  result = (_PEB_LDR_DATA *)this[6];
-  if ( (result->Length & 0x80000000) == 0 )
+  if ( **(int **)(this + 24) >= 0 )
   {
-    RtlEnterCriticalSection((int)&LdrpWorkQueueLock);
-    v3 = (_DWORD *)dword_4B3A5D04;
-    v4 = this + 9;
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
+    v2 = (_DWORD *)dword_4B3A5D04;
+    v3 = (_DWORD *)(this + 36);
     if ( *(int **)dword_4B3A5D04 != &LdrpWorkQueue )
       __fastfail(3u);
-    *v4 = &LdrpWorkQueue;
-    this[10] = v3;
-    *v3 = v4;
-    dword_4B3A5D04 = (int)(this + 9);
-    result = (_PEB_LDR_DATA *)RtlLeaveCriticalSection((int)&LdrpWorkQueueLock);
+    *v3 = &LdrpWorkQueue;
+    *(_DWORD *)(this + 40) = v2;
+    *v2 = v3;
+    dword_4B3A5D04 = this + 36;
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
     if ( LdrpMapAndSnapWork )
     {
-      result = NtCurrentPeb()->Ldr;
-      if ( !result->ShutdownInProgress )
-        return (_PEB_LDR_DATA *)TpPostWork(LdrpMapAndSnapWork);
+      if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
+        TpPostWork(LdrpMapAndSnapWork);
     }
   }
-  return result;
 }

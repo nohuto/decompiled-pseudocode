@@ -89,7 +89,7 @@ LABEL_5:
             v12,
             v34->CurrentIdealProcessor.Reserved,
             (unsigned __int64)&v28 & -(__int64)(v10 != 0),
-            (__int64)&v30);
+            &v30);
     v33 = v16;
     v17 = 0;
     v18 = *(volatile signed __int32 **)(v8 + 400);

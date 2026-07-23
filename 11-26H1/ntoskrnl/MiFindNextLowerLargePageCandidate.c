@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindNextLowerLargePageCandidate @ 0x14042E03C
+ * XREFs of MiFindNextLowerLargePageCandidate @ 0x14041AF4C
  * Callers:
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiFindBestLargePageStealCandidates @ 0x14042DA48 (MiFindBestLargePageStealCandidates.c)
- *     MiExpandPageSkipRange @ 0x14042DF80 (MiExpandPageSkipRange.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiFindBestLargePageStealCandidates @ 0x14041A958 (MiFindBestLargePageStealCandidates.c)
+ *     MiExpandPageSkipRange @ 0x14041AE90 (MiExpandPageSkipRange.c)
  * Callees:
- *     RtlFindNextClearBitBackwardsEx @ 0x14042E0DC (RtlFindNextClearBitBackwardsEx.c)
+ *     RtlFindNextClearBitBackwardsEx @ 0x14041AFEC (RtlFindNextClearBitBackwardsEx.c)
  */
 
 __int64 __fastcall MiFindNextLowerLargePageCandidate(__int64 a1, unsigned __int64 a2, __int64 a3)

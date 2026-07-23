@@ -9,11 +9,11 @@
  *     RtlFreeHeap @ 0x180027690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpMuiRegFreeLanguageConfigList(__int64 a1)
+LOGICAL __fastcall RtlpMuiRegFreeLanguageConfigList(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  if ( BaseAddress )
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return result;
 }

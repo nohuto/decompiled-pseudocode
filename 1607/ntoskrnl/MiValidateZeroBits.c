@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateZeroBits @ 0x140658DCC
+ * XREFs of MiValidateZeroBits @ 0x140658EB0
  * Callers:
- *     NtCreateEnclave @ 0x14065F8F8 (NtCreateEnclave.c)
+ *     NtCreateEnclave @ 0x14065F9DC (NtCreateEnclave.c)
  * Callees:
- *     RtlFindMostSignificantBit @ 0x14009E154 (RtlFindMostSignificantBit.c)
+ *     RtlFindMostSignificantBit @ 0x14009D954 (RtlFindMostSignificantBit.c)
  */
 
 __int64 __fastcall MiValidateZeroBits(ULONGLONG *a1)

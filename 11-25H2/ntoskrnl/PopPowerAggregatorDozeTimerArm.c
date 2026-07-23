@@ -31,5 +31,5 @@ __int64 __fastcall PopPowerAggregatorDozeTimerArm(__int64 a1, signed int a2, __i
   UserData.Size = 4;
   v13 = 8;
   PopPowerAggregatorDiagTraceEvent(&POP_ETW_EVENT_POWER_AGGREGATOR_DOZE_TIMER_ARMED, 2u, &UserData);
-  return KeSetTimer2(v7 + a1 + 344, a3, 0LL, 0LL);
+  return KeSetTimer2(v7 + a1 + 344, (LARGE_INTEGER)a3, 0LL, 0LL);
 }

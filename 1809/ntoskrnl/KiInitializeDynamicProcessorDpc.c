@@ -1,21 +1,21 @@
 /*
- * XREFs of KiInitializeDynamicProcessorDpc @ 0x14057B260
+ * XREFs of KiInitializeDynamicProcessorDpc @ 0x14057C260
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
- *     KeSetAffinityProcess @ 0x1401904B4 (KeSetAffinityProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeSignalCallDpcSynchronize @ 0x140294170 (KeSignalCallDpcSynchronize.c)
- *     KiConfigureSchedulingInformation @ 0x1405724C0 (KiConfigureSchedulingInformation.c)
- *     KiConfigureProcessorBlock @ 0x140572988 (KiConfigureProcessorBlock.c)
- *     KiInitializeProcessor @ 0x14057302C (KiInitializeProcessor.c)
- *     KeRestoreMtrrBroadcast @ 0x140573264 (KeRestoreMtrrBroadcast.c)
- *     KiUpdateNumberProcessors @ 0x14057B428 (KiUpdateNumberProcessors.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KiIpiSendPacket @ 0x1400ED184 (KiIpiSendPacket.c)
+ *     KeSetAffinityProcess @ 0x1401905F4 (KeSetAffinityProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeSignalCallDpcSynchronize @ 0x140294360 (KeSignalCallDpcSynchronize.c)
+ *     KiConfigureSchedulingInformation @ 0x1405734C0 (KiConfigureSchedulingInformation.c)
+ *     KiConfigureProcessorBlock @ 0x140573988 (KiConfigureProcessorBlock.c)
+ *     KiInitializeProcessor @ 0x14057402C (KiInitializeProcessor.c)
+ *     KeRestoreMtrrBroadcast @ 0x140574264 (KeRestoreMtrrBroadcast.c)
+ *     KiUpdateNumberProcessors @ 0x14057C428 (KiUpdateNumberProcessors.c)
  */
 
 __int64 __fastcall KiInitializeDynamicProcessorDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -51,7 +51,7 @@ __int64 __fastcall KiInitializeDynamicProcessorDpc(__int64 a1, __int64 a2, volat
     }
     __writecr8(CurrentIrql);
     KeRestoreMtrrBroadcast();
-    ((void (__fastcall *)(_QWORD, __int64))off_1403FE3F0[0])(0LL, *(_QWORD *)a2 + 36LL);
+    ((void (__fastcall *)(_QWORD, __int64))off_1403FF3F0[0])(0LL, *(_QWORD *)a2 + 36LL);
     KiConfigureSchedulingInformation(*(_QWORD *)a2, 1);
     KiBarrierWait = 0;
     *(_BYTE *)(a2 + 8) = 1;

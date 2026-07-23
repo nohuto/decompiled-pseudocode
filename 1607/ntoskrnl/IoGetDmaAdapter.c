@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetDmaAdapter @ 0x140577C34
+ * XREFs of IoGetDmaAdapter @ 0x140578174
  * Callers:
- *     VfGetDmaAdapter @ 0x140707428 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x140707458 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     PnpQueryInterface @ 0x1404CDDFC (PnpQueryInterface.c)
- *     IoGetDeviceProperty @ 0x1404F936C (IoGetDeviceProperty.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     IoGetDeviceProperty @ 0x1404DC2F8 (IoGetDeviceProperty.c)
+ *     PnpQueryInterface @ 0x14050E494 (PnpQueryInterface.c)
  */
 
 struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(

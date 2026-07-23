@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDmgInitPhaseTwo @ 0x1407A3FC4
+ * XREFs of PipDmgInitPhaseTwo @ 0x1407A41C4
  * Callers:
- *     PiDmaGuardInitialize @ 0x1403B7328 (PiDmaGuardInitialize.c)
+ *     PiDmaGuardInitialize @ 0x1403B7498 (PiDmaGuardInitialize.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PipDmgInitReadGroupPolicy @ 0x1408A3530 (PipDmgInitReadGroupPolicy.c)
- *     PipDmgReevaluateQueue @ 0x1408B152C (PipDmgReevaluateQueue.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PipDmgInitReadGroupPolicy @ 0x1408A3690 (PipDmgInitReadGroupPolicy.c)
+ *     PipDmgReevaluateQueue @ 0x1408B168C (PipDmgReevaluateQueue.c)
  */
 
 __int64 PipDmgInitPhaseTwo()
@@ -27,13 +27,13 @@ __int64 PipDmgInitPhaseTwo()
     PipDmaGuardPolicy = GroupPolicy;
     PipDmgReevaluateQueue();
   }
-  if ( (unsigned int)dword_140C02E00 > 5 && tlgKeywordOn((__int64)&dword_140C02E00, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02D90 > 5 && tlgKeywordOn((__int64)&dword_140C02D90, 0x400000000000LL) )
   {
     v6 = 0;
     v2 = PipDmaGuardPolicy;
     v5 = 4;
     v4 = &v2;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02E00, (unsigned __int8 *)&dword_1400252DC, 0LL, 0LL, 3u, &v3);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02D90, (unsigned __int8 *)&word_14002545E, 0LL, 0LL, 3u, &v3);
   }
   return 0LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of AslpImageFirstSectionUma @ 0x14088F438
+ * XREFs of AslpImageFirstSectionUma @ 0x140895834
  * Callers:
- *     AslpFileGetExeWrapper @ 0x14088CBA4 (AslpFileGetExeWrapper.c)
- *     AslpImageRvaToSectionUma @ 0x14088F534 (AslpImageRvaToSectionUma.c)
+ *     AslpFileGetExeWrapper @ 0x140892FA0 (AslpFileGetExeWrapper.c)
+ *     AslpImageRvaToSectionUma @ 0x140895930 (AslpImageRvaToSectionUma.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     AslpMemoryCheckFileBounds @ 0x140714E80 (AslpMemoryCheckFileBounds.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     AslpFileGetImageNtHeader @ 0x14088D430 (AslpFileGetImageNtHeader.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     AslpMemoryCheckFileBounds @ 0x140719B70 (AslpMemoryCheckFileBounds.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     AslpFileGetImageNtHeader @ 0x14089382C (AslpFileGetImageNtHeader.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpImageFirstSectionUma(_WORD *a1, unsigned __int64 *a2, __int64 a3)

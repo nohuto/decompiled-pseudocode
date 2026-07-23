@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpUnregisterPlugPlayNotification @ 0x1403205FC
+ * XREFs of PnpUnregisterPlugPlayNotification @ 0x14032088C
  * Callers:
- *     IoUnregisterPlugPlayNotification @ 0x14078E3A0 (IoUnregisterPlugPlayNotification.c)
- *     IoUnregisterPlugPlayNotificationEx @ 0x14078E3D0 (IoUnregisterPlugPlayNotificationEx.c)
- *     PopCleanCoolingExtension @ 0x140982D9C (PopCleanCoolingExtension.c)
- *     PopPolicyDeviceTargetChange @ 0x1409949D0 (PopPolicyDeviceTargetChange.c)
+ *     IoUnregisterPlugPlayNotification @ 0x14078E590 (IoUnregisterPlugPlayNotification.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x14078E5C0 (IoUnregisterPlugPlayNotificationEx.c)
+ *     PopCleanCoolingExtension @ 0x140982F9C (PopCleanCoolingExtension.c)
+ *     PopPolicyDeviceTargetChange @ 0x140994BD0 (PopPolicyDeviceTargetChange.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PnpDereferenceNotify @ 0x14078F428 (PnpDereferenceNotify.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PnpDereferenceNotify @ 0x14078F618 (PnpDereferenceNotify.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -6,7 +6,10 @@
  *     <none>
  */
 
-bool __fastcall sub_18007CF10(_BYTE *a1, unsigned int a2)
+BOOLEAN __fastcall sub_18007CF10(PSID Sid, unsigned int a2)
 {
-  return a2 >= 8 && a2 >= 4 * (unsigned int)(unsigned __int8)a1[1] + 8 && RtlValidSid(a1);
+  if ( a2 >= 8 && a2 >= 4 * (unsigned int)*((unsigned __int8 *)Sid + 1) + 8 )
+    return RtlValidSid(Sid);
+  else
+    return 0;
 }

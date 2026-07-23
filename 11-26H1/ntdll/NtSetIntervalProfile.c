@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetIntervalProfile @ 0x180162590
+ * XREFs of NtSetIntervalProfile @ 0x180162490
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetIntervalProfile()
+NTSTATUS __cdecl NtSetIntervalProfile(ULONG Interval, KPROFILE_SOURCE Source)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 435LL;
+  result = 435;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpShouldOperateOnCall @ 0x1409294C0
+ * XREFs of VrpShouldOperateOnCall @ 0x14092B600
  * Callers:
- *     VrpRegistryCallback @ 0x140849230 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408454F0 (VrpRegistryCallback.c)
  * Callees:
- *     VRegEnabledInJob @ 0x1409296E0 (VRegEnabledInJob.c)
+ *     VRegEnabledInJob @ 0x14092B820 (VRegEnabledInJob.c)
  */
 
 __int64 __fastcall VrpShouldOperateOnCall(int a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)

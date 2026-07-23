@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnicodeStringToOemString @ 0x1800AF9B0
+ * XREFs of RtlUnicodeStringToOemString @ 0x18007C250
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     AllocateOrValidateCharStringBuffer @ 0x18000BE90 (AllocateOrValidateCharStringBuffer.c)
- *     RtlpIsUtf8Process @ 0x180070CD0 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToMultiByteSize @ 0x1800B18B0 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeToCustomCPN @ 0x1800B1D30 (RtlUnicodeToCustomCPN.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     AllocateOrValidateCharStringBuffer @ 0x180038890 (AllocateOrValidateCharStringBuffer.c)
+ *     RtlUnicodeToMultiByteSize @ 0x18007E150 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToCustomCPN @ 0x18007E5D0 (RtlUnicodeToCustomCPN.c)
+ *     RtlpIsUtf8Process @ 0x18008D5B0 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToOemString(
@@ -15,56 +15,57 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
         PCUNICODE_STRING SourceString,
         BOOLEAN AllocateDestinationString)
 {
-  __int64 *p_Buffer; // rdi
+  void **p_Buffer; // rdi
   NTSTATUS result; // eax
-  int v7; // edx
-  __int64 v8; // r8
-  int v9; // r10d
-  int v10; // r11d
-  __int16 *v11; // rcx
-  NTSTATUS v12; // ebx
-  unsigned __int16 v13; // dx
-  signed __int32 v14[8]; // [rsp+0h] [rbp-78h] BYREF
-  NTSTATUS v15; // [rsp+30h] [rbp-48h]
-  ULONG v16; // [rsp+88h] [rbp+10h] BYREF
-  BOOLEAN v17; // [rsp+90h] [rbp+18h]
-  ULONG v18; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v8; // rcx
+  ULONG BytesInUnicodeString; // edx
+  WCHAR *UnicodeString; // r8
+  ULONG v11; // r10d
+  CHAR *v12; // r11
+  _CPTABLEINFO *v13; // rcx
+  int v14; // ebx
+  unsigned __int16 v15; // dx
+  signed __int32 v16[8]; // [rsp+0h] [rbp-78h] BYREF
+  NTSTATUS v17; // [rsp+30h] [rbp-48h]
+  ULONG v18; // [rsp+88h] [rbp+10h] BYREF
+  BOOLEAN v19; // [rsp+90h] [rbp+18h]
+  ULONG BytesInCustomCPString; // [rsp+98h] [rbp+20h] BYREF
 
-  v17 = AllocateDestinationString;
-  v16 = 0;
-  RtlUnicodeToMultiByteSize(&v16, SourceString->Buffer, SourceString->Length);
-  v18 = v16 + 1;
-  if ( v16 + 1 > 0xFFFF )
+  v19 = AllocateDestinationString;
+  v18 = 0;
+  RtlUnicodeToMultiByteSize(&v18, SourceString->Buffer, SourceString->Length);
+  BytesInCustomCPString = v18 + 1;
+  if ( v18 + 1 > 0xFFFF )
     return -1073741584;
-  p_Buffer = (__int64 *)&DestinationString->Buffer;
+  p_Buffer = (void **)&DestinationString->Buffer;
   result = AllocateOrValidateCharStringBuffer(
              AllocateDestinationString,
-             v16 + 1,
+             v18 + 1,
              (__int64 *)&DestinationString->Buffer,
              &DestinationString->MaximumLength);
-  v15 = result;
+  v17 = result;
   if ( result >= 0 )
   {
-    if ( RtlpIsUtf8Process() )
+    if ( (unsigned __int8)RtlpIsUtf8Process(v8, SourceString->Length, SourceString->Buffer) )
     {
-      v11 = (__int16 *)&Utf8TableInfo;
+      v13 = (_CPTABLEINFO *)&Utf8TableInfo;
     }
     else
     {
-      _InterlockedOr(v14, 0);
-      v11 = &GlobalRtlNlsState;
+      _InterlockedOr(v16, 0);
+      v13 = &GlobalRtlNlsState;
     }
-    v12 = RtlUnicodeToCustomCPN((_DWORD)v11, v10, v9, (unsigned int)&v18, v8, v7);
-    v15 = v12;
-    if ( v12 >= 0 )
+    v14 = RtlUnicodeToCustomCPN(v13, v12, v11, &BytesInCustomCPString, UnicodeString, BytesInUnicodeString);
+    v17 = v14;
+    if ( v14 >= 0 )
     {
-      v13 = v18;
-      *(_BYTE *)(v18 + *p_Buffer) = 0;
-      DestinationString->Length = v13;
-      v12 = 0;
-      v15 = 0;
+      v15 = BytesInCustomCPString;
+      *((_BYTE *)*p_Buffer + BytesInCustomCPString) = 0;
+      DestinationString->Length = v15;
+      v14 = 0;
+      v17 = 0;
     }
-    if ( v12 < 0 )
+    if ( v14 < 0 )
     {
       if ( AllocateDestinationString )
       {
@@ -73,7 +74,7 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
         DestinationString->MaximumLength = 0;
       }
     }
-    return v12;
+    return v14;
   }
   return result;
 }

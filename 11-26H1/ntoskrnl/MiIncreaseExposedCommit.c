@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIncreaseExposedCommit @ 0x140486A10
+ * XREFs of MiIncreaseExposedCommit @ 0x1404803E0
  * Callers:
- *     MiUpdateCommitCounts @ 0x140462BC4 (MiUpdateCommitCounts.c)
- *     MiChargeExposedCommitOnly @ 0x1407057D0 (MiChargeExposedCommitOnly.c)
+ *     MiUpdateCommitCounts @ 0x14045BB84 (MiUpdateCommitCounts.c)
+ *     MiChargeExposedCommitOnly @ 0x14070A4A0 (MiChargeExposedCommitOnly.c)
  * Callees:
  *     <none>
  */

@@ -18,7 +18,7 @@
 __int64 __fastcall ExpRaiseHardError(
         unsigned int a1,
         unsigned int a2,
-        int a3,
+        unsigned int a3,
         const void *a4,
         __int64 a5,
         int a6,
@@ -42,18 +42,17 @@ __int64 __fastcall ExpRaiseHardError(
   bool v26; // zf
   unsigned int v27; // ecx
   unsigned int v28; // ecx
-  __int64 v29; // [rsp+20h] [rbp-358h]
-  _QWORD v32[3]; // [rsp+68h] [rbp-310h] BYREF
-  _DWORD v33[12]; // [rsp+80h] [rbp-2F8h] BYREF
-  __int64 v34; // [rsp+B0h] [rbp-2C8h]
-  int v35; // [rsp+B8h] [rbp-2C0h]
-  unsigned int v36; // [rsp+BCh] [rbp-2BCh]
-  unsigned int v37; // [rsp+C0h] [rbp-2B8h]
-  int v38; // [rsp+C4h] [rbp-2B4h]
-  char v39[616]; // [rsp+C8h] [rbp-2B0h] BYREF
+  _QWORD v31[3]; // [rsp+68h] [rbp-310h] BYREF
+  _DWORD v32[12]; // [rsp+80h] [rbp-2F8h] BYREF
+  __int64 v33; // [rsp+B0h] [rbp-2C8h]
+  int v34; // [rsp+B8h] [rbp-2C0h]
+  unsigned int v35; // [rsp+BCh] [rbp-2BCh]
+  unsigned int v36; // [rsp+C0h] [rbp-2B8h]
+  unsigned int v37; // [rsp+C4h] [rbp-2B4h]
+  char v38[616]; // [rsp+C8h] [rbp-2B0h] BYREF
 
-  v32[0] = a4;
-  v32[1] = a7;
+  v31[0] = a4;
+  v31[1] = a7;
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   *a7 = 0;
@@ -73,17 +72,13 @@ __int64 __fastcall ExpRaiseHardError(
   v15 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
   if ( !v15 && (a1 & 0xC0000000) == 0xC0000000 && (!LODWORD(CurrentServerSiloGlobals[54].Flink) || v13) )
   {
-    LOBYTE(v29) = PreviousMode != 0;
-    ExpSystemErrorHandler(a1, a2, a3, a5, v29);
+    ExpSystemErrorHandler(a1, a2, a3, a5, PreviousMode != 0);
     return 0LL;
   }
   if ( Process == (_KPROCESS *)CurrentServerSiloGlobals[53].Flink )
   {
     if ( (a1 & 0xC0000000) == 0xC0000000 )
-    {
-      LOBYTE(v29) = PreviousMode != 0;
-      ExpSystemErrorHandler(a1, a2, a3, a5, v29);
-    }
+      ExpSystemErrorHandler(a1, a2, a3, a5, PreviousMode != 0);
     goto LABEL_15;
   }
   Blink = 0LL;
@@ -125,37 +120,37 @@ LABEL_15:
     *a7 = 0;
     return 0LL;
   }
-  v33[0] = 7340104;
-  v33[1] = 9;
-  v33[10] = a1 & 0xEFFFFFFF;
-  v35 = a6;
-  v38 = a3;
-  v37 = a2;
+  v32[0] = 7340104;
+  v32[1] = 9;
+  v32[10] = a1 & 0xEFFFFFFF;
+  v34 = a6;
+  v37 = a3;
+  v36 = a2;
   if ( v18 )
-    memmove(v39, v18, 8LL * a2);
-  v34 = MEMORY[0xFFFFF78000000014];
-  v32[0] = 688LL;
-  v23 = LpcSendWaitReceivePort((int)Blink, 0x20000, (int)v33, (__int64)v33, (__int64)v32, 0LL);
+    memmove(v38, v18, 8LL * a2);
+  v33 = MEMORY[0xFFFFF78000000014];
+  v31[0] = 688LL;
+  v23 = LpcSendWaitReceivePort((int)Blink, 0x20000, (int)v32, (__int64)v32, (__int64)v31, 0LL);
   if ( v17 == 1 )
     ObfDereferenceObject(Blink);
   if ( v23 >= 0 )
   {
-    v24 = v36;
-    v25 = v36;
-    if ( v36 > 5 )
+    v24 = v35;
+    v25 = v35;
+    if ( v35 > 5 )
     {
-      v24 = v36 - 6;
-      v26 = v36 == 6;
+      v24 = v35 - 6;
+      v26 = v35 == 6;
     }
     else
     {
-      if ( v36 == 5 )
+      if ( v35 == 5 )
       {
 LABEL_52:
         *a7 = v25;
         return (unsigned int)v23;
       }
-      v26 = v36 == 0;
+      v26 = v35 == 0;
     }
     if ( !v26 )
     {

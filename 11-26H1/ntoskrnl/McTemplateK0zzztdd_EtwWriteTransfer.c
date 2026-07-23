@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zzztdd_EtwWriteTransfer @ 0x1405DC7FC
+ * XREFs of McTemplateK0zzztdd_EtwWriteTransfer @ 0x1405DF0AC
  * Callers:
- *     PiSwProcessRemove @ 0x14090B360 (PiSwProcessRemove.c)
+ *     PiSwProcessRemove @ 0x1409AD484 (PiSwProcessRemove.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14049F320 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x140498E70 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0zzztdd_EtwWriteTransfer(

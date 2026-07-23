@@ -6,7 +6,7 @@
  *     RtlInitAnsiStringEx @ 0x14018D0A0 (RtlInitAnsiStringEx.c)
  */
 
-NTSTATUS __fastcall RtlInitStringEx(STRING *a1, const char *a2)
+NTSTATUS __cdecl RtlInitStringEx(PSTRING DestinationString, PCSZ SourceString)
 {
-  return RtlInitAnsiStringEx(a1, a2);
+  return RtlInitAnsiStringEx(DestinationString, SourceString);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCallPowerSettingCallback @ 0x1403F36FC
+ * XREFs of PopCallPowerSettingCallback @ 0x1403F25C0
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x1403F5FEC (PopDispatchPowerSettingCallbacks.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1403F4EB0 (PopDispatchPowerSettingCallbacks.c)
  * Callees:
- *     KeAreApcsDisabled @ 0x140009B90 (KeAreApcsDisabled.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     PopDiagTracePowerSettingStart @ 0x1403F356C (PopDiagTracePowerSettingStart.c)
- *     PopDiagTracePowerSettingStop @ 0x1403F3650 (PopDiagTracePowerSettingStop.c)
- *     PopUnreferencePowerSetting @ 0x1403F5C54 (PopUnreferencePowerSetting.c)
+ *     KeAreApcsDisabled @ 0x140009710 (KeAreApcsDisabled.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PopDiagTracePowerSettingStart @ 0x1403F2430 (PopDiagTracePowerSettingStart.c)
+ *     PopDiagTracePowerSettingStop @ 0x1403F2514 (PopDiagTracePowerSettingStop.c)
+ *     PopUnreferencePowerSetting @ 0x1403F4B18 (PopUnreferencePowerSetting.c)
  */
 
 void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpStackDbFreeRoutine @ 0x1407C51D0
+ * XREFs of ObpStackDbFreeRoutine @ 0x1407C8230
  * Callers:
- *     ObpObjectRefsByStackAddTrace @ 0x140AB6310 (ObpObjectRefsByStackAddTrace.c)
+ *     ObpObjectRefsByStackAddTrace @ 0x140AB76B0 (ObpObjectRefsByStackAddTrace.c)
  * Callees:
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
  */
 
 void __fastcall ObpStackDbFreeRoutine(void *a1)

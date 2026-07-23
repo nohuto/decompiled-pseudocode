@@ -1,18 +1,18 @@
 /*
- * XREFs of PsCallImageNotifyRoutines @ 0x1405F50F0
+ * XREFs of PsCallImageNotifyRoutines @ 0x1405F60F0
  * Callers:
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     DbgkCreateThread @ 0x1405F7028 (DbgkCreateThread.c)
- *     MiDriverLoadSucceeded @ 0x140681BE4 (MiDriverLoadSucceeded.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     DbgkCreateThread @ 0x1405F8028 (DbgkCreateThread.c)
+ *     MiDriverLoadSucceeded @ 0x140682DA4 (MiDriverLoadSucceeded.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
- *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     ExGetCallBackBlockContext @ 0x140088F00 (ExGetCallBackBlockContext.c)
- *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PerfLogImageLoad @ 0x1405F5ADC (PerfLogImageLoad.c)
+ *     ExDereferenceCallBackBlock @ 0x140088A90 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140088AE0 (ExReferenceCallBackBlock.c)
+ *     ExGetCallBackBlockRoutine @ 0x140088BA0 (ExGetCallBackBlockRoutine.c)
+ *     ExGetCallBackBlockContext @ 0x140088EF0 (ExGetCallBackBlockContext.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAB70 (KeAreAllApcsDisabled.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PerfLogImageLoad @ 0x1405F6AD4 (PerfLogImageLoad.c)
  */
 
 _QWORD *__fastcall PsCallImageNotifyRoutines(_BYTE *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -21,7 +21,7 @@ _QWORD *__fastcall PsCallImageNotifyRoutines(_BYTE *a1, __int64 a2, __int64 a3, 
   __int64 v9; // r15
   __int64 v10; // rdi
   _DWORD *v11; // r14
-  union _RTL_RUN_ONCE *v12; // rbx
+  _RTL_RUN_ONCE *v12; // rbx
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rsi
   void (__fastcall *v16)(_BYTE *, __int64, _DWORD *); // r9

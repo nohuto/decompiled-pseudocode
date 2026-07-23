@@ -1,8 +1,8 @@
 /*
- * XREFs of MiComputeAgingPercent @ 0x1404B0638
+ * XREFs of MiComputeAgingPercent @ 0x1404A9CC8
  * Callers:
- *     MiUpdatePartitionMemoryUsage @ 0x1402A6CA0 (MiUpdatePartitionMemoryUsage.c)
- *     MiComputeHardAgingPercent @ 0x1404B1DCC (MiComputeHardAgingPercent.c)
+ *     MiUpdatePartitionMemoryUsage @ 0x1402A60BC (MiUpdatePartitionMemoryUsage.c)
+ *     MiComputeHardAgingPercent @ 0x1404AB228 (MiComputeHardAgingPercent.c)
  * Callees:
  *     <none>
  */

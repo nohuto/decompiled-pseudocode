@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSlabEntryPageFreed @ 0x140459AC0
+ * XREFs of MiSlabEntryPageFreed @ 0x14044E870
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x1402241C8 (MiFreePageToSlabAllocator.c)
- *     MiInsertSlabEntry @ 0x140413D28 (MiInsertSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x14021E754 (MiInsertSlabEntry.c)
+ *     MiFreePageToSlabAllocator @ 0x140250F18 (MiFreePageToSlabAllocator.c)
  * Callees:
  *     <none>
  */

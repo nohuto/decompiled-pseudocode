@@ -1,10 +1,10 @@
 /*
- * XREFs of DownLevelGetParentLanguageName @ 0x140231CF4
+ * XREFs of DownLevelGetParentLanguageName @ 0x140231B20
  * Callers:
- *     LdrpGetParentLangId @ 0x140213C34 (LdrpGetParentLangId.c)
+ *     LdrpGetParentLangId @ 0x140213A60 (LdrpGetParentLangId.c)
  * Callees:
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x14013248C (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     bsearch @ 0x14014DAA0 (bsearch.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1401329FC (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     bsearch @ 0x14014E010 (bsearch.c)
  */
 
 __int64 __fastcall DownLevelGetParentLanguageName(const void *a1, char *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall DownLevelGetParentLanguageName(const void *a1, char *a2)
     return 0LL;
   v4 = -1LL;
   v5 = (char *)(&off_140259340)[2
-                              * *((int *)&off_140259340 + 4 * word_1402793F0[(v3 - (_BYTE *)&off_1402585A0) >> 3] + 3)];
+                              * *((int *)&off_140259340 + 4 * word_1402794F0[(v3 - (_BYTE *)&off_1402585A0) >> 3] + 3)];
   do
     ++v4;
   while ( *(_WORD *)&v5[2 * v4] );

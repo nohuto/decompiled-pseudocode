@@ -1,10 +1,10 @@
 /*
- * XREFs of LockShutdownExclusive @ 0x140603EA0
+ * XREFs of LockShutdownExclusive @ 0x140603F54
  * Callers:
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *LockShutdownExclusive()

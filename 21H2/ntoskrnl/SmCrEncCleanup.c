@@ -1,11 +1,11 @@
 /*
- * XREFs of SmCrEncCleanup @ 0x14070F1B4
+ * XREFs of SmCrEncCleanup @ 0x1406BD804
  * Callers:
- *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035AF1C (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14029FCBC (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     BCryptCloseAlgorithmProvider @ 0x1403B81E4 (BCryptCloseAlgorithmProvider.c)
- *     BCryptDestroyKey @ 0x140595A50 (BCryptDestroyKey.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     BCryptCloseAlgorithmProvider @ 0x1403B8354 (BCryptCloseAlgorithmProvider.c)
+ *     BCryptDestroyKey @ 0x140595C80 (BCryptDestroyKey.c)
  */
 
 void __fastcall SmCrEncCleanup(__int64 a1, ULONG a2)

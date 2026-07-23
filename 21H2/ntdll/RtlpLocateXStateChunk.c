@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpLocateXStateChunk @ 0x1800F6428
+ * XREFs of RtlpLocateXStateChunk @ 0x1800F63E8
  * Callers:
  *     RtlLocateExtendedFeature2 @ 0x1800725D0 (RtlLocateExtendedFeature2.c)
- *     RtlGetExtendedFeaturesMask @ 0x1800F5D90 (RtlGetExtendedFeaturesMask.c)
- *     RtlSetExtendedFeaturesMask @ 0x1800F5DD0 (RtlSetExtendedFeaturesMask.c)
+ *     RtlGetExtendedFeaturesMask @ 0x1800F5D50 (RtlGetExtendedFeaturesMask.c)
+ *     RtlSetExtendedFeaturesMask @ 0x1800F5D90 (RtlSetExtendedFeaturesMask.c)
  * Callees:
  *     <none>
  */

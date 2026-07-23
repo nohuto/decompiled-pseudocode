@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwGetNextThread()
+NTSTATUS __cdecl ZwGetNextThread(
+        HANDLE ProcessHandle,
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewThreadHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 233LL;
+  result = 233;
   __asm { syscall; Low latency system call }
   return result;
 }

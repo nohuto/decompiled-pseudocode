@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpMiscGetParameters @ 0x140CAF604
+ * XREFs of HalpMiscGetParameters @ 0x140CB5644
  * Callers:
- *     HalpMiscInitSystem @ 0x140BEB3F0 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x140BF13F0 (HalpMiscInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
- *     HalpIsHvPresent @ 0x1404B9338 (HalpIsHvPresent.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpGetCpuInfo @ 0x1404C55D0 (HalpGetCpuInfo.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     atoi @ 0x140535D60 (atoi.c)
- *     HalpInterruptForceClusterMode @ 0x14057D31C (HalpInterruptForceClusterMode.c)
- *     HalpInterruptSetMsiOverride @ 0x14057DA9C (HalpInterruptSetMsiOverride.c)
- *     HalpIsPartitionCpuManager @ 0x140585200 (HalpIsPartitionCpuManager.c)
- *     HalpIsXboxNanovisorPresent @ 0x14058526C (HalpIsXboxNanovisorPresent.c)
- *     HalpProcIsSmtDisabled @ 0x140CAF4C8 (HalpProcIsSmtDisabled.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
+ *     HalpIsHvPresent @ 0x1404B2B68 (HalpIsHvPresent.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpGetCpuInfo @ 0x1404BEF80 (HalpGetCpuInfo.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     atoi @ 0x1405381E0 (atoi.c)
+ *     HalpInterruptForceClusterMode @ 0x14057F83C (HalpInterruptForceClusterMode.c)
+ *     HalpInterruptSetMsiOverride @ 0x14057FFBC (HalpInterruptSetMsiOverride.c)
+ *     HalpIsPartitionCpuManager @ 0x140587720 (HalpIsPartitionCpuManager.c)
+ *     HalpIsXboxNanovisorPresent @ 0x14058778C (HalpIsXboxNanovisorPresent.c)
+ *     HalpProcIsSmtDisabled @ 0x140CB5508 (HalpProcIsSmtDisabled.c)
  */
 
 char __fastcall HalpMiscGetParameters(__int64 a1)
@@ -32,7 +32,7 @@ char __fastcall HalpMiscGetParameters(__int64 a1)
   unsigned __int8 v19; // [rsp+40h] [rbp+8h] BYREF
 
   if ( (unsigned int)HalpInterruptModel() == 1 )
-    HalpDeviceBlockUnblockPushLock.WaitBlockFill5[48] = 1;
+    BYTE2(HalpDeviceBlockUnblockPushLock.Timer.DueTime.u.LowPart) = 1;
   LOBYTE(v2) = HalpProcIsSmtDisabled(a1);
   HalpInterruptBlockHyperthreading = v2;
   if ( a1 )
@@ -48,7 +48,7 @@ char __fastcall HalpMiscGetParameters(__int64 a1)
     if ( strstr(v3, "USEPHYSICALAPIC") )
       HalpInterruptPhysicalModeOnly = 1;
     if ( strstr(v3, "BREAK") )
-      BYTE1(HalpDeviceBlockUnblockPushLock.Timer.TimerListEntry.Flink) = 1;
+      BYTE1(HalpDeviceBlockUnblockPushLock.Timer.DueTime.LowPart) = 1;
     v4 = strstr(v3, "MAXPROCSPERCLUSTER");
     if ( v4 )
     {
@@ -119,13 +119,13 @@ LABEL_54:
               if ( HalpGetCpuInfo(0LL, 0LL, 0LL, &v19) )
               {
                 if ( v19 == 2 && (__readmsr(0xFEu) & 0x8000) != 0 )
-                  HalpDeviceBlockUnblockPushLock.WaitBlockFill5[48] = 1;
+                  BYTE2(HalpDeviceBlockUnblockPushLock.Timer.DueTime.u.LowPart) = 1;
               }
             }
             if ( strstr(v3, "FIRSTMEGABYTEPOLICY=USEALL")
               || HalpIsMicrosoftCompatibleHvLoaded() && !HalpHvCpuManager && strstr(v3, "NOVGA") )
             {
-              HalpDeviceBlockUnblockPushLock.WaitBlockFill5[48] = 0;
+              BYTE2(HalpDeviceBlockUnblockPushLock.Timer.DueTime.u.LowPart) = 0;
             }
             if ( strstr(v3, "USEPLATFORMCLOCK") )
               HalpTimerPlatformSourceForced = 1;

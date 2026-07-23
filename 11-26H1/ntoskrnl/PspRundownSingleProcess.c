@@ -1,45 +1,45 @@
 /*
- * XREFs of PspRundownSingleProcess @ 0x14095918C
+ * XREFs of PspRundownSingleProcess @ 0x1409FEA50
  * Callers:
- *     PsTerminateMinimalProcess @ 0x1407FA5A8 (PsTerminateMinimalProcess.c)
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     PspTerminateProcess @ 0x140956EB0 (PspTerminateProcess.c)
- *     PspTerminateAllThreads @ 0x14095705C (PspTerminateAllThreads.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PspExitLastThread @ 0x140A41964 (PspExitLastThread.c)
- *     PspCreateProcess @ 0x140ADC7C0 (PspCreateProcess.c)
- *     PspProcessRundownWorker @ 0x140B3CF70 (PspProcessRundownWorker.c)
- *     PspProcessRundownWorkerSingle @ 0x140B44830 (PspProcessRundownWorkerSingle.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     PsTerminateMinimalProcess @ 0x1407FFFD8 (PsTerminateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     PspTerminateProcess @ 0x14094A8D8 (PspTerminateProcess.c)
+ *     PspTerminateAllThreads @ 0x14094AA84 (PspTerminateAllThreads.c)
+ *     PspProcessRundownWorker @ 0x1409BDE40 (PspProcessRundownWorker.c)
+ *     PspExitLastThread @ 0x1409FD314 (PspExitLastThread.c)
+ *     PspCreateProcess @ 0x140AD9D10 (PspCreateProcess.c)
+ *     PspProcessRundownWorkerSingle @ 0x140B465F0 (PspProcessRundownWorkerSingle.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     RtlInterlockedSetClearBits @ 0x1404CB7BC (RtlInterlockedSetClearBits.c)
- *     KeSetProcess @ 0x1404D0E9C (KeSetProcess.c)
- *     KeRundownSecureProcess @ 0x1405E590C (KeRundownSecureProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PspSendProcessNotificationToJobChain @ 0x140958A58 (PspSendProcessNotificationToJobChain.c)
- *     ObKillProcess @ 0x140958EE4 (ObKillProcess.c)
- *     ExSweepHandleTable @ 0x140958F4C (ExSweepHandleTable.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
- *     PspRemoveProcessFromJobChain @ 0x140959638 (PspRemoveProcessFromJobChain.c)
- *     PspNotifyEmptyJobsInJobChain @ 0x140959924 (PspNotifyEmptyJobsInJobChain.c)
- *     PspClearProcessThreadCidRefs @ 0x140959970 (PspClearProcessThreadCidRefs.c)
- *     MmCleanProcessAddressSpace @ 0x14095B2A4 (MmCleanProcessAddressSpace.c)
- *     ObReferenceProcessHandleTable @ 0x1409717D0 (ObReferenceProcessHandleTable.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     RtlInterlockedSetClearBits @ 0x1404C51EC (RtlInterlockedSetClearBits.c)
+ *     KeSetProcess @ 0x1404CA8CC (KeSetProcess.c)
+ *     KeRundownSecureProcess @ 0x1405E827C (KeRundownSecureProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObReferenceProcessHandleTable @ 0x1409BB940 (ObReferenceProcessHandleTable.c)
+ *     ObKillProcess @ 0x1409FE7A8 (ObKillProcess.c)
+ *     ExSweepHandleTable @ 0x1409FE810 (ExSweepHandleTable.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
+ *     PspRemoveProcessFromJobChain @ 0x1409FEEF8 (PspRemoveProcessFromJobChain.c)
+ *     PspNotifyEmptyJobsInJobChain @ 0x1409FF1E4 (PspNotifyEmptyJobsInJobChain.c)
+ *     PspClearProcessThreadCidRefs @ 0x1409FF230 (PspClearProcessThreadCidRefs.c)
+ *     MmCleanProcessAddressSpace @ 0x140A00B64 (MmCleanProcessAddressSpace.c)
+ *     PspSendProcessNotificationToJobChain @ 0x140AE4DDC (PspSendProcessNotificationToJobChain.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PspRundownSingleProcess(PRKPROCESS PROCESS, bool a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -63,13 +63,11 @@ bool __fastcall PspRundownSingleProcess(PRKPROCESS PROCESS, bool a2, __int64 a3,
   void *v21; // rcx
   void *InstrumentationCallback; // rcx
   struct _LIST_ENTRY *v23; // rdx
-  __int64 v25; // rax
+  unsigned __int64 v25; // rax
   __int64 v26; // r11
   AutoBoost *v27; // rax
   void *v28; // rdx
   AutoBoost *v29; // rbp
-  __int64 v30; // rdx
-  __int64 v31; // r8
   struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-68h] BYREF
 
   v4 = a2;
@@ -92,7 +90,7 @@ LABEL_2:
     if ( PROCESS[1].Padding[3] && (PROCESS[1].DirectoryTableBase & 1) == 0 )
     {
       RtlInterlockedSetClearBits((volatile signed __int32 *)&PROCESS[1].DirectoryTableBase, 8, 32);
-      PspSendProcessNotificationToJobChain((__int64)PROCESS, v26, (int)PROCESS[1].Header.WaitListHead.Flink);
+      PspSendProcessNotificationToJobChain(PROCESS, v26, PROCESS[1].Header.WaitListHead.Flink);
     }
     if ( (PROCESS->SecureState.EntireField & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
       KeRundownSecureProcess((__int64)PROCESS);
@@ -124,7 +122,7 @@ LABEL_2:
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PROCESS[3].Spare0d, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)&PROCESS[3].Spare0d);
       KeAbPostRelease((unsigned __int64)&PROCESS[3].Spare0d);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread, v30, v31);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
     }
     v10 = *(_QWORD **)&PROCESS[4].AutoBoostState.TreeCount;
     if ( v10 )
@@ -222,7 +220,7 @@ LABEL_2:
   }
   else
   {
-    v25 = ObReferenceProcessHandleTable(PROCESS);
+    v25 = ObReferenceProcessHandleTable((struct _EX_RUNDOWN_REF *)PROCESS);
     if ( v25 )
     {
       ExSweepHandleTable(PROCESS, v25, 1);

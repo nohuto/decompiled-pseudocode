@@ -17,7 +17,7 @@ void __stdcall FsRtlInitializeLargeMcb(PLARGE_MCB Mcb, POOL_TYPE PoolType)
   v3 = (struct _FAST_MUTEX *)ExAllocateFromNPagedLookasideList(&FsRtlFastMutexLookasideList);
   Mcb->GuardedMutex = v3;
   if ( !v3 )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   v3->Count = 1;
   v3->Owner = 0LL;
   v3->Contention = 0;

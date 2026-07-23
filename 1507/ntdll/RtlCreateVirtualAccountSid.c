@@ -12,25 +12,25 @@
  *     __security_check_cookie @ 0x180084090 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlCreateVirtualAccountSid(unsigned __int16 *a1, int a2, _DWORD *a3, unsigned int *a4)
+NTSTATUS __cdecl RtlCreateVirtualAccountSid(PUNICODE_STRING Name, ULONG BaseSubAuthority, PSID Sid, PULONG SidLength)
 {
-  unsigned int v8; // eax
+  ULONG v8; // eax
   bool v9; // cf
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v11; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-59h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-59h] BYREF
   _DWORD v13[24]; // [rsp+30h] [rbp-49h] BYREF
   _DWORD v14[6]; // [rsp+90h] [rbp+17h] BYREF
 
-  if ( !a1 || !a4 || (unsigned int)(a2 - 80) > 0x1F )
-    return 3221225485LL;
+  if ( !Name || !SidLength || BaseSubAuthority - 80 > 0x1F )
+    return -1073741811;
   v8 = RtlLengthRequiredSid(6u);
-  v9 = *a4 < v8;
-  *a4 = v8;
+  v9 = *SidLength < v8;
+  *SidLength = v8;
   if ( v9 )
-    return 3221225507LL;
-  result = RtlUpcaseUnicodeString((__int64)&UnicodeString, a1, 1);
-  if ( (int)result >= 0 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, Name, 1u);
+  if ( result >= 0 )
   {
     v13[21] = 0;
     v13[22] = 0;
@@ -39,18 +39,18 @@ __int64 __fastcall RtlCreateVirtualAccountSid(unsigned __int16 *a1, int a2, _DWO
     v13[18] = -1732584194;
     v13[19] = 271733878;
     v13[20] = -1009589776;
-    A_SHAUpdate((__int64)v13, (char *)UnicodeString.Buffer, UnicodeString.Length);
+    A_SHAUpdate((__int64)v13, (char *)DestinationString.Buffer, DestinationString.Length);
     A_SHAFinal(v13, (__int64)v14);
-    RtlFreeAnsiString(&UnicodeString);
-    RtlInitializeSid((__int64)a3, (__int64)&RtlpNtAuthority, 6u);
+    RtlFreeAnsiString(&DestinationString);
+    RtlInitializeSid(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
     v11 = v14[0];
-    a3[2] = a2;
-    a3[3] = v11;
-    a3[4] = v14[1];
-    a3[5] = v14[2];
-    a3[6] = v14[3];
-    a3[7] = v14[4];
-    return 0LL;
+    *((_DWORD *)Sid + 2) = BaseSubAuthority;
+    *((_DWORD *)Sid + 3) = v11;
+    *((_DWORD *)Sid + 4) = v14[1];
+    *((_DWORD *)Sid + 5) = v14[2];
+    *((_DWORD *)Sid + 6) = v14[3];
+    *((_DWORD *)Sid + 7) = v14[4];
+    return 0;
   }
   return result;
 }

@@ -10,12 +10,12 @@
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiReservePageFileSpaceForPage @ 0x1400817F0 (MiReservePageFileSpaceForPage.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiOutSwapWorkingSetPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -118,7 +118,7 @@ LABEL_79:
       if ( (unsigned int)MiPteHasShadow(v38, v37) )
       {
         v6 = 1;
-        if ( HIBYTE(word_14043A1AC) || (v40 & 1) == 0 )
+        if ( HIBYTE(word_14043B26C) || (v40 & 1) == 0 )
           goto LABEL_79;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0
@@ -282,21 +282,21 @@ LABEL_79:
       v25 = *(_WORD *)(v22 + 204);
       if ( v24 )
       {
-        v22 = qword_14043A0C0;
-        if ( qword_14043A0C0 )
+        v22 = qword_14043B180;
+        if ( qword_14043B180 )
         {
           if ( (v24 & 0x10) != 0 )
             LODWORD(v24) = v24 & 0xFFFFFFEF;
           else
-            LODWORD(v24) = ~(_DWORD)qword_14043A0C0 & v24;
+            LODWORD(v24) = ~(_DWORD)qword_14043B180 & v24;
         }
         v26 = v24 | 0xFFFFFFFF00000000uLL;
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
-          if ( (v26 & qword_14043A0C0) != 0 )
+          if ( (v26 & qword_14043B180) != 0 )
             v26 |= 0x10uLL;
           else
-            v26 |= qword_14043A0C0;
+            v26 |= qword_14043B180;
         }
       }
       else
@@ -326,7 +326,7 @@ LABEL_79:
       }
       else
       {
-        if ( !HIBYTE(word_14043A1AC) && (v49 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v49 & 1) != 0 )
           v52 = v49 | 0x8000000000000000uLL;
         *v50 = v52;
         MiWritePteShadow(v50);
@@ -345,8 +345,8 @@ LABEL_79:
   {
     MiReservePageFileSpaceForPage(v12, a2, 128LL);
     v53 = *v56;
-    if ( qword_14043A0C0 && (v53 & 0x10) == 0 )
-      v53 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v53 & 0x10) == 0 )
+      v53 &= ~qword_14043B180;
     updated = MiUpdatePageFileHighInPte(*v56, HIDWORD(v53) + 1);
     v51 = (*(_DWORD *)(v55 + 8))-- == 1;
     *(_QWORD *)v55 = updated;

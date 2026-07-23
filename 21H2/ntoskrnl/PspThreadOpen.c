@@ -1,10 +1,10 @@
 /*
- * XREFs of PspThreadOpen @ 0x1406073C0
+ * XREFs of PspThreadOpen @ 0x140696E50
  * Callers:
  *     <none>
  * Callees:
- *     PspIsParentProcess @ 0x140252390 (PspIsParentProcess.c)
- *     PsTestProtectedProcessIncompatibility @ 0x140607578 (PsTestProtectedProcessIncompatibility.c)
+ *     PspIsParentProcess @ 0x140285248 (PspIsParentProcess.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140697008 (PsTestProtectedProcessIncompatibility.c)
  */
 
 __int64 __fastcall PspThreadOpen(__int64 a1, char a2, __int64 a3, __int64 a4, int *a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoSetPartitionInformationWrapper @ 0x1405E1480
+ * XREFs of DifIoSetPartitionInformationWrapper @ 0x1405E19F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoSetPartitionInformation @ 0x1409409F0 (IoSetPartitionInformation.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoSetPartitionInformation @ 0x140940BF0 (IoSetPartitionInformation.c)
  */
 
 NTSTATUS __fastcall DifIoSetPartitionInformationWrapper(

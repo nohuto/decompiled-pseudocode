@@ -6,11 +6,11 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall CsrFreeCaptureBuffer(__int64 a1)
+LOGICAL __fastcall CsrFreeCaptureBuffer(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
   if ( !LdrpIsSecureProcess )
-    return RtlFreeHeap(CsrPortHeap, 0LL, a1);
+    return RtlFreeHeap(CsrPortHeap, 0, BaseAddress);
   return result;
 }

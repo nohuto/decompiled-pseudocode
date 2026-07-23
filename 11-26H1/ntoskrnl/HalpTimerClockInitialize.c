@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerClockInitialize @ 0x140581160
+ * XREFs of HalpTimerClockInitialize @ 0x140583680
  * Callers:
- *     HalpTimerClockPowerChange @ 0x1405811D0 (HalpTimerClockPowerChange.c)
+ *     HalpTimerClockPowerChange @ 0x1405836F0 (HalpTimerClockPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpTimerSetProblemEx @ 0x1404FEB94 (HalpTimerSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpTimerSetProblemEx @ 0x1404F8144 (HalpTimerSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 HalpTimerClockInitialize()

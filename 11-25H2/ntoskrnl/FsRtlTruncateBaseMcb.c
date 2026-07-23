@@ -55,7 +55,7 @@ void __stdcall FsRtlTruncateBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn)
     if ( v7 == 15 )
     {
       if ( Mcb->PoolType == 1 )
-        PoolWithTag = ExAllocateFromPagedLookasideList(&FsRtlFirstPagedMappingLookasideList);
+        PoolWithTag = ExAllocateFromPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList);
       else
         PoolWithTag = ExAllocateFromNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList);
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KitpReadUlongFromKey @ 0x1407C1220
+ * XREFs of KitpReadUlongFromKey @ 0x1407C1670
  * Callers:
- *     KitpInitAitSampleRate @ 0x140C43450 (KitpInitAitSampleRate.c)
+ *     KitpInitAitSampleRate @ 0x140C455A0 (KitpInitAitSampleRate.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
  */
 
 NTSTATUS __fastcall KitpReadUlongFromKey(void *a1, __int64 a2, _DWORD *a3)

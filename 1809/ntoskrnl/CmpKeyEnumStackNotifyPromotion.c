@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpKeyEnumStackNotifyPromotion @ 0x1407FF8E4
+ * XREFs of CmpKeyEnumStackNotifyPromotion @ 0x140800AE4
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x1408053F0 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteSubtree @ 0x140805B3C (CmpPromoteSubtree.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408065F0 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteSubtree @ 0x140806D3C (CmpPromoteSubtree.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackEntryNotifyPromotion @ 0x1407FF6C4 (CmpKeyEnumStackEntryNotifyPromotion.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1407FF868 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FB218 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x1408008C4 (CmpKeyEnumStackEntryNotifyPromotion.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140800A68 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
  */
 
 _QWORD *__fastcall CmpKeyEnumStackNotifyPromotion(__int16 *a1)

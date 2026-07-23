@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpDoReDoRecord @ 0x140881FB8
+ * XREFs of CmpDoReDoRecord @ 0x140882118
  * Callers:
- *     CmpRmReDoPhase @ 0x140875820 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x140875980 (CmpRmReDoPhase.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwDeleteKey @ 0x1403FC000 (ZwDeleteKey.c)
  *     CmpDoReDoSetEntireSecurityDescriptor @ 0x1405CD898 (CmpDoReDoSetEntireSecurityDescriptor.c)
- *     CmpDoReDoCreateKey @ 0x140881E6C (CmpDoReDoCreateKey.c)
- *     CmpDoReDoDeleteValue @ 0x140881F5C (CmpDoReDoDeleteValue.c)
- *     CmpDoReDoRenameKey @ 0x1408820A0 (CmpDoReDoRenameKey.c)
- *     CmpDoReDoSetKeyUserFlags @ 0x1408820FC (CmpDoReDoSetKeyUserFlags.c)
- *     CmpDoReDoSetLastWriteTime @ 0x14088216C (CmpDoReDoSetLastWriteTime.c)
- *     CmpDoReDoSetSecurityDescriptor @ 0x1408821DC (CmpDoReDoSetSecurityDescriptor.c)
- *     CmpDoReDoSetValueExisting @ 0x14088223C (CmpDoReDoSetValueExisting.c)
- *     CmpDoReOpenTransKey @ 0x1408822B0 (CmpDoReOpenTransKey.c)
+ *     CmpDoReDoCreateKey @ 0x140881FCC (CmpDoReDoCreateKey.c)
+ *     CmpDoReDoDeleteValue @ 0x1408820BC (CmpDoReDoDeleteValue.c)
+ *     CmpDoReDoRenameKey @ 0x140882200 (CmpDoReDoRenameKey.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x14088225C (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x1408822CC (CmpDoReDoSetLastWriteTime.c)
+ *     CmpDoReDoSetSecurityDescriptor @ 0x14088233C (CmpDoReDoSetSecurityDescriptor.c)
+ *     CmpDoReDoSetValueExisting @ 0x14088239C (CmpDoReDoSetValueExisting.c)
+ *     CmpDoReOpenTransKey @ 0x140882410 (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoRecord(__int64 a1, __int64 a2)

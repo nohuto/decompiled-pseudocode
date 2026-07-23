@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpAddDebugInfoEvents @ 0x1409DC100
+ * XREFs of EtwpAddDebugInfoEvents @ 0x1409D6910
  * Callers:
- *     EtwpSendDbgId @ 0x1407ACCC0 (EtwpSendDbgId.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1409D871C (EtwpRealtimeNotifyConsumers.c)
- *     EtwpAddLogHeader @ 0x1409DAEEC (EtwpAddLogHeader.c)
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
+ *     EtwpSendDbgId @ 0x1407AD190 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x1409D3224 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpAddLogHeader @ 0x1409D59FC (EtwpAddLogHeader.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpAddEventToBuffer @ 0x1409DC354 (EtwpAddEventToBuffer.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpAddEventToBuffer @ 0x1409D6B64 (EtwpAddEventToBuffer.c)
  */
 
 _UNKNOWN **__fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *a4, int a5)
@@ -57,7 +57,7 @@ _UNKNOWN **__fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __i
     result = (_UNKNOWN **)KeAbPreAcquire(a1 + 688, 0LL);
     v14 = result;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v13, 0LL) )
-      result = (_UNKNOWN **)ExfAcquirePushLockExclusiveEx(v13, (__int64)result, (__int64)v13);
+      result = (_UNKNOWN **)ExfAcquirePushLockExclusiveEx(v13, (char *)result, (__int64)v13);
     if ( v14 )
       *((_BYTE *)v14 + 10) = 1;
     v8 = a2;

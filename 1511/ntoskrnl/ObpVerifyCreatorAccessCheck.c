@@ -24,7 +24,7 @@ __int64 __fastcall ObpVerifyCreatorAccessCheck(_DWORD *a1)
   PULONG v4; // rax
   int v5; // ebx
   int v6; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
   PVOID TokenInformation; // [rsp+28h] [rbp-51h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext[2]; // [rsp+30h] [rbp-49h] BYREF
   _BYTE Sid[80]; // [rsp+70h] [rbp-9h] BYREF

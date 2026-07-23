@@ -13,24 +13,25 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-__int64 __fastcall RtlCreateBootStatusDataFile(wchar_t *a1)
+NTSTATUS RtlCreateBootStatusDataFile(void)
 {
+  wchar_t *v0; // rcx
   wchar_t *v1; // rdx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v3; // ebx
-  HANDLE Handle; // [rsp+70h] [rbp-90h]
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
-  int v6; // [rsp+98h] [rbp-68h]
-  __int64 v7; // [rsp+A0h] [rbp-60h]
-  UNICODE_STRING *p_DestinationString; // [rsp+A8h] [rbp-58h]
-  int v9; // [rsp+B0h] [rbp-50h]
-  __int128 v10; // [rsp+B8h] [rbp-48h]
-  _DWORD v11[16]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE Buffer[8]; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE FileHandle; // [rsp+70h] [rbp-90h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-78h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
+  _DWORD v10[16]; // [rsp+D0h] [rbp-30h] BYREF
   wchar_t Destination[264]; // [rsp+110h] [rbp+10h] BYREF
 
-  if ( a1 )
+  Buffer[0] = 0;
+  if ( v0 )
   {
-    v1 = a1;
+    v1 = v0;
   }
   else
   {
@@ -38,26 +39,40 @@ __int64 __fastcall RtlCreateBootStatusDataFile(wchar_t *a1)
     v1 = Destination;
   }
   RtlInitUnicodeString(&DestinationString, v1);
-  v7 = 0LL;
-  p_DestinationString = &DestinationString;
-  v6 = 48;
-  v9 = 64;
-  v10 = 0LL;
-  result = ZwCreateFile();
-  if ( (int)result >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ByteOffset.QuadPart = 67584LL;
+  result = ZwCreateFile(
+             &FileHandle,
+             0x12019Fu,
+             &ObjectAttributes,
+             &IoStatusBlock,
+             &ByteOffset,
+             4u,
+             0,
+             2u,
+             0x20u,
+             0LL,
+             0);
+  if ( result >= 0 )
   {
-    v3 = NtWriteFile();
+    --ByteOffset.QuadPart;
+    v3 = NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 1u, &ByteOffset, 0LL);
     if ( v3 >= 0 )
     {
-      memset(v11, 0, sizeof(v11));
-      v11[0] = 64;
-      RtlGetNtProductType(&v11[1]);
-      *(_WORD *)((char *)&v11[2] + 1) = 286;
-      BYTE1(v11[12]) = 1;
-      v3 = NtWriteFile();
+      memset(v10, 0, sizeof(v10));
+      v10[0] = 64;
+      RtlGetNtProductType((PNT_PRODUCT_TYPE)&v10[1]);
+      ByteOffset.QuadPart = 0LL;
+      *(_WORD *)((char *)&v10[2] + 1) = 286;
+      BYTE1(v10[12]) = 1;
+      v3 = NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, v10, 0x40u, &ByteOffset, 0LL);
     }
-    NtClose(Handle);
-    return (unsigned int)v3;
+    NtClose(FileHandle);
+    return v3;
   }
   return result;
 }

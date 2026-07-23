@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCommitQueryDebugInfo @ 0x180092020
+ * XREFs of RtlpCommitQueryDebugInfo @ 0x1800BB000
  * Callers:
- *     RtlpCopyRemoteDebugInformation @ 0x1800902A0 (RtlpCopyRemoteDebugInformation.c)
- *     AVrfpQueryProcessVerifierOptions @ 0x1800909B8 (AVrfpQueryProcessVerifierOptions.c)
- *     RtlQueryProcessModuleInformation @ 0x180090CA8 (RtlQueryProcessModuleInformation.c)
- *     RtlQueryProcessLockInformation @ 0x180091A70 (RtlQueryProcessLockInformation.c)
- *     RtlpQueryProcessEnumHeapsRoutine @ 0x180091F10 (RtlpQueryProcessEnumHeapsRoutine.c)
- *     RtlpWalkCallbackRoutine @ 0x1800921A0 (RtlpWalkCallbackRoutine.c)
- *     RtlCommitDebugInfo @ 0x180111850 (RtlCommitDebugInfo.c)
+ *     RtlQueryProcessLockInformation @ 0x180074010 (RtlQueryProcessLockInformation.c)
+ *     RtlpCopyRemoteDebugInformation @ 0x180075000 (RtlpCopyRemoteDebugInformation.c)
+ *     AVrfpQueryProcessVerifierOptions @ 0x180075718 (AVrfpQueryProcessVerifierOptions.c)
+ *     RtlQueryProcessModuleInformation @ 0x180075A08 (RtlQueryProcessModuleInformation.c)
+ *     RtlCommitDebugInfo @ 0x1800BAC50 (RtlCommitDebugInfo.c)
+ *     RtlpWalkCallbackRoutine @ 0x1800BAC60 (RtlpWalkCallbackRoutine.c)
+ *     RtlpQueryProcessEnumHeapsRoutine @ 0x1800BAEF0 (RtlpQueryProcessEnumHeapsRoutine.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x18015F240 (ZwAllocateVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x18015F140 (ZwAllocateVirtualMemory.c)
  */
 
 char *__fastcall RtlpCommitQueryDebugInfo(_QWORD *a1, unsigned int a2)
@@ -17,8 +17,8 @@ char *__fastcall RtlpCommitQueryDebugInfo(_QWORD *a1, unsigned int a2)
   unsigned __int64 v3; // rdi
   unsigned __int64 v4; // rcx
   char *result; // rax
-  unsigned __int64 v6; // [rsp+50h] [rbp+18h] BYREF
-  char *v7; // [rsp+58h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp+20h] BYREF
 
   if ( a2 <= 0xFFFFFFF8 )
   {
@@ -33,11 +33,11 @@ LABEL_3:
     }
     if ( v3 <= a1[11] )
     {
-      v7 = (char *)a1 + v4;
-      v6 = v3 - v4;
-      if ( (int)ZwAllocateVirtualMemory(-1LL, &v7, 0LL, &v6, 4096, 4) >= 0 )
+      BaseAddress = (char *)a1 + v4;
+      RegionSize = v3 - v4;
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) >= 0 )
       {
-        a1[10] += v6;
+        a1[10] += RegionSize;
         goto LABEL_3;
       }
     }

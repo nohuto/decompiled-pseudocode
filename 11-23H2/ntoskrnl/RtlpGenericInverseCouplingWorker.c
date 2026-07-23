@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGenericInverseCouplingWorker @ 0x14067B248
+ * XREFs of RtlpGenericInverseCouplingWorker @ 0x14067B798
  * Callers:
- *     RtlScrubMemory @ 0x14067AF98 (RtlScrubMemory.c)
+ *     RtlScrubMemory @ 0x14067B4E8 (RtlScrubMemory.c)
  * Callees:
- *     RtlpTestAndFillMemoryUp @ 0x14067BA9C (RtlpTestAndFillMemoryUp.c)
- *     RtlpTestMemory @ 0x14067BAC4 (RtlpTestMemory.c)
+ *     RtlpTestAndFillMemoryUp @ 0x14067BFEC (RtlpTestAndFillMemoryUp.c)
+ *     RtlpTestMemory @ 0x14067C014 (RtlpTestMemory.c)
  */
 
 char __fastcall RtlpGenericInverseCouplingWorker(unsigned int a1, unsigned int a2, unsigned __int64 a3)

@@ -15,7 +15,12 @@
  *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValuesEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlQueryRegistryValuesEx(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
-  return RtlpQueryRegistryValues(a1, a2, a3, a4);
+  return RtlpQueryRegistryValues(RelativeTo, Path, QueryTable, Context);
 }

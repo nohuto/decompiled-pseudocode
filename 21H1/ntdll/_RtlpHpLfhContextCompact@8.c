@@ -8,33 +8,30 @@
  *     _RtlpHpLfhOwnerCompact@12 @ 0x4B376814 (_RtlpHpLfhOwnerCompact@12.c)
  */
 
-int __fastcall RtlpHpLfhContextCompact(int a1, int a2)
+void __fastcall RtlpHpLfhContextCompact(_RTL_SRWLOCK *a1, int a2)
 {
-  int *v3; // edi
+  unsigned int *v3; // edi
   int v4; // ecx
-  int result; // eax
-  int v6; // [esp+Ch] [ebp-Ch]
-  int v8; // [esp+14h] [ebp-4h]
+  int v5; // [esp+Ch] [ebp-Ch]
+  int v7; // [esp+14h] [ebp-4h]
 
-  v6 = a2 & 1;
+  v5 = a2 & 1;
   if ( (a2 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int32 *)(a1 + 68));
-  v3 = (int *)(a1 + 128);
+    RtlAcquireSRWLockShared(a1 + 17);
+  v3 = (unsigned int *)&a1[32];
   v4 = 129;
-  v8 = 129;
+  v7 = 129;
   do
   {
-    result = *v3;
     if ( (*v3 & 1) == 0 )
     {
-      result = RtlpHpLfhOwnerCompact(a2 | 1);
-      v4 = v8;
+      RtlpHpLfhOwnerCompact(a2 | 1);
+      v4 = v7;
     }
     ++v3;
-    v8 = --v4;
+    v7 = --v4;
   }
   while ( v4 );
-  if ( !v6 )
-    return RtlReleaseSRWLockShared((volatile signed __int32 *)(a1 + 68));
-  return result;
+  if ( !v5 )
+    RtlReleaseSRWLockShared(a1 + 17);
 }

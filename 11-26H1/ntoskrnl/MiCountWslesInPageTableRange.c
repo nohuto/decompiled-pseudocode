@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCountWslesInPageTableRange @ 0x14029E490
+ * XREFs of MiCountWslesInPageTableRange @ 0x14029D9E0
  * Callers:
- *     MiRebuildPageTableAges @ 0x14029E1F0 (MiRebuildPageTableAges.c)
+ *     MiRebuildPageTableAges @ 0x14029D740 (MiRebuildPageTableAges.c)
  * Callees:
- *     MiGetVaAge @ 0x14029C6E0 (MiGetVaAge.c)
- *     MiWriteWsle @ 0x14029F7F0 (MiWriteWsle.c)
- *     MiLockWorkingSetCoreShared @ 0x1402EDEA0 (MiLockWorkingSetCoreShared.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiUnlockWorkingSetCoreShared @ 0x14036C280 (MiUnlockWorkingSetCoreShared.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiGetVaAge @ 0x14029BC40 (MiGetVaAge.c)
+ *     MiWriteWsle @ 0x14029ED40 (MiWriteWsle.c)
+ *     MiLockWorkingSetCoreShared @ 0x1402CFF20 (MiLockWorkingSetCoreShared.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiUnlockWorkingSetCoreShared @ 0x14036E020 (MiUnlockWorkingSetCoreShared.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiCountWslesInPageTableRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, char a5)

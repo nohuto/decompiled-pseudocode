@@ -12,8 +12,8 @@
  *     RtlpFindEntry @ 0x180044770 (RtlpFindEntry.c)
  *     RtlpHeapAddListEntry @ 0x180044D74 (RtlpHeapAddListEntry.c)
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180116748 (RtlpHeapHandleError.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x180116718 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
 void __fastcall RtlpInsertFreeBlock(__int64 a1, __int64 a2, unsigned __int64 a3)

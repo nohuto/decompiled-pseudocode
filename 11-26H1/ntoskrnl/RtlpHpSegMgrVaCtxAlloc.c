@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxAlloc @ 0x14034FB44
+ * XREFs of RtlpHpSegMgrVaCtxAlloc @ 0x140351BC4
  * Callers:
- *     RtlpHpSegMgrReserve @ 0x14034FA14 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrReserve @ 0x140351A94 (RtlpHpSegMgrReserve.c)
  * Callees:
- *     RtlpHpSegMgrLock @ 0x1404C457C (RtlpHpSegMgrLock.c)
- *     RtlpHpSegMgrUnlock @ 0x1404C879C (RtlpHpSegMgrUnlock.c)
+ *     RtlpHpSegMgrLock @ 0x1404BDE5C (RtlpHpSegMgrLock.c)
+ *     RtlpHpSegMgrUnlock @ 0x1404C24DC (RtlpHpSegMgrUnlock.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegMgrVaCtxAlloc(__int64 a1, int a2, char a3)
@@ -41,7 +41,7 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxAlloc(__int64 a1, int a2, char a3)
         *v10 = 0LL;
       }
       RtlpHpSegMgrUnlock(a1, v11);
-      v15 = *((_QWORD *)&unk_140E68C60 + 6 * *((unsigned __int8 *)v10 - 15));
+      v15 = *((_QWORD *)&unk_140E68F60 + 6 * *((unsigned __int8 *)v10 - 15));
       return *(_QWORD *)(v15 + 8)
            + (unsigned int)(a2 * v13)
            + (((unsigned __int64)v10 - *(_QWORD *)(v15 + 40) - 16) >> *(_DWORD *)(v15 + 24) << 20);

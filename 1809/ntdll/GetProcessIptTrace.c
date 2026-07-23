@@ -1,23 +1,23 @@
 /*
- * XREFs of GetProcessIptTrace @ 0x180114E54
+ * XREFs of GetProcessIptTrace @ 0x180114DF0
  * Callers:
  *     PsspCaptureIptTrace @ 0x18011244C (PsspCaptureIptTrace.c)
  * Callees:
- *     NtDeviceIoControlFile @ 0x1800A03C0 (NtDeviceIoControlFile.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     ZwCreateFile @ 0x1800A0D80 (ZwCreateFile.c)
+ *     NtDeviceIoControlFile @ 0x1800A03E0 (NtDeviceIoControlFile.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     ZwCreateFile @ 0x1800A0DA0 (ZwCreateFile.c)
  */
 
 NTSTATUS __fastcall GetProcessIptTrace(__int64 a1, void *a2, ULONG a3)
 {
   NTSTATUS result; // eax
   NTSTATUS v7; // ebx
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-39h] BYREF
-  struct _IO_STATUS_BLOCK v9; // [rsp+70h] [rbp-29h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-39h] BYREF
+  _IO_STATUS_BLOCK v9; // [rsp+70h] [rbp-29h] BYREF
   _DWORD InputBuffer[4]; // [rsp+80h] [rbp-19h] BYREF
   __int16 v11; // [rsp+90h] [rbp-9h]
   __int64 v12; // [rsp+98h] [rbp-1h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp+Fh] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp+Fh] BYREF
   HANDLE FileHandle; // [rsp+118h] [rbp+7Fh] BYREF
 
   if ( a3 < 8 )

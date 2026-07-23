@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorDetermineTargetSystemPowerState @ 0x1409B84C8
+ * XREFs of PopPowerAggregatorDetermineTargetSystemPowerState @ 0x14099EB18
  * Callers:
- *     PopPowerAggregatorHandleResumeIntent @ 0x1405D7960 (PopPowerAggregatorHandleResumeIntent.c)
- *     PopPowerAggregatorHandleSystemTransitionIntent @ 0x1409B8450 (PopPowerAggregatorHandleSystemTransitionIntent.c)
+ *     PopPowerAggregatorHandleResumeIntent @ 0x1405D4E80 (PopPowerAggregatorHandleResumeIntent.c)
+ *     PopPowerAggregatorHandleSystemTransitionIntent @ 0x14099EAA0 (PopPowerAggregatorHandleSystemTransitionIntent.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
- *     PopIsHibernateSupported @ 0x140A8BE18 (PopIsHibernateSupported.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
+ *     PopIsHibernateSupported @ 0x140A88308 (PopIsHibernateSupported.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDetermineTargetSystemPowerState(int a1, char a2, int *a3, __int64 a4)

@@ -1,21 +1,22 @@
 /*
- * XREFs of PsTerminateMinimalProcess @ 0x1407FA5A8
+ * XREFs of PsTerminateMinimalProcess @ 0x1407FFFD8
  * Callers:
- *     SmTerminateStoreProcess @ 0x14063E81C (SmTerminateStoreProcess.c)
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     PspTeardownPartition @ 0x1407FE050 (PspTeardownPartition.c)
- *     VmTerminateMemoryProcess @ 0x14081C140 (VmTerminateMemoryProcess.c)
+ *     SmTerminateStoreProcess @ 0x1406423FC (SmTerminateStoreProcess.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     PspTeardownPartition @ 0x140803A80 (PspTeardownPartition.c)
+ *     VmTerminateMemoryProcess @ 0x140822350 (VmTerminateMemoryProcess.c)
+ *     NtTerminateProcess @ 0x140B812E0 (NtTerminateProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
- *     PspExitLastThread @ 0x140A41964 (PspExitLastThread.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PspExitLastThread @ 0x1409FD314 (PspExitLastThread.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
  */
 
-$7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall PsTerminateMinimalProcess(
+$241382875694CED3D471BC5892DE3337 *__fastcall PsTerminateMinimalProcess(
         PRKPROCESS PROCESS,
         int a2,
         __int64 a3,
@@ -25,7 +26,7 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall PsTerminateMinimalProcess(
   struct _KTHREAD *CurrentThread; // rsi
   signed __int32 v8; // r14d
   char v9; // bp
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *result; // rax
+  $241382875694CED3D471BC5892DE3337 *result; // rax
   struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-58h] BYREF
 
   memset(&ApcState, 0, sizeof(ApcState));
@@ -42,7 +43,7 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall PsTerminateMinimalProcess(
   v8 = _InterlockedOr((volatile signed __int32 *)&PROCESS[1].DirectoryTableBase + 1, v6);
   _m_prefetchw((char *)&PROCESS[4].IdealProcessorAssignmentBlock + 4);
   v9 = _InterlockedOr((volatile signed __int32 *)&PROCESS[4].IdealProcessorAssignmentBlock + 1, 2u);
-  result = ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)PspUnlockProcessExclusive((__int64)PROCESS, (__int64)CurrentThread);
+  result = ($241382875694CED3D471BC5892DE3337 *)PspUnlockProcessExclusive((__int64)PROCESS, (__int64)CurrentThread);
   if ( (v8 & 0x2000000) == 0 && (v6 & 0x2000000) != 0 )
   {
     if ( (v9 & 1) != 0 )
@@ -56,7 +57,7 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall PsTerminateMinimalProcess(
     }
     else
     {
-      return ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)PspRundownSingleProcess(PROCESS);
+      return ($241382875694CED3D471BC5892DE3337 *)PspRundownSingleProcess(PROCESS);
     }
   }
   return result;

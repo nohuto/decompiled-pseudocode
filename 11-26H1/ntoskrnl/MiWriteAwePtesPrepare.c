@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWriteAwePtesPrepare @ 0x14047851C
+ * XREFs of MiWriteAwePtesPrepare @ 0x140471C9C
  * Callers:
- *     MiWriteAwePtes @ 0x140477F10 (MiWriteAwePtes.c)
+ *     MiWriteAwePtes @ 0x140471690 (MiWriteAwePtes.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiGetAweViewPageSize @ 0x140477EDC (MiGetAweViewPageSize.c)
- *     MiPageSizeToPteLevel @ 0x140478750 (MiPageSizeToPteLevel.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiGetAweViewPageSize @ 0x14047165C (MiGetAweViewPageSize.c)
+ *     MiPageSizeToPteLevel @ 0x140471ED0 (MiPageSizeToPteLevel.c)
  */
 
 __int64 __fastcall MiWriteAwePtesPrepare(__int64 a1)

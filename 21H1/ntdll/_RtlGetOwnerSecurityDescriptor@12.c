@@ -8,16 +8,19 @@
  *     <none>
  */
 
-int __stdcall RtlGetOwnerSecurityDescriptor(int a1, int *a2, _BYTE *a3)
+NTSTATUS __cdecl RtlGetOwnerSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID *Owner,
+        PBOOLEAN OwnerDefaulted)
 {
-  int v3; // edx
+  char *v3; // edx
 
-  if ( *(_BYTE *)a1 != 1 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
     return -1073741736;
-  v3 = *(_DWORD *)(a1 + 4);
-  if ( *(__int16 *)(a1 + 2) < 0 )
-    v3 = v3 != 0 ? v3 + a1 : 0;
-  *a2 = v3;
-  *a3 = *(_BYTE *)(a1 + 2) & 1;
+  v3 = (char *)*((_DWORD *)SecurityDescriptor + 1);
+  if ( *((__int16 *)SecurityDescriptor + 1) < 0 )
+    v3 = v3 != 0 ? (char *)SecurityDescriptor + (_DWORD)v3 : 0;
+  *Owner = v3;
+  *OwnerDefaulted = *((_BYTE *)SecurityDescriptor + 2) & 1;
   return 0;
 }

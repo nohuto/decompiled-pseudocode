@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetPriorityBoost @ 0x14022F6F0
+ * XREFs of KeSetPriorityBoost @ 0x1402D3F40
  * Callers:
- *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
- *     FsRtlpWaitForIoAtEof @ 0x140290A2C (FsRtlpWaitForIoAtEof.c)
- *     FsRtlpDoBoost @ 0x1402CA830 (FsRtlpDoBoost.c)
- *     KeGenericProcessorCallback @ 0x1402EB178 (KeGenericProcessorCallback.c)
+ *     FsRtlpWaitForIoAtEof @ 0x14020E99C (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlpDoBoost @ 0x140249120 (FsRtlpDoBoost.c)
+ *     KeGenericProcessorCallback @ 0x14029C4C8 (KeGenericProcessorCallback.c)
+ *     ExpApplyPriorityBoost @ 0x1402D3850 (ExpApplyPriorityBoost.c)
  * Callees:
- *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x140230BD0 (KiProcessDeferredReadyList.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1402D4AF0 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402D5420 (KiProcessDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -105,7 +105,7 @@ LABEL_27:
     {
       v5 = 1;
       *(_BYTE *)(a1 + 564) += 16 * (a2 - v12);
-      KiSetPriorityThread(a1, &v29);
+      KiSetPriorityThread(a1, &v29, (unsigned int)(char)a2);
       v13 = *(_QWORD *)(a1 + 32);
       if ( v9 > v13 || v13 - v9 < (unsigned int)KiLockQuantumTarget )
         *(_QWORD *)(a1 + 32) = v9 + (unsigned int)KiLockQuantumTarget;

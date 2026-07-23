@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRealtimeUpdateConsumers @ 0x140772BE4
+ * XREFs of EtwpRealtimeUpdateConsumers @ 0x140772DD4
  * Callers:
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)

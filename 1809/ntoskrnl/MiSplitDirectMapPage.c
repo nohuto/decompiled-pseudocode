@@ -1,5 +1,5 @@
 /*
- * XREFs of MiSplitDirectMapPage @ 0x1402B6D24
+ * XREFs of MiSplitDirectMapPage @ 0x1402B6F14
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  * Callees:
@@ -11,16 +11,16 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
- *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiCopyPfnEntryEx @ 0x14010E080 (MiCopyPfnEntryEx.c)
+ *     MiUpdateTransitionPteFrame @ 0x140118A14 (MiUpdateTransitionPteFrame.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
  */
 
 ULONG_PTR __fastcall MiSplitDirectMapPage(_WORD *a1, __int64 a2, ULONG_PTR a3)
@@ -61,7 +61,7 @@ ULONG_PTR __fastcall MiSplitDirectMapPage(_WORD *a1, __int64 a2, ULONG_PTR a3)
   v6 = _InterlockedExchangeAdd(*(volatile signed __int32 **)a2, 1u);
   v7 = *(_QWORD *)a1;
   v8 = (unsigned __int16)(*(_WORD *)(a2 + 8) & v6) | *(unsigned __int16 *)(a2 + 10);
-  for ( i = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF)); ; MiWaitForFreePage(i) )
+  for ( i = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF)); ; MiWaitForFreePage(i) )
   {
     Page = MiGetPage(i, v8, 0);
     v11 = Page;
@@ -97,7 +97,7 @@ LABEL_13:
     }
     goto LABEL_13;
   }
-  if ( HIBYTE(word_14043A1AC) == v21 && (v19 & 1) != 0 )
+  if ( HIBYTE(word_14043B26C) == v21 && (v19 & 1) != 0 )
     v19 |= v20;
   *(_QWORD *)&v34 = v19;
   MiWritePteShadow((__int64)&v34, v19);
@@ -117,7 +117,7 @@ LABEL_14:
   if ( (unsigned int)MiPteHasShadow() )
   {
     v29 = 1;
-    if ( HIBYTE(word_14043A1AC) )
+    if ( HIBYTE(word_14043B26C) )
       goto LABEL_21;
   }
   else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

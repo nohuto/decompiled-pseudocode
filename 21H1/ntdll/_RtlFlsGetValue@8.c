@@ -6,25 +6,25 @@
  *     <none>
  */
 
-int __stdcall RtlFlsGetValue(unsigned int a1, _DWORD *a2)
+NTSTATUS __cdecl RtlFlsGetValue(ULONG FlsIndex, PVOID *FlsData)
 {
-  _DWORD *FlsData; // ecx
+  _DWORD *v2; // ecx
   unsigned int v3; // eax
-  int v4; // edx
+  ULONG v4; // edx
   int v5; // eax
-  int *v6; // eax
-  int v7; // eax
+  void **v6; // eax
+  void *v7; // eax
 
-  FlsData = NtCurrentTeb()->FlsData;
-  if ( !a1 || a1 >= 0xFF0 || !FlsData )
+  v2 = NtCurrentTeb()->FlsData;
+  if ( !FlsIndex || FlsIndex >= 0xFF0 || !v2 )
     return -1073741811;
-  _BitScanReverse(&v3, a1 + 16);
-  v4 = (a1 + 16) ^ (1 << v3);
-  v5 = FlsData[v3 - 2];
-  if ( v5 && (v6 = (int *)(v5 + 4 * v4 + 4)) != 0 )
+  _BitScanReverse(&v3, FlsIndex + 16);
+  v4 = (FlsIndex + 16) ^ (1 << v3);
+  v5 = v2[v3 - 2];
+  if ( v5 && (v6 = (void **)(v5 + 4 * v4 + 4)) != 0 )
     v7 = *v6;
   else
     v7 = 0;
-  *a2 = v7;
+  *FlsData = v7;
   return 0;
 }

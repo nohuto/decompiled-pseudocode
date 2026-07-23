@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTryLockLeafAndContainingPagesAtDpc @ 0x140022F98
+ * XREFs of MiTryLockLeafAndContainingPagesAtDpc @ 0x140022B18
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MiCopyHeaderIfResident @ 0x1400FD5B8 (MiCopyHeaderIfResident.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MiCopyHeaderIfResident @ 0x1400FB338 (MiCopyHeaderIfResident.c)
  * Callees:
- *     MiTryLockLeafPage @ 0x140022EEC (MiTryLockLeafPage.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x140022FF8 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiTryLockLeafPage @ 0x140022A6C (MiTryLockLeafPage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140022B78 (MiTryLockProtoPoolPageAtDpc.c)
  */
 
 __int64 __fastcall MiTryLockLeafAndContainingPagesAtDpc(__int64 a1, __int64 *a2, unsigned int a3)

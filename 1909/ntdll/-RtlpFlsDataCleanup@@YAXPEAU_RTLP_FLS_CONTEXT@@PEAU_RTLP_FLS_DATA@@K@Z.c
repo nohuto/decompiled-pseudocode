@@ -14,83 +14,77 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08B0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall RtlpFlsDataCleanup(
-        struct _RTLP_FLS_CONTEXT *a1,
-        struct _RTLP_FLS_DATA *a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall RtlpFlsDataCleanup(struct _RTLP_FLS_CONTEXT *a1, struct _RTLP_FLS_DATA *a2, char a3)
 {
-  char v4; // bp
-  unsigned int v6; // esi
-  __int64 v7; // r15
-  unsigned int v8; // ecx
-  unsigned int v9; // edx
-  __int64 v10; // rcx
-  _QWORD *v11; // r14
-  unsigned int v12; // ecx
-  unsigned __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // rdi
-  void (*v16)(void); // rax
-  __int64 v17; // rdx
-  struct _RTLP_FLS_DATA **v18; // rax
+  unsigned int v5; // esi
+  __int64 v6; // r15
+  unsigned int v7; // ecx
+  unsigned int v8; // edx
+  __int64 v9; // rcx
+  _QWORD *v10; // r14
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
+  __int64 v13; // rcx
+  _RTL_SRWLOCK *v14; // rdi
+  void (*Value)(void); // rax
+  __int64 v16; // rdx
+  struct _RTLP_FLS_DATA **v17; // rax
 
-  v4 = a3;
   if ( (a3 & 1) != 0 )
   {
     if ( (_DWORD)qword_180166188 )
     {
-      v6 = 17;
-      v7 = (unsigned int)qword_180166188;
+      v5 = 17;
+      v6 = (unsigned int)qword_180166188;
       do
       {
-        _BitScanReverse(&v8, v6);
-        v9 = v6 ^ (1 << v8);
-        v10 = *((_QWORD *)a2 + v8 - 2);
-        if ( v10 )
+        _BitScanReverse(&v7, v5);
+        v8 = v5 ^ (1 << v7);
+        v9 = *((_QWORD *)a2 + v7 - 2);
+        if ( v9 )
         {
-          v11 = (_QWORD *)(v10 + 8 * (v9 + 1LL));
-          if ( v11 )
+          v10 = (_QWORD *)(v9 + 8 * (v8 + 1LL));
+          if ( v10 )
           {
-            if ( *v11 )
+            if ( *v10 )
             {
-              _BitScanReverse(&v12, v6);
-              v13 = v6 ^ (1 << v12);
-              v14 = *((_QWORD *)&RtlpFlsContext + v12 - 3);
-              if ( v14 )
-                v15 = 16LL * (unsigned int)v13 + v14 + 8;
+              _BitScanReverse(&v11, v5);
+              v12 = v5 ^ (1 << v11);
+              v13 = *((_QWORD *)&RtlpFlsContext + v11 - 3);
+              if ( v13 )
+                v14 = (_RTL_SRWLOCK *)(16LL * v12 + v13 + 8);
               else
-                v15 = 0LL;
-              RtlAcquireSRWLockShared((volatile signed __int64 *)v15, v13, a3, a4);
-              v16 = *(void (**)(void))(v15 + 8);
-              if ( (unsigned __int64)v16 - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v11 )
+                v14 = 0LL;
+              RtlAcquireSRWLockShared(v14);
+              Value = (void (*)(void))v14[1].Value;
+              if ( (unsigned __int64)Value - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v10 )
               {
-                v16();
-                *v11 = 0LL;
+                Value();
+                *v10 = 0LL;
               }
-              RtlReleaseSRWLockShared((volatile signed __int64 *)v15);
+              RtlReleaseSRWLockShared(v14);
             }
           }
         }
-        ++v6;
-        --v7;
+        ++v5;
+        --v6;
       }
-      while ( v7 );
+      while ( v6 );
     }
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
-    v17 = *(_QWORD *)a2;
+    RtlAcquireSRWLockExclusive(&RtlpFlsContext);
+    v16 = *(_QWORD *)a2;
     if ( *(struct _RTLP_FLS_DATA **)(*(_QWORD *)a2 + 8LL) != a2
-      || (v18 = (struct _RTLP_FLS_DATA **)*((_QWORD *)a2 + 1), *v18 != a2) )
+      || (v17 = (struct _RTLP_FLS_DATA **)*((_QWORD *)a2 + 1), *v17 != a2) )
     {
       __fastfail(3u);
     }
-    *v18 = (struct _RTLP_FLS_DATA *)v17;
-    *(_QWORD *)(v17 + 8) = v18;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    *v17 = (struct _RTLP_FLS_DATA *)v16;
+    *(_QWORD *)(v16 + 8) = v17;
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   }
-  if ( (v4 & 2) != 0 )
+  if ( (a3 & 2) != 0 )
   {
     RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::Cleanup((char *)a2 + 16);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)a2);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a2);
   }
 }

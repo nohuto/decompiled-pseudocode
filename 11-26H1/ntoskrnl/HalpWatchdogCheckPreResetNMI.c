@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWatchdogCheckPreResetNMI @ 0x140585674
+ * XREFs of HalpWatchdogCheckPreResetNMI @ 0x140587B94
  * Callers:
- *     HalpPreprocessNmi @ 0x140593F30 (HalpPreprocessNmi.c)
+ *     HalpPreprocessNmi @ 0x1405966B0 (HalpPreprocessNmi.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 int HalpWatchdogCheckPreResetNMI()
@@ -12,11 +12,11 @@ int HalpWatchdogCheckPreResetNMI()
   unsigned __int64 v0; // rax
   int v1; // ecx
   ULONG_PTR v2; // rbx
-  ULONG_PTR InterruptTimePrecise; // r8
-  ULONG_PTR BugCheckParameter3; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER InterruptTimePrecise; // r8
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   LODWORD(v0) = HalpWatchdogTimer;
-  BugCheckParameter3 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( HalpWatchdogTimer )
   {
     v1 = *(_DWORD *)(HalpWatchdogTimer + 228);
@@ -39,12 +39,22 @@ int HalpWatchdogCheckPreResetNMI()
         return v0;
     }
     v2 = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset;
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&BugCheckParameter3);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     LODWORD(v0) = *(_DWORD *)(HalpWatchdogTimer + 228);
     if ( (_DWORD)v0 == 8 )
-      KeBugCheckEx(0x1CAu, v2, InterruptTimePrecise, BugCheckParameter3, (unsigned int)KiClockTimerOwner);
+      KeBugCheckEx(
+        0x1CAu,
+        v2,
+        InterruptTimePrecise.QuadPart,
+        PerformanceCounter.QuadPart,
+        (unsigned int)KiClockTimerOwner);
     if ( (_DWORD)v0 == 13 )
-      KeBugCheckEx(0x1CFu, v2, InterruptTimePrecise, BugCheckParameter3, (unsigned int)KiClockTimerOwner);
+      KeBugCheckEx(
+        0x1CFu,
+        v2,
+        InterruptTimePrecise.QuadPart,
+        PerformanceCounter.QuadPart,
+        (unsigned int)KiClockTimerOwner);
   }
   return v0;
 }

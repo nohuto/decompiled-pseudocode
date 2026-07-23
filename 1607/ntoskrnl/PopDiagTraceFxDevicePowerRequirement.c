@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceFxDevicePowerRequirement @ 0x1400C15E0
+ * XREFs of PopDiagTraceFxDevicePowerRequirement @ 0x1400BF470
  * Callers:
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
- *     PopFxDeliverDevicePowerRequired @ 0x140126464 (PopFxDeliverDevicePowerRequired.c)
- *     PopFxIdleTimeoutDpcRoutine @ 0x1401319E8 (PopFxIdleTimeoutDpcRoutine.c)
- *     PopFxUpdateDeviceIdleTimer @ 0x140148CC8 (PopFxUpdateDeviceIdleTimer.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x1401269D4 (PopFxDeliverDevicePowerRequired.c)
+ *     PopFxIdleTimeoutDpcRoutine @ 0x140131F58 (PopFxIdleTimeoutDpcRoutine.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x140149238 (PopFxUpdateDeviceIdleTimer.c)
  * Callees:
- *     EtwWriteEx @ 0x140013360 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140012EE0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDevicePowerRequirement(__int64 a1, char a2, unsigned __int8 a3)

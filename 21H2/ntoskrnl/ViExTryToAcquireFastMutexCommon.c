@@ -1,13 +1,13 @@
 /*
- * XREFs of ViExTryToAcquireFastMutexCommon @ 0x1409E4E70
+ * XREFs of ViExTryToAcquireFastMutexCommon @ 0x1409E5E70
  * Callers:
- *     VerifierExTryToAcquireFastMutex @ 0x1409E4A30 (VerifierExTryToAcquireFastMutex.c)
- *     VerifierExTryToAcquireFastMutexNoReboot @ 0x1409E4A90 (VerifierExTryToAcquireFastMutexNoReboot.c)
+ *     VerifierExTryToAcquireFastMutex @ 0x1409E5A30 (VerifierExTryToAcquireFastMutex.c)
+ *     VerifierExTryToAcquireFastMutexNoReboot @ 0x1409E5A90 (VerifierExTryToAcquireFastMutexNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DBE50 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x1409DC0CC (ViKeIrqlLogCommon.c)
- *     ViExCheckAPCLevelOrBelow @ 0x1409E4D84 (ViExCheckAPCLevelOrBelow.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DCE50 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     ViKeIrqlLogCommon @ 0x1409DD0CC (ViKeIrqlLogCommon.c)
+ *     ViExCheckAPCLevelOrBelow @ 0x1409E5D84 (ViExCheckAPCLevelOrBelow.c)
  */
 
 char __fastcall ViExTryToAcquireFastMutexCommon(ULONG_PTR a1, int a2)

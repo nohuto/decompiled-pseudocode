@@ -1,34 +1,34 @@
 /*
- * XREFs of MiCheckControlArea @ 0x14029FBC0
+ * XREFs of MiCheckControlArea @ 0x14029FE50
  * Callers:
  *     MiDereferenceControlArea @ 0x14020B890 (MiDereferenceControlArea.c)
- *     MiAddViewsForSection @ 0x140288770 (MiAddViewsForSection.c)
- *     MiUnmapViewSubsections @ 0x14029CC10 (MiUnmapViewSubsections.c)
- *     MiDereferenceControlAreaBySection @ 0x14029F8AC (MiDereferenceControlAreaBySection.c)
- *     MiFlushRelease @ 0x14029F980 (MiFlushRelease.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiRemoveMappedPtes @ 0x1402E65E0 (MiRemoveMappedPtes.c)
- *     MiReleaseFaultCharges @ 0x1403636B0 (MiReleaseFaultCharges.c)
- *     MiRemoveSystemCacheReferences @ 0x14062EF6C (MiRemoveSystemCacheReferences.c)
+ *     MiAddViewsForSection @ 0x140288A00 (MiAddViewsForSection.c)
+ *     MiUnmapViewSubsections @ 0x14029CEA0 (MiUnmapViewSubsections.c)
+ *     MiDereferenceControlAreaBySection @ 0x14029FB3C (MiDereferenceControlAreaBySection.c)
+ *     MiFlushRelease @ 0x14029FC10 (MiFlushRelease.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
+ *     MmPurgeSection @ 0x1402DCB60 (MmPurgeSection.c)
+ *     MiRemoveMappedPtes @ 0x1402E6870 (MiRemoveMappedPtes.c)
+ *     MiReleaseFaultCharges @ 0x140363850 (MiReleaseFaultCharges.c)
+ *     MiRemoveSystemCacheReferences @ 0x14062F4BC (MiRemoveSystemCacheReferences.c)
  * Callees:
  *     MiCleanSection @ 0x1402016FC (MiCleanSection.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiBuildWakeList @ 0x1402894E4 (MiBuildWakeList.c)
- *     MiInsertUnusedSegment @ 0x1402A0C98 (MiInsertUnusedSegment.c)
- *     MiClearFilePointer @ 0x140355690 (MiClearFilePointer.c)
- *     MiImageUnused @ 0x140355A44 (MiImageUnused.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     MiPurgeImageSection @ 0x14036A438 (MiPurgeImageSection.c)
- *     PsGetNextPartition @ 0x14036AD70 (PsGetNextPartition.c)
- *     MiShouldTrimUnusedSegments @ 0x14046BB28 (MiShouldTrimUnusedSegments.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiSegmentDelete @ 0x1406B0954 (MiSegmentDelete.c)
- *     MiReturnImageBase @ 0x140721CA0 (MiReturnImageBase.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140289774 (MiBuildWakeList.c)
+ *     MiInsertUnusedSegment @ 0x1402A0F28 (MiInsertUnusedSegment.c)
+ *     MiClearFilePointer @ 0x140355830 (MiClearFilePointer.c)
+ *     MiImageUnused @ 0x140355BE4 (MiImageUnused.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     MiPurgeImageSection @ 0x14036A5D8 (MiPurgeImageSection.c)
+ *     PsGetNextPartition @ 0x14036AF10 (PsGetNextPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiShouldTrimUnusedSegments @ 0x14046BF28 (MiShouldTrimUnusedSegments.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiSegmentDelete @ 0x1406B0984 (MiSegmentDelete.c)
+ *     MiReturnImageBase @ 0x140721EA0 (MiReturnImageBase.c)
  */
 
 __int64 __fastcall MiCheckControlArea(__int64 a1, unsigned __int8 a2)
@@ -81,10 +81,13 @@ LABEL_16:
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(a1 + 72, retaddr);
       else
         *(_DWORD *)(a1 + 72) = 0;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v3 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -144,10 +147,10 @@ LABEL_16:
         *(_QWORD *)(a1 + 40) = 1LL;
         *(_DWORD *)(a1 + 56) = v12 | 4;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v16 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v16 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v16 >= 2u )
           {
             v17 = KeGetCurrentPrcb();
             v18 = v17->SchedulerAssist;
@@ -212,10 +215,10 @@ LABEL_4:
   else
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v20 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v20 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v20 >= 2u )
       {
         v21 = KeGetCurrentPrcb();
         v22 = v21->SchedulerAssist;

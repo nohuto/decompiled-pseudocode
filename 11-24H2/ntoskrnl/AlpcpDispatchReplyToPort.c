@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpDispatchReplyToPort @ 0x140892910
+ * XREFs of AlpcpDispatchReplyToPort @ 0x14089BF40
  * Callers:
- *     AlpcpSendMessage @ 0x14088E810 (AlpcpSendMessage.c)
- *     AlpcpAcceptConnectPort @ 0x1409F4F00 (AlpcpAcceptConnectPort.c)
+ *     AlpcpSendMessage @ 0x140898440 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x14089BE90 (AlpcpDispatchMessage.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     AlpcpCompleteDispatchMessage @ 0x1408912A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpClearOwnerPortMessage @ 0x140892D3C (AlpcpClearOwnerPortMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x140892D70 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpCancelMessage @ 0x140894410 (AlpcpCancelMessage.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14089A890 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x14089C36C (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x14089C3A0 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpCancelMessage @ 0x14089C73C (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchReplyToPort(__int64 a1)
@@ -27,24 +27,24 @@ __int64 __fastcall AlpcpDispatchReplyToPort(__int64 a1)
   __int64 v4; // rsi
   int v5; // eax
   __int64 *v6; // r12
-  _QWORD *v7; // r15
+  char *v7; // r15
   __int64 v8; // r13
   __int64 v9; // r12
   _DWORD *v10; // rbp
   _DWORD *v11; // r15
-  _QWORD *v12; // rax
-  _QWORD *v13; // r15
+  char *v12; // rax
+  char *v13; // r15
   struct _KTHREAD *CurrentThread; // r15
   __int16 v15; // cx
   int v16; // eax
   __int16 v17; // cx
   unsigned int v18; // eax
-  _QWORD *v19; // rbp
+  char *v19; // rbp
   __int64 *v21; // r12
-  _QWORD *v22; // r15
+  char *v22; // r15
   __int64 *v23; // rbx
   __int64 *v24; // r12
-  _QWORD *v25; // r15
+  char *v25; // r15
   signed __int32 v26[22]; // [rsp+0h] [rbp-58h] BYREF
   int v27; // [rsp+60h] [rbp+8h]
   __int64 *v28; // [rsp+68h] [rbp+10h]
@@ -61,11 +61,11 @@ __int64 __fastcall AlpcpDispatchReplyToPort(__int64 a1)
   {
     v6 = *(__int64 **)(v4 + 16);
     v28 = v6;
-    v7 = KeAbPreAcquire((__int64)(v6 - 2), 0LL);
+    v7 = (char *)KeAbPreAcquire((__int64)(v6 - 2), 0LL);
     if ( _InterlockedCompareExchange64(v6 - 2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v6 - 2, 0, v7, (__int64)(v6 - 2));
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     v8 = v6[2];
 LABEL_7:
     v9 = v8;
@@ -75,11 +75,11 @@ LABEL_7:
   {
     v24 = *(__int64 **)(v2 + 16);
     v28 = v24;
-    v25 = KeAbPreAcquire((__int64)(v24 - 2), 0LL);
+    v25 = (char *)KeAbPreAcquire((__int64)(v24 - 2), 0LL);
     if ( _InterlockedCompareExchange64(v24 - 2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v24 - 2, 0, v25, (__int64)(v24 - 2));
     if ( v25 )
-      *((_BYTE *)v25 + 10) = 1;
+      v25[10] = 1;
     v8 = *v24;
     if ( v2 == v4 )
       goto LABEL_7;
@@ -89,11 +89,11 @@ LABEL_7:
   {
     v21 = *(__int64 **)(v4 + 16);
     v28 = v21;
-    v22 = KeAbPreAcquire((__int64)(v21 - 2), 0LL);
+    v22 = (char *)KeAbPreAcquire((__int64)(v21 - 2), 0LL);
     if ( _InterlockedCompareExchange64(v21 - 2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v21 - 2, 0, v22, (__int64)(v21 - 2));
     if ( v22 )
-      *((_BYTE *)v22 + 10) = 1;
+      v22[10] = 1;
     v8 = *v21;
     v9 = v21[1];
   }
@@ -135,12 +135,12 @@ LABEL_50:
         *(_QWORD *)(v1 + 200) = 0LL;
         if ( *(_WORD *)(a1 + 54) == 11 )
         {
-          v12 = KeAbPreAcquire(v4 + 352, 0LL);
+          v12 = (char *)KeAbPreAcquire(v4 + 352, 0LL);
           v13 = v12;
           if ( _interlockedbittestandset64((volatile signed __int32 *)(v4 + 352), 0LL) )
-            ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v4 + 352), (__int64)v12, v4 + 352);
+            ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v4 + 352), v12, v4 + 352);
           if ( v13 )
-            *((_BYTE *)v13 + 10) = 1;
+            v13[10] = 1;
           *(_DWORD *)(v4 + 416) &= ~8u;
           if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 352), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
             ExfTryToWakePushLock((volatile signed __int64 *)(v4 + 352));
@@ -176,11 +176,11 @@ LABEL_50:
         ObfDereferenceObject((PVOID)v9);
         if ( *(_QWORD *)(v1 + 16) )
           AlpcpRemoveMessageFromPendingQueue(v1);
-        v19 = KeAbPreAcquire(v8 + 352, 0LL);
+        v19 = (char *)KeAbPreAcquire(v8 + 352, 0LL);
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 352), 17LL, 0LL) )
           ExfAcquirePushLockSharedEx((signed __int64 *)(v8 + 352), 0, v19, v8 + 352);
         if ( v19 )
-          *((_BYTE *)v19 + 10) = 1;
+          v19[10] = 1;
         if ( (v27 & 0x20000) != 0 )
         {
           *(_DWORD *)(v1 + 40) &= ~0x100u;

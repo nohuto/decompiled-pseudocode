@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetLargePageListHeadBase @ 0x140556B08
+ * XREFs of MiGetLargePageListHeadBase @ 0x140556D48
  * Callers:
- *     MiScrubNodeLargePages @ 0x1408D87C8 (MiScrubNodeLargePages.c)
+ *     MiScrubNodeLargePages @ 0x1408D8928 (MiScrubNodeLargePages.c)
  * Callees:
  *     <none>
  */

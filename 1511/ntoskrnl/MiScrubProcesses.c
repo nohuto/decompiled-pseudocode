@@ -44,9 +44,9 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)
   _QWORD *v15; // rcx
   __int64 v16; // rcx
   int v17; // ebx
-  unsigned __int64 v18; // rbx
-  unsigned __int64 SetBits; // rax
-  unsigned __int64 v20; // r14
+  ULONG64 v18; // rbx
+  ULONG64 SetBits; // rax
+  ULONG64 v20; // r14
   __int64 v21; // rdi
   __int64 v22; // rcx
   int v23; // eax
@@ -136,7 +136,7 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)
                 {
                   if ( *(_DWORD *)(a2 + 4) )
                     break;
-                  SetBits = RtlFindSetBitsEx((unsigned __int64 *)v9, 1uLL, v18);
+                  SetBits = RtlFindSetBitsEx((PRTL_BITMAP_EX)v9, 1uLL, v18);
                   v20 = SetBits;
                   if ( SetBits < v18 || SetBits == -1LL )
                     break;

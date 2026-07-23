@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmDereferenceCap @ 0x140596370
+ * XREFs of SepRmDereferenceCap @ 0x1405965A0
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
  * Callees:
- *     SepRmDereferenceCapTable @ 0x140596390 (SepRmDereferenceCapTable.c)
+ *     SepRmDereferenceCapTable @ 0x1405965C0 (SepRmDereferenceCapTable.c)
  */
 
 __int64 __fastcall SepRmDereferenceCap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,35 +1,35 @@
 /*
- * XREFs of HaliQuerySystemInformation @ 0x14098FEF0
+ * XREFs of HaliQuerySystemInformation @ 0x1409909D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetPlatformTimerInformation @ 0x1402D0144 (HalpGetPlatformTimerInformation.c)
- *     HalpQueryNumaRangeTableInformation @ 0x1403CEE9C (HalpQueryNumaRangeTableInformation.c)
- *     HalpGetDisplayBiosInformation @ 0x1403CF8E0 (HalpGetDisplayBiosInformation.c)
- *     xKdEnumerateDebuggingDevices @ 0x1403D0440 (xKdEnumerateDebuggingDevices.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpTimerQueryWatchdogType @ 0x1404B6AB0 (HalpTimerQueryWatchdogType.c)
- *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x1404BDD18 (HalpDpQueryMaxHotPlugMemoryAddress.c)
- *     HalpHvQueryHyperlaunchEntrypoint @ 0x1404D207C (HalpHvQueryHyperlaunchEntrypoint.c)
- *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x1406BDE8C (HalpQueryHeterogeneousMemoryAttributesInterface.c)
- *     HalpQueryPerDeviceMsiLimitInformation @ 0x1406BDEA0 (HalpQueryPerDeviceMsiLimitInformation.c)
- *     xHalAllocatePmcCounterSet @ 0x140726170 (xHalAllocatePmcCounterSet.c)
- *     HalpQueryIommuReservedRegionInformation @ 0x140765484 (HalpQueryIommuReservedRegionInformation.c)
- *     HalpQueryProfileInformation @ 0x140773BC8 (HalpQueryProfileInformation.c)
- *     HalpInterruptGetIrtInfo @ 0x1407B9474 (HalpInterruptGetIrtInfo.c)
- *     HalpGetProcessorBrandString @ 0x1407C7D50 (HalpGetProcessorBrandString.c)
- *     HalpInterruptQueryControllerInfo @ 0x1407D1E5C (HalpInterruptQueryControllerInfo.c)
- *     HalpGetAcpiStaticNumaTopology @ 0x1407D411C (HalpGetAcpiStaticNumaTopology.c)
- *     HalpQuerySecondaryInterruptInformation @ 0x1407D4440 (HalpQuerySecondaryInterruptInformation.c)
- *     HalpDmaGetRemappingInformation @ 0x1407D4B08 (HalpDmaGetRemappingInformation.c)
- *     HalpGetMcaLog @ 0x140864674 (HalpGetMcaLog.c)
- *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x140866340 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
- *     HalpAuditQueryResults @ 0x1408666F4 (HalpAuditQueryResults.c)
- *     HalpChannelPowerRequest @ 0x140866928 (HalpChannelPowerRequest.c)
- *     HalpQueryDebuggerInformation @ 0x1409B54CC (HalpQueryDebuggerInformation.c)
- *     HalpQueryChannelTopologyInformation @ 0x140A8DA48 (HalpQueryChannelTopologyInformation.c)
+ *     HalpGetPlatformTimerInformation @ 0x14024E4C4 (HalpGetPlatformTimerInformation.c)
+ *     HalpQueryNumaRangeTableInformation @ 0x1403CF00C (HalpQueryNumaRangeTableInformation.c)
+ *     HalpGetDisplayBiosInformation @ 0x1403CFA50 (HalpGetDisplayBiosInformation.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1403D05B0 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpTimerQueryWatchdogType @ 0x1404B6CF0 (HalpTimerQueryWatchdogType.c)
+ *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x1404BDF58 (HalpDpQueryMaxHotPlugMemoryAddress.c)
+ *     HalpHvQueryHyperlaunchEntrypoint @ 0x1404D22BC (HalpHvQueryHyperlaunchEntrypoint.c)
+ *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x14061D0F4 (HalpQueryHeterogeneousMemoryAttributesInterface.c)
+ *     HalpQueryPerDeviceMsiLimitInformation @ 0x14061D108 (HalpQueryPerDeviceMsiLimitInformation.c)
+ *     xHalAllocatePmcCounterSet @ 0x140726340 (xHalAllocatePmcCounterSet.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x140765644 (HalpQueryIommuReservedRegionInformation.c)
+ *     HalpQueryProfileInformation @ 0x140773D88 (HalpQueryProfileInformation.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407B9994 (HalpInterruptGetIrtInfo.c)
+ *     HalpGetProcessorBrandString @ 0x1407C8070 (HalpGetProcessorBrandString.c)
+ *     HalpInterruptQueryControllerInfo @ 0x1407D1FCC (HalpInterruptQueryControllerInfo.c)
+ *     HalpGetAcpiStaticNumaTopology @ 0x1407D428C (HalpGetAcpiStaticNumaTopology.c)
+ *     HalpQuerySecondaryInterruptInformation @ 0x1407D45B0 (HalpQuerySecondaryInterruptInformation.c)
+ *     HalpDmaGetRemappingInformation @ 0x1407D4C78 (HalpDmaGetRemappingInformation.c)
+ *     HalpGetMcaLog @ 0x1408647D4 (HalpGetMcaLog.c)
+ *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x1408664A0 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
+ *     HalpAuditQueryResults @ 0x140866854 (HalpAuditQueryResults.c)
+ *     HalpChannelPowerRequest @ 0x140866A88 (HalpChannelPowerRequest.c)
+ *     HalpQueryDebuggerInformation @ 0x1409B64CC (HalpQueryDebuggerInformation.c)
+ *     HalpQueryChannelTopologyInformation @ 0x140A8EA48 (HalpQueryChannelTopologyInformation.c)
  */
 
 __int64 __fastcall HaliQuerySystemInformation(int a1, unsigned int a2, __int16 *a3, int *a4)
@@ -112,7 +112,7 @@ LABEL_32:
           goto LABEL_87;
         return (unsigned int)HalpInterruptQueryControllerInfo(a2, a3, a4);
       }
-      v10 = &off_140004EF0;
+      v10 = &off_140003AC0;
       if ( a2 < 0x10 )
         v10 = 0LL;
       v9 = a2 < 0x10 ? 0 : 0x10;

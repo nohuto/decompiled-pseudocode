@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpConstructIptData @ 0x1408302B0
+ * XREFs of EtwpConstructIptData @ 0x1408364F0
  * Callers:
- *     EtwpUpdateProcessorTraceConfiguration @ 0x140830428 (EtwpUpdateProcessorTraceConfiguration.c)
+ *     EtwpUpdateProcessorTraceConfiguration @ 0x140836668 (EtwpUpdateProcessorTraceConfiguration.c)
  * Callees:
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     ZwLoadDriver @ 0x1407255B0 (ZwLoadDriver.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     ZwLoadDriver @ 0x14072A180 (ZwLoadDriver.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpConstructIptData(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall EtwpConstructIptData(__int64 a1)
   Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
   if ( !Pool2 )
     return 3221225495LL;
-  ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpSysDbgLock.SchedulerAssist);
+  ExtensionTable = ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&ExpSysDbgLock.SchedulerAssistPriorityFloor);
   Pool2[2] = ExtensionTable;
   if ( !ExtensionTable )
   {

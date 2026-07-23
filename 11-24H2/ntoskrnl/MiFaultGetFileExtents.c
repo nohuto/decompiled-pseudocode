@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFaultGetFileExtents @ 0x14036F4C8
+ * XREFs of MiFaultGetFileExtents @ 0x140426C40
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseFaultState @ 0x1402E0010 (MiReleaseFaultState.c)
- *     MiGetSessionIdForVa @ 0x1402ED220 (MiGetSessionIdForVa.c)
- *     MiFreeInPageSupportBlock @ 0x1402EEC40 (MiFreeInPageSupportBlock.c)
- *     MiGetSharedProtos @ 0x1403025FC (MiGetSharedProtos.c)
- *     MiDereferenceControlArea @ 0x14036F494 (MiDereferenceControlArea.c)
- *     MiRetainSubsection @ 0x14036F5D4 (MiRetainSubsection.c)
- *     MiReleaseFaultCharges @ 0x14037040C (MiReleaseFaultCharges.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiReleaseFaultState @ 0x1402418F0 (MiReleaseFaultState.c)
+ *     MiRetainSubsection @ 0x1402723E4 (MiRetainSubsection.c)
+ *     MiGetSharedProtos @ 0x14030CC0C (MiGetSharedProtos.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetSessionIdForVa @ 0x14034E860 (MiGetSessionIdForVa.c)
+ *     MiFreeInPageSupportBlock @ 0x140427430 (MiFreeInPageSupportBlock.c)
+ *     MiReleaseFaultCharges @ 0x140427624 (MiReleaseFaultCharges.c)
+ *     MiDereferenceControlArea @ 0x14042777C (MiDereferenceControlArea.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiFaultGetFileExtents(__int64 a1, __int64 a2)
@@ -33,12 +33,12 @@ __int64 __fastcall MiFaultGetFileExtents(__int64 a1, __int64 a2)
   {
     SessionIdForVa = 0;
   }
-  MiRetainSubsection(v2);
+  MiRetainSubsection((__int64 *)v2);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
   ++*(_QWORD *)(v5 + 40);
   ++*(_QWORD *)(v5 + 48);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
-  MiReleaseFaultState(a1 + 56, 0x11u, 0LL);
+  MiReleaseFaultState((__int64 *)(a1 + 56), 0x11u, 0LL);
   FileExtents = MiAllocateFileExtents(v2, 2, SessionIdForVa);
   MiFreeInPageSupportBlock((PSLIST_ENTRY)a2);
   MiDereferenceControlArea(v5);

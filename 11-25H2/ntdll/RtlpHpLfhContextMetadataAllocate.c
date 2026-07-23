@@ -12,38 +12,38 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextMetadataAllocate(__int64 a1, int a2)
+__int64 __fastcall RtlpHpLfhContextMetadataAllocate(_RTL_SRWLOCK *a1, int a2)
 {
   __int64 v2; // rsi
   bool v4; // zf
-  _QWORD *v5; // rdi
+  _RTL_SRWLOCK *Value; // rdi
   __int64 v7; // rdx
-  __int64 (__fastcall *v8)(__int64, __int64); // rax
-  __int64 v9; // rcx
+  __int64 (__fastcall *v8)($2F38BEDF952D5DA5F266621B11247D04, __int64); // rax
+  _RTL_SRWLOCK v9; // rcx
   _DWORD v11[4]; // [rsp+20h] [rbp-28h]
 
   v2 = a2;
   v11[0] = 256;
   v11[1] = 256;
-  v4 = *(_QWORD *)(a1 + 8LL * a2 + 136) == 0LL;
+  v4 = a1[a2 + 17].Value == 0;
   v11[2] = ((((unsigned int)RtlpHpLfhPerfFlags >> 7) & 1) + 1) << 6;
   if ( v4 )
     goto LABEL_6;
   RtlpHpLfhContextLockExtension(a1);
-  v5 = *(_QWORD **)(a1 + 8 * v2 + 136);
-  if ( v5 )
-    *(_QWORD *)(a1 + 8 * v2 + 136) = *v5;
-  RtlReleaseSRWLockExclusive(a1 + 128);
-  if ( !v5 )
+  Value = (_RTL_SRWLOCK *)a1[v2 + 17].Value;
+  if ( Value )
+    a1[v2 + 17] = (_RTL_SRWLOCK)Value->0;
+  RtlReleaseSRWLockExclusive(a1 + 16);
+  if ( !Value )
   {
 LABEL_6:
     v7 = (unsigned int)v11[v2];
-    v8 = (__int64 (__fastcall *)(__int64, __int64))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 40));
-    v9 = *(_QWORD *)a1;
-    if ( v8 == RtlpHpSegLfhExtendContext )
-      return RtlpHpSegLfhExtendContext(v9, v7);
+    v8 = (__int64 (__fastcall *)($2F38BEDF952D5DA5F266621B11247D04, __int64))((unsigned __int64)a1 ^ RtlpHpHeapGlobals ^ a1[5].Value);
+    v9.0 = ($2F38BEDF952D5DA5F266621B11247D04)a1->Value;
+    if ( (char *)v8 == (char *)RtlpHpSegLfhExtendContext )
+      return ((__int64 (__fastcall *)(_QWORD, _QWORD))RtlpHpSegLfhExtendContext)(v9.0, v7);
     else
-      return v8(v9, v7);
+      return ((__int64 (__fastcall *)(_QWORD, _QWORD))v8)(v9.0, v7);
   }
-  return (__int64)v5;
+  return (__int64)Value;
 }

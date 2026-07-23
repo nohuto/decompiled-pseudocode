@@ -1,42 +1,42 @@
 /*
- * XREFs of MiResolvePageFileFault @ 0x140121360
+ * XREFs of MiResolvePageFileFault @ 0x1401218D0
  * Callers:
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiResolveProtoPteFault @ 0x140041360 (MiResolveProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiResolveProtoPteFault @ 0x140040EE0 (MiResolveProtoPteFault.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiObtainProtoReference @ 0x140023658 (MiObtainProtoReference.c)
- *     MiObtainFaultCharges @ 0x14002B530 (MiObtainFaultCharges.c)
- *     MiGetPageChain @ 0x14003D480 (MiGetPageChain.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiSetInPagePrefetchPriority @ 0x1400869B8 (MiSetInPagePrefetchPriority.c)
- *     MiReduceMdl @ 0x140098E20 (MiReduceMdl.c)
- *     MiLockSetPfnPriority @ 0x1400AA598 (MiLockSetPfnPriority.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiReturnFaultCharges @ 0x1400B2F88 (MiReturnFaultCharges.c)
- *     MiFlowThroughInsertNode @ 0x1400B4668 (MiFlowThroughInsertNode.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x1400BDB30 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiComputeFaultCluster @ 0x1400BFA8C (MiComputeFaultCluster.c)
- *     MiAdvanceFaultList @ 0x1400C01B0 (MiAdvanceFaultList.c)
- *     MiGetAvailablePagesBelowPriority @ 0x1400C0250 (MiGetAvailablePagesBelowPriority.c)
- *     MiFreeInPageSupportBlock @ 0x1400C63A0 (MiFreeInPageSupportBlock.c)
- *     MiInitializeReadInProgressPfn @ 0x1400E5B30 (MiInitializeReadInProgressPfn.c)
- *     MiComputeFaultNode @ 0x1400E6130 (MiComputeFaultNode.c)
- *     MiAllocateInPageSupport @ 0x1400E6F94 (MiAllocateInPageSupport.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
- *     MiIsStoreProcess @ 0x14010CE84 (MiIsStoreProcess.c)
- *     MiIsPteInStore @ 0x140122330 (MiIsPteInStore.c)
- *     MiFreePageChain @ 0x140122350 (MiFreePageChain.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiObtainProtoReference @ 0x1400231D8 (MiObtainProtoReference.c)
+ *     MiObtainFaultCharges @ 0x14002B0B0 (MiObtainFaultCharges.c)
+ *     MiGetPageChain @ 0x14003D000 (MiGetPageChain.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiSetInPagePrefetchPriority @ 0x1400882A8 (MiSetInPagePrefetchPriority.c)
+ *     MiReduceMdl @ 0x140098620 (MiReduceMdl.c)
+ *     MiLockSetPfnPriority @ 0x1400A8B18 (MiLockSetPfnPriority.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiReturnFaultCharges @ 0x1400B0E08 (MiReturnFaultCharges.c)
+ *     MiFlowThroughInsertNode @ 0x1400B24E8 (MiFlowThroughInsertNode.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1400BB9C0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiComputeFaultCluster @ 0x1400BD91C (MiComputeFaultCluster.c)
+ *     MiAdvanceFaultList @ 0x1400BE040 (MiAdvanceFaultList.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1400BE0E0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiFreeInPageSupportBlock @ 0x1400C4240 (MiFreeInPageSupportBlock.c)
+ *     MiInitializeReadInProgressPfn @ 0x1400E39D0 (MiInitializeReadInProgressPfn.c)
+ *     MiComputeFaultNode @ 0x1400E3FD0 (MiComputeFaultNode.c)
+ *     MiAllocateInPageSupport @ 0x1400E4E34 (MiAllocateInPageSupport.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
+ *     MiIsStoreProcess @ 0x14010AC04 (MiIsStoreProcess.c)
+ *     MiIsPteInStore @ 0x1401228A0 (MiIsPteInStore.c)
+ *     MiFreePageChain @ 0x1401228C0 (MiFreePageChain.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 MiResolvePageFileFault(unsigned __int64 a1, unsigned __int64 a2, ...)
@@ -311,7 +311,7 @@ LABEL_8:
       v26 = v170;
       if ( (*(_BYTE *)(v170 + 184) & 7) != 0
         || a1 >= 0xFFFF800000000000uLL
-        || !*(_QWORD *)(qword_140327F90 + 276840648) && !*(_QWORD *)(qword_140327F90 + 276840656) )
+        || !*(_QWORD *)(qword_140327FD0 + 276840648) && !*(_QWORD *)(qword_140327FD0 + 276840656) )
       {
         goto LABEL_45;
       }
@@ -366,10 +366,10 @@ LABEL_51:
   v155 = v42;
   if ( v15 != v41 )
   {
-    if ( dword_140327664 )
+    if ( dword_1403276A4 )
     {
       i = v41;
-      --dword_140327664;
+      --dword_1403276A4;
       v15 = v41;
     }
     else
@@ -582,8 +582,10 @@ LABEL_131:
   }
   v87 = 0;
   if ( v161 && *(_BYTE *)(v171 & 0xFFFFFFFFFFFFFFFEuLL) == 4
-    || a1 >= qword_140327FF0 && a1 < qword_140327FF0 + 0x8000000000LL
-    || PsNtosImageBase && (a1 >= PsNtosImageBase && a1 < PsNtosImageEnd || a1 >= PsHalImageBase && a1 < PsHalImageEnd) )
+    || a1 >= qword_140328030 && a1 < qword_140328030 + 0x8000000000LL
+    || PsNtosImageBase
+    && (a1 >= (unsigned __int64)PsNtosImageBase && a1 < PsNtosImageEnd
+     || a1 >= (unsigned __int64)PsHalImageBase && a1 < PsHalImageEnd) )
   {
     v87 = 8;
   }
@@ -673,7 +675,7 @@ LABEL_233:
     if ( (v42 & 8) == 0 )
     {
       v42 |= 2u;
-      *v101 = qword_140327698;
+      *v101 = qword_1403276D8;
       v155 = v42;
 LABEL_184:
       ++v101;
@@ -703,7 +705,7 @@ LABEL_184:
       v115 = i;
       do
       {
-        if ( *v114 != qword_140327698 )
+        if ( *v114 != qword_1403276D8 )
         {
           MiReleaseFreshPage(48LL * *v114 - 0x58000000000LL);
           --v115;

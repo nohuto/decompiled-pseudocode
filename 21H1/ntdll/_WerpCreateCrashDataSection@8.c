@@ -11,20 +11,24 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall WerpCreateCrashDataSection(_DWORD *a1, void **a2)
+int __fastcall WerpCreateCrashDataSection(HANDLE *a1, PVOID *a2)
 {
-  int Section; // esi
-  void *v5; // ecx
-  void *v6; // eax
-  _DWORD v8[6]; // [esp+10h] [ebp-30h] BYREF
-  _DWORD v9[3]; // [esp+28h] [ebp-18h] BYREF
-  int v10; // [esp+34h] [ebp-Ch] BYREF
-  void *v11; // [esp+38h] [ebp-8h] BYREF
-  void *v12; // [esp+3Ch] [ebp-4h] BYREF
+  NTSTATUS v4; // esi
+  HANDLE v5; // ecx
+  PVOID v6; // eax
+  SIZE_T v8; // [esp-14h] [ebp-54h]
+  size_t v9; // [esp-4h] [ebp-44h]
+  ULONG v10; // [esp+0h] [ebp-40h]
+  ULONG v11; // [esp+4h] [ebp-3Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-30h] BYREF
+  LARGE_INTEGER MaximumSize; // [esp+28h] [ebp-18h] BYREF
+  int v14; // [esp+34h] [ebp-Ch] BYREF
+  HANDLE SectionHandle; // [esp+38h] [ebp-8h] BYREF
+  PVOID BaseAddress; // [esp+3Ch] [ebp-4h] BYREF
 
-  v11 = 0;
-  v12 = 0;
-  v10 = 0;
+  SectionHandle = 0;
+  BaseAddress = 0;
+  v14 = 0;
   if ( a1 )
     *a1 = 0;
   if ( a2 )
@@ -33,38 +37,52 @@ int __fastcall WerpCreateCrashDataSection(_DWORD *a1, void **a2)
     return -1073741585;
   if ( !a2 )
     return -1073741584;
-  v8[1] = 0;
-  v8[2] = 0;
-  v8[4] = 0;
-  v8[5] = 0;
-  v9[1] = 0;
-  v8[0] = 24;
-  v8[3] = 2;
-  v9[0] = 1052;
-  Section = NtCreateSection((int)&v11, 983047, (int)v8, (int)v9, 4, 0x8000000, 0);
-  if ( Section < 0 || (Section = ZwMapViewOfSection((int)v11, -1, (int)&v12, 0, 0, 0, (int)&v10, 1, 0, 4), Section < 0) )
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.ObjectName = 0;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.Attributes = 2;
+  MaximumSize.QuadPart = 1052LL;
+  v4 = NtCreateSection(&SectionHandle, 0xF0007u, &ObjectAttributes, &MaximumSize, 4u, 0x8000000u, 0);
+  if ( v4 < 0
+    || (HIDWORD(v8) = &v14,
+        LODWORD(v8) = 0,
+        v4 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFF,
+               &BaseAddress,
+               0LL,
+               v8,
+               (PLARGE_INTEGER)1,
+               0,
+               (SECTION_INHERIT)4,
+               v10,
+               v11),
+        v4 < 0) )
   {
-    v5 = v11;
-    v6 = v12;
+    v5 = SectionHandle;
+    v6 = BaseAddress;
   }
   else
   {
-    memset(v12, 0, 0xF8u);
+    LODWORD(v9) = 248;
+    memset(BaseAddress, 0, v9);
     v5 = 0;
-    *a1 = v11;
-    Section = 0;
-    *a2 = v12;
+    *a1 = SectionHandle;
+    v4 = 0;
+    *a2 = BaseAddress;
     v6 = 0;
-    v11 = 0;
-    v12 = 0;
+    SectionHandle = 0;
+    BaseAddress = 0;
   }
   if ( v6 )
   {
-    NtUnmapViewOfSection(-1, (int)v6);
-    v12 = 0;
-    v5 = v11;
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, v6);
+    BaseAddress = 0;
+    v5 = SectionHandle;
   }
   if ( v5 )
     NtClose(v5);
-  return Section;
+  return v4;
 }

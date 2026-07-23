@@ -1,11 +1,11 @@
 /*
- * XREFs of PsSynchronizeWithThreadInsertion @ 0x140956164
+ * XREFs of PsSynchronizeWithThreadInsertion @ 0x14094BA20
  * Callers:
- *     DbgkpPostFakeThreadMessages @ 0x1409556F0 (DbgkpPostFakeThreadMessages.c)
- *     NtGetNextThread @ 0x140956360 (NtGetNextThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140949760 (DbgkpPostFakeThreadMessages.c)
+ *     NtGetNextThread @ 0x140949FE0 (NtGetNextThread.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
  */
 
 _QWORD *__fastcall PsSynchronizeWithThreadInsertion(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

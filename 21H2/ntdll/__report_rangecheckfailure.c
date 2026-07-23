@@ -9,7 +9,7 @@
  *     strpbrk @ 0x180091990 (strpbrk.c)
  *     strspn @ 0x180091A70 (strspn.c)
  *     strtok_s @ 0x180097FF0 (strtok_s.c)
- *     RtlpMatchUILanguage @ 0x1800FD53C (RtlpMatchUILanguage.c)
+ *     RtlpMatchUILanguage @ 0x1800FD4FC (RtlpMatchUILanguage.c)
  * Callees:
  *     __report_securityfailure @ 0x18008CAFC (__report_securityfailure.c)
  */

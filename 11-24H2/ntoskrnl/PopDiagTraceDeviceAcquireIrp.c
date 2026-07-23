@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDeviceAcquireIrp @ 0x1403D9D34
+ * XREFs of PopDiagTraceDeviceAcquireIrp @ 0x1403CC0B4
  * Callers:
- *     PoDeviceAcquireIrp @ 0x1403D9CF8 (PoDeviceAcquireIrp.c)
+ *     PoDeviceAcquireIrp @ 0x1403CC078 (PoDeviceAcquireIrp.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     RtlStringCbCopyNW @ 0x1403D9E84 (RtlStringCbCopyNW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     RtlStringCbCopyNW @ 0x1403CC204 (RtlStringCbCopyNW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDeviceAcquireIrp(__int64 a1, __int64 a2)

@@ -4,7 +4,7 @@
  *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
  *     LocalConvertAclToString @ 0x14069D4D0 (LocalConvertAclToString.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
  */
 
 wchar_t **__fastcall LookupAccessMaskInTable(wchar_t *Str1, int a2, int a3)

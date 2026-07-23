@@ -15,22 +15,22 @@
  *     PopQpcTimeInMs @ 0x140A87B50 (PopQpcTimeInMs.c)
  */
 
-void __fastcall PopWriteBsdPoInfo(unsigned int a1)
+void __fastcall PopWriteBsdPoInfo(RTL_BSD_ITEM_TYPE BootStatusInformationClass)
 {
-  unsigned int v2; // ebx
+  ULONG v2; // ebx
   __int128 *v3; // rbp
   __int128 *v4; // rsi
   size_t v5; // r14
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   int v7; // eax
   LARGE_INTEGER v8; // [rsp+20h] [rbp-78h] BYREF
   LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-70h] BYREF
-  _BYTE Src[64]; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE DataBuffer[64]; // [rsp+30h] [rbp-68h] BYREF
 
   v2 = 64;
-  memset(Src, 0, sizeof(Src));
+  memset(DataBuffer, 0, sizeof(DataBuffer));
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  if ( a1 == 7 )
+  if ( BootStatusInformationClass == RtlBsdPowerTransition )
   {
     v3 = &PopBsdPowerTransition;
     v4 = &PopBsdPowerTransitionOnDisk;
@@ -38,13 +38,13 @@ LABEL_3:
     v2 = 32;
     goto LABEL_4;
   }
-  if ( a1 == 16 )
+  if ( BootStatusInformationClass == RtlBsdPowerTransitionExtension )
   {
     v3 = &PopBsdPowerTransitionExtension;
     v4 = &PopBsdPowerTransitionExtensionOnDisk;
     goto LABEL_3;
   }
-  if ( a1 != 14 )
+  if ( BootStatusInformationClass != RtlBsdItemPowerButtonPressInfo )
   {
     v6 = -1073741811;
     goto LABEL_7;
@@ -59,15 +59,15 @@ LABEL_4:
   }
   else
   {
-    memmove(Src, v3, v2);
+    memmove(DataBuffer, v3, v2);
     PopReleaseRwLock(&PopBsdUpdateLock);
-    v6 = RtlSetSystemBootStatus(a1, Src, v2, 0LL);
+    v6 = RtlSetSystemBootStatus(BootStatusInformationClass, DataBuffer, v2, 0LL);
     PopAcquireRwLockExclusive(&PopBsdUpdateLock);
     if ( v6 >= 0 )
     {
-      memmove(v4, Src, v5);
+      memmove(v4, DataBuffer, v5);
     }
-    else if ( a1 == 14 && HIWORD(xmmword_140C6AFD0) != 0xFFFF )
+    else if ( BootStatusInformationClass == RtlBsdItemPowerButtonPressInfo && HIWORD(xmmword_140C6AFD0) != 0xFFFF )
     {
       ++HIWORD(xmmword_140C6AFD0);
     }
@@ -75,5 +75,5 @@ LABEL_4:
 LABEL_7:
   v8 = KeQueryPerformanceCounter(0LL);
   v7 = PopQpcTimeInMs(&PerformanceCounter, &v8);
-  PopDiagTraceBsdWriteTime(a1, v7, v6);
+  PopDiagTraceBsdWriteTime((unsigned int)BootStatusInformationClass, v7, v6);
 }

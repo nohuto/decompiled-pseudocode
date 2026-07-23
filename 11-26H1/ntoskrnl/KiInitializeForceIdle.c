@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeForceIdle @ 0x140B24B54
+ * XREFs of KiInitializeForceIdle @ 0x140B26FF4
  * Callers:
- *     KeInitializeTimerTable @ 0x140B24A18 (KeInitializeTimerTable.c)
+ *     KeInitializeTimerTable @ 0x140B26EB8 (KeInitializeTimerTable.c)
  * Callees:
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeDisableForceIdle @ 0x140533290 (KeDisableForceIdle.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeDisableForceIdle @ 0x140535710 (KeDisableForceIdle.c)
  */
 
 __int64 __fastcall KiInitializeForceIdle(__int64 a1)
@@ -13,10 +13,13 @@ __int64 __fastcall KiInitializeForceIdle(__int64 a1)
 
   if ( !*(_DWORD *)(a1 + 36) )
   {
-    KiForceIdleLock = 0LL;
-    KeInitializeDpc((PRKDPC)&KiForceIdleStartDpc, (PKDEFERRED_ROUTINE)KiForceIdleStartDpcRoutine, 0LL);
+    *(_QWORD *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock = 0LL;
+    KeInitializeDpc(
+      (PRKDPC)&KiSupervisorXStateFeaturesLock.ApcStateFill[40],
+      (PKDEFERRED_ROUTINE)KiForceIdleStartDpcRoutine,
+      0LL);
     KeInitializeDpc((PRKDPC)&KiForceIdleStopDpc, (PKDEFERRED_ROUTINE)KiForceIdleStopDpcRoutine, 0LL);
-    BYTE1(KiForceIdleStartDpc) = 3;
+    KiSupervisorXStateFeaturesLock.ApcState.KernelApcPending = 3;
     BYTE1(KiForceIdleStopDpc) = 3;
     if ( !KiSerializeTimerExpiration )
       KeDisableForceIdle();

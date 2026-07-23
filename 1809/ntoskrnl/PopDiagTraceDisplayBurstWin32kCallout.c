@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDisplayBurstWin32kCallout @ 0x1408722BC
+ * XREFs of PopDiagTraceDisplayBurstWin32kCallout @ 0x14087351C
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PopDiagTraceDisplayBurstWin32kCallout()
@@ -35,7 +35,7 @@ void PopDiagTraceDisplayBurstWin32kCallout()
       v6 = 1LL;
       v8 = 1LL;
       v10 = 1LL;
-      TlgWrite(&pCallbackContext, &unk_140370095, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140370FD7, 0LL, 0LL, 5u, &pData);
     }
   }
 }

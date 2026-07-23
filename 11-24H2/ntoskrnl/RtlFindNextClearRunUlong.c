@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFindNextClearRunUlong @ 0x1403672BC
+ * XREFs of RtlFindNextClearRunUlong @ 0x1403C598C
  * Callers:
- *     MiRescanPagefileBitmaps @ 0x14036660C (MiRescanPagefileBitmaps.c)
- *     MiFindFreePageFileSpaceForward @ 0x1403666C4 (MiFindFreePageFileSpaceForward.c)
- *     MiRescanPageFileBitmapPortion @ 0x140367008 (MiRescanPageFileBitmapPortion.c)
+ *     MiRescanPagefileBitmaps @ 0x1403C3F28 (MiRescanPagefileBitmaps.c)
+ *     MiFindFreePageFileSpaceForward @ 0x1403C4D94 (MiFindFreePageFileSpaceForward.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1403C56D8 (MiRescanPageFileBitmapPortion.c)
  * Callees:
  *     <none>
  */
@@ -45,7 +45,7 @@ __int64 __fastcall RtlFindNextClearRunUlong(unsigned int *a1, unsigned int a2, _
   v12 = v8 + 4 * v9 - 4;
   if ( !v10 )
     v12 = v8 + 4 * v9;
-  v13 = *v11 | *((_DWORD *)qword_1400112F0 + (a2 & 0x1F));
+  v13 = *v11 | *((_DWORD *)qword_140011DF0 + (a2 & 0x1F));
   v14 = 0;
   do
   {
@@ -72,7 +72,7 @@ __int64 __fastcall RtlFindNextClearRunUlong(unsigned int *a1, unsigned int a2, _
 LABEL_13:
     v18 = v14 & 0x1F;
     v19 = 0;
-    v13 &= ~*((_DWORD *)qword_1400112F0 + v18);
+    v13 &= ~*((_DWORD *)qword_140011DF0 + v18);
     if ( (unsigned __int64)v11 <= v12 )
     {
       v20 = 0;
@@ -98,7 +98,7 @@ LABEL_14:
       ++v11;
       if ( !v19 )
         v11 = v21;
-      v13 |= ~*((_DWORD *)qword_1400112F0 + (v7 & 0x1F));
+      v13 |= ~*((_DWORD *)qword_140011DF0 + (v7 & 0x1F));
     }
     v22 = -1;
     v16 = !_BitScanForward64((unsigned __int64 *)&v23, v13);

@@ -1,54 +1,54 @@
 /*
- * XREFs of RtlDelete @ 0x1800BFCE0
+ * XREFs of RtlDelete @ 0x1800B7AA0
  * Callers:
- *     RtlpTpIoDllLoaded @ 0x1800BF9D8 (RtlpTpIoDllLoaded.c)
- *     RtlDeleteElementGenericTable @ 0x1800BFC10 (RtlDeleteElementGenericTable.c)
- *     PfxRemovePrefix @ 0x180138DA0 (PfxRemovePrefix.c)
+ *     RtlpTpIoDllLoaded @ 0x1800B7798 (RtlpTpIoDllLoaded.c)
+ *     RtlDeleteElementGenericTable @ 0x1800B79D0 (RtlDeleteElementGenericTable.c)
+ *     PfxRemovePrefix @ 0x180136FD0 (PfxRemovePrefix.c)
  * Callees:
- *     RtlSubtreePredecessor @ 0x1800BFD90 (RtlSubtreePredecessor.c)
- *     SwapSplayLinks @ 0x1800BFDC0 (SwapSplayLinks.c)
- *     RtlSplay @ 0x1800C0330 (RtlSplay.c)
+ *     RtlSubtreePredecessor @ 0x1800B7B50 (RtlSubtreePredecessor.c)
+ *     SwapSplayLinks @ 0x1800B7B80 (SwapSplayLinks.c)
+ *     RtlSplay @ 0x1800B80F0 (RtlSplay.c)
  */
 
-_QWORD *__fastcall RtlDelete(_QWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlDelete(PRTL_SPLAY_LINKS Links)
 {
-  _QWORD *result; // rax
-  _QWORD *v3; // rcx
-  _QWORD *v4; // rcx
-  __int64 v5; // rax
+  PRTL_SPLAY_LINKS result; // rax
+  _RTL_SPLAY_LINKS *Parent; // rcx
+  _RTL_SPLAY_LINKS *v4; // rcx
+  PRTL_SPLAY_LINKS v5; // rax
   __int64 v6; // rdx
   __int64 v7; // rdx
 
-  if ( a1[1] && a1[2] )
+  if ( Links->LeftChild && Links->RightChild )
   {
-    v5 = RtlSubtreePredecessor();
-    SwapSplayLinks(v5, a1);
+    v5 = RtlSubtreePredecessor(Links);
+    SwapSplayLinks(v5, Links);
   }
-  result = (_QWORD *)a1[1];
-  if ( result || (result = (_QWORD *)a1[2]) != 0LL )
+  result = Links->LeftChild;
+  if ( result || (result = Links->RightChild) != 0LL )
   {
-    v3 = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 == a1 )
+    Parent = Links->Parent;
+    if ( Links->Parent == Links )
     {
-      *result = result;
+      result->Parent = result;
       return result;
     }
-    v7 = 1LL;
-    if ( (_QWORD *)v3[1] != a1 )
-      v7 = 2LL;
-    v3[v7] = result;
-    v4 = (_QWORD *)*a1;
-    *result = *a1;
-    return (_QWORD *)RtlSplay(v4);
+    v7 = 8LL;
+    if ( Parent->LeftChild != Links )
+      v7 = 16LL;
+    *(_RTL_SPLAY_LINKS **)((char *)&Parent->Parent + v7) = result;
+    v4 = Links->Parent;
+    result->Parent = Links->Parent;
+    return RtlSplay(v4);
   }
-  v4 = (_QWORD *)*a1;
-  if ( (_QWORD *)*a1 != a1 )
+  v4 = Links->Parent;
+  if ( Links->Parent != Links )
   {
-    v6 = 1LL;
-    if ( (_QWORD *)v4[1] != a1 )
-      v6 = 2LL;
-    v4[v6] = 0LL;
-    return (_QWORD *)RtlSplay(v4);
+    v6 = 8LL;
+    if ( v4->LeftChild != Links )
+      v6 = 16LL;
+    *(_RTL_SPLAY_LINKS **)((char *)&v4->Parent + v6) = 0LL;
+    return RtlSplay(v4);
   }
   return result;
 }

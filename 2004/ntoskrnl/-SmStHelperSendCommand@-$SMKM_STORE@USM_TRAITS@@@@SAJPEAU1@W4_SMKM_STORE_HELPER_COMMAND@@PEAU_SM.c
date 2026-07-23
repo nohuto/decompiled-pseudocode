@@ -92,7 +92,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, __in
             {
               *(_BYTE *)(v17 + 32) |= 2u;
               if ( *(__int64 *)(v17 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v17);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v17);
               v21 = *(_DWORD *)(v17 + 88) & 0x1FFFF;
               *(_DWORD *)(v17 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v17 + 25) &= ~1u;

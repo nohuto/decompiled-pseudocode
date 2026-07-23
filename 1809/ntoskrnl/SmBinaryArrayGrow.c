@@ -1,10 +1,10 @@
 /*
- * XREFs of SmBinaryArrayGrow @ 0x140155C64
+ * XREFs of SmBinaryArrayGrow @ 0x140155D64
  * Callers:
- *     SmHpBufferAlloc @ 0x140155B30 (SmHpBufferAlloc.c)
+ *     SmHpBufferAlloc @ 0x140155C30 (SmHpBufferAlloc.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall SmBinaryArrayGrow(__int64 a1, unsigned int a2)

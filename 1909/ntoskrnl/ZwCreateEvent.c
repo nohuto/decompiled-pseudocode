@@ -18,7 +18,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateEvent(
         PHANDLE EventHandle,
         ACCESS_MASK DesiredAccess,
@@ -28,5 +27,5 @@ NTSTATUS __stdcall ZwCreateEvent(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(EventHandle);
 }

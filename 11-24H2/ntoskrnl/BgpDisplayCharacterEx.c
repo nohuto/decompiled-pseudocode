@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpDisplayCharacterEx @ 0x140697F6C
+ * XREFs of BgpDisplayCharacterEx @ 0x140698FEC
  * Callers:
- *     BcpDisplayCriticalCharacter @ 0x1406989F0 (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140698ACC (BcpDisplayCriticalString.c)
- *     BcpDisplayCriticalStringCentered @ 0x140698E30 (BcpDisplayCriticalStringCentered.c)
- *     BcpDisplayProgress @ 0x1406997F4 (BcpDisplayProgress.c)
- *     BcpPrintSpaces @ 0x140699F68 (BcpPrintSpaces.c)
- *     BgpConsoleDisplayCharacter @ 0x140BB0AB0 (BgpConsoleDisplayCharacter.c)
- *     BgpConsoleDisplayCharacterEx @ 0x140BB0BC4 (BgpConsoleDisplayCharacterEx.c)
- *     BgpConsoleDrawCursor @ 0x140BB0F18 (BgpConsoleDrawCursor.c)
- *     BgpConsoleScrollScreen @ 0x140BB1314 (BgpConsoleScrollScreen.c)
+ *     BcpDisplayCriticalCharacter @ 0x140699A70 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x140699B4C (BcpDisplayCriticalString.c)
+ *     BcpDisplayCriticalStringCentered @ 0x140699EB0 (BcpDisplayCriticalStringCentered.c)
+ *     BcpDisplayProgress @ 0x14069A874 (BcpDisplayProgress.c)
+ *     BcpPrintSpaces @ 0x14069AFE8 (BcpPrintSpaces.c)
+ *     BgpConsoleDisplayCharacter @ 0x140BB2AB0 (BgpConsoleDisplayCharacter.c)
+ *     BgpConsoleDisplayCharacterEx @ 0x140BB2BC4 (BgpConsoleDisplayCharacterEx.c)
+ *     BgpConsoleDrawCursor @ 0x140BB2F18 (BgpConsoleDrawCursor.c)
+ *     BgpConsoleScrollScreen @ 0x140BB3314 (BgpConsoleScrollScreen.c)
  * Callees:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpTxtAdjustStaticRegion @ 0x140698788 (BgpTxtAdjustStaticRegion.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtAdjustStaticRegion @ 0x140699808 (BgpTxtAdjustStaticRegion.c)
  */
 
 __int64 __fastcall BgpDisplayCharacterEx(
@@ -35,7 +35,7 @@ __int64 __fastcall BgpDisplayCharacterEx(
   int v17; // [rsp+54h] [rbp-14h]
 
   v17 = 0;
-  if ( (dword_140EF0050 & 1) == 0 )
+  if ( (dword_140EF0270 & 1) == 0 )
     return 3221225473LL;
   v12 = a2[3];
   v14[0] = a5;

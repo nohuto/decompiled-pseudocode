@@ -1,27 +1,27 @@
 /*
- * XREFs of MmOutSwapVirtualAddresses @ 0x140404108
+ * XREFs of MmOutSwapVirtualAddresses @ 0x1403C64C8
  * Callers:
- *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14037FE90 (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403797D0 (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
  * Callees:
- *     MiOutSwapWorkingSet @ 0x1402345FC (MiOutSwapWorkingSet.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1402BAD10 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x140367B34 (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x140367B8C (MiAllocateWorkingSetSwapSupport.c)
- *     MiLockWsSwapExclusive @ 0x1404043DC (MiLockWsSwapExclusive.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140404438 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404044B8 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiFindBestOutswapPagefile @ 0x140404CF0 (MiFindBestOutswapPagefile.c)
- *     MiUnlockWsSwapExclusive @ 0x140404DE4 (MiUnlockWsSwapExclusive.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1404065E0 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x1406F9574 (MiExtendWorkingSetSwapPagefile.c)
- *     MiValidateMemoryRangeEntries @ 0x1409FFD38 (MiValidateMemoryRangeEntries.c)
- *     EtwTraceWorkingSetSwap @ 0x140A06D04 (EtwTraceWorkingSetSwap.c)
- *     MiFreeReservationRuns @ 0x140A3D658 (MiFreeReservationRuns.c)
- *     MiReserveWorkingSetSwapSpace @ 0x140A6C658 (MiReserveWorkingSetSwapSpace.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140362450 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1403C4138 (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1403C4190 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiLockWsSwapExclusive @ 0x1403C637C (MiLockWsSwapExclusive.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403C63D8 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403C6458 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiUnlockWsSwapExclusive @ 0x1403C6778 (MiUnlockWsSwapExclusive.c)
+ *     MiOutSwapWorkingSet @ 0x1403C745C (MiOutSwapWorkingSet.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403C8D90 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiFindBestOutswapPagefile @ 0x1403C9188 (MiFindBestOutswapPagefile.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x1406F71B4 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiValidateMemoryRangeEntries @ 0x1409F8F28 (MiValidateMemoryRangeEntries.c)
+ *     EtwTraceWorkingSetSwap @ 0x140A03234 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeReservationRuns @ 0x140A32F68 (MiFreeReservationRuns.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x140A65EA0 (MiReserveWorkingSetSwapSpace.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64 *a2, __int64 a3, _QWORD *a4)
@@ -39,44 +39,45 @@ __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64
   unsigned __int64 *i; // r12
   struct _LIST_ENTRY *Address; // rax
   int Flink; // ecx
-  __int64 v21; // rdx
-  __int64 v22; // rdi
-  unsigned int v23; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int64 v21; // r9
+  __int64 v22; // rdx
+  __int64 v23; // rdi
+  unsigned int v24; // [rsp+30h] [rbp-D0h] BYREF
   unsigned int BestOutswapPagefile; // [rsp+34h] [rbp-CCh]
-  struct _KTHREAD *v25; // [rsp+38h] [rbp-C8h]
-  unsigned __int64 v26; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD *v27; // [rsp+48h] [rbp-B8h]
-  _QWORD v28[5]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v29[80]; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v30; // [rsp+C8h] [rbp-38h]
-  __int128 v31; // [rsp+D0h] [rbp-30h]
-  __int128 v32; // [rsp+F0h] [rbp-10h]
-  __int128 v33; // [rsp+100h] [rbp+0h]
-  __int64 v34; // [rsp+110h] [rbp+10h]
+  struct _KTHREAD *v26; // [rsp+38h] [rbp-C8h]
+  unsigned __int64 v27; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD *v28; // [rsp+48h] [rbp-B8h]
+  _QWORD v29[5]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v30[80]; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v31; // [rsp+C8h] [rbp-38h]
+  __int128 v32; // [rsp+D0h] [rbp-30h]
+  __int128 v33; // [rsp+F0h] [rbp-10h]
+  __int128 v34; // [rsp+100h] [rbp+0h]
+  __int64 v35; // [rsp+110h] [rbp+10h]
 
-  v26 = 0LL;
-  v23 = 0;
-  v34 = 0LL;
-  v32 = 0LL;
+  v27 = 0LL;
+  v24 = 0;
+  v35 = 0LL;
   v33 = 0LL;
+  v34 = 0LL;
   CurrentThread = KeGetCurrentThread();
   Blink_high = HIWORD(Process[2].ProcessListEntry.Blink);
-  v27 = a4;
-  v25 = CurrentThread;
-  v9 = *((_QWORD *)qword_140E2FF88 + Blink_high);
-  BestOutswapPagefile = MiFindBestOutswapPagefile(v9, &v23);
+  v28 = a4;
+  v26 = CurrentThread;
+  v9 = *((_QWORD *)qword_140E300C8 + Blink_high);
+  BestOutswapPagefile = MiFindBestOutswapPagefile(v9, &v24);
   if ( BestOutswapPagefile == 16 )
     return 3221225799LL;
-  LODWORD(v32) = 2;
+  LODWORD(v33) = 2;
   EtwTraceWorkingSetSwap(Process);
-  MiValidateMemoryRangeEntries(a2, a3, &v26);
-  memset_0(v28, 0, 0x98uLL);
-  MiLockWsSwapExclusive(CurrentThread, v9);
-  v12 = v26;
-  v13 = v23;
+  MiValidateMemoryRangeEntries(a2, a3, &v27);
+  memset_0(v29, 0, 0x98uLL);
+  MiLockWsSwapExclusive((__int64)CurrentThread, v9);
+  v12 = v27;
+  v13 = v24;
   while ( 1 )
   {
-    v14 = MiReserveWorkingSetSwapSpace(v9, v29, v11, BestOutswapPagefile, v13, v12);
+    v14 = MiReserveWorkingSetSwapSpace(v9, v30, v11, BestOutswapPagefile, v13, v12);
     if ( v14 >= 0 )
       break;
     if ( v13 < 0x10 )
@@ -86,18 +87,18 @@ __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64
       if ( v14 >= 0 )
         continue;
     }
-    v15 = (__int64)v25;
+    v15 = (__int64)v26;
     goto LABEL_8;
   }
   WorkingSetSwapSupport = MiAllocateWorkingSetSwapSupport(v12);
-  v15 = (__int64)v25;
+  v15 = (__int64)v26;
   v17 = WorkingSetSwapSupport;
   if ( WorkingSetSwapSupport )
   {
-    v28[0] = WorkingSetSwapSupport;
-    v28[2] = (char *)Process + 1024;
-    v28[3] = v9;
-    LOCK_ADDRESS_SPACE_SHARED(v25, Process);
+    v29[0] = WorkingSetSwapSupport;
+    v29[2] = (char *)Process + 1024;
+    v29[3] = v9;
+    LOCK_ADDRESS_SPACE_SHARED((__int64)v26, (__int64)Process);
     LOCK_PAGE_TABLE_COMMITMENT(v15, Process);
     for ( i = &a2[2 * a3]; a2 < i; a2 += 2 )
     {
@@ -105,34 +106,27 @@ __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64
       if ( Address )
       {
         Flink = (int)Address[3].Flink;
-        if ( (Flink & 0x70) == 0
-          && (Flink & 0x200000) != 0
-          && (Flink & 0x800000) == 0
-          && (Flink & 0x180000u) < 0x100000
-          && (HIDWORD(Address[1].Blink) | ((unsigned __int64)BYTE1(Address[2].Flink) << 32)) >= (*a2 + a2[1] - 1) >> 12 )
+        if ( (Flink & 0x70) == 0 && (Flink & 0x200000) != 0 && (Flink & 0x800000) == 0 && (Flink & 0x180000u) < 0x100000 )
         {
-          MiOutSwapWorkingSet(
-            (__int64)&Process[2].ReadyListHead.Blink,
-            (__int64)Address,
-            *a2,
-            *a2 + a2[1] - 1,
-            (__int64)v28);
+          v21 = *a2 + a2[1] - 1;
+          if ( (HIDWORD(Address[1].Blink) | ((unsigned __int64)BYTE1(Address[2].Flink) << 32)) >= v21 >> 12 )
+            MiOutSwapWorkingSet((_DWORD)Process + 1024, (_DWORD)Address, *a2, v21, (__int64)v29);
         }
       }
     }
     UNLOCK_PAGE_TABLE_COMMITMENT(v15, (__int64)Process);
-    UNLOCK_ADDRESS_SPACE_SHARED(v15, Process);
+    UNLOCK_ADDRESS_SPACE_SHARED(v15, (__int64)Process);
     if ( v17[2] < v12 )
     {
-      v22 = MiReAllocateWorkingSetSwapSupport((__int64)v17, v21);
-      if ( v22 )
+      v23 = MiReAllocateWorkingSetSwapSupport((__int64)v17, v22);
+      if ( v23 )
       {
         ExFreePoolWithTag(v17, 0);
-        v17 = (_QWORD *)v22;
+        v17 = (_QWORD *)v23;
       }
     }
     v12 = v17[3];
-    *v27 = v17;
+    *v28 = v17;
     v14 = 0;
   }
   else
@@ -140,12 +134,12 @@ __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64
     v14 = -1073741670;
   }
 LABEL_8:
-  MiFreeReservationRuns(v9, v29);
+  MiFreeReservationRuns(v9, v30);
   MiUnlockWsSwapExclusive(v15, v9);
-  *((_QWORD *)&v32 + 1) = v30;
-  v33 = v31;
-  LODWORD(v34) = v14;
-  *(_QWORD *)&v32 = v12;
+  *((_QWORD *)&v33 + 1) = v31;
+  v34 = v32;
+  LODWORD(v35) = v14;
+  *(_QWORD *)&v33 = v12;
   EtwTraceWorkingSetSwap(Process);
   return (unsigned int)v14;
 }

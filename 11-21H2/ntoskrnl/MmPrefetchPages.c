@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmPrefetchPagesEx @ 0x1406FA730 (MmPrefetchPagesEx.c)
+ *     sub_1406FA730 @ 0x1406FA730 (sub_1406FA730.c)
  */
 
 NTSTATUS __stdcall MmPrefetchPages(ULONG NumberOfLists, PREAD_LIST *ReadLists)
 {
-  return MmPrefetchPagesEx(NumberOfLists, ReadLists, 0LL);
+  return sub_1406FA730(NumberOfLists, ReadLists, 0LL);
 }

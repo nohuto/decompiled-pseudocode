@@ -172,13 +172,13 @@ LABEL_14:
     {
       if ( (*(_DWORD *)(v10 + 48) & 0x100040) == 0x100040 )
         ExtendedFeature2 = RtlLocateExtendedFeature2((_DWORD *)(v10 + 1232), 0xBu, 0xFFFFF780000003D8uLL, 0LL);
-      result = RtlLocateSupervisorFeature(v5 + 512, 11LL);
+      result = (__int64)RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v5 + 512), 0xBu, 0LL);
       *(_OWORD *)result = *(_OWORD *)ExtendedFeature2;
     }
   }
   if ( (v23 & 0x400) != 0 )
   {
-    result = RtlLocateSupervisorFeature(v5 + 512, 10LL);
+    result = (__int64)RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v5 + 512), 0xAu, 0LL);
     *(_QWORD *)result = v22;
   }
   *(_QWORD *)(a1 + 40) = v9;

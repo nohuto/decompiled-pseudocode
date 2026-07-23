@@ -22,7 +22,7 @@ char __fastcall CmpTryToLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULO
      + 24
      * ((unsigned int)(*(_DWORD *)(BugCheckParameter2 + 2808) - 1) & ((101027
                                                                      * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) ^ ((unsigned __int64)(101027 * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) >> 9)));
-  v6 = (_KLOCK_ENTRY *)KeAbPreAcquire(v5, 0LL, 1LL);
+  v6 = (_KLOCK_ENTRY *)KeAbPreAcquire(v5, 0LL, 1);
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
   {
     if ( v6 )

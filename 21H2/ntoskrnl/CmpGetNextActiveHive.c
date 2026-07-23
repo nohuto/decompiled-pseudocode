@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpGetNextActiveHive @ 0x140672520
+ * XREFs of CmpGetNextActiveHive @ 0x140667750
  * Callers:
- *     CmpLockKcbStackFlusherLocksExclusive @ 0x14036BEA8 (CmpLockKcbStackFlusherLocksExclusive.c)
- *     CmpDoFlushNextHive @ 0x140672310 (CmpDoFlushNextHive.c)
- *     CmpBlockTwoHiveWrites @ 0x140672454 (CmpBlockTwoHiveWrites.c)
- *     CmpDoLocalizeNextHive @ 0x14071C8D0 (CmpDoLocalizeNextHive.c)
- *     CmpDoReconcileNextHive @ 0x140725080 (CmpDoReconcileNextHive.c)
- *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
- *     CmpHandlePageFileOpenNotification @ 0x1407C8D38 (CmpHandlePageFileOpenNotification.c)
- *     CmpUpdatePhaseAccessBit @ 0x1407CEF3C (CmpUpdatePhaseAccessBit.c)
- *     CmEtwRunDown @ 0x14086A368 (CmEtwRunDown.c)
- *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
- *     CmpFreeAllMemory @ 0x14086BC98 (CmpFreeAllMemory.c)
- *     CmpIsHiveAlreadyLoaded @ 0x14086E5DC (CmpIsHiveAlreadyLoaded.c)
- *     CmFreezeRegistry @ 0x1408720F0 (CmFreezeRegistry.c)
- *     CmThawRegistry @ 0x140872330 (CmThawRegistry.c)
+ *     CmpLockKcbStackFlusherLocksExclusive @ 0x14036C058 (CmpLockKcbStackFlusherLocksExclusive.c)
+ *     CmpDoLocalizeNextHive @ 0x140664500 (CmpDoLocalizeNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x140664660 (CmpDoReconcileNextHive.c)
+ *     CmpDoFlushNextHive @ 0x140667540 (CmpDoFlushNextHive.c)
+ *     CmpBlockTwoHiveWrites @ 0x140667684 (CmpBlockTwoHiveWrites.c)
+ *     CmpTransMgrPrepare @ 0x140768EC4 (CmpTransMgrPrepare.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C9058 (CmpHandlePageFileOpenNotification.c)
+ *     CmpUpdatePhaseAccessBit @ 0x1407CF0AC (CmpUpdatePhaseAccessBit.c)
+ *     CmEtwRunDown @ 0x14086A4C8 (CmEtwRunDown.c)
+ *     CmShutdownSystem @ 0x14086BA58 (CmShutdownSystem.c)
+ *     CmpFreeAllMemory @ 0x14086BDF8 (CmpFreeAllMemory.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x14086E73C (CmpIsHiveAlreadyLoaded.c)
+ *     CmFreezeRegistry @ 0x140872250 (CmFreezeRegistry.c)
+ *     CmThawRegistry @ 0x140872490 (CmThawRegistry.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 __int64 *__fastcall CmpGetNextActiveHive(struct _EX_RUNDOWN_REF *a1)
@@ -38,12 +38,12 @@ __int64 *__fastcall CmpGetNextActiveHive(struct _EX_RUNDOWN_REF *a1)
     if ( v3 == &CmpHiveListHead )
       break;
     v1 = v3 - 200;
-    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)v3 + 4) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)v3 + 4) )
       break;
     v1 = 0LL;
   }
   ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
   if ( a1 )
-    ExReleaseRundownProtection_0(a1 + 204);
+    ExReleaseRundownProtection(a1 + 204);
   return v1;
 }

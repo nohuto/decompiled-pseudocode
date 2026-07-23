@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptIntAllocate @ 0x14055C148
+ * XREFs of SymCryptIntAllocate @ 0x14055E630
  * Callers:
- *     SymCryptEcDsaSelftest @ 0x140562F44 (SymCryptEcDsaSelftest.c)
+ *     SymCryptEcDsaSelftest @ 0x140565454 (SymCryptEcDsaSelftest.c)
  * Callees:
- *     SymCryptFdefIntAllocate @ 0x140570934 (SymCryptFdefIntAllocate.c)
+ *     SymCryptFdefIntAllocate @ 0x14056FB14 (SymCryptFdefIntAllocate.c)
  */
 
 __int64 SymCryptIntAllocate()

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCloneNoChange @ 0x140961FAC
+ * XREFs of MiCloneNoChange @ 0x140A07CA0
  * Callers:
- *     MiCloneAncillaryVadInfo @ 0x140961D0C (MiCloneAncillaryVadInfo.c)
+ *     MiCloneAncillaryVadInfo @ 0x140A07A00 (MiCloneAncillaryVadInfo.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiAddSecureEntry @ 0x14095D9B8 (MiAddSecureEntry.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiAddSecureEntry @ 0x140A03278 (MiAddSecureEntry.c)
  */
 
 __int64 __fastcall MiCloneNoChange(__int64 a1, __int64 a2, __int64 a3)

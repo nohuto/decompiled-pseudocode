@@ -1,12 +1,12 @@
 /*
- * XREFs of MI_IS_PTE_IN_WS_SWAP_SET @ 0x14034F514
+ * XREFs of MI_IS_PTE_IN_WS_SWAP_SET @ 0x14034F6B4
  * Callers:
- *     MiDecommitPages @ 0x14027F7D0 (MiDecommitPages.c)
- *     MiReservePageFileSpace @ 0x1402849A0 (MiReservePageFileSpace.c)
- *     MiDeletePteList @ 0x1402D2450 (MiDeletePteList.c)
- *     MiAbandonPrivatePfn @ 0x1402ED0F4 (MiAbandonPrivatePfn.c)
- *     MiWriteCompletePfn @ 0x1402F4750 (MiWriteCompletePfn.c)
- *     MiAddToReservationCluster @ 0x1406377AC (MiAddToReservationCluster.c)
+ *     MiDecommitPages @ 0x14027FA60 (MiDecommitPages.c)
+ *     MiReservePageFileSpace @ 0x140284C30 (MiReservePageFileSpace.c)
+ *     MiDeletePteList @ 0x1402D26E0 (MiDeletePteList.c)
+ *     MiAbandonPrivatePfn @ 0x1402ED384 (MiAbandonPrivatePfn.c)
+ *     MiWriteCompletePfn @ 0x1402F49E0 (MiWriteCompletePfn.c)
+ *     MiAddToReservationCluster @ 0x140637CFC (MiAddToReservationCluster.c)
  * Callees:
  *     <none>
  */

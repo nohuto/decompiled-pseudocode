@@ -19,7 +19,7 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
   if ( a1 )
   {
     if ( byte_14039CB48 )
-      KiResetClockInterval((unsigned __int64)&KiVirtualHeteroClockRequest);
+      KiResetClockInterval(&KiVirtualHeteroClockRequest);
   }
   else if ( !byte_14039CB48 )
   {

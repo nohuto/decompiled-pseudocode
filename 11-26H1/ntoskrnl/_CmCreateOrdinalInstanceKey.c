@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmCreateOrdinalInstanceKey @ 0x140AE8928
+ * XREFs of _CmCreateOrdinalInstanceKey @ 0x140AE67D8
  * Callers:
- *     _CmGetDeviceSoftwareKeyPath @ 0x140995E20 (_CmGetDeviceSoftwareKeyPath.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x140956880 (_CmGetDeviceSoftwareKeyPath.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     wcstoul @ 0x1405389D0 (wcstoul.c)
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     _ultow_s @ 0x14053B580 (_ultow_s.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     _RegRtlCreateKeyTransacted @ 0x14091E5D4 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlIsPredefinedKey @ 0x14091E728 (_RegRtlIsPredefinedKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x140AE8C08 (_RegRtlOpenPredefinedKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     wcstoul @ 0x14053AE50 (wcstoul.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     _ultow_s @ 0x14053DA00 (_ultow_s.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140979034 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlIsPredefinedKey @ 0x140979188 (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140AE6AB8 (_RegRtlOpenPredefinedKey.c)
  */
 
 __int64 __fastcall CmCreateOrdinalInstanceKey(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqQueryEvaluateFilter @ 0x140502614
+ * XREFs of PiDqQueryEvaluateFilter @ 0x1404E55A4
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x14048BF34 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryEnumObject @ 0x1404F925C (PiDqQueryEnumObject.c)
+ *     PiDqQueryApplyObjectEvent @ 0x14048C498 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x1404DC1E8 (PiDqQueryEnumObject.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     PnpFreeDevPropertyArray @ 0x140502730 (PnpFreeDevPropertyArray.c)
- *     FilterEval @ 0x1405027C4 (FilterEval.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     PnpFreeDevPropertyArray @ 0x1404E56C0 (PnpFreeDevPropertyArray.c)
+ *     FilterEval @ 0x1404E5754 (FilterEval.c)
  */
 
 __int64 __fastcall PiDqQueryEvaluateFilter(_QWORD *a1, void *a2, bool *a3)

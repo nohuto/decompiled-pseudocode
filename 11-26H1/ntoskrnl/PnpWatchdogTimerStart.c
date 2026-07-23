@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpWatchdogTimerStart @ 0x1409DCA2C
+ * XREFs of PnpWatchdogTimerStart @ 0x140A19CDC
  * Callers:
- *     PnpEnableWatchdog @ 0x1409DC9D0 (PnpEnableWatchdog.c)
- *     PiUEventNotifyUserMode @ 0x1409DD808 (PiUEventNotifyUserMode.c)
+ *     PnpEnableWatchdog @ 0x140A19C80 (PnpEnableWatchdog.c)
+ *     PiUEventNotifyUserMode @ 0x140A1AAC0 (PiUEventNotifyUserMode.c)
  * Callees:
- *     WdtpArmTimer @ 0x1403AA03C (WdtpArmTimer.c)
+ *     WdtpArmTimer @ 0x1403B3C4C (WdtpArmTimer.c)
  */
 
 __int64 __fastcall PnpWatchdogTimerStart(__int64 a1)

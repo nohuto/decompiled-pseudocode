@@ -28,16 +28,16 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
   __int64 v3; // rax
   signed __int32 v4; // eax
   char v5; // r12
-  __int64 v6; // rax
+  PIMAGE_NT_HEADERS v6; // rax
   int i; // esi
   __int64 SystemDllInfo; // rax
   __int64 v9; // r15
-  __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   struct _DMA_ADAPTER *v11; // r13
   unsigned __int64 v12; // rax
   struct _DMA_ADAPTER *v13; // rax
   __int16 v14; // ax
-  __int64 v15; // rax
+  PIMAGE_NT_HEADERS v15; // rax
   bool v16; // [rsp+20h] [rbp-1B8h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+28h] [rbp-1B0h] BYREF
   signed __int32 v18; // [rsp+30h] [rbp-1A8h]
@@ -76,9 +76,9 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
     BYTE8(v21) = 3;
     *(_QWORD *)&v22 = *(_QWORD *)(v2 + 1312);
     *(_QWORD *)&v23 = 0LL;
-    v6 = RtlImageNtHeader(v22);
+    v6 = RtlImageNtHeader((PVOID)v22);
     if ( v6 )
-      *(_QWORD *)&v23 = *(unsigned int *)(v6 + 80);
+      *(_QWORD *)&v23 = v6->OptionalHeader.SizeOfImage;
     DWORD2(v22) = 0;
     DWORD2(v23) = 0;
     PsReferenceProcessFilePointer((struct _EX_RUNDOWN_REF *)v2, (ULONG_PTR *)&DmaAdapter);
@@ -99,9 +99,9 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
         DWORD2(v21) = 3;
         *(_QWORD *)&v22 = *(_QWORD *)(v9 + 24);
         *(_QWORD *)&v23 = 0LL;
-        v10 = RtlImageNtHeader(*(_QWORD *)(v9 + 24));
+        v10 = RtlImageNtHeader(*(PVOID *)(v9 + 24));
         if ( v10 )
-          *(_QWORD *)&v23 = *(unsigned int *)(v10 + 80);
+          *(_QWORD *)&v23 = v10->OptionalHeader.SizeOfImage;
         DWORD2(v22) = 0;
         DWORD2(v23) = 0;
         v11 = (struct _DMA_ADAPTER *)PspReferenceSystemDll(v9 - 16);
@@ -138,14 +138,14 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
       v26[8] = *(_QWORD *)(v2 + 1312);
       v26[11] = 0LL;
       v26[9] = 0LL;
-      v15 = RtlImageNtHeader(*(_QWORD *)(v2 + 1312));
+      v15 = RtlImageNtHeader(*(PVOID *)(v2 + 1312));
       if ( v15 )
       {
         if ( v16 )
-          v26[11] = (unsigned int)(*(_DWORD *)(v15 + 40) + *(_DWORD *)(v15 + 52));
+          v26[11] = v15->OptionalHeader.AddressOfEntryPoint + HIDWORD(v15->OptionalHeader.ImageBase);
         else
-          v26[11] = *(_QWORD *)(v15 + 48) + *(unsigned int *)(v15 + 40);
-        v26[9] = *(_QWORD *)(v15 + 12);
+          v26[11] = v15->OptionalHeader.ImageBase + v15->OptionalHeader.AddressOfEntryPoint;
+        v26[9] = *(_QWORD *)&v15->FileHeader.PointerToSymbolTable;
       }
       v26[0] = 0x800600038LL;
       LODWORD(v26[5]) = 2;

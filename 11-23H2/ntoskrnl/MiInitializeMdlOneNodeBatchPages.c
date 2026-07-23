@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x1402F9810
+ * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x1402F9AA0
  * Callers:
- *     MiInitializeMdlBatchPages @ 0x1402F9310 (MiInitializeMdlBatchPages.c)
+ *     MiInitializeMdlBatchPages @ 0x1402F95A0 (MiInitializeMdlBatchPages.c)
  * Callees:
  *     MiChangePageAttributeBatch @ 0x14021C9B4 (MiChangePageAttributeBatch.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiUpdateCacheAttributeListsForPage @ 0x1402F9B08 (MiUpdateCacheAttributeListsForPage.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     MiDereferencePageChains @ 0x14032F62C (MiDereferencePageChains.c)
- *     MiPfnBestZeroAttribute @ 0x14033956C (MiPfnBestZeroAttribute.c)
- *     MiCreatePageChains @ 0x14035B780 (MiCreatePageChains.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     MiInsertMdlPageNeedsZero @ 0x1403A6310 (MiInsertMdlPageNeedsZero.c)
- *     MiZeroAndConvertPage @ 0x140650034 (MiZeroAndConvertPage.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiUpdateCacheAttributeListsForPage @ 0x1402F9D98 (MiUpdateCacheAttributeListsForPage.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     MiDereferencePageChains @ 0x14032F8BC (MiDereferencePageChains.c)
+ *     MiPfnBestZeroAttribute @ 0x1403397FC (MiPfnBestZeroAttribute.c)
+ *     MiCreatePageChains @ 0x14035B920 (MiCreatePageChains.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403A64F0 (MiInsertMdlPageNeedsZero.c)
+ *     MiZeroAndConvertPage @ 0x140650584 (MiZeroAndConvertPage.c)
  */
 
 void __fastcall MiInitializeMdlOneNodeBatchPages(__int64 a1, _QWORD *a2, __int64 a3)

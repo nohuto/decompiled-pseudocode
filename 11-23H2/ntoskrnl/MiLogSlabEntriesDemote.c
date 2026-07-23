@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogSlabEntriesDemote @ 0x1403D6B60
+ * XREFs of MiLogSlabEntriesDemote @ 0x1403D6D40
  * Callers:
  *     MiFreeUnusedSlabPages @ 0x14021ED0C (MiFreeUnusedSlabPages.c)
- *     MiDemoteSlabEntries @ 0x1406567B4 (MiDemoteSlabEntries.c)
+ *     MiDemoteSlabEntries @ 0x140656D04 (MiDemoteSlabEntries.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     InsertEventEntryInLookUpTable @ 0x140212F60 (InsertEventEntryInLookUpTable.c)
  *     ExtractAggregateFieldTypes @ 0x14021343C (ExtractAggregateFieldTypes.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1)
@@ -108,7 +108,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1)
     CurrentIrql = KeGetCurrentIrql();
     v44 = CurrentIrql;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)CurrentIrql == 2 )
@@ -148,7 +148,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1)
             v44 = 0x1000000LL;
             v88 = 8LL;
             UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-            v76 = &unk_1400397D0;
+            v76 = &unk_1400398B8;
             UserData.Reserved = 2;
             v77 = 119;
             v78 = 1;
@@ -199,7 +199,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1)
               *(_DWORD *)&v46.Id = 184549376;
               v46.Keyword = 0x400000000400LL;
               v59.Size = *(unsigned __int16 *)v59.Ptr;
-              v60 = byte_140039853;
+              v60 = byte_14003993B;
               v59.Reserved = 2;
               v61 = 102;
               v62 = 1;
@@ -239,20 +239,20 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1)
           v52 = 0x1000000LL;
           v58[4] = 8LL;
           v53.Size = *(unsigned __int16 *)v53.Ptr;
-          v54 = byte_1400398C5;
+          v54 = byte_1400399AD;
           v53.Reserved = 2;
           v55 = 91;
           v56 = 1;
           if ( *(void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(v21 + 40) == TlgAggregateInternalRegisteredProviderEtwCallback )
           {
             v24 = 0;
-            v25 = &byte_1400398C7;
+            v25 = &byte_1400399AF;
             do
               v26 = *v25++;
             while ( v26 < 0 );
             while ( *v25++ )
               ;
-            while ( v25 < byte_140039920 )
+            while ( v25 < byte_140039A08 )
             {
               while ( *v25++ )
                 ;
@@ -286,10 +286,10 @@ LABEL_49:
         }
       }
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v33 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v33 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v33 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v35 = CurrentPrcb->SchedulerAssist;

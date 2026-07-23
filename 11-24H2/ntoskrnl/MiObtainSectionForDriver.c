@@ -1,18 +1,18 @@
 /*
- * XREFs of MiObtainSectionForDriver @ 0x140A18544
+ * XREFs of MiObtainSectionForDriver @ 0x140A116B4
  * Callers:
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiUpdateDriverLoadInProgress @ 0x14042C688 (MiUpdateDriverLoadInProgress.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     MmAcquireLoadLock @ 0x1404D2990 (MmAcquireLoadLock.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     MiCreateSectionForDriver @ 0x140A1882C (MiCreateSectionForDriver.c)
- *     MiAllocateTempLoaderEntry @ 0x140A18B30 (MiAllocateTempLoaderEntry.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiUpdateDriverLoadInProgress @ 0x1402EFC50 (MiUpdateDriverLoadInProgress.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     MmAcquireLoadLock @ 0x1404CBB50 (MmAcquireLoadLock.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     MiCreateSectionForDriver @ 0x140A1199C (MiCreateSectionForDriver.c)
+ *     MiAllocateTempLoaderEntry @ 0x140A11CA0 (MiAllocateTempLoaderEntry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiObtainSectionForDriver(
@@ -55,10 +55,10 @@ LABEL_2:
   {
     if ( v5 < 2 )
     {
-      v17 = (__int64 *)qword_140E2D888;
+      v17 = (__int64 *)qword_140E2D9C8;
       v7 = 0LL;
       if ( v5 )
-        v11 = &qword_140E2D888;
+        v11 = &qword_140E2D9C8;
       else
         v17 = (__int64 *)PsLoadedModuleList;
       if ( v17 != v11 )

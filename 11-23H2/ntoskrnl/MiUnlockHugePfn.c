@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnlockHugePfn @ 0x140622CA0
+ * XREFs of MiUnlockHugePfn @ 0x1406231F0
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockHugePfn(__int64 a1, unsigned __int8 a2)
@@ -19,10 +19,13 @@ __int64 __fastcall MiUnlockHugePfn(__int64 a1, unsigned __int8 a2)
   v3 = ((a1 - qword_140C67DF0) >> 3) & 0x3FFFFF;
   result = (unsigned int)~(1 << (v3 & 0x1F));
   _InterlockedAnd((volatile signed __int32 *)(qword_140C67DF8 + 4 * ((unsigned __int64)v3 >> 5)), result);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)result <= 0xFu && a2 <= 0xFu && (unsigned __int8)result >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && (unsigned __int8)result <= 0xFu
+      && a2 <= 0xFu
+      && (unsigned __int8)result >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

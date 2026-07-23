@@ -1,12 +1,12 @@
 /*
- * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x1403384E0
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x140338770
  * Callers:
- *     DifExEnterPriorityRegionAndAcquireResourceSharedWrapper @ 0x1405D8AB0 (DifExEnterPriorityRegionAndAcquireResourceSharedWrapper.c)
+ *     DifExEnterPriorityRegionAndAcquireResourceSharedWrapper @ 0x1405D9020 (DifExEnterPriorityRegionAndAcquireResourceSharedWrapper.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     ExpAcquireResourceSharedLite @ 0x14023DDC0 (ExpAcquireResourceSharedLite.c)
- *     ExpFastResourceLegacyAcquireShared @ 0x1403C88E4 (ExpFastResourceLegacyAcquireShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     ExpAcquireResourceSharedLite @ 0x14023DE90 (ExpAcquireResourceSharedLite.c)
+ *     ExpFastResourceLegacyAcquireShared @ 0x1403C8AC4 (ExpFastResourceLegacyAcquireShared.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceShared(ULONG_PTR BugCheckParameter2)

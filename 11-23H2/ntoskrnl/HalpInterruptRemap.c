@@ -1,27 +1,27 @@
 /*
- * XREFs of HalpInterruptRemap @ 0x14037C0D8
+ * XREFs of HalpInterruptRemap @ 0x14037C278
  * Callers:
- *     HalpTimerConfigureInterrupt @ 0x14037CF94 (HalpTimerConfigureInterrupt.c)
- *     HalpIommuConfigureInterrupt @ 0x1403A9E68 (HalpIommuConfigureInterrupt.c)
- *     HalpInterruptConnect @ 0x1405041C0 (HalpInterruptConnect.c)
- *     HaliAddInterruptRemapping @ 0x14081E250 (HaliAddInterruptRemapping.c)
+ *     HalpTimerConfigureInterrupt @ 0x14037D134 (HalpTimerConfigureInterrupt.c)
+ *     HalpIommuConfigureInterrupt @ 0x1403AA048 (HalpIommuConfigureInterrupt.c)
+ *     HalpInterruptConnect @ 0x140504710 (HalpInterruptConnect.c)
+ *     HaliAddInterruptRemapping @ 0x14081E520 (HaliAddInterruptRemapping.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
- *     HalpInterruptDestinationToTarget @ 0x14031FC7C (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptRemapUpdateDeliveryMode @ 0x14031FDAC (HalpInterruptRemapUpdateDeliveryMode.c)
- *     HalpInterruptLookupController @ 0x14031FEE0 (HalpInterruptLookupController.c)
- *     HalpInterruptGsiToLine @ 0x14031FF10 (HalpInterruptGsiToLine.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x140367DEC (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptFindBestRouting @ 0x14037C524 (HalpInterruptFindBestRouting.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x14037C5A8 (HalpInterruptSetRemappedLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x14037CAA8 (HalpInterruptApplyOverrides.c)
- *     HalpPopulateMsiMessages @ 0x14037CBB4 (HalpPopulateMsiMessages.c)
- *     HalpInterruptIsHvMsiRemappingSupported @ 0x14040F73C (HalpInterruptIsHvMsiRemappingSupported.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
- *     HalpIrtAllocateIndex @ 0x14081E298 (HalpIrtAllocateIndex.c)
- *     HalpIrtFreeIndex @ 0x140934914 (HalpIrtFreeIndex.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
+ *     HalpInterruptDestinationToTarget @ 0x14031FF0C (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptRemapUpdateDeliveryMode @ 0x14032003C (HalpInterruptRemapUpdateDeliveryMode.c)
+ *     HalpInterruptLookupController @ 0x140320170 (HalpInterruptLookupController.c)
+ *     HalpInterruptGsiToLine @ 0x1403201A0 (HalpInterruptGsiToLine.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x140367F8C (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptFindBestRouting @ 0x14037C6C4 (HalpInterruptFindBestRouting.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x14037C748 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x14037CC48 (HalpInterruptApplyOverrides.c)
+ *     HalpPopulateMsiMessages @ 0x14037CD54 (HalpPopulateMsiMessages.c)
+ *     HalpInterruptIsHvMsiRemappingSupported @ 0x14040F91C (HalpInterruptIsHvMsiRemappingSupported.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
+ *     HalpIrtAllocateIndex @ 0x14081E568 (HalpIrtAllocateIndex.c)
+ *     HalpIrtFreeIndex @ 0x140934B14 (HalpIrtFreeIndex.c)
  *     HalpHvMapIoApicDeviceInterrupt @ 0x140A87310 (HalpHvMapIoApicDeviceInterrupt.c)
- *     HalpHvMapDeviceMsiRange @ 0x140A9593C (HalpHvMapDeviceMsiRange.c)
+ *     HalpHvMapDeviceMsiRange @ 0x140A957AC (HalpHvMapDeviceMsiRange.c)
  */
 
 __int64 __fastcall HalpInterruptRemap(

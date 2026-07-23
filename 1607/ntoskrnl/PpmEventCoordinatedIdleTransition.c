@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmEventCoordinatedIdleTransition @ 0x14020BC18
+ * XREFs of PpmEventCoordinatedIdleTransition @ 0x14020BA44
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmEventCoordinatedIdleTransition(char a1, int a2, __int64 a3)

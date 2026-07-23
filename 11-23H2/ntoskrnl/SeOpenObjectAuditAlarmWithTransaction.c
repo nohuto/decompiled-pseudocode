@@ -1,28 +1,28 @@
 /*
- * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0530
+ * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0560
  * Callers:
- *     SeOpenObjectAuditAlarm @ 0x1406C04D0 (SeOpenObjectAuditAlarm.c)
- *     CmpCheckCreateAccess @ 0x1406C0848 (CmpCheckCreateAccess.c)
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     CmpCheckKeyBodyAccess @ 0x140A1B0E8 (CmpCheckKeyBodyAccess.c)
+ *     SeOpenObjectAuditAlarm @ 0x1406C0500 (SeOpenObjectAuditAlarm.c)
+ *     CmpCheckCreateAccess @ 0x1406C0878 (CmpCheckCreateAccess.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     CmpCheckKeyBodyAccess @ 0x140A1B398 (CmpCheckKeyBodyAccess.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     SeMaximumAuditMask @ 0x1405B79D8 (SeMaximumAuditMask.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406C342C (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C34D0 (SepAdtAuditThisEventWithContext.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SepQueryNameString @ 0x1407F4EEC (SepQueryNameString.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x1408A6138 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SeExamineSacl @ 0x1408A6250 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A670A (SeExamineGlobalSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409CC168 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409CCEEC (SepAdtStagingEvent.c)
- *     SepQueryTypeString @ 0x1409CD3F0 (SepQueryTypeString.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D2424 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     SeMaximumAuditMask @ 0x1405B7F48 (SeMaximumAuditMask.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1406C345C (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1406C3500 (SepAdtAuditThisEventWithContext.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SepQueryNameString @ 0x1407F51BC (SepQueryNameString.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x1408A6388 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SeExamineSacl @ 0x1408A64A0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A695A (SeExamineGlobalSacl.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x1409CC368 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1409CD0EC (SepAdtStagingEvent.c)
+ *     SepQueryTypeString @ 0x1409CD5F0 (SepQueryTypeString.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D2624 (SeMaximumAuditMaskFromGlobalSacl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -132,14 +132,14 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
   v21 = (AccessGranted != 0 ? 3 : 0) | 0x30;
   if ( AccessGranted )
     v21 = AccessGranted != 0 ? 3 : 0;
-  if ( !dword_140C37488 )
+  if ( !dword_140C37468 )
     goto LABEL_13;
-  if ( (v21 & dword_140C37488) != 0 )
+  if ( (v21 & dword_140C37468) != 0 )
   {
     v10 = 1;
     goto LABEL_10;
   }
-  if ( !dword_140C375C8 )
+  if ( !dword_140C375A8 )
   {
 LABEL_10:
     p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;

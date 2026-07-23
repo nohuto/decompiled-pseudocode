@@ -186,7 +186,7 @@ LABEL_68:
   if ( v18 && ($C6908ADE9723D0A04AF8EE82D8D15C40 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v41);
   if ( _interlockedbittestandset64((volatile signed __int32 *)&WheapConfigTableLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&WheapConfigTableLock, v2, (ULONG_PTR)&WheapConfigTableLock);
+    ExfAcquirePushLockExclusiveEx(&WheapConfigTableLock, (_RTL_BALANCED_NODE *)v2, (ULONG_PTR)&WheapConfigTableLock);
   if ( v2 )
     *(_BYTE *)(v2 + 26) |= 1u;
   v35 = WheapInitializeErrorSourceTable(v59, Address);
@@ -282,7 +282,7 @@ LABEL_68:
         {
           v28->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v28->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v21->LockEntries[v27]);
+            KiAbEntryRemoveFromTree(&v21->LockEntries[v27].TreeNode);
           v29 = v28->BoostBitmap.AllFields & 0x1FFFF;
           v30 = v28->BoostBitmap.AllFields & 0xFFFE0000;
           v28->ThreadLocalFlags &= ~1u;

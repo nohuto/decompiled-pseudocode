@@ -1,10 +1,10 @@
 /*
- * XREFs of KeRemoveEntryDeviceQueue @ 0x1405F1460
+ * XREFs of KeRemoveEntryDeviceQueue @ 0x1405F3DD0
  * Callers:
- *     DifKeRemoveEntryDeviceQueueWrapper @ 0x140663C00 (DifKeRemoveEntryDeviceQueueWrapper.c)
+ *     DifKeRemoveEntryDeviceQueueWrapper @ 0x1406677E0 (DifKeRemoveEntryDeviceQueueWrapper.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
  */
 
 BOOLEAN __stdcall KeRemoveEntryDeviceQueue(PKDEVICE_QUEUE DeviceQueue, PKDEVICE_QUEUE_ENTRY DeviceQueueEntry)

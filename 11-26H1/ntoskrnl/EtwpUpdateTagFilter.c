@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUpdateTagFilter @ 0x140827634
+ * XREFs of EtwpUpdateTagFilter @ 0x14082D874
  * Callers:
- *     EtwpEnableMetaProviderGuid @ 0x1404575EC (EtwpEnableMetaProviderGuid.c)
- *     EtwpCheckForPoolTagFilterExtension @ 0x140A6E09C (EtwpCheckForPoolTagFilterExtension.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpEnableMetaProviderGuid @ 0x14044EE5C (EtwpEnableMetaProviderGuid.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x140AB0E14 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

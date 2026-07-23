@@ -1,15 +1,15 @@
 /*
- * XREFs of CcAllocateInitializeBcb @ 0x1400CC318
+ * XREFs of CcAllocateInitializeBcb @ 0x1400CC398
  * Callers:
- *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
+ *     CcPinFileData @ 0x1400AE210 (CcPinFileData.c)
  * Callees:
  *     CcAdjustVacbLevelLockCount @ 0x1400223FC (CcAdjustVacbLevelLockCount.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     ExDisableResourceBoostLite @ 0x14015FAC0 (ExDisableResourceBoostLite.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     ExDisableResourceBoostLite @ 0x14015FBC0 (ExDisableResourceBoostLite.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)

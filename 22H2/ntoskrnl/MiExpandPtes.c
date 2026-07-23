@@ -56,7 +56,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
   unsigned int v33; // r8d
   bool v34; // zf
   __int64 v35; // rcx
-  unsigned __int64 v36; // rdi
+  __int64 v36; // rdi
   unsigned __int8 v37; // al
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -191,7 +191,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
       v34 = !_BitScanReverse((unsigned int *)&v35, v33);
       if ( v34 )
         break;
-      v36 = (unsigned __int64)&v31->LockEntries[v35];
+      v36 = (__int64)&v31->LockEntries[v35];
       v33 &= ~(1 << v35);
       if ( (*(_BYTE *)(v36 + 26) & 1) != 0
         && (*(_DWORD *)(v36 + 32) & 1) == 0
@@ -205,12 +205,12 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
           {
             *(_BYTE *)(v36 + 32) |= 2u;
             if ( *(__int64 *)(v36 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v36);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v36);
             v52 = *(_DWORD *)(v36 + 88) & 0x1FFFF;
             *(_DWORD *)(v36 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v36 + 25) &= ~1u;
             *(_QWORD *)(v36 + 32) = 0LL;
-            v37 = 1 << ((__int64)(v36 - (unsigned __int64)v31->LockEntries) / 96);
+            v37 = 1 << ((signed __int64)(v36 - (unsigned __int64)v31->LockEntries) / 96);
             if ( v62 == 1 )
               v31->AbEntrySummary |= v37;
             else

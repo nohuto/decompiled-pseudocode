@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSelectCfgBitMap @ 0x140AA0F80
+ * XREFs of MiSelectCfgBitMap @ 0x140AA2A44
  * Callers:
- *     MiProcessPatchImageCfg @ 0x140873D98 (MiProcessPatchImageCfg.c)
- *     MiCfgMarkValidEntries @ 0x140AA0D20 (MiCfgMarkValidEntries.c)
+ *     MiProcessPatchImageCfg @ 0x14087A0F8 (MiProcessPatchImageCfg.c)
+ *     MiCfgMarkValidEntries @ 0x140AA27E4 (MiCfgMarkValidEntries.c)
  * Callees:
  *     <none>
  */

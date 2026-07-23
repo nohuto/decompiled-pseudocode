@@ -1,43 +1,43 @@
 /*
- * XREFs of PspAllocateThread @ 0x1405154A0
+ * XREFs of PspAllocateThread @ 0x1404F8890
  * Callers:
- *     PspCreateThread @ 0x140458D18 (PspCreateThread.c)
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
- *     PspCreatePicoThread @ 0x1406817B0 (PspCreatePicoThread.c)
+ *     PspCreateThread @ 0x140457BE8 (PspCreateThread.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
+ *     PspCreatePicoThread @ 0x140681894 (PspCreatePicoThread.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsQueryThreadStartAddress @ 0x140074BA0 (PsQueryThreadStartAddress.c)
- *     KeSelectIdealProcessor @ 0x14007D1B0 (KeSelectIdealProcessor.c)
- *     KeSelectNodeForAffinity @ 0x1400B079C (KeSelectNodeForAffinity.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     KeQuerySystemTimeUnsafe @ 0x1400F2020 (KeQuerySystemTimeUnsafe.c)
- *     KeInitializeSemaphore @ 0x1400F2030 (KeInitializeSemaphore.c)
- *     KeQueryMaximumGroupCount @ 0x1400F204C (KeQueryMaximumGroupCount.c)
- *     PoEnergyEstimationEnabled @ 0x1400F2054 (PoEnergyEstimationEnabled.c)
- *     KeQuerySystemTimePrecise @ 0x1400F2100 (KeQuerySystemTimePrecise.c)
- *     RtlGetExtendedContextLength @ 0x1400F4858 (RtlGetExtendedContextLength.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsQueryThreadStartAddress @ 0x140074C20 (PsQueryThreadStartAddress.c)
+ *     KeSelectIdealProcessor @ 0x14007D230 (KeSelectIdealProcessor.c)
+ *     KeSelectNodeForAffinity @ 0x1400AE80C (KeSelectNodeForAffinity.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     KeQuerySystemTimeUnsafe @ 0x1400EFE70 (KeQuerySystemTimeUnsafe.c)
+ *     KeInitializeSemaphore @ 0x1400EFE80 (KeInitializeSemaphore.c)
+ *     KeQueryMaximumGroupCount @ 0x1400EFE9C (KeQueryMaximumGroupCount.c)
+ *     PoEnergyEstimationEnabled @ 0x1400EFEA4 (PoEnergyEstimationEnabled.c)
+ *     KeQuerySystemTimePrecise @ 0x1400EFF50 (KeQuerySystemTimePrecise.c)
+ *     RtlGetExtendedContextLength @ 0x1400F26A8 (RtlGetExtendedContextLength.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     KeInitThread @ 0x1403C8E74 (KeInitThread.c)
- *     ObCreateObjectEx @ 0x14041D970 (ObCreateObjectEx.c)
- *     MmSecureVirtualMemory @ 0x14042A98C (MmSecureVirtualMemory.c)
- *     MmDeleteTeb @ 0x1404CD424 (MmDeleteTeb.c)
- *     PspWow64SetupUserStack @ 0x1404D2928 (PspWow64SetupUserStack.c)
- *     PspDeleteUserStack @ 0x1404ED8F4 (PspDeleteUserStack.c)
- *     MmCreateTeb @ 0x14050B47C (MmCreateTeb.c)
- *     PspSetupUserStack @ 0x14050B934 (PspSetupUserStack.c)
- *     ExCreateHandleEx @ 0x14050DBE0 (ExCreateHandleEx.c)
- *     PspWow64InitThread @ 0x14051AA18 (PspWow64InitThread.c)
- *     PspUmsInitThread @ 0x14067F5C0 (PspUmsInitThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ObCreateObjectEx @ 0x14041C830 (ObCreateObjectEx.c)
+ *     MmSecureVirtualMemory @ 0x14042985C (MmSecureVirtualMemory.c)
+ *     MmDeleteTeb @ 0x1404B2E50 (MmDeleteTeb.c)
+ *     PspWow64SetupUserStack @ 0x1404B63C8 (PspWow64SetupUserStack.c)
+ *     PspDeleteUserStack @ 0x1404CF9AC (PspDeleteUserStack.c)
+ *     MmCreateTeb @ 0x1404EE40C (MmCreateTeb.c)
+ *     PspSetupUserStack @ 0x1404EE8C4 (PspSetupUserStack.c)
+ *     ExCreateHandleEx @ 0x1404F0B70 (ExCreateHandleEx.c)
+ *     PspWow64InitThread @ 0x1404FDE08 (PspWow64InitThread.c)
+ *     PspUmsInitThread @ 0x14067F6A4 (PspUmsInitThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspAllocateThread(
@@ -58,7 +58,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v16; // r9
   _QWORD *v17; // r10
   struct _KTHREAD *CurrentThread; // r14
-  _QWORD *v19; // r15
+  struct _INITIAL_TEB *v19; // r15
   __int64 v20; // rbx
   __int64 v21; // rcx
   int v22; // edx
@@ -86,7 +86,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v45; // rax
   __int64 v46; // rax
   _QWORD *v47; // rcx
-  __int64 v48; // rcx
+  ULONG v48; // ecx
   PVOID PoolWithTag; // rax
   __int64 v50; // rbx
   __int64 v51; // rbx
@@ -99,47 +99,48 @@ __int64 __fastcall PspAllocateThread(
   int v58; // [rsp+50h] [rbp-138h]
   int v59; // [rsp+54h] [rbp-134h]
   bool v60; // [rsp+58h] [rbp-130h]
-  _QWORD *v61; // [rsp+68h] [rbp-120h]
+  struct _INITIAL_TEB *v61; // [rsp+68h] [rbp-120h]
   PVOID Object; // [rsp+70h] [rbp-118h] BYREF
   __int64 Teb; // [rsp+78h] [rbp-110h] BYREF
   _BYTE *v64; // [rsp+80h] [rbp-108h]
   __int64 v65; // [rsp+88h] [rbp-100h]
-  _QWORD *v66; // [rsp+90h] [rbp-F8h]
+  struct _INITIAL_TEB *v66; // [rsp+90h] [rbp-F8h]
   _QWORD *v67; // [rsp+98h] [rbp-F0h]
   int v68; // [rsp+A0h] [rbp-E8h]
-  _DWORD NumberOfBytes[3]; // [rsp+A4h] [rbp-E4h]
-  struct _KTHREAD *v70; // [rsp+B0h] [rbp-D8h]
-  struct _KPROCESS *v71; // [rsp+B8h] [rbp-D0h]
-  __int64 v72; // [rsp+C0h] [rbp-C8h]
-  _QWORD *v73; // [rsp+C8h] [rbp-C0h]
-  int v74; // [rsp+D0h] [rbp-B8h]
-  int v75; // [rsp+D4h] [rbp-B4h]
-  int v76; // [rsp+D8h] [rbp-B0h]
-  int v77; // [rsp+DCh] [rbp-ACh]
-  __int64 v78; // [rsp+E0h] [rbp-A8h]
-  _QWORD *v79; // [rsp+E8h] [rbp-A0h]
-  char v80[8]; // [rsp+F0h] [rbp-98h] BYREF
-  __int64 v81; // [rsp+F8h] [rbp-90h]
-  __int64 v82; // [rsp+100h] [rbp-88h]
-  __int64 v83; // [rsp+108h] [rbp-80h]
-  _BYTE v84[48]; // [rsp+110h] [rbp-78h] BYREF
+  ULONG ContextLength; // [rsp+A4h] [rbp-E4h] BYREF
+  __int64 v70; // [rsp+A8h] [rbp-E0h]
+  struct _KTHREAD *v71; // [rsp+B0h] [rbp-D8h]
+  struct _KPROCESS *v72; // [rsp+B8h] [rbp-D0h]
+  __int64 v73; // [rsp+C0h] [rbp-C8h]
+  _QWORD *v74; // [rsp+C8h] [rbp-C0h]
+  int v75; // [rsp+D0h] [rbp-B8h]
+  int v76; // [rsp+D4h] [rbp-B4h]
+  int v77; // [rsp+D8h] [rbp-B0h]
+  int v78; // [rsp+DCh] [rbp-ACh]
+  __int64 v79; // [rsp+E0h] [rbp-A8h]
+  _QWORD *v80; // [rsp+E8h] [rbp-A0h]
+  char v81[8]; // [rsp+F0h] [rbp-98h] BYREF
+  __int64 v82; // [rsp+F8h] [rbp-90h]
+  __int64 v83; // [rsp+100h] [rbp-88h]
+  __int64 v84; // [rsp+108h] [rbp-80h]
+  _BYTE v85[48]; // [rsp+110h] [rbp-78h] BYREF
 
   v13 = a3;
-  v71 = BugCheckParameter1;
+  v72 = BugCheckParameter1;
   v65 = a2;
-  v72 = a4;
+  v73 = a4;
   v16 = a5;
-  v73 = a6;
-  v79 = a10;
+  v74 = a6;
+  v80 = a10;
   v64 = a11;
   v17 = a12;
   v67 = a12;
-  *(_QWORD *)&NumberOfBytes[1] = 0LL;
+  v70 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v70 = CurrentThread;
+  v71 = CurrentThread;
   v59 = 0;
   if ( a6 )
-    v19 = (_QWORD *)*a6;
+    v19 = (struct _INITIAL_TEB *)*a6;
   else
     v19 = 0LL;
   v66 = v19;
@@ -185,7 +186,7 @@ LABEL_89:
     v17 = v67;
     v13 = a3;
 LABEL_76:
-    CurrentThread = v70;
+    CurrentThread = v71;
   }
   if ( (*(_DWORD *)(a4 + 4) & 0x8000) != 0
     && (BugCheckParameter1[1].ActiveProcessors.Bitmap[7] || BugCheckParameter1 != CurrentThread->Process) )
@@ -274,7 +275,7 @@ LABEL_88:
   *((_QWORD *)v27 + 196) = v27 + 1568;
   *((_QWORD *)v27 + 248) = -3LL;
   if ( KeQuerySystemTimeUnsafe() )
-    KeQuerySystemTimePrecise((__int64 *)v27 + 188);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)v27 + 188);
   else
     *((_QWORD *)Object + 188) = MEMORY[0xFFFFF78000000014];
   v29 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)(v27 + 1712), 0LL, 0);
@@ -341,15 +342,15 @@ LABEL_88:
       v46 = *(_QWORD *)(a5 + 248);
       *((_QWORD *)v31 + 193) = v46;
       *((_QWORD *)v31 + 209) = v46;
-      v47 = v73;
-      *((_QWORD *)v31 + 243) = v73[1];
+      v47 = v74;
+      *((_QWORD *)v31 + 243) = v74[1];
       *((_QWORD *)v31 + 244) = v47[2];
       _interlockedbittestandset((volatile signed __int32 *)v31, 0x1Au);
-      v48 = 1048607LL;
+      v48 = 1048607;
       if ( MEMORY[0xFFFFF780000003D8] )
-        v48 = 1048671LL;
-      RtlGetExtendedContextLength(v48);
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x63537350u);
+        v48 = 1048671;
+      RtlGetExtendedContextLength(v48, &ContextLength);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, ContextLength, 0x63537350u);
       v31 = Object;
       *((_QWORD *)Object + 250) = PoolWithTag;
       if ( !PoolWithTag )
@@ -361,14 +362,14 @@ LABEL_88:
       v38 = Teb;
       goto LABEL_49;
     }
-    v50 = (__int64)v70;
-    Teb = (__int64)v70->Teb;
+    v50 = (__int64)v71;
+    Teb = (__int64)v71->Teb;
     v38 = Teb;
-    *((_QWORD *)v31 + 193) = PsQueryThreadStartAddress((__int64)v70, 1);
+    *((_QWORD *)v31 + 193) = PsQueryThreadStartAddress((__int64)v71, 1);
     *((_QWORD *)v31 + 209) = *(_QWORD *)(v50 + 1672);
     *((_DWORD *)v31 + 433) |= 0x10u;
     v51 = BugCheckParameter1[1].ActiveProcessors.Bitmap[7] != 0 ? 0x17C8 : 0;
-    KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v84);
+    KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v85);
     if ( MmSecureVirtualMemory((PVOID)v38, v51 + 6200, 4u) )
     {
       v52 = v67;
@@ -382,15 +383,15 @@ LABEL_88:
       *(_WORD *)(v38 + 6126) = v65 | v53 | 0x40;
       if ( BugCheckParameter1[1].ActiveProcessors.Bitmap[7] )
       {
-        v78 = v38 + 0x2000;
-        v74 = *(_DWORD *)v52;
-        *(_DWORD *)(v38 + 8224) = v74;
-        v75 = *((_DWORD *)v31 + 398);
-        *(_DWORD *)(v38 + 8228) = v75;
-        v76 = *(_DWORD *)v52;
-        *(_DWORD *)(v38 + 9908) = v76;
-        v77 = *((_DWORD *)v31 + 398);
-        *(_DWORD *)(v38 + 9912) = v77;
+        v79 = v38 + 0x2000;
+        v75 = *(_DWORD *)v52;
+        *(_DWORD *)(v38 + 8224) = v75;
+        v76 = *((_DWORD *)v31 + 398);
+        *(_DWORD *)(v38 + 8228) = v76;
+        v77 = *(_DWORD *)v52;
+        *(_DWORD *)(v38 + 9908) = v77;
+        v78 = *((_DWORD *)v31 + 398);
+        *(_DWORD *)(v38 + 9912) = v78;
         *(_DWORD *)(v38 + 12188) = 0;
         *(_DWORD *)(v38 + 12228) = 0;
         v55 = *(_WORD *)(v38 + 12234) & 0x62C;
@@ -405,23 +406,23 @@ LABEL_88:
       v58 = -1073741503;
     }
 LABEL_64:
-    KiUnstackDetachProcess((struct _KTHREAD *)v84, 0);
+    KiUnstackDetachProcess((struct _KTHREAD *)v85, 0);
     if ( v36 < 0 )
       goto LABEL_110;
     goto LABEL_49;
   }
   if ( BugCheckParameter1[1].ActiveProcessors.Bitmap[7] )
   {
-    v80[0] = 0;
-    v82 = 0x8000LL;
-    v83 = 0x40000LL;
-    v81 = 0LL;
-    v36 = PspSetupUserStack((__int64)BugCheckParameter1, a5, v61, (__int64)v80, v59);
+    v81[0] = 0;
+    v83 = 0x8000LL;
+    v84 = 0x40000LL;
+    v82 = 0LL;
+    v36 = PspSetupUserStack((__int64)BugCheckParameter1, a5, v61, (__int64)v81, v59);
     v58 = v36;
     if ( v36 >= 0 )
     {
       v44 = v64;
-      *v64 ^= (v80[0] ^ *v64) & 2;
+      *v64 ^= (v81[0] ^ *v64) & 2;
       v36 = PspWow64SetupUserStack(BugCheckParameter1, v43, (__int64)v61, (__int64)v44, v59);
       v58 = v36;
     }
@@ -436,13 +437,13 @@ LABEL_64:
     goto LABEL_110;
   if ( a4 )
   {
-    v37 = *(_QWORD *)&NumberOfBytes[1];
+    v37 = v70;
     if ( (((*(_DWORD *)(a4 + 4) & 0x8000) != 0) & !_bittest64((const signed __int64 *)&KeFeatureBits, 0x1Cu)) != 0 )
       v37 = 0x100000000LL;
   }
   else
   {
-    v37 = *(_QWORD *)&NumberOfBytes[1];
+    v37 = v70;
   }
   v36 = MmCreateTeb(BugCheckParameter1, (unsigned __int64)v61, v67, v37, (unsigned __int64 *)&Teb);
   v58 = v36;
@@ -460,11 +461,11 @@ LABEL_64:
   }
   if ( (_WORD)v34 )
   {
-    KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v84);
+    KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v85);
     *(_WORD *)(v38 + 6126) = v34;
     if ( BugCheckParameter1[1].ActiveProcessors.Bitmap[7] )
     {
-      v78 = v38 + 0x2000;
+      v79 = v38 + 0x2000;
       *(_WORD *)(v38 + 12234) = v34;
     }
     v36 = 0;
@@ -494,7 +495,7 @@ LABEL_50:
          || (*(_DWORD *)(a4 + 4) & 0x8000) == 0
          || (LOBYTE(v40) = a3, v36 = PspUmsInitThread(v31, v40, a4, v38), v58 = v36, v36 >= 0) )
   {
-    *v79 = v31;
+    *v80 = v31;
     return 0LL;
   }
   MmDeleteTeb(BugCheckParameter1, v38);

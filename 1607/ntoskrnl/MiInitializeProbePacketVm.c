@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeProbePacketVm @ 0x14009A924
+ * XREFs of MiInitializeProbePacketVm @ 0x14009A124
  * Callers:
- *     MiProbeAndLockPrepare @ 0x14009A7D8 (MiProbeAndLockPrepare.c)
+ *     MiProbeAndLockPrepare @ 0x140099FD8 (MiProbeAndLockPrepare.c)
  * Callees:
- *     MiSystemCacheVaControlArea @ 0x140018E30 (MiSystemCacheVaControlArea.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiLockProbePacketWorkingSet @ 0x14009AAA8 (MiLockProbePacketWorkingSet.c)
+ *     MiSystemCacheVaControlArea @ 0x1400189B0 (MiSystemCacheVaControlArea.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiLockProbePacketWorkingSet @ 0x14009A2A8 (MiLockProbePacketWorkingSet.c)
  */
 
 int *__fastcall MiInitializeProbePacketVm(__int64 a1)
@@ -29,7 +29,7 @@ int *__fastcall MiInitializeProbePacketVm(__int64 a1)
   }
   else
   {
-    if ( v2 >= qword_140326910 && v2 < qword_140326910 + 0x8000000000LL )
+    if ( v2 >= qword_140326950 && v2 < qword_140326950 + 0x8000000000LL )
     {
       CurrentThread = KeGetCurrentThread();
       *(_DWORD *)(a1 + 56) = 6;
@@ -38,10 +38,10 @@ LABEL_30:
       *(_QWORD *)(a1 + 88) = AnyMultiplexedVm;
       goto LABEL_14;
     }
-    if ( v2 >= qword_140327F30 && v2 < qword_140327F30 + 0xF8000000000LL
-      || qword_140326C30
-      && v2 >= qword_140326C30
-      && v2 < qword_140326C30 + (qword_140326C10 << 21)
+    if ( v2 >= qword_140327F70 && v2 < qword_140327F70 + 0xF8000000000LL
+      || qword_140326C70
+      && v2 >= qword_140326C70
+      && v2 < qword_140326C70 + (qword_140326C50 << 21)
       && (*(_BYTE *)(48 * ((*(_QWORD *)(((v2 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                    - 0x57FFFFFFFDALL) & 0xF0) == 0x70 )
     {
@@ -49,17 +49,17 @@ LABEL_30:
       *(_DWORD *)(a1 + 56) = 3;
       goto LABEL_30;
     }
-    if ( qword_140326C80 && v2 >= qword_140326C80 && v2 < qword_140326C80 + (qword_140326C60 << 21) )
+    if ( qword_140326CC0 && v2 >= qword_140326CC0 && v2 < qword_140326CC0 + (qword_140326CA0 << 21) )
     {
       AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
       *(_DWORD *)(a1 + 56) = 2;
       goto LABEL_30;
     }
-    if ( v2 < qword_140327F20 || v2 >= qword_140327F20 + 0x100000000000LL )
+    if ( v2 < qword_140327F60 || v2 >= qword_140327F60 + 0x100000000000LL )
     {
-      if ( !qword_140326C30
-        || v2 < qword_140326C30
-        || v2 >= qword_140326C30 + (qword_140326C10 << 21)
+      if ( !qword_140326C70
+        || v2 < qword_140326C70
+        || v2 >= qword_140326C70 + (qword_140326C50 << 21)
         || (*(_BYTE *)(48 * ((*(_QWORD *)(((v2 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                      - 0x57FFFFFFFDALL) & 0xF0) != 0xD0 )
       {
@@ -76,9 +76,9 @@ LABEL_30:
   }
 LABEL_14:
   result = (int *)MiLockProbePacketWorkingSet(a1);
-  if ( qword_140326C80 && v2 >= qword_140326C80 )
+  if ( qword_140326CC0 && v2 >= qword_140326CC0 )
   {
-    result = (int *)(qword_140326C80 + (qword_140326C60 << 21));
+    result = (int *)(qword_140326CC0 + (qword_140326CA0 << 21));
     if ( v2 < (unsigned __int64)result )
     {
       v7 = MiSystemCacheVaControlArea(v2);

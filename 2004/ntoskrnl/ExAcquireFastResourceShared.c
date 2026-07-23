@@ -210,7 +210,7 @@ LABEL_55:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v39, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v6 )
-    KeAbPreAcquire(BugCheckParameter2, v6, 0LL);
+    KeAbPreAcquire(BugCheckParameter2, v6, 0);
   v17 = 1;
 LABEL_22:
   if ( v6 )

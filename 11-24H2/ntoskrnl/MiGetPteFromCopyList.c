@@ -1,27 +1,27 @@
 /*
- * XREFs of MiGetPteFromCopyList @ 0x1402259B0
+ * XREFs of MiGetPteFromCopyList @ 0x140252D60
  * Callers:
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     MiCopyFilePage @ 0x14067A640 (MiCopyFilePage.c)
- *     MiCopyPagesIntoEnclave @ 0x1408DA288 (MiCopyPagesIntoEnclave.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     MiCopyFilePage @ 0x14067B820 (MiCopyFilePage.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A29D18 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiUserPdeOrAbove @ 0x140238638 (MiUserPdeOrAbove.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiUserPdeOrAbove @ 0x1402127C8 (MiUserPdeOrAbove.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-ULONG_PTR __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a3)
+unsigned __int64 __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // edx
   int v7; // r12d
   int v8; // r15d
   __int64 v9; // r13
-  ULONG_PTR v10; // r14
+  unsigned __int64 v10; // r14
   __int64 v11; // rcx
   char v12; // bp
   __int64 v13; // rdi
@@ -35,12 +35,11 @@ ULONG_PTR __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 
   __int64 v21; // rbx
   ULONG_PTR *v22; // rdi
   ULONG_PTR v23; // rbx
-  __int64 v25; // rbx
-  int v26; // eax
-  __int64 v27; // rdx
-  _BYTE v28[208]; // [rsp+30h] [rbp-118h] BYREF
+  unsigned __int64 v25; // rbx
+  __int64 v26; // rax
+  _BYTE v27[208]; // [rsp+30h] [rbp-118h] BYREF
 
-  memset_0(v28, 0, 0xC8uLL);
+  memset_0(v27, 0, 0xC8uLL);
   v6 = *a1;
   v7 = 0;
   v8 = (a3 != -1) + 1;
@@ -49,9 +48,9 @@ ULONG_PTR __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 
   {
     v25 = (__int64)(*((_QWORD *)a1 + 2) << 25) >> 16;
     v26 = MiVaToFlushVm(v25);
-    MiInitializeTbFlushList((unsigned int)v28, v26, 20, 8, 1);
-    MiInsertTbFlushEntry(v28, v25, *a1);
-    MiFlushTbList(v28, v27);
+    MiInitializeTbFlushList((__int64)v27, v26, 20, 8, 1);
+    MiInsertTbFlushEntry((__int64)v27, v25, *a1, 0);
+    MiFlushTbList(v27);
     v6 = 0;
   }
   v10 = *((_QWORD *)a1 + 2) + 8LL * v6;
@@ -84,22 +83,22 @@ ULONG_PTR __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 
       v15 = v14;
     if ( v16 < 0xFFFF800000000000uLL )
     {
-      v7 = HIBYTE(word_140E2ED84);
+      v7 = HIBYTE(word_140E2EEC4);
     }
     else if ( v16 < 0xFFFFF68000000000uLL || v16 > 0xFFFFF6FFFFFFFFFFuLL )
     {
-      if ( v16 < qword_140E2F280 || v16 > qword_140E2F290 )
-        v7 = (unsigned __int8)word_140E2ED84;
+      if ( v16 < qword_140E2F3C0 || v16 > qword_140E2F3D0 )
+        v7 = (unsigned __int8)word_140E2EEC4;
       else
-        v7 = HIBYTE(word_140E2ED84);
+        v7 = HIBYTE(word_140E2EEC4);
     }
     v14 = v15 | 0x100;
     if ( !v7 )
       v14 = v15;
   }
-  v17 = (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ (v14 | 0x42)) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
+  v17 = (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ (v14 | 0x42)) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
   if ( _bittest64(&MiFlags, 0x24u) && (v14 & 0x20) == 0 && v10 >= 0xFFFFF6C000000000uLL )
-    MiCheckLinearProtectedPteAccessedBit(v10, v17);
+    MiCheckLinearProtectedPteAccessedBit(v10, v17, 128LL);
   *(_QWORD *)v10 = v17;
   if ( a3 != -1 )
   {
@@ -131,16 +130,16 @@ ULONG_PTR __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 
         v21 = v19;
       goto LABEL_28;
     }
-    if ( v20 >= 0xFFFFF68000000000uLL && v20 <= 0xFFFFF6FFFFFFFFFFuLL || v20 < qword_140E2F280 || v20 > qword_140E2F290 )
+    if ( v20 >= 0xFFFFF68000000000uLL && v20 <= 0xFFFFF6FFFFFFFFFFuLL || v20 < qword_140E2F3C0 || v20 > qword_140E2F3D0 )
 LABEL_33:
       v21 = v19;
     else
       v21 = v19;
 LABEL_28:
     v22 = (ULONG_PTR *)(v10 + 8);
-    v23 = (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ v21) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
+    v23 = (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ v21) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
     if ( _bittest64(&MiFlags, 0x24u) && (v23 & 0x20) == 0 && (unsigned __int64)v22 >= 0xFFFFF6C000000000uLL )
-      MiCheckLinearProtectedPteAccessedBit(v10 + 8, v23);
+      MiCheckLinearProtectedPteAccessedBit(v10 + 8, v23, 128LL);
     *v22 = v23;
   }
   return v10;

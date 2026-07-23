@@ -1,10 +1,10 @@
 /*
- * XREFs of IoBoostThreadIo @ 0x140282F70
+ * XREFs of IoBoostThreadIo @ 0x140283160
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
- *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x1400BBED0 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x1401086DC (IoBoostThreadIoPriority.c)
  */
 
 __int64 __fastcall IoBoostThreadIo(KSPIN_LOCK *a1, int a2, char a3, int a4)

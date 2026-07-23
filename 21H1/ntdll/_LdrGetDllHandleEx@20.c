@@ -29,23 +29,28 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-int __stdcall LdrGetDllHandleEx(int a1, int a2, int a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl LdrGetDllHandleEx(
+        ULONG Flags,
+        PWSTR DllPath,
+        PULONG DllCharacteristics,
+        PUNICODE_STRING DllName,
+        PVOID *DllHandle)
 {
-  int v5; // edi
+  wchar_t *Buffer; // edi
   char v6; // bl
-  _DWORD *v7; // edi
-  int LoadedDllByName; // esi
+  PVOID *v7; // edi
+  NTSTATUS LoadedDllByName; // esi
   int v9; // eax
   int v10; // esi
   int v11; // edi
-  unsigned __int16 *i; // ebx
+  wchar_t *i; // ebx
   unsigned int v13; // eax
   int v14; // eax
   int *v15; // ecx
   int *v16; // eax
-  int *v17; // edx
-  unsigned __int16 *v18; // edi
-  int v19; // eax
+  int v17; // edx
+  wchar_t *v18; // edi
+  unsigned int v19; // eax
   int v20; // ecx
   unsigned int v21; // ebx
   _DWORD *v22; // eax
@@ -57,34 +62,36 @@ int __stdcall LdrGetDllHandleEx(int a1, int a2, int a3, int a4, _DWORD *a5)
   int v29; // eax
   char *v30; // eax
   int Count; // eax
-  int *v32; // [esp+10h] [ebp-2A0h] BYREF
-  bool v33; // [esp+17h] [ebp-299h]
-  _DWORD *v34; // [esp+18h] [ebp-298h]
-  int v35; // [esp+1Ch] [ebp-294h] BYREF
-  int v36; // [esp+20h] [ebp-290h] BYREF
-  int *v37; // [esp+24h] [ebp-28Ch]
-  int *v38; // [esp+28h] [ebp-288h]
-  _DWORD v39[2]; // [esp+2Ch] [ebp-284h] BYREF
-  int v40; // [esp+34h] [ebp-27Ch]
-  int v41; // [esp+38h] [ebp-278h] BYREF
-  _DWORD v42[2]; // [esp+3Ch] [ebp-274h] BYREF
-  int v43; // [esp+44h] [ebp-26Ch]
-  _DWORD v44[20]; // [esp+48h] [ebp-268h] BYREF
-  int v45; // [esp+98h] [ebp-218h] BYREF
-  unsigned __int16 *v46; // [esp+9Ch] [ebp-214h]
-  _WORD v47[128]; // [esp+A0h] [ebp-210h] BYREF
-  int v48; // [esp+1A0h] [ebp-110h] BYREF
-  _WORD *v49; // [esp+1A4h] [ebp-10Ch]
-  _WORD v50[130]; // [esp+1A8h] [ebp-108h] BYREF
+  size_t v32; // [esp-4h] [ebp-2B4h]
+  PVOID BaseAddress; // [esp+10h] [ebp-2A0h] BYREF
+  bool v34; // [esp+17h] [ebp-299h]
+  PVOID *v35; // [esp+18h] [ebp-298h]
+  int v36; // [esp+1Ch] [ebp-294h] BYREF
+  int v37; // [esp+20h] [ebp-290h] BYREF
+  int *v38; // [esp+24h] [ebp-28Ch]
+  int *v39; // [esp+28h] [ebp-288h]
+  int v40[2]; // [esp+2Ch] [ebp-284h] BYREF
+  int v41; // [esp+34h] [ebp-27Ch]
+  PVOID OldFsRedirectionLevel; // [esp+38h] [ebp-278h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+3Ch] [ebp-274h] BYREF
+  unsigned int v44; // [esp+44h] [ebp-26Ch]
+  PWSTR Path[19]; // [esp+48h] [ebp-268h] BYREF
+  char v46; // [esp+94h] [ebp-21Ch]
+  _UNICODE_STRING SystemPath; // [esp+98h] [ebp-218h] BYREF
+  _WORD v48[128]; // [esp+A0h] [ebp-210h] BYREF
+  int v49; // [esp+1A0h] [ebp-110h] BYREF
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [esp+1A4h] [ebp-10Ch]
+  _WORD v51[130]; // [esp+1A8h] [ebp-108h] BYREF
 
-  v34 = a5;
+  v35 = DllHandle;
   if ( (ShowSnaps & 9) != 0 )
-    LdrpLogDbgPrint("minkernel\\ntdll\\ldrapi.c", 844, "LdrGetDllHandleEx", 3, "DLL name: %wZ\n", a4);
-  v5 = *(_DWORD *)(a4 + 4);
-  memset(v44, 0, sizeof(v44));
-  if ( (a2 & 1) == 0 && a2 )
+    LdrpLogDbgPrint("minkernel\\ntdll\\ldrapi.c", 844, "LdrGetDllHandleEx", 3, "DLL name: %wZ\n", DllName);
+  Buffer = DllName->Buffer;
+  LODWORD(v32) = 80;
+  memset(Path, 0, v32);
+  if ( ((unsigned __int8)DllPath & 1) == 0 && DllPath )
   {
-    v44[0] = a2;
+    Path[0] = DllPath;
     if ( (ShowSnaps & 5) != 0 )
       LdrpLogDbgPrint(
         "minkernel\\ntdll\\ldrutil.c",
@@ -92,56 +99,56 @@ int __stdcall LdrGetDllHandleEx(int a1, int a2, int a3, int a4, _DWORD *a5)
         "LdrpInitializeDllPath",
         2,
         "DLL search path passed in externally: %ws\n",
-        a2);
-    LdrpLogDllStateEx2(v44[0], 5312);
+        DllPath);
+    LdrpLogDllStateEx2(Path[0], 5312);
   }
   else
   {
-    v44[4] = v5;
-    v44[3] = a2 & 0xFFFFFFFE;
+    Path[4] = (PWSTR)Buffer;
+    Path[3] = (PWSTR)((unsigned int)DllPath & 0xFFFFFFFE);
   }
-  v6 = a1;
-  if ( (a1 & 0xFFFFFFF8) != 0 )
+  v6 = Flags;
+  if ( (Flags & 0xFFFFFFF8) != 0 )
   {
     LoadedDllByName = -1073741811;
     goto LABEL_60;
   }
-  if ( (a1 & 3) == 3 )
+  if ( (Flags & 3) == 3 )
   {
     LoadedDllByName = -1073741811;
     goto LABEL_60;
   }
-  v7 = v34;
-  if ( !v34 && (a1 & 2) == 0 )
+  v7 = v35;
+  if ( !v35 && (Flags & 2) == 0 )
   {
     LoadedDllByName = -1073741811;
     goto LABEL_60;
   }
-  v33 = RtlWow64EnableFsRedirectionEx(0, &v41) >= 0;
-  v35 = 0;
-  v46 = v47;
-  v32 = 0;
-  v47[0] = 0;
-  v45 = 0x1000000;
-  LoadedDllByName = LdrpPreprocessDllName(0, &v35);
+  v34 = RtlWow64EnableFsRedirectionEx(0, &OldFsRedirectionLevel) >= 0;
+  v36 = 0;
+  SystemPath.Buffer = v48;
+  BaseAddress = 0;
+  v48[0] = 0;
+  *(_DWORD *)&SystemPath.Length = 0x1000000;
+  LoadedDllByName = LdrpPreprocessDllName(DllName, &SystemPath, 0, (int)&v36);
   if ( LoadedDllByName >= 0 )
   {
-    v9 = v35;
-    if ( (v35 & 0x20) != 0 )
+    v9 = v36;
+    if ( (v36 & 0x20) != 0 )
     {
       v10 = 0;
-      v11 = (unsigned __int16)v45 >> 1;
-      for ( i = v46; v11; v10 = (unsigned __int16)v13 + 65599 * v10 )
+      v11 = SystemPath.Length >> 1;
+      for ( i = SystemPath.Buffer; v11; v10 = (unsigned __int16)v13 + 65599 * v10 )
       {
         v13 = *i++;
         --v11;
-        v37 = (int *)v13;
+        v38 = (int *)v13;
         if ( v13 >= 0x61 )
         {
           if ( v13 > 0x7A )
           {
             if ( Nls844UnicodeUpcaseTable && (unsigned __int16)v13 >= 0xC0u )
-              LOWORD(v13) = (_WORD)v37
+              LOWORD(v13) = (_WORD)v38
                           + *(_WORD *)(Nls844UnicodeUpcaseTable
                                      + 2
                                      * ((v13 & 0xF)
@@ -162,31 +169,35 @@ int __stdcall LdrGetDllHandleEx(int a1, int a2, int a3, int a4, _DWORD *a5)
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
       v14 = v10 & 0x1F;
       v15 = (int *)LdrpHashTable[2 * v14];
-      v38 = &LdrpHashTable[2 * v14];
-      v37 = v15;
-      if ( v15 == v38 )
+      v39 = &LdrpHashTable[2 * v14];
+      v38 = v15;
+      if ( v15 == v39 )
         goto LABEL_66;
       v16 = &LdrpHashTable[2 * v14];
       while ( 1 )
       {
-        v17 = v15 - 15;
-        v39[0] = v15 - 15;
-        if ( v10 != v15[21] || (v35 & 8) != 0 && (v17[13] & 1) == 0 || (v17[13] & 0x10000000) != 0 )
+        v17 = (int)(v15 - 15);
+        v40[0] = (int)(v15 - 15);
+        if ( v10 != v15[21]
+          || (v36 & 8) != 0 && (*(_BYTE *)(v17 + 52) & 1) == 0
+          || (*(_DWORD *)(v17 + 52) & 0x10000000) != 0 )
+        {
           goto LABEL_65;
-        if ( (unsigned __int16)v45 != *((unsigned __int16 *)v17 + 22) )
+        }
+        if ( SystemPath.Length != *(unsigned __int16 *)(v17 + 44) )
           goto LABEL_100;
-        v18 = v46;
-        v42[0] = (char *)v46 + (unsigned __int16)v45;
-        if ( (unsigned int)v46 >= v42[0] )
+        v18 = SystemPath.Buffer;
+        *(_DWORD *)&DestinationString.Length = (char *)SystemPath.Buffer + SystemPath.Length;
+        if ( SystemPath.Buffer >= (wchar_t *)*(_DWORD *)&DestinationString.Length )
         {
 LABEL_29:
-          v22 = (_DWORD *)v17[20];
+          v22 = *(_DWORD **)(v17 + 80);
           if ( v22[3] != -1 && (*(_BYTE *)(*v22 - 32) & 0x20) == 0 )
-            _InterlockedIncrement(v17 + 39);
-          v23 = v17[20];
+            _InterlockedIncrement((volatile signed __int32 *)(v17 + 156));
+          v23 = *(_DWORD *)(v17 + 80);
           LoadedDllByName = 0;
-          v32 = v17;
-          v36 = *(_DWORD *)(v23 + 32);
+          BaseAddress = (PVOID)v17;
+          v37 = *(_DWORD *)(v23 + 32);
 LABEL_31:
           RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
           if ( RtlGetCurrentServiceSessionId() )
@@ -197,24 +208,24 @@ LABEL_31:
           {
             v30 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
             if ( (*v30 & 0x20) != 0 )
-              LdrpLogEtwEvent(0, LoadedDllByName >= 0 ? 0 : 3, &v45, 0);
+              LdrpLogEtwEvent(0, LoadedDllByName >= 0 ? 0 : 3, &SystemPath, 0);
           }
-          v6 = a1;
+          v6 = Flags;
           goto LABEL_35;
         }
-        v19 = v17[12] - (_DWORD)v46;
-        v43 = v19;
+        v19 = *(_DWORD *)(v17 + 48) - (unsigned int)SystemPath.Buffer;
+        v44 = v19;
         while ( 1 )
         {
-          v20 = *(unsigned __int16 *)((char *)v18 + v19);
+          v20 = *(wchar_t *)((char *)v18 + v19);
           v21 = *v18;
-          v40 = v20;
+          v41 = v20;
           if ( (_WORD)v21 != (_WORD)v20 )
             break;
 LABEL_27:
-          if ( (unsigned int)++v18 >= v42[0] )
+          if ( (unsigned int)++v18 >= *(_DWORD *)&DestinationString.Length )
           {
-            v17 = (int *)v39[0];
+            v17 = v40[0];
             goto LABEL_29;
           }
         }
@@ -229,7 +240,7 @@ LABEL_54:
           }
           if ( Nls844UnicodeUpcaseTable && (unsigned __int16)v21 >= 0xC0u )
           {
-            LOWORD(v20) = v40;
+            LOWORD(v20) = v41;
             v25 = v21
                 + *(_WORD *)(Nls844UnicodeUpcaseTable
                            + 2
@@ -252,7 +263,7 @@ LABEL_56:
             v26 = v20;
             goto LABEL_57;
           }
-          v26 = v40
+          v26 = v41
               + *(_WORD *)(Nls844UnicodeUpcaseTable
                          + 2
                          * ((v20 & 0xF)
@@ -268,15 +279,15 @@ LABEL_56:
 LABEL_57:
         if ( (_WORD)v21 == v26 )
         {
-          v19 = v43;
+          v19 = v44;
           goto LABEL_27;
         }
-        v15 = v37;
+        v15 = v38;
 LABEL_100:
-        v16 = v38;
+        v16 = v39;
 LABEL_65:
         v15 = (int *)*v15;
-        v37 = v15;
+        v38 = v15;
         if ( v15 == v16 )
         {
 LABEL_66:
@@ -285,36 +296,36 @@ LABEL_66:
         }
       }
     }
-    v28 = v35 & 0x200;
-    if ( (v35 & 0x200) != 0 )
+    v28 = v36 & 0x200;
+    if ( (v36 & 0x200) != 0 )
     {
-      LoadedDllByName = LdrpFindLoadedDllByName(v35, &v32, &v36);
+      LoadedDllByName = LdrpFindLoadedDllByName(v36, &BaseAddress, &v37);
       if ( LoadedDllByName >= 0 )
         goto LABEL_35;
-      v9 = v35;
+      v9 = v36;
     }
-    v48 = 0x1000000;
-    v49 = v50;
-    v50[0] = 0;
-    v39[0] = 0;
-    v39[1] = 0;
+    v49 = 0x1000000;
+    BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v51;
+    v51[0] = 0;
+    v40[0] = 0;
+    v40[1] = 0;
     if ( v28 )
-      v29 = LdrpResolveDllName(v42, v39, v9);
+      v29 = LdrpResolveDllName(&DestinationString, (int)v40, v9);
     else
-      v29 = LdrpSearchPath(0, 0, &v48, v42, v39, 0, 0);
+      v29 = LdrpSearchPath(&SystemPath, Path, 0, 0, &v49, &DestinationString, v40, 0, 0);
     LoadedDllByName = v29;
     if ( v29 >= 0 )
     {
-      LoadedDllByName = LdrpFindLoadedDllByName(v35, &v32, &v36);
+      LoadedDllByName = LdrpFindLoadedDllByName(v36, &BaseAddress, &v37);
       if ( LoadedDllByName == -1073741515 )
-        LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v36);
+        LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v49, &BaseAddress, &v37);
     }
-    LdrpFreeUnicodeString(v39);
-    if ( v50 != v49 )
-      RtlDeleteBoundaryDescriptor((int)v49);
-    v48 = 0x1000000;
-    v49 = v50;
-    v50[0] = 0;
+    LdrpFreeUnicodeString(v40);
+    if ( v51 != (_WORD *)BoundaryDescriptor )
+      RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
+    v49 = 0x1000000;
+    BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v51;
+    v51[0] = 0;
 LABEL_35:
     if ( (ShowSnaps & 9) != 0 )
       LdrpLogDbgPrint(
@@ -324,50 +335,50 @@ LABEL_35:
         4,
         "Status: 0x%08lx\n",
         LoadedDllByName);
-    if ( LoadedDllByName >= 0 && v36 < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
+    if ( LoadedDllByName >= 0 && v37 < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
     {
-      LdrpDereferenceModule(v32);
-      v32 = 0;
+      LdrpDereferenceModule(BaseAddress);
+      BaseAddress = 0;
       LdrpDrainWorkQueue(0);
-      LoadedDllByName = LdrpFindLoadedDllInternal(&v32, &v36, v35);
+      LoadedDllByName = LdrpFindLoadedDllInternal(&BaseAddress, &v37, v36);
       LdrpDropLastInProgressCount();
-      if ( LoadedDllByName >= 0 && v36 != 9 )
+      if ( LoadedDllByName >= 0 && v37 != 9 )
       {
-        LdrpDereferenceModule(v32);
-        v32 = 0;
+        LdrpDereferenceModule(BaseAddress);
+        BaseAddress = 0;
         LoadedDllByName = -1073741515;
       }
     }
-    v7 = v34;
+    v7 = v35;
   }
-  if ( v47 != v46 )
-    RtlDeleteBoundaryDescriptor((int)v46);
-  v45 = 0x1000000;
-  v46 = v47;
-  v47[0] = 0;
-  if ( v33 )
-    RtlWow64EnableFsRedirectionEx(v41, &v41);
+  if ( v48 != SystemPath.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)SystemPath.Buffer);
+  *(_DWORD *)&SystemPath.Length = 0x1000000;
+  SystemPath.Buffer = v48;
+  v48[0] = 0;
+  if ( v34 )
+    RtlWow64EnableFsRedirectionEx(OldFsRedirectionLevel, &OldFsRedirectionLevel);
   if ( LoadedDllByName >= 0 )
   {
     if ( (v6 & 2) != 0 )
     {
-      Count = LdrpPinModule(v32);
+      Count = LdrpPinModule(BaseAddress);
     }
     else
     {
       if ( (v6 & 1) != 0 )
         goto LABEL_47;
-      Count = LdrpIncrementModuleLoadCount(v32);
+      Count = LdrpIncrementModuleLoadCount(BaseAddress);
     }
     LoadedDllByName = Count;
 LABEL_47:
     if ( LoadedDllByName >= 0 && v7 )
-      *v7 = v32[6];
-    LdrpDereferenceModule(v32);
+      *v7 = (PVOID)*((_DWORD *)BaseAddress + 6);
+    LdrpDereferenceModule(BaseAddress);
   }
 LABEL_60:
-  if ( LOBYTE(v44[19]) )
-    RtlReleasePath(v44[0]);
+  if ( v46 )
+    RtlReleasePath(Path[0]);
   if ( (ShowSnaps & 9) != 0 )
     LdrpLogDbgPrint("minkernel\\ntdll\\ldrapi.c", 894, "LdrGetDllHandleEx", 4, "Status: 0x%08lx\n", LoadedDllByName);
   return LoadedDllByName;

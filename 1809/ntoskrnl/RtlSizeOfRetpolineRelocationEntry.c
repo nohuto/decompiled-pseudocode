@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSizeOfRetpolineRelocationEntry @ 0x1402F7458
+ * XREFs of RtlSizeOfRetpolineRelocationEntry @ 0x1402F7648
  * Callers:
- *     RtlCreateRetpolineRelocationInformation @ 0x1402F6DC8 (RtlCreateRetpolineRelocationInformation.c)
- *     RtlValidateRetpolineRelocation @ 0x1402F7480 (RtlValidateRetpolineRelocation.c)
- *     RtlpCopyRetpolineRelocationBlockEntryArray @ 0x1402F7D1C (RtlpCopyRetpolineRelocationBlockEntryArray.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x1402F6FB8 (RtlCreateRetpolineRelocationInformation.c)
+ *     RtlValidateRetpolineRelocation @ 0x1402F7670 (RtlValidateRetpolineRelocation.c)
+ *     RtlpCopyRetpolineRelocationBlockEntryArray @ 0x1402F7F0C (RtlpCopyRetpolineRelocationBlockEntryArray.c)
  * Callees:
  *     <none>
  */

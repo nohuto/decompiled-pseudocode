@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAppendValue @ 0x140C180FC
+ * XREFs of CmpAppendValue @ 0x140C1A0FC
  * Callers:
- *     CmpParseInfBuffer @ 0x140C185C4 (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x140C1A5C4 (CmpParseInfBuffer.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char __fastcall CmpAppendValue(__int64 a1, __int64 a2, char a3)
 {
-  ULONG_PTR Pool2; // rax
-  ULONG_PTR *v7; // rcx
+  __int64 Pool2; // rax
+  __int64 *v7; // rcx
 
   if ( !*(_QWORD *)(a1 + 16) )
     return 0;
@@ -21,7 +21,7 @@ char __fastcall CmpAppendValue(__int64 a1, __int64 a2, char a3)
   *(_QWORD *)Pool2 = 0LL;
   *(_QWORD *)(Pool2 + 8) = a2;
   *(_BYTE *)(Pool2 + 16) = a3;
-  v7 = *(ULONG_PTR **)(a1 + 24);
+  v7 = *(__int64 **)(a1 + 24);
   if ( v7 )
     *v7 = Pool2;
   else

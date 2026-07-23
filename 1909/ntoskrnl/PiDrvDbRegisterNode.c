@@ -31,12 +31,12 @@ __int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2)
   int v12; // esi
   __int64 v13; // rcx
   wchar_t *v15; // rdi
-  char *UnicodeSubstring; // rax
+  PWCHAR UnicodeSubstring; // rax
   unsigned __int16 i; // cx
   int v18; // [rsp+28h] [rbp-58h]
   UNICODE_STRING String2; // [rsp+50h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-20h] BYREF
-  UNICODE_STRING v21; // [rsp+70h] [rbp-10h] BYREF
+  UNICODE_STRING SearchString; // [rsp+70h] [rbp-10h] BYREF
   PVOID P; // [rsp+C0h] [rbp+40h] BYREF
 
   P = 0LL;
@@ -44,8 +44,8 @@ __int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2)
   String2.Buffer = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
-  *(_QWORD *)&v21.Length = 0LL;
-  v21.Buffer = 0LL;
+  *(_QWORD *)&SearchString.Length = 0LL;
+  SearchString.Buffer = 0LL;
   PoolWithTag = 0LL;
   v5 = 0;
   RtlInitUnicodeString(&DestinationString, 0LL);
@@ -97,8 +97,8 @@ LABEL_8:
   {
     v15 = (wchar_t *)*((_QWORD *)v7 + 7);
     String2.Buffer = v15;
-    RtlInitUnicodeString(&v21, L"\\System32\\config\\");
-    UnicodeSubstring = RtlFindUnicodeSubstring((unsigned __int16 *)v7 + 24, (__int16 *)&v21, 1);
+    RtlInitUnicodeString(&SearchString, L"\\System32\\config\\");
+    UnicodeSubstring = RtlFindUnicodeSubstring((PUNICODE_STRING)v7 + 3, &SearchString, 1u);
     if ( UnicodeSubstring )
     {
       i = 2 * ((__int64)(unsigned int)((_DWORD)UnicodeSubstring - *((_DWORD *)v7 + 14)) >> 1);

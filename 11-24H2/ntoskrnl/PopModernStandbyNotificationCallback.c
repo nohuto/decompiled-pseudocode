@@ -1,12 +1,12 @@
 /*
- * XREFs of PopModernStandbyNotificationCallback @ 0x14075E9D0
+ * XREFs of PopModernStandbyNotificationCallback @ 0x14075D970
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     PopDiagTraceModernStandbyStateNotification @ 0x1407568E4 (PopDiagTraceModernStandbyStateNotification.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceModernStandbyStateNotification @ 0x140754D64 (PopDiagTraceModernStandbyStateNotification.c)
  */
 
 __int64 __fastcall PopModernStandbyNotificationCallback(
@@ -22,15 +22,15 @@ __int64 __fastcall PopModernStandbyNotificationCallback(
   int v11; // r12d
   int v12; // eax
   bool v13; // di
-  int v15; // [rsp+40h] [rbp-38h] BYREF
+  int Buffer; // [rsp+40h] [rbp-38h] BYREF
 
   v4 = 0;
-  v15 = 0;
+  Buffer = 0;
   v6 = 0;
   updated = 0;
   LOBYTE(v10) = -1;
-  PopAcquireRwLockExclusive(&PopModernStandbyStateNotify);
-  v11 = dword_140F07550;
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopModernStandbyStateNotify);
+  v11 = dword_140F07850;
   if ( *(_OWORD *)&GUID_PDC_IDLE_RESILIENCY_ENGAGED == *SettingGuid && ValueLength == 4 && Value )
   {
     v12 = 3;
@@ -53,7 +53,7 @@ LABEL_10:
     && Value )
   {
     v10 = *Value;
-    dword_140F07554 = *Value;
+    dword_140F07854 = *Value;
   }
   else
   {
@@ -66,26 +66,26 @@ LABEL_10:
       goto LABEL_32;
     }
     v10 = *Value;
-    dword_140F07558 = *Value;
+    dword_140F07858 = *Value;
   }
-  if ( !dword_140F07554 && dword_140F07558 == 2 )
+  if ( !dword_140F07854 && dword_140F07858 == 2 )
     v6 = 1;
   v12 = 1;
 LABEL_25:
   if ( v6 )
-    v13 = v12 > dword_140F07550;
+    v13 = v12 > dword_140F07850;
   else
-    v13 = --v12 < dword_140F07550;
+    v13 = --v12 < dword_140F07850;
   if ( v13 )
   {
-    v15 = 0;
-    dword_140F07550 = v12;
-    BYTE1(v15) = v12;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_MODERN_STANDBY_STATE_NOTIFICATION, (__int64)&v15);
+    Buffer = 0;
+    dword_140F07850 = v12;
+    BYTE1(Buffer) = v12;
+    updated = ZwUpdateWnfStateData(&WNF_PO_MODERN_STANDBY_STATE_NOTIFICATION, &Buffer, 4u, 0LL, 0LL, 0, 0);
   }
   v4 = v13;
 LABEL_32:
-  PopDiagTraceModernStandbyStateNotification(v11, dword_140F07550, v4, v6, (__int64)SettingGuid, v10);
-  PopReleaseRwLock((signed __int64 *)&PopModernStandbyStateNotify);
+  PopDiagTraceModernStandbyStateNotification(v11, dword_140F07850, v4, v6, (__int64)SettingGuid, v10);
+  PopReleaseRwLock(&PopModernStandbyStateNotify);
   return updated;
 }

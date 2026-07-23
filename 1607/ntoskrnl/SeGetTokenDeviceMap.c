@@ -1,19 +1,19 @@
 /*
- * XREFs of SeGetTokenDeviceMap @ 0x1404CABA0
+ * XREFs of SeGetTokenDeviceMap @ 0x1404885C0
  * Callers:
- *     ObpReferenceDeviceMap @ 0x140421DE0 (ObpReferenceDeviceMap.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     ObSetCurrentProcessDeviceMap @ 0x1404CAA3C (ObSetCurrentProcessDeviceMap.c)
+ *     ObpReferenceDeviceMap @ 0x140420CA0 (ObpReferenceDeviceMap.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     ObSetCurrentProcessDeviceMap @ 0x14048845C (ObSetCurrentProcessDeviceMap.c)
  * Callees:
- *     PsGetServerSiloServiceSessionId @ 0x140007F34 (PsGetServerSiloServiceSessionId.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x14015B000 (ZwCreateDirectoryObject.c)
- *     ZwCreateSymbolicLinkObject @ 0x14015B320 (ZwCreateSymbolicLinkObject.c)
- *     ObfDereferenceDeviceMap @ 0x140422458 (ObfDereferenceDeviceMap.c)
- *     ObpSetDeviceMap @ 0x1404E9E58 (ObpSetDeviceMap.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1400860B0 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x14015B570 (ZwCreateDirectoryObject.c)
+ *     ZwCreateSymbolicLinkObject @ 0x14015B890 (ZwCreateSymbolicLinkObject.c)
+ *     ObfDereferenceDeviceMap @ 0x140421318 (ObfDereferenceDeviceMap.c)
+ *     ObpSetDeviceMap @ 0x1404CBF4C (ObpSetDeviceMap.c)
  */
 
 NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
@@ -49,7 +49,7 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
   }
   else
   {
-    ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId();
+    ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(*(_QWORD *)(v4 + 160));
     v10 = *(_DWORD *)(a1 + 24);
     *(_DWORD *)v9 = *(_DWORD *)(a1 + 28);
     swprintf_s(Dst, 0x40uLL, L"\\Sessions\\%d\\DosDevices\\%08x-%08x", ServerSiloServiceSessionId, *(_DWORD *)v9, v10);

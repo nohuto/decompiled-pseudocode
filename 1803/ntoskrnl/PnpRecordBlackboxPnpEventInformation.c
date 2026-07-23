@@ -61,7 +61,7 @@ void __fastcall PnpRecordBlackboxPnpEventInformation(__int64 a1, int a2, __int64
     LODWORD(InputBuffer[3]) = 2;
     InputBuffer[0] = PoolWithTag;
     InputBuffer[1] = v5 + v11;
-    NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
     ExFreePoolWithTag(PoolWithTag, 0x4B706E50u);
   }
 }

@@ -1,11 +1,11 @@
 /*
  * XREFs of IoCreateSymbolicLink @ 0x1406C4C40
  * Callers:
- *     DifIoCreateSymbolicLinkWrapper @ 0x14060E310 (DifIoCreateSymbolicLinkWrapper.c)
- *     IopCreateArcName @ 0x14080F068 (IopCreateArcName.c)
- *     IopCreateArcNamesCd @ 0x140B0E310 (IopCreateArcNamesCd.c)
- *     WmipDriverEntry @ 0x140B22C40 (WmipDriverEntry.c)
- *     RamdiskStart @ 0x140B550AC (RamdiskStart.c)
+ *     sub_14060E310 @ 0x14060E310 (sub_14060E310.c)
+ *     sub_14080F068 @ 0x14080F068 (sub_14080F068.c)
+ *     sub_140B0E310 @ 0x140B0E310 (sub_140B0E310.c)
+ *     sub_140B22C40 @ 0x140B22C40 (sub_140B22C40.c)
+ *     sub_140B550AC @ 0x140B550AC (sub_140B550AC.c)
  * Callees:
  *     IoCreateSymbolicLink2 @ 0x1406C4C80 (IoCreateSymbolicLink2.c)
  */

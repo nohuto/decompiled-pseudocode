@@ -1,35 +1,35 @@
 /*
- * XREFs of MiReloadBootLoadedDrivers @ 0x1409B7C6C
+ * XREFs of MiReloadBootLoadedDrivers @ 0x1409B8C6C
  * Callers:
- *     MiInitializeDriverImages @ 0x1409B6BDC (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x1409B7BDC (MiInitializeDriverImages.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     DbgLoadImageSymbolsUnicode @ 0x1400F4C0C (DbgLoadImageSymbolsUnicode.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14016C7B4 (DbgUnLoadImageSymbolsUnicode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
- *     MiProcessLoadConfigForDriver @ 0x140681E48 (MiProcessLoadConfigForDriver.c)
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
- *     VslReserveProtectedPages @ 0x140818D5C (VslReserveProtectedPages.c)
- *     MiImportOptimizationVetosDriverRelocation @ 0x1409AAEA0 (MiImportOptimizationVetosDriverRelocation.c)
- *     MiInitializeSystemImagePage @ 0x1409B8190 (MiInitializeSystemImagePage.c)
- *     MiRelocateBootImage @ 0x1409B82CC (MiRelocateBootImage.c)
- *     MiFreeBootDriverPage @ 0x1409B83FC (MiFreeBootDriverPage.c)
- *     MiGetNewAddressForBootImage @ 0x1409B85F4 (MiGetNewAddressForBootImage.c)
- *     MiTradeBootImagePage @ 0x1409B86AC (MiTradeBootImagePage.c)
- *     MiApplyRetpolineToBootDrivers @ 0x1409B88C4 (MiApplyRetpolineToBootDrivers.c)
- *     MiInitializeDriverPtes @ 0x1409B8AAC (MiInitializeDriverPtes.c)
- *     MiApplyImportOptimizationToBootDrivers @ 0x1409F6F40 (MiApplyImportOptimizationToBootDrivers.c)
- *     MiReleaseNewAddressForBootImage @ 0x1409F774C (MiReleaseNewAddressForBootImage.c)
- *     MiReturnDriverLoadPages @ 0x1409F77A0 (MiReturnDriverLoadPages.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x1400F4C8C (DbgLoadImageSymbolsUnicode.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14016C8B4 (DbgUnLoadImageSymbolsUnicode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     MiAllocateDriverPage @ 0x140654BD4 (MiAllocateDriverPage.c)
+ *     MiProcessLoadConfigForDriver @ 0x140683008 (MiProcessLoadConfigForDriver.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
+ *     VslReserveProtectedPages @ 0x140819F5C (VslReserveProtectedPages.c)
+ *     MiImportOptimizationVetosDriverRelocation @ 0x1409ABEA0 (MiImportOptimizationVetosDriverRelocation.c)
+ *     MiInitializeSystemImagePage @ 0x1409B9190 (MiInitializeSystemImagePage.c)
+ *     MiRelocateBootImage @ 0x1409B92CC (MiRelocateBootImage.c)
+ *     MiFreeBootDriverPage @ 0x1409B93FC (MiFreeBootDriverPage.c)
+ *     MiGetNewAddressForBootImage @ 0x1409B95F4 (MiGetNewAddressForBootImage.c)
+ *     MiTradeBootImagePage @ 0x1409B96AC (MiTradeBootImagePage.c)
+ *     MiApplyRetpolineToBootDrivers @ 0x1409B98C4 (MiApplyRetpolineToBootDrivers.c)
+ *     MiInitializeDriverPtes @ 0x1409B9AAC (MiInitializeDriverPtes.c)
+ *     MiApplyImportOptimizationToBootDrivers @ 0x1409F7F40 (MiApplyImportOptimizationToBootDrivers.c)
+ *     MiReleaseNewAddressForBootImage @ 0x1409F874C (MiReleaseNewAddressForBootImage.c)
+ *     MiReturnDriverLoadPages @ 0x1409F87A0 (MiReturnDriverLoadPages.c)
  */
 
 __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
@@ -46,7 +46,7 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   unsigned __int64 v10; // rsi
   char v11; // bl
   PIMAGE_NT_HEADERS v12; // r14
-  __int64 v13; // rcx
+  PVOID v13; // rcx
   unsigned __int64 v14; // rdx
   unsigned __int64 NewAddressForBootImage; // r15
   unsigned int VirtualAddress; // ecx
@@ -91,9 +91,9 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   MmAcquireLoadLock();
   v6 = (__int64 ***)(v1 + 16);
   v7 = *(_QWORD *)(v1 + 16);
-  v8 = dword_140438E34;
-  v29 = dword_140438E34;
-  v9 = ((unsigned int)dword_140438E74 >> 12) + ((dword_140438E74 & 0xFFF) != 0);
+  v8 = dword_140439EF4;
+  v29 = dword_140439EF4;
+  v9 = ((unsigned int)dword_140439F34 >> 12) + ((dword_140439F34 & 0xFFF) != 0);
   v37 = (__int64 ***)(v1 + 16);
   v30 = v9;
   if ( v7 == v1 + 16 )
@@ -103,7 +103,7 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
     v10 = *(_QWORD *)(v7 + 48);
     v11 = 0;
     v12 = RtlImageNtHeader((PVOID)v10);
-    v13 = *(_QWORD *)(v7 + 48);
+    v13 = *(PVOID *)(v7 + 48);
     v14 = ((unsigned __int64)*(unsigned int *)(v7 + 64) + 4095) >> 12;
     v34 = v12;
     v31 = v14;
@@ -140,7 +140,7 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
         v9 = v30;
       }
     }
-    if ( v10 != PsNtosImageBase && (PVOID)v10 != PsHalImageBase )
+    if ( (PVOID)v10 != PsNtosImageBase && (PVOID)v10 != PsHalImageBase )
     {
       v11 |= 4u;
       NewAddressForBootImage = 0LL;

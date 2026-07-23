@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoRegisterPlugPlayNotification @ 0x140931EE0
+ * XREFs of VerifierIoRegisterPlugPlayNotification @ 0x140932EE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierIoRegisterPlugPlayNotification(__int64 a1, __int64 a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAddSecureEntry @ 0x1405F3490
+ * XREFs of MiAddSecureEntry @ 0x1405F4490
  * Callers:
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiSecureVad @ 0x1405F35BC (MiSecureVad.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiAllocateVad @ 0x14067A2C4 (MiAllocateVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiCloneNoChange @ 0x14084F3BC (MiCloneNoChange.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiSecureVad @ 0x1405F45BC (MiSecureVad.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140619664 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiAllocateVad @ 0x14067B484 (MiAllocateVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140697060 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiCloneNoChange @ 0x14085061C (MiCloneNoChange.c)
  * Callees:
- *     MiSetVadFlags @ 0x1400879E0 (MiSetVadFlags.c)
- *     MiInsertVadEvent @ 0x140087B30 (MiInsertVadEvent.c)
- *     MiLocateExclusiveSecure @ 0x14012AD74 (MiLocateExclusiveSecure.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     MiSetVadFlags @ 0x1400879D0 (MiSetVadFlags.c)
+ *     MiInsertVadEvent @ 0x140087B20 (MiInsertVadEvent.c)
+ *     MiLocateExclusiveSecure @ 0x14012AE44 (MiLocateExclusiveSecure.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiAddSecureEntry(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)

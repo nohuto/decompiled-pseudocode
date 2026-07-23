@@ -9,27 +9,33 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-int __stdcall RtlSidDominates(unsigned __int8 *Buf1, char *a2, char *a3)
+NTSTATUS __cdecl RtlSidDominates(PSID Sid1, PSID Sid2, PBOOLEAN Dominates)
 {
-  char v3; // bl
+  BOOLEAN v3; // bl
   unsigned __int8 v5; // al
   unsigned int v6; // ecx
   unsigned __int8 v7; // al
+  size_t v8; // [esp-4h] [ebp-20h]
+  size_t v9; // [esp-4h] [ebp-20h]
   int Buf2; // [esp+10h] [ebp-Ch] BYREF
-  __int16 v9; // [esp+14h] [ebp-8h]
+  __int16 v11; // [esp+14h] [ebp-8h]
 
   v3 = 0;
-  *a3 = 0;
+  *Dominates = 0;
+  LODWORD(v8) = 6;
   Buf2 = 0;
-  v9 = 4096;
-  if ( memcmp(Buf1 + 2, &Buf2, 6u) || memcmp(a2 + 2, &Buf2, 6u) )
+  v11 = 4096;
+  if ( memcmp((char *)Sid1 + 2, &Buf2, v8) )
     return -1073741811;
-  if ( RtlEqualSid(Buf1, a2)
-    || ((v5 = Buf1[1]) == 0 ? (v6 = 0) : (v6 = *(_DWORD *)&Buf1[4 * v5 + 4]),
-        (v7 = a2[1]) == 0 || v6 >= *(_DWORD *)&a2[4 * v7 + 4]) )
+  LODWORD(v9) = 6;
+  if ( memcmp((char *)Sid2 + 2, &Buf2, v9) )
+    return -1073741811;
+  if ( RtlEqualSid(Sid1, Sid2)
+    || ((v5 = *((_BYTE *)Sid1 + 1)) == 0 ? (v6 = 0) : (v6 = *((_DWORD *)Sid1 + v5 + 1)),
+        (v7 = *((_BYTE *)Sid2 + 1)) == 0 || v6 >= *((_DWORD *)Sid2 + v7 + 1)) )
   {
     v3 = 1;
   }
-  *a3 = v3;
+  *Dominates = v3;
   return 0;
 }

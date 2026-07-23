@@ -10,12 +10,12 @@
 
 void __fastcall RtlpHpHeapUnlock(int a1, int a2, int a3)
 {
-  volatile signed __int32 *v4; // ecx
+  _RTL_SRWLOCK *v4; // ecx
   int v6; // eax
 
   if ( (*(_BYTE *)(a1 + 12) & 1) == 0 )
   {
-    v4 = (volatile signed __int32 *)(a1 + 64);
+    v4 = (_RTL_SRWLOCK *)(a1 + 64);
     if ( a2 )
     {
       *(_DWORD *)(a1 + 176) = NtCurrentTeb()->ClientId.UniqueThread;
@@ -24,7 +24,7 @@ void __fastcall RtlpHpHeapUnlock(int a1, int a2, int a3)
       *(_DWORD *)(a1 + 512) = 1;
       *(_DWORD *)(a1 + 320) = 1;
       *(_DWORD *)(a1 + 448) = 1;
-      *v4 = 1;
+      v4->Value = 1;
     }
     if ( (*(_WORD *)(a1 + 172))-- == 1 )
     {
@@ -36,18 +36,18 @@ void __fastcall RtlpHpHeapUnlock(int a1, int a2, int a3)
         v6 = *(_DWORD *)(a1 + 12);
         if ( (v6 & 1) == 0 )
         {
-          RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 320));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 320));
           v6 = *(_DWORD *)(a1 + 12);
           if ( (v6 & 1) == 0 )
           {
-            RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 448));
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 448));
             v6 = *(_DWORD *)(a1 + 12);
           }
         }
       }
       if ( (v6 & 1) == 0 )
-        RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 512));
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 772));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 512));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 772));
     }
   }
 }

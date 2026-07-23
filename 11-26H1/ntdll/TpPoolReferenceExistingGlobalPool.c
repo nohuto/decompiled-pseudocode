@@ -1,12 +1,12 @@
 /*
- * XREFs of TpPoolReferenceExistingGlobalPool @ 0x18006745C
+ * XREFs of TpPoolReferenceExistingGlobalPool @ 0x1800878AC
  * Callers:
- *     TpSetDefaultPoolMaxThreads @ 0x18004F310 (TpSetDefaultPoolMaxThreads.c)
- *     TpSetDefaultPoolStackInformation @ 0x180065C20 (TpSetDefaultPoolStackInformation.c)
- *     RtlpTpWorkCallback @ 0x180066C90 (RtlpTpWorkCallback.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180039890 (TpSetDefaultPoolMaxThreads.c)
+ *     TpSetDefaultPoolStackInformation @ 0x180086070 (TpSetDefaultPoolStackInformation.c)
+ *     RtlpTpWorkCallback @ 0x1800870E0 (RtlpTpWorkCallback.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
  */
 
 __int64 TpPoolReferenceExistingGlobalPool()

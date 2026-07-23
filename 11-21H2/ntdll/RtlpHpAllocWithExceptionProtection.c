@@ -8,10 +8,10 @@
  *     RtlpHeapExceptionFilter @ 0x18011F538 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, unsigned __int64 a2, __int64 a3)
+unsigned __int64 __fastcall RtlpHpAllocWithExceptionProtection(void *a1, unsigned __int64 a2, int a3)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpTagAllocateHeap(a1, a2, a3);
+    return RtlpHpTagAllocateHeap(a1);
   else
-    return RtlpAllocateHeapInternal(a1, a2, a3, 0);
+    return RtlpAllocateHeapInternal((unsigned __int16 *)a1, a2, a3, 0);
 }

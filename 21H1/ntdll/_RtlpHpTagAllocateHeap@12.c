@@ -9,17 +9,17 @@
  *     _RtlpHpTaggableHeap@4 @ 0x4B37072D (_RtlpHpTaggableHeap@4.c)
  */
 
-int __fastcall RtlpHpTagAllocateHeap(_DWORD *a1, unsigned int a2, int a3)
+char *__fastcall RtlpHpTagAllocateHeap(_DWORD *a1, unsigned int a2, int a3)
 {
   int Tag; // edi
-  int HeapInternal; // edx
+  char *HeapInternal; // edx
   int savedregs; // [esp+Ch] [ebp+0h] BYREF
 
   if ( RtlpHpTaggableHeap() )
     Tag = (unsigned __int16)RtlpHpTagContextGetTag();
   else
     Tag = 0;
-  HeapInternal = RtlpAllocateHeapInternal(a2, a1, (int)&savedregs, a3, Tag);
+  HeapInternal = RtlpAllocateHeapInternal(a1, a2, (int)&savedregs, Tag, a3, Tag);
   if ( !HeapInternal && (_WORD)Tag )
     _InterlockedExchangeAdd(
       (volatile signed __int32 *)(*(_DWORD *)(dword_4B3A46B0 + 4 * (unsigned __int16)Tag - 4) + 24),

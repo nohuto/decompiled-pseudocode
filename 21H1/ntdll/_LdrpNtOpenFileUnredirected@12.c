@@ -19,7 +19,7 @@ NTSTATUS __fastcall LdrpNtOpenFileUnredirected(PHANDLE FileHandle, POBJECT_ATTRI
   int v14; // ecx
   struct _TEB *v15; // eax
   int v16; // ecx
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+8h] [ebp-8h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+8h] [ebp-8h] BYREF
 
   v5 = NtOpenFile(FileHandle, 0x100001u, ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
   if ( (a3 & 3) != 0 )

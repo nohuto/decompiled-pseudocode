@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwQuerySystemEnvironmentValueEx @ 0x1401BACB0
+ * XREFs of ZwQuerySystemEnvironmentValueEx @ 0x1401BAE10
  * Callers:
- *     SepRmVerifyLsaProtectionLevel @ 0x14074067C (SepRmVerifyLsaProtectionLevel.c)
- *     BiDeleteEfiVariable @ 0x1408F335C (BiDeleteEfiVariable.c)
+ *     SepRmVerifyLsaProtectionLevel @ 0x14074186C (SepRmVerifyLsaProtectionLevel.c)
+ *     BiDeleteEfiVariable @ 0x1408F461C (BiDeleteEfiVariable.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwQuerySystemEnvironmentValueEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(VariableName, VendorGuid, Value);
+  return KiServiceInternal(VariableName);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiPcToFileHeader @ 0x1401D56A0
+ * XREFs of KiPcToFileHeader @ 0x1401D54CC
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
- *     KiDumpParameterImages @ 0x1401D5490 (KiDumpParameterImages.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
+ *     KiDumpParameterImages @ 0x1401D52BC (KiDumpParameterImages.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
  */
 
 PVOID __fastcall KiPcToFileHeader(unsigned __int64 a1, PVOID **a2, int a3, _BYTE *a4)

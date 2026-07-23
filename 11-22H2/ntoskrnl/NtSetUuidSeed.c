@@ -24,7 +24,7 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtSetUuidSeed(__int64 a1)
+NTSTATUS __cdecl NtSetUuidSeed(PCHAR Seed)
 {
   void *Pool2; // rax
   void *v3; // r15
@@ -43,7 +43,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   __int64 v16; // rbx
   char v18; // r14
   NTSTATUS AccessStatus; // [rsp+54h] [rbp-B4h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
   int v23; // [rsp+64h] [rbp-A4h]
   __int16 v24; // [rsp+68h] [rbp-A0h]
   ULONG v25; // [rsp+6Ch] [rbp-9Ch]
@@ -99,7 +99,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   AccessStatus = Acl;
   if ( Acl < 0 )
     RtlRaiseStatus(Acl);
-  v11 = RtlpAddKnownAce((__int64)v9, 2u, 0, 1, (unsigned __int8 *)v3, 0);
+  v11 = RtlpAddKnownAce(v9, 2u, 0, 1, (unsigned __int8 *)v3, 0);
   AccessStatus = v11;
   if ( v11 < 0 )
     RtlRaiseStatus(v11);
@@ -123,8 +123,8 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
           &GrantedAccess,
           &AccessStatus) )
     RtlRaiseStatus(-1073741790);
-  v23 = *(_DWORD *)a1;
-  v24 = *(_WORD *)(a1 + 4);
+  v23 = *(_DWORD *)Seed;
+  v24 = *((_WORD *)Seed + 2);
   AccessStatus = 0;
   if ( P )
     ExFreePoolWithTag(P, 0);
@@ -150,5 +150,5 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   SeReleaseSubjectContext(&SubjectSecurityContext);
-  return (unsigned int)AccessStatus;
+  return AccessStatus;
 }

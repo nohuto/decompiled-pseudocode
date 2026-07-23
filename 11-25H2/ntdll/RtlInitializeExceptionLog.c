@@ -7,11 +7,11 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-void *RtlInitializeExceptionLog()
+PVOID RtlInitializeExceptionLog()
 {
-  void *result; // rax
+  PVOID result; // rax
 
-  result = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x11620uLL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x11620uLL);
   RtlpExceptionLog2 = (__int64)result;
   if ( result )
   {

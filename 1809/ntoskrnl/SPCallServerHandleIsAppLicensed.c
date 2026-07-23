@@ -1,14 +1,14 @@
 /*
- * XREFs of SPCallServerHandleIsAppLicensed @ 0x140684F3C
+ * XREFs of SPCallServerHandleIsAppLicensed @ 0x1406860FC
  * Callers:
- *     sub_140685840 @ 0x140685840 (sub_140685840.c)
+ *     sub_140686A00 @ 0x140686A00 (sub_140686A00.c)
  * Callees:
- *     StringCbLengthW @ 0x1400FD0F0 (StringCbLengthW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     StringCbLengthW @ 0x1400FD170 (StringCbLengthW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleIsAppLicensed(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -425,8 +425,8 @@ LABEL_121:
 LABEL_124:
             if ( v12 < 0 )
               goto LABEL_173;
-            if ( qword_14096D388 )
-              v61 = ((__int64 (__fastcall *)(_QWORD, PVOID, PVOID, __int64, unsigned int, int, __int128 *))qword_14096D388)(
+            if ( qword_14096E388 )
+              v61 = ((__int64 (__fastcall *)(_QWORD, PVOID, PVOID, __int64, unsigned int, int, __int128 *))qword_14096E388)(
                       v94,
                       P,
                       v99,

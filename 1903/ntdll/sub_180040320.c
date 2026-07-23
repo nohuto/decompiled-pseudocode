@@ -62,7 +62,7 @@ __int64 __fastcall sub_180040320(__int64 a1, unsigned __int64 a2, int a3)
   }
   else
   {
-    v32 = sub_1800515E8(&unk_180166A60, 2 * ((a2 - qword_180166A58) >> 20));
+    v32 = sub_1800515E8(&qword_180166A60, 2 * ((a2 - qword_180166A58) >> 20));
     if ( !v32 || (v11 = v32 - 1, v11 == 2) )
     {
       v30 = sub_180083D40(a1, a2, v10, 0LL);

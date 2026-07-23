@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuInitializeDmarPageTable @ 0x140567B64
+ * XREFs of HalpIommuInitializeDmarPageTable @ 0x140565654
  * Callers:
- *     HalpIommuCreateDmarPageTable @ 0x14056788C (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuCreateDmarPageTable @ 0x14056537C (HalpIommuCreateDmarPageTable.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x1403ABF8C (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1403AC6DC (HalpIommuFlushPhysicalPtesFromCacheSize.c)
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x14039A69C (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14039AEE8 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpIommuInitializeDmarPageTable(
@@ -34,7 +34,6 @@ __int64 __fastcall HalpIommuInitializeDmarPageTable(
   unsigned int v21; // r12d
   __int64 v22; // r14
   void *v23; // rax
-  PHYSICAL_ADDRESS PhysicalAddress; // rax
 
   memset_0(a7, 0, 0x60uLL);
   if ( a1 )
@@ -112,12 +111,8 @@ LABEL_23:
       *(_QWORD *)(v22 + v17) = v23;
       if ( !v23 )
         break;
-      PhysicalAddress = MmGetPhysicalAddress(v23);
-      guard_dispatch_icall_no_overrides(
-        v17,
-        a3 - v18 - 1,
-        (PHYSICAL_ADDRESS)PhysicalAddress.QuadPart,
-        **((_QWORD **)a7 + 11));
+      MmGetPhysicalAddress(v23);
+      guard_dispatch_icall_no_overrides(v17, a3 - v18 - 1);
       HalpIommuFlushPhysicalPtesFromCacheSize(v17, (unsigned int)(1 << *((_DWORD *)a7 + 7)));
       v17 = *(_QWORD *)(v22 + v17);
       ++v20;

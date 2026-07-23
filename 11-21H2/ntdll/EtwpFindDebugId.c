@@ -9,7 +9,7 @@
 __int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4)
 {
   int v6; // ebx
-  int v8; // eax
+  NTSTATUS v8; // eax
   _DWORD *v9; // r8
   unsigned int v10; // r9d
   _DWORD *v11; // rcx
@@ -21,7 +21,7 @@ __int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, __int64 a2, _QWORD *a3, 
   v16 = HIDWORD(a2);
   v6 = 0;
   v15 = 0;
-  v8 = RtlpImageDirectoryEntryToDataEx(a1, 1, 6u, &v15, (__int64)&v14);
+  v8 = RtlpImageDirectoryEntryToDataEx(a1, 1, 6u, &v15, (PIMAGE_NT_HEADERS)&v14);
   v9 = v14;
   if ( v8 < 0 )
     v9 = 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpCopyUserPfnPrioRequest @ 0x1409336C0
+ * XREFs of PfpCopyUserPfnPrioRequest @ 0x1408F61E0
  * Callers:
- *     PfpPfnPrioRequest @ 0x1409334C4 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x1408F5FDC (PfpPfnPrioRequest.c)
  * Callees:
- *     MmGetHighestPhysicalPage @ 0x14046DA3C (MmGetHighestPhysicalPage.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmGetHighestPhysicalPage @ 0x1404684E4 (MmGetHighestPhysicalPage.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpCopyUserPfnPrioRequest(__int64 a1, int a2, int a3, _QWORD *a4, char a5, int a6)
@@ -34,7 +34,7 @@ LABEL_24:
     v9 = -1073741811;
     goto LABEL_21;
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, v12, 0x42506650u);
   v10 = (_QWORD *)Pool2;
   if ( Pool2 )
   {

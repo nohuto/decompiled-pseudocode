@@ -10,39 +10,37 @@
  *     ZwOpenProcessToken @ 0x18009CED0 (ZwOpenProcessToken.c)
  */
 
-__int64 __fastcall RtlAdjustPrivilege(unsigned int a1, bool a2, char a3, bool *a4)
+NTSTATUS __cdecl RtlAdjustPrivilege(ULONG Privilege, BOOLEAN Enable, BOOLEAN Client, PBOOLEAN WasEnabled)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v8; // edi
-  _QWORD v9[2]; // [rsp+30h] [rbp-40h] BYREF
-  int v10; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+4Ch] [rbp-24h]
-  int v12; // [rsp+54h] [rbp-1Ch]
-  int v13; // [rsp+58h] [rbp-18h]
-  int v14; // [rsp+64h] [rbp-Ch]
+  HANDLE TokenHandle[2]; // [rsp+30h] [rbp-40h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp-30h] BYREF
+  _TOKEN_PRIVILEGES NewState; // [rsp+48h] [rbp-28h] BYREF
+  _TOKEN_PRIVILEGES PreviousState; // [rsp+58h] [rbp-18h] BYREF
 
-  if ( a3 == 1 )
-    result = ZwOpenThreadToken(-2LL, 40LL, 0LL, v9);
+  if ( Client == 1 )
+    result = ZwOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, 0x28u, 0, TokenHandle);
   else
-    result = ZwOpenProcessToken(-1LL, 40LL, v9);
-  if ( (int)result >= 0 )
+    result = ZwOpenProcessToken((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0x28u, TokenHandle);
+  if ( result >= 0 )
   {
-    v9[1] = a1;
-    v11 = a1;
-    v10 = 1;
-    v12 = a2 ? 2 : 0;
-    v8 = ZwAdjustPrivilegesToken(v9[0], 0LL, &v10);
-    ZwClose(v9[0]);
+    TokenHandle[1] = (HANDLE)Privilege;
+    NewState.Privileges[0].Luid = (LUID)Privilege;
+    NewState.PrivilegeCount = 1;
+    NewState.Privileges[0].Attributes = Enable != 0 ? 2 : 0;
+    v8 = ZwAdjustPrivilegesToken(TokenHandle[0], 0, &NewState, 0x10u, &PreviousState, &ReturnLength);
+    ZwClose(TokenHandle[0]);
     if ( v8 == 262 )
       v8 = -1073741727;
     if ( v8 >= 0 )
     {
-      if ( v13 )
-        *a4 = (v14 & 2) != 0;
+      if ( PreviousState.PrivilegeCount )
+        *WasEnabled = (PreviousState.Privileges[0].Attributes & 2) != 0;
       else
-        *a4 = a2;
+        *WasEnabled = Enable;
     }
-    return (unsigned int)v8;
+    return v8;
   }
   return result;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of AstLogDeviceSDDLUpdated @ 0x1409A1FE8
+ * XREFs of AstLogDeviceSDDLUpdated @ 0x1408AE644
  * Callers:
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140496FD0 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObQuerySecurityObject @ 0x1409A1EC4 (ObQuerySecurityObject.c)
- *     AstIsRecording @ 0x1409A4060 (AstIsRecording.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140491960 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     AstIsRecording @ 0x1408AC9F0 (AstIsRecording.c)
+ *     ObQuerySecurityObject @ 0x1408AEA1C (ObQuerySecurityObject.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 void __fastcall AstLogDeviceSDDLUpdated(__int64 a1)
 {
-  __int64 v2; // rcx
+  int v2; // ecx
   WCHAR *v3; // rsi
   void *Pool3; // rbx
   char v5; // di
@@ -41,13 +41,13 @@ void __fastcall AstLogDeviceSDDLUpdated(__int64 a1)
 
   LODWORD(v7) = 0;
   DestinationString = 0LL;
-  if ( (unsigned __int8)AstIsRecording() )
+  if ( AstIsRecording() )
   {
     v3 = 0LL;
     SourceString = 0LL;
     Pool3 = 0LL;
     v5 = 1;
-    if ( (unsigned int)ObQuerySecurityObject(v2, -1, 0LL, 0, &v7) == -1073741789 )
+    if ( (unsigned int)ObQuerySecurityObject(v2, -1, 0, 0, (__int64)&v7) == -1073741789 )
     {
       v12 = 0;
       v11 = 0;
@@ -55,7 +55,7 @@ void __fastcall AstLogDeviceSDDLUpdated(__int64 a1)
       Pool3 = (void *)ExAllocatePool3(0x100uLL, 1);
       if ( Pool3 )
       {
-        if ( (int)ObQuerySecurityObject(a1, -1, (__int64)Pool3, v7, &v7) < 0 )
+        if ( (int)ObQuerySecurityObject(a1, -1, (_DWORD)Pool3, v7, (__int64)&v7) < 0 )
         {
           v6 = L"Query failed";
         }
@@ -98,7 +98,7 @@ void __fastcall AstLogDeviceSDDLUpdated(__int64 a1)
         v21 = 2;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06EF0,
-          (unsigned __int8 *)&word_14004637E,
+          (unsigned __int8 *)&word_14004677E,
           0LL,
           0LL,
           6u,

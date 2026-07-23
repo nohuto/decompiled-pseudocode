@@ -1,31 +1,31 @@
 /*
- * XREFs of MiCacheImageSymbols @ 0x140ABFD60
+ * XREFs of MiCacheImageSymbols @ 0x140ABAE40
  * Callers:
- *     MiDriverLoadSucceeded @ 0x1406F986C (MiDriverLoadSucceeded.c)
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
+ *     MiDriverLoadSucceeded @ 0x1406F74AC (MiDriverLoadSucceeded.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     DbgLoadImageSymbolsUnicode @ 0x1404A3FCC (DbgLoadImageSymbolsUnicode.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     RtlGetNtSystemRoot @ 0x140A0B910 (RtlGetNtSystemRoot.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x14049ED5C (DbgLoadImageSymbolsUnicode.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     RtlGetNtSystemRoot @ 0x140A0AB50 (RtlGetNtSystemRoot.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiCacheImageSymbols(__int64 a1, UNICODE_STRING *a2, __int64 a3)
 {
   __int64 *v6; // r14
   wchar_t *Pool; // rdi
-  char *NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   NTSTATUS v9; // eax
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-50h] BYREF
-  int v11; // [rsp+A8h] [rbp+20h] BYREF
+  ULONG v11; // [rsp+A8h] [rbp+20h] BYREF
 
   v6 = (__int64 *)(a1 + 48);
   *(_QWORD *)&DestinationString.Length = a1 + 48;
-  if ( RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 6u, &v11) )
+  if ( RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 6u, &v11) )
   {
     DestinationString = 0LL;
     Pool = (wchar_t *)MiAllocatePool(0x100uLL, 0x100uLL, 1850502477);
@@ -41,7 +41,7 @@ void __fastcall MiCacheImageSymbols(__int64 a1, UNICODE_STRING *a2, __int64 a3)
         DestinationString.Buffer = a2->Buffer + 11;
         DestinationString.Length -= 22;
         NtSystemRoot = RtlGetNtSystemRoot();
-        v9 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 4, &DestinationString);
+        v9 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 2, &DestinationString);
       }
       if ( v9 >= 0 )
       {

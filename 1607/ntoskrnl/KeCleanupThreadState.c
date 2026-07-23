@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCleanupThreadState @ 0x140088E78
+ * XREFs of KeCleanupThreadState @ 0x14010D068
  * Callers:
- *     PspThreadDelete @ 0x1404A37B8 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x14051BBB8 (PspThreadDelete.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)

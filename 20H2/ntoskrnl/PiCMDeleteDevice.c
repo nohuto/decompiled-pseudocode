@@ -54,7 +54,7 @@ __int64 __fastcall PiCMDeleteDevice(
   PCWSTR SourceString[2]; // [rsp+78h] [rbp-19h]
   __int64 v27; // [rsp+88h] [rbp-9h]
   UNICODE_STRING v28; // [rsp+90h] [rbp-1h] BYREF
-  UNICODE_STRING v29; // [rsp+A0h] [rbp+Fh] BYREF
+  UNICODE_STRING PnPControlData; // [rsp+A0h] [rbp+Fh] BYREF
   __int128 v30; // [rsp+B0h] [rbp+1Fh]
   __int64 v31; // [rsp+C0h] [rbp+2Fh]
 
@@ -69,7 +69,7 @@ __int64 __fastcall PiCMDeleteDevice(
   v25 = 0LL;
   v31 = 0LL;
   *(_OWORD *)SourceString = 0LL;
-  v29 = 0LL;
+  PnPControlData = 0LL;
   v30 = 0LL;
   v28 = 0LL;
   v9 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v25);
@@ -114,10 +114,10 @@ __int64 __fastcall PiCMDeleteDevice(
             PpDevNodeUnlockTree(3);
             if ( inited < 0 )
               goto LABEL_17;
-            if ( RtlInitUnicodeStringEx(&v29, v15) >= 0 )
+            if ( RtlInitUnicodeStringEx(&PnPControlData, v15) >= 0 )
             {
               *(_QWORD *)&v30 = 0x4000000000001LL;
-              ZwPlugPlayControl(14LL, (__int64)&v29);
+              ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
             }
           }
           else

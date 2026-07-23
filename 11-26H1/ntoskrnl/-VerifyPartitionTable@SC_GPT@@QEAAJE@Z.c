@@ -1,15 +1,15 @@
 /*
- * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14071A270
+ * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14071EF00
  * Callers:
- *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x14071B810 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
+ *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x1407204A0 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
  * Callees:
- *     crc32 @ 0x1404843B4 (crc32.c)
- *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z @ 0x140719DA8 (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140719E30 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14071B930 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140790B20 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
+ *     crc32 @ 0x14047DD24 (crc32.c)
+ *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z @ 0x14071EA38 (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14071EAC0 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1407205C0 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140793650 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
  */
 
 __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)

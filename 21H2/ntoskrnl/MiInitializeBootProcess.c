@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeBootProcess @ 0x140A57868
+ * XREFs of MiInitializeBootProcess @ 0x140A58868
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSetPageTablePfnBuddy @ 0x1402E5B84 (MiSetPageTablePfnBuddy.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSetPageTablePfnBuddy @ 0x140296ED4 (MiSetPageTablePfnBuddy.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406BFB24 (MmInitializeProcessAddressSpace.c)
  */
 
 __int64 MiInitializeBootProcess()
@@ -39,18 +39,18 @@ __int64 MiInitializeBootProcess()
   *(_QWORD *)&Process[1].IdealProcessor[14] = 450LL;
   v1 = (_QWORD *)(48 * ((MEMORY[0xFFFFF6FB7DBEDF68] >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
   *v1 = 0LL;
-  MiSetPageTablePfnBuddy((__int64)v1, (__int64)Process, 0LL);
+  MiSetPageTablePfnBuddy((__int64)v1, (__int64)Process, 0);
   _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x40000u);
   _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x800u);
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v2 = (unsigned __int64 **)qword_140C4DE30;
+  v2 = (unsigned __int64 **)qword_140C4DE70;
   p_UserDirectoryTableBase = &Process[1].UserDirectoryTableBase;
-  if ( *(__int64 **)qword_140C4DE30 != &qword_140C4DE28 )
+  if ( *(__int64 **)qword_140C4DE70 != &qword_140C4DE68 )
     __fastfail(3u);
-  *(_QWORD *)&Process[1].AddressPolicy = qword_140C4DE30;
-  *p_UserDirectoryTableBase = (unsigned __int64)&qword_140C4DE28;
+  *(_QWORD *)&Process[1].AddressPolicy = qword_140C4DE70;
+  *p_UserDirectoryTableBase = (unsigned __int64)&qword_140C4DE68;
   *v2 = p_UserDirectoryTableBase;
-  qword_140C4DE30 = (__int64)&Process[1].UserDirectoryTableBase;
+  qword_140C4DE70 = (__int64)&Process[1].UserDirectoryTableBase;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPepInitializeDebuggerMasks @ 0x140574C9C
+ * XREFs of PopPepInitializeDebuggerMasks @ 0x140574EDC
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x140574FDC (PopPepInitializeVetoMasks.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
- *     PopDiagTraceDebuggerTransitionRequirements @ 0x140571594 (PopDiagTraceDebuggerTransitionRequirements.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x14056962C (PopFxBugCheck.c)
+ *     PopDiagTraceDebuggerTransitionRequirements @ 0x1405717D4 (PopDiagTraceDebuggerTransitionRequirements.c)
  */
 
 void __fastcall PopPepInitializeDebuggerMasks(__int64 a1, unsigned int a2)

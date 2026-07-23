@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSetUserIsolationDomainThreadUnsafe @ 0x1404D3AD0
+ * XREFs of KiSetUserIsolationDomainThreadUnsafe @ 0x1404CD340
  * Callers:
- *     KiAdjustUserIsolationDomainThread @ 0x1404D35B4 (KiAdjustUserIsolationDomainThread.c)
- *     KiIpiUpdateUserIsolationDomain @ 0x1405F6A10 (KiIpiUpdateUserIsolationDomain.c)
+ *     KiAdjustUserIsolationDomainThread @ 0x1404CCE24 (KiAdjustUserIsolationDomainThread.c)
+ *     KiIpiUpdateUserIsolationDomain @ 0x1405F93D0 (KiIpiUpdateUserIsolationDomain.c)
  * Callees:
  *     <none>
  */

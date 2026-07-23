@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteWorkingSetList @ 0x140292CB0
+ * XREFs of MiDeleteWorkingSetList @ 0x140292F40
  * Callers:
  *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
- *     MmDeleteProcessAddressSpace @ 0x1407059E8 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140705BF8 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     MiDeleteProcessLargePageCache @ 0x140292CFC (MiDeleteProcessLargePageCache.c)
+ *     MiDeleteProcessLargePageCache @ 0x140292F8C (MiDeleteProcessLargePageCache.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

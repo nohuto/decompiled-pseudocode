@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAggregatorNotifySuspendResume @ 0x140993D0C
+ * XREFs of PopPowerAggregatorNotifySuspendResume @ 0x140993F0C
  * Callers:
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A93D4 (PopPowerAggregatorHandleIntentUnsafe.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x1407A9940 (PopPowerAggregatorDiagTraceEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A95C4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407A9B30 (PopPowerAggregatorDiagTraceEvent.c)
  */
 
 void __fastcall PopPowerAggregatorNotifySuspendResume(unsigned __int8 a1)
@@ -29,7 +29,7 @@ void __fastcall PopPowerAggregatorNotifySuspendResume(unsigned __int8 a1)
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
   UserData.Reserved = 0;
   v10 = 0;
-  v6 = dword_140C3AB80;
+  v6 = dword_140C3AB60;
   UserData.Ptr = (ULONGLONG)&v5;
   UserData.Size = 4;
   v9 = 4;
@@ -38,22 +38,22 @@ void __fastcall PopPowerAggregatorNotifySuspendResume(unsigned __int8 a1)
   PopPowerAggregatorDiagTraceEvent(&POP_ETW_EVENT_POWER_AGGREGATOR_SUSPEND_RESUME, 2u, &UserData);
   if ( (_BYTE)v1 )
   {
-    if ( ++dword_140C3AB80 != 1 )
+    if ( ++dword_140C3AB60 != 1 )
       goto LABEL_7;
     v2 = 0LL;
     v3 = 7LL;
   }
   else
   {
-    if ( --dword_140C3AB80 )
+    if ( --dword_140C3AB60 )
       goto LABEL_7;
     v2 = &v4;
-    v4 = dword_140C3AB84;
+    v4 = dword_140C3AB64;
     v3 = 8LL;
   }
   PopPowerAggregatorHandleIntentUnsafe((_QWORD *)v3, (__int64)v2, 0, 0x14u);
 LABEL_7:
   PopReleaseRwLock(&PopPowerAggregatorLock);
   if ( (_BYTE)v1 )
-    KeWaitForSingleObject(&word_140C3AB68, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&word_140C3AB48, Executive, 0, 0, 0LL);
 }

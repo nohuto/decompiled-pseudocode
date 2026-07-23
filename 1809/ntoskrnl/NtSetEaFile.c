@@ -1,29 +1,29 @@
 /*
- * XREFs of NtSetEaFile @ 0x14081E1E0
+ * XREFs of NtSetEaFile @ 0x14081F3E0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
- *     IopVerifierExAllocatePoolWithQuota @ 0x14008C8C0 (IopVerifierExAllocatePoolWithQuota.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IopAcquireFastLock_0 @ 0x1400DD9D4 (IopAcquireFastLock_0.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     IopProbeAndLockPages_0 @ 0x14027F2E0 (IopProbeAndLockPages_0.c)
- *     IopVerifierExAllocatePool_2 @ 0x140285A98 (IopVerifierExAllocatePool_2.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
- *     IoCheckEaBufferValidity @ 0x14060D080 (IoCheckEaBufferValidity.c)
- *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14065E91C (IopSynchronousApiServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x140819B28 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     IopReferenceFileObject @ 0x14008C7DC (IopReferenceFileObject.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x14008C8B0 (IopVerifierExAllocatePoolWithQuota.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IopAcquireFastLock_0 @ 0x1400DDA54 (IopAcquireFastLock_0.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     IopProbeAndLockPages_0 @ 0x14027F4D0 (IopProbeAndLockPages_0.c)
+ *     IopVerifierExAllocatePool_2 @ 0x140285C88 (IopVerifierExAllocatePool_2.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopAcquireFileObjectLock @ 0x1405A4480 (IopAcquireFileObjectLock.c)
+ *     IoCheckEaBufferValidity @ 0x14060E080 (IoCheckEaBufferValidity.c)
+ *     IopSynchronousServiceTail @ 0x14063C640 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x14065FADC (IopSynchronousApiServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x14081A5B4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x14081AD28 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock, PVOID EaBuffer, ULONG EaBufferSize)
@@ -44,7 +44,7 @@ NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock
   __int64 v19; // rcx
   __int64 v20; // rax
   ULONG Flags; // eax
-  struct _FILE_FULL_EA_INFORMATION *PoolWithQuota; // rdi
+  _FILE_FULL_EA_INFORMATION *PoolWithQuota; // rdi
   int v23; // eax
   PMDL Mdl; // rcx
   struct _KTHREAD *v25; // r12
@@ -157,7 +157,7 @@ LABEL_20:
           if ( (_DWORD)v4 )
           {
             v29 = 0;
-            PoolWithQuota = (struct _FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota(v19, v4);
+            PoolWithQuota = (_FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota(v19, v4);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuota;
             memmove(PoolWithQuota, EaBuffer, v4);
             v23 = IoCheckEaBufferValidity(PoolWithQuota, v4, &ErrorOffset);

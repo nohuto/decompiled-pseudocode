@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDoReconcileNextHive @ 0x140750A40
+ * XREFs of CmpDoReconcileNextHive @ 0x140750C30
  * Callers:
  *     <none>
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     CmpIsHiveEligibleForLazyReconcile @ 0x140750990 (CmpIsHiveEligibleForLazyReconcile.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407511B8 (HvGetEffectiveLogSizeCapForHive.c)
- *     CmpGetNextActiveHive @ 0x140752060 (CmpGetNextActiveHive.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x1407E2464 (CmpFlushUnsupportedOperationTelemetry.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x140750B80 (CmpIsHiveEligibleForLazyReconcile.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407513A8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     CmpGetNextActiveHive @ 0x140752250 (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x1407E2734 (CmpFlushUnsupportedOperationTelemetry.c)
  */
 
 char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeCheckForZeroPage @ 0x1406B32B0
+ * XREFs of KeCheckForZeroPage @ 0x1406B4250
  * Callers:
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,17 @@
 /*
- * XREFs of PnpCompareInstancePath @ 0x1404FF818
+ * XREFs of PnpCompareInstancePath @ 0x1404E27A8
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
  */
 
-__int64 __fastcall PnpCompareInstancePath(
-        struct _RTL_AVL_TABLE *Table,
-        PCUNICODE_STRING *FirstStruct,
-        PCUNICODE_STRING *SecondStruct)
+__int64 __fastcall PnpCompareInstancePath(_RTL_AVL_TABLE *a1, PCUNICODE_STRING *a2, PCUNICODE_STRING *a3)
 {
   LONG v3; // ecx
   __int64 result; // rax
 
-  v3 = RtlCompareUnicodeString(FirstStruct[1], SecondStruct[1], 1u);
+  v3 = RtlCompareUnicodeString(a2[1], a3[1], 1u);
   result = 0LL;
   if ( v3 >= 0 )
   {

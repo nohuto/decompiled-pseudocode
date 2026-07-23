@@ -1,15 +1,15 @@
 /*
- * XREFs of IopLoadCrashdumpDriver @ 0x14017817C
+ * XREFs of IopLoadCrashdumpDriver @ 0x14017827C
  * Callers:
- *     IoGetDumpStack @ 0x1406DF084 (IoGetDumpStack.c)
- *     IopInitializeCrashDump @ 0x14074D034 (IopInitializeCrashDump.c)
+ *     IoGetDumpStack @ 0x1406E0324 (IoGetDumpStack.c)
+ *     IopInitializeCrashDump @ 0x14074E224 (IopInitializeCrashDump.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IopGetPhysicalMemoryBlock @ 0x1401900A8 (IopGetPhysicalMemoryBlock.c)
- *     HvlGetEncryptedDataDomains @ 0x140193E7C (HvlGetEncryptedDataDomains.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IopGetPhysicalMemoryBlock @ 0x1401901E8 (IopGetPhysicalMemoryBlock.c)
+ *     HvlGetEncryptedDataDomains @ 0x140193FBC (HvlGetEncryptedDataDomains.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
  */
 
 __int64 IopLoadCrashdumpDriver()

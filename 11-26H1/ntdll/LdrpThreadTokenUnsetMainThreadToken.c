@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpThreadTokenUnsetMainThreadToken @ 0x1800ED158
+ * XREFs of LdrpThreadTokenUnsetMainThreadToken @ 0x1800EC5F8
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
 __int64 LdrpThreadTokenUnsetMainThreadToken()
 {
-  unsigned int v0; // ebx
+  unsigned __int32 v0; // ebx
 
   v0 = NtClose(LdrpMainThreadToken);
   LdrpMainThreadToken = 0LL;
   LdrpLogInternal(
-    (int)"minkernel\\ldr\\ldrapi.c",
+    "minkernel\\ldr\\ldrapi.c",
     4421,
     (__int64)"LdrpThreadTokenUnsetMainThreadToken",
     2,

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmFreeNonCachedMemory @ 0x1408C68E0
+ * XREFs of MmFreeNonCachedMemory @ 0x1408C6A40
  * Callers:
  *     <none>
  * Callees:
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
- *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiMakeDemandZeroPte @ 0x140329F70 (MiMakeDemandZeroPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiSetPfnOriginalPte @ 0x14054F41C (MiSetPfnOriginalPte.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmFreePagesFromMdl @ 0x14024E380 (MmFreePagesFromMdl.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiReadPteShadow @ 0x140310780 (MiReadPteShadow.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiMakeDemandZeroPte @ 0x140334CC0 (MiMakeDemandZeroPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiSetPfnOriginalPte @ 0x14054F65C (MiSetPfnOriginalPte.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall MmFreeNonCachedMemory(PVOID BaseAddress, SIZE_T NumberOfBytes)
@@ -35,5 +35,5 @@ void __stdcall MmFreeNonCachedMemory(PVOID BaseAddress, SIZE_T NumberOfBytes)
   MiSetPfnOriginalPte(v7, DemandZeroPte);
   MmFreePagesFromMdl(v5);
   ExFreePoolWithTag(v5, 0);
-  MiReleasePtes((__int64)&qword_140C4EF40, PteAddress, v2);
+  MiReleasePtes((__int64)&qword_140C4EF80, PteAddress, v2);
 }

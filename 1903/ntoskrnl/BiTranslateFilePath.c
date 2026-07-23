@@ -12,12 +12,12 @@
  *     BiAcquirePrivilege @ 0x14073F3BC (BiAcquirePrivilege.c)
  */
 
-__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, struct _FILE_PATH **a3)
+__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, _FILE_PATH **a3)
 {
-  struct _FILE_PATH *v5; // rdi
-  int v7; // ebx
+  _FILE_PATH *v5; // rdi
+  NTSTATUS v7; // ebx
   NTSTATUS v8; // eax
-  struct _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *PoolWithTag; // rax
   unsigned int v11[10]; // [rsp+20h] [rbp-28h] BYREF
   ULONG OutputFilePathLength; // [rsp+68h] [rbp+20h] BYREF
 
@@ -31,7 +31,7 @@ __int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputTyp
     v7 = v8;
     if ( v8 == -1073741789 )
     {
-      PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B444342u);
+      PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B444342u);
       v5 = PoolWithTag;
       if ( PoolWithTag )
         v7 = ZwTranslateFilePath(InputFilePath, OutputType, PoolWithTag, (ULONG)&OutputFilePathLength);

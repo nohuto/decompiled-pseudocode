@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGetDelayloadAPIInfo @ 0x18007B7FC
+ * XREFs of LdrpGetDelayloadAPIInfo @ 0x18007B7EC
  * Callers:
- *     LdrpLogDelayLoadTrigger @ 0x1800112C0 (LdrpLogDelayLoadTrigger.c)
- *     LdrpResolveDelayloadAddress @ 0x18007B524 (LdrpResolveDelayloadAddress.c)
- *     LdrpRedirectDelayloadFailure @ 0x18007B728 (LdrpRedirectDelayloadFailure.c)
+ *     LdrpLogDelayLoadTrigger @ 0x1800112B0 (LdrpLogDelayLoadTrigger.c)
+ *     LdrpResolveDelayloadAddress @ 0x18007B514 (LdrpResolveDelayloadAddress.c)
+ *     LdrpRedirectDelayloadFailure @ 0x18007B718 (LdrpRedirectDelayloadFailure.c)
  * Callees:
  *     <none>
  */

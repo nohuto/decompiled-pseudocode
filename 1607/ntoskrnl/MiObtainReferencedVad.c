@@ -1,38 +1,38 @@
 /*
- * XREFs of MiObtainReferencedVad @ 0x14003E320
+ * XREFs of MiObtainReferencedVad @ 0x14003DEA0
  * Callers:
- *     NtResetWriteWatch @ 0x1400136F0 (NtResetWriteWatch.c)
- *     NtGetWriteWatch @ 0x140014EF0 (NtGetWriteWatch.c)
- *     MiGetWorkingSetInfoList @ 0x1400B79E0 (MiGetWorkingSetInfoList.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x14010E8C4 (MiUnmapLockedPagesInUserSpace.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14040C688 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmSecureVirtualMemory @ 0x14042A98C (MmSecureVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x14042E400 (MiUnmapViewOfSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
- *     NtFreeVirtualMemory @ 0x140433DC0 (NtFreeVirtualMemory.c)
- *     MmDeleteTeb @ 0x1404CD424 (MmDeleteTeb.c)
- *     MmFlushVirtualMemory @ 0x1404D1998 (MmFlushVirtualMemory.c)
- *     MiReferenceCfgVad @ 0x1404DE124 (MiReferenceCfgVad.c)
- *     MiSetPriorityVaRanges @ 0x1404E75C0 (MiSetPriorityVaRanges.c)
- *     MiCfgMarkValidEntries @ 0x1404F42BC (MiCfgMarkValidEntries.c)
- *     MmRotatePhysicalView @ 0x1405281DC (MmRotatePhysicalView.c)
- *     NtAreMappedFilesTheSame @ 0x1405293B4 (NtAreMappedFilesTheSame.c)
- *     MmStoreFreeVirtualMemory @ 0x140532AC0 (MmStoreFreeVirtualMemory.c)
- *     MmGetFileNameForAddress @ 0x140656B10 (MmGetFileNameForAddress.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
- *     MiInitializeEnclave @ 0x14065F568 (MiInitializeEnclave.c)
+ *     NtResetWriteWatch @ 0x140013270 (NtResetWriteWatch.c)
+ *     NtGetWriteWatch @ 0x140014A70 (NtGetWriteWatch.c)
+ *     MiGetWorkingSetInfoList @ 0x1400B5870 (MiGetWorkingSetInfoList.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14010EE28 (MiUnmapLockedPagesInUserSpace.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x14040B548 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmSecureVirtualMemory @ 0x14042985C (MmSecureVirtualMemory.c)
+ *     MiUnmapViewOfSection @ 0x14042D2D0 (MiUnmapViewOfSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
+ *     NtFreeVirtualMemory @ 0x140432C90 (NtFreeVirtualMemory.c)
+ *     MmDeleteTeb @ 0x1404B2E50 (MmDeleteTeb.c)
+ *     MmFlushVirtualMemory @ 0x1404B5438 (MmFlushVirtualMemory.c)
+ *     MiReferenceCfgVad @ 0x1404C1728 (MiReferenceCfgVad.c)
+ *     MiSetPriorityVaRanges @ 0x1404C9B34 (MiSetPriorityVaRanges.c)
+ *     MiCfgMarkValidEntries @ 0x1404D7248 (MiCfgMarkValidEntries.c)
+ *     MmRotatePhysicalView @ 0x14052871C (MmRotatePhysicalView.c)
+ *     NtAreMappedFilesTheSame @ 0x1405298F4 (NtAreMappedFilesTheSame.c)
+ *     MmStoreFreeVirtualMemory @ 0x140533000 (MmStoreFreeVirtualMemory.c)
+ *     MmGetFileNameForAddress @ 0x140656BF4 (MmGetFileNameForAddress.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
+ *     MiInitializeEnclave @ 0x14065F64C (MiInitializeEnclave.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002BE60 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiWaitForVadDeletion @ 0x1401F7718 (MiWaitForVadDeletion.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002B9E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiWaitForVadDeletion @ 0x1401F7544 (MiWaitForVadDeletion.c)
  */
 
 unsigned __int64 __fastcall MiObtainReferencedVad(__int64 a1, _DWORD *AbEntrySummary)
@@ -110,7 +110,7 @@ LABEL_53:
     _interlockedbittestandset((volatile signed __int32 *)&v7->116 + 1, 0xFu);
     goto LABEL_7;
   }
-  if ( v8 < qword_140326910 || v8 >= qword_140326910 + 0x8000000000LL )
+  if ( v8 < qword_140326950 || v8 >= qword_140326950 + 0x8000000000LL )
   {
     SessionId = -1;
   }
@@ -214,7 +214,7 @@ LABEL_16:
   v2 = (char *)v21->LockEntries + v18;
   if ( v2 )
   {
-    if ( v22 < qword_140326910 || v22 >= qword_140326910 + 0x8000000000LL )
+    if ( v22 < qword_140326950 || v22 >= qword_140326950 + 0x8000000000LL )
       v25 = -1;
     else
       v25 = MmGetSessionIdEx(v21->ApcState.Process);

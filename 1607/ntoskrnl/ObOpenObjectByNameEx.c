@@ -1,44 +1,44 @@
 /*
- * XREFs of ObOpenObjectByNameEx @ 0x140419070
+ * XREFs of ObOpenObjectByNameEx @ 0x140417F30
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1401C9AC0 (IoRevokeHandlesForProcess.c)
- *     NtQueryFullAttributesFile @ 0x140405988 (NtQueryFullAttributesFile.c)
- *     NtOpenSection @ 0x140405E24 (NtOpenSection.c)
- *     NtQueryAttributesFile @ 0x140415160 (NtQueryAttributesFile.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     IopCreateFile @ 0x14045B980 (IopCreateFile.c)
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
- *     NtDeleteFile @ 0x14057D42C (NtDeleteFile.c)
- *     IopFastQueryNetworkAttributes @ 0x140623EB8 (IopFastQueryNetworkAttributes.c)
+ *     IoRevokeHandlesForProcess @ 0x1401C9960 (IoRevokeHandlesForProcess.c)
+ *     NtQueryFullAttributesFile @ 0x140404848 (NtQueryFullAttributesFile.c)
+ *     NtOpenSection @ 0x140404CE4 (NtOpenSection.c)
+ *     NtQueryAttributesFile @ 0x140414020 (NtQueryAttributesFile.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     IopCreateFile @ 0x14045A850 (IopCreateFile.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
+ *     NtDeleteFile @ 0x14057D8D8 (NtDeleteFile.c)
+ *     IopFastQueryNetworkAttributes @ 0x140623F6C (IopFastQueryNetworkAttributes.c)
  * Callees:
- *     ObpDereferenceNamedObject @ 0x14000C074 (ObpDereferenceNamedObject.c)
- *     SeClearLearningModeObjectInformation @ 0x14000F640 (SeClearLearningModeObjectInformation.c)
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     SepDeleteAccessState @ 0x14000F6E0 (SepDeleteAccessState.c)
- *     ObFastReferenceObject @ 0x14000F760 (ObFastReferenceObject.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x14000F860 (SepCreateAccessStateFromSubjectContext.c)
- *     SeSetLearningModeObjectInformation @ 0x14000FB70 (SeSetLearningModeObjectInformation.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsDereferenceSiloContext @ 0x1400870F4 (PsDereferenceSiloContext.c)
- *     ObpUnlockDirectory @ 0x14008BA30 (ObpUnlockDirectory.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     PsDereferenceSiloContext @ 0x1400019C0 (PsDereferenceSiloContext.c)
+ *     ObpDereferenceNamedObject @ 0x14000BBF4 (ObpDereferenceNamedObject.c)
+ *     SeClearLearningModeObjectInformation @ 0x14000F1C0 (SeClearLearningModeObjectInformation.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x14000F260 (SepDeleteAccessState.c)
+ *     ObFastReferenceObject @ 0x14000F2E0 (ObFastReferenceObject.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14000F3E0 (SepCreateAccessStateFromSubjectContext.c)
+ *     SeSetLearningModeObjectInformation @ 0x14000F6F0 (SeSetLearningModeObjectInformation.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ObpUnlockDirectory @ 0x14008B190 (ObpUnlockDirectory.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObpCaptureObjectCreateInformation @ 0x140419770 (ObpCaptureObjectCreateInformation.c)
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     SeReleaseSecurityDescriptor @ 0x14044DB84 (SeReleaseSecurityDescriptor.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     RtlValidSecurityDescriptor @ 0x1404BCD44 (RtlValidSecurityDescriptor.c)
- *     SeObjectCreateSaclAccessBits @ 0x1404D0A1C (SeObjectCreateSaclAccessBits.c)
+ *     ObpCaptureObjectCreateInformation @ 0x140418630 (ObpCaptureObjectCreateInformation.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     SeReleaseSecurityDescriptor @ 0x14044CA54 (SeReleaseSecurityDescriptor.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     RtlValidSecurityDescriptor @ 0x1404A8A74 (RtlValidSecurityDescriptor.c)
+ *     SeObjectCreateSaclAccessBits @ 0x1404B44BC (SeObjectCreateSaclAccessBits.c)
  */
 
 __int64 __fastcall ObOpenObjectByNameEx(
@@ -55,7 +55,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   struct _KPRCB *CurrentPrcb; // r15
   _GENERAL_LOOKASIDE *P; // rdi
   PSLIST_ENTRY v14; // rbx
-  struct _SLIST_ENTRY *v15; // r15
+  _SLIST_ENTRY *v15; // r15
   int Information; // edi
   struct _KTHREAD *CurrentThread; // rdi
   __int64 Process; // r15
@@ -70,13 +70,13 @@ __int64 __fastcall ObOpenObjectByNameEx(
   __int64 v27; // rax
   __int64 v28; // rcx
   struct _KPRCB *v29; // rcx
-  struct _SLIST_ENTRY *v30; // rdx
+  _SLIST_ENTRY *v30; // rdx
   _GENERAL_LOOKASIDE *v31; // r8
   void *v32; // r14
   int v33; // r15d
   void *v34; // rcx
   _SLIST_ENTRY *v35; // rcx
-  struct _SLIST_ENTRY *v36; // rcx
+  _SLIST_ENTRY *v36; // rcx
   struct _KPRCB *v37; // rdx
   _GENERAL_LOOKASIDE *v38; // r8
   struct _KPRCB *v39; // rcx
@@ -370,7 +370,7 @@ LABEL_37:
             *(_QWORD *)(*((_QWORD *)v26 + 4) + 32LL) = 0LL;
           }
           v29 = KeGetCurrentPrcb();
-          v30 = (struct _SLIST_ENTRY *)*((_QWORD *)v26 + 4);
+          v30 = (_SLIST_ENTRY *)*((_QWORD *)v26 + 4);
           v31 = v29->PPLookasideList[4].P;
           ++v31->TotalFrees;
           if ( LOWORD(v31->ListHead.Alignment) < v31->Depth
@@ -384,7 +384,7 @@ LABEL_37:
           else
           {
             ++v31->FreeMisses;
-            ((void (__fastcall *)(struct _SLIST_ENTRY *))v31->FreeEx)(v30);
+            ((void (__fastcall *)(_SLIST_ENTRY *))v31->FreeEx)(v30);
           }
           v25 = v54;
           *((_QWORD *)v26 + 4) = 0LL;

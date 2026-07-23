@@ -1,15 +1,15 @@
 /*
- * XREFs of BiIsSystemStore @ 0x1409D0134
+ * XREFs of BiIsSystemStore @ 0x1409A1114
  * Callers:
- *     BiLoadSystemStore @ 0x1409CFE10 (BiLoadSystemStore.c)
- *     BcdCloseStore @ 0x1409D0088 (BcdCloseStore.c)
- *     BiCleanupLoadedStores @ 0x1409D3368 (BiCleanupLoadedStores.c)
- *     BiOpenSystemStore @ 0x1409D43D4 (BiOpenSystemStore.c)
- *     BcdForciblyUnloadStore @ 0x140B6A7AC (BcdForciblyUnloadStore.c)
+ *     BiLoadSystemStore @ 0x1409A0DF0 (BiLoadSystemStore.c)
+ *     BcdCloseStore @ 0x1409A1068 (BcdCloseStore.c)
+ *     BiCleanupLoadedStores @ 0x1409A4348 (BiCleanupLoadedStores.c)
+ *     BiOpenSystemStore @ 0x1409A53B4 (BiOpenSystemStore.c)
+ *     BcdForciblyUnloadStore @ 0x140B6D9BC (BcdForciblyUnloadStore.c)
  * Callees:
- *     BiIsSystemStoreCandidate @ 0x1409D01BC (BiIsSystemStoreCandidate.c)
- *     BiGetRegistryValue @ 0x1409D5CD4 (BiGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     BiIsSystemStoreCandidate @ 0x1409A119C (BiIsSystemStoreCandidate.c)
+ *     BiGetRegistryValue @ 0x1409A6CB4 (BiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall BiIsSystemStore(__int64 a1)

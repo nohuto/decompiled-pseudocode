@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAccessCheckByTypeAndAuditAlarm @ 0x14015A7A0
+ * XREFs of ZwAccessCheckByTypeAndAuditAlarm @ 0x14015AD10
  * Callers:
  *     <none>
  * Callees:
@@ -26,5 +26,5 @@ NTSTATUS __stdcall ZwAccessCheckByTypeAndAuditAlarm(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SubsystemName, HandleId, ObjectTypeName);
+  return KiServiceInternal(SubsystemName);
 }

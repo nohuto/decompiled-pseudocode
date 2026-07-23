@@ -18,7 +18,7 @@ __int64 __fastcall KeRundownPriQueue(unsigned __int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v4 = 4;
@@ -31,5 +31,5 @@ __int64 __fastcall KeRundownPriQueue(unsigned __int64 a1)
   KeRundownQueueCommon(a1, (volatile signed __int32 **)(a1 + 672), (_DWORD *)(a1 + 536), 0x20u, v6);
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   KiAcquireReleaseObjectRundownLockExclusive(a1);
-  return KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  return KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
 }

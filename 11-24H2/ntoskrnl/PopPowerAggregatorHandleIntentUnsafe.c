@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPowerAggregatorHandleIntentUnsafe @ 0x1409BC0E8
+ * XREFs of PopPowerAggregatorHandleIntentUnsafe @ 0x1409A2738
  * Callers:
- *     PopPowerAggregatorDozeTimerWorker @ 0x140759220 (PopPowerAggregatorDozeTimerWorker.c)
- *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140759914 (PopPowerAggregatorNotifyPdcPhaseState.c)
- *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140759F40 (PopPowerAggregatorTriggerAdaptiveAction.c)
- *     PopTriggerMonitorPowerEvent @ 0x1409BBE7C (PopTriggerMonitorPowerEvent.c)
- *     PopPowerAggregatorHandleIntent @ 0x1409BC080 (PopPowerAggregatorHandleIntent.c)
- *     PopPowerAggregatorNotifySuspendResume @ 0x140AA2428 (PopPowerAggregatorNotifySuspendResume.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x140AC7988 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopPowerAggregatorDozeTimerWorker @ 0x140757680 (PopPowerAggregatorDozeTimerWorker.c)
+ *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140757DB4 (PopPowerAggregatorNotifyPdcPhaseState.c)
+ *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140758390 (PopPowerAggregatorTriggerAdaptiveAction.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1409A24CC (PopTriggerMonitorPowerEvent.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1409A26D0 (PopPowerAggregatorHandleIntent.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140A9D7B8 (PopPowerAggregatorNotifySuspendResume.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x140AC5414 (PopPowerAggregatorForceSessionSwitch.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopPowerAggregatorScheduleWorker @ 0x1409BA5AC (PopPowerAggregatorScheduleWorker.c)
- *     PopPowerAggregatorRecordIntent @ 0x1409BC260 (PopPowerAggregatorRecordIntent.c)
- *     PopPowerAggregatorIsAtTargetState @ 0x1409BD300 (PopPowerAggregatorIsAtTargetState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x1409A0BFC (PopPowerAggregatorScheduleWorker.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1409A28B0 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorIsAtTargetState @ 0x1409A3950 (PopPowerAggregatorIsAtTargetState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, _DWORD *a2, unsigned int a3, unsigned int a4)
@@ -27,28 +27,28 @@ __int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, _DWORD *a2, 
   __int64 v14; // [rsp+A8h] [rbp+47h]
 
   v6 = (int)a1;
-  v13[0] = xmmword_140F08910;
+  v13[0] = xmmword_140F08C70;
   *(_QWORD *)v12 = ++PopPowerAggregatorContext;
-  v14 = qword_140F08930;
+  v14 = qword_140F08C90;
   LODWORD(v11) = 5;
   *((_QWORD *)&v11 + 1) = a4;
   DWORD1(v11) = (_DWORD)a1;
   v10 = 0LL;
   *(_OWORD *)&v12[8] = 0LL;
   v9 = 0LL;
-  v13[1] = xmmword_140F08920;
+  v13[1] = xmmword_140F08C80;
   if ( a2 )
     LODWORD(v9) = *a2;
   if ( (unsigned int)((_DWORD)a1 - 1) <= 9
     && a3 <= 2
     && (a1 = PopPowerAggregatorIntentHandlers, PopPowerAggregatorIntentHandlers[v6]) )
   {
-    v7 = guard_dispatch_icall_no_overrides(&PopPowerAggregatorContext, &v11, (unsigned int)v6, a2);
+    v7 = guard_dispatch_icall_no_overrides(&PopPowerAggregatorContext, &v11);
     if ( v7 >= 0 )
     {
-      xmmword_140F08910 = v11;
-      qword_140F08930 = *(_QWORD *)&v12[16];
-      xmmword_140F08920 = *(_OWORD *)v12;
+      xmmword_140F08C70 = v11;
+      qword_140F08C90 = *(_QWORD *)&v12[16];
+      xmmword_140F08C80 = *(_OWORD *)v12;
       if ( (unsigned __int8)PopPowerAggregatorIsAtTargetState(a1) )
       {
         v7 = 0;

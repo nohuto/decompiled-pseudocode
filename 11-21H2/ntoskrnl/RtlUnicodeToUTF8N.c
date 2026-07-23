@@ -1,15 +1,15 @@
 /*
  * XREFs of RtlUnicodeToUTF8N @ 0x140759F40
  * Callers:
- *     EtwpQueryPartitionRegistryInformation @ 0x1403D35C8 (EtwpQueryPartitionRegistryInformation.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1405E4598 (UpcaseUnicodeToUTF8NHelper.c)
+ *     sub_1403D35C8 @ 0x1403D35C8 (sub_1403D35C8.c)
+ *     sub_1405E4598 @ 0x1405E4598 (sub_1405E4598.c)
  *     RtlUnicodeToMultiByteN @ 0x1406A04A0 (RtlUnicodeToMultiByteN.c)
  *     RtlUnicodeToMultiByteSize @ 0x140759DB0 (RtlUnicodeToMultiByteSize.c)
  *     RtlUnicodeToCustomCPN @ 0x140759E60 (RtlUnicodeToCustomCPN.c)
- *     EtwpGetAutoLoggerEventNameFilter @ 0x140853230 (EtwpGetAutoLoggerEventNameFilter.c)
+ *     sub_140853230 @ 0x140853230 (sub_140853230.c)
  *     RtlUnicodeStringToUTF8String @ 0x1409BED90 (RtlUnicodeStringToUTF8String.c)
  * Callees:
- *     CountUnicodeToUTF8 @ 0x1402D7E54 (CountUnicodeToUTF8.c)
+ *     sub_1402D7E54 @ 0x1402D7E54 (sub_1402D7E54.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToUTF8N(
@@ -47,7 +47,7 @@ NTSTATUS __stdcall RtlUnicodeToUTF8N(
   if ( !UTF8StringDestination )
   {
     if ( UTF8StringActualByteCount )
-      return CountUnicodeToUTF8((unsigned int *)UnicodeStringSource, UnicodeStringByteCount, UTF8StringActualByteCount);
+      return sub_1402D7E54((unsigned int *)UnicodeStringSource, UnicodeStringByteCount, UTF8StringActualByteCount);
     else
       return -1073741811;
   }

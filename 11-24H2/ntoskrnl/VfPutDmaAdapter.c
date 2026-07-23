@@ -1,18 +1,18 @@
 /*
- * XREFs of VfPutDmaAdapter @ 0x140B87690
+ * XREFs of VfPutDmaAdapter @ 0x140B89690
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViFlushZeroMapRegisterBaseWcbs @ 0x140610D1C (ViFlushZeroMapRegisterBaseWcbs.c)
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140B84FC0 (VF_ASSERT_MAX_IRQL.c)
- *     ViGetAdapterInformationInternal @ 0x140B88E98 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140B890EC (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140B8921C (ViHalPreprocessOptions.c)
- *     ViReleaseDmaAdapter @ 0x140B89A1C (ViReleaseDmaAdapter.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ViFlushZeroMapRegisterBaseWcbs @ 0x14060F2DC (ViFlushZeroMapRegisterBaseWcbs.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140B86FC0 (VF_ASSERT_MAX_IRQL.c)
+ *     ViGetAdapterInformationInternal @ 0x140B8AE98 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140B8B0EC (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140B8B21C (ViHalPreprocessOptions.c)
+ *     ViReleaseDmaAdapter @ 0x140B8BA1C (ViReleaseDmaAdapter.c)
  */
 
 __int64 __fastcall VfPutDmaAdapter(ULONG_PTR a1)
@@ -27,8 +27,6 @@ __int64 __fastcall VfPutDmaAdapter(ULONG_PTR a1)
   __int64 v9; // rcx
   _QWORD *v10; // rax
   __int64 RealDmaAdapter; // rax
-  __int64 v12; // r8
-  __int64 v13; // r9
   __int64 result; // rax
 
   VF_ASSERT_MAX_IRQL();
@@ -42,16 +40,16 @@ __int64 __fastcall VfPutDmaAdapter(ULONG_PTR a1)
   if ( v3 < 0 )
   {
     ViHalPreprocessOptions(
-      byte_140E0E954,
+      byte_140E0EA60,
       "Driver has attempted to access an adapter (%p) that has already been released.",
       (const void *)0x18);
-    VfReportIssueWithOptions(0xE6u, 0x18uLL, a1, v5, 0LL, byte_140E0E954);
+    VfReportIssueWithOptions(0xE6u, 0x18uLL, a1, v5, 0LL, byte_140E0EA60);
   }
   ViFlushZeroMapRegisterBaseWcbs(v5);
   if ( *(_DWORD *)(v5 + 212) != *(_DWORD *)(v5 + 216) )
   {
     ViHalPreprocessOptions(
-      byte_140E0E950,
+      byte_140E0EA64,
       "Cannot put adapter %p until all adapter channels are freed (%x left).",
       (const void *)8,
       a1);
@@ -61,12 +59,12 @@ __int64 __fastcall VfPutDmaAdapter(ULONG_PTR a1)
       a1,
       (unsigned int)(*(_DWORD *)(v5 + 212) - *(_DWORD *)(v5 + 216)),
       v5,
-      byte_140E0E950);
+      byte_140E0EA64);
   }
   if ( *(_DWORD *)(v5 + 204) != *(_DWORD *)(v5 + 208) )
   {
     ViHalPreprocessOptions(
-      byte_140E0E94C,
+      byte_140E0EA58,
       "Cannot put adapter %p until all common buffers are freed (%x left).",
       (const void *)7,
       a1);
@@ -76,27 +74,27 @@ __int64 __fastcall VfPutDmaAdapter(ULONG_PTR a1)
       a1,
       (unsigned int)(*(_DWORD *)(v5 + 204) - *(_DWORD *)(v5 + 208)),
       v5,
-      byte_140E0E94C);
+      byte_140E0EA58);
   }
   if ( *(_DWORD *)(v5 + 192) )
   {
     ViHalPreprocessOptions(
-      byte_140E0E970,
+      byte_140E0EA5C,
       "Cannot put adapter %p until all map registers are freed (%x left).",
       (const void *)9,
       a1);
-    VfReportIssueWithOptions(0xE6u, 9uLL, a1, *(int *)(v5 + 192), v5, byte_140E0E970);
+    VfReportIssueWithOptions(0xE6u, 9uLL, a1, *(int *)(v5 + 192), v5, byte_140E0EA5C);
   }
   if ( *(_DWORD *)(v5 + 200) )
   {
     ViHalPreprocessOptions(
-      byte_140E0E96C,
+      byte_140E0EA0C,
       "Cannot put adapter %p until all scatter gather lists are freed (%x left).",
       (const void *)0xA,
       a1);
-    VfReportIssueWithOptions(0xE6u, 0xAuLL, a1, *(int *)(v5 + 200), v5, byte_140E0E96C);
+    VfReportIssueWithOptions(0xE6u, 0xAuLL, a1, *(int *)(v5 + 200), v5, byte_140E0EA0C);
   }
-  v6 = KeAcquireSpinLockRaiseToDpc(&qword_140F03A90);
+  v6 = KeAcquireSpinLockRaiseToDpc(&qword_140F03D70);
   if ( !*(_QWORD *)(v5 + 64) )
   {
     v7 = *(_QWORD *)v5;
@@ -138,12 +136,12 @@ LABEL_17:
     goto LABEL_23;
   }
 LABEL_25:
-  KeReleaseSpinLock(&qword_140F03A90, v6);
+  KeReleaseSpinLock(&qword_140F03D70, v6);
   if ( v5 && !v2 )
     ViReleaseDmaAdapter(v5);
 LABEL_28:
   RealDmaAdapter = ViGetRealDmaAdapter(a1);
-  result = guard_dispatch_icall_no_overrides(RealDmaAdapter, RealDmaAdapter, v12, v13);
+  result = guard_dispatch_icall_no_overrides(RealDmaAdapter, RealDmaAdapter);
   if ( v5 && v2 && v3 <= 0 )
     return ViReleaseDmaAdapter(v5);
   return result;

@@ -30,7 +30,7 @@ __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
   __int64 v7; // r9
   HANDLE FileHandle; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C8h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-98h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+A0h] [rbp-68h] BYREF

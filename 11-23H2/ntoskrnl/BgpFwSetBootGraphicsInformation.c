@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFwSetBootGraphicsInformation @ 0x140671D90
+ * XREFs of BgpFwSetBootGraphicsInformation @ 0x1406722E0
  * Callers:
- *     BgSetBootGraphicsInformation @ 0x140AF1394 (BgSetBootGraphicsInformation.c)
+ *     BgSetBootGraphicsInformation @ 0x140AF13A4 (BgSetBootGraphicsInformation.c)
  * Callees:
- *     BgpFwMapFrameBuffer @ 0x140671CF0 (BgpFwMapFrameBuffer.c)
+ *     BgpFwMapFrameBuffer @ 0x140672240 (BgpFwMapFrameBuffer.c)
  */
 
 __int64 __fastcall BgpFwSetBootGraphicsInformation(__int64 a1, __int64 a2)

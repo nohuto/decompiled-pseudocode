@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmWmiIdleAccountingWork @ 0x1408F1B70
+ * XREFs of PpmWmiIdleAccountingWork @ 0x1408F1CD0
  * Callers:
  *     <none>
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmWmiIdleAccountingWork(void *a1)

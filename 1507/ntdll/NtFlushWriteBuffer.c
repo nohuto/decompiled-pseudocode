@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtFlushWriteBuffer()
+NTSTATUS NtFlushWriteBuffer(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 221LL;
+  result = 221;
   __asm { syscall; Low latency system call }
   return result;
 }

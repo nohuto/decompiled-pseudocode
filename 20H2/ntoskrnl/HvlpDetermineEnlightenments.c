@@ -150,7 +150,7 @@ __int64 (__fastcall *__fastcall HvlpDetermineEnlightenments(
   }
   if ( (HvlpFlags & 2) != 0 )
   {
-    HvlpGetRegister128(516LL, &v39);
+    HvlpGetRegister128(516, &v39);
     v22 = v39;
     v23 = v20 | 0x400;
     if ( (BYTE4(v39) & 1) == 0 )

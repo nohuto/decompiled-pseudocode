@@ -1,34 +1,45 @@
 /*
- * XREFs of NtOpenSymbolicLinkObject @ 0x1407AAAE0
+ * XREFs of NtOpenSymbolicLinkObject @ 0x1407AACD0
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x140841EF0 (AdtpInitializeDriveLetters.c)
+ *     AdtpInitializeDriveLetters @ 0x1408421F0 (AdtpInitializeDriveLetters.c)
  *     IopReassignSystemRoot @ 0x140B6FE8C (IopReassignSystemRoot.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E200 (PsGetCurrentSilo.c)
- *     ObOpenObjectByNameEx @ 0x1406ECFE0 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x14022E310 (PsGetCurrentSilo.c)
+ *     ObOpenObjectByNameEx @ 0x1406ED010 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenSymbolicLinkObject(unsigned __int64 a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  _QWORD *v5; // rbx
+  PHANDLE v5; // rbx
   char PreviousMode; // si
   POBJECT_TYPE v7; // rdi
   struct _LIST_ENTRY *CurrentSilo; // rax
-  __int64 result; // rax
-  _QWORD v10[5]; // [rsp+40h] [rbp-28h] BYREF
+  NTSTATUS result; // eax
+  void *v10; // [rsp+40h] [rbp-28h] BYREF
 
-  v5 = (_QWORD *)a1;
-  v10[0] = 0LL;
+  v5 = LinkHandle;
+  v10 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    if ( (unsigned __int64)LinkHandle >= 0x7FFFFFFF0000LL )
+      LinkHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *LinkHandle = *LinkHandle;
   }
   v7 = ObpSymbolicLinkObjectType;
   CurrentSilo = PsGetCurrentSilo();
-  result = ObOpenObjectByNameEx(a3, (__int64)v7, PreviousMode, 0LL, a2, 0, (__int64)CurrentSilo, v10);
-  *v5 = v10[0];
+  result = ObOpenObjectByNameEx(
+             (__int64)ObjectAttributes,
+             (__int64)v7,
+             PreviousMode,
+             0LL,
+             DesiredAccess,
+             0,
+             (__int64)CurrentSilo,
+             &v10);
+  *v5 = v10;
   return result;
 }

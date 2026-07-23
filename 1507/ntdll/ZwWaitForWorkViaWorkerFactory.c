@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwWaitForWorkViaWorkerFactory()
+NTSTATUS __cdecl ZwWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 438LL;
+  result = 438;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmCheckRegistry @ 0x140B7E7A0
+ * XREFs of CmCheckRegistry @ 0x140B87680
  * Callers:
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpReorganizeHive @ 0x140AE35CC (CmpReorganizeHive.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpReorganizeHive @ 0x140AE10D4 (CmpReorganizeHive.c)
  * Callees:
- *     RtlClearAllBits @ 0x14047EA90 (RtlClearAllBits.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x14094D7E0 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckRegistry2 @ 0x140A079F0 (CmpCheckRegistry2.c)
- *     HvCheckHive @ 0x140A543C0 (HvCheckHive.c)
+ *     RtlClearAllBits @ 0x140478400 (RtlClearAllBits.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1409C9150 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckRegistry2 @ 0x140A1DAC0 (CmpCheckRegistry2.c)
+ *     HvCheckHive @ 0x140A5D6B0 (HvCheckHive.c)
  */
 
 __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter3, int a2, __int64 a3)
 {
   unsigned int v3; // ebx
   __int64 v6; // r13
-  RTL_BITMAP *p_BitMapHeader; // r12
+  _RTL_BITMAP *p_BitMapHeader; // r12
   char v8; // si
   unsigned int v9; // ebx
   unsigned int v10; // r15d
@@ -27,7 +27,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter3, int a2, __int64
   int v15; // r9d
   int v17; // [rsp+20h] [rbp-49h]
   __int64 v18; // [rsp+40h] [rbp-29h] BYREF
-  RTL_BITMAP BitMapHeader; // [rsp+48h] [rbp-21h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+48h] [rbp-21h] BYREF
   __int128 v20; // [rsp+58h] [rbp-11h] BYREF
   __int128 v21; // [rsp+68h] [rbp-1h]
   __int128 v22; // [rsp+78h] [rbp+Fh]

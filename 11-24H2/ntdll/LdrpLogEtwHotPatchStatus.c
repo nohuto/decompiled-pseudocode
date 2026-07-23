@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpLogEtwHotPatchStatus @ 0x180074798
+ * XREFs of LdrpLogEtwHotPatchStatus @ 0x180091078
  * Callers:
- *     LdrpMapAndSnapDependency @ 0x18000C8D0 (LdrpMapAndSnapDependency.c)
- *     LdrpFastpthReloadedDll @ 0x180019870 (LdrpFastpthReloadedDll.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpMapDllWithSectionHandle @ 0x180072B70 (LdrpMapDllWithSectionHandle.c)
- *     LdrpApplyPatchImage @ 0x180117730 (LdrpApplyPatchImage.c)
- *     LdrHotPatchNotify @ 0x18015E690 (LdrHotPatchNotify.c)
- *     LdrpLoadPatchImage @ 0x18015EBFC (LdrpLoadPatchImage.c)
+ *     LdrpMapAndSnapDependency @ 0x1800392D0 (LdrpMapAndSnapDependency.c)
+ *     LdrpFastpthReloadedDll @ 0x180046270 (LdrpFastpthReloadedDll.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18008F450 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrpApplyPatchImage @ 0x1801127D0 (LdrpApplyPatchImage.c)
+ *     LdrHotPatchNotify @ 0x18015CA50 (LdrHotPatchNotify.c)
+ *     LdrpLoadPatchImage @ 0x18015CFBC (LdrpLoadPatchImage.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlRunOnceExecuteOnce @ 0x180098200 (RtlRunOnceExecuteOnce.c)
- *     RtlStringCbPrintfW @ 0x18011D65C (RtlStringCbPrintfW.c)
- *     RtlLogMessageInEventLogger @ 0x18011E36C (RtlLogMessageInEventLogger.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002D050 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     RtlStringCbPrintfW @ 0x18011B88C (RtlStringCbPrintfW.c)
+ *     RtlLogMessageInEventLogger @ 0x18011C59C (RtlLogMessageInEventLogger.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogEtwHotPatchStatus(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3, int a4, int a5)
@@ -35,7 +35,7 @@ char __fastcall LdrpLogEtwHotPatchStatus(unsigned __int16 *a1, __int64 a2, unsig
   unsigned __int16 *v22; // [rsp+70h] [rbp-90h] BYREF
   __int64 v23; // [rsp+78h] [rbp-88h] BYREF
   _BYTE *v24; // [rsp+80h] [rbp-80h] BYREF
-  char v25[32]; // [rsp+90h] [rbp-70h] BYREF
+  _EVENT_DATA_DESCRIPTOR v25; // [rsp+90h] [rbp-70h] BYREF
   __int64 *v26; // [rsp+B0h] [rbp-50h]
   __int64 v27; // [rsp+B8h] [rbp-48h]
   int *v28; // [rsp+C0h] [rbp-40h]
@@ -81,10 +81,10 @@ char __fastcall LdrpLogEtwHotPatchStatus(unsigned __int16 *a1, __int64 a2, unsig
     v13 = 0;
     v14 = 0;
   }
-  if ( (unsigned int)dword_1801CC948 > 5 )
+  if ( (unsigned int)dword_1801CB948 > 5 )
   {
-    if ( (qword_1801CC958 & 0x400000000001LL) == 0
-      || (result = 1, (qword_1801CC960 & 0x400000000001LL) != qword_1801CC960) )
+    if ( (qword_1801CB958 & 0x400000000001LL) == 0
+      || (result = 1, (qword_1801CB960 & 0x400000000001LL) != qword_1801CB960) )
     {
       result = 0;
     }
@@ -131,12 +131,12 @@ char __fastcall LdrpLogEtwHotPatchStatus(unsigned __int16 *a1, __int64 a2, unsig
       v47 = 4LL;
       v49 = 8LL;
       result = tlgWriteTransfer_EtwEventWriteTransfer(
-                 (__int64)&dword_1801CC948,
-                 byte_1801A2839,
+                 (__int64)&dword_1801CB948,
+                 (unsigned __int8 *)dword_1801A19D9,
                  v9,
                  v10,
-                 14,
-                 (__int64)v25);
+                 0xEu,
+                 &v25);
     }
   }
   if ( a4 < 0 )

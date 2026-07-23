@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlEqualString @ 0x140238C70
  * Callers:
- *     HalMatchAcpiOemId @ 0x1403B1D20 (HalMatchAcpiOemId.c)
- *     IopInitializeBuiltinDriver @ 0x140B11EBC (IopInitializeBuiltinDriver.c)
- *     IopGetBootDiskInformation @ 0x140B4F04C (IopGetBootDiskInformation.c)
+ *     sub_1403B1D20 @ 0x1403B1D20 (sub_1403B1D20.c)
+ *     sub_140B11EBC @ 0x140B11EBC (sub_140B11EBC.c)
+ *     sub_140B4F04C @ 0x140B4F04C (sub_140B4F04C.c)
  * Callees:
  *     RtlUpperChar @ 0x1406B00C0 (RtlUpperChar.c)
  */

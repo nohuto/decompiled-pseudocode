@@ -1,33 +1,33 @@
 /*
- * XREFs of NtQueryQuotaInformationFile @ 0x140717C10
+ * XREFs of NtQueryQuotaInformationFile @ 0x1407157A0
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     IopReferenceFileObject @ 0x1403F5300 (IopReferenceFileObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     MmUpdateMdlTracker @ 0x1404384E4 (MmUpdateMdlTracker.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopCheckGetQuotaBufferValidity @ 0x140711C04 (IopCheckGetQuotaBufferValidity.c)
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14096F574 (IopSynchronousApiServiceTail.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140A0C064 (IopAllocateIrpCleanup.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     IopReferenceFileObject @ 0x1403EB740 (IopReferenceFileObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     MmUpdateMdlTracker @ 0x14042B0A4 (MmUpdateMdlTracker.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopCheckGetQuotaBufferValidity @ 0x14070F794 (IopCheckGetQuotaBufferValidity.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x140957634 (IopSynchronousApiServiceTail.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140A0B2A4 (IopAllocateIrpCleanup.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtQueryQuotaInformationFile(
@@ -184,7 +184,7 @@ LABEL_21:
       return -1073741811;
     if ( v26 < SidListLength )
       return -1073741811;
-    Pool2 = (char *)ExAllocatePool2(0x61uLL);
+    Pool2 = (char *)ExAllocatePool2(0x61uLL, v26 + v24, 0x73536F49u);
     P = Pool2;
     v65 = (unsigned int *)Pool2;
     memmove(Pool2, SidList, SidListLength);
@@ -195,7 +195,7 @@ LABEL_21:
     SidListLength = 0;
     if ( StartSid )
     {
-      Pool2 = (char *)ExAllocatePool2(0x121uLL);
+      Pool2 = (char *)ExAllocatePool2(0x121uLL, v24, 0x73536F49u);
       P = Pool2;
     }
     else
@@ -273,7 +273,7 @@ LABEL_72:
   }
   else
   {
-    v41 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
+    v41 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x76456F49u);
     v12 = v41;
     v67 = v41;
     if ( !v41 )
@@ -327,7 +327,7 @@ LABEL_72:
   {
     if ( Length )
     {
-      v49 = ExAllocatePool2(0x41uLL);
+      v49 = ExAllocatePool2(0x41uLL, Length, 0x42536F49u);
       v44->AssociatedIrp.MasterIrp = (struct _IRP *)v49;
       if ( !v49 )
       {

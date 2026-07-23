@@ -1,27 +1,29 @@
 /*
- * XREFs of AlpcInitializeMessageAttribute @ 0x140438BA0
+ * XREFs of AlpcInitializeMessageAttribute @ 0x140427800
  * Callers:
- *     SshpAlpcMessageCallback @ 0x1407E4760 (SshpAlpcMessageCallback.c)
- *     DbgkpSendErrorMessage @ 0x140954DF4 (DbgkpSendErrorMessage.c)
- *     PopUmpoProcessMessages @ 0x140AAA08C (PopUmpoProcessMessages.c)
+ *     SshpAlpcMessageCallback @ 0x1407EA2C0 (SshpAlpcMessageCallback.c)
+ *     PopUmpoProcessMessages @ 0x140AA766C (PopUmpoProcessMessages.c)
+ *     DbgkpSendErrorMessage @ 0x140B5CE74 (DbgkpSendErrorMessage.c)
  * Callees:
- *     AlpcGetHeaderSize @ 0x140438C10 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x140427870 (AlpcGetHeaderSize.c)
  */
 
-__int64 __fastcall AlpcInitializeMessageAttribute(__int64 a1, _DWORD *a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl AlpcInitializeMessageAttribute(
+        ULONG AttributeFlags,
+        PALPC_MESSAGE_ATTRIBUTES Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T RequiredBufferSize)
 {
-  int v7; // ebp
-  unsigned int HeaderSize; // eax
+  ULONG HeaderSize; // eax
 
-  v7 = a1;
-  HeaderSize = AlpcGetHeaderSize(a1);
-  *a4 = HeaderSize;
-  if ( HeaderSize > a3 )
-    return 3221225507LL;
-  if ( a2 )
+  HeaderSize = AlpcGetHeaderSize(AttributeFlags);
+  *RequiredBufferSize = HeaderSize;
+  if ( HeaderSize > BufferSize )
+    return -1073741789;
+  if ( Buffer )
   {
-    *a2 = v7;
-    a2[1] = 0;
+    Buffer->AllocatedAttributes = AttributeFlags;
+    Buffer->ValidAttributes = 0;
   }
-  return 0LL;
+  return 0;
 }

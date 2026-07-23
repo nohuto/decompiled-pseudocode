@@ -16,18 +16,18 @@ int __fastcall AVrfCallAPILookupCallback(unsigned int a1, int a2, int a3, int a4
   unsigned int v6; // edi
   int (__thiscall *v8)(_DWORD, unsigned int, int, int, int); // ecx
   int v9; // esi
-  int v11; // [esp+10h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+10h] [ebp-4h] BYREF
 
   v6 = 0;
-  if ( LdrpFindLoadedDllByAddress(a1, (unsigned int *)&v11, 0) < 0 )
+  if ( LdrpFindLoadedDllByAddress(a1, (volatile signed __int32 **)&BaseAddress, 0) < 0 )
   {
     v6 = a1;
   }
   else
   {
-    if ( v11 != LdrpNtDllDataTableEntry && (*(_DWORD *)(v11 + 52) & 0x400) == 0 )
-      v6 = *(_DWORD *)(v11 + 24);
-    LdrpDereferenceModule(v11);
+    if ( BaseAddress != LdrpNtDllDataTableEntry && (*((_DWORD *)BaseAddress + 13) & 0x400) == 0 )
+      v6 = *((_DWORD *)BaseAddress + 6);
+    LdrpDereferenceModule((char *)BaseAddress);
   }
   if ( v6 )
   {
@@ -37,7 +37,7 @@ int __fastcall AVrfCallAPILookupCallback(unsigned int a1, int a2, int a3, int a4
                                                                                         - (MEMORY[0x7FFE0330] & 0x1F)));
     v9 = v8(v8, v6, a2, a3, a4);
     if ( v9 != a3 )
-      RtlGuardGrantSuppressedCallAccess(&v11);
+      RtlGuardGrantSuppressedCallAccess(&BaseAddress);
   }
   else
   {

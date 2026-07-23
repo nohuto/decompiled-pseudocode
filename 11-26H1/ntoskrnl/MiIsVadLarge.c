@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsVadLarge @ 0x1403A6ED0
+ * XREFs of MiIsVadLarge @ 0x1403A8C30
  * Callers:
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
- *     MiRemoveVadCharges @ 0x14095C7D4 (MiRemoveVadCharges.c)
- *     MiProcessVaRangesInfoClass @ 0x140B6B41C (MiProcessVaRangesInfoClass.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
+ *     MiRemoveVadCharges @ 0x140A02094 (MiRemoveVadCharges.c)
+ *     MiProcessVaRangesInfoClass @ 0x140B6E518 (MiProcessVaRangesInfoClass.c)
  * Callees:
  *     <none>
  */

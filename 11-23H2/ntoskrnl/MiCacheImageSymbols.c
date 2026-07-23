@@ -6,9 +6,9 @@
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall MiCacheImageSymbols(int a1)
+PVOID __fastcall MiCacheImageSymbols(void *a1)
 {
-  char v2; // [rsp+48h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+48h] [rbp+10h] BYREF
 
-  return RtlImageDirectoryEntryToData(a1, 1, 6, (int)&v2);
+  return RtlImageDirectoryEntryToData(a1, 1u, 6u, &Size);
 }

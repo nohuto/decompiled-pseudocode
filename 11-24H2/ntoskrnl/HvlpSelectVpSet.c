@@ -1,76 +1,79 @@
 /*
- * XREFs of HvlpSelectVpSet @ 0x140584E2C
+ * XREFs of HvlpSelectVpSet @ 0x1405821AC
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140583AD8 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x140580E58 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HvlIsSingleGroupRequired @ 0x140582834 (HvlIsSingleGroupRequired.c)
- *     HvlpComputeLpComparisonMetrics @ 0x140583FA4 (HvlpComputeLpComparisonMetrics.c)
- *     HvlpLpComparison @ 0x1405847B8 (HvlpLpComparison.c)
- *     HviGetImplementationLimits @ 0x140663B88 (HviGetImplementationLimits.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HvlIsSingleGroupRequired @ 0x14057FBB4 (HvlIsSingleGroupRequired.c)
+ *     HvlpComputeLpComparisonMetrics @ 0x140581324 (HvlpComputeLpComparisonMetrics.c)
+ *     HvlpLpComparison @ 0x140581B38 (HvlpLpComparison.c)
+ *     HviGetImplementationLimits @ 0x140662478 (HviGetImplementationLimits.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HvlpSelectVpSet(unsigned int a1, __int64 a2)
 {
-  unsigned __int64 v2; // rdi
+  __int64 v2; // rdi
   char v3; // r15
-  unsigned __int64 v5; // r9
   unsigned int i; // esi
-  _WORD *v7; // rcx
-  unsigned __int64 v8; // rdx
-  char v9; // al
-  unsigned int v10; // esi
-  unsigned int v11; // eax
-  __int128 *v12; // rcx
-  unsigned int v13; // ebp
-  unsigned int v14; // r8d
-  __int128 *v15; // r10
-  __int64 v16; // rdx
+  _WORD *v6; // rcx
+  __int64 v7; // rdx
+  char v8; // al
+  unsigned int v9; // esi
+  unsigned int v10; // eax
+  __int128 *v11; // rcx
+  unsigned int v12; // ebp
+  unsigned int v13; // r8d
+  __int128 *v14; // r10
+  __int64 v15; // rdx
   unsigned int j; // ecx
   bool IsSingleGroupRequired; // al
-  unsigned int v19; // r8d
-  unsigned int v20; // edx
-  unsigned __int64 v21; // r10
-  int v22; // r14d
-  __int64 v23; // rdx
-  unsigned __int64 v24; // rsi
-  int v25; // r8d
-  _WORD *v26; // rcx
+  unsigned int v18; // r8d
+  unsigned int v19; // edx
+  unsigned __int64 v20; // r10
+  int v21; // r14d
+  __int64 v22; // rdx
+  __int64 v23; // rsi
+  int v24; // r8d
+  _WORD *v25; // rcx
+  __int64 v26; // r9
   _DWORD *v27; // rcx
-  unsigned __int64 v28; // r11
-  unsigned int v29; // r8d
+  int v28; // r9d
+  __int64 v29; // r11
+  unsigned int v30; // r8d
   unsigned int k; // r8d
-  unsigned int v31; // eax
-  _BYTE *v32; // rcx
-  unsigned int v33; // esi
-  _BYTE *v34; // rbp
+  unsigned __int64 v32; // r9
+  unsigned int v33; // eax
+  _BYTE *v34; // rcx
+  unsigned int v35; // esi
+  _BYTE *v36; // rbp
+  unsigned int v37; // r9d
   unsigned int m; // edx
-  __int64 v36; // r8
-  __int64 v37; // rcx
-  _BYTE *v38; // rsi
-  __int64 v39; // rcx
-  char v40; // r12
-  unsigned int v41; // ebp
-  __int64 v42; // rsi
-  char v43; // al
+  __int64 v39; // r8
+  __int64 v40; // rcx
+  _BYTE *v41; // rsi
+  __int64 v42; // rcx
+  char v43; // r12
+  unsigned int v44; // ebp
+  __int64 v45; // rsi
+  char v46; // al
   unsigned int n; // ecx
-  unsigned int v45; // edx
-  __int64 v46; // rax
-  __int128 v48; // [rsp+28h] [rbp-90h] BYREF
-  _BYTE v49[64]; // [rsp+40h] [rbp-78h] BYREF
+  unsigned int v48; // edx
+  __int64 v49; // rax
+  __int128 v51; // [rsp+28h] [rbp-90h] BYREF
+  _BYTE v52[64]; // [rsp+40h] [rbp-78h] BYREF
 
   v2 = a1;
-  v48 = 0LL;
+  v51 = 0LL;
   v3 = 0;
   HvlpMinrootConfigurationError = 0;
-  HviGetImplementationLimits(&v48);
+  HviGetImplementationLimits(&v51);
   if ( (HvlpFlags & 0x800000) != 0 && (HvlpRootFlags & 0x800) == 0 )
   {
     v3 = 1;
     for ( i = 0; i < (unsigned int)v2; ++i )
     {
-      HvlpComputeLpComparisonMetrics(v2, a2, i, v5);
+      HvlpComputeLpComparisonMetrics(v2, a2, i);
       if ( *(_BYTE *)(a2 + 40LL * i + 2) && !*(_DWORD *)(a2 + 40LL * i + 28) )
       {
         v3 = 0;
@@ -80,20 +83,20 @@ __int64 __fastcall HvlpSelectVpSet(unsigned int a1, __int64 a2)
   }
   if ( (_DWORD)v2 )
   {
-    v7 = (_WORD *)(a2 + 8);
-    v8 = v2;
+    v6 = (_WORD *)(a2 + 8);
+    v7 = v2;
     do
     {
-      v7[2] = *v7;
-      v9 = 0;
-      *(v7 - 4) = 1;
+      v6[2] = *v6;
+      v8 = 0;
+      *(v6 - 4) = 1;
       if ( (HvlpRootFlags & 0x800) == 0 )
-        v9 = *((_BYTE *)v7 - 6);
-      *((_BYTE *)v7 - 5) = v9;
-      v7 += 20;
-      --v8;
+        v8 = *((_BYTE *)v6 - 6);
+      *((_BYTE *)v6 - 5) = v8;
+      v6 += 20;
+      --v7;
     }
-    while ( v8 );
+    while ( v7 );
   }
   if ( !v3 )
     goto LABEL_64;
@@ -112,34 +115,34 @@ __int64 __fastcall HvlpSelectVpSet(unsigned int a1, __int64 a2)
     HvlpMinrootConfigurationError = 1;
     ++KeRootProcSpecified;
   }
-  v10 = KeRootProcNumaNodesSpecified;
+  v9 = KeRootProcNumaNodesSpecified;
   if ( KeRootProcNumaNodesSpecified )
   {
-    v11 = 0;
-    v12 = &KeRootProcNumaNodes;
+    v10 = 0;
+    v11 = &KeRootProcNumaNodes;
     do
     {
-      if ( *(_WORD *)v12 == *(_WORD *)(a2 + 8) )
+      if ( *(_WORD *)v11 == *(_WORD *)(a2 + 8) )
         break;
-      ++v11;
-      v12 = (__int128 *)((char *)v12 + 2);
+      ++v10;
+      v11 = (__int128 *)((char *)v11 + 2);
     }
-    while ( v11 < KeRootProcNumaNodesSpecified );
-    if ( v11 == KeRootProcNumaNodesSpecified )
+    while ( v10 < KeRootProcNumaNodesSpecified );
+    if ( v10 == KeRootProcNumaNodesSpecified )
     {
-      v10 = 0;
+      v9 = 0;
       KeRootProcNumaNodesSpecified = 0;
       HvlpMinrootConfigurationError = 1;
     }
   }
   if ( !KeRootProcSpecified )
     goto LABEL_52;
-  memset_0(v49, 0, sizeof(v49));
+  memset_0(v52, 0, sizeof(v52));
+  v12 = 0;
+  if ( !v9 )
+    v9 = (unsigned __int16)KeNumberNodes;
   v13 = 0;
-  if ( !v10 )
-    v10 = (unsigned __int16)KeNumberNodes;
-  v14 = 0;
-  if ( !v10 )
+  if ( !v9 )
   {
 LABEL_45:
     if ( KeRootProcNumaNodesSpecified )
@@ -149,44 +152,43 @@ LABEL_45:
     }
     goto LABEL_52;
   }
-  v15 = &KeRootProcNumaNodes;
+  v14 = &KeRootProcNumaNodes;
   do
   {
     if ( KeRootProcNumaNodesSpecified )
     {
-      v16 = *(unsigned __int16 *)v15;
-      if ( (unsigned int)v16 >= 0x40 || v49[v16] )
+      v15 = *(unsigned __int16 *)v14;
+      if ( (unsigned int)v15 >= 0x40 || v52[v15] )
         goto LABEL_43;
-      v49[v16] = 1;
+      v52[v15] = 1;
     }
     else
     {
-      LODWORD(v16) = v14;
+      LODWORD(v15) = v13;
     }
     for ( j = 0; j < (unsigned int)v2; ++j )
     {
-      v5 = 5LL * j;
-      if ( *(_BYTE *)(a2 + 40LL * j + 2) && *(unsigned __int16 *)(a2 + 40LL * j + 8) == (_DWORD)v16 )
+      if ( *(_BYTE *)(a2 + 40LL * j + 2) && *(unsigned __int16 *)(a2 + 40LL * j + 8) == (_DWORD)v15 )
       {
-        ++v13;
+        ++v12;
         break;
       }
     }
 LABEL_43:
-    ++v14;
-    v15 = (__int128 *)((char *)v15 + 2);
+    ++v13;
+    v14 = (__int128 *)((char *)v14 + 2);
   }
-  while ( v14 < v10 );
-  if ( !v13 )
+  while ( v13 < v9 );
+  if ( !v12 )
     goto LABEL_45;
-  if ( KeRootProcSpecified <= v13 )
+  if ( KeRootProcSpecified <= v12 )
   {
     IsSingleGroupRequired = HvlIsSingleGroupRequired();
     HvlpMinrootConfigurationError = 1;
     if ( IsSingleGroupRequired )
     {
       KeRootProcSpecified = 64;
-      if ( v13 >= 0x40 )
+      if ( v12 >= 0x40 )
       {
         LOWORD(KeRootProcNumaNodes) = *(_WORD *)(a2 + 8);
         KeRootProcNumaNodesSpecified = 1;
@@ -203,23 +205,22 @@ LABEL_52:
     if ( KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(a2 + 8)]
       && _bittest64((const signed __int64 *)KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(a2 + 8) + 1], 0) )
     {
-      v19 = 1;
-      v20 = ~(KeGetCurrentPrcb()->LogicalProcessorsPerCore - 1);
-      while ( v19 < (unsigned int)v2 )
+      v18 = 1;
+      v19 = ~(KeGetCurrentPrcb()->LogicalProcessorsPerCore - 1);
+      while ( v18 < (unsigned int)v2 )
       {
-        if ( (v20 & *(_DWORD *)(a2 + 40LL * v19 + 4)) == (v20 & *(_DWORD *)(a2 + 4)) )
+        if ( (v19 & *(_DWORD *)(a2 + 40LL * v18 + 4)) == (v19 & *(_DWORD *)(a2 + 4)) )
         {
-          v21 = *(unsigned int *)(a2 + 40LL * v19 + 36);
-          v5 = 2LL * *(unsigned __int16 *)(a2 + 8);
-          if ( v21 >= KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(a2 + 8)]
+          v20 = *(unsigned int *)(a2 + 40LL * v18 + 36);
+          if ( v20 >= KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(a2 + 8)]
             || !_bittest64(
-                  (const signed __int64 *)(KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(a2 + 8) + 1] + 8 * (v21 >> 6)),
-                  *(_DWORD *)(a2 + 40LL * v19 + 36) & 0x3F) )
+                  (const signed __int64 *)(KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(a2 + 8) + 1] + 8 * (v20 >> 6)),
+                  *(_DWORD *)(a2 + 40LL * v18 + 36) & 0x3F) )
           {
             goto LABEL_61;
           }
         }
-        ++v19;
+        ++v18;
       }
     }
     else
@@ -238,198 +239,198 @@ LABEL_61:
 LABEL_64:
   *(_BYTE *)(a2 + 1) = 1;
   *(_BYTE *)(a2 + 3) = 1;
-  v22 = 1;
+  v21 = 1;
   while ( 2 )
   {
     if ( !(_DWORD)v2 )
     {
-      v31 = 0;
+      v33 = 0;
       goto LABEL_102;
     }
-    v23 = a2;
-    v24 = v2;
+    v22 = a2;
+    v23 = v2;
     while ( 2 )
     {
-      if ( *(_BYTE *)v23 )
+      if ( *(_BYTE *)v22 )
       {
-        if ( *(_BYTE *)(v23 + 1) || !*(_BYTE *)(v23 + 2) || v22 == (_DWORD)v48 )
+        if ( *(_BYTE *)(v22 + 1) || !*(_BYTE *)(v22 + 2) || v21 == (_DWORD)v51 )
           goto LABEL_95;
         if ( KeRootProcPerNodeSpecified )
         {
-          v25 = 0;
-          v26 = (_WORD *)(a2 + 8);
-          v5 = v2;
+          v24 = 0;
+          v25 = (_WORD *)(a2 + 8);
+          v26 = v2;
           do
           {
-            if ( *((_BYTE *)v26 - 7) && *v26 == *(_WORD *)(v23 + 8) )
-              ++v25;
-            v26 += 20;
-            --v5;
+            if ( *((_BYTE *)v25 - 7) && *v25 == *(_WORD *)(v22 + 8) )
+              ++v24;
+            v25 += 20;
+            --v26;
           }
-          while ( v5 );
-          if ( v25 == KeRootProcPerNodeSpecified )
+          while ( v26 );
+          if ( v24 == KeRootProcPerNodeSpecified )
             goto LABEL_95;
         }
         if ( KeRootProcPerCoreSpecified )
         {
           v27 = (_DWORD *)(a2 + 4);
-          v5 = 0LL;
-          v28 = v2;
-          v29 = ~(KeGetCurrentPrcb()->LogicalProcessorsPerCore - 1);
+          v28 = 0;
+          v29 = v2;
+          v30 = ~(KeGetCurrentPrcb()->LogicalProcessorsPerCore - 1);
           do
           {
-            if ( *((_BYTE *)v27 - 3) && (v29 & *v27) == (v29 & *(_DWORD *)(v23 + 4)) )
-              v5 = (unsigned int)(v5 + 1);
+            if ( *((_BYTE *)v27 - 3) && (v30 & *v27) == (v30 & *(_DWORD *)(v22 + 4)) )
+              ++v28;
             v27 += 10;
-            --v28;
+            --v29;
           }
-          while ( v28 );
-          if ( (_DWORD)v5 == KeRootProcPerCoreSpecified )
+          while ( v29 );
+          if ( v28 == KeRootProcPerCoreSpecified )
             goto LABEL_95;
         }
-        v5 = (unsigned int)KeRootProcNumaNodesSpecified;
         if ( KeRootProcNumaNodesSpecified )
         {
           for ( k = 0; k < KeRootProcNumaNodesSpecified; ++k )
           {
-            if ( *((_WORD *)&KeRootProcNumaNodes + k) == *(_WORD *)(v23 + 12) )
+            if ( *((_WORD *)&KeRootProcNumaNodes + k) == *(_WORD *)(v22 + 12) )
               goto LABEL_90;
           }
 LABEL_95:
-          *(_BYTE *)v23 = 0;
+          *(_BYTE *)v22 = 0;
         }
         else
         {
 LABEL_90:
-          if ( KeRootProcSpecified && v22 == KeRootProcSpecified )
+          if ( KeRootProcSpecified && v21 == KeRootProcSpecified )
             goto LABEL_95;
           if ( KeRootProcNumaNodeLpsSpecified )
           {
-            v5 = *(unsigned int *)(v23 + 36);
-            if ( v5 >= KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(v23 + 8)] )
+            v32 = *(unsigned int *)(v22 + 36);
+            if ( v32 >= KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(v22 + 8)]
+              || !_bittest64(
+                    (const signed __int64 *)(KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(v22 + 8) + 1]
+                                           + 8 * (v32 >> 6)),
+                    *(_DWORD *)(v22 + 36) & 0x3F) )
+            {
               goto LABEL_95;
-            v5 >>= 6;
-            if ( !_bittest64(
-                    (const signed __int64 *)(KeRootProcNumaNodeLps[2 * *(unsigned __int16 *)(v23 + 8) + 1] + 8 * v5),
-                    *(_DWORD *)(v23 + 36) & 0x3F) )
-              goto LABEL_95;
+            }
           }
         }
       }
-      v23 += 40LL;
-      if ( --v24 )
+      v22 += 40LL;
+      if ( --v23 )
         continue;
       break;
     }
-    v31 = 0;
-    v32 = (_BYTE *)a2;
+    v33 = 0;
+    v34 = (_BYTE *)a2;
     do
     {
-      if ( *v32 )
+      if ( *v34 )
         break;
-      ++v31;
-      v32 += 40;
+      ++v33;
+      v34 += 40;
     }
-    while ( v31 < (unsigned int)v2 );
+    while ( v33 < (unsigned int)v2 );
 LABEL_102:
-    if ( v31 != (_DWORD)v2 )
+    if ( v33 != (_DWORD)v2 )
     {
-      v33 = 0;
+      v35 = 0;
       if ( (_DWORD)v2 )
       {
-        v34 = (_BYTE *)a2;
+        v36 = (_BYTE *)a2;
         do
         {
-          if ( *v34 )
-            HvlpComputeLpComparisonMetrics(v2, a2, v33, v5);
-          ++v33;
-          v34 += 40;
+          if ( *v36 )
+            HvlpComputeLpComparisonMetrics(v2, a2, v35);
+          ++v35;
+          v36 += 40;
         }
-        while ( v33 < (unsigned int)v2 );
+        while ( v35 < (unsigned int)v2 );
       }
-      v5 = 0xFFFFFFFFLL;
+      v37 = -1;
       for ( m = 0; m < (unsigned int)v2; ++m )
       {
         if ( *(_BYTE *)(a2 + 40LL * m) )
         {
-          v5 = m;
+          v37 = m;
           break;
         }
       }
-      v36 = (unsigned int)(v5 + 1);
-      if ( (unsigned int)v36 < (unsigned int)v2 )
+      v39 = v37 + 1;
+      if ( (unsigned int)v39 < (unsigned int)v2 )
       {
-        v37 = 5 * v36;
-        v38 = (_BYTE *)(a2 + 40 * v36);
+        v40 = 5 * v39;
+        v41 = (_BYTE *)(a2 + 40 * v39);
         do
         {
-          if ( *v38 )
+          if ( *v41 )
           {
-            if ( (unsigned int)HvlpLpComparison(v37, a2, v36, v5) == -1 )
-              v5 = (unsigned int)v36;
+            if ( (unsigned int)HvlpLpComparison(v40, a2, v39, v37) == -1 )
+              v37 = v39;
           }
-          LODWORD(v36) = v36 + 1;
-          v38 += 40;
+          LODWORD(v39) = v39 + 1;
+          v41 += 40;
         }
-        while ( (unsigned int)v36 < (unsigned int)v2 );
+        while ( (unsigned int)v39 < (unsigned int)v2 );
       }
-      ++v22;
-      v39 = 5LL * (unsigned int)v5;
-      *(_BYTE *)(a2 + 8 * v39 + 1) = 1;
-      *(_BYTE *)(a2 + 8 * v39 + 3) = 1;
+      ++v21;
+      v42 = 5LL * v37;
+      *(_BYTE *)(a2 + 8 * v42 + 1) = 1;
+      *(_BYTE *)(a2 + 8 * v42 + 3) = 1;
       continue;
     }
     break;
   }
-  v40 = 0;
+  v43 = 0;
   if ( v3 )
   {
-    v41 = 1;
+    v44 = 1;
     if ( (unsigned int)v2 > 1 )
     {
-      v42 = a2 + 41;
+      v45 = a2 + 41;
       do
       {
-        if ( *(_BYTE *)v42 )
+        if ( *(_BYTE *)v45 )
         {
-          HvlpComputeLpComparisonMetrics(v2, a2, v41, v5);
-          if ( !*(_DWORD *)(v42 + 27) )
+          HvlpComputeLpComparisonMetrics(v2, a2, v44);
+          if ( !*(_DWORD *)(v45 + 27) )
           {
-            *(_BYTE *)v42 = 0;
-            v43 = 0;
+            *(_BYTE *)v45 = 0;
+            v46 = 0;
             if ( (HvlpRootFlags & 0x800) == 0 )
-              v43 = *(_BYTE *)(v42 + 1);
-            *(_BYTE *)(v42 + 2) = v43;
-            v40 = 1;
+              v46 = *(_BYTE *)(v45 + 1);
+            *(_BYTE *)(v45 + 2) = v46;
+            v43 = 1;
             HvlpMinrootConfigurationError = 1;
           }
         }
-        ++v41;
-        v42 += 40LL;
+        ++v44;
+        v45 += 40LL;
       }
-      while ( v41 < (unsigned int)v2 );
+      while ( v44 < (unsigned int)v2 );
     }
   }
-  if ( !KeRootProcNumaNodesSpecified && !KeRootProcNumaNodeLpsSpecified && !v40 )
+  if ( !KeRootProcNumaNodesSpecified && !KeRootProcNumaNodeLpsSpecified && !v43 )
   {
     for ( n = 0; n < (unsigned int)v2; ++n )
     {
       if ( *(_BYTE *)(a2 + 40LL * n + 2) )
       {
-        v45 = 0;
+        v48 = 0;
         if ( (_DWORD)v2 )
         {
-          v46 = a2 + 1;
+          v49 = a2 + 1;
           do
           {
-            if ( *(_WORD *)(v46 + 7) == *(_WORD *)(a2 + 40LL * n + 8) && *(_BYTE *)v46 )
+            if ( *(_WORD *)(v49 + 7) == *(_WORD *)(a2 + 40LL * n + 8) && *(_BYTE *)v49 )
               break;
-            ++v45;
-            v46 += 40LL;
+            ++v48;
+            v49 += 40LL;
           }
-          while ( v45 < (unsigned int)v2 );
+          while ( v48 < (unsigned int)v2 );
         }
-        if ( v45 == (_DWORD)v2 )
+        if ( v48 == (_DWORD)v2 )
           return 3221225473LL;
       }
     }

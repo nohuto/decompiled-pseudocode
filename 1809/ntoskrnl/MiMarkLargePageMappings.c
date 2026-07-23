@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMarkLargePageMappings @ 0x1409B905C
+ * XREFs of MiMarkLargePageMappings @ 0x1409BA05C
  * Callers:
- *     MiMarkLargePageRanges @ 0x1409B8EB4 (MiMarkLargePageRanges.c)
+ *     MiMarkLargePageRanges @ 0x1409B9EB4 (MiMarkLargePageRanges.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 MiMarkLargePageMappings()

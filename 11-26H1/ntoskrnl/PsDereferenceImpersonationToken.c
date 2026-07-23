@@ -1,9 +1,9 @@
 /*
- * XREFs of PsDereferenceImpersonationToken @ 0x140A67570
+ * XREFs of PsDereferenceImpersonationToken @ 0x140A74540
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
  */
 
 void __stdcall PsDereferenceImpersonationToken(PACCESS_TOKEN ImpersonationToken)

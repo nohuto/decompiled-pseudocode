@@ -1,18 +1,18 @@
 /*
- * XREFs of HashpHashMemory @ 0x140A7701C
+ * XREFs of HashpHashMemory @ 0x140A772CC
  * Callers:
- *     MinCryptHashMemory @ 0x1406773EC (MinCryptHashMemory.c)
+ *     MinCryptHashMemory @ 0x14067793C (MinCryptHashMemory.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     SymCryptSha256Result @ 0x1403F4F10 (SymCryptSha256Result.c)
- *     SymCryptSha384Result @ 0x1403FA55C (SymCryptSha384Result.c)
- *     SymCryptSha512Result @ 0x1403FBD48 (SymCryptSha512Result.c)
- *     SymCryptSha1Result @ 0x1403FD0D0 (SymCryptSha1Result.c)
- *     SymCryptMd5Result @ 0x1403FDB00 (SymCryptMd5Result.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HashpHashBytes @ 0x140A775E4 (HashpHashBytes.c)
- *     HashpInitHash @ 0x140A7765C (HashpInitHash.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     SymCryptSha256Result @ 0x1403F50F0 (SymCryptSha256Result.c)
+ *     SymCryptSha384Result @ 0x1403FA73C (SymCryptSha384Result.c)
+ *     SymCryptSha512Result @ 0x1403FBF28 (SymCryptSha512Result.c)
+ *     SymCryptSha1Result @ 0x1403FD2B0 (SymCryptSha1Result.c)
+ *     SymCryptMd5Result @ 0x1403FDCE0 (SymCryptMd5Result.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HashpHashBytes @ 0x140A77894 (HashpHashBytes.c)
+ *     HashpInitHash @ 0x140A7790C (HashpInitHash.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -31,9 +31,9 @@ __int64 __fastcall HashpHashMemory(unsigned int a1, unsigned int a2, __int64 a3,
   unsigned int v17; // edi
   __int64 v18; // rdi
 
-  v5 = byte_140D1C338;
+  v5 = byte_140D1C328;
   v7 = a2;
-  if ( byte_140D1C338 )
+  if ( byte_140D1C328 )
     Pool2 = (unsigned int *)ExAllocateFromNPagedLookasideList(&stru_140D1BA00);
   else
     Pool2 = (unsigned int *)ExAllocatePool2(258LL, 240LL, 1919109443LL);

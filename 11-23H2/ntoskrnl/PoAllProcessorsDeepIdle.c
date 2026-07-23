@@ -1,11 +1,11 @@
 /*
- * XREFs of PoAllProcessorsDeepIdle @ 0x1402C1B20
+ * XREFs of PoAllProcessorsDeepIdle @ 0x1402C1DB0
  * Callers:
- *     PpmIdleEvaluateConstraints @ 0x1402C2488 (PpmIdleEvaluateConstraints.c)
- *     KePrepareClockTimerForIdle @ 0x140347334 (KePrepareClockTimerForIdle.c)
+ *     PpmIdleEvaluateConstraints @ 0x1402C2718 (PpmIdleEvaluateConstraints.c)
+ *     KePrepareClockTimerForIdle @ 0x1403475C4 (KePrepareClockTimerForIdle.c)
  * Callees:
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BFC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1E8C (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
  */
 
 char PoAllProcessorsDeepIdle()

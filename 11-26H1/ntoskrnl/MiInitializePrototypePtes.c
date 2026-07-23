@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializePrototypePtes @ 0x1409B8000
+ * XREFs of MiInitializePrototypePtes @ 0x140988FE0
  * Callers:
- *     MiAllocateSubsectionProtos @ 0x140458B54 (MiAllocateSubsectionProtos.c)
- *     MiCreatePrototypePtes @ 0x14049406C (MiCreatePrototypePtes.c)
- *     MiCreatePagingFileFinish @ 0x1409B7E0C (MiCreatePagingFileFinish.c)
+ *     MiAllocateSubsectionProtos @ 0x1404503C4 (MiAllocateSubsectionProtos.c)
+ *     MiCreatePrototypePtes @ 0x14048DBBC (MiCreatePrototypePtes.c)
+ *     MiCreatePagingFileFinish @ 0x140988DEC (MiCreatePagingFileFinish.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiInitializeFaultVaListCore @ 0x140467FA0 (MiInitializeFaultVaListCore.c)
- *     MiFillMemoryPtes @ 0x140483968 (MiFillMemoryPtes.c)
- *     MiEncodeProtoFill @ 0x140499E80 (MiEncodeProtoFill.c)
- *     MiMakeSubsectionPte @ 0x1404B5EF8 (MiMakeSubsectionPte.c)
- *     MiMakeDemandFillProtoPte @ 0x1404C5B90 (MiMakeDemandFillProtoPte.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiInitializeFaultVaListCore @ 0x1404616F0 (MiInitializeFaultVaListCore.c)
+ *     MiFillMemoryPtes @ 0x14047D2D0 (MiFillMemoryPtes.c)
+ *     MiEncodeProtoFill @ 0x1404939D0 (MiEncodeProtoFill.c)
+ *     MiMakeSubsectionPte @ 0x1404AF348 (MiMakeSubsectionPte.c)
+ *     MiMakeDemandFillProtoPte @ 0x1404BF540 (MiMakeDemandFillProtoPte.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiInitializePrototypePtes(_QWORD *BugCheckParameter1, unsigned __int64 a2, __int64 a3, int a4)

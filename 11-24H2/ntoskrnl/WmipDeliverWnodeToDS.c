@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipDeliverWnodeToDS @ 0x140A962E8
+ * XREFs of WmipDeliverWnodeToDS @ 0x140A92B18
  * Callers:
- *     WmipDereferenceEvent @ 0x1409C9CE0 (WmipDereferenceEvent.c)
- *     WmipEnableCollectionForNewGuid @ 0x1409CB9CC (WmipEnableCollectionForNewGuid.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x1409CFA88 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x1409B0E04 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipEnableCollectionForNewGuid @ 0x1409B20EC (WmipEnableCollectionForNewGuid.c)
+ *     WmipDereferenceEvent @ 0x140AB08D8 (WmipDereferenceEvent.c)
  * Callees:
- *     WmipSendWmiIrp @ 0x1409CD990 (WmipSendWmiIrp.c)
+ *     WmipSendWmiIrp @ 0x1409B2964 (WmipSendWmiIrp.c)
  */
 
 __int64 __fastcall WmipDeliverWnodeToDS(__int64 a1, __int64 a2, __int64 a3, int a4)

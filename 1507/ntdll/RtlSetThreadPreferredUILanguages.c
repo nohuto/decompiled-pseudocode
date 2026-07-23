@@ -31,16 +31,16 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
   __int64 v15; // rax
   __int64 v16; // rax
   __int64 v17; // rax
-  _BYTE v18[8]; // [rsp+40h] [rbp-20h] BYREF
-  _WORD *v19; // [rsp+48h] [rbp-18h] BYREF
+  ULONG NumberOfLanguages; // [rsp+40h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-18h] BYREF
   __int64 v20; // [rsp+50h] [rbp-10h] BYREF
   unsigned int v21; // [rsp+A0h] [rbp+40h] BYREF
-  int v22; // [rsp+B8h] [rbp+58h] BYREF
+  ULONG ReturnLength; // [rsp+B8h] [rbp+58h] BYREF
 
   v21 = 0;
-  v22 = 0;
+  ReturnLength = 0;
   v5 = a1;
-  v19 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0;
   v20 = 0LL;
   if ( (a1 & 0xFFFF7CF2) != 0 )
@@ -79,18 +79,18 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
       return (unsigned int)-1073741811;
     if ( v21 < 2 || *a2 || a2[1] )
     {
-      if ( (int)LdrpCreateLangFallbackList(&v19, v20, 5LL, 0LL) < 0 || !v19 )
+      if ( (int)LdrpCreateLangFallbackList(&BaseAddress, v20, 5LL, 0LL) < 0 || !BaseAddress )
         return (unsigned int)-1073741801;
-      updated = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, v21, v5 | 2u, 26, 5, &v19);
+      updated = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, v21, v5 | 2u, 26, 5, &BaseAddress);
       if ( updated < 0 )
       {
-        RtlpMuiRegFreeLanguageList(v19);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         goto LABEL_23;
       }
-      v14 = v19[2];
+      v14 = *((_WORD *)BaseAddress + 2);
       if ( !v14 )
       {
-        RtlpMuiRegFreeLanguageList(v19);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
@@ -102,7 +102,7 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
     RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
     NtCurrentTeb()->PreferredLanguages = 0LL;
   }
-  NtCurrentTeb()->PreferredLanguages = v19;
+  NtCurrentTeb()->PreferredLanguages = BaseAddress;
 LABEL_20:
   if ( NtCurrentTeb()->MergedPrefLanguages )
   {
@@ -182,6 +182,6 @@ LABEL_32:
   }
   *(_DWORD *)(v11 + 40) &= 0xFFFFFFF9;
 LABEL_36:
-  RtlGetThreadPreferredUILanguages(v5 | 0x30u, v18, 0LL, &v22);
+  RtlGetThreadPreferredUILanguages(v5 | 0x30, &NumberOfLanguages, 0LL, &ReturnLength);
   return (unsigned int)updated;
 }

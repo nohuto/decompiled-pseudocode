@@ -1,23 +1,23 @@
 /*
- * XREFs of KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC
+ * XREFs of KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C
  * Callers:
- *     KeQueryTotalCycleTimeThread @ 0x140095D3C (KeQueryTotalCycleTimeThread.c)
- *     KeAttachProcess @ 0x1400ADF38 (KeAttachProcess.c)
- *     KeRemoveQueueApc @ 0x1400AF37C (KeRemoveQueueApc.c)
- *     KeRequestTerminationThread @ 0x1400C9DE0 (KeRequestTerminationThread.c)
- *     KiSchedulerApc @ 0x1400CB720 (KiSchedulerApc.c)
- *     KiFlushQueueApc @ 0x1400CBB54 (KiFlushQueueApc.c)
- *     KeTestAlertThread @ 0x1400CD08C (KeTestAlertThread.c)
- *     KeStackAttachProcess @ 0x1400CD110 (KeStackAttachProcess.c)
- *     KiDetachProcess @ 0x1400CE460 (KiDetachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     KeUpdateThreadTag @ 0x14010D1D8 (KeUpdateThreadTag.c)
- *     KeQueryActualAffinityThread @ 0x1401D2CA0 (KeQueryActualAffinityThread.c)
- *     KeEnumerateQueueApc @ 0x1401D66EC (KeEnumerateQueueApc.c)
- *     KeQueryCpuSetsThread @ 0x1401D7698 (KeQueryCpuSetsThread.c)
- *     KiSetHeteroPolicyThread @ 0x1401D8354 (KiSetHeteroPolicyThread.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14009553C (KeQueryTotalCycleTimeThread.c)
+ *     KeAttachProcess @ 0x1400AC4A0 (KeAttachProcess.c)
+ *     KeRemoveQueueApc @ 0x1400AD8E4 (KeRemoveQueueApc.c)
+ *     KeRequestTerminationThread @ 0x1400C7C80 (KeRequestTerminationThread.c)
+ *     KiSchedulerApc @ 0x1400C95C0 (KiSchedulerApc.c)
+ *     KiFlushQueueApc @ 0x1400C99F4 (KiFlushQueueApc.c)
+ *     KeTestAlertThread @ 0x1400CAF2C (KeTestAlertThread.c)
+ *     KeStackAttachProcess @ 0x1400CAFB0 (KeStackAttachProcess.c)
+ *     KiDetachProcess @ 0x1400CC300 (KiDetachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     KeUpdateThreadTag @ 0x14010D73C (KeUpdateThreadTag.c)
+ *     KeQueryActualAffinityThread @ 0x1401D2ACC (KeQueryActualAffinityThread.c)
+ *     KeEnumerateQueueApc @ 0x1401D6518 (KeEnumerateQueueApc.c)
+ *     KeQueryCpuSetsThread @ 0x1401D74C4 (KeQueryCpuSetsThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1401D8180 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KiAcquireThreadLockRaiseToDpc(__int64 a1, _BYTE *a2)

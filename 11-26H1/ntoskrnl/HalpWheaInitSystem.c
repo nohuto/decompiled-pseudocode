@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpWheaInitSystem @ 0x140BEB670
+ * XREFs of HalpWheaInitSystem @ 0x140BF1670
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
- *     HalpMcaInitializePcrContext @ 0x140BEA068 (HalpMcaInitializePcrContext.c)
- *     HalpWheaInitDiscard @ 0x140CAFBBC (HalpWheaInitDiscard.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
+ *     HalpMcaInitializePcrContext @ 0x140BF0068 (HalpMcaInitializePcrContext.c)
+ *     HalpWheaInitDiscard @ 0x140CB5BFC (HalpWheaInitDiscard.c)
  */
 
 __int64 HalpWheaInitSystem()

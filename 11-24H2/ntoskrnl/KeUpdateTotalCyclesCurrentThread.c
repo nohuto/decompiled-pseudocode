@@ -1,15 +1,15 @@
 /*
- * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x14034AEC0
+ * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x1403693A0
  * Callers:
- *     PsQueryTotalCycleTimeProcess @ 0x140A1FFF0 (PsQueryTotalCycleTimeProcess.c)
- *     KeEnableProfiling @ 0x140AB6C40 (KeEnableProfiling.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x140A150F0 (PsQueryTotalCycleTimeProcess.c)
+ *     KeEnableProfiling @ 0x140AB0F18 (KeEnableProfiling.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HalRequestSoftwareInterrupt @ 0x14034AB60 (HalRequestSoftwareInterrupt.c)
- *     KiQueryEffectivePriorityThread @ 0x14034BFE0 (KiQueryEffectivePriorityThread.c)
- *     KiEndCounterAccumulation @ 0x14034C52C (KiEndCounterAccumulation.c)
- *     KiUpdateThreadHgsFeedback @ 0x14034E8CC (KiUpdateThreadHgsFeedback.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalRequestSoftwareInterrupt @ 0x140369040 (HalRequestSoftwareInterrupt.c)
+ *     KiQueryEffectivePriorityThread @ 0x14036A4C0 (KiQueryEffectivePriorityThread.c)
+ *     KiEndCounterAccumulation @ 0x14036AA0C (KiEndCounterAccumulation.c)
+ *     KiUpdateThreadHgsFeedback @ 0x14036CDAC (KiUpdateThreadHgsFeedback.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 unsigned __int64 __fastcall KeUpdateTotalCyclesCurrentThread(_KTHREAD *a1, __int64 a2)

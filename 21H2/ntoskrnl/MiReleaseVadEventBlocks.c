@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReleaseVadEventBlocks @ 0x1406ED390
+ * XREFs of MiReleaseVadEventBlocks @ 0x140704770
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiRemoveVadCharges @ 0x1406ED1F0 (MiRemoveVadCharges.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiRemoveVadCharges @ 0x1407045D0 (MiRemoveVadCharges.c)
  * Callees:
- *     MiReturnResident @ 0x140296E9C (MiReturnResident.c)
- *     MiDereferenceControlArea @ 0x1402D38B8 (MiDereferenceControlArea.c)
- *     MiFreePhysicalView @ 0x140317FB8 (MiFreePhysicalView.c)
- *     MiGetVadWakeList @ 0x140318020 (MiGetVadWakeList.c)
- *     MiGetAweInfoPartition @ 0x14054C394 (MiGetAweInfoPartition.c)
- *     MiFreeVadEventBitmapCharges @ 0x1406B1774 (MiFreeVadEventBitmapCharges.c)
- *     MiFreeRotateVadEvent @ 0x1406C1A28 (MiFreeRotateVadEvent.c)
- *     MiComputeAweCharges @ 0x1408D5900 (MiComputeAweCharges.c)
- *     MiFreePlaceholderVadEvent @ 0x1408D8468 (MiFreePlaceholderVadEvent.c)
- *     MiFreeLargePageView @ 0x1408DA310 (MiFreeLargePageView.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiDereferenceControlArea @ 0x140251BB8 (MiDereferenceControlArea.c)
+ *     MiReturnResident @ 0x140273F7C (MiReturnResident.c)
+ *     MiFreePhysicalView @ 0x140322D08 (MiFreePhysicalView.c)
+ *     MiGetVadWakeList @ 0x140322D70 (MiGetVadWakeList.c)
+ *     MiGetAweInfoPartition @ 0x14054C5D4 (MiGetAweInfoPartition.c)
+ *     MiFreeVadEventBitmapCharges @ 0x140610724 (MiFreeVadEventBitmapCharges.c)
+ *     MiFreeRotateVadEvent @ 0x140620730 (MiFreeRotateVadEvent.c)
+ *     MiComputeAweCharges @ 0x1408D5A60 (MiComputeAweCharges.c)
+ *     MiFreePlaceholderVadEvent @ 0x1408D85C8 (MiFreePlaceholderVadEvent.c)
+ *     MiFreeLargePageView @ 0x1408DA470 (MiFreeLargePageView.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReleaseVadEventBlocks(__int64 a1, int a2, __int64 a3, _DWORD *a4)

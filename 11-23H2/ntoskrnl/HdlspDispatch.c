@@ -1,17 +1,17 @@
 /*
  * XREFs of HdlspDispatch @ 0x140AE9EB0
  * Callers:
- *     HeadlessDispatch @ 0x140377250 (HeadlessDispatch.c)
+ *     HeadlessDispatch @ 0x1403773F0 (HeadlessDispatch.c)
  *     HdlspKernelAddLogEntry @ 0x140AEAA40 (HdlspKernelAddLogEntry.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     strcmp @ 0x1403DB0F0 (strcmp.c)
- *     sprintf_s @ 0x1403DF720 (sprintf_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     InbvPortGetByte @ 0x14067959C (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x140679750 (InbvPortPollOnly.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     strcmp @ 0x1403DB2D0 (strcmp.c)
+ *     sprintf_s @ 0x1403DF900 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     InbvPortGetByte @ 0x140679AEC (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x140679CA0 (InbvPortPollOnly.c)
  *     HdlspAddLogEntry @ 0x140AE9B20 (HdlspAddLogEntry.c)
  *     HdlspBugCheckProcessing @ 0x140AE9D84 (HdlspBugCheckProcessing.c)
  *     HdlspEnableTerminal @ 0x140AEA5C4 (HdlspEnableTerminal.c)
@@ -144,10 +144,10 @@ LABEL_132:
     if ( v11 != 0xFF )
     {
       KxReleaseSpinLock(v12);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -377,10 +377,10 @@ LABEL_121:
   if ( v11 != 0xFF )
   {
     KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v11 <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v11 <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;

@@ -1,24 +1,24 @@
 /*
- * XREFs of NtSetContextThread @ 0x14088B8F0
+ * XREFs of NtSetContextThread @ 0x14088CB50
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
+ *     IoThreadToProcess @ 0x1400ACE60 (IoThreadToProcess.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     PspSetContextThreadInternal @ 0x140621A30 (PspSetContextThreadInternal.c)
  */
 
 NTSTATUS __stdcall NtSetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
 {
   struct _KTHREAD *CurrentThread; // rbx
   KPROCESSOR_MODE PreviousMode; // si
-  NTSTATUS v5; // edi
+  int v5; // edi
   PEPROCESS v6; // rax
   PETHREAD v7; // rbx
-  NTSTATUS v9; // [rsp+30h] [rbp-48h] BYREF
+  int v9; // [rsp+30h] [rbp-48h] BYREF
   PETHREAD Thread; // [rsp+38h] [rbp-40h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-38h] BYREF
 
@@ -39,7 +39,7 @@ NTSTATUS __stdcall NtSetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
     }
     else
     {
-      v5 = PspSetContextThreadInternal(v7, (__int64)Context, PreviousMode, PreviousMode, 1);
+      v5 = PspSetContextThreadInternal(v7, Context, PreviousMode, PreviousMode, 1);
     }
     ObfDereferenceObject(v7);
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpMarkKeyValuesDirty @ 0x140608DD4
+ * XREFs of CmpMarkKeyValuesDirty @ 0x140608E88
  * Callers:
- *     CmpFreeKeyValues @ 0x140608C08 (CmpFreeKeyValues.c)
+ *     CmpFreeKeyValues @ 0x140608CBC (CmpFreeKeyValues.c)
  * Callees:
- *     CmpMarkValueDataDirty @ 0x140400474 (CmpMarkValueDataDirty.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     CmpMarkValueDataDirty @ 0x1403FF334 (CmpMarkValueDataDirty.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 char __fastcall CmpMarkKeyValuesDirty(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 a3)

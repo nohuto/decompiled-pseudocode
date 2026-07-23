@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpFindNamespaceNode @ 0x1409777B0
+ * XREFs of VrpFindNamespaceNode @ 0x1409397C0
  * Callers:
- *     VrpFindExactNamespaceNode @ 0x14097778C (VrpFindExactNamespaceNode.c)
- *     VrpFindBestMatchNamespaceNode @ 0x140977CD0 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpFindExactNamespaceNode @ 0x14093979C (VrpFindExactNamespaceNode.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x140939CE0 (VrpFindBestMatchNamespaceNode.c)
  * Callees:
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
  */
 
 unsigned __int16 *__fastcall VrpFindNamespaceNode(

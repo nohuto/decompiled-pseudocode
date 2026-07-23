@@ -1,15 +1,15 @@
 /*
- * XREFs of PopNotifyDevice @ 0x140568C68
+ * XREFs of PopNotifyDevice @ 0x140569C68
  * Callers:
- *     PopWakeDeviceList @ 0x140568954 (PopWakeDeviceList.c)
- *     PopSleepDeviceList @ 0x140568AB8 (PopSleepDeviceList.c)
+ *     PopWakeDeviceList @ 0x140569954 (PopWakeDeviceList.c)
+ *     PopSleepDeviceList @ 0x140569AB8 (PopSleepDeviceList.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopMapInternalActionToIrpAction @ 0x140143458 (PopMapInternalActionToIrpAction.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x14014347C (PoFxActivateDeviceForSystemTransition.c)
- *     PopAllocateIrp @ 0x14017273C (PopAllocateIrp.c)
- *     PopQueueQuerySetIrp @ 0x140172A8C (PopQueueQuerySetIrp.c)
- *     PopLogNotifyDevice @ 0x1402DE66C (PopLogNotifyDevice.c)
+ *     PopMapInternalActionToIrpAction @ 0x140143558 (PopMapInternalActionToIrpAction.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x14014357C (PoFxActivateDeviceForSystemTransition.c)
+ *     PopAllocateIrp @ 0x14017283C (PopAllocateIrp.c)
+ *     PopQueueQuerySetIrp @ 0x140172B8C (PopQueueQuerySetIrp.c)
+ *     PopLogNotifyDevice @ 0x1402DE85C (PopLogNotifyDevice.c)
  */
 
 NTSTATUS __fastcall PopNotifyDevice(__int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ NTSTATUS __fastcall PopNotifyDevice(__int64 a1, __int64 a2)
   PIRP Irp; // [rsp+98h] [rbp+10h] BYREF
 
   v4 = *(_BYTE *)(a1 + 464) || **(_QWORD **)(a1 + 56) != *(_QWORD *)(a2 + 64);
-  v7 = PopMapInternalActionToIrpAction(qword_1404176A8, *(_DWORD *)(a1 + 4), v4);
+  v7 = PopMapInternalActionToIrpAction(qword_140418728, *(_DWORD *)(a1 + 4), v4);
   v9 = v8;
   if ( v7 == 7 && *v6 == *(_QWORD *)(a2 + 64) && *(_BYTE *)a1 == 2 )
   {
@@ -52,7 +52,7 @@ NTSTATUS __fastcall PopNotifyDevice(__int64 a1, __int64 a2)
   v13[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)PopSystemIrpCompletion;
   v13[-1].Context = v10;
   v13[-1].Control = -32;
-  if ( (xmmword_140541350 & 0x8000) != 0 )
+  if ( (xmmword_140542350 & 0x8000) != 0 )
     PopLogNotifyDevice(*(_QWORD *)(a2 + 48), a2, (__int64)v11);
   if ( v9 > 1 && (unsigned __int8)(*(_BYTE *)a1 - 2) <= 1u )
   {

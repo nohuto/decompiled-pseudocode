@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxRegisterDevice @ 0x1408362D0
+ * XREFs of PoFxRegisterDevice @ 0x1408365D0
  * Callers:
- *     DifPoFxRegisterDeviceWrapper @ 0x1405E9950 (DifPoFxRegisterDeviceWrapper.c)
+ *     DifPoFxRegisterDeviceWrapper @ 0x1405E9EC0 (DifPoFxRegisterDeviceWrapper.c)
  * Callees:
- *     PopPrintEx @ 0x14032A6AC (PopPrintEx.c)
- *     PopFxConvertV1Components @ 0x140836138 (PopFxConvertV1Components.c)
- *     PopFxRegisterDevice @ 0x14083651C (PopFxRegisterDevice.c)
+ *     PopPrintEx @ 0x14032A93C (PopPrintEx.c)
+ *     PopFxConvertV1Components @ 0x140836438 (PopFxConvertV1Components.c)
+ *     PopFxRegisterDevice @ 0x14083681C (PopFxRegisterDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -68,9 +68,9 @@ LABEL_6:
     }
     return (unsigned int)-1073741811;
   }
-  PopPrintEx(1LL, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", Object);
-  PopPrintEx(1LL, (__int64)" - Driver: \"%wZ\"", Object[1] + 56LL);
-  PopPrintEx(1LL, (__int64)"\n");
+  PopPrintEx(1u, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", Object);
+  PopPrintEx(1u, (__int64)" - Driver: \"%wZ\"", Object[1] + 56LL);
+  PopPrintEx(1u, (__int64)"\n");
   v23 = *((_QWORD *)a2 + 7);
   v17 = *((_QWORD *)a2 + 1);
   v18 = *((_QWORD *)a2 + 2);

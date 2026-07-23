@@ -27,7 +27,7 @@
 
 LONG PopUnlockAfterSleepWorker()
 {
-  __int64 v0; // rcx
+  UNICODE_STRING *v0; // rcx
   __int64 v1; // rdx
   __int64 v2; // rcx
   __int64 v3; // rcx
@@ -45,7 +45,7 @@ LONG PopUnlockAfterSleepWorker()
   qword_140F0B038 = (__int64)KeGetCurrentThread();
   if ( PopWaitingForTransitionLock
     && (int)PopPushPowerStateTransitionRecordWithCallback(
-              (__int64)KeGetCurrentThread()->ApcState.Process,
+              (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process,
               qword_140F0B038,
               0LL,
               0,

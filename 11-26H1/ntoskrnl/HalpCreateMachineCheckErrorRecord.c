@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCreateMachineCheckErrorRecord @ 0x140452620
+ * XREFs of HalpCreateMachineCheckErrorRecord @ 0x14044A750
  * Callers:
- *     HalpCreateErrorRecord @ 0x14057AC70 (HalpCreateErrorRecord.c)
+ *     HalpCreateErrorRecord @ 0x14057D1A0 (HalpCreateErrorRecord.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     HalpCreateMcaProcessorErrorRecord @ 0x140452784 (HalpCreateMcaProcessorErrorRecord.c)
- *     HalpCreateMcaMemoryErrorRecord @ 0x140454498 (HalpCreateMcaMemoryErrorRecord.c)
- *     HalpMcaAMDIsMemoryError @ 0x14057E74C (HalpMcaAMDIsMemoryError.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x14044A8B4 (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x14044C5C8 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpMcaAMDIsMemoryError @ 0x140580C6C (HalpMcaAMDIsMemoryError.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -19,8 +19,8 @@ __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __i
   int v11; // eax
   int McaMemoryErrorRecord; // eax
   unsigned int v13; // ebx
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-68h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
 
   v4 = *(_WORD *)(a2 + 120);
   Affinity = 0LL;
@@ -28,7 +28,7 @@ __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __i
   v9 = 0;
   if ( KeGetCurrentIrql() < 2u )
   {
-    v10 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * *(unsigned int *)(a2 + 96));
+    v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + *(unsigned int *)(a2 + 96));
     Affinity.Reserved[1] = 0;
     Affinity.Reserved[2] = 0;
     *(_DWORD *)&Affinity.Group = (unsigned __int16)(v10 >> 6);

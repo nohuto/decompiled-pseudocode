@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeFixupVad @ 0x1407054A8
+ * XREFs of MiInitializeFixupVad @ 0x1407056B8
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiInitializePrivateFixupBitmap @ 0x140705530 (MiInitializePrivateFixupBitmap.c)
+ *     MiInitializePrivateFixupBitmap @ 0x140705740 (MiInitializePrivateFixupBitmap.c)
  */
 
 unsigned __int64 __fastcall MiInitializeFixupVad(__int64 a1, unsigned int a2)

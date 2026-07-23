@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwInitializeSiloState @ 0x14079ABF8
+ * XREFs of EtwInitializeSiloState @ 0x14079ADF8
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409065D0 (PspInitializeServerSiloDeferred.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
- *     KeInitializeMutex @ 0x1402ED1A0 (KeInitializeMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
- *     ExFreeCacheAwareRundownProtection @ 0x140360670 (ExFreeCacheAwareRundownProtection.c)
- *     EtwpQueryPartitionRegistryInformation @ 0x1403AF83C (EtwpQueryPartitionRegistryInformation.c)
- *     EtwpReadPerSiloConfigParameters @ 0x1403AFAA4 (EtwpReadPerSiloConfigParameters.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x14071BDB0 (ExAllocateCacheAwareRundownProtection.c)
- *     EtwpInitializeAutoLoggers @ 0x14079AFB4 (EtwpInitializeAutoLoggers.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402696D0 (KeQueryMaximumProcessorCountEx.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     KeInitializeMutex @ 0x14029E4F0 (KeInitializeMutex.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x1402A6400 (ExFreeCacheAwareRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PsIsHostSilo @ 0x14035F7D0 (PsIsHostSilo.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x1403AF9AC (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpReadPerSiloConfigParameters @ 0x1403AFC14 (EtwpReadPerSiloConfigParameters.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExSubscribeWnfStateChange @ 0x140610760 (ExSubscribeWnfStateChange.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1406C97D0 (ExAllocateCacheAwareRundownProtection.c)
+ *     EtwpInitializeAutoLoggers @ 0x14079B1B4 (EtwpInitializeAutoLoggers.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwInitializeSiloState(struct _LIST_ENTRY *a1)
@@ -53,10 +53,13 @@ __int64 __fastcall EtwInitializeSiloState(struct _LIST_ENTRY *a1)
   struct _KTHREAD *CurrentThread; // rax
   __int64 v26; // r8
   unsigned int i; // r9d
-  __int64 v29; // rbx
-  void *v30; // rcx
-  void *v31; // rcx
-  void *v32; // rcx
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  __int64 v30; // r9
+  __int64 v32; // rbx
+  void *v33; // rcx
+  void *v34; // rcx
+  void *v35; // rcx
 
   PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNxCacheAligned, 0x1220uLL, 0x61777445u);
   v3 = 0;
@@ -120,15 +123,15 @@ __int64 __fastcall EtwInitializeSiloState(struct _LIST_ENTRY *a1)
   if ( !v20 )
   {
 LABEL_29:
-    v30 = *(void **)(v4 + 4136);
-    if ( v30 )
-      ExFreePoolWithTag(v30, 0x61777445u);
-    v31 = *(void **)(v4 + 448);
-    if ( v31 )
-      ExFreePoolWithTag(v31, 0x61777445u);
-    v32 = *(void **)(v4 + 4192);
-    if ( v32 )
-      ExFreePoolWithTag(v32, 0x61777445u);
+    v33 = *(void **)(v4 + 4136);
+    if ( v33 )
+      ExFreePoolWithTag(v33, 0x61777445u);
+    v34 = *(void **)(v4 + 448);
+    if ( v34 )
+      ExFreePoolWithTag(v34, 0x61777445u);
+    v35 = *(void **)(v4 + 4192);
+    if ( v35 )
+      ExFreePoolWithTag(v35, 0x61777445u);
     ExFreePoolWithTag((PVOID)v4, 0x61777445u);
     return (unsigned int)-1073741801;
   }
@@ -149,11 +152,11 @@ LABEL_29:
     }
     if ( (_DWORD)v21 )
     {
-      v29 = 0LL;
+      v32 = 0LL;
       do
       {
-        ExFreeCacheAwareRundownProtection(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v4 + 448) + v29));
-        v29 += 8LL;
+        ExFreeCacheAwareRundownProtection(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v4 + 448) + v32));
+        v32 += 8LL;
         --v21;
       }
       while ( v21 );
@@ -163,18 +166,18 @@ LABEL_29:
 LABEL_14:
   *(_QWORD *)(v4 + 416) = v4;
   *(_QWORD *)(v4 + 432) = 0LL;
-  *(_OWORD *)(v4 + 64) = SecurityProviderGuid;
+  *(GUID *)(v4 + 64) = SecurityProviderGuid;
   KeInitializeMutex((PRKMUTEX)(v4 + 4584), 0);
   *((_QWORD *)PsGetServerSiloGlobals((__int64)a1) + 108) = v4;
   IsHostSilo = PsIsHostSilo(v22);
   if ( IsHostSilo )
   {
-    qword_140C10E48 = *(_QWORD *)(v4 + 456);
+    qword_140C10E38 = *(_QWORD *)(v4 + 456);
     EtwpHostSiloState = v4;
-    qword_140C10E50 = v4;
+    qword_140C10E40 = v4;
     ExSubscribeWnfStateChange(
       v4 + 4144,
-      (__int64)&WNF_CONT_RESTORE_FROM_SNAPSHOT_COMPLETE,
+      (int)&WNF_CONT_RESTORE_FROM_SNAPSHOT_COMPLETE,
       1,
       0,
       (__int64)EtwpContainerResumeWnfCallback,
@@ -216,7 +219,7 @@ LABEL_14:
   }
   *(_QWORD *)(v4 + 440) = 0LL;
   ExReleasePushLockEx(v4 + 432, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v28, v29, v30);
   *(_QWORD *)(v4 + 4096) = 0LL;
   *(_QWORD *)(v4 + 4080) = 0LL;
   *(_QWORD *)(v4 + 4088) = 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpImageNtHeader @ 0x180121B84
+ * XREFs of RtlpImageNtHeader @ 0x180121B54
  * Callers:
- *     RtlpXfgGetPdbSignature @ 0x180121BE0 (RtlpXfgGetPdbSignature.c)
+ *     RtlpXfgGetPdbSignature @ 0x180121BB0 (RtlpXfgGetPdbSignature.c)
  * Callees:
  *     <none>
  */

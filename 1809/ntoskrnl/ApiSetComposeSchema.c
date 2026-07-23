@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetComposeSchema @ 0x140321E18
+ * XREFs of ApiSetComposeSchema @ 0x140322008
  * Callers:
- *     ApiSetpLoadSchemaExtension @ 0x1408DD818 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetpLoadSchemaExtension @ 0x1408DEAD8 (ApiSetpLoadSchemaExtension.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x140173EB8 (ApiSetpSearchForApiSet.c)
- *     AsiAddDataToSchema @ 0x14032211C (AsiAddDataToSchema.c)
- *     AsiSortValueList @ 0x140322248 (AsiSortValueList.c)
+ *     ApiSetpSearchForApiSet @ 0x140173FB8 (ApiSetpSearchForApiSet.c)
+ *     AsiAddDataToSchema @ 0x14032230C (AsiAddDataToSchema.c)
+ *     AsiSortValueList @ 0x140322438 (AsiSortValueList.c)
  */
 
 __int64 __fastcall ApiSetComposeSchema(char **a1, __int64 a2, _DWORD *a3, int a4)

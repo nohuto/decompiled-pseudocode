@@ -13,7 +13,7 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlAcquirePrivilege(unsigned int *a1, unsigned int a2, int a3, _QWORD *a4)
+NTSTATUS __cdecl RtlAcquirePrivilege(PULONG Privilege, ULONG NumPriv, ULONG Flags, PVOID *ReturnedState)
 {
   __int64 v5; // r14
   char v7; // si
@@ -23,19 +23,21 @@ __int64 __fastcall RtlAcquirePrivilege(unsigned int *a1, unsigned int a2, int a3
   int v11; // edi
   __int64 v12; // rdx
   __int64 v13; // r8
-  unsigned int v14; // eax
+  ULONG v14; // eax
   __int64 v15; // rcx
   char *v17; // rcx
-  PVOID v18; // rax
+  struct _TOKEN_PRIVILEGES *PreviousState; // rax
   __int64 ThreadInformation; // [rsp+30h] [rbp-10h] BYREF
+  ULONG BufferLength; // [rsp+80h] [rbp+40h] BYREF
 
-  v5 = a2;
-  if ( (a3 & 0xFFFFFFFC) != 0 )
-    return 3221225485LL;
-  v7 = a3 | 1;
-  if ( (a3 & 2) == 0 )
-    v7 = a3;
-  PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 12 * (a2 - 1 + 90LL), 0x62507452u);
+  BufferLength = 0;
+  v5 = NumPriv;
+  if ( (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741811;
+  v7 = Flags | 1;
+  if ( (Flags & 2) == 0 )
+    v7 = Flags;
+  PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 12 * (NumPriv - 1 + 90LL), 0x62507452u);
   v9 = PoolWithQuotaTag;
   if ( PoolWithQuotaTag )
   {
@@ -80,10 +82,10 @@ LABEL_13:
               v13 = v5;
               do
               {
-                v14 = *a1;
+                v14 = *Privilege;
                 v12 += 12LL;
                 v15 = *((_QWORD *)v9 + 3);
-                ++a1;
+                ++Privilege;
                 ThreadInformation = v14;
                 *(_QWORD *)(v12 + v15 - 8) = v14;
                 *(_DWORD *)(v12 + *((_QWORD *)v9 + 3)) = 2;
@@ -91,16 +93,32 @@ LABEL_13:
               }
               while ( v13 );
             }
-            v11 = ZwAdjustPrivilegesToken(*(_QWORD *)v9, 0LL);
+            BufferLength = 1024;
+            v11 = ZwAdjustPrivilegesToken(
+                    *(HANDLE *)v9,
+                    0,
+                    *((PTOKEN_PRIVILEGES *)v9 + 3),
+                    0x400u,
+                    *((PTOKEN_PRIVILEGES *)v9 + 2),
+                    &BufferLength);
             if ( v11 == -1073741789 )
             {
               while ( 1 )
               {
-                v18 = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x400uLL, 0x62507452u);
-                *((_QWORD *)v9 + 2) = v18;
-                if ( !v18 )
+                PreviousState = (struct _TOKEN_PRIVILEGES *)ExAllocatePoolWithQuotaTag(
+                                                              (POOL_TYPE)520,
+                                                              BufferLength,
+                                                              0x62507452u);
+                *((_QWORD *)v9 + 2) = PreviousState;
+                if ( !PreviousState )
                   break;
-                v11 = ZwAdjustPrivilegesToken(*(_QWORD *)v9, 0LL);
+                v11 = ZwAdjustPrivilegesToken(
+                        *(HANDLE *)v9,
+                        0,
+                        *((PTOKEN_PRIVILEGES *)v9 + 3),
+                        BufferLength,
+                        PreviousState,
+                        &BufferLength);
                 if ( v11 != -1073741789 )
                   goto LABEL_17;
                 ExFreePoolWithTag(*((PVOID *)v9 + 2), 0);
@@ -124,15 +142,15 @@ LABEL_22:
             }
             if ( v11 >= 0 )
             {
-              *a4 = v9;
-              return 0LL;
+              *ReturnedState = v9;
+              return 0;
             }
             goto LABEL_22;
           }
         }
         else
         {
-          v11 = RtlImpersonateSelfEx(3LL, 40LL, v9);
+          v11 = RtlImpersonateSelfEx(SecurityDelegation, 0x28u, (PHANDLE)v9);
           if ( v11 >= 0 )
           {
             *((_DWORD *)v9 + 8) |= 1u;
@@ -149,7 +167,7 @@ LABEL_26:
       }
     }
     ExFreePoolWithTag(v9, 0);
-    return (unsigned int)v11;
+    return v11;
   }
-  return 3221225495LL;
+  return -1073741801;
 }

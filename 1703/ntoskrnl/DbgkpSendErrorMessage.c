@@ -47,29 +47,33 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, _DWORD *a3)
   __int64 v16; // rax
   __int16 v17; // cx
   int v18; // ebx
-  char *MessageAttribute; // rax
-  int v20; // eax
+  _DWORD *MessageAttribute; // rax
+  NTSTATUS v20; // eax
   char v22; // [rsp+40h] [rbp-C0h]
   PVOID Object; // [rsp+48h] [rbp-B8h]
-  __int64 v25; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG_PTR RequiredBufferSize; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v26; // [rsp+58h] [rbp-A8h]
   LARGE_INTEGER v27; // [rsp+60h] [rbp-A0h] BYREF
-  _OWORD v28[10]; // [rsp+70h] [rbp-90h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES Buffer[20]; // [rsp+70h] [rbp-90h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v26 = a1;
   v6 = 0;
   Process = (ULONG_PTR)CurrentThread->Process;
-  memset(v28, 0, 0x40uLL);
+  memset(Buffer, 0, 0x40uLL);
   if ( (*(_DWORD *)(Process + 1740) & 1) != 0 )
   {
     return (unsigned int)-1073741637;
   }
   else
   {
-    MmGetSectionInformation(*(_QWORD *)(Process + 952), 1, (__int64)v28);
-    if ( (unsigned int)MmGetSessionIdEx((struct _KPROCESS *)Process) && LODWORD(v28[2]) != 1 && (a2 & 2) != 0 )
+    MmGetSectionInformation(*(_QWORD *)(Process + 952), 1, (__int64)Buffer);
+    if ( (unsigned int)MmGetSessionIdEx((struct _KPROCESS *)Process)
+      && Buffer[4].AllocatedAttributes != 1
+      && (a2 & 2) != 0 )
+    {
       v6 = DbgkpSuspendProcess(Process);
+    }
     started = DbgkpStartSystemErrorHandler();
     if ( started >= 0 )
     {
@@ -126,12 +130,12 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, _DWORD *a3)
           a3[11] = -2147418111;
           KeCopyExceptionRecord((_OWORD *)a3 + 3, v11);
           v12 = 0LL;
-          v13 = v28[1];
-          *(_OWORD *)(a3 + 50) = v28[0];
+          v13 = *(_OWORD *)&Buffer[2].AllocatedAttributes;
+          *(_OWORD *)(a3 + 50) = *(_OWORD *)&Buffer[0].AllocatedAttributes;
           a3[66] = 0;
-          v14 = v28[2];
+          v14 = *(_OWORD *)&Buffer[4].AllocatedAttributes;
           *(_OWORD *)(a3 + 54) = v13;
-          v15 = v28[3];
+          v15 = *(_OWORD *)&Buffer[6].AllocatedAttributes;
           *(_OWORD *)(a3 + 58) = v14;
           *(_OWORD *)(a3 + 62) = v15;
           a3[66] = (*(_BYTE *)(Process + 1738) & 7) != 0;
@@ -156,19 +160,29 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, _DWORD *a3)
           }
           LOBYTE(v12) = 1;
           v18 = PsTestProtectedProcessIncompatibility(v12, (__int64)Object, Process) ? 1055744 : 0x1FFFFF;
-          AlpcInitializeMessageAttribute(0x10000000LL, v28, 0xA0uLL, &v25);
-          DWORD1(v28[0]) = 0x10000000;
-          MessageAttribute = AlpcGetMessageAttribute(v28, 0x10000000);
-          *((_DWORD *)MessageAttribute + 5) = v18;
-          *(_DWORD *)MessageAttribute = 0;
-          *((_DWORD *)MessageAttribute + 4) = 4;
+          AlpcInitializeMessageAttribute(0x10000000u, Buffer, 0xA0uLL, &RequiredBufferSize);
+          Buffer[0].ValidAttributes = 0x10000000;
+          MessageAttribute = AlpcGetMessageAttribute(Buffer, 0x10000000u);
+          MessageAttribute[5] = v18;
+          *MessageAttribute = 0;
+          MessageAttribute[4] = 4;
           *((_QWORD *)MessageAttribute + 1) = -2LL;
-          v25 = 272LL;
+          RequiredBufferSize = 272LL;
           KeTestAlertThread(0);
           if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 )
             started = -1073741749;
           if ( started < 0
-            || (v20 = ZwAlpcSendWaitReceivePort(*(_QWORD *)(v10 + 8), 2228224LL, (__int64)a3), started = v20, v20 < 0) )
+            || (v20 = ZwAlpcSendWaitReceivePort(
+                        *(HANDLE *)(v10 + 8),
+                        0x220000u,
+                        (PPORT_MESSAGE)a3,
+                        Buffer,
+                        (PPORT_MESSAGE)a3,
+                        &RequiredBufferSize,
+                        0LL,
+                        0LL),
+                started = v20,
+                v20 < 0) )
           {
             if ( started == -1073741769 )
               DbgkpRemoveErrorPort((__int64)CurrentThread, v10);
@@ -180,7 +194,7 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, _DWORD *a3)
           else
           {
             if ( (a3[1] & 0x2000) != 0 )
-              ZwAlpcSendWaitReceivePort(*(_QWORD *)(v10 + 8), 0x10000LL, (__int64)a3);
+              ZwAlpcSendWaitReceivePort(*(HANDLE *)(v10 + 8), 0x10000u, (PPORT_MESSAGE)a3, 0LL, 0LL, 0LL, 0LL, 0LL);
             started = a3[11];
             if ( started >= 0 && !v22 )
             {

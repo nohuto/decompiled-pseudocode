@@ -10,7 +10,7 @@
 __int64 __fastcall WheaInitializeRecordHeader(_DWORD *a1)
 {
   int Year; // ecx
-  struct _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-18h] BYREF
   LARGE_INTEGER Time; // [rsp+40h] [rbp+8h] BYREF
 
   memset(a1, 0, 0x80uLL);

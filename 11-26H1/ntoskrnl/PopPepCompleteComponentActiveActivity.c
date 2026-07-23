@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepCompleteComponentActiveActivity @ 0x1403B1C40
+ * XREFs of PopPepCompleteComponentActiveActivity @ 0x1403BB950
  * Callers:
  *     <none>
  * Callees:
- *     PopPepTriggerActivity @ 0x1403AFA10 (PopPepTriggerActivity.c)
- *     PopPepGetComponentPreferedIdleState @ 0x1403B1B10 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepTriggerActivity @ 0x1403B9720 (PopPepTriggerActivity.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1403BB820 (PopPepGetComponentPreferedIdleState.c)
  */
 
 void __fastcall PopPepCompleteComponentActiveActivity(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ void __fastcall PopPepCompleteComponentActiveActivity(__int64 a1, __int64 a2)
     *(_QWORD *)(a2 + 136) = MEMORY[0xFFFFF78000000008];
     v4 = (unsigned int)(*(_DWORD *)(a2 + 188) - 1);
     *(_DWORD *)(a2 + 152) = v4;
-    if ( !byte_140F0B0A0 && (_DWORD)v4 )
+    if ( !PopDirectedDripsDiagLock.SchedulerApcFill3[48] && (_DWORD)v4 )
     {
       do
       {

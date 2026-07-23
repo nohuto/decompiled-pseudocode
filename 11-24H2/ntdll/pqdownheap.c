@@ -1,7 +1,7 @@
 /*
- * XREFs of pqdownheap @ 0x180156970
+ * XREFs of pqdownheap @ 0x180154D30
  * Callers:
- *     build_tree @ 0x180155F78 (build_tree.c)
+ *     build_tree @ 0x180154338 (build_tree.c)
  * Callees:
  *     <none>
  */

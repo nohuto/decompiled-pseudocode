@@ -67,10 +67,10 @@ __int64 __fastcall IopDeleteIoCompletionInternal(KSPIN_LOCK *a1, __int64 a2)
   {
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v13);
     OldIrql = v13.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && v13.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

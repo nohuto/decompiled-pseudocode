@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStdInitializeStackDatabase @ 0x1409BA51C
+ * XREFs of RtlStdInitializeStackDatabase @ 0x1409BA71C
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x1409BA658 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x1409BA858 (RtlpInitializeStackTraceDatabase.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall RtlStdInitializeStackDatabase(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)
@@ -12,7 +12,7 @@ __int64 __fastcall RtlStdInitializeStackDatabase(__int64 a1, __int64 a2, unsigne
   unsigned __int64 v6; // rdi
   __int64 v7; // rsi
   unsigned __int64 v8; // rcx
-  union _SLIST_HEADER *v9; // rdi
+  _SLIST_HEADER *v9; // rdi
   __int64 v10; // rcx
   __int64 v11; // rdx
   __int64 v12; // rcx
@@ -30,7 +30,7 @@ __int64 __fastcall RtlStdInitializeStackDatabase(__int64 a1, __int64 a2, unsigne
   memset((void *)(a1 + 728), 0, 24LL * (a3 < 0x1000000 ? 5569 : 9551));
   v7 = 32LL;
   v8 = (v6 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
-  v9 = (union _SLIST_HEADER *)(a1 + 208);
+  v9 = (_SLIST_HEADER *)(a1 + 208);
   v10 = a1 + v8;
   *(_QWORD *)(a1 + 160) = v10;
   *(_QWORD *)(a1 + 120) = v10;

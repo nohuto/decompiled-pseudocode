@@ -19,7 +19,7 @@ __int64 __fastcall sub_18001A084(__int64 a1)
   __int64 v3; // rcx
 
   v2 = 0;
-  RtlAcquireSRWLockExclusive(&qword_18015C040);
+  RtlAcquireSRWLockExclusive(&stru_18015C040);
   v3 = *(_QWORD *)(a1 + 152);
   if ( *(_DWORD *)(v3 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v3 - 56LL) & 0x20) == 0 )
   {
@@ -28,6 +28,6 @@ __int64 __fastcall sub_18001A084(__int64 a1)
     else
       v2 = -1073741823;
   }
-  RtlReleaseSRWLockExclusive(&qword_18015C040);
+  RtlReleaseSRWLockExclusive(&stru_18015C040);
   return v2;
 }

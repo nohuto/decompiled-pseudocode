@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwCreateProfile @ 0x140724C30
+ * XREFs of ZwCreateProfile @ 0x140729800
  * Callers:
- *     DifZwCreateProfileWrapper @ 0x1406A1470 (DifZwCreateProfileWrapper.c)
+ *     DifZwCreateProfileWrapper @ 0x1406A5050 (DifZwCreateProfileWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateProfile(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateProfile(
+        PHANDLE ProfileHandle,
+        HANDLE Process,
+        PVOID ProfileBase,
+        SIZE_T ProfileSize,
+        ULONG BucketSize,
+        PULONG Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        KAFFINITY Affinity)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProfileHandle);
 }

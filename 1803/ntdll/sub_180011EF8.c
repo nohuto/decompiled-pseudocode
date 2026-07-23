@@ -21,12 +21,12 @@ __int64 __fastcall sub_180011EF8(__int64 a1, unsigned __int64 a2, unsigned int a
   __int64 v8; // r14
   unsigned __int64 v9; // rdx
   unsigned int v10; // esi
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v12; // rcx
-  __int64 v14; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   __int64 v15; // rcx
   __int64 v16; // r8
-  unsigned int v17; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v17; // [rsp+68h] [rbp+20h] BYREF
 
   v6 = sub_180012820(a1, a2);
   v7 = 0;
@@ -38,11 +38,11 @@ __int64 __fastcall sub_180011EF8(__int64 a1, unsigned __int64 a2, unsigned int a
     {
       sub_180023AAC(a1, v6, 0LL, a3);
       v10 = 1;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      if ( RtlGetCurrentServiceSessionId() )
+        UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
       else
-        v14 = 2147353472LL;
-      if ( *(_BYTE *)v14 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+        UserModeGlobalLogger = 2147353472LL;
+      if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
       {
         v16 = 3LL;
         goto LABEL_25;
@@ -56,17 +56,17 @@ __int64 __fastcall sub_180011EF8(__int64 a1, unsigned __int64 a2, unsigned int a
       }
       else
       {
-        v10 = sub_1800205E0(*(_QWORD *)(a1 + 88), v9, a2, a3, (__int64)&v17);
+        v10 = sub_1800205E0(*(PRTL_SRWLOCK *)(a1 + 88), (__int64)&v17);
         if ( v10 )
         {
           v15 = *(_QWORD *)(a1 + 80);
-          if ( v17 <= *(_DWORD *)(v15 + 80) - 16 )
-            sub_18005F34C(v15, v17, 0LL);
+          if ( (unsigned int)v17 <= *(_DWORD *)(v15 + 80) - 16 )
+            sub_18005F34C(v15, (unsigned int)v17, 0LL);
         }
       }
-      HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-      if ( HotpatchInformation && *HotpatchInformation )
-        v12 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      SharedData = NtCurrentPeb()->SharedData;
+      if ( SharedData && SharedData->ServiceSessionId )
+        v12 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
       else
         v12 = 2147353472LL;
       if ( *(_BYTE *)v12 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v10 )

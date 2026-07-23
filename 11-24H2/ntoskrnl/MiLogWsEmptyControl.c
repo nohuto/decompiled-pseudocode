@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogWsEmptyControl @ 0x1404AEF64
+ * XREFs of MiLogWsEmptyControl @ 0x1404A993C
  * Callers:
- *     MmProcessWorkingSetControl @ 0x140A4C914 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x140A434A4 (MmProcessWorkingSetControl.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogWsEmptyControl(__int64 a1)
@@ -32,12 +32,12 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
   int v21; // [rsp+A8h] [rbp+3Fh]
   int v22; // [rsp+ACh] [rbp+43h]
 
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     v1 = (*(_DWORD *)(a1 + 184) & 0xF) != 0 ? 0LL : (const CHAR *)(a1 - 200);
-    if ( **(_DWORD **)&qword_140E37518 > 5u
-      && (*(_BYTE *)(*(_QWORD *)&qword_140E37518 + 16LL) & 0x10) != 0
-      && (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 0x10LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) )
+    if ( **(_DWORD **)&qword_140E37658 > 5u
+      && (*(_BYTE *)(*(_QWORD *)&qword_140E37658 + 16LL) & 0x10) != 0
+      && (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 0x10LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) )
     {
       v3 = *(_DWORD *)(a1 + 184);
       v15 = 0;
@@ -53,7 +53,7 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
       v21 = 4;
       v10 = v4;
       v11 = v5;
-      tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&qword_140057890, v6, 1u, v7, v8, 6u, &v12);
+      tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&byte_140058435, v6, 1u, v7, v8, 6u, &v12);
     }
   }
 }

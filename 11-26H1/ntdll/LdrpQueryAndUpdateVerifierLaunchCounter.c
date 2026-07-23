@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpQueryAndUpdateVerifierLaunchCounter @ 0x1800D2134
+ * XREFs of LdrpQueryAndUpdateVerifierLaunchCounter @ 0x1800CF8A4
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x180118558 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x180118308 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlQueryImageFileKeyOption @ 0x1800D3070 (RtlQueryImageFileKeyOption.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1800D34B8 (RtlpOpenImageFileOptionsKeyEx.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     ZwSetValueKey @ 0x18015FB30 (ZwSetValueKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800D1480 (RtlQueryImageFileKeyOption.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1800D18C8 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     ZwSetValueKey @ 0x18015FA30 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall LdrpQueryAndUpdateVerifierLaunchCounter(unsigned __int16 *a1, _DWORD *a2)
@@ -15,65 +15,65 @@ __int64 __fastcall LdrpQueryAndUpdateVerifierLaunchCounter(unsigned __int16 *a1,
   int v3; // edx
   int v4; // r14d
   __int64 v5; // r8
-  __int64 v6; // r8
+  wchar_t *v6; // r8
   int v7; // eax
   size_t v8; // rax
-  int v10; // ebx
-  _QWORD v11[2]; // [rsp+30h] [rbp-20h] BYREF
-  _WORD v12[2]; // [rsp+40h] [rbp-10h] BYREF
-  int v13; // [rsp+44h] [rbp-Ch]
-  __int64 v14; // [rsp+48h] [rbp-8h]
-  int i; // [rsp+70h] [rbp+20h] BYREF
-  int v16; // [rsp+80h] [rbp+30h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp+38h] BYREF
+  int ImageFileKeyOption; // ebx
+  _WORD v11[2]; // [rsp+30h] [rbp-20h] BYREF
+  int v12; // [rsp+34h] [rbp-1Ch]
+  const wchar_t *v13; // [rsp+38h] [rbp-18h]
+  _UNICODE_STRING ValueName; // [rsp+40h] [rbp-10h] BYREF
+  int Data; // [rsp+70h] [rbp+20h] BYREF
+  __int64 v16; // [rsp+80h] [rbp+30h] BYREF
+  HANDLE KeyHandle; // [rsp+88h] [rbp+38h] BYREF
 
-  Handle = 0LL;
+  KeyHandle = 0LL;
   v3 = *a1;
   v4 = 0;
   v5 = *a1;
-  v16 = 0;
-  v6 = *((_QWORD *)a1 + 1) + v5;
+  LODWORD(v16) = 0;
+  v6 = (wchar_t *)(*((_QWORD *)a1 + 1) + v5);
   v7 = v3;
-  v13 = 0;
-  for ( i = 0; v7; v7 -= 2 )
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  for ( Data = 0; v7; v7 -= 2 )
   {
-    if ( *(_WORD *)(v6 - 2) == 92 )
+    if ( *(v6 - 1) == 92 )
       break;
-    v6 -= 2LL;
+    --v6;
   }
-  v14 = v6;
-  v12[0] = v3 - v7;
-  HIDWORD(v11[0]) = 0;
-  v12[1] = v3 - v7 + 2;
-  v11[1] = L"\\VerifierCounter";
+  ValueName.Buffer = v6;
+  ValueName.Length = v3 - v7;
+  v12 = 0;
+  ValueName.MaximumLength = v3 - v7 + 2;
+  v13 = L"\\VerifierCounter";
   v8 = 2 * wcslen(L"\\VerifierCounter");
   if ( v8 >= 0xFFFE )
     LOWORD(v8) = -4;
-  LOWORD(v11[0]) = v8;
-  WORD1(v11[0]) = v8 + 2;
-  if ( (int)RtlpOpenImageFileOptionsKeyEx(v11, 11LL, 0LL, &Handle) < 0 )
+  v11[0] = v8;
+  v11[1] = v8 + 2;
+  if ( (int)RtlpOpenImageFileOptionsKeyEx(v11, 11LL, 0LL, &KeyHandle) < 0 )
   {
-    if ( (int)RtlpOpenImageFileOptionsKeyEx(v11, 9LL, 0LL, &Handle) < 0 )
+    if ( (int)RtlpOpenImageFileOptionsKeyEx(v11, 9LL, 0LL, &KeyHandle) < 0 )
     {
       *a2 = 1;
       return 0LL;
     }
     v4 = 1;
   }
-  v10 = RtlQueryImageFileKeyOption(Handle, v14, 4LL, a2, 4, &v16, v11[0]);
-  if ( v10 >= 0 )
+  ImageFileKeyOption = RtlQueryImageFileKeyOption(KeyHandle, ValueName.Buffer, 4, (__int64)&v16);
+  if ( ImageFileKeyOption >= 0 )
   {
     if ( v4 || !*a2 )
       goto LABEL_16;
-    i = *a2 - 1;
-    ZwSetValueKey(Handle, v12, 0LL, 4LL, &i, 4);
+    Data = *a2 - 1;
+    ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
   }
   else
   {
     *a2 = 1;
   }
-  v10 = 0;
+  ImageFileKeyOption = 0;
 LABEL_16:
-  NtClose(Handle);
-  return (unsigned int)v10;
+  NtClose(KeyHandle);
+  return (unsigned int)ImageFileKeyOption;
 }

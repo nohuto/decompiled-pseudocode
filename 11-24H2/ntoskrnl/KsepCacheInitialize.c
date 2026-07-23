@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepCacheInitialize @ 0x14074059C
+ * XREFs of KsepCacheInitialize @ 0x14073E4CC
  * Callers:
- *     KsepEngineInitialize @ 0x140C2B2F0 (KsepEngineInitialize.c)
+ *     KsepEngineInitialize @ 0x140C2D410 (KsepEngineInitialize.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1404A03F0 (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14049AA70 (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
  */
 
 _QWORD *__fastcall KsepCacheInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

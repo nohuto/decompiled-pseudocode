@@ -1,12 +1,12 @@
 /*
- * XREFs of ViKeAcquireSpinLockRaiseToDpcCommon @ 0x1409DBF90
+ * XREFs of ViKeAcquireSpinLockRaiseToDpcCommon @ 0x1409DCF90
  * Callers:
- *     VerifierKeAcquireSpinLockRaiseToDpc @ 0x1409DAA00 (VerifierKeAcquireSpinLockRaiseToDpc.c)
- *     VerifierKeAcquireSpinLockRaiseToDpcNoReboot @ 0x1409DAA50 (VerifierKeAcquireSpinLockRaiseToDpcNoReboot.c)
+ *     VerifierKeAcquireSpinLockRaiseToDpc @ 0x1409DBA00 (VerifierKeAcquireSpinLockRaiseToDpc.c)
+ *     VerifierKeAcquireSpinLockRaiseToDpcNoReboot @ 0x1409DBA50 (VerifierKeAcquireSpinLockRaiseToDpcNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall ViKeAcquireSpinLockRaiseToDpcCommon(ULONG_PTR a1)

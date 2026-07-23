@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __cdecl RtlpTargetCompare(void *a1, _DWORD *a2, _DWORD *a3)
+int __cdecl RtlpTargetCompare(int a1, _DWORD *a2, _DWORD *a3)
 {
   return *a2 - *a3;
 }

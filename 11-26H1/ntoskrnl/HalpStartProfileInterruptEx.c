@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpStartProfileInterruptEx @ 0x140580840
+ * XREFs of HalpStartProfileInterruptEx @ 0x140582D60
  * Callers:
- *     HalStartProfileInterrupt @ 0x14057FD70 (HalStartProfileInterrupt.c)
+ *     HalStartProfileInterrupt @ 0x140582290 (HalStartProfileInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpStartProfileInterruptEx(unsigned int a1, _DWORD *a2, unsigned int *a3, _DWORD *a4, _QWORD *a5)

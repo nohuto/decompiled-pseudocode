@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAllocateKInterrupt @ 0x1405944D4
+ * XREFs of HalpAllocateKInterrupt @ 0x140596C54
  * Callers:
- *     HalpCreateInterrupt @ 0x140594620 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x140596DA0 (HalpCreateInterrupt.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _DWORD *__fastcall HalpAllocateKInterrupt(int a1, int a2)

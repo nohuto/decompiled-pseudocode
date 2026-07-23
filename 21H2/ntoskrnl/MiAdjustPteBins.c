@@ -1,64 +1,64 @@
 /*
- * XREFs of MiAdjustPteBins @ 0x1402722D8
+ * XREFs of MiAdjustPteBins @ 0x140260278
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
  * Callees:
- *     MiPteBinsNeedTrimming @ 0x1402723D4 (MiPteBinsNeedTrimming.c)
- *     MiEmptyPteBins @ 0x14030F280 (MiEmptyPteBins.c)
- *     MiAttemptCoalesce @ 0x140348EC0 (MiAttemptCoalesce.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiPteBinsNeedTrimming @ 0x140260374 (MiPteBinsNeedTrimming.c)
+ *     MiEmptyPteBins @ 0x140319FD0 (MiEmptyPteBins.c)
+ *     MiAttemptCoalesce @ 0x140353C10 (MiAttemptCoalesce.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
-char MiAdjustPteBins()
+char __fastcall MiAdjustPteBins(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v0; // rsi
-  _QWORD *v1; // rbx
-  __int64 v2; // rbp
-  __int64 v3; // rdi
-  unsigned __int64 v4; // rax
+  __int64 v4; // rsi
   _QWORD *v5; // rbx
-  _QWORD *v6; // rcx
-  unsigned __int64 v7; // rdx
-  _QWORD v9[3]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // rbp
+  __int64 v7; // rdi
+  unsigned __int64 v8; // rax
+  _QWORD *v9; // rbx
+  _QWORD *v10; // rcx
+  unsigned __int64 v11; // rdx
+  _QWORD v13[3]; // [rsp+20h] [rbp-28h] BYREF
 
-  v0 = 3LL;
-  v9[0] = &qword_140C4EF40;
-  v1 = v9;
-  v2 = 3LL;
-  v9[1] = &unk_140C4EB58;
-  v9[2] = &unk_140C4EAF8;
+  v4 = 3LL;
+  v13[0] = &qword_140C4EF80;
+  v5 = v13;
+  v6 = 3LL;
+  v13[1] = &unk_140C4EB98;
+  v13[2] = &unk_140C4EB38;
   do
   {
-    v3 = *v1;
-    if ( (*(_DWORD *)(*v1 + 24LL) & 1) != 0 )
+    v7 = *v5;
+    if ( (*(_DWORD *)(*v5 + 24LL) & 1) != 0 )
     {
-      MiEmptyPteBins(*v1, 0LL);
-      if ( (unsigned int)MiPteBinsNeedTrimming(v3) == 1 )
-        MiEmptyPteBins(v3, 1LL);
+      MiEmptyPteBins(*v5, 0LL);
+      if ( (unsigned int)MiPteBinsNeedTrimming(v7) == 1 )
+        MiEmptyPteBins(v7, 1LL);
     }
-    ++v1;
-    --v2;
+    ++v5;
+    --v6;
   }
-  while ( v2 );
-  LOBYTE(v4) = byte_140C4EBBE + 1;
-  byte_140C4EBBE = v4;
-  if ( (v4 & 0xF) == 0 )
+  while ( v6 );
+  LOBYTE(v8) = byte_140C4EBFE + 1;
+  byte_140C4EBFE = v8;
+  if ( (v8 & 0xF) == 0 )
   {
-    v5 = v9;
+    v9 = v13;
     do
     {
-      v6 = (_QWORD *)*v5;
-      v7 = *(_QWORD *)(*v5 + 88LL);
-      if ( v7 > 0x40000 )
+      v10 = (_QWORD *)*v9;
+      v11 = *(_QWORD *)(*v9 + 88LL);
+      if ( v11 > 0x40000 )
       {
-        v4 = v6[7] >> 2;
-        if ( v7 > v4 )
-          LOBYTE(v4) = MiAttemptCoalesce(v6, v6[9], *v6 - v6[9]);
+        v8 = v10[7] >> 2;
+        if ( v11 > v8 )
+          LOBYTE(v8) = MiAttemptCoalesce(v10, v10[9], *v10 - v10[9], a4);
       }
-      ++v5;
-      --v0;
+      ++v9;
+      --v4;
     }
-    while ( v0 );
+    while ( v4 );
   }
-  return v4;
+  return v8;
 }

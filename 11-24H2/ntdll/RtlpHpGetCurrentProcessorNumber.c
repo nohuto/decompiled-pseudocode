@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpGetCurrentProcessorNumber @ 0x18004EBB4
+ * XREFs of RtlpHpGetCurrentProcessorNumber @ 0x180064794
  * Callers:
- *     RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0 (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180119830 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpVsContextHandleContention @ 0x18011C474 (RtlpHpVsContextHandleContention.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117A60 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpVsContextHandleContention @ 0x18011A6A4 (RtlpHpVsContextHandleContention.c)
  * Callees:
- *     RtlGetCurrentProcessorNumberEx @ 0x180166270 (RtlGetCurrentProcessorNumberEx.c)
+ *     RtlGetCurrentProcessorNumberEx @ 0x180164630 (RtlGetCurrentProcessorNumberEx.c)
  */
 
 __int64 RtlpHpGetCurrentProcessorNumber()
 {
-  int v1; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcessorNumber; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0;
-  RtlGetCurrentProcessorNumberEx(&v1);
-  return BYTE2(v1);
+  ProcessorNumber = 0;
+  RtlGetCurrentProcessorNumberEx(&ProcessorNumber);
+  return ProcessorNumber.Number;
 }

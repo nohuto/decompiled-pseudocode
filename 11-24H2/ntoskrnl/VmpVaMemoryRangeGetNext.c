@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpVaMemoryRangeGetNext @ 0x1404A2FDC
+ * XREFs of VmpVaMemoryRangeGetNext @ 0x14049DF3C
  * Callers:
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1403B04A4 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpMergeMemoryRanges @ 0x1404D06B0 (VmpMergeMemoryRanges.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x14039ECB4 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpMergeMemoryRanges @ 0x1404C98A4 (VmpMergeMemoryRanges.c)
  * Callees:
  *     <none>
  */

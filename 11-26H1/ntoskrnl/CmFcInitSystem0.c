@@ -1,12 +1,12 @@
 /*
- * XREFs of CmFcInitSystem0 @ 0x140CEDAA0
+ * XREFs of CmFcInitSystem0 @ 0x140CF3DA4
  * Callers:
- *     CmInitBootFeatureConfigurations @ 0x140CE8874 (CmInitBootFeatureConfigurations.c)
+ *     CmInitBootFeatureConfigurations @ 0x140CEEC14 (CmInitBootFeatureConfigurations.c)
  * Callees:
- *     wil_details_EvaluateFeatureDependencies @ 0x1407700DC (wil_details_EvaluateFeatureDependencies.c)
- *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140CEDC08 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
- *     CmFcManagerInitialize @ 0x140CF07BC (CmFcManagerInitialize.c)
- *     CmFcManagerStartBootPhase @ 0x140CF0A18 (CmFcManagerStartBootPhase.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1407730DC (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140CF3F84 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
+ *     CmFcManagerInitialize @ 0x140CF6B34 (CmFcManagerInitialize.c)
+ *     CmFcManagerStartBootPhase @ 0x140CF6D90 (CmFcManagerStartBootPhase.c)
  */
 
 __int64 __fastcall CmFcInitSystem0(__int64 a1)

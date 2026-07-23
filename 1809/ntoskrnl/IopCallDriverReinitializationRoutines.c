@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCallDriverReinitializationRoutines @ 0x1406C67F0
+ * XREFs of IopCallDriverReinitializationRoutines @ 0x1406C7A90
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x14018B1D4 (PnpCompleteSystemStartProcess.c)
- *     IopLoadUnloadDriver @ 0x1406C6750 (IopLoadUnloadDriver.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140709154 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PnpCompleteSystemStartProcess @ 0x14018B314 (PnpCompleteSystemStartProcess.c)
+ *     IopLoadUnloadDriver @ 0x1406C79F0 (IopLoadUnloadDriver.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x14070A3F4 (PipCallDriverAddDeviceQueryRoutine.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopInterlockedRemoveHeadList @ 0x1401356A8 (IopInterlockedRemoveHeadList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IopInterlockedRemoveHeadList @ 0x140135778 (IopInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopCallDriverReinitializationRoutines(char a1)

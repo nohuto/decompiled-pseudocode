@@ -1,30 +1,30 @@
 /*
- * XREFs of KiUpdateTime @ 0x14021D690
+ * XREFs of KiUpdateTime @ 0x14021F020
  * Callers:
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiForwardTick @ 0x1403ED6F0 (KiForwardTick.c)
- *     PpmExecutePeriodicPerfCheck @ 0x14046A810 (PpmExecutePeriodicPerfCheck.c)
- *     KiComputeNewSystemTime @ 0x14046AB90 (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x14046AC24 (RtlWriteAcquireTickLock.c)
- *     RtlWriteTryAcquireTickLock @ 0x140497E4C (RtlWriteTryAcquireTickLock.c)
- *     KiSetForceIdleState @ 0x1404C5428 (KiSetForceIdleState.c)
- *     PoExecuteIdleCheck @ 0x1404F04E4 (PoExecuteIdleCheck.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiForwardTick @ 0x140452220 (KiForwardTick.c)
+ *     PpmExecutePeriodicPerfCheck @ 0x140463F90 (PpmExecutePeriodicPerfCheck.c)
+ *     KiComputeNewSystemTime @ 0x140464310 (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1404643A4 (RtlWriteAcquireTickLock.c)
+ *     RtlWriteTryAcquireTickLock @ 0x14049199C (RtlWriteTryAcquireTickLock.c)
+ *     KiSetForceIdleState @ 0x1404BEDD8 (KiSetForceIdleState.c)
+ *     PoExecuteIdleCheck @ 0x1404E9AC4 (PoExecuteIdleCheck.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned int a3)
@@ -34,25 +34,25 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
   __int64 i; // rbx
   unsigned __int128 v6; // rax
   __int64 v7; // r10
-  __int64 v8; // r8
+  signed __int64 v8; // r8
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // rsi
-  LARGE_INTEGER PerformanceCounter; // rax
+  LARGE_INTEGER v12; // rax
   unsigned __int64 v13; // r11
   __int64 v14; // r9
   __int64 v15; // r8
   unsigned __int64 v16; // rdx
   unsigned __int64 v17; // rbx
-  unsigned __int64 v18; // r12
+  struct _LIST_ENTRY *v18; // r12
   __int64 v19; // rax
   __int64 v20; // r13
   unsigned int v21; // edi
   unsigned __int8 CurrentIrql; // di
-  __int64 InterruptTimePrecise; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rcx
   __int64 v24; // r14
   int v25; // r15d
-  unsigned __int64 v26; // rsi
+  LARGE_INTEGER v26; // rsi
   char v27; // al
   unsigned __int8 v28; // r14
   int v29; // esi
@@ -67,22 +67,22 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
   unsigned __int8 v39; // [rsp+34h] [rbp-CCh]
   int v40; // [rsp+38h] [rbp-C8h] BYREF
   int v41[2]; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int64 v42; // [rsp+48h] [rbp-B8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-B8h] BYREF
   unsigned int v43; // [rsp+50h] [rbp-B0h]
-  __int64 v44; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER v44; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v45; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v46; // [rsp+68h] [rbp-98h] BYREF
+  LONGLONG v46; // [rsp+68h] [rbp-98h] BYREF
   struct _KAFFINITY_EX v47; // [rsp+70h] [rbp-90h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v48; // [rsp+180h] [rbp+80h] BYREF
-  __int64 *v49; // [rsp+1A0h] [rbp+A0h]
+  LARGE_INTEGER *v49; // [rsp+1A0h] [rbp+A0h]
   __int64 v50; // [rsp+1A8h] [rbp+A8h]
   int *v51; // [rsp+1B0h] [rbp+B0h]
   __int64 v52; // [rsp+1B8h] [rbp+B8h]
   __int64 *v53; // [rsp+1C0h] [rbp+C0h]
   __int64 v54; // [rsp+1C8h] [rbp+C8h]
-  unsigned __int64 *v55; // [rsp+1D0h] [rbp+D0h]
+  LONGLONG *v55; // [rsp+1D0h] [rbp+D0h]
   __int64 v56; // [rsp+1D8h] [rbp+D8h]
-  unsigned __int64 *v57; // [rsp+1E0h] [rbp+E0h]
+  LARGE_INTEGER *p_PerformanceCounter; // [rsp+1E0h] [rbp+E0h]
   __int64 v58; // [rsp+1E8h] [rbp+E8h]
   int *v59; // [rsp+1F0h] [rbp+F0h]
   __int64 v60; // [rsp+1F8h] [rbp+F8h]
@@ -114,7 +114,7 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
     if ( *((_QWORD *)&v6 + 1) > MEMORY[0xFFFFF78000000350] )
     {
       v10 = *((_QWORD *)&v6 + 1) - MEMORY[0xFFFFF78000000350];
-      v42 = 0LL;
+      PerformanceCounter.QuadPart = 0LL;
       if ( MEMORY[0xFFFFF78000000369] )
         v10 <<= MEMORY[0xFFFFF78000000369];
       v6 = v10 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
@@ -129,10 +129,10 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
     v11 = v7 + v8;
   }
   while ( *v4 != i );
-  if ( (struct _LIST_ENTRY *)v8 <= stru_140FC01F0.SavedApcState.ApcListHead[0].Flink )
+  if ( v8 <= stru_140FC11F0.NpxState )
   {
     v17 = MEMORY[0xFFFFF78000000008];
-    v18 = MEMORY[0xFFFFF78000000320];
+    v18 = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
   }
   else
   {
@@ -145,7 +145,7 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
         v17 = MEMORY[0xFFFFF78000000008];
         if ( MEMORY[0xFFFFF78000000008] >= v11 )
         {
-          v18 = MEMORY[0xFFFFF78000000320];
+          v18 = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
           goto LABEL_20;
         }
       }
@@ -154,14 +154,14 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
     {
       RtlWriteAcquireTickLock(v4);
     }
-    PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    *(_QWORD *)&v6 = ((__int64 (__fastcall *)(_QWORD))KiComputeNewSystemTime)((LARGE_INTEGER)PerformanceCounter.QuadPart);
+    v12 = KeQueryPerformanceCounter(0LL);
+    *(_QWORD *)&v6 = ((__int64 (__fastcall *)(_QWORD))KiComputeNewSystemTime)((LARGE_INTEGER)v12.QuadPart);
     v14 = MEMORY[0xFFFFF78000000008];
     v6 = (unsigned __int64)v6;
     v15 = v6;
     if ( v13 > MEMORY[0xFFFFF78000000350] )
     {
-      v42 = 0LL;
+      PerformanceCounter.QuadPart = 0LL;
       v16 = v13 - MEMORY[0xFFFFF78000000350];
       if ( MEMORY[0xFFFFF78000000369] )
         v16 <<= MEMORY[0xFFFFF78000000369];
@@ -178,20 +178,20 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
     *(_QWORD *)(MmWriteableSharedUserData + 8) = v14 + *((_QWORD *)&v6 + 1);
     *(_QWORD *)(MmWriteableSharedUserData + 840) = v13;
     *(_QWORD *)(MmWriteableSharedUserData + 848) = v13;
-    v18 = MEMORY[0xFFFFF78000000320];
+    v18 = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
     v8 = (unsigned int)KiTickOffset - *((_QWORD *)&v6 + 1);
     if ( v8 <= 0 )
     {
       *((_QWORD *)&v6 + 1) = 1LL;
-      v8 += (unsigned int)KeMaximumIncrement;
+      v8 += KeMaximumIncrement;
       if ( v8 <= 0 )
       {
         v34 = (unsigned __int64)(((unsigned __int64)-v8
-                                * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount;
-        v8 += (unsigned int)KeMaximumIncrement * (v34 + 1);
+                                * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount;
+        v8 += KeMaximumIncrement * (v34 + 1);
         *((_QWORD *)&v6 + 1) = v34 + 2;
       }
-      v18 = *((_QWORD *)&v6 + 1) + MEMORY[0xFFFFF78000000320];
+      v18 = (struct _LIST_ENTRY *)(*((_QWORD *)&v6 + 1) + MEMORY[0xFFFFF78000000320]);
       v9 = (*((_QWORD *)&v6 + 1) + MEMORY[0xFFFFF78000000320]) >> 32;
       *(_DWORD *)(MmWriteableSharedUserData + 808) = (*((_QWORD *)&v6 + 1) + MEMORY[0xFFFFF78000000320]) >> 32;
       *(_QWORD *)(MmWriteableSharedUserData + 800) = v18;
@@ -203,7 +203,7 @@ __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned
 LABEL_20:
   v20 = *(_QWORD *)v41;
   v21 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+  while ( _interlockedbittestandset64(&KiSupervisorXStateFeaturesLock.Timer.Header.LockNV, 0LL) )
   {
     do
     {
@@ -218,18 +218,20 @@ LABEL_20:
         _mm_pause();
       }
     }
-    while ( KiForceIdleLock );
+    while ( *(_QWORD *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock );
   }
-  if ( KiForceIdleStartTime && v17 >= KiForceIdleStartTime && KiForceIdleState == 2 )
+  if ( KiSupervisorXStateFeaturesLock.ApcState.ApcListHead[0].Blink
+    && (struct _LIST_ENTRY *)v17 >= KiSupervisorXStateFeaturesLock.ApcState.ApcListHead[0].Blink
+    && KiForceIdleState == 2 )
   {
     KiSetForceIdleState(1LL);
-    if ( !*(&KiForceIdleStartDpc + 7) )
-      WORD1(KiForceIdleStartDpc) = *(_DWORD *)(v20 + 36) + 2048;
-    KiInsertQueueDpc((ULONG_PTR)&KiForceIdleStartDpc, 0);
+    if ( !KiSupervisorXStateFeaturesLock.RelativeTimerBias )
+      *(_WORD *)&KiSupervisorXStateFeaturesLock.ApcStateFill[42] = *(_DWORD *)(v20 + 36) + 2048;
+    KiInsertQueueDpc((ULONG_PTR)&KiSupervisorXStateFeaturesLock.ApcStateFill[40], 0);
   }
   if ( ((KiForceIdleState - 1) & 0xFFFFFFFD) == 0 )
     v36 = 1;
-  _InterlockedAnd64(&KiForceIdleLock, 0LL);
+  _InterlockedAnd64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock, 0LL);
   if ( v35 )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
@@ -264,15 +266,15 @@ LABEL_20:
       BYTE8(v6) = 15;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, *((_QWORD *)&v6 + 1));
     }
-    InterruptTimePrecise = v17;
+    InterruptTimePrecise.QuadPart = v17;
     v24 = KiLastPseudoHrTimerExpiration + (unsigned int)KePseudoHrTimeIncrement;
     v25 = KeMinimumIncrement;
     if ( !KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v42);
-    v26 = InterruptTimePrecise - v24;
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v26.QuadPart = InterruptTimePrecise.QuadPart - v24;
     if ( v24 > 0 )
-      v26 = v24;
-    if ( (unsigned int)dword_140E06F58 > 5 )
+      v26.QuadPart = v24;
+    if ( (unsigned int)dword_140E06F90 > 5 )
     {
       v44 = InterruptTimePrecise;
       v40 = 1;
@@ -283,56 +285,57 @@ LABEL_20:
       v53 = &v45;
       v50 = 8LL;
       v52 = 4LL;
-      v46 = v26 - InterruptTimePrecise;
+      v46 = v26.QuadPart - InterruptTimePrecise.QuadPart;
       v45 = v24;
       v55 = &v46;
-      v57 = &v42;
+      p_PerformanceCounter = &PerformanceCounter;
       v59 = v41;
       v61 = &v35;
       v63 = &v37;
       v54 = 8LL;
       v56 = 8LL;
-      v42 = v26;
+      PerformanceCounter = v26;
       v58 = 8LL;
       v41[0] = v25;
       v60 = 4LL;
       v35 = 0;
       v37 = 0;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E06F58,
-        (unsigned __int8 *)byte_140048E89,
+        (__int64)&dword_140E06F90,
+        (unsigned __int8 *)word_140049432,
         0LL,
         0LL,
         0xAu,
         &v48);
     }
     v27 = *(_BYTE *)(v20 + 38388);
-    *(_QWORD *)(v20 + 38376) = v26;
+    *(LARGE_INTEGER *)(v20 + 38376) = v26;
     *(_DWORD *)(v20 + 38384) = v25;
     *(_BYTE *)(v20 + 38388) = v27 & 0xFC | 1;
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
   }
-  if ( v18 > KiBalanceSetManagerLastCheckTick )
+  if ( (unsigned __int64)v18 > *(_QWORD *)&KiSupervisorXStateFeaturesLock.CurrentRunTime )
   {
-    v32 = *(_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[96] == 1;
-    KiBalanceSetManagerLastCheckTick = v18;
-    --*(_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[96];
+    v32 = *(_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Type == 1;
+    *(_QWORD *)&KiSupervisorXStateFeaturesLock.CurrentRunTime = v18;
+    --*(_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Type;
     if ( v32 )
     {
-      *(_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[96] = KiBalanceSetManagerPeriod;
-      KiInsertQueueDpc((ULONG_PTR)&KiBalanceSetManagerPeriodicDpc, 0);
+      *(_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Type = KiBalanceSetManagerPeriod;
+      KiInsertQueueDpc((ULONG_PTR)&KiSupervisorXStateFeaturesLock.StateSaveArea, 0);
     }
   }
   if ( !KiClockTimerPerCpuTickScheduling )
     PoExecuteIdleCheck(v17);
-  if ( !*(_DWORD *)&PopSleepstudySessionLock.AffinityPrimaryGroup && !v36 )
+  if ( !PpmCheckTimerImplementation && !v36 )
     PpmExecutePeriodicPerfCheck();
-  if ( KiGroupSchedulingEnabled && v18 > KiGenerationEndTick )
+  if ( KiGroupSchedulingEnabled && v18 > KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink )
   {
     v28 = 1;
-    KiGenerationEndTick += (unsigned int)KiGenerationTicks;
+    KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)((char *)KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink
+                                                                                          + (unsigned int)KiGenerationTicks);
   }
   else
   {

@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpIsDeviceInstanceEnabled @ 0x140A5DBC0
+ * XREFs of PnpIsDeviceInstanceEnabled @ 0x140A55FE0
  * Callers:
- *     PiProfileUpdateDeviceTreeCallback @ 0x14072D300 (PiProfileUpdateDeviceTreeCallback.c)
- *     IopInitializeDeviceInstanceKey @ 0x140A626D8 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x14072B310 (PiProfileUpdateDeviceTreeCallback.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140A5AFD8 (IopInitializeDeviceInstanceKey.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpDisableDevice @ 0x140723260 (PnpDisableDevice.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     PnpGetDeviceInstanceCsConfigFlags @ 0x140A5DEE0 (PnpGetDeviceInstanceCsConfigFlags.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpDisableDevice @ 0x140720DF0 (PnpDisableDevice.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     PnpGetDeviceInstanceCsConfigFlags @ 0x140A56300 (PnpGetDeviceInstanceCsConfigFlags.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpIsDeviceInstanceEnabled(void *a1, unsigned __int16 *a2, int a3)
@@ -82,7 +82,7 @@ LABEL_4:
             && ((_WORD)v14 != (_WORD)v12 || v13[((unsigned __int64)*a2 >> 1) - 1])
             && (v14 > v12 - 2 || v13[(v14 >> 1) - 1] && v13[v14 >> 1]) )
           {
-            Pool2 = (void *)ExAllocatePool2(0x100uLL);
+            Pool2 = (void *)ExAllocatePool2(0x100uLL, v14 + 2, 0x75737050u);
             v16 = Pool2;
             if ( !Pool2 )
               goto LABEL_28;
@@ -95,7 +95,7 @@ LABEL_4:
         }
         else if ( *v13 )
         {
-          v22 = (_WORD *)ExAllocatePool2(0x100uLL);
+          v22 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
           if ( !v22 )
             goto LABEL_28;
           *v22 = 0;

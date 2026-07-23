@@ -1,27 +1,27 @@
 /*
- * XREFs of VrpTranslatePath @ 0x1409276F0
+ * XREFs of VrpTranslatePath @ 0x140929830
  * Callers:
- *     VrpPreOpenOrCreate @ 0x1409271B4 (VrpPreOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1409292F4 (VrpPreOpenOrCreate.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     VrpUnlockJobContextShared @ 0x140928C08 (VrpUnlockJobContextShared.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     VrpUnlockJobContextShared @ 0x14092AD48 (VrpUnlockJobContextShared.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpTranslatePath(
@@ -40,7 +40,7 @@ __int64 __fastcall VrpTranslatePath(
   int v11; // eax
   __int128 v12; // xmm0
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v14; // rbx
+  char *v14; // rbx
   bool v15; // zf
   unsigned __int64 v16; // rax
   unsigned __int64 v17; // r9
@@ -135,11 +135,11 @@ __int64 __fastcall VrpTranslatePath(
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v14 = KeAbPreAcquire((__int64)(v10 + 2), 0LL);
+    v14 = (char *)KeAbPreAcquire((__int64)(v10 + 2), 0LL);
     if ( _InterlockedCompareExchange64(v10 + 2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v10 + 2, 0, v14, (__int64)(v10 + 2));
     if ( v14 )
-      *((_BYTE *)v14 + 10) = 1;
+      v14[10] = 1;
     v15 = v10[6] == 0;
     v16 = 0LL;
     v84 = 0LL;
@@ -313,7 +313,7 @@ LABEL_51:
       goto LABEL_52;
     }
     DestinationString_8.MaximumLength = v52 + 2;
-    DestinationString_8.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+    DestinationString_8.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v52 + 2), 0x67655256u);
     if ( !DestinationString_8.Buffer )
     {
       v43 = -1073741670;

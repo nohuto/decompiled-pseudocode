@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpDemuxPrivateTraceHandle @ 0x140AB5A1C
+ * XREFs of EtwpDemuxPrivateTraceHandle @ 0x140832DA0
  * Callers:
- *     EtwpNotifyGuid @ 0x140836EE4 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x140834644 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PidNodeCompare @ 0x1407ADA10 (PidNodeCompare.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PidNodeCompare @ 0x1407ADE60 (PidNodeCompare.c)
  */
 
 __int64 __fastcall EtwpDemuxPrivateTraceHandle(unsigned int a1, unsigned __int16 a2, unsigned __int16 *a3)
@@ -18,8 +18,8 @@ __int64 __fastcall EtwpDemuxPrivateTraceHandle(unsigned int a1, unsigned __int16
   struct _LIST_ENTRY *Flink; // r15
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v9; // rdi
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbx
+  char *v10; // rax
+  char *v11; // rbx
   __int64 v12; // rbx
   int v13; // esi
   int v14; // eax
@@ -38,12 +38,12 @@ __int64 __fastcall EtwpDemuxPrivateTraceHandle(unsigned int a1, unsigned __int16
     CurrentThread = KeGetCurrentThread();
     v9 = (signed __int64 *)&Flink[273];
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire((__int64)&Flink[273], 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)&Flink[273], 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&Flink[273], 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Flink[273], (__int64)v10, (__int64)&Flink[273]);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Flink[273], v10, (__int64)&Flink[273]);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     v22 = a1;
     v12 = (__int64)Flink[272].Flink;
     if ( ((__int64)Flink[272].Blink & 1) != 0 && v12 )

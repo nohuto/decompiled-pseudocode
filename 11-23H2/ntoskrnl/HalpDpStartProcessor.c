@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDpStartProcessor @ 0x140A97B74
+ * XREFs of HalpDpStartProcessor @ 0x140A979E4
  * Callers:
- *     HalpDpReplaceControl @ 0x140A978A0 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x140A97710 (HalpDpReplaceControl.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377060 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalGetProcessorIdByNtNumber @ 0x140384B00 (HalGetProcessorIdByNtNumber.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377200 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140384CE0 (HalGetProcessorIdByNtNumber.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HalpInterruptStartProcessor @ 0x140A88D4C (HalpInterruptStartProcessor.c)
  */
 

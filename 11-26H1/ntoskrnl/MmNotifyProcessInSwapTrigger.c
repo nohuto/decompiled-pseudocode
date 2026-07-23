@@ -1,13 +1,13 @@
 /*
- * XREFs of MmNotifyProcessInSwapTrigger @ 0x1402C7BAC
+ * XREFs of MmNotifyProcessInSwapTrigger @ 0x14031284C
  * Callers:
- *     KiRequestProcessInSwap @ 0x1402C6AEC (KiRequestProcessInSwap.c)
- *     KiInSwapSingleProcess @ 0x1402C79E4 (KiInSwapSingleProcess.c)
+ *     KiRequestProcessInSwap @ 0x14031178C (KiRequestProcessInSwap.c)
+ *     KiInSwapSingleProcess @ 0x140312684 (KiInSwapSingleProcess.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
@@ -28,11 +28,11 @@ void __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
   __int64 *v14; // [rsp+90h] [rbp+37h]
   __int64 v15; // [rsp+98h] [rbp+3Fh]
 
-  if ( stru_140E36558.FirstArgument
+  if ( stru_140E366D8.FirstArgument
     && (HIBYTE(*(_DWORD *)(a1 + 1208)) & 0x30) == 0x20
-    && *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+    && *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
   {
-    if ( (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 8LL) )
+    if ( (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 8LL) )
     {
       tlgCreate1Sz_char(v11, v1 + 824);
       v3 = *(_DWORD *)(v2 + 464);
@@ -42,7 +42,7 @@ void __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
       v13 = 4LL;
       v9 = 0x1000000LL;
       v15 = v4;
-      tlgWriteEx_EtwWriteEx(v5, (int)&dword_14005765C, v5, v4 - 7, v6, v7, 5u, (__int64)v10);
+      tlgWriteEx_EtwWriteEx(v5, (int)&byte_14005864F, v5, v4 - 7, v6, v7, 5u, (__int64)v10);
     }
   }
 }

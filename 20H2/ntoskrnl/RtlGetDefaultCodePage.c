@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetDefaultCodePage(_WORD *a1, _WORD *a2)
+__int64 __fastcall RtlGetDefaultCodePage(USHORT *a1, _WORD *a2)
 {
   __int64 result; // rax
 

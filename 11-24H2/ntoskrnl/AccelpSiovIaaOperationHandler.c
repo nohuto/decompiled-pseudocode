@@ -1,13 +1,13 @@
 /*
- * XREFs of AccelpSiovIaaOperationHandler @ 0x140666390
+ * XREFs of AccelpSiovIaaOperationHandler @ 0x140664C80
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x14040A7DC (AccelpSiovInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x140402CBC (AccelpSiovInternalOperationHandler.c)
  * Callees:
- *     IaaBuildDescriptorCommon @ 0x1404774B4 (IaaBuildDescriptorCommon.c)
- *     AccelpSiovCompressionDecompression @ 0x140666080 (AccelpSiovCompressionDecompression.c)
- *     AccelpSiovIaaQueryCompletionInformation @ 0x140666630 (AccelpSiovIaaQueryCompletionInformation.c)
- *     AccelpSiovSetCompressionWorkspace @ 0x140666874 (AccelpSiovSetCompressionWorkspace.c)
- *     IaaGetStatusFromCompletionRecord @ 0x140666E74 (IaaGetStatusFromCompletionRecord.c)
+ *     IaaBuildDescriptorCommon @ 0x140473A54 (IaaBuildDescriptorCommon.c)
+ *     AccelpSiovCompressionDecompression @ 0x140664970 (AccelpSiovCompressionDecompression.c)
+ *     AccelpSiovIaaQueryCompletionInformation @ 0x140664F20 (AccelpSiovIaaQueryCompletionInformation.c)
+ *     AccelpSiovSetCompressionWorkspace @ 0x140665164 (AccelpSiovSetCompressionWorkspace.c)
+ *     IaaGetStatusFromCompletionRecord @ 0x140665764 (IaaGetStatusFromCompletionRecord.c)
  */
 
 __int64 __fastcall AccelpSiovIaaOperationHandler(__int64 a1, _DWORD *a2, __int64 a3)

@@ -30,7 +30,7 @@ __int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   HANDLE KeyHandle; // [rsp+88h] [rbp-78h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
-  STRING v16; // [rsp+A0h] [rbp-60h] BYREF
+  _STRING v16; // [rsp+A0h] [rbp-60h] BYREF
   _DWORD v17[18]; // [rsp+B0h] [rbp-50h] BYREF
   CHAR String[16]; // [rsp+100h] [rbp+0h] BYREF
   char v19; // [rsp+110h] [rbp+10h] BYREF

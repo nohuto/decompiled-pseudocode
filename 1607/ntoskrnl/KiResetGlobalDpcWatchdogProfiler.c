@@ -1,24 +1,24 @@
 /*
- * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC
+ * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8
  * Callers:
- *     MiGetPageChain @ 0x14003D480 (MiGetPageChain.c)
- *     MiQueryAddressSpan @ 0x140042CC0 (MiQueryAddressSpan.c)
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiAgeWorkingSet @ 0x140047090 (MiAgeWorkingSet.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     KiRetireDpcList @ 0x140058280 (KiRetireDpcList.c)
- *     KiExecuteAllDpcs @ 0x140059280 (KiExecuteAllDpcs.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     KiDpcWatchdog @ 0x1400AF74C (KiDpcWatchdog.c)
- *     NtUnlockVirtualMemory @ 0x1400BA2E0 (NtUnlockVirtualMemory.c)
- *     KeAccumulateTicks @ 0x1400DC3C0 (KeAccumulateTicks.c)
- *     KiExpireTimer2 @ 0x1400EC080 (KiExpireTimer2.c)
- *     MiRemoveWorkingSetPages @ 0x1400FE750 (MiRemoveWorkingSetPages.c)
- *     KiProcessExpiredTimerList @ 0x14010CEBC (KiProcessExpiredTimerList.c)
- *     KeRelaxTimingConstraints @ 0x1401D1D98 (KeRelaxTimingConstraints.c)
+ *     MiGetPageChain @ 0x14003D000 (MiGetPageChain.c)
+ *     MiQueryAddressSpan @ 0x140042840 (MiQueryAddressSpan.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiAgeWorkingSet @ 0x140046C10 (MiAgeWorkingSet.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     KiRetireDpcList @ 0x140057E00 (KiRetireDpcList.c)
+ *     KiExecuteAllDpcs @ 0x140058E00 (KiExecuteAllDpcs.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     KiDpcWatchdog @ 0x1400ADCB4 (KiDpcWatchdog.c)
+ *     NtUnlockVirtualMemory @ 0x1400B8170 (NtUnlockVirtualMemory.c)
+ *     KeAccumulateTicks @ 0x1400DA260 (KeAccumulateTicks.c)
+ *     KiExpireTimer2 @ 0x1400E9EF0 (KiExpireTimer2.c)
+ *     MiRemoveWorkingSetPages @ 0x1400FC4D0 (MiRemoveWorkingSetPages.c)
+ *     KiProcessExpiredTimerList @ 0x14010D420 (KiProcessExpiredTimerList.c)
+ *     KeRelaxTimingConstraints @ 0x1401D1BC4 (KeRelaxTimingConstraints.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void *__fastcall KiResetGlobalDpcWatchdogProfiler(__int64 a1)

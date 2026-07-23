@@ -1,11 +1,11 @@
 /*
- * XREFs of AVrfpSnapAlreadyLoadedDlls @ 0x1800DB384
+ * XREFs of AVrfpSnapAlreadyLoadedDlls @ 0x1800DB344
  * Callers:
- *     AVrfInitializeVerifier @ 0x1800D9948 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x1800D9908 (AVrfInitializeVerifier.c)
  * Callees:
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
- *     AVrfpDllLoadNotificationInternal @ 0x1800DA860 (AVrfpDllLoadNotificationInternal.c)
- *     AVrfpIsVerifierProviderDll @ 0x1800DAD70 (AVrfpIsVerifierProviderDll.c)
+ *     AVrfpDllLoadNotificationInternal @ 0x1800DA820 (AVrfpDllLoadNotificationInternal.c)
+ *     AVrfpIsVerifierProviderDll @ 0x1800DAD30 (AVrfpIsVerifierProviderDll.c)
  */
 
 void AVrfpSnapAlreadyLoadedDlls()

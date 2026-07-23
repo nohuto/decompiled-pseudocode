@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpPrepareDirtyBuffer @ 0x140219094
+ * XREFs of EtwpPrepareDirtyBuffer @ 0x1402191F4
  * Callers:
- *     EtwpBufferingModeFlush @ 0x140A13654 (EtwpBufferingModeFlush.c)
- *     EtwpFlushActiveBuffers @ 0x140A141E8 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x140A12844 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x140A133D8 (EtwpFlushActiveBuffers.c)
  * Callees:
- *     EtwpEnqueueAvailableBuffer @ 0x1402195F8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpGetLoggerTimeStamp @ 0x14021BEC0 (EtwpGetLoggerTimeStamp.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     EtwpCompressionDpc @ 0x1405306E0 (EtwpCompressionDpc.c)
- *     EtwpReenableCompression @ 0x140532448 (EtwpReenableCompression.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x140219758 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14021D850 (EtwpGetLoggerTimeStamp.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     EtwpCompressionDpc @ 0x140532BE0 (EtwpCompressionDpc.c)
+ *     EtwpReenableCompression @ 0x1405348E8 (EtwpReenableCompression.c)
  */
 
 __int64 __fastcall EtwpPrepareDirtyBuffer(__int64 a1, __int64 a2)

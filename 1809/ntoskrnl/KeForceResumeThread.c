@@ -1,14 +1,14 @@
 /*
- * XREFs of KeForceResumeThread @ 0x1400F1B9C
+ * XREFs of KeForceResumeThread @ 0x1400F1C1C
  * Callers:
- *     KeRequestTerminationThread @ 0x1400F1348 (KeRequestTerminationThread.c)
- *     KeRundownApcQueues @ 0x1405F7DE0 (KeRundownApcQueues.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     NtTerminateProcess @ 0x14067A810 (NtTerminateProcess.c)
+ *     KeRequestTerminationThread @ 0x1400F13C8 (KeRequestTerminationThread.c)
+ *     KeRundownApcQueues @ 0x1405F8DE0 (KeRundownApcQueues.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     NtTerminateProcess @ 0x14067B9D0 (NtTerminateProcess.c)
  * Callees:
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiResumeThread @ 0x1400F1CE0 (KiResumeThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KeForceResumeThread(__int64 a1)

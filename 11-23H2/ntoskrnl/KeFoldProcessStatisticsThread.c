@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFoldProcessStatisticsThread @ 0x1402EACB4
+ * XREFs of KeFoldProcessStatisticsThread @ 0x1402EAF44
  * Callers:
- *     PspThreadDelete @ 0x1407473C0 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x1407475B0 (PspThreadDelete.c)
  * Callees:
- *     RtlTimelineBitmapMerge @ 0x1402C0AA8 (RtlTimelineBitmapMerge.c)
+ *     RtlTimelineBitmapMerge @ 0x1402C0D38 (RtlTimelineBitmapMerge.c)
  */
 
 signed __int64 __fastcall KeFoldProcessStatisticsThread(__int64 a1)

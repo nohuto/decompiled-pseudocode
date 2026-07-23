@@ -8,25 +8,25 @@
  *     RtlLocateSupervisorFeature @ 0x140312840 (RtlLocateSupervisorFeature.c)
  */
 
-__int64 __fastcall KiGetSavedIptState(__int64 a1, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall KiGetSavedIptState(__int64 a1, PVOID *a2, ULONG *a3)
 {
   __int64 result; // rax
-  int v6; // eax
-  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v6; // eax
+  PXSAVE_AREA_HEADER XStateHeader; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !a2 || !a3 )
     return 3221225485LL;
-  result = KiGetSavedSupervisorState(a1, &v7);
+  result = KiGetSavedSupervisorState(a1, &XStateHeader);
   if ( (int)result >= 0 )
   {
     if ( (unsigned __int8)KiXSavesManagesIpt() )
     {
-      *a2 = RtlLocateSupervisorFeature(v7, 8LL);
+      *a2 = RtlLocateSupervisorFeature(XStateHeader, 8u, a3);
     }
     else if ( (_DWORD)KiIptMsrMask )
     {
       v6 = KiIptSaveAreaLength;
-      *a2 = v7 + 64 + MEMORY[0xFFFFF78000000600] - (unsigned __int64)MEMORY[0xFFFFF780000003E8];
+      *a2 = (char *)&XStateHeader[1] + MEMORY[0xFFFFF78000000600] - (unsigned __int64)MEMORY[0xFFFFF780000003E8];
       *a3 = v6;
     }
     else

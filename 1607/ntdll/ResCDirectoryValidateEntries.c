@@ -1,12 +1,12 @@
 /*
- * XREFs of ResCDirectoryValidateEntries @ 0x180105D60
+ * XREFs of ResCDirectoryValidateEntries @ 0x180105D68
  * Callers:
- *     ResCDirectoryValidate @ 0x1800FFF9C (ResCDirectoryValidate.c)
+ *     ResCDirectoryValidate @ 0x1800FFED4 (ResCDirectoryValidate.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  *     ??$InitStack@H@@YAHPEAPEAXI@Z @ 0x1800FF9D4 (--$InitStack@H@@YAHPEAPEAXI@Z.c)
- *     ??$StackPush@I@@YAHIPEAX@Z @ 0x1800FFC4C (--$StackPush@I@@YAHIPEAX@Z.c)
- *     ??$ReleaseStack@I@@YAXPEAX@Z @ 0x180105BC4 (--$ReleaseStack@I@@YAXPEAX@Z.c)
+ *     ??$ReleaseStack@I@@YAXPEAX@Z @ 0x180105B04 (--$ReleaseStack@I@@YAXPEAX@Z.c)
+ *     ??$StackPush@I@@YAHIPEAX@Z @ 0x180105B54 (--$StackPush@I@@YAHIPEAX@Z.c)
  */
 
 __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __int64 a3, _DWORD *a4)
@@ -28,18 +28,18 @@ __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __i
   __int64 v21; // rcx
   int v22; // eax
   __int64 v24; // [rsp+0h] [rbp-58h] BYREF
-  unsigned int *v25; // [rsp+60h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = 0;
-  v25 = 0LL;
+  BaseAddress = 0LL;
   v8 = 0;
   if ( a1 && (v9 = a1[3]) != 0 && a2 < *(_DWORD *)(v9 + 72) )
   {
     if ( a4 )
       *a4 = 0;
-    inited = InitStack<int>((unsigned __int64 *)&v25);
-    v11 = v25;
-    if ( inited && (unsigned int)StackPush<unsigned int>(a2, v25) )
+    inited = InitStack<int>(&BaseAddress);
+    v11 = (unsigned int *)BaseAddress;
+    if ( inited && (unsigned int)StackPush<unsigned int>(a2, (unsigned int *)BaseAddress) )
     {
       while ( v11 )
       {
@@ -81,12 +81,12 @@ __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __i
         v4 = 1;
     }
 LABEL_32:
-    ReleaseStack<unsigned int>((unsigned __int64)v11);
+    ReleaseStack<unsigned int>(v11);
     return v4;
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

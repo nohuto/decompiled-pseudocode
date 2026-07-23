@@ -1,21 +1,21 @@
 /*
- * XREFs of wcsstr @ 0x140197950
+ * XREFs of wcsstr @ 0x140197A90
  * Callers:
- *     BcpGetProgressMessages @ 0x1401867D8 (BcpGetProgressMessages.c)
- *     SmUniqueIdParseProductName @ 0x140306804 (SmUniqueIdParseProductName.c)
- *     PopGetBitlockerKeyLocation @ 0x14056BD8C (PopGetBitlockerKeyLocation.c)
- *     PiGetDeviceRegProperty @ 0x140587C10 (PiGetDeviceRegProperty.c)
- *     PfSnIsHostingApplication @ 0x140667CEC (PfSnIsHostingApplication.c)
- *     SiIsWinPEBoot @ 0x1406AE838 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x1406AE8A4 (SiGetBootDeviceName.c)
- *     EtwpGenerateFileName @ 0x1406CF53C (EtwpGenerateFileName.c)
- *     SiGetBiosSystemPartition @ 0x1407040F0 (SiGetBiosSystemPartition.c)
- *     BiIsWinPEBoot @ 0x1407121EC (BiIsWinPEBoot.c)
- *     IopCheckIfNotNativeDriver @ 0x140819810 (IopCheckIfNotNativeDriver.c)
- *     PiGetDeviceRegistryProperty @ 0x140824718 (PiGetDeviceRegistryProperty.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3DE4 (BiGetObjectReferenceFromEfiEntry.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D64 (BiUpdateObjectReferenceInEfiEntry.c)
- *     SubstringMatch @ 0x140905060 (SubstringMatch.c)
+ *     BcpGetProgressMessages @ 0x140186918 (BcpGetProgressMessages.c)
+ *     SmUniqueIdParseProductName @ 0x1403069F4 (SmUniqueIdParseProductName.c)
+ *     PopGetBitlockerKeyLocation @ 0x14056CD8C (PopGetBitlockerKeyLocation.c)
+ *     PiGetDeviceRegProperty @ 0x140588C10 (PiGetDeviceRegProperty.c)
+ *     PfSnIsHostingApplication @ 0x140668EAC (PfSnIsHostingApplication.c)
+ *     SiIsWinPEBoot @ 0x1406AFAD8 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceName @ 0x1406AFB44 (SiGetBootDeviceName.c)
+ *     EtwpGenerateFileName @ 0x1406D07DC (EtwpGenerateFileName.c)
+ *     SiGetBiosSystemPartition @ 0x140705390 (SiGetBiosSystemPartition.c)
+ *     BiIsWinPEBoot @ 0x14071348C (BiIsWinPEBoot.c)
+ *     IopCheckIfNotNativeDriver @ 0x14081AA10 (IopCheckIfNotNativeDriver.c)
+ *     PiGetDeviceRegistryProperty @ 0x140825918 (PiGetDeviceRegistryProperty.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1408F50A4 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F6024 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     SubstringMatch @ 0x140906320 (SubstringMatch.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExReleaseFastMutexNoReboot @ 0x140942230
+ * XREFs of VerifierExReleaseFastMutexNoReboot @ 0x140943230
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViExReleaseFastMutexCommon @ 0x140942768 (ViExReleaseFastMutexCommon.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViExReleaseFastMutexCommon @ 0x140943768 (ViExReleaseFastMutexCommon.c)
  */
 
 __int64 __fastcall VerifierExReleaseFastMutexNoReboot(ULONG_PTR a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlDetachPrQueue @ 0x140542D20
+ * XREFs of HvlDetachPrQueue @ 0x1405433E0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x14045F516 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x14045F916 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDetachPrQueue(__int64 a1)

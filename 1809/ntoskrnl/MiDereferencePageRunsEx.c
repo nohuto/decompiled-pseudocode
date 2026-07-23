@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDereferencePageRunsEx @ 0x14012B5F8
+ * XREFs of MiDereferencePageRunsEx @ 0x14012B6C8
  * Callers:
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiDereferencePageRuns @ 0x140141AD0 (MiDereferencePageRuns.c)
- *     MiFinishResume @ 0x140151910 (MiFinishResume.c)
- *     MiZeroBootLargePages @ 0x140192554 (MiZeroBootLargePages.c)
- *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
- *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
- *     MiUpdatePartitionMemory @ 0x1402D2BD0 (MiUpdatePartitionMemory.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiDereferencePageRuns @ 0x140141BD0 (MiDereferencePageRuns.c)
+ *     MiFinishResume @ 0x140151A10 (MiFinishResume.c)
+ *     MiZeroBootLargePages @ 0x140192694 (MiZeroBootLargePages.c)
+ *     MiRebuildLargePage @ 0x1402CE5D4 (MiRebuildLargePage.c)
+ *     MiDeletePartitionResources @ 0x1402D119C (MiDeletePartitionResources.c)
+ *     MiUpdatePartitionMemory @ 0x1402D2DC0 (MiUpdatePartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferencePageRunsEx(__int64 a1, int a2)
@@ -50,14 +50,14 @@ void __fastcall MiDereferencePageRunsEx(__int64 a1, int a2)
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
       __writecr8(v9);
-      v9 = ExAcquireSpinLockExclusive(&dword_14043CA00);
+      v9 = ExAcquireSpinLockExclusive(&dword_14043DAC0);
     }
-    if ( !--qword_14043C968 )
+    if ( !--qword_14043DA28 )
     {
-      v6 = (_QWORD *)qword_14043C998;
-      qword_14043C998 = 0LL;
+      v6 = (_QWORD *)qword_14043DA58;
+      qword_14043DA58 = 0LL;
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043CA00);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043DAC0);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )
     {
       v13 = KeGetCurrentPrcb();

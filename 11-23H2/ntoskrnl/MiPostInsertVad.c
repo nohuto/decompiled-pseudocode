@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPostInsertVad @ 0x14030BBC0
+ * XREFs of MiPostInsertVad @ 0x14030BE50
  * Callers:
- *     MiPerformVadSplitting @ 0x14030B5F4 (MiPerformVadSplitting.c)
+ *     MiPerformVadSplitting @ 0x14030B884 (MiPerformVadSplitting.c)
  * Callees:
- *     MiManageSubsectionView @ 0x1402A0500 (MiManageSubsectionView.c)
- *     MiAweViewInserter @ 0x140A412BC (MiAweViewInserter.c)
+ *     MiManageSubsectionView @ 0x1402A0790 (MiManageSubsectionView.c)
+ *     MiAweViewInserter @ 0x140A4156C (MiAweViewInserter.c)
  */
 
 int __fastcall MiPostInsertVad(__int64 a1, __int64 a2, __int64 a3)

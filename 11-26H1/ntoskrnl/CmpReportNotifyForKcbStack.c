@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpReportNotifyForKcbStack @ 0x1408D03E8
+ * XREFs of CmpReportNotifyForKcbStack @ 0x1408D69AC
  * Callers:
- *     CmDeleteLayeredKey @ 0x140446A10 (CmDeleteLayeredKey.c)
- *     CmpReportNotify @ 0x1408BAD14 (CmpReportNotify.c)
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
- *     CmpCreateChild @ 0x1408DF4A0 (CmpCreateChild.c)
+ *     CmDeleteLayeredKey @ 0x14043F510 (CmDeleteLayeredKey.c)
+ *     CmpReportNotify @ 0x1408C12E4 (CmpReportNotify.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
+ *     CmpCreateChild @ 0x1408E5A60 (CmpCreateChild.c)
  * Callees:
- *     CmpReportNotifyHelper @ 0x1408D0490 (CmpReportNotifyHelper.c)
+ *     CmpReportNotifyHelper @ 0x1408D6A50 (CmpReportNotifyHelper.c)
  */
 
 __int64 __fastcall CmpReportNotifyForKcbStack(__int64 a1, int a2, int a3, __int64 a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopIoRingSetupCompletionWait @ 0x1404C3BD0
+ * XREFs of IopIoRingSetupCompletionWait @ 0x1404BF100
  * Callers:
- *     NtSubmitIoRing @ 0x1404C3910 (NtSubmitIoRing.c)
- *     IopProcessIoRingEntry @ 0x1406F7A58 (IopProcessIoRingEntry.c)
+ *     NtSubmitIoRing @ 0x1404BEE40 (NtSubmitIoRing.c)
+ *     IopProcessIoRingEntry @ 0x1406F5A58 (IopProcessIoRingEntry.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall IopIoRingSetupCompletionWait(__int64 a1, unsigned int a2, unsigned int a3, char a4, _BYTE *a5)

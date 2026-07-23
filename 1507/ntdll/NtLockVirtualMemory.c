@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 NtLockVirtualMemory()
+NTSTATUS __cdecl NtLockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 252LL;
+  result = 252;
   __asm { syscall; Low latency system call }
   return result;
 }

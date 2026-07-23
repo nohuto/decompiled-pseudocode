@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDecrementVpbRefCount @ 0x1400B8990
+ * XREFs of IopDecrementVpbRefCount @ 0x1400B88D0
  * Callers:
- *     IopDeleteFile @ 0x14063B3C0 (IopDeleteFile.c)
- *     IoVerifyVolume @ 0x14081CBB0 (IoVerifyVolume.c)
+ *     IopDeleteFile @ 0x14063C3E0 (IopDeleteFile.c)
+ *     IoVerifyVolume @ 0x14081DDB0 (IoVerifyVolume.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall IopDecrementVpbRefCount(__int64 a1, char a2, __int64 a3)

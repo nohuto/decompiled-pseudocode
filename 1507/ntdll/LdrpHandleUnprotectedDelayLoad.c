@@ -13,28 +13,31 @@ char *__fastcall LdrpHandleUnprotectedDelayLoad(
         __int64 a1,
         __int64 a2,
         __int64 (__fastcall *a3)(__int64, _QWORD *),
-        __int64 (__fastcall *a4)(__int64, const char *),
+        _RTL_DYNAMIC_HASH_TABLE *a4,
         char **a5,
         unsigned int a6)
 {
-  signed int DelayloadExportDll; // ebx
-  void (__fastcall *v11)(__int64 *, __int64, char *, __int64, _QWORD); // r8
+  NTSTATUS DelayloadExportDll; // ebx
+  _RTL_DYNAMIC_HASH_TABLE *HashTable; // r8
   char *v12; // rdi
   __int64 v14; // rax
-  int v15; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-28h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-20h] BYREF
 
-  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, &v16, a6);
-  v15 = DelayloadExportDll;
+  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, &BaseAddress, a6);
+  LODWORD(v15) = DelayloadExportDll;
   if ( DelayloadExportDll >= 0
     && (g_ShimsEnabled
-      ? (v11 = (void (__fastcall *)(__int64 *, __int64, char *, __int64, _QWORD))(MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnSE_GetProcAddressForCaller, 64 - (MEMORY[0x7FFE0330] & 0x3Fu))))
-      : (v11 = 0LL),
-        v12 = LdrpResolveDelayloadAddress(a1, v16, a2, (__int64)a5, v11, &v15),
-        LdrpDereferenceModule(v16),
+      ? (HashTable = (_RTL_DYNAMIC_HASH_TABLE *)((unsigned int)MEMORY[0x7FFE0330] ^ __ROR8__(
+                                                                                      g_pfnSE_GetProcAddressForCaller,
+                                                                                      64
+                                                                                    - ((unsigned __int8)MEMORY[0x7FFE0330] & 0x3Fu))))
+      : (HashTable = 0LL),
+        v12 = LdrpResolveDelayloadAddress(a1, BaseAddress, a2, (__int64)a5, HashTable, (int *)&v15),
+        LdrpDereferenceModule((char *)BaseAddress),
         DelayloadExportDll = v15,
-        v15 >= 0)
-    || (v14 = LdrpRedirectDelayloadFailure(a1, v16, a2, a3, a4, (__int64)a5, DelayloadExportDll),
+        (int)v15 >= 0)
+    || (v14 = LdrpRedirectDelayloadFailure(a1, (__int64)BaseAddress, a2, a3, a4, (__int64)a5, DelayloadExportDll),
         v12 = (char *)v14,
         DelayloadExportDll >= 0)
     || v14 && ((unsigned int)(DelayloadExportDll + 1073741512) <= 1 || DelayloadExportDll == -1073740671) )

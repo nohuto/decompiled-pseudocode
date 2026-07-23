@@ -1,27 +1,27 @@
 /*
- * XREFs of LdrpInitializeExecutionOptions @ 0x180093C48
+ * XREFs of LdrpInitializeExecutionOptions @ 0x180093C38
  * Callers:
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrProtectMrdata @ 0x1800190A8 (LdrProtectMrdata.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlQueryEnvironmentVariable_U @ 0x18005F1F0 (RtlQueryEnvironmentVariable_U.c)
- *     RtlUnicodeStringToInteger @ 0x18006AEB0 (RtlUnicodeStringToInteger.c)
- *     LdrpQueryIllegalCWDDevices @ 0x18007EF38 (LdrpQueryIllegalCWDDevices.c)
- *     RtlQueryApplicationKeyOption @ 0x18007EFA0 (RtlQueryApplicationKeyOption.c)
- *     RtlpOpenImageFileOptionsKey @ 0x18007F110 (RtlpOpenImageFileOptionsKey.c)
- *     RtlQueryImageFileKeyOption @ 0x18007F330 (RtlQueryImageFileKeyOption.c)
- *     RtlSetLowFragHeapGlobalFlags @ 0x180089B84 (RtlSetLowFragHeapGlobalFlags.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     LdrProtectMrdata @ 0x180019098 (LdrProtectMrdata.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlQueryEnvironmentVariable_U @ 0x18005F1E0 (RtlQueryEnvironmentVariable_U.c)
+ *     RtlUnicodeStringToInteger @ 0x18006AEA0 (RtlUnicodeStringToInteger.c)
+ *     LdrpQueryIllegalCWDDevices @ 0x18007EF28 (LdrpQueryIllegalCWDDevices.c)
+ *     RtlQueryApplicationKeyOption @ 0x18007EF90 (RtlQueryApplicationKeyOption.c)
+ *     RtlpOpenImageFileOptionsKey @ 0x18007F100 (RtlpOpenImageFileOptionsKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x18007F320 (RtlQueryImageFileKeyOption.c)
+ *     RtlSetLowFragHeapGlobalFlags @ 0x180089B74 (RtlSetLowFragHeapGlobalFlags.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     NtOpenKey @ 0x1800A6660 (NtOpenKey.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
- *     LdrpConstructModernAppKeyName @ 0x1800D1FC0 (LdrpConstructModernAppKeyName.c)
- *     LdrpInitializeApplicationVerifierPackage @ 0x1800D2398 (LdrpInitializeApplicationVerifierPackage.c)
- *     LdrpIsVerifierActivationFilterMatched @ 0x1800D2808 (LdrpIsVerifierActivationFilterMatched.c)
- *     LdrpQueryAndUpdateVerifierLaunchCounter @ 0x1800D29E0 (LdrpQueryAndUpdateVerifierLaunchCounter.c)
- *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800D63C8 (AVrfOpenCurrentUserImageFileOptionsKey.c)
- *     RtlOpenModernAppOptionsKey @ 0x1800DC9EC (RtlOpenModernAppOptionsKey.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
+ *     LdrpConstructModernAppKeyName @ 0x1800D2080 (LdrpConstructModernAppKeyName.c)
+ *     LdrpInitializeApplicationVerifierPackage @ 0x1800D2458 (LdrpInitializeApplicationVerifierPackage.c)
+ *     LdrpIsVerifierActivationFilterMatched @ 0x1800D28C8 (LdrpIsVerifierActivationFilterMatched.c)
+ *     LdrpQueryAndUpdateVerifierLaunchCounter @ 0x1800D2AA0 (LdrpQueryAndUpdateVerifierLaunchCounter.c)
+ *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800D6488 (AVrfOpenCurrentUserImageFileOptionsKey.c)
+ *     RtlOpenModernAppOptionsKey @ 0x1800DCAAC (RtlOpenModernAppOptionsKey.c)
  */
 
 __int64 __fastcall LdrpInitializeExecutionOptions(
@@ -35,134 +35,128 @@ __int64 __fastcall LdrpInitializeExecutionOptions(
   HANDLE *v7; // r15
   HANDLE *v8; // r12
   __int16 v10; // di
-  __int64 v11; // rsi
-  int v12; // r14d
+  void *v11; // rsi
+  HANDLE v12; // r14
   __int64 v13; // rax
   int v14; // eax
-  unsigned int v15; // ecx
+  ULONG v15; // ecx
   char v16; // al
-  int v17; // eax
-  int v18; // edi
+  NTSTATUS v17; // eax
+  NTSTATUS v18; // edi
   __int64 i; // rdi
-  wchar_t *v20; // rdx
+  const WCHAR *v20; // rdx
   _BYTE *v21; // rax
-  unsigned int v22; // ecx
+  ULONG v22; // ecx
   int v23; // eax
   int v24; // eax
   __int64 v25; // rdx
-  int v26; // r8d
-  __int64 v27; // rcx
+  __int64 v26; // r8
+  HANDLE v27; // rcx
   char v29; // al
-  int v30; // edi
+  ULONG v30; // edi
   __int64 v31; // rcx
-  int v32; // [rsp+30h] [rbp-D0h]
-  int v33; // [rsp+30h] [rbp-D0h]
-  int v34; // [rsp+30h] [rbp-D0h]
-  int v35; // [rsp+30h] [rbp-D0h]
-  int v36; // [rsp+30h] [rbp-D0h]
-  int v37; // [rsp+30h] [rbp-D0h]
-  int v38; // [rsp+30h] [rbp-D0h]
-  int v39; // [rsp+30h] [rbp-D0h]
-  unsigned int v40; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v32; // [rsp+30h] [rbp-D0h]
+  __int64 v33; // [rsp+30h] [rbp-D0h]
+  __int64 v34; // [rsp+30h] [rbp-D0h]
+  __int64 v35; // [rsp+30h] [rbp-D0h]
+  __int64 v36; // [rsp+30h] [rbp-D0h]
+  __int64 v37; // [rsp+30h] [rbp-D0h]
+  __int64 v38; // [rsp+30h] [rbp-D0h]
+  __int64 v39; // [rsp+30h] [rbp-D0h]
+  ULONG v40; // [rsp+40h] [rbp-C0h] BYREF
   char v41; // [rsp+44h] [rbp-BCh]
-  void *v42; // [rsp+48h] [rbp-B8h] BYREF
-  int v43; // [rsp+50h] [rbp-B0h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG v43; // [rsp+50h] [rbp-B0h] BYREF
   int v44; // [rsp+54h] [rbp-ACh] BYREF
   int v45; // [rsp+58h] [rbp-A8h]
   HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v47; // [rsp+68h] [rbp-98h] BYREF
+  void *v47; // [rsp+68h] [rbp-98h] BYREF
   int v48; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v49; // [rsp+78h] [rbp-88h] BYREF
-  int v50; // [rsp+80h] [rbp-80h] BYREF
-  char *v51; // [rsp+88h] [rbp-78h]
-  HANDLE *v52; // [rsp+90h] [rbp-70h]
-  HANDLE *v53; // [rsp+98h] [rbp-68h]
-  __int64 v54; // [rsp+A0h] [rbp-60h]
-  __int64 v55; // [rsp+A8h] [rbp-58h]
-  UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
-  int v57; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v58; // [rsp+C8h] [rbp-38h]
-  void *v59; // [rsp+D0h] [rbp-30h]
-  int v60; // [rsp+D8h] [rbp-28h]
-  __int128 v61; // [rsp+E0h] [rbp-20h]
-  char v62; // [rsp+F0h] [rbp-10h] BYREF
+  void *v49; // [rsp+78h] [rbp-88h] BYREF
+  _UNICODE_STRING Value; // [rsp+80h] [rbp-80h] BYREF
+  HANDLE *v51; // [rsp+90h] [rbp-70h]
+  HANDLE *v52; // [rsp+98h] [rbp-68h]
+  __int64 v53; // [rsp+A0h] [rbp-60h]
+  __int64 v54; // [rsp+A8h] [rbp-58h]
+  _UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C0h] [rbp-40h] BYREF
+  char v57; // [rsp+F0h] [rbp-10h] BYREF
   WCHAR SourceString[200]; // [rsp+110h] [rbp+10h] BYREF
 
   v7 = a5;
   v8 = a4;
-  v54 = a6;
-  v53 = a4;
+  v53 = a6;
+  v52 = a4;
   *a4 = 0LL;
   v10 = 0;
-  v42 = 0LL;
+  KeyHandle = 0LL;
   v11 = 0LL;
   Handle = 0LL;
-  v12 = 0;
+  v12 = 0LL;
   *a5 = 0LL;
   LOBYTE(v45) = 0;
   v44 = 0;
   v47 = 0LL;
   v49 = 0LL;
   v13 = *(_QWORD *)(a2 + 32);
-  v55 = a3;
-  v52 = a5;
+  v54 = a3;
+  v51 = a5;
   v41 = 1;
-  if ( (*(_DWORD *)(v13 + 8) & 0x4000) != 0 || (int)RtlpOpenImageFileOptionsKey(a1, 9u, (__int64)&v42) < 0 )
+  if ( (*(_DWORD *)(v13 + 8) & 0x4000) != 0 || RtlpOpenImageFileOptionsKey(a1, 9u, &KeyHandle) < 0 )
     goto LABEL_34;
-  *v8 = v42;
+  *v8 = KeyHandle;
   if ( (*(_BYTE *)(a2 + 3) & 0x10) != 0 && (int)LdrpConstructModernAppKeyName(SourceString) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    v14 = RtlOpenModernAppOptionsKey(&DestinationString, v42, &v47);
+    v14 = RtlOpenModernAppOptionsKey(&DestinationString, KeyHandle, &v47);
     v11 = v47;
     if ( v14 >= 0 )
-      *a5 = (HANDLE)v47;
+      *a5 = v47;
   }
   RtlQueryApplicationKeyOption(
     v11,
-    (__int64)v42,
+    KeyHandle,
     (__int64)L"DisableHeapLookaside",
-    4u,
+    4LL,
     (__int64)&RtlpDisableHeapLookaside,
     4,
     v32,
     0LL);
-  RtlQueryApplicationKeyOption(v11, (__int64)v42, (__int64)L"FrontEndHeapDebugOptions", 4u, (__int64)&v44, 4, v33, 0LL);
+  RtlQueryApplicationKeyOption(v11, KeyHandle, (__int64)L"FrontEndHeapDebugOptions", 4LL, (__int64)&v44, 4, v33, 0LL);
   RtlQueryApplicationKeyOption(
     v11,
-    (__int64)v42,
+    KeyHandle,
     (__int64)L"ShutdownFlags",
-    4u,
+    4LL,
     (__int64)&RtlpShutdownProcessFlags,
     4,
     v34,
     0LL);
   v40 = 0;
-  RtlQueryApplicationKeyOption(v11, (__int64)v42, (__int64)L"UnloadEventTraceDepth", 4u, (__int64)&v40, 4, v35, 0LL);
+  RtlQueryApplicationKeyOption(v11, KeyHandle, (__int64)L"UnloadEventTraceDepth", 4LL, (__int64)&v40, 4, v35, 0LL);
   v15 = RtlpUnloadEventTraceExNumber;
   if ( v40 )
     v15 = v40;
   RtlpUnloadEventTraceExNumber = v15;
   v40 = 0;
-  RtlQueryApplicationKeyOption(v11, (__int64)v42, (__int64)L"MaxLoaderThreads", 4u, (__int64)&v40, 4, v36, 0LL);
+  RtlQueryApplicationKeyOption(v11, KeyHandle, (__int64)L"MaxLoaderThreads", 4LL, (__int64)&v40, 4, v36, 0LL);
   if ( v40 )
     *(_DWORD *)(*(_QWORD *)(a2 + 32) + 1036LL) = v40;
   v40 = 0;
-  RtlQueryApplicationKeyOption(v11, (__int64)v42, (__int64)L"UseImpersonatedDeviceMap", 4u, (__int64)&v40, 4, v37, 0LL);
+  RtlQueryApplicationKeyOption(v11, KeyHandle, (__int64)L"UseImpersonatedDeviceMap", 4LL, (__int64)&v40, 4, v37, 0LL);
   v16 = LdrpUseImpersonatedDeviceMap;
   if ( v40 )
     v16 = 1;
   LdrpUseImpersonatedDeviceMap = v16;
   v40 = 0;
-  RtlQueryApplicationKeyOption(v11, (__int64)v42, (__int64)L"TracingFlags", 4u, (__int64)&v40, 4, v38, 0LL);
+  RtlQueryApplicationKeyOption(v11, KeyHandle, (__int64)L"TracingFlags", 4LL, (__int64)&v40, 4, v38, 0LL);
   if ( v40 )
   {
     _InterlockedOr((volatile signed __int32 *)(a2 + 888), v40);
     v11 = v47;
   }
   v40 = 0;
-  if ( (int)RtlQueryImageFileKeyOption((__int64)v42, (__int64)L"CFGOptions", 4, (int *)&v40, 4u, 0LL) >= 0
-    && (v40 & 1) != 0 )
+  if ( RtlQueryImageFileKeyOption(KeyHandle, L"CFGOptions", 4, &v40, 4u, 0LL) >= 0 && (v40 & 1) != 0 )
   {
     LdrProtectMrdata(0);
     RtlGuardAllowSuppressedCalls = 1;
@@ -171,14 +165,14 @@ __int64 __fastcall LdrpInitializeExecutionOptions(
   if ( (*(_BYTE *)(a2 + 3) & 1) == 0 )
   {
 LABEL_21:
-    RtlQueryImageFileKeyOption((__int64)v42, (__int64)L"MinimumStackCommitInBytes", 4, (int *)&v40, 4u, 0LL);
+    RtlQueryImageFileKeyOption(KeyHandle, L"MinimumStackCommitInBytes", 4, &v40, 4u, 0LL);
     if ( *(_QWORD *)(a2 + 792) < (unsigned __int64)v40 )
       *(_QWORD *)(a2 + 792) = v40;
     for ( i = 0LL; i != 6; i += 2LL )
     {
       v20 = (&off_1801092C0)[i];
       v40 = 0;
-      RtlQueryImageFileKeyOption((__int64)v42, (__int64)v20, 4, (int *)&v40, 4u, 0LL);
+      RtlQueryImageFileKeyOption(KeyHandle, v20, 4, &v40, 4u, 0LL);
       v21 = *(&off_1801092C0 + i + 1);
       if ( v40 )
         *v21 = 1;
@@ -186,7 +180,7 @@ LABEL_21:
         *v21 = 0;
     }
     v40 = 0;
-    RtlQueryImageFileKeyOption((__int64)v42, (__int64)L"MaxDeadActivationContexts", 4, (int *)&v40, 4u, 0LL);
+    RtlQueryImageFileKeyOption(KeyHandle, L"MaxDeadActivationContexts", 4, &v40, 4u, 0LL);
     v22 = g_SxsMaxDeadActivationContexts;
     if ( v40 )
       v22 = v40;
@@ -195,15 +189,15 @@ LABEL_21:
       v23 = 1;
     g_SxsMaxDeadActivationContexts = v22;
     v45 = v23;
-    v24 = RtlQueryApplicationKeyOption(v11, (__int64)v42, (__int64)L"GlobalFlag", 4u, (__int64)&v43, 4, v39, &v49);
-    v7 = v52;
-    v8 = v53;
+    v24 = RtlQueryApplicationKeyOption(v11, KeyHandle, (__int64)L"GlobalFlag", 4LL, (__int64)&v43, 4, v39, &v49);
+    v7 = v51;
+    v8 = v52;
     if ( v24 < 0 )
       goto LABEL_32;
     v30 = v43;
     if ( (v43 & 0x2000100) != 0 )
     {
-      if ( !(unsigned int)LdrpIsVerifierActivationFilterMatched(a2, v11, v42) )
+      if ( !(unsigned int)LdrpIsVerifierActivationFilterMatched(a2, v11, KeyHandle) )
       {
         v30 &= 0xFDFFFEFF;
         v43 = v30;
@@ -228,7 +222,7 @@ LABEL_32:
       v12 = v49;
     }
 LABEL_34:
-    if ( qword_180163310 )
+    if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
       v10 |= 1u;
     RtlSetLowFragHeapGlobalFlags(v10, *(_DWORD *)(*(_QWORD *)(a2 + 32) + 8LL));
     v18 = 0;
@@ -238,16 +232,16 @@ LABEL_34:
       {
         Handle = 0LL;
       }
-      else if ( (int)RtlQueryImageFileKeyOption((__int64)Handle, (__int64)L"GlobalFlag", 4, &v43, 4u, 0LL) >= 0 )
+      else if ( RtlQueryImageFileKeyOption(Handle, L"GlobalFlag", 4, &v43, 4u, 0LL) >= 0 )
       {
-        v12 = (int)Handle;
+        v12 = Handle;
         *(_DWORD *)(a2 + 188) |= v43 & 0x2000100;
       }
     }
     if ( (*(_DWORD *)(a2 + 188) & 0x2000100) != 0 )
     {
       LOBYTE(v26) = v45;
-      v18 = LdrpInitializeApplicationVerifierPackage((_DWORD)a1, a2, v26, v12, v55, v54);
+      v18 = LdrpInitializeApplicationVerifierPackage(a1, a2, v26, v12, v54, v53);
       if ( v18 >= 0 )
         goto LABEL_76;
       v29 = LdrpDebugFlags;
@@ -269,14 +263,14 @@ LABEL_34:
     {
       if ( v11 )
         goto LABEL_76;
-      v27 = (__int64)v42;
-      if ( v42 || !*(_BYTE *)(a2 + 2) )
+      v27 = KeyHandle;
+      if ( KeyHandle || !*(_BYTE *)(a2 + 2) )
         goto LABEL_46;
       v31 = *(_QWORD *)(a2 + 32);
-      v51 = &v62;
-      v50 = 0x200000;
-      if ( (int)RtlQueryEnvironmentVariable_U(*(_WORD **)(v31 + 128), &qword_1801088C0, (__int64)&v50) < 0
-        || (v18 = RtlUnicodeStringToInteger((unsigned __int16 *)&v50, 0, (int *)&v40), v18 < 0)
+      Value.Buffer = (wchar_t *)&v57;
+      *(_DWORD *)&Value.Length = 0x200000;
+      if ( RtlQueryEnvironmentVariable_U(*(PVOID *)(v31 + 128), (PUNICODE_STRING)&stru_1801088C0, &Value) < 0
+        || (v18 = RtlUnicodeStringToInteger(&Value, 0, &v40), v18 < 0)
         || !v40 )
       {
         *(_DWORD *)(a2 + 188) |= 0x70u;
@@ -285,17 +279,17 @@ LABEL_34:
     if ( v18 < 0 )
       goto LABEL_48;
 LABEL_76:
-    v27 = (__int64)v42;
+    v27 = KeyHandle;
 LABEL_46:
     LdrpQueryIllegalCWDDevices(v27);
     goto LABEL_52;
   }
-  v58 = (__int64)v42;
-  v57 = 48;
-  v59 = &unk_1801088D0;
-  v60 = 64;
-  v61 = 0LL;
-  v17 = NtOpenKey(&LdrpLargePageDllKeyHandle, 1LL, &v57);
+  ObjectAttributes.RootDirectory = KeyHandle;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_1801088D0;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v17 = NtOpenKey(&LdrpLargePageDllKeyHandle, 1u, &ObjectAttributes);
   v18 = v17;
   if ( v17 == -1073741772 )
   {

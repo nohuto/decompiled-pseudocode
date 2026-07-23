@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwQuerySecurityObjectWrapper @ 0x1405F56A0
+ * XREFs of DifZwQuerySecurityObjectWrapper @ 0x1405F5C10
  * Callers:
  *     <none>
  * Callees:
- *     ZwQuerySecurityObject @ 0x14041DA20 (ZwQuerySecurityObject.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwQuerySecurityObject @ 0x14041DDB0 (ZwQuerySecurityObject.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwQuerySecurityObjectWrapper(

@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmStoreDeleteWhenEmpty @ 0x14048EBAC
+ * XREFs of SmKmStoreDeleteWhenEmpty @ 0x1404886EC
  * Callers:
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
- *     SmpKeyedStoreCreate @ 0x140966FB8 (SmpKeyedStoreCreate.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
+ *     SmpKeyedStoreCreate @ 0x140ADC25C (SmpKeyedStoreCreate.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall SmKmStoreDeleteWhenEmpty(__int64 a1, __int64 a2, int a3)

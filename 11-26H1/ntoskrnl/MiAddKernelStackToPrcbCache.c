@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAddKernelStackToPrcbCache @ 0x140416988
+ * XREFs of MiAddKernelStackToPrcbCache @ 0x14040AF98
  * Callers:
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
  * Callees:
- *     MiKernelShadowStackIdealForCaching @ 0x140416D20 (MiKernelShadowStackIdealForCaching.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x14040B330 (MiKernelShadowStackIdealForCaching.c)
  */
 
 __int64 __fastcall MiAddKernelStackToPrcbCache(__int64 a1, __int64 a2, __int64 a3)
@@ -37,7 +37,7 @@ __int64 __fastcall MiAddKernelStackToPrcbCache(__int64 a1, __int64 a2, __int64 a
       return v4;
     }
     v9 = a2 << 25 >> 16;
-    *(_QWORD *)(v9 + 4064) = qword_140E34BA0 ^ v9;
+    *(_QWORD *)(v9 + 4064) = qword_140E34D20 ^ v9;
     *(_DWORD *)(v9 + 4088) = 1;
     if ( !_InterlockedCompareExchange64((volatile signed __int64 *)((char *)CurrentPrcb + v7), v9 + 4080, 0LL) )
       return 1LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpRtlGatherDeviceDeleteInfo @ 0x14095A474
+ * XREFs of PiPnpRtlGatherDeviceDeleteInfo @ 0x14095A674
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140788B20 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140788D10 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x14041D4C0 (ZwPlugPlayControl.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x14041D850 (ZwPlugPlayControl.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -16,9 +16,9 @@ __int64 __fastcall PiPnpRtlGatherDeviceDeleteInfo(PCWSTR SourceString, __int64 *
   _DWORD *v6; // rdi
   _DWORD *v7; // rax
   _DWORD *v8; // rcx
-  int v9; // edx
+  NTSTATUS v9; // edx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  UNICODE_STRING v11; // [rsp+50h] [rbp-30h] BYREF
+  UNICODE_STRING PnPControlData; // [rsp+50h] [rbp-30h] BYREF
   __int64 v12; // [rsp+60h] [rbp-20h]
   __int64 v13; // [rsp+68h] [rbp-18h]
   __int64 v14; // [rsp+70h] [rbp-10h]
@@ -41,9 +41,9 @@ __int64 __fastcall PiPnpRtlGatherDeviceDeleteInfo(PCWSTR SourceString, __int64 *
   {
     v14 = 0LL;
     v12 = 0LL;
-    v11 = DestinationString;
+    PnPControlData = DestinationString;
     v13 = 0LL;
-    v9 = ZwPlugPlayControl(14LL, (__int64)&v11);
+    v9 = ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
     if ( v9 >= 0 )
       *v6 = v13;
     v7 = (_DWORD *)*a2;

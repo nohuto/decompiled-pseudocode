@@ -41,7 +41,7 @@ NTSTATUS __stdcall RtlAddAccessAllowedAce(PACL Acl, ULONG AceRevision, ACCESS_MA
     return -1073741735;
   if ( AclRevision <= (unsigned __int8)AceRevision )
     AclRevision = AceRevision;
-  if ( !RtlValidAcl((__int64)Acl) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741705;
   v9 = Acl + 1;
   for ( i = 0; i < Acl->AceCount; ++i )

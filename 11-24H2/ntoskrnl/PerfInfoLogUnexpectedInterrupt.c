@@ -1,10 +1,10 @@
 /*
- * XREFs of PerfInfoLogUnexpectedInterrupt @ 0x14064EF30
+ * XREFs of PerfInfoLogUnexpectedInterrupt @ 0x14064D590
  * Callers:
- *     KxIsrLinkage @ 0x1406AE9A0 (KxIsrLinkage.c)
+ *     KxIsrLinkage @ 0x1406AF940 (KxIsrLinkage.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfInfoLogUnexpectedInterrupt(int a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlRemoveLargeMcbEntry @ 0x14026EC30
+ * XREFs of FsRtlRemoveLargeMcbEntry @ 0x14026EE20
  * Callers:
- *     FsRtlRemoveMcbEntry @ 0x14026ECA0 (FsRtlRemoveMcbEntry.c)
+ *     FsRtlRemoveMcbEntry @ 0x14026EE90 (FsRtlRemoveMcbEntry.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     FsRtlRemoveBaseMcbEntry @ 0x140110530 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x1401105B0 (FsRtlRemoveBaseMcbEntry.c)
  */
 
 void __stdcall FsRtlRemoveLargeMcbEntry(PLARGE_MCB Mcb, LONGLONG Vbn, LONGLONG SectorCount)

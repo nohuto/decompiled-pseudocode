@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrqlKeLeaveCriticalRegion_Entry @ 0x140B9D6A0
+ * XREFs of ViIrqlKeLeaveCriticalRegion_Entry @ 0x140B9F6A0
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     ViIrqlLogCRStackTrace @ 0x140B9D6F8 (ViIrqlLogCRStackTrace.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     ViIrqlLogCRStackTrace @ 0x140B9F6F8 (ViIrqlLogCRStackTrace.c)
  */
 
 struct _KTHREAD *__fastcall ViIrqlKeLeaveCriticalRegion_Entry(__int64 *a1)

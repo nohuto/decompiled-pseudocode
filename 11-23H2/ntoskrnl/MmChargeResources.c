@@ -1,11 +1,11 @@
 /*
- * XREFs of MmChargeResources @ 0x140343A50
+ * XREFs of MmChargeResources @ 0x140343CE0
  * Callers:
- *     SmAcquireReleaseCharges @ 0x1403439FC (SmAcquireReleaseCharges.c)
+ *     SmAcquireReleaseCharges @ 0x140343C8C (SmAcquireReleaseCharges.c)
  * Callees:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MmReleaseResourceCharge @ 0x140345258 (MmReleaseResourceCharge.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     MmReleaseResourceCharge @ 0x1403454E8 (MmReleaseResourceCharge.c)
  */
 
 __int64 __fastcall MmChargeResources(void **a1, unsigned __int64 a2, char a3)

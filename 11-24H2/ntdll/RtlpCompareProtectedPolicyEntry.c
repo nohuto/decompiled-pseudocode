@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpCompareProtectedPolicyEntry @ 0x1800F3FC0
+ * XREFs of RtlpCompareProtectedPolicyEntry @ 0x1800EE6D0
  * Callers:
  *     <none>
  * Callees:

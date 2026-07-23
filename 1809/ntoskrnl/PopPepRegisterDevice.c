@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPepRegisterDevice @ 0x140724630
+ * XREFs of PopPepRegisterDevice @ 0x1407258D0
  * Callers:
- *     PopFxRegisterDeviceWithPep @ 0x140179874 (PopFxRegisterDeviceWithPep.c)
+ *     PopFxRegisterDeviceWithPep @ 0x140179974 (PopFxRegisterDeviceWithPep.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140100070 (PopPepComponentGetResidencyIdleState.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     PopPepInsertDevice @ 0x140179770 (PopPepInsertDevice.c)
- *     PopPepComponentGetLatencyIdleState @ 0x140179848 (PopPepComponentGetLatencyIdleState.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x1401000F0 (PopPepComponentGetResidencyIdleState.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     PopPepInsertDevice @ 0x140179870 (PopPepInsertDevice.c)
+ *     PopPepComponentGetLatencyIdleState @ 0x140179948 (PopPepComponentGetLatencyIdleState.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4, _QWORD *a5)

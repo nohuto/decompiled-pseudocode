@@ -1,12 +1,12 @@
 /*
- * XREFs of SleepstudyHelper_RegisterComponentEx @ 0x1408FB460
+ * XREFs of SleepstudyHelper_RegisterComponentEx @ 0x1408FB5C0
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402CC3E0 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     SleepstudyHelperDestroyBlocker @ 0x140580B30 (SleepstudyHelperDestroyBlocker.c)
- *     SleepstudyHelperBuildBlocker @ 0x1406B78F0 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1406B7AB0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x14024AA40 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x140580D70 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140616E00 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140616FC0 (SleepstudyHelperDestroyBlockerBuilder.c)
  */
 
 __int64 __fastcall SleepstudyHelper_RegisterComponentEx(

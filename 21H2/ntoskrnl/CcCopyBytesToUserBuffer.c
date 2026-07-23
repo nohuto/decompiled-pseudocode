@@ -1,15 +1,15 @@
 /*
- * XREFs of CcCopyBytesToUserBuffer @ 0x1403234C0
+ * XREFs of CcCopyBytesToUserBuffer @ 0x14032E210
  * Callers:
- *     CcMapAndCopyFromCache @ 0x1406EF550 (CcMapAndCopyFromCache.c)
+ *     CcMapAndCopyFromCache @ 0x140706930 (CcMapAndCopyFromCache.c)
  * Callees:
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CcCopyReadExceptionFilter @ 0x1404E9FD4 (CcCopyReadExceptionFilter.c)
- *     CcLockSystemCacheBuffer @ 0x1404EA4A8 (CcLockSystemCacheBuffer.c)
- *     HviCopyMemory @ 0x1405945DC (HviCopyMemory.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402406E0 (FsRtlIsNtstatusExpected.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CcCopyReadExceptionFilter @ 0x1404EA214 (CcCopyReadExceptionFilter.c)
+ *     CcLockSystemCacheBuffer @ 0x1404EA6E8 (CcLockSystemCacheBuffer.c)
+ *     HviCopyMemory @ 0x14059480C (HviCopyMemory.c)
  */
 
 __int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, char a4)

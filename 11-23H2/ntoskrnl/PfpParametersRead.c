@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpParametersRead @ 0x140846398
+ * XREFs of PfpParametersRead @ 0x140846698
  * Callers:
- *     PfpParametersWatcher @ 0x140980180 (PfpParametersWatcher.c)
+ *     PfpParametersWatcher @ 0x140980380 (PfpParametersWatcher.c)
  *     PfpParametersInitialize @ 0x140B61A40 (PfpParametersInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PfpGetParameter @ 0x140846AB4 (PfpGetParameter.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PfpGetParameter @ 0x140846DB4 (PfpGetParameter.c)
  */
 
 __int64 __fastcall PfpParametersRead(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PfpParametersRead(__int64 a1)
   LODWORD(v14) = 4;
   v15 = v1;
   v5 = 0;
-  if ( (int)PfpGetParameter(v2, (__int64)&v14) < 0 || (_DWORD)InitSafeBootMode )
+  if ( (int)PfpGetParameter(v2, (__int64)&v14) < 0 || InitSafeBootMode )
     LODWORD(v15) = 0x80000000;
   LODWORD(v14) = 4;
   PfpGetParameter(v2, (__int64)&v14);

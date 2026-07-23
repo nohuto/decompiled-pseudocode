@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpValidateMpns @ 0x140935CD4
+ * XREFs of HalpValidateMpns @ 0x140935ED4
  * Callers:
  *     HalpChannelInitializeStaticConfiguration @ 0x140B65F50 (HalpChannelInitializeStaticConfiguration.c)
  * Callees:

@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpAllocateHeap @ 0x1402EFD30
+ * XREFs of RtlpAllocateHeap @ 0x1402EFF20
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x14011EFB4 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x14011F024 (RtlpAllocateHeapInternal.c)
  * Callees:
  *     RtlpHpHeapCheckCommitLimit @ 0x14000C54C (RtlpHpHeapCheckCommitLimit.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpCreateSplitBlock @ 0x1402F0B64 (RtlpCreateSplitBlock.c)
- *     RtlpExtendHeap @ 0x1402F19C0 (RtlpExtendHeap.c)
- *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1402FB88C (RtlpAnalyzeHeapFailure.c)
- *     RtlpFindEntry @ 0x1402FBF68 (RtlpFindEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1402FC358 (RtlpHeapRemoveListEntry.c)
- *     RtlGetNtGlobalFlags @ 0x1408958A0 (RtlGetNtGlobalFlags.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B85F0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1401B86B0 (ZwFreeVirtualMemory.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5DB0 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpCreateSplitBlock @ 0x1402F0D54 (RtlpCreateSplitBlock.c)
+ *     RtlpExtendHeap @ 0x1402F1BB0 (RtlpExtendHeap.c)
+ *     RtlpLogHeapFailure @ 0x1402FBA28 (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1402FBA7C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindEntry @ 0x1402FC158 (RtlpFindEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1402FC548 (RtlpHeapRemoveListEntry.c)
+ *     RtlGetNtGlobalFlags @ 0x140896B00 (RtlGetNtGlobalFlags.c)
  */
 
 _DWORD *__fastcall RtlpAllocateHeap(

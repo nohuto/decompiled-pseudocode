@@ -543,7 +543,7 @@ LABEL_77:
   *(_BYTE *)(a2 + 16) = 32;
   *(_QWORD *)(a2 + 36) = 32LL;
 LABEL_182:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v60 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v60 = 2147353472LL;

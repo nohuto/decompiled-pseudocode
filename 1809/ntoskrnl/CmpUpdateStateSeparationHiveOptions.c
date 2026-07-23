@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpUpdateStateSeparationHiveOptions @ 0x1409F3C84
+ * XREFs of CmpUpdateStateSeparationHiveOptions @ 0x1409F4C84
  * Callers:
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 CmpUpdateStateSeparationHiveOptions()
 
   if ( CmStateSeparationAllHivesVolatile )
   {
-    v0 = &unk_1403FEE30;
+    v0 = &unk_1403FFE30;
     v1 = 7LL;
     result = 0x8000LL;
     do
@@ -27,15 +27,15 @@ __int64 CmpUpdateStateSeparationHiveOptions()
   }
   else
   {
-    byte_1403FEEE4 = 0;
+    byte_1403FFEE4 = 0;
     if ( !CmStateSeparationDevMode )
     {
       result = 0x8000LL;
-      dword_1403FEF60 |= 0x8000u;
-      dword_1403FEFF8 |= 0x8000u;
+      dword_1403FFF60 |= 0x8000u;
+      dword_1403FFFF8 |= 0x8000u;
     }
-    byte_1403FF144 = 0;
-    byte_1403FF1DB = 1;
+    byte_140400144 = 0;
+    byte_1404001DB = 1;
   }
   return result;
 }

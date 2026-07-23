@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpVolumeManagerInitialize @ 0x1407A560C
+ * XREFs of CmpVolumeManagerInitialize @ 0x1407A580C
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
  *     <none>
  */

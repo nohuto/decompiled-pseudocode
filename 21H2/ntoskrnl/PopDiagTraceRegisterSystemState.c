@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceRegisterSystemState @ 0x140572EBC
+ * XREFs of PopDiagTraceRegisterSystemState @ 0x1405730FC
  * Callers:
- *     PoRegisterSystemState @ 0x14056EF10 (PoRegisterSystemState.c)
+ *     PoRegisterSystemState @ 0x14056F150 (PoRegisterSystemState.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceRegisterSystemState(int a1, __int64 a2)

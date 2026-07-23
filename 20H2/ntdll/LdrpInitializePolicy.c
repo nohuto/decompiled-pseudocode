@@ -7,60 +7,60 @@
  *     LdrSetDefaultDllDirectories @ 0x18007FCE0 (LdrSetDefaultDllDirectories.c)
  */
 
-__int64 LdrpInitializePolicy()
+int LdrpInitializePolicy()
 {
-  __int64 result; // rax
-  __int128 *v1; // rcx
-  char v2; // dl
+  struct _PEB *v0; // rax
+  _UNICODE_STRING *p_DllPath; // rcx
+  unsigned __int8 BitField; // dl
   __int128 v3; // xmm0
   __int64 v4; // rcx
   __int64 v5; // rcx
   __int64 v6; // rcx
   __int64 v7; // rcx
-  int v8; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-40h] BYREF
-  int v10; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-30h] BYREF
-  int v12; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+58h] [rbp-20h] BYREF
-  _DWORD v14[6]; // [rsp+60h] [rbp-18h] BYREF
-  int v15; // [rsp+90h] [rbp+18h] BYREF
-  __int64 v16; // [rsp+98h] [rbp+20h] BYREF
-  int v17; // [rsp+A0h] [rbp+28h] BYREF
-  __int64 v18; // [rsp+A8h] [rbp+30h] BYREF
+  _PS_PKG_CLAIM v9; // [rsp+30h] [rbp-48h] BYREF
+  unsigned __int64 v10; // [rsp+38h] [rbp-40h] BYREF
+  _PS_PKG_CLAIM v11; // [rsp+40h] [rbp-38h] BYREF
+  unsigned __int64 v12; // [rsp+48h] [rbp-30h] BYREF
+  _PS_PKG_CLAIM v13; // [rsp+50h] [rbp-28h] BYREF
+  unsigned __int64 v14; // [rsp+58h] [rbp-20h] BYREF
+  _PS_PKG_CLAIM v15; // [rsp+60h] [rbp-18h] BYREF
+  int v16; // [rsp+90h] [rbp+18h] BYREF
+  unsigned __int64 v17; // [rsp+98h] [rbp+20h] BYREF
+  _PS_PKG_CLAIM v18; // [rsp+A0h] [rbp+28h] BYREF
+  unsigned __int64 v19; // [rsp+A8h] [rbp+30h] BYREF
 
-  result = (__int64)NtCurrentPeb();
-  v1 = (__int128 *)(*(_QWORD *)(result + 32) + 80LL);
+  v0 = NtCurrentPeb();
+  p_DllPath = &v0->ProcessParameters->DllPath;
   LdrpAppPackagesPath = 0uLL;
   LdrpOriginalAppPackagesPath = 0uLL;
-  v2 = *(_BYTE *)(result + 3);
-  if ( (v2 & 0x10) != 0 && *(_WORD *)v1 )
+  BitField = v0->BitField;
+  if ( (BitField & 0x10) != 0 && p_DllPath->Length )
   {
-    v3 = *v1;
+    v3 = (__int128)*p_DllPath;
     LdrpPolicyBits = 41;
     LdrpAppPackagesPath = v3;
     LdrpOriginalAppPackagesPath = v3;
-    if ( (int)AppModelPolicy_GetPolicy_Internal((__int64)v1, 4, &v15, &v17, &v16) < 0 || v15 == 262145 )
-      LdrSetDefaultDllDirectories(4096LL);
+    if ( (int)AppModelPolicy_GetPolicy_Internal((__int64)p_DllPath, 4, &v16, &v18, &v17) < 0 || v16 == 262145 )
+      LdrSetDefaultDllDirectories(0x1000u);
     else
       LdrpPolicyBits &= ~1u;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(v4, 7, &v15, &v8, &v18) >= 0 && v15 == 458753 )
+    if ( (int)AppModelPolicy_GetPolicy_Internal(v4, 7, &v16, &v9, &v19) >= 0 && v16 == 458753 )
       LdrpPolicyBits |= 2u;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(v5, 19, &v15, &v10, &v9) >= 0 && v15 == 1245185 )
+    if ( (int)AppModelPolicy_GetPolicy_Internal(v5, 19, &v16, &v11, &v10) >= 0 && v16 == 1245185 )
       LdrpPolicyBits |= 0x40u;
-    if ( (int)AppModelPolicy_GetPolicy_Internal(v6, 32, &v15, &v12, &v11) >= 0 && v15 == 2097153 )
+    if ( (int)AppModelPolicy_GetPolicy_Internal(v6, 32, &v16, &v13, &v12) >= 0 && v16 == 2097153 )
       LdrpPolicyBits |= 4u;
-    result = (unsigned int)AppModelPolicy_GetPolicy_Internal(v7, 54, &v15, v14, &v13) | 0x10000000;
-    if ( (int)result >= 0 && v15 == 3538945 )
+    LODWORD(v0) = AppModelPolicy_GetPolicy_Internal(v7, 54, &v16, &v15, &v14) | 0x10000000;
+    if ( (int)v0 >= 0 && v16 == 3538945 )
       LdrpPolicyBits |= 0x100u;
   }
-  else if ( (v2 & 2) != 0 )
+  else if ( (BitField & 2) != 0 )
   {
-    *(_WORD *)v1 = 0;
+    p_DllPath->Length = 0;
   }
-  else if ( *(_WORD *)v1 )
+  else if ( p_DllPath->Length )
   {
-    return LdrSetDllDirectory();
+    LODWORD(v0) = LdrSetDllDirectory(p_DllPath);
   }
-  return result;
+  return (int)v0;
 }

@@ -16,7 +16,7 @@
  *     VfPoolDelayFreeIfPossible @ 0x14017E7C0 (VfPoolDelayFreeIfPossible.c)
  */
 
-__int64 __fastcall VfUtilFreePoolCheckIRQL(struct _SLIST_ENTRY *a1)
+__int64 __fastcall VfUtilFreePoolCheckIRQL(_SLIST_ENTRY *a1)
 {
   KeGetCurrentIrql();
   return VfPoolDelayFreeIfPossible(a1);

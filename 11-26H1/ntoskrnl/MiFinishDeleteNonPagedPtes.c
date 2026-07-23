@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFinishDeleteNonPagedPtes @ 0x14036332C
+ * XREFs of MiFinishDeleteNonPagedPtes @ 0x1403650CC
  * Callers:
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
- *     MiClearNonPagedPtesSlow @ 0x140363BD0 (MiClearNonPagedPtesSlow.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
+ *     MiClearNonPagedPtesSlow @ 0x140365970 (MiClearNonPagedPtesSlow.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFreeNonPagedPoolPages @ 0x1403632E0 (MiFreeNonPagedPoolPages.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFreeNonPagedPoolPages @ 0x140365080 (MiFreeNonPagedPoolPages.c)
  */
 
 __int64 __fastcall MiFinishDeleteNonPagedPtes(__int64 *a1, __int64 a2, int a3)

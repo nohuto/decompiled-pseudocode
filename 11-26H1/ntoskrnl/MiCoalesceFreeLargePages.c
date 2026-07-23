@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCoalesceFreeLargePages @ 0x1403C9274
+ * XREFs of MiCoalesceFreeLargePages @ 0x1403D3124
  * Callers:
- *     MiProcessLargeCoalesceBitmapCandidates @ 0x1403C8C60 (MiProcessLargeCoalesceBitmapCandidates.c)
+ *     MiProcessLargeCoalesceBitmapCandidates @ 0x1403D2B10 (MiProcessLargeCoalesceBitmapCandidates.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403C7A60 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiLargePfnPromoteCandidate @ 0x1403C95C0 (MiLargePfnPromoteCandidate.c)
- *     MiLargePagePromote @ 0x140479C00 (MiLargePagePromote.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403D1950 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiLargePfnPromoteCandidate @ 0x1403D3470 (MiLargePfnPromoteCandidate.c)
+ *     MiLargePagePromote @ 0x140473560 (MiLargePagePromote.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCoalesceFreeLargePages(__int64 a1, ULONG_PTR a2, unsigned int a3, unsigned __int8 a4, int a5)
@@ -166,7 +166,7 @@ LABEL_25:
   }
   v26 = a2;
   LODWORD(v42) = a5 != 0 ? 12 : 10;
-  *((_QWORD *)&v42 + 1) = qword_140E2D7D0;
+  *((_QWORD *)&v42 + 1) = qword_140E2D950;
   MiLargePagePromote(a2, v38, (_DWORD)v16, 0, (__int64)&v37);
 LABEL_50:
   v25 = 0;

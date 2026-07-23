@@ -8,13 +8,10 @@
  *     RtlpGetTargetRvaFlag @ 0x1800ED530 (RtlpGetTargetRvaFlag.c)
  */
 
-char __fastcall RtlpGuardIsSuppressedAddress(__int64 a1)
+char __fastcall RtlpGuardIsSuppressedAddress(void *a1)
 {
-  char v2; // [rsp+38h] [rbp+10h] BYREF
-
-  v2 = 0;
-  if ( (unsigned __int8)RtlpGetTargetRvaFlag(a1, &v2) )
-    return v2 & 1;
+  if ( (unsigned __int8)RtlpGetTargetRvaFlag(a1) )
+    return 0;
   else
     return 0;
 }

@@ -14,35 +14,33 @@
  *     LdrpLogDbgPrint @ 0x1800CE3D8 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
+__int64 __fastcall LdrInitShimEngineDynamic(PVOID DllHandle, __int64 a2)
 {
-  __int64 v3; // rcx
-  __int16 v5; // di
-  int EntryForAddress; // eax
-  __int64 v7; // rcx
+  __int16 v4; // di
+  NTSTATUS EntryForAddress; // eax
+  __int64 v6; // rcx
   unsigned __int8 ShimEngine; // bl
-  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+50h] [rbp+18h] BYREF
 
-  v10 = 0LL;
-  v3 = 4096LL;
-  v5 = NtCurrentTeb()->SameTebFlags & 0x1000;
-  if ( !v5 )
+  Entry = 0LL;
+  v4 = NtCurrentTeb()->SameTebFlags & 0x1000;
+  if ( !v4 )
     LdrpDrainWorkQueue(0);
-  LdrpAcquireLoaderLock(v3);
+  LdrpAcquireLoaderLock();
   if ( !g_pShimEngineModule )
   {
-    g_pShimEngineModule = a1;
+    g_pShimEngineModule = DllHandle;
     LdrpGetShimEngineInterface();
   }
-  EntryForAddress = LdrFindEntryForAddress(a1, &v10);
+  EntryForAddress = LdrFindEntryForAddress(DllHandle, &Entry);
   if ( EntryForAddress >= 0 )
   {
-    LdrpPinModule(v10);
+    LdrpPinModule((__int64)Entry);
     ShimEngine = LdrpLoadShimEngine(*(PCWSTR *)(a2 + 8));
   }
   else
   {
-    v7 = (unsigned int)LdrpDebugFlags;
+    v6 = (unsigned int)LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
       LdrpLogDbgPrint(
@@ -52,15 +50,15 @@ __int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
         0,
         "Finding the shim engine entry failed with status 0x%08lx\n",
         EntryForAddress);
-      v7 = (unsigned int)LdrpDebugFlags;
+      v6 = (unsigned int)LdrpDebugFlags;
     }
-    if ( (v7 & 0x10) != 0 )
+    if ( (v6 & 0x10) != 0 )
       __debugbreak();
     ShimEngine = 0;
   }
-  LOBYTE(v7) = -ShimEngine;
-  LdrpReleaseLoaderLock(v7, 2, ShimEngine == 0 ? 0xC0000001 : 0);
-  if ( !v5 )
+  LOBYTE(v6) = -ShimEngine;
+  LdrpReleaseLoaderLock(v6, 2, ShimEngine == 0 ? 0xC0000001 : 0);
+  if ( !v4 )
     LdrpDropLastInProgressCount();
   return ShimEngine;
 }

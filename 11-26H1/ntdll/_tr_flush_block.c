@@ -1,19 +1,19 @@
 /*
- * XREFs of _tr_flush_block @ 0x1801569B4
+ * XREFs of _tr_flush_block @ 0x180156884
  * Callers:
- *     deflate_fast @ 0x1801227A0 (deflate_fast.c)
- *     deflate_huff @ 0x180154904 (deflate_huff.c)
- *     deflate_rle @ 0x180154A74 (deflate_rle.c)
- *     deflate_slow @ 0x180154D30 (deflate_slow.c)
+ *     deflate_fast @ 0x180122510 (deflate_fast.c)
+ *     deflate_huff @ 0x1801547D4 (deflate_huff.c)
+ *     deflate_rle @ 0x180154944 (deflate_rle.c)
+ *     deflate_slow @ 0x180154C00 (deflate_slow.c)
  * Callees:
- *     build_tree @ 0x18011EAD0 (build_tree.c)
- *     scan_tree @ 0x180123F28 (scan_tree.c)
- *     _tr_stored_block @ 0x180156C70 (_tr_stored_block.c)
- *     bi_windup @ 0x180156DF8 (bi_windup.c)
- *     compress_block @ 0x180156E58 (compress_block.c)
- *     detect_data_type @ 0x180157238 (detect_data_type.c)
- *     init_block @ 0x1801572BC (init_block.c)
- *     send_all_trees @ 0x180157334 (send_all_trees.c)
+ *     build_tree @ 0x18011E880 (build_tree.c)
+ *     scan_tree @ 0x180123FE0 (scan_tree.c)
+ *     _tr_stored_block @ 0x180156B40 (_tr_stored_block.c)
+ *     bi_windup @ 0x180156CC8 (bi_windup.c)
+ *     compress_block @ 0x180156D28 (compress_block.c)
+ *     detect_data_type @ 0x180157108 (detect_data_type.c)
+ *     init_block @ 0x18015718C (init_block.c)
+ *     send_all_trees @ 0x180157204 (send_all_trees.c)
  */
 
 __int64 __fastcall tr_flush_block(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -70,7 +70,7 @@ __int64 __fastcall tr_flush_block(__int64 a1, __int64 a2, __int64 a3, unsigned i
     v8 = 18;
     for ( i = 18LL; i >= 3; --i )
     {
-      if ( *(_WORD *)(a1 + 4LL * byte_180192B08[i] + 2806) )
+      if ( *(_WORD *)(a1 + 4LL * byte_180191F90[i] + 2806) )
         break;
       --v8;
     }
@@ -110,8 +110,8 @@ __int64 __fastcall tr_flush_block(__int64 a1, __int64 a2, __int64 a3, unsigned i
         v24 = (unsigned __int16)(a4 + 2) >> (16 - v23);
       }
       *(_WORD *)(a1 + 5980) = v24;
-      v25 = &unk_180192B20;
-      v26 = &unk_180192840;
+      v25 = &unk_180191B10;
+      v26 = &unk_180191840;
     }
     else
     {

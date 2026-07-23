@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpCreateOutputEFI @ 0x140A64A94
+ * XREFs of ExpCreateOutputEFI @ 0x140A5D394
  * Callers:
- *     ExpConvertSignatureName @ 0x1407BB6C8 (ExpConvertSignatureName.c)
- *     ExpTranslateNtPath @ 0x1407BD4F4 (ExpTranslateNtPath.c)
+ *     ExpConvertSignatureName @ 0x1407BBB18 (ExpConvertSignatureName.c)
+ *     ExpTranslateNtPath @ 0x1407BD944 (ExpTranslateNtPath.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpFindDiskSignature @ 0x140A63F20 (ExpFindDiskSignature.c)
- *     ExpGetDriveGeometry @ 0x140AB2680 (ExpGetDriveGeometry.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpFindDiskSignature @ 0x140A5C820 (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x140AAD5F0 (ExpGetDriveGeometry.c)
  */
 
-__int64 __fastcall ExpCreateOutputEFI(
+NTSTATUS __fastcall ExpCreateOutputEFI(
         char *a1,
         unsigned int *a2,
         _QWORD *a3,
@@ -21,13 +21,13 @@ __int64 __fastcall ExpCreateOutputEFI(
         _WORD *Src,
         char a8)
 {
-  unsigned int v8; // esi
+  int v8; // esi
   unsigned __int64 v9; // rbx
   int *v10; // rax
   int v13; // ebp
   __int64 v15; // rax
   unsigned int v16; // ebp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v18; // eax
   int *v19; // rax
   unsigned __int64 v20; // rcx
@@ -68,10 +68,10 @@ LABEL_7:
   v24 = v18;
   v26 = 0LL;
   result = ExpFindDiskSignature(a3, &v24, &v23, 0LL, 0LL, a8);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     result = ExpGetDriveGeometry(v23, &v26);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       memset_0(a1, 0, v16);
       v19 = v25;

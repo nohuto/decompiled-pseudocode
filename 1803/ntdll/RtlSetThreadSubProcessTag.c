@@ -13,46 +13,46 @@
  *     ZwTraceEvent @ 0x18009B670 (ZwTraceEvent.c)
  */
 
-void *__fastcall RtlSetThreadSubProcessTag(void *a1)
+PVOID __cdecl RtlSetThreadSubProcessTag(PVOID SubProcessTag)
 {
   struct _TEB *v1; // rax
   int v2; // r8d
-  void *SubProcessTag; // rdi
-  int *HotpatchInformation; // rdx
-  int v5; // eax
-  void *v6; // r9
+  PVOID v3; // rdi
+  PSILO_USER_SHARED_DATA SharedData; // rdx
+  ULONG ServiceSessionId; // eax
+  PVOID v6; // r9
   __int64 v7; // rbx
   __int64 v8; // rcx
-  char v10[6]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v11; // [rsp+26h] [rbp-32h]
   int v12; // [rsp+40h] [rbp-18h]
   int v13; // [rsp+44h] [rbp-14h]
 
   v1 = NtCurrentTeb();
-  v2 = (int)a1;
-  SubProcessTag = v1->SubProcessTag;
-  v1->SubProcessTag = a1;
-  HotpatchInformation = (int *)NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation )
-    v5 = *HotpatchInformation;
+  v2 = (int)SubProcessTag;
+  v3 = v1->SubProcessTag;
+  v1->SubProcessTag = SubProcessTag;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData )
+    ServiceSessionId = SharedData->ServiceSessionId;
   else
-    v5 = 0;
-  v6 = a1;
+    ServiceSessionId = 0;
+  v6 = SubProcessTag;
   v7 = 2147353488LL;
-  if ( HotpatchInformation )
-    v6 = a1;
-  if ( v5 )
-    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
+  if ( SharedData )
+    v6 = SubProcessTag;
+  if ( ServiceSessionId )
+    v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
   else
     v8 = 2147353488LL;
-  if ( *(_BYTE *)v8 && v6 != SubProcessTag )
+  if ( *(_BYTE *)v8 && v6 != v3 )
   {
-    v12 = (int)SubProcessTag;
+    v12 = (int)v3;
     v11 = 1349;
     v13 = v2;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
-    ZwTraceEvent(*(unsigned __int8 *)v7, 1026LL, 8LL, v10);
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
+    ZwTraceEvent((HANDLE)*(unsigned __int8 *)v7, 0x402u, 8u, Fields);
   }
-  return SubProcessTag;
+  return v3;
 }

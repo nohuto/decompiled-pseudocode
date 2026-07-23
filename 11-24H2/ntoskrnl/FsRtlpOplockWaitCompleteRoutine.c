@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpOplockWaitCompleteRoutine @ 0x14070C6D0
+ * XREFs of FsRtlpOplockWaitCompleteRoutine @ 0x14070A270
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 LONG __fastcall FsRtlpOplockWaitCompleteRoutine(struct _KEVENT *a1)

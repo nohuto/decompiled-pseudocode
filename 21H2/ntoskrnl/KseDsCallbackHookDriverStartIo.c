@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsCallbackHookDriverStartIo @ 0x140527360
+ * XREFs of KseDsCallbackHookDriverStartIo @ 0x1405275A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KsepDsEventDriverStartIo @ 0x140527F3C (KsepDsEventDriverStartIo.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KsepDsEventDriverStartIo @ 0x14052817C (KsepDsEventDriverStartIo.c)
  */
 
 __int64 __fastcall KseDsCallbackHookDriverStartIo(__int64 a1, __int64 a2)

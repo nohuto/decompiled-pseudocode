@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpInitializePnpWatchdogs @ 0x1409C9F5C
+ * XREFs of PnpInitializePnpWatchdogs @ 0x1409CAF5C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpWatchdogBugcheckConfigure @ 0x14070EEEC (PnpWatchdogBugcheckConfigure.c)
- *     PnpWatchdogSetupInProgressConfigure @ 0x14073C140 (PnpWatchdogSetupInProgressConfigure.c)
- *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
- *     PnpOpenCCSPnpRegKey @ 0x14073C50C (PnpOpenCCSPnpRegKey.c)
+ *     PnpWatchdogBugcheckConfigure @ 0x14071018C (PnpWatchdogBugcheckConfigure.c)
+ *     PnpWatchdogSetupInProgressConfigure @ 0x14073D330 (PnpWatchdogSetupInProgressConfigure.c)
+ *     IopOpenRegistryKeyEx @ 0x14073D664 (IopOpenRegistryKeyEx.c)
+ *     PnpOpenCCSPnpRegKey @ 0x14073D6FC (PnpOpenCCSPnpRegKey.c)
  */
 
 void PnpInitializePnpWatchdogs()
@@ -34,18 +34,18 @@ void PnpInitializePnpWatchdogs()
   if ( (int)PnpOpenCCSPnpRegKey(&Handle) >= 0 )
   {
     *(_QWORD *)PnpWatchdogBugcheckWatchWorkItem = 0LL;
-    qword_1404334F0 = (__int64)PnpWatchdogBugcheckWatchCallback;
-    qword_1404334F8 = (__int64)Handle;
+    qword_140434590 = (__int64)PnpWatchdogBugcheckWatchCallback;
+    qword_140434598 = (__int64)Handle;
     PnpWatchdogBugcheckConfigure(Handle);
-    if ( !(_BYTE)dword_14054019C )
+    if ( !(_BYTE)dword_14054119C )
     {
       *(_DWORD *)&v0.Length = 4063292;
       v0.Buffer = L"\\Registry\\Machine\\System\\Setup";
       if ( IopOpenRegistryKeyEx(&KeyHandle, 0LL, &v0, 0x20019u) >= 0 )
       {
         *(_QWORD *)PnpWatchdogSetupInProgressWorkItem = 0LL;
-        qword_1404334D0 = (__int64)PnpWatchdogSetupInProgressCallback;
-        qword_1404334D8 = (__int64)KeyHandle;
+        qword_1404345D0 = (__int64)PnpWatchdogSetupInProgressCallback;
+        qword_1404345D8 = (__int64)KeyHandle;
         PnpWatchdogSetupInProgressConfigure(KeyHandle);
       }
     }

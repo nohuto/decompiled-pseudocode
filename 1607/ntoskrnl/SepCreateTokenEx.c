@@ -1,35 +1,35 @@
 /*
- * XREFs of SepCreateTokenEx @ 0x14007FBC8
+ * XREFs of SepCreateTokenEx @ 0x14007FC48
  * Callers:
- *     NtCreateTokenEx @ 0x140477BDC (NtCreateTokenEx.c)
- *     SepCreateToken @ 0x1405539E8 (SepCreateToken.c)
+ *     NtCreateTokenEx @ 0x140476AAC (NtCreateTokenEx.c)
+ *     SepCreateToken @ 0x140553F28 (SepCreateToken.c)
  * Callees:
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x14000EB94 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
- *     RtlSidHashInitialize @ 0x14000EC10 (RtlSidHashInitialize.c)
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlWalkFrameChain @ 0x14004F2A0 (RtlWalkFrameChain.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x14000E714 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     RtlSidHashInitialize @ 0x14000E790 (RtlSidHashInitialize.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlWalkFrameChain @ 0x14004EE20 (RtlWalkFrameChain.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     SeCreateAccessState @ 0x1404063B0 (SeCreateAccessState.c)
- *     RtlCopySidAndAttributesArray @ 0x14040EE50 (RtlCopySidAndAttributesArray.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
- *     SepSetTokenTrust @ 0x140413EFC (SepSetTokenTrust.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     RtlIdentifierAuthoritySid @ 0x1404784D0 (RtlIdentifierAuthoritySid.c)
- *     RtlLengthRequiredSid @ 0x1404792F0 (RtlLengthRequiredSid.c)
- *     SepSetTokenClaims @ 0x14047959C (SepSetTokenClaims.c)
- *     SepReferenceLogonSession @ 0x1404796A4 (SepReferenceLogonSession.c)
- *     SepAppendAdminAceToTokenAcl @ 0x1404F12F0 (SepAppendAdminAceToTokenAcl.c)
- *     SepSetTokenUserAndGroups @ 0x14069311C (SepSetTokenUserAndGroups.c)
- *     SepAddTokenLogonSession @ 0x14069364C (SepAddTokenLogonSession.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     SeCreateAccessState @ 0x140405270 (SeCreateAccessState.c)
+ *     RtlCopySidAndAttributesArray @ 0x14040DD10 (RtlCopySidAndAttributesArray.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
+ *     SepSetTokenTrust @ 0x140412DBC (SepSetTokenTrust.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     RtlIdentifierAuthoritySid @ 0x1404773A0 (RtlIdentifierAuthoritySid.c)
+ *     RtlLengthRequiredSid @ 0x1404781C0 (RtlLengthRequiredSid.c)
+ *     SepSetTokenClaims @ 0x14047846C (SepSetTokenClaims.c)
+ *     SepReferenceLogonSession @ 0x140478574 (SepReferenceLogonSession.c)
+ *     SepAppendAdminAceToTokenAcl @ 0x1404D33E4 (SepAppendAdminAceToTokenAcl.c)
+ *     SepSetTokenUserAndGroups @ 0x140693200 (SepSetTokenUserAndGroups.c)
+ *     SepAddTokenLogonSession @ 0x140693730 (SepAddTokenLogonSession.c)
  */
 
 __int64 __fastcall SepCreateTokenEx(
@@ -41,9 +41,9 @@ __int64 __fastcall SepCreateTokenEx(
         int a6,
         __int64 a7,
         _QWORD *a8,
-        struct _SID_AND_ATTRIBUTES *a9,
+        _SID_AND_ATTRIBUTES *a9,
         ULONG Count,
-        struct _SID_AND_ATTRIBUTES *a11,
+        _SID_AND_ATTRIBUTES *a11,
         unsigned int a12,
         unsigned int a13,
         char **a14,
@@ -547,7 +547,10 @@ LABEL_114:
               &SidArea,
               &SidAreaSize);
           }
-          RtlSidHashInitialize(*((__int64 **)v70 + 19), *((_DWORD *)v70 + 31), (_QWORD *)v70 + 29);
+          RtlSidHashInitialize(
+            *((PSID_AND_ATTRIBUTES *)v70 + 19),
+            *((_DWORD *)v70 + 31),
+            (PSID_AND_ATTRIBUTES_HASH)(v70 + 232));
           *((_QWORD *)v70 + 20) = 0LL;
           *((_DWORD *)v70 + 32) = 0;
           v79 = (char *)ExAllocatePoolWithTag(PagedPool, v63, 0x64546553u);

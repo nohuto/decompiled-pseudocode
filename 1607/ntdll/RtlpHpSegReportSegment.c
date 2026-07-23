@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegReportSegment @ 0x180050EE8
+ * XREFs of RtlpHpSegReportSegment @ 0x180050ED8
  * Callers:
- *     RtlpHpSegWalkHeap @ 0x18004DEFC (RtlpHpSegWalkHeap.c)
+ *     RtlpHpSegWalkHeap @ 0x18004DEEC (RtlpHpSegWalkHeap.c)
  * Callees:
- *     RtlpHpSegPageRangeCountCommittedPages @ 0x18003ED34 (RtlpHpSegPageRangeCountCommittedPages.c)
+ *     RtlpHpSegPageRangeCountCommittedPages @ 0x18003ED24 (RtlpHpSegPageRangeCountCommittedPages.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegReportSegment(__int64 a1, __int64 a2)

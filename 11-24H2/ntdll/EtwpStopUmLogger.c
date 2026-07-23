@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpStopUmLogger @ 0x18008C4B4
+ * XREFs of EtwpStopUmLogger @ 0x1800A7F74
  * Callers:
- *     EtwpShutdownPrivateLoggers @ 0x180003118 (EtwpShutdownPrivateLoggers.c)
- *     EtwProcessPrivateLoggerRequest @ 0x18008C670 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x1800A8130 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwpShutdownPrivateLoggers @ 0x1800AB8A4 (EtwpShutdownPrivateLoggers.c)
  * Callees:
- *     RtlNtStatusToDosError @ 0x18001C620 (RtlNtStatusToDosError.c)
- *     EtwpGetPrivateLoggerContext @ 0x18008DAF4 (EtwpGetPrivateLoggerContext.c)
- *     EtwpSynchronizeWithLogger @ 0x18008DBE4 (EtwpSynchronizeWithLogger.c)
- *     EtwpStopLoggerInstance @ 0x18008DE70 (EtwpStopLoggerInstance.c)
- *     EtwpGetUmLoggerInfoFromContext @ 0x18008E19C (EtwpGetUmLoggerInfoFromContext.c)
- *     EtwpFreeLoggerContext @ 0x18008EA0C (EtwpFreeLoggerContext.c)
- *     NtWaitForSingleObject @ 0x180161D10 (NtWaitForSingleObject.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
+ *     RtlNtStatusToDosError @ 0x180049020 (RtlNtStatusToDosError.c)
+ *     EtwpGetPrivateLoggerContext @ 0x1800A95B4 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpSynchronizeWithLogger @ 0x1800A96A4 (EtwpSynchronizeWithLogger.c)
+ *     EtwpStopLoggerInstance @ 0x1800A9930 (EtwpStopLoggerInstance.c)
+ *     EtwpGetUmLoggerInfoFromContext @ 0x1800A9C5C (EtwpGetUmLoggerInfoFromContext.c)
+ *     EtwpFreeLoggerContext @ 0x1800AA48C (EtwpFreeLoggerContext.c)
+ *     NtWaitForSingleObject @ 0x1801600D0 (NtWaitForSingleObject.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
  */
 
 __int64 __fastcall EtwpStopUmLogger(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -19,7 +19,7 @@ __int64 __fastcall EtwpStopUmLogger(__int64 a1, __int64 a2, __int64 a3, __int64 
   int v4; // r13d
   char v6; // r12
   ULONG PrivateLoggerContext; // edi
-  __int64 v8; // rbx
+  _DWORD *v8; // rbx
   char v9; // r15
   int v10; // ebp
   void *v11; // r14
@@ -27,32 +27,32 @@ __int64 __fastcall EtwpStopUmLogger(__int64 a1, __int64 a2, __int64 a3, __int64 
   int v14; // eax
   NTSTATUS v15; // eax
   unsigned int v16; // [rsp+60h] [rbp+8h]
-  __int64 v17; // [rsp+68h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp+10h] BYREF
   int v18; // [rsp+70h] [rbp+18h]
   int v19; // [rsp+74h] [rbp+1Ch]
 
   v19 = HIDWORD(a3);
-  v17 = 0LL;
+  BaseAddress = 0LL;
   v4 = 0;
   v18 = 0;
   v6 = 0;
-  PrivateLoggerContext = EtwpGetPrivateLoggerContext(a4, &v17);
+  PrivateLoggerContext = EtwpGetPrivateLoggerContext(a4, &BaseAddress);
   if ( PrivateLoggerContext )
     return PrivateLoggerContext;
-  v8 = v17;
+  v8 = BaseAddress;
   v9 = 1;
-  v10 = *(_DWORD *)(v17 + 308) & 0x400;
-  v11 = *(void **)(v17 + 32);
-  v16 = *(_DWORD *)(v17 + 20);
+  v10 = *((_DWORD *)BaseAddress + 77) & 0x400;
+  v11 = (void *)*((_QWORD *)BaseAddress + 4);
+  v16 = *((_DWORD *)BaseAddress + 5);
   if ( (*(_DWORD *)(a4 + 64) & 0x10000) != 0 )
   {
     v6 = 1;
-    v4 = *(_DWORD *)(v17 + 368);
-    v18 = *(_DWORD *)(v17 + 372);
-    *(_DWORD *)(v17 + 368) = *(_DWORD *)(a4 + 104);
-    *(_DWORD *)(v8 + 372) = *(_DWORD *)(a4 + 112);
+    v4 = *((_DWORD *)BaseAddress + 92);
+    v18 = *((_DWORD *)BaseAddress + 93);
+    *((_DWORD *)BaseAddress + 92) = *(_DWORD *)(a4 + 104);
+    v8[93] = *(_DWORD *)(a4 + 112);
     if ( (*(_DWORD *)(a4 + 64) & 0x1000) != 0 )
-      *(_QWORD *)(v8 + 360) = *(_QWORD *)(a4 + 16);
+      *((_QWORD *)v8 + 45) = *(_QWORD *)(a4 + 16);
   }
   PrivateLoggerContext = EtwpStopLoggerInstance(v8);
   if ( !PrivateLoggerContext )
@@ -64,9 +64,9 @@ __int64 __fastcall EtwpStopUmLogger(__int64 a1, __int64 a2, __int64 a3, __int64 
       v9 = 0;
       _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v16 + 8));
       if ( v10 )
-        EtwpFreeLoggerContext(v17);
+        EtwpFreeLoggerContext(BaseAddress);
       v8 = 0LL;
-      v17 = 0LL;
+      BaseAddress = 0LL;
       if ( v11 )
       {
         NtWaitForSingleObject(v11, 0, 0LL);
@@ -81,8 +81,8 @@ LABEL_9:
   if ( v6 && v8 )
   {
     v14 = v18;
-    *(_DWORD *)(v8 + 368) = v4;
-    *(_DWORD *)(v8 + 372) = v14;
+    v8[92] = v4;
+    v8[93] = v14;
   }
   if ( v9 )
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v12 + 8));

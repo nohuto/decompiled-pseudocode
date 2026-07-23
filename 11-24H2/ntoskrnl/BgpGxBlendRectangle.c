@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpGxBlendRectangle @ 0x140BB2400
+ * XREFs of BgpGxBlendRectangle @ 0x140BB4400
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpTxtDisplayString @ 0x140BB2BB0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x140BB4BB0 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpGxBlendColor @ 0x14047293C (BgpGxBlendColor.c)
- *     BgpGxRectangleCreate @ 0x140BB3E78 (BgpGxRectangleCreate.c)
- *     BgpGxRectangleDestroy @ 0x140BB3F04 (BgpGxRectangleDestroy.c)
+ *     BgpGxBlendColor @ 0x14046EC0C (BgpGxBlendColor.c)
+ *     BgpGxRectangleCreate @ 0x140BB5E78 (BgpGxRectangleCreate.c)
+ *     BgpGxRectangleDestroy @ 0x140BB5F04 (BgpGxRectangleDestroy.c)
  */
 
 __int64 __fastcall BgpGxBlendRectangle(_DWORD *a1, _DWORD *a2, _DWORD *a3, int **a4)

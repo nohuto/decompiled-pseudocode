@@ -1,14 +1,14 @@
 /*
- * XREFs of VfDriverRemoveDifVerification @ 0x140B8A4F0
+ * XREFs of VfDriverRemoveDifVerification @ 0x140B8C4F0
  * Callers:
- *     VfDriverEnableDisableVerifier @ 0x140B8A1C0 (VfDriverEnableDisableVerifier.c)
+ *     VfDriverEnableDisableVerifier @ 0x140B8C1C0 (VfDriverEnableDisableVerifier.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     ExClearPoolFlags @ 0x140653E60 (ExClearPoolFlags.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfSuspectDifRemoveEntry @ 0x140B9A640 (VfSuspectDifRemoveEntry.c)
- *     VfSuspectRemoveDifVolatileVerification @ 0x140B9B138 (VfSuspectRemoveDifVolatileVerification.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     ExClearPoolFlags @ 0x1406525C0 (ExClearPoolFlags.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfSuspectDifRemoveEntry @ 0x140B9C640 (VfSuspectDifRemoveEntry.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140B9D138 (VfSuspectRemoveDifVolatileVerification.c)
  */
 
 __int64 __fastcall VfDriverRemoveDifVerification(__int64 a1)

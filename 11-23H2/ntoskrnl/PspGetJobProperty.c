@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetJobProperty @ 0x140332784
+ * XREFs of PspGetJobProperty @ 0x140332A14
  * Callers:
- *     PsGetJobProperty @ 0x140332720 (PsGetJobProperty.c)
+ *     PsGetJobProperty @ 0x1403329B0 (PsGetJobProperty.c)
  * Callees:
- *     PspGetProperty @ 0x1403327EC (PspGetProperty.c)
+ *     PspGetProperty @ 0x140332A7C (PspGetProperty.c)
  */
 
 __int64 __fastcall PspGetJobProperty(__int64 a1, __int64 a2, _QWORD *a3)

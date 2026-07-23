@@ -56,11 +56,11 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1)
   __int64 v27; // r12
   unsigned int v28; // r8d
   unsigned int v29; // r8d
-  union _SLIST_HEADER *v30; // r15
-  union _SLIST_HEADER *v31; // rcx
+  _SLIST_HEADER *v30; // r15
+  _SLIST_HEADER *v31; // rcx
   PSLIST_ENTRY v32; // rdi
   PSLIST_ENTRY v33; // r9
-  struct _SLIST_ENTRY *Next; // rbp
+  _SLIST_ENTRY *Next; // rbp
   volatile signed __int64 *v35; // rsi
   __int64 v36; // r9
   unsigned int v37; // ebp
@@ -142,7 +142,7 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1)
   v48 = 0LL;
   v47 = v3;
   BugCheckParameter2 = v5 + 184;
-  v20 = KeAbPreAcquire(v5 + 184);
+  v20 = KeAbPreAcquire(v5 + 184, 0LL);
   if ( _InterlockedCompareExchange64(v18, 17LL, 0LL) && !(unsigned __int8)ExfTryAcquirePushLockShared(v18) )
   {
     if ( !v20 )
@@ -222,14 +222,12 @@ LABEL_66:
   if ( v28 >= (unsigned __int16)KeNumberNodes )
     v28 = MiPageToNode(v3, 0LL);
   v29 = v28 << byte_140388501;
-  v30 = (union _SLIST_HEADER *)(*(_QWORD *)(v49 + 8 * v27 + 4072)
-                              + 16LL
-                              * (dword_140388540 & (unsigned int)v3 | v29 | (((*v23 >> 36) & 3) << byte_140388502)));
+  v30 = (_SLIST_HEADER *)(*(_QWORD *)(v49 + 8 * v27 + 4072)
+                        + 16LL * (dword_140388540 & (unsigned int)v3 | v29 | (((*v23 >> 36) & 3) << byte_140388502)));
   if ( LOWORD(v30->Alignment) )
   {
-    v31 = (union _SLIST_HEADER *)(*(_QWORD *)(v49 + 8 * v27 + 4072)
-                                + 16LL
-                                * (dword_140388540 & (unsigned int)v3 | v29 | (((*v23 >> 36) & 3) << byte_140388502)));
+    v31 = (_SLIST_HEADER *)(*(_QWORD *)(v49 + 8 * v27 + 4072)
+                          + 16LL * (dword_140388540 & (unsigned int)v3 | v29 | (((*v23 >> 36) & 3) << byte_140388502)));
     v32 = 0LL;
     v33 = RtlpInterlockedFlushSList(v31);
     if ( v33 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpSetSoftRebootFlags @ 0x14065310C
+ * XREFs of ExpSetSoftRebootFlags @ 0x14065186C
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpSetSoftRebootFlags(int a1)
@@ -14,7 +14,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   char PreviousMode; // r10
   int v4; // r13d
   unsigned int v5; // edi
-  __int64 v6; // r8
+  int v6; // r8d
   char *v7; // rdx
   signed __int32 v8; // eax
   __int32 v9; // esi
@@ -26,7 +26,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   int v15; // eax
   int v16; // eax
   int v17; // eax
-  unsigned __int64 v19; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned __int64 Buffer; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v20; // [rsp+58h] [rbp-B0h] BYREF
   __int64 v21; // [rsp+60h] [rbp-A8h]
   int v22; // [rsp+68h] [rbp-A0h]
@@ -38,18 +38,18 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   char v28; // [rsp+98h] [rbp-70h]
   int v29; // [rsp+A0h] [rbp-68h]
   int v30; // [rsp+A4h] [rbp-64h]
-  __int64 (__fastcall *v31)(int, int, __int64, __int64); // [rsp+A8h] [rbp-60h]
+  __int64 (__fastcall *v31)(int, int); // [rsp+A8h] [rbp-60h]
   char v32; // [rsp+B0h] [rbp-58h]
   int v33; // [rsp+B8h] [rbp-50h]
   int v34; // [rsp+BCh] [rbp-4Ch]
-  __int64 (__fastcall *v35)(int, int, __int64, __int64); // [rsp+C0h] [rbp-48h]
+  __int64 (__fastcall *v35)(int, int); // [rsp+C0h] [rbp-48h]
   char v36; // [rsp+C8h] [rbp-40h]
   __int64 v37; // [rsp+D0h] [rbp-38h]
   __int64 (__fastcall *v38)(int, int); // [rsp+D8h] [rbp-30h]
   char v39; // [rsp+E0h] [rbp-28h]
   int v40; // [rsp+E8h] [rbp-20h]
   int v41; // [rsp+ECh] [rbp-1Ch]
-  __int64 (__fastcall *v42)(int, int, __int64, __int64); // [rsp+F0h] [rbp-18h]
+  __int64 (__fastcall *v42)(int, int); // [rsp+F0h] [rbp-18h]
   char v43; // [rsp+F8h] [rbp-10h]
   int v44; // [rsp+100h] [rbp-8h]
   int v45; // [rsp+104h] [rbp-4h]
@@ -60,7 +60,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   char v50; // [rsp+128h] [rbp+20h]
   int v51; // [rsp+130h] [rbp+28h]
   int v52; // [rsp+134h] [rbp+2Ch]
-  __int64 (__fastcall *v53)(int, __int64, __int64, __int64); // [rsp+138h] [rbp+30h]
+  __int64 (__fastcall *v53)(int, __int64); // [rsp+138h] [rbp+30h]
   char v54; // [rsp+140h] [rbp+38h]
   int v55; // [rsp+148h] [rbp+40h]
   int v56; // [rsp+14Ch] [rbp+44h]
@@ -87,11 +87,11 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   char v77; // [rsp+1D0h] [rbp+C8h]
   int v78; // [rsp+1D8h] [rbp+D0h]
   int v79; // [rsp+1DCh] [rbp+D4h]
-  __int64 (__fastcall *v80)(int, int, __int64, __int64); // [rsp+1E0h] [rbp+D8h]
+  __int64 (__fastcall *v80)(int, int); // [rsp+1E0h] [rbp+D8h]
   char v81; // [rsp+1E8h] [rbp+E0h]
   int v82; // [rsp+1F0h] [rbp+E8h]
   int v83; // [rsp+1F4h] [rbp+ECh]
-  __int64 (__fastcall *v84)(int, int, __int64, __int64); // [rsp+1F8h] [rbp+F0h]
+  __int64 (__fastcall *v84)(int, int); // [rsp+1F8h] [rbp+F0h]
   char v85; // [rsp+200h] [rbp+F8h]
   int v86; // [rsp+208h] [rbp+100h]
   int v87; // [rsp+20Ch] [rbp+104h]
@@ -103,11 +103,11 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   char v93; // [rsp+230h] [rbp+128h]
   int v94; // [rsp+238h] [rbp+130h]
   int v95; // [rsp+23Ch] [rbp+134h]
-  __int64 (__fastcall *v96)(int, int, __int64, __int64); // [rsp+240h] [rbp+138h]
+  __int64 (__fastcall *v96)(int, int); // [rsp+240h] [rbp+138h]
   char v97; // [rsp+248h] [rbp+140h]
   int v98; // [rsp+250h] [rbp+148h]
   int v99; // [rsp+254h] [rbp+14Ch]
-  __int64 (__fastcall *v100)(int, int, __int64, __int64); // [rsp+258h] [rbp+150h]
+  __int64 (__fastcall *v100)(int, int); // [rsp+258h] [rbp+150h]
   char v101; // [rsp+260h] [rbp+158h]
   __int64 v102; // [rsp+268h] [rbp+160h]
   __int64 v103; // [rsp+270h] [rbp+168h]
@@ -126,7 +126,7 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   char v116; // [rsp+2C0h] [rbp+1B8h]
 
   v1 = 0;
-  v19 = 0LL;
+  Buffer = 0LL;
   v20 = 0LL;
   v21 = 0LL;
   LOBYTE(v22) = 0;
@@ -229,9 +229,9 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
   v5 = a1 & 0xC00000BB;
   if ( a1 < 0 || (a1 & 0x40000000) != 0 )
     return 3221225485LL;
-  v6 = 0LL;
+  v6 = 0;
   v7 = (char *)&v20 + 4;
-  while ( (unsigned __int64)(int)v6 < 0x1A )
+  while ( (unsigned __int64)v6 < 0x1A )
   {
     v8 = *((_DWORD *)v7 - 1);
     if ( v5 == *(_DWORD *)v7 && (!v7[12] || !PreviousMode) )
@@ -242,8 +242,8 @@ __int64 __fastcall ExpSetSoftRebootFlags(int a1)
         _m_prefetchw(&ExSoftRebootFlags);
         v10 = ExSoftRebootFlags;
         v11 = ExSoftRebootFlags & 0x40000000;
-        if ( *(&v21 + 3 * (int)v6) )
-          v1 = guard_dispatch_icall_no_overrides((unsigned int)ExSoftRebootFlags, (unsigned int)a1, v6, (int)v6);
+        if ( *(&v21 + 3 * v6) )
+          v1 = guard_dispatch_icall_no_overrides((unsigned int)ExSoftRebootFlags, (unsigned int)a1);
         v12 = ExSoftRebootFlags & 0x3AFFFF44;
         v13 = a1 & 0xC50000BB;
         v14 = v10 & 0xC50000BB;
@@ -271,13 +271,13 @@ LABEL_20:
             ExSoftRebootFlags = v17;
           }
           _InterlockedExchange(&ExSoftRebootState, v5);
-          v19 = __PAIR64__(v5, v9);
-          ZwUpdateWnfStateData(&WNF_KSR_STATE_TRANSITION, &v19, 8LL);
+          Buffer = __PAIR64__(v5, v9);
+          ZwUpdateWnfStateData(&WNF_KSR_STATE_TRANSITION, &Buffer, 8u, 0LL, 0LL, 0, 0);
         }
         return (unsigned int)v1;
       }
     }
-    v6 = (unsigned int)(v6 + 1);
+    ++v6;
     v7 += 24;
   }
   return 3221266435LL;

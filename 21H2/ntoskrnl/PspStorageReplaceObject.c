@@ -1,14 +1,14 @@
 /*
- * XREFs of PspStorageReplaceObject @ 0x14090F0C0
+ * XREFs of PspStorageReplaceObject @ 0x14090F220
  * Callers:
- *     PsReplaceSiloContext @ 0x140905BA0 (PsReplaceSiloContext.c)
+ *     PsReplaceSiloContext @ 0x140905D00 (PsReplaceSiloContext.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     PspGetStorageArray @ 0x140715F44 (PspGetStorageArray.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     PspGetStorageArray @ 0x1406C4594 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PspStorageReplaceObject(__int64 a1, unsigned int a2, struct _DMA_ADAPTER *a3, _QWORD *a4)

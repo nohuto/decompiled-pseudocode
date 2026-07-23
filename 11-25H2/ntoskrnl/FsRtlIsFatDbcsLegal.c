@@ -25,10 +25,10 @@ BOOLEAN __stdcall FsRtlIsFatDbcsLegal(
   unsigned int i; // edx
   __int64 v16; // r8
   char v17; // dl
-  STRING v18; // xmm1
-  STRING FirstName; // [rsp+20h] [rbp-48h] BYREF
-  STRING RemainingName; // [rsp+30h] [rbp-38h] BYREF
-  STRING Name; // [rsp+40h] [rbp-28h] BYREF
+  _STRING v18; // xmm1
+  _STRING FirstName; // [rsp+20h] [rbp-48h] BYREF
+  _STRING RemainingName; // [rsp+30h] [rbp-38h] BYREF
+  _STRING Name; // [rsp+40h] [rbp-28h] BYREF
 
   Length = DbcsName->Length;
   v7 = 0;

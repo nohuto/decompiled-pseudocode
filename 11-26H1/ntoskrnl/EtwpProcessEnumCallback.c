@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwpProcessEnumCallback @ 0x14096EA90
+ * XREFs of EtwpProcessEnumCallback @ 0x1409BC0E0
  * Callers:
- *     EtwpProcessThreadImageRundown @ 0x14096E924 (EtwpProcessThreadImageRundown.c)
+ *     EtwpProcessThreadImageRundown @ 0x1409BBF74 (EtwpProcessThreadImageRundown.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpEnumerateWorkingSet @ 0x14077794C (EtwpEnumerateWorkingSet.c)
- *     EtwpObjectHandleRundown @ 0x14077B8B4 (EtwpObjectHandleRundown.c)
- *     EtwpTraceProcessRundown @ 0x14096D72C (EtwpTraceProcessRundown.c)
- *     EtwpIsProcessZombie @ 0x14096EF94 (EtwpIsProcessZombie.c)
- *     EtwpSysModuleRunDown @ 0x14096F07C (EtwpSysModuleRunDown.c)
- *     PsEnumProcessThreads @ 0x14096F1F0 (PsEnumProcessThreads.c)
- *     EtwpEnumerateAddressSpace @ 0x1409FD0D0 (EtwpEnumerateAddressSpace.c)
- *     EtwpThreadEnumCallback @ 0x140A8BF80 (EtwpThreadEnumCallback.c)
- *     EtwpProcessPerfCtrsRundown @ 0x140B2E130 (EtwpProcessPerfCtrsRundown.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpEnumerateWorkingSet @ 0x14077A7EC (EtwpEnumerateWorkingSet.c)
+ *     EtwpObjectHandleRundown @ 0x14077E4F4 (EtwpObjectHandleRundown.c)
+ *     EtwpEnumerateAddressSpace @ 0x140921CD0 (EtwpEnumerateAddressSpace.c)
+ *     EtwpIsProcessZombie @ 0x1409BC5E4 (EtwpIsProcessZombie.c)
+ *     EtwpSysModuleRunDown @ 0x1409BC6CC (EtwpSysModuleRunDown.c)
+ *     PsEnumProcessThreads @ 0x1409BC840 (PsEnumProcessThreads.c)
+ *     EtwpTraceProcessRundown @ 0x1409BC8DC (EtwpTraceProcessRundown.c)
+ *     EtwpThreadEnumCallback @ 0x1409BDBC0 (EtwpThreadEnumCallback.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x1409BDD0C (EtwpProcessPerfCtrsRundown.c)
  */
 
 __int64 __fastcall EtwpProcessEnumCallback(PEPROCESS Process, __int64 a2)
 {
   __int64 v2; // r14
   char v3; // r12
-  _DWORD *v5; // rdi
+  int *v5; // rdi
   char v7; // r13
   char v8; // r15
   __int64 ProcessServerSilo; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall EtwpProcessEnumCallback(PEPROCESS Process, __int64 a2)
 
   v2 = *(_QWORD *)(a2 + 32);
   v3 = *(_BYTE *)(a2 + 64);
-  v5 = *(_DWORD **)a2;
+  v5 = *(int **)a2;
   memset(&ApcState, 0, sizeof(ApcState));
   v7 = 0;
   v8 = 0;
@@ -77,7 +77,7 @@ LABEL_7:
           if ( v3 )
           {
             if ( (*v5 & 1) != 0 )
-              EtwpTraceProcessRundown((int)Process, v2, 0x303u, a2);
+              EtwpTraceProcessRundown((int)Process);
             if ( (*v5 & 2) != 0 && (Process->SecureState.EntireField & 1) == 0 )
             {
               if ( Process == PsIdleProcess )
@@ -95,7 +95,7 @@ LABEL_7:
               }
             }
             if ( (*v5 & 0xC004) != 0 )
-              EtwpEnumerateAddressSpace(Process);
+              EtwpEnumerateAddressSpace(Process, a2, v5);
             if ( (*v5 & 4) != 0 && Process == PsInitialSystemProcess )
             {
               LOBYTE(v10) = v3;
@@ -111,7 +111,7 @@ LABEL_7:
             if ( (*v5 & 4) != 0 && Process == PsInitialSystemProcess )
               EtwpSysModuleRunDown(v2, 0LL);
             if ( (*v5 & 0xC004) != 0 )
-              EtwpEnumerateAddressSpace(Process);
+              EtwpEnumerateAddressSpace(Process, a2, v5);
             if ( (v5[4] & 0x40) != 0 && Process != PsIdleProcess )
               EtwpObjectHandleRundown(Process, a2);
             if ( (*v5 & 2) != 0 )
@@ -135,7 +135,7 @@ LABEL_7:
             if ( (*v5 & 8) != 0 )
               EtwpProcessPerfCtrsRundown(Process, v2);
             if ( (*v5 & 1) != 0 )
-              EtwpTraceProcessRundown((int)Process, v2, 0x304u, a2);
+              EtwpTraceProcessRundown((int)Process);
           }
         }
         if ( v7 )
@@ -156,6 +156,6 @@ LABEL_7:
     goto LABEL_7;
   }
   if ( v5 && (*v5 & 1) != 0 && !v3 )
-    EtwpTraceProcessRundown(v11, v2, 0x327u, a2);
+    EtwpTraceProcessRundown(v11);
   return 0LL;
 }

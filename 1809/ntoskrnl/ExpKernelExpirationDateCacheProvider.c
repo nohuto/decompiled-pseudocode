@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpKernelExpirationDateCacheProvider @ 0x14075FAE0
+ * XREFs of ExpKernelExpirationDateCacheProvider @ 0x140760CD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlTimeToTimeFields @ 0x14015DB20 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExpKernelExpirationDateCacheProvider(_DWORD *a1, _OWORD *a2, unsigned int a3, _DWORD *a4, _BYTE *a5)
 {
   int v6; // ebx
-  struct _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-30h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER Time; // [rsp+30h] [rbp-20h] BYREF
   __int128 v10; // [rsp+38h] [rbp-18h]
 
@@ -24,9 +24,9 @@ __int64 __fastcall ExpKernelExpirationDateCacheProvider(_DWORD *a1, _OWORD *a2, 
   {
     if ( a1 )
       *a1 = 3;
-    if ( qword_14040DE18 )
+    if ( qword_14040EE78 )
     {
-      v6 = qword_14040DE18(&Time);
+      v6 = qword_14040EE78(&Time);
       if ( v6 < 0 )
         return (unsigned int)v6;
     }

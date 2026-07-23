@@ -1,12 +1,13 @@
 /*
- * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x1402B3438
+ * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x1402FE108
  * Callers:
- *     MiCheckProcessShadow @ 0x1402B2E70 (MiCheckProcessShadow.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     KxTryToAcquireQueuedSpinLock @ 0x14048FC34 (KxTryToAcquireQueuedSpinLock.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiCheckProcessShadow @ 0x1402FDB40 (MiCheckProcessShadow.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140480380 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x1404896E0 (KxTryToAcquireQueuedSpinLock.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x1404DA444 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1404D3B24 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall KiTryToAcquireQueuedSpinLockInstrumented(signed __int64 a1, _QWORD *a2)
@@ -21,7 +22,7 @@ __int64 __fastcall KiTryToAcquireQueuedSpinLockInstrumented(signed __int64 a1, _
   CurrentPrcb = KeGetCurrentPrcb();
   InterruptCount = 0;
   v4 = 0;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     v6 = 0;
   }

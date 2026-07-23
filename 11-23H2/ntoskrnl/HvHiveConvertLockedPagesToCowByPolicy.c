@@ -1,15 +1,15 @@
 /*
- * XREFs of HvHiveConvertLockedPagesToCowByPolicy @ 0x140751234
+ * XREFs of HvHiveConvertLockedPagesToCowByPolicy @ 0x140751424
  * Callers:
- *     CmpDoLocalizeNextHive @ 0x140751360 (CmpDoLocalizeNextHive.c)
+ *     CmpDoLocalizeNextHive @ 0x140751550 (CmpDoLocalizeNextHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x1407C34EC (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x1407C37BC (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
  */
 
 __int64 __fastcall HvHiveConvertLockedPagesToCowByPolicy(__int64 a1)

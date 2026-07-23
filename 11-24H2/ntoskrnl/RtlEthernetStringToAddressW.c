@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEthernetStringToAddressW @ 0x1405EE210
+ * XREFs of RtlEthernetStringToAddressW @ 0x1405EB7F0
  * Callers:
  *     <none>
  * Callees:
- *     iswctype @ 0x140500C30 (iswctype.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     iswctype @ 0x1404FE4F0 (iswctype.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall RtlEthernetStringToAddressW(PCWSTR S, LPCWSTR *Terminator, DL_EUI48 *Addr)

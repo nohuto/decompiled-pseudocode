@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryBootOptions @ 0x1801645E0
+ * XREFs of NtQueryBootOptions @ 0x1801629A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryBootOptions()
+NTSTATUS __cdecl NtQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 331LL;
+  result = 331;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

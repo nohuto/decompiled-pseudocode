@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpViewUnmapViewOfPrimaryFile @ 0x140610488
+ * XREFs of HvpViewUnmapViewOfPrimaryFile @ 0x14061053C
  * Callers:
- *     HvViewMapCleanup @ 0x1404EEEA8 (HvViewMapCleanup.c)
- *     HvViewMapStart @ 0x14060FCB4 (HvViewMapStart.c)
- *     HvpViewMapGrowFile @ 0x14060FF64 (HvpViewMapGrowFile.c)
+ *     HvViewMapCleanup @ 0x1404D0F70 (HvViewMapCleanup.c)
+ *     HvViewMapStart @ 0x14060FD68 (HvViewMapStart.c)
+ *     HvpViewMapGrowFile @ 0x140610018 (HvpViewMapGrowFile.c)
  * Callees:
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
- *     CcUnpinData @ 0x14050C700 (CcUnpinData.c)
- *     CmpReleaseGlobalQuota @ 0x140514570 (CmpReleaseGlobalQuota.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
+ *     CcUnpinData @ 0x1404EF690 (CcUnpinData.c)
+ *     CmpReleaseGlobalQuota @ 0x1404F7960 (CmpReleaseGlobalQuota.c)
  */
 
 __int64 __fastcall HvpViewUnmapViewOfPrimaryFile(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)

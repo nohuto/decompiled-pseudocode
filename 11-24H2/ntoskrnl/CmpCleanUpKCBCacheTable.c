@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCleanUpKCBCacheTable @ 0x14097BF7C
+ * XREFs of CmpCleanUpKCBCacheTable @ 0x14096478C
  * Callers:
- *     CmpRefreshHive @ 0x1407CEAF0 (CmpRefreshHive.c)
- *     CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x1407E10E0 (CmpCleanUpHigherLayerKcbCachesPostCallback.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x14097BCB4 (CmpPrepareForSubtreeInvalidation.c)
- *     CmpDoesKeyHaveOpenSubkeys @ 0x14097BD78 (CmpDoesKeyHaveOpenSubkeys.c)
- *     CmpEnumerateAllOpenSubKeys @ 0x14097BE20 (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpRefreshHive @ 0x1407CEFE0 (CmpRefreshHive.c)
+ *     CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x1407E1630 (CmpCleanUpHigherLayerKcbCachesPostCallback.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x1409644C4 (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x140964588 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x140964630 (CmpEnumerateAllOpenSubKeys.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x14041AEB0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x140424470 (CmpInitializeDelayDerefContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408704E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpRemoveFromDelayedClose @ 0x140870910 (CmpRemoveFromDelayedClose.c)
- *     CmpDecommisssionKcb @ 0x140870D10 (CmpDecommisssionKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     CmpDrainDelayDerefContext @ 0x14040AEB0 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140418320 (CmpInitializeDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140874810 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpRemoveFromDelayedClose @ 0x140874C40 (CmpRemoveFromDelayedClose.c)
+ *     CmpDecommisssionKcb @ 0x140875040 (CmpDecommisssionKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 __fastcall CmpCleanUpKCBCacheTable(__int64 a1)

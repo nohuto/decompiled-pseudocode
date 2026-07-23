@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDeleteBootRange @ 0x1406E35D0
+ * XREFs of MiDeleteBootRange @ 0x1406E827C
  * Callers:
- *     MmFreeBootRegistry @ 0x140863DA8 (MmFreeBootRegistry.c)
- *     MmFreeLoaderBlock @ 0x140CF220C (MmFreeLoaderBlock.c)
+ *     MmFreeBootRegistry @ 0x14086A188 (MmFreeBootRegistry.c)
+ *     MmFreeLoaderBlock @ 0x140CF858C (MmFreeLoaderBlock.c)
  * Callees:
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiDriverPdeOkToDelete @ 0x1406E3950 (MiDriverPdeOkToDelete.c)
- *     MiUnmapReturnCharges @ 0x140AC855C (MiUnmapReturnCharges.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiDriverPdeOkToDelete @ 0x1406E85FC (MiDriverPdeOkToDelete.c)
+ *     MiUnmapReturnCharges @ 0x140ACA14C (MiUnmapReturnCharges.c)
  */
 
 __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, __int64 a2)
@@ -165,6 +165,6 @@ LABEL_43:
   LOBYTE(v12) = v13;
   MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v12);
   result = MiUnmapReturnCharges(&MiSystemPartition, v29);
-  _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.320, -v2);
+  _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.320, -v2);
   return result;
 }

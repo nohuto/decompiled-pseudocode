@@ -10,27 +10,35 @@
  *     _LdrpUnsuppressAddressTakenIat@12 @ 0x4B3345D2 (_LdrpUnsuppressAddressTakenIat@12.c)
  */
 
-int __thiscall LdrpDoPostSnapWork(_DWORD *this)
+NTSTATUS __thiscall LdrpDoPostSnapWork(int this)
 {
   int v2; // esi
-  _DWORD *v3; // ecx
-  int result; // eax
+  PVOID *v3; // ecx
+  NTSTATUS result; // eax
   _DWORD *v5; // eax
   char v6; // al
-  _BYTE v7[4]; // [esp+Ch] [ebp-4h] BYREF
+  ULONG OldProtect; // [esp+Ch] [ebp-4h] BYREF
 
   v2 = 0;
-  v3 = this + 15;
-  if ( !*v3 || (result = ZwProtectVirtualMemory(-1, v3, this + 16, this[20], v7), v2 = result, result >= 0) )
+  v3 = (PVOID *)(this + 60);
+  if ( !*v3
+    || (result = ZwProtectVirtualMemory(
+                   (HANDLE)0xFFFFFFFF,
+                   v3,
+                   (PSIZE_T)(this + 64),
+                   *(_DWORD *)(this + 80),
+                   &OldProtect),
+        v2 = result,
+        result >= 0) )
   {
-    v5 = (_DWORD *)this[22];
-    if ( v5 && *v5 != this[21] )
+    v5 = *(_DWORD **)(this + 88);
+    if ( v5 && *v5 != *(_DWORD *)(this + 84) )
       __fastfail(0x13u);
-    if ( *(_WORD *)(this[8] + 58) || (v2 = LdrpHandleTlsData(), v2 >= 0) )
+    if ( *(_WORD *)(*(_DWORD *)(this + 32) + 58) || (v2 = LdrpHandleTlsData(), v2 >= 0) )
     {
       if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
       {
-        v2 = LdrpUnsuppressAddressTakenIat(0);
+        v2 = LdrpUnsuppressAddressTakenIat(*(PVOID *)(*(_DWORD *)(this + 32) + 24), 0);
         if ( v2 < 0 )
         {
           v6 = ShowSnaps;
@@ -43,7 +51,7 @@ int __thiscall LdrpDoPostSnapWork(_DWORD *this)
               0,
               "LdrpDoPostSnapWork:Unable to unsuppress the export suppressed functions that are imported in the DLL based"
               " at 0x%p.Status = 0x%x\n",
-              *(const void **)(this[8] + 24),
+              *(const void **)(*(_DWORD *)(this + 32) + 24),
               v2);
             v6 = ShowSnaps;
           }

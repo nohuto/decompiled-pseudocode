@@ -1,19 +1,19 @@
 /*
- * XREFs of CcWriteBehindAsync @ 0x140385C44
+ * XREFs of CcWriteBehindAsync @ 0x1403879F4
  * Callers:
- *     CcAsyncLazywriteWorker @ 0x140385850 (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorker @ 0x140387600 (CcAsyncLazywriteWorker.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     CcWriteBehindPreProcess @ 0x1403848C4 (CcWriteBehindPreProcess.c)
- *     CcWriteBehindPostProcess @ 0x140384CD4 (CcWriteBehindPostProcess.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
- *     CcFlushCachePostProcess @ 0x1403998E0 (CcFlushCachePostProcess.c)
- *     CcFlushCacheAcquireRange @ 0x140399CFC (CcFlushCacheAcquireRange.c)
- *     CcFlushCachePostProcessOneRange @ 0x140399E5C (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCacheOneRange @ 0x14039A180 (CcFlushCacheOneRange.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     CcWriteBehindPreProcess @ 0x140386674 (CcWriteBehindPreProcess.c)
+ *     CcWriteBehindPostProcess @ 0x140386A84 (CcWriteBehindPostProcess.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcess @ 0x14039B640 (CcFlushCachePostProcess.c)
+ *     CcFlushCacheAcquireRange @ 0x14039BA5C (CcFlushCacheAcquireRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14039BBBC (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCacheOneRange @ 0x14039BEE0 (CcFlushCacheOneRange.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall CcWriteBehindAsync(__int64 a1, _DWORD *a2, _WORD *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall CcWriteBehindAsync(__int64 a1, _DWORD *a2, _WORD *a3)
   const void *v14; // [rsp+70h] [rbp-98h]
   int v15; // [rsp+94h] [rbp-74h]
   _WORD *v16; // [rsp+A0h] [rbp-68h]
-  unsigned int *p_ForegroundLossTime; // [rsp+B8h] [rbp-50h]
+  struct _LIST_ENTRY **p_Blink; // [rsp+B8h] [rbp-50h]
   int v18; // [rsp+C0h] [rbp-48h]
   _DWORD *v19; // [rsp+C8h] [rbp-40h]
   __int16 v20; // [rsp+E0h] [rbp-28h]
@@ -54,13 +54,13 @@ __int64 __fastcall CcWriteBehindAsync(__int64 a1, _DWORD *a2, _WORD *a3)
     if ( v6 == 1 )
       break;
     v18 = 1;
-    p_ForegroundLossTime = &EmpParseLock.ForegroundLossTime;
+    p_Blink = &EmpParseLock.GlobalForegroundListEntry.Blink;
     v16 = a3;
     if ( (unsigned __int8)CcFlushCachePreProcess(v12) )
     {
       v7 = v16;
       v8 = v13;
-      p_ForegroundLossTime = 0LL;
+      p_Blink = 0LL;
       *v16 = 1;
       *((_BYTE *)v7 + 2) = 6;
       *((_DWORD *)v7 + 1) = 0;

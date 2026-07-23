@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFindNameInListCellWithStatus @ 0x1405D0720
+ * XREFs of CmpFindNameInListCellWithStatus @ 0x1405D1720
  * Callers:
- *     CmpFindNameInListWithStatus @ 0x1405D0670 (CmpFindNameInListWithStatus.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140800DC0 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ *     CmpFindNameInListWithStatus @ 0x1405D1670 (CmpFindNameInListWithStatus.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140801FC0 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x1407F97AC (CmpCompareTwoCompressedNames.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     CmpCompareCompressedName @ 0x1405D6D90 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x1407FA9AC (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpFindNameInListCellWithStatus(

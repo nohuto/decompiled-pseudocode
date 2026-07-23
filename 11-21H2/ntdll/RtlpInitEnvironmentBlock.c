@@ -11,40 +11,40 @@
  *     memmove @ 0x1800AAB40 (memmove.c)
  */
 
-__int64 RtlpInitEnvironmentBlock()
+NTSTATUS RtlpInitEnvironmentBlock()
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rbx
-  void *Environment; // rbp
+  void *v1; // rbp
   size_t BlockSize; // rdi
   void *EnvBlock; // rax
-  void *v4; // rsi
-  __int64 result; // rax
-  void *v6; // [rsp+30h] [rbp+8h] BYREF
+  PVOID v4; // rsi
+  NTSTATUS result; // eax
+  PVOID Environment; // [rsp+30h] [rbp+8h] BYREF
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  Environment = ProcessParameters->Environment;
-  if ( Environment )
+  v1 = ProcessParameters->Environment;
+  if ( v1 )
   {
     BlockSize = RtlpGetBlockSizeEx(ProcessParameters->Environment, 1LL);
     EnvBlock = (void *)RtlpAllocateEnvBlock(BlockSize);
     v4 = EnvBlock;
     if ( !EnvBlock )
-      return 3221225626LL;
-    memmove(EnvBlock, Environment, BlockSize);
+      return -1073741670;
+    memmove(EnvBlock, v1, BlockSize);
     goto LABEL_4;
   }
   BlockSize = 4LL;
-  result = RtlCreateEnvironmentEx(0LL, &v6, 4LL);
-  if ( (int)result >= 0 )
+  result = RtlCreateEnvironmentEx(0LL, &Environment, 4u);
+  if ( result >= 0 )
   {
-    v4 = v6;
+    v4 = Environment;
 LABEL_4:
     ++ProcessParameters->EnvironmentVersion;
     ProcessParameters->Environment = v4;
     ProcessParameters->EnvironmentSize = BlockSize;
     RtlpSetupEnvironmentHashTable();
     RtlpWow64ThunkEnvironmentTo64();
-    return 0LL;
+    return 0;
   }
   return result;
 }

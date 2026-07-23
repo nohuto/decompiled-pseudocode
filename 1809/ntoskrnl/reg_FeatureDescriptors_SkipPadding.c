@@ -1,8 +1,8 @@
 /*
- * XREFs of reg_FeatureDescriptors_SkipPadding @ 0x1401B2F14
+ * XREFs of reg_FeatureDescriptors_SkipPadding @ 0x1401B3054
  * Callers:
- *     rbc_InitializeFeatureStaging @ 0x1401B6D58 (rbc_InitializeFeatureStaging.c)
- *     CmpInitializeSystemPoliciesFeatureOverrides @ 0x1409AABC0 (CmpInitializeSystemPoliciesFeatureOverrides.c)
+ *     rbc_InitializeFeatureStaging @ 0x1401B6EC0 (rbc_InitializeFeatureStaging.c)
+ *     CmpInitializeSystemPoliciesFeatureOverrides @ 0x1409ABBC0 (CmpInitializeSystemPoliciesFeatureOverrides.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefIntCreate @ 0x1405372CC
+ * XREFs of SymCryptFdefIntCreate @ 0x14053176C
  * Callers:
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
  * Callees:
  *     <none>
  */

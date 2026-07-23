@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptBuildStartupStub @ 0x1403A1580
+ * XREFs of HalpInterruptBuildStartupStub @ 0x1403A16D0
  * Callers:
- *     HalpSetupRealModeResume @ 0x1403FA120 (HalpSetupRealModeResume.c)
- *     HalpInterruptStartProcessor @ 0x140999F74 (HalpInterruptStartProcessor.c)
+ *     HalpSetupRealModeResume @ 0x1403FA300 (HalpSetupRealModeResume.c)
+ *     HalpInterruptStartProcessor @ 0x14099AF74 (HalpInterruptStartProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     HalpInterruptCreateGdtEntry32 @ 0x1403A17C8 (HalpInterruptCreateGdtEntry32.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     KeForceEnableNx @ 0x14099A140 (KeForceEnableNx.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     HalpInterruptCreateGdtEntry32 @ 0x1403A1918 (HalpInterruptCreateGdtEntry32.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     KeForceEnableNx @ 0x14099B140 (KeForceEnableNx.c)
  */
 
 _QWORD *__fastcall HalpInterruptBuildStartupStub(PVOID *a1, PHYSICAL_ADDRESS *a2, const void *a3, __int64 a4)
@@ -34,10 +34,10 @@ _QWORD *__fastcall HalpInterruptBuildStartupStub(PVOID *a1, PHYSICAL_ADDRESS *a2
   memmove(*a1, HalpRMStub, 0x67CuLL);
   v11 = v9 + 1660;
   *(_OWORD *)v11 = HalpPMStub;
-  *((_OWORD *)v11 + 1) = xmmword_14001FA90;
-  *((_OWORD *)v11 + 2) = xmmword_14001FAA0;
-  *((_OWORD *)v11 + 3) = xmmword_14001FAB0;
-  *((_OWORD *)v11 + 4) = xmmword_14001FAC0;
+  *((_OWORD *)v11 + 1) = xmmword_14001FB40;
+  *((_OWORD *)v11 + 2) = xmmword_14001FB50;
+  *((_OWORD *)v11 + 3) = xmmword_14001FB60;
+  *((_OWORD *)v11 + 4) = xmmword_14001FB70;
   *((_QWORD *)v11 + 10) = 0x90878B300FLL;
   *((_DWORD *)v11 + 22) = -4185585;
   *((_WORD *)v11 + 46) = 26223;

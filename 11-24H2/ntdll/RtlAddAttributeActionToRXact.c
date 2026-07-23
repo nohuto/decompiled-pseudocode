@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAddAttributeActionToRXact @ 0x18010B220
+ * XREFs of RtlAddAttributeActionToRXact @ 0x180105FC0
  * Callers:
- *     RtlAddActionToRXact @ 0x18010B1D0 (RtlAddActionToRXact.c)
+ *     RtlAddActionToRXact @ 0x180105F70 (RtlAddActionToRXact.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlAddAttributeActionToRXact(
@@ -46,12 +46,12 @@ __int64 __fastcall RtlAddAttributeActionToRXact(
     do
       v15 *= 2;
     while ( v15 < v14 );
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v15);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
     v24 = Heap;
     if ( Heap )
     {
       memmove(Heap, *(const void **)(a1 + 24), *(unsigned int *)(*(_QWORD *)(a1 + 24) + 8LL));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(_QWORD *)(a1 + 24));
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 24));
       *(_QWORD *)(a1 + 24) = v24;
       v24[1] = v15;
       goto LABEL_4;

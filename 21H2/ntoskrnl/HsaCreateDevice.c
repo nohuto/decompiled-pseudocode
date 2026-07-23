@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaCreateDevice @ 0x1404E28A0
+ * XREFs of HsaCreateDevice @ 0x1404E2AE0
  * Callers:
  *     <none>
  * Callees:
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
- *     HsaQueryAcpiDeviceMapping @ 0x1404E4270 (HsaQueryAcpiDeviceMapping.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D55FC (ExtEnvFreeMemory.c)
+ *     HsaQueryAcpiDeviceMapping @ 0x1404E44B0 (HsaQueryAcpiDeviceMapping.c)
  */
 
 __int64 __fastcall HsaCreateDevice(__int64 a1, unsigned __int16 *a2, __int64 a3, unsigned __int64 *a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpDisableStackWalkApc @ 0x1404B7520
+ * XREFs of EtwpDisableStackWalkApc @ 0x1404B1D00
  * Callers:
  *     <none>
  * Callees:

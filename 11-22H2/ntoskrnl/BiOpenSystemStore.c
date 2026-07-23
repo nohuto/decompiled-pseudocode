@@ -111,7 +111,7 @@ LABEL_11:
       v13 = v12 - 1;
       if ( !v13 )
       {
-        v5 = BiBindEfiNamespaceObjects(v2);
+        v5 = BiBindEfiNamespaceObjects((HANDLE)v2);
         v14 = (unsigned int)v5;
         if ( v5 >= 0 )
           goto LABEL_15;

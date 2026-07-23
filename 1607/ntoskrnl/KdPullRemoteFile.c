@@ -1,16 +1,16 @@
 /*
- * XREFs of KdPullRemoteFile @ 0x1406F2368
+ * XREFs of KdPullRemoteFile @ 0x1406F2000
  * Callers:
- *     MiCreateSectionForDriver @ 0x14047D2C8 (MiCreateSectionForDriver.c)
+ *     MiCreateSectionForDriver @ 0x14048338C (MiCreateSectionForDriver.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ZwWriteFile @ 0x140159D80 (ZwWriteFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateFile @ 0x14015A720 (ZwCreateFile.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ZwWriteFile @ 0x14015A2F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x14015AC90 (ZwCreateFile.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     KdpCreateRemoteFile @ 0x1406F2438 (KdpCreateRemoteFile.c)
+ *     KdpCreateRemoteFile @ 0x1406F20D0 (KdpCreateRemoteFile.c)
  *     KdpCloseRemoteFile @ 0x1406F6720 (KdpCloseRemoteFile.c)
  *     KdpReadRemoteFile @ 0x1406F6854 (KdpReadRemoteFile.c)
  */

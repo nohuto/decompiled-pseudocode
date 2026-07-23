@@ -19,11 +19,11 @@
 __int64 __fastcall PspIoRateEntryActivate(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   int v5; // edx
-  struct _EX_RUNDOWN_REF *v6; // rbx
+  _RTL_BALANCED_NODE *v6; // rbx
   __int64 v10; // r8
   int started; // esi
   __int64 v12; // rdi
-  unsigned __int64 v14; // rax
+  _RTL_BALANCED_NODE *v14; // rax
   __int64 v15; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-21h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-11h] BYREF
@@ -48,8 +48,8 @@ __int64 __fastcall PspIoRateEntryActivate(__int64 a1, __int64 a2, __int64 a3, _B
     started = ZwCreateFile(&Handle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x20u, 0LL, 0);
     if ( started < 0 )
       goto LABEL_13;
-    v14 = IoDiskIoAttributionAllocate(a2, *(_QWORD *)(a2 + 1336));
-    v6 = (struct _EX_RUNDOWN_REF *)v14;
+    v14 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate(a2, *(_QWORD *)(a2 + 1336));
+    v6 = v14;
     if ( !v14 )
     {
       started = -1073741670;

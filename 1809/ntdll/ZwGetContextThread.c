@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetContextThread @ 0x1800A2050
+ * XREFs of ZwGetContextThread @ 0x1800A2070
  * Callers:
  *     RtlRemoteCall @ 0x1800FB0D0 (RtlRemoteCall.c)
  *     RtlpSaveUmsDebugRegisterState @ 0x18010C094 (RtlpSaveUmsDebugRegisterState.c)
@@ -8,11 +8,11 @@
  *     <none>
  */
 
-__int64 ZwGetContextThread()
+NTSTATUS __cdecl ZwGetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 236LL;
+  result = 236;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

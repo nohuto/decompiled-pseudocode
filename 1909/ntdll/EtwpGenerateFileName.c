@@ -14,7 +14,7 @@
  *     wcsstr @ 0x180092C50 (wcsstr.c)
  */
 
-ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int32 *a2, UNICODE_STRING *a3)
+ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int32 *a2, _UNICODE_STRING *a3)
 {
   wchar_t *v6; // rsi
   NTSTATUS v8; // ecx

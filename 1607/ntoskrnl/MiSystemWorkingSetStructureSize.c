@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSystemWorkingSetStructureSize @ 0x1405547C0
+ * XREFs of MiSystemWorkingSetStructureSize @ 0x140554D00
  * Callers:
- *     MiAssignSharedUserRanges @ 0x14013D1A0 (MiAssignSharedUserRanges.c)
+ *     MiAssignSharedUserRanges @ 0x14013D710 (MiAssignSharedUserRanges.c)
  * Callees:
  *     <none>
  */

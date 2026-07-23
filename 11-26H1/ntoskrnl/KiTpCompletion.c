@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTpCompletion @ 0x140C56010
+ * XREFs of KiTpCompletion @ 0x140C5C010
  * Callers:
- *     KiTpHandleTrap @ 0x1405FC460 (KiTpHandleTrap.c)
+ *     KiTpHandleTrap @ 0x1405FEEB0 (KiTpHandleTrap.c)
  * Callees:
- *     RtlpIcEmulateInstruction @ 0x140C569F8 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140C5C9F8 (RtlpIcEmulateInstruction.c)
  */
 
 __int64 __fastcall KiTpCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
@@ -17,7 +17,7 @@ __int64 __fastcall KiTpCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned _
 
   CurrentPrcb = KeGetCurrentPrcb();
   TracepointLog = CurrentPrcb->TracepointLog;
-  if ( !TracepointLog || CurrentPrcb->IpiFrozen || ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 )
+  if ( !TracepointLog || CurrentPrcb->IpiFrozen || ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 )
   {
     v9 = 0LL;
   }

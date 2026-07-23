@@ -21,11 +21,10 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   __int64 v13; // r10
   __int64 v14; // rdx
   __int16 v15; // r8
-  PVOID v16; // rax
-  void *v17; // rdi
+  wchar_t *v16; // rax
+  wchar_t *v17; // rdi
   __int64 v18; // r8
-  _BYTE v19[8]; // [rsp+20h] [rbp-38h] BYREF
-  PVOID v20; // [rsp+28h] [rbp-30h]
+  UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
 
   result = 3221225524LL;
   InstalledLanguageIndexByName = -1073741772;
@@ -39,15 +38,15 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
     if ( !*(_WORD *)(v11 + 6) )
     {
 LABEL_15:
-      v16 = sub_14013A7C0(v12, 0x55u);
+      v16 = (wchar_t *)sub_14013A7C0(v12, 0x55u);
       v17 = v16;
       if ( v16 )
       {
         if ( a3 )
         {
-          v20 = v16;
-          if ( (unsigned __int8)RtlLCIDToCultureName(a2, v19) )
-            InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, v20, v18, a4);
+          String.Buffer = v16;
+          if ( RtlLCIDToCultureName(a2, &String) )
+            InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, String.Buffer, v18, a4);
         }
         ExFreePoolWithTag(v17, 0);
         if ( v10 && InstalledLanguageIndexByName == -1073741772 )

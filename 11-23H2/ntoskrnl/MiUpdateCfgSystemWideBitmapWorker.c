@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1406B19D0
+ * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1406B1A00
  * Callers:
  *     MiUpdateCfgSystemWideBitmap @ 0x1406AB494 (MiUpdateCfgSystemWideBitmap.c)
  * Callees:
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiLocatePagefileSubsection @ 0x140273840 (MiLocatePagefileSubsection.c)
- *     RtlSetBitsEx @ 0x14028B3C0 (RtlSetBitsEx.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     RtlClearAllBitsEx @ 0x14033D1F0 (RtlClearAllBitsEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiLocatePagefileSubsection @ 0x140273AD0 (MiLocatePagefileSubsection.c)
+ *     RtlSetBitsEx @ 0x14028B650 (RtlSetBitsEx.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     RtlClearAllBitsEx @ 0x14033D480 (RtlClearAllBitsEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MiEliminateZeroPages @ 0x140696B90 (MiEliminateZeroPages.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     MiChargeSegmentCommit @ 0x140748008 (MiChargeSegmentCommit.c)
- *     RtlEnumRvaListFirst @ 0x1407C10AC (RtlEnumRvaListFirst.c)
+ *     MiMapViewInSystemSpace @ 0x1406AD6D4 (MiMapViewInSystemSpace.c)
+ *     MiChargeSegmentCommit @ 0x1407481F8 (MiChargeSegmentCommit.c)
+ *     RtlEnumRvaListFirst @ 0x1407C137C (RtlEnumRvaListFirst.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -45,7 +45,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, uns
   unsigned __int64 v28; // r8
   int *v29; // rax
   int v30; // [rsp+30h] [rbp-41h] BYREF
-  unsigned __int64 v31[2]; // [rsp+38h] [rbp-39h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+38h] [rbp-39h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+48h] [rbp-29h] BYREF
   _DWORD *v33; // [rsp+50h] [rbp-21h]
   unsigned __int64 v34; // [rsp+58h] [rbp-19h]
@@ -64,24 +64,27 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, uns
     v7 = *(_QWORD *)(a2 + 8);
   v8 = a3 >> 3;
   v35 = a3 >> 3;
-  v31[0] = a4 >> 3;
+  BitMapHeader.SizeOfBitMap = a4 >> 3;
   v34 = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
-  result = MiMapViewInSystemSpace(a1, &BugCheckParameter1, v31, (__int64 *)&v35, 0LL, 0LL);
+  result = MiMapViewInSystemSpace(a1, &BugCheckParameter1, &BitMapHeader.SizeOfBitMap, (__int64 *)&v35, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
-    v10 = v31[0] - (unsigned __int16)v8;
+    v10 = BitMapHeader.SizeOfBitMap - (unsigned __int16)v8;
     v11 = BugCheckParameter1 | (unsigned __int16)v8;
     v12 = MiSectionControlArea(a1);
-    v31[0] = v8 >> 12;
-    PagefileSubsection = MiLocatePagefileSubsection((unsigned int *)(v12 + 128), v31);
-    if ( (unsigned int)MiChargeSegmentCommit(PagefileSubsection, *((_QWORD *)PagefileSubsection + 1) + 8 * v31[0], v34) )
+    BitMapHeader.SizeOfBitMap = v8 >> 12;
+    PagefileSubsection = MiLocatePagefileSubsection((unsigned int *)(v12 + 128), &BitMapHeader.SizeOfBitMap);
+    if ( (unsigned int)MiChargeSegmentCommit(
+                         PagefileSubsection,
+                         *((_QWORD *)PagefileSubsection + 1) + 8 * BitMapHeader.SizeOfBitMap,
+                         v34) )
     {
       v14 = v33;
       if ( v33 && (*v33 & 1) != 0 && v7 )
       {
-        v31[1] = v11;
-        v31[0] = a4;
-        RtlClearAllBitsEx((__int64)v31);
+        BitMapHeader.Buffer = (unsigned __int64 *)v11;
+        BitMapHeader.SizeOfBitMap = a4;
+        RtlClearAllBitsEx(&BitMapHeader);
         v15 = RtlEnumRvaListFirst(v7, &BugCheckParameter3, &v30);
         if ( v15 )
         {
@@ -107,7 +110,7 @@ LABEL_14:
             }
             else
             {
-              RtlSetBitsEx((__int64)v31, 2 * ((unsigned __int64)v15 >> 4), 2uLL);
+              RtlSetBitsEx((__int64)&BitMapHeader, 2 * ((unsigned __int64)v15 >> 4), 2uLL);
             }
 LABEL_15:
             ++HIDWORD(BugCheckParameter3);

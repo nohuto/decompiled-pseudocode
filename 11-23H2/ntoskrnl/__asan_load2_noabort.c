@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_load2_noabort @ 0x140565D80
+ * XREFs of __asan_load2_noabort @ 0x140566440
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall _asan_load2_noabort(ULONG_PTR BugCheckParameter1)

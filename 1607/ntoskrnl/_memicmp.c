@@ -1,5 +1,5 @@
 /*
- * XREFs of _memicmp @ 0x1401592E8
+ * XREFs of _memicmp @ 0x140159858
  * Callers:
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:

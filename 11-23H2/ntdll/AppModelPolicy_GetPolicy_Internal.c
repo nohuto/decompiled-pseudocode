@@ -6,18 +6,23 @@
  *     RtlQueryPackageClaims @ 0x18006E550 (RtlQueryPackageClaims.c)
  */
 
-__int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD *a3, _DWORD *a4, _QWORD *a5)
+__int64 __fastcall AppModelPolicy_GetPolicy_Internal(
+        __int64 a1,
+        int a2,
+        _DWORD *a3,
+        _PS_PKG_CLAIM *a4,
+        unsigned __int64 *a5)
 {
-  int PackageClaims; // eax
-  unsigned int v9; // r8d
+  NTSTATUS PackageClaims; // eax
+  unsigned __int32 v9; // r8d
   _DWORD *v10; // rax
 
-  PackageClaims = RtlQueryPackageClaims(-4, 0, 0, 0, 0LL, 0LL, (__int64)a4, (__int64)a5);
+  PackageClaims = RtlQueryPackageClaims((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0LL, 0LL, 0LL, 0LL, 0LL, a4, a5);
   v9 = PackageClaims;
   if ( PackageClaims == -1073741275 )
   {
     *a5 = 0LL;
-    *a4 = 0;
+    a4->Flags = 0;
     v9 = 0;
   }
   else
@@ -32,38 +37,38 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD 
     {
       v10 = &unk_18013E934;
     }
-    else if ( (*a4 & 0x10000) != 0 )
+    else if ( (a4->Flags & 0x10000) != 0 )
     {
       v10 = &unk_18013E930;
     }
-    else if ( (*a4 & 0x4000) != 0 )
+    else if ( (a4->Flags & 0x4000) != 0 )
     {
       v10 = &unk_18013E938;
     }
-    else if ( (*(_BYTE *)a4 & 4) != 0 )
+    else if ( (a4->Flags & 4) != 0 )
     {
       v10 = &unk_18013E914;
     }
-    else if ( (*a4 & 0x40400) != 0 )
+    else if ( (a4->Flags & 0x40400) != 0 )
     {
       v10 = &unk_18013E924;
     }
-    else if ( (*a4 & 0x800) != 0 )
+    else if ( (a4->Flags & 0x800) != 0 )
     {
       v10 = &unk_18013E928;
     }
-    else if ( (*(_BYTE *)a4 & 0x40) != 0 )
+    else if ( (a4->Flags & 0x40) != 0 )
     {
       v10 = &unk_18013E920;
     }
-    else if ( (*a4 & 0x1000) != 0 )
+    else if ( (a4->Flags & 0x1000) != 0 )
     {
       v10 = &unk_18013E92C;
     }
     else
     {
       v10 = &unk_18013E91C;
-      if ( (*(_BYTE *)a4 & 8) == 0 )
+      if ( (a4->Flags & 8) == 0 )
         v10 = &`AppModelPolicy_GetPolicy_Internal'::`2'::AppModelPolicy_PolicyValue_Table;
     }
   }

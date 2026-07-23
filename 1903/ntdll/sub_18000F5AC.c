@@ -18,21 +18,21 @@ __int64 __fastcall sub_18000F5AC(
         unsigned __int8 *a4,
         unsigned __int8 *a5,
         unsigned __int8 *a6,
-        __int64 *a7,
+        ACL **a7,
         _DWORD *a8)
 {
   unsigned __int8 *v8; // r11
   unsigned int v9; // ebx
   unsigned __int8 *v10; // rsi
-  unsigned int v14; // edi
-  __int64 v15; // r15
+  ULONG v14; // edi
+  ACL *v15; // r15
   _DWORD *v17; // rdx
   unsigned int v18; // ecx
   unsigned __int8 *v19; // r8
   unsigned int j; // r10d
-  unsigned int v21; // esi
-  __int64 Heap; // rax
-  int Acl; // edi
+  ULONG v21; // esi
+  ACL *Heap; // rax
+  NTSTATUS Acl; // edi
   char *v24; // rsi
   unsigned __int16 *v25; // rbp
   unsigned int jj; // r14d
@@ -67,7 +67,7 @@ __int64 __fastcall sub_18000F5AC(
   __int64 v55; // rax
   unsigned __int16 *v56; // rbp
   __int64 v57; // rax
-  void *v58; // [rsp+60h] [rbp+8h] BYREF
+  PVOID FirstFree; // [rsp+60h] [rbp+8h] BYREF
   unsigned __int8 *v59; // [rsp+70h] [rbp+18h]
   unsigned __int8 *v60; // [rsp+78h] [rbp+20h]
 
@@ -76,7 +76,7 @@ __int64 __fastcall sub_18000F5AC(
   v8 = a5;
   v9 = 0;
   v10 = a6;
-  v58 = 0LL;
+  FirstFree = 0LL;
   v14 = 2;
   v15 = 0LL;
   if ( !a1 && !a2 && !a3 && !a4 && !a5 && !a6 )
@@ -203,25 +203,25 @@ LABEL_131:
   else
   {
     v21 = (v18 + 3) & 0xFFFFFFFC;
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(dword_18016542C + 1310720), v21);
+    Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, Flags + 1310720, v21);
     v15 = Heap;
     if ( Heap )
     {
       Acl = RtlCreateAcl(Heap, v21, v14);
       if ( Acl >= 0 )
       {
-        if ( (unsigned __int8)RtlFirstFreeAce(v15, &v58) )
+        if ( RtlFirstFreeAce(v15, &FirstFree) )
         {
           if ( a1 && (v43 = (unsigned __int16 *)(a1 + 8), v44 = 0, *((_WORD *)a1 + 2)) )
           {
-            v24 = (char *)v58;
+            v24 = (char *)FirstFree;
             do
             {
               v45 = *(_BYTE *)v43;
               if ( *(_BYTE *)v43 >= 2u && (v45 <= 3u || v45 > 6u && (v45 <= 8u || (unsigned __int8)(v45 - 13) <= 3u)) )
               {
                 memmove(v24, v43, v43[1]);
-                ++*(_WORD *)(v15 + 4);
+                ++v15->AceCount;
                 v46 = v43[1];
                 v24 += v46;
               }
@@ -236,7 +236,7 @@ LABEL_131:
           }
           else
           {
-            v24 = (char *)v58;
+            v24 = (char *)FirstFree;
           }
           if ( a2 )
           {
@@ -248,7 +248,7 @@ LABEL_131:
               if ( *(_BYTE *)v25 == 17 )
               {
                 memmove(v24, v25, v25[1]);
-                ++*(_WORD *)(v15 + 4);
+                ++v15->AceCount;
                 v27 = v25[1];
                 v24 += v27;
               }
@@ -271,7 +271,7 @@ LABEL_131:
                 if ( *(_BYTE *)v47 == 20 )
                 {
                   memmove(v24, v47, v47[1]);
-                  ++*(_WORD *)(v15 + 4);
+                  ++v15->AceCount;
                   v49 = v47[1];
                   v24 += v49;
                 }
@@ -297,7 +297,7 @@ LABEL_131:
                 if ( *(_BYTE *)v50 == 21 )
                 {
                   memmove(v24, v50, v50[1]);
-                  ++*(_WORD *)(v15 + 4);
+                  ++v15->AceCount;
                   v52 = v50[1];
                   v24 += v52;
                 }
@@ -323,7 +323,7 @@ LABEL_131:
                 if ( *(_BYTE *)v53 == 18 )
                 {
                   memmove(v24, v53, v53[1]);
-                  ++*(_WORD *)(v15 + 4);
+                  ++v15->AceCount;
                   v55 = v53[1];
                   v24 += v55;
                 }
@@ -348,7 +348,7 @@ LABEL_131:
                 if ( *(_BYTE *)v56 == 19 )
                 {
                   memmove(v24, v56, v56[1]);
-                  ++*(_WORD *)(v15 + 4);
+                  ++v15->AceCount;
                   v57 = v56[1];
                   v24 += v57;
                 }
@@ -366,7 +366,7 @@ LABEL_131:
         }
         Acl = -1073741699;
       }
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v15);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
       v15 = 0LL;
     }
     else

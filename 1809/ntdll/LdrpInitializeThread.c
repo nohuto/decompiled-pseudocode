@@ -1,7 +1,7 @@
 /*
  * XREFs of LdrpInitializeThread @ 0x18002356C
  * Callers:
- *     _LdrpInitialize @ 0x18007874C (_LdrpInitialize.c)
+ *     _LdrpInitialize @ 0x18007875C (_LdrpInitialize.c)
  * Callees:
  *     RtlActivateActivationContextUnsafeFast @ 0x1800237A0 (RtlActivateActivationContextUnsafeFast.c)
  *     RtlDeactivateActivationContextUnsafeFast @ 0x180025950 (RtlDeactivateActivationContextUnsafeFast.c)
@@ -11,11 +11,11 @@
  *     LdrpReleaseLoaderLock @ 0x18002AFD4 (LdrpReleaseLoaderLock.c)
  *     LdrpAcquireLoaderLock @ 0x18002B034 (LdrpAcquireLoaderLock.c)
  *     LdrpAllocateTls @ 0x18003673C (LdrpAllocateTls.c)
- *     RtlpInitializeThreadActivationContextStack @ 0x1800765A8 (RtlpInitializeThreadActivationContextStack.c)
- *     LdrpDropLastInProgressCount @ 0x180079EDC (LdrpDropLastInProgressCount.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwTerminateProcess @ 0x1800A0860 (ZwTerminateProcess.c)
- *     ZwDelayExecution @ 0x1800A0960 (ZwDelayExecution.c)
+ *     RtlpInitializeThreadActivationContextStack @ 0x1800765B8 (RtlpInitializeThreadActivationContextStack.c)
+ *     LdrpDropLastInProgressCount @ 0x180079EEC (LdrpDropLastInProgressCount.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwTerminateProcess @ 0x1800A0880 (ZwTerminateProcess.c)
+ *     ZwDelayExecution @ 0x1800A0980 (ZwDelayExecution.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
@@ -25,8 +25,8 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   _PEB *ProcessEnvironmentBlock; // rsi
   __int64 v5; // r10
   __int64 result; // rax
-  int Tls; // eax
-  unsigned int v8; // ebx
+  NTSTATUS Tls; // eax
+  NTSTATUS v8; // ebx
   __int64 v9; // rcx
   __int64 i; // rbx
   int v11; // eax
@@ -41,7 +41,7 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   __int64 v20; // [rsp+80h] [rbp-58h] BYREF
   int v21; // [rsp+88h] [rbp-50h]
   _BYTE v22[56]; // [rsp+90h] [rbp-48h] BYREF
-  __int64 v23; // [rsp+E8h] [rbp+10h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+E8h] [rbp+10h] BYREF
 
   v3 = NtCurrentTeb();
   ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
@@ -64,12 +64,12 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
         v8 = Tls;
         if ( Tls != -1073741801 )
           break;
-        v23 = -3000000LL;
-        ZwDelayExecution(0LL, &v23);
+        DelayInterval.QuadPart = -3000000LL;
+        ZwDelayExecution(0, &DelayInterval);
       }
       if ( Tls < 0 )
       {
-        ZwTerminateProcess(-1LL, (unsigned int)Tls);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, Tls);
         RtlRaiseStatus(v8);
       }
       LdrpDrainWorkQueue(0LL);

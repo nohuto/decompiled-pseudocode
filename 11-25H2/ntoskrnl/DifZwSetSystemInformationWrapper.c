@@ -11,7 +11,10 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwSetSystemInformationWrapper(unsigned int a1, __int64 a2, int a3)
+__int64 __fastcall DifZwSetSystemInformationWrapper(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v7; // rsi
@@ -41,9 +44,9 @@ __int64 __fastcall DifZwSetSystemInformationWrapper(unsigned int a1, __int64 a2,
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v9 = 0;
-    DWORD2(v16) = a1;
-    *(_QWORD *)&v16 = a2;
-    DWORD2(v15) = a3;
+    DWORD2(v16) = SystemInformationClass;
+    *(_QWORD *)&v16 = SystemInformation;
+    DWORD2(v15) = SystemInformationLength;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v9 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -56,7 +59,7 @@ __int64 __fastcall DifZwSetSystemInformationWrapper(unsigned int a1, __int64 a2,
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  HIDWORD(v16) = ZwSetSystemInformation(a1, a2);
+  HIDWORD(v16) = ZwSetSystemInformation(SystemInformationClass, SystemInformation, SystemInformationLength);
   if ( v7 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -16,69 +16,74 @@
 ULONG __fastcall EtwpRegisterProvider(__int64 a1, __int64 a2, int a3)
 {
   char v6; // bp
-  _BYTE *Heap; // rbx
-  NTSTATUS v8; // eax
-  __int128 v9; // xmm0
-  NTSTATUS v10; // eax
-  ULONG v11; // esi
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  unsigned int v15; // [rsp+30h] [rbp-C8h]
-  _BYTE v16[160]; // [rsp+38h] [rbp-C0h] BYREF
+  _QWORD *v7; // rbx
+  ULONG OutputBufferLength; // esi
+  NTSTATUS v9; // eax
+  __int128 v10; // xmm0
+  NTSTATUS v11; // eax
+  ULONG v12; // esi
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  _QWORD *Heap; // rax
+  ULONG ReturnLength; // [rsp+30h] [rbp-C8h] BYREF
+  _BYTE InputBuffer[160]; // [rsp+38h] [rbp-C0h] BYREF
 
   v6 = 0;
-  memset(v16, 0, sizeof(v16));
-  Heap = v16;
+  memset(InputBuffer, 0, sizeof(InputBuffer));
+  v7 = InputBuffer;
+  OutputBufferLength = 160;
   if ( !byte_18015F3E8 )
   {
-    v8 = RtlRunOnceExecuteOnce(&EtwpRegisterTpInitOnce, EtwpRegisterTpNotificationOnce, 0LL, 0LL);
-    if ( v8 )
-      return RtlNtStatusToDosError(v8);
+    v9 = RtlRunOnceExecuteOnce(&EtwpRegisterTpInitOnce, (PRTL_RUN_ONCE_INIT_FN)EtwpRegisterTpNotificationOnce, 0LL, 0LL);
+    if ( v9 )
+      return RtlNtStatusToDosError(v9);
   }
   while ( 1 )
   {
-    v9 = *(_OWORD *)(a1 + 32);
-    *((_DWORD *)Heap + 4) = a3;
-    *(_OWORD *)Heap = v9;
-    *((_DWORD *)Heap + 5) = *(unsigned __int16 *)(a1 + 96);
-    *((_QWORD *)Heap + 4) = a2;
-    v10 = NtTraceControl(15LL, Heap, 160LL);
-    if ( v10 != -1073741789 )
+    v10 = *(_OWORD *)(a1 + 32);
+    *((_DWORD *)v7 + 4) = a3;
+    *(_OWORD *)v7 = v10;
+    *((_DWORD *)v7 + 5) = *(unsigned __int16 *)(a1 + 96);
+    v7[4] = a2;
+    v11 = NtTraceControl(EtwRegisterGuidsCode, v7, 0xA0u, v7, OutputBufferLength, &ReturnLength);
+    if ( v11 != -1073741789 )
       break;
     if ( v6 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     v6 = 1;
-    Heap = (_BYTE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v15);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ReturnLength);
+    OutputBufferLength = ReturnLength;
+    v7 = Heap;
     if ( !Heap )
     {
-      v10 = -1073741801;
+      v11 = -1073741801;
       break;
     }
   }
-  if ( !v10 )
+  if ( !v11 )
   {
-    v11 = 0;
+    v12 = 0;
 LABEL_6:
-    *(_QWORD *)(a1 + 88) = *((_QWORD *)Heap + 3);
+    *(_QWORD *)(a1 + 88) = v7[3];
     if ( (unsigned int)(a3 - 2) <= 1 )
-      EtwpUpdateEnableInfoAndCallback(a1, (__int64)(Heap + 40));
-    v12 = *(_QWORD *)(a1 + 32) - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
-    if ( !v12 )
-      v12 = *(_QWORD *)(a1 + 40) - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
-    v13 = PrivateLoggerNotificationEntry;
-    if ( !v12 )
-      v13 = a1;
-    PrivateLoggerNotificationEntry = v13;
+      EtwpUpdateEnableInfoAndCallback(a1, (__int64)(v7 + 5));
+    v13 = *(_QWORD *)(a1 + 32) - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
+    if ( !v13 )
+      v13 = *(_QWORD *)(a1 + 40) - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
+    v14 = PrivateLoggerNotificationEntry;
+    if ( !v13 )
+      v14 = a1;
+    PrivateLoggerNotificationEntry = v14;
     goto LABEL_13;
   }
-  v11 = RtlNtStatusToDosError(v10);
-  if ( !v11 )
+  v12 = RtlNtStatusToDosError(v11);
+  if ( !v12 )
     goto LABEL_6;
 LABEL_13:
   if ( v6 )
   {
-    if ( Heap )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    if ( v7 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   }
-  return v11;
+  return v12;
 }

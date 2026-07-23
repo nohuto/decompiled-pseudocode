@@ -1,12 +1,12 @@
 /*
- * XREFs of VfBugCheckNoStackUsage @ 0x140223398
+ * XREFs of VfBugCheckNoStackUsage @ 0x1402231C4
  * Callers:
  *     IovCallDriver @ 0x140700AD4 (IovCallDriver.c)
  *     IovpCallDriverWithStackBuffer @ 0x14070126C (IovpCallDriverWithStackBuffer.c)
- *     VfAfterCallDriver @ 0x14070B8E0 (VfAfterCallDriver.c)
- *     VfBeforeCallDriver @ 0x14070BAA8 (VfBeforeCallDriver.c)
+ *     VfAfterCallDriver @ 0x14070B910 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x14070BAD8 (VfBeforeCallDriver.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __noreturn VfBugCheckNoStackUsage()

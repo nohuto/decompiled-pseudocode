@@ -10,7 +10,7 @@
  *     SeSinglePrivilegeCheck @ 0x140858330 (SeSinglePrivilegeCheck.c)
  */
 
-NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
+NTSTATUS __cdecl NtSetDefaultHardErrorPort(HANDLE DefaultHardErrorPort)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rbx
   NTSTATUS result; // eax
@@ -23,7 +23,13 @@ NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
   if ( LODWORD(CurrentServerSiloGlobals[54].Flink) == 1 )
     return -1073741823;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 0, LpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             DefaultHardErrorPort,
+             0,
+             LpcPortObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
   CurrentServerSiloGlobals[53].Blink = (struct _LIST_ENTRY *)Object;
   if ( result >= 0 )
   {

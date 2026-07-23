@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAddPrivateDataToCrashDump @ 0x140538490
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x1405386D0
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B798 (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopLiveDumpMarkImportantDumpData @ 0x1409ACA58 (IopLiveDumpMarkImportantDumpData.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x1409ACDEC (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B9D8 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x1409AD988 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1409ADD1C (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MiAddPartitionDataToCrashDump @ 0x140537938 (MiAddPartitionDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MiAddPartitionDataToCrashDump @ 0x140537B78 (MiAddPartitionDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, _QWORD, __int64), char a2)
@@ -45,20 +45,20 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   }
   if ( (a2 & 4) != 0 )
   {
-    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - PsNtosImageBase);
+    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - (_QWORD)PsNtosImageBase);
     if ( v9 < 0 )
       v2 = v9;
   }
   if ( (a2 & 8) != 0 )
   {
-    v10 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - PsHalImageBase);
+    v10 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - (_QWORD)PsHalImageBase);
     if ( v10 < 0 )
       v2 = v10;
   }
   if ( (a2 & 0x10) != 0 )
   {
-    v11 = (__int64 *)qword_140C4EF00;
-    while ( v11 != &qword_140C4EF00 )
+    v11 = (__int64 *)qword_140C4EF40;
+    while ( v11 != &qword_140C4EF40 )
     {
       v12 = MmAddRangeToCrashDump(a1, v11 - 16, 20480LL);
       v11 = (__int64 *)*v11;

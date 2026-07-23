@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPostInsertVad @ 0x140316744
+ * XREFs of MiPostInsertVad @ 0x140318774
  * Callers:
- *     MiPerformVadSplitting @ 0x140315B44 (MiPerformVadSplitting.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
+ *     MiPerformVadSplitting @ 0x140317B74 (MiPerformVadSplitting.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
  * Callees:
- *     MiUnlockControlAreaFileObjectExclusive @ 0x140315838 (MiUnlockControlAreaFileObjectExclusive.c)
- *     MiLockControlAreaFileObjectExclusive @ 0x1403167F4 (MiLockControlAreaFileObjectExclusive.c)
- *     MiAweViewInserter @ 0x140700B44 (MiAweViewInserter.c)
+ *     MiUnlockControlAreaFileObjectExclusive @ 0x140317868 (MiUnlockControlAreaFileObjectExclusive.c)
+ *     MiLockControlAreaFileObjectExclusive @ 0x140318824 (MiLockControlAreaFileObjectExclusive.c)
+ *     MiAweViewInserter @ 0x140705814 (MiAweViewInserter.c)
  */
 
 void __fastcall MiPostInsertVad(__int64 a1, __int64 a2, __int64 a3)

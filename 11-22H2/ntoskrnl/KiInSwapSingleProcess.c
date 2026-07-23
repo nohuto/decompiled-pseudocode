@@ -34,7 +34,7 @@ char __fastcall KiInSwapSingleProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 
     {
       *(_BYTE *)(a1 + 643) = 23;
       *(_BYTE *)(a1 + 390) = v4;
-      KiSwapThread(a1, (__int64)CurrentPrcb, 0LL, v7);
+      KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, 0LL, v7);
       return v6;
     }
   }
@@ -43,10 +43,13 @@ char __fastcall KiInSwapSingleProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 
     _InterlockedAnd((volatile signed __int32 *)a2, 0xFFFFFF7F);
     v6 = 0;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       v11 = KeGetCurrentPrcb();
       SchedulerAssist = v11->SchedulerAssist;

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     _except1 @ 0x18009F150 (_except1.c)
- *     _handle_qnan1 @ 0x18009F4B0 (_handle_qnan1.c)
- *     _sptype @ 0x18009FA10 (_sptype.c)
- *     _ctrlfp @ 0x18009FAB0 (_ctrlfp.c)
+ *     _except1 @ 0x18009F140 (_except1.c)
+ *     _handle_qnan1 @ 0x18009F4A0 (_handle_qnan1.c)
+ *     _sptype @ 0x18009FA00 (_sptype.c)
+ *     _ctrlfp @ 0x18009FAA0 (_ctrlfp.c)
  */
 
 double __cdecl fabs(double X)

@@ -1,15 +1,15 @@
 /*
- * XREFs of SeComputeAutoInheritByObjectTypeEx @ 0x140455AC0
+ * XREFs of SeComputeAutoInheritByObjectTypeEx @ 0x14044DBF0
  * Callers:
- *     SeComputeAutoInheritByObjectType @ 0x140455A90 (SeComputeAutoInheritByObjectType.c)
- *     ObpInsertOrLocateNamedObject @ 0x1408EEAF0 (ObpInsertOrLocateNamedObject.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     ObpAssignSecurity @ 0x140A48D50 (ObpAssignSecurity.c)
+ *     SeComputeAutoInheritByObjectType @ 0x14044DBC0 (SeComputeAutoInheritByObjectType.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1408F50B0 (ObpInsertOrLocateNamedObject.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObpAssignSecurity @ 0x140A52040 (ObpAssignSecurity.c)
  * Callees:
- *     RtlFindAceByType @ 0x1404330E0 (RtlFindAceByType.c)
+ *     RtlFindAceByType @ 0x1404281B0 (RtlFindAceByType.c)
  */
 
-__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, int *a4, _DWORD *a5)
+__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, int *a4, _DWORD *Index)
 {
   _DWORD *v5; // rdi
   char v7; // r8
@@ -25,19 +25,19 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
   unsigned int v19; // r9d
   _BYTE *v20; // rcx
   __int16 v21; // ax
-  __int64 v22; // rcx
+  ACL *v22; // rcx
   __int64 v23; // rax
-  unsigned __int8 *AceByType; // rax
+  _BYTE *AceByType; // rax
 
-  v5 = a5;
+  v5 = Index;
   v7 = 0;
   v8 = 0;
   v9 = 0;
-  if ( a5 )
+  if ( Index )
   {
-    if ( *a5 != 8 )
+    if ( *Index != 8 )
       return 3221225485LL;
-    a5[1] = -1;
+    Index[1] = -1;
   }
   v12 = *(_DWORD *)(a1 + 216);
   if ( v12 )
@@ -91,7 +91,7 @@ LABEL_10:
   {
     if ( a2 )
     {
-      LODWORD(a5) = 0;
+      LODWORD(Index) = 0;
       while ( 1 )
       {
         v21 = *(_WORD *)(a2 + 2);
@@ -99,25 +99,25 @@ LABEL_10:
         {
           if ( v21 >= 0 )
           {
-            v22 = *(_QWORD *)(a2 + 24);
+            v22 = *(ACL **)(a2 + 24);
           }
           else
           {
             v23 = *(unsigned int *)(a2 + 12);
-            v22 = (_DWORD)v23 ? a2 + v23 : 0LL;
+            v22 = (_DWORD)v23 ? (ACL *)(a2 + v23) : 0LL;
           }
         }
         else
         {
           v22 = 0LL;
         }
-        AceByType = RtlFindAceByType(v22, 17, (unsigned int *)&a5);
+        AceByType = RtlFindAceByType(v22, 0x11u, (PULONG)&Index);
         if ( AceByType )
         {
           if ( (AceByType[1] & 8) == 0 )
             break;
         }
-        LODWORD(a5) = (_DWORD)a5 + 1;
+        LODWORD(Index) = (_DWORD)Index + 1;
         if ( !AceByType )
           goto LABEL_46;
       }

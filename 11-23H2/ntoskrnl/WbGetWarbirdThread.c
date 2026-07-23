@@ -1,20 +1,20 @@
 /*
- * XREFs of WbGetWarbirdThread @ 0x1407631A4
+ * XREFs of WbGetWarbirdThread @ 0x140763394
  * Callers:
- *     sub_14076286C @ 0x14076286C (sub_14076286C.c)
- *     WbHeapExecuteCall @ 0x140762C10 (WbHeapExecuteCall.c)
+ *     sub_140762A5C @ 0x140762A5C (sub_140762A5C.c)
+ *     WbHeapExecuteCall @ 0x140762E00 (WbHeapExecuteCall.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     sub_1407633E4 @ 0x1407633E4 (sub_1407633E4.c)
- *     sub_1407638C0 @ 0x1407638C0 (sub_1407638C0.c)
- *     sub_140763D04 @ 0x140763D04 (sub_140763D04.c)
- *     sub_1407E98BC @ 0x1407E98BC (sub_1407E98BC.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     sub_1407635D4 @ 0x1407635D4 (sub_1407635D4.c)
+ *     sub_140763AB0 @ 0x140763AB0 (sub_140763AB0.c)
+ *     sub_140763EF4 @ 0x140763EF4 (sub_140763EF4.c)
+ *     sub_1407E9B8C @ 0x1407E9B8C (sub_1407E9B8C.c)
  */
 
 __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
@@ -48,7 +48,7 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   if ( v8 )
     *(_BYTE *)(v8 + 18) = 1;
   v21 = 0LL;
-  v9 = sub_1407638C0((int)a1 + 88, (_DWORD)CurrentThread, 8, (unsigned int)&v21, 0LL);
+  v9 = sub_140763AB0((int)a1 + 88, (_DWORD)CurrentThread, 8, (unsigned int)&v21, 0LL);
   if ( v9 >= 0 )
   {
     v10 = (_QWORD *)v21;
@@ -68,7 +68,7 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
     KiCheckForKernelApcDelivery();
   if ( v9 == -1073741198 )
   {
-    v9 = sub_1407E98BC(a1, CurrentThread, &v22);
+    v9 = sub_1407E9B8C(a1, CurrentThread, &v22);
     if ( v9 < 0 )
     {
 LABEL_32:
@@ -84,7 +84,7 @@ LABEL_32:
     if ( v17 )
       *(_BYTE *)(v17 + 18) = 1;
     v18 = v22;
-    v9 = sub_140763D04((int)a1 + 88, (_DWORD)v22, v16, *v22, 8, -1);
+    v9 = sub_140763EF4((int)a1 + 88, (_DWORD)v22, v16, *v22, 8, -1);
     if ( v9 >= 0 )
       _InterlockedAdd64(v18 + 1, 1uLL);
     v19 = _InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL);
@@ -100,6 +100,6 @@ LABEL_32:
     goto LABEL_32;
   *a3 = v22;
 LABEL_18:
-  sub_1407633E4(a1, v7);
+  sub_1407635D4(a1, v7);
   return (unsigned int)v9;
 }

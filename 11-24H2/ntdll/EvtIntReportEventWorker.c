@@ -1,17 +1,17 @@
 /*
- * XREFs of EvtIntReportEventWorker @ 0x1800F4050
+ * XREFs of EvtIntReportEventWorker @ 0x1800EE760
  * Callers:
- *     EvtIntReportEventAndSourceAsync @ 0x1800F3FE0 (EvtIntReportEventAndSourceAsync.c)
- *     EvtIntReportAuthzEventAndSourceAsync @ 0x18015C3F0 (EvtIntReportAuthzEventAndSourceAsync.c)
+ *     EvtIntReportEventAndSourceAsync @ 0x1800EE6F0 (EvtIntReportEventAndSourceAsync.c)
+ *     EvtIntReportAuthzEventAndSourceAsync @ 0x18015A7B0 (EvtIntReportAuthzEventAndSourceAsync.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlValidSid @ 0x180039220 (RtlValidSid.c)
- *     EtwpEventWriteFull @ 0x18003B0D0 (EtwpEventWriteFull.c)
- *     EtwWriteUMSecurityEvent @ 0x1800F44A0 (EtwWriteUMSecurityEvent.c)
- *     _local_unwind @ 0x180121FB0 (_local_unwind.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlValidSid @ 0x1800194A0 (RtlValidSid.c)
+ *     EtwpEventWriteFull @ 0x18001B350 (EtwpEventWriteFull.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     EtwWriteUMSecurityEvent @ 0x1800EEBB0 (EtwWriteUMSecurityEvent.c)
+ *     _local_unwind @ 0x1801201E0 (_local_unwind.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall EvtIntReportEventWorker(
@@ -19,16 +19,16 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
         int a2,
         __int64 a3,
         unsigned __int16 a4,
-        __int16 a5,
+        unsigned __int16 a5,
         char a6,
-        _BYTE *a7,
+        unsigned __int8 *Sid,
         unsigned __int16 a8,
         int a9,
         __int64 a10,
         __int64 a11)
 {
   int v11; // esi
-  _BYTE *v13; // r12
+  unsigned __int8 *v13; // r12
   _BYTE *Heap; // rdi
   unsigned __int8 v15; // r15
   unsigned int v16; // ecx
@@ -38,17 +38,17 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
   unsigned int v20; // r8d
   int v21; // eax
   __int64 v22; // rax
-  __int64 v23; // r8
+  ULONG v23; // r8d
   unsigned int v24; // r9d
   __int64 v25; // rdx
   __int64 v26; // r10
   __int64 v27; // rax
   int v28; // edx
   __int64 v29; // rcx
-  unsigned int v30; // eax
+  LONG v30; // eax
   __int64 v32; // [rsp+0h] [rbp-2D8h] BYREF
   int v33; // [rsp+50h] [rbp-288h]
-  unsigned int v34; // [rsp+54h] [rbp-284h]
+  LONG Win32Error; // [rsp+54h] [rbp-284h]
   int v35; // [rsp+58h] [rbp-280h] BYREF
   int v36; // [rsp+5Ch] [rbp-27Ch] BYREF
   unsigned int i; // [rsp+60h] [rbp-278h]
@@ -57,37 +57,37 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
   _BYTE *v40; // [rsp+70h] [rbp-268h]
   __int64 v41; // [rsp+78h] [rbp-260h]
   __int64 *v42; // [rsp+80h] [rbp-258h]
-  __int128 v43; // [rsp+88h] [rbp-250h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+88h] [rbp-250h] BYREF
   _BYTE v44[512]; // [rsp+A0h] [rbp-238h] BYREF
 
   v42 = &v32;
   v11 = a4;
   v38 = a2;
   v41 = a1;
-  v13 = a7;
-  v34 = 0;
+  v13 = Sid;
+  Win32Error = 0;
   Heap = v44;
   v40 = v44;
-  v43 = 0LL;
+  EventDescriptor = 0LL;
   v39 = 0LL;
   v15 = 0;
   v36 = 0;
   v35 = 0;
   if ( a9 && !a11 || a8 && !a10 || !a3 )
   {
-    v34 = 87;
+    Win32Error = 87;
     goto LABEL_36;
   }
-  v16 = a8 + (a7 != 0LL) + 7;
+  v16 = a8 + (Sid != 0LL) + 7;
   if ( a9 )
     ++v16;
   if ( v16 > 0x20 )
   {
-    Heap = (_BYTE *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 16LL * v16);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 16LL * v16);
     v40 = Heap;
     if ( !Heap )
     {
-      v34 = 8;
+      Win32Error = 8;
       goto LABEL_36;
     }
   }
@@ -113,14 +113,15 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
         break;
     }
   }
-  WORD2(v43) = v15;
-  WORD3(v43) = a5;
-  *((_QWORD *)&v43 + 1) = v17;
+  EventDescriptor.Level = v15;
+  EventDescriptor.Task = a5;
+  EventDescriptor.Opcode = 0;
+  EventDescriptor.Keyword = v17;
   if ( !v13 )
     goto LABEL_19;
   if ( RtlValidSid(v13) )
   {
-    v36 = 4 * (unsigned __int8)v13[1] + 8;
+    v36 = 4 * v13[1] + 8;
 LABEL_19:
     v39 = MEMORY[0x7FFE0014];
     *(_QWORD *)Heap = &v39;
@@ -155,13 +156,12 @@ LABEL_19:
     v22 = 2LL * v20;
     *(_QWORD *)&Heap[8 * v22] = &a8;
     *(_QWORD *)&Heap[8 * v22 + 8] = 2LL;
-    LODWORD(v23) = v20 + 1;
+    v23 = v20 + 1;
     v33 = v23;
     v24 = 0;
     for ( i = 0; ; i = v24 )
     {
-      v25 = 2LL * (unsigned int)v23;
-      v23 = (unsigned int)(v23 + 1);
+      v25 = 2LL * v23++;
       if ( v24 >= a8 )
         break;
       v26 = *(_QWORD *)(a10 + 8LL * v24);
@@ -180,26 +180,25 @@ LABEL_19:
     v28 = a9;
     if ( a9 )
     {
-      v29 = 2LL * (unsigned int)v23;
+      v29 = 2LL * v23;
       *(_QWORD *)&Heap[8 * v29] = a11;
       *(_DWORD *)&Heap[8 * v29 + 8] = v28;
       *(_DWORD *)&Heap[8 * v29 + 12] = 0;
-      v23 = (unsigned int)(v23 + 1);
-      v33 = v23;
+      v33 = ++v23;
     }
     if ( v38 )
-      v30 = EtwWriteUMSecurityEvent(&v43, 4LL, v23, Heap);
+      v30 = EtwWriteUMSecurityEvent(&EventDescriptor, 4u, v23, (PEVENT_DATA_DESCRIPTOR)Heap);
     else
-      v30 = EtwpEventWriteFull(v41, &v43, 0LL, 0, 4u, 0LL, 0LL, v23, (__int64)Heap);
+      v30 = EtwpEventWriteFull(v41, (__int128 *)&EventDescriptor, 0LL, 0, 4u, 0LL, 0LL, v23, (__int64)Heap);
     goto LABEL_34;
   }
-  v34 = 87;
-  v30 = local_unwind(v42, &loc_1800F43D9);
+  Win32Error = 87;
+  v30 = local_unwind(v42, &loc_1800EEAE9);
 LABEL_34:
-  v34 = v30;
+  Win32Error = v30;
   if ( Heap != v44 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
 LABEL_36:
-  RtlSetLastWin32Error(v34);
-  return v34 == 0;
+  RtlSetLastWin32Error(Win32Error);
+  return Win32Error == 0;
 }

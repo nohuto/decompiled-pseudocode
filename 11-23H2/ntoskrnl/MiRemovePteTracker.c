@@ -1,29 +1,29 @@
 /*
- * XREFs of MiRemovePteTracker @ 0x140661600
+ * XREFs of MiRemovePteTracker @ 0x140661B50
  * Callers:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     MmFreeMappingAddress @ 0x14086D770 (MmFreeMappingAddress.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     MmFreeMappingAddress @ 0x14086D9B0 (MmFreeMappingAddress.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v5; // rdi
+  _SLIST_ENTRY *v5; // rdi
   __int64 v6; // rbx
   ULONG_PTR v7; // r14
-  struct _SLIST_ENTRY *v8; // rdx
-  struct _SLIST_ENTRY *Next; // r8
+  _SLIST_ENTRY *v8; // rdx
+  _SLIST_ENTRY *Next; // r8
   ULONG_PTR v10; // r9
   ULONG_PTR v11; // rax
   ULONG_PTR v12; // r9
   _SLIST_ENTRY *v13; // rcx
-  struct _SLIST_ENTRY **v14; // rax
+  _SLIST_ENTRY **v14; // rax
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
   struct _KPRCB *CurrentPrcb; // r10
@@ -36,7 +36,7 @@ __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __i
   v6 = 40543LL * (unsigned int)(a2 >> 12);
   v7 = a2 & 0xFFFFFFFFFFFFF000uLL;
   KeAcquireInStackQueuedSpinLock(&qword_140C68390, &v20);
-  v8 = (struct _SLIST_ENTRY *)((char *)&unk_140C6A230 + 16 * (((unsigned __int8)v6 ^ BYTE4(v6)) & 0xF));
+  v8 = (_SLIST_ENTRY *)((char *)&unk_140C6A230 + 16 * (((unsigned __int8)v6 ^ BYTE4(v6)) & 0xF));
   Next = v8->Next;
   if ( v8->Next == v8 )
     goto LABEL_16;
@@ -64,7 +64,7 @@ __int64 __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __i
         }
       }
       v13 = Next->Next;
-      v14 = (struct _SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
+      v14 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
       if ( *(&Next->Next->Next + 1) != Next || *v14 != Next )
         __fastfail(3u);
       *v14 = v13;
@@ -84,10 +84,10 @@ LABEL_16:
   --qword_140C6A338;
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
   OldIrql = v20.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v20.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

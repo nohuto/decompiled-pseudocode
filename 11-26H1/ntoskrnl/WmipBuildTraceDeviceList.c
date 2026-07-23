@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipBuildTraceDeviceList @ 0x1404CDEFC
+ * XREFs of WmipBuildTraceDeviceList @ 0x1404C792C
  * Callers:
- *     WmiSetNetworkNotify @ 0x140823BCC (WmiSetNetworkNotify.c)
- *     WmiTraceRundownNotify @ 0x140B0B964 (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x140829E18 (WmiSetNetworkNotify.c)
+ *     WmiTraceRundownNotify @ 0x140B0D0B4 (WmiTraceRundownNotify.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutant @ 0x1403DD0B0 (KeReleaseMutant.c)
- *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
- *     WmipFreeTraceDeviceList @ 0x140B0BA04 (WmipFreeTraceDeviceList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutant @ 0x1403E02A0 (KeReleaseMutant.c)
+ *     KeReleaseMutantEx @ 0x1403E0320 (KeReleaseMutantEx.c)
+ *     WmipFreeTraceDeviceList @ 0x140B0D154 (WmipFreeTraceDeviceList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3
   LONG v17; // [rsp+78h] [rbp+20h] BYREF
 
   v6 = 0;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v7 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
   v8 = WmipInUseRegEntryCount;
   v9 = v7;
@@ -37,7 +37,7 @@ __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3
     v6 = -1073741632;
 LABEL_17:
     KeReleaseSpinLock(&WmipRegistrationSpinLock, v9);
-    KeReleaseMutant((PRKMUTANT)&EtwpSecurityLock.IoSelfBoostsEntry, 1, 0, 0);
+    KeReleaseMutant(&WmipSMMutex, 1, 0, 0);
     return v6;
   }
   Pool2 = ExAllocatePool2(0x40uLL);
@@ -64,7 +64,7 @@ LABEL_17:
     v12 = (_UNKNOWN **)*v12;
   }
   KeReleaseSpinLock(&WmipRegistrationSpinLock, v9);
-  KeReleaseMutantEx((struct _KTHREAD *)&EtwpSecurityLock.IoSelfBoostsEntry, 1LL, 4LL, &v17);
+  KeReleaseMutantEx((struct _KTHREAD *)&WmipSMMutex, 1LL, 4LL, &v17);
   if ( v14 )
   {
     *a2 = v11;

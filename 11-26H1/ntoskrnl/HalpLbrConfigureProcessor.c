@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpLbrConfigureProcessor @ 0x1405A2CE0
+ * XREFs of HalpLbrConfigureProcessor @ 0x1405A54F0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
@@ -23,7 +23,7 @@ ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
   unsigned __int64 v13; // r8
   unsigned int v14; // ecx
 
-  v2 = dword_140F87654 - 1;
+  v2 = dword_140F87A2C - 1;
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 15 )
     __writecr8(0xFuLL);
@@ -31,9 +31,9 @@ ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
   if ( !Argument )
   {
-    if ( dword_140F87664 != 1 && dword_140F87664 != 2 )
+    if ( dword_140F87A40 != 1 && dword_140F87A40 != 2 )
     {
-      if ( dword_140F87664 != 3 )
+      if ( dword_140F87A40 != 3 )
         goto LABEL_32;
       __writemsr(0xC000010F, __readmsr(0xC000010F) & 0xFFFFFFFFFFFFFFBFuLL);
       __writemsr(0x1D9u, __readmsr(0x1D9u) & 0xFFFFFFFFFFFFF7FEuLL);
@@ -44,7 +44,7 @@ ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
     }
     v12 = __readmsr(0x1D9u);
     v13 = v12;
-    if ( dword_140F87664 == 2 )
+    if ( dword_140F87A40 == 2 )
     {
       v14 = 5326;
     }
@@ -63,12 +63,12 @@ LABEL_31:
     __writemsr(v6, __PAIR64__(v11, v7));
     goto LABEL_32;
   }
-  if ( dword_140F87664 != 1 && dword_140F87664 != 2 )
+  if ( dword_140F87A40 != 1 && dword_140F87A40 != 2 )
   {
-    if ( dword_140F87664 != 3 )
+    if ( dword_140F87A40 != 3 )
       goto LABEL_32;
     v4 = 0;
-    if ( dword_140F87654 )
+    if ( dword_140F87A2C )
     {
       v5 = -1073675519;
       do
@@ -78,9 +78,9 @@ LABEL_31:
         ++v4;
         v5 += 2;
       }
-      while ( v4 < dword_140F87654 );
+      while ( v4 < dword_140F87A2C );
     }
-    __writemsr(0xC000010E, (unsigned int)dword_140F87648);
+    __writemsr(0xC000010E, (unsigned int)dword_140F87A28);
     __writemsr(0x1D9u, __readmsr(0x1D9u) | 0x801);
     v6 = -1073741553;
     v7 = __readmsr(0xC000010F) | 0x40;
@@ -88,10 +88,10 @@ LABEL_31:
     goto LABEL_30;
   }
   v9 = __readmsr(0x1D9u);
-  if ( dword_140F87664 == 1 )
+  if ( dword_140F87A40 == 1 )
   {
     __writemsr(0x1C9u, v2);
-    if ( dword_140F87654 )
+    if ( dword_140F87A2C )
     {
       v10 = 1728;
       do
@@ -102,24 +102,24 @@ LABEL_31:
           __writemsr(v10 + 1792, 0LL);
         ++v10;
       }
-      while ( v10 - 1728 < dword_140F87654 );
+      while ( v10 - 1728 < dword_140F87A2C );
     }
-    __writemsr(0x1C8u, (unsigned int)dword_140F87648);
+    __writemsr(0x1C8u, (unsigned int)dword_140F87A28);
     v9 |= 1uLL;
   }
   __writemsr(0x1D9u, v9 | 0x800);
-  if ( dword_140F87664 == 2 )
+  if ( dword_140F87A40 == 2 )
   {
-    __writemsr(0x14CFu, (unsigned int)dword_140F87654);
+    __writemsr(0x14CFu, (unsigned int)dword_140F87A2C);
     v6 = 5326;
-    v8 = (unsigned int)dword_140F8764C | 1LL;
-    LODWORD(v7) = dword_140F8764C | 1;
+    v8 = (unsigned int)dword_140F87A38 | 1LL;
+    LODWORD(v7) = dword_140F87A38 | 1;
     goto LABEL_30;
   }
 LABEL_32:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  _InterlockedDecrement(&dword_140F8765C);
+  _InterlockedDecrement(&dword_140F87A3C);
   return 0LL;
 }

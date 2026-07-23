@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbStartArbiter @ 0x1406E5474
+ * XREFs of ArbStartArbiter @ 0x1406E55AC
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeRangeList @ 0x14055A8D4 (RtlFreeRangeList.c)
+ *     RtlFreeRangeList @ 0x14055AE14 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall ArbStartArbiter(__int64 a1, __int64 a2)

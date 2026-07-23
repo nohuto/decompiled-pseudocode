@@ -9,13 +9,13 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, wchar_t *a2)
+int *__fastcall RtlpComputeDllPathWithOptions(__int16 a1, wchar_t *a2)
 {
   int v4; // eax
   __int64 v5; // r10
   __int64 v6; // rax
   char v7; // r9
-  __int64 v8; // rbx
+  int *v8; // rbx
   __int64 v10; // rax
   __int64 v11; // rax
   bool v12; // zf
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, wchar_t *a2)
   {
     v11 = (unsigned int)v5;
     v5 = (unsigned int)(v5 + 1);
-    v12 = (_WORD)LdrpDllDirectory == 0;
+    v12 = LdrpDllDirectory.Length == 0;
     v13[v11] = 6;
     if ( !v12 )
     {
@@ -61,6 +61,6 @@ __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, wchar_t *a2)
   v8 = RtlpComputePath(v13, v5, a2, v7);
   RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
   if ( v8 )
-    *(_BYTE *)(v8 + 116) = 1;
+    *((_BYTE *)v8 + 116) = 1;
   return v8;
 }

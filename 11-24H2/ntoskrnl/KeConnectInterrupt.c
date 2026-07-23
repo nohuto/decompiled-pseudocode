@@ -1,20 +1,20 @@
 /*
- * XREFs of KeConnectInterrupt @ 0x1403B6EEC
+ * XREFs of KeConnectInterrupt @ 0x1402B31A0
  * Callers:
- *     IopConnectInterrupt @ 0x140A12470 (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1409C0880 (IopConnectInterrupt.c)
  * Callees:
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1403B6408 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403B6558 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
- *     KiConnectInterrupt @ 0x1403B70E8 (KiConnectInterrupt.c)
- *     KiConnectSecondaryInterrupt @ 0x1403B7390 (KiConnectSecondaryInterrupt.c)
- *     KiIsInterruptTypeSecondary @ 0x1403B764C (KiIsInterruptTypeSecondary.c)
- *     KiIntSteerConnect @ 0x1403B7680 (KiIntSteerConnect.c)
- *     KiIntSteerEnable @ 0x1403B7C7C (KiIntSteerEnable.c)
- *     HalEnableInterrupt @ 0x1403B7D10 (HalEnableInterrupt.c)
- *     KeDisconnectInterrupt @ 0x1403B8A3C (KeDisconnectInterrupt.c)
- *     KiUnmaskInterruptInternal @ 0x14046E508 (KiUnmaskInterruptInternal.c)
- *     KiUnmaskSecondaryInterruptInternal @ 0x14046E528 (KiUnmaskSecondaryInterruptInternal.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1402AE6EC (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1402AE83C (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     KiConnectInterrupt @ 0x1402B339C (KiConnectInterrupt.c)
+ *     KiConnectSecondaryInterrupt @ 0x1402B3644 (KiConnectSecondaryInterrupt.c)
+ *     KiIsInterruptTypeSecondary @ 0x1402B3900 (KiIsInterruptTypeSecondary.c)
+ *     KiIntSteerConnect @ 0x1402B3934 (KiIntSteerConnect.c)
+ *     KiIntSteerEnable @ 0x1402B3D44 (KiIntSteerEnable.c)
+ *     HalEnableInterrupt @ 0x1402B3DD0 (HalEnableInterrupt.c)
+ *     KiUnmaskInterruptInternal @ 0x1402B4D3C (KiUnmaskInterruptInternal.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x1402B5288 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KeDisconnectInterrupt @ 0x140373B88 (KeDisconnectInterrupt.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KeConnectInterrupt(_QWORD *a1, unsigned __int8 a2, __int64 a3)
@@ -27,32 +27,30 @@ __int64 __fastcall KeConnectInterrupt(_QWORD *a1, unsigned __int8 a2, __int64 a3
   int v10; // eax
   int v11; // ebx
   __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  _QWORD *v15; // rcx
-  __int64 v16; // rdx
-  char v17; // r15
-  __int16 v18; // r12
-  __int64 v19; // r13
-  int v20; // eax
-  __int64 v22; // rcx
-  int v23; // eax
-  unsigned int v24; // [rsp+30h] [rbp-40h] BYREF
-  int v25; // [rsp+38h] [rbp-38h] BYREF
-  int v26; // [rsp+40h] [rbp-30h] BYREF
-  unsigned int v27; // [rsp+48h] [rbp-28h]
-  __int128 v28; // [rsp+50h] [rbp-20h] BYREF
-  __int128 v29; // [rsp+60h] [rbp-10h]
-  char v30; // [rsp+B8h] [rbp+48h] BYREF
-  char v31; // [rsp+C8h] [rbp+58h]
+  _QWORD *v13; // rcx
+  __int64 v14; // rdx
+  char v15; // r15
+  __int16 v16; // r12
+  __int64 v17; // r13
+  int v18; // eax
+  __int64 v20; // rcx
+  int v21; // eax
+  unsigned int v22; // [rsp+30h] [rbp-40h] BYREF
+  int v23; // [rsp+38h] [rbp-38h] BYREF
+  int v24; // [rsp+40h] [rbp-30h] BYREF
+  unsigned int v25; // [rsp+48h] [rbp-28h]
+  __int128 v26; // [rsp+50h] [rbp-20h] BYREF
+  __int128 v27; // [rsp+60h] [rbp-10h]
+  char v28; // [rsp+B8h] [rbp+48h] BYREF
+  char v29; // [rsp+C8h] [rbp+58h]
 
-  v24 = 0;
+  v22 = 0;
   v4 = a2;
-  v30 = 0;
-  v28 = 0LL;
-  v29 = 0LL;
+  v28 = 0;
+  v26 = 0LL;
+  v27 = 0LL;
   IsInterruptTypeSecondary = KiIsInterruptTypeSecondary(a3);
-  v31 = IsInterruptTypeSecondary;
+  v29 = IsInterruptTypeSecondary;
   KiSetSystemPriorityThread(KeGetCurrentThread(), 31, v7);
   v8 = 0;
   for ( i = 0; i < (unsigned __int8)v4; ++i )
@@ -65,70 +63,70 @@ __int64 __fastcall KeConnectInterrupt(_QWORD *a1, unsigned __int8 a2, __int64 a3
     v11 = v10;
     if ( v10 < 0 )
     {
-      v25 = 31;
-      KiClearSystemPriority(KeGetCurrentThread(), &v25);
+      v23 = 31;
+      KiClearSystemPriority(KeGetCurrentThread(), &v23);
       goto LABEL_27;
     }
-    IsInterruptTypeSecondary = v31;
+    IsInterruptTypeSecondary = v29;
     if ( v10 == 295 )
       v8 = 1;
   }
-  v26 = 31;
-  KiClearSystemPriority(KeGetCurrentThread(), &v26);
-  v27 = v4;
-  v11 = KiIntSteerConnect((_DWORD)a1, v4, (int)a3 + 8, (unsigned int)&v30, (__int64)&v28);
+  v24 = 31;
+  KiClearSystemPriority(KeGetCurrentThread(), &v24);
+  v25 = v4;
+  v11 = KiIntSteerConnect((_DWORD)a1, v4, (int)a3 + 8, (unsigned int)&v28, (__int64)&v26);
   if ( v11 >= 0 )
   {
     i = 0;
     if ( (_BYTE)v4 )
     {
-      v15 = a1;
+      v13 = a1;
       i = v4;
-      v16 = v4;
+      v14 = v4;
       do
       {
-        _InterlockedAnd((volatile signed __int32 *)(*v15++ + 104LL), 0xFFFFFFFE);
-        --v16;
+        _InterlockedAnd((volatile signed __int32 *)(*v13++ + 104LL), 0xFFFFFFFE);
+        --v14;
       }
-      while ( v16 );
+      while ( v14 );
     }
     if ( v8 )
     {
-      if ( (int)guard_dispatch_icall_no_overrides(a3 + 8, &v24, v13, v14) < 0 )
+      if ( (int)guard_dispatch_icall_no_overrides(a3 + 8, &v22) < 0 )
         return 295;
-      v22 = *a1;
-      v23 = v31
-          ? KiUnmaskSecondaryInterruptInternal(*(unsigned int *)(v22 + 88), v24)
-          : KiUnmaskInterruptInternal(v22, v24);
-      v11 = v23;
-      if ( v23 >= 0 )
+      v20 = *a1;
+      v21 = v29
+          ? KiUnmaskSecondaryInterruptInternal(*(unsigned int *)(v20 + 88), v22)
+          : KiUnmaskInterruptInternal(v20, v22);
+      v11 = v21;
+      if ( v21 >= 0 )
         return 295;
     }
     else
     {
-      v17 = v30;
-      if ( v30 )
+      v15 = v28;
+      if ( v28 )
       {
-        v18 = *(_WORD *)(a3 + 40);
-        v19 = *(_QWORD *)(a3 + 32);
-        *(_WORD *)(a3 + 40) = WORD4(v28);
-        *(_QWORD *)(a3 + 32) = v28;
+        v16 = *(_WORD *)(a3 + 40);
+        v17 = *(_QWORD *)(a3 + 32);
+        *(_WORD *)(a3 + 40) = WORD4(v26);
+        *(_QWORD *)(a3 + 32) = v26;
       }
       else
       {
-        v18 = WORD4(v29);
-        v19 = v29;
+        v16 = WORD4(v27);
+        v17 = v27;
       }
-      v20 = HalEnableInterrupt(a3);
-      v11 = v20;
-      if ( v17 )
+      v18 = HalEnableInterrupt(a3);
+      v11 = v18;
+      if ( v15 )
       {
-        *(_WORD *)(a3 + 40) = v18;
-        *(_QWORD *)(a3 + 32) = v19;
+        *(_WORD *)(a3 + 40) = v16;
+        *(_QWORD *)(a3 + 32) = v17;
       }
-      if ( v20 >= 0 )
+      if ( v18 >= 0 )
       {
-        KiIntSteerEnable(a1, v27);
+        KiIntSteerEnable(a1, v25);
         return (unsigned int)v11;
       }
     }

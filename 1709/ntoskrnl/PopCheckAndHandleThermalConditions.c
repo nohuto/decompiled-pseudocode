@@ -30,23 +30,18 @@ unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
   __int64 v1; // rsi
   char v3; // di
   char v4; // bp
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
   void *DeviceAttachmentBaseRefWithTag; // rax
-  void *v9; // rdi
-  __int64 v10; // rdx
-  char v11; // dl
+  void *v6; // rdi
+  __int64 v7; // rdx
+  char v8; // dl
   unsigned __int8 result; // al
-  int v13; // ecx
-  char v14; // al
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  char v18; // bl
-  unsigned __int64 v19; // [rsp+30h] [rbp-38h] BYREF
-  int v20; // [rsp+38h] [rbp-30h]
-  _QWORD v21[4]; // [rsp+40h] [rbp-28h] BYREF
+  int v10; // ecx
+  char v11; // al
+  __int64 v12; // rcx
+  char v13; // bl
+  unsigned __int64 v14; // [rsp+30h] [rbp-38h] BYREF
+  int v15; // [rsp+38h] [rbp-30h]
+  _QWORD v16[4]; // [rsp+40h] [rbp-28h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
   v3 = 0;
@@ -75,12 +70,12 @@ unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
     {
       PopThermalHibernateInitiated = 1;
       PopThermalStandbyEndTracking(2LL);
-      v20 = 0;
-      v19 = 0xC000000400000003uLL;
-      v21[1] = 0LL;
-      v21[2] = 0LL;
-      v21[0] = 0x8000000001LL;
-      PopExecutePowerAction((unsigned int)v21, 0, (unsigned int)&v19, 5, 1);
+      v15 = 0;
+      v14 = 0xC000000400000003uLL;
+      v16[1] = 0LL;
+      v16[2] = 0LL;
+      v16[0] = 0x8000000001LL;
+      PopExecutePowerAction((unsigned int)v16, 0, (unsigned int)&v14, 5, 1);
     }
     else
     {
@@ -90,14 +85,14 @@ unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
   if ( v3 )
   {
     DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(v1, 0x746C6644u);
-    v9 = DeviceAttachmentBaseRefWithTag;
+    v6 = DeviceAttachmentBaseRefWithTag;
     if ( DeviceAttachmentBaseRefWithTag )
-      v10 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
+      v7 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
     else
-      v10 = 0LL;
-    PopThermalWriteShutdownToRegistry((v10 + 280) & -(__int64)(v10 != 0), -v10);
-    if ( v9 )
-      ObfDereferenceObjectWithTag(v9, 0x746C6644u);
+      v7 = 0LL;
+    PopThermalWriteShutdownToRegistry((v7 + 280) & -(__int64)(v7 != 0), -v7);
+    if ( v6 )
+      ObfDereferenceObjectWithTag(v6, 0x746C6644u);
     if ( !PopThermalCriticalShutdownInitiated )
     {
       PopThermalStandbyEndTracking(3LL);
@@ -106,22 +101,22 @@ unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
         PopCriticalShutdown();
     }
   }
-  PopReleasePolicyLock(v6, v5, v7);
+  PopReleasePolicyLock();
 LABEL_21:
-  v11 = *(_BYTE *)(a1 + 224) != 0;
-  if ( *(_BYTE *)(a1 + 73) != v11 )
+  v8 = *(_BYTE *)(a1 + 224) != 0;
+  if ( *(_BYTE *)(a1 + 73) != v8 )
   {
-    *(_BYTE *)(a1 + 73) = v11;
+    *(_BYTE *)(a1 + 73) = v8;
     PopUpdateOverThrottledCount(a1);
   }
   result = *(_BYTE *)(a1 + 211);
   if ( *(_BYTE *)(a1 + 72) != result )
   {
     PopDiagTraceThermalStateChange(*(_QWORD *)(a1 + 48), result, &POP_ETW_EVENT_THERMAL_ZONE_THERMAL_STANDBY_UPDATE);
-    PopAcquirePolicyLock(v13);
-    v14 = *(_BYTE *)(a1 + 211);
-    *(_BYTE *)(a1 + 72) = v14;
-    if ( v14 )
+    PopAcquirePolicyLock(v10);
+    v11 = *(_BYTE *)(a1 + 211);
+    *(_BYTE *)(a1 + 72) = v11;
+    if ( v11 )
     {
       if ( ++dword_140365204 == 1 )
       {
@@ -138,27 +133,27 @@ LABEL_21:
     }
     if ( dword_140365204 )
     {
-      v18 = 1;
+      v13 = 1;
     }
     else
     {
-      v18 = 0;
+      v13 = 0;
       PopThermalStandbyEndTracking(0LL);
       PopTraceCr3Mitigated((unsigned int)dword_140365208);
       if ( HIBYTE(PopSystemThermalInfo) )
       {
         PopThermalStandbyNotify(0LL);
         HIBYTE(PopSystemThermalInfo) = 0;
-        return PopReleasePolicyLock(v16, v15, v17);
+        return PopReleasePolicyLock();
       }
     }
-    if ( !v4 && v18 && (_BYTE)PopSystemThermalInfo && !HIBYTE(PopSystemThermalInfo) )
+    if ( !v4 && v13 && (_BYTE)PopSystemThermalInfo && !HIBYTE(PopSystemThermalInfo) )
     {
-      LOBYTE(v16) = 1;
-      PopThermalStandbyNotify(v16);
+      LOBYTE(v12) = 1;
+      PopThermalStandbyNotify(v12);
       PopSystemThermalInfo = 256;
     }
-    return PopReleasePolicyLock(v16, v15, v17);
+    return PopReleasePolicyLock();
   }
   return result;
 }

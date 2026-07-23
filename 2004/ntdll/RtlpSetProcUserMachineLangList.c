@@ -16,8 +16,8 @@
 __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, unsigned int a2)
 {
   int PreferredUILanguages; // edi
-  __int64 v6; // rdx
-  __int64 v7; // r8
+  int v6; // edx
+  __int64 v7; // rdx
   __int64 LanguageList; // rcx
   bool v9; // sf
   char v10; // [rsp+60h] [rbp+8h] BYREF
@@ -31,15 +31,15 @@ __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, unsigned int a2)
   if ( a2 == 1 && *(_QWORD *)(a1 + 64) || *(_QWORD *)(a1 + 56) && !a2 )
     return 0LL;
   RtlpInitMuiCriticalSection();
-  RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+  RtlEnterCriticalSection(&RegistryInfoCritSect);
   if ( (!*(_QWORD *)(a1 + 64) || a2 != 1) && (!*(_QWORD *)(a1 + 56) || a2) )
   {
     PreferredUILanguages = RtlpMuiRegLoadPreferredUILanguages(a1, v6, a2, 3, (__int64)&v10, (__int64)&v11);
     LanguageList = v11;
     if ( !v11 )
     {
-      LOBYTE(v6) = a2 != 1;
-      LanguageList = RtlpMuiRegCreateLanguageList(1LL, v6, a1);
+      LOBYTE(v7) = a2 != 1;
+      LanguageList = RtlpMuiRegCreateLanguageList(1LL, v7, a1);
       v11 = LanguageList;
       if ( !LanguageList )
         PreferredUILanguages = -1073741801;
@@ -67,6 +67,6 @@ __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, unsigned int a2)
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect, v6, v7);
+  RtlLeaveCriticalSection(&RegistryInfoCritSect);
   return (unsigned int)PreferredUILanguages;
 }

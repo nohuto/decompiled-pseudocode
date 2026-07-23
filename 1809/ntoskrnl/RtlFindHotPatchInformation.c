@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlFindHotPatchInformation @ 0x140899CBC
+ * XREFs of RtlFindHotPatchInformation @ 0x14089AF1C
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
- *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408552E0 (MiApplyDriverHotPatch.c)
+ *     MiOpenHotPatchFile @ 0x140857B4C (MiOpenHotPatchFile.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     RtlFindHotPatchBase @ 0x14089AEF0 (RtlFindHotPatchBase.c)
  */
 
 __int64 __fastcall RtlFindHotPatchInformation(char *BaseAddress)

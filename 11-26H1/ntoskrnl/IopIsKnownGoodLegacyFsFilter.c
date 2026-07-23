@@ -1,10 +1,10 @@
 /*
- * XREFs of IopIsKnownGoodLegacyFsFilter @ 0x14044F210
+ * XREFs of IopIsKnownGoodLegacyFsFilter @ 0x140447340
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14044EEC4 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x140796800 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140446FF4 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140799330 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 bool __fastcall IopIsKnownGoodLegacyFsFilter(const void **a1)
@@ -14,7 +14,7 @@ bool __fastcall IopIsKnownGoodLegacyFsFilter(const void **a1)
   unsigned int i; // ebx
 
   v1 = *(_WORD *)a1;
-  v2 = (const void **)&off_1400041D8;
+  v2 = (const void **)&off_1400041F8;
   for ( i = 0; i < 3; ++i )
   {
     if ( *((_WORD *)v2 - 4) == v1 && !memcmp(*v2, a1[1], *((unsigned __int16 *)v2 - 4)) )

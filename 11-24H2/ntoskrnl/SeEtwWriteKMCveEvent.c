@@ -1,10 +1,10 @@
 /*
- * XREFs of SeEtwWriteKMCveEvent @ 0x14064EFA0
+ * XREFs of SeEtwWriteKMCveEvent @ 0x14064D600
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall SeEtwWriteKMCveEvent(PCUNICODE_STRING CveId, PCUNICODE_STRING AdditionalDetails)

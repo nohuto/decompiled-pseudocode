@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwRecoverEnlistment(HANDLE EnlistmentHandle, PVOID Enlistment
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, EnlistmentKey);
+  return KiServiceInternal(EnlistmentHandle);
 }

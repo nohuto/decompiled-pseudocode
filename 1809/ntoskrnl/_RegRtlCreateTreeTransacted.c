@@ -1,15 +1,15 @@
 /*
- * XREFs of _RegRtlCreateTreeTransacted @ 0x1406D35C4
+ * XREFs of _RegRtlCreateTreeTransacted @ 0x1406D4864
  * Callers:
- *     _SysCtxRegCreateTree @ 0x1406D3548 (_SysCtxRegCreateTree.c)
+ *     _SysCtxRegCreateTree @ 0x1406D47E8 (_SysCtxRegCreateTree.c)
  * Callees:
  *     RtlUnalignedStringCchLengthW @ 0x140015DA0 (RtlUnalignedStringCchLengthW.c)
- *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _RegRtlCreateKeyTransacted @ 0x1406D37BC (_RegRtlCreateKeyTransacted.c)
+ *     RtlStringCchCopyExW @ 0x14013DE50 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1406D4A5C (_RegRtlCreateKeyTransacted.c)
  */
 
 __int64 __fastcall RegRtlCreateTreeTransacted(

@@ -1,42 +1,42 @@
 /*
- * XREFs of ExAllocateHeapPool @ 0x1402AD2E0
+ * XREFs of ExAllocateHeapPool @ 0x1402AD570
  * Callers:
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
  * Callees:
- *     RtlpHpVsContextMultiAlloc @ 0x140249DB0 (RtlpHpVsContextMultiAlloc.c)
- *     RtlpHpVsContextAllocateInternal @ 0x14024A0B0 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpAllocateHeap @ 0x14024D420 (RtlpHpAllocateHeap.c)
- *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289BE0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     RtlpHpLfhBucketUpdateStats @ 0x140323AC0 (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpHpLargeAlloc @ 0x14032409C (RtlpHpLargeAlloc.c)
- *     ExpAddTagForBigPages @ 0x140331B30 (ExpAddTagForBigPages.c)
- *     ExpPlFindLimitEntry @ 0x14035CF38 (ExpPlFindLimitEntry.c)
- *     ExpPoolTrackerChargeEntry @ 0x1403BA6FC (ExpPoolTrackerChargeEntry.c)
- *     RtlHeapZero @ 0x1403D8890 (RtlHeapZero.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     InterlockedPushListSList @ 0x140428F60 (InterlockedPushListSList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ExCheckSingleFilter @ 0x14046B15E (ExCheckSingleFilter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
- *     RtlpHpExtrasAppend @ 0x1405B6470 (RtlpHpExtrasAppend.c)
- *     EtwTracePool @ 0x1405FD190 (EtwTracePool.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140607B38 (ExpInsertPoolTrackerExpansion.c)
- *     ExAllocateHeapSpecialPool @ 0x14060ED30 (ExAllocateHeapSpecialPool.c)
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x140249E80 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A180 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpAllocateHeap @ 0x14024D4F0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpSegAlloc @ 0x14024DC10 (RtlpHpSegAlloc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x140289E70 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADF50 (RtlpHpLfhSlotAllocate.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x140323D50 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLargeAlloc @ 0x14032432C (RtlpHpLargeAlloc.c)
+ *     ExpAddTagForBigPages @ 0x140331DC0 (ExpAddTagForBigPages.c)
+ *     ExpPlFindLimitEntry @ 0x14035D0D8 (ExpPlFindLimitEntry.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403BA8DC (ExpPoolTrackerChargeEntry.c)
+ *     RtlHeapZero @ 0x1403D8A70 (RtlHeapZero.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     InterlockedPushListSList @ 0x1404292F0 (InterlockedPushListSList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ExCheckSingleFilter @ 0x14046B55E (ExCheckSingleFilter.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasAppend @ 0x1405B69E0 (RtlpHpExtrasAppend.c)
+ *     EtwTracePool @ 0x1405FD700 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140608088 (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060F280 (ExAllocateHeapSpecialPool.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  */
 
 __int64 __fastcall ExAllocateHeapPool(unsigned int PoolType, unsigned __int64 a2, int a3, unsigned int a4, __int16 a5)
 {
-  struct _SLIST_ENTRY *v5; // r11
+  _SLIST_ENTRY *v5; // r11
   ULONG_PTR v6; // rdi
   unsigned int v7; // ebx
   unsigned __int64 v9; // rsi
@@ -100,7 +100,7 @@ __int64 __fastcall ExAllocateHeapPool(unsigned int PoolType, unsigned __int64 a2
   __int64 v68; // rcx
   unsigned int v69; // eax
   int v70; // eax
-  struct _SLIST_ENTRY *v71; // rdx
+  _SLIST_ENTRY *v71; // rdx
   ULONG v72; // eax
   int v73; // r11d
   __int64 v74; // rcx
@@ -132,8 +132,8 @@ __int64 __fastcall ExAllocateHeapPool(unsigned int PoolType, unsigned __int64 a2
   __int64 v100; // [rsp+48h] [rbp-79h]
   unsigned __int64 v101; // [rsp+50h] [rbp-71h]
   int v102; // [rsp+58h] [rbp-69h] BYREF
-  struct _SLIST_ENTRY **p_Next; // [rsp+60h] [rbp-61h] BYREF
-  struct _SLIST_ENTRY *v104; // [rsp+68h] [rbp-59h] BYREF
+  _SLIST_ENTRY **p_Next; // [rsp+60h] [rbp-61h] BYREF
+  _SLIST_ENTRY *v104; // [rsp+68h] [rbp-59h] BYREF
   __int64 v105; // [rsp+70h] [rbp-51h]
   __int64 v106; // [rsp+78h] [rbp-49h]
   __int64 v107; // [rsp+80h] [rbp-41h]
@@ -331,10 +331,13 @@ LABEL_102:
           }
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&v109);
           OldIrql = v109.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v109.OldIrql <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && v109.OldIrql <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -394,7 +397,7 @@ LABEL_102:
         {
           v32 = (unsigned __int64)p_Next;
           v71 = *p_Next;
-          p_Next = (struct _SLIST_ENTRY **)*p_Next;
+          p_Next = (_SLIST_ENTRY **)*p_Next;
           v72 = v70 - 1;
           if ( v72 )
             InterlockedPushListSList((PSLIST_HEADER)v50, v71, ListEnd, v72);
@@ -452,7 +455,7 @@ LABEL_136:
       v22 |= 8u;
       if ( (_WORD)v25 != 1 )
         goto LABEL_136;
-      if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, __int64, struct _SLIST_ENTRY **))CLFS_LSN_NULL_EXT)(
+      if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, __int64, _SLIST_ENTRY **))CLFS_LSN_NULL_EXT)(
                   v18,
                   0LL,
                   1LL,
@@ -631,10 +634,10 @@ LABEL_50:
         }
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v76 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v92 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v92 <= 0xFu && LockHandle.OldIrql <= 0xFu && v92 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v92 <= 0xFu && LockHandle.OldIrql <= 0xFu && v92 >= 2u )
           {
             v93 = KeGetCurrentPrcb();
             v94 = v93->SchedulerAssist;
@@ -691,6 +694,6 @@ LABEL_61:
   }
 LABEL_192:
   if ( (v13 & 0x10) != 0 )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   return v45;
 }

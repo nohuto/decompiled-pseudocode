@@ -20,7 +20,7 @@
  *     ExpWnfDeletePermanentStateData @ 0x140722FCC (ExpWnfDeletePermanentStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
@@ -33,8 +33,8 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
   int v11; // eax
   void *Ptr; // rdi
   void *v14; // rdi
-  int v15; // eax
-  int v16; // [rsp+50h] [rbp-C8h]
+  NTSTATUS v15; // eax
+  NTSTATUS v16; // [rsp+50h] [rbp-C8h]
   int v17; // [rsp+58h] [rbp-C0h]
   struct _EX_RUNDOWN_REF *v18; // [rsp+60h] [rbp-B8h] BYREF
   int v19[2]; // [rsp+68h] [rbp-B0h] BYREF
@@ -59,7 +59,7 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
   LODWORD(v5) = 0;
   v27[0] = 0LL;
   v27[1] = 0LL;
-  v16 = ExpCaptureWnfStateName(a1, &v23, PreviousMode);
+  v16 = ExpCaptureWnfStateName((__int64 *)StateName, &v23, PreviousMode);
   if ( v16 >= 0 )
   {
     v7 = v23;
@@ -67,12 +67,12 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
     v20 = (v23 >> 4) & 3;
     v5 = (v23 >> 6) & 0xF;
     v17 = (v23 >> 6) & 0xF;
-    v16 = ExpWnfCaptureScopeInstanceId(v17, a2, v6, v26, (__int64 *)v27);
+    v16 = ExpWnfCaptureScopeInstanceId(v17, ExplicitScope, v6, v26, (__int64 *)v27);
     if ( v16 >= 0 )
     {
       if ( PreviousMode )
       {
-        if ( a2 )
+        if ( ExplicitScope )
         {
           v16 = ExpWnfCheckCrossScopeAccess(v7);
           if ( v16 < 0 )
@@ -176,5 +176,5 @@ LABEL_18:
     ExFreePoolWithTag(P, 0x20666E57u);
   ExpWnfReleaseCapturedScopeInstanceId(v5, v27, PreviousMode);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v16;
+  return v16;
 }

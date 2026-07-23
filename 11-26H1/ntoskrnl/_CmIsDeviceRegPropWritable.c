@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmIsDeviceRegPropWritable @ 0x140AECD34
+ * XREFs of _CmIsDeviceRegPropWritable @ 0x140AEFD44
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     _CmDevicePropertyWrite @ 0x1404C6094 (_CmDevicePropertyWrite.c)
+ *     _CmDevicePropertyWrite @ 0x1404BFA44 (_CmDevicePropertyWrite.c)
  */
 
 __int64 __fastcall CmIsDeviceRegPropWritable(__int64 a1, int a2)

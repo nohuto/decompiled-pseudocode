@@ -1,10 +1,10 @@
 /*
- * XREFs of KiLogClockIncrementUpdate @ 0x14021D628
+ * XREFs of KiLogClockIncrementUpdate @ 0x14021EFB8
  * Callers:
- *     KiRestoreClockTickRate @ 0x140418994 (KiRestoreClockTickRate.c)
- *     KePrepareClockTimerForPlatformIdle @ 0x1405ED634 (KePrepareClockTimerForPlatformIdle.c)
+ *     KiRestoreClockTickRate @ 0x14040CECC (KiRestoreClockTickRate.c)
+ *     KePrepareClockTimerForPlatformIdle @ 0x1405EFFA4 (KePrepareClockTimerForPlatformIdle.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 char __fastcall KiLogClockIncrementUpdate(__int64 a1, __int64 a2, int a3, int a4, char a5)

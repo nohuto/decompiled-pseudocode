@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x14031729C
+ * XREFs of RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x14031752C
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x140316FF0 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x140317280 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall RtlpHpLfhBucketSubsegmentStatsUpdate(volatile signed __int64 *a1, int a2)

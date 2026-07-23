@@ -11,16 +11,16 @@
  *     _LdrpFatalExceptionFilter@4 @ 0x4B3348A9 (_LdrpFatalExceptionFilter@4.c)
  */
 
-int __stdcall LdrGetDllHandleByMapping(unsigned int a1, _DWORD *a2)
+NTSTATUS __cdecl LdrGetDllHandleByMapping(PVOID BaseAddress, PVOID *DllHandle)
 {
-  _DWORD *v3; // esi
+  PVOID v3; // esi
   int v4; // [esp+10h] [ebp-28h] BYREF
-  int v5; // [esp+14h] [ebp-24h] BYREF
-  _DWORD *v6; // [esp+18h] [ebp-20h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+14h] [ebp-24h] BYREF
+  PVOID v6; // [esp+18h] [ebp-20h] BYREF
   int LoadedDllByMapping; // [esp+1Ch] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+20h] [ebp-18h]
 
-  LoadedDllByMapping = RtlImageNtHeaderEx(1, a1, 0, 0, &v5);
+  LoadedDllByMapping = RtlImageNtHeaderEx(1u, BaseAddress, 0LL, &OutHeaders);
   if ( LoadedDllByMapping >= 0 )
   {
     ms_exc.registration.TryLevel = 0;
@@ -32,14 +32,14 @@ int __stdcall LdrGetDllHandleByMapping(unsigned int a1, _DWORD *a2)
         v3 = v6;
         LoadedDllByMapping = LdrpIncrementModuleLoadCount(v6);
         if ( LoadedDllByMapping >= 0 )
-          *a2 = v3[6];
+          *DllHandle = (PVOID)*((_DWORD *)v3 + 6);
       }
       else
       {
         LoadedDllByMapping = -1073741515;
         v3 = v6;
       }
-      LdrpDereferenceModule((int)v3);
+      LdrpDereferenceModule((char *)v3);
     }
     ms_exc.registration.TryLevel = -2;
   }

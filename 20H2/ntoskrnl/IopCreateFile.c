@@ -31,7 +31,7 @@ __int64 __fastcall IopCreateFile(
         HANDLE *a1,
         int a2,
         _SLIST_ENTRY *a3,
-        NTSTATUS *a4,
+        int *a4,
         HANDLE *a5,
         int a6,
         int a7,
@@ -58,8 +58,8 @@ __int64 __fastcall IopCreateFile(
   __int64 v27; // rcx
   HANDLE v28; // rbx
   PVOID PoolWithQuotaTag; // rax
-  NTSTATUS v30; // eax
-  NTSTATUS *v31; // r14
+  int v30; // eax
+  int *v31; // r14
   int v32; // ecx
   PVOID PoolWithTag; // rax
   struct _KPRCB *v34; // rdx
@@ -96,8 +96,8 @@ __int64 __fastcall IopCreateFile(
   _GENERAL_LOOKASIDE *v65; // rcx
   unsigned __int64 v66; // rax
   PVOID v67; // rax
-  NTSTATUS *v68; // r13
-  NTSTATUS v69; // eax
+  int *v68; // r13
+  int v69; // eax
   int v70; // ecx
   unsigned __int64 v71; // rcx
   __int16 v72; // dx
@@ -212,7 +212,7 @@ LABEL_49:
             v28 = *a5;
             Handle = v28;
             if ( (__int64)v28 < 0 )
-              RtlRaiseStatus(0xC000000D);
+              RtlRaiseStatus(-1073741811);
           }
           else
           {
@@ -355,7 +355,7 @@ LABEL_92:
               *(_DWORD *)(*((_QWORD *)&v21->Next + 1) + 80LL) &= ~0x2000000u;
               *a1 = Handle;
               *((_QWORD *)v31 + 1) = *((_QWORD *)&v21[1].Next + 1);
-              *v31 = (NTSTATUS)v21[1].Next;
+              *v31 = (int)v21[1].Next;
               v88 = (unsigned int)v21[1].Next;
 LABEL_119:
               if ( Next == -1096154543 )
@@ -683,7 +683,7 @@ LABEL_246:
           *(_DWORD *)(*((_QWORD *)&v21->Next + 1) + 80LL) &= ~0x2000000u;
           *a1 = v92;
           *((_QWORD *)v68 + 1) = *((_QWORD *)&v21[1].Next + 1);
-          *v68 = (NTSTATUS)v21[1].Next;
+          *v68 = (int)v21[1].Next;
           v89 = (unsigned int)v21[1].Next;
 LABEL_273:
           if ( v82 == -1096154543 )
@@ -764,7 +764,7 @@ LABEL_245:
     v57 = *a5;
     v92 = v57;
     if ( (__int64)v57 < 0 )
-      RtlRaiseStatus(0xC000000D);
+      RtlRaiseStatus(-1073741811);
   }
   else
   {

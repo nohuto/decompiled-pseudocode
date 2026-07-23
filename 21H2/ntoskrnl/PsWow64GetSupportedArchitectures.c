@@ -1,10 +1,10 @@
 /*
- * XREFs of PsWow64GetSupportedArchitectures @ 0x14064E6F8
+ * XREFs of PsWow64GetSupportedArchitectures @ 0x140643518
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PsWow64IsMachineSupported @ 0x14064E890 (PsWow64IsMachineSupported.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsWow64IsMachineSupported @ 0x1406436B0 (PsWow64IsMachineSupported.c)
  */
 
 __int64 __fastcall PsWow64GetSupportedArchitectures(_DWORD *a1, unsigned int a2, unsigned int *a3, __int64 a4)

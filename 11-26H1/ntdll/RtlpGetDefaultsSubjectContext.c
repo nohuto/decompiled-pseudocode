@@ -1,140 +1,149 @@
 /*
- * XREFs of RtlpGetDefaultsSubjectContext @ 0x18005D7C0
+ * XREFs of RtlpGetDefaultsSubjectContext @ 0x180047D40
  * Callers:
- *     RtlpNewSecurityObject @ 0x18005E6A0 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180048C20 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpGetDefaultTrustSubjectContext @ 0x18005DBF0 (RtlpGetDefaultTrustSubjectContext.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtQueryInformationToken @ 0x18015F360 (NtQueryInformationToken.c)
- *     NtOpenProcessToken @ 0x1801615B0 (NtOpenProcessToken.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpGetDefaultTrustSubjectContext @ 0x180048170 (RtlpGetDefaultTrustSubjectContext.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtQueryInformationToken @ 0x18015F260 (NtQueryInformationToken.c)
+ *     NtOpenProcessToken @ 0x1801614B0 (NtOpenProcessToken.c)
  */
 
 __int64 __fastcall RtlpGetDefaultsSubjectContext(
-        __int64 a1,
+        HANDLE TokenHandle,
         char a2,
-        __int64 *a3,
-        __int64 *a4,
-        __int64 *a5,
-        __int64 *a6,
-        __int64 *a7,
-        _QWORD *a8,
-        __int64 *a9)
+        PVOID *a3,
+        PVOID *a4,
+        PVOID *a5,
+        PVOID *a6,
+        PVOID *a7,
+        PVOID *a8,
+        PVOID *a9)
 {
-  __int64 *v10; // r15
-  __int64 *v11; // r13
-  __int64 Heap_0; // rax
-  int DefaultTrustSubjectContext; // ebx
-  __int64 v16; // rax
-  __int64 v17; // rax
-  __int64 v18; // rax
-  _QWORD *v20; // rdi
-  __int64 *v21; // rdi
-  __int64 *v22; // rdi
-  __int64 v23; // rax
-  __int64 *v24; // rdi
-  __int64 v25; // rax
-  unsigned int v26; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v27; // [rsp+34h] [rbp-24h] BYREF
-  unsigned int v28; // [rsp+38h] [rbp-20h] BYREF
-  unsigned int v29; // [rsp+3Ch] [rbp-1Ch] BYREF
-  HANDLE Handle[3]; // [rsp+40h] [rbp-18h] BYREF
-  char v31; // [rsp+A0h] [rbp+48h]
-  unsigned int v33; // [rsp+B0h] [rbp+58h] BYREF
-  unsigned int v34; // [rsp+B8h] [rbp+60h] BYREF
+  PVOID *v10; // r15
+  PVOID *v11; // r13
+  struct _PEB *v14; // rax
+  void *ProcessHeap; // rsi
+  PVOID Heap_0; // rax
+  NTSTATUS DefaultTrustSubjectContext; // ebx
+  PVOID v18; // rax
+  PVOID v19; // rax
+  PVOID v20; // rax
+  PVOID *v22; // rdi
+  PVOID *v23; // rdi
+  PVOID *v24; // rdi
+  PVOID v25; // rax
+  PVOID *v26; // rdi
+  PVOID v27; // rax
+  ULONG v28; // [rsp+30h] [rbp-28h] BYREF
+  ULONG TokenInformationLength; // [rsp+34h] [rbp-24h] BYREF
+  ULONG ReturnLength; // [rsp+38h] [rbp-20h] BYREF
+  ULONG v31; // [rsp+3Ch] [rbp-1Ch] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-18h] BYREF
+  char v33; // [rsp+A0h] [rbp+48h]
+  ULONG v35; // [rsp+B0h] [rbp+58h] BYREF
+  ULONG v36; // [rsp+B8h] [rbp+60h] BYREF
 
   v10 = a5;
   v11 = a7;
-  Handle[0] = 0LL;
+  Handle = 0LL;
   *a6 = 0LL;
-  v26 = 0;
-  v29 = 0;
-  v34 = 0;
-  v33 = 0;
-  v27 = 0;
   v28 = 0;
-  *a9 = 0LL;
   v31 = 0;
+  v36 = 0;
+  v35 = 0;
+  TokenInformationLength = 0;
+  ReturnLength = 0;
+  *a9 = 0LL;
+  v14 = NtCurrentPeb();
+  v33 = 0;
   *a3 = 0LL;
   *a4 = 0LL;
+  ProcessHeap = v14->ProcessHeap;
   *v10 = 0LL;
   *v11 = 0LL;
-  if ( a1 )
+  if ( TokenHandle )
   {
-    v27 = 76;
-    Heap_0 = RtlAllocateHeap_0();
+    TokenInformationLength = 76;
+    Heap_0 = RtlAllocateHeap_0(ProcessHeap, NtdllBaseTag + 1310720, 0x4CuLL);
     *a3 = Heap_0;
     if ( !Heap_0 )
       goto LABEL_15;
-    DefaultTrustSubjectContext = NtQueryInformationToken(a1, 4LL, Heap_0, v27, &v27);
+    DefaultTrustSubjectContext = NtQueryInformationToken(
+                                   TokenHandle,
+                                   4u,
+                                   Heap_0,
+                                   TokenInformationLength,
+                                   &TokenInformationLength);
     if ( DefaultTrustSubjectContext < 0 )
       goto LABEL_16;
-    v28 = 84;
-    v16 = RtlAllocateHeap_0();
-    *v11 = v16;
-    if ( !v16 )
-      goto LABEL_15;
-    DefaultTrustSubjectContext = NtQueryInformationToken(a1, 25LL, v16, v28, &v28);
-    if ( DefaultTrustSubjectContext < 0 )
-      goto LABEL_16;
-    DefaultTrustSubjectContext = NtQueryInformationToken(a1, 5LL, *a4, 0LL, &v33);
-    if ( DefaultTrustSubjectContext != -1073741789 )
-      goto LABEL_16;
-    v17 = RtlAllocateHeap_0();
-    *a4 = v17;
-    if ( !v17 )
-      goto LABEL_15;
-    DefaultTrustSubjectContext = NtQueryInformationToken(a1, 5LL, v17, v33, &v33);
-    if ( DefaultTrustSubjectContext < 0 )
-      goto LABEL_16;
-    DefaultTrustSubjectContext = NtQueryInformationToken(a1, 6LL, *v10, 0LL, &v34);
-    if ( DefaultTrustSubjectContext != -1073741789 )
-      goto LABEL_16;
-    v18 = RtlAllocateHeap_0();
-    *v10 = v18;
+    ReturnLength = 84;
+    v18 = RtlAllocateHeap_0(ProcessHeap, NtdllBaseTag + 1310720, 0x54uLL);
+    *v11 = v18;
     if ( !v18 )
+      goto LABEL_15;
+    DefaultTrustSubjectContext = NtQueryInformationToken(TokenHandle, 0x19u, v18, ReturnLength, &ReturnLength);
+    if ( DefaultTrustSubjectContext < 0 )
+      goto LABEL_16;
+    DefaultTrustSubjectContext = NtQueryInformationToken(TokenHandle, 5u, *a4, 0, &v35);
+    if ( DefaultTrustSubjectContext != -1073741789 )
+      goto LABEL_16;
+    v19 = RtlAllocateHeap_0(ProcessHeap, NtdllBaseTag + 1310720, v35);
+    *a4 = v19;
+    if ( !v19 )
+      goto LABEL_15;
+    DefaultTrustSubjectContext = NtQueryInformationToken(TokenHandle, 5u, v19, v35, &v35);
+    if ( DefaultTrustSubjectContext < 0 )
+      goto LABEL_16;
+    DefaultTrustSubjectContext = NtQueryInformationToken(TokenHandle, 6u, *v10, 0, &v36);
+    if ( DefaultTrustSubjectContext != -1073741789 )
+      goto LABEL_16;
+    v20 = RtlAllocateHeap_0(ProcessHeap, NtdllBaseTag + 1310720, v36);
+    *v10 = v20;
+    if ( !v20 )
     {
 LABEL_15:
       DefaultTrustSubjectContext = -1073741801;
       goto LABEL_16;
     }
-    DefaultTrustSubjectContext = NtQueryInformationToken(a1, 6LL, v18, v34, &v34);
+    DefaultTrustSubjectContext = NtQueryInformationToken(TokenHandle, 6u, v20, v36, &v36);
     if ( DefaultTrustSubjectContext < 0 )
       goto LABEL_16;
   }
-  DefaultTrustSubjectContext = RtlpGetDefaultTrustSubjectContext(a1, a8);
+  DefaultTrustSubjectContext = RtlpGetDefaultTrustSubjectContext(TokenHandle);
   if ( DefaultTrustSubjectContext < 0 )
     goto LABEL_16;
   if ( !a2 )
     return 0LL;
-  DefaultTrustSubjectContext = NtOpenProcessToken(-1LL, 8LL, Handle);
+  DefaultTrustSubjectContext = NtOpenProcessToken((HANDLE)0xFFFFFFFFFFFFFFFFLL, 8u, &Handle);
   if ( DefaultTrustSubjectContext < 0 )
   {
-    v31 = 0;
+    v33 = 0;
     goto LABEL_16;
   }
-  v31 = 1;
-  v29 = 76;
-  v23 = RtlAllocateHeap_0();
-  *a6 = v23;
-  if ( !v23 )
+  v33 = 1;
+  v31 = 76;
+  v25 = RtlAllocateHeap_0(ProcessHeap, NtdllBaseTag + 1310720, 0x4CuLL);
+  *a6 = v25;
+  if ( !v25 )
     goto LABEL_15;
-  DefaultTrustSubjectContext = NtQueryInformationToken(Handle[0], 4LL, v23, v29, &v29);
+  DefaultTrustSubjectContext = NtQueryInformationToken(Handle, 4u, v25, v31, &v31);
   if ( DefaultTrustSubjectContext >= 0 )
   {
-    v24 = a9;
-    DefaultTrustSubjectContext = NtQueryInformationToken(Handle[0], 5LL, *a9, 0LL, &v26);
+    v26 = a9;
+    DefaultTrustSubjectContext = NtQueryInformationToken(Handle, 5u, *a9, 0, &v28);
     if ( DefaultTrustSubjectContext == -1073741789 )
     {
-      v25 = RtlAllocateHeap_0();
-      *v24 = v25;
-      if ( v25 )
+      v27 = RtlAllocateHeap_0(ProcessHeap, NtdllBaseTag + 1310720, v28);
+      *v26 = v27;
+      if ( v27 )
       {
-        DefaultTrustSubjectContext = NtQueryInformationToken(Handle[0], 5LL, v25, v26, &v26);
+        DefaultTrustSubjectContext = NtQueryInformationToken(Handle, 5u, v27, v28, &v28);
         if ( DefaultTrustSubjectContext >= 0 )
         {
-          NtClose(Handle[0]);
+          NtClose(Handle);
           return 0LL;
         }
       }
@@ -143,43 +152,43 @@ LABEL_15:
 LABEL_16:
   if ( *a3 )
   {
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(ProcessHeap, 0, *a3);
     *a3 = 0LL;
   }
   if ( *v11 )
   {
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(ProcessHeap, 0, *v11);
     *v11 = 0LL;
   }
   if ( *a4 )
   {
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(ProcessHeap, 0, *a4);
     *a4 = 0LL;
   }
   if ( *v10 )
   {
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(ProcessHeap, 0, *v10);
     *v10 = 0LL;
   }
-  v20 = a8;
+  v22 = a8;
   if ( *a8 )
   {
-    RtlFreeHeap_0();
-    *v20 = 0LL;
-  }
-  v21 = a6;
-  if ( *a6 )
-  {
-    RtlFreeHeap_0();
-    *v21 = 0LL;
-  }
-  v22 = a9;
-  if ( *a9 )
-  {
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(ProcessHeap, 0, *a8);
     *v22 = 0LL;
   }
-  if ( v31 == 1 )
-    NtClose(Handle[0]);
+  v23 = a6;
+  if ( *a6 )
+  {
+    RtlFreeHeap_0(ProcessHeap, 0, *a6);
+    *v23 = 0LL;
+  }
+  v24 = a9;
+  if ( *a9 )
+  {
+    RtlFreeHeap_0(ProcessHeap, 0, *a9);
+    *v24 = 0LL;
+  }
+  if ( v33 == 1 )
+    NtClose(Handle);
   return (unsigned int)DefaultTrustSubjectContext;
 }

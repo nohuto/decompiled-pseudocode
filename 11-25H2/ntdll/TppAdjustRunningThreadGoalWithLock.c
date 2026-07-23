@@ -25,8 +25,8 @@ __int64 __fastcall TppAdjustRunningThreadGoalWithLock(__int64 a1)
   signed __int64 v6; // rtt
   bool v7; // cf
   int v8; // r9d
-  __int64 v9; // rcx
-  int v10; // [rsp+30h] [rbp+8h] BYREF
+  void *v9; // rcx
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
   signed __int64 v11; // [rsp+38h] [rbp+10h]
 
   if ( !a1 || (v2 = *(_DWORD *)(a1 + 440)) == 0 )
@@ -51,9 +51,9 @@ __int64 __fastcall TppAdjustRunningThreadGoalWithLock(__int64 a1)
     v8 = v2 + 1;
     if ( v7 )
       v8 = 4;
-    v9 = *(_QWORD *)(a1 + 56);
-    v10 = v8;
-    NtSetInformationWorkerFactory(v9, 8LL, &v10);
+    v9 = *(void **)(a1 + 56);
+    WorkerFactoryInformation = v8;
+    NtSetInformationWorkerFactory(v9, WorkerFactoryAdjustThreadGoal, &WorkerFactoryInformation, 4u);
     return TppPoolUpdateNodeRelation(a1);
   }
   return result;

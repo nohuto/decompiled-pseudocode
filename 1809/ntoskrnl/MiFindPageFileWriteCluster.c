@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFindPageFileWriteCluster @ 0x140150C80
+ * XREFs of MiFindPageFileWriteCluster @ 0x140150D80
  * Callers:
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14014F8FC (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14014FAA8 (MiDerefPageFileSpaceBitmaps.c)
- *     MiSetPageFileAllocationBits @ 0x140150838 (MiSetPageFileAllocationBits.c)
- *     RtlFindLongestRunClearCapped @ 0x1402EE7B0 (RtlFindLongestRunClearCapped.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14014F9FC (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14014FBA8 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiSetPageFileAllocationBits @ 0x140150938 (MiSetPageFileAllocationBits.c)
+ *     RtlFindLongestRunClearCapped @ 0x1402EE9A0 (RtlFindLongestRunClearCapped.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, _DWORD *a3, int a4)
@@ -49,8 +49,8 @@ _DWORD *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, _DWO
   if ( FreePageFileSpace )
   {
     v12 = v27;
-    if ( qword_14043A0C0 && (v27 & 0x10) == 0 )
-      v12 = v27 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v27 & 0x10) == 0 )
+      v12 = v27 & ~qword_14043B180;
     v13 = HIDWORD(v12);
   }
   else
@@ -68,13 +68,13 @@ _DWORD *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, _DWO
     {
       v15 = *(_DWORD *)(a1 + 128);
       v16 = *(_DWORD *)(a1 + 124);
-      if ( v16 < dword_14054018C && *(_DWORD *)(a1 + 132) != v15 )
+      if ( v16 < dword_14054118C && *(_DWORD *)(a1 + 132) != v15 )
       {
-        if ( v16 >= (unsigned int)dword_14054018C >> 3 )
+        if ( v16 >= (unsigned int)dword_14054118C >> 3 )
         {
           v17 = v16 + (v16 >> 1);
-          v16 = dword_14054018C;
-          if ( v17 < dword_14054018C )
+          v16 = dword_14054118C;
+          if ( v17 < dword_14054118C )
             v16 = v17;
         }
         else

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckProcessCombineSequence @ 0x140497E80
+ * XREFs of MiCheckProcessCombineSequence @ 0x1404919D0
  * Callers:
- *     MiSharePagesLockPageTable @ 0x1403072AC (MiSharePagesLockPageTable.c)
- *     MiCapturePfnVm @ 0x1405136D0 (MiCapturePfnVm.c)
- *     MiShareValidPage @ 0x140704A2C (MiShareValidPage.c)
+ *     MiSharePagesLockPageTable @ 0x1402E932C (MiSharePagesLockPageTable.c)
+ *     MiCapturePfnVm @ 0x14050D140 (MiCapturePfnVm.c)
+ *     MiShareValidPage @ 0x1407096FC (MiShareValidPage.c)
  * Callees:
  *     <none>
  */

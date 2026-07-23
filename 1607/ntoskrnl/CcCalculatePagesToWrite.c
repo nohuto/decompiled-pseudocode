@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCalculatePagesToWrite @ 0x1400CBC20
+ * XREFs of CcCalculatePagesToWrite @ 0x1400C9AC0
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
- *     CcScanLogHandleList @ 0x1400CCA0C (CcScanLogHandleList.c)
- *     CcNotifyExternalCaches @ 0x1401340A4 (CcNotifyExternalCaches.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
+ *     CcScanLogHandleList @ 0x1400CA8AC (CcScanLogHandleList.c)
+ *     CcNotifyExternalCaches @ 0x140134614 (CcNotifyExternalCaches.c)
  * Callees:
  *     <none>
  */
@@ -44,7 +44,7 @@ __int64 __fastcall CcCalculatePagesToWrite(int a1, __int64 a2, unsigned __int64 
     {
       v14 = v12 - v10;
       v7 += v14;
-      if ( v8 < v9 || *(_QWORD *)(*(_QWORD *)qword_140326FF8 + 6464LL) < 0x1000uLL )
+      if ( v8 < v9 || *(_QWORD *)(*(_QWORD *)qword_140327038 + 6464LL) < 0x1000uLL )
         v7 += 2 * v14;
     }
     if ( v7 > v4 )

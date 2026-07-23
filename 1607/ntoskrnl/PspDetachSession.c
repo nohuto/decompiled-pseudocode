@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDetachSession @ 0x1404EC5C0
+ * XREFs of PspDetachSession @ 0x1404CE648
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
  */
 
 LONG_PTR __fastcall PspDetachSession(void *a1, __int64 a2)

@@ -1,16 +1,20 @@
 /*
  * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x1403C7A30
  * Callers:
- *     CmInitSystem0 @ 0x140B131D4 (CmInitSystem0.c)
+ *     sub_140B131D4 @ 0x140B131D4 (sub_140B131D4.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x140244120 (ObGetCurrentIrql.c)
- *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x14083332C (CmFcRegisterFeatureConfigurationChangeNotification.c)
+ *     KeGetEffectiveIrql @ 0x140244120 (KeGetEffectiveIrql.c)
+ *     sub_14083332C @ 0x14083332C (sub_14083332C.c)
  */
 
-__int64 __fastcall RtlRegisterFeatureConfigurationChangeNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlRegisterFeatureConfigurationChangeNotification(
+        PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK Callback,
+        PVOID Context,
+        PRTL_FEATURE_CHANGE_STAMP ObservedChangeStamp,
+        PRTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  if ( ObGetCurrentIrql() && ((KiBugCheckActive & 3) != 0 || PoPowerDownActionInProgress) )
-    return 3221225659LL;
+  if ( KeGetEffectiveIrql() && ((dword_140C31E20 & 3) != 0 || byte_140C22263) )
+    return -1073741637;
   else
-    return CmFcRegisterFeatureConfigurationChangeNotification(a1, a2, a3, a4);
+    return sub_14083332C(Callback, Context, ObservedChangeStamp, RegistrationHandle);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTpSetupCompletion @ 0x1407BC660
+ * XREFs of KiTpSetupCompletion @ 0x1407BF6C0
  * Callers:
- *     KeSetTracepoint @ 0x1407BBB10 (KeSetTracepoint.c)
+ *     KeSetTracepoint @ 0x1407BEB70 (KeSetTracepoint.c)
  * Callees:
- *     RtlIcParseInstruction @ 0x140C560E8 (RtlIcParseInstruction.c)
+ *     RtlIcParseInstruction @ 0x140C5C0E8 (RtlIcParseInstruction.c)
  */
 
 __int64 __fastcall KiTpSetupCompletion(__int64 a1, char a2, __int64 a3, __int64 a4, int a5, __int64 a6)

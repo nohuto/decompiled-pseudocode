@@ -1,21 +1,21 @@
 /*
- * XREFs of SmKmKeyGenNewKey @ 0x1409D9174
+ * XREFs of SmKmKeyGenNewKey @ 0x1409D9374
  * Callers:
- *     SmKmKeyGenGenerate @ 0x1409D8E0C (SmKmKeyGenGenerate.c)
+ *     SmKmKeyGenGenerate @ 0x1409D900C (SmKmKeyGenGenerate.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SmCrGenRandom @ 0x1405CDC8C (SmCrGenRandom.c)
- *     SmKmKeyGenKeyFind @ 0x1409D8FB4 (SmKmKeyGenKeyFind.c)
- *     SmKmKeyGenLoadKey @ 0x1409D8FF8 (SmKmKeyGenLoadKey.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SmCrGenRandom @ 0x1405CE1FC (SmCrGenRandom.c)
+ *     SmKmKeyGenKeyFind @ 0x1409D91B4 (SmKmKeyGenKeyFind.c)
+ *     SmKmKeyGenLoadKey @ 0x1409D91F8 (SmKmKeyGenLoadKey.c)
  */
 
 __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, ULONG cbBuffer)

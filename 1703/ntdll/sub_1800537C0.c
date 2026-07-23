@@ -12,53 +12,59 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_1800537C0(PCWSTR SourceString, __int64 a2, __int64 a3, _BYTE *a4, int a5, _QWORD *a6)
+__int64 __fastcall sub_1800537C0(PCWSTR SourceString, __int64 a2, __int64 a3, _BYTE *a4, int a5, HANDLE *a6)
 {
-  int v8; // r15d
+  ULONG CreateDisposition; // r15d
   __int64 v9; // rcx
   bool v10; // di
-  int v11; // ebx
-  __int64 v13; // [rsp+60h] [rbp-79h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-71h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-61h] BYREF
-  _BYTE v16[8]; // [rsp+88h] [rbp-51h] BYREF
-  __int64 v17; // [rsp+90h] [rbp-49h]
-  int v18; // [rsp+98h] [rbp-41h] BYREF
-  __int64 v19; // [rsp+A0h] [rbp-39h]
-  UNICODE_STRING *p_UnicodeString; // [rsp+A8h] [rbp-31h]
-  int v21; // [rsp+B0h] [rbp-29h]
-  __int128 v22; // [rsp+B8h] [rbp-21h]
-  _DWORD v23[10]; // [rsp+C8h] [rbp-11h] BYREF
+  NTSTATUS v11; // ebx
+  HANDLE FileHandle; // [rsp+60h] [rbp-79h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-71h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-61h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-51h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-41h] BYREF
+  _DWORD FileInformation[10]; // [rsp+C8h] [rbp-11h] BYREF
 
   *a6 = 0LL;
-  v8 = 3;
+  CreateDisposition = 3;
   if ( *a4 != 1 )
-    v8 = 5;
+    CreateDisposition = 5;
   RtlInitUnicodeString(&DestinationString, SourceString);
   RtlInitUnicodeString(&UnicodeString, 0LL);
   v10 = 0;
   if ( DestinationString.Length > 1u )
     v10 = SourceString[(DestinationString.Length >> 1) - 1] == 92;
-  v11 = sub_18003D6A4(v9, 0, (__int64)DestinationString.Buffer, (__int64)&UnicodeString, 0LL, 0LL);
+  v11 = sub_18003D6A4(v9, 0, DestinationString.Buffer, (__int64)&UnicodeString, 0LL, 0LL);
   if ( v11 >= 0 )
   {
-    v19 = 0LL;
-    v18 = 48;
-    v21 = 64;
-    p_UnicodeString = &UnicodeString;
-    v22 = 0LL;
-    v11 = ZwCreateFile(&v13, 3222274176LL, &v18, v16, 0LL, 128, 5, v8, 104, 0LL, 0);
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = &UnicodeString;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v11 = ZwCreateFile(
+            &FileHandle,
+            0xC0100080,
+            &ObjectAttributes,
+            &IoStatusBlock,
+            0LL,
+            0x80u,
+            5u,
+            CreateDisposition,
+            0x68u,
+            0LL,
+            0);
     if ( v11 >= 0 )
     {
-      if ( *a4 == 1 && v17 == 2 )
+      if ( *a4 == 1 && IoStatusBlock.Information == 2 )
         *a4 = 0;
       if ( !v10 )
       {
-        memset(v23, 0, sizeof(v23));
-        v23[8] = 0x2000;
-        v11 = ZwSetInformationFile(v13, v16, v23, 40LL, 4);
+        memset(FileInformation, 0, sizeof(FileInformation));
+        FileInformation[8] = 0x2000;
+        v11 = ZwSetInformationFile(FileHandle, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
       }
-      *a6 = v13;
+      *a6 = FileHandle;
     }
   }
   RtlFreeUnicodeString(&UnicodeString);

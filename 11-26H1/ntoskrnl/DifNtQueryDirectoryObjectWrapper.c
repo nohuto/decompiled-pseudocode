@@ -1,24 +1,24 @@
 /*
- * XREFs of DifNtQueryDirectoryObjectWrapper @ 0x140681D30
+ * XREFs of DifNtQueryDirectoryObjectWrapper @ 0x140685910
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtQueryDirectoryObject @ 0x1409E1C50 (NtQueryDirectoryObject.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtQueryDirectoryObject @ 0x1409DEC60 (NtQueryDirectoryObject.c)
  */
 
 __int64 __fastcall DifNtQueryDirectoryObjectWrapper(
         void *a1,
-        volatile void *a2,
-        unsigned int a3,
-        char a4,
-        char a5,
-        __int64 a6,
-        __int64 a7)
+        void *a2,
+        ULONG a3,
+        BOOLEAN a4,
+        BOOLEAN RestartScan,
+        ULONG *Context,
+        ULONG *ReturnLength)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v11; // rdx
@@ -59,9 +59,9 @@ __int64 __fastcall DifNtQueryDirectoryObjectWrapper(
 LABEL_7:
   v15 = 0;
   *((_QWORD *)&v23 + 1) = a1;
-  BYTE8(v22) = a5;
-  *(_QWORD *)&v22 = a6;
-  *((_QWORD *)&v21 + 1) = a7;
+  BYTE8(v22) = RestartScan;
+  *(_QWORD *)&v22 = Context;
+  *((_QWORD *)&v21 + 1) = ReturnLength;
   *(_QWORD *)&v23 = a2;
   HIDWORD(v22) = a3;
   BYTE9(v22) = a4;
@@ -77,7 +77,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  LODWORD(v24) = NtQueryDirectoryObject(a1, a2, a3, a5, a6, a7);
+  LODWORD(v24) = NtQueryDirectoryObject(a1, a2, a3, a4, RestartScan, Context, ReturnLength);
   if ( v12 )
   {
     if ( (v18 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

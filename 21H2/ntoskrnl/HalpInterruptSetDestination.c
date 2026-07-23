@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptSetDestination @ 0x140378990
+ * XREFs of HalpInterruptSetDestination @ 0x1403784E0
  * Callers:
- *     ExtEnvSetVpptTarget @ 0x1404BF7A4 (ExtEnvSetVpptTarget.c)
+ *     ExtEnvSetVpptTarget @ 0x1404BF9E4 (ExtEnvSetVpptTarget.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpInterruptSetDestinationInternal @ 0x140378A6C (HalpInterruptSetDestinationInternal.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetDestinationInternal @ 0x1403785BC (HalpInterruptSetDestinationInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpInterruptSetRemappedDestination @ 0x1404BB7C8 (HalpInterruptSetRemappedDestination.c)
- *     HalpInterruptSetRemappedDestinationHv @ 0x1404BB8C0 (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptSetRemappedDestination @ 0x1404BBA08 (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x1404BBB00 (HalpInterruptSetRemappedDestinationHv.c)
  */
 
 __int64 __fastcall HalpInterruptSetDestination(__int64 a1, __int64 a2, unsigned int *a3)
@@ -30,7 +30,7 @@ __int64 __fastcall HalpInterruptSetDestination(__int64 a1, __int64 a2, unsigned 
 
   v15[1] = 0;
   v14 = 0LL;
-  if ( qword_140C4A1A8 )
+  if ( qword_140C4A1E8 )
     return (unsigned int)HalpInterruptSetRemappedDestinationHv(a3, a1, a2);
   if ( (*(_DWORD *)(HalpInterruptController + 220) & 0x100) != 0 )
     return (unsigned int)HalpInterruptSetRemappedDestination(a3, a1, a2);

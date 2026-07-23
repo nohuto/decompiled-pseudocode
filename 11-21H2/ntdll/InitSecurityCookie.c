@@ -8,24 +8,26 @@
  *     ZwDelayExecution @ 0x1800A46F0 (ZwDelayExecution.c)
  */
 
-__int64 InitSecurityCookie()
+signed __int32 InitSecurityCookie()
 {
-  __int64 result; // rax
+  signed __int32 result; // eax
   __int64 v1; // rax
   signed __int32 v2[8]; // [rsp+0h] [rbp-38h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
-  result = (unsigned int)_InterlockedIncrement(&SecurityCookieInitCount);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedIncrement(&SecurityCookieInitCount);
+  if ( result == 1 )
   {
     v1 = LdrpGenRandom();
-    result = LdrInitSecurityCookie(0LL, 0LL, &_security_cookie, v1 ^ (unsigned int)dword_18018F388, 0LL);
+    result = LdrInitSecurityCookie(0LL, 0LL, &_security_cookie, v1 ^ LdrSystemDllInitBlock.RngData, 0LL);
     _InterlockedOr(v2, 0);
     SecurityCookieInitialized = 1;
   }
   else
   {
+    DelayInterval.QuadPart = -300000LL;
     while ( !SecurityCookieInitialized )
-      result = ZwDelayExecution();
+      result = ZwDelayExecution(0, &DelayInterval);
   }
   return result;
 }

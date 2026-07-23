@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmEventTraceProfiles @ 0x1409459FC
+ * XREFs of PpmEventTraceProfiles @ 0x1409C136C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
- *     PpmRegisterProfiles @ 0x1407E1B0C (PpmRegisterProfiles.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
+ *     PpmRegisterProfiles @ 0x1407E6B9C (PpmRegisterProfiles.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PpmEndProfileAccumulation @ 0x140946114 (PpmEndProfileAccumulation.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PpmEndProfileAccumulation @ 0x1409C1A84 (PpmEndProfileAccumulation.c)
  */
 
 char __fastcall PpmEventTraceProfiles(char a1)
 {
   _UNKNOWN **v1; // rax
   const EVENT_DESCRIPTOR *v3; // rdx
-  __int64 *v4; // rdi
+  _QWORD *v4; // rdi
   unsigned __int8 v5; // bl
   ULONGLONG *v6; // r8
   ULONGLONG v7; // r9
@@ -55,13 +55,16 @@ char __fastcall PpmEventTraceProfiles(char a1)
     v3 = &PPM_ETW_PROCESSOR_PROFILE_REGISTERED;
     if ( a1 )
       v3 = &PPM_ETW_PROCESSOR_PROFILE_RUNDOWN;
-    LOBYTE(v1) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v3);
+    LOBYTE(v1) = EtwEventEnabled(PpmEtwHandle, v3);
     if ( (_BYTE)v1 )
     {
       v4 = PpmCurrentProfile;
       v5 = 0;
       v17 = MEMORY[0xFFFFF78000000008];
-      PpmEndProfileAccumulation(PpmCurrentProfile, MEMORY[0xFFFFF78000000008], &qword_140F0B0E0);
+      PpmEndProfileAccumulation(
+        PpmCurrentProfile,
+        MEMORY[0xFFFFF78000000008],
+        &PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue);
       while ( 1 )
       {
         v7 = *v6;
@@ -107,12 +110,7 @@ LABEL_17:
         v34 = 8LL;
         if ( !a1 )
           v12 = &PPM_ETW_PROCESSOR_PROFILE_REGISTERED;
-        LOBYTE(v1) = EtwWrite(
-                       (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                       v12,
-                       0LL,
-                       9u,
-                       &UserData);
+        LOBYTE(v1) = EtwWrite(PpmEtwHandle, v12, 0LL, 9u, &UserData);
         if ( v5 == PpmProfileCount )
           break;
         v6 = (ULONGLONG *)(PpmProfiles + 1504LL * v5++);

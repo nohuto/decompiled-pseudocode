@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorVerifyIrpStackUpward @ 0x140AD3354
+ * XREFs of VfMajorVerifyIrpStackUpward @ 0x140AD3344
  * Callers:
- *     IovpCompleteRequest2 @ 0x140ACCB2C (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x140ACCB1C (IovpCompleteRequest2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall VfMajorVerifyIrpStackUpward(

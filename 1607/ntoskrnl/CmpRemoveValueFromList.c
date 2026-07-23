@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpRemoveValueFromList @ 0x1404DC880
+ * XREFs of CmpRemoveValueFromList @ 0x1404BFE84
  * Callers:
- *     CmDeleteValueKey @ 0x1403FAE34 (CmDeleteValueKey.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F08C (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmDeleteValueKey @ 0x1403F9CF4 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F140 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
  * Callees:
- *     HvReallocateCell @ 0x1403FFDEC (HvReallocateCell.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
+ *     HvReallocateCell @ 0x1403FECAC (HvReallocateCell.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
  */
 
 __int64 __fastcall CmpRemoveValueFromList(ULONG_PTR a1, unsigned int a2, unsigned int *a3)

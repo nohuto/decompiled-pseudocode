@@ -3,9 +3,9 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     NtCreateDirectoryObject @ 0x140470CCC (NtCreateDirectoryObject.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     NtCreateDirectoryObject @ 0x14046FB9C (NtCreateDirectoryObject.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 char IopCreateRootDirectories()

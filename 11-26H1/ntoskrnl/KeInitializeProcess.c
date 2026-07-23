@@ -1,28 +1,28 @@
 /*
- * XREFs of KeInitializeProcess @ 0x140963BE4
+ * XREFs of KeInitializeProcess @ 0x140B58704
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     KiInitializeIdleProcess @ 0x140CC81A4 (KiInitializeIdleProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
+ *     KiInitializeIdleProcess @ 0x140CCE294 (KiInitializeIdleProcess.c)
  * Callees:
  *     KeFindFirstSetRightGroupMask @ 0x140200980 (KeFindFirstSetRightGroupMask.c)
  *     KiStartIdealProcessorAssignmentBlock @ 0x1402013B8 (KiStartIdealProcessorAssignmentBlock.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeIsEmptyGroupMask @ 0x14040B460 (KeIsEmptyGroupMask.c)
- *     MmGetNextNode @ 0x14045D380 (MmGetNextNode.c)
- *     KeClearBitGroupMask @ 0x14047042C (KeClearBitGroupMask.c)
- *     ExSaAllocate @ 0x1404993B0 (ExSaAllocate.c)
- *     KiSetIdealNodeProcessByGroup @ 0x1404B47C8 (KiSetIdealNodeProcessByGroup.c)
- *     KeSelectNodeForAffinity @ 0x1404B4978 (KeSelectNodeForAffinity.c)
- *     KeAndGroupMasks @ 0x1404D1F30 (KeAndGroupMasks.c)
- *     KiInitializeProcessAvailableCpuState @ 0x1404D61F4 (KiInitializeProcessAvailableCpuState.c)
- *     KiInitializeIdealProcessorAssignmentBlock @ 0x1404D75E8 (KiInitializeIdealProcessorAssignmentBlock.c)
- *     KeSetGroupMaskProcess @ 0x1404D81E0 (KeSetGroupMaskProcess.c)
- *     KeSetBitGroupMask @ 0x1404DA280 (KeSetBitGroupMask.c)
- *     KiAbInitializeAutoBoostProcessState @ 0x1404DC880 (KiAbInitializeAutoBoostProcessState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VslCreateSecureProcess @ 0x140B39EC8 (VslCreateSecureProcess.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeIsEmptyGroupMask @ 0x140404550 (KeIsEmptyGroupMask.c)
+ *     MmGetNextNode @ 0x140456D80 (MmGetNextNode.c)
+ *     KeClearBitGroupMask @ 0x140469BAC (KeClearBitGroupMask.c)
+ *     ExSaAllocate @ 0x140492F00 (ExSaAllocate.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x1404ADD98 (KiSetIdealNodeProcessByGroup.c)
+ *     KeSelectNodeForAffinity @ 0x1404ADF48 (KeSelectNodeForAffinity.c)
+ *     KeAndGroupMasks @ 0x1404CBAE0 (KeAndGroupMasks.c)
+ *     KiInitializeProcessAvailableCpuState @ 0x1404CF9C4 (KiInitializeProcessAvailableCpuState.c)
+ *     KiInitializeIdealProcessorAssignmentBlock @ 0x1404D0DB8 (KiInitializeIdealProcessorAssignmentBlock.c)
+ *     KeSetGroupMaskProcess @ 0x1404D19B0 (KeSetGroupMaskProcess.c)
+ *     KeSetBitGroupMask @ 0x1404D3960 (KeSetBitGroupMask.c)
+ *     KiAbInitializeAutoBoostProcessState @ 0x1404D5F60 (KiAbInitializeAutoBoostProcessState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VslCreateSecureProcess @ 0x140B3C0D8 (VslCreateSecureProcess.c)
  */
 
 __int64 __fastcall KeInitializeProcess(struct _KPROCESS *a1, __int64 a2)
@@ -209,7 +209,8 @@ __int64 __fastcall KeInitializeProcess(struct _KPROCESS *a1, __int64 a2)
         {
           v37 = v35++;
           _BitScanReverse(&v38, v36);
-          *(_OWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8 * v37) + 8LL * (v38 - 2))
+          *(_OWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress + v37)
+                                            + 8LL * (v38 - 2))
                                 + 8 * (v36 ^ (unsigned __int64)(unsigned int)(1 << v38))
                                 + 8)
                     + 8LL * (((unsigned int)v34 >> 4) & 0x1FF)) = 0LL;
@@ -223,7 +224,7 @@ __int64 __fastcall KeInitializeProcess(struct _KPROCESS *a1, __int64 a2)
   }
   if ( (*(_DWORD *)(v3 + 32) & 2) != 0 )
   {
-    SecureProcess = VslCreateSecureProcess(a1, 0LL, &a1->SecureState);
+    SecureProcess = VslCreateSecureProcess((__int64)a1, 0LL, (_KPROCESS_SECURE_STATE *)&a1->SecureState.EntireField);
     if ( SecureProcess >= 0 )
       a1->SecureState.EntireField |= 1uLL;
   }

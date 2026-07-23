@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCreateEmptyHiveClone @ 0x14085C094
+ * XREFs of CmpCreateEmptyHiveClone @ 0x140862384
  * Callers:
- *     CmpReorganizeHive @ 0x140AE35CC (CmpReorganizeHive.c)
+ *     CmpReorganizeHive @ 0x140AE10D4 (CmpReorganizeHive.c)
  * Callees:
- *     CmpAllocateForNonPagedHive @ 0x140505650 (CmpAllocateForNonPagedHive.c)
- *     HvHiveStartEmptyClone @ 0x14085CE0C (HvHiveStartEmptyClone.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     CmpAllocate @ 0x140A881A0 (CmpAllocate.c)
- *     CmpHiveInitialize @ 0x140AB8AA0 (CmpHiveInitialize.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmpAllocateForNonPagedHive @ 0x1404FEF00 (CmpAllocateForNonPagedHive.c)
+ *     HvHiveStartEmptyClone @ 0x1408630FC (HvHiveStartEmptyClone.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     CmpAllocate @ 0x140A8F2D0 (CmpAllocate.c)
+ *     CmpHiveInitialize @ 0x140ABA0E0 (CmpHiveInitialize.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCreateEmptyHiveClone(__int64 *a1, __int64 a2)

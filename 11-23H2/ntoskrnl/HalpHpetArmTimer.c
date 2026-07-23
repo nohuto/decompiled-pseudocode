@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHpetArmTimer @ 0x14051FCB0
+ * XREFs of HalpHpetArmTimer @ 0x140520200
  * Callers:
  *     <none>
  * Callees:
- *     HalSetTimerProblem @ 0x14051F8B0 (HalSetTimerProblem.c)
- *     HalpHpetSetMatchValue @ 0x14051FCFC (HalpHpetSetMatchValue.c)
+ *     HalSetTimerProblem @ 0x14051FE00 (HalSetTimerProblem.c)
+ *     HalpHpetSetMatchValue @ 0x14052024C (HalpHpetSetMatchValue.c)
  */
 
 __int64 __fastcall HalpHpetArmTimer(__int64 a1, int a2, unsigned __int64 a3)

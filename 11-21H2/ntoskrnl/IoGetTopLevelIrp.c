@@ -1,7 +1,7 @@
 /*
  * XREFs of IoGetTopLevelIrp @ 0x140288160
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1406FDCD0 (MiCreateImageOrDataSection.c)
+ *     sub_1406FDCD0 @ 0x1406FDCD0 (sub_1406FDCD0.c)
  *     FsRtlCopyRead @ 0x14092D040 (FsRtlCopyRead.c)
  *     FsRtlCopyWrite @ 0x14092D2C0 (FsRtlCopyWrite.c)
  *     FsRtlMdlReadDev @ 0x14092DA90 (FsRtlMdlReadDev.c)
@@ -12,5 +12,5 @@
 
 PIRP IoGetTopLevelIrp(void)
 {
-  return (PIRP)KeGetCurrentThread()[1].TrapFrame;
+  return (PIRP)*((_QWORD *)KeGetCurrentThread() + 162);
 }

@@ -7,13 +7,13 @@
  *     _RtlpEnumProcessHeaps@12 @ 0x4B35791E (_RtlpEnumProcessHeaps@12.c)
  */
 
-int __stdcall RtlGetProcessHeaps(int a1, int a2)
+ULONG __cdecl RtlGetProcessHeaps(ULONG NumberOfHeaps, PVOID *ProcessHeaps)
 {
-  int v2; // edi
+  ULONG v2; // edi
 
   RtlpEnumProcessHeaps(2);
   v2 = 0;
   if ( dword_4B3A373C )
-    return dword_4B3A3760(dword_4B3A3760, a1, a2);
+    return dword_4B3A3760(dword_4B3A3760, NumberOfHeaps, ProcessHeaps);
   return v2;
 }

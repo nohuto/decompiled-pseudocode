@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlStringCchCopyW @ 0x180047134
  * Callers:
- *     RtlConvertLCIDToString @ 0x1800EEF10 (RtlConvertLCIDToString.c)
- *     RtlpSetInstallLanguage @ 0x1800F0BC0 (RtlpSetInstallLanguage.c)
- *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x180104E7C (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
- *     RtlpMuiRegGetString @ 0x1801051CC (RtlpMuiRegGetString.c)
+ *     RtlConvertLCIDToString @ 0x1800EEED0 (RtlConvertLCIDToString.c)
+ *     RtlpSetInstallLanguage @ 0x1800F0B80 (RtlpSetInstallLanguage.c)
+ *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x180104E3C (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
+ *     RtlpMuiRegGetString @ 0x18010518C (RtlpMuiRegGetString.c)
  * Callees:
  *     <none>
  */

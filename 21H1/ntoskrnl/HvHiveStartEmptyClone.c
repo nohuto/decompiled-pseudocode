@@ -8,13 +8,13 @@
  *     HvpViewMapStart @ 0x140686648 (HvpViewMapStart.c)
  */
 
-int __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)
+NTSTATUS __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi
   __int64 (__fastcall *v4)(__int64, __int64, __int64); // rax
   __int64 v5; // rcx
   void *v6; // rax
-  int result; // eax
+  NTSTATUS result; // eax
   char v8; // cl
 
   *(_QWORD *)(a1 + 8) = *(_QWORD *)(a2 + 8);

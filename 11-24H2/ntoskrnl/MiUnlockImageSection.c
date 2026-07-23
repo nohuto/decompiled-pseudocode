@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUnlockImageSection @ 0x1402C7130
+ * XREFs of MiUnlockImageSection @ 0x1402BBCB0
  * Callers:
- *     MiLockPagableImageSection @ 0x1402C70A0 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x1402BBC20 (MiLockPagableImageSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     MiUnlockCodePage @ 0x1402C7618 (MiUnlockCodePage.c)
- *     ExpUnblockPushLock @ 0x1402C793C (ExpUnblockPushLock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiUnlockCodePage @ 0x140203B44 (MiUnlockCodePage.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExpUnblockPushLock @ 0x1402BC2BC (ExpUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockImageSection(__int64 a1, volatile signed __int32 *a2, ULONG_PTR a3)
 {
   struct _KTHREAD *CurrentThread; // rdi
   __int64 v6; // r9
-  __int64 v7; // r10
-  __int64 v8; // rdx
+  unsigned __int64 v7; // r10
+  unsigned __int64 v8; // rdx
   unsigned __int8 CurrentIrql; // si
   signed __int32 v10; // r8d
   __int64 result; // rax
@@ -30,14 +30,14 @@ __int64 __fastcall MiUnlockImageSection(__int64 a1, volatile signed __int32 *a2,
   v10 = _InterlockedDecrement(a2 + 2);
   result = (unsigned int)(v10 + 1);
   if ( (unsigned int)result <= 1 )
-    KeBugCheckEx(0x1Au, 0x1010uLL, v7 << 25 >> 16, a3, v10);
+    KeBugCheckEx(0x1Au, 0x1010uLL, (__int64)(v7 << 25) >> 16, a3, v10);
   if ( v10 == 1 )
   {
-    result = MiUnlockCodePage(v7, v8, 0LL);
+    result = MiUnlockCodePage(v7, v8, 0);
     _InterlockedAdd(a2 + 2, 0xFFFFFFFF);
     _InterlockedOr(v12, 0);
-    if ( qword_140E2D878 )
-      result = ExpUnblockPushLock(&qword_140E2D878, 0LL, 0LL);
+    if ( qword_140E2D9B8 )
+      result = ExpUnblockPushLock(&qword_140E2D9B8, 0LL, 0LL);
   }
   if ( !CurrentIrql )
     return KeLeaveCriticalRegionThread();

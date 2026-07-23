@@ -1,20 +1,20 @@
 /*
- * XREFs of PoStoreDiagnosticContext @ 0x1404372B0
+ * XREFs of PoStoreDiagnosticContext @ 0x140426240
  * Callers:
- *     PopTraceThermalRequestActiveActivity @ 0x14043661C (PopTraceThermalRequestActiveActivity.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x140436950 (PopTraceThermalRequestPassiveHistogram.c)
- *     ExGetWakeTimerList @ 0x1404388A0 (ExGetWakeTimerList.c)
- *     PopTracePowerLimitHistogram @ 0x140609CFC (PopTracePowerLimitHistogram.c)
- *     PopDiagTracePowerLimitRequest @ 0x1407D4330 (PopDiagTracePowerLimitRequest.c)
- *     PopDiagTracePowerLimitRequestValueUpdate @ 0x1407D4648 (PopDiagTracePowerLimitRequestValueUpdate.c)
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
- *     PopDiagTraceThermalRequest @ 0x140AC18EC (PopDiagTraceThermalRequest.c)
- *     PopUmpoSendPowerRequestCreate @ 0x140ADE014 (PopUmpoSendPowerRequestCreate.c)
- *     PopGetPowerRequestListInfo @ 0x140AEA314 (PopGetPowerRequestListInfo.c)
- *     ExGetNextWakeTime @ 0x140C0CCD0 (ExGetNextWakeTime.c)
+ *     ExGetWakeTimerList @ 0x1404241AC (ExGetWakeTimerList.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x1404255AC (PopTraceThermalRequestActiveActivity.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1404258E0 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTracePowerLimitHistogram @ 0x14060C8BC (PopTracePowerLimitHistogram.c)
+ *     PopDiagTracePowerLimitRequest @ 0x1407D74B0 (PopDiagTracePowerLimitRequest.c)
+ *     PopDiagTracePowerLimitRequestValueUpdate @ 0x1407D77C8 (PopDiagTracePowerLimitRequestValueUpdate.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
+ *     PopDiagTraceThermalRequest @ 0x140AC398C (PopDiagTraceThermalRequest.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x140ADAD84 (PopUmpoSendPowerRequestCreate.c)
+ *     PopGetPowerRequestListInfo @ 0x140AECE04 (PopGetPowerRequestListInfo.c)
+ *     ExGetNextWakeTime @ 0x140C12EE0 (ExGetNextWakeTime.c)
  * Callees:
- *     PoStoreRequester @ 0x140437428 (PoStoreRequester.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     PoStoreRequester @ 0x1404263B8 (PoStoreRequester.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall PoStoreDiagnosticContext(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)

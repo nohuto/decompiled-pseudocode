@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPolicySystemIdle @ 0x1405B04E0
+ * XREFs of PopPolicySystemIdle @ 0x1405B14E0
  * Callers:
- *     PopPolicyWorkerThread @ 0x1401305A0 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x140130670 (PopPolicyWorkerThread.c)
  * Callees:
  *     PopScanIdleList @ 0x140010050 (PopScanIdleList.c)
  *     PopGetConsoleDisplayRequestCount @ 0x1400108EC (PopGetConsoleDisplayRequestCount.c)
- *     PopResetIdleTime @ 0x140138BA0 (PopResetIdleTime.c)
- *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopTraceSystemIdleUpdate @ 0x1405B0688 (PopTraceSystemIdleUpdate.c)
- *     PopIsDozeSupported @ 0x1405B0814 (PopIsDozeSupported.c)
- *     PopIsHibernateSupported @ 0x1405B0850 (PopIsHibernateSupported.c)
- *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
+ *     PopResetIdleTime @ 0x140138CA0 (PopResetIdleTime.c)
+ *     PopQueueWorkItem @ 0x140138DC8 (PopQueueWorkItem.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopTraceSystemIdleUpdate @ 0x1405B1688 (PopTraceSystemIdleUpdate.c)
+ *     PopIsDozeSupported @ 0x1405B1814 (PopIsDozeSupported.c)
+ *     PopIsHibernateSupported @ 0x1405B1850 (PopIsHibernateSupported.c)
+ *     PopFilterCapabilities @ 0x1405B1968 (PopFilterCapabilities.c)
+ *     PopExecutePowerAction @ 0x1406DF390 (PopExecutePowerAction.c)
  */
 
 __int64 PopPolicySystemIdle()
@@ -34,16 +34,16 @@ __int64 PopPolicySystemIdle()
   v1 = 0;
   ConsoleDisplayRequestCount = PopGetConsoleDisplayRequestCount();
   PopAcquirePolicyLock();
-  if ( MEMORY[0xFFFFF780000002E4] != dword_140417650 )
+  if ( MEMORY[0xFFFFF780000002E4] != dword_1404186D0 )
   {
-    dword_140417650 = MEMORY[0xFFFFF780000002E4];
+    dword_1404186D0 = MEMORY[0xFFFFF780000002E4];
     PopResetIdleTime(1u);
   }
   PopFilterCapabilities(&PopCapabilities, v9);
   v3 = 0;
-  if ( !v10 && dword_140417680 )
-    v3 = dword_140417648 - dword_140417680 < (unsigned int)dword_1404180E0;
-  if ( dword_14041764C && dword_140417648 >= (unsigned int)dword_14041764C && !v3 && !PopUserShutdownInProgress )
+  if ( !v10 && dword_140418700 )
+    v3 = dword_1404186C8 - dword_140418700 < (unsigned int)dword_1404191A0;
+  if ( dword_1404186CC && dword_1404186C8 >= (unsigned int)dword_1404186CC && !v3 && !PopUserShutdownInProgress )
   {
     if ( v10 )
     {
@@ -52,25 +52,25 @@ __int64 PopPolicySystemIdle()
     }
     else
     {
-      v0 = dword_140417664 == 0;
+      v0 = dword_1404186E4 == 0;
     }
   }
-  byte_140417690 = v0;
-  if ( v10 && (_DWORD)qword_140417654 == 2 )
-    v1 = dword_140417660 == 1;
+  byte_140418710 = v0;
+  if ( v10 && (_DWORD)qword_1404186D4 == 2 )
+    v1 = dword_1404186E0 == 1;
   if ( v0 )
   {
     if ( !v1 )
       PopResetIdleTime(5u);
-    byte_140417675 = 0;
+    byte_1404186F5 = 0;
   }
   PopIsHibernateSupported(v9);
   PopIsDozeSupported(v9);
   LOBYTE(v4) = v3;
-  LOBYTE(v5) = dword_140417664 != 0;
+  LOBYTE(v5) = dword_1404186E4 != 0;
   v6 = *((_DWORD *)PopPolicy + 22);
   LOBYTE(v6) = v0;
-  PopTraceSystemIdleUpdate(dword_140417648, v6, v5, v4);
+  PopTraceSystemIdleUpdate(dword_1404186C8, v6, v5, v4);
   if ( v0 )
   {
     if ( v1 )
@@ -80,7 +80,7 @@ __int64 PopPolicySystemIdle()
     else
     {
       v8[0] = 0x8000000007LL;
-      PopExecutePowerAction((unsigned int)v8, 0, (unsigned int)&qword_140417654, dword_140417660, 1);
+      PopExecutePowerAction((unsigned int)v8, 0, (unsigned int)&qword_1404186D4, dword_1404186E0, 1);
     }
   }
   PopReleasePolicyLock();

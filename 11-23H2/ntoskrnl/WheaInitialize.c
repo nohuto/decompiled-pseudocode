@@ -3,21 +3,21 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     WheapCallErrorSourceInitialize @ 0x140380CA4 (WheapCallErrorSourceInitialize.c)
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B419C (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     WheapInitializeWorkQueue @ 0x1403B4ECC (WheapInitializeWorkQueue.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     WheapLogInitEvent @ 0x14085669C (WheapLogInitEvent.c)
- *     WheapInitWnfCallbacks @ 0x1408644E4 (WheapInitWnfCallbacks.c)
- *     IoWMIRegistrationControl @ 0x14086BEB0 (IoWMIRegistrationControl.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     WheapCallErrorSourceInitialize @ 0x140380E44 (WheapCallErrorSourceInitialize.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B437C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapInitializeWorkQueue @ 0x1403B50AC (WheapInitializeWorkQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     WheapLogInitEvent @ 0x14085699C (WheapLogInitEvent.c)
+ *     WheapInitWnfCallbacks @ 0x140864724 (WheapInitWnfCallbacks.c)
+ *     IoWMIRegistrationControl @ 0x14086C0F0 (IoWMIRegistrationControl.c)
  *     WheapInitializeErrorSourceTable @ 0x140B48FA0 (WheapInitializeErrorSourceTable.c)
  *     WheapQueryPshedForErrorSources @ 0x140B49520 (WheapQueryPshedForErrorSources.c)
  *     WheapInitializeEventing @ 0x140B66418 (WheapInitializeEventing.c)
@@ -71,7 +71,7 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
   v49 = 0;
   if ( a2 )
   {
-    qword_140C2CB78 = (__int64)&WheapPrevErrList;
+    qword_140C2CB38 = (__int64)&WheapPrevErrList;
     WheapPrevErrList = (__int64)&WheapPrevErrList;
     v12 = PshedInitialize(a1, v47);
     if ( v12 < 0 )
@@ -197,7 +197,7 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
   else
   {
     WheapStatus = 0LL;
-    dword_140C2CC18 = 0;
+    dword_140C2CBD8 = 0;
     WheapErrorRecordId = MEMORY[0xFFFFF78000000014];
     WheapLoadPolicy();
     if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 )

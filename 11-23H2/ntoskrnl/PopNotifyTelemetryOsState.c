@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNotifyTelemetryOsState @ 0x140992604
+ * XREFs of PopNotifyTelemetryOsState @ 0x140992804
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     PopTransitionTelemetryOsState @ 0x140859174 (PopTransitionTelemetryOsState.c)
+ *     PopTransitionTelemetryOsState @ 0x1408593B4 (PopTransitionTelemetryOsState.c)
  */
 
 __int64 __fastcall PopNotifyTelemetryOsState(__int64 a1, int a2, int a3, __int64 a4, char a5)

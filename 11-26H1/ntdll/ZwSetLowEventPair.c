@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetLowEventPair @ 0x180162610
+ * XREFs of ZwSetLowEventPair @ 0x180162510
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetLowEventPair()
+NTSTATUS __cdecl ZwSetLowEventPair(HANDLE EventPairHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 439LL;
+  result = 439;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

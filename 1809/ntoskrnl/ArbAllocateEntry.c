@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbAllocateEntry @ 0x14074D380
+ * XREFs of ArbAllocateEntry @ 0x14074E570
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbAllocateEntry(__int64 a1, unsigned __int64 a2)

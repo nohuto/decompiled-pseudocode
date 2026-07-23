@@ -6,14 +6,14 @@
  *     _RtlAdjustPrivilege@16 @ 0x4B2E6D40 (_RtlAdjustPrivilege@16.c)
  */
 
-int __fastcall RtlpSetPrivilege(int a1)
+NTSTATUS __fastcall RtlpSetPrivilege(int a1)
 {
-  int result; // eax
-  bool v2; // [esp+1h] [ebp-1h] BYREF
+  NTSTATUS result; // eax
+  BOOLEAN WasEnabled; // [esp+1h] [ebp-1h] BYREF
 
-  v2 = HIBYTE(a1);
-  result = RtlAdjustPrivilege(19, 1, 1, &v2);
+  WasEnabled = HIBYTE(a1);
+  result = RtlAdjustPrivilege(0x13u, 1u, 1u, &WasEnabled);
   if ( result == -1073741700 )
-    return RtlAdjustPrivilege(19, 1, 0, &v2);
+    return RtlAdjustPrivilege(0x13u, 1u, 0, &WasEnabled);
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGetSMBiosEventlog @ 0x140931A34
+ * XREFs of WmipGetSMBiosEventlog @ 0x140931B94
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x140682580 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x1405E3F50 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     WmipFindSMBiosStructure @ 0x1409317F8 (WmipFindSMBiosStructure.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     WmipFindSMBiosStructure @ 0x140931958 (WmipFindSMBiosStructure.c)
  */
 
 __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
@@ -22,27 +22,36 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
   unsigned int v10; // ebx
   char v11; // dl
   unsigned __int16 v12; // r9
-  unsigned int v13; // esi
-  void *v14; // r14
-  __int128 v15; // xmm0
-  const void *v16; // rax
-  void *v17; // rbx
-  __int64 v18; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  unsigned int v16; // esi
+  void *v17; // r14
+  __int128 v18; // xmm0
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  const void *v22; // rax
+  void *v23; // rbx
+  __int64 v24; // rdx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  __int64 v27; // [rsp+20h] [rbp-10h] BYREF
   SIZE_T NumberOfBytes; // [rsp+80h] [rbp+50h] BYREF
   PVOID BaseAddress; // [rsp+88h] [rbp+58h] BYREF
 
   BaseAddress = 0LL;
-  v18 = 0LL;
+  v27 = 0LL;
   LODWORD(NumberOfBytes) = 0;
-  result = WmipFindSMBiosStructure(15, &v18, &BaseAddress, &NumberOfBytes);
+  result = WmipFindSMBiosStructure(15, &v27, &BaseAddress, &NumberOfBytes);
   if ( (int)result < 0 )
     return result;
-  v5 = v18;
-  v6 = *(unsigned __int8 *)(v18 + 1);
-  v7 = (__int128 *)(v18 + 4);
-  v8 = *(unsigned __int16 *)(v18 + 4);
-  v9 = *(unsigned __int8 *)(v18 + 10);
-  v10 = *(_DWORD *)(v18 + 16);
+  v5 = v27;
+  v6 = *(unsigned __int8 *)(v27 + 1);
+  v7 = (__int128 *)(v27 + 4);
+  v8 = *(unsigned __int16 *)(v27 + 4);
+  v9 = *(unsigned __int8 *)(v27 + 10);
+  v10 = *(_DWORD *)(v27 + 16);
   if ( (unsigned __int8)v6 < 0x17u )
   {
     v12 = 0;
@@ -51,29 +60,29 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
   else
   {
     v11 = 1;
-    v12 = *(unsigned __int8 *)(v18 + 21) * *(unsigned __int8 *)(v18 + 22);
+    v12 = *(unsigned __int8 *)(v27 + 21) * *(unsigned __int8 *)(v27 + 22);
     if ( v6 != v12 + 23 )
     {
       if ( BaseAddress )
         MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
       ExReleaseResourceLite(&WmipSMBiosLock);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
       return 3221225473LL;
     }
   }
-  v13 = v12 + v8 + 23;
-  if ( *a2 < v13 )
+  v16 = v12 + v8 + 23;
+  if ( *a2 < v16 )
   {
     if ( BaseAddress )
       MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
     ExReleaseResourceLite(&WmipSMBiosLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v24, v25, v26);
     result = 3221225507LL;
   }
   else
   {
     *(_BYTE *)(a1 + 3) = 0;
-    v14 = (void *)(v12 + a1 + 23);
+    v17 = (void *)(v12 + a1 + 23);
     *(_WORD *)a1 = v12;
     *(_BYTE *)(a1 + 2) = v11;
     if ( v11 == 1 )
@@ -82,21 +91,21 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
     }
     else
     {
-      v15 = *v7;
+      v18 = *v7;
       *(_WORD *)(a1 + 20) = 0;
-      *(_OWORD *)(a1 + 4) = v15;
+      *(_OWORD *)(a1 + 4) = v18;
       *(_BYTE *)(a1 + 22) = 0;
     }
     if ( BaseAddress )
       MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
     ExReleaseResourceLite(&WmipSMBiosLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v19, v20, v21);
     if ( v9 == 3
-      && (NumberOfBytes = v10, v16 = (const void *)MmMapIoSpaceEx(v10, v8, 4u), v17 = (void *)v16, v14)
-      && v16 )
+      && (NumberOfBytes = v10, v22 = (const void *)MmMapIoSpaceEx(v10, v8, 4u), v23 = (void *)v22, v17)
+      && v22 )
     {
-      memmove(v14, v16, v8);
-      MmUnmapIoSpace(v17, v8);
+      memmove(v17, v22, v8);
+      MmUnmapIoSpace(v23, v8);
       result = 0LL;
     }
     else
@@ -104,6 +113,6 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
       result = 3221225473LL;
     }
   }
-  *a2 = v13;
+  *a2 = v16;
   return result;
 }

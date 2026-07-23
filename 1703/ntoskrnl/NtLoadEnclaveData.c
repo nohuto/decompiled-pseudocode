@@ -8,21 +8,21 @@
  *     MiCopyPagesIntoEnclave @ 0x1406BAD94 (MiCopyPagesIntoEnclave.c)
  */
 
-__int64 __fastcall NtLoadEnclaveData(
-        ULONG_PTR BugCheckParameter1,
-        unsigned __int64 a2,
-        void *a3,
-        __int64 a4,
-        int a5,
-        int a6,
-        int a7,
-        __int64 *a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   char PreviousMode; // r15
   __int64 v14; // r8
   __int64 v15; // rcx
-  int v16; // ebx
+  NTSTATUS v16; // ebx
   __int64 v18; // [rsp+48h] [rbp-40h] BYREF
   PVOID Object; // [rsp+50h] [rbp-38h] BYREF
   __int64 v20[3]; // [rsp+58h] [rbp-30h] BYREF
@@ -33,46 +33,46 @@ __int64 __fastcall NtLoadEnclaveData(
   if ( PreviousMode == 1 )
   {
     v14 = 0x7FFFFFFF0000LL;
-    if ( a9 )
+    if ( EnclaveError )
     {
       v15 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a9 < 0x7FFFFFFF0000LL )
-        v15 = (__int64)a9;
+      if ( (unsigned __int64)EnclaveError < 0x7FFFFFFF0000LL )
+        v15 = (__int64)EnclaveError;
       *(_DWORD *)v15 = *(_DWORD *)v15;
     }
-    if ( a8 )
+    if ( NumberOfBytesWritten )
     {
-      if ( (unsigned __int64)a8 < 0x7FFFFFFF0000LL )
-        v14 = (__int64)a8;
+      if ( (unsigned __int64)NumberOfBytesWritten < 0x7FFFFFFF0000LL )
+        v14 = (__int64)NumberOfBytesWritten;
       *(_QWORD *)v14 = *(_QWORD *)v14;
     }
   }
-  if ( !a4 )
+  if ( !BufferSize )
     goto LABEL_11;
-  if ( (a2 & 0xFFF) != 0 )
+  if ( ((unsigned __int16)BaseAddress & 0xFFF) != 0 )
   {
     v16 = -1073741584;
     goto LABEL_22;
   }
-  if ( (a4 & 0xFFF) != 0 )
+  if ( (BufferSize & 0xFFF) != 0 )
   {
 LABEL_11:
     v16 = -1073741582;
     goto LABEL_22;
   }
-  if ( a7 )
+  if ( PageInformationLength )
   {
     v16 = -1073741820;
     goto LABEL_22;
   }
-  if ( BugCheckParameter1 == -1LL )
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
     Object = KeGetCurrentThread()->ApcState.Process;
   }
   else
   {
     v16 = ObpReferenceObjectByHandleWithTag(
-            BugCheckParameter1,
+            (ULONG_PTR)ProcessHandle,
             8,
             (__int64)PsProcessType,
             PreviousMode,
@@ -83,13 +83,21 @@ LABEL_11:
     if ( v16 < 0 )
       goto LABEL_22;
   }
-  v16 = MiCopyPagesIntoEnclave((_KPROCESS *)Object, PreviousMode, a2, a3, a4, a5, v20, &v18);
-  if ( BugCheckParameter1 != -1LL )
+  v16 = MiCopyPagesIntoEnclave(
+          (_KPROCESS *)Object,
+          PreviousMode,
+          (unsigned __int64)BaseAddress,
+          Buffer,
+          BufferSize,
+          Protect,
+          v20,
+          &v18);
+  if ( ProcessHandle != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
 LABEL_22:
-  if ( a8 )
-    *a8 = v20[0];
-  if ( a9 )
-    *a9 = v18;
-  return (unsigned int)v16;
+  if ( NumberOfBytesWritten )
+    *NumberOfBytesWritten = v20[0];
+  if ( EnclaveError )
+    *EnclaveError = v18;
+  return v16;
 }

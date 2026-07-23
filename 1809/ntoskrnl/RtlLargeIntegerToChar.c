@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLargeIntegerToChar @ 0x1405AAF90
+ * XREFs of RtlLargeIntegerToChar @ 0x1405ABF90
  * Callers:
- *     RtlInt64ToUnicodeString @ 0x1405AAD00 (RtlInt64ToUnicodeString.c)
+ *     RtlInt64ToUnicodeString @ 0x1405ABD00 (RtlInt64ToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

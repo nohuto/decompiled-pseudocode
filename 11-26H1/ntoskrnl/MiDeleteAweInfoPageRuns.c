@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteAweInfoPageRuns @ 0x140701000
+ * XREFs of MiDeleteAweInfoPageRuns @ 0x140705CD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     MiReturnCrossPartitionCharges @ 0x14036E1E8 (MiReturnCrossPartitionCharges.c)
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
- *     MiFreeContiguousLargePageRun @ 0x140701770 (MiFreeContiguousLargePageRun.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     MiReturnCrossPartitionCharges @ 0x14036FF88 (MiReturnCrossPartitionCharges.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
+ *     MiFreeContiguousLargePageRun @ 0x140706440 (MiFreeContiguousLargePageRun.c)
  */
 
 __int64 __fastcall MiDeleteAweInfoPageRuns(__int64 *a1, unsigned __int64 a2, unsigned __int64 a3)

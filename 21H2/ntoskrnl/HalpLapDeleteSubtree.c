@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpLapDeleteSubtree @ 0x1404DB5F0
+ * XREFs of HalpLapDeleteSubtree @ 0x1404DB830
  * Callers:
- *     HalpLaAllocateBlt @ 0x1404DAE04 (HalpLaAllocateBlt.c)
- *     HalpLaFreeState @ 0x1404DB1C4 (HalpLaFreeState.c)
- *     HalpLaInitializeState @ 0x1404DB200 (HalpLaInitializeState.c)
+ *     HalpLaAllocateBlt @ 0x1404DB044 (HalpLaAllocateBlt.c)
+ *     HalpLaFreeState @ 0x1404DB404 (HalpLaFreeState.c)
+ *     HalpLaInitializeState @ 0x1404DB440 (HalpLaInitializeState.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpLaBltAdd @ 0x1404DAFF8 (HalpLaBltAdd.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpLaBltAdd @ 0x1404DB238 (HalpLaBltAdd.c)
  */
 
 __int64 **__fastcall HalpLapDeleteSubtree(__int64 **a1, __int64 *a2)

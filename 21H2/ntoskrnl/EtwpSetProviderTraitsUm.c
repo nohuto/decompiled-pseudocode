@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpSetProviderTraitsUm @ 0x140643070
+ * XREFs of EtwpSetProviderTraitsUm @ 0x140637E80
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpSetProviderTraitsCommon @ 0x14064323C (EtwpSetProviderTraitsCommon.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     EtwpEventWriteRegistrationStatus @ 0x140939AD8 (EtwpEventWriteRegistrationStatus.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpSetProviderTraitsCommon @ 0x14063804C (EtwpSetProviderTraitsCommon.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x140939CA8 (EtwpEventWriteRegistrationStatus.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
@@ -21,8 +21,8 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   unsigned __int16 Size; // ax
   __int64 v10; // rdx
   unsigned __int64 v11; // r8
-  char *PoolWithTag; // rax
-  void *v13; // rbx
+  _RTL_BALANCED_NODE *PoolWithTag; // rax
+  _RTL_BALANCED_NODE *Node; // rbx
   __int64 v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // r8
@@ -58,20 +58,20 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
           LOWORD(v10) = *(_WORD *)(a1 + 16);
         }
       }
-      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v10 + 28LL, 0x54777445u);
-      v13 = PoolWithTag;
+      PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v10 + 28LL, 0x54777445u);
+      Node = PoolWithTag;
       if ( PoolWithTag )
       {
-        memmove(PoolWithTag + 28, *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
+        memmove((char *)&PoolWithTag[1].Left + 4, *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
         v8 = EtwpSetProviderTraitsCommon(
                a1,
                a2,
                a3,
                (int)v6,
-               v13,
+               Node,
                *(unsigned __int16 *)(a1 + 16),
                &EtwpProviderTraitsUmMutex,
-               (__int64)&EtwpProviderTraitsUmTree);
+               &EtwpProviderTraitsUmTree);
       }
       else
       {

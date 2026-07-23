@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIoRateEntryVolumeCompare @ 0x1404893D0
+ * XREFs of PspIoRateEntryVolumeCompare @ 0x1404843F0
  * Callers:
- *     PspJobIoRateVolumeEntryInsert @ 0x1405E5A68 (PspJobIoRateVolumeEntryInsert.c)
- *     PspJobIoRateVolumeEntryReference @ 0x1405E5B48 (PspJobIoRateVolumeEntryReference.c)
- *     PspJobIoRateVolumeEntryRemove @ 0x1405E5C0C (PspJobIoRateVolumeEntryRemove.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x1405E3008 (PspJobIoRateVolumeEntryInsert.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x1405E30E8 (PspJobIoRateVolumeEntryReference.c)
+ *     PspJobIoRateVolumeEntryRemove @ 0x1405E31AC (PspJobIoRateVolumeEntryRemove.c)
  * Callees:
  *     <none>
  */

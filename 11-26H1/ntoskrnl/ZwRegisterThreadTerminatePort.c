@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwRegisterThreadTerminatePort @ 0x140726390
+ * XREFs of ZwRegisterThreadTerminatePort @ 0x14072AF60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRegisterThreadTerminatePort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRegisterThreadTerminatePort(HANDLE PortHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

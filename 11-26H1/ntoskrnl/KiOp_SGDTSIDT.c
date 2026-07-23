@@ -1,11 +1,11 @@
 /*
- * XREFs of KiOp_SGDTSIDT @ 0x1405F8530
+ * XREFs of KiOp_SGDTSIDT @ 0x1405FAF50
  * Callers:
  *     <none>
  * Callees:
- *     KiOpRetrieveRegMemAddress @ 0x1404AEE8C (KiOpRetrieveRegMemAddress.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     KiOpRetrieveRegMemAddress @ 0x1404A851C (KiOpRetrieveRegMemAddress.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall KiOp_SGDTSIDT(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall KiOp_SGDTSIDT(__int64 a1)
   Address = 0LL;
   v11 = 0;
   *(_QWORD *)((char *)&Src + 2) = 0LL;
-  if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 || stru_140F11D08.UserIdealProcessor )
+  if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 || PopHibernateHvMinloopEnabled )
   {
     v2 = 1;
     if ( VslVsmEnabled )
@@ -78,7 +78,7 @@ LABEL_18:
       ProbeForRead(Address, (-(__int64)(v8 != 0) & 0xFFFFFFFFFFFFFFFCuLL) + 10, 1u);
     memmove((void *)Address, &Src, (-(__int64)(v8 != 0) & 0xFFFFFFFFFFFFFFFCuLL) + 10);
     *(_QWORD *)(*(_QWORD *)(a1 + 24) + 248LL) += (unsigned int)(*(_DWORD *)(a1 + 16) - *(_DWORD *)a1);
-    ++LODWORD(KsepShimDbLock.AbWaitObject);
+    ++LODWORD(KsepShimDbLock.KernelWaitTime);
     *(_BYTE *)(a1 + 96) = 1;
   }
   if ( !*(_BYTE *)(a1 + 96) )

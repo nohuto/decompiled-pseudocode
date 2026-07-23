@@ -1,10 +1,10 @@
 /*
- * XREFs of _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140A75D80
+ * XREFs of _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140A76030
  * Callers:
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75948 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75BF8 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlpLangNameInMultiSzString @ 0x140844F1C (RtlpLangNameInMultiSzString.c)
- *     RtlLCIDToCultureName @ 0x1409BECF0 (RtlLCIDToCultureName.c)
+ *     RtlpLangNameInMultiSzString @ 0x14084521C (RtlpLangNameInMultiSzString.c)
+ *     RtlLCIDToCultureName @ 0x1409BEEF0 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall RtlpMuiRegValidateAndGetInstallFallbackBase(
@@ -15,10 +15,10 @@ __int64 __fastcall RtlpMuiRegValidateAndGetInstallFallbackBase(
 {
   unsigned int v4; // ebx
   wchar_t *v5; // rdi
-  UNICODE_STRING v7; // [rsp+20h] [rbp-18h] BYREF
+  UNICODE_STRING String; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = -1073741823;
-  v7 = 0LL;
+  String = 0LL;
   if ( !a1 || !a4 || !a2 )
     return 3221225485LL;
   if ( a2[1] == 7 )
@@ -27,11 +27,11 @@ __int64 __fastcall RtlpMuiRegValidateAndGetInstallFallbackBase(
     {
       if ( !a3 )
         return 0;
-      v7.Buffer = a4;
-      v7.MaximumLength = 170;
-      if ( RtlLCIDToCultureName(a3, &v7) )
+      String.Buffer = a4;
+      String.MaximumLength = 170;
+      if ( RtlLCIDToCultureName(a3, &String) )
       {
-        if ( RtlpLangNameInMultiSzString(v5, v7.Buffer) )
+        if ( RtlpLangNameInMultiSzString(v5, String.Buffer) )
           return 0;
       }
     }

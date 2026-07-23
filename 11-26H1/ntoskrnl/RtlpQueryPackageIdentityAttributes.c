@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpQueryPackageIdentityAttributes @ 0x14047F3E0
+ * XREFs of RtlpQueryPackageIdentityAttributes @ 0x140478D50
  * Callers:
- *     EtwpQueryPsmKey @ 0x140828334 (EtwpQueryPsmKey.c)
+ *     EtwpQueryPsmKey @ 0x14082E574 (EtwpQueryPsmKey.c)
  * Callees:
- *     SeQuerySecurityAttributesToken @ 0x140A7CEC0 (SeQuerySecurityAttributesToken.c)
+ *     SeQuerySecurityAttributesToken @ 0x140A82D30 (SeQuerySecurityAttributesToken.c)
  */
 
 __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
@@ -23,14 +23,14 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int6
   v10 = 1;
   if ( a4 || v5 )
     v10 = 2;
-  result = SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004620, v10, a3, 816, (__int64)&v13);
+  result = SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004640, v10, a3, 816, (__int64)&v13);
   if ( (int)result < 0 )
   {
     if ( (_DWORD)result != -1073741275 )
       return result;
     if ( v10 == 1 )
       return result;
-    result = SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004620, 1, a3, 816, (__int64)&v13);
+    result = SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004640, 1, a3, 816, (__int64)&v13);
     if ( (int)result < 0 )
       return result;
     v9 = 0;
@@ -48,9 +48,9 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int6
   if ( v5 )
   {
     *v5 |= (2LL * v9) | 1;
-    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004640, 1, 0, 0, (__int64)&v13) == -1073741789 )
+    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004660, 1, 0, 0, (__int64)&v13) == -1073741789 )
       *v5 |= 4uLL;
-    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004650, 1, 0, 0, (__int64)&v13) == -1073741789 )
+    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (unsigned int)&qword_140004670, 1, 0, 0, (__int64)&v13) == -1073741789 )
       *v5 |= 8uLL;
   }
   return 0LL;

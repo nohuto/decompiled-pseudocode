@@ -1,79 +1,74 @@
 /*
- * XREFs of WerpGlobalFlagsForProcess @ 0x1800020A0
+ * XREFs of WerpGlobalFlagsForProcess @ 0x1800AC868
  * Callers:
- *     RtlReportSilentProcessExit @ 0x180002F20 (RtlReportSilentProcessExit.c)
+ *     RtlReportSilentProcessExit @ 0x1800AB9C0 (RtlReportSilentProcessExit.c)
  * Callees:
- *     WerpPathTail @ 0x180002050 (WerpPathTail.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlQueryImageFileKeyOption @ 0x180089B50 (RtlQueryImageFileKeyOption.c)
- *     RtlAppendUnicodeToString @ 0x1800B2BB0 (RtlAppendUnicodeToString.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
- *     NtQueryInformationProcess @ 0x180161FB0 (NtQueryInformationProcess.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAppendUnicodeToString @ 0x18007F450 (RtlAppendUnicodeToString.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800A5610 (RtlQueryImageFileKeyOption.c)
+ *     WerpPathTail @ 0x1800ACA34 (WerpPathTail.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
+ *     NtQueryInformationProcess @ 0x180160370 (NtQueryInformationProcess.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall WerpGlobalFlagsForProcess(HANDLE ProcessHandle)
 {
-  _WORD *v2; // rax
-  _WORD *v3; // rbx
+  __int64 v2; // rax
+  const WCHAR *v3; // rbx
   __int64 v4; // rcx
   unsigned int v5; // edi
-  __int128 v7; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v8; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v9; // [rsp+50h] [rbp-B0h]
-  __int128 v10; // [rsp+60h] [rbp-A0h]
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-D0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE ProcessInformation[8]; // [rsp+70h] [rbp-90h] BYREF
-  unsigned __int64 v12; // [rsp+78h] [rbp-88h]
-  unsigned int v13; // [rsp+2B8h] [rbp+1B8h] BYREF
-  HANDLE Handle; // [rsp+2C0h] [rbp+1C0h] BYREF
+  __int64 v10; // [rsp+78h] [rbp-88h]
+  ULONG v11; // [rsp+2B8h] [rbp+1B8h] BYREF
+  HANDLE KeyHandle; // [rsp+2C0h] [rbp+1C0h] BYREF
 
-  *(_QWORD *)&v10 = 0LL;
-  DWORD2(v10) = 0;
-  Handle = 0LL;
-  v8 = 0LL;
-  v9 = 0LL;
+  KeyHandle = 0LL;
+  memset(&ObjectAttributes, 0, 44);
   memset_thunk_772440563353939046(ProcessInformation, 0, 0x220uLL);
-  v13 = 0;
-  v7 = 0LL;
-  if ( (NtQueryInformationProcess(ProcessHandle, (PROCESSINFOCLASS)43, ProcessInformation, 0x218u, 0LL) & 0xC0000000) != 0xC0000000 )
+  v11 = 0;
+  *(_OWORD *)BaseAddress = 0LL;
+  if ( (NtQueryInformationProcess(ProcessHandle, ProcessImageFileNameWin32, ProcessInformation, 0x218u, 0LL) & 0xC0000000) != 0xC0000000 )
   {
-    v2 = WerpPathTail(v12);
-    v3 = v2;
+    v2 = WerpPathTail(v10);
+    v3 = (const WCHAR *)v2;
     if ( v2 )
     {
       v4 = -1LL;
       do
         ++v4;
-      while ( v2[v4] );
+      while ( *(_WORD *)(v2 + 2 * v4) );
       v5 = 2 * v4 + 202;
-      *((_QWORD *)&v7 + 1) = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, v5);
-      if ( *((_QWORD *)&v7 + 1) )
+      BaseAddress[1] = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+      if ( BaseAddress[1] )
       {
-        WORD1(v7) = v5;
-        if ( (int)RtlAppendUnicodeToString(
-                    &v7,
-                    L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\") >= 0
-          && (int)RtlAppendUnicodeToString(&v7, v3) >= 0 )
+        WORD1(BaseAddress[0]) = v5;
+        if ( RtlAppendUnicodeToString(
+               (PUNICODE_STRING)BaseAddress,
+               L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\") >= 0
+          && RtlAppendUnicodeToString((PUNICODE_STRING)BaseAddress, v3) >= 0 )
         {
-          LODWORD(v8) = 48;
-          *(_QWORD *)&v9 = &v7;
-          *((_QWORD *)&v8 + 1) = 0LL;
-          DWORD2(v9) = 64;
-          v10 = 0LL;
-          if ( (int)NtOpenKey(&Handle, 1LL, &v8) >= 0 )
-            RtlQueryImageFileKeyOption(Handle, L"GlobalFlag", 4LL, &v13, 4, 0LL, v7);
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
+          ObjectAttributes.RootDirectory = 0LL;
+          ObjectAttributes.Attributes = 64;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          if ( NtOpenKey(&KeyHandle, 1u, &ObjectAttributes) >= 0 )
+            RtlQueryImageFileKeyOption(KeyHandle, (wchar_t *)L"GlobalFlag", 4, &v11, 4u, 0LL);
         }
       }
     }
   }
-  if ( Handle )
+  if ( KeyHandle )
   {
-    NtClose(Handle);
-    Handle = 0LL;
+    NtClose(KeyHandle);
+    KeyHandle = 0LL;
   }
-  if ( *((_QWORD *)&v7 + 1) )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, *((_QWORD *)&v7 + 1));
-  return v13;
+  if ( BaseAddress[1] )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress[1]);
+  return v11;
 }

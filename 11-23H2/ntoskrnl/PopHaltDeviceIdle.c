@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHaltDeviceIdle @ 0x1405874C0
+ * XREFs of PopHaltDeviceIdle @ 0x1405879B0
  * Callers:
- *     PoInitializeBroadcast @ 0x14098BBE4 (PoInitializeBroadcast.c)
+ *     PoInitializeBroadcast @ 0x14098BDE4 (PoInitializeBroadcast.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS PopHaltDeviceIdle()
@@ -24,8 +24,8 @@ NTSTATUS PopHaltDeviceIdle()
   v6 = 0LL;
   v7 = 0LL;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  byte_140D17B4C = 1;
-  if ( dword_140D17B48 )
+  byte_140D17B2C = 1;
+  if ( dword_140D17B28 )
   {
     DWORD1(v6) = 0;
     v7 = (char *)&v6 + 8;
@@ -36,10 +36,10 @@ NTSTATUS PopHaltDeviceIdle()
     BYTE2(v6) = 6;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v1 <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpWorkQueueManagerThread @ 0x140740AA0
+ * XREFs of ExpWorkQueueManagerThread @ 0x140741C90
  * Callers:
  *     <none>
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     ExpNewThreadNecessary @ 0x1400B6B00 (ExpNewThreadNecessary.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KeTimeOutQueueWaiters @ 0x140106FB4 (KeTimeOutQueueWaiters.c)
- *     KeSetAffinityThread @ 0x14016B2B0 (KeSetAffinityThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KeSetMaximumCountPriQueue @ 0x14029C1AC (KeSetMaximumCountPriQueue.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpCreateWorkerThread @ 0x14066A884 (ExpCreateWorkerThread.c)
- *     ExpPartitionCreatePoolDelayed @ 0x1408D6298 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpNewThreadNecessary @ 0x1400B6A40 (ExpNewThreadNecessary.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KeTimeOutQueueWaiters @ 0x140107034 (KeTimeOutQueueWaiters.c)
+ *     KeSetAffinityThread @ 0x14016B3B0 (KeSetAffinityThread.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KeSetMaximumCountPriQueue @ 0x14029C39C (KeSetMaximumCountPriQueue.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpCreateWorkerThread @ 0x14066BA44 (ExpCreateWorkerThread.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x1408D7558 (ExpPartitionCreatePoolDelayed.c)
  */
 
 void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)

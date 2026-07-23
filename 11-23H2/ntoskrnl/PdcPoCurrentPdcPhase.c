@@ -1,17 +1,17 @@
 /*
- * XREFs of PdcPoCurrentPdcPhase @ 0x1405997B0
+ * XREFs of PdcPoCurrentPdcPhase @ 0x140599CA0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PopFxPauseDeviceAccounting @ 0x14058B024 (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x14058B808 (PopFxResumeDeviceAccounting.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1405985E0 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1405986FC (PopDeepSleepResiliencyPhaseAccountingEnd.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1407AA01C (PopDisarmIdlePhaseWatchdog.c)
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140993C08 (PopPowerAggregatorNotifyPdcSleepTransition.c)
- *     PopPowerAggregatorNotifyResiliencyReached @ 0x140993CD4 (PopPowerAggregatorNotifyResiliencyReached.c)
- *     PopIdleCsStateChanged @ 0x14099BE3C (PopIdleCsStateChanged.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PopFxPauseDeviceAccounting @ 0x14058B514 (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x14058BCF8 (PopFxResumeDeviceAccounting.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140598AD0 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x140598BEC (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1407AA20C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140993E08 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorNotifyResiliencyReached @ 0x140993ED4 (PopPowerAggregatorNotifyResiliencyReached.c)
+ *     PopIdleCsStateChanged @ 0x14099C03C (PopIdleCsStateChanged.c)
  */
 
 __int64 __fastcall PdcPoCurrentPdcPhase(int a1, unsigned __int8 a2, unsigned int a3, unsigned int a4)

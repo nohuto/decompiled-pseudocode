@@ -7,7 +7,7 @@
  *     <none>
  */
 
-_BOOL8 __fastcall sub_180008004(__int64 a1)
+_BOOL8 __fastcall sub_180008004(_DWORD *a1)
 {
-  return *(_DWORD *)(a1 + 16) == -571548178 && a1 != *(_QWORD *)&qword_18015BFE0;
+  return a1[4] == -571548178 && a1 != qword_18015BFE0;
 }

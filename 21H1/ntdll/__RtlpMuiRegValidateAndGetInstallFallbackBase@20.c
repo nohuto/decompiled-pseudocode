@@ -16,8 +16,7 @@ unsigned int __fastcall _RtlpMuiRegValidateAndGetInstallFallbackBase(
 {
   int v5; // esi
   wchar_t *v6; // edi
-  unsigned __int16 v8[2]; // [esp+Ch] [ebp-8h] BYREF
-  wchar_t *String2; // [esp+10h] [ebp-4h]
+  _UNICODE_STRING String; // [esp+Ch] [ebp-8h] BYREF
 
   v5 = -1073741823;
   if ( !a1 || !a4 || !a2 )
@@ -28,11 +27,11 @@ unsigned int __fastcall _RtlpMuiRegValidateAndGetInstallFallbackBase(
     {
       if ( !a3 )
         return 0;
-      String2 = a4;
-      v8[1] = 170;
-      if ( RtlLCIDToCultureName(a3, v8) )
+      String.Buffer = a4;
+      String.MaximumLength = 170;
+      if ( RtlLCIDToCultureName(a3, &String) )
       {
-        if ( RtlpLangNameInMultiSzString(v6, String2) )
+        if ( RtlpLangNameInMultiSzString(v6, String.Buffer) )
           return 0;
       }
     }

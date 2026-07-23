@@ -6,10 +6,16 @@
  *     LdrQueryImageFileExecutionOptionsEx @ 0x18007C2C0 (LdrQueryImageFileExecutionOptionsEx.c)
  */
 
-__int64 __fastcall LdrQueryImageFileExecutionOptions(int a1, int a2, int a3, int a4, int a5, __int64 a6)
+NTSTATUS __cdecl LdrQueryImageFileExecutionOptions(
+        PUNICODE_STRING SubKey,
+        PCWSTR ValueName,
+        ULONG ValueSize,
+        PVOID Buffer,
+        ULONG BufferSize,
+        PULONG ReturnedLength)
 {
   if ( byte_18015B26C )
-    return 3221225524LL;
+    return -1073741772;
   else
-    return LdrQueryImageFileExecutionOptionsEx(a1, a2, a3, a4, a5, a6);
+    return LdrQueryImageFileExecutionOptionsEx(SubKey, ValueName, ValueSize, Buffer, BufferSize, ReturnedLength, 0);
 }

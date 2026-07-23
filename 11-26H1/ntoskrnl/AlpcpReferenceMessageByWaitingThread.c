@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpReferenceMessageByWaitingThread @ 0x140AEAE90
+ * XREFs of AlpcpReferenceMessageByWaitingThread @ 0x140AEDC60
  * Callers:
- *     AlpcpPortQueryServerInfo @ 0x1407C0EF8 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpPortQueryServerInfo @ 0x1407C448C (AlpcpPortQueryServerInfo.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ObReferenceObjectSafe @ 0x140449C10 (ObReferenceObjectSafe.c)
- *     AlpcpReferenceMessageByWaitingThreadPort @ 0x1407C16E0 (AlpcpReferenceMessageByWaitingThreadPort.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ObReferenceObjectSafe @ 0x140441D40 (ObReferenceObjectSafe.c)
+ *     AlpcpReferenceMessageByWaitingThreadPort @ 0x1407C4154 (AlpcpReferenceMessageByWaitingThreadPort.c)
  */
 
 __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -33,13 +33,13 @@ __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2,
   v6 = 0LL;
   v7 = 0LL;
   v8 = -1073741275;
-  v9 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock.WaitRegister, 0LL, 0LL, a4);
+  v9 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock.FirstArgument, 0LL, 0LL, a4);
   v11 = v9;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&AlpcpMessageLogLock.WaitRegister.Flags, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&AlpcpMessageLogLock.FirstArgument, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&AlpcpMessageLogLock.WaitRegister.Flags,
+      (unsigned __int64 *)&AlpcpMessageLogLock.FirstArgument,
       v9,
-      (__int64)&AlpcpMessageLogLock.WaitRegister);
+      (__int64)&AlpcpMessageLogLock.FirstArgument);
   if ( v11 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -47,17 +47,17 @@ __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2,
     else
       *((_BYTE *)v11 + 10) = 1;
   }
-  for ( i = (struct _KTHREAD *)AlpcpMessageLogLock.StateSaveArea;
-        i != (struct _KTHREAD *)&AlpcpMessageLogLock.StateSaveArea;
+  for ( i = *(struct _KTHREAD **)((char *)&AlpcpMessageLogLock.116 + 4);
+        i != (struct _KTHREAD *)(&AlpcpMessageLogLock.MiscFlags + 1);
         i = *(struct _KTHREAD **)&i->Header.Lock )
   {
     if ( ObReferenceObjectSafe((__int64)i) )
     {
       if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&AlpcpMessageLogLock.WaitRegister.Flags,
+              (volatile signed __int64 *)&AlpcpMessageLogLock.FirstArgument,
               0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock.WaitRegister);
-      KeAbPostRelease((unsigned __int64)&AlpcpMessageLogLock.WaitRegister);
+        ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock.FirstArgument);
+      KeAbPostRelease((unsigned __int64)&AlpcpMessageLogLock.FirstArgument);
       if ( v7 )
         ObfDereferenceObject(v7);
       v7 = i;
@@ -67,13 +67,13 @@ __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2,
         v8 = 0;
         goto LABEL_23;
       }
-      v16 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock.WaitRegister, 0LL, 0LL, v15);
+      v16 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock.FirstArgument, 0LL, 0LL, v15);
       v18 = v16;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)&AlpcpMessageLogLock.WaitRegister.Flags, 0LL) )
+      if ( _interlockedbittestandset64((volatile signed __int32 *)&AlpcpMessageLogLock.FirstArgument, 0LL) )
         ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)&AlpcpMessageLogLock.WaitRegister.Flags,
+          (unsigned __int64 *)&AlpcpMessageLogLock.FirstArgument,
           v16,
-          (__int64)&AlpcpMessageLogLock.WaitRegister);
+          (__int64)&AlpcpMessageLogLock.FirstArgument);
       if ( v18 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -83,11 +83,9 @@ __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2,
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&AlpcpMessageLogLock.WaitRegister.Flags,
-          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock.WaitRegister);
-  KeAbPostRelease((unsigned __int64)&AlpcpMessageLogLock.WaitRegister);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpMessageLogLock.FirstArgument, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock.FirstArgument);
+  KeAbPostRelease((unsigned __int64)&AlpcpMessageLogLock.FirstArgument);
 LABEL_23:
   if ( v7 )
     ObfDereferenceObject(v7);

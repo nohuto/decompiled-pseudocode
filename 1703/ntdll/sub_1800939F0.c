@@ -7,10 +7,10 @@
  *     RtlInitNlsTables @ 0x18008AE20 (RtlInitNlsTables.c)
  */
 
-__int64 __fastcall sub_1800939F0(__int64 *a1)
+void __fastcall sub_1800939F0(PUSHORT *a1)
 {
-  _BYTE v2[152]; // [rsp+20h] [rbp-98h] BYREF
+  _NLSTABLEINFO TableInfo; // [rsp+20h] [rbp-98h] BYREF
 
-  RtlInitNlsTables(a1[20], a1[21], a1[22], (__int64)v2);
-  return RtlResetRtlTranslations((__int64)v2);
+  RtlInitNlsTables(a1[20], a1[21], a1[22], &TableInfo);
+  RtlResetRtlTranslations(&TableInfo);
 }

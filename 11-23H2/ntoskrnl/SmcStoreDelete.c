@@ -1,20 +1,20 @@
 /*
- * XREFs of SmcStoreDelete @ 0x1409DB4B8
+ * XREFs of SmcStoreDelete @ 0x1409DB6B8
  * Callers:
- *     SmcProcessStoreCreateRequest @ 0x1409D849C (SmcProcessStoreCreateRequest.c)
- *     SmcProcessStoreDeleteRequest @ 0x1409D8608 (SmcProcessStoreDeleteRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x1409D869C (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x1409D8808 (SmcProcessStoreDeleteRequest.c)
  * Callees:
  *     ExRundownCompleted @ 0x140208880 (ExRundownCompleted.c)
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     SmStoreDelete @ 0x1409D7B24 (SmStoreDelete.c)
- *     SmcCacheReference @ 0x1409DADF0 (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x1409DB628 (SmcStoreEntryFind.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     SmStoreDelete @ 0x1409D7D24 (SmStoreDelete.c)
+ *     SmcCacheReference @ 0x1409DAFF0 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x1409DB828 (SmcStoreEntryFind.c)
  */
 
 __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)

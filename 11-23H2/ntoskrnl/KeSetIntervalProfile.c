@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetIntervalProfile @ 0x140975118
+ * XREFs of KeSetIntervalProfile @ 0x140975318
  * Callers:
- *     EtwpTimeProfileStart @ 0x1409E6B48 (EtwpTimeProfileStart.c)
- *     EtwpCoverageSamplerStart @ 0x1409F33D8 (EtwpCoverageSamplerStart.c)
- *     NtSetIntervalProfile @ 0x140A045C0 (NtSetIntervalProfile.c)
+ *     EtwpTimeProfileStart @ 0x1409E6DD8 (EtwpTimeProfileStart.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F3668 (EtwpCoverageSamplerStart.c)
+ *     NtSetIntervalProfile @ 0x140A04850 (NtSetIntervalProfile.c)
  *     KiInitializeCacheErrataSupport @ 0x140B9623C (KiInitializeCacheErrataSupport.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSanitizeProfileInterval @ 0x140579548 (KiSanitizeProfileInterval.c)
- *     KeQueryIntervalProfile @ 0x140975050 (KeQueryIntervalProfile.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiSanitizeProfileInterval @ 0x140579A38 (KiSanitizeProfileInterval.c)
+ *     KeQueryIntervalProfile @ 0x140975250 (KeQueryIntervalProfile.c)
  */
 
 void __fastcall KeSetIntervalProfile(int a1, int a2)

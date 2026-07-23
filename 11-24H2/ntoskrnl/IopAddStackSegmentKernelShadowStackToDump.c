@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAddStackSegmentKernelShadowStackToDump @ 0x1405A0894
+ * XREFs of IopAddStackSegmentKernelShadowStackToDump @ 0x14059D7C4
  * Callers:
- *     IoAddThreadStackToDump @ 0x1405A0220 (IoAddThreadStackToDump.c)
- *     IopMarkPagesForProcessorData @ 0x1405A11D0 (IopMarkPagesForProcessorData.c)
+ *     IoAddThreadStackToDump @ 0x14059D150 (IoAddThreadStackToDump.c)
+ *     IopMarkPagesForProcessorData @ 0x14059E108 (IopMarkPagesForProcessorData.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopAddStackSegmentKernelShadowStackToDump(__int64 a1, __int64 a2)

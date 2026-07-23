@@ -13,7 +13,7 @@ __int64 __fastcall RtlpInitializeAssemblyStorageMap(int *a1, unsigned int a2, vo
 {
   unsigned int v3; // ebx
   unsigned __int64 v4; // rdi
-  void *Heap; // rbp
+  PVOID Heap; // rbp
   int v7; // r15d
   unsigned __int128 v9; // rax
 
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpInitializeAssemblyStorageMap(int *a1, unsigned int a2, vo
       v9 = a2 * (unsigned __int128)8uLL;
       if ( !is_mul_ok(v4, 8uLL) )
         return (unsigned int)-1073741675;
-      Heap = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, DWORD2(v9), 8 * v4);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, DWORD2(v9), 8 * v4);
       if ( !Heap )
         return (unsigned int)-1073741801;
       v7 = 1;
@@ -42,7 +42,7 @@ __int64 __fastcall RtlpInitializeAssemblyStorageMap(int *a1, unsigned int a2, vo
   else
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters:\nSXS:    Map        : 0x%p\nSXS:    EntryCount : 0x%lx\n",
       "RtlpInitializeAssemblyStorageMap",

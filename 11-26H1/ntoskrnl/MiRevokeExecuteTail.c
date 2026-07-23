@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRevokeExecuteTail @ 0x1404C4970
+ * XREFs of MiRevokeExecuteTail @ 0x1404BE250
  * Callers:
  *     <none>
  * Callees:
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiRevokeExecuteTail(__int64 a1)

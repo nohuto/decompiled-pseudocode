@@ -1,5 +1,5 @@
 /*
- * XREFs of KscpCfgHandleInvalidCallTarget @ 0x140BBE840
+ * XREFs of KscpCfgHandleInvalidCallTarget @ 0x140BC0840
  * Callers:
  *     <none>
  * Callees:

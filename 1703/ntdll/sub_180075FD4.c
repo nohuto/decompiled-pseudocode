@@ -11,51 +11,51 @@
  */
 
 __int64 __fastcall sub_180075FD4(
-        __int64 a1,
+        PVOID DllHandle,
         void *a2,
         __int64 a3,
         unsigned int *a4,
-        wchar_t **a5,
+        PWCH *a5,
         _DWORD *a6,
-        _QWORD *a7)
+        PACTIVATION_CONTEXT *a7)
 {
-  int EntryForAddress; // ebx
+  NTSTATUS EntryForAddress; // ebx
   _BYTE *v11; // rdi
   wchar_t *v12; // rcx
   wchar_t *v13; // rcx
   __int64 v14; // r8
   unsigned int v15; // ecx
-  _QWORD *v16; // rcx
-  __int64 v17; // rax
-  __int64 v19; // rdi
+  PACTIVATION_CONTEXT *v16; // rcx
+  PACTIVATION_CONTEXT EntryPointActivationContext; // rax
+  PLDR_DATA_TABLE_ENTRY v19; // rdi
   unsigned int v20; // eax
   _BYTE v21[48]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v22; // [rsp+70h] [rbp+8h] BYREF
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+70h] [rbp+8h] BYREF
 
-  v22 = 0LL;
+  Entry = 0LL;
   memset(&v21[8], 0, 0x28uLL);
-  if ( (a1 & 3) == 0 )
+  if ( ((unsigned __int8)DllHandle & 3) == 0 )
   {
-    EntryForAddress = LdrFindEntryForAddress(a1, &v22);
+    EntryForAddress = LdrFindEntryForAddress(DllHandle, &Entry);
     if ( EntryForAddress < 0 )
       return (unsigned int)EntryForAddress;
-    v19 = v22;
-    v20 = *(unsigned __int16 *)(v22 + 72) - *(unsigned __int16 *)(v22 + 88);
+    v19 = Entry;
+    v20 = Entry->FullDllName.Length - Entry->BaseDllName.Length;
     *a4 = v20;
-    if ( v20 <= *(unsigned __int16 *)(v19 + 72) && v20 < 0x2BE )
+    if ( v20 <= v19->FullDllName.Length && v20 < 0x2BE )
     {
-      memmove(a2, *(const void **)(v19 + 80), v20);
-      *a5 = *(wchar_t **)(v19 + 96);
-      *a6 = *(unsigned __int16 *)(v19 + 88);
+      memmove(a2, v19->FullDllName.Buffer, v20);
+      *a5 = v19->BaseDllName.Buffer;
+      *a6 = v19->BaseDllName.Length;
       v16 = a7;
       if ( !a7 )
         return (unsigned int)EntryForAddress;
-      v17 = *(_QWORD *)(v19 + 136);
+      EntryPointActivationContext = v19->EntryPointActivationContext;
       goto LABEL_9;
     }
     return (unsigned int)-2147483643;
   }
-  EntryForAddress = sub_180076144(a1, v21);
+  EntryForAddress = sub_180076144(DllHandle, v21);
   if ( EntryForAddress < 0 )
     return (unsigned int)EntryForAddress;
   v11 = *(_BYTE **)&v21[8];
@@ -77,10 +77,10 @@ __int64 __fastcall sub_180075FD4(
   v16 = a7;
   if ( a7 )
   {
-    v17 = *(_QWORD *)&v21[40];
+    EntryPointActivationContext = *(PACTIVATION_CONTEXT *)&v21[40];
     if ( *(_QWORD *)&v21[40] != -1LL )
 LABEL_9:
-      *v16 = v17;
+      *v16 = EntryPointActivationContext;
   }
   return (unsigned int)EntryForAddress;
 }

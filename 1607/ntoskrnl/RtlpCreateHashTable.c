@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpCreateHashTable @ 0x1400A956C
+ * XREFs of RtlpCreateHashTable @ 0x1400A7AEC
  * Callers:
- *     RtlCreateHashTable @ 0x1400A955C (RtlCreateHashTable.c)
- *     RtlCreateHashTableEx @ 0x14014C8A4 (RtlCreateHashTableEx.c)
+ *     RtlCreateHashTable @ 0x1400A7ADC (RtlCreateHashTable.c)
+ *     RtlCreateHashTableEx @ 0x14014CE14 (RtlCreateHashTableEx.c)
  * Callees:
- *     RtlpInitializeSecondLevelDir @ 0x1400A9658 (RtlpInitializeSecondLevelDir.c)
- *     RtlpAllocateSecondLevelDir @ 0x1400A9670 (RtlpAllocateSecondLevelDir.c)
- *     RtlDeleteHashTable @ 0x1400B5290 (RtlDeleteHashTable.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlpInitializeSecondLevelDir @ 0x1400A7BD8 (RtlpInitializeSecondLevelDir.c)
+ *     RtlpAllocateSecondLevelDir @ 0x1400A7BF0 (RtlpAllocateSecondLevelDir.c)
+ *     RtlDeleteHashTable @ 0x1400B30C8 (RtlDeleteHashTable.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall RtlpCreateHashTable(struct _RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
+char __fastcall RtlpCreateHashTable(_RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
 {
   unsigned int v4; // ebp
-  struct _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rbx
   int v10; // esi
   __int64 v11; // rax
   void *v12; // r8
@@ -36,12 +36,12 @@ char __fastcall RtlpCreateHashTable(struct _RTL_DYNAMIC_HASH_TABLE **a1, unsigne
   v10 = 0;
   if ( !*a1 )
   {
-    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62615448u);
+    PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x62615448u);
     if ( !PoolWithTag )
       return 0;
     v10 = 1;
   }
-  memset(PoolWithTag, 0, sizeof(struct _RTL_DYNAMIC_HASH_TABLE));
+  memset(PoolWithTag, 0, sizeof(_RTL_DYNAMIC_HASH_TABLE));
   PoolWithTag->Pivot = 0;
   PoolWithTag->Shift = a3;
   PoolWithTag->Flags = a4 | v10;

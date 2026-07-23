@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpFindKcbInHashEntryByCellIndex @ 0x1405FF7BC
+ * XREFs of CmpFindKcbInHashEntryByCellIndex @ 0x1405FF870
  * Callers:
- *     CmDeleteLayeredKey @ 0x1401B5DB0 (CmDeleteLayeredKey.c)
- *     CmpGetVirtualStoreRoot @ 0x1406016A8 (CmpGetVirtualStoreRoot.c)
+ *     CmDeleteLayeredKey @ 0x1401B5C94 (CmDeleteLayeredKey.c)
+ *     CmpGetVirtualStoreRoot @ 0x14060175C (CmpGetVirtualStoreRoot.c)
  * Callees:
  *     <none>
  */

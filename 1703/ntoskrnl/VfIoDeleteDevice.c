@@ -19,12 +19,12 @@
  *     VfIrpLogDeleteDeviceLogs @ 0x14077ED90 (VfIrpLogDeleteDeviceLogs.c)
  */
 
-__int64 __fastcall VfIoDeleteDevice(__int64 a1, const void *a2)
+__int64 __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *a1, const void *a2)
 {
-  __int64 v3; // rbx
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  ULONG_PTR *v6; // rax
+  struct _LIST_ENTRY *v3; // rbx
+  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  _LIST_ENTRY *v6; // rax
   __int64 result; // rax
   __int64 v8; // rcx
   void *LowerDeviceObject; // rsi
@@ -34,18 +34,18 @@ __int64 __fastcall VfIoDeleteDevice(__int64 a1, const void *a2)
   v3 = a1;
   if ( ViVerifyDma )
   {
-    v4 = *(_QWORD *)(a1 + 312);
-    if ( !v4 )
+    Blink = a1[19].Blink;
+    if ( !Blink )
       goto LABEL_21;
     do
     {
-      v5 = *(_QWORD *)(v4 + 48);
-      if ( !v5 )
+      Flink = Blink[3].Flink;
+      if ( !Flink )
         break;
-      v4 = *(_QWORD *)(v5 + 312);
-      a1 = v5;
+      Blink = Flink[19].Blink;
+      a1 = Flink;
     }
-    while ( v4 );
+    while ( Blink );
     if ( a1 == v3 )
     {
 LABEL_21:
@@ -73,7 +73,7 @@ LABEL_21:
         VfUtilDbgPrint(pszDest);
       ViErrorFinishReport(576LL, a2, 0LL, 0LL);
     }
-    IovUtilMarkDeviceObject(v3, 0LL);
+    IovUtilMarkDeviceObject((__int64)v3, 0LL);
     LowerDeviceObject = (void *)IovUtilGetLowerDeviceObject(v8);
     if ( LowerDeviceObject )
     {

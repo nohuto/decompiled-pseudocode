@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateSystemAvailableCpuState @ 0x1405B86B4
+ * XREFs of KiUpdateSystemAvailableCpuState @ 0x1405B5C94
  * Callers:
- *     KeTransitionProcessorParkState @ 0x1403E9560 (KeTransitionProcessorParkState.c)
- *     KeCpuPartitionMoveCpus @ 0x1405BF6B0 (KeCpuPartitionMoveCpus.c)
+ *     KeTransitionProcessorParkState @ 0x1403D720C (KeTransitionProcessorParkState.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405BCCE0 (KeCpuPartitionMoveCpus.c)
  * Callees:
- *     KeIsForceParkingEnabled @ 0x140204250 (KeIsForceParkingEnabled.c)
- *     RtlWriteAcquireTickLock @ 0x14029D4E4 (RtlWriteAcquireTickLock.c)
- *     KiRemoveForceParkedProcessorsFromAffinity @ 0x1404387E0 (KiRemoveForceParkedProcessorsFromAffinity.c)
- *     KiQueryCpuPartitionAffinity @ 0x1404F4D3C (KiQueryCpuPartitionAffinity.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlWriteAcquireTickLock @ 0x1402ABFD4 (RtlWriteAcquireTickLock.c)
+ *     KeIsForceParkingEnabled @ 0x14032B830 (KeIsForceParkingEnabled.c)
+ *     KiRemoveForceParkedProcessorsFromAffinity @ 0x14042B3A0 (KiRemoveForceParkedProcessorsFromAffinity.c)
+ *     KiQueryCpuPartitionAffinity @ 0x1404F263C (KiQueryCpuPartitionAffinity.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 KiUpdateSystemAvailableCpuState()

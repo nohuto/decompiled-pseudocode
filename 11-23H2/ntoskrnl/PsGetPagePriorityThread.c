@@ -1,23 +1,23 @@
 /*
- * XREFs of PsGetPagePriorityThread @ 0x1402E1520
+ * XREFs of PsGetPagePriorityThread @ 0x1402E17B0
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MiAllocateKernelStackPages @ 0x1402732C0 (MiAllocateKernelStackPages.c)
- *     ExpWorkerThread @ 0x1402BEB90 (ExpWorkerThread.c)
- *     CcAsyncCopyRead @ 0x1402C1070 (CcAsyncCopyRead.c)
- *     CcCompleteAsyncRead @ 0x1402C1430 (CcCompleteAsyncRead.c)
- *     PfLogFileDataAccess @ 0x1402DFBD4 (PfLogFileDataAccess.c)
- *     MiInitializeInPageSupport @ 0x1402E13A0 (MiInitializeInPageSupport.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     CcPerformReadAhead @ 0x14030EA20 (CcPerformReadAhead.c)
- *     CcScheduleReadAheadNuma @ 0x140328FBC (CcScheduleReadAheadNuma.c)
- *     SmSetThreadPagePriority @ 0x140368D00 (SmSetThreadPagePriority.c)
- *     EtwpTraceThreadRundown @ 0x1403830E0 (EtwpTraceThreadRundown.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MiAllocateKernelStackPages @ 0x140273550 (MiAllocateKernelStackPages.c)
+ *     ExpWorkerThread @ 0x1402BEE20 (ExpWorkerThread.c)
+ *     CcAsyncCopyRead @ 0x1402C1300 (CcAsyncCopyRead.c)
+ *     CcCompleteAsyncRead @ 0x1402C16C0 (CcCompleteAsyncRead.c)
+ *     PfLogFileDataAccess @ 0x1402DFE64 (PfLogFileDataAccess.c)
+ *     MiInitializeInPageSupport @ 0x1402E1630 (MiInitializeInPageSupport.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1402E1780 (MiGetEffectivePagePriorityThread.c)
+ *     CcPerformReadAhead @ 0x14030ECB0 (CcPerformReadAhead.c)
+ *     CcScheduleReadAheadNuma @ 0x14032924C (CcScheduleReadAheadNuma.c)
+ *     SmSetThreadPagePriority @ 0x140368EA0 (SmSetThreadPagePriority.c)
+ *     EtwpTraceThreadRundown @ 0x140383280 (EtwpTraceThreadRundown.c)
  *     EtwTraceThread @ 0x1406AD060 (EtwTraceThread.c)
- *     PfSnCheckActionsNeeded @ 0x14074DFF8 (PfSnCheckActionsNeeded.c)
- *     NtQueryInformationThread @ 0x14079F6D0 (NtQueryInformationThread.c)
- *     PfSnAsyncContextInitialize @ 0x1407DB1D8 (PfSnAsyncContextInitialize.c)
+ *     PfSnCheckActionsNeeded @ 0x14074E1E8 (PfSnCheckActionsNeeded.c)
+ *     NtQueryInformationThread @ 0x14079F8C0 (NtQueryInformationThread.c)
+ *     PfSnAsyncContextInitialize @ 0x1407DB4A8 (PfSnAsyncContextInitialize.c)
  * Callees:
  *     <none>
  */

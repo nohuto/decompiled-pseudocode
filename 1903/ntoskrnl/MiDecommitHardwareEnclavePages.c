@@ -77,7 +77,7 @@ __int64 __fastcall MiDecommitHardwareEnclavePages(__int64 a1, __int64 a2, ULONG_
   struct _KTHREAD *v38; // rbx
   unsigned int SessionId; // r10d
   unsigned __int8 v40; // r15
-  __int64 v41; // r14
+  _KLOCK_ENTRY *v41; // r14
   unsigned int v42; // r8d
   __int64 v43; // rcx
   _KLOCK_ENTRY *v44; // rdx
@@ -377,21 +377,21 @@ LABEL_51:
           v44->AcquiredByte &= ~1u;
           if ( v44->LockState.0 )
           {
-            v41 = (__int64)&v38->LockEntries[v43];
+            v41 = &v38->LockEntries[v43];
             break;
           }
         }
       }
       if ( v41 )
       {
-        *(_BYTE *)(v41 + 32) |= 2u;
-        if ( *(__int64 *)(v41 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v41);
-        v58 = *(_DWORD *)(v41 + 88) & 0x1FFFF;
-        *(_DWORD *)(v41 + 88) &= 0xFFFE0000;
-        *(_BYTE *)(v41 + 25) &= ~1u;
-        *(_QWORD *)(v41 + 32) = 0LL;
-        v47 = (v41 - (__int64)v38 - 800) / 96;
+        v41->CrossThreadReleasableAndBusyByte |= 2u;
+        if ( (__int64)v41->LockState.LockState < 0 )
+          KiAbEntryRemoveFromTree(&v41->TreeNode);
+        v58 = v41->BoostBitmap.AllFields & 0x1FFFF;
+        v41->BoostBitmap.AllFields &= 0xFFFE0000;
+        v41->ThreadLocalFlags &= ~1u;
+        v41->LockState.0 = 0LL;
+        v47 = ((char *)v41 - (char *)v38 - 800) / 96;
         if ( v40 == 1 )
           v38->AbEntrySummary |= 1 << v47;
         else

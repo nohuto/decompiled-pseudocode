@@ -1,12 +1,12 @@
 /*
- * XREFs of I_MinCryptCheckEKURequirements @ 0x1408A38A0
+ * XREFs of I_MinCryptCheckEKURequirements @ 0x1408A9CB0
  * Callers:
- *     I_MinCryptFindIssuerCertificateByName @ 0x1408A0774 (I_MinCryptFindIssuerCertificateByName.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     I_MinCryptFindIssuerCertificateByName @ 0x1408A6B84 (I_MinCryptFindIssuerCertificateByName.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     MinAsn1StringToOid @ 0x1408A4B60 (MinAsn1StringToOid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     MinAsn1StringToOid @ 0x1408AAF70 (MinAsn1StringToOid.c)
  */
 
 char __fastcall I_MinCryptCheckEKURequirements(unsigned int a1, __int64 a2, __int64 a3)

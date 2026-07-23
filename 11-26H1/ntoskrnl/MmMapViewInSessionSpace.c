@@ -1,19 +1,19 @@
 /*
- * XREFs of MmMapViewInSessionSpace @ 0x1409B7230
+ * XREFs of MmMapViewInSessionSpace @ 0x140988210
  * Callers:
- *     LdrpMapResourceFile @ 0x140618490 (LdrpMapResourceFile.c)
- *     EtwpCoverageEnsureContext @ 0x140775C70 (EtwpCoverageEnsureContext.c)
- *     NtCreateIoRing @ 0x140798AC0 (NtCreateIoRing.c)
- *     PspApiSetCopyToSystemSpace @ 0x1407EE848 (PspApiSetCopyToSystemSpace.c)
- *     PspSiloInitializeUserSharedData @ 0x1407EF83C (PspSiloInitializeUserSharedData.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x140831304 (EtwpCoverageSamplerSetBloomFilter.c)
- *     ExInitializeLeapSecondData @ 0x1408356F4 (ExInitializeLeapSecondData.c)
- *     SLUpdateLicenseDataInternal @ 0x140839788 (SLUpdateLicenseDataInternal.c)
- *     NtMapCMFModule @ 0x1408446A0 (NtMapCMFModule.c)
- *     CmFcpMapSection @ 0x140B4CA88 (CmFcpMapSection.c)
- *     MiInitializeApiSets @ 0x140D001B0 (MiInitializeApiSets.c)
+ *     LdrpMapResourceFile @ 0x14061B4E0 (LdrpMapResourceFile.c)
+ *     EtwpCoverageEnsureContext @ 0x140778B18 (EtwpCoverageEnsureContext.c)
+ *     NtCreateIoRing @ 0x14079B5F0 (NtCreateIoRing.c)
+ *     PspApiSetCopyToSystemSpace @ 0x1407F43A8 (PspApiSetCopyToSystemSpace.c)
+ *     PspSiloInitializeUserSharedData @ 0x1407F539C (PspSiloInitializeUserSharedData.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x140837544 (EtwpCoverageSamplerSetBloomFilter.c)
+ *     ExInitializeLeapSecondData @ 0x14083B934 (ExInitializeLeapSecondData.c)
+ *     SLUpdateLicenseDataInternal @ 0x14083F9C8 (SLUpdateLicenseDataInternal.c)
+ *     NtMapCMFModule @ 0x140849B30 (NtMapCMFModule.c)
+ *     CmFcpMapSection @ 0x140B4E818 (CmFcpMapSection.c)
+ *     MiInitializeApiSets @ 0x140D06550 (MiInitializeApiSets.c)
  * Callees:
- *     MiMapViewInSystemSpace @ 0x1409B7280 (MiMapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x140988260 (MiMapViewInSystemSpace.c)
  */
 
 NTSTATUS __stdcall MmMapViewInSessionSpace(PVOID Section, PVOID *MappedBase, PSIZE_T ViewSize)

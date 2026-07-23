@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpDeleteErrorPort @ 0x14061A1EC
+ * XREFs of DbgkpDeleteErrorPort @ 0x14061A2A0
  * Callers:
- *     DbgkpDereferenceErrorPort @ 0x1401B75A4 (DbgkpDereferenceErrorPort.c)
+ *     DbgkpDereferenceErrorPort @ 0x1401B7488 (DbgkpDereferenceErrorPort.c)
  * Callees:
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 void __fastcall DbgkpDeleteErrorPort(HANDLE *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAddBinaryInfoEvents @ 0x1409DC3D4
+ * XREFs of EtwpAddBinaryInfoEvents @ 0x1409D6BE4
  * Callers:
- *     EtwpRealtimeNotifyConsumers @ 0x1409D871C (EtwpRealtimeNotifyConsumers.c)
- *     EtwpAddLogHeader @ 0x1409DAEEC (EtwpAddLogHeader.c)
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x1409D3224 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpAddLogHeader @ 0x1409D59FC (EtwpAddLogHeader.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char a4)
@@ -17,8 +17,8 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char 
   unsigned int v5; // esi
   __int64 v6; // r13
   unsigned __int64 *v7; // rbx
-  _QWORD *v8; // rax
-  _QWORD *v9; // rdi
+  char *v8; // rax
+  char *v9; // rdi
   __int64 *v10; // r14
   __int64 *v11; // rdi
   __int64 v12; // r13
@@ -35,12 +35,12 @@ __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char 
   if ( (a4 & 2) != 0 )
   {
     v7 = (unsigned __int64 *)(a1 + 688);
-    v8 = KeAbPreAcquire(a1 + 688, 0LL);
+    v8 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
     v9 = v8;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v7, (__int64)v8, (__int64)v7);
+      ExfAcquirePushLockExclusiveEx(v7, v8, (__int64)v7);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
   }
   v10 = (__int64 *)(v6 + 1304);
   v11 = *(__int64 **)(v6 + 1304);

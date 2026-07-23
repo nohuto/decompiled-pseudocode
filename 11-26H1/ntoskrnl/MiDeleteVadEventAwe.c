@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteVadEventAwe @ 0x140878FD0
+ * XREFs of MiDeleteVadEventAwe @ 0x14087F3B0
  * Callers:
  *     <none>
  * Callees:
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
  */
 
 __int64 __fastcall MiDeleteVadEventAwe(__int64 a1)

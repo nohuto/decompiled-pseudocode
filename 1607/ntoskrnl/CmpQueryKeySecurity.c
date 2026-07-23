@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpQueryKeySecurity @ 0x14000B338
+ * XREFs of CmpQueryKeySecurity @ 0x14000AEB8
  * Callers:
- *     CmpSecurityMethod @ 0x1404042B0 (CmpSecurityMethod.c)
+ *     CmpSecurityMethod @ 0x140403170 (CmpSecurityMethod.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1403FCB8C (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1404044AC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpUnlockKcbStack @ 0x140404820 (CmpUnlockKcbStack.c)
- *     CmpCleanupKcbStack @ 0x140404934 (CmpCleanupKcbStack.c)
- *     CmpInitializeKcbStack @ 0x140404944 (CmpInitializeKcbStack.c)
- *     CmpQuerySecurityDescriptorInfo @ 0x1404049A0 (CmpQuerySecurityDescriptorInfo.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140404FE8 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpLockKcbStackShared @ 0x140432F60 (CmpLockKcbStackShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1403FBA4C (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x14040336C (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpUnlockKcbStack @ 0x1404036E0 (CmpUnlockKcbStack.c)
+ *     CmpCleanupKcbStack @ 0x1404037F4 (CmpCleanupKcbStack.c)
+ *     CmpInitializeKcbStack @ 0x140403804 (CmpInitializeKcbStack.c)
+ *     CmpQuerySecurityDescriptorInfo @ 0x140403860 (CmpQuerySecurityDescriptorInfo.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140403EA8 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackShared @ 0x140431E30 (CmpLockKcbStackShared.c)
  */
 
 __int64 __fastcall CmpQueryKeySecurity(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,22 +1,22 @@
 /*
- * XREFs of DifZwQueryInformationProcessWrapper @ 0x1404C0470
+ * XREFs of DifZwQueryInformationProcessWrapper @ 0x1404B9CC0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwQueryInformationProcess @ 0x140723710 (ZwQueryInformationProcess.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwQueryInformationProcess @ 0x1407282E0 (ZwQueryInformationProcess.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall DifZwQueryInformationProcessWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5)
+        void *a1,
+        PROCESSINFOCLASS a2,
+        void *a3,
+        ULONG a4,
+        ULONG *ReturnLength)
 {
   __int64 APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -52,7 +52,7 @@ __int64 __fastcall DifZwQueryInformationProcessWrapper(
     }
     v12 = 0;
     *((_QWORD *)&v20 + 1) = a1;
-    *((_QWORD *)&v18 + 1) = a5;
+    *((_QWORD *)&v18 + 1) = ReturnLength;
     LODWORD(v20) = a2;
     *((_QWORD *)&v19 + 1) = a3;
     LODWORD(v19) = a4;
@@ -68,7 +68,7 @@ __int64 __fastcall DifZwQueryInformationProcessWrapper(
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v21) = ZwQueryInformationProcess(a1, a2, a3, a4, a5);
+  LODWORD(v21) = ZwQueryInformationProcess(a1, a2, a3, a4, ReturnLength);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

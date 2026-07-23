@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeUnmappedPageTables @ 0x140120860
+ * XREFs of MiFreeUnmappedPageTables @ 0x140120930
  * Callers:
- *     MiDeleteSystemPageTableTail @ 0x140120730 (MiDeleteSystemPageTableTail.c)
+ *     MiDeleteSystemPageTableTail @ 0x140120800 (MiDeleteSystemPageTableTail.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiFreeUnmappedPageTables(ULONG_PTR a1, _QWORD *a2)

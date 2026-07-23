@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRealtimeDisconnectAllConsumers @ 0x1406B5824
+ * XREFs of EtwpRealtimeDisconnectAllConsumers @ 0x140614D3C
  * Callers:
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
- *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406146D4 (EtwpFreeLoggerContext.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 void __fastcall EtwpRealtimeDisconnectAllConsumers(__int64 a1)

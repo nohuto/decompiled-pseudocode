@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDmaIsDomainCompatible @ 0x140551144
+ * XREFs of HalpDmaIsDomainCompatible @ 0x14054EA84
  * Callers:
- *     HalJoinDmaDomain @ 0x1404D8CA0 (HalJoinDmaDomain.c)
+ *     HalJoinDmaDomain @ 0x1404D20F0 (HalJoinDmaDomain.c)
  * Callees:
  *     <none>
  */

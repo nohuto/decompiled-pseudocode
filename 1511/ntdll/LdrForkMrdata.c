@@ -8,17 +8,17 @@
  *     <none>
  */
 
-void __fastcall LdrForkMrdata(int a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall LdrForkMrdata(int a1)
 {
   if ( a1 )
   {
     if ( a1 == 1 )
-      LdrpMrdataLock = 1LL;
+      LdrpMrdataLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
     else
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
   else
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, a2, a3, a4);
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
   }
 }

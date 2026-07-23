@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMmAllocCtxMarkHiberPhase @ 0x1409A6ECC
+ * XREFs of HalpMmAllocCtxMarkHiberPhase @ 0x1409A7DFC
  * Callers:
- *     HaliLocateHiberRanges @ 0x140996620 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140997620 (HaliLocateHiberRanges.c)
  * Callees:
- *     RtlAreBitsClear @ 0x140362AD0 (RtlAreBitsClear.c)
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     RtlAreBitsClear @ 0x1402F7CC0 (RtlAreBitsClear.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
  */
 
 void HalpMmAllocCtxMarkHiberPhase()

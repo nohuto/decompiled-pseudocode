@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpIsDosDeviceName_Ustr @ 0x180048E70
+ * XREFs of RtlpIsDosDeviceName_Ustr @ 0x1800333F0
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
- *     RtlSetCurrentDirectory_U @ 0x1800A4CB0 (RtlSetCurrentDirectory_U.c)
- *     RtlIsDosDeviceName_U @ 0x1800D7480 (RtlIsDosDeviceName_U.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
+ *     RtlSetCurrentDirectory_U @ 0x1800A3DE0 (RtlSetCurrentDirectory_U.c)
+ *     RtlIsDosDeviceName_U @ 0x1800D4440 (RtlIsDosDeviceName_U.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1800A5A70 (RtlEqualUnicodeString.c)
- *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x1801149C4 (RtlpAreLegacyDosDeviceNamesEnabled.c)
- *     iswdigit @ 0x18012AD80 (iswdigit.c)
+ *     RtlEqualUnicodeString @ 0x1800A4BA0 (RtlEqualUnicodeString.c)
+ *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x1801141C0 (RtlpAreLegacyDosDeviceNamesEnabled.c)
+ *     iswdigit @ 0x18012AAF0 (iswdigit.c)
  */
 
 __int64 __fastcall RtlpIsDosDeviceName_Ustr(__m128i *a1)
@@ -26,10 +26,10 @@ __int64 __fastcall RtlpIsDosDeviceName_Ustr(__m128i *a1)
   int v12; // r15d
   _WORD *i; // rax
   __int16 v14; // cx
-  unsigned __int16 *v15; // rax
+  wchar_t *v15; // rax
   __int16 v16; // cx
   unsigned __int16 v17; // cx
-  __int16 v19; // cx
+  __int16 Buffer; // cx
   unsigned __int16 v20; // cx
   __int16 v21; // ax
   unsigned __int16 v22; // ax
@@ -43,10 +43,8 @@ __int64 __fastcall RtlpIsDosDeviceName_Ustr(__m128i *a1)
   char *v30; // r11
   __int16 v31; // ax
   __int16 v32; // ax
-  void *v33; // rdx
-  __int64 v34; // r8
-  __int64 v35; // r9
-  __m128i v36; // [rsp+20h] [rbp-28h] BYREF
+  _UNICODE_STRING *v33; // rdx
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = a1->m128i_i16[0];
   v2 = 0;
@@ -68,7 +66,7 @@ __int64 __fastcall RtlpIsDosDeviceName_Ustr(__m128i *a1)
   }
   v5 = *a1;
   v6 = (unsigned int)_mm_cvtsi128_si32(*a1);
-  v36 = *a1;
+  String1 = (_UNICODE_STRING)*a1;
   v7 = (unsigned __int16)v6;
   v8 = (unsigned __int16)v6;
   LOWORD(v8) = (unsigned __int16)v6 >> 1;
@@ -126,14 +124,14 @@ __int64 __fastcall RtlpIsDosDeviceName_Ustr(__m128i *a1)
       if ( !_bittest((const int *)&v6, v17) )
         return 0LL;
     }
-    v19 = v36.m128i_i16[4];
-    v12 = (_DWORD)v15 - v36.m128i_i32[2];
-    v36.m128i_i64[1] = (__int64)v15;
+    Buffer = (__int16)String1.Buffer;
+    v12 = (_DWORD)v15 - LODWORD(String1.Buffer);
+    String1.Buffer = v15;
     v10 = v15;
-    v20 = v7 + v19 - (_WORD)v15;
+    v20 = v7 + Buffer - (_WORD)v15;
     v8 = v20;
     LOWORD(v8) = (v20 >> 1) - v4;
-    v36.m128i_i16[0] = v20 - 2 * v4;
+    String1.Length = v20 - 2 * v4;
 LABEL_23:
     v21 = *v10 | 0x20;
     if ( v21 != 108 )
@@ -178,41 +176,22 @@ LABEL_35:
   }
   v26 = (unsigned __int16)(v23 - v10);
   v27 = 2 * v26;
-  v36.m128i_i16[0] = 2 * v26;
+  String1.Length = 2 * v26;
   if ( v26 == 3 )
   {
-    LOBYTE(v24) = 1;
-    if ( (unsigned __int8)((__int64 (__fastcall *)(__m128i *, void *, unsigned __int64, unsigned __int64))RtlEqualUnicodeString)(
-                            &v36,
-                            &RtlpDosNULDevice,
-                            v24,
-                            v6) )
+    if ( RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosNULDevice, 1u) )
     {
       v2 |= 4u;
       goto LABEL_65;
     }
-    LOBYTE(v24) = 1;
-    if ( (unsigned __int8)((__int64 (__fastcall *)(__m128i *, void *, unsigned __int64, unsigned __int64))RtlEqualUnicodeString)(
-                            &v36,
-                            &RtlpDosPRNDevice,
-                            v24,
-                            v6) )
+    if ( RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosPRNDevice, 1u)
+      || RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosAUXDevice, 1u) )
+    {
       goto LABEL_65;
-    LOBYTE(v24) = 1;
-    if ( (unsigned __int8)((__int64 (__fastcall *)(__m128i *, void *, unsigned __int64, unsigned __int64))RtlEqualUnicodeString)(
-                            &v36,
-                            &RtlpDosAUXDevice,
-                            v24,
-                            v6) )
-      goto LABEL_65;
-    v33 = &RtlpDosCONDevice;
+    }
+    v33 = (_UNICODE_STRING *)&RtlpDosCONDevice;
 LABEL_64:
-    LOBYTE(v24) = 1;
-    if ( (unsigned __int8)((__int64 (__fastcall *)(__m128i *, void *, unsigned __int64, unsigned __int64))RtlEqualUnicodeString)(
-                            &v36,
-                            v33,
-                            v24,
-                            v6) )
+    if ( RtlEqualUnicodeString(&String1, v33, 1u) )
       goto LABEL_65;
     return 0LL;
   }
@@ -220,26 +199,16 @@ LABEL_64:
   {
     if ( !iswdigit(v10[3]) || v10[3] == 48 )
       return 0LL;
-    LOBYTE(v34) = 1;
-    v36.m128i_i16[0] = v27 - 2;
-    if ( (unsigned __int8)((__int64 (__fastcall *)(__m128i *, void *, __int64, __int64))RtlEqualUnicodeString)(
-                            &v36,
-                            &RtlpDosLPTDevice,
-                            v34,
-                            v35) )
+    String1.Length = v27 - 2;
+    if ( RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosLPTDevice, 1u) )
       goto LABEL_65;
-    v33 = &RtlpDosCOMDevice;
+    v33 = (_UNICODE_STRING *)&RtlpDosCOMDevice;
     goto LABEL_64;
   }
   v28 = (unsigned int)(v26 - 6);
   if ( v26 == 6 )
   {
-    LOBYTE(v24) = 1;
-    if ( (unsigned __int8)((__int64 (__fastcall *)(__m128i *, void *, unsigned __int64, unsigned __int64))RtlEqualUnicodeString)(
-                            &v36,
-                            &RtlpDosCONINDevice,
-                            v24,
-                            v6) )
+    if ( RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosCONINDevice, 1u) )
       goto LABEL_65;
     return 0LL;
   }
@@ -257,15 +226,15 @@ LABEL_64:
       {
         if ( (unsigned int)v24 > 0x7A )
         {
-          if ( qword_1801C6038 && (unsigned __int16)v24 >= 0xC0u )
+          if ( qword_1801C5038 && (unsigned __int16)v24 >= 0xC0u )
           {
             v8 = v24 & 0xF;
             v28 = (unsigned int)v8
-                + *(unsigned __int16 *)(qword_1801C6038
+                + *(unsigned __int16 *)(qword_1801C5038
                                       + 2LL
                                       * (((unsigned __int8)v24 >> 4)
-                                       + (unsigned int)*(unsigned __int16 *)(qword_1801C6038 + 2 * (v24 >> 8))));
-            LOWORD(v24) = *(_WORD *)(qword_1801C6038 + 2 * v28) + v24;
+                                       + (unsigned int)*(unsigned __int16 *)(qword_1801C5038 + 2 * (v24 >> 8))));
+            LOWORD(v24) = *(_WORD *)(qword_1801C5038 + 2 * v28) + v24;
           }
         }
         else
@@ -277,17 +246,17 @@ LABEL_64:
       {
         if ( (unsigned int)v6 > 0x7A )
         {
-          if ( qword_1801C6038 )
+          if ( qword_1801C5038 )
           {
             if ( (unsigned __int16)v6 >= 0xC0u )
             {
               v8 = v6 & 0xF;
               v28 = (unsigned int)v8
-                  + *(unsigned __int16 *)(qword_1801C6038
+                  + *(unsigned __int16 *)(qword_1801C5038
                                         + 2LL
                                         * (((unsigned __int8)v6 >> 4)
-                                         + (unsigned int)*(unsigned __int16 *)(qword_1801C6038 + 2 * (v6 >> 8))));
-              LOWORD(v6) = *(_WORD *)(qword_1801C6038 + 2 * v28) + v6;
+                                         + (unsigned int)*(unsigned __int16 *)(qword_1801C5038 + 2 * (v6 >> 8))));
+              LOWORD(v6) = *(_WORD *)(qword_1801C5038 + 2 * v28) + v6;
             }
           }
         }

@@ -1,25 +1,25 @@
 /*
- * XREFs of IopCreateArcNamesCd @ 0x1409D6910
+ * XREFs of IopCreateArcNamesCd @ 0x1409D7910
  * Callers:
- *     IopCreateArcNames @ 0x1409D6694 (IopCreateArcNames.c)
+ *     IopCreateArcNames @ 0x1409D7694 (IopCreateArcNames.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
- *     IopBuildDeviceIoControlRequest @ 0x1400DDCF0 (IopBuildDeviceIoControlRequest.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
- *     IoBuildSynchronousFsdRequest @ 0x140662F10 (IoBuildSynchronousFsdRequest.c)
- *     IoCreateSymbolicLink @ 0x1406CB7F0 (IoCreateSymbolicLink.c)
- *     IoGetConfigurationInformation @ 0x14070F520 (IoGetConfigurationInformation.c)
- *     IopFetchConfigurationInformation @ 0x1409D6A3C (IopFetchConfigurationInformation.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD8DC (IopVerifierExAllocatePool_0.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1400DDD70 (IopBuildDeviceIoControlRequest.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x14018E100 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     IoGetDeviceObjectPointer @ 0x140663050 (IoGetDeviceObjectPointer.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1406640D0 (IoBuildSynchronousFsdRequest.c)
+ *     IoCreateSymbolicLink @ 0x1406CCA90 (IoCreateSymbolicLink.c)
+ *     IoGetConfigurationInformation @ 0x1407107C0 (IoGetConfigurationInformation.c)
+ *     IopFetchConfigurationInformation @ 0x1409D7A3C (IopFetchConfigurationInformation.c)
  */
 
 __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
@@ -58,7 +58,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   PVOID P; // [rsp+60h] [rbp-A8h] BYREF
   struct _KEVENT Object; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-88h] BYREF
-  STRING SourceString; // [rsp+98h] [rbp-70h] BYREF
+  _STRING SourceString; // [rsp+98h] [rbp-70h] BYREF
   PFILE_OBJECT FileObject; // [rsp+A8h] [rbp-60h] BYREF
   _QWORD *v39; // [rsp+B0h] [rbp-58h]
   LARGE_INTEGER StartingOffset; // [rsp+B8h] [rbp-50h] BYREF
@@ -67,7 +67,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   UNICODE_STRING SymbolicLinkName; // [rsp+D8h] [rbp-30h] BYREF
   LARGE_INTEGER v44; // [rsp+E8h] [rbp-20h] BYREF
   char pszDest[128]; // [rsp+F8h] [rbp-10h] BYREF
-  char v46[128]; // [rsp+178h] [rbp+70h] BYREF
+  CHAR v46[128]; // [rsp+178h] [rbp+70h] BYREF
   __int64 retaddr; // [rsp+230h] [rbp+128h]
 
   v1 = *(_QWORD **)(a1 + 232);
@@ -75,7 +75,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   v41 = a1;
   P = 0LL;
   CdRomCount = IoGetConfigurationInformation()->CdRomCount;
-  SourceString = (STRING)GUID_DEVINTERFACE_CDROM;
+  SourceString = (_STRING)GUID_DEVINTERFACE_CDROM;
   ConfigurationInformation = IopFetchConfigurationInformation((PZZWSTR *)&P, (GUID *)&SourceString);
   v6 = P;
   v7 = ConfigurationInformation < 0;

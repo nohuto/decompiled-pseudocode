@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDecrementProtoShareCounts @ 0x14063C98C
+ * XREFs of MiDecrementProtoShareCounts @ 0x14063CEDC
  * Callers:
- *     MiCreateFileOnlyPfns @ 0x140A33C48 (MiCreateFileOnlyPfns.c)
+ *     MiCreateFileOnlyPfns @ 0x140A33EF8 (MiCreateFileOnlyPfns.c)
  * Callees:
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiDecrementProtoShareCounts(__int64 a1, __int64 a2)
@@ -28,10 +28,13 @@ void __fastcall MiDecrementProtoShareCounts(__int64 a1, __int64 a2)
       v4 = (unsigned __int8)MiLockPageInline(v3);
       MiDecrementShareCount(v3);
       _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v4 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

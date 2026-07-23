@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwReleaseMutant @ 0x1407237F0
+ * XREFs of ZwReleaseMutant @ 0x1407283C0
  * Callers:
- *     DifZwReleaseMutantWrapper @ 0x1406B68C0 (DifZwReleaseMutantWrapper.c)
- *     BiReleaseBcdSyncMutant @ 0x1409D3F58 (BiReleaseBcdSyncMutant.c)
+ *     DifZwReleaseMutantWrapper @ 0x1406BA4A0 (DifZwReleaseMutantWrapper.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A4F38 (BiReleaseBcdSyncMutant.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReleaseMutant(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReleaseMutant(HANDLE MutantHandle, PLONG PreviousCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MutantHandle);
 }

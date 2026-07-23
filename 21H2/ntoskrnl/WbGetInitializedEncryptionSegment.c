@@ -4,17 +4,17 @@
  *     WbDecryptEncryptionSegment @ 0x1405D6EA4 (WbDecryptEncryptionSegment.c)
  *     WbReEncryptEncryptionSegment @ 0x1405D6F68 (WbReEncryptEncryptionSegment.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     WbGetWarbirdEncryptionSegment @ 0x1405D71A8 (WbGetWarbirdEncryptionSegment.c)
  *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
  *     sub_1405D7380 @ 0x1405D7380 (sub_1405D7380.c)
  *     sub_1405D7C64 @ 0x1405D7C64 (sub_1405D7C64.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
@@ -23,8 +23,8 @@ __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, uns
   int WarbirdEncryptionSegment; // edi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v11; // rsi
-  __int64 v12; // rax
-  __int64 v13; // r15
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // r15
   char v14; // r14
   __int64 v15; // [rsp+20h] [rbp-50h] BYREF
   PVOID P[2]; // [rsp+30h] [rbp-40h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, uns
     if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
       ExfAcquirePushLockExclusiveEx(v11, v12, (ULONG_PTR)v11);
     if ( v13 )
-      *(_BYTE *)(v13 + 26) |= 1u;
+      BYTE2(v13[1].Left) |= 1u;
     if ( !*(_DWORD *)(v7 + 16) )
     {
       v17 = *(_OWORD *)P;

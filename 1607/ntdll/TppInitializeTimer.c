@@ -1,12 +1,12 @@
 /*
- * XREFs of TppInitializeTimer @ 0x18003D268
+ * XREFs of TppInitializeTimer @ 0x18003D258
  * Callers:
- *     TpAllocWait @ 0x18003A580 (TpAllocWait.c)
- *     TpAllocTimer @ 0x18003A720 (TpAllocTimer.c)
+ *     TpAllocWait @ 0x18003A570 (TpAllocWait.c)
+ *     TpAllocTimer @ 0x18003A710 (TpAllocTimer.c)
  * Callees:
- *     TpAdjustBindingCount @ 0x18003D308 (TpAdjustBindingCount.c)
- *     TppWorkInitialize @ 0x18003D7AC (TppWorkInitialize.c)
- *     TppCleanupGroupAddMember @ 0x18007A224 (TppCleanupGroupAddMember.c)
+ *     TpAdjustBindingCount @ 0x18003D2F8 (TpAdjustBindingCount.c)
+ *     TppWorkInitialize @ 0x18003D79C (TppWorkInitialize.c)
+ *     TppCleanupGroupAddMember @ 0x18007A214 (TppCleanupGroupAddMember.c)
  */
 
 __int64 __fastcall TppInitializeTimer(__int64 a1, char a2, int a3, __int64 a4, __int64 a5, __int64 a6)

@@ -1,13 +1,13 @@
 /*
- * XREFs of NtdllRunOnceInitMuiCrits @ 0x1403B64A0
+ * XREFs of NtdllRunOnceInitMuiCrits @ 0x1403B6680
  * Callers:
  *     <none>
  * Callees:
- *     KiInitializeMutant @ 0x14033ADEC (KiInitializeMutant.c)
+ *     KiInitializeMutant @ 0x14033B07C (KiInitializeMutant.c)
  */
 
-__int64 __fastcall NtdllRunOnceInitMuiCrits(PRTL_RUN_ONCE RunOnce, __int64 *Parameter, PVOID *Context)
+__int64 __fastcall NtdllRunOnceInitMuiCrits(PRTL_RUN_ONCE a1, __int64 *a2, PVOID *a3)
 {
-  KiInitializeMutant(*Parameter, 0, 1, 0);
+  KiInitializeMutant(*a2, 0, 1, 0);
   return 1LL;
 }

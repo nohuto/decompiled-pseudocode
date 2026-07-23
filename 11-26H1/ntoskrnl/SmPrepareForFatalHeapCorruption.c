@@ -1,18 +1,18 @@
 /*
- * XREFs of SmPrepareForFatalHeapCorruption @ 0x14024F434
+ * XREFs of SmPrepareForFatalHeapCorruption @ 0x140250D94
  * Callers:
- *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14020D0D8 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
- *     SmHpChunkFree @ 0x140211220 (SmHpChunkFree.c)
- *     SmHpBufferUpdateFullness @ 0x14024DAA0 (SmHpBufferUpdateFullness.c)
- *     SmHpUnprotectListNeighbors @ 0x14024DC94 (SmHpUnprotectListNeighbors.c)
- *     SmHpChunkAlloc @ 0x14024E5B0 (SmHpChunkAlloc.c)
- *     SmHpChunkHeapProtect @ 0x14024F764 (SmHpChunkHeapProtect.c)
+ *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14020D1B8 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
+ *     SmHpChunkFree @ 0x140211300 (SmHpChunkFree.c)
+ *     SmHpBufferUpdateFullness @ 0x14024F400 (SmHpBufferUpdateFullness.c)
+ *     SmHpUnprotectListNeighbors @ 0x14024F5F4 (SmHpUnprotectListNeighbors.c)
+ *     SmHpChunkAlloc @ 0x14024FF10 (SmHpChunkAlloc.c)
+ *     SmHpChunkHeapProtect @ 0x1402510C4 (SmHpChunkHeapProtect.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024D7A0 (KeRegisterBugCheckReasonCallback.c)
- *     SmGetPhysicalAddress @ 0x1405056B8 (SmGetPhysicalAddress.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14024F100 (KeRegisterBugCheckReasonCallback.c)
+ *     SmGetPhysicalAddress @ 0x1404FEF68 (SmGetPhysicalAddress.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmPrepareForFatalHeapCorruption(
@@ -32,7 +32,7 @@ __int64 __fastcall SmPrepareForFatalHeapCorruption(
   v5 = a4;
   v7 = a3;
   *a5 = SmGetPhysicalAddress() / 4096;
-  Pool3 = ExAllocatePool3(64LL, 4192LL, 1348627827LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+  Pool3 = ExAllocatePool3(64LL, 4192LL, 1348627827LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
   v9 = 0;
   v10 = (struct _KBUGCHECK_REASON_CALLBACK_RECORD *)Pool3;
   if ( Pool3 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpReadStringRef @ 0x140960490
+ * XREFs of SdbpReadStringRef @ 0x140947F50
  * Callers:
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
  * Callees:
- *     SdbpReadTagData @ 0x14095FE60 (SdbpReadTagData.c)
- *     SdbGetTagFromTagID @ 0x1409600B0 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x140947920 (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x140947B70 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpReadStringRef(__int64 a1, unsigned int a2)
@@ -17,12 +17,12 @@ __int64 __fastcall SdbpReadStringRef(__int64 a1, unsigned int a2)
   {
     if ( (unsigned int)SdbpReadTagData(a1, a2, (__int64)&v5, 4u) )
       return v5;
-    AslLogCallPrintf(1LL, (__int64)"SdbpReadStringRef", 639LL, (__int64)"Error reading data");
+    AslLogCallPrintf(1LL, (__int64)"SdbpReadStringRef");
   }
   else
   {
     SdbGetTagFromTagID(a1, a2);
-    AslLogCallPrintf(1LL, (__int64)"SdbpReadStringRef", 634LL, (__int64)"TagID 0x%08X, Tag %04X not STRINGREF type");
+    AslLogCallPrintf(1LL, (__int64)"SdbpReadStringRef");
   }
   return 0LL;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlCreateHeap @ 0x14070AF20
+ * XREFs of RtlCreateHeap @ 0x14070C1C0
  * Callers:
  *     <none>
  * Callees:
  *     RtlpHeapGenerateRandomValue64 @ 0x140009608 (RtlpHeapGenerateRandomValue64.c)
  *     ExDeleteResourceLite @ 0x140020F50 (ExDeleteResourceLite.c)
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     RtlpHpLegacyGetEnvHandle @ 0x14013B0C0 (RtlpHpLegacyGetEnvHandle.c)
- *     RtlpHpFixedHeapCreate @ 0x14016B078 (RtlpHpFixedHeapCreate.c)
- *     RtlpHpConvertCreationFlags @ 0x14016B214 (RtlpHpConvertCreationFlags.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
- *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpCreateHeapEncoding @ 0x1402F0AFC (RtlpCreateHeapEncoding.c)
- *     RtlpInitializeHeapSegment @ 0x1402F2434 (RtlpInitializeHeapSegment.c)
- *     RtlpHeapExceptionFilter @ 0x1402FB724 (RtlpHeapExceptionFilter.c)
- *     RtlpHeapHandleError @ 0x1402FBBCC (RtlpHeapHandleError.c)
- *     RtlpPopulateListIndex @ 0x1402FC44C (RtlpPopulateListIndex.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     RtlpHpLegacyGetEnvHandle @ 0x14013B1C0 (RtlpHpLegacyGetEnvHandle.c)
+ *     RtlpHpFixedHeapCreate @ 0x14016B178 (RtlpHpFixedHeapCreate.c)
+ *     RtlpHpConvertCreationFlags @ 0x14016B314 (RtlpHpConvertCreationFlags.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B85F0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1401B86B0 (ZwFreeVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1401B8750 (ZwQueryVirtualMemory.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpCreateHeapEncoding @ 0x1402F0CEC (RtlpCreateHeapEncoding.c)
+ *     RtlpInitializeHeapSegment @ 0x1402F2624 (RtlpInitializeHeapSegment.c)
+ *     RtlpHeapExceptionFilter @ 0x1402FB914 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapHandleError @ 0x1402FBDBC (RtlpHeapHandleError.c)
+ *     RtlpPopulateListIndex @ 0x1402FC63C (RtlpPopulateListIndex.c)
  */
 
 PVOID __stdcall RtlCreateHeap(
@@ -128,32 +128,32 @@ PVOID __stdcall RtlCreateHeap(
         v19 = v18;
       v20 = *((_QWORD *)&v58[1] + 1);
       if ( !*((_QWORD *)&v58[1] + 1) )
-        v20 = qword_1405401B8;
+        v20 = qword_1405411B8;
       v54 = v20;
       v21 = *(_QWORD *)&v58[2];
       if ( !*(_QWORD *)&v58[2] )
-        v21 = qword_1405401B0;
+        v21 = qword_1405411B0;
       v55 = v21;
       v22 = *((_QWORD *)&v58[2] + 1);
       if ( !*((_QWORD *)&v58[2] + 1) )
-        v22 = qword_1405401A0;
+        v22 = qword_1405411A0;
       v56 = v22;
       v23 = *(_QWORD *)&v58[3];
       if ( !*(_QWORD *)&v58[3] )
-        v23 = qword_1405401A8;
+        v23 = qword_1405411A8;
       *(_QWORD *)&v58[0] = v23;
-      v24 = qword_1404E1468;
-      if ( !qword_1404E1468 )
+      v24 = qword_1404E2568;
+      if ( !qword_1404E2568 )
       {
-        qword_1404E1470 = 0x10000LL;
+        qword_1404E2570 = 0x10000LL;
         if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0 )
           goto LABEL_15;
         v24 = v66;
-        qword_1404E1468 = v66;
+        qword_1404E2568 = v66;
       }
       v53 = *((_QWORD *)&v58[3] + 1);
       if ( !*((_QWORD *)&v58[3] + 1) )
-        v53 = v24 - qword_1404E1470 - 4096;
+        v53 = v24 - qword_1404E2570 - 4096;
       v25 = *(_QWORD *)&v58[4];
       if ( (unsigned __int64)(*(_QWORD *)&v58[4] - 1LL) > 0xFEFFF )
         v25 = 1044480LL;
@@ -245,7 +245,7 @@ PVOID __stdcall RtlCreateHeap(
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    HeapBase,
-                   MemoryBasicVlmInformation,
+                   MemoryRegionInformation,
                    v63,
                    0x20uLL,
                    0LL) < 0 )

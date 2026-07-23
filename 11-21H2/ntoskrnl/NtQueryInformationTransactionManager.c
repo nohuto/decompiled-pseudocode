@@ -14,7 +14,7 @@ NTSTATUS __stdcall NtQueryInformationTransactionManager(
         ULONG TransactionManagerInformationLength,
         PULONG ReturnLength)
 {
-  return __imp_NtQueryInformationTransactionManager(
+  return NtQueryInformationTransactionManager_0(
            TransactionManagerHandle,
            TransactionManagerInformationClass,
            TransactionManagerInformation,

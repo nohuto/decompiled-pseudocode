@@ -1,45 +1,48 @@
 /*
- * XREFs of RtlExtendMemoryZone @ 0x1800E3040
+ * XREFs of RtlExtendMemoryZone @ 0x1800E3100
  * Callers:
- *     RtlExtendMemoryBlockLookaside @ 0x1800E2FD0 (RtlExtendMemoryBlockLookaside.c)
+ *     RtlExtendMemoryBlockLookaside @ 0x1800E3090 (RtlExtendMemoryBlockLookaside.c)
  *     RtlpRegisterStackTrace @ 0x1800F9B54 (RtlpRegisterStackTrace.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  *     ZwAllocateVirtualMemory @ 0x1800A6720 (ZwAllocateVirtualMemory.c)
  *     ZwFreeVirtualMemory @ 0x1800A67E0 (ZwFreeVirtualMemory.c)
  *     NtLockVirtualMemory @ 0x1800A8430 (NtLockVirtualMemory.c)
  */
 
-__int64 __fastcall RtlExtendMemoryZone(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlExtendMemoryZone(__int64 a1, __int64 a2)
 {
-  int VirtualMemory; // edi
-  signed __int32 v8[18]; // [rsp+0h] [rbp-48h] BYREF
-  unsigned __int64 v9; // [rsp+58h] [rbp+10h]
+  NTSTATUS v5; // edi
+  _QWORD *v6; // r8
+  signed __int32 v7[8]; // [rsp+0h] [rbp-48h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+18h] BYREF
 
   if ( !a2 )
     return 3221225485LL;
-  RtlAcquireSRWLockExclusive(a1 + 32, a2, a3, a4);
-  v8[10] = 4;
-  v9 = (unsigned __int64)(a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  v8[8] = 12288;
-  VirtualMemory = ZwAllocateVirtualMemory();
-  if ( VirtualMemory >= 0 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
+  BaseAddress = 0LL;
+  RegionSize = (a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  v5 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x3000u, 4u);
+  if ( v5 >= 0 )
   {
-    if ( *(_DWORD *)(a1 + 40) && (VirtualMemory = NtLockVirtualMemory(), VirtualMemory < 0) )
+    if ( *(_DWORD *)(a1 + 40)
+      && (v5 = NtLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u), v5 < 0) )
     {
-      ZwFreeVirtualMemory();
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
     }
     else
     {
-      MEMORY[8] = v9;
-      MEMORY[0x10] = 32LL;
-      MEMORY[0x18] = v9;
-      MEMORY[0] = *(_QWORD *)(a1 + 48);
-      _InterlockedOr(v8, 0);
-      *(_QWORD *)(a1 + 48) = 0LL;
+      v6 = BaseAddress;
+      *((_QWORD *)BaseAddress + 1) = RegionSize;
+      v6[2] = v6 + 4;
+      v6[3] = (char *)v6 + RegionSize;
+      *v6 = *(_QWORD *)(a1 + 48);
+      _InterlockedOr(v7, 0);
+      *(_QWORD *)(a1 + 48) = v6;
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
-  return (unsigned int)VirtualMemory;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
+  return (unsigned int)v5;
 }

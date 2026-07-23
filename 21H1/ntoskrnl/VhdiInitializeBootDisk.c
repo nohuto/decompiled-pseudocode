@@ -62,7 +62,7 @@ __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING
   v18 = *(_DWORD **)(a2 + 24);
   if ( !v18 )
     return 3221225485LL;
-  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(const char **)(a1 + 184)) )
+  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(PCSTR *)(a1 + 184)) )
     return 3221225473LL;
   v6 = 0LL;
   v7 = 0;

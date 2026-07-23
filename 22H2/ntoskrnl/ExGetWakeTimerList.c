@@ -60,7 +60,7 @@ __int64 __fastcall ExGetWakeTimerList(ULONG_PTR *a1, _DWORD *a2)
   unsigned int v35; // r9d
   unsigned __int8 v36; // r13
   unsigned int v37; // edx
-  unsigned __int64 v38; // rdi
+  __int64 v38; // rdi
   __int64 v39; // rcx
   int v40; // eax
   unsigned int v41; // ecx
@@ -263,7 +263,7 @@ LABEL_53:
     v11 = !_BitScanReverse((unsigned int *)&v39, v37);
     if ( v11 )
       goto LABEL_66;
-    v38 = (unsigned __int64)&v34->LockEntries[v39];
+    v38 = (__int64)&v34->LockEntries[v39];
     v37 &= ~(1 << v39);
     if ( (*(_BYTE *)(v38 + 26) & 1) != 0
       && (*(_DWORD *)(v38 + 32) & 1) == 0
@@ -284,14 +284,14 @@ LABEL_66:
   }
   *(_BYTE *)(v38 + 32) |= 2u;
   if ( *(__int64 *)(v38 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v38);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v38);
   v40 = *(_DWORD *)(v38 + 88) & 0x1FFFF;
   v41 = *(_DWORD *)(v38 + 88) & 0xFFFE0000;
   *(_BYTE *)(v38 + 25) &= ~1u;
   v45 = v40;
   *(_DWORD *)(v38 + 88) = v41;
   *(_QWORD *)(v38 + 32) = 0LL;
-  v42 = (__int64)(v38 - (unsigned __int64)v34->LockEntries) / 96;
+  v42 = (signed __int64)(v38 - (unsigned __int64)v34->LockEntries) / 96;
   if ( v36 == 1 )
     v34->AbEntrySummary |= 1 << v42;
   else

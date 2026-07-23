@@ -38,13 +38,13 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
   _GENERAL_LOOKASIDE *L; // rdi
   __int64 Type; // rcx
   UNICODE_STRING Destination; // [rsp+48h] [rbp-19h] BYREF
-  UNICODE_STRING Source; // [rsp+58h] [rbp-9h] BYREF
+  UNICODE_STRING CurrentUserKeyPath; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
 
   result = 0LL;
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   memset(&ObjectAttributes, 0, 44);
-  Source = 0LL;
+  CurrentUserKeyPath = 0LL;
   if ( (a1 & 0x40000000) != 0 )
   {
     *a4 = (HANDLE)a2;
@@ -82,11 +82,11 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
         *(_DWORD *)&Destination.Length = 34340864;
         if ( !(_DWORD)v8 )
           goto LABEL_9;
-        if ( (_DWORD)v8 == 5 && RtlFormatCurrentUserKeyPath(&Source) >= 0 )
+        if ( (_DWORD)v8 == 5 && RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(&Destination, &Source);
-          if ( Source.Buffer )
-            ExFreePool(Source.Buffer);
+          appended = RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath);
+          if ( CurrentUserKeyPath.Buffer )
+            ExFreePool(CurrentUserKeyPath.Buffer);
         }
         else
         {

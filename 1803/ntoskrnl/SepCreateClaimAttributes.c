@@ -14,15 +14,15 @@
  *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1407DF378 (AuthzBasepAllocateClaimCollectionNoLists.c)
  */
 
-__int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, void *Src)
+__int64 __fastcall SepCreateClaimAttributes(unsigned int **a1, __int64 a2, __int64 a3, unsigned int a4, void *Src)
 {
   int v8; // ebx
   _DWORD *v9; // rbp
   _DWORD *v10; // rsi
-  char *v11; // r14
+  _SID_AND_ATTRIBUTES *v11; // r14
   __int64 v13; // rdx
   __int64 v14; // rcx
-  _QWORD *ClaimCollectionNoLists; // rdi
+  unsigned int *ClaimCollectionNoLists; // rdi
   _QWORD *SecurityAttributesList; // rax
   _QWORD *v17; // rax
   unsigned int v18; // ebx
@@ -49,7 +49,7 @@ __int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, 
   *a1 = 0LL;
   if ( !a2 && !a3 && !a4 )
     return 0LL;
-  ClaimCollectionNoLists = (_QWORD *)AuthzBasepAllocateClaimCollectionNoLists();
+  ClaimCollectionNoLists = (unsigned int *)AuthzBasepAllocateClaimCollectionNoLists();
   if ( ClaimCollectionNoLists )
   {
     if ( a2 )
@@ -67,7 +67,7 @@ LABEL_35:
       if ( v8 < 0 )
         goto LABEL_25;
       v22 = 1;
-      ClaimCollectionNoLists[72] = v9;
+      *((_QWORD *)ClaimCollectionNoLists + 72) = v9;
     }
     if ( a3 )
     {
@@ -79,7 +79,7 @@ LABEL_35:
       if ( v8 < 0 )
         goto LABEL_25;
       v23 = 1;
-      ClaimCollectionNoLists[73] = v10;
+      *((_QWORD *)ClaimCollectionNoLists + 73) = v10;
     }
     if ( !Src || !a4 )
       goto LABEL_24;
@@ -105,7 +105,7 @@ LABEL_25:
     }
     v18 = NumberOfBytes;
     PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64546553u);
-    v11 = PoolWithTag;
+    v11 = (_SID_AND_ATTRIBUTES *)PoolWithTag;
     if ( PoolWithTag )
     {
       v8 = SeCaptureSidAndAttributesArray(
@@ -120,9 +120,9 @@ LABEL_25:
              (unsigned int *)&NumberOfBytes);
       if ( v8 >= 0 )
       {
-        *(_DWORD *)ClaimCollectionNoLists = a4;
-        ClaimCollectionNoLists[1] = v11;
-        RtlSidHashInitialize((__int64 *)v11, a4, ClaimCollectionNoLists + 4);
+        *ClaimCollectionNoLists = a4;
+        *((_QWORD *)ClaimCollectionNoLists + 1) = v11;
+        RtlSidHashInitialize(v11, a4, (PSID_AND_ATTRIBUTES_HASH)(ClaimCollectionNoLists + 8));
 LABEL_24:
         *a1 = ClaimCollectionNoLists;
         return (unsigned int)v8;

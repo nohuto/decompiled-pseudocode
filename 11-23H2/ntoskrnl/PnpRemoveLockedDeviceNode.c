@@ -1,28 +1,28 @@
 /*
- * XREFs of PnpRemoveLockedDeviceNode @ 0x1403B70AC
+ * XREFs of PnpRemoveLockedDeviceNode @ 0x1403B728C
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140868428 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140868668 (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AE84 (PipSetDevNodeState.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     PipRestoreDevNodeState @ 0x1403B6F88 (PipRestoreDevNodeState.c)
- *     PnpDeleteAllDependencyRelations @ 0x14078E45C (PnpDeleteAllDependencyRelations.c)
- *     PipSetDevNodeUserFlags @ 0x1407906BC (PipSetDevNodeUserFlags.c)
- *     PipClearDevNodeUserFlags @ 0x1407933E0 (PipClearDevNodeUserFlags.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797210 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     PpHotSwapInitRemovalPolicy @ 0x1407EAD60 (PpHotSwapInitRemovalPolicy.c)
- *     PipClearDevNodeProblem @ 0x14086919C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x1408692EC (PipSetDevNodeProblem.c)
- *     PnpUnloadAttachedDriver @ 0x140869734 (PnpUnloadAttachedDriver.c)
- *     IopReleaseDeviceResources @ 0x14086977C (IopReleaseDeviceResources.c)
- *     IopRemoveDevice @ 0x140869968 (IopRemoveDevice.c)
- *     PiDmaGuardProcessPostRemove @ 0x140869D84 (PiDmaGuardProcessPostRemove.c)
- *     PnpDisableDeviceInterfaces @ 0x140882C90 (PnpDisableDeviceInterfaces.c)
- *     PipIsProblemReadonly @ 0x1409598C4 (PipIsProblemReadonly.c)
- *     PpProfileCommitTransitioningDock @ 0x140963BC4 (PpProfileCommitTransitioningDock.c)
+ *     PipSetDevNodeState @ 0x14022AF94 (PipSetDevNodeState.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     PipRestoreDevNodeState @ 0x1403B7168 (PipRestoreDevNodeState.c)
+ *     PnpDeleteAllDependencyRelations @ 0x14078E64C (PnpDeleteAllDependencyRelations.c)
+ *     PipSetDevNodeUserFlags @ 0x1407908AC (PipSetDevNodeUserFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x1407935D0 (PipClearDevNodeUserFlags.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797400 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PpHotSwapInitRemovalPolicy @ 0x1407EB030 (PpHotSwapInitRemovalPolicy.c)
+ *     PipClearDevNodeProblem @ 0x1408693DC (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x14086952C (PipSetDevNodeProblem.c)
+ *     PnpUnloadAttachedDriver @ 0x140869974 (PnpUnloadAttachedDriver.c)
+ *     IopReleaseDeviceResources @ 0x1408699BC (IopReleaseDeviceResources.c)
+ *     IopRemoveDevice @ 0x140869BA8 (IopRemoveDevice.c)
+ *     PiDmaGuardProcessPostRemove @ 0x140869FC4 (PiDmaGuardProcessPostRemove.c)
+ *     PnpDisableDeviceInterfaces @ 0x140882ED0 (PnpDisableDeviceInterfaces.c)
+ *     PipIsProblemReadonly @ 0x140959AC4 (PipIsProblemReadonly.c)
+ *     PpProfileCommitTransitioningDock @ 0x140963DC4 (PpProfileCommitTransitioningDock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -93,7 +93,7 @@ __int64 __fastcall PnpRemoveLockedDeviceNode(__int64 MaxDataSize, unsigned int a
     PipRestoreDevNodeState(MaxDataSize);
   }
   if ( *(_DWORD *)(MaxDataSize + 300) != 790 )
-    JUMPOUT(0x1403B712FLL);
+    JUMPOUT(0x1403B730FLL);
   v10 = *(_QWORD *)(v3 + 24);
   while ( v10 )
   {

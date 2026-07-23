@@ -1,12 +1,12 @@
 /*
- * XREFs of KiNpxNotAvailableFault @ 0x14040C680
+ * XREFs of KiNpxNotAvailableFault @ 0x14040C780
  * Callers:
- *     KiNpxNotAvailableFaultShadow @ 0x140A144C0 (KiNpxNotAvailableFaultShadow.c)
+ *     KiNpxNotAvailableFaultShadow @ 0x140A154C0 (KiNpxNotAvailableFaultShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
- *     KiNpxNotAvailableFault @ 0x14040C680 (KiNpxNotAvailableFault.c)
- *     KiBugCheckDispatch @ 0x140412740 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413B80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE620 (KiSaveDebugRegisterState.c)
+ *     KiNpxNotAvailableFault @ 0x14040C780 (KiNpxNotAvailableFault.c)
+ *     KiBugCheckDispatch @ 0x140412840 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413C80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __noreturn KiNpxNotAvailableFault()
@@ -46,7 +46,7 @@ void __noreturn KiNpxNotAvailableFault()
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x14040C8B5LL);
+      JUMPOUT(0x14040C9B5LL);
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(v1);
     _mm_lfence();

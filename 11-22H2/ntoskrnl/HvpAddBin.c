@@ -366,7 +366,7 @@ LABEL_72:
       }
       goto LABEL_78;
     }
-    Bin = HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 224), v15);
+    Bin = HvpViewMapExtendStorage(BugCheckParameter2 + 224, v15);
     if ( Bin >= 0 )
     {
       v20 = 1;

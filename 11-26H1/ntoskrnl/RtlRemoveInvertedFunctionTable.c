@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlRemoveInvertedFunctionTable @ 0x14040D21C
+ * XREFs of RtlRemoveInvertedFunctionTable @ 0x14042A148
  * Callers:
- *     MiRemoveLoaderEntry @ 0x14040D04C (MiRemoveLoaderEntry.c)
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MiRemoveLoaderEntry @ 0x140429F78 (MiRemoveLoaderEntry.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MmUnlockLoadedModuleListExclusive @ 0x14040D280 (MmUnlockLoadedModuleListExclusive.c)
- *     RtlpRemoveInvertedFunctionTableEntry @ 0x14040E9B8 (RtlpRemoveInvertedFunctionTableEntry.c)
- *     MmLockLoadedModuleListExclusive @ 0x14052D084 (MmLockLoadedModuleListExclusive.c)
+ *     MmUnlockLoadedModuleListExclusive @ 0x14042A1AC (MmUnlockLoadedModuleListExclusive.c)
+ *     RtlpRemoveInvertedFunctionTableEntry @ 0x14042B488 (RtlpRemoveInvertedFunctionTableEntry.c)
+ *     MmLockLoadedModuleListExclusive @ 0x14052F5A4 (MmLockLoadedModuleListExclusive.c)
  */
 
 __int64 __fastcall RtlRemoveInvertedFunctionTable(__int64 a1, __int64 a2, __int64 a3)

@@ -43,25 +43,24 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   struct _LIST_ENTRY *Blink; // rax
   struct _KTHREAD *v22; // rbx
   unsigned __int8 v23; // r14
-  unsigned __int64 v24; // r8
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // rsi
-  int v28; // eax
-  unsigned int v29; // ecx
-  unsigned __int8 v30; // al
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // r9
+  unsigned int v24; // edx
+  __int64 v25; // rcx
+  __int64 v26; // rsi
+  int v27; // eax
+  unsigned int v28; // ecx
+  unsigned __int8 v29; // al
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 v33; // r9
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  int v37; // eax
+  int v36; // eax
   _DWORD *SchedulerAssist; // r8
   PVOID P; // [rsp+30h] [rbp-58h]
-  int v40; // [rsp+98h] [rbp+10h] BYREF
-  int v41; // [rsp+A0h] [rbp+18h]
-  int v42; // [rsp+A8h] [rbp+20h] BYREF
+  int v39; // [rsp+98h] [rbp+10h] BYREF
+  int v40; // [rsp+A0h] [rbp+18h]
+  int v41; // [rsp+A8h] [rbp+20h] BYREF
 
   p_WaitListHead = &a1[4].Header.WaitListHead;
   if ( !a1[4].Header.WaitListHead.Flink )
@@ -70,13 +69,13 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   P = *(PVOID *)&a1[4].Header.Lock;
   --CurrentThread->KernelApcDisable;
   v8 = KeGetCurrentThread();
-  v42 = 0;
+  v41 = 0;
   --v8->SpecialApcDisable;
   if ( ++v8->AbAllocationRegionCount != 1 )
     KeBugCheckEx(0x192u, (ULONG_PTR)v8, (ULONG_PTR)&ExpWakeTimerLock, KeGetCurrentIrql(), 0LL);
   LOBYTE(v9) = v8->AbEntrySummary;
   v10 = -1;
-  v41 = 0;
+  v40 = 0;
   if ( !(_BYTE)v9 )
   {
     if ( !v8->AbOrphanedEntrySummary )
@@ -92,7 +91,7 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   }
   v12 = v9;
   _BitScanForward((unsigned int *)&v9, (unsigned __int8)v9);
-  v41 = v9;
+  v40 = v9;
   v8->AbEntrySummary = v12 & ~(1 << v9);
   v13 = (__int64)&v8->LockEntries[v9];
   if ( !v13 )
@@ -114,7 +113,7 @@ LABEL_18:
   *(_QWORD *)(v13 + 32) = (unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL;
 LABEL_21:
   --v8->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)v8, (__int64)&ExpWakeTimerLock, &v42);
+  KiAbThreadRemoveBoosts((ULONG_PTR)v8, (__int64)&ExpWakeTimerLock, &v41);
   v18 = v8->SpecialApcDisable++ == -1;
   if ( v18 && ($C774EFD68449142D8271B1EC1EB7FB26 *)v8->ApcState.ApcListHead[0].Flink != &v8->152 )
     KiCheckForKernelApcDelivery(1LL, v15, v16, v17);
@@ -131,45 +130,44 @@ LABEL_21:
   p_WaitListHead->Flink = 0LL;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpWakeTimerLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&ExpWakeTimerLock);
-  v40 = 0;
+  v39 = 0;
   v22 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&ExpWakeTimerLock) == 1 )
     v10 = MmGetSessionIdEx((__int64)v22->ApcState.Process);
   --v22->SpecialApcDisable;
   v23 = ++v22->AbAllocationRegionCount;
-  v24 = (unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL;
-  LODWORD(v25) = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
+  v24 = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
-    v18 = !_BitScanReverse((unsigned int *)&v26, v25);
+    v18 = !_BitScanReverse((unsigned int *)&v25, v24);
     if ( v18 )
       break;
-    v27 = (__int64)&v22->LockEntries[v26];
-    v25 = ~(1 << v26) & (unsigned int)v25;
-    if ( (*(_BYTE *)(v27 + 26) & 1) != 0
-      && (*(_DWORD *)(v27 + 32) & 1) == 0
-      && (*(_QWORD *)(v27 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v24
-      && *(_DWORD *)(v27 + 40) == v10 )
+    v26 = (__int64)&v22->LockEntries[v25];
+    v24 &= ~(1 << v25);
+    if ( (*(_BYTE *)(v26 + 26) & 1) != 0
+      && (*(_DWORD *)(v26 + 32) & 1) == 0
+      && (*(_QWORD *)(v26 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v26 + 40) == v10 )
     {
-      *(_BYTE *)(v27 + 26) &= ~1u;
-      if ( *(_QWORD *)(v27 + 32) )
+      *(_BYTE *)(v26 + 26) &= ~1u;
+      if ( *(_QWORD *)(v26 + 32) )
       {
-        if ( v27 )
+        if ( v26 )
         {
-          *(_BYTE *)(v27 + 32) |= 2u;
-          if ( *(__int64 *)(v27 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v27, v25, v24);
-          v28 = *(_DWORD *)(v27 + 88) & 0x1FFFF;
-          v29 = *(_DWORD *)(v27 + 88) & 0xFFFE0000;
-          *(_BYTE *)(v27 + 25) &= ~1u;
-          v40 = v28;
-          *(_DWORD *)(v27 + 88) = v29;
-          *(_QWORD *)(v27 + 32) = 0LL;
-          v30 = 1 << ((char)(v27 - LOBYTE(v22->LockEntries)) / 96);
+          *(_BYTE *)(v26 + 32) |= 2u;
+          if ( *(__int64 *)(v26 + 32) < 0 )
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
+          v27 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
+          v28 = *(_DWORD *)(v26 + 88) & 0xFFFE0000;
+          *(_BYTE *)(v26 + 25) &= ~1u;
+          v39 = v27;
+          *(_DWORD *)(v26 + 88) = v28;
+          *(_QWORD *)(v26 + 32) = 0LL;
+          v29 = 1 << ((char)(v26 - LOBYTE(v22->LockEntries)) / 96);
           if ( v23 == 1 )
-            v22->AbEntrySummary |= v30;
+            v22->AbEntrySummary |= v29;
           else
-            _InterlockedOr8((volatile signed __int8 *)&v22->AbOrphanedEntrySummary, v30);
+            _InterlockedOr8((volatile signed __int8 *)&v22->AbOrphanedEntrySummary, v29);
           goto LABEL_46;
         }
         break;
@@ -180,10 +178,10 @@ LABEL_21:
     KeBugCheckEx(0x162u, (ULONG_PTR)v22, (ULONG_PTR)&ExpWakeTimerLock, v10, 0LL);
 LABEL_46:
   --v22->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)v22, (__int64)&ExpWakeTimerLock, &v40);
+  KiAbThreadRemoveBoosts((ULONG_PTR)v22, (__int64)&ExpWakeTimerLock, &v39);
   v18 = v22->SpecialApcDisable++ == -1;
   if ( v18 && ($C774EFD68449142D8271B1EC1EB7FB26 *)v22->ApcState.ApcListHead[0].Flink != &v22->152 )
-    KiCheckForKernelApcDelivery(v32, v31, v33, v34);
+    KiCheckForKernelApcDelivery(v31, v30, v32, v33);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( P )
     PoDestroyReasonContext(P);
@@ -206,10 +204,10 @@ LABEL_2:
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v18 = (v37 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v37;
+          v18 = (v36 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v36;
           if ( v18 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }

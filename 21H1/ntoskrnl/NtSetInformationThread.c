@@ -109,7 +109,7 @@ NTSTATUS __stdcall NtSetInformationThread(
   unsigned __int64 v42; // rsi
   PVOID v43; // rbx
   _QWORD *v44; // r14
-  struct _PROCESSOR_NUMBER v45; // eax
+  _PROCESSOR_NUMBER v45; // eax
   unsigned __int64 v46; // rcx
   unsigned __int64 v47; // rdx
   unsigned __int16 v48; // di
@@ -162,84 +162,83 @@ NTSTATUS __stdcall NtSetInformationThread(
   __int64 v96; // rdx
   unsigned int v97; // edi
   LONG v98; // edi
-  __int64 v99; // rdx
-  LONG v100; // edi
-  struct _KTHREAD *v101; // rax
-  struct _LIST_ENTRY *v102; // rax
-  struct _LIST_ENTRY *v103; // rdi
-  PEPROCESS v104; // rsi
+  LONG v99; // edi
+  struct _KTHREAD *v100; // rax
+  struct _LIST_ENTRY *v101; // rax
+  struct _LIST_ENTRY *v102; // rdi
+  PEPROCESS v103; // rsi
   char IsSiloInSilo; // al
-  struct _LIST_ENTRY *v106; // rcx
+  struct _LIST_ENTRY *v105; // rcx
   __int64 EffectiveServerSilo; // rbx
   __int64 ProcessServerSilo; // rax
   PVOID Object; // [rsp+40h] [rbp-238h] BYREF
-  NTSTATUS v110; // [rsp+48h] [rbp-230h]
-  char v111; // [rsp+4Ch] [rbp-22Ch]
-  char v112; // [rsp+4Dh] [rbp-22Bh]
-  bool v113; // [rsp+4Eh] [rbp-22Ah]
-  struct _PROCESSOR_NUMBER v114; // [rsp+54h] [rbp-224h] BYREF
-  char v115; // [rsp+58h] [rbp-220h]
+  NTSTATUS v109; // [rsp+48h] [rbp-230h]
+  char v110; // [rsp+4Ch] [rbp-22Ch]
+  char v111; // [rsp+4Dh] [rbp-22Bh]
+  bool v112; // [rsp+4Eh] [rbp-22Ah]
+  _PROCESSOR_NUMBER v113; // [rsp+54h] [rbp-224h] BYREF
+  char v114; // [rsp+58h] [rbp-220h]
   LONG Increment; // [rsp+5Ch] [rbp-21Ch]
-  PVOID v117; // [rsp+60h] [rbp-218h] BYREF
+  PVOID v116; // [rsp+60h] [rbp-218h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-210h]
-  _QWORD *v119; // [rsp+70h] [rbp-208h]
-  LONG v120; // [rsp+78h] [rbp-200h]
-  struct _KTHREAD *v121; // [rsp+80h] [rbp-1F8h]
-  unsigned int v122; // [rsp+88h] [rbp-1F0h]
+  _QWORD *v118; // [rsp+70h] [rbp-208h]
+  LONG v119; // [rsp+78h] [rbp-200h]
+  struct _KTHREAD *v120; // [rsp+80h] [rbp-1F8h]
+  unsigned int v121; // [rsp+88h] [rbp-1F0h]
   PVOID P; // [rsp+90h] [rbp-1E8h]
-  __int128 v124; // [rsp+98h] [rbp-1E0h]
-  unsigned __int64 v125; // [rsp+A8h] [rbp-1D0h]
-  PVOID v126; // [rsp+B0h] [rbp-1C8h] BYREF
-  HANDLE v127; // [rsp+B8h] [rbp-1C0h]
-  __int64 v128; // [rsp+C0h] [rbp-1B8h] BYREF
+  __int128 v123; // [rsp+98h] [rbp-1E0h]
+  unsigned __int64 v124; // [rsp+A8h] [rbp-1D0h]
+  PVOID v125; // [rsp+B0h] [rbp-1C8h] BYREF
+  HANDLE v126; // [rsp+B8h] [rbp-1C0h]
+  __int64 v127; // [rsp+C0h] [rbp-1B8h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+C8h] [rbp-1B0h] BYREF
   void *Src[2]; // [rsp+D0h] [rbp-1A8h]
-  KPRIORITY v131; // [rsp+E0h] [rbp-198h]
-  LONG v132; // [rsp+E4h] [rbp-194h]
-  LONG v133; // [rsp+E8h] [rbp-190h]
-  LONG v134; // [rsp+ECh] [rbp-18Ch]
-  int v135; // [rsp+F0h] [rbp-188h]
-  LONG v136; // [rsp+F4h] [rbp-184h]
-  unsigned int v137; // [rsp+F8h] [rbp-180h]
-  LONG v138; // [rsp+FCh] [rbp-17Ch]
-  LONG v139; // [rsp+100h] [rbp-178h]
-  unsigned __int64 v140; // [rsp+108h] [rbp-170h]
-  __int64 v141; // [rsp+120h] [rbp-158h]
-  __int128 v142; // [rsp+130h] [rbp-148h]
-  unsigned int v143; // [rsp+140h] [rbp-138h]
-  __int128 v144; // [rsp+148h] [rbp-130h] BYREF
-  __int64 v145; // [rsp+158h] [rbp-120h]
-  __int64 v146; // [rsp+160h] [rbp-118h]
-  HANDLE v147; // [rsp+168h] [rbp-110h]
-  __int64 v148; // [rsp+170h] [rbp-108h]
-  __int128 v149; // [rsp+178h] [rbp-100h] BYREF
-  char v150[160]; // [rsp+190h] [rbp-E8h] BYREF
+  KPRIORITY v130; // [rsp+E0h] [rbp-198h]
+  LONG v131; // [rsp+E4h] [rbp-194h]
+  LONG v132; // [rsp+E8h] [rbp-190h]
+  LONG v133; // [rsp+ECh] [rbp-18Ch]
+  int v134; // [rsp+F0h] [rbp-188h]
+  LONG v135; // [rsp+F4h] [rbp-184h]
+  unsigned int v136; // [rsp+F8h] [rbp-180h]
+  LONG v137; // [rsp+FCh] [rbp-17Ch]
+  LONG v138; // [rsp+100h] [rbp-178h]
+  unsigned __int64 v139; // [rsp+108h] [rbp-170h]
+  __int64 v140; // [rsp+120h] [rbp-158h]
+  __int128 v141; // [rsp+130h] [rbp-148h]
+  unsigned int v142; // [rsp+140h] [rbp-138h]
+  __int128 v143; // [rsp+148h] [rbp-130h] BYREF
+  __int64 v144; // [rsp+158h] [rbp-120h]
+  __int64 v145; // [rsp+160h] [rbp-118h]
+  HANDLE v146; // [rsp+168h] [rbp-110h]
+  __int64 v147; // [rsp+170h] [rbp-108h]
+  __int128 v148; // [rsp+178h] [rbp-100h] BYREF
+  char v149[160]; // [rsp+190h] [rbp-E8h] BYREF
 
   v5 = (unsigned __int64)ThreadInformation;
   v6 = ThreadHandle;
   Handle = ThreadHandle;
   v7 = 0LL;
   Object = 0LL;
-  v149 = 0LL;
-  v120 = 0;
-  v122 = 0;
-  v117 = 0LL;
-  v140 = 0LL;
+  v148 = 0LL;
+  v119 = 0;
+  v121 = 0;
+  v116 = 0LL;
+  v139 = 0LL;
+  v123 = 0LL;
   v124 = 0LL;
+  v113 = 0;
   v125 = 0LL;
-  v114 = 0;
-  v126 = 0LL;
   *(_OWORD *)Src = 0LL;
-  v128 = 0LL;
+  v127 = 0LL;
+  v143 = 0LL;
   v144 = 0LL;
-  v145 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v121 = CurrentThread;
+  v120 = CurrentThread;
   v9 = CurrentThread->$6A88714AB977AAA8032D9F5E2A96BA31::gap0[10];
   if ( v9 )
   {
-    if ( ThreadInformationClass >= (ThreadSuspendCount|ThreadAffinityMask)
-      && ThreadInformationClass < (ThreadCounterProfiling|ThreadIsIoPending)
+    if ( ThreadInformationClass >= ThreadSelectedCpuSets
+      && ThreadInformationClass < ThreadManageWritesToExecutableMemory
       || ThreadInformationClass < ThreadEnableAlignmentFaultFixup && ThreadInformationClass >= ThreadImpersonationToken )
     {
 LABEL_4:
@@ -254,8 +253,8 @@ LABEL_4:
         case ThreadGroupInformation:
         case ThreadUmsInformation:
         case ThreadCpuAccountingInformation:
-        case ThreadCpuAccountingInformation|ThreadAffinityMask:
-        case ThreadCounterProfiling|ThreadIsIoPending:
+        case ThreadNameInformation:
+        case ThreadManageWritesToExecutableMemory:
           v11 = 7LL;
           v10 = 3;
           break;
@@ -283,14 +282,14 @@ LABEL_4:
   {
     v10 = 3;
   }
-  if ( ThreadInformationClass == (ThreadCounterProfiling|ThreadAmILastThread) )
+  if ( ThreadInformationClass == ThreadWorkOnBehalfTicket )
   {
     if ( ThreadHandle == (HANDLE)-2LL )
     {
       if ( ThreadInformationLength != 8 )
         return -1073741820;
       v16 = *(_QWORD *)ThreadInformation;
-      v128 = *(_QWORD *)ThreadInformation;
+      v127 = *(_QWORD *)ThreadInformation;
       v18 = ObReferenceObjectByHandleWithTag(
               (HANDLE)0xFFFFFFFFFFFFFFFELL,
               0x400u,
@@ -304,7 +303,7 @@ LABEL_4:
       DmaAdapter = 0LL;
       if ( v16 )
       {
-        v18 = PspThreadFromTicket(&v128, (__int64 *)&DmaAdapter);
+        v18 = PspThreadFromTicket(&v127, (__int64 *)&DmaAdapter);
         if ( v18 >= 0 )
         {
           PspRevertContainerImpersonation((ULONG_PTR)CurrentThread, v21, v22, v23);
@@ -332,7 +331,7 @@ LABEL_29:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v68 = *(_DWORD *)ThreadInformation;
-        v131 = v68;
+        v130 = v68;
         if ( (unsigned int)(v68 - 1) > 0x1E )
           return -1073741811;
         if ( v68 < 16 )
@@ -367,7 +366,7 @@ LABEL_49:
                    0x79517350u,
                    &Object,
                    0LL);
-        v110 = result;
+        v109 = result;
         if ( result < 0 )
           return result;
         v27 = Object;
@@ -384,7 +383,7 @@ LABEL_49:
           }
         }
         v31 = *(_DWORD **)(v28 + 1296);
-        v117 = v31;
+        v116 = v31;
         if ( v31 && (v31[212] & 0x20) != 0 && *(_BYTE *)(v28 + 1463) != 4 )
         {
           v32 = Increment;
@@ -401,13 +400,13 @@ LABEL_49:
         v33 = Object;
         KeSetBasePriorityThread((PKTHREAD)Object, v32);
 LABEL_41:
-        v18 = v110;
+        v18 = v109;
         goto LABEL_42;
       case ThreadAffinityMask:
         if ( ThreadInformationLength != 8 )
           return -1073741820;
         v74 = *(_QWORD *)ThreadInformation;
-        *(_QWORD *)&v149 = v74;
+        *(_QWORD *)&v148 = v74;
         if ( !v74 )
           return -1073741811;
         result = ObReferenceObjectByHandleWithTag(
@@ -440,7 +439,7 @@ LABEL_41:
         if ( ThreadInformationLength != 1 )
           return -1073741820;
         v89 = *(_BYTE *)ThreadInformation;
-        v115 = *(_BYTE *)ThreadInformation;
+        v114 = *(_BYTE *)ThreadInformation;
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -449,7 +448,7 @@ LABEL_41:
                    0x79517350u,
                    &Object,
                    0LL);
-        v110 = result;
+        v109 = result;
         if ( result < 0 )
           return result;
         if ( v89 )
@@ -463,7 +462,7 @@ LABEL_41:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v52 = *(_DWORD *)ThreadInformation;
-        v120 = *(_DWORD *)ThreadInformation;
+        v119 = *(_DWORD *)ThreadInformation;
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -473,7 +472,7 @@ LABEL_41:
                    &Object,
                    0LL);
         v53 = result;
-        v110 = result;
+        v109 = result;
         if ( result < 0 )
           return result;
         v54 = (struct _KTHREAD *)Object;
@@ -481,7 +480,7 @@ LABEL_41:
         if ( v54 != CurrentThread )
           return -1073741811;
         Process = v54->Process;
-        v121 = (struct _KTHREAD *)Process;
+        v120 = (struct _KTHREAD *)Process;
         for ( i = (struct _EX_RUNDOWN_REF *)PsGetNextProcessThread(Process, 0LL);
               ;
               i = (struct _EX_RUNDOWN_REF *)PsGetNextProcessThread(Process, v57) )
@@ -503,7 +502,7 @@ LABEL_41:
                 if ( v67 == 332 || v67 == 452 )
                   v60 = 1;
               }
-              v113 = v60;
+              v112 = v60;
               v61 = Count + 0x2000;
               if ( !v60 )
                 v61 = 0LL;
@@ -523,7 +522,7 @@ LABEL_41:
                   else
                   {
                     v62 = *(_QWORD *)(Count + 6016);
-                    v146 = v62;
+                    v145 = v62;
                     if ( v62 )
                     {
                       v63 = v62 + 8LL * (v52 - 64);
@@ -552,7 +551,7 @@ LABEL_41:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v69 = *(_DWORD *)ThreadInformation;
-        v122 = v69;
+        v121 = v69;
         if ( v69 > 0x40 )
           return -1073741811;
         result = ObReferenceObjectByHandleWithTag(
@@ -577,7 +576,7 @@ LABEL_41:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v83 = *(_DWORD *)ThreadInformation;
-        v132 = *(_DWORD *)ThreadInformation;
+        v131 = *(_DWORD *)ThreadInformation;
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x400u,
@@ -607,7 +606,7 @@ LABEL_41:
                    0x79517350u,
                    &Object,
                    0LL);
-        v110 = result;
+        v109 = result;
         if ( result < 0 )
           return result;
         _InterlockedOr((volatile signed __int32 *)Object + 324, 4u);
@@ -616,7 +615,7 @@ LABEL_41:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v86 = *(_DWORD *)ThreadInformation;
-        v133 = *(_DWORD *)ThreadInformation;
+        v132 = *(_DWORD *)ThreadInformation;
         if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, v9) )
           return -1073741727;
         result = ObReferenceObjectByHandleWithTag(
@@ -627,7 +626,7 @@ LABEL_41:
                    0x79517350u,
                    &Object,
                    0LL);
-        v110 = result;
+        v109 = result;
         if ( result < 0 )
           return result;
         if ( v86 )
@@ -657,13 +656,13 @@ LABEL_41:
         if ( ThreadInformationLength == 4 )
         {
           LODWORD(v41) = *(_DWORD *)ThreadInformation;
-          v134 = *(_DWORD *)ThreadInformation;
+          v133 = *(_DWORD *)ThreadInformation;
           LOBYTE(v42) = 0;
         }
         else
         {
           v41 = *(_QWORD *)ThreadInformation;
-          v140 = v41;
+          v139 = v41;
           v42 = HIDWORD(v41);
         }
         if ( (unsigned int)v41 >= 4 )
@@ -693,7 +692,7 @@ LABEL_64:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v34 = *(_DWORD *)ThreadInformation;
-        v143 = v34;
+        v142 = v34;
         if ( v34 > (unsigned int)MmGetDefaultPagePriority() || v34 < (unsigned int)MiCreateSystemWsles() )
           return -1073741811;
         result = ObReferenceObjectByHandleWithTag(v35, 0x20u, (POBJECT_TYPE)PsThreadType, v9, 0x79517350u, &Object, 0LL);
@@ -763,8 +762,8 @@ LABEL_42:
       case ThreadGroupInformation:
         if ( ThreadInformationLength != 16 )
           return -1073741820;
-        v149 = *(_OWORD *)ThreadInformation;
-        if ( !KeVerifyGroupAffinity((__int64)&v149, 1) )
+        v148 = *(_OWORD *)ThreadInformation;
+        if ( !KeVerifyGroupAffinity((__int64)&v148, 1) )
           return -1073741811;
         result = ObReferenceObjectByHandleWithTag(
                    Handle,
@@ -779,14 +778,14 @@ LABEL_42:
           v77 = *((_QWORD *)Object + 68);
           PspLockProcessSecurityShared(v77, (__int64)CurrentThread);
           v78 = *(_QWORD *)(v77 + 1296);
-          v117 = (PVOID)v78;
+          v116 = (PVOID)v78;
           v79 = v78;
           if ( !v78
             || (ExAcquireResourceSharedLite((PERESOURCE)(v78 + 56), 1u), (*(_DWORD *)(v79 + 848) & 0x10) == 0)
-            || (v90 = *(_QWORD *)(v79 + 8LL * WORD4(v149) + 624)) != 0 && ((unsigned __int64)v149 & v90) == (_QWORD)v149 )
+            || (v90 = *(_QWORD *)(v79 + 8LL * WORD4(v148) + 624)) != 0 && ((unsigned __int64)v148 & v90) == (_QWORD)v148 )
           {
             v80 = Object;
-            KeSetAffinityThread((__int64)Object, (__int64)&v149);
+            KeSetAffinityThread((__int64)Object, (__int64)&v148);
           }
           else
           {
@@ -803,8 +802,8 @@ LABEL_42:
       case ThreadUmsInformation:
         if ( ThreadInformationLength != 24 )
           return -1073741820;
-        v144 = *(_OWORD *)ThreadInformation;
-        v145 = *((_QWORD *)ThreadInformation + 2);
+        v143 = *(_OWORD *)ThreadInformation;
+        v144 = *((_QWORD *)ThreadInformation + 2);
         if ( ThreadHandle == (HANDLE)-2LL )
         {
           v94 = CurrentThread;
@@ -826,20 +825,20 @@ LABEL_42:
         }
         if ( v94 != CurrentThread )
           return -1073741811;
-        if ( (_DWORD)v144 == 1 )
-          return PspAttachThreadToUmsCompletionList(v94, (__int64)&v144, v9, *(__int64 *)&ThreadInformationLength);
-        if ( (_DWORD)v144 != 2 )
+        if ( (_DWORD)v143 == 1 )
+          return PspAttachThreadToUmsCompletionList(v94, (__int64)&v143, v9, *(__int64 *)&ThreadInformationLength);
+        if ( (_DWORD)v143 != 2 )
           return -1073741811;
         return PspDetachThreadFromUmsCompletionList(v94);
       case ThreadCounterProfiling:
         if ( ThreadInformationLength != 24 )
           return -1073741820;
-        v124 = *(_OWORD *)ThreadInformation;
-        v125 = *((_QWORD *)ThreadInformation + 2);
-        v91 = v125;
-        if ( (v125 & 3) != 0 )
+        v123 = *(_OWORD *)ThreadInformation;
+        v124 = *((_QWORD *)ThreadInformation + 2);
+        v91 = v124;
+        if ( (v124 & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( v125 >= 0x7FFFFFFF0000LL )
+        if ( v124 >= 0x7FFFFFFF0000LL )
           v91 = 0x7FFFFFFF0000LL;
         *(_BYTE *)v91 = *(_BYTE *)v91;
         *(_BYTE *)(v91 + 447) = *(_BYTE *)(v91 + 447);
@@ -849,10 +848,10 @@ LABEL_42:
           v92 = Object;
           if ( Object == KeGetCurrentThread() )
           {
-            if ( HIDWORD(v124) )
-              v93 = KeEnableProfiling(Object, DWORD2(v124), v124, v125);
+            if ( HIDWORD(v123) )
+              v93 = KeEnableProfiling(Object, DWORD2(v123), v123, v124);
             else
-              v93 = KeDisableProfiling((__int64)Object, v125);
+              v93 = KeDisableProfiling((__int64)Object, v124);
           }
           else
           {
@@ -865,7 +864,7 @@ LABEL_42:
       case ThreadIdealProcessorEx:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
-        v114 = *(struct _PROCESSOR_NUMBER *)ThreadInformation;
+        v113 = *(_PROCESSOR_NUMBER *)ThreadInformation;
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -877,12 +876,12 @@ LABEL_42:
         if ( result < 0 )
           return result;
         v33 = Object;
-        v18 = KeSetIdealProcessorThreadByNumber((struct _KTHREAD *)Object, &v114, &v114);
+        v18 = KeSetIdealProcessorThreadByNumber((struct _KTHREAD *)Object, &v113, &v113);
         if ( v18 >= 0 )
         {
           if ( (*((_DWORD *)v33 + 29) & 0x400) == 0 )
             PspWriteTebIdealProcessor(CurrentThread, v33);
-          *(struct _PROCESSOR_NUMBER *)v5 = v114;
+          *(_PROCESSOR_NUMBER *)v5 = v113;
         }
         goto LABEL_42;
       case ThreadCpuAccountingInformation:
@@ -890,17 +889,17 @@ LABEL_42:
           return -1073741811;
         if ( ThreadInformationLength != 8 )
           return -1073741820;
-        v147 = *(HANDLE *)ThreadInformation;
-        if ( v147 )
+        v146 = *(HANDLE *)ThreadInformation;
+        if ( v146 )
         {
-          result = ObReferenceObjectByHandleWithTag(v147, 2u, MmSessionObjectType, v9, 0x79517350u, &v126, 0LL);
+          result = ObReferenceObjectByHandleWithTag(v146, 2u, MmSessionObjectType, v9, 0x79517350u, &v125, 0LL);
           if ( result < 0 )
             return result;
-          v7 = (struct _LIST_ENTRY *)v126;
-          v96 = *((_QWORD *)v126 + 4);
+          v7 = (struct _LIST_ENTRY *)v125;
+          v96 = *((_QWORD *)v125 + 4);
           if ( !v96 )
           {
-            ObfDereferenceObjectWithTag(v126, 0x79517350u);
+            ObfDereferenceObjectWithTag(v125, 0x79517350u);
             return -1073740715;
           }
           if ( !KeSetThreadChargeOnlySchedulingGroup((__int64)CurrentThread, v96) )
@@ -917,11 +916,11 @@ LABEL_42:
         }
         CurrentThread[1].ApcState.ApcListHead[1].Flink = v7;
         return 0;
-      case ThreadCounterProfiling|ThreadAffinityMask:
+      case ThreadHeterogeneousCpuPolicy:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v97 = MEMORY[4];
-        v135 = MEMORY[4];
+        v134 = MEMORY[4];
         if ( MEMORY[4] > 8u )
           return -1073741811;
         v18 = ObReferenceObjectByHandleWithTag(
@@ -936,12 +935,12 @@ LABEL_42:
           return v18;
         KeSetUserHeteroCpuPolicyThread((__int64)Object, v97);
         goto LABEL_28;
-      case ThreadCpuAccountingInformation|ThreadAffinityMask:
-        v112 = 0;
-        v44 = 0LL;
-        v119 = 0LL;
-        P = 0LL;
+      case ThreadNameInformation:
         v111 = 0;
+        v44 = 0LL;
+        v118 = 0LL;
+        P = 0LL;
+        v110 = 0;
         if ( ThreadInformationLength == 16 )
         {
           v18 = ObReferenceObjectByHandleWithTag(
@@ -952,20 +951,20 @@ LABEL_42:
                   0x79517350u,
                   &Object,
                   0LL);
-          v110 = v18;
+          v109 = v18;
           if ( v18 < 0 )
             goto LABEL_88;
-          v112 = 1;
+          v111 = 1;
           if ( v9 )
           {
-            v142 = 0LL;
+            v141 = 0LL;
             if ( v5 >= 0x7FFFFFFF0000LL )
               v5 = 0x7FFFFFFF0000LL;
-            v45 = *(struct _PROCESSOR_NUMBER *)v5;
-            LODWORD(v142) = v45;
+            v45 = *(_PROCESSOR_NUMBER *)v5;
+            LODWORD(v141) = v45;
             v46 = *(_QWORD *)(v5 + 8);
-            *((_QWORD *)&v142 + 1) = v46;
-            *(_OWORD *)Src = v142;
+            *((_QWORD *)&v141 + 1) = v46;
+            *(_OWORD *)Src = v141;
             if ( v45.Group )
             {
               if ( (v46 & 1) != 0 )
@@ -974,8 +973,8 @@ LABEL_42:
               if ( v47 > 0x7FFFFFFF0000LL || v47 < v46 )
                 MEMORY[0x7FFFFFFF0000] = 0;
             }
-            v18 = v110;
-            v44 = v119;
+            v18 = v109;
+            v44 = v118;
           }
           else
           {
@@ -990,7 +989,7 @@ LABEL_42:
           {
             PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, LOWORD(Src[0]) + 16LL, 0x6D4E6854u);
             v44 = PoolWithTag;
-            v119 = PoolWithTag;
+            v118 = PoolWithTag;
             if ( PoolWithTag )
             {
               v50 = PoolWithTag + 16;
@@ -1000,11 +999,11 @@ LABEL_42:
               memmove(v50, Src[1], v48);
               v51 = Object;
               PspLockThreadSecurityExclusive((__int64)Object, (__int64)CurrentThread);
-              v111 = 1;
+              v110 = 1;
               P = (PVOID)*((_QWORD *)v51 + 194);
               *((_QWORD *)v51 + 194) = v44;
               v44 = 0LL;
-              v119 = 0LL;
+              v118 = 0LL;
               EtwTraceThreadSetName(v51);
               goto LABEL_88;
             }
@@ -1015,21 +1014,21 @@ LABEL_42:
         {
           v18 = -1073741820;
         }
-        v110 = v18;
+        v109 = v18;
 LABEL_88:
-        if ( v111 )
+        if ( v110 )
           PspUnlockThreadSecurityExclusive((__int64)Object, (__int64)CurrentThread);
-        if ( v112 )
+        if ( v111 )
           ObfDereferenceObjectWithTag(Object, 0x79517350u);
         if ( P )
           ExFreePoolWithTag(P, 0x6D4E6854u);
         if ( v44 )
           ExFreePoolWithTag(v44, 0x6D4E6854u);
         return v18;
-      case ThreadSuspendCount|ThreadAffinityMask:
+      case ThreadSelectedCpuSets:
         if ( (ThreadInformationLength & 7) != 0 || ThreadInformationLength > 0xA0 )
           return -1073741820;
-        memmove(v150, ThreadInformation, ThreadInformationLength);
+        memmove(v149, ThreadInformation, ThreadInformationLength);
         result = ObReferenceObjectByHandleWithTag(
                    Handle,
                    0x400u,
@@ -1040,15 +1039,15 @@ LABEL_88:
                    0LL);
         if ( result < 0 )
           return result;
-        v14 = KeSetSelectedCpuSetsThread((__int64)Object, ThreadInformationLength >> 3, v150);
+        v14 = KeSetSelectedCpuSetsThread((__int64)Object, ThreadInformationLength >> 3, v149);
         goto LABEL_21;
       case ThreadDynamicCodePolicyInfo:
         if ( ThreadHandle != (HANDLE)-2LL )
           return -1073741811;
         if ( ThreadInformationLength != 4 )
           return -1073741820;
-        v136 = *(_DWORD *)ThreadInformation;
-        if ( v136 == 1 )
+        v135 = *(_DWORD *)ThreadInformation;
+        if ( v135 == 1 )
         {
           if ( ((__int64)CurrentThread->Process[2].ReadyListHead.Blink & 0x200) != 0 )
           {
@@ -1057,26 +1056,27 @@ LABEL_88:
           }
           return -1073741790;
         }
-        if ( v136 )
+        if ( v135 )
           return -1073741811;
         _InterlockedAnd((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0xFFFBFFFF);
         return 0;
-      case ThreadDynamicCodePolicyInfo|ThreadTimes:
+      case ThreadExplicitCaseSensitivity:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v98 = *(_DWORD *)ThreadInformation;
-        v139 = *(_DWORD *)ThreadInformation;
+        v138 = *(_DWORD *)ThreadInformation;
         if ( !v9 )
           goto LABEL_287;
         if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, v9) )
           return -1073741727;
-        LOBYTE(v99) = 81;
-        if ( !(unsigned __int8)RtlTestProtectedAccess(BYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink), v99) )
+        if ( !RtlTestProtectedAccess(
+                (PS_PROTECTION)SBYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink),
+                (PS_PROTECTION)81) )
           return -1073741790;
         v6 = Handle;
 LABEL_287:
         result = ObReferenceObjectByHandleWithTag(v6, 0x20u, (POBJECT_TYPE)PsThreadType, v9, 0x79517350u, &Object, 0LL);
-        v110 = result;
+        v109 = result;
         if ( result >= 0 )
         {
           if ( v98 )
@@ -1085,14 +1085,14 @@ LABEL_287:
             _InterlockedAnd((volatile signed __int32 *)Object + 324, 0xFFF7FFFF);
 LABEL_220:
           ObfDereferenceObjectWithTag(Object, 0x79517350u);
-          return v110;
+          return v109;
         }
         return result;
-      case ThreadDynamicCodePolicyInfo|ThreadAffinityMask:
+      case ThreadDbgkWerReportActive:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
-        v100 = *(_DWORD *)ThreadInformation;
-        v138 = *(_DWORD *)ThreadInformation;
+        v99 = *(_DWORD *)ThreadInformation;
+        v137 = *(_DWORD *)ThreadInformation;
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -1101,71 +1101,71 @@ LABEL_220:
                    0x79517350u,
                    &Object,
                    0LL);
-        v110 = result;
+        v109 = result;
         if ( result < 0 )
           return result;
-        if ( v100 )
+        if ( v99 )
           _InterlockedOr((volatile signed __int32 *)Object + 324, 0x200000u);
         else
           _InterlockedAnd((volatile signed __int32 *)Object + 324, 0xFFDFFFFF);
         goto LABEL_220;
-      case ThreadSubsystemInformation|ThreadPriority:
+      case ThreadAttachContainer:
         if ( ThreadHandle != (HANDLE)-2LL )
           return -1073741811;
         if ( ThreadInformationLength != 8 )
           return -1073741820;
-        v127 = *(HANDLE *)ThreadInformation;
-        v101 = KeGetCurrentThread();
-        if ( v127 )
+        v126 = *(HANDLE *)ThreadInformation;
+        v100 = KeGetCurrentThread();
+        if ( v126 )
         {
-          Object = v101;
-          if ( v101[1].WaitBlock[3].WaitListEntry.Blink == (struct _LIST_ENTRY *)-3LL )
+          Object = v100;
+          if ( v100[1].WaitBlock[3].WaitListEntry.Blink == (struct _LIST_ENTRY *)-3LL )
           {
-            result = ObReferenceObjectByHandleWithTag(v127, 0x20u, (POBJECT_TYPE)PsJobType, v9, 0x6D497350u, &v117, 0LL);
+            result = ObReferenceObjectByHandleWithTag(v126, 0x20u, (POBJECT_TYPE)PsJobType, v9, 0x6D497350u, &v116, 0LL);
             if ( result < 0 )
               return result;
-            v103 = (struct _LIST_ENTRY *)v117;
-            if ( (*((_DWORD *)v117 + 331) & 2) != 0 )
+            v102 = (struct _LIST_ENTRY *)v116;
+            if ( (*((_DWORD *)v116 + 331) & 2) != 0 )
             {
-              v104 = IoThreadToProcess((PETHREAD)Object);
-              PsGetProcessSilo((__int64)v104);
-              IsSiloInSilo = PspIsSiloInSilo(v103);
-              v106 = v103;
+              v103 = IoThreadToProcess((PETHREAD)Object);
+              PsGetProcessSilo((__int64)v103);
+              IsSiloInSilo = PspIsSiloInSilo(v102);
+              v105 = v102;
               if ( !IsSiloInSilo
-                || (EffectiveServerSilo = PsGetEffectiveServerSilo((__int64)v103),
-                    ProcessServerSilo = PsGetProcessServerSilo((__int64)v104),
-                    v106 = v103,
+                || (EffectiveServerSilo = PsGetEffectiveServerSilo((__int64)v102),
+                    ProcessServerSilo = PsGetProcessServerSilo((__int64)v103),
+                    v105 = v102,
                     ProcessServerSilo != EffectiveServerSilo) )
               {
-                ObfDereferenceObjectWithTag(v106, 0x6D497350u);
+                ObfDereferenceObjectWithTag(v105, 0x6D497350u);
                 return -1073741811;
               }
-              PsAttachSiloToCurrentThread(v103);
+              PsAttachSiloToCurrentThread(v102);
               return 0;
             }
-            ObfDereferenceObjectWithTag(v117, 0x6D497350u);
+            ObfDereferenceObjectWithTag(v116, 0x6D497350u);
           }
         }
-        else if ( v101[1].WaitBlock[3].WaitListEntry.Blink != (struct _LIST_ENTRY *)-3LL )
+        else if ( v100[1].WaitBlock[3].WaitListEntry.Blink != (struct _LIST_ENTRY *)-3LL )
         {
-          v102 = PsAttachSiloToCurrentThread((struct _LIST_ENTRY *)0xFFFFFFFFFFFFFFFDLL);
+          v101 = PsAttachSiloToCurrentThread((struct _LIST_ENTRY *)0xFFFFFFFFFFFFFFFDLL);
           v37 = 1833530192;
-          v36 = v102;
+          v36 = v101;
 LABEL_50:
           ObfDereferenceObjectWithTag(v36, v37);
           return 0;
         }
         break;
-      case ThreadCounterProfiling|ThreadIsIoPending:
+      case ThreadManageWritesToExecutableMemory:
         return -1073741637;
-      case ThreadIdealProcessorEx|ThreadIsIoPending:
+      case ThreadPowerThrottlingState:
         if ( ThreadInformationLength != 12 )
           return -1073741820;
-        v141 = *(_QWORD *)ThreadInformation;
+        v140 = *(_QWORD *)ThreadInformation;
         v87 = *((_DWORD *)ThreadInformation + 2);
-        if ( (_DWORD)v141 != 1 || (v141 & 0xFFFFFFFE00000000uLL) != 0 || (~HIDWORD(v141) & v87) != 0 )
+        if ( (_DWORD)v140 != 1 || (v140 & 0xFFFFFFFE00000000uLL) != 0 || (~HIDWORD(v140) & v87) != 0 )
           return -1073741811;
-        if ( (v141 & 0x100000000LL) != 0 )
+        if ( (v140 & 0x100000000LL) != 0 )
         {
           if ( (v87 & 1) != 0 )
             v10 = 1;
@@ -1186,16 +1186,16 @@ LABEL_50:
           return result;
         PspSetThreadPpmPolicy(Object, v10);
         goto LABEL_48;
-      case ThreadCpuAccountingInformation|ThreadIsIoPending:
+      case ThreadWorkloadClass:
         if ( ThreadHandle != (HANDLE)-2LL || v9 )
           return -1073741790;
         if ( ThreadInformationLength != 4 )
           return -1073741820;
-        v137 = *(_DWORD *)ThreadInformation;
-        if ( v137 >= 2 )
+        v136 = *(_DWORD *)ThreadInformation;
+        if ( v136 >= 2 )
           return -1073741811;
         v88 = KeGetCurrentThread();
-        *((_DWORD *)&v88[1].SwapListEntry + 3) ^= (*((_DWORD *)&v88[1].SwapListEntry + 3) ^ (v137 << 11)) & 0x800;
+        *((_DWORD *)&v88[1].SwapListEntry + 3) ^= (*((_DWORD *)&v88[1].SwapListEntry + 3) ^ (v136 << 11)) & 0x800;
         KeUpdateThreadCpuSets((__int64)v88);
         return 0;
       default:
@@ -1206,7 +1206,7 @@ LABEL_50:
   if ( ThreadInformationLength != 8 )
     return -1073741820;
   v12 = *(void **)ThreadInformation;
-  v148 = *(_QWORD *)ThreadInformation;
+  v147 = *(_QWORD *)ThreadInformation;
   result = ObReferenceObjectByHandleWithTag(
              ThreadHandle,
              0x80u,

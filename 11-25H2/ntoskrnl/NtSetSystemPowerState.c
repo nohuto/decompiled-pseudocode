@@ -16,13 +16,13 @@
  *     PopReleasePolicyLock @ 0x140B57ED0 (PopReleasePolicyLock.c)
  */
 
-__int64 __fastcall NtSetSystemPowerState(int a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER_STATE LightestSystemState, ULONG Flags)
 {
-  int v4; // r14d
-  int v5; // r15d
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // di
-  unsigned int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned __int64 CurrentServerSilo; // rsi
   int v11; // eax
   PVOID v12; // rcx
@@ -48,16 +48,14 @@ __int64 __fastcall NtSetSystemPowerState(int a1, __int64 a2, __int64 a3, __int64
 
   v32 = 0LL;
   v27[2] = 0;
-  v4 = a3;
-  v5 = a2;
   v28 = 0LL;
   *(_OWORD *)P = 0LL;
   memset(Event, 0, sizeof(Event));
   v31 = 0LL;
-  if ( (unsigned int)(a2 - 1) > 5
-    || (unsigned int)(a1 - 1) > 6
-    || (a3 & 0xCFFFFC0) != 0
-    || a1 < 4 && dword_140F0AE74 >= 17 )
+  if ( (unsigned int)(LightestSystemState - 1) > 5
+    || (unsigned int)(SystemAction - 1) > 6
+    || (Flags & 0xCFFFFC0) != 0
+    || SystemAction < PowerActionShutdown && dword_140F0AE74 >= 17 )
   {
     v9 = -1073741811;
   }
@@ -70,8 +68,8 @@ __int64 __fastcall NtSetSystemPowerState(int a1, __int64 a2, __int64 a3, __int64
       CurrentServerSilo = PsGetCurrentServerSilo();
       if ( PsIsHostSilo(CurrentServerSilo) )
       {
-        v27[0] = a1;
-        v27[1] = v4;
+        v27[0] = SystemAction;
+        v27[1] = Flags;
         *(_QWORD *)&v28 = 0xA000000005LL;
         v11 = PoCaptureReasonContext(0LL, PreviousMode, 0LL, 0, 0LL, (__int64 *)P);
         v12 = P[0];
@@ -82,7 +80,7 @@ __int64 __fastcall NtSetSystemPowerState(int a1, __int64 a2, __int64 a3, __int64
         v32 = &v28;
         *((_QWORD *)&v28 + 1) = Event;
         PopAcquirePolicyLock(v14, v13);
-        PopExecutePowerAction(&v28, 0, v27, v5, 1u);
+        PopExecutePowerAction(&v28, 0, v27, LightestSystemState, 1u);
         PopReleasePolicyLock(v16, v15, v17, v18, Timeouta);
         if ( (_QWORD)v31 )
         {
@@ -97,7 +95,7 @@ __int64 __fastcall NtSetSystemPowerState(int a1, __int64 a2, __int64 a3, __int64
         }
         v9 = *(_DWORD *)&Event[24];
       }
-      else if ( (unsigned int)(a1 - 4) > 2 )
+      else if ( (unsigned int)(SystemAction - 4) > 2 )
       {
         v9 = -1073741637;
       }
@@ -113,6 +111,6 @@ __int64 __fastcall NtSetSystemPowerState(int a1, __int64 a2, __int64 a3, __int64
     }
   }
   if ( P[0] )
-    PoDestroyReasonContext((_QWORD *)P[0], a2, a3, a4);
+    PoDestroyReasonContext((_QWORD *)P[0], *(__int64 *)&LightestSystemState, *(__int64 *)&Flags, v3);
   return v9;
 }

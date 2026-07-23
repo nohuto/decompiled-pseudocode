@@ -5,7 +5,7 @@
  *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
  *     PspLockJobChain @ 0x1406A0CC8 (PspLockJobChain.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall PspLockJobAssignment(__int64 a1)

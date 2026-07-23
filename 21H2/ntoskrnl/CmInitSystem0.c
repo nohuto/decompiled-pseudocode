@@ -1,13 +1,13 @@
 /*
- * XREFs of CmInitSystem0 @ 0x140A5F694
+ * XREFs of CmInitSystem0 @ 0x140A60694
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
  * Callees:
- *     CmFcInitSystem1 @ 0x140A59F60 (CmFcInitSystem1.c)
- *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
+ *     CmFcInitSystem1 @ 0x140A5AF60 (CmFcInitSystem1.c)
+ *     CmpGetSystemControlValues @ 0x140A60C0C (CmpGetSystemControlValues.c)
  */
 
-_BYTE *__fastcall CmInitSystem0(__int64 a1, __int64 a2)
+int __fastcall CmInitSystem0(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
   __int64 v4; // r8

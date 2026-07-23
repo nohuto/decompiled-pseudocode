@@ -21,8 +21,8 @@ __int64 __fastcall WdipSemWriteSemActionsEvent(const EVENT_DESCRIPTOR *a1, __int
   int v8; // r14d
   __int64 v9; // r13
   PSLIST_ENTRY v10; // rax
-  struct _SLIST_ENTRY v11; // xmm0
-  struct _SLIST_ENTRY **v12; // rsi
+  _SLIST_ENTRY v11; // xmm0
+  _SLIST_ENTRY **v12; // rsi
   char v14; // [rsp+30h] [rbp-D0h] BYREF
   int TraceInformation; // [rsp+34h] [rbp-CCh] BYREF
   int v16; // [rsp+38h] [rbp-C8h] BYREF
@@ -67,7 +67,7 @@ __int64 __fastcall WdipSemWriteSemActionsEvent(const EVENT_DESCRIPTOR *a1, __int
           v5 = -1073741670;
           goto LABEL_12;
         }
-        v11 = *(struct _SLIST_ENTRY *)v9;
+        v11 = *(_SLIST_ENTRY *)v9;
         v25[v4] = v10;
         v6 = 2LL * (unsigned int)(v4 + 4);
         *v10 = v11;
@@ -84,7 +84,7 @@ __int64 __fastcall WdipSemWriteSemActionsEvent(const EVENT_DESCRIPTOR *a1, __int
 LABEL_12:
       if ( (_DWORD)v4 )
       {
-        v12 = (struct _SLIST_ENTRY **)v25;
+        v12 = (_SLIST_ENTRY **)v25;
         do
         {
           WdipSemFastFree(4, *v12++);

@@ -7,38 +7,44 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, unsigned int Size, unsigned int *a4)
+int __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, unsigned int Size, unsigned int *Size_4)
 {
   unsigned int v6; // edx
   unsigned __int16 v7; // si
-  void *StringRoutine; // eax
-  size_t v9; // ecx
+  PVOID StringRoutine; // eax
+  int v9; // ecx
+  size_t v10; // [esp-4h] [ebp-14h]
 
   if ( a1 != 1 && a1 != 2 && a1 != 7 )
   {
     if ( Size <= 4 )
     {
-      if ( a4 != a2 )
+      if ( Size_4 != a2 )
       {
         if ( Size )
-          memcpy(a4, a2, Size);
+        {
+          LODWORD(v10) = Size;
+          memcpy(Size_4, a2, v10);
+        }
       }
       return 0;
     }
-    v6 = *a4;
-    if ( (*a4 & 0x80000000) == 0 )
+    v6 = *Size_4;
+    if ( (*Size_4 & 0x80000000) == 0 )
     {
       if ( v6 >= Size + 8 )
       {
-        *a4 = Size;
-        a4[1] = a1;
-        memcpy(a4 + 2, a2, Size);
+        LODWORD(v10) = Size;
+        *Size_4 = Size;
+        Size_4[1] = a1;
+        memcpy(Size_4 + 2, a2, v10);
         return 0;
       }
     }
     else if ( -v6 >= Size )
     {
-      memcpy(a4, a2, Size);
+      LODWORD(v10) = Size;
+      memcpy(Size_4, a2, v10);
       return 0;
     }
     return -1073741789;
@@ -46,23 +52,24 @@ int __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, unsign
   v7 = -2;
   if ( Size <= 0xFFFE )
     v7 = Size;
-  StringRoutine = (void *)a4[1];
+  StringRoutine = (PVOID)Size_4[1];
   if ( StringRoutine )
   {
-    if ( v7 > *((_WORD *)a4 + 1) )
+    if ( v7 > *((_WORD *)Size_4 + 1) )
       return -1073741789;
     v9 = v7;
 LABEL_17:
-    memcpy(StringRoutine, a2, v9);
-    *(_WORD *)a4 = v7 - 2;
+    LODWORD(v10) = v9;
+    memcpy(StringRoutine, a2, v10);
+    *(_WORD *)Size_4 = v7 - 2;
     return 0;
   }
-  StringRoutine = (void *)NtdllpAllocateStringRoutine(v7);
-  a4[1] = (unsigned int)StringRoutine;
+  StringRoutine = NtdllpAllocateStringRoutine(v7);
+  Size_4[1] = (unsigned int)StringRoutine;
   if ( StringRoutine )
   {
     v9 = v7;
-    *((_WORD *)a4 + 1) = v7;
+    *((_WORD *)Size_4 + 1) = v7;
     goto LABEL_17;
   }
   return -1073741801;

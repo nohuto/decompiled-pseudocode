@@ -1,16 +1,16 @@
 /*
- * XREFs of KiHeteroAttemptPreemptionSwapOnSubNode @ 0x1402351F0
+ * XREFs of KiHeteroAttemptPreemptionSwapOnSubNode @ 0x140236B50
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
  * Callees:
  *     KiFindBiasedProcessorIndex @ 0x140201890 (KiFindBiasedProcessorIndex.c)
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x14022F050 (KiAcquirePrcbLocksForPreemptionAttempt.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140235418 (KiHeteroScanQueueForPreemptionSwapTarget.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x140415474 (KiEvaluatePreemptionSwapTarget.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x1402309E0 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140236D78 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140409AA4 (KiEvaluatePreemptionSwapTarget.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiHeteroAttemptPreemptionSwapOnSubNode(

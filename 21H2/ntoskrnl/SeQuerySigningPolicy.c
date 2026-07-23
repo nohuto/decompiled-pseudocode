@@ -1,31 +1,33 @@
 /*
- * XREFs of SeQuerySigningPolicy @ 0x14060CFF0
+ * XREFs of SeQuerySigningPolicy @ 0x14069CAA0
  * Callers:
- *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x140699C80 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x1407CE5D0 (PspCreateProcess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     SeQuerySigningPolicyWorker @ 0x140603818 (SeQuerySigningPolicyWorker.c)
- *     SepIsMinTCB @ 0x14060D124 (SepIsMinTCB.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     SepIsMinTCB @ 0x14069CBD4 (SepIsMinTCB.c)
+ *     SeQuerySigningPolicyWorker @ 0x1406F2F48 (SeQuerySigningPolicyWorker.c)
  */
 
 __int64 __fastcall SeQuerySigningPolicy(
         void *a1,
         const UNICODE_STRING *a2,
-        char a3,
-        unsigned __int8 a4,
-        unsigned __int8 *a5,
-        unsigned __int8 *a6,
-        unsigned __int8 *a7)
+        __int64 a3,
+        __int64 a4,
+        _BYTE *a5,
+        _BYTE *a6,
+        _BYTE *a7)
 {
-  unsigned __int8 v7; // bp
-  __int64 v11; // rdx
+  char v7; // bp
+  __int64 v8; // rdx
+  __int64 v9; // r8
   unsigned int IsMinTCB; // r14d
-  __int64 v13; // rcx
-  char v14; // bl
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  unsigned int (__fastcall *v18)(__int64, __int64); // rax
+  __int64 v11; // rcx
+  char v12; // bl
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  unsigned int (__fastcall *v17)(__int64, __int64); // rax
 
   v7 = SeILSigningPolicy;
   if ( !SeILSigningPolicy )
@@ -33,11 +35,11 @@ __int64 __fastcall SeQuerySigningPolicy(
   IsMinTCB = SepIsMinTCB(a2, (__int64)a5, (__int64)a6, (__int64)a7);
   if ( (IsMinTCB & 0x80000000) != 0 )
   {
-    IsMinTCB = SeQuerySigningPolicyWorker(a1, (__int64)a2, a3, a4, v7, a5, a6, a7);
+    IsMinTCB = SeQuerySigningPolicyWorker(a1, v7, (__int64)a5, (__int64)a6, (__int64)a7);
     if ( (IsMinTCB & 0x80000000) != 0 )
       return IsMinTCB;
   }
-  v13 = (*a7 & 7u) - 1;
+  v11 = (*a7 & 7u) - 1;
   if ( (*a7 & 7) == 1 )
   {
     *a5 |= 0x30u;
@@ -47,44 +49,44 @@ __int64 __fastcall SeQuerySigningPolicy(
     *a5 |= 0x10u;
     *a6 |= 0x10u;
   }
-  v14 = 8;
+  v12 = 8;
   if ( (*a5 & 0xF) == 8 )
     return IsMinTCB;
-  if ( !qword_140C1DB00 )
+  if ( !qword_140C1DB20 )
     return IsMinTCB;
-  LOBYTE(v11) = 8;
-  LOBYTE(v13) = *a5;
-  if ( !(unsigned int)qword_140C1DB00(v13, v11)
+  LOBYTE(v8) = 8;
+  LOBYTE(v11) = *a5;
+  if ( !(unsigned int)qword_140C1DB20(v11, v8, v9)
     || (SeCiDebugOptions & 4) == 0
     && ((SeCiDebugOptions & 2) == 0 || !(_BYTE)KdDebuggerEnabled || (_BYTE)KdDebuggerNotPresent) )
   {
     return IsMinTCB;
   }
-  if ( !qword_140C1DB00 || (LOBYTE(v15) = 8, LOBYTE(v16) = v7, !(unsigned int)qword_140C1DB00(v16, v15)) )
+  if ( !qword_140C1DB20 || (LOBYTE(v13) = 8, LOBYTE(v14) = v7, !(unsigned int)qword_140C1DB20(v14, v13, v15)) )
   {
     if ( (*a7 & 7) != 0 )
     {
       *a5 = *a5 & 0x30 | 8;
-      v18 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C1DB00;
-      if ( qword_140C1DB00 )
+      v17 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C1DB20;
+      if ( qword_140C1DB20 )
       {
-        LOBYTE(v16) = 8;
+        LOBYTE(v14) = 8;
         goto LABEL_25;
       }
 LABEL_26:
-      *a6 = v14 | *a6 & 0x30;
+      *a6 = v12 | *a6 & 0x30;
       return IsMinTCB;
     }
   }
-  v14 = v7 & 0xF;
+  v12 = v7 & 0xF;
   *a5 = v7 & 0xF | *a5 & 0x30;
-  v18 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C1DB00;
-  if ( !qword_140C1DB00 )
+  v17 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C1DB20;
+  if ( !qword_140C1DB20 )
     goto LABEL_26;
-  LOBYTE(v16) = v7;
+  LOBYTE(v14) = v7;
 LABEL_25:
-  LOBYTE(v15) = *a6;
-  if ( !v18(v16, v15) )
+  LOBYTE(v13) = *a6;
+  if ( !v17(v14, v13) )
     goto LABEL_26;
   return IsMinTCB;
 }

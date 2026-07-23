@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpGetHiveHeader @ 0x14074EC0C
+ * XREFs of HvpGetHiveHeader @ 0x14074EDFC
  * Callers:
- *     HvLoadHive @ 0x14074ED44 (HvLoadHive.c)
- *     HvRecoverFlushProtocolStateFromFiles @ 0x140A1D658 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvLoadHive @ 0x14074EF34 (HvLoadHive.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x140A1D908 (HvRecoverFlushProtocolStateFromFiles.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HvpHeaderCheckSum @ 0x140AF5640 (HvpHeaderCheckSum.c)
  */
 

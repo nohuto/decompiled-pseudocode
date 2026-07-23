@@ -1,16 +1,16 @@
 /*
- * XREFs of CMFReadCompressedSegment @ 0x1408D8FFC
+ * XREFs of CMFReadCompressedSegment @ 0x1408DA2BC
  * Callers:
- *     CMFSystemThreadRoutine @ 0x1408D94A0 (CMFSystemThreadRoutine.c)
+ *     CMFSystemThreadRoutine @ 0x1408DA760 (CMFSystemThreadRoutine.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     XpressDecode @ 0x14032C8C4 (XpressDecode.c)
- *     XpressDecodeClose @ 0x14032C9F0 (XpressDecodeClose.c)
- *     XpressDecodeCreate @ 0x14032CA1C (XpressDecodeCreate.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1401B87F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1401B8830 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     XpressDecode @ 0x14032CAB4 (XpressDecode.c)
+ *     XpressDecodeClose @ 0x14032CBE0 (XpressDecodeClose.c)
+ *     XpressDecodeCreate @ 0x14032CC0C (XpressDecodeCreate.c)
  */
 
 __int64 __fastcall CMFReadCompressedSegment(HANDLE FileHandle, char *a2, unsigned int a3, _DWORD *a4)

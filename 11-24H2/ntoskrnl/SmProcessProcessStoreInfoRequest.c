@@ -1,12 +1,12 @@
 /*
- * XREFs of SmProcessProcessStoreInfoRequest @ 0x140798378
+ * XREFs of SmProcessProcessStoreInfoRequest @ 0x140798488
  * Callers:
- *     SmQueryStoreInformation @ 0x140A18DA0 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140A11F10 (SmQueryStoreInformation.c)
  * Callees:
- *     SmStoreExistsForProcess @ 0x140245744 (SmStoreExistsForProcess.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     SmStoreExistsForProcess @ 0x14020DF24 (SmStoreExistsForProcess.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessProcessStoreInfoRequest(unsigned __int64 a1, unsigned int a2, KPROCESSOR_MODE a3)

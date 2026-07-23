@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetVaTypeForVerifier @ 0x1406F38B0
+ * XREFs of MmGetVaTypeForVerifier @ 0x1406F8520
  * Callers:
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051C810 (DifObjTrkQeuryInvokeDeleteRange.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
- *     DifObjTrkLookupItem @ 0x14064B060 (DifObjTrkLookupItem.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051E9C0 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
+ *     DifObjTrkLookupItem @ 0x14064EC40 (DifObjTrkLookupItem.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MmGetVaTypeForVerifier(unsigned __int64 a1)

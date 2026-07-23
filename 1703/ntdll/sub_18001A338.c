@@ -18,14 +18,14 @@
  *     RtlEnterCriticalSection @ 0x18002F9C0 (RtlEnterCriticalSection.c)
  */
 
-__int64 sub_18001A338()
+NTSTATUS sub_18001A338()
 {
   struct _TEB *v0; // rax
 
   v0 = NtCurrentTeb();
   v0->SameTebFlags &= ~0x1000u;
-  RtlEnterCriticalSection(&unk_18015B220);
+  RtlEnterCriticalSection(&stru_18015B220);
   dword_18015B248 = 0;
-  RtlLeaveCriticalSection(&unk_18015B220);
-  return ZwSetEvent(qword_18015B1C8, 0LL);
+  RtlLeaveCriticalSection(&stru_18015B220);
+  return ZwSetEvent(Handle, 0LL);
 }

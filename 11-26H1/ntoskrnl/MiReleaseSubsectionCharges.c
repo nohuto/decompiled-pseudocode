@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReleaseSubsectionCharges @ 0x14036E8BC
+ * XREFs of MiReleaseSubsectionCharges @ 0x14037065C
  * Callers:
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
  * Callees:
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiReleaseSubsectionCharges(_DWORD *a1)

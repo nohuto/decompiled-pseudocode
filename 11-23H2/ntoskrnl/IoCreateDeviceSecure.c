@@ -1,16 +1,16 @@
 /*
- * XREFs of IoCreateDeviceSecure @ 0x14083B030
+ * XREFs of IoCreateDeviceSecure @ 0x14083B330
  * Callers:
  *     <none>
  * Callees:
  *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14020BC20 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObSetSecurityObjectByPointer @ 0x1407366A0 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x14076AFD0 (IoCreateDevice.c)
- *     IopUpdateSecureDeviceClassState @ 0x14083A8F8 (IopUpdateSecureDeviceClassState.c)
- *     IopCreateSecureDeviceClassSettings @ 0x14083AB94 (IopCreateSecureDeviceClassSettings.c)
- *     IopGetSecurityDescriptorInformation @ 0x14083B284 (IopGetSecurityDescriptorInformation.c)
+ *     IoDeleteDevice @ 0x1403050A0 (IoDeleteDevice.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObSetSecurityObjectByPointer @ 0x140736890 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x14076B1C0 (IoCreateDevice.c)
+ *     IopUpdateSecureDeviceClassState @ 0x14083ABF8 (IopUpdateSecureDeviceClassState.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x14083AE94 (IopCreateSecureDeviceClassSettings.c)
+ *     IopGetSecurityDescriptorInformation @ 0x14083B584 (IopGetSecurityDescriptorInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -23,7 +23,7 @@ __int64 __fastcall IoCreateDeviceSecure(
         ULONG a5,
         BOOLEAN a6,
         const void **a7,
-        unsigned int *a8,
+        PGUID Guid,
         PDEVICE_OBJECT DeviceObject)
 {
   PDEVICE_OBJECT v9; // r13
@@ -58,9 +58,9 @@ LABEL_33:
     v13 = DeviceType[0];
     goto LABEL_20;
   }
-  if ( a8 )
+  if ( Guid )
   {
-    SecureDeviceClassSettings = IopCreateSecureDeviceClassSettings(a8, (__int64)a1, DeviceType);
+    SecureDeviceClassSettings = IopCreateSecureDeviceClassSettings(Guid, (__int64)a1, DeviceType);
     if ( SecureDeviceClassSettings < 0 )
       goto LABEL_33;
   }
@@ -89,11 +89,11 @@ LABEL_33:
     DeviceType[0] = 2;
     *(_QWORD *)&DeviceType[2] = v23;
     *(_WORD *)(v23 + 2) |= 8u;
-    if ( !a8
+    if ( !Guid
       || (v26[0] = 2LL,
           v26[2] = 0LL,
           v26[1] = v16,
-          SecureDeviceClassSettings = IopUpdateSecureDeviceClassState(a8, (__int64)v26),
+          SecureDeviceClassSettings = IopUpdateSecureDeviceClassState(Guid, (__int64)v26),
           SecureDeviceClassSettings >= 0) )
     {
 LABEL_9:

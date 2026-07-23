@@ -1,26 +1,26 @@
 /*
- * XREFs of TtmpStartCallout @ 0x1407E60BC
+ * XREFs of TtmpStartCallout @ 0x1407EBC1C
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1407E52B0 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallAssignedToTerminal @ 0x1407E5580 (TtmpCallAssignedToTerminal.c)
- *     TtmpCallSetBuiltinPanelState @ 0x1407E561C (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x1407E569C (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x1407E574C (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x1407E6314 (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x1407EAE10 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x1407EB0E0 (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1407EB17C (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1407EB1FC (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1407EB2AC (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1407EBE74 (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     TtmpCalloutArmWatchdog @ 0x1407E57EC (TtmpCalloutArmWatchdog.c)
- *     TtmpGetCalloutTagFromCalloutType @ 0x1407E5BB8 (TtmpGetCalloutTagFromCalloutType.c)
- *     TtmpGetConfigOverride @ 0x1407E5C10 (TtmpGetConfigOverride.c)
- *     TtmiLogCalloutStart @ 0x1407E8524 (TtmiLogCalloutStart.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     TtmpCalloutArmWatchdog @ 0x1407EB34C (TtmpCalloutArmWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x1407EB718 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmpGetConfigOverride @ 0x1407EB770 (TtmpGetConfigOverride.c)
+ *     TtmiLogCalloutStart @ 0x1407EE084 (TtmiLogCalloutStart.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  */
 
 __int64 __fastcall TtmpStartCallout(__int64 a1, int *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
 {
-  $9980CF14F186DF3A31E0C19662059F30 *v10; // rbx
+  $049C98A54D102DFA3CEF8B5D683B5064 *v10; // rbx
   __int64 v11; // rsi
   __int64 v12; // rcx
   int v13; // ebx
@@ -76,7 +76,7 @@ LABEL_17:
     TtmpCalloutArmWatchdog(a1, *a2, v13, a5);
   }
 LABEL_20:
-  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
   KeLeaveCriticalRegion();
   CalloutTagFromCalloutType = TtmpGetCalloutTagFromCalloutType(a4);
   TtmiLogCalloutStart(*(unsigned int *)(a3 + 16), *(_QWORD *)(a3 + 24), CalloutTagFromCalloutType, a6);

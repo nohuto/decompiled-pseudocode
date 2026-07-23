@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceServiceNotification @ 0x140AFB8C0
+ * XREFs of PopDiagTraceServiceNotification @ 0x140AFD540
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceServiceNotification(_DWORD *a1)
@@ -22,7 +22,7 @@ void __fastcall PopDiagTraceServiceNotification(_DWORD *a1)
   v2 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_SUSPENDSERVICE;
   if ( *a1 )
     v2 = &POP_ETW_EVENT_SUSPENDSERVICE_END;
-  if ( byte_140E67628 && EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v2) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, v2) )
   {
     v3 = a1 + 1;
     v4 = -1LL;
@@ -35,6 +35,6 @@ void __fastcall PopDiagTraceServiceNotification(_DWORD *a1)
     *(_QWORD *)&UserData.Size = 2LL;
     v7 = v3;
     v9 = 0;
-    EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v2, 0LL, 2u, &UserData);
+    EtwWrite(PopDiagHandle, v2, 0LL, 2u, &UserData);
   }
 }

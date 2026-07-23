@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpWatchdogEtwWrite @ 0x1408AB894
+ * XREFs of PnpWatchdogEtwWrite @ 0x1408AB9F4
  * Callers:
- *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
- *     PnpCallDriverEntry @ 0x1407703C4 (PnpCallDriverEntry.c)
- *     PnpWatchdogWorkItem @ 0x1408ABA90 (PnpWatchdogWorkItem.c)
+ *     PnpDisableWatchdog @ 0x14066AC20 (PnpDisableWatchdog.c)
+ *     PnpCallDriverEntry @ 0x140770584 (PnpCallDriverEntry.c)
+ *     PnpWatchdogWorkItem @ 0x1408ABBF0 (PnpWatchdogWorkItem.c)
  * Callees:
- *     PsGetCurrentThreadId @ 0x1402AA4D0 (PsGetCurrentThreadId.c)
- *     McTemplateK0izzx_EtwWriteTransfer @ 0x14050EA78 (McTemplateK0izzx_EtwWriteTransfer.c)
- *     PnpWatchdogExtractTriageInformation @ 0x14050EF40 (PnpWatchdogExtractTriageInformation.c)
- *     PnpWatchdogGetElapsedTime @ 0x14050F028 (PnpWatchdogGetElapsedTime.c)
+ *     PsGetCurrentThreadId @ 0x140228610 (PsGetCurrentThreadId.c)
+ *     McTemplateK0izzx_EtwWriteTransfer @ 0x14050ECB8 (McTemplateK0izzx_EtwWriteTransfer.c)
+ *     PnpWatchdogExtractTriageInformation @ 0x14050F180 (PnpWatchdogExtractTriageInformation.c)
+ *     PnpWatchdogGetElapsedTime @ 0x14050F268 (PnpWatchdogGetElapsedTime.c)
  */
 
 int __fastcall PnpWatchdogEtwWrite(__int64 a1, char a2)

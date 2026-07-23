@@ -13,9 +13,15 @@
  *     PsFreezeProcess @ 0x1407EC200 (PsFreezeProcess.c)
  */
 
-__int64 __fastcall NtChangeProcessState(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3, __int64 a4, int a5, int a6)
+NTSTATUS __cdecl NtChangeProcessState(
+        HANDLE ProcessStateChangeHandle,
+        HANDLE ProcessHandle,
+        PROCESS_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
-  int v8; // edi
+  NTSTATUS v8; // edi
   char PreviousMode; // bl
   int v10; // edx
   int v11; // eax
@@ -28,21 +34,29 @@ __int64 __fastcall NtChangeProcessState(ULONG_PTR a1, ULONG_PTR a2, unsigned int
 
   Object = 0LL;
   v18 = 0LL;
-  if ( a3 >= 2 )
-    return (unsigned int)-1073741821;
-  if ( a5 )
-    return (unsigned int)-1073741820;
-  if ( a4 || a6 )
-    return (unsigned int)-1073741811;
+  if ( (unsigned int)StateChangeType >= ProcessStateChangeMax )
+    return -1073741821;
+  if ( (_DWORD)ExtendedInformationLength )
+    return -1073741820;
+  if ( ExtendedInformation || (_DWORD)Reserved )
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v8 = ObpReferenceObjectByHandleWithTag(a1, 1, PspProcessStateChangeType, PreviousMode, 0x63507350u, &v18, 0LL, 0LL);
+  v8 = ObpReferenceObjectByHandleWithTag(
+         (ULONG_PTR)ProcessStateChangeHandle,
+         1,
+         PspProcessStateChangeType,
+         PreviousMode,
+         0x63507350u,
+         &v18,
+         0LL,
+         0LL);
   if ( v8 >= 0 )
   {
     v10 = 0;
-    if ( a3 <= 1 )
+    if ( (unsigned int)StateChangeType <= ProcessStateChangeResume )
       v10 = 2048;
     v11 = ObpReferenceObjectByHandleWithTag(
-            a2,
+            (ULONG_PTR)ProcessHandle,
             v10,
             (__int64)PsProcessType,
             PreviousMode,
@@ -67,9 +81,9 @@ LABEL_28:
     --CurrentThread->KernelApcDisable;
     v15 = (volatile signed __int64 *)(v14 + 8);
     ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 8), 0LL);
-    if ( a3 )
+    if ( StateChangeType )
     {
-      if ( a3 == 1 )
+      if ( StateChangeType == ProcessStateChangeResume )
       {
         if ( !*((_DWORD *)v14 + 4) )
         {
@@ -106,5 +120,5 @@ LABEL_25:
 LABEL_30:
   if ( v18 )
     ObfDereferenceObjectWithTag(v18, 0x63507350u);
-  return (unsigned int)v8;
+  return v8;
 }

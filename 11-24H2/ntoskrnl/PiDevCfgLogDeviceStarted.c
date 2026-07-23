@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgLogDeviceStarted @ 0x140AA6798
+ * XREFs of PiDevCfgLogDeviceStarted @ 0x140AA1894
  * Callers:
- *     PpDevCfgTraceDeviceStart @ 0x1408BAED0 (PpDevCfgTraceDeviceStart.c)
+ *     PpDevCfgTraceDeviceStart @ 0x1408B8880 (PpDevCfgTraceDeviceStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     McTemplateK0zzjzzzdd_EtwWriteTransfer @ 0x1404AAC24 (McTemplateK0zzjzzzdd_EtwWriteTransfer.c)
- *     PnpGetLogString @ 0x1404B79F4 (PnpGetLogString.c)
- *     PipIsDevNodeDNStarted @ 0x1404E6B60 (PipIsDevNodeDNStarted.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     McTemplateK0zzjzzzdd_EtwWriteTransfer @ 0x1404A4E24 (McTemplateK0zzjzzzdd_EtwWriteTransfer.c)
+ *     PnpGetLogString @ 0x1404B2344 (PnpGetLogString.c)
+ *     PipIsDevNodeDNStarted @ 0x1404DD25C (PipIsDevNodeDNStarted.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
@@ -80,7 +80,7 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
   *(_QWORD *)&v28.Length = 0LL;
   v28.Buffer = 0LL;
   v31 = 0LL;
-  if ( (byte_140EEFD22 & 0x30) == 0x30 )
+  if ( (byte_140EEFF62 & 0x30) == 0x30 )
   {
     memset_0(&v32, 0, 0xC8uLL);
     v40 = 6;
@@ -170,7 +170,7 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
       {
         if ( (*(_DWORD *)(a1 + 396) & 0x2000) != 0 && *(_DWORD *)(a1 + 404) == 14 )
         {
-          if ( (byte_140EEFD22 & 0x40) != 0 )
+          if ( (byte_140EEFF62 & 0x40) != 0 )
           {
             PnpGetLogString((__int64)&v28);
             PnpGetLogString((__int64)&v27);
@@ -189,7 +189,7 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
               v21);
           }
         }
-        else if ( ((unsigned __int8)v3 & (unsigned __int8)byte_140EEFD22) != 0 )
+        else if ( ((unsigned __int8)v3 & (unsigned __int8)byte_140EEFF62) != 0 )
         {
           PnpGetLogString((__int64)&v28);
           PnpGetLogString((__int64)&v27);
@@ -208,7 +208,7 @@ void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
             v26);
         }
       }
-      else if ( (byte_140EEFD22 & 0x10) != 0 )
+      else if ( (byte_140EEFF62 & 0x10) != 0 )
       {
         PnpGetLogString((__int64)&v28);
         PnpGetLogString((__int64)&v27);

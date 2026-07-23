@@ -1,27 +1,27 @@
 /*
- * XREFs of ExpAllocateAsid @ 0x1406D143C
+ * XREFs of ExpAllocateAsid @ 0x1406D546C
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x1406D1A1C (ExpShareAddressSpaceWithDevice.c)
- *     IommuPasidDeviceCreate @ 0x140787070 (IommuPasidDeviceCreate.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x1406D5A4C (ExpShareAddressSpaceWithDevice.c)
+ *     IommuPasidDeviceCreate @ 0x140789BA0 (IommuPasidDeviceCreate.c)
  * Callees:
- *     ExpAcquireSvmAgentsLock @ 0x1406D13DC (ExpAcquireSvmAgentsLock.c)
- *     ExpAllocateReservedAsids @ 0x1406D15F0 (ExpAllocateReservedAsids.c)
- *     ExpReleaseSvmAgentsLock @ 0x1406D19E4 (ExpReleaseSvmAgentsLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpAcquireSvmAgentsLock @ 0x1406D540C (ExpAcquireSvmAgentsLock.c)
+ *     ExpAllocateReservedAsids @ 0x1406D5620 (ExpAllocateReservedAsids.c)
+ *     ExpReleaseSvmAgentsLock @ 0x1406D5A14 (ExpReleaseSvmAgentsLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpAllocateAsid(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
   unsigned __int8 v4; // bp
-  __int64 v5; // rbx
-  unsigned int v6; // edi
-  struct _KTHREAD *Pool2; // rsi
-  struct _KTHREAD *Thread; // r14
-  struct _KTHREAD *v10; // rax
+  __int64 Dpc_high; // rbx
+  unsigned int Dpc; // edi
+  struct _LIST_ENTRY *Pool2; // rsi
+  struct _LIST_ENTRY *Flink; // r14
+  struct _LIST_ENTRY *v10; // rax
   unsigned int i; // edi
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
@@ -30,42 +30,42 @@ LABEL_2:
   v4 = ExpAcquireSvmAgentsLock(&LockHandle);
   while ( 1 )
   {
-    v5 = *(unsigned int *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12];
-    if ( *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12] != *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[16] )
+    Dpc_high = HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc);
+    if ( HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) != *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Timer.Processor )
       break;
     LOBYTE(v3) = v4;
-    if ( *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12] == *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill10[8] )
+    if ( HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) == LODWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) )
     {
       ExpReleaseSvmAgentsLock(&LockHandle, v3);
       return 0LL;
     }
     ExpReleaseSvmAgentsLock(&LockHandle, v3);
-    v6 = v5 + 64;
-    if ( (int)v5 + 64 >= (unsigned int)v5 )
+    Dpc = Dpc_high + 64;
+    if ( (int)Dpc_high + 64 >= (unsigned int)Dpc_high )
     {
-      if ( v6 > *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill10[8] )
-        v6 = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill10[8];
+      if ( Dpc > LODWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) )
+        Dpc = (unsigned int)ExSaPageGroupDescriptorArrayLock.Timer.Dpc;
     }
     else
     {
-      v6 = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill10[8];
+      Dpc = (unsigned int)ExSaPageGroupDescriptorArrayLock.Timer.Dpc;
     }
-    Pool2 = (struct _KTHREAD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL);
     if ( !Pool2 )
       return 0LL;
     v4 = ExpAcquireSvmAgentsLock(&LockHandle);
-    if ( (_DWORD)v5 == *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12] )
+    if ( (_DWORD)Dpc_high == HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) )
     {
-      Thread = ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread;
-      if ( ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread )
-        memmove(Pool2, ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread, 24 * v5);
-      memset_0(&Pool2->Header + v5, 0, 24LL * (v6 - (unsigned int)v5));
-      if ( !ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread )
+      Flink = ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink;
+      if ( ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink )
+        memmove(Pool2, ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink, 24 * Dpc_high);
+      memset_0((char *)Pool2 + 24 * Dpc_high, 0, 24LL * (Dpc - (unsigned int)Dpc_high));
+      if ( !ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink )
         ExpAllocateReservedAsids(Pool2);
-      ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread = Pool2;
-      Pool2 = Thread;
-      *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12] = v6;
-      if ( !Thread )
+      ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink = Pool2;
+      Pool2 = Flink;
+      HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc) = Dpc;
+      if ( !Flink )
         continue;
     }
     LOBYTE(v3) = v4;
@@ -73,20 +73,20 @@ LABEL_2:
     ExFreePoolWithTag(Pool2, 0);
     goto LABEL_2;
   }
-  v10 = ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Thread;
-  for ( i = 0; i < *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[12]; ++i )
+  v10 = ExSaPageGroupDescriptorArrayLock.WaitBlock[0].WaitListEntry.Flink;
+  for ( i = 0; i < HIDWORD(ExSaPageGroupDescriptorArrayLock.Timer.Dpc); ++i )
   {
-    if ( !*(_QWORD *)&v10->Header.Lock )
+    if ( !v10->Flink )
       break;
-    v10 = (struct _KTHREAD *)((char *)v10 + 24);
+    v10 = (struct _LIST_ENTRY *)((char *)v10 + 24);
   }
-  v10->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)1;
-  LOBYTE(v10->Header.WaitListHead.Blink) = 0;
+  v10->Blink = (struct _LIST_ENTRY *)1;
+  LOBYTE(v10[1].Flink) = 0;
   if ( !a2 )
     a2 = -2LL;
   LOBYTE(v3) = v4;
-  *(_QWORD *)&v10->Header.Lock = a2;
-  ++*(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[16];
+  v10->Flink = (struct _LIST_ENTRY *)a2;
+  ++*(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Timer.Processor;
   ExpReleaseSvmAgentsLock(&LockHandle, v3);
   return i + 1;
 }

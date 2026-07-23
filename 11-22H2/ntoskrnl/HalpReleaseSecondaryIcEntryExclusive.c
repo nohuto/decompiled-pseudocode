@@ -20,10 +20,13 @@ LONG __fastcall HalpReleaseSecondaryIcEntryExclusive(__int64 a1, unsigned __int8
   v2 = a2;
   _InterlockedAdd((volatile signed __int32 *)(a1 + 112), 0xFFFFFFFF);
   KxReleaseSpinLock((volatile signed __int64 *)&SecondaryIcListSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));

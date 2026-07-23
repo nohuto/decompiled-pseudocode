@@ -1,13 +1,13 @@
 /*
- * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x1407FBADC
+ * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x1407FBDAC
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140788B20 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140788D10 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B238 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     PiDmGetCmObjectConstraintListFromCache @ 0x1407FBE74 (PiDmGetCmObjectConstraintListFromCache.c)
- *     PiDmGetCmObjectListFromCache @ 0x1407FC004 (PiDmGetCmObjectListFromCache.c)
+ *     RtlStringCchCopyExW @ 0x14022B348 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x1407FC144 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1407FC2D4 (PiDmGetCmObjectListFromCache.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

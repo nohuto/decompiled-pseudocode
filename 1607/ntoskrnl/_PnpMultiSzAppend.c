@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpMultiSzAppend @ 0x1406DFEE0
+ * XREFs of _PnpMultiSzAppend @ 0x1406E0018
  * Callers:
- *     _CmGetDeviceChildren @ 0x1406DCF24 (_CmGetDeviceChildren.c)
+ *     _CmGetDeviceChildren @ 0x1406DD05C (_CmGetDeviceChildren.c)
  * Callees:
- *     RtlStringCbCopyExW @ 0x1400A49F4 (RtlStringCbCopyExW.c)
+ *     RtlStringCbCopyExW @ 0x14010AC6C (RtlStringCbCopyExW.c)
  */
 
 char __fastcall PnpMultiSzAppend(NTSTRSAFE_PWSTR pszDest, unsigned int *a2, const wchar_t *a3)

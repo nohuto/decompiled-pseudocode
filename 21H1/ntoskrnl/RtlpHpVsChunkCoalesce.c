@@ -8,12 +8,12 @@
  *     RtlpHpVsFreeChunkRemove @ 0x1402FCAC8 (RtlpHpVsFreeChunkRemove.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)
+__int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
-  unsigned __int64 v4; // rsi
+  __int64 v4; // rsi
   __int64 v6; // rbx
   unsigned int v7; // ebp
-  unsigned __int64 v8; // r15
+  __int64 v8; // r15
   __int64 v9; // r14
   unsigned int v10; // r10d
   unsigned int v11; // ecx
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v9 = RtlpHpHeapGlobals ^ v8 ^ *(_QWORD *)v8;
     if ( (v9 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16, v8 + 8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(v8 + 8));
       v10 = RtlpHpHeapGlobals ^ v8 ^ *(_DWORD *)v8;
       v11 = (v8 - a2 + 4127) & 0xFFFFF000;
       v4 = v8;
@@ -71,7 +71,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v17 = RtlpHpHeapGlobals ^ *(_QWORD *)v16 ^ v16;
     if ( (v17 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16, v16 + 8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(v16 + 8));
       v18 = v4 + 16 * v7;
       v19 = RtlpHpHeapGlobals ^ *(_DWORD *)v16 ^ v16;
       v20 = (v18 - a2 + 4127) & 0xFFFFF000;

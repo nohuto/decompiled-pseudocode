@@ -22,34 +22,31 @@
 
 __int64 RtlpHpEnvCompactionSchedule()
 {
-  _DWORD v1[2]; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v2; // [rsp+40h] [rbp-38h]
-  void *v3; // [rsp+48h] [rbp-30h] BYREF
-  int v4; // [rsp+50h] [rbp-28h]
-  int v5; // [rsp+54h] [rbp-24h]
-  void *v6; // [rsp+58h] [rbp-20h]
-  int v7; // [rsp+60h] [rbp-18h]
-  int v8; // [rsp+64h] [rbp-14h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+38h] [rbp-40h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-30h] BYREF
+  void *v3; // [rsp+58h] [rbp-20h]
+  int v4; // [rsp+60h] [rbp-18h]
+  int v5; // [rsp+64h] [rbp-14h]
 
-  if ( !qword_1801D0268 )
+  if ( !Context )
     return 3221225635LL;
   if ( byte_1801D4988 )
     return 3221225738LL;
   if ( _InterlockedCompareExchange((volatile signed __int32 *)&qword_1801D0278, 1, 0) )
     return 259LL;
-  TpSetTimerEx(qword_1801D0268, &qword_1801D0270, 0LL, 1000LL);
+  TpSetTimerEx(Context, &DueTime, 0, 0x3E8u);
   if ( (RtlpHpHeapFeatures & 8) != 0 && (unsigned int)dword_1801CE670 > 5 )
   {
-    v1[1] = 5;
-    v3 = off_1801CE678;
-    v1[0] = 184549376;
-    v2 = 0LL;
-    v4 = *(unsigned __int16 *)off_1801CE678;
-    v6 = &unk_1801A4426;
-    v5 = 2;
-    v7 = 25;
-    v8 = 1;
-    EtwEventWriteTransfer(qword_1801CE690, (unsigned int)v1, 0, 0, 2, (__int64)&v3);
+    *(_DWORD *)&EventDescriptor.Level = 5;
+    UserData.Ptr = (unsigned __int64)off_1801CE678;
+    *(_DWORD *)&EventDescriptor.Id = 184549376;
+    EventDescriptor.Keyword = 0LL;
+    UserData.Size = *(unsigned __int16 *)off_1801CE678;
+    v3 = &unk_1801A4426;
+    UserData.Reserved = 2;
+    v4 = 25;
+    v5 = 1;
+    EtwEventWriteTransfer(RegHandle, &EventDescriptor, 0LL, 0LL, 2u, &UserData);
   }
   return 0LL;
 }

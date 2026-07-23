@@ -1,18 +1,18 @@
 /*
- * XREFs of MiProcessVaRangesInfoClass @ 0x1409E9914
+ * XREFs of MiProcessVaRangesInfoClass @ 0x1409E48D4
  * Callers:
- *     MmSetPriorityVaRanges @ 0x1409E8F84 (MmSetPriorityVaRanges.c)
- *     NtSetInformationVirtualMemory @ 0x1409E8FB0 (NtSetInformationVirtualMemory.c)
+ *     MmSetPriorityVaRanges @ 0x1409E3F44 (MmSetPriorityVaRanges.c)
+ *     NtSetInformationVirtualMemory @ 0x1409E3F70 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiWalkVaRange @ 0x14028A740 (MiWalkVaRange.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiVadSupportsPrivateCommit @ 0x1402FBA00 (MiVadSupportsPrivateCommit.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiIsVadLarge @ 0x1403F3880 (MiIsVadLarge.c)
- *     MiMoveDirtyBitsToPfns @ 0x1404F32E4 (MiMoveDirtyBitsToPfns.c)
+ *     MiWalkVaRange @ 0x14029A340 (MiWalkVaRange.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403455B0 (MiVadSupportsPrivateCommit.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiIsVadLarge @ 0x1404100C0 (MiIsVadLarge.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1404F0C98 (MiMoveDirtyBitsToPfns.c)
  */
 
-__int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2, int a3, unsigned int a4)
+__int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2, int a3, __int64 a4)
 {
   unsigned int v4; // ebx
   unsigned int v5; // esi
@@ -29,7 +29,9 @@ __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2,
   unsigned int v18; // [rsp+30h] [rbp-58h] BYREF
   __int128 v19; // [rsp+38h] [rbp-50h]
   unsigned __int64 v20; // [rsp+90h] [rbp+8h]
+  unsigned int v22; // [rsp+A8h] [rbp+20h]
 
+  v22 = a4;
   v20 = a1;
   v18 = 0;
   v4 = 0;
@@ -43,7 +45,7 @@ LABEL_2:
     while ( 1 )
     {
       v9 = v8;
-      v10 = MiObtainReferencedVadEx(v8, 0LL, (int *)&v18);
+      v10 = MiObtainReferencedVadEx(v8, 0LL, (int *)&v18, a4);
       v11 = (_DWORD *)v10;
       if ( !v10 )
         return v18;
@@ -62,7 +64,7 @@ LABEL_2:
       }
       else if ( a3 == 1 )
       {
-        MiWalkVaRange(v9, v14, (__int64)v11, 2u, a4);
+        MiWalkVaRange(v9, v14, (__int64)v11, 2LL, v22);
       }
       else
       {

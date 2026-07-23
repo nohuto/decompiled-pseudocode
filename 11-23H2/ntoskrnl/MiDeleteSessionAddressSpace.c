@@ -3,12 +3,12 @@
  * Callers:
  *     MiDereferenceSessionFinal @ 0x140681B80 (MiDereferenceSessionFinal.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiDeletePagablePteRange @ 0x14027A160 (MiDeletePagablePteRange.c)
- *     MiDrainSystemAccessLog @ 0x140286CD4 (MiDrainSystemAccessLog.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteWorkingSetList @ 0x140292CB0 (MiDeleteWorkingSetList.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiDeletePagablePteRange @ 0x14027A3F0 (MiDeletePagablePteRange.c)
+ *     MiDrainSystemAccessLog @ 0x140286F64 (MiDrainSystemAccessLog.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeleteWorkingSetList @ 0x140292F40 (MiDeleteWorkingSetList.c)
  */
 
 __int64 __fastcall MiDeleteSessionAddressSpace(__int64 a1, __int64 a2)

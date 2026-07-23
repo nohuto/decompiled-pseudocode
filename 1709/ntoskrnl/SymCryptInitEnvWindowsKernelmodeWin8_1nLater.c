@@ -15,7 +15,7 @@
 __int64 SymCryptInitEnvWindowsKernelmodeWin8_1nLater()
 {
   __int64 result; // rax
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-138h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-138h] BYREF
 
   result = (unsigned int)g_SymCryptFlags;
   if ( (g_SymCryptFlags & 1) == 0 )

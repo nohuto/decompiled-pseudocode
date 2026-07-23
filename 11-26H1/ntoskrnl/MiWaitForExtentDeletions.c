@@ -1,14 +1,14 @@
 /*
- * XREFs of MiWaitForExtentDeletions @ 0x1406FAE6C
+ * XREFs of MiWaitForExtentDeletions @ 0x1406FFB3C
  * Callers:
- *     MiReapFileOnlyPfns @ 0x1406FABB0 (MiReapFileOnlyPfns.c)
+ *     MiReapFileOnlyPfns @ 0x1406FF880 (MiReapFileOnlyPfns.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
  */
 
 void __fastcall MiWaitForExtentDeletions(__int64 a1, KIRQL a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -27,25 +27,25 @@ void __fastcall MiWaitForExtentDeletions(__int64 a1, KIRQL a2, __int64 a3, struc
   _QWORD v16[2]; // [rsp+30h] [rbp-10h] BYREF
 
   v14 = 0;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D150, 0LL, 0LL, a4);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D2D0, 0LL, 0LL, a4);
   v7 = (unsigned __int64)v5;
   if ( v5 )
     KeAbPreWait(v5, v6);
   v12 = 263;
   v16[1] = v16;
   v16[0] = v16;
-  v11 = *(_QWORD *)&stru_140E2D150.Header.Lock;
-  *(_QWORD *)&stru_140E2D150.Header.Lock = &v11;
+  v11 = *(_QWORD *)&stru_140E2D2D0.Header.Lock;
+  *(_QWORD *)&stru_140E2D2D0.Header.Lock = &v11;
   v13 = 6;
   v15 = 0;
   if ( a2 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E399E0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E39B60);
   else
-    ExReleaseSpinLockExclusive(&dword_140E399E0, a2);
+    ExReleaseSpinLockExclusive(&dword_140E39B60, a2);
   KeWaitForGate((__int64)&v12, 18LL);
   if ( v7 )
   {
-    KeAbPreAcquire((__int64)&stru_140E2D150, v7, 0LL, v8);
-    KeAbPostReleaseEx(&stru_140E2D150, v7, v9, v10);
+    KeAbPreAcquire((__int64)&stru_140E2D2D0, v7, 0LL, v8);
+    KeAbPostReleaseEx(&stru_140E2D2D0, v7, v9, v10);
   }
 }

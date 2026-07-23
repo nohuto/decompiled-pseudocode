@@ -1,11 +1,11 @@
 /*
- * XREFs of VfGetPristineDriverInit @ 0x14092FD4C
+ * XREFs of VfGetPristineDriverInit @ 0x140930D4C
  * Callers:
- *     VfPnpVerifyIrpStackDownward @ 0x140940620 (VfPnpVerifyIrpStackDownward.c)
- *     VfPowerVerifyIrpStackDownward @ 0x140940DA0 (VfPowerVerifyIrpStackDownward.c)
- *     VfWmiVerifyIrpStackDownward @ 0x140940FF0 (VfWmiVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackDownward @ 0x140941620 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPowerVerifyIrpStackDownward @ 0x140941DA0 (VfPowerVerifyIrpStackDownward.c)
+ *     VfWmiVerifyIrpStackDownward @ 0x140941FF0 (VfWmiVerifyIrpStackDownward.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x14013A220 (MmIsDriverVerifying.c)
+ *     MmIsDriverVerifying @ 0x14013A320 (MmIsDriverVerifying.c)
  */
 
 PDRIVER_INITIALIZE __fastcall VfGetPristineDriverInit(struct _DRIVER_OBJECT *a1)

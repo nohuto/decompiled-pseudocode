@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpBlkProcessorStartup @ 0x140C7C870
+ * XREFs of HalpBlkProcessorStartup @ 0x140C82870
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkApicInitializeLocalUnit @ 0x140C7C1F0 (HalpBlkApicInitializeLocalUnit.c)
- *     HalpBlkMceInitialize @ 0x140C7C7A0 (HalpBlkMceInitialize.c)
- *     HalpBlkIdleLoop @ 0x140C7C7E0 (HalpBlkIdleLoop.c)
+ *     HalpBlkApicInitializeLocalUnit @ 0x140C821F0 (HalpBlkApicInitializeLocalUnit.c)
+ *     HalpBlkMceInitialize @ 0x140C827A0 (HalpBlkMceInitialize.c)
+ *     HalpBlkIdleLoop @ 0x140C827E0 (HalpBlkIdleLoop.c)
  */
 
 void __fastcall __noreturn HalpBlkProcessorStartup(unsigned __int64 a1)

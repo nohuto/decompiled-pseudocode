@@ -1,18 +1,18 @@
 /*
- * XREFs of MmStoreAllocateVirtualMemory @ 0x1406E0B90
+ * XREFs of MmStoreAllocateVirtualMemory @ 0x1406E1E30
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x14014B7A4 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x14014B8A4 (SmKmStoreHelperCommandProcess.c)
  * Callees:
  *     MiFreeVadRange @ 0x140025674 (MiFreeVadRange.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedSecureVad @ 0x1400861D0 (MiObtainReferencedSecureVad.c)
- *     MiLockPageTableRange @ 0x140155EEC (MiLockPageTableRange.c)
- *     MiMakeSecureExclusive @ 0x14015603C (MiMakeSecureExclusive.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedSecureVad @ 0x1400861C0 (MiObtainReferencedSecureVad.c)
+ *     MiLockPageTableRange @ 0x140155FEC (MiLockPageTableRange.c)
+ *     MiMakeSecureExclusive @ 0x14015613C (MiMakeSecureExclusive.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x1405F4430 (MmUnsecureVirtualMemory.c)
  */
 
 unsigned __int64 __fastcall MmStoreAllocateVirtualMemory(__int64 a1)
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall MmStoreAllocateVirtualMemory(__int64 a1)
   if ( (int)MiAllocateVirtualMemory((__int64)v13, 0, &v17) < 0 )
     return v2;
   v4 = v13[11];
-  v5 = MiObtainReferencedSecureVad(v13[11] ^ (unsigned __int64)SecureHandle ^ qword_14043A010, &v16);
+  v5 = MiObtainReferencedSecureVad(v13[11] ^ (unsigned __int64)SecureHandle ^ qword_14043B0D0, &v16);
   v6 = v5;
   if ( !v5 )
     return v2;

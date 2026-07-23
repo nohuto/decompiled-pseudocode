@@ -1,10 +1,10 @@
 /*
- * XREFs of PoCallDriver @ 0x1403756A0
+ * XREFs of PoCallDriver @ 0x14025DF60
  * Callers:
- *     IoCancelFileOpen @ 0x1406F9E00 (IoCancelFileOpen.c)
- *     ViFilterDispatchPower @ 0x140B9D270 (ViFilterDispatchPower.c)
+ *     IoCancelFileOpen @ 0x1406F7A40 (IoCancelFileOpen.c)
+ *     ViFilterDispatchPower @ 0x140B9F270 (ViFilterDispatchPower.c)
  * Callees:
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
  */
 
 NTSTATUS __stdcall PoCallDriver(PDEVICE_OBJECT DeviceObject, PIRP Irp)

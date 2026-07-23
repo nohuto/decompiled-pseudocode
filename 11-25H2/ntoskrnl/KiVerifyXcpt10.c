@@ -36,9 +36,9 @@ __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
       if ( !*v12 )
         break;
       if ( v3 == 11 )
-        v3 = local_unwind((ULONG_PTR)v10, (__int64)&loc_140C196A1);
+        local_unwind(v10, &loc_140C196A1);
       if ( v3 == 1 )
-        local_unwind((ULONG_PTR)v10, (__int64)&loc_140C19582);
+        local_unwind(v10, &loc_140C19582);
       *v2 = 0;
     }
     *v12 = 11;
@@ -47,7 +47,7 @@ __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
     v5 = *v12 + 11;
     *v12 = v5;
     if ( v5 == 99 )
-      local_unwind((ULONG_PTR)v10, (__int64)&loc_140C196A1);
+      local_unwind(v10, &loc_140C196A1);
     ++**v4;
     *v2 += 11;
     if ( *v2 == 55 )
@@ -68,7 +68,7 @@ __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
     }
     else
     {
-      local_unwind((ULONG_PTR)v10, (__int64)&loc_140C196A1);
+      local_unwind(v10, &loc_140C196A1);
     }
     a1 = v11;
     v1 = v12;

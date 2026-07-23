@@ -1,11 +1,11 @@
 /*
- * XREFs of KeFreeCalloutStack @ 0x140A82DB0
+ * XREFs of KeFreeCalloutStack @ 0x140A7D8D0
  * Callers:
- *     EtwpAdjustStackLookasideBuffers @ 0x14048EB74 (EtwpAdjustStackLookasideBuffers.c)
- *     EtwpStackDeleteProcessor @ 0x14064F914 (EtwpStackDeleteProcessor.c)
+ *     EtwpAdjustStackLookasideBuffers @ 0x140488FA4 (EtwpAdjustStackLookasideBuffers.c)
+ *     EtwpStackDeleteProcessor @ 0x14064DFC0 (EtwpStackDeleteProcessor.c)
  * Callees:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeFreeCalloutStack(_BYTE *P)

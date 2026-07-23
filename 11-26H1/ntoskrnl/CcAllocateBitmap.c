@@ -1,31 +1,31 @@
 /*
- * XREFs of CcAllocateBitmap @ 0x14039E050
+ * XREFs of CcAllocateBitmap @ 0x14039FDB0
  * Callers:
- *     CcSetDirtyInMask @ 0x14039D5F0 (CcSetDirtyInMask.c)
+ *     CcSetDirtyInMask @ 0x14039F350 (CcSetDirtyInMask.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall CcAllocateBitmap(PSLIST_ENTRY *a1)
 {
   PSLIST_ENTRY v2; // rax
 
-  ++dword_140E11054;
+  ++dword_140E11014;
   v2 = RtlpInterlockedPopEntrySList(&CcBitmapLookasideList);
   if ( v2
-    || (++dword_140E11058,
+    || (++dword_140E11018,
         (v2 = (PSLIST_ENTRY)guard_dispatch_icall_no_overrides(
-                              (unsigned int)dword_140E11064,
-                              (unsigned int)dword_140E1106C,
-                              (unsigned int)dword_140E11068)) != 0LL) )
+                              (unsigned int)dword_140E11024,
+                              (unsigned int)dword_140E1102C,
+                              (unsigned int)dword_140E11028)) != 0LL) )
   {
     *a1 = v2;
     return 0LL;
   }
   else
   {
-    ++HIDWORD(EmpParseLock.KernelShadowStackBase);
+    ++LODWORD(EmpParseLock.KcsanThread);
     return 3221225626LL;
   }
 }

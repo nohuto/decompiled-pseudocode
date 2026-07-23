@@ -16,19 +16,20 @@
  *     <none>
  */
 
-__int64 __fastcall RtlComputeCrc32(int a1, char *a2, unsigned int a3)
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  unsigned int v4; // ecx
+  ULONG32 v4; // ecx
   __int64 v5; // r10
   char v6; // al
 
-  v4 = ~a1;
-  if ( a3 )
+  v4 = ~PartialCrc;
+  if ( Length )
   {
-    v5 = a3;
+    v5 = Length;
     do
     {
-      v6 = *a2++;
+      v6 = *(_BYTE *)Buffer;
+      Buffer = (char *)Buffer + 1;
       v4 = (v4 >> 8) ^ *((_DWORD *)RtlCrc32Table + (unsigned __int8)(v6 ^ v4));
       --v5;
     }

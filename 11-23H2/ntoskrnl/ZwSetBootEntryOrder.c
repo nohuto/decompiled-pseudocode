@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwSetBootEntryOrder @ 0x14041DFE0
+ * XREFs of ZwSetBootEntryOrder @ 0x14041E370
  * Callers:
- *     DifZwSetBootEntryOrderWrapper @ 0x1405F6710 (DifZwSetBootEntryOrderWrapper.c)
- *     BiSetBootEntryOrder @ 0x140A5ECEC (BiSetBootEntryOrder.c)
+ *     DifZwSetBootEntryOrderWrapper @ 0x1405F6C80 (DifZwSetBootEntryOrderWrapper.c)
+ *     BiSetBootEntryOrder @ 0x140A5EF9C (BiSetBootEntryOrder.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetBootEntryOrder(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetBootEntryOrder(PULONG Ids, ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Ids);
 }

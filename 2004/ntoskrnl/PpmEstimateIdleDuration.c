@@ -30,7 +30,7 @@ unsigned __int64 *__fastcall PpmEstimateIdleDuration(
   unsigned int v18; // ecx
   unsigned int i; // eax
   unsigned __int64 v20; // rbx
-  unsigned int v21; // eax
+  ULONG v21; // eax
   unsigned __int64 v22; // rsi
   __int64 Prcb; // rax
   unsigned __int64 v24; // rcx

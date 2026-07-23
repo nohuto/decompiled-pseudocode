@@ -10,62 +10,67 @@
 
 char __thiscall LdrpCheckSafeDiscDll(_DWORD *this)
 {
-  unsigned int v1; // ebx
+  char *v1; // ebx
   int v2; // esi
-  int v3; // edi
-  unsigned int v4; // ecx
-  int v6; // edx
+  PIMAGE_NT_HEADERS v3; // edi
+  unsigned int SizeOfHeapCommit; // ecx
+  DWORD SizeOfImage; // edx
   unsigned int v7; // ecx
   const char *v8; // ebx
-  int v9; // ecx
+  _IMAGE_NT_HEADERS64 *v9; // ecx
   int v10; // eax
   int v11; // eax
-  int v12; // [esp+Ch] [ebp-8h] BYREF
-  int v13; // [esp+10h] [ebp-4h]
+  size_t v12; // [esp-4h] [ebp-18h]
+  size_t v13; // [esp-4h] [ebp-18h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+Ch] [ebp-8h] BYREF
+  int v15; // [esp+10h] [ebp-4h]
 
-  v1 = this[6];
+  v1 = (char *)this[6];
   v2 = 0;
-  RtlImageNtHeaderEx(3, v1, 0, 0, &v12);
-  v3 = v12;
-  v4 = *(_DWORD *)(v12 + 120);
-  if ( !v4 )
+  RtlImageNtHeaderEx(3u, v1, 0LL, &OutHeaders);
+  v3 = OutHeaders;
+  SizeOfHeapCommit = OutHeaders->OptionalHeader.SizeOfHeapCommit;
+  if ( !SizeOfHeapCommit )
     return 0;
-  if ( !*(_DWORD *)(v12 + 124) )
+  if ( !HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapCommit) )
     return 0;
-  v6 = *(_DWORD *)(v12 + 80);
-  if ( v4 >= v6 - 13 )
+  SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
+  if ( SizeOfHeapCommit >= SizeOfImage - 13 )
     return 0;
-  v7 = *(_DWORD *)(v4 + v1 + 12);
-  if ( v7 > v6 - 12 )
+  v7 = *(_DWORD *)&v1[SizeOfHeapCommit + 12];
+  if ( v7 > SizeOfImage - 12 )
     return 0;
-  if ( _strnicmp((const char *)(v7 + v1), "secserv.dll", 0xCu) )
+  LODWORD(v12) = 12;
+  if ( _strnicmp(&v1[v7], "secserv.dll", v12) )
     return 0;
-  v8 = (const char *)(*(unsigned __int16 *)(v3 + 20) + v3 + 24);
-  v9 = 1;
+  v8 = (char *)&v3->OptionalHeader + v3->FileHeader.SizeOfOptionalHeader;
+  v9 = (_IMAGE_NT_HEADERS64 *)1;
   v10 = 1;
-  v12 = 1;
-  v13 = 1;
-  if ( !*(_WORD *)(v3 + 6) )
+  OutHeaders = (PIMAGE_NT_HEADERS)1;
+  v15 = 1;
+  if ( !v3->FileHeader.NumberOfSections )
     return 0;
   while ( 1 )
   {
     if ( v10 )
     {
-      v11 = strncmp(v8, ".txt", 5u);
-      v9 = v12;
-      v13 = v11;
+      LODWORD(v13) = 5;
+      v11 = strncmp(v8, ".txt", v13);
+      v9 = OutHeaders;
+      v15 = v11;
     }
     if ( v9 )
     {
-      v9 = strncmp(v8, ".txt2", 6u);
-      v12 = v9;
+      LODWORD(v13) = 6;
+      v9 = (_IMAGE_NT_HEADERS64 *)strncmp(v8, ".txt2", v13);
+      OutHeaders = v9;
     }
-    if ( !v13 && !v9 )
+    if ( !v15 && !v9 )
       break;
     v8 += 40;
-    if ( ++v2 >= (unsigned int)*(unsigned __int16 *)(v3 + 6) )
+    if ( ++v2 >= (unsigned int)v3->FileHeader.NumberOfSections )
       return 0;
-    v10 = v13;
+    v10 = v15;
   }
   return 1;
 }

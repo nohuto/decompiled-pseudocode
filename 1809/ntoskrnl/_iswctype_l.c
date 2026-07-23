@@ -1,8 +1,8 @@
 /*
- * XREFs of _iswctype_l @ 0x1401983B8
+ * XREFs of _iswctype_l @ 0x1401984F8
  * Callers:
- *     wcstoxlX @ 0x140197A3C (wcstoxlX.c)
- *     wcstoxq @ 0x140198148 (wcstoxq.c)
+ *     wcstoxlX @ 0x140197B7C (wcstoxlX.c)
+ *     wcstoxq @ 0x140198288 (wcstoxq.c)
  * Callees:
  *     <none>
  */

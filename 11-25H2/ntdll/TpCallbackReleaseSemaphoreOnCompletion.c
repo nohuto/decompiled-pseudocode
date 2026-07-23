@@ -6,13 +6,16 @@
  *     <none>
  */
 
-void __fastcall TpCallbackReleaseSemaphoreOnCompletion(_DWORD *a1, __int64 a2, int a3)
+void __cdecl TpCallbackReleaseSemaphoreOnCompletion(
+        PTP_CALLBACK_INSTANCE Instance,
+        HANDLE Semaphore,
+        ULONG ReleaseCount)
 {
-  if ( a1 && (unsigned __int64)(a2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL && a3 && !a1[39] )
+  if ( Instance && (char *)Semaphore - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL && ReleaseCount && !Instance->Semaphore )
   {
-    a1[36] |= 8u;
-    a1[39] = a2;
-    a1[40] = a3;
+    Instance->CallbackEpilogFlags |= 8u;
+    Instance->Semaphore = (unsigned int)Semaphore;
+    Instance->SemaphoreReleaseCount = ReleaseCount;
   }
   else
   {

@@ -12,16 +12,18 @@
  *     CmFcpWorkItemQueueWork @ 0x1404EC0EC (CmFcpWorkItemQueueWork.c)
  */
 
-__int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, unsigned __int64 a2)
+NTSTATUS __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, unsigned __int64 a2)
 {
   __int64 i; // rbx
-  __int64 result; // rax
-  unsigned __int64 v4; // [rsp+88h] [rbp+30h] BYREF
-  int v5; // [rsp+90h] [rbp+38h]
-  unsigned __int64 v6; // [rsp+98h] [rbp+40h]
+  NTSTATUS result; // eax
+  __int64 BufferSize; // [rsp+80h] [rbp+28h] BYREF
+  unsigned __int64 Buffer; // [rsp+88h] [rbp+30h] BYREF
+  WNF_CHANGE_STAMP ChangeStamp; // [rsp+90h] [rbp+38h] BYREF
+  unsigned __int64 v7; // [rsp+98h] [rbp+40h] BYREF
 
-  v4 = a2;
-  v5 = 0;
+  Buffer = a2;
+  BufferSize = a1;
+  ChangeStamp = 0;
   ExAcquirePushLockSharedEx((ULONG_PTR)&stru_140C481D0, 0LL);
   for ( i = qword_140C481D8; (__int64 *)i != &qword_140C481D8; i = *(_QWORD *)i )
     CmFcpWorkItemQueueWork((PWORK_QUEUE_ITEM)(i + 16));
@@ -30,15 +32,29 @@ __int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, unsigned _
   KeAbPostRelease((ULONG_PTR)&stru_140C481D0);
   do
   {
-    v6 = 0LL;
-    result = ZwQueryWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)CmFcpWnfTypeId);
-    if ( (int)result < 0 )
+    v7 = 0LL;
+    LODWORD(BufferSize) = 8;
+    result = ZwQueryWnfStateData(
+               &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+               &CmFcpWnfTypeId,
+               0LL,
+               &ChangeStamp,
+               &v7,
+               (PULONG)&BufferSize);
+    if ( result < 0 )
       break;
-    result = v4;
-    if ( v6 >= v4 )
+    result = Buffer;
+    if ( v7 >= Buffer )
       break;
-    result = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)&v4);
+    result = ZwUpdateWnfStateData(
+               &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+               &Buffer,
+               8u,
+               &CmFcpWnfTypeId,
+               0LL,
+               ChangeStamp,
+               1u);
   }
-  while ( (_DWORD)result == -1073741823 );
+  while ( result == -1073741823 );
   return result;
 }

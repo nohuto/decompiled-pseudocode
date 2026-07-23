@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierRtlGenerateClass5Guid @ 0x1409E5950
+ * XREFs of VerifierRtlGenerateClass5Guid @ 0x1409E6950
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierRtlGenerateClass5Guid()

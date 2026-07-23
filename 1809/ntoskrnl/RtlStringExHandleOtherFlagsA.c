@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringExHandleOtherFlagsA @ 0x140268C94
+ * XREFs of RtlStringExHandleOtherFlagsA @ 0x140268E84
  * Callers:
- *     RtlStringCbPrintfExA @ 0x140268AE8 (RtlStringCbPrintfExA.c)
+ *     RtlStringCbPrintfExA @ 0x140268CD8 (RtlStringCbPrintfExA.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 NTSTATUS __stdcall RtlStringExHandleOtherFlagsA(

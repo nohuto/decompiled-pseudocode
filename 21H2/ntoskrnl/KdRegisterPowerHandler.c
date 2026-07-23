@@ -1,12 +1,12 @@
 /*
- * XREFs of KdRegisterPowerHandler @ 0x1405109A0
+ * XREFs of KdRegisterPowerHandler @ 0x140510BE0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KdRegisterPowerHandler(__int64 a1, __int64 a2, _QWORD *a3)
@@ -36,13 +36,13 @@ __int64 __fastcall KdRegisterPowerHandler(__int64 a1, __int64 a2, _QWORD *a3)
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   KxAcquireSpinLock(&KdpPowerSpinLock);
-  v11 = (_QWORD *)qword_140C40848;
-  if ( *(__int64 **)qword_140C40848 != &KdpPowerListHead )
+  v11 = (_QWORD *)qword_140C43038;
+  if ( *(__int64 **)qword_140C43038 != &KdpPowerListHead )
     __fastfail(3u);
   *v7 = &KdpPowerListHead;
   v7[1] = v11;
   *v11 = v7;
-  qword_140C40848 = (__int64)v7;
+  qword_140C43038 = (__int64)v7;
   KxReleaseSpinLock(&KdpPowerSpinLock);
   if ( KiIrqlFlags )
   {

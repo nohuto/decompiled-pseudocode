@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbReadWORDTag @ 0x1409E89B0
+ * XREFs of SdbReadWORDTag @ 0x1409D53C0
  * Callers:
- *     SdbMergeIsEntryUpdated @ 0x1408877E4 (SdbMergeIsEntryUpdated.c)
- *     InitOnceScanIndexes @ 0x1409E7EB0 (InitOnceScanIndexes.c)
- *     SdbpCheckForMatch @ 0x140A92960 (SdbpCheckForMatch.c)
- *     SdbpCheckAllAttributes @ 0x140B45B64 (SdbpCheckAllAttributes.c)
+ *     SdbMergeIsEntryUpdated @ 0x14088DBE0 (SdbMergeIsEntryUpdated.c)
+ *     InitOnceScanIndexes @ 0x1409D48C0 (InitOnceScanIndexes.c)
+ *     SdbpCheckForMatch @ 0x140A974B0 (SdbpCheckForMatch.c)
+ *     SdbpCheckAllAttributes @ 0x140B47B94 (SdbpCheckAllAttributes.c)
  * Callees:
- *     SdbpReadTagData @ 0x1409E8130 (SdbpReadTagData.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x1409D4B40 (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbReadWORDTag(__int64 a1, __int64 a2, unsigned __int16 a3)

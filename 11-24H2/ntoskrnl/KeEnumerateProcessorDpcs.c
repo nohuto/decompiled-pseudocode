@@ -1,13 +1,13 @@
 /*
- * XREFs of KeEnumerateProcessorDpcs @ 0x1405BCDFC
+ * XREFs of KeEnumerateProcessorDpcs @ 0x1405BA42C
  * Callers:
- *     DbgkpLkmdSnapGlobals @ 0x14057E65C (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapGlobals @ 0x14057BAEC (DbgkpLkmdSnapGlobals.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     DbgkpLkmdSnapDataEx @ 0x14057E624 (DbgkpLkmdSnapDataEx.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14057BAB4 (DbgkpLkmdSnapDataEx.c)
  */
 
 __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
@@ -30,7 +30,7 @@ __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
   {
     KxAcquireSpinLock(v6);
     for ( i = (_QWORD *)*(v6 - 2); i; i = (_QWORD *)*i )
-      DbgkpLkmdSnapDataEx(a3, (__int64)(i - 1), 64LL, 0LL);
+      DbgkpLkmdSnapDataEx(a3, (__int64)(i - 1));
     KxReleaseSpinLock((volatile signed __int64 *)v6);
     v6 += 6;
     --v7;

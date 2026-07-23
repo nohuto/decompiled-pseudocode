@@ -1,27 +1,27 @@
 /*
- * XREFs of KiChooseTargetProcessor @ 0x140235760
+ * XREFs of KiChooseTargetProcessor @ 0x1402370C0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x1402287D0 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiSelectIdleProcessor @ 0x1402288B0 (KiSelectIdleProcessor.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x140228C34 (KiFindRankBiasedIdleSmtSet.c)
- *     KiReduceAffinityToRankListMinimums @ 0x140229B30 (KiReduceAffinityToRankListMinimums.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14022F5B4 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x140234E90 (KiIsIsolationUnitIdleByHandle.c)
- *     KiSelectCandidateProcessor @ 0x140234F10 (KiSelectCandidateProcessor.c)
- *     KiTryLocalThreadSchedule @ 0x1402373D0 (KiTryLocalThreadSchedule.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeEnumerateNextNodeInSystem @ 0x1403EE250 (KeEnumerateNextNodeInSystem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x14022A160 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiSelectIdleProcessor @ 0x14022A240 (KiSelectIdleProcessor.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x14022A5C4 (KiFindRankBiasedIdleSmtSet.c)
+ *     KiReduceAffinityToRankListMinimums @ 0x14022B4C0 (KiReduceAffinityToRankListMinimums.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140230F44 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x1402367F0 (KiIsIsolationUnitIdleByHandle.c)
+ *     KiSelectCandidateProcessor @ 0x140236870 (KiSelectCandidateProcessor.c)
+ *     KiTryLocalThreadSchedule @ 0x140238D30 (KiTryLocalThreadSchedule.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeEnumerateNextNodeInSystem @ 0x140452D80 (KeEnumerateNextNodeInSystem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiChooseTargetProcessor(
@@ -503,7 +503,7 @@ LABEL_389:
       _BitScanForward64(&v89, __ROR8__(v86, v88));
       v90 = *(unsigned __int8 *)(v223 + 208) << 6;
       LODWORD(v219) = 0;
-      v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                              + v90
                              + (((_BYTE)v89 + v88) & 0x3Fu))];
     }
@@ -911,7 +911,7 @@ LABEL_72:
     _BitScanForward64(&v56, __ROR8__(v48, v55));
     v57 = *(unsigned __int8 *)(v223 + 208) << 6;
     LODWORD(v219) = 0;
-    v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+    v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                            + v57
                            + (((_BYTE)v56 + v55) & 0x3Fu))];
   }
@@ -1012,7 +1012,7 @@ LABEL_272:
       _BitScanForward64(&v159, __ROR8__(v156, v158));
       v160 = *(unsigned __int8 *)(v14 + 208) << 6;
       LODWORD(v219) = 0;
-      v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                              + v160
                              + (((_BYTE)v159 + v158) & 0x3Fu))];
     }
@@ -1167,7 +1167,7 @@ LABEL_313:
           _BitScanForward64(&v178, __ROR8__(v174, v177));
           v179 = *(unsigned __int8 *)(v176 + 208) << 6;
           LODWORD(v219) = 0;
-          v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+          v44 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                                  + v179
                                  + (((_BYTE)v178 + v177) & 0x3Fu))];
         }
@@ -1260,7 +1260,7 @@ LABEL_213:
       if ( ++v137 == (unsigned __int16)KeNumberNodes )
         v139 = 0xFFFFFFFFLL;
       else
-        v139 = *(unsigned int *)(qword_140E2D690 + 4LL * (v137 + v136 * (unsigned __int16)KeNumberNodes));
+        v139 = *(unsigned int *)(qword_140E2D810 + 4LL * (v137 + v136 * (unsigned __int16)KeNumberNodes));
     }
     else
     {
@@ -1392,8 +1392,7 @@ LABEL_82:
     if ( v69 >= 0 )
     {
 LABEL_166:
-      v61 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                             + 64 * *(unsigned __int8 *)(v61 + 208)
+      v61 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * *(unsigned __int8 *)(v61 + 208)].Flink
                              + v69)];
     }
     else

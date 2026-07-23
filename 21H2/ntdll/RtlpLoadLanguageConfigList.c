@@ -9,71 +9,60 @@
  *     OpenGlobalizationUserSettingsKey @ 0x1800704E4 (OpenGlobalizationUserSettingsKey.c)
  *     RtlpMuiRegFreeStringPool @ 0x180070940 (RtlpMuiRegFreeStringPool.c)
  *     RtlpMuiRegCreateLanguageConfigList @ 0x18007E9E4 (RtlpMuiRegCreateLanguageConfigList.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtOpenKey @ 0x18009D880 (NtOpenKey.c)
- *     RtlpHasMachineUILock @ 0x180103CE0 (RtlpHasMachineUILock.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x180103D78 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpPopulateLanguageConfigList @ 0x180105E38 (RtlpPopulateLanguageConfigList.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtOpenKey @ 0x18009D840 (NtOpenKey.c)
+ *     RtlpHasMachineUILock @ 0x180103CA0 (RtlpHasMachineUILock.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x180103D38 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180105DF8 (RtlpPopulateLanguageConfigList.c)
  */
 
 __int64 __fastcall RtlpLoadLanguageConfigList(int a1, __int64 *a2, __int64 a3)
 {
-  __int64 v6; // r12
+  void *v6; // r12
   HANDLE v7; // rdi
-  __int64 v8; // rdx
-  int v9; // eax
-  int v10; // eax
-  int v11; // ebx
+  int v8; // eax
+  NTSTATUS v9; // eax
+  int PolicyLanguageSpec; // ebx
   __int64 LanguageConfigList; // rax
-  int v14; // eax
-  char v15[8]; // [rsp+20h] [rbp-60h] BYREF
-  HANDLE v16; // [rsp+28h] [rbp-58h] BYREF
-  HANDLE Handle; // [rsp+30h] [rbp-50h] BYREF
-  HANDLE v18; // [rsp+38h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  int v20; // [rsp+50h] [rbp-30h] BYREF
-  HANDLE v21; // [rsp+58h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp-20h]
-  int v23; // [rsp+68h] [rbp-18h]
-  __int128 v24; // [rsp+70h] [rbp-10h]
-  char v25; // [rsp+C8h] [rbp+48h] BYREF
-  char v26; // [rsp+D8h] [rbp+58h] BYREF
+  NTSTATUS v13; // eax
+  void *v14; // rcx
+  HANDLE KeyHandle; // [rsp+28h] [rbp-58h] BYREF
+  HANDLE Handle; // [rsp+30h] [rbp-50h]
+  HANDLE v17; // [rsp+38h] [rbp-48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
 
-  v16 = 0LL;
-  v18 = 0LL;
+  KeyHandle = 0LL;
+  v17 = 0LL;
   Handle = 0LL;
   v6 = 0LL;
   v7 = 0LL;
   if ( a2 && a3 )
   {
-    v6 = *a2;
+    v6 = (void *)*a2;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-    v20 = 48;
-    p_DestinationString = &DestinationString;
-    v21 = 0LL;
-    v23 = 64;
-    v24 = 0LL;
-    if ( (int)NtOpenKey(&v16, 131097LL, &v20) >= 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     {
-      v11 = RtlpLoadPolicyLanguageSpec(v16, a3, &v26, v15);
-      if ( v11 >= 0 )
+      PolicyLanguageSpec = RtlpLoadPolicyLanguageSpec(KeyHandle);
+      if ( PolicyLanguageSpec >= 0 )
       {
 LABEL_12:
         v7 = Handle;
         goto LABEL_13;
       }
       if ( a1 == 8 )
-      {
-        v25 = 0;
-        if ( !(unsigned int)RtlpHasMachineUILock(v16, &v25) && v25 == 1 )
-          a1 = 4;
-      }
-      NtClose(v16);
-      v16 = 0LL;
+        RtlpHasMachineUILock(KeyHandle);
+      NtClose(KeyHandle);
+      KeyHandle = 0LL;
     }
-    v9 = OpenGlobalizationUserSettingsKey(0x2000000LL, v8, &Handle);
+    v8 = OpenGlobalizationUserSettingsKey(0x2000000u);
     v7 = Handle;
-    if ( v9 < 0 )
+    if ( v8 < 0 )
       v7 = 0LL;
     Handle = v7;
     if ( a1 != 8 )
@@ -83,108 +72,112 @@ LABEL_12:
         if ( v7 )
         {
           RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration");
-          v16 = 0LL;
-          p_DestinationString = &DestinationString;
-          v20 = 48;
-          v21 = v7;
-          v23 = 64;
-          v24 = 0LL;
-          v14 = NtOpenKey(&v16, 131097LL, &v20);
+          KeyHandle = 0LL;
+          ObjectAttributes.ObjectName = &DestinationString;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.RootDirectory = v7;
+          ObjectAttributes.Attributes = 64;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          v13 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
         }
         else
         {
-          v14 = -1073741772;
+          v13 = -1073741772;
         }
-        if ( v14 < 0 )
+        if ( v13 < 0 )
         {
           RtlInitUnicodeString(
             &DestinationString,
             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings\\LanguageConfiguration");
-          v16 = 0LL;
-          p_DestinationString = &DestinationString;
-          v20 = 48;
-          v21 = 0LL;
-          v23 = 64;
-          v24 = 0LL;
-          v10 = NtOpenKey(&v16, 131097LL, &v20);
-          v11 = v10;
-          if ( v10 < 0 )
+          KeyHandle = 0LL;
+          ObjectAttributes.ObjectName = &DestinationString;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.RootDirectory = 0LL;
+          ObjectAttributes.Attributes = 64;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          v9 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+          PolicyLanguageSpec = v9;
+          if ( v9 < 0 )
           {
 LABEL_10:
-            if ( v10 == -1073741772 )
-              v11 = 0;
+            if ( v9 == -1073741772 )
+              PolicyLanguageSpec = 0;
             goto LABEL_12;
           }
         }
       }
-LABEL_38:
-      v11 = RtlpPopulateLanguageConfigList(v16, a2, a3);
+LABEL_36:
+      PolicyLanguageSpec = RtlpPopulateLanguageConfigList(KeyHandle, a2, a3);
       goto LABEL_12;
     }
     if ( v7 )
     {
       RtlInitUnicodeString(&DestinationString, L"Software\\Policies\\Microsoft\\Control Panel\\Desktop");
-      v21 = v7;
-      p_DestinationString = &DestinationString;
-      v23 = 64;
-      v20 = 48;
-      v24 = 0LL;
-      if ( (int)NtOpenKey(&v18, 131097LL, &v20) >= 0 )
+      ObjectAttributes.RootDirectory = v7;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Attributes = 64;
+      ObjectAttributes.Length = 48;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      if ( NtOpenKey(&v17, 0x20019u, &ObjectAttributes) >= 0 )
       {
-        v11 = RtlpLoadPolicyLanguageSpec(v18, a3, &v26, v15);
-        if ( v11 >= 0 )
+        PolicyLanguageSpec = RtlpLoadPolicyLanguageSpec(v17);
+        if ( PolicyLanguageSpec >= 0 )
           goto LABEL_12;
       }
       RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\LanguageConfiguration");
-      v21 = Handle;
-      v16 = 0LL;
-      p_DestinationString = &DestinationString;
-      v20 = 48;
-      v23 = 64;
-      v24 = 0LL;
-      v10 = NtOpenKey(&v16, 131097LL, &v20);
-      v11 = v10;
-      if ( v10 < 0 )
+      ObjectAttributes.RootDirectory = Handle;
+      KeyHandle = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v9 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+      PolicyLanguageSpec = v9;
+      if ( v9 < 0 )
         goto LABEL_10;
-      goto LABEL_38;
+      goto LABEL_36;
     }
-    v11 = 0;
+    PolicyLanguageSpec = 0;
   }
   else
   {
-    v11 = -1073741811;
+    PolicyLanguageSpec = -1073741811;
   }
 LABEL_13:
-  if ( v16 )
+  if ( KeyHandle )
   {
-    NtClose(v16);
+    NtClose(KeyHandle);
     v7 = Handle;
   }
-  if ( v18 )
+  if ( v17 )
   {
-    NtClose(v18);
+    NtClose(v17);
     v7 = Handle;
   }
   if ( v7 )
     NtClose(v7);
-  if ( v11 >= 0 )
+  if ( PolicyLanguageSpec >= 0 )
   {
     if ( *a2 )
-      return (unsigned int)v11;
+      return (unsigned int)PolicyLanguageSpec;
     LanguageConfigList = RtlpMuiRegCreateLanguageConfigList(1LL);
     *a2 = LanguageConfigList;
     if ( LanguageConfigList )
-      return (unsigned int)v11;
-    v11 = -1073741801;
-LABEL_45:
-    *a2 = v6;
-    return (unsigned int)v11;
+      return (unsigned int)PolicyLanguageSpec;
+    PolicyLanguageSpec = -1073741801;
+LABEL_43:
+    *a2 = (__int64)v6;
+    return (unsigned int)PolicyLanguageSpec;
   }
-  if ( a2 && *a2 != v6 )
+  if ( a2 )
   {
-    if ( *a2 )
-      RtlpMuiRegFreeStringPool();
-    goto LABEL_45;
+    v14 = (void *)*a2;
+    if ( (void *)*a2 != v6 )
+    {
+      if ( v14 )
+        RtlpMuiRegFreeStringPool(v14);
+      goto LABEL_43;
+    }
   }
-  return (unsigned int)v11;
+  return (unsigned int)PolicyLanguageSpec;
 }

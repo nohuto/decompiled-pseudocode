@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     MiObtainReferencedVadEx @ 0x14030E7C0 (MiObtainReferencedVadEx.c)
- *     MiGetVadPageSize @ 0x14030EBF4 (MiGetVadPageSize.c)
- *     MiUnlockAndDereferenceVad @ 0x14032E700 (MiUnlockAndDereferenceVad.c)
+ *     sub_14030E7C0 @ 0x14030E7C0 (sub_14030E7C0.c)
+ *     sub_14030EBF4 @ 0x14030EBF4 (sub_14030EBF4.c)
+ *     sub_14032E700 @ 0x14032E700 (sub_14032E700.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiSetGraphicsPtes @ 0x14058C874 (MiSetGraphicsPtes.c)
- *     MiGetAwePageSizeFromVa @ 0x1405AAF9C (MiGetAwePageSizeFromVa.c)
- *     MiLockAweVadsExclusive @ 0x1405AB9B8 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1405AC950 (MiUnlockAweVadsExclusive.c)
+ *     sub_14058C874 @ 0x14058C874 (sub_14058C874.c)
+ *     sub_1405AAF9C @ 0x1405AAF9C (sub_1405AAF9C.c)
+ *     sub_1405AB9B8 @ 0x1405AB9B8 (sub_1405AB9B8.c)
+ *     sub_1405AC950 @ 0x1405AC950 (sub_1405AC950.c)
  */
 
 __int64 __fastcall MmSetGraphicsPtes(
@@ -29,7 +29,7 @@ __int64 __fastcall MmSetGraphicsPtes(
   char *v15; // rsi
   int v17; // edx
   unsigned int v18; // ebx
-  __int64 AwePageSizeFromVa; // rcx
+  __int64 v19; // rcx
   unsigned __int64 v20; // rcx
   unsigned __int64 v21; // r8
   ULONG_PTR v22; // rax
@@ -47,7 +47,7 @@ __int64 __fastcall MmSetGraphicsPtes(
   v25 = 0;
   v12 = v10 - 1;
   v13 = 0;
-  v14 = MiObtainReferencedVadEx(BugCheckParameter2, 0, (int *)&v25);
+  v14 = sub_14030E7C0(BugCheckParameter2, 0, (int *)&v25);
   v15 = (char *)v14;
   if ( !v14 )
     return v25;
@@ -59,9 +59,9 @@ __int64 __fastcall MmSetGraphicsPtes(
     if ( (v17 & 0x70) == 0x30 )
     {
       v13 = 1;
-      MiLockAweVadsExclusive((__int64)CurrentThread);
-      AwePageSizeFromVa = (__int64)MiGetAwePageSizeFromVa(BugCheckParameter2);
-      if ( !AwePageSizeFromVa )
+      sub_1405AB9B8((__int64)CurrentThread);
+      v19 = (__int64)sub_1405AAF9C(BugCheckParameter2);
+      if ( !v19 )
       {
         v18 = -1073741585;
         goto LABEL_32;
@@ -77,7 +77,7 @@ LABEL_14:
         v18 = -1073741581;
         goto LABEL_31;
       }
-      v20 = AwePageSizeFromVa << 12;
+      v20 = v19 << 12;
       if ( a4 != v20 )
       {
         v18 = -1073741582;
@@ -111,17 +111,17 @@ LABEL_31:
           if ( !v13 )
             goto LABEL_35;
 LABEL_32:
-          MiUnlockAweVadsExclusive((__int64)CurrentThread);
+          sub_1405AC950((__int64)CurrentThread);
           goto LABEL_35;
         }
       }
 LABEL_30:
-      v18 = MiSetGraphicsPtes(BugCheckParameter2, BugCheckParameter3, a3, a4, v24, a6);
+      v18 = sub_14058C874(BugCheckParameter2, BugCheckParameter3, a3, a4, v24, a6);
       goto LABEL_31;
     }
     if ( (v17 & 0xA00000) == 0xA00000 )
     {
-      AwePageSizeFromVa = MiGetVadPageSize(v14);
+      v19 = sub_14030EBF4(v14);
       goto LABEL_14;
     }
 LABEL_34:
@@ -130,6 +130,6 @@ LABEL_34:
   }
   v18 = -1073741584;
 LABEL_35:
-  MiUnlockAndDereferenceVad(v15);
+  sub_14032E700(v15);
   return v18;
 }

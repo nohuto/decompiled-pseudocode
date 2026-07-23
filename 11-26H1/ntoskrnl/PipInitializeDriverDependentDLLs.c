@@ -1,16 +1,16 @@
 /*
- * XREFs of PipInitializeDriverDependentDLLs @ 0x140D05314
+ * XREFs of PipInitializeDriverDependentDLLs @ 0x140D0B5E4
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     PipInitializeCoreDriversAndElam @ 0x140D04EDC (PipInitializeCoreDriversAndElam.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140D0B1AC (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmCallDllInitialize @ 0x1408754D8 (MmCallDllInitialize.c)
- *     PnpDoPolicyCheck @ 0x140C7FCAC (PnpDoPolicyCheck.c)
- *     PnpNotifyEarlyLaunchImageLoad @ 0x140CC3F64 (PnpNotifyEarlyLaunchImageLoad.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmCallDllInitialize @ 0x14087B8BC (MmCallDllInitialize.c)
+ *     PnpDoPolicyCheck @ 0x140C85CAC (PnpDoPolicyCheck.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140CCA044 (PnpNotifyEarlyLaunchImageLoad.c)
  */
 
 __int64 __fastcall PipInitializeDriverDependentDLLs(int a1, __int64 a2)
@@ -73,7 +73,7 @@ LABEL_8:
             v23 = *((_DWORD *)v7 + 55);
             v25 = *((_DWORD *)v7 + 58);
             v21 = v7[25];
-            v17 = &word_140D0D650;
+            v17 = &word_140D138C0;
             v16 = 0x20000;
             v19 = *((_OWORD *)v7 + 11);
             v18 = *((_OWORD *)v7 + 10);

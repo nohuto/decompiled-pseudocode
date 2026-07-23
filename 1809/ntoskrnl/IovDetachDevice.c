@@ -1,9 +1,9 @@
 /*
- * XREFs of IovDetachDevice @ 0x1409241CC
+ * XREFs of IovDetachDevice @ 0x1409251CC
  * Callers:
- *     IoDetachDevice @ 0x1400DCA50 (IoDetachDevice.c)
+ *     IoDetachDevice @ 0x1400DCAD0 (IoDetachDevice.c)
  * Callees:
- *     VfIoDetachDevice @ 0x14093429C (VfIoDetachDevice.c)
+ *     VfIoDetachDevice @ 0x14093529C (VfIoDetachDevice.c)
  */
 
 __int64 IovDetachDevice()

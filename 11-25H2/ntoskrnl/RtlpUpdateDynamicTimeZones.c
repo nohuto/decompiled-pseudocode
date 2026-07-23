@@ -25,7 +25,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
   ULONG ResultLength[2]; // [rsp+38h] [rbp-D0h] BYREF
   HANDLE KeyHandle; // [rsp+40h] [rbp-C8h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-C0h] BYREF
-  HANDLE DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  WCHAR *DestinationString; // [rsp+50h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+58h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes_8; // [rsp+68h] [rbp-A0h] BYREF
   int v13[4]; // [rsp+98h] [rbp-70h] BYREF
@@ -85,7 +85,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
       ObjectAttributes_8.ObjectName = &DestinationString_8;
       ObjectAttributes_8.Attributes = 576;
       *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-      if ( ZwOpenKey(&DestinationString, 0x20019u, &ObjectAttributes_8) >= 0 )
+      if ( ZwOpenKey((PHANDLE)&DestinationString, 0x20019u, &ObjectAttributes_8) >= 0 )
       {
         Buf2 = 0LL;
         LODWORD(Buf2) = -44;
@@ -93,7 +93,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
         v19 = 0LL;
         v20 = 0;
         if ( (int)RtlpQueryRegistryValues(0x40000000, (int)KeyHandle, (int)v13, 0, ValueData, 1) >= 0
-          && (int)RtlpFindRegTziForCurrentYear((__int64)Buf1, (__int64)DestinationString, a1) >= 0
+          && (int)RtlpFindRegTziForCurrentYear(Buf1, DestinationString, a1) >= 0
           && memcmp(Buf1, &Buf2, 0x2CuLL) )
         {
           RtlWriteRegistryValue(0x40000000u, (PCWSTR)KeyHandle, L"TZI", 3u, Buf1, 0x2Cu);

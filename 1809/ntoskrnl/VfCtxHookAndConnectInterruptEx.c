@@ -1,11 +1,11 @@
 /*
- * XREFs of VfCtxHookAndConnectInterruptEx @ 0x140941A54
+ * XREFs of VfCtxHookAndConnectInterruptEx @ 0x140942A54
  * Callers:
- *     VerifierIoConnectInterruptEx @ 0x140928AF0 (VerifierIoConnectInterruptEx.c)
+ *     VerifierIoConnectInterruptEx @ 0x140929AF0 (VerifierIoConnectInterruptEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ViCtxSetPrivateConnectParameters @ 0x140941FB8 (ViCtxSetPrivateConnectParameters.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ViCtxSetPrivateConnectParameters @ 0x140942FB8 (ViCtxSetPrivateConnectParameters.c)
  */
 
 __int64 __fastcall VfCtxHookAndConnectInterruptEx(__int64 a1)

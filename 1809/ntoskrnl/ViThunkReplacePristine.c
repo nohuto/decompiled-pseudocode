@@ -1,7 +1,7 @@
 /*
- * XREFs of ViThunkReplacePristine @ 0x140937390
+ * XREFs of ViThunkReplacePristine @ 0x140938390
  * Callers:
- *     ViThunkRecoverPristines @ 0x140936FC0 (ViThunkRecoverPristines.c)
+ *     ViThunkRecoverPristines @ 0x140937FC0 (ViThunkRecoverPristines.c)
  * Callees:
  *     <none>
  */

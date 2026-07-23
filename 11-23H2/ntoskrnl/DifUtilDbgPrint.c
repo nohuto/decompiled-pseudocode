@@ -1,9 +1,9 @@
 /*
- * XREFs of DifUtilDbgPrint @ 0x1405D4B40
+ * XREFs of DifUtilDbgPrint @ 0x1405D50B0
  * Callers:
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x14032A7B0 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x14032AA40 (vDbgPrintExWithPrefixInternal.c)
  */
 
 __int64 DifUtilDbgPrint(const char *a1, ...)

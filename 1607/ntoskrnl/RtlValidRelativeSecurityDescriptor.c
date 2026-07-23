@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlValidRelativeSecurityDescriptor @ 0x1403F7044
+ * XREFs of RtlValidRelativeSecurityDescriptor @ 0x1403F5F04
  * Callers:
- *     ExpWnfLookupPermanentName @ 0x1403F620C (ExpWnfLookupPermanentName.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1403F8C28 (CmpValidateHiveSecurityDescriptors.c)
- *     _PnpValidatePropertyData @ 0x1404893D0 (_PnpValidatePropertyData.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1404E23B8 (PipGetRegistrySecurityWithFallback.c)
- *     _CmSetDeviceRegPropWorker @ 0x140571500 (_CmSetDeviceRegPropWorker.c)
- *     CmpVerifyCreateOrDeleteKeyLogRecord @ 0x140605AE0 (CmpVerifyCreateOrDeleteKeyLogRecord.c)
- *     CmpVerifySetSecurityDescriptorLogRecord @ 0x140605CB0 (CmpVerifySetSecurityDescriptorLogRecord.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x1406D9788 (_CmSetInstallerClassRegPropWorker.c)
+ *     ExpWnfLookupPermanentName @ 0x1403F50D0 (ExpWnfLookupPermanentName.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8 (CmpValidateHiveSecurityDescriptors.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x1404D3FA4 (PipGetRegistrySecurityWithFallback.c)
+ *     _PnpValidatePropertyData @ 0x140511B44 (_PnpValidatePropertyData.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140571A40 (_CmSetDeviceRegPropWorker.c)
+ *     CmpVerifyCreateOrDeleteKeyLogRecord @ 0x140605B94 (CmpVerifyCreateOrDeleteKeyLogRecord.c)
+ *     CmpVerifySetSecurityDescriptorLogRecord @ 0x140605D64 (CmpVerifySetSecurityDescriptorLogRecord.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x1406D98C0 (_CmSetInstallerClassRegPropWorker.c)
  * Callees:
- *     RtlpValidateSDOffsetAndSize @ 0x1403F719C (RtlpValidateSDOffsetAndSize.c)
- *     RtlValidAcl @ 0x140421940 (RtlValidAcl.c)
+ *     RtlpValidateSDOffsetAndSize @ 0x1403F605C (RtlpValidateSDOffsetAndSize.c)
+ *     RtlValidAcl @ 0x140420800 (RtlValidAcl.c)
  */
 
 BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(

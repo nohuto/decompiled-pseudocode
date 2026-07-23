@@ -1,236 +1,236 @@
 /*
- * XREFs of ExFreeHeapPool @ 0x140341AC0
+ * XREFs of ExFreeHeapPool @ 0x14034C810
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140285AA0 (ExpWorkerFactoryCompletionPacketRoutine.c)
- *     ExGetSessionPoolTagInfo @ 0x140298C6C (ExGetSessionPoolTagInfo.c)
- *     ExFreePoolEx @ 0x1402BDFC0 (ExFreePoolEx.c)
- *     ExpFinalizeTimerDeletion @ 0x1402C8450 (ExpFinalizeTimerDeletion.c)
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     ExFreeCacheAwareRundownProtection @ 0x140360670 (ExFreeCacheAwareRundownProtection.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x140391DE8 (ExpSaPageGroupDescriptorAllocate.c)
- *     ExFreeAutoExpandPushLock @ 0x140392500 (ExFreeAutoExpandPushLock.c)
- *     BiWasFirmwareModified @ 0x14039B4CC (BiWasFirmwareModified.c)
- *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
- *     RtlpMuiRegLoadLicInformation @ 0x1403AC89C (RtlpMuiRegLoadLicInformation.c)
- *     RtlpMuiRegAddAlternateCodePage @ 0x1403ACD90 (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403AD204 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     AdtpCleanupParameterAllocations @ 0x1403C05C4 (AdtpCleanupParameterAllocations.c)
- *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
- *     ExFreeCacheAwarePushLock @ 0x1405B3E30 (ExFreeCacheAwarePushLock.c)
- *     ExGetWakeTimerList @ 0x1405B6148 (ExGetWakeTimerList.c)
- *     ExpAllocateAsid @ 0x1405B870C (ExpAllocateAsid.c)
- *     ExpPrepareNewSvmDevice @ 0x1405B8B38 (ExpPrepareNewSvmDevice.c)
- *     ExpResourceTimeoutCaptureLiveDump @ 0x1405B9B00 (ExpResourceTimeoutCaptureLiveDump.c)
- *     ExpSaBinaryArrayRemove @ 0x1405BA494 (ExpSaBinaryArrayRemove.c)
- *     ExpSaPageGroupDescriptorFree @ 0x1405BA4DC (ExpSaPageGroupDescriptorFree.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BA900 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BAB90 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     WheapFreeErrorRecord @ 0x1405BBAA8 (WheapFreeErrorRecord.c)
- *     WheapFreeDriverPacketBuffer @ 0x1405BC36C (WheapFreeDriverPacketBuffer.c)
- *     WheaPersistBadPageToBcd @ 0x1405BC750 (WheaPersistBadPageToBcd.c)
- *     ApiSetReleaseSchema @ 0x1405BE588 (ApiSetReleaseSchema.c)
- *     ApiSetComposeSchema @ 0x1405BE5A0 (ApiSetComposeSchema.c)
- *     sub_1405BFD10 @ 0x1405BFD10 (sub_1405BFD10.c)
- *     sub_1405C02EC @ 0x1405C02EC (sub_1405C02EC.c)
- *     AdtpBuildAccessReasonAuditString @ 0x1405C237C (AdtpBuildAccessReasonAuditString.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C28F4 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x1405C3354 (AdtpBuildStagingReasonAuditStringInternal.c)
- *     BiLogFileOwnerProcess @ 0x1405C3B80 (BiLogFileOwnerProcess.c)
- *     BiMapEfiDeviceForSpaces @ 0x1405C3E74 (BiMapEfiDeviceForSpaces.c)
- *     BiSpacesUpdatePhysicalDevicePath @ 0x1405C3FDC (BiSpacesUpdatePhysicalDevicePath.c)
- *     _SafeReallocBlob @ 0x1405CAA5C (_SafeReallocBlob.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     CcInitializeCacheManager @ 0x140A3D1B8 (CcInitializeCacheManager.c)
- *     WheapInitializeErrorSourceTable @ 0x140A6378C (WheapInitializeErrorSourceTable.c)
- *     VhdiInitializeBootDisk @ 0x140A94990 (VhdiInitializeBootDisk.c)
- *     VhdiMountVhdFile @ 0x140A94C98 (VhdiMountVhdFile.c)
- *     VhdiQueryVolumeVhdFilePath @ 0x140A951A8 (VhdiQueryVolumeVhdFilePath.c)
- *     SbpAddTransportToInstance @ 0x140A955E8 (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x140A957E8 (SbpStartLanman.c)
+ *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140202C40 (ExpWorkerFactoryCompletionPacketRoutine.c)
+ *     ExGetSessionPoolTagInfo @ 0x14021564C (ExGetSessionPoolTagInfo.c)
+ *     ExFreePoolEx @ 0x14023C600 (ExFreePoolEx.c)
+ *     ExpFinalizeTimerDeletion @ 0x140246CB0 (ExpFinalizeTimerDeletion.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x1402A6400 (ExFreeCacheAwareRundownProtection.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x140391F38 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExFreeAutoExpandPushLock @ 0x140392650 (ExFreeAutoExpandPushLock.c)
+ *     BiWasFirmwareModified @ 0x14039B61C (BiWasFirmwareModified.c)
+ *     BgpFwFreeMemory @ 0x14039BEB0 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039C6D4 (BgpFwAllocateMemory.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1403A7F10 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1403A8404 (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8878 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     AdtpCleanupParameterAllocations @ 0x1403C09F4 (AdtpCleanupParameterAllocations.c)
+ *     AdtpPackageParameters @ 0x1403C0AE4 (AdtpPackageParameters.c)
+ *     ExFreeCacheAwarePushLock @ 0x1405B4060 (ExFreeCacheAwarePushLock.c)
+ *     ExGetWakeTimerList @ 0x1405B6378 (ExGetWakeTimerList.c)
+ *     ExpAllocateAsid @ 0x1405B893C (ExpAllocateAsid.c)
+ *     ExpPrepareNewSvmDevice @ 0x1405B8D68 (ExpPrepareNewSvmDevice.c)
+ *     ExpResourceTimeoutCaptureLiveDump @ 0x1405B9D30 (ExpResourceTimeoutCaptureLiveDump.c)
+ *     ExpSaBinaryArrayRemove @ 0x1405BA6C4 (ExpSaBinaryArrayRemove.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1405BA70C (ExpSaPageGroupDescriptorFree.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BAB30 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BADC0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     WheapFreeErrorRecord @ 0x1405BBCD8 (WheapFreeErrorRecord.c)
+ *     WheapFreeDriverPacketBuffer @ 0x1405BC59C (WheapFreeDriverPacketBuffer.c)
+ *     WheaPersistBadPageToBcd @ 0x1405BC980 (WheaPersistBadPageToBcd.c)
+ *     ApiSetReleaseSchema @ 0x1405BE7B8 (ApiSetReleaseSchema.c)
+ *     ApiSetComposeSchema @ 0x1405BE7D0 (ApiSetComposeSchema.c)
+ *     sub_1405BFF40 @ 0x1405BFF40 (sub_1405BFF40.c)
+ *     sub_1405C051C @ 0x1405C051C (sub_1405C051C.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x1405C25AC (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2B24 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x1405C3584 (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     BiLogFileOwnerProcess @ 0x1405C3DB0 (BiLogFileOwnerProcess.c)
+ *     BiMapEfiDeviceForSpaces @ 0x1405C40A4 (BiMapEfiDeviceForSpaces.c)
+ *     BiSpacesUpdatePhysicalDevicePath @ 0x1405C420C (BiSpacesUpdatePhysicalDevicePath.c)
+ *     _SafeReallocBlob @ 0x1405CAC8C (_SafeReallocBlob.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     CcInitializeCacheManager @ 0x140A3E1B8 (CcInitializeCacheManager.c)
+ *     WheapInitializeErrorSourceTable @ 0x140A6478C (WheapInitializeErrorSourceTable.c)
+ *     VhdiInitializeBootDisk @ 0x140A95990 (VhdiInitializeBootDisk.c)
+ *     VhdiMountVhdFile @ 0x140A95C98 (VhdiMountVhdFile.c)
+ *     VhdiQueryVolumeVhdFilePath @ 0x140A961A8 (VhdiQueryVolumeVhdFilePath.c)
+ *     SbpAddTransportToInstance @ 0x140A965E8 (SbpAddTransportToInstance.c)
+ *     SbpStartLanman @ 0x140A967E8 (SbpStartLanman.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BF60 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x1402A2380 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1402B7FB0 (ExpRemovePoolTrackerExpansion.c)
- *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
- *     PspReturnQuota @ 0x140341980 (PspReturnQuota.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     ExpHpIsSpecialPoolHeap @ 0x1403CDD4C (ExpHpIsSpecialPoolHeap.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140213930 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14021F7C0 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpQueryVA @ 0x1402230E4 (RtlpHpQueryVA.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x1402361C0 (ExpRemovePoolTrackerExpansion.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140314164 (RtlpHpEnvGetHeapManager.c)
+ *     PspReturnQuota @ 0x14034C6D0 (PspReturnQuota.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x1403CDEBC (ExpHpIsSpecialPoolHeap.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     KeCheckForTimer @ 0x140515AFC (KeCheckForTimer.c)
- *     VerifierFreeTrackedPool @ 0x1405A1CA0 (VerifierFreeTrackedPool.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
- *     ExpCheckForResource @ 0x1405B5624 (ExpCheckForResource.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5C64 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5DBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpCheckForLookaside @ 0x1405B6A48 (ExpCheckForLookaside.c)
- *     ExpCheckForWorker @ 0x1405B6FC4 (ExpCheckForWorker.c)
- *     ExpFreeHeapSpecialPool @ 0x1405BA0E0 (ExpFreeHeapSpecialPool.c)
- *     VfFreePoolNotification @ 0x1409E0074 (VfFreePoolNotification.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     KeCheckForTimer @ 0x140515D3C (KeCheckForTimer.c)
+ *     VerifierFreeTrackedPool @ 0x1405A1ED0 (VerifierFreeTrackedPool.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
+ *     ExpCheckForResource @ 0x1405B5854 (ExpCheckForResource.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5E94 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5FEC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpCheckForLookaside @ 0x1405B6C78 (ExpCheckForLookaside.c)
+ *     ExpCheckForWorker @ 0x1405B71F4 (ExpCheckForWorker.c)
+ *     ExpFreeHeapSpecialPool @ 0x1405BA310 (ExpFreeHeapSpecialPool.c)
+ *     VfFreePoolNotification @ 0x1409E1074 (VfFreePoolNotification.c)
  */
 
-PSLIST_ENTRY __fastcall ExFreeHeapPool(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+PSLIST_ENTRY __fastcall ExFreeHeapPool(ULONG_PTR BugCheckParameter2)
 {
-  char v5; // al
-  int v6; // eax
-  __int64 v7; // rcx
-  ULONG_PTR v8; // rax
-  __int64 v9; // rbx
-  unsigned __int8 v10; // al
-  ULONG_PTR v11; // rdi
-  unsigned int v12; // r15d
-  int v13; // r13d
-  int v14; // r12d
-  __int64 v15; // r14
-  __int64 v16; // rax
-  int v17; // r11d
-  __int64 v18; // r9
-  unsigned int v19; // eax
-  __int64 v20; // r8
-  int v21; // ecx
-  _DWORD *v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // rdx
-  struct _KPROCESS *v27; // r14
-  ULONG v28; // edx
-  __int64 v29; // rcx
-  int v30; // eax
-  unsigned int v31; // r14d
+  char v2; // al
+  int v3; // eax
+  __int64 v4; // rcx
+  ULONG_PTR v5; // rax
+  __int64 v6; // rbx
+  unsigned __int8 v7; // al
+  ULONG_PTR v8; // rdi
+  unsigned int v9; // r15d
+  int v10; // r13d
+  int v11; // r12d
+  __int64 v12; // r14
+  __int64 v13; // rax
+  int v14; // r11d
+  __int64 v15; // r9
+  unsigned int v16; // eax
+  __int64 v17; // r8
+  int v18; // ecx
+  _DWORD *v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rdx
+  struct _KPROCESS *v24; // r14
+  ULONG v25; // edx
+  __int64 v26; // rcx
+  int v27; // eax
+  unsigned int v28; // r14d
   unsigned __int8 CurrentIrql; // r13
   struct _KPRCB *CurrentPrcb; // rdi
-  _DWORD *v34; // rcx
-  int v35; // ett
-  __int64 v36; // r9
-  volatile signed __int32 *v37; // r10
-  unsigned __int64 v38; // r11
-  int v39; // r15d
-  unsigned int v40; // r8d
-  __int64 v41; // rcx
-  struct _KPRCB *v42; // rcx
-  _DWORD *v43; // rdx
+  _DWORD *v31; // rcx
+  int v32; // ett
+  __int64 v33; // r9
+  volatile signed __int32 *v34; // r10
+  unsigned __int64 v35; // r11
+  int v36; // r15d
+  unsigned int v37; // r8d
+  __int64 v38; // rcx
+  struct _KPRCB *v39; // rcx
+  _DWORD *v40; // rdx
   _QWORD *HeapManager; // rax
-  __int64 v45; // rax
-  int v46; // ecx
-  _DWORD *v47; // rcx
+  __int64 v42; // rax
+  int v43; // ecx
+  _DWORD *v44; // rcx
+  _DWORD *SchedulerAssist; // r9
+  int v46; // eax
+  int v47; // eax
   int v48; // eax
-  int v49; // eax
-  int v50; // eax
-  unsigned __int8 v51; // al
-  struct _KPRCB *v52; // r9
-  _DWORD *v53; // r8
-  int v54; // eax
-  bool v55; // zf
-  __int128 v56; // [rsp+30h] [rbp-88h]
-  __int128 v57; // [rsp+40h] [rbp-78h] BYREF
-  __int128 v58[2]; // [rsp+50h] [rbp-68h] BYREF
+  unsigned __int8 v49; // al
+  struct _KPRCB *v50; // r9
+  _DWORD *v51; // r8
+  int v52; // eax
+  bool v53; // zf
+  __int128 v54; // [rsp+30h] [rbp-88h]
+  __int128 v55; // [rsp+40h] [rbp-78h] BYREF
+  __int128 v56[2]; // [rsp+50h] [rbp-68h] BYREF
   void *retaddr; // [rsp+B8h] [rbp+0h]
-  int v60; // [rsp+C0h] [rbp+8h] BYREF
-  __int64 *v61; // [rsp+C8h] [rbp+10h] BYREF
-  int v62; // [rsp+D0h] [rbp+18h]
-  int v63; // [rsp+D4h] [rbp+1Ch]
-  __int64 v64; // [rsp+D8h] [rbp+20h]
+  int v58; // [rsp+C0h] [rbp+8h] BYREF
+  __int64 *v59; // [rsp+C8h] [rbp+10h] BYREF
+  int v60; // [rsp+D0h] [rbp+18h]
+  int v61; // [rsp+D4h] [rbp+1Ch]
+  __int64 v62; // [rsp+D8h] [rbp+20h]
 
-  v64 = 0LL;
-  if ( BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140C4F9C8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
-    v5 = 5;
+  v62 = 0LL;
+  if ( BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140C4FA08[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
+    v2 = 5;
   else
-    v5 = 3;
-  v56 = 0LL;
-  *(_WORD *)((char *)&v56 + 1) = 1;
-  LOBYTE(v56) = v5;
-  v58[1] = v56;
+    v2 = 3;
+  v54 = 0LL;
+  *(_WORD *)((char *)&v54 + 1) = 1;
+  LOBYTE(v54) = v2;
+  v56[1] = v54;
   if ( (_WORD)BugCheckParameter2 )
   {
-    v6 = 0;
+    v3 = 0;
 LABEL_6:
-    v7 = v6;
-    v62 = 0x100000;
-    v63 = 0x1000000;
-    v8 = BugCheckParameter2 & ~((unsigned int)*(&v62 + v6) - 1LL);
-    v9 = (RtlpHpHeapGlobals ^ v8 ^ *(_QWORD *)(v8 + 16) ^ 0xA2E64EADA2E64EADuLL) - 192 * v7 - 256;
+    v4 = v3;
+    v60 = 0x100000;
+    v61 = 0x1000000;
+    v5 = BugCheckParameter2 & ~((unsigned int)*(&v60 + v3) - 1LL);
+    v6 = (RtlpHpHeapGlobals ^ v5 ^ *(_QWORD *)(v5 + 16) ^ 0xA2E64EADA2E64EADuLL) - 192 * v4 - 256;
     goto LABEL_7;
   }
-  v57 = v56;
-  HeapManager = RtlpHpEnvGetHeapManager(&v57);
-  v45 = RtlCSparseBitmapBitmaskRead((__int64)(HeapManager + 2), 2 * ((BugCheckParameter2 - HeapManager[1]) >> 20));
-  if ( v45 )
+  v55 = v54;
+  HeapManager = RtlpHpEnvGetHeapManager(&v55);
+  v42 = RtlCSparseBitmapBitmaskRead((__int64)(HeapManager + 2), 2 * ((BugCheckParameter2 - HeapManager[1]) >> 20));
+  if ( v42 )
   {
-    v6 = v45 - 1;
-    if ( v6 != 2 )
+    v3 = v42 - 1;
+    if ( v3 != 2 )
       goto LABEL_6;
   }
-  v61 = 0LL;
-  v60 = 0;
-  v58[0] = v56;
-  RtlpHpQueryVA(BugCheckParameter2, v58, &v61, &v60);
-  v9 = *v61;
+  v59 = 0LL;
+  v58 = 0;
+  v56[0] = v54;
+  RtlpHpQueryVA(BugCheckParameter2, v56, &v59, &v58);
+  v6 = *v59;
 LABEL_7:
-  if ( !v9 )
+  if ( !v6 )
     KeBugCheckEx(0xC2u, 0LL, 0LL, BugCheckParameter2, 0LL);
-  if ( !ExpSpecialAllocations || !(unsigned int)ExpHpIsSpecialPoolHeap(v9) )
+  if ( !ExpSpecialAllocations || !(unsigned int)ExpHpIsSpecialPoolHeap(v6) )
   {
     if ( (BugCheckParameter2 & 0xFFF) != 0 )
     {
-      v10 = *(_BYTE *)(BugCheckParameter2 - 13);
-      v11 = BugCheckParameter2 - 16;
-      if ( (v10 & 4) != 0 )
+      v7 = *(_BYTE *)(BugCheckParameter2 - 13);
+      v8 = BugCheckParameter2 - 16;
+      if ( (v7 & 4) != 0 )
       {
-        v11 += -16LL * (unsigned __int8)*(_WORD *)v11;
-        *(_BYTE *)(v11 + 3) |= 4u;
-        v10 = *(_BYTE *)(v11 + 3);
+        v8 += -16LL * (unsigned __int8)*(_WORD *)v8;
+        *(_BYTE *)(v8 + 3) |= 4u;
+        v7 = *(_BYTE *)(v8 + 3);
       }
-      v12 = *(_DWORD *)(v11 + 4);
-      v13 = v11 + 16;
-      v14 = v10;
-      if ( (v10 & 8) != 0 )
+      v9 = *(_DWORD *)(v8 + 4);
+      v10 = v8 + 16;
+      v11 = v7;
+      if ( (v7 & 8) != 0 )
       {
-        v27 = (struct _KPROCESS *)(v11 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v11 + 8));
-        if ( v27 )
+        v24 = (struct _KPROCESS *)(v8 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v8 + 8));
+        if ( v24 )
         {
-          if ( (unsigned __int64)v27 < 0xFFFF800000000000uLL || (v27->Header.Type & 0x7F) != 3 )
+          if ( (unsigned __int64)v24 < 0xFFFF800000000000uLL || (v24->Header.Type & 0x7F) != 3 )
             KeBugCheckEx(
               0xC2u,
               0xDuLL,
-              v11 + 16,
-              *(unsigned int *)(v11 + 4),
-              v11 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v11 + 8));
-          v28 = *(_DWORD *)(v11 + 4);
-          if ( v27 != PsInitialSystemProcess )
+              v8 + 16,
+              *(unsigned int *)(v8 + 4),
+              v8 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v8 + 8));
+          v25 = *(_DWORD *)(v8 + 4);
+          if ( v24 != PsInitialSystemProcess )
           {
             PspReturnQuota(
-              *(char **)((v11 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v11 + 8)) + 0x568),
-              v11 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v11 + 8),
-              v10 & 1,
-              16LL * (unsigned __int8)*(_WORD *)(v11 + 2));
-            v28 = *(_DWORD *)(v11 + 4);
+              *(char **)((v8 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v8 + 8)) + 0x568),
+              v8 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v8 + 8),
+              v7 & 1,
+              16LL * (unsigned __int8)*(_WORD *)(v8 + 2));
+            v25 = *(_DWORD *)(v8 + 4);
           }
-          ObDereferenceObjectDeferDeleteWithTag(v27, v28);
+          ObDereferenceObjectDeferDeleteWithTag(v24, v25);
         }
       }
-      v15 = 16LL * (unsigned __int8)*(_WORD *)(v11 + 2);
+      v12 = 16LL * (unsigned __int8)*(_WORD *)(v8 + 2);
       goto LABEL_14;
     }
     if ( BugCheckParameter2 >= 0xFFFF800000000000uLL )
     {
-      v30 = (unsigned __int8)byte_140C4F9C8[((BugCheckParameter2 >> 39) & 0x1FF) - 256];
-      if ( v30 == 1 )
+      v27 = (unsigned __int8)byte_140C4FA08[((BugCheckParameter2 >> 39) & 0x1FF) - 256];
+      if ( v27 == 1 )
       {
-        v31 = 33;
+        v28 = 33;
 LABEL_49:
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-          a3 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
-          SchedulerAssist[5] = a3;
+          SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
         }
         if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
         {
@@ -239,90 +239,86 @@ LABEL_49:
         else
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v34 = CurrentPrcb->SchedulerAssist;
-          if ( v34 )
+          v31 = CurrentPrcb->SchedulerAssist;
+          if ( v31 )
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v48 = v34[6];
-              v34[6] = v48 + 1;
-              if ( v48 == -1 )
+              v46 = v31[6];
+              v31[6] = v46 + 1;
+              if ( v46 == -1 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
           _m_prefetchw(&ExpLargePoolTableLock);
-          v35 = ExpLargePoolTableLock & 0x7FFFFFFF;
-          if ( v35 != _InterlockedCompareExchange(
+          v32 = ExpLargePoolTableLock & 0x7FFFFFFF;
+          if ( v32 != _InterlockedCompareExchange(
                         &ExpLargePoolTableLock,
                         (ExpLargePoolTableLock & 0x7FFFFFFF) + 1,
                         ExpLargePoolTableLock & 0x7FFFFFFF) )
           {
-            v47 = CurrentPrcb->SchedulerAssist;
-            if ( v47 )
+            v44 = CurrentPrcb->SchedulerAssist;
+            if ( v44 )
             {
               if ( CurrentPrcb->NestingLevel <= 1u )
               {
-                v49 = v47[6] - 1;
-                v47[6] = v49;
-                if ( !v49 )
+                v47 = v44[6] - 1;
+                v44[6] = v47;
+                if ( !v47 )
                   KiRemoveSystemWorkPriorityKick(CurrentPrcb);
               }
             }
-            ExpWaitForSpinLockSharedAndAcquire(
-              (unsigned __int64)&ExpLargePoolTableLock,
-              CurrentIrql,
-              a3,
-              SchedulerAssist);
+            ExpWaitForSpinLockSharedAndAcquire(&ExpLargePoolTableLock, CurrentIrql);
           }
         }
-        if ( (v31 & 0x20) != 0 )
+        if ( (v28 & 0x20) != 0 )
         {
-          v36 = *(_QWORD *)(qword_140C4DDE0 + 992);
-          v37 = (volatile signed __int32 *)(qword_140C4DDE0 + 864);
-          v38 = *(_QWORD *)(qword_140C4DDE0 + 1000);
+          v33 = *(_QWORD *)(qword_140C4DE20 + 992);
+          v34 = (volatile signed __int32 *)(qword_140C4DE20 + 864);
+          v35 = *(_QWORD *)(qword_140C4DE20 + 1000);
         }
         else
         {
-          v36 = PoolBigPageTable;
-          v37 = &ExpPoolBigEntriesInUse;
-          v38 = PoolBigPageTableSize;
+          v33 = PoolBigPageTable;
+          v34 = &ExpPoolBigEntriesInUse;
+          v35 = PoolBigPageTableSize;
         }
 LABEL_55:
-        v39 = 1;
-        v40 = (((40543 * (unsigned __int64)(unsigned int)(BugCheckParameter2 >> 12)) >> 32) ^ (40543
-                                                                                             * (BugCheckParameter2 >> 12))) & (v38 - 1);
-        while ( *(_QWORD *)(v36 + 24LL * v40) != BugCheckParameter2 )
+        v36 = 1;
+        v37 = (((40543 * (unsigned __int64)(unsigned int)(BugCheckParameter2 >> 12)) >> 32) ^ (40543
+                                                                                             * (BugCheckParameter2 >> 12))) & (v35 - 1);
+        while ( *(_QWORD *)(v33 + 24LL * v37) != BugCheckParameter2 )
         {
-          if ( ++v40 >= v38 )
+          if ( ++v37 >= v35 )
           {
-            if ( !v39 )
+            if ( !v36 )
             {
 LABEL_96:
-              if ( v31
-                || v36 != PoolBigPageTable
+              if ( v28
+                || v33 != PoolBigPageTable
                 || (unsigned int)MmGetSessionIdEx(KeGetCurrentThread()->ApcState.Process) == -1
-                || (v36 = *(_QWORD *)(qword_140C4DDE0 + 992),
-                    v37 = (volatile signed __int32 *)(qword_140C4DDE0 + 864),
-                    v38 = *(_QWORD *)(qword_140C4DDE0 + 1000),
-                    !v36)
-                || !v38 )
+                || (v33 = *(_QWORD *)(qword_140C4DE20 + 992),
+                    v34 = (volatile signed __int32 *)(qword_140C4DE20 + 864),
+                    v35 = *(_QWORD *)(qword_140C4DE20 + 1000),
+                    !v33)
+                || !v35 )
               {
-                KeBugCheckEx(0x19u, 0x22uLL, BugCheckParameter2, v31, 0LL);
+                KeBugCheckEx(0x19u, 0x22uLL, BugCheckParameter2, v28, 0LL);
               }
               goto LABEL_55;
             }
-            v40 = 0;
-            v39 = 0;
+            v37 = 0;
+            v36 = 0;
           }
         }
-        v41 = v36 + 24LL * v40;
-        if ( !v41 )
+        v38 = v33 + 24LL * v37;
+        if ( !v38 )
           goto LABEL_96;
-        v12 = *(_DWORD *)(v41 + 8);
-        v15 = *(_QWORD *)(v41 + 16);
-        v14 = (*(_DWORD *)(v41 + 12) >> 8) & 0xFFF;
-        _InterlockedDecrement(v37);
-        _InterlockedIncrement64((volatile signed __int64 *)v41);
+        v9 = *(_DWORD *)(v38 + 8);
+        v12 = *(_QWORD *)(v38 + 16);
+        v11 = (*(_DWORD *)(v38 + 12) >> 8) & 0xFFF;
+        _InterlockedDecrement(v34);
+        _InterlockedIncrement64((volatile signed __int64 *)v38);
         if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
         {
           ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&ExpLargePoolTableLock, retaddr);
@@ -332,130 +328,130 @@ LABEL_96:
           _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
           _InterlockedDecrement(&ExpLargePoolTableLock);
         }
-        v42 = KeGetCurrentPrcb();
-        v43 = v42->SchedulerAssist;
-        if ( v43 )
+        v39 = KeGetCurrentPrcb();
+        v40 = v39->SchedulerAssist;
+        if ( v40 )
         {
-          if ( v42->NestingLevel <= 1u )
+          if ( v39->NestingLevel <= 1u )
           {
-            v50 = v43[6] - 1;
-            v43[6] = v50;
-            if ( !v50 )
-              KiRemoveSystemWorkPriorityKick(v42);
+            v48 = v40[6] - 1;
+            v40[6] = v48;
+            if ( !v48 )
+              KiRemoveSystemWorkPriorityKick(v39);
           }
         }
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v51 = KeGetCurrentIrql();
-            if ( v51 <= 0xFu && CurrentIrql <= 0xFu && v51 >= 2u )
+            v49 = KeGetCurrentIrql();
+            if ( v49 <= 0xFu && CurrentIrql <= 0xFu && v49 >= 2u )
             {
-              v52 = KeGetCurrentPrcb();
-              v53 = v52->SchedulerAssist;
-              v54 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-              v55 = (v54 & v53[5]) == 0;
-              v53[5] &= v54;
-              if ( v55 )
-                KiRemoveSystemWorkPriorityKick(v52);
+              v50 = KeGetCurrentPrcb();
+              v51 = v50->SchedulerAssist;
+              v52 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+              v53 = (v52 & v51[5]) == 0;
+              v51[5] &= v52;
+              if ( v53 )
+                KiRemoveSystemWorkPriorityKick(v50);
             }
           }
         }
         __writecr8(CurrentIrql);
-        v11 = BugCheckParameter2;
-        v13 = BugCheckParameter2;
+        v8 = BugCheckParameter2;
+        v10 = BugCheckParameter2;
 LABEL_14:
         if ( (ExpPoolFlags & 0x207) != 0 )
         {
-          if ( (ExpPoolFlags & 0x200) != 0 && !v14 )
-            ExpCheckForLookaside(v11, v15);
+          if ( (ExpPoolFlags & 0x200) != 0 && !v11 )
+            ExpCheckForLookaside(v8, v12);
           if ( (ExpPoolFlags & 1) != 0 )
-            KeCheckForTimer(v11);
+            KeCheckForTimer(v8);
           if ( (ExpPoolFlags & 4) != 0 )
-            ExpCheckForResource(v11, v15);
+            ExpCheckForResource(v8, v12);
           if ( (ExpPoolFlags & 2) != 0 )
-            ExpCheckForWorker(v11);
+            ExpCheckForWorker(v8);
         }
         if ( (ExpPoolFlags & 0x10) != 0 )
-          VfFreePoolNotification(v11, v15);
-        if ( v12 == PoolHitTag )
+          VfFreePoolNotification(v8, v12);
+        if ( v9 == PoolHitTag )
           __debugbreak();
-        v16 = DWORD1(PerfGlobalGroupMask);
+        v13 = DWORD1(PerfGlobalGroupMask);
         if ( (BYTE4(PerfGlobalGroupMask) & 0x41) != 0 )
-          v16 = EtwTracePool(3618, v14, v12, v13, v15);
-        if ( (v14 & 0x20) != 0 )
+          v13 = EtwTracePool(3618, v11, v9, v10, v12);
+        if ( (v11 & 0x20) != 0 )
         {
-          v18 = ExpSessionPoolTrackTable;
-          v17 = ExpSessionPoolTrackTableMask;
+          v15 = ExpSessionPoolTrackTable;
+          v14 = ExpSessionPoolTrackTableMask;
         }
         else
         {
-          LODWORD(v16) = KeGetPcr()->Prcb.Number;
-          v17 = PoolTrackTableMask;
-          v18 = (__int64)*(&ExPoolTagTables + v16);
+          LODWORD(v13) = KeGetPcr()->Prcb.Number;
+          v14 = PoolTrackTableMask;
+          v15 = (__int64)*(&ExPoolTagTables + v13);
         }
-        v19 = v17 & ((40543 * v12) ^ ((40543 * (unsigned __int64)v12) >> 32));
+        v16 = v14 & ((40543 * v9) ^ ((40543 * (unsigned __int64)v9) >> 32));
         while ( 1 )
         {
-          v20 = 56LL * v19;
-          v21 = *(_DWORD *)(v20 + v18);
-          v22 = (_DWORD *)(v20 + v18);
-          if ( v21 == v12 )
+          v17 = 56LL * v16;
+          v18 = *(_DWORD *)(v17 + v15);
+          v19 = (_DWORD *)(v17 + v15);
+          if ( v18 == v9 )
             break;
-          if ( v21 || (v14 & 0x20) != 0 || (v46 = *(_DWORD *)(v20 + PoolTrackTable)) == 0 )
+          if ( v18 || (v11 & 0x20) != 0 || (v43 = *(_DWORD *)(v17 + PoolTrackTable)) == 0 )
           {
-            v19 = v17 & (v19 + 1);
-            if ( v19 == (v17 & ((40543 * v12) ^ ((40543 * (unsigned __int64)v12) >> 32))) )
+            v16 = v14 & (v16 + 1);
+            if ( v16 == (v14 & ((40543 * v9) ^ ((40543 * (unsigned __int64)v9) >> 32))) )
             {
-              ExpRemovePoolTrackerExpansion(v12, v15, v14);
+              ExpRemovePoolTrackerExpansion(v9, v12, v11);
               goto LABEL_28;
             }
           }
           else
           {
-            *v22 = v46;
+            *v19 = v43;
           }
         }
-        if ( (v14 & 1) != 0 )
+        if ( (v11 & 1) != 0 )
         {
-          v23 = 8LL;
-          v24 = 12LL;
+          v20 = 8LL;
+          v21 = 12LL;
         }
         else
         {
-          v23 = 2LL;
-          v24 = 6LL;
+          v20 = 2LL;
+          v21 = 6LL;
         }
-        _InterlockedIncrement64((volatile signed __int64 *)&v22[v24]);
-        _InterlockedExchangeAdd64((volatile signed __int64 *)&v22[v23], -v15);
+        _InterlockedIncrement64((volatile signed __int64 *)&v19[v21]);
+        _InterlockedExchangeAdd64((volatile signed __int64 *)&v19[v20], -v12);
 LABEL_28:
-        if ( (v14 & 0x40) != 0 )
-          VerifierFreeTrackedPool(BugCheckParameter2, v15);
-        v25 = *(_QWORD *)(v9 + 40);
-        if ( (unsigned __int64)(v15 - 513) <= 0xD7F && v25 )
+        if ( (v11 & 0x40) != 0 )
+          VerifierFreeTrackedPool(BugCheckParameter2, v12);
+        v22 = *(_QWORD *)(v6 + 40);
+        if ( (unsigned __int64)(v12 - 513) <= 0xD7F && v22 )
         {
-          v29 = v25
+          v26 = v22
               + (((unsigned int)*((unsigned __int8 *)RtlpLfhBucketIndexMap
-                                + ((unsigned __int64)(unsigned int)(v15 + 15) >> 4))
+                                + ((unsigned __int64)(unsigned int)(v12 + 15) >> 4))
                 - 33
                 + 1LL) << 6);
-          ++*(_DWORD *)(v29 + 28);
-          if ( *(_WORD *)v29 < *(_WORD *)(v29 + 16) )
-            return RtlpInterlockedPushEntrySList((PSLIST_HEADER)v29, (PSLIST_ENTRY)v11);
-          ++*(_DWORD *)(v29 + 32);
+          ++*(_DWORD *)(v26 + 28);
+          if ( *(_WORD *)v26 < *(_WORD *)(v26 + 16) )
+            return RtlpInterlockedPushEntrySList((PSLIST_HEADER)v26, (PSLIST_ENTRY)v8);
+          ++*(_DWORD *)(v26 + 32);
         }
-        return (PSLIST_ENTRY)RtlpHpFreeHeap(v9, v11, 0LL);
+        return (PSLIST_ENTRY)RtlpHpFreeHeap(v6, v8, 0LL);
       }
-      if ( v30 != 5 && (_BYTE)v30 == 6 )
+      if ( v27 != 5 && (_BYTE)v27 == 6 )
       {
-        v31 = 1;
+        v28 = 1;
         goto LABEL_49;
       }
     }
-    v31 = 0;
+    v28 = 0;
     goto LABEL_49;
   }
   if ( _InterlockedExchangeAdd(&ExpSpecialAllocations, 0xFFFFFFFF) == 1 )
-    _InterlockedDecrement(&dword_140C4EED8);
-  return (PSLIST_ENTRY)ExpFreeHeapSpecialPool(v9, BugCheckParameter2);
+    _InterlockedDecrement(&dword_140C4EF18);
+  return (PSLIST_ENTRY)ExpFreeHeapSpecialPool(v6, BugCheckParameter2);
 }

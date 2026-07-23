@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmFireWmiEvent @ 0x1402E4558
+ * XREFs of PpmFireWmiEvent @ 0x1402E4748
  * Callers:
- *     PpmEventProcessorPerfStateChange @ 0x14017584C (PpmEventProcessorPerfStateChange.c)
- *     PpmEventDomainPerfStateChange @ 0x1401784B0 (PpmEventDomainPerfStateChange.c)
- *     PopFireThermalWmiEvent @ 0x1402DC26C (PopFireThermalWmiEvent.c)
- *     PpmEventThermalCapChange @ 0x1402E634C (PpmEventThermalCapChange.c)
+ *     PpmEventProcessorPerfStateChange @ 0x14017594C (PpmEventProcessorPerfStateChange.c)
+ *     PpmEventDomainPerfStateChange @ 0x1401785B0 (PpmEventDomainPerfStateChange.c)
+ *     PopFireThermalWmiEvent @ 0x1402DC45C (PopFireThermalWmiEvent.c)
+ *     PpmEventThermalCapChange @ 0x1402E653C (PpmEventThermalCapChange.c)
  * Callees:
- *     IoWMIWriteEvent @ 0x14010BDC0 (IoWMIWriteEvent.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PpmAllocWmiEvent @ 0x1402E44B0 (PpmAllocWmiEvent.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IoWMIWriteEvent @ 0x14010BE40 (IoWMIWriteEvent.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PpmAllocWmiEvent @ 0x1402E46A0 (PpmAllocWmiEvent.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmFireWmiEvent(__int64 a1, __int128 *a2, unsigned int a3, const void *a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpBuddyAllocatorAllocateLogicalAddress @ 0x140531B80
+ * XREFs of HalpBuddyAllocatorAllocateLogicalAddress @ 0x1405320D0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpBuddyAllocatorBltAdd @ 0x140531FE0 (HalpBuddyAllocatorBltAdd.c)
- *     HalpBuddyAllocatorBltFindAndPop @ 0x1405320B8 (HalpBuddyAllocatorBltFindAndPop.c)
- *     HalpBuddyAllocatorDeleteSubtree @ 0x1405325D8 (HalpBuddyAllocatorDeleteSubtree.c)
- *     HalpBuddyAllocatorSplitNode @ 0x140532908 (HalpBuddyAllocatorSplitNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x140532530 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltFindAndPop @ 0x140532608 (HalpBuddyAllocatorBltFindAndPop.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x140532B28 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorSplitNode @ 0x140532E58 (HalpBuddyAllocatorSplitNode.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorAllocateLogicalAddress(
@@ -110,10 +110,13 @@ __int64 __fastcall HalpBuddyAllocatorAllocateLogicalAddress(
   if ( !v21 )
   {
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 112));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v20 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v20 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -121,17 +124,17 @@ __int64 __fastcall HalpBuddyAllocatorAllocateLogicalAddress(
         v26 = (v25 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v25;
         if ( v26 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v20);
     v47 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 112));
     v21 = HalpBuddyAllocatorBltFindAndPop(i, a1, v15, v16);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 112));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v27 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && v47 <= 0xFu && v27 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && v47 <= 0xFu && v27 >= 2u )
       {
         v28 = KeGetCurrentPrcb();
         v29 = v28->SchedulerAssist;
@@ -139,7 +142,7 @@ __int64 __fastcall HalpBuddyAllocatorAllocateLogicalAddress(
         v26 = (v30 & v29[5]) == 0;
         v29[5] &= v30;
         if ( v26 )
-          KiRemoveSystemWorkPriorityKick(v28);
+          KiRemoveSystemWorkPriorityKick((__int64)v28);
       }
     }
     __writecr8(v47);
@@ -187,10 +190,10 @@ LABEL_61:
 LABEL_52:
     HalpBuddyAllocatorDeleteSubtree(a1, v31);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 112));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v36 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v36 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v36 >= 2u )
       {
         v37 = KeGetCurrentPrcb();
         v38 = v37->SchedulerAssist;
@@ -198,7 +201,7 @@ LABEL_52:
         v26 = (v39 & v38[5]) == 0;
         v38[5] &= v39;
         if ( v26 )
-          KiRemoveSystemWorkPriorityKick(v37);
+          KiRemoveSystemWorkPriorityKick((__int64)v37);
       }
     }
     __writecr8((unsigned __int8)v20);
@@ -216,10 +219,10 @@ LABEL_52:
     while ( v42 );
   }
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 112));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v43 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v43 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v43 >= 2u )
     {
       v44 = KeGetCurrentPrcb();
       v45 = v44->SchedulerAssist;
@@ -227,7 +230,7 @@ LABEL_52:
       v26 = (v46 & v45[5]) == 0;
       v45[5] &= v46;
       if ( v26 )
-        KiRemoveSystemWorkPriorityKick(v44);
+        KiRemoveSystemWorkPriorityKick((__int64)v44);
     }
   }
   __writecr8((unsigned __int8)v20);

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckAcquireProcessorPerformance @ 0x140350F50
+ * XREFs of PpmCheckAcquireProcessorPerformance @ 0x1403510F0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfControlExecuteAction @ 0x1403564BC (PpmPerfControlExecuteAction.c)
+ *     PpmPerfControlExecuteAction @ 0x14035665C (PpmPerfControlExecuteAction.c)
  */
 
 char PpmCheckAcquireProcessorPerformance()

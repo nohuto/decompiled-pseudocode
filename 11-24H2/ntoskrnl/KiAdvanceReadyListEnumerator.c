@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAdvanceReadyListEnumerator @ 0x140299BE0
+ * XREFs of KiAdvanceReadyListEnumerator @ 0x1402A86D0
  * Callers:
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
  *     <none>
  */

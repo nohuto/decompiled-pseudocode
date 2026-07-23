@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpFastFlushAddressSpaceTbEx @ 0x1403E6A1C
+ * XREFs of HvlpFastFlushAddressSpaceTbEx @ 0x1402F38FC
  * Callers:
- *     KiFlushAddressSpaceTb @ 0x14024FEF8 (KiFlushAddressSpaceTb.c)
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     KeFlushCurrentTbOnly @ 0x140250688 (KeFlushCurrentTbOnly.c)
- *     KeFlushTb @ 0x1402507D0 (KeFlushTb.c)
+ *     KiFlushAddressSpaceTb @ 0x140251858 (KiFlushAddressSpaceTb.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     KeFlushCurrentTbOnly @ 0x140251FE8 (KeFlushCurrentTbOnly.c)
+ *     KeFlushTb @ 0x140252130 (KeFlushTb.c)
  * Callees:
- *     HvcallFastExtended @ 0x14032BFB0 (HvcallFastExtended.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1403E77FC (HvlpAffinityToHvProcessorSet.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1402F46DC (HvlpAffinityToHvProcessorSet.c)
+ *     HvcallFastExtended @ 0x14032DFE0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlpFastFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3)
@@ -24,5 +24,5 @@ __int64 __fastcall HvlpFastFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3
     v3 = a3 != 0 ? 0 : 4;
   v6[1] = v3;
   v4 = HvlpAffinityToHvProcessorSet(a2, v7, 80LL);
-  return HvcallFastExtended(((v4 + 7) << 14) & 0x3FE0000 | 0x10013LL, (unsigned __int64)v6, v4 + 32, 0LL, 0);
+  return HvcallFastExtended(((v4 + 7) << 14) & 0x3FE0000 | 0x10013u, (unsigned int)v6, v4 + 32, 0, 0);
 }

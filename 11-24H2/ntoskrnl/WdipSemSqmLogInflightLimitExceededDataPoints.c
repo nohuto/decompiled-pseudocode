@@ -1,28 +1,28 @@
 /*
- * XREFs of WdipSemSqmLogInflightLimitExceededDataPoints @ 0x140A47970
+ * XREFs of WdipSemSqmLogInflightLimitExceededDataPoints @ 0x140A3D790
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x140A47800 (WdipTimeoutCheckRoutine.c)
+ *     WdipTimeoutCheckRoutine @ 0x140A3D620 (WdipTimeoutCheckRoutine.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WdipSemGetGuidKey @ 0x1407A2EF8 (WdipSemGetGuidKey.c)
- *     WdipSemSqmAddToStream @ 0x1407A34C4 (WdipSemSqmAddToStream.c)
- *     WdipSemSqmIncrementDword @ 0x1407A3628 (WdipSemSqmIncrementDword.c)
- *     WdipSemFreeFrequentScenarioTable @ 0x140A47A90 (WdipSemFreeFrequentScenarioTable.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WdipSemGetGuidKey @ 0x1407A3008 (WdipSemGetGuidKey.c)
+ *     WdipSemSqmAddToStream @ 0x1407A35D4 (WdipSemSqmAddToStream.c)
+ *     WdipSemSqmIncrementDword @ 0x1407A3738 (WdipSemSqmIncrementDword.c)
+ *     WdipSemFreeFrequentScenarioTable @ 0x140A3D8B0 (WdipSemFreeFrequentScenarioTable.c)
  */
 
 __int64 WdipSemSqmLogInflightLimitExceededDataPoints()
 {
   struct _KTHREAD *CurrentThread; // rax
   int v1; // ebx
-  _QWORD *v2; // rax
+  char *v2; // rax
   __int64 v3; // rcx
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
+  char *v5; // rdi
   __int64 v6; // rdi
   signed __int64 v7; // rdx
   ULONG_PTR v8; // rtt
@@ -37,17 +37,17 @@ __int64 WdipSemSqmLogInflightLimitExceededDataPoints()
   v13 = 0;
   v1 = 0;
   --CurrentThread->KernelApcDisable;
-  v2 = KeAbPreAcquire((__int64)&qword_140EFFEC8, 0LL);
-  v4 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140EFFEC8, 0LL);
+  v2 = (char *)KeAbPreAcquire((__int64)&qword_140F00188, 0LL);
+  v4 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140F00188, 0LL);
   v5 = v2;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&qword_140EFFEC8, (__int64)v2, (__int64)&qword_140EFFEC8);
+    ExfAcquirePushLockExclusiveEx(&qword_140F00188, v2, (__int64)&qword_140F00188);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
-  v6 = (unsigned int)dword_140EFFEC0;
-  if ( dword_140EFFEC0 )
+    v5[10] = 1;
+  v6 = (unsigned int)dword_140F00180;
+  if ( dword_140F00180 )
   {
-    v10 = WdipSemSqmIncrementDword(v3, dword_140EFFEC0);
+    v10 = WdipSemSqmIncrementDword(v3, dword_140F00180);
     if ( v10 >= 0 )
       v1 = v10;
     if ( (_DWORD)v6 )
@@ -76,17 +76,17 @@ __int64 WdipSemSqmLogInflightLimitExceededDataPoints()
     }
   }
   WdipSemFreeFrequentScenarioTable();
-  _m_prefetchw(&qword_140EFFEC8);
-  v7 = qword_140EFFEC8 - 16;
-  if ( (qword_140EFFEC8 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw(&qword_140F00188);
+  v7 = qword_140F00188 - 16;
+  if ( (qword_140F00188 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v7 = 0LL;
-  if ( (qword_140EFFEC8 & 2) != 0
-    || (v8 = qword_140EFFEC8,
-        v8 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140EFFEC8, v7, qword_140EFFEC8)) )
+  if ( (qword_140F00188 & 2) != 0
+    || (v8 = qword_140F00188,
+        v8 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F00188, v7, qword_140F00188)) )
   {
-    ExfReleasePushLock(&qword_140EFFEC8);
+    ExfReleasePushLock(&qword_140F00188);
   }
-  KeAbPostRelease((ULONG_PTR)&qword_140EFFEC8);
+  KeAbPostRelease((ULONG_PTR)&qword_140F00188);
   KeLeaveCriticalRegion();
   return (unsigned int)v1;
 }

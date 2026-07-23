@@ -1,18 +1,18 @@
 /*
- * XREFs of KeFlushSingleCurrentTb @ 0x1405F0C70
+ * XREFs of KeFlushSingleCurrentTb @ 0x1405F35E0
  * Callers:
- *     MiDbgUnmapPhysicalAddress @ 0x1406FEC6C (MiDbgUnmapPhysicalAddress.c)
+ *     MiDbgUnmapPhysicalAddress @ 0x14070393C (MiDbgUnmapPhysicalAddress.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlFlushRangeListTb @ 0x14032B100 (HvlFlushRangeListTb.c)
- *     ExFlushTb @ 0x14041D5A8 (ExFlushTb.c)
- *     VmFlushTb @ 0x14041D644 (VmFlushTb.c)
- *     KiIsSecureFlushRequired @ 0x14041D708 (KiIsSecureFlushRequired.c)
- *     KiPrepareFlushCurrentAffinity @ 0x14041D8A0 (KiPrepareFlushCurrentAffinity.c)
- *     KiPrepareFlushParameters @ 0x140470450 (KiPrepareFlushParameters.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlFlushRangeListTb @ 0x14032D130 (HvlFlushRangeListTb.c)
+ *     ExFlushTb @ 0x140414DF8 (ExFlushTb.c)
+ *     VmFlushTb @ 0x140414E94 (VmFlushTb.c)
+ *     KiIsSecureFlushRequired @ 0x140414F58 (KiIsSecureFlushRequired.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x1404150F0 (KiPrepareFlushCurrentAffinity.c)
+ *     KiPrepareFlushParameters @ 0x140469BD0 (KiPrepareFlushParameters.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KeFlushSingleCurrentTb(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDelayFreeRMWorker @ 0x140B43590
+ * XREFs of CmpDelayFreeRMWorker @ 0x140B45480
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 _KAFFINITY_EX *CmpDelayFreeRMWorker()
@@ -46,7 +46,7 @@ _KAFFINITY_EX *CmpDelayFreeRMWorker()
     CmpUnlockRegistry(v2);
     ExAcquireFastMutex(&CmpDelayFreeRMLock);
   }
-  LOBYTE(WheapPfaLock.Timer.Header.WaitListHead.Blink) = 0;
+  WheapPfaLock.WaitBlockFill4[0] = 0;
   KeReleaseGuardedMutex(&CmpDelayFreeRMLock);
   return CmCleanupThreadInfo((_KAFFINITY_EX **)&v4);
 }

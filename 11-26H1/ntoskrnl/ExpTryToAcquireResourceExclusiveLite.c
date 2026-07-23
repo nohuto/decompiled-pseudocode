@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x1406CE9D4
+ * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x1406D2A04
  * Callers:
- *     ExTryToAcquireResourceExclusiveLite @ 0x1406CE8B0 (ExTryToAcquireResourceExclusiveLite.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x1406D28E0 (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     ExpTryAcquireResourceExclusive @ 0x140204F40 (ExpTryAcquireResourceExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PerfLogExecutiveResourceAcquire @ 0x140495FA8 (PerfLogExecutiveResourceAcquire.c)
+ *     ExpTryAcquireResourceExclusive @ 0x140205020 (ExpTryAcquireResourceExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x14048FAF8 (PerfLogExecutiveResourceAcquire.c)
  */
 
 char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)

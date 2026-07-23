@@ -1,46 +1,46 @@
 /*
- * XREFs of KiDeferredReadySingleThread @ 0x140343EC0
+ * XREFs of KiDeferredReadySingleThread @ 0x14034EC10
  * Callers:
- *     KiReadyDeferredReadyList @ 0x140230D60 (KiReadyDeferredReadyList.c)
- *     KiReadyThread @ 0x140248640 (KiReadyThread.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
- *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
+ *     KiReadyDeferredReadyList @ 0x1402D55B0 (KiReadyDeferredReadyList.c)
+ *     KiReadyThread @ 0x1402ECE90 (KiReadyThread.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
+ *     KiAbProcessContextSwitch @ 0x1403529A0 (KiAbProcessContextSwitch.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140220210 (HalpInterruptSendIpi.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x14022FE90 (KiHvEnlightenedGuestPriorityKick.c)
- *     KiComputePriorityFloor @ 0x140230DC0 (KiComputePriorityFloor.c)
- *     KiUpdateThreadPriority @ 0x140230E50 (KiUpdateThreadPriority.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x14024C6A0 (KiEvaluateGroupSchedulingPreemption.c)
- *     KiIsThreadRankNonZero @ 0x14024D450 (KiIsThreadRankNonZero.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiTryScheduleNextForegroundBoost @ 0x140258DC8 (KiTryScheduleNextForegroundBoost.c)
- *     KiUpdateVPBackingThreadPriority @ 0x140258E10 (KiUpdateVPBackingThreadPriority.c)
- *     KiComputeNewPriority @ 0x1402592D0 (KiComputeNewPriority.c)
- *     KiGetThreadScb @ 0x14025A300 (KiGetThreadScb.c)
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiAddThreadToPrcbQueue @ 0x14029C210 (KiAddThreadToPrcbQueue.c)
- *     KiTryToAcquireThreadLock @ 0x1402AB270 (KiTryToAcquireThreadLock.c)
- *     KiScheduleNextForegroundBoost @ 0x1402B7D5C (KiScheduleNextForegroundBoost.c)
- *     KiTryToUpdateVPBackingThreadPriority @ 0x1402BF714 (KiTryToUpdateVPBackingThreadPriority.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402E9CCC (KiSetBasePriorityAndClearDecrement.c)
- *     KiInsertDeferredReadyList @ 0x1402EA540 (KiInsertDeferredReadyList.c)
- *     KiPrcbInGroupAffinity @ 0x1402EBA74 (KiPrcbInGroupAffinity.c)
- *     KiComputeThreadAffinity @ 0x1402EBAA0 (KiComputeThreadAffinity.c)
- *     KiAddThreadToScbQueue @ 0x1402EBCF4 (KiAddThreadToScbQueue.c)
- *     KiChooseTargetProcessor @ 0x140344DE0 (KiChooseTargetProcessor.c)
- *     KiSetVpThreadSpinLockCount @ 0x14034B590 (KiSetVpThreadSpinLockCount.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiAddThreadToPrcbQueue @ 0x140214370 (KiAddThreadToPrcbQueue.c)
+ *     KiTryToAcquireThreadLock @ 0x1402293B0 (KiTryToAcquireThreadLock.c)
+ *     KiScheduleNextForegroundBoost @ 0x140235F3C (KiScheduleNextForegroundBoost.c)
+ *     KiTryToUpdateVPBackingThreadPriority @ 0x14023DB64 (KiTryToUpdateVPBackingThreadPriority.c)
+ *     KiTryScheduleNextForegroundBoost @ 0x14027A338 (KiTryScheduleNextForegroundBoost.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x14027A380 (KiUpdateVPBackingThreadPriority.c)
+ *     KiComputeNewPriority @ 0x14027A840 (KiComputeNewPriority.c)
+ *     KiGetThreadScb @ 0x14027B870 (KiGetThreadScb.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14029B01C (KiSetBasePriorityAndClearDecrement.c)
+ *     KiInsertDeferredReadyList @ 0x14029B890 (KiInsertDeferredReadyList.c)
+ *     KiPrcbInGroupAffinity @ 0x14029CDC4 (KiPrcbInGroupAffinity.c)
+ *     KiComputeThreadAffinity @ 0x14029CDF0 (KiComputeThreadAffinity.c)
+ *     KiAddThreadToScbQueue @ 0x14029D044 (KiAddThreadToScbQueue.c)
+ *     HalpInterruptSendIpi @ 0x1402C4B10 (HalpInterruptSendIpi.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1402D46E0 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiComputePriorityFloor @ 0x1402D5610 (KiComputePriorityFloor.c)
+ *     KiUpdateThreadPriority @ 0x1402D56A0 (KiUpdateThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1402F0EF0 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiIsThreadRankNonZero @ 0x1402F1CA0 (KiIsThreadRankNonZero.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402F1D50 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiChooseTargetProcessor @ 0x14034FB30 (KiChooseTargetProcessor.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1403562E0 (KiSetVpThreadSpinLockCount.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiHeteroChooseTargetProcessor @ 0x14051F500 (KiHeteroChooseTargetProcessor.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x14051FC48 (KiReadGuestSchedulerAssistPriority.c)
- *     KiSetSchedulerAssistPriority @ 0x140520954 (KiSetSchedulerAssistPriority.c)
- *     KiIsThreadRankBiased @ 0x14052389C (KiIsThreadRankBiased.c)
- *     EtwTraceIdealProcessor @ 0x1405A7844 (EtwTraceIdealProcessor.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F740 (KiHeteroChooseTargetProcessor.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14051FE88 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiSetSchedulerAssistPriority @ 0x140520B94 (KiSetSchedulerAssistPriority.c)
+ *     KiIsThreadRankBiased @ 0x140523ADC (KiIsThreadRankBiased.c)
+ *     EtwTraceIdealProcessor @ 0x1405A7A74 (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KiDeferredReadySingleThread(__int64 a1, ULONG_PTR a2, __int64 p_DpcData, __int64 a4)
@@ -100,7 +100,7 @@ __int64 __fastcall KiDeferredReadySingleThread(__int64 a1, ULONG_PTR a2, __int64
   int v57; // eax
   struct _KDPC *v58; // rcx
   unsigned __int64 v59; // rcx
-  _KTHREAD *v60; // rbp
+  __int64 v60; // rbp
   ULONG_PTR v61; // rbp
   char v62; // di
   char v63; // cl
@@ -181,7 +181,7 @@ __int64 __fastcall KiDeferredReadySingleThread(__int64 a1, ULONG_PTR a2, __int64
   char v138[4]; // [rsp+38h] [rbp-1B0h] BYREF
   int v139; // [rsp+3Ch] [rbp-1ACh] BYREF
   __int64 v140; // [rsp+40h] [rbp-1A8h]
-  unsigned int v141; // [rsp+48h] [rbp-1A0h]
+  int v141; // [rsp+48h] [rbp-1A0h]
   __int64 v142; // [rsp+50h] [rbp-198h] BYREF
   __int128 v143; // [rsp+58h] [rbp-190h] BYREF
   int v144; // [rsp+68h] [rbp-180h] BYREF
@@ -307,7 +307,7 @@ LABEL_219:
   {
 LABEL_243:
     KiSetBasePriorityAndClearDecrement(a2, 0LL, 0);
-    KiUpdateThreadPriority(0LL, a2, (_SINGLE_LIST_ENTRY *)v112, 0);
+    KiUpdateThreadPriority(0LL, a2, (PVOID *)v112, 0);
   }
 LABEL_244:
   if ( (*(_DWORD *)(a2 + 120) & 0x400000) != 0 )
@@ -324,7 +324,7 @@ LABEL_7:
     }
     v46 = KiComputeNewPriority(a2, 1);
     if ( !v10 )
-      KiUpdateThreadPriority(0LL, a2, (_SINGLE_LIST_ENTRY *)(unsigned int)v46, 0);
+      KiUpdateThreadPriority(0LL, a2, (PVOID *)(unsigned int)v46, 0);
     KiTryScheduleNextForegroundBoost(a2);
     goto LABEL_72;
   }
@@ -748,7 +748,7 @@ LABEL_286:
     }
     if ( v22 )
       goto LABEL_141;
-    v60 = *(_KTHREAD **)(v27 + 16);
+    v60 = *(_QWORD *)(v27 + 16);
     if ( !v60 )
     {
       v61 = *(_QWORD *)(v27 + 8);
@@ -851,11 +851,11 @@ LABEL_105:
         }
         goto LABEL_141;
       }
-      if ( KiEvaluateGroupSchedulingPreemption((struct _KPRCB *)v27, (_KTHREAD *)v61, a2, &v142) )
+      if ( KiEvaluateGroupSchedulingPreemption((struct _KPRCB *)v27, v61, a2, &v142) )
         goto LABEL_105;
       goto LABEL_160;
     }
-    KiTryToUpdateVPBackingThreadPriority(*(_QWORD *)(v27 + 16), v27);
+    KiTryToUpdateVPBackingThreadPriority(*(_QWORD *)(v27 + 16));
     if ( KiGroupSchedulingEnabled )
     {
       if ( !KiEvaluateGroupSchedulingPreemption((struct _KPRCB *)v27, v60, a2, &v142) )
@@ -867,11 +867,11 @@ LABEL_141:
         goto LABEL_142;
       }
     }
-    else if ( *(_BYTE *)(a2 + 195) <= v60->Priority )
+    else if ( *(_BYTE *)(a2 + 195) <= *(_BYTE *)(v60 + 195) )
     {
       goto LABEL_141;
     }
-    v60->Preempted = 1;
+    *(_BYTE *)(v60 + 565) = 1;
     v87 = 2;
     if ( v23 )
       v87 = 6;
@@ -893,7 +893,7 @@ LABEL_141:
       *(_DWORD *)(a2 + 132) = *(_DWORD *)(a2 + 132) - *(_DWORD *)(a2 + 436) + MEMORY[0xFFFFF78000000320];
     v90 = v151;
     *(_BYTE *)(a2 + 388) = 3;
-    KiInsertDeferredReadyList(v90, (__int64)v60);
+    KiInsertDeferredReadyList(v90, v60);
     _InterlockedAnd64((volatile signed __int64 *)(v27 + 48), 0LL);
     KiSetVpThreadSpinLockCount(KeGetCurrentPrcb(), 0LL);
     v38 = *(_DWORD *)(a2 + 588);
@@ -909,7 +909,7 @@ LABEL_141:
   {
     _BitScanReverse64(&v122, v143);
     v146 = v122;
-    v119 = *(unsigned int *)(v121 + 4LL * ((unsigned int)v122 + (WORD4(v143) << 6)) + 13635792);
+    v119 = *(unsigned int *)(v121 + 4LL * ((unsigned int)v122 + (WORD4(v143) << 6)) + 13640912);
     v27 = *(_QWORD *)(v121 + 8 * v119 + 13622464);
   }
   v123 = KeGetCurrentPrcb();
@@ -956,7 +956,7 @@ LABEL_142:
     }
     v75 = v136;
   }
-  KiAddThreadToPrcbQueue(v27, a2, (unsigned int)*(char *)(a2 + 195), v141, v75);
+  KiAddThreadToPrcbQueue(v27, a2, *(char *)(a2 + 195), v141, v75);
 LABEL_151:
   _InterlockedAnd64((volatile signed __int64 *)(v27 + 48), 0LL);
   result = KiSetVpThreadSpinLockCount(KeGetCurrentPrcb(), 0LL);

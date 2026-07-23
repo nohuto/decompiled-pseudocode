@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlRbReplaceNode @ 0x140417D60
+ * XREFs of RtlRbReplaceNode @ 0x140407B10
  * Callers:
- *     KiAbProcessPostContextSwitch @ 0x14020FA80 (KiAbProcessPostContextSwitch.c)
+ *     KiAbProcessPostContextSwitch @ 0x140338DE0 (KiAbProcessPostContextSwitch.c)
  * Callees:
  *     <none>
  */

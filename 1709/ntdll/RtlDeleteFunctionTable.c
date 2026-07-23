@@ -15,55 +15,47 @@
 
 BOOLEAN __cdecl RtlDeleteFunctionTable(PRUNTIME_FUNCTION FunctionTable)
 {
-  unsigned __int64 v2; // rsi
+  __int64 *v2; // rsi
   BOOLEAN v3; // di
-  unsigned __int64 v4; // rdx
-  unsigned __int64 *v5; // r8
-  __int64 v6; // r9
-  unsigned __int64 v7; // rdx
-  unsigned __int64 *v8; // r8
-  __int64 v9; // r9
   __int64 *i; // rbx
-  __int64 v11; // rcx
-  __int64 **v12; // rax
-  void *v13; // rcx
-  unsigned __int64 v14; // rdx
-  unsigned __int64 *v15; // r8
-  __int64 v16; // r9
-  int v18; // edi
-  int v19; // edx
+  __int64 v5; // rcx
+  __int64 **v6; // rax
+  int v7; // eax
+  PVOID v8; // rcx
+  int v10; // edi
+  int v11; // edx
 
   v2 = 0LL;
   v3 = 0;
   LdrProtectMrdata(0);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpDynamicFunctionTableLock, v4, v5, v6);
+  RtlAcquireSRWLockExclusive(&RtlpDynamicFunctionTableLock);
   for ( i = (__int64 *)RtlpDynamicFunctionTable; i != &RtlpDynamicFunctionTable; i = (__int64 *)*i )
   {
-    v2 = (unsigned __int64)i;
+    v2 = i;
     if ( (PRUNTIME_FUNCTION)i[2] == FunctionTable )
     {
-      if ( qword_18016F370 && (byte_18016F35C & 1) == 0 )
+      if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, v7, v8, v9);
-        v18 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+        RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+        v10 = *(_DWORD *)LdrpMrdataHeapUnprotected;
         if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
-          RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 0);
-        if ( v18 == -1 )
+          RtlProtectHeap(LdrpMrdataHeap, 0);
+        if ( v10 == -1 )
         {
           RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
           __fastfail(0xEu);
         }
-        *(_DWORD *)LdrpMrdataHeapUnprotected = v18 + 1;
+        *(_DWORD *)LdrpMrdataHeapUnprotected = v10 + 1;
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       }
       if ( *((_DWORD *)i + 20) != 3 )
       {
         RtlAvlRemoveNode(&RtlpDynamicFunctionTableTree, i + 11);
-        v11 = *i;
-        if ( *(__int64 **)(*i + 8) != i || (v12 = (__int64 **)i[1], *v12 != i) )
+        v5 = *i;
+        if ( *(__int64 **)(*i + 8) != i || (v6 = (__int64 **)i[1], *v6 != i) )
           __fastfail(3u);
-        *v12 = (__int64 *)v11;
-        *(_QWORD *)(v11 + 8) = v12;
+        *v6 = (__int64 *)v5;
+        *(_QWORD *)(v5 + 8) = v6;
       }
       v3 = 1;
       break;
@@ -73,27 +65,28 @@ BOOLEAN __cdecl RtlDeleteFunctionTable(PRUNTIME_FUNCTION FunctionTable)
   LdrProtectMrdata(1);
   if ( v3 )
   {
-    if ( *(_DWORD *)(v2 + 80) == 3 )
+    if ( *((_DWORD *)v2 + 20) == 3 )
     {
       RtlDeleteGrowableFunctionTable(v2);
     }
     else
     {
-      v13 = LdrControlFlowGuardEnforced() ? (void *)LdrpMrdataHeap : NtCurrentPeb()->ProcessHeap;
-      RtlFreeHeap((__int64)v13, 0, v2);
+      LOBYTE(v7) = LdrControlFlowGuardEnforced();
+      v8 = v7 ? LdrpMrdataHeap : NtCurrentPeb()->ProcessHeap;
+      RtlFreeHeap(v8, 0, v2);
     }
-    if ( qword_18016F370 && (byte_18016F35C & 1) == 0 )
+    if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, v14, v15, v16);
-      v19 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+      v11 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
       {
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         __fastfail(0xEu);
       }
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v19 - 1;
-      if ( v19 == 1 )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v11 - 1;
+      if ( v11 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
   }

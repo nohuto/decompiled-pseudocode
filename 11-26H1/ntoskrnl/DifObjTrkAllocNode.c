@@ -1,12 +1,12 @@
 /*
- * XREFs of DifObjTrkAllocNode @ 0x14064AE40
+ * XREFs of DifObjTrkAllocNode @ 0x14064EA20
  * Callers:
  *     <none>
  * Callees:
- *     DifPopSegment @ 0x14064D034 (DifPopSegment.c)
+ *     DifPopSegment @ 0x140650C14 (DifPopSegment.c)
  */
 
 __int64 DifObjTrkAllocNode()
 {
-  return DifPopSegment(&stru_140E27B08.ReservedPreviousReadyTimeValue);
+  return DifPopSegment(&DifObjTrkSegContext);
 }

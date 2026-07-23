@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHeapQueryTotalReserveSize @ 0x180074C00
+ * XREFs of RtlpHeapQueryTotalReserveSize @ 0x180092950
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryMemoryUsageHeap @ 0x180074AB4 (RtlpQueryMemoryUsageHeap.c)
+ *     RtlpQueryMemoryUsageHeap @ 0x1800929D0 (RtlpQueryMemoryUsageHeap.c)
  */
 
 __int64 __fastcall RtlpHeapQueryTotalReserveSize(__int64 a1, __int64 a2)

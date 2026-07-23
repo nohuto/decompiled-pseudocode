@@ -1,9 +1,9 @@
 /*
- * XREFs of IopRemoveTimerFromTimerList @ 0x1401C9660
+ * XREFs of IopRemoveTimerFromTimerList @ 0x1401C9500
  * Callers:
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall IopRemoveTimerFromTimerList(__int64 a1)

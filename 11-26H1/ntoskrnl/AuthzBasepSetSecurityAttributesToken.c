@@ -1,30 +1,30 @@
 /*
- * XREFs of AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8
+ * XREFs of AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64
  * Callers:
- *     SepInternalSetSecurityAttributesToken @ 0x1403CB048 (SepInternalSetSecurityAttributesToken.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1403D0998 (SepVerifyDesktopAppxPackageName.c)
- *     SepDesktopAppxSubProcessToken @ 0x14045FEB8 (SepDesktopAppxSubProcessToken.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x14048B6E4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepDesktopAppModifyTokenBreakaway @ 0x14063B594 (SepDesktopAppModifyTokenBreakaway.c)
- *     SeSetSecurityAttributesTokenEx @ 0x14063B970 (SeSetSecurityAttributesTokenEx.c)
- *     SepSetSingletonEntry @ 0x14063BB00 (SepSetSingletonEntry.c)
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14088FB44 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     SepSetProcessUniqueAttribute @ 0x140A2B8AC (SepSetProcessUniqueAttribute.c)
- *     SepSetTokenAllApplicationPackagesPolicy @ 0x140A2CF28 (SepSetTokenAllApplicationPackagesPolicy.c)
- *     SepAddTokenOriginClaim @ 0x140A2D094 (SepAddTokenOriginClaim.c)
- *     SepCreateClaimAttributes @ 0x140AEFEE8 (SepCreateClaimAttributes.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1403AF970 (SepVerifyDesktopAppxPackageName.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1403AFC1C (SepInternalSetSecurityAttributesToken.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140485224 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14051E308 (SepDesktopAppxSubProcessToken.c)
+ *     SepDesktopAppModifyTokenBreakaway @ 0x14063E6B0 (SepDesktopAppModifyTokenBreakaway.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x14063F470 (SeSetSecurityAttributesTokenEx.c)
+ *     SepSetSingletonEntry @ 0x14063F600 (SepSetSingletonEntry.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140895F40 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     SepSetProcessUniqueAttribute @ 0x140AB7A4C (SepSetProcessUniqueAttribute.c)
+ *     SepCreateClaimAttributes @ 0x140AF2AAC (SepCreateClaimAttributes.c)
+ *     SepAddTokenOriginClaim @ 0x140B2A2F4 (SepAddTokenOriginClaim.c)
+ *     SepSetTokenAllApplicationPackagesPolicy @ 0x140B71BB8 (SepSetTokenAllApplicationPackagesPolicy.c)
  * Callees:
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x1403CB3C0 (AuthzBasepFinaliseSecurityAttributesList.c)
- *     AuthzBasepValidateSecurityAttributes @ 0x1403CB67C (AuthzBasepValidateSecurityAttributes.c)
- *     AuthzBasepReplaceSecurityAttribute @ 0x1403CB934 (AuthzBasepReplaceSecurityAttribute.c)
- *     AuthzBasepAddSecurityAttribute @ 0x1403CBA8C (AuthzBasepAddSecurityAttribute.c)
- *     AuthzBasepDeleteSecurityAttribute @ 0x1403CBBE8 (AuthzBasepDeleteSecurityAttribute.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepDeleteAllSecurityAttributes @ 0x140714FEC (AuthzBasepDeleteAllSecurityAttributes.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x1403AFE60 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepValidateSecurityAttributes @ 0x1403B011C (AuthzBasepValidateSecurityAttributes.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x1403B03D4 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x1403B0444 (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x1403B050C (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepDeleteAllSecurityAttributes @ 0x140719CDC (AuthzBasepDeleteAllSecurityAttributes.c)
  */
 
-__int64 __fastcall AuthzBasepSetSecurityAttributesToken(__int64 a1, int *a2, __int64 a3)
+__int64 __fastcall AuthzBasepSetSecurityAttributesToken(_DWORD *a1, int *a2, __int64 a3)
 {
   int v3; // r14d
   int v7; // ebx
@@ -89,7 +89,7 @@ LABEL_11:
   }
   else if ( v3 == 1 )
   {
-    AuthzBasepFreeSecurityAttributesList();
+    AuthzBasepFreeSecurityAttributesList(a1);
     v7 = 0;
   }
   else

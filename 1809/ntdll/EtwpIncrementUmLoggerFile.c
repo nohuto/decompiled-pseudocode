@@ -6,7 +6,7 @@
  *     EtwpSynchronizeWithLogger @ 0x18004CFA0 (EtwpSynchronizeWithLogger.c)
  *     EtwpGetPrivateLoggerContext @ 0x18004D150 (EtwpGetPrivateLoggerContext.c)
  *     RtlNtStatusToDosError @ 0x18004EDE0 (RtlNtStatusToDosError.c)
- *     EtwpQueryUmLogger @ 0x180089384 (EtwpQueryUmLogger.c)
+ *     EtwpQueryUmLogger @ 0x180089394 (EtwpQueryUmLogger.c)
  */
 
 __int64 __fastcall EtwpIncrementUmLoggerFile(unsigned int a1, _DWORD *a2, _DWORD *a3, __int64 a4)

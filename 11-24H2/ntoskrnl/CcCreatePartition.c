@@ -1,13 +1,13 @@
 /*
- * XREFs of CcCreatePartition @ 0x14057C660
+ * XREFs of CcCreatePartition @ 0x140579AF0
  * Callers:
- *     CcGetPartitionWithCreate @ 0x1404DEB40 (CcGetPartitionWithCreate.c)
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
+ *     CcGetPartitionWithCreate @ 0x1404D8560 (CcGetPartitionWithCreate.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcDeletePartition @ 0x14057C6EC (CcDeletePartition.c)
- *     CcInitializePartition @ 0x14057CD28 (CcInitializePartition.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcDeletePartition @ 0x140579B7C (CcDeletePartition.c)
+ *     CcInitializePartition @ 0x14057A1B8 (CcInitializePartition.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 _BYTE *CcCreatePartition()

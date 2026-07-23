@@ -36,16 +36,16 @@ __int64 __fastcall ExpWnfCreateNameInstance(
   struct _EX_RUNDOWN_REF *v11; // rdi
   __int64 *v12; // r15
   volatile signed __int64 *v13; // rsi
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // r14
+  PRTL_BALANCED_NODE v14; // rax
+  PRTL_BALANCED_NODE v15; // r14
   struct _EX_RUNDOWN_REF *StateName; // rax
   struct _EX_RUNDOWN_REF *v17; // r14
   _QWORD *v18; // rdx
   bool v19; // r8
   _QWORD *v20; // rax
   struct _SINGLE_LIST_ENTRY *Next; // r15
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // r14
+  PRTL_BALANCED_NODE v22; // rax
+  PRTL_BALANCED_NODE v23; // r14
   struct _SINGLE_LIST_ENTRY **p_Next; // r8
   struct _EX_RUNDOWN_REF *v25; // rdx
   unsigned int v27; // esi
@@ -104,9 +104,9 @@ LABEL_12:
   v14 = KeAbPreAcquire(a1 + 48, 0LL, 0);
   v15 = v14;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 48), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 48), v14, (__int16 *)(a1 + 48));
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 48), (__int64)v14, (__int16 *)(a1 + 48));
   if ( v15 )
-    *(_BYTE *)(v15 + 26) |= 1u;
+    BYTE2(v15[1].Left) |= 1u;
   StateName = (struct _EX_RUNDOWN_REF *)ExpWnfFindStateName(a1, a2);
   v17 = StateName;
   if ( StateName )
@@ -152,9 +152,9 @@ LABEL_24:
     v22 = KeAbPreAcquire((ULONG_PTR)&Next[7], 0LL, 0);
     v23 = v22;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&Next[7], 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[7], v22, (__int16 *)&Next[7]);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[7], (__int64)v22, (__int16 *)&Next[7]);
     if ( v23 )
-      *(_BYTE *)(v23 + 26) |= 1u;
+      BYTE2(v23[1].Left) |= 1u;
     p_Next = &Next[9].Next->Next;
     v25 = v11 + 17;
     if ( *p_Next != &Next[8] )

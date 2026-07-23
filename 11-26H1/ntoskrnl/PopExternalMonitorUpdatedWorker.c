@@ -1,14 +1,14 @@
 /*
- * XREFs of PopExternalMonitorUpdatedWorker @ 0x140B3ED80
+ * XREFs of PopExternalMonitorUpdatedWorker @ 0x140B40DB0
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404DE3B8 (PopOkayToQueueNextWorkItem.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopEvaluateInputSuppressionAction @ 0x140B71BB0 (PopEvaluateInputSuppressionAction.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1404D7A98 (PopOkayToQueueNextWorkItem.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopEvaluateInputSuppressionAction @ 0x140B763E0 (PopEvaluateInputSuppressionAction.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopExternalMonitorUpdatedWorker(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PopExternalMonitorUpdatedWorker(__int64 a1, __int64 a2)
   {
     v6 = PopConsoleExternalDisplayConnected;
     PopReleasePolicyLock(v3, v2, v4, v5, v16);
-    if ( qword_140E675F8 )
+    if ( qword_140E67858 )
     {
       LOBYTE(v8) = v6;
       guard_dispatch_icall_no_overrides(v8, v7);
@@ -43,6 +43,6 @@ __int64 __fastcall PopExternalMonitorUpdatedWorker(__int64 a1, __int64 a2)
     PopAcquirePolicyLock(v10, v9);
   }
   while ( v6 != PopConsoleExternalDisplayConnected );
-  PopOkayToQueueNextWorkItem((__int64)&PopWeakChargerLock.NpxState);
+  PopOkayToQueueNextWorkItem((__int64)&PopExternalMonitorUpdatedWorkItem);
   return PopReleasePolicyLock(v12, v11, v13, v14, v16);
 }

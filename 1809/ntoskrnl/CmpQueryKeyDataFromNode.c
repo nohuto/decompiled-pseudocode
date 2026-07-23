@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpQueryKeyDataFromNode @ 0x1405D3570
+ * XREFs of CmpQueryKeyDataFromNode @ 0x1405D4570
  * Callers:
- *     CmEnumerateKey @ 0x1405D2A20 (CmEnumerateKey.c)
- *     CmpQueryKeyData @ 0x1405D78B8 (CmpQueryKeyData.c)
- *     CmpEnumerateLayeredKey @ 0x1407EFD80 (CmpEnumerateLayeredKey.c)
+ *     CmEnumerateKey @ 0x1405D3A20 (CmEnumerateKey.c)
+ *     CmpQueryKeyData @ 0x1405D88B8 (CmpQueryKeyData.c)
+ *     CmpEnumerateLayeredKey @ 0x1407F0F80 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmGetVisibleSubkeyCount @ 0x1405AA548 (CmGetVisibleSubkeyCount.c)
- *     CmpPopulateNodeInformation @ 0x1405AF14C (CmpPopulateNodeInformation.c)
- *     CmpPopulateBasicInformation @ 0x1405D37B0 (CmpPopulateBasicInformation.c)
- *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1405D7C2C (CmGetVisibleMaxValueNameLenAndDataLen.c)
- *     CmGetKeyLastWriteTime @ 0x1406B9784 (CmGetKeyLastWriteTime.c)
- *     CmpPopulateFullInformation @ 0x1406BC51C (CmpPopulateFullInformation.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD508 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmListGetPrevElement @ 0x1406C05EC (CmListGetPrevElement.c)
- *     CmGetVisibleValueCount @ 0x1406C2794 (CmGetVisibleValueCount.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmEqualTrans @ 0x1405AA4E8 (CmEqualTrans.c)
+ *     CmGetVisibleSubkeyCount @ 0x1405AB548 (CmGetVisibleSubkeyCount.c)
+ *     CmpPopulateNodeInformation @ 0x1405B014C (CmpPopulateNodeInformation.c)
+ *     CmpPopulateBasicInformation @ 0x1405D47B0 (CmpPopulateBasicInformation.c)
+ *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1405D8C2C (CmGetVisibleMaxValueNameLenAndDataLen.c)
+ *     CmGetKeyLastWriteTime @ 0x1406BAA24 (CmGetKeyLastWriteTime.c)
+ *     CmpPopulateFullInformation @ 0x1406BD7BC (CmpPopulateFullInformation.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BE7A8 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmListGetPrevElement @ 0x1406C188C (CmListGetPrevElement.c)
+ *     CmGetVisibleValueCount @ 0x1406C3A34 (CmGetVisibleValueCount.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromNode(

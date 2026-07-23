@@ -6,7 +6,7 @@
  *     sub_180036B64 @ 0x180036B64 (sub_180036B64.c)
  */
 
-__int64 __fastcall sub_1800F2708(unsigned int *a1, unsigned __int64 a2, char a3, char a4, __int64 a5)
+__int64 __fastcall sub_1800F2708(unsigned int *a1, unsigned __int64 a2, char a3, char a4, _UNICODE_STRING *a5)
 {
   __int64 v8; // rcx
   char *v9; // r8
@@ -48,7 +48,7 @@ __int64 __fastcall sub_1800F2708(unsigned int *a1, unsigned __int64 a2, char a3,
                   {
                     v15 = *(unsigned __int16 *)&v12[2 * v13];
                     if ( v15 + (unsigned int)v13 + 2 <= v14 && !*(_WORD *)&v12[2 * v15 + 2 + 2 * (unsigned int)v13] )
-                      return sub_180036B64(a4, &v12[2 * (unsigned int)(v13 + 1)], v15, a5);
+                      return sub_180036B64(a4, (const WCHAR *)&v12[2 * (unsigned int)(v13 + 1)], v15, a5);
                   }
                 }
               }

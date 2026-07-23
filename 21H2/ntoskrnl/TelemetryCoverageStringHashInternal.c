@@ -1,14 +1,14 @@
 /*
- * XREFs of TelemetryCoverageStringHashInternal @ 0x1402C86A8
+ * XREFs of TelemetryCoverageStringHashInternal @ 0x140246F08
  * Callers:
- *     EtwpCoverageValidateCP @ 0x1402C85E0 (EtwpCoverageValidateCP.c)
- *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405A6800 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
- *     PsSetProcessFaultInformation @ 0x140772D30 (PsSetProcessFaultInformation.c)
- *     PopTransitionTelemetryOsState @ 0x140798A44 (PopTransitionTelemetryOsState.c)
- *     EtwpCoverageEnsureContext @ 0x1407CA03C (EtwpCoverageEnsureContext.c)
- *     EtwpCoverageProvEnableCallback @ 0x140935110 (EtwpCoverageProvEnableCallback.c)
- *     EtwpCoverageReset @ 0x140935274 (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x140935454 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageValidateCP @ 0x140246E40 (EtwpCoverageValidateCP.c)
+ *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405A6A30 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
+ *     PsSetProcessFaultInformation @ 0x140772EF0 (PsSetProcessFaultInformation.c)
+ *     PopTransitionTelemetryOsState @ 0x140798C44 (PopTransitionTelemetryOsState.c)
+ *     EtwpCoverageEnsureContext @ 0x1407CA35C (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageProvEnableCallback @ 0x1409352E0 (EtwpCoverageProvEnableCallback.c)
+ *     EtwpCoverageReset @ 0x140935444 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x140935624 (EtwpCoverageResetCP.c)
  * Callees:
  *     <none>
  */

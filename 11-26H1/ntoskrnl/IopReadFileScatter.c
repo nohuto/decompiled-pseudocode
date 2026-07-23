@@ -1,30 +1,30 @@
 /*
- * XREFs of IopReadFileScatter @ 0x140B0D3D8
+ * XREFs of IopReadFileScatter @ 0x140B0EB28
  * Callers:
- *     IopIoRingDispatchReadScatter @ 0x140798090 (IopIoRingDispatchReadScatter.c)
- *     NtReadFileScatter @ 0x140B0D2F0 (NtReadFileScatter.c)
+ *     IopIoRingDispatchReadScatter @ 0x14079ABC0 (IopIoRingDispatchReadScatter.c)
+ *     NtReadFileScatter @ 0x140B0EA40 (NtReadFileScatter.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     IopResetEvent @ 0x140455C40 (IopResetEvent.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14046E3C0 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     IopExceptionFilter @ 0x1405CA834 (IopExceptionFilter.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
- *     IopExceptionCleanupEx @ 0x1409B6D64 (IopExceptionCleanupEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     IopResetEvent @ 0x14044DD70 (IopResetEvent.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x140467B40 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     IopExceptionFilter @ 0x1405CD104 (IopExceptionFilter.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     IopExceptionCleanupEx @ 0x140924ADC (IopExceptionCleanupEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopReadFileScatter(
@@ -42,7 +42,7 @@ __int64 __fastcall IopReadFileScatter(
         struct _IO_STATUS_BLOCK *a12)
 {
   IRP *Irp; // rsi
-  union _FILE_SEGMENT_ELEMENT *Pool2; // r12
+  _FILE_SEGMENT_ELEMENT *Pool2; // r12
   PVOID v15; // rbx
   char v16; // r15
   __int64 RelatedDeviceObject; // rdx
@@ -73,7 +73,7 @@ __int64 __fastcall IopReadFileScatter(
   unsigned int v43; // [rsp+48h] [rbp-80h]
   __int64 ULong64FromUser; // [rsp+50h] [rbp-78h]
   PVOID Object[2]; // [rsp+58h] [rbp-70h] BYREF
-  union _FILE_SEGMENT_ELEMENT *v46; // [rsp+68h] [rbp-60h]
+  _FILE_SEGMENT_ELEMENT *v46; // [rsp+68h] [rbp-60h]
   PDEVICE_OBJECT DeviceObject; // [rsp+70h] [rbp-58h]
   unsigned int v48; // [rsp+78h] [rbp-50h]
   struct _KTHREAD *CurrentThread; // [rsp+80h] [rbp-48h]
@@ -164,7 +164,7 @@ LABEL_55:
     ProbeForRead(SegmentArray, v36, v37);
     if ( Length )
     {
-      Pool2 = (union _FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL);
+      Pool2 = (_FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL);
       v46 = Pool2;
       RtlCopyFromUser(Pool2, v23, v36);
       v23 = Pool2;

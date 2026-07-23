@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetFileHashPage @ 0x140114CEC
+ * XREFs of MiGetFileHashPage @ 0x14011525C
  * Callers:
- *     MiMapPageFileHash @ 0x140116930 (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x140116EA0 (MiMapPageFileHash.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  */
 
 __int64 __fastcall MiGetFileHashPage(__int64 a1, unsigned int a2)
@@ -56,7 +56,7 @@ __int64 __fastcall MiGetFileHashPage(__int64 a1, unsigned int a2)
       *((_DWORD *)v8 + v9 - 1) = 0;
     LOBYTE(v9) = v10;
     MiUnmapPageInHyperSpaceWorker(v7, v9);
-    _InterlockedAdd64(&qword_140327D88, 1uLL);
+    _InterlockedAdd64(&qword_140327DC8, 1uLL);
   }
   return v6;
 }

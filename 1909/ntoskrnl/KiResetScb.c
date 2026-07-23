@@ -8,14 +8,14 @@
  *     KiMoveScbThreadsToNewReadylist @ 0x140115EEC (KiMoveScbThreadsToNewReadylist.c)
  */
 
-void __fastcall KiResetScb(__int64 a1, __int64 a2)
+void __fastcall KiResetScb(__int64 a1, _RTL_RB_TREE *a2)
 {
   bool v2; // zf
   __int64 v4; // rbx
   _DWORD *v5; // rax
   __int64 v6; // rax
   int v7; // eax
-  __int64 v8; // r8
+  _RTL_RB_TREE *v8; // r8
   __int64 v9; // rax
 
   *(_BYTE *)(a1 + 112) &= 0xF1u;

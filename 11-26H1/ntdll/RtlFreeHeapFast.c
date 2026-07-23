@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFreeHeapFast @ 0x1801400E0
+ * XREFs of RtlFreeHeapFast @ 0x18013FFE0
  * Callers:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlFreeHeapExport @ 0x1801400C0 (RtlFreeHeapExport.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlFreeHeapExport @ 0x18013FFC0 (RtlFreeHeapExport.c)
  * Callees:
- *     RtlpFreeNTHeapInternal @ 0x1800185E0 (RtlpFreeNTHeapInternal.c)
- *     RtlNtStatusToDosErrorNoTeb @ 0x180019AA0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlpHpFreeHeap @ 0x180019C00 (RtlpHpFreeHeap.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
- *     RtlpHeapFatalExceptionFilter @ 0x180140418 (RtlpHeapFatalExceptionFilter.c)
+ *     RtlpFreeNTHeapInternal @ 0x1800036C0 (RtlpFreeNTHeapInternal.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180004B80 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlpHpFreeHeap @ 0x180004CE0 (RtlpHpFreeHeap.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x180140318 (RtlpHeapFatalExceptionFilter.c)
  */
 
 __int64 __fastcall RtlFreeHeapFast(__int64 a1, int a2, unsigned __int64 a3, __int64 a4)
@@ -30,7 +30,7 @@ __int64 __fastcall RtlFreeHeapFast(__int64 a1, int a2, unsigned __int64 a3, __in
     {
       v9 = NtCurrentTeb();
       v9->LastStatusValue = -1073741811;
-      v9->LastErrorValue = RtlNtStatusToDosErrorNoTeb(0xC000000D);
+      v9->LastErrorValue = RtlNtStatusToDosErrorNoTeb(-1073741811);
     }
   }
   else

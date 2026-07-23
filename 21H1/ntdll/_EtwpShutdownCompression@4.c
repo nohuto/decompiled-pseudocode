@@ -7,18 +7,18 @@
  *     _NtFreeVirtualMemory@16 @ 0x4B2F2B60 (_NtFreeVirtualMemory@16.c)
  */
 
-int __thiscall EtwpShutdownCompression(int *this)
+NTSTATUS __thiscall EtwpShutdownCompression(PVOID *this)
 {
-  int result; // eax
-  int v3; // [esp+4h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  ULONG_PTR RegionSize; // [esp+4h] [ebp-4h] BYREF
 
   if ( this[77] )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, this[77]);
-  result = (int)(this + 78);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this[77]);
+  result = (NTSTATUS)(this + 78);
   if ( this[78] )
   {
-    v3 = 0;
-    return NtFreeVirtualMemory(-1, (int)(this + 78), (int)&v3, 0x8000);
+    LODWORD(RegionSize) = 0;
+    return NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, this + 78, &RegionSize, 0x8000u);
   }
   return result;
 }

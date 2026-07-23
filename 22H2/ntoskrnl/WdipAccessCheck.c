@@ -28,7 +28,7 @@ __int64 WdipAccessCheck()
   ACL *v7; // rax
   ACL *v8; // rsi
   NTSTATUS AccessStatus; // [rsp+58h] [rbp-9h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+5Ch] [rbp-5h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+5Ch] [rbp-5h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+64h] [rbp+3h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+68h] [rbp+7h] BYREF
   GENERIC_MAPPING GenericMapping; // [rsp+88h] [rbp+27h] BYREF

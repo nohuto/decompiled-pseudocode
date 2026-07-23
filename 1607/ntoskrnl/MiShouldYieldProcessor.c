@@ -1,7 +1,7 @@
 /*
- * XREFs of MiShouldYieldProcessor @ 0x1401E68A0
+ * XREFs of MiShouldYieldProcessor @ 0x1401E66CC
  * Callers:
- *     MiUpdateLargePagePfns @ 0x1401F5E58 (MiUpdateLargePagePfns.c)
+ *     MiUpdateLargePagePfns @ 0x1401F5C84 (MiUpdateLargePagePfns.c)
  * Callees:
  *     <none>
  */

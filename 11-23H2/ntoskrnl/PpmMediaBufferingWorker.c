@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmMediaBufferingWorker @ 0x1403ACBF0
+ * XREFs of PpmMediaBufferingWorker @ 0x1403ACDD0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmPdcNotifyMediaBufferingUpdate @ 0x1408A5B06 (PpmPdcNotifyMediaBufferingUpdate.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmPdcNotifyMediaBufferingUpdate @ 0x1408A5D56 (PpmPdcNotifyMediaBufferingUpdate.c)
  */
 
 __int64 PpmMediaBufferingWorker()
@@ -39,14 +39,17 @@ __int64 PpmMediaBufferingWorker()
     v1 = KeAcquireSpinLockRaiseToDpc(&PpmMediaBufferingWork);
     v2 = byte_140C3E949;
     v3 = v1;
-    if ( byte_140C3E949 == byte_140C3D8AC )
+    if ( byte_140C3E949 == byte_140C3D9AC )
       break;
-    byte_140C3D8AC = byte_140C3E949;
+    byte_140C3D9AC = byte_140C3E949;
     KxReleaseSpinLock((volatile signed __int64 *)&PpmMediaBufferingWork);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -89,10 +92,10 @@ __int64 PpmMediaBufferingWorker()
   }
   byte_140C3E948 = 0;
   result = KxReleaseSpinLock((volatile signed __int64 *)&PpmMediaBufferingWork);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

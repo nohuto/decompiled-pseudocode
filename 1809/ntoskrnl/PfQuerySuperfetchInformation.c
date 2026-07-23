@@ -1,7 +1,7 @@
 /*
- * XREFs of PfQuerySuperfetchInformation @ 0x140629AD0
+ * XREFs of PfQuerySuperfetchInformation @ 0x14062AAF0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
@@ -11,25 +11,25 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     SepPrivilegeCheck @ 0x1400A7D50 (SepPrivilegeCheck.c)
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     PfpMemoryRangesQuery @ 0x140141980 (PfpMemoryRangesQuery.c)
- *     PfpMemoryListQuery @ 0x140160AE0 (PfpMemoryListQuery.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x1405BB82C (SepAdtPrivilegedServiceAuditAlarm.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
- *     PfGetCompletedTrace @ 0x14064B634 (PfGetCompletedTrace.c)
- *     SepFilterPrivilegeAudits @ 0x1406AE540 (SepFilterPrivilegeAudits.c)
- *     PfpQueryGpuUtilization @ 0x1406C4324 (PfpQueryGpuUtilization.c)
- *     PfpQueryScenarioInformation @ 0x1406E11A0 (PfpQueryScenarioInformation.c)
- *     MmLogQueryCombineStats @ 0x14085F00C (MmLogQueryCombineStats.c)
- *     PfpQueryFileExtentsRequest @ 0x140864728 (PfpQueryFileExtentsRequest.c)
- *     PfpVirtualQuery @ 0x140865078 (PfpVirtualQuery.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ObFastReferenceObjectLocked @ 0x14007DFE4 (ObFastReferenceObjectLocked.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     SepPrivilegeCheck @ 0x1400A7C90 (SepPrivilegeCheck.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     PfpMemoryRangesQuery @ 0x140141A80 (PfpMemoryRangesQuery.c)
+ *     PfpMemoryListQuery @ 0x140160BE0 (PfpMemoryListQuery.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PfpPrivSourceEnum @ 0x1405B2B60 (PfpPrivSourceEnum.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x1405BC82C (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     PfpPfnPrioRequest @ 0x14062B240 (PfpPfnPrioRequest.c)
+ *     PfGetCompletedTrace @ 0x14064C7F4 (PfGetCompletedTrace.c)
+ *     SepFilterPrivilegeAudits @ 0x1406AF7E0 (SepFilterPrivilegeAudits.c)
+ *     PfpQueryGpuUtilization @ 0x1406C55C4 (PfpQueryGpuUtilization.c)
+ *     PfpQueryScenarioInformation @ 0x1406E2440 (PfpQueryScenarioInformation.c)
+ *     MmLogQueryCombineStats @ 0x14086026C (MmLogQueryCombineStats.c)
+ *     PfpQueryFileExtentsRequest @ 0x140865988 (PfpQueryFileExtentsRequest.c)
+ *     PfpVirtualQuery @ 0x1408662D8 (PfpVirtualQuery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, int a3, __int64 a4, _DWORD *a5)
@@ -250,13 +250,13 @@ LABEL_29:
           goto LABEL_107;
         v25 = KeGetCurrentThread();
         --v25->KernelApcDisable;
-        ExAcquirePushLockSharedEx((ULONG_PTR)qword_14043C078, 0LL);
-        v42 = xmmword_14043BEC4;
-        v39 = qword_14043BED4;
-        v26 = dword_14043BEDC;
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_14043C078, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)qword_14043C078);
-        KeAbPostRelease((ULONG_PTR)qword_14043C078);
+        ExAcquirePushLockSharedEx((ULONG_PTR)qword_14043D138, 0LL);
+        v42 = xmmword_14043CF84;
+        v39 = qword_14043CF94;
+        v26 = dword_14043CF9C;
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_14043D138, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)qword_14043D138);
+        KeAbPostRelease((ULONG_PTR)qword_14043D138);
         KeLeaveCriticalRegion();
         if ( v5 )
         {
@@ -292,7 +292,7 @@ LABEL_29:
           *(_BYTE *)(v29 + 3) = *(_BYTE *)(v29 + 3);
           v7 = 0;
         }
-        *(_DWORD *)Address[0] = dword_1404D7550;
+        *(_DWORD *)Address[0] = dword_1404D8610;
         *v6 = 4;
         break;
       case 12:
@@ -320,7 +320,7 @@ LABEL_29:
         v40 = *(_OWORD *)Address[0];
         if ( (_DWORD)v40 == 1 )
         {
-          *((_QWORD *)&v40 + 1) = qword_14043C1F0;
+          *((_QWORD *)&v40 + 1) = qword_14043D2B0;
           *(_OWORD *)Address[0] = v40;
           *v6 = 16;
         }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpConvertExclusiveToSharedLite @ 0x1403D79F8
+ * XREFs of ExpConvertExclusiveToSharedLite @ 0x1402F14D8
  * Callers:
- *     ExConvertExclusiveToSharedLite @ 0x1403D7950 (ExConvertExclusiveToSharedLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x1402F1430 (ExConvertExclusiveToSharedLite.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpApplyPriorityBoost @ 0x140277A10 (ExpApplyPriorityBoost.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeWakeWaitChain @ 0x1403D7B10 (KeWakeWaitChain.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpApplyPriorityBoost @ 0x14022CFA0 (ExpApplyPriorityBoost.c)
+ *     KeWakeWaitChain @ 0x1402F15F0 (KeWakeWaitChain.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall ExpConvertExclusiveToSharedLite(__int64 a1)
@@ -16,7 +16,7 @@ char __fastcall ExpConvertExclusiveToSharedLite(__int64 a1)
   volatile __int64 *v1; // rbx
   __int64 v2; // rdi
   unsigned __int8 CurrentIrql; // si
-  _QWORD *v4; // rdx
+  __int64 v4; // rdx
   __int64 v5; // rax
   int v6; // ebx
   char v7; // si
@@ -40,13 +40,13 @@ char __fastcall ExpConvertExclusiveToSharedLite(__int64 a1)
   LockHandle.OldIrql = CurrentIrql;
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v4 = (_QWORD *)_InterlockedExchange64(v1, (__int64)&LockHandle);
+    v4 = _InterlockedExchange64(v1, (__int64)&LockHandle);
     if ( v4 )
-      KxWaitForLockOwnerShip((__int64)&LockHandle, v4);
+      KxWaitForLockOwnerShip(&LockHandle, v4);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, v1);
+    KiAcquireQueuedSpinLockInstrumented(&LockHandle, v1);
   }
   *(_WORD *)(v2 + 26) &= ~0x80u;
   v5 = *(_QWORD *)(v2 + 32);

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x140140150
+ * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x1401406C0
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140560B80 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x1405610C0 (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlUnicodeStringToInteger @ 0x1404B8E10 (RtlUnicodeStringToInteger.c)
- *     LdrpQueryValueKey @ 0x140560C34 (LdrpQueryValueKey.c)
+ *     RtlUnicodeStringToInteger @ 0x1404A31F0 (RtlUnicodeStringToInteger.c)
+ *     LdrpQueryValueKey @ 0x140561174 (LdrpQueryValueKey.c)
  */
 
 void __fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, void *a2)

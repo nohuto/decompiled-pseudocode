@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwQueryTimerResolution @ 0x180164A60
+ * XREFs of ZwQueryTimerResolution @ 0x180162E20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryTimerResolution()
+NTSTATUS __cdecl ZwQueryTimerResolution(PULONG MaximumTime, PULONG MinimumTime, PULONG CurrentTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 367LL;
+  result = 367;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

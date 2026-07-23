@@ -177,7 +177,7 @@ NTSTATUS __stdcall NtDuplicateToken(
             v27 = v17;
             if ( v15 )
               v27 = v15;
-            if ( SeQueryInformationToken(v27, MaxTokenInfoClass, &TokenInformation) >= 0 && !(_BYTE)TokenInformation )
+            if ( SeQueryInformationToken(v27, TokenIsSandboxed, &TokenInformation) >= 0 && !(_BYTE)TokenInformation )
               v18 = 1;
             if ( v18 != 1 && (unsigned __int8)RtlIsSandboxedToken(&SubjectContext) )
             {

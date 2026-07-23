@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeLargeMdlLeafPfns @ 0x14038BEE0
+ * XREFs of MiInitializeLargeMdlLeafPfns @ 0x14038C0C0
  * Callers:
- *     MiDoGangAssignment @ 0x14038BE64 (MiDoGangAssignment.c)
+ *     MiDoGangAssignment @ 0x14038C044 (MiDoGangAssignment.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     MiInitializeMdlLeafPfns @ 0x14038C010 (MiInitializeMdlLeafPfns.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiDemotePfnListChain @ 0x140667F44 (MiDemotePfnListChain.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiInitializeLargePfnList @ 0x1402E9228 (MiInitializeLargePfnList.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     MiInitializeMdlLeafPfns @ 0x14038C1F0 (MiInitializeMdlLeafPfns.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiDemotePfnListChain @ 0x140668494 (MiDemotePfnListChain.c)
  */
 
 void __fastcall MiInitializeLargeMdlLeafPfns(__int64 *a1, __int64 a2)

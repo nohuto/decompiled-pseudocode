@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReferencePfBackedSection @ 0x1404D1764
+ * XREFs of MiReferencePfBackedSection @ 0x1404CB310
  * Callers:
- *     MiBuildReservationCluster @ 0x14033D2B4 (MiBuildReservationCluster.c)
- *     MiTrimSharedPage @ 0x140478A54 (MiTrimSharedPage.c)
- *     MiGetPageFileSectionForReservation @ 0x1404D16B4 (MiGetPageFileSectionForReservation.c)
- *     MiLocateSharedPageViews @ 0x1406F8320 (MiLocateSharedPageViews.c)
+ *     MiBuildReservationCluster @ 0x14033F334 (MiBuildReservationCluster.c)
+ *     MiTrimSharedPage @ 0x1404723B4 (MiTrimSharedPage.c)
+ *     MiGetPageFileSectionForReservation @ 0x1404CB260 (MiGetPageFileSectionForReservation.c)
+ *     MiLocateSharedPageViews @ 0x1406FCFF0 (MiLocateSharedPageViews.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiObtainProtoBaseFromNode @ 0x14044BE20 (MiObtainProtoBaseFromNode.c)
- *     MiIncrementModifiedWriteCount @ 0x1404F6374 (MiIncrementModifiedWriteCount.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiObtainProtoBaseFromNode @ 0x140443F40 (MiObtainProtoBaseFromNode.c)
+ *     MiIncrementModifiedWriteCount @ 0x1404EF980 (MiIncrementModifiedWriteCount.c)
  */
 
 unsigned __int64 __fastcall MiReferencePfBackedSection(unsigned __int64 a1)
@@ -37,8 +37,8 @@ unsigned __int64 __fastcall MiReferencePfBackedSection(unsigned __int64 a1)
   v3 = 0LL;
   while ( 1 )
   {
-    v4 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
-    CycleTime = stru_140E2D150.CycleTime;
+    v4 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
+    CycleTime = stru_140E2D2D0.CycleTime;
     v6 = v4;
     while ( CycleTime )
     {
@@ -70,11 +70,11 @@ unsigned __int64 __fastcall MiReferencePfBackedSection(unsigned __int64 a1)
       break;
     }
     if ( (_BYTE)v6 == 17 )
-      ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
+      ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
     else
-      ExReleaseSpinLockShared((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime, v6);
+      ExReleaseSpinLockShared((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime, v6);
   }
-  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
+  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
   if ( v8 )
   {
     v12 = (volatile LONG *)(v8 + 72);

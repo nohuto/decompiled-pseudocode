@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpOplockPerfBucketize @ 0x14078F0F8
+ * XREFs of FsRtlpOplockPerfBucketize @ 0x140791C28
  * Callers:
- *     FsRtlpOplockPerfSendData @ 0x140AE8CD4 (FsRtlpOplockPerfSendData.c)
+ *     FsRtlpOplockPerfSendData @ 0x140AEAF28 (FsRtlpOplockPerfSendData.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 signed __int64 __fastcall FsRtlpOplockPerfBucketize(_QWORD *a1)
@@ -16,9 +16,9 @@ signed __int64 __fastcall FsRtlpOplockPerfBucketize(_QWORD *a1)
   __int64 v7; // rax
 
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v3 = word_140E65C48;
+  v3 = word_140E65DA8;
   v4 = PerformanceCounter.QuadPart - *a1;
-  for ( i = 0; i < (unsigned __int16)word_140E65C48; ++i )
+  for ( i = 0; i < (unsigned __int16)word_140E65DA8; ++i )
   {
     if ( v4 < g_OplockPerfLatencyLevels[i] )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpAddNodeServiceTag @ 0x1800E3440
+ * XREFs of LdrpAddNodeServiceTag @ 0x1800E1CA0
  * Callers:
- *     LdrpAddNodeServiceTag @ 0x1800E3440 (LdrpAddNodeServiceTag.c)
- *     LdrpPrepareModuleForExecution @ 0x18011ADA0 (LdrpPrepareModuleForExecution.c)
+ *     LdrpAddNodeServiceTag @ 0x1800E1CA0 (LdrpAddNodeServiceTag.c)
+ *     LdrpPrepareModuleForExecution @ 0x18011AB50 (LdrpPrepareModuleForExecution.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     LdrpAddNodeServiceTag @ 0x1800E3440 (LdrpAddNodeServiceTag.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     LdrpAddNodeServiceTag @ 0x1800E1CA0 (LdrpAddNodeServiceTag.c)
  */
 
 __int64 __fastcall LdrpAddNodeServiceTag(__int64 a1, unsigned int a2)
@@ -25,7 +25,7 @@ __int64 __fastcall LdrpAddNodeServiceTag(__int64 a1, unsigned int a2)
         if ( *(_DWORD *)(result + 8) == a2 )
           return result;
       }
-      result = RtlAllocateHeap_0();
+      result = (__int64)RtlAllocateHeap_0(LdrpHeap, 0, 0x10uLL);
       if ( result )
       {
         *(_DWORD *)(result + 8) = a2;

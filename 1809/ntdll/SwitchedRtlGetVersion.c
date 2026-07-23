@@ -7,8 +7,8 @@
  *     RtlStringCbCopyW @ 0x180041540 (RtlStringCbCopyW.c)
  *     RtlGetNtProductType @ 0x180062D30 (RtlGetNtProductType.c)
  *     RtlGetSuiteMask @ 0x180062DA0 (RtlGetSuiteMask.c)
- *     ZwQueryLicenseValue @ 0x1800A2C50 (ZwQueryLicenseValue.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     ZwQueryLicenseValue @ 0x1800A2C70 (ZwQueryLicenseValue.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SwitchedRtlGetVersion(int *a1)
@@ -19,17 +19,16 @@ __int64 __fastcall SwitchedRtlGetVersion(int *a1)
   int v5; // edi
   wchar_t *Buffer; // r8
   int v7; // edi
-  __int64 v9; // [rsp+30h] [rbp-10h] BYREF
-  const WCHAR *v10; // [rsp+38h] [rbp-8h]
-  int v11; // [rsp+70h] [rbp+30h] BYREF
-  char v12; // [rsp+78h] [rbp+38h] BYREF
-  int v13; // [rsp+80h] [rbp+40h] BYREF
-  int v14; // [rsp+88h] [rbp+48h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-10h] BYREF
+  int Data; // [rsp+70h] [rbp+30h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+78h] [rbp+38h] BYREF
+  ULONG Type; // [rsp+80h] [rbp+40h] BYREF
+  ULONG ResultDataSize; // [rsp+88h] [rbp+48h] BYREF
 
-  v9 = 0LL;
-  v10 = 0LL;
+  *(_QWORD *)&ValueName.Length = 0LL;
+  ValueName.Buffer = 0LL;
   v2 = 0;
-  v11 = 0;
+  Data = 0;
   v3 = NtCurrentPeb();
   a1[1] = v3->OSMajorVersion;
   a1[2] = v3->OSMinorVersion;
@@ -70,11 +69,13 @@ LABEL_5:
     if ( v7 == 292 )
       a1[71] = RtlGetSuiteMask() & 0x1FFFF;
     *((_BYTE *)a1 + 282) = 0;
-    if ( (unsigned __int8)RtlGetNtProductType(&v12) )
-      *((_BYTE *)a1 + 282) = v12;
-    v9 = 7864438LL;
-    v10 = L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
-    if ( (int)ZwQueryLicenseValue(&v9, &v13, &v11, 4LL, &v14) >= 0 && (v11 != 1 || v13 != 4 || v14 != 4) )
+    if ( RtlGetNtProductType(&NtProductType) )
+      *((_BYTE *)a1 + 282) = NtProductType;
+    *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+    *(_DWORD *)&ValueName.Length = 7864438;
+    ValueName.Buffer = (wchar_t *)L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
+    if ( ZwQueryLicenseValue(&ValueName, &Type, &Data, 4u, &ResultDataSize) >= 0
+      && (Data != 1 || Type != 4 || ResultDataSize != 4) )
     {
       *((_WORD *)a1 + 140) &= ~0x10u;
       if ( *a1 == 292 )

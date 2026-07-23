@@ -1,10 +1,10 @@
 /*
- * XREFs of PpProfileMarkAllTransitioningDocksEjected @ 0x140963DD4
+ * XREFs of PpProfileMarkAllTransitioningDocksEjected @ 0x140963FD4
  * Callers:
- *     PnpProcessCompletedEject @ 0x140958FF0 (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x1409591F0 (PnpProcessCompletedEject.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
  */
 
 void PpProfileMarkAllTransitioningDocksEjected()

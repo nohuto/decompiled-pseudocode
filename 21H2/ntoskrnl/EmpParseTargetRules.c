@@ -1,21 +1,21 @@
 /*
- * XREFs of EmpParseTargetRules @ 0x140A46ADC
+ * XREFs of EmpParseTargetRules @ 0x140A47ADC
  * Callers:
- *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140A465E8 (EmpParseInfDatabase.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x140281B64 (EmpSearchRuleDatabase.c)
- *     EmpSearchTargetRuleList @ 0x140281B9C (EmpSearchTargetRuleList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     CmpGetSectionLineIndexValueCount @ 0x140A46534 (CmpGetSectionLineIndexValueCount.c)
- *     EmpInfParseGetGuidFromName @ 0x140A469DC (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x140A46A88 (EmpInfParseGetSectionLineCount.c)
- *     EmpParseTargetRuleStringIndexList @ 0x140A46D1C (EmpParseTargetRuleStringIndexList.c)
- *     CmpGetSectionLineIndex @ 0x140A46FF4 (CmpGetSectionLineIndex.c)
- *     CmpGetKeyName @ 0x140A47114 (CmpGetKeyName.c)
+ *     EmpSearchRuleDatabase @ 0x14026FDA4 (EmpSearchRuleDatabase.c)
+ *     EmpSearchTargetRuleList @ 0x14026FDDC (EmpSearchTargetRuleList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140A47534 (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetGuidFromName @ 0x140A479DC (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140A47A88 (EmpInfParseGetSectionLineCount.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140A47D1C (EmpParseTargetRuleStringIndexList.c)
+ *     CmpGetSectionLineIndex @ 0x140A47FF4 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x140A48114 (CmpGetKeyName.c)
  */
 
 __int64 __fastcall EmpParseTargetRules(__int64 a1)

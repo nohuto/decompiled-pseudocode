@@ -1,39 +1,39 @@
 /*
- * XREFs of MiInsertLargePageInNodeList @ 0x1402D6BE0
+ * XREFs of MiInsertLargePageInNodeList @ 0x1402D6E70
  * Callers:
  *     MiFreeLargeZeroPages @ 0x140212098 (MiFreeLargeZeroPages.c)
  *     MiDeleteClusterSection @ 0x1402189B0 (MiDeleteClusterSection.c)
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiDeleteClusterPage @ 0x1402D6220 (MiDeleteClusterPage.c)
- *     MiInsertLargePageChain @ 0x1402D68E0 (MiInsertLargePageChain.c)
- *     MiLargePagePromote @ 0x1402D77D0 (MiLargePagePromote.c)
- *     MiFinishLargePageFree @ 0x1402E7594 (MiFinishLargePageFree.c)
- *     MiRebuildLargePage @ 0x14046E7E8 (MiRebuildLargePage.c)
- *     MiEnableNewPfns @ 0x14061A960 (MiEnableNewPfns.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064EAA4 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiFreeLargePageChain @ 0x14064F11C (MiFreeLargePageChain.c)
- *     MiMoveLargeFreePage @ 0x14064F7F4 (MiMoveLargeFreePage.c)
+ *     MiCoalesceFreePages @ 0x1402D4C00 (MiCoalesceFreePages.c)
+ *     MiDeleteClusterPage @ 0x1402D64B0 (MiDeleteClusterPage.c)
+ *     MiInsertLargePageChain @ 0x1402D6B70 (MiInsertLargePageChain.c)
+ *     MiLargePagePromote @ 0x1402D7A60 (MiLargePagePromote.c)
+ *     MiFinishLargePageFree @ 0x1402E7824 (MiFinishLargePageFree.c)
+ *     MiRebuildLargePage @ 0x14046EBE8 (MiRebuildLargePage.c)
+ *     MiEnableNewPfns @ 0x14061AEB0 (MiEnableNewPfns.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064EFF4 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiFreeLargePageChain @ 0x14064F66C (MiFreeLargePageChain.c)
+ *     MiMoveLargeFreePage @ 0x14064FD44 (MiMoveLargeFreePage.c)
  *     MxCreateFreePfns @ 0x140B426A0 (MxCreateFreePfns.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiWakeZeroingThreads @ 0x1402224D4 (MiWakeZeroingThreads.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiUpdateAvailableEvents @ 0x1403AE720 (MiUpdateAvailableEvents.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiSearchChannelTable @ 0x140645750 (MiSearchChannelTable.c)
- *     MiArePageContentsZero @ 0x14064D420 (MiArePageContentsZero.c)
- *     MiAnyPagesRemovalPending @ 0x14064EA54 (MiAnyPagesRemovalPending.c)
- *     MiWakeLargePageWaiters @ 0x140650004 (MiWakeLargePageWaiters.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiUpdateAvailableEvents @ 0x1403AE900 (MiUpdateAvailableEvents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiSearchChannelTable @ 0x140645CA0 (MiSearchChannelTable.c)
+ *     MiArePageContentsZero @ 0x14064D970 (MiArePageContentsZero.c)
+ *     MiAnyPagesRemovalPending @ 0x14064EFA4 (MiAnyPagesRemovalPending.c)
+ *     MiWakeLargePageWaiters @ 0x140650554 (MiWakeLargePageWaiters.c)
  */
 
 unsigned __int64 __fastcall MiInsertLargePageInNodeList(__int64 a1)
@@ -408,10 +408,13 @@ LABEL_90:
             MiWakeZeroingThreads(v47, 0);
           }
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v44 + 21008));
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v48 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v48 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -442,10 +445,10 @@ LABEL_90:
         _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( (v65 & 2) == 0 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v55 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v54 <= 0xFu && v55 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v54 <= 0xFu && v55 >= 2u )
             {
               v56 = KeGetCurrentPrcb();
               v57 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v54 + 1));
@@ -466,10 +469,10 @@ LABEL_90:
     v59 = *(unsigned __int8 *)(a1 + 16);
     if ( (_BYTE)v59 != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v60 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v59 <= 0xFu && v60 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v59 <= 0xFu && v60 >= 2u )
         {
           v61 = KeGetCurrentPrcb();
           v62 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v59 + 1));

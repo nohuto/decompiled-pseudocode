@@ -1,15 +1,15 @@
 /*
- * XREFs of towlower @ 0x1404FFC10
+ * XREFs of towlower @ 0x1404FD4D0
  * Callers:
- *     ExpParseArcPathName @ 0x1407BBF08 (ExpParseArcPathName.c)
- *     ExpTranslateDriverEntryNameToId @ 0x1407BD140 (ExpTranslateDriverEntryNameToId.c)
- *     ExpTranslateHexStringToGUID @ 0x1407BD234 (ExpTranslateHexStringToGUID.c)
- *     ExpTranslateHexStringToULONG @ 0x1407BD3B4 (ExpTranslateHexStringToULONG.c)
- *     ExpTranslateHexStringToULONGLONG @ 0x1407BD450 (ExpTranslateHexStringToULONGLONG.c)
- *     ExpTranslateBootEntryNameToId @ 0x140965918 (ExpTranslateBootEntryNameToId.c)
- *     EtwpCovSampCheckForSegments @ 0x1409FF71C (EtwpCovSampCheckForSegments.c)
+ *     ExpParseArcPathName @ 0x1407BC358 (ExpParseArcPathName.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x1407BD590 (ExpTranslateDriverEntryNameToId.c)
+ *     ExpTranslateHexStringToGUID @ 0x1407BD684 (ExpTranslateHexStringToGUID.c)
+ *     ExpTranslateHexStringToULONG @ 0x1407BD804 (ExpTranslateHexStringToULONG.c)
+ *     ExpTranslateHexStringToULONGLONG @ 0x1407BD8A0 (ExpTranslateHexStringToULONGLONG.c)
+ *     ExpTranslateBootEntryNameToId @ 0x14094E3A8 (ExpTranslateBootEntryNameToId.c)
+ *     EtwpCovSampCheckForSegments @ 0x1409F8664 (EtwpCovSampCheckForSegments.c)
  * Callees:
- *     iswctype @ 0x140500C30 (iswctype.c)
+ *     iswctype @ 0x1404FE4F0 (iswctype.c)
  */
 
 wint_t __cdecl towlower(wint_t C)

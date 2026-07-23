@@ -13,9 +13,6 @@
 
 void PopThermalSxExit()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
   __int64 i; // rdi
 
   if ( PoResumeFromHibernate )
@@ -24,9 +21,9 @@ void PopThermalSxExit()
     if ( PopThermalHibernateInitiated )
     {
       PopThermalHibernateInitiated = 0;
-      ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0LL);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
-    PopReleasePolicyLock(v1, v0, v2);
+    PopReleasePolicyLock();
   }
   PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
   for ( i = PopThermal; (__int64 *)i != &PopThermal; i = *(_QWORD *)i )

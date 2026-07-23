@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBlkIdleLoop @ 0x140BDB7D0
+ * XREFs of HalpBlkIdleLoop @ 0x140BDD7D0
  * Callers:
- *     HalpBlkProcessorStartup @ 0x140BDB860 (HalpBlkProcessorStartup.c)
+ *     HalpBlkProcessorStartup @ 0x140BDD860 (HalpBlkProcessorStartup.c)
  * Callees:
- *     HalpBlkIdleHalt @ 0x140BDB8B0 (HalpBlkIdleHalt.c)
- *     HalpBlkIdlePortReadHalt @ 0x140BDB8C0 (HalpBlkIdlePortReadHalt.c)
- *     HalpBlkIdlePortRead @ 0x140BDB8D0 (HalpBlkIdlePortRead.c)
- *     HalpBlkIdleMonitorMWait @ 0x140BDB8E0 (HalpBlkIdleMonitorMWait.c)
+ *     HalpBlkIdleHalt @ 0x140BDD8B0 (HalpBlkIdleHalt.c)
+ *     HalpBlkIdlePortReadHalt @ 0x140BDD8C0 (HalpBlkIdlePortReadHalt.c)
+ *     HalpBlkIdlePortRead @ 0x140BDD8D0 (HalpBlkIdlePortRead.c)
+ *     HalpBlkIdleMonitorMWait @ 0x140BDD8E0 (HalpBlkIdleMonitorMWait.c)
  */
 
 void __noreturn HalpBlkIdleLoop()

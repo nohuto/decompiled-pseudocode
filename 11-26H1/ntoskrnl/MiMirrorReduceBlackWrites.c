@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMirrorReduceBlackWrites @ 0x140C03640
+ * XREFs of MiMirrorReduceBlackWrites @ 0x140C09850
  * Callers:
- *     MiMirrorBlackPhase @ 0x140C00E38 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140C07048 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiMirrorNodeFreeZeroPages @ 0x140BE94D4 (MiMirrorNodeFreeZeroPages.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140C037CC (MiMirrorOmitPagesFromCopy.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiMirrorNodeFreeZeroPages @ 0x140BEF4D4 (MiMirrorNodeFreeZeroPages.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140C099DC (MiMirrorOmitPagesFromCopy.c)
  */
 
 __int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
@@ -42,8 +42,8 @@ __int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
             if ( MiIsDecayPfn(v9) )
             {
               v11 = v10[2];
-              if ( qword_140E2D740 && (v11 & 0x10) == 0 )
-                v11 &= qword_140E2D748;
+              if ( qword_140E2D8C0 && (v11 & 0x10) == 0 )
+                v11 &= qword_140E2D8C8;
               v12 = (v11 >> 12) & 0xFFFFFFFFFFLL;
               if ( v12 != v9 )
               {

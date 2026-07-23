@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCheckGroupSchedulingQuantumEnd @ 0x140228450
+ * XREFs of KiCheckGroupSchedulingQuantumEnd @ 0x1402CCD50
  * Callers:
- *     KiUpdateRunTime @ 0x1402275D0 (KiUpdateRunTime.c)
+ *     KiUpdateRunTime @ 0x1402CBED0 (KiUpdateRunTime.c)
  * Callees:
  *     <none>
  */

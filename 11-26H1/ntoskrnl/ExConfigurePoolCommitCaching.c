@@ -1,17 +1,17 @@
 /*
- * XREFs of ExConfigurePoolCommitCaching @ 0x1406D2710
+ * XREFs of ExConfigurePoolCommitCaching @ 0x1406D6740
  * Callers:
- *     VfPoolCommitCachingPluginEntry @ 0x140C43EC0 (VfPoolCommitCachingPluginEntry.c)
- *     VfPoolCommitCachingPluginUnload @ 0x140C43F20 (VfPoolCommitCachingPluginUnload.c)
+ *     VfPoolCommitCachingPluginEntry @ 0x140C49ED0 (VfPoolCommitCachingPluginEntry.c)
+ *     VfPoolCommitCachingPluginUnload @ 0x140C49F30 (VfPoolCommitCachingPluginUnload.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     RtlpHpHeapSuspendCommitCaching @ 0x1406388C8 (RtlpHpHeapSuspendCommitCaching.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     RtlpHpHeapSuspendCommitCaching @ 0x14063B8CC (RtlpHpHeapSuspendCommitCaching.c)
  */
 
 void __fastcall ExConfigurePoolCommitCaching(int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -35,11 +35,11 @@ void __fastcall ExConfigurePoolCommitCaching(int a1, __int64 a2, __int64 a3, str
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E6BCE8, 0LL, 0LL, a4);
-  v8 = _interlockedbittestandset64(&stru_140E6BCE8.Header.Lock, 0LL);
+  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E6BFE8, 0LL, 0LL, a4);
+  v8 = _interlockedbittestandset64(&stru_140E6BFE8.Header.Lock, 0LL);
   v9 = v6;
   if ( v8 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E6BCE8, v6, (__int64)&stru_140E6BCE8);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E6BFE8, v6, (__int64)&stru_140E6BFE8);
   if ( v9 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -52,13 +52,13 @@ void __fastcall ExConfigurePoolCommitCaching(int a1, __int64 a2, __int64 a3, str
       *((_BYTE *)v9 + 10) = 1;
     }
   }
-  if ( (LOBYTE(stru_140E6BCE8.Header.WaitListHead.Flink) != 0) != (a1 != 0) )
+  if ( (LOBYTE(stru_140E6BFE8.Header.WaitListHead.Flink) != 0) != (a1 != 0) )
   {
-    Flink_high = HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink);
-    for ( i = 0; i < HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink); ++i )
+    Flink_high = HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink);
+    for ( i = 0; i < HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink); ++i )
     {
       v12 = 2LL;
-      v13 = (volatile __int32 *)&stru_140E6BCE8.StateSaveArea + 2096 * i + 1;
+      v13 = (volatile __int32 *)&stru_140E6BFE8.StateSaveArea + 2096 * i + 1;
       do
       {
         _InterlockedExchange(v13, a1 == 0 ? 0x10 : 0);
@@ -66,14 +66,14 @@ void __fastcall ExConfigurePoolCommitCaching(int a1, __int64 a2, __int64 a3, str
         --v12;
       }
       while ( v12 );
-      Flink_high = HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink);
+      Flink_high = HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink);
     }
     v14 = 0;
     if ( Flink_high )
     {
       do
       {
-        v15 = &stru_140E6BCE8.SListFaultAddress + 1048 * v14;
+        v15 = &stru_140E6BFE8.SListFaultAddress + 1048 * v14;
         v16 = 0;
         v17 = (int *)(v15 + 4);
         do
@@ -106,12 +106,12 @@ void __fastcall ExConfigurePoolCommitCaching(int a1, __int64 a2, __int64 a3, str
         while ( v16 < 4 );
         ++v14;
       }
-      while ( v14 < HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink) );
+      while ( v14 < HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink) );
     }
-    LOBYTE(stru_140E6BCE8.Header.WaitListHead.Flink) = a1 != 0;
+    LOBYTE(stru_140E6BFE8.Header.WaitListHead.Flink) = a1 != 0;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E6BCE8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E6BCE8.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140E6BCE8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E6BFE8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E6BFE8.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140E6BFE8);
   KeLeaveCriticalRegion();
 }

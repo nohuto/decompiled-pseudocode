@@ -13,57 +13,57 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __fastcall LdrpFindLoadedDllByHandle(unsigned int a1, int *a2, _DWORD *a3)
+int __fastcall LdrpFindLoadedDllByHandle(_RTL_BALANCED_NODE *a1, volatile signed __int32 **a2, _DWORD *a3)
 {
-  int v4; // esi
-  unsigned int v6; // eax
-  unsigned int v7; // ecx
-  _DWORD *v9; // eax
+  volatile signed __int32 *v4; // esi
+  _RTL_BALANCED_NODE *Root; // eax
+  _RTL_BALANCED_NODE *v7; // ecx
+  _RTL_BALANCED_NODE *v9; // eax
 
   v4 = 0;
   if ( a1 )
   {
-    if ( a1 == LdrpSystemDllBase )
+    if ( a1 == (_RTL_BALANCED_NODE *)LdrpSystemDllBase )
     {
-      v4 = LdrpNtDllDataTableEntry;
+      v4 = (volatile signed __int32 *)LdrpNtDllDataTableEntry;
       if ( a3 )
-        *a3 = *(_DWORD *)(*(_DWORD *)(LdrpNtDllDataTableEntry + 80) + 32);
+        *a3 = *(_DWORD *)(*((_DWORD *)LdrpNtDllDataTableEntry + 20) + 32);
     }
     else
     {
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-      v6 = LdrpModuleBaseAddressIndex;
-      if ( (dword_4B3A67A8 & 1) != 0 )
+      Root = LdrpModuleBaseAddressIndex.Root;
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
       {
-        if ( LdrpModuleBaseAddressIndex )
-          v6 = (unsigned int)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+        if ( LdrpModuleBaseAddressIndex.Root )
+          Root = (_RTL_BALANCED_NODE *)((unsigned int)&LdrpModuleBaseAddressIndex ^ (unsigned int)LdrpModuleBaseAddressIndex.Root);
         else
-          v6 = 0;
+          Root = 0;
       }
-      while ( v6 )
+      while ( Root )
       {
-        if ( a1 >= *(_DWORD *)(v6 - 80) )
+        if ( a1 >= Root[-7].Children[1] )
         {
-          if ( a1 <= *(_DWORD *)(v6 - 80) )
+          if ( a1 <= Root[-7].Children[1] )
           {
-            v4 = v6 - 104;
-            v9 = *(_DWORD **)(v6 - 104 + 80);
-            if ( v9[3] != -1 && (*(_BYTE *)(*v9 - 32) & 0x20) == 0 )
-              _InterlockedIncrement((volatile signed __int32 *)(v4 + 156));
+            v4 = (volatile signed __int32 *)&Root[-9].Children[1];
+            v9 = Root[-2].Children[0];
+            if ( v9[1].Children[0] != (_RTL_BALANCED_NODE *)-1 && ((int)v9->Children[0][-3].Right & 0x20) == 0 )
+              _InterlockedIncrement(v4 + 39);
             if ( a3 )
-              *a3 = *(_DWORD *)(*(_DWORD *)(v4 + 80) + 32);
+              *a3 = *(_DWORD *)(*((_DWORD *)v4 + 20) + 32);
             break;
           }
-          v7 = *(_DWORD *)(v6 + 4);
+          v7 = Root->Children[1];
         }
         else
         {
-          v7 = *(_DWORD *)v6;
+          v7 = Root->Children[0];
         }
-        if ( (dword_4B3A67A8 & 1) != 0 && v7 )
-          v6 ^= v7;
+        if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v7 )
+          Root = (_RTL_BALANCED_NODE *)((unsigned int)v7 ^ (unsigned int)Root);
         else
-          v6 = v7;
+          Root = v7;
       }
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepImageVerificationCallbackWorker @ 0x140B2D0B0
+ * XREFs of SepImageVerificationCallbackWorker @ 0x140B2F130
  * Callers:
  *     <none>
  * Callees:
- *     ExNotifyWithProcessing @ 0x140439330 (ExNotifyWithProcessing.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExNotifyWithProcessing @ 0x140427F90 (ExNotifyWithProcessing.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepImageVerificationCallbackWorker(unsigned int *P)
@@ -12,7 +12,7 @@ void __fastcall SepImageVerificationCallbackWorker(unsigned int *P)
   bool v1; // sf
   int v3; // r8d
   __int64 v4; // rdx
-  struct _LIST_ENTRY *Blink; // rcx
+  PCALLBACK_OBJECT v5; // rcx
   _QWORD v6[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = (P[8] & 0x80000000) != 0;
@@ -24,7 +24,7 @@ void __fastcall SepImageVerificationCallbackWorker(unsigned int *P)
   {
     v3 = (_DWORD)P + 56;
     v4 = 4LL;
-    Blink = ExpSysDbgLock.Header.WaitListHead.Blink;
+    v5 = ExCbSeImageVerificationBlockInfo;
   }
   else
   {
@@ -32,9 +32,9 @@ void __fastcall SepImageVerificationCallbackWorker(unsigned int *P)
     if ( (P[9] & 1) == 0 )
       goto LABEL_4;
     v3 = (_DWORD)P + 56;
-    Blink = ExpSysDbgLock.Header.WaitListHead.Flink;
+    v5 = (PCALLBACK_OBJECT)ExCbSeImageVerificationDriverInfo;
   }
-  ExNotifyWithProcessing((__int64)Blink, v4, v3, v6);
+  ExNotifyWithProcessing((__int64)v5, v4, v3, v6);
 LABEL_4:
   ExFreePoolWithTag(*((PVOID *)P + 5), 0x63734943u);
   ExFreePoolWithTag(P, 0x63734943u);

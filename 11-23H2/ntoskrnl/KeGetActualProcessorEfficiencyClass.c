@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetActualProcessorEfficiencyClass @ 0x140362C3C
+ * XREFs of KeGetActualProcessorEfficiencyClass @ 0x140362DDC
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */

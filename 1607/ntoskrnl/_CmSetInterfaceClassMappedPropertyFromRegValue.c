@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1406DF754
+ * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1406DF88C
  * Callers:
- *     _CmSetInterfaceClassMappedProperty @ 0x1406DF618 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x1406DF750 (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _CmOpenInterfaceClassRegKey @ 0x1404F6E20 (_CmOpenInterfaceClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1404D9DAC (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
         __int64 *a1,
         int a2,
-        HANDLE a3,
+        __int64 a3,
         __int64 a4,
         int a5,
-        __int64 a6,
+        void *a6,
         ULONG a7)
 {
   unsigned int v7; // edi
@@ -39,7 +39,7 @@ __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v12 = 0;
-  v13 = &off_1406E9778;
+  v13 = &off_1406E98A8;
   do
   {
     v14 = *v13;
@@ -78,12 +78,12 @@ LABEL_24:
             ZwClose(v22[0]);
           return (unsigned int)v8;
         }
-        a3 = v22[0];
+        LODWORD(a3) = v22[0];
       }
-      v8 = PnpOpenPropertiesKey(a1, (__int64)a3, 0LL, 2u, 1, v21, &Handle);
+      v8 = PnpOpenPropertiesKey(a1, a3, 0LL, 2, 1, v21, &Handle);
       if ( v8 >= 0 )
       {
-        v19 = PnpCtxRegSetValue(v18, Handle, (__int64)L"Default", 1LL, a6, a7);
+        v19 = PnpCtxRegSetValue(v18, Handle, L"Default", 1u, a6, a7);
         ZwClose(Handle);
         if ( v19 == -1073741444 )
         {

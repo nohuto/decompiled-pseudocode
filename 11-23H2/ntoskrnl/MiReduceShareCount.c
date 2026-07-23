@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReduceShareCount @ 0x140367F14
+ * XREFs of MiReduceShareCount @ 0x1403680B4
  * Callers:
  *     MiDeleteNonPagedPoolTail @ 0x1402109E0 (MiDeleteNonPagedPoolTail.c)
- *     MiDeletePteList @ 0x1402D2450 (MiDeletePteList.c)
+ *     MiDeletePteList @ 0x1402D26E0 (MiDeletePteList.c)
  * Callees:
- *     MiPfnShareCountIsZero @ 0x1402818C0 (MiPfnShareCountIsZero.c)
- *     MiBadShareCount @ 0x14064D68C (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x140281B50 (MiPfnShareCountIsZero.c)
+ *     MiBadShareCount @ 0x14064DBDC (MiBadShareCount.c)
  */
 
 __int64 __fastcall MiReduceShareCount(ULONG_PTR a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeAcquireQueuedSpinLock @ 0x140ACF600
+ * XREFs of VerifierKeAcquireQueuedSpinLock @ 0x140ACF5F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x140ACBC0C (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DD8 (ViKeIrqlLogAndTrimMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x140ACBBFC (ViTargetIncrementCounter.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DC8 (ViKeIrqlLogAndTrimMemory.c)
  */
 
 __int64 __fastcall VerifierKeAcquireQueuedSpinLock(__int64 a1)

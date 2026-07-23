@@ -4,8 +4,8 @@
  *     VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x140711C68 (VerifierKeAcquireInStackQueuedSpinLockForDpc.c)
  *     VerifierKeAcquireInStackQueuedSpinLockForDpcNoReboot @ 0x140711D0C (VerifierKeAcquireInStackQueuedSpinLockForDpcNoReboot.c)
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockForDpcCommon(
@@ -13,7 +13,7 @@ __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockForDpcCommon(
         __int64 a2,
         unsigned __int64 a3)
 {
-  ++dword_140307208;
+  ++dword_140307248;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(a2, 132LL);
   VfUtilCheckKernelAddress(a1, 8LL);

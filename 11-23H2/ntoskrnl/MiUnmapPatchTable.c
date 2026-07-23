@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnmapPatchTable @ 0x140A3C1B0
+ * XREFs of MiUnmapPatchTable @ 0x140A3C460
  * Callers:
  *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
  */
 
 __int64 MiUnmapPatchTable()

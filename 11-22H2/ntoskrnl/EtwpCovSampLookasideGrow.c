@@ -16,7 +16,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbp
   unsigned int v5; // ebx
-  struct _SLIST_ENTRY *v6; // rdi
+  _SLIST_ENTRY *v6; // rdi
   volatile signed __int64 *v7; // r14
   unsigned __int64 v8; // rsi
   unsigned int v9; // eax
@@ -33,7 +33,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
   KeGetCurrentIrql();
   if ( *(_DWORD *)(a2 + 52) < *(_DWORD *)(a2 + 56) )
   {
-    v6 = (struct _SLIST_ENTRY *)(*(__int64 (**)(void))(v2 + 48))();
+    v6 = (_SLIST_ENTRY *)(*(__int64 (**)(void))(v2 + 48))();
     if ( v6 )
     {
       v7 = (volatile signed __int64 *)(a1 + 632);
@@ -41,7 +41,7 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
       if ( *(_DWORD *)(a2 + 40) && (v9 = *(_DWORD *)(a2 + 52), v9 < *(_DWORD *)(a2 + 56)) )
       {
         *(_DWORD *)(a2 + 52) = v9 + 1;
-        v10 = (struct _SLIST_ENTRY *)((char *)v6 + 24);
+        v10 = (_SLIST_ENTRY *)((char *)v6 + 24);
         ++*(_DWORD *)(v2 + 72);
         v11 = v2 + 32;
         v12 = *(_SLIST_ENTRY **)(v11 + 8);
@@ -60,10 +60,13 @@ __int64 __fastcall EtwpCovSampLookasideGrow(__int64 a1, __int64 a2)
         v5 = 255;
       }
       KxReleaseSpinLock(v7);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v8 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

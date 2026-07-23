@@ -1,17 +1,17 @@
 /*
- * XREFs of SymCryptMontgomeryPointScalarMul @ 0x1405660C0
+ * XREFs of SymCryptMontgomeryPointScalarMul @ 0x140576F70
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptDigitsFromBits @ 0x14055C0D0 (SymCryptDigitsFromBits.c)
- *     SymCryptIntGetBit @ 0x14055C2A4 (SymCryptIntGetBit.c)
- *     SymCryptModElementConditionalSwap @ 0x14055C554 (SymCryptModElementConditionalSwap.c)
- *     SymCryptModElementCopy @ 0x14055C56C (SymCryptModElementCopy.c)
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModElementSetValueUint32 @ 0x14055C6C4 (SymCryptModElementSetValueUint32.c)
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofModElementFromModulus @ 0x14055C9C0 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptMontgomeryDoubleAndAdd @ 0x140565B4C (SymCryptMontgomeryDoubleAndAdd.c)
+ *     SymCryptDigitsFromBits @ 0x14055E5B8 (SymCryptDigitsFromBits.c)
+ *     SymCryptIntGetBit @ 0x14055E78C (SymCryptIntGetBit.c)
+ *     SymCryptModElementConditionalSwap @ 0x14055EA3C (SymCryptModElementConditionalSwap.c)
+ *     SymCryptModElementCopy @ 0x14055EA54 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValueUint32 @ 0x14055EBAC (SymCryptModElementSetValueUint32.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14055EEA8 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptMontgomeryDoubleAndAdd @ 0x1405769FC (SymCryptMontgomeryDoubleAndAdd.c)
  */
 
 __int64 __fastcall SymCryptMontgomeryPointScalarMul(__int64 a1, __int64 a2, _BYTE *a3, int a4, _BYTE *a5, __int64 a6)

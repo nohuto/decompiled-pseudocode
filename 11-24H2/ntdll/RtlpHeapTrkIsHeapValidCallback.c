@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHeapTrkIsHeapValidCallback @ 0x1801133B0
+ * XREFs of RtlpHeapTrkIsHeapValidCallback @ 0x18010E6B0
  * Callers:
  *     <none>
  * Callees:

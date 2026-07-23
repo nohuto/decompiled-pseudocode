@@ -1,17 +1,17 @@
 /*
- * XREFs of MiProtectAwePrepare @ 0x140879020
+ * XREFs of MiProtectAwePrepare @ 0x14087F400
  * Callers:
- *     MiProtectAweRegion @ 0x140701F34 (MiProtectAweRegion.c)
+ *     MiProtectAweRegion @ 0x140706C04 (MiProtectAweRegion.c)
  * Callees:
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiGetAweViewPageSize @ 0x140477EDC (MiGetAweViewPageSize.c)
- *     MiPageSizeToPteLevel @ 0x140478750 (MiPageSizeToPteLevel.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     MiGetVadCacheAttribute @ 0x1404E25CC (MiGetVadCacheAttribute.c)
- *     MiUnlockAweVadsShared @ 0x1404FA958 (MiUnlockAweVadsShared.c)
- *     MiLockAweVadsShared @ 0x1405139B8 (MiLockAweVadsShared.c)
- *     MiGetAweNode @ 0x140526364 (MiGetAweNode.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiGetAweViewPageSize @ 0x14047165C (MiGetAweViewPageSize.c)
+ *     MiPageSizeToPteLevel @ 0x140471ED0 (MiPageSizeToPteLevel.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     MiGetVadCacheAttribute @ 0x1404DBCAC (MiGetVadCacheAttribute.c)
+ *     MiUnlockAweVadsShared @ 0x1404F3F68 (MiUnlockAweVadsShared.c)
+ *     MiLockAweVadsShared @ 0x14050D428 (MiLockAweVadsShared.c)
+ *     MiGetAweNode @ 0x1405289D4 (MiGetAweNode.c)
  */
 
 __int64 __fastcall MiProtectAwePrepare(__int64 a1)

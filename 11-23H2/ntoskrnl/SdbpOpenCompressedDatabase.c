@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpOpenCompressedDatabase @ 0x140A53208
+ * XREFs of SdbpOpenCompressedDatabase @ 0x140A534B8
  * Callers:
- *     SdbOpenDatabaseEx @ 0x140A4E550 (SdbOpenDatabaseEx.c)
+ *     SdbOpenDatabaseEx @ 0x140A4E800 (SdbOpenDatabaseEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     SdbpOpenDatabaseInMemory @ 0x140695260 (SdbpOpenDatabaseInMemory.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  *     SdbCloseDatabaseRead @ 0x140695724 (SdbCloseDatabaseRead.c)
- *     SdbpReadMappedData @ 0x14074288C (SdbpReadMappedData.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
+ *     SdbpReadMappedData @ 0x140742A7C (SdbpReadMappedData.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

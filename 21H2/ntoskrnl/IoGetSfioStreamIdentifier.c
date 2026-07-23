@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetSfioStreamIdentifier @ 0x140505C10
+ * XREFs of IoGetSfioStreamIdentifier @ 0x140505B90
  * Callers:
  *     <none>
  * Callees:
- *     IopGetSetStreamIdentifier @ 0x140506824 (IopGetSetStreamIdentifier.c)
+ *     IopGetSetStreamIdentifier @ 0x1405067A4 (IopGetSetStreamIdentifier.c)
  */
 
 PVOID __stdcall IoGetSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Signature)

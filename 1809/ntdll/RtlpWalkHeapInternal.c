@@ -2,7 +2,7 @@
  * XREFs of RtlpWalkHeapInternal @ 0x18005B71C
  * Callers:
  *     RtlpHpTagDestroyHeap @ 0x18005B6A4 (RtlpHpTagDestroyHeap.c)
- *     RtlpQueryExtendedInformationHeap @ 0x18007D320 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x18007D330 (RtlpQueryExtendedInformationHeap.c)
  *     RtlWalkHeap @ 0x1800F2CA0 (RtlWalkHeap.c)
  *     RtlpHpStackTraceHeapSerialize @ 0x180104F80 (RtlpHpStackTraceHeapSerialize.c)
  * Callees:

@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwMapViewOfSectionEx @ 0x1401BA350
+ * XREFs of ZwMapViewOfSectionEx @ 0x1401BA4B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwMapViewOfSectionEx(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwMapViewOfSectionEx(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(SectionHandle);
 }

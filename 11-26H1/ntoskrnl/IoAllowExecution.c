@@ -1,10 +1,10 @@
 /*
- * XREFs of IoAllowExecution @ 0x14026F1B4
+ * XREFs of IoAllowExecution @ 0x14026E724
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x14098BFCC (MiCreateImageOrDataSection.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopGetDevicePDO @ 0x14026F1F0 (IopGetDevicePDO.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopGetDevicePDO @ 0x14026E760 (IopGetDevicePDO.c)
  */
 
 bool __fastcall IoAllowExecution(__int64 a1)

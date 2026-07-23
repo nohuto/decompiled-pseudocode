@@ -1,10 +1,10 @@
 /*
- * XREFs of CMFUnmapModules @ 0x140959A44
+ * XREFs of CMFUnmapModules @ 0x140959C14
  * Callers:
- *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140959CF0 (NtMapCMFModule.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CMFUnmapModules(__int16 a1)

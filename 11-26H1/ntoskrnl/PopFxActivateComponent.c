@@ -1,29 +1,29 @@
 /*
- * XREFs of PopFxActivateComponent @ 0x14037AB40
+ * XREFs of PopFxActivateComponent @ 0x14037C8F0
  * Callers:
- *     PoFxActivateComponent @ 0x14037AAB0 (PoFxActivateComponent.c)
- *     PopFxActivateComponentDependencies @ 0x140469FA0 (PopFxActivateComponentDependencies.c)
- *     PopFxNotifyPreDIrpIssue @ 0x140518984 (PopFxNotifyPreDIrpIssue.c)
- *     PoFxAddComponentRelation @ 0x140603F90 (PoFxAddComponentRelation.c)
- *     PoFxAddDeviceRelation @ 0x140604200 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveComponentRelation @ 0x140604610 (PoFxRemoveComponentRelation.c)
- *     PopFxRegisterDeviceWorker @ 0x140B1BA40 (PopFxRegisterDeviceWorker.c)
- *     PopFxRegisterDevice @ 0x140B4F9A0 (PopFxRegisterDevice.c)
+ *     PoFxActivateComponent @ 0x14037C860 (PoFxActivateComponent.c)
+ *     PopFxActivateComponentDependencies @ 0x140463720 (PopFxActivateComponentDependencies.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x1405123F4 (PopFxNotifyPreDIrpIssue.c)
+ *     PoFxAddComponentRelation @ 0x140606A90 (PoFxAddComponentRelation.c)
+ *     PoFxAddDeviceRelation @ 0x140606D00 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveComponentRelation @ 0x140607110 (PoFxRemoveComponentRelation.c)
+ *     PopFxRegisterDeviceWorker @ 0x140B1DC50 (PopFxRegisterDeviceWorker.c)
+ *     PopFxRegisterDevice @ 0x140B52230 (PopFxRegisterDevice.c)
  * Callees:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponentWorker @ 0x14037AE70 (PopFxActivateComponentWorker.c)
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037B2F0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponentWorker @ 0x14037CC20 (PopFxActivateComponentWorker.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037D0A0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall PopFxActivateComponent(__int64 BugCheckParameter2, __int64 a2, char a3, char a4)
@@ -153,7 +153,7 @@ LABEL_42:
   {
     v11 = KeGetCurrentThread();
     if ( v11->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
     {
       KiCheckForKernelApcDelivery(BugCheckParameter2, a2);
     }

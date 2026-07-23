@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpHpSegReAlloc @ 0x1800B1A2C
+ * XREFs of RtlpHpSegReAlloc @ 0x18008159C
  * Callers:
- *     RtlpHpReAllocateHeapSlow @ 0x1800B0E90 (RtlpHpReAllocateHeapSlow.c)
- *     RtlpHpReAllocateHeap @ 0x1800B11E4 (RtlpHpReAllocateHeap.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x180080A04 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpReAllocateHeap @ 0x180080D58 (RtlpHpReAllocateHeap.c)
  * Callees:
- *     RtlpHpExtrasSetPresent @ 0x18001A610 (RtlpHpExtrasSetPresent.c)
- *     RtlpHpSegPageRangeCommit @ 0x180069850 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegPageRangeShrink @ 0x180096F44 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
- *     RtlpHpVsContextGrowInPlace @ 0x1800B27C0 (RtlpHpVsContextGrowInPlace.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpHpExtrasSetPresent @ 0x1800056F0 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpSegPageRangeShrink @ 0x180071824 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpVsContextGrowInPlace @ 0x180082330 (RtlpHpVsContextGrowInPlace.c)
+ *     RtlpHpSegPageRangeCommit @ 0x180089CA0 (RtlpHpSegPageRangeCommit.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpSegReAlloc(__int64 a1, int a2, signed __int64 a3, __int64 a4)
 {
-  __int64 v7; // r9
+  unsigned __int64 v7; // r9
   char v9; // cl
   unsigned __int64 v10; // rbx
   __int64 v11; // rbx
-  __int64 v12; // rcx
+  void *v12; // rcx
   unsigned __int64 v13; // rdx
   unsigned __int64 v14; // r9
   unsigned int v15; // eax
@@ -37,8 +37,8 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, __int64 a3, __i
   v9 = *(_BYTE *)(a1 + 8);
   v10 = v7 + 32 * ((unsigned __int64)(unsigned int)(a3 - v7) >> v9);
   v11 = v10 - 32LL * *(unsigned __int8 *)(v10 + 26);
-  v12 = v7 + ((unsigned int)((v11 - v7) >> 5) << v9);
-  if ( (*(_BYTE *)(v11 + 24) & 3) != 3 || v12 != a3 && (*(_BYTE *)(v11 + 24) & 0x1Cu) < 8 )
+  v12 = (void *)(v7 + ((unsigned int)((__int64)(v11 - v7) >> 5) << v9));
+  if ( (*(_BYTE *)(v11 + 24) & 3) != 3 || v12 != (void *)a3 && (*(_BYTE *)(v11 + 24) & 0x1Cu) < 8 )
     return -1LL;
   v13 = *(_QWORD *)(a4 + 32);
   v14 = (v13 + 4095) >> 12;
@@ -69,7 +69,7 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, __int64 a3, __i
             (void *)((v20 + 15) & 0xFFFFFFFFFFFFFFF0uLL),
             (const void *)((v19 + 15) & 0xFFFFFFFFFFFFFFF0uLL),
             16 * (*(unsigned __int8 *)(((v19 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 3) + 1LL));
-          RtlpHpExtrasSetPresent(*(_QWORD *)(a1 + 56), v17);
+          RtlpHpExtrasSetPresent(*(_RTL_SRWLOCK **)(a1 + 56), v17);
         }
         return v17;
       }
@@ -80,7 +80,7 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, __int64 a3, __i
   {
 LABEL_8:
     if ( (a2 & 0x10000000) == 0 )
-      return RtlpHpReallocMove(*(_QWORD *)(a1 + 56), a3, a4, a2);
+      return RtlpHpReallocMove(*(PVOID *)(a1 + 56), (void *)a3);
     return 0LL;
   }
   v21 = (unsigned __int16)~*(_WORD *)(v11 + 28);

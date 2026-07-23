@@ -1,81 +1,79 @@
 /*
- * XREFs of DifKeRaiseIrqlToDpcLevelWrapper @ 0x14062EAF0
+ * XREFs of DifKeRaiseIrqlToDpcLevelWrapper @ 0x14062D0B0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char DifKeRaiseIrqlToDpcLevelWrapper()
 {
   __int64 *APIThunkContextById; // rax
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 *v4; // rdi
-  int v5; // eax
-  BOOLEAN v6; // si
+  __int64 *v2; // rdi
+  int v3; // eax
+  BOOLEAN v4; // si
   __int64 *i; // rbx
   unsigned __int8 CurrentIrql; // bl
-  __int64 v9; // rdx
-  BOOLEAN v10; // si
-  _QWORD **v11; // rdi
+  __int64 v7; // rdx
+  BOOLEAN v8; // si
+  _QWORD **v9; // rdi
   _QWORD *j; // rbx
-  __int128 v14; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v12; // [rsp+20h] [rbp-18h] BYREF
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  v14 = 0LL;
+  v12 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(270);
-  v4 = APIThunkContextById;
+  v2 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v5 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v5 & 0x18) != 0 )
+    v3 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v3 & 0x18) != 0 )
     {
-      *(_QWORD *)&v14 = retaddr;
+      *(_QWORD *)&v12 = retaddr;
     }
-    else if ( (v5 & 4) != 0 )
+    else if ( (v3 & 4) != 0 )
     {
-      *(_QWORD *)&v14 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v12 = DifGetReturnAddressForWrappers();
     }
-    v6 = 0;
+    v4 = 0;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v6 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v4 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v4[4]; i != v4 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v2[4]; i != v2 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v14, v1, v2, v3);
+          guard_dispatch_icall_no_overrides(&v12, v1);
       }
-      if ( v6 )
+      if ( v4 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
   CurrentIrql = KeGetCurrentIrql();
-  v9 = 2LL;
+  v7 = 2LL;
   __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
-  BYTE8(v14) = CurrentIrql;
-  if ( v4 )
+  BYTE8(v12) = CurrentIrql;
+  if ( v2 )
   {
-    if ( (v10 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v10 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v8 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v11 = (_QWORD **)(v4 + 6);
-      for ( j = *v11; j != v11; j = (_QWORD *)*j )
+      v9 = (_QWORD **)(v2 + 6);
+      for ( j = *v9; j != v9; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v14, v9, v2, v3);
+          guard_dispatch_icall_no_overrides(&v12, v7);
       }
-      if ( v10 )
+      if ( v8 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return BYTE8(v14);
+  return BYTE8(v12);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiPnpRtlInit @ 0x14073A520
+ * XREFs of PiPnpRtlInit @ 0x14073B710
  * Callers:
- *     PnpBootPhaseComplete @ 0x14073A3D0 (PnpBootPhaseComplete.c)
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     PnpBootPhaseComplete @ 0x14073B5C0 (PnpBootPhaseComplete.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _PnpCtxSetNtPlugPlayRoutine @ 0x14073A6B4 (_PnpCtxSetNtPlugPlayRoutine.c)
- *     PiDrvDbInit @ 0x14073A6E0 (PiDrvDbInit.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x14073B578 (PiDrvDbEnumDriverStoreNodes.c)
- *     _PnpCtxOpenMachine @ 0x14073B6CC (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegisterMachineNode @ 0x1408F5F1C (_PnpCtxRegisterMachineNode.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxSetNtPlugPlayRoutine @ 0x14073B8A4 (_PnpCtxSetNtPlugPlayRoutine.c)
+ *     PiDrvDbInit @ 0x14073B8D0 (PiDrvDbInit.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x14073C768 (PiDrvDbEnumDriverStoreNodes.c)
+ *     _PnpCtxOpenMachine @ 0x14073C8BC (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408F71DC (_PnpCtxRegisterMachineNode.c)
  */
 
 __int64 __fastcall PiPnpRtlInit(unsigned int a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PiPnpRtlInit(unsigned int a1)
   Handle = 0LL;
   if ( a1 )
     return (unsigned int)PiDrvDbInit(a1);
-  qword_1404342D8 = (__int64)&PiPnpRtlActiveOperations;
+  qword_140435378 = (__int64)&PiPnpRtlActiveOperations;
   PiPnpRtlActiveOperations = (__int64)&PiPnpRtlActiveOperations;
   v2 = ExInitializeResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
   if ( v2 >= 0 )

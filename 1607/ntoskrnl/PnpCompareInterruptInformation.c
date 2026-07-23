@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCompareInterruptInformation @ 0x1405462D0
+ * XREFs of PnpCompareInterruptInformation @ 0x140546810
  * Callers:
- *     PnpGetDevicePropertyData @ 0x1404F7610 (PnpGetDevicePropertyData.c)
+ *     PnpGetDevicePropertyData @ 0x1404DA59C (PnpGetDevicePropertyData.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     _TlgCreateSz @ 0x1401CDF00 (_TlgCreateSz.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     _TlgCreateSz @ 0x1401CDD4C (_TlgCreateSz.c)
  */
 
 char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
@@ -55,7 +55,7 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
           v13 = v4;
           TlgCreateSz(&pDesc, "Compare Failed");
           v17 = v14;
-          v9 = &unk_14027BB25;
+          v9 = &unk_14027BC25;
           v10 = &v13;
           goto LABEL_14;
         }
@@ -70,7 +70,7 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
         v14[0] = v4;
         TlgCreateSz(&pDesc, "Size Mismatch");
         v17 = &v13;
-        v9 = &unk_14027BB7C;
+        v9 = &unk_14027BC7C;
         v10 = v14;
 LABEL_14:
         v19 = 0;
@@ -101,7 +101,7 @@ LABEL_14:
       v21 = *(unsigned __int16 *)(v6 + 40);
       v17 = &v21;
       v18 = 2;
-      LOBYTE(v3) = TlgWrite(&stru_1402F3230, &unk_14027BBD3, 0LL, 0LL, 5u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_1402F3230, &unk_14027BCD3, 0LL, 0LL, 5u, &pData);
     }
   }
   return v3;

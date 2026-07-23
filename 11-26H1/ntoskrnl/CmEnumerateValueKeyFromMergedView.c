@@ -1,34 +1,35 @@
 /*
- * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140AFF7BC
+ * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140B0144C
  * Callers:
- *     CmQueryKey @ 0x1408C5660 (CmQueryKey.c)
- *     NtEnumerateValueKey @ 0x14097F290 (NtEnumerateValueKey.c)
+ *     CmQueryKey @ 0x1408CBC30 (CmQueryKey.c)
+ *     NtEnumerateValueKey @ 0x1409412A0 (NtEnumerateValueKey.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     CmpFindNameInListWithStatus @ 0x1408D5200 (CmpFindNameInListWithStatus.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1408ECB1C (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpUnlockTwoKcbs @ 0x14097E9E0 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x14097EA80 (CmpLockTwoKcbsShared.c)
- *     CmpQueryKeyValueData @ 0x14097FE40 (CmpQueryKeyValueData.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     CmpFindNameInListWithStatus @ 0x1408DB7C0 (CmpFindNameInListWithStatus.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1408F30DC (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpUnlockTwoKcbs @ 0x1409409F0 (CmpUnlockTwoKcbs.c)
+ *     CmpLockTwoKcbsShared @ 0x140940A90 (CmpLockTwoKcbsShared.c)
+ *     CmpQueryKeyValueData @ 0x140941E50 (CmpQueryKeyValueData.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmEnumerateValueKeyFromMergedView(
         __int64 a1,
         __int64 a2,
-        char a3,
-        unsigned int a4,
+        __int64 a3,
+        __int64 a4,
         int a5,
         _DWORD *Size,
         unsigned int a7,
         unsigned int *a8,
         unsigned int *a9)
 {
+  char v10; // r15
   unsigned __int64 v12; // rsi
   int KeyValueData; // ebx
   __int64 v14; // r12
@@ -89,10 +90,15 @@ __int64 __fastcall CmEnumerateValueKeyFromMergedView(
   __int64 v70; // [rsp+B8h] [rbp-19h]
   __int128 v71; // [rsp+C0h] [rbp-11h] BYREF
   unsigned int v72; // [rsp+118h] [rbp+47h]
+  char v73; // [rsp+128h] [rbp+57h]
+  unsigned int v74; // [rsp+130h] [rbp+5Fh]
 
+  v74 = a4;
+  v73 = a3;
   v58 = 0LL;
   v68 = 0LL;
   v62[0] = -1;
+  v10 = a3;
   v62[1] = 0;
   v69 = 0LL;
   v12 = 0LL;
@@ -112,8 +118,8 @@ __int64 __fastcall CmEnumerateValueKeyFromMergedView(
   v55 = 0xFFFFFFFFLL;
   v64 = 0;
   v71 = 0LL;
-  if ( !a3 )
-    CmpLockRegistry(0xFFFFFFFFLL);
+  if ( !(_BYTE)a3 )
+    CmpLockRegistry(0xFFFFFFFFLL, a2, a3, a4);
   if ( !*(_QWORD *)(a1 + 56) && !*(_QWORD *)(a1 + 64) )
   {
 LABEL_9:
@@ -121,7 +127,7 @@ LABEL_9:
     v18 = *(_QWORD *)(a2 + 8);
     v58 = v17;
     *(_QWORD *)v60 = v18;
-    if ( !a3 )
+    if ( !v73 )
       CmpLockTwoKcbsShared(v17, v18);
     if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, v12) )
     {
@@ -187,7 +193,7 @@ LABEL_51:
             v24 = 0;
             for ( i = *(_QWORD *)v60 + 32LL; ; i = v70 )
             {
-              if ( v72 > a4 )
+              if ( v72 > v74 )
                 goto LABEL_48;
               if ( v24 >= *v67 )
                 break;
@@ -228,7 +234,7 @@ LABEL_51:
                                        &v64);
               if ( ((int)(NameInListWithStatus + 0x80000000) < 0 || NameInListWithStatus == -1073741772) && v64 == -1 )
               {
-                if ( v72 == a4 )
+                if ( v72 == v74 )
                 {
                   v43 = v58;
 LABEL_96:
@@ -260,7 +266,7 @@ LABEL_96:
               }
             }
             v44 = *v66 + v72;
-            if ( v44 > a4 )
+            if ( v44 > v74 )
             {
               v49 = *(_QWORD *)i;
               v50 = v66[1];
@@ -271,7 +277,7 @@ LABEL_96:
               v23 = v51;
               if ( v51 )
               {
-                v52 = a4 - v72;
+                v52 = v74 - v72;
                 v27 = *(_QWORD *)i;
                 v53 = *(unsigned int *)(v51 + 4 * v52);
                 v65 = *(_DWORD *)(v51 + 4 * v52);
@@ -336,7 +342,7 @@ LABEL_50:
         }
         KeyValueData = -1073741670;
 LABEL_53:
-        if ( a3 )
+        if ( v73 )
           return (unsigned int)KeyValueData;
         CmpUnlockTwoKcbs((_WORD *)v17, (_WORD *)v18);
         goto LABEL_6;
@@ -352,7 +358,7 @@ LABEL_53:
     v12 = v58;
     goto LABEL_9;
   }
-  if ( !a3 )
+  if ( !v10 )
 LABEL_6:
     CmpUnlockRegistry(v15);
   return (unsigned int)KeyValueData;

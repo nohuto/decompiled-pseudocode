@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlQueryConnection @ 0x140497A50
+ * XREFs of HvlQueryConnection @ 0x1404915A0
  * Callers:
- *     HvlPhase0Initialize @ 0x14079166C (HvlPhase0Initialize.c)
- *     EtwpSysModuleRunDown @ 0x14096F07C (EtwpSysModuleRunDown.c)
+ *     HvlPhase0Initialize @ 0x14079419C (HvlPhase0Initialize.c)
+ *     EtwpSysModuleRunDown @ 0x1409BC6CC (EtwpSysModuleRunDown.c)
  * Callees:
  *     <none>
  */

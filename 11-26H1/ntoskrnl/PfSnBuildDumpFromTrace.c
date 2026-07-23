@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnBuildDumpFromTrace @ 0x140AA38E0
+ * XREFs of PfSnBuildDumpFromTrace @ 0x140AA6680
  * Callers:
- *     PfSnEndTrace @ 0x140AA3588 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x140AA6328 (PfSnEndTrace.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PfVerifyTraceBuffer @ 0x140AA3DC0 (PfVerifyTraceBuffer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PfVerifyTraceBuffer @ 0x140AA6B60 (PfVerifyTraceBuffer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBuildDumpFromTrace(PVOID *a1, __int64 a2)

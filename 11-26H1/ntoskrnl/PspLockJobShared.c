@@ -1,16 +1,16 @@
 /*
- * XREFs of PspLockJobShared @ 0x140A81FE8
+ * XREFs of PspLockJobShared @ 0x140A87E58
  * Callers:
- *     PspQueryJobHierarchyAccountingInformation @ 0x140772FF8 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspLockRootJobShared @ 0x140774B38 (PspLockRootJobShared.c)
- *     NtQueryInformationJobObject @ 0x1407F2FB0 (NtQueryInformationJobObject.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1407F7D20 (PspEnforceLimitsJobPostCallback.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x1407F8EFC (PspQueryJobHierarchyInterferenceCount.c)
- *     PspSendSiloTerminationNotification @ 0x1407F91F8 (PspSendSiloTerminationNotification.c)
- *     PsInsertPermanentSiloContextEx @ 0x140A30E34 (PsInsertPermanentSiloContextEx.c)
- *     PspLockJobAndRootShared @ 0x140B6A018 (PspLockJobAndRootShared.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x140775FF8 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspLockRootJobShared @ 0x140777B38 (PspLockRootJobShared.c)
+ *     NtQueryInformationJobObject @ 0x1407F8B10 (NtQueryInformationJobObject.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1407FD820 (PspEnforceLimitsJobPostCallback.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x1407FE9FC (PspQueryJobHierarchyInterferenceCount.c)
+ *     PspSendSiloTerminationNotification @ 0x1407FECF8 (PspSendSiloTerminationNotification.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140A4BD94 (PsInsertPermanentSiloContextEx.c)
+ *     PspLockJobAndRootShared @ 0x140B6D224 (PspLockJobAndRootShared.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
  */
 
 char __fastcall PspLockJobShared(__int64 a1, __int64 a2, ULONG_PTR a3)

@@ -64,12 +64,13 @@
  *     _StringCbPrintfA @ 0x4B32E7CE (_StringCbPrintfA.c)
  */
 
-struct _TEB *LdrpLogDbgPrint(int a1, int a2, const char *a3, int a4, char *a5, ...)
+struct _TEB *LdrpLogDbgPrint(int a1, int a2, int a3, int a4, const char *a5, ...)
 {
-  const char *v5; // edi
+  int v5; // edi
   struct _TEB *result; // eax
-  const char *v7; // ebx
+  char *v7; // ebx
   int v8; // eax
+  size_t v9; // [esp-1Ch] [ebp-140h]
   char pszDest[260]; // [esp+18h] [ebp-10Ch] BYREF
   va_list va; // [esp+140h] [ebp+1Ch] BYREF
 
@@ -91,16 +92,17 @@ struct _TEB *LdrpLogDbgPrint(int a1, int a2, const char *a3, int a4, char *a5, .
     {
       v8 = (MEMORY[0x7FFE0004] * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24;
     }
+    HIDWORD(v9) = "%04x:%04x @ %08d - %s - %s: ";
+    LODWORD(v9) = 256;
     StringCbPrintfA(
       pszDest,
-      0x100u,
-      "%04x:%04x @ %08d - %s - %s: ",
-      NtCurrentTeb()->ClientId.UniqueProcess,
+      v9,
+      (STRSAFE_LPCSTR)NtCurrentTeb()->ClientId.UniqueProcess,
       NtCurrentTeb()->ClientId.UniqueThread,
       v8,
       v5,
       v7);
-    return (struct _TEB *)vDbgPrintExWithPrefixInternal(pszDest, 85, 0, a5, va, 1);
+    return (struct _TEB *)vDbgPrintExWithPrefixInternal(pszDest, 0x55u, 0, (int)a5, va, 1);
   }
   return result;
 }

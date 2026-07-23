@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpAcpiCheckAndMapTable @ 0x140264C3C
+ * XREFs of HalpAcpiCheckAndMapTable @ 0x14045FE34
  * Callers:
- *     HalpAcpiGetTableFromBios @ 0x1404787D0 (HalpAcpiGetTableFromBios.c)
- *     HalpAcpiGetRsdt @ 0x1404789A4 (HalpAcpiGetRsdt.c)
- *     HalpAcpiGetAllTablesWork @ 0x14053D2C8 (HalpAcpiGetAllTablesWork.c)
- *     HalpAcpiGetFacsMapping @ 0x14053D4D0 (HalpAcpiGetFacsMapping.c)
+ *     HalpAcpiGetTableFromBios @ 0x14045FC60 (HalpAcpiGetTableFromBios.c)
+ *     HalpAcpiGetRsdt @ 0x14046014C (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14053ABC8 (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiGetFacsMapping @ 0x14053ADD0 (HalpAcpiGetFacsMapping.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     HalpFlushTLB @ 0x1404F50C4 (HalpFlushTLB.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     HalpFlushTLB @ 0x1404F29C4 (HalpFlushTLB.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall HalpAcpiCheckAndMapTable(

@@ -1,12 +1,12 @@
 /*
- * XREFs of UcpFindOrCreateTelemetryRecord @ 0x140694900
+ * XREFs of UcpFindOrCreateTelemetryRecord @ 0x1406959D0
  * Callers:
- *     UcOnUnexpectedCodePath @ 0x14069466C (UcOnUnexpectedCodePath.c)
+ *     UcOnUnexpectedCodePath @ 0x14069573C (UcOnUnexpectedCodePath.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     UcpCreateTelemetryRecord @ 0x14069486C (UcpCreateTelemetryRecord.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     UcpCreateTelemetryRecord @ 0x14069593C (UcpCreateTelemetryRecord.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
@@ -58,15 +58,15 @@ __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
   }
   if ( !UcpMaxTriggeredNodeExcceded && UcIsTraceLoggingInitialized == 1 )
   {
-    if ( (unsigned int)dword_140E0A020 > 4 && tlgKeywordOn((__int64)&dword_140E0A020, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E0A090 > 4 && tlgKeywordOn((__int64)&dword_140E0A090, 0x400000000000LL) )
     {
       v13 = 0;
       v11 = &v9;
       v9 = v4;
       v12 = 8;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E0A020,
-        (unsigned __int8 *)byte_140058ABB,
+        (__int64)&dword_140E0A090,
+        (unsigned __int8 *)&word_14005962E,
         0LL,
         0LL,
         3u,

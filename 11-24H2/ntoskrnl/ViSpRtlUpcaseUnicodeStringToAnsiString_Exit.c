@@ -1,9 +1,9 @@
 /*
- * XREFs of ViSpRtlUpcaseUnicodeStringToAnsiString_Exit @ 0x140BA4DC0
+ * XREFs of ViSpRtlUpcaseUnicodeStringToAnsiString_Exit @ 0x140BA6DC0
  * Callers:
  *     <none>
  * Callees:
- *     ViSpRtlReplaceStringBuffer @ 0x140BA4E44 (ViSpRtlReplaceStringBuffer.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140BA6E44 (ViSpRtlReplaceStringBuffer.c)
  */
 
 __int64 __fastcall ViSpRtlUpcaseUnicodeStringToAnsiString_Exit(__int64 a1)

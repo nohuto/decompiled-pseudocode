@@ -1,10 +1,10 @@
 /*
- * XREFs of ViThunkSnapSharedExportByName @ 0x1409210B8
+ * XREFs of ViThunkSnapSharedExportByName @ 0x1409220B8
  * Callers:
- *     ViThunkSnapSharedExports @ 0x1409211A8 (ViThunkSnapSharedExports.c)
+ *     ViThunkSnapSharedExports @ 0x1409221A8 (ViThunkSnapSharedExports.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     _stricmp @ 0x1401953E0 (_stricmp.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     _stricmp @ 0x140195520 (_stricmp.c)
  */
 
 __int64 __fastcall ViThunkSnapSharedExportByName(char *a1, __int64 a2, char **a3)

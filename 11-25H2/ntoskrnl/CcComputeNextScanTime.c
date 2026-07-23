@@ -21,7 +21,7 @@ __int64 __fastcall CcComputeNextScanTime(__int64 a1, __int64 a2, __int64 *a3, _Q
   result = CcIsWriteBehindThreadpoolAtLowPriority(a1, a2, a2);
   if ( (_BYTE)result )
   {
-    v9 = 0x9896800uLL / (unsigned int)KeMaximumIncrement;
+    v9 = 0x9896800uLL / KeMaximumIncrement;
     if ( CcEnablePerVolumeLazyWriter )
       v10 = (_DWORD *)(v7 + 708);
     else

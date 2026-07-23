@@ -1,29 +1,29 @@
 /*
- * XREFs of HvpAddBin @ 0x14047DF10
+ * XREFs of HvpAddBin @ 0x14047CC64
  * Callers:
- *     HvpDoAllocateCell @ 0x140401D70 (HvpDoAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x140400C30 (HvpDoAllocateCell.c)
  * Callees:
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     RtlCopyBitMap @ 0x140076A78 (RtlCopyBitMap.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpBoostActiveHiveWriter @ 0x14047D444 (CmpBoostActiveHiveWriter.c)
- *     CmpUpdateSystemHiveHysteresis @ 0x14047D460 (CmpUpdateSystemHiveHysteresis.c)
- *     CmpCanGrowHive @ 0x14047DDDC (CmpCanGrowHive.c)
- *     HvpExpandMap @ 0x14047DE4C (HvpExpandMap.c)
- *     HvpFindFreeBin @ 0x14047E5F0 (HvpFindFreeBin.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14047EF08 (HvpAdjustHiveFreeDisplay.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
- *     HvpSetRangeProtection @ 0x1405139A4 (HvpSetRangeProtection.c)
- *     HvpPointMapEntriesToBuffer @ 0x140513AF8 (HvpPointMapEntriesToBuffer.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvpProtectBin @ 0x140513DE0 (HvpProtectBin.c)
- *     HvpAllocateBin @ 0x140513E48 (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
- *     HvpShrinkMap @ 0x14061081C (HvpShrinkMap.c)
- *     HvpReviveDiscardedBin @ 0x14061089C (HvpReviveDiscardedBin.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     RtlCopyBitMap @ 0x140076AF8 (RtlCopyBitMap.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpBoostActiveHiveWriter @ 0x14047C198 (CmpBoostActiveHiveWriter.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x14047C1B4 (CmpUpdateSystemHiveHysteresis.c)
+ *     CmpCanGrowHive @ 0x14047CB30 (CmpCanGrowHive.c)
+ *     HvpExpandMap @ 0x14047CBA0 (HvpExpandMap.c)
+ *     HvpFindFreeBin @ 0x14047D344 (HvpFindFreeBin.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x14047DC5C (HvpAdjustHiveFreeDisplay.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
+ *     HvpSetRangeProtection @ 0x1404F6D94 (HvpSetRangeProtection.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1404F6EE8 (HvpPointMapEntriesToBuffer.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvpProtectBin @ 0x1404F71D0 (HvpProtectBin.c)
+ *     HvpAllocateBin @ 0x1404F7238 (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
+ *     HvpShrinkMap @ 0x1406108D0 (HvpShrinkMap.c)
+ *     HvpReviveDiscardedBin @ 0x140610950 (HvpReviveDiscardedBin.c)
  */
 
 __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3)
@@ -90,8 +90,8 @@ __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int 
   __int64 v64; // [rsp+80h] [rbp-19h]
   void *v65; // [rsp+88h] [rbp-11h] BYREF
   __int64 v66; // [rsp+90h] [rbp-9h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+98h] [rbp-1h] BYREF
-  struct _RTL_BITMAP v68; // [rsp+A8h] [rbp+Fh] BYREF
+  _RTL_BITMAP Destination; // [rsp+98h] [rbp-1h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+A8h] [rbp+Fh] BYREF
   char v69; // [rsp+100h] [rbp+67h]
   char v70; // [rsp+108h] [rbp+6Fh]
   unsigned int v71; // [rsp+118h] [rbp+7Fh]
@@ -229,26 +229,26 @@ LABEL_23:
             goto LABEL_68;
           }
           v25 = *(_QWORD *)(BugCheckParameter2 + 80) == 0LL;
-          BitMapHeader.Buffer = (unsigned int *)v62;
+          Destination.Buffer = (unsigned int *)v62;
+          Destination.SizeOfBitMap = v22;
           BitMapHeader.SizeOfBitMap = v22;
-          v68.SizeOfBitMap = v22;
-          v68.Buffer = (unsigned int *)v24;
+          BitMapHeader.Buffer = (unsigned int *)v24;
           if ( v25 )
           {
             memset(v62, 0, (unsigned int)v57);
           }
           else
           {
-            RtlCopyBitMap((unsigned int *)(BugCheckParameter2 + 72), (__int64)&BitMapHeader, 0);
-            RtlClearBits(&BitMapHeader, StartingIndex, v22 - StartingIndex);
+            RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 72), &Destination, 0);
+            RtlClearBits(&Destination, StartingIndex, v22 - StartingIndex);
             (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter2 + 32))(
               *(_QWORD *)(BugCheckParameter2 + 80),
               *(unsigned int *)(BugCheckParameter2 + 92));
           }
           if ( *(_QWORD *)(BugCheckParameter2 + 104) )
           {
-            RtlCopyBitMap((unsigned int *)(BugCheckParameter2 + 96), (__int64)&v68, 0);
-            RtlClearBits(&v68, StartingIndex, v22 - StartingIndex);
+            RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 96), &BitMapHeader, 0);
+            RtlClearBits(&BitMapHeader, StartingIndex, v22 - StartingIndex);
             (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter2 + 32))(
               *(_QWORD *)(BugCheckParameter2 + 104),
               *(unsigned int *)(BugCheckParameter2 + 92));

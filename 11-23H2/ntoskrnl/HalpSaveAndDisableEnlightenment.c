@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSaveAndDisableEnlightenment @ 0x14050C640
+ * XREFs of HalpSaveAndDisableEnlightenment @ 0x14050CB90
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
- *     HalpTimerUpdateApiConsumers @ 0x14051F924 (HalpTimerUpdateApiConsumers.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
+ *     HalpTimerUpdateApiConsumers @ 0x14051FE74 (HalpTimerUpdateApiConsumers.c)
  */
 
 __int64 HalpSaveAndDisableEnlightenment()

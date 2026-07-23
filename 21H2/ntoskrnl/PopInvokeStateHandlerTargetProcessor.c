@@ -1,22 +1,22 @@
 /*
- * XREFs of PopInvokeStateHandlerTargetProcessor @ 0x140993050
+ * XREFs of PopInvokeStateHandlerTargetProcessor @ 0x140994050
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopHandleNextState @ 0x1409940D0 (PopHandleNextState.c)
  */
 
 void __fastcall PopInvokeStateHandlerTargetProcessor(
         struct _KDPC *Dpc,
-        union _SLIST_HEADER *DeferredContext,
+        _SLIST_HEADER *DeferredContext,
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
   __int64 v5; // r8
-  struct _SLIST_ENTRY v6[9]; // [rsp+20h] [rbp-A8h] BYREF
+  _SLIST_ENTRY v6[9]; // [rsp+20h] [rbp-A8h] BYREF
 
   memset(v6, 0, sizeof(v6));
   RtlpInterlockedPushEntrySList(DeferredContext + 4, &v6[8]);

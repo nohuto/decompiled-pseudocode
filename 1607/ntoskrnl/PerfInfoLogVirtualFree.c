@@ -1,11 +1,11 @@
 /*
- * XREFs of PerfInfoLogVirtualFree @ 0x1406A3098
+ * XREFs of PerfInfoLogVirtualFree @ 0x1406A31D0
  * Callers:
- *     MiFreeVadRange @ 0x1400272B4 (MiFreeVadRange.c)
- *     NtFreeVirtualMemory @ 0x140433DC0 (NtFreeVirtualMemory.c)
+ *     MiFreeVadRange @ 0x140026E34 (MiFreeVadRange.c)
+ *     NtFreeVirtualMemory @ 0x140432C90 (NtFreeVirtualMemory.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfInfoLogVirtualFree(__int64 a1, __int64 a2, __int64 a3, int a4)

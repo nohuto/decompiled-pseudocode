@@ -29,7 +29,7 @@ __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 
   if ( v13 )
   {
     *(_QWORD *)(a2 + 976) = 0LL;
-    v14 = KeAbPreAcquire(v13, 0LL, 1LL);
+    v14 = KeAbPreAcquire(v13, 0LL, 1);
     if ( v14 )
       *(_BYTE *)(v14 + 26) |= 1u;
   }

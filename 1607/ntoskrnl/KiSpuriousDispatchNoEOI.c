@@ -1,243 +1,243 @@
 /*
- * XREFs of KiSpuriousDispatchNoEOI @ 0x140160150
+ * XREFs of KiSpuriousDispatchNoEOI @ 0x1401606C0
  * Callers:
  *     <none>
  * Callees:
- *     KiBeginThreadAccountingPeriod @ 0x1400C9150 (KiBeginThreadAccountingPeriod.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2750 (KiEndThreadAccountingPeriod.c)
- *     KiRestoreDebugRegisterState @ 0x14015D990 (KiRestoreDebugRegisterState.c)
- *     KiRestoreSetContextState @ 0x14015E540 (KiRestoreSetContextState.c)
- *     KiSpuriousDispatchNoEOI @ 0x140160150 (KiSpuriousDispatchNoEOI.c)
- *     KiInitiateUserApc @ 0x140162560 (KiInitiateUserApc.c)
- *     KiDpcInterruptBypass @ 0x140165590 (KiDpcInterruptBypass.c)
- *     KiCopyCounters @ 0x1401D6FBC (KiCopyCounters.c)
+ *     KiBeginThreadAccountingPeriod @ 0x1400C6FF0 (KiBeginThreadAccountingPeriod.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D05F0 (KiEndThreadAccountingPeriod.c)
+ *     KiRestoreDebugRegisterState @ 0x14015DF00 (KiRestoreDebugRegisterState.c)
+ *     KiRestoreSetContextState @ 0x14015EAB0 (KiRestoreSetContextState.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1401606C0 (KiSpuriousDispatchNoEOI.c)
+ *     KiInitiateUserApc @ 0x140162AD0 (KiInitiateUserApc.c)
+ *     KiDpcInterruptBypass @ 0x140165B00 (KiDpcInterruptBypass.c)
+ *     KiCopyCounters @ 0x1401D6DE8 (KiCopyCounters.c)
  */
 
 /*
- * Hex-Rays decompilation failed for KiSpuriousDispatchNoEOI @ 0x140160150
- * Reason: Hex-Rays returned no pseudocode for 0x140160150
+ * Hex-Rays decompilation failed for KiSpuriousDispatchNoEOI @ 0x1401606C0
+ * Reason: Hex-Rays returned no pseudocode for 0x1401606C0
  * Fallback: raw IDA disassembly follows.
  *
- * 0000000140160150: mov     ecx, 0Fh
- * 0000000140160155: mov     rax, cr8
- * 0000000140160159: mov     cr8, rcx
- * 000000014016015D: mov     [rbp-57h], al
- * 0000000140160160: mov     rcx, gs:20h
- * 0000000140160169: inc     byte ptr [rcx+20h]
- * 000000014016016C: cmp     byte ptr [rcx+20h], 1
- * 0000000140160170: jnz     short loc_1401601C2
- * 0000000140160172: rdtsc
- * 0000000140160174: shl     rdx, 20h
- * 0000000140160178: or      rax, rdx
- * 000000014016017B: mov     r8, [rcx+8]
- * 000000014016017F: sub     rax, [rcx+5B38h]
- * 0000000140160186: add     [r8+48h], rax
- * 000000014016018A: mov     edx, [r8+50h]
- * 000000014016018E: add     [rcx+5B38h], rax
- * 0000000140160195: add     rdx, rax
- * 0000000140160198: mov     ecx, edx
- * 000000014016019A: shr     rdx, 20h
- * 000000014016019E: jz      short loc_1401601A3
- * 00000001401601A0: or      ecx, 0FFFFFFFFh
- * 00000001401601A3: mov     [r8+50h], ecx
- * 00000001401601A7: test    byte ptr [r8+2], 3Eh
- * 00000001401601AC: jz      short loc_1401601C2
- * 00000001401601AE: mov     rdx, r8
- * 00000001401601B1: mov     r8, rax
- * 00000001401601B4: mov     rcx, gs:20h
- * 00000001401601BD: call    KiEndThreadAccountingPeriod
- * 00000001401601C2: sti
- * 00000001401601C3: inc     dword ptr [rsi+74h]
- * 00000001401601C6: cli
- * 00000001401601C7: mov     rcx, gs:20h
- * 00000001401601D0: cmp     byte ptr [rcx+20h], 1
- * 00000001401601D4: ja      short loc_14016024A
- * 00000001401601D6: rdtsc
- * 00000001401601D8: shl     rdx, 20h
- * 00000001401601DC: or      rax, rdx
- * 00000001401601DF: sub     rax, [rcx+5B38h]
- * 00000001401601E6: add     [rcx+5BF8h], rax
- * 00000001401601ED: add     [rcx+5B38h], rax
- * 00000001401601F4: mov     r8, rax
- * 00000001401601F7: mov     rax, [rcx+8]
- * 00000001401601FB: test    byte ptr [rax+2], 32h
- * 00000001401601FF: jz      short loc_140160214
- * 0000000140160201: xor     edx, edx
- * 0000000140160203: call    KiBeginThreadAccountingPeriod
- * 0000000140160208: mov     rcx, gs:20h
- * 0000000140160211: inc     byte ptr [rcx+20h]
- * 0000000140160214: mov     dl, [rcx+6]
- * 0000000140160217: and     byte ptr [rcx+6], 0
- * 000000014016021B: cmp     byte ptr [rcx+7], 0
- * 000000014016021F: jnz     short loc_14016024A
- * 0000000140160221: test    dl, dl
- * 0000000140160223: jz      short loc_14016024A
- * 0000000140160225: cmp     byte ptr [rbp-57h], 2
- * 0000000140160229: jnb     short loc_140160236
- * 000000014016022B: and     byte ptr [rcx+20h], 0
- * 000000014016022F: call    KiDpcInterruptBypass
- * 0000000140160234: jmp     short loc_14016024D
- * 0000000140160236: mov     ecx, 2
- * 000000014016023B: call    cs:__imp_HalRequestSoftwareInterrupt
- * 0000000140160241: mov     rcx, gs:20h
- * 000000014016024A: dec     byte ptr [rcx+20h]
- * 000000014016024D: movzx   ecx, byte ptr [rbp-57h]
- * 0000000140160251: mov     cr8, rcx
- * 0000000140160255: mov     rsi, [rbp+0D0h]
- * 000000014016025C: cli
- * 000000014016025D: test    byte ptr [rbp+0F0h], 1
- * 0000000140160264: jz      loc_1401604DD
- * 000000014016026A: mov     rcx, gs:188h
- * 0000000140160273: cmp     byte ptr [rcx+0C2h], 0
- * 000000014016027A: jz      short loc_140160295
- * 000000014016027C: mov     ecx, 1
- * 0000000140160281: mov     cr8, rcx
- * 0000000140160285: sti
- * 0000000140160286: call    KiInitiateUserApc
- * 000000014016028B: cli
- * 000000014016028C: mov     ecx, 0
- * 0000000140160291: mov     cr8, rcx
- * 0000000140160295: mov     rcx, gs:188h
- * 000000014016029E: test    dword ptr [rcx], 8000000h
- * 00000001401602A4: jz      short loc_1401602AB
- * 00000001401602A6: call    KiRestoreSetContextState
- * 00000001401602AB: mov     rcx, gs:188h
- * 00000001401602B4: test    dword ptr [rcx], 40010000h
- * 00000001401602BA: jz      short loc_1401602D0
- * 00000001401602BC: test    byte ptr [rcx+2], 1
- * 00000001401602C0: jz      short loc_1401602D0
- * 00000001401602C2: call    KiCopyCounters
- * 00000001401602C7: mov     rcx, gs:188h
- * 00000001401602D0: ldmxcsr dword ptr [rbp-54h]
- * 00000001401602D4: cmp     word ptr [rbp+80h], 0
- * 00000001401602DC: jz      short loc_1401602E3
- * 00000001401602DE: call    KiRestoreDebugRegisterState
- * 00000001401602E3: movaps  xmm0, xmmword ptr [rbp-10h]
- * 00000001401602E7: movaps  xmm1, xmmword ptr [rbp+0]
- * 00000001401602EB: movaps  xmm2, xmmword ptr [rbp+10h]
- * 00000001401602EF: movaps  xmm3, xmmword ptr [rbp+20h]
- * 00000001401602F3: movaps  xmm4, xmmword ptr [rbp+30h]
- * 00000001401602F7: movaps  xmm5, xmmword ptr [rbp+40h]
- * 00000001401602FB: mov     r11, [rbp-20h]
- * 00000001401602FF: mov     r10, [rbp-28h]
- * 0000000140160303: mov     r9, [rbp-30h]
- * 0000000140160307: mov     r8, [rbp-38h]
- * 000000014016030B: movzx   eax, word ptr gs:2EC2h
- * 0000000140160314: cmp     gs:2EBCh, ax
- * 000000014016031D: jz      short loc_140160331
- * 000000014016031F: mov     gs:2EBCh, ax
- * 0000000140160328: mov     ecx, 48h ; 'H'
- * 000000014016032D: xor     edx, edx
- * 000000014016032F: wrmsr
- * 0000000140160331: btr     word ptr gs:2EB8h, 2
- * 000000014016033C: jnb     short loc_14016034C
- * 000000014016033E: mov     eax, 1
- * 0000000140160343: xor     edx, edx
- * 0000000140160345: mov     ecx, 49h ; 'I'
- * 000000014016034A: wrmsr
- * 000000014016034C: btr     word ptr gs:2EB8h, 5
- * 0000000140160357: jnb     loc_140160482
- * 000000014016035D: call    loc_140160470
- * 0000000140160362: add     rsp, 8
- * 0000000140160366: call    loc_140160479
- * 000000014016036B: add     rsp, 8
- * 000000014016036F: call    loc_140160362
- * 0000000140160374: add     rsp, 8
- * 0000000140160378: call    loc_14016036B
- * 000000014016037D: add     rsp, 8
- * 0000000140160381: call    loc_140160374
- * 0000000140160386: add     rsp, 8
- * 000000014016038A: call    loc_14016037D
- * 000000014016038F: add     rsp, 8
- * 0000000140160393: call    loc_140160386
- * 0000000140160398: add     rsp, 8
- * 000000014016039C: call    loc_14016038F
- * 00000001401603A1: add     rsp, 8
- * 00000001401603A5: call    loc_140160398
- * 00000001401603AA: add     rsp, 8
- * 00000001401603AE: call    loc_1401603A1
- * 00000001401603B3: add     rsp, 8
- * 00000001401603B7: call    loc_1401603AA
- * 00000001401603BC: add     rsp, 8
- * 00000001401603C0: call    loc_1401603B3
- * 00000001401603C5: add     rsp, 8
- * 00000001401603C9: call    loc_1401603BC
- * 00000001401603CE: add     rsp, 8
- * 00000001401603D2: call    loc_1401603C5
- * 00000001401603D7: add     rsp, 8
- * 00000001401603DB: call    loc_1401603CE
- * 00000001401603E0: add     rsp, 8
- * 00000001401603E4: call    loc_1401603D7
- * 00000001401603E9: add     rsp, 8
- * 00000001401603ED: call    loc_1401603E0
- * 00000001401603F2: add     rsp, 8
- * 00000001401603F6: call    loc_1401603E9
- * 00000001401603FB: add     rsp, 8
- * 00000001401603FF: call    loc_1401603F2
- * 0000000140160404: add     rsp, 8
- * 0000000140160408: call    loc_1401603FB
- * 000000014016040D: add     rsp, 8
- * 0000000140160411: call    loc_140160404
- * 0000000140160416: add     rsp, 8
- * 000000014016041A: call    loc_14016040D
- * 000000014016041F: add     rsp, 8
- * 0000000140160423: call    loc_140160416
- * 0000000140160428: add     rsp, 8
- * 000000014016042C: call    loc_14016041F
- * 0000000140160431: add     rsp, 8
- * 0000000140160435: call    loc_140160428
- * 000000014016043A: add     rsp, 8
- * 000000014016043E: call    loc_140160431
- * 0000000140160443: add     rsp, 8
- * 0000000140160447: call    loc_14016043A
- * 000000014016044C: add     rsp, 8
- * 0000000140160450: call    loc_140160443
- * 0000000140160455: add     rsp, 8
- * 0000000140160459: call    loc_14016044C
- * 000000014016045E: add     rsp, 8
- * 0000000140160462: call    loc_140160455
- * 0000000140160467: add     rsp, 8
- * 000000014016046B: call    loc_14016045E
- * 0000000140160470: add     rsp, 8
- * 0000000140160474: call    loc_140160467
- * 0000000140160479: add     rsp, 8
- * 000000014016047D: mov     eax, 0DADAh
- * 0000000140160482: test    word ptr gs:2EB8h, 40h
- * 000000014016048D: jz      short loc_14016049B
- * 000000014016048F: xor     eax, eax
- * 0000000140160491: xor     edx, edx
- * 0000000140160493: mov     ecx, 1
- * 0000000140160498: div     rcx
- * 000000014016049B: mov     rdx, [rbp-40h]
- * 000000014016049F: mov     rcx, [rbp-48h]
- * 00000001401604A3: mov     rax, [rbp-50h]
- * 00000001401604A7: mov     rsp, rbp
- * 00000001401604AA: mov     rbp, [rbp+0D8h]
- * 00000001401604B1: add     rsp, 0E8h
- * 00000001401604B8: test    cs:KiKvaShadow, 1
- * 00000001401604BF: jz      short loc_1401604C6
- * 00000001401604C1: jmp     KiKernelExit
- * 00000001401604C6: test    word ptr gs:2EB8h, 80h
- * 00000001401604D1: jz      short loc_1401604D8
- * 00000001401604D3: verw    [rsp-1E8h+arg_200]
- * 00000001401604D8: swapgs
- * 00000001401604DB: iretq
- * 00000001401604DD: ldmxcsr dword ptr [rbp-54h]
- * 00000001401604E1: movaps  xmm0, xmmword ptr [rbp-10h]
- * 00000001401604E5: movaps  xmm1, xmmword ptr [rbp+0]
- * 00000001401604E9: movaps  xmm2, xmmword ptr [rbp+10h]
- * 00000001401604ED: movaps  xmm3, xmmword ptr [rbp+20h]
- * 00000001401604F1: movaps  xmm4, xmmword ptr [rbp+30h]
- * 00000001401604F5: movaps  xmm5, xmmword ptr [rbp+40h]
- * 00000001401604F9: mov     r11, [rbp-20h]
- * 00000001401604FD: mov     r10, [rbp-28h]
- * 0000000140160501: mov     r9, [rbp-30h]
- * 0000000140160505: mov     r8, [rbp-38h]
- * 0000000140160509: mov     rdx, [rbp-40h]
- * 000000014016050D: mov     rcx, [rbp-48h]
- * 0000000140160511: mov     rax, [rbp-50h]
- * 0000000140160515: mov     rsp, rbp
- * 0000000140160518: mov     rbp, [rbp+0D8h]
- * 000000014016051F: add     rsp, 0E8h
- * 0000000140160526: iretq
+ * 00000001401606C0: mov     ecx, 0Fh
+ * 00000001401606C5: mov     rax, cr8
+ * 00000001401606C9: mov     cr8, rcx
+ * 00000001401606CD: mov     [rbp-57h], al
+ * 00000001401606D0: mov     rcx, gs:20h
+ * 00000001401606D9: inc     byte ptr [rcx+20h]
+ * 00000001401606DC: cmp     byte ptr [rcx+20h], 1
+ * 00000001401606E0: jnz     short loc_140160732
+ * 00000001401606E2: rdtsc
+ * 00000001401606E4: shl     rdx, 20h
+ * 00000001401606E8: or      rax, rdx
+ * 00000001401606EB: mov     r8, [rcx+8]
+ * 00000001401606EF: sub     rax, [rcx+5B38h]
+ * 00000001401606F6: add     [r8+48h], rax
+ * 00000001401606FA: mov     edx, [r8+50h]
+ * 00000001401606FE: add     [rcx+5B38h], rax
+ * 0000000140160705: add     rdx, rax
+ * 0000000140160708: mov     ecx, edx
+ * 000000014016070A: shr     rdx, 20h
+ * 000000014016070E: jz      short loc_140160713
+ * 0000000140160710: or      ecx, 0FFFFFFFFh
+ * 0000000140160713: mov     [r8+50h], ecx
+ * 0000000140160717: test    byte ptr [r8+2], 3Eh
+ * 000000014016071C: jz      short loc_140160732
+ * 000000014016071E: mov     rdx, r8
+ * 0000000140160721: mov     r8, rax
+ * 0000000140160724: mov     rcx, gs:20h
+ * 000000014016072D: call    KiEndThreadAccountingPeriod
+ * 0000000140160732: sti
+ * 0000000140160733: inc     dword ptr [rsi+74h]
+ * 0000000140160736: cli
+ * 0000000140160737: mov     rcx, gs:20h
+ * 0000000140160740: cmp     byte ptr [rcx+20h], 1
+ * 0000000140160744: ja      short loc_1401607BA
+ * 0000000140160746: rdtsc
+ * 0000000140160748: shl     rdx, 20h
+ * 000000014016074C: or      rax, rdx
+ * 000000014016074F: sub     rax, [rcx+5B38h]
+ * 0000000140160756: add     [rcx+5BF8h], rax
+ * 000000014016075D: add     [rcx+5B38h], rax
+ * 0000000140160764: mov     r8, rax
+ * 0000000140160767: mov     rax, [rcx+8]
+ * 000000014016076B: test    byte ptr [rax+2], 32h
+ * 000000014016076F: jz      short loc_140160784
+ * 0000000140160771: xor     edx, edx
+ * 0000000140160773: call    KiBeginThreadAccountingPeriod
+ * 0000000140160778: mov     rcx, gs:20h
+ * 0000000140160781: inc     byte ptr [rcx+20h]
+ * 0000000140160784: mov     dl, [rcx+6]
+ * 0000000140160787: and     byte ptr [rcx+6], 0
+ * 000000014016078B: cmp     byte ptr [rcx+7], 0
+ * 000000014016078F: jnz     short loc_1401607BA
+ * 0000000140160791: test    dl, dl
+ * 0000000140160793: jz      short loc_1401607BA
+ * 0000000140160795: cmp     byte ptr [rbp-57h], 2
+ * 0000000140160799: jnb     short loc_1401607A6
+ * 000000014016079B: and     byte ptr [rcx+20h], 0
+ * 000000014016079F: call    KiDpcInterruptBypass
+ * 00000001401607A4: jmp     short loc_1401607BD
+ * 00000001401607A6: mov     ecx, 2
+ * 00000001401607AB: call    cs:__imp_HalRequestSoftwareInterrupt
+ * 00000001401607B1: mov     rcx, gs:20h
+ * 00000001401607BA: dec     byte ptr [rcx+20h]
+ * 00000001401607BD: movzx   ecx, byte ptr [rbp-57h]
+ * 00000001401607C1: mov     cr8, rcx
+ * 00000001401607C5: mov     rsi, [rbp+0D0h]
+ * 00000001401607CC: cli
+ * 00000001401607CD: test    byte ptr [rbp+0F0h], 1
+ * 00000001401607D4: jz      loc_140160A4D
+ * 00000001401607DA: mov     rcx, gs:188h
+ * 00000001401607E3: cmp     byte ptr [rcx+0C2h], 0
+ * 00000001401607EA: jz      short loc_140160805
+ * 00000001401607EC: mov     ecx, 1
+ * 00000001401607F1: mov     cr8, rcx
+ * 00000001401607F5: sti
+ * 00000001401607F6: call    KiInitiateUserApc
+ * 00000001401607FB: cli
+ * 00000001401607FC: mov     ecx, 0
+ * 0000000140160801: mov     cr8, rcx
+ * 0000000140160805: mov     rcx, gs:188h
+ * 000000014016080E: test    dword ptr [rcx], 8000000h
+ * 0000000140160814: jz      short loc_14016081B
+ * 0000000140160816: call    KiRestoreSetContextState
+ * 000000014016081B: mov     rcx, gs:188h
+ * 0000000140160824: test    dword ptr [rcx], 40010000h
+ * 000000014016082A: jz      short loc_140160840
+ * 000000014016082C: test    byte ptr [rcx+2], 1
+ * 0000000140160830: jz      short loc_140160840
+ * 0000000140160832: call    KiCopyCounters
+ * 0000000140160837: mov     rcx, gs:188h
+ * 0000000140160840: ldmxcsr dword ptr [rbp-54h]
+ * 0000000140160844: cmp     word ptr [rbp+80h], 0
+ * 000000014016084C: jz      short loc_140160853
+ * 000000014016084E: call    KiRestoreDebugRegisterState
+ * 0000000140160853: movaps  xmm0, xmmword ptr [rbp-10h]
+ * 0000000140160857: movaps  xmm1, xmmword ptr [rbp+0]
+ * 000000014016085B: movaps  xmm2, xmmword ptr [rbp+10h]
+ * 000000014016085F: movaps  xmm3, xmmword ptr [rbp+20h]
+ * 0000000140160863: movaps  xmm4, xmmword ptr [rbp+30h]
+ * 0000000140160867: movaps  xmm5, xmmword ptr [rbp+40h]
+ * 000000014016086B: mov     r11, [rbp-20h]
+ * 000000014016086F: mov     r10, [rbp-28h]
+ * 0000000140160873: mov     r9, [rbp-30h]
+ * 0000000140160877: mov     r8, [rbp-38h]
+ * 000000014016087B: movzx   eax, word ptr gs:2EC2h
+ * 0000000140160884: cmp     gs:2EBCh, ax
+ * 000000014016088D: jz      short loc_1401608A1
+ * 000000014016088F: mov     gs:2EBCh, ax
+ * 0000000140160898: mov     ecx, 48h ; 'H'
+ * 000000014016089D: xor     edx, edx
+ * 000000014016089F: wrmsr
+ * 00000001401608A1: btr     word ptr gs:2EB8h, 2
+ * 00000001401608AC: jnb     short loc_1401608BC
+ * 00000001401608AE: mov     eax, 1
+ * 00000001401608B3: xor     edx, edx
+ * 00000001401608B5: mov     ecx, 49h ; 'I'
+ * 00000001401608BA: wrmsr
+ * 00000001401608BC: btr     word ptr gs:2EB8h, 5
+ * 00000001401608C7: jnb     loc_1401609F2
+ * 00000001401608CD: call    loc_1401609E0
+ * 00000001401608D2: add     rsp, 8
+ * 00000001401608D6: call    loc_1401609E9
+ * 00000001401608DB: add     rsp, 8
+ * 00000001401608DF: call    loc_1401608D2
+ * 00000001401608E4: add     rsp, 8
+ * 00000001401608E8: call    loc_1401608DB
+ * 00000001401608ED: add     rsp, 8
+ * 00000001401608F1: call    loc_1401608E4
+ * 00000001401608F6: add     rsp, 8
+ * 00000001401608FA: call    loc_1401608ED
+ * 00000001401608FF: add     rsp, 8
+ * 0000000140160903: call    loc_1401608F6
+ * 0000000140160908: add     rsp, 8
+ * 000000014016090C: call    loc_1401608FF
+ * 0000000140160911: add     rsp, 8
+ * 0000000140160915: call    loc_140160908
+ * 000000014016091A: add     rsp, 8
+ * 000000014016091E: call    loc_140160911
+ * 0000000140160923: add     rsp, 8
+ * 0000000140160927: call    loc_14016091A
+ * 000000014016092C: add     rsp, 8
+ * 0000000140160930: call    loc_140160923
+ * 0000000140160935: add     rsp, 8
+ * 0000000140160939: call    loc_14016092C
+ * 000000014016093E: add     rsp, 8
+ * 0000000140160942: call    loc_140160935
+ * 0000000140160947: add     rsp, 8
+ * 000000014016094B: call    loc_14016093E
+ * 0000000140160950: add     rsp, 8
+ * 0000000140160954: call    loc_140160947
+ * 0000000140160959: add     rsp, 8
+ * 000000014016095D: call    loc_140160950
+ * 0000000140160962: add     rsp, 8
+ * 0000000140160966: call    loc_140160959
+ * 000000014016096B: add     rsp, 8
+ * 000000014016096F: call    loc_140160962
+ * 0000000140160974: add     rsp, 8
+ * 0000000140160978: call    loc_14016096B
+ * 000000014016097D: add     rsp, 8
+ * 0000000140160981: call    loc_140160974
+ * 0000000140160986: add     rsp, 8
+ * 000000014016098A: call    loc_14016097D
+ * 000000014016098F: add     rsp, 8
+ * 0000000140160993: call    loc_140160986
+ * 0000000140160998: add     rsp, 8
+ * 000000014016099C: call    loc_14016098F
+ * 00000001401609A1: add     rsp, 8
+ * 00000001401609A5: call    loc_140160998
+ * 00000001401609AA: add     rsp, 8
+ * 00000001401609AE: call    loc_1401609A1
+ * 00000001401609B3: add     rsp, 8
+ * 00000001401609B7: call    loc_1401609AA
+ * 00000001401609BC: add     rsp, 8
+ * 00000001401609C0: call    loc_1401609B3
+ * 00000001401609C5: add     rsp, 8
+ * 00000001401609C9: call    loc_1401609BC
+ * 00000001401609CE: add     rsp, 8
+ * 00000001401609D2: call    loc_1401609C5
+ * 00000001401609D7: add     rsp, 8
+ * 00000001401609DB: call    loc_1401609CE
+ * 00000001401609E0: add     rsp, 8
+ * 00000001401609E4: call    loc_1401609D7
+ * 00000001401609E9: add     rsp, 8
+ * 00000001401609ED: mov     eax, 0DADAh
+ * 00000001401609F2: test    word ptr gs:2EB8h, 40h
+ * 00000001401609FD: jz      short loc_140160A0B
+ * 00000001401609FF: xor     eax, eax
+ * 0000000140160A01: xor     edx, edx
+ * 0000000140160A03: mov     ecx, 1
+ * 0000000140160A08: div     rcx
+ * 0000000140160A0B: mov     rdx, [rbp-40h]
+ * 0000000140160A0F: mov     rcx, [rbp-48h]
+ * 0000000140160A13: mov     rax, [rbp-50h]
+ * 0000000140160A17: mov     rsp, rbp
+ * 0000000140160A1A: mov     rbp, [rbp+0D8h]
+ * 0000000140160A21: add     rsp, 0E8h
+ * 0000000140160A28: test    cs:KiKvaShadow, 1
+ * 0000000140160A2F: jz      short loc_140160A36
+ * 0000000140160A31: jmp     KiKernelExit
+ * 0000000140160A36: test    word ptr gs:2EB8h, 80h
+ * 0000000140160A41: jz      short loc_140160A48
+ * 0000000140160A43: verw    [rsp-1E8h+arg_200]
+ * 0000000140160A48: swapgs
+ * 0000000140160A4B: iretq
+ * 0000000140160A4D: ldmxcsr dword ptr [rbp-54h]
+ * 0000000140160A51: movaps  xmm0, xmmword ptr [rbp-10h]
+ * 0000000140160A55: movaps  xmm1, xmmword ptr [rbp+0]
+ * 0000000140160A59: movaps  xmm2, xmmword ptr [rbp+10h]
+ * 0000000140160A5D: movaps  xmm3, xmmword ptr [rbp+20h]
+ * 0000000140160A61: movaps  xmm4, xmmword ptr [rbp+30h]
+ * 0000000140160A65: movaps  xmm5, xmmword ptr [rbp+40h]
+ * 0000000140160A69: mov     r11, [rbp-20h]
+ * 0000000140160A6D: mov     r10, [rbp-28h]
+ * 0000000140160A71: mov     r9, [rbp-30h]
+ * 0000000140160A75: mov     r8, [rbp-38h]
+ * 0000000140160A79: mov     rdx, [rbp-40h]
+ * 0000000140160A7D: mov     rcx, [rbp-48h]
+ * 0000000140160A81: mov     rax, [rbp-50h]
+ * 0000000140160A85: mov     rsp, rbp
+ * 0000000140160A88: mov     rbp, [rbp+0D8h]
+ * 0000000140160A8F: add     rsp, 0E8h
+ * 0000000140160A96: iretq
  */

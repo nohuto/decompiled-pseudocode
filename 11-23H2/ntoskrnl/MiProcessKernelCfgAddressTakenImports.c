@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProcessKernelCfgAddressTakenImports @ 0x140A4406C
+ * XREFs of MiProcessKernelCfgAddressTakenImports @ 0x140A4431C
  * Callers:
- *     MiProcessKernelCfgImage @ 0x1403682B0 (MiProcessKernelCfgImage.c)
+ *     MiProcessKernelCfgImage @ 0x140368450 (MiProcessKernelCfgImage.c)
  *     MiInitializeDriverImages @ 0x140B460A0 (MiInitializeDriverImages.c)
  * Callees:
- *     MiMarkKernelCfgAddressTakenImports @ 0x140A43FBC (MiMarkKernelCfgAddressTakenImports.c)
+ *     MiMarkKernelCfgAddressTakenImports @ 0x140A4426C (MiMarkKernelCfgAddressTakenImports.c)
  */
 
 __int64 __fastcall MiProcessKernelCfgAddressTakenImports(PVOID *a1)

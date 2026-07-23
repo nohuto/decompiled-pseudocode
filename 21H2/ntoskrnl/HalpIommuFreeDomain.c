@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuFreeDomain @ 0x1404CBE9C
+ * XREFs of HalpIommuFreeDomain @ 0x1404CC0DC
  * Callers:
- *     HalpIommuDereferenceHardwareDomain @ 0x1404C910C (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x1404C934C (HalpIommuDereferenceHardwareDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuFlushDomainTB @ 0x1404CBE5C (HalpIommuFlushDomainTB.c)
+ *     HalpIommuFlushDomainTB @ 0x1404CC09C (HalpIommuFlushDomainTB.c)
  */
 
 void __fastcall HalpIommuFreeDomain(__int64 a1, __int64 a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of FlushLookUpTableBucket @ 0x140127B78
+ * XREFs of FlushLookUpTableBucket @ 0x140127C48
  * Callers:
- *     LookUpTableFlushComplete @ 0x1406AEF98 (LookUpTableFlushComplete.c)
- *     LookUpTableFlushPartial @ 0x1406AF1F8 (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x1406B0238 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1406B0498 (LookUpTableFlushPartial.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     FlattenEventEntryTree @ 0x140127CD8 (FlattenEventEntryTree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     FlushEventEntryList @ 0x1406AF274 (FlushEventEntryList.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     FlattenEventEntryTree @ 0x140127DA8 (FlattenEventEntryTree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     FlushEventEntryList @ 0x1406B0514 (FlushEventEntryList.c)
  */
 
 __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
@@ -20,8 +20,8 @@ __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
   __int64 v2; // r14
   unsigned __int64 *v4; // rbx
   KIRQL v5; // bp
-  __int64 v6; // rax
-  __int64 v7; // rsi
+  _RTL_BALANCED_NODE *v6; // rax
+  _RTL_BALANCED_NODE *v7; // rsi
   const EVENT_DESCRIPTOR *v8; // r15
   unsigned int v9; // eax
   unsigned int v10; // r14d
@@ -38,7 +38,7 @@ __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(v4, v6, (ULONG_PTR)v4);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   if ( !*(_BYTE *)(a1 + 373) )
     v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 280));
   v8 = *(const EVENT_DESCRIPTOR **)(a1 + 8 * v2);

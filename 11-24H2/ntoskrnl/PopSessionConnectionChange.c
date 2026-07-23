@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSessionConnectionChange @ 0x140ACB140
+ * XREFs of PopSessionConnectionChange @ 0x140AC8CFC
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x1402CB174 (PopPrintEx.c)
- *     Feature_Servicing_PDCAgentSessions__private_IsEnabledDeviceUsageNoInline @ 0x1405CFA88 (Feature_Servicing_PDCAgentSessions__private_IsEnabledDeviceUsageNoInline.c)
- *     PopSessionDisconnected @ 0x1409BA5E8 (PopSessionDisconnected.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x140A30168 (PopAcquireAdaptiveLock.c)
- *     PopSessionConnected @ 0x140ACB088 (PopSessionConnected.c)
+ *     PopPrintEx @ 0x14047F604 (PopPrintEx.c)
+ *     Feature_Servicing_PDCAgentSessions__private_IsEnabledDeviceUsageNoInline @ 0x1405CD1FC (Feature_Servicing_PDCAgentSessions__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopSessionDisconnected @ 0x1409A0C38 (PopSessionDisconnected.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140A24C58 (PopAcquireAdaptiveLock.c)
+ *     PopSessionConnected @ 0x140AC8C44 (PopSessionConnected.c)
  */
 
 void __fastcall PopSessionConnectionChange(unsigned int a1, char *a2, __int64 a3)

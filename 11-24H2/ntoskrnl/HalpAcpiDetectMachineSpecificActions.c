@@ -1,48 +1,48 @@
 /*
- * XREFs of HalpAcpiDetectMachineSpecificActions @ 0x140C1511C
+ * XREFs of HalpAcpiDetectMachineSpecificActions @ 0x140C1711C
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140C137FC (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140C157FC (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
-int __fastcall HalpAcpiDetectMachineSpecificActions(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall HalpAcpiDetectMachineSpecificActions(__int64 a1)
 {
   _UNKNOWN **Table; // rax
-  int v5; // ebp
-  int *v6; // rbx
-  _DWORD *v7; // rdi
-  int v9; // esi
+  int v2; // ebp
+  int *v3; // rbx
+  _DWORD *v4; // rdi
+  int v6; // esi
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   Table = &retaddr;
-  v5 = 0;
-  v6 = &dword_140C7286C;
-  v7 = 0LL;
+  v2 = 0;
+  v3 = &dword_140C749CC;
+  v4 = 0LL;
   do
   {
-    v9 = *(v6 - 1);
-    if ( v9 != v5 )
+    v6 = *(v3 - 1);
+    if ( v6 != v2 )
     {
-      Table = (_UNKNOWN **)HalpAcpiGetTable(a1, v9, 0LL, 0LL);
-      v7 = Table;
-      v5 = v9;
+      Table = (_UNKNOWN **)HalpAcpiGetTable(a1, v6, 0, 0);
+      v4 = Table;
+      v2 = v6;
     }
-    if ( v7 )
+    if ( v4 )
     {
-      if ( *(_BYTE *)v6 != 1
-        || (LODWORD(Table) = memcmp((char *)v7 + 10, *(const void **)(v6 + 1), (unsigned int)v6[3]), !(_DWORD)Table)
-        && (*((_BYTE *)v6 + 16) != 1
-         || (LODWORD(Table) = memcmp(v7 + 4, *(const void **)(v6 + 5), (unsigned int)v6[7]), !(_DWORD)Table)
-         && (*((_BYTE *)v6 + 32) != 1 || (LODWORD(Table) = v6[9], v7[6] == (_DWORD)Table))) )
+      if ( *(_BYTE *)v3 != 1
+        || (LODWORD(Table) = memcmp((char *)v4 + 10, *(const void **)(v3 + 1), (unsigned int)v3[3]), !(_DWORD)Table)
+        && (*((_BYTE *)v3 + 16) != 1
+         || (LODWORD(Table) = memcmp(v4 + 4, *(const void **)(v3 + 5), (unsigned int)v3[7]), !(_DWORD)Table)
+         && (*((_BYTE *)v3 + 32) != 1 || (LODWORD(Table) = v3[9], v4[6] == (_DWORD)Table))) )
       {
-        LODWORD(Table) = guard_dispatch_icall_no_overrides(v6 - 3, v7, a3, a4);
+        LODWORD(Table) = guard_dispatch_icall_no_overrides(v3 - 3, v4);
       }
     }
-    v6 += 14;
+    v3 += 14;
   }
-  while ( *(_QWORD *)(v6 - 3) );
+  while ( *(_QWORD *)(v3 - 3) );
   return (int)Table;
 }

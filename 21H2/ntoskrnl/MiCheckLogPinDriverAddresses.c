@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCheckLogPinDriverAddresses @ 0x140271CE8
+ * XREFs of MiCheckLogPinDriverAddresses @ 0x14025FC88
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void MiCheckLogPinDriverAddresses()
 {
-  _DWORD *v0; // rdx
-  int v1; // r10d
-  unsigned __int64 v2; // r8
+  unsigned int *Buffer; // rdx
+  unsigned int v1; // r10d
+  unsigned int *v2; // r8
   bool i; // zf
   bool v4; // zf
   bool v5; // al
@@ -21,40 +21,40 @@ void MiCheckLogPinDriverAddresses()
   unsigned int v10; // r11d
   _DWORD *v11; // r8
 
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
-    if ( dword_140C2A0C0 )
+    if ( stru_140C2A100.SizeOfBitMap )
     {
-      if ( (unsigned int)dword_140C2A0C0 > 1 )
+      if ( stru_140C2A100.SizeOfBitMap > 1 )
       {
-        v0 = (_DWORD *)qword_140C2A0C8;
-        v1 = *(_DWORD *)qword_140C2A0C8;
-        v2 = qword_140C2A0C8 + 4 * ((unsigned __int64)(unsigned int)(dword_140C2A0C0 - 1) >> 5);
-        if ( qword_140C2A0C8 != v2 )
+        Buffer = stru_140C2A100.Buffer;
+        v1 = *stru_140C2A100.Buffer;
+        v2 = &stru_140C2A100.Buffer[(unsigned __int64)(stru_140C2A100.SizeOfBitMap - 1) >> 5];
+        if ( stru_140C2A100.Buffer != v2 )
         {
-          for ( i = v1 == 0; i; i = *v0 == 0 )
+          for ( i = v1 == 0; i; i = *Buffer == 0 )
           {
-            if ( ++v0 == (_DWORD *)v2 )
+            if ( ++Buffer == v2 )
             {
-              v4 = ((0xFFFFFFFF >> ~(dword_140C2A0C0 - 1)) & *v0) == 0;
+              v4 = ((0xFFFFFFFF >> ~(LOBYTE(stru_140C2A100.SizeOfBitMap) - 1)) & *Buffer) == 0;
               goto LABEL_10;
             }
           }
           goto LABEL_20;
         }
-        v4 = (v1 & (0xFFFFFFFF >> (32 - dword_140C2A0C0))) == 0;
+        v4 = (v1 & (0xFFFFFFFF >> (32 - LOBYTE(stru_140C2A100.SizeOfBitMap)))) == 0;
 LABEL_10:
         v5 = v4;
         goto LABEL_11;
       }
-      if ( dword_140C2A0C0 == 1 )
+      if ( stru_140C2A100.SizeOfBitMap == 1 )
       {
-        v5 = !_bittest((const signed __int32 *)qword_140C2A0C8, 0);
+        v5 = !_bittest((const signed __int32 *)stru_140C2A100.Buffer, 0);
 LABEL_11:
         if ( v5 )
         {
           v6 = 0;
-          v7 = (char *)&unk_140C2A1D0;
+          v7 = (char *)&unk_140C2A210;
 LABEL_13:
           v8 = 0;
           v9 = v7;
@@ -82,7 +82,7 @@ LABEL_14:
       }
     }
 LABEL_20:
-    if ( !_InterlockedCompareExchange16(&word_140C2A230, 1, 0) )
+    if ( !_InterlockedCompareExchange16(&word_140C2A270, 1, 0) )
     {
       WorkItem.Parameter = 0LL;
       WorkItem.List.Flink = 0LL;

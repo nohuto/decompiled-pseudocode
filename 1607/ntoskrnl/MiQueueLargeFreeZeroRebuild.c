@@ -1,20 +1,20 @@
 /*
- * XREFs of MiQueueLargeFreeZeroRebuild @ 0x1401FD69C
+ * XREFs of MiQueueLargeFreeZeroRebuild @ 0x1401FD4C8
  * Callers:
- *     MiInsertLargePageInNodeListHelper @ 0x14001B760 (MiInsertLargePageInNodeListHelper.c)
- *     MiLargePageFreeToZero @ 0x14008B560 (MiLargePageFreeToZero.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14001B2E0 (MiInsertLargePageInNodeListHelper.c)
+ *     MiLargePageFreeToZero @ 0x14008AC60 (MiLargePageFreeToZero.c)
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiReleasePushLockUnordered @ 0x1401E6858 (MiReleasePushLockUnordered.c)
- *     MiTryAcquirePushLockUnordered @ 0x1401E68A8 (MiTryAcquirePushLockUnordered.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiReleasePushLockUnordered @ 0x1401E6684 (MiReleasePushLockUnordered.c)
+ *     MiTryAcquirePushLockUnordered @ 0x1401E66D4 (MiTryAcquirePushLockUnordered.c)
  */
 
 void __fastcall MiQueueLargeFreeZeroRebuild(__int64 a1, unsigned __int64 a2, unsigned int a3)

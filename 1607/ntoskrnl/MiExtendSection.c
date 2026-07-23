@@ -1,25 +1,25 @@
 /*
- * XREFs of MiExtendSection @ 0x140521CB4
+ * XREFs of MiExtendSection @ 0x140504D14
  * Callers:
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
  * Callees:
- *     MiRemoveViewsFromSectionWithPfn @ 0x14002270C (MiRemoveViewsFromSectionWithPfn.c)
- *     MiDecrementSubsectionViewCount @ 0x140022860 (MiDecrementSubsectionViewCount.c)
- *     MiAddViewsForSection @ 0x14002C690 (MiAddViewsForSection.c)
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     MiDeleteSubsectionPages @ 0x140061C70 (MiDeleteSubsectionPages.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     MiSetSubsectionBase @ 0x1400B4BB8 (MiSetSubsectionBase.c)
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
- *     MiAppendSubsectionChain @ 0x1400FD188 (MiAppendSubsectionChain.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiGetSubsectionCharges @ 0x1401F50F8 (MiGetSubsectionCharges.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14002228C (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400223E0 (MiDecrementSubsectionViewCount.c)
+ *     MiAddViewsForSection @ 0x14002C210 (MiAddViewsForSection.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     MiDeleteSubsectionPages @ 0x1400617F0 (MiDeleteSubsectionPages.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     MiSetSubsectionBase @ 0x1400B29F0 (MiSetSubsectionBase.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
+ *     MiAppendSubsectionChain @ 0x1400FAF08 (MiAppendSubsectionChain.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiGetSubsectionCharges @ 0x1401F4F24 (MiGetSubsectionCharges.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInitializePrototypePtes @ 0x1404B8A74 (MiInitializePrototypePtes.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
- *     MiDeleteFileOnlyPfns @ 0x14065AAE0 (MiDeleteFileOnlyPfns.c)
+ *     MiInitializePrototypePtes @ 0x1404A2E54 (MiInitializePrototypePtes.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
+ *     MiDeleteFileOnlyPfns @ 0x14065ABC4 (MiDeleteFileOnlyPfns.c)
  */
 
 __int64 __fastcall MiExtendSection(__int64 **BugCheckParameter2, _QWORD *a2, unsigned int a3, __int64 a4)

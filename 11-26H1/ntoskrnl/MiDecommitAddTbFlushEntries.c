@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecommitAddTbFlushEntries @ 0x140342738
+ * XREFs of MiDecommitAddTbFlushEntries @ 0x1403447B8
  * Callers:
- *     MiDeleteVa @ 0x140322AC0 (MiDeleteVa.c)
- *     MiDecommitLargePte @ 0x14033EDBC (MiDecommitLargePte.c)
- *     MiDeleteLargeUserPde @ 0x140477A60 (MiDeleteLargeUserPde.c)
+ *     MiDeleteVa @ 0x140324AF0 (MiDeleteVa.c)
+ *     MiDecommitLargePte @ 0x140340E3C (MiDecommitLargePte.c)
+ *     MiDeleteLargeUserPde @ 0x1404711E0 (MiDeleteLargeUserPde.c)
  * Callees:
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
  */
 
 void __fastcall MiDecommitAddTbFlushEntries(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

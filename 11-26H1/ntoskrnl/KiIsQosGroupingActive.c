@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsQosGroupingActive @ 0x140474CC0
+ * XREFs of KiIsQosGroupingActive @ 0x14046E440
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of SepLpacCausedAccessFailure @ 0x1404AF820
+ * XREFs of SepLpacCausedAccessFailure @ 0x1404A8EB0
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
  *     <none>
  */

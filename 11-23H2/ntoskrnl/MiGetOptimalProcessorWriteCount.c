@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetOptimalProcessorWriteCount @ 0x14036F004
+ * XREFs of MiGetOptimalProcessorWriteCount @ 0x14036F1A4
  * Callers:
- *     MiInitializeZeroEngines @ 0x1406B27F4 (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x1406B2824 (MiInitializeZeroEngines.c)
  * Callees:
  *     <none>
  */

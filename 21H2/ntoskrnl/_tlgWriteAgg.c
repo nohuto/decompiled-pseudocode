@@ -1,27 +1,27 @@
 /*
- * XREFs of _tlgWriteAgg @ 0x140375E94
+ * XREFs of _tlgWriteAgg @ 0x1403759E4
  * Callers:
- *     FsRtlpRequestShareableOplock @ 0x1402057F0 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpRequestExclusiveOplock @ 0x140374AD0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402AA120 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x140374620 (FsRtlpRequestExclusiveOplock.c)
  *     FsRtlCheckOplockForFsFilterCallback @ 0x1405CD900 (FsRtlCheckOplockForFsFilterCallback.c)
- *     CmpBounceContextStart @ 0x1405F47B0 (CmpBounceContextStart.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14062A95C (EtwpWriteAppStateChangeSummary.c)
- *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
- *     CmLoadKey @ 0x1406BA714 (CmLoadKey.c)
- *     NtQueryValueKey @ 0x1406F7AE0 (NtQueryValueKey.c)
- *     CmpOKToFollowLink @ 0x1406FC010 (CmpOKToFollowLink.c)
- *     PnpTraceSetDevNodeProblem @ 0x1407395F4 (PnpTraceSetDevNodeProblem.c)
- *     PnpTraceClearDevNodeProblem @ 0x140739828 (PnpTraceClearDevNodeProblem.c)
- *     MiLogNonRetpolineImageLoadEvent @ 0x14075FC2C (MiLogNonRetpolineImageLoadEvent.c)
- *     PnpTraceInterruptConnection @ 0x140762750 (PnpTraceInterruptConnection.c)
- *     PnpTraceDmaGuardDevicePolicy @ 0x140771934 (PnpTraceDmaGuardDevicePolicy.c)
- *     MiLogPinDriverAddressesWorker @ 0x1407B4D80 (MiLogPinDriverAddressesWorker.c)
- *     MiLogPinDriverAddress @ 0x1407B4E84 (MiLogPinDriverAddress.c)
- *     HvpIsReadErrorTransient @ 0x140881984 (HvpIsReadErrorTransient.c)
+ *     CmLoadKey @ 0x140619944 (CmLoadKey.c)
+ *     CmLoadAppKey @ 0x1406663CC (CmLoadAppKey.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x1406A42DC (EtwpWriteAppStateChangeSummary.c)
+ *     CmpBounceContextStart @ 0x1406E3F10 (CmpBounceContextStart.c)
+ *     NtQueryValueKey @ 0x14070EEC0 (NtQueryValueKey.c)
+ *     CmpOKToFollowLink @ 0x1407133F0 (CmpOKToFollowLink.c)
+ *     PnpTraceSetDevNodeProblem @ 0x1407397B4 (PnpTraceSetDevNodeProblem.c)
+ *     PnpTraceClearDevNodeProblem @ 0x1407399E8 (PnpTraceClearDevNodeProblem.c)
+ *     MiLogNonRetpolineImageLoadEvent @ 0x14075FDEC (MiLogNonRetpolineImageLoadEvent.c)
+ *     PnpTraceInterruptConnection @ 0x140762910 (PnpTraceInterruptConnection.c)
+ *     PnpTraceDmaGuardDevicePolicy @ 0x140771AF4 (PnpTraceDmaGuardDevicePolicy.c)
+ *     MiLogPinDriverAddressesWorker @ 0x1407B66A0 (MiLogPinDriverAddressesWorker.c)
+ *     MiLogPinDriverAddress @ 0x1407B67A4 (MiLogPinDriverAddress.c)
+ *     HvpIsReadErrorTransient @ 0x140881AE4 (HvpIsReadErrorTransient.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     InsertEventEntryInLookUpTable @ 0x140375F60 (InsertEventEntryInLookUpTable.c)
- *     ExtractAggregateFieldTypes @ 0x1403763E4 (ExtractAggregateFieldTypes.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     InsertEventEntryInLookUpTable @ 0x140375AB0 (InsertEventEntryInLookUpTable.c)
+ *     ExtractAggregateFieldTypes @ 0x140375F34 (ExtractAggregateFieldTypes.c)
  */
 
 NTSTATUS __fastcall tlgWriteAgg(

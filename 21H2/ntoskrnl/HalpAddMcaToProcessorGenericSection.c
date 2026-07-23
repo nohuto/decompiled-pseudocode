@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpAddMcaToProcessorGenericSection @ 0x1404B9328
+ * XREFs of HalpAddMcaToProcessorGenericSection @ 0x1404B9568
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x1404B9C58 (HalpCreateMcaMemoryErrorRecord.c)
- *     HalpCreateMcaProcessorErrorRecord @ 0x1404B9ECC (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x1404B9E98 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x1404BA10C (HalpCreateMcaProcessorErrorRecord.c)
  * Callees:
  *     <none>
  */

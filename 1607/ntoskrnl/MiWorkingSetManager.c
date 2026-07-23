@@ -1,24 +1,24 @@
 /*
- * XREFs of MiWorkingSetManager @ 0x1400BDF08
+ * XREFs of MiWorkingSetManager @ 0x1400BBD98
  * Callers:
- *     KeBalanceSetManager @ 0x14013EF3C (KeBalanceSetManager.c)
- *     MiPartitionWorkingSetManager @ 0x1401E8350 (MiPartitionWorkingSetManager.c)
+ *     KeBalanceSetManager @ 0x14013F4AC (KeBalanceSetManager.c)
+ *     MiPartitionWorkingSetManager @ 0x1401E817C (MiPartitionWorkingSetManager.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiDeleteNoBlockStacks @ 0x1400BE128 (MiDeleteNoBlockStacks.c)
- *     MiEmptyDecayClusterTimers @ 0x1400BE310 (MiEmptyDecayClusterTimers.c)
- *     MiDeleteStaleCacheMaps @ 0x1400BE6CC (MiDeleteStaleCacheMaps.c)
- *     MiSignalLargePageRebuild @ 0x1400BE73C (MiSignalLargePageRebuild.c)
- *     MiNumberWsSwapPagefiles @ 0x1400BE89C (MiNumberWsSwapPagefiles.c)
- *     MiScanPagefiles @ 0x1400BE8D0 (MiScanPagefiles.c)
- *     MiAdjustModifiedPageLoad @ 0x1400BEA50 (MiAdjustModifiedPageLoad.c)
- *     MiAdjustCachedStacks @ 0x1400BEBA4 (MiAdjustCachedStacks.c)
- *     MiAdjustPteBins @ 0x1400BED6C (MiAdjustPteBins.c)
- *     KePulseEvent @ 0x1400BEF10 (KePulseEvent.c)
- *     MiProcessWorkingSets @ 0x1400CD640 (MiProcessWorkingSets.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiDeleteNoBlockStacks @ 0x1400BBFB8 (MiDeleteNoBlockStacks.c)
+ *     MiEmptyDecayClusterTimers @ 0x1400BC1A0 (MiEmptyDecayClusterTimers.c)
+ *     MiDeleteStaleCacheMaps @ 0x1400BC55C (MiDeleteStaleCacheMaps.c)
+ *     MiSignalLargePageRebuild @ 0x1400BC5CC (MiSignalLargePageRebuild.c)
+ *     MiNumberWsSwapPagefiles @ 0x1400BC72C (MiNumberWsSwapPagefiles.c)
+ *     MiScanPagefiles @ 0x1400BC760 (MiScanPagefiles.c)
+ *     MiAdjustModifiedPageLoad @ 0x1400BC8E0 (MiAdjustModifiedPageLoad.c)
+ *     MiAdjustCachedStacks @ 0x1400BCA34 (MiAdjustCachedStacks.c)
+ *     MiAdjustPteBins @ 0x1400BCBFC (MiAdjustPteBins.c)
+ *     KePulseEvent @ 0x1400BCDA0 (KePulseEvent.c)
+ *     MiProcessWorkingSets @ 0x1400CB4E0 (MiProcessWorkingSets.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiWorkingSetManager(__int64 a1, int a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MiWorkingSetManager(__int64 a1, int a2)
   {
     MiDeleteNoBlockStacks(1LL);
     if ( !a2 )
-      KePulseEvent(&stru_140327750, 0, 0);
+      KePulseEvent(&stru_140327790, 0, 0);
   }
   v18 = 1;
   v6 = 1;
@@ -101,7 +101,7 @@ __int64 __fastcall MiWorkingSetManager(__int64 a1, int a2)
       UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(v8);
       if ( (unsigned __int64)(UnbiasedInterruptTime - *(_QWORD *)(a1 + 992)) >= 0x861C46800LL )
       {
-        if ( byte_140327011 )
+        if ( byte_140327051 )
         {
           *(_QWORD *)(a1 + 992) = UnbiasedInterruptTime - 33000000000LL;
         }

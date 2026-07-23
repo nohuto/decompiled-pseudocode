@@ -30,7 +30,7 @@ char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
   __int64 v12; // rdi
   int v13; // eax
   __int64 v15; // [rsp+30h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
   unsigned __int16 *v17[2]; // [rsp+48h] [rbp-20h] BYREF
   __int16 v18; // [rsp+58h] [rbp-10h]
   int v19; // [rsp+5Ah] [rbp-Eh]

@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpFileBuildReadList @ 0x140953D00
+ * XREFs of PfpFileBuildReadList @ 0x1409376B0
  * Callers:
- *     PfpFileBuildReadSupport @ 0x140953F94 (PfpFileBuildReadSupport.c)
+ *     PfpFileBuildReadSupport @ 0x140937944 (PfpFileBuildReadSupport.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PfpFileBuildReadList(__int64 a1, __int64 a2, char a3, __int64 *a4)
@@ -15,16 +15,17 @@ __int64 __fastcall PfpFileBuildReadList(__int64 a1, __int64 a2, char a3, __int64
   _DWORD *v11; // rcx
   int v12; // eax
   unsigned int *v13; // rsi
-  __int64 v14; // rax
-  unsigned int v15; // r11d
-  __int64 v16; // r8
-  unsigned __int64 v17; // r10
-  unsigned __int64 v18; // rcx
+  unsigned __int64 v14; // rax
+  __int64 v15; // rax
+  unsigned int v16; // r11d
+  __int64 v17; // r8
+  unsigned __int64 v18; // r10
+  unsigned __int64 v19; // rcx
   __int64 Pool2; // rax
 
   if ( (*(_DWORD *)a2 & 1) != 0 && !a3 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x4C526650u);
     if ( Pool2 )
     {
       *(_QWORD *)Pool2 = 0LL;
@@ -57,34 +58,35 @@ __int64 __fastcall PfpFileBuildReadList(__int64 a1, __int64 a2, char a3, __int64
   {
     v13 = (unsigned int *)(a2 + 16);
   }
-  if ( (unsigned __int64)(8 * v8 + 16) <= 0xFFFFFFFF )
+  v14 = 8 * v8 + 16;
+  if ( v14 <= 0xFFFFFFFF )
   {
-    v14 = ExAllocatePool2(0x100uLL);
-    if ( v14 )
+    v15 = ExAllocatePool2(0x100uLL, (unsigned int)v14, 0x4C526650u);
+    if ( v15 )
     {
-      *(_OWORD *)v14 = 0LL;
+      *(_OWORD *)v15 = 0LL;
       if ( (*(_DWORD *)a2 & 1) != 0 )
-        *(_DWORD *)(v14 + 12) = 1;
-      v15 = 0;
+        *(_DWORD *)(v15 + 12) = 1;
+      v16 = 0;
       if ( *v7 )
       {
         do
         {
-          v16 = *(_QWORD *)(a2 + 24) + 16LL * v15;
-          v17 = *(_QWORD *)v16 & 0xFFFFFFFFFFFFF000uLL;
+          v17 = *(_QWORD *)(a2 + 24) + 16LL * v16;
+          v18 = *(_QWORD *)v17 & 0xFFFFFFFFFFFFF000uLL;
           if ( (*(_BYTE *)(*(_QWORD *)a1 + 80LL) & 2) == 0 )
-            v17 = *(_QWORD *)v16;
-          v18 = *(_QWORD *)v16 + *(unsigned int *)(v16 + 8);
-          while ( v17 < v18 )
+            v18 = *(_QWORD *)v17;
+          v19 = *(_QWORD *)v17 + *(unsigned int *)(v17 + 8);
+          while ( v18 < v19 )
           {
-            *(_QWORD *)(v14 + 8LL * (unsigned int)(*(_DWORD *)(v14 + 8))++ + 16) = v17;
-            v17 += 4096LL;
+            *(_QWORD *)(v15 + 8LL * (unsigned int)(*(_DWORD *)(v15 + 8))++ + 16) = v18;
+            v18 += 4096LL;
           }
-          ++v15;
+          ++v16;
         }
-        while ( v15 < *v13 );
+        while ( v16 < *v13 );
       }
-      *a4 = v14;
+      *a4 = v15;
       return 0LL;
     }
     return 3221225626LL;

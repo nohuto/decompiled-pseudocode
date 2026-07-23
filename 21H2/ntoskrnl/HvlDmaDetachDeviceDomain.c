@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlDmaDetachDeviceDomain @ 0x1404F4680
+ * XREFs of HvlDmaDetachDeviceDomain @ 0x1404F4600
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390450 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDmaDetachDeviceDomain(unsigned __int64 a1)

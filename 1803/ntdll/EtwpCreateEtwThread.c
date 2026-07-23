@@ -9,19 +9,19 @@
  *     ZwTerminateThread @ 0x18009B520 (ZwTerminateThread.c)
  */
 
-__int64 __fastcall EtwpCreateEtwThread(__int64 a1, __int64 a2)
+HANDLE __fastcall EtwpCreateEtwThread(NTSTATUS (__cdecl *a1)(PVOID), void *a2)
 {
-  __int64 v2; // rbx
+  HANDLE v2; // rbx
   int v3; // eax
-  __int64 v5; // [rsp+70h] [rbp+18h] BYREF
+  HANDLE ThreadHandle; // [rsp+70h] [rbp+18h] BYREF
 
-  if ( (int)RtlCreateUserThread(-1, 0, 1, 0, 0LL, 0LL, a1, a2, (__int64)&v5, 0LL) < 0 )
+  if ( RtlCreateUserThread((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, 1u, 0, 0LL, 0LL, a1, a2, &ThreadHandle, 0LL) < 0 )
     return 0LL;
-  v2 = v5;
-  v3 = ZwResumeThread(v5, 0LL);
+  v2 = ThreadHandle;
+  v3 = ZwResumeThread(ThreadHandle, 0LL);
   if ( v3 < 0 )
   {
-    ZwTerminateThread(v2, (unsigned int)v3);
+    ZwTerminateThread(v2, v3);
     ZwClose(v2);
     return 0LL;
   }

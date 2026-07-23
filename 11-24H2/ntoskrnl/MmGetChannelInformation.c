@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetChannelInformation @ 0x140A5A0F8
+ * XREFs of MmGetChannelInformation @ 0x140A519B8
  * Callers:
- *     ExpQueryNumaAvailableMemory @ 0x1407B5140 (ExpQueryNumaAvailableMemory.c)
- *     ExpQueryChannelInformation @ 0x140A5A018 (ExpQueryChannelInformation.c)
- *     KiPopulateNodeInformation @ 0x140C28EAC (KiPopulateNodeInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x1407B5590 (ExpQueryNumaAvailableMemory.c)
+ *     ExpQueryChannelInformation @ 0x140A518D8 (ExpQueryChannelInformation.c)
+ *     KiPopulateNodeInformation @ 0x140C2AF4C (KiPopulateNodeInformation.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetChannelInformation @ 0x1403D54BC (MiGetChannelInformation.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiGetChannelInformation @ 0x140264320 (MiGetChannelInformation.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall MmGetChannelInformation(unsigned __int16 a1, unsigned int a2, _QWORD *a3, size_t *a4)
@@ -22,7 +22,7 @@ __int64 __fastcall MmGetChannelInformation(unsigned __int16 a1, unsigned int a2,
   Size[0] = 0LL;
   if ( a2 >= (unsigned __int16)KeNumberNodes )
     return 3221225711LL;
-  MiGetChannelInformation(*((_QWORD *)qword_140E2FF88 + a1), a2, (__int64)Src, Size);
+  MiGetChannelInformation(*((_QWORD *)qword_140E300C8 + a1), a2, (__int64)Src, Size);
   v6 = Size[0];
   v7 = Size[0];
   *a4 = Size[0];

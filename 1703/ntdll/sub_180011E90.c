@@ -30,13 +30,13 @@ void __fastcall sub_180011E90(__int64 a1)
   _QWORD **v7; // rcx
   _QWORD *v8; // rbx
   _QWORD *v9; // rsi
-  _QWORD *v10; // rbx
-  __int64 v11; // rdx
-  _QWORD *v12; // rcx
-  __int64 v13; // rcx
-  _QWORD *v14; // rax
-  __int64 v15; // rdx
-  _QWORD *v16; // rax
+  char *v10; // rbx
+  char **v11; // rdx
+  void **v12; // rcx
+  _QWORD *v13; // rcx
+  void **v14; // rax
+  char **v15; // rdx
+  void **v16; // rax
   _QWORD *v17; // rbx
   _QWORD *v18; // r8
   _QWORD *v19; // rdx
@@ -63,7 +63,7 @@ LABEL_5:
     v3 = (void (__fastcall *)(_QWORD *))(MEMORY[0x7FFE0330] ^ __ROR8__(
                                                                 qword_18016B240,
                                                                 64 - (MEMORY[0x7FFE0330] & 0x3Fu)));
-  RtlEnterCriticalSection(&off_180155580);
+  RtlEnterCriticalSection(&CriticalSection);
   for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
   {
     v5 = i - 20;
@@ -84,9 +84,9 @@ LABEL_5:
         2,
         "Unmapping DLL \"%wZ\"\n",
         v5 + 9);
-    LdrUnloadAlternateResourceModuleEx(v5[6], 0);
+    LdrUnloadAlternateResourceModuleEx((PVOID)v5[6], 0);
   }
-  RtlLeaveCriticalSection(&off_180155580);
+  RtlLeaveCriticalSection(&CriticalSection);
 LABEL_18:
   while ( 1 )
   {
@@ -113,7 +113,7 @@ LABEL_18:
       v18[6] = v21;
     }
     sub_180011D94(*v18 - 160LL, 0);
-    RtlFreeHeap(qword_18015B328, 0LL);
+    RtlFreeHeap(HeapHandle, 0, v17);
   }
   v8 = *(_QWORD **)a1;
   *(_DWORD *)(a1 + 56) = -2;
@@ -123,37 +123,37 @@ LABEL_18:
     {
       v9 = (_QWORD *)*v8;
       *((_DWORD *)v8 - 14) |= 2u;
-      v10 = v8 - 20;
-      RtlAcquireSRWLockExclusive(&qword_18015C040);
-      if ( (v10[13] & 0x40) != 0 )
+      v10 = (char *)(v8 - 20);
+      RtlAcquireSRWLockExclusive(&stru_18015C040);
+      if ( (v10[104] & 0x40) != 0 )
       {
-        v11 = v10[14];
-        v12 = (_QWORD *)v10[15];
-        if ( *(_QWORD **)(v11 + 8) != v10 + 14 || (_QWORD *)*v12 != v10 + 14 )
+        v11 = (char **)*((_QWORD *)v10 + 14);
+        v12 = (void **)*((_QWORD *)v10 + 15);
+        if ( v11[1] != v10 + 112 || *v12 != v10 + 112 )
           __fastfail(3u);
         *v12 = v11;
-        *(_QWORD *)(v11 + 8) = v12;
-        v13 = *v10;
-        v14 = (_QWORD *)v10[1];
-        if ( *(_QWORD **)(*v10 + 8LL) != v10 || (_QWORD *)*v14 != v10 )
+        v11[1] = (char *)v12;
+        v13 = *(_QWORD **)v10;
+        v14 = (void **)*((_QWORD *)v10 + 1);
+        if ( *(char **)(*(_QWORD *)v10 + 8LL) != v10 || *v14 != v10 )
           __fastfail(3u);
         *v14 = v13;
-        *(_QWORD *)(v13 + 8) = v14;
-        v15 = v10[2];
-        v16 = (_QWORD *)v10[3];
-        if ( *(_QWORD **)(v15 + 8) != v10 + 2 || (_QWORD *)*v16 != v10 + 2 )
+        v13[1] = v14;
+        v15 = (char **)*((_QWORD *)v10 + 2);
+        v16 = (void **)*((_QWORD *)v10 + 3);
+        if ( v15[1] != v10 + 16 || *v16 != v10 + 16 )
           __fastfail(3u);
         *v16 = v15;
-        *(_QWORD *)(v15 + 8) = v16;
+        v15[1] = (char *)v16;
         *((_DWORD *)v10 + 26) &= ~0x40u;
       }
-      if ( *((char *)v10 + 104) < 0 )
+      if ( v10[104] < 0 )
       {
-        RtlRbRemoveNode(&qword_18015C218, v10 + 28);
-        RtlRbRemoveNode(&qword_18015C208, v10 + 25);
+        RtlRbRemoveNode(&Tree, (PRTL_BALANCED_NODE)(v10 + 224));
+        RtlRbRemoveNode(&stru_18015C208, (PRTL_BALANCED_NODE)(v10 + 200));
         *((_DWORD *)v10 + 16) = 0;
       }
-      RtlReleaseSRWLockExclusive(&qword_18015C040);
+      RtlReleaseSRWLockExclusive(&stru_18015C040);
       sub_18003015C(v10);
       v8 = v9;
     }

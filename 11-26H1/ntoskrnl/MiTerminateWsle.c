@@ -1,22 +1,22 @@
 /*
- * XREFs of MiTerminateWsle @ 0x140324930
+ * XREFs of MiTerminateWsle @ 0x140326960
  * Callers:
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiRemoveSystemImagePage @ 0x14038A3F4 (MiRemoveSystemImagePage.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiRemoveSystemImagePage @ 0x14038C1A4 (MiRemoveSystemImagePage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiCleanupLazyStampedPageTable @ 0x1402A000C (MiCleanupLazyStampedPageTable.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiUnlockWsle @ 0x140324658 (MiUnlockWsle.c)
- *     MiRemoveWsle @ 0x140325384 (MiRemoveWsle.c)
- *     MiUnlockNestedPageTableWritePte @ 0x140325648 (MiUnlockNestedPageTableWritePte.c)
- *     MiLockPte @ 0x140325920 (MiLockPte.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiCleanupLazyStampedPageTable @ 0x14029F55C (MiCleanupLazyStampedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUnlockWsle @ 0x140326688 (MiUnlockWsle.c)
+ *     MiRemoveWsle @ 0x1403273B4 (MiRemoveWsle.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140327678 (MiUnlockNestedPageTableWritePte.c)
+ *     MiLockPte @ 0x140327950 (MiLockPte.c)
  */
 
 __int64 __fastcall MiTerminateWsle(__int64 a1, unsigned __int64 a2, int a3, char a4, int *a5)
@@ -294,7 +294,7 @@ LABEL_26:
       if ( MiPteHasShadow() )
       {
         v5 = 1;
-        if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+        if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
         {
           v56 = v88;
           if ( (v88 & 1) != 0 )
@@ -379,7 +379,7 @@ LABEL_153:
     v61 = (_QWORD *)(CurrentPrcb + 8 * (v59 + 2 * (v59 + 2504LL)));
     v61[1] = v60;
     *v61 = 0LL;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v62 = _InterlockedExchange64(v60, (__int64)v61);
       if ( !v62 )
@@ -487,7 +487,7 @@ LABEL_92:
     goto LABEL_149;
   if ( (*(_DWORD *)(v9 + 184) & 0xF) != 0 )
   {
-    if ( a3 == 1 || (_UNKNOWN *)v9 == &unk_140E371C0 )
+    if ( a3 == 1 || (_UNKNOWN *)v9 == &unk_140E37340 )
     {
       MiCleanupLazyStampedPageTable(v9, v11, CurrentPrcb);
       v9 = a1;

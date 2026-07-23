@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCreateRangeListEntry @ 0x140B10A0C
+ * XREFs of RtlpCreateRangeListEntry @ 0x140B1244C
  * Callers:
- *     RtlInvertRangeListEx @ 0x140B10830 (RtlInvertRangeListEx.c)
- *     RtlAddRange @ 0x140B10960 (RtlAddRange.c)
+ *     RtlInvertRangeListEx @ 0x140B12270 (RtlInvertRangeListEx.c)
+ *     RtlAddRange @ 0x140B123A0 (RtlAddRange.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
  */
 
 _BYTE *__fastcall RtlpCreateRangeListEntry(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)

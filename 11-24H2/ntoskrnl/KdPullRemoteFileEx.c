@@ -1,9 +1,9 @@
 /*
- * XREFs of KdPullRemoteFileEx @ 0x140B76680
+ * XREFs of KdPullRemoteFileEx @ 0x140B78680
  * Callers:
  *     <none>
  * Callees:
- *     KdpPullRemoteFile @ 0x140B76B48 (KdpPullRemoteFile.c)
+ *     KdpPullRemoteFile @ 0x140B78B48 (KdpPullRemoteFile.c)
  */
 
 __int64 __fastcall KdPullRemoteFileEx(int a1, int a2, int a3, __int64 a4, __int64 a5)

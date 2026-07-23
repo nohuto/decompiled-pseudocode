@@ -1,18 +1,16 @@
 /*
- * XREFs of PspUnlockJobListShared @ 0x1409F7488
+ * XREFs of PspUnlockJobListShared @ 0x1409EFDF8
  * Callers:
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 _QWORD *__fastcall PspUnlockJobListShared(__int64 a1)
 {
   _QWORD *result; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
 
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspJobListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PspJobListLock);
@@ -21,7 +19,7 @@ _QWORD *__fastcall PspUnlockJobListShared(__int64 a1)
   {
     result = (_QWORD *)(a1 + 152);
     if ( (_QWORD *)*result != result )
-      return (_QWORD *)KiCheckForKernelApcDelivery(v4, v3);
+      return (_QWORD *)KiCheckForKernelApcDelivery();
   }
   return result;
 }

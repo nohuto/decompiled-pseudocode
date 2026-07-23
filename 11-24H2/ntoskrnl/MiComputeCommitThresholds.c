@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeCommitThresholds @ 0x1404709E8
+ * XREFs of MiComputeCommitThresholds @ 0x14046B098
  * Callers:
- *     MiIncreaseCommitLimits @ 0x14068620C (MiIncreaseCommitLimits.c)
- *     MiReduceCommitLimits @ 0x1406864D0 (MiReduceCommitLimits.c)
- *     MiFinishChildPartitionHotAdd @ 0x14068A330 (MiFinishChildPartitionHotAdd.c)
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
+ *     MiIncreaseCommitLimits @ 0x14068733C (MiIncreaseCommitLimits.c)
+ *     MiReduceCommitLimits @ 0x140687600 (MiReduceCommitLimits.c)
+ *     MiFinishChildPartitionHotAdd @ 0x14068B460 (MiFinishChildPartitionHotAdd.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiSyncCommitSignals @ 0x140470AE4 (MiSyncCommitSignals.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiSyncCommitSignals @ 0x14046B194 (MiSyncCommitSignals.c)
  */
 
 __int64 __fastcall MiComputeCommitThresholds(__int64 a1, int a2)

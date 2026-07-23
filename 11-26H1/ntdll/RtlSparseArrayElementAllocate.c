@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlSparseArrayElementAllocate @ 0x18008B350
+ * XREFs of RtlSparseArrayElementAllocate @ 0x18006E788
  * Callers:
- *     RtlpHpVaMgrRangeCreate @ 0x18008B22C (RtlpHpVaMgrRangeCreate.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x18006E664 (RtlpHpVaMgrRangeCreate.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpCSparseBitmapPageCommit @ 0x18008B400 (RtlpCSparseBitmapPageCommit.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x18006E838 (RtlpCSparseBitmapPageCommit.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 void *__fastcall RtlSparseArrayElementAllocate(__int64 a1, __int64 a2, const void *a3)
@@ -14,7 +14,7 @@ void *__fastcall RtlSparseArrayElementAllocate(__int64 a1, __int64 a2, const voi
   int v3; // edi
   unsigned __int64 v4; // rdx
   void *v6; // rbx
-  volatile signed __int64 *v7; // rcx
+  _RTL_SRWLOCK *v7; // rcx
   _QWORD v9[2]; // [rsp+20h] [rbp-28h] BYREF
   __int128 v10; // [rsp+30h] [rbp-18h] BYREF
 
@@ -31,7 +31,7 @@ void *__fastcall RtlSparseArrayElementAllocate(__int64 a1, __int64 a2, const voi
               v9) < 0 )
     return 0LL;
   memmove(v6, a3, (unsigned int)(1 << v3));
-  v7 = (volatile signed __int64 *)(*((_QWORD *)&v10 + 1) + 24LL);
+  v7 = (_RTL_SRWLOCK *)(*((_QWORD *)&v10 + 1) + 24LL);
   if ( (_DWORD)v10 == 1 )
     RtlReleaseSRWLockExclusive(v7);
   else

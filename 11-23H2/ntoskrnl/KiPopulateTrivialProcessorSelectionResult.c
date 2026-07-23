@@ -1,10 +1,10 @@
 /*
- * XREFs of KiPopulateTrivialProcessorSelectionResult @ 0x14057764C
+ * XREFs of KiPopulateTrivialProcessorSelectionResult @ 0x140577B3C
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333400 (KiAcquirePrcbLocksForPreemptionAttempt.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x14057E738 (KiIsIsolationUnitIdleByHandle.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333690 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x14057EC28 (KiIsIsolationUnitIdleByHandle.c)
  */
 
 __int64 __fastcall KiPopulateTrivialProcessorSelectionResult(__int64 *a1, __int64 a2, __int64 a3)

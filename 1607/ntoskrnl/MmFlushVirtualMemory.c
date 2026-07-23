@@ -1,26 +1,26 @@
 /*
- * XREFs of MmFlushVirtualMemory @ 0x1404D1998
+ * XREFs of MmFlushVirtualMemory @ 0x1404B5438
  * Callers:
- *     NtFlushVirtualMemory @ 0x1404D1844 (NtFlushVirtualMemory.c)
- *     CMFFlushHitsFile @ 0x1406B8EA0 (CMFFlushHitsFile.c)
+ *     NtFlushVirtualMemory @ 0x1404B52E4 (NtFlushVirtualMemory.c)
+ *     CMFFlushHitsFile @ 0x1406B8FD8 (CMFFlushHitsFile.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     KeAreAllApcsDisabled @ 0x14004F260 (KeAreAllApcsDisabled.c)
- *     MiFlushRelease @ 0x1400A5E74 (MiFlushRelease.c)
- *     MiFlushAcquire @ 0x1400A5F00 (MiFlushAcquire.c)
- *     MiFlushDirtyBitsToPfn @ 0x1400A5F84 (MiFlushDirtyBitsToPfn.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     MiFindLastSubsection @ 0x1400FD130 (MiFindLastSubsection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x14042BC1C (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x14042BEA0 (FsRtlReleaseFileForCcFlush.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     KeAreAllApcsDisabled @ 0x14004EDE0 (KeAreAllApcsDisabled.c)
+ *     MiFlushRelease @ 0x1400A43EC (MiFlushRelease.c)
+ *     MiFlushAcquire @ 0x1400A4478 (MiFlushAcquire.c)
+ *     MiFlushDirtyBitsToPfn @ 0x1400A44FC (MiFlushDirtyBitsToPfn.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     MiFindLastSubsection @ 0x1400FAEB0 (MiFindLastSubsection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14042AAEC (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14042AD70 (FsRtlReleaseFileForCcFlush.c)
  */
 
 __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, unsigned __int64 *a3, _DWORD *a4)
@@ -110,7 +110,7 @@ LABEL_32:
     v19 = 0;
     if ( !v34 && (*(_DWORD *)(v17 + 56) & 0x20000) != 0 )
     {
-      v32 = *(_QWORD *)(qword_140327F90 + 276841240);
+      v32 = *(_QWORD *)(qword_140327FD0 + 276841240);
       if ( v32 < 0x1000 || v18 >= 0x100000 && v32 < 0x4000 )
         v19 = 1;
     }

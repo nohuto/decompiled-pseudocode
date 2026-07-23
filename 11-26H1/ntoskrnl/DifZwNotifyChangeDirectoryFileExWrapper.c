@@ -1,28 +1,28 @@
 /*
- * XREFs of DifZwNotifyChangeDirectoryFileExWrapper @ 0x1406AA840
+ * XREFs of DifZwNotifyChangeDirectoryFileExWrapper @ 0x1406AE420
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwNotifyChangeDirectoryFileEx @ 0x140725850 (ZwNotifyChangeDirectoryFileEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwNotifyChangeDirectoryFileEx @ 0x14072A420 (ZwNotifyChangeDirectoryFileEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwNotifyChangeDirectoryFileExWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        unsigned int a7,
-        unsigned int a8,
-        char a9,
-        int a10)
+        void *a1,
+        void *a2,
+        void (__stdcall *a3)(PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved),
+        void *a4,
+        struct _IO_STATUS_BLOCK *IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        DIRECTORY_NOTIFY_INFORMATION_CLASS DirectoryNotifyInformationClass)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v14; // rdx
@@ -35,15 +35,17 @@ __int64 __fastcall DifZwNotifyChangeDirectoryFileExWrapper(
   BOOLEAN v21; // di
   __int128 *j; // rbx
   PVOID v24; // [rsp+58h] [rbp-49h] BYREF
-  __int64 v25; // [rsp+60h] [rbp-41h]
-  unsigned __int64 v26; // [rsp+68h] [rbp-39h]
-  __int64 v27; // [rsp+70h] [rbp-31h]
-  __int64 v28; // [rsp+78h] [rbp-29h]
-  __int64 v29; // [rsp+80h] [rbp-21h]
-  __int64 v30; // [rsp+88h] [rbp-19h]
-  __int64 v31; // [rsp+90h] [rbp-11h]
-  __int64 v32; // [rsp+98h] [rbp-9h]
-  unsigned int v33; // [rsp+A0h] [rbp-1h]
+  DIRECTORY_NOTIFY_INFORMATION_CLASS v25; // [rsp+60h] [rbp-41h]
+  BOOLEAN v26; // [rsp+64h] [rbp-3Dh]
+  ULONG v27; // [rsp+68h] [rbp-39h]
+  ULONG v28; // [rsp+6Ch] [rbp-35h]
+  PVOID v29; // [rsp+70h] [rbp-31h]
+  struct _IO_STATUS_BLOCK *v30; // [rsp+78h] [rbp-29h]
+  void *v31; // [rsp+80h] [rbp-21h]
+  void (__stdcall *v32)(PVOID, PIO_STATUS_BLOCK, ULONG); // [rsp+88h] [rbp-19h]
+  void *v33; // [rsp+90h] [rbp-11h]
+  void *v34; // [rsp+98h] [rbp-9h]
+  unsigned int v35; // [rsp+A0h] [rbp-1h]
   void *retaddr; // [rsp+D0h] [rbp+2Fh]
 
   memset_0(&v24, 0, 0x50uLL);
@@ -65,15 +67,16 @@ __int64 __fastcall DifZwNotifyChangeDirectoryFileExWrapper(
   v24 = ReturnAddressForWrappers;
 LABEL_7:
   v18 = 0;
-  v32 = a1;
-  v28 = a5;
-  v27 = a6;
-  v26 = __PAIR64__(a7, a8);
-  BYTE4(v25) = a9;
-  LODWORD(v25) = a10;
-  v31 = a2;
-  v30 = a3;
-  v29 = a4;
+  v34 = a1;
+  v30 = IoStatusBlock;
+  v29 = Buffer;
+  v28 = Length;
+  v27 = CompletionFilter;
+  v26 = WatchTree;
+  v25 = DirectoryNotifyInformationClass;
+  v33 = a2;
+  v32 = a3;
+  v31 = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
     || (v18 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
@@ -86,26 +89,17 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v33 = ZwNotifyChangeDirectoryFileEx(
+  v35 = ZwNotifyChangeDirectoryFileEx(
           a1,
           a2,
           a3,
           a4,
-          a5,
-          a6,
-          a7,
-          a8,
-          a9,
-          a10,
-          v24,
-          v25,
-          v26,
-          v27,
-          v28,
-          v29,
-          v30,
-          v31,
-          v32);
+          IoStatusBlock,
+          Buffer,
+          Length,
+          CompletionFilter,
+          WatchTree,
+          DirectoryNotifyInformationClass);
   if ( v15 )
   {
     if ( (v21 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
@@ -120,5 +114,5 @@ LABEL_17:
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return v33;
+  return v35;
 }

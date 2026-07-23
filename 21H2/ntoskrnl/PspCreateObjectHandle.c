@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCreateObjectHandle @ 0x14064A7C4
+ * XREFs of PspCreateObjectHandle @ 0x14063F5E4
  * Callers:
- *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
- *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
+ *     PspInsertThread @ 0x14063DE48 (PspInsertThread.c)
+ *     NtCreateUserProcess @ 0x140699C80 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x1407CE5D0 (PspCreateProcess.c)
  * Callees:
- *     SePrivilegeObjectAuditAlarm @ 0x1406278D0 (SePrivilegeObjectAuditAlarm.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x1406939E0 (SePrivilegeObjectAuditAlarm.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall PspCreateObjectHandle(void *a1, __int64 a2, struct _OBJECT_TYPE *a3)
@@ -31,13 +31,7 @@ __int64 __fastcall PspCreateObjectHandle(void *a1, __int64 a2, struct _OBJECT_TY
     if ( v6 )
     {
       if ( *v6 )
-        SePrivilegeObjectAuditAlarm(
-          *v3,
-          (__int64 *)(a2 + 32),
-          *(_DWORD *)(a2 + 20),
-          (__int64)v6,
-          1,
-          *(_BYTE *)(a2 + 388));
+        SePrivilegeObjectAuditAlarm(*v3, a2 + 32, *(_DWORD *)(a2 + 20), (_DWORD)v6, 1, *(_BYTE *)(a2 + 388));
     }
   }
   return (unsigned int)v5;

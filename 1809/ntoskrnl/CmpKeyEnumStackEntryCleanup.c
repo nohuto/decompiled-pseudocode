@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpKeyEnumStackEntryCleanup @ 0x1407FF5C8
+ * XREFs of CmpKeyEnumStackEntryCleanup @ 0x1408007C8
  * Callers:
- *     CmpKeyEnumStackCleanup @ 0x1407FF180 (CmpKeyEnumStackCleanup.c)
- *     CmpKeyEnumStackReset @ 0x1407FF980 (CmpKeyEnumStackReset.c)
+ *     CmpKeyEnumStackCleanup @ 0x140800380 (CmpKeyEnumStackCleanup.c)
+ *     CmpKeyEnumStackReset @ 0x140800B80 (CmpKeyEnumStackReset.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryCleanup(_QWORD *a1)

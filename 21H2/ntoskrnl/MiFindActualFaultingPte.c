@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFindActualFaultingPte @ 0x14028D344
+ * XREFs of MiFindActualFaultingPte @ 0x14020A4E4
  * Callers:
- *     MiIsFaultPteIntact @ 0x14028D274 (MiIsFaultPteIntact.c)
- *     MiFindActualFaultingPte @ 0x14028D344 (MiFindActualFaultingPte.c)
+ *     MiIsFaultPteIntact @ 0x14020A414 (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x14020A4E4 (MiFindActualFaultingPte.c)
  * Callees:
- *     MiFindActualFaultingPte @ 0x14028D344 (MiFindActualFaultingPte.c)
- *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
- *     MiCheckVirtualAddress @ 0x14028D510 (MiCheckVirtualAddress.c)
- *     MiFillPteHierarchy @ 0x14030C470 (MiFillPteHierarchy.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiFindActualFaultingPte @ 0x14020A4E4 (MiFindActualFaultingPte.c)
+ *     MiIsPrototypePteVadLookup @ 0x14020A670 (MiIsPrototypePteVadLookup.c)
+ *     MiCheckVirtualAddress @ 0x14020A6B0 (MiCheckVirtualAddress.c)
+ *     MiFillPteHierarchy @ 0x1403171C0 (MiFillPteHierarchy.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiFindActualFaultingPte(__int64 a1, unsigned __int64 a2)
@@ -44,14 +44,14 @@ LABEL_4:
     {
       if ( (v6 & 0x400) == 0 )
         return v5;
-      if ( !(unsigned int)MiIsPrototypePteVadLookup(v6) )
+      if ( !(unsigned int)MiIsPrototypePteVadLookup(v6, v6) )
       {
-        if ( qword_140C4DF40 )
+        if ( qword_140C4DF80 )
         {
           if ( (v7 & 0x10) != 0 )
             v7 &= ~0x10uLL;
           else
-            v7 &= ~qword_140C4DF40;
+            v7 &= ~qword_140C4DF80;
         }
         v8 = v7 >> 16;
 LABEL_11:

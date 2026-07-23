@@ -1,13 +1,13 @@
 /*
- * XREFs of VslLoadEnclaveData @ 0x14070FBC4
+ * XREFs of VslLoadEnclaveData @ 0x14070D754
  * Callers:
- *     PsLoadVsmEnclaveData @ 0x1405E6B94 (PsLoadVsmEnclaveData.c)
+ *     PsLoadVsmEnclaveData @ 0x1405E4194 (PsLoadVsmEnclaveData.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockMdlForTransfer @ 0x1402670CC (VslpLockMdlForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockMdlForTransfer @ 0x14025E6AC (VslpLockMdlForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslLoadEnclaveData(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5, _DWORD *a6)
@@ -37,7 +37,7 @@ __int64 __fastcall VslLoadEnclaveData(__int64 a1, __int64 a2, unsigned int a3, u
     v16 = v7;
     v17 = v9;
     v18 = a5;
-    v11 = VslpEnterIumSecureMode(2u, 48LL, 0, (__int64)v13);
+    v11 = VslpEnterIumSecureMode(2u, 0x30u, 0, (__int64)v13);
     if ( a5 )
       VslpUnlockPagesForTransfer(v12);
     if ( v11 >= 0 )

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFreeSlabEntries @ 0x1402D3B04
+ * XREFs of MiFreeSlabEntries @ 0x140354D7C
  * Callers:
- *     MiFreeUnusedSlabPages @ 0x1402D398C (MiFreeUnusedSlabPages.c)
- *     MiDefragFreeEmptySlabEntries @ 0x140686B30 (MiDefragFreeEmptySlabEntries.c)
- *     MiDeleteSlabAllocator @ 0x1406874F0 (MiDeleteSlabAllocator.c)
+ *     MiFreeUnusedSlabPages @ 0x140354C04 (MiFreeUnusedSlabPages.c)
+ *     MiDefragFreeEmptySlabEntries @ 0x140687C60 (MiDefragFreeEmptySlabEntries.c)
+ *     MiDeleteSlabAllocator @ 0x140688620 (MiDeleteSlabAllocator.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiFreeSlabEntry @ 0x1402D2150 (MiFreeSlabEntry.c)
- *     MiSlabUpdateRecentFailure @ 0x1402D24A4 (MiSlabUpdateRecentFailure.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     MiRemoveSlabEntry @ 0x140414068 (MiRemoveSlabEntry.c)
- *     MiPurgeSlabEntries @ 0x1404827F0 (MiPurgeSlabEntries.c)
- *     MiGetSlabCurrentTime @ 0x14048ED80 (MiGetSlabCurrentTime.c)
- *     MiSlabEntryBecameEmpty @ 0x1404AAF9C (MiSlabEntryBecameEmpty.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSlabCurrentTime @ 0x140263454 (MiGetSlabCurrentTime.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFreeSlabEntry @ 0x1403533C8 (MiFreeSlabEntry.c)
+ *     MiSlabUpdateRecentFailure @ 0x14035371C (MiSlabUpdateRecentFailure.c)
+ *     MiRemoveSlabEntry @ 0x14043C298 (MiRemoveSlabEntry.c)
+ *     MiPurgeSlabEntries @ 0x14047D9E8 (MiPurgeSlabEntries.c)
+ *     MiSlabEntryBecameEmpty @ 0x1404A5228 (MiSlabEntryBecameEmpty.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiFreeSlabEntries(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ __int64 __fastcall MiFreeSlabEntries(__int64 a1, __int64 a2)
   _QWORD *v17; // rcx
   int v18; // ecx
   __int64 v19; // rdx
-  RTL_BITMAP *v20; // rcx
+  _RTL_BITMAP *v20; // rcx
 
   v2 = (unsigned int *)(a2 + 136);
   v5 = LODWORD(MiPageSizes[(*(_DWORD *)(a2 + 136) >> 4) & 3]);
@@ -61,10 +61,10 @@ LABEL_9:
       *v7 = *v2 & 0xFFFFFFFE;
       if ( v11 && *(_DWORD *)(a1 + 18288) )
       {
-        v20 = (RTL_BITMAP *)(*(_QWORD *)(57216LL * *(unsigned int *)(a2 + 132)
-                                       + *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL)
-                                       + 57008)
-                           + 314064LL);
+        v20 = (_RTL_BITMAP *)(*(_QWORD *)(57216LL * *(unsigned int *)(a2 + 132)
+                                        + *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL)
+                                        + 57008)
+                            + 314064LL);
         RtlClearBits(v20, 0, v20->SizeOfBitMap);
       }
       v12 = *(_QWORD *)(a2 + 8);

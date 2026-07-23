@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwWriteString @ 0x14030E000
+ * XREFs of EtwWriteString @ 0x14030E1F0
  * Callers:
  *     <none>
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
- *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpEventWriteFull @ 0x1400C8420 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 NTSTATUS __stdcall EtwWriteString(
@@ -24,10 +24,10 @@ NTSTATUS __stdcall EtwWriteString(
   char v15; // r10
   __int16 v16; // r9
   unsigned __int8 v17; // r10
-  __int64 v18; // r11
+  _QWORD *v18; // r11
   __int64 v19; // r9
   unsigned __int8 v20; // r10
-  __int64 v21; // rbx
+  _QWORD *v21; // rbx
   _OWORD *v22; // r11
   unsigned __int8 v23; // r10
   __int64 v24; // r9
@@ -84,7 +84,7 @@ NTSTATUS __stdcall EtwWriteString(
     && EtwpLevelKeywordEnabled(*(_QWORD *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x28) + 96LL, Level, Keyword) )
   {
     v9 = EtwpEventWriteFull(
-           *(_QWORD *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x20),
+           *(_QWORD **)((RegHandle & -(__int64)(RegHandle != 0)) + 0x20),
            v20,
            0,
            0,
@@ -102,12 +102,12 @@ NTSTATUS __stdcall EtwWriteString(
            v13,
            &v26);
   }
-  v21 = *(_QWORD *)(*(_QWORD *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x20) + 400LL);
+  v21 = *(_QWORD **)(*(_QWORD *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x20) + 400LL);
   if ( v21 )
   {
     memset(v31, 0, sizeof(v31));
     LOBYTE(v22) = 0;
-    if ( *(_BYTE *)(v10 + 102) && EtwpLevelKeywordEnabled(v21 + 96, Level, Keyword) )
+    if ( *(_BYTE *)(v10 + 102) && EtwpLevelKeywordEnabled((__int64)(v21 + 12), Level, Keyword) )
     {
       v9 = EtwpEventWriteFull(
              v21,
@@ -133,7 +133,7 @@ NTSTATUS __stdcall EtwWriteString(
       && EtwpLevelKeywordEnabled(*(_QWORD *)(*(_QWORD *)(v10 + 40) + 400LL) + 96LL, Level, Keyword) )
     {
       return EtwpEventWriteFull(
-               *(_QWORD *)(*(_QWORD *)(v10 + 32) + 400LL),
+               *(_QWORD **)(*(_QWORD *)(v10 + 32) + 400LL),
                *(_BYTE *)(v10 + 101),
                0,
                0,

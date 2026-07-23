@@ -15,18 +15,18 @@ __int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, const WCHAR
   __int64 v8; // r8
   int v9; // r8d
   __int16 v11[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v12; // [rsp+24h] [rbp-24h] BYREF
-  UNICODE_STRING v13[2]; // [rsp+28h] [rbp-20h] BYREF
+  DWORD Lcid; // [rsp+24h] [rbp-24h] BYREF
+  UNICODE_STRING String; // [rsp+28h] [rbp-20h] BYREF
 
   v11[0] = -1;
-  RtlInitUnicodeString(v13, a3);
-  if ( (unsigned __int8)RtlCultureNameToLCID(v13, &v12) )
+  RtlInitUnicodeString(&String, a3);
+  if ( RtlCultureNameToLCID(&String, &Lcid) )
   {
     LOBYTE(v8) = 1;
     v9 = RtlpMuiRegGetOrAddString(a1, a3, v8, v11);
     if ( v9 >= 0 )
     {
-      *(_WORD *)(a2 + 4) = v12;
+      *(_WORD *)(a2 + 4) = Lcid;
       *(_WORD *)(a2 + 6) = v11[0];
       *(_WORD *)a2 = a4;
       *(_WORD *)(a2 + 2) = 0;

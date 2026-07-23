@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxFree @ 0x1404AC7C4
+ * XREFs of RtlpHpSegMgrVaCtxFree @ 0x1404A5E54
  * Callers:
- *     RtlpHpSegMgrRelease @ 0x14034E480 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrRelease @ 0x140350500 (RtlpHpSegMgrRelease.c)
  * Callees:
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpSegMgrLock @ 0x1404C457C (RtlpHpSegMgrLock.c)
- *     RtlpHpSegMgrUnlock @ 0x1404C879C (RtlpHpSegMgrUnlock.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegMgrLock @ 0x1404BDE5C (RtlpHpSegMgrLock.c)
+ *     RtlpHpSegMgrUnlock @ 0x1404C24DC (RtlpHpSegMgrUnlock.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD *a3)
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
   v7 = 0LL;
   v17 = 0LL;
   v18 = 0LL;
-  RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.FirstArgument, a2 & 0xFFFFFFFFFFE00000uLL, (__int64)&v17);
+  RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.TrapFrame, a2 & 0xFFFFFFFFFFE00000uLL, (__int64)&v17);
   v8 = (a2 - v6) / *a3;
   v9 = RtlpHpSegMgrLock(a1);
   v10 = (__int16 *)v18;

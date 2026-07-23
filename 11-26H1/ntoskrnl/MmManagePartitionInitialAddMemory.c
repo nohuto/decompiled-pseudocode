@@ -1,12 +1,12 @@
 /*
- * XREFs of MmManagePartitionInitialAddMemory @ 0x14087D018
+ * XREFs of MmManagePartitionInitialAddMemory @ 0x140883418
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
  * Callees:
- *     MiValidatePartitionInitialAddMemory @ 0x14070A030 (MiValidatePartitionInitialAddMemory.c)
- *     MiHotAddPartitionMemory @ 0x14087BE70 (MiHotAddPartitionMemory.c)
- *     MiSpecialPurposeMemoryTypeDereference @ 0x14087EDA8 (MiSpecialPurposeMemoryTypeDereference.c)
- *     MiSpecialPurposeMemoryChangePrepare @ 0x140B65B80 (MiSpecialPurposeMemoryChangePrepare.c)
+ *     MiValidatePartitionInitialAddMemory @ 0x14070ECE4 (MiValidatePartitionInitialAddMemory.c)
+ *     MiHotAddPartitionMemory @ 0x140882270 (MiHotAddPartitionMemory.c)
+ *     MiSpecialPurposeMemoryTypeDereference @ 0x1408851A8 (MiSpecialPurposeMemoryTypeDereference.c)
+ *     MiSpecialPurposeMemoryChangePrepare @ 0x140B68C20 (MiSpecialPurposeMemoryChangePrepare.c)
  */
 
 __int64 __fastcall MmManagePartitionInitialAddMemory(ULONG **a1, int *a2, __int64 a3, char a4)
@@ -39,7 +39,7 @@ __int64 __fastcall MmManagePartitionInitialAddMemory(ULONG **a1, int *a2, __int6
     v9 = v4;
     v4 = *(ULONG **)(v13 + 64);
   }
-  v10 = MiHotAddPartitionMemory(v4, (__int64 *)(a3 + 48), (unsigned int *)a2);
+  v10 = MiHotAddPartitionMemory(v4, (__int64 *)(a3 + 48), a2);
 LABEL_6:
   if ( v5 )
     MiSpecialPurposeMemoryTypeDereference(v9, v5);

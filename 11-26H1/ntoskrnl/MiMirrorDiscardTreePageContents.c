@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorDiscardTreePageContents @ 0x140525620
+ * XREFs of MiMirrorDiscardTreePageContents @ 0x140527C90
  * Callers:
- *     MiMirrorDiscardPageContents @ 0x1405255E8 (MiMirrorDiscardPageContents.c)
+ *     MiMirrorDiscardPageContents @ 0x140527C58 (MiMirrorDiscardPageContents.c)
  * Callees:
- *     MiGetZeroingContext @ 0x14045D650 (MiGetZeroingContext.c)
+ *     MiGetZeroingContext @ 0x140457050 (MiGetZeroingContext.c)
  */
 
 _QWORD *__fastcall MiMirrorDiscardTreePageContents(_QWORD **a1)

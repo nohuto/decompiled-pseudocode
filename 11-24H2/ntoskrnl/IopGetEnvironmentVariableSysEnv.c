@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetEnvironmentVariableSysEnv @ 0x140719170
+ * XREFs of IopGetEnvironmentVariableSysEnv @ 0x140716D00
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopIssueSystemEnvironmentRequest @ 0x1407194A8 (IopIssueSystemEnvironmentRequest.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x140717038 (IopIssueSystemEnvironmentRequest.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetEnvironmentVariableSysEnv(
@@ -39,7 +39,7 @@ __int64 __fastcall IopGetEnvironmentVariableSysEnv(
   while ( a3[v9] );
   v10 = 2 * v9 + 2;
   InputBufferLength = 2 * v9 + 22;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, InputBufferLength, 0x79536F49u);
   InputBuffer = (_DWORD *)Pool2;
   if ( Pool2 )
   {
@@ -48,7 +48,7 @@ __int64 __fastcall IopGetEnvironmentVariableSysEnv(
     InputBuffer[4] = v10;
     *(_OWORD *)InputBuffer = v15;
     v16 = *a6 + 8;
-    Context = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Context = (_DWORD *)ExAllocatePool2(0x100uLL, v16, 0x79536F49u);
     if ( !Context )
     {
       v14 = -1073741670;

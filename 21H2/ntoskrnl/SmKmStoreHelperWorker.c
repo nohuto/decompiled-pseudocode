@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmStoreHelperWorker @ 0x1402E0320
+ * XREFs of SmKmStoreHelperWorker @ 0x140291670
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     SmKmStoreHelperCommandProcess @ 0x1402E0400 (SmKmStoreHelperCommandProcess.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     SmKmStoreHelperCommandCleanup @ 0x14059E114 (SmKmStoreHelperCommandCleanup.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140291750 (SmKmStoreHelperCommandProcess.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x14059E344 (SmKmStoreHelperCommandCleanup.c)
  */
 
 LONG __fastcall SmKmStoreHelperWorker(__int64 a1)
@@ -26,7 +26,7 @@ LONG __fastcall SmKmStoreHelperWorker(__int64 a1)
   v8 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  KeSetActualBasePriorityThread((__int64)KeGetCurrentThread(), 25);
+  KeSetActualBasePriorityThread(KeGetCurrentThread(), 25LL);
   CurrentThread = KeGetCurrentThread();
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 2u;
   while ( 1 )

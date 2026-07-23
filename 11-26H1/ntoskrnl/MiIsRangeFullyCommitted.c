@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIsRangeFullyCommitted @ 0x14095DDE4
+ * XREFs of MiIsRangeFullyCommitted @ 0x140A036A4
  * Callers:
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14095D738 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140A02FF8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmProtectVirtualMemory @ 0x140A03E98 (MmProtectVirtualMemory.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
  */
 
 __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
   unsigned int *v15; // rdx
   unsigned __int64 v16; // rcx
   __int64 v17; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v19; // rcx
+  $241382875694CED3D471BC5892DE3337 *v19; // rcx
   unsigned int *v21; // [rsp+60h] [rbp+8h] BYREF
   unsigned int *v22; // [rsp+68h] [rbp+10h] BYREF
 
@@ -88,7 +88,7 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v19 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v19->ApcState.ApcListHead[0].Flink != v19 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v19->ApcState.ApcListHead[0].Flink != v19 )
       KiCheckForKernelApcDelivery((__int64)v19, v17);
   }
   return v9;

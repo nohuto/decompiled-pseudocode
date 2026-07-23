@@ -1,27 +1,27 @@
 /*
- * XREFs of PopDispatchPowerSettingCallbacks @ 0x140A401E0
+ * XREFs of PopDispatchPowerSettingCallbacks @ 0x1409FBC00
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PopIncrementPowerSettingPendingUpdates @ 0x1403B4070 (PopIncrementPowerSettingPendingUpdates.c)
- *     PopDecrementPowerSettingPendingUpdates @ 0x1403B4260 (PopDecrementPowerSettingPendingUpdates.c)
- *     PopUnregisterPowerSettingCallback @ 0x1404E8EBC (PopUnregisterPowerSettingCallback.c)
- *     PopCallPowerSettingCallback @ 0x140A4031C (PopCallPowerSettingCallback.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PopIncrementPowerSettingPendingUpdates @ 0x1403BDF7C (PopIncrementPowerSettingPendingUpdates.c)
+ *     PopDecrementPowerSettingPendingUpdates @ 0x1403BE16C (PopDecrementPowerSettingPendingUpdates.c)
+ *     PopUnregisterPowerSettingCallback @ 0x1404E227C (PopUnregisterPowerSettingCallback.c)
+ *     PopCallPowerSettingCallback @ 0x1409FBD3C (PopCallPowerSettingCallback.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PopDispatchPowerSettingCallbacks()
 {
-  __int64 v0; // rdi
-  LONG *p_LockNV; // rbx
+  __int64 Next_high; // rdi
+  _DWORD *v1; // rbx
   __int64 v2; // r14
   _QWORD *v3; // rsi
   __int64 v4; // rdi
   __int64 v5; // rbp
-  struct _KTHREAD *v6; // rdi
-  struct _LIST_ENTRY *v7; // rax
+  __int64 v6; // rdi
+  _QWORD *v7; // rax
   char v8; // al
   _QWORD *v9; // rdx
   __int64 v10; // r8
@@ -29,16 +29,16 @@ void PopDispatchPowerSettingCallbacks()
 
   PopIncrementPowerSettingPendingUpdates(0);
   PopDecrementPowerSettingPendingUpdates(1);
-  v0 = dword_140F106CC;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
-  p_LockNV = *(LONG **)&stru_140F10828.ThreadTimerDelay;
-  if ( *(struct _KTHREAD **)&stru_140F10828.ThreadTimerDelay != (struct _KTHREAD *)&stru_140F10828.ThreadTimerDelay )
+  Next_high = SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
+  ExAcquireFastMutex(&PopSettingLock);
+  v1 = PopPowerSettings;
+  if ( PopPowerSettings != &PopPowerSettings )
   {
-    v2 = v0;
+    v2 = Next_high;
     while ( 1 )
     {
-      v3 = p_LockNV + 4;
-      v4 = *((_QWORD *)p_LockNV + 2);
+      v3 = v1 + 4;
+      v4 = *((_QWORD *)v1 + 2);
       while ( (_QWORD *)v4 != v3 )
       {
         if ( *(_BYTE *)(v4 + 104) )
@@ -48,7 +48,7 @@ void PopDispatchPowerSettingCallbacks()
         else
         {
           *(_BYTE *)(v4 + 104) = 1;
-          if ( *(_QWORD *)(v4 + 72) != *(_QWORD *)&p_LockNV[2 * v2 + 16] )
+          if ( *(_QWORD *)(v4 + 72) != *(_QWORD *)&v1[2 * v2 + 16] )
             PopCallPowerSettingCallback(v4);
           v5 = *(_QWORD *)v4;
           *(_BYTE *)(v4 + 104) = 0;
@@ -57,14 +57,14 @@ void PopDispatchPowerSettingCallbacks()
           v4 = v5;
         }
       }
-      if ( (_QWORD *)*v3 != v3 || p_LockNV[14] || p_LockNV[15] )
+      if ( (_QWORD *)*v3 != v3 || v1[14] || v1[15] )
       {
-        v6 = *(struct _KTHREAD **)p_LockNV;
+        v6 = *(_QWORD *)v1;
       }
       else
       {
         v8 = 1;
-        v9 = p_LockNV + 16;
+        v9 = v1 + 16;
         v10 = 3LL;
         do
         {
@@ -75,24 +75,21 @@ void PopDispatchPowerSettingCallbacks()
           --v10;
         }
         while ( v10 );
-        v6 = *(struct _KTHREAD **)p_LockNV;
+        v6 = *(_QWORD *)v1;
         if ( v11 )
         {
-          if ( (LONG *)v6->Header.WaitListHead.Flink != p_LockNV
-            || (v7 = (struct _LIST_ENTRY *)*((_QWORD *)p_LockNV + 1), (LONG *)v7->Flink != p_LockNV) )
-          {
+          if ( *(_DWORD **)(v6 + 8) != v1 || (v7 = (_QWORD *)*((_QWORD *)v1 + 1), (_DWORD *)*v7 != v1) )
             __fastfail(3u);
-          }
-          v7->Flink = (struct _LIST_ENTRY *)v6;
-          v6->Header.WaitListHead.Flink = v7;
-          ExFreePoolWithTag(p_LockNV, 0x74655350u);
+          *v7 = v6;
+          *(_QWORD *)(v6 + 8) = v7;
+          ExFreePoolWithTag(v1, 0x74655350u);
         }
       }
-      if ( v6 == (struct _KTHREAD *)&stru_140F10828.ThreadTimerDelay )
+      if ( (PVOID *)v6 == &PopPowerSettings )
         break;
-      p_LockNV = &v6->Header.LockNV;
+      v1 = (_DWORD *)v6;
     }
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  KeReleaseGuardedMutex(&PopSettingLock);
   PopDecrementPowerSettingPendingUpdates(0);
 }

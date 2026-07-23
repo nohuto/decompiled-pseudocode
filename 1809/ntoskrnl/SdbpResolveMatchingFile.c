@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbpResolveMatchingFile @ 0x140721A74
+ * XREFs of SdbpResolveMatchingFile @ 0x140722D14
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x140721450 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingDir @ 0x1408E5CA0 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingTextEntry @ 0x1408E65E4 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x1408E69E0 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x1407226F0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingDir @ 0x1408E6F60 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingTextEntry @ 0x1408E78A4 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x1408E7CA0 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslAlloc @ 0x14067C780 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslEnvExpandStrings2 @ 0x140721CD4 (AslEnvExpandStrings2.c)
- *     AslImageFileToArchitecture @ 0x1407222F8 (AslImageFileToArchitecture.c)
- *     AslEnvGetProcessWowInfo @ 0x140722324 (AslEnvGetProcessWowInfo.c)
- *     AslPathToNetworkPathNt @ 0x1407223DC (AslPathToNetworkPathNt.c)
- *     AslPathClean @ 0x140722454 (AslPathClean.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AslAlloc @ 0x14067D940 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslEnvExpandStrings2 @ 0x140722F74 (AslEnvExpandStrings2.c)
+ *     AslImageFileToArchitecture @ 0x140723598 (AslImageFileToArchitecture.c)
+ *     AslEnvGetProcessWowInfo @ 0x1407235C4 (AslEnvGetProcessWowInfo.c)
+ *     AslPathToNetworkPathNt @ 0x14072367C (AslPathToNetworkPathNt.c)
+ *     AslPathClean @ 0x1407236F4 (AslPathClean.c)
  */
 
 __int64 __fastcall SdbpResolveMatchingFile(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4, __int64 a5, _QWORD *a6)

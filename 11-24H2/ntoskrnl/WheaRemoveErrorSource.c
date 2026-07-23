@@ -1,17 +1,17 @@
 /*
- * XREFs of WheaRemoveErrorSource @ 0x1407C6C00
+ * XREFs of WheaRemoveErrorSource @ 0x1407C7080
  * Callers:
- *     WheaUnregisterErrorSourceOverride @ 0x14065EC00 (WheaUnregisterErrorSourceOverride.c)
- *     WheaRemoveErrorSourceDeviceDriver @ 0x1407C6FD0 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheaUnregisterErrorSourceOverride @ 0x14065D3D0 (WheaUnregisterErrorSourceOverride.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x1407C7470 (WheaRemoveErrorSourceDeviceDriver.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     WheapGetErrorSource @ 0x14042E7A8 (WheapGetErrorSource.c)
- *     WheapIsErrorSourceTypeAddable @ 0x14065BE18 (WheapIsErrorSourceTypeAddable.c)
- *     WheapCallErrorSourceUninitialize @ 0x14065D74C (WheapCallErrorSourceUninitialize.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     WheapGetErrorSource @ 0x1404204D8 (WheapGetErrorSource.c)
+ *     WheapIsErrorSourceTypeAddable @ 0x14065A538 (WheapIsErrorSourceTypeAddable.c)
+ *     WheapCallErrorSourceUninitialize @ 0x14065BE6C (WheapCallErrorSourceUninitialize.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall WheaRemoveErrorSource(unsigned int a1)
@@ -23,15 +23,21 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
   _BYTE *v6; // rcx
   __int128 v7; // xmm1
   int v8; // eax
-  void *v9; // rcx
-  int v10; // edi
+  __int64 v9; // rdx
+  void *v10; // rcx
+  int v11; // edi
   LARGE_INTEGER Interval; // [rsp+20h] [rbp-E0h] BYREF
   _DWORD Src[8]; // [rsp+30h] [rbp-D0h] BYREF
-  _BYTE v14[972]; // [rsp+50h] [rbp-B0h] BYREF
-  int v15; // [rsp+41Ch] [rbp+31Ch]
-  char v16; // [rsp+420h] [rbp+320h]
+  _BYTE v15[72]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v16; // [rsp+98h] [rbp-68h]
+  __int64 v17; // [rsp+A0h] [rbp-60h]
+  __int64 v18; // [rsp+A8h] [rbp-58h]
+  __int64 v19; // [rsp+B0h] [rbp-50h]
+  __int64 v20; // [rsp+E0h] [rbp-20h]
+  int v21; // [rsp+41Ch] [rbp+31Ch]
+  char v22; // [rsp+420h] [rbp+320h]
 
-  memset_0(v14, 0, sizeof(v14));
+  memset_0(v15, 0, 0x3CCuLL);
   ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, a1);
   v3 = (__int64)ErrorSource;
   if ( ErrorSource )
@@ -44,7 +50,7 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
       {
         v5 = 7LL;
         Interval.QuadPart = -1000LL;
-        v6 = v14;
+        v6 = v15;
         do
         {
           *(_OWORD *)v6 = *(_OWORD *)v4;
@@ -71,12 +77,12 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
         while ( _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 92), -1, 0) > 0 )
           KeDelayExecutionThread(0, 0, &Interval);
         v8 = WheapCallErrorSourceUninitialize(v3);
-        v9 = *(void **)(v3 + 48);
-        v10 = v8;
+        v10 = *(void **)(v3 + 48);
+        v11 = v8;
         *(_DWORD *)(v3 + 108) = 3;
-        if ( v9 )
+        if ( v10 )
         {
-          ExFreePoolWithTag(v9, 0x61656857u);
+          ExFreePoolWithTag(v10, 0x61656857u);
           *(_QWORD *)(v3 + 48) = 0LL;
         }
         Src[3] = 0;
@@ -87,9 +93,17 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
         Src[4] = 1280201291;
         Src[6] = 2;
         Src[7] = 977;
-        v15 = v10;
-        v16 = 1;
-        LOBYTE(ErrorSource) = WheaLogInternalEvent(Src);
+        if ( *(_DWORD *)(v3 + 104) == 16 )
+        {
+          v17 = 0LL;
+          v18 = 0LL;
+          v19 = 0LL;
+          v16 = 0LL;
+          v20 = 0LL;
+        }
+        v21 = v11;
+        v22 = 1;
+        LOBYTE(ErrorSource) = WheaLogInternalEvent(Src, v9);
       }
     }
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationResourceManager @ 0x1403D8370
+ * XREFs of NtSetInformationResourceManager @ 0x1403D8550
  * Callers:
  *     <none>
  * Callees:

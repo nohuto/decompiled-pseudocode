@@ -373,7 +373,7 @@ LABEL_61:
     }
   }
   if ( v12 )
-    KeSetTimer2(a1 + 296, v3 - v12, 0LL, (__int64)v14);
+    KeSetTimer2(a1 + 296, (LARGE_INTEGER)(v3 - v12), 0LL, (__int64)v14);
 LABEL_21:
   v15 = *(IRP **)(a1 + 56);
   IoReuseIrp(v15, -1073741637);

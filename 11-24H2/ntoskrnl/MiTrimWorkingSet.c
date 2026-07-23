@@ -1,17 +1,17 @@
 /*
- * XREFs of MiTrimWorkingSet @ 0x1403CF15C
+ * XREFs of MiTrimWorkingSet @ 0x140390208
  * Callers:
- *     MiForcedTrim @ 0x1402D0EB8 (MiForcedTrim.c)
- *     MiReduceWs @ 0x1402E17C0 (MiReduceWs.c)
- *     MiTrimOrAgeWorkingSet @ 0x140378F30 (MiTrimOrAgeWorkingSet.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403CD164 (MmAdjustWorkingSetSizeEx.c)
- *     MiEmptyWorkingSetInitiate @ 0x140404B98 (MiEmptyWorkingSetInitiate.c)
+ *     MiReduceWs @ 0x1402430A0 (MiReduceWs.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402F35B0 (MiTrimOrAgeWorkingSet.c)
+ *     MiForcedTrim @ 0x1402F4A18 (MiForcedTrim.c)
+ *     MiEmptyWorkingSetInitiate @ 0x1403C9030 (MiEmptyWorkingSetInitiate.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14046C954 (MmAdjustWorkingSetSizeEx.c)
  * Callees:
- *     MiVmAccessLoggingEnabled @ 0x1402E47A4 (MiVmAccessLoggingEnabled.c)
- *     MiFastTrimWorkingSet @ 0x1403CF450 (MiFastTrimWorkingSet.c)
- *     MiLogTrimWs @ 0x1403D05E4 (MiLogTrimWs.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiVmAccessLoggingEnabled @ 0x140346A3C (MiVmAccessLoggingEnabled.c)
+ *     MiLogTrimWs @ 0x14038F63C (MiLogTrimWs.c)
+ *     MiFastTrimWorkingSet @ 0x140390500 (MiFastTrimWorkingSet.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4, int a5)
@@ -36,7 +36,7 @@ __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, un
   char v26; // [rsp+49h] [rbp-B7h]
   __int64 v27; // [rsp+60h] [rbp-A0h]
   __int64 v28; // [rsp+70h] [rbp-90h]
-  __int64 (__fastcall *v30)(__int64, unsigned __int64, int); // [rsp+E8h] [rbp-18h]
+  __int64 (__fastcall *v30)(__int64, unsigned __int64 *, __int64); // [rsp+E8h] [rbp-18h]
   __int64 (__fastcall *v31)(); // [rsp+F0h] [rbp-10h]
   int *v32; // [rsp+F8h] [rbp-8h]
   int v33; // [rsp+100h] [rbp+0h] BYREF

@@ -48,7 +48,7 @@ __int64 __fastcall SeCopyClientToken(
     v10 = *(_WORD **)&DmaAdapter[49].Version;
     if ( v10 )
     {
-      appended = SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 983551, v10);
+      appended = SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 0xF01FFu, v10);
       v8 = DmaAdapter;
       inserted = appended;
       if ( appended >= 0 )
@@ -64,7 +64,7 @@ LABEL_13:
     return (unsigned int)inserted;
   }
 LABEL_8:
-  SepAppendAceToTokenObjectAcl((__int64)v8, 8, SeAliasAdminsSid);
+  SepAppendAceToTokenObjectAcl((__int64)v8, 8u, SeAliasAdminsSid);
   *a6 = DmaAdapter;
   return (unsigned int)inserted;
 }

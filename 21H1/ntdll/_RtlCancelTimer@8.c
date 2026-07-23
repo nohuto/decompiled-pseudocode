@@ -6,7 +6,7 @@
  *     _RtlDeleteTimer@12 @ 0x4B2A8C40 (_RtlDeleteTimer@12.c)
  */
 
-int __stdcall RtlCancelTimer(int a1, int *a2)
+NTSTATUS __stdcall RtlCancelTimer(HANDLE TimerQueueHandle, HANDLE TimerToCancel)
 {
-  return RtlDeleteTimer(a1, a2, 0);
+  return RtlDeleteTimer(TimerQueueHandle, TimerToCancel, 0);
 }

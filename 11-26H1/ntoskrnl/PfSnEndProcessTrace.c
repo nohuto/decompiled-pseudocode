@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnEndProcessTrace @ 0x140A43CB4
+ * XREFs of PfSnEndProcessTrace @ 0x140ACAE28
  * Callers:
- *     PfSnFailProcessTrace @ 0x1409E9C58 (PfSnFailProcessTrace.c)
- *     PfProcessExitNotification @ 0x140A43B50 (PfProcessExitNotification.c)
- *     PfSnOperationProcess @ 0x140A43E74 (PfSnOperationProcess.c)
+ *     PfSnFailProcessTrace @ 0x1409D3078 (PfSnFailProcessTrace.c)
+ *     PfSnOperationProcess @ 0x140ACAAC0 (PfSnOperationProcess.c)
+ *     PfProcessExitNotification @ 0x140ACACC4 (PfProcessExitNotification.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PfSnReferenceProcessTrace @ 0x140374C1C (PfSnReferenceProcessTrace.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PfSnReferenceProcessTrace @ 0x1403769CC (PfSnReferenceProcessTrace.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 __int64 __fastcall PfSnEndProcessTrace(__int64 a1, signed __int32 a2, unsigned __int64 a3)
@@ -49,7 +49,7 @@ __int64 __fastcall PfSnEndProcessTrace(__int64 a1, signed __int32 a2, unsigned _
     v16 = a1;
     v32 = &v16;
     v33 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)byte_140049699, 0LL, 0LL, 3u, &v31);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&unk_140049C28, 0LL, 0LL, 3u, &v31);
   }
   v6 = PfSnReferenceProcessTrace(a1);
   v7 = v6;
@@ -105,7 +105,7 @@ __int64 __fastcall PfSnEndProcessTrace(__int64 a1, signed __int32 a2, unsigned _
     v29 = &v16;
     LODWORD(v16) = a2;
     v30 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&unk_140049628, 0LL, 0LL, 9u, &v18);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&word_140049C56, 0LL, 0LL, 9u, &v18);
   }
   if ( v7 )
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v7 + 360));

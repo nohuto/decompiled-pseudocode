@@ -1,21 +1,21 @@
 /*
  * XREFs of KeFlushIoBuffers @ 0x140232370
  * Callers:
- *     HalFlushDmaBuffer @ 0x140457DC0 (HalFlushDmaBuffer.c)
- *     HalpDmaFlushDriverMdl @ 0x140504158 (HalpDmaFlushDriverMdl.c)
- *     HalpDmaFlushBuffer @ 0x140513310 (HalpDmaFlushBuffer.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140513544 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140513C1C (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     HalpFlushMapBuffers @ 0x14051416C (HalpFlushMapBuffers.c)
- *     ViMapDoubleBuffer @ 0x140A88D98 (ViMapDoubleBuffer.c)
+ *     sub_140457DC0 @ 0x140457DC0 (sub_140457DC0.c)
+ *     sub_140504158 @ 0x140504158 (sub_140504158.c)
+ *     sub_140513310 @ 0x140513310 (sub_140513310.c)
+ *     sub_140513544 @ 0x140513544 (sub_140513544.c)
+ *     sub_140513C1C @ 0x140513C1C (sub_140513C1C.c)
+ *     sub_14051416C @ 0x14051416C (sub_14051416C.c)
+ *     sub_140A88D98 @ 0x140A88D98 (sub_140A88D98.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
+ *     sub_140223A20 @ 0x140223A20 (sub_140223A20.c)
  *     KeInvalidateAllCaches @ 0x140259C80 (KeInvalidateAllCaches.c)
  *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KiFlushRangeAllCaches @ 0x14056F780 (KiFlushRangeAllCaches.c)
- *     EtwTraceCpuCacheFlush @ 0x14062D620 (EtwTraceCpuCacheFlush.c)
+ *     sub_14056F780 @ 0x14056F780 (sub_14056F780.c)
+ *     sub_14062D620 @ 0x14062D620 (sub_14062D620.c)
  */
 
 char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3, __int64 a4)
@@ -27,9 +27,9 @@ char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3,
   void *v11; // rbx
   _OWORD v13[2]; // [rsp+30h] [rbp-58h] BYREF
 
-  LOBYTE(v4) = KiSystemFullyCoherent;
+  LOBYTE(v4) = dword_140C0B8A8;
   memset(v13, 0, sizeof(v13));
-  if ( !KiSystemFullyCoherent )
+  if ( !dword_140C0B8A8 )
   {
     CurrentIrql = KeGetCurrentIrql();
     v9 = *(unsigned int *)(BugCheckParameter4 + 40);
@@ -48,12 +48,12 @@ char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3,
       if ( !v11 && CurrentIrql == 15 )
         KeBugCheckEx(0x55u, 0x86uLL, 0xBADuLL, 0LL, 0LL);
       if ( (xmmword_140D06910 & 0x4000000) != 0 )
-        LOBYTE(v4) = EtwGetKernelTraceTimestamp((unsigned __int64)v13, 0x84000000uLL);
+        LOBYTE(v4) = sub_140223A20((unsigned __int64)v13, 0x84000000uLL);
       else
         v10 = 0;
       if ( v11 )
       {
-        LOBYTE(v4) = KiFlushRangeAllCaches(BugCheckParameter4, v11, v9, a3);
+        LOBYTE(v4) = sub_14056F780(BugCheckParameter4, v11, v9, a3);
       }
       else if ( a3 )
       {
@@ -62,7 +62,7 @@ char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3,
       if ( v10 )
       {
         LOBYTE(a4) = a2 == 0;
-        LOBYTE(v4) = EtwTraceCpuCacheFlush(v13, v11, v9, a4);
+        LOBYTE(v4) = sub_14062D620(v13, v11, v9, a4);
       }
     }
   }

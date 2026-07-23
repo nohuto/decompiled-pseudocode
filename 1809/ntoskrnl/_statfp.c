@@ -1,9 +1,9 @@
 /*
- * XREFs of _statfp @ 0x14019A300
+ * XREFs of _statfp @ 0x14019A440
  * Callers:
- *     _raise_exc_ex @ 0x140199F44 (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x14019A084 (_raise_exc_ex.c)
  * Callees:
- *     _get_fpsr @ 0x1401C7270 (_get_fpsr.c)
+ *     _get_fpsr @ 0x1401C73D0 (_get_fpsr.c)
  */
 
 __int64 statfp()

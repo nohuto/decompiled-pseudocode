@@ -12,40 +12,52 @@
  *     _EtwpGetKmRegHandle@12 @ 0x4B38077C (_EtwpGetKmRegHandle@12.c)
  */
 
-int __stdcall EtwEventWriteStartScenario(int a1, __int16 a2, int a3, int a4, int a5)
+ULONG __cdecl EtwEventWriteStartScenario(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  int KmRegHandle; // esi
+  ULONG KmRegHandle; // esi
   _GUID *p_ActivityId; // esi
-  int v9; // [esp+14h] [ebp-3Ch] BYREF
-  _QWORD v10[6]; // [esp+18h] [ebp-38h] BYREF
+  size_t v7; // [esp-4h] [ebp-54h]
+  ULONG ReturnLength; // [esp+14h] [ebp-3Ch] BYREF
+  _DWORD InputBuffer[2]; // [esp+18h] [ebp-38h] BYREF
+  EVENT_DESCRIPTOR v11; // [esp+20h] [ebp-30h]
+  GUID ActivityId; // [esp+30h] [ebp-20h] BYREF
+  int v13; // [esp+40h] [ebp-10h]
 
-  v9 = 0;
-  if ( !a3 )
+  ReturnLength = 0;
+  if ( !EventDescriptor )
     return 87;
-  if ( !EtwEventEnabled(a1, a2, a3) )
+  if ( !EtwEventEnabled(RegHandle, EventDescriptor) )
     return 6;
-  memset(v10, 0, sizeof(v10));
-  KmRegHandle = EtwpGetKmRegHandle(v10, a1, a2);
+  LODWORD(v7) = 48;
+  memset(InputBuffer, 0, v7);
+  KmRegHandle = EtwpGetKmRegHandle(InputBuffer, RegHandle, SWORD2(RegHandle));
   if ( !KmRegHandle )
   {
-    v10[1] = *(_QWORD *)a3;
-    v10[2] = *(_QWORD *)(a3 + 8);
+    v11 = *EventDescriptor;
     p_ActivityId = &NtCurrentTeb()->ActivityId;
-    LODWORD(v10[3]) = p_ActivityId->Data1;
+    ActivityId.Data1 = p_ActivityId->Data1;
     p_ActivityId = (_GUID *)((char *)p_ActivityId + 4);
-    HIDWORD(v10[3]) = p_ActivityId->Data1;
-    v10[4] = *(_QWORD *)&p_ActivityId->Data2;
-    if ( LODWORD(v10[3])
-      || __PAIR32__(WORD2(v10[3]), 0) != HIWORD(v10[3])
-      || __PAIR16__(v10[4], 0) != BYTE1(v10[4])
-      || WORD1(v10[4])
-      || __PAIR32__(__PAIR16__(BYTE6(v10[4]), 0), 0) != __PAIR32__(HIBYTE(v10[4]), WORD2(v10[4]))
-      || (KmRegHandle = EtwEventActivityIdControl(3, (int)&v10[3])) == 0
-      && (KmRegHandle = EtwEventActivityIdControl(2, (int)&v10[3])) == 0 )
+    *(_DWORD *)&ActivityId.Data2 = p_ActivityId->Data1;
+    *(_QWORD *)ActivityId.Data4 = *(_QWORD *)&p_ActivityId->Data2;
+    if ( ActivityId.Data1
+      || ActivityId.Data2
+      || ActivityId.Data3
+      || __PAIR16__(ActivityId.Data4[0], 0) != ActivityId.Data4[1]
+      || ActivityId.Data4[2]
+      || ActivityId.Data4[3]
+      || *(_WORD *)&ActivityId.Data4[4]
+      || ActivityId.Data4[6]
+      || ActivityId.Data4[7]
+      || (KmRegHandle = EtwEventActivityIdControl(3u, &ActivityId)) == 0
+      && (KmRegHandle = EtwEventActivityIdControl(2u, &ActivityId)) == 0 )
     {
-      LODWORD(v10[5]) = 10;
-      KmRegHandle = EtwEventWrite(a1, a2, (int *)a3, a4, a5);
-      ZwTraceControl(13, (int)v10, 48, 0, 0, (int)&v9);
+      v13 = 10;
+      KmRegHandle = EtwEventWrite(RegHandle, EventDescriptor, UserDataCount, UserData);
+      ZwTraceControl(EtwWdiScenarioCode, InputBuffer, 0x30u, 0, 0, &ReturnLength);
     }
   }
   return KmRegHandle;

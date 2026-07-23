@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpGenuinePolicyCacheProvider @ 0x1405A1820
+ * XREFs of ExpGenuinePolicyCacheProvider @ 0x1405A2820
  * Callers:
  *     <none>
  * Callees:
@@ -8,12 +8,12 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
- *     sub_1407045C8 @ 0x1407045C8 (sub_1407045C8.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExpSetKernelDataProtection @ 0x1405A25F4 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x1405A2B24 (ExpGetKernelDataProtection.c)
+ *     sub_140705868 @ 0x140705868 (sub_140705868.c)
  */
 
 __int64 __fastcall ExpGenuinePolicyCacheProvider(int a1, int a2, int a3, int a4, _BYTE *a5)
@@ -55,19 +55,19 @@ __int64 __fastcall ExpGenuinePolicyCacheProvider(int a1, int a2, int a3, int a4,
 
   v7 = -1073741811;
   v8 = 4;
-  if ( off_14096D030 )
+  if ( off_14096E030 )
     goto LABEL_41;
   if ( !Data )
   {
 LABEL_43:
-    v8 = dword_14096D0A4;
+    v8 = dword_14096E0B8;
     goto LABEL_16;
   }
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E5A0, 0LL);
-  v9 = qword_14096E620 == 0;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E5A0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_14096E5A0);
-  KeAbPostRelease((ULONG_PTR)&qword_14096E5A0);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F5A0, 0LL);
+  v9 = qword_14096F620 == 0;
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F5A0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_14096F5A0);
+  KeAbPostRelease((ULONG_PTR)&qword_14096F5A0);
   if ( !v9 )
   {
     if ( (int)ExpGetKernelDataProtection(v34) < 0 || !v35 || v35 + 900000 <= v35 )
@@ -80,19 +80,19 @@ LABEL_43:
   if ( !v9 )
     goto LABEL_12;
 LABEL_19:
-  if ( !off_14096D030 )
+  if ( !off_14096E030 )
   {
     if ( !Data )
       goto LABEL_43;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E5A0, 0LL);
-    v15 = qword_14096E620 == 0;
-    v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E5A0, 0xFFFFFFFFFFFFFFFFuLL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F5A0, 0LL);
+    v15 = qword_14096F620 == 0;
+    v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F5A0, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v16 & 2) != 0 && (v16 & 4) == 0 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E5A0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E5A0);
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F5A0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F5A0);
     if ( v15 )
     {
-      dword_14096D0A4 = 5;
+      dword_14096E0B8 = 5;
       v37 = 5;
       ExpSetKernelDataProtection((__int64)v36, 2, 0);
     }
@@ -112,7 +112,7 @@ LABEL_19:
             v19 = 16LL * v17;
             updated = v19 > 0xFFFFFFFF ? 0xC0000095 : 0;
             if ( v19 <= 0xFFFFFFFF )
-              updated = ExpLicUpdateChecksum((__int64)qword_14096FD00, 0xFFFFFFFFLL, &v26);
+              updated = ExpLicUpdateChecksum((__int64)qword_140970D00, 0xFFFFFFFFLL, &v26);
           }
         }
         if ( updated )
@@ -142,13 +142,13 @@ LABEL_19:
       }
     }
 LABEL_12:
-    if ( !off_14096D030 )
+    if ( !off_14096E030 )
       goto LABEL_13;
   }
 LABEL_41:
   if ( KiQueryUnbiasedInterruptTime() / 0x989680uLL > 0x2A30 )
   {
-    dword_14096D0A4 = 2;
+    dword_14096E0B8 = 2;
     v40 = 2;
     ExpSetKernelDataProtection((__int64)v39, 2, 0);
     v41[40] = 0;
@@ -177,7 +177,7 @@ LABEL_13:
             v25 = 16LL * v23;
             v24 = v25 > 0xFFFFFFFF ? 0xC0000095 : 0;
             if ( v25 <= 0xFFFFFFFF )
-              v24 = ExpLicUpdateChecksum((__int64)qword_14096FD00, 0xFFFFFFFFLL, &v28);
+              v24 = ExpLicUpdateChecksum((__int64)qword_140970D00, 0xFFFFFFFFLL, &v28);
           }
         }
         if ( v24 )
@@ -205,7 +205,7 @@ LABEL_16:
   if ( v8 )
   {
     *a5 = 1;
-    return (unsigned int)sub_1407045C8(a1, a2, a3, a4, 0);
+    return (unsigned int)sub_140705868(a1, a2, a3, a4, 0);
   }
   else
   {

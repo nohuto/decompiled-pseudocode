@@ -50,7 +50,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1, __int64 a2)
   ULONG v7; // r8d
   ULONG v8; // r9d
   PIMAGE_NT_HEADERS v9; // r12
-  __int64 v10; // rcx
+  PVOID v10; // rcx
   unsigned __int64 v11; // r13
   unsigned int VirtualAddress; // ecx
   __int64 v13; // rcx
@@ -141,7 +141,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1, __int64 a2)
       v6 = *(_QWORD *)(v4 + 48);
       v54 = v6;
       v9 = RtlImageNtHeader((PVOID)v6);
-      v10 = *(_QWORD *)(v4 + 48);
+      v10 = *(PVOID *)(v4 + 48);
       v11 = ((unsigned __int64)*(unsigned int *)(v4 + 64) + 4095) >> 12;
       v45 = v9;
       v57 = v11;
@@ -184,7 +184,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1, __int64 a2)
         }
         v13 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
       }
-      if ( v6 == PsNtosImageBase || (PVOID)v6 == PsHalImageBase )
+      if ( (PVOID)v6 == PsNtosImageBase || (PVOID)v6 == PsHalImageBase )
       {
 LABEL_87:
         v38 = v40;

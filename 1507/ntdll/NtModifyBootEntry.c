@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtModifyBootEntry()
+NTSTATUS __cdecl NtModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 258LL;
+  result = 258;
   __asm { syscall; Low latency system call }
   return result;
 }

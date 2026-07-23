@@ -1,7 +1,7 @@
 /*
- * XREFs of __cpu_features_init @ 0x14053A2E0
+ * XREFs of __cpu_features_init @ 0x14053C760
  * Callers:
- *     __memset_query @ 0x14073DA40 (__memset_query.c)
+ *     __memset_query @ 0x140742640 (__memset_query.c)
  * Callees:
  *     <none>
  */

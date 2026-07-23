@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScrubPage @ 0x140413AE4
+ * XREFs of MiScrubPage @ 0x140408114
  * Callers:
- *     MiScrubLargeMappedPage @ 0x14070C03C (MiScrubLargeMappedPage.c)
- *     MiScrubLargePage @ 0x14070C4BC (MiScrubLargePage.c)
- *     MiScrubNode @ 0x140AC642C (MiScrubNode.c)
+ *     MiScrubLargeMappedPage @ 0x140710CEC (MiScrubLargeMappedPage.c)
+ *     MiScrubLargePage @ 0x14071116C (MiScrubLargePage.c)
+ *     MiScrubNode @ 0x140AC8020 (MiScrubNode.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     RtlScrubMemory @ 0x140413C54 (RtlScrubMemory.c)
- *     KeCopyPageNoOverride @ 0x140730860 (KeCopyPageNoOverride.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     RtlScrubMemory @ 0x140408284 (RtlScrubMemory.c)
+ *     KeCopyPageNoOverride @ 0x140735430 (KeCopyPageNoOverride.c)
  */
 
 __int64 __fastcall MiScrubPage(__int64 a1, __int64 a2, int a3, unsigned __int64 a4, char a5)

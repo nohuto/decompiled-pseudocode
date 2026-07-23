@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpFreeGuidEntry @ 0x1404DF218
+ * XREFs of EtwpFreeGuidEntry @ 0x1404C281C
  * Callers:
- *     EtwpUnreferenceGuidEntry @ 0x14040ED4C (EtwpUnreferenceGuidEntry.c)
- *     EtwpAddGuidEntry @ 0x14048D600 (EtwpAddGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x14040DC0C (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x14048E090 (EtwpAddGuidEntry.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObDereferenceSecurityDescriptor @ 0x1404200D0 (ObDereferenceSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14041EF90 (ObDereferenceSecurityDescriptor.c)
  */
 
 void __fastcall EtwpFreeGuidEntry(_QWORD *P)

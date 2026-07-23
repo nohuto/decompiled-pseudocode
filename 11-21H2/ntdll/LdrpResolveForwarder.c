@@ -15,21 +15,20 @@
  *     RtlpImageDirectoryEntryToData32 @ 0x1800F5D80 (RtlpImageDirectoryEntryToData32.c)
  */
 
-__int64 __fastcall LdrpResolveForwarder(char *Str, int a2, __int64 a3, __int64 *a4)
+__int64 __fastcall LdrpResolveForwarder(char *Str, __int64 a2, __int64 a3, __int64 *a4)
 {
   __int64 v4; // r15
   __int64 *v5; // rsi
-  __int64 v7; // r13
   char *v9; // rax
   __int16 v10; // di
   const char *v11; // r14
   unsigned __int64 v12; // rsi
   char *v13; // r15
   bool v14; // bl
-  unsigned __int64 v15; // rdi
-  int v16; // eax
-  __int16 v17; // ax
-  __int64 v18; // rdx
+  char *v15; // rdi
+  NTSTATUS v16; // eax
+  unsigned __int16 Magic; // ax
+  __int64 VirtualAddress; // rdx
   int v19; // r10d
   int v20; // r11d
   int v21; // r9d
@@ -47,22 +46,19 @@ __int64 __fastcall LdrpResolveForwarder(char *Str, int a2, __int64 a3, __int64 *
   int v34; // [rsp+40h] [rbp-29h]
   ULONG Value; // [rsp+44h] [rbp-25h] BYREF
   __int64 v36; // [rsp+48h] [rbp-21h] BYREF
-  __int64 v37; // [rsp+50h] [rbp-19h] BYREF
-  char *v38; // [rsp+58h] [rbp-11h] BYREF
-  __int64 v39; // [rsp+60h] [rbp-9h] BYREF
-  STRING SourceString; // [rsp+68h] [rbp-1h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp-19h] BYREF
+  __int64 v38; // [rsp+58h] [rbp-11h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp-9h] BYREF
+  ANSI_STRING SourceString; // [rsp+68h] [rbp-1h] BYREF
   __int64 v41; // [rsp+80h] [rbp+17h]
-  int v42; // [rsp+E0h] [rbp+77h] BYREF
-  __int64 *v43; // [rsp+E8h] [rbp+7Fh]
+  unsigned int Size; // [rsp+E0h] [rbp+77h]
 
-  v43 = a4;
   v4 = *(_QWORD *)(a3 + 176);
   v34 = 0;
   v5 = a4;
   v36 = 0LL;
   v41 = v4;
-  LODWORD(v7) = a2;
-  v39 = 0LL;
+  BaseAddress = 0LL;
   while ( 1 )
   {
     v9 = strrchr(Str, 46);
@@ -84,66 +80,66 @@ LABEL_57:
     }
     if ( v10 == 5 && (*(_DWORD *)Str | 0x20202020) == 0x6C64746E && ((unsigned __int8)Str[4] | 0x20) == 0x6C )
     {
-      v7 = LdrpNtDllDataTableEntry;
+      a2 = LdrpNtDllDataTableEntry;
       v36 = LdrpNtDllDataTableEntry;
     }
     else
     {
-      v31 = LdrpLoadDependentModuleA(&SourceString, v4, v7, 1, &v36, (__int64)&v39);
+      v31 = LdrpLoadDependentModuleA(&SourceString, v4, a2, 1LL, &v36, (__int64)&BaseAddress);
       v29 = v31;
       if ( v31 < 0 || v31 == 259 )
         goto LABEL_42;
-      v7 = v36;
+      a2 = v36;
     }
     if ( (*(_DWORD *)(*(_QWORD *)(a3 + 176) + 32LL) & 0x2000000) != 0 )
     {
       if ( v11 )
       {
-        v33 = LdrpCheckRedirection(a3, v7, v11);
+        v33 = LdrpCheckRedirection(a3, a2, v11);
         *v5 = v33;
         if ( v33 != -4530927 )
           return 0LL;
       }
     }
-    v12 = *(_QWORD *)(v7 + 48);
+    v12 = *(_QWORD *)(a2 + 48);
     v13 = 0LL;
-    v37 = 0LL;
+    OutHeaders = 0LL;
     v14 = 1;
     v38 = 0LL;
-    v15 = v12;
+    v15 = (char *)v12;
     if ( (v12 & 3) != 0 )
     {
-      v15 = v12 & 0xFFFFFFFFFFFFFFFCuLL;
+      v15 = (char *)(v12 & 0xFFFFFFFFFFFFFFFCuLL);
       v14 = (v12 & 1) == 0;
     }
-    v16 = RtlImageNtHeaderEx(1, v15, 0LL, &v37);
-    if ( !v37 )
+    v16 = RtlImageNtHeaderEx(1u, v15, 0LL, &OutHeaders);
+    if ( !OutHeaders )
       goto LABEL_62;
-    v17 = *(_WORD *)(v37 + 24);
-    if ( v17 == 267 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 )
     {
-      v16 = RtlpImageDirectoryEntryToData32(v15, v14, 0, (unsigned int)&v42, v37, (__int64)&v38);
-      v13 = v38;
+      v16 = RtlpImageDirectoryEntryToData32(v15, OutHeaders, (__int64)&v38);
+      v13 = (char *)v38;
 LABEL_62:
       if ( v16 < 0 )
         goto LABEL_63;
       goto LABEL_19;
     }
-    if ( v17 != 523 )
+    if ( Magic != 523 )
       goto LABEL_63;
-    if ( !*(_DWORD *)(v37 + 132) )
+    if ( !OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
       goto LABEL_63;
-    v18 = *(unsigned int *)(v37 + 136);
-    if ( !(_DWORD)v18 )
+    VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+    if ( !(_DWORD)VirtualAddress )
       goto LABEL_63;
-    v42 = *(_DWORD *)(v37 + 140);
-    if ( v14 || (unsigned int)v18 < *(_DWORD *)(v37 + 84) )
+    Size = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+    if ( v14 || (unsigned int)VirtualAddress < OutHeaders->OptionalHeader.SizeOfHeaders )
     {
-      v13 = (char *)(v15 + v18);
+      v13 = &v15[VirtualAddress];
     }
     else
     {
-      v13 = (char *)RtlAddressInSectionTable();
+      v13 = (char *)RtlAddressInSectionTable(OutHeaders, v15, VirtualAddress);
       if ( !v13 )
         goto LABEL_63;
     }
@@ -232,32 +228,32 @@ LABEL_26:
       goto LABEL_42;
     }
     Str = (char *)(v12 + *(unsigned int *)(v12 + *((unsigned int *)v13 + 7) + 4LL * (int)v27));
-    v5 = v43;
-    *v43 = (__int64)Str;
-    if ( Str < v13 || Str >= &v13[v42] )
+    v5 = a4;
+    *a4 = (__int64)Str;
+    if ( Str < v13 || Str >= &v13[Size] )
       break;
     if ( ++v34 == 32 )
       goto LABEL_57;
     v4 = v41;
   }
-  v28 = *(char **)(v7 + 48);
+  v28 = *(char **)(a2 + 48);
   v29 = 0;
-  if ( qword_18018F3A8 && (byte_18018F38C & 1) == 0 )
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
     if ( (unsigned __int64)v28 < *((_QWORD *)&xmmword_18018F510 + 1)
       || (unsigned __int64)v28 >= *((_QWORD *)&xmmword_18018F510 + 1) + (unsigned __int64)(unsigned int)qword_18018F520 )
     {
-      RtlpxLookupFunctionTable(*(_QWORD *)(v7 + 48), (__int64 *)&SourceString);
+      RtlpxLookupFunctionTable(*(PVOID *)(a2 + 48), (__int64 *)&SourceString);
     }
     else
     {
-      SourceString = (STRING)xmmword_18018F510;
+      SourceString = (ANSI_STRING)xmmword_18018F510;
     }
     if ( SourceString.Buffer != v28 )
       __fastfail(0x18u);
   }
 LABEL_42:
-  if ( v39 )
-    RtlFreeHeap(LdrpHeap, 0, v39);
+  if ( BaseAddress )
+    RtlFreeHeap(LdrpHeap, 0, BaseAddress);
   return v29;
 }

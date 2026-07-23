@@ -1,16 +1,12 @@
 /*
- * XREFs of DbgUiSetThreadDebugObject @ 0x180132C20
+ * XREFs of DbgUiSetThreadDebugObject @ 0x180130E50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-struct _TEB *__fastcall DbgUiSetThreadDebugObject(void *a1)
+void __cdecl DbgUiSetThreadDebugObject(HANDLE DebugObject)
 {
-  struct _TEB *result; // rax
-
-  result = NtCurrentTeb();
-  result->DbgSsReserved[1] = a1;
-  return result;
+  NtCurrentTeb()->DbgSsReserved[1] = DebugObject;
 }

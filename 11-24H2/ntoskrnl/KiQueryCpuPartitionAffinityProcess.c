@@ -1,15 +1,15 @@
 /*
- * XREFs of KiQueryCpuPartitionAffinityProcess @ 0x140204354
+ * XREFs of KiQueryCpuPartitionAffinityProcess @ 0x14032B934
  * Callers:
- *     KiUpdateProcessAvailableCpuState @ 0x140204268 (KiUpdateProcessAvailableCpuState.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x14032B848 (KiUpdateProcessAvailableCpuState.c)
  * Callees:
- *     KeOrAffinityEx2 @ 0x1402067F0 (KeOrAffinityEx2.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiAcquireCpuPartitionAssignmentLock @ 0x14043A2D4 (KiAcquireCpuPartitionAssignmentLock.c)
- *     KiReleaseCpuPartitionAssignmentLock @ 0x14043A320 (KiReleaseCpuPartitionAssignmentLock.c)
- *     KiQueryCpuPartitionAffinity @ 0x1404F4D3C (KiQueryCpuPartitionAffinity.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiAcquireCpuPartitionAssignmentLock @ 0x1402B9B18 (KiAcquireCpuPartitionAssignmentLock.c)
+ *     KiReleaseCpuPartitionAssignmentLock @ 0x1402B9B64 (KiReleaseCpuPartitionAssignmentLock.c)
+ *     KeOrAffinityEx2 @ 0x14032DDD0 (KeOrAffinityEx2.c)
+ *     KiQueryCpuPartitionAffinity @ 0x1404F263C (KiQueryCpuPartitionAffinity.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiQueryCpuPartitionAffinityProcess(__int64 a1, unsigned __int16 *a2, char a3)
@@ -20,17 +20,16 @@ __int64 __fastcall KiQueryCpuPartitionAffinityProcess(__int64 a1, unsigned __int
   _QWORD *v9; // rsi
   _QWORD *v10; // rbx
   __int64 result; // rax
-  __int64 v12; // rcx
-  unsigned __int8 v13; // [rsp+60h] [rbp+18h] BYREF
+  unsigned __int8 v12; // [rsp+60h] [rbp+18h] BYREF
 
   memset_0(a2 + 4, 0, 8LL * *a2);
   *a2 = 1;
   CurrentIrql = KeGetCurrentIrql();
-  v13 = CurrentIrql;
+  v12 = CurrentIrql;
   if ( !a3 )
   {
-    KiAcquireCpuPartitionAssignmentLock(&v13);
-    CurrentIrql = v13;
+    KiAcquireCpuPartitionAssignmentLock(&v12);
+    CurrentIrql = v12;
   }
   v8 = (_QWORD **)(a1 + 432);
   v9 = *v8;
@@ -51,9 +50,6 @@ __int64 __fastcall KiQueryCpuPartitionAffinityProcess(__int64 a1, unsigned __int
     while ( v9 != v8 );
   }
   if ( !a3 )
-  {
-    LOBYTE(v12) = CurrentIrql;
-    return KiReleaseCpuPartitionAssignmentLock(v12);
-  }
+    return KiReleaseCpuPartitionAssignmentLock(CurrentIrql);
   return result;
 }

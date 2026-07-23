@@ -1,19 +1,19 @@
 /*
- * XREFs of SiGetBootDeviceName @ 0x140A2D9CC
+ * XREFs of SiGetBootDeviceName @ 0x140A2240C
  * Callers:
- *     SiGetSystemDisk @ 0x140A2D7C0 (SiGetSystemDisk.c)
- *     SiGetFirmwareSystemPartition @ 0x140A2D870 (SiGetFirmwareSystemPartition.c)
- *     SiGetSystemPartition @ 0x140A2D900 (SiGetSystemPartition.c)
+ *     SiGetSystemDisk @ 0x140A22200 (SiGetSystemDisk.c)
+ *     SiGetFirmwareSystemPartition @ 0x140A222B0 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemPartition @ 0x140A22340 (SiGetSystemPartition.c)
  * Callees:
- *     SiValidateSystemPartition @ 0x1404911B0 (SiValidateSystemPartition.c)
- *     wcsstr @ 0x1405002B0 (wcsstr.c)
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     _snwscanf_s @ 0x140503850 (_snwscanf_s.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x140A2DC38 (SiGetBootDeviceNameFromRegistry.c)
- *     SiTranslateSymbolicLink @ 0x140A2DCB4 (SiTranslateSymbolicLink.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SiValidateSystemPartition @ 0x14048BC80 (SiValidateSystemPartition.c)
+ *     wcsstr @ 0x1404FDB70 (wcsstr.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     _snwscanf_s @ 0x140501110 (_snwscanf_s.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140A22678 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x140A226F4 (SiTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, char a5, _QWORD *a6)
@@ -31,7 +31,7 @@ __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, 
   __int64 v17; // r8
   __int64 v18; // r9
   wchar_t *v19; // rax
-  size_t v20; // r15
+  ULONG_PTR v20; // r15
   WCHAR *v21; // rax
   int v23; // [rsp+40h] [rbp-20h] BYREF
   int v24; // [rsp+44h] [rbp-1Ch] BYREF
@@ -70,7 +70,7 @@ __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, 
     goto LABEL_32;
   }
   v15 = v14 + 11;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2 * v15, 0x4B505953u);
   v7 = Pool2;
   if ( !Pool2 )
   {
@@ -108,7 +108,7 @@ LABEL_32:
       ++v13;
     while ( v7[v13] );
     v20 = 2 * v13 + 2;
-    v21 = (WCHAR *)ExAllocatePool2(0x100uLL);
+    v21 = (WCHAR *)ExAllocatePool2(0x100uLL, v20, 0x4B505953u);
     v6 = v21;
     if ( !v21 )
     {

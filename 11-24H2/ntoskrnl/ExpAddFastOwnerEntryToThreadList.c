@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAddFastOwnerEntryToThreadList @ 0x14040C760
+ * XREFs of ExpAddFastOwnerEntryToThreadList @ 0x140404DF0
  * Callers:
- *     ExAcquireFastResourceShared @ 0x1403411F0 (ExAcquireFastResourceShared.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ExAcquireFastResourceWithFlags @ 0x140656180 (ExAcquireFastResourceWithFlags.c)
- *     ExTryToConvertFastResourceSharedToExclusive @ 0x140656A90 (ExTryToConvertFastResourceSharedToExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x1403206D0 (ExAcquireFastResourceShared.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireFastResourceWithFlags @ 0x140654880 (ExAcquireFastResourceWithFlags.c)
+ *     ExTryToConvertFastResourceSharedToExclusive @ 0x140655190 (ExTryToConvertFastResourceSharedToExclusive.c)
  * Callees:
  *     <none>
  */

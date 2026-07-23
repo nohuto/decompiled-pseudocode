@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSignalLargePageRebuild @ 0x1400EF7B4
+ * XREFs of MiSignalLargePageRebuild @ 0x1400EF834
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
- *     MiPageCombiningActive @ 0x1400EFAE0 (MiPageCombiningActive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeLargePageRebuild @ 0x1402CE9A0 (MiWakeLargePageRebuild.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE374 (MiNodeFreeZeroPages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE9A8 (MiNodeLargeFreeZeroPages.c)
+ *     MiPageCombiningActive @ 0x1400EFB60 (MiPageCombiningActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeLargePageRebuild @ 0x1402CEB90 (MiWakeLargePageRebuild.c)
  */
 
 __int64 __fastcall MiSignalLargePageRebuild(__int64 a1)

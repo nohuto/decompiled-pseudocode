@@ -1,16 +1,16 @@
 /*
- * XREFs of deflate @ 0x14062789C
+ * XREFs of deflate @ 0x14062A8EC
  * Callers:
- *     RtlCompressBufferDeflateInternal @ 0x140624B28 (RtlCompressBufferDeflateInternal.c)
+ *     RtlCompressBufferDeflateInternal @ 0x140627B78 (RtlCompressBufferDeflateInternal.c)
  * Callees:
- *     deflateStateCheck @ 0x140627D14 (deflateStateCheck.c)
- *     deflate_huff @ 0x1406282C0 (deflate_huff.c)
- *     deflate_rle @ 0x140628430 (deflate_rle.c)
- *     deflate_stored @ 0x140628D40 (deflate_stored.c)
- *     flush_pending @ 0x1406294F4 (flush_pending.c)
- *     adler32_z @ 0x140635164 (adler32_z.c)
- *     _tr_stored_block @ 0x140636104 (_tr_stored_block.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     deflateStateCheck @ 0x14062AD64 (deflateStateCheck.c)
+ *     deflate_huff @ 0x14062B310 (deflate_huff.c)
+ *     deflate_rle @ 0x14062B480 (deflate_rle.c)
+ *     deflate_stored @ 0x14062BD90 (deflate_stored.c)
+ *     flush_pending @ 0x14062C544 (flush_pending.c)
+ *     adler32_z @ 0x14063816C (adler32_z.c)
+ *     _tr_stored_block @ 0x14063910C (_tr_stored_block.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall deflate(__int64 a1)

@@ -32,7 +32,7 @@ char __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
   unsigned int v13; // r8d
   bool v14; // zf
   __int64 v15; // rcx
-  unsigned __int64 v16; // rdi
+  __int64 v16; // rdi
   __int64 v17; // rdx
   __int64 v18; // rcx
   struct _KPRCB *CurrentPrcb; // r9
@@ -99,7 +99,7 @@ char __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
       v14 = !_BitScanReverse((unsigned int *)&v15, v13);
       if ( v14 )
         goto LABEL_13;
-      v16 = (unsigned __int64)&CurrentThread->LockEntries[v15];
+      v16 = (__int64)&CurrentThread->LockEntries[v15];
       v13 &= ~(1 << v15);
       if ( (*(_BYTE *)(v16 + 26) & 1) != 0
         && (*(_DWORD *)(v16 + 32) & 1) == 0
@@ -120,12 +120,12 @@ LABEL_13:
     }
     *(_BYTE *)(v16 + 32) |= 2u;
     if ( *(__int64 *)(v16 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v16);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v16);
     v23 = *(_DWORD *)(v16 + 88) & 0x1FFFF;
     *(_DWORD *)(v16 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v16 + 25) &= ~1u;
     *(_QWORD *)(v16 + 32) = 0LL;
-    v17 = (__int64)(v16 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+    v17 = (signed __int64)(v16 - (unsigned __int64)CurrentThread->LockEntries) / 96;
     if ( v12 == 1 )
       CurrentThread->AbEntrySummary |= 1 << v17;
     else

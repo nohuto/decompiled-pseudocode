@@ -1,10 +1,10 @@
 /*
- * XREFs of IoBoostThreadIo @ 0x1404F5410
+ * XREFs of IoBoostThreadIo @ 0x1404EE9D0
  * Callers:
  *     <none>
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     PsBoostThreadIoEx @ 0x1402468A0 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x140248200 (PsBoostThreadIoEx.c)
  */
 
 __int64 __fastcall IoBoostThreadIo(LegacyAutoBoost *a1, __int64 a2, char a3, int a4)

@@ -8,19 +8,19 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-volatile signed __int32 *__thiscall TppQueueRemoveHead(volatile signed __int32 *this)
+_RTL_SRWLOCK *__thiscall TppQueueRemoveHead(_RTL_SRWLOCK *this)
 {
-  volatile signed __int32 *v2; // ebx
-  volatile signed __int32 *v3; // edi
-  volatile signed __int32 v4; // eax
+  _RTL_SRWLOCK *v2; // ebx
+  _RTL_SRWLOCK *Value; // edi
+  unsigned int v4; // eax
 
   v2 = this + 2;
   RtlAcquireSRWLockExclusive(this + 2);
-  v3 = (volatile signed __int32 *)*this;
-  if ( *(volatile signed __int32 **)(*this + 4) != this || (v4 = *v3, *(volatile signed __int32 **)(*v3 + 4) != v3) )
+  Value = (_RTL_SRWLOCK *)this->Value;
+  if ( *(_RTL_SRWLOCK **)(this->Value + 4) != this || (v4 = Value->Value, *(_RTL_SRWLOCK **)(Value->Value + 4) != Value) )
     __fastfail(3u);
-  *this = v4;
+  this->Value = v4;
   *(_DWORD *)(v4 + 4) = this;
   RtlReleaseSRWLockExclusive(v2);
-  return this != v3 ? v3 : 0;
+  return this != Value ? Value : 0;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSymlinkRememberJunction @ 0x14087F418
+ * XREFs of IopSymlinkRememberJunction @ 0x14087F658
  * Callers:
- *     IopSymlinkProcessReparse @ 0x1407DFA1C (IopSymlinkProcessReparse.c)
- *     IopGraftName @ 0x14087F518 (IopGraftName.c)
+ *     IopSymlinkProcessReparse @ 0x1407DFCEC (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x14087F758 (IopGraftName.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     IopSymlinkGetECP @ 0x1402FD8B0 (IopSymlinkGetECP.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x1407CD998 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1407D9428 (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x14087FB40 (IopSymlinkGetRelatedMountPoint.c)
- *     IopSymlinkUpdateECP @ 0x14088075C (IopSymlinkUpdateECP.c)
- *     IopGetRelatedFileName @ 0x140944A50 (IopGetRelatedFileName.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     IopSymlinkGetECP @ 0x1402FDB40 (IopSymlinkGetECP.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x1407CDC68 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1407D96F8 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x14087FD80 (IopSymlinkGetRelatedMountPoint.c)
+ *     IopSymlinkUpdateECP @ 0x14088099C (IopSymlinkUpdateECP.c)
+ *     IopGetRelatedFileName @ 0x140944C50 (IopGetRelatedFileName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

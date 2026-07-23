@@ -1,7 +1,7 @@
 /*
- * XREFs of IopCleanupFileObjectIosbRange @ 0x1408198B8
+ * XREFs of IopCleanupFileObjectIosbRange @ 0x14081AAB8
  * Callers:
- *     IopCleanupProcessResources @ 0x1406A69C8 (IopCleanupProcessResources.c)
+ *     IopCleanupProcessResources @ 0x1406A7C68 (IopCleanupProcessResources.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
@@ -10,8 +10,8 @@
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopCleanupFileObjectIosbRange(__int64 a1)

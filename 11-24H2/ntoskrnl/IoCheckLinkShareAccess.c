@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCheckLinkShareAccess @ 0x1409A2A70
+ * XREFs of IoCheckLinkShareAccess @ 0x1408ADD00
  * Callers:
- *     FsRtlpCheckSharingAgainstOplockOwner @ 0x1404AFF28 (FsRtlpCheckSharingAgainstOplockOwner.c)
- *     IoCheckShareAccessEx @ 0x140713CC0 (IoCheckShareAccessEx.c)
- *     RawCreate @ 0x1409A274C (RawCreate.c)
- *     IoCheckShareAccess @ 0x1409A2A40 (IoCheckShareAccess.c)
+ *     FsRtlpCheckSharingAgainstOplockOwner @ 0x1404AA7AC (FsRtlpCheckSharingAgainstOplockOwner.c)
+ *     IoCheckShareAccessEx @ 0x140711850 (IoCheckShareAccessEx.c)
+ *     RawCreate @ 0x1408AD9DC (RawCreate.c)
+ *     IoCheckShareAccess @ 0x1408ADCD0 (IoCheckShareAccess.c)
  * Callees:
  *     <none>
  */

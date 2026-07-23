@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFindClearBitsAlignedEx @ 0x14014B510
+ * XREFs of MiFindClearBitsAlignedEx @ 0x14014BA80
  * Callers:
- *     MiObtainDynamicVa @ 0x1400A3088 (MiObtainDynamicVa.c)
+ *     MiObtainDynamicVa @ 0x1400A19B0 (MiObtainDynamicVa.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of ConstraintEval @ 0x1406BDD90
+ * XREFs of ConstraintEval @ 0x1406BF030
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405902D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405912D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FilterEval @ 0x140595454 (FilterEval.c)
- *     SimplifyFilter @ 0x1406BE04C (SimplifyFilter.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FilterEval @ 0x140596454 (FilterEval.c)
+ *     SimplifyFilter @ 0x1406BF2EC (SimplifyFilter.c)
  */
 
 __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a4, __int64 a5)
@@ -112,9 +112,9 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
       {
         if ( LODWORD(v34[2]) != 17 )
           goto LABEL_9;
-        v29 = &unk_1404E15D0;
+        v29 = &unk_1404E26D0;
         if ( **((_BYTE **)&v34[2] + 1) != 0xFF )
-          v29 = &unk_1404055C8;
+          v29 = &unk_1404065E0;
         *((_QWORD *)&v34[2] + 1) = v29;
       }
     }
@@ -122,7 +122,7 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
   else
   {
     *(_QWORD *)&v34[2] = 0x400000007LL;
-    *((_QWORD *)&v34[2] + 1) = &unk_1404E15CC;
+    *((_QWORD *)&v34[2] + 1) = &unk_1404E26CC;
   }
   v21 = 0;
   do

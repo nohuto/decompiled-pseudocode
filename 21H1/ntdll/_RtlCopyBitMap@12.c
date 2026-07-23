@@ -7,102 +7,106 @@
  *     _RtlpCopyBitMapTailToHead@16 @ 0x4B34FA2A (_RtlpCopyBitMapTailToHead@16.c)
  */
 
-void __stdcall RtlCopyBitMap(unsigned int *a1, _DWORD *a2, unsigned int a3)
+void __cdecl RtlCopyBitMap(PRTL_BITMAP Source, PRTL_BITMAP Destination, ULONG TargetBit)
 {
-  _DWORD *v3; // ecx
-  unsigned int v4; // edi
-  int *v5; // edx
-  int *v6; // esi
-  unsigned int v7; // eax
-  unsigned int v8; // ebx
-  int v9; // edi
-  size_t v10; // ebx
-  _BYTE *v11; // esi
-  int v12; // ebx
-  int v13; // edx
-  unsigned int v14; // ecx
-  bool v15; // zf
-  int v16; // [esp+10h] [ebp-18h]
-  int v17; // [esp+18h] [ebp-10h]
-  int v18; // [esp+1Ch] [ebp-Ch]
-  unsigned int v19; // [esp+1Ch] [ebp-Ch]
-  int v20; // [esp+1Ch] [ebp-Ch]
-  unsigned int v21; // [esp+20h] [ebp-8h]
-  int *v22; // [esp+24h] [ebp-4h]
+  int v3; // esi
+  PRTL_BITMAP v4; // ecx
+  unsigned int SizeOfBitMap; // edi
+  unsigned int *Buffer; // edx
+  unsigned int *v7; // esi
+  ULONG v8; // eax
+  unsigned int v9; // ebx
+  int v10; // edi
+  unsigned int v11; // ebx
+  _BYTE *v12; // esi
+  ULONG v13; // ebx
+  int v14; // edx
+  unsigned int v15; // ecx
+  bool v16; // zf
+  size_t v17; // [esp-8h] [ebp-30h]
+  int v18; // [esp+10h] [ebp-18h]
+  int v19; // [esp+18h] [ebp-10h]
+  unsigned int *v20; // [esp+1Ch] [ebp-Ch]
+  unsigned int v21; // [esp+1Ch] [ebp-Ch]
+  unsigned int v22; // [esp+1Ch] [ebp-Ch]
+  unsigned int v23; // [esp+20h] [ebp-8h]
+  unsigned int *v24; // [esp+24h] [ebp-4h]
 
-  v3 = a2;
-  v4 = *a2 - a3;
-  if ( *a1 <= v4 )
-    v4 = *a1;
-  if ( v4 )
+  v4 = Destination;
+  SizeOfBitMap = Destination->SizeOfBitMap - TargetBit;
+  if ( Source->SizeOfBitMap <= SizeOfBitMap )
+    SizeOfBitMap = Source->SizeOfBitMap;
+  if ( SizeOfBitMap )
   {
-    v5 = (int *)a1[1];
-    v18 = a2[1];
-    v22 = v5;
-    v6 = (int *)(v18 + 4 * (a3 >> 5));
-    if ( v5 > v6 || v6 > &v5[(v4 - 1) >> 5] )
+    Buffer = Source->Buffer;
+    HIDWORD(v17) = v3;
+    v20 = Destination->Buffer;
+    v24 = Buffer;
+    v7 = &v20[TargetBit >> 5];
+    if ( Buffer > v7 || v7 > &Buffer[(SizeOfBitMap - 1) >> 5] )
     {
-      v7 = a3 >> 3;
-      if ( (a3 & 7) != 0 )
+      v8 = TargetBit >> 3;
+      if ( (TargetBit & 7) != 0 )
       {
-        v12 = a3 & 0x1F;
-        if ( v4 >= 0x20 )
+        v13 = TargetBit & 0x1F;
+        if ( SizeOfBitMap >= 0x20 )
         {
-          v21 = *v6;
-          v13 = (1 << (32 - v12)) - 1;
-          v17 = v13;
-          v16 = ~v13;
-          v19 = v4 >> 5;
+          v23 = *v7;
+          v14 = (1 << (32 - v13)) - 1;
+          v19 = v14;
+          v18 = ~v14;
+          v21 = SizeOfBitMap >> 5;
           while ( 1 )
           {
-            *v6++ = ((*v22 & v13) << v12) | v21 & ((1 << v12) - 1);
-            v5 = v22 + 1;
-            v14 = ((*v22++ & (unsigned int)v16) >> (32 - v12)) | *v6 & ~((1 << v12) - 1);
-            v4 -= 32;
-            v21 = v14;
-            v15 = v19-- == 1;
-            *v6 = v14;
-            if ( v15 )
+            *v7++ = ((*v24 & v14) << v13) | v23 & ((1 << v13) - 1);
+            Buffer = v24 + 1;
+            v15 = ((*v24++ & v18) >> (32 - v13)) | *v7 & ~((1 << v13) - 1);
+            SizeOfBitMap -= 32;
+            v23 = v15;
+            v16 = v21-- == 1;
+            *v7 = v15;
+            if ( v16 )
               break;
-            v13 = v17;
+            v14 = v19;
           }
         }
-        if ( v4 )
+        if ( SizeOfBitMap )
         {
-          v20 = *v5;
-          if ( v4 > 32 - v12 )
+          v22 = *Buffer;
+          if ( SizeOfBitMap > 32 - v13 )
           {
-            *v6 = *v6 & ((1 << v12) - 1) | ((v20 & ((1 << (32 - v12)) - 1)) << v12);
-            v6[1] = ((*v22 & (unsigned int)(((1 << (v4 + v12 - 32)) - 1) << (32 - v12))) >> (32 - v12)) | v6[1] & ~((1 << (v4 + v12 - 32)) - 1);
+            *v7 = *v7 & ((1 << v13) - 1) | ((v22 & ((1 << (32 - v13)) - 1)) << v13);
+            v7[1] = ((*v24 & (((1 << (SizeOfBitMap + v13 - 32)) - 1) << (32 - v13))) >> (32 - v13)) | v7[1] & ~((1 << (SizeOfBitMap + v13 - 32)) - 1);
           }
           else
           {
-            *v6 = ((v20 & ((1 << v4) - 1)) << v12) | *v6 & ~(((1 << v4) - 1) << v12);
+            *v7 = ((v22 & ((1 << SizeOfBitMap) - 1)) << v13) | *v7 & ~(((1 << SizeOfBitMap) - 1) << v13);
           }
         }
       }
       else
       {
-        v8 = v4;
-        v9 = v4 & 7;
-        v10 = v8 >> 3;
+        v9 = SizeOfBitMap;
+        v10 = SizeOfBitMap & 7;
+        v11 = v9 >> 3;
+        if ( v11 )
+        {
+          LODWORD(v17) = v11;
+          memmove((char *)v20 + v8, Buffer, v17);
+          v4 = Destination;
+          v8 = TargetBit >> 3;
+        }
         if ( v10 )
         {
-          memmove((void *)(v18 + v7), v5, v10);
-          v3 = a2;
-          v7 = a3 >> 3;
-        }
-        if ( v9 )
-        {
-          v11 = (_BYTE *)(v7 + v10 + v3[1]);
-          *v11 &= ~((1 << v9) - 1);
-          *v11 |= (unsigned __int8)((1 << v9) - 1) & *(_BYTE *)(v10 + a1[1]);
+          v12 = (char *)v4->Buffer + v11 + v8;
+          *v12 &= ~((1 << v10) - 1);
+          *v12 |= (unsigned __int8)((1 << v10) - 1) & *((_BYTE *)Source->Buffer + v11);
         }
       }
     }
     else
     {
-      RtlpCopyBitMapTailToHead(a3, v4);
+      RtlpCopyBitMapTailToHead(TargetBit, SizeOfBitMap);
     }
   }
 }

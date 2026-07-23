@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTraceDatabaseEnumerate @ 0x180102A90
+ * XREFs of RtlTraceDatabaseEnumerate @ 0x180102A50
  * Callers:
  *     <none>
  * Callees:
@@ -14,14 +14,14 @@ char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int i; // eax
   char v9; // di
 
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
   if ( *(_QWORD *)a2 )
   {
     if ( *(_QWORD *)a2 == a1 )
     {
       i = *(_DWORD *)(a2 + 8);
-      v6 = i;
+      LODWORD(v6) = i;
       if ( i < *(_DWORD *)(a1 + 88) )
       {
         v7 = *(_QWORD *)(a2 + 16);
@@ -34,7 +34,7 @@ LABEL_4:
   else
   {
     *(_QWORD *)a2 = a1;
-    v6 = 0LL;
+    LODWORD(v6) = 0;
     *(_DWORD *)(a2 + 8) = 0;
     v7 = **(_QWORD **)(a1 + 96);
     for ( i = 0; ; ++i )
@@ -59,11 +59,10 @@ LABEL_12:
     }
 LABEL_14:
     *a3 = v7;
-    v6 = *(_QWORD *)(*(_QWORD *)(a2 + 16) + 40LL);
-    *(_QWORD *)(a2 + 16) = v6;
+    *(_QWORD *)(a2 + 16) = *(_QWORD *)(*(_QWORD *)(a2 + 16) + 40LL);
     v9 = 1;
   }
   *(_QWORD *)(a1 + 40) = 0LL;
-  RtlLeaveCriticalSection(a1 + 48, v6, 0LL);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return v9;
 }

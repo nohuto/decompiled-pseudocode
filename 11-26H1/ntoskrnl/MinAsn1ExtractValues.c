@@ -1,22 +1,22 @@
 /*
- * XREFs of MinAsn1ExtractValues @ 0x1408A4838
+ * XREFs of MinAsn1ExtractValues @ 0x1408AAC48
  * Callers:
- *     MincryptValidateBasicConstraints @ 0x1408A1FF4 (MincryptValidateBasicConstraints.c)
- *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A250C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
- *     I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A27C4 (I_MinCryptVerifyRFC3161TimeStamp.c)
- *     I_MinAsn1ParseSingleAttribute @ 0x1408A308C (I_MinAsn1ParseSingleAttribute.c)
- *     MinAsn1ParseAlgorithmIdentifier @ 0x1408A320C (MinAsn1ParseAlgorithmIdentifier.c)
- *     MinAsn1ParseAndDecodeRDNComponent @ 0x1408A3254 (MinAsn1ParseAndDecodeRDNComponent.c)
- *     MinAsn1ParseCTL @ 0x1408A3378 (MinAsn1ParseCTL.c)
- *     MinAsn1ParseCertificate @ 0x1408A33C0 (MinAsn1ParseCertificate.c)
- *     MinAsn1ParseOIDSequence @ 0x1408A3438 (MinAsn1ParseOIDSequence.c)
- *     MinAsn1ParsePublicKeyInfo @ 0x1408A351C (MinAsn1ParsePublicKeyInfo.c)
- *     MinAsn1ParseRSAPublicKey @ 0x1408A3564 (MinAsn1ParseRSAPublicKey.c)
- *     MinAsn1ParseSignedData @ 0x1408A35AC (MinAsn1ParseSignedData.c)
- *     MinAsn1ParseSingleExtensionValue @ 0x1408A36E0 (MinAsn1ParseSingleExtensionValue.c)
+ *     MincryptValidateBasicConstraints @ 0x1408A8404 (MincryptValidateBasicConstraints.c)
+ *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A891C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
+ *     I_MinCryptVerifyRFC3161TimeStamp @ 0x1408A8BD4 (I_MinCryptVerifyRFC3161TimeStamp.c)
+ *     I_MinAsn1ParseSingleAttribute @ 0x1408A949C (I_MinAsn1ParseSingleAttribute.c)
+ *     MinAsn1ParseAlgorithmIdentifier @ 0x1408A961C (MinAsn1ParseAlgorithmIdentifier.c)
+ *     MinAsn1ParseAndDecodeRDNComponent @ 0x1408A9664 (MinAsn1ParseAndDecodeRDNComponent.c)
+ *     MinAsn1ParseCTL @ 0x1408A9788 (MinAsn1ParseCTL.c)
+ *     MinAsn1ParseCertificate @ 0x1408A97D0 (MinAsn1ParseCertificate.c)
+ *     MinAsn1ParseOIDSequence @ 0x1408A9848 (MinAsn1ParseOIDSequence.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x1408A992C (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x1408A9974 (MinAsn1ParseRSAPublicKey.c)
+ *     MinAsn1ParseSignedData @ 0x1408A99BC (MinAsn1ParseSignedData.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x1408A9AF0 (MinAsn1ParseSingleExtensionValue.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MinAsn1ExtractContent @ 0x1408A46CC (MinAsn1ExtractContent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MinAsn1ExtractContent @ 0x1408AAADC (MinAsn1ExtractContent.c)
  */
 
 __int64 __fastcall MinAsn1ExtractValues(

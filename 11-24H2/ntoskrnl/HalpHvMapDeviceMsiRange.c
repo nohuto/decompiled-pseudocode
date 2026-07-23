@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvMapDeviceMsiRange @ 0x140B4C708
+ * XREFs of HalpHvMapDeviceMsiRange @ 0x140B4E748
  * Callers:
- *     HalpInterruptRemap @ 0x140540EC4 (HalpInterruptRemap.c)
+ *     HalpInterruptRemap @ 0x14053E7C4 (HalpInterruptRemap.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpHvBuildDeviceId @ 0x140B4C660 (HalpHvBuildDeviceId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpHvBuildDeviceId @ 0x140B4E6A0 (HalpHvBuildDeviceId.c)
  */
 
 __int64 __fastcall HalpHvMapDeviceMsiRange(
@@ -28,7 +28,7 @@ __int64 __fastcall HalpHvMapDeviceMsiRange(
   _BYTE v16[2]; // [rsp+30h] [rbp-50h] BYREF
   __int16 v17; // [rsp+32h] [rbp-4Eh]
   __int64 v18; // [rsp+38h] [rbp-48h] BYREF
-  __int128 v19; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v19; // [rsp+40h] [rbp-40h]
   __int64 v20; // [rsp+50h] [rbp-30h] BYREF
   unsigned int v21; // [rsp+58h] [rbp-28h]
   int v22; // [rsp+5Ch] [rbp-24h]
@@ -53,7 +53,7 @@ __int64 __fastcall HalpHvMapDeviceMsiRange(
   v25 = 0;
   v20 = 0LL;
   v21 = a6;
-  v10 = guard_dispatch_icall_no_overrides(v18, &v20, a5 + 24, &v19);
+  v10 = guard_dispatch_icall_no_overrides(v18, &v20);
   if ( v10 >= 0 && a6 )
   {
     v11 = HIDWORD(v19);

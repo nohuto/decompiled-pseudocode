@@ -1,8 +1,8 @@
 /*
- * XREFs of KdpSysWriteMsr @ 0x1405E4494
+ * XREFs of KdpSysWriteMsr @ 0x1405E6E04
  * Callers:
- *     KdSystemDebugControl @ 0x14077D2F0 (KdSystemDebugControl.c)
- *     KdpWriteMachineSpecificRegister @ 0x140C158B4 (KdpWriteMachineSpecificRegister.c)
+ *     KdSystemDebugControl @ 0x14077FDF0 (KdSystemDebugControl.c)
+ *     KdpWriteMachineSpecificRegister @ 0x140C1B8B4 (KdpWriteMachineSpecificRegister.c)
  * Callees:
  *     <none>
  */

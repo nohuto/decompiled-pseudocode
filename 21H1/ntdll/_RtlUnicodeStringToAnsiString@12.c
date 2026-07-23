@@ -23,7 +23,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   NTSTATUS result; // eax
   int v8; // edi
   char *StringRoutine; // eax
-  int v10; // [esp+14h] [ebp-24h] BYREF
+  ULONG BytesInMultiByteString; // [esp+14h] [ebp-24h] BYREF
   NTSTATUS v11; // [esp+18h] [ebp-20h]
   NTSTATUS v12; // [esp+1Ch] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+20h] [ebp-18h]
@@ -58,17 +58,17 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   result = RtlUnicodeToMultiByteN(
              DestinationString->Buffer,
              DestinationString->Length,
-             &v10,
-             SourceString->Buffer,
+             &BytesInMultiByteString,
+             (PCWCH)SourceString->Buffer,
              SourceString->Length);
   v8 = result;
   v12 = result;
   if ( result >= 0 )
-    DestinationString->Buffer[v10] = 0;
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
   ms_exc.registration.TryLevel = -2;
   if ( result < 0 && AllocateDestinationString )
   {
-    RtlDeleteBoundaryDescriptor((int)DestinationString->Buffer);
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
     DestinationString->Buffer = 0;
     if ( v8 >= 0 )
       return v11;

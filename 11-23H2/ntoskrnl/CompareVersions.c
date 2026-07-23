@@ -1,7 +1,7 @@
 /*
- * XREFs of CompareVersions @ 0x14036AAA0
+ * XREFs of CompareVersions @ 0x14036AC40
  * Callers:
- *     RtlGetProductInfo @ 0x14036A960 (RtlGetProductInfo.c)
+ *     RtlGetProductInfo @ 0x14036AB00 (RtlGetProductInfo.c)
  * Callees:
  *     <none>
  */

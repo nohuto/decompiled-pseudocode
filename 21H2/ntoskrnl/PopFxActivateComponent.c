@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxActivateComponent @ 0x1403BF058
+ * XREFs of PopFxActivateComponent @ 0x1403BEC70
  * Callers:
- *     PopFxActivateComponentWorker @ 0x1402606E0 (PopFxActivateComponentWorker.c)
- *     PopFxRegisterDeviceWorker @ 0x1407B592C (PopFxRegisterDeviceWorker.c)
+ *     PopFxActivateComponentWorker @ 0x140281BAC (PopFxActivateComponentWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B507C (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopFxActivateComponentWorker @ 0x1402606E0 (PopFxActivateComponentWorker.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopFxActivateComponentWorker @ 0x140281BAC (PopFxActivateComponentWorker.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall PopFxActivateComponent(ULONG_PTR a1, __int64 a2, char a3, char a4)

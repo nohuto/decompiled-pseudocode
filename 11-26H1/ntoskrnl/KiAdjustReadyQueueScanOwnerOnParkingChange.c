@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022AB98
+ * XREFs of KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022C528
  * Callers:
- *     KiSoftParkElectionUnparkProcessor @ 0x14022ACC4 (KiSoftParkElectionUnparkProcessor.c)
- *     KiParkCurrentProcessor @ 0x1403346DC (KiParkCurrentProcessor.c)
- *     KiUnparkCurrentProcessor @ 0x14042C4D0 (KiUnparkCurrentProcessor.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x14022C654 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiParkCurrentProcessor @ 0x14033670C (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x140420BA0 (KiUnparkCurrentProcessor.c)
  * Callees:
- *     KeIsForceParkingEnabled @ 0x14043DBE0 (KeIsForceParkingEnabled.c)
+ *     KeIsForceParkingEnabled @ 0x1404366F0 (KeIsForceParkingEnabled.c)
  */
 
 void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a2, char *a3)
@@ -35,8 +35,7 @@ void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a
   {
     if ( v8 == v5 )
     {
-      *(_DWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                   + 64 * (unsigned __int64)*(unsigned __int8 *)(v3 + 208)
+      *(_DWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int64)*(unsigned __int8 *)(v3 + 208)].Flink
                                    + *(unsigned __int8 *)(v7 + 709))]
                 + 36496) = 0;
       v14 = *(_BYTE *)(v3 + 209);
@@ -62,8 +61,7 @@ void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a
   }
   *(_DWORD *)(v3 + 36496) = 0;
   _BitScanReverse64(&v12, v8);
-  v13 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                         + 64 * *(unsigned __int8 *)(v3 + 208)
+  v13 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * *(unsigned __int8 *)(v3 + 208)].Flink
                          + (int)v12)];
   *(_DWORD *)(v13 + 36496) = 1;
   v14 = *(_BYTE *)(v13 + 209);

@@ -20,7 +20,7 @@
 __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, PVOID *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v7; // rbx
+  PRTL_BALANCED_NODE v7; // rbx
   int v8; // ebp
   int v9; // edi
   int v10; // ebx
@@ -30,20 +30,20 @@ __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, PVOID *a3)
   struct _KTHREAD *v14; // rcx
   __int16 v15; // ax
   struct _KTHREAD *v17; // rax
-  _BYTE *v18; // rax
+  PRTL_BALANCED_NODE v18; // rax
   __int64 v19; // r8
-  _BYTE *v20; // rbx
+  PRTL_BALANCED_NODE v20; // rbx
   volatile signed __int64 *v21; // rsi
   PVOID P; // [rsp+88h] [rbp+20h] BYREF
 
   P = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v7 = KeAbPreAcquire((ULONG_PTR)&qword_140384F78, 0LL, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&qword_140384F78, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140384F78, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140384F78, v7, (ULONG_PTR)&qword_140384F78);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   v8 = 0;
   v9 = HIDWORD(qword_140384F50) - 1;
   v10 = -1073741198;
@@ -89,12 +89,12 @@ LABEL_10:
       goto LABEL_36;
     v17 = KeGetCurrentThread();
     --v17->SpecialApcDisable;
-    v18 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140384F78, 0LL, 0LL);
+    v18 = KeAbPreAcquire((ULONG_PTR)&qword_140384F78, 0LL, 0);
     v20 = v18;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140384F78, 0LL) )
       ExfAcquirePushLockExclusiveEx(&qword_140384F78, v18, (ULONG_PTR)&qword_140384F78);
     if ( v20 )
-      v20[26] |= 1u;
+      BYTE2(v20[1].Left) |= 1u;
     v21 = (volatile signed __int64 *)P;
     v10 = sub_1404412D8((__int64)&qword_140384F50, (__int64)P, v19, *(_QWORD *)P, 8, -1);
     if ( v10 >= 0 )

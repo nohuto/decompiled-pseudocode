@@ -1,13 +1,13 @@
 /*
- * XREFs of CcSetupWatchForRegistryChanges @ 0x1403B21DC
+ * XREFs of CcSetupWatchForRegistryChanges @ 0x1403B23BC
  * Callers:
- *     CcInitializeVolumeCacheMap @ 0x14032F034 (CcInitializeVolumeCacheMap.c)
+ *     CcInitializeVolumeCacheMap @ 0x14032F2C4 (CcInitializeVolumeCacheMap.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     CcOpenRegistryPath @ 0x1403B2340 (CcOpenRegistryPath.c)
- *     ZwNotifyChangeKey @ 0x14041D180 (ZwNotifyChangeKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     CcOpenRegistryPath @ 0x1403B2520 (CcOpenRegistryPath.c)
+ *     ZwNotifyChangeKey @ 0x14041D510 (ZwNotifyChangeKey.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

@@ -3,9 +3,9 @@
  * Callers:
  *     RtlCheckTokenCapability @ 0x140201400 (RtlCheckTokenCapability.c)
  *     RtlCheckTokenMembershipEx @ 0x1402E0CA0 (RtlCheckTokenMembershipEx.c)
- *     DifZwDuplicateTokenWrapper @ 0x14061FD90 (DifZwDuplicateTokenWrapper.c)
- *     RtlImpersonateSelfEx @ 0x1406CB908 (RtlImpersonateSelfEx.c)
- *     RtlpIsAppContainer @ 0x1409BA210 (RtlpIsAppContainer.c)
+ *     sub_14061FD90 @ 0x14061FD90 (sub_14061FD90.c)
+ *     sub_1406CB908 @ 0x1406CB908 (sub_1406CB908.c)
+ *     sub_1409BA210 @ 0x1409BA210 (sub_1409BA210.c)
  * Callees:
  *     <none>
  */
@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwDuplicateToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ExistingTokenHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(ExistingTokenHandle, *(_QWORD *)&DesiredAccess);
 }

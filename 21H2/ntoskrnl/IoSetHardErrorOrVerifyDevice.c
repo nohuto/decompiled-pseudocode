@@ -1,5 +1,5 @@
 /*
- * XREFs of IoSetHardErrorOrVerifyDevice @ 0x1405062C0
+ * XREFs of IoSetHardErrorOrVerifyDevice @ 0x140506240
  * Callers:
  *     <none>
  * Callees:

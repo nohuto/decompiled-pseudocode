@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpGetDevicePropertyData @ 0x140A12000
+ * XREFs of PnpGetDevicePropertyData @ 0x1409C0410
  * Callers:
- *     IoGetDevicePropertyData @ 0x140A11F10 (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x1409C0320 (IoGetDevicePropertyData.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PnpCompareInterruptInformation @ 0x140A12D20 (PnpCompareInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x140ABA1E0 (RtlLCIDToCultureName.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PnpCompareInterruptInformation @ 0x1409C1130 (PnpCompareInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x140AB5200 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpGetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         ULONG a5,
         wchar_t *a6,
@@ -22,16 +22,15 @@ __int64 __fastcall PnpGetDevicePropertyData(
         _DWORD *a8)
 {
   __int64 v11; // rbx
-  const WCHAR *v12; // rax
+  wchar_t *Buffer; // rax
   unsigned int ObjectProperty; // ebx
   __int64 v15; // rax
   ULONG *v16; // rdx
-  __int64 v17; // [rsp+60h] [rbp-108h] BYREF
-  const WCHAR *v18; // [rsp+68h] [rbp-100h]
-  _BYTE v19[176]; // [rsp+70h] [rbp-F8h] BYREF
+  UNICODE_STRING String; // [rsp+60h] [rbp-108h] BYREF
+  _BYTE v18[176]; // [rsp+70h] [rbp-F8h] BYREF
 
-  memset_0(v19, 0, 0xAAuLL);
-  v17 = 0LL;
+  memset_0(v18, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
   if ( !a1 )
     return (unsigned int)-1073741808;
   v11 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
@@ -39,22 +38,22 @@ __int64 __fastcall PnpGetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    v18 = (const WCHAR *)v19;
-    WORD1(v17) = 170;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v17) )
+    String.Buffer = (wchar_t *)v18;
+    String.MaximumLength = 170;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
-    v12 = v18;
+    Buffer = String.Buffer;
   }
   else
   {
-    v12 = 0LL;
+    Buffer = 0LL;
   }
   ObjectProperty = PnpGetObjectProperty(
                      *(_QWORD **)&PiPnpRtlCtx,
                      *(WCHAR **)(v11 + 48),
                      1u,
                      0LL,
-                     v12,
+                     Buffer,
                      a2,
                      a8,
                      a6,

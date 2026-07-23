@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMirrorPhysicalMemory @ 0x140563030
+ * XREFs of PnprMirrorPhysicalMemory @ 0x1405636F0
  * Callers:
  *     <none>
  * Callees:
- *     PnprGetMillisecondCounter @ 0x140A9C8B4 (PnprGetMillisecondCounter.c)
- *     PnprMarkOrMirrorPages @ 0x140A9CFC8 (PnprMarkOrMirrorPages.c)
+ *     PnprGetMillisecondCounter @ 0x140A9C724 (PnprGetMillisecondCounter.c)
+ *     PnprMarkOrMirrorPages @ 0x140A9CE38 (PnprMarkOrMirrorPages.c)
  */
 
 __int64 __fastcall PnprMirrorPhysicalMemory(__int64 a1, __int64 a2, __int64 a3)

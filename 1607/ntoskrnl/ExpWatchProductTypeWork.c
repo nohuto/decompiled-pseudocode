@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpWatchProductTypeWork @ 0x1404E84F4
+ * XREFs of ExpWatchProductTypeWork @ 0x1404CA880
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     NtDeleteValueKey @ 0x1403FA9B8 (NtDeleteValueKey.c)
- *     CmpLockRegistryFreezeAware @ 0x1403FB854 (CmpLockRegistryFreezeAware.c)
- *     NtNotifyChangeKey @ 0x14040095C (NtNotifyChangeKey.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     NtFlushKey @ 0x1404E88CC (NtFlushKey.c)
- *     ExUpdateLicenseRegistry @ 0x1404E8BF0 (ExUpdateLicenseRegistry.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     NtDeleteValueKey @ 0x1403F9878 (NtDeleteValueKey.c)
+ *     CmpLockRegistryFreezeAware @ 0x1403FA714 (CmpLockRegistryFreezeAware.c)
+ *     NtNotifyChangeKey @ 0x1403FF81C (NtNotifyChangeKey.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     NtFlushKey @ 0x1404CAC58 (NtFlushKey.c)
+ *     ExUpdateLicenseRegistry @ 0x1404CAF7C (ExUpdateLicenseRegistry.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 NTSTATUS ExpWatchProductTypeWork()
@@ -220,16 +220,16 @@ LABEL_27:
       }
       if ( v23 < 0 )
         KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v23, 1uLL, 0LL);
-      if ( qword_140329648 )
+      if ( qword_140329688 )
       {
         RtlInitUnicodeString(&ValueName, L"ProductSuite");
         v24 = NtSetValueKey(
                 ExpProductTypeKey,
                 &ValueName,
                 0,
-                *((_DWORD *)qword_140329648 + 1),
-                (char *)qword_140329648 + 12,
-                *((_DWORD *)qword_140329648 + 2));
+                *((_DWORD *)qword_140329688 + 1),
+                (char *)qword_140329688 + 12,
+                *((_DWORD *)qword_140329688 + 2));
         if ( v24 == -1073741670 )
         {
           Interval.QuadPart = -10000000LL;
@@ -240,9 +240,9 @@ LABEL_27:
                     ExpProductTypeKey,
                     &ValueName,
                     0,
-                    *((_DWORD *)qword_140329648 + 1),
-                    (char *)qword_140329648 + 12,
-                    *((_DWORD *)qword_140329648 + 2));
+                    *((_DWORD *)qword_140329688 + 1),
+                    (char *)qword_140329688 + 12,
+                    *((_DWORD *)qword_140329688 + 2));
           }
           while ( v24 == -1073741670 );
         }

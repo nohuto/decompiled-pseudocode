@@ -1,15 +1,15 @@
 /*
- * XREFs of IopIrpStackProfilerDpcRoutine @ 0x14035FA80
+ * XREFs of IopIrpStackProfilerDpcRoutine @ 0x1402A49B0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     IopProcessIrpStackProfiler @ 0x14035FCCC (IopProcessIrpStackProfiler.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine2 @ 0x140409DD0 (KiCustomAccessRoutine2.c)
- *     memset @ 0x140414200 (memset.c)
+ *     IopProcessIrpStackProfiler @ 0x1402A4BFC (IopProcessIrpStackProfiler.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _local_unwind @ 0x1403D1D00 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine2 @ 0x140409FB0 (KiCustomAccessRoutine2.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall IopIrpStackProfilerDpcRoutine(

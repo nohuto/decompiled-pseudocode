@@ -1,31 +1,31 @@
 /*
- * XREFs of TpPoolReferenceExistingGlobalPool @ 0x180085EEC
+ * XREFs of TpPoolReferenceExistingGlobalPool @ 0x180085EDC
  * Callers:
- *     RtlpTpWorkCallback @ 0x18003A1C0 (RtlpTpWorkCallback.c)
- *     TpSetDefaultPoolStackInformation @ 0x180085DA0 (TpSetDefaultPoolStackInformation.c)
+ *     RtlpTpWorkCallback @ 0x18003A1B0 (RtlpTpWorkCallback.c)
+ *     TpSetDefaultPoolStackInformation @ 0x180085D90 (TpSetDefaultPoolStackInformation.c)
  *     TpSetDefaultPoolMaxThreads @ 0x1800FE070 (TpSetDefaultPoolMaxThreads.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x180042570 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x180042650 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x180042560 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180042640 (RtlAcquireSRWLockShared.c)
  */
 
-__int64 __fastcall TpPoolReferenceExistingGlobalPool(__int64 a1, char *a2, __int64 a3, __int64 a4)
+PVOID TpPoolReferenceExistingGlobalPool()
 {
-  __int64 v4; // rbx
-  __int64 v6; // [rsp+30h] [rbp+8h]
+  PVOID v0; // rbx
+  PVOID v2; // [rsp+30h] [rbp+8h]
 
-  v4 = 0LL;
+  v0 = 0LL;
   if ( TppPoolpGlobalPool )
   {
-    RtlAcquireSRWLockShared(&TppPoolpGlobalPoolLock, a2, a3, a4);
-    v4 = TppPoolpGlobalPool;
-    v6 = TppPoolpGlobalPool;
+    RtlAcquireSRWLockShared(&TppPoolpGlobalPoolLock);
+    v0 = TppPoolpGlobalPool;
+    v2 = TppPoolpGlobalPool;
     if ( TppPoolpGlobalPool )
     {
       _InterlockedIncrement((volatile signed __int32 *)TppPoolpGlobalPool);
-      v4 = v6;
+      v0 = v2;
     }
     RtlReleaseSRWLockShared(&TppPoolpGlobalPoolLock);
   }
-  return v4;
+  return v0;
 }

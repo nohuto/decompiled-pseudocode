@@ -1,9 +1,9 @@
 /*
  * XREFs of IoSetTopLevelIrp @ 0x140288140
  * Callers:
- *     MiCreateNewSection @ 0x1406F914C (MiCreateNewSection.c)
- *     MiCreateImageOrDataSection @ 0x1406FDCD0 (MiCreateImageOrDataSection.c)
- *     MiShareExistingControlArea @ 0x1406FE8F4 (MiShareExistingControlArea.c)
+ *     sub_1406F914C @ 0x1406F914C (sub_1406F914C.c)
+ *     sub_1406FDCD0 @ 0x1406FDCD0 (sub_1406FDCD0.c)
+ *     sub_1406FE8F4 @ 0x1406FE8F4 (sub_1406FE8F4.c)
  *     FsRtlCopyRead @ 0x14092D040 (FsRtlCopyRead.c)
  *     FsRtlCopyWrite @ 0x14092D2C0 (FsRtlCopyWrite.c)
  *     FsRtlMdlReadDev @ 0x14092DA90 (FsRtlMdlReadDev.c)
@@ -14,5 +14,5 @@
 
 void __stdcall IoSetTopLevelIrp(PIRP Irp)
 {
-  KeGetCurrentThread()[1].TrapFrame = (_KTRAP_FRAME *)Irp;
+  *((_QWORD *)KeGetCurrentThread() + 162) = Irp;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGetCurrentProcessorNumber @ 0x140907790
+ * XREFs of NtGetCurrentProcessorNumber @ 0x1409078F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtGetCurrentProcessorNumber()
+ULONG NtGetCurrentProcessorNumber(void)
 {
-  unsigned int GroupIndex; // edx
+  ULONG GroupIndex; // edx
   unsigned __int64 v1; // rax
   __int16 v2; // ax
 

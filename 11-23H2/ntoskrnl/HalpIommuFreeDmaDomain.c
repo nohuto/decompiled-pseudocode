@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuFreeDmaDomain @ 0x140518130
+ * XREFs of HalpIommuFreeDmaDomain @ 0x140518680
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x1403A98AC (HalpIommuAllocateDmaDomain.c)
- *     IommuDomainDelete @ 0x1409356C0 (IommuDomainDelete.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403A9A8C (HalpIommuAllocateDmaDomain.c)
+ *     IommuDomainDelete @ 0x1409358C0 (IommuDomainDelete.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpIommuCleanupPageTable @ 0x140526CC4 (HalpIommuCleanupPageTable.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpIommuCleanupPageTable @ 0x140527214 (HalpIommuCleanupPageTable.c)
  */
 
 __int64 __fastcall HalpIommuFreeDmaDomain(__int64 a1)

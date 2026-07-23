@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetSystemCacheRegionsToFree @ 0x14048AE64
+ * XREFs of MiGetSystemCacheRegionsToFree @ 0x1404849A4
  * Callers:
- *     MiReleaseSystemCacheView @ 0x1402A71F0 (MiReleaseSystemCacheView.c)
- *     MiDeleteUnmappedSystemCacheViews @ 0x1406F5A18 (MiDeleteUnmappedSystemCacheViews.c)
+ *     MiReleaseSystemCacheView @ 0x1402A6600 (MiReleaseSystemCacheView.c)
+ *     MiDeleteUnmappedSystemCacheViews @ 0x1406FA688 (MiDeleteUnmappedSystemCacheViews.c)
  * Callees:
  *     <none>
  */

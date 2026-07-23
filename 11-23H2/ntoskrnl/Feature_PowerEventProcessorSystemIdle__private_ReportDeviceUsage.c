@@ -1,21 +1,21 @@
 /*
- * XREFs of Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411374
+ * XREFs of Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411580
  * Callers:
- *     PopCheckForIdleness @ 0x14032C620 (PopCheckForIdleness.c)
- *     PopResetIdleTime @ 0x1403B4A68 (PopResetIdleTime.c)
- *     PopHandleSystemIdleReset @ 0x1403B4A98 (PopHandleSystemIdleReset.c)
- *     PopSystemIdleWorker @ 0x1407A6DA0 (PopSystemIdleWorker.c)
- *     PopMonitorInvocation @ 0x1407A8F2C (PopMonitorInvocation.c)
- *     PopProcessSessionDisplayStateChange @ 0x1407A91D8 (PopProcessSessionDisplayStateChange.c)
- *     PopInitSIdle @ 0x140824914 (PopInitSIdle.c)
- *     PopUpdateSystemIdleContext @ 0x140824978 (PopUpdateSystemIdleContext.c)
- *     PopQueryRemainingSystemIdleTime @ 0x140878318 (PopQueryRemainingSystemIdleTime.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x140993844 (PopPowerAggregatorForceSessionSwitch.c)
- *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1409939E0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
- *     PopPolicySystemIdle @ 0x14099BED0 (PopPolicySystemIdle.c)
+ *     PopCheckForIdleness @ 0x14032C8B0 (PopCheckForIdleness.c)
+ *     PopResetIdleTime @ 0x1403B4C48 (PopResetIdleTime.c)
+ *     PopHandleSystemIdleReset @ 0x1403B4C78 (PopHandleSystemIdleReset.c)
+ *     PopSystemIdleWorker @ 0x1407A6F90 (PopSystemIdleWorker.c)
+ *     PopMonitorInvocation @ 0x1407A911C (PopMonitorInvocation.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1407A93C8 (PopProcessSessionDisplayStateChange.c)
+ *     PopInitSIdle @ 0x140824C14 (PopInitSIdle.c)
+ *     PopUpdateSystemIdleContext @ 0x140824C78 (PopUpdateSystemIdleContext.c)
+ *     PopQueryRemainingSystemIdleTime @ 0x140878558 (PopQueryRemainingSystemIdleTime.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x140993A44 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x140993BE0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopPolicySystemIdle @ 0x14099C0D0 (PopPolicySystemIdle.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage()

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogCommitRequestFailed @ 0x1408D73E4
+ * XREFs of MiLogCommitRequestFailed @ 0x1408D7544
  * Callers:
- *     MiCommitRequestFailed @ 0x1408D7384 (MiCommitRequestFailed.c)
+ *     MiCommitRequestFailed @ 0x1408D74E4 (MiCommitRequestFailed.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
- *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PsQueryJobMemoryUsageByProcess @ 0x1409088B8 (PsQueryJobMemoryUsageByProcess.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     PsGetProcessSessionId @ 0x140285D20 (PsGetProcessSessionId.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     MiGetProcessPartition @ 0x1402BF640 (MiGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PsQueryJobMemoryUsageByProcess @ 0x140908A18 (PsQueryJobMemoryUsageByProcess.c)
  */
 
 char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
@@ -76,7 +76,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
   v18 = 0LL;
   v20 = 0LL;
   v21 = 0LL;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
     _m_prefetchw((const void *)(a1 + 2172));
     v3 = *(_DWORD *)(a1 + 2172);
@@ -99,9 +99,9 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
       v12 = *(_QWORD *)(v8 + 256);
       PsQueryJobMemoryUsageByProcess(a1, (unsigned int)&v18, (unsigned int)&v19, (unsigned int)&v20, (__int64)&v21);
       LOBYTE(v3) = MiGetProcessPartition(a1);
-      if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
+      if ( **(_DWORD **)&qword_140C4EF20 > 5u )
       {
-        LOBYTE(v3) = tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL);
+        LOBYTE(v3) = tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 0x400000000000LL);
         if ( (_BYTE)v3 )
         {
           v31 = v13;
@@ -142,7 +142,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
           v61 = 8LL;
           v32 = v15;
           v63 = 8LL;
-          LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v14, (unsigned __int8 *)&word_1400267D6, 0LL, 1u, 0, 0, 0xFu, &v37);
+          LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v14, (unsigned __int8 *)&word_140026896, 0LL, 1u, 0, 0, 0xFu, &v37);
         }
       }
     }

@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpLogMemInfoWs @ 0x140936A0C
+ * XREFs of EtwpLogMemInfoWs @ 0x140936BDC
  * Callers:
- *     EtwpPerfMemInfoWork @ 0x1409372F0 (EtwpPerfMemInfoWork.c)
- *     EtwpLogMemInfoRundown @ 0x14093DC54 (EtwpLogMemInfoRundown.c)
+ *     EtwpPerfMemInfoWork @ 0x1409374C0 (EtwpPerfMemInfoWork.c)
+ *     EtwpLogMemInfoRundown @ 0x14093DE24 (EtwpLogMemInfoRundown.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
- *     SmProcessQueryStoreStats @ 0x140929E90 (SmProcessQueryStoreStats.c)
- *     EtwpLogMemInfoWsHelper @ 0x140936D30 (EtwpLogMemInfoWsHelper.c)
- *     EtwpLogSessionWorkingSetInfo @ 0x140937004 (EtwpLogSessionWorkingSetInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsGetNextProcess @ 0x1406A5A80 (PsGetNextProcess.c)
+ *     SmProcessQueryStoreStats @ 0x140929FF0 (SmProcessQueryStoreStats.c)
+ *     EtwpLogMemInfoWsHelper @ 0x140936F00 (EtwpLogMemInfoWsHelper.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x1409371D4 (EtwpLogSessionWorkingSetInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
@@ -26,7 +26,7 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   _DWORD *PoolWithTag; // rax
   _DWORD *v8; // rsi
   __int64 v9; // rbx
-  unsigned int *v10; // r14
+  SYSTEM_INFORMATION_CLASS *v10; // r14
   unsigned __int64 v11; // rax
   unsigned __int64 v12; // rcx
   _DWORD *NextProcess; // rdi
@@ -40,13 +40,13 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v21; // rcx
   unsigned __int64 v22; // rax
   unsigned __int64 v23; // rcx
-  int v24; // [rsp+28h] [rbp-59h]
+  SYSTEM_INFORMATION_CLASS v24; // [rsp+28h] [rbp-59h]
   _DWORD *v25; // [rsp+30h] [rbp-51h]
   unsigned __int64 v26; // [rsp+38h] [rbp-49h] BYREF
   unsigned __int64 v27; // [rsp+40h] [rbp-41h] BYREF
   __int64 v28; // [rsp+48h] [rbp-39h]
   unsigned __int64 v29; // [rsp+50h] [rbp-31h]
-  _QWORD v30[8]; // [rsp+58h] [rbp-29h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+58h] [rbp-29h] BYREF
   _DWORD v31[4]; // [rsp+98h] [rbp+17h] BYREF
 
   v29 = a2;
@@ -55,7 +55,7 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   v31[0] = 81;
   v31[1] = 119;
   v31[2] = 120;
-  memset(v30, 0, sizeof(v30));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v4 = 0;
   v26 = 0LL;
   v27 = 0LL;
@@ -69,15 +69,15 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   v9 = (__int64)(PoolWithTag + 1);
   *PoolWithTag = 0;
   v25 = PoolWithTag + 1089;
-  v10 = v31;
+  v10 = (SYSTEM_INFORMATION_CLASS *)v31;
   do
   {
     v24 = *v10;
-    if ( (unsigned int)ZwQuerySystemInformation(*v10, (__int64)v30) )
+    if ( ZwQuerySystemInformation(*v10, SystemInformation, 0x40u, 0LL) )
       goto LABEL_31;
     *(_DWORD *)v9 = v6;
-    v11 = v30[0] >> 12;
-    *(_QWORD *)(v9 + 4) = v30[0] >> 12;
+    v11 = SystemInformation[0] >> 12;
+    *(_QWORD *)(v9 + 4) = SystemInformation[0] >> 12;
     *(_QWORD *)(v9 + 28) = v11;
     *(_QWORD *)(v9 + 12) = v11;
     *(_QWORD *)(v9 + 60) = 0LL;
@@ -85,7 +85,7 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
     *(_QWORD *)(v9 + 44) = 0LL;
     *(_QWORD *)(v9 + 36) = 0LL;
     *(_QWORD *)(v9 + 52) = 0LL;
-    if ( v24 == 119 )
+    if ( v24 == SystemPagedPoolInformationEx )
     {
       v12 = v29;
       if ( v29 > v11 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of PspCopyAndFixupParameters @ 0x1406127B4
+ * XREFs of PspCopyAndFixupParameters @ 0x1406A2264
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x14061177C (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1406A122C (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
  */
 
-__int64 __fastcall PspCopyAndFixupParameters(struct _KPROCESS *a1, void **a2, __int64 a3)
+__int64 __fastcall PspCopyAndFixupParameters(__int64 a1, unsigned int *a2, __int64 a3)
 {
   unsigned int *v4; // rsi
   size_t v5; // r14
   char *v6; // rbx
-  struct _KPROCESS *Process; // r10
+  _KPROCESS *Process; // r10
   char PreviousMode; // r9
   int v9; // eax
   signed __int64 v10; // rdi
@@ -29,62 +29,64 @@ __int64 __fastcall PspCopyAndFixupParameters(struct _KPROCESS *a1, void **a2, __
   __int64 v21; // rax
   __int64 v22; // rax
   __int64 result; // rax
-  __int64 *v24; // r14
+  _QWORD *v24; // r14
   unsigned int v25; // r15d
-  void **v26; // rdi
-  void *v27; // rdx
+  unsigned int *v26; // rdi
+  __int64 v27; // rdx
   __int64 v28; // rcx
-  size_t v29; // [rsp+40h] [rbp-48h]
-  struct _KPROCESS *v30; // [rsp+90h] [rbp+8h]
-  char v31; // [rsp+98h] [rbp+10h]
-  __int64 v32; // [rsp+A0h] [rbp+18h] BYREF
-  struct _KPROCESS *v33; // [rsp+A8h] [rbp+20h]
+  int v29; // [rsp+38h] [rbp-50h]
+  size_t v30; // [rsp+40h] [rbp-48h]
+  __int64 v31; // [rsp+90h] [rbp+8h]
+  char v32; // [rsp+98h] [rbp+10h]
+  __int64 v33; // [rsp+A0h] [rbp+18h] BYREF
+  _KPROCESS *v34; // [rsp+A8h] [rbp+20h]
 
-  v30 = a1;
-  v32 = 0LL;
+  v31 = a1;
+  v33 = 0LL;
   v4 = *(unsigned int **)(a3 + 208);
   v5 = *((_QWORD *)v4 + 126) + *v4;
-  v29 = v5;
+  v30 = v5;
   v6 = *(char **)(a3 + 216);
   Process = KeGetCurrentThread()->ApcState.Process;
-  v33 = Process;
+  v34 = Process;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v31 = PreviousMode;
+  v32 = PreviousMode;
   if ( (*(_BYTE *)(a3 + 8) & 0x40) != 0 && (*(_BYTE *)(a3 + 9) & 1) == 0 )
     v4[2] |= 0x4000u;
   if ( *(_DWORD *)(a3 + 80) == 3 && (int)v4[4] > 0 )
   {
-    v9 = ObDuplicateObject(a1, *((void **)v4 + 2), Process, &v32, 0, 0, 6, PreviousMode);
-    a1 = v30;
-    Process = v33;
-    PreviousMode = v31;
+    v9 = ObDuplicateObject(a1, *((_QWORD *)v4 + 2), Process, &v33, 0, 0, 6, PreviousMode);
+    a1 = v31;
+    Process = v34;
+    PreviousMode = v32;
     if ( v9 >= 0 )
-      *((_QWORD *)v4 + 2) = v32;
+      *((_QWORD *)v4 + 2) = v33;
   }
   if ( a2 )
   {
-    v24 = (__int64 *)(v4 + 8);
+    v24 = v4 + 8;
     v25 = 0;
     v26 = a2;
     while ( 1 )
     {
-      v27 = *v26;
-      if ( *v26 )
+      v27 = *(_QWORD *)v26;
+      if ( *(_QWORD *)v26 )
       {
         if ( (int)v27 < 0 )
         {
           v28 = 0LL;
-          v32 = 0LL;
+          v33 = 0LL;
           result = 3221225480LL;
         }
         else
         {
-          result = ObDuplicateObject(a1, v27, Process, &v32, 0, 0, 6, PreviousMode);
-          v28 = v32;
+          LOBYTE(v29) = PreviousMode;
+          result = ObDuplicateObject(a1, v27, Process, &v33, 0, 0, 6, v29);
+          v28 = v33;
         }
         if ( (int)result < 0 )
         {
-          if ( a2 == (void **)(v4 + 8) )
+          if ( a2 == v4 + 8 )
             return result;
         }
         else
@@ -94,14 +96,14 @@ __int64 __fastcall PspCopyAndFixupParameters(struct _KPROCESS *a1, void **a2, __
       }
       ++v24;
       ++v25;
-      ++v26;
+      v26 += 2;
       if ( v25 >= 3 )
         break;
-      a1 = v30;
-      Process = v33;
-      PreviousMode = v31;
+      a1 = v31;
+      Process = v34;
+      PreviousMode = v32;
     }
-    v5 = v29;
+    v5 = v30;
   }
   v10 = v6 - (char *)v4;
   memmove(v6, v4, v5);

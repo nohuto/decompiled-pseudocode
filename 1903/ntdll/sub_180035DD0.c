@@ -8,15 +8,15 @@
  *     RtlInterlockedPushEntrySList_0 @ 0x1800A01F0 (RtlInterlockedPushEntrySList_0.c)
  */
 
-PSLIST_ENTRY __fastcall sub_180035DD0(PSLIST_ENTRY ListEntry)
+LOGICAL __fastcall sub_180035DD0(PSLIST_ENTRY ListEntry)
 {
   if ( LOWORD(stru_180166180.Alignment) >= 0xAu
     && (&unk_180163D40 > (_UNKNOWN *)ListEntry || ListEntry >= (PSLIST_ENTRY)&byte_180163EC0) )
   {
-    return (PSLIST_ENTRY)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, ListEntry);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ListEntry);
   }
   else
   {
-    return RtlInterlockedPushEntrySList_0(&stru_180166180, ListEntry);
+    return (unsigned int)RtlInterlockedPushEntrySList_0(&stru_180166180, ListEntry);
   }
 }

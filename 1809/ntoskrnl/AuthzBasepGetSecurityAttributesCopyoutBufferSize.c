@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x1400A6CB0
+ * XREFs of AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x1400A6BF0
  * Callers:
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6B70 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6AB0 (AuthzBasepQuerySecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x1400A69C4 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
- *     AuthzBasepFindSecurityAttribute @ 0x1400A71F0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x1400A6904 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1400A7130 (AuthzBasepFindSecurityAttribute.c)
  */
 
 __int64 __fastcall AuthzBasepGetSecurityAttributesCopyoutBufferSize(

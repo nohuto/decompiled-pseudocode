@@ -1,19 +1,19 @@
 /*
- * XREFs of CcGetPrivateVolumeCacheMapFromFileObject @ 0x1403E03E0
+ * XREFs of CcGetPrivateVolumeCacheMapFromFileObject @ 0x1403E35D0
  * Callers:
- *     CcDeferWrite @ 0x1403E0210 (CcDeferWrite.c)
+ *     CcDeferWrite @ 0x1403E3400 (CcDeferWrite.c)
  * Callees:
  *     <none>
  */
 
-struct _LIST_ENTRY *__fastcall CcGetPrivateVolumeCacheMapFromFileObject(_QWORD *a1, struct _LIST_ENTRY *a2)
+_QWORD *__fastcall CcGetPrivateVolumeCacheMapFromFileObject(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // rax
   __int64 v3; // rax
-  struct _LIST_ENTRY *result; // rax
-  struct _LIST_ENTRY *i; // rax
-  struct _LIST_ENTRY *v6; // r8
-  struct _LIST_ENTRY *j; // rcx
+  _QWORD *result; // rax
+  unsigned __int64 i; // rax
+  _QWORD *v6; // r8
+  _QWORD *j; // rcx
 
   if ( !CcEnablePerVolumeLazyWriter )
     return 0LL;
@@ -22,17 +22,15 @@ struct _LIST_ENTRY *__fastcall CcGetPrivateVolumeCacheMapFromFileObject(_QWORD *
   {
     if ( a1[2] )
       a1 = (_QWORD *)a1[2];
-    for ( i = EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-          i != (struct _LIST_ENTRY *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
-          i = i->Flink )
+    for ( i = EmpParseLock.KernelWaitTime; (unsigned __int64 *)i != &EmpParseLock.KernelWaitTime; i = *(_QWORD *)i )
     {
-      if ( i[-1].Blink == (struct _LIST_ENTRY *)a1[1] )
+      if ( *(_QWORD *)(i - 8) == a1[1] )
       {
-        v6 = i + 12;
-        for ( j = i[12].Flink; j != v6; j = j->Flink )
+        v6 = (_QWORD *)(i + 192);
+        for ( j = *(_QWORD **)(i + 192); j != v6; j = (_QWORD *)*j )
         {
-          result = j - 37;
-          if ( j[-35].Flink == a2 )
+          result = j - 74;
+          if ( *(j - 70) == a2 )
             return result;
         }
         return 0LL;
@@ -40,5 +38,5 @@ struct _LIST_ENTRY *__fastcall CcGetPrivateVolumeCacheMapFromFileObject(_QWORD *
     }
     return 0LL;
   }
-  return *(struct _LIST_ENTRY **)(v3 + 600);
+  return *(_QWORD **)(v3 + 600);
 }

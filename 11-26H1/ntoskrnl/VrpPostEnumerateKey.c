@@ -1,28 +1,28 @@
 /*
- * XREFs of VrpPostEnumerateKey @ 0x140976950
+ * XREFs of VrpPostEnumerateKey @ 0x140938960
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     ExGetPreviousMode @ 0x140470680 (ExGetPreviousMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     VrpUnlockJobContextShared @ 0x14097690C (VrpUnlockJobContextShared.c)
- *     VrpInputBufferParameter @ 0x14097747C (VrpInputBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x1409774A8 (VrpOutputBufferParameter.c)
- *     VrpUpdateKeyInformation @ 0x1409774DC (VrpUpdateKeyInformation.c)
- *     VrpBuildKeyPath @ 0x140977690 (VrpBuildKeyPath.c)
- *     VrpFindExactNamespaceNode @ 0x14097778C (VrpFindExactNamespaceNode.c)
- *     VrpLockJobContextShared @ 0x140977A28 (VrpLockJobContextShared.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     ExGetPreviousMode @ 0x140469E00 (ExGetPreviousMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     VrpUnlockJobContextShared @ 0x14093891C (VrpUnlockJobContextShared.c)
+ *     VrpInputBufferParameter @ 0x14093948C (VrpInputBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1409394B8 (VrpOutputBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x1409394EC (VrpUpdateKeyInformation.c)
+ *     VrpBuildKeyPath @ 0x1409396A0 (VrpBuildKeyPath.c)
+ *     VrpFindExactNamespaceNode @ 0x14093979C (VrpFindExactNamespaceNode.c)
+ *     VrpLockJobContextShared @ 0x140939A38 (VrpLockJobContextShared.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
@@ -129,7 +129,7 @@ __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
     v61 = 0;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E0A5C0,
-      (unsigned __int8 *)byte_14005A76D,
+      (unsigned __int8 *)&byte_14005B847,
       &ActivityId,
       0LL,
       5u,
@@ -365,7 +365,7 @@ LABEL_30:
     v67 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E0A5C0,
-      (unsigned __int8 *)byte_14005A7BD,
+      (unsigned __int8 *)byte_14005B7C7,
       &ActivityId,
       0LL,
       8u,

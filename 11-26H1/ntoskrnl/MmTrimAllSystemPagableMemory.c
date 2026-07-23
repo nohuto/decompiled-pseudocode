@@ -1,9 +1,9 @@
 /*
- * XREFs of MmTrimAllSystemPagableMemory @ 0x1406F7F40
+ * XREFs of MmTrimAllSystemPagableMemory @ 0x1406FCC10
  * Callers:
  *     <none>
  * Callees:
- *     MiTrimAllSystemPagableMemory @ 0x140457728 (MiTrimAllSystemPagableMemory.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14044EF98 (MiTrimAllSystemPagableMemory.c)
  */
 
 __int64 __fastcall MmTrimAllSystemPagableMemory(int a1)

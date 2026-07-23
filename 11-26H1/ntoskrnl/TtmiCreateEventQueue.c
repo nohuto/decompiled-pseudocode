@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmiCreateEventQueue @ 0x1407ECD18
+ * XREFs of TtmiCreateEventQueue @ 0x1407F2878
  * Callers:
- *     TtmpDispatchCreateEventQueue @ 0x1407E7D34 (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateEventQueue @ 0x1407ED894 (TtmpDispatchCreateEventQueue.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     TtmiLogQueueCreated @ 0x1407E9D74 (TtmiLogQueueCreated.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     TtmiLogQueueCreated @ 0x1407EF8D4 (TtmiLogQueueCreated.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiCreateEventQueue(__int64 a1, _QWORD *a2)

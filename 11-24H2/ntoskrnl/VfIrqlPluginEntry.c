@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIrqlPluginEntry @ 0x140614D90
+ * XREFs of VfIrqlPluginEntry @ 0x140613350
  * Callers:
  *     <none>
  * Callees:
- *     DifRegisterPlugin @ 0x140618BD0 (DifRegisterPlugin.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ViIrqlInit @ 0x140B9D5D4 (ViIrqlInit.c)
+ *     DifRegisterPlugin @ 0x140617190 (DifRegisterPlugin.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ViIrqlInit @ 0x140B9F5D4 (ViIrqlInit.c)
  */
 
 __int64 __fastcall VfIrqlPluginEntry(__int16 *a1)
@@ -75,7 +75,7 @@ __int64 __fastcall VfIrqlPluginEntry(__int16 *a1)
       LOBYTE(VfTrimControl) = 5;
   }
   v4 = 425;
-  qword_140F03A08 = (__int64)ViIrqlPluginUnload;
+  qword_140F03CE8 = (__int64)ViIrqlPluginUnload;
   v5 = 0LL;
   v3 = "ExAcquireFastMutex";
   v8 = 383;

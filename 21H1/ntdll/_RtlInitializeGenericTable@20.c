@@ -6,20 +6,20 @@
  *     <none>
  */
 
-int __stdcall RtlInitializeGenericTable(_DWORD *a1, int a2, int a3, int a4, int a5)
+void __cdecl RtlInitializeGenericTable(
+        PRTL_GENERIC_TABLE Table,
+        PRTL_GENERIC_COMPARE_ROUTINE CompareRoutine,
+        PRTL_GENERIC_ALLOCATE_ROUTINE AllocateRoutine,
+        PRTL_GENERIC_FREE_ROUTINE FreeRoutine,
+        PVOID TableContext)
 {
-  int result; // eax
-
-  *a1 = 0;
-  a1[2] = a1 + 1;
-  a1[1] = a1 + 1;
-  a1[3] = a1 + 1;
-  a1[6] = a2;
-  a1[7] = a3;
-  a1[8] = a4;
-  result = a5;
-  a1[5] = 0;
-  a1[4] = 0;
-  a1[9] = a5;
-  return result;
+  Table->TableRoot = 0;
+  InitializeListHead(&Table->InsertOrderList);
+  Table->OrderedPointer = &Table->InsertOrderList;
+  Table->CompareRoutine = CompareRoutine;
+  Table->AllocateRoutine = AllocateRoutine;
+  Table->FreeRoutine = FreeRoutine;
+  Table->NumberGenericTableElements = 0;
+  Table->WhichOrderedElement = 0;
+  Table->TableContext = TableContext;
 }

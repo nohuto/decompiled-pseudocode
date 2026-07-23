@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocateEntireImageFileExtents @ 0x1407EFC4C
+ * XREFs of MiAllocateEntireImageFileExtents @ 0x1407F021C
  * Callers:
- *     MiEnableImageDirectMap @ 0x14067A928 (MiEnableImageDirectMap.c)
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
+ *     MiEnableImageDirectMap @ 0x14067BB08 (MiEnableImageDirectMap.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     FsRtlGetFileExtents @ 0x14057F7E0 (FsRtlGetFileExtents.c)
- *     MiInsertCopyExtents @ 0x14067B2F0 (MiInsertCopyExtents.c)
- *     MiNewPfnsSuitable @ 0x1407E9C94 (MiNewPfnsSuitable.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     FsRtlGetFileExtents @ 0x14057CC20 (FsRtlGetFileExtents.c)
+ *     MiInsertCopyExtents @ 0x14067C4D0 (MiInsertCopyExtents.c)
+ *     MiNewPfnsSuitable @ 0x1407EA264 (MiNewPfnsSuitable.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateEntireImageFileExtents(

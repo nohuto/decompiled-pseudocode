@@ -1,12 +1,12 @@
 /*
- * XREFs of KiClearForegroundBoost @ 0x140239B00
+ * XREFs of KiClearForegroundBoost @ 0x14023B460
  * Callers:
  *     KeSetPriorityAndQuantumProcess @ 0x140202264 (KeSetPriorityAndQuantumProcess.c)
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiSetDisableBoostThread @ 0x1404A3DC0 (KiSetDisableBoostThread.c)
- *     ?KiComputeNewPriorityStacking@@YAJPEAU_KTHREAD@@CE@Z @ 0x14051F754 (-KiComputeNewPriorityStacking@@YAJPEAU_KTHREAD@@CE@Z.c)
- *     ?KiComputeNewPriorityNonStacking@@YAJPEAU_KTHREAD@@CE@Z @ 0x14052E188 (-KiComputeNewPriorityNonStacking@@YAJPEAU_KTHREAD@@CE@Z.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiSetDisableBoostThread @ 0x14049D8D0 (KiSetDisableBoostThread.c)
+ *     ?KiComputeNewPriorityStacking@@YAJPEAU_KTHREAD@@CE@Z @ 0x140521DF8 (-KiComputeNewPriorityStacking@@YAJPEAU_KTHREAD@@CE@Z.c)
+ *     ?KiComputeNewPriorityNonStacking@@YAJPEAU_KTHREAD@@CE@Z @ 0x1405306A8 (-KiComputeNewPriorityNonStacking@@YAJPEAU_KTHREAD@@CE@Z.c)
  * Callees:
  *     <none>
  */

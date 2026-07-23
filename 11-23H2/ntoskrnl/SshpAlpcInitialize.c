@@ -3,21 +3,21 @@
  * Callers:
  *     SshInitialize @ 0x140B51B2C (SshInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KiInitializeTimer2 @ 0x14031E51C (KiInitializeTimer2.c)
- *     ExRegisterCallback @ 0x1403678A0 (ExRegisterCallback.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwAlpcCreatePort @ 0x14041BCC0 (ZwAlpcCreatePort.c)
- *     ZwAlpcSetInformation @ 0x14041BF00 (ZwAlpcSetInformation.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
- *     RtlAddAccessAllowedAce @ 0x1407EF430 (RtlAddAccessAllowedAce.c)
- *     CmSiRWLockInitialize @ 0x14080E150 (CmSiRWLockInitialize.c)
- *     SshpAlpcMessageCallback @ 0x14084C440 (SshpAlpcMessageCallback.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KiInitializeTimer2 @ 0x14031E7AC (KiInitializeTimer2.c)
+ *     ExRegisterCallback @ 0x140367A40 (ExRegisterCallback.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwAlpcCreatePort @ 0x14041C050 (ZwAlpcCreatePort.c)
+ *     ZwAlpcSetInformation @ 0x14041C290 (ZwAlpcSetInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
+ *     RtlAddAccessAllowedAce @ 0x1407EF700 (RtlAddAccessAllowedAce.c)
+ *     CmSiRWLockInitialize @ 0x14080E420 (CmSiRWLockInitialize.c)
+ *     SshpAlpcMessageCallback @ 0x14084C740 (SshpAlpcMessageCallback.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -30,27 +30,25 @@ __int64 SshpAlpcInitialize()
   ULONG v3; // ebx
   ACL *Pool2; // rax
   ACL *v5; // rsi
-  int Acl; // ebx
-  NTSTATUS v7; // eax
+  NTSTATUS Acl; // ebx
+  NTSTATUS Callback; // eax
   PCALLBACK_OBJECT v8; // rdi
-  PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-89h] BYREF
-  OBJECT_ATTRIBUTES CallbackObject_8; // [rsp+30h] [rbp-81h] BYREF
-  __int128 v12; // [rsp+60h] [rbp-51h]
+  PCALLBACK_OBJECT ObjectAttributes[7]; // [rsp+28h] [rbp-89h] BYREF
+  __int128 PortInformation; // [rsp+60h] [rbp-51h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-41h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+80h] [rbp-31h] BYREF
-  __int64 v15; // [rsp+A0h] [rbp-11h]
-  _QWORD v16[9]; // [rsp+A8h] [rbp-9h] BYREF
+  __int64 v14; // [rsp+A0h] [rbp-11h]
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+A8h] [rbp-9h] BYREF
 
-  v12 = 0LL;
-  memset(&CallbackObject_8, 0, 44);
-  memset(v16, 0, sizeof(v16));
-  CallbackObject = 0LL;
+  PortInformation = 0LL;
+  memset(&PortAttributes, 0, sizeof(PortAttributes));
+  memset(ObjectAttributes, 0, 52);
   DestinationString = 0LL;
-  v15 = 0LL;
+  v14 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C38548);
+  CmSiRWLockInitialize(&stru_140C384E8);
   v0 = 0;
-  v1 = (char *)&unk_140C38562;
+  v1 = (char *)&unk_140C38502;
   v2 = 0LL;
   do
   {
@@ -89,30 +87,31 @@ __int64 SshpAlpcInitialize()
           if ( Acl >= 0 )
           {
             RtlInitUnicodeString(&DestinationString, L"\\SleepstudyControlPort");
-            CallbackObject_8.RootDirectory = 0LL;
-            CallbackObject_8.ObjectName = &DestinationString;
-            v16[2] = 64LL;
-            *(_OWORD *)&CallbackObject_8.SecurityDescriptor = (unsigned __int64)SecurityDescriptor;
-            LODWORD(v16[0]) = 0x100000;
-            CallbackObject_8.Length = 48;
-            CallbackObject_8.Attributes = 512;
-            Acl = ZwAlpcCreatePort((__int64)&SshpAlpcContext, (__int64)&CallbackObject_8);
+            ObjectAttributes[2] = 0LL;
+            ObjectAttributes[6] = 0LL;
+            ObjectAttributes[3] = (PCALLBACK_OBJECT)&DestinationString;
+            PortAttributes.MaxMessageLength = 64LL;
+            ObjectAttributes[5] = (PCALLBACK_OBJECT)SecurityDescriptor;
+            PortAttributes.Flags = 0x100000;
+            LODWORD(ObjectAttributes[1]) = 48;
+            LODWORD(ObjectAttributes[4]) = 512;
+            Acl = ZwAlpcCreatePort(&SshpAlpcContext, (POBJECT_ATTRIBUTES)&ObjectAttributes[1], &PortAttributes);
             if ( Acl >= 0 )
             {
-              CallbackObject_8.RootDirectory = 0LL;
-              CallbackObject_8.ObjectName = 0LL;
-              CallbackObject_8.Length = 48;
-              CallbackObject_8.Attributes = 512;
-              *(_OWORD *)&CallbackObject_8.SecurityDescriptor = 0LL;
-              v7 = ExCreateCallback(&CallbackObject, &CallbackObject_8, 1u, 0);
-              v8 = CallbackObject;
-              Acl = v7;
-              if ( v7 >= 0 )
+              ObjectAttributes[2] = 0LL;
+              ObjectAttributes[3] = 0LL;
+              LODWORD(ObjectAttributes[1]) = 48;
+              LODWORD(ObjectAttributes[4]) = 512;
+              *(_OWORD *)&ObjectAttributes[5] = 0LL;
+              Callback = ExCreateCallback(ObjectAttributes, (POBJECT_ATTRIBUTES)&ObjectAttributes[1], 1u, 0);
+              v8 = ObjectAttributes[0];
+              Acl = Callback;
+              if ( Callback >= 0 )
               {
-                if ( ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)SshpAlpcMessageCallback, 0LL) )
+                if ( ExRegisterCallback(ObjectAttributes[0], (PCALLBACK_FUNCTION)SshpAlpcMessageCallback, 0LL) )
                 {
-                  v12 = (unsigned __int64)v8;
-                  Acl = ZwAlpcSetInformation(SshpAlpcContext, 9LL);
+                  PortInformation = (unsigned __int64)v8;
+                  Acl = ZwAlpcSetInformation(SshpAlpcContext, AlpcRegisterCallbackInformation, &PortInformation, 0x10u);
                   if ( Acl >= 0 )
                   {
                     SshpAlpcMessageCallback(0LL, 0LL, 0LL);

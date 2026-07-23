@@ -1,7 +1,7 @@
 /*
- * XREFs of PspIsValidJobSessionId @ 0x14013B548
+ * XREFs of PspIsValidJobSessionId @ 0x14013B648
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     <none>
  */

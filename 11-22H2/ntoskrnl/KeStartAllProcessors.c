@@ -171,7 +171,7 @@ ULONG KeStartAllProcessors()
       if ( !v14 )
         goto LABEL_79;
       v15 = (_OWORD *)KeNodeBlock[(unsigned __int16)v34];
-      if ( (unsigned int)HvlInitializeProcessor((union _SLIST_HEADER *)v14)
+      if ( (unsigned int)HvlInitializeProcessor((_SLIST_HEADER *)v14)
         || !(unsigned int)MmInitializeProcessor(v14)
         || (int)KiInitializePrcbContext(v14, (unsigned __int16)v34) < 0
         || (int)KeInitializeTimerTable(v14) < 0

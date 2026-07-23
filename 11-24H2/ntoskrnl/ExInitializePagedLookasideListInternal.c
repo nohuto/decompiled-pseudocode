@@ -1,13 +1,13 @@
 /*
- * XREFs of ExInitializePagedLookasideListInternal @ 0x14045F320
+ * XREFs of ExInitializePagedLookasideListInternal @ 0x1404541E0
  * Callers:
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x14070A210 (FsRtlInitExtraCreateParameterLookasideList.c)
- *     AlpcpInitSystem @ 0x1407422BC (AlpcpInitSystem.c)
- *     ExInitializePagedLookasideList @ 0x140A94D10 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x140707DD0 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     AlpcpInitSystem @ 0x14073FD1C (AlpcpInitSystem.c)
+ *     ExInitializePagedLookasideList @ 0x140A914C0 (ExInitializePagedLookasideList.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
  */
 
 void __fastcall ExInitializePagedLookasideListInternal(
@@ -59,13 +59,13 @@ LABEL_7:
     goto LABEL_7;
   }
 LABEL_8:
-  v16 = (_QWORD *)qword_140EFA6C8;
+  v16 = (_QWORD *)qword_140EFA9A8;
   v17 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_140EFA6C8 != &ExPagedLookasideListHead )
+  if ( *(__int64 **)qword_140EFA9A8 != &ExPagedLookasideListHead )
     __fastfail(3u);
   *v17 = &ExPagedLookasideListHead;
   v17[1] = v16;
   *v16 = v17;
-  qword_140EFA6C8 = (__int64)v17;
+  qword_140EFA9A8 = (__int64)v17;
   KeReleaseSpinLock(&ExPagedLookasideLock, v15);
 }

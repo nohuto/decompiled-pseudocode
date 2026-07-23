@@ -1,8 +1,8 @@
 /*
- * XREFs of KdEncodeDataBlock @ 0x1405E3774
+ * XREFs of KdEncodeDataBlock @ 0x1405E60E4
  * Callers:
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 KdEncodeDataBlock()
     do
     {
       result = v0 ^ __ROR8__(
-                      (unsigned __int64)&KdpDataBlockEncoded ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ *v1),
+                      (unsigned __int64)&KdpDataBlockEncoded ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ *v1),
                       v0);
       *v1++ = result;
       --v2;

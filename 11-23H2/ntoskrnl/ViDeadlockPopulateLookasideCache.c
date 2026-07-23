@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockPopulateLookasideCache @ 0x140AD97F8
+ * XREFs of ViDeadlockPopulateLookasideCache @ 0x140AD97E8
  * Callers:
- *     VfDeadlockInitialize @ 0x140AD74AC (VfDeadlockInitialize.c)
+ *     VfDeadlockInitialize @ 0x140AD749C (VfDeadlockInitialize.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall ViDeadlockPopulateLookasideCache(PPAGED_LOOKASIDE_LIST Lookaside, __int16 a2)

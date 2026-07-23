@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTimelineBitmapUpdateRange @ 0x14011ED98
+ * XREFs of RtlTimelineBitmapUpdateRange @ 0x14011EE08
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x140603FCC (PoEnergyContextUpdateComponentPower.c)
- *     PoEnergyContextCleanup @ 0x1406078D0 (PoEnergyContextCleanup.c)
- *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x140604FCC (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextCleanup @ 0x1406088D0 (PoEnergyContextCleanup.c)
+ *     PsQueryProcessEnergyValues @ 0x1406382C0 (PsQueryProcessEnergyValues.c)
  * Callees:
  *     <none>
  */

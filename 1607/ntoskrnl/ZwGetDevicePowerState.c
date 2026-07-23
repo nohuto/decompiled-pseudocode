@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetDevicePowerState @ 0x14015B9A0
+ * XREFs of ZwGetDevicePowerState @ 0x14015BF10
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE PowerState)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Device, PowerState, v2);
+  return KiServiceInternal(Device);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F9554
+ * XREFs of KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F6E34
  * Callers:
- *     KiSearchForNewThread @ 0x140296D10 (KiSearchForNewThread.c)
- *     KeTransitionProcessorParkState @ 0x1403E9560 (KeTransitionProcessorParkState.c)
+ *     KiSearchForNewThread @ 0x1402A59F0 (KiSearchForNewThread.c)
+ *     KeTransitionProcessorParkState @ 0x1403D720C (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiShouldSearchSharedReadyQueue @ 0x1404344E0 (KiShouldSearchSharedReadyQueue.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiShouldSearchSharedReadyQueue @ 0x140426AF0 (KiShouldSearchSharedReadyQueue.c)
  */
 
 void __fastcall KiDisarmForceParkDutyCyclingIfNecessary(__int64 a1, char a2)

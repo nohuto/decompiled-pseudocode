@@ -26,9 +26,9 @@ char RtlpScanHeapAllocBlocks()
   __int64 BlockInfo; // rax
   int v12; // r9d
   __int64 v13; // rbx
-  __int64 v14; // rax
-  __int64 v15; // rsi
-  unsigned __int64 v16; // r8
+  SIZE_T v14; // rax
+  _DWORD *v15; // rsi
+  char *v16; // r8
   unsigned __int8 *v17; // rbx
   int v18; // eax
 
@@ -77,8 +77,8 @@ char RtlpScanHeapAllocBlocks()
     {
       if ( *((_QWORD *)&xmmword_180186160 + 1) )
       {
-        v14 = RtlSizeHeap(*(_QWORD *)(BlockInfo + 8), 0, *(_QWORD *)(j + 16));
-        (*((void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, _DWORD, _QWORD))&xmmword_180186160 + 1))(
+        v14 = RtlSizeHeap(*(PVOID *)(BlockInfo + 8), 0, *(PVOID *)(j + 16));
+        (*((void (__fastcall **)(_QWORD, _QWORD, _QWORD, SIZE_T, _DWORD, _QWORD))&xmmword_180186160 + 1))(
           0LL,
           *(_QWORD *)(v13 + 8),
           *(_QWORD *)(j + 16),
@@ -94,21 +94,21 @@ char RtlpScanHeapAllocBlocks()
           DbgPrint("Entry     Heap              Size       \n");
           DbgPrint("---------------------------------------\n");
         }
-        v15 = *(_QWORD *)(v13 + 8);
-        v16 = *(_QWORD *)(j + 16);
-        if ( *(_DWORD *)(v15 + 16) == -571548178 )
+        v15 = *(_DWORD **)(v13 + 8);
+        v16 = *(char **)(j + 16);
+        if ( v15[4] == -571548178 )
         {
           v17 = *(unsigned __int8 **)(j + 16);
         }
         else
         {
           v17 = (unsigned __int8 *)(v16 - 16);
-          _m_prefetchw((const void *)(v16 - 16));
-          if ( *(_BYTE *)(v16 - 16 + 15) == 5 )
+          _m_prefetchw(v16 - 16);
+          if ( *(v16 - 1) == 5 )
             v17 -= 16 * v17[14];
         }
         v18 = RtlSizeHeap(v15, 0, v16);
-        DbgPrint("%p  %-16Ix  %Id", v17, v15, v18);
+        DbgPrint("%p  %-16Ix  %Id", v17, (_DWORD)v15, v18);
         DbgPrint("\n");
       }
       ++RtlpLeaksCount;

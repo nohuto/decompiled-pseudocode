@@ -1,9 +1,9 @@
 /*
- * XREFs of PipUpdateSetupInProgressCallback @ 0x14071A480
+ * XREFs of PipUpdateSetupInProgressCallback @ 0x140718010
  * Callers:
  *     <none>
  * Callees:
- *     PipUpdateSetupInProgressNotify @ 0x14071A498 (PipUpdateSetupInProgressNotify.c)
+ *     PipUpdateSetupInProgressNotify @ 0x140718028 (PipUpdateSetupInProgressNotify.c)
  */
 
 __int64 __fastcall PipUpdateSetupInProgressCallback(__int64 a1, __int64 a2)

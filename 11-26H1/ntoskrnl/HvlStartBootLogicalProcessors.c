@@ -1,28 +1,28 @@
 /*
- * XREFs of HvlStartBootLogicalProcessors @ 0x1405B9968
+ * XREFs of HvlStartBootLogicalProcessors @ 0x1405BC1D8
  * Callers:
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     MmFreeIndependentPages @ 0x140308D40 (MmFreeIndependentPages.c)
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     HvlpEnableNextLogicalProcessor @ 0x1405BA0DC (HvlpEnableNextLogicalProcessor.c)
- *     HvlpGetLpcbByApicId @ 0x1405BA1DC (HvlpGetLpcbByApicId.c)
- *     HvlpMapStatisticsPage @ 0x1405BA4F0 (HvlpMapStatisticsPage.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x1405BA5E8 (HvlpQueryApicIdAndNumaNode.c)
- *     HvlpSelectLpSet @ 0x1405BA6BC (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x1405BAAFC (HvlpSelectVpSet.c)
- *     HvlpUpdateLpcbIndex @ 0x1405BB55C (HvlpUpdateLpcbIndex.c)
- *     HvlNotifyAllProcessorsStarted @ 0x1405BD8F8 (HvlNotifyAllProcessorsStarted.c)
- *     HvlpApplyIoCachePolicy @ 0x1405BFAAC (HvlpApplyIoCachePolicy.c)
- *     HvlpMapEarlyPages @ 0x1405BFC88 (HvlpMapEarlyPages.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvlpDiscoverTopologyLocal @ 0x140791BD0 (HvlpDiscoverTopologyLocal.c)
- *     MmAllocateIndependentPages @ 0x140B3D7A0 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x1402EADC0 (MmFreeIndependentPages.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1405BC94C (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x1405BCA4C (HvlpGetLpcbByApicId.c)
+ *     HvlpMapStatisticsPage @ 0x1405BCD60 (HvlpMapStatisticsPage.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x1405BCE58 (HvlpQueryApicIdAndNumaNode.c)
+ *     HvlpSelectLpSet @ 0x1405BCF2C (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x1405BD36C (HvlpSelectVpSet.c)
+ *     HvlpUpdateLpcbIndex @ 0x1405BDDCC (HvlpUpdateLpcbIndex.c)
+ *     HvlNotifyAllProcessorsStarted @ 0x1405C0168 (HvlNotifyAllProcessorsStarted.c)
+ *     HvlpApplyIoCachePolicy @ 0x1405C231C (HvlpApplyIoCachePolicy.c)
+ *     HvlpMapEarlyPages @ 0x1405C24F8 (HvlpMapEarlyPages.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140794700 (HvlpDiscoverTopologyLocal.c)
+ *     MmAllocateIndependentPages @ 0x140B3F870 (MmAllocateIndependentPages.c)
  */
 
 __int64 HvlStartBootLogicalProcessors()
@@ -125,14 +125,14 @@ LABEL_49:
   {
     memset_0(v10, 0, v5);
     CurrentPrcb = KeGetCurrentPrcb();
-    *v11 = stru_140E3E928.ThreadListEntry;
+    *v11 = stru_140E3EAA8.ThreadListEntry;
     HvlpLogicalProcessorRegionsCount = v4;
-    v11[1] = stru_140E3E928.MutantListHead;
-    v11[2] = *(_LIST_ENTRY *)&stru_140E3E928.AbWaitEntryCount;
-    v11[3] = *(_LIST_ENTRY *)&stru_140E3E928.PropagateBoostsEntry.Next;
-    v11[4] = *(_LIST_ENTRY *)stru_140E3E928.PriorityFloorCounts;
-    v11[5] = *(_LIST_ENTRY *)&stru_140E3E928.PriorityFloorCounts[16];
-    v11[6].Flink = *(struct _LIST_ENTRY **)&stru_140E3E928.PriorityFloorSummary;
+    v11[1] = stru_140E3EAA8.MutantListHead;
+    v11[2] = *(_LIST_ENTRY *)&stru_140E3EAA8.AbWaitEntryCount;
+    v11[3] = *(_LIST_ENTRY *)&stru_140E3EAA8.PropagateBoostsEntry.Next;
+    v11[4] = *(_LIST_ENTRY *)stru_140E3EAA8.PriorityFloorCounts;
+    v11[5] = *(_LIST_ENTRY *)&stru_140E3EAA8.PriorityFloorCounts[16];
+    v11[6].Flink = *(struct _LIST_ENTRY **)&stru_140E3EAA8.PriorityFloorSummary;
     HIDWORD(v11->Flink) = 0;
     ApicIdAndNumaNode = HvlpQueryApicIdAndNumaNode(0LL, &v11->Blink, (char *)&v11->Flink + 2);
     if ( ApicIdAndNumaNode < 0 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of SeComputeCreatorDeniedRights @ 0x14000F980
+ * XREFs of SeComputeCreatorDeniedRights @ 0x14000F500
  * Callers:
- *     ObpAdjustCreatorAccessState @ 0x140404050 (ObpAdjustCreatorAccessState.c)
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
+ *     ObpAdjustCreatorAccessState @ 0x140402F10 (ObpAdjustCreatorAccessState.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
  * Callees:
- *     SepTokenIsOwner @ 0x140061160 (SepTokenIsOwner.c)
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     RtlpOwnerAcesPresent @ 0x14008DB10 (RtlpOwnerAcesPresent.c)
- *     SepGetScopedPolicySid @ 0x140219BF8 (SepGetScopedPolicySid.c)
- *     SepRmReferenceFindCap @ 0x14021B670 (SepRmReferenceFindCap.c)
+ *     SepTokenIsOwner @ 0x140060CE0 (SepTokenIsOwner.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     RtlpOwnerAcesPresent @ 0x14008D270 (RtlpOwnerAcesPresent.c)
+ *     SepGetScopedPolicySid @ 0x140219A24 (SepGetScopedPolicySid.c)
+ *     SepRmReferenceFindCap @ 0x14021B49C (SepRmReferenceFindCap.c)
  */
 
 __int64 __fastcall SeComputeCreatorDeniedRights(
@@ -23,7 +23,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   __int64 v11; // rax
   __int64 v12; // rdx
   __int64 v13; // rax
-  __int64 v14; // rcx
+  ACL *v14; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
@@ -72,11 +72,11 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
       if ( v10 < 0 )
       {
         v13 = *(unsigned int *)(a4 + 12);
-        v14 = (_DWORD)v13 ? a4 + v13 : 0LL;
+        v14 = (_DWORD)v13 ? (ACL *)(a4 + v13) : 0LL;
       }
       else
       {
-        v14 = *(_QWORD *)(a4 + 24);
+        v14 = *(ACL **)(a4 + 24);
       }
     }
     else
@@ -88,7 +88,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
       return 0LL;
     if ( !v14 )
       return 0LL;
-    ScopedPolicySid = (void *)SepGetScopedPolicySid();
+    ScopedPolicySid = (void *)SepGetScopedPolicySid(v14);
     if ( !ScopedPolicySid )
       return 0LL;
     Cap = SepRmReferenceFindCap(ScopedPolicySid);

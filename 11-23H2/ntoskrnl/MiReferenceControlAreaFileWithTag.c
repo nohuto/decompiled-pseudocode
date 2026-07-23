@@ -1,29 +1,29 @@
 /*
- * XREFs of MiReferenceControlAreaFileWithTag @ 0x1402A23F0
+ * XREFs of MiReferenceControlAreaFileWithTag @ 0x1402A2680
  * Callers:
- *     MiMakeSystemCacheRangeValid @ 0x140267860 (MiMakeSystemCacheRangeValid.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiLogPageAccess @ 0x14027CBB0 (MiLogPageAccess.c)
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiCompleteRestrictedImageFault @ 0x1402E2E50 (MiCompleteRestrictedImageFault.c)
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiMakeSystemCachePteValid @ 0x140345DCC (MiMakeSystemCachePteValid.c)
- *     MiCreateSystemSection @ 0x14035F7A0 (MiCreateSystemSection.c)
- *     MiDeprioritizeVad @ 0x1403C6E3C (MiDeprioritizeVad.c)
- *     MiSetPagesModified @ 0x1406288FC (MiSetPagesModified.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140267AF0 (MiMakeSystemCacheRangeValid.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiLogPageAccess @ 0x14027CE40 (MiLogPageAccess.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiCompleteRestrictedImageFault @ 0x1402E30E0 (MiCompleteRestrictedImageFault.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiMakeSystemCachePteValid @ 0x14034605C (MiMakeSystemCachePteValid.c)
+ *     MiCreateSystemSection @ 0x14035F940 (MiCreateSystemSection.c)
+ *     MiDeprioritizeVad @ 0x1403C701C (MiDeprioritizeVad.c)
+ *     MiSetPagesModified @ 0x140628E4C (MiSetPagesModified.c)
  *     PsReferenceProcessFilePointer @ 0x14069A0A0 (PsReferenceProcessFilePointer.c)
- *     PspInitializeFullProcessImageName @ 0x1406B3468 (PspInitializeFullProcessImageName.c)
- *     MmGetFileObjectForSection @ 0x14076C200 (MmGetFileObjectForSection.c)
- *     DbgkCreateThread @ 0x14076FC1C (DbgkCreateThread.c)
+ *     PspInitializeFullProcessImageName @ 0x1406B3498 (PspInitializeFullProcessImageName.c)
+ *     MmGetFileObjectForSection @ 0x14076C3F0 (MmGetFileObjectForSection.c)
+ *     DbgkCreateThread @ 0x14076FE0C (DbgkCreateThread.c)
  * Callees:
- *     ObpFastReplenishReference @ 0x1402245E4 (ObpFastReplenishReference.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObpFastReplenishReference @ 0x1402246EC (ObpFastReplenishReference.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 unsigned __int64 __fastcall MiReferenceControlAreaFileWithTag(__int64 a1, ULONG a2)
@@ -66,10 +66,13 @@ LABEL_9:
       if ( v8 )
         ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL), a2);
       ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v10 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

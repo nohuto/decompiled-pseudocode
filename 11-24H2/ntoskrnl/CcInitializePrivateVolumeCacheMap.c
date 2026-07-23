@@ -1,16 +1,16 @@
 /*
- * XREFs of CcInitializePrivateVolumeCacheMap @ 0x1402CA884
+ * XREFs of CcInitializePrivateVolumeCacheMap @ 0x1404300DC
  * Callers:
- *     CcCreatePrivateVolumeCacheMap @ 0x1402CA5A8 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x14042FE00 (CcCreatePrivateVolumeCacheMap.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     CcInitializeQuickLWSThreadItem @ 0x1402CA478 (CcInitializeQuickLWSThreadItem.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcInitializeNumaNodeForVolume @ 0x1402CBA5C (CcInitializeNumaNodeForVolume.c)
- *     CcForEachNumaNode @ 0x1402CBE88 (CcForEachNumaNode.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsCreateSystemThread @ 0x140A22450 (PsCreateSystemThread.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     CcInitializeNumaNodeForVolume @ 0x140430C98 (CcInitializeNumaNodeForVolume.c)
+ *     CcForEachNumaNode @ 0x1404310C4 (CcForEachNumaNode.c)
+ *     CcInitializeQuickLWSThreadItem @ 0x140431140 (CcInitializeQuickLWSThreadItem.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsCreateSystemThread @ 0x1408F8C00 (PsCreateSystemThread.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)
@@ -156,8 +156,8 @@ char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int6
   *(_BYTE *)(a2 + 984) = 1;
   if ( CcEnableAsyncLazywrite && CcEnableAsyncLazywriteMulti )
     *(_DWORD *)(a2 + 1616) |= 2u;
-  v15 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + ***(unsigned __int16 ***)(a1 + 8)) + 18512LL);
-  if ( (_BYTE)dword_140FC421C )
+  v15 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + ***(unsigned __int16 ***)(a1 + 8)) + 18512LL);
+  if ( (_BYTE)dword_140FC521C )
   {
     v16 = v15 >> 1;
     if ( (unsigned int)CcAzure_TopBottomDPTEqual < 2 )
@@ -211,7 +211,7 @@ char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int6
          &ObjectAttributes,
          *(HANDLE *)(v22 + 128),
          0LL,
-         CcQueueLazyWriteScanThreadForVolume,
+         (PKSTART_ROUTINE)CcQueueLazyWriteScanThreadForVolume,
          (PVOID)a2) >= 0 )
   {
     for ( i = 0; i < CcNumberNumaNodes; ++i )
@@ -221,7 +221,7 @@ char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int6
       if ( *a3 )
         *a3 = 0LL;
     }
-    if ( CcInitializeQuickLWSThreadItem((_QWORD *)a2) )
+    if ( (unsigned __int8)CcInitializeQuickLWSThreadItem(a2) )
     {
       PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1536, 8LL * (unsigned int)(*(_DWORD *)(a2 + 800) + 1), 0x70546343u);
       if ( PoolWithTag )

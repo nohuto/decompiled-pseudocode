@@ -25,7 +25,7 @@
  *     CmPostCallbackNotificationEx @ 0x140696470 (CmPostCallbackNotificationEx.c)
  */
 
-__int64 __fastcall NtFlushKey(void *a1)
+NTSTATUS __cdecl NtFlushKey(HANDLE KeyHandle)
 {
   _DMA_OPERATIONS *DmaOperations; // r15
   char v3; // r14
@@ -34,7 +34,7 @@ __int64 __fastcall NtFlushKey(void *a1)
   __int64 v6; // r8
   struct _KTHREAD *v7; // rcx
   BOOLEAN v8; // r12
-  signed int v9; // ebx
+  int v9; // ebx
   struct _KTHREAD *v10; // rax
   PADAPTER_OBJECT v11; // rdi
   int v12; // eax
@@ -70,7 +70,7 @@ __int64 __fastcall NtFlushKey(void *a1)
     v9 = -1073741431;
     goto LABEL_21;
   }
-  v9 = CmObReferenceObjectByHandle(a1, 0, v6, v7->PreviousMode, &DmaAdapter, 0LL);
+  v9 = CmObReferenceObjectByHandle(KeyHandle, 0, v6, v7->PreviousMode, &DmaAdapter, 0LL);
   if ( v9 >= 0 )
   {
     if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && DmaAdapter )
@@ -154,5 +154,5 @@ LABEL_21:
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v9;
+  return v9;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpEnterProximity @ 0x14087F124
+ * XREFs of TtmpEnterProximity @ 0x140880384
  * Callers:
- *     TtmiTerminalMonitorControl @ 0x14087EE38 (TtmiTerminalMonitorControl.c)
+ *     TtmiTerminalMonitorControl @ 0x140880098 (TtmiTerminalMonitorControl.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x140880220 (TtmiScheduleSessionWorker.c)
- *     TtmiLogEnterProximity @ 0x140883E2C (TtmiLogEnterProximity.c)
+ *     TtmiScheduleSessionWorker @ 0x140881480 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogEnterProximity @ 0x14088508C (TtmiLogEnterProximity.c)
  */
 
 __int64 __fastcall TtmpEnterProximity(__int64 a1, __int64 a2)

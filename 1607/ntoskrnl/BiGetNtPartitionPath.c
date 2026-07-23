@@ -1,21 +1,21 @@
 /*
- * XREFs of BiGetNtPartitionPath @ 0x14053CA90
+ * XREFs of BiGetNtPartitionPath @ 0x14053CFD0
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x14053C928 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x14053CE68 (BiConvertBootEnvironmentDeviceToNt.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiTranslateSymbolicLink @ 0x14053CCF0 (BiTranslateSymbolicLink.c)
- *     BiGetDriveLayoutBlock @ 0x14053CE58 (BiGetDriveLayoutBlock.c)
- *     BiGetPartitionVhdFilePath @ 0x14053EB94 (BiGetPartitionVhdFilePath.c)
- *     BiVerifyBootPartition @ 0x14053EF34 (BiVerifyBootPartition.c)
+ *     BiTranslateSymbolicLink @ 0x14053D230 (BiTranslateSymbolicLink.c)
+ *     BiGetDriveLayoutBlock @ 0x14053D398 (BiGetDriveLayoutBlock.c)
+ *     BiGetPartitionVhdFilePath @ 0x14053F0D4 (BiGetPartitionVhdFilePath.c)
+ *     BiVerifyBootPartition @ 0x14053F474 (BiVerifyBootPartition.c)
  */
 
 __int64 __fastcall BiGetNtPartitionPath(int a1, _QWORD *a2)

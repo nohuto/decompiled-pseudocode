@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlCompressWorkSpaceSizeXpressLz @ 0x180075E80
+ * XREFs of RtlCompressWorkSpaceSizeXpressLz @ 0x1800646A0
  * Callers:
- *     EtwpInitializeCompression @ 0x180075FD0 (EtwpInitializeCompression.c)
+ *     EtwpInitializeCompression @ 0x1800647F0 (EtwpInitializeCompression.c)
  * Callees:
  *     <none>
  */

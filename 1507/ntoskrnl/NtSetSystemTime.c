@@ -35,7 +35,7 @@ NTSTATUS __stdcall NtSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER New
   LARGE_INTEGER v15; // [rsp+30h] [rbp-48h] BYREF
   LARGE_INTEGER SystemTimea; // [rsp+38h] [rbp-40h] BYREF
   LARGE_INTEGER Time; // [rsp+40h] [rbp-38h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-30h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-30h] BYREF
 
   if ( !SystemTime )
   {

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiConvertSmallPageRangeToLarge @ 0x1402EE2CC
+ * XREFs of MiConvertSmallPageRangeToLarge @ 0x14034F90C
  * Callers:
- *     MiFreeMdlPageRun @ 0x1403A1D8C (MiFreeMdlPageRun.c)
- *     MiFreeLargePageMemory @ 0x1403A3588 (MiFreeLargePageMemory.c)
- *     MiRebuildLargePage @ 0x1403D2BAC (MiRebuildLargePage.c)
- *     MiInitializeMdlBatchPages @ 0x140413004 (MiInitializeMdlBatchPages.c)
- *     MiDeleteSubsectionLargePages @ 0x1404CA9A4 (MiDeleteSubsectionLargePages.c)
- *     MiFindLargePageMemory @ 0x140A92A7C (MiFindLargePageMemory.c)
+ *     MiFreeMdlPageRun @ 0x1402189BC (MiFreeMdlPageRun.c)
+ *     MiFreeLargePageMemory @ 0x14021B56C (MiFreeLargePageMemory.c)
+ *     MiInitializeMdlBatchPages @ 0x140393678 (MiInitializeMdlBatchPages.c)
+ *     MiRebuildLargePage @ 0x1403F7120 (MiRebuildLargePage.c)
+ *     MiDeleteSubsectionLargePages @ 0x1404C3EC4 (MiDeleteSubsectionLargePages.c)
+ *     MiFindLargePageMemory @ 0x140A8F22C (MiFindLargePageMemory.c)
  * Callees:
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiConvertLockedSmallPageToLarge @ 0x1402ED6D0 (MiConvertLockedSmallPageToLarge.c)
- *     MiAnyPagesRemovalPending @ 0x140470CA0 (MiAnyPagesRemovalPending.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiConvertLockedSmallPageToLarge @ 0x14034ED10 (MiConvertLockedSmallPageToLarge.c)
+ *     MiAnyPagesRemovalPending @ 0x14046B54C (MiAnyPagesRemovalPending.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, __int64 a2)

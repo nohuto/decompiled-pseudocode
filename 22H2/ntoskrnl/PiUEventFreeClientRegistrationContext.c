@@ -14,7 +14,7 @@
  *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
+void __fastcall PiUEventFreeClientRegistrationContext(char *P, char a2)
 {
   __int64 v3; // r8
   PFAST_MUTEX v4; // rcx
@@ -28,7 +28,7 @@ void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
   char *v12; // rdx
   char *v13; // rdx
 
-  if ( (_BYTE)a2 )
+  if ( a2 )
   {
     ExAcquireFastMutex(&PiUEventClientRegistrationListLock);
     ExAcquireFastMutex(*((PFAST_MUTEX *)P + 2));
@@ -87,7 +87,7 @@ void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
     if ( v10 )
       PiDmObjectRelease(v10);
   }
-  ZwDeleteWnfStateName((__int64)(P + 88), a2);
+  ZwDeleteWnfStateName((PCWNF_STATE_NAME)P + 11);
   SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(P + 56));
   ExFreePoolWithTag(*((PVOID *)P + 2), 0x59706E50u);
   memset(P, 0, 0x90uLL);

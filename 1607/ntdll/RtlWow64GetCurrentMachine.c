@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlWow64GetCurrentMachine @ 0x1800762D0
+ * XREFs of RtlWow64GetCurrentMachine @ 0x1800762C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlWow64GetCurrentCpuArea @ 0x1800764B0 (RtlWow64GetCurrentCpuArea.c)
+ *     RtlWow64GetCurrentCpuArea @ 0x1800764A0 (RtlWow64GetCurrentCpuArea.c)
  */
 
-__int64 RtlWow64GetCurrentMachine()
+USHORT RtlWow64GetCurrentMachine(void)
 {
-  unsigned __int16 v1; // [rsp+30h] [rbp+8h] BYREF
+  USHORT v1; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = -31132;
   if ( NtCurrentTeb()->WowTebOffset > 0 )

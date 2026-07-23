@@ -1,42 +1,42 @@
 /*
- * XREFs of IopUpdateSecureDeviceClassState @ 0x140AF8840
+ * XREFs of IopUpdateSecureDeviceClassState @ 0x140AFAF20
  * Callers:
- *     IoCreateDeviceSecure @ 0x140AF8350 (IoCreateDeviceSecure.c)
+ *     IoCreateDeviceSecure @ 0x140AFAA30 (IoCreateDeviceSecure.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1404ACDE0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlGetPersistedStateLocation @ 0x140A10D20 (RtlGetPersistedStateLocation.c)
- *     RtlStringFromGUIDEx @ 0x140A3EB50 (RtlStringFromGUIDEx.c)
- *     IopCreateRegistryKeyEx @ 0x140AF90BC (IopCreateRegistryKeyEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1404A6470 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlStringFromGUIDEx @ 0x1409FA570 (RtlStringFromGUIDEx.c)
+ *     RtlGetPersistedStateLocation @ 0x140A0FF10 (RtlGetPersistedStateLocation.c)
+ *     IopCreateRegistryKeyEx @ 0x140AFB79C (IopCreateRegistryKeyEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
+__int64 __fastcall IopUpdateSecureDeviceClassState(PGUID Guid, __int64 a2)
 {
   void *v2; // rsi
   void *v3; // r15
-  unsigned int v6; // r14d
-  void *Pool2; // rdi
-  int PersistedStateLocation; // eax
-  int inited; // ebx
+  ULONG BufferLengthIn; // r14d
+  WCHAR *TargetPath; // rdi
+  NTSTATUS PersistedStateLocation; // eax
+  NTSTATUS inited; // ebx
   int v10; // eax
   ULONG v11; // ebx
   HANDLE KeyHandle; // [rsp+40h] [rbp-79h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-71h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-69h] BYREF
   void *v16; // [rsp+60h] [rbp-59h] BYREF
-  PVOID P[2]; // [rsp+68h] [rbp-51h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-51h] BYREF
   OBJECT_ATTRIBUTES v18; // [rsp+78h] [rbp-41h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-11h] BYREF
-  __int64 v20; // [rsp+130h] [rbp+77h] BYREF
+  ULONG BufferLengthOut; // [rsp+130h] [rbp+77h] BYREF
   void *v21; // [rsp+138h] [rbp+7Fh] BYREF
 
   v2 = 0LL;
@@ -46,14 +46,14 @@ __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
   KeyHandle = 0LL;
   memset(&v18, 0, 44);
   Handle = 0LL;
-  v6 = 256;
-  LODWORD(v20) = 0;
+  BufferLengthIn = 256;
+  BufferLengthOut = 0;
   DestinationString = 0LL;
-  *(_OWORD *)P = 0LL;
+  GuidString = 0LL;
   while ( 1 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
-    if ( !Pool2 )
+    TargetPath = (WCHAR *)ExAllocatePool2(0x100uLL);
+    if ( !TargetPath )
     {
       inited = -1073741670;
       goto LABEL_19;
@@ -62,27 +62,27 @@ __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
                                L"SecureDeviceClass",
                                0LL,
                                L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class",
-                               0,
-                               Pool2,
-                               v6,
-                               (unsigned int *)&v20);
+                               LocationTypeRegistry,
+                               TargetPath,
+                               BufferLengthIn,
+                               &BufferLengthOut);
     inited = PersistedStateLocation;
     if ( PersistedStateLocation != -2147483643 )
       break;
-    if ( (unsigned int)v20 <= v6 )
+    if ( BufferLengthOut <= BufferLengthIn )
     {
       inited = -1073741595;
 LABEL_8:
-      ExFreePoolWithTag(Pool2, 0);
-      Pool2 = 0LL;
+      ExFreePoolWithTag(TargetPath, 0);
+      TargetPath = 0LL;
       goto LABEL_19;
     }
-    v6 = v20;
-    ExFreePoolWithTag(Pool2, 0);
+    BufferLengthIn = BufferLengthOut;
+    ExFreePoolWithTag(TargetPath, 0);
   }
   if ( PersistedStateLocation < 0 )
     goto LABEL_8;
-  inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)Pool2);
+  inited = RtlInitUnicodeStringEx(&DestinationString, TargetPath);
   if ( inited >= 0 )
   {
     *(_QWORD *)&ObjectAttributes.Length = 48LL;
@@ -93,10 +93,10 @@ LABEL_8:
     inited = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
     if ( inited >= 0 )
     {
-      inited = RtlStringFromGUIDEx(a1, (__int64)P, 1);
+      inited = RtlStringFromGUIDEx(Guid, &GuidString, 1u);
       if ( inited >= 0 )
       {
-        inited = IopCreateRegistryKeyEx(&v21, KeyHandle, P, 983103LL, 0, 0LL);
+        inited = IopCreateRegistryKeyEx(&v21, KeyHandle, &GuidString, 983103LL, 0, 0LL);
         if ( inited < 0 )
         {
           v2 = v21;
@@ -137,11 +137,11 @@ LABEL_19:
     ZwClose(v2);
   if ( Handle )
     ZwClose(Handle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( TargetPath )
+    ExFreePoolWithTag(TargetPath, 0);
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
-  if ( P[1] )
-    ExFreePool(P[1]);
+  if ( GuidString.Buffer )
+    ExFreePool(GuidString.Buffer);
   return (unsigned int)inited;
 }

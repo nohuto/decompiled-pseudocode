@@ -1,15 +1,15 @@
 /*
- * XREFs of SleepstudyHelperBlockerActiveDereference @ 0x14044DC00
+ * XREFs of SleepstudyHelperBlockerActiveDereference @ 0x140444B00
  * Callers:
- *     PopPowerRequestStatsNotifyScenarioStateChange @ 0x14044DBC4 (PopPowerRequestStatsNotifyScenarioStateChange.c)
- *     PopSwitchUpdateUserShutdownScenarioState @ 0x140754120 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopUserShutdownCalloutDelayTimerWorker @ 0x140754280 (PopUserShutdownCalloutDelayTimerWorker.c)
- *     PopUserShutdownScenarioNotifyWinlogonCallout @ 0x1407542C0 (PopUserShutdownScenarioNotifyWinlogonCallout.c)
- *     PopPowerRequestStatsSetActive @ 0x140A667D4 (PopPowerRequestStatsSetActive.c)
+ *     PopPowerRequestStatsNotifyScenarioStateChange @ 0x140444AC4 (PopPowerRequestStatsNotifyScenarioStateChange.c)
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x140752440 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PopUserShutdownCalloutDelayTimerWorker @ 0x1407525A0 (PopUserShutdownCalloutDelayTimerWorker.c)
+ *     PopUserShutdownScenarioNotifyWinlogonCallout @ 0x1407525E0 (PopUserShutdownScenarioNotifyWinlogonCallout.c)
+ *     PopPowerRequestStatsSetActive @ 0x140A5F5B8 (PopPowerRequestStatsSetActive.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     SshpBlockerActiveDereference @ 0x14044DC58 (SshpBlockerActiveDereference.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpBlockerActiveDereference @ 0x140444B58 (SshpBlockerActiveDereference.c)
  */
 
 __int64 __fastcall SleepstudyHelperBlockerActiveDereference(PKSPIN_LOCK SpinLock)

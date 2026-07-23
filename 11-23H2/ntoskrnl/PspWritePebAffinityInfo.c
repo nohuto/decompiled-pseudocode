@@ -1,18 +1,18 @@
 /*
- * XREFs of PspWritePebAffinityInfo @ 0x1407A26FC
+ * XREFs of PspWritePebAffinityInfo @ 0x1407A28EC
  * Callers:
  *     PspApplyJobLimitsToProcess @ 0x1406A6EC4 (PspApplyJobLimitsToProcess.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     PspSetupUserProcessAddressSpace @ 0x1407A125C (PspSetupUserProcessAddressSpace.c)
- *     PspUpdateSingleProcessAffinity @ 0x1409AFC00 (PspUpdateSingleProcessAffinity.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1407A144C (PspSetupUserProcessAddressSpace.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1409AFE00 (PspUpdateSingleProcessAffinity.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PspGetProcessAffinityForPeb @ 0x1407A284C (PspGetProcessAffinityForPeb.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PspGetProcessAffinityForPeb @ 0x1407A2A3C (PspGetProcessAffinityForPeb.c)
  */
 
 void __fastcall PspWritePebAffinityInfo(__int64 a1, __int64 a2)

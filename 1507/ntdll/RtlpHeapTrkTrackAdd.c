@@ -11,46 +11,40 @@
  *     RtlpHeapTrkTrackStack @ 0x1800E206C (RtlpHeapTrkTrackStack.c)
  */
 
-signed __int64 __fastcall RtlpHeapTrkTrackAdd(__int64 a1, __int64 a2)
+void __fastcall RtlpHeapTrkTrackAdd(__int64 a1, __int64 a2)
 {
-  signed __int64 result; // rax
-  _QWORD *v5; // rbx
-  __int64 v6; // rbp
-  __int64 v7; // rax
-  char *v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rsi
-  __int64 *v12; // rdi
-  __int64 v13; // rax
+  _QWORD *Heap; // rbx
+  __int64 v5; // rbp
+  __int64 v6; // rax
+  __int64 v7; // rsi
+  __int64 *v8; // rdi
+  __int64 v9; // rax
 
-  result = RtlAllocateHeap(qword_1801486F8, 0, 40LL);
-  v5 = (_QWORD *)result;
-  if ( result )
+  Heap = RtlAllocateHeap(HeapHandle, 0, 0x28uLL);
+  if ( Heap )
   {
-    v6 = (unsigned int)RtlpHeapTrkHash(a2);
-    v5[2] = a1;
-    v5[3] = a2;
-    v7 = RtlpHeapTrkTrackStack();
-    v5[4] = v7;
-    if ( v7 )
+    v5 = (unsigned int)RtlpHeapTrkHash(a2);
+    Heap[2] = a1;
+    Heap[3] = a2;
+    v6 = RtlpHeapTrkTrackStack();
+    Heap[4] = v6;
+    if ( v6 )
     {
-      v11 = v6 & 0xF;
-      RtlAcquireSRWLockExclusive(*(volatile signed __int64 **)(qword_180148698 + 8 * v11), v8, v9, v10);
-      v12 = (__int64 *)(qword_1801485F0 + 16 * v6);
-      v13 = *v12;
-      *v5 = *v12;
-      v5[1] = v12;
-      if ( *(__int64 **)(v13 + 8) != v12 )
+      v7 = v5 & 0xF;
+      RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180148698 + 8 * v7));
+      v8 = (__int64 *)(qword_1801485F0 + 16 * v5);
+      v9 = *v8;
+      *Heap = *v8;
+      Heap[1] = v8;
+      if ( *(__int64 **)(v9 + 8) != v8 )
         __fastfail(3u);
-      *(_QWORD *)(v13 + 8) = v5;
-      *v12 = (__int64)v5;
-      return RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180148698 + 8 * v11));
+      *(_QWORD *)(v9 + 8) = Heap;
+      *v8 = (__int64)Heap;
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180148698 + 8 * v7));
     }
     else
     {
-      return RtlFreeHeap(qword_1801486F8, 0, (unsigned __int64)v5);
+      RtlFreeHeap(HeapHandle, 0, Heap);
     }
   }
-  return result;
 }

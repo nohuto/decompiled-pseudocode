@@ -14,7 +14,7 @@ __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
   int v5; // eax
   __int64 v6; // r9
   __int128 v7; // xmm0
-  unsigned __int64 v8; // rbx
+  unsigned __int64 Root; // rbx
   __int64 v9; // r8
   int v10; // edi
   int v11; // eax
@@ -26,40 +26,40 @@ __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
   v4 = -4530927LL;
   v5 = LdrpHashAsciizString(a3, a2, a3);
   v7 = *(_OWORD *)(v6 + 88);
-  v8 = LdrpRedirectionTree;
+  Root = (unsigned __int64)LdrpRedirectionTree.Root;
   v14[0] = v5;
   v14[1] = *(_DWORD *)(v6 + 264);
   v15 = v9;
   v16 = v7;
-  if ( (qword_1801665D8 & 1) != 0 && LdrpRedirectionTree )
-    v8 = (unsigned __int64)&LdrpRedirectionTree ^ LdrpRedirectionTree;
-  v10 = qword_1801665D8 & 1;
-  if ( v8 )
+  if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 && LdrpRedirectionTree.Root )
+    Root = (unsigned __int64)&LdrpRedirectionTree ^ (unsigned __int64)LdrpRedirectionTree.Root;
+  v10 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
+  if ( Root )
   {
     do
     {
-      v11 = LdrpCompareRedirectedFunction(v14, v8);
+      v11 = LdrpCompareRedirectedFunction(v14, Root);
       if ( v11 >= 0 )
       {
         if ( v11 <= 0 )
           break;
-        v12 = *(_QWORD *)(v8 + 8);
+        v12 = *(_QWORD *)(Root + 8);
       }
       else
       {
-        v12 = *(_QWORD *)v8;
+        v12 = *(_QWORD *)Root;
       }
       if ( v10 && v12 )
-        v8 ^= v12;
+        Root ^= v12;
       else
-        v8 = v12;
+        Root = v12;
     }
-    while ( v8 );
-    if ( v8
+    while ( Root );
+    if ( Root
       && (!LdrpRedirectionByFunctionCalloutFunc
-       || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(*(_QWORD *)(a1 + 80), *(unsigned int *)(v8 + 64))) )
+       || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(*(_QWORD *)(a1 + 80), *(unsigned int *)(Root + 64))) )
     {
-      return *(_QWORD *)(v8 + 56);
+      return *(_QWORD *)(Root + 56);
     }
   }
   return v4;

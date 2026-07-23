@@ -1,20 +1,25 @@
 /*
- * XREFs of NtSetInformationDebugObject @ 0x1407070B0
+ * XREFs of NtSetInformationDebugObject @ 0x140704C70
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtSetInformationDebugObject(HANDLE Handle, int a2, int *a3, int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtSetInformationDebugObject(
+        HANDLE DebugObjectHandle,
+        DEBUGOBJECTINFOCLASS DebugObjectInformationClass,
+        PVOID DebugInformation,
+        ULONG DebugInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r11
   __int64 v8; // rdx
-  _DWORD *v9; // rcx
+  PULONG v9; // rcx
   NTSTATUS result; // eax
   int v11; // esi
   char *v12; // rdi
@@ -24,15 +29,15 @@ NTSTATUS __fastcall NtSetInformationDebugObject(HANDLE Handle, int a2, int *a3, 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode )
   {
-    v9 = (_DWORD *)a5;
+    v9 = ReturnLength;
 LABEL_12:
     if ( v9 )
       *v9 = 0;
     goto LABEL_14;
   }
-  if ( a4 )
+  if ( DebugInformationLength )
   {
-    if ( ((unsigned __int8)a3 & 3) != 0 )
+    if ( ((unsigned __int8)DebugInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v8 = 0x7FFFFFFF0000LL;
   }
@@ -40,28 +45,28 @@ LABEL_12:
   {
     v8 = 0x7FFFFFFF0000LL;
   }
-  v9 = (_DWORD *)a5;
-  if ( a5 )
+  v9 = ReturnLength;
+  if ( ReturnLength )
   {
-    if ( a5 < 0x7FFFFFFF0000LL )
-      v8 = a5;
+    if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+      v8 = (__int64)ReturnLength;
     *(_DWORD *)v8 = *(_DWORD *)v8;
     goto LABEL_12;
   }
 LABEL_14:
-  if ( a2 != 1 )
+  if ( DebugObjectInformationClass != DebugObjectKillProcessOnExitInformation )
     return -1073741811;
-  if ( a4 == 4 )
+  if ( DebugInformationLength == 4 )
   {
-    v11 = *a3;
-    if ( (*a3 & 0xFFFFFFFE) != 0 )
+    v11 = *(_DWORD *)DebugInformation;
+    if ( (*(_DWORD *)DebugInformation & 0xFFFFFFFE) != 0 )
     {
       return -1073741811;
     }
     else
     {
       Object = 0LL;
-      result = ObReferenceObjectByHandle(Handle, 4u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+      result = ObReferenceObjectByHandle(DebugObjectHandle, 4u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
       if ( result >= 0 )
       {
         v12 = (char *)Object;

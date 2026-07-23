@@ -3,22 +3,22 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x14020C0F0 (IopIrpHasExtensionType.c)
+ *     sub_14020C0F0 @ 0x14020C0F0 (sub_14020C0F0.c)
  *     IoGetActivityIdIrp @ 0x14020C9B0 (IoGetActivityIdIrp.c)
  */
 
-__int64 __fastcall IoPropagateActivityIdToThread(__int64 a1, struct _LIST_ENTRY *a2, struct _LIST_ENTRY **a3)
+__int64 __fastcall IoPropagateActivityIdToThread(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v5; // rcx
   struct _KTHREAD *CurrentThread; // rcx
-  struct _LIST_ENTRY *Flink; // rax
+  __int64 v8; // rax
 
-  if ( !(unsigned __int8)IopIrpHasExtensionType(a1, 0LL) )
+  if ( !(unsigned __int8)sub_14020C0F0(a1, 0LL) )
     return 3221226021LL;
   IoGetActivityIdIrp(v5, a2);
   CurrentThread = KeGetCurrentThread();
-  Flink = CurrentThread[1].WaitBlock[1].WaitListEntry.Flink;
-  CurrentThread[1].WaitBlock[1].WaitListEntry.Flink = a2;
-  *a3 = Flink;
+  v8 = *((_QWORD *)CurrentThread + 190);
+  *((_QWORD *)CurrentThread + 190) = a2;
+  *a3 = v8;
   return 0LL;
 }

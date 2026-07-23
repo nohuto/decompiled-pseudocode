@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSyncSystemPdes @ 0x14010164C
+ * XREFs of MiSyncSystemPdes @ 0x1400FF3CC
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUpdateSystemPdes @ 0x1401E0EC4 (MiUpdateSystemPdes.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUpdateSystemPdes @ 0x1401E0CF0 (MiUpdateSystemPdes.c)
  */
 
 void __fastcall MiSyncSystemPdes(__int64 a1)
@@ -14,7 +14,7 @@ void __fastcall MiSyncSystemPdes(__int64 a1)
 
   while ( 1 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     if ( (*(_DWORD *)(a1 + 772) & 0x800000) == 0 )
       break;
     _InterlockedAnd((volatile signed __int32 *)(a1 + 772), 0xFF7FFFFF);

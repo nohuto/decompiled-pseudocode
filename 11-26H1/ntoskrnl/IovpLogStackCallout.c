@@ -1,9 +1,9 @@
 /*
- * XREFs of IovpLogStackCallout @ 0x140C45EB0
+ * XREFs of IovpLogStackCallout @ 0x140C4BEC0
  * Callers:
- *     IovpLogStackTrace @ 0x140C45DF4 (IovpLogStackTrace.c)
+ *     IovpLogStackTrace @ 0x140C4BE04 (IovpLogStackTrace.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall IovpLogStackCallout(PVOID *Parameter)

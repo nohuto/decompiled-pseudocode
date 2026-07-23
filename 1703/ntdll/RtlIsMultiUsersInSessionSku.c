@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlIsMultiUsersInSessionSku()
+BOOLEAN RtlIsMultiUsersInSessionSku(void)
 {
   return (MEMORY[0x7FFE02F0] >> 9) & 1;
 }

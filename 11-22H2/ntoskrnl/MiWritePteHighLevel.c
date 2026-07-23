@@ -54,7 +54,7 @@ __int64 __fastcall MiWritePteHighLevel(unsigned __int64 a1, unsigned __int64 a2,
     MiInsertLargeTbFlushEntry((__int64)&Context[5], v7, a2);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -67,10 +67,10 @@ __int64 __fastcall MiWritePteHighLevel(unsigned __int64 a1, unsigned __int64 a2,
   HIDWORD(Context[4]) = KeNumberProcessors_0;
   LODWORD(Context[4]) = KeNumberProcessors_0;
   KeIpiGenericCall(MiWritePteHighLevelIsr, (ULONG_PTR)Context);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

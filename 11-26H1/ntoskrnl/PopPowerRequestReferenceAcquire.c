@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPowerRequestReferenceAcquire @ 0x1404A6310
+ * XREFs of PopPowerRequestReferenceAcquire @ 0x14049F9A0
  * Callers:
- *     PpmBeginHighPerfRequest @ 0x1404A6170 (PpmBeginHighPerfRequest.c)
- *     PoSetPowerRequest @ 0x1404A61A0 (PoSetPowerRequest.c)
- *     PopApplyLegacyPowerRequestFlags @ 0x1404A61E0 (PopApplyLegacyPowerRequestFlags.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140A38AE8 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerRequestActionInfo @ 0x140AF1B4C (PopPowerRequestActionInfo.c)
+ *     PpmBeginHighPerfRequest @ 0x14049F800 (PpmBeginHighPerfRequest.c)
+ *     PoSetPowerRequest @ 0x14049F830 (PoSetPowerRequest.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x14049F870 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x1409F46A8 (PopPowerAggregatorEnterScreenOff.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x140AF441C (PopPowerRequestActionInfo.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x1404A66E8 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopPowerRequestCallbackWorker @ 0x1404A68A0 (PopPowerRequestCallbackWorker.c)
- *     PopDiagTracePowerRequestChange @ 0x1404A6A68 (PopDiagTracePowerRequestChange.c)
- *     PopQueueWorkItem @ 0x1404CEE60 (PopQueueWorkItem.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14049FD78 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopPowerRequestCallbackWorker @ 0x14049FF30 (PopPowerRequestCallbackWorker.c)
+ *     PopDiagTracePowerRequestChange @ 0x1404A00F8 (PopDiagTracePowerRequestChange.c)
+ *     PopQueueWorkItem @ 0x1404C8890 (PopQueueWorkItem.c)
  */
 
 __int64 __fastcall PopPowerRequestReferenceAcquire(_DWORD *Object, unsigned int a2)
@@ -41,7 +41,7 @@ __int64 __fastcall PopPowerRequestReferenceAcquire(_DWORD *Object, unsigned int 
     && ((1 << a2) & Object[5]) != 0
     && (a2 != 3 || (_KPROCESS *)*((_QWORD *)Object + 17) == KeGetCurrentThread()->ApcState.Process) )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12D20.Header.WaitListHead.Blink, &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12EA0.QueuedScb, &LockHandle);
     if ( Object[v2 + 10] == -1 )
     {
       v7 = -1073741675;
@@ -66,7 +66,7 @@ __int64 __fastcall PopPowerRequestReferenceAcquire(_DWORD *Object, unsigned int 
       }
       else
       {
-        PopQueueWorkItem(&stru_140F12D20.SystemCallNumber, 0LL);
+        PopQueueWorkItem(&stru_140F12EA0.KernelWaitTime, 0LL);
       }
     }
   }

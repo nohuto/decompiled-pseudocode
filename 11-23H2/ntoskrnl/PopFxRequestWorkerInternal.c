@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxRequestWorkerInternal @ 0x140314F74
+ * XREFs of PopFxRequestWorkerInternal @ 0x140315204
  * Callers:
- *     PopPepRequestWork @ 0x140313AA0 (PopPepRequestWork.c)
- *     PopFxRequestWorker @ 0x14058B7F0 (PopFxRequestWorker.c)
+ *     PopPepRequestWork @ 0x140313D30 (PopPepRequestWork.c)
+ *     PopFxRequestWorker @ 0x14058BCE0 (PopFxRequestWorker.c)
  * Callees:
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     ExTryQueueWorkItem @ 0x1402B9B30 (ExTryQueueWorkItem.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     ExTryQueueWorkItem @ 0x1402B9DC0 (ExTryQueueWorkItem.c)
  */
 
 char __fastcall PopFxRequestWorkerInternal(__int64 a1, char a2)

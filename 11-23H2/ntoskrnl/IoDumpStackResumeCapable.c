@@ -1,9 +1,9 @@
 /*
- * XREFs of IoDumpStackResumeCapable @ 0x14054FB98
+ * XREFs of IoDumpStackResumeCapable @ 0x140550258
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4980 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140AA47F0 (PopSaveHiberContext.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 IoDumpStackResumeCapable()

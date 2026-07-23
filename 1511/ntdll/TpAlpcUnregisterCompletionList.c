@@ -10,14 +10,11 @@
 __int64 __fastcall TpAlpcUnregisterCompletionList(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  __int64 v3; // rcx
 
   result = TppAlpcpValidateAlpc(a1, 0LL, 1LL);
   if ( !(_DWORD)result || (*(_BYTE *)(a1 + 280) & 1) == 0 )
-    result = TppRaiseInvalidParameter(v4, v3, v5, v6);
+    result = TppRaiseInvalidParameter(v3);
   *(_DWORD *)(a1 + 280) &= ~2u;
   return result;
 }

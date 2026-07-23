@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpMapEntryIsBinPresent @ 0x1400F011C
+ * XREFs of HvpMapEntryIsBinPresent @ 0x1400EDF9C
  * Callers:
- *     HvpSetRangeProtection @ 0x1405139A4 (HvpSetRangeProtection.c)
- *     HvpFreeAllocatedBins @ 0x140603A64 (HvpFreeAllocatedBins.c)
+ *     HvpSetRangeProtection @ 0x1404F6D94 (HvpSetRangeProtection.c)
+ *     HvpFreeAllocatedBins @ 0x140603B18 (HvpFreeAllocatedBins.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x140130748
+ * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x140130CB8
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     PopPepTryPowerDownComponent @ 0x1400C2BBC (PopPepTryPowerDownComponent.c)
- *     PopPepUpdateIdleState @ 0x1400C2BF8 (PopPepUpdateIdleState.c)
- *     PopFxUpdateComponentAccountingEnhanced @ 0x140130808 (PopFxUpdateComponentAccountingEnhanced.c)
- *     PopPepUpdateIdleStateRefCount @ 0x140130868 (PopPepUpdateIdleStateRefCount.c)
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x1402041CC (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     PopPepTryPowerDownComponent @ 0x1400C0A4C (PopPepTryPowerDownComponent.c)
+ *     PopPepUpdateIdleState @ 0x1400C0A88 (PopPepUpdateIdleState.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x140130D78 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x140130DD8 (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x140203FF8 (PopFxUpdateComponentPerfStateNominalChange.c)
  */
 
 void __fastcall PopPepCompleteComponentIdleStateChangeActivity(__int64 a1, __int64 a2)

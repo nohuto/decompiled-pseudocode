@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPrepareDriverPatchState @ 0x1407E7E2C
+ * XREFs of MiPrepareDriverPatchState @ 0x1407E83FC
  * Callers:
- *     MiLockPatchIatForDV @ 0x14067BF00 (MiLockPatchIatForDV.c)
- *     MmWriteSystemImageTracepoint @ 0x14067DBF0 (MmWriteSystemImageTracepoint.c)
- *     MiLockAndMapEntireDriver @ 0x1407F0938 (MiLockAndMapEntireDriver.c)
- *     MiApplyDriverHotPatch @ 0x1407F0C5C (MiApplyDriverHotPatch.c)
- *     MmReapplyBootPatchImports @ 0x140C56B08 (MmReapplyBootPatchImports.c)
+ *     MiLockPatchIatForDV @ 0x14067D0E0 (MiLockPatchIatForDV.c)
+ *     MmWriteSystemImageTracepoint @ 0x14067EDF0 (MmWriteSystemImageTracepoint.c)
+ *     MiLockAndMapEntireDriver @ 0x1407F0F08 (MiLockAndMapEntireDriver.c)
+ *     MiApplyDriverHotPatch @ 0x1407F122C (MiApplyDriverHotPatch.c)
+ *     MmReapplyBootPatchImports @ 0x140C58C98 (MmReapplyBootPatchImports.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
  */
 
 __int64 __fastcall MiPrepareDriverPatchState(__int64 *a1, __int64 a2)

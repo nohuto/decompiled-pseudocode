@@ -1,19 +1,19 @@
 /*
- * XREFs of MfgInitSystem @ 0x140CAB968
+ * XREFs of MfgInitSystem @ 0x140CB19A8
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x140724F70 (ZwDeleteKey.c)
- *     ZwOpenKeyEx @ 0x140725970 (ZwOpenKeyEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x140729B40 (ZwDeleteKey.c)
+ *     ZwOpenKeyEx @ 0x14072A540 (ZwOpenKeyEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall MfgInitSystem(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
   __int64 v1; // rdi
   NTSTATUS inited; // ebx
   unsigned __int16 v3; // ax
-  struct _LIST_ENTRY *Pool2; // rax
+  void *Pool2; // rax
   __int64 v5; // rax
   HANDLE v7; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
@@ -31,8 +31,8 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
   UNICODE_STRING ValueName; // [rsp+A0h] [rbp-68h] BYREF
   WCHAR pszDest[256]; // [rsp+B8h] [rbp-50h] BYREF
 
-  ExpSysDbgLock.SuspendEvent.Header.WaitListHead.Flink = 0LL;
-  *(_OWORD *)&ExpSysDbgLock.SchedulerApcFill5[80] = 0LL;
+  ExpSysDbgLock.SchedulerSharedSystemSlot = 0LL;
+  *(_OWORD *)&ExpSysDbgLock.MutantListHead.Blink = 0LL;
   v1 = *(_QWORD *)(a1 + 240);
   inited = 0;
   DestinationString = 0LL;
@@ -46,17 +46,15 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     return (unsigned int)inited;
   if ( v3 >= 0x80u )
     return (unsigned int)-1073741811;
-  ExpSysDbgLock.SuspendEvent.Header.LockNV = *(_DWORD *)(v1 + 2840);
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(
-                                  256LL,
-                                  *(unsigned __int16 *)&ExpSysDbgLock.SuspendEvent.Header.Size,
-                                  0x5067664Du);
-  ExpSysDbgLock.SuspendEvent.Header.WaitListHead.Flink = Pool2;
+  ExpSysDbgLock.AbEntryCountValue = *(_WORD *)(v1 + 2840);
+  *(_WORD *)&ExpSysDbgLock.FreezeFlags = *(_WORD *)(v1 + 2842);
+  Pool2 = (void *)ExAllocatePool2(256LL, *(unsigned __int16 *)&ExpSysDbgLock.FreezeFlags, 0x5067664Du);
+  ExpSysDbgLock.SchedulerSharedSystemSlot = Pool2;
   if ( Pool2 )
   {
     inited = RtlStringCbCopyW(
                (NTSTRSAFE_PWSTR)Pool2,
-               *(unsigned __int16 *)&ExpSysDbgLock.SuspendEvent.Header.Size,
+               *(unsigned __int16 *)&ExpSysDbgLock.FreezeFlags,
                *(NTSTRSAFE_PCWSTR *)(v1 + 2848));
     if ( inited < 0 )
       goto LABEL_21;
@@ -82,21 +80,21 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     KeyHandle_8.Attributes = 576;
     KeyHandle_8.Length = 48;
     KeyHandle_8.RootDirectory = KeyHandle;
-    KeyHandle_8.ObjectName = (PUNICODE_STRING)&ExpSysDbgLock.SuspendEvent;
+    KeyHandle_8.ObjectName = (PUNICODE_STRING)&ExpSysDbgLock.792;
     *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
     inited = ZwOpenKey(&Handle, 0xF003Fu, &KeyHandle_8);
     if ( inited < 0 )
       goto LABEL_21;
     ZwClose(Handle);
-    *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[80] |= 1u;
+    LODWORD(ExpSysDbgLock.MutantListHead.Blink) |= 1u;
     RtlInitUnicodeStringEx(&ValueName, L"LastProfile");
     inited = ZwSetValueKey(
                KeyHandle,
                &ValueName,
                0,
                1u,
-               ExpSysDbgLock.SuspendEvent.Header.WaitListHead.Flink,
-               *(unsigned __int16 *)&ExpSysDbgLock.SuspendEvent.Header.Size);
+               ExpSysDbgLock.SchedulerSharedSystemSlot,
+               *(unsigned __int16 *)&ExpSysDbgLock.FreezeFlags);
     if ( inited < 0 )
       goto LABEL_21;
     inited = RtlInitUnicodeStringEx(&DestinationString, L"Current");
@@ -124,7 +122,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
                  L"%s%s%wZ",
                  L"\\registry\\machine\\",
                  L"System\\CurrentControlSet\\Control\\ManufacturingMode\\",
-                 &ExpSysDbgLock.SuspendEvent);
+                 &ExpSysDbgLock.792);
       if ( inited >= 0 )
       {
         v5 = -1LL;

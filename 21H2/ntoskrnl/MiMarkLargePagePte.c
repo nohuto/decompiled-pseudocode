@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkLargePagePte @ 0x140A669D0
+ * XREFs of MiMarkLargePagePte @ 0x140A679D0
  * Callers:
  *     <none>
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiMarkLargePagePte(__int64 a1, unsigned __int64 a2, int a3)

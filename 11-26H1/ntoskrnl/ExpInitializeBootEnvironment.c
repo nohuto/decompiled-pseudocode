@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpInitializeBootEnvironment @ 0x140CAA4D0
+ * XREFs of ExpInitializeBootEnvironment @ 0x140CB04D0
  * Callers:
- *     ExInitializeBootStructures @ 0x140576458 (ExInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     ExInitializeBootStructures @ 0x140578908 (ExInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
  */
 
 char __fastcall ExpInitializeBootEnvironment(__int64 a1, int a2)
@@ -14,14 +14,14 @@ char __fastcall ExpInitializeBootEnvironment(__int64 a1, int a2)
   if ( a2 )
   {
     if ( a2 == 1 )
-      LOBYTE(v2) = IoAddTriageDumpDataBlock((ULONG)&ExpSysDbgLock.SchedulerApcFill5[48], (PVOID)0x20);
+      LOBYTE(v2) = IoAddTriageDumpDataBlock((ULONG)&ExpSysDbgLock.SuspendEvent.Header.WaitListHead.Blink, (PVOID)0x20);
   }
   else
   {
-    *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] = ((*(_BYTE *)(a1 + 264) & 1) != 0) + 1;
-    *(_OWORD *)&ExpSysDbgLock.SchedulerApcFill5[48] = *(_OWORD *)(*(_QWORD *)(a1 + 240) + 256LL);
+    LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) = ((*(_BYTE *)(a1 + 264) & 1) != 0) + 1;
+    *(_OWORD *)&ExpSysDbgLock.SuspendEvent.Header.WaitListHead.Blink = *(_OWORD *)(*(_QWORD *)(a1 + 240) + 256LL);
     v2 = *(_QWORD *)(a1 + 240);
-    ExpSysDbgLock.SchedulerApc.SystemArgument2 = *(PVOID *)(v2 + 2648);
+    ExpSysDbgLock.MutantListHead.Flink = *(struct _LIST_ENTRY **)(v2 + 2648);
   }
   return v2;
 }

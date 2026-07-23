@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingCommonClassListWorker @ 0x1407B0854
+ * XREFs of _CmGetMatchingCommonClassListWorker @ 0x1407B09F4
  * Callers:
- *     _CmGetMatchingCommonClassList @ 0x1407B073C (_CmGetMatchingCommonClassList.c)
+ *     _CmGetMatchingCommonClassList @ 0x1407B08DC (_CmGetMatchingCommonClassList.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1628 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingCommonClassListWorker(

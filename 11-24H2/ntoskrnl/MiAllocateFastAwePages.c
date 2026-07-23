@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAllocateFastAwePages @ 0x1407F833C
+ * XREFs of MiAllocateFastAwePages @ 0x1407F8AAC
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x1407F84C8 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407F8C38 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MiUpdateProtectionMask @ 0x14021BFAC (MiUpdateProtectionMask.c)
- *     MiCreateLargePfnList @ 0x14036E934 (MiCreateLargePfnList.c)
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiGetAweInfoPartition @ 0x1403CCDEC (MiGetAweInfoPartition.c)
- *     MiInitializeLargePfnList @ 0x140428B20 (MiInitializeLargePfnList.c)
- *     MiPageChainCount @ 0x1404642D0 (MiPageChainCount.c)
- *     MiFillUserPhysicalMdl @ 0x140681F84 (MiFillUserPhysicalMdl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiUpdateProtectionMask @ 0x140248CFC (MiUpdateProtectionMask.c)
+ *     MiGetAweInfoPartition @ 0x140266FBC (MiGetAweInfoPartition.c)
+ *     MiCreateLargePfnList @ 0x14026A8C0 (MiCreateLargePfnList.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiInitializeLargePfnList @ 0x14041CC70 (MiInitializeLargePfnList.c)
+ *     MiPageChainCount @ 0x14045AA00 (MiPageChainCount.c)
+ *     MiFillUserPhysicalMdl @ 0x140683174 (MiFillUserPhysicalMdl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiAllocateFastAwePages(
@@ -51,7 +51,7 @@ __int64 __fastcall MiAllocateFastAwePages(
   v11 = v10 * ((unsigned __int64)*(unsigned int *)(a1 + 40) >> 12);
   v27 = v10;
   AweInfoPartition = MiGetAweInfoPartition(v12);
-  if ( (int)MiAcquireNonPagedResources((ULONG *)AweInfoPartition, v11, 0LL, 2u) < 0 )
+  if ( (int)MiAcquireNonPagedResources((ULONG *)AweInfoPartition, v11, 0LL, 2LL) < 0 )
     return 3221225773LL;
   v15 = *(_DWORD *)(a2 + 52);
   v24[1] = v27;

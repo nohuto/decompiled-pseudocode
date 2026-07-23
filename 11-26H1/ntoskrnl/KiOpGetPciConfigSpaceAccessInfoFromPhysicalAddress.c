@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x1404F41C8
+ * XREFs of KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x1404ED7A8
  * Callers:
- *     KiOpPciConfigSpaceAccessCommon @ 0x1405F82A4 (KiOpPciConfigSpaceAccessCommon.c)
+ *     KiOpPciConfigSpaceAccessCommon @ 0x1405FACC4 (KiOpPciConfigSpaceAccessCommon.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress(

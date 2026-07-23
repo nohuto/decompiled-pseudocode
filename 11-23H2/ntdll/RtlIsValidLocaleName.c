@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsValidLocaleName @ 0x18010ACB0
+ * XREFs of RtlIsValidLocaleName @ 0x18010AC80
  * Callers:
  *     RtlGetUserPreferredUILanguages @ 0x1800810E0 (RtlGetUserPreferredUILanguages.c)
  *     RtlGetSystemPreferredUILanguages @ 0x180082250 (RtlGetSystemPreferredUILanguages.c)
@@ -7,28 +7,35 @@
  * Callees:
  *     RtlpNlsGetNameIndex @ 0x180015610 (RtlpNlsGetNameIndex.c)
  *     RtlpLoadNlsData @ 0x18007FE28 (RtlpLoadNlsData.c)
- *     RtlpGetCustomCultureData @ 0x18010AE04 (RtlpGetCustomCultureData.c)
- *     RtlpIsCustomLocale @ 0x18010B264 (RtlpIsCustomLocale.c)
+ *     RtlpGetCustomCultureData @ 0x18010ADD4 (RtlpGetCustomCultureData.c)
+ *     RtlpIsCustomLocale @ 0x18010B234 (RtlpIsCustomLocale.c)
  */
 
-char __fastcall RtlIsValidLocaleName(PCWSTR SourceString, int a2)
+// local variable allocation has failed, the output may be wrong!
+BOOLEAN __cdecl RtlIsValidLocaleName(PCWSTR LocaleName, ULONG Flags)
 {
-  char v2; // di
+  __int64 v2; // r8
+  ULONG *v3; // r9
+  char v4; // di
   int NameIndex; // eax
 
-  v2 = a2;
-  if ( !SourceString || (a2 & 0xFFFFFFFD) != 0 || !pTblPtrs && !RtlpLoadNlsData() )
+  v4 = Flags;
+  if ( !LocaleName
+    || (Flags & 0xFFFFFFFD) != 0
+    || !pTblPtrs && !RtlpLoadNlsData((__int64)LocaleName, *(__int64 *)&Flags, v2, v3) )
+  {
     return 0;
-  NameIndex = RtlpNlsGetNameIndex((__int64)SourceString);
+  }
+  NameIndex = RtlpNlsGetNameIndex((__int64)LocaleName);
   if ( NameIndex < 0 )
   {
-    if ( !(unsigned __int8)RtlpIsCustomLocale(SourceString)
-      || (v2 & 2) == 0 && (int)RtlpGetCustomCultureData(SourceString, 0LL, 0LL, 0LL) < 0 )
+    if ( !(unsigned __int8)RtlpIsCustomLocale(LocaleName)
+      || (v4 & 2) == 0 && (int)RtlpGetCustomCultureData(LocaleName, 0LL, 0LL, 0LL) < 0 )
     {
       return 0;
     }
   }
-  else if ( (v2 & 2) == 0 )
+  else if ( (v4 & 2) == 0 )
   {
     _mm_lfence();
     if ( (*(_BYTE *)(*(unsigned __int16 *)(pTblPtrs + 48)

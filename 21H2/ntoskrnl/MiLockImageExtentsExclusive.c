@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockImageExtentsExclusive @ 0x1408D0284
+ * XREFs of MiLockImageExtentsExclusive @ 0x1408D03E4
  * Callers:
- *     MiAllocateEntireImageFileExtents @ 0x1408CF2A4 (MiAllocateEntireImageFileExtents.c)
- *     MiDeleteImageExtentList @ 0x1408D0010 (MiDeleteImageExtentList.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408CF404 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteImageExtentList @ 0x1408D0170 (MiDeleteImageExtentList.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void MiLockImageExtentsExclusive()
@@ -13,5 +13,5 @@ void MiLockImageExtentsExclusive()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CCA8, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CCE8, 0LL);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpHeapExtendContext @ 0x1404DF1CC
+ * XREFs of RtlpHpHeapExtendContext @ 0x1404D88AC
  * Callers:
- *     RtlpHpSegLfhExtendContext @ 0x1404DF1B0 (RtlpHpSegLfhExtendContext.c)
+ *     RtlpHpSegLfhExtendContext @ 0x1404D8890 (RtlpHpSegLfhExtendContext.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpAllocVA @ 0x140364350 (RtlpHpAllocVA.c)
- *     RtlpHpAcquireReleaseLockExclusive @ 0x1404DF360 (RtlpHpAcquireReleaseLockExclusive.c)
- *     RtlpHpMetadataCommit @ 0x1404DF41C (RtlpHpMetadataCommit.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpAllocVA @ 0x1403660F0 (RtlpHpAllocVA.c)
+ *     RtlpHpAcquireReleaseLockExclusive @ 0x1404D8A40 (RtlpHpAcquireReleaseLockExclusive.c)
+ *     RtlpHpMetadataCommit @ 0x1404D8AFC (RtlpHpMetadataCommit.c)
  */
 
 unsigned __int64 __fastcall RtlpHpHeapExtendContext(__int128 *a1, __int64 a2)

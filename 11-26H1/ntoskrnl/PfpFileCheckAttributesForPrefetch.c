@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpFileCheckAttributesForPrefetch @ 0x1404A6EE0
+ * XREFs of PfpFileCheckAttributesForPrefetch @ 0x1404A0570
  * Callers:
- *     PfSnGetSectionObject @ 0x1409B9738 (PfSnGetSectionObject.c)
- *     PfpFileBuildReadSupport @ 0x140A4F6FC (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x14098A718 (PfSnGetSectionObject.c)
+ *     PfpFileBuildReadSupport @ 0x140A589EC (PfpFileBuildReadSupport.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     NtQueryInformationFile @ 0x1409B4B00 (NtQueryInformationFile.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     NtQueryInformationFile @ 0x140985BC0 (NtQueryInformationFile.c)
  */
 
 NTSTATUS __fastcall PfpFileCheckAttributesForPrefetch(void *a1, int a2)

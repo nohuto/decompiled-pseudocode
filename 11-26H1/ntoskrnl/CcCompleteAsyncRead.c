@@ -1,23 +1,23 @@
 /*
- * XREFs of CcCompleteAsyncRead @ 0x14039E848
+ * XREFs of CcCompleteAsyncRead @ 0x1403A05A8
  * Callers:
- *     CcPostWorkQueueAsyncRead @ 0x140387C88 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncReadWorker @ 0x140388380 (CcAsyncReadWorker.c)
- *     CcCompleteAsyncReadWorker @ 0x1404BEB80 (CcCompleteAsyncReadWorker.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140389A38 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x14038A130 (CcAsyncReadWorker.c)
+ *     CcCompleteAsyncReadWorker @ 0x1404B83D0 (CcCompleteAsyncReadWorker.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     IoDiskIoAttributionDereference @ 0x14021D5D4 (IoDiskIoAttributionDereference.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     PsSetPagePriorityThread @ 0x140383060 (PsSetPagePriorityThread.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     CcCopyReadExceptionFilter @ 0x1404F4578 (CcCopyReadExceptionFilter.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CcMapAndCopyFromCache @ 0x140A64900 (CcMapAndCopyFromCache.c)
- *     CcTelemetryBucketizeLatency @ 0x140A814A8 (CcTelemetryBucketizeLatency.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     IoDiskIoAttributionDereference @ 0x14021EF64 (IoDiskIoAttributionDereference.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x140384E10 (PsSetPagePriorityThread.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     CcCopyReadExceptionFilter @ 0x1404EDB58 (CcCopyReadExceptionFilter.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CcMapAndCopyFromCache @ 0x140A718D0 (CcMapAndCopyFromCache.c)
+ *     CcTelemetryBucketizeLatency @ 0x140A87318 (CcTelemetryBucketizeLatency.c)
  */
 
 void __fastcall CcCompleteAsyncRead(__int64 a1)
@@ -101,11 +101,11 @@ void __fastcall CcCompleteAsyncRead(__int64 a1)
   KeGetCurrentThread()[1].TrapFrame = 0LL;
   PsSetPagePriorityThread((__int64)CurrentThread, PagePriorityThread);
   _InterlockedDecrement((volatile signed __int32 *)(v2 + 528));
-  if ( !BYTE1(EmpParseLock.Timer.DueTime.LowPart) )
+  if ( !BYTE1(EmpParseLock.Timer.TimerListEntry.Flink) )
   {
     v14 = *(_QWORD *)(v2 + 512);
     v15 = 1000000 * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - v6);
-    CcTelemetryBucketizeLatency(v15 / (__int64)EmpParseLock.WaitListEntry.Blink, v14 + 1288, v14 + 1384);
+    CcTelemetryBucketizeLatency(v15 / (__int64)EmpParseLock.Queue, v14 + 1288, v14 + 1384);
     ++*(_QWORD *)(v14 + 1272);
     if ( v16 > *(_QWORD *)(v14 + 1280) )
       *(_QWORD *)(v14 + 1280) = v16;

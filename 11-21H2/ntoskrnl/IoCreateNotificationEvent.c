@@ -1,8 +1,8 @@
 /*
  * XREFs of IoCreateNotificationEvent @ 0x1406EAB50
  * Callers:
- *     DifIoCreateNotificationEventWrapper @ 0x14060E1E0 (DifIoCreateNotificationEventWrapper.c)
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
+ *     sub_14060E1E0 @ 0x14060E1E0 (sub_14060E1E0.c)
+ *     sub_14093A0B8 @ 0x14093A0B8 (sub_14093A0B8.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)

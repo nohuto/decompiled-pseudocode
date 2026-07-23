@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipPrepareWnodeSI @ 0x140612888
+ * XREFs of WmipPrepareWnodeSI @ 0x140613888
  * Callers:
- *     WmipQuerySetExecuteSI @ 0x1405FBF88 (WmipQuerySetExecuteSI.c)
+ *     WmipQuerySetExecuteSI @ 0x1405FCF88 (WmipQuerySetExecuteSI.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     _wtoi @ 0x140195C80 (_wtoi.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipUnreferenceEntry @ 0x1405FC204 (WmipUnreferenceEntry.c)
- *     WmipAddProviderIdToPIList @ 0x140612B34 (WmipAddProviderIdToPIList.c)
- *     WmipReferenceEntry @ 0x140612C30 (WmipReferenceEntry.c)
- *     WmipCountedToSz @ 0x140612C58 (WmipCountedToSz.c)
- *     WmipIsNumber @ 0x14071ECF8 (WmipIsNumber.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     _wtoi @ 0x140195DC0 (_wtoi.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WmipUnreferenceEntry @ 0x1405FD204 (WmipUnreferenceEntry.c)
+ *     WmipAddProviderIdToPIList @ 0x140613B34 (WmipAddProviderIdToPIList.c)
+ *     WmipReferenceEntry @ 0x140613C30 (WmipReferenceEntry.c)
+ *     WmipCountedToSz @ 0x140613C58 (WmipCountedToSz.c)
+ *     WmipIsNumber @ 0x14071FF98 (WmipIsNumber.c)
  */
 
 __int64 __fastcall WmipPrepareWnodeSI(__int64 a1, __int64 a2, int *a3, void **a4, _BYTE *a5, _BYTE *a6)

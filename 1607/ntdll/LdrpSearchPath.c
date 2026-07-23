@@ -1,53 +1,53 @@
 /*
- * XREFs of LdrpSearchPath @ 0x18000EBF0
+ * XREFs of LdrpSearchPath @ 0x18000EBE0
  * Callers:
- *     LdrpMapDllSearchPath @ 0x18000E5C8 (LdrpMapDllSearchPath.c)
- *     LdrpFindLoadedDllInternal @ 0x1800123F8 (LdrpFindLoadedDllInternal.c)
+ *     LdrpMapDllSearchPath @ 0x18000E5B8 (LdrpMapDllSearchPath.c)
+ *     LdrpFindLoadedDllInternal @ 0x1800123E8 (LdrpFindLoadedDllInternal.c)
  * Callees:
- *     EtwEventWriteNoRegistration @ 0x180008A70 (EtwEventWriteNoRegistration.c)
- *     LdrpComputeLazyDllPath @ 0x18000D37C (LdrpComputeLazyDllPath.c)
- *     LdrpIsSecurityEtwLoggingEnabled @ 0x18000DD04 (LdrpIsSecurityEtwLoggingEnabled.c)
- *     LdrpFreeUnicodeString @ 0x18000E8FC (LdrpFreeUnicodeString.c)
- *     LdrpResolveDllName @ 0x18000FA94 (LdrpResolveDllName.c)
- *     LdrpAllocateUnicodeString @ 0x18000FD28 (LdrpAllocateUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x180010440 (RtlAppendUnicodeStringToString.c)
- *     RtlCopyUnicodeString @ 0x180015220 (RtlCopyUnicodeString.c)
- *     RtlCompareUnicodeStrings @ 0x1800195B0 (RtlCompareUnicodeStrings.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
- *     RtlpLookupSafeCurDirList @ 0x1800DA2C0 (RtlpLookupSafeCurDirList.c)
+ *     EtwEventWriteNoRegistration @ 0x180008A60 (EtwEventWriteNoRegistration.c)
+ *     LdrpComputeLazyDllPath @ 0x18000D36C (LdrpComputeLazyDllPath.c)
+ *     LdrpIsSecurityEtwLoggingEnabled @ 0x18000DCF4 (LdrpIsSecurityEtwLoggingEnabled.c)
+ *     LdrpFreeUnicodeString @ 0x18000E8EC (LdrpFreeUnicodeString.c)
+ *     LdrpResolveDllName @ 0x18000FA84 (LdrpResolveDllName.c)
+ *     LdrpAllocateUnicodeString @ 0x18000FD18 (LdrpAllocateUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x180010430 (RtlAppendUnicodeStringToString.c)
+ *     RtlCopyUnicodeString @ 0x180015210 (RtlCopyUnicodeString.c)
+ *     RtlCompareUnicodeStrings @ 0x1800195A0 (RtlCompareUnicodeStrings.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
+ *     RtlpLookupSafeCurDirList @ 0x1800DA380 (RtlpLookupSafeCurDirList.c)
  */
 
 __int64 __fastcall LdrpSearchPath(
-        unsigned __int16 *a1,
+        const UNICODE_STRING *a1,
         __int64 a2,
         char a3,
-        __int16 **a4,
+        wchar_t **a4,
         _WORD *a5,
         __int64 a6,
-        unsigned __int16 *a7,
+        PCUNICODE_STRING SourceString,
         bool *a8,
         __int64 a9)
 {
-  unsigned __int16 *v10; // r13
-  unsigned __int16 *v13; // rbx
-  unsigned __int16 *v14; // r12
+  PCUNICODE_STRING v10; // r13
+  const UNICODE_STRING *v13; // rbx
+  PCWCH *v14; // r12
   int v15; // ebx
   unsigned int v16; // r8d
-  __int16 *v17; // rdx
-  __int16 *v18; // rcx
-  __int16 v19; // ax
+  wchar_t *v17; // rdx
+  wchar_t *v18; // rcx
+  wchar_t v19; // ax
   int v20; // r9d
-  _WORD *v21; // rdx
-  __int16 *v22; // r14
-  __int16 *v23; // rdi
-  _WORD *v24; // rax
+  wchar_t *Buffer; // rdx
+  wchar_t *v22; // r14
+  wchar_t *v23; // rdi
+  wchar_t *v24; // rax
   bool v25; // si
-  __int16 v26; // cx
+  wchar_t v26; // cx
   int v27; // eax
-  __int16 **v28; // rsi
+  wchar_t **v28; // rsi
   _DWORD *v29; // rsi
   unsigned int v30; // r10d
   _QWORD *v32; // rax
@@ -55,38 +55,35 @@ __int64 __fastcall LdrpSearchPath(
   _QWORD *v34; // rsi
   unsigned __int16 v35; // r13
   unsigned __int16 v36; // ax
-  __int64 Heap; // rax
-  int v38; // r8d
-  int v39; // eax
-  __int128 *v40; // rdx
+  _UNICODE_STRING *Heap; // rax
+  ULONG v38; // r8d
+  int Length; // eax
+  const EVENT_DESCRIPTOR *v40; // rdx
   _DWORD *v41; // rdx
   unsigned int v42; // r9d
   _QWORD *v43; // r8
-  unsigned __int16 *v46; // [rsp+48h] [rbp-81h]
-  __int16 v47; // [rsp+58h] [rbp-71h] BYREF
-  _WORD *v48; // [rsp+60h] [rbp-69h]
-  __int64 v49; // [rsp+68h] [rbp-61h]
-  _WORD *v50; // [rsp+70h] [rbp-59h]
-  __int16 **v51; // [rsp+78h] [rbp-51h]
-  bool *v52; // [rsp+80h] [rbp-49h]
-  __int64 v53; // [rsp+88h] [rbp-41h]
-  __int64 v54; // [rsp+90h] [rbp-39h] BYREF
-  int v55; // [rsp+98h] [rbp-31h]
-  int v56; // [rsp+9Ch] [rbp-2Dh]
-  __int64 v57; // [rsp+A0h] [rbp-29h]
-  int v58; // [rsp+A8h] [rbp-21h]
-  int v59; // [rsp+ACh] [rbp-1Dh]
-  __int64 v60; // [rsp+B0h] [rbp-19h]
-  int v61; // [rsp+B8h] [rbp-11h]
-  int v62; // [rsp+BCh] [rbp-Dh]
+  _UNICODE_STRING *v46; // [rsp+48h] [rbp-81h]
+  _UNICODE_STRING Destination; // [rsp+58h] [rbp-71h] BYREF
+  __int64 v48; // [rsp+68h] [rbp-61h]
+  wchar_t *v49; // [rsp+70h] [rbp-59h]
+  wchar_t **v50; // [rsp+78h] [rbp-51h]
+  bool *v51; // [rsp+80h] [rbp-49h]
+  __int64 v52; // [rsp+88h] [rbp-41h]
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+90h] [rbp-39h] BYREF
+  PCWCH v54; // [rsp+A0h] [rbp-29h]
+  int v55; // [rsp+A8h] [rbp-21h]
+  int v56; // [rsp+ACh] [rbp-1Dh]
+  wchar_t *v57; // [rsp+B0h] [rbp-19h]
+  int v58; // [rsp+B8h] [rbp-11h]
+  int v59; // [rsp+BCh] [rbp-Dh]
 
-  v10 = a7;
+  v10 = SourceString;
   v13 = a1;
-  v49 = a6;
+  v48 = a6;
   v14 = 0LL;
-  v52 = a8;
-  v53 = a9;
-  v51 = a4;
+  v51 = a8;
+  v52 = a9;
+  v50 = a4;
   v46 = 0LL;
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -113,12 +110,12 @@ __int64 __fastcall LdrpSearchPath(
       goto LABEL_15;
     }
   }
-  v17 = *(__int16 **)(a2 + 16);
+  v17 = *(wchar_t **)(a2 + 16);
   if ( v17 )
     goto LABEL_10;
   do
   {
-    v17 = *(__int16 **)a2;
+    v17 = *(wchar_t **)a2;
 LABEL_10:
     v18 = v17;
 LABEL_15:
@@ -136,21 +133,21 @@ LABEL_15:
         ++v18;
     }
   }
-  while ( v17 == *(__int16 **)(a2 + 16) && !a3 );
-  v15 = LdrpAllocateUnicodeString(&v47, *v13 + v16 + 2);
+  while ( v17 == *(wchar_t **)(a2 + 16) && !a3 );
+  v15 = LdrpAllocateUnicodeString(&Destination, v13->Length + v16 + 2);
   if ( v15 < 0 )
     goto LABEL_50;
-  v21 = v48;
-  v50 = v48;
+  Buffer = Destination.Buffer;
+  v49 = Destination.Buffer;
   if ( a4 && (v22 = *a4) != 0LL )
   {
     v23 = a4[1];
   }
   else
   {
-    v22 = *(__int16 **)(a2 + 16);
+    v22 = *(wchar_t **)(a2 + 16);
     if ( !v22 )
-      v22 = *(__int16 **)a2;
+      v22 = *(wchar_t **)a2;
     v23 = v22;
   }
   while ( 1 )
@@ -163,8 +160,8 @@ LABEL_15:
       }
       else
       {
-        v24 = v21;
-        v25 = v23 == *(__int16 **)(a2 + 8);
+        v24 = Buffer;
+        v25 = v23 == *(wchar_t **)(a2 + 8);
         while ( 1 )
         {
           v26 = *v23;
@@ -178,16 +175,16 @@ LABEL_15:
         if ( *v23 == 59 )
 LABEL_33:
           ++v23;
-        if ( v24 != v21 )
+        if ( v24 != Buffer )
         {
           if ( *(v24 - 1) != 92 && *(v24 - 1) != 47 )
           {
             *v24 = 92;
             LOWORD(v24) = (_WORD)v24 + 2;
           }
-          v47 = (_WORD)v24 - (_WORD)v21;
-          RtlAppendUnicodeStringToString(&v47, a1, 92LL);
-          v27 = LdrpResolveDllName((unsigned int)&v47, (_DWORD)a5, v49, (_DWORD)v10, 0LL, 0);
+          Destination.Length = (_WORD)v24 - (_WORD)Buffer;
+          RtlAppendUnicodeStringToString(&Destination, a1);
+          v27 = LdrpResolveDllName(&Destination, a5, v48, v10, 0LL, 0);
           v15 = v27;
           if ( v25 )
           {
@@ -200,32 +197,32 @@ LABEL_33:
               v34 = (_QWORD *)*v32;
               if ( (_QWORD *)*v32 != v32 )
               {
-                v35 = *v10 >> 1;
+                v35 = v10->Length >> 1;
                 do
                 {
                   v36 = *((_WORD *)v34 + 8) >> 1;
-                  if ( v35 > v36 && !(unsigned int)RtlCompareUnicodeStrings(*((_QWORD *)a7 + 1), v36, v34[3], v36, 1) )
+                  if ( v35 > v36 && !RtlCompareUnicodeStrings(SourceString->Buffer, v36, (PCWCH)v34[3], v36, 1u) )
                   {
-                    v14 = v46;
-                    v10 = a7;
+                    v14 = (PCWCH *)v46;
+                    v10 = SourceString;
                     goto LABEL_39;
                   }
                   v34 = (_QWORD *)*v34;
                 }
                 while ( v34 != v33 );
-                v10 = a7;
+                v10 = SourceString;
               }
             }
-            Heap = RtlAllocateHeap(LdrpHeap, (unsigned int)(NtdllBaseTag + 0x40000), *v10 + 18LL);
-            v46 = (unsigned __int16 *)Heap;
-            v14 = (unsigned __int16 *)Heap;
+            Heap = (_UNICODE_STRING *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, v10->Length + 18LL);
+            v46 = Heap;
+            v14 = (PCWCH *)Heap;
             if ( Heap )
             {
-              *(_WORD *)Heap = 0;
-              *(_WORD *)(Heap + 2) = *v10;
-              *(_QWORD *)(Heap + 8) = Heap + 16;
+              Heap->Length = 0;
+              Heap->MaximumLength = v10->Length;
+              Heap->Buffer = &Heap[1].Length;
               RtlCopyUnicodeString(Heap, v10);
-              *(_WORD *)(*((_QWORD *)v14 + 1) + 2 * ((unsigned __int64)*v10 >> 1)) = 0;
+              v14[1][(unsigned __int64)v10->Length >> 1] = 0;
             }
             v15 = -1073741515;
           }
@@ -235,34 +232,34 @@ LABEL_39:
 LABEL_54:
           if ( v15 != -1073741515 && v15 != -1073741790 && v15 != -1073741757 && v15 != -1073741715 )
             goto LABEL_42;
-          v21 = v50;
+          Buffer = v49;
           *a5 = 0;
         }
       }
     }
-    if ( v22 != *(__int16 **)(a2 + 16) || a3 )
+    if ( v22 != *(wchar_t **)(a2 + 16) || a3 )
       break;
-    v22 = *(__int16 **)a2;
-    v23 = *(__int16 **)a2;
+    v22 = *(wchar_t **)a2;
+    v23 = *(wchar_t **)a2;
   }
   v15 = -1073741515;
 LABEL_42:
   if ( v14 )
   {
     if ( v15 < 0
-      || (unsigned int)RtlCompareUnicodeStrings(
-                         *((_QWORD *)v10 + 1),
-                         (unsigned __int64)*v10 >> 1,
-                         *((_QWORD *)v14 + 1),
-                         (unsigned __int64)*v14 >> 1,
-                         1) )
+      || RtlCompareUnicodeStrings(
+           v10->Buffer,
+           (unsigned __int64)v10->Length >> 1,
+           v14[1],
+           (unsigned __int64)*(unsigned __int16 *)v14 >> 1,
+           1u) )
     {
+      UserData.Reserved = 0;
       v56 = 0;
-      v59 = 0;
-      v54 = *(_QWORD *)(LdrpImageEntry + 80);
-      v55 = *(unsigned __int16 *)(LdrpImageEntry + 72) + 2;
-      v57 = *((_QWORD *)v14 + 1);
-      v58 = *v14 + 2;
+      UserData.Ptr = *(_QWORD *)(LdrpImageEntry + 80);
+      UserData.Size = *(unsigned __int16 *)(LdrpImageEntry + 72) + 2;
+      v54 = v14[1];
+      v55 = *(unsigned __int16 *)v14 + 2;
       if ( v15 < 0 )
       {
         v38 = 2;
@@ -270,32 +267,32 @@ LABEL_42:
       else
       {
         v38 = 3;
-        v60 = *((_QWORD *)v10 + 1);
-        v39 = *v10;
-        v62 = 0;
-        v61 = v39 + 2;
+        v57 = v10->Buffer;
+        Length = v10->Length;
+        v59 = 0;
+        v58 = Length + 2;
       }
-      v40 = (__int128 *)&CurDirDllLoadFailureWarning;
+      v40 = (const EVENT_DESCRIPTOR *)&CurDirDllLoadFailureWarning;
       if ( v15 < 0 )
-        v40 = (__int128 *)&CurDirDllLoadFailureError;
-      EtwEventWriteNoRegistration((__int64)&UserLoaderGuid, v40, v38, (__int64)&v54);
+        v40 = &CurDirDllLoadFailureError;
+      EtwEventWriteNoRegistration(&UserLoaderGuid, v40, v38, &UserData);
     }
-    RtlFreeHeap(LdrpHeap, 0LL, v14);
+    RtlFreeHeap(LdrpHeap, 0, v14);
   }
-  LdrpFreeUnicodeString((__int64)&v47);
+  LdrpFreeUnicodeString((__int64)&Destination);
   if ( v15 >= 0 )
   {
-    v28 = v51;
-    if ( v51 )
+    v28 = v50;
+    if ( v50 )
     {
-      *v51 = v22;
+      *v50 = v22;
       v28[1] = v23;
     }
-    if ( v52 )
-      *v52 = v22 == *(__int16 **)(a2 + 16);
+    if ( v51 )
+      *v51 = v22 == *(wchar_t **)(a2 + 16);
   }
-  v29 = (_DWORD *)v53;
-  if ( v53 && LdrpIsSecurityEtwLoggingEnabled() )
+  v29 = (_DWORD *)v52;
+  if ( v52 && LdrpIsSecurityEtwLoggingEnabled() )
   {
     v41 = (_DWORD *)(a2 + 40);
     v42 = v30;

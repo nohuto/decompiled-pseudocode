@@ -1,5 +1,5 @@
 /*
- * XREFs of MiExpandPtes @ 0x1400F6414
+ * XREFs of MiExpandPtes @ 0x1400F6494
  * Callers:
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  * Callees:
@@ -13,13 +13,13 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
- *     MiObtainSessionVa @ 0x1400F72A4 (MiObtainSessionVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiObtainSystemVa @ 0x1400F69E4 (MiObtainSystemVa.c)
+ *     MiObtainSessionVa @ 0x1400F7324 (MiObtainSessionVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
@@ -85,7 +85,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
   v5 = *((_DWORD *)a1 + 7);
   v46 = v5;
   if ( a2 >= 0x200 )
-    v4 = a1 == &qword_14043AFA0;
+    v4 = a1 == &qword_14043C060;
   v6 = (a2 + 511) & 0xFFFFFFFFFFFFFE00uLL;
   v7 = v6 >> 9;
   v8 = (v3 & 4) != 0 ? 16LL : 1LL;
@@ -191,7 +191,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
             {
               v37->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v37->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&v30->LockEntries[v36], SessionId);
+                KiAbEntryRemoveFromTree(&v30->LockEntries[v36].TreeNode, SessionId);
               v57 = 0;
               v57 = v37->BoostBitmap.AllFields & 0x1FFFF;
               v37->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -241,12 +241,12 @@ LABEL_75:
   }
   _InterlockedExchangeAdd64(a1 + 11, v50);
   _InterlockedExchangeAdd64(a1 + 7, v50);
-  if ( (dword_14054017C & 2) != 0 && a1 == &qword_14043AFA0 )
+  if ( (dword_14054117C & 2) != 0 && a1 == &qword_14043C060 )
   {
-    v43 = qword_14043ABA0 + ((2 * v51) >> 3);
+    v43 = qword_14043BC60 + ((2 * v51) >> 3);
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 6, &LockHandle);
     if ( !(unsigned int)MiSplitBitmapPages(v5, v43, ((2 * (_BYTE)v51) & 7) + 2 * v50) )
-      dword_14054017C &= ~2u;
+      dword_14054117C &= ~2u;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v44 = LockHandle.OldIrql;
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

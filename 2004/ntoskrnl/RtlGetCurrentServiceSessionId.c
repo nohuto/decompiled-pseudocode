@@ -7,15 +7,15 @@
  *     PsGetThreadServerSilo @ 0x1402BE900 (PsGetThreadServerSilo.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
   __int64 ThreadServerSilo; // rax
-  unsigned int **v1; // rax
+  _DWORD **v1; // rax
 
   ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
   if ( ThreadServerSilo )
-    v1 = *(unsigned int ***)(ThreadServerSilo + 1272);
+    v1 = *(_DWORD ***)(ThreadServerSilo + 1272);
   else
-    v1 = (unsigned int **)&PspHostSiloGlobals;
+    v1 = (_DWORD **)&PspHostSiloGlobals;
   return *v1[140];
 }

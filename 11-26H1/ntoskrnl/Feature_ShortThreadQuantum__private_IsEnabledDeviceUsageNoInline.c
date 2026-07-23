@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ShortThreadQuantum__private_IsEnabledDeviceUsageNoInline @ 0x140523FB8
+ * XREFs of Feature_ShortThreadQuantum__private_IsEnabledDeviceUsageNoInline @ 0x140526628
  * Callers:
- *     KiInitializeVelocity @ 0x140CCA1CC (KiInitializeVelocity.c)
+ *     KiInitializeVelocity @ 0x140CD02B4 (KiInitializeVelocity.c)
  * Callees:
- *     Feature_ShortThreadQuantum__private_IsEnabledFallback @ 0x140523FF4 (Feature_ShortThreadQuantum__private_IsEnabledFallback.c)
+ *     Feature_ShortThreadQuantum__private_IsEnabledFallback @ 0x140526664 (Feature_ShortThreadQuantum__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ShortThreadQuantum__private_IsEnabledDeviceUsageNoInline()

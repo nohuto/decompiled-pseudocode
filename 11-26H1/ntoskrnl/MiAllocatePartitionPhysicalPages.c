@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllocatePartitionPhysicalPages @ 0x140B60228
+ * XREFs of MiAllocatePartitionPhysicalPages @ 0x140B632C4
  * Callers:
- *     MiReleasePartitionHugeIoSpace @ 0x1406ED674 (MiReleasePartitionHugeIoSpace.c)
- *     MmManagePartitionMoveMemory @ 0x14087D0C8 (MmManagePartitionMoveMemory.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x1406F2314 (MiReleasePartitionHugeIoSpace.c)
+ *     MmManagePartitionMoveMemory @ 0x1408834C8 (MmManagePartitionMoveMemory.c)
  * Callees:
- *     MiReleaseNonPagedResourcesNotExposed @ 0x1403C2FD8 (MiReleaseNonPagedResourcesNotExposed.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiPartitionTransferAllocateFinish @ 0x14087C7EC (MiPartitionTransferAllocateFinish.c)
- *     MiPartitionTransferAllocateHugeRange @ 0x14087C900 (MiPartitionTransferAllocateHugeRange.c)
- *     MiPartitionTransferAllocateLargePages @ 0x14087CA30 (MiPartitionTransferAllocateLargePages.c)
- *     MiPartitionTransferAllocateSmallPages @ 0x14087CBB4 (MiPartitionTransferAllocateSmallPages.c)
- *     MiPartitionTransferAllocatePrepare @ 0x140B60344 (MiPartitionTransferAllocatePrepare.c)
+ *     MiReleaseNonPagedResourcesNotExposed @ 0x1403CCED8 (MiReleaseNonPagedResourcesNotExposed.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiPartitionTransferAllocateFinish @ 0x140882BEC (MiPartitionTransferAllocateFinish.c)
+ *     MiPartitionTransferAllocateHugeRange @ 0x140882D00 (MiPartitionTransferAllocateHugeRange.c)
+ *     MiPartitionTransferAllocateLargePages @ 0x140882E30 (MiPartitionTransferAllocateLargePages.c)
+ *     MiPartitionTransferAllocateSmallPages @ 0x140882FB4 (MiPartitionTransferAllocateSmallPages.c)
+ *     MiPartitionTransferAllocatePrepare @ 0x140B633E0 (MiPartitionTransferAllocatePrepare.c)
  */
 
 __int64 __fastcall MiAllocatePartitionPhysicalPages(ULONG *a1, __int64 a2, __int64 a3, int a4, int a5)

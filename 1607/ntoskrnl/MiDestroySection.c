@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDestroySection @ 0x140111D20
+ * XREFs of MiDestroySection @ 0x140112284
  * Callers:
- *     MiCleanSection @ 0x140111CAC (MiCleanSection.c)
- *     MiDeleteCachedSegment @ 0x1401DE4D8 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
- *     MiProcessDeleteOnClose @ 0x1401DEEB8 (MiProcessDeleteOnClose.c)
+ *     MiCleanSection @ 0x140112210 (MiCleanSection.c)
+ *     MiDeleteCachedSegment @ 0x1401DE304 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
+ *     MiProcessDeleteOnClose @ 0x1401DECE4 (MiProcessDeleteOnClose.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     MiClearFilePointer @ 0x14008FE24 (MiClearFilePointer.c)
- *     MiDrainControlAreaWrites @ 0x1400901EC (MiDrainControlAreaWrites.c)
- *     FsRtlReleaseFileForCcFlush @ 0x14042BEA0 (FsRtlReleaseFileForCcFlush.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     MiClearFilePointer @ 0x14008F584 (MiClearFilePointer.c)
+ *     MiDrainControlAreaWrites @ 0x14008F94C (MiDrainControlAreaWrites.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14042AD70 (FsRtlReleaseFileForCcFlush.c)
  */
 
 __int64 __fastcall MiDestroySection(__int64 a1, KIRQL a2, struct _FILE_OBJECT *a3)

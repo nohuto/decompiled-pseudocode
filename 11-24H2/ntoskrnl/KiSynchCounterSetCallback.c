@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSynchCounterSetCallback @ 0x140A4A660
+ * XREFs of KiSynchCounterSetCallback @ 0x140A41380
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwDereferenceSpinLockCounters @ 0x1407ACDE8 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1407ACE44 (EtwReferenceSpinLockCounters.c)
- *     ExpPcwDisabledStatus @ 0x140A4C4F0 (ExpPcwDisabledStatus.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1407AD2B8 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1407AD314 (EtwReferenceSpinLockCounters.c)
+ *     ExpPcwDisabledStatus @ 0x140A43080 (ExpPcwDisabledStatus.c)
  */
 
 __int64 __fastcall KiSynchCounterSetCallback(int a1, __int64 a2)
@@ -42,7 +42,7 @@ __int64 __fastcall KiSynchCounterSetCallback(int a1, __int64 a2)
           RtlInitUnicodeString(&DestinationString, pszDest);
           if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost) )
           {
-            v7 = guard_dispatch_icall_no_overrides(v3, &DestinationString, i, 1LL);
+            v7 = guard_dispatch_icall_no_overrides(v3, &DestinationString);
             ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost);
           }
           else

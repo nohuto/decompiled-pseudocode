@@ -1,24 +1,24 @@
 /*
- * XREFs of KeReleaseMutantEx @ 0x1404105DC
+ * XREFs of KeReleaseMutantEx @ 0x14041083C
  * Callers:
- *     KeReleaseMutant @ 0x1402AFA30 (KeReleaseMutant.c)
- *     NtSignalAndWaitForSingleObject @ 0x1405827D0 (NtSignalAndWaitForSingleObject.c)
- *     NtReleaseMutant @ 0x1407AF2D0 (NtReleaseMutant.c)
+ *     KeReleaseMutant @ 0x1402AFF20 (KeReleaseMutant.c)
+ *     NtSignalAndWaitForSingleObject @ 0x140582CC0 (NtSignalAndWaitForSingleObject.c)
+ *     NtReleaseMutant @ 0x1407AF4C0 (NtReleaseMutant.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14028CD8C (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     KeAbPreWakeupThread @ 0x1402BC1BC (KeAbPreWakeupThread.c)
- *     KiInsertQueueInternal @ 0x14031AD40 (KiInsertQueueInternal.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14028D01C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     KeAbPreWakeupThread @ 0x1402BC44C (KeAbPreWakeupThread.c)
+ *     KiInsertQueueInternal @ 0x14031AFD0 (KiInsertQueueInternal.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KeReleaseMutantEx(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3, int *a4)
@@ -74,7 +74,7 @@ __int64 __fastcall KeReleaseMutantEx(ULONG_PTR BugCheckParameter2, unsigned int 
   CurrentIrql = KeGetCurrentIrql();
   v37 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -102,10 +102,10 @@ __int64 __fastcall KeReleaseMutantEx(ULONG_PTR BugCheckParameter2, unsigned int 
     {
       v28 = *(_BYTE *)(BugCheckParameter2 + 48) & 1;
       _InterlockedAnd((volatile signed __int32 *)BugCheckParameter2, 0xFFFFFF7F);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v29 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v29 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v29 >= 2u )
         {
           v30 = KeGetCurrentPrcb();
           v31 = v30->SchedulerAssist;
@@ -113,7 +113,7 @@ __int64 __fastcall KeReleaseMutantEx(ULONG_PTR BugCheckParameter2, unsigned int 
           v25 = (v32 & v31[5]) == 0;
           v31[5] &= v32;
           if ( v25 )
-            KiRemoveSystemWorkPriorityKick(v30);
+            KiRemoveSystemWorkPriorityKick((__int64)v30);
         }
       }
       __writecr8((unsigned __int8)CurrentIrql);
@@ -216,7 +216,7 @@ LABEL_38:
     }
   }
 LABEL_44:
-  KiExitDispatcher(v35, (v42 & 2) != 0 ? 3 : 0, (struct _PROCESSOR_NUMBER)1, v41, v37);
+  KiExitDispatcher(v35, (v42 & 2) != 0 ? 3 : 0, (_PROCESSOR_NUMBER)1, v41, v37);
   if ( v7 )
   {
     if ( (struct _KTHREAD *)v6 != CurrentThread )

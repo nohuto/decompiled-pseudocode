@@ -2,9 +2,9 @@
  * XREFs of MmIsWriteErrorFatal @ 0x140022E5C
  * Callers:
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
- *     CcIsFatalWriteError @ 0x14012D9B0 (CcIsFatalWriteError.c)
- *     MiFlushControlArea @ 0x1402A227C (MiFlushControlArea.c)
- *     FsRtlLogCcFlushError @ 0x140814620 (FsRtlLogCcFlushError.c)
+ *     CcIsFatalWriteError @ 0x14012DA80 (CcIsFatalWriteError.c)
+ *     MiFlushControlArea @ 0x1402A246C (MiFlushControlArea.c)
+ *     FsRtlLogCcFlushError @ 0x140815820 (FsRtlLogCcFlushError.c)
  * Callees:
  *     FsRtlIsTotalDeviceFailure @ 0x140022ED0 (FsRtlIsTotalDeviceFailure.c)
  */

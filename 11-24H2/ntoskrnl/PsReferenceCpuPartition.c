@@ -1,9 +1,9 @@
 /*
- * XREFs of PsReferenceCpuPartition @ 0x140776684
+ * XREFs of PsReferenceCpuPartition @ 0x1407768A4
  * Callers:
- *     KeAssignCpuPartitionsToProcess @ 0x1405BF410 (KeAssignCpuPartitionsToProcess.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405BCA40 (KeAssignCpuPartitionsToProcess.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PsReferenceCpuPartition(void *a1, ULONG a2)

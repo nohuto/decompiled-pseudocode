@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPolicySystemIdle @ 0x140679AA0
+ * XREFs of PopPolicySystemIdle @ 0x14066D1E0
  * Callers:
- *     PopPolicyWorkerThread @ 0x1402C4F30 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1402434B0 (PopPolicyWorkerThread.c)
  * Callees:
- *     PopScanIdleList @ 0x140280878 (PopScanIdleList.c)
- *     PopGetConsoleDisplayRequestCount @ 0x140281CF4 (PopGetConsoleDisplayRequestCount.c)
- *     PopResetIdleTime @ 0x140283D78 (PopResetIdleTime.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopTraceSystemIdleUpdate @ 0x14067B1AC (PopTraceSystemIdleUpdate.c)
- *     PopIsDozeSupported @ 0x14067B328 (PopIsDozeSupported.c)
- *     PopIsHibernateSupported @ 0x14067B368 (PopIsHibernateSupported.c)
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopResetIdleTime @ 0x14024EAF0 (PopResetIdleTime.c)
+ *     PopScanIdleList @ 0x14026EAB8 (PopScanIdleList.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x14026FF34 (PopGetConsoleDisplayRequestCount.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopTraceSystemIdleUpdate @ 0x14066E8EC (PopTraceSystemIdleUpdate.c)
+ *     PopIsDozeSupported @ 0x14066EA68 (PopIsDozeSupported.c)
+ *     PopIsHibernateSupported @ 0x14066EAA8 (PopIsHibernateSupported.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 PopPolicySystemIdle()
@@ -42,16 +42,16 @@ __int64 PopPolicySystemIdle()
   v1 = 0;
   ConsoleDisplayRequestCount = PopGetConsoleDisplayRequestCount();
   PopAcquirePolicyLock(v3);
-  if ( MEMORY[0xFFFFF780000002E4] != dword_140C23370 )
+  if ( MEMORY[0xFFFFF780000002E4] != dword_140C23970 )
   {
-    dword_140C23370 = MEMORY[0xFFFFF780000002E4];
+    dword_140C23970 = MEMORY[0xFFFFF780000002E4];
     PopResetIdleTime();
   }
   PopFilterCapabilities(&PopCapabilities, v13);
   v4 = 0;
-  if ( !v13[20] && dword_140C233A0 )
-    v4 = dword_140C23368 - dword_140C233A0 < (unsigned int)dword_140C23EA0;
-  if ( dword_140C2336C && dword_140C23368 >= (unsigned int)dword_140C2336C && !v4 && !PopUserShutdownInProgress )
+  if ( !v13[20] && dword_140C239A0 )
+    v4 = dword_140C23968 - dword_140C239A0 < (unsigned int)dword_140C23340;
+  if ( dword_140C2396C && dword_140C23968 >= (unsigned int)dword_140C2396C && !v4 && !PopUserShutdownInProgress )
   {
     if ( v13[20] )
     {
@@ -60,33 +60,33 @@ __int64 PopPolicySystemIdle()
     }
     else
     {
-      v0 = dword_140C23384 == 0;
+      v0 = dword_140C23984 == 0;
     }
   }
-  byte_140C233B0 = v0;
-  if ( v13[20] && (_DWORD)qword_140C23374 == 2 )
-    v1 = dword_140C23380 == 1;
+  byte_140C239B0 = v0;
+  if ( v13[20] && (_DWORD)qword_140C23974 == 2 )
+    v1 = dword_140C23980 == 1;
   if ( v0 )
   {
     if ( !v1 )
       PopResetIdleTime();
-    byte_140C23395 = 0;
+    byte_140C23995 = 0;
   }
   PopIsHibernateSupported(v13);
   PopIsDozeSupported(v13);
   LOBYTE(v5) = v4;
-  LOBYTE(v6) = dword_140C23384 != 0;
+  LOBYTE(v6) = dword_140C23984 != 0;
   v7 = *((_DWORD *)PopPolicy + 22);
   LOBYTE(v7) = v0;
-  PopTraceSystemIdleUpdate(dword_140C23368, v7, v6, v5);
+  PopTraceSystemIdleUpdate(dword_140C23968, v7, v6, v5);
   if ( v0 && !v1 )
   {
     *(_QWORD *)&v11 = 0x8000000007LL;
-    PopExecutePowerAction((unsigned int)&v11, 0, (unsigned int)&qword_140C23374, dword_140C23380, 1);
+    PopExecutePowerAction((unsigned int)&v11, 0, (unsigned int)&qword_140C23974, dword_140C23980, 1);
   }
   PopReleasePolicyLock(v9, v8);
   if ( !v0 && PsWin32CalloutsEstablished )
-    PopScanIdleList(dword_140C2336C, dword_140C23368 / (unsigned int)PopIdleScanInterval);
+    PopScanIdleList(dword_140C2396C, dword_140C23968 / (unsigned int)PopIdleScanInterval);
   if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
     __fastfail(0x20u);
   return 0LL;

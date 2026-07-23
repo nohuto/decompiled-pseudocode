@@ -1,17 +1,17 @@
 /*
- * XREFs of AslRegistryGetKey @ 0x140808AD4
+ * XREFs of AslRegistryGetKey @ 0x140809214
  * Callers:
- *     SdbpGetManifestedMergeStubAlloc @ 0x140801460 (SdbpGetManifestedMergeStubAlloc.c)
- *     SdbpGetMergeRedirectPathInternal @ 0x140801804 (SdbpGetMergeRedirectPathInternal.c)
- *     SdbpGetMergeSdbsDisabled @ 0x140801DAC (SdbpGetMergeSdbsDisabled.c)
- *     SdbpQueryAppCompatFlagsByExeID @ 0x140807274 (SdbpQueryAppCompatFlagsByExeID.c)
- *     AslpProcessMatchRegNode @ 0x14080B678 (AslpProcessMatchRegNode.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140801BA0 (SdbpGetManifestedMergeStubAlloc.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140801F44 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbpGetMergeSdbsDisabled @ 0x1408024EC (SdbpGetMergeSdbsDisabled.c)
+ *     SdbpQueryAppCompatFlagsByExeID @ 0x1408079B4 (SdbpQueryAppCompatFlagsByExeID.c)
+ *     AslpProcessMatchRegNode @ 0x14080BDB8 (AslpProcessMatchRegNode.c)
  * Callees:
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     AslRegistryBuildMachinePath @ 0x14080883C (AslRegistryBuildMachinePath.c)
- *     AslRegistryBuildUserPath @ 0x140808920 (AslRegistryBuildUserPath.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     AslRegistryBuildMachinePath @ 0x140808F7C (AslRegistryBuildMachinePath.c)
+ *     AslRegistryBuildUserPath @ 0x140809060 (AslRegistryBuildUserPath.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslRegistryGetKey(_QWORD *a1, const WCHAR *a2, ACCESS_MASK a3, int a4)

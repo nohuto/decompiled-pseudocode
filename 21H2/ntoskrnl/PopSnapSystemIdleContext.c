@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSnapSystemIdleContext @ 0x1408F0FCC
+ * XREFs of PopSnapSystemIdleContext @ 0x1408F112C
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1405765D0 (PopIdlePhaseWatchdogCallback.c)
- *     PopArmIdlePhaseWatchdog @ 0x1408EFC08 (PopArmIdlePhaseWatchdog.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x140576810 (PopIdlePhaseWatchdogCallback.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1408EFD68 (PopArmIdlePhaseWatchdog.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PopSnapSystemIdleContext(_QWORD *a1, _DWORD *a2)

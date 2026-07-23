@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIncrementCombinedPte @ 0x14036A6D8
+ * XREFs of MiIncrementCombinedPte @ 0x14036C478
  * Callers:
- *     MiCreateCombineAnchor @ 0x140307B54 (MiCreateCombineAnchor.c)
- *     MiHandleForkValidProtoPte @ 0x14030B310 (MiHandleForkValidProtoPte.c)
- *     MiHandleForkProtoPte @ 0x14030EB98 (MiHandleForkProtoPte.c)
- *     MiMapImageScpCfgPages @ 0x14036A450 (MiMapImageScpCfgPages.c)
+ *     MiCreateCombineAnchor @ 0x1402E9BD4 (MiCreateCombineAnchor.c)
+ *     MiHandleForkValidProtoPte @ 0x1402ED390 (MiHandleForkValidProtoPte.c)
+ *     MiHandleForkProtoPte @ 0x1402F0C18 (MiHandleForkProtoPte.c)
+ *     MiMapImageScpCfgPages @ 0x14036C1F0 (MiMapImageScpCfgPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetCloneCharges @ 0x140369494 (MiGetCloneCharges.c)
- *     MiLockCloneBlockAtDpc @ 0x14036A800 (MiLockCloneBlockAtDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetCloneCharges @ 0x14036B234 (MiGetCloneCharges.c)
+ *     MiLockCloneBlockAtDpc @ 0x14036C5A0 (MiLockCloneBlockAtDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiIncrementCombinedPte(__int64 a1, __int64 a2, int a3)
@@ -44,7 +44,7 @@ __int64 __fastcall MiIncrementCombinedPte(__int64 a1, __int64 a2, int a3)
   {
     v8 = *(unsigned __int16 *)(v4 + 174);
     v9 = 1;
-    if ( *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v8) == v7 )
+    if ( *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v8) == v7 )
     {
 LABEL_8:
       ++*(_QWORD *)(a2 + 24);

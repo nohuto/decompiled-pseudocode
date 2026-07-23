@@ -1,206 +1,204 @@
 /*
- * XREFs of RtlCheckTokenCapability @ 0x18000DB10
+ * XREFs of RtlCheckTokenCapability @ 0x180059240
  * Callers:
- *     RtlCapabilityCheck @ 0x18000DFF0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x180059720 (RtlCapabilityCheck.c)
  * Callees:
- *     RtlIsCapabilitySid @ 0x18000DAC0 (RtlIsCapabilitySid.c)
- *     RtlValidSid @ 0x18003D140 (RtlValidSid.c)
- *     RtlValidAcl @ 0x18003D180 (RtlValidAcl.c)
- *     ZwAccessCheck @ 0x18015EF40 (ZwAccessCheck.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtQueryInformationToken @ 0x18015F360 (NtQueryInformationToken.c)
- *     NtOpenThreadTokenEx @ 0x18015F520 (NtOpenThreadTokenEx.c)
- *     NtOpenProcessTokenEx @ 0x18015F540 (NtOpenProcessTokenEx.c)
- *     NtDuplicateToken @ 0x18015F780 (NtDuplicateToken.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlValidSid @ 0x1800276B0 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x1800276F0 (RtlValidAcl.c)
+ *     RtlIsCapabilitySid @ 0x1800591F0 (RtlIsCapabilitySid.c)
+ *     ZwAccessCheck @ 0x18015EE40 (ZwAccessCheck.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtQueryInformationToken @ 0x18015F260 (NtQueryInformationToken.c)
+ *     NtOpenThreadTokenEx @ 0x18015F420 (NtOpenThreadTokenEx.c)
+ *     NtOpenProcessTokenEx @ 0x18015F440 (NtOpenProcessTokenEx.c)
+ *     NtDuplicateToken @ 0x18015F680 (NtDuplicateToken.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlCheckTokenCapability(void *a1, unsigned __int8 *a2, _BYTE *a3)
+NTSTATUS __cdecl RtlCheckTokenCapability(HANDLE TokenHandle, PSID CapabilitySidToCheck, PBOOLEAN HasCapability)
 {
-  __int64 v6; // r8
-  char v7; // si
-  HANDLE v8; // rcx
-  unsigned __int8 *v9; // rbx
-  __int16 v10; // ax
-  char v11; // di
-  _BYTE *v12; // rdx
+  unsigned __int8 v6; // si
+  HANDLE v7; // rcx
+  unsigned __int8 *v8; // rbx
+  __int16 v9; // ax
+  unsigned __int8 AclRevision; // di
+  _BYTE *v11; // rdx
   unsigned int i; // r8d
-  unsigned __int16 v14; // cx
-  _BYTE *v15; // rcx
+  unsigned __int16 v13; // cx
+  _BYTE *v14; // rcx
   unsigned int j; // r8d
-  unsigned __int16 v17; // r8
-  int v18; // ebx
-  HANDLE v20; // [rsp+40h] [rbp-C0h] BYREF
-  int v21; // [rsp+48h] [rbp-B8h] BYREF
-  int v22; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v23; // [rsp+50h] [rbp-B0h] BYREF
-  int v24; // [rsp+54h] [rbp-ACh] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
-  __int128 v26; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v27; // [rsp+70h] [rbp-90h]
-  __int64 *v28; // [rsp+80h] [rbp-80h]
-  __int128 v29; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v30; // [rsp+98h] [rbp-68h]
-  __int64 v31; // [rsp+A8h] [rbp-58h]
-  __int64 *v32; // [rsp+B0h] [rbp-50h]
-  void *Src[12]; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v34; // [rsp+120h] [rbp+20h] BYREF
-  int v35; // [rsp+128h] [rbp+28h]
-  __int64 v36; // [rsp+130h] [rbp+30h] BYREF
-  _BYTE v37[152]; // [rsp+138h] [rbp+38h] BYREF
-  _BYTE v38[56]; // [rsp+1D0h] [rbp+D0h] BYREF
+  unsigned __int16 v16; // r8
+  int v17; // ebx
+  HANDLE ClientToken; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG ReturnLength; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG PrivilegeSetLength; // [rsp+4Ch] [rbp-B4h] BYREF
+  NTSTATUS AccessStatus; // [rsp+50h] [rbp-B0h] BYREF
+  ACCESS_MASK GrantedAccess; // [rsp+54h] [rbp-ACh] BYREF
+  HANDLE TokenHandlea; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 SecurityDescriptor; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 v26; // [rsp+70h] [rbp-90h]
+  ACL *p_Acl; // [rsp+80h] [rbp-80h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
+  PSID TokenInformation[12]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v30; // [rsp+120h] [rbp+20h] BYREF
+  int v31; // [rsp+128h] [rbp+28h]
+  ACL Acl; // [rsp+130h] [rbp+30h] BYREF
+  _BYTE v33[152]; // [rsp+138h] [rbp+38h] BYREF
+  _PRIVILEGE_SET PrivilegeSet; // [rsp+1D0h] [rbp+D0h] BYREF
 
-  v24 = 0;
-  v23 = 0;
-  memset_thunk_772440563353939046(&v36, 0, 0xA0uLL);
-  v20 = 0LL;
-  v31 = 0LL;
-  LODWORD(v32) = 0;
-  v34 = 0LL;
-  v35 = 0;
-  v29 = 0LL;
-  v28 = 0LL;
+  GrantedAccess = 0;
+  AccessStatus = 0;
+  memset_thunk_772440563353939046(&Acl, 0, 0xA0uLL);
+  ClientToken = 0LL;
   v30 = 0LL;
-  v22 = 0;
+  v31 = 0;
+  memset(&ObjectAttributes, 0, 44);
+  p_Acl = 0LL;
+  PrivilegeSetLength = 0;
+  SecurityDescriptor = 0LL;
   v26 = 0LL;
-  v27 = 0LL;
-  memset_thunk_772440563353939046(Src, 0, 0x58uLL);
-  v21 = 0;
-  Handle = 0LL;
-  *a3 = 0;
-  if ( !RtlIsCapabilitySid((__int64)a2) )
+  memset_thunk_772440563353939046(TokenInformation, 0, 0x58uLL);
+  ReturnLength = 0;
+  TokenHandlea = 0LL;
+  *HasCapability = 0;
+  if ( !RtlIsCapabilitySid(CapabilitySidToCheck) )
   {
-    v18 = -1073741811;
+    v17 = -1073741811;
     goto LABEL_47;
   }
-  v7 = 2;
-  if ( a1 )
+  v6 = 2;
+  if ( TokenHandle )
   {
-    v8 = a1;
-    v20 = a1;
+    v7 = TokenHandle;
+    ClientToken = TokenHandle;
 LABEL_4:
-    v21 = 88;
-    NtQueryInformationToken(v8, 1LL, Src, 88LL, &v21);
-    v9 = (unsigned __int8 *)Src[0];
-    LOBYTE(v26) = 1;
-    if ( (SWORD1(v26) & 0x8000u) == 0 )
+    ReturnLength = 88;
+    NtQueryInformationToken(v7, 1u, TokenInformation, 0x58u, &ReturnLength);
+    v8 = (unsigned __int8 *)TokenInformation[0];
+    LOBYTE(SecurityDescriptor) = 1;
+    if ( (SWORD1(SecurityDescriptor) & 0x8000u) == 0 )
     {
-      *((_QWORD *)&v26 + 1) = 0LL;
-      if ( Src[0] )
-        *((void **)&v26 + 1) = Src[0];
-      v10 = WORD1(v26) & 0xFFFE;
-      WORD1(v26) = v10;
-      if ( v10 >= 0 )
+      *((_QWORD *)&SecurityDescriptor + 1) = 0LL;
+      if ( TokenInformation[0] )
+        *((PSID *)&SecurityDescriptor + 1) = TokenInformation[0];
+      v9 = WORD1(SecurityDescriptor) & 0xFFFE;
+      WORD1(SecurityDescriptor) = v9;
+      if ( v9 >= 0 )
       {
-        *(_QWORD *)&v27 = 0LL;
-        if ( Src[0] )
-          *(void **)&v27 = Src[0];
-        WORD1(v26) = v10 & 0xFFFD;
+        *(_QWORD *)&v26 = 0LL;
+        if ( TokenInformation[0] )
+          *(PSID *)&v26 = TokenInformation[0];
+        WORD1(SecurityDescriptor) = v9 & 0xFFFD;
       }
     }
-    v36 = 10485762LL;
-    if ( (unsigned __int8)RtlValidSid(Src[0]) && (unsigned __int8)v36 <= 4u )
+    Acl = (ACL)10485762LL;
+    if ( RtlValidSid(TokenInformation[0]) && Acl.AclRevision <= 4u )
     {
-      v11 = 2;
-      if ( (unsigned __int8)v36 > 2u )
-        v11 = v36;
-      if ( (unsigned __int8)RtlValidAcl(&v36) )
+      AclRevision = 2;
+      if ( Acl.AclRevision > 2u )
+        AclRevision = Acl.AclRevision;
+      if ( RtlValidAcl(&Acl) )
       {
-        v12 = v37;
-        for ( i = 0; i < WORD2(v36); ++i )
+        v11 = v33;
+        for ( i = 0; i < Acl.AceCount; ++i )
         {
-          if ( v12 >= &v37[WORD1(v36) - 8] )
+          if ( v11 >= (_BYTE *)&Acl + Acl.AclSize )
             goto LABEL_25;
-          v12 += *((unsigned __int16 *)v12 + 1);
+          v11 += *((unsigned __int16 *)v11 + 1);
         }
-        if ( v12 > &v37[WORD1(v36) - 8] )
-          v12 = 0LL;
-        v14 = 4 * (v9[1] + 4);
-        if ( v12 && &v12[v14] <= &v37[WORD1(v36) - 8] )
+        if ( v11 > (_BYTE *)&Acl + Acl.AclSize )
+          v11 = 0LL;
+        v13 = 4 * (v8[1] + 4);
+        if ( v11 && &v11[v13] <= (_BYTE *)&Acl + Acl.AclSize )
         {
-          *((_WORD *)v12 + 1) = v14;
-          *(_WORD *)v12 = 0;
-          *((_DWORD *)v12 + 1) = 65537;
-          memmove(v12 + 8, v9, 4LL * v9[1] + 8);
-          ++WORD2(v36);
-          LOBYTE(v36) = v11;
+          *((_WORD *)v11 + 1) = v13;
+          *(_WORD *)v11 = 0;
+          *((_DWORD *)v11 + 1) = 65537;
+          memmove(v11 + 8, v8, 4LL * v8[1] + 8);
+          ++Acl.AceCount;
+          Acl.AclRevision = AclRevision;
         }
       }
     }
 LABEL_25:
-    if ( (unsigned __int8)RtlValidSid(a2) && (unsigned __int8)v36 <= 4u )
+    if ( RtlValidSid(CapabilitySidToCheck) && Acl.AclRevision <= 4u )
     {
-      if ( (unsigned __int8)v36 > 2u )
-        v7 = v36;
-      if ( (unsigned __int8)RtlValidAcl(&v36) )
+      if ( Acl.AclRevision > 2u )
+        v6 = Acl.AclRevision;
+      if ( RtlValidAcl(&Acl) )
       {
-        v15 = v37;
-        for ( j = 0; j < WORD2(v36); ++j )
+        v14 = v33;
+        for ( j = 0; j < Acl.AceCount; ++j )
         {
-          if ( v15 >= &v37[WORD1(v36) - 8] )
+          if ( v14 >= (_BYTE *)&Acl + Acl.AclSize )
             goto LABEL_39;
-          v15 += *((unsigned __int16 *)v15 + 1);
+          v14 += *((unsigned __int16 *)v14 + 1);
         }
-        if ( v15 > &v37[WORD1(v36) - 8] )
-          v15 = 0LL;
-        v17 = 4 * (a2[1] + 4);
-        if ( v15 && &v15[v17] <= &v37[WORD1(v36) - 8] )
+        if ( v14 > (_BYTE *)&Acl + Acl.AclSize )
+          v14 = 0LL;
+        v16 = 4 * (*((unsigned __int8 *)CapabilitySidToCheck + 1) + 4);
+        if ( v14 && &v14[v16] <= (_BYTE *)&Acl + Acl.AclSize )
         {
-          *((_WORD *)v15 + 1) = v17;
-          *(_WORD *)v15 = 0;
-          *((_DWORD *)v15 + 1) = 65537;
-          memmove(v15 + 8, a2, 4LL * a2[1] + 8);
-          ++WORD2(v36);
-          LOBYTE(v36) = v7;
+          *((_WORD *)v14 + 1) = v16;
+          *(_WORD *)v14 = 0;
+          *((_DWORD *)v14 + 1) = 65537;
+          memmove(v14 + 8, CapabilitySidToCheck, 4LL * *((unsigned __int8 *)CapabilitySidToCheck + 1) + 8);
+          ++Acl.AceCount;
+          Acl.AclRevision = v6;
         }
       }
     }
 LABEL_39:
-    if ( (_BYTE)v26 == 1 && (SWORD1(v26) & 0x8000u) == 0 )
+    if ( (_BYTE)SecurityDescriptor == 1 && (SWORD1(SecurityDescriptor) & 0x8000u) == 0 )
     {
-      v28 = &v36;
-      WORD1(v26) = WORD1(v26) & 0xFFF3 | 4;
+      p_Acl = &Acl;
+      WORD1(SecurityDescriptor) = WORD1(SecurityDescriptor) & 0xFFF3 | 4;
     }
-    v22 = 56;
-    v18 = ZwAccessCheck(&v26, v20, 65537LL, &RtlpCheckTokenCapabilityGenericMapping, v38, &v22, &v24, &v23);
-    if ( v18 >= 0 )
+    PrivilegeSetLength = 56;
+    v17 = ZwAccessCheck(
+            &SecurityDescriptor,
+            ClientToken,
+            0x10001u,
+            (PGENERIC_MAPPING)&RtlpCheckTokenCapabilityGenericMapping,
+            &PrivilegeSet,
+            &PrivilegeSetLength,
+            &GrantedAccess,
+            &AccessStatus);
+    if ( v17 >= 0 )
     {
-      if ( !v23 && v24 == 65537 )
-        *a3 = 1;
-      v18 = 0;
+      if ( !AccessStatus && GrantedAccess == 65537 )
+        *HasCapability = 1;
+      v17 = 0;
     }
 LABEL_47:
-    if ( a1 )
-      return (unsigned int)v18;
+    if ( TokenHandle )
+      return v17;
     goto LABEL_55;
   }
-  LOBYTE(v6) = 1;
-  v18 = NtOpenThreadTokenEx(-2LL, 8LL, v6, 0LL, &v20);
-  if ( v18 == -1073741700 )
+  v17 = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 8u, 1u, 0, &ClientToken);
+  if ( v17 == -1073741700 )
   {
-    v18 = NtOpenProcessTokenEx(-1LL, 10LL, 0LL, &Handle);
-    if ( v18 < 0 )
+    v17 = NtOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0xAu, 0, &TokenHandlea);
+    if ( v17 < 0 )
       goto LABEL_55;
-    v32 = &v34;
-    LODWORD(v29) = 48;
-    *((_QWORD *)&v29 + 1) = 0LL;
-    DWORD2(v30) = 0;
-    *(_QWORD *)&v30 = 0LL;
-    v31 = 0LL;
-    v34 = 0x20000000CLL;
-    LOWORD(v35) = 1;
-    v18 = NtDuplicateToken(Handle, 8LL, &v29, 0LL, 2, &v20);
-    NtClose(Handle);
+    ObjectAttributes.SecurityQualityOfService = &v30;
+    ObjectAttributes.Length = 48;
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    ObjectAttributes.SecurityDescriptor = 0LL;
+    v30 = 0x20000000CLL;
+    LOWORD(v31) = 1;
+    v17 = NtDuplicateToken(TokenHandlea, 8u, &ObjectAttributes, 0, TokenImpersonation, &ClientToken);
+    NtClose(TokenHandlea);
   }
-  if ( v18 >= 0 )
+  if ( v17 >= 0 )
   {
-    v8 = v20;
+    v7 = ClientToken;
     goto LABEL_4;
   }
 LABEL_55:
-  if ( v20 )
-    NtClose(v20);
-  return (unsigned int)v18;
+  if ( ClientToken )
+    NtClose(ClientToken);
+  return v17;
 }

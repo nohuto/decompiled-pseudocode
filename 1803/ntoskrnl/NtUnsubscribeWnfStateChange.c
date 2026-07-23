@@ -9,20 +9,20 @@
  *     ExpWnfAcquireSubscriptionByName @ 0x14055C830 (ExpWnfAcquireSubscriptionByName.c)
  */
 
-__int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
+NTSTATUS __cdecl NtUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // rbx
   struct _SINGLE_LIST_ENTRY *Next; // rdx
   __int64 v4; // r8
   __int64 v5; // r9
-  int v7; // [rsp+24h] [rbp-14h]
+  NTSTATUS v7; // [rsp+24h] [rbp-14h]
   unsigned __int64 v8; // [rsp+48h] [rbp+10h] BYREF
   PVOID P; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = ExpCaptureWnfStateName(a1, &v8, KeGetCurrentThread()->PreviousMode);
+  v7 = ExpCaptureWnfStateName((__int64 *)StateName, &v8, KeGetCurrentThread()->PreviousMode);
   if ( v7 >= 0 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
@@ -42,5 +42,5 @@ __int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v7;
+  return v7;
 }

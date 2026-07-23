@@ -11,14 +11,14 @@
  *     sub_180081E98 @ 0x180081E98 (sub_180081E98.c)
  */
 
-__int64 __fastcall sub_18001A44C(__int64 a1, _DWORD *a2, __int64 **a3)
+void __fastcall sub_18001A44C(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
-  __int64 *v3; // rsi
+  _QWORD *v3; // rsi
   int v4; // eax
   _QWORD *v7; // rbp
   __int64 v8; // rsi
-  __int64 result; // rax
-  __int64 *v10; // rdx
+  _QWORD *v9; // rdx
+  _QWORD *v10; // rax
   unsigned int v11; // eax
   _QWORD *v12; // rbx
   _QWORD *v13; // rcx
@@ -26,13 +26,13 @@ __int64 __fastcall sub_18001A44C(__int64 a1, _DWORD *a2, __int64 **a3)
 
   v14 = a2;
   ++*a2;
-  v3 = (__int64 *)(a1 + 64);
+  v3 = (_QWORD *)(a1 + 64);
   v4 = *a2;
   *(_DWORD *)(a1 + 72) = *a2;
   *(_DWORD *)(a1 + 32) = v4;
   *(_QWORD *)(a1 + 64) = *a3;
   v7 = *(_QWORD **)(a1 + 40);
-  *a3 = (__int64 *)(a1 + 64);
+  *a3 = a1 + 64;
   if ( v7 )
   {
     while ( 1 )
@@ -44,7 +44,7 @@ __int64 __fastcall sub_18001A44C(__int64 a1, _DWORD *a2, __int64 **a3)
 LABEL_3:
       if ( v7 == *(_QWORD **)(a1 + 40) )
       {
-        v3 = (__int64 *)(a1 + 64);
+        v3 = (_QWORD *)(a1 + 64);
         goto LABEL_5;
       }
     }
@@ -70,36 +70,35 @@ LABEL_16:
     goto LABEL_16;
   }
 LABEL_5:
-  result = *(unsigned int *)(a1 + 72);
-  if ( *(_DWORD *)(a1 + 32) == (_DWORD)result )
+  if ( *(_DWORD *)(a1 + 32) == *(_DWORD *)(a1 + 72) )
   {
-    v10 = *a3;
+    v9 = (_QWORD *)*a3;
     if ( *a3 )
-      *a3 = (__int64 *)*v10;
-    result = 0LL;
-    if ( v3 != v10 )
+      *a3 = *v9;
+    v10 = 0LL;
+    if ( v3 != v9 )
     {
       do
       {
-        *v10 = result;
-        result = (__int64)v10;
-        v10 = *a3;
+        *v9 = v10;
+        v10 = v9;
+        v9 = (_QWORD *)*a3;
         if ( *a3 )
-          *a3 = (__int64 *)*v10;
+          *a3 = *v9;
       }
-      while ( v3 != v10 );
-      v14 = (_DWORD *)result;
-      if ( result )
+      while ( v3 != v9 );
+      v14 = v10;
+      if ( v10 )
       {
-        RtlAcquireSRWLockExclusive(&qword_18015C040);
+        RtlAcquireSRWLockExclusive(&stru_18015C040);
         sub_18007BB68(a1, &v14);
-        result = RtlReleaseSRWLockExclusive(&qword_18015C040);
+        RtlReleaseSRWLockExclusive(&stru_18015C040);
         v12 = v14;
         while ( v12 )
         {
           v13 = v12;
           v12 = (_QWORD *)*v12;
-          result = sub_180081E98(v13 - 8);
+          sub_180081E98(v13 - 8);
         }
       }
     }
@@ -107,5 +106,4 @@ LABEL_5:
     if ( *(_DWORD *)(a1 + 56) == 5 )
       *(_DWORD *)(a1 + 56) = 6;
   }
-  return result;
 }

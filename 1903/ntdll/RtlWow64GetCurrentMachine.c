@@ -6,12 +6,12 @@
  *     RtlWow64GetCurrentCpuArea @ 0x180066440 (RtlWow64GetCurrentCpuArea.c)
  */
 
-__int64 RtlWow64GetCurrentMachine()
+USHORT RtlWow64GetCurrentMachine(void)
 {
-  unsigned __int16 v1; // [rsp+30h] [rbp+8h] BYREF
+  USHORT v1; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = -31132;
-  if ( (int)NtCurrentTeb()->SpareUlong0 > 0 )
+  if ( NtCurrentTeb()->WowTebOffset > 0 )
     RtlWow64GetCurrentCpuArea(&v1, 0LL, 0LL);
   return v1;
 }

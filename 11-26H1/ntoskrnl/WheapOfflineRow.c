@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapOfflineRow @ 0x140848F3C
+ * XREFs of WheapOfflineRow @ 0x14084F20C
  * Callers:
- *     WheaPageOfflineAndPersist @ 0x1408482FC (WheaPageOfflineAndPersist.c)
+ *     WheaPageOfflineAndPersist @ 0x14084E5CC (WheaPageOfflineAndPersist.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     WheaAttemptRowOffline @ 0x1406D5AE0 (WheaAttemptRowOffline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408487D0 (WheapAttemptPhysicalPageOffline.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     WheaAttemptRowOffline @ 0x1406D9BC0 (WheaAttemptRowOffline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14084EAA0 (WheapAttemptPhysicalPageOffline.c)
  */
 
 __int64 __fastcall WheapOfflineRow(__int64 a1, __int64 a2)

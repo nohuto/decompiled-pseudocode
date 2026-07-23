@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpExtendHeap @ 0x1405EC560
+ * XREFs of RtlpExtendHeap @ 0x1405E9AF4
  * Callers:
- *     RtlpAllocateHeap @ 0x1405EA9AC (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x1405E7EFC (RtlpAllocateHeap.c)
  * Callees:
- *     RtlpHpHeapCheckCommitLimit @ 0x14045135C (RtlpHpHeapCheckCommitLimit.c)
- *     RtlpCoalesceFreeBlocks @ 0x1405EB39C (RtlpCoalesceFreeBlocks.c)
- *     RtlpFindAndCommitPages @ 0x1405EC7B4 (RtlpFindAndCommitPages.c)
- *     RtlpInitializeHeapSegment @ 0x1405ED010 (RtlpInitializeHeapSegment.c)
- *     RtlpInsertFreeBlock @ 0x1405ED2D8 (RtlpInsertFreeBlock.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F2C1C (RtlpAnalyzeHeapFailure.c)
- *     ZwAllocateVirtualMemory @ 0x1406A6710 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1406A67D0 (ZwFreeVirtualMemory.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x1404467BC (RtlpHpHeapCheckCommitLimit.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405E890C (RtlpCoalesceFreeBlocks.c)
+ *     RtlpFindAndCommitPages @ 0x1405E9D48 (RtlpFindAndCommitPages.c)
+ *     RtlpInitializeHeapSegment @ 0x1405EA5CC (RtlpInitializeHeapSegment.c)
+ *     RtlpInsertFreeBlock @ 0x1405EA8C0 (RtlpInsertFreeBlock.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405F025C (RtlpAnalyzeHeapFailure.c)
+ *     ZwAllocateVirtualMemory @ 0x1406A76B0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1406A7770 (ZwFreeVirtualMemory.c)
  */
 
 __int64 __fastcall RtlpExtendHeap(ULONG_PTR a1, __int64 a2)
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpExtendHeap(ULONG_PTR a1, __int64 a2)
   {
     if ( RegionSize == v7 )
     {
-      ++*(_DWORD *)(a1 + 632);
+      ++*(_DWORD *)(a1 + 640);
       return 0LL;
     }
     RegionSize >>= 1;
@@ -71,7 +71,7 @@ __int64 __fastcall RtlpExtendHeap(ULONG_PTR a1, __int64 a2)
   *(_QWORD *)(a1 + 160) += RegionSize;
   if ( (unsigned __int64)(a2 + 4096) <= *(_QWORD *)(a1 + 168) )
     v9 = *(_QWORD *)(a1 + 168);
-  v10 = *(_QWORD *)(a1 + 576) - *(_QWORD *)(a1 + 664);
+  v10 = *(_QWORD *)(a1 + 576) - *(_QWORD *)(a1 + 672);
   v14[0] = (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL;
   if ( !(unsigned int)RtlpHpHeapCheckCommitLimit(v14[0], v10, a1, (unsigned __int64 *)(a1 + 376))
     || ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, v14, 0x1000u, 4u) < 0

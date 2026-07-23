@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpUncorralProcessors @ 0x140A9C608
+ * XREFs of IopLiveDumpUncorralProcessors @ 0x140A9C478
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x140A9A8B8 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpCollectPages @ 0x140A9AB04 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x140A9B19C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x140A9A728 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpCollectPages @ 0x140A9A974 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9B00C (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     IopLiveDumpTraceSystemQuiesceEnd @ 0x14055B6AC (IopLiveDumpTraceSystemQuiesceEnd.c)
- *     IopLiveDumpTraceUncorralProcessorsDuration @ 0x14055B75C (IopLiveDumpTraceUncorralProcessorsDuration.c)
- *     IopLiveDumpUnLockPages @ 0x14055B940 (IopLiveDumpUnLockPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B824 (IopLiveDumpInitiateCorralStateChange.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopLiveDumpTraceSystemQuiesceEnd @ 0x14055BD6C (IopLiveDumpTraceSystemQuiesceEnd.c)
+ *     IopLiveDumpTraceUncorralProcessorsDuration @ 0x14055BE1C (IopLiveDumpTraceUncorralProcessorsDuration.c)
+ *     IopLiveDumpUnLockPages @ 0x14055C000 (IopLiveDumpUnLockPages.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B694 (IopLiveDumpInitiateCorralStateChange.c)
  */
 
 char __fastcall IopLiveDumpUncorralProcessors(__int64 *a1, char a2)
@@ -43,10 +43,13 @@ char __fastcall IopLiveDumpUncorralProcessors(__int64 *a1, char a2)
   if ( a2 || (*(_DWORD *)(v4 + 40) & 0x20) != 0 )
   {
     v5 = *((unsigned __int8 *)a1 + 88);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

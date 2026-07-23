@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReturnSystemPtes @ 0x140100C38
+ * XREFs of MiReturnSystemPtes @ 0x140100CB8
  * Callers:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     MiReplenishBitMap @ 0x1400EFDF0 (MiReplenishBitMap.c)
- *     MiAttemptCoalesce @ 0x140100B00 (MiAttemptCoalesce.c)
+ *     MiReplenishBitMap @ 0x1400EFE70 (MiReplenishBitMap.c)
+ *     MiAttemptCoalesce @ 0x140100B80 (MiAttemptCoalesce.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpFindDevice @ 0x1409B6158
+ * XREFs of HalpFindDevice @ 0x1409B7158
  * Callers:
- *     HalpKdReleaseDebuggingDevice @ 0x1409B6430 (HalpKdReleaseDebuggingDevice.c)
- *     HalpKdSetupDebuggingDevice @ 0x1409B6480 (HalpKdSetupDebuggingDevice.c)
- *     HalpRegisterDeviceInUse @ 0x1409B656C (HalpRegisterDeviceInUse.c)
+ *     HalpKdReleaseDebuggingDevice @ 0x1409B7430 (HalpKdReleaseDebuggingDevice.c)
+ *     HalpKdSetupDebuggingDevice @ 0x1409B7480 (HalpKdSetupDebuggingDevice.c)
+ *     HalpRegisterDeviceInUse @ 0x1409B756C (HalpRegisterDeviceInUse.c)
  * Callees:
- *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     wcsncmp @ 0x1403D41B0 (wcsncmp.c)
  */
 
 __int64 *__fastcall HalpFindDevice(__int64 a1)
@@ -20,11 +20,11 @@ __int64 *__fastcall HalpFindDevice(__int64 a1)
   unsigned int v9; // eax
   const wchar_t *v10; // rdx
 
-  v1 = (__int64 *)qword_140C48D68;
+  v1 = (__int64 *)qword_140C48DA8;
   v2 = 0LL;
   v4 = 0LL;
   v5 = 0;
-  while ( v1 != &qword_140C48D68 )
+  while ( v1 != &qword_140C48DA8 )
   {
     v6 = v1[2];
     v4 = v1;

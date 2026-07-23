@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckUnloadDriver @ 0x14037C4EC
+ * XREFs of IopCheckUnloadDriver @ 0x14037C03C
  * Callers:
- *     IopUnloadDriver @ 0x140769798 (IopUnloadDriver.c)
- *     IovpUnloadDriver @ 0x1409C5A18 (IovpUnloadDriver.c)
+ *     IopUnloadDriver @ 0x140769958 (IopUnloadDriver.c)
+ *     IovpUnloadDriver @ 0x1409C6A18 (IovpUnloadDriver.c)
  * Callees:
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall IopCheckUnloadDriver(_QWORD *Object, char *a2)

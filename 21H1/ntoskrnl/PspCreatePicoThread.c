@@ -103,7 +103,7 @@ __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
                      0,
                      0LL,
                      (__int64)v23,
-                     v20,
+                     (_INITIAL_TEB **)v20,
                      0LL,
                      0LL,
                      (int *)&v16,

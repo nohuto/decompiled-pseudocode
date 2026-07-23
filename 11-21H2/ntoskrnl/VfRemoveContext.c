@@ -3,48 +3,50 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViFreeContextTable @ 0x140A8360C (ViFreeContextTable.c)
- *     ViGetContextPointer @ 0x140A8362C (ViGetContextPointer.c)
- *     ViIsContextIdValid @ 0x140A8368C (ViIsContextIdValid.c)
- *     ViLockContextPointer @ 0x140A836B4 (ViLockContextPointer.c)
- *     ViUnlockContextPointer @ 0x140A83764 (ViUnlockContextPointer.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_140A8360C @ 0x140A8360C (sub_140A8360C.c)
+ *     sub_140A8362C @ 0x140A8362C (sub_140A8362C.c)
+ *     sub_140A8368C @ 0x140A8368C (sub_140A8368C.c)
+ *     sub_140A836B4 @ 0x140A836B4 (sub_140A836B4.c)
+ *     sub_140A83764 @ 0x140A83764 (sub_140A83764.c)
  */
 
 __int64 __fastcall VfRemoveContext(unsigned __int16 *a1)
 {
   int v2; // r14d
   unsigned int v4; // r8d
-  __int64 ContextPointer; // rax
+  __int64 v5; // rax
   volatile __int64 *v6; // rsi
-  volatile signed __int32 *v7; // rbp
+  volatile __int64 v7; // rbp
   __int64 v8; // rax
-  unsigned int v9; // edx
+  __int64 v9; // rdx
 
   v2 = -1073741275;
-  if ( !ViVerifierEnabled )
+  if ( !dword_140C1B2A0 )
     return 3221225473LL;
-  if ( !(unsigned __int8)ViIsContextIdValid(*a1, a1[1]) )
+  if ( !(unsigned __int8)sub_140A8368C(*a1, a1[1]) )
     return 3221225485LL;
-  ContextPointer = ViGetContextPointer(*((_QWORD *)a1 + 1), v4);
-  v6 = (volatile __int64 *)ContextPointer;
-  if ( !ContextPointer )
+  v5 = sub_140A8362C(*((_QWORD *)a1 + 1), v4);
+  v6 = (volatile __int64 *)v5;
+  if ( !v5 )
     return 3221225659LL;
-  if ( !(unsigned __int8)ViLockContextPointer(ContextPointer) )
+  if ( !(unsigned __int8)sub_140A836B4(v5) )
     return (unsigned int)v2;
-  v7 = (volatile signed __int32 *)*v6;
+  v7 = *v6;
   v8 = a1[1];
   if ( *(unsigned __int16 **)(*v6 + 8 * v8 + 8) != a1
-    || (*(_QWORD *)&v7[2 * v8 + 2] = 0LL, v2 = 0, _InterlockedExchangeAdd(v7 + 1, 0xFFFFFFFF) != 1) )
+    || (*(_QWORD *)(v7 + 8 * v8 + 8) = 0LL,
+        v2 = 0,
+        _InterlockedExchangeAdd((volatile signed __int32 *)(v7 + 4), 0xFFFFFFFF) != 1) )
   {
-    ViUnlockContextPointer(v6);
-    if ( v2 >= 0 && !(v9 + _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 1, v9)) )
-      (*((void (__fastcall **)(unsigned __int16 *))a1 + 2))(a1);
+    sub_140A83764(v6);
+    if ( v2 >= 0 && !((_DWORD)v9 + _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 1, v9)) )
+      sub_14042A5E0(a1, v9);
     return (unsigned int)v2;
   }
   _InterlockedExchange64(v6, 0LL);
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 1, 0xFFFFFFFF) == 1 )
-    (*((void (__fastcall **)(unsigned __int16 *, __int64))a1 + 2))(a1, 0xFFFFFFFFLL);
-  ViFreeContextTable((PVOID)v7);
+    sub_14042A5E0(a1, 0xFFFFFFFFLL);
+  sub_140A8360C(v7);
   return 0LL;
 }

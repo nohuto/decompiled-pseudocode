@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeIdealProcessorAssignmentBlock @ 0x1404B0240
+ * XREFs of KiInitializeIdealProcessorAssignmentBlock @ 0x1404AAAD0
  * Callers:
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiInitializeIdealProcessorAssignmentBlock(__int64 a1)

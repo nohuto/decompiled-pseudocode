@@ -1,7 +1,7 @@
 /*
- * XREFs of ExHeapLookasideSet @ 0x1406D2988
+ * XREFs of ExHeapLookasideSet @ 0x1406D69B8
  * Callers:
- *     ExpPoolHeapCreate @ 0x1408465EC (ExpPoolHeapCreate.c)
+ *     ExpPoolHeapCreate @ 0x14084C84C (ExpPoolHeapCreate.c)
  * Callees:
  *     <none>
  */

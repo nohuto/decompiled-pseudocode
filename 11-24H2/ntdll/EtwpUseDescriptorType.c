@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpUseDescriptorType @ 0x18015BE88
+ * XREFs of EtwpUseDescriptorType @ 0x18015A248
  * Callers:
- *     EtwEventSetInformation @ 0x18011A0B0 (EtwEventSetInformation.c)
+ *     EtwEventSetInformation @ 0x1801182E0 (EtwEventSetInformation.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18001C620 (RtlNtStatusToDosError.c)
- *     ProviderHandleLookup @ 0x18001D260 (ProviderHandleLookup.c)
- *     NtTraceControl @ 0x180165740 (NtTraceControl.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x180049020 (RtlNtStatusToDosError.c)
+ *     ProviderHandleLookup @ 0x180049C60 (ProviderHandleLookup.c)
+ *     NtTraceControl @ 0x180163B00 (NtTraceControl.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpUseDescriptorType(__int64 a1, unsigned __int8 *a2)
@@ -16,13 +16,13 @@ __int64 __fastcall EtwpUseDescriptorType(__int64 a1, unsigned __int8 *a2)
   __int64 v4; // rax
   __int64 v5; // rsi
   unsigned __int8 v6; // di
-  ULONG v7; // ebx
+  unsigned __int32 v7; // ebx
   NTSTATUS v8; // eax
-  int v10; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v11; // [rsp+38h] [rbp-20h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-28h] BYREF
+  __int128 InputBuffer; // [rsp+38h] [rbp-20h] BYREF
 
-  v10 = 0;
-  v11 = 0LL;
+  ReturnLength = 0;
+  InputBuffer = 0LL;
   v3 = WORD2(a1);
   v4 = ProviderHandleLookup(a1, a1);
   v5 = v4;
@@ -39,9 +39,9 @@ LABEL_10:
     RtlSetLastWin32Error(v7);
     return v7;
   }
-  *(_QWORD *)&v11 = *(_QWORD *)(v4 + 88);
-  BYTE8(v11) = v6;
-  v8 = NtTraceControl(31LL, &v11, 16LL, 0LL, 0, &v10);
+  *(_QWORD *)&InputBuffer = *(_QWORD *)(v4 + 88);
+  BYTE8(InputBuffer) = v6;
+  v8 = NtTraceControl(EtwUseDescriptorTypeCode, &InputBuffer, 0x10u, 0LL, 0, &ReturnLength);
   if ( v8 )
   {
     v7 = RtlNtStatusToDosError(v8);

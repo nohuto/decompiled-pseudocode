@@ -1,14 +1,14 @@
 /*
- * XREFs of PsGetAllocatedFullProcessImageName @ 0x1406671F8
+ * XREFs of PsGetAllocatedFullProcessImageName @ 0x1406683B8
  * Callers:
- *     PfCalculateProcessHash @ 0x140666FA0 (PfCalculateProcessHash.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     PiUEventHandleVetoEvent @ 0x1406FF7D0 (PiUEventHandleVetoEvent.c)
- *     PnpLogVetoInformation @ 0x1408330D0 (PnpLogVetoInformation.c)
- *     ViCreateProcessCallbackInternal @ 0x140938564 (ViCreateProcessCallbackInternal.c)
+ *     PfCalculateProcessHash @ 0x140668160 (PfCalculateProcessHash.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140668384 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     PiUEventHandleVetoEvent @ 0x140700A70 (PiUEventHandleVetoEvent.c)
+ *     PnpLogVetoInformation @ 0x140834330 (PnpLogVetoInformation.c)
+ *     ViCreateProcessCallbackInternal @ 0x140939564 (ViCreateProcessCallbackInternal.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PsGetAllocatedFullProcessImageName(__int64 a1, _QWORD *a2)

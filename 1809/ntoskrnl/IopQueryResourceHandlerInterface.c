@@ -1,15 +1,15 @@
 /*
- * XREFs of IopQueryResourceHandlerInterface @ 0x14072FA0C
+ * XREFs of IopQueryResourceHandlerInterface @ 0x140730BFC
  * Callers:
- *     IoTranslateBusAddress @ 0x1402880A0 (IoTranslateBusAddress.c)
- *     IopDuplicateDetection @ 0x14072D914 (IopDuplicateDetection.c)
- *     IopSetupArbiterAndTranslators @ 0x14072F458 (IopSetupArbiterAndTranslators.c)
+ *     IoTranslateBusAddress @ 0x140288290 (IoTranslateBusAddress.c)
+ *     IopDuplicateDetection @ 0x14072EB04 (IopDuplicateDetection.c)
+ *     IopSetupArbiterAndTranslators @ 0x140730648 (IopSetupArbiterAndTranslators.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopSynchronousCall @ 0x1405A3CE0 (IopSynchronousCall.c)
  */
 
 __int64 __fastcall IopQueryResourceHandlerInterface(int a1, struct _DEVICE_OBJECT *a2, unsigned __int8 a3, _QWORD *a4)

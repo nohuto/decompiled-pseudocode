@@ -1,52 +1,56 @@
 /*
- * XREFs of NtQueryInformationJobObject @ 0x140ACCBF0
+ * XREFs of NtQueryInformationJobObject @ 0x140ACACA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PspGetJobSilo @ 0x14040EFB0 (PspGetJobSilo.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     PsGetServerSiloServiceSessionId @ 0x1404566C0 (PsGetServerSiloServiceSessionId.c)
- *     KeIsSingleGroupAffinityEx @ 0x14046F090 (KeIsSingleGroupAffinityEx.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     MmQueryApiSetSchema @ 0x1404B62CC (MmQueryApiSetSchema.c)
- *     PsGetJobServerSilo @ 0x1404B7940 (PsGetJobServerSilo.c)
- *     PspIsSiloInServerSilo @ 0x1405E4DD4 (PspIsSiloInServerSilo.c)
- *     Feature_Servicing_MSRC100723__private_IsEnabledDeviceUsageNoInline @ 0x1405E5778 (Feature_Servicing_MSRC100723__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlCopyToUser @ 0x1406FC3C8 (RtlCopyToUser.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x1407779F0 (PspQueryJobHierarchyInterferenceCount.c)
- *     ObGetSiloRootDirectoryPath @ 0x14082AF14 (ObGetSiloRootDirectoryPath.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14085CCAC (PspAllocateAndQueryNotificationChannel.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     PspLockJobExclusive @ 0x1408EB430 (PspLockJobExclusive.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x1408EB554 (PspQueryJobHierarchyProcessIdList.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x1408EB654 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspQueryRateControlHistory @ 0x1408EC2DC (PspQueryRateControlHistory.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
- *     PspLockJobMemoryLimitsShared @ 0x1408ED4D8 (PspLockJobMemoryLimitsShared.c)
- *     PspRateControlLimitFlag @ 0x1408ED540 (PspRateControlLimitFlag.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x1408ED564 (PspUnlockJobMemoryLimitsShared.c)
- *     PspLockJobShared @ 0x1408ED5D4 (PspLockJobShared.c)
- *     PspUnlockJobListShared @ 0x1409F7488 (PspUnlockJobListShared.c)
- *     PspLockJobListShared @ 0x1409FBF04 (PspLockJobListShared.c)
- *     PspGetJobLimitInformationValidFlags @ 0x140A37330 (PspGetJobLimitInformationValidFlags.c)
- *     PspQueryJobIoAttribution @ 0x140A4DD18 (PspQueryJobIoAttribution.c)
- *     EtwTraceJobSetQuery @ 0x140A56390 (EtwTraceJobSetQuery.c)
- *     PspNotificationLimitRateControlToleranceIntervalField @ 0x140A59264 (PspNotificationLimitRateControlToleranceIntervalField.c)
- *     PsGetParentSilo @ 0x140A59700 (PsGetParentSilo.c)
- *     PspNotificationLimitRateControlToleranceField @ 0x140A5AF90 (PspNotificationLimitRateControlToleranceField.c)
- *     PspLimitViolationRateControlToleranceLimitField @ 0x140A6633C (PspLimitViolationRateControlToleranceLimitField.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PspGetJobSilo @ 0x1404071B0 (PspGetJobSilo.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14044B690 (PsGetServerSiloServiceSessionId.c)
+ *     KeIsSingleGroupAffinityEx @ 0x1404697A0 (KeIsSingleGroupAffinityEx.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     MmQueryApiSetSchema @ 0x1404B0B8C (MmQueryApiSetSchema.c)
+ *     PsGetJobServerSilo @ 0x1404B2120 (PsGetJobServerSilo.c)
+ *     PspIsSiloInServerSilo @ 0x1405E22FC (PspIsSiloInServerSilo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlCopyToUser @ 0x1406FA008 (RtlCopyToUser.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x140777BB0 (PspQueryJobHierarchyInterferenceCount.c)
+ *     ObGetSiloRootDirectoryPath @ 0x14082B744 (ObGetSiloRootDirectoryPath.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x140858A1C (PspAllocateAndQueryNotificationChannel.c)
+ *     PspLockJobExclusive @ 0x14085CC60 (PspLockJobExclusive.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x14085CD84 (PspQueryJobHierarchyProcessIdList.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x14085CE84 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspQueryRateControlHistory @ 0x14085DB0C (PspQueryRateControlHistory.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
+ *     PspLockJobMemoryLimitsShared @ 0x14085ED08 (PspLockJobMemoryLimitsShared.c)
+ *     PspRateControlLimitFlag @ 0x14085ED70 (PspRateControlLimitFlag.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x14085ED94 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspLockJobShared @ 0x14085EE04 (PspLockJobShared.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     PspUnlockJobListShared @ 0x1409EFDF8 (PspUnlockJobListShared.c)
+ *     PspLockJobListShared @ 0x1409F4C44 (PspLockJobListShared.c)
+ *     PspGetJobLimitInformationValidFlags @ 0x140A2C180 (PspGetJobLimitInformationValidFlags.c)
+ *     PspQueryJobIoAttribution @ 0x140A448A8 (PspQueryJobIoAttribution.c)
+ *     EtwTraceJobSetQuery @ 0x140A4E224 (EtwTraceJobSetQuery.c)
+ *     PspNotificationLimitRateControlToleranceIntervalField @ 0x140A50A14 (PspNotificationLimitRateControlToleranceIntervalField.c)
+ *     PsGetParentSilo @ 0x140A50EA0 (PsGetParentSilo.c)
+ *     PspNotificationLimitRateControlToleranceField @ 0x140A528A8 (PspNotificationLimitRateControlToleranceField.c)
+ *     PspLimitViolationRateControlToleranceLimitField @ 0x140A5F120 (PspLimitViolationRateControlToleranceLimitField.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3, unsigned int a4, unsigned int *a5)
+NTSTATUS __cdecl NtQueryInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength,
+        PULONG ReturnLength)
 {
   int v6; // edi
   __int64 v7; // r14
@@ -55,14 +59,14 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   bool v10; // zf
   struct _KTHREAD *CurrentThread; // rcx
   char PreviousMode; // al
-  unsigned int v13; // eax
-  __int64 result; // rax
+  ULONG v13; // eax
+  NTSTATUS result; // eax
   __int64 v15; // rdx
   char *v16; // rdi
   char *v17; // r15
-  signed int JobIoAttribution; // ebx
-  void *v19; // r14
-  unsigned int *v20; // r13
+  NTSTATUS JobIoAttribution; // ebx
+  PULONG v19; // r13
+  PVOID v20; // r14
   unsigned int v21; // r14d
   int v22; // r12d
   unsigned __int16 v23; // r9
@@ -96,7 +100,7 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   __int64 v51; // rcx
   int v52; // edx
   int *v53; // rcx
-  int k; // edx
+  int i; // edx
   _DWORD *v55; // rax
   __int64 v56; // r8
   int v57; // edx
@@ -115,13 +119,13 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   __int64 v70; // rax
   __int64 v71; // rax
   __int64 v72; // rax
-  int i; // edx
+  int j; // edx
   _DWORD *v74; // rax
   int v75; // edx
   int *v76; // r8
   _BYTE *v77; // r9
   int v78; // ecx
-  int j; // edx
+  int k; // edx
   int v80; // edx
   int v81; // r15d
   char *v82; // rbx
@@ -154,7 +158,7 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   __int64 v109; // rcx
   char v110; // al
   bool v111; // [rsp+40h] [rbp-A78h]
-  int v113; // [rsp+58h] [rbp-A60h] BYREF
+  ULONG v113; // [rsp+58h] [rbp-A60h] BYREF
   char v114; // [rsp+5Ch] [rbp-A5Ch]
   char v115; // [rsp+5Dh] [rbp-A5Bh] BYREF
   bool v116; // [rsp+5Eh] [rbp-A5Ah] BYREF
@@ -168,7 +172,7 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   _DWORD Size[3]; // [rsp+8Ch] [rbp-A2Ch] BYREF
   void *v125; // [rsp+98h] [rbp-A20h]
   ULONG_PTR BugCheckParameter1; // [rsp+A0h] [rbp-A18h]
-  __int64 v127; // [rsp+A8h] [rbp-A10h] BYREF
+  PVOID v127; // [rsp+A8h] [rbp-A10h] BYREF
   int v128; // [rsp+B0h] [rbp-A08h] BYREF
   int v129; // [rsp+B4h] [rbp-A04h] BYREF
   int v130; // [rsp+B8h] [rbp-A00h] BYREF
@@ -177,10 +181,10 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   unsigned __int64 v133; // [rsp+C8h] [rbp-9F0h] BYREF
   int v134; // [rsp+D0h] [rbp-9E8h] BYREF
   __int64 v135; // [rsp+D8h] [rbp-9E0h] BYREF
-  PVOID P[2]; // [rsp+E0h] [rbp-9D8h] BYREF
-  __int64 v137; // [rsp+F0h] [rbp-9C8h] BYREF
-  __int64 v138; // [rsp+F8h] [rbp-9C0h] BYREF
-  __int64 v139; // [rsp+100h] [rbp-9B8h] BYREF
+  __int64 v136; // [rsp+E0h] [rbp-9D8h] BYREF
+  __int64 v137; // [rsp+E8h] [rbp-9D0h] BYREF
+  __int64 v138; // [rsp+F0h] [rbp-9C8h] BYREF
+  PVOID P[2]; // [rsp+F8h] [rbp-9C0h] BYREF
   __int128 v140; // [rsp+108h] [rbp-9B0h] BYREF
   __int128 v141; // [rsp+118h] [rbp-9A0h]
   __int64 v142; // [rsp+128h] [rbp-990h]
@@ -252,12 +256,12 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   _BYTE v208[512]; // [rsp+830h] [rbp-288h] BYREF
   _WORD Src[32]; // [rsp+A30h] [rbp-88h] BYREF
 
-  v120 = a4;
-  v6 = a3;
-  v7 = a2;
-  BugCheckParameter1 = a1;
-  v127 = a3;
-  v122 = (__int64)a5;
+  v120 = JobObjectInformationLength;
+  v6 = (int)JobObjectInformation;
+  v7 = JobObjectInformationClass;
+  BugCheckParameter1 = (ULONG_PTR)JobHandle;
+  v127 = JobObjectInformation;
+  v122 = (__int64)ReturnLength;
   memset_0(v204, 0, 0x1D0uLL);
   v167 = 0LL;
   memset_0(&v206, 0, 0x108uLL);
@@ -265,7 +269,7 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   v133 = 0LL;
   v132 = 0LL;
   v128 = 0;
-  v139 = 0LL;
+  v136 = 0LL;
   v130 = 0;
   v176 = 0LL;
   v177 = 0LL;
@@ -275,7 +279,7 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   v129 = 0;
   v138 = 0LL;
   memset_0(v188, 0, 0x98uLL);
-  v161 = 0LL;
+  v162 = 0LL;
   v119[0] = 0;
   v123 = 0;
   v202 = 0;
@@ -302,7 +306,7 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   LODWORD(v145) = 0;
   v137 = 0LL;
   memset_0(v203, 0, sizeof(v203));
-  v162 = 0LL;
+  v161 = 0LL;
   v140 = 0LL;
   v141 = 0LL;
   v142 = 0LL;
@@ -312,57 +316,57 @@ __int64 __fastcall NtQueryInformationJobObject(ULONG_PTR a1, int a2, __int64 a3,
   v115 = 0;
   v117 = 0;
   if ( (unsigned int)(v7 - 1) > 0x32 )
-    return 3221225475LL;
+    return -1073741821;
   switch ( (_DWORD)v7 )
   {
     case 9:
-      if ( a4 != 144 && a4 != 152 )
-        return 3221225476LL;
+      if ( JobObjectInformationLength != 144 && JobObjectInformationLength != 152 )
+        return -1073741820;
       goto LABEL_27;
     case 0xC:
-      v13 = a4 - 48;
+      v13 = JobObjectInformationLength - 48;
       goto LABEL_41;
     case 0xD:
-      v13 = a4 - 80;
+      v13 = JobObjectInformationLength - 80;
 LABEL_41:
       v10 = (v13 & 0xFFFFFFF7) == 0;
 LABEL_26:
       if ( !v10 )
-        return 3221225476LL;
+        return -1073741820;
       goto LABEL_27;
     case 0x13:
-      if ( a4 == 432 || a4 == 448 )
+      if ( JobObjectInformationLength == 432 || JobObjectInformationLength == 448 )
         goto LABEL_27;
-      v10 = a4 == 464;
+      v10 = JobObjectInformationLength == 464;
       goto LABEL_26;
     case 0x14:
-      if ( a4 == 40 )
+      if ( JobObjectInformationLength == 40 )
         goto LABEL_27;
-      v10 = a4 == 64;
+      v10 = JobObjectInformationLength == 64;
       goto LABEL_26;
     case 0x1C:
-      if ( a4 == 16 )
+      if ( JobObjectInformationLength == 16 )
         goto LABEL_27;
-      v10 = a4 == 40;
+      v10 = JobObjectInformationLength == 40;
       goto LABEL_26;
     case 0x1E:
-      if ( a4 == 16 )
+      if ( JobObjectInformationLength == 16 )
         goto LABEL_27;
-      v10 = a4 == 36;
+      v10 = JobObjectInformationLength == 36;
       goto LABEL_26;
     case 0x2B:
-      if ( a4 == 1 )
+      if ( JobObjectInformationLength == 1 )
       {
         v9 = 1;
         v8 = 1;
         v113 = 1;
         goto LABEL_29;
       }
-      return 3221225476LL;
+      return -1073741820;
   }
-  v8 = dword_140B3E7CC[v7];
+  v8 = dword_140B404FC[v7];
   v113 = v8;
-  if ( a4 != v8 )
+  if ( JobObjectInformationLength != v8 )
   {
     if ( (_DWORD)v7 != 3
       && (_DWORD)v7 != 5
@@ -371,19 +375,19 @@ LABEL_26:
       && (_DWORD)v7 != 31
       && (_DWORD)v7 != 37 )
     {
-      if ( (_DWORD)v7 == 38 && a4 == 32 )
+      if ( (_DWORD)v7 == 38 && JobObjectInformationLength == 32 )
       {
         v8 = 32;
         v113 = 32;
         goto LABEL_28;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
-    if ( a4 < v8 )
-      return 3221225476LL;
+    if ( JobObjectInformationLength < v8 )
+      return -1073741820;
 LABEL_27:
-    v113 = a4;
-    v8 = a4;
+    v113 = JobObjectInformationLength;
+    v8 = JobObjectInformationLength;
   }
 LABEL_28:
   v9 = 1;
@@ -395,9 +399,9 @@ LABEL_29:
   v114 = PreviousMode;
   if ( PreviousMode )
   {
-    if ( a4 )
+    if ( JobObjectInformationLength )
     {
-      if ( ((dword_140B3E6FC[v7] - 1) & v6) != 0 )
+      if ( ((dword_140B405CC[v7] - 1) & v6) != 0 )
         ExRaiseDatatypeMisalignment();
       v15 = 0x7FFFFFFF0000LL;
       CurrentThread = v118;
@@ -406,10 +410,10 @@ LABEL_29:
     {
       v15 = 0x7FFFFFFF0000LL;
     }
-    if ( a5 )
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v15 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v15 = (__int64)ReturnLength;
       *(_DWORD *)v15 = *(_DWORD *)v15;
     }
     PreviousMode = v114;
@@ -425,7 +429,7 @@ LABEL_29:
                &Object,
                0LL,
                0LL);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v16 = (char *)Object;
     goto LABEL_57;
@@ -440,7 +444,7 @@ LABEL_57:
     goto LABEL_60;
   }
   if ( (((_DWORD)v7 - 31) & 0xFFFFFFF7) != 0 )
-    return 3221225506LL;
+    return -1073741790;
 LABEL_60:
   HIDWORD(v120) = v8;
   v111 = 0;
@@ -458,7 +462,7 @@ LABEL_60:
         JobIoAttribution = PspQueryJobIoAttribution((__int64)v16, (__int64)v201);
         PspUnlockJob((__int64)v16, (__int64)v118);
         v17 = v201;
-        goto LABEL_283;
+        goto LABEL_282;
       }
       v94 = v93 - 1;
       if ( !v94 )
@@ -473,7 +477,7 @@ LABEL_60:
           v115 = v110;
         }
         v17 = &v115;
-        goto LABEL_283;
+        goto LABEL_282;
       }
       v95 = v94 - 1;
       if ( !v95 )
@@ -527,12 +531,14 @@ LABEL_60:
       v100 = v99 - 1;
       if ( v100 )
       {
-        if ( v100 != 1 )
-          goto LABEL_260;
-        PspQueryJobHierarchyAccountingInformation(v16, (__int64)v204);
-        v167 = v205;
-        v17 = (char *)&v167;
-        goto LABEL_73;
+        if ( v100 == 1 )
+        {
+          PspQueryJobHierarchyAccountingInformation(v16, (__int64)v204);
+          v167 = v205;
+          v17 = (char *)&v167;
+          goto LABEL_73;
+        }
+        goto LABEL_259;
       }
       PsGetJobServerSilo((__int64)v16, (__int64 *)&Size[1]);
       if ( !PsIsHostSilo(*(__int64 *)&Size[1]) )
@@ -560,7 +566,7 @@ LABEL_60:
         {
           JobIoAttribution = -2147483614;
         }
-        goto LABEL_283;
+        goto LABEL_282;
       }
     }
     else
@@ -577,72 +583,18 @@ LABEL_60:
           v90 = PdcCreateWatchdogAroundClientCall();
         }
         v91 = (const void **)PsGetServerSiloGlobals(v90);
-        v19 = (void *)a3;
-        memmove((void *)a3, v91[161], v92);
+        v20 = JobObjectInformation;
+        memmove(JobObjectInformation, v91[161], v92);
         v111 = 1;
-        v20 = a5;
-        goto LABEL_285;
+        v19 = ReturnLength;
+        goto LABEL_284;
       }
       if ( (int)v7 <= 33 )
       {
         if ( (_DWORD)v7 != 33 )
         {
           v47 = v7 - 28;
-          if ( v47 )
-          {
-            v48 = v47 - 1;
-            if ( !v48 )
-            {
-              v137 = *((_QWORD *)v16 + 196);
-              v17 = (char *)&v137;
-              JobIoAttribution = 0;
-              v16 = (char *)Object;
-              goto LABEL_283;
-            }
-            v49 = v48 - 1;
-            if ( v49 )
-            {
-              v50 = v49 - 1;
-              if ( !v50 )
-              {
-                JobIoAttribution = -1073741822;
-                goto LABEL_283;
-              }
-              if ( v50 != 1 )
-                goto LABEL_260;
-              PspLockJobShared((__int64)v16, (__int64)CurrentThread);
-              v51 = *((_QWORD *)v16 + 193);
-              if ( v51 )
-              {
-                DWORD2(v160) = 1;
-                v52 = *(_DWORD *)(v51 + 48);
-                if ( (v52 & 1) != 0 )
-                {
-                  v9 = 3;
-                  DWORD2(v160) = 3;
-                  *(_QWORD *)&v160 = *(_QWORD *)(v51 + 40);
-                }
-                if ( (v52 & 2) != 0 )
-                {
-                  DWORD2(v160) = v9 | 4;
-                  BYTE12(v160) = *(_BYTE *)(v51 + 64);
-                }
-              }
-              PspUnlockJob((__int64)v16, (__int64)v118);
-              v17 = (char *)&v160;
-            }
-            else
-            {
-              v176 = *((_OWORD *)v16 + 92);
-              if ( (_DWORD)v120 == 36 )
-              {
-                v177 = *((_OWORD *)v16 + 93);
-                v178 = *((_DWORD *)v16 + 367);
-              }
-              v17 = (char *)&v176;
-            }
-          }
-          else
+          if ( !v47 )
           {
             *(_OWORD *)&v175[24] = 0LL;
             PspLockJobMemoryLimitsShared((__int64)v16, (__int64)CurrentThread);
@@ -652,15 +604,107 @@ LABEL_60:
             v16 = (char *)Object;
             PspUnlockJobMemoryLimitsShared((__int64)Object, (__int64)v118);
             v17 = v175;
+            goto LABEL_73;
           }
-          goto LABEL_73;
+          v48 = v47 - 1;
+          if ( !v48 )
+          {
+            v137 = *((_QWORD *)v16 + 196);
+            v17 = (char *)&v137;
+            JobIoAttribution = 0;
+            v16 = (char *)Object;
+            goto LABEL_282;
+          }
+          v49 = v48 - 1;
+          if ( !v49 )
+          {
+            v176 = *((_OWORD *)v16 + 92);
+            if ( (_DWORD)v120 == 36 )
+            {
+              v177 = *((_OWORD *)v16 + 93);
+              v178 = *((_DWORD *)v16 + 367);
+            }
+            v17 = (char *)&v176;
+            goto LABEL_73;
+          }
+          v50 = v49 - 1;
+          if ( !v50 )
+          {
+            JobIoAttribution = -1073741822;
+            goto LABEL_282;
+          }
+          if ( v50 == 1 )
+          {
+            PspLockJobShared((__int64)v16, (__int64)CurrentThread);
+            v51 = *((_QWORD *)v16 + 193);
+            if ( v51 )
+            {
+              DWORD2(v160) = 1;
+              v52 = *(_DWORD *)(v51 + 48);
+              if ( (v52 & 1) != 0 )
+              {
+                v9 = 3;
+                DWORD2(v160) = 3;
+                *(_QWORD *)&v160 = *(_QWORD *)(v51 + 40);
+              }
+              if ( (v52 & 2) != 0 )
+              {
+                DWORD2(v160) = v9 | 4;
+                BYTE12(v160) = *(_BYTE *)(v51 + 64);
+              }
+            }
+            PspUnlockJob((__int64)v16, (__int64)v118);
+            v17 = (char *)&v160;
+            goto LABEL_73;
+          }
+          goto LABEL_259;
         }
-        goto LABEL_167;
+LABEL_168:
+        PspLockJobShared((__int64)v16, (__int64)CurrentThread);
+        v53 = (int *)*((_QWORD *)v16 + 152);
+        if ( v53 )
+        {
+          v165 = *v53;
+          v163 = *(_OWORD *)(v53 + 2);
+          *(_QWORD *)v164 = *((_QWORD *)v53 + 3);
+          v166 = *((_QWORD *)v53 + 4) << 12;
+          *(_QWORD *)&v164[8] = *((_QWORD *)v53 + 5) << 12;
+          for ( i = 0; i < 3; i = v60 + 1 )
+          {
+            v55 = (_DWORD *)PspNotificationLimitRateControlToleranceField((__int64)&v163, i);
+            *v55 = *(_DWORD *)(v56 - 12);
+            v58 = (_DWORD *)PspNotificationLimitRateControlToleranceIntervalField((__int64)&v163, v57);
+            *v58 = *v59;
+          }
+        }
+        PspUnlockJob((__int64)v16, (__int64)v118);
+        if ( (_DWORD)v120 == 48 )
+        {
+          v168 = v163;
+          v169 = *(_OWORD *)v164;
+          *(_QWORD *)&v170 = *(_QWORD *)&v164[16];
+          *((_QWORD *)&v170 + 1) = v165 & 0x70204LL;
+          v17 = (char *)&v168;
+        }
+        else if ( (_DWORD)v120 == 56 )
+        {
+          v171 = v163;
+          *(_QWORD *)&v172 = *(_QWORD *)v164;
+          *((_QWORD *)&v172 + 1) = v166;
+          v173 = *(_OWORD *)&v164[8];
+          v174 = v165 & 0x278204LL;
+          v17 = (char *)&v171;
+        }
+        else
+        {
+          v17 = (char *)&v163;
+        }
+        goto LABEL_73;
       }
       switch ( (_DWORD)v7 )
       {
         case '"':
-LABEL_206:
+LABEL_205:
           LOWORD(v113) = 0;
           BYTE2(v113) = 0;
           PspQueryJobHierarchyAccountingInformation(v16, (__int64)v204);
@@ -702,9 +746,9 @@ LABEL_206:
             if ( !v72 )
               v72 = v67[5];
             v154 = v72 << 12;
-            for ( i = 0; i < 3; i = v75 + 1 )
+            for ( j = 0; j < 3; j = v75 + 1 )
             {
-              v74 = (_DWORD *)PspLimitViolationRateControlToleranceLimitField((__int64)&v146, i);
+              v74 = (_DWORD *)PspLimitViolationRateControlToleranceLimitField((__int64)&v146, j);
               v78 = v76[16];
               if ( v78 )
                 *v77 = 1;
@@ -721,8 +765,8 @@ LABEL_206:
             v152 = 0LL;
             v157 = 0LL;
             v154 = 0LL;
-            for ( j = 0; j < 3; j = v80 + 1 )
-              *(_DWORD *)PspLimitViolationRateControlToleranceLimitField((__int64)&v146, j) = 0;
+            for ( k = 0; k < 3; k = v80 + 1 )
+              *(_DWORD *)PspLimitViolationRateControlToleranceLimitField((__int64)&v146, k) = 0;
           }
           v81 = 0;
           v82 = (char *)&v113;
@@ -798,19 +842,19 @@ LABEL_206:
           JobIoAttribution = 0;
           if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
             EtwTraceJobSetQuery((__int64)v16, v7, (__int64)&v146, &v123, 0, 0x726u);
-          goto LABEL_283;
+          goto LABEL_282;
         case '$':
           if ( (*((_DWORD *)v16 + 388) & 0x40000000) != 0 )
           {
-            LODWORD(v162) = *((_DWORD *)v16 + 367);
+            LODWORD(v161) = *((_DWORD *)v16 + 367);
             ParentSilo = PsGetParentSilo((__int64)v16);
             if ( PsIsHostSilo(ParentSilo) )
-              DWORD1(v162) = 0;
+              DWORD1(v161) = 0;
             else
-              DWORD1(v162) = *(_DWORD *)(ParentSilo + 1468);
-            DWORD2(v162) = *((_DWORD *)v16 + 364);
-            BYTE12(v162) = PspIsSiloInServerSilo((__int64)v16);
-            v17 = (char *)&v162;
+              DWORD1(v161) = *(_DWORD *)(ParentSilo + 1468);
+            DWORD2(v161) = *((_DWORD *)v16 + 364);
+            BYTE12(v161) = PspIsSiloInServerSilo((__int64)v16);
+            v17 = (char *)&v161;
             goto LABEL_73;
           }
           break;
@@ -828,42 +872,32 @@ LABEL_206:
               if ( v8 > (unsigned int)v120 )
               {
                 JobIoAttribution = -1073741789;
-                v19 = (void *)a3;
-                v20 = a5;
+                v20 = JobObjectInformation;
+                v19 = ReturnLength;
               }
               else
               {
-                v19 = (void *)a3;
-                if ( (unsigned int)Feature_Servicing_MSRC100723__private_IsEnabledDeviceUsageNoInline() )
-                {
-                  Size[2] = 0;
-                  LOWORD(Size[1]) = v64;
-                  HIWORD(Size[1]) = v64;
-                  v125 = (void *)(a3 + 16);
-                  if ( v114 )
-                    RtlCopyToUser((void *)a3, &Size[1], 0x10uLL);
-                  else
-                    RtlCopyVolatileMemory((void *)a3, &Size[1], 0x10uLL);
-                  if ( v114 )
-                    RtlCopyToUser(v125, P[1], v64);
-                  else
-                    RtlCopyVolatileMemory(v125, P[1], v64);
-                }
+                Size[2] = 0;
+                LOWORD(Size[1]) = P[0];
+                HIWORD(Size[1]) = P[0];
+                v20 = JobObjectInformation;
+                v125 = (char *)JobObjectInformation + 16;
+                if ( v114 )
+                  RtlCopyToUser(JobObjectInformation, &Size[1], 0x10uLL);
                 else
-                {
-                  *(_WORD *)a3 = v64;
-                  *(_WORD *)(a3 + 2) = v64;
-                  *(_QWORD *)(a3 + 8) = a3 + 16;
-                  memmove((void *)(a3 + 16), P[1], (unsigned int)v64);
-                }
-                v20 = a5;
-                if ( a5 )
-                  *a5 = v8;
+                  RtlCopyVolatileMemory(JobObjectInformation, &Size[1], 0x10uLL);
+                if ( v114 )
+                  RtlCopyToUser(v125, P[1], v64);
+                else
+                  RtlCopyVolatileMemory(v125, P[1], v64);
+                v19 = ReturnLength;
+                if ( ReturnLength )
+                  *ReturnLength = v8;
               }
               ExFreePoolWithTag(P[1], 0);
-              goto LABEL_285;
+              goto LABEL_284;
             }
-            goto LABEL_283;
+            goto LABEL_282;
           }
           break;
         case '&':
@@ -890,23 +924,23 @@ LABEL_206:
             LODWORD(v140) = PsGetServerSiloServiceSessionId(v61);
             JobIoAttribution = 0;
             v17 = (char *)&v140;
-            goto LABEL_283;
+            goto LABEL_282;
           }
           break;
         default:
-          goto LABEL_260;
+          goto LABEL_259;
       }
     }
     JobIoAttribution = -1073740535;
-    goto LABEL_283;
+    goto LABEL_282;
   }
   if ( (_DWORD)v7 == 26 )
   {
-    v19 = (void *)a3;
-    JobIoAttribution = PspQueryJobHierarchyInterferenceCount(v16, (_QWORD *)a3);
+    v20 = JobObjectInformation;
+    JobIoAttribution = PspQueryJobHierarchyInterferenceCount(v16, JobObjectInformation);
     v111 = JobIoAttribution >= 0;
     HIDWORD(v120) = ((JobIoAttribution >> 31) & 0xFFFFFFF8) + 8;
-    goto LABEL_284;
+    goto LABEL_75;
   }
   if ( (int)v7 > 12 )
   {
@@ -948,19 +982,19 @@ LABEL_206:
             v17 = (char *)&v130;
             goto LABEL_73;
           case 0x11:
-            v139 = *((_QWORD *)v16 + 71);
-            v17 = (char *)&v139;
+            v136 = *((_QWORD *)v16 + 71);
+            v17 = (char *)&v136;
             goto LABEL_73;
           case 0x12:
-            WORD3(v161) = 0;
+            WORD3(v162) = 0;
             PspLockJobShared((__int64)v16, (__int64)CurrentThread);
             v29 = *((_DWORD *)v16 + 388);
-            BYTE4(v161) = (v29 & 0x200) != 0;
-            BYTE5(v161) = (v29 & 0x80000) != 0;
-            LODWORD(v161) = ~(unsigned __int8)*((_DWORD *)v16 + 389) & 8 | 7;
-            *((_QWORD *)&v161 + 1) = *((_QWORD *)v16 + 148);
+            BYTE4(v162) = (v29 & 0x200) != 0;
+            BYTE5(v162) = (v29 & 0x80000) != 0;
+            LODWORD(v162) = ~(unsigned __int8)*((_DWORD *)v16 + 389) & 8 | 7;
+            *((_QWORD *)&v162 + 1) = *((_QWORD *)v16 + 148);
             PspUnlockJob((__int64)v16, (__int64)v118);
-            v17 = (char *)&v161;
+            v17 = (char *)&v162;
             goto LABEL_73;
         }
         if ( (_DWORD)v7 != 19 )
@@ -974,17 +1008,17 @@ LABEL_206:
             JobIoAttribution = 0;
             if ( NotificationChannel < 0 )
               JobIoAttribution = NotificationChannel;
-            goto LABEL_283;
+            goto LABEL_282;
           }
           if ( (_DWORD)v7 != 21 )
-            goto LABEL_260;
+            goto LABEL_259;
           v116 = (*((_DWORD *)v16 + 388) & 0x400) != 0;
           v17 = (char *)&v116;
           goto LABEL_73;
         }
-        goto LABEL_114;
+        goto LABEL_115;
       }
-      if ( a5 )
+      if ( ReturnLength )
       {
         v36 = v120;
         if ( (v120 & 0xF) == 0 )
@@ -1059,134 +1093,98 @@ LABEL_206:
           v113 = v8;
           JobIoAttribution = v36 < 16 * v42 ? 0xC0000023 : 0;
           v111 = 1;
-          v19 = (void *)a3;
-          memmove((void *)a3, v208, v8);
-          v20 = a5;
-          goto LABEL_285;
+          v20 = JobObjectInformation;
+          memmove(JobObjectInformation, v208, v8);
+          v19 = ReturnLength;
+          goto LABEL_284;
         }
       }
-      goto LABEL_90;
+LABEL_91:
+      JobIoAttribution = -1073741811;
+      goto LABEL_282;
     }
-    goto LABEL_206;
+    goto LABEL_205;
   }
   if ( (_DWORD)v7 == 12 )
-  {
-LABEL_167:
-    PspLockJobShared((__int64)v16, (__int64)CurrentThread);
-    v53 = (int *)*((_QWORD *)v16 + 152);
-    if ( v53 )
-    {
-      v165 = *v53;
-      v163 = *(_OWORD *)(v53 + 2);
-      *(_QWORD *)v164 = *((_QWORD *)v53 + 3);
-      v166 = *((_QWORD *)v53 + 4) << 12;
-      *(_QWORD *)&v164[8] = *((_QWORD *)v53 + 5) << 12;
-      for ( k = 0; k < 3; k = v60 + 1 )
-      {
-        v55 = (_DWORD *)PspNotificationLimitRateControlToleranceField((__int64)&v163, k);
-        *v55 = *(_DWORD *)(v56 - 12);
-        v58 = (_DWORD *)PspNotificationLimitRateControlToleranceIntervalField((__int64)&v163, v57);
-        *v58 = *v59;
-      }
-    }
-    PspUnlockJob((__int64)v16, (__int64)v118);
-    if ( (_DWORD)v120 == 48 )
-    {
-      v168 = v163;
-      v169 = *(_OWORD *)v164;
-      *(_QWORD *)&v170 = *(_QWORD *)&v164[16];
-      *((_QWORD *)&v170 + 1) = v165 & 0x70204LL;
-      v17 = (char *)&v168;
-    }
-    else if ( (_DWORD)v120 == 56 )
-    {
-      v171 = v163;
-      *(_QWORD *)&v172 = *(_QWORD *)v164;
-      *((_QWORD *)&v172 + 1) = v166;
-      v173 = *(_OWORD *)&v164[8];
-      v174 = v165 & 0x278204LL;
-      v17 = (char *)&v171;
-    }
-    else
-    {
-      v17 = (char *)&v163;
-    }
-    goto LABEL_73;
-  }
+    goto LABEL_168;
   if ( (int)v7 > 6 )
   {
     switch ( (_DWORD)v7 )
     {
       case 8:
-        goto LABEL_114;
+        goto LABEL_115;
       case 9:
-        goto LABEL_92;
+        goto LABEL_93;
       case 0xA:
         PspLockJobListShared((__int64)CurrentThread);
         PspUnlockJobListShared((__int64)v118);
         v17 = (char *)&v134;
         goto LABEL_73;
-    }
-    if ( (_DWORD)v7 != 11 )
-      goto LABEL_260;
-    if ( a5 )
-    {
-      v21 = v120;
-      if ( (v120 & 1) == 0 )
-      {
-        PspLockJobShared((__int64)v16, (__int64)CurrentThread);
-        v22 = 0;
-        v23 = *((_WORD *)v16 + 132);
-        if ( v23 )
+      case 0xB:
+        if ( ReturnLength )
         {
-          v24 = v16 + 272;
-          v25 = 0;
-          v26 = 0;
-          v27 = v119[0];
-          do
+          v21 = v120;
+          if ( (v120 & 1) == 0 )
           {
-            if ( *v24 )
+            PspLockJobShared((__int64)v16, (__int64)CurrentThread);
+            v22 = 0;
+            v23 = *((_WORD *)v16 + 132);
+            if ( v23 )
             {
-              Src[v22++] = v27;
-              v25 = v26;
+              v24 = v16 + 272;
+              v25 = 0;
+              v26 = 0;
+              v27 = v119[0];
+              do
+              {
+                if ( *v24 )
+                {
+                  Src[v22++] = v27;
+                  v25 = v26;
+                }
+                v27 = ++v25;
+                ++v24;
+                v26 = v25;
+              }
+              while ( v25 < v23 );
             }
-            v27 = ++v25;
-            ++v24;
-            v26 = v25;
+            PspUnlockJob((__int64)v16, (__int64)v118);
+            v8 = 2 * v22;
+            HIDWORD(v120) = v8;
+            v111 = 1;
+            JobIoAttribution = v21 < v8 ? 0xC0000023 : 0;
+            if ( v8 > v21 )
+              v8 = Size[0];
+            Size[0] = v8;
+            v20 = JobObjectInformation;
+            memmove(JobObjectInformation, Src, v8);
+            v19 = ReturnLength;
+            goto LABEL_284;
           }
-          while ( v25 < v23 );
         }
-        PspUnlockJob((__int64)v16, (__int64)v118);
-        v8 = 2 * v22;
-        HIDWORD(v120) = v8;
-        v111 = 1;
-        JobIoAttribution = v21 < v8 ? 0xC0000023 : 0;
-        if ( v8 > v21 )
-          v8 = Size[0];
-        Size[0] = v8;
-        v19 = (void *)a3;
-        memmove((void *)a3, Src, v8);
-        v20 = a5;
-        goto LABEL_285;
-      }
+        goto LABEL_91;
     }
-LABEL_90:
-    JobIoAttribution = -1073741811;
-    goto LABEL_283;
+LABEL_259:
+    JobIoAttribution = -1073741821;
+    goto LABEL_282;
   }
   switch ( (_DWORD)v7 )
   {
     case 6:
       v129 = *((_DWORD *)v16 + 137);
       v17 = (char *)&v129;
-      goto LABEL_73;
+LABEL_73:
+      JobIoAttribution = 0;
+LABEL_282:
+      v19 = ReturnLength;
+      goto LABEL_283;
     case 1:
-LABEL_114:
+LABEL_115:
       PspQueryJobHierarchyAccountingInformation(v16, (__int64)v204);
       v17 = (char *)v204;
       goto LABEL_73;
     case 2:
-LABEL_92:
+LABEL_93:
       PspLockJobShared((__int64)v16, (__int64)CurrentThread);
       v190 = *((_QWORD *)v16 + 30);
       v191 = *((_QWORD *)v16 + 31);
@@ -1217,44 +1215,43 @@ LABEL_92:
       }
       v17 = (char *)v188;
       goto LABEL_73;
-    case 3:
-      HIDWORD(v120) = 0;
-      v19 = (void *)a3;
-      JobIoAttribution = PspQueryJobHierarchyProcessIdList(v16, (_DWORD *)a3, v120, (_DWORD *)&v120 + 1);
-      v111 = 1;
-LABEL_284:
-      v20 = a5;
-      goto LABEL_285;
-    case 4:
-      PspLockJobShared((__int64)v16, (__int64)CurrentThread);
-      v128 = *((_DWORD *)v16 + 136);
-      PspUnlockJob((__int64)v16, (__int64)v118);
-      v17 = (char *)&v128;
-LABEL_73:
-      JobIoAttribution = 0;
-LABEL_283:
-      v19 = (void *)a3;
-      goto LABEL_284;
   }
-  if ( (_DWORD)v7 != 5 )
+  if ( (_DWORD)v7 != 3 )
   {
-LABEL_260:
-    JobIoAttribution = -1073741821;
-    goto LABEL_283;
+    if ( (_DWORD)v7 != 4 )
+    {
+      if ( (_DWORD)v7 == 5 )
+      {
+        v145 = 0LL;
+        v111 = 1;
+        *(_OWORD *)JobObjectInformation = 0LL;
+        *((_OWORD *)JobObjectInformation + 1) = 0LL;
+        *((_QWORD *)JobObjectInformation + 4) = v145;
+        v19 = ReturnLength;
+LABEL_283:
+        v20 = JobObjectInformation;
+        goto LABEL_284;
+      }
+      goto LABEL_259;
+    }
+    PspLockJobShared((__int64)v16, (__int64)CurrentThread);
+    v128 = *((_DWORD *)v16 + 136);
+    PspUnlockJob((__int64)v16, (__int64)v118);
+    v17 = (char *)&v128;
+    goto LABEL_73;
   }
-  v145 = 0LL;
+  HIDWORD(v120) = 0;
+  v20 = JobObjectInformation;
+  JobIoAttribution = PspQueryJobHierarchyProcessIdList(v16, JobObjectInformation, v120, (_DWORD *)&v120 + 1);
   v111 = 1;
-  v19 = (void *)a3;
-  *(_OWORD *)a3 = 0LL;
-  *(_OWORD *)(a3 + 16) = 0LL;
-  *(_QWORD *)(a3 + 32) = v145;
-  v20 = a5;
-LABEL_285:
+LABEL_75:
+  v19 = ReturnLength;
+LABEL_284:
   if ( v16 )
     ObfDereferenceObjectWithTag(v16, 0x79517350u);
   if ( JobIoAttribution >= 0 && !v111 )
-    memmove(v19, v17, v8);
-  if ( v20 )
-    *v20 = HIDWORD(v120);
-  return (unsigned int)JobIoAttribution;
+    memmove(v20, v17, v8);
+  if ( v19 )
+    *v19 = HIDWORD(v120);
+  return JobIoAttribution;
 }

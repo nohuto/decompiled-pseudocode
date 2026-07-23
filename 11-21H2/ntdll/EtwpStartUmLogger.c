@@ -25,7 +25,7 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   bool v4; // cf
   __int64 v7; // r15
   unsigned int v8; // r12d
-  __int64 v9; // r8
+  int v9; // r8d
   unsigned __int64 v10; // rcx
   int v11; // eax
   ULONG result; // eax
@@ -60,7 +60,7 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   v8 = 0;
   if ( v4 )
     return 87;
-  v9 = *(unsigned int *)(a4 + 64);
+  v9 = *(_DWORD *)(a4 + 64);
   *(_QWORD *)(a4 + 152) = a4 + 176;
   *(_QWORD *)(a4 + 136) = *(unsigned __int16 *)(a4 + 146) + a4 + 176;
   if ( (v9 & 0x40B) != 0 )
@@ -73,7 +73,7 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
       goto LABEL_4;
     return 87;
   }
-  v9 = (unsigned int)v9 | 1;
+  v9 |= 1u;
   *(_DWORD *)(a4 + 64) = v9;
 LABEL_4:
   if ( (v9 & 0x2000000) != 0
@@ -93,7 +93,7 @@ LABEL_4:
   {
     return 87;
   }
-  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName(a4 + 144, &inited, v9) )
+  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName((PUNICODE_STRING)(a4 + 144), &inited) )
   {
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(inited + 20) + 8));
     return 183;
@@ -198,7 +198,7 @@ LABEL_60:
       *(_QWORD *)(a4 + 88) = 0LL;
       *(_QWORD *)(v15 + 128) = 0LL;
     }
-    EtwpFreeLoggerContext(v15);
+    EtwpFreeLoggerContext((PVOID)v15);
     return TraceBufferPool;
   }
   return result;

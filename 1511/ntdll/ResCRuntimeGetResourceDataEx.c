@@ -19,7 +19,7 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
         _DWORD *a6,
         _DWORD *a7)
 {
-  __int64 v7; // rsi
+  _QWORD *v7; // rsi
   __int64 v10; // rbp
   _DWORD *v11; // rbp
   int v12; // eax
@@ -43,13 +43,13 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
   v7 = ResRuntimeView;
   v26 = a2;
   if ( !ResRuntimeView
-    || (v10 = *(_QWORD *)(ResRuntimeView + 16)) == 0
+    || (v10 = *((_QWORD *)ResRuntimeView + 2)) == 0
     || (v11 = *(_DWORD **)(v10 + 24)) == 0LL
     || (a4 & 0xFFFFFF) != 0
     || !a3 )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     goto LABEL_39;
   }
   v12 = v11[12];
@@ -65,7 +65,7 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
   {
     _InterlockedOr(v23, 0);
     v15 = *a2;
-    v16 = *(_QWORD *)(v7 + 16);
+    v16 = v7[2];
     v25 = v11[4];
     v27 = v15;
     v17 = (_DWORD *)((unsigned __int64)v28 & -(__int64)((unsigned int)ResCDirectoryGetEntryCopyAndIndex(
@@ -93,7 +93,7 @@ LABEL_16:
   {
     if ( (v17[11] & 0x4000000) != 0 )
     {
-      v18 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+      v18 = *(_QWORD *)(v7[2] + 64LL);
       if ( v18 )
         ResCHitsEntryHit(v18, v24);
     }
@@ -102,7 +102,7 @@ LABEL_39:
       *a6 = 0;
     return 0LL;
   }
-  v19 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+  v19 = *(_QWORD *)(v7[2] + 64LL);
   if ( v19 )
     ResCHitsEntryHit(v19, v24);
   if ( (v11[12] & 0x80000) != 0 )
@@ -118,12 +118,12 @@ LABEL_39:
     if ( a7 )
       *a7 = v17[5];
     v20 = (unsigned int)v17[5];
-    if ( *(_QWORD *)(*(_QWORD *)(v7 + 24) + 8 * v20) || (a5 & 0x10) == 0 )
+    if ( *(_QWORD *)(v7[3] + 8 * v20) || (a5 & 0x10) == 0 )
     {
       result = ResCRuntimeGetSegmentDataEx(v7, v20, (unsigned int)v17[6], (unsigned int)v17[7], a5);
       if ( result )
       {
-        v21 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+        v21 = *(_QWORD *)(v7[2] + 64LL);
         if ( v21 )
         {
           v22 = *(_QWORD *)(v21 + 24);

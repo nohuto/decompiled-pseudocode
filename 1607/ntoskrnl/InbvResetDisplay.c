@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvResetDisplay @ 0x1401C3740
+ * XREFs of InbvResetDisplay @ 0x1401C3624
  * Callers:
  *     PopShutdownHandler @ 0x1403DF97C (PopShutdownHandler.c)
  * Callees:
@@ -10,7 +10,7 @@ char InbvResetDisplay()
 {
   __int64 (*v0)(void); // rcx
 
-  if ( qword_140328DD0 && (v0 = *(__int64 (**)(void))(qword_140328DD0 + 24)) != 0LL )
+  if ( qword_140328E10 && (v0 = *(__int64 (**)(void))(qword_140328E10 + 24)) != 0LL )
     return v0();
   else
     return 0;

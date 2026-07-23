@@ -8,17 +8,17 @@
  *     NtWaitForAlertByThreadId @ 0x180095430 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlpWaitOnAddressWithTimeout(volatile signed __int32 *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpWaitOnAddressWithTimeout(__int64 a1, LARGE_INTEGER *a2, unsigned int a3)
 {
   int v4; // ecx
-  unsigned int v5; // edi
+  unsigned __int32 v5; // edi
 
   if ( MEMORY[0x7FFE036A] > 1u )
   {
     v4 = 0;
     if ( a3 )
     {
-      while ( (a1[10] & 1) != 0 )
+      while ( (*(_DWORD *)(a1 + 40) & 1) != 0 )
       {
         _mm_pause();
         if ( ++v4 >= a3 )
@@ -28,13 +28,13 @@ __int64 __fastcall RtlpWaitOnAddressWithTimeout(volatile signed __int32 *a1, __i
     }
   }
 LABEL_3:
-  if ( !_interlockedbittestandreset(a1 + 10, 0) )
+  if ( !_interlockedbittestandreset((volatile signed __int32 *)(a1 + 40), 0) )
     return 0LL;
-  v5 = NtWaitForAlertByThreadId(*(_QWORD *)a1, a2);
+  v5 = NtWaitForAlertByThreadId(*(PVOID *)a1, a2);
   if ( v5 == 258 )
   {
-    if ( _InterlockedExchange(a1 + 10, 4) == 2 )
-      v5 = NtWaitForAlertByThreadId(*(_QWORD *)a1, 0LL);
+    if ( _InterlockedExchange((volatile __int32 *)(a1 + 40), 4) == 2 )
+      v5 = NtWaitForAlertByThreadId(*(PVOID *)a1, 0LL);
     else
       RtlpWaitOnAddressRemoveWaitBlock(a1);
   }

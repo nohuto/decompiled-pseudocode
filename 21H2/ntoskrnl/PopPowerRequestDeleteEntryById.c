@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestDeleteEntryById @ 0x14067C4A0
+ * XREFs of PopPowerRequestDeleteEntryById @ 0x14066FFE4
  * Callers:
- *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
+ *     PopPowerRequestCleanUp @ 0x140270A38 (PopPowerRequestCleanUp.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x140252950 (RtlDeleteElementGenericTableAvl.c)
  */
 
 char __fastcall PopPowerRequestDeleteEntryById(int a1)

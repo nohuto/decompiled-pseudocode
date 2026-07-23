@@ -9,7 +9,7 @@
 void __fastcall KeSetLastBranchRecordInUse(char a1)
 {
   if ( a1 )
-    _interlockedbittestandset(&KiCpuTracingFlags, 1u);
+    _interlockedbittestandset(&dword_140C2BD48, 1u);
   else
-    _interlockedbittestandreset(&KiCpuTracingFlags, 1u);
+    _interlockedbittestandreset(&dword_140C2BD48, 1u);
 }

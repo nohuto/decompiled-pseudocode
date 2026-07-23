@@ -1,23 +1,23 @@
 /*
- * XREFs of PpmUpdateProcessorPolicy @ 0x140A9D7C8
+ * XREFs of PpmUpdateProcessorPolicy @ 0x140AF0768
  * Callers:
- *     PpmPerfReApplyStates @ 0x1407CE2FC (PpmPerfReApplyStates.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x140A9CBF0 (PpmCheckInitProcessors.c)
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
+ *     PpmPerfReApplyStates @ 0x1407D139C (PpmPerfReApplyStates.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
+ *     PpmCheckInitProcessors @ 0x140AEB890 (PpmCheckInitProcessors.c)
  * Callees:
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     PpmUpdateTargetProcessorPolicy @ 0x1404E92BC (PpmUpdateTargetProcessorPolicy.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x1404E266C (PpmUpdateTargetProcessorPolicy.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // rax
-  __int64 *v5; // r14
+  char *v5; // r14
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rdx
   char *v8; // rsi
@@ -32,8 +32,8 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
 
   v16[0] = 0;
   memset_0(&v17.8, 0, sizeof(v17.8));
-  LOWORD(CurrentPrcb) = stru_140F11D08.SchedulerAssistPriorityFloor & *a1;
-  v5 = &PpmCurrentProfile[89 * dword_140F106CC];
+  LOWORD(CurrentPrcb) = PpmAllowedActions & *a1;
+  v5 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   LOWORD(v16[0]) = (_WORD)CurrentPrcb;
   if ( !a2 && (v16[0] & 0x400) != 0 )
   {
@@ -43,7 +43,7 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
       v13 = __readmsr(0xDB0u);
       CurrentPrcb = (struct _KPRCB *)(v13 & 0xFFFFFFFFFFFFFFFEuLL);
       v14 = v13 | 1;
-      if ( *((_BYTE *)v5 + 256) )
+      if ( v5[256] )
         CurrentPrcb = (struct _KPRCB *)v14;
       __writemsr(0xDB0u, (unsigned __int64)CurrentPrcb);
     }
@@ -52,17 +52,17 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
   if ( LOWORD(v16[0]) )
   {
     v6 = 10000LL * *((unsigned int *)v5 + 23);
-    if ( v6 <= (unsigned int)KeMaximumIncrement )
+    if ( v6 <= KeMaximumIncrement )
     {
       v7 = 0LL;
     }
     else
     {
-      v6 -= (unsigned int)KeMaximumIncrement;
+      v6 -= KeMaximumIncrement;
       v7 = v6 / 0x2710;
     }
-    LODWORD(stru_140F11D08.InGlobalUpdateVpThreadPriorityList) = v7;
-    if ( !stru_140F11D08.Spare35[1]
+    PpmPerfTimeWindow = v7;
+    if ( !PpmPerfControlStartPolicyUpdate
       || (LODWORD(CurrentPrcb) = guard_dispatch_icall_no_overrides(v6, v7), (int)CurrentPrcb >= 0) )
     {
       if ( a2 )
@@ -83,7 +83,7 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
         {
           v12 = *(_QWORD *)(a2 + 312) + 1224LL * i;
           if ( *(_DWORD *)(v12 + 16) )
-            PpmUpdateTargetProcessorPolicy(a2, (_QWORD *)v12, v16, (__int64)(v5 + 5));
+            PpmUpdateTargetProcessorPolicy(a2, (_QWORD *)v12, v16, (__int64)(v5 + 40));
         }
         a2 = *(_QWORD *)a2;
       }
@@ -91,9 +91,9 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
         (__int64)PpmPerfStatesRegistered,
         (__int64)PpmUpdateProcessorPolicyCallback,
         (__int64)v16,
-        (__int64)(v5 + 5));
-      LOWORD(CurrentPrcb) = stru_140F11D08.Spare36;
-      if ( *(_QWORD *)&stru_140F11D08.Spare36 )
+        (__int64)(v5 + 40));
+      LOWORD(CurrentPrcb) = PpmPerfControlCompletePolicyUpdate;
+      if ( PpmPerfControlCompletePolicyUpdate )
         LOWORD(CurrentPrcb) = guard_dispatch_icall_no_overrides(v10, v9);
     }
   }

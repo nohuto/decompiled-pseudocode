@@ -1,12 +1,12 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess @ 0x14057D0BC
+ * XREFs of MmInitializeHandBuiltProcess @ 0x14057D568
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiAllowWorkingSetExpansion @ 0x14007BE5C (MiAllowWorkingSetExpansion.c)
- *     MiInsertNewProcess @ 0x140101794 (MiInsertNewProcess.c)
- *     MiAllocateProcessShadow @ 0x14065B8D0 (MiAllocateProcessShadow.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiAllowWorkingSetExpansion @ 0x14007BEDC (MiAllowWorkingSetExpansion.c)
+ *     MiInsertNewProcess @ 0x1400FF514 (MiInsertNewProcess.c)
+ *     MiAllocateProcessShadow @ 0x14065B9B4 (MiAllocateProcessShadow.c)
  */
 
 __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)
@@ -49,7 +49,7 @@ __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)
     *(_QWORD *)(a1 + 1416) = *(_QWORD *)&Process[1].Spare2[60];
     *(_QWORD *)(a1 + 1152) = Process[1].ActiveProcessors.Bitmap[18];
     *(_QWORD *)(a1 + 920) = Process[1].Affinity.Bitmap[13];
-    *(_QWORD *)(a1 + 1296) = qword_140327F90 + 276840816;
+    *(_QWORD *)(a1 + 1296) = qword_140327FD0 + 276840816;
     do
     {
       *v8 = *(_QWORD *)((char *)v8 + (_QWORD)Process - a1);

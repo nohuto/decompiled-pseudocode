@@ -27,9 +27,9 @@ char sub_1800F38C8()
   __int64 v12; // rax
   int v13; // r9d
   __int64 v14; // rbx
-  __int64 v15; // rax
-  __int64 v16; // rsi
-  unsigned __int64 v17; // r8
+  SIZE_T v15; // rax
+  _DWORD *v16; // rsi
+  char *v17; // r8
   unsigned __int8 *v18; // rbx
   int v19; // eax
 
@@ -79,7 +79,7 @@ char sub_1800F38C8()
     {
       if ( qword_180159B88 )
       {
-        v15 = RtlSizeHeap(*(_QWORD *)(v12 + 8), 0, *(_QWORD *)(j + 16));
+        v15 = RtlSizeHeap(*(PVOID *)(v12 + 8), 0, *(PVOID *)(j + 16));
         qword_180159B88(0LL, *(_QWORD *)(v14 + 8), *(_QWORD *)(j + 16), v15, 0, 0LL);
       }
       else
@@ -90,21 +90,21 @@ char sub_1800F38C8()
           DbgPrint("Entry     Heap              Size       \n");
           DbgPrint("---------------------------------------\n");
         }
-        v16 = *(_QWORD *)(v14 + 8);
-        v17 = *(_QWORD *)(j + 16);
-        if ( *(_DWORD *)(v16 + 16) == -571548178 )
+        v16 = *(_DWORD **)(v14 + 8);
+        v17 = *(char **)(j + 16);
+        if ( v16[4] == -571548178 )
         {
           v18 = *(unsigned __int8 **)(j + 16);
         }
         else
         {
           v18 = (unsigned __int8 *)(v17 - 16);
-          _m_prefetchw((const void *)(v17 - 16));
-          if ( *(_BYTE *)(v17 - 16 + 15) == 5 )
+          _m_prefetchw(v17 - 16);
+          if ( *(v17 - 1) == 5 )
             v18 -= 16 * v18[14];
         }
         v19 = RtlSizeHeap(v16, 0, v17);
-        DbgPrint("%p  %-16Ix  %Id", v18, v16, v19);
+        DbgPrint("%p  %-16Ix  %Id", v18, (_DWORD)v16, v19);
         DbgPrint("\n");
       }
       ++dword_18015C750;

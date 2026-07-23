@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFreeCapturedUnicodeString @ 0x140B82E64
+ * XREFs of VfFreeCapturedUnicodeString @ 0x140B84E64
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
- *     VfSetVerifierInformationEx @ 0x140B9C634 (VfSetVerifierInformationEx.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
+ *     VfSetVerifierInformationEx @ 0x140B9E634 (VfSetVerifierInformationEx.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VfFreeCapturedUnicodeString(__int64 a1)

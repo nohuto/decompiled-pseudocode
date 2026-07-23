@@ -11,7 +11,7 @@
 __int64 __fastcall LdrpLangFallbackListFindNode(__int64 a1, __int64 a2, const WCHAR *a3, _WORD *a4)
 {
   __int16 v8; // r8
-  int v9; // r14d
+  DWORD v9; // r14d
   __int64 v10; // rsi
   int StringIndexInPool; // eax
   int v12; // eax
@@ -21,17 +21,17 @@ __int64 __fastcall LdrpLangFallbackListFindNode(__int64 a1, __int64 a2, const WC
   __int64 v16; // rcx
   bool v18; // zf
   __int64 v19; // rax
-  UNICODE_STRING v20[3]; // [rsp+20h] [rbp-38h] BYREF
-  int v21; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
   if ( a1 && a2 && a3 && a4 )
   {
     *a4 = -1;
-    RtlInitUnicodeString(v20, a3);
-    if ( !(unsigned __int8)RtlCultureNameToLCID(v20, &v21) )
+    RtlInitUnicodeString(&String, a3);
+    if ( !RtlCultureNameToLCID(&String, &Lcid) )
       return 3221225524LL;
     v8 = -1;
-    v9 = ((v21 - 4096) & 0xFFFFFBFF) != 0 ? v21 : 0;
+    v9 = ((Lcid - 4096) & 0xFFFFFBFF) != 0 ? Lcid : 0;
     if ( *a3 )
     {
       v10 = *(_QWORD *)(a1 + 32);

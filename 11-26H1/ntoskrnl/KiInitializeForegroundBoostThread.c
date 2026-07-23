@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitializeForegroundBoostThread @ 0x140202C8C
+ * XREFs of KiInitializeForegroundBoostThread @ 0x140202D64
  * Callers:
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402043F0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiSetForegroundBoost @ 0x140521FB0 (KiSetForegroundBoost.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402044D0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiSetForegroundBoost @ 0x14052461C (KiSetForegroundBoost.c)
  */
 
 __int64 __fastcall KiInitializeForegroundBoostThread(struct _KTHREAD *a1)

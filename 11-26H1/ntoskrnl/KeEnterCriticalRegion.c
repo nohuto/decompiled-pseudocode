@@ -1,5 +1,5 @@
 /*
- * XREFs of KeEnterCriticalRegion @ 0x14045D240
+ * XREFs of KeEnterCriticalRegion @ 0x140456C40
  * Callers:
  *     <none>
  * Callees:

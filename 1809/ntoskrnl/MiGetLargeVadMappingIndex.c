@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetLargeVadMappingIndex @ 0x1402BC138
+ * XREFs of MiGetLargeVadMappingIndex @ 0x1402BC328
  * Callers:
- *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
+ *     MiInPagePageTable @ 0x140098720 (MiInPagePageTable.c)
  * Callees:
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  */

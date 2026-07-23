@@ -14,7 +14,7 @@
 
 __int64 __fastcall sub_180071344(
         __int64 a1,
-        __int64 a2,
+        GENERIC_MAPPING *a2,
         int a3,
         char a4,
         char a5,
@@ -25,20 +25,20 @@ __int64 __fastcall sub_180071344(
         char a10,
         char a11,
         int a12,
-        _DWORD *a13,
-        __int64 a14)
+        unsigned int *a13,
+        PACL Acl)
 {
   char v14; // r14
-  _DWORD *v15; // r15
-  _DWORD *v16; // r13
+  PGENERIC_MAPPING v15; // r15
+  unsigned int *v16; // r13
   unsigned __int8 v18; // al
   _BYTE *v19; // rsi
   unsigned int v20; // ebx
   unsigned int v21; // edx
-  int *v22; // rdi
-  __int64 v23; // r13
+  ACCESS_MASK *v22; // rdi
+  signed __int64 v23; // r13
   int v24; // ecx
-  int v25; // eax
+  int GenericAll; // eax
   bool v27; // al
   int v28; // edx
   char v29; // al
@@ -49,33 +49,33 @@ __int64 __fastcall sub_180071344(
   int v34; // ecx
   _BYTE v36[11]; // [rsp+89h] [rbp-68h] BYREF
   int v37; // [rsp+94h] [rbp-5Dh]
-  void *v38; // [rsp+98h] [rbp-59h] BYREF
+  PVOID FirstFree; // [rsp+98h] [rbp-59h] BYREF
   int v39; // [rsp+A0h] [rbp-51h]
-  __int64 v40; // [rsp+A8h] [rbp-49h]
+  PGENERIC_MAPPING GenericMapping; // [rsp+A8h] [rbp-49h]
   __int64 v41; // [rsp+B0h] [rbp-41h]
   __int64 v42; // [rsp+B8h] [rbp-39h]
   __int64 v43; // [rsp+C0h] [rbp-31h]
   __int64 v44; // [rsp+C8h] [rbp-29h]
   __int64 v45; // [rsp+D0h] [rbp-21h]
-  __int64 v46; // [rsp+D8h] [rbp-19h]
+  unsigned int *v46; // [rsp+D8h] [rbp-19h]
   int v47; // [rsp+E0h] [rbp-11h]
   unsigned __int16 v48; // [rsp+E4h] [rbp-Dh]
 
   v14 = 0;
-  v15 = (_DWORD *)a2;
+  v15 = a2;
   v16 = a13;
   v44 = a6;
   v43 = a7;
   v42 = a8;
   v41 = a9;
-  v18 = *(_BYTE *)a14 - 2;
+  v18 = Acl->AclRevision - 2;
   v39 = a3;
-  v40 = a2;
+  GenericMapping = a2;
   v45 = a1;
-  v46 = (__int64)a13;
+  v46 = a13;
   if ( v18 > 2u )
     return 3221225560LL;
-  if ( !RtlFirstFreeAce(a14, &v38) )
+  if ( !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225597LL;
   v19 = (_BYTE *)(a1 + 8);
   v20 = 0;
@@ -84,7 +84,7 @@ __int64 __fastcall sub_180071344(
   *(_DWORD *)&v36[3] = 0;
   if ( !*(_WORD *)(a1 + 4) )
     goto LABEL_26;
-  v22 = (int *)v38;
+  v22 = (ACCESS_MASK *)FirstFree;
   while ( *v19 != 17 )
   {
     if ( a12 == 3 )
@@ -103,7 +103,7 @@ LABEL_10:
         if ( !a5 )
         {
           v23 = *((unsigned __int16 *)v19 + 1);
-          if ( v22 && v23 <= a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v22 )
+          if ( v22 && v23 <= (__int64)Acl + Acl->AclSize - (_QWORD)v22 )
           {
             if ( !v14 )
             {
@@ -113,17 +113,17 @@ LABEL_10:
               {
                 RtlMapGenericMask(v22 + 1, v15);
                 if ( *(_BYTE *)v22 <= 0xAu && (v24 = 1651, _bittest(&v24, *(unsigned __int8 *)v22)) )
-                  v25 = v15[3];
+                  GenericAll = v15->GenericAll;
                 else
-                  v25 = v15[3] | 0x1000000;
-                v22[1] &= v25;
+                  GenericAll = v15->GenericAll | 0x1000000;
+                v22[1] &= GenericAll;
               }
               *((_BYTE *)v22 + 1) &= ~a4;
-              ++*(_WORD *)(a14 + 4);
+              ++Acl->AceCount;
               goto LABEL_21;
             }
 LABEL_58:
-            v22 = (int *)(a14 + *(unsigned __int16 *)(a14 + 2));
+            v22 = (ACCESS_MASK *)((char *)Acl + Acl->AclSize);
             goto LABEL_22;
           }
           v14 = 1;
@@ -134,7 +134,7 @@ LABEL_58:
         v30 = v22;
         *(_DWORD *)&v36[7] = 0;
         LODWORD(v23) = 0;
-        v38 = v22;
+        FirstFree = v22;
         v36[0] = 0;
         if ( !a10 || (v31 = 1, (v29 & 3) == 0) )
           v31 = 0;
@@ -151,12 +151,12 @@ LABEL_58:
                   (unsigned __int8 *)v43,
                   v42,
                   v41,
-                  v40,
+                  GenericMapping,
                   0LL,
                   0,
-                  &v38,
+                  &FirstFree,
                   &v36[7],
-                  a14,
+                  (__int64)Acl,
                   0LL,
                   v36,
                   &v36[1]) )
@@ -168,11 +168,11 @@ LABEL_58:
           if ( !v14 && *(_DWORD *)&v36[7] )
           {
             v33 = a4;
-            v30 = v38;
+            v30 = FirstFree;
             *((_BYTE *)v22 + 1) &= ~a4;
             goto LABEL_43;
           }
-          v30 = v38;
+          v30 = FirstFree;
         }
         v33 = a4;
 LABEL_43:
@@ -189,9 +189,9 @@ LABEL_43:
               goto LABEL_58;
             *((_BYTE *)v22 + 1) = ~v33 & (*((_BYTE *)v22 + 1) | v19[1] & 0x1F);
 LABEL_21:
-            v22 = (int *)((char *)v22 + (unsigned int)v23);
+            v22 = (ACCESS_MASK *)((char *)v22 + (unsigned int)v23);
 LABEL_22:
-            v15 = (_DWORD *)v40;
+            v15 = GenericMapping;
             v20 = v23 + v37;
             v21 = *(_DWORD *)&v36[3];
             v37 += v23;
@@ -202,7 +202,7 @@ LABEL_22:
             LODWORD(v23) = *((unsigned __int16 *)v19 + 1) + (_DWORD)v23;
             if ( (unsigned int)v23 > 0xFFFF )
               return 3221225597LL;
-            if ( *((unsigned __int16 *)v19 + 1) > a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v30 )
+            if ( *((unsigned __int16 *)v19 + 1) > (__int64)Acl + Acl->AclSize - (_QWORD)v30 )
             {
               v14 = 1;
               goto LABEL_58;
@@ -211,7 +211,7 @@ LABEL_22:
               goto LABEL_58;
             memmove(v30, v19, *((unsigned __int16 *)v19 + 1));
             v30[1] = ~a4 & (v30[1] | 8);
-            ++*(_WORD *)(a14 + 4);
+            ++Acl->AceCount;
           }
         }
 LABEL_44:
@@ -233,7 +233,7 @@ LABEL_23:
   }
   if ( a12 != 3 )
     goto LABEL_23;
-  if ( !RtlFindAceByType(a14, 17, 0LL) )
+  if ( !RtlFindAceByType(Acl, 0x11u, 0LL) )
   {
     v21 = *(_DWORD *)&v36[3];
     goto LABEL_7;
@@ -241,7 +241,7 @@ LABEL_23:
 LABEL_24:
   if ( v20 > 0xFFFF )
     return 3221225597LL;
-  v16 = (_DWORD *)v46;
+  v16 = v46;
 LABEL_26:
   *v16 = v20;
   return v14 != 0 ? 0xC0000023 : 0;

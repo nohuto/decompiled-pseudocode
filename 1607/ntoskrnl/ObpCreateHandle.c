@@ -1,68 +1,68 @@
 /*
- * XREFs of ObpCreateHandle @ 0x140419C20
+ * XREFs of ObpCreateHandle @ 0x140418AE0
  * Callers:
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
  * Callees:
- *     PsDetachSiloFromCurrentThread @ 0x140009D20 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140009D40 (PsAttachSiloToCurrentThread.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     SeComputeCreatorDeniedRights @ 0x14000F980 (SeComputeCreatorDeniedRights.c)
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     SepSidInTokenSidHash @ 0x1400611F0 (SepSidInTokenSidHash.c)
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     SepAcquireOrderedReadLocks @ 0x14007F810 (SepAcquireOrderedReadLocks.c)
- *     PsGetCurrentThreadProcessId @ 0x1400857E0 (PsGetCurrentThreadProcessId.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     ObReferenceObjectExWithTag @ 0x140096540 (ObReferenceObjectExWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeStackAttachProcess @ 0x1400CD110 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1400CD1BC (KeUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwDuplicateObject @ 0x14015A400 (ZwDuplicateObject.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1400098A0 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x1400098C0 (PsAttachSiloToCurrentThread.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     SeComputeCreatorDeniedRights @ 0x14000F500 (SeComputeCreatorDeniedRights.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     SepSidInTokenSidHash @ 0x140060D70 (SepSidInTokenSidHash.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     SepAcquireOrderedReadLocks @ 0x14007F890 (SepAcquireOrderedReadLocks.c)
+ *     PsGetCurrentThreadProcessId @ 0x1400870D0 (PsGetCurrentThreadProcessId.c)
+ *     ObReferenceObjectExWithTag @ 0x140095D40 (ObReferenceObjectExWithTag.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeStackAttachProcess @ 0x1400CAFB0 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1400CB05C (KeUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x14015A970 (ZwDuplicateObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlMapGenericMask @ 0x140400910 (RtlMapGenericMask.c)
- *     ObpInsertOrLocateNamedObject @ 0x140405EE0 (ObpInsertOrLocateNamedObject.c)
- *     ObpDecrementHandleCount @ 0x140406420 (ObpDecrementHandleCount.c)
- *     ObpDeleteNameCheck @ 0x140406620 (ObpDeleteNameCheck.c)
- *     ObpGetObjectSecurity @ 0x140406CE0 (ObpGetObjectSecurity.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1404070A0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SePrivilegeObjectAuditAlarm @ 0x140414B04 (SePrivilegeObjectAuditAlarm.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x140414B58 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14041537C (SePrivilegedServiceAuditAlarm.c)
- *     SePrivilegeCheck @ 0x140415490 (SePrivilegeCheck.c)
- *     ObDereferenceSecurityDescriptor @ 0x1404200D0 (ObDereferenceSecurityDescriptor.c)
- *     ObpIncrementHandleCountEx @ 0x14044DC50 (ObpIncrementHandleCountEx.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExpFreeHandleTableEntry @ 0x1404A3C94 (ExpFreeHandleTableEntry.c)
- *     ObpCreateSymbolicLinkName @ 0x1404B8FE8 (ObpCreateSymbolicLinkName.c)
- *     ObpReleaseHandleInfo @ 0x1404B9A50 (ObpReleaseHandleInfo.c)
- *     SeAppendPrivileges @ 0x1404C0F9C (SeAppendPrivileges.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x1404C12B4 (ExpAllocateHandleTableEntrySlow.c)
- *     ObpCallPreOperationCallbacks @ 0x140511820 (ObpCallPreOperationCallbacks.c)
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140521130 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
- *     ObHandleRevocationBlockAddObject @ 0x140665A98 (ObHandleRevocationBlockAddObject.c)
- *     ObpSetObjectAuditInfo @ 0x14066637C (ObpSetObjectAuditInfo.c)
- *     ObpPostInterceptHandleCreate @ 0x140666FA0 (ObpPostInterceptHandleCreate.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14068F52C (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x140690298 (SepAdtStagingEvent.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x1406909C0 (SepAdtClassifyObjectIntoSubCategory.c)
- *     EtwpTraceHandle @ 0x1406A2B88 (EtwpTraceHandle.c)
- *     ExpSetHandleExtraInfo @ 0x1406AD594 (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1406AD814 (ExpUpdateDebugInfo.c)
+ *     RtlMapGenericMask @ 0x1403FF7D0 (RtlMapGenericMask.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140404DA0 (ObpInsertOrLocateNamedObject.c)
+ *     ObpDecrementHandleCount @ 0x1404052E0 (ObpDecrementHandleCount.c)
+ *     ObpDeleteNameCheck @ 0x1404054E0 (ObpDeleteNameCheck.c)
+ *     ObpGetObjectSecurity @ 0x140405BA0 (ObpGetObjectSecurity.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140405F60 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x1404139C4 (SePrivilegeObjectAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x140413A18 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14041423C (SePrivilegedServiceAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x140414350 (SePrivilegeCheck.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14041EF90 (ObDereferenceSecurityDescriptor.c)
+ *     ObpIncrementHandleCountEx @ 0x14044CB20 (ObpIncrementHandleCountEx.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObpCreateSymbolicLinkName @ 0x1404A33C8 (ObpCreateSymbolicLinkName.c)
+ *     ObpReleaseHandleInfo @ 0x1404A5780 (ObpReleaseHandleInfo.c)
+ *     SeAppendPrivileges @ 0x1404ACCCC (SeAppendPrivileges.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x1404ACFE4 (ExpAllocateHandleTableEntrySlow.c)
+ *     ObpCallPreOperationCallbacks @ 0x1404F4C10 (ObpCallPreOperationCallbacks.c)
+ *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140504198 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     ExpFreeHandleTableEntry @ 0x14051C094 (ExpFreeHandleTableEntry.c)
+ *     ObHandleRevocationBlockAddObject @ 0x140665B7C (ObHandleRevocationBlockAddObject.c)
+ *     ObpSetObjectAuditInfo @ 0x140666460 (ObpSetObjectAuditInfo.c)
+ *     ObpPostInterceptHandleCreate @ 0x140667084 (ObpPostInterceptHandleCreate.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14068F610 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x14069037C (SepAdtStagingEvent.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140690AA4 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     EtwpTraceHandle @ 0x1406A2CC0 (EtwpTraceHandle.c)
+ *     ExpSetHandleExtraInfo @ 0x1406AD6CC (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1406AD94C (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ObpCreateHandle(
@@ -222,7 +222,7 @@ __int64 __fastcall ObpCreateHandle(
   int v152; // esi
   _DWORD *v153; // r9
   unsigned __int64 ClientToken; // rbx
-  PACCESS_TOKEN PrimaryToken; // rdi
+  char *PrimaryToken; // rdi
   PVOID v156; // rdi
   int AccessStatus; // [rsp+48h] [rbp-D8h]
   char v158; // [rsp+A0h] [rbp-80h]
@@ -1178,13 +1178,13 @@ LABEL_281:
     ClientToken = (unsigned __int64)v145->SubjectSecurityContext.ClientToken;
     if ( ClientToken )
     {
-      PrimaryToken = AccessState->SubjectSecurityContext.PrimaryToken;
+      PrimaryToken = (char *)AccessState->SubjectSecurityContext.PrimaryToken;
       SepAcquireOrderedReadLocks((unsigned __int64)PrimaryToken, ClientToken);
       if ( (*(_DWORD *)(ClientToken + 200) & 0x4000) != 0
         && *(int *)(ClientToken + 196) >= 2
         && !RtlEqualSid(**((PSID **)PrimaryToken + 19), **(PSID **)(ClientToken + 152))
         && SepSidInTokenSidHash(
-             (__int64)PrimaryToken + 808,
+             (PSID_AND_ATTRIBUTES_HASH)(PrimaryToken + 808),
              0LL,
              (void *)SeConstrainedImpersonationCapabilitySid,
              0,

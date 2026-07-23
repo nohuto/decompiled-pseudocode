@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAreChargesNeededToLockPage @ 0x1402E5D80
+ * XREFs of MiAreChargesNeededToLockPage @ 0x1402C7DC0
  * Callers:
- *     MiDoubleLockMdlPage @ 0x1402E5914 (MiDoubleLockMdlPage.c)
- *     MiObtainProtoReference @ 0x1402E5B70 (MiObtainProtoReference.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
- *     MiStoreDiscardPoisonedPage @ 0x14070A464 (MiStoreDiscardPoisonedPage.c)
+ *     MiDoubleLockMdlPage @ 0x1402C7954 (MiDoubleLockMdlPage.c)
+ *     MiObtainProtoReference @ 0x1402C7BB0 (MiObtainProtoReference.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14070F118 (MiStoreDiscardPoisonedPage.c)
  * Callees:
  *     <none>
  */

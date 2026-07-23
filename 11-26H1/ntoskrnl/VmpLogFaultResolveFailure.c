@@ -1,18 +1,18 @@
 /*
- * XREFs of VmpLogFaultResolveFailure @ 0x140B5A1B0
+ * XREFs of VmpLogFaultResolveFailure @ 0x140B5D4CC
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x14081C788 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x140822998 (VmpAccessFaultBatchResolve.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall VmpLogFaultResolveFailure(__int64 a1, __int64 *a2, int a3, int a4, __int64 a5, int a6)
 {
   _UNKNOWN **v6; // rax
-  unsigned __int64 QuantumTarget; // rbx
+  void *InitialStack; // rbx
   __int64 v11; // r8
   int v13; // [rsp+28h] [rbp-E0h]
   int v14; // [rsp+30h] [rbp-D8h]
@@ -41,10 +41,10 @@ char __fastcall VmpLogFaultResolveFailure(__int64 a1, __int64 *a2, int a3, int a
   _UNKNOWN *retaddr; // [rsp+120h] [rbp+18h] BYREF
 
   v6 = &retaddr;
-  QuantumTarget = stru_140F066E8.QuantumTarget;
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u )
+  InitialStack = stru_140F06A28.InitialStack;
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u )
   {
-    LOBYTE(v6) = tlgKeywordOn(stru_140F066E8.QuantumTarget, 64LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 64LL);
     if ( (_BYTE)v6 )
     {
       ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
@@ -68,7 +68,15 @@ char __fastcall VmpLogFaultResolveFailure(__int64 a1, __int64 *a2, int a3, int a
       v18 = a4;
       v34 = 4LL;
       v36 = 8LL;
-      LOBYTE(v6) = tlgWriteEx_EtwWriteEx(QuantumTarget, (unsigned __int8 *)&word_1400534CA, v11, 0, v13, v14, 9u, &v22);
+      LOBYTE(v6) = tlgWriteEx_EtwWriteEx(
+                     (__int64)InitialStack,
+                     (unsigned __int8 *)&byte_14005407F,
+                     v11,
+                     0,
+                     v13,
+                     v14,
+                     9u,
+                     &v22);
     }
   }
   return (char)v6;

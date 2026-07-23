@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCanThreadFault @ 0x140051620
+ * XREFs of MmCanThreadFault @ 0x1400511A0
  * Callers:
- *     RtlWalkFrameChain @ 0x14004F2A0 (RtlWalkFrameChain.c)
- *     EtwpEventWriteFull @ 0x140073CE0 (EtwpEventWriteFull.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
- *     EtwpStackTraceDispatcher @ 0x1402293E4 (EtwpStackTraceDispatcher.c)
+ *     RtlWalkFrameChain @ 0x14004EE20 (RtlWalkFrameChain.c)
+ *     EtwpEventWriteFull @ 0x140073860 (EtwpEventWriteFull.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
+ *     EtwpStackTraceDispatcher @ 0x140229210 (EtwpStackTraceDispatcher.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400516C0 (KeAreInterruptsEnabled.c)
+ *     KeAreInterruptsEnabled @ 0x140051240 (KeAreInterruptsEnabled.c)
  */
 
 _BOOL8 MmCanThreadFault()
@@ -28,7 +28,7 @@ _BOOL8 MmCanThreadFault()
         if ( MmPhysicalMemoryBlock )
         {
           v1 = WORD2(CurrentThread->ApcState.Process[1].InstrumentationCallback);
-          v2 = v1 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v1);
+          v2 = v1 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v1);
           v3 = *((_QWORD *)v2 + 781);
           if ( v3 )
           {

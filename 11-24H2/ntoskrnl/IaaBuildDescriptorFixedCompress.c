@@ -1,10 +1,10 @@
 /*
- * XREFs of IaaBuildDescriptorFixedCompress @ 0x140666A6C
+ * XREFs of IaaBuildDescriptorFixedCompress @ 0x14066535C
  * Callers:
- *     AccelpSiovCompressionDecompression @ 0x140666080 (AccelpSiovCompressionDecompression.c)
+ *     AccelpSiovCompressionDecompression @ 0x140664970 (AccelpSiovCompressionDecompression.c)
  * Callees:
- *     IaaBuildDescriptorCommon @ 0x1404774B4 (IaaBuildDescriptorCommon.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IaaBuildDescriptorCommon @ 0x140473A54 (IaaBuildDescriptorCommon.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IaaBuildDescriptorFixedCompress(
@@ -71,12 +71,12 @@ __int64 __fastcall IaaBuildDescriptorFixedCompress(
   *(_QWORD *)(v17 + 112) = v18[14];
   result = 3LL;
   *(_OWORD *)(a3 + 1440) = FixedDistanceCodes;
-  *(_OWORD *)(a3 + 1456) = xmmword_140039DC0;
-  *(_OWORD *)(a3 + 1472) = xmmword_140039DD0;
-  *(_OWORD *)(a3 + 1488) = xmmword_140039DE0;
-  *(_OWORD *)(a3 + 1504) = xmmword_140039DF0;
-  *(_OWORD *)(a3 + 1520) = xmmword_140039E00;
-  *(_OWORD *)(a3 + 1536) = xmmword_140039E10;
+  *(_OWORD *)(a3 + 1456) = xmmword_140039DB0;
+  *(_OWORD *)(a3 + 1472) = xmmword_140039DC0;
+  *(_OWORD *)(a3 + 1488) = xmmword_140039DD0;
+  *(_OWORD *)(a3 + 1504) = xmmword_140039DE0;
+  *(_OWORD *)(a3 + 1520) = xmmword_140039DF0;
+  *(_OWORD *)(a3 + 1536) = xmmword_140039E00;
   *(_QWORD *)(a3 + 1552) = 0x2801D0002801CLL;
   *(_BYTE *)(a3 + 32) = 3;
   *(_WORD *)(a3 + 28) = 3;

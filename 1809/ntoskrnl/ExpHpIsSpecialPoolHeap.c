@@ -2,9 +2,9 @@
  * XREFs of ExpHpIsSpecialPoolHeap @ 0x14000E5C4
  * Callers:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
- *     MiDeterminePoolType @ 0x14007BF30 (MiDeterminePoolType.c)
+ *     MiDeterminePoolType @ 0x14007BF20 (MiDeterminePoolType.c)
  */
 
 __int64 __fastcall ExpHpIsSpecialPoolHeap(__int64 a1)
@@ -27,10 +27,10 @@ __int64 __fastcall ExpHpIsSpecialPoolHeap(__int64 a1)
   }
   else
   {
-    v5 = &qword_1404C6440;
+    v5 = &qword_1404C7500;
     while ( v3 != *v5 )
     {
-      if ( (__int64)++v5 >= (__int64)qword_1404C6458 )
+      if ( (__int64)++v5 >= (__int64)qword_1404C7518 )
         return v2;
     }
     return 1;

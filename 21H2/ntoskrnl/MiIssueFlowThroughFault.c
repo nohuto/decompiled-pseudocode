@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIssueFlowThroughFault @ 0x14028C09C
+ * XREFs of MiIssueFlowThroughFault @ 0x14020923C
  * Callers:
- *     MiHandleCollidedFault @ 0x14028BEFC (MiHandleCollidedFault.c)
+ *     MiHandleCollidedFault @ 0x14020909C (MiHandleCollidedFault.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -30,7 +30,7 @@ __int64 __fastcall MiIssueFlowThroughFault(
   CurrentThread = KeGetCurrentThread();
   v10 = *(_DWORD *)(a4 + 192);
   *a7 = 2;
-  if ( (v10 & 0x80u) != 0 && (int)PsGetIoPriorityThread((__int64)CurrentThread) >= 2
+  if ( (v10 & 0x80u) != 0 && (int)PsGetIoPriorityThread(CurrentThread) >= 2
     || CurrentThread == *(struct _KTHREAD **)(a4 + 152)
     || (CurrentThread->MiscFlags & 0x8000) != 0
     || LODWORD(CurrentThread->Process[2].Affinity.Bitmap[3]) && (*(_QWORD *)(a4 + 256) || (v10 & 8) != 0) )

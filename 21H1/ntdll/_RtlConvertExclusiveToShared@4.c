@@ -7,24 +7,22 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __thiscall RtlConvertExclusiveToShared(void *this, int a2)
+void __cdecl RtlConvertExclusiveToShared(PRTL_RESOURCE Resource)
 {
-  int result; // eax
-  void *v3; // [esp+0h] [ebp-4h] BYREF
+  LONG v1; // eax
+  int v2; // eax
+  LONG PreviousCount; // [esp+0h] [ebp-4h] BYREF
 
-  v3 = this;
-  *(_DWORD *)(a2 + 44) = 0;
-  _InterlockedExchange((volatile __int32 *)(a2 + 40), 1);
-  result = *(_DWORD *)(a2 + 28);
-  if ( result )
+  Resource->ExclusiveOwnerThread = 0;
+  _InterlockedExchange(&Resource->NumberOfActive, 1);
+  if ( Resource->NumberOfWaitingShared )
   {
-    result = _InterlockedExchange((volatile __int32 *)(a2 + 28), 0);
-    if ( result )
+    v1 = _InterlockedExchange((volatile __int32 *)&Resource->NumberOfWaitingShared, 0);
+    if ( v1 )
     {
-      result = NtReleaseSemaphore(*(_DWORD *)(a2 + 24), result, (int)&v3);
-      if ( result < 0 )
-        RtlRaiseStatus(result);
+      v2 = NtReleaseSemaphore(Resource->SharedSemaphore, v1, &PreviousCount);
+      if ( v2 < 0 )
+        RtlRaiseStatus(v2);
     }
   }
-  return result;
 }

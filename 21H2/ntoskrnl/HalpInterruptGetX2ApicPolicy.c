@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptGetX2ApicPolicy @ 0x1403A204C
+ * XREFs of HalpInterruptGetX2ApicPolicy @ 0x1403A219C
  * Callers:
- *     HalSocRequestConfigurationData @ 0x1403A1E9C (HalSocRequestConfigurationData.c)
+ *     HalSocRequestConfigurationData @ 0x1403A1FEC (HalSocRequestConfigurationData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 bool HalpInterruptGetX2ApicPolicy()

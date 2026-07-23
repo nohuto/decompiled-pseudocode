@@ -1,11 +1,11 @@
 /*
- * XREFs of MiClearAweLargePageMetadata @ 0x140700F94
+ * XREFs of MiClearAweLargePageMetadata @ 0x140705C64
  * Callers:
- *     MiFreeContiguousLargePageRun @ 0x140701770 (MiFreeContiguousLargePageRun.c)
- *     MiReadyLargeAwePageForFree @ 0x140702494 (MiReadyLargeAwePageForFree.c)
+ *     MiFreeContiguousLargePageRun @ 0x140706440 (MiFreeContiguousLargePageRun.c)
+ *     MiReadyLargeAwePageForFree @ 0x140707164 (MiReadyLargeAwePageForFree.c)
  * Callees:
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
  */
 
 unsigned __int64 __fastcall MiClearAweLargePageMetadata(__int64 a1)

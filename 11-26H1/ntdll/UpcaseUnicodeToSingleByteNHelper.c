@@ -1,7 +1,7 @@
 /*
- * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x1800A0250
+ * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x18009F380
  * Callers:
- *     RtlUpcaseUnicodeToOemN @ 0x1800A00B0 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x18009F1E0 (RtlUpcaseUnicodeToOemN.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ __int64 __fastcall UpcaseUnicodeToSingleByteNHelper(
   __int64 v10; // rbx
   unsigned __int64 v11; // rax
 
-  v7 = qword_1801C6038;
+  v7 = qword_1801C5038;
   v8 = a5;
   if ( a5 >= a2 )
     v8 = a2;

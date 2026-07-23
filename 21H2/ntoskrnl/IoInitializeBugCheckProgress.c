@@ -1,11 +1,11 @@
 /*
- * XREFs of IoInitializeBugCheckProgress @ 0x140502508
+ * XREFs of IoInitializeBugCheckProgress @ 0x140502488
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
  * Callees:
- *     HalGetEnvironmentVariableEx @ 0x1403BAC50 (HalGetEnvironmentVariableEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeFrozenProcessorCount @ 0x14051DA80 (KeFrozenProcessorCount.c)
+ *     HalGetEnvironmentVariableEx @ 0x1403BADC0 (HalGetEnvironmentVariableEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeFrozenProcessorCount @ 0x14051DCC0 (KeFrozenProcessorCount.c)
  */
 
 __int64 __fastcall IoInitializeBugCheckProgress(int a1, __int64 a2)

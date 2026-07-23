@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlPrefixString @ 0x1406B0020
  * Callers:
- *     IopCheckDiskName @ 0x1403C4550 (IopCheckDiskName.c)
- *     MiSnapThunk @ 0x1407584B4 (MiSnapThunk.c)
+ *     sub_1403C4550 @ 0x1403C4550 (sub_1403C4550.c)
+ *     sub_1407584B4 @ 0x1407584B4 (sub_1407584B4.c)
  * Callees:
  *     RtlUpperChar @ 0x1406B00C0 (RtlUpperChar.c)
  */

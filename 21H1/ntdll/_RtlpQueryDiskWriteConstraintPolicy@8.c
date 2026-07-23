@@ -8,16 +8,16 @@
  *     _RtlpQueryDiskWriteConstraintPolicyByHandle@8 @ 0x4B389E27 (_RtlpQueryDiskWriteConstraintPolicyByHandle@8.c)
  */
 
-NTSTATUS __fastcall RtlpQueryDiskWriteConstraintPolicy(unsigned __int16 *a1, int a2)
+NTSTATUS __thiscall RtlpQueryDiskWriteConstraintPolicy(unsigned __int16 *this)
 {
   NTSTATUS VolumeHandle; // esi
   HANDLE Handle; // [esp+Ch] [ebp-4h] BYREF
 
   Handle = 0;
-  VolumeHandle = RtlpGetVolumeHandle(a1, &Handle);
+  VolumeHandle = RtlpGetVolumeHandle(this, &Handle);
   if ( VolumeHandle >= 0 )
   {
-    VolumeHandle = RtlpQueryDiskWriteConstraintPolicyByHandle(Handle, a2);
+    VolumeHandle = RtlpQueryDiskWriteConstraintPolicyByHandle(Handle);
     if ( VolumeHandle >= 0 )
       VolumeHandle = 0;
   }

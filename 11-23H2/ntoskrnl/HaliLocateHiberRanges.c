@@ -1,17 +1,17 @@
 /*
- * XREFs of HaliLocateHiberRanges @ 0x140A95CA0
+ * XREFs of HaliLocateHiberRanges @ 0x140A95B10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpTimerMarkHiberPhase @ 0x1404FE724 (HalpTimerMarkHiberPhase.c)
- *     HalpDmaMarkHiberAdapter @ 0x14050159C (HalpDmaMarkHiberAdapter.c)
- *     HalpPciMarkHiberPhase @ 0x140515640 (HalpPciMarkHiberPhase.c)
- *     HalpExtEnvMarkHiberRegions @ 0x14051F728 (HalpExtEnvMarkHiberRegions.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     HalpMmAllocCtxMarkHiberPhase @ 0x140A9571C (HalpMmAllocCtxMarkHiberPhase.c)
- *     HalpExtMarkHiberPhase @ 0x140A95FA0 (HalpExtMarkHiberPhase.c)
- *     HalpIommuMarkHiberPhase @ 0x140A96080 (HalpIommuMarkHiberPhase.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpTimerMarkHiberPhase @ 0x1404FEC74 (HalpTimerMarkHiberPhase.c)
+ *     HalpDmaMarkHiberAdapter @ 0x140501AEC (HalpDmaMarkHiberAdapter.c)
+ *     HalpPciMarkHiberPhase @ 0x140515B90 (HalpPciMarkHiberPhase.c)
+ *     HalpExtEnvMarkHiberRegions @ 0x14051FC78 (HalpExtEnvMarkHiberRegions.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     HalpMmAllocCtxMarkHiberPhase @ 0x140A9558C (HalpMmAllocCtxMarkHiberPhase.c)
+ *     HalpExtMarkHiberPhase @ 0x140A95E10 (HalpExtMarkHiberPhase.c)
+ *     HalpIommuMarkHiberPhase @ 0x140A95EF0 (HalpIommuMarkHiberPhase.c)
  */
 
 void __fastcall HaliLocateHiberRanges(PVOID MemoryMap)

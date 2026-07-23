@@ -1,7 +1,7 @@
 /*
- * XREFs of IntelUpdateMicrocodeGetProcessorFlags @ 0x140664EDC
+ * XREFs of IntelUpdateMicrocodeGetProcessorFlags @ 0x1406637CC
  * Callers:
- *     IntelMicrocodeMetaDataCheck @ 0x140664E30 (IntelMicrocodeMetaDataCheck.c)
+ *     IntelMicrocodeMetaDataCheck @ 0x140663720 (IntelMicrocodeMetaDataCheck.c)
  * Callees:
  *     <none>
  */

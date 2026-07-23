@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuDomainMapLogical @ 0x1404C9270
+ * XREFs of HalpIommuDomainMapLogical @ 0x1404C94B0
  * Callers:
- *     HalAllocateCommonBufferVector @ 0x1404C5700 (HalAllocateCommonBufferVector.c)
- *     HalpAllocateCommonBufferThin @ 0x1404CB2F0 (HalpAllocateCommonBufferThin.c)
- *     HalpConstructScatterGatherListThin @ 0x1404CB818 (HalpConstructScatterGatherListThin.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5940 (HalAllocateCommonBufferVector.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB530 (HalpAllocateCommonBufferThin.c)
+ *     HalpConstructScatterGatherListThin @ 0x1404CBA58 (HalpConstructScatterGatherListThin.c)
  * Callees:
- *     IommupHvMapDeviceLogical @ 0x1404DA230 (IommupHvMapDeviceLogical.c)
- *     HalpIommuMapLogical @ 0x1404DBE24 (HalpIommuMapLogical.c)
+ *     IommupHvMapDeviceLogical @ 0x1404DA470 (IommupHvMapDeviceLogical.c)
+ *     HalpIommuMapLogical @ 0x1404DC064 (HalpIommuMapLogical.c)
  */
 
 __int64 __fastcall HalpIommuDomainMapLogical(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)

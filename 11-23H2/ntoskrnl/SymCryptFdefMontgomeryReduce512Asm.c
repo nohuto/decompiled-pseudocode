@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefMontgomeryReduce512Asm @ 0x140407480
+ * XREFs of SymCryptFdefMontgomeryReduce512Asm @ 0x140407660
  * Callers:
- *     SymCryptFdefModMulMontgomery512 @ 0x140404B50 (SymCryptFdefModMulMontgomery512.c)
- *     SymCryptFdefModSquareMontgomery512 @ 0x1404050D0 (SymCryptFdefModSquareMontgomery512.c)
+ *     SymCryptFdefModMulMontgomery512 @ 0x140404D30 (SymCryptFdefModMulMontgomery512.c)
+ *     SymCryptFdefModSquareMontgomery512 @ 0x1404052B0 (SymCryptFdefModSquareMontgomery512.c)
  * Callees:
  *     <none>
  */

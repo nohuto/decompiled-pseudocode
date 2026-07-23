@@ -1,9 +1,9 @@
 /*
- * XREFs of KeDeregisterNmiCallback @ 0x1405B07D0
+ * XREFs of KeDeregisterNmiCallback @ 0x1405AD740
  * Callers:
  *     <none>
  * Callees:
- *     KiDeregisterNmiSxCallback @ 0x1405B0CFC (KiDeregisterNmiSxCallback.c)
+ *     KiDeregisterNmiSxCallback @ 0x1405ADC6C (KiDeregisterNmiSxCallback.c)
  */
 
 NTSTATUS __stdcall KeDeregisterNmiCallback(PVOID Handle)

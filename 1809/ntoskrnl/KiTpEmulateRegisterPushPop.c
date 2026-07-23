@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTpEmulateRegisterPushPop @ 0x14029F0F0
+ * XREFs of KiTpEmulateRegisterPushPop @ 0x14029F2E0
  * Callers:
- *     KiTpEmulateInstruction @ 0x14029E8FC (KiTpEmulateInstruction.c)
+ *     KiTpEmulateInstruction @ 0x14029EAEC (KiTpEmulateInstruction.c)
  * Callees:
- *     KiTpAccessMemory @ 0x14029E0A0 (KiTpAccessMemory.c)
- *     KiTpGetRegisterAddressByIndex @ 0x14029F258 (KiTpGetRegisterAddressByIndex.c)
+ *     KiTpAccessMemory @ 0x14029E290 (KiTpAccessMemory.c)
+ *     KiTpGetRegisterAddressByIndex @ 0x14029F448 (KiTpGetRegisterAddressByIndex.c)
  */
 
 __int64 __fastcall KiTpEmulateRegisterPushPop(__int64 a1, __int64 a2, char a3)

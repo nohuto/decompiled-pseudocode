@@ -2,8 +2,8 @@
  * XREFs of KiAdvanceReadyQueueEnumeratorToNextScb @ 0x140206A00
  * Callers:
  *     KiAdvanceReadyQueueEnumeratorToNextList @ 0x140206900 (KiAdvanceReadyQueueEnumeratorToNextList.c)
- *     KiReadyQueueEnumeratorStartScbQueuesPhase @ 0x140242CE0 (KiReadyQueueEnumeratorStartScbQueuesPhase.c)
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
+ *     KiReadyQueueEnumeratorStartScbQueuesPhase @ 0x140242DB0 (KiReadyQueueEnumeratorStartScbQueuesPhase.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
  * Callees:
  *     KiAdvanceReadyQueueEnumeratorToNextRootScb @ 0x140206AB8 (KiAdvanceReadyQueueEnumeratorToNextRootScb.c)
  */

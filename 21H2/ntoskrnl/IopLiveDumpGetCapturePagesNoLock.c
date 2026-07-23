@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x1409AC884
+ * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x1409AD7B4
  * Callers:
- *     IopLiveDumpGetNtMergePages @ 0x140898444 (IopLiveDumpGetNtMergePages.c)
- *     IopLiveDumpBufferDumpData @ 0x1409AB3FC (IopLiveDumpBufferDumpData.c)
+ *     IopLiveDumpGetNtMergePages @ 0x1408985A4 (IopLiveDumpGetNtMergePages.c)
+ *     IopLiveDumpBufferDumpData @ 0x1409AC32C (IopLiveDumpBufferDumpData.c)
  * Callees:
- *     RtlFindSetBitsEx @ 0x140228910 (RtlFindSetBitsEx.c)
+ *     RtlFindSetBitsEx @ 0x1402CD210 (RtlFindSetBitsEx.c)
  */
 
 void __fastcall IopLiveDumpGetCapturePagesNoLock(
-        unsigned __int64 *a1,
+        PRTL_BITMAP_EX BitMapHeader,
         __int64 a2,
         __int64 a3,
         unsigned int a4,
@@ -16,10 +16,10 @@ void __fastcall IopLiveDumpGetCapturePagesNoLock(
         _QWORD *a6)
 {
   __int64 v6; // rdi
-  unsigned __int64 v7; // rbp
+  ULONG64 v7; // rbp
   int v12; // eax
   char v13; // r14
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   __int64 v15; // rcx
   __int64 v16; // rcx
 
@@ -34,7 +34,7 @@ void __fastcall IopLiveDumpGetCapturePagesNoLock(
     {
       while ( 1 )
       {
-        SetBits = RtlFindSetBitsEx(a1, 1uLL, v7);
+        SetBits = RtlFindSetBitsEx(BitMapHeader, 1uLL, v7);
         if ( SetBits < v7 || SetBits == -1LL )
           break;
         v15 = (unsigned int)*a5;

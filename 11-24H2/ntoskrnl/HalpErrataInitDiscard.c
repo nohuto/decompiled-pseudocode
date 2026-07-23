@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpErrataInitDiscard @ 0x140C0F2E8
+ * XREFs of HalpErrataInitDiscard @ 0x140C112E8
  * Callers:
- *     HalpErrataInitSystem @ 0x140B4D090 (HalpErrataInitSystem.c)
+ *     HalpErrataInitSystem @ 0x140B4F0D0 (HalpErrataInitSystem.c)
  * Callees:
  *     <none>
  */

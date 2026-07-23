@@ -1,10 +1,10 @@
 /*
- * XREFs of PopQueryRemainingSystemIdleTime @ 0x140AAE2F4
+ * XREFs of PopQueryRemainingSystemIdleTime @ 0x140AA91D0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopQueryRemainingSystemIdleTime(int *a1, _DWORD *a2)
@@ -15,12 +15,12 @@ __int64 __fastcall PopQueryRemainingSystemIdleTime(int *a1, _DWORD *a2)
   unsigned __int64 v7; // rcx
   int v8; // eax
 
-  PopAcquireRwLockExclusive(&PopSystemIdleLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock);
   *a1 = 0;
-  *a2 = dword_140E0B664;
-  if ( dword_140E0B668 )
+  *a2 = dword_140E0B6E4;
+  if ( dword_140E0B6E8 )
   {
-    v4 = (char *)&unk_140E0B680;
+    v4 = (char *)&unk_140E0B700;
     v5 = 4LL;
     v6 = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
     do
@@ -28,11 +28,11 @@ __int64 __fastcall PopQueryRemainingSystemIdleTime(int *a1, _DWORD *a2)
       if ( !v4[8] )
       {
         v7 = v6 - *(_QWORD *)v4;
-        if ( v7 <= (unsigned int)dword_140E0B668 )
+        if ( v7 <= (unsigned int)dword_140E0B6E8 )
         {
           v8 = *a1;
-          if ( *a1 <= (unsigned int)(dword_140E0B668 - v7) )
-            v8 = dword_140E0B668 - v7;
+          if ( *a1 <= (unsigned int)(dword_140E0B6E8 - v7) )
+            v8 = dword_140E0B6E8 - v7;
           *a1 = v8;
         }
       }
@@ -45,5 +45,5 @@ __int64 __fastcall PopQueryRemainingSystemIdleTime(int *a1, _DWORD *a2)
   {
     *a1 = -1;
   }
-  return PopReleaseRwLock((signed __int64 *)&PopSystemIdleLock);
+  return PopReleaseRwLock(&PopSystemIdleLock);
 }

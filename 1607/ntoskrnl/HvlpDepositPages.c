@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlpDepositPages @ 0x1401BB624
+ * XREFs of HvlpDepositPages @ 0x1401BB508
  * Callers:
- *     HvlpStartLogicalProcessor @ 0x1401BC6C0 (HvlpStartLogicalProcessor.c)
- *     HvlMapDeviceInterrupt @ 0x1401BD2A4 (HvlMapDeviceInterrupt.c)
- *     HvlSetHpetConfig @ 0x1401BDB64 (HvlSetHpetConfig.c)
- *     HvlSvmAttachPasidSpace @ 0x1401BDF34 (HvlSvmAttachPasidSpace.c)
- *     HvlSvmCreatePasidSpace @ 0x1401BE060 (HvlSvmCreatePasidSpace.c)
- *     HvlSvmCreatePrQueue @ 0x1401BE0CC (HvlSvmCreatePrQueue.c)
- *     HvlSvmEnablePasid @ 0x1401BE2B4 (HvlSvmEnablePasid.c)
- *     HvlSvmSetPasidAddressSpace @ 0x1401BE68C (HvlSvmSetPasidAddressSpace.c)
- *     HvlpAttachRootSvmDevice @ 0x1401BE798 (HvlpAttachRootSvmDevice.c)
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
- *     HvlpAddPhysicalMemory @ 0x14023CE6C (HvlpAddPhysicalMemory.c)
- *     HvlpCreateRootVirtualProcessor @ 0x140620478 (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpStartLogicalProcessor @ 0x1401BC5A4 (HvlpStartLogicalProcessor.c)
+ *     HvlMapDeviceInterrupt @ 0x1401BD188 (HvlMapDeviceInterrupt.c)
+ *     HvlSetHpetConfig @ 0x1401BDA48 (HvlSetHpetConfig.c)
+ *     HvlSvmAttachPasidSpace @ 0x1401BDE18 (HvlSvmAttachPasidSpace.c)
+ *     HvlSvmCreatePasidSpace @ 0x1401BDF44 (HvlSvmCreatePasidSpace.c)
+ *     HvlSvmCreatePrQueue @ 0x1401BDFB0 (HvlSvmCreatePrQueue.c)
+ *     HvlSvmEnablePasid @ 0x1401BE198 (HvlSvmEnablePasid.c)
+ *     HvlSvmSetPasidAddressSpace @ 0x1401BE570 (HvlSvmSetPasidAddressSpace.c)
+ *     HvlpAttachRootSvmDevice @ 0x1401BE67C (HvlpAttachRootSvmDevice.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
+ *     HvlpAddPhysicalMemory @ 0x14023CD50 (HvlpAddPhysicalMemory.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14062052C (HvlpCreateRootVirtualProcessor.c)
  * Callees:
- *     MmAllocateNodePagesForMdlEx @ 0x1400AA474 (MmAllocateNodePagesForMdlEx.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1400A89F4 (MmAllocateNodePagesForMdlEx.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

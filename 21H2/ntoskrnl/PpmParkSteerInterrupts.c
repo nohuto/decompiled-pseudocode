@@ -1,24 +1,24 @@
 /*
- * XREFs of PpmParkSteerInterrupts @ 0x140228E60
+ * XREFs of PpmParkSteerInterrupts @ 0x1402CD760
  * Callers:
  *     <none>
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeIntSteerPeriodic @ 0x140229480 (KeIntSteerPeriodic.c)
- *     KeAndAffinityEx @ 0x14022A080 (KeAndAffinityEx.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x14022A190 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KeComplementAffinityEx @ 0x14022A230 (KeComplementAffinityEx.c)
- *     KeIntSteerSnapPerf @ 0x14022A2A0 (KeIntSteerSnapPerf.c)
- *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeFindFirstSetRightAffinityEx @ 0x140513590 (KeFindFirstSetRightAffinityEx.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeIntSteerPeriodic @ 0x1402CDD80 (KeIntSteerPeriodic.c)
+ *     KeAndAffinityEx @ 0x1402CE930 (KeAndAffinityEx.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x1402CEA40 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     KeComplementAffinityEx @ 0x1402CEAE0 (KeComplementAffinityEx.c)
+ *     KeIntSteerSnapPerf @ 0x1402CEB50 (KeIntSteerSnapPerf.c)
+ *     KeSubtractAffinityEx @ 0x1402CFF20 (KeSubtractAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x1405137D0 (KeFindFirstSetRightAffinityEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char PpmParkSteerInterrupts()
@@ -77,7 +77,7 @@ char PpmParkSteerInterrupts()
     memset(PoolWithTag, 0, (unsigned int)v18);
   }
   KeIntSteerSnapPerf(&v23, &v26);
-  KeComplementAffinityEx(v29, &PpmPerfCoreParkingMask);
+  KeComplementAffinityEx(v29, PpmPerfCoreParkingMask);
   KeQuerySystemAllowedCpuSetAffinity(&PpmCachedSystemAllowedCpuSet, &PpmCachedSystemAllowedCpuSetVersion);
   KeAndAffinityEx(v29, &PpmCachedSystemAllowedCpuSet, v29);
   LODWORD(v28[0]) = 1310721;
@@ -85,7 +85,7 @@ char PpmParkSteerInterrupts()
   v1 = 0;
   v2 = 0;
   memset((char *)v28 + 4, 0, 0xA4uLL);
-  v3 = qword_140CFC848;
+  v3 = qword_140CFC848[0];
   v4 = v26;
   *(_QWORD *)&v24 = KeActiveProcessors;
   while ( v3 )

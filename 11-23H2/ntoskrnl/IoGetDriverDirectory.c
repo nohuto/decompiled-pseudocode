@@ -1,14 +1,14 @@
 /*
- * XREFs of IoGetDriverDirectory @ 0x140955400
+ * XREFs of IoGetDriverDirectory @ 0x140955600
  * Callers:
- *     DifIoGetDriverDirectoryWrapper @ 0x1405DFAC0 (DifIoGetDriverDirectoryWrapper.c)
+ *     DifIoGetDriverDirectoryWrapper @ 0x1405E0030 (DifIoGetDriverDirectoryWrapper.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PiGetServiceNameInfo @ 0x140872060 (PiGetServiceNameInfo.c)
- *     PiGetDriverImageDirectory @ 0x140955EF8 (PiGetDriverImageDirectory.c)
- *     PiGetDriverMutableStateDirectory @ 0x140956044 (PiGetDriverMutableStateDirectory.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PiGetServiceNameInfo @ 0x1408722A0 (PiGetServiceNameInfo.c)
+ *     PiGetDriverImageDirectory @ 0x1409560F8 (PiGetDriverImageDirectory.c)
+ *     PiGetDriverMutableStateDirectory @ 0x140956244 (PiGetDriverMutableStateDirectory.c)
  */
 
 __int64 __fastcall IoGetDriverDirectory(__int64 a1, int a2, int a3, _QWORD *a4)

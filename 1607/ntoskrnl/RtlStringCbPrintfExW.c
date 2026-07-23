@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlStringCbPrintfExW @ 0x1400A8DE0
+ * XREFs of RtlStringCbPrintfExW @ 0x1400A7360
  * Callers:
- *     RtlQueryPackageClaims @ 0x14000CCEC (RtlQueryPackageClaims.c)
- *     PiNormalizeDeviceText @ 0x1404D48B4 (PiNormalizeDeviceText.c)
- *     WmipGenerateBinaryMofNotification @ 0x14069F03C (WmipGenerateBinaryMofNotification.c)
- *     EtwpQueryPsmKey @ 0x14069FA04 (EtwpQueryPsmKey.c)
- *     ConvertDevpropcompkeyToString @ 0x1406E3D28 (ConvertDevpropcompkeyToString.c)
- *     ConvertDevpropertyToString @ 0x1406E3E70 (ConvertDevpropertyToString.c)
+ *     RtlQueryPackageClaims @ 0x14000C86C (RtlQueryPackageClaims.c)
+ *     PiNormalizeDeviceText @ 0x1404B7EB8 (PiNormalizeDeviceText.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14069F174 (WmipGenerateBinaryMofNotification.c)
+ *     EtwpQueryPsmKey @ 0x14069FB3C (EtwpQueryPsmKey.c)
+ *     ConvertDevpropcompkeyToString @ 0x1406E3E60 (ConvertDevpropcompkeyToString.c)
+ *     ConvertDevpropertyToString @ 0x1406E3FA8 (ConvertDevpropertyToString.c)
  * Callees:
- *     RtlStringVPrintfWorkerW @ 0x1400A8EE0 (RtlStringVPrintfWorkerW.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x1401CE7AC (StringExHandleOtherFlagsW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1400A7460 (RtlStringVPrintfWorkerW.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14023918C (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS RtlStringCbPrintfExW(

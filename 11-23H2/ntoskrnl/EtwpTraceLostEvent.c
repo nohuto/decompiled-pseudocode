@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpTraceLostEvent @ 0x1405FC3A4
+ * XREFs of EtwpTraceLostEvent @ 0x1405FC914
  * Callers:
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     EtwpFailLogging @ 0x1403664CC (EtwpFailLogging.c)
- *     EtwpWriteUserEvent @ 0x1406F4140 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     EtwpFailLogging @ 0x14036666C (EtwpFailLogging.c)
+ *     EtwpWriteUserEvent @ 0x1406F4170 (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140429B10 (_alloca_probe.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpGetEventNameFromEventMetadata @ 0x14046AFF6 (EtwpGetEventNameFromEventMetadata.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140429EA0 (_alloca_probe.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x14046B3F6 (EtwpGetEventNameFromEventMetadata.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

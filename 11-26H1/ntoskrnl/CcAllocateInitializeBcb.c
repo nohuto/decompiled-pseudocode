@@ -1,24 +1,24 @@
 /*
- * XREFs of CcAllocateInitializeBcb @ 0x140260530
+ * XREFs of CcAllocateInitializeBcb @ 0x140219DA4
  * Callers:
- *     CcPinFileData @ 0x1402DF720 (CcPinFileData.c)
+ *     CcPinFileData @ 0x1402C1530 (CcPinFileData.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExDisableResourceBoostLite @ 0x1402609F0 (ExDisableResourceBoostLite.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     CcSetVacbLargeOffset @ 0x1402E1620 (CcSetVacbLargeOffset.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExDisableResourceBoostLite @ 0x14021A270 (ExDisableResourceBoostLite.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     CcSetVacbLargeOffset @ 0x1402C3430 (CcSetVacbLargeOffset.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
@@ -47,7 +47,7 @@ _QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, __int64 *a3, 
   signed __int64 v29; // rax
   signed __int64 v30; // rdx
   __int64 v31; // rtt
-  KSPIN_LOCK *p_Policy; // rdi
+  KSPIN_LOCK *v32; // rdi
   unsigned __int16 v33; // si
   int RecordedStackTraceIndex; // eax
   void *retaddr; // [rsp+48h] [rbp+0h]
@@ -75,14 +75,14 @@ _QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, __int64 *a3, 
     v10[21] = 0LL;
     if ( (NtGlobalFlag & 0x2000) != 0 )
     {
-      p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-      if ( NormalizationListLock.SchedulingGroup
-        && (v9 = RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy)) != 0 )
+      v32 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+      if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags
+        && (v9 = RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags)) != 0 )
       {
-        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy);
+        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v32);
         v33 = RecordedStackTraceIndex;
         if ( !RecordedStackTraceIndex )
-          RtlStdReleaseStackTrace(p_Policy, v9);
+          RtlStdReleaseStackTrace(v32, v9);
         v9 = 0LL;
       }
       else

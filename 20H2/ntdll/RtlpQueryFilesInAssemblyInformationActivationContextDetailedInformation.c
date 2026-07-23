@@ -51,7 +51,7 @@ __int64 __fastcall RtlpQueryFilesInAssemblyInformationActivationContextDetailedI
   if ( v10 >= v11 - 1 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",
@@ -68,7 +68,7 @@ __int64 __fastcall RtlpQueryFilesInAssemblyInformationActivationContextDetailedI
   if ( v13 >= v14 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid file index (%u, max is %u) in Assembly (%u)\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",

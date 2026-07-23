@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSerializeBoot()
+NTSTATUS ZwSerializeBoot(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 363LL;
+  result = 363;
   __asm { syscall; Low latency system call }
   return result;
 }

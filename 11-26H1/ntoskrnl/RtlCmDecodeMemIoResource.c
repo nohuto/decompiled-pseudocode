@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCmDecodeMemIoResource @ 0x1404D4880
+ * XREFs of RtlCmDecodeMemIoResource @ 0x1404CE0F0
  * Callers:
- *     HalpDmaGetReservedRegionsForDeviceResources @ 0x14058A82C (HalpDmaGetReservedRegionsForDeviceResources.c)
- *     IopGenericUnpackResource @ 0x1407A67C0 (IopGenericUnpackResource.c)
- *     PnprAddMemoryResources @ 0x1407AE908 (PnprAddMemoryResources.c)
- *     PnpFilterResourceRequirementsList @ 0x140AA43F4 (PnpFilterResourceRequirementsList.c)
- *     PnpCmResourcesToIoResources @ 0x140AA4F18 (PnpCmResourcesToIoResources.c)
- *     PnpIsRangeWithin @ 0x140B38590 (PnpIsRangeWithin.c)
+ *     HalpDmaGetReservedRegionsForDeviceResources @ 0x14058CF5C (HalpDmaGetReservedRegionsForDeviceResources.c)
+ *     IopGenericUnpackResource @ 0x1407A9370 (IopGenericUnpackResource.c)
+ *     PnprAddMemoryResources @ 0x1407B1968 (PnprAddMemoryResources.c)
+ *     PnpFilterResourceRequirementsList @ 0x140A9FCB4 (PnpFilterResourceRequirementsList.c)
+ *     PnpCmResourcesToIoResources @ 0x140AA0FBC (PnpCmResourcesToIoResources.c)
+ *     PnpIsRangeWithin @ 0x140B3A7A0 (PnpIsRangeWithin.c)
  * Callees:
  *     <none>
  */

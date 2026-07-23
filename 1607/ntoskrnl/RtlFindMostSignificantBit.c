@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFindMostSignificantBit @ 0x14009E154
+ * XREFs of RtlFindMostSignificantBit @ 0x14009D954
  * Callers:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     NtMapViewOfSection @ 0x140436740 (NtMapViewOfSection.c)
- *     MiValidateZeroBits @ 0x140658DCC (MiValidateZeroBits.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     NtMapViewOfSection @ 0x140435610 (NtMapViewOfSection.c)
+ *     MiValidateZeroBits @ 0x140658EB0 (MiValidateZeroBits.c)
  * Callees:
  *     <none>
  */

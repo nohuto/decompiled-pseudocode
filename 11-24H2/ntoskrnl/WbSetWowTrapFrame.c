@@ -1,16 +1,16 @@
 /*
- * XREFs of WbSetWowTrapFrame @ 0x1408FE6DC
+ * XREFs of WbSetWowTrapFrame @ 0x140920FBC
  * Callers:
- *     sub_1408FB3EC @ 0x1408FB3EC (sub_1408FB3EC.c)
- *     sub_1408FB650 @ 0x1408FB650 (sub_1408FB650.c)
+ *     sub_14091DCCC @ 0x14091DCCC (sub_14091DCCC.c)
+ *     sub_14091DF30 @ 0x14091DF30 (sub_14091DF30.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     PsWow64GetProcessMachine @ 0x1408FB0E0 (PsWow64GetProcessMachine.c)
- *     PspWow64SetContextThread @ 0x140913174 (PspWow64SetContextThread.c)
- *     PspWow64GetContextThread @ 0x1409A90C0 (PspWow64GetContextThread.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     PspWow64SetContextThread @ 0x1408EA8C4 (PspWow64SetContextThread.c)
+ *     PsWow64GetProcessMachine @ 0x14091D9C0 (PsWow64GetProcessMachine.c)
+ *     PspWow64GetContextThread @ 0x140992510 (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(_DWORD *a1, _DWORD *a2)
+__int64 __fastcall WbSetWowTrapFrame(__int64 a1, _DWORD *a2)
 {
   __int16 ProcessMachine; // bp
   unsigned int v5; // r14d
@@ -35,23 +35,23 @@ __int64 __fastcall WbSetWowTrapFrame(_DWORD *a1, _DWORD *a2)
     v7 = 65537;
   else
     v7 = 2097153;
-  a1[12] = v7;
-  ContextThread = PspWow64GetContextThread(KeGetCurrentThread(), a1 + 12, v5, 0LL);
+  *(_DWORD *)(a1 + 48) = v7;
+  ContextThread = PspWow64GetContextThread(KeGetCurrentThread(), a1 + 48, v5, 0LL);
   if ( ContextThread >= 0 )
   {
     if ( ProcessMachine == 332 )
     {
-      a1[58] = a2[2];
-      a1[61] = *a2;
-      a1[60] = a2[4];
+      *(_DWORD *)(a1 + 232) = a2[2];
+      *(_DWORD *)(a1 + 244) = *a2;
+      *(_DWORD *)(a1 + 240) = a2[4];
     }
     else
     {
-      a1[28] = a2[2];
-      a1[26] = *a2;
-      a1[29] = a2[4];
+      *(_DWORD *)(a1 + 112) = a2[2];
+      *(_DWORD *)(a1 + 104) = *a2;
+      *(_DWORD *)(a1 + 116) = a2[4];
     }
-    ContextThread = PspWow64SetContextThread(KeGetCurrentThread());
+    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), (char *)(a1 + 48), v5, 0);
   }
   KeLeaveGuardedRegion();
   return (unsigned int)ContextThread;

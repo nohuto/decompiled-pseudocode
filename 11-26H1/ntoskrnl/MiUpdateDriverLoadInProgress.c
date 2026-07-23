@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdateDriverLoadInProgress @ 0x14040BD98
+ * XREFs of MiUpdateDriverLoadInProgress @ 0x1404294E0
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
- *     MiObtainSectionForDriver @ 0x140AEB960 (MiObtainSectionForDriver.c)
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
+ *     MiObtainSectionForDriver @ 0x140AEE86C (MiObtainSectionForDriver.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403F3B30 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
- *     RtlInsertInvertedFunctionTable @ 0x14040D0C8 (RtlInsertInvertedFunctionTable.c)
- *     MmUnlockLoadedModuleListExclusive @ 0x14040D280 (MmUnlockLoadedModuleListExclusive.c)
- *     MmLockLoadedModuleListExclusive @ 0x14052D084 (MmLockLoadedModuleListExclusive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403ED4E0 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
+ *     RtlInsertInvertedFunctionTable @ 0x140429FF4 (RtlInsertInvertedFunctionTable.c)
+ *     MmUnlockLoadedModuleListExclusive @ 0x14042A1AC (MmUnlockLoadedModuleListExclusive.c)
+ *     MmLockLoadedModuleListExclusive @ 0x14052F5A4 (MmLockLoadedModuleListExclusive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUpdateDriverLoadInProgress(__int64 a1, struct _LIST_ENTRY ***a2, int a3, int a4)
@@ -43,14 +43,14 @@ __int64 __fastcall MiUpdateDriverLoadInProgress(__int64 a1, struct _LIST_ENTRY *
     switch ( a4 )
     {
       case 0:
-        Flink = stru_140E2D150.ThreadListEntry.Flink;
-        p_Blink = &stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink;
-        if ( stru_140E2D150.ThreadListEntry.Flink->Flink != (struct _LIST_ENTRY *)&stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink )
+        Flink = stru_140E2D2D0.ThreadListEntry.Flink;
+        p_Blink = &stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink;
+        if ( stru_140E2D2D0.ThreadListEntry.Flink->Flink != (struct _LIST_ENTRY *)&stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink )
           break;
-        *(_QWORD *)a1 = &stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink;
+        *(_QWORD *)a1 = &stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink;
         *(_QWORD *)(a1 + 8) = Flink;
         Flink->Flink = (struct _LIST_ENTRY *)a1;
-        stru_140E2D150.ThreadListEntry.Flink = (struct _LIST_ENTRY *)a1;
+        stru_140E2D2D0.ThreadListEntry.Flink = (struct _LIST_ENTRY *)a1;
         goto LABEL_7;
       case 3:
         p_Blink = *v8;
@@ -103,10 +103,10 @@ LABEL_20:
   v18 = 0;
   *(_QWORD *)(a1 + 8) = v17;
   *v17 = a1;
-  v19 = stru_140E2D150.SuspendEvent.Header.WaitListHead.Flink;
+  v19 = stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Flink;
   *(&PsLoadedModuleList + 1) = (PVOID)a1;
   v20 = *(_QWORD *)(a1 + 48);
-  if ( stru_140E2D150.SuspendEvent.Header.WaitListHead.Flink )
+  if ( stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Flink )
   {
     while ( 1 )
     {
@@ -135,7 +135,7 @@ LABEL_20:
     }
   }
   RtlAvlInsertNodeEx(
-    (unsigned __int64 *)&stru_140E2D150.SuspendEvent.Header.WaitListHead,
+    (unsigned __int64 *)&stru_140E2D2D0.SuspendEvent.Header.WaitListHead,
     (unsigned __int64)v19,
     v18,
     (_QWORD *)(a1 + 208));

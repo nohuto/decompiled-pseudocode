@@ -1,15 +1,15 @@
 /*
- * XREFs of KiRemoveThreadFromSchedulingGroup @ 0x1400C8C8C
+ * XREFs of KiRemoveThreadFromSchedulingGroup @ 0x1400C6B2C
  * Callers:
- *     KiSetThreadSchedulingGroup @ 0x1400C8BC0 (KiSetThreadSchedulingGroup.c)
- *     KeTerminateThread @ 0x1400F2454 (KeTerminateThread.c)
+ *     KiSetThreadSchedulingGroup @ 0x1400C6A60 (KiSetThreadSchedulingGroup.c)
+ *     KeTerminateThread @ 0x1400F02A4 (KeTerminateThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiRemoveThreadFromScbQueue @ 0x1400993E4 (KiRemoveThreadFromScbQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x1400A50A4 (KiAddThreadToPrcbQueue.c)
- *     KeUpdateThreadSchedulingProperties @ 0x1400C8E18 (KeUpdateThreadSchedulingProperties.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D14F4 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiAcquireThreadStateLock @ 0x1400D3590 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiRemoveThreadFromScbQueue @ 0x140098BE4 (KiRemoveThreadFromScbQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x1400A361C (KiAddThreadToPrcbQueue.c)
+ *     KeUpdateThreadSchedulingProperties @ 0x1400C6CB8 (KeUpdateThreadSchedulingProperties.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400CF394 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiAcquireThreadStateLock @ 0x1400D1430 (KiAcquireThreadStateLock.c)
  */
 
 volatile signed __int64 *__fastcall KiRemoveThreadFromSchedulingGroup(__int64 a1)

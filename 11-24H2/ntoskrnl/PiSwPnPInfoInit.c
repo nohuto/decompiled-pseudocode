@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwPnPInfoInit @ 0x1409FA184
+ * XREFs of PiSwPnPInfoInit @ 0x1409F2AF4
  * Callers:
- *     PiSwQueuedCreateInfoCreate @ 0x140730E8C (PiSwQueuedCreateInfoCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x14072EE9C (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     PnpAllocateMultiSZ @ 0x1409FAF04 (PnpAllocateMultiSZ.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     PnpAllocateMultiSZ @ 0x1409F3874 (PnpAllocateMultiSZ.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiSwPnPInfoInit(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall PiSwPnPInfoInit(__int64 a1, __int64 a2)
     {
       if ( *(_QWORD *)(a2 + 56) )
       {
-        Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x57706E50u);
         *(_QWORD *)(a1 + 16) = Pool2;
         if ( !Pool2 )
           return 3221225626LL;

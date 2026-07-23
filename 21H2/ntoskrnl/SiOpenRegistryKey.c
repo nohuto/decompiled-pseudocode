@@ -1,11 +1,11 @@
 /*
- * XREFs of SiOpenRegistryKey @ 0x1406A4D48
+ * XREFs of SiOpenRegistryKey @ 0x140602978
  * Callers:
- *     SiGetRegistryValue @ 0x1406A4BD4 (SiGetRegistryValue.c)
+ *     SiGetRegistryValue @ 0x140602804 (SiGetRegistryValue.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
  */
 
 __int64 __fastcall SiOpenRegistryKey(__int64 a1, const WCHAR *a2, __int64 a3, HANDLE *a4)

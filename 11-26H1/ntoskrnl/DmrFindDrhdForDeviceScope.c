@@ -1,11 +1,11 @@
 /*
- * XREFs of DmrFindDrhdForDeviceScope @ 0x1405AFCEC
+ * XREFs of DmrFindDrhdForDeviceScope @ 0x1405B24FC
  * Callers:
- *     DmrEnumerateRmrrDomains @ 0x1405B0218 (DmrEnumerateRmrrDomains.c)
+ *     DmrEnumerateRmrrDomains @ 0x1405B2A28 (DmrEnumerateRmrrDomains.c)
  * Callees:
- *     DmrGetNextDrhdDeviceScope @ 0x1405AFD8C (DmrGetNextDrhdDeviceScope.c)
- *     DmrCheckPathMatch @ 0x1405AFDB8 (DmrCheckPathMatch.c)
- *     DmrGetNextRemappingStructure @ 0x1405B00CC (DmrGetNextRemappingStructure.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x1405B259C (DmrGetNextDrhdDeviceScope.c)
+ *     DmrCheckPathMatch @ 0x1405B25C8 (DmrCheckPathMatch.c)
+ *     DmrGetNextRemappingStructure @ 0x1405B28DC (DmrGetNextRemappingStructure.c)
  */
 
 __int64 __fastcall DmrFindDrhdForDeviceScope(__int64 a1, __int16 a2, _BYTE *a3)

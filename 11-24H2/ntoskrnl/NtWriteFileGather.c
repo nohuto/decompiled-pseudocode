@@ -1,42 +1,42 @@
 /*
- * XREFs of NtWriteFileGather @ 0x140AABE00
+ * XREFs of NtWriteFileGather @ 0x140AA6DD0
  * Callers:
  *     <none>
  * Callees:
- *     IopReferenceFileObject @ 0x1403F5300 (IopReferenceFileObject.c)
- *     IopWriteFileGather @ 0x140A958BC (IopWriteFileGather.c)
+ *     IopReferenceFileObject @ 0x1403EB740 (IopReferenceFileObject.c)
+ *     IopWriteFileGather @ 0x140A920EC (IopWriteFileGather.c)
  */
 
-__int64 __fastcall NtWriteFileGather(
-        void *a1,
-        void *a2,
-        __int64 a3,
-        void *a4,
-        unsigned __int64 a5,
-        union _FILE_SEGMENT_ELEMENT *Src,
+NTSTATUS __cdecl NtWriteFileGather(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
         ULONG Length,
-        __int64 a8,
-        ULONG *a9)
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _OBJECT_HANDLE_INFORMATION v13; // [rsp+70h] [rbp-18h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+78h] [rbp-10h] BYREF
 
   BugCheckParameter2 = 0LL;
   v13 = 0LL;
-  result = IopReferenceFileObject(a1, 0, KeGetCurrentThread()->PreviousMode, (PVOID *)&BugCheckParameter2, &v13);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 0, KeGetCurrentThread()->PreviousMode, (PVOID *)&BugCheckParameter2, &v13);
+  if ( result >= 0 )
     return IopWriteFileGather(
              (struct _FILE_OBJECT *)BugCheckParameter2,
-             a2,
-             a3,
-             a4,
-             a5,
+             Event,
+             (__int64)ApcRoutine,
+             ApcContext,
+             (unsigned __int64)IoStatusBlock,
              (Length >> 12) + ((Length & 0xFFF) != 0),
-             Src,
+             SegmentArray,
              Length,
-             a8,
-             a9,
+             (__int64)ByteOffset,
+             Key,
              v13.GrantedAccess,
              0LL,
              0LL,

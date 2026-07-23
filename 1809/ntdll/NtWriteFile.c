@@ -1,5 +1,5 @@
 /*
- * XREFs of NtWriteFile @ 0x1800A03E0
+ * XREFs of NtWriteFile @ 0x1800A0400
  * Callers:
  *     EtwpWriteBufferCompressed @ 0x180001E58 (EtwpWriteBufferCompressed.c)
  *     EtwpWriteRemainingCompressedData @ 0x180002904 (EtwpWriteRemainingCompressedData.c)
@@ -13,11 +13,20 @@
  *     <none>
  */
 
-__int64 NtWriteFile()
+NTSTATUS __cdecl NtWriteFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 8LL;
+  result = 8;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

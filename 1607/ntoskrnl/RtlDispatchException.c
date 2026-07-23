@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlDispatchException @ 0x1400F4D00
+ * XREFs of RtlDispatchException @ 0x1400F2B50
  * Callers:
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     RtlRaiseException @ 0x140211E04 (RtlRaiseException.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     RtlRaiseException @ 0x140211C30 (RtlRaiseException.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14004F390 (RtlpGetStackLimits.c)
- *     RtlVirtualUnwind @ 0x1400B3138 (RtlVirtualUnwind.c)
- *     RtlpUnwindEpilogue @ 0x1400B3C60 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x1400B3E1C (RtlpUnwindOpSlots.c)
- *     RtlpCopyContext @ 0x1400F6068 (RtlpCopyContext.c)
- *     RtlLookupFunctionEntry @ 0x1400F6220 (RtlLookupFunctionEntry.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlpSameFunction @ 0x1401593E8 (RtlpSameFunction.c)
- *     RtlpExecuteHandlerForException @ 0x1401676A0 (RtlpExecuteHandlerForException.c)
- *     RtlpLogExceptionDispatch @ 0x140210E8C (RtlpLogExceptionDispatch.c)
- *     RtlpLogExceptionHandler @ 0x140211024 (RtlpLogExceptionHandler.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpGetStackLimits @ 0x14004EF10 (RtlpGetStackLimits.c)
+ *     RtlVirtualUnwind @ 0x1400B0FB8 (RtlVirtualUnwind.c)
+ *     RtlpUnwindEpilogue @ 0x1400B1AE0 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x1400B1C9C (RtlpUnwindOpSlots.c)
+ *     RtlpCopyContext @ 0x1400F3EB8 (RtlpCopyContext.c)
+ *     RtlLookupFunctionEntry @ 0x1400F4070 (RtlLookupFunctionEntry.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlpSameFunction @ 0x140159958 (RtlpSameFunction.c)
+ *     RtlpExecuteHandlerForException @ 0x140167C10 (RtlpExecuteHandlerForException.c)
+ *     RtlpLogExceptionDispatch @ 0x140210CB8 (RtlpLogExceptionDispatch.c)
+ *     RtlpLogExceptionHandler @ 0x140210E50 (RtlpLogExceptionHandler.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT Context)
@@ -101,7 +101,7 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
   unsigned __int64 ImageBase; // [rsp+50h] [rbp-B0h] BYREF
   unsigned int v81; // [rsp+58h] [rbp-A8h]
   PEXCEPTION_RECORD v82; // [rsp+60h] [rbp-A0h]
-  EXCEPTION_ROUTINE *v83; // [rsp+68h] [rbp-98h]
+  EXCEPTION_DISPOSITION (__cdecl *v83)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+68h] [rbp-98h]
   PVOID HandlerData; // [rsp+70h] [rbp-90h] BYREF
   unsigned __int64 v85; // [rsp+78h] [rbp-88h]
   struct _UNWIND_HISTORY_TABLE *v86; // [rsp+80h] [rbp-80h]
@@ -114,7 +114,7 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+C0h] [rbp-40h]
   unsigned __int64 v94; // [rsp+C8h] [rbp-38h]
   struct _CONTEXT *p_ContextRecord; // [rsp+D8h] [rbp-28h]
-  EXCEPTION_ROUTINE *v96; // [rsp+E0h] [rbp-20h]
+  EXCEPTION_DISPOSITION (__cdecl *v96)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+E0h] [rbp-20h]
   PVOID v97; // [rsp+E8h] [rbp-18h]
   struct _UNWIND_HISTORY_TABLE *v98; // [rsp+F0h] [rbp-10h]
   int v99; // [rsp+F8h] [rbp-8h]

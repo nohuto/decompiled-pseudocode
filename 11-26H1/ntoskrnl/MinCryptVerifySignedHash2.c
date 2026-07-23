@@ -1,21 +1,21 @@
 /*
- * XREFs of MinCryptVerifySignedHash2 @ 0x1408A04B0
+ * XREFs of MinCryptVerifySignedHash2 @ 0x1408A68C0
  * Callers:
- *     MinCryptVerifySignedHash @ 0x1408A0488 (MinCryptVerifySignedHash.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
- *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A250C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
- *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A2AC4 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinCryptVerifySignedHash @ 0x1408A6898 (MinCryptVerifySignedHash.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A891C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A8ED4 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     ?MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z @ 0x14071C8B8 (-MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z.c)
- *     MinAsn1ParseECCSignature @ 0x14071CEA4 (MinAsn1ParseECCSignature.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MinCryptDecodeOid @ 0x1408A0404 (MinCryptDecodeOid.c)
- *     MinAsn1ParseAlgorithmIdentifier @ 0x1408A320C (MinAsn1ParseAlgorithmIdentifier.c)
- *     MinAsn1ParsePublicKeyInfo @ 0x1408A351C (MinAsn1ParsePublicKeyInfo.c)
- *     MinAsn1ParseRSAPublicKey @ 0x1408A3564 (MinAsn1ParseRSAPublicKey.c)
- *     HashpVerifyEcdsaSignature @ 0x1408ABC94 (HashpVerifyEcdsaSignature.c)
- *     HashpVerifyMldsaSignature @ 0x1408ABDEC (HashpVerifyMldsaSignature.c)
- *     HashpVerifyPkcs1Signature @ 0x1408ABEDC (HashpVerifyPkcs1Signature.c)
+ *     ?MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z @ 0x140721548 (-MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z.c)
+ *     MinAsn1ParseECCSignature @ 0x140721B34 (MinAsn1ParseECCSignature.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MinCryptDecodeOid @ 0x1408A6814 (MinCryptDecodeOid.c)
+ *     MinAsn1ParseAlgorithmIdentifier @ 0x1408A961C (MinAsn1ParseAlgorithmIdentifier.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x1408A992C (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x1408A9974 (MinAsn1ParseRSAPublicKey.c)
+ *     HashpVerifyEcdsaSignature @ 0x1408B20D8 (HashpVerifyEcdsaSignature.c)
+ *     HashpVerifyMldsaSignature @ 0x1408B2230 (HashpVerifyMldsaSignature.c)
+ *     HashpVerifyPkcs1Signature @ 0x1408B2320 (HashpVerifyPkcs1Signature.c)
  */
 
 __int64 __fastcall MinCryptVerifySignedHash2(int a1, int a2, int a3, unsigned int *a4, __int64 a5, __int64 a6)
@@ -41,9 +41,9 @@ __int64 __fastcall MinCryptVerifySignedHash2(int a1, int a2, int a3, unsigned in
   v10 = 0;
   if ( (int)MinAsn1ParsePublicKeyInfo(a5, v23) < 0 || (int)MinAsn1ParseAlgorithmIdentifier(v24, v18) < 0 )
     return (unsigned int)-1073740760;
-  v11 = MinCryptDecodeOid((__int64)&qword_140BDC9F0, 5u, (unsigned int *)&Size);
+  v11 = MinCryptDecodeOid((__int64)&qword_140BE38A0, 5u, (unsigned int *)&Size);
   if ( v11 == 11776 )
-    v11 = MinCryptDecodeOid((__int64)&qword_140BDB500, 3u, (unsigned int *)&v21);
+    v11 = MinCryptDecodeOid((__int64)&qword_140BE23B0, 3u, (unsigned int *)&v21);
   if ( !v11 )
     return (unsigned int)-1073740760;
   if ( v11 == 9216 )

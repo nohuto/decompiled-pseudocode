@@ -3,8 +3,8 @@
  * Callers:
  *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140B68BDC (MiHotAddBootDeferredDescriptorsDiscardable.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiAddPhysicalMemoryChunks @ 0x140A2BE8C (MiAddPhysicalMemoryChunks.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2C13C (MiAddPhysicalMemoryChunks.c)
  */
 
 __int64 __fastcall MiHotAddBootDescriptor(__int64 a1)

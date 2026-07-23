@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlDeleteProcessor @ 0x14081782C
+ * XREFs of HvlDeleteProcessor @ 0x140818A2C
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
- *     HvlpFreeOverlayPages @ 0x14013FC00 (HvlpFreeOverlayPages.c)
- *     HvlpGetRegister64 @ 0x140278B08 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140278BF4 (HvlpSetRegister64.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
+ *     HvlpFreeOverlayPages @ 0x14013FD00 (HvlpFreeOverlayPages.c)
+ *     HvlpGetRegister64 @ 0x140278CF8 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140278DE4 (HvlpSetRegister64.c)
  */
 
 void __fastcall HvlDeleteProcessor(struct _KPRCB *a1, SIZE_T a2, MEMORY_CACHING_TYPE a3)

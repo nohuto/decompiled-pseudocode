@@ -25,10 +25,10 @@
  *     ZwTestAlert @ 0x180166C70 (ZwTestAlert.c)
  */
 
-__int64 __fastcall LdrpInitialize(__int64 a1, __int64 a2)
+NTSTATUS __fastcall LdrpInitialize(__int64 a1, __int64 a2)
 {
   struct _TEB *v3; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _PEB *ProcessEnvironmentBlock; // rsi
   int v6; // edi
   __int64 v7; // rdx
@@ -41,20 +41,20 @@ __int64 __fastcall LdrpInitialize(__int64 a1, __int64 a2)
   v3 = NtCurrentTeb();
   while ( 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(&LdrpProcessInitialized, 1, 0);
-    if ( (_DWORD)result == 1 && (v3->SameTebFlags & 0x2000) == 0 )
+    result = _InterlockedCompareExchange(&LdrpProcessInitialized, 1, 0);
+    if ( result == 1 && (v3->SameTebFlags & 0x2000) == 0 )
       goto LABEL_25;
     ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
-    if ( !(_DWORD)result )
+    if ( !result )
     {
-      ZwCreateEvent(&LdrpInitCompleteEvent, 2031619LL, 0LL, 0LL, 0);
+      ZwCreateEvent(&LdrpInitCompleteEvent, 0x1F0003u, 0LL, NotificationEvent, 0);
       v3->SameTebFlags |= 0x20u;
-      ProcessEnvironmentBlock->LoaderLock = (_RTL_CRITICAL_SECTION *)&LdrpLoaderLock;
+      ProcessEnvironmentBlock->LoaderLock = &LdrpLoaderLock;
       LdrInitState = 0;
       _interlockedbittestandset((volatile signed __int32 *)&ProcessEnvironmentBlock->80, 1u);
       qword_1801E9278 = (__int64)&RtlpDynamicFunctionTable;
-      RtlpDynamicFunctionTable = (__int64)&RtlpDynamicFunctionTable;
-      RtlpDynamicFunctionTableLock = 0LL;
+      RtlpDynamicFunctionTable = &RtlpDynamicFunctionTable;
+      RtlpDynamicFunctionTableLock.0 = 0LL;
       RtlpDynamicFunctionTableTreeMin = 0LL;
       RtlpDynamicFunctionTableTreeMax = 0LL;
       RtlpDynamicCallbackTableTreeMin = 0LL;
@@ -64,7 +64,7 @@ __int64 __fastcall LdrpInitialize(__int64 a1, __int64 a2)
       if ( v9 < 0 )
       {
         result = LdrpLogInternal(
-                   (__int64)"minkernel\\ldr\\ldrinit.c",
+                   "minkernel\\ldr\\ldrinit.c",
                    2653,
                    (__int64)"_LdrpInitialize",
                    0,
@@ -80,7 +80,7 @@ __int64 __fastcall LdrpInitialize(__int64 a1, __int64 a2)
       if ( v10 < 0 )
       {
         result = LdrpLogInternal(
-                   (__int64)"minkernel\\ldr\\ldrinit.c",
+                   "minkernel\\ldr\\ldrinit.c",
                    2680,
                    (__int64)"_LdrpInitialize",
                    0,
@@ -98,12 +98,12 @@ __int64 __fastcall LdrpInitialize(__int64 a1, __int64 a2)
       if ( v12 >= 0 )
       {
         if ( !UseWOW64 || LdrpProcessInitialized == 1 )
-          result = (__int64)LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252);
+          result = LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252);
         goto LABEL_10;
       }
 LABEL_30:
       LdrpInitializationFailure(v6);
-      ZwTerminateProcess(-1LL, (unsigned int)v6);
+      ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v6);
       RtlRaiseStatus(v6);
     }
     v6 = 0;
@@ -113,18 +113,18 @@ LABEL_30:
     if ( _InterlockedCompareExchange(&LdrpProcessInitialized, 1, 2) == 2 )
       break;
 LABEL_25:
-    LdrpWaitForInitializationComplete(&LdrpProcessInitialized, (HANDLE *)&LdrpInitCompleteEvent);
+    LdrpWaitForInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent);
   }
   if ( ProcessEnvironmentBlock->InheritedAddressSpace )
   {
     v11 = NtCurrentPeb();
-    LdrpForkActiveLock = 0LL;
-    LdrpForkConditionVariable = 0LL;
+    LdrpForkActiveLock.0 = 0LL;
+    LdrpForkConditionVariable.0 = 0LL;
     v11->InheritedAddressSpace = 0;
     if ( v11->BeingDebugged )
       LdrpDoDebuggerBreak();
   }
-  result = (__int64)LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252);
+  result = LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252);
   v6 = 0;
 LABEL_5:
   if ( (v3->SameTebFlags & 0x40) == 0 )
@@ -133,7 +133,7 @@ LABEL_5:
     {
       RtlAcquireSRWLockShared(&LdrpForkActiveLock);
       while ( LdrpForkInProgress )
-        RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, &LdrpForkActiveLock, 0LL, 1);
+        RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, &LdrpForkActiveLock, 0LL, 1u);
       RtlReleaseSRWLockShared(&LdrpForkActiveLock);
     }
     LdrInitializePerThreadRng(v3);

@@ -3,7 +3,7 @@
  * Callers:
  *     HalpKdEnumerateDebuggingDevices @ 0x140AB2060 (HalpKdEnumerateDebuggingDevices.c)
  * Callees:
- *     wcsncmp @ 0x1403DBA50 (wcsncmp.c)
+ *     wcsncmp @ 0x1403DBC30 (wcsncmp.c)
  */
 
 char __fastcall HalpDeviceEquals(__int64 a1, __int64 a2)

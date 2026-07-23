@@ -24,7 +24,7 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
   __int64 result; // rax
   __int64 v10; // rax
   __int64 v11; // rsi
-  unsigned int v13; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v13; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   Pool = 0LL;
@@ -33,7 +33,7 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
   v6 = *(_QWORD *)(v4 + 32);
   v8 = (unsigned int (*)(void))((unsigned __int64)MiIsTargetFullyRetpolined & -(__int64)MiIsRetpolineEnabled());
   result = RtlCaptureRetpolineImportRvas(
-             *(_QWORD *)(v7 + 48),
+             *(char **)(v7 + 48),
              *(_QWORD *)(v7 + 48),
              *(unsigned int *)(a1 + 64),
              v8,
@@ -47,7 +47,7 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
     if ( !Pool )
       return 3221225495LL;
     result = RtlCaptureRetpolineImportRvas(
-               *(_QWORD *)(a1 + 48),
+               *(char **)(a1 + 48),
                *(_QWORD *)(a1 + 48),
                *(unsigned int *)(a1 + 64),
                v8,

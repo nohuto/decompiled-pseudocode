@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSymlinkAllocateAndAddECP @ 0x14099DED8
+ * XREFs of IopSymlinkAllocateAndAddECP @ 0x1408AB7E0
  * Callers:
- *     IopGraftName @ 0x14099D348 (IopGraftName.c)
- *     IopSymlinkUpdateECP @ 0x14099DACC (IopSymlinkUpdateECP.c)
- *     IopSymlinkCreateECP @ 0x14099DD9C (IopSymlinkCreateECP.c)
+ *     IopSymlinkCreateECP @ 0x1408AB950 (IopSymlinkCreateECP.c)
+ *     IopSymlinkUpdateECP @ 0x1408ABA8C (IopSymlinkUpdateECP.c)
+ *     IopGraftName @ 0x140A2F1E8 (IopGraftName.c)
  * Callees:
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     IoClearIrpExtraCreateParameter @ 0x140596900 (IoClearIrpExtraCreateParameter.c)
- *     FsRtlFreeExtraCreateParameterList @ 0x1408A26C0 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1408A2A00 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlInsertExtraCreateParameter @ 0x14099DFE0 (FsRtlInsertExtraCreateParameter.c)
- *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x14099E040 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
- *     IoSetIrpExtraCreateParameter @ 0x14099E190 (IoSetIrpExtraCreateParameter.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     IoClearIrpExtraCreateParameter @ 0x1405938E0 (IoClearIrpExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x1408AAD60 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x1408AB0A0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1408AB690 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x1408AB8F0 (FsRtlInsertExtraCreateParameter.c)
+ *     IoSetIrpExtraCreateParameter @ 0x1408AD470 (IoSetIrpExtraCreateParameter.c)
  */
 
 __int64 __fastcall IopSymlinkAllocateAndAddECP(PIRP Irp, PVOID *EcpContext, unsigned __int16 a3)

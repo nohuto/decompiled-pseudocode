@@ -1,21 +1,21 @@
 /*
- * XREFs of DbgkSendSystemDllMessages @ 0x14080E48C
+ * XREFs of DbgkSendSystemDllMessages @ 0x14080F68C
  * Callers:
- *     DbgkCreateThread @ 0x1405F7028 (DbgkCreateThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x14080EDB8 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkCreateThread @ 0x1405F8028 (DbgkCreateThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x14080FFB8 (DbgkpPostFakeThreadMessages.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsWow64GetProcessNtdllType @ 0x1406783F4 (PsWow64GetProcessNtdllType.c)
- *     PsQuerySystemDllInfo @ 0x1406820BC (PsQuerySystemDllInfo.c)
- *     DbgkpQueueMessage @ 0x14080F404 (DbgkpQueueMessage.c)
- *     DbgkpSendApiMessage @ 0x140810BB4 (DbgkpSendApiMessage.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PsWow64GetProcessNtdllType @ 0x1406795B4 (PsWow64GetProcessNtdllType.c)
+ *     PsQuerySystemDllInfo @ 0x14068327C (PsQuerySystemDllInfo.c)
+ *     DbgkpQueueMessage @ 0x140810604 (DbgkpQueueMessage.c)
+ *     DbgkpSendApiMessage @ 0x140811DB4 (DbgkpSendApiMessage.c)
  */
 
 void __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, __int64 a3)

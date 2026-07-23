@@ -1,16 +1,16 @@
 /*
- * XREFs of PoInitHeteroDetection @ 0x140CCE7E8
+ * XREFs of PoInitHeteroDetection @ 0x140CD4948
  * Callers:
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KiAllocateHeteroConfigBuffer @ 0x140BF351C (KiAllocateHeteroConfigBuffer.c)
- *     KiInitializeWpsWorkloadClasses @ 0x140BF4144 (KiInitializeWpsWorkloadClasses.c)
- *     PpmInitHeteroEngine @ 0x140CD44D4 (PpmInitHeteroEngine.c)
- *     PpmUpdateArchitecturalEfficiencyClass @ 0x140CD47F0 (PpmUpdateArchitecturalEfficiencyClass.c)
- *     PpmHeteroInitializeWpsSimSupport @ 0x140CD6E60 (PpmHeteroInitializeWpsSimSupport.c)
- *     PpmHeteroInitializeIntelWpsSupport @ 0x140CD6EF4 (PpmHeteroInitializeIntelWpsSupport.c)
- *     PpmHeteroInitializeAmdWpsSupport @ 0x140CD72F8 (PpmHeteroInitializeAmdWpsSupport.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KiAllocateHeteroConfigBuffer @ 0x140BF951C (KiAllocateHeteroConfigBuffer.c)
+ *     KiInitializeWpsWorkloadClasses @ 0x140BFA144 (KiInitializeWpsWorkloadClasses.c)
+ *     PpmInitHeteroEngine @ 0x140CDA674 (PpmInitHeteroEngine.c)
+ *     PpmUpdateArchitecturalEfficiencyClass @ 0x140CDAB70 (PpmUpdateArchitecturalEfficiencyClass.c)
+ *     PpmHeteroInitializeWpsSimSupport @ 0x140CDD1B4 (PpmHeteroInitializeWpsSimSupport.c)
+ *     PpmHeteroInitializeIntelWpsSupport @ 0x140CDD248 (PpmHeteroInitializeIntelWpsSupport.c)
+ *     PpmHeteroInitializeAmdWpsSupport @ 0x140CDD668 (PpmHeteroInitializeAmdWpsSupport.c)
  */
 
 char PoInitHeteroDetection()

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSystemVaTypeHasWsles @ 0x140229548
+ * XREFs of MiSystemVaTypeHasWsles @ 0x1402FC7B8
  * Callers:
- *     MiSystemFault @ 0x140229570 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1402FC7E0 (MiSystemFault.c)
  * Callees:
  *     <none>
  */

@@ -15,20 +15,20 @@ __int64 __fastcall sub_1800E1AD8(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
   int i; // ecx
   int v9; // edi
   bool v10; // sf
-  __int64 v11; // rax
+  PIMAGE_NT_HEADERS v11; // rax
   __int64 v13; // [rsp+20h] [rbp-38h]
-  __int64 v14; // [rsp+28h] [rbp-30h] BYREF
+  __int64 SizeOfImage; // [rsp+28h] [rbp-30h] BYREF
   _QWORD v15[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v15[0] = 0LL;
-  v14 = 0LL;
-  RtlAcquireSRWLockShared(&qword_18015C3B0);
+  SizeOfImage = 0LL;
+  RtlAcquireSRWLockShared(&stru_18015C3B0);
   *a4 = 0LL;
   v7 = dword_18015A268;
   HIDWORD(v13) = dword_18015A268;
   for ( i = dword_18015A268 - 1; i >= 0; --i )
   {
-    if ( *(_QWORD *)(qword_18015A260 + 72LL * i + 8) == a1 )
+    if ( *((_QWORD *)BaseAddress + 9 * i + 1) == a1 )
     {
       if ( v15[0] )
       {
@@ -38,8 +38,8 @@ __int64 __fastcall sub_1800E1AD8(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
           v10 = v9 < 0;
           if ( v9 < 0 )
             break;
-          if ( *(_QWORD *)(qword_18015A260 + 72LL * v9 + 8) == a1
-            && (unsigned __int8)sub_1800E1C58((unsigned int)v9, a3, v15, &v14, v13) )
+          if ( *((_QWORD *)BaseAddress + 9 * v9 + 1) == a1
+            && (unsigned __int8)sub_1800E1C58((unsigned int)v9, a3, v15, &SizeOfImage, v13) )
           {
             v7 = v9;
             v10 = v9 < 0;
@@ -51,8 +51,8 @@ __int64 __fastcall sub_1800E1AD8(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
           v7 = dword_18015A268;
         break;
       }
-      v15[0] = *(_QWORD *)(qword_18015A260 + 72LL * i + 32);
-      v14 = *(_QWORD *)(qword_18015A260 + 72LL * i + 48);
+      v15[0] = *((_QWORD *)BaseAddress + 9 * i + 4);
+      SizeOfImage = *((_QWORD *)BaseAddress + 9 * i + 6);
       v7 = i;
       HIDWORD(v13) = i;
     }
@@ -63,19 +63,19 @@ __int64 __fastcall sub_1800E1AD8(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
   }
   else
   {
-    if ( !v14 )
+    if ( !SizeOfImage )
     {
-      v11 = RtlImageNtHeader(v15[0] & 0xFFFFFFFFFFFFFFFCuLL);
+      v11 = RtlImageNtHeader((PVOID)(v15[0] & 0xFFFFFFFFFFFFFFFCuLL));
       if ( v11 )
       {
-        if ( *(_WORD *)(v11 + 24) == 267 || *(_WORD *)(v11 + 24) == 523 )
-          v14 = *(unsigned int *)(v11 + 80);
+        if ( v11->OptionalHeader.Magic == 267 || v11->OptionalHeader.Magic == 523 )
+          SizeOfImage = v11->OptionalHeader.SizeOfImage;
         else
-          v14 = 0LL;
+          SizeOfImage = 0LL;
       }
     }
-    *a4 = v14;
+    *a4 = SizeOfImage;
   }
-  RtlReleaseSRWLockShared(&qword_18015C3B0);
+  RtlReleaseSRWLockShared(&stru_18015C3B0);
   return v15[0];
 }

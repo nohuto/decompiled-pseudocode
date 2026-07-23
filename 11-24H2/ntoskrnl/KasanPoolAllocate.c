@@ -1,11 +1,11 @@
 /*
- * XREFs of KasanPoolAllocate @ 0x1402C0EE0
+ * XREFs of KasanPoolAllocate @ 0x14035CFE0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1402C2E9C (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140396AFC (ExAllocateContiguousHeapPool.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KasanPoolAllocate(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, __int64 a4)
@@ -23,12 +23,12 @@ __int64 __fastcall KasanPoolAllocate(ULONG_PTR BugCheckParameter3, __int64 a2, _
   _BYTE *v17; // rdi
   size_t v18; // rsi
 
-  v4 = byte_140FCDC28;
+  v4 = byte_140FCECA8;
   result = ((_BYTE)a3 - (_BYTE)BugCheckParameter3) & 7;
   v7 = a3 - result;
   v10 = a3 - result - BugCheckParameter3;
   v11 = a2;
-  if ( byte_140FCDC28 )
+  if ( byte_140FCECA8 )
   {
     if ( BugCheckParameter3 < 0xFFFF800000000000uLL )
       KeBugCheckEx(0x1F1u, 2uLL, 1uLL, BugCheckParameter3, 0LL);

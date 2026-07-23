@@ -1,10 +1,10 @@
 /*
- * XREFs of __report_gsfailure @ 0x180096C90
+ * XREFs of __report_gsfailure @ 0x180096C80
  * Callers:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x180035FA0 (RtlLookupFunctionEntry.c)
- *     RtlVirtualUnwind @ 0x180036EF0 (RtlVirtualUnwind.c)
+ *     RtlLookupFunctionEntry @ 0x180035F90 (RtlLookupFunctionEntry.c)
+ *     RtlVirtualUnwind @ 0x180036EE0 (RtlVirtualUnwind.c)
  *     ZwTerminateProcess @ 0x1800A69A0 (ZwTerminateProcess.c)
  *     RtlCaptureContext @ 0x1800AA150 (RtlCaptureContext.c)
  *     RtlUnhandledExceptionFilter @ 0x1800F1DD0 (RtlUnhandledExceptionFilter.c)
@@ -40,6 +40,6 @@ void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
   dword_18014FE38 = 1;
   unk_18014FE40 = 2LL;
   HandlerData[2] = (PVOID)_security_cookie_complement;
-  RtlUnhandledExceptionFilter(&off_180108AA8);
-  ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter((PEXCEPTION_POINTERS)&ExceptionPointers);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

@@ -11,11 +11,11 @@
  *     sub_1801086C8 @ 0x1801086C8 (sub_1801086C8.c)
  */
 
-__int64 __fastcall sub_180025DA4(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+__int64 __fastcall sub_180025DA4(PPEB_LDR_DATA Ldr, __int64 a2, __int64 a3)
 {
   int v3; // r11d
   int v4; // r10d
-  struct _PEB_LDR_DATA *v5; // r9
+  PPEB_LDR_DATA v5; // r9
 
   LOBYTE(v3) = 0;
   v4 = a3;

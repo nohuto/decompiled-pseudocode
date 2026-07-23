@@ -1,14 +1,14 @@
 /*
- * XREFs of VslReserveProtectedPages @ 0x140885B64
+ * XREFs of VslReserveProtectedPages @ 0x140885DA4
  * Callers:
- *     KeReservePrivilegedPages @ 0x1403D70F0 (KeReservePrivilegedPages.c)
+ *     KeReservePrivilegedPages @ 0x1403D72D0 (KeReservePrivilegedPages.c)
  *     MiInitializeDriverImages @ 0x140B460A0 (MiInitializeDriverImages.c)
  *     MiFreeKernelPadSections @ 0x140B67E1C (MiFreeKernelPadSections.c)
  *     MiBootImageRelocated @ 0x140B9A744 (MiBootImageRelocated.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslReserveProtectedPages(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

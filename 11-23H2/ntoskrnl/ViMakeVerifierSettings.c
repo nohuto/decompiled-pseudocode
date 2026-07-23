@@ -3,8 +3,8 @@
  * Callers:
  *     VfTriageSystem @ 0x140B69CCC (VfTriageSystem.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B004 (RtlStringCbCopyW.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
+ *     RtlStringCbCopyW @ 0x14022B114 (RtlStringCbCopyW.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
  *     VfInitSetVerifyDriverTargets @ 0x140B96CA0 (VfInitSetVerifyDriverTargets.c)
  */
 

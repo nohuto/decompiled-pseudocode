@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFlsSetValue @ 0x1407BD6B4
+ * XREFs of RtlpFlsSetValue @ 0x1407BD984
  * Callers:
- *     PsTlsSetValue @ 0x1407BD5F0 (PsTlsSetValue.c)
+ *     PsTlsSetValue @ 0x1407BD8C0 (PsTlsSetValue.c)
  * Callees:
- *     RtlpFlsSetValueSlot @ 0x1407BD744 (RtlpFlsSetValueSlot.c)
+ *     RtlpFlsSetValueSlot @ 0x1407BDA14 (RtlpFlsSetValueSlot.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

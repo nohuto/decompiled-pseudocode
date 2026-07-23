@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCtInitializeWorkItem @ 0x1409C2244
+ * XREFs of RtlpCtInitializeWorkItem @ 0x1409C2444
  * Callers:
- *     RtlpCtContextInit @ 0x1409C2118 (RtlpCtContextInit.c)
+ *     RtlpCtContextInit @ 0x1409C2318 (RtlpCtContextInit.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

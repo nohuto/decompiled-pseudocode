@@ -1,34 +1,36 @@
 /*
- * XREFs of NtFlushInstallUILanguage @ 0x140761760
+ * XREFs of NtFlushInstallUILanguage @ 0x140762950
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F2E0 (MigrateOOBELanguageToInstallationLanguage.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     MUIInitializeResourceLock @ 0x14070F45C (MUIInitializeResourceLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F4D0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     MUIInitializeResourceLock @ 0x1407106FC (MUIInitializeResourceLock.c)
  */
 
-__int64 __fastcall NtFlushInstallUILanguage(int a1, int a2)
+NTSTATUS __cdecl NtFlushInstallUILanguage(LANGID InstallUILanguage, ULONG SetComittedFlag)
 {
-  unsigned int v3; // ebx
+  NTSTATUS v3; // ebx
+  int v4; // edi
   KPROCESSOR_MODE PreviousMode; // dl
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rax
 
   v3 = 0;
+  v4 = InstallUILanguage;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode )
-    return 3221225473LL;
+    return -1073741823;
   if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-    return 3221225506LL;
+    return -1073741790;
   if ( PsUILanguageComitted )
   {
-    if ( a1 == WORD1(NlsMbCodePageTag) )
-      return 0LL;
-    return 3221225473LL;
+    if ( v4 == WORD1(NlsMbCodePageTag) )
+      return 0;
+    return -1073741823;
   }
   if ( MUIRefreshCachedUILock
     || (result = MUIInitializeResourceLock((volatile signed __int64 *)&MUIRefreshCachedUILock),
@@ -37,12 +39,12 @@ __int64 __fastcall NtFlushInstallUILanguage(int a1, int a2)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceExclusiveLite(MUIRefreshCachedUILock, 1u);
-    if ( a2 )
+    if ( SetComittedFlag )
       PsUILanguageComitted = 1;
-    if ( (_WORD)a1 != WORD1(NlsMbCodePageTag) )
+    if ( (_WORD)v4 != WORD1(NlsMbCodePageTag) )
     {
-      WORD1(NlsMbCodePageTag) = a1;
-      PsMachineUILanguageId = a1;
+      WORD1(NlsMbCodePageTag) = v4;
+      PsMachineUILanguageId = v4;
       v3 = MigrateOOBELanguageToInstallationLanguage();
     }
     ExReleaseResourceLite(MUIRefreshCachedUILock);

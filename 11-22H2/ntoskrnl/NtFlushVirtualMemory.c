@@ -8,19 +8,23 @@
  *     MmFlushVirtualMemory @ 0x1407B4808 (MmFlushVirtualMemory.c)
  */
 
-__int64 __fastcall NtFlushVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned __int64 *a2, __int64 *a3, _OWORD *a4)
+NTSTATUS __cdecl NtFlushVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        PIO_STATUS_BLOCK IoStatus)
 {
   char PreviousMode; // r9
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // rcx
-  unsigned __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // rax
+  char *v12; // rdx
+  ULONG_PTR v13; // rcx
+  ULONG_PTR v14; // rax
   __int64 v15; // rcx
-  __int64 result; // rax
-  unsigned int v17; // [rsp+40h] [rbp-38h]
-  __int64 v18; // [rsp+48h] [rbp-30h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v17; // [rsp+40h] [rbp-38h]
+  ULONG_PTR v18; // [rsp+48h] [rbp-30h] BYREF
   unsigned __int64 v19; // [rsp+50h] [rbp-28h] BYREF
   PVOID Object; // [rsp+58h] [rbp-20h] BYREF
   __int128 v21; // [rsp+60h] [rbp-18h] BYREF
@@ -34,38 +38,38 @@ __int64 __fastcall NtFlushVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned _
   {
     v9 = 0x7FFFFFFF0000LL;
     v10 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v10 = (__int64)a2;
+    if ( (unsigned __int64)BaseAddress < 0x7FFFFFFF0000LL )
+      v10 = (__int64)BaseAddress;
     *(_QWORD *)v10 = *(_QWORD *)v10;
     v11 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v11 = (__int64)a3;
+    if ( (unsigned __int64)RegionSize < 0x7FFFFFFF0000LL )
+      v11 = (__int64)RegionSize;
     *(_QWORD *)v11 = *(_QWORD *)v11;
-    if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a4;
+    if ( (unsigned __int64)IoStatus < 0x7FFFFFFF0000LL )
+      v9 = (__int64)IoStatus;
     *(_DWORD *)v9 = *(_DWORD *)v9;
-    v12 = *a2;
-    v19 = *a2;
-    v13 = *a3;
-    v18 = *a3;
+    v12 = (char *)*BaseAddress;
+    v19 = (unsigned __int64)*BaseAddress;
+    v13 = *RegionSize;
+    v18 = *RegionSize;
   }
   else
   {
-    v12 = *a2;
-    v19 = v12;
-    v13 = *a3;
-    v18 = *a3;
+    v12 = (char *)*BaseAddress;
+    v19 = (unsigned __int64)v12;
+    v13 = *RegionSize;
+    v18 = *RegionSize;
   }
   v14 = v13 - 1;
   if ( !v13 )
     v14 = 0LL;
-  if ( v12 + v14 < v12 )
-    return 3221225485LL;
+  if ( &v12[v14] < v12 )
+    return -1073741811;
   v15 = v13 ? v13 - 1 : 0LL;
-  if ( v15 + v12 > 0x7FFFFFFEFFFFLL )
-    return 3221225485LL;
+  if ( (unsigned __int64)&v12[v15] > 0x7FFFFFFEFFFFLL )
+    return -1073741811;
   result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
+             (ULONG_PTR)ProcessHandle,
              8,
              (__int64)PsProcessType,
              PreviousMode,
@@ -73,13 +77,13 @@ __int64 __fastcall NtFlushVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned _
              &Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v17 = MmFlushVirtualMemory(Object, &v19, &v18, &v21);
     ObfDereferenceObjectWithTag(Object, 0x6C466D4Du);
-    *a3 = v18;
-    *a2 = v19 & 0xFFFFFFFFFFFFF000uLL;
-    *a4 = v21;
+    *RegionSize = v18;
+    *BaseAddress = (PVOID)(v19 & 0xFFFFFFFFFFFFF000uLL);
+    *(_OWORD *)&IoStatus->Status = v21;
     return v17;
   }
   return result;

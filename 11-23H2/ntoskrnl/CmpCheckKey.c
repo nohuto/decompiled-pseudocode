@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCheckKey @ 0x1406E0710
+ * XREFs of CmpCheckKey @ 0x1406E0740
  * Callers:
- *     CmpCheckRegistry2 @ 0x1406DFAD0 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x1406DFB00 (CmpCheckRegistry2.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14022CFB0 (CmpFindSecurityCellCacheIndex.c)
- *     RtlUIntAdd @ 0x1402504DC (RtlUIntAdd.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     CmpKeySecurityIncrementReferenceCount @ 0x1404199A0 (CmpKeySecurityIncrementReferenceCount.c)
- *     CmpCheckLeaf @ 0x1406DCAC0 (CmpCheckLeaf.c)
- *     HvIsCellAllocated @ 0x1406DD350 (HvIsCellAllocated.c)
- *     CmpCheckValueList @ 0x1406DE4C0 (CmpCheckValueList.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpGetIndexElementSize @ 0x14087187C (CmpGetIndexElementSize.c)
- *     HvMarkCellDirty @ 0x1408ABCF6 (HvMarkCellDirty.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14022D0C0 (CmpFindSecurityCellCacheIndex.c)
+ *     RtlUIntAdd @ 0x1402505AC (RtlUIntAdd.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x140419D30 (CmpKeySecurityIncrementReferenceCount.c)
+ *     CmpCheckLeaf @ 0x1406DCAF0 (CmpCheckLeaf.c)
+ *     HvIsCellAllocated @ 0x1406DD380 (HvIsCellAllocated.c)
+ *     CmpCheckValueList @ 0x1406DE4F0 (CmpCheckValueList.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpGetIndexElementSize @ 0x140871ABC (CmpGetIndexElementSize.c)
+ *     HvMarkCellDirty @ 0x1408ABF46 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCheckKey(
@@ -98,7 +98,7 @@ __int64 __fastcall CmpCheckKey(
   unsigned int *v81; // r15
   _WORD *v82; // r12
   int v83; // eax
-  RTL_BITMAP *v84; // r14
+  _RTL_BITMAP *v84; // r14
   ULONG_PTR v85; // rdx
   _WORD *v86; // rax
   __int16 *v87; // r12

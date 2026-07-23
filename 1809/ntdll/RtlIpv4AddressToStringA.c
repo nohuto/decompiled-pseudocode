@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIpv4AddressToStringA @ 0x1800854C0
+ * XREFs of RtlIpv4AddressToStringA @ 0x1800854D0
  * Callers:
  *     RtlIpv4AddressToStringExA @ 0x1800F7CB0 (RtlIpv4AddressToStringExA.c)
  * Callees:
- *     sprintf_s @ 0x18009B1C0 (sprintf_s.c)
+ *     sprintf_s @ 0x18009B1D0 (sprintf_s.c)
  */
 
 PSTR __stdcall RtlIpv4AddressToStringA(const struct in_addr *Addr, PSTR S)
@@ -12,8 +12,8 @@ PSTR __stdcall RtlIpv4AddressToStringA(const struct in_addr *Addr, PSTR S)
               S,
               0x10uLL,
               "%u.%u.%u.%u",
-              Addr->S_un.S_un_b.s_b1,
-              Addr->S_un.S_un_b.s_b2,
-              Addr->S_un.S_un_b.s_b3,
-              Addr->S_un.S_un_b.s_b4)];
+              *(unsigned __int8 *)Addr,
+              *((unsigned __int8 *)Addr + 1),
+              *((unsigned __int8 *)Addr + 2),
+              *((unsigned __int8 *)Addr + 3))];
 }

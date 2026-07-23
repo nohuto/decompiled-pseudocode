@@ -1,53 +1,54 @@
 /*
- * XREFs of NtCreateWorkerFactory @ 0x14068A1F0
+ * XREFs of NtCreateWorkerFactory @ 0x14068B3B0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KeRegisterObjectNotification @ 0x1400FD2C0 (KeRegisterObjectNotification.c)
- *     ExpInitializeThreadHistory @ 0x1400FD468 (ExpInitializeThreadHistory.c)
- *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
- *     KeDisableQueueingPriorityIncrement @ 0x1400FDA00 (KeDisableQueueingPriorityIncrement.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     IopFreeMiniCompletionPacket @ 0x1405E9C20 (IopFreeMiniCompletionPacket.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
- *     IoAllocateMiniCompletionPacket @ 0x14068A7D0 (IoAllocateMiniCompletionPacket.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KeRegisterObjectNotification @ 0x1400FD340 (KeRegisterObjectNotification.c)
+ *     ExpInitializeThreadHistory @ 0x1400FD4E8 (ExpInitializeThreadHistory.c)
+ *     KeInitializeTimer2 @ 0x1400FD550 (KeInitializeTimer2.c)
+ *     KeDisableQueueingPriorityIncrement @ 0x1400FDA80 (KeDisableQueueingPriorityIncrement.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     IopFreeMiniCompletionPacket @ 0x1405EAC20 (IopFreeMiniCompletionPacket.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
+ *     IoAllocateMiniCompletionPacket @ 0x14068B990 (IoAllocateMiniCompletionPacket.c)
  */
 
-__int64 __fastcall NtCreateWorkerFactory(
-        __int64 *a1,
-        unsigned int a2,
-        int a3,
-        void *a4,
-        ULONG_PTR BugCheckParameter1,
-        __int64 a6,
-        __int64 a7,
-        int a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl NtCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
-  KPROCESSOR_MODE PreviousMode; // di
+  int v11; // r12d
+  char PreviousMode; // di
   __int64 v15; // r8
   _QWORD *PoolWithQuotaTag; // rax
   PVOID v17; // rsi
-  int v18; // ebx
+  NTSTATUS v18; // ebx
   volatile signed __int32 *v19; // rcx
   PVOID v20; // r14
   __int64 MiniCompletionPacket; // rax
   _QWORD *v22; // rdi
-  __int64 v23; // rcx
-  __int64 v24; // rcx
+  SIZE_T v23; // rcx
+  SIZE_T v24; // rcx
   PVOID v25; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v27; // rcx
   PVOID *Object; // [rsp+20h] [rbp-98h]
   HANDLE Handle; // [rsp+58h] [rbp-60h] BYREF
@@ -57,34 +58,35 @@ __int64 __fastcall NtCreateWorkerFactory(
   __int64 v33; // [rsp+78h] [rbp-40h] BYREF
   _QWORD v34[3]; // [rsp+88h] [rbp-30h] BYREF
 
+  v11 = (int)ObjectAttributes;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v15 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v15 = (__int64)a1;
+    if ( (unsigned __int64)WorkerFactoryHandleReturn < 0x7FFFFFFF0000LL )
+      v15 = (__int64)WorkerFactoryHandleReturn;
     *(_QWORD *)v15 = *(_QWORD *)v15;
   }
   PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x28uLL, 0x63577054u);
   v17 = PoolWithQuotaTag;
   if ( !PoolWithQuotaTag )
-    return (unsigned int)-1073741801;
+    return -1073741801;
   *PoolWithQuotaTag = 0LL;
   PoolWithQuotaTag[3] = 0LL;
   *((_WORD *)PoolWithQuotaTag + 16) = 0;
   *((_BYTE *)PoolWithQuotaTag + 34) = 0;
-  v18 = ObReferenceObjectByHandle(a4, 2u, IoCompletionObjectType, PreviousMode, &v30, 0LL);
+  v18 = ObReferenceObjectByHandle(CompletionPortHandle, 2u, IoCompletionObjectType, PreviousMode, &v30, 0LL);
   v19 = (volatile signed __int32 *)v30;
   *((_QWORD *)v17 + 1) = v30;
   if ( v18 < 0 )
   {
 LABEL_26:
     ExFreePoolWithTag(v17, 0);
-    return (unsigned int)v18;
+    return v18;
   }
   KeDisableQueueingPriorityIncrement(v19);
   v18 = ObpReferenceObjectByHandleWithTag(
-          BugCheckParameter1,
+          (ULONG_PTR)WorkerProcessHandle,
           42,
           (__int64)PsProcessType,
           PreviousMode,
@@ -123,7 +125,7 @@ LABEL_23:
   v18 = ObCreateObjectEx(
           PreviousMode,
           ExpWorkerFactoryObjectType,
-          a3,
+          v11,
           PreviousMode,
           (__int64)Object,
           416,
@@ -135,27 +137,27 @@ LABEL_23:
   {
     v27 = *((_QWORD *)v17 + 2);
     *(_QWORD *)(v27 + 56) = 0LL;
-    IopFreeMiniCompletionPacket((struct _SLIST_ENTRY *)v27);
+    IopFreeMiniCompletionPacket((_SLIST_ENTRY *)v27);
     goto LABEL_23;
   }
   v22 = v32;
   *((_QWORD *)v32 + 2) = v17;
   v22[14] = -10000000LL * ExpWorkerFactoryThreadIdleTimeoutInSeconds;
   *((_DWORD *)v22 + 30) = 0;
-  *((_DWORD *)v22 + 31) = a8;
+  *((_DWORD *)v22 + 31) = MaxThreadCount;
   *(_QWORD *)((char *)v22 + 140) = 0LL;
   v22[16] = 0LL;
   v23 = 0x10000LL;
-  if ( a9 )
-    v23 = a9;
+  if ( StackReserve )
+    v23 = StackReserve;
   v22[7] = v23;
   v22[19] = 0LL;
   v24 = 4096LL;
-  if ( a10 )
-    v24 = a10;
+  if ( StackCommit )
+    v24 = StackCommit;
   v22[8] = v24;
-  v22[3] = a6;
-  v22[4] = a7;
+  v22[3] = StartRoutine;
+  v22[4] = StartParameter;
   *((_DWORD *)v22 + 37) = 0;
   *((_DWORD *)v22 + 40) = 0;
   v22[5] = Handle;
@@ -171,8 +173,8 @@ LABEL_23:
   v34[0] = 0LL;
   v34[1] = -1LL;
   KeSetTimer2((__int64)(v22 + 21), v22[14], -v22[14], (__int64)v34);
-  result = ObInsertObjectEx(v22, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v33);
-  if ( (int)result >= 0 )
-    *a1 = v33;
+  result = ObInsertObjectEx(v22, 0LL, DesiredAccess, 0, 0, 0LL, (unsigned __int64 *)&v33);
+  if ( result >= 0 )
+    *WorkerFactoryHandleReturn = (HANDLE)v33;
   return result;
 }

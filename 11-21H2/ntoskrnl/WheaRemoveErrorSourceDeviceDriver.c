@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyA @ 0x14024F6E4 (RtlStringCchCopyA.c)
+ *     sub_14024F6E4 @ 0x14024F6E4 (sub_14024F6E4.c)
  *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     WheaGetErrorSource @ 0x140643590 (WheaGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x1406447D0 (WheapErrDescIsDeviceDriver.c)
+ *     sub_1406447D0 @ 0x1406447D0 (sub_1406447D0.c)
  *     WheaRemoveErrorSource @ 0x140A08880 (WheaRemoveErrorSource.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -19,14 +19,12 @@ __int64 __fastcall WheaRemoveErrorSourceDeviceDriver(unsigned int a1)
   signed __int32 v4; // eax
   void *v5; // rcx
   _DWORD Src[8]; // [rsp+20h] [rbp-50h] BYREF
-  char pszDest[16]; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v9; // [rsp+50h] [rbp-20h]
+  _OWORD v8[2]; // [rsp+40h] [rbp-30h] BYREF
 
-  *(_OWORD *)pszDest = 0LL;
-  v9 = 0LL;
+  memset(v8, 0, sizeof(v8));
   v2 = 0;
   ErrorSource = WheaGetErrorSource(a1);
-  if ( WheapErrDescIsDeviceDriver(ErrorSource) )
+  if ( sub_1406447D0(ErrorSource) )
   {
     v4 = _InterlockedCompareExchange((volatile signed __int32 *)(ErrorSource + 152), -1, 0);
     if ( v4 != -1 )
@@ -41,7 +39,7 @@ __int64 __fastcall WheaRemoveErrorSourceDeviceDriver(unsigned int a1)
         Src[5] = -2147483604;
         Src[4] = 1280201291;
         Src[6] = 2;
-        RtlStringCchCopyA(pszDest, 0x20uLL, "RemoveErrorSourceDeviceDriver");
+        sub_14024F6E4(v8, 32LL, (__int64)"RemoveErrorSourceDeviceDriver");
         WheaLogInternalEvent(Src);
         return (unsigned int)-1073740024;
       }
@@ -56,8 +54,8 @@ __int64 __fastcall WheaRemoveErrorSourceDeviceDriver(unsigned int a1)
           *(_QWORD *)(ErrorSource + 144) = 0LL;
         }
         WheaRemoveErrorSource(a1);
-        *(_QWORD *)(ErrorSource + 80) = HalSystemVectorDispatchEntry;
-        *(_QWORD *)(ErrorSource + 88) = xHalTimerWatchdogStop;
+        *(_QWORD *)(ErrorSource + 80) = PsGetHostSilo;
+        *(_QWORD *)(ErrorSource + 88) = _misaligned_access;
       }
     }
   }

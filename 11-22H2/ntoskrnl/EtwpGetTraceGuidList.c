@@ -12,7 +12,7 @@ __int64 __fastcall EtwpGetTraceGuidList(__int64 a1, __int64 a2, unsigned int a3,
 {
   int GuidList; // r10d
   unsigned int v8; // r11d
-  __int64 (**v9)[2]; // r9
+  GUID **v9; // r9
   unsigned int i; // r8d
   int v11; // eax
   unsigned int v12; // r11d
@@ -42,7 +42,7 @@ LABEL_16:
         return (unsigned int)GuidList;
       }
       if ( v8 <= a3 )
-        *(_OWORD *)(a2 + 16LL * (v8 - 1)) = *(_OWORD *)*v9;
+        *(GUID *)(a2 + 16LL * (v8 - 1)) = **v9;
       v9 += 2;
     }
     if ( a3 >= v8 )

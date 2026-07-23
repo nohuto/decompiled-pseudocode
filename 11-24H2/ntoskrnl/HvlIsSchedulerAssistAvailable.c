@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlIsSchedulerAssistAvailable @ 0x140585C30
+ * XREFs of HvlIsSchedulerAssistAvailable @ 0x140582FB0
  * Callers:
  *     <none>
  * Callees:

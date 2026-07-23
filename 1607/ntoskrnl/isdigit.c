@@ -1,11 +1,11 @@
 /*
- * XREFs of isdigit @ 0x14014DCB4
+ * XREFs of isdigit @ 0x14014E224
  * Callers:
- *     RtlIpv6StringToAddressA @ 0x140144AA4 (RtlIpv6StringToAddressA.c)
- *     RtlEthernetStringToAddressA @ 0x1402145A8 (RtlEthernetStringToAddressA.c)
- *     RtlIpv4StringToAddressA @ 0x1402146EC (RtlIpv4StringToAddressA.c)
- *     RtlIpv4StringToAddressExA @ 0x140214954 (RtlIpv4StringToAddressExA.c)
- *     RtlIpv6StringToAddressExA @ 0x140214B2C (RtlIpv6StringToAddressExA.c)
+ *     RtlIpv6StringToAddressA @ 0x140145014 (RtlIpv6StringToAddressA.c)
+ *     RtlEthernetStringToAddressA @ 0x1402143D4 (RtlEthernetStringToAddressA.c)
+ *     RtlIpv4StringToAddressA @ 0x140214518 (RtlIpv4StringToAddressA.c)
+ *     RtlIpv4StringToAddressExA @ 0x140214780 (RtlIpv4StringToAddressExA.c)
+ *     RtlIpv6StringToAddressExA @ 0x140214958 (RtlIpv6StringToAddressExA.c)
  * Callees:
  *     <none>
  */

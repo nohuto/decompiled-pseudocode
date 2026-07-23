@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpProcessRemoveObjectQueue @ 0x1404B96EC
+ * XREFs of ObpProcessRemoveObjectQueue @ 0x1404A541C
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140031860 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetNextSession @ 0x140086620 (MmGetNextSession.c)
- *     KeInsertQueueDpc @ 0x1400D82A0 (KeInsertQueueDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
- *     ObpRemoveObjectRoutine @ 0x14041B730 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1404B9A30 (ObpHandleRevocationBlockRemoveObject.c)
- *     MmQuitNextSession @ 0x1404F149C (MmQuitNextSession.c)
- *     ObpDeregisterObject @ 0x140667748 (ObpDeregisterObject.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1400313E0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetNextSession @ 0x140087F10 (MmGetNextSession.c)
+ *     KeInsertQueueDpc @ 0x1400D6140 (KeInsertQueueDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
+ *     ObpRemoveObjectRoutine @ 0x14041A5F0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1404A5760 (ObpHandleRevocationBlockRemoveObject.c)
+ *     MmQuitNextSession @ 0x1404D3590 (MmQuitNextSession.c)
+ *     ObpDeregisterObject @ 0x14066782C (ObpDeregisterObject.c)
  */
 
 int ObpProcessRemoveObjectQueue()

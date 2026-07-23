@@ -1,9 +1,9 @@
 /*
- * XREFs of ValidFilterExpression @ 0x140371998
+ * XREFs of ValidFilterExpression @ 0x140371B38
  * Callers:
- *     ValidFilter @ 0x1407FB930 (ValidFilter.c)
+ *     ValidFilter @ 0x1407FBC00 (ValidFilter.c)
  * Callees:
- *     _PnpValidatePropertyData @ 0x140796EB8 (_PnpValidatePropertyData.c)
+ *     _PnpValidatePropertyData @ 0x1407970A8 (_PnpValidatePropertyData.c)
  */
 
 _BOOL8 __fastcall ValidFilterExpression(__int64 a1)

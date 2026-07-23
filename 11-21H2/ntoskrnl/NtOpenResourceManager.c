@@ -14,10 +14,5 @@ NTSTATUS __stdcall NtOpenResourceManager(
         LPGUID ResourceManagerGuid,
         POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  return __imp_NtOpenResourceManager(
-           ResourceManagerHandle,
-           DesiredAccess,
-           TmHandle,
-           ResourceManagerGuid,
-           ObjectAttributes);
+  return NtOpenResourceManager_0(ResourceManagerHandle, DesiredAccess, TmHandle, ResourceManagerGuid, ObjectAttributes);
 }

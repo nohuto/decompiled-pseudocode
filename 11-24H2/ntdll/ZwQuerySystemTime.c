@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwQuerySystemTime @ 0x1801627D0
+ * XREFs of ZwQuerySystemTime @ 0x180160B90
  * Callers:
- *     RtlAddGrowableFunctionTable @ 0x180006BA0 (RtlAddGrowableFunctionTable.c)
- *     RtlInstallFunctionTableCallback @ 0x1800E0D10 (RtlInstallFunctionTableCallback.c)
- *     RtlAddFunctionTable @ 0x1800F1F70 (RtlAddFunctionTable.c)
- *     RtlRunEncodeUnicodeString @ 0x180110260 (RtlRunEncodeUnicodeString.c)
- *     RtlCreateProcessReflection @ 0x180132F10 (RtlCreateProcessReflection.c)
+ *     RtlAddGrowableFunctionTable @ 0x1800335A0 (RtlAddGrowableFunctionTable.c)
+ *     RtlInstallFunctionTableCallback @ 0x1800DC260 (RtlInstallFunctionTableCallback.c)
+ *     RtlAddFunctionTable @ 0x1800ECBF0 (RtlAddFunctionTable.c)
+ *     RtlRunEncodeUnicodeString @ 0x18010B380 (RtlRunEncodeUnicodeString.c)
+ *     RtlCreateProcessReflection @ 0x180131140 (RtlCreateProcessReflection.c)
  * Callees:
  *     <none>
  */
 
 // attributes: thunk
-__int64 __fastcall ZwQuerySystemTime(_QWORD *a1)
+NTSTATUS __cdecl ZwQuerySystemTime(PLARGE_INTEGER SystemTime)
 {
-  return RtlQuerySystemTime(a1);
+  return RtlQuerySystemTime(SystemTime);
 }

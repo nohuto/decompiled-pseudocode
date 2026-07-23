@@ -1,5 +1,5 @@
 /*
- * XREFs of SeAuditingHardLinkEvents @ 0x1408135D0
+ * XREFs of SeAuditingHardLinkEvents @ 0x140819430
  * Callers:
  *     <none>
  * Callees:
@@ -28,9 +28,9 @@ BOOLEAN __stdcall SeAuditingHardLinkEvents(BOOLEAN AccessGranted, PSECURITY_DESC
   }
   if ( v4 && *((_WORD *)v4 + 2) )
   {
-    if ( SepRmCapTableLock.Tag && AccessGranted )
+    if ( BYTE4(SepRmCapTableLock.SListFaultAddress) && AccessGranted )
       return 1;
-    if ( SepRmCapTableLock.SameThreadTransientFlags )
+    if ( BYTE5(SepRmCapTableLock.SListFaultAddress) )
       return AccessGranted == 0;
   }
   return 0;

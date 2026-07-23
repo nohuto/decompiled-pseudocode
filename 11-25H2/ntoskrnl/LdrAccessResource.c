@@ -7,7 +7,11 @@
  *     LdrpAccessResourceData @ 0x1409AEEAC (LdrpAccessResourceData.c)
  */
 
-__int64 LdrAccessResource()
+NTSTATUS __cdecl LdrAccessResource(
+        PVOID DllHandle,
+        PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry,
+        PVOID *ResourceBuffer,
+        ULONG *ResourceLength)
 {
-  return LdrpAccessResourceData();
+  return LdrpAccessResourceData(DllHandle);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCanPfnOriginalPteBeLost @ 0x14039E1D0
+ * XREFs of MiCanPfnOriginalPteBeLost @ 0x1402EE318
  * Callers:
- *     MiAddPageToFlushMdl @ 0x140210ED0 (MiAddPageToFlushMdl.c)
- *     MiResolveTransitionFault @ 0x14021A2F0 (MiResolveTransitionFault.c)
- *     MiLockPageAndSetDirty @ 0x14021D080 (MiLockPageAndSetDirty.c)
- *     MiInitializePfn @ 0x14021E510 (MiInitializePfn.c)
- *     MiUnlinkStandbyPfn @ 0x1402363D0 (MiUnlinkStandbyPfn.c)
- *     MiCaptureDirtyBitToPfn @ 0x14023ED00 (MiCaptureDirtyBitToPfn.c)
- *     MiProbeUnlockPage @ 0x14028A3B0 (MiProbeUnlockPage.c)
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
- *     MiConvertLockedSmallPageToLarge @ 0x1402ED6D0 (MiConvertLockedSmallPageToLarge.c)
- *     MiCanBatchSystemCacheUnmapPages @ 0x1402F0AE0 (MiCanBatchSystemCacheUnmapPages.c)
- *     MiAddPageToInsertList @ 0x1402F2180 (MiAddPageToInsertList.c)
- *     MiConvertLargeActivePageToChain @ 0x1403083C0 (MiConvertLargeActivePageToChain.c)
- *     MiReferencePageForModifiedWrite @ 0x14036AA48 (MiReferencePageForModifiedWrite.c)
- *     MiIsPfnOriginalPteLost @ 0x14039D8FC (MiIsPfnOriginalPteLost.c)
- *     MiConvertLargePfnToSmall @ 0x14041F790 (MiConvertLargePfnToSmall.c)
- *     MiInsertDemotedPages @ 0x14042F7AC (MiInsertDemotedPages.c)
- *     MiStoreMarkLockedPagesModified @ 0x140432B70 (MiStoreMarkLockedPagesModified.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140206E50 (MiCaptureDirtyBitToPfn.c)
+ *     MiUnlinkStandbyPfn @ 0x140210560 (MiUnlinkStandbyPfn.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
+ *     MiResolveTransitionFault @ 0x140247040 (MiResolveTransitionFault.c)
+ *     MiLockPageAndSetDirty @ 0x140249DD0 (MiLockPageAndSetDirty.c)
+ *     MiInitializePfn @ 0x14024B260 (MiInitializePfn.c)
+ *     MiAddPageToInsertList @ 0x140257CC0 (MiAddPageToInsertList.c)
+ *     MiCanBatchSystemCacheUnmapPages @ 0x140258E20 (MiCanBatchSystemCacheUnmapPages.c)
+ *     MiProbeUnlockPage @ 0x140299FB0 (MiProbeUnlockPage.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiStoreMarkLockedPagesModified @ 0x1402E9CB0 (MiStoreMarkLockedPagesModified.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402EC7E8 (MiReferencePageForModifiedWrite.c)
+ *     MiConvertLargePfnToSmall @ 0x1402EE180 (MiConvertLargePfnToSmall.c)
+ *     MiInsertDemotedPages @ 0x1402EF010 (MiInsertDemotedPages.c)
+ *     MiIsPfnOriginalPteLost @ 0x1402FABFC (MiIsPfnOriginalPteLost.c)
+ *     MiConvertLargeActivePageToChain @ 0x1403122A0 (MiConvertLargeActivePageToChain.c)
+ *     MiAddPageToFlushMdl @ 0x14033A230 (MiAddPageToFlushMdl.c)
+ *     MiConvertLockedSmallPageToLarge @ 0x14034ED10 (MiConvertLockedSmallPageToLarge.c)
  * Callees:
  *     <none>
  */

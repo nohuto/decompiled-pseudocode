@@ -1,17 +1,17 @@
 /*
- * XREFs of VfTargetDriversAdd @ 0x14008439C
+ * XREFs of VfTargetDriversAdd @ 0x1400824FC
  * Callers:
  *     VfDriverLoadImage @ 0x1406FDD58 (VfDriverLoadImage.c)
  *     VfSuspectDriversLoadCallback @ 0x140716114 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     VfAvlReserveNode @ 0x1400842D8 (VfAvlReserveNode.c)
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x14008449C (VfAvlInsertReservedTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     VfAvlReserveNode @ 0x140082438 (VfAvlReserveNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1400825FC (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     VfThunkAddTargetNotify @ 0x1406FDDDC (VfThunkAddTargetNotify.c)
- *     ViTargetDriversAllocateVerifiedData @ 0x1407103E0 (ViTargetDriversAllocateVerifiedData.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x140710410 (ViTargetDriversAllocateVerifiedData.c)
  */
 
 __int64 __fastcall VfTargetDriversAdd(__int64 a1, unsigned int a2, __int64 a3)
@@ -46,7 +46,7 @@ __int64 __fastcall VfTargetDriversAdd(__int64 a1, unsigned int a2, __int64 a3)
       VfAvlInitializeLockContext(v10, 0LL);
       VfAvlInsertReservedTreeNode(&ViTargetDriversAvl, v10, v8);
       if ( VerifiedData )
-        ++dword_140300AC8;
+        ++dword_140300AA8;
       VfAvlCleanupLockContext(v10);
     }
     else

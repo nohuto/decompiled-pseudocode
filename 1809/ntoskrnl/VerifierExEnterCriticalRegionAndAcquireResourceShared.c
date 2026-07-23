@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExEnterCriticalRegionAndAcquireResourceShared @ 0x14093FAA0
+ * XREFs of VerifierExEnterCriticalRegionAndAcquireResourceShared @ 0x140940AA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
  */
 
 __int64 __fastcall VerifierExEnterCriticalRegionAndAcquireResourceShared(ULONG_PTR a1)

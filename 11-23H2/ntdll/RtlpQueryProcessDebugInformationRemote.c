@@ -8,59 +8,59 @@
  *     NtUnmapViewOfSection @ 0x1800A13F0 (NtUnmapViewOfSection.c)
  */
 
-void __fastcall __noreturn RtlpQueryProcessDebugInformationRemote(__int64 a1)
+void __fastcall __noreturn RtlpQueryProcessDebugInformationRemote(_RTL_DEBUG_INFORMATION *BaseAddress)
 {
-  signed int ProcessDebugInformation; // edi
-  __int64 v3; // rcx
-  __int64 v4; // rdx
-  __int64 v5; // rax
-  _DWORD *v6; // rdx
+  int ProcessDebugInformation; // edi
+  ULONG_PTR ViewBaseDelta; // rcx
+  PRTL_PROCESS_MODULES Modules; // rdx
+  PRTL_PROCESS_BACKTRACES BackTraces; // rax
+  _DWORD *Heaps; // rdx
   __int64 v7; // r8
   __int64 v8; // r9
   __int64 v9; // rax
   __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rax
+  PRTL_PROCESS_LOCKS Locks; // rax
+  PRTL_PROCESS_VERIFIER_OPTIONS VerifierOptions; // rax
 
   ProcessDebugInformation = RtlQueryProcessDebugInformation(
-                              (_QWORD *)NtCurrentTeb()->ClientId.UniqueProcess,
-                              *(_DWORD *)(a1 + 64),
-                              a1);
+                              NtCurrentTeb()->ClientId.UniqueProcess,
+                              BaseAddress->Flags,
+                              BaseAddress);
   if ( ProcessDebugInformation >= 0 )
   {
-    v3 = *(_QWORD *)(a1 + 24);
-    if ( v3 )
+    ViewBaseDelta = BaseAddress->ViewBaseDelta;
+    if ( ViewBaseDelta )
     {
-      v4 = *(_QWORD *)(a1 + 96);
-      if ( v4 )
-        *(_QWORD *)(a1 + 96) = v4 + v3;
-      v5 = *(_QWORD *)(a1 + 104);
-      if ( v5 )
-        *(_QWORD *)(a1 + 104) = v3 + v5;
-      v6 = *(_DWORD **)(a1 + 112);
-      if ( v6 )
+      Modules = BaseAddress->Modules;
+      if ( Modules )
+        BaseAddress->Modules = (PRTL_PROCESS_MODULES)((char *)Modules + ViewBaseDelta);
+      BackTraces = BaseAddress->BackTraces;
+      if ( BackTraces )
+        BaseAddress->BackTraces = (PRTL_PROCESS_BACKTRACES)((char *)BackTraces + ViewBaseDelta);
+      Heaps = BaseAddress->Heaps;
+      if ( Heaps )
       {
         v7 = 0LL;
-        for ( *(_QWORD *)(a1 + 112) = (char *)v6 + v3; (unsigned int)v7 < *v6; v7 = (unsigned int)(v7 + 1) )
+        for ( BaseAddress->Heaps = (char *)Heaps + ViewBaseDelta; (unsigned int)v7 < *Heaps; v7 = (unsigned int)(v7 + 1) )
         {
           v8 = 24 * v7;
-          v9 = *(_QWORD *)&v6[24 * v7 + 20];
+          v9 = *(_QWORD *)&Heaps[24 * v7 + 20];
           if ( v9 )
-            *(_QWORD *)&v6[v8 + 20] = v3 + v9;
-          v10 = *(_QWORD *)&v6[v8 + 22];
+            *(_QWORD *)&Heaps[v8 + 20] = ViewBaseDelta + v9;
+          v10 = *(_QWORD *)&Heaps[v8 + 22];
           if ( v10 )
-            *(_QWORD *)&v6[v8 + 22] = v3 + v10;
+            *(_QWORD *)&Heaps[v8 + 22] = ViewBaseDelta + v10;
         }
       }
-      v11 = *(_QWORD *)(a1 + 120);
-      if ( v11 )
-        *(_QWORD *)(a1 + 120) = v3 + v11;
-      v12 = *(_QWORD *)(a1 + 144);
-      if ( v12 )
-        *(_QWORD *)(a1 + 144) = v3 + v12;
+      Locks = BaseAddress->Locks;
+      if ( Locks )
+        BaseAddress->Locks = (PRTL_PROCESS_LOCKS)((char *)Locks + ViewBaseDelta);
+      VerifierOptions = BaseAddress->VerifierOptions;
+      if ( VerifierOptions )
+        BaseAddress->VerifierOptions = (PRTL_PROCESS_VERIFIER_OPTIONS)((char *)VerifierOptions + ViewBaseDelta);
     }
   }
-  *(_QWORD *)(a1 + 16) = 0LL;
-  NtUnmapViewOfSection();
+  BaseAddress->ViewBaseTarget = 0LL;
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   RtlExitUserThread(ProcessDebugInformation);
 }

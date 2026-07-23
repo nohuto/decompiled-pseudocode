@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PspFinalizeScpCfgPage@@YAJV?$span@E$0?0@gsl@@W4_RTL_SCP_CFG_PAGE_TYPE@@PEAX2PEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@EK@Z @ 0x140CD9428
+ * XREFs of ?PspFinalizeScpCfgPage@@YAJV?$span@E$0?0@gsl@@W4_RTL_SCP_CFG_PAGE_TYPE@@PEAX2PEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@EK@Z @ 0x140CDF7A8
  * Callers:
- *     PsInitializeScpCfgPages @ 0x140CD989C (PsInitializeScpCfgPages.c)
+ *     PsInitializeScpCfgPages @ 0x140CDFC1C (PsInitializeScpCfgPages.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x14047FF64 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404798A4 (-terminate@details@gsl@@YAXXZ.c)
  */
 
 __int64 __fastcall PspFinalizeScpCfgPage(gsl::details *a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)

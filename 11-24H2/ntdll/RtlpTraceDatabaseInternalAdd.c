@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpTraceDatabaseInternalAdd @ 0x18014856C
+ * XREFs of RtlpTraceDatabaseInternalAdd @ 0x18014691C
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x1801480C0 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseAdd @ 0x180146470 (RtlTraceDatabaseAdd.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlpTraceDatabaseAllocate @ 0x1801484E8 (RtlpTraceDatabaseAllocate.c)
- *     RtlpTraceDatabaseInternalFind @ 0x18014871C (RtlpTraceDatabaseInternalFind.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     RtlpTraceDatabaseAllocate @ 0x180146898 (RtlpTraceDatabaseAllocate.c)
+ *     RtlpTraceDatabaseInternalFind @ 0x180146ACC (RtlpTraceDatabaseInternalFind.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const void *a3, _QWORD *a4)
 {
   __int64 v5; // rsi
   __int64 v8; // rax
-  __int64 v10; // rcx
+  _QWORD *v10; // rcx
   unsigned __int64 v11; // rbp
   unsigned __int64 v12; // rax
-  __int64 v13; // rax
+  _QWORD *v13; // rax
   __int64 v14; // r14
   unsigned int v15; // eax
   unsigned int v16; // ecx
@@ -37,12 +37,12 @@ char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const 
       ++*(_QWORD *)(a1 + 120);
       return 1;
     }
-    v10 = *(_QWORD *)(a1 + 16);
+    v10 = *(_QWORD **)(a1 + 16);
     v11 = 8 * v5 + 56;
-    if ( v11 > *(_QWORD *)(v10 + 40) - *(_QWORD *)(v10 + 48) )
+    if ( v11 > v10[5] - v10[6] )
     {
       v12 = *(_QWORD *)(a1 + 24);
-      if ( v12 && *(_QWORD *)(a1 + 32) > v12 || (v13 = RtlpTraceDatabaseAllocate(0x10000LL), (v10 = v13) == 0) )
+      if ( v12 && *(_QWORD *)(a1 + 32) > v12 || (v13 = RtlpTraceDatabaseAllocate(0x10000uLL), (v10 = v13) == 0LL) )
       {
 LABEL_11:
         if ( a4 )
@@ -50,19 +50,19 @@ LABEL_11:
         return 0;
       }
       *(_DWORD *)v13 = -1412580421;
-      *(_QWORD *)(v13 + 8) = a1;
-      *(_QWORD *)(v13 + 24) = 0x10000LL;
-      *(_QWORD *)(v13 + 32) = v13;
-      *(_QWORD *)(v13 + 40) = v13 + 0x10000;
-      *(_QWORD *)(v13 + 48) = v13 + 56;
-      *(_QWORD *)(v13 + 16) = *(_QWORD *)(a1 + 16);
+      v13[1] = a1;
+      v13[3] = 0x10000LL;
+      v13[4] = v13;
+      v13[5] = v13 + 0x2000;
+      v13[6] = v13 + 7;
+      v13[2] = *(_QWORD *)(a1 + 16);
       *(_QWORD *)(a1 + 32) += 0x10000LL;
       *(_QWORD *)(a1 + 16) = v13;
     }
-    v14 = *(_QWORD *)(v10 + 48);
-    if ( v11 <= *(_QWORD *)(v10 + 40) - v14 )
+    v14 = v10[6];
+    if ( v11 <= v10[5] - v14 )
     {
-      *(_QWORD *)(v10 + 48) = v14 + v11;
+      v10[6] = v14 + v11;
       *(_DWORD *)v14 = -1412584790;
       *(_DWORD *)(v14 + 8) = v5;
       *(_DWORD *)(v14 + 4) = 1;

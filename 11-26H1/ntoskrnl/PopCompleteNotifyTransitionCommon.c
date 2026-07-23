@@ -1,17 +1,17 @@
 /*
- * XREFs of PopCompleteNotifyTransitionCommon @ 0x1404B21BC
+ * XREFs of PopCompleteNotifyTransitionCommon @ 0x1404AB6C8
  * Callers:
- *     PopCompleteDirectedPowerTransitionCallback @ 0x1404B2140 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopSystemIrpCompletion @ 0x140C0DBB0 (PopSystemIrpCompletion.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x1404AB64C (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopSystemIrpCompletion @ 0x140C13DC0 (PopSystemIrpCompletion.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     PopReadyParentSleep @ 0x1404B2478 (PopReadyParentSleep.c)
- *     PopPrepChildWake @ 0x1404B2504 (PopPrepChildWake.c)
- *     PopReadyChildWake @ 0x1404B2574 (PopReadyChildWake.c)
- *     PopDiagTraceDriverVeto @ 0x140BFD778 (PopDiagTraceDriverVeto.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     PopReadyParentSleep @ 0x1404AB984 (PopReadyParentSleep.c)
+ *     PopPrepChildWake @ 0x1404ABA10 (PopPrepChildWake.c)
+ *     PopReadyChildWake @ 0x1404ABA80 (PopReadyChildWake.c)
+ *     PopDiagTraceDriverVeto @ 0x140C03778 (PopDiagTraceDriverVeto.c)
  */
 
 void __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a3, __int64 a4)
@@ -48,12 +48,12 @@ void __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
   v4 = (_QWORD *)*(a2 - 19);
   memset(&LockHandle, 0, sizeof(LockHandle));
   v6 = 0LL;
-  v8 = (DWORD1(xmmword_140F0FAE0) & 0x800000) != 0;
+  v8 = (DWORD1(PopCurrentBroadcast) & 0x800000) != 0;
   if ( (PVOID)*(a2 - 18) != IopRootDeviceNode )
     v6 = *(a2 - 18);
   v9 = 0;
   v33 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0FAF0 + 1, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F103F0 + 1, &LockHandle);
   v12 = (__int64 *)*a2;
   v13 = a1 + 48;
   v14 = 9LL * *((unsigned __int8 *)a2 + 56);

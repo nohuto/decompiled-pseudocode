@@ -1,15 +1,15 @@
 /*
- * XREFs of ViHookDmaAdapter @ 0x14092DF30
+ * XREFs of ViHookDmaAdapter @ 0x14092EF30
  * Callers:
- *     VfGetDmaAdapter @ 0x14092B140 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x14092C140 (VfGetDmaAdapter.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     ExInterlockedInsertHeadList @ 0x14010BED0 (ExInterlockedInsertHeadList.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ViAllocateContiguousMemory @ 0x14092C590 (ViAllocateContiguousMemory.c)
- *     ViCopyDeviceDescription @ 0x14092D248 (ViCopyDeviceDescription.c)
- *     ViGetAdapterInformationInternal @ 0x14092D868 (ViGetAdapterInformationInternal.c)
+ *     ExInterlockedInsertHeadList @ 0x14010BF50 (ExInterlockedInsertHeadList.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ViAllocateContiguousMemory @ 0x14092D590 (ViAllocateContiguousMemory.c)
+ *     ViCopyDeviceDescription @ 0x14092E248 (ViCopyDeviceDescription.c)
+ *     ViGetAdapterInformationInternal @ 0x14092E868 (ViGetAdapterInformationInternal.c)
  */
 
 struct _LIST_ENTRY *__fastcall ViHookDmaAdapter(struct _LIST_ENTRY *Object, __int64 a2, int a3, char a4)

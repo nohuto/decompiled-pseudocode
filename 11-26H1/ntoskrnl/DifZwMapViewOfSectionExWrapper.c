@@ -1,27 +1,27 @@
 /*
- * XREFs of DifZwMapViewOfSectionExWrapper @ 0x1406AA190
+ * XREFs of DifZwMapViewOfSectionExWrapper @ 0x1406ADD70
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwMapViewOfSectionEx @ 0x1407257D0 (ZwMapViewOfSectionEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwMapViewOfSectionEx @ 0x14072A3A0 (ZwMapViewOfSectionEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwMapViewOfSectionExWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        int a7,
-        __int64 a8,
-        int a9)
+        void *a1,
+        void *a2,
+        PVOID *a3,
+        LARGE_INTEGER *a4,
+        ULONG_PTR *ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        MEM_EXTENDED_PARAMETER *ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v13; // rdx
@@ -34,15 +34,15 @@ __int64 __fastcall DifZwMapViewOfSectionExWrapper(
   BOOLEAN v20; // di
   __int128 *j; // rbx
   PVOID v23; // [rsp+58h] [rbp-41h] BYREF
-  int v24; // [rsp+60h] [rbp-39h]
-  __int64 v25; // [rsp+68h] [rbp-31h]
-  int v26; // [rsp+70h] [rbp-29h]
-  int v27; // [rsp+74h] [rbp-25h]
-  __int64 v28; // [rsp+78h] [rbp-21h]
-  __int64 v29; // [rsp+80h] [rbp-19h]
-  __int64 v30; // [rsp+88h] [rbp-11h]
-  __int64 v31; // [rsp+90h] [rbp-9h]
-  __int64 v32; // [rsp+98h] [rbp-1h]
+  ULONG v24; // [rsp+60h] [rbp-39h]
+  MEM_EXTENDED_PARAMETER *v25; // [rsp+68h] [rbp-31h]
+  ULONG v26; // [rsp+70h] [rbp-29h]
+  ULONG v27; // [rsp+74h] [rbp-25h]
+  ULONG_PTR *v28; // [rsp+78h] [rbp-21h]
+  LARGE_INTEGER *v29; // [rsp+80h] [rbp-19h]
+  PVOID *v30; // [rsp+88h] [rbp-11h]
+  void *v31; // [rsp+90h] [rbp-9h]
+  void *v32; // [rsp+98h] [rbp-1h]
   unsigned int v33; // [rsp+A0h] [rbp+7h]
   void *retaddr; // [rsp+D0h] [rbp+37h]
 
@@ -66,11 +66,11 @@ __int64 __fastcall DifZwMapViewOfSectionExWrapper(
 LABEL_7:
   v17 = 0;
   v32 = a1;
-  v28 = a5;
-  v27 = a6;
-  v26 = a7;
-  v25 = a8;
-  v24 = a9;
+  v28 = ViewSize;
+  v27 = AllocationType;
+  v26 = PageProtection;
+  v25 = ExtendedParameters;
+  v24 = ExtendedParameterCount;
   v31 = a2;
   v30 = a3;
   v29 = a4;
@@ -86,7 +86,16 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v33 = ZwMapViewOfSectionEx(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  v33 = ZwMapViewOfSectionEx(
+          a1,
+          a2,
+          a3,
+          a4,
+          ViewSize,
+          AllocationType,
+          PageProtection,
+          ExtendedParameters,
+          ExtendedParameterCount);
   if ( v14 )
   {
     if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

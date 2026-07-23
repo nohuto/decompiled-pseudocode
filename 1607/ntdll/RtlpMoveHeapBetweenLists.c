@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpMoveHeapBetweenLists @ 0x18002D954
+ * XREFs of RtlpMoveHeapBetweenLists @ 0x18002D944
  * Callers:
- *     RtlCreateHeap @ 0x18002BA20 (RtlCreateHeap.c)
- *     RtlProtectHeap @ 0x18002D7A0 (RtlProtectHeap.c)
- *     RtlDestroyHeap @ 0x180052060 (RtlDestroyHeap.c)
- *     RtlpHpMetadataHeapInit @ 0x18007F420 (RtlpHpMetadataHeapInit.c)
+ *     RtlCreateHeap @ 0x18002BA10 (RtlCreateHeap.c)
+ *     RtlProtectHeap @ 0x18002D790 (RtlProtectHeap.c)
+ *     RtlDestroyHeap @ 0x180052050 (RtlDestroyHeap.c)
+ *     RtlpHpMetadataHeapInit @ 0x18007F410 (RtlpHpMetadataHeapInit.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpRemoveHeapFromProtectedList @ 0x18002C854 (RtlpRemoveHeapFromProtectedList.c)
- *     RtlpAddHeapToProtectedList @ 0x18002C8C8 (RtlpAddHeapToProtectedList.c)
- *     RtlpRemoveHeapFromUnprotectedList @ 0x18002CBD8 (RtlpRemoveHeapFromUnprotectedList.c)
- *     RtlpAddHeapToUnprotectedList @ 0x18002D5AC (RtlpAddHeapToUnprotectedList.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpRemoveHeapFromProtectedList @ 0x18002C844 (RtlpRemoveHeapFromProtectedList.c)
+ *     RtlpAddHeapToProtectedList @ 0x18002C8B8 (RtlpAddHeapToProtectedList.c)
+ *     RtlpRemoveHeapFromUnprotectedList @ 0x18002CBC8 (RtlpRemoveHeapFromUnprotectedList.c)
+ *     RtlpAddHeapToUnprotectedList @ 0x18002D59C (RtlpAddHeapToUnprotectedList.c)
  */
 
 void __fastcall RtlpMoveHeapBetweenLists(__int64 a1, int a2, int a3, int a4)
@@ -20,7 +20,7 @@ void __fastcall RtlpMoveHeapBetweenLists(__int64 a1, int a2, int a3, int a4)
   int v9; // ebx
 
   if ( !a4 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   if ( a2 )
   {
     v8 = a2 - 1;
@@ -48,5 +48,5 @@ void __fastcall RtlpMoveHeapBetweenLists(__int64 a1, int a2, int a3, int a4)
     }
   }
   if ( !a4 )
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
 }

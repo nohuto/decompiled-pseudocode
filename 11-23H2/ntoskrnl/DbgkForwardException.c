@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkForwardException @ 0x140939564
+ * XREFs of DbgkForwardException @ 0x140939764
  * Callers:
- *     KiSchedulerApc @ 0x14030A960 (KiSchedulerApc.c)
- *     KiDispatchException @ 0x14030CCA0 (KiDispatchException.c)
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
- *     DbgkpSendErrorMessage @ 0x14093A27C (DbgkpSendErrorMessage.c)
+ *     KiSchedulerApc @ 0x14030ABF0 (KiSchedulerApc.c)
+ *     KiDispatchException @ 0x14030CF30 (KiDispatchException.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
+ *     DbgkpSendErrorMessage @ 0x14093A47C (DbgkpSendErrorMessage.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeCopyExceptionRecord @ 0x1405788B0 (KeCopyExceptionRecord.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeCopyExceptionRecord @ 0x140578DA0 (KeCopyExceptionRecord.c)
  *     PsSetProcessFaultInformation @ 0x140683030 (PsSetProcessFaultInformation.c)
- *     PsCaptureExceptionPort @ 0x14076E3A0 (PsCaptureExceptionPort.c)
- *     DbgkpSendApiMessage @ 0x14093A050 (DbgkpSendApiMessage.c)
- *     DbgkpSendApiMessageLpc @ 0x14093A148 (DbgkpSendApiMessageLpc.c)
- *     DbgkpSendErrorMessage @ 0x14093A27C (DbgkpSendErrorMessage.c)
+ *     PsCaptureExceptionPort @ 0x14076E590 (PsCaptureExceptionPort.c)
+ *     DbgkpSendApiMessage @ 0x14093A250 (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x14093A348 (DbgkpSendApiMessageLpc.c)
+ *     DbgkpSendErrorMessage @ 0x14093A47C (DbgkpSendErrorMessage.c)
  */
 
 bool __fastcall DbgkForwardException(__int64 a1, char a2, char a3)

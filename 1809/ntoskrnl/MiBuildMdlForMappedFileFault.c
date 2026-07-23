@@ -8,15 +8,15 @@
  *     RtlFindNextForwardRunClearCapped @ 0x14002B750 (RtlFindNextForwardRunClearCapped.c)
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiReduceMappedFileReadAhead @ 0x140127538 (MiReduceMappedFileReadAhead.c)
- *     MiReduceMappedFileReadBehind @ 0x1401325B8 (MiReduceMappedFileReadBehind.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiReduceMappedFileReadAhead @ 0x140127608 (MiReduceMappedFileReadAhead.c)
+ *     MiReduceMappedFileReadBehind @ 0x140132688 (MiReduceMappedFileReadBehind.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiBuildMdlForMappedFileFault(
@@ -97,7 +97,7 @@ __int64 __fastcall MiBuildMdlForMappedFileFault(
   __int64 v78; // [rsp+A8h] [rbp-58h]
   unsigned __int64 v79; // [rsp+B0h] [rbp-50h]
   unsigned __int64 v80; // [rsp+B8h] [rbp-48h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+C0h] [rbp-40h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+C0h] [rbp-40h] BYREF
   char v82; // [rsp+D0h] [rbp-30h] BYREF
 
   v10 = *(_QWORD *)(a1 + 168);
@@ -169,8 +169,8 @@ __int64 __fastcall MiBuildMdlForMappedFileFault(
     v20 = v10;
     if ( (v10 & 0x400) == 0 )
     {
-      if ( qword_14043A0C0 && (v10 & 0x10) == 0 )
-        v20 = v10 & ~qword_14043A0C0;
+      if ( qword_14043B180 && (v10 & 0x10) == 0 )
+        v20 = v10 & ~qword_14043B180;
       v77 = 48 * ((v20 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
       v20 = *(_QWORD *)(v77 + 16);
     }
@@ -210,7 +210,7 @@ __int64 __fastcall MiBuildMdlForMappedFileFault(
         v50 = StartingIndex - v22;
         do
         {
-          *v24++ = qword_14043ADD8;
+          *v24++ = qword_14043BE98;
           --v50;
         }
         while ( v50 );
@@ -354,12 +354,12 @@ __int64 __fastcall MiBuildMdlForMappedFileFault(
         if ( v30 )
         {
           v48 = 32 * (a7 & 0x1F | ((v35 & 0xFFFFFFFFFLL) << 7) | 0x40);
-          if ( qword_14043A0C0 )
+          if ( qword_14043B180 )
           {
-            if ( (qword_14043A0C0 & v48) != 0 )
+            if ( (qword_14043B180 & v48) != 0 )
               v48 |= 0x10uLL;
             else
-              v48 |= qword_14043A0C0;
+              v48 |= qword_14043B180;
           }
           if ( v28 < 0xFFFFF6FB7DBED000uLL || v28 > 0xFFFFF6FB7DBED7F8uLL )
             goto LABEL_39;
@@ -374,7 +374,7 @@ LABEL_39:
             *(_QWORD *)v28 = v48;
             goto LABEL_40;
           }
-          if ( !HIBYTE(word_14043A1AC) && (v48 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v48 & 1) != 0 )
             v48 |= 0x8000000000000000uLL;
           *(_QWORD *)v28 = v48;
           MiWritePteShadow(v28);

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsImpersonateContainerOfThread @ 0x1404B1D38
+ * XREFs of PsImpersonateContainerOfThread @ 0x1404AB3F8
  * Callers:
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1407C0410 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1407C3470 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     PspUpdateContainerImpersonation @ 0x14037E0F0 (PspUpdateContainerImpersonation.c)
+ *     PspUpdateContainerImpersonation @ 0x14037FEA0 (PspUpdateContainerImpersonation.c)
  */
 
 __int64 __fastcall PsImpersonateContainerOfThread(_QWORD *Object)

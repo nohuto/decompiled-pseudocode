@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetPfnOriginalPte @ 0x1401718E0
+ * XREFs of MiSetPfnOriginalPte @ 0x140171DDC
  * Callers:
- *     MmFreeNonCachedMemory @ 0x140658948 (MmFreeNonCachedMemory.c)
- *     MiFillPagedPoolLockedDown @ 0x14065A01C (MiFillPagedPoolLockedDown.c)
- *     MiGetFastLargePage @ 0x1406629F0 (MiGetFastLargePage.c)
+ *     MmFreeNonCachedMemory @ 0x140658A2C (MmFreeNonCachedMemory.c)
+ *     MiFillPagedPoolLockedDown @ 0x14065A100 (MiFillPagedPoolLockedDown.c)
+ *     MiGetFastLargePage @ 0x140662AD4 (MiGetFastLargePage.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSignalThread @ 0x140324240
+ * XREFs of KiSignalThread @ 0x1402CCDD0
  * Callers:
- *     KiResumeThread @ 0x14029646C (KiResumeThread.c)
- *     KiSignalThreadForApc @ 0x140296870 (KiSignalThreadForApc.c)
- *     KiWakePriQueueWaiter @ 0x1403248F0 (KiWakePriQueueWaiter.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KiSuspendThread @ 0x140338B00 (KiSuspendThread.c)
- *     KeAlertThread @ 0x140479900 (KeAlertThread.c)
+ *     KiWakePriQueueWaiter @ 0x1402CD480 (KiWakePriQueueWaiter.c)
+ *     KiResumeThread @ 0x1402DD2DC (KiResumeThread.c)
+ *     KiSignalThreadForApc @ 0x1402DD8B0 (KiSignalThreadForApc.c)
+ *     KiSuspendThread @ 0x1402DE060 (KiSuspendThread.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeAlertThread @ 0x140475190 (KeAlertThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 char __fastcall KiSignalThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

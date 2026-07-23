@@ -296,10 +296,10 @@ LABEL_102:
   }
   HalpPostSleepMP(v24);
   v28 = CurrentIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v29 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v29 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v29 >= 2u )
     {
       v30 = KeGetCurrentPrcb();
       SchedulerAssist = v30->SchedulerAssist;

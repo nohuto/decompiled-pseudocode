@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpGetKeyNodeForKcb @ 0x1405AA400
+ * XREFs of CmpGetKeyNodeForKcb @ 0x1405AB400
  * Callers:
- *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
- *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
- *     CmEnumerateValueKey @ 0x1405D4080 (CmEnumerateValueKey.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmpAssignKeySecurity @ 0x14075B95C (CmpAssignKeySecurity.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407ED350 (CmEnumerateValueFromLayeredKey.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x1407ED62C (CmQueryMultipleValueForLayeredKey.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1407EF41C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1407EF8AC (CmSetLastWriteTimeKey.c)
- *     CmpEnumerateLayeredKey @ 0x1407EFD80 (CmpEnumerateLayeredKey.c)
+ *     CmDeleteKey @ 0x1405AADD8 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1405B9548 (CmpSetKeySecurity.c)
+ *     CmEnumerateValueKey @ 0x1405D5080 (CmEnumerateValueKey.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmpAssignKeySecurity @ 0x14075CB4C (CmpAssignKeySecurity.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1407EE550 (CmEnumerateValueFromLayeredKey.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x1407EE82C (CmQueryMultipleValueForLayeredKey.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1407F061C (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1407F0AAC (CmSetLastWriteTimeKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1407F0F80 (CmpEnumerateLayeredKey.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x1405CF3BC (CmpUpdateKeyNodeAccessBits.c)
- *     CmpKeyNodeNeedsAccessBitUpdate @ 0x1405D8B0C (CmpKeyNodeNeedsAccessBitUpdate.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x1405D03BC (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpKeyNodeNeedsAccessBitUpdate @ 0x1405D9B0C (CmpKeyNodeNeedsAccessBitUpdate.c)
  */
 
 __int64 __fastcall CmpGetKeyNodeForKcb(__int64 a1, __int64 a2, char a3)

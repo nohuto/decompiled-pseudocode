@@ -1,13 +1,13 @@
 /*
  * XREFs of swprintf_s @ 0x1800A2340
  * Callers:
- *     RtlIpv6AddressToStringExW @ 0x18005C000 (RtlIpv6AddressToStringExW.c)
- *     RtlIpv6AddressToStringW @ 0x18005C150 (RtlIpv6AddressToStringW.c)
- *     RtlStringFromGUIDEx @ 0x18005E640 (RtlStringFromGUIDEx.c)
- *     RtlIpv4AddressToStringExW @ 0x180081820 (RtlIpv4AddressToStringExW.c)
- *     RtlIpv4AddressToStringW @ 0x1800818F0 (RtlIpv4AddressToStringW.c)
+ *     RtlIpv6AddressToStringExW @ 0x18005BFF0 (RtlIpv6AddressToStringExW.c)
+ *     RtlIpv6AddressToStringW @ 0x18005C140 (RtlIpv6AddressToStringW.c)
+ *     RtlStringFromGUIDEx @ 0x18005E630 (RtlStringFromGUIDEx.c)
+ *     RtlIpv4AddressToStringExW @ 0x180081810 (RtlIpv4AddressToStringExW.c)
+ *     RtlIpv4AddressToStringW @ 0x1800818E0 (RtlIpv4AddressToStringW.c)
  *     CsrpLocalSetupForSecureProcess @ 0x1800CEC24 (CsrpLocalSetupForSecureProcess.c)
- *     RtlEthernetAddressToStringW @ 0x1800EE120 (RtlEthernetAddressToStringW.c)
+ *     RtlEthernetAddressToStringW @ 0x1800EE1E0 (RtlEthernetAddressToStringW.c)
  * Callees:
  *     vswprintf_s @ 0x1800A2370 (vswprintf_s.c)
  */

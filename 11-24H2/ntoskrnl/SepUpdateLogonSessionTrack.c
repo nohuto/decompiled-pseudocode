@@ -1,14 +1,14 @@
 /*
- * XREFs of SepUpdateLogonSessionTrack @ 0x140A4BA84
+ * XREFs of SepUpdateLogonSessionTrack @ 0x140A427E4
  * Callers:
- *     SepRmAddLogonSessionInfoWrkr @ 0x140A4BA60 (SepRmAddLogonSessionInfoWrkr.c)
+ *     SepRmAddLogonSessionInfoWrkr @ 0x140A427C0 (SepRmAddLogonSessionInfoWrkr.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
@@ -46,7 +46,10 @@ __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
     i[9] = 0LL;
     i[11] = 0LL;
   }
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(
+                    0x100uLL,
+                    ((*(unsigned __int16 *)(a1 + 8) + 9LL) & 0xFFFFFFF8LL) + *(unsigned __int16 *)(a1 + 24) + 2LL,
+                    0x734C6553u);
   if ( Pool2 )
   {
     i[9] = (__int64)Pool2;

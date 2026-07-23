@@ -7,20 +7,20 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlEncodePointer(__int64 a1)
+PVOID __cdecl RtlEncodePointer(PVOID Ptr)
 {
   __int64 v1; // rax
   int v4; // eax
-  unsigned int v5; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int ProcessInformation; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = (unsigned int)dword_180166018;
   if ( !dword_180166018 )
   {
-    v4 = ZwQueryInformationProcess(-1LL, 36LL, &v5);
+    v4 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
     if ( v4 < 0 )
-      RtlRaiseStatus((unsigned int)v4);
-    v1 = v5;
-    dword_180166018 = v5;
+      RtlRaiseStatus(v4);
+    v1 = ProcessInformation;
+    dword_180166018 = ProcessInformation;
   }
-  return __ROR8__(a1 ^ v1, v1 & 0x3F);
+  return (PVOID)__ROR8__((unsigned __int64)Ptr ^ v1, v1 & 0x3F);
 }

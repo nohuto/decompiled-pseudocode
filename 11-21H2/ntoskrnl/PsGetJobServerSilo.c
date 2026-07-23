@@ -1,7 +1,7 @@
 /*
  * XREFs of PsGetJobServerSilo @ 0x140377150
  * Callers:
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
+ *     sub_140684450 @ 0x140684450 (sub_140684450.c)
  * Callees:
  *     PsGetEffectiveServerSilo @ 0x14020A3D0 (PsGetEffectiveServerSilo.c)
  */

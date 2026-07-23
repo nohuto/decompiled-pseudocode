@@ -94,7 +94,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v50; // rax
   _QWORD *v51; // rcx
   __int64 Pool2; // rax
-  __int64 ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   __int64 v54; // rax
   __int16 v55; // ax
   __int16 v56; // dx
@@ -111,7 +111,7 @@ __int64 __fastcall PspAllocateThread(
   _BYTE *v67; // [rsp+78h] [rbp-180h]
   ULONG_PTR v68; // [rsp+80h] [rbp-178h]
   __int64 v69; // [rsp+88h] [rbp-170h]
-  unsigned int v70; // [rsp+90h] [rbp-168h] BYREF
+  ULONG ContextLength; // [rsp+90h] [rbp-168h] BYREF
   __int64 v71; // [rsp+98h] [rbp-160h]
   __int64 v72; // [rsp+A0h] [rbp-158h]
   __int64 CurrentThread; // [rsp+A8h] [rbp-150h]
@@ -165,7 +165,7 @@ __int64 __fastcall PspAllocateThread(
   v82 = 0;
   v83 = 0;
   v84 = 0;
-  v70 = 0;
+  ContextLength = 0;
   CurrentThread = (__int64)KeGetCurrentThread();
   v63 = 0;
   v16 = 0LL;
@@ -490,8 +490,8 @@ LABEL_49:
     *((_QWORD *)v28 + 199) = v79[1];
     *((_QWORD *)v28 + 200) = v51[2];
     _interlockedbittestandset((volatile signed __int32 *)v28, 0x1Au);
-    RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, (__int64)&v70);
-    Pool2 = ExAllocatePool2(256LL, v70, 1666413392LL);
+    RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &ContextLength);
+    Pool2 = ExAllocatePool2(256LL, ContextLength, 1666413392LL);
     v28 = (char *)Object;
     *((_QWORD *)Object + 205) = Pool2;
     if ( !Pool2 )
@@ -533,10 +533,10 @@ LABEL_54:
     && (*(_DWORD *)(a5 + 48) & 0x100040) == 0x100040
     && (*(_DWORD *)(*(int *)(a5 + 1248) + a5 + 1232) & 0x800LL) != 0 )
   {
-    ExtendedFeature = RtlLocateExtendedFeature(a5 + 1232, 11LL);
+    ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a5 + 1232), 0xBu, 0LL);
     if ( ExtendedFeature )
     {
-      if ( (*(_BYTE *)ExtendedFeature & 1) != 0 && *(_QWORD *)(ExtendedFeature + 8) )
+      if ( (*(_BYTE *)ExtendedFeature & 1) != 0 && ExtendedFeature[1] )
         *((_DWORD *)v28 + 29) |= 0x100000u;
     }
   }

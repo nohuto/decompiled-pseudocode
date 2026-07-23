@@ -1,11 +1,11 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionIgnore @ 0x14052F4D0
+ * XREFs of PoTraceSystemTimerResolutionIgnore @ 0x1405319F0
  * Callers:
- *     ExUpdateTimerResolutionPolicy @ 0x140A6677C (ExUpdateTimerResolutionPolicy.c)
+ *     ExUpdateTimerResolutionPolicy @ 0x140A7374C (ExUpdateTimerResolutionPolicy.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PoTraceSystemTimerResolutionIgnore(__int64 a1)
@@ -18,9 +18,7 @@ BOOLEAN __fastcall PoTraceSystemTimerResolutionIgnore(__int64 a1)
   int *v7; // [rsp+58h] [rbp-20h]
   __int64 v8; // [rsp+60h] [rbp-18h]
 
-  result = EtwEventEnabled(
-             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-             &POP_ETW_EVENT_KERNEL_TIME_RESOLUTION_IGNORE);
+  result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_KERNEL_TIME_RESOLUTION_IGNORE);
   if ( result )
   {
     v5 = *(_DWORD *)(a1 + 464);
@@ -30,15 +28,7 @@ BOOLEAN __fastcall PoTraceSystemTimerResolutionIgnore(__int64 a1)
     UserData.Ptr = (ULONGLONG)&v4;
     v7 = &v5;
     v8 = 4LL;
-    return EtwWriteEx(
-             *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-             &POP_ETW_EVENT_KERNEL_TIME_RESOLUTION_IGNORE,
-             0LL,
-             0,
-             0LL,
-             0LL,
-             2u,
-             &UserData);
+    return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_KERNEL_TIME_RESOLUTION_IGNORE, 0LL, 0, 0LL, 0LL, 2u, &UserData);
   }
   return result;
 }

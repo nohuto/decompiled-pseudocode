@@ -1,7 +1,7 @@
 /*
- * XREFs of MiJoinPartition @ 0x1401035E4
+ * XREFs of MiJoinPartition @ 0x140101364
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

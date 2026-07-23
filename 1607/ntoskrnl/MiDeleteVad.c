@@ -1,59 +1,59 @@
 /*
- * XREFs of MiDeleteVad @ 0x1400288D0
+ * XREFs of MiDeleteVad @ 0x140028450
  * Callers:
- *     MiFreeVadRange @ 0x1400272B4 (MiFreeVadRange.c)
- *     MiUnmapVad @ 0x14042EEF0 (MiUnmapVad.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
- *     MiDeleteTebRange @ 0x1404CD4BC (MiDeleteTebRange.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
- *     MiDeleteAllPartialCloneVads @ 0x14066305C (MiDeleteAllPartialCloneVads.c)
+ *     MiFreeVadRange @ 0x140026E34 (MiFreeVadRange.c)
+ *     MiUnmapVad @ 0x14042DDC0 (MiUnmapVad.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
+ *     MiDeleteTebRange @ 0x1404B2EE8 (MiDeleteTebRange.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
+ *     MiDeleteAllPartialCloneVads @ 0x140663140 (MiDeleteAllPartialCloneVads.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     MiFinishVadDeletion @ 0x1400295E0 (MiFinishVadDeletion.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EF00 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiDereferenceControlArea @ 0x1400B54C4 (MiDereferenceControlArea.c)
- *     MiLockAddressSpaceToo @ 0x1400C65CC (MiLockAddressSpaceToo.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiDereferenceExtendInfo @ 0x14010EAA4 (MiDereferenceExtendInfo.c)
- *     MiDeletePhysmemVad @ 0x1401115BC (MiDeletePhysmemVad.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     MiDeletePageTablesForPhysicalRange @ 0x1401EFF9C (MiDeletePageTablesForPhysicalRange.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPreUnlockWorkingSetExclusive @ 0x1401F2A6C (MiPreUnlockWorkingSetExclusive.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
- *     MiFreeLargePages @ 0x1401F5530 (MiFreeLargePages.c)
- *     MiUnmapLargeUserPages @ 0x1401F5AE0 (MiUnmapLargeUserPages.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiRemoveSharedCommitNode @ 0x14042EA70 (MiRemoveSharedCommitNode.c)
- *     MiAweViewRemover @ 0x14065C150 (MiAweViewRemover.c)
- *     MiRemoveUserPhysicalPagesVad @ 0x14065C694 (MiRemoveUserPhysicalPagesVad.c)
- *     MiDeleteEnclavePages @ 0x14065F308 (MiDeleteEnclavePages.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     MiFinishVadDeletion @ 0x140029160 (MiFinishVadDeletion.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EA80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiDereferenceControlArea @ 0x1400B32FC (MiDereferenceControlArea.c)
+ *     MiLockAddressSpaceToo @ 0x1400C446C (MiLockAddressSpaceToo.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiDereferenceExtendInfo @ 0x14010F008 (MiDereferenceExtendInfo.c)
+ *     MiDeletePhysmemVad @ 0x140111B20 (MiDeletePhysmemVad.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     MiDeletePageTablesForPhysicalRange @ 0x1401EFDC8 (MiDeletePageTablesForPhysicalRange.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPreUnlockWorkingSetExclusive @ 0x1401F2898 (MiPreUnlockWorkingSetExclusive.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
+ *     MiFreeLargePages @ 0x1401F535C (MiFreeLargePages.c)
+ *     MiUnmapLargeUserPages @ 0x1401F590C (MiUnmapLargeUserPages.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiRemoveSharedCommitNode @ 0x14042D940 (MiRemoveSharedCommitNode.c)
+ *     MiAweViewRemover @ 0x14065C234 (MiAweViewRemover.c)
+ *     MiRemoveUserPhysicalPagesVad @ 0x14065C778 (MiRemoveUserPhysicalPagesVad.c)
+ *     MiDeleteEnclavePages @ 0x14065F3EC (MiDeleteEnclavePages.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
  */
 
 __int64 __fastcall MiDeleteVad(__int64 a1, int a2)
@@ -80,7 +80,7 @@ __int64 __fastcall MiDeleteVad(__int64 a1, int a2)
   __int64 v23; // rdi
   int v24; // r8d
   LONG *v25; // rbx
-  struct _SLIST_ENTRY *v26; // rcx
+  _SLIST_ENTRY *v26; // rcx
   int v27; // ecx
   struct _KTHREAD *v28; // rbx
   unsigned __int64 v29; // rsi
@@ -219,7 +219,7 @@ __int64 __fastcall MiDeleteVad(__int64 a1, int a2)
   }
   --CurrentThread->SpecialApcDisable;
   --CurrentThread->SpecialApcDisable;
-  p_Blink = &dword_140327C80;
+  p_Blink = &dword_140327CC0;
   if ( ((__int64)Process[2].Header.WaitListHead.Flink & 7) != 2 )
     p_Blink = (LONG *)&Process[2].Header.WaitListHead.Blink;
   CurrentIrql = KeGetCurrentIrql();
@@ -324,10 +324,10 @@ LABEL_41:
       if ( (a2 & 1) != 0 )
         v24 |= 4u;
       MiDeleteVirtualAddresses(v103, v100, v24, (unsigned __int8)CurrentIrql, (__int64)&v108);
-      v25 = &dword_140327C80;
+      v25 = &dword_140327CC0;
       if ( ((__int64)Process[2].Header.WaitListHead.Flink & 7) != 2 )
         v25 = (LONG *)&Process[2].Header.WaitListHead.Blink;
-      v26 = (struct _SLIST_ENTRY *)*((_QWORD *)v25 + 5);
+      v26 = (_SLIST_ENTRY *)*((_QWORD *)v25 + 5);
       if ( v26 )
       {
         MiEmptyPageAccessLog(v26);
@@ -548,7 +548,7 @@ LABEL_111:
   if ( v64 == 5 || v64 == 2 && (*((_BYTE *)v56 + 67) & 1) != 0 )
     --HIDWORD(Process[2].ReadyListHead.Flink);
   MiPreUnlockWorkingSetExclusive(&Process[1].IdealNode[12], (unsigned __int8)v95);
-  v65 = &dword_140327C80;
+  v65 = &dword_140327CC0;
   if ( ((__int64)Process[2].Header.WaitListHead.Flink & 7) != 2 )
     v65 = (LONG *)&Process[2].Header.WaitListHead.Blink;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
@@ -652,7 +652,7 @@ LABEL_157:
     v3 = (__int64)&v74->LockEntries[v78];
     if ( v3 )
     {
-      if ( v75 < qword_140326910 || v75 >= qword_140326910 + 0x8000000000LL )
+      if ( v75 < qword_140326950 || v75 >= qword_140326950 + 0x8000000000LL )
         v79 = -1;
       else
         v79 = MmGetSessionIdEx(v74->ApcState.Process);

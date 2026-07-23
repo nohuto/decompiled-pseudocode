@@ -12,69 +12,60 @@
 
 __int64 __fastcall sub_180087EB8(_DWORD *a1)
 {
-  int v2; // ebx
-  __int64 v4; // [rsp+38h] [rbp-79h] BYREF
-  unsigned __int16 v5[4]; // [rsp+40h] [rbp-71h] BYREF
-  int *v6; // [rsp+48h] [rbp-69h]
-  _BYTE v7[8]; // [rsp+50h] [rbp-61h] BYREF
-  int v8; // [rsp+58h] [rbp-59h] BYREF
-  const wchar_t *v9; // [rsp+60h] [rbp-51h]
-  int v10; // [rsp+68h] [rbp-49h] BYREF
-  const wchar_t *v11; // [rsp+70h] [rbp-41h]
-  int v12; // [rsp+78h] [rbp-39h] BYREF
-  const wchar_t *v13; // [rsp+80h] [rbp-31h]
-  int v14; // [rsp+88h] [rbp-29h] BYREF
-  const wchar_t *v15; // [rsp+90h] [rbp-21h]
-  int v16; // [rsp+98h] [rbp-19h] BYREF
-  const wchar_t *v17; // [rsp+A0h] [rbp-11h]
-  int v18; // [rsp+A8h] [rbp-9h] BYREF
-  __int64 v19; // [rsp+B0h] [rbp-1h]
-  int *v20; // [rsp+B8h] [rbp+7h]
-  int v21; // [rsp+C0h] [rbp+Fh]
-  __int128 v22; // [rsp+C8h] [rbp+17h]
-  _BYTE v23[4]; // [rsp+D8h] [rbp+27h] BYREF
-  int v24; // [rsp+DCh] [rbp+2Bh]
-  unsigned int v25; // [rsp+E0h] [rbp+2Fh]
-  int v26; // [rsp+E4h] [rbp+33h] BYREF
+  NTSTATUS v2; // ebx
+  HANDLE KeyHandle; // [rsp+38h] [rbp-79h] BYREF
+  _UNICODE_STRING String1; // [rsp+40h] [rbp-71h] BYREF
+  ULONG ResultLength; // [rsp+50h] [rbp-61h] BYREF
+  int v7; // [rsp+58h] [rbp-59h] BYREF
+  const wchar_t *v8; // [rsp+60h] [rbp-51h]
+  _UNICODE_STRING ValueName; // [rsp+68h] [rbp-49h] BYREF
+  _UNICODE_STRING String2; // [rsp+78h] [rbp-39h] BYREF
+  _UNICODE_STRING v11; // [rsp+88h] [rbp-29h] BYREF
+  _UNICODE_STRING v12; // [rsp+98h] [rbp-19h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-9h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+D8h] [rbp+27h] BYREF
+  int v15; // [rsp+DCh] [rbp+2Bh]
+  unsigned int v16; // [rsp+E0h] [rbp+2Fh]
+  int v17; // [rsp+E4h] [rbp+33h] BYREF
 
-  v4 = 0LL;
-  v19 = 0LL;
-  v9 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions";
-  v8 = 8650882;
-  v11 = L"ProductType";
-  v10 = 1572886;
-  v15 = L"LanmanNt";
-  v14 = 1179664;
-  v17 = L"ServerNt";
-  v16 = 1179664;
-  v13 = L"WinNt";
-  v20 = &v8;
-  v12 = 786442;
-  v18 = 48;
-  v21 = 576;
-  v22 = 0LL;
-  v2 = ZwOpenKey(&v4, 1LL, &v18);
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  v8 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions";
+  v7 = 8650882;
+  ValueName.Buffer = L"ProductType";
+  *(_DWORD *)&ValueName.Length = 1572886;
+  v11.Buffer = L"LanmanNt";
+  *(_DWORD *)&v11.Length = 1179664;
+  v12.Buffer = L"ServerNt";
+  *(_DWORD *)&v12.Length = 1179664;
+  String2.Buffer = L"WinNt";
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v7;
+  *(_DWORD *)&String2.Length = 786442;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v2 = ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes);
   if ( v2 >= 0 )
   {
-    v2 = ZwQueryValueKey(v4, &v10, 2LL, v23, 36, v7);
+    v2 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x24u, &ResultLength);
     if ( v2 >= 0 )
     {
-      if ( v24 == 1 && v25 >= 2 )
+      if ( v15 == 1 && v16 >= 2 )
       {
-        v5[1] = v25;
-        v6 = &v26;
-        v5[0] = v25 - 2;
-        if ( RtlEqualUnicodeString(v5, (__int64)&v12, 1) )
+        String1.MaximumLength = v16;
+        String1.Buffer = (PWCH)&v17;
+        String1.Length = v16 - 2;
+        if ( RtlEqualUnicodeString(&String1, &String2, 1u) )
         {
           *a1 = 1;
           goto LABEL_9;
         }
-        if ( RtlEqualUnicodeString(v5, (__int64)&v14, 1) )
+        if ( RtlEqualUnicodeString(&String1, &v11, 1u) )
         {
           *a1 = 2;
           goto LABEL_9;
         }
-        if ( RtlEqualUnicodeString(v5, (__int64)&v16, 1) )
+        if ( RtlEqualUnicodeString(&String1, &v12, 1u) )
         {
           *a1 = 3;
           goto LABEL_9;
@@ -84,7 +75,7 @@ __int64 __fastcall sub_180087EB8(_DWORD *a1)
     }
   }
 LABEL_9:
-  if ( v4 )
-    ZwClose(v4);
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
   return (unsigned int)v2;
 }

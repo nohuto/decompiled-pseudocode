@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwRollbackTransaction @ 0x180164E60
+ * XREFs of ZwRollbackTransaction @ 0x180163220
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwRollbackTransaction()
+NTSTATUS __cdecl ZwRollbackTransaction(HANDLE TransactionHandle, BOOLEAN Wait)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 399LL;
+  result = 399;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

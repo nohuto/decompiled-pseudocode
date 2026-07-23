@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetProcessQosFromPolicy @ 0x140514228
+ * XREFs of KeGetProcessQosFromPolicy @ 0x140514468
  * Callers:
- *     PspSetProcessPpmPolicy @ 0x1406B2490 (PspSetProcessPpmPolicy.c)
+ *     PspSetProcessPpmPolicy @ 0x1406114D0 (PspSetProcessPpmPolicy.c)
  * Callees:
  *     <none>
  */

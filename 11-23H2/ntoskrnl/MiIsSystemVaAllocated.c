@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsSystemVaAllocated @ 0x140636EFC
+ * XREFs of MiIsSystemVaAllocated @ 0x14063744C
  * Callers:
- *     MmAllocateSecurePoolMemory @ 0x1406418EC (MmAllocateSecurePoolMemory.c)
- *     MmFreeSecurePoolMemory @ 0x140641A58 (MmFreeSecurePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140641E3C (MmAllocateSecurePoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x140641FA8 (MmFreeSecurePoolMemory.c)
  * Callees:
  *     MiSystemVaToDynamicBitmap @ 0x140210FC4 (MiSystemVaToDynamicBitmap.c)
  */

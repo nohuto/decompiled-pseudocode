@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAcquireQueuedSpinLockRaiseToSynch @ 0x1405BC060
+ * XREFs of KeAcquireQueuedSpinLockRaiseToSynch @ 0x1405B9690
  * Callers:
- *     DifKeAcquireQueuedSpinLockRaiseToSynchWrapper @ 0x14062C860 (DifKeAcquireQueuedSpinLockRaiseToSynchWrapper.c)
+ *     DifKeAcquireQueuedSpinLockRaiseToSynchWrapper @ 0x14062AE20 (DifKeAcquireQueuedSpinLockRaiseToSynchWrapper.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1402D6B90 (KxAcquireQueuedSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxAcquireQueuedSpinLock @ 0x140357E10 (KxAcquireQueuedSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int8 __fastcall KeAcquireQueuedSpinLockRaiseToSynch(__int64 a1)

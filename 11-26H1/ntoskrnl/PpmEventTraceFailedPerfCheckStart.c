@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceFailedPerfCheckStart @ 0x1404F5A8C
+ * XREFs of PpmEventTraceFailedPerfCheckStart @ 0x1404EF04C
  * Callers:
- *     PpmCheckPeriodicStart @ 0x1402568F0 (PpmCheckPeriodicStart.c)
+ *     PpmCheckPeriodicStart @ 0x140258280 (PpmCheckPeriodicStart.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceFailedPerfCheckStart(__int64 a1)
@@ -16,21 +16,11 @@ void __fastcall PpmEventTraceFailedPerfCheckStart(__int64 a1)
   v2 = a1;
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_PERF_CHECK_FAILED_START) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PERF_CHECK_FAILED_START) )
     {
       UserData.Ptr = (ULONGLONG)&v2;
       *(_QWORD *)&UserData.Size = 8LL;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_PERF_CHECK_FAILED_START,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        1u,
-        &UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_PERF_CHECK_FAILED_START, 0LL, 0, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

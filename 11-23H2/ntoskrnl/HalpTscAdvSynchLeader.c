@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpTscAdvSynchLeader @ 0x14038D300
+ * XREFs of HalpTscAdvSynchLeader @ 0x14038D4E0
  * Callers:
- *     HalpTscSynchronizationWorker @ 0x14038D530 (HalpTscSynchronizationWorker.c)
+ *     HalpTscSynchronizationWorker @ 0x14038D710 (HalpTscSynchronizationWorker.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
- *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x14038D618 (HalpTscAdvSynchCalculateRemoteDeltas.c)
- *     HalpTscAdvSynchToLeader @ 0x14038D734 (HalpTscAdvSynchToLeader.c)
- *     HalpTscAdvSynchReadTimeStamp @ 0x14038DB0C (HalpTscAdvSynchReadTimeStamp.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalpTscAdvSynchToTarget @ 0x14050A368 (HalpTscAdvSynchToTarget.c)
- *     HalpTscTraceStatus @ 0x14050A830 (HalpTscTraceStatus.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
+ *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x14038D7F8 (HalpTscAdvSynchCalculateRemoteDeltas.c)
+ *     HalpTscAdvSynchToLeader @ 0x14038D914 (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchReadTimeStamp @ 0x14038DCEC (HalpTscAdvSynchReadTimeStamp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalpTscAdvSynchToTarget @ 0x14050A8B8 (HalpTscAdvSynchToTarget.c)
+ *     HalpTscTraceStatus @ 0x14050AD80 (HalpTscTraceStatus.c)
  */
 
 char __fastcall HalpTscAdvSynchLeader(__int64 a1)

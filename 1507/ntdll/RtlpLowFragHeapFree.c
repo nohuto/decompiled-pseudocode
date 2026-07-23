@@ -18,7 +18,7 @@
  *     RtlpGetReservedBlockSize @ 0x1800F0768 (RtlpGetReservedBlockSize.c)
  */
 
-__int64 __fastcall RtlpLowFragHeapFree(int a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpLowFragHeapFree(int a1, unsigned __int64 a2, ULONG a3)
 {
   unsigned int v4; // eax
   __int64 **v5; // rdi
@@ -58,14 +58,14 @@ __int64 __fastcall RtlpLowFragHeapFree(int a1, unsigned __int64 a2, int a3)
   _QWORD *v39; // rax
   unsigned int v40; // edx
   unsigned __int16 ReservedBlockSize; // ax
-  __int64 v42; // rcx
-  unsigned int HeapProtection; // eax
+  void *v42; // rcx
+  ULONG HeapProtection; // eax
   signed __int64 v44; // [rsp+70h] [rbp+8h]
-  unsigned __int64 v45; // [rsp+78h] [rbp+10h] BYREF
-  int v46; // [rsp+80h] [rbp+18h] BYREF
-  unsigned __int64 v47; // [rsp+88h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+78h] [rbp+10h] BYREF
+  ULONG OldProtect; // [rsp+80h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+20h] BYREF
 
-  v46 = a3;
+  OldProtect = a3;
   v4 = a1 ^ RtlpLFHKey ^ *(_DWORD *)(a2 + 8) ^ (a2 >> 4);
   if ( (_WORD)v4 )
     return RtlpLogHeapFailure(3, a1, a2, 0, 0LL, 0LL);
@@ -232,15 +232,15 @@ LABEL_26:
     v28 = *(_QWORD *)(v26 + 24);
     if ( (*((_BYTE *)v5 + 38) & 3) != 0 )
     {
-      v47 = ((unsigned __int64)v5[1] + 4151) & 0xFFFFFFFFFFFFF000uLL;
+      BaseAddress = (PVOID)(((unsigned __int64)v5[1] + 4151) & 0xFFFFFFFFFFFFF000uLL);
       ReservedBlockSize = RtlpGetReservedBlockSize(v5, v18, v14, v17);
-      v42 = *(_QWORD *)(v28 + 24);
-      v45 = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v5 + 20);
-      HeapProtection = RtlpGetHeapProtection(v42, 1LL);
-      ZwProtectVirtualMemory(-1LL, &v47, &v45, HeapProtection, &v46);
+      v42 = *(void **)(v28 + 24);
+      RegionSize = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v5 + 20);
+      HeapProtection = RtlpGetHeapProtection(v42);
+      ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, HeapProtection, &OldProtect);
     }
     *((_DWORD *)v5[1] + 5) = 0;
-    RtlpFreeUserBlock(v28, (__int64)v5[1]);
+    RtlpFreeUserBlock(v28, v5[1]);
     v29 = -*((unsigned __int16 *)v5 + 20);
     do
     {

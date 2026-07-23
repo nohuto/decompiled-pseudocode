@@ -11,39 +11,43 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlpInitializeWnf(int a1, int a2, int a3)
+LOGICAL __stdcall RtlpInitializeWnf(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  void *Heap; // eax
-  int v4; // esi
+  char *Heap; // eax
+  char *v4; // esi
+  SIZE_T v6; // [esp-4h] [ebp-10h]
+  size_t v7; // [esp-4h] [ebp-10h]
 
-  Heap = (void *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 64);
-  v4 = (int)Heap;
+  LODWORD(v6) = 64;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
+  v4 = Heap;
   if ( Heap )
   {
-    memset(Heap, 0, 0x40u);
-    *(_WORD *)(v4 + 2) = 64;
+    LODWORD(v7) = 64;
+    memset(Heap, 0, v7);
+    *((_WORD *)v4 + 1) = 64;
     *(_WORD *)v4 = 2321;
-    if ( (int)TpAllocTimer(v4 + 48, RtlpWnfRetryTimerCallback, 0, 0) >= 0 )
+    if ( TpAllocTimer((PTP_TIMER *)v4 + 12, RtlpWnfRetryTimerCallback, 0, 0) >= 0 )
     {
-      *(_DWORD *)(v4 + 56) = 0;
-      *(_DWORD *)(v4 + 12) = v4 + 8;
-      *(_DWORD *)(v4 + 8) = v4 + 8;
-      *(_DWORD *)(v4 + 60) = 0;
-      *(_DWORD *)(v4 + 20) = v4 + 16;
-      *(_DWORD *)(v4 + 16) = v4 + 16;
-      *(_DWORD *)(v4 + 4) = 0;
-      *(_DWORD *)(v4 + 24) = 0;
-      *(_DWORD *)(v4 + 32) = 500;
-      *(_DWORD *)(v4 + 36) = 1000;
-      *(_DWORD *)(v4 + 40) = 3600000;
-      *(_DWORD *)(v4 + 44) = 10;
-      *(_DWORD *)(v4 + 28) = 1;
+      *((_DWORD *)v4 + 14) = 0;
+      *((_DWORD *)v4 + 3) = v4 + 8;
+      *((_DWORD *)v4 + 2) = v4 + 8;
+      *((_DWORD *)v4 + 15) = 0;
+      *((_DWORD *)v4 + 5) = v4 + 16;
+      *((_DWORD *)v4 + 4) = v4 + 16;
+      *((_DWORD *)v4 + 1) = 0;
+      *((_DWORD *)v4 + 6) = 0;
+      *((_DWORD *)v4 + 8) = 500;
+      *((_DWORD *)v4 + 9) = 1000;
+      *((_DWORD *)v4 + 10) = 3600000;
+      *((_DWORD *)v4 + 11) = 10;
+      *((_DWORD *)v4 + 7) = 1;
       if ( RtlpWnfRegisterTpNotification() >= 0 )
       {
-        dword_4B3A664C = v4;
+        dword_4B3A664C = (int)v4;
         return 1;
       }
-      TpReleaseTimer(*(_DWORD *)(v4 + 48));
+      TpReleaseTimer(*((PTP_TIMER *)v4 + 12));
     }
     RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlEnumeratorFilterCallback @ 0x1408D1050
+ * XREFs of PiPnpRtlEnumeratorFilterCallback @ 0x1408CEA40
  * Callers:
- *     PiDmCmObjectMatchCallback @ 0x1408CF9A0 (PiDmCmObjectMatchCallback.c)
+ *     PiDmCmObjectMatchCallback @ 0x1408CD390 (PiDmCmObjectMatchCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     PiCMMandatoryFilterCallback @ 0x1408D21F0 (PiCMMandatoryFilterCallback.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     PiCMMandatoryFilterCallback @ 0x1408CFBE0 (PiCMMandatoryFilterCallback.c)
  */
 
 char __fastcall PiPnpRtlEnumeratorFilterCallback(__int64 a1, const WCHAR *a2, unsigned int a3, __int64 a4)
@@ -14,21 +14,19 @@ char __fastcall PiPnpRtlEnumeratorFilterCallback(__int64 a1, const WCHAR *a2, un
   char v8; // bl
   PCUNICODE_STRING v9; // rax
   __int64 (__fastcall *v10)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD); // rax
-  __int64 v11; // r9
-  int *v14; // [rsp+20h] [rbp-50h]
-  int v15; // [rsp+28h] [rbp-48h]
-  int v16; // [rsp+40h] [rbp-30h] BYREF
+  int *v13; // [rsp+20h] [rbp-50h]
+  int v14; // [rsp+28h] [rbp-48h]
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-28h] BYREF
   UNICODE_STRING String2; // [rsp+58h] [rbp-18h] BYREF
-  int v19; // [rsp+A8h] [rbp+38h] BYREF
-  int v20; // [rsp+B8h] [rbp+48h] BYREF
+  int v17; // [rsp+A8h] [rbp+38h] BYREF
+  int v18; // [rsp+B8h] [rbp+48h]
 
   v8 = 0;
   String2 = 0LL;
   if ( !*(_BYTE *)(a4 + 8)
-    || (v19 = 0, DestinationString = 0LL, v16 = 0, v20 = 0, RtlInitUnicodeStringEx(&DestinationString, a2) >= 0)
+    || (v17 = 0, DestinationString = 0LL, v18 = 0, RtlInitUnicodeStringEx(&DestinationString, a2) >= 0)
     && *(_QWORD *)(a1 + 264)
-    && (v15 = 0, v14 = &v19, (int)guard_dispatch_icall_no_overrides(a1, &DestinationString, &v16, &v20) >= 0) )
+    && (v14 = 0, v13 = &v17, (int)guard_dispatch_icall_no_overrides(a1, &DestinationString) >= 0) )
   {
     v9 = *(PCUNICODE_STRING *)a4;
     if ( !*(_QWORD *)a4
@@ -40,11 +38,10 @@ char __fastcall PiPnpRtlEnumeratorFilterCallback(__int64 a1, const WCHAR *a2, un
       v10 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD))(a4 + 16);
       if ( v10 )
       {
-        v11 = *(_QWORD *)(a4 + 24);
         if ( v10 == PiCMMandatoryFilterCallback )
-          return PiCMMandatoryFilterCallback(a1, a2, a3, v11, v14, v15);
+          return PiCMMandatoryFilterCallback(a1, a2, a3, *(_QWORD *)(a4 + 24), v13, v14);
         else
-          return guard_dispatch_icall_no_overrides(a1, a2, a3, v11);
+          return guard_dispatch_icall_no_overrides(a1, a2);
       }
     }
   }

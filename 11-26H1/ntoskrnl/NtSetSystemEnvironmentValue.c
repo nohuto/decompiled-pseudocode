@@ -1,28 +1,28 @@
 /*
- * XREFs of NtSetSystemEnvironmentValue @ 0x14083E6B0
+ * XREFs of NtSetSystemEnvironmentValue @ 0x1408448F0
  * Callers:
- *     DifNtSetSystemEnvironmentValueWrapper @ 0x14068D920 (DifNtSetSystemEnvironmentValueWrapper.c)
+ *     DifNtSetSystemEnvironmentValueWrapper @ 0x140691500 (DifNtSetSystemEnvironmentValueWrapper.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     HalSetEnvironmentVariable @ 0x14057C3D0 (HalSetEnvironmentVariable.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     RtlUnicodeToMultiByteSize @ 0x14096C100 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     HalSetEnvironmentVariable @ 0x14057E900 (HalSetEnvironmentVariable.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     RtlUnicodeToMultiByteSize @ 0x14097CA40 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetSystemEnvironmentValue(void *Src, void *a2)
+NTSTATUS __cdecl NtSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUNICODE_STRING VariableValue)
 {
   KPROCESSOR_MODE PreviousMode; // bl
-  NTSTATUS v6; // ebx
+  signed int v6; // ebx
   unsigned __int16 v7; // r14
   unsigned __int16 v8; // si
   struct _KTHREAD *CurrentThread; // rax
@@ -31,8 +31,8 @@ __int64 __fastcall NtSetSystemEnvironmentValue(void *Src, void *a2)
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-78h] BYREF
   PVOID P; // [rsp+58h] [rbp-50h]
   PVOID Pool2; // [rsp+60h] [rbp-48h]
-  STRING v15; // [rsp+68h] [rbp-40h] BYREF
-  STRING DestinationString; // [rsp+78h] [rbp-30h] BYREF
+  _STRING v15; // [rsp+68h] [rbp-40h] BYREF
+  _STRING DestinationString; // [rsp+78h] [rbp-30h] BYREF
   ULONG BytesInMultiByteString; // [rsp+C0h] [rbp+18h] BYREF
   __int16 v18; // [rsp+C8h] [rbp+20h] BYREF
 
@@ -44,39 +44,39 @@ __int64 __fastcall NtSetSystemEnvironmentValue(void *Src, void *a2)
   P = 0LL;
   v18 = 0;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(BytesInMultiByteString) = PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)Src & 3) != 0 )
+    if ( ((unsigned __int8)VariableName & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    RtlCopyFromUser(Address, Src, 0x10uLL);
+    RtlCopyFromUser(Address, VariableName, 0x10uLL);
   }
   else
   {
-    RtlCopyVolatileMemory(Address, Src, 0x10uLL);
+    RtlCopyVolatileMemory(Address, VariableName, 0x10uLL);
   }
   if ( !LOWORD(Address[0]) )
-    return 3221225626LL;
+    return -1073741670;
   if ( PreviousMode )
   {
     ProbeForRead(Address[1], LOWORD(Address[0]), 2u);
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)VariableValue & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    RtlCopyFromUser(&SourceString, a2, 0x10uLL);
+    RtlCopyFromUser(&SourceString, VariableValue, 0x10uLL);
   }
   else
   {
-    RtlCopyVolatileMemory(&SourceString, a2, 0x10uLL);
+    RtlCopyVolatileMemory(&SourceString, VariableValue, 0x10uLL);
   }
   if ( !SourceString.Length )
-    return 3221225626LL;
+    return -1073741670;
   if ( PreviousMode )
   {
     ProbeForRead(SourceString.Buffer, SourceString.Length, 2u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
     if ( Address[1] )
     {
       Pool2 = (PVOID)ExAllocatePool2(0x40uLL);
@@ -128,9 +128,9 @@ __int64 __fastcall NtSetSystemEnvironmentValue(void *Src, void *a2)
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
-          ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
+          ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
           v10 = HalSetEnvironmentVariable(DestinationString.Buffer, v15.Buffer);
-          ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
+          ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
           KeLeaveCriticalRegion();
           v6 = v10 != 0 ? 0xC000009A : 0;
         }
@@ -149,5 +149,5 @@ LABEL_39:
     ExFreePoolWithTag(P, 0);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v6;
+  return v6;
 }

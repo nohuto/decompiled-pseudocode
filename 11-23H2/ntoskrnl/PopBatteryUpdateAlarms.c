@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryUpdateAlarms @ 0x140823ED0
+ * XREFs of PopBatteryUpdateAlarms @ 0x1408241D0
  * Callers:
- *     PopBatteryAlarmPowerSettingCallback @ 0x140823EA0 (PopBatteryAlarmPowerSettingCallback.c)
- *     PopBatteryApplyCompositeState @ 0x140870480 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryAlarmPowerSettingCallback @ 0x1408241A0 (PopBatteryAlarmPowerSettingCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x1408706C0 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     PopGetPowerSettingValue @ 0x14032CC40 (PopGetPowerSettingValue.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopApplyPolicy @ 0x1408241DC (PopApplyPolicy.c)
+ *     PopGetPowerSettingValue @ 0x14032CED0 (PopGetPowerSettingValue.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopApplyPolicy @ 0x1408244DC (PopApplyPolicy.c)
  */
 
 __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
@@ -41,7 +41,7 @@ __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
   _OWORD v31[8]; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v32; // [rsp+120h] [rbp+20h]
 
-  v2 = dword_140C3D86C;
+  v2 = dword_140C3D96C;
   v3 = a1;
   v4 = 128LL;
   v29 = 0;

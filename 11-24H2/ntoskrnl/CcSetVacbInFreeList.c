@@ -1,16 +1,16 @@
 /*
- * XREFs of CcSetVacbInFreeList @ 0x1403F8F18
+ * XREFs of CcSetVacbInFreeList @ 0x1403EF028
  * Callers:
- *     CcUnmapVacbArray @ 0x14023F290 (CcUnmapVacbArray.c)
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     CcGetVacbMiss @ 0x1402D5510 (CcGetVacbMiss.c)
- *     CcUnmapInactiveViewsInternal @ 0x1403F877C (CcUnmapInactiveViewsInternal.c)
- *     CcSetFileSizesEx @ 0x1404A6800 (CcSetFileSizesEx.c)
- *     CcInitializePartitionVacbs @ 0x14057D3B0 (CcInitializePartitionVacbs.c)
- *     CcUninitializePartitionVacbs @ 0x14057D4C0 (CcUninitializePartitionVacbs.c)
+ *     CcUnmapVacbArray @ 0x1402073E0 (CcUnmapVacbArray.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     CcGetVacbMiss @ 0x140356790 (CcGetVacbMiss.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1403EE88C (CcUnmapInactiveViewsInternal.c)
+ *     CcSetFileSizesEx @ 0x1404A10D0 (CcSetFileSizesEx.c)
+ *     CcInitializePartitionVacbs @ 0x14057A840 (CcInitializePartitionVacbs.c)
+ *     CcUninitializePartitionVacbs @ 0x14057A950 (CcUninitializePartitionVacbs.c)
  * Callees:
- *     CcSetVacbIntoList @ 0x1403F9128 (CcSetVacbIntoList.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     CcSetVacbIntoList @ 0x1403EF238 (CcSetVacbIntoList.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcSetVacbInFreeList(__int64 a1, _QWORD *a2, char a3)

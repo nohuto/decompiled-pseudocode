@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushWaitForReadInProgress @ 0x140635F38
+ * XREFs of MiFlushWaitForReadInProgress @ 0x140636488
  * Callers:
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
  * Callees:
- *     MiWaitForCollidedFaultComplete @ 0x1402EF008 (MiWaitForCollidedFaultComplete.c)
- *     MiObtainProtoReference @ 0x1402EF318 (MiObtainProtoReference.c)
- *     MiInitializePageFaultPacket @ 0x1402EF73C (MiInitializePageFaultPacket.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1402EF298 (MiWaitForCollidedFaultComplete.c)
+ *     MiObtainProtoReference @ 0x1402EF5A8 (MiObtainProtoReference.c)
+ *     MiInitializePageFaultPacket @ 0x1402EF9CC (MiInitializePageFaultPacket.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiFlushWaitForReadInProgress(__int64 a1, __int64 a2, unsigned __int8 a3)

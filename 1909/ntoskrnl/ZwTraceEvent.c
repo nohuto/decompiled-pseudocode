@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwTraceEvent(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&TraceHandle, *(_QWORD *)&Flags, *(_QWORD *)&TraceHeaderLength);
+  return KiServiceInternal(*(_QWORD *)&TraceHandle);
 }

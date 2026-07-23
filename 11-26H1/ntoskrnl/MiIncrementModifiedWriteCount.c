@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIncrementModifiedWriteCount @ 0x1404F6374
+ * XREFs of MiIncrementModifiedWriteCount @ 0x1404EF980
  * Callers:
- *     MiTrimSharedPage @ 0x140478A54 (MiTrimSharedPage.c)
- *     MiReferencePfBackedSection @ 0x1404D1764 (MiReferencePfBackedSection.c)
- *     MiPreventControlAreaDeletion @ 0x1404F62AC (MiPreventControlAreaDeletion.c)
+ *     MiTrimSharedPage @ 0x1404723B4 (MiTrimSharedPage.c)
+ *     MiReferencePfBackedSection @ 0x1404CB310 (MiReferencePfBackedSection.c)
+ *     MiPreventControlAreaDeletion @ 0x1404EF8B8 (MiPreventControlAreaDeletion.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x14030BCD0 (MiRemoveUnusedSegment.c)
+ *     MiRemoveUnusedSegment @ 0x1402EDD50 (MiRemoveUnusedSegment.c)
  */
 
 __int64 __fastcall MiIncrementModifiedWriteCount(__int64 a1)

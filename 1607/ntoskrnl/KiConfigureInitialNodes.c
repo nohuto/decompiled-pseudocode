@@ -1,10 +1,10 @@
 /*
- * XREFs of KiConfigureInitialNodes @ 0x140139328
+ * XREFs of KiConfigureInitialNodes @ 0x140139898
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
  * Callees:
- *     KiAddProcessorToGroupDatabase @ 0x1401393C4 (KiAddProcessorToGroupDatabase.c)
- *     KiCommitNodeAssignment @ 0x140139650 (KiCommitNodeAssignment.c)
+ *     KiAddProcessorToGroupDatabase @ 0x140139934 (KiAddProcessorToGroupDatabase.c)
+ *     KiCommitNodeAssignment @ 0x140139BC0 (KiCommitNodeAssignment.c)
  */
 
 _BYTE *__fastcall KiConfigureInitialNodes(__int64 a1)

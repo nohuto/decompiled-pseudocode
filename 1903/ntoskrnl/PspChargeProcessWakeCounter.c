@@ -170,7 +170,7 @@ LABEL_11:
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v17 )
   {
-    ZwUpdateWnfStateData(Object + 2080, 0LL, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)(Object + 2080), 0LL, 0, 0LL, 0LL, 0, 0);
     v18 = v28;
     v19 = a3;
     if ( (xmmword_140572410 & 0x400) != 0 && v28 == 1 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIpv4AddressToStringExA @ 0x1800E7AD0
+ * XREFs of RtlIpv4AddressToStringExA @ 0x1800E6530
  * Callers:
  *     <none>
  * Callees:
- *     sprintf_s @ 0x180133C60 (sprintf_s.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     sprintf_s @ 0x1801339D0 (sprintf_s.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 LONG __stdcall RtlIpv4AddressToStringExA(
@@ -27,10 +27,10 @@ LONG __stdcall RtlIpv4AddressToStringExA(
            Buffer,
            0x10uLL,
            "%u.%u.%u.%u",
-           Address->S_un.S_un_b.s_b1,
-           Address->S_un.S_un_b.s_b2,
-           Address->S_un.S_un_b.s_b3,
-           Address->S_un.S_un_b.s_b4);
+           *(unsigned __int8 *)Address,
+           *((unsigned __int8 *)Address + 1),
+           *((unsigned __int8 *)Address + 2),
+           *((unsigned __int8 *)Address + 3));
     v8 = &Buffer[v7];
     if ( Port )
       LODWORD(v8) = sprintf_s(&Buffer[v7], v12 - v8, ":%u", (unsigned __int16)__ROR2__(Port, 8)) + (_DWORD)v8;

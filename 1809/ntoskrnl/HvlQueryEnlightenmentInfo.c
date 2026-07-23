@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryEnlightenmentInfo @ 0x140762600
+ * XREFs of HvlQueryEnlightenmentInfo @ 0x1407637F0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

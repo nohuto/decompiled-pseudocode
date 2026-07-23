@@ -11,15 +11,13 @@
  *     RtlpValidateHeapHeaders @ 0x1800FAD64 (RtlpValidateHeapHeaders.c)
  */
 
-void *__fastcall RtlDebugCreateHeap(int a1, char *a2, unsigned __int64 a3, unsigned __int64 a4, __int64 a5, __int64 a6)
+void *__fastcall RtlDebugCreateHeap(int a1, void *a2, SIZE_T a3, SIZE_T a4, PVOID Lock, PVOID Parameters)
 {
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  int VirtualMemory; // r15d
-  __int64 Heap; // rax
-  void *v15; // rdi
-  char *v16; // [rsp+30h] [rbp-48h]
-  int v17; // [rsp+50h] [rbp-28h]
+  NTSTATUS v11; // r15d
+  PVOID Heap; // rax
+  void *v13; // rdi
+  void *MemoryInformation; // [rsp+30h] [rbp-48h] BYREF
+  int v15; // [rsp+50h] [rbp-28h]
 
   if ( a3 <= 0x10 )
   {
@@ -29,7 +27,7 @@ void *__fastcall RtlDebugCreateHeap(int a1, char *a2, unsigned __int64 a3, unsig
       DbgPrint("HEAP: ");
     DbgPrint("Invalid ReserveSize parameter - %Ix\n", a3);
 LABEL_6:
-    RtlpBreakPointHeap(v11, v10);
+    RtlpBreakPointHeap();
     return 0LL;
   }
   if ( a3 < a4 )
@@ -41,7 +39,7 @@ LABEL_6:
     DbgPrint("Invalid CommitSize parameter - %Ix\n", a4);
     goto LABEL_6;
   }
-  if ( (a1 & 1) != 0 && a5 )
+  if ( (a1 & 1) != 0 && Lock )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -52,42 +50,48 @@ LABEL_6:
   }
   if ( a2 )
   {
-    VirtualMemory = ZwQueryVirtualMemory();
-    if ( VirtualMemory < 0 )
+    v11 = ZwQueryVirtualMemory(
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            a2,
+            MemoryBasicInformation,
+            &MemoryInformation,
+            0x30uLL,
+            0LL);
+    if ( v11 < 0 )
     {
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      DbgPrint("Specified HeapBase (%p) invalid,  Status = %lx\n", a2, VirtualMemory);
+      DbgPrint("Specified HeapBase (%p) invalid,  Status = %lx\n", a2, v11);
       goto LABEL_6;
     }
-    if ( v16 != a2 )
+    if ( MemoryInformation != a2 )
     {
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      DbgPrint("Specified HeapBase (%p) != to BaseAddress (%p)\n", a2, v16);
+      DbgPrint("Specified HeapBase (%p) != to BaseAddress (%p)\n", a2, MemoryInformation);
       goto LABEL_6;
     }
-    if ( v17 == 0x10000 )
+    if ( v15 == 0x10000 )
     {
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      DbgPrint("Specified HeapBase (%p) is free or not writable\n", v16);
+      DbgPrint("Specified HeapBase (%p) is free or not writable\n", MemoryInformation);
       goto LABEL_6;
     }
   }
-  Heap = RtlCreateHeap(a1 | 0x10000060u, a2, a3, a4, a5, a6);
-  v15 = (void *)Heap;
+  Heap = RtlCreateHeap(a1 | 0x10000060u, a2, a3, a4, Lock, Parameters);
+  v13 = Heap;
   if ( Heap )
   {
-    if ( (*(_DWORD *)(Heap + 112) & 0x8000000) != 0 )
-      *(_WORD *)(Heap + 304) = RtlLogStackBackTraceEx(1u);
-    RtlpValidateHeapHeaders(v15);
+    if ( (*((_DWORD *)Heap + 28) & 0x8000000) != 0 )
+      *((_WORD *)Heap + 152) = RtlLogStackBackTraceEx(1u);
+    RtlpValidateHeapHeaders(v13);
   }
-  return v15;
+  return v13;
 }

@@ -1,57 +1,59 @@
 /*
- * XREFs of SepDuplicateToken @ 0x14092A5A0
+ * XREFs of SepDuplicateToken @ 0x1409060B0
  * Callers:
- *     SepGetAnonymousToken @ 0x1403C9F7C (SepGetAnonymousToken.c)
- *     SepLinkLogonSessions @ 0x1404E0EFC (SepLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessions @ 0x14063AEE8 (SepOneWayLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessionsEx @ 0x14063B1C0 (SepOneWayLinkLogonSessionsEx.c)
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
- *     SeDuplicateTokenWithPredictedClaims @ 0x1408149DC (SeDuplicateTokenWithPredictedClaims.c)
- *     NtDuplicateToken @ 0x1408EB8C0 (NtDuplicateToken.c)
- *     SeCopyClientToken @ 0x140926AB0 (SeCopyClientToken.c)
- *     PsImpersonateClient @ 0x140928820 (PsImpersonateClient.c)
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x140A2CFB8 (SeDuplicateTokenAndAddOriginClaim.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
- *     NtOpenThreadTokenEx @ 0x140A47C40 (NtOpenThreadTokenEx.c)
- *     NtImpersonateAnonymousToken @ 0x140AB2A30 (NtImpersonateAnonymousToken.c)
- *     SeGetLinkedToken @ 0x140AB6E90 (SeGetLinkedToken.c)
- *     SeGetLogonSessionToken @ 0x140AEA550 (SeGetLogonSessionToken.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     SepGetAnonymousToken @ 0x1403B321C (SepGetAnonymousToken.c)
+ *     SepLinkLogonSessions @ 0x1404DA5DC (SepLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessions @ 0x14063DFB0 (SepOneWayLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessionsEx @ 0x14063E288 (SepOneWayLinkLogonSessionsEx.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
+ *     SeDuplicateTokenWithPredictedClaims @ 0x14081AACC (SeDuplicateTokenWithPredictedClaims.c)
+ *     NtDuplicateToken @ 0x1408F1E80 (NtDuplicateToken.c)
+ *     SeCopyClientToken @ 0x1409025C0 (SeCopyClientToken.c)
+ *     PsImpersonateClient @ 0x140904330 (PsImpersonateClient.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
+ *     NtOpenThreadTokenEx @ 0x140A50F30 (NtOpenThreadTokenEx.c)
+ *     NtImpersonateAnonymousToken @ 0x140AB3DD0 (NtImpersonateAnonymousToken.c)
+ *     SeGetLinkedToken @ 0x140AB84D0 (SeGetLinkedToken.c)
+ *     SeGetLogonSessionToken @ 0x140AED040 (SeGetLogonSessionToken.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x140B2A218 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     PsGetSessionObjectById @ 0x140215CF4 (PsGetSessionObjectById.c)
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     RtlSidHashInitialize @ 0x140260B30 (RtlSidHashInitialize.c)
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1403CA6D0 (AuthzBasepDuplicateSecurityAttributes.c)
- *     SepDuplicateLogonSessionReference @ 0x1404704C0 (SepDuplicateLogonSessionReference.c)
- *     SepReferenceLuidToIndexEntry @ 0x1404834D0 (SepReferenceLuidToIndexEntry.c)
- *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063AE30 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SepAddTokenLogonSession @ 0x140774EB0 (SepAddTokenLogonSession.c)
- *     SepModifyTokenPolicyCounter @ 0x140774FAC (SepModifyTokenPolicyCounter.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     SepSetTokenCapabilities @ 0x140A44AC4 (SepSetTokenCapabilities.c)
- *     SepSetTokenTrust @ 0x140A48600 (SepSetTokenTrust.c)
- *     SepDuplicateTokenUserAndGroups @ 0x140A805F8 (SepDuplicateTokenUserAndGroups.c)
- *     SepSetTokenPackage @ 0x140A8F860 (SepSetTokenPackage.c)
- *     SepReferenceLogonSessionSilo @ 0x140AB6FE8 (SepReferenceLogonSessionSilo.c)
- *     SepDuplicateTokenClaims @ 0x140AFBEB8 (SepDuplicateTokenClaims.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetSessionObjectById @ 0x140216024 (PsGetSessionObjectById.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403B2AA0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     RtlSidHashInitialize @ 0x140406710 (RtlSidHashInitialize.c)
+ *     SepDuplicateLogonSessionReference @ 0x140469C40 (SepDuplicateLogonSessionReference.c)
+ *     SepReferenceLuidToIndexEntry @ 0x14047CE00 (SepReferenceLuidToIndexEntry.c)
+ *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063DEF8 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ShadowAdminAppCompat__private_IsEnabledDeviceUsageNoInline @ 0x14063DF54 (Feature_ShadowAdminAppCompat__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SepAddTokenLogonSession @ 0x140777EB0 (SepAddTokenLogonSession.c)
+ *     SepModifyTokenPolicyCounter @ 0x140777FAC (SepModifyTokenPolicyCounter.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     SepSetTokenCapabilities @ 0x1409E2C54 (SepSetTokenCapabilities.c)
+ *     SepSetTokenPackage @ 0x1409E47AC (SepSetTokenPackage.c)
+ *     SepSetTokenTrust @ 0x140A518F0 (SepSetTokenTrust.c)
+ *     SepDuplicateTokenUserAndGroups @ 0x140A86468 (SepDuplicateTokenUserAndGroups.c)
+ *     SepReferenceLogonSessionSilo @ 0x140AB8628 (SepReferenceLogonSessionSilo.c)
+ *     SepDuplicateTokenClaims @ 0x140AFDAB8 (SepDuplicateTokenClaims.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDuplicateToken(
         __int64 a1,
-        __int64 a2,
+        int a2,
         char a3,
         int a4,
         unsigned int a5,
@@ -111,10 +113,9 @@ __int64 __fastcall SepDuplicateToken(
   int v62; // r10d
   int v63; // r9d
   int v64; // eax
-  __int64 *v65; // rcx
+  _SID_AND_ATTRIBUTES *v65; // rcx
   __int64 v66; // rax
   int v67; // edx
-  __int64 v68; // [rsp+20h] [rbp-68h]
   PVOID Object[2]; // [rsp+50h] [rbp-38h] BYREF
 
   Object[0] = 0LL;
@@ -152,7 +153,7 @@ LABEL_8:
     ExFreePoolWithTag(v17, 0);
     return 3221225626LL;
   }
-  if ( *(_DWORD *)(a1 + 132) >= 0xFFFFFB70 )
+  if ( *(_DWORD *)(a1 + 132) >= 0xFFFFFB68 )
   {
     ExFreePoolWithTag(v15, 0);
     ExFreePoolWithTag(v18, 0);
@@ -162,17 +163,7 @@ LABEL_8:
   }
   else
   {
-    v19 = ObCreateObjectEx(
-            a6,
-            SeTokenObjectType,
-            a2,
-            a6,
-            v68,
-            *(_DWORD *)(a1 + 132) + 1168,
-            *(_DWORD *)(a1 + 136),
-            *(_DWORD *)(a1 + 132) + 1168,
-            Object,
-            0LL);
+    v19 = ObCreateObjectEx(a6, (_DWORD)SeTokenObjectType, a2, a6);
     if ( v19 < 0 )
     {
       ExFreePoolWithTag(v15, 0);
@@ -242,6 +233,8 @@ LABEL_8:
     *((_DWORD *)v20 + 53) = *(_DWORD *)(a1 + 212);
     *((_OWORD *)v20 + 4) = *(_OWORD *)(a1 + 64);
     *((_QWORD *)v20 + 10) = *(_QWORD *)(a1 + 80);
+    if ( (unsigned int)Feature_ShadowAdminAppCompat__private_IsEnabledDeviceUsageNoInline() )
+      *((_QWORD *)v20 + 146) = *(_QWORD *)(a1 + 1168);
     *((_QWORD *)v20 + 97) = v15;
     *((_QWORD *)v20 + 135) = 0LL;
     *((_QWORD *)v20 + 136) = 0LL;
@@ -258,7 +251,7 @@ LABEL_8:
       SepModifyTokenPolicyCounter((__int64)(v20 + 88), 1);
     v28 = SepDuplicateLogonSessionReference((__int64)v20, a1);
     if ( v28 < 0 )
-      goto LABEL_46;
+      goto LABEL_48;
     if ( (unsigned int)Feature_295645497__private_IsEnabledDeviceUsageNoInline()
       && (*(_DWORD *)(a1 + 200) & 0x10000000) != 0 )
     {
@@ -267,9 +260,9 @@ LABEL_8:
       v28 = SepReferenceLogonSessionSilo(v29 + 16, CurrentServerSilo, Object);
       if ( v28 < 0 )
       {
-LABEL_46:
+LABEL_48:
         v34 = *(struct _ERESOURCE **)(a1 + 48);
-LABEL_47:
+LABEL_49:
         ExReleaseResourceLite(v34);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v35);
         ObfDereferenceObject(v20);
@@ -286,18 +279,18 @@ LABEL_47:
     {
       v28 = AuthzBasepDuplicateSecurityAttributes((__int64)v32, *((_QWORD *)v20 + 97), a7);
       if ( v28 < 0 )
-        goto LABEL_46;
+        goto LABEL_48;
     }
-    memmove(v20 + 1168, (const void *)(a1 + 1168), *(unsigned int *)(a1 + 132));
+    memmove(v20 + 1176, (const void *)(a1 + 1176), *(unsigned int *)(a1 + 132));
     v33 = &v20[-a1];
-    if ( RtlpBootStatHandleLock.WaitBlockFill7[128] )
+    if ( LOBYTE(RtlpBootStatHandleLock.Queue) )
     {
       *((_QWORD *)v20 + 19) = &v33[*(_QWORD *)(a1 + 152)];
       v28 = SepDuplicateTokenUserAndGroups(a1, v20);
       if ( v28 < 0 )
       {
         *((_QWORD *)v20 + 19) = 0LL;
-        goto LABEL_46;
+        goto LABEL_48;
       }
     }
     else
@@ -349,13 +342,13 @@ LABEL_47:
     if ( (_DWORD)v49 )
       v28 = SepSetTokenCapabilities(v20, *(_QWORD *)(a1 + 784), *(_QWORD *)(a1 + 792), v49);
     if ( v28 < 0 )
-      goto LABEL_46;
+      goto LABEL_48;
     v50 = *(_QWORD *)(a1 + 784);
     if ( v50 )
     {
       v28 = SepSetTokenPackage(v20, v50);
       if ( v28 < 0 )
-        goto LABEL_46;
+        goto LABEL_48;
     }
     v51 = *(_QWORD *)(a1 + 1080);
     if ( v51 )
@@ -382,13 +375,13 @@ LABEL_47:
     {
       v28 = SepDuplicateTokenClaims(a1, v20);
       if ( v28 < 0 )
-        goto LABEL_46;
+        goto LABEL_48;
     }
     v54 = SepSetTokenTrust(v20, *(_QWORD *)(a1 + 1104));
     v34 = *(struct _ERESOURCE **)(a1 + 48);
     v28 = v54;
     if ( v54 < 0 )
-      goto LABEL_47;
+      goto LABEL_49;
     ExReleaseResourceLite(v34);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v55);
     if ( SeTokenLeakTracking )
@@ -445,20 +438,26 @@ LABEL_47:
       }
       *((_DWORD *)v20 + 31) = v60;
     }
-    RtlSidHashInitialize(*((__int64 **)v20 + 19), *((_DWORD *)v20 + 31), (_QWORD *)v20 + 29);
-    RtlSidHashInitialize(*((__int64 **)v20 + 20), *((_DWORD *)v20 + 32), (_QWORD *)v20 + 63);
-    v65 = (__int64 *)*((_QWORD *)v20 + 99);
+    RtlSidHashInitialize(
+      *((PSID_AND_ATTRIBUTES *)v20 + 19),
+      *((_DWORD *)v20 + 31),
+      (PSID_AND_ATTRIBUTES_HASH)(v20 + 232));
+    RtlSidHashInitialize(
+      *((PSID_AND_ATTRIBUTES *)v20 + 20),
+      *((_DWORD *)v20 + 32),
+      (PSID_AND_ATTRIBUTES_HASH)(v20 + 504));
+    v65 = (_SID_AND_ATTRIBUTES *)*((_QWORD *)v20 + 99);
     if ( v65 )
-      RtlSidHashInitialize(v65, *((_DWORD *)v20 + 200), (_QWORD *)v20 + 101);
+      RtlSidHashInitialize(v65, *((_DWORD *)v20 + 200), (PSID_AND_ATTRIBUTES_HASH)(v20 + 808));
     if ( SeTokenLeakTracking )
     {
-      if ( HIDWORD(RtlpBootStatHandleLock.FirstArgument) == 13
-        && KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink == *(struct _LIST_ENTRY **)&RtlpBootStatHandleLock.SystemCallNumber )
+      if ( *(_DWORD *)&RtlpBootStatHandleLock.ApcStateFill[8] == 13
+        && KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Blink )
       {
         v66 = *((_QWORD *)v20 + 143);
-        *(_DWORD *)(v66 + 280) = _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.ApcStateFill[4]);
+        *(_DWORD *)(v66 + 280) = _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.152);
         v67 = *(_DWORD *)(*((_QWORD *)v20 + 143) + 280LL);
-        if ( v67 >= *(int *)&RtlpBootStatHandleLock.ApcStateFill[8] )
+        if ( v67 >= *(int *)&RtlpBootStatHandleLock.ApcStateFill[4] )
         {
           DbgPrint("\nToken number 0x%x = 0x%p\n", v67, v20);
           __debugbreak();

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiChangeAwePageAttributes @ 0x14054B840
+ * XREFs of MiChangeAwePageAttributes @ 0x14054BA80
  * Callers:
- *     MiIncrementAweMapCount @ 0x14054C674 (MiIncrementAweMapCount.c)
+ *     MiIncrementAweMapCount @ 0x14054C8B4 (MiIncrementAweMapCount.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiChangePageAttributeBatch @ 0x1403035A0 (MiChangePageAttributeBatch.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiChangePageAttributeBatch @ 0x14030E2F0 (MiChangePageAttributeBatch.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -105,7 +105,9 @@ LABEL_6:
     if ( !HalpDoingCrashDump )
     {
       KxReleaseSpinLock((volatile signed __int64 *)&HalpPCIConfigLock);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v16 = v23[0];
         if ( v23[0] <= 0xFu && CurrentIrql >= 2u )

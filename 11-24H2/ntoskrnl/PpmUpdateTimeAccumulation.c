@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmUpdateTimeAccumulation @ 0x140434060
+ * XREFs of PpmUpdateTimeAccumulation @ 0x1403700D0
  * Callers:
- *     PpmEndActiveTimeAccumulation @ 0x1403B69C4 (PpmEndActiveTimeAccumulation.c)
- *     PpmContinueActiveTimeAccumulation @ 0x140434024 (PpmContinueActiveTimeAccumulation.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14037009C (PpmContinueActiveTimeAccumulation.c)
+ *     PpmEndActiveTimeAccumulation @ 0x140371B70 (PpmEndActiveTimeAccumulation.c)
  * Callees:
  *     <none>
  */

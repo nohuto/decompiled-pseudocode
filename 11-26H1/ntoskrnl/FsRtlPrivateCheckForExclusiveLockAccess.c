@@ -1,36 +1,36 @@
 /*
- * XREFs of FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402BFFA4
+ * XREFs of FsRtlPrivateCheckForExclusiveLockAccess @ 0x14030AC68
  * Callers:
- *     FsRtlPrivateCheckWaitingLocks @ 0x1402BFAE8 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlPrivateLock @ 0x1402C0190 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14030A7AC (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x14030AE50 (FsRtlPrivateLock.c)
  * Callees:
- *     RtlSplay @ 0x1402C0DB0 (RtlSplay.c)
- *     FsRtlFindFirstOverlapInNode @ 0x14052DC90 (FsRtlFindFirstOverlapInNode.c)
+ *     RtlSplay @ 0x14030BA70 (RtlSplay.c)
+ *     FsRtlFindFirstOverlapInNode @ 0x1405301B0 (FsRtlFindFirstOverlapInNode.c)
  */
 
 char __fastcall FsRtlPrivateCheckForExclusiveLockAccess(__int64 a1, _RTL_SPLAY_LINKS **a2)
 {
-  RTL_SPLAY_LINKS *v2; // r8
-  RTL_SPLAY_LINKS *v3; // rbx
-  RTL_SPLAY_LINKS *v6; // rax
+  _RTL_SPLAY_LINKS *v2; // r8
+  _RTL_SPLAY_LINKS *v3; // rbx
+  _RTL_SPLAY_LINKS *v6; // rax
   _RTL_SPLAY_LINKS *v8; // r8
-  RTL_SPLAY_LINKS *v9; // rcx
+  _RTL_SPLAY_LINKS *v9; // rcx
   _RTL_SPLAY_LINKS *RightChild; // r10
-  RTL_SPLAY_LINKS *v11; // r11
+  _RTL_SPLAY_LINKS *v11; // r11
   _RTL_SPLAY_LINKS *v12; // r9
   _RTL_SPLAY_LINKS *v13; // rdx
   __int64 v14; // rcx
   __int64 v15; // rax
-  RTL_SPLAY_LINKS *v16; // rdx
-  RTL_SPLAY_LINKS *v17; // rax
+  _RTL_SPLAY_LINKS *v16; // rdx
+  _RTL_SPLAY_LINKS *v17; // rax
   __int64 v18; // rdx
-  RTL_SPLAY_LINKS *v19; // rsi
+  _RTL_SPLAY_LINKS *v19; // rsi
   _RTL_SPLAY_LINKS *Parent; // r11
   _RTL_SPLAY_LINKS *LeftChild; // r10
   _RTL_SPLAY_LINKS *v22; // rax
   _RTL_SPLAY_LINKS *v23; // r9
 
-  v2 = *(RTL_SPLAY_LINKS **)(a1 + 8);
+  v2 = *(_RTL_SPLAY_LINKS **)(a1 + 8);
   v3 = 0LL;
   if ( !v2 )
     goto LABEL_2;
@@ -82,7 +82,7 @@ LABEL_35:
     v3 = 0LL;
   }
 LABEL_2:
-  v6 = *(RTL_SPLAY_LINKS **)(a1 + 16);
+  v6 = *(_RTL_SPLAY_LINKS **)(a1 + 16);
   if ( !v6 )
     goto LABEL_3;
   v8 = *a2;

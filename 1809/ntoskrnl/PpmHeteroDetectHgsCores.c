@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroDetectHgsCores @ 0x14018A214
+ * XREFs of PpmHeteroDetectHgsCores @ 0x14018A354
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14074F434 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140750624 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
  */
 
 char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
@@ -46,7 +46,7 @@ char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
     v6 = 0;
     v1 = 1;
     v7 = -1;
-    v25 = qword_140404158[0];
+    v25 = qword_140405158[0];
     v24 = (unsigned __int16 *)PpmCheckRegistered;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v24) )
     {
@@ -84,7 +84,7 @@ char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
       if ( v20 >= v6 )
         v20 = v6;
       *(_BYTE *)(a1 + 5) = v20;
-      v25 = qword_140404158[0];
+      v25 = qword_140405158[0];
       v24 = (unsigned __int16 *)PpmCheckRegistered;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v24) )
       {
@@ -99,7 +99,7 @@ char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
     else if ( v3 != v7 )
     {
       *(_WORD *)(a1 + 4) = 257;
-      v25 = qword_140404158[0];
+      v25 = qword_140405158[0];
       v24 = (unsigned __int16 *)PpmCheckRegistered;
       v26 = 0;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v28, &v24) )

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeCopyLastBranchInformation @ 0x14030E530
+ * XREFs of KeCopyLastBranchInformation @ 0x14030E7C0
  * Callers:
- *     KeContextFromKframes @ 0x14030E120 (KeContextFromKframes.c)
- *     PspGetContext @ 0x140724614 (PspGetContext.c)
+ *     KeContextFromKframes @ 0x14030E3B0 (KeContextFromKframes.c)
+ *     PspGetContext @ 0x140724814 (PspGetContext.c)
  * Callees:
  *     <none>
  */

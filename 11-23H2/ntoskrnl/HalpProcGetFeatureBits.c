@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpProcGetFeatureBits @ 0x14037FFB4
+ * XREFs of HalpProcGetFeatureBits @ 0x140380154
  * Callers:
  *     HalpProcInitSystem @ 0x140A8A680 (HalpProcInitSystem.c)
  *     HalpProcInitDiscard @ 0x140B75924 (HalpProcInitDiscard.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x140380630 (HalpGetCpuInfo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalpIsHvIptSupported @ 0x14050B7E0 (HalpIsHvIptSupported.c)
+ *     HalpGetCpuInfo @ 0x1403807D0 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalpIsHvIptSupported @ 0x14050BD30 (HalpIsHvIptSupported.c)
  */
 
 __int64 HalpProcGetFeatureBits()

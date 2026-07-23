@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwCreatePagingFile()
+NTSTATUS __cdecl ZwCreatePagingFile(
+        PUNICODE_STRING PageFileName,
+        PLARGE_INTEGER MinimumSize,
+        PLARGE_INTEGER MaximumSize,
+        ULONG Priority)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 176LL;
+  result = 176;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

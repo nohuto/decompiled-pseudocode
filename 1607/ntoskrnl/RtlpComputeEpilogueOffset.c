@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpComputeEpilogueOffset @ 0x1401590FC
+ * XREFs of RtlpComputeEpilogueOffset @ 0x14015966C
  * Callers:
- *     FsRtlTruncateSmallMcb @ 0x14023243C (FsRtlTruncateSmallMcb.c)
+ *     FsRtlTruncateSmallMcb @ 0x140232268 (FsRtlTruncateSmallMcb.c)
  * Callees:
  *     sub_14025299C @ 0x14025299C (sub_14025299C.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiClearFileOnlyPfn @ 0x1405224D8
+ * XREFs of MiClearFileOnlyPfn @ 0x140524B44
  * Callers:
- *     MiInsertFreeZeroPage @ 0x1402DCE70 (MiInsertFreeZeroPage.c)
+ *     MiInsertFreeZeroPage @ 0x1402BEC30 (MiInsertFreeZeroPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiWakeFileOnlyReaper @ 0x140522624 (MiWakeFileOnlyReaper.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWakeFileOnlyReaper @ 0x140524C90 (MiWakeFileOnlyReaper.c)
  */
 
 void __fastcall MiClearFileOnlyPfn(__m128i *a1)
@@ -34,12 +34,12 @@ void __fastcall MiClearFileOnlyPfn(__m128i *a1)
   *a1 = _mm_loadu_si128(&v8);
   a1[1] = _mm_loadu_si128(&v9);
   a1[2] = _mm_loadu_si128(&v10);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E399E0);
-  a1->m128i_i64[0] = qword_140E2D118;
-  qword_140E2D118 = (__int64)a1;
-  if ( !qword_140E2D120 )
-    qword_140E2D120 = (__int64)a1;
-  ++qword_140E2D128;
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E39B60);
+  a1->m128i_i64[0] = qword_140E2D298;
+  qword_140E2D298 = (__int64)a1;
+  if ( !qword_140E2D2A0 )
+    qword_140E2D2A0 = (__int64)a1;
+  ++qword_140E2D2A8;
   MiWakeFileOnlyReaper(v5, v4, v6, v7);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E399E0);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E39B60);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSchedulerApcTerminate @ 0x1409576C0
+ * XREFs of KiSchedulerApcTerminate @ 0x14094B0F0
  * Callers:
  *     <none>
  * Callees:
- *     KiIsProcessTerminationRequested @ 0x1404B6914 (KiIsProcessTerminationRequested.c)
- *     PsTerminateProcess @ 0x14095690C (PsTerminateProcess.c)
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     KiIsProcessTerminationRequested @ 0x1404AFD64 (KiIsProcessTerminationRequested.c)
+ *     PsTerminateProcess @ 0x14094A334 (PsTerminateProcess.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  */
 
 void __noreturn KiSchedulerApcTerminate()

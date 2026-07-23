@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x1400C3220
+ * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x1400C10B0
  * Callers:
- *     PopPepWork @ 0x1400C1DA4 (PopPepWork.c)
+ *     PopPepWork @ 0x1400BFC34 (PopPepWork.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, int a4, int a5)
@@ -42,28 +42,28 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, i
   v5 = &retaddr;
   if ( a4 == 2 )
   {
-    if ( pCallbackContext.LevelPlus1 > 5 )
+    if ( hProvider.LevelPlus1 > 5 )
     {
-      LOBYTE(v5) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+      LOBYTE(v5) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
       if ( (_BYTE)v5 )
       {
-        v13 = &unk_14027D25C;
+        v13 = &unk_14027D35C;
         goto LABEL_14;
       }
     }
   }
-  else if ( a4 == 3 && pCallbackContext.LevelPlus1 > 5 )
+  else if ( a4 == 3 && hProvider.LevelPlus1 > 5 )
   {
-    LOBYTE(v5) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+    LOBYTE(v5) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
     if ( (_BYTE)v5 )
     {
-      v13 = &unk_14027D13E;
+      v13 = &unk_14027D23E;
 LABEL_14:
       v34 = 0;
       v32 = &v19;
       v33 = v12;
       v19 = a5;
-      LOBYTE(v5) = TlgWrite(&pCallbackContext, v13, 0LL, 0LL, cData, &pData);
+      LOBYTE(v5) = TlgWrite(&hProvider, v13, 0LL, 0LL, cData, &pData);
     }
   }
   if ( PopDiagHandleRegistered )

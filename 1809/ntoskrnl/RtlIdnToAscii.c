@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIdnToAscii @ 0x140896C40
+ * XREFs of RtlIdnToAscii @ 0x140897EA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpNameprepAsciiWorker @ 0x140896D30 (RtlpNameprepAsciiWorker.c)
+ *     RtlpNameprepAsciiWorker @ 0x140897F90 (RtlpNameprepAsciiWorker.c)
  */
 
 NTSTATUS __stdcall RtlIdnToAscii(

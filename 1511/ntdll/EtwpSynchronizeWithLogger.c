@@ -14,7 +14,7 @@ __int64 __fastcall EtwpSynchronizeWithLogger(__int64 a1, int a2)
   __int64 result; // rax
 
   *(_DWORD *)(a1 + 340) |= a2;
-  ZwSetEvent(*(_QWORD *)(a1 + 128), 0LL);
+  ZwSetEvent(*(HANDLE *)(a1 + 128), 0LL);
   NtWaitForSingleObject(*(HANDLE *)(a1 + 136), 0, 0LL);
   result = *(unsigned int *)(a1 + 40);
   *(_DWORD *)(a1 + 340) &= ~a2;

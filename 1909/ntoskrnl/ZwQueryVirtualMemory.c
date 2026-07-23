@@ -16,7 +16,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryVirtualMemory(
         HANDLE ProcessHandle,
         PVOID BaseAddress,
@@ -27,5 +26,5 @@ NTSTATUS __stdcall ZwQueryVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, *(_QWORD *)&MemoryInformationClass);
+  return KiServiceInternal(ProcessHandle);
 }

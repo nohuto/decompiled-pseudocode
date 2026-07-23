@@ -9,40 +9,40 @@
  *     @RtlpWakeByAddress@12 @ 0x4B2DF2F6 (@RtlpWakeByAddress@12.c)
  */
 
-int __fastcall RtlpDecRefWnfUserSubscription(int a1, _DWORD *a2, _DWORD *a3)
+_DWORD *__fastcall RtlpDecRefWnfUserSubscription(char *BaseAddress, _DWORD *a2, _DWORD *a3)
 {
-  int result; // eax
-  int v6; // ecx
-  int v7; // edx
-  _DWORD *v8; // ecx
+  _DWORD *result; // eax
+  char *v6; // ecx
+  char **v7; // edx
+  PVOID *v8; // ecx
   _DWORD *v9; // edi
   signed __int32 v10; // [esp+10h] [ebp-4h] BYREF
 
-  if ( _InterlockedDecrement((volatile signed __int32 *)(a1 + 44)) )
+  if ( _InterlockedDecrement((volatile signed __int32 *)BaseAddress + 11) )
   {
-    result = (int)a3;
+    result = a3;
     *a2 = 0;
     *a3 = 0;
   }
   else
   {
-    v6 = *(_DWORD *)(a1 + 40);
+    v6 = (char *)*((_DWORD *)BaseAddress + 10);
     if ( v6 )
       RtlpDecrementWnfSerializationGroup(v6);
-    v7 = *(_DWORD *)(a1 + 4);
-    if ( *(_DWORD *)(v7 + 4) != a1 + 4 || (v8 = *(_DWORD **)(a1 + 8), *v8 != a1 + 4) )
+    v7 = (char **)*((_DWORD *)BaseAddress + 1);
+    if ( v7[1] != BaseAddress + 4 || (v8 = (PVOID *)*((_DWORD *)BaseAddress + 2), *v8 != BaseAddress + 4) )
       __fastfail(3u);
     *v8 = v7;
-    *(_DWORD *)(v7 + 4) = v8;
-    v9 = *(_DWORD **)(a1 + 48);
-    *a2 = *(_DWORD *)(a1 + 56);
-    *a3 = *(_DWORD *)(a1 + 60);
-    result = RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
+    v7[1] = (char *)v8;
+    v9 = (_DWORD *)*((_DWORD *)BaseAddress + 12);
+    *a2 = *((_DWORD *)BaseAddress + 14);
+    *a3 = *((_DWORD *)BaseAddress + 15);
+    result = (_DWORD *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     if ( v9 )
     {
       *v9 = 1;
       _InterlockedOr(&v10, 0);
-      return RtlpWakeByAddress(0);
+      return (_DWORD *)RtlpWakeByAddress(0);
     }
   }
   return result;

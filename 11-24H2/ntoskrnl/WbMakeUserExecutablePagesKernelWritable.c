@@ -1,16 +1,16 @@
 /*
- * XREFs of WbMakeUserExecutablePagesKernelWritable @ 0x1409E0F80
+ * XREFs of WbMakeUserExecutablePagesKernelWritable @ 0x1409DAD30
  * Callers:
- *     sub_1409E0720 @ 0x1409E0720 (sub_1409E0720.c)
- *     sub_1409E0950 @ 0x1409E0950 (sub_1409E0950.c)
- *     sub_1409E0C6C @ 0x1409E0C6C (sub_1409E0C6C.c)
- *     sub_1409E0F54 @ 0x1409E0F54 (sub_1409E0F54.c)
+ *     sub_1409DA4D0 @ 0x1409DA4D0 (sub_1409DA4D0.c)
+ *     sub_1409DA700 @ 0x1409DA700 (sub_1409DA700.c)
+ *     sub_1409DAA1C @ 0x1409DAA1C (sub_1409DAA1C.c)
+ *     sub_1409DAD04 @ 0x1409DAD04 (sub_1409DAD04.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MmProbeAndLockPagesPrivate @ 0x1404200FC (MmProbeAndLockPagesPrivate.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmProbeAndLockPagesPrivate @ 0x140415AEC (MmProbeAndLockPagesPrivate.c)
  */
 
 __int64 __fastcall WbMakeUserExecutablePagesKernelWritable(void *a1, ULONG a2, PMDL *a3, _QWORD *a4)

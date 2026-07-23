@@ -1,10 +1,10 @@
 /*
- * XREFs of IopVerifierExAllocatePool @ 0x14007B610
+ * XREFs of IopVerifierExAllocatePool @ 0x14007B690
  * Callers:
- *     IopSetLockOperationProcess @ 0x1400784D8 (IopSetLockOperationProcess.c)
- *     IopGetSetSpecificExtension @ 0x14007AE90 (IopGetSetSpecificExtension.c)
- *     IopAllocateFileObjectExtension @ 0x1400EB590 (IopAllocateFileObjectExtension.c)
- *     NtUnlockFile @ 0x1404C9C58 (NtUnlockFile.c)
+ *     IopSetLockOperationProcess @ 0x140078558 (IopSetLockOperationProcess.c)
+ *     IopGetSetSpecificExtension @ 0x14007AF10 (IopGetSetSpecificExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x1400E9400 (IopAllocateFileObjectExtension.c)
+ *     NtUnlockFile @ 0x1404AF9D8 (NtUnlockFile.c)
  * Callees:
  *     <none>
  */

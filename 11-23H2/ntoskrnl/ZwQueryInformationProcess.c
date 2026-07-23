@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwQueryInformationProcess @ 0x14041B080
+ * XREFs of ZwQueryInformationProcess @ 0x14041B410
  * Callers:
- *     RtlCheckXfgFailureInformation @ 0x1405B1A70 (RtlCheckXfgFailureInformation.c)
- *     DifZwQueryInformationProcessWrapper @ 0x1405F47D0 (DifZwQueryInformationProcessWrapper.c)
- *     BiLogFileOwnerProcess @ 0x140671490 (BiLogFileOwnerProcess.c)
+ *     RtlCheckXfgFailureInformation @ 0x1405B1FE0 (RtlCheckXfgFailureInformation.c)
+ *     DifZwQueryInformationProcessWrapper @ 0x1405F4D40 (DifZwQueryInformationProcessWrapper.c)
+ *     BiLogFileOwnerProcess @ 0x1406719E0 (BiLogFileOwnerProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

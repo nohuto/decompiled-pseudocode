@@ -30,7 +30,7 @@ void __fastcall LdrpDispatchUserCallTargetXFG()
   v3 = v0;
   v4 = v0 << 8;
   LOBYTE(v4) = v2;
-  v5 = *(_QWORD *)(qword_18018F3A8 + 8 * (v3 >> 9));
+  v5 = *(_QWORD *)(LdrSystemDllInitBlock.CfgBitMap + 8 * (v3 >> 9));
   v6 = __ROR8__(__ROR8__(v4, 8), 3);
   LOBYTE(v2) = v6;
   v7 = __ROL8__(v6, 3);
@@ -74,7 +74,7 @@ LABEL_16:
     }
     goto LABEL_16;
   }
-  v13 = *(_QWORD *)(qword_18018F3A8 + 8 * (v0 >> 9));
+  v13 = *(_QWORD *)(LdrSystemDllInitBlock.CfgBitMap + 8 * (v0 >> 9));
   v14 = __ROR8__(v0, 3);
   if ( !_bittest64(&v13, v14) )
     goto LABEL_17;

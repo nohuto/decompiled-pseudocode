@@ -1,20 +1,20 @@
 /*
- * XREFs of strncmp @ 0x1403D1540
+ * XREFs of strncmp @ 0x1403D16B0
  * Callers:
- *     HalpAcpiGetCachedTable @ 0x140294814 (HalpAcpiGetCachedTable.c)
- *     HalpAcpiCheckAndMapTable @ 0x140294BD8 (HalpAcpiCheckAndMapTable.c)
- *     HvlDebuggerSupportInitialize @ 0x1403CFB90 (HvlDebuggerSupportInitialize.c)
- *     RtlLookupImageSectionByName @ 0x14058CF04 (RtlLookupImageSectionByName.c)
- *     EtwpApplyPredicate @ 0x1405B1604 (EtwpApplyPredicate.c)
- *     RtlValidateCorrelationVector @ 0x140916270 (RtlValidateCorrelationVector.c)
- *     ApiSetpFindImageSection @ 0x14095EAFC (ApiSetpFindImageSection.c)
- *     AslpFileHasSecuromWrapper @ 0x14096BB44 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x14096BDF4 (AslpHasStarForceWrapper.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140972338 (BiGetObjectReferenceFromEfiEntry.c)
- *     HalpInitializeProfiling @ 0x14099B5DC (HalpInitializeProfiling.c)
- *     KiGetCpuVendor @ 0x14099BF68 (KiGetCpuVendor.c)
- *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     HalpAcpiGetCachedTable @ 0x1402164D4 (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiCheckAndMapTable @ 0x140216898 (HalpAcpiCheckAndMapTable.c)
+ *     HvlDebuggerSupportInitialize @ 0x1403CFD00 (HvlDebuggerSupportInitialize.c)
+ *     RtlLookupImageSectionByName @ 0x14058D134 (RtlLookupImageSectionByName.c)
+ *     EtwpApplyPredicate @ 0x1405B1834 (EtwpApplyPredicate.c)
+ *     RtlValidateCorrelationVector @ 0x1409163D0 (RtlValidateCorrelationVector.c)
+ *     ApiSetpFindImageSection @ 0x14095ECDC (ApiSetpFindImageSection.c)
+ *     AslpFileHasSecuromWrapper @ 0x14096BD24 (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x14096BFD4 (AslpHasStarForceWrapper.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972518 (BiGetObjectReferenceFromEfiEntry.c)
+ *     HalpInitializeProfiling @ 0x14099C5DC (HalpInitializeProfiling.c)
+ *     KiGetCpuVendor @ 0x14099CF68 (KiGetCpuVendor.c)
+ *     KdInitSystem @ 0x1409B6160 (KdInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */

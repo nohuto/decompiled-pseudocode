@@ -1,12 +1,12 @@
 /*
- * XREFs of VslFreeSecureHibernateResources @ 0x1407922C8
+ * XREFs of VslFreeSecureHibernateResources @ 0x140794DF8
  * Callers:
- *     PopFreeHiberContext @ 0x140B1AB90 (PopFreeHiberContext.c)
+ *     PopFreeHiberContext @ 0x140B1CE40 (PopFreeHiberContext.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     KeAllocateKernelHiberSwapShadowStacks @ 0x1405F061C (KeAllocateKernelHiberSwapShadowStacks.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     KeAllocateKernelHiberSwapShadowStacks @ 0x1405F2F8C (KeAllocateKernelHiberSwapShadowStacks.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 VslFreeSecureHibernateResources()

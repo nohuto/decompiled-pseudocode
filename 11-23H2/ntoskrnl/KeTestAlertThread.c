@@ -1,13 +1,13 @@
 /*
- * XREFs of KeTestAlertThread @ 0x14030D0E0
+ * XREFs of KeTestAlertThread @ 0x14030D370
  * Callers:
- *     KiContinueEx @ 0x14030CF10 (KiContinueEx.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     NtTestAlert @ 0x14076F1E0 (NtTestAlert.c)
- *     DbgkpSendErrorMessage @ 0x14093A27C (DbgkpSendErrorMessage.c)
+ *     KiContinueEx @ 0x14030D1A0 (KiContinueEx.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     NtTestAlert @ 0x14076F3D0 (NtTestAlert.c)
+ *     DbgkpSendErrorMessage @ 0x14093A47C (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int8 __fastcall KeTestAlertThread(char a1)
@@ -29,7 +29,7 @@ unsigned __int8 __fastcall KeTestAlertThread(char a1)
   v2 = a1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v7) = 4;
@@ -55,10 +55,10 @@ unsigned __int8 __fastcall KeTestAlertThread(char a1)
     CurrentThread->ApcState.UserApcPendingAll |= 2u;
   }
   CurrentThread->ThreadLock = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;

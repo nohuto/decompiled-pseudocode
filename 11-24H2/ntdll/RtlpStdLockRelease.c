@@ -1,20 +1,17 @@
 /*
- * XREFs of RtlpStdLockRelease @ 0x18009CAE8
+ * XREFs of RtlpStdLockRelease @ 0x1800310A8
  * Callers:
- *     RtlpStdExtendUpperWatermark @ 0x18009C91C (RtlpStdExtendUpperWatermark.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x18009CA00 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x18009CB10 (RtlStdReleaseStackTrace.c)
- *     RtlpStdLogCapturedStackTrace @ 0x1800EF820 (RtlpStdLogCapturedStackTrace.c)
- *     RtlpStdExtendLowerWatermark @ 0x1800EFA38 (RtlpStdExtendLowerWatermark.c)
+ *     RtlpStdExtendUpperWatermark @ 0x180030EDC (RtlpStdExtendUpperWatermark.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x180030FC0 (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1800310D0 (RtlStdReleaseStackTrace.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x1800311F0 (RtlpStdLogCapturedStackTrace.c)
+ *     RtlpStdExtendLowerWatermark @ 0x1800F1930 (RtlpStdExtendLowerWatermark.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpStdLockRelease(volatile signed __int64 *a1)
+void __fastcall RtlpStdLockRelease(_RTL_SRWLOCK *a1)
 {
-  __int64 result; // rax
-
-  if ( !byte_1801D2908 )
-    return RtlReleaseSRWLockExclusive(a1);
-  return result;
+  if ( !byte_1801D1908 )
+    RtlReleaseSRWLockExclusive(a1);
 }

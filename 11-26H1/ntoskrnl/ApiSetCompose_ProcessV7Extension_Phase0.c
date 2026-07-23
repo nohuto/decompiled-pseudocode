@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetCompose_ProcessV7Extension_Phase0 @ 0x1406DA838
+ * XREFs of ApiSetCompose_ProcessV7Extension_Phase0 @ 0x1406DE9D8
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x1406DA620 (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x1406DE7C0 (ApiSetComposeSchema_V7.c)
  * Callees:
- *     ApiSetpGetContractKeyInfo @ 0x14052953C (ApiSetpGetContractKeyInfo.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x1406DB504 (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpGetContractKeyInfo @ 0x14052B9D0 (ApiSetpGetContractKeyInfo.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x1406DF79C (ApiSetpSearchForSectionIndex_V7.c)
  */
 
 __int64 __fastcall ApiSetCompose_ProcessV7Extension_Phase0(__int64 a1, __int64 a2)

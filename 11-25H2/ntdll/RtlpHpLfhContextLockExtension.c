@@ -9,8 +9,8 @@
  *     RtlAcquireSRWLockExclusive @ 0x180011720 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpHpLfhContextLockExtension(__int64 a1)
+char __fastcall RtlpHpLfhContextLockExtension(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockExclusive(a1 + 128);
+  RtlAcquireSRWLockExclusive(a1 + 16);
   return -1;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpSanitizeContextFlags @ 0x1800BFEC0
+ * XREFs of RtlpSanitizeContextFlags @ 0x1800BD650
  * Callers:
- *     RtlCaptureContext2 @ 0x180126E80 (RtlCaptureContext2.c)
+ *     RtlCaptureContext2 @ 0x180126BF0 (RtlCaptureContext2.c)
  * Callees:
  *     <none>
  */

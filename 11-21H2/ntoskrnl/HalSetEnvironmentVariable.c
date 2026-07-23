@@ -1,9 +1,9 @@
 /*
  * XREFs of HalSetEnvironmentVariable @ 0x140508720
  * Callers:
- *     NtSetSystemEnvironmentValue @ 0x140A01700 (NtSetSystemEnvironmentValue.c)
+ *     sub_140A01700 @ 0x140A01700 (sub_140A01700.c)
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x14022D9F0 (HalpAcquireCmosSpinLock.c)
+ *     sub_14022D9F0 @ 0x14022D9F0 (sub_14022D9F0.c)
  *     _stricmp @ 0x1403E1190 (_stricmp.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall HalSetEnvironmentVariable(const char *a1, const char *a2)
   __int64 v10; // r8
   unsigned __int8 v11; // al
 
-  if ( HalFirmwareTypeEfi )
+  if ( byte_140C4BFC8 )
     return 7LL;
   if ( stricmp(a1, "LastKnownGood") )
     return 16LL;
@@ -26,7 +26,7 @@ __int64 __fastcall HalSetEnvironmentVariable(const char *a1, const char *a2)
   {
     if ( !stricmp(a2, "FALSE") )
     {
-      HalpAcquireCmosSpinLock(v9, v8, v10);
+      sub_14022D9F0(v9, v8, v10);
       __outbyte(0x70u, 0xBu);
       v11 = __inbyte(0x71u);
       __outbyte(0x70u, 0xBu);
@@ -35,14 +35,14 @@ __int64 __fastcall HalSetEnvironmentVariable(const char *a1, const char *a2)
     }
     return 16LL;
   }
-  HalpAcquireCmosSpinLock(v5, v4, v6);
+  sub_14022D9F0(v5, v4, v6);
   __outbyte(0x70u, 0xBu);
   v7 = __inbyte(0x71u);
   __outbyte(0x70u, 0xBu);
   __outbyte(0x71u, v7 | 1);
 LABEL_8:
-  _InterlockedExchange(&HalpSystemHardwareLock, -1);
-  if ( HalpSystemHardwareLockInterruptsEnabled )
+  _InterlockedExchange(&dword_140C0B460, -1);
+  if ( byte_140C4C1F0 )
     _enable();
   return 0LL;
 }

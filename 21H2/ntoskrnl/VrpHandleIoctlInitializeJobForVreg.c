@@ -4,11 +4,11 @@
  *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
- *     RtlUnicodeStringCopy @ 0x140206CD0 (RtlUnicodeStringCopy.c)
- *     PsIsThreadInSilo @ 0x14025C988 (PsIsThreadInSilo.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsIsThreadInSilo @ 0x14027DEF8 (PsIsThreadInSilo.c)
+ *     RtlUnicodeStringCopy @ 0x1402AB600 (RtlUnicodeStringCopy.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
  *     VrpIncrementSiloCount @ 0x1405D2494 (VrpIncrementSiloCount.c)
  *     CmInitSiloNamespace @ 0x1405D2580 (CmInitSiloNamespace.c)
  *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
@@ -18,11 +18,11 @@
  *     CmSetCallbackObjectContext @ 0x1405D5830 (CmSetCallbackObjectContext.c)
  *     VrpAllocateKeyContext @ 0x1405D5A24 (VrpAllocateKeyContext.c)
  *     VrpFreeKeyContext @ 0x1405D5A80 (VrpFreeKeyContext.c)
- *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     VrpInitializeNamespaceNodeList @ 0x140863C90 (VrpInitializeNamespaceNodeList.c)
- *     PsRemoveSiloContext @ 0x140905B70 (PsRemoveSiloContext.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObCreateObject @ 0x1406ABDC0 (ObCreateObject.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     VrpInitializeNamespaceNodeList @ 0x140863DE8 (VrpInitializeNamespaceNodeList.c)
+ *     PsRemoveSiloContext @ 0x140905CD0 (PsRemoveSiloContext.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(

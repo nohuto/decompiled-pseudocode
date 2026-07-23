@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpPrint @ 0x140B78F08
+ * XREFs of KdpPrint @ 0x140B7AF08
  * Callers:
- *     KdpTrap @ 0x140B752B8 (KdpTrap.c)
+ *     KdpTrap @ 0x140B772B8 (KdpTrap.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KdExitDebugger @ 0x140B75008 (KdExitDebugger.c)
- *     KdpQuickMoveMemory @ 0x140B75490 (KdpQuickMoveMemory.c)
- *     KdLogDbgPrint @ 0x140B78C20 (KdLogDbgPrint.c)
- *     KdpPrintString @ 0x140B79CE8 (KdpPrintString.c)
- *     KdEnterDebugger @ 0x140B7A96C (KdEnterDebugger.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KdExitDebugger @ 0x140B77008 (KdExitDebugger.c)
+ *     KdpQuickMoveMemory @ 0x140B77490 (KdpQuickMoveMemory.c)
+ *     KdLogDbgPrint @ 0x140B7AC20 (KdLogDbgPrint.c)
+ *     KdpPrintString @ 0x140B7BCE8 (KdpPrintString.c)
+ *     KdEnterDebugger @ 0x140B7C96C (KdEnterDebugger.c)
  */
 
 __int64 __fastcall KdpPrint(
@@ -30,11 +30,10 @@ __int64 __fastcall KdpPrint(
   char v14; // si
   unsigned __int64 v15; // rdx
   __int64 v16; // rcx
-  __int64 v17; // r8
-  _BYTE v19[480]; // [rsp+0h] [rbp-200h] BYREF
-  __int128 v20; // [rsp+200h] [rbp+0h] BYREF
+  _BYTE v18[480]; // [rsp+0h] [rbp-200h] BYREF
+  __int128 v19; // [rsp+200h] [rbp+0h] BYREF
 
-  v20 = 0LL;
+  v19 = 0LL;
   v8 = 101LL;
   if ( a1 < 0x9C )
     v8 = a1;
@@ -52,19 +51,19 @@ __int64 __fastcall KdpPrint(
     if ( a5 )
     {
       v12 = alloca(512LL);
-      KdpQuickMoveMemory((__int64)v19, a3, v11);
+      KdpQuickMoveMemory((__int64)v18, a3, v11);
       a3 = v13;
     }
-    *((_QWORD *)&v20 + 1) = a3;
-    LOWORD(v20) = v11;
-    KdLogDbgPrint((void **)&v20);
+    *((_QWORD *)&v19 + 1) = a3;
+    LOWORD(v19) = v11;
+    KdLogDbgPrint((void **)&v19);
     if ( (_BYTE)KdDebuggerNotPresent && !KdEventLoggingPresent )
     {
       v10 = -1073741667;
       goto LABEL_24;
     }
     v14 = KdEnterDebugger(a6, a7);
-    if ( (unsigned __int8)KdpPrintString(&v20) )
+    if ( (unsigned __int8)KdpPrintString(&v19) )
     {
       v10 = -2147483645;
       if ( KdDisableNoUmExBreakFix || !a5 || !KdIgnoreUmExceptions )
@@ -74,7 +73,7 @@ __int64 __fastcall KdpPrint(
     v10 = 0;
 LABEL_23:
     LOBYTE(v16) = v14;
-    KdExitDebugger(v16, v15, v17);
+    KdExitDebugger(v16, v15);
     goto LABEL_24;
   }
   v10 = 0;

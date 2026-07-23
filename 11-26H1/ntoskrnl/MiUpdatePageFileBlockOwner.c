@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdatePageFileBlockOwner @ 0x14030D080
+ * XREFs of MiUpdatePageFileBlockOwner @ 0x1402EF100
  * Callers:
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiTransferPageFileOwnership @ 0x14030B56C (MiTransferPageFileOwnership.c)
- *     MiHandleForkPagefilePte @ 0x14030CE54 (MiHandleForkPagefilePte.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiTransferPageFileOwnership @ 0x1402ED5EC (MiTransferPageFileOwnership.c)
+ *     MiHandleForkPagefilePte @ 0x1402EEED4 (MiHandleForkPagefilePte.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiWriteEntirePageHashEntry @ 0x14048F464 (MiWriteEntirePageHashEntry.c)
- *     MiPageHashBugCheck @ 0x14052F994 (MiPageHashBugCheck.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWriteEntirePageHashEntry @ 0x140488EA4 (MiWriteEntirePageHashEntry.c)
+ *     MiPageHashBugCheck @ 0x140531E94 (MiPageHashBugCheck.c)
  */
 
 void __fastcall MiUpdatePageFileBlockOwner(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, int a5)
@@ -25,7 +25,7 @@ void __fastcall MiUpdatePageFileBlockOwner(__int64 a1, unsigned int a2, __int64 
   __int128 v17; // [rsp+30h] [rbp-18h] BYREF
 
   v17 = 0LL;
-  if ( dword_140E35F50 )
+  if ( dword_140E360D0 )
   {
     v8 = (volatile LONG *)(a1 + 200);
     v9 = a4 | 1;
@@ -34,7 +34,7 @@ void __fastcall MiUpdatePageFileBlockOwner(__int64 a1, unsigned int a2, __int64 
     v11 = v8;
     if ( !v10 )
       goto LABEL_14;
-    v12 = v10 + dword_140E35F4C * a2;
+    v12 = v10 + dword_140E360CC * a2;
     if ( (*(_QWORD *)(((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 1) == 0 )
       goto LABEL_14;
     v13 = *(_QWORD *)(v12 + 8);
@@ -54,8 +54,8 @@ LABEL_15:
     {
       goto LABEL_13;
     }
-    ++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[20];
-    if ( !*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[8] )
+    ++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[20];
+    if ( !*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[8] )
     {
       MiWriteEntirePageHashEntry(&v17, v12);
       DWORD1(v17) = *(_DWORD *)(v15 + 4);

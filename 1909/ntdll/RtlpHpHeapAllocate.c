@@ -15,7 +15,7 @@
 
 volatile signed __int64 *__fastcall RtlpHpHeapAllocate(__int64 a1, unsigned int a2, __int128 *a3)
 {
-  __int64 v4; // rsi
+  ULONG_PTR v4; // rsi
   int v5; // edi
   __int16 v6; // r15
   __int128 v7; // xmm0
@@ -26,25 +26,25 @@ volatile signed __int64 *__fastcall RtlpHpHeapAllocate(__int64 a1, unsigned int 
   __int64 v12; // rcx
   int v13; // r10d
   unsigned __int64 v14; // r11
-  int v15; // ebx
+  ULONG v15; // ebx
   __int64 v16; // rcx
   volatile signed __int64 *v17; // rbx
-  unsigned __int64 v18; // rcx
+  ULONG_PTR v18; // rcx
   __int64 v20; // rax
-  unsigned __int64 v21; // [rsp+30h] [rbp-39h] BYREF
+  ULONG_PTR v21[2]; // [rsp+30h] [rbp-39h] BYREF
   __int128 v22; // [rsp+40h] [rbp-29h] BYREF
   __int128 v23; // [rsp+50h] [rbp-19h] BYREF
   __int128 v24; // [rsp+60h] [rbp-9h] BYREF
-  __int128 v25; // [rsp+70h] [rbp+7h] BYREF
-  __int128 v26; // [rsp+80h] [rbp+17h] BYREF
+  __int64 v25[2]; // [rsp+70h] [rbp+7h] BYREF
+  __int64 v26[2]; // [rsp+80h] [rbp+17h] BYREF
   __int128 v27; // [rsp+90h] [rbp+27h] BYREF
-  void *v28; // [rsp+E0h] [rbp+77h] BYREF
-  unsigned __int64 v29; // [rsp+E8h] [rbp+7Fh] BYREF
+  PVOID BaseAddress; // [rsp+E0h] [rbp+77h] BYREF
+  ULONG_PTR RegionSize; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v28 = 0LL;
+  BaseAddress = 0LL;
   v4 = 4096LL;
   v5 = 0;
-  v21 = 4096LL;
+  v21[0] = 4096LL;
   v6 = 1;
   v7 = *a3;
   v8 = 64LL;
@@ -58,7 +58,7 @@ volatile signed __int64 *__fastcall RtlpHpHeapAllocate(__int64 a1, unsigned int 
       + (unsigned int)v8 * (v9 + 64)
       - (((_BYTE)v10 - 1) & 0x3F)
       + ((unsigned __int64)(((unsigned int)RtlpHpLfhPerfFlags >> 10) & 1) << 6);
-  v29 = 129 * v11 + 10175 - ((129 * (_WORD)v11 + 10174) & 0xFFF) + 4095;
+  RegionSize = 129 * v11 + 10175 - ((129 * (_WORD)v11 + 10174) & 0xFFF) + 4095;
   v12 = *(_QWORD *)RtlpHpMetadataHeapCtxGet(&v23);
   if ( !v12
     || (RtlpHpAppCompatFlags & 8) != 0
@@ -67,29 +67,29 @@ volatile signed __int64 *__fastcall RtlpHpHeapAllocate(__int64 a1, unsigned int 
     || v14 >= *(unsigned int *)(v12 + 464) )
   {
     v5 = BYTE1(v22) < 2u ? 0x1000000 : 0;
-    v25 = v7;
+    *(_OWORD *)v25 = v7;
     v15 = (v13 & 0x40000000) != 0 ? 64 : 4;
-    if ( (int)RtlpHpAllocVA(&v28, &v29, 0LL, v5 | 0x2000u, v15, &v25) >= 0 )
+    if ( (int)RtlpHpAllocVA(&BaseAddress, &RegionSize, 0LL, v5 | 0x2000u, v15, (__int128 *)v25) >= 0 )
     {
-      v26 = *a3;
-      if ( (int)RtlpHpAllocVA(&v28, &v21, 0LL, v5 | 0x1000u, v15, &v26) >= 0 )
+      *(_OWORD *)v26 = *a3;
+      if ( (int)RtlpHpAllocVA(&BaseAddress, v21, 0LL, v5 | 0x1000u, v15, (__int128 *)v26) >= 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v16 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
           v16 = 2147353472LL;
         if ( *(_BYTE *)v16 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
         {
-          v4 = v21;
-          RtlpLogHeapCommit(v28, v28, v21, 11LL);
+          v4 = v21[0];
+          RtlpLogHeapCommit(BaseAddress, BaseAddress, v21[0], 11LL);
         }
         else
         {
-          v4 = v21;
+          v4 = v21[0];
         }
-        v17 = (volatile signed __int64 *)v28;
+        v17 = (volatile signed __int64 *)BaseAddress;
         v6 = 0;
-        v28 = 0LL;
+        BaseAddress = 0LL;
         goto LABEL_11;
       }
     }
@@ -103,23 +103,23 @@ volatile signed __int64 *__fastcall RtlpHpHeapAllocate(__int64 a1, unsigned int 
     if ( v20 )
     {
       v24 = *a3;
-      RtlpHpMetadataCommit(v20, v20 + 4096, v29 - 4096, (unsigned int)&v24, 0);
+      RtlpHpMetadataCommit(v20, v20 + 4096, RegionSize - 4096, (unsigned int)&v24, 0);
 LABEL_11:
       memset((void *)v17, 0, 0x800uLL);
       *((_QWORD *)v17 + 29) = v17 + 256;
       *((_QWORD *)v17 + 30) = (char *)v17 + v4;
-      v18 = v29;
+      v18 = RegionSize;
       *((_WORD *)v17 + 15) &= ~1u;
       *((_WORD *)v17 + 15) |= v6;
       *((_QWORD *)v17 + 31) = (char *)v17 + v18;
-      _InterlockedExchangeAdd64(v17 + 16, v29 >> 12);
-      _InterlockedExchangeAdd64(v17 + 17, v21 >> 12);
+      _InterlockedExchangeAdd64(v17 + 16, RegionSize >> 12);
+      _InterlockedExchangeAdd64(v17 + 17, v21[0] >> 12);
     }
   }
-  if ( v28 )
+  if ( BaseAddress )
   {
     v27 = *a3;
-    RtlpHpFreeVA((unsigned __int64 *)&v28, &v29, v5 | 0x8000, &v27);
+    RtlpHpFreeVA(&BaseAddress, &RegionSize, v5 | 0x8000, &v27);
   }
   return v17;
 }

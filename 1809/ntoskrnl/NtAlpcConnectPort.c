@@ -1,23 +1,36 @@
 /*
- * XREFs of NtAlpcConnectPort @ 0x1406113E0
+ * XREFs of NtAlpcConnectPort @ 0x1406123E0
  * Callers:
  *     <none>
  * Callees:
- *     AlpcpConnectPort @ 0x1406144A4 (AlpcpConnectPort.c)
+ *     AlpcpConnectPort @ 0x1406154A4 (AlpcpConnectPort.c)
  */
 
-__int64 __fastcall NtAlpcConnectPort(
-        int a1,
-        int a2,
-        int a3,
-        __int64 a4,
-        int a5,
-        void *a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+NTSTATUS __cdecl NtAlpcConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
-  return AlpcpConnectPort(a1, a2, 0, a3, a4, a5, 0LL, a6, a7, a8, a9, a10, a11);
+  return AlpcpConnectPort(
+           (int)PortHandle,
+           (int)PortName,
+           0,
+           (int)ObjectAttributes,
+           (__int64)PortAttributes,
+           Flags,
+           0LL,
+           RequiredServerSid,
+           (__int64)ConnectionMessage,
+           (__int64)BufferLength,
+           (__int64)OutMessageAttributes,
+           (__int64)InMessageAttributes,
+           (__int64)Timeout);
 }

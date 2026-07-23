@@ -177,12 +177,12 @@
  *     <none>
  */
 
-unsigned int *__fastcall RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  unsigned int *result; // rax
+  _DWORD *SharedData; // rax
 
-  result = (unsigned int *)NtCurrentPeb()->SharedData;
-  if ( result )
-    return (unsigned int *)*result;
-  return result;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData )
+    LODWORD(SharedData) = *SharedData;
+  return (unsigned int)SharedData;
 }

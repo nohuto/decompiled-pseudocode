@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializePoolPageChainPacket @ 0x1403665CC
+ * XREFs of MiInitializePoolPageChainPacket @ 0x14036836C
  * Callers:
- *     MiGetPoolPages @ 0x140365A30 (MiGetPoolPages.c)
+ *     MiGetPoolPages @ 0x1403677D0 (MiGetPoolPages.c)
  * Callees:
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
  */
 
 __int64 __fastcall MiInitializePoolPageChainPacket(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -23,9 +23,9 @@ __int64 __fastcall MiInitializePoolPageChainPacket(int a1, __int64 a2, __int64 a
 
   *(_QWORD *)(a4 + 16) = 0LL;
   *(_QWORD *)a4 = &MiSystemPartition;
-  p_PageColor = (unsigned int *)&unk_140E37440;
+  p_PageColor = (unsigned int *)&unk_140E375C0;
   v5 = *(_DWORD *)(a4 + 28) & 0xFFFFFFEF;
-  *(_QWORD *)(a4 + 8) = &unk_140E37440;
+  *(_QWORD *)(a4 + 8) = &unk_140E375C0;
   *(_DWORD *)(a4 + 24) = a1;
   *(_DWORD *)(a4 + 28) = v5 | 0x20;
   if ( a1 )
@@ -36,7 +36,7 @@ __int64 __fastcall MiInitializePoolPageChainPacket(int a1, __int64 a2, __int64 a
   else
   {
     CurrentThread = KeGetCurrentThread();
-    if ( (dword_140E374F8 & 0xF) == 0 && CurrentThread->ApcStateIndex == 1 )
+    if ( (dword_140E37678 & 0xF) == 0 && CurrentThread->ApcStateIndex == 1 )
     {
       IdealGlobalNode = CurrentThread->ApcState.Process->IdealGlobalNode;
       CurrentPrcb = KeGetCurrentPrcb();
@@ -49,7 +49,7 @@ __int64 __fastcall MiInitializePoolPageChainPacket(int a1, __int64 a2, __int64 a
   }
   v10 = MiAssignDefaultChannel(IdealGlobalNode);
   *(_DWORD *)(v12 + 48) = ((2 * (v13 & 0x3F | 0x380)) | v10 & 1) << 8;
-  if ( (dword_140E374F8 & 0xF) != 0 )
+  if ( (dword_140E37678 & 0xF) != 0 )
     p_PageColor = &CurrentPrcb->PageColor;
   *(_QWORD *)(v12 + 40) = p_PageColor;
   v14 = *(_DWORD *)(v12 + 48) & 0xFFF3FFFF | 0x40000;

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializePartitionFreeZeroLists @ 0x1408699E8
+ * XREFs of MiInitializePartitionFreeZeroLists @ 0x14086FDC8
  * Callers:
- *     MiInitializePartition @ 0x140869360 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14086F740 (MiInitializePartition.c)
  * Callees:
- *     MiMakeColor @ 0x14042FB20 (MiMakeColor.c)
- *     MiColorSetHighLow @ 0x14045D020 (MiColorSetHighLow.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     MiInitializeFreeZeroPfnListHead @ 0x1406F0898 (MiInitializeFreeZeroPfnListHead.c)
+ *     MiMakeColor @ 0x14041CB50 (MiMakeColor.c)
+ *     MiColorSetHighLow @ 0x140456BC0 (MiColorSetHighLow.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     MiInitializeFreeZeroPfnListHead @ 0x1406F5508 (MiInitializeFreeZeroPfnListHead.c)
  */
 
 __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
 {
   __int64 result; // rax
-  union _SLIST_HEADER *v2; // r13
+  _SLIST_HEADER *v2; // r13
   unsigned int v3; // ebx
   bool v4; // cf
   __int64 v5; // r8
@@ -21,7 +21,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
   _QWORD *v8; // rax
   __int64 v9; // rcx
   __int64 v10; // rdx
-  union _SLIST_HEADER **v11; // rdi
+  _SLIST_HEADER **v11; // rdi
   __int64 v12; // r14
   __int64 v13; // rbp
   int *v14; // rax
@@ -45,7 +45,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
   __int64 v32; // [rsp+38h] [rbp-80h]
   int *v33; // [rsp+40h] [rbp-78h]
   __int64 v34; // [rsp+48h] [rbp-70h]
-  union _SLIST_HEADER *v35; // [rsp+50h] [rbp-68h]
+  _SLIST_HEADER *v35; // [rsp+50h] [rbp-68h]
   __int64 v36; // [rsp+58h] [rbp-60h]
   __int64 v37; // [rsp+60h] [rbp-58h]
   __int16 v38; // [rsp+C0h] [rbp+8h]
@@ -54,7 +54,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
   unsigned int v41; // [rsp+D8h] [rbp+20h]
 
   result = a1[2093];
-  v2 = (union _SLIST_HEADER *)a1[2094];
+  v2 = (_SLIST_HEADER *)a1[2094];
   v3 = 0;
   v4 = KeNumberNodes != 0;
   v5 = a1[939];
@@ -66,10 +66,10 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
     v34 = v6;
     if ( !v4 )
       break;
-    v7 = (unsigned int)dword_140E2D78C;
+    v7 = (unsigned int)dword_140E2D90C;
     v8 = (_QWORD *)(v6 + 4096);
     v9 = 3LL;
-    v10 = 8LL * (unsigned int)dword_140E2D78C;
+    v10 = 8LL * (unsigned int)dword_140E2D90C;
     do
     {
       *v8 = v5;
@@ -79,7 +79,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
     }
     while ( v9 );
     v37 = v5;
-    v11 = (union _SLIST_HEADER **)(v6 + 13856);
+    v11 = (_SLIST_HEADER **)(v6 + 13856);
     v12 = 2LL;
     do
     {
@@ -99,9 +99,9 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
       --v12;
     }
     while ( v12 );
-    v14 = dword_140E2D780;
+    v14 = dword_140E2D900;
     v15 = 0;
-    v33 = dword_140E2D780;
+    v33 = dword_140E2D900;
     v16 = (_DWORD *)v6;
     do
     {
@@ -117,7 +117,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
         do
         {
           v21 = 0;
-          if ( byte_140E2D718 )
+          if ( byte_140E2D898 )
           {
             v22 = 2 * (v19 + 2 * i);
             do
@@ -152,7 +152,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
               while ( v24 < 3 );
               ++v21;
             }
-            while ( v21 < (unsigned __int8)byte_140E2D718 );
+            while ( v21 < (unsigned __int8)byte_140E2D898 );
             v19 = v32;
           }
           ++v19;

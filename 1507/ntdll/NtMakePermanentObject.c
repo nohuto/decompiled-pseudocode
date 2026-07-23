@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtMakePermanentObject()
+NTSTATUS __cdecl NtMakePermanentObject(HANDLE Handle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 253LL;
+  result = 253;
   __asm { syscall; Low latency system call }
   return result;
 }

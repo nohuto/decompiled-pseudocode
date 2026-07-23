@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializeUtcTimeZoneBias @ 0x140763F78
+ * XREFs of ExInitializeUtcTimeZoneBias @ 0x140765168
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExpWriteTimeZoneBias @ 0x140583B28 (ExpWriteTimeZoneBias.c)
- *     RtlQueryDynamicTimeZoneInformation @ 0x140699AE0 (RtlQueryDynamicTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x140734C60 (RtlCutoverTimeToSystemTime.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlTimeToTimeFields @ 0x14015DB20 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExpWriteTimeZoneBias @ 0x140584B28 (ExpWriteTimeZoneBias.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x14069ACA0 (RtlQueryDynamicTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x140735E50 (RtlCutoverTimeToSystemTime.c)
  */
 
 __int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER CurrentTime)
@@ -34,11 +34,11 @@ __int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER CurrentTime)
   LARGE_INTEGER v20; // [rsp+48h] [rbp-C0h]
   int v21; // [rsp+50h] [rbp-B8h]
   int v22; // [rsp+54h] [rbp-B4h]
-  struct _TIME_FIELDS TimeFields; // [rsp+58h] [rbp-B0h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+58h] [rbp-B0h] BYREF
   _DWORD v24[17]; // [rsp+68h] [rbp-A0h] BYREF
-  struct _TIME_FIELDS CutoverTimeFields; // [rsp+ACh] [rbp-5Ch] BYREF
+  _TIME_FIELDS CutoverTimeFields; // [rsp+ACh] [rbp-5Ch] BYREF
   int v26; // [rsp+BCh] [rbp-4Ch]
-  struct _TIME_FIELDS v27; // [rsp+100h] [rbp-8h] BYREF
+  _TIME_FIELDS v27; // [rsp+100h] [rbp-8h] BYREF
   int v28; // [rsp+110h] [rbp+8h]
 
   if ( !ExpRealTimeIsUniversal )

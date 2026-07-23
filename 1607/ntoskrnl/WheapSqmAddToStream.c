@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapSqmAddToStream @ 0x1406BBB7C
+ * XREFs of WheapSqmAddToStream @ 0x1406BBCB4
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x1406BA850 (WheapAttemptPhysicalPageOffline.c)
- *     WheapPfaMemoryCheck @ 0x1406BB4C4 (WheapPfaMemoryCheck.c)
- *     WheapPfaRetireExpiredMemoryEntries @ 0x1406BB818 (WheapPfaRetireExpiredMemoryEntries.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1406BA988 (WheapAttemptPhysicalPageOffline.c)
+ *     WheapPfaMemoryCheck @ 0x1406BB5FC (WheapPfaMemoryCheck.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x1406BB950 (WheapPfaRetireExpiredMemoryEntries.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __fastcall WheapSqmAddToStream(int a1, unsigned int a2, __int64 a3)
@@ -37,7 +37,7 @@ NTSTATUS __fastcall WheapSqmAddToStream(int a1, unsigned int a2, __int64 a3)
   {
     *(_QWORD *)&UserData[0].Size = 4LL;
     UserData[0].Ptr = (ULONGLONG)&v15;
-    UserData[1].Ptr = (ULONGLONG)&unk_140287128;
+    UserData[1].Ptr = (ULONGLONG)&unk_140287218;
     UserData[2].Ptr = (ULONGLONG)&v17;
     UserData[3].Ptr = (ULONGLONG)&v18;
     *(_QWORD *)&UserData[1].Size = 16LL;
@@ -53,7 +53,7 @@ NTSTATUS __fastcall WheapSqmAddToStream(int a1, unsigned int a2, __int64 a3)
         *(_QWORD *)&p_Reserved[-1].Reserved = 4LL;
         v9 = *((_DWORD *)v7 - 2);
         *(_QWORD *)&p_Reserved[-3].Reserved = v7 - 1;
-        v10 = (const wchar_t **)&unk_140287120;
+        v10 = (const wchar_t **)&unk_140287210;
         if ( v9 == 1 )
           v10 = v7;
         *(_QWORD *)&p_Reserved[3].Reserved = 4LL;

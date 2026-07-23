@@ -1,18 +1,18 @@
 /*
- * XREFs of PopRequestPowerIrp @ 0x140172560
+ * XREFs of PopRequestPowerIrp @ 0x140172660
  * Callers:
  *     PopScanIdleList @ 0x140010050 (PopScanIdleList.c)
- *     PopFxReleasePowerIrp @ 0x1401715E8 (PopFxReleasePowerIrp.c)
- *     PoRequestPowerIrp @ 0x140172530 (PoRequestPowerIrp.c)
+ *     PopFxReleasePowerIrp @ 0x1401716E8 (PopFxReleasePowerIrp.c)
+ *     PoRequestPowerIrp @ 0x140172630 (PoRequestPowerIrp.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PopMapInternalActionToIrpAction @ 0x140143458 (PopMapInternalActionToIrpAction.c)
- *     PopAllocateIrp @ 0x14017273C (PopAllocateIrp.c)
- *     PopQueueQuerySetIrp @ 0x140172A8C (PopQueueQuerySetIrp.c)
- *     PopDiagTraceIrpStart @ 0x140172D20 (PopDiagTraceIrpStart.c)
- *     IofCallDriverSpecifyReturn @ 0x1401731D0 (IofCallDriverSpecifyReturn.c)
- *     PopPepDeviceWaitWake @ 0x1402DCC84 (PopPepDeviceWaitWake.c)
- *     PopLogNotifyDevice @ 0x1402DE66C (PopLogNotifyDevice.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PopMapInternalActionToIrpAction @ 0x140143558 (PopMapInternalActionToIrpAction.c)
+ *     PopAllocateIrp @ 0x14017283C (PopAllocateIrp.c)
+ *     PopQueueQuerySetIrp @ 0x140172B8C (PopQueueQuerySetIrp.c)
+ *     PopDiagTraceIrpStart @ 0x140172E20 (PopDiagTraceIrpStart.c)
+ *     IofCallDriverSpecifyReturn @ 0x1401732D0 (IofCallDriverSpecifyReturn.c)
+ *     PopPepDeviceWaitWake @ 0x1402DCE74 (PopPepDeviceWaitWake.c)
+ *     PopLogNotifyDevice @ 0x1402DE85C (PopLogNotifyDevice.c)
  */
 
 __int64 __fastcall PopRequestPowerIrp(__int64 a1, char a2, ULONG a3, __int64 a4, __int64 a5, char a6, PIRP Irp)
@@ -77,10 +77,10 @@ LABEL_20:
         v17[-1].Parameters.Read.Length = HIDWORD(PopCurrentBroadcast);
         if ( (_BYTE)PopCurrentBroadcast )
           v17[-1].Parameters.Create.EaLength = PopMapInternalActionToIrpAction(
-                                                 qword_1404176A8,
+                                                 qword_140418728,
                                                  WORD2(PopCurrentBroadcast) >> 12,
                                                  1);
-        if ( (xmmword_140541350 & 0x8000) != 0 )
+        if ( (xmmword_140542350 & 0x8000) != 0 )
           PopLogNotifyDevice(a1, 0LL, v13);
         PopQueueQuerySetIrp(v13);
       }

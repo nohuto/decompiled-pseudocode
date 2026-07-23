@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateMemoryBlock @ 0x1407E8F90
+ * XREFs of MiAllocateMemoryBlock @ 0x1407E9560
  * Callers:
- *     MiAllocateInitialMemoryBlocks @ 0x1407E8EA4 (MiAllocateInitialMemoryBlocks.c)
- *     MiExtendMemoryBlocks @ 0x1407E94C4 (MiExtendMemoryBlocks.c)
+ *     MiAllocateInitialMemoryBlocks @ 0x1407E9474 (MiAllocateInitialMemoryBlocks.c)
+ *     MiExtendMemoryBlocks @ 0x1407E9A94 (MiExtendMemoryBlocks.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
  */
 
 __int64 __fastcall MiAllocateMemoryBlock(unsigned int *a1, unsigned int a2, int a3)

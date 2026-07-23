@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x1406E1FD0
+ * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x1406E2108
  * Callers:
- *     DrvDbSetDeviceIdMappedProperty @ 0x1406E2304 (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x1406E243C (DrvDbSetDeviceIdMappedProperty.c)
  * Callees:
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     wcsncmp @ 0x14014F040 (wcsncmp.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     wcsncmp @ 0x14014F600 (wcsncmp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _PnpCtxRegEnumValue @ 0x1404D5ABC (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1404D5B08 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegDeleteValue @ 0x1404F0DB4 (_PnpCtxRegDeleteValue.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406E334C (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     _PnpCtxRegEnumValue @ 0x1404B90C0 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1404B910C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x1404D2EA8 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406E3484 (DrvDbSplitDeviceIdDriverInfMatch.c)
  */
 
 __int64 __fastcall DrvDbSetDeviceIdDriverInfMatches(__int64 a1, void *a2, const wchar_t *a3, __int64 a4)
@@ -164,8 +164,8 @@ LABEL_37:
           if ( InfoKey < 0 )
             break;
           v24 = v34[0]
-              ? PnpCtxRegSetValue(v23, v5, (__int64)PoolWithTag, 3LL, (__int64)v34, 4u)
-              : PnpCtxRegSetValue(v23, v5, (__int64)PoolWithTag, 0LL, 0LL, 0);
+              ? PnpCtxRegSetValue(v23, v5, (const WCHAR *)PoolWithTag, 3u, v34, 4u)
+              : PnpCtxRegSetValue(v23, v5, (const WCHAR *)PoolWithTag, 0, 0LL, 0);
           InfoKey = v24;
           if ( v24 < 0 )
             break;

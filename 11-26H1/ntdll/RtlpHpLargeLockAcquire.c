@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpLargeLockAcquire @ 0x180089C88
+ * XREFs of RtlpHpLargeLockAcquire @ 0x18007100C
  * Callers:
- *     RtlpHpSegContextCompact @ 0x180016214 (RtlpHpSegContextCompact.c)
- *     RtlpHpLargeFree @ 0x18008918C (RtlpHpLargeFree.c)
- *     RtlpHpLargeReAlloc @ 0x180089604 (RtlpHpLargeReAlloc.c)
- *     RtlpHpLargeAlloc @ 0x18008A18C (RtlpHpLargeAlloc.c)
- *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x180096BC0 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
- *     RtlpHpSegSuballocatorFree @ 0x180096C50 (RtlpHpSegSuballocatorFree.c)
- *     RtlpHpSegPageRangeAllocate @ 0x180096D10 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeShrink @ 0x180096F44 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextCompact @ 0x180061944 (RtlpHpSegContextCompact.c)
+ *     RtlpHpLargeAlloc @ 0x18006FE4C (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeReAlloc @ 0x1800710A8 (RtlpHpLargeReAlloc.c)
+ *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x1800714A4 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpSegSuballocatorFree @ 0x180071530 (RtlpHpSegSuballocatorFree.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1800715F0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x180071824 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpLargeFree @ 0x18008058C (RtlpHpLargeFree.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpHpLargeLockAcquire(__int64 a1, __int64 a2)
+char __fastcall RtlpHpLargeLockAcquire(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 64), a2);
+  RtlAcquireSRWLockExclusive(a1 + 8);
   return -1;
 }

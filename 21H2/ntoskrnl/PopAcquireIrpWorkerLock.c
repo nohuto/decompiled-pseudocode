@@ -1,9 +1,9 @@
 /*
- * XREFs of PopAcquireIrpWorkerLock @ 0x140577BD0
+ * XREFs of PopAcquireIrpWorkerLock @ 0x140577E10
  * Callers:
- *     PopIrpWorker @ 0x14039FE70 (PopIrpWorker.c)
+ *     PopIrpWorker @ 0x14039FFC0 (PopIrpWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 void PopAcquireIrpWorkerLock()

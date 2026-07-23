@@ -1,11 +1,11 @@
 /*
- * XREFs of KiGenerateHeteroSets @ 0x140202060
+ * XREFs of KiGenerateHeteroSets @ 0x14032A750
  * Callers:
- *     KiEvaluatePreemptionSwapTarget @ 0x140200FAC (KiEvaluatePreemptionSwapTarget.c)
- *     KiTallyHeteroSoftParkElectionVotes @ 0x1402018D0 (KiTallyHeteroSoftParkElectionVotes.c)
- *     KiCheckPreferredHeteroProcessor @ 0x14029D8F0 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041FF3C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
- *     KiHeteroSelectIdleProcessorFromSubNode @ 0x1404E9430 (KiHeteroSelectIdleProcessorFromSubNode.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402AC3E0 (KiCheckPreferredHeteroProcessor.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x1403296A0 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x140329FC0 (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041592C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiHeteroSelectIdleProcessorFromSubNode @ 0x1404E0130 (KiHeteroSelectIdleProcessorFromSubNode.c)
  * Callees:
  *     <none>
  */

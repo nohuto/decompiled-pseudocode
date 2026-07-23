@@ -1,19 +1,19 @@
 /*
- * XREFs of VRegSetup @ 0x140829110
+ * XREFs of VRegSetup @ 0x140829940
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspStorageAllocSlot @ 0x14077C3E8 (PspStorageAllocSlot.c)
- *     VrpInitializeLoadedDifferencingHives @ 0x140829C38 (VrpInitializeLoadedDifferencingHives.c)
- *     ObSetSecurityObjectByPointer @ 0x1408587B0 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x1409A3530 (IoCreateDevice.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspStorageAllocSlot @ 0x14077C298 (PspStorageAllocSlot.c)
+ *     VrpInitializeLoadedDifferencingHives @ 0x14082A468 (VrpInitializeLoadedDifferencingHives.c)
+ *     ObSetSecurityObjectByPointer @ 0x140854A90 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x1408ABEC0 (IoCreateDevice.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
  */
 
 __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
@@ -40,7 +40,7 @@ __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
 
   DestinationString = 0LL;
   SourceString = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E0A5B0, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E0A620, 0LL, 0LL);
   RtlpQueryRegistryValues(
     -2147483646,
     (int)L"Session Manager\\Configuration Manager",

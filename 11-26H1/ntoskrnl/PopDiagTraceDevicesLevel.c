@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDevicesLevel @ 0x140C063A0
+ * XREFs of PopDiagTraceDevicesLevel @ 0x140C0C5B0
  * Callers:
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDevicesLevel(int a1, int a2, char a3, char a4)
@@ -32,23 +32,16 @@ char __fastcall PopDiagTraceDevicesLevel(int a1, int a2, char a3, char a4)
   }
   if ( !a4 )
     v4 = v5;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v5) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   (PCEVENT_DESCRIPTOR)v4);
+    LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, (PCEVENT_DESCRIPTOR)v4);
     if ( (_BYTE)v5 )
     {
       UserData.Ptr = (ULONGLONG)&v10;
       *(_QWORD *)&UserData.Size = 4LL;
       v8 = &v11;
       v9 = 1LL;
-      LOBYTE(v5) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     (PCEVENT_DESCRIPTOR)v4,
-                     0LL,
-                     2u,
-                     &UserData);
+      LOBYTE(v5) = EtwWrite(PopDiagHandle, (PCEVENT_DESCRIPTOR)v4, 0LL, 2u, &UserData);
     }
   }
   return (char)v5;

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReassessZeroThreads @ 0x1403C698C
+ * XREFs of MiReassessZeroThreads @ 0x1404125C0
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     MiReplenishUltraPageTables @ 0x1403C6DB8 (MiReplenishUltraPageTables.c)
- *     MiAddZeroingThreads @ 0x1403C73C8 (MiAddZeroingThreads.c)
- *     MiLogZeroPageDecision @ 0x1403C79E0 (MiLogZeroPageDecision.c)
- *     MiRestartZeroingPass @ 0x1403C7BD0 (MiRestartZeroingPass.c)
- *     MiGetDesiredZeroTime @ 0x1403C7F64 (MiGetDesiredZeroTime.c)
- *     MiReduceZeroingThreads @ 0x1403C7FBC (MiReduceZeroingThreads.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     MiReplenishUltraPageTables @ 0x1404129EC (MiReplenishUltraPageTables.c)
+ *     MiAddZeroingThreads @ 0x140413008 (MiAddZeroingThreads.c)
+ *     MiLogZeroPageDecision @ 0x140413620 (MiLogZeroPageDecision.c)
+ *     MiRestartZeroingPass @ 0x140413810 (MiRestartZeroingPass.c)
+ *     MiGetDesiredZeroTime @ 0x140413BA4 (MiGetDesiredZeroTime.c)
+ *     MiReduceZeroingThreads @ 0x140413BFC (MiReduceZeroingThreads.c)
  */
 
 void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
@@ -46,7 +46,7 @@ void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
     LowPart = v3->LowPart;
     v24 = v3[22];
     v6 = *(unsigned int *)(v24.QuadPart + 56);
-    if ( byte_140E2DB41 )
+    if ( byte_140E2DC81 )
       MiReplenishUltraPageTables(v3[14].LowPart, 0LL);
     v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3[26].QuadPart + 15280));
     if ( *(_DWORD *)(a1 + 388) < 0x1000u )
@@ -72,7 +72,7 @@ LABEL_23:
       v10.QuadPart = 10000000 * v10.QuadPart / PerformanceFrequency.QuadPart;
     v3[13] = v10;
     v11 = v3[12].QuadPart / ((unsigned __int64)(HighPart << 12) >> 9);
-    v12 = *(_QWORD *)(384 * v6 + qword_140E2DAF8 + 376);
+    v12 = *(_QWORD *)(384 * v6 + qword_140E2DC38 + 376);
     ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v12 + 64));
     DesiredZeroTime = MiGetDesiredZeroTime(v12, LowPart, HighPart);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v12 + 64));
@@ -89,7 +89,7 @@ LABEL_23:
     {
       if ( v11 > DesiredZeroTime + DesiredZeroTime / 0xA && DesiredZeroTime != -1LL )
         goto LABEL_13;
-      ++dword_140EF4C3C;
+      ++dword_140EF4E5C;
       if ( v3[5].LowPart )
         v3[5].QuadPart = 0LL;
       p_HighPart = &v3[5].HighPart;
@@ -119,7 +119,7 @@ LABEL_19:
         goto LABEL_19;
     }
 LABEL_13:
-    ++dword_140EF4C40;
+    ++dword_140EF4E60;
     if ( v3[5].LowPart != 1 )
       v3[5].QuadPart = 1LL;
     p_HighPart = &v3[5].HighPart;

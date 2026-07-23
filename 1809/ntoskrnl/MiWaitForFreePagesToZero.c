@@ -1,27 +1,27 @@
 /*
  * XREFs of MiWaitForFreePagesToZero @ 0x140053280
  * Callers:
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     MiReferencePageRuns @ 0x14012B7A0 (MiReferencePageRuns.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiWaitForFreePagesToZero(__int64 a1, __int64 *a2, unsigned int a3)
@@ -200,23 +200,23 @@ LABEL_9:
           KiRemoveSystemWorkPriorityKick(v46);
         }
         __writecr8((unsigned __int8)CurrentIrql);
-        v47 = ExAcquireSpinLockExclusive(&dword_14043CA00);
+        v47 = ExAcquireSpinLockExclusive(&dword_14043DAC0);
         v14 = v59;
         LOBYTE(CurrentIrql) = v47;
       }
-      if ( !--qword_14043C968 )
+      if ( !--qword_14043DA28 )
       {
-        v13 = (_QWORD *)qword_14043C998;
-        qword_14043C998 = 0LL;
+        v13 = (_QWORD *)qword_14043DA58;
+        qword_14043DA58 = 0LL;
       }
       if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
       {
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_14043CA00, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_14043DAC0, retaddr);
         v14 = v59;
       }
       else
       {
-        dword_14043CA00 = 0;
+        dword_14043DAC0 = 0;
       }
       v21 = KeGetCurrentPrcb();
       v22 = v21->SchedulerAssist;
@@ -337,7 +337,7 @@ LABEL_63:
       v5 = v70;
     }
 LABEL_24:
-    if ( !dword_14043AED0 && (unsigned int)MiSufficientAvailablePages(a1, 160LL) )
+    if ( !dword_14043BF90 && (unsigned int)MiSufficientAvailablePages(a1, 160LL) )
       break;
     KeWaitForSingleObject(v4, WrFreePage, 0, 0, (PLARGE_INTEGER)&MiHalfSecond);
   }
@@ -373,7 +373,7 @@ LABEL_24:
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_14043CA00, v23);
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_14043DAC0, v23);
   }
   else
   {
@@ -390,7 +390,7 @@ LABEL_24:
           KiRemoveSystemWorkPriorityKick(v24);
       }
     }
-    if ( _interlockedbittestandset(&dword_14043CA00, 0x1Fu) )
+    if ( _interlockedbittestandset(&dword_14043DAC0, 0x1Fu) )
     {
       v41 = v24->SchedulerAssist;
       if ( v41 )
@@ -403,21 +403,21 @@ LABEL_24:
             KiRemoveSystemWorkPriorityKick(v24);
         }
       }
-      v71 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_14043CA00, v23);
+      v71 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_14043DAC0, v23);
     }
-    v26 = dword_14043CA00;
+    v26 = dword_14043DAC0;
     while ( (v26 & 0xBFFFFFFF) != 0x80000000 )
     {
       if ( (v26 & 0x40000000) == 0 )
       {
-        v56 = _InterlockedCompareExchange(&dword_14043CA00, v26 | 0x40000000, v26);
+        v56 = _InterlockedCompareExchange(&dword_14043DAC0, v26 | 0x40000000, v26);
         v20 = v26 == v56;
         v26 = v56;
         if ( !v20 )
           continue;
       }
       KeYieldProcessorEx(&v71);
-      v26 = dword_14043CA00;
+      v26 = dword_14043DAC0;
     }
   }
   if ( (ULONG_PTR *)a1 == &MiSystemPartition )
@@ -432,14 +432,14 @@ LABEL_24:
   if ( v27 )
   {
     ++*(v27 - 1);
-    ++qword_14043C968;
+    ++qword_14043DA28;
   }
   if ( (ULONG_PTR *)a1 != &MiSystemPartition )
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 192));
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_14043CA00, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_14043DAC0, retaddr);
   else
-    dword_14043CA00 = 0;
+    dword_14043DAC0 = 0;
   v28 = KeGetCurrentPrcb();
   v29 = v28->SchedulerAssist;
   if ( v29 )

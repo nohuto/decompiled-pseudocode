@@ -44,10 +44,10 @@ __int64 __fastcall PopFxUpdateComponentAccountingEnhanced(__int64 a1, unsigned i
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
       && (unsigned __int8)result >= 2u )

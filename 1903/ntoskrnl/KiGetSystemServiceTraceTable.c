@@ -14,7 +14,7 @@ __int64 KiGetSystemServiceTraceTable()
 {
   PVOID PoolWithTag; // rax
   signed __int64 v1; // rdi
-  _BOOL8 v2; // r8
+  __int64 v2; // r8
   _QWORD *v3; // r15
   __int64 v4; // r12
   signed __int64 v5; // r14
@@ -83,7 +83,7 @@ LABEL_13:
             v7 = v9;
           }
         }
-        RtlRbInsertNodeEx((unsigned __int64 *)v1, v7, v2, v5 - 24);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)v1, (PRTL_BALANCED_NODE)v7, v2, (PRTL_BALANCED_NODE)(v5 - 24));
         v5 += 64LL;
         v3 += 2;
         --v4;

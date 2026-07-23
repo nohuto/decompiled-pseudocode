@@ -1,35 +1,35 @@
 /*
- * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x1408F2DF4
+ * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x140914434
  * Callers:
- *     SepGetCachedHandlesEntry @ 0x1408F26B8 (SepGetCachedHandlesEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x140913D04 (SepGetCachedHandlesEntry.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepAllocateAndInitializeCachedHandleEntry(int *a1, __int64 *a2)
 {
   int v3; // ecx
-  int v5; // r8d
-  unsigned int v6; // esi
+  __int64 v5; // r8
+  ULONG_PTR v6; // rsi
   __int64 Pool2; // rax
   __int64 v8; // rbx
 
   *a2 = 0LL;
   v3 = *a1;
-  v5 = 72;
+  v5 = 72LL;
   if ( v3 )
   {
     if ( v3 == 1 )
-      v5 = *((unsigned __int16 *)a1 + 5) + 72;
+      v5 = *((unsigned __int16 *)a1 + 5) + 72LL;
   }
   else
   {
-    v5 = 4 * *(unsigned __int8 *)(*((_QWORD *)a1 + 1) + 1LL) + 80;
+    v5 = 4LL * *(unsigned __int8 *)(*((_QWORD *)a1 + 1) + 1LL) + 80;
   }
-  v6 = (v5 + 3) & 0xFFFFFFFC;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  v6 = (v5 + 3) & 0xFFFFFFFCLL;
+  Pool2 = ExAllocatePool2(0x100uLL, v6, 0x734C6553u);
   v8 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogSessionPowerControlStart @ 0x14076DED0
+ * XREFs of TtmiLogSessionPowerControlStart @ 0x14076E0F0
  * Callers:
- *     TtmpSessionPowerControl @ 0x14076AC6C (TtmpSessionPowerControl.c)
+ *     TtmpSessionPowerControl @ 0x14076AE8C (TtmpSessionPowerControl.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
@@ -26,7 +26,7 @@ void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
   int v16; // [rsp+88h] [rbp+3Fh]
   int v17; // [rsp+8Ch] [rbp+43h]
 
-  if ( (unsigned int)dword_140FD78B8 > 5 && tlgKeywordOn((__int64)&dword_140FD78B8, 1LL) )
+  if ( (unsigned int)dword_140FD88C8 > 5 && tlgKeywordOn((__int64)&dword_140FD88C8, 1LL) )
   {
     SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
     v11 = 0;
@@ -41,6 +41,6 @@ void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
     v5 = a1;
     v13 = 1;
     v7 = a2;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD78B8, (unsigned __int8 *)qword_14004FC98, 0LL, 0LL, 5u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD88C8, (unsigned __int8 *)&dword_14005068C, 0LL, 0LL, 5u, &v8);
   }
 }

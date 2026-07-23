@@ -1,34 +1,34 @@
 /*
- * XREFs of TpSetPoolMaxThreads @ 0x1800ECDE0
+ * XREFs of TpSetPoolMaxThreads @ 0x1800EC1D0
  * Callers:
- *     TppPoolpReferenceGlobalPool @ 0x18004E450 (TppPoolpReferenceGlobalPool.c)
- *     TpSetDefaultPoolMaxThreads @ 0x18004F310 (TpSetDefaultPoolMaxThreads.c)
- *     LdrpEnableParallelLoading @ 0x1800649F0 (LdrpEnableParallelLoading.c)
+ *     TppPoolpReferenceGlobalPool @ 0x1800389D0 (TppPoolpReferenceGlobalPool.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180039890 (TpSetDefaultPoolMaxThreads.c)
+ *     LdrpEnableParallelLoading @ 0x180084E40 (LdrpEnableParallelLoading.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     TppETWPoolThreadMax @ 0x180159400 (TppETWPoolThreadMax.c)
- *     NtSetInformationWorkerFactory @ 0x180162570 (NtSetInformationWorkerFactory.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     TppETWPoolThreadMax @ 0x1801592D0 (TppETWPoolThreadMax.c)
+ *     NtSetInformationWorkerFactory @ 0x180162470 (NtSetInformationWorkerFactory.c)
  */
 
-void __fastcall TpSetPoolMaxThreads(__int64 a1, int a2)
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
   __int64 v3; // rcx
-  unsigned int v4; // [rsp+38h] [rbp+10h] BYREF
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = a2;
-  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool || (MaxThreads & 0x80000000) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v4, 4LL);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    NtSetInformationWorkerFactory(Pool->WorkerFactory, WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( RtlGetCurrentServiceSessionId() )
       v3 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v3 = 2147353478LL;
     if ( *(_BYTE *)v3 )
-      TppETWPoolThreadMax(a1, v4);
+      TppETWPoolThreadMax(Pool, WorkerFactoryInformation);
   }
 }

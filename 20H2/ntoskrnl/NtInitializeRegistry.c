@@ -11,32 +11,34 @@
  *     CmpSyncNextBackupHive @ 0x140873C24 (CmpSyncNextBackupHive.c)
  */
 
-__int64 __fastcall NtInitializeRegistry(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtInitializeRegistry(USHORT BootCondition)
 {
-  LOBYTE(a2) = KeGetCurrentThread()->PreviousMode;
-  if ( (_BYTE)a2 )
+  KPROCESSOR_MODE PreviousMode; // dl
+
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
   {
-    if ( (_WORD)a1 == 5096 )
+    if ( BootCondition == 5096 )
     {
-      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, a2) )
+      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
         return CmpSyncNextBackupHive();
       else
-        return 3221225569LL;
+        return -1073741727;
     }
     else
     {
-      return ZwInitializeRegistry(a1, a2);
+      return ZwInitializeRegistry(BootCondition);
     }
   }
-  else if ( (unsigned __int16)(a1 - 4096) > 0x3E7u )
+  else if ( (unsigned __int16)(BootCondition - 4096) > 0x3E7u )
   {
-    if ( (_WORD)a1 == 2 )
+    if ( BootCondition == 2 )
     {
       return CmpHandlePageFileOpenNotification();
     }
-    else if ( (unsigned __int16)a1 >= 2u )
+    else if ( BootCondition >= 2u )
     {
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {

@@ -6,9 +6,16 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAllocateVirtualMemoryEx(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAllocateVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ProcessHandle);
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiCombineCandidate @ 0x14020C0F0
+ * XREFs of MiCombineCandidate @ 0x140344930
  * Callers:
- *     MiComputeCombineHash @ 0x14020C3A0 (MiComputeCombineHash.c)
- *     MiCrcStillIntact @ 0x1402FA610 (MiCrcStillIntact.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MiMapArbitraryPage @ 0x140313BE8 (MiMapArbitraryPage.c)
- *     MiRecheckCombineVm @ 0x1403140D4 (MiRecheckCombineVm.c)
- *     MiCapturePfnVm @ 0x14045B3C4 (MiCapturePfnVm.c)
- *     MiCombinePte @ 0x1406850D0 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1409F24E8 (MiCombineAllPhysicalMemory.c)
+ *     MiComputeCombineHash @ 0x140335700 (MiComputeCombineHash.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiCrcStillIntact @ 0x140345608 (MiCrcStillIntact.c)
+ *     MiMapArbitraryPage @ 0x1403F0E90 (MiMapArbitraryPage.c)
+ *     MiRecheckCombineVm @ 0x1403F1420 (MiRecheckCombineVm.c)
+ *     MiCapturePfnVm @ 0x1404507C4 (MiCapturePfnVm.c)
+ *     MiCombinePte @ 0x140686200 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1409E6848 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiGetPagePrivilege @ 0x14021CE30 (MiGetPagePrivilege.c)
- *     MiGetSystemRegionType @ 0x14022AD20 (MiGetSystemRegionType.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiIsPfnCommitNotCharged @ 0x14023C210 (MiIsPfnCommitNotCharged.c)
- *     MiInvalidPteConforms @ 0x140302590 (MiInvalidPteConforms.c)
- *     MI_IS_RESET_PTE @ 0x140368EE0 (MI_IS_RESET_PTE.c)
- *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x140397A50 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
- *     MiValidCombineProtection @ 0x140426AC0 (MiValidCombineProtection.c)
+ *     MiGetPagePrivilege @ 0x140249B80 (MiGetPagePrivilege.c)
+ *     MiGetSystemRegionType @ 0x1402FDF90 (MiGetSystemRegionType.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiIsPfnCommitNotCharged @ 0x140345F70 (MiIsPfnCommitNotCharged.c)
+ *     MiInvalidPteConforms @ 0x1403461F0 (MiInvalidPteConforms.c)
+ *     MiValidCombineProtection @ 0x140346230 (MiValidCombineProtection.c)
+ *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1403517B0 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
+ *     MI_IS_RESET_PTE @ 0x1403FE370 (MI_IS_RESET_PTE.c)
  */
 
-__int64 __fastcall MiCombineCandidate(_QWORD *a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, _QWORD *a3)
 {
   _QWORD *v3; // rax
   __int64 v4; // r9
@@ -50,7 +50,7 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, unsigned int a2, _QWORD *a3)
   if ( (BYTE2(v15) & 7u) <= 1 )
     return 0LL;
   v5 = *((_QWORD *)&v13 + 1);
-  if ( *((_QWORD *)qword_140E2FF88 + ((*((_QWORD *)&v15 + 1) >> 43) & 0x3FFLL)) != *a1 && (a2 & 1) == 0 )
+  if ( *((_QWORD *)qword_140E300C8 + ((*((_QWORD *)&v15 + 1) >> 43) & 0x3FFLL)) != *a1 && (a2 & 1) == 0 )
     return 0LL;
   if ( v15 < 0 )
     return 0LL;
@@ -66,14 +66,14 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, unsigned int a2, _QWORD *a3)
     return 0LL;
   if ( ((*((_QWORD *)&v15 + 1) >> 60) & 7) == 4 )
     return 0LL;
-  if ( (unsigned int)MiIsPfnCommitNotCharged(&v13, *a1, a2) )
+  if ( (unsigned int)MiIsPfnCommitNotCharged(&v13) )
     return 0LL;
   if ( (unsigned int)MiGetPfnSlabType(v6) != 9 )
     return 0LL;
   v7 = v14;
   if ( !(unsigned int)MiInvalidPteConforms(v14)
     || !(unsigned int)MiValidCombineProtection((v8 >> 5) & 0x1F)
-    || (unsigned int)MiGetPagePrivilege((ULONG_PTR)&v13) )
+    || (unsigned int)MiGetPagePrivilege((ULONG_PTR)&v13, 0, 0LL) )
   {
     return 0LL;
   }

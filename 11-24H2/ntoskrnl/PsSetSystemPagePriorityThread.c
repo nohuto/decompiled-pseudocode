@@ -1,23 +1,23 @@
 /*
- * XREFs of PsSetSystemPagePriorityThread @ 0x1404529F0
+ * XREFs of PsSetSystemPagePriorityThread @ 0x140447AA0
  * Callers:
- *     MiRelocateImage @ 0x1408F5784 (MiRelocateImage.c)
- *     MiValidateSectionCreate @ 0x140957B50 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14093C5D8 (MiValidateSectionCreate.c)
+ *     MiRelocateImage @ 0x140AEA57C (MiRelocateImage.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall PsSetSystemPagePriorityThread(__int64 a1, int a2)
 {
-  __int64 v3; // rdx
+  int v3; // edx
   int v4; // eax
   unsigned int v5; // ecx
   unsigned int v6; // ebx
   unsigned int v7; // eax
-  _QWORD *v9; // rcx
+  bool v8; // zf
 
   --*(_WORD *)(a1 + 486);
-  v3 = (unsigned int)(a2 << 9);
+  v3 = a2 << 9;
   v4 = *(_DWORD *)(a1 + 1448);
   v5 = *(unsigned __int8 *)(a1 + 1449);
   if ( (v5 & 1) != 0 )
@@ -31,11 +31,8 @@ __int64 __fastcall PsSetSystemPagePriorityThread(__int64 a1, int a2)
     v7 = v4 | 0x100;
   }
   *(_DWORD *)(a1 + 1448) = v3 | v7;
-  if ( (*(_WORD *)(a1 + 486))++ == 0xFFFF )
-  {
-    v9 = (_QWORD *)(a1 + 152);
-    if ( (_QWORD *)*v9 != v9 )
-      KiCheckForKernelApcDelivery((__int64)v9, v3);
-  }
+  v8 = (*(_WORD *)(a1 + 486))++ == 0xFFFF;
+  if ( v8 && *(_QWORD *)(a1 + 152) != a1 + 152 )
+    KiCheckForKernelApcDelivery();
   return v6;
 }

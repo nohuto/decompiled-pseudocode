@@ -1,10 +1,10 @@
 /*
- * XREFs of _wcslwr @ 0x1405365D0
+ * XREFs of _wcslwr @ 0x140538A50
  * Callers:
- *     EtwpCovSampSplitSegments @ 0x140830F04 (EtwpCovSampSplitSegments.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x140AC01BC (SiGetBootDeviceNameFromRegistry.c)
+ *     EtwpCovSampSplitSegments @ 0x140837144 (EtwpCovSampSplitSegments.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140AC225C (SiGetBootDeviceNameFromRegistry.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 wchar_t *__cdecl wcslwr(wchar_t *String)

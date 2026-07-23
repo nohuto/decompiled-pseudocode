@@ -1,19 +1,19 @@
 /*
- * XREFs of IoConvertFileHandleToKernelHandle @ 0x140A6E1F0
+ * XREFs of IoConvertFileHandleToKernelHandle @ 0x140A676F0
  * Callers:
- *     SshpSessionManagerOpenControlTrace @ 0x140767400 (SshpSessionManagerOpenControlTrace.c)
- *     ExpQueryElamCertInfo @ 0x1407B4C04 (ExpQueryElamCertInfo.c)
- *     NtRestoreKey @ 0x1407D0CE0 (NtRestoreKey.c)
- *     NtSaveMergedKeys @ 0x1407D1090 (NtSaveMergedKeys.c)
- *     CmpNameFromAttributes @ 0x14092D668 (CmpNameFromAttributes.c)
- *     IopOpenLinkOrRenameTarget @ 0x14096C6C4 (IopOpenLinkOrRenameTarget.c)
- *     NtSaveKeyEx @ 0x140A6DF30 (NtSaveKeyEx.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A6E09C (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     SshpSessionManagerOpenControlTrace @ 0x140766E60 (SshpSessionManagerOpenControlTrace.c)
+ *     ExpQueryElamCertInfo @ 0x1407B5054 (ExpQueryElamCertInfo.c)
+ *     NtRestoreKey @ 0x1407D11D0 (NtRestoreKey.c)
+ *     NtSaveMergedKeys @ 0x1407D1580 (NtSaveMergedKeys.c)
+ *     CmpNameFromAttributes @ 0x14092F7A8 (CmpNameFromAttributes.c)
+ *     IopOpenLinkOrRenameTarget @ 0x140955124 (IopOpenLinkOrRenameTarget.c)
+ *     NtSaveKeyEx @ 0x140A67430 (NtSaveKeyEx.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A6759C (ExpQueryCodeIntegrityCertificateInfo.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
  */
 
 NTSTATUS __fastcall IoConvertFileHandleToKernelHandle(void *a1, KPROCESSOR_MODE a2, int a3, char a4, PVOID Object)

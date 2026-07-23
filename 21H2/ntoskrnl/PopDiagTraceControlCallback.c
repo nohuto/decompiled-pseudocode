@@ -1,37 +1,37 @@
 /*
- * XREFs of PopDiagTraceControlCallback @ 0x14067D270
+ * XREFs of PopDiagTraceControlCallback @ 0x140671060
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopDiagTraceSystemLatencyUpdate @ 0x1402819DC (PopDiagTraceSystemLatencyUpdate.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceDeepSleepConstraintRundown @ 0x140284394 (PopDiagTraceDeepSleepConstraintRundown.c)
- *     PopDiagTraceFxRundown @ 0x140284428 (PopDiagTraceFxRundown.c)
- *     PopThermalTraceRundownEvents @ 0x14028459C (PopThermalTraceRundownEvents.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopPlTraceLogPowerPlane @ 0x14057EBD4 (PopPlTraceLogPowerPlane.c)
- *     PopCurrentPowerState @ 0x140678D9C (PopCurrentPowerState.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopDiagTracePowerRequestCreate @ 0x14067C538 (PopDiagTracePowerRequestCreate.c)
- *     PopDiagTraceDynamicTickStatusRundown @ 0x14067E1FC (PopDiagTraceDynamicTickStatusRundown.c)
- *     PopRundownThermalRequests @ 0x14067E290 (PopRundownThermalRequests.c)
- *     PopDiagTracePlatformRoleRundown @ 0x14067E348 (PopDiagTracePlatformRoleRundown.c)
- *     PopLoggingInformation @ 0x14067E6B8 (PopLoggingInformation.c)
- *     PopDiagTracePowerSetting @ 0x14067E7D0 (PopDiagTracePowerSetting.c)
- *     ExTraceTimerResolution @ 0x14067E874 (ExTraceTimerResolution.c)
- *     PopMeasureEnergyChange @ 0x1408EDCBC (PopMeasureEnergyChange.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopDiagTraceSystemLatencyUpdate @ 0x14026FC1C (PopDiagTraceSystemLatencyUpdate.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceDeepSleepConstraintRundown @ 0x1402729EC (PopDiagTraceDeepSleepConstraintRundown.c)
+ *     PopDiagTraceFxRundown @ 0x140272A80 (PopDiagTraceFxRundown.c)
+ *     PopThermalTraceRundownEvents @ 0x140272BF4 (PopThermalTraceRundownEvents.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopPlTraceLogPowerPlane @ 0x14057EE14 (PopPlTraceLogPowerPlane.c)
+ *     PopCurrentPowerState @ 0x14066C4DC (PopCurrentPowerState.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopDiagTracePowerRequestCreate @ 0x140670078 (PopDiagTracePowerRequestCreate.c)
+ *     PopDiagTraceDynamicTickStatusRundown @ 0x1406720AC (PopDiagTraceDynamicTickStatusRundown.c)
+ *     PopRundownThermalRequests @ 0x140672140 (PopRundownThermalRequests.c)
+ *     PopDiagTracePlatformRoleRundown @ 0x1406721F8 (PopDiagTracePlatformRoleRundown.c)
+ *     PopLoggingInformation @ 0x140672568 (PopLoggingInformation.c)
+ *     PopDiagTracePowerSetting @ 0x140672680 (PopDiagTracePowerSetting.c)
+ *     ExTraceTimerResolution @ 0x140672724 (ExTraceTimerResolution.c)
+ *     PopMeasureEnergyChange @ 0x1408EDE1C (PopMeasureEnergyChange.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTraceControlCallback(
@@ -170,26 +170,26 @@ void __fastcall PopDiagTraceControlCallback(
         v64 = 0LL;
         if ( dword_140C02228 )
         {
-          if ( tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) && byte_140C22DCC )
+          if ( tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) && byte_140C22E4C )
           {
             PopAcquireRwLockExclusive((ULONG_PTR)&PopTelemetryOsState);
-            if ( dword_140C22D90 == 1 || (unsigned int)(dword_140C22D90 - 4) <= 1 )
+            if ( dword_140C22E10 == 1 || (unsigned int)(dword_140C22E10 - 4) <= 1 )
             {
-              v27 = (KiQueryUnbiasedInterruptTime() - qword_140C22DA8) / 0x2710uLL;
-              v28 = v27 - qword_140C22DB8;
-              v29 = (MEMORY[0xFFFFF78000000008] - qword_140C22DA0) / 0x2710uLL;
-              qword_140C22DB8 = v27;
-              v30 = v29 - qword_140C22DB0;
-              qword_140C22DB0 = v29;
+              v27 = (KiQueryUnbiasedInterruptTime() - qword_140C22E28) / 0x2710uLL;
+              v28 = v27 - qword_140C22E38;
+              v29 = (MEMORY[0xFFFFF78000000008] - qword_140C22E20) / 0x2710uLL;
+              qword_140C22E38 = v27;
+              v30 = v29 - qword_140C22E30;
+              qword_140C22E30 = v29;
               v31 = v30;
               if ( v28 <= v30 )
                 v31 = v28;
               v57 = v31;
-              v45 = ++dword_140C22DC0;
-              v37 = dword_140C22D90;
-              v44 = dword_140C22D94;
-              v47 = dword_140C22DC4;
-              LODWORD(P) = dword_140C22DC8;
+              v45 = ++dword_140C22E40;
+              v37 = dword_140C22E10;
+              v44 = dword_140C22E14;
+              v47 = dword_140C22E44;
+              LODWORD(P) = dword_140C22E48;
               PopReleaseRwLock((ULONG_PTR)&PopTelemetryOsState);
               PopCurrentPowerState(&v65);
               v36 = 0;
@@ -197,7 +197,7 @@ void __fastcall PopDiagTraceControlCallback(
               if ( DWORD2(v65) )
                 v36 = (unsigned int)(100 * HIDWORD(v65)) / DWORD2(v65);
               PopMeasureEnergyChange(&v64, &OsStateChangeEnergyCounter);
-              v56 = qword_140C22D98;
+              v56 = qword_140C22E18;
               if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) )
               {
                 v38 = 5;
@@ -261,7 +261,7 @@ void __fastcall PopDiagTraceControlCallback(
                 v119 = 8LL;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&dword_140C02228,
-                  (unsigned __int8 *)byte_14002819D,
+                  (unsigned __int8 *)byte_140027C69,
                   0LL,
                   0LL,
                   0x16u,
@@ -287,14 +287,14 @@ void __fastcall PopDiagTraceControlCallback(
         PopDiagTracePowerRequestCreate(1, (__int64)i);
       PopReleaseRwLock((ULONG_PTR)&PopPowerRequestLock);
       *(_QWORD *)&UserData.Size = 4LL;
-      v55 = dword_140C23E8C == 0;
+      v55 = dword_140C2332C == 0;
       UserData.Ptr = (ULONGLONG)&v55;
       EtwWrite(PopDiagHandle, &POP_ETW_EVENT_ACDC_STATE_RUNDOWN, 0LL, 1u, &UserData);
       ExAcquireFastMutex(&PopSettingLock);
       v10 = (PVOID *)PopPowerSettings;
       if ( PopPowerSettings != &PopPowerSettings )
       {
-        v11 = dword_140C23E8C;
+        v11 = dword_140C2332C;
         do
         {
           v12 = (unsigned int *)v10[v11 + 8];

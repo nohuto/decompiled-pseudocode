@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateVPBackingThreadPriority @ 0x1400D0E40
+ * XREFs of KiUpdateVPBackingThreadPriority @ 0x1400D0EC0
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KeYieldExecution @ 0x1400D65D0 (KeYieldExecution.c)
- *     KiTryToUpdateVPBackingThreadPriority @ 0x140129C80 (KiTryToUpdateVPBackingThreadPriority.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KeYieldExecution @ 0x1400D6650 (KeYieldExecution.c)
+ *     KiTryToUpdateVPBackingThreadPriority @ 0x140129D50 (KiTryToUpdateVPBackingThreadPriority.c)
  * Callees:
- *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1400D78EC (KiSetBasePriorityAndClearDecrement.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1401B49D0 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiUpdateThreadPriority @ 0x1400D0DC0 (KiUpdateThreadPriority.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1400D796C (KiSetBasePriorityAndClearDecrement.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1401B4B10 (KiReadGuestSchedulerAssistPriority.c)
  */
 
 char __fastcall KiUpdateVPBackingThreadPriority(__int64 a1, __int64 a2, char a3)

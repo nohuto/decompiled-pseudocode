@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpWnfDispatchKernelSubscription @ 0x1406B79B4
+ * XREFs of ExpWnfDispatchKernelSubscription @ 0x1406B8C54
  * Callers:
- *     ExpWnfStartKernelDispatcher @ 0x1406B7904 (ExpWnfStartKernelDispatcher.c)
- *     ExpWnfWorkItemRoutine @ 0x1406B7960 (ExpWnfWorkItemRoutine.c)
+ *     ExpWnfStartKernelDispatcher @ 0x1406B8BA4 (ExpWnfStartKernelDispatcher.c)
+ *     ExpWnfWorkItemRoutine @ 0x1406B8C00 (ExpWnfWorkItemRoutine.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -10,33 +10,33 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406119F8 (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 ExpWnfDispatchKernelSubscription()
 {
   struct _SINGLE_LIST_ENTRY *Next; // r13
   volatile signed __int64 *v1; // rdi
-  __int64 v2; // rax
-  __int64 v3; // rbx
+  _RTL_BALANCED_NODE *v2; // rax
+  _RTL_BALANCED_NODE *v3; // rbx
   struct _SINGLE_LIST_ENTRY *v4; // rsi
   struct _SINGLE_LIST_ENTRY *v5; // r14
   struct _EX_RUNDOWN_REF v6; // rcx
   struct _SINGLE_LIST_ENTRY **p_Next; // rax
   unsigned __int64 *v8; // r12
   unsigned int Next_high; // r15d
-  __int64 v10; // rsi
+  PRTL_BALANCED_NODE v10; // rsi
   __int64 v11; // rsi
   unsigned int v12; // ebp
   unsigned int v13; // eax
   __int64 v14; // rdx
   __int64 v15; // r9
-  __int64 v16; // rax
-  __int64 v17; // rsi
+  _RTL_BALANCED_NODE *v16; // rax
+  _RTL_BALANCED_NODE *v17; // rsi
   struct _SINGLE_LIST_ENTRY *v19; // [rsp+48h] [rbp-40h]
   __int64 v20; // [rsp+50h] [rbp-38h] BYREF
 
@@ -48,7 +48,7 @@ __int64 ExpWnfDispatchKernelSubscription()
   if ( _interlockedbittestandset64((volatile signed __int32 *)&Next[13], 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Next[13], v2, (ULONG_PTR)&Next[13]);
   if ( v3 )
-    *(_BYTE *)(v3 + 26) |= 1u;
+    BYTE2(v3[1].Left) |= 1u;
   while ( 1 )
   {
     v4 = Next[14].Next;
@@ -74,7 +74,7 @@ __int64 ExpWnfDispatchKernelSubscription()
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)v8, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v8, v10, (ULONG_PTR)v8);
       if ( v10 )
-        *(_BYTE *)(v10 + 26) |= 1u;
+        BYTE2(v10[1].Left) |= 1u;
       v11 = (__int64)v5[6].Next;
       if ( v11 )
         v11 &= -(__int64)(ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v11 + 8)) != 0);
@@ -126,7 +126,7 @@ __int64 ExpWnfDispatchKernelSubscription()
       if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
         ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v1, v16, (ULONG_PTR)v1);
       if ( v17 )
-        *(_BYTE *)(v17 + 26) |= 1u;
+        BYTE2(v17[1].Left) |= 1u;
       Next_high = HIDWORD(v5[15].Next);
     }
     while ( Next_high );

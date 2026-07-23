@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpTryToLockHashEntryExclusive @ 0x1406B8398
+ * XREFs of CmpTryToLockHashEntryExclusive @ 0x1406177B8
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1406DBA08 (CmpReferenceHive.c)
  */
 
 char __fastcall CmpTryToLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
@@ -14,7 +14,7 @@ char __fastcall CmpTryToLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULO
   ULONG_PTR v2; // rbx
   char v4; // di
   ULONG_PTR v5; // rsi
-  ULONG_PTR v6; // rax
+  PRTL_BALANCED_NODE v6; // rax
 
   v2 = (unsigned int)BugCheckParameter4;
   v4 = 1;
@@ -26,15 +26,15 @@ char __fastcall CmpTryToLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULO
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
   {
     if ( v6 )
-      KeAbPostReleaseEx(v5, v6);
+      KeAbPostReleaseEx(v5, (ULONG_PTR)v6);
     return 0;
   }
   else
   {
     if ( v6 )
-      *(_BYTE *)(v6 + 26) |= 1u;
+      BYTE2(v6[1].Left) |= 1u;
     *(_QWORD *)(v5 + 8) = KeGetCurrentThread();
-    if ( !CmpReferenceHive(BugCheckParameter2) )
+    if ( !(unsigned __int8)CmpReferenceHive(BugCheckParameter2) )
       KeBugCheckEx(0x51u, 0x17uLL, BugCheckParameter2, 0xDuLL, v2);
   }
   return v4;

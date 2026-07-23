@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetCustomCultureDataFromFile @ 0x180146640
+ * XREFs of RtlpGetCustomCultureDataFromFile @ 0x1801449F0
  * Callers:
- *     RtlpGetCustomCultureData @ 0x180115750 (RtlpGetCustomCultureData.c)
+ *     RtlpGetCustomCultureData @ 0x180110BE4 (RtlpGetCustomCultureData.c)
  * Callees:
- *     RtlpInitUnicodeStringUsingBuffer @ 0x1800D30B0 (RtlpInitUnicodeStringUsingBuffer.c)
+ *     RtlpInitUnicodeStringUsingBuffer @ 0x18009A010 (RtlpInitUnicodeStringUsingBuffer.c)
  */
 
 __int64 __fastcall RtlpGetCustomCultureDataFromFile(
@@ -11,7 +11,7 @@ __int64 __fastcall RtlpGetCustomCultureDataFromFile(
         unsigned __int64 a2,
         char a3,
         char a4,
-        __int64 a5)
+        _UNICODE_STRING *a5)
 {
   __int64 v7; // r10
   char *v8; // r8
@@ -61,7 +61,7 @@ __int64 __fastcall RtlpGetCustomCultureDataFromFile(
                         if ( v15 + (unsigned int)v13 + 2 <= v14 && !*(_WORD *)&v12[2 * v15 + 2 + 2 * (unsigned int)v13] )
                           return RtlpInitUnicodeStringUsingBuffer(
                                    a4,
-                                   (const wchar_t *)&v12[2 * (unsigned int)(v13 + 1)],
+                                   (const WCHAR *)&v12[2 * (unsigned int)(v13 + 1)],
                                    v15,
                                    a5);
                       }

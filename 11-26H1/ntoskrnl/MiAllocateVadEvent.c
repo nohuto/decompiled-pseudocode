@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateVadEvent @ 0x1409CE71C
+ * XREFs of MiAllocateVadEvent @ 0x14099F6FC
  * Callers:
- *     MiCreateVadEvent @ 0x1409CE5DC (MiCreateVadEvent.c)
+ *     MiCreateVadEvent @ 0x14099F5BC (MiCreateVadEvent.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiAllocateVadEvent(unsigned __int8 a1, ULONG_PTR a2)

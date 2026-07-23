@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwReleaseKeyedEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReleaseKeyedEvent(
+        HANDLE KeyedEventHandle,
+        PVOID KeyValue,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(KeyedEventHandle);
 }

@@ -3,93 +3,93 @@
  * Callers:
  *     RtlpHpStackTraceRemoveStack @ 0x1800F87F4 (RtlpHpStackTraceRemoveStack.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlpHpMetadataFree @ 0x18004F71C (RtlpHpMetadataFree.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlpHpMetadataFree @ 0x18004F70C (RtlpHpMetadataFree.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceAllocRemove(unsigned __int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpStackTraceAllocRemove(PRTL_SRWLOCK SRWLock, __int64 a2)
 {
-  unsigned __int64 v5; // rsi
-  int v7; // r10d
-  __int64 v8; // r9
-  __int64 v9; // r10
-  _QWORD *v10; // rdx
-  __int64 v11; // rbx
-  __int64 v13; // [rsp+60h] [rbp+8h]
+  unsigned __int64 v3; // rsi
+  int v5; // r10d
+  __int64 v6; // r9
+  unsigned __int64 v7; // r10
+  _QWORD *v8; // rdx
+  __int64 v9; // rbx
+  __int64 v11; // [rsp+60h] [rbp+8h]
 
-  v5 = 0LL;
-  RtlAcquireSRWLockExclusive(a1, a2, a3, a4);
-  v7 = *(_DWORD *)(a1 + 12) >> 5;
-  v8 = (unsigned __int64)a2 & (-1LL << (*(_BYTE *)(a1 + 12) & 0x1F));
-  if ( !v7 )
+  v3 = 0LL;
+  RtlAcquireSRWLockExclusive(SRWLock);
+  v5 = HIDWORD(SRWLock[1].Ptr) >> 5;
+  v6 = a2 & (-1LL << (BYTE4(SRWLock[1].Ptr) & 0x1F));
+  if ( !v5 )
     goto LABEL_15;
-  v9 = *(_QWORD *)(a1 + 16)
+  v7 = SRWLock[2].Value
      + 8LL
      * ((37
-       * (BYTE6(v8)
+       * (BYTE6(v6)
         + 37
-        * (BYTE5(v8)
+        * (BYTE5(v6)
          + 37
-         * (BYTE4(v8) + 37 * (BYTE3(v8) + 37 * (BYTE2(v8) + 37 * (BYTE1(v8) + 37 * ((unsigned __int8)v8 + 11623883)))))))
-       + HIBYTE(v8)) & (unsigned int)(v7 - 1));
+         * (BYTE4(v6) + 37 * (BYTE3(v6) + 37 * (BYTE2(v6) + 37 * (BYTE1(v6) + 37 * ((unsigned __int8)v6 + 11623883)))))))
+       + HIBYTE(v6)) & (unsigned int)(v5 - 1));
   while ( 1 )
   {
-    v9 = *(_QWORD *)v9;
-    if ( (v9 & 1) != 0 )
+    v7 = *(_QWORD *)v7;
+    if ( (v7 & 1) != 0 )
       break;
-    if ( v8 == ((-1LL << (*(_BYTE *)(a1 + 12) & 0x1F)) & *(_QWORD *)(v9 + 8)) )
+    if ( v6 == ((-1LL << (BYTE4(SRWLock[1].Ptr) & 0x1F)) & *(_QWORD *)(v7 + 8)) )
       goto LABEL_7;
   }
-  v9 = 0LL;
+  v7 = 0LL;
 LABEL_7:
-  if ( v9 )
+  if ( v7 )
   {
-    v13 = *(_QWORD *)(v9 + 8) & (-1LL << (*(_DWORD *)(a1 + 12) & 0x1F));
-    v10 = (_QWORD *)(*(_QWORD *)(a1 + 16)
-                   + 8LL
-                   * ((37
-                     * (BYTE6(v13)
+    v11 = *(_QWORD *)(v7 + 8) & (-1LL << (HIDWORD(SRWLock[1].Ptr) & 0x1F));
+    v8 = (_QWORD *)(SRWLock[2].Value
+                  + 8LL
+                  * ((37
+                    * (BYTE6(v11)
+                     + 37
+                     * (BYTE5(v11)
                       + 37
-                      * (BYTE5(v13)
+                      * (BYTE4(v11)
                        + 37
-                       * (BYTE4(v13)
+                       * (BYTE3(v11) + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
+                    + HIBYTE(v11)) & (unsigned int)((HIDWORD(SRWLock[1].Ptr) >> 5) - 1)));
+    if ( (*(_QWORD *)v7 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+      v8 = (_QWORD *)(SRWLock[2].Value
+                    + 8LL
+                    * ((37
+                      * (BYTE6(v11)
+                       + 37
+                       * (BYTE5(v11)
                         + 37
-                        * (BYTE3(v13) + 37 * (BYTE2(v13) + 37 * (BYTE1(v13) + 37 * ((unsigned __int8)v13 + 11623883)))))))
-                     + HIBYTE(v13)) & (unsigned int)((*(_DWORD *)(a1 + 12) >> 5) - 1)));
-    if ( (*(_QWORD *)v9 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-      v10 = (_QWORD *)(*(_QWORD *)(a1 + 16)
-                     + 8LL
-                     * ((37
-                       * (BYTE6(v13)
-                        + 37
-                        * (BYTE5(v13)
+                        * (BYTE4(v11)
                          + 37
-                         * (BYTE4(v13)
-                          + 37
-                          * (BYTE3(v13) + 37 * (BYTE2(v13) + 37 * (BYTE1(v13) + 37 * ((unsigned __int8)v13 + 11623883)))))))
-                       + HIBYTE(v13)) & (unsigned int)((*(_DWORD *)(a1 + 12) >> 5) - 1)));
-    while ( (*v10 & 1) == 0 )
+                         * (BYTE3(v11) + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
+                      + HIBYTE(v11)) & (unsigned int)((HIDWORD(SRWLock[1].Ptr) >> 5) - 1)));
+    while ( (*v8 & 1) == 0 )
     {
-      if ( *v10 == v9 )
+      if ( *v8 == v7 )
       {
-        *v10 = *(_QWORD *)v9;
-        --*(_DWORD *)(a1 + 8);
-        *(_QWORD *)v9 |= 0x8000000000000002uLL;
+        *v8 = *(_QWORD *)v7;
+        --*(_DWORD *)&SRWLock[1].0;
+        *(_QWORD *)v7 |= 0x8000000000000002uLL;
         break;
       }
-      v10 = (_QWORD *)*v10;
+      v8 = (_QWORD *)*v8;
     }
-    v11 = *(_QWORD *)(v9 + 16);
-    v5 = v9;
+    v9 = *(_QWORD *)(v7 + 16);
+    v3 = v7;
   }
   else
   {
 LABEL_15:
-    v11 = 0LL;
+    v9 = 0LL;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-  if ( v5 )
-    RtlpHpMetadataFree(v5);
-  return v11;
+  RtlReleaseSRWLockExclusive(SRWLock);
+  if ( v3 )
+    RtlpHpMetadataFree(v3);
+  return v9;
 }

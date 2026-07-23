@@ -1,19 +1,19 @@
 /*
- * XREFs of KeInsertQueueDpc @ 0x1402BDB30
+ * XREFs of KeInsertQueueDpc @ 0x1403087F0
  * Callers:
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
- *     EtwInitialize @ 0x140824718 (EtwInitialize.c)
- *     EtwpStopLoggerInstance @ 0x140A15968 (EtwpStopLoggerInstance.c)
- *     ObpProcessRemoveObjectQueue @ 0x140A59D90 (ObpProcessRemoveObjectQueue.c)
- *     EtwpSynchronizeWithLogger @ 0x140A6FD00 (EtwpSynchronizeWithLogger.c)
- *     PspThreadDelete @ 0x140AA21E0 (PspThreadDelete.c)
- *     PnprQuiesceProcessors @ 0x140BF26B4 (PnprQuiesceProcessors.c)
- *     PopEndMirroring @ 0x140C03D50 (PopEndMirroring.c)
- *     PopInvokeSystemStateHandler @ 0x140C04104 (PopInvokeSystemStateHandler.c)
- *     KiCalibrateTimeAdjustment @ 0x140C078A0 (KiCalibrateTimeAdjustment.c)
- *     KdExitDebugger @ 0x140C12008 (KdExitDebugger.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
+ *     EtwInitialize @ 0x14082A958 (EtwInitialize.c)
+ *     EtwpStopLoggerInstance @ 0x140A14B5C (EtwpStopLoggerInstance.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140A66D00 (ObpProcessRemoveObjectQueue.c)
+ *     PspThreadDelete @ 0x140AA3CB0 (PspThreadDelete.c)
+ *     EtwpSynchronizeWithLogger @ 0x140AB31F8 (EtwpSynchronizeWithLogger.c)
+ *     PnprQuiesceProcessors @ 0x140BF86B4 (PnprQuiesceProcessors.c)
+ *     PopEndMirroring @ 0x140C09F60 (PopEndMirroring.c)
+ *     PopInvokeSystemStateHandler @ 0x140C0A314 (PopInvokeSystemStateHandler.c)
+ *     KiCalibrateTimeAdjustment @ 0x140C0DAB0 (KiCalibrateTimeAdjustment.c)
+ *     KdExitDebugger @ 0x140C18008 (KdExitDebugger.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 BOOLEAN __stdcall KeInsertQueueDpc(PRKDPC Dpc, PVOID SystemArgument1, PVOID SystemArgument2)

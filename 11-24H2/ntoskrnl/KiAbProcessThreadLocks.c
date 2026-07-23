@@ -1,27 +1,27 @@
 /*
- * XREFs of KiAbProcessThreadLocks @ 0x1402509C0
+ * XREFs of KiAbProcessThreadLocks @ 0x140280FD0
  * Callers:
- *     KiAbDeferredProcessingWorker @ 0x140253050 (KiAbDeferredProcessingWorker.c)
- *     KiAbPropagateBoosts @ 0x140255240 (KiAbPropagateBoosts.c)
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
- *     KiAbProcessPreContextSwitch @ 0x140295A00 (KiAbProcessPreContextSwitch.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiAbDeferredProcessingWorker @ 0x140283660 (KiAbDeferredProcessingWorker.c)
+ *     KiAbPropagateBoosts @ 0x140285850 (KiAbPropagateBoosts.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
+ *     KiAbProcessPreContextSwitch @ 0x1402A5600 (KiAbProcessPreContextSwitch.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
  * Callees:
- *     KiAbSetMinimumThreadPriority @ 0x14024E520 (KiAbSetMinimumThreadPriority.c)
- *     KiAbIoBoostOwners @ 0x14024EA60 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x14024F2F0 (KiAbCpuBoostOwners.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x140250050 (KiAbEntryGetLockedHeadEntry.c)
- *     EtwTraceAutoBoostProcessLockEntry @ 0x140250910 (EtwTraceAutoBoostProcessLockEntry.c)
- *     KiAbEntryGetCpuPriorityKey @ 0x140251A80 (KiAbEntryGetCpuPriorityKey.c)
- *     KiAbOwnerComputeCpuPriorityKey @ 0x140251B10 (KiAbOwnerComputeCpuPriorityKey.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
- *     PsBoostThreadOutstandingIoQoS @ 0x1402788E0 (PsBoostThreadOutstandingIoQoS.c)
- *     IoBoostThreadIoPriority @ 0x140278D90 (IoBoostThreadIoPriority.c)
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
+ *     PsGetIoPriorityThread @ 0x14022BEB0 (PsGetIoPriorityThread.c)
+ *     PsBoostThreadOutstandingIoQoS @ 0x14022DE70 (PsBoostThreadOutstandingIoQoS.c)
+ *     IoBoostThreadIoPriority @ 0x14022E320 (IoBoostThreadIoPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x14027EB30 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbIoBoostOwners @ 0x14027F070 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x14027F900 (KiAbCpuBoostOwners.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x140280660 (KiAbEntryGetLockedHeadEntry.c)
+ *     EtwTraceAutoBoostProcessLockEntry @ 0x140280F20 (EtwTraceAutoBoostProcessLockEntry.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x140282090 (KiAbEntryGetCpuPriorityKey.c)
+ *     KiAbOwnerComputeCpuPriorityKey @ 0x140282120 (KiAbOwnerComputeCpuPriorityKey.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
  */
 
 void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *a4, _QWORD *a5)
@@ -58,12 +58,12 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   int v35; // eax
   unsigned int v36; // eax
   char v37; // cl
-  unsigned __int64 v38; // r15
-  __int64 v39; // r8
-  __int64 v40; // rax
-  __int64 v41; // rdx
+  _RTL_RB_TREE *v38; // r15
+  _RTL_BALANCED_NODE *Min; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v41; // r8
   int v42; // r9d
-  __int64 v43; // rax
+  _RTL_BALANCED_NODE *v43; // rax
   char v44; // al
   int v45; // ebx
   __int64 v46; // rax
@@ -73,9 +73,9 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   int v50; // eax
   unsigned int v51; // eax
   char v52; // cl
-  __int64 v53; // r8
-  __int64 v54; // rax
-  __int64 v55; // rdx
+  __int64 v53; // rax
+  __int64 v54; // rdx
+  BOOLEAN v55; // r8
   int v56; // r9d
   __int64 v57; // rax
   int v58; // ecx
@@ -88,9 +88,9 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   char v65; // r15
   char v66; // al
   unsigned __int64 v67; // r14
-  __int64 v68; // r8
-  __int64 v69; // rax
-  __int64 v70; // rdx
+  __int64 v68; // rax
+  __int64 v69; // rdx
+  BOOLEAN v70; // r8
   int v71; // r9d
   __int64 v72; // rax
   __int64 v73; // rax
@@ -103,9 +103,9 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   unsigned __int8 CpuPriorityKey; // r14
   char v81; // r9
   char v82; // al
-  __int64 v83; // r8
-  __int64 v84; // rax
-  __int64 v85; // r9
+  __int64 v83; // rax
+  __int64 v84; // r9
+  BOOLEAN v85; // r8
   int v86; // r10d
   __int64 v87; // rdx
   __int64 v88; // rax
@@ -115,17 +115,17 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   __int64 v92; // rdx
   __int64 v93; // r8
   char v94; // al
-  __int64 v95; // r8
-  __int64 v96; // rax
-  __int64 v97; // rdx
+  __int64 v95; // rax
+  __int64 v96; // rdx
+  BOOLEAN v97; // r8
   int v98; // r9d
   __int64 v99; // rax
   __int64 v100; // rdx
   __int64 v101; // r8
   char v102; // al
-  __int64 v103; // r8
-  __int64 v104; // rax
-  __int64 v105; // rdx
+  __int64 v103; // rax
+  __int64 v104; // rdx
+  BOOLEAN v105; // r8
   int v106; // r9d
   __int64 v107; // rax
   unsigned int v108; // r10d
@@ -146,33 +146,32 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   char v123; // al
   char v124; // al
   char v125; // al
-  void *v126; // r15
-  void *v127; // r12
-  __int64 v128; // [rsp+20h] [rbp-71h]
-  __int64 v129; // [rsp+28h] [rbp-69h]
-  __int64 v130; // [rsp+30h] [rbp-61h] BYREF
-  int v131; // [rsp+38h] [rbp-59h]
-  __int64 v132; // [rsp+40h] [rbp-51h]
-  int v133; // [rsp+48h] [rbp-49h] BYREF
-  int v134; // [rsp+4Ch] [rbp-45h]
-  int v135; // [rsp+50h] [rbp-41h] BYREF
-  unsigned int v136; // [rsp+54h] [rbp-3Dh]
-  __int64 v137; // [rsp+58h] [rbp-39h]
-  int v138; // [rsp+60h] [rbp-31h]
-  int v139; // [rsp+64h] [rbp-2Dh]
-  __int64 v140; // [rsp+68h] [rbp-29h]
+  KSPIN_LOCK *v126; // r15
+  KSPIN_LOCK *v127; // r12
+  int v128; // [rsp+30h] [rbp-61h] BYREF
+  unsigned int v129; // [rsp+34h] [rbp-5Dh]
+  int v130; // [rsp+38h] [rbp-59h]
+  __int64 v131; // [rsp+40h] [rbp-51h]
+  int v132; // [rsp+48h] [rbp-49h] BYREF
+  int v133; // [rsp+4Ch] [rbp-45h]
+  int v134; // [rsp+50h] [rbp-41h] BYREF
+  unsigned int v135; // [rsp+54h] [rbp-3Dh]
+  __int64 v136; // [rsp+58h] [rbp-39h]
+  int v137; // [rsp+60h] [rbp-31h]
+  int v138; // [rsp+64h] [rbp-2Dh]
+  __int64 v139; // [rsp+68h] [rbp-29h]
   _QWORD *LockedHeadEntry; // [rsp+70h] [rbp-21h]
-  __int128 v142; // [rsp+78h] [rbp-19h] BYREF
-  __int64 v143; // [rsp+88h] [rbp-9h]
-  __int128 v144; // [rsp+90h] [rbp-1h] BYREF
-  __int64 v145; // [rsp+A0h] [rbp+Fh]
-  __int64 v146; // [rsp+F0h] [rbp+5Fh] BYREF
-  __int64 v147; // [rsp+100h] [rbp+6Fh]
-  _QWORD *v148; // [rsp+108h] [rbp+77h]
+  __int128 v141; // [rsp+78h] [rbp-19h] BYREF
+  __int64 v142; // [rsp+88h] [rbp-9h]
+  __int128 v143; // [rsp+90h] [rbp-1h] BYREF
+  __int64 v144; // [rsp+A0h] [rbp+Fh]
+  __int64 v145; // [rsp+F0h] [rbp+5Fh] BYREF
+  __int64 v146; // [rsp+100h] [rbp+6Fh]
+  _QWORD *v147; // [rsp+108h] [rbp+77h]
 
-  v148 = a4;
-  v147 = a3;
-  v146 = a1;
+  v147 = a4;
+  v146 = a3;
+  v145 = a1;
   v5 = *(_QWORD *)(a1 + 1144);
   v7 = a1;
   if ( v5 )
@@ -189,20 +188,20 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   v11 = 0x8000000000000000uLL;
   LODWORD(v12) = (*(unsigned __int16 *)(v9 + 8) | *(unsigned __int16 *)(v9 + 10)) ^ ((1LL << *(_BYTE *)(v9 + 12)) - 1);
   v13 = !_BitScanForward((unsigned int *)&a1, v12);
-  v140 = *(_QWORD *)(v7 + 1136);
-  v134 = v14;
+  v139 = *(_QWORD *)(v7 + 1136);
+  v133 = v14;
   if ( !v13 )
   {
     v15 = a2 & 2;
     v16 = a2 & 1;
-    HIDWORD(v130) = a2 & 2;
+    v129 = a2 & 2;
     v17 = a2 & 4;
-    v131 = v17;
+    v130 = v17;
     while ( 1 )
     {
       v12 = ((_DWORD)v12 - 1) & (unsigned int)v12;
       v18 = 88LL * (unsigned int)a1;
-      v132 = v12;
+      v131 = v12;
       v19 = v18 + v9 + 16;
       v20 = *(_QWORD *)v19;
       if ( !*(_QWORD *)v19 || (v20 & 2) != 0 || v16 && (v20 & 1) != 0 )
@@ -218,8 +217,8 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
               if ( (unsigned __int8)KiAbOwnerComputeCpuPriorityKey(v18 + v9 + 16, v15, v9) != *(_BYTE *)(v19 + 40) )
                 goto LABEL_39;
 LABEL_120:
-              v15 = HIDWORD(v130);
-              v9 = v140;
+              v15 = v129;
+              v9 = v139;
               goto LABEL_12;
             }
             v124 = *(_BYTE *)(*(_QWORD *)(v18 + v9 - 88LL * (*(_BYTE *)(v18 + v9 + 16 + 8) & 0x3F)) + 195LL);
@@ -228,26 +227,26 @@ LABEL_120:
             if ( v124 == *(_BYTE *)(v19 + 40) )
               goto LABEL_12;
 LABEL_39:
-            v143 = 0LL;
-            LODWORD(v130) = 0;
-            v133 = 0;
+            v142 = 0LL;
+            v128 = 0;
+            v132 = 0;
             v30 = (a2 & 7) << 6;
             v31 = v10 & *(_QWORD *)v19;
-            v137 = v31;
-            v142 = 0LL;
+            v136 = v31;
+            v141 = 0LL;
             if ( v31 && *(char *)(v19 + 8) >= 0 )
-              v137 = v11 | v31;
-            LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v19, a2 & 1, (__int64)&v142);
+              v136 = v11 | v31;
+            LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v19, a2 & 1, (__int64)&v141);
             v33 = (__int64)LockedHeadEntry;
             if ( !LockedHeadEntry )
             {
 LABEL_117:
-              if ( (WORD2(xmmword_140FC5B10) & 0x1000) != 0 )
+              if ( (WORD2(xmmword_140FC6B50) & 0x1000) != 0 )
                 EtwTraceAutoBoostProcessLockEntry(
                   *(_QWORD *)(v19 - 88LL * (*(_BYTE *)(v19 + 8) & 0x3F) - 16),
-                  v137,
+                  v136,
                   v30);
-              v17 = v131;
+              v17 = v130;
               v10 = 0x7FFFFFFFFFFFFFFCLL;
               v11 = 0x8000000000000000uLL;
               goto LABEL_120;
@@ -256,17 +255,17 @@ LABEL_117:
             v30 |= (_BYTE)v34 != 0 ? 8 : 0;
             if ( !(_BYTE)v34 )
             {
-              if ( HIDWORD(v130) )
+              if ( v129 )
               {
                 if ( (_QWORD *)v19 != LockedHeadEntry )
                 {
                   v35 = *(_DWORD *)(v19 + 80);
-                  v138 = 0;
+                  v137 = 0;
                   v36 = v35 & 0x3FFFFFFF;
                   if ( v36 )
                   {
                     _BitScanReverse((unsigned int *)&v34, v36);
-                    v138 = v120;
+                    v137 = v120;
                     LOBYTE(v34) = v120 + 1;
                   }
                   v37 = *(_BYTE *)(*(_QWORD *)(v19 - 88LL * (*(_BYTE *)(v19 + 8) & 0x3F) - 16) + 563LL);
@@ -279,74 +278,74 @@ LABEL_117:
                   if ( *(_BYTE *)(v19 + 40) != (_BYTE)v34 )
                   {
                     *(_BYTE *)(v19 + 40) = v34;
-                    v38 = v33 + 40;
-                    RtlRbRemoveNode(v38, v19 + 16);
-                    v40 = *(_QWORD *)(v38 + 8);
-                    v41 = *(_QWORD *)v38;
-                    if ( (v40 & 1) == 0 )
+                    v38 = (_RTL_RB_TREE *)(v33 + 40);
+                    RtlRbRemoveNode(v38, (PRTL_BALANCED_NODE)(v19 + 16));
+                    Min = v38->Min;
+                    Root = (unsigned __int64)v38->Root;
+                    if ( ((unsigned __int8)Min & 1) == 0 )
                       goto LABEL_53;
-                    if ( v41 )
+                    if ( Root )
                     {
-                      v41 ^= v38;
+                      Root ^= (unsigned __int64)v38;
 LABEL_53:
-                      LOBYTE(v39) = 0;
-                      v42 = v40 & 1;
-                      if ( !v41 )
+                      v41 = 0;
+                      v42 = (unsigned __int8)Min & 1;
+                      if ( !Root )
                         goto LABEL_87;
                       while ( 1 )
                       {
-                        if ( *(_BYTE *)(v41 + 24) <= *(_BYTE *)(v19 + 40) )
+                        if ( *(_BYTE *)(Root + 24) <= *(_BYTE *)(v19 + 40) )
                         {
-                          v43 = *(_QWORD *)(v41 + 8);
+                          v43 = *(_RTL_BALANCED_NODE **)(Root + 8);
                           if ( v42 )
                           {
                             if ( !v43 )
                               goto LABEL_86;
-                            v43 ^= v41;
+                            v43 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v43);
                           }
                           if ( !v43 )
                           {
 LABEL_86:
-                            LOBYTE(v39) = 1;
+                            v41 = 1;
                             goto LABEL_87;
                           }
                         }
                         else
                         {
-                          v43 = *(_QWORD *)v41;
+                          v43 = *(_RTL_BALANCED_NODE **)Root;
                           if ( v42 )
                           {
                             if ( !v43 )
                               goto LABEL_87;
-                            v43 ^= v41;
+                            v43 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v43);
                           }
                           if ( !v43 )
                             goto LABEL_87;
                         }
-                        v41 = v43;
+                        Root = (unsigned __int64)v43;
                       }
                     }
-                    LOBYTE(v39) = 0;
+                    v41 = 0;
 LABEL_87:
-                    RtlRbInsertNodeEx(v38, v41, v39, v19 + 16, v128, v129, v130);
+                    RtlRbInsertNodeEx(v38, (PRTL_BALANCED_NODE)Root, v41, (PRTL_BALANCED_NODE)(v19 + 16));
                     v33 = (__int64)LockedHeadEntry;
                   }
                   v30 |= 0x10u;
                 }
                 v58 = *(_DWORD *)(v33 + 84);
                 if ( (_BYTE)v58 )
-                  BYTE1(v130) = 2;
+                  BYTE1(v128) = 2;
                 if ( (v58 & 0x7F00) != 0 )
-                  BYTE2(v130) = 1;
+                  BYTE2(v128) = 1;
                 v59 = *(_QWORD *)(v33 + 64);
                 if ( v59 )
                 {
                   v60 = *(_BYTE *)(v59 + 24);
-                  LOBYTE(v130) = v60;
+                  LOBYTE(v128) = v60;
                 }
                 else
                 {
-                  v60 = v130;
+                  v60 = v128;
                 }
                 if ( *(_BYTE *)(v33 + 9) )
                 {
@@ -354,93 +353,97 @@ LABEL_87:
                   if ( v122 > 30 )
                     v122 = 30;
                   if ( v122 > v60 )
-                    LOBYTE(v130) = v122;
+                    LOBYTE(v128) = v122;
                 }
-                if ( !(_DWORD)v130 )
+                if ( !v128 )
                 {
-                  KxReleaseQueuedSpinLock(&v142);
+                  KxReleaseQueuedSpinLock(&v141);
                   v30 |= 1u;
                   goto LABEL_117;
                 }
-                if ( (unsigned int)KiAbSetMinimumThreadPriority(v19, (char *)&v130, v147, v148, a5, &v133) && v19 != v33 )
+                if ( (unsigned int)KiAbSetMinimumThreadPriority(v19, (char *)&v128, v146, v147, a5, &v132) && v19 != v33 )
                 {
                   v94 = KiAbOwnerComputeCpuPriorityKey(v19, v92, v93);
                   if ( *(_BYTE *)(v19 + 40) != v94 )
                   {
                     *(_BYTE *)(v19 + 40) = v94;
-                    RtlRbRemoveNode(v33 + 40, v19 + 16);
-                    v96 = *(_QWORD *)(v33 + 48);
-                    v97 = *(_QWORD *)(v33 + 40);
-                    if ( (v96 & 1) == 0 )
+                    RtlRbRemoveNode((PRTL_RB_TREE)(v33 + 40), (PRTL_BALANCED_NODE)(v19 + 16));
+                    v95 = *(_QWORD *)(v33 + 48);
+                    v96 = *(_QWORD *)(v33 + 40);
+                    if ( (v95 & 1) == 0 )
                       goto LABEL_194;
-                    if ( v97 )
+                    if ( v96 )
                     {
-                      v97 ^= v33 + 40;
+                      v96 ^= v33 + 40;
 LABEL_194:
-                      LOBYTE(v95) = 0;
-                      v98 = v96 & 1;
-                      if ( !v97 )
+                      v97 = 0;
+                      v98 = v95 & 1;
+                      if ( !v96 )
                         goto LABEL_220;
                       while ( 1 )
                       {
-                        if ( *(_BYTE *)(v97 + 24) <= *(_BYTE *)(v19 + 40) )
+                        if ( *(_BYTE *)(v96 + 24) <= *(_BYTE *)(v19 + 40) )
                         {
-                          v99 = *(_QWORD *)(v97 + 8);
+                          v99 = *(_QWORD *)(v96 + 8);
                           if ( v98 )
                           {
                             if ( !v99 )
                               goto LABEL_219;
-                            v99 ^= v97;
+                            v99 ^= v96;
                           }
                           if ( !v99 )
                           {
 LABEL_219:
-                            LOBYTE(v95) = 1;
+                            v97 = 1;
                             goto LABEL_220;
                           }
                         }
                         else
                         {
-                          v99 = *(_QWORD *)v97;
+                          v99 = *(_QWORD *)v96;
                           if ( v98 )
                           {
                             if ( !v99 )
                               goto LABEL_220;
-                            v99 ^= v97;
+                            v99 ^= v96;
                           }
                           if ( !v99 )
                             goto LABEL_220;
                         }
-                        v97 = v99;
+                        v96 = v99;
                       }
                     }
-                    LOBYTE(v95) = 0;
+                    v97 = 0;
 LABEL_220:
-                    RtlRbInsertNodeEx(v33 + 40, v97, v95, v19 + 16, v128, v129, v130);
+                    RtlRbInsertNodeEx(
+                      (PRTL_RB_TREE)(v33 + 40),
+                      (PRTL_BALANCED_NODE)v96,
+                      v97,
+                      (PRTL_BALANCED_NODE)(v19 + 16));
                   }
                   v30 |= 0x20u;
                 }
               }
 LABEL_115:
-              KxReleaseQueuedSpinLock(&v142);
-              v64 = v133;
-              if ( v133 )
+              KxReleaseQueuedSpinLock(&v141);
+              v64 = v132;
+              if ( v132 )
               {
-                v126 = *(void **)(v19 - 88LL * (*(_BYTE *)(v19 + 8) & 0x3F) - 16);
+                v126 = *(KSPIN_LOCK **)(v19 - 88LL * (*(_BYTE *)(v19 + 8) & 0x3F) - 16);
                 if ( (unsigned __int8)ObReferenceObjectSafeWithTag(v126, 1953261124LL) )
                 {
                   if ( (v64 & 1) != 0 )
-                    IoBoostThreadIoPriority(v126, 2LL, 0x80000000LL);
+                    IoBoostThreadIoPriority(v126, 2, 0x80000000);
                   if ( (v64 & 2) != 0 )
-                    PsBoostThreadOutstandingIoQoS(v126);
+                    PsBoostThreadOutstandingIoQoS((__int64)v126);
                   ObDereferenceObjectDeferDeleteWithTag(v126, 0x746C6644u);
                 }
               }
 LABEL_116:
-              LODWORD(v12) = v132;
+              LODWORD(v12) = v131;
               goto LABEL_117;
             }
-            if ( !v131 )
+            if ( !v130 )
               goto LABEL_115;
             if ( (_QWORD *)v19 != LockedHeadEntry )
             {
@@ -451,55 +454,59 @@ LABEL_116:
               {
                 v67 = (unsigned __int64)(LockedHeadEntry + 7);
                 *(_BYTE *)(v19 + 40) = v66;
-                RtlRbRemoveNode(v33 + 56, v19 + 16);
-                v69 = *(_QWORD *)(v33 + 64);
-                v70 = *(_QWORD *)(v33 + 56);
-                if ( (v69 & 1) == 0 )
+                RtlRbRemoveNode((PRTL_RB_TREE)(v33 + 56), (PRTL_BALANCED_NODE)(v19 + 16));
+                v68 = *(_QWORD *)(v33 + 64);
+                v69 = *(_QWORD *)(v33 + 56);
+                if ( (v68 & 1) == 0 )
                   goto LABEL_134;
-                if ( v70 )
+                if ( v69 )
                 {
-                  v70 ^= v67;
+                  v69 ^= v67;
 LABEL_134:
-                  LOBYTE(v68) = 0;
-                  v71 = v69 & 1;
-                  if ( !v70 )
+                  v70 = 0;
+                  v71 = v68 & 1;
+                  if ( !v69 )
                     goto LABEL_144;
                   while ( 1 )
                   {
-                    if ( *(_BYTE *)(v70 + 24) >= *(_BYTE *)(v19 + 40) )
+                    if ( *(_BYTE *)(v69 + 24) >= *(_BYTE *)(v19 + 40) )
                     {
-                      v72 = *(_QWORD *)(v70 + 8);
+                      v72 = *(_QWORD *)(v69 + 8);
                       if ( v71 )
                       {
                         if ( !v72 )
                           goto LABEL_143;
-                        v72 ^= v70;
+                        v72 ^= v69;
                       }
                       if ( !v72 )
                       {
 LABEL_143:
-                        LOBYTE(v68) = 1;
+                        v70 = 1;
                         goto LABEL_144;
                       }
                     }
                     else
                     {
-                      v72 = *(_QWORD *)v70;
+                      v72 = *(_QWORD *)v69;
                       if ( v71 )
                       {
                         if ( !v72 )
                           goto LABEL_144;
-                        v72 ^= v70;
+                        v72 ^= v69;
                       }
                       if ( !v72 )
                         goto LABEL_144;
                     }
-                    v70 = v72;
+                    v69 = v72;
                   }
                 }
-                LOBYTE(v68) = 0;
+                v70 = 0;
 LABEL_144:
-                RtlRbInsertNodeEx(v33 + 56, v70, v68, v19 + 16, v128, v129, v130);
+                RtlRbInsertNodeEx(
+                  (PRTL_RB_TREE)(v33 + 56),
+                  (PRTL_BALANCED_NODE)v69,
+                  v70,
+                  (PRTL_BALANCED_NODE)(v19 + 16));
               }
               v30 |= 0x20u;
             }
@@ -509,14 +516,14 @@ LABEL_144:
             else
               v74 = 30;
             v13 = *(_BYTE *)(v33 + 9) == 0;
-            LOBYTE(v130) = v74;
+            LOBYTE(v128) = v74;
             if ( v13 )
             {
               v111 = KiAbOwnerComputeCpuPriorityKey(v33, v34, v32);
               v113 = v112;
               if ( v111 < v112 )
                 v113 = v111;
-              LOBYTE(v130) = v113;
+              LOBYTE(v128) = v113;
             }
             if ( *(_BYTE *)(v19 + 9) )
             {
@@ -547,14 +554,14 @@ LABEL_144:
             {
               if ( !v79 )
               {
-                KxReleaseQueuedSpinLock(&v142);
+                KxReleaseQueuedSpinLock(&v141);
                 v30 |= 2u;
                 goto LABEL_116;
               }
 LABEL_113:
-              KiAbIoBoostOwners(v33, v79, v147, v148, a5);
+              KiAbIoBoostOwners(v33, v79, v146, v147, a5);
             }
-            KiAbCpuBoostOwners(v33, CpuPriorityKey, v147, v148, a5);
+            KiAbCpuBoostOwners(v33, CpuPriorityKey, v146, v147, a5);
             goto LABEL_115;
           }
         }
@@ -576,10 +583,10 @@ LABEL_113:
       }
 LABEL_12:
       v13 = !_BitScanForward((unsigned int *)&a1, v12);
-      v134 = a1;
+      v133 = a1;
       if ( v13 )
       {
-        v7 = v146;
+        v7 = v145;
         break;
       }
     }
@@ -590,15 +597,15 @@ LABEL_12:
     return;
   v22 = (*((unsigned __int16 *)v21 + 4) | *((unsigned __int16 *)v21 + 5)) ^ ((1LL << *((_BYTE *)v21 + 12)) - 1);
   v13 = !_BitScanForward(&v23, v22);
-  v136 = v23;
+  v135 = v23;
   if ( v13 )
     return;
   v24 = a2 & 1;
   v25 = a2 & 2;
-  HIDWORD(v130) = a2 & 1;
+  v129 = a2 & 1;
   v26 = a2 & 4;
-  LODWORD(v132) = v25;
-  v131 = v26;
+  LODWORD(v131) = v25;
+  v130 = v26;
   do
   {
     v22 &= v22 - 1;
@@ -624,7 +631,7 @@ LABEL_12:
         else
         {
           v44 = KiAbOwnerComputeCpuPriorityKey(&v21[v27 + 2], v24, v21);
-          v24 = HIDWORD(v130);
+          v24 = v129;
           if ( v44 == *(_BYTE *)(v28 + 40) )
             goto LABEL_23;
         }
@@ -643,23 +650,23 @@ LABEL_12:
     {
       goto LABEL_23;
     }
-    v145 = 0LL;
-    LODWORD(v146) = 0;
-    v135 = 0;
+    v144 = 0LL;
+    LODWORD(v145) = 0;
+    v134 = 0;
     v45 = (a2 & 7) << 6;
     v46 = v10 & *(_QWORD *)v28;
-    v137 = v46;
-    v144 = 0LL;
+    v136 = v46;
+    v143 = 0LL;
     if ( v46 && *(char *)(v28 + 8) >= 0 )
-      v137 = v11 | v46;
-    v48 = KiAbEntryGetLockedHeadEntry(v28, v24, (__int64)&v144);
+      v136 = v11 | v46;
+    v48 = KiAbEntryGetLockedHeadEntry(v28, v24, (__int64)&v143);
     if ( !v48 )
       goto LABEL_125;
     v49 = *(unsigned __int8 *)(v28 + 9);
     v45 |= (_BYTE)v49 != 0 ? 8 : 0;
     if ( (_BYTE)v49 )
     {
-      if ( !v131 )
+      if ( !v130 )
         goto LABEL_124;
       if ( (_QWORD *)v28 != v48 )
       {
@@ -669,22 +676,22 @@ LABEL_12:
         if ( *(_BYTE *)(v28 + 40) != v82 )
         {
           *(_BYTE *)(v28 + 40) = v82;
-          RtlRbRemoveNode(v48 + 7, v28 + 16);
-          v84 = v48[8];
-          if ( (v84 & 1) == 0 )
+          RtlRbRemoveNode((PRTL_RB_TREE)(v48 + 7), (PRTL_BALANCED_NODE)(v28 + 16));
+          v83 = v48[8];
+          if ( (v83 & 1) == 0 )
           {
-            v85 = v48[7];
+            v84 = v48[7];
             goto LABEL_168;
           }
           v87 = v48[7];
           if ( v87 )
           {
-            v85 = v87 ^ (unsigned __int64)(v48 + 7);
+            v84 = v87 ^ (unsigned __int64)(v48 + 7);
 LABEL_168:
-            LOBYTE(v83) = 0;
-            v86 = v84 & 1;
-            v87 = v85;
-            if ( !v85 )
+            v85 = 0;
+            v86 = v83 & 1;
+            v87 = v84;
+            if ( !v84 )
               goto LABEL_178;
             while ( 1 )
             {
@@ -700,7 +707,7 @@ LABEL_168:
                 if ( !v88 )
                 {
 LABEL_177:
-                  LOBYTE(v83) = 1;
+                  v85 = 1;
                   goto LABEL_178;
                 }
               }
@@ -719,9 +726,9 @@ LABEL_177:
               v87 = v88;
             }
           }
-          LOBYTE(v83) = 0;
+          v85 = 0;
 LABEL_178:
-          RtlRbInsertNodeEx(v48 + 7, v87, v83, v28 + 16, v128, v129, v130);
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(v48 + 7), (PRTL_BALANCED_NODE)v87, v85, (PRTL_BALANCED_NODE)(v28 + 16));
         }
         v45 |= 0x20u;
       }
@@ -731,14 +738,14 @@ LABEL_178:
       else
         v90 = 30;
       v13 = *((_BYTE *)v48 + 9) == 0;
-      LOBYTE(v146) = v90;
+      LOBYTE(v145) = v90;
       if ( v13 )
       {
         v114 = KiAbOwnerComputeCpuPriorityKey(v48, v49, v47);
         v116 = v115;
         if ( v114 < v115 )
           v116 = v114;
-        LOBYTE(v146) = v116;
+        LOBYTE(v145) = v116;
       }
       if ( *(_BYTE *)(v28 + 9) )
       {
@@ -766,17 +773,17 @@ LABEL_178:
         if ( !v108 )
         {
 LABEL_123:
-          KiAbCpuBoostOwners((__int64)v48, v109, v147, v148, a5);
+          KiAbCpuBoostOwners((__int64)v48, v109, v146, v147, a5);
           goto LABEL_124;
         }
       }
       else if ( !v108 )
       {
-        KxReleaseQueuedSpinLock(&v144);
+        KxReleaseQueuedSpinLock(&v143);
         v45 |= 2u;
         goto LABEL_125;
       }
-      KiAbIoBoostOwners((__int64)v48, v108, v147, v148, a5);
+      KiAbIoBoostOwners((__int64)v48, v108, v146, v147, a5);
       goto LABEL_123;
     }
     if ( !v25 )
@@ -784,12 +791,12 @@ LABEL_123:
     if ( (_QWORD *)v28 != v48 )
     {
       v50 = *(_DWORD *)(v28 + 80);
-      v139 = 0;
+      v138 = 0;
       v51 = v50 & 0x3FFFFFFF;
       if ( v51 )
       {
         _BitScanReverse((unsigned int *)&v49, v51);
-        v139 = v121;
+        v138 = v121;
         LOBYTE(v49) = v121 + 1;
       }
       v52 = *(_BYTE *)(*(_QWORD *)(v28 - 88LL * (*(_BYTE *)(v28 + 8) & 0x3F) - 16) + 563LL);
@@ -802,72 +809,72 @@ LABEL_123:
       if ( *(_BYTE *)(v28 + 40) != (_BYTE)v49 )
       {
         *(_BYTE *)(v28 + 40) = v49;
-        RtlRbRemoveNode(v48 + 5, v28 + 16);
-        v54 = v48[6];
-        v55 = v48[5];
-        if ( (v54 & 1) == 0 )
+        RtlRbRemoveNode((PRTL_RB_TREE)(v48 + 5), (PRTL_BALANCED_NODE)(v28 + 16));
+        v53 = v48[6];
+        v54 = v48[5];
+        if ( (v53 & 1) == 0 )
           goto LABEL_77;
-        if ( v55 )
+        if ( v54 )
         {
-          v55 ^= (unsigned __int64)(v48 + 5);
+          v54 ^= (unsigned __int64)(v48 + 5);
 LABEL_77:
-          LOBYTE(v53) = 0;
-          v56 = v54 & 1;
-          if ( !v55 )
+          v55 = 0;
+          v56 = v53 & 1;
+          if ( !v54 )
             goto LABEL_101;
           while ( 1 )
           {
-            if ( *(_BYTE *)(v55 + 24) <= *(_BYTE *)(v28 + 40) )
+            if ( *(_BYTE *)(v54 + 24) <= *(_BYTE *)(v28 + 40) )
             {
-              v57 = *(_QWORD *)(v55 + 8);
+              v57 = *(_QWORD *)(v54 + 8);
               if ( v56 )
               {
                 if ( !v57 )
                   goto LABEL_100;
-                v57 ^= v55;
+                v57 ^= v54;
               }
               if ( !v57 )
               {
 LABEL_100:
-                LOBYTE(v53) = 1;
+                v55 = 1;
                 goto LABEL_101;
               }
             }
             else
             {
-              v57 = *(_QWORD *)v55;
+              v57 = *(_QWORD *)v54;
               if ( v56 )
               {
                 if ( !v57 )
                   goto LABEL_101;
-                v57 ^= v55;
+                v57 ^= v54;
               }
               if ( !v57 )
                 goto LABEL_101;
             }
-            v55 = v57;
+            v54 = v57;
           }
         }
-        LOBYTE(v53) = 0;
+        v55 = 0;
 LABEL_101:
-        RtlRbInsertNodeEx(v48 + 5, v55, v53, v28 + 16, v128, v129, v130);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(v48 + 5), (PRTL_BALANCED_NODE)v54, v55, (PRTL_BALANCED_NODE)(v28 + 16));
       }
       v45 |= 0x10u;
     }
     v61 = *((_DWORD *)v48 + 21);
     if ( (_BYTE)v61 )
-      BYTE1(v146) = 2;
+      BYTE1(v145) = 2;
     if ( (v61 & 0x7F00) != 0 )
-      BYTE2(v146) = 1;
+      BYTE2(v145) = 1;
     v62 = v48[8];
     if ( v62 )
     {
       v63 = *(_BYTE *)(v62 + 24);
-      LOBYTE(v146) = v63;
+      LOBYTE(v145) = v63;
     }
     else
     {
-      v63 = v146;
+      v63 = v145;
     }
     if ( *((_BYTE *)v48 + 9) )
     {
@@ -875,97 +882,96 @@ LABEL_101:
       if ( v123 > 30 )
         v123 = 30;
       if ( v123 > v63 )
-        LOBYTE(v146) = v123;
+        LOBYTE(v145) = v123;
     }
-    if ( !(_DWORD)v146 )
+    if ( !(_DWORD)v145 )
     {
-      KxReleaseQueuedSpinLock(&v144);
+      KxReleaseQueuedSpinLock(&v143);
       v45 |= 1u;
       goto LABEL_125;
     }
-    if ( !(unsigned int)KiAbSetMinimumThreadPriority(v28, (char *)&v146, v147, v148, a5, &v135) || (_QWORD *)v28 == v48 )
+    if ( !(unsigned int)KiAbSetMinimumThreadPriority(v28, (char *)&v145, v146, v147, a5, &v134) || (_QWORD *)v28 == v48 )
       goto LABEL_124;
     v102 = KiAbOwnerComputeCpuPriorityKey(v28, v100, v101);
     if ( *(_BYTE *)(v28 + 40) == v102 )
       goto LABEL_226;
     *(_BYTE *)(v28 + 40) = v102;
-    RtlRbRemoveNode(v48 + 5, v28 + 16);
-    v104 = v48[6];
-    v105 = v48[5];
-    if ( (v104 & 1) != 0 )
+    RtlRbRemoveNode((PRTL_RB_TREE)(v48 + 5), (PRTL_BALANCED_NODE)(v28 + 16));
+    v103 = v48[6];
+    v104 = v48[5];
+    if ( (v103 & 1) != 0 )
     {
-      if ( !v105 )
+      if ( !v104 )
       {
-        LOBYTE(v103) = 0;
-        RtlRbInsertNodeEx(v48 + 5, 0LL, v103, v28 + 16, v128, v129, v130);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(v48 + 5), 0LL, 0, (PRTL_BALANCED_NODE)(v28 + 16));
         v45 |= 0x20u;
         goto LABEL_124;
       }
-      v105 ^= (unsigned __int64)(v48 + 5);
+      v104 ^= (unsigned __int64)(v48 + 5);
     }
-    LOBYTE(v103) = 0;
-    v106 = v104 & 1;
-    if ( !v105 )
+    v105 = 0;
+    v106 = v103 & 1;
+    if ( !v104 )
       goto LABEL_225;
     while ( 1 )
     {
-      if ( *(_BYTE *)(v105 + 24) > *(_BYTE *)(v28 + 40) )
+      if ( *(_BYTE *)(v104 + 24) > *(_BYTE *)(v28 + 40) )
       {
-        v107 = *(_QWORD *)v105;
+        v107 = *(_QWORD *)v104;
         if ( v106 )
         {
           if ( !v107 )
             goto LABEL_225;
-          v107 ^= v105;
+          v107 ^= v104;
         }
         if ( !v107 )
           goto LABEL_225;
         goto LABEL_211;
       }
-      v107 = *(_QWORD *)(v105 + 8);
+      v107 = *(_QWORD *)(v104 + 8);
       if ( v106 )
       {
         if ( !v107 )
           break;
-        v107 ^= v105;
+        v107 ^= v104;
       }
       if ( !v107 )
         break;
 LABEL_211:
-      v105 = v107;
+      v104 = v107;
     }
-    LOBYTE(v103) = 1;
+    v105 = 1;
 LABEL_225:
-    RtlRbInsertNodeEx(v48 + 5, v105, v103, v28 + 16, v128, v129, v130);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(v48 + 5), (PRTL_BALANCED_NODE)v104, v105, (PRTL_BALANCED_NODE)(v28 + 16));
 LABEL_226:
     v45 |= 0x20u;
 LABEL_124:
-    KxReleaseQueuedSpinLock(&v144);
-    v65 = v135;
-    if ( v135 )
+    KxReleaseQueuedSpinLock(&v143);
+    v65 = v134;
+    if ( v134 )
     {
-      v127 = *(void **)(v28 - 88LL * (*(_BYTE *)(v28 + 8) & 0x3F) - 16);
+      v127 = *(KSPIN_LOCK **)(v28 - 88LL * (*(_BYTE *)(v28 + 8) & 0x3F) - 16);
       if ( (unsigned __int8)ObReferenceObjectSafeWithTag(v127, 1953261124LL) )
       {
         if ( (v65 & 1) != 0 )
-          IoBoostThreadIoPriority(v127, 2LL, 0x80000000LL);
+          IoBoostThreadIoPriority(v127, 2, 0x80000000);
         if ( (v65 & 2) != 0 )
-          PsBoostThreadOutstandingIoQoS(v127);
+          PsBoostThreadOutstandingIoQoS((__int64)v127);
         ObDereferenceObjectDeferDeleteWithTag(v127, 0x746C6644u);
       }
     }
 LABEL_125:
-    if ( (WORD2(xmmword_140FC5B10) & 0x1000) != 0 )
-      EtwTraceAutoBoostProcessLockEntry(*(_QWORD *)(v28 - 88LL * (*(_BYTE *)(v28 + 8) & 0x3F) - 16), v137, v45);
-    v24 = HIDWORD(v130);
+    if ( (WORD2(xmmword_140FC6B50) & 0x1000) != 0 )
+      EtwTraceAutoBoostProcessLockEntry(*(_QWORD *)(v28 - 88LL * (*(_BYTE *)(v28 + 8) & 0x3F) - 16), v136, v45);
+    v24 = v129;
 LABEL_23:
     v21 = LockedHeadEntry;
-    v25 = v132;
+    v25 = v131;
     v11 = 0x8000000000000000uLL;
-    v26 = v131;
+    v26 = v130;
     v10 = 0x7FFFFFFFFFFFFFFCLL;
     v13 = !_BitScanForward(&v23, v22);
-    v136 = v23;
+    v135 = v23;
   }
   while ( !v13 );
 }

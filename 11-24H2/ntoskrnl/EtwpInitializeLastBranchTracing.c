@@ -1,31 +1,31 @@
 /*
- * XREFs of EtwpInitializeLastBranchTracing @ 0x1407B18F4
+ * XREFs of EtwpInitializeLastBranchTracing @ 0x1407B1D44
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall EtwpInitializeLastBranchTracing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 EtwpInitializeLastBranchTracing()
 {
   __int64 result; // rax
-  int v5; // [rsp+30h] [rbp+8h] BYREF
-  unsigned int v6; // [rsp+38h] [rbp+10h] BYREF
+  int v1; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v2; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = 0;
-  v6 = 0;
+  v1 = 0;
+  v2 = 0;
   if ( ((unsigned __int8)&EtwpLastBranchLookAsideList & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
-  dword_140E28EC0 = 0;
-  dword_140E28EC4 = 0;
+  dword_140E29000 = 0;
+  dword_140E29004 = 0;
   EtwpLastBranchLookAsideList = 0LL;
-  result = guard_dispatch_icall_no_overrides(&v5, &v6, a3, a4);
+  result = guard_dispatch_icall_no_overrides(&v1, &v2);
   if ( (_BYTE)result )
   {
-    EtwpLastBranchStackSize = v5;
-    result = v6;
-    EtwpLastBranchSupportedOptions = v6;
+    EtwpLastBranchStackSize = v1;
+    result = v2;
+    EtwpLastBranchSupportedOptions = v2;
   }
   return result;
 }

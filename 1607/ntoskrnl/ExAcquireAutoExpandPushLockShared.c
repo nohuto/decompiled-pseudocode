@@ -1,21 +1,21 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockShared @ 0x1400C7740
+ * XREFs of ExAcquireAutoExpandPushLockShared @ 0x1400C55E0
  * Callers:
- *     NtAllocateUserPhysicalPages @ 0x14065CA98 (NtAllocateUserPhysicalPages.c)
- *     NtMapUserPhysicalPages @ 0x14065D72C (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x14065DBA8 (NtMapUserPhysicalPagesScatter.c)
- *     MiCommitEnclavePages @ 0x14065E734 (MiCommitEnclavePages.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
- *     MiDeleteEnclavePages @ 0x14065F308 (MiDeleteEnclavePages.c)
- *     MiProtectEnclavePages @ 0x14065F614 (MiProtectEnclavePages.c)
+ *     NtAllocateUserPhysicalPages @ 0x14065CB7C (NtAllocateUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x14065D810 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14065DC8C (NtMapUserPhysicalPagesScatter.c)
+ *     MiCommitEnclavePages @ 0x14065E818 (MiCommitEnclavePages.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
+ *     MiDeleteEnclavePages @ 0x14065F3EC (MiDeleteEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14065F6F8 (MiProtectEnclavePages.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExpAcquireFannedOutPushLockShared @ 0x1401330E4 (ExpAcquireFannedOutPushLockShared.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExpAcquireFannedOutPushLockShared @ 0x140133654 (ExpAcquireFannedOutPushLockShared.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -62,7 +62,7 @@ __int64 __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter
     v2 = (ULONG_PTR)CurrentThread->LockEntries + BugCheckParameter2;
     if ( v2 )
     {
-      if ( v3 >= qword_140326910 && v3 < qword_140326910 + 0x8000000000LL )
+      if ( v3 >= qword_140326950 && v3 < qword_140326950 + 0x8000000000LL )
         SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
       else
         SessionId = -1;

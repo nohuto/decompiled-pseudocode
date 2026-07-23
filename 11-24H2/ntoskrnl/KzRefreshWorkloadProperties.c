@@ -1,11 +1,11 @@
 /*
- * XREFs of KzRefreshWorkloadProperties @ 0x1403B260C
+ * XREFs of KzRefreshWorkloadProperties @ 0x1403A0E1C
  * Callers:
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
  * Callees:
- *     KiComputeThreadQos @ 0x14029A450 (KiComputeThreadQos.c)
- *     KiPrcbArrayForIsolationWidth @ 0x1403F52C0 (KiPrcbArrayForIsolationWidth.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x1404E9670 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiComputeThreadQos @ 0x1402A8F40 (KiComputeThreadQos.c)
+ *     KiPrcbArrayForIsolationWidth @ 0x1403EB700 (KiPrcbArrayForIsolationWidth.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x1404E0370 (KiUpdateThreadQosGroupingSummaries.c)
  */
 
 __int64 KzRefreshWorkloadProperties(__int64 a1, unsigned __int8 a2, __int64 a3, ...)

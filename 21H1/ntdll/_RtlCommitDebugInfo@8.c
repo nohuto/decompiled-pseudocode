@@ -6,7 +6,7 @@
  *     _RtlpCommitQueryDebugInfo@8 @ 0x4B3378A8 (_RtlpCommitQueryDebugInfo@8.c)
  */
 
-int __stdcall RtlCommitDebugInfo(int a1, int a2)
+PVOID __cdecl RtlCommitDebugInfo(PRTL_DEBUG_INFORMATION Buffer, SIZE_T Size)
 {
-  return RtlpCommitQueryDebugInfo(a1, a2);
+  return (PVOID)RtlpCommitQueryDebugInfo(Buffer, Size);
 }

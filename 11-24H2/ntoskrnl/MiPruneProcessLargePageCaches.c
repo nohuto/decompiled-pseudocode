@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPruneProcessLargePageCaches @ 0x1402D2D24
+ * XREFs of MiPruneProcessLargePageCaches @ 0x140353F9C
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1402D04F0 (MiComputeSystemTrimCriteria.c)
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
- *     MiDeleteWorkingSetList @ 0x140481A60 (MiDeleteWorkingSetList.c)
+ *     MiComputeSystemTrimCriteria @ 0x1402F3C60 (MiComputeSystemTrimCriteria.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
+ *     MiDeleteWorkingSetList @ 0x14047CD20 (MiDeleteWorkingSetList.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiFreeProcessLargePageCache @ 0x1406929F4 (MiFreeProcessLargePageCache.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiFreeProcessLargePageCache @ 0x140693AC4 (MiFreeProcessLargePageCache.c)
  */
 
 __int64 __fastcall MiPruneProcessLargePageCaches(__int64 a1, int a2)

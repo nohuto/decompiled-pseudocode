@@ -20,24 +20,24 @@
  *     sub_1800E224C @ 0x1800E224C (sub_1800E224C.c)
  */
 
-unsigned int *__fastcall sub_180024910(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall sub_180024910(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _TEB *v4; // rax
   unsigned int v6; // r12d
-  __int64 *v7; // r14
+  LARGE_INTEGER *v7; // r14
   __int64 v8; // rcx
-  __int64 v9; // rdi
+  void *v9; // rdi
   int v10; // r13d
   __int64 v11; // rcx
   unsigned __int64 v12; // rsi
   struct _TEB *v13; // rcx
-  __int64 p_ProcessParameters; // rdi
+  __int64 WaitOnAddressHashTable; // rdi
   __int64 v15; // r8
   signed __int64 j; // rcx
   _QWORD *v17; // rax
   unsigned __int64 v18; // r9
   signed __int64 v19; // rax
-  unsigned int *result; // rax
+  struct _PEB *v20; // rax
   signed __int64 v21; // rax
   _QWORD *v22; // rdx
   _QWORD *v23; // rcx
@@ -49,29 +49,29 @@ unsigned int *__fastcall sub_180024910(__int64 a1, __int64 a2, __int64 a3, __int
   int v29; // r8d
   int v30; // r9d
   __int64 v31; // rcx
-  __int64 i; // [rsp+30h] [rbp-40h]
-  struct _TEB *v33; // [rsp+38h] [rbp-38h]
-  _QWORD v34[2]; // [rsp+40h] [rbp-30h] BYREF
-  unsigned __int64 v35; // [rsp+50h] [rbp-20h]
-  __int64 v36; // [rsp+58h] [rbp-18h]
-  _QWORD *v37; // [rsp+60h] [rbp-10h]
-  int v38; // [rsp+68h] [rbp-8h]
-  char v39; // [rsp+B0h] [rbp+40h]
-  int v40; // [rsp+C0h] [rbp+50h]
+  void *i; // [rsp+30h] [rbp-40h]
+  struct _TEB *v34; // [rsp+38h] [rbp-38h]
+  _QWORD v35[2]; // [rsp+40h] [rbp-30h] BYREF
+  unsigned __int64 v36; // [rsp+50h] [rbp-20h]
+  __int64 v37; // [rsp+58h] [rbp-18h]
+  _QWORD *v38; // [rsp+60h] [rbp-10h]
+  int v39; // [rsp+68h] [rbp-8h]
+  char v40; // [rsp+B0h] [rbp+40h]
+  int v41; // [rsp+C0h] [rbp+50h]
 
   v4 = NtCurrentTeb();
-  v40 = a2;
-  v39 = 0;
-  v33 = v4;
+  v41 = a2;
+  v40 = 0;
+  v34 = v4;
   v6 = 0;
-  if ( (_UNKNOWN **)a1 == &off_1801565B0 )
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &stru_1801565B0 )
   {
-    v39 = 1;
+    v40 = 1;
     v4->WaitingOnLoaderLock = 1;
   }
-  if ( (unsigned __int8)sub_1800286DC(&off_1801565B0, a2, a3, a4) )
-    ZwTerminateProcess(-1LL, 3221225547LL);
-  v7 = &qword_18015BEC0;
+  if ( (unsigned __int8)sub_1800286DC(&stru_1801565B0, a2, a3, a4) )
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+  v7 = &Timeout;
   if ( byte_18015BEB8 )
     v7 = 0LL;
   if ( !*(_QWORD *)(a1 + 24) )
@@ -88,47 +88,47 @@ unsigned int *__fastcall sub_180024910(__int64 a1, __int64 a2, __int64 a3, __int
   if ( v8 != -1 )
 LABEL_10:
     ++*(_DWORD *)(v8 + 36);
-  v9 = *(_QWORD *)(a1 + 24);
+  v9 = *(void **)(a1 + 24);
   v10 = 0;
   for ( i = v9; ; v9 = i )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 552;
+    if ( RtlGetCurrentServiceSessionId() )
+      v11 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[1];
     else
       v11 = 2147353474LL;
     if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
       sub_1800E20B8(a1);
-    if ( v9 == -1 )
+    if ( v9 == (void *)-1LL )
     {
       v12 = a1 + 8;
       while ( 1 )
       {
-        v34[0] = a1 + 8;
-        v38 = 1;
-        v36 = 0LL;
-        v35 = 0LL;
+        v35[0] = a1 + 8;
+        v39 = 1;
         v37 = 0LL;
+        v36 = 0LL;
+        v38 = 0LL;
         v13 = NtCurrentTeb();
-        v34[1] = v13->ClientId.UniqueThread;
-        p_ProcessParameters = (__int64)&v13->ProcessEnvironmentBlock[1].ProcessParameters;
+        v35[1] = v13->ClientId.UniqueThread;
+        WaitOnAddressHashTable = (__int64)v13->ProcessEnvironmentBlock->WaitOnAddressHashTable;
         v15 = (v12 >> 5) & 0x7F;
-        for ( j = *(_QWORD *)(p_ProcessParameters + 8 * v15); ; j = v19 )
+        for ( j = *(_QWORD *)(WaitOnAddressHashTable + 8 * v15); ; j = v19 )
         {
-          v17 = v34;
-          v18 = (unsigned __int64)v34 | j & 3;
-          v35 = j & 0xFFFFFFFFFFFFFFFCuLL;
+          v17 = v35;
+          v18 = (unsigned __int64)v35 | j & 3;
+          v36 = j & 0xFFFFFFFFFFFFFFFCuLL;
           if ( (j & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
             v17 = 0LL;
-          v37 = v17;
+          v38 = v17;
           if ( (j & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
             v18 |= 2uLL;
-          v19 = _InterlockedCompareExchange64((volatile signed __int64 *)(p_ProcessParameters + 8 * v15), v18, j);
+          v19 = _InterlockedCompareExchange64((volatile signed __int64 *)(WaitOnAddressHashTable + 8 * v15), v18, j);
           if ( j == v19 )
             break;
         }
         if ( (((unsigned __int8)j ^ (unsigned __int8)v18) & 2) != 0 )
         {
-          v21 = *(_QWORD *)(p_ProcessParameters + 8 * v15);
+          v21 = *(_QWORD *)(WaitOnAddressHashTable + 8 * v15);
           do
           {
             v22 = (_QWORD *)(v21 & 0xFFFFFFFFFFFFFFFCuLL);
@@ -148,31 +148,31 @@ LABEL_10:
             if ( (v21 & 1) == 0 )
               v25 = v21 & 0xFFFFFFFFFFFFFFFCuLL;
             v26 = v21;
-            v21 = _InterlockedCompareExchange64((volatile signed __int64 *)(p_ProcessParameters + 8 * v15), v25, v21);
+            v21 = _InterlockedCompareExchange64((volatile signed __int64 *)(WaitOnAddressHashTable + 8 * v15), v25, v21);
           }
           while ( v26 != v21 );
           if ( v24 )
             sub_18004ADC0(v21);
         }
-        if ( *(_DWORD *)v12 == v40 )
+        if ( *(_DWORD *)v12 == v41 )
         {
-          result = (unsigned int *)sub_180024C30(p_ProcessParameters, v34, v7, 0LL);
+          LODWORD(v20) = sub_180024C30(WaitOnAddressHashTable, v35, v7, 0LL);
         }
         else
         {
-          sub_18004ABB4(p_ProcessParameters, v34);
-          result = 0LL;
+          sub_18004ABB4(WaitOnAddressHashTable, v35);
+          LODWORD(v20) = 0;
         }
-        if ( (_DWORD)result == 258 )
+        if ( (_DWORD)v20 == 258 )
           goto LABEL_54;
-        v40 = *(_DWORD *)v12;
+        v41 = *(_DWORD *)v12;
         if ( (*(_DWORD *)v12 & 2) == 0 )
           goto LABEL_28;
       }
     }
-    result = (unsigned int *)ZwWaitForSingleObject(v9, 0LL, v7);
+    LODWORD(v20) = ZwWaitForSingleObject(v9, 0, v7);
 LABEL_28:
-    if ( (_DWORD)result != 258 )
+    if ( (_DWORD)v20 != 258 )
       break;
 LABEL_54:
     sub_1800E201C(a1, v7, v6++);
@@ -180,21 +180,21 @@ LABEL_54:
       v28 = 0;
     else
       v28 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
-    if ( v6 > 2 && (_UNKNOWN **)a1 != &off_1801565B0 && v28 == v10 )
+    if ( v6 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &stru_1801565B0 && v28 == v10 )
       sub_1800E224C(a1);
     v10 = v28;
-    DbgPrintEx(101, 0, (int)"RTL: Re-Waiting\n");
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
-  if ( (int)result < 0 )
-    RtlRaiseStatus((unsigned int)result);
-  if ( v39 )
+  if ( (int)v20 < 0 )
+    RtlRaiseStatus((NTSTATUS)v20);
+  if ( v40 )
   {
-    v33->WaitingOnLoaderLock = 0;
-    result = RtlGetCurrentServiceSessionId();
-    if ( (_DWORD)result )
+    v34->WaitingOnLoaderLock = 0;
+    LODWORD(v20) = RtlGetCurrentServiceSessionId();
+    if ( (_DWORD)v20 )
     {
-      result = (unsigned int *)NtCurrentPeb();
-      v27 = *((_QWORD *)result + 18) + 554LL;
+      v20 = NtCurrentPeb();
+      v27 = (__int64)&v20->SharedData->UserModeGlobalLogger[2];
     }
     else
     {
@@ -202,14 +202,14 @@ LABEL_54:
     }
     if ( *(_BYTE *)v27 )
     {
-      result = (unsigned int *)NtCurrentPeb();
-      if ( (result[222] & 4) != 0 )
+      v20 = NtCurrentPeb();
+      if ( (v20->TracingFlags & 4) != 0 )
       {
-        result = RtlGetCurrentServiceSessionId();
-        if ( (_DWORD)result )
+        LODWORD(v20) = RtlGetCurrentServiceSessionId();
+        if ( (_DWORD)v20 )
         {
-          result = (unsigned int *)NtCurrentPeb();
-          v31 = *((_QWORD *)result + 18) + 555LL;
+          v20 = NtCurrentPeb();
+          v31 = (__int64)&v20->SharedData->UserModeGlobalLogger[2] + 1;
         }
         else
         {
@@ -219,10 +219,10 @@ LABEL_54:
         {
           LOBYTE(v30) = -1;
           LOBYTE(v29) = -1;
-          return (unsigned int *)sub_1800CBAB0(5251, -1, v29, v30, 0LL, 0LL);
+          LODWORD(v20) = sub_1800CBAB0(5251, -1, v29, v30, 0LL, 0LL);
         }
       }
     }
   }
-  return result;
+  return (int)v20;
 }

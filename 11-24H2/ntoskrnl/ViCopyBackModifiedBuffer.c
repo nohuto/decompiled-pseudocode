@@ -1,11 +1,11 @@
 /*
- * XREFs of ViCopyBackModifiedBuffer @ 0x140B88774
+ * XREFs of ViCopyBackModifiedBuffer @ 0x140B8A774
  * Callers:
- *     ViFlushDoubleBuffer @ 0x140B889E0 (ViFlushDoubleBuffer.c)
+ *     ViFlushDoubleBuffer @ 0x140B8A9E0 (ViFlushDoubleBuffer.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ViGetMdlBufferSa @ 0x140B88FD8 (ViGetMdlBufferSa.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ViGetMdlBufferSa @ 0x140B8AFD8 (ViGetMdlBufferSa.c)
  */
 
 __int64 __fastcall ViCopyBackModifiedBuffer(__int64 a1, int a2, char *a3, char *a4, SIZE_T Length)

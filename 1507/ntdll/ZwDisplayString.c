@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwDisplayString()
+NTSTATUS __cdecl ZwDisplayString(PUNICODE_STRING String)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 204LL;
+  result = 204;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -9,38 +9,41 @@
  *     NtQueryValueKey @ 0x18009D7C0 (NtQueryValueKey.c)
  */
 
-__int64 RtlpTestHookInitialize()
+__int64 __fastcall RtlpTestHookInitialize(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  int v1; // r8d
-  int v2; // ecx
-  HANDLE Handle; // [rsp+30h] [rbp-9h] BYREF
-  _BYTE v4[8]; // [rsp+38h] [rbp-1h] BYREF
-  int v5; // [rsp+40h] [rbp+7h] BYREF
-  __int64 v6; // [rsp+48h] [rbp+Fh]
-  void *v7; // [rsp+50h] [rbp+17h]
-  int v8; // [rsp+58h] [rbp+1Fh]
-  __int128 v9; // [rsp+60h] [rbp+27h]
-  _BYTE v10[24]; // [rsp+70h] [rbp+37h] BYREF
+  int v4; // r8d
+  int v5; // ecx
+  HANDLE KeyHandle; // [rsp+30h] [rbp-9h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp+7h] BYREF
+  _BYTE KeyValueInformation[24]; // [rsp+70h] [rbp+37h] BYREF
 
-  Handle = 0LL;
-  v5 = 48;
-  v6 = 0LL;
-  v8 = 64;
-  v7 = &unk_18011D7A0;
-  memset(v10, 0, sizeof(v10));
-  v9 = 0LL;
-  if ( (int)NtOpenKey(&Handle, 9LL, &v5) >= 0 && (int)NtQueryValueKey(Handle, L" \"", 2LL, v10, 24, v4) >= 0 )
+  KeyHandle = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_18011D7A0;
+  memset(KeyValueInformation, 0, sizeof(KeyValueInformation));
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&KeyHandle, 9u, &ObjectAttributes) >= 0
+    && NtQueryValueKey(
+         KeyHandle,
+         (PUNICODE_STRING)&stru_18011D790,
+         KeyValuePartialInformation,
+         KeyValueInformation,
+         0x18u,
+         &ResultLength) >= 0 )
   {
-    RtlpUserPolicies = *(_QWORD *)&v10[12];
-    v1 = 1049601;
-    if ( v10[12] > 0x14u || !_bittest(&v1, v10[12]) )
+    RtlpUserPolicies = *(_QWORD *)&KeyValueInformation[12];
+    v4 = 1049601;
+    if ( KeyValueInformation[12] > 0x14u || !_bittest(&v4, KeyValueInformation[12]) )
       LOBYTE(RtlpUserPolicies) = 0;
-    if ( BYTE1(RtlpUserPolicies) > 0x14u || !_bittest(&v1, BYTE1(RtlpUserPolicies)) )
+    if ( BYTE1(RtlpUserPolicies) > 0x14u || !_bittest(&v4, BYTE1(RtlpUserPolicies)) )
       BYTE1(RtlpUserPolicies) = 0;
-    if ( BYTE2(RtlpUserPolicies) > 0x14u || (v2 = 1082401, !_bittest(&v2, BYTE2(RtlpUserPolicies))) )
+    if ( BYTE2(RtlpUserPolicies) > 0x14u || (v5 = 1082401, !_bittest(&v5, BYTE2(RtlpUserPolicies))) )
       BYTE2(RtlpUserPolicies) = 0;
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return 0LL;
 }

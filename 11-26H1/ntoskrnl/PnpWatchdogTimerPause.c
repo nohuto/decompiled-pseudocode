@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpWatchdogTimerPause @ 0x1409DE0A8
+ * XREFs of PnpWatchdogTimerPause @ 0x140A1B1D4
  * Callers:
- *     PiUEventNotifyUserMode @ 0x1409DD808 (PiUEventNotifyUserMode.c)
- *     PnpCancelWatchdog @ 0x1409DE054 (PnpCancelWatchdog.c)
+ *     PiUEventNotifyUserMode @ 0x140A1AAC0 (PiUEventNotifyUserMode.c)
+ *     PnpCancelWatchdog @ 0x140A1B180 (PnpCancelWatchdog.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExCancelTimer @ 0x1403AA0D0 (ExCancelTimer.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExCancelTimer @ 0x1403B3CE0 (ExCancelTimer.c)
  */
 
 int __fastcall PnpWatchdogTimerPause(__int64 a1)

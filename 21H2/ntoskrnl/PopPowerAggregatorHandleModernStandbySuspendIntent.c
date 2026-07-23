@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorHandleModernStandbySuspendIntent @ 0x1408EE480
+ * XREFs of PopPowerAggregatorHandleModernStandbySuspendIntent @ 0x1408EE5E0
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775FD4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
  *     <none>
  */

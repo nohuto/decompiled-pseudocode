@@ -1,10 +1,10 @@
 /*
- * XREFs of XmCmpxchgOp @ 0x1404E5A10
+ * XREFs of XmCmpxchgOp @ 0x1404E5C50
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSubOperands @ 0x140396BA8 (XmSubOperands.c)
- *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
+ *     XmSubOperands @ 0x140396CF8 (XmSubOperands.c)
+ *     XmStoreResult @ 0x140396F10 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmCmpxchgOp(__int64 a1)

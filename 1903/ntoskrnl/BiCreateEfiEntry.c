@@ -16,27 +16,27 @@
  *     BiUpdateObjectReferenceInEfiEntry @ 0x140932A58 (BiUpdateObjectReferenceInEfiEntry.c)
  */
 
-__int64 __fastcall BiCreateEfiEntry(__int64 a1, __int64 a2)
+__int64 __fastcall BiCreateEfiEntry(void *a1, const GUID *a2)
 {
   wchar_t *Buffer; // rdi
-  int v5; // eax
-  __int64 v6; // r14
+  NTSTATUS v5; // eax
+  HANDLE v6; // r14
   int BootEntry; // ebx
-  int v8; // eax
-  int v9; // eax
+  unsigned int v8; // eax
+  unsigned int v9; // eax
   UNICODE_STRING EntryValue; // [rsp+68h] [rbp+38h] BYREF
-  void *v12; // [rsp+78h] [rbp+48h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+78h] [rbp+48h] BYREF
 
   Buffer = 0LL;
   EntryValue.Buffer = 0LL;
-  v5 = BcdOpenObject(a1, (unsigned int *)(a2 + 16), &v12);
-  v6 = (__int64)v12;
+  v5 = BcdOpenObject(a1, a2 + 1, &BcdObjectHandle);
+  v6 = BcdObjectHandle;
   BootEntry = v5;
   if ( v5 < 0 )
     goto LABEL_17;
-  if ( (*(_DWORD *)(a2 + 48) & 2) == 0 )
+  if ( (a2[3].Data1 & 2) == 0 )
   {
-    BootEntry = BiCreateBootEntry(v12, &EntryValue.Buffer);
+    BootEntry = BiCreateBootEntry(BcdObjectHandle, &EntryValue.Buffer);
     if ( BootEntry >= 0 )
     {
       Buffer = EntryValue.Buffer;
@@ -46,13 +46,19 @@ __int64 __fastcall BiCreateEfiEntry(__int64 a1, __int64 a2)
         BiLogMessage(2LL, L"Created new boot entry 0x%x", *(unsigned int *)&EntryValue.Length);
         *((_DWORD *)Buffer + 2) = *(_DWORD *)&EntryValue.Length;
         v9 = *(_DWORD *)&EntryValue.Length;
-        *(_DWORD *)(a2 + 48) |= 0x21u;
-        *(_DWORD *)(a2 + 32) = v9;
-        *(_QWORD *)(a2 + 40) = Buffer;
-        BootEntry = BiSetRegistryValue(v6, L"FirmwareVariable", L"Description", 3u, Buffer, *((_DWORD *)Buffer + 1));
+        a2[3].Data1 |= 0x21u;
+        a2[2].Data1 = v9;
+        *(_QWORD *)a2[2].Data4 = Buffer;
+        BootEntry = BiSetRegistryValue(
+                      (__int64)v6,
+                      L"FirmwareVariable",
+                      L"Description",
+                      3u,
+                      Buffer,
+                      *((_DWORD *)Buffer + 1));
         if ( BootEntry >= 0 )
         {
-          *(_DWORD *)(a2 + 48) |= 2u;
+          a2[3].Data1 |= 2u;
 LABEL_14:
           if ( BootEntry >= 0 )
             goto LABEL_18;
@@ -65,16 +71,16 @@ LABEL_16:
     Buffer = EntryValue.Buffer;
     goto LABEL_17;
   }
-  BootEntry = BiGetSavedBootEntry(v12, &EntryValue.Buffer);
+  BootEntry = BiGetSavedBootEntry(BcdObjectHandle, &EntryValue.Buffer);
   if ( BootEntry < 0 )
     goto LABEL_16;
   Buffer = EntryValue.Buffer;
-  if ( (*(_DWORD *)(a2 + 48) & 8) == 0 )
+  if ( (a2[3].Data1 & 8) == 0 )
   {
     BootEntry = BiUpdateObjectReferenceInEfiEntry(EntryValue.Buffer, v6);
     if ( BootEntry < 0 )
       goto LABEL_17;
-    *(_DWORD *)(a2 + 48) |= 0x20u;
+    a2[3].Data1 |= 0x20u;
   }
   BootEntry = BiAddBootEntry((PUNICODE_STRING)Buffer, &EntryValue);
   if ( BootEntry >= 0 )
@@ -82,10 +88,16 @@ LABEL_16:
     BiLogMessage(2LL, L"Created boot entry 0x%x using cached variable", *(unsigned int *)&EntryValue.Length);
     *((_DWORD *)Buffer + 2) = *(_DWORD *)&EntryValue.Length;
     v8 = *(_DWORD *)&EntryValue.Length;
-    *(_DWORD *)(a2 + 48) |= 1u;
-    *(_DWORD *)(a2 + 32) = v8;
-    *(_QWORD *)(a2 + 40) = Buffer;
-    BootEntry = BiSetRegistryValue(v6, L"FirmwareVariable", L"Description", 3u, Buffer, *((_DWORD *)Buffer + 1));
+    a2[3].Data1 |= 1u;
+    a2[2].Data1 = v8;
+    *(_QWORD *)a2[2].Data4 = Buffer;
+    BootEntry = BiSetRegistryValue(
+                  (__int64)v6,
+                  L"FirmwareVariable",
+                  L"Description",
+                  3u,
+                  Buffer,
+                  *((_DWORD *)Buffer + 1));
     if ( BootEntry >= 0 )
     {
       BootEntry = BiUpdateEfiEntry(a1, a2);
@@ -97,7 +109,7 @@ LABEL_17:
 LABEL_18:
   if ( v6 )
     BcdCloseObject(v6);
-  if ( (*(_DWORD *)(a2 + 48) & 1) == 0 && Buffer )
+  if ( (a2[3].Data1 & 1) == 0 && Buffer )
     ExFreePoolWithTag(Buffer, 0x4B444342u);
   return (unsigned int)BootEntry;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpDestroyTypeArray @ 0x1408623C8
+ * XREFs of ObpDestroyTypeArray @ 0x140863628
  * Callers:
- *     ObEnumerateObjectsByType @ 0x140861B94 (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x140861C60 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x140862DF4 (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x140862EC0 (ObGetObjectInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpDestroyTypeArray(_QWORD *P)

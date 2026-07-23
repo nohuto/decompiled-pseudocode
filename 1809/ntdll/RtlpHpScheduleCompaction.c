@@ -2,7 +2,7 @@
  * XREFs of RtlpHpScheduleCompaction @ 0x18001D824
  * Callers:
  *     RtlpHpLfhSubsegmentDecommitPages @ 0x18001CA30 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpSegLfhVsDecommit @ 0x180075BA0 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x180075BB0 (RtlpHpSegLfhVsDecommit.c)
  * Callees:
  *     TpSetTimerEx @ 0x18002C800 (TpSetTimerEx.c)
  *     RtlpHpTlLogGCScheduled @ 0x180109ECC (RtlpHpTlLogGCScheduled.c)
@@ -16,7 +16,7 @@ __int64 RtlpHpScheduleCompaction()
   {
     if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
     {
-      TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0LL, 5000LL);
+      TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 0x1388u);
       if ( (RtlpHpHeapFeatures & 8) != 0 )
         RtlpHpTlLogGCScheduled();
     }

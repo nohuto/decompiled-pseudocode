@@ -1,32 +1,28 @@
 /*
- * XREFs of IoCancelFileOpen @ 0x1406F9E00
+ * XREFs of IoCancelFileOpen @ 0x1406F7A40
  * Callers:
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x140253C60 (IopQueueThreadIrp.c)
- *     IopAllocateIrpMustSucceed @ 0x140253D60 (IopAllocateIrpMustSucceed.c)
- *     IopDequeueIrpFromThread @ 0x1402541C0 (IopDequeueIrpFromThread.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PoCallDriver @ 0x1403756A0 (PoCallDriver.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     IopCloseFileObjectExtension @ 0x1403C4780 (IopCloseFileObjectExtension.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PoCallDriver @ 0x14025DF60 (PoCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140284270 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpMustSucceed @ 0x140284370 (IopAllocateIrpMustSucceed.c)
+ *     IopDequeueIrpFromThread @ 0x1402847D0 (IopDequeueIrpFromThread.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     IopCloseFileObjectExtension @ 0x1403B3340 (IopCloseFileObjectExtension.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __stdcall IoCancelFileOpen(PDEVICE_OBJECT DeviceObject, PFILE_OBJECT FileObject)
 {
   bool v2; // zf
   __int64 v5; // rdx
-  IRP *MustSucceed; // rdi
+  PIRP IrpMustSucceed; // rdi
   struct _KTHREAD *CurrentThread; // rcx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v12; // r8
   struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
 
   v2 = (FileObject->Flags & 0x40000) == 0;
@@ -36,23 +32,23 @@ void __stdcall IoCancelFileOpen(PDEVICE_OBJECT DeviceObject, PFILE_OBJECT FileOb
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
   IopResetEvent((__int64)FileObject);
   LOBYTE(v5) = DeviceObject->StackSize;
-  MustSucceed = (IRP *)IopAllocateIrpMustSucceed((__int64)DeviceObject, v5);
-  MustSucceed->Tail.Overlay.OriginalFileObject = FileObject;
+  IrpMustSucceed = IopAllocateIrpMustSucceed((__int64)DeviceObject, v5);
+  IrpMustSucceed->Tail.Overlay.OriginalFileObject = FileObject;
   CurrentThread = KeGetCurrentThread();
-  MustSucceed->Overlay.AllocationSize.QuadPart = 0LL;
-  MustSucceed->Tail.Overlay.Thread = CurrentThread;
-  MustSucceed->UserIosb = &MustSucceed->IoStatus;
-  CurrentStackLocation = MustSucceed->Tail.Overlay.CurrentStackLocation;
-  MustSucceed->RequestorMode = 0;
-  MustSucceed->UserEvent = &Event;
-  MustSucceed->Flags = 1028;
+  IrpMustSucceed->Overlay.AllocationSize.QuadPart = 0LL;
+  IrpMustSucceed->Tail.Overlay.Thread = CurrentThread;
+  IrpMustSucceed->UserIosb = &IrpMustSucceed->IoStatus;
+  CurrentStackLocation = IrpMustSucceed->Tail.Overlay.CurrentStackLocation;
+  IrpMustSucceed->RequestorMode = 0;
+  IrpMustSucceed->UserEvent = &Event;
+  IrpMustSucceed->Flags = 1028;
   CurrentStackLocation[-1].MajorFunction = 18;
   CurrentStackLocation[-1].FileObject = FileObject;
-  IopQueueThreadIrp((__int64)MustSucceed, v9, v10);
-  if ( PoCallDriver(DeviceObject, MustSucceed) == 259 )
+  IopQueueThreadIrp((__int64)IrpMustSucceed);
+  if ( PoCallDriver(DeviceObject, IrpMustSucceed) == 259 )
     KeWaitForSingleObject(&Event, UserRequest, 0, 0, 0LL);
-  IopDequeueIrpFromThread(MustSucceed, v11, v12);
-  IoFreeIrp(MustSucceed);
+  IopDequeueIrpFromThread(IrpMustSucceed);
+  IoFreeIrp(IrpMustSucceed);
   KeResetEvent(&FileObject->Event);
   FileObject->Flags |= 0x200000u;
   IopCloseFileObjectExtension((__int64)FileObject);

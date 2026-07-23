@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQuerySystemEnvironmentValueEx()
+NTSTATUS __cdecl NtQuerySystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        PULONG ValueLength,
+        PULONG Attributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 326LL;
+  result = 326;
   __asm { syscall; Low latency system call }
   return result;
 }

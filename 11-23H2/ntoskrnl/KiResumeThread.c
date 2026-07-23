@@ -1,26 +1,26 @@
 /*
- * XREFs of KiResumeThread @ 0x14030ACF8
+ * XREFs of KiResumeThread @ 0x14030AF88
  * Callers:
  *     KiThawSingleThread @ 0x140205004 (KiThawSingleThread.c)
- *     KeResumeThread @ 0x14030A22C (KeResumeThread.c)
- *     KeForceResumeThread @ 0x14030ABDC (KeForceResumeThread.c)
- *     KiAdjustThreadTimer @ 0x140576DD8 (KiAdjustThreadTimer.c)
+ *     KeResumeThread @ 0x14030A4BC (KeResumeThread.c)
+ *     KeForceResumeThread @ 0x14030AE6C (KeForceResumeThread.c)
+ *     KiAdjustThreadTimer @ 0x1405772C8 (KiAdjustThreadTimer.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiTimerWaitTest @ 0x140252EF0 (KiTimerWaitTest.c)
- *     KiComputeDueTime @ 0x140253770 (KiComputeDueTime.c)
- *     KiInsertTimerTable @ 0x140253830 (KiInsertTimerTable.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiSignalThread @ 0x1402B85D0 (KiSignalThread.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiSignalThreadForApc @ 0x14030B308 (KiSignalThreadForApc.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KiTestForAlertPending @ 0x140351390 (KiTestForAlertPending.c)
- *     KiTraceSetTimer @ 0x140462A80 (KiTraceSetTimer.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiTimerWaitTest @ 0x140252FB0 (KiTimerWaitTest.c)
+ *     KiComputeDueTime @ 0x140253830 (KiComputeDueTime.c)
+ *     KiInsertTimerTable @ 0x1402538F0 (KiInsertTimerTable.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiSignalThread @ 0x1402B8860 (KiSignalThread.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiSignalThreadForApc @ 0x14030B598 (KiSignalThreadForApc.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KiTestForAlertPending @ 0x140351530 (KiTestForAlertPending.c)
+ *     KiTraceSetTimer @ 0x140462E80 (KiTraceSetTimer.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KiResumeThread(__int64 a1, __int64 a2, __int64 a3)
@@ -210,7 +210,7 @@ LABEL_4:
         v23 = (_QWORD *)(v22 + 8);
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )

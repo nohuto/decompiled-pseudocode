@@ -1,14 +1,14 @@
 /*
- * XREFs of PipDeleteAllDependencyRelations @ 0x140A0F350
+ * XREFs of PipDeleteAllDependencyRelations @ 0x1409BD760
  * Callers:
- *     PnpDeleteAllDependencyRelations @ 0x140A0F124 (PnpDeleteAllDependencyRelations.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1409BD534 (PnpDeleteAllDependencyRelations.c)
  * Callees:
- *     PipFreeDependencyEdge @ 0x1404CD984 (PipFreeDependencyEdge.c)
- *     PiListEntryToDependencyEdge @ 0x1404F8618 (PiListEntryToDependencyEdge.c)
- *     PipAttemptDependentStart @ 0x14071E570 (PipAttemptDependentStart.c)
- *     PipUnlinkDeviceObjectAndDependencyNode @ 0x140AB5450 (PipUnlinkDeviceObjectAndDependencyNode.c)
- *     PipDereferenceDependencyNode @ 0x140AB54A0 (PipDereferenceDependencyNode.c)
- *     PipConvertResolutionsToReservations @ 0x140ABC7C8 (PipConvertResolutionsToReservations.c)
+ *     PipFreeDependencyEdge @ 0x1404C6D54 (PipFreeDependencyEdge.c)
+ *     PiListEntryToDependencyEdge @ 0x1404F5EF8 (PiListEntryToDependencyEdge.c)
+ *     PipAttemptDependentStart @ 0x14071C100 (PipAttemptDependentStart.c)
+ *     PipUnlinkDeviceObjectAndDependencyNode @ 0x140AAF8E0 (PipUnlinkDeviceObjectAndDependencyNode.c)
+ *     PipDereferenceDependencyNode @ 0x140AAF930 (PipDereferenceDependencyNode.c)
+ *     PipConvertResolutionsToReservations @ 0x140AB77E8 (PipConvertResolutionsToReservations.c)
  */
 
 void __fastcall PipDeleteAllDependencyRelations(__int64 a1)

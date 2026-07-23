@@ -1,18 +1,18 @@
 /*
- * XREFs of IoCreateDeviceSecure @ 0x14073C480
+ * XREFs of IoCreateDeviceSecure @ 0x14073C640
  * Callers:
  *     <none>
  * Callees:
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14039E610 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ObSetSecurityObjectByPointer @ 0x140660460 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
- *     IopCreateSecureDeviceClassSettings @ 0x140739950 (IopCreateSecureDeviceClassSettings.c)
- *     IopGetSecurityDescriptorInformation @ 0x14073C6CC (IopGetSecurityDescriptorInformation.c)
- *     IopUpdateSecureDeviceClassState @ 0x1407BD834 (IopUpdateSecureDeviceClassState.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14039E760 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ObSetSecurityObjectByPointer @ 0x140655280 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x1406C9950 (IoCreateDevice.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x140739B10 (IopCreateSecureDeviceClassSettings.c)
+ *     IopGetSecurityDescriptorInformation @ 0x14073C88C (IopGetSecurityDescriptorInformation.c)
+ *     IopUpdateSecureDeviceClassState @ 0x1407BDFC4 (IopUpdateSecureDeviceClassState.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IoCreateDeviceSecure(
@@ -23,7 +23,7 @@ __int64 __fastcall IoCreateDeviceSecure(
         ULONG a5,
         BOOLEAN a6,
         const void **a7,
-        unsigned int *a8,
+        PGUID Guid,
         PDEVICE_OBJECT DeviceObject)
 {
   PDEVICE_OBJECT v9; // r12
@@ -41,7 +41,9 @@ __int64 __fastcall IoCreateDeviceSecure(
   __int64 v23; // [rsp+48h] [rbp-38h] BYREF
   ULONG DeviceType[4]; // [rsp+50h] [rbp-30h] BYREF
   ULONG v25[2]; // [rsp+60h] [rbp-20h]
-  _QWORD v26[3]; // [rsp+68h] [rbp-18h] BYREF
+  __int64 v26; // [rsp+68h] [rbp-18h]
+  __int64 v27; // [rsp+70h] [rbp-10h]
+  __int64 v28; // [rsp+78h] [rbp-8h]
 
   v9 = DeviceObject;
   DeviceCharacteristics = a5;
@@ -59,9 +61,9 @@ LABEL_32:
     v14 = DeviceType[0];
     goto LABEL_21;
   }
-  if ( a8 )
+  if ( Guid )
   {
-    SecureDeviceClassSettings = IopCreateSecureDeviceClassSettings(a8, (__int64)a1, DeviceType);
+    SecureDeviceClassSettings = IopCreateSecureDeviceClassSettings(Guid, (__int64)a1, DeviceType);
     if ( SecureDeviceClassSettings < 0 )
       goto LABEL_32;
   }
@@ -90,11 +92,11 @@ LABEL_32:
     DeviceType[0] = 2;
     *(_QWORD *)&DeviceType[2] = v23;
     *(_WORD *)(v23 + 2) |= 8u;
-    if ( !a8
-      || (v26[0] = 2LL,
-          v26[2] = 0LL,
-          v26[1] = v17,
-          SecureDeviceClassSettings = IopUpdateSecureDeviceClassState(a8, v26),
+    if ( !Guid
+      || (v26 = 2LL,
+          v28 = 0LL,
+          v27 = v17,
+          SecureDeviceClassSettings = IopUpdateSecureDeviceClassState(Guid),
           SecureDeviceClassSettings >= 0) )
     {
 LABEL_10:

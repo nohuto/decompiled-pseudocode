@@ -1,10 +1,10 @@
 /*
- * XREFs of BapdProcessOslRamdiskInformation @ 0x140CE2430
+ * XREFs of BapdProcessOslRamdiskInformation @ 0x140CE87D0
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 ULONG_PTR BapdProcessOslRamdiskInformation()
@@ -45,7 +45,7 @@ ULONG_PTR BapdProcessOslRamdiskInformation()
     v6 = 32 * v2 + 16;
     v7 = v6;
     result = ExAllocatePool2(64LL, v6, 0x64506142u);
-    ExpSysDbgLock.SchedulerApc.ApcListEntry.Flink = (struct _LIST_ENTRY *)result;
+    ExpSysDbgLock.SchedulerApc.Reserved[0] = (PVOID)result;
     if ( result )
       return (ULONG_PTR)memmove((void *)result, v1, v7);
   }

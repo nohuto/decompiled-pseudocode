@@ -1,9 +1,9 @@
 /*
- * XREFs of _makepath_s @ 0x140151F64
+ * XREFs of _makepath_s @ 0x140152524
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl makepath_s(

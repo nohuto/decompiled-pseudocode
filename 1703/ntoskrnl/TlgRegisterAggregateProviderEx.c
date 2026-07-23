@@ -25,9 +25,9 @@ TLG_STATUS __fastcall TlgRegisterAggregateProviderEx(
   __int64 TlgAggregateSession; // rax
   _QWORD *v7; // rbx
   TLG_STATUS v8; // edi
-  _BYTE *v9; // rax
+  PRTL_BALANCED_NODE v9; // rax
   signed __int8 v10; // cf
-  _BYTE *v11; // rdi
+  PRTL_BALANCED_NODE v11; // rdi
   __int64 v12; // rcx
   __int64 *v13; // rax
   __int64 v14; // rax
@@ -52,13 +52,13 @@ TLG_STATUS __fastcall TlgRegisterAggregateProviderEx(
   }
   else
   {
-    v9 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_14036F560, 0LL, 0LL);
+    v9 = KeAbPreAcquire((ULONG_PTR)&qword_14036F560, 0LL, 0);
     v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_14036F560, 0LL);
     v11 = v9;
     if ( v10 )
       ExfAcquirePushLockExclusiveEx(&qword_14036F560, v9, (ULONG_PTR)&qword_14036F560);
     if ( v11 )
-      v11[26] |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
     v12 = qword_140387AA8;
     if ( !qword_140387AA8 )
     {

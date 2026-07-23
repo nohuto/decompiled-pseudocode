@@ -1,46 +1,46 @@
 /*
- * XREFs of MiTrimSharedPageFromViews @ 0x140018E50
+ * XREFs of MiTrimSharedPageFromViews @ 0x1400189D0
  * Callers:
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiGetSystemCacheReverseMap @ 0x140019B10 (MiGetSystemCacheReverseMap.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     MiAcquireProperVm @ 0x1400A4200 (MiAcquireProperVm.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiTbFlushType @ 0x140100DBC (MiTbFlushType.c)
- *     MiAttachThreadDone @ 0x14010B0AC (MiAttachThreadDone.c)
- *     MiPrepareAttachThread @ 0x14010B120 (MiPrepareAttachThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiReplaceLockedPage @ 0x1401EB18C (MiReplaceLockedPage.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiGetSystemCacheReverseMap @ 0x140019690 (MiGetSystemCacheReverseMap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     MiAcquireProperVm @ 0x1400A2B28 (MiAcquireProperVm.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiTbFlushType @ 0x1400FEB3C (MiTbFlushType.c)
+ *     MiAttachThreadDone @ 0x140108E2C (MiAttachThreadDone.c)
+ *     MiPrepareAttachThread @ 0x140108EA0 (MiPrepareAttachThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiReplaceLockedPage @ 0x1401EAFB8 (MiReplaceLockedPage.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MmQuitNextSession @ 0x1404F149C (MmQuitNextSession.c)
+ *     MmQuitNextSession @ 0x1404D3590 (MmQuitNextSession.c)
  */
 
 __int64 __fastcall MiTrimSharedPageFromViews(__int64 a1, int a2, int a3, unsigned __int64 *a4, _BYTE *a5)
@@ -173,7 +173,7 @@ __int64 __fastcall MiTrimSharedPageFromViews(__int64 a1, int a2, int a3, unsigne
     *(_DWORD *)(((unsigned __int64)v90 & 0xFFFFFFFFFFFFFFC0uLL) + 0x48) = 0;
     if ( v14 && v14 != KeGetCurrentThread()->ApcState.Process )
     {
-      KeAcquireInStackQueuedSpinLock(&qword_140327740, v5 + 6);
+      KeAcquireInStackQueuedSpinLock(&qword_140327780, v5 + 6);
       *(_DWORD *)(((unsigned __int64)v90 & 0xFFFFFFFFFFFFFFC0uLL) + 0x40) = MiPrepareAttachThread(
                                                                               v14,
                                                                               &v14[1].IdealNode[12]);
@@ -188,7 +188,7 @@ __int64 __fastcall MiTrimSharedPageFromViews(__int64 a1, int a2, int a3, unsigne
     v22 = *(_DWORD *)(a1 + 40);
     if ( v22 == -1 )
     {
-      v13 = &unk_140326880;
+      v13 = &unk_1403268C0;
 LABEL_15:
       *(_QWORD *)(((unsigned __int64)v90 & 0xFFFFFFFFFFFFFFC0uLL) + 0x68) = v13;
       goto LABEL_16;
@@ -216,10 +216,10 @@ LABEL_16:
     {
       if ( *(_DWORD *)(v12 + 40) == -2 )
       {
-        if ( v16 >= qword_140326910 && v16 < qword_140326910 + 0x8000000000LL )
+        if ( v16 >= qword_140326950 && v16 < qword_140326950 + 0x8000000000LL )
           goto LABEL_141;
       }
-      else if ( v16 < qword_140326910 || v16 >= qword_140326910 + 0x8000000000LL )
+      else if ( v16 < qword_140326950 || v16 >= qword_140326950 + 0x8000000000LL )
       {
         goto LABEL_141;
       }
@@ -429,13 +429,13 @@ LABEL_101:
       *(_DWORD *)(((unsigned __int64)v90 & 0xFFFFFFFFFFFFFFC0uLL) + 4) = 1;
       if ( !*(_DWORD *)(v67 + 44) )
       {
-        if ( !qword_140326C80 || v18 < qword_140326C80 || v18 >= qword_140326C80 + (qword_140326C60 << 21) )
+        if ( !qword_140326CC0 || v18 < qword_140326CC0 || v18 >= qword_140326CC0 + (qword_140326CA0 << 21) )
           goto LABEL_120;
         v68 = *(_QWORD *)(MiGetSystemCacheReverseMap(v18) + 24);
         if ( (v68 & 1) != 0 )
           v68 &= ~1uLL;
         v69 = *(_WORD *)(*(_QWORD *)v68 + 60LL) & 0x3FF;
-        v70 = v69 == 1023 ? &MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v69);
+        v70 = v69 == 1023 ? &MiSystemPartition : *(int **)(qword_140327038 + 8LL * v69);
         if ( (int *)v10 != v70 + 1648 )
           goto LABEL_120;
         SystemCacheReverseMap = (_QWORD *)MiGetSystemCacheReverseMap(v18);
@@ -543,7 +543,7 @@ LABEL_48:
       }
       else
       {
-        if ( dword_140327188 )
+        if ( dword_1403271C8 )
           MI_WSLE_LOG_ACCESS(
             *(_QWORD *)(((unsigned __int64)v90 & 0xFFFFFFFFFFFFFFC0uLL) + 0x30),
             (_DWORD *)(*(_QWORD *)(SharedWorkingSetList + 80) + Wsle * *(unsigned int *)(SharedWorkingSetList + 32)),

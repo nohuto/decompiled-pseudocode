@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerConvertAuxiliaryCounter @ 0x1404D5030
+ * XREFs of HalpTimerConvertAuxiliaryCounter @ 0x1404CE8A0
  * Callers:
- *     HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404EE730 (HalpTimerConvertPerformanceCounterToAuxiliaryCounter.c)
+ *     HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404E7D10 (HalpTimerConvertPerformanceCounterToAuxiliaryCounter.c)
  * Callees:
  *     <none>
  */

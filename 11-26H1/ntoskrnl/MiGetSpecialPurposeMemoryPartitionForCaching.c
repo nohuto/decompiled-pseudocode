@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetSpecialPurposeMemoryPartitionForCaching @ 0x14046CEE0
+ * XREFs of MiGetSpecialPurposeMemoryPartitionForCaching @ 0x140466660
  * Callers:
- *     MiGetExtendedStandbyPage @ 0x140703824 (MiGetExtendedStandbyPage.c)
- *     MiCreatePagefileMemoryExtents @ 0x14087E204 (MiCreatePagefileMemoryExtents.c)
+ *     MiGetExtendedStandbyPage @ 0x1407084F4 (MiGetExtendedStandbyPage.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140884604 (MiCreatePagefileMemoryExtents.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
  */
 
 __int64 __fastcall MiGetSpecialPurposeMemoryPartitionForCaching(
@@ -27,7 +27,7 @@ __int64 __fastcall MiGetSpecialPurposeMemoryPartitionForCaching(
   _BYTE *v12; // r15
   __int64 v13; // rax
   __int64 v14; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v16; // rcx
+  $241382875694CED3D471BC5892DE3337 *v16; // rcx
 
   if ( a2 )
     *a2 = 0LL;
@@ -71,7 +71,7 @@ __int64 __fastcall MiGetSpecialPurposeMemoryPartitionForCaching(
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v16 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v16->ApcState.ApcListHead[0].Flink != v16 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v16->ApcState.ApcListHead[0].Flink != v16 )
       KiCheckForKernelApcDelivery((__int64)v16, v14);
   }
   return v8;

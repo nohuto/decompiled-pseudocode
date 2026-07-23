@@ -14,7 +14,7 @@
  *     _RtlDeleteBoundaryDescriptor@4 @ 0x4B2ABA40 (_RtlDeleteBoundaryDescriptor@4.c)
  */
 
-int __thiscall LdrpFreeUnicodeString(_DWORD *this)
+int __thiscall LdrpFreeUnicodeString(POBJECT_BOUNDARY_DESCRIPTOR *this)
 {
   int result; // eax
 

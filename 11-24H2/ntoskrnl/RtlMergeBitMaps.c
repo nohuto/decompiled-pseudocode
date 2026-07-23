@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMergeBitMaps @ 0x140435740
+ * XREFs of RtlMergeBitMaps @ 0x1404281C0
  * Callers:
- *     HvUnCOWReconciledPages @ 0x140435438 (HvUnCOWReconciledPages.c)
- *     HvFoldBackUnreconciledData @ 0x14097C368 (HvFoldBackUnreconciledData.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     HvStoreModifiedData @ 0x14097E3EC (HvStoreModifiedData.c)
- *     HvpPerformLogFileRecovery @ 0x140AB060C (HvpPerformLogFileRecovery.c)
+ *     HvUnCOWReconciledPages @ 0x140427EB0 (HvUnCOWReconciledPages.c)
+ *     HvFoldBackUnreconciledData @ 0x140964B78 (HvFoldBackUnreconciledData.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     HvStoreModifiedData @ 0x140966BFC (HvStoreModifiedData.c)
+ *     HvpPerformLogFileRecovery @ 0x140AAB57C (HvpPerformLogFileRecovery.c)
  * Callees:
  *     <none>
  */

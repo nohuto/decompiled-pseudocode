@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPageAvailable @ 0x1402AA7BC
+ * XREFs of MiPageAvailable @ 0x1402A9BBC
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiConvertFaultStatus @ 0x1403A2F50 (MiConvertFaultStatus.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiConvertFaultStatus @ 0x1403A4CB0 (MiConvertFaultStatus.c)
  * Callees:
  *     <none>
  */

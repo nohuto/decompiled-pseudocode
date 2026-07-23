@@ -1,30 +1,30 @@
 /*
- * XREFs of MiShutdownSystem @ 0x140C0025C
+ * XREFs of MiShutdownSystem @ 0x140C0646C
  * Callers:
- *     MmShutdownSystem @ 0x140C00720 (MmShutdownSystem.c)
+ *     MmShutdownSystem @ 0x140C06930 (MmShutdownSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     MiFlushAllFilesystemPages @ 0x140531F5C (MiFlushAllFilesystemPages.c)
- *     CcNotifyWriteBehind @ 0x1405B0D40 (CcNotifyWriteBehind.c)
- *     MiDeleteHardwareAccelerators @ 0x14070F4A0 (MiDeleteHardwareAccelerators.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiDeletePagingFiles @ 0x14086B85C (MiDeletePagingFiles.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     MiFreeLoadedImportList @ 0x140B3D6A4 (MiFreeLoadedImportList.c)
- *     MiZeroAllPageFiles @ 0x140C004A4 (MiZeroAllPageFiles.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140C01874 (MiDeleteAllHardwareEnclaves.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     MiFlushAllFilesystemPages @ 0x1405343FC (MiFlushAllFilesystemPages.c)
+ *     CcNotifyWriteBehind @ 0x1405B3550 (CcNotifyWriteBehind.c)
+ *     MiDeleteHardwareAccelerators @ 0x14071419C (MiDeleteHardwareAccelerators.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiDeletePagingFiles @ 0x140871C3C (MiDeletePagingFiles.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     MiFreeLoadedImportList @ 0x140B3F774 (MiFreeLoadedImportList.c)
+ *     MiZeroAllPageFiles @ 0x140C066B4 (MiZeroAllPageFiles.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140C07A84 (MiDeleteAllHardwareEnclaves.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char MiShutdownSystem()
@@ -49,20 +49,20 @@ char MiShutdownSystem()
   PVOID v17; // rcx
   __int64 v19; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( !HIDWORD(stru_140E2EB88.RelativeTimerBias) )
+  if ( !HIDWORD(stru_140E2ED08.RelativeTimerBias) )
   {
     CcNotifyWriteBehind();
     MiFlushAllFilesystemPages(0);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v2 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E37DC8.ReadTransferCount, 0LL, 0LL, v1);
-    v4 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E37DC8.ReadTransferCount, 0LL);
+    v2 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E37F48.ReadTransferCount, 0LL, 0LL, v1);
+    v4 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E37F48.ReadTransferCount, 0LL);
     v5 = v2;
     if ( v4 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&stru_140E37DC8.ReadTransferCount,
+        (unsigned __int64 *)&stru_140E37F48.ReadTransferCount,
         v2,
-        (__int64)&stru_140E37DC8.ReadTransferCount);
+        (__int64)&stru_140E37F48.ReadTransferCount);
     if ( v5 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -70,17 +70,17 @@ char MiShutdownSystem()
       else
         *((_BYTE *)v5 + 10) = 1;
     }
-    HIDWORD(stru_140E2EB88.RelativeTimerBias) = 1;
-    if ( (_InterlockedExchangeAdd64(&stru_140E37DC8.ReadTransferCount, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&stru_140E37DC8.ReadTransferCount);
-    KeAbPostRelease((unsigned __int64)&stru_140E37DC8.ReadTransferCount);
+    HIDWORD(stru_140E2ED08.RelativeTimerBias) = 1;
+    if ( (_InterlockedExchangeAdd64(&stru_140E37F48.ReadTransferCount, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&stru_140E37F48.ReadTransferCount);
+    KeAbPostRelease((unsigned __int64)&stru_140E37F48.ReadTransferCount);
     v8 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v8 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v8 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v7, v6);
-    KeSetEvent(&stru_140E37D18, 0, 0);
-    KeSetEvent((PRKEVENT)&stru_140E2EB88.Timer.Header.WaitListHead, 0, 0);
+    KeSetEvent(&stru_140E37E98, 0, 0);
+    KeSetEvent((PRKEVENT)&stru_140E2ED08.Timer.Header.WaitListHead, 0, 0);
     MiDeleteHardwareAccelerators(0LL, 1);
-    if ( BYTE2(stru_140E2EB88.RelativeTimerBias) )
+    if ( BYTE2(stru_140E2ED08.RelativeTimerBias) )
     {
       if ( (MiFlags & 4) == 0 )
         MmLockPagableSectionByHandle(ExPageLockHandle);
@@ -90,7 +90,7 @@ char MiShutdownSystem()
     }
     MiDeleteAllHardwareEnclaves();
   }
-  if ( LODWORD(stru_140F10828.KernelShadowStackInitial) )
+  if ( PopShutdownCleanly )
   {
     v19 = 0LL;
     Lock = MmAcquireLoadLock();
@@ -107,7 +107,7 @@ char MiShutdownSystem()
         v16 = PoolMm;
         if ( !PoolMm )
         {
-          LODWORD(stru_140F10828.KernelShadowStackInitial) = 0;
+          PopShutdownCleanly = 0;
           break;
         }
         memmove(PoolMm, v12, v13);

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCommitGroupSubNodeAssignments @ 0x1403AA420
+ * XREFs of KiCommitGroupSubNodeAssignments @ 0x1403AA600
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1403772B8 (KiAllocateProcessorNumber.c)
+ *     KiAllocateProcessorNumber @ 0x140377458 (KiAllocateProcessorNumber.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>

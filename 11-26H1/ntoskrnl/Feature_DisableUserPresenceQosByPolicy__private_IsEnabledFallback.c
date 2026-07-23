@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_DisableUserPresenceQosByPolicy__private_IsEnabledFallback @ 0x1406063A8
+ * XREFs of Feature_DisableUserPresenceQosByPolicy__private_IsEnabledFallback @ 0x140608EA8
  * Callers:
- *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060636C (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140608E6C (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_DisableUserPresenceQosByPolicy__private_IsEnabledFallback(__int64 a1, unsigned int a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteSubsectionPages @ 0x1404919FC
+ * XREFs of MiDeleteSubsectionPages @ 0x14048B54C
  * Callers:
- *     MiDeleteSegmentPages @ 0x140478E6C (MiDeleteSegmentPages.c)
- *     MiDeleteExtendSubsections @ 0x140778B40 (MiDeleteExtendSubsections.c)
+ *     MiDeleteSegmentPages @ 0x1404727CC (MiDeleteSegmentPages.c)
+ *     MiDeleteExtendSubsections @ 0x14077B9E0 (MiDeleteExtendSubsections.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
- *     MiFreeProtoPool @ 0x140458808 (MiFreeProtoPool.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140458D20 (MiUpdateSystemProtoPtesTree.c)
- *     MiGetCommittedPages @ 0x14045C518 (MiGetCommittedPages.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
+ *     MiFreeProtoPool @ 0x140450078 (MiFreeProtoPool.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140450590 (MiUpdateSystemProtoPtesTree.c)
+ *     MiGetCommittedPages @ 0x1404560C0 (MiGetCommittedPages.c)
  */
 
 __int64 __fastcall MiDeleteSubsectionPages(struct _KTHREAD *a1, int a2)
@@ -61,7 +61,7 @@ __int64 __fastcall MiDeleteSubsectionPages(struct _KTHREAD *a1, int a2)
     }
     if ( Flink )
     {
-      MiUpdateSystemProtoPtesTree(($353D57E818BB6F967B4B818D974CF463 *)((char *)&a1->116 + 4), 2);
+      MiUpdateSystemProtoPtesTree(($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&a1->116 + 4), 2);
       a1->Header.WaitListHead.Flink = 0LL;
       v7 = 8LL * HIDWORD(a1->InitialStack);
     }

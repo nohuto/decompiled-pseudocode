@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhOwnerInitialize @ 0x1800775A0
+ * XREFs of RtlpHpLfhOwnerInitialize @ 0x180077590
  * Callers:
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x1800770D8 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpLfhBucketActivate @ 0x180077310 (RtlpHpLfhBucketActivate.c)
- *     RtlpHpLfhBucketInitialize @ 0x180077538 (RtlpHpLfhBucketInitialize.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x1800770C8 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhBucketActivate @ 0x180077300 (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhBucketInitialize @ 0x180077528 (RtlpHpLfhBucketInitialize.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

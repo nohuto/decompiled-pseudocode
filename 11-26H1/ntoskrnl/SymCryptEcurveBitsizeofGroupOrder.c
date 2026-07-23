@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptEcurveBitsizeofGroupOrder @ 0x14055AD44
+ * XREFs of SymCryptEcurveBitsizeofGroupOrder @ 0x14055D258
  * Callers:
- *     SymCryptEcDsaTruncateHash @ 0x14055CFB0 (SymCryptEcDsaTruncateHash.c)
+ *     SymCryptEcDsaTruncateHash @ 0x14055F498 (SymCryptEcDsaTruncateHash.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of Xp10ReadAndDecodeHuffmanTables @ 0x14080DFDC
+ * XREFs of Xp10ReadAndDecodeHuffmanTables @ 0x140813A6C
  * Callers:
- *     Xp10ExecuteHuffmanDecode @ 0x14080C570 (Xp10ExecuteHuffmanDecode.c)
+ *     Xp10ExecuteHuffmanDecode @ 0x140812000 (Xp10ExecuteHuffmanDecode.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     Xp10BuildHuffmanDecodeTable @ 0x14080B778 (Xp10BuildHuffmanDecodeTable.c)
- *     Xp10ScatteredReadBytes @ 0x14080EE58 (Xp10ScatteredReadBytes.c)
- *     Xp10SortHuffmanSymbols @ 0x14080EEDC (Xp10SortHuffmanSymbols.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     Xp10BuildHuffmanDecodeTable @ 0x140811208 (Xp10BuildHuffmanDecodeTable.c)
+ *     Xp10ScatteredReadBytes @ 0x1408148E8 (Xp10ScatteredReadBytes.c)
+ *     Xp10SortHuffmanSymbols @ 0x14081496C (Xp10SortHuffmanSymbols.c)
  */
 
 __int64 __fastcall Xp10ReadAndDecodeHuffmanTables(

@@ -1,11 +1,11 @@
 /*
- * XREFs of _safecrt_wctomb_s @ 0x140153BE4
+ * XREFs of _safecrt_wctomb_s @ 0x140154154
  * Callers:
- *     _output_s @ 0x140153324 (_output_s.c)
+ *     _output_s @ 0x1401538E4 (_output_s.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlUnicodeToMultiByteN @ 0x1403F7450 (RtlUnicodeToMultiByteN.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlUnicodeToMultiByteN @ 0x1403F6310 (RtlUnicodeToMultiByteN.c)
  */
 
 __int64 __fastcall safecrt_wctomb_s(_DWORD *a1, CHAR *a2, size_t a3, WCHAR a4)

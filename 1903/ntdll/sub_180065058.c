@@ -11,13 +11,13 @@
 void __fastcall sub_180065058(__int64 a1)
 {
   __int64 v2; // rax
-  __int64 v3; // rcx
+  PVOID *v3; // rcx
 
   if ( *(_QWORD *)(a1 + 80) )
   {
     v2 = sub_180065094();
-    v3 = *(_QWORD *)(a1 + 80);
-    if ( v2 != v3 )
+    v3 = *(PVOID **)(a1 + 80);
+    if ( (PVOID *)v2 != v3 )
       sub_180064EEC(v3);
     *(_QWORD *)(a1 + 80) = 0LL;
   }

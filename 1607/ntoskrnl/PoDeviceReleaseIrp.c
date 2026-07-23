@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDeviceReleaseIrp @ 0x14012C014
+ * XREFs of PoDeviceReleaseIrp @ 0x14012C584
  * Callers:
- *     IopfCompleteRequest @ 0x140053570 (IopfCompleteRequest.c)
- *     PoHandleIrp @ 0x14012BF34 (PoHandleIrp.c)
+ *     IopfCompleteRequest @ 0x1400530F0 (IopfCompleteRequest.c)
+ *     PoHandleIrp @ 0x14012C4A4 (PoHandleIrp.c)
  * Callees:
- *     PopDiagTraceDeviceReleaseIrp @ 0x14012C04C (PopDiagTraceDeviceReleaseIrp.c)
+ *     PopDiagTraceDeviceReleaseIrp @ 0x14012C5BC (PopDiagTraceDeviceReleaseIrp.c)
  */
 
 __int64 __fastcall PoDeviceReleaseIrp(__int64 a1, char a2, __int64 a3)

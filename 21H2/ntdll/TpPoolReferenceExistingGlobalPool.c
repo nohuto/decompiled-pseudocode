@@ -3,33 +3,29 @@
  * Callers:
  *     TpSetDefaultPoolStackInformation @ 0x180070A40 (TpSetDefaultPoolStackInformation.c)
  *     RtlpTpWorkCallback @ 0x180070B90 (RtlpTpWorkCallback.c)
- *     TpSetDefaultPoolMaxThreads @ 0x180111DB0 (TpSetDefaultPoolMaxThreads.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180111D70 (TpSetDefaultPoolMaxThreads.c)
  * Callees:
  *     RtlAcquireSRWLockShared @ 0x180021760 (RtlAcquireSRWLockShared.c)
  *     RtlReleaseSRWLockShared @ 0x180021920 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 __fastcall TpPoolReferenceExistingGlobalPool(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+PVOID TpPoolReferenceExistingGlobalPool()
 {
-  __int64 v4; // rbx
-  __int64 v6; // [rsp+30h] [rbp+8h]
+  PVOID v0; // rbx
+  PVOID v2; // [rsp+30h] [rbp+8h]
 
-  v4 = 0LL;
+  v0 = 0LL;
   if ( TppPoolpGlobalPool )
   {
-    RtlAcquireSRWLockShared(&TppPoolpGlobalPoolLock, a2, a3, a4);
-    v4 = TppPoolpGlobalPool;
-    v6 = TppPoolpGlobalPool;
+    RtlAcquireSRWLockShared(&TppPoolpGlobalPoolLock);
+    v0 = TppPoolpGlobalPool;
+    v2 = TppPoolpGlobalPool;
     if ( TppPoolpGlobalPool )
     {
       _InterlockedIncrement((volatile signed __int32 *)TppPoolpGlobalPool);
-      v4 = v6;
+      v0 = v2;
     }
     RtlReleaseSRWLockShared(&TppPoolpGlobalPoolLock);
   }
-  return v4;
+  return v0;
 }

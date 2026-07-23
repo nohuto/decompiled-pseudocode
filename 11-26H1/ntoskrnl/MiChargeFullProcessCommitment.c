@@ -1,28 +1,28 @@
 /*
- * XREFs of MiChargeFullProcessCommitment @ 0x1409C7944
+ * XREFs of MiChargeFullProcessCommitment @ 0x140998924
  * Callers:
- *     MiProbeAndLockPrepare @ 0x1402E5470 (MiProbeAndLockPrepare.c)
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
- *     MiMakeHyperRangeAccessible @ 0x140316870 (MiMakeHyperRangeAccessible.c)
- *     MiSplitPrivatePage @ 0x1403173FC (MiSplitPrivatePage.c)
- *     MiCopyToUserVa @ 0x1404A2F88 (MiCopyToUserVa.c)
- *     MiSplitReducedCommitClonePage @ 0x14052CA98 (MiSplitReducedCommitClonePage.c)
- *     MiCommitHotPatchTable @ 0x1406FBFCC (MiCommitHotPatchTable.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406FC830 (MiPrepareImagePagesForHotPatch.c)
- *     MiComputeProcessUserVa @ 0x140962818 (MiComputeProcessUserVa.c)
- *     MiCommitPageTablesForVad @ 0x1409C6018 (MiCommitPageTablesForVad.c)
- *     MiSectionProtectGetCharges @ 0x1409C6FE0 (MiSectionProtectGetCharges.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
- *     MiCreateLargePageEvent @ 0x140B3C9EC (MiCreateLargePageEvent.c)
+ *     MiProbeAndLockPrepare @ 0x1402C74B0 (MiProbeAndLockPrepare.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
+ *     MiMakeHyperRangeAccessible @ 0x1403188A0 (MiMakeHyperRangeAccessible.c)
+ *     MiSplitPrivatePage @ 0x14031942C (MiSplitPrivatePage.c)
+ *     MiCopyToUserVa @ 0x14049C9A8 (MiCopyToUserVa.c)
+ *     MiSplitReducedCommitClonePage @ 0x14052EFB8 (MiSplitReducedCommitClonePage.c)
+ *     MiCommitHotPatchTable @ 0x140700C9C (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140701500 (MiPrepareImagePagesForHotPatch.c)
+ *     MiCommitPageTablesForVad @ 0x140996FF8 (MiCommitPageTablesForVad.c)
+ *     MiSectionProtectGetCharges @ 0x140997FC0 (MiSectionProtectGetCharges.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
+ *     MiComputeProcessUserVa @ 0x140A086A0 (MiComputeProcessUserVa.c)
+ *     MiCreateLargePageEvent @ 0x140B3EC6C (MiCreateLargePageEvent.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     PspChargeQuota @ 0x1403BD5A0 (PspChargeQuota.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiChargeProcessCommitment @ 0x14045DA60 (MiChargeProcessCommitment.c)
- *     MiReturnProcessCommitment @ 0x14048552C (MiReturnProcessCommitment.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x140960360 (PspChangeJobMemoryUsageByProcess.c)
- *     PsReturnProcessPageFileQuota @ 0x140A6B260 (PsReturnProcessPageFileQuota.c)
- *     MiCommitRequestFailed @ 0x140B61778 (MiCommitRequestFailed.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     PspChargeQuota @ 0x1403C7410 (PspChargeQuota.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiChargeProcessCommitment @ 0x140457600 (MiChargeProcessCommitment.c)
+ *     MiReturnProcessCommitment @ 0x14047EE9C (MiReturnProcessCommitment.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x140A05C20 (PspChangeJobMemoryUsageByProcess.c)
+ *     PsReturnProcessPageFileQuota @ 0x140A7C890 (PsReturnProcessPageFileQuota.c)
+ *     MiCommitRequestFailed @ 0x140B64818 (MiCommitRequestFailed.c)
  */
 
 __int64 __fastcall MiChargeFullProcessCommitment(__int64 a1, unsigned __int64 a2)
@@ -49,7 +49,7 @@ LABEL_5:
         v6 = 4;
         goto LABEL_12;
       }
-      if ( PspChangeJobMemoryUsageByProcess(2, a2, a1, 0LL) )
+      if ( (unsigned __int8)PspChangeJobMemoryUsageByProcess(2LL, a2, a1) )
       {
         v5 = 7;
         goto LABEL_5;
@@ -65,7 +65,7 @@ LABEL_12:
     if ( (v5 & 2) != 0 )
       MiReturnProcessCommitment(a1, a2);
     if ( (unsigned __int8)v5 >= 4u )
-      PspChangeJobMemoryUsageByProcess(2, -(__int64)a2, a1, 0LL);
+      PspChangeJobMemoryUsageByProcess(2LL, -(__int64)a2, a1);
     goto LABEL_16;
   }
   v9 = -1073741524;

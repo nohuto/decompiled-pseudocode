@@ -1,9 +1,9 @@
 /*
- * XREFs of WerpIsDebugPortPresent @ 0x1800DDC30
+ * XREFs of WerpIsDebugPortPresent @ 0x1800DDBF0
  * Callers:
- *     WerpBreakIntoDebuggerIfPresent @ 0x1800DD9CC (WerpBreakIntoDebuggerIfPresent.c)
+ *     WerpBreakIntoDebuggerIfPresent @ 0x1800DD98C (WerpBreakIntoDebuggerIfPresent.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x18009D960 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x18009D920 (NtQueryInformationProcess.c)
  */
 
 __int64 WerpIsDebugPortPresent()

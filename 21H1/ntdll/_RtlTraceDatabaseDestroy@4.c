@@ -14,7 +14,7 @@ bool __stdcall RtlTraceDatabaseDestroy(int a1)
   char v2; // bl
   _DWORD *v3; // edi
 
-  RtlDeleteCriticalSection((int *)(a1 + 28));
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   v1 = *(_DWORD **)(a1 + 12);
   if ( !v1 )
     return 1;

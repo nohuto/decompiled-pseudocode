@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpHvStartProcessor @ 0x14051B368
+ * XREFs of HalpHvStartProcessor @ 0x14051B8B8
  * Callers:
  *     HalpInterruptStartProcessor @ 0x140A88D4C (HalpInterruptStartProcessor.c)
  * Callees:
- *     HalpIsXboxNanovisorPresent @ 0x14037861C (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpHvStartVirtualProcessor @ 0x14050C140 (HalpHvStartVirtualProcessor.c)
- *     HalpHvInitSegRegister @ 0x14051B298 (HalpHvInitSegRegister.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403787BC (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpHvStartVirtualProcessor @ 0x14050C690 (HalpHvStartVirtualProcessor.c)
+ *     HalpHvInitSegRegister @ 0x14051B7E8 (HalpHvInitSegRegister.c)
  */
 
 __int64 __fastcall HalpHvStartProcessor(__int64 a1, __int64 a2, __int64 a3)

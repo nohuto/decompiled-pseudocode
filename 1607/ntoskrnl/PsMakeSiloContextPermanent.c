@@ -1,7 +1,7 @@
 /*
- * XREFs of PsMakeSiloContextPermanent @ 0x14067DFC4
+ * XREFs of PsMakeSiloContextPermanent @ 0x14067E0A8
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140613754 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140613808 (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
  *     <none>
  */

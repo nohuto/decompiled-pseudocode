@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpIsFastResourceOwned @ 0x1403D8310
+ * XREFs of ExpIsFastResourceOwned @ 0x1403DB2E0
  * Callers:
- *     ExDeleteFastResource @ 0x1403D8280 (ExDeleteFastResource.c)
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
- *     DifExDeleteFastResourceWrapper @ 0x140650750 (DifExDeleteFastResourceWrapper.c)
- *     ExReinitializeFastResource @ 0x1406CE150 (ExReinitializeFastResource.c)
+ *     ExDeleteFastResource @ 0x1403DB250 (ExDeleteFastResource.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
+ *     DifExDeleteFastResourceWrapper @ 0x140654330 (DifExDeleteFastResourceWrapper.c)
+ *     ExReinitializeFastResource @ 0x1406D2180 (ExReinitializeFastResource.c)
  * Callees:
  *     <none>
  */

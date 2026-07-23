@@ -1,31 +1,31 @@
 /*
- * XREFs of AlpcpFlushMessagesByRequestor @ 0x14088A4C8
+ * XREFs of AlpcpFlushMessagesByRequestor @ 0x14088E378
  * Callers:
- *     AlpcpFlushMessagesPort @ 0x14088BE6C (AlpcpFlushMessagesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x14088EE5C (AlpcpFlushMessagesPort.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140890590 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpCancelMessage @ 0x140894410 (AlpcpCancelMessage.c)
- *     AlpcpReferenceBlob @ 0x1408966C0 (AlpcpReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     AlpcpCancelMessage @ 0x14089C73C (AlpcpCancelMessage.c)
+ *     AlpcpReferenceBlob @ 0x14089EB60 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14089ED30 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpFlushMessagesByRequestor(__int64 a1, unsigned __int64 *a2, ULONG_PTR *a3, int a4)
 {
   unsigned __int64 *v8; // rbx
-  _QWORD *v9; // rax
-  _QWORD *v10; // rdi
+  char *v9; // rax
+  char *v10; // rdi
   ULONG_PTR i; // rdi
   int v12; // esi
   int v13; // esi
   volatile signed __int64 *v14; // rdi
   volatile signed __int64 *v16; // r14
   unsigned __int64 *v17; // r14
-  _QWORD *v18; // rax
-  _QWORD *v19; // rdi
+  char *v18; // rax
+  char *v19; // rdi
 
   if ( a4 == 1 || a4 == 2 )
   {
@@ -39,12 +39,12 @@ __int64 __fastcall AlpcpFlushMessagesByRequestor(__int64 a1, unsigned __int64 *a
   {
     v8 = a2 + 25;
   }
-  v9 = KeAbPreAcquire((__int64)v8, 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)v8, 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v8, (__int64)v9, (__int64)v8);
+    ExfAcquirePushLockExclusiveEx(v8, v9, (__int64)v8);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
 LABEL_8:
   for ( i = *a3; (ULONG_PTR *)i != a3; i = *(_QWORD *)i )
   {
@@ -84,12 +84,12 @@ LABEL_8:
       {
         v17 = a2 + 25;
       }
-      v18 = KeAbPreAcquire((__int64)v17, 0LL);
+      v18 = (char *)KeAbPreAcquire((__int64)v17, 0LL);
       v19 = v18;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v17, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v17, (__int64)v18, (__int64)v17);
+        ExfAcquirePushLockExclusiveEx(v17, v18, (__int64)v17);
       if ( v19 )
-        *((_BYTE *)v19 + 10) = 1;
+        v19[10] = 1;
       goto LABEL_8;
     }
   }

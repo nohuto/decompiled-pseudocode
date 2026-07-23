@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpQueryScenarioInformation @ 0x1407C5F10
+ * XREFs of PfpQueryScenarioInformation @ 0x1407C8F70
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140A52EAC (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x140A5C19C (PfQuerySuperfetchInformation.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     PfpScenCtxQueryScenarioInformation @ 0x140C0A428 (PfpScenCtxQueryScenarioInformation.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PfpScenCtxQueryScenarioInformation @ 0x140C10638 (PfpScenCtxQueryScenarioInformation.c)
  */
 
 __int64 __fastcall PfpQueryScenarioInformation(__int64 a1, char a2, _DWORD *a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PfpQueryScenarioInformation(__int64 a1, char a2, _DWORD *a3)
       RtlCopyVolatileMemory(Src, v7, 0x20uLL);
     if ( LODWORD(Src[0]) == 4 )
     {
-      PfpScenCtxQueryScenarioInformation((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
+      PfpScenCtxQueryScenarioInformation((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
       if ( a2 )
         ProbeForWrite(*(volatile void **)(a1 + 16), 0x20uLL, 8u);
       v8 = *(void **)(a1 + 16);

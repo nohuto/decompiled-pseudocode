@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRemoveFaultNode @ 0x1404F6A18
+ * XREFs of MiRemoveFaultNode @ 0x1404F0028
  * Callers:
- *     MiDereferenceHugeContext @ 0x1404F6860 (MiDereferenceHugeContext.c)
- *     MiReleaseScrubProtection @ 0x14070BF60 (MiReleaseScrubProtection.c)
+ *     MiDereferenceHugeContext @ 0x1404EFE70 (MiDereferenceHugeContext.c)
+ *     MiReleaseScrubProtection @ 0x140710C10 (MiReleaseScrubProtection.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiRemoveFaultNode(__int64 a1, int a2)
@@ -38,13 +38,13 @@ void __fastcall MiRemoveFaultNode(__int64 a1, int a2)
       }
     }
     v4 = *(_BYTE *)(v2 + 70);
-    v5 = &dword_140E2EA70;
+    v5 = &dword_140E2EBF0;
     if ( v4 )
-      v5 = &dword_140E2EA60;
+      v5 = &dword_140E2EBE0;
     ExAcquireSpinLockExclusiveAtDpcLevel(v5);
-    v6 = &qword_140E2EA78;
+    v6 = &qword_140E2EBF8;
     if ( v4 )
-      v6 = &qword_140E2EA68;
+      v6 = &qword_140E2EBE8;
     RtlAvlRemoveNode((unsigned __int64 *)v6, v2);
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
     *(_BYTE *)(v2 + 69) = 0;

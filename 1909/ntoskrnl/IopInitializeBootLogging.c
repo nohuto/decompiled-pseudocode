@@ -28,7 +28,7 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
   unsigned __int16 Length; // ax
   unsigned __int16 v13; // ax
   PVOID *i; // rbx
-  STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
   PMESSAGE_RESOURCE_ENTRY MessageResourceEntry; // [rsp+70h] [rbp+30h] BYREF
 
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;

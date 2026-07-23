@@ -3,18 +3,18 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PoRegisterPowerSettingCallback @ 0x1407A7060 (PoRegisterPowerSettingCallback.c)
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
- *     PopEsWorkItemSchedule @ 0x140870840 (PopEsWorkItemSchedule.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PoRegisterPowerSettingCallback @ 0x1407A7250 (PoRegisterPowerSettingCallback.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
+ *     PopEsWorkItemSchedule @ 0x140870A80 (PopEsWorkItemSchedule.c)
  */
 
 void __fastcall PopEsInit(int a1)
 {
   if ( a1 == 1 )
   {
-    qword_140C39F38 = 0LL;
+    qword_140C39EC8 = 0LL;
     PopEsLock = 0LL;
     PopEsWorkItem.Parameter = 0LL;
     PopEsWorkItem.List.Flink = 0LL;

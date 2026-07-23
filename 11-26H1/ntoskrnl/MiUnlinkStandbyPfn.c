@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkStandbyPfn @ 0x14045C8B0
+ * XREFs of MiUnlinkStandbyPfn @ 0x140456458
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPfn(unsigned __int64 *a1, char a2)
@@ -31,12 +31,12 @@ __int64 __fastcall MiUnlinkStandbyPfn(unsigned __int64 *a1, char a2)
   int v17; // r10d
 
   v2 = *a1;
-  if ( qword_140E2D740 )
+  if ( qword_140E2D8C0 )
   {
     if ( (v2 & 0x10) != 0 )
       v2 &= ~0x10uLL;
     else
-      v2 &= qword_140E2D748;
+      v2 &= qword_140E2D8C8;
   }
   v5 = (v2 >> 12) & 0xFFFFFFFFFFLL;
   v6 = 48 * v5 - 0x220000000000LL;
@@ -57,7 +57,7 @@ __int64 __fastcall MiUnlinkStandbyPfn(unsigned __int64 *a1, char a2)
       if ( (v13 = *(_DWORD *)(v6 + 32), v14 = 0x2000000, (*(_QWORD *)(v6 + 40) & 0x20000000000000LL) != 0)
         || (*(_DWORD *)(v6 + 32) & 0x8000000) != 0
         && (v6 < 0xFFFFDE0000000000uLL
-         || v6 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+         || v6 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
          || MiIsDecayPfn(48 * v5 / 48)
          || (v13 & 0x70000) != v17 && (unsigned int)MiGetPfnSlabType(48 * v5 - 0x220000000000LL) == 9)
         || (v13 & 0x7000000u) > v14 )

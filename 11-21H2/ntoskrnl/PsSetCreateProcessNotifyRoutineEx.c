@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     PspSetCreateProcessNotifyRoutine @ 0x140832928 (PspSetCreateProcessNotifyRoutine.c)
+ *     sub_140832928 @ 0x140832928 (sub_140832928.c)
  */
 
 NTSTATUS __stdcall PsSetCreateProcessNotifyRoutineEx(PCREATE_PROCESS_NOTIFY_ROUTINE_EX NotifyRoutine, BOOLEAN Remove)
 {
-  return PspSetCreateProcessNotifyRoutine(NotifyRoutine, (unsigned int)(Remove != 0) + 2);
+  return sub_140832928(NotifyRoutine, (unsigned int)(Remove != 0) + 2);
 }

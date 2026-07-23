@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeletePartitionPageNodes @ 0x14068A020
+ * XREFs of MiDeletePartitionPageNodes @ 0x14068B150
  * Callers:
- *     MiReturnAddMemoryResources @ 0x14066E8AC (MiReturnAddMemoryResources.c)
- *     MiClearPartitionPageBitMap @ 0x140689D44 (MiClearPartitionPageBitMap.c)
- *     MiDuplicatePartitionNodeTree @ 0x14068A284 (MiDuplicatePartitionNodeTree.c)
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
- *     MmRemovePhysicalMemory @ 0x1407EA5D0 (MmRemovePhysicalMemory.c)
+ *     MiReturnAddMemoryResources @ 0x14066FA80 (MiReturnAddMemoryResources.c)
+ *     MiClearPartitionPageBitMap @ 0x14068AE74 (MiClearPartitionPageBitMap.c)
+ *     MiDuplicatePartitionNodeTree @ 0x14068B3B4 (MiDuplicatePartitionNodeTree.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
+ *     MmRemovePhysicalMemory @ 0x1407EABA0 (MmRemovePhysicalMemory.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiDeletePartitionPageNode @ 0x140689FF4 (MiDeletePartitionPageNode.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiDeletePartitionPageNode @ 0x14068B124 (MiDeletePartitionPageNode.c)
  */
 
 void __fastcall MiDeletePartitionPageNodes(unsigned __int64 *a1)

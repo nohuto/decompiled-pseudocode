@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpUnregisterCompletionListDatabase @ 0x140979FB0
+ * XREFs of AlpcpUnregisterCompletionListDatabase @ 0x14097A1B0
  * Callers:
- *     AlpcpFreeCompletionList @ 0x1409796C4 (AlpcpFreeCompletionList.c)
- *     AlpcpInitializeCompletionList @ 0x140979720 (AlpcpInitializeCompletionList.c)
+ *     AlpcpFreeCompletionList @ 0x1409798C4 (AlpcpFreeCompletionList.c)
+ *     AlpcpInitializeCompletionList @ 0x140979920 (AlpcpInitializeCompletionList.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 signed __int32 __fastcall AlpcpUnregisterCompletionListDatabase(_QWORD *a1)
@@ -20,7 +20,7 @@ signed __int32 __fastcall AlpcpUnregisterCompletionListDatabase(_QWORD *a1)
     __fastfail(3u);
   *v3 = v2;
   *(_QWORD *)(v2 + 8) = v3;
-  --dword_140C406C8;
+  --dword_140C40688;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpCompletionListDatabase, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpCompletionListDatabase);
   return KeAbPostRelease((ULONG_PTR)&AlpcpCompletionListDatabase);

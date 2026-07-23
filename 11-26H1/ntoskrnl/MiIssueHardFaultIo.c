@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIssueHardFaultIo @ 0x14038EA50
+ * XREFs of MiIssueHardFaultIo @ 0x140390800
  * Callers:
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiPfCompletePrefetchIos @ 0x14039FC90 (MiPfCompletePrefetchIos.c)
- *     MiPfIssueCoalesceCandidates @ 0x14039FF60 (MiPfIssueCoalesceCandidates.c)
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiPfCompletePrefetchIos @ 0x1403A19F0 (MiPfCompletePrefetchIos.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1403A1CC0 (MiPfIssueCoalesceCandidates.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     IoPageReadEx @ 0x14026BD90 (IoPageReadEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x14038EF10 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
- *     MiTransferFileExtent @ 0x140504358 (MiTransferFileExtent.c)
- *     MiCopyImageExtentContents @ 0x1406F9494 (MiCopyImageExtentContents.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     IoPageReadEx @ 0x14026B300 (IoPageReadEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x140390CC0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
+ *     MiTransferFileExtent @ 0x1404FDB1C (MiTransferFileExtent.c)
+ *     MiCopyImageExtentContents @ 0x1406FE164 (MiCopyImageExtentContents.c)
  */
 
 __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)
@@ -62,7 +62,7 @@ __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)
     v12 = *(_QWORD *)(*(_QWORD *)(a1 + 256) + 40LL);
     v29 = *(_DWORD *)(a1 + 96);
     v13 = SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(
-            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((v12 >> 43) & 0x3FF)) + 256LL) + 24LL),
+            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((v12 >> 43) & 0x3FF)) + 256LL) + 24LL),
             (unsigned int)&v29,
             v9,
             (int)a1 + 32,

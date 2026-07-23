@@ -3,8 +3,8 @@
  * Callers:
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140288540 (MiOffsetToProtos.c)
- *     MiCreateFixupRecord @ 0x140853E94 (MiCreateFixupRecord.c)
+ *     MiOffsetToProtos @ 0x1402887D0 (MiOffsetToProtos.c)
+ *     MiCreateFixupRecord @ 0x140854194 (MiCreateFixupRecord.c)
  */
 
 __int64 __fastcall MiScanRelocationPage(int a1, unsigned int a2, int a3, _WORD *a4, __int64 a5, __int64 a6)

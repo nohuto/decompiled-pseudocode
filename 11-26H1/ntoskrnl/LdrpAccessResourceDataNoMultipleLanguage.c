@@ -1,49 +1,45 @@
 /*
- * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x140A879B0
+ * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x140A8EAE0
  * Callers:
- *     LdrpFindMessageInAlternateModule @ 0x1403DAA20 (LdrpFindMessageInAlternateModule.c)
- *     LdrpGetRcConfig @ 0x1403DC6CC (LdrpGetRcConfig.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x1403DCA90 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpAccessResourceData @ 0x140A878C8 (LdrpAccessResourceData.c)
+ *     LdrpFindMessageInAlternateModule @ 0x1403DDC10 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpGetRcConfig @ 0x1403DF8BC (LdrpGetRcConfig.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1403DFC80 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpAccessResourceData @ 0x140A8E9F8 (LdrpAccessResourceData.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     RtlAddressInSectionTable @ 0x14040E484 (RtlAddressInSectionTable.c)
- *     RtlSectionTableFromVirtualAddress @ 0x14040E4E0 (RtlSectionTableFromVirtualAddress.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     LdrpGetImageSize @ 0x1404AAFB8 (LdrpGetImageSize.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     RtlAddressInSectionTable @ 0x14042B3B4 (RtlAddressInSectionTable.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x14042B410 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     LdrpGetImageSize @ 0x1404A4648 (LdrpGetImageSize.c)
  */
 
-__int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
-        unsigned __int64 a1,
-        unsigned int *a2,
-        unsigned __int64 *a3,
-        _DWORD *a4)
+__int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(void *a1, ULONG *a2, unsigned __int64 *a3, _DWORD *a4)
 {
   _DWORD *v4; // rbx
-  unsigned __int64 v6; // rdi
+  __int64 v6; // rdi
   __int64 result; // rax
   unsigned __int64 v8; // r15
-  unsigned int *v9; // rcx
+  ULONG *v9; // rcx
   __int64 v10; // r13
   int v11; // eax
-  _DWORD *v12; // rax
-  unsigned __int64 v13; // rsi
-  __int16 v14; // ax
-  unsigned int v15; // r8d
-  unsigned __int64 v16; // r12
-  unsigned __int64 v17; // rax
-  unsigned int v18; // r8d
+  PIMAGE_NT_HEADERS v12; // rax
+  _IMAGE_NT_HEADERS64 *v13; // rsi
+  unsigned __int16 Magic; // ax
+  ULONG VirtualAddress; // r8d
+  __int64 v16; // r12
+  PIMAGE_SECTION_HEADER v17; // rax
+  ULONG v18; // r8d
   unsigned __int64 v19; // rcx
   unsigned __int64 v20; // rdx
-  unsigned __int64 v21; // rax
-  unsigned int v22; // ebx
-  unsigned __int64 v23; // rax
+  PIMAGE_SECTION_HEADER v21; // rax
+  ULONG v22; // ebx
+  _BYTE *v23; // rax
   __int64 v24; // [rsp+28h] [rbp-40h] BYREF
-  __int64 v25; // [rsp+30h] [rbp-38h]
+  _BYTE *v25; // [rsp+30h] [rbp-38h]
 
   v4 = a4;
-  v6 = a1;
-  v25 = RtlImageDirectoryEntryToData(a1, 1, 2u, &v24);
+  v6 = (__int64)a1;
+  v25 = RtlImageDirectoryEntryToData(a1, 1u, 2u, (PULONG)&v24);
   if ( !v25 )
     return 3221225609LL;
   v24 = 0LL;
@@ -72,40 +68,40 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
       }
       if ( v11 == 1 )
       {
-        v12 = RtlImageNtHeader(v6);
-        v13 = (unsigned __int64)v12;
+        v12 = RtlImageNtHeader((PVOID)v6);
+        v13 = v12;
         if ( !v12 )
           return 3221225609LL;
-        v14 = *((_WORD *)v12 + 12);
-        if ( v14 == 267 )
+        Magic = v12->OptionalHeader.Magic;
+        if ( Magic == 267 )
         {
-          v15 = *(_DWORD *)(v13 + 136);
+          VirtualAddress = v13->OptionalHeader.DataDirectory[0].VirtualAddress;
         }
-        else if ( v14 == 523 )
+        else if ( Magic == 523 )
         {
-          v15 = *(_DWORD *)(v13 + 152);
+          VirtualAddress = v13->OptionalHeader.DataDirectory[2].VirtualAddress;
         }
         else
         {
-          v15 = 0;
+          VirtualAddress = 0;
         }
-        if ( !v15 )
+        if ( !VirtualAddress )
           return 3221225609LL;
-        v16 = v6 + v15 - v25;
-        v17 = RtlSectionTableFromVirtualAddress(v13, v6, v15);
+        v16 = v6 + VirtualAddress - (_QWORD)v25;
+        v17 = RtlSectionTableFromVirtualAddress(v13, (PVOID)v6, VirtualAddress);
         if ( !v17 )
           return 3221225609LL;
         _mm_lfence();
         v18 = *a2;
-        if ( *a2 > *(_DWORD *)(v17 + 8) )
+        if ( *a2 > v17->Misc.PhysicalAddress )
         {
-          LODWORD(v24) = *(_DWORD *)(v17 + 12);
-          v21 = RtlSectionTableFromVirtualAddress(v13, v6, v18);
+          LODWORD(v24) = v17->VirtualAddress;
+          v21 = RtlSectionTableFromVirtualAddress(v13, (PVOID)v6, v18);
           if ( !v21 )
             return 3221225609LL;
-          v22 = *(_DWORD *)(v21 + 12);
-          v23 = RtlAddressInSectionTable(v13, v6, v22);
-          v16 += v25 + v22 - (unsigned __int64)(unsigned int)v24 - v23;
+          v22 = v21->VirtualAddress;
+          v23 = RtlAddressInSectionTable(v13, (PVOID)v6, v22);
+          v16 += &v25[v22 - (unsigned __int64)(unsigned int)v24] - v23;
           v4 = a4;
         }
       }

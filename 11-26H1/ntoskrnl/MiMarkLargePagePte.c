@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMarkLargePagePte @ 0x140CF3B20
+ * XREFs of MiMarkLargePagePte @ 0x140CF9EA0
  * Callers:
  *     <none>
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
  */
 
 __int64 __fastcall MiMarkLargePagePte(__int64 a1, unsigned __int64 *a2, int a3)
@@ -19,7 +19,7 @@ __int64 __fastcall MiMarkLargePagePte(__int64 a1, unsigned __int64 *a2, int a3)
     if ( (v4 & 0x81) == 0x81 )
     {
       v5 = (v4 >> 12) & 0xFFFFFFFFFFLL;
-      if ( v5 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v5 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      if ( v5 <= qword_140E2D920 && ((*(_QWORD *)(48 * v5 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
       {
         v6 = 512LL;
         if ( a3 > 1 )

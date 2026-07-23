@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIssueHardFaultIo @ 0x1402A1BE0
+ * XREFs of MiIssueHardFaultIo @ 0x1402A1E70
  * Callers:
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
- *     MiPfCoalesceAndIssueIOs @ 0x1403612B0 (MiPfCoalesceAndIssueIOs.c)
- *     MiPfIssueCoalesceCandidates @ 0x140631CF4 (MiPfIssueCoalesceCandidates.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x140361450 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140632244 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     IoPageReadEx @ 0x1402A6810 (IoPageReadEx.c)
- *     SmPageRead @ 0x1405C9B00 (SmPageRead.c)
- *     MiCopyImageExtentContents @ 0x14063C664 (MiCopyImageExtentContents.c)
- *     MiTransferFileExtent @ 0x14063F86C (MiTransferFileExtent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     IoPageReadEx @ 0x1402A6AA0 (IoPageReadEx.c)
+ *     SmPageRead @ 0x1405CA070 (SmPageRead.c)
+ *     MiCopyImageExtentContents @ 0x14063CBB4 (MiCopyImageExtentContents.c)
+ *     MiTransferFileExtent @ 0x14063FDBC (MiTransferFileExtent.c)
  */
 
 __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)

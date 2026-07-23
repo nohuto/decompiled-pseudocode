@@ -1,18 +1,18 @@
 /*
- * XREFs of KeAssignCpuPartitionsToProcess @ 0x1405F35E0
+ * XREFs of KeAssignCpuPartitionsToProcess @ 0x1405F5FA0
  * Callers:
- *     PspAssignCpuPartitionsToProcess @ 0x1407F28E8 (PspAssignCpuPartitionsToProcess.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x1407F8448 (PspAssignCpuPartitionsToProcess.c)
  * Callees:
- *     KiAcquireCpuPartitionAssignmentLock @ 0x140463A18 (KiAcquireCpuPartitionAssignmentLock.c)
- *     KiReleaseCpuPartitionAssignmentLock @ 0x140463A68 (KiReleaseCpuPartitionAssignmentLock.c)
- *     KiRemoveCpuPartitionAssignmentProcess @ 0x140463AA4 (KiRemoveCpuPartitionAssignmentProcess.c)
- *     KiNotifyAvailableCpusChangeProcess @ 0x1404E0188 (KiNotifyAvailableCpusChangeProcess.c)
- *     KiUpdateProcessAvailableCpuState @ 0x1405E5BB8 (KiUpdateProcessAvailableCpuState.c)
- *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F4024 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
- *     PsDereferenceCpuPartition @ 0x1407F28B8 (PsDereferenceCpuPartition.c)
- *     PsReferenceCpuPartition @ 0x1407F28D0 (PsReferenceCpuPartition.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiAcquireCpuPartitionAssignmentLock @ 0x14045C9D8 (KiAcquireCpuPartitionAssignmentLock.c)
+ *     KiReleaseCpuPartitionAssignmentLock @ 0x14045CA28 (KiReleaseCpuPartitionAssignmentLock.c)
+ *     KiRemoveCpuPartitionAssignmentProcess @ 0x14045CA64 (KiRemoveCpuPartitionAssignmentProcess.c)
+ *     KiNotifyAvailableCpusChangeProcess @ 0x1404D9868 (KiNotifyAvailableCpusChangeProcess.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x1405E8528 (KiUpdateProcessAvailableCpuState.c)
+ *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F69E4 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
+ *     PsDereferenceCpuPartition @ 0x1407F8418 (PsDereferenceCpuPartition.c)
+ *     PsReferenceCpuPartition @ 0x1407F8430 (PsReferenceCpuPartition.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeAssignCpuPartitionsToProcess(__int64 a1, unsigned int a2, __int64 a3, char a4)

@@ -1,18 +1,18 @@
 /*
  * XREFs of EmClientQueryRuleState @ 0x1403C84A8
  * Callers:
- *     PopFilterCapabilities @ 0x1403F3CF4 (PopFilterCapabilities.c)
- *     PoInitHiberServices @ 0x14056BEA8 (PoInitHiberServices.c)
- *     PopEnableHiberFile @ 0x14056C7F8 (PopEnableHiberFile.c)
+ *     PopFilterCapabilities @ 0x1403F2BB8 (PopFilterCapabilities.c)
+ *     PoInitHiberServices @ 0x14056C3E8 (PoInitHiberServices.c)
+ *     PopEnableHiberFile @ 0x14056CD38 (PopEnableHiberFile.c)
  *     KeInitializeClock @ 0x1407B87A4 (KeInitializeClock.c)
  * Callees:
- *     EmpSearchTargetRuleList @ 0x1400094B0 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x1400094D0 (EmpSearchRuleDatabase.c)
- *     EmpUpdateRuleState @ 0x140009504 (EmpUpdateRuleState.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     EmpSearchTargetRuleList @ 0x140009024 (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x140009044 (EmpSearchRuleDatabase.c)
+ *     EmpUpdateRuleState @ 0x140009078 (EmpUpdateRuleState.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     EmpAcquirePagingReference @ 0x1403C86B8 (EmpAcquirePagingReference.c)
  *     EmpReleasePagingReference @ 0x1403C874C (EmpReleasePagingReference.c)
  */

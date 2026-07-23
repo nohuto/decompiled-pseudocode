@@ -1,10 +1,10 @@
 /*
- * XREFs of CcGetVacbLargeOffset @ 0x1403F8FC0
+ * XREFs of CcGetVacbLargeOffset @ 0x1403EF0D0
  * Callers:
- *     CcUnmapVacbArray @ 0x14023F290 (CcUnmapVacbArray.c)
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     CcUnmapInactiveViewsInternal @ 0x1403F877C (CcUnmapInactiveViewsInternal.c)
- *     CcSetFileSizesEx @ 0x1404A6800 (CcSetFileSizesEx.c)
+ *     CcUnmapVacbArray @ 0x1402073E0 (CcUnmapVacbArray.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1403EE88C (CcUnmapInactiveViewsInternal.c)
+ *     CcSetFileSizesEx @ 0x1404A10D0 (CcSetFileSizesEx.c)
  * Callees:
  *     <none>
  */

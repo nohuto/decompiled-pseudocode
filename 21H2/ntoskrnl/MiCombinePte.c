@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCombinePte @ 0x14055C900
+ * XREFs of MiCombinePte @ 0x14055CB40
  * Callers:
  *     <none>
  * Callees:
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     MiIsStoreProcess @ 0x14026A4B0 (MiIsStoreProcess.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiMapArbitraryPage @ 0x140369610 (MiMapArbitraryPage.c)
- *     MiCombineCandidate @ 0x1403697A0 (MiCombineCandidate.c)
- *     MiReleaseArbitraryPage @ 0x140369BA0 (MiReleaseArbitraryPage.c)
- *     MiPerformCombineScan @ 0x140369C80 (MiPerformCombineScan.c)
- *     MiComputeHash64 @ 0x140370700 (MiComputeHash64.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiIsStoreProcess @ 0x140258450 (MiIsStoreProcess.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiMapArbitraryPage @ 0x1403697C0 (MiMapArbitraryPage.c)
+ *     MiCombineCandidate @ 0x140369950 (MiCombineCandidate.c)
+ *     MiReleaseArbitraryPage @ 0x140369D50 (MiReleaseArbitraryPage.c)
+ *     MiPerformCombineScan @ 0x140369E30 (MiPerformCombineScan.c)
+ *     MiComputeHash64 @ 0x140370250 (MiComputeHash64.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     MiCombineWorkingSetTail @ 0x14055CE00 (MiCombineWorkingSetTail.c)
+ *     MiCombineWorkingSetTail @ 0x14055D040 (MiCombineWorkingSetTail.c)
  */
 
 __int64 __fastcall MiCombinePte(__int64 a1, unsigned __int64 a2, int a3)
@@ -34,7 +34,7 @@ __int64 __fastcall MiCombinePte(__int64 a1, unsigned __int64 a2, int a3)
   _QWORD *v17; // r15
   BOOL v18; // r12d
   int v19; // eax
-  __int64 v20; // r8
+  int v20; // r8d
   __int64 v21; // rdx
   bool v22; // zf
   BOOL v23; // esi
@@ -42,7 +42,7 @@ __int64 __fastcall MiCombinePte(__int64 a1, unsigned __int64 a2, int a3)
   __int64 v25; // r8
   _DWORD *v26; // r9
   __int64 v27; // rdx
-  __int64 v28; // r8
+  int v28; // r8d
   bool v29; // zf
   __int64 v30; // [rsp+70h] [rbp+8h] BYREF
   unsigned __int64 v31; // [rsp+88h] [rbp+20h]
@@ -92,7 +92,7 @@ LABEL_38:
       v17[8] = v11;
       v18 = MiPteInShadowRange((unsigned __int64)v16);
       v19 = MiMapArbitraryPage((__int64)v10, v17, 0LL, 0LL, 0);
-      v20 = 0LL;
+      v20 = 0;
       if ( !v19 )
       {
         v21 = ZeroPte;
@@ -100,8 +100,8 @@ LABEL_38:
         {
           if ( (unsigned int)MiPteHasShadow() )
           {
-            v20 = 1LL;
-            if ( !HIBYTE(word_140C4E008) )
+            v20 = 1;
+            if ( !HIBYTE(word_140C4E048) )
             {
               v22 = (v21 & 1) == 0;
               goto LABEL_22;
@@ -116,20 +116,20 @@ LABEL_22:
           }
         }
         *v16 = v21;
-        if ( (_DWORD)v20 )
-          MiWritePteShadow((__int64)v16, v21, v20);
+        if ( v20 )
+          MiWritePteShadow((__int64)v16, v21);
         return 0LL;
       }
       v23 = MiPerformCombineScan(v9, (__int64)v17, 0LL, v14);
       MiReleaseArbitraryPage((__int64)v17, v24, v25, v26);
       v27 = ZeroPte;
-      v28 = 0LL;
+      v28 = 0;
       if ( v18 )
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          v28 = 1LL;
-          if ( HIBYTE(word_140C4E008) )
+          v28 = 1;
+          if ( HIBYTE(word_140C4E048) )
             goto LABEL_35;
           v29 = (v27 & 1) == 0;
         }
@@ -144,8 +144,8 @@ LABEL_22:
       }
 LABEL_35:
       *v16 = v27;
-      if ( (_DWORD)v28 )
-        MiWritePteShadow((__int64)v16, v27, v28);
+      if ( v28 )
+        MiWritePteShadow((__int64)v16, v27);
       if ( !v23 )
         return 0LL;
       goto LABEL_38;

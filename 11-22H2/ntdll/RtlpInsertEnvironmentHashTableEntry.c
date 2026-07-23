@@ -8,7 +8,7 @@
  *     RtlpFreeEnvironmentHashTable @ 0x18008B9DC (RtlpFreeEnvironmentHashTable.c)
  */
 
-__int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
+__int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebp
   __int64 v5; // rbx
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
   __int64 v20; // [rsp+68h] [rbp+10h]
 
   v4 = 0;
-  if ( RtlpFindEnvironmentHashEntry(a1, a2[2], a2[4]) )
+  if ( RtlpFindEnvironmentHashEntry(a1, *(const WCHAR **)(a2 + 16), *(_QWORD *)(a2 + 32)) )
   {
     return (unsigned int)-1073741771;
   }
@@ -99,7 +99,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
       }
     }
     v6 = *(_DWORD *)(a1 + 4);
-    v19 = a2[1] & (-1LL << (v6 & 0x1F));
+    v19 = *(_QWORD *)(a2 + 8) & (-1LL << (v6 & 0x1F));
     v7 = *(_QWORD *)(a1 + 8);
     v8 = (HIBYTE(v19)
         + 37
@@ -109,7 +109,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
           + 37
           * (BYTE4(v19)
            + 37 * (BYTE3(v19) + 37 * (BYTE2(v19) + 37 * (BYTE1(v19) + 37 * ((unsigned __int8)v19 + 11623883)))))))) & ((v6 >> 5) - 1);
-    *a2 = *(_QWORD *)(v7 + 8 * v8);
+    *(_QWORD *)a2 = *(_QWORD *)(v7 + 8 * v8);
     *(_QWORD *)(v7 + 8 * v8) = a2;
     ++*(_DWORD *)a1;
   }

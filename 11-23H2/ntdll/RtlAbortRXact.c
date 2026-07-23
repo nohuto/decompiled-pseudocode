@@ -10,13 +10,13 @@
 
 __int64 __fastcall RtlAbortRXact(__int64 a1)
 {
-  __int64 v1; // r8
+  void *v1; // r8
   __int64 result; // rax
 
-  v1 = *(_QWORD *)(a1 + 24);
+  v1 = *(void **)(a1 + 24);
   if ( !v1 )
     return 3221225756LL;
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   *(_QWORD *)(a1 + 24) = 0LL;
   result = 0LL;
   *(_BYTE *)(a1 + 16) = 1;

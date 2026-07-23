@@ -1,14 +1,14 @@
 /*
- * XREFs of PsRemoveLoadImageNotifyRoutine @ 0x140AAB560
+ * XREFs of PsRemoveLoadImageNotifyRoutine @ 0x140AA6790
  * Callers:
- *     EtwpCoverageSamplerStop @ 0x140ADAAD0 (EtwpCoverageSamplerStop.c)
+ *     EtwpCoverageSamplerStop @ 0x140ADC310 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall PsRemoveLoadImageNotifyRoutine(PLOAD_IMAGE_NOTIFY_ROUTINE NotifyRoutine)
@@ -20,15 +20,12 @@ NTSTATUS __stdcall PsRemoveLoadImageNotifyRoutine(PLOAD_IMAGE_NOTIFY_ROUTINE Not
   __int64 i; // rdi
   struct _EX_RUNDOWN_REF *v7; // rax
   struct _EX_RUNDOWN_REF *v8; // rbx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   for ( i = 0LL; (unsigned int)i < 0x40; i = (unsigned int)(i + 1) )
   {
-    v7 = ExReferenceCallBackBlock((signed __int64 *)&PspLoadImageNotifyRoutine.Ptr + i);
+    v7 = ExReferenceCallBackBlock((signed __int64 *)&PspLoadImageNotifyRoutine.Ptr + i, v1, v2, v3);
     v8 = v7;
     if ( v7 )
     {
@@ -37,7 +34,7 @@ NTSTATUS __stdcall PsRemoveLoadImageNotifyRoutine(PLOAD_IMAGE_NOTIFY_ROUTINE Not
       {
         _InterlockedAdd(&PspLoadImageNotifyRoutineCount, 0xFFFFFFFF);
         ExDereferenceCallBackBlock((signed __int64 *)&PspLoadImageNotifyRoutine.Ptr + i, v8);
-        KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v9, v10, v11);
+        KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
         ExWaitForRundownProtectionRelease(v8);
         ExFreePoolWithTag(v8, 0);
         return 0;
@@ -45,6 +42,6 @@ NTSTATUS __stdcall PsRemoveLoadImageNotifyRoutine(PLOAD_IMAGE_NOTIFY_ROUTINE Not
       ExDereferenceCallBackBlock((signed __int64 *)&PspLoadImageNotifyRoutine.Ptr + i, v8);
     }
   }
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v1, v2, v3);
+  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
   return -1073741702;
 }

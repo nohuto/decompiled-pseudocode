@@ -1,14 +1,14 @@
 /*
- * XREFs of MmLockLoadedModuleListExclusive @ 0x14052D084
+ * XREFs of MmLockLoadedModuleListExclusive @ 0x14052F5A4
  * Callers:
- *     MiUpdateDriverLoadInProgress @ 0x14040BD98 (MiUpdateDriverLoadInProgress.c)
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     MiRemoveLoaderEntry @ 0x14040D04C (MiRemoveLoaderEntry.c)
- *     RtlInsertInvertedFunctionTable @ 0x14040D0C8 (RtlInsertInvertedFunctionTable.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14040D21C (RtlRemoveInvertedFunctionTable.c)
+ *     MiUpdateDriverLoadInProgress @ 0x1404294E0 (MiUpdateDriverLoadInProgress.c)
+ *     MiRemoveLoaderEntry @ 0x140429F78 (MiRemoveLoaderEntry.c)
+ *     RtlInsertInvertedFunctionTable @ 0x140429FF4 (RtlInsertInvertedFunctionTable.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x14042A148 (RtlRemoveInvertedFunctionTable.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int8 MmLockLoadedModuleListExclusive()
@@ -38,7 +38,7 @@ unsigned __int8 MmLockLoadedModuleListExclusive()
     v5 = v3 - 1;
     do
     {
-      ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v4 + qword_140E2D6B8 + 376) + 704LL));
+      ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v4 + qword_140E2D838 + 376) + 704LL));
       v4 += 384LL;
       --v5;
     }

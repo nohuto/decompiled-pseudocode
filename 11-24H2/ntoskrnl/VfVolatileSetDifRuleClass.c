@@ -1,17 +1,17 @@
 /*
- * XREFs of VfVolatileSetDifRuleClass @ 0x140614A94
+ * XREFs of VfVolatileSetDifRuleClass @ 0x140613054
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     VfRlrsVolatileConfigUpdate @ 0x1406154B4 (VfRlrsVolatileConfigUpdate.c)
- *     CarCleanup @ 0x1406164FC (CarCleanup.c)
- *     CarInit @ 0x1406169EC (CarInit.c)
- *     DifRegisterKernelPlugins @ 0x140618A30 (DifRegisterKernelPlugins.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfClearDifWithoutReboot @ 0x140B83890 (VfClearDifWithoutReboot.c)
- *     VfInitDifWithoutReboot @ 0x140B8390C (VfInitDifWithoutReboot.c)
+ *     VfRlrsVolatileConfigUpdate @ 0x140613A74 (VfRlrsVolatileConfigUpdate.c)
+ *     CarCleanup @ 0x140614ABC (CarCleanup.c)
+ *     CarInit @ 0x140614FAC (CarInit.c)
+ *     DifRegisterKernelPlugins @ 0x140616FF0 (DifRegisterKernelPlugins.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfClearDifWithoutReboot @ 0x140B85890 (VfClearDifWithoutReboot.c)
+ *     VfInitDifWithoutReboot @ 0x140B8590C (VfInitDifWithoutReboot.c)
  */
 
 __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
@@ -39,13 +39,13 @@ __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
   v4 = 0LL;
   v5 = 0;
   v6 = 0;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return 3221228554LL;
   if ( (_DWORD)VfRuleClasses )
     return 3221228669LL;
   if ( (_DWORD)Size != 16 && (_DWORD)Size != 96 )
     return 3221225476LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 0x60uLL, 0x63536656u);
   v9 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;
@@ -84,8 +84,8 @@ LABEL_34:
     VfAllowedVolatileRC = 0LL;
     VfRuleClasses = 0LL;
     DifpPoolTags = 0LL;
-    xmmword_140E67F30 = 0LL;
-    qword_140E67F40 = 0LL;
+    xmmword_140E68100 = 0LL;
+    qword_140E68110 = 0LL;
     MmVerifierData = 0;
     VfClearDifWithoutReboot();
     VfDifRunningWithoutReboot = 0;
@@ -103,7 +103,7 @@ LABEL_34:
   inited = VfInitDifWithoutReboot();
   if ( inited >= 0 )
   {
-    ViWdmThunksWithIatIndex = (PVOID)ExAllocatePool2(0x40uLL);
+    ViWdmThunksWithIatIndex = (PVOID)ExAllocatePool2(0x40uLL, 24LL * (unsigned int)ViNumberOfWdmThunks, 0x6D4D7644u);
     if ( !ViWdmThunksWithIatIndex )
     {
       inited = -1073741801;

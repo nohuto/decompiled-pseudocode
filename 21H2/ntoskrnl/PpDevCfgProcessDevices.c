@@ -1,22 +1,22 @@
 /*
- * XREFs of PpDevCfgProcessDevices @ 0x1407A32BC
+ * XREFs of PpDevCfgProcessDevices @ 0x1407A34BC
  * Callers:
- *     PnpBootPhaseComplete @ 0x1407A31F4 (PnpBootPhaseComplete.c)
+ *     PnpBootPhaseComplete @ 0x1407A33F4 (PnpBootPhaseComplete.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
- *     PipForDeviceNodeSubtree @ 0x1406B8550 (PipForDeviceNodeSubtree.c)
- *     _CmDeleteDevice @ 0x14072B89C (_CmDeleteDevice.c)
- *     PpDeviceRegistration @ 0x14074BD60 (PpDeviceRegistration.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpRequestDeviceAction @ 0x1403703A4 (PnpRequestDeviceAction.c)
+ *     _CmGetDeviceStatus @ 0x1405FF680 (_CmGetDeviceStatus.c)
+ *     PipForDeviceNodeSubtree @ 0x140617970 (PipForDeviceNodeSubtree.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     _CmDeleteDevice @ 0x14072BD4C (_CmDeleteDevice.c)
+ *     PpDeviceRegistration @ 0x14074BF20 (PpDeviceRegistration.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 PpDevCfgProcessDevices()
@@ -26,20 +26,23 @@ __int64 PpDevCfgProcessDevices()
   int v2; // edi
   PVOID *i; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v6; // rax
-  unsigned int v7; // [rsp+30h] [rbp-20h]
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  _QWORD *v9; // rax
+  unsigned int v10; // [rsp+30h] [rbp-20h]
   PVOID P[2]; // [rsp+40h] [rbp-10h] BYREF
-  int v9; // [rsp+80h] [rbp+30h] BYREF
-  __int64 v10; // [rsp+88h] [rbp+38h] BYREF
-  __int64 v11; // [rsp+90h] [rbp+40h] BYREF
-  PVOID v12; // [rsp+98h] [rbp+48h] BYREF
+  int v12; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v13; // [rsp+88h] [rbp+38h] BYREF
+  __int64 v14; // [rsp+90h] [rbp+40h] BYREF
+  PVOID v15; // [rsp+98h] [rbp+48h] BYREF
 
-  v12 = 0LL;
-  v9 = 0;
+  v15 = 0LL;
+  v12 = 0;
   v0 = P;
-  LODWORD(v11) = 0;
+  LODWORD(v14) = 0;
   v1 = 0;
-  LODWORD(v10) = 0;
+  LODWORD(v13) = 0;
   P[1] = P;
   P[0] = P;
   if ( (PiDevCfgMode & 2) != 0 )
@@ -50,13 +53,12 @@ __int64 PpDevCfgProcessDevices()
     v0 = (PVOID *)P[0];
     if ( P[0] != P )
     {
-      v2 = PiPnpRtlBeginOperation(&v12);
+      v2 = PiPnpRtlBeginOperation(&v15);
       if ( v2 >= 0 )
       {
         for ( i = (PVOID *)P[0]; i != P; i = (PVOID *)*i )
         {
-          if ( (int)CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, (const WCHAR *)i[3], 0LL, &v9, &v11, &v10, v7) < 0
-            || (v9 & 2) == 0 )
+          if ( (int)CmGetDeviceStatus(PiPnpRtlCtx, (const WCHAR *)i[3], 0, &v12, &v14, &v13, v10) < 0 || (v12 & 2) == 0 )
           {
             PpDevNodeLockTree(3);
             CurrentThread = KeGetCurrentThread();
@@ -66,11 +68,11 @@ __int64 PpDevCfgProcessDevices()
             if ( (int)CmDeleteDevice(*(__int64 *)&PiPnpRtlCtx, (__int64)i[3], 0) >= 0 )
               v1 = 1;
             ExReleaseResourceLite(&PnpRegistryDeviceResource);
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
             PpDevNodeUnlockTree(3);
           }
         }
-        PiPnpRtlEndOperation((PVOID **)v12);
+        PiPnpRtlEndOperation((PVOID **)v15);
         if ( v1 )
           PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 8, 0, 0LL, 0LL, 0LL, 0LL);
       }
@@ -83,10 +85,10 @@ __int64 PpDevCfgProcessDevices()
   }
   while ( v0 != P )
   {
-    if ( v0[1] != P || (v6 = *v0, *((PVOID **)*v0 + 1) != v0) )
+    if ( v0[1] != P || (v9 = *v0, *((PVOID **)*v0 + 1) != v0) )
       __fastfail(3u);
     P[0] = *v0;
-    v6[1] = P;
+    v9[1] = P;
     RtlFreeAnsiString((PUNICODE_STRING)v0 + 1);
     ExFreePoolWithTag(v0, 0);
 LABEL_18:

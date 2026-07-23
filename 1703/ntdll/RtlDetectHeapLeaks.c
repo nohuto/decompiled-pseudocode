@@ -11,62 +11,56 @@
  *     sub_1800F3AF8 @ 0x1800F3AF8 (sub_1800F3AF8.c)
  */
 
-struct _PEB *RtlDetectHeapLeaks()
+void RtlDetectHeapLeaks(void)
 {
-  struct _PEB *result; // rax
-  struct _PEB *v1; // rbx
-  struct _PEB *v2; // rax
+  struct _PEB *v0; // rbx
+  struct _PEB *v1; // rax
 
-  result = NtCurrentPeb();
-  if ( (result->NtGlobalFlag & 0x100) == 0 )
+  if ( (NtCurrentPeb()->NtGlobalFlag & 0x100) == 0
+    && (NtCurrentPeb()->NtGlobalFlag & 0x2000000) == 0
+    && (qword_180159B88 || (byte_18015C3BC & 3) != 0) )
   {
-    result = NtCurrentPeb();
-    if ( (result->NtGlobalFlag & 0x2000000) == 0 && (qword_180159B88 || (byte_18015C3BC & 3) != 0) )
+    dword_18015C750 = 0;
+    qword_180159A28 = RtlCreateHeap(3u, 0LL, 0LL, 0LL, 0LL, 0LL);
+    if ( qword_180159A28 )
     {
-      dword_18015C750 = 0;
-      result = (struct _PEB *)RtlCreateHeap(3uLL, 0LL, 0LL, 0LL, 0LL, 0LL);
-      qword_180159A28 = (__int64)result;
-      if ( result )
+      v0 = NtCurrentPeb();
+      if ( v0->Ldr )
+        DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+      else
+        DbgPrint("HEAP: ");
+      DbgPrint("Inspecting leaks at process shutdown ...\n");
+      if ( (unsigned __int8)sub_1800F349C() )
       {
+        qword_18015C748 = (__int64)v0->ProcessHeaps[v0->NumberOfHeaps - 1];
+        sub_1800F3854();
+        sub_1800F3AF8();
+        RtlDestroyHeap(qword_180159A28);
+        qword_180159A28 = 0LL;
         v1 = NtCurrentPeb();
-        if ( v1->Ldr )
-          DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-        else
-          DbgPrint("HEAP: ");
-        DbgPrint("Inspecting leaks at process shutdown ...\n");
-        if ( (unsigned __int8)sub_1800F349C() )
+        if ( dword_18015C750 )
         {
-          qword_18015C748 = (__int64)v1->ProcessHeaps[v1->NumberOfHeaps - 1];
-          sub_1800F3854();
-          sub_1800F3AF8();
-          RtlDestroyHeap(qword_180159A28);
-          qword_180159A28 = 0LL;
-          v2 = NtCurrentPeb();
-          if ( dword_18015C750 )
-          {
-            if ( v2->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-            else
-              DbgPrint("HEAP: ");
-            result = (struct _PEB *)DbgPrint("%ld leaks detected.\n", dword_18015C750);
-            if ( (byte_18015C3BC & 2) != 0 )
-              __debugbreak();
-          }
+          if ( v1->Ldr )
+            DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
           else
-          {
-            if ( v2->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-            else
-              DbgPrint("HEAP: ");
-            return (struct _PEB *)DbgPrint("No leaks detected.\n");
-          }
+            DbgPrint("HEAP: ");
+          DbgPrint("%ld leaks detected.\n", dword_18015C750);
+          if ( (byte_18015C3BC & 2) != 0 )
+            __debugbreak();
         }
         else
         {
-          return (struct _PEB *)RtlDestroyHeap(qword_180159A28);
+          if ( v1->Ldr )
+            DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+          else
+            DbgPrint("HEAP: ");
+          DbgPrint("No leaks detected.\n");
         }
+      }
+      else
+      {
+        RtlDestroyHeap(qword_180159A28);
       }
     }
   }
-  return result;
 }

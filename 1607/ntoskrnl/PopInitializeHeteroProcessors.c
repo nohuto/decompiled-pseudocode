@@ -1,21 +1,21 @@
 /*
- * XREFs of PopInitializeHeteroProcessors @ 0x14056A584
+ * XREFs of PopInitializeHeteroProcessors @ 0x14056AAC4
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     KeConfigureHeteroProcessors @ 0x1403DCF74 (KeConfigureHeteroProcessors.c)
- *     PsEnumProcesses @ 0x14049895C (PsEnumProcesses.c)
- *     PpmEventHeteroPolicy @ 0x14056A6B8 (PpmEventHeteroPolicy.c)
- *     PopConfigureHeteroPolicies @ 0x14056A738 (PopConfigureHeteroPolicies.c)
- *     PpmHeteroDetectFavoredCores @ 0x14056A874 (PpmHeteroDetectFavoredCores.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14056A904 (PopDetectSimulatedHeteroProcessors.c)
- *     PpmHeteroComputeRelativePerformance @ 0x14056A9D8 (PpmHeteroComputeRelativePerformance.c)
+ *     PsEnumProcesses @ 0x1404993EC (PsEnumProcesses.c)
+ *     PpmEventHeteroPolicy @ 0x14056ABF8 (PpmEventHeteroPolicy.c)
+ *     PopConfigureHeteroPolicies @ 0x14056AC78 (PopConfigureHeteroPolicies.c)
+ *     PpmHeteroDetectFavoredCores @ 0x14056ADB4 (PpmHeteroDetectFavoredCores.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x14056AE44 (PopDetectSimulatedHeteroProcessors.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x14056AF18 (PpmHeteroComputeRelativePerformance.c)
  */
 
 __int64 PopInitializeHeteroProcessors()

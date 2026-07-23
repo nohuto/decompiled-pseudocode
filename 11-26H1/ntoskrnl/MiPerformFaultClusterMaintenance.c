@@ -1,22 +1,22 @@
 /*
- * XREFs of MiPerformFaultClusterMaintenance @ 0x1402EB0D0
+ * XREFs of MiPerformFaultClusterMaintenance @ 0x1402CD110
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiClearFaultClusterContext @ 0x14046E104 (MiClearFaultClusterContext.c)
- *     MmExitThread @ 0x140ADB710 (MmExitThread.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiClearFaultClusterContext @ 0x140467884 (MiClearFaultClusterContext.c)
+ *     MmExitThread @ 0x14094C484 (MmExitThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
- *     MiResolvePageTablePage @ 0x1402ECA70 (MiResolvePageTablePage.c)
- *     MiConfirmFaultClusterDescriptor @ 0x1402ECD70 (MiConfirmFaultClusterDescriptor.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiInitializePageFaultPacket @ 0x140339350 (MiInitializePageFaultPacket.c)
- *     MiLockAndConfirmFaultClusterDescriptor @ 0x14039F79C (MiLockAndConfirmFaultClusterDescriptor.c)
- *     MiSetFaultClusterContextBlockEntryState @ 0x14046E324 (MiSetFaultClusterContextBlockEntryState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
+ *     MiResolvePageTablePage @ 0x1402CEAB0 (MiResolvePageTablePage.c)
+ *     MiConfirmFaultClusterDescriptor @ 0x1402CEDB0 (MiConfirmFaultClusterDescriptor.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiInitializePageFaultPacket @ 0x14033B3D0 (MiInitializePageFaultPacket.c)
+ *     MiLockAndConfirmFaultClusterDescriptor @ 0x1403A14FC (MiLockAndConfirmFaultClusterDescriptor.c)
+ *     MiSetFaultClusterContextBlockEntryState @ 0x140467AA4 (MiSetFaultClusterContextBlockEntryState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 _OWORD *__fastcall MiPerformFaultClusterMaintenance(_OWORD *a1, __int64 a2, _QWORD *a3)
@@ -201,7 +201,7 @@ _OWORD *__fastcall MiPerformFaultClusterMaintenance(_OWORD *a1, __int64 a2, _QWO
           && *((_QWORD *)&v35 + 1) <= 0xFFFFF6FB7DBEDFFFuLL )
         {
           _InterlockedAnd(
-            (volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4
+            (volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4
                                                                          * ((unsigned __int64)(2
                                                                                              * (unsigned int)((*((_QWORD *)&v35 + 1) + 0x90482413000LL) >> 3)) >> 5)
                                                                          + 4],

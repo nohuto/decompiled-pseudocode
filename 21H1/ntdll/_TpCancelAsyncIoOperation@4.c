@@ -8,29 +8,25 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpCancelAsyncIoOperation(int a1)
+void __cdecl TpCancelAsyncIoOperation(PTP_IO Io)
 {
-  int result; // eax
-  signed __int32 v2; // edx
-  signed __int32 v3; // ecx
+  signed __int32 v1; // edx
+  signed __int32 v2; // ecx
 
-  result = TppIopValidateIo(0);
-  if ( result )
+  if ( TppIopValidateIo(0) )
   {
-    v2 = *(_DWORD *)(a1 + 168);
-    while ( v2 > 0 )
+    v1 = *((_DWORD *)Io + 42);
+    while ( v1 > 0 )
     {
-      v3 = v2;
-      result = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 168), v2 - 1, v2);
-      v2 = result;
-      if ( result == v3 )
+      v2 = v1;
+      v1 = _InterlockedCompareExchange((volatile signed __int32 *)Io + 42, v1 - 1, v1);
+      if ( v1 == v2 )
       {
-        result = TppBarrierAdjust((signed __int64 *)(a1 + 32), -1, 0);
+        TppBarrierAdjust((signed __int64 *)Io + 4, -1, 0);
         break;
       }
     }
-    if ( !_InterlockedDecrement((volatile signed __int32 *)a1) )
-      return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
+    if ( !_InterlockedDecrement((volatile signed __int32 *)Io) )
+      (**((void (__thiscall ***)(_DWORD, PTP_IO))Io + 1))(**((_DWORD **)Io + 1), Io);
   }
-  return result;
 }

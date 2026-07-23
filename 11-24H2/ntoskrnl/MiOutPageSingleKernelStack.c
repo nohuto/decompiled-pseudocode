@@ -1,31 +1,31 @@
 /*
- * XREFs of MiOutPageSingleKernelStack @ 0x14039F510
+ * XREFs of MiOutPageSingleKernelStack @ 0x140215F40
  * Callers:
- *     KeEnumerateKernelStackSegments @ 0x140269F48 (KeEnumerateKernelStackSegments.c)
+ *     KeEnumerateKernelStackSegments @ 0x14021F4D8 (KeEnumerateKernelStackSegments.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDecrementShareCountEx @ 0x140220590 (MiDecrementShareCountEx.c)
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiMakeTransitionPte @ 0x1402E67B0 (MiMakeTransitionPte.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiOutSwapKernelStackPage @ 0x14039E778 (MiOutSwapKernelStackPage.c)
- *     MiLockAndDecrementShareCount @ 0x14039EFA4 (MiLockAndDecrementShareCount.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiGetWorkingSetSwapSupport @ 0x140405F90 (MiGetWorkingSetSwapSupport.c)
- *     MiCreateKernelStackNode @ 0x1404F9A78 (MiCreateKernelStackNode.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiLockAndDecrementShareCount @ 0x14021D444 (MiLockAndDecrementShareCount.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiDecrementShareCountEx @ 0x14024D2E0 (MiDecrementShareCountEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiMakeTransitionPte @ 0x140347DF0 (MiMakeTransitionPte.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiOutSwapKernelStackPage @ 0x1403C6E14 (MiOutSwapKernelStackPage.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1403C84EC (MiGetWorkingSetSwapSupport.c)
+ *     MiCreateKernelStackNode @ 0x1404F7358 (MiCreateKernelStackNode.c)
  */
 
 void __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3)
 {
-  __int64 v4; // r12
+  unsigned __int64 v4; // r12
   unsigned __int64 v5; // r13
   _QWORD *v6; // r14
   unsigned __int64 v7; // r9
@@ -39,52 +39,58 @@ void __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3)
   ULONG_PTR v15; // r13
   __int64 v16; // rcx
   __int64 v17; // rdi
-  __int64 v18; // r12
-  __int64 *v19; // r14
-  __int64 v20; // r15
-  unsigned __int64 v21; // rdi
-  unsigned __int64 v22; // rsi
-  unsigned int v23; // ebp
-  int v24; // eax
-  unsigned int v25; // edi
-  unsigned __int64 v26; // [rsp+20h] [rbp-88h]
-  unsigned __int64 v27; // [rsp+28h] [rbp-80h]
-  unsigned __int64 v28; // [rsp+30h] [rbp-78h]
-  void *v29; // [rsp+40h] [rbp-68h]
-  unsigned __int64 v30; // [rsp+48h] [rbp-60h]
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // r12
+  __int64 *v22; // r14
+  __int64 v23; // rcx
+  __int64 v24; // r15
+  __int64 v25; // rdi
+  __int64 v26; // rsi
+  unsigned int v27; // ebp
+  int v28; // eax
+  __int64 v29; // rcx
+  unsigned int v30; // edi
+  __int64 v31; // rdx
+  unsigned __int64 v32; // [rsp+20h] [rbp-88h]
+  unsigned __int64 v33; // [rsp+28h] [rbp-80h]
+  unsigned __int64 v34; // [rsp+30h] [rbp-78h]
+  __int64 v35; // [rsp+40h] [rbp-68h]
+  unsigned __int64 v36; // [rsp+48h] [rbp-60h]
   __int64 DemandZeroPte; // [rsp+50h] [rbp-58h]
-  __int64 v32; // [rsp+58h] [rbp-50h]
-  unsigned __int8 v34; // [rsp+B8h] [rbp+10h]
-  unsigned int v36; // [rsp+C8h] [rbp+20h]
+  unsigned __int64 v38; // [rsp+58h] [rbp-50h]
+  char v40; // [rsp+B8h] [rbp+10h]
+  unsigned int v42; // [rsp+C8h] [rbp+20h]
 
-  v27 = (((unsigned __int64)(*a2 - 4096LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v33 = (((unsigned __int64)(*a2 - 4096LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v4 = (((unsigned __int64)(a2[2] - 8LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v32 = v4;
-  v26 = v4 << 25 >> 16;
+  v38 = v4;
+  v32 = (__int64)(v4 << 25) >> 16;
   v5 = ((a2[1] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v6 = (_QWORD *)v4;
-  v28 = v5;
-  v36 = ((__int64)(v27 - v4) >> 3) + 1;
-  DemandZeroPte = MiMakeDemandZeroPte(31);
+  v34 = v5;
+  v42 = ((__int64)(v33 - v4) >> 3) + 1;
+  DemandZeroPte = MiMakeDemandZeroPte(31LL, a1, v32, 0xFFFFF68000000000uLL);
   WorkingSetSwapSupport = 0LL;
   v11 = *(_QWORD *)(v10 + 544);
   v12 = *(unsigned __int16 *)(v11 + 1198);
   v13 = v11 + 1024;
-  v14 = *((_QWORD *)qword_140E2FF88 + v12);
+  v14 = *((_QWORD *)qword_140E300C8 + v12);
   if ( (ULONG *)v14 != &MiSystemPartition )
   {
-    if ( !MiCreateKernelStackNode(*((_QWORD *)qword_140E2FF88 + v12), a2) )
+    if ( !MiCreateKernelStackNode(*((_QWORD *)qword_140E300C8 + v12), a2) )
       return;
     v7 = 0xFFFFF68000000000uLL;
     v8 = 0x7FFFFFFFF8LL;
   }
   v15 = v7 + (v8 & (v5 >> 9));
-  v30 = (v8 & (v27 >> 9)) + v7;
-  v29 = MiVaToFlushVm(v4);
-  v34 = MiLockWorkingSetShared((__int64)v29);
-  MiLockNestedPageTable((__int64)v29, v15);
-  if ( v15 != v30 )
-    MiLockNestedPageTable((__int64)v29, v15 + 8);
+  v36 = (v8 & (v33 >> 9)) + v7;
+  v35 = MiVaToFlushVm(v4);
+  v40 = MiLockWorkingSetShared(v35);
+  MiLockNestedPageTable(v35, v15);
+  if ( v15 != v36 )
+    MiLockNestedPageTable(v35, v15 + 8);
   *(_QWORD *)(a2[2] - 8LL) = a1;
   if ( (unsigned __int64)MiGetWorkingSetSwapSupport(v13) > 2 )
   {
@@ -98,88 +104,90 @@ void __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3)
   {
     v17 = (*v6 >> 12) & 0xFFFFFFFFFFLL;
     if ( WorkingSetSwapSupport )
-      MiOutSwapKernelStackPage(WorkingSetSwapSupport, v14, (__int64)v6);
-    *v6 = MiMakeTransitionPte(v17, 31);
-    MiLockAndDecrementShareCount(48 * v17 - 0x220000000000LL, 2);
+      MiOutSwapKernelStackPage(WorkingSetSwapSupport, v14, v6);
+    *v6 = MiMakeTransitionPte(v17, 31LL);
+    MiLockAndDecrementShareCount(48 * v17 - 0x220000000000LL);
     ++v6;
   }
-  while ( (unsigned __int64)v6 <= v27 );
-  v18 = (__int64)v29;
+  while ( (unsigned __int64)v6 <= v33 );
+  v21 = v35;
   if ( WorkingSetSwapSupport )
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v14 + 1184));
-  v19 = (__int64 *)(v32 - 8);
-  if ( v32 - 8 >= v28 )
+  v22 = (__int64 *)(v38 - 8);
+  if ( v38 - 8 >= v34 )
   {
     do
     {
-      if ( (*v19 & 1) == 0 )
+      if ( (*v22 & 1) == 0 )
         break;
-      v20 = ((unsigned __int64)*v19 >> 12) & 0xFFFFFFFFFFLL;
-      v21 = 48 * v20 - 0x220000000000LL;
-      v22 = 48 * (*(_QWORD *)(v21 + 40) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-      v23 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v21 + 24), 0x3FuLL) )
+      v23 = 0xFFFFFFFFFFLL;
+      v24 = ((unsigned __int64)*v22 >> 12) & 0xFFFFFFFFFFLL;
+      v25 = 48 * v24 - 0x220000000000LL;
+      v26 = 48 * (*(_QWORD *)(v25 + 40) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
+      v27 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v25 + 24), 0x3FuLL) )
       {
         do
         {
-          if ( (++v23 & HvlLongSpinCountMask) == 0
+          if ( (++v27 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
-            && KiCheckVpBackingLongSpinWaitHypercall() )
+            && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v23, v18, v19, v20) )
           {
-            HvlNotifyLongSpinWait(v23);
+            HvlNotifyLongSpinWait(v27);
           }
           else
           {
             _mm_pause();
           }
         }
-        while ( *(__int64 *)(v21 + 24) < 0 );
+        while ( *(__int64 *)(v25 + 24) < 0 );
       }
-      if ( (unsigned __int16)*(_DWORD *)(v21 + 32) == 1 )
+      if ( (unsigned __int16)*(_DWORD *)(v25 + 32) == 1 )
       {
-        *v19 = DemandZeroPte;
-        *(_QWORD *)(v21 + 24) |= 0x4000000000000000uLL;
-        MiSetPfnIdentity(v21, 0LL);
+        *v22 = DemandZeroPte;
+        *(_QWORD *)(v25 + 24) |= 0x4000000000000000uLL;
+        MiSetPfnIdentity(v25, 0LL);
       }
       else
       {
-        *v19 = MiMakeTransitionPte(v20, 31);
+        *v22 = MiMakeTransitionPte(v24, 31LL);
       }
-      v24 = MiDecrementShareCountEx(v21, 0LL);
-      _InterlockedAnd64((volatile signed __int64 *)(v21 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( v24 != 3 )
+      v28 = MiDecrementShareCountEx(v25, 0LL);
+      _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( v28 != 3 )
       {
-        v25 = 0;
-        while ( _interlockedbittestandset64((volatile signed __int32 *)(v22 + 24), 0x3FuLL) )
+        v30 = 0;
+        while ( _interlockedbittestandset64((volatile signed __int32 *)(v26 + 24), 0x3FuLL) )
         {
           do
           {
-            if ( (++v25 & HvlLongSpinCountMask) == 0
+            if ( (++v30 & HvlLongSpinCountMask) == 0
               && (HvlEnlightenments & 0x40) != 0
-              && KiCheckVpBackingLongSpinWaitHypercall() )
+              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v29, v18, v19, v20) )
             {
-              HvlNotifyLongSpinWait(v25);
+              HvlNotifyLongSpinWait(v30);
             }
             else
             {
               _mm_pause();
             }
           }
-          while ( *(__int64 *)(v22 + 24) < 0 );
+          while ( *(__int64 *)(v26 + 24) < 0 );
         }
-        MiDecrementShareCountEx(v22, 0LL);
-        _InterlockedAnd64((volatile signed __int64 *)(v22 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        MiDecrementShareCountEx(v26, 0LL);
+        _InterlockedAnd64((volatile signed __int64 *)(v26 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       }
-      ++v36;
-      --v19;
-      v26 -= 4096LL;
+      ++v42;
+      --v22;
+      v32 -= 4096LL;
     }
-    while ( (unsigned __int64)v19 >= v28 );
-    v18 = (__int64)v29;
+    while ( (unsigned __int64)v22 >= v34 );
+    v21 = v35;
   }
-  if ( v15 != v30 )
-    MiUnlockPageTableInternal(v18, v15 + 8);
-  MiUnlockPageTableInternal(v18, v15);
-  MiUnlockWorkingSetShared(v18, v34);
-  MiInsertTbFlushEntry(a3, v26, v36, 0);
+  if ( v15 != v36 )
+    MiUnlockPageTableInternal(v21, v15 + 8);
+  MiUnlockPageTableInternal(v21, v15);
+  LOBYTE(v31) = v40;
+  MiUnlockWorkingSetShared(v21, v31);
+  MiInsertTbFlushEntry(a3, v32, v42, 0);
 }

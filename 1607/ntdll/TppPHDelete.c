@@ -1,8 +1,8 @@
 /*
- * XREFs of TppPHDelete @ 0x18003CB0C
+ * XREFs of TppPHDelete @ 0x18003CAFC
  * Callers:
- *     TppCancelTimer @ 0x18003C268 (TppCancelTimer.c)
- *     TppTimerQueueExpiration @ 0x18003C880 (TppTimerQueueExpiration.c)
+ *     TppCancelTimer @ 0x18003C258 (TppCancelTimer.c)
+ *     TppTimerQueueExpiration @ 0x18003C870 (TppTimerQueueExpiration.c)
  * Callees:
  *     <none>
  */

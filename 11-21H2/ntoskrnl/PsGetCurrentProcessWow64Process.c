@@ -6,11 +6,11 @@
  *     <none>
  */
 
-unsigned __int64 PsGetCurrentProcessWow64Process()
+__int64 PsGetCurrentProcessWow64Process()
 {
-  unsigned __int64 result; // rax
+  __int64 result; // rax
 
-  result = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[30];
+  result = *(_QWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 1408LL);
   if ( result )
     return *(_QWORD *)result;
   return result;

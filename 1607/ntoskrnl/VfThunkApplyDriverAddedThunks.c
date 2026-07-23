@@ -1,12 +1,12 @@
 /*
- * XREFs of VfThunkApplyDriverAddedThunks @ 0x14070F3B8
+ * XREFs of VfThunkApplyDriverAddedThunks @ 0x14070F3E8
  * Callers:
- *     ViDriverReApplyVerifierForAll @ 0x140704E64 (ViDriverReApplyVerifierForAll.c)
+ *     ViDriverReApplyVerifierForAll @ 0x140704E94 (ViDriverReApplyVerifierForAll.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ViThunkFindAllSpecialTables @ 0x14070F8C0 (ViThunkFindAllSpecialTables.c)
- *     ViThunkReplaceImportEntry @ 0x14070FCC0 (ViThunkReplaceImportEntry.c)
+ *     ViThunkFindAllSpecialTables @ 0x14070F8F0 (ViThunkFindAllSpecialTables.c)
+ *     ViThunkReplaceImportEntry @ 0x14070FCF0 (ViThunkReplaceImportEntry.c)
  */
 
 __int64 __fastcall VfThunkApplyDriverAddedThunks(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlHeatLogIo @ 0x14061F76C
+ * XREFs of FsRtlHeatLogIo @ 0x14061F820
  * Callers:
  *     <none>
  * Callees:
- *     Template_xxxqq @ 0x1401B9E7C (Template_xxxqq.c)
+ *     Template_xxxqq @ 0x1401B9D60 (Template_xxxqq.c)
  */
 
 __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4, const GUID *a5)

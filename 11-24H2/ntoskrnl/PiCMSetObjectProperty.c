@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMSetObjectProperty @ 0x1409F75AC
+ * XREFs of PiCMSetObjectProperty @ 0x1409EFF1C
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140487208 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiPnpRtlSetObjectProperty @ 0x1408B84A0 (PiPnpRtlSetObjectProperty.c)
- *     PiAuDoesClientHaveAccess @ 0x1408BC6A8 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnBasicResultData @ 0x1408BF0D4 (PiCMReturnBasicResultData.c)
- *     PiCMCapturePropertyInputData @ 0x1408C5220 (PiCMCapturePropertyInputData.c)
- *     PiCMReleasePropertyInputData @ 0x1409F78F0 (PiCMReleasePropertyInputData.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140482278 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1408B5E10 (PiPnpRtlSetObjectProperty.c)
+ *     PiAuDoesClientHaveAccess @ 0x1408B9FF8 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnBasicResultData @ 0x1408BCA94 (PiCMReturnBasicResultData.c)
+ *     PiCMCapturePropertyInputData @ 0x1408C2BE0 (PiCMCapturePropertyInputData.c)
+ *     PiCMReleasePropertyInputData @ 0x1409F0260 (PiCMReleasePropertyInputData.c)
  */
 
 __int64 __fastcall PiCMSetObjectProperty(
@@ -48,7 +48,7 @@ __int64 __fastcall PiCMSetObjectProperty(
   __int64 v34; // rcx
   unsigned int v35; // [rsp+50h] [rbp-79h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-69h] BYREF
-  char v37[4]; // [rsp+70h] [rbp-59h] BYREF
+  _BYTE v37[4]; // [rsp+70h] [rbp-59h] BYREF
   int v38; // [rsp+74h] [rbp-55h]
   int v39; // [rsp+78h] [rbp-51h]
   PCWSTR SourceString; // [rsp+80h] [rbp-49h]
@@ -62,7 +62,7 @@ __int64 __fastcall PiCMSetObjectProperty(
 
   memset_0(v37, 0, 0x48uLL);
   *a6 = 0;
-  v10 = PiCMCapturePropertyInputData(a1, a2, a5, v37);
+  v10 = PiCMCapturePropertyInputData(a1, a2, a5, (__int64)v37);
   if ( v10 >= 0 )
   {
     v11 = 5;

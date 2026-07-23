@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMapNewPfns @ 0x140866674
+ * XREFs of MiMapNewPfns @ 0x14086CA54
  * Callers:
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
- *     MiGetClosestImplicitNode @ 0x1403A594C (MiGetClosestImplicitNode.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiLockDynamicMemoryShared @ 0x1404CB6E0 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1404D0330 (MiUnlockDynamicMemoryShared.c)
- *     MiPhysicalMemoryEverRemoved @ 0x1406E9EF4 (MiPhysicalMemoryEverRemoved.c)
- *     MiCreateIoPageExclusion @ 0x1406F39A8 (MiCreateIoPageExclusion.c)
- *     MiRemoveIoPageExclusion @ 0x1406F4DF4 (MiRemoveIoPageExclusion.c)
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
+ *     MiGetClosestImplicitNode @ 0x1403A76AC (MiGetClosestImplicitNode.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiLockDynamicMemoryShared @ 0x1404C5110 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1404C9D60 (MiUnlockDynamicMemoryShared.c)
+ *     MiPhysicalMemoryEverRemoved @ 0x1406EEB94 (MiPhysicalMemoryEverRemoved.c)
+ *     MiCreateIoPageExclusion @ 0x1406F8618 (MiCreateIoPageExclusion.c)
+ *     MiRemoveIoPageExclusion @ 0x1406F9A64 (MiRemoveIoPageExclusion.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
  */
 
 __int64 __fastcall MiMapNewPfns(__int64 a1)
@@ -53,7 +53,7 @@ __int64 __fastcall MiMapNewPfns(__int64 a1)
   result = MiCreateIoPageExclusion(&v20, v8 & 1, v7, v10);
   if ( (int)result >= 0 )
   {
-    if ( v6 >= 0x40000 && qword_140E3D3D0 >= 0x200000 )
+    if ( v6 >= 0x40000 && qword_140E3D550 >= 0x200000 )
     {
       if ( PteAddress != (PteAddress & 0xFFFFFFFFFFFFF000uLL) )
         PteAddress &= 0xFFFFFFFFFFFFF000uLL;
@@ -101,7 +101,7 @@ __int64 __fastcall MiMapNewPfns(__int64 a1)
   }
   else
   {
-    ++dword_140E35F0C;
+    ++dword_140E3608C;
   }
   return result;
 }

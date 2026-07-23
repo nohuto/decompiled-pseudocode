@@ -3,9 +3,9 @@
  * Callers:
  *     WbReEncryptEncryptionSegment @ 0x1405D6F68 (WbReEncryptEncryptionSegment.c)
  * Callees:
- *     sub_1403F9654 @ 0x1403F9654 (sub_1403F9654.c)
+ *     sub_1403F9834 @ 0x1403F9834 (sub_1403F9834.c)
  *     sub_1405D7994 @ 0x1405D7994 (sub_1405D7994.c)
- *     sub_140963F38 @ 0x140963F38 (sub_140963F38.c)
+ *     sub_140964118 @ 0x140964118 (sub_140964118.c)
  */
 
 __int64 __fastcall sub_1405D78F8(__int64 a1)
@@ -29,11 +29,11 @@ __int64 __fastcall sub_1405D78F8(__int64 a1)
       {
         if ( *(_DWORD *)(a1 + 48) == 1 )
         {
-          v6 = sub_140963F38(a1, 16LL * v5 + *(_QWORD *)(a1 + 56) + 248LL);
+          v6 = sub_140964118(a1, 16LL * v5 + *(_QWORD *)(a1 + 56) + 248LL);
         }
         else
         {
-          sub_1403F9654();
+          sub_1403F9834();
           if ( *(_DWORD *)(a1 + 48) )
             return (unsigned int)-1073741811;
           v6 = sub_1405D7994(a1, *(_QWORD *)(a1 + 56) + 4 * (3LL * v5 + 61));

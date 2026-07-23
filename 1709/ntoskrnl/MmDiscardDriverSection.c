@@ -20,7 +20,7 @@ unsigned __int64 __fastcall MmDiscardDriverSection(unsigned __int64 a1)
   v2 = (unsigned __int64 *)MiLookupDataTableEntry(a1, 0);
   v3 = (PVOID)v2[6];
   result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v3);
-  if ( !(_DWORD)result || v3 == (PVOID)PsNtosImageBase || v3 == PsHalImageBase )
+  if ( !(_DWORD)result || v3 == PsNtosImageBase || v3 == PsHalImageBase )
   {
     result = MiSnapDriverRange((__int64)v2, 0, 0, a1, &v5, (unsigned __int64 *)&v6);
     if ( v5 )

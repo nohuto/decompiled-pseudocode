@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwDeleteDriverEntry()
+NTSTATUS __cdecl ZwDeleteDriverEntry(ULONG Id)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 195LL;
+  result = 195;
   __asm { syscall; Low latency system call }
   return result;
 }

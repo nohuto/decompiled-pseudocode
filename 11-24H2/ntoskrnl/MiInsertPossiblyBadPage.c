@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInsertPossiblyBadPage @ 0x140683470
+ * XREFs of MiInsertPossiblyBadPage @ 0x14068461C
  * Callers:
- *     MiFinishLargePageFree @ 0x1403A3D48 (MiFinishLargePageFree.c)
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiRebuildLargePage @ 0x1403D2BAC (MiRebuildLargePage.c)
- *     MiFreeLargePageChain @ 0x1403D5A54 (MiFreeLargePageChain.c)
- *     MiObtainedPageIsGood @ 0x14042F73C (MiObtainedPageIsGood.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1404A2E44 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiEnableNewPfns @ 0x14066CABC (MiEnableNewPfns.c)
- *     MiTransferPartitionPageRun @ 0x14068B4FC (MiTransferPartitionPageRun.c)
+ *     MiFinishLargePageFree @ 0x14021B7C8 (MiFinishLargePageFree.c)
+ *     MiFreeLargePageChain @ 0x1402648B8 (MiFreeLargePageChain.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     MiObtainedPageIsGood @ 0x1402F0004 (MiObtainedPageIsGood.c)
+ *     MiRebuildLargePage @ 0x1403F7120 (MiRebuildLargePage.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14049DD64 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiEnableNewPfns @ 0x14066DC8C (MiEnableNewPfns.c)
+ *     MiTransferPartitionPageRun @ 0x14068C62C (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x1402236D0 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402F6568 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiInsertDemotedPages @ 0x14042F7AC (MiInsertDemotedPages.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x140250420 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiInsertDemotedPages @ 0x1402EF010 (MiInsertDemotedPages.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14033E678 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiInsertPossiblyBadPage(ULONG_PTR BugCheckParameter2, unsigned int a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MiInsertPossiblyBadPage(ULONG_PTR BugCheckParameter2, unsigne
 
   LODWORD(v4) = MI_PAGE_TO_FULL_COLOR(BugCheckParameter2);
   v5 = 48 * BugCheckParameter2 - 0x220000000000LL;
-  v6 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 16LL)
+  v6 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 16LL)
      + 57216 * ((v4 >> 9) & 0x3F);
   v12 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 24), 0x3FuLL) )

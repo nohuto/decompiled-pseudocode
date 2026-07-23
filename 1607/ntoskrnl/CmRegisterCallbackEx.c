@@ -1,8 +1,8 @@
 /*
- * XREFs of CmRegisterCallbackEx @ 0x1405510D0
+ * XREFs of CmRegisterCallbackEx @ 0x140551610
  * Callers:
- *     VRegSetup @ 0x140551650 (VRegSetup.c)
- *     EtwpRegTraceEnableCallback @ 0x1406A4FAC (EtwpRegTraceEnableCallback.c)
+ *     VRegSetup @ 0x140551B90 (VRegSetup.c)
+ *     EtwpRegTraceEnableCallback @ 0x1406A50E4 (EtwpRegTraceEnableCallback.c)
  * Callees:
  *     <none>
  */

@@ -13,10 +13,9 @@ __int64 __fastcall sub_1801058BC(__int64 a1, __int64 a2, __int64 a3, unsigned __
   __int64 v6; // rcx
   __int64 v7; // rdx
   __int64 result; // rax
-  __int64 v9; // r9
-  int v10; // ebx
-  __int64 v11; // r8
-  _QWORD v12[5]; // [rsp+20h] [rbp-28h] BYREF
+  int v9; // ebx
+  unsigned int v10; // r8d
+  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
 
   _BitScanForward((unsigned int *)&v5, 0x20u);
   v6 = a1 + 16;
@@ -30,21 +29,21 @@ __int64 __fastcall sub_1801058BC(__int64 a1, __int64 a2, __int64 a3, unsigned __
   if ( (int)result >= 0 )
   {
     *(_DWORD *)a1 = 0;
-    v10 = 0;
-    v12[0] = 0xFFFFFFFFLL;
+    v9 = 0;
+    v11[0] = 0xFFFFFFFFLL;
     *(_QWORD *)(a1 + 8) = 0LL;
-    v12[1] = 0LL;
-    v12[2] = 0LL;
+    v11[1] = 0LL;
+    v11[2] = 0LL;
     while ( 1 )
     {
-      HIDWORD(v12[0]) = v10;
-      v11 = 0x200000LL;
-      if ( v10 == 3 )
-        v11 = 0x40000000LL;
-      result = sub_18005E0E0(a1, (unsigned __int64)v12, (unsigned __int64 *)v11, v9);
+      HIDWORD(v11[0]) = v9;
+      v10 = 0x200000;
+      if ( v9 == 3 )
+        v10 = 0x40000000;
+      result = sub_18005E0E0(a1, (__int64)v11, v10);
       if ( (int)result < 0 )
         break;
-      if ( ++v10 >= 4 )
+      if ( ++v9 >= 4 )
         return 0LL;
     }
   }

@@ -10,17 +10,20 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall RtlVerifyVersionInfo(__int64 a1, int a2, signed __int64 a3)
+NTSTATUS __cdecl RtlVerifyVersionInfo(
+        PRTL_OSVERSIONINFOEXW VersionInformation,
+        ULONG TypeMask,
+        ULONGLONG ConditionMask)
 {
   char v4; // si
   char v6; // bl
-  __int64 result; // rax
+  NTSTATUS result; // eax
   bool v8; // al
   int v9; // ebx
-  unsigned __int64 v10; // rbx
+  ULONGLONG v10; // rbx
   int v11; // eax
   bool v12; // zf
-  unsigned __int16 v13; // ax
+  WORD wSuiteMask; // ax
   unsigned int v14; // r10d
   int v15; // r11d
   int v16; // r9d
@@ -29,51 +32,51 @@ __int64 __fastcall RtlVerifyVersionInfo(__int64 a1, int a2, signed __int64 a3)
   int v19; // eax
   int v20; // eax
   bool v21[16]; // [rsp+30h] [rbp-D0h] BYREF
-  int v22[72]; // [rsp+40h] [rbp-C0h] BYREF
+  _OSVERSIONINFOEXW VersionInformationa; // [rsp+40h] [rbp-C0h] BYREF
 
-  v4 = a2;
+  v4 = TypeMask;
   v6 = 0;
-  if ( !a2 )
-    return 3221225485LL;
-  memset(v22, 0, 0x11CuLL);
-  v22[0] = 284;
-  result = RtlGetVersion(v22);
-  if ( !(_DWORD)result )
+  if ( !TypeMask )
+    return -1073741811;
+  memset(&VersionInformationa, 0, sizeof(VersionInformationa));
+  VersionInformationa.dwOSVersionInfoSize = 284;
+  result = RtlGetVersion(&VersionInformationa);
+  if ( !result )
   {
     if ( (v4 & 0x40) != 0 )
     {
-      v13 = *(_WORD *)(a1 + 280);
-      if ( v13 )
+      wSuiteMask = VersionInformation->wSuiteMask;
+      if ( wSuiteMask )
       {
         v14 = 0;
-        v15 = v13;
+        v15 = wSuiteMask;
         do
         {
           v16 = 1 << v14;
           if ( (v15 & (1 << v14)) != 0 )
           {
-            if ( a3 >= 0 )
+            if ( (ConditionMask & 0x8000000000000000uLL) == 0LL )
               v17 = 0;
             else
-              v17 = sub_18005A74C(a3, 0x40u);
+              v17 = sub_18005A74C(ConditionMask, 0x40u);
             v18 = v17 - 6;
             if ( v18 )
             {
               if ( v18 != 1 )
-                return 3221225485LL;
-              if ( (v22[70] & (unsigned __int16)v16) != 0 )
+                return -1073741811;
+              if ( (VersionInformationa.wSuiteMask & (unsigned __int16)v16) != 0 )
                 v6 = 1;
             }
-            else if ( (v22[70] & (unsigned __int16)v16) == 0 )
+            else if ( (VersionInformationa.wSuiteMask & (unsigned __int16)v16) == 0 )
             {
-              return 3221225561LL;
+              return -1073741735;
             }
           }
           ++v14;
         }
         while ( v14 < 0x10 );
-        if ( (unsigned int)sub_18005A74C(a3, 0x40u) == 7 && !v6 )
-          return 3221225561LL;
+        if ( (unsigned int)sub_18005A74C(ConditionMask, 0x40u) == 7 && !v6 )
+          return -1073741735;
       }
     }
     v8 = 1;
@@ -81,16 +84,16 @@ __int64 __fastcall RtlVerifyVersionInfo(__int64 a1, int a2, signed __int64 a3)
     v9 = 1;
     if ( (v4 & 2) != 0 )
     {
-      if ( a3 >= 0 )
-        v9 = (unsigned __int8)((unsigned __int64)a3 >> 4);
+      if ( (ConditionMask & 0x8000000000000000uLL) == 0LL )
+        v9 = (unsigned __int8)(ConditionMask >> 4);
       else
-        v9 = sub_18005A74C(a3, 2u);
-      v12 = !sub_18005A65C(v9, *(_DWORD *)(a1 + 4), v22[1], v21, 0);
+        v9 = sub_18005A74C(ConditionMask, 2u);
+      v12 = !sub_18005A65C(v9, VersionInformation->dwMajorVersion, VersionInformationa.dwMajorVersion, v21, 0);
       v8 = v21[0];
       if ( v12 )
       {
         if ( !v21[0] )
-          return 3221225561LL;
+          return -1073741735;
       }
       else if ( !v21[0] )
       {
@@ -101,17 +104,17 @@ __int64 __fastcall RtlVerifyVersionInfo(__int64 a1, int a2, signed __int64 a3)
       goto LABEL_6;
     if ( v9 == 1 )
     {
-      if ( a3 < 0 )
-        v9 = sub_18005A74C(a3, 1u);
+      if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
+        v9 = sub_18005A74C(ConditionMask, 1u);
       else
-        v9 = (unsigned __int8)((unsigned __int64)a3 >> 2);
+        v9 = (unsigned __int8)(ConditionMask >> 2);
     }
-    v12 = !sub_18005A65C(v9, *(_DWORD *)(a1 + 8), v22[2], v21, 1);
+    v12 = !sub_18005A65C(v9, VersionInformation->dwMinorVersion, VersionInformationa.dwMinorVersion, v21, 1);
     v8 = v21[0];
     if ( v12 )
     {
       if ( !v21[0] )
-        return 3221225561LL;
+        return -1073741735;
     }
     else
     {
@@ -123,15 +126,15 @@ LABEL_6:
     {
       if ( v9 == 1 )
       {
-        if ( a3 < 0 )
-          v9 = sub_18005A74C(a3, 0x20u);
+        if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
+          v9 = sub_18005A74C(ConditionMask, 0x20u);
         else
           v9 = 0;
       }
-      if ( !sub_18005A65C(v9, *(unsigned __int16 *)(a1 + 276), LOWORD(v22[69]), v21, 0) )
+      if ( !sub_18005A65C(v9, VersionInformation->wServicePackMajor, VersionInformationa.wServicePackMajor, v21, 0) )
       {
         if ( !v21[0] )
-          return 3221225561LL;
+          return -1073741735;
         goto LABEL_9;
       }
       v8 = v21[0];
@@ -143,36 +146,36 @@ LABEL_9:
       {
         if ( v9 == 1 )
         {
-          if ( a3 < 0 )
-            v9 = sub_18005A74C(a3, 0x10u);
+          if ( (ConditionMask & 0x8000000000000000uLL) != 0 )
+            v9 = sub_18005A74C(ConditionMask, 0x10u);
           else
             v9 = 0;
         }
-        if ( !sub_18005A65C(v9, *(unsigned __int16 *)(a1 + 278), HIWORD(v22[69]), v21, 1) )
-          return 3221225561LL;
+        if ( !sub_18005A65C(v9, VersionInformation->wServicePackMinor, VersionInformationa.wServicePackMinor, v21, 1) )
+          return -1073741735;
       }
     }
 LABEL_10:
-    v10 = a3 & 0x8000000000000000uLL;
+    v10 = ConditionMask & 0x8000000000000000uLL;
     if ( (v4 & 4) != 0 )
     {
-      v19 = v10 ? sub_18005A74C(a3, 4u) : BYTE2(a3);
-      if ( !sub_18005A65C(v19, *(_DWORD *)(a1 + 12), v22[3], v21, 0) )
-        return 3221225561LL;
+      v19 = v10 ? sub_18005A74C(ConditionMask, 4u) : BYTE2(ConditionMask);
+      if ( !sub_18005A65C(v19, VersionInformation->dwBuildNumber, VersionInformationa.dwBuildNumber, v21, 0) )
+        return -1073741735;
     }
     if ( (v4 & 8) != 0 )
     {
-      v20 = v10 ? sub_18005A74C(a3, 8u) : 0;
-      if ( !sub_18005A65C(v20, *(_DWORD *)(a1 + 16), v22[4], v21, 0) )
-        return 3221225561LL;
+      v20 = v10 ? sub_18005A74C(ConditionMask, 8u) : 0;
+      if ( !sub_18005A65C(v20, VersionInformation->dwPlatformId, VersionInformationa.dwPlatformId, v21, 0) )
+        return -1073741735;
     }
     if ( v4 < 0 )
     {
-      v11 = v10 ? sub_18005A74C(a3, 0x80u) : 0;
-      if ( !sub_18005A65C(v11, *(unsigned __int8 *)(a1 + 282), BYTE2(v22[70]), v21, 0) )
-        return 3221225561LL;
+      v11 = v10 ? sub_18005A74C(ConditionMask, 0x80u) : 0;
+      if ( !sub_18005A65C(v11, VersionInformation->wProductType, VersionInformationa.wProductType, v21, 0) )
+        return -1073741735;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

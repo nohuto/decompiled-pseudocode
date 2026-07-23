@@ -33,13 +33,14 @@
  *     RtlpImageDirectoryEntryToDataEx @ 0x14003FAC0 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 PVOID __stdcall RtlImageDirectoryEntryToData(PVOID BaseAddress, BOOLEAN MappedAsImage, USHORT Directory, PULONG Size)
 {
   NTSTATUS v4; // eax
   void *v5; // rcx
   __int64 v7[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v4 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, MappedAsImage, Directory, (int)Size, v7);
+  v4 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, MappedAsImage, Directory, (__int64)Size, v7);
   v5 = (void *)v7[0];
   if ( v4 < 0 )
     return 0LL;

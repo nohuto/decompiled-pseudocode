@@ -23,7 +23,11 @@
  *     CmSetLastWriteTimeKey @ 0x14086E18C (CmSetLastWriteTimeKey.c)
  */
 
-__int64 __fastcall NtSetInformationKey(void *a1, int a2, const void *a3, __int64 a4)
+NTSTATUS __cdecl NtSetInformationKey(
+        HANDLE KeyHandle,
+        KEY_SET_INFORMATION_CLASS KeySetInformationClass,
+        PVOID KeySetInformation,
+        ULONG KeySetInformationLength)
 {
   char v6; // r13
   char v7; // r15
@@ -31,29 +35,29 @@ __int64 __fastcall NtSetInformationKey(void *a1, int a2, const void *a3, __int64
   BOOLEAN v9; // r12
   KPROCESSOR_MODE PreviousMode; // di
   unsigned int v11; // ecx
-  unsigned __int64 v12; // rdx
+  char *v12; // rdx
   ACCESS_MASK v13; // edx
   struct _KTHREAD *v14; // rax
   int v15; // r9d
-  NTSTATUS v17; // ebx
+  int v17; // ebx
   struct _DMA_ADAPTER *v18; // rdi
   char v19; // r14
   KPROCESSOR_MODE v20; // r9
   KPROCESSOR_MODE v21; // r9
   _DMA_OPERATIONS *v22; // rcx
-  int v23; // r14d
-  int v24; // r14d
-  int v25; // r14d
+  __int32 v23; // r14d
+  __int32 v24; // r14d
+  __int32 v25; // r14d
   __int64 v26; // r8
   __int64 v27; // rdx
-  NTSTATUS v28; // eax
+  int v28; // eax
   _DMA_OPERATIONS *v29; // rcx
   char v30; // [rsp+40h] [rbp-158h]
   char v31; // [rsp+41h] [rbp-157h]
   unsigned __int8 v32; // [rsp+42h] [rbp-156h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-150h] BYREF
   __int64 v34; // [rsp+50h] [rbp-148h] BYREF
-  int v35; // [rsp+58h] [rbp-140h]
+  ULONG v35; // [rsp+58h] [rbp-140h]
   int v36; // [rsp+5Ch] [rbp-13Ch] BYREF
   _DMA_OPERATIONS *DmaOperations; // [rsp+60h] [rbp-138h]
   HANDLE Handle; // [rsp+68h] [rbp-130h]
@@ -68,22 +72,22 @@ __int64 __fastcall NtSetInformationKey(void *a1, int a2, const void *a3, __int64
   __int128 v47; // [rsp+E8h] [rbp-B0h]
   __int64 v48; // [rsp+F8h] [rbp-A0h]
   struct _DMA_ADAPTER *v49; // [rsp+100h] [rbp-98h] BYREF
-  NTSTATUS v50; // [rsp+108h] [rbp-90h]
+  int v50; // [rsp+108h] [rbp-90h]
   int v51; // [rsp+10Ch] [rbp-8Ch]
   __int128 *v52; // [rsp+110h] [rbp-88h]
-  NTSTATUS v53; // [rsp+118h] [rbp-80h]
+  int v53; // [rsp+118h] [rbp-80h]
   __int128 v54; // [rsp+11Ch] [rbp-7Ch]
   __int64 v55; // [rsp+12Ch] [rbp-6Ch]
   int v56; // [rsp+134h] [rbp-64h]
   _OWORD v57[2]; // [rsp+138h] [rbp-60h] BYREF
 
-  v35 = a4;
-  Handle = a1;
+  v35 = KeySetInformationLength;
+  Handle = KeyHandle;
   v34 = 0LL;
   memset(v57, 0, sizeof(v57));
   DmaOperations = 0LL;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v57, 0x20000LL, (__int64)a3, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v57, 0x20000u);
   v31 = 0;
   DmaAdapter = 0LL;
   v6 = 0;
@@ -109,13 +113,14 @@ __int64 __fastcall NtSetInformationKey(void *a1, int a2, const void *a3, __int64
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v32 = PreviousMode;
-  if ( a2 == 5 )
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
     goto LABEL_6;
-  if ( a2 )
+  if ( KeySetInformationClass )
   {
-    if ( a2 != 1 )
+    if ( KeySetInformationClass != KeyWow64FlagsInformation )
     {
-      if ( a2 == 2 || a2 == 3 )
+      if ( KeySetInformationClass == KeyControlFlagsInformation
+        || KeySetInformationClass == KeySetVirtualizationInformation )
       {
 LABEL_6:
         v30 = 0;
@@ -123,7 +128,7 @@ LABEL_7:
         v11 = 4;
         goto LABEL_8;
       }
-      if ( a2 != 4 )
+      if ( KeySetInformationClass != KeySetDebugInformation )
       {
         if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
         {
@@ -172,12 +177,12 @@ LABEL_8:
   }
   if ( PreviousMode )
   {
-    v12 = (unsigned __int64)a3 + v11;
-    if ( v12 > 0x7FFFFFFF0000LL || v12 < (unsigned __int64)a3 )
+    v12 = (char *)KeySetInformation + v11;
+    if ( (unsigned __int64)v12 > 0x7FFFFFFF0000LL || v12 < KeySetInformation )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  memmove(&v34, a3, v11);
-  if ( a2 == 5 )
+  memmove(&v34, KeySetInformation, v11);
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
     v13 = 0;
   else
     v13 = 2;
@@ -227,7 +232,7 @@ LABEL_67:
     goto LABEL_67;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && v18 )
     DmaOperations = v18->DmaOperations;
-  if ( a2 == 5 )
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
   {
 LABEL_19:
     v14 = KeGetCurrentThread();
@@ -238,7 +243,7 @@ LABEL_19:
       if ( !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
       {
         *(_QWORD *)&v45 = DmaAdapter;
-        DWORD2(v45) = a2;
+        DWORD2(v45) = KeySetInformationClass;
         *(_QWORD *)&v46 = &v34;
         DWORD2(v46) = v35;
         LOBYTE(v15) = 1;
@@ -261,11 +266,11 @@ LABEL_19:
       || (v17 = CmKeyBodyReplicateToVirtual(&DmaAdapter, v32, 2LL, &SubjectContext, &v36), v18 = DmaAdapter, v17 >= 0) )
     {
       v7 = v6;
-      if ( a2 != 5 )
+      if ( KeySetInformationClass != KeySetHandleTagsInformation )
       {
-        if ( a2 )
+        if ( KeySetInformationClass )
         {
-          v23 = a2 - 1;
+          v23 = KeySetInformationClass - 1;
           if ( v23 )
           {
             v24 = v23 - 1;
@@ -372,5 +377,5 @@ LABEL_28:
     ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v17;
+  return v17;
 }

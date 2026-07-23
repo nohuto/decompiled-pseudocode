@@ -8,8 +8,8 @@
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  *     LdrpCalcAllocSize @ 0x18003586C (LdrpCalcAllocSize.c)
  *     RtlpLangNameInMultiSzString @ 0x18003B314 (RtlpLangNameInMultiSzString.c)
- *     RtlpGetNameFromLangInfoNode @ 0x1800859F0 (RtlpGetNameFromLangInfoNode.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x180085A00 (RtlpGetNameFromLangInfoNode.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  *     RtlpAddLanguagesToMultiSZ @ 0x1800EF2A4 (RtlpAddLanguagesToMultiSZ.c)
  */
@@ -24,12 +24,12 @@ char __fastcall RtlpAddLanguagesToMultiSZ(
         unsigned __int16 a7)
 {
   char v10; // si
-  void *Heap; // rax
-  unsigned __int16 v13; // bx
+  PVOID Heap; // rax
+  unsigned __int16 Length; // bx
   unsigned int v14; // r8d
   int v15; // r14d
   unsigned int v16; // eax
-  __int64 v17; // rax
+  SIZE_T v17; // rax
   wchar_t *v18; // rax
   wchar_t *v19; // rbx
   char *v20; // rsi
@@ -39,50 +39,49 @@ char __fastcall RtlpAddLanguagesToMultiSZ(
   int v24; // edx
   _QWORD *v25; // r9
   char v26; // [rsp+40h] [rbp-61h]
-  int v28; // [rsp+50h] [rbp-51h] BYREF
-  void *Src; // [rsp+58h] [rbp-49h]
-  __int64 v30; // [rsp+60h] [rbp-41h]
-  unsigned __int64 v31; // [rsp+68h] [rbp-39h]
-  _QWORD v32[3]; // [rsp+70h] [rbp-31h] BYREF
-  int v33; // [rsp+88h] [rbp-19h]
+  _UNICODE_STRING v28; // [rsp+50h] [rbp-51h] BYREF
+  __int64 v29; // [rsp+60h] [rbp-41h]
+  PVOID BaseAddress; // [rsp+68h] [rbp-39h]
+  _QWORD v31[3]; // [rsp+70h] [rbp-31h] BYREF
+  int v32; // [rsp+88h] [rbp-19h]
 
-  v30 = a6;
+  v29 = a6;
   v26 = 1;
-  memset(v32, 0, sizeof(v32));
+  memset(v31, 0, sizeof(v31));
   v10 = 1;
-  v33 = 0;
+  v32 = 0;
   if ( a1 && a2 && a3 && a4 && a5 && a6 )
   {
     if ( a7 > 2u )
       return 1;
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
-    v31 = (unsigned __int64)Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+    BaseAddress = Heap;
     if ( !Heap )
       return v10;
-    Src = Heap;
-    v28 = 11141120;
-    if ( (int)RtlpGetNameFromLangInfoNode(a5, (__int64)a4, (__int64)&v28) >= 0 )
+    v28.Buffer = (wchar_t *)Heap;
+    *(_DWORD *)&v28.Length = 11141120;
+    if ( (int)RtlpGetNameFromLangInfoNode(a5, (__int64)a4, &v28) >= 0 )
     {
-      v13 = v28;
+      Length = v28.Length;
       v14 = *a2;
-      v15 = (unsigned __int16)v28;
-      v16 = *a2 + (unsigned __int16)v28 + 2;
-      if ( v16 >= (unsigned __int16)v28 && v16 >= v14 )
+      v15 = v28.Length;
+      v16 = *a2 + v28.Length + 2;
+      if ( v16 >= v28.Length && v16 >= v14 )
       {
         if ( v16 <= *a3 )
         {
 LABEL_17:
           v20 = (char *)*a1 + v14;
-          if ( RtlpLangNameInMultiSzString(*a1, (wchar_t *)Src) )
+          if ( RtlpLangNameInMultiSzString(*a1, v28.Buffer) )
           {
-            v22 = (_QWORD *)v30;
+            v22 = (_QWORD *)v29;
           }
           else
           {
-            memmove(v20, Src, v13);
+            memmove(v20, v28.Buffer, Length);
             v21 = v15 + 2;
-            v22 = (_QWORD *)v30;
-            *(_WORD *)&v20[v13] = 0;
+            v22 = (_QWORD *)v29;
+            *(_WORD *)&v20[Length] = 0;
             *a2 += v21;
             ++*v22;
           }
@@ -96,14 +95,14 @@ LABEL_17:
                 break;
               if ( v24 == 1 )
               {
-                WORD2(v32[0]) = a4[v23 + 6];
+                WORD2(v31[0]) = a4[v23 + 6];
                 goto LABEL_28;
               }
               if ( v24 == 3 )
               {
-                HIWORD(v32[0]) = a4[v23 + 6];
+                HIWORD(v31[0]) = a4[v23 + 6];
 LABEL_28:
-                v25 = v32;
+                v25 = v31;
 LABEL_30:
                 v10 = RtlpAddLanguagesToMultiSZ(
                         (_DWORD)a1,
@@ -132,24 +131,24 @@ LABEL_31:
         v17 = LdrpCalcAllocSize(*a3, 2uLL);
         if ( v17 )
         {
-          v18 = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v17);
+          v18 = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v17);
           v19 = v18;
           if ( v18 )
           {
             memmove(v18, *a1, *a2);
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)*a1);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *a1);
             *a1 = v19;
-            v13 = v28;
+            Length = v28.Length;
             *a3 *= 2;
             v14 = *a2;
             goto LABEL_17;
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0LL);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, 0LL);
         }
       }
     }
 LABEL_35:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v31);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     return v10;
   }
   return 0;

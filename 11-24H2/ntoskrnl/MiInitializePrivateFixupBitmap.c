@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializePrivateFixupBitmap @ 0x1409DE038
+ * XREFs of MiInitializePrivateFixupBitmap @ 0x1409D7C08
  * Callers:
- *     MiAddPrivateFixupEntryForSystemImage @ 0x1404B02A0 (MiAddPrivateFixupEntryForSystemImage.c)
- *     MiInitializeFixupVad @ 0x1409DDF98 (MiInitializeFixupVad.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1404AAB30 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     MiInitializeFixupVad @ 0x1409D7B68 (MiInitializeFixupVad.c)
  * Callees:
- *     RtlClearAllBits @ 0x140448960 (RtlClearAllBits.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
+ *     RtlClearAllBits @ 0x140441080 (RtlClearAllBits.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
  */
 
-__int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, char a3)
+__int64 __fastcall MiInitializePrivateFixupBitmap(_RTL_BITMAP *a1, _QWORD *a2, char a3)
 {
   char v3; // bp
   unsigned __int64 v5; // rdi
   unsigned int v7; // r9d
-  __int64 v8; // r8
+  unsigned int v8; // r8d
   __int64 v9; // r11
   _QWORD *v10; // rbx
   unsigned __int64 v11; // r9
@@ -40,7 +40,7 @@ __int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, ch
   a1->Buffer = &a1[1].SizeOfBitMap;
   a1->SizeOfBitMap = v7;
   RtlClearAllBits(a1);
-  v8 = 0LL;
+  v8 = 0;
   v9 = 0LL;
   v10 = a2 + 16;
   do
@@ -54,9 +54,9 @@ __int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, ch
       {
         v14 = *(__int64 **)(v5 + 32);
         v15 = *v14;
-        if ( v13 && (unsigned int)v8 < *((_DWORD *)v14 + 14) )
+        if ( v13 && v8 < *((_DWORD *)v14 + 14) )
         {
-          for ( i = (unsigned int)v8; (_DWORD)i == (_DWORD)v8; i = (unsigned int)(i + 1) )
+          for ( i = v8; (_DWORD)i == v8; i = (unsigned int)(i + 1) )
           {
             if ( *(_QWORD *)(v15 + 8LL * (unsigned int)i) )
               goto LABEL_8;
@@ -81,7 +81,7 @@ __int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, ch
                     || (v24 = (unsigned int)v24, !v23) && (_DWORD)v24
                     || (v25 = (unsigned int)i - v21, v25 >= (unsigned int)v24) )
                   {
-                    gsl::details::terminate((gsl::details *)i, v24, v8, v11);
+                    gsl::details::terminate((gsl::details *)i, v24);
                     __debugbreak();
                   }
                   if ( *(_QWORD *)(v23 + 8 * v25) )
@@ -92,7 +92,7 @@ __int64 __fastcall MiInitializePrivateFixupBitmap(RTL_BITMAP *a1, _QWORD *a2, ch
             if ( (a3 & 2) != 0 && (unsigned int)PdcCreateWatchdogAroundClientCall() )
             {
 LABEL_8:
-              v17 = (char *)a1->Buffer + ((unsigned __int64)(unsigned int)v8 >> 3);
+              v17 = (char *)a1->Buffer + ((unsigned __int64)v8 >> 3);
               *v17 |= 1 << (v8 & 7);
               goto LABEL_9;
             }
@@ -103,7 +103,7 @@ LABEL_9:
           ++v9;
         v5 = v26;
         v11 += 8LL;
-        v8 = (unsigned int)(v8 + 1);
+        ++v8;
       }
       while ( v11 < v12 );
       v3 = a3;

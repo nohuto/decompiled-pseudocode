@@ -1,11 +1,11 @@
 /*
- * XREFs of PopIntSteerSetMode @ 0x140611F60
+ * XREFs of PopIntSteerSetMode @ 0x140614DA0
  * Callers:
  *     <none>
  * Callees:
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmCheckCustomRun @ 0x1404BBD70 (PpmCheckCustomRun.c)
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x1404B5550 (PpmCheckCustomRun.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
  */
 
 __int64 __fastcall PopIntSteerSetMode(__int64 a1, int *a2, int a3)
@@ -24,7 +24,7 @@ __int64 __fastcall PopIntSteerSetMode(__int64 a1, int *a2, int a3)
     v4 = 0;
   }
   PpmIntSteerDisabled = v4;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, (__int64)a2, 4u);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, (__int64)a2, 4u);
   PpmCheckReInit();
   PpmCheckCustomRun(4LL);
   return 0LL;

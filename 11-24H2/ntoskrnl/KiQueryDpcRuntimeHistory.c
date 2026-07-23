@@ -1,7 +1,7 @@
 /*
- * XREFs of KiQueryDpcRuntimeHistory @ 0x14034A760
+ * XREFs of KiQueryDpcRuntimeHistory @ 0x140368C40
  * Callers:
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
  * Callees:
  *     <none>
  */

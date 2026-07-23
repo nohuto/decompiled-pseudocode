@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmValidateDeviceContainerName @ 0x140A29DF4
+ * XREFs of _CmValidateDeviceContainerName @ 0x140A3CE94
  * Callers:
- *     _CmContainerListGenericObjectCallback @ 0x1408975E0 (_CmContainerListGenericObjectCallback.c)
- *     _PnpDispatchDeviceContainer @ 0x140A28E70 (_PnpDispatchDeviceContainer.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x140A298F0 (_CmOpenDeviceContainerRegKeyWorker.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x140A29D40 (_CmGetDeviceContainerRegKeyPath.c)
+ *     _CmContainerListGenericObjectCallback @ 0x14089D9E0 (_CmContainerListGenericObjectCallback.c)
+ *     _PnpDispatchDeviceContainer @ 0x140A3BF10 (_PnpDispatchDeviceContainer.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x140A3C990 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x140A3CDE0 (_CmGetDeviceContainerRegKeyPath.c)
  * Callees:
- *     wcscmp @ 0x140537FF0 (wcscmp.c)
- *     PnpIsValidGuidString @ 0x1409A25C0 (PnpIsValidGuidString.c)
+ *     wcscmp @ 0x14053A470 (wcscmp.c)
+ *     PnpIsValidGuidString @ 0x140963020 (PnpIsValidGuidString.c)
  */
 
 __int64 __fastcall CmValidateDeviceContainerName(__int64 a1, const WCHAR *a2)

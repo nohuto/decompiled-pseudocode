@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnmapLargePages @ 0x1403952E4
+ * XREFs of MiUnmapLargePages @ 0x140395434
  * Callers:
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
- *     MiRemoveFromSystemSpace @ 0x140304E4C (MiRemoveFromSystemSpace.c)
- *     MiUnmapLargeDriver @ 0x1408DA744 (MiUnmapLargeDriver.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     MiInsertInSystemSpace @ 0x140305B30 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x14030FB9C (MiRemoveFromSystemSpace.c)
+ *     MiUnmapLargeDriver @ 0x1408DA8A4 (MiUnmapLargeDriver.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiReturnSystemVa @ 0x140305338 (MiReturnSystemVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -22,8 +22,7 @@ __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, i
   unsigned __int64 v8; // r12
   unsigned __int64 v10; // rbx
   int v11; // r15d
-  __int64 v12; // r8
-  bool v13; // zf
+  bool v12; // zf
 
   v3 = 13;
   v4 = a2;
@@ -45,23 +44,23 @@ __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, i
         if ( (unsigned int)MiPteHasShadow() )
         {
           v11 = 1;
-          if ( !HIBYTE(word_140C4E008) )
+          if ( !HIBYTE(word_140C4E048) )
           {
-            v13 = (ZeroPte & 1) == 0;
+            v12 = (ZeroPte & 1) == 0;
             goto LABEL_14;
           }
         }
         else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
         {
-          v13 = (ZeroPte & 1) == 0;
+          v12 = (ZeroPte & 1) == 0;
 LABEL_14:
-          if ( !v13 )
+          if ( !v12 )
             v10 = ZeroPte | 0x8000000000000000uLL;
         }
       }
       *v7 = v10;
       if ( v11 )
-        MiWritePteShadow((__int64)v7, v10, v12);
+        MiWritePteShadow((__int64)v7, v10);
       ++v7;
     }
     v4 = (v4 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL;

@@ -16,134 +16,142 @@
  *     memmove @ 0x1800A32C0 (memmove.c)
  */
 
-__int64 __fastcall RtlSetProtectedPolicy(_OWORD *Key, __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl RtlSetProtectedPolicy(PGUID PolicyGuid, ULONG_PTR PolicyValue, PULONG_PTR OldPolicyValue)
 {
   char v6; // di
   int v7; // ebx
-  int v8; // ebx
-  void *v9; // rax
-  char *v10; // rbx
-  unsigned int v11; // ebx
-  void *ProcessHeap; // rcx
+  int v8; // eax
+  int v9; // ebx
+  PVOID v10; // rax
+  GUID *v11; // rbx
+  unsigned int v12; // ebx
+  int v13; // eax
+  PVOID ProcessHeap; // rcx
   char *Heap; // rsi
-  void *v14; // rdi
-  __int64 v15; // rcx
-  int v16; // edx
-  void *v18; // rcx
+  PVOID v16; // rdi
+  unsigned __int64 v17; // rcx
+  int v18; // eax
+  int v19; // edx
+  int v21; // eax
+  PVOID v22; // rcx
 
   v6 = 0;
   v7 = sub_18007C0A8();
   if ( v7 >= 0 )
   {
-    RtlAcquireSRWLockExclusive(&qword_180166380);
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
+    RtlAcquireSRWLockExclusive(&stru_180166380);
+    LOBYTE(v8) = LdrControlFlowGuardEnforced();
+    if ( v8 )
     {
-      RtlAcquireSRWLockExclusive(&qword_180165010);
-      v8 = *(_DWORD *)qword_18017A288;
+      RtlAcquireSRWLockExclusive(&stru_180165010);
+      v9 = *(_DWORD *)qword_18017A288;
       if ( !*(_DWORD *)qword_18017A288 )
-        RtlProtectHeap((_DWORD *)qword_18017A278, 0);
-      if ( v8 == -1 )
+        RtlProtectHeap(qword_18017A278, 0);
+      if ( v9 == -1 )
         goto LABEL_43;
-      *(_DWORD *)qword_18017A288 = v8 + 1;
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      *(_DWORD *)qword_18017A288 = v9 + 1;
+      RtlReleaseSRWLockExclusive(&stru_180165010);
     }
-    v9 = Base;
+    v10 = Base;
     if ( Base )
     {
-      v10 = (char *)bsearch(
-                      Key,
+      v11 = (GUID *)bsearch(
+                      PolicyGuid,
                       Base,
                       (unsigned int)NumOfElements,
                       0x18uLL,
                       (_CoreCrtNonSecureSearchSortCompareFunction)sub_180075A40);
-      v9 = Base;
+      v10 = Base;
     }
     else
     {
-      v10 = 0LL;
+      v11 = 0LL;
     }
-    if ( v10 )
+    if ( v11 )
       goto LABEL_22;
-    if ( v9 && (_DWORD)NumOfElements + 1 != dword_18017A2CC )
+    if ( v10 && (_DWORD)NumOfElements + 1 != dword_18017A2CC )
     {
       sub_180035F18(0);
       Heap = (char *)Base;
 LABEL_21:
-      v10 = &Heap[24 * (unsigned int)NumOfElements];
+      v11 = (GUID *)&Heap[24 * (unsigned int)NumOfElements];
       LODWORD(NumOfElements) = NumOfElements + 1;
-      *(_QWORD *)v10 = 0LL;
-      *((_QWORD *)v10 + 1) = 0LL;
-      *((_QWORD *)v10 + 2) = 0LL;
-      *(_OWORD *)v10 = *Key;
+      *(_QWORD *)&v11->Data1 = 0LL;
+      *(_QWORD *)v11->Data4 = 0LL;
+      *(_QWORD *)&v11[1].Data1 = 0LL;
+      *v11 = *PolicyGuid;
       sub_180035F18(1);
-      v9 = Base;
+      v10 = Base;
       v6 = 1;
 LABEL_22:
-      v15 = *((_QWORD *)v10 + 2);
-      *((_QWORD *)v10 + 2) = a2;
-      if ( a3 )
-        *a3 = v15;
+      v17 = *(_QWORD *)&v11[1].Data1;
+      *(_QWORD *)&v11[1].Data1 = PolicyValue;
+      if ( OldPolicyValue )
+        *OldPolicyValue = v17;
       if ( v6 )
-        qsort(v9, (unsigned int)NumOfElements, 0x18uLL, (_CoreCrtNonSecureSearchSortCompareFunction)sub_180075A40);
+        qsort(v10, (unsigned int)NumOfElements, 0x18uLL, (_CoreCrtNonSecureSearchSortCompareFunction)sub_180075A40);
       v7 = 0;
       goto LABEL_27;
     }
-    v11 = 16;
+    v12 = 16;
     if ( dword_18017A2CC )
-      v11 = 2 * dword_18017A2CC;
-    if ( v11 >= dword_18017A2CC && v11 < 0xAAAAAAA )
+      v12 = 2 * dword_18017A2CC;
+    if ( v12 >= dword_18017A2CC && v12 < 0xAAAAAAA )
     {
-      if ( (unsigned int)LdrControlFlowGuardEnforced() )
+      LOBYTE(v13) = LdrControlFlowGuardEnforced();
+      if ( v13 )
       {
-        if ( 24 * (unsigned __int64)v11 >= 0xFF000 )
+        if ( 24 * (unsigned __int64)v12 >= 0xFF000 )
           goto LABEL_42;
-        ProcessHeap = (void *)qword_18017A278;
+        ProcessHeap = qword_18017A278;
       }
       else
       {
         ProcessHeap = NtCurrentPeb()->ProcessHeap;
       }
-      Heap = (char *)RtlAllocateHeap((__int64)ProcessHeap, 0, 24LL * v11);
+      Heap = (char *)RtlAllocateHeap(ProcessHeap, 0, 24LL * v12);
       if ( Heap )
       {
         sub_180035F18(0);
-        v14 = Base;
+        v16 = Base;
         if ( Base )
         {
           memmove(Heap, Base, 24LL * (unsigned int)NumOfElements);
-          if ( (unsigned int)LdrControlFlowGuardEnforced() )
-            v18 = (void *)qword_18017A278;
+          LOBYTE(v21) = LdrControlFlowGuardEnforced();
+          if ( v21 )
+            v22 = qword_18017A278;
           else
-            v18 = NtCurrentPeb()->ProcessHeap;
-          RtlFreeHeap((__int64)v18, 0, (__int64)v14);
+            v22 = NtCurrentPeb()->ProcessHeap;
+          RtlFreeHeap(v22, 0, v16);
         }
         Base = Heap;
-        dword_18017A2CC = v11;
+        dword_18017A2CC = v12;
         goto LABEL_21;
       }
     }
 LABEL_42:
     v7 = -1073741801;
 LABEL_27:
-    if ( !(unsigned int)LdrControlFlowGuardEnforced() )
+    LOBYTE(v18) = LdrControlFlowGuardEnforced();
+    if ( !v18 )
     {
 LABEL_32:
-      RtlReleaseSRWLockExclusive(&qword_180166380);
-      return (unsigned int)v7;
+      RtlReleaseSRWLockExclusive(&stru_180166380);
+      return v7;
     }
-    RtlAcquireSRWLockExclusive(&qword_180165010);
-    v16 = *(_DWORD *)qword_18017A288;
+    RtlAcquireSRWLockExclusive(&stru_180165010);
+    v19 = *(_DWORD *)qword_18017A288;
     if ( *(_DWORD *)qword_18017A288 )
     {
-      *(_DWORD *)qword_18017A288 = v16 - 1;
-      if ( v16 == 1 )
-        RtlProtectHeap((_DWORD *)qword_18017A278, 1);
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      *(_DWORD *)qword_18017A288 = v19 - 1;
+      if ( v19 == 1 )
+        RtlProtectHeap(qword_18017A278, 1u);
+      RtlReleaseSRWLockExclusive(&stru_180165010);
       goto LABEL_32;
     }
 LABEL_43:
-    RtlReleaseSRWLockExclusive(&qword_180165010);
+    RtlReleaseSRWLockExclusive(&stru_180165010);
     __fastfail(0xEu);
   }
-  return (unsigned int)v7;
+  return v7;
 }

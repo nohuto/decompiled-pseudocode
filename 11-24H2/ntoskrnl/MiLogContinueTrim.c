@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogContinueTrim @ 0x1404B8C94
+ * XREFs of MiLogContinueTrim @ 0x1404B3950
  * Callers:
- *     MiCheckSystemTrimEndCriteria @ 0x140378D38 (MiCheckSystemTrimEndCriteria.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1402F33B8 (MiCheckSystemTrimEndCriteria.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void MiLogContinueTrim()
@@ -35,9 +35,9 @@ void MiLogContinueTrim()
   __int64 *v22; // [rsp+D0h] [rbp+37h]
   __int64 v23; // [rsp+D8h] [rbp+3Fh]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 1LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 1LL) )
   {
     v5 = *v2;
     v17 = (unsigned int)(v0 + 7);
@@ -58,6 +58,6 @@ void MiLogContinueTrim()
     v23 = v17;
     v13 = 4LL;
     v15 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer(v3, (unsigned __int8 *)byte_140056551, 0LL, 0LL, v17, &v11);
+    tlgWriteTransfer_EtwWriteTransfer(v3, (unsigned __int8 *)byte_140057123, 0LL, 0LL, v17, &v11);
   }
 }

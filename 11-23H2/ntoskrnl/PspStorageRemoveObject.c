@@ -1,15 +1,15 @@
 /*
- * XREFs of PspStorageRemoveObject @ 0x1409B7F14
+ * XREFs of PspStorageRemoveObject @ 0x1409B8114
  * Callers:
- *     PsRemoveSiloContext @ 0x1409AC6D0 (PsRemoveSiloContext.c)
- *     PsUnregisterSiloMonitor @ 0x1409B4010 (PsUnregisterSiloMonitor.c)
+ *     PsRemoveSiloContext @ 0x1409AC8D0 (PsRemoveSiloContext.c)
+ *     PsUnregisterSiloMonitor @ 0x1409B4210 (PsUnregisterSiloMonitor.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PspGetStorageArrayIfPossible @ 0x1402F8654 (PspGetStorageArrayIfPossible.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PspGetStorageArrayIfPossible @ 0x1402F88E4 (PspGetStorageArrayIfPossible.c)
  */
 
 __int64 __fastcall PspStorageRemoveObject(__int64 a1, unsigned int a2, char a3, unsigned __int64 *a4)

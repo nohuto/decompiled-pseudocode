@@ -25,7 +25,7 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, ...)
   unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
-  unsigned __int64 v10; // rdi
+  __int64 v10; // rdi
   __int64 v11; // rdx
   $C459BD0D405E8E46662177FB3D0A143F *v12; // rcx
   __int64 v14; // [rsp+68h] [rbp+10h] BYREF
@@ -63,7 +63,7 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, ...)
     LODWORD(v18) = v9;
     if ( v8 )
       break;
-    v10 = (unsigned __int64)&v4->LockEntries[v9];
+    v10 = (__int64)&v4->LockEntries[v9];
     v7 &= ~(1 << v9);
     if ( (*(_BYTE *)(v10 + 26) & 1) != 0
       && (*(_DWORD *)(v10 + 32) & 1) == 0
@@ -77,12 +77,12 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, ...)
         {
           *(_BYTE *)(v10 + 32) |= 2u;
           if ( *(__int64 *)(v10 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v10);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
           LODWORD(v16) = *(_DWORD *)(v10 + 88) & 0x1FFFF;
           *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v10 + 25) &= ~1u;
           *(_QWORD *)(v10 + 32) = 0LL;
-          v11 = (__int64)(v10 - (unsigned __int64)v4->LockEntries) / 96;
+          v11 = (signed __int64)(v10 - (unsigned __int64)v4->LockEntries) / 96;
           if ( v6 == 1 )
             v4->AbEntrySummary |= 1 << v11;
           else

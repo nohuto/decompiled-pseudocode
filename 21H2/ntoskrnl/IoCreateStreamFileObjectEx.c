@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCreateStreamFileObjectEx @ 0x1407732A0
+ * XREFs of IoCreateStreamFileObjectEx @ 0x140773460
  * Callers:
  *     <none>
  * Callees:
- *     IoCreateStreamFileObjectEx2 @ 0x14071BF10 (IoCreateStreamFileObjectEx2.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1406C9360 (IoCreateStreamFileObjectEx2.c)
  */
 
 PFILE_OBJECT __stdcall IoCreateStreamFileObjectEx(
@@ -20,7 +20,7 @@ PFILE_OBJECT __stdcall IoCreateStreamFileObjectEx(
   IoCreateStreamFileObjectEx2(
     (__int64)&v4,
     (__int64)FileObject,
-    (__int64)DeviceObject,
+    (ULONG_PTR)DeviceObject,
     (struct _DMA_ADAPTER **)&v5,
     FileHandle);
   return v5;

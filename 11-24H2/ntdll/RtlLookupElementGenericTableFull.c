@@ -1,50 +1,57 @@
 /*
- * XREFs of RtlLookupElementGenericTableFull @ 0x1800C01E0
+ * XREFs of RtlLookupElementGenericTableFull @ 0x1800B7FA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1800C0330 (RtlSplay.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlSplay @ 0x1800B80F0 (RtlSplay.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFull(__int64 *a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFull(
+        PRTL_GENERIC_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  __int64 v4; // rbx
+  PRTL_SPLAY_LINKS TableRoot; // rbx
   int v9; // eax
-  __int64 v10; // rax
+  _RTL_SPLAY_LINKS *RightChild; // rax
 
-  v4 = *a1;
-  if ( !*a1 )
+  TableRoot = Table->TableRoot;
+  if ( !Table->TableRoot )
   {
-    *a4 = 0;
+    *SearchResult = TableEmptyTree;
     return 0LL;
   }
   while ( 1 )
   {
-    v9 = ((__int64 (__fastcall *)(__int64 *, __int64, __int64))a1[5])(a1, a2, v4 + 40);
+    v9 = ((__int64 (__fastcall *)(PRTL_GENERIC_TABLE, PVOID, _RTL_SPLAY_LINKS **))Table->CompareRoutine)(
+           Table,
+           Buffer,
+           &TableRoot[1].RightChild);
     if ( !v9 )
       break;
     if ( v9 != 1 )
     {
-      *a3 = v4;
-      *a4 = 1;
-      *a1 = RtlSplay(*a3);
-      return *a3 + 40LL;
+      *NodeOrParent = TableRoot;
+      *SearchResult = TableFoundNode;
+      Table->TableRoot = RtlSplay((PRTL_SPLAY_LINKS)*NodeOrParent);
+      return (char *)*NodeOrParent + 40;
     }
-    v10 = *(_QWORD *)(v4 + 16);
-    if ( !v10 )
+    RightChild = TableRoot->RightChild;
+    if ( !RightChild )
     {
-      *a3 = v4;
-      *a4 = 3;
+      *NodeOrParent = TableRoot;
+      *SearchResult = TableInsertAsRight;
       return 0LL;
     }
 LABEL_4:
-    v4 = v10;
+    TableRoot = RightChild;
   }
-  v10 = *(_QWORD *)(v4 + 8);
-  if ( v10 )
+  RightChild = TableRoot->LeftChild;
+  if ( RightChild )
     goto LABEL_4;
-  *a3 = v4;
-  *a4 = 2;
+  *NodeOrParent = TableRoot;
+  *SearchResult = TableInsertAsLeft;
   return 0LL;
 }

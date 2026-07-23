@@ -1,12 +1,12 @@
 /*
- * XREFs of PopProcessSessionDisplayStateChange @ 0x14086F438
+ * XREFs of PopProcessSessionDisplayStateChange @ 0x140870698
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PopMonitorInvocation @ 0x1406DC188 (PopMonitorInvocation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     PopMonitorInvocation @ 0x1406DD428 (PopMonitorInvocation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopPdcEngagePhases @ 0x14086F218 (PopPdcEngagePhases.c)
- *     PopTriggerMonitorPowerEvent @ 0x140876254 (PopTriggerMonitorPowerEvent.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopPdcEngagePhases @ 0x140870478 (PopPdcEngagePhases.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1408774B4 (PopTriggerMonitorPowerEvent.c)
  */
 
 __int64 __fastcall PopProcessSessionDisplayStateChange(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall PopProcessSessionDisplayStateChange(__int64 a1, __int64 a2)
   if ( PopEventProcessorEnabled )
   {
     PopTriggerMonitorPowerEvent(a1, a2);
-    if ( v3 && qword_14043FFF0 && !(unsigned __int8)qword_14043FFF0() )
+    if ( v3 && qword_1404410B0 && !(unsigned __int8)qword_1404410B0() )
       return 259;
   }
   else

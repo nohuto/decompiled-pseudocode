@@ -1,26 +1,26 @@
 /*
- * XREFs of MmMapMdl @ 0x14062F0A0
+ * XREFs of MmMapMdl @ 0x14062F5F0
  * Callers:
  *     <none>
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeProtectionMask @ 0x140276980 (MiMakeProtectionMask.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14027E8C0 (MiFillSystemPtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiMappingHasIoReferences @ 0x140335C40 (MiMappingHasIoReferences.c)
- *     MiZeroAndFlushPtes @ 0x140335E5C (MiZeroAndFlushPtes.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MiFreeUltraMdlContext @ 0x140661938 (MiFreeUltraMdlContext.c)
- *     MiGetUltraMdlContext @ 0x1406619CC (MiGetUltraMdlContext.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeProtectionMask @ 0x140276C10 (MiMakeProtectionMask.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x14027EB50 (MiFillSystemPtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiMappingHasIoReferences @ 0x140335ED0 (MiMappingHasIoReferences.c)
+ *     MiZeroAndFlushPtes @ 0x1403360EC (MiZeroAndFlushPtes.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MiFreeUltraMdlContext @ 0x140661E88 (MiFreeUltraMdlContext.c)
+ *     MiGetUltraMdlContext @ 0x140661F1C (MiGetUltraMdlContext.c)
  */
 
 __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(__int64, unsigned __int64), __int64 a4)
 {
-  struct _SLIST_ENTRY *v5; // r15
+  _SLIST_ENTRY *v5; // r15
   unsigned int ProtectionMask; // ebp
   void (__fastcall *v7)(__int64, _QWORD); // r8
   __int64 v8; // r9
@@ -60,7 +60,7 @@ __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(_
   if ( MmProtectFreedNonPagedPool )
     v11 = v10 + 1;
   if ( v11 > 0x200
-    || (UltraMdlContext = MiGetUltraMdlContext(), (v5 = (struct _SLIST_ENTRY *)UltraMdlContext) == 0LL)
+    || (UltraMdlContext = MiGetUltraMdlContext(), (v5 = (_SLIST_ENTRY *)UltraMdlContext) == 0LL)
     || (UltraMapping = MiGetUltraMapping((unsigned __int64 *)(UltraMdlContext + 8), 3u, v11, 0),
         v14 = ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
         ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) == 0x98000000000LL) )

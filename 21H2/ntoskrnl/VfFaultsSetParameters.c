@@ -1,14 +1,14 @@
 /*
- * XREFs of VfFaultsSetParameters @ 0x1409DC9C8
+ * XREFs of VfFaultsSetParameters @ 0x1409DD9C8
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     PsSetCreateProcessNotifyRoutine @ 0x14078FDB0 (PsSetCreateProcessNotifyRoutine.c)
- *     ViFaultsAddAllApps @ 0x1409DCB7C (ViFaultsAddAllApps.c)
- *     ViFaultsAddAllTags @ 0x1409DCC28 (ViFaultsAddAllTags.c)
- *     ViFaultsRemoveAllApps @ 0x1409DD428 (ViFaultsRemoveAllApps.c)
- *     ViFaultsRemoveAllTags @ 0x1409DD4F4 (ViFaultsRemoveAllTags.c)
- *     VfSetVerifierInformation @ 0x1409ECBEC (VfSetVerifierInformation.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140791360 (PsSetCreateProcessNotifyRoutine.c)
+ *     ViFaultsAddAllApps @ 0x1409DDB7C (ViFaultsAddAllApps.c)
+ *     ViFaultsAddAllTags @ 0x1409DDC28 (ViFaultsAddAllTags.c)
+ *     ViFaultsRemoveAllApps @ 0x1409DE428 (ViFaultsRemoveAllApps.c)
+ *     ViFaultsRemoveAllTags @ 0x1409DE4F4 (ViFaultsRemoveAllTags.c)
+ *     VfSetVerifierInformation @ 0x1409EDBEC (VfSetVerifierInformation.c)
  */
 
 __int64 __fastcall VfFaultsSetParameters(__int64 a1, __int64 a2, __int64 a3)

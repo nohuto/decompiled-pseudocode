@@ -7,34 +7,34 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-_DWORD *__fastcall RtlCreateBoundaryDescriptor(const void **a1, int a2)
+POBJECT_BOUNDARY_DESCRIPTOR __cdecl RtlCreateBoundaryDescriptor(PUNICODE_STRING Name, ULONG Flags)
 {
   char v2; // si
   unsigned int v4; // ebp
-  _DWORD *Heap; // rax
-  _DWORD *v6; // rbx
-  int v7; // eax
+  _OBJECT_BOUNDARY_DESCRIPTOR *Heap; // rax
+  _OBJECT_BOUNDARY_DESCRIPTOR *v6; // rbx
+  int Length; // eax
 
-  v2 = a2;
-  if ( (a2 & 0xFFFFFFFE) != 0 )
+  v2 = Flags;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
     return 0LL;
-  if ( !*(_WORD *)a1 )
+  if ( !Name->Length )
     return 0LL;
-  if ( (*(_BYTE *)a1 & 1) != 0 )
+  if ( (Name->Length & 1) != 0 )
     return 0LL;
-  v4 = (*(unsigned __int16 *)a1 + 31) & 0xFFFFFFF8;
-  Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v4);
+  v4 = (Name->Length + 31) & 0xFFFFFFF8;
+  Heap = (_OBJECT_BOUNDARY_DESCRIPTOR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v4);
   v6 = Heap;
   if ( !Heap )
     return 0LL;
-  Heap[1] = 1;
-  Heap[2] = v4;
-  *Heap = 1;
+  Heap->Items = 1;
+  Heap->TotalSize = v4;
+  Heap->Version = 1;
   if ( (v2 & 1) != 0 )
-    Heap[3] = 1;
-  v7 = *(unsigned __int16 *)a1;
-  v6[4] = 1;
-  v6[5] = v7 + 8;
-  memmove(v6 + 6, a1[1], *(unsigned __int16 *)a1);
+    Heap->Flags = 1;
+  Length = Name->Length;
+  v6[1].Version = 1;
+  v6[1].Items = Length + 8;
+  memmove(&v6[1].TotalSize, Name->Buffer, Name->Length);
   return v6;
 }

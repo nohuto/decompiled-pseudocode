@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSynchronizeWithDynamicProcessors @ 0x140A03AB4
+ * XREFs of KeSynchronizeWithDynamicProcessors @ 0x1409FFFE4
  * Callers:
- *     PspInitializeQuotaBlock @ 0x140773C50 (PspInitializeQuotaBlock.c)
- *     ExpNodeHotAddProcessorWorker @ 0x1407BFBF0 (ExpNodeHotAddProcessorWorker.c)
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     PspInitializeQuotaBlock @ 0x140773E70 (PspInitializeQuotaBlock.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x1407C0040 (ExpNodeHotAddProcessorWorker.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
  */
 
 void KeSynchronizeWithDynamicProcessors()

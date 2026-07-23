@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlinkNodeLargePageHelper @ 0x140064700
+ * XREFs of MiUnlinkNodeLargePageHelper @ 0x1400646F0
  * Callers:
- *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     MiCoalesceFreeLargePages @ 0x140090810 (MiCoalesceFreeLargePages.c)
- *     MiTryUnlinkNodeLargePage @ 0x14012BBB0 (MiTryUnlinkNodeLargePage.c)
+ *     MiUnlinkNodeLargePage @ 0x140064280 (MiUnlinkNodeLargePage.c)
+ *     MiCoalesceFreeLargePages @ 0x140090750 (MiCoalesceFreeLargePages.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14012BC80 (MiTryUnlinkNodeLargePage.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiIncreaseAvailablePages @ 0x14009CEE0 (MiIncreaseAvailablePages.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiPageListCollision @ 0x1401212C4 (MiPageListCollision.c)
- *     MiUpdateAvailableEvents @ 0x14017F824 (MiUpdateAvailableEvents.c)
- *     MiObtainFreePages @ 0x1402B3294 (MiObtainFreePages.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
- *     MiWakeLargePageRebuild @ 0x1402CE9A0 (MiWakeLargePageRebuild.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiIncreaseAvailablePages @ 0x14009CE20 (MiIncreaseAvailablePages.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiPageListCollision @ 0x140121394 (MiPageListCollision.c)
+ *     MiUpdateAvailableEvents @ 0x14017F964 (MiUpdateAvailableEvents.c)
+ *     MiObtainFreePages @ 0x1402B3484 (MiObtainFreePages.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
+ *     MiWakeLargePageRebuild @ 0x1402CEB90 (MiWakeLargePageRebuild.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned int a3, unsigned int a4, char a5)
@@ -49,7 +49,7 @@ __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned 
   v6 = a3;
   v8 = a4;
   v9 = MiLargePageSizes[a3];
-  v10 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a2 + 40) >> 40) & 0x3FFLL));
+  v10 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a2 + 40) >> 40) & 0x3FFLL));
   if ( v9 == 1 )
   {
     v13 = _InterlockedDecrement64((volatile signed __int64 *)(v10 + 7296));
@@ -120,7 +120,7 @@ __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned 
     v22 = v18 >> 4;
   else
     v22 = v18 / MiLargePageSizes[v6];
-  v23 = (unsigned int)dword_14043A100[v6];
+  v23 = (unsigned int)dword_14043B1C0[v6];
   if ( v23 == 16 )
     LODWORD(v22) = v22 & 0xF;
   else
@@ -131,11 +131,11 @@ __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned 
   if ( (_DWORD)v20 )
     v24 = 2240LL;
   _InterlockedExchangeAdd64((volatile signed __int64 *)(v24 + v10), -v9);
-  if ( dword_14043A76C == 1 )
+  if ( dword_14043B82C == 1 )
   {
     v29 = ((a2 + 0x58000000000LL) / 48) & 0x1F;
     v30 = v9;
-    v31 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v18 >> 5));
+    v31 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v18 >> 5));
     if ( (unsigned __int64)(v29 + v9) > 0x20 )
     {
       if ( (v18 & 0x1F) != 0 )
@@ -175,7 +175,7 @@ LABEL_17:
   {
     *(_BYTE *)(a2 + 34) = *(_BYTE *)(a2 + 34) & 0xF8 | 1;
   }
-  else if ( !(_DWORD)v20 && (MiFlags & 0x80u) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+  else if ( !(_DWORD)v20 && (MiFlags & 0x80u) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
   {
     MiArePageContentsZero((a2 + 0x58000000000LL) / 48);
   }

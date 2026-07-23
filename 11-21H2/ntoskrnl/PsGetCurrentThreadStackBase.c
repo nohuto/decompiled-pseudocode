@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *PsGetCurrentThreadStackBase()
+__int64 PsGetCurrentThreadStackBase()
 {
-  return KeGetCurrentThread()->StackBase;
+  return *((_QWORD *)KeGetCurrentThread() + 7);
 }

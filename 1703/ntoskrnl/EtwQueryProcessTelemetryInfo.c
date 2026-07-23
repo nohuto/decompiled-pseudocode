@@ -37,56 +37,51 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   int UserSidToken; // edi
   unsigned int v12; // edi
   size_t v13; // r8
-  __int64 v14; // rbx
-  char *v15; // rdi
-  unsigned __int16 *v16; // rbx
+  unsigned __int16 *v14; // rbx
+  char *v15; // rbx
+  char *v16; // rbx
   char *v17; // rbx
-  char *v18; // rbx
-  char *v19; // rbx
-  unsigned int Size; // [rsp+24h] [rbp-2B4h] BYREF
-  int Size_4; // [rsp+28h] [rbp-2B0h]
-  __int64 v24; // [rsp+30h] [rbp-2A8h] BYREF
-  __int64 v25; // [rsp+38h] [rbp-2A0h] BYREF
-  void *v26; // [rsp+40h] [rbp-298h]
-  const void **v27; // [rsp+48h] [rbp-290h]
-  unsigned int *v28; // [rsp+50h] [rbp-288h]
-  PACCESS_TOKEN v29; // [rsp+58h] [rbp-280h]
-  __int64 v30; // [rsp+60h] [rbp-278h]
-  size_t v31; // [rsp+70h] [rbp-268h] BYREF
-  size_t v32; // [rsp+78h] [rbp-260h]
-  char v33[256]; // [rsp+80h] [rbp-258h] BYREF
-  char v34[144]; // [rsp+180h] [rbp-158h] BYREF
-  $5BC46E0569261879018906DEC3127961 v35; // [rsp+210h] [rbp-C8h] BYREF
+  __int64 v20; // [rsp+30h] [rbp-2A8h] BYREF
+  __int64 v21; // [rsp+38h] [rbp-2A0h] BYREF
+  void *v22; // [rsp+40h] [rbp-298h]
+  const void **v23; // [rsp+48h] [rbp-290h]
+  unsigned int *v24; // [rsp+50h] [rbp-288h]
+  PACCESS_TOKEN v25; // [rsp+58h] [rbp-280h]
+  __int64 v26; // [rsp+60h] [rbp-278h]
+  size_t PackageSize; // [rsp+70h] [rbp-268h] BYREF
+  size_t v28; // [rsp+78h] [rbp-260h]
+  char v29[256]; // [rsp+80h] [rbp-258h] BYREF
+  char v30[144]; // [rsp+180h] [rbp-158h] BYREF
+  $5BC46E0569261879018906DEC3127961 v31; // [rsp+210h] [rbp-C8h] BYREF
   _BYTE Src[80]; // [rsp+240h] [rbp-98h] BYREF
 
   v5 = (unsigned int)Length;
-  v30 = BugCheckParameter1;
-  v28 = a5;
-  v25 = 0LL;
+  v26 = BugCheckParameter1;
+  v24 = a5;
+  v21 = 0LL;
   v8 = 0LL;
-  v26 = 0LL;
+  v22 = 0LL;
   v9 = 0;
-  v24 = 0LL;
-  v27 = *(const void ***)(BugCheckParameter1 + 1128);
+  v20 = 0LL;
+  v23 = *(const void ***)(BugCheckParameter1 + 1128);
   v10 = PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
-  v29 = v10;
-  Size = 0;
-  EtwpQueryTokenPackageInfo(v10, &v31, &Size);
+  v25 = v10;
+  EtwpQueryTokenPackageInfo(v10, &PackageSize);
   UserSidToken = SeQueryUserSidToken(v10, Src, 68LL);
   if ( UserSidToken >= 0 )
   {
     if ( (int)PsAcquireProcessExitSynchronization(BugCheckParameter1) >= 0 )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v35);
-      EtwpQueryProcessOtherInfo(BugCheckParameter1, &v24);
-      EtwpQueryProcessCommandLine(BugCheckParameter1, &v25);
-      KiUnstackDetachProcess(&v35, 0LL);
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v31);
+      EtwpQueryProcessOtherInfo(BugCheckParameter1, &v20);
+      EtwpQueryProcessCommandLine(BugCheckParameter1, &v21);
+      KiUnstackDetachProcess(&v31, 0LL);
       ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 760));
-      v8 = v26;
-      v9 = v24;
+      v8 = v22;
+      v9 = v20;
     }
-    v12 = v31 + v32 + *(unsigned __int16 *)v27 + (unsigned __int16)v25 + Size + 100;
-    *v28 = v12;
+    v12 = PackageSize + v28 + *(unsigned __int16 *)v23 + (unsigned __int16)v21 + 100;
+    *v24 = v12;
     if ( a4 )
       ProbeForWrite(a2, v5, 4u);
     v13 = (unsigned int)v5;
@@ -96,7 +91,6 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
     if ( (unsigned int)v5 < 0x60 )
     {
       UserSidToken = -1073741820;
-      Size_4 = -1073741820;
     }
     else
     {
@@ -111,31 +105,28 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       *((_DWORD *)a2 + 14) = PsGetProcessSessionId(BugCheckParameter1);
       *((_DWORD *)a2 + 15) = MEMORY[0xFFFFF780000002C4];
       *((_DWORD *)a2 + 16) = v9;
-      *((_DWORD *)a2 + 17) = HIDWORD(v24);
+      *((_DWORD *)a2 + 17) = HIDWORD(v20);
       if ( (unsigned int)v5 >= v12 )
       {
         *((_DWORD *)a2 + 18) = 96;
-        v14 = Size;
-        memmove(a2 + 96, Src, Size);
-        v15 = &a2[v14 + 96];
-        *((_DWORD *)a2 + 19) = v14 + 96;
-        v16 = (unsigned __int16 *)v27;
-        memmove(v15, v27[1], *(unsigned __int16 *)v27);
-        v17 = &v15[*v16 + 2];
-        *((_DWORD *)a2 + 20) = (_DWORD)v17 - (_DWORD)a2;
-        memmove(v17, v33, v31);
-        v18 = &v17[v31];
-        *((_DWORD *)a2 + 21) = (_DWORD)v18 - (_DWORD)a2;
-        memmove(v18, v34, v32);
-        v19 = &v18[v32];
-        *((_DWORD *)a2 + 22) = (_DWORD)v19 - (_DWORD)a2;
-        memmove(v19, v8, (unsigned __int16)v25);
+        memmove(a2 + 96, Src, 0LL);
+        *((_DWORD *)a2 + 19) = 96;
+        v14 = (unsigned __int16 *)v23;
+        memmove(a2 + 96, v23[1], *(unsigned __int16 *)v23);
+        v15 = &a2[*v14 + 98];
+        *((_DWORD *)a2 + 20) = (_DWORD)v15 - (_DWORD)a2;
+        memmove(v15, v29, PackageSize);
+        v16 = &v15[PackageSize];
+        *((_DWORD *)a2 + 21) = (_DWORD)v16 - (_DWORD)a2;
+        memmove(v16, v30, v28);
+        v17 = &v16[v28];
+        *((_DWORD *)a2 + 22) = (_DWORD)v17 - (_DWORD)a2;
+        memmove(v17, v8, (unsigned __int16)v21);
         UserSidToken = 0;
       }
       else
       {
         UserSidToken = -2147483643;
-        Size_4 = -2147483643;
       }
     }
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlDecompressFragmentLZNT1 @ 0x18011B930
+ * XREFs of RtlDecompressFragmentLZNT1 @ 0x18011B900
  * Callers:
  *     <none>
  * Callees:

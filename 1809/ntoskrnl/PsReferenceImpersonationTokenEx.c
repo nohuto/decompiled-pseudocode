@@ -1,19 +1,19 @@
 /*
- * XREFs of PsReferenceImpersonationTokenEx @ 0x140631BA0
+ * XREFs of PsReferenceImpersonationTokenEx @ 0x140632BC0
  * Callers:
- *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8E10 (SepReferenceTokenUsingPseudoHandle.c)
- *     CmpCmdHiveOpen @ 0x1405B494C (CmpCmdHiveOpen.c)
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SeCreateClientSecurityEx @ 0x140631CE0 (SeCreateClientSecurityEx.c)
- *     ObpReferenceDeviceMap @ 0x140671AB0 (ObpReferenceDeviceMap.c)
- *     PsReferenceImpersonationToken @ 0x1406A4860 (PsReferenceImpersonationToken.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8D50 (SepReferenceTokenUsingPseudoHandle.c)
+ *     CmpCmdHiveOpen @ 0x1405B594C (CmpCmdHiveOpen.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     SeCreateClientSecurityEx @ 0x140632D00 (SeCreateClientSecurityEx.c)
+ *     ObpReferenceDeviceMap @ 0x140672C70 (ObpReferenceDeviceMap.c)
+ *     PsReferenceImpersonationToken @ 0x1406A5B00 (PsReferenceImpersonationToken.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
  */
 
 void *__fastcall PsReferenceImpersonationTokenEx(__int64 a1, char a2, _BYTE *a3, bool *a4, int *a5, _BYTE *a6)

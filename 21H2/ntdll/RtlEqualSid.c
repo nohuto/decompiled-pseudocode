@@ -7,14 +7,14 @@
  *     RtlSidDominates @ 0x18007C5E0 (RtlSidDominates.c)
  *     RtlpValidOwnerSubjectContext @ 0x18007DD70 (RtlpValidOwnerSubjectContext.c)
  *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800886E0 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x1800CBDA0 (RtlAppxIsFileOwnedByTrustedInstaller.c)
- *     RtlpCompareKnownObjectAces @ 0x1800E7290 (RtlpCompareKnownObjectAces.c)
- *     RtlFindAceBySid @ 0x1800E9E24 (RtlFindAceBySid.c)
+ *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x1800CBD60 (RtlAppxIsFileOwnedByTrustedInstaller.c)
+ *     RtlpCompareKnownObjectAces @ 0x1800E7250 (RtlpCompareKnownObjectAces.c)
+ *     RtlFindAceBySid @ 0x1800E9DE4 (RtlFindAceBySid.c)
  * Callees:
  *     memcmp @ 0x180090700 (memcmp.c)
  */
 
-bool __fastcall RtlEqualSid(unsigned __int8 *a1, _WORD *a2)
+BOOLEAN __cdecl RtlEqualSid(PSID Sid1, PSID Sid2)
 {
-  return *(_WORD *)a1 == *a2 && memcmp(a1, a2, 4LL * a1[1] + 8) == 0;
+  return *(_WORD *)Sid1 == *(_WORD *)Sid2 && memcmp(Sid1, Sid2, 4LL * *((unsigned __int8 *)Sid1 + 1) + 8) == 0;
 }

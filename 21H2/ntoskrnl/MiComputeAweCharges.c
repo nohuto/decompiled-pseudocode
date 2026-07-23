@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeAweCharges @ 0x1408D5900
+ * XREFs of MiComputeAweCharges @ 0x1408D5A60
  * Callers:
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiReleaseVadEventBlocks @ 0x140704770 (MiReleaseVadEventBlocks.c)
  * Callees:
- *     ExGetCallBackBlockRoutine @ 0x140382160 (ExGetCallBackBlockRoutine.c)
- *     MiGetAweViewPageSize @ 0x14054C4D8 (MiGetAweViewPageSize.c)
- *     MiResidentPagesForSpan @ 0x1406B5F44 (MiResidentPagesForSpan.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381CB0 (ExGetCallBackBlockRoutine.c)
+ *     MiGetAweViewPageSize @ 0x14054C718 (MiGetAweViewPageSize.c)
+ *     MiResidentPagesForSpan @ 0x140615404 (MiResidentPagesForSpan.c)
  */
 
 __int64 __fastcall MiComputeAweCharges(__int64 a1, __int64 a2)

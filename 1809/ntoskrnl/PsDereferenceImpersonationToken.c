@@ -1,5 +1,5 @@
 /*
- * XREFs of PsDereferenceImpersonationToken @ 0x1406B9FB0
+ * XREFs of PsDereferenceImpersonationToken @ 0x1406BB250
  * Callers:
  *     <none>
  * Callees:

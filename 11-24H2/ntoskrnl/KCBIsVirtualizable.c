@@ -1,9 +1,9 @@
 /*
- * XREFs of KCBIsVirtualizable @ 0x140426A80
+ * XREFs of KCBIsVirtualizable @ 0x14041A930
  * Callers:
- *     KCBNeedsVirtualImage @ 0x140426A4C (KCBNeedsVirtualImage.c)
+ *     KCBNeedsVirtualImage @ 0x14041A8FC (KCBNeedsVirtualImage.c)
  * Callees:
- *     CmpIsKcbInsideVirtualizedHive @ 0x14090D640 (CmpIsKcbInsideVirtualizedHive.c)
+ *     CmpIsKcbInsideVirtualizedHive @ 0x1408E4D60 (CmpIsKcbInsideVirtualizedHive.c)
  */
 
 bool __fastcall KCBIsVirtualizable(__int64 a1)

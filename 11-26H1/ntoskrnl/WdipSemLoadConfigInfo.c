@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemLoadConfigInfo @ 0x14081F660
+ * XREFs of WdipSemLoadConfigInfo @ 0x140825870
  * Callers:
- *     WdipSemCleanStart @ 0x14081F4F0 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x140825700 (WdipSemCleanStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     WdipSemOpenRegistryKey @ 0x140821610 (WdipSemOpenRegistryKey.c)
- *     WdipSemQueryValueFromRegistry @ 0x1408216A0 (WdipSemQueryValueFromRegistry.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     WdipSemOpenRegistryKey @ 0x140827820 (WdipSemOpenRegistryKey.c)
+ *     WdipSemQueryValueFromRegistry @ 0x1408278B0 (WdipSemQueryValueFromRegistry.c)
  */
 
 __int64 WdipSemLoadConfigInfo()
@@ -39,7 +39,7 @@ __int64 WdipSemLoadConfigInfo()
     v0 = 0;
     v1 = 600;
 LABEL_10:
-    LOBYTE(stru_140F060A8.Process) = 1;
+    LOBYTE(stru_140F042A0.PropagateBoostsEntry.Next) = 1;
     goto LABEL_11;
   }
   if ( v7 )
@@ -47,11 +47,11 @@ LABEL_10:
     v1 = 60 * v7;
     goto LABEL_10;
   }
-  LOBYTE(stru_140F060A8.Process) = 0;
+  LOBYTE(stru_140F042A0.PropagateBoostsEntry.Next) = 0;
   v1 = 600;
 LABEL_11:
   v2 = KeyHandle;
-  HIDWORD(stru_140F03F40.Timer.Header.WaitListHead.Blink) = v1;
+  HIDWORD(stru_140F06A28.SListFaultAddress) = v1;
   DestinationString = 0LL;
   if ( !KeyHandle )
     return (unsigned int)v0;

@@ -6,46 +6,42 @@
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtUnmapViewOfSection @ 0x18009DB80 (NtUnmapViewOfSection.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtUnmapViewOfSection @ 0x18009DB40 (NtUnmapViewOfSection.c)
  */
 
-char __fastcall LdrFlushAlternateResourceModules(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+char LdrFlushAlternateResourceModules()
 {
   unsigned int i; // ebx
-  unsigned __int64 v5; // rdi
-  __int64 v6; // rdx
-  unsigned __int64 v7; // rdx
-  void *v8; // rcx
+  char *v1; // rdi
+  __int64 v2; // rdx
+  void *v3; // rdx
+  void *v4; // rcx
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&MuiCacheSWRLock, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&MuiCacheSWRLock);
   if ( AlternateResourceModuleCount )
   {
     for ( i = 0; i < AlternateResourceModuleCount; ++i )
     {
-      v5 = AlternateResourceModules + ((unsigned __int64)i << 6);
-      v6 = *(_QWORD *)(v5 + 32);
-      if ( (unsigned __int64)(v6 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+      v1 = (char *)AlternateResourceModules + 64 * (unsigned __int64)i;
+      v2 = *((_QWORD *)v1 + 4);
+      if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
       {
-        v7 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( *(_DWORD *)(v5 + 56) == -1073741799 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+        v3 = (void *)(v2 & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( *((_DWORD *)v1 + 14) == -1073741799 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
         else
-          NtUnmapViewOfSection(-1LL, v7);
-        *(_QWORD *)(v5 + 32) = 0LL;
-        v8 = *(void **)(v5 + 40);
-        if ( v8 )
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3);
+        *((_QWORD *)v1 + 4) = 0LL;
+        v4 = (void *)*((_QWORD *)v1 + 5);
+        if ( v4 )
         {
-          NtClose(v8);
-          *(_QWORD *)(v5 + 40) = 0LL;
+          NtClose(v4);
+          *((_QWORD *)v1 + 5) = 0LL;
         }
       }
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
     AlternateResourceModules = 0LL;
     AlternateResourceModuleCount = 0;
     AltResMemBlockCount = 0;

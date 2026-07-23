@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpPageHeapStop @ 0x1800DC074
+ * XREFs of RtlpPageHeapStop @ 0x1800DC034
  * Callers:
- *     RtlApplicationVerifierStop @ 0x1800DBFD0 (RtlApplicationVerifierStop.c)
+ *     RtlApplicationVerifierStop @ 0x1800DBF90 (RtlApplicationVerifierStop.c)
  * Callees:
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
  */

@@ -12,34 +12,31 @@
  *     NtOpenThreadToken @ 0x1801636A0 (NtOpenThreadToken.c)
  */
 
-__int64 __fastcall RtlpTpRevertCapture(HANDLE *a1, unsigned int a2)
+NTSTATUS __fastcall RtlpTpRevertCapture(PHANDLE TokenHandle, int a2)
 {
-  __int64 v2; // r8
-  __int64 v4; // rdx
-  __int64 result; // rax
-  int v6; // edi
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  ACCESS_MASK v4; // edx
+  NTSTATUS result; // eax
+  NTSTATUS v6; // edi
+  __int64 ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = a2;
-  *a1 = 0LL;
+  *TokenHandle = 0LL;
   if ( !NtCurrentTeb()->IsImpersonating )
-    return 0LL;
-  v4 = 6LL;
-  if ( !(_DWORD)v2 )
-    v4 = 4LL;
-  LOBYTE(v2) = 1;
-  result = NtOpenThreadToken(-2LL, v4, v2, a1);
-  if ( (int)result >= 0 )
+    return 0;
+  v4 = 6;
+  if ( !a2 )
+    v4 = 4;
+  result = NtOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, v4, 1u, TokenHandle);
+  if ( result >= 0 )
   {
-    v7 = 0LL;
-    v6 = NtSetInformationThread(-2LL, 5LL, &v7);
+    ThreadInformation = 0LL;
+    v6 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
     if ( v6 < 0 )
     {
-      NtClose(*a1);
-      *a1 = 0LL;
-      return (unsigned int)v6;
+      NtClose(*TokenHandle);
+      *TokenHandle = 0LL;
+      return v6;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

@@ -45,7 +45,7 @@ __int64 __fastcall CmpCloseKeyObject(__int64 a1, __int64 a2, __int64 a3, unsigne
   memset(v21, 0, sizeof(v21));
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v21, 0x20000LL, a3, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v21, 0x20000u);
     if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
     {
       if ( a2 )

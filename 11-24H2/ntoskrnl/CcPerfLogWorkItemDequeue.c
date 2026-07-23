@@ -1,12 +1,12 @@
 /*
- * XREFs of CcPerfLogWorkItemDequeue @ 0x1402A8D2C
+ * XREFs of CcPerfLogWorkItemDequeue @ 0x14027AE00
  * Callers:
- *     CcCachemapUninitWorkerThread @ 0x1402A7660 (CcCachemapUninitWorkerThread.c)
- *     CcAsyncLazywriteWorker @ 0x1402A8E24 (CcAsyncLazywriteWorker.c)
- *     CcWorkerThread @ 0x1404DB3D0 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x14027AAB0 (CcCachemapUninitWorkerThread.c)
+ *     CcAsyncLazywriteWorker @ 0x14027B0C8 (CcAsyncLazywriteWorker.c)
+ *     CcWorkerThread @ 0x1404D4DF0 (CcWorkerThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogWorkItemDequeue(__int64 a1)
@@ -20,5 +20,5 @@ __int64 __fastcall CcPerfLogWorkItemDequeue(__int64 a1)
   v3 = &v2;
   v5 = 0;
   v4 = 8;
-  return EtwTraceKernelEvent((int)&v3, 1, 0x80020000, 5633, 5249282);
+  return EtwTraceKernelEvent((unsigned int)&v3, 1, -2147352576, 5633, 5249282);
 }

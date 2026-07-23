@@ -1,26 +1,26 @@
 /*
  * XREFs of TppRaiseHandleStatus @ 0x1800FE514
  * Callers:
- *     TppSetupNextWait @ 0x18003C714 (TppSetupNextWait.c)
- *     TppSingleTimerExpiration @ 0x18003CC28 (TppSingleTimerExpiration.c)
- *     TppJobpRundownJob @ 0x180084428 (TppJobpRundownJob.c)
+ *     TppSetupNextWait @ 0x18003C704 (TppSetupNextWait.c)
+ *     TppSingleTimerExpiration @ 0x18003CC18 (TppSingleTimerExpiration.c)
+ *     TppJobpRundownJob @ 0x180084418 (TppJobpRundownJob.c)
  * Callees:
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 void __fastcall TppRaiseHandleStatus(int a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  void (__fastcall *v3)(__int64, __int64, __int64, unsigned int); // r9
-  void (__fastcall *v4)(__int64, __int64, __int64, unsigned int); // r10
+  void (__fastcall *v3)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int); // r9
+  void (__fastcall *v4)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int); // r10
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   if ( a3 )
   {
-    v3 = *(void (__fastcall **)(__int64, __int64, __int64, unsigned int))(a3 + 80);
+    v3 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int))(a3 + 80);
     ExceptionRecord.NumberParameters = 5;
     if ( v3 == RtlpTpWaitCallback )
-      v4 = *(void (__fastcall **)(__int64, __int64, __int64, unsigned int))(*(_QWORD *)(a3 + 88) + 32LL);
+      v4 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int))(*(_QWORD *)(a3 + 88) + 32LL);
     else
       v4 = 0LL;
     if ( v4 )

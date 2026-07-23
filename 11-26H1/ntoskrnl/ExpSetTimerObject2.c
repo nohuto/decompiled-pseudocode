@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSetTimerObject2 @ 0x1403A9988
+ * XREFs of ExpSetTimerObject2 @ 0x1403B3598
  * Callers:
- *     ExpSetTimer2 @ 0x1403A9844 (ExpSetTimer2.c)
- *     NtSetTimerEx @ 0x140436460 (NtSetTimerEx.c)
- *     NtSetTimer @ 0x140436D00 (NtSetTimer.c)
- *     NtCancelTimer @ 0x1406CF780 (NtCancelTimer.c)
+ *     ExpSetTimer2 @ 0x1403B3454 (ExpSetTimer2.c)
+ *     NtSetTimerEx @ 0x1404253F0 (NtSetTimerEx.c)
+ *     NtSetTimer @ 0x140425C90 (NtSetTimer.c)
+ *     NtCancelTimer @ 0x1406D37B0 (NtCancelTimer.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     ExpTimerSetParametersAreValid @ 0x1403A97B8 (ExpTimerSetParametersAreValid.c)
- *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     ExpTimerSetParametersAreValid @ 0x1403B33C8 (ExpTimerSetParametersAreValid.c)
+ *     KeCancelTimer2 @ 0x1403B40F0 (KeCancelTimer2.c)
  */
 
 __int64 __fastcall ExpSetTimerObject2(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)

@@ -1,22 +1,25 @@
 /*
- * XREFs of NtImpersonateThread @ 0x1407F5C80
+ * XREFs of NtImpersonateThread @ 0x1407F5F50
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SeDeleteClientSecurity @ 0x14071D180 (SeDeleteClientSecurity.c)
- *     SeCreateClientSecurity @ 0x14071D350 (SeCreateClientSecurity.c)
- *     SeImpersonateClientEx @ 0x1407F5DF0 (SeImpersonateClientEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SeDeleteClientSecurity @ 0x14071D380 (SeDeleteClientSecurity.c)
+ *     SeCreateClientSecurity @ 0x14071D550 (SeCreateClientSecurity.c)
+ *     SeImpersonateClientEx @ 0x1407F60C0 (SeImpersonateClientEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURITY_QUALITY_OF_SERVICE *a3)
+NTSTATUS __cdecl NtImpersonateThread(
+        HANDLE ServerThreadHandle,
+        HANDLE ClientThreadHandle,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos)
 {
   KPROCESSOR_MODE PreviousMode; // di
   NTSTATUS result; // eax
-  NTSTATUS v8; // ebx
+  int v8; // ebx
   PVOID v9; // rdi
   PVOID Object; // [rsp+38h] [rbp-80h] BYREF
   struct _SECURITY_QUALITY_OF_SERVICE ClientSecurityQos; // [rsp+40h] [rbp-78h] BYREF
@@ -27,15 +30,15 @@ NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURI
   *(_DWORD *)&ClientSecurityQos.ContextTrackingMode = 0;
   memset(&ClientContext, 0, 0x44uLL);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && ((unsigned __int8)a3 & 3) != 0 )
+  if ( PreviousMode && ((unsigned __int8)SecurityQos & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  ClientSecurityQos = *a3;
+  ClientSecurityQos = *SecurityQos;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a2, 0x200u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ClientThreadHandle, 0x200u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v13 = 0LL;
-    v8 = ObReferenceObjectByHandle(Handle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &v13, 0LL);
+    v8 = ObReferenceObjectByHandle(ServerThreadHandle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &v13, 0LL);
     v9 = Object;
     if ( v8 >= 0 )
     {

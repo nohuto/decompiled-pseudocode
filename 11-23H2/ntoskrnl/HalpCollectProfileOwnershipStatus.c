@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpCollectProfileOwnershipStatus @ 0x140507450
+ * XREFs of HalpCollectProfileOwnershipStatus @ 0x1405079A0
  * Callers:
- *     HalpQueryProfileInformation @ 0x140865438 (HalpQueryProfileInformation.c)
+ *     HalpQueryProfileInformation @ 0x140865678 (HalpQueryProfileInformation.c)
  * Callees:
  *     <none>
  */

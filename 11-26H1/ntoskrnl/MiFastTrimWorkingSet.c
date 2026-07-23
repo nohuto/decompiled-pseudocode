@@ -1,39 +1,39 @@
 /*
- * XREFs of MiFastTrimWorkingSet @ 0x14031F690
+ * XREFs of MiFastTrimWorkingSet @ 0x1403216C0
  * Callers:
- *     MiTrimWorkingSet @ 0x1403BA50C (MiTrimWorkingSet.c)
- *     MiEmptyWorkingSetBuckets @ 0x1403BAEEC (MiEmptyWorkingSetBuckets.c)
+ *     MiTrimWorkingSet @ 0x1403C437C (MiTrimWorkingSet.c)
+ *     MiEmptyWorkingSetBuckets @ 0x1403C4D5C (MiEmptyWorkingSetBuckets.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x14029CE20 (MiAcquirePrcbAgeTrimLists.c)
- *     MiRebuildPageTableAges @ 0x14029E1F0 (MiRebuildPageTableAges.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLogPageAccess @ 0x140320930 (MiLogPageAccess.c)
- *     MiTrimPte @ 0x140321400 (MiTrimPte.c)
- *     MiTrimThisWsle @ 0x140322190 (MiTrimThisWsle.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiTrimWorkingSetTailHelper @ 0x140464188 (MiTrimWorkingSetTailHelper.c)
- *     MiReleasePrcbAgeTrimLists @ 0x14046445C (MiReleasePrcbAgeTrimLists.c)
- *     MiProcessVpabAccessedInfo @ 0x1404644BC (MiProcessVpabAccessedInfo.c)
- *     MiQueryVpabAccessedState @ 0x1404646AC (MiQueryVpabAccessedState.c)
- *     MiIsPageTableLocked @ 0x14048060C (MiIsPageTableLocked.c)
- *     MiLockActivePageTableInList @ 0x14048CC74 (MiLockActivePageTableInList.c)
- *     MiTrimWorkingSetBuildup @ 0x140493FC0 (MiTrimWorkingSetBuildup.c)
- *     MiLockWorkingSetExclusiveAtDpc @ 0x1404C31C0 (MiLockWorkingSetExclusiveAtDpc.c)
- *     MiCompressTbFlushList @ 0x1404DAB9C (MiCompressTbFlushList.c)
- *     qsort @ 0x140536F00 (qsort.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x14029C380 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiRebuildPageTableAges @ 0x14029D740 (MiRebuildPageTableAges.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLogPageAccess @ 0x140322960 (MiLogPageAccess.c)
+ *     MiTrimPte @ 0x140323430 (MiTrimPte.c)
+ *     MiTrimThisWsle @ 0x1403241C0 (MiTrimThisWsle.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiTrimWorkingSetTailHelper @ 0x14045D148 (MiTrimWorkingSetTailHelper.c)
+ *     MiReleasePrcbAgeTrimLists @ 0x14045D41C (MiReleasePrcbAgeTrimLists.c)
+ *     MiProcessVpabAccessedInfo @ 0x14045D47C (MiProcessVpabAccessedInfo.c)
+ *     MiQueryVpabAccessedState @ 0x14045D66C (MiQueryVpabAccessedState.c)
+ *     MiIsPageTableLocked @ 0x140479F4C (MiIsPageTableLocked.c)
+ *     MiLockActivePageTableInList @ 0x1404867B4 (MiLockActivePageTableInList.c)
+ *     MiTrimWorkingSetBuildup @ 0x14048DB10 (MiTrimWorkingSetBuildup.c)
+ *     MiLockWorkingSetExclusiveAtDpc @ 0x1404BCA10 (MiLockWorkingSetExclusiveAtDpc.c)
+ *     MiCompressTbFlushList @ 0x1404D427C (MiCompressTbFlushList.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 __int64 __fastcall MiFastTrimWorkingSet(__int64 a1, __int64 a2, unsigned int a3)
@@ -650,10 +650,10 @@ LABEL_13:
     v18 = v129;
     if ( v129 == 0xFFFFF6FB7DBEDF68uLL && !v13 )
     {
-      v112 = (__int64 *)(8 * (((unsigned __int64)qword_140E2DE40 >> 39) & 0x1FF) - 0x90482413000LL);
+      v112 = (__int64 *)(8 * (((unsigned __int64)qword_140E2DFC0 >> 39) & 0x1FF) - 0x90482413000LL);
       v113 = *v112;
       if ( (unsigned __int64)v112 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v112 <= 0xFFFFF6FB7DBED7F8uLL )
-        LOBYTE(v113) = MiReadPteShadow(8 * (((unsigned __int64)qword_140E2DE40 >> 39) & 0x1FF) - 0x90482413000LL, *v112);
+        LOBYTE(v113) = MiReadPteShadow(8 * (((unsigned __int64)qword_140E2DFC0 >> 39) & 0x1FF) - 0x90482413000LL, *v112);
       if ( (v113 & 1) != 0 )
         MiTrimPte(v5, v112, v121);
     }
@@ -750,7 +750,7 @@ LABEL_26:
         if ( v31 != 5 && v31 > 4u )
           goto LABEL_38;
         if ( (*(_DWORD *)(v3 + 184) & 0xF) == 1 )
-          v32 = &qword_140E37800;
+          v32 = &qword_140E37980;
         else
           v32 = (__int64 *)(v3 + 192);
         v33 = *v32;

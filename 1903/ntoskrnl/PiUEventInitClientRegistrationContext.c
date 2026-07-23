@@ -18,11 +18,11 @@
  *     RtlSetOwnerSecurityDescriptor @ 0x1406801B0 (RtlSetOwnerSecurityDescriptor.c)
  */
 
-_QWORD *PiUEventInitClientRegistrationContext()
+_WNF_STATE_NAME *PiUEventInitClientRegistrationContext()
 {
   ACL *v0; // rbx
-  _QWORD *PoolWithTag; // rax
-  _QWORD *v2; // rdi
+  _WNF_STATE_NAME *PoolWithTag; // rax
+  _WNF_STATE_NAME *v2; // rdi
   struct _FAST_MUTEX *v3; // rax
   PSID v4; // rsi
   ULONG v5; // ebx
@@ -32,32 +32,32 @@ _QWORD *PiUEventInitClientRegistrationContext()
   ULONG v9; // esi
   ACL *v10; // rax
   void *v12; // rcx
-  UNICODE_STRING SourceString; // [rsp+48h] [rbp-59h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-59h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+58h] [rbp-49h] BYREF
-  unsigned __int8 Sid[48]; // [rsp+80h] [rbp-21h] BYREF
-  char v16[48]; // [rsp+B0h] [rbp+Fh] BYREF
+  unsigned __int8 CapabilitySid[48]; // [rsp+80h] [rbp-21h] BYREF
+  char CapabilityGroupSid[48]; // [rsp+B0h] [rbp+Fh] BYREF
 
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  *(_QWORD *)&SourceString.Length = 2752552LL;
+  *(_QWORD *)&UnicodeString.Length = 2752552LL;
   v0 = 0LL;
-  SourceString.Buffer = L"lpacPnpNotifications";
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x90uLL, 0x59706E50u);
+  UnicodeString.Buffer = L"lpacPnpNotifications";
+  PoolWithTag = (_WNF_STATE_NAME *)ExAllocatePoolWithTag(PagedPool, 0x90uLL, 0x59706E50u);
   v2 = PoolWithTag;
   if ( PoolWithTag )
   {
     memset(PoolWithTag, 0, 0x90uLL);
     v3 = (struct _FAST_MUTEX *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x59706E50u);
-    v2[2] = v3;
+    v2[2] = (_WNF_STATE_NAME)v3;
     if ( !v3 )
       goto LABEL_18;
     KeInitializeGuardedMutex(v3);
-    v2[15] = v2 + 14;
-    v2[14] = v2 + 14;
-    v2[13] = v2 + 12;
-    v2[12] = v2 + 12;
-    *((_DWORD *)v2 + 33) = 4;
-    *((_BYTE *)v2 + 140) = 1;
-    if ( RtlDeriveCapabilitySidsFromName(&SourceString, v16, Sid) < 0 )
+    v2[15] = (_WNF_STATE_NAME)&v2[14];
+    v2[14] = (_WNF_STATE_NAME)&v2[14];
+    v2[13] = (_WNF_STATE_NAME)&v2[12];
+    v2[12] = (_WNF_STATE_NAME)&v2[12];
+    v2[16].Data[1] = 4;
+    LOBYTE(v2[17].Data[1]) = 1;
+    if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid) < 0 )
       goto LABEL_18;
     if ( RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) < 0 )
       goto LABEL_18;
@@ -67,7 +67,7 @@ _QWORD *PiUEventInitClientRegistrationContext()
           v6 = RtlLengthSid(SeAllAppPackagesSid) + v5,
           v7 = RtlLengthSid(SeWorldSid) + v6,
           v8 = RtlLengthSid(v4) + v7,
-          v9 = v8 + RtlLengthSid(Sid) + 48,
+          v9 = v8 + RtlLengthSid(CapabilitySid) + 48,
           v10 = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x59706E50u),
           (v0 = v10) == 0LL)
       || RtlCreateAcl(v10, v9, 2u) < 0
@@ -75,9 +75,9 @@ _QWORD *PiUEventInitClientRegistrationContext()
       || (int)RtlpAddKnownAce(v0, 2u, 2, 1, (unsigned __int8 *)SeWorldSid, 0) < 0
       || (int)RtlpAddKnownAce(v0, 2u, 2, 1, (unsigned __int8 *)SeAllAppPackagesSid, 0) < 0
       || (int)RtlpAddKnownAce(v0, 2u, 2, 1, *(unsigned __int8 **)&SeLowMandatorySid, 0) < 0
-      || (int)RtlpAddKnownAce(v0, 2u, 2, 1, Sid, 0) < 0
+      || (int)RtlpAddKnownAce(v0, 2u, 2, 1, CapabilitySid, 0) < 0
       || RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v0, 0) < 0
-      || (int)ZwCreateWnfStateName((__int64)(v2 + 11), 3LL, 4LL) < 0 )
+      || ZwCreateWnfStateName(v2 + 11, WnfTemporaryStateName, WnfDataScopeMachine, 0, 0LL, 4u, SecurityDescriptor) < 0 )
     {
 LABEL_18:
       v12 = (void *)v2[2];

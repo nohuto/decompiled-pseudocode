@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlIssueFileNotificationFsctl @ 0x140546D48
+ * XREFs of FsRtlIssueFileNotificationFsctl @ 0x140547288
  * Callers:
- *     PopResizeHiberFile @ 0x14052EEAC (PopResizeHiberFile.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     IopInitializeCrashDump @ 0x140569208 (IopInitializeCrashDump.c)
- *     PopCreateHiberFile @ 0x14056CF34 (PopCreateHiberFile.c)
+ *     PopResizeHiberFile @ 0x14052F3EC (PopResizeHiberFile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     IopInitializeCrashDump @ 0x140569748 (IopInitializeCrashDump.c)
+ *     PopCreateHiberFile @ 0x14056D474 (PopCreateHiberFile.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400ED0DC (IoBuildDeviceIoControlRequest.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400EAF4C (IoBuildDeviceIoControlRequest.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall FsRtlIssueFileNotificationFsctl(PFILE_OBJECT FileObject, __int64 a2, __int128 *a3)

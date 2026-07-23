@@ -1,12 +1,12 @@
 /*
- * XREFs of PspLockQuotaListExclusive @ 0x140504D74
+ * XREFs of PspLockQuotaListExclusive @ 0x1404FE6B4
  * Callers:
- *     PspRemoveQuotaBlock @ 0x1409E0DC0 (PspRemoveQuotaBlock.c)
- *     PspLookupProcessQuotaBlock @ 0x140AB8E5C (PspLookupProcessQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x1409B9030 (PspRemoveQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x140ABA274 (PspLookupProcessQuotaBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall PspLockQuotaListExclusive(__int64 a1, unsigned __int64 *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

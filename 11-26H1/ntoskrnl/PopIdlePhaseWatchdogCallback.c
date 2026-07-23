@@ -1,16 +1,16 @@
 /*
- * XREFs of PopIdlePhaseWatchdogCallback @ 0x1404EF560
+ * XREFs of PopIdlePhaseWatchdogCallback @ 0x1404E8B40
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopPowerAggregatorSnapDiagnosticContext @ 0x1407D6F78 (PopPowerAggregatorSnapDiagnosticContext.c)
- *     PopSnapSystemIdleContext @ 0x140A3982C (PopSnapSystemIdleContext.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
- *     PopPdcSnapDiagnosticContext @ 0x140B51D08 (PopPdcSnapDiagnosticContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopPowerAggregatorSnapDiagnosticContext @ 0x1407DA0A8 (PopPowerAggregatorSnapDiagnosticContext.c)
+ *     PopSnapSystemIdleContext @ 0x1409F5434 (PopSnapSystemIdleContext.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPdcSnapDiagnosticContext @ 0x140B545A8 (PopPdcSnapDiagnosticContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
@@ -28,8 +28,8 @@ __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int 
   PVOID P[2]; // [rsp+58h] [rbp-69h] BYREF
   PVOID v19[2]; // [rsp+68h] [rbp-59h]
   PVOID v20[2]; // [rsp+78h] [rbp-49h]
-  PVOID Blink; // [rsp+88h] [rbp-39h] BYREF
-  int ReadOperationCount; // [rsp+90h] [rbp-31h]
+  PVOID CycleTime; // [rsp+88h] [rbp-39h] BYREF
+  unsigned int CurrentRunTime; // [rsp+90h] [rbp-31h]
   PVOID v23; // [rsp+98h] [rbp-29h] BYREF
   _BYTE v24[8]; // [rsp+A0h] [rbp-21h] BYREF
   PVOID v25; // [rsp+A8h] [rbp-19h]
@@ -43,7 +43,7 @@ __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int 
   *(_OWORD *)P = 0LL;
   *(_OWORD *)v19 = 0LL;
   *(_OWORD *)v20 = 0LL;
-  memset_0(&Blink, 0, 0x50uLL);
+  memset_0(&CycleTime, 0, 0x50uLL);
   PopPdcSnapDiagnosticContext(P);
   v11 = P[0];
   v12 = P[1];
@@ -57,12 +57,12 @@ __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int 
   v29 = v20[1];
   if ( ((__int64)v19[0] & 0xFFFFFFDF) != 0 )
   {
-    PopAcquireRwLockExclusive((unsigned __int64 *)&PopModernStandbyStateNotify.ForegroundLossTime, v8, v9, v10);
-    Blink = PopModernStandbyStateNotify.GlobalForegroundListEntry.Blink;
-    ReadOperationCount = PopModernStandbyStateNotify.ReadOperationCount;
-    LODWORD(PopModernStandbyStateNotify.ReadOperationCount) = 0;
-    PopModernStandbyStateNotify.InGlobalForegroundList = 0LL;
-    PopReleaseRwLock((struct _KTHREAD *)&PopModernStandbyStateNotify.ForegroundLossTime);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopPdcDeviceListLock.StackBase, v8, v9, v10);
+    CycleTime = (PVOID)PopPdcDeviceListLock.CycleTime;
+    CurrentRunTime = PopPdcDeviceListLock.CurrentRunTime;
+    PopPdcDeviceListLock.CurrentRunTime = 0;
+    PopPdcDeviceListLock.CycleTime = 0LL;
+    PopReleaseRwLock((struct _KTHREAD *)&PopPdcDeviceListLock.StackBase);
     PopSnapSystemIdleContext(&v23, v24);
     PopPowerAggregatorSnapDiagnosticContext(v30);
     v17 = DbgkWerCaptureLiveKernelDump((unsigned int)L"IdlePhaseWatchdog", a2, a3, a4, a5, a6, 0LL, 0LL, 0);
@@ -73,8 +73,8 @@ __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int 
     v12 = v26;
     v11 = v25;
   }
-  if ( Blink )
-    ExFreePoolWithTag(Blink, 0x67696450u);
+  if ( CycleTime )
+    ExFreePoolWithTag(CycleTime, 0x67696450u);
   if ( v23 )
     ExFreePoolWithTag(v23, 0x67696450u);
   if ( v11 )

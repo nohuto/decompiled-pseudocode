@@ -1,54 +1,59 @@
 /*
- * XREFs of ZwQuerySystemInformation @ 0x1406A6AD0
+ * XREFs of ZwQuerySystemInformation @ 0x1406A7A70
  * Callers:
- *     SmQuerySystemInformation @ 0x14044AA18 (SmQuerySystemInformation.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x14049ACB4 (IopLiveDumpIsUnderMemoryPressure.c)
- *     HvlpProcessIommu @ 0x1404D45E4 (HvlpProcessIommu.c)
- *     RtlpCreateHeap @ 0x1404D7334 (RtlpCreateHeap.c)
- *     RtlpInitializeNonVolatileFlush @ 0x1404D8468 (RtlpInitializeNonVolatileFlush.c)
- *     SmKmStoreTerminateWorker @ 0x14060DB20 (SmKmStoreTerminateWorker.c)
- *     DifZwQuerySystemInformationWrapper @ 0x1406468B0 (DifZwQuerySystemInformationWrapper.c)
- *     ExpInitExpCheckTestSigningInfo @ 0x1406578C0 (ExpInitExpCheckTestSigningInfo.c)
- *     HaliSetSystemInformation @ 0x1407027D4 (HaliSetSystemInformation.c)
- *     PiIsHVCIEnabled @ 0x140724C54 (PiIsHVCIEnabled.c)
- *     PipKsrCallback @ 0x140734160 (PipKsrCallback.c)
- *     KsepGetLoadedModulesList @ 0x140740080 (KsepGetLoadedModulesList.c)
- *     PopCheckTestsigningEnabled @ 0x1407492F4 (PopCheckTestsigningEnabled.c)
- *     PopInitializeHibernateGlobals @ 0x14075291C (PopInitializeHibernateGlobals.c)
- *     PopValidateWinresume @ 0x140752EA8 (PopValidateWinresume.c)
- *     RtlLocalTimeToSystemTime @ 0x14077DC20 (RtlLocalTimeToSystemTime.c)
- *     ExpCloudbookHardwareIDProvider @ 0x1407B8320 (ExpCloudbookHardwareIDProvider.c)
- *     ExpCloudbookHardwareLockedProvider @ 0x1407B8420 (ExpCloudbookHardwareLockedProvider.c)
- *     SdbpCheckMatchingRegistryEntry @ 0x14080314C (SdbpCheckMatchingRegistryEntry.c)
- *     AslEnvGetProcessWowInfo @ 0x14080BC18 (AslEnvGetProcessWowInfo.c)
- *     BiGetAliasedIdentifier @ 0x140812288 (BiGetAliasedIdentifier.c)
- *     BiGetFirmwareType @ 0x14085DE80 (BiGetFirmwareType.c)
- *     PfpPrivSourceEnum @ 0x1408EE170 (PfpPrivSourceEnum.c)
- *     EtwpLogMemInfoWs @ 0x1408EE804 (EtwpLogMemInfoWs.c)
- *     sub_140973C40 @ 0x140973C40 (sub_140973C40.c)
- *     PnpGetStableSystemBootTime @ 0x1409C5988 (PnpGetStableSystemBootTime.c)
- *     RtlQueryModuleInformation @ 0x140A2BC00 (RtlQueryModuleInformation.c)
- *     SiGetFirmwareType @ 0x140A44E6C (SiGetFirmwareType.c)
- *     ExpFindDiskSignature @ 0x140A63F20 (ExpFindDiskSignature.c)
- *     SiQuerySystemInformationString @ 0x140A7FFF8 (SiQuerySystemInformationString.c)
- *     EtwpTiQueryCodeIntegrityOptions @ 0x140A818C0 (EtwpTiQueryCodeIntegrityOptions.c)
- *     RtlSystemTimeToLocalTime @ 0x140A94590 (RtlSystemTimeToLocalTime.c)
- *     PspQueryComPlusRunUnderWoW @ 0x140AA4728 (PspQueryComPlusRunUnderWoW.c)
- *     PopAllocateHiberContext @ 0x140AC688C (PopAllocateHiberContext.c)
- *     IoShutdownSystem @ 0x140B5374C (IoShutdownSystem.c)
- *     PopGetHwConfigurationSignature @ 0x140B5CE34 (PopGetHwConfigurationSignature.c)
- *     HdlspAddLogEntry @ 0x140BAD008 (HdlspAddLogEntry.c)
- *     PopCheckShutdownMarker @ 0x140C2D6B4 (PopCheckShutdownMarker.c)
- *     SepInitializeDebugOptions @ 0x140C39BD0 (SepInitializeDebugOptions.c)
- *     MiInitializeCacheFlushing @ 0x140C5A2D8 (MiInitializeCacheFlushing.c)
- *     PopInitPlatformSettings @ 0x140C67E1C (PopInitPlatformSettings.c)
+ *     SmQuerySystemInformation @ 0x140375D70 (SmQuerySystemInformation.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1404956A4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     HvlpProcessIommu @ 0x1404CD7F4 (HvlpProcessIommu.c)
+ *     RtlpCreateHeap @ 0x1404D0784 (RtlpCreateHeap.c)
+ *     RtlpInitializeNonVolatileFlush @ 0x1404D18B8 (RtlpInitializeNonVolatileFlush.c)
+ *     SmKmStoreTerminateWorker @ 0x14060C0E0 (SmKmStoreTerminateWorker.c)
+ *     DifZwQuerySystemInformationWrapper @ 0x140644E70 (DifZwQuerySystemInformationWrapper.c)
+ *     ExpInitExpCheckTestSigningInfo @ 0x140655FC0 (ExpInitExpCheckTestSigningInfo.c)
+ *     HaliSetSystemInformation @ 0x140700414 (HaliSetSystemInformation.c)
+ *     PiIsHVCIEnabled @ 0x1407227E4 (PiIsHVCIEnabled.c)
+ *     PipKsrCallback @ 0x140732090 (PipKsrCallback.c)
+ *     KsepGetLoadedModulesList @ 0x14073DFB0 (KsepGetLoadedModulesList.c)
+ *     PopCheckTestsigningEnabled @ 0x140747620 (PopCheckTestsigningEnabled.c)
+ *     PopInitializeHibernateGlobals @ 0x140750C3C (PopInitializeHibernateGlobals.c)
+ *     PopValidateWinresume @ 0x1407511C8 (PopValidateWinresume.c)
+ *     RtlLocalTimeToSystemTime @ 0x14077DB50 (RtlLocalTimeToSystemTime.c)
+ *     ExpCloudbookHardwareIDProvider @ 0x1407B8770 (ExpCloudbookHardwareIDProvider.c)
+ *     ExpCloudbookHardwareLockedProvider @ 0x1407B8870 (ExpCloudbookHardwareLockedProvider.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x14080388C (SdbpCheckMatchingRegistryEntry.c)
+ *     AslEnvGetProcessWowInfo @ 0x14080C358 (AslEnvGetProcessWowInfo.c)
+ *     BiGetAliasedIdentifier @ 0x1408129C8 (BiGetAliasedIdentifier.c)
+ *     BiGetFirmwareType @ 0x140859BF0 (BiGetFirmwareType.c)
+ *     PfpPrivSourceEnum @ 0x14085F9A0 (PfpPrivSourceEnum.c)
+ *     EtwpLogMemInfoWs @ 0x140860034 (EtwpLogMemInfoWs.c)
+ *     sub_14095C450 @ 0x14095C450 (sub_14095C450.c)
+ *     PnpGetStableSystemBootTime @ 0x140981800 (PnpGetStableSystemBootTime.c)
+ *     EtwpTiQueryCodeIntegrityOptions @ 0x1409B9890 (EtwpTiQueryCodeIntegrityOptions.c)
+ *     RtlQueryModuleInformation @ 0x140A1FAC0 (RtlQueryModuleInformation.c)
+ *     SiGetFirmwareType @ 0x140A3A79C (SiGetFirmwareType.c)
+ *     ExpFindDiskSignature @ 0x140A5C820 (ExpFindDiskSignature.c)
+ *     SiQuerySystemInformationString @ 0x140A7AA58 (SiQuerySystemInformationString.c)
+ *     RtlSystemTimeToLocalTime @ 0x140A90D40 (RtlSystemTimeToLocalTime.c)
+ *     PspQueryComPlusRunUnderWoW @ 0x140A9FAB8 (PspQueryComPlusRunUnderWoW.c)
+ *     PopAllocateHiberContext @ 0x140AC4284 (PopAllocateHiberContext.c)
+ *     IoShutdownSystem @ 0x140B5579C (IoShutdownSystem.c)
+ *     PopGetHwConfigurationSignature @ 0x140B5EEA4 (PopGetHwConfigurationSignature.c)
+ *     HdlspAddLogEntry @ 0x140BAF008 (HdlspAddLogEntry.c)
+ *     PopCheckShutdownMarker @ 0x140C2F7D4 (PopCheckShutdownMarker.c)
+ *     SepInitializeDebugOptions @ 0x140C3BD28 (SepInitializeDebugOptions.c)
+ *     MiInitializeCacheFlushing @ 0x140C5C468 (MiInitializeCacheFlushing.c)
+ *     PopInitPlatformSettings @ 0x140C69F98 (PopInitPlatformSettings.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySystemInformation(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQuerySystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&SystemInformationClass);
 }

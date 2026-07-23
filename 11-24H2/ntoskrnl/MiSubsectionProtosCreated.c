@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSubsectionProtosCreated @ 0x1404CFC98
+ * XREFs of MiSubsectionProtosCreated @ 0x1404C8D48
  * Callers:
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
- *     MiPurgeFileOnlyPfn @ 0x14067BB9C (MiPurgeFileOnlyPfn.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
+ *     MiPurgeFileOnlyPfn @ 0x14067CD7C (MiPurgeFileOnlyPfn.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeSignalGate @ 0x14030AB68 (KeSignalGate.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeSignalGate @ 0x140314A48 (KeSignalGate.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall MiSubsectionProtosCreated(ULONG_PTR a1, __int64 a2, int a3, int a4)
@@ -60,7 +60,7 @@ LABEL_9:
         {
           if ( (*(_DWORD *)(a2 + 8) & 0x100) != 0 )
             *((_DWORD *)v10 + 3) = 2;
-          KeSignalGate((_DWORD *)v10 + 4, 1LL);
+          KeSignalGate((volatile signed __int32 *)v10 + 4, 1LL);
         }
       }
       v10 = v13;

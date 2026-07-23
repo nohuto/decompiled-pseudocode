@@ -16,22 +16,22 @@
 void MiAllocatePfnRepurposeLogDispatch()
 {
   _SLIST_ENTRY *v0; // rsi
-  struct _SLIST_ENTRY *Pool; // rax
-  struct _SLIST_ENTRY *v2; // rdi
+  _SLIST_ENTRY *Pool; // rax
+  _SLIST_ENTRY *v2; // rdi
   PSLIST_ENTRY v3; // rbx
-  struct _SLIST_ENTRY *Next; // rax
+  _SLIST_ENTRY *Next; // rax
   unsigned int Alignment_low; // edi
   int v6; // edi
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
   v0 = (_SLIST_ENTRY *)MEMORY[0xFFFFF78000000320];
-  Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x1000uLL, 0x70526D4Du);
+  Pool = (_SLIST_ENTRY *)MiAllocatePool(64, 0x1000uLL, 0x70526D4Du);
   v2 = Pool;
   if ( Pool )
   {
     Pool->Next = 0LL;
-    Pool[2].Next = (struct _SLIST_ENTRY *)((char *)Pool + 72);
+    Pool[2].Next = (_SLIST_ENTRY *)((char *)Pool + 72);
     *((_QWORD *)&Pool[2].Next + 1) = (char *)Pool + 4088;
     *((_DWORD *)&Pool->Next + 2) = 2;
     Pool[1].Next = v0;
@@ -68,7 +68,7 @@ LABEL_6:
   if ( v3 )
   {
     Next = v3[2].Next;
-    if ( Next == (struct _SLIST_ENTRY *)(&v3[4].Next + 1) )
+    if ( Next == (_SLIST_ENTRY *)(&v3[4].Next + 1) )
       goto LABEL_27;
     if ( ((unsigned __int16)Next & 0xFFF) != 0 )
     {

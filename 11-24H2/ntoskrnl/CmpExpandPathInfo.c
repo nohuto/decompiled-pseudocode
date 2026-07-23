@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpExpandPathInfo @ 0x14086E13C
+ * XREFs of CmpExpandPathInfo @ 0x14087246C
  * Callers:
- *     CmpComputeComponentHashes @ 0x14086DE60 (CmpComputeComponentHashes.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpComputeComponentHashes @ 0x140872190 (CmpComputeComponentHashes.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CmpExpandPathInfo(__int64 a1)
@@ -16,9 +16,7 @@ __int64 __fastcall CmpExpandPathInfo(__int64 a1)
   unsigned int v4; // edi
   _DWORD *v5; // rbx
   _GENERAL_LOOKASIDE *L; // rsi
-  __int64 v7; // r9
   __int64 Size; // rdx
-  __int64 Tag; // r8
   __int64 Type; // rcx
 
   CurrentPrcb = KeGetCurrentPrcb();
@@ -34,10 +32,9 @@ __int64 __fastcall CmpExpandPathInfo(__int64 a1)
   v5 = RtlpInterlockedPopEntrySList(&L->ListHead);
   if ( v5
     || (Size = L->Size,
-        Tag = L->Tag,
         Type = (unsigned int)L->Type,
         ++L->AllocateMisses,
-        (v5 = (_DWORD *)guard_dispatch_icall_no_overrides(Type, Size, Tag, v7)) != 0LL) )
+        (v5 = (_DWORD *)guard_dispatch_icall_no_overrides(Type, Size)) != 0LL) )
   {
 LABEL_4:
     *v5 = CurrentPrcb->Number;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiQueryLeafPte @ 0x140547020
+ * XREFs of MiQueryLeafPte @ 0x140547260
  * Callers:
  *     <none>
  * Callees:
- *     MiGetPfnProtection @ 0x140270C88 (MiGetPfnProtection.c)
- *     MiHyperSpaceSize @ 0x140311F38 (MiHyperSpaceSize.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIdentifyPfnWrapper @ 0x140349190 (MiIdentifyPfnWrapper.c)
+ *     MiGetPfnProtection @ 0x14025EC28 (MiGetPfnProtection.c)
+ *     MiHyperSpaceSize @ 0x14031CC88 (MiHyperSpaceSize.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIdentifyPfnWrapper @ 0x140353EE0 (MiIdentifyPfnWrapper.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -39,7 +39,7 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, unsigned __int64 a2, int a3)
   v4 = a3;
   v5 = a2;
   v6 = (__int64)(a2 << 25) >> 16;
-  if ( (v6 < qword_140C4E360 || v6 >= qword_140C4E360 + MiHyperSpaceSize()) && v4 < 1 )
+  if ( (v6 < qword_140C4E3A0 || v6 >= qword_140C4E3A0 + MiHyperSpaceSize()) && v4 < 1 )
   {
     v24 = MI_READ_PTE_LOCK_FREE(v5);
     if ( (v24 & 1) != 0 )

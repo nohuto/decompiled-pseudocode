@@ -1,7 +1,7 @@
 /*
- * XREFs of KiBugCheckConvertParameterValueToUnicodeString @ 0x140517C8C
+ * XREFs of KiBugCheckConvertParameterValueToUnicodeString @ 0x140517ECC
  * Callers:
- *     KiDisplayBlueScreen @ 0x1405180C0 (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x140518300 (KiDisplayBlueScreen.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAndAffinityEx2 @ 0x140252290
+ * XREFs of KeAndAffinityEx2 @ 0x140253BF0
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14025234C (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140253CAC (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
  */
 
 __int64 __fastcall KeAndAffinityEx2(struct _KAFFINITY_EX *a1, struct _KAFFINITY_EX *a2, __int64 a3)

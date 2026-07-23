@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidAttributeAce @ 0x1406C33DC
+ * XREFs of RtlpValidAttributeAce @ 0x1406C467C
  * Callers:
- *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x140632720 (RtlValidAcl.c)
  * Callees:
- *     RtlpValidRelativeAttribute @ 0x1406C3450 (RtlpValidRelativeAttribute.c)
+ *     RtlpValidRelativeAttribute @ 0x1406C46F0 (RtlpValidRelativeAttribute.c)
  */
 
 bool __fastcall RtlpValidAttributeAce(__int64 a1)

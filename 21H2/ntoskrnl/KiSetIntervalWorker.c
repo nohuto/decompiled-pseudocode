@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSetIntervalWorker @ 0x14036D2E0
+ * XREFs of KiSetIntervalWorker @ 0x14036D490
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiSetIntervalWorker(__int64 a1, __int64 a2)

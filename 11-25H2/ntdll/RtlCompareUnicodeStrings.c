@@ -32,30 +32,35 @@
  *     RtlCompareMemory @ 0x1801674A0 (RtlCompareMemory.c)
  */
 
-__int64 __fastcall RtlCompareUnicodeStrings(unsigned __int16 *a1, SIZE_T a2, _BYTE *a3, SIZE_T a4, char a5)
+LONG __cdecl RtlCompareUnicodeStrings(
+        PCWCH String1,
+        SIZE_T String1Length,
+        PCWCH String2,
+        SIZE_T String2Length,
+        BOOLEAN CaseInSensitive)
 {
   SIZE_T v5; // rsi
   int v7; // r14d
   int v8; // ebp
-  unsigned __int16 *v9; // rbx
+  PCWCH v9; // rbx
   signed __int64 v10; // rdi
   unsigned __int64 v11; // r8
   unsigned __int64 v12; // r9
   SIZE_T v13; // rcx
 
-  v5 = a2;
-  if ( a2 > a4 )
-    v5 = a4;
-  v7 = a4;
-  v8 = a2;
-  v9 = a1;
-  if ( a5 )
+  v5 = String1Length;
+  if ( String1Length > String2Length )
+    v5 = String2Length;
+  v7 = String2Length;
+  v8 = String1Length;
+  v9 = String1;
+  if ( CaseInSensitive )
   {
-    v10 = a3 - (_BYTE *)a1;
-    while ( v9 < &a1[v5] )
+    v10 = (char *)String2 - (char *)String1;
+    while ( v9 < &String1[v5] )
     {
       v11 = *v9;
-      v12 = *(unsigned __int16 *)((char *)v9 + v10);
+      v12 = *(PCWCH)((char *)v9 + v10);
       if ( (_WORD)v11 != (_WORD)v12 )
       {
         if ( (unsigned int)v11 >= 0x61 )
@@ -101,14 +106,14 @@ __int64 __fastcall RtlCompareUnicodeStrings(unsigned __int16 *a1, SIZE_T a2, _BY
           }
         }
         if ( (_WORD)v11 != (_WORD)v12 )
-          return (unsigned __int16)v11 - (unsigned int)(unsigned __int16)v12;
+          return (unsigned __int16)v11 - (unsigned __int16)v12;
       }
       ++v9;
     }
-    return (unsigned int)(v8 - v7);
+    return v8 - v7;
   }
-  v13 = RtlCompareMemory(a1, a3, 2 * v5) >> 1;
+  v13 = RtlCompareMemory(String1, String2, 2 * v5) >> 1;
   if ( v13 >= v5 )
-    return (unsigned int)(v8 - v7);
-  return v9[v13] - (unsigned int)*(unsigned __int16 *)&a3[2 * v13];
+    return v8 - v7;
+  return v9[v13] - String2[v13];
 }

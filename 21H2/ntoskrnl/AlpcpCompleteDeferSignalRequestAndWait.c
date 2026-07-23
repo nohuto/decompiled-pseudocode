@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpCompleteDeferSignalRequestAndWait @ 0x14069989C
+ * XREFs of AlpcpCompleteDeferSignalRequestAndWait @ 0x1405F8A60
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x1406D8320 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     AlpcpSignalAndWait @ 0x140205180 (AlpcpSignalAndWait.c)
- *     AlpcpWaitForSingleObject @ 0x1402B6BF8 (AlpcpWaitForSingleObject.c)
+ *     AlpcpWaitForSingleObject @ 0x140234DD8 (AlpcpWaitForSingleObject.c)
+ *     AlpcpSignalAndWait @ 0x1402A9AC0 (AlpcpSignalAndWait.c)
  */
 
 __int64 __fastcall AlpcpCompleteDeferSignalRequestAndWait(
         __int64 a1,
         void *a2,
         __int64 a3,
-        KPROCESSOR_MODE a4,
+        __int64 a4,
         LARGE_INTEGER *a5)
 {
   if ( _bittestandreset((signed __int32 *)(a1 + 48), 2u) )

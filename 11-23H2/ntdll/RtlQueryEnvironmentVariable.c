@@ -17,38 +17,38 @@
  *     RtlpQueryEnvironmentHashTable @ 0x1800D8FB4 (RtlpQueryEnvironmentHashTable.c)
  */
 
-__int64 __fastcall RtlQueryEnvironmentVariable(
-        _WORD *a1,
-        const wchar_t *a2,
-        size_t a3,
-        _WORD *a4,
-        unsigned __int64 a5,
-        unsigned __int64 *a6)
+NTSTATUS __cdecl RtlQueryEnvironmentVariable(
+        PVOID Environment,
+        PCWSTR Name,
+        SIZE_T NameLength,
+        PWSTR Value,
+        SIZE_T ValueLength,
+        PSIZE_T ReturnLength)
 {
   const wchar_t *v8; // r10
-  unsigned int PseudoEnvironmentVariable; // ebx
+  NTSTATUS PseudoEnvironmentVariable; // ebx
   unsigned int v12; // esi
   __int64 v13; // rax
-  unsigned __int64 v14; // rsi
-  void *Environment; // r15
-  const wchar_t *v16; // rbx
+  SIZE_T v14; // rsi
+  void *v15; // r15
+  PCWSTR v16; // rbx
   __int64 EnvironmentHashEntry; // rax
   __int64 v18; // rcx
-  unsigned __int64 v19; // rax
+  ULONG_PTR v19; // rax
   const void *v20; // rdx
-  __int64 v21; // rbx
+  ULONG_PTR v21; // rbx
   int v22; // eax
   _PEB *ProcessEnvironmentBlock; // rdx
   int v24; // ecx
   _RTL_CRITICAL_SECTION *FastPebLock; // rdx
-  unsigned int v27; // [rsp+40h] [rbp-38h]
+  NTSTATUS v27; // [rsp+40h] [rbp-38h]
   struct _TEB *v29; // [rsp+90h] [rbp+18h]
-  __int64 v30; // [rsp+A8h] [rbp+30h]
+  __int64 ReturnLengtha; // [rsp+A8h] [rbp+30h]
 
-  v8 = a2;
+  v8 = Name;
   v29 = NtCurrentTeb();
-  *a6 = 0LL;
-  if ( a3 )
+  *ReturnLength = 0LL;
+  if ( NameLength )
   {
     PseudoEnvironmentVariable = -1073741568;
     v12 = 4;
@@ -59,34 +59,34 @@ __int64 __fastcall RtlQueryEnvironmentVariable(
         if ( v12 )
         {
           v13 = 3LL * --v12;
-          v30 = v13;
-          if ( a3 <= *((_QWORD *)&unk_180133200 + 3 * v12) )
+          ReturnLengtha = v13;
+          if ( NameLength <= *((_QWORD *)&unk_180133200 + 3 * v12) )
             continue;
         }
-        v14 = a5;
+        v14 = ValueLength;
         goto LABEL_8;
       }
-      while ( a3 != *((_QWORD *)&unk_180133200 + 3 * v12) );
-      if ( !wcsnicmp(v8, *((const wchar_t **)&unk_180133200 + v13 + 1), a3) )
+      while ( NameLength != *((_QWORD *)&unk_180133200 + 3 * v12) );
+      if ( !wcsnicmp(v8, *((const wchar_t **)&unk_180133200 + v13 + 1), NameLength) )
         break;
-      v8 = a2;
+      v8 = Name;
     }
-    v14 = a5;
+    v14 = ValueLength;
     PseudoEnvironmentVariable = RtlpQueryPseudoEnvironmentVariable(
-                                  *((unsigned int *)&unk_180133200 + 2 * v30 + 4),
-                                  a4,
-                                  a5,
-                                  a6);
-    v8 = a2;
+                                  *((unsigned int *)&unk_180133200 + 2 * ReturnLengtha + 4),
+                                  Value,
+                                  ValueLength,
+                                  ReturnLength);
+    v8 = Name;
 LABEL_8:
     if ( PseudoEnvironmentVariable != -1073741568 )
       return PseudoEnvironmentVariable;
-    if ( !a1 )
+    if ( !Environment )
     {
       RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
-      Environment = v29->ProcessEnvironmentBlock->ProcessParameters->Environment;
-      v16 = a2;
-      EnvironmentHashEntry = RtlpFindEnvironmentHashEntry(&RtlpEnvironmentHashTable, a2, a3);
+      v15 = v29->ProcessEnvironmentBlock->ProcessParameters->Environment;
+      v16 = Name;
+      EnvironmentHashEntry = RtlpFindEnvironmentHashEntry(&RtlpEnvironmentHashTable, Name, NameLength);
       v18 = EnvironmentHashEntry;
       if ( !EnvironmentHashEntry )
       {
@@ -95,16 +95,16 @@ LABEL_8:
       }
       v19 = *(_QWORD *)(EnvironmentHashEntry + 40);
       v20 = *(const void **)(v18 + 24);
-      if ( a4 )
+      if ( Value )
       {
         if ( v19 < v14 )
         {
-          *a6 = v19;
+          *ReturnLength = v19;
           v21 = v19;
-          memmove(a4, v20, 2 * v19);
-          a4[v21] = 0;
+          memmove(Value, v20, 2 * v19);
+          Value[v21] = 0;
           v22 = 0;
-          v16 = a2;
+          v16 = Name;
 LABEL_14:
           v27 = v22;
           if ( v22 == -1073741568 )
@@ -112,38 +112,44 @@ LABEL_14:
             if ( byte_180187B70 )
               v27 = -1073741568;
             else
-              v27 = RtlpScanEnvironment(Environment, v16, a3, a4, v14, a6, 1);
+              v27 = RtlpScanEnvironment(v15, v16, NameLength, Value, v14, ReturnLength, 1);
           }
           RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
           return v27;
         }
         if ( v14 )
-          *a4 = 0;
+          *Value = 0;
       }
-      *a6 = v19 + 1;
+      *ReturnLength = v19 + 1;
       v22 = -1073741789;
       goto LABEL_14;
     }
-    if ( *a1 )
+    if ( *(_WORD *)Environment )
     {
       ProcessEnvironmentBlock = v29->ProcessEnvironmentBlock;
-      if ( ProcessEnvironmentBlock->ProcessParameters->Environment != a1
+      if ( ProcessEnvironmentBlock->ProcessParameters->Environment != Environment
         || (FastPebLock = ProcessEnvironmentBlock->FastPebLock) != 0LL
         && FastPebLock->OwningThread != NtCurrentTeb()->ClientId.UniqueThread )
       {
         v24 = 0;
-        return (unsigned int)RtlpScanEnvironment(a1, a2, a3, a4, v14, a6, v24);
+        return RtlpScanEnvironment(Environment, Name, NameLength, Value, v14, ReturnLength, v24);
       }
-      PseudoEnvironmentVariable = RtlpQueryEnvironmentHashTable(&RtlpEnvironmentHashTable, v8, a3, a4, v14, a6);
+      PseudoEnvironmentVariable = RtlpQueryEnvironmentHashTable(
+                                    &RtlpEnvironmentHashTable,
+                                    v8,
+                                    NameLength,
+                                    Value,
+                                    v14,
+                                    ReturnLength);
       if ( PseudoEnvironmentVariable != -1073741568 )
         return PseudoEnvironmentVariable;
       if ( !byte_180187B70 )
       {
         v24 = 1;
-        return (unsigned int)RtlpScanEnvironment(a1, a2, a3, a4, v14, a6, v24);
+        return RtlpScanEnvironment(Environment, Name, NameLength, Value, v14, ReturnLength, v24);
       }
     }
-    return (unsigned int)-1073741568;
+    return -1073741568;
   }
-  return 3221225728LL;
+  return -1073741568;
 }

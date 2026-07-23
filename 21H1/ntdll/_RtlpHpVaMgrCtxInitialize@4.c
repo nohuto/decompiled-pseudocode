@@ -11,9 +11,11 @@ int __thiscall RtlpHpVaMgrCtxInitialize(char *this)
 {
   _DWORD *v2; // esi
   int result; // eax
+  size_t v4; // [esp-4h] [ebp-Ch]
 
-  memset(this, 0, 0x1C20u);
-  RtlCSparseBitmapInitialize(this + 16, 0x24u);
+  LODWORD(v4) = 7200;
+  memset(this, 0, v4);
+  RtlCSparseBitmapInitialize(this + 16, 36);
   v2 = this + 64;
   result = 255;
   do

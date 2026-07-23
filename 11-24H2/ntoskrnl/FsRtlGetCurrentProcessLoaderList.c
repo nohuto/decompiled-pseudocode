@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlGetCurrentProcessLoaderList @ 0x14070CED0
+ * XREFs of FsRtlGetCurrentProcessLoaderList @ 0x14070AA70
  * Callers:
  *     <none>
  * Callees:

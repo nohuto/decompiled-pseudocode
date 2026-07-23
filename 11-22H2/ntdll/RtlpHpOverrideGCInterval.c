@@ -16,40 +16,46 @@ int __fastcall RtlpHpOverrideGCInterval(unsigned __int16 *a1)
 {
   const WCHAR *i; // rdx
   int result; // eax
-  int v3; // [rsp+38h] [rbp-C8h] BYREF
-  _BYTE *v4; // [rsp+40h] [rbp-C0h]
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
-  int v6; // [rsp+60h] [rbp-A0h]
-  __int64 v7; // [rsp+68h] [rbp-98h]
-  int *v8; // [rsp+70h] [rbp-90h]
-  int v9; // [rsp+78h] [rbp-88h]
-  __int128 v10; // [rsp+80h] [rbp-80h]
-  _OWORD v11[2]; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v12[512]; // [rsp+B0h] [rbp-50h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING Destination; // [rsp+38h] [rbp-C8h] BYREF
+  ULONG ResultLength; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _OWORD KeyValueInformation[2]; // [rsp+90h] [rbp-70h] BYREF
+  _BYTE v9[512]; // [rsp+B0h] [rbp-50h] BYREF
 
   for ( i = (const WCHAR *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*a1 >> 1)); *i != 92; --i )
     ;
   RtlInitUnicodeString(&DestinationString, i);
-  memset_thunk_772440563353939046(v12, 0, 0x200uLL);
-  v3 = 0x2000000;
-  v4 = v12;
-  memset(v11, 0, 24);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v3, &qword_180132878);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v3, (const void **)&DestinationString);
-  v6 = 48;
-  v8 = &v3;
-  v7 = 0LL;
-  v9 = 64;
-  v10 = 0LL;
-  result = NtOpenKey();
+  KeyHandle = 0LL;
+  memset_thunk_772440563353939046(v9, 0, 0x200uLL);
+  *(_DWORD *)&Destination.Length = 0x2000000;
+  Destination.Buffer = (wchar_t *)v9;
+  memset(KeyValueInformation, 0, 24);
+  RtlAppendUnicodeStringToString(&Destination, &stru_180132878);
+  RtlAppendUnicodeStringToString(&Destination, &DestinationString);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &Destination;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = NtOpenKey(&KeyHandle, 9u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    result = NtQueryValueKey();
+    result = NtQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&stru_180132898,
+               KeyValuePartialInformation,
+               KeyValueInformation,
+               0x18u,
+               &ResultLength);
     if ( result >= 0 )
     {
-      result = -10000000 * HIDWORD(v11[0]);
-      RtlpHpGCInterval = -10000000LL * *(_QWORD *)((char *)v11 + 12);
+      result = -10000000 * HIDWORD(KeyValueInformation[0]);
+      RtlpHpGCInterval.QuadPart = -10000000LL * *(_QWORD *)((char *)KeyValueInformation + 12);
     }
   }
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

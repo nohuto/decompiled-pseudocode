@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpGetTraceGroupInfo @ 0x140833E70
+ * XREFs of EtwpGetTraceGroupInfo @ 0x1409948E0
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpFindGuidEntryByGuid @ 0x14083AEE0 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x14083D760 (EtwpUnreferenceGuidEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140838880 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140839DC0 (EtwpUnreferenceGuidEntry.c)
  */
 
-__int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, __int64 a2, _DWORD *a3, unsigned int *a4)
+__int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, _DWORD *a2, _DWORD *a3, unsigned int *a4)
 {
   unsigned int v4; // r12d
   unsigned int v7; // r15d
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v9; // rax
-  _QWORD *v10; // rbx
+  char *v9; // rax
+  char *v10; // rbx
   _OWORD *v11; // rax
   unsigned int v12; // ebp
   _QWORD *v13; // rdi
@@ -28,12 +28,12 @@ __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, __int64 a2, _DWORD *a3, uns
   unsigned int v15; // eax
   struct _KTHREAD *v16; // rax
   unsigned __int64 *v17; // rbx
-  _QWORD *v18; // rax
-  _QWORD *v19; // rsi
-  __int64 *v20; // rbx
+  char *v18; // rax
+  char *v19; // rsi
+  signed __int64 *v20; // rbx
   signed __int64 v21; // rax
   signed __int64 v22; // rdx
-  __int64 v23; // rtt
+  signed __int64 v23; // rtt
   unsigned int v24; // esi
   volatile signed __int64 *v25; // r9
   signed __int64 v26; // rax
@@ -44,125 +44,125 @@ __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, __int64 a2, _DWORD *a3, uns
   int v32; // esi
   __int64 v33; // r8
   __int64 v34; // rcx
-  __int64 BugCheckParameter2; // [rsp+28h] [rbp-40h]
+  _QWORD *BugCheckParameter2; // [rsp+28h] [rbp-40h]
 
   v4 = *a4;
   v7 = 0;
-  BugCheckParameter2 = EtwpFindGuidEntryByGuid(a1, a2, 2LL);
+  BugCheckParameter2 = EtwpFindGuidEntryByGuid(a1, a2, 2u);
   if ( !BugCheckParameter2 )
     return 3221226133LL;
   memset_0(a3, 0, *a4);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = KeAbPreAcquire(BugCheckParameter2 + 664, 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)(BugCheckParameter2 + 83), 0LL);
   v10 = v9;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 664), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(BugCheckParameter2 + 664), (__int64)v9, BugCheckParameter2 + 664);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2 + 166, 0LL) )
+    ExfAcquirePushLockExclusiveEx(BugCheckParameter2 + 83, v9, (__int64)(BugCheckParameter2 + 83));
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
-  *(_QWORD *)(BugCheckParameter2 + 672) = KeGetCurrentThread();
+    v10[10] = 1;
+  BugCheckParameter2[84] = KeGetCurrentThread();
   if ( v4 >= 4 )
     *a3 = 16;
   v11 = a3 + 1;
   if ( v4 >= 0x24 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 128);
-    *(_OWORD *)(a3 + 5) = *(_OWORD *)(BugCheckParameter2 + 144);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 8);
+    *(_OWORD *)(a3 + 5) = *((_OWORD *)BugCheckParameter2 + 9);
     v11 = a3 + 9;
   }
   if ( v4 >= 0x44 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 160);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 176);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 10);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 11);
     v11 += 2;
   }
   if ( v4 >= 0x64 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 192);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 208);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 12);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 13);
     v11 += 2;
   }
   if ( v4 >= 0x84 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 224);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 240);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 14);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 15);
     v11 += 2;
   }
   if ( v4 >= 0xA4 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 256);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 272);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 16);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 17);
     v11 += 2;
   }
   if ( v4 >= 0xC4 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 288);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 304);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 18);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 19);
     v11 += 2;
   }
   if ( v4 >= 0xE4 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 320);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 336);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 20);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 21);
     v11 += 2;
   }
   if ( v4 >= 0x104 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 352);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 368);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 22);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 23);
     v11 += 2;
   }
   if ( v4 >= 0x124 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 384);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 400);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 24);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 25);
     v11 += 2;
   }
   if ( v4 >= 0x144 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 416);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 432);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 26);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 27);
     v11 += 2;
   }
   if ( v4 >= 0x164 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 448);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 464);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 28);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 29);
     v11 += 2;
   }
   if ( v4 >= 0x184 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 480);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 496);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 30);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 31);
     v11 += 2;
   }
   if ( v4 >= 0x1A4 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 512);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 528);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 32);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 33);
     v11 += 2;
   }
   if ( v4 >= 0x1C4 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 544);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 560);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 34);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 35);
     v11 += 2;
   }
   if ( v4 >= 0x1E4 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 576);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 592);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 36);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 37);
     v11 += 2;
   }
   if ( v4 >= 0x204 )
   {
-    *v11 = *(_OWORD *)(BugCheckParameter2 + 608);
-    v11[1] = *(_OWORD *)(BugCheckParameter2 + 624);
+    *v11 = *((_OWORD *)BugCheckParameter2 + 38);
+    v11[1] = *((_OWORD *)BugCheckParameter2 + 39);
   }
   v12 = 520;
-  v13 = *(_QWORD **)(BugCheckParameter2 + 56);
+  v13 = (_QWORD *)BugCheckParameter2[7];
   v14 = a3 + 130;
-  while ( v13 != (_QWORD *)(BugCheckParameter2 + 56) )
+  while ( v13 != BugCheckParameter2 + 7 )
   {
     v15 = v12 + 16;
     if ( v12 + 16 < v12 )
@@ -178,16 +178,16 @@ __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, __int64 a2, _DWORD *a3, uns
       v16 = KeGetCurrentThread();
       --v16->KernelApcDisable;
       v17 = (unsigned __int64 *)(v13[2] + 664LL);
-      v18 = KeAbPreAcquire((__int64)v17, 0LL);
+      v18 = (char *)KeAbPreAcquire((__int64)v17, 0LL);
       v19 = v18;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v17, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v17, (__int64)v18, (__int64)v17);
+        ExfAcquirePushLockExclusiveEx(v17, v18, (__int64)v17);
       if ( v19 )
-        *((_BYTE *)v19 + 10) = 1;
+        v19[10] = 1;
       *(_QWORD *)(v13[2] + 672LL) = KeGetCurrentThread();
       *v14 = *(_OWORD *)(v13[2] + 40LL);
       *(_QWORD *)(v13[2] + 672LL) = 0LL;
-      v20 = (__int64 *)(v13[2] + 664LL);
+      v20 = (signed __int64 *)(v13[2] + 664LL);
       _m_prefetchw(v20);
       v21 = *v20;
       v22 = *v20 - 16;
@@ -237,18 +237,17 @@ __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, __int64 a2, _DWORD *a3, uns
     v24 = 0;
   }
 LABEL_55:
-  *(_QWORD *)(BugCheckParameter2 + 672) = 0LL;
-  v25 = (volatile signed __int64 *)(BugCheckParameter2 + 664);
-  _m_prefetchw((const void *)(BugCheckParameter2 + 664));
+  BugCheckParameter2[84] = 0LL;
+  v25 = BugCheckParameter2 + 83;
+  _m_prefetchw(BugCheckParameter2 + 83);
   v26 = *v25;
   v27 = *v25 - 16;
   if ( (*v25 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v27 = 0LL;
-  if ( (v26 & 2) != 0
-    || (v28 = *(_QWORD *)(BugCheckParameter2 + 664), v28 != _InterlockedCompareExchange64(v25, v27, v26)) )
+  if ( (v26 & 2) != 0 || (v28 = BugCheckParameter2[83], v28 != _InterlockedCompareExchange64(v25, v27, v26)) )
   {
-    ExfReleasePushLock((_QWORD *)(BugCheckParameter2 + 664));
-    v25 = (volatile signed __int64 *)(BugCheckParameter2 + 664);
+    ExfReleasePushLock(BugCheckParameter2 + 83);
+    v25 = BugCheckParameter2 + 83;
   }
   KeAbPostRelease((ULONG_PTR)v25);
   KeLeaveCriticalRegionThread();

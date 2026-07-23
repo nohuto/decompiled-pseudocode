@@ -13,9 +13,9 @@ __int64 __fastcall ExpCheckIRTimerAccess(int a1, char a2)
   unsigned __int16 v2; // bx
   void *v3; // rax
   unsigned int v4; // edi
-  char v5; // al
+  BOOLEAN v5; // al
   unsigned __int16 v7; // [rsp+32h] [rbp+Ah]
-  char v8; // [rsp+40h] [rbp+18h] BYREF
+  BOOLEAN IsMember; // [rsp+40h] [rbp+18h] BYREF
 
   v7 = HIWORD(a1);
   v2 = a1;
@@ -28,13 +28,13 @@ __int64 __fastcall ExpCheckIRTimerAccess(int a1, char a2)
   v4 = 0;
   if ( a2 )
   {
-    v8 = 0;
+    IsMember = 0;
     if ( v3 )
     {
-      if ( (int)RtlCheckTokenMembership(0LL, v3, &v8) < 0 )
+      if ( RtlCheckTokenMembership(0LL, v3, &IsMember) < 0 )
         v5 = 0;
       else
-        v5 = v8;
+        v5 = IsMember;
     }
     else
     {

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopVerifierExAllocatePoolWithQuota_0 @ 0x14009AB34
+ * XREFs of IopVerifierExAllocatePoolWithQuota_0 @ 0x14009A334
  * Callers:
  *     IopValidateJunctionTarget @ 0x1403E2B58 (IopValidateJunctionTarget.c)
- *     NtReadFile @ 0x140443620 (NtReadFile.c)
- *     IopXxxControlFile @ 0x140443F00 (IopXxxControlFile.c)
- *     NtWriteFile @ 0x140446600 (NtWriteFile.c)
- *     NtWriteFileGather @ 0x1404BD44C (NtWriteFileGather.c)
- *     NtReadFileScatter @ 0x1404BDB18 (NtReadFileScatter.c)
- *     IopTrackLink @ 0x1404CB08C (IopTrackLink.c)
- *     IopSetEaOrQuotaInformationFile @ 0x1406227EC (IopSetEaOrQuotaInformationFile.c)
+ *     NtReadFile @ 0x1404424F0 (NtReadFile.c)
+ *     IopXxxControlFile @ 0x140442DD0 (IopXxxControlFile.c)
+ *     NtWriteFile @ 0x1404454D0 (NtWriteFile.c)
+ *     NtWriteFileGather @ 0x1404A917C (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1404A9848 (NtReadFileScatter.c)
+ *     IopTrackLink @ 0x1404B0AB8 (IopTrackLink.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x1406228A0 (IopSetEaOrQuotaInformationFile.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePoolWithQuota_0(POOL_TYPE a1, SIZE_T a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiQueueExtentPfnDeletion @ 0x140541F6C
+ * XREFs of MiQueueExtentPfnDeletion @ 0x1405421AC
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
- *     MiClearFileOnlyPfn @ 0x14053FCDC (MiClearFileOnlyPfn.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
+ *     MiClearFileOnlyPfn @ 0x14053FF1C (MiClearFileOnlyPfn.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeFileOnlyReaper @ 0x1405428B4 (MiWakeFileOnlyReaper.c)
+ *     MiWakeFileOnlyReaper @ 0x140542AF4 (MiWakeFileOnlyReaper.c)
  */
 
 void __fastcall MiQueueExtentPfnDeletion(_QWORD *a1)
@@ -29,16 +29,16 @@ void __fastcall MiQueueExtentPfnDeletion(_QWORD *a1)
   if ( a1 )
   {
     LockHandle.LockQueue.Next = 0LL;
-    LockHandle.LockQueue.Lock = qword_140C51DA0;
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_140C51DA0);
-    *a1 = qword_140C4CAE8;
-    qword_140C4CAE8 = (__int64)a1;
+    LockHandle.LockQueue.Lock = qword_140C51DE0;
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_140C51DE0);
+    *a1 = qword_140C4CB28;
+    qword_140C4CB28 = (__int64)a1;
     MiWakeFileOnlyReaper(v3, v2);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
   else
   {
-    KeAcquireInStackQueuedSpinLock(qword_140C51DA0, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(qword_140C51DE0, &LockHandle);
     MiWakeFileOnlyReaper(v5, v4);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;

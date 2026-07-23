@@ -11,7 +11,12 @@
  *     CmpTransDereferenceTransaction @ 0x1406A16E0 (CmpTransDereferenceTransaction.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
   BOOLEAN v10; // al
@@ -19,7 +24,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS v13; // eax
   __int64 v14; // rbx
-  int v15; // edi
+  NTSTATUS v15; // edi
   NTSTATUS v16; // eax
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
   PVOID v19; // [rsp+38h] [rbp-20h] BYREF
@@ -31,18 +36,18 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   if ( !v10 )
   {
     KeLeaveCriticalRegionThread((__int64)v11);
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   PreviousMode = v11->PreviousMode;
   Object = 0LL;
-  v13 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v13 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
   v14 = (__int64)Object;
   v15 = v13;
   if ( v13 == -1073741788 )
   {
     v19 = 0LL;
     v16 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -57,11 +62,11 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
     v14 = (unsigned __int64)Object | 1;
 LABEL_4:
     if ( v15 >= 0 )
-      v15 = CmOpenKey(a1, a2, a3, a4, v14);
+      v15 = CmOpenKey(KeyHandle, DesiredAccess, (__int64)ObjectAttributes, OpenOptions, v14);
   }
   if ( v14 )
     CmpTransDereferenceTransaction(v14);
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v15;
+  return v15;
 }

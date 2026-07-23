@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpStartRMLog @ 0x1408AC340
+ * XREFs of CmpStartRMLog @ 0x1408B2784
  * Callers:
- *     CmpStartRMLogs @ 0x1408ACB38 (CmpStartRMLogs.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
+ *     CmpStartRMLogs @ 0x1408B2F7C (CmpStartRMLogs.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x1404FA69C (Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline.c)
- *     CmpRmAnalysisPhase @ 0x14085E2FC (CmpRmAnalysisPhase.c)
- *     CmpRmReDoPhase @ 0x14085E540 (CmpRmReDoPhase.c)
- *     CmpRmUnDoPhase @ 0x14085E718 (CmpRmUnDoPhase.c)
- *     CmpStartCLFSLog @ 0x140863388 (CmpStartCLFSLog.c)
- *     LockRMLog @ 0x1408AD924 (LockRMLog.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1408B5DB0 (CmpQueryFileSecurityDescriptor.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUIDEx @ 0x140A3EB50 (RtlStringFromGUIDEx.c)
- *     CmpIsFileInSystemConfig @ 0x140A77570 (CmpIsFileInSystemConfig.c)
- *     CmpQueryNameString @ 0x140A77968 (CmpQueryNameString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x1404F3CAC (Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline.c)
+ *     CmpRmAnalysisPhase @ 0x1408645EC (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x140864830 (CmpRmReDoPhase.c)
+ *     CmpRmUnDoPhase @ 0x140864A08 (CmpRmUnDoPhase.c)
+ *     CmpStartCLFSLog @ 0x140869768 (CmpStartCLFSLog.c)
+ *     LockRMLog @ 0x1408B3D64 (LockRMLog.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1408BC384 (CmpQueryFileSecurityDescriptor.c)
+ *     RtlStringFromGUIDEx @ 0x1409FA570 (RtlStringFromGUIDEx.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     CmpIsFileInSystemConfig @ 0x140A80290 (CmpIsFileInSystemConfig.c)
+ *     CmpQueryNameString @ 0x140A80688 (CmpQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpStartRMLog(__int64 a1, _OWORD *a2)
@@ -26,28 +26,27 @@ __int64 __fastcall CmpStartRMLog(__int64 a1, _OWORD *a2)
   BOOL v2; // r13d
   unsigned int v3; // edi
   PVOID v6; // r15
-  __int64 v7; // r8
-  PCLFS_INFORMATION v8; // r12
-  bool v10; // zf
+  PCLFS_INFORMATION v7; // r12
+  bool v9; // zf
   int FileSecurityDescriptor; // ebx
-  ULONGLONG *v12; // r12
+  ULONGLONG *v11; // r12
   struct _LIST_ENTRY *Blink; // r14
-  __int64 v14; // rax
+  __int64 v13; // rax
   int IsFileInSystemConfig; // eax
-  __int64 v16; // r8
-  PVOID *v17; // r14
-  PLOG_FILE_OBJECT *v18; // r13
-  unsigned int *v19; // rcx
+  __int64 v15; // r8
+  PVOID *v16; // r14
+  PLOG_FILE_OBJECT *v17; // r13
+  unsigned int *v18; // rcx
   CLFS_INFORMATION *Pool2; // rax
-  CLFS_INFORMATION *v21; // rbx
-  FILE_OBJECT *v22; // rcx
-  PVOID v23; // rcx
-  NTSTATUS v24; // eax
+  CLFS_INFORMATION *v20; // rbx
+  FILE_OBJECT *v21; // rcx
+  PVOID v22; // rcx
+  NTSTATUS v23; // eax
   CLFS_LSN LastLsn; // rax
-  CLFS_LSN v26; // rbx
-  PVOID v27; // rcx
-  NTSTATUS v28; // eax
-  FILE_OBJECT *v29; // rcx
+  CLFS_LSN v25; // rbx
+  PVOID v26; // rcx
+  NTSTATUS v27; // eax
+  FILE_OBJECT *v28; // rcx
   int ppvReadContext; // [rsp+20h] [rbp-B9h]
   CLFS_LSN plsn2; // [rsp+50h] [rbp-89h] BYREF
   ULONG pcbWritten; // [rsp+58h] [rbp-81h] BYREF
@@ -56,9 +55,9 @@ __int64 __fastcall CmpStartRMLog(__int64 a1, _OWORD *a2)
   PVOID pvReadContext; // [rsp+70h] [rbp-69h] BYREF
   ULONG pcbReadBuffer; // [rsp+78h] [rbp-61h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-59h] BYREF
-  UNICODE_STRING v38; // [rsp+90h] [rbp-49h] BYREF
+  UNICODE_STRING GuidString; // [rsp+90h] [rbp-49h] BYREF
   ULONG pcbRestartBuffer; // [rsp+A0h] [rbp-39h] BYREF
-  ULONGLONG *v40; // [rsp+A8h] [rbp-31h]
+  ULONGLONG *v39; // [rsp+A8h] [rbp-31h]
   PCUNICODE_STRING Source; // [rsp+B0h] [rbp-29h]
   PVOID ppvRestartBuffer; // [rsp+B8h] [rbp-21h] BYREF
   CLFS_LSN plsn; // [rsp+C0h] [rbp-19h] BYREF
@@ -69,17 +68,17 @@ __int64 __fastcall CmpStartRMLog(__int64 a1, _OWORD *a2)
   CLS_LSN pvRestartBuffer; // [rsp+E8h] [rbp+Fh] BYREF
   CLFS_LSN plsnFirst; // [rsp+F0h] [rbp+17h] BYREF
   ULONG pcbInfoBuffer; // [rsp+140h] [rbp+67h] BYREF
-  char v51; // [rsp+150h] [rbp+77h]
-  BOOL v52; // [rsp+158h] [rbp+7Fh]
+  char v50; // [rsp+150h] [rbp+77h]
+  BOOL v51; // [rsp+158h] [rbp+7Fh]
 
   v3 = 0;
   LOBYTE(v2) = 0;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v38.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   v6 = 0LL;
-  v38.Buffer = 0LL;
-  v51 = 1;
+  GuidString.Buffer = 0LL;
+  v50 = 1;
   ppvRestartBuffer = 0LL;
   pcbRestartBuffer = 0;
   plsn.ullOffset = 0LL;
@@ -88,13 +87,13 @@ __int64 __fastcall CmpStartRMLog(__int64 a1, _OWORD *a2)
   pcbWritten = 0;
   pvRestartBuffer.ullOffset = 0LL;
   pvReadContext = 0LL;
-  v52 = v2;
+  v51 = v2;
   LOBYTE(pcbInfoBuffer) = 0;
   LockRMLog();
   if ( (*(_DWORD *)(a1 + 104) & 1) != 0 )
     goto LABEL_4;
   pinfoBuffer = (PCLFS_INFORMATION)ExAllocatePool2(0x100uLL);
-  v8 = pinfoBuffer;
+  v7 = pinfoBuffer;
   if ( !pinfoBuffer )
   {
     v3 = -1073741670;
@@ -104,22 +103,24 @@ LABEL_4:
     return v3;
   }
   *(_DWORD *)(a1 + 104) |= 2u;
-  v10 = (struct _LIST_ENTRY *)a1 == WheapPfaLock.Timer.Header.WaitListHead.Flink;
+  v9 = a1 == *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16];
   *(_QWORD *)(a1 + 120) = CLFS_LSN_INVALID_EXT;
-  if ( v10 )
+  if ( v9 )
   {
     Source = &CmpLogPath;
     if ( a2 )
       *(_OWORD *)(stru_140E098B8.WaitBlock[2].Thread->ThreadLock + 128) = *a2;
-    LOBYTE(v7) = 1;
-    FileSecurityDescriptor = RtlStringFromGUIDEx(stru_140E098B8.WaitBlock[2].Thread->ThreadLock + 128, &v38, v7);
+    FileSecurityDescriptor = RtlStringFromGUIDEx(
+                               (PGUID)(stru_140E098B8.WaitBlock[2].Thread->ThreadLock + 128),
+                               &GuidString,
+                               1u);
     if ( FileSecurityDescriptor < 0 )
       goto LABEL_56;
-    v12 = (ULONGLONG *)(a1 + 72);
+    v11 = (ULONGLONG *)(a1 + 72);
     *(_QWORD *)(a1 + 72) = 5242880LL;
-    v40 = (ULONGLONG *)(a1 + 72);
+    v39 = (ULONGLONG *)(a1 + 72);
     Blink = stru_140E098B8.WaitBlock[2].Thread[1].WaitBlock[0].WaitListEntry.Blink;
-    v52 = Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline() != 0;
+    v51 = Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline() != 0;
   }
   else
   {
@@ -129,76 +130,79 @@ LABEL_4:
     Source = &UnicodeString;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 80) + 64LL) + 128LL) = *a2;
-    FileSecurityDescriptor = RtlStringFromGUIDEx(*(_QWORD *)(*(_QWORD *)(a1 + 80) + 64LL) + 128LL, &v38, 1LL);
+    FileSecurityDescriptor = RtlStringFromGUIDEx(
+                               (PGUID)(*(_QWORD *)(*(_QWORD *)(a1 + 80) + 64LL) + 128LL),
+                               &GuidString,
+                               1u);
     if ( FileSecurityDescriptor < 0 )
       goto LABEL_56;
-    v14 = *(_QWORD *)(a1 + 80);
-    v12 = (ULONGLONG *)(a1 + 72);
+    v13 = *(_QWORD *)(a1 + 80);
+    v11 = (ULONGLONG *)(a1 + 72);
     *(_QWORD *)(a1 + 72) = 0x100000LL;
-    v40 = (ULONGLONG *)(a1 + 72);
-    Blink = *(struct _LIST_ENTRY **)(v14 + 1544);
+    v39 = (ULONGLONG *)(a1 + 72);
+    Blink = *(struct _LIST_ENTRY **)(v13 + 1544);
     if ( (unsigned int)Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline() )
     {
       IsFileInSystemConfig = CmpIsFileInSystemConfig(&UnicodeString);
-      v40 = (ULONGLONG *)(a1 + 72);
+      v39 = (ULONGLONG *)(a1 + 72);
       FileSecurityDescriptor = IsFileInSystemConfig;
       if ( IsFileInSystemConfig < 0 )
       {
 LABEL_55:
-        v8 = pinfoBuffer;
+        v7 = pinfoBuffer;
         goto LABEL_56;
       }
       LOBYTE(IsFileInSystemConfig) = pcbInfoBuffer;
-      v52 = IsFileInSystemConfig;
+      v51 = IsFileInSystemConfig;
     }
   }
   FileSecurityDescriptor = CmpQueryFileSecurityDescriptor(Blink);
   if ( FileSecurityDescriptor < 0 )
     goto LABEL_55;
   v6 = pvReadContext;
-  v17 = (PVOID *)(a1 + 96);
-  v18 = (PLOG_FILE_OBJECT *)(a1 + 88);
-  v19 = (unsigned int *)(a1 + 68);
+  v16 = (PVOID *)(a1 + 96);
+  v17 = (PLOG_FILE_OBJECT *)(a1 + 88);
+  v18 = (unsigned int *)(a1 + 68);
   while ( 1 )
   {
     FileSecurityDescriptor = CmpStartCLFSLog(
                                Source,
-                               &v38,
-                               v16,
+                               &GuidString,
+                               v15,
                                v6,
                                ppvReadContext,
-                               v12,
-                               !v52,
-                               v19,
+                               v11,
+                               !v51,
+                               v18,
                                (FILE_OBJECT **)(a1 + 88),
                                (PVOID *)(a1 + 96));
     if ( FileSecurityDescriptor < 0 )
       break;
     pcbInfoBuffer = 120;
     Pool2 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL);
-    v21 = Pool2;
+    v20 = Pool2;
     if ( Pool2 )
     {
-      ClfsGetLogFileInformation(*v18, Pool2, &pcbInfoBuffer);
-      ExFreePoolWithTag(v21, 0);
+      ClfsGetLogFileInformation(*v17, Pool2, &pcbInfoBuffer);
+      ExFreePoolWithTag(v20, 0);
     }
-    v22 = *v18;
+    v21 = *v17;
     pcbWritten = 120;
-    v8 = pinfoBuffer;
-    FileSecurityDescriptor = ClfsGetLogFileInformation(v22, pinfoBuffer, &pcbWritten);
-    *(_QWORD *)(a1 + 120) = v8->BaseLsn.ullOffset;
+    v7 = pinfoBuffer;
+    FileSecurityDescriptor = ClfsGetLogFileInformation(v21, pinfoBuffer, &pcbWritten);
+    *(_QWORD *)(a1 + 120) = v7->BaseLsn.ullOffset;
     if ( FileSecurityDescriptor < 0 )
       goto LABEL_49;
-    if ( ClfsReadRestartArea(*v17, &ppvRestartBuffer, &pcbRestartBuffer, &plsn, &pvCursorContext) == 1075445772
+    if ( ClfsReadRestartArea(*v16, &ppvRestartBuffer, &pcbRestartBuffer, &plsn, &pvCursorContext) == 1075445772
       || !ppvRestartBuffer )
     {
-      plsn2 = v8->BaseLsn;
+      plsn2 = v7->BaseLsn;
       goto LABEL_35;
     }
     plsn2 = *(CLFS_LSN *)ppvRestartBuffer;
     if ( !ClfsLsnEqual(&plsn, &plsn2) )
       goto LABEL_35;
-    v23 = *v17;
+    v22 = *v16;
     plsnFirst = plsn2;
     pvReadContext = 0LL;
     ppvReadBuffer = 0LL;
@@ -208,7 +212,7 @@ LABEL_55:
     plsnRecord.ullOffset = 0LL;
     LOBYTE(pcbInfoBuffer) = 0;
     if ( ClfsReadLogRecord(
-           v23,
+           v22,
            &plsnFirst,
            ClfsContextForward,
            &ppvReadBuffer,
@@ -219,7 +223,7 @@ LABEL_55:
            &pvReadContext) >= 0 )
     {
       LOBYTE(pcbInfoBuffer) = 1;
-      v24 = ClfsReadNextLogRecord(
+      v23 = ClfsReadNextLogRecord(
               pvReadContext,
               &ppvReadBuffer,
               &pcbReadBuffer,
@@ -228,13 +232,13 @@ LABEL_55:
               &plsnUndoNext,
               &plsnPrevious,
               &plsnRecord);
-      if ( v24 == -1073741807 )
+      if ( v23 == -1073741807 )
       {
-        LastLsn = v8->LastLsn;
+        LastLsn = v7->LastLsn;
       }
       else
       {
-        if ( v24 < 0 )
+        if ( v23 < 0 )
           goto LABEL_32;
         LastLsn = plsnRecord;
       }
@@ -249,39 +253,39 @@ LABEL_35:
       ClfsTerminateReadLog(pvCursorContext);
       pvCursorContext = 0LL;
     }
-    if ( !ClfsLsnEqual(&plsn2, &v8->LastLsn) && (*(_DWORD *)(a1 + 104) & 4) != 0 )
+    if ( !ClfsLsnEqual(&plsn2, &v7->LastLsn) && (*(_DWORD *)(a1 + 104) & 4) != 0 )
     {
-      v26 = plsn2;
+      v25 = plsn2;
       if ( (int)CmpRmAnalysisPhase(a1, plsn2) >= 0 )
       {
-        CmpRmReDoPhase(a1, v26);
+        CmpRmReDoPhase(a1, v25);
         CmpRmUnDoPhase(a1);
       }
       *(_DWORD *)(a1 + 104) &= ~4u;
     }
-    v27 = *v17;
-    pvRestartBuffer = v8->LastLsn;
-    v28 = ClfsWriteRestartArea(v27, &pvRestartBuffer, 8u, 0LL, 0, &pcbWritten, 0LL);
-    FileSecurityDescriptor = v28;
-    if ( !v51 || v28 != -1072037859 && *(_DWORD *)(a1 + 68) <= 0xAu )
+    v26 = *v16;
+    pvRestartBuffer = v7->LastLsn;
+    v27 = ClfsWriteRestartArea(v26, &pvRestartBuffer, 8u, 0LL, 0, &pcbWritten, 0LL);
+    FileSecurityDescriptor = v27;
+    if ( !v50 || v27 != -1072037859 && *(_DWORD *)(a1 + 68) <= 0xAu )
       goto LABEL_49;
-    v51 = 0;
+    v50 = 0;
     if ( pvCursorContext )
     {
       ClfsTerminateReadLog(pvCursorContext);
       pvCursorContext = 0LL;
     }
-    ClfsDeleteLogByPointer(*v18);
-    ClfsDeleteMarshallingArea(*v17);
-    v29 = *v18;
-    *v17 = 0LL;
-    ClfsCloseLogFileObject(v29);
-    v12 = v40;
-    v19 = (unsigned int *)(a1 + 68);
+    ClfsDeleteLogByPointer(*v17);
+    ClfsDeleteMarshallingArea(*v16);
+    v28 = *v17;
+    *v16 = 0LL;
+    ClfsCloseLogFileObject(v28);
+    v11 = v39;
+    v18 = (unsigned int *)(a1 + 68);
     *(_DWORD *)(a1 + 68) = 0;
-    *v18 = 0LL;
+    *v17 = 0LL;
   }
-  v8 = pinfoBuffer;
+  v7 = pinfoBuffer;
 LABEL_49:
   if ( pvCursorContext )
     ClfsTerminateReadLog(pvCursorContext);
@@ -289,18 +293,18 @@ LABEL_49:
   {
     *(_DWORD *)(a1 + 104) = *(_DWORD *)(a1 + 104) & 0xFFFFFFFC | 1;
   }
-  else if ( *v17 )
+  else if ( *v16 )
   {
-    *v17 = 0LL;
+    *v16 = 0LL;
   }
 LABEL_56:
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 128));
   KeLeaveCriticalRegion();
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-  if ( v38.Buffer )
-    RtlFreeAnsiString(&v38);
-  ExFreePoolWithTag(v8, 0);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
+  ExFreePoolWithTag(v7, 0);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
   return (unsigned int)FileSecurityDescriptor;

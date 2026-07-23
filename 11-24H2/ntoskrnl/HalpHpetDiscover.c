@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpHpetDiscover @ 0x140560868
+ * XREFs of HalpHpetDiscover @ 0x14055E498
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1405488E4 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1405461A4 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     HalpUnmapVirtualAddress @ 0x140478B90 (HalpUnmapVirtualAddress.c)
- *     HalMapIoSpace @ 0x14055FE80 (HalMapIoSpace.c)
- *     HalRegisterPermanentAddressUsage @ 0x14055FED0 (HalRegisterPermanentAddressUsage.c)
- *     HalSocGetAcpiTable @ 0x14055FF50 (HalSocGetAcpiTable.c)
- *     HalpTimerRegister @ 0x14056008C (HalpTimerRegister.c)
- *     HalSocRequestConfigurationData @ 0x1405614AC (HalSocRequestConfigurationData.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpUnmapVirtualAddress @ 0x1404605A0 (HalpUnmapVirtualAddress.c)
+ *     HalMapIoSpace @ 0x14055DAB0 (HalMapIoSpace.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14055DB00 (HalRegisterPermanentAddressUsage.c)
+ *     HalSocGetAcpiTable @ 0x14055DB80 (HalSocGetAcpiTable.c)
+ *     HalpTimerRegister @ 0x14055DCBC (HalpTimerRegister.c)
+ *     HalSocRequestConfigurationData @ 0x14055F0DC (HalSocRequestConfigurationData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 HalpHpetDiscover()

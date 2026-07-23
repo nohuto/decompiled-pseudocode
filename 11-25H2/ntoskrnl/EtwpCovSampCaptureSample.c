@@ -19,7 +19,7 @@
 char __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  struct _SLIST_ENTRY *v4; // rdi
+  _SLIST_ENTRY *v4; // rdi
   __int64 v5; // rsi
   unsigned int v7; // eax
   unsigned int v8; // ecx
@@ -51,7 +51,7 @@ char __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2)
     if ( a1 - 1 > 0xFFFF7FFFFFFFFFFEuLL )
     {
       v11 = (__int64)EtwpCovSampCaptureBufferGet(qword_140EFE908);
-      v4 = (struct _SLIST_ENTRY *)v11;
+      v4 = (_SLIST_ENTRY *)v11;
       if ( v11 )
       {
         EtwpCovSampCaptureBufferAddIP(v11, a1);

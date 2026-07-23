@@ -1,16 +1,16 @@
 /*
- * XREFs of ExInsertPoolTag @ 0x1402C347C
+ * XREFs of ExInsertPoolTag @ 0x14021B9D0
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14041182C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140395A6C (MiAllocateContiguousMemory.c)
  * Callees:
- *     ExpRemovePoolTrackerExpansion @ 0x1402B2BA0 (ExpRemovePoolTrackerExpansion.c)
- *     ExpPoolTrackerReturnLimit @ 0x1402B2E60 (ExpPoolTrackerReturnLimit.c)
- *     ExpAddTagForBigPages @ 0x1402C4180 (ExpAddTagForBigPages.c)
- *     ExpInsertPoolTracker @ 0x1402C4BA8 (ExpInsertPoolTracker.c)
- *     EtwTracePool @ 0x1403AA0C8 (EtwTracePool.c)
- *     ExpCleanupBigTag @ 0x140654834 (ExpCleanupBigTag.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpPoolFlagsToPoolType @ 0x140B744E0 (ExpPoolFlagsToPoolType.c)
+ *     ExpAddTagForBigPages @ 0x14021A4A0 (ExpAddTagForBigPages.c)
+ *     ExpInsertPoolTracker @ 0x14021BE10 (ExpInsertPoolTracker.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x14035B760 (ExpRemovePoolTrackerExpansion.c)
+ *     ExpPoolTrackerReturnLimit @ 0x14035BA20 (ExpPoolTrackerReturnLimit.c)
+ *     EtwTracePool @ 0x1403971E8 (EtwTracePool.c)
+ *     ExpCleanupBigTag @ 0x140652F34 (ExpCleanupBigTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpPoolFlagsToPoolType @ 0x140B76080 (ExpPoolFlagsToPoolType.c)
  */
 
 __int64 ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int64 a3, ...)
@@ -60,7 +60,7 @@ __int64 ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int64 a3, ...)
   if ( a3 < a3 + 4095 )
   {
     v9 = (a3 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    if ( (unsigned int)ExpAddTagForBigPages(a2, v4, v9, 136, v8, v7) )
+    if ( (unsigned int)ExpAddTagForBigPages(a2, (unsigned int)v4, v9, (char *)0x88, v8, v7) )
     {
       if ( (unsigned int)ExpInsertPoolTracker((unsigned int)v4, v9, 136LL, a2) )
       {
@@ -103,7 +103,7 @@ __int64 ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int64 a3, ...)
             v16 = v14 & (v16 + 1);
             if ( v16 == v17 )
             {
-              ExpRemovePoolTrackerExpansion(v4, v9, 136);
+              ExpRemovePoolTrackerExpansion((unsigned int)v4, v9, 136LL);
               goto LABEL_25;
             }
           }
@@ -115,7 +115,7 @@ __int64 ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int64 a3, ...)
               *(_QWORD *)(v18 + 72) = v20;
           }
         }
-        ExpPoolTrackerReturnLimit(1, v9, v18);
+        ExpPoolTrackerReturnLimit(1LL, v9);
 LABEL_25:
         ExpCleanupBigTag(a2);
       }

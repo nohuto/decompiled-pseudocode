@@ -14,30 +14,30 @@
 void __fastcall VfCheckImageCompliance(__int64 a1)
 {
   int v2; // r13d
-  __int64 v3; // rax
-  __int64 v4; // rdi
+  PIMAGE_NT_HEADERS v3; // rax
+  PIMAGE_NT_HEADERS v4; // rdi
   ULONG_PTR v5; // rsi
-  unsigned int *v6; // r14
+  _IMAGE_DATA_DIRECTORY *v6; // r14
   unsigned int v7; // r12d
   unsigned int v8; // ecx
-  __int16 v9; // ax
-  int v10; // eax
+  unsigned __int16 Magic; // ax
+  int SectionAlignment; // eax
   char Str1[8]; // [rsp+30h] [rbp-20h] BYREF
   char v12; // [rsp+38h] [rbp-18h]
 
   v2 = 1;
   if ( (MmVerifierData & 0x2000000) != 0 )
   {
-    v3 = RtlImageNtHeader(*(_QWORD *)(a1 + 48));
+    v3 = RtlImageNtHeader(*(PVOID *)(a1 + 48));
     v4 = v3;
     if ( v3 )
     {
-      v5 = *(unsigned __int16 *)(v3 + 20) + v3 + 24;
-      v6 = (unsigned int *)(v3 + 232);
-      if ( !*(_DWORD *)(v3 + 232) || !*(_DWORD *)(v3 + 236) )
+      v5 = (ULONG_PTR)&v3->OptionalHeader + v3->FileHeader.SizeOfOptionalHeader;
+      v6 = &v3->OptionalHeader.DataDirectory[12];
+      if ( !v3->OptionalHeader.DataDirectory[12].VirtualAddress || !v3->OptionalHeader.DataDirectory[12].Size )
         v2 = 0;
       v7 = 0;
-      if ( *(_WORD *)(v3 + 6) )
+      if ( v3->FileHeader.NumberOfSections )
       {
         do
         {
@@ -63,7 +63,9 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
           if ( v2 )
           {
             v8 = *(_DWORD *)(v5 + 12);
-            if ( v8 <= *v6 && *(_DWORD *)(v5 + 8) + v8 > *v6 && (*(_DWORD *)(v5 + 36) & 0x20000000) != 0 )
+            if ( v8 <= v6->VirtualAddress
+              && *(_DWORD *)(v5 + 8) + v8 > v6->VirtualAddress
+              && (*(_DWORD *)(v5 + 36) & 0x20000000) != 0 )
             {
               *(_QWORD *)Str1 = *(_QWORD *)v5;
               v12 = 0;
@@ -80,12 +82,12 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
               _InterlockedIncrement(&dword_140C2A784);
             }
           }
-          v9 = *(_WORD *)(v4 + 24);
-          if ( v9 == 267 || v9 == 523 )
-            v10 = *(_DWORD *)(v4 + 56);
+          Magic = v4->OptionalHeader.Magic;
+          if ( Magic == 267 || Magic == 523 )
+            SectionAlignment = v4->OptionalHeader.SectionAlignment;
           else
-            v10 = 4096;
-          if ( !v10 || (v10 & 0xFFF) != 0 )
+            SectionAlignment = 4096;
+          if ( !SectionAlignment || (SectionAlignment & 0xFFF) != 0 )
           {
             *(_QWORD *)Str1 = *(_QWORD *)v5;
             v12 = 0;
@@ -104,7 +106,7 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
           v5 += 40LL;
           ++v7;
         }
-        while ( v7 < *(unsigned __int16 *)(v4 + 6) );
+        while ( v7 < v4->FileHeader.NumberOfSections );
       }
     }
   }

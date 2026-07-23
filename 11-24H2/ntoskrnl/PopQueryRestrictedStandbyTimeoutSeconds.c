@@ -1,9 +1,9 @@
 /*
- * XREFs of PopQueryRestrictedStandbyTimeoutSeconds @ 0x140749684
+ * XREFs of PopQueryRestrictedStandbyTimeoutSeconds @ 0x1407479B4
  * Callers:
- *     PopPowerAggregatorEvaluateDozeTimers @ 0x1406F53DC (PopPowerAggregatorEvaluateDozeTimers.c)
+ *     PopPowerAggregatorEvaluateDozeTimers @ 0x1406F33DC (PopPowerAggregatorEvaluateDozeTimers.c)
  * Callees:
- *     PopReadRegKeyValue @ 0x1404AC224 (PopReadRegKeyValue.c)
+ *     PopReadRegKeyValue @ 0x1404A667C (PopReadRegKeyValue.c)
  */
 
 __int64 PopQueryRestrictedStandbyTimeoutSeconds()

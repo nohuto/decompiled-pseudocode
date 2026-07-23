@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitializeContextThread @ 0x1403D4E4C
+ * XREFs of KiInitializeContextThread @ 0x1403D7E1C
  * Callers:
- *     KiStartIdleThread @ 0x1405F6B40 (KiStartIdleThread.c)
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
+ *     KiStartIdleThread @ 0x1405F9500 (KiStartIdleThread.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
  * Callees:
- *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D4CB0 (RtlpLocateExtendedOrSupervisorFeature.c)
- *     KeIsEnqueueStoreAndMovDir64BSupported @ 0x1403D52B8 (KeIsEnqueueStoreAndMovDir64BSupported.c)
- *     KxContextToKframes @ 0x1403D52E0 (KxContextToKframes.c)
- *     RtlLocateExtendedFeature @ 0x1403D7020 (RtlLocateExtendedFeature.c)
- *     ExBuildPasidMsrForThread @ 0x14050472C (ExBuildPasidMsrForThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D7C80 (RtlpLocateExtendedOrSupervisorFeature.c)
+ *     KeIsEnqueueStoreAndMovDir64BSupported @ 0x1403D8288 (KeIsEnqueueStoreAndMovDir64BSupported.c)
+ *     KxContextToKframes @ 0x1403D82B0 (KxContextToKframes.c)
+ *     RtlLocateExtendedFeature @ 0x1403D9FF0 (RtlLocateExtendedFeature.c)
+ *     ExBuildPasidMsrForThread @ 0x1404FDEF0 (ExBuildPasidMsrForThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
@@ -166,7 +166,7 @@ LABEL_14:
     if ( (v22 & v26) != 0 )
     {
       if ( (*(_DWORD *)(v10 + 48) & 0x100040) == 0x100040 )
-        ExtendedFeature = (_OWORD *)RtlLocateExtendedFeature(v10 + 1232, 11LL);
+        ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(v10 + 1232), 0xBu, 0LL);
       result = (__int64)RtlpLocateExtendedOrSupervisorFeature((_QWORD *)(v5 + 512), 0xBu, 0LL);
       *(_OWORD *)result = *ExtendedFeature;
     }

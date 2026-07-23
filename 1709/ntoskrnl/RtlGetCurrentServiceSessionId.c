@@ -9,10 +9,10 @@
  *     PsGetServerSiloGlobals @ 0x140089394 (PsGetServerSiloGlobals.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
   __int64 CurrentServerSilo; // rax
 
   CurrentServerSilo = PsGetCurrentServerSilo();
-  return **((unsigned int **)PsGetServerSiloGlobals(CurrentServerSilo) + 138);
+  return **((_DWORD **)PsGetServerSiloGlobals(CurrentServerSilo) + 138);
 }

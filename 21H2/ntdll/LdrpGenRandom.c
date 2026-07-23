@@ -2,8 +2,8 @@
  * XREFs of LdrpGenRandom @ 0x18001082C
  * Callers:
  *     LdrpProcessMappedModule @ 0x18000F9AC (LdrpProcessMappedModule.c)
- *     InitSecurityCookie @ 0x1800D0534 (InitSecurityCookie.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
+ *     InitSecurityCookie @ 0x1800D04F4 (InitSecurityCookie.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
  * Callees:
  *     RtlIsProcessorFeaturePresent @ 0x180010870 (RtlIsProcessorFeaturePresent.c)
  */
@@ -12,7 +12,7 @@ __int64 LdrpGenRandom()
 {
   int v0; // ecx
 
-  if ( !(unsigned __int8)RtlIsProcessorFeaturePresent(28LL) )
+  if ( !RtlIsProcessorFeaturePresent(0x1Cu) )
     return 0LL;
   v0 = 0;
   while ( 1 )

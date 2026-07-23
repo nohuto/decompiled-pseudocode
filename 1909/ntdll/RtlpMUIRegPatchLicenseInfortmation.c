@@ -34,7 +34,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
   *(_QWORD *)(a1 + 32) = 0LL;
   if ( !v2 )
     return 3221225473LL;
-  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 170LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( !Heap )
     return 3221225495LL;
   v4 = *(unsigned __int16 *)(a1 + 4);
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
       v13 = 11141120;
       if ( (int)GetNameFromLangListNode(g_RegInfo, v8 + v9, &v13) < 0 )
         goto LABEL_13;
-      if ( *(_DWORD *)(g_RegInfo + 120) < 0x3E8u )
+      if ( *((_DWORD *)g_RegInfo + 30) < 0x3E8u )
       {
         LOBYTE(v10) = 1;
         InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(g_RegInfo, v14, v10, &v15);
@@ -62,7 +62,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
       {
         if ( (int)RtlpIsALicensedRegularLanguage(g_RegInfo, v14) >= 0 )
           goto LABEL_12;
-        InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage(g_RegInfo, v14);
+        InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage((__int64)g_RegInfo, v14);
       }
       if ( InstalledLanguageIndexByName >= 0 )
 LABEL_12:
@@ -75,6 +75,6 @@ LABEL_13:
     }
     while ( v5 >= 0 );
   }
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return 0LL;
 }

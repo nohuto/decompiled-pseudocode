@@ -1,27 +1,26 @@
 /*
- * XREFs of WmipUnlinkInstanceSetFromGuidEntry @ 0x140AED0DC
+ * XREFs of WmipUnlinkInstanceSetFromGuidEntry @ 0x140A0B824
  * Callers:
- *     WmipUpdateDataSource @ 0x140A0ABF4 (WmipUpdateDataSource.c)
- *     WmipDSCleanup @ 0x140AECF50 (WmipDSCleanup.c)
+ *     WmipUpdateDataSource @ 0x140A09CB4 (WmipUpdateDataSource.c)
+ *     WmipDSCleanup @ 0x140A0C620 (WmipDSCleanup.c)
  * Callees:
- *     WmipUnregisterEtwProvider @ 0x140AED134 (WmipUnregisterEtwProvider.c)
+ *     WmipUnregisterEtwProvider @ 0x140A09BDC (WmipUnregisterEtwProvider.c)
  */
 
-__int64 **__fastcall WmipUnlinkInstanceSetFromGuidEntry(__int64 *a1)
+void __fastcall WmipUnlinkInstanceSetFromGuidEntry(__int64 a1)
 {
   __int64 v2; // rcx
-  __int64 **result; // rax
+  _QWORD *v3; // rax
 
-  --*(_DWORD *)(a1[7] + 36);
-  v2 = *a1;
-  if ( *(__int64 **)(v2 + 8) != a1 || (result = (__int64 **)a1[1], *result != a1) )
+  --*(_DWORD *)(*(_QWORD *)(a1 + 56) + 36LL);
+  v2 = *(_QWORD *)a1;
+  if ( *(_QWORD *)(v2 + 8) != a1 || (v3 = *(_QWORD **)(a1 + 8), *v3 != a1) )
     __fastfail(3u);
-  *result = (__int64 *)v2;
-  *(_QWORD *)(v2 + 8) = result;
-  if ( (a1[2] & 0x80000) != 0 )
+  *v3 = v2;
+  *(_QWORD *)(v2 + 8) = v3;
+  if ( (*(_DWORD *)(a1 + 16) & 0x80000) != 0 )
   {
-    result = (__int64 **)WmipUnregisterEtwProvider(a1);
-    *((_DWORD *)a1 + 4) &= 0xFFCFFFFF;
+    WmipUnregisterEtwProvider(a1);
+    *(_DWORD *)(a1 + 16) &= 0xFFCFFFFF;
   }
-  return result;
 }

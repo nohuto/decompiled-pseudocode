@@ -1,7 +1,7 @@
 /*
- * XREFs of MmSetMinimumAgeRate @ 0x1404F0E74
+ * XREFs of MmSetMinimumAgeRate @ 0x1404D2F68
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1403EA8E8 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1403EBF18 (PfSetSuperfetchInformation.c)
  * Callees:
  *     <none>
  */
@@ -22,11 +22,11 @@ __int64 __fastcall MmSetMinimumAgeRate(unsigned int a1)
     result = 0x3E8 / v4;
     if ( (unsigned int)result > 1 )
       v2 = 0x3E8 / v4;
-    *(_WORD *)(qword_140324DA8 + 2360) = v2;
+    *(_WORD *)(qword_140324DE8 + 2360) = v2;
   }
   else
   {
-    *(_WORD *)(qword_140324DA8 + 2360) = 0;
+    *(_WORD *)(qword_140324DE8 + 2360) = 0;
   }
   return result;
 }

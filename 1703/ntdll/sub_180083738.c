@@ -19,46 +19,46 @@
  *     ZwFreeVirtualMemory @ 0x1800A56C0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 sub_180083738()
+NTSTATUS sub_180083738()
 {
-  __int64 result; // rax
-  __int64 Heap; // rax
-  __int64 v2; // rbx
+  NTSTATUS result; // eax
+  PVOID Heap; // rax
+  void *v2; // rbx
   _DWORD *v3; // rax
-  unsigned __int64 v4; // rdi
-  __int64 v5; // rcx
-  char *v6; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  void *v4; // rdi
+  void *v5; // rcx
+  PVOID BaseAddress; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( !qword_18016B370 || qword_18016B260 )
-    return 0LL;
-  v6 = 0LL;
-  v7 = qword_18015AF68;
-  result = ZwAllocateVirtualMemory(-1LL, &v6, 0LL, &v7, 0x2000, 4);
-  if ( (int)result >= 0 )
+  if ( !LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] || qword_18016B260 )
+    return 0;
+  BaseAddress = 0LL;
+  RegionSize = qword_18015AF68;
+  result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u);
+  if ( result >= 0 )
   {
-    Heap = RtlCreateHeap(2uLL, v6, 0LL, 0LL, 0LL, 0LL);
+    Heap = RtlCreateHeap(2u, BaseAddress, 0LL, 0LL, 0LL, 0LL);
     v2 = Heap;
     if ( Heap )
     {
-      v3 = (_DWORD *)RtlAllocateHeap(Heap, 0, 4LL);
-      v4 = (unsigned __int64)v3;
+      v3 = RtlAllocateHeap(Heap, 0, 4uLL);
+      v4 = v3;
       v5 = v2;
       if ( v3 )
       {
         *v3 = 0;
-        RtlProtectHeap(v2, 1);
+        RtlProtectHeap(v2, 1u);
         sub_18001DEA8(0);
-        RtlAcquireSRWLockExclusive(&qword_18015AF70);
+        RtlAcquireSRWLockExclusive(&stru_18015AF70);
         if ( !qword_18016B260 )
         {
-          qword_18016B270 = v4;
+          qword_18016B270 = (__int64)v4;
           qword_18016B260 = v2;
-          RtlReleaseSRWLockExclusive(&qword_18015AF70);
+          RtlReleaseSRWLockExclusive(&stru_18015AF70);
           sub_18001DEA8(1);
-          return 0LL;
+          return 0;
         }
-        RtlReleaseSRWLockExclusive(&qword_18015AF70);
+        RtlReleaseSRWLockExclusive(&stru_18015AF70);
         sub_18001DEA8(1);
         RtlProtectHeap(v2, 0);
         RtlFreeHeap(v2, 0, v4);
@@ -66,8 +66,8 @@ __int64 sub_180083738()
       }
       RtlDestroyHeap(v5);
     }
-    ZwFreeVirtualMemory(-1LL, &v6, &v7, 0x8000LL);
-    return qword_18016B260 == 0 ? 0xC0000017 : 0;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    return qword_18016B260 == 0LL ? 0xC0000017 : 0;
   }
   return result;
 }

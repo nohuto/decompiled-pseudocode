@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedProperty @ 0x1404863A0
+ * XREFs of _CmGetDeviceContainerMappedProperty @ 0x1405131B0
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x140486274 (_PnpDispatchDeviceContainer.c)
+ *     _PnpDispatchDeviceContainer @ 0x140513084 (_PnpDispatchDeviceContainer.c)
  * Callees:
- *     _CmIsLocalMachineContainer @ 0x1404F077C (_CmIsLocalMachineContainer.c)
- *     _CmGetContainerBooleanProperty @ 0x1406DA370 (_CmGetContainerBooleanProperty.c)
+ *     _CmIsLocalMachineContainer @ 0x1404D2870 (_CmIsLocalMachineContainer.c)
+ *     _CmGetContainerBooleanProperty @ 0x1406DA4A8 (_CmGetContainerBooleanProperty.c)
  */
 
 __int64 __fastcall CmGetDeviceContainerMappedProperty(
-        __int64 a1,
-        __int64 a2,
+        int a1,
+        const wchar_t *a2,
         int a3,
         __int64 a4,
         __int64 a5,
@@ -21,7 +21,7 @@ __int64 __fastcall CmGetDeviceContainerMappedProperty(
   unsigned int v10; // r10d
   int v11; // r9d
   __int64 v13; // rcx
-  bool v14; // cf
+  bool IsLocalMachineContainer; // cf
   __int64 v15; // rcx
   const DEVPROPKEY *v16; // r9
   __int64 v17; // rcx
@@ -43,9 +43,9 @@ __int64 __fastcall CmGetDeviceContainerMappedProperty(
         *a9 = 1;
         if ( a8 )
         {
-          v14 = (unsigned __int8)CmIsLocalMachineContainer(a1, a2) != 0;
+          IsLocalMachineContainer = CmIsLocalMachineContainer(a1, a2);
           v10 = 0;
-          *a7 = -v14;
+          *a7 = -IsLocalMachineContainer;
         }
         else
         {
@@ -64,7 +64,7 @@ __int64 __fastcall CmGetDeviceContainerMappedProperty(
         v16 = &DEVPKEY_Device_HasProblem;
         return (unsigned int)CmGetContainerBooleanProperty(
                                a1,
-                               a2,
+                               (_DWORD)a2,
                                a3,
                                (_DWORD)v16,
                                (__int64)a6,
@@ -83,7 +83,7 @@ __int64 __fastcall CmGetDeviceContainerMappedProperty(
         v16 = (const DEVPROPKEY *)&DEVPKEY_Device_IsConnected;
         return (unsigned int)CmGetContainerBooleanProperty(
                                a1,
-                               a2,
+                               (_DWORD)a2,
                                a3,
                                (_DWORD)v16,
                                (__int64)a6,
@@ -102,7 +102,7 @@ __int64 __fastcall CmGetDeviceContainerMappedProperty(
         v16 = &DEVPKEY_Device_IsRebootRequired;
         return (unsigned int)CmGetContainerBooleanProperty(
                                a1,
-                               a2,
+                               (_DWORD)a2,
                                a3,
                                (_DWORD)v16,
                                (__int64)a6,

@@ -13,7 +13,7 @@ __int64 __fastcall TppTimerpStopCallbackGeneration(__int64 a1)
   __int64 v2; // rdx
   __int64 result; // rax
 
-  RtlAcquireSRWLockExclusive(a1 + 232);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
   v2 = *(_QWORD *)(a1 + 136);
   ++*(_BYTE *)(a1 + 347);
   result = TppCancelTimer(a1, v2 + 112, 0LL);

@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierMmProbeAndLockPages @ 0x1409E6DD0
+ * XREFs of VerifierMmProbeAndLockPages @ 0x1409E7DD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetAddToCounter @ 0x1409D72B0 (ViTargetAddToCounter.c)
- *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D82B0 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DD82C (VfFaultsInjectResourceFailure.c)
  */
 
 char __fastcall VerifierMmProbeAndLockPages(ULONG_PTR BugCheckParameter2, char a2, unsigned int a3)
@@ -34,7 +34,7 @@ char __fastcall VerifierMmProbeAndLockPages(ULONG_PTR BugCheckParameter2, char a
       *(__int16 *)(BugCheckParameter2 + 10),
       (unsigned __int16)(v8 & v7));
   if ( (unsigned int)VfFaultsInjectResourceFailure(0) == 1 )
-    RtlRaiseStatus(0xC00000A1);
+    RtlRaiseStatus(-1073741663);
   LOBYTE(v9) = a2;
   result = ((__int64 (__fastcall *)(ULONG_PTR, __int64, _QWORD))pXdvMmProbeAndLockPages)(BugCheckParameter2, v9, a3);
   if ( (MmVerifierData & 0x1000) != 0 )

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetEaFile()
+NTSTATUS __cdecl ZwSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock, PVOID Buffer, ULONG Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 373LL;
+  result = 373;
   __asm { syscall; Low latency system call }
   return result;
 }

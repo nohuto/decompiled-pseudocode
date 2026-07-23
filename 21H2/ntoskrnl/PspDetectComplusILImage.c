@@ -1,35 +1,35 @@
 /*
- * XREFs of PspDetectComplusILImage @ 0x1406AEBE4
+ * XREFs of PspDetectComplusILImage @ 0x14060D484
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     RtlQueryImageFileKeyOption @ 0x1406AEF00 (RtlQueryImageFileKeyOption.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     RtlQueryImageFileKeyOption @ 0x14060D7A0 (RtlQueryImageFileKeyOption.c)
  */
 
-__int64 __fastcall PspDetectComplusILImage(__int64 a1, _DWORD *a2)
+NTSTATUS __fastcall PspDetectComplusILImage(__int64 a1, _DWORD *a2)
 {
   char v2; // al
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v6; // al
-  unsigned int v7; // ebx
+  int v7; // ebx
   void *v8; // rcx
   int ImageFileKeyOption; // eax
-  int v10; // [rsp+40h] [rbp+8h] BYREF
+  int SystemInformation; // [rsp+40h] [rbp+8h] BYREF
   int v11; // [rsp+50h] [rbp+18h]
 
   v2 = *(_BYTE *)(a1 + 99);
   if ( (v2 & 1) == 0 || (v2 & 0x20) != 0 )
-    return 0LL;
+    return 0;
   v6 = MEMORY[0xFFFFF780000002E0];
   v7 = 0;
-  v10 = MEMORY[0xFFFFF780000002E0];
+  SystemInformation = MEMORY[0xFFFFF780000002E0];
   if ( MEMORY[0xFFFFF780000002E0] != -1 )
     goto LABEL_6;
-  result = ZwQuerySystemInformation(59LL, (__int64)&v10);
-  if ( (int)result >= 0 )
+  result = ZwQuerySystemInformation(SystemComPlusPackage, &SystemInformation, 4u, 0LL);
+  if ( result >= 0 )
   {
-    v6 = v10;
+    v6 = SystemInformation;
 LABEL_6:
     if ( (v6 & 1) != 0 )
     {
@@ -41,13 +41,13 @@ LABEL_6:
         if ( (ImageFileKeyOption < 0 || v11) && ImageFileKeyOption != -1073741772 )
         {
           if ( ImageFileKeyOption < 0 )
-            return (unsigned int)ImageFileKeyOption;
+            return ImageFileKeyOption;
           return v7;
         }
       }
       else if ( (*(_BYTE *)(a1 + 8) & 0x40) == 0 )
       {
-        return (unsigned int)-1073741823;
+        return -1073741823;
       }
       *a2 |= 8u;
     }

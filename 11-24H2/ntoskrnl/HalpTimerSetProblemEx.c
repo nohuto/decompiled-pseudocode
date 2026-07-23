@@ -1,18 +1,19 @@
 /*
- * XREFs of HalpTimerSetProblemEx @ 0x1404F98E4
+ * XREFs of HalpTimerSetProblemEx @ 0x1404F71C4
  * Callers:
- *     HalpTimerClockArm @ 0x1403BC1E0 (HalpTimerClockArm.c)
- *     HalpSetTimer @ 0x1403BC5B0 (HalpSetTimer.c)
- *     HalpInitializePnTimers @ 0x14053A550 (HalpInitializePnTimers.c)
- *     HalpInitializeTimers @ 0x14053A610 (HalpInitializeTimers.c)
- *     HalpTimerInitialize @ 0x14053B368 (HalpTimerInitialize.c)
- *     HalpTimerInitializeEarlyStallSource @ 0x14053B40C (HalpTimerInitializeEarlyStallSource.c)
- *     HalpTimerSelectRoles @ 0x14053B848 (HalpTimerSelectRoles.c)
- *     HalpTimerClockInitialize @ 0x140546A00 (HalpTimerClockInitialize.c)
- *     HalpTimerInitializeClock @ 0x140546CF4 (HalpTimerInitializeClock.c)
- *     HalpTimerConfigureInterrupt @ 0x140547380 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerRestartProfileInterrupt @ 0x140549F74 (HalpTimerRestartProfileInterrupt.c)
- *     HalUpdateTimerCapabilities @ 0x14055FFB0 (HalUpdateTimerCapabilities.c)
+ *     HalpTimerClockArm @ 0x140375660 (HalpTimerClockArm.c)
+ *     HalpSetTimer @ 0x140375A30 (HalpSetTimer.c)
+ *     HalpInitializePnTimers @ 0x140537D90 (HalpInitializePnTimers.c)
+ *     HalpInitializeTimers @ 0x140537E50 (HalpInitializeTimers.c)
+ *     HalpTimerInitialize @ 0x140538BA8 (HalpTimerInitialize.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x140538C4C (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpTimerReinitializeThisProcessor @ 0x140538F60 (HalpTimerReinitializeThisProcessor.c)
+ *     HalpTimerSelectRoles @ 0x140539128 (HalpTimerSelectRoles.c)
+ *     HalpTimerClockInitialize @ 0x1405442C0 (HalpTimerClockInitialize.c)
+ *     HalpTimerInitializeClock @ 0x1405445B4 (HalpTimerInitializeClock.c)
+ *     HalpTimerConfigureInterrupt @ 0x140544C40 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x140547834 (HalpTimerRestartProfileInterrupt.c)
+ *     HalUpdateTimerCapabilities @ 0x14055DBE0 (HalUpdateTimerCapabilities.c)
  * Callees:
  *     <none>
  */

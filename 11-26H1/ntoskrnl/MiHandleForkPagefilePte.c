@@ -1,16 +1,16 @@
 /*
- * XREFs of MiHandleForkPagefilePte @ 0x14030CE54
+ * XREFs of MiHandleForkPagefilePte @ 0x1402EEED4
  * Callers:
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiUpdatePageFileBlockOwner @ 0x14030D080 (MiUpdatePageFileBlockOwner.c)
- *     MiWriteUselessChildPte @ 0x14030D0DC (MiWriteUselessChildPte.c)
- *     MiGetCloneCharges @ 0x140369494 (MiGetCloneCharges.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1402EF100 (MiUpdatePageFileBlockOwner.c)
+ *     MiWriteUselessChildPte @ 0x1402EF15C (MiWriteUselessChildPte.c)
+ *     MiGetCloneCharges @ 0x14036B234 (MiGetCloneCharges.c)
  */
 
 __int64 __fastcall MiHandleForkPagefilePte(__int64 a1, unsigned __int64 a2)
@@ -50,8 +50,8 @@ __int64 __fastcall MiHandleForkPagefilePte(__int64 a1, unsigned __int64 a2)
   v7 = *(unsigned __int16 *)(*(_QWORD *)a1 + 1198LL);
   v26 = v3;
   v27 = v5;
-  v8 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * v7);
-  v9 = v8 != *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 8) + 1198LL))
+  v8 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * v7);
+  v9 = v8 != *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 8) + 1198LL))
      ? 5
      : 0;
   v10 = v9 | 2;
@@ -66,8 +66,8 @@ __int64 __fastcall MiHandleForkPagefilePte(__int64 a1, unsigned __int64 a2)
   if ( (v4 & 8) != 0 )
   {
     v11 = v4;
-    if ( qword_140E2D740 && (v4 & 0x10) == 0 )
-      v11 = qword_140E2D748 & v4;
+    if ( qword_140E2D8C0 && (v4 & 0x10) == 0 )
+      v11 = qword_140E2D8C8 & v4;
     MiUpdatePageFileBlockOwner(
       *((_QWORD *)&v8[929].Header.WaitListHead.Flink + ((unsigned __int16)v4 >> 12)),
       HIDWORD(v11),
@@ -85,7 +85,7 @@ __int64 __fastcall MiHandleForkPagefilePte(__int64 a1, unsigned __int64 a2)
   if ( (v4 & 4) != 0 )
   {
     v24 = v4 & 0xFFFFFFFFFFFFFFF7uLL;
-    MiReleasePageFileInfo(v8, v4 & 0xFFFFFFFFFFFFFFF7uLL, 1);
+    MiReleasePageFileInfo(v8, v4 & 0xFFFFFFFFFFFFFFF7uLL, 1LL);
     v18 = v25;
     if ( (unsigned __int64)&v25 >= 0xFFFFF6FB7DBED000uLL
       && (unsigned __int64)&v25 <= 0xFFFFF6FB7DBED7F8uLL

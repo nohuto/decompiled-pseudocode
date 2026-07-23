@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCheckUserVirtualAddress @ 0x1402FF820
+ * XREFs of MiCheckUserVirtualAddress @ 0x140309FA0
  * Callers:
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiResolveDemandZeroFault @ 0x1402FC600 (MiResolveDemandZeroFault.c)
- *     MiUserFault @ 0x1402FD560 (MiUserFault.c)
- *     MiZeroFault @ 0x1402FEA50 (MiZeroFault.c)
- *     MiCheckProtoAccess @ 0x1402FF1D0 (MiCheckProtoAccess.c)
- *     MiCheckVirtualAddress @ 0x1402FF5B0 (MiCheckVirtualAddress.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiUserFault @ 0x140307CE0 (MiUserFault.c)
+ *     MiZeroFault @ 0x1403091D0 (MiZeroFault.c)
+ *     MiCheckProtoAccess @ 0x140309950 (MiCheckProtoAccess.c)
+ *     MiCheckVirtualAddress @ 0x140309D30 (MiCheckVirtualAddress.c)
+ *     MiResolveDemandZeroFault @ 0x140342E30 (MiResolveDemandZeroFault.c)
  * Callees:
- *     MiIsVadLargePrivate @ 0x14025FD90 (MiIsVadLargePrivate.c)
- *     MiGetProtoPteAddress @ 0x140301740 (MiGetProtoPteAddress.c)
- *     MiLockVadCore @ 0x1403FD500 (MiLockVadCore.c)
- *     MiVadExtentCommitted @ 0x140446A40 (MiVadExtentCommitted.c)
+ *     MiIsVadLargePrivate @ 0x1402903A0 (MiIsVadLargePrivate.c)
+ *     MiGetProtoPteAddress @ 0x14030BEC0 (MiGetProtoPteAddress.c)
+ *     MiLockVadCore @ 0x1403DAE20 (MiLockVadCore.c)
+ *     MiVadExtentCommitted @ 0x14043EDF0 (MiVadExtentCommitted.c)
  */
 
 __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, __int64 a2, __int64 a3, int *a4)
@@ -34,13 +34,13 @@ __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, __int64 a2, __
     v7 = a1 & 0xFFFFFFFFFFFFF000uLL;
     if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
     {
-      result = qword_140E2DA68;
+      result = qword_140E2DBA8;
       *a4 = 1;
       return result;
     }
-    if ( v7 == qword_140E2DA78 && v7 )
+    if ( v7 == qword_140E2DBB8 && v7 )
     {
-      result = qword_140E2DA70;
+      result = qword_140E2DBB0;
       *a4 = 1;
       return result;
     }

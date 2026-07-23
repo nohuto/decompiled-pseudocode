@@ -75,7 +75,7 @@ LABEL_11:
       if ( ObjectProperty < 0 )
         return (unsigned int)ObjectProperty;
     }
-    ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)ObjectProperty;
 }

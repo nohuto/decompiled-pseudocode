@@ -1,8 +1,8 @@
 /*
  * XREFs of MmGetNumberOfFreeSystemPtes @ 0x14021DC90
  * Callers:
- *     MiIssueNoPtesBugcheck @ 0x14062F038 (MiIssueNoPtesBugcheck.c)
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
+ *     MiIssueNoPtesBugcheck @ 0x14062F588 (MiIssueNoPtesBugcheck.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406B1F34 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     MiGetNumberOfCachedPtes @ 0x14021E40C (MiGetNumberOfCachedPtes.c)
  */

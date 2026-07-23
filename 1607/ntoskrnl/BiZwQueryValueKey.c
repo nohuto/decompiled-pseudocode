@@ -1,7 +1,7 @@
 /*
- * XREFs of BiZwQueryValueKey @ 0x14012E064
+ * XREFs of BiZwQueryValueKey @ 0x14012E5D4
  * Callers:
- *     BiGetRegistryValue @ 0x14053D91C (BiGetRegistryValue.c)
+ *     BiGetRegistryValue @ 0x14053DE5C (BiGetRegistryValue.c)
  * Callees:
  *     <none>
  */

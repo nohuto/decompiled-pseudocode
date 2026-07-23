@@ -1,22 +1,22 @@
 /*
- * XREFs of CMFCreateSecurityDescriptor @ 0x1409584C4
+ * XREFs of CMFCreateSecurityDescriptor @ 0x140958694
  * Callers:
- *     CMFCheckAccess @ 0x140958274 (CMFCheckAccess.c)
- *     CMFSystemThreadRoutine @ 0x1409593D0 (CMFSystemThreadRoutine.c)
+ *     CMFCheckAccess @ 0x140958444 (CMFCheckAccess.c)
+ *     CMFSystemThreadRoutine @ 0x1409595A0 (CMFSystemThreadRoutine.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
- *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlValidAcl @ 0x1406513E0 (RtlValidAcl.c)
+ *     RtlValidSecurityDescriptor @ 0x140653D20 (RtlValidSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14066A340 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     RtlMapGenericMask @ 0x14071A280 (RtlMapGenericMask.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1407685F0 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
@@ -43,13 +43,13 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
   int v22; // r9d
   int v23; // r9d
   PVOID v24; // rax
-  struct _SID_IDENTIFIER_AUTHORITY v26; // [rsp+30h] [rbp-40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v26; // [rsp+30h] [rbp-40h] BYREF
   void *v27; // [rsp+38h] [rbp-38h]
   void *v28; // [rsp+40h] [rbp-30h]
   _OWORD SecurityDescriptor[2]; // [rsp+48h] [rbp-28h] BYREF
   __int64 v30; // [rsp+68h] [rbp-8h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+C0h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v33; // [rsp+C8h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+C0h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v33; // [rsp+C8h] [rbp+58h] BYREF
 
   *(_WORD *)&v26.Value[4] = 1280;
   *(_DWORD *)v26.Value = 0;
@@ -144,7 +144,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
               RtlMapGenericMask((PACCESS_MASK)IdentifierAuthority.Value, a2);
               v20 = *(_DWORD *)IdentifierAuthority.Value;
             }
-            Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v20, Src, 0);
+            Acl = RtlpAddKnownAce(v18, 2u, 3, v20, Src, 0);
             if ( (Acl & 0xC0000000) != 0xC0000000 )
             {
               *(_DWORD *)IdentifierAuthority.Value = 0x10000000;
@@ -153,7 +153,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
                 RtlMapGenericMask((PACCESS_MASK)IdentifierAuthority.Value, a2);
                 v19 = *(_DWORD *)IdentifierAuthority.Value;
               }
-              Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v19, v3, 0);
+              Acl = RtlpAddKnownAce(v18, 2u, 3, v19, v3, 0);
               if ( (Acl & 0xC0000000) != 0xC0000000 )
               {
                 v21 = 0x80000000;
@@ -164,7 +164,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
                   RtlMapGenericMask((PACCESS_MASK)IdentifierAuthority.Value, a2);
                   v22 = *(_DWORD *)IdentifierAuthority.Value;
                 }
-                Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v22, (unsigned __int8 *)v27, 0);
+                Acl = RtlpAddKnownAce(v18, 2u, 3, v22, (unsigned __int8 *)v27, 0);
                 if ( (Acl & 0xC0000000) != 0xC0000000 )
                 {
                   *(_DWORD *)IdentifierAuthority.Value = 0x80000000;
@@ -174,7 +174,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
                     RtlMapGenericMask((PACCESS_MASK)IdentifierAuthority.Value, a2);
                     v23 = *(_DWORD *)IdentifierAuthority.Value;
                   }
-                  Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v23, (unsigned __int8 *)v28, 0);
+                  Acl = RtlpAddKnownAce(v18, 2u, 3, v23, (unsigned __int8 *)v28, 0);
                   if ( (Acl & 0xC0000000) != 0xC0000000 )
                   {
                     *(_DWORD *)IdentifierAuthority.Value = 0x80000000;
@@ -183,10 +183,10 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
                       RtlMapGenericMask((PACCESS_MASK)IdentifierAuthority.Value, a2);
                       v21 = *(_DWORD *)IdentifierAuthority.Value;
                     }
-                    Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v21, v6, 0);
+                    Acl = RtlpAddKnownAce(v18, 2u, 3, v21, v6, 0);
                     if ( (Acl & 0xC0000000) != 0xC0000000 )
                     {
-                      if ( RtlValidAcl((__int64)v18) )
+                      if ( RtlValidAcl(v18) )
                       {
                         Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v18, 0);
                         if ( (Acl & 0xC0000000) != 0xC0000000 )

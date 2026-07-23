@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsPrimaryPresent @ 0x140525D24
+ * XREFs of KiIsPrimaryPresent @ 0x140525F64
  * Callers:
- *     KiParkUmsThread @ 0x140525F20 (KiParkUmsThread.c)
- *     NtUmsThreadYield @ 0x1408BDD90 (NtUmsThreadYield.c)
+ *     KiParkUmsThread @ 0x140526160 (KiParkUmsThread.c)
+ *     NtUmsThreadYield @ 0x1408BDEF0 (NtUmsThreadYield.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

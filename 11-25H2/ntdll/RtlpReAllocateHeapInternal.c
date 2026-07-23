@@ -23,10 +23,10 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpReAllocateHeapInternal(__int64 a1, unsigned int a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlpReAllocateHeapInternal(__int64 a1, unsigned int a2, char *a3, unsigned __int64 a4)
 {
   __int64 v4; // rbx
-  unsigned __int64 v6; // rdi
+  char *v6; // rdi
   int v9; // r13d
   int v10; // r15d
   unsigned __int64 v11; // rsi
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpReAllocateHeapInternal(__int64 a1, unsigned int a2, unsig
   struct _TEB *v15; // rdi
   int v16; // ecx
   __int64 Heap; // rsi
-  int v18; // esi
+  NTSTATUS v18; // esi
   struct _TEB *v19; // rdi
   unsigned int v20; // edx
   int v21; // r8d
@@ -56,17 +56,17 @@ __int64 __fastcall RtlpReAllocateHeapInternal(__int64 a1, unsigned int a2, unsig
   int v36; // eax
   __int64 v37; // rax
   struct _TEB *v38; // rdi
-  int v39; // r15d
+  NTSTATUS v39; // r15d
   int v40; // edx
   __int16 v41; // cx
   int v42; // r9d
   int v43; // eax
-  unsigned __int16 v44; // [rsp+30h] [rbp-D0h]
-  int v45; // [rsp+30h] [rbp-D0h]
+  unsigned __int16 Status; // [rsp+30h] [rbp-D0h]
+  NTSTATUS Statusa; // [rsp+30h] [rbp-D0h]
   EXCEPTION_RECORD ExceptionRecord; // [rsp+90h] [rbp-70h] BYREF
 
   v4 = 0LL;
-  v44 = 0;
+  Status = 0;
   *(&ExceptionRecord.NumberParameters + 1) = 0;
   v6 = a3;
   v9 = 0;
@@ -127,15 +127,15 @@ __int64 __fastcall RtlpReAllocateHeapInternal(__int64 a1, unsigned int a2, unsig
       {
         if ( (*(_BYTE *)(a1 + 120) & 1) == 0 )
         {
-          if ( (a3 & 0xF) != 0 )
+          if ( ((unsigned __int8)a3 & 0xF) != 0 )
           {
             v16 = 9;
           }
           else
           {
-            v11 = a3 - 16;
-            _m_prefetchw((const void *)(a3 - 16));
-            if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+            v11 = (unsigned __int64)(a3 - 16);
+            _m_prefetchw(a3 - 16);
+            if ( *(a3 - 1) == 5 )
               v11 -= 16LL * *(unsigned __int8 *)(v11 + 14);
             if ( (*(_BYTE *)(v11 + 15) & 0x3F) != 0 )
             {
@@ -145,10 +145,10 @@ LABEL_9:
                 v18 = -1073741819;
                 goto LABEL_31;
               }
-              if ( *(_BYTE *)(v6 - 1) != 5 )
+              if ( *(v6 - 1) != 5 )
               {
 LABEL_11:
-                v12 = RtlpReAllocateHeap((void *)a1);
+                v12 = RtlpReAllocateHeap(a1);
                 if ( (dword_1801D0918 & 1) != 0
                   && (dword_1801D0918 & 2) != 0
                   && NtCurrentPeb()->ProcessHeap
@@ -165,20 +165,20 @@ LABEL_11:
                 else if ( !v12 )
                 {
 LABEL_27:
-                  a4 -= v44;
+                  a4 -= Status;
                   if ( v9 )
                   {
-                    RtlSizeHeap(a1, 0LL, v6);
-                    v43 = RtlpSetupExtendedBlock(a1, v10, v6, v42, v44, v9);
-                    RtlpCallInterceptRoutine(v9, a1, v43, 6, v6);
+                    RtlSizeHeap((PVOID)a1, 0, v6);
+                    v43 = RtlpSetupExtendedBlock(a1, v10, (_DWORD)v6, v42, Status, v9);
+                    RtlpCallInterceptRoutine(v9, a1, v43, 6, (__int64)v6);
                   }
-                  v45 = -1073741801;
+                  Statusa = -1073741801;
                   goto LABEL_30;
                 }
                 v4 = v12;
                 if ( v9 )
                 {
-                  v4 = RtlpSetupExtendedBlock(a1, v10, v12, v13, v44, v9);
+                  v4 = RtlpSetupExtendedBlock(a1, v10, v12, v13, Status, v9);
                   RtlpCallInterceptRoutine(v9, a1, v4, 6, v12);
                 }
                 return v4;
@@ -234,46 +234,46 @@ LABEL_47:
                 {
                   v24 = 16LL * (unsigned __int16)v23;
                 }
-                if ( v24 + v11 < v6 )
+                if ( v24 + v11 < (unsigned __int64)v6 )
                   goto LABEL_54;
-                v9 = *(_DWORD *)(v6 - 8);
+                v9 = *((_DWORD *)v6 - 2);
                 if ( (v10 & 0x3C000102) != 0 )
                   goto LABEL_11;
-                v26 = *(_BYTE *)(v6 - 1);
+                v26 = *(v6 - 1);
                 if ( v26 == 5 )
                 {
-                  v27 = 16 * *(unsigned __int8 *)(v6 - 2);
-                  v44 = v27;
+                  v27 = 16 * (unsigned __int8)*(v6 - 2);
+                  Status = v27;
                 }
                 else if ( (v26 & 0x40) != 0 )
                 {
                   v27 = 16 * (v26 & 0x3F);
-                  v44 = v27;
+                  Status = v27;
                 }
                 else
                 {
                   v27 = 0;
-                  v44 = 0;
+                  Status = 0;
                 }
                 if ( a4 + v27 >= a4 )
                 {
                   a4 += v27;
                   if ( v26 == 5 )
-                    v28 = v6 - 16LL * *(unsigned __int8 *)(v6 - 16 + 14);
+                    v28 = (__int64)&v6[-16 * (unsigned __int8)*(v6 - 2)];
                   else
                     v28 = 0LL;
-                  if ( (int)RtlpCallInterceptRoutine(v9, a1, v6, 5, v28) < 0 )
+                  if ( (int)RtlpCallInterceptRoutine(v9, a1, (_DWORD)v6, 5, v28) < 0 )
                   {
-                    v45 = -1073741819;
+                    Statusa = -1073741819;
 LABEL_30:
-                    v18 = v45;
+                    v18 = Statusa;
                     goto LABEL_31;
                   }
                   v29 = *(_BYTE *)(v11 + 15);
                   if ( v29 == 4 )
                   {
                     if ( ((*(_BYTE *)(a1 + 116) | (unsigned __int8)v10) & 1) == 0 )
-                      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+                      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
                     if ( *(_DWORD *)(a1 + 124) )
                     {
                       v40 = *(_DWORD *)(v11 + 8) ^ *(_DWORD *)(a1 + 136);
@@ -281,7 +281,7 @@ LABEL_30:
                       if ( HIBYTE(v40) != ((unsigned __int8)v40 ^ (unsigned __int8)(BYTE1(v40) ^ BYTE2(v40))) )
                         RtlpAnalyzeHeapFailure(a1, v11);
                     }
-                    v41 = *(_WORD *)(v11 + 8) - v44;
+                    v41 = *(_WORD *)(v11 + 8) - Status;
                     *(_WORD *)(v11 + 8) = v41;
                     if ( *(_DWORD *)(a1 + 124) )
                     {
@@ -289,7 +289,7 @@ LABEL_30:
                       *(_DWORD *)(v11 + 8) ^= *(_DWORD *)(a1 + 136);
                     }
                     if ( ((*(_BYTE *)(a1 + 116) | (unsigned __int8)v10) & 1) == 0 )
-                      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+                      RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
                     goto LABEL_84;
                   }
                   if ( v29 == 5 )
@@ -357,7 +357,7 @@ LABEL_77:
                                       - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ *(_DWORD *)(v11 + 8) ^ (unsigned int)(v11 >> 4)) >> 12));
                     LOWORD(v32) = *(_WORD *)(v32 + 36);
                   }
-                  v33 = v30 - v44;
+                  v33 = v30 - Status;
                   v34 = v31 >> 7;
                   if ( v33 >= 0x3F )
                   {
@@ -370,7 +370,7 @@ LABEL_77:
                   }
                   *(_BYTE *)(v11 + 15) = v35;
 LABEL_84:
-                  v6 = v11 + 16;
+                  v6 = (char *)(v11 + 16);
                   goto LABEL_11;
                 }
                 v18 = -1073741801;
@@ -391,21 +391,21 @@ LABEL_31:
                 return v4;
               }
 LABEL_54:
-              RtlpLogHeapFailure(3, a1, v11, v6, 0LL, 0LL);
+              RtlpLogHeapFailure(3, a1, v11, (_DWORD)v6, 0LL, 0LL);
               v18 = -1073741811;
               goto LABEL_31;
             }
             LODWORD(a3) = v11;
             v16 = 8;
           }
-          RtlpLogHeapFailure(v16, a1, a3, 0, 0LL, 0LL);
+          RtlpLogHeapFailure(v16, a1, (_DWORD)a3, 0, 0LL, 0LL);
           v11 = 0LL;
           goto LABEL_9;
         }
         v11 = RtlpProbeUserBufferSafe(a1, a3);
         goto LABEL_9;
       }
-      return RtlDebugReAllocateHeap((void *)a1);
+      return RtlDebugReAllocateHeap(a1);
     }
   }
   else

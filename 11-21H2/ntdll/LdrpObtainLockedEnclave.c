@@ -12,39 +12,39 @@
  *     LdrpDereferenceEnclave @ 0x1800D8A60 (LdrpDereferenceEnclave.c)
  */
 
-__int64 __fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
+PVOID *__fastcall LdrpObtainLockedEnclave(_BYTE *a1, char a2)
 {
-  __int64 i; // rbx
-  __int64 *v5; // r8
+  PVOID *i; // rbx
+  PVOID *v5; // r8
 
   for ( i = 0LL; ; LdrpDereferenceEnclave(i) )
   {
-    RtlEnterCriticalSection((__int64)&LdrpEnclaveListLock);
-    v5 = (__int64 *)LdrpEnclaveList;
+    RtlEnterCriticalSection(&LdrpEnclaveListLock);
+    v5 = (PVOID *)LdrpEnclaveList;
     while ( v5 != &LdrpEnclaveList )
     {
-      i = (__int64)v5;
+      i = v5;
       if ( a2 )
       {
         if ( a1 == v5[9] )
           break;
       }
-      else if ( a1 >= v5[9] && a1 - v5[9] < v5[10] )
+      else if ( a1 >= v5[9] && a1 - (_BYTE *)v5[9] < (unsigned __int64)v5[10] )
       {
         break;
       }
-      v5 = (__int64 *)*v5;
+      v5 = (PVOID *)*v5;
       i = 0LL;
     }
     if ( i )
-      _InterlockedIncrement((volatile signed __int32 *)(i + 60));
-    RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock);
+      _InterlockedIncrement((volatile signed __int32 *)i + 15);
+    RtlLeaveCriticalSection(&LdrpEnclaveListLock);
     if ( !i )
       break;
-    RtlEnterCriticalSection(i + 16);
-    if ( *(_QWORD *)(i + 72) )
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
+    if ( i[9] )
       return i;
-    RtlLeaveCriticalSection(i + 16);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   }
   return 0LL;
 }

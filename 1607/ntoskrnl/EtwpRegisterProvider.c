@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwpRegisterProvider @ 0x140492024
+ * XREFs of EtwpRegisterProvider @ 0x140492AB4
  * Callers:
- *     EtwRegisterClassicProvider @ 0x140492C2C (EtwRegisterClassicProvider.c)
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
+ *     EtwRegisterClassicProvider @ 0x1404936BC (EtwRegisterClassicProvider.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpFindGuidEntryByGuid @ 0x14040E490 (EtwpFindGuidEntryByGuid.c)
- *     EtwpGetSchematizedFilterSize @ 0x14040E9B0 (EtwpGetSchematizedFilterSize.c)
- *     EtwpUnreferenceGuidEntry @ 0x14040ED4C (EtwpUnreferenceGuidEntry.c)
- *     EtwpAddGuidEntry @ 0x14048D600 (EtwpAddGuidEntry.c)
- *     EtwpUpdateEnableMask @ 0x14048FFF8 (EtwpUpdateEnableMask.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x140491D20 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpAddKmRegEntry @ 0x140492360 (EtwpAddKmRegEntry.c)
- *     EtwpProviderArrivalCallback @ 0x1404D0D5C (EtwpProviderArrivalCallback.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x1406A430C (EtwpEventWriteTemplateSessAndProv.c)
- *     EtwpCopySchematizedFilters @ 0x1406A8D30 (EtwpCopySchematizedFilters.c)
+ *     EtwpFindGuidEntryByGuid @ 0x14040D350 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpGetSchematizedFilterSize @ 0x14040D870 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpUnreferenceGuidEntry @ 0x14040DC0C (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x14048E090 (EtwpAddGuidEntry.c)
+ *     EtwpUpdateEnableMask @ 0x140490A88 (EtwpUpdateEnableMask.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1404927B0 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpAddKmRegEntry @ 0x140492DF0 (EtwpAddKmRegEntry.c)
+ *     EtwpProviderArrivalCallback @ 0x1404B47FC (EtwpProviderArrivalCallback.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1406A4444 (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpCopySchematizedFilters @ 0x1406A8E68 (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpRegisterProvider(
@@ -77,12 +77,12 @@ __int64 __fastcall EtwpRegisterProvider(
   v37 = a1;
   *a7 = 0LL;
   v10 = (_DWORD *)a2;
-  v12 = *(_QWORD *)a2 - SecurityProviderGuid;
-  v11 = *(_QWORD *)a2 == (_QWORD)SecurityProviderGuid;
+  v12 = *(_QWORD *)a2 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v11 = *(_QWORD *)a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v36 = (_DWORD *)a2;
   v35 = 0LL;
   if ( v11 )
-    v12 = *(_QWORD *)(a2 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v12 = *(_QWORD *)(a2 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v12 )
     return 3221225506LL;
   if ( !a4 && a5 || a3 != 3 && (a3 != 2 || !a4) )

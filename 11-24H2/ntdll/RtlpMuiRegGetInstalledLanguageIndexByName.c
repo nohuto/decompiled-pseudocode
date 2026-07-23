@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18007D580
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndexByName @ 0x1800CAFA0
  * Callers:
- *     GetLCIDFromLangListNodeWithLICCheck @ 0x180061A10 (GetLCIDFromLangListNodeWithLICCheck.c)
- *     RtlGetUILanguageInfo @ 0x18007B9D0 (RtlGetUILanguageInfo.c)
- *     RtlpMUIRegPatchLicenseInfortmation @ 0x18007D170 (RtlpMUIRegPatchLicenseInfortmation.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007DD80 (RtlGetSystemPreferredUILanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x1800DA0F0 (RtlGetUserPreferredUILanguages.c)
- *     RtlpGetAlternateCodePage @ 0x1800DA7F8 (RtlpGetAlternateCodePage.c)
- *     RtlpAutoCompleteLanguageFallback @ 0x18013F3FC (RtlpAutoCompleteLanguageFallback.c)
- *     RtlpCleanupRegistryKeys @ 0x18013F570 (RtlpCleanupRegistryKeys.c)
- *     RtlpGetInstalledLanguageType @ 0x18013FF38 (RtlpGetInstalledLanguageType.c)
- *     RtlpSetPreferredUILanguages @ 0x180140750 (RtlpSetPreferredUILanguages.c)
- *     _RtlpRemovePendingDeleteLanguages @ 0x18014B394 (_RtlpRemovePendingDeleteLanguages.c)
+ *     GetLCIDFromLangListNodeWithLICCheck @ 0x1800775F0 (GetLCIDFromLangListNodeWithLICCheck.c)
+ *     RtlGetUserPreferredUILanguages @ 0x1800C7F30 (RtlGetUserPreferredUILanguages.c)
+ *     RtlpGetAlternateCodePage @ 0x1800C8638 (RtlpGetAlternateCodePage.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x1800C9E60 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlGetUILanguageInfo @ 0x1800CA620 (RtlGetUILanguageInfo.c)
+ *     RtlpMUIRegPatchLicenseInfortmation @ 0x1800CAB90 (RtlpMUIRegPatchLicenseInfortmation.c)
+ *     RtlpAutoCompleteLanguageFallback @ 0x18013D5EC (RtlpAutoCompleteLanguageFallback.c)
+ *     RtlpCleanupRegistryKeys @ 0x18013D760 (RtlpCleanupRegistryKeys.c)
+ *     RtlpGetInstalledLanguageType @ 0x18013E128 (RtlpGetInstalledLanguageType.c)
+ *     RtlpSetPreferredUILanguages @ 0x18013E940 (RtlpSetPreferredUILanguages.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x180149744 (_RtlpRemovePendingDeleteLanguages.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1800122F0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x18003ECF0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
  */
 
-__int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const wchar_t *a2, char a3, _WORD *a4)
+__int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, wchar_t *a2, char a3, _WORD *a4)
 {
   char v4; // r12
   _WORD *v5; // r10
@@ -33,17 +33,15 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const w
   int j; // ecx
   _WORD *v16; // rdx
   size_t v18; // rax
-  unsigned __int16 v19[2]; // [rsp+20h] [rbp-48h] BYREF
-  int v20; // [rsp+24h] [rbp-44h]
-  const wchar_t *v21; // [rsp+28h] [rbp-40h]
-  int v22; // [rsp+70h] [rbp+8h] BYREF
-  char v23; // [rsp+80h] [rbp+18h]
-  _WORD *v24; // [rsp+88h] [rbp+20h]
+  _UNICODE_STRING String; // [rsp+20h] [rbp-48h] BYREF
+  DWORD Lcid; // [rsp+70h] [rbp+8h] BYREF
+  char v21; // [rsp+80h] [rbp+18h]
+  _WORD *v22; // [rsp+88h] [rbp+20h]
 
-  v24 = a4;
-  v23 = a3;
+  v22 = a4;
+  v21 = a3;
   v4 = 0;
-  v22 = 0;
+  Lcid = 0;
   v5 = a4;
   v6 = a3;
   InstalledLanguageIndexByLangId = -1073741772;
@@ -60,8 +58,8 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const w
       {
         if ( v12 >= *(unsigned __int16 *)(v11 + 6) )
         {
-          v6 = v23;
-          v5 = v24;
+          v6 = v21;
+          v5 = v22;
           goto LABEL_19;
         }
         v14 = (const wchar_t *)(*(_QWORD *)(v11 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v11 + 16) + i));
@@ -69,8 +67,8 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, const w
           break;
         ++v12;
       }
-      v6 = v23;
-      v5 = v24;
+      v6 = v21;
+      v5 = v22;
       if ( v12 < 0 )
         goto LABEL_19;
     }
@@ -100,20 +98,20 @@ LABEL_19:
           }
         }
       }
-      v6 = v23;
+      v6 = v21;
     }
   }
   if ( v6 )
   {
-    v20 = 0;
-    v21 = a2;
+    *(_DWORD *)(&String.MaximumLength + 1) = 0;
+    String.Buffer = a2;
     v18 = 2 * wcslen(a2);
     if ( v18 >= 0xFFFE )
       LOWORD(v18) = -4;
-    v19[0] = v18;
-    v19[1] = v18 + 2;
-    if ( RtlCultureNameToLCID(v19, &v22) && v22 != 4096 )
-      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, v22, 0, v24);
+    String.Length = v18;
+    String.MaximumLength = v18 + 2;
+    if ( RtlCultureNameToLCID(&String, &Lcid) && Lcid != 4096 )
+      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, Lcid, 0, v22);
   }
   if ( v4 && InstalledLanguageIndexByLangId == -1073741772 )
     return (unsigned int)-1073741637;

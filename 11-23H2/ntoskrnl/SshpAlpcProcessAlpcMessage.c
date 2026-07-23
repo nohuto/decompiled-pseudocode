@@ -1,86 +1,99 @@
 /*
- * XREFs of SshpAlpcProcessAlpcMessage @ 0x14084C57C
+ * XREFs of SshpAlpcProcessAlpcMessage @ 0x14084C87C
  * Callers:
- *     SshpAlpcMessageCallback @ 0x14084C440 (SshpAlpcMessageCallback.c)
+ *     SshpAlpcMessageCallback @ 0x14084C740 (SshpAlpcMessageCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D320 (SSHSupportReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwAlpcAcceptConnectPort @ 0x14041BC40 (ZwAlpcAcceptConnectPort.c)
- *     ZwAlpcCancelMessage @ 0x14041BC60 (ZwAlpcCancelMessage.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SshpAlpcProcessMessage @ 0x14084C708 (SshpAlpcProcessMessage.c)
- *     SshpAlpcSendMessage @ 0x14084C7E0 (SshpAlpcSendMessage.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x14032D5B0 (SSHSupportReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x14041BFD0 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcCancelMessage @ 0x14041BFF0 (ZwAlpcCancelMessage.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SshpAlpcProcessMessage @ 0x14084CA08 (SshpAlpcProcessMessage.c)
+ *     SshpAlpcSendMessage @ 0x14084CAE0 (SshpAlpcSendMessage.c)
  */
 
-__int64 __fastcall SshpAlpcProcessAlpcMessage(__int64 a1, __int64 a2)
+__int64 __fastcall SshpAlpcProcessAlpcMessage(PPORT_MESSAGE ConnectionRequest, PALPC_CONTEXT_ATTR MessageContext)
 {
-  __int64 v2; // r8
+  __int64 Type; // r8
   unsigned int v3; // edi
-  __int64 v5; // rdx
-  __int64 v7; // rax
-  HANDLE v8; // rbx
-  _QWORD *v9; // [rsp+20h] [rbp-79h]
-  _DWORD v10[4]; // [rsp+50h] [rbp-49h] BYREF
-  __int64 v11; // [rsp+60h] [rbp-39h]
-  __int64 v12; // [rsp+68h] [rbp-31h]
-  int v13; // [rsp+70h] [rbp-29h]
-  int v14; // [rsp+74h] [rbp-25h]
-  __int128 v15; // [rsp+78h] [rbp-21h]
-  _QWORD v16[10]; // [rsp+90h] [rbp-9h] BYREF
+  __int64 v6; // rdx
+  __int64 v8; // rax
+  HANDLE v9; // rbx
+  int PortAttributes; // [rsp+20h] [rbp-79h]
+  int v11; // [rsp+50h] [rbp-49h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-41h] BYREF
+  _ALPC_PORT_ATTRIBUTES v13; // [rsp+90h] [rbp-9h] BYREF
 
-  v2 = *(unsigned __int16 *)(a1 + 4);
+  Type = (unsigned __int16)ConnectionRequest->u2.s2.Type;
   v3 = 0;
-  v10[3] = 0;
-  v14 = 0;
-  v5 = (unsigned int)v2 & 0xFFFF00FF;
-  switch ( v2 & 0xFFFF00FF )
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v6 = (unsigned int)Type & 0xFFFF00FF;
+  switch ( Type & 0xFFFF00FF )
   {
     case 1LL:
     case 2LL:
     case 3LL:
-      if ( (_DWORD)v5 == 1 || (v2 & 0x2000) != 0 )
-        return (unsigned int)ZwAlpcCancelMessage(SshpAlpcContext, 0LL);
+      if ( (_DWORD)v6 == 1 || (Type & 0x2000) != 0 )
+        return (unsigned int)ZwAlpcCancelMessage(SshpAlpcContext, 0, MessageContext);
       else
-        SshpAlpcProcessMessage(a1, v5, v2, a2);
+        SshpAlpcProcessMessage(ConnectionRequest, v6, Type, MessageContext);
       break;
     case 5LL:
     case 6LL:
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C38548, 0LL);
-      v8 = qword_140C38550;
-      qword_140C38550 = 0LL;
-      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38548);
-      ZwClose(v8);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C384E8, 0LL);
+      v9 = PortHandle;
+      PortHandle = 0LL;
+      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C384E8);
+      ZwClose(v9);
       break;
     case 10LL:
-      v10[2] = 48;
-      v11 = 0LL;
-      v13 = 512;
-      v12 = 0LL;
-      v15 = 0LL;
-      memset(v16, 0, 0x48uLL);
-      v16[2] = 64LL;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C38548, 0LL);
-      v9 = v16;
-      if ( (int)ZwAlpcAcceptConnectPort((__int64)&qword_140C38550, SshpAlpcContext) < 0 )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 512;
+      ObjectAttributes.ObjectName = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      memset(&v13, 0, sizeof(v13));
+      v13.MaxMessageLength = 64LL;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C384E8, 0LL);
+      if ( ZwAlpcAcceptConnectPort(
+             &PortHandle,
+             SshpAlpcContext,
+             0,
+             &ObjectAttributes,
+             &v13,
+             0LL,
+             ConnectionRequest,
+             0LL,
+             PortHandle == 0LL) < 0 )
       {
-        ZwAlpcAcceptConnectPort((__int64)&qword_140C38550, SshpAlpcContext);
+        ZwAlpcAcceptConnectPort(
+          &PortHandle,
+          SshpAlpcContext,
+          0,
+          &ObjectAttributes,
+          &v13,
+          0LL,
+          ConnectionRequest,
+          0LL,
+          0);
       }
       else
       {
-        v10[0] = 0;
-        v7 = 0LL;
+        v11 = 0;
+        v8 = 0LL;
         do
         {
-          LOBYTE(v9) = 0;
-          SshpAlpcSendMessage(192 * v7, 2 - (unsigned int)(dword_140C38558[48 * v7] != 0), 4LL, v10, (_DWORD)v9);
-          v7 = (unsigned int)(v10[0] + 1);
-          v10[0] = v7;
+          LOBYTE(PortAttributes) = 0;
+          SshpAlpcSendMessage(192 * v8, 2 - (unsigned int)(dword_140C384F8[48 * v8] != 0), 4LL, &v11, PortAttributes);
+          v8 = (unsigned int)(v11 + 1);
+          v11 = v8;
         }
-        while ( (unsigned int)v7 < 2 );
+        while ( (unsigned int)v8 < 2 );
       }
-      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38548);
+      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C384E8);
       break;
   }
   return v3;

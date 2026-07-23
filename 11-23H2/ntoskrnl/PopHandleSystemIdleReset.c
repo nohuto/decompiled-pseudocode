@@ -1,11 +1,11 @@
 /*
- * XREFs of PopHandleSystemIdleReset @ 0x1403B4A98
+ * XREFs of PopHandleSystemIdleReset @ 0x1403B4C78
  * Callers:
- *     PopResetIdleTime @ 0x1403B4A68 (PopResetIdleTime.c)
+ *     PopResetIdleTime @ 0x1403B4C48 (PopResetIdleTime.c)
  * Callees:
- *     PopGetPolicyWorker @ 0x14032CB64 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x14032CBB8 (PopCheckForWork.c)
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411374 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopGetPolicyWorker @ 0x14032CDF4 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x14032CE48 (PopCheckForWork.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411580 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
  */
 
 __int64 __fastcall PopHandleSystemIdleReset(__int64 a1, __int64 a2)

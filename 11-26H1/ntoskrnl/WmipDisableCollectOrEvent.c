@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipDisableCollectOrEvent @ 0x140A0D5A8
+ * XREFs of WmipDisableCollectOrEvent @ 0x140A0CFF8
  * Callers:
- *     WmipDeleteMethod @ 0x140A0D4B0 (WmipDeleteMethod.c)
+ *     WmipDeleteMethod @ 0x140A0CF00 (WmipDeleteMethod.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipSendDisableRequest @ 0x140A0B064 (WmipSendDisableRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipSendDisableRequest @ 0x140A0A2CC (WmipSendDisableRequest.c)
  */
 
 __int64 __fastcall WmipDisableCollectOrEvent(_DWORD *a1, int a2)
@@ -25,8 +25,8 @@ __int64 __fastcall WmipDisableCollectOrEvent(_DWORD *a1, int a2)
   {
     v5 = 0;
   }
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v6 = WmipSendDisableRequest(a1, v5);
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   return v6;
 }

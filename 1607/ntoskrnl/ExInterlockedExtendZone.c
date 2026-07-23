@@ -1,11 +1,11 @@
 /*
- * XREFs of ExInterlockedExtendZone @ 0x14022E68C
+ * XREFs of ExInterlockedExtendZone @ 0x14022E4B8
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExExtendZone @ 0x14022E628 (ExExtendZone.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExExtendZone @ 0x14022E454 (ExExtendZone.c)
  */
 
 NTSTATUS __stdcall ExInterlockedExtendZone(PZONE_HEADER Zone, PVOID Segment, ULONG SegmentSize, PKSPIN_LOCK Lock)

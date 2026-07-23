@@ -1,19 +1,19 @@
 /*
- * XREFs of PopGetPowerRequestListInfo @ 0x140A7BE48
+ * XREFs of PopGetPowerRequestListInfo @ 0x140A76148
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopGetPowerRequestListInfo(_QWORD *a1, _DWORD *a2)
 {
   PVOID *v4; // rbx
-  unsigned __int64 v5; // rdi
+  ULONG_PTR v5; // rdi
   __int64 v6; // rcx
   int v7; // ebx
   __int64 Pool2; // rax
@@ -29,7 +29,7 @@ __int64 __fastcall PopGetPowerRequestListInfo(_QWORD *a1, _DWORD *a2)
   unsigned __int64 v19; // rax
   unsigned __int64 v20; // [rsp+60h] [rbp+18h] BYREF
 
-  PopAcquireRwLockShared((volatile signed __int64 *)&PopPowerRequestLock);
+  PopAcquireRwLockShared(&PopPowerRequestLock);
   v4 = (PVOID *)PopPowerRequestObjectList;
   v5 = (8LL * (unsigned int)PopPowerRequestObjectCount + 15) & 0xFFFFFFFFFFFFFFF8uLL;
   while ( v4 != &PopPowerRequestObjectList )
@@ -45,7 +45,7 @@ __int64 __fastcall PopGetPowerRequestListInfo(_QWORD *a1, _DWORD *a2)
     }
     v4 = (PVOID *)*v4;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v5, 0x206D654Du);
   v10 = (_QWORD *)Pool2;
   if ( Pool2 )
   {
@@ -99,6 +99,6 @@ LABEL_19:
     v7 = -1073741670;
   }
 LABEL_6:
-  PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  PopReleaseRwLock(&PopPowerRequestLock);
   return (unsigned int)v7;
 }

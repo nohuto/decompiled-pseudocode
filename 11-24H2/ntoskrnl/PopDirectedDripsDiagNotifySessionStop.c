@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsDiagNotifySessionStop @ 0x140A6967C
+ * XREFs of PopDirectedDripsDiagNotifySessionStop @ 0x140A62A2C
  * Callers:
- *     PopDirectedDripsSendSessionData @ 0x140A69608 (PopDirectedDripsSendSessionData.c)
+ *     PopDirectedDripsSendSessionData @ 0x140A629B8 (PopDirectedDripsSendSessionData.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x1404A4F38 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopDirectedDripsDiagRundownBroadcastTrees @ 0x140A698DC (PopDirectedDripsDiagRundownBroadcastTrees.c)
- *     PopDirectedDripsDiagRundownDevices @ 0x140A699B8 (PopDirectedDripsDiagRundownDevices.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x14049FCC8 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagRundownBroadcastTrees @ 0x140A62C8C (PopDirectedDripsDiagRundownBroadcastTrees.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x140A62D68 (PopDirectedDripsDiagRundownDevices.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3)
@@ -21,8 +21,8 @@ __int64 __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int
   int v7; // ett
   char v8; // bl
   __int64 v9; // r12
-  _QWORD *v10; // rax
-  _QWORD *v11; // rdi
+  char *v10; // rax
+  char *v11; // rdi
   int v12; // [rsp+38h] [rbp-D0h] BYREF
   int v13; // [rsp+3Ch] [rbp-CCh] BYREF
   __int64 v14; // [rsp+40h] [rbp-C8h] BYREF
@@ -76,15 +76,15 @@ __int64 __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int
   {
     PopDirectedDripsDiagQueryAndResetPnpAccounting(a1, &v15, v44, v45);
     v9 = PopWnfCsEnterScenarioId;
-    v10 = KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&PopDirectedDripsDiagLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, (__int64)v10, (__int64)&PopDirectedDripsDiagLock);
+      ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, v10, (__int64)&PopDirectedDripsDiagLock);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
-    if ( (unsigned int)dword_140FD78F0 > 5 && PopDirectedDripsDiagTraceHandleRegistered )
+      v11[10] = 1;
+    if ( (unsigned int)dword_140FD8900 > 5 && PopDirectedDripsDiagTraceHandleRegistered )
     {
-      if ( (qword_140FD7900 & 0x400000000000LL) == 0 || (qword_140FD7908 & 0x400000000000LL) != qword_140FD7908 )
+      if ( (qword_140FD8910 & 0x400000000000LL) == 0 || (qword_140FD8918 & 0x400000000000LL) != qword_140FD8918 )
         v8 = 0;
       if ( v8 )
       {
@@ -119,8 +119,8 @@ __int64 __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int
         v39 = 224;
         v18 = 0x1000000LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140FD78F0,
-          (unsigned __int8 *)word_14004E672,
+          (__int64)&dword_140FD8900,
+          (unsigned __int8 *)byte_14004F1E3,
           0LL,
           0LL,
           0xAu,

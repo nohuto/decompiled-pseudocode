@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCancelAlertedRequest @ 0x14094437C
+ * XREFs of IopCancelAlertedRequest @ 0x14094457C
  * Callers:
- *     NtSetInformationFile @ 0x1402A6BF0 (NtSetInformationFile.c)
- *     IopWaitForSynchronousIoEvent @ 0x14040FDE0 (IopWaitForSynchronousIoEvent.c)
+ *     NtSetInformationFile @ 0x1402A6E80 (NtSetInformationFile.c)
+ *     IopWaitForSynchronousIoEvent @ 0x14040FFC0 (IopWaitForSynchronousIoEvent.c)
  *     IopSynchronousApiServiceTail @ 0x140687008 (IopSynchronousApiServiceTail.c)
- *     NtQueryInformationFile @ 0x140725070 (NtQueryInformationFile.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IoSetInformation @ 0x1408831F0 (IoSetInformation.c)
+ *     NtQueryInformationFile @ 0x140725270 (NtQueryInformationFile.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IoSetInformation @ 0x140883430 (IoSetInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     IoCancelIrp @ 0x140351E90 (IoCancelIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     IoCancelIrp @ 0x140352030 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
@@ -34,10 +34,10 @@ NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
   __writecr8(1uLL);
   if ( Object[1] )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,10 +54,10 @@ NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
   else
   {
     v4 = IoCancelIrp(Irp);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v5 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
       {
         v6 = KeGetCurrentPrcb();
         v7 = v6->SchedulerAssist;

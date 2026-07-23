@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPicWriteEndOfInterrupt @ 0x140527D70
+ * XREFs of HalpPicWriteEndOfInterrupt @ 0x1405282C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIoDelay @ 0x14041A6A0 (HalpIoDelay.c)
+ *     HalpIoDelay @ 0x14041AA30 (HalpIoDelay.c)
  */
 
 void HalpPicWriteEndOfInterrupt()

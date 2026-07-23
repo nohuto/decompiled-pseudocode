@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMapViewInSystemSpace @ 0x1405DF3F4
+ * XREFs of MiMapViewInSystemSpace @ 0x1405E03F4
  * Callers:
- *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     AlpcpCreateView @ 0x140617D0C (AlpcpCreateView.c)
- *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
- *     MmMapViewInSessionSpaceEx @ 0x1406BB5B0 (MmMapViewInSessionSpaceEx.c)
- *     MmMapViewInSystemSpaceEx @ 0x1406CBF00 (MmMapViewInSystemSpaceEx.c)
+ *     MmMapViewInSystemSpace @ 0x1405A33A0 (MmMapViewInSystemSpace.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F4130 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     AlpcpCreateView @ 0x140618D0C (AlpcpCreateView.c)
+ *     MiMapImageInSystemSpace @ 0x140652000 (MiMapImageInSystemSpace.c)
+ *     MmMapViewInSessionSpaceEx @ 0x1406BC850 (MmMapViewInSessionSpaceEx.c)
+ *     MmMapViewInSystemSpaceEx @ 0x1406CD1A0 (MmMapViewInSystemSpaceEx.c)
  * Callees:
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140077DD0 (MiCheckPurgeAndUpMapCount.c)
- *     MiDereferenceControlArea @ 0x14013B57C (MiDereferenceControlArea.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140077DC0 (MiCheckPurgeAndUpMapCount.c)
+ *     MiDereferenceControlArea @ 0x14013B67C (MiDereferenceControlArea.c)
  */
 
 __int64 __fastcall MiMapViewInSystemSpace(

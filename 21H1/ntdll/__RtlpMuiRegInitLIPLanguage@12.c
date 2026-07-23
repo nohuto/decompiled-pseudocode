@@ -12,83 +12,99 @@
  *     __RtlMuiRegAddLIPParent@16 @ 0x4B36C0BB (__RtlMuiRegAddLIPParent@16.c)
  */
 
-int __userpurge _RtlpMuiRegInitLIPLanguage@<eax>(int a1@<edx>, _DWORD *a2@<ecx>, int a3@<ebp>, _BYTE *a4)
+int __userpurge _RtlpMuiRegInitLIPLanguage@<eax>(
+        void *a1@<edx>,
+        _DWORD *a2@<ecx>,
+        int a3@<ebp>,
+        int a4@<edi>,
+        BOOLEAN a5@<sil>,
+        _BYTE *a6)
 {
-  int v4; // esi
-  unsigned int v5; // edi
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // eax
-  unsigned int v9; // eax
-  bool v10; // sf
-  int v12; // [esp-2E4h] [ebp-2F0h] BYREF
-  UNICODE_STRING v13; // [esp-2E0h] [ebp-2ECh] BYREF
-  _DWORD *v14; // [esp-2D8h] [ebp-2E4h]
-  _BYTE *v15; // [esp-2D4h] [ebp-2E0h]
-  int v16; // [esp-2D0h] [ebp-2DCh] BYREF
-  int v17; // [esp-2CCh] [ebp-2D8h]
-  int v18; // [esp-2C8h] [ebp-2D4h] BYREF
-  unsigned int v19; // [esp-2C4h] [ebp-2D0h]
-  int v20; // [esp-2C0h] [ebp-2CCh] BYREF
-  int v21; // [esp-2BCh] [ebp-2C8h]
-  unsigned int v22; // [esp-2B0h] [ebp-2BCh]
-  WCHAR v23[250]; // [esp-2ACh] [ebp-2B8h] BYREF
-  WCHAR v24[92]; // [esp-B8h] [ebp-C4h] BYREF
-  int v25; // [esp+0h] [ebp-Ch]
-  void *v26; // [esp+4h] [ebp-8h]
+  ULONG v6; // esi
+  const WCHAR *v7; // edi
+  int v8; // ecx
+  int v9; // ecx
+  int v10; // eax
+  unsigned int v11; // eax
+  bool v12; // sf
+  SIZE_T v14; // [esp-310h] [ebp-31Ch]
+  size_t v15; // [esp-304h] [ebp-310h]
+  SIZE_T v16; // [esp-304h] [ebp-310h]
+  BOOLEAN v17; // [esp-2FCh] [ebp-308h]
+  ULONG v18; // [esp-2E4h] [ebp-2F0h] BYREF
+  _UNICODE_STRING v19; // [esp-2E0h] [ebp-2ECh] BYREF
+  _DWORD *v20; // [esp-2D8h] [ebp-2E4h]
+  _BYTE *v21; // [esp-2D4h] [ebp-2E0h]
+  int v22; // [esp-2D0h] [ebp-2DCh] BYREF
+  HANDLE v23; // [esp-2CCh] [ebp-2D8h]
+  int v24; // [esp-2C8h] [ebp-2D4h] BYREF
+  unsigned int v25; // [esp-2C4h] [ebp-2D0h]
+  int v26; // [esp-2C0h] [ebp-2CCh] BYREF
+  int v27; // [esp-2BCh] [ebp-2C8h]
+  unsigned int v28; // [esp-2B0h] [ebp-2BCh]
+  WCHAR v29[250]; // [esp-2ACh] [ebp-2B8h] BYREF
+  WCHAR v30[92]; // [esp-B8h] [ebp-C4h] BYREF
+  int v31; // [esp+0h] [ebp-Ch]
+  void *v32; // [esp+4h] [ebp-8h]
   void *retaddr; // [esp+Ch] [ebp+0h]
 
-  v25 = a3;
-  v26 = retaddr;
-  v4 = 0;
-  v15 = a4;
-  v17 = a1;
-  v14 = a2;
-  v19 = 0;
-  v12 = 0;
-  memset(v24, 0, 0xAAu);
-  v5 = 0;
-  if ( !v14 || !v17 || !v15 || (*v15 & 4) == 0 )
+  v31 = a3;
+  v32 = retaddr;
+  v17 = a5;
+  HIDWORD(v15) = a4;
+  v6 = 0;
+  v21 = a6;
+  LODWORD(v15) = 170;
+  v23 = a1;
+  v20 = a2;
+  v25 = 0;
+  v18 = 0;
+  memset(v30, 0, v15);
+  v7 = 0;
+  if ( !v20 || !v23 || !v21 || (*v21 & 4) == 0 )
     return -1073741811;
-  RtlInitUnicodeString(&v13, L"DefaultFallback");
-  v18 = 1;
-  v16 = 170;
-  if ( LdrpQueryValueKey(v17, (int)&v13, &v18, v24, (unsigned int *)&v16, v6) < 0 || v18 != 1 )
+  RtlInitUnicodeString(&v19, L"DefaultFallback");
+  v24 = 1;
+  v22 = 170;
+  if ( LdrpQueryValueKey(v23, &v19, &v24, v30, (ULONG *)&v22, v8) < 0 || v24 != 1 )
     goto LABEL_15;
-  RtlInitUnicodeString(&v13, v24);
-  v18 = 7;
-  v8 = LdrpQueryValueKey(v17, (int)&v13, &v18, 0, 0, v7);
-  v16 = v8;
-  if ( (!v8 || v8 == -2147483643) && (v18 == 7 || v18 == 1) )
+  RtlInitUnicodeString(&v19, v30);
+  v24 = 7;
+  v10 = LdrpQueryValueKey(v23, &v19, &v24, 0, 0, v9);
+  v22 = v10;
+  if ( (!v10 || v10 == -2147483643) && (v24 == 7 || v24 == 1) )
   {
-    if ( _RtlMuiRegAddLIPParent(v14, (int)v15, 0, v24) >= 0 )
+    if ( _RtlMuiRegAddLIPParent(v20, (int)v21, 0, v30) >= 0 )
     {
-      v19 = 1;
-      v5 = wcslen(v24);
+      v25 = 1;
+      v7 = (const WCHAR *)wcslen((const unsigned __int16 *)v30);
     }
-    v8 = v16;
+    v10 = v22;
   }
-  if ( v8 != -2147483622 )
+  if ( v10 != -2147483622 )
   {
 LABEL_15:
-    v9 = v19;
-    while ( v9 < 4 && NtEnumerateValueKey(v17, v4, 1, (int)&v20, 512, (int)&v12) >= 0 )
+    v11 = v25;
+    while ( v11 < 4 && NtEnumerateValueKey(v23, v6, KeyValueFullInformation, &v26, 0x200u, &v18) >= 0 )
     {
-      if ( (v21 == 7 || v21 == 1)
-        && v22 + 24 <= 0x200
-        && ((v23[v22 >> 1] = 0, RtlInitUnicodeString(&v13, v23), !v5)
-         || RtlCompareUnicodeStrings(v13.Buffer, v13.Length >> 1, (int)v24, v5, 1)) )
+      if ( (v27 == 7 || v27 == 1)
+        && v28 + 24 <= 0x200
+        && ((v29[v28 >> 1] = 0, RtlInitUnicodeString(&v19, v29), !v7)
+         || (LODWORD(v16) = 1,
+             HIDWORD(v14) = v30,
+             LODWORD(v14) = v19.Length >> 1,
+             RtlCompareUnicodeStrings((PCWCH)v19.Buffer, v14, v7, v16, v17))) )
       {
-        v10 = _RtlMuiRegAddLIPParent(v14, (int)v15, v19, v13.Buffer) < 0;
-        v9 = v19;
-        if ( !v10 )
-          v9 = ++v19;
+        v12 = _RtlMuiRegAddLIPParent(v20, (int)v21, v25, (WCHAR *)v19.Buffer) < 0;
+        v11 = v25;
+        if ( !v12 )
+          v11 = ++v25;
       }
       else
       {
-        v9 = v19;
+        v11 = v25;
       }
-      ++v4;
+      ++v6;
     }
   }
   return 0;

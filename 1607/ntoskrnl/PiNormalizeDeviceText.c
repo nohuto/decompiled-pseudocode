@@ -1,24 +1,24 @@
 /*
- * XREFs of PiNormalizeDeviceText @ 0x1404D48B4
+ * XREFs of PiNormalizeDeviceText @ 0x1404B7EB8
  * Callers:
- *     PnpQueryDeviceText @ 0x140489BE0 (PnpQueryDeviceText.c)
+ *     PnpQueryDeviceText @ 0x140512360 (PnpQueryDeviceText.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfExW @ 0x1400A8DE0 (RtlStringCbPrintfExW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     _wcstoi64 @ 0x14014F8A8 (_wcstoi64.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfExW @ 0x1400A7360 (RtlStringCbPrintfExW.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     _wcstoi64 @ 0x14014FE68 (_wcstoi64.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     IopBuildFullDriverPath @ 0x14049DA9C (IopBuildFullDriverPath.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
- *     PiGetDefaultMessageString @ 0x1405745C0 (PiGetDefaultMessageString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
+ *     IopBuildFullDriverPath @ 0x140515EA8 (IopBuildFullDriverPath.c)
+ *     PiGetDefaultMessageString @ 0x140574B00 (PiGetDefaultMessageString.c)
  */
 
 __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
@@ -26,7 +26,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   void *v3; // r14
   unsigned __int16 *v4; // r15
   wchar_t *v5; // rsi
-  int inited; // ebx
+  NTSTATUS inited; // ebx
   PVOID PoolWithTag; // rax
   const wchar_t *v8; // rbx
   wchar_t *v9; // rax
@@ -111,7 +111,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
       String2.Length = v4[6];
       String2.MaximumLength = v4[6];
       String2.Buffer = v4 + 8;
-      inited = IopBuildFullDriverPath(&String2.Length, KeyHandle, &DestinationString.Length);
+      inited = IopBuildFullDriverPath(&String2, KeyHandle, &DestinationString);
       if ( inited < 0 )
         goto LABEL_28;
       *(_DWORD *)&String2.Length = 1703960;

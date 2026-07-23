@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlIsStibpPairingRecommended @ 0x1404F1B7C
+ * XREFs of HvlIsStibpPairingRecommended @ 0x1404F1AFC
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x1403C7840 (KeOptimizeSpecCtrlSettings.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C79E0 (KeOptimizeSpecCtrlSettings.c)
  * Callees:
  *     <none>
  */

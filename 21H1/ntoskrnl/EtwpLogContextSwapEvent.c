@@ -79,7 +79,7 @@ char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
       LOBYTE(v4) = ~(_BYTE)v10;
       if ( (~v10 & v13) != 0 )
       {
-        LoggerTimeStamp = EtwpGetLoggerTimeStamp(v12, v11, a3, v6);
+        LoggerTimeStamp = EtwpGetLoggerTimeStamp(v12);
         v15 = *(unsigned int *)(v12 + 216);
         v32 = LoggerTimeStamp;
         LOBYTE(v4) = EtwpCCSwapTrace(a2, a3, v15, &v32);
@@ -163,7 +163,7 @@ LABEL_13:
     else
     {
 LABEL_24:
-      v4 = EtwpReserveTraceBuffer(v12, 40LL, (__int64)&v30, &v32, 4217348);
+      v4 = EtwpReserveTraceBuffer((unsigned int *)v12, 40LL, (__int64)&v30, &v32, 4217348);
       if ( !v4 )
         goto LABEL_14;
       v18 = v4 + 16;

@@ -1,37 +1,36 @@
 /*
- * XREFs of BiExportStoreAlterationsToEfi @ 0x140893E58
+ * XREFs of BiExportStoreAlterationsToEfi @ 0x14089A258
  * Callers:
- *     BiExportStoreAlterationsToFirmware @ 0x140892D1C (BiExportStoreAlterationsToFirmware.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x14089911C (BiExportStoreAlterationsToFirmware.c)
  * Callees:
- *     BiFreeIdentifierList @ 0x1409D290C (BiFreeIdentifierList.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     BiBuildIdentifierList @ 0x1409D4E8C (BiBuildIdentifierList.c)
- *     BiExportEfiBootManager @ 0x140B37EA8 (BiExportEfiBootManager.c)
- *     BiExportBcdObjects @ 0x140B43AB8 (BiExportBcdObjects.c)
+ *     BiFreeIdentifierList @ 0x1409A38EC (BiFreeIdentifierList.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     BiBuildIdentifierList @ 0x1409A5E6C (BiBuildIdentifierList.c)
+ *     BiExportEfiBootManager @ 0x140B3A0B8 (BiExportEfiBootManager.c)
+ *     BiExportBcdObjects @ 0x140B459A8 (BiExportBcdObjects.c)
  */
 
-__int64 __fastcall BiExportStoreAlterationsToEfi(__int64 a1)
+__int64 __fastcall BiExportStoreAlterationsToEfi(HANDLE BcdStoreHandle)
 {
-  __int64 v2; // rdx
-  int v3; // ebx
-  int v4; // eax
-  int v5; // edi
-  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  int v2; // ebx
+  int v3; // eax
+  int v4; // edi
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
 
   BiLogMessage(2LL, L"Exporting store alterations to efi");
-  v7[1] = v7;
-  v7[0] = v7;
-  v3 = BiBuildIdentifierList(a1, v2, v7);
-  if ( v3 < 0 )
+  v6[1] = v6;
+  v6[0] = v6;
+  v2 = BiBuildIdentifierList(BcdStoreHandle);
+  if ( v2 < 0 )
     goto LABEL_6;
-  v4 = BiExportBcdObjects(a1, v7);
-  if ( v4 < 0 )
-    v3 = v4;
-  v5 = v3;
-  v3 = BiExportEfiBootManager(a1, v7);
-  if ( v3 < 0 || (v3 = v5, v5 < 0) )
+  v3 = BiExportBcdObjects(BcdStoreHandle, v6);
+  if ( v3 < 0 )
+    v2 = v3;
+  v4 = v2;
+  v2 = BiExportEfiBootManager(BcdStoreHandle, v6);
+  if ( v2 < 0 || (v2 = v4, v4 < 0) )
 LABEL_6:
-    BiLogMessage(4LL, L"BiExportStoreAlterationsToEfi failed %x", (unsigned int)v3);
-  BiFreeIdentifierList(v7);
-  return (unsigned int)v3;
+    BiLogMessage(4LL, L"BiExportStoreAlterationsToEfi failed %x", (unsigned int)v2);
+  BiFreeIdentifierList(v6);
+  return (unsigned int)v2;
 }

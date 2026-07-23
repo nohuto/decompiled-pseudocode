@@ -1,15 +1,15 @@
 /*
- * XREFs of PopTriggerMonitorPowerEvent @ 0x140876254
+ * XREFs of PopTriggerMonitorPowerEvent @ 0x1408774B4
  * Callers:
- *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
- *     PopNotifyLidStateChange @ 0x14086C1D0 (PopNotifyLidStateChange.c)
- *     PopProcessSessionDisplayStateChange @ 0x14086F438 (PopProcessSessionDisplayStateChange.c)
+ *     PopDirectedDripsProcessWork @ 0x140869698 (PopDirectedDripsProcessWork.c)
+ *     PopNotifyLidStateChange @ 0x14086D430 (PopNotifyLidStateChange.c)
+ *     PopProcessSessionDisplayStateChange @ 0x140870698 (PopProcessSessionDisplayStateChange.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopDiagTracePowerStateEvent @ 0x140873F74 (PopDiagTracePowerStateEvent.c)
- *     PopQueuePowerIntent @ 0x1408760FC (PopQueuePowerIntent.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopDiagTracePowerStateEvent @ 0x1408751D4 (PopDiagTracePowerStateEvent.c)
+ *     PopQueuePowerIntent @ 0x14087735C (PopQueuePowerIntent.c)
  */
 
 __int64 __fastcall PopTriggerMonitorPowerEvent(char a1, int a2)

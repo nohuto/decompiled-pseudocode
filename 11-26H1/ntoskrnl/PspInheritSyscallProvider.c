@@ -1,13 +1,13 @@
 /*
- * XREFs of PspInheritSyscallProvider @ 0x140984984
+ * XREFs of PspInheritSyscallProvider @ 0x140946994
  * Callers:
- *     PspInsertProcess @ 0x140983A9C (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x140945AAC (PspInsertProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PspLockProcessShared @ 0x140276700 (PspLockProcessShared.c)
- *     PspUnlockProcessShared @ 0x14027CFB0 (PspUnlockProcessShared.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PspAttachProcessToSyscallProvider @ 0x1407ED5EC (PspAttachProcessToSyscallProvider.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PspLockProcessShared @ 0x140275C70 (PspLockProcessShared.c)
+ *     PspUnlockProcessShared @ 0x14027C520 (PspUnlockProcessShared.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     PspAttachProcessToSyscallProvider @ 0x1407F314C (PspAttachProcessToSyscallProvider.c)
  */
 
 __int64 __fastcall PspInheritSyscallProvider(_QWORD *a1, __int64 a2)

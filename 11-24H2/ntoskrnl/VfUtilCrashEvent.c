@@ -1,7 +1,7 @@
 /*
- * XREFs of VfUtilCrashEvent @ 0x1406101FC
+ * XREFs of VfUtilCrashEvent @ 0x14060E7BC
  * Callers:
- *     CarReportUnusualShutdown @ 0x14061750C (CarReportUnusualShutdown.c)
+ *     CarReportUnusualShutdown @ 0x140615ACC (CarReportUnusualShutdown.c)
  * Callees:
  *     <none>
  */
@@ -21,8 +21,8 @@ char __fastcall VfUtilCrashEvent(__int64 a1)
   *(_DWORD *)a1 = VfBugcheckTmpData;
   *(_QWORD *)(a1 + 8) = BugCheckParameter1;
   v4 = 2LL;
-  *(_QWORD *)(a1 + 16) = qword_140FFCA40;
-  *(_OWORD *)(a1 + 24) = *(_OWORD *)&xmmword_140FFCA48;
+  *(_QWORD *)(a1 + 16) = qword_140FFDA40;
+  *(_OWORD *)(a1 + 24) = *(_OWORD *)&xmmword_140FFDA48;
   do
   {
     *(_DWORD *)(v1 + *(_QWORD *)(a1 + 40)) = *(_DWORD *)((char *)&VfRuleClassesRecord + v1);

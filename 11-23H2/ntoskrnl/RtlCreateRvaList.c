@@ -3,9 +3,9 @@
  * Callers:
  *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpCompressRvaList @ 0x1406B1D00 (RtlpCompressRvaList.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpCompressRvaList @ 0x1406B1D30 (RtlpCompressRvaList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

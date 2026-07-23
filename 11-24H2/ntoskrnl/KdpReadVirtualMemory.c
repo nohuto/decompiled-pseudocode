@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpReadVirtualMemory @ 0x140B779E8
+ * XREFs of KdpReadVirtualMemory @ 0x140B799E8
  * Callers:
- *     KdpSendWaitContinue @ 0x140B7A32C (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140B7C32C (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x140B7AACC (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x140B7CACC (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpReadVirtualMemory(__int64 a1, _WORD *a2, __int64 a3)

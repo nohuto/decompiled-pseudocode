@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIpiInterruptSubDispatch @ 0x1404281B0
+ * XREFs of KiIpiInterruptSubDispatch @ 0x140428540
  * Callers:
- *     KiIpiInterrupt @ 0x140427A20 (KiIpiInterrupt.c)
+ *     KiIpiInterrupt @ 0x140427DB0 (KiIpiInterrupt.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140248430 (KiEndThreadAccountingPeriod.c)
- *     KiIpiProcessRequests @ 0x1403349F0 (KiIpiProcessRequests.c)
- *     KzSetIrqlUnsafe @ 0x14056C060 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140248500 (KiEndThreadAccountingPeriod.c)
+ *     KiIpiProcessRequests @ 0x140334C80 (KiIpiProcessRequests.c)
+ *     KzSetIrqlUnsafe @ 0x14056C720 (KzSetIrqlUnsafe.c)
  */
 
 char __fastcall KiIpiInterruptSubDispatch()
@@ -20,7 +20,7 @@ char __fastcall KiIpiInterruptSubDispatch()
   int v7; // ecx
   char result; // al
 
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KzSetIrqlUnsafe(14LL);
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of AslPathToNetworkPathNt @ 0x1406C60B4
+ * XREFs of AslPathToNetworkPathNt @ 0x1406C61EC
  * Callers:
- *     SdbpResolveMatchingFile @ 0x1406C3A6C (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x1406C3BA4 (SdbpResolveMatchingFile.c)
  * Callees:
- *     wcscat_s @ 0x140152FF8 (wcscat_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslAlloc @ 0x14048554C (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
- *     AslpDetermineDosPathNameType @ 0x1406C6298 (AslpDetermineDosPathNameType.c)
+ *     wcscat_s @ 0x1401535B8 (wcscat_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslAlloc @ 0x1405148D4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
+ *     AslpDetermineDosPathNameType @ 0x1406C63D0 (AslpDetermineDosPathNameType.c)
  */
 
 __int64 __fastcall AslPathToNetworkPathNt(wchar_t **a1, __int64 a2)
@@ -45,7 +45,7 @@ __int64 __fastcall AslPathToNetworkPathNt(wchar_t **a1, __int64 a2)
     else
     {
       v2 = -1073741801;
-      AslLogCallPrintf(1LL, (unsigned int)"AslPathToNetworkPathNt", 249, (unsigned int)"Out of memory");
+      AslLogCallPrintf(1LL);
     }
   }
   else

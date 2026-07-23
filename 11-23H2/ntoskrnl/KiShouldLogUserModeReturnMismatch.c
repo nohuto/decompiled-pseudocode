@@ -1,12 +1,12 @@
 /*
- * XREFs of KiShouldLogUserModeReturnMismatch @ 0x140975758
+ * XREFs of KiShouldLogUserModeReturnMismatch @ 0x140975958
  * Callers:
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x14057BE6C (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x14057C35C (KiLogControlProtectionUserModeReturnMismatch.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 char __fastcall KiShouldLogUserModeReturnMismatch(__int64 a1, int a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpLkmdSnapDataEx @ 0x1404EE174
+ * XREFs of DbgkpLkmdSnapDataEx @ 0x1404EE3B4
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
- *     DbgkpLkmdSnapThreadInContext @ 0x14088864C (DbgkpLkmdSnapThreadInContext.c)
+ *     DbgkCaptureLiveDump @ 0x140887E7C (DbgkCaptureLiveDump.c)
+ *     DbgkpLkmdSnapThreadInContext @ 0x1408887AC (DbgkpLkmdSnapThreadInContext.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapDataEx(__int64 a1)
